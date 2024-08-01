@@ -24,39 +24,39 @@ define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef 
 
 .lr.ph:                                           ; preds = %.preheader40, %.lr.ph
   %10 = phi i8 [ %15, %.lr.ph ], [ %9, %.preheader40 ]
-  %.043 = phi i64 [ %11, %.lr.ph ], [ 0, %.preheader40 ]
-  %.02842 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %.preheader40 ]
-  %11 = add i64 %.043, 1
+  %.143 = phi i64 [ %11, %.lr.ph ], [ 0, %.preheader40 ]
+  %.12942 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %.preheader40 ]
+  %11 = add i64 %.143, 1
   %12 = icmp eq i8 %10, 44
   %13 = zext i1 %12 to i64
-  %spec.select = add i64 %.02842, %13
+  %spec.select = add i64 %.12942, %13
   %14 = getelementptr inbounds i8, ptr %0, i64 %11
   %15 = load i8, ptr %14, align 1
   %.not = icmp eq i8 %15, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader40
-  %.230 = phi i64 [ 0, %.preheader40 ], [ %spec.select, %.lr.ph ]
-  %.1 = phi i64 [ 0, %.preheader40 ], [ %11, %.lr.ph ]
+  %.028 = phi i64 [ 0, %.preheader40 ], [ %spec.select, %.lr.ph ]
+  %.0 = phi i64 [ 0, %.preheader40 ], [ %11, %.lr.ph ]
   br i1 %8, label %19, label %.preheader
 
 .preheader:                                       ; preds = %6, %.loopexit
-  %.155 = phi i64 [ %.1, %.loopexit ], [ 0, %6 ]
-  %.23054 = phi i64 [ %.230, %.loopexit ], [ %2, %6 ]
-  %16 = mul i64 %.23054, 3
+  %.055 = phi i64 [ %.0, %.loopexit ], [ 0, %6 ]
+  %.02854 = phi i64 [ %.028, %.loopexit ], [ %2, %6 ]
+  %16 = mul i64 %.02854, 3
   %17 = load i8, ptr %0, align 1
   %.not3745 = icmp ne i8 %17, 0
-  %18 = icmp ult i64 %.155, %16
+  %18 = icmp ult i64 %.055, %16
   %or.cond3946 = select i1 %.not3745, i1 %18, i1 false
   br i1 %or.cond3946, label %.lr.ph49, label %.critedge
 
 19:                                               ; preds = %.loopexit
-  %20 = udiv i64 %.230, 3
+  %20 = udiv i64 %.028, 3
   %21 = add nuw nsw i64 %20, 1
   br label %41
 
 .lr.ph49:                                         ; preds = %.preheader, %34
-  %.248 = phi i64 [ %37, %34 ], [ %.155, %.preheader ]
+  %.248 = phi i64 [ %37, %34 ], [ %.055, %.preheader ]
   %.03247 = phi ptr [ %36, %34 ], [ %0, %.preheader ]
   %22 = urem i64 %.248, 3
   %23 = udiv i64 %.248, 3
@@ -95,7 +95,7 @@ define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef 
   br i1 %or.cond39, label %.lr.ph49, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %34, %.preheader
-  %.2.lcssa = phi i64 [ %.155, %.preheader ], [ %37, %34 ]
+  %.2.lcssa = phi i64 [ %.055, %.preheader ], [ %37, %34 ]
   %40 = udiv i64 %.2.lcssa, 3
   br label %41
 
@@ -120,12 +120,12 @@ define noalias ptr @alloc_memory_region(ptr noundef %0) local_unnamed_addr #2 {
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %6 = phi i8 [ %11, %.lr.ph.i ], [ %5, %4 ]
-  %.043.i = phi i64 [ %7, %.lr.ph.i ], [ 0, %4 ]
-  %.02842.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ 0, %4 ]
-  %7 = add i64 %.043.i, 1
+  %.143.i = phi i64 [ %7, %.lr.ph.i ], [ 0, %4 ]
+  %.12942.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ 0, %4 ]
+  %7 = add i64 %.143.i, 1
   %8 = icmp eq i8 %6, 44
   %9 = zext i1 %8 to i64
-  %spec.select.i = add i64 %.02842.i, %9
+  %spec.select.i = add i64 %.12942.i, %9
   %10 = getelementptr inbounds i8, ptr %0, i64 %7
   %11 = load i8, ptr %10, align 1
   %.not.i = icmp eq i8 %11, 0

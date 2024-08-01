@@ -329,12 +329,12 @@ if.end24.sink.split:                              ; preds = %land.lhs.true, %if.
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end24.sink.split, %land.lhs.true
-  %ret.1 = phi i32 [ 1, %land.lhs.true ], [ 0, %if.end24.sink.split ]
+  %ret.2 = phi i32 [ 1, %land.lhs.true ], [ 0, %if.end24.sink.split ]
   call void @BN_CTX_free(ptr noundef nonnull %call12) #3
   br label %return
 
 return:                                           ; preds = %if.end.i26, %lor.lhs.false2.i23, %lor.lhs.false.i21, %if.end.i, %if.then.i, %if.else8, %if.end24, %if.then11, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.then11 ], [ %ret.1, %if.end24 ], [ 0, %if.else8 ], [ 0, %if.then.i ], [ %call8.i, %if.end.i ], [ %call8.i31, %if.end.i26 ], [ 0, %lor.lhs.false2.i23 ], [ 0, %lor.lhs.false.i21 ]
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.then11 ], [ %ret.2, %if.end24 ], [ 0, %if.else8 ], [ 0, %if.then.i ], [ %call8.i, %if.end.i ], [ %call8.i31, %if.end.i26 ], [ 0, %lor.lhs.false2.i23 ], [ 0, %lor.lhs.false.i21 ]
   ret i32 %retval.0
 }
 

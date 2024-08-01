@@ -2434,7 +2434,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %4, %._ZNSt6vectorIm
   br i1 %.not1823.i.i, label %_ZN3vcg3tri15UpdateSelectionINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EEE11VertexCountERKSC_.exit, label %.lr.ph25.i.i
 
 .lr.ph25.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph25.i.i
-  %.0.i = phi i64 [ %spec.select.i, %.lr.ph25.i.i ], [ 0, %.preheader.i.i ]
+  %.2.i = phi i64 [ %spec.select.i, %.lr.ph25.i.i ], [ 0, %.preheader.i.i ]
   %50 = phi ptr [ %spec.select3.i, %.lr.ph25.i.i ], [ %42, %.preheader.i.i ]
   %.sroa.013.024.i.i = phi ptr [ %55, %.lr.ph25.i.i ], [ %43, %.preheader.i.i ]
   %51 = getelementptr inbounds i8, ptr %.sroa.013.024.i.i, i64 20
@@ -2443,14 +2443,14 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %4, %._ZNSt6vectorIm
   %.not.i.i.not.i = icmp eq i32 %53, 0
   %.lobit.i = lshr exact i32 %53, 5
   %54 = zext nneg i32 %.lobit.i to i64
-  %spec.select.i = add i64 %.0.i, %54
+  %spec.select.i = add i64 %.2.i, %54
   %spec.select3.i = select i1 %.not.i.i.not.i, ptr %50, ptr %42
   %55 = getelementptr inbounds i8, ptr %.sroa.013.024.i.i, i64 48
   %.not18.i.i = icmp eq ptr %55, %spec.select3.i
   br i1 %.not18.i.i, label %_ZN3vcg3tri15UpdateSelectionINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EEE11VertexCountERKSC_.exit, label %.lr.ph25.i.i, !llvm.loop !13
 
 .lr.ph.i.i:                                       ; preds = %.preheader19.i.i, %.lr.ph.i.i
-  %.2.i = phi i64 [ %spec.select4.i, %.lr.ph.i.i ], [ 0, %.preheader19.i.i ]
+  %.0.i = phi i64 [ %spec.select4.i, %.lr.ph.i.i ], [ 0, %.preheader19.i.i ]
   %56 = phi ptr [ %spec.select5.i, %.lr.ph.i.i ], [ %42, %.preheader19.i.i ]
   %.sroa.08.022.i.i = phi ptr [ %61, %.lr.ph.i.i ], [ %43, %.preheader19.i.i ]
   %57 = getelementptr inbounds i8, ptr %.sroa.08.022.i.i, i64 20
@@ -2458,7 +2458,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %4, %._ZNSt6vectorIm
   %59 = and i32 %58, 33
   %or.cond.not.i.i = icmp eq i32 %59, 32
   %60 = zext i1 %or.cond.not.i.i to i64
-  %spec.select4.i = add i64 %.2.i, %60
+  %spec.select4.i = add i64 %.0.i, %60
   %spec.select5.i = select i1 %or.cond.not.i.i, ptr %42, ptr %56
   %61 = getelementptr inbounds i8, ptr %.sroa.08.022.i.i, i64 48
   %.not.i.i148 = icmp eq ptr %61, %spec.select5.i
@@ -2571,7 +2571,7 @@ _ZN3vcg3tri9AllocatorINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10v
   br label %104
 
 104:                                              ; preds = %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit.i, %.lr.ph25.i
-  %.sroa.0.0 = phi ptr [ %storemerge, %.lr.ph25.i ], [ %.sroa.0.1, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit.i ]
+  %.sroa.0.2 = phi ptr [ %storemerge, %.lr.ph25.i ], [ %.sroa.0.3, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit.i ]
   %105 = phi ptr [ %90, %.lr.ph25.i ], [ %125, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit.i ]
   %.sroa.014.024.i = phi ptr [ %91, %.lr.ph25.i ], [ %126, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit.i ]
   br i1 %103, label %106, label %110
@@ -2589,7 +2589,7 @@ _ZN3vcg3tri9AllocatorINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10v
   %113 = ptrtoint ptr %111 to i64
   %114 = sub i64 %112, %113
   %115 = load ptr, ptr %101, align 8
-  %116 = ptrtoint ptr %.sroa.0.0 to i64
+  %116 = ptrtoint ptr %.sroa.0.2 to i64
   %117 = ptrtoint ptr %115 to i64
   %118 = sub i64 %116, %117
   %119 = sdiv exact i64 %118, 48
@@ -2599,19 +2599,19 @@ _ZN3vcg3tri9AllocatorINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10v
   %122 = sdiv exact i64 %114, 6
   %123 = getelementptr inbounds i8, ptr %121, i64 %122
   store i64 %120, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 48
+  %124 = getelementptr inbounds i8, ptr %.sroa.0.2, i64 48
   %.pre27.i = load ptr, ptr %29, align 8
   br label %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit.i
 
 _ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit.i: ; preds = %110, %106
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %106 ], [ %124, %110 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %106 ], [ %124, %110 ]
   %125 = phi ptr [ %105, %106 ], [ %.pre27.i, %110 ]
   %126 = getelementptr inbounds i8, ptr %.sroa.014.024.i, i64 48
   %.not18.i = icmp eq ptr %126, %125
   br i1 %.not18.i, label %_ZN3vcg3tri13ForEachVertexINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EEZNS0_6AppendISC_SC_E15MeshAppendConstERSC_RKSC_bbEUlRKS5_E_EEvRKT_T0_.exit, label %104, !llvm.loop !15
 
 127:                                              ; preds = %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit8.i, %.lr.ph.i
-  %.sroa.0.2 = phi ptr [ %storemerge, %.lr.ph.i ], [ %.sroa.0.3, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit8.i ]
+  %.sroa.0.0 = phi ptr [ %storemerge, %.lr.ph.i ], [ %.sroa.0.1, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit8.i ]
   %128 = phi ptr [ %90, %.lr.ph.i ], [ %149, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit8.i ]
   %.sroa.09.022.i = phi ptr [ %91, %.lr.ph.i ], [ %150, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit8.i ]
   %129 = getelementptr inbounds i8, ptr %.sroa.09.022.i, i64 20
@@ -2632,7 +2632,7 @@ _ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vec
   %137 = ptrtoint ptr %135 to i64
   %138 = sub i64 %136, %137
   %139 = load ptr, ptr %98, align 8
-  %140 = ptrtoint ptr %.sroa.0.2 to i64
+  %140 = ptrtoint ptr %.sroa.0.0 to i64
   %141 = ptrtoint ptr %139 to i64
   %142 = sub i64 %140, %141
   %143 = sdiv exact i64 %142, 48
@@ -2642,12 +2642,12 @@ _ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vec
   %146 = sdiv exact i64 %138, 6
   %147 = getelementptr inbounds i8, ptr %145, i64 %146
   store i64 %144, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %.sroa.0.2, i64 48
+  %148 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 48
   %.pre.i = load ptr, ptr %29, align 8
   br label %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit8.i
 
 _ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS5_E_clESI_.exit8.i: ; preds = %134, %132, %127
-  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %132 ], [ %148, %134 ], [ %.sroa.0.2, %127 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %132 ], [ %148, %134 ], [ %.sroa.0.0, %127 ]
   %149 = phi ptr [ %128, %132 ], [ %.pre.i, %134 ], [ %128, %127 ]
   %150 = getelementptr inbounds i8, ptr %.sroa.09.022.i, i64 48
   %.not.i = icmp eq ptr %150, %149
@@ -2718,7 +2718,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit158:         ; preds = %174, %172, %170, %1
   br i1 %.not1823.i.i159, label %_ZN3vcg3tri15UpdateSelectionINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EEE9EdgeCountERKSC_.exit, label %.lr.ph25.i.i170
 
 .lr.ph25.i.i170:                                  ; preds = %.preheader.i.i169, %.lr.ph25.i.i170
-  %.0.i171 = phi i64 [ %spec.select.i175, %.lr.ph25.i.i170 ], [ 0, %.preheader.i.i169 ]
+  %.2.i171 = phi i64 [ %spec.select.i175, %.lr.ph25.i.i170 ], [ 0, %.preheader.i.i169 ]
   %188 = phi ptr [ %spec.select3.i176, %.lr.ph25.i.i170 ], [ %180, %.preheader.i.i169 ]
   %.sroa.013.024.i.i172 = phi ptr [ %192, %.lr.ph25.i.i170 ], [ %181, %.preheader.i.i169 ]
   %189 = load i32, ptr %.sroa.013.024.i.i172, align 4
@@ -2726,21 +2726,21 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit158:         ; preds = %174, %172, %170, %1
   %.not.i.i.not.i173 = icmp eq i32 %190, 0
   %.lobit.i174 = lshr exact i32 %190, 5
   %191 = zext nneg i32 %.lobit.i174 to i64
-  %spec.select.i175 = add i64 %.0.i171, %191
+  %spec.select.i175 = add i64 %.2.i171, %191
   %spec.select3.i176 = select i1 %.not.i.i.not.i173, ptr %188, ptr %180
   %192 = getelementptr inbounds i8, ptr %.sroa.013.024.i.i172, i64 48
   %.not18.i.i177 = icmp eq ptr %192, %spec.select3.i176
   br i1 %.not18.i.i177, label %_ZN3vcg3tri15UpdateSelectionINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EEE9EdgeCountERKSC_.exit, label %.lr.ph25.i.i170, !llvm.loop !17
 
 .lr.ph.i.i161:                                    ; preds = %.preheader19.i.i160, %.lr.ph.i.i161
-  %.2.i162 = phi i64 [ %spec.select4.i165, %.lr.ph.i.i161 ], [ 0, %.preheader19.i.i160 ]
+  %.0.i162 = phi i64 [ %spec.select4.i165, %.lr.ph.i.i161 ], [ 0, %.preheader19.i.i160 ]
   %193 = phi ptr [ %spec.select5.i166, %.lr.ph.i.i161 ], [ %180, %.preheader19.i.i160 ]
   %.sroa.08.022.i.i163 = phi ptr [ %197, %.lr.ph.i.i161 ], [ %181, %.preheader19.i.i160 ]
   %194 = load i32, ptr %.sroa.08.022.i.i163, align 4
   %195 = and i32 %194, 33
   %or.cond.not.i.i164 = icmp eq i32 %195, 32
   %196 = zext i1 %or.cond.not.i.i164 to i64
-  %spec.select4.i165 = add i64 %.2.i162, %196
+  %spec.select4.i165 = add i64 %.0.i162, %196
   %spec.select5.i166 = select i1 %or.cond.not.i.i164, ptr %180, ptr %193
   %197 = getelementptr inbounds i8, ptr %.sroa.08.022.i.i163, i64 48
   %.not.i.i167 = icmp eq ptr %197, %spec.select5.i166
@@ -2846,7 +2846,7 @@ _ZN3vcg3tri9AllocatorINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10v
   br label %237
 
 237:                                              ; preds = %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit.i, %.lr.ph25.i199
-  %.sroa.0480.0 = phi ptr [ %storemerge145, %.lr.ph25.i199 ], [ %.sroa.0480.1, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit.i ]
+  %.sroa.0480.2 = phi ptr [ %storemerge145, %.lr.ph25.i199 ], [ %.sroa.0480.3, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit.i ]
   %238 = phi ptr [ %223, %.lr.ph25.i199 ], [ %257, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit.i ]
   %.sroa.014.024.i200 = phi ptr [ %224, %.lr.ph25.i199 ], [ %258, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit.i ]
   br i1 %236, label %239, label %242
@@ -2863,7 +2863,7 @@ _ZN3vcg3tri9AllocatorINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10v
   %245 = ptrtoint ptr %243 to i64
   %246 = sub i64 %244, %245
   %247 = load ptr, ptr %234, align 8
-  %248 = ptrtoint ptr %.sroa.0480.0 to i64
+  %248 = ptrtoint ptr %.sroa.0480.2 to i64
   %249 = ptrtoint ptr %247 to i64
   %250 = sub i64 %248, %249
   %251 = sdiv exact i64 %250, 48
@@ -2873,19 +2873,19 @@ _ZN3vcg3tri9AllocatorINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10v
   %254 = sdiv exact i64 %246, 6
   %255 = getelementptr inbounds i8, ptr %253, i64 %254
   store i64 %252, ptr %255, align 8
-  %256 = getelementptr inbounds i8, ptr %.sroa.0480.0, i64 48
+  %256 = getelementptr inbounds i8, ptr %.sroa.0480.2, i64 48
   %.pre27.i202 = load ptr, ptr %153, align 8
   br label %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit.i
 
 _ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit.i: ; preds = %242, %239
-  %.sroa.0480.1 = phi ptr [ %.sroa.0480.0, %239 ], [ %256, %242 ]
+  %.sroa.0480.3 = phi ptr [ %.sroa.0480.2, %239 ], [ %256, %242 ]
   %257 = phi ptr [ %238, %239 ], [ %.pre27.i202, %242 ]
   %258 = getelementptr inbounds i8, ptr %.sroa.014.024.i200, i64 48
   %.not18.i203 = icmp eq ptr %258, %257
   br i1 %.not18.i203, label %_ZN3vcg3tri11ForEachEdgeINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EEZNS0_6AppendISC_SC_E15MeshAppendConstERSC_RKSC_bbEUlRK6CEdgeOE_EEvRKT_T0_.exit, label %237, !llvm.loop !19
 
 259:                                              ; preds = %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit8.i, %.lr.ph.i190
-  %.sroa.0480.2 = phi ptr [ %storemerge145, %.lr.ph.i190 ], [ %.sroa.0480.3, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit8.i ]
+  %.sroa.0480.0 = phi ptr [ %storemerge145, %.lr.ph.i190 ], [ %.sroa.0480.1, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit8.i ]
   %260 = phi ptr [ %223, %.lr.ph.i190 ], [ %280, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit8.i ]
   %.sroa.09.022.i191 = phi ptr [ %224, %.lr.ph.i190 ], [ %281, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit8.i ]
   %261 = load i32, ptr %.sroa.09.022.i191, align 4
@@ -2905,7 +2905,7 @@ _ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vec
   %268 = ptrtoint ptr %266 to i64
   %269 = sub i64 %267, %268
   %270 = load ptr, ptr %231, align 8
-  %271 = ptrtoint ptr %.sroa.0480.2 to i64
+  %271 = ptrtoint ptr %.sroa.0480.0 to i64
   %272 = ptrtoint ptr %270 to i64
   %273 = sub i64 %271, %272
   %274 = sdiv exact i64 %273, 48
@@ -2915,12 +2915,12 @@ _ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vec
   %277 = sdiv exact i64 %269, 6
   %278 = getelementptr inbounds i8, ptr %276, i64 %277
   store i64 %275, ptr %278, align 8
-  %279 = getelementptr inbounds i8, ptr %.sroa.0480.2, i64 48
+  %279 = getelementptr inbounds i8, ptr %.sroa.0480.0, i64 48
   %.pre.i197 = load ptr, ptr %153, align 8
   br label %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit8.i
 
 _ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRK6CEdgeOE_clESJ_.exit8.i: ; preds = %265, %263, %259
-  %.sroa.0480.3 = phi ptr [ %.sroa.0480.2, %263 ], [ %279, %265 ], [ %.sroa.0480.2, %259 ]
+  %.sroa.0480.1 = phi ptr [ %.sroa.0480.0, %263 ], [ %279, %265 ], [ %.sroa.0480.0, %259 ]
   %280 = phi ptr [ %260, %263 ], [ %.pre.i197, %265 ], [ %260, %259 ]
   %281 = getelementptr inbounds i8, ptr %.sroa.09.022.i191, i64 48
   %.not.i193 = icmp eq ptr %281, %280
@@ -2991,7 +2991,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit207:         ; preds = %305, %303, %301, %2
   br i1 %.not1823.i.i208, label %_ZN3vcg3tri15UpdateSelectionINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EEE9FaceCountERKSC_.exit, label %.lr.ph25.i.i219
 
 .lr.ph25.i.i219:                                  ; preds = %.preheader.i.i218, %.lr.ph25.i.i219
-  %.0.i220 = phi i64 [ %spec.select.i224, %.lr.ph25.i.i219 ], [ 0, %.preheader.i.i218 ]
+  %.2.i220 = phi i64 [ %spec.select.i224, %.lr.ph25.i.i219 ], [ 0, %.preheader.i.i218 ]
   %319 = phi ptr [ %spec.select3.i225, %.lr.ph25.i.i219 ], [ %311, %.preheader.i.i218 ]
   %.sroa.013.024.i.i221 = phi ptr [ %324, %.lr.ph25.i.i219 ], [ %312, %.preheader.i.i218 ]
   %320 = getelementptr inbounds i8, ptr %.sroa.013.024.i.i221, i64 32
@@ -3000,14 +3000,14 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit207:         ; preds = %305, %303, %301, %2
   %.not.i.i.not.i222 = icmp eq i32 %322, 0
   %.lobit.i223 = lshr exact i32 %322, 5
   %323 = zext nneg i32 %.lobit.i223 to i64
-  %spec.select.i224 = add i64 %.0.i220, %323
+  %spec.select.i224 = add i64 %.2.i220, %323
   %spec.select3.i225 = select i1 %.not.i.i.not.i222, ptr %319, ptr %311
   %324 = getelementptr inbounds i8, ptr %.sroa.013.024.i.i221, i64 48
   %.not18.i.i226 = icmp eq ptr %324, %spec.select3.i225
   br i1 %.not18.i.i226, label %_ZN3vcg3tri15UpdateSelectionINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EEE9FaceCountERKSC_.exit, label %.lr.ph25.i.i219, !llvm.loop !21
 
 .lr.ph.i.i210:                                    ; preds = %.preheader19.i.i209, %.lr.ph.i.i210
-  %.2.i211 = phi i64 [ %spec.select4.i214, %.lr.ph.i.i210 ], [ 0, %.preheader19.i.i209 ]
+  %.0.i211 = phi i64 [ %spec.select4.i214, %.lr.ph.i.i210 ], [ 0, %.preheader19.i.i209 ]
   %325 = phi ptr [ %spec.select5.i215, %.lr.ph.i.i210 ], [ %311, %.preheader19.i.i209 ]
   %.sroa.08.022.i.i212 = phi ptr [ %330, %.lr.ph.i.i210 ], [ %312, %.preheader19.i.i209 ]
   %326 = getelementptr inbounds i8, ptr %.sroa.08.022.i.i212, i64 32
@@ -3015,7 +3015,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit207:         ; preds = %305, %303, %301, %2
   %328 = and i32 %327, 33
   %or.cond.not.i.i213 = icmp eq i32 %328, 32
   %329 = zext i1 %or.cond.not.i.i213 to i64
-  %spec.select4.i214 = add i64 %.2.i211, %329
+  %spec.select4.i214 = add i64 %.0.i211, %329
   %spec.select5.i215 = select i1 %or.cond.not.i.i213, ptr %311, ptr %325
   %330 = getelementptr inbounds i8, ptr %.sroa.08.022.i.i212, i64 48
   %.not.i.i216 = icmp eq ptr %330, %spec.select5.i215
@@ -3121,7 +3121,7 @@ _ZN3vcg3tri9AllocatorINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10v
   br label %370
 
 370:                                              ; preds = %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit.i, %.lr.ph25.i248
-  %.sroa.0484.0 = phi ptr [ %storemerge146, %.lr.ph25.i248 ], [ %.sroa.0484.1, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit.i ]
+  %.sroa.0484.2 = phi ptr [ %storemerge146, %.lr.ph25.i248 ], [ %.sroa.0484.3, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit.i ]
   %371 = phi ptr [ %356, %.lr.ph25.i248 ], [ %391, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit.i ]
   %.sroa.014.024.i249 = phi ptr [ %357, %.lr.ph25.i248 ], [ %392, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit.i ]
   br i1 %369, label %372, label %376
@@ -3139,7 +3139,7 @@ _ZN3vcg3tri9AllocatorINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10v
   %379 = ptrtoint ptr %377 to i64
   %380 = sub i64 %378, %379
   %381 = load ptr, ptr %367, align 8
-  %382 = ptrtoint ptr %.sroa.0484.0 to i64
+  %382 = ptrtoint ptr %.sroa.0484.2 to i64
   %383 = ptrtoint ptr %381 to i64
   %384 = sub i64 %382, %383
   %385 = sdiv exact i64 %384, 48
@@ -3149,19 +3149,19 @@ _ZN3vcg3tri9AllocatorINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10v
   %388 = sdiv exact i64 %380, 6
   %389 = getelementptr inbounds i8, ptr %387, i64 %388
   store i64 %386, ptr %389, align 8
-  %390 = getelementptr inbounds i8, ptr %.sroa.0484.0, i64 48
+  %390 = getelementptr inbounds i8, ptr %.sroa.0484.2, i64 48
   %.pre27.i251 = load ptr, ptr %284, align 8
   br label %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit.i
 
 _ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit.i: ; preds = %376, %372
-  %.sroa.0484.1 = phi ptr [ %.sroa.0484.0, %372 ], [ %390, %376 ]
+  %.sroa.0484.3 = phi ptr [ %.sroa.0484.2, %372 ], [ %390, %376 ]
   %391 = phi ptr [ %371, %372 ], [ %.pre27.i251, %376 ]
   %392 = getelementptr inbounds i8, ptr %.sroa.014.024.i249, i64 48
   %.not18.i252 = icmp eq ptr %392, %391
   br i1 %.not18.i252, label %_ZN3vcg3tri11ForEachFaceINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EEZNS0_6AppendISC_SC_E15MeshAppendConstERSC_RKSC_bbEUlRKS9_E_EEvRKT_T0_.exit, label %370, !llvm.loop !23
 
 393:                                              ; preds = %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit8.i, %.lr.ph.i239
-  %.sroa.0484.2 = phi ptr [ %storemerge146, %.lr.ph.i239 ], [ %.sroa.0484.3, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit8.i ]
+  %.sroa.0484.0 = phi ptr [ %storemerge146, %.lr.ph.i239 ], [ %.sroa.0484.1, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit8.i ]
   %394 = phi ptr [ %356, %.lr.ph.i239 ], [ %415, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit8.i ]
   %.sroa.09.022.i240 = phi ptr [ %357, %.lr.ph.i239 ], [ %416, %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit8.i ]
   %395 = getelementptr inbounds i8, ptr %.sroa.09.022.i240, i64 32
@@ -3182,7 +3182,7 @@ _ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vec
   %403 = ptrtoint ptr %401 to i64
   %404 = sub i64 %402, %403
   %405 = load ptr, ptr %364, align 8
-  %406 = ptrtoint ptr %.sroa.0484.2 to i64
+  %406 = ptrtoint ptr %.sroa.0484.0 to i64
   %407 = ptrtoint ptr %405 to i64
   %408 = sub i64 %406, %407
   %409 = sdiv exact i64 %408, 48
@@ -3192,12 +3192,12 @@ _ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vec
   %412 = sdiv exact i64 %404, 6
   %413 = getelementptr inbounds i8, ptr %411, i64 %412
   store i64 %410, ptr %413, align 8
-  %414 = getelementptr inbounds i8, ptr %.sroa.0484.2, i64 48
+  %414 = getelementptr inbounds i8, ptr %.sroa.0484.0, i64 48
   %.pre.i246 = load ptr, ptr %284, align 8
   br label %_ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit8.i
 
 _ZZN3vcg3tri6AppendINS0_7TriMeshINS_6vertex10vector_ocfI8CVertexOEENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESB_SB_EESC_E15MeshAppendConstERSC_RKSC_bbENKUlRKS9_E_clESI_.exit8.i: ; preds = %400, %398, %393
-  %.sroa.0484.3 = phi ptr [ %.sroa.0484.2, %398 ], [ %414, %400 ], [ %.sroa.0484.2, %393 ]
+  %.sroa.0484.1 = phi ptr [ %.sroa.0484.0, %398 ], [ %414, %400 ], [ %.sroa.0484.0, %393 ]
   %415 = phi ptr [ %394, %398 ], [ %.pre.i246, %400 ], [ %394, %393 ]
   %416 = getelementptr inbounds i8, ptr %.sroa.09.022.i240, i64 48
   %.not.i242 = icmp eq ptr %416, %415

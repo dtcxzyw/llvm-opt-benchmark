@@ -3108,20 +3108,20 @@ _ZNSt3mapIiSt6vectorIN2cv6Point_IfEESaIS3_EESt4lessIiESaISt4pairIKiS5_EEE4findER
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %75 = phi ptr [ %81, %.lr.ph.i.i ], [ %74, %.preheader.i.i ]
-  %.sroa.02.010.i.i = phi ptr [ %spec.select.i.i25, %.lr.ph.i.i ], [ %72, %.preheader.i.i ]
-  %76 = getelementptr inbounds i8, ptr %.sroa.02.010.i.i, i64 40
+  %.sroa.02.110.i.i = phi ptr [ %spec.select.i.i25, %.lr.ph.i.i ], [ %72, %.preheader.i.i ]
+  %76 = getelementptr inbounds i8, ptr %.sroa.02.110.i.i, i64 40
   %77 = load double, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %75, i64 40
   %79 = load double, ptr %78, align 8
   %80 = fcmp olt double %77, %79
-  %spec.select.i.i25 = select i1 %80, ptr %75, ptr %.sroa.02.010.i.i
+  %spec.select.i.i25 = select i1 %80, ptr %75, ptr %.sroa.02.110.i.i
   %81 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %75) #32
   %.not.i.i = icmp eq ptr %81, %6
   br i1 %.not.i.i, label %_ZSt11max_elementISt17_Rb_tree_iteratorISt4pairIKidEEZN11opencv_testL14getMaxDistanceERSt3mapIiSt6vectorIN2cv6Point_IfEESaISA_EESt4lessIiESaIS1_IS2_SC_EEERKS7_IiSaIiEERKS7_ISC_SaISC_EEEUlRKS1_IidEST_E_ET_SV_SV_T0_.exit, label %.lr.ph.i.i, !llvm.loop !29
 
 _ZSt11max_elementISt17_Rb_tree_iteratorISt4pairIKidEEZN11opencv_testL14getMaxDistanceERSt3mapIiSt6vectorIN2cv6Point_IfEESaISA_EESt4lessIiESaIS1_IS2_SC_EEERKS7_IiSaIiEERKS7_ISC_SaISC_EEEUlRKS1_IidEST_E_ET_SV_SV_T0_.exit: ; preds = %.lr.ph.i.i, %.preheader.i.i, %._crit_edge
-  %.sroa.02.2.i.i = phi ptr [ %72, %._crit_edge ], [ %72, %.preheader.i.i ], [ %spec.select.i.i25, %.lr.ph.i.i ]
-  %82 = getelementptr inbounds i8, ptr %.sroa.02.2.i.i, i64 40
+  %.sroa.02.0.i.i = phi ptr [ %72, %._crit_edge ], [ %72, %.preheader.i.i ], [ %spec.select.i.i25, %.lr.ph.i.i ]
+  %82 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i, i64 40
   %83 = load double, ptr %82, align 8
   %84 = load ptr, ptr %7, align 8
   invoke void @_ZNSt8_Rb_treeIiSt4pairIKidESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %84)

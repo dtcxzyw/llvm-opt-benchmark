@@ -532,13 +532,13 @@ _print_runaway_jobs.exit:                         ; preds = %._crit_edge.i, %152
   br label %244
 
 244:                                              ; preds = %235, %238, %241, %.thread60
-  %.162 = phi i32 [ 0, %.thread60 ], [ %232, %241 ], [ 0, %238 ], [ 0, %235 ]
+  %.062 = phi i32 [ 0, %.thread60 ], [ %232, %241 ], [ 0, %238 ], [ 0, %235 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #8
   call void @list_destroy(ptr noundef nonnull %.026.i) #8
   br label %245
 
 245:                                              ; preds = %.thread, %244
-  %.159 = phi i32 [ -1, %.thread ], [ %.162, %244 ]
+  %.059 = phi i32 [ -1, %.thread ], [ %.062, %244 ]
   %.not46 = icmp eq ptr %7, null
   br i1 %.not46, label %247, label %246
 
@@ -555,7 +555,7 @@ _print_runaway_jobs.exit:                         ; preds = %._crit_edge.i, %152
   br label %249
 
 249:                                              ; preds = %248, %247
-  ret i32 %.159
+  ret i32 %.059
 }
 
 declare ptr @list_create(ptr noundef) local_unnamed_addr #1

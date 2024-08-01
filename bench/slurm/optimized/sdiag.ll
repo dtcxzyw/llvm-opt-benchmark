@@ -1677,7 +1677,7 @@ _print_stats.exit:                                ; preds = %.lr.ph83.i, %694, %
   br label %1060
 
 1060:                                             ; preds = %691, %_print_stats.exit
-  %.0 = phi i32 [ %685, %691 ], [ %.033.i, %_print_stats.exit ]
+  %.1 = phi i32 [ %685, %691 ], [ %.033.i, %_print_stats.exit ]
   %1061 = load ptr, ptr @buf, align 8
   call void @slurm_free_stats_response_msg(ptr noundef %1061) #6
   call void @slurm_xfree(ptr noundef nonnull @rpc_type_ave_time) #6
@@ -1689,8 +1689,8 @@ _print_stats.exit:                                ; preds = %.lr.ph83.i, %694, %
   br label %1063
 
 1063:                                             ; preds = %1060, %1062, %11, %12
-  %.1 = phi i32 [ 0, %11 ], [ %9, %12 ], [ %.0, %1060 ], [ %14, %1062 ]
-  call void @exit(i32 noundef %.1) #7
+  %.0 = phi i32 [ 0, %11 ], [ %9, %12 ], [ %.1, %1060 ], [ %14, %1062 ]
+  call void @exit(i32 noundef %.0) #7
   unreachable
 }
 

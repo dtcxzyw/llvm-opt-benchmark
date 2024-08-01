@@ -12313,7 +12313,7 @@ invoke.cont171:                                   ; preds = %for.body169
   br i1 %call172, label %for.cond166, label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont158, %invoke.cont171, %for.cond166, %for.cond166.preheader
-  %retval.0 = phi i1 [ true, %for.cond166.preheader ], [ %call172, %for.cond166 ], [ %call172, %invoke.cont171 ], [ false, %invoke.cont158 ]
+  %retval.2 = phi i1 [ true, %for.cond166.preheader ], [ %call172, %for.cond166 ], [ %call172, %invoke.cont171 ], [ false, %invoke.cont158 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %metadata_fullname) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %metadata_filename) #24
@@ -12330,7 +12330,7 @@ ehcleanup180:                                     ; preds = %ehcleanup, %lpad70
   br label %ehcleanup182
 
 cleanup181:                                       ; preds = %invoke.cont47, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont47 ]
+  %retval.1 = phi i1 [ %retval.2, %cleanup ], [ false, %invoke.cont47 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fullname) #24
   call void @_ZN6google8protobuf2io7PrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %printer) #24
@@ -12376,8 +12376,8 @@ _ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.
   br label %common.resume
 
 return:                                           ; preds = %entry, %_ZNSt10unique_ptrIN6google8protobuf2io20ZeroCopyOutputStreamESt14default_deleteIS3_EED2Ev.exit
-  %retval.2 = phi i1 [ %retval.1, %_ZNSt10unique_ptrIN6google8protobuf2io20ZeroCopyOutputStreamESt14default_deleteIS3_EED2Ev.exit ], [ true, %entry ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ %retval.1, %_ZNSt10unique_ptrIN6google8protobuf2io20ZeroCopyOutputStreamESt14default_deleteIS3_EED2Ev.exit ], [ true, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14789,7 +14789,7 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 while.body:                                       ; preds = %if.then.i.i71, %while.body.lr.ph
   %start_index.0135 = phi i32 [ 0, %while.body.lr.ph ], [ %add, %if.then.i.i71 ]
-  %first_index.0134 = phi i32 [ %conv3, %while.body.lr.ph ], [ %conv98, %if.then.i.i71 ]
+  %first_index.1134 = phi i32 [ %conv3, %while.body.lr.ph ], [ %conv98, %if.then.i.i71 ]
   %conv79 = sext i32 %start_index.0135 to i64
   %cmp.i.i58 = icmp ult i64 %.sroa.speculated.i, %conv79
   br i1 %cmp.i.i58, label %if.then.i.i64.invoke, label %invoke.cont82
@@ -14803,7 +14803,7 @@ if.then.i.i64.cont:                               ; preds = %if.then.i.i64.invok
   unreachable
 
 invoke.cont82:                                    ; preds = %while.body
-  %sub80 = sub nsw i32 %first_index.0134, %start_index.0135
+  %sub80 = sub nsw i32 %first_index.1134, %start_index.0135
   %conv81 = sext i32 %sub80 to i64
   %sub.i = sub nuw i64 %.sroa.speculated.i, %conv79
   %.sroa.speculated.i59 = call i64 @llvm.umin.i64(i64 %sub.i, i64 %conv81)
@@ -14835,7 +14835,7 @@ invoke.cont94:                                    ; preds = %invoke.cont84
 
 invoke.cont95:                                    ; preds = %invoke.cont94
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87) #24
-  %add = add nuw nsw i32 %first_index.0134, 1
+  %add = add nuw nsw i32 %first_index.1134, 1
   %conv96 = sext i32 %add to i64
   %cmp.i.i69 = icmp ugt i64 %.sroa.speculated.i, %conv96
   br i1 %cmp.i.i69, label %if.then.i.i71, label %if.end99
@@ -14859,12 +14859,12 @@ lpad89:                                           ; preds = %invoke.cont94
   br label %ehcleanup
 
 if.end99:                                         ; preds = %invoke.cont95, %while.cond.preheader, %invoke.cont39, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %invoke.cont67, %invoke.cont62
-  %first_index.1 = phi i32 [ %conv3, %invoke.cont39 ], [ %conv3, %invoke.cont67 ], [ %conv3, %invoke.cont62 ], [ %conv3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ -1, %while.cond.preheader ], [ -1, %invoke.cont95 ]
+  %first_index.0 = phi i32 [ %conv3, %invoke.cont39 ], [ %conv3, %invoke.cont67 ], [ %conv3, %invoke.cont62 ], [ %conv3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ -1, %while.cond.preheader ], [ -1, %invoke.cont95 ]
   %cmp.not.i.i80 = icmp eq i64 %.sroa.speculated.i, 0
   br i1 %cmp.not.i.i80, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit92, label %for.cond.i.i84.preheader
 
 for.cond.i.i84.preheader:                         ; preds = %if.then.i.i71, %if.end99
-  %first_index.1144 = phi i32 [ %first_index.1, %if.end99 ], [ -1, %if.then.i.i71 ]
+  %first_index.0144 = phi i32 [ %first_index.0, %if.end99 ], [ -1, %if.then.i.i71 ]
   br label %for.cond.i.i84
 
 for.cond.i.i84:                                   ; preds = %for.cond.i.i84.preheader, %for.body.i.i87
@@ -14880,7 +14880,7 @@ for.body.i.i87:                                   ; preds = %for.cond.i.i84
   br i1 %cmp.i.i.i90, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit92, label %for.cond.i.i84, !llvm.loop !243
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit92: ; preds = %for.cond.i.i84, %for.body.i.i87, %if.end99
-  %first_index.1145 = phi i32 [ %first_index.1, %if.end99 ], [ %first_index.1144, %for.body.i.i87 ], [ %first_index.1144, %for.cond.i.i84 ]
+  %first_index.0145 = phi i32 [ %first_index.0, %if.end99 ], [ %first_index.0144, %for.body.i.i87 ], [ %first_index.0144, %for.cond.i.i84 ]
   %retval.0.i.i91 = phi i64 [ -1, %if.end99 ], [ -1, %for.cond.i.i84 ], [ %dec4.i.i88, %for.body.i.i87 ]
   %sext14.mask = and i64 %retval.0.i.i91, 4294967295
   %cmp103 = icmp eq i64 %sext14.mask, 4294967295
@@ -14892,7 +14892,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit92: ; preds 
   br i1 %cmp.i.i93, label %if.then.i.i64.invoke, label %invoke.cont113
 
 invoke.cont113:                                   ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit92
-  %sub111 = sub nsw i32 %first_index.1145, %file_name_start.0
+  %sub111 = sub nsw i32 %first_index.0145, %file_name_start.0
   %conv112 = sext i32 %sub111 to i64
   %sub.i94 = sub nuw i64 %.sroa.speculated.i, %conv110
   %.sroa.speculated.i95 = call i64 @llvm.umin.i64(i64 %sub.i94, i64 %conv112)

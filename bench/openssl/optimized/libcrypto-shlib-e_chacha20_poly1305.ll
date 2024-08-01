@@ -91,18 +91,18 @@ while.body.lr.ph:                                 ; preds = %while.cond.preheade
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
   %indvars.iv = phi i64 [ %3, %while.body.lr.ph ], [ %indvars.iv.next, %while.body ]
-  %out.addr.063 = phi ptr [ %out, %while.body.lr.ph ], [ %incdec.ptr4, %while.body ]
-  %len.addr.062 = phi i64 [ %len, %while.body.lr.ph ], [ %dec, %while.body ]
-  %inp.addr.061 = phi ptr [ %inp, %while.body.lr.ph ], [ %incdec.ptr, %while.body ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %inp.addr.061, i64 1
-  %4 = load i8, ptr %inp.addr.061, align 1
+  %out.addr.163 = phi ptr [ %out, %while.body.lr.ph ], [ %incdec.ptr4, %while.body ]
+  %len.addr.162 = phi i64 [ %len, %while.body.lr.ph ], [ %dec, %while.body ]
+  %inp.addr.161 = phi ptr [ %inp, %while.body.lr.ph ], [ %incdec.ptr, %while.body ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %inp.addr.161, i64 1
+  %4 = load i8, ptr %inp.addr.161, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [64 x i8], ptr %buf, i64 0, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx, align 1
   %xor57 = xor i8 %5, %4
-  %incdec.ptr4 = getelementptr inbounds i8, ptr %out.addr.063, i64 1
-  store i8 %xor57, ptr %out.addr.063, align 1
-  %dec = add i64 %len.addr.062, -1
+  %incdec.ptr4 = getelementptr inbounds i8, ptr %out.addr.163, i64 1
+  store i8 %xor57, ptr %out.addr.163, align 1
+  %dec = add i64 %len.addr.162, -1
   %tobool1 = icmp ne i64 %dec, 0
   %cmp = icmp ult i64 %indvars.iv, 63
   %6 = and i1 %tobool1, %cmp
@@ -113,12 +113,12 @@ while.end.loopexit:                               ; preds = %while.body
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader
-  %inp.addr.0.lcssa = phi ptr [ %inp, %while.cond.preheader ], [ %incdec.ptr, %while.end.loopexit ]
-  %len.addr.0.lcssa = phi i64 [ %len, %while.cond.preheader ], [ %dec, %while.end.loopexit ]
-  %out.addr.0.lcssa = phi ptr [ %out, %while.cond.preheader ], [ %incdec.ptr4, %while.end.loopexit ]
+  %inp.addr.1.lcssa = phi ptr [ %inp, %while.cond.preheader ], [ %incdec.ptr, %while.end.loopexit ]
+  %len.addr.1.lcssa = phi i64 [ %len, %while.cond.preheader ], [ %dec, %while.end.loopexit ]
+  %out.addr.1.lcssa = phi ptr [ %out, %while.cond.preheader ], [ %incdec.ptr4, %while.end.loopexit ]
   %n.0.lcssa = phi i32 [ %1, %while.cond.preheader ], [ %7, %while.end.loopexit ]
   store i32 %n.0.lcssa, ptr %partial_len, align 8
-  %cmp6 = icmp eq i64 %len.addr.0.lcssa, 0
+  %cmp6 = icmp eq i64 %len.addr.1.lcssa, 0
   br i1 %cmp6, label %return, label %if.end
 
 if.end:                                           ; preds = %while.end
@@ -142,12 +142,12 @@ if.then19:                                        ; preds = %if.then11
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end, %if.then19, %if.then11, %entry
-  %inp.addr.1 = phi ptr [ %inp.addr.0.lcssa, %if.then19 ], [ %inp.addr.0.lcssa, %if.then11 ], [ %inp.addr.0.lcssa, %if.end ], [ %inp, %entry ]
-  %len.addr.1 = phi i64 [ %len.addr.0.lcssa, %if.then19 ], [ %len.addr.0.lcssa, %if.then11 ], [ %len.addr.0.lcssa, %if.end ], [ %len, %entry ]
-  %out.addr.1 = phi ptr [ %out.addr.0.lcssa, %if.then19 ], [ %out.addr.0.lcssa, %if.then11 ], [ %out.addr.0.lcssa, %if.end ], [ %out, %entry ]
-  %10 = trunc i64 %len.addr.1 to i32
+  %inp.addr.0 = phi ptr [ %inp.addr.1.lcssa, %if.then19 ], [ %inp.addr.1.lcssa, %if.then11 ], [ %inp.addr.1.lcssa, %if.end ], [ %inp, %entry ]
+  %len.addr.0 = phi i64 [ %len.addr.1.lcssa, %if.then19 ], [ %len.addr.1.lcssa, %if.then11 ], [ %len.addr.1.lcssa, %if.end ], [ %len, %entry ]
+  %out.addr.0 = phi ptr [ %out.addr.1.lcssa, %if.then19 ], [ %out.addr.1.lcssa, %if.then11 ], [ %out.addr.1.lcssa, %if.end ], [ %out, %entry ]
+  %10 = trunc i64 %len.addr.0 to i32
   %conv27 = and i32 %10, 63
-  %sub = and i64 %len.addr.1, -64
+  %sub = and i64 %len.addr.0, -64
   %counter29 = getelementptr inbounds i8, ptr %0, i64 32
   %cmp32.not68 = icmp eq i64 %sub, 0
   br i1 %cmp32.not68, label %while.end61, label %while.body34.lr.ph
@@ -159,9 +159,9 @@ while.body34.lr.ph:                               ; preds = %if.end25
 
 while.body34:                                     ; preds = %while.body34.lr.ph, %if.end60
   %ctr32.072 = phi i32 [ %11, %while.body34.lr.ph ], [ %spec.select, %if.end60 ]
-  %out.addr.271 = phi ptr [ %out.addr.1, %while.body34.lr.ph ], [ %add.ptr51, %if.end60 ]
+  %out.addr.271 = phi ptr [ %out.addr.0, %while.body34.lr.ph ], [ %add.ptr51, %if.end60 ]
   %len.addr.270 = phi i64 [ %sub, %while.body34.lr.ph ], [ %sub50, %if.end60 ]
-  %inp.addr.269 = phi ptr [ %inp.addr.1, %while.body34.lr.ph ], [ %add.ptr, %if.end60 ]
+  %inp.addr.269 = phi ptr [ %inp.addr.0, %while.body34.lr.ph ], [ %add.ptr, %if.end60 ]
   %div56 = lshr exact i64 %len.addr.270, 6
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %div56, i64 268435456)
   %conv39 = trunc nuw nsw i64 %spec.store.select to i32
@@ -191,8 +191,8 @@ if.end60:                                         ; preds = %if.then56, %while.b
   br i1 %cmp32.not, label %while.end61, label %while.body34, !llvm.loop !8
 
 while.end61:                                      ; preds = %if.end60, %if.end25
-  %inp.addr.2.lcssa = phi ptr [ %inp.addr.1, %if.end25 ], [ %add.ptr, %if.end60 ]
-  %out.addr.2.lcssa = phi ptr [ %out.addr.1, %if.end25 ], [ %add.ptr51, %if.end60 ]
+  %inp.addr.2.lcssa = phi ptr [ %inp.addr.0, %if.end25 ], [ %add.ptr, %if.end60 ]
+  %out.addr.2.lcssa = phi ptr [ %out.addr.0, %if.end25 ], [ %add.ptr51, %if.end60 ]
   %tobool62.not = icmp eq i32 %conv27, 0
   br i1 %tobool62.not, label %return, label %if.then63
 
@@ -200,7 +200,7 @@ if.then63:                                        ; preds = %while.end61
   %buf64 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %buf64, i8 0, i64 64, i1 false)
   tail call void @ChaCha20_ctr32(ptr noundef nonnull %buf64, ptr noundef nonnull %buf64, i64 noundef 64, ptr noundef nonnull %0, ptr noundef nonnull %counter29) #9
-  %wide.trip.count = and i64 %len.addr.1, 63
+  %wide.trip.count = and i64 %len.addr.0, 63
   br label %for.body
 
 for.body:                                         ; preds = %if.then63, %for.body
@@ -555,36 +555,36 @@ if.else53:                                        ; preds = %if.end48
   br i1 %cmp55.not, label %if.end59, label %return
 
 if.end59:                                         ; preds = %if.end48, %if.else53
-  %plen.0 = phi i64 [ %1, %if.else53 ], [ %len, %if.end48 ]
+  %plen.1 = phi i64 [ %1, %if.else53 ], [ %len, %if.end48 ]
   %call60 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef nonnull %ctx) #9
   %tobool61.not = icmp eq i32 %call60, 0
   %text76 = getelementptr inbounds i8, ptr %0, i64 176
   br i1 %tobool61.not, label %if.else70, label %if.then62
 
 if.then62:                                        ; preds = %if.end59
-  %call63 = tail call i32 @chacha_cipher(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %plen.0)
+  %call63 = tail call i32 @chacha_cipher(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %plen.1)
   %add.ptr64 = getelementptr inbounds i8, ptr %0, i64 208
-  tail call void @Poly1305_Update(ptr noundef nonnull %add.ptr64, ptr noundef nonnull %out, i64 noundef %plen.0) #9
+  tail call void @Poly1305_Update(ptr noundef nonnull %add.ptr64, ptr noundef nonnull %out, i64 noundef %plen.1) #9
   br label %if.end80
 
 if.else70:                                        ; preds = %if.end59
   %add.ptr71 = getelementptr inbounds i8, ptr %0, i64 208
-  tail call void @Poly1305_Update(ptr noundef nonnull %add.ptr71, ptr noundef nonnull %in, i64 noundef %plen.0) #9
-  %call72 = tail call i32 @chacha_cipher(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %plen.0)
+  tail call void @Poly1305_Update(ptr noundef nonnull %add.ptr71, ptr noundef nonnull %in, i64 noundef %plen.1) #9
+  %call72 = tail call i32 @chacha_cipher(ptr noundef nonnull %ctx, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %plen.1)
   br label %if.end80
 
 if.end80:                                         ; preds = %if.else70, %if.then62
   %7 = load i64, ptr %text76, align 8
-  %add77 = add i64 %7, %plen.0
+  %add77 = add i64 %7, %plen.1
   store i64 %add77, ptr %text76, align 8
-  %out.addr.0 = getelementptr inbounds i8, ptr %out, i64 %plen.0
-  %in.addr.0 = getelementptr inbounds i8, ptr %in, i64 %plen.0
-  %cmp83.not = icmp eq i64 %plen.0, %len
+  %out.addr.0 = getelementptr inbounds i8, ptr %out, i64 %plen.1
+  %in.addr.0 = getelementptr inbounds i8, ptr %in, i64 %plen.1
+  %cmp83.not = icmp eq i64 %plen.1, %len
   br i1 %cmp83.not, label %if.end148, label %if.then85
 
 if.then85:                                        ; preds = %if.end80.thread, %if.end80
   %cmp83.not107 = phi i1 [ %cmp83.not102, %if.end80.thread ], [ false, %if.end80 ]
-  %plen.1106 = phi i64 [ %1, %if.end80.thread ], [ %plen.0, %if.end80 ]
+  %plen.0106 = phi i64 [ %1, %if.end80.thread ], [ %plen.1, %if.end80 ]
   %out.addr.0105 = phi ptr [ %out, %if.end80.thread ], [ %out.addr.0, %if.end80 ]
   %in.addr.0104 = phi ptr [ null, %if.end80.thread ], [ %in.addr.0, %if.end80 ]
   %aad86 = getelementptr inbounds i8, ptr %0, i64 184
@@ -651,9 +651,9 @@ if.else126:                                       ; preds = %if.then120
   br i1 %tobool129.not, label %if.end148, label %if.then130
 
 if.then130:                                       ; preds = %if.else126
-  %idx.neg = sub i64 0, %plen.1106
+  %idx.neg = sub i64 0, %plen.0106
   %add.ptr131 = getelementptr inbounds i8, ptr %out.addr.0105, i64 %idx.neg
-  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr131, i8 0, i64 %plen.1106, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %add.ptr131, i8 0, i64 %plen.0106, i1 false)
   br label %return
 
 if.else134:                                       ; preds = %if.end106

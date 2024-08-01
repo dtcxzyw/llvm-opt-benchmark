@@ -758,7 +758,7 @@ _ZN2cm6appendISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS
   br label %76
 
 65:                                               ; preds = %48, %62
-  %.014 = phi i1 [ %61, %62 ], [ %49, %48 ]
+  %.115 = phi i1 [ %61, %62 ], [ %49, %48 ]
   %66 = load ptr, ptr %9, align 8
   %67 = load ptr, ptr %38, align 8
   %.not4.i.i.i.i = icmp eq ptr %66, %67
@@ -827,8 +827,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   resume { ptr, i32 } %.pn17.pn.pn
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit38: ; preds = %75, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i36, %4
-  %.115 = phi i1 [ false, %4 ], [ %.014, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i36 ], [ %.014, %75 ]
-  ret i1 %.115
+  %.014 = phi i1 [ false, %4 ], [ %.115, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i36 ], [ %.115, %75 ]
+  ret i1 %.014
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

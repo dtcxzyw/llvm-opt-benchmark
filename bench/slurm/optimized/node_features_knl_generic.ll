@@ -1743,12 +1743,12 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
 
 56:                                               ; preds = %53, %50
   %.053 = phi ptr [ %55, %53 ], [ %52, %50 ]
-  %.0 = phi i64 [ 18, %53 ], [ 16, %50 ]
+  %.1 = phi i64 [ 18, %53 ], [ 16, %50 ]
   %.not67 = icmp eq ptr %.053, null
   br i1 %.not67, label %78, label %57
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %.053, i64 %.0
+  %58 = getelementptr inbounds i8, ptr %.053, i64 %.1
   %59 = call i32 @xstrncasecmp(ptr noundef nonnull %58, ptr noundef nonnull @.str.61, i64 noundef 3) #15
   %.not68 = icmp eq i32 %59, 0
   br i1 %.not68, label %60, label %62
@@ -1799,7 +1799,7 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   br label %78
 
 78:                                               ; preds = %60, %68, %74, %76, %72, %64, %56
-  %.055.ph = phi ptr [ @.str.49, %56 ], [ @.str.3, %60 ], [ @.str.3, %64 ], [ @.str.3, %68 ], [ @.str.3, %72 ], [ @.str.3, %76 ], [ @.str.49, %74 ]
+  %.156.ph = phi ptr [ @.str.49, %56 ], [ @.str.3, %60 ], [ @.str.3, %64 ], [ @.str.3, %68 ], [ @.str.3, %72 ], [ @.str.3, %76 ], [ @.str.49, %74 ]
   %.pr = load i32, ptr @knl_system_type, align 4
   %cond = icmp eq i32 %.pr, 2
   br i1 %cond, label %79, label %.thread107
@@ -1841,7 +1841,7 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   br label %.thread107
 
 .thread107:                                       ; preds = %48, %78, %89, %95, %92
-  %.055112 = phi ptr [ %.055.ph, %78 ], [ %.055.ph, %89 ], [ %.055.ph, %95 ], [ %.055.ph, %92 ], [ @.str.49, %48 ]
+  %.156112 = phi ptr [ %.156.ph, %78 ], [ %.156.ph, %89 ], [ %.156.ph, %95 ], [ %.156.ph, %92 ], [ @.str.49, %48 ]
   %96 = load ptr, ptr %5, align 8
   %97 = call ptr @xstrcasestr(ptr noundef %96, ptr noundef nonnull @.str.61) #15
   %.not74 = icmp eq ptr %97, null
@@ -1852,57 +1852,57 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   br label %99
 
 99:                                               ; preds = %98, %.thread107
-  %.058 = phi ptr [ @.str.3, %98 ], [ @.str.49, %.thread107 ]
+  %.159 = phi ptr [ @.str.3, %98 ], [ @.str.49, %.thread107 ]
   %100 = load ptr, ptr %5, align 8
   %101 = call ptr @xstrcasestr(ptr noundef %100, ptr noundef nonnull @.str.63) #15
   %.not75 = icmp eq ptr %101, null
   br i1 %.not75, label %103, label %102
 
 102:                                              ; preds = %99
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef nonnull %.058, ptr noundef nonnull @.str.64) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef nonnull %.159, ptr noundef nonnull @.str.64) #15
   br label %103
 
 103:                                              ; preds = %102, %99
-  %.159 = phi ptr [ @.str.3, %102 ], [ %.058, %99 ]
+  %.260 = phi ptr [ @.str.3, %102 ], [ %.159, %99 ]
   %104 = load ptr, ptr %5, align 8
   %105 = call ptr @xstrcasestr(ptr noundef %104, ptr noundef nonnull @.str.65) #15
   %.not76 = icmp eq ptr %105, null
   br i1 %.not76, label %107, label %106
 
 106:                                              ; preds = %103
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef nonnull %.159, ptr noundef nonnull @.str.66) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef nonnull %.260, ptr noundef nonnull @.str.66) #15
   br label %107
 
 107:                                              ; preds = %106, %103
-  %.260 = phi ptr [ @.str.3, %106 ], [ %.159, %103 ]
+  %.3 = phi ptr [ @.str.3, %106 ], [ %.260, %103 ]
   %108 = load ptr, ptr %5, align 8
   %109 = call ptr @xstrcasestr(ptr noundef %108, ptr noundef nonnull @.str.67) #15
   %.not77 = icmp eq ptr %109, null
   br i1 %.not77, label %111, label %110
 
 110:                                              ; preds = %107
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.260, ptr noundef nonnull @.str.68) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.3, ptr noundef nonnull @.str.68) #15
   br label %111
 
 111:                                              ; preds = %110, %107
-  %.3 = phi ptr [ @.str.3, %110 ], [ %.260, %107 ]
+  %.4 = phi ptr [ @.str.3, %110 ], [ %.3, %107 ]
   %112 = load ptr, ptr %5, align 8
   %113 = call ptr @xstrcasestr(ptr noundef %112, ptr noundef nonnull @.str.69) #15
   %.not78 = icmp eq ptr %113, null
   br i1 %.not78, label %115, label %114
 
 114:                                              ; preds = %111
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.3, ptr noundef nonnull @.str.70) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.4, ptr noundef nonnull @.str.70) #15
   br label %115
 
 115:                                              ; preds = %114, %111
-  %.4 = phi ptr [ @.str.3, %114 ], [ %.3, %111 ]
+  %.5 = phi ptr [ @.str.3, %114 ], [ %.4, %111 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #15
   br label %116
 
 116:                                              ; preds = %44, %47, %115
-  %.5 = phi ptr [ @.str.49, %47 ], [ @.str.49, %44 ], [ %.4, %115 ]
-  %.156 = phi ptr [ @.str.49, %47 ], [ @.str.49, %44 ], [ %.055112, %115 ]
+  %.058 = phi ptr [ @.str.49, %47 ], [ @.str.49, %44 ], [ %.5, %115 ]
+  %.055 = phi ptr [ @.str.49, %47 ], [ @.str.49, %44 ], [ %.156112, %115 ]
   %117 = load i32, ptr @knl_system_type, align 4
   switch i32 %117, label %122 [
     i32 1, label %118
@@ -2014,7 +2014,7 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
 
 .sink.split128:                                   ; preds = %156, %154, %152, %148, %150, %145
   %.str.79.sink = phi ptr [ @.str.79, %145 ], [ @.str.82, %150 ], [ @.str.82, %148 ], [ @.str.84, %152 ], [ @.str.86, %154 ], [ @.str.88, %156 ]
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.73, ptr noundef nonnull %.156, ptr noundef nonnull %.str.79.sink) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %4, ptr noundef nonnull @.str.73, ptr noundef nonnull %.055, ptr noundef nonnull %.str.79.sink) #15
   br label %158
 
 158:                                              ; preds = %.sink.split128, %156, %144
@@ -2065,11 +2065,11 @@ define void @node_features_p_node_state(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not88, label %179, label %178
 
 178:                                              ; preds = %.thread119
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.5, ptr noundef nonnull @.str.79) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.73, ptr noundef %.058, ptr noundef nonnull @.str.79) #15
   br label %179
 
 179:                                              ; preds = %178, %.thread119
-  %.6 = phi ptr [ @.str.3, %178 ], [ %.5, %.thread119 ]
+  %.6 = phi ptr [ @.str.3, %178 ], [ %.058, %.thread119 ]
   %180 = load ptr, ptr %5, align 8
   %181 = call ptr @xstrcasestr(ptr noundef %180, ptr noundef nonnull @.str.80) #15
   %.not89 = icmp eq ptr %181, null
@@ -2966,13 +2966,13 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
   br label %84
 
 84:                                               ; preds = %83, %81
-  %.1 = phi i32 [ -1, %81 ], [ %.0, %83 ]
+  %.2 = phi i32 [ -1, %81 ], [ %.0, %83 ]
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   call void @slurm_xfree(ptr noundef nonnull %7) #15
   br label %.thread
 
 .thread:                                          ; preds = %47, %44, %.thread51, %84, %65
-  %.2 = phi i32 [ %.1, %84 ], [ %.0, %65 ], [ %.0, %.thread51 ], [ %.0, %44 ], [ %.0, %47 ]
+  %.1 = phi i32 [ %.2, %84 ], [ %.0, %65 ], [ %.0, %.thread51 ], [ %.0, %44 ], [ %.0, %47 ]
   %85 = load i32, ptr @knl_system_type, align 4
   switch i32 %85, label %90 [
     i32 1, label %86
@@ -3015,7 +3015,7 @@ define range(i32 -1, 1) i32 @node_features_p_node_set(ptr noundef %0) local_unna
 
 97:                                               ; preds = %90, %95
   %98 = phi ptr [ %.pre49, %95 ], [ %92, %90 ]
-  %.3 = phi i32 [ -1, %95 ], [ %.2, %90 ]
+  %.3 = phi i32 [ -1, %95 ], [ %.1, %90 ]
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %104
 
@@ -3146,18 +3146,18 @@ thread-pre-split:                                 ; preds = %104, %110, %112, %1
   br label %143
 
 143:                                              ; preds = %142, %140
-  %.4 = phi i32 [ -1, %140 ], [ %.3, %142 ]
+  %.5 = phi i32 [ -1, %140 ], [ %.3, %142 ]
   call void @slurm_xfree(ptr noundef nonnull %2) #15
   call void @slurm_xfree(ptr noundef nonnull %6) #15
   br label %144
 
 144:                                              ; preds = %143, %124
-  %.5 = phi i32 [ %.4, %143 ], [ %.3, %124 ]
+  %.4 = phi i32 [ %.5, %143 ], [ %.3, %124 ]
   store i8 0, ptr %0, align 1
   br label %145
 
 145:                                              ; preds = %24, %25, %1, %9, %144, %33, %14
-  %.021 = phi i32 [ -1, %33 ], [ %.5, %144 ], [ -1, %14 ], [ 0, %9 ], [ 0, %1 ], [ -1, %25 ], [ -1, %24 ]
+  %.021 = phi i32 [ -1, %33 ], [ %.4, %144 ], [ -1, %14 ], [ 0, %9 ], [ 0, %1 ], [ -1, %25 ], [ -1, %24 ]
   ret i32 %.021
 }
 
@@ -3341,9 +3341,9 @@ define noundef i32 @node_features_p_node_update(ptr noundef %0, ptr noundef %1) 
 
 .lr.ph49:                                         ; preds = %20, %_knl_numa_inx.exit
   %.047 = phi ptr [ %43, %_knl_numa_inx.exit ], [ %22, %20 ]
-  %.02446 = phi i32 [ %.1, %_knl_numa_inx.exit ], [ -1, %20 ]
-  %.02545 = phi i32 [ %42, %_knl_numa_inx.exit ], [ 0, %20 ]
-  %23 = icmp eq i32 %.02446, -1
+  %.146 = phi i32 [ %.2, %_knl_numa_inx.exit ], [ -1, %20 ]
+  %.12645 = phi i32 [ %42, %_knl_numa_inx.exit ], [ 0, %20 ]
+  %23 = icmp eq i32 %.146, -1
   br i1 %23, label %24, label %_knl_numa_inx.exit
 
 24:                                               ; preds = %.lr.ph49
@@ -3388,30 +3388,30 @@ _knl_numa_token.exit.i:                           ; preds = %32, %30, %28, %26, 
   br i1 %exitcond.not.i, label %_knl_numa_inx.exit, label %35, !llvm.loop !28
 
 _knl_numa_inx.exit:                               ; preds = %38, %35, %.lr.ph49
-  %.1 = phi i32 [ %.02446, %.lr.ph49 ], [ -1, %38 ], [ %.07.i, %35 ]
+  %.2 = phi i32 [ %.146, %.lr.ph49 ], [ -1, %38 ], [ %.07.i, %35 ]
   %40 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.047)
   %41 = zext nneg i16 %40 to i32
-  %42 = or i32 %.02545, %41
+  %42 = or i32 %.12645, %41
   %43 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #15
   %.not35 = icmp eq ptr %43, null
   br i1 %.not35, label %._crit_edge, label %.lr.ph49, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %_knl_numa_inx.exit, %20
-  %.025.lcssa = phi i32 [ 0, %20 ], [ %42, %_knl_numa_inx.exit ]
-  %.024.lcssa = phi i32 [ -1, %20 ], [ %.1, %_knl_numa_inx.exit ]
+  %.126.lcssa = phi i32 [ 0, %20 ], [ %42, %_knl_numa_inx.exit ]
+  %.1.lcssa = phi i32 [ -1, %20 ], [ %.2, %_knl_numa_inx.exit ]
   call void @slurm_xfree(ptr noundef nonnull %5) #15
   br label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.loopexit, %._crit_edge
-  %.126 = phi i32 [ %.025.lcssa, %._crit_edge ], [ 0, %.loopexit ]
-  %.2 = phi i32 [ %.024.lcssa, %._crit_edge ], [ -1, %.loopexit ]
+  %.025 = phi i32 [ %.126.lcssa, %._crit_edge ], [ 0, %.loopexit ]
+  %.024 = phi i32 [ %.1.lcssa, %._crit_edge ], [ -1, %.loopexit ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %storemerge36 = phi i32 [ %47, %.preheader ], [ 0, %.preheader.preheader ]
   %44 = icmp ugt i32 %storemerge36, 4
   %45 = shl nuw nsw i32 256, %storemerge36
-  %46 = icmp eq i32 %45, %.126
+  %46 = icmp eq i32 %45, %.025
   %or.cond42 = select i1 %44, i1 true, i1 %46
   %47 = add nuw nsw i32 %storemerge36, 1
   br i1 %or.cond42, label %48, label %.preheader, !llvm.loop !30
@@ -3436,8 +3436,8 @@ _knl_numa_inx.exit:                               ; preds = %38, %35, %.lr.ph49
   br i1 %.not3853, label %._crit_edge56, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %55
-  %57 = icmp sgt i32 %.2, -1
-  %58 = zext nneg i32 %.2 to i64
+  %57 = icmp sgt i32 %.024, -1
+  %58 = zext nneg i32 %.024 to i64
   %59 = getelementptr inbounds [5 x i32], ptr @cpu_bind, i64 0, i64 %58
   %60 = icmp sgt i32 %.227, -1
   %61 = zext nneg i32 %.227 to i64
@@ -3858,9 +3858,9 @@ define ptr @node_features_p_node_xlate(ptr noundef %0, ptr noundef %1, ptr nound
   br label %24
 
 .lr.ph:                                           ; preds = %8, %_knl_numa_token.exit.thread
-  %.0130 = phi i8 [ %.1, %_knl_numa_token.exit.thread ], [ 0, %8 ]
+  %.1130 = phi i8 [ %.2, %_knl_numa_token.exit.thread ], [ 0, %8 ]
   %.057129 = phi ptr [ %22, %_knl_numa_token.exit.thread ], [ %10, %8 ]
-  %.061128 = phi ptr [ %.162, %_knl_numa_token.exit.thread ], [ @.str.49, %8 ]
+  %.162128 = phi ptr [ %.263, %_knl_numa_token.exit.thread ], [ @.str.49, %8 ]
   %11 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.057129)
   %.not86 = icmp eq i16 %11, 0
   br i1 %.not86, label %12, label %_knl_numa_token.exit.thread
@@ -3891,31 +3891,31 @@ define ptr @node_features_p_node_xlate(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not13.i, label %_knl_numa_token.exit.thread, label %_knl_numa_token.exit
 
 _knl_numa_token.exit:                             ; preds = %20
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.73, ptr noundef %.061128, ptr noundef nonnull %.057129) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.73, ptr noundef %.162128, ptr noundef nonnull %.057129) #15
   br label %_knl_numa_token.exit.thread
 
 _knl_numa_token.exit.thread:                      ; preds = %20, %18, %16, %14, %12, %.lr.ph, %_knl_numa_token.exit
-  %.162 = phi ptr [ @.str.3, %_knl_numa_token.exit ], [ %.061128, %.lr.ph ], [ %.061128, %12 ], [ %.061128, %14 ], [ %.061128, %16 ], [ %.061128, %18 ], [ %.061128, %20 ]
-  %.1 = phi i8 [ %.0130, %_knl_numa_token.exit ], [ 1, %.lr.ph ], [ 1, %12 ], [ 1, %14 ], [ 1, %16 ], [ 1, %18 ], [ 1, %20 ]
+  %.263 = phi ptr [ @.str.3, %_knl_numa_token.exit ], [ %.162128, %.lr.ph ], [ %.162128, %12 ], [ %.162128, %14 ], [ %.162128, %16 ], [ %.162128, %18 ], [ %.162128, %20 ]
+  %.2 = phi i8 [ %.1130, %_knl_numa_token.exit ], [ 1, %.lr.ph ], [ 1, %12 ], [ 1, %14 ], [ 1, %16 ], [ 1, %18 ], [ 1, %20 ]
   %22 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #15
   %.not75 = icmp eq ptr %22, null
   br i1 %.not75, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %_knl_numa_token.exit.thread
   call void @slurm_xfree(ptr noundef nonnull %6) #15
-  %23 = trunc nuw i8 %.1 to i1
+  %23 = trunc nuw i8 %.2 to i1
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.lcssa160 = phi i8 [ 0, %._crit_edge.thread ], [ %.1, %._crit_edge ]
+  %.1.lcssa160 = phi i8 [ 0, %._crit_edge.thread ], [ %.2, %._crit_edge ]
   call void @slurm_xfree(ptr noundef nonnull %5) #15
   br label %25
 
 25:                                               ; preds = %._crit_edge, %24, %4
-  %.263 = phi ptr [ %.162, %._crit_edge ], [ @.str.49, %24 ], [ @.str.49, %4 ]
-  %.2 = phi i8 [ %.1, %._crit_edge ], [ %.0.lcssa160, %24 ], [ 0, %4 ]
+  %.061 = phi ptr [ %.263, %._crit_edge ], [ @.str.49, %24 ], [ @.str.49, %4 ]
+  %.0 = phi i8 [ %.2, %._crit_edge ], [ %.1.lcssa160, %24 ], [ 0, %4 ]
   %.not76 = icmp eq ptr %0, null
-  %.pre = trunc nuw i8 %.2 to i1
+  %.pre = trunc nuw i8 %.0 to i1
   br i1 %.not76, label %._crit_edge157, label %26
 
 ._crit_edge157:                                   ; preds = %25
@@ -3933,7 +3933,7 @@ _knl_numa_token.exit.thread:                      ; preds = %20, %18, %16, %14, 
 
 .lr.ph136:                                        ; preds = %27, %_knl_numa_token.exit96.thread
   %.158134 = phi ptr [ %42, %_knl_numa_token.exit96.thread ], [ %29, %27 ]
-  %.364133 = phi ptr [ %.465, %_knl_numa_token.exit96.thread ], [ %.263, %27 ]
+  %.465133 = phi ptr [ %.5, %_knl_numa_token.exit96.thread ], [ %.061, %27 ]
   %30 = call fastcc zeroext i16 @_knl_mcdram_token(ptr noundef nonnull %.158134)
   %31 = icmp eq i16 %30, 0
   br i1 %31, label %32, label %_knl_numa_token.exit96.thread
@@ -3964,22 +3964,22 @@ _knl_numa_token.exit.thread:                      ; preds = %20, %18, %16, %14, 
   br i1 %.not13.i93, label %_knl_numa_token.exit96.thread, label %_knl_numa_token.exit96
 
 _knl_numa_token.exit96:                           ; preds = %40
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.73, ptr noundef %.364133, ptr noundef nonnull %.158134) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.73, ptr noundef %.465133, ptr noundef nonnull %.158134) #15
   br label %_knl_numa_token.exit96.thread
 
 _knl_numa_token.exit96.thread:                    ; preds = %40, %38, %36, %34, %32, %_knl_numa_token.exit96, %.lr.ph136
-  %.465 = phi ptr [ @.str.3, %_knl_numa_token.exit96 ], [ %.364133, %.lr.ph136 ], [ %.364133, %32 ], [ %.364133, %34 ], [ %.364133, %36 ], [ %.364133, %38 ], [ %.364133, %40 ]
+  %.5 = phi ptr [ @.str.3, %_knl_numa_token.exit96 ], [ %.465133, %.lr.ph136 ], [ %.465133, %32 ], [ %.465133, %34 ], [ %.465133, %36 ], [ %.465133, %38 ], [ %.465133, %40 ]
   %42 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #15
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %._crit_edge137, label %.lr.ph136, !llvm.loop !36
 
 ._crit_edge137:                                   ; preds = %_knl_numa_token.exit96.thread, %27
-  %.364.lcssa = phi ptr [ %.263, %27 ], [ %.465, %_knl_numa_token.exit96.thread ]
+  %.465.lcssa = phi ptr [ %.061, %27 ], [ %.5, %_knl_numa_token.exit96.thread ]
   call void @slurm_xfree(ptr noundef nonnull %6) #15
   br label %43
 
 43:                                               ; preds = %._crit_edge137, %26
-  %.5 = phi ptr [ %.364.lcssa, %._crit_edge137 ], [ %.263, %26 ]
+  %.364 = phi ptr [ %.465.lcssa, %._crit_edge137 ], [ %.061, %26 ]
   %44 = call ptr @xstrdup(ptr noundef nonnull %0) #15
   store ptr %44, ptr %6, align 8
   %45 = call ptr @strtok_r(ptr noundef %44, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #15
@@ -4056,10 +4056,10 @@ _knl_numa_token.exit104:                          ; preds = %49, %51, %53, %55, 
   br i1 %.not78148, label %._crit_edge154, label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %65, %_knl_numa_token.exit112
-  %.251151 = phi i16 [ %.3, %_knl_numa_token.exit112 ], [ %.049.lcssa, %65 ]
-  %.254150 = phi i16 [ %.355, %_knl_numa_token.exit112 ], [ %.052.lcssa, %65 ]
+  %.3151 = phi i16 [ %.4, %_knl_numa_token.exit112 ], [ %.049.lcssa, %65 ]
+  %.355150 = phi i16 [ %.456, %_knl_numa_token.exit112 ], [ %.052.lcssa, %65 ]
   %.360149 = phi ptr [ %83, %_knl_numa_token.exit112 ], [ %67, %65 ]
-  %68 = icmp eq i16 %.254150, 0
+  %68 = icmp eq i16 %.355150, 0
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %.lr.ph153
@@ -4068,7 +4068,7 @@ _knl_numa_token.exit104:                          ; preds = %49, %51, %53, %55, 
   br i1 %.not82, label %71, label %_knl_numa_token.exit112
 
 71:                                               ; preds = %69, %.lr.ph153
-  %72 = icmp eq i16 %.251151, 0
+  %72 = icmp eq i16 %.3151, 0
   br i1 %72, label %73, label %_knl_numa_token.exit112
 
 73:                                               ; preds = %71
@@ -4098,41 +4098,41 @@ _knl_numa_token.exit104:                          ; preds = %49, %51, %53, %55, 
   br label %_knl_numa_token.exit112
 
 _knl_numa_token.exit112:                          ; preds = %81, %79, %77, %75, %73, %69, %71
-  %.355 = phi i16 [ %.254150, %71 ], [ %70, %69 ], [ %.254150, %73 ], [ %.254150, %75 ], [ %.254150, %77 ], [ %.254150, %79 ], [ %.254150, %81 ]
-  %.3 = phi i16 [ %.251151, %71 ], [ %.251151, %69 ], [ 1, %73 ], [ 2, %75 ], [ 4, %77 ], [ 8, %79 ], [ %spec.select, %81 ]
+  %.456 = phi i16 [ %.355150, %71 ], [ %70, %69 ], [ %.355150, %73 ], [ %.355150, %75 ], [ %.355150, %77 ], [ %.355150, %79 ], [ %.355150, %81 ]
+  %.4 = phi i16 [ %.3151, %71 ], [ %.3151, %69 ], [ 1, %73 ], [ 2, %75 ], [ 4, %77 ], [ 8, %79 ], [ %spec.select, %81 ]
   %83 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull %7) #15
   %.not78 = icmp eq ptr %83, null
   br i1 %.not78, label %._crit_edge154, label %.lr.ph153, !llvm.loop !38
 
 ._crit_edge154:                                   ; preds = %_knl_numa_token.exit112, %65
-  %.254.lcssa = phi i16 [ %.052.lcssa, %65 ], [ %.355, %_knl_numa_token.exit112 ]
-  %.251.lcssa = phi i16 [ %.049.lcssa, %65 ], [ %.3, %_knl_numa_token.exit112 ]
+  %.355.lcssa = phi i16 [ %.052.lcssa, %65 ], [ %.456, %_knl_numa_token.exit112 ]
+  %.3.lcssa = phi i16 [ %.049.lcssa, %65 ], [ %.4, %_knl_numa_token.exit112 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #15
   br label %84
 
 84:                                               ; preds = %._crit_edge154, %._crit_edge145
-  %.456 = phi i16 [ %.254.lcssa, %._crit_edge154 ], [ %.052.lcssa, %._crit_edge145 ]
-  %.4 = phi i16 [ %.251.lcssa, %._crit_edge154 ], [ %.049.lcssa, %._crit_edge145 ]
-  %.not79 = icmp eq i16 %.456, 0
+  %.254 = phi i16 [ %.355.lcssa, %._crit_edge154 ], [ %.052.lcssa, %._crit_edge145 ]
+  %.251 = phi i16 [ %.3.lcssa, %._crit_edge154 ], [ %.049.lcssa, %._crit_edge145 ]
+  %.not79 = icmp eq i16 %.254, 0
   br i1 %.not79, label %86, label %.thread
 
 .thread:                                          ; preds = %62, %84
-  %.4125 = phi i16 [ %.4, %84 ], [ %.049.lcssa, %62 ]
-  %.456124 = phi i16 [ %.456, %84 ], [ %.052.lcssa, %62 ]
-  %85 = call fastcc ptr @_knl_mcdram_str(i16 noundef zeroext %.456124)
+  %.251125 = phi i16 [ %.251, %84 ], [ %.049.lcssa, %62 ]
+  %.254124 = phi i16 [ %.254, %84 ], [ %.052.lcssa, %62 ]
+  %85 = call fastcc ptr @_knl_mcdram_str(i16 noundef zeroext %.254124)
   store ptr %85, ptr %6, align 8
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.73, ptr noundef %.5, ptr noundef %85) #15
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.73, ptr noundef %.364, ptr noundef %85) #15
   call void @slurm_xfree(ptr noundef nonnull %6) #15
   br label %86
 
 86:                                               ; preds = %.thread, %84
-  %.4126 = phi i16 [ %.4125, %.thread ], [ %.4, %84 ]
-  %.6 = phi ptr [ @.str.3, %.thread ], [ %.5, %84 ]
-  %.not80 = icmp eq i16 %.4126, 0
+  %.251126 = phi i16 [ %.251125, %.thread ], [ %.251, %84 ]
+  %.6 = phi ptr [ @.str.3, %.thread ], [ %.364, %84 ]
+  %.not80 = icmp eq i16 %.251126, 0
   br i1 %.not80, label %89, label %87
 
 87:                                               ; preds = %86
-  %88 = call fastcc ptr @_knl_numa_str(i16 noundef zeroext %.4126)
+  %88 = call fastcc ptr @_knl_numa_str(i16 noundef zeroext %.251126)
   store ptr %88, ptr %6, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.73, ptr noundef %.6, ptr noundef %88) #15
   call void @slurm_xfree(ptr noundef nonnull %6) #15

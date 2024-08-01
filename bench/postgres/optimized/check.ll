@@ -473,7 +473,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %75, %._crit_edge10.
 
 ._crit_edge.split.us.us.i:                        ; preds = %._crit_edge.split.us.us.loopexit.i, %.lr.ph31.split.us.i
   %123 = phi i32 [ %118, %.lr.ph31.split.us.i ], [ %.pre48.i, %._crit_edge.split.us.us.loopexit.i ]
-  %.1.lcssa.us.i = phi ptr [ %.029.us.i, %.lr.ph31.split.us.i ], [ %.4.us.us.i, %._crit_edge.split.us.us.loopexit.i ]
+  %.1.lcssa.us.i = phi ptr [ %.029.us.i, %.lr.ph31.split.us.i ], [ %.3.us.us.i, %._crit_edge.split.us.us.loopexit.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next45.i, %124
@@ -486,7 +486,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %75, %._crit_edge10.
 127:                                              ; preds = %142, %.lr.ph.us.i
   %128 = phi i32 [ %143, %142 ], [ %121, %.lr.ph.us.i ]
   %indvars.iv41.i = phi i64 [ %indvars.iv.next42.i, %142 ], [ 0, %.lr.ph.us.i ]
-  %.127.us.us.i = phi ptr [ %.4.us.us.i, %142 ], [ %.029.us.i, %.lr.ph.us.i ]
+  %.127.us.us.i = phi ptr [ %.3.us.us.i, %142 ], [ %.029.us.i, %.lr.ph.us.i ]
   %129 = load ptr, ptr %126, align 8
   %130 = getelementptr %struct.LogicalSlotInfo, ptr %129, i64 %indvars.iv41.i
   %131 = getelementptr inbounds i8, ptr %130, i64 18
@@ -512,7 +512,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %75, %._crit_edge10.
 
 142:                                              ; preds = %139, %127
   %143 = phi i32 [ %.pre47.i, %139 ], [ %128, %127 ]
-  %.4.us.us.i = phi ptr [ %.2.us.us.i, %139 ], [ %.127.us.us.i, %127 ]
+  %.3.us.us.i = phi ptr [ %.2.us.us.i, %139 ], [ %.127.us.us.i, %127 ]
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %144 = sext i32 %143 to i64
   %145 = icmp slt i64 %indvars.iv.next42.i, %144
@@ -534,7 +534,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %75, %._crit_edge10.
 
 152:                                              ; preds = %185, %.lr.ph.i12
   %indvars.iv.i13 = phi i64 [ 0, %.lr.ph.i12 ], [ %indvars.iv.next.i14, %185 ]
-  %.127.i = phi ptr [ %.029.i, %.lr.ph.i12 ], [ %.4.i, %185 ]
+  %.127.i = phi ptr [ %.029.i, %.lr.ph.i12 ], [ %.3.i, %185 ]
   %153 = load ptr, ptr %151, align 8
   %154 = getelementptr %struct.LogicalSlotInfo, ptr %153, i64 %indvars.iv.i13
   %155 = getelementptr inbounds i8, ptr %154, i64 18
@@ -587,13 +587,13 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %75, %._crit_edge10.
   unreachable
 
 182:                                              ; preds = %175, %173
-  %.3.i = phi ptr [ %176, %175 ], [ %.127.i, %173 ]
+  %.4.i = phi ptr [ %176, %175 ], [ %.127.i, %173 ]
   %183 = load ptr, ptr %154, align 8
-  %184 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.3.i, ptr noundef nonnull @.str.148, ptr noundef %183) #12
+  %184 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.4.i, ptr noundef nonnull @.str.148, ptr noundef %183) #12
   br label %185
 
 185:                                              ; preds = %182, %169, %166
-  %.4.i = phi ptr [ %.2.i15, %166 ], [ %.127.i, %169 ], [ %.3.i, %182 ]
+  %.3.i = phi ptr [ %.2.i15, %166 ], [ %.127.i, %169 ], [ %.4.i, %182 ]
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %186 = load i32, ptr %148, align 8
   %187 = sext i32 %186 to i64
@@ -606,7 +606,7 @@ check_for_isn_and_int8_passing_mismatch.exit:     ; preds = %75, %._crit_edge10.
 
 ._crit_edge.split.i:                              ; preds = %._crit_edge.split.loopexit.i, %.lr.ph31.split.i
   %189 = phi i32 [ %146, %.lr.ph31.split.i ], [ %.pre.i, %._crit_edge.split.loopexit.i ]
-  %.1.lcssa.i10 = phi ptr [ %.029.i, %.lr.ph31.split.i ], [ %.4.i, %._crit_edge.split.loopexit.i ]
+  %.1.lcssa.i10 = phi ptr [ %.029.i, %.lr.ph31.split.i ], [ %.3.i, %._crit_edge.split.loopexit.i ]
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %190 = sext i32 %189 to i64
   %191 = icmp slt i64 %indvars.iv.next39.i, %190
@@ -648,15 +648,15 @@ check_old_cluster_for_valid_slots.exit:           ; preds = %113, %._crit_edge32
   %204 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %201, ptr noundef nonnull @.str.152) #12
   %205 = call i32 @PQntuples(ptr noundef %204) #12
   %206 = icmp sgt i32 %205, 0
-  br i1 %206, label %.lr.ph.i22, label %._crit_edge.i20
+  br i1 %206, label %.lr.ph.i21, label %._crit_edge.i20
 
-.lr.ph.i22:                                       ; preds = %203, %215
+.lr.ph.i21:                                       ; preds = %203, %215
   %.03646.i = phi i32 [ %219, %215 ], [ 0, %203 ]
-  %.145.i = phi ptr [ %.2.i23, %215 ], [ %.03754.i, %203 ]
-  %207 = icmp eq ptr %.145.i, null
+  %.245.i = phi ptr [ %.3.i22, %215 ], [ %.03754.i, %203 ]
+  %207 = icmp eq ptr %.245.i, null
   br i1 %207, label %208, label %215
 
-208:                                              ; preds = %.lr.ph.i22
+208:                                              ; preds = %.lr.ph.i21
   %209 = call noalias ptr @fopen(ptr noundef nonnull %10, ptr noundef nonnull @.str.27)
   %210 = icmp eq ptr %209, null
   br i1 %210, label %211, label %215
@@ -668,22 +668,22 @@ check_old_cluster_for_valid_slots.exit:           ; preds = %113, %._crit_edge32
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.28, ptr noundef nonnull %10, ptr noundef %214) #14
   unreachable
 
-215:                                              ; preds = %208, %.lr.ph.i22
-  %.2.i23 = phi ptr [ %209, %208 ], [ %.145.i, %.lr.ph.i22 ]
+215:                                              ; preds = %208, %.lr.ph.i21
+  %.3.i22 = phi ptr [ %209, %208 ], [ %.245.i, %.lr.ph.i21 ]
   %216 = call ptr @PQgetvalue(ptr noundef %204, i32 noundef %.03646.i, i32 noundef 0) #12
   %217 = call ptr @PQgetvalue(ptr noundef %204, i32 noundef %.03646.i, i32 noundef 1) #12
-  %218 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i23, ptr noundef nonnull @.str.153, ptr noundef %216, ptr noundef %217) #12
+  %218 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.3.i22, ptr noundef nonnull @.str.153, ptr noundef %216, ptr noundef %217) #12
   %219 = add nuw nsw i32 %.03646.i, 1
-  %exitcond.not.i24 = icmp eq i32 %219, %205
-  br i1 %exitcond.not.i24, label %._crit_edge.i20, label %.lr.ph.i22, !llvm.loop !11
+  %exitcond.not.i23 = icmp eq i32 %219, %205
+  br i1 %exitcond.not.i23, label %._crit_edge.i20, label %.lr.ph.i21, !llvm.loop !11
 
 ._crit_edge.i20:                                  ; preds = %215, %203
-  %.1.lcssa.i21 = phi ptr [ %.03754.i, %203 ], [ %.2.i23, %215 ]
+  %.2.lcssa.i = phi ptr [ %.03754.i, %203 ], [ %.3.i22, %215 ]
   call void @PQclear(ptr noundef %204) #12
   br label %220
 
 220:                                              ; preds = %._crit_edge.i20, %.lr.ph56.i
-  %.3.i17 = phi ptr [ %.1.lcssa.i21, %._crit_edge.i20 ], [ %.03754.i, %.lr.ph56.i ]
+  %.1.i17 = phi ptr [ %.2.lcssa.i, %._crit_edge.i20 ], [ %.03754.i, %.lr.ph56.i ]
   %221 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %201, ptr noundef nonnull @.str.154) #12
   %222 = call i32 @PQntuples(ptr noundef %221) #12
   %223 = icmp sgt i32 %222, 0
@@ -691,7 +691,7 @@ check_old_cluster_for_valid_slots.exit:           ; preds = %113, %._crit_edge32
 
 .lr.ph50.i:                                       ; preds = %220, %232
   %.048.i = phi i32 [ %239, %232 ], [ 0, %220 ]
-  %.447.i = phi ptr [ %.5.i, %232 ], [ %.3.i17, %220 ]
+  %.447.i = phi ptr [ %.5.i, %232 ], [ %.1.i17, %220 ]
   %224 = icmp eq ptr %.447.i, null
   br i1 %224, label %225, label %232
 
@@ -720,7 +720,7 @@ check_old_cluster_for_valid_slots.exit:           ; preds = %113, %._crit_edge32
   br i1 %exitcond59.not.i, label %._crit_edge51.i, label %.lr.ph50.i, !llvm.loop !12
 
 ._crit_edge51.i:                                  ; preds = %232, %220
-  %.4.lcssa.i = phi ptr [ %.3.i17, %220 ], [ %.5.i, %232 ]
+  %.4.lcssa.i = phi ptr [ %.1.i17, %220 ], [ %.5.i, %232 ]
   call void @PQclear(ptr noundef %221) #12
   call void @PQfinish(ptr noundef %201) #12
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i16, 1
@@ -748,7 +748,7 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
 245:                                              ; preds = %check_old_cluster_subscription_state.exit, %check_for_isn_and_int8_passing_mismatch.exit
   %246 = phi i32 [ %.pr, %check_old_cluster_subscription_state.exit ], [ %111, %check_for_isn_and_int8_passing_mismatch.exit ]
   %247 = icmp ult i32 %246, 150100
-  br i1 %247, label %248, label %.thread88
+  br i1 %247, label %248, label %.thread87
 
 248:                                              ; preds = %245
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %9)
@@ -773,13 +773,13 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call fastcc void @check_for_removed_data_type_usage(ptr noundef nonnull @.str.3)
   call fastcc void @check_for_removed_data_type_usage(ptr noundef nonnull @.str.4)
   call fastcc void @check_for_removed_data_type_usage(ptr noundef nonnull @.str.5)
-  %.pr77 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
+  %.pr76 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   br label %255
 
 255:                                              ; preds = %254, %252
-  %256 = phi i32 [ %.pr77, %254 ], [ %.pre, %252 ]
+  %256 = phi i32 [ %.pr76, %254 ], [ %.pre, %252 ]
   %257 = icmp ult i32 %256, 130100
-  br i1 %257, label %258, label %.thread88
+  br i1 %257, label %258, label %.thread87
 
 258:                                              ; preds = %255
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8)
@@ -788,13 +788,13 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   %260 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %259, ptr noundef nonnull @.str.127) #12
   %261 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %262 = icmp sgt i32 %261, 0
-  br i1 %262, label %.lr.ph9.i26, label %296
+  br i1 %262, label %.lr.ph9.i25, label %296
 
-.lr.ph9.i26:                                      ; preds = %258, %._crit_edge.i28
-  %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i30, %._crit_edge.i28 ], [ 0, %258 ]
-  %.0326.i = phi ptr [ %.1.lcssa.i29, %._crit_edge.i28 ], [ null, %258 ]
+.lr.ph9.i25:                                      ; preds = %258, %._crit_edge.i27
+  %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i29, %._crit_edge.i27 ], [ 0, %258 ]
+  %.0326.i = phi ptr [ %.1.lcssa.i28, %._crit_edge.i27 ], [ null, %258 ]
   %263 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
-  %264 = getelementptr %struct.DbInfo, ptr %263, i64 %indvars.iv.i27, i32 1
+  %264 = getelementptr %struct.DbInfo, ptr %263, i64 %indvars.iv.i26, i32 1
   %265 = load ptr, ptr %264, align 8
   %266 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef %265) #12
   %267 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %266, ptr noundef nonnull @.str.128) #12
@@ -803,16 +803,16 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   %270 = call i32 @PQfnumber(ptr noundef %267, ptr noundef nonnull @.str.130) #12
   %271 = call i32 @PQfnumber(ptr noundef %267, ptr noundef nonnull @.str.68) #12
   %272 = icmp sgt i32 %268, 0
-  br i1 %272, label %.lr.ph.i33, label %._crit_edge.i28
+  br i1 %272, label %.lr.ph.i32, label %._crit_edge.i27
 
-.lr.ph.i33:                                       ; preds = %.lr.ph9.i26, %285
-  %.15.i34 = phi ptr [ %.2.i35, %285 ], [ %.0326.i, %.lr.ph9.i26 ]
-  %.0334.i = phi i1 [ true, %285 ], [ false, %.lr.ph9.i26 ]
-  %.0353.i = phi i32 [ %290, %285 ], [ 0, %.lr.ph9.i26 ]
-  %273 = icmp eq ptr %.15.i34, null
+.lr.ph.i32:                                       ; preds = %.lr.ph9.i25, %285
+  %.15.i33 = phi ptr [ %.2.i34, %285 ], [ %.0326.i, %.lr.ph9.i25 ]
+  %.0334.i = phi i1 [ true, %285 ], [ false, %.lr.ph9.i25 ]
+  %.0353.i = phi i32 [ %290, %285 ], [ 0, %.lr.ph9.i25 ]
+  %273 = icmp eq ptr %.15.i33, null
   br i1 %273, label %274, label %281
 
-274:                                              ; preds = %.lr.ph.i33
+274:                                              ; preds = %.lr.ph.i32
   %275 = call noalias ptr @fopen(ptr noundef nonnull %8, ptr noundef nonnull @.str.27)
   %276 = icmp eq ptr %275, null
   br i1 %276, label %277, label %281
@@ -824,50 +824,50 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.28, ptr noundef nonnull %8, ptr noundef %280) #14
   unreachable
 
-281:                                              ; preds = %274, %.lr.ph.i33
-  %.2.i35 = phi ptr [ %275, %274 ], [ %.15.i34, %.lr.ph.i33 ]
+281:                                              ; preds = %274, %.lr.ph.i32
+  %.2.i34 = phi ptr [ %275, %274 ], [ %.15.i33, %.lr.ph.i32 ]
   br i1 %.0334.i, label %285, label %282
 
 282:                                              ; preds = %281
   %283 = load ptr, ptr %264, align 8
-  %284 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i35, ptr noundef nonnull @.str.70, ptr noundef %283) #12
+  %284 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i34, ptr noundef nonnull @.str.70, ptr noundef %283) #12
   br label %285
 
 285:                                              ; preds = %282, %281
   %286 = call ptr @PQgetvalue(ptr noundef %267, i32 noundef %.0353.i, i32 noundef %269) #12
   %287 = call ptr @PQgetvalue(ptr noundef %267, i32 noundef %.0353.i, i32 noundef %271) #12
   %288 = call ptr @PQgetvalue(ptr noundef %267, i32 noundef %.0353.i, i32 noundef %270) #12
-  %289 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i35, ptr noundef nonnull @.str.131, ptr noundef %286, ptr noundef %287, ptr noundef %288) #12
+  %289 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i34, ptr noundef nonnull @.str.131, ptr noundef %286, ptr noundef %287, ptr noundef %288) #12
   %290 = add nuw nsw i32 %.0353.i, 1
-  %exitcond.not.i36 = icmp eq i32 %290, %268
-  br i1 %exitcond.not.i36, label %._crit_edge.i28, label %.lr.ph.i33, !llvm.loop !14
+  %exitcond.not.i35 = icmp eq i32 %290, %268
+  br i1 %exitcond.not.i35, label %._crit_edge.i27, label %.lr.ph.i32, !llvm.loop !14
 
-._crit_edge.i28:                                  ; preds = %285, %.lr.ph9.i26
-  %.1.lcssa.i29 = phi ptr [ %.0326.i, %.lr.ph9.i26 ], [ %.2.i35, %285 ]
+._crit_edge.i27:                                  ; preds = %285, %.lr.ph9.i25
+  %.1.lcssa.i28 = phi ptr [ %.0326.i, %.lr.ph9.i25 ], [ %.2.i34, %285 ]
   call void @PQclear(ptr noundef %267) #12
   call void @PQfinish(ptr noundef %266) #12
-  %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i27, 1
+  %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i26, 1
   %291 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %292 = sext i32 %291 to i64
-  %293 = icmp slt i64 %indvars.iv.next.i30, %292
-  br i1 %293, label %.lr.ph9.i26, label %._crit_edge10.i31, !llvm.loop !15
+  %293 = icmp slt i64 %indvars.iv.next.i29, %292
+  br i1 %293, label %.lr.ph9.i25, label %._crit_edge10.i30, !llvm.loop !15
 
-._crit_edge10.i31:                                ; preds = %._crit_edge.i28
-  %.not.i32 = icmp eq ptr %.1.lcssa.i29, null
-  br i1 %.not.i32, label %296, label %294
+._crit_edge10.i30:                                ; preds = %._crit_edge.i27
+  %.not.i31 = icmp eq ptr %.1.lcssa.i28, null
+  br i1 %.not.i31, label %296, label %294
 
-294:                                              ; preds = %._crit_edge10.i31
-  %295 = call i32 @fclose(ptr noundef nonnull %.1.lcssa.i29)
+294:                                              ; preds = %._crit_edge10.i30
+  %295 = call i32 @fclose(ptr noundef nonnull %.1.lcssa.i28)
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.59) #12
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.132, ptr noundef nonnull %8) #14
   unreachable
 
-296:                                              ; preds = %._crit_edge10.i31, %258
+296:                                              ; preds = %._crit_edge10.i30, %258
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8)
-  %.pre99 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
-  %297 = icmp ult i32 %.pre99, 130100
-  br i1 %297, label %298, label %.thread88
+  %.pre98 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
+  %297 = icmp ult i32 %.pre98, 130100
+  br i1 %297, label %298, label %.thread87
 
 298:                                              ; preds = %296
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
@@ -876,13 +876,13 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   %300 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %299, ptr noundef nonnull @.str.74) #12
   %301 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %302 = icmp sgt i32 %301, 0
-  br i1 %302, label %.lr.ph9.i38, label %340
+  br i1 %302, label %.lr.ph9.i37, label %340
 
-.lr.ph9.i38:                                      ; preds = %298, %._crit_edge.i40
-  %indvars.iv.i39 = phi i64 [ %indvars.iv.next.i42, %._crit_edge.i40 ], [ 0, %298 ]
-  %.0406.i = phi ptr [ %.1.lcssa.i41, %._crit_edge.i40 ], [ null, %298 ]
+.lr.ph9.i37:                                      ; preds = %298, %._crit_edge.i39
+  %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i41, %._crit_edge.i39 ], [ 0, %298 ]
+  %.0406.i = phi ptr [ %.1.lcssa.i40, %._crit_edge.i39 ], [ null, %298 ]
   %303 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
-  %304 = getelementptr %struct.DbInfo, ptr %303, i64 %indvars.iv.i39, i32 1
+  %304 = getelementptr %struct.DbInfo, ptr %303, i64 %indvars.iv.i38, i32 1
   %305 = load ptr, ptr %304, align 8
   %306 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef %305) #12
   %307 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %306, ptr noundef nonnull @.str.75) #12
@@ -893,16 +893,16 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   %312 = call i32 @PQfnumber(ptr noundef %307, ptr noundef nonnull @.str.79) #12
   %313 = call i32 @PQfnumber(ptr noundef %307, ptr noundef nonnull @.str.80) #12
   %314 = icmp sgt i32 %308, 0
-  br i1 %314, label %.lr.ph.i45, label %._crit_edge.i40
+  br i1 %314, label %.lr.ph.i44, label %._crit_edge.i39
 
-.lr.ph.i45:                                       ; preds = %.lr.ph9.i38, %327
-  %.15.i46 = phi ptr [ %.2.i47, %327 ], [ %.0406.i, %.lr.ph9.i38 ]
-  %.0414.i = phi i1 [ true, %327 ], [ false, %.lr.ph9.i38 ]
-  %.0433.i = phi i32 [ %334, %327 ], [ 0, %.lr.ph9.i38 ]
-  %315 = icmp eq ptr %.15.i46, null
+.lr.ph.i44:                                       ; preds = %.lr.ph9.i37, %327
+  %.15.i45 = phi ptr [ %.2.i46, %327 ], [ %.0406.i, %.lr.ph9.i37 ]
+  %.0414.i = phi i1 [ true, %327 ], [ false, %.lr.ph9.i37 ]
+  %.0433.i = phi i32 [ %334, %327 ], [ 0, %.lr.ph9.i37 ]
+  %315 = icmp eq ptr %.15.i45, null
   br i1 %315, label %316, label %323
 
-316:                                              ; preds = %.lr.ph.i45
+316:                                              ; preds = %.lr.ph.i44
   %317 = call noalias ptr @fopen(ptr noundef nonnull %7, ptr noundef nonnull @.str.27)
   %318 = icmp eq ptr %317, null
   br i1 %318, label %319, label %323
@@ -914,13 +914,13 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.28, ptr noundef nonnull %7, ptr noundef %322) #14
   unreachable
 
-323:                                              ; preds = %316, %.lr.ph.i45
-  %.2.i47 = phi ptr [ %317, %316 ], [ %.15.i46, %.lr.ph.i45 ]
+323:                                              ; preds = %316, %.lr.ph.i44
+  %.2.i46 = phi ptr [ %317, %316 ], [ %.15.i45, %.lr.ph.i44 ]
   br i1 %.0414.i, label %327, label %324
 
 324:                                              ; preds = %323
   %325 = load ptr, ptr %304, align 8
-  %326 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i47, ptr noundef nonnull @.str.70, ptr noundef %325) #12
+  %326 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i46, ptr noundef nonnull @.str.70, ptr noundef %325) #12
   br label %327
 
 327:                                              ; preds = %324, %323
@@ -929,37 +929,37 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   %330 = call ptr @PQgetvalue(ptr noundef %307, i32 noundef %.0433.i, i32 noundef %311) #12
   %331 = call ptr @PQgetvalue(ptr noundef %307, i32 noundef %.0433.i, i32 noundef %312) #12
   %332 = call ptr @PQgetvalue(ptr noundef %307, i32 noundef %.0433.i, i32 noundef %313) #12
-  %333 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i47, ptr noundef nonnull @.str.81, ptr noundef %328, ptr noundef %329, ptr noundef %330, ptr noundef %331, ptr noundef %332) #12
+  %333 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i46, ptr noundef nonnull @.str.81, ptr noundef %328, ptr noundef %329, ptr noundef %330, ptr noundef %331, ptr noundef %332) #12
   %334 = add nuw nsw i32 %.0433.i, 1
-  %exitcond.not.i48 = icmp eq i32 %334, %308
-  br i1 %exitcond.not.i48, label %._crit_edge.i40, label %.lr.ph.i45, !llvm.loop !16
+  %exitcond.not.i47 = icmp eq i32 %334, %308
+  br i1 %exitcond.not.i47, label %._crit_edge.i39, label %.lr.ph.i44, !llvm.loop !16
 
-._crit_edge.i40:                                  ; preds = %327, %.lr.ph9.i38
-  %.1.lcssa.i41 = phi ptr [ %.0406.i, %.lr.ph9.i38 ], [ %.2.i47, %327 ]
+._crit_edge.i39:                                  ; preds = %327, %.lr.ph9.i37
+  %.1.lcssa.i40 = phi ptr [ %.0406.i, %.lr.ph9.i37 ], [ %.2.i46, %327 ]
   call void @PQclear(ptr noundef %307) #12
   call void @PQfinish(ptr noundef %306) #12
-  %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i39, 1
+  %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i38, 1
   %335 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %336 = sext i32 %335 to i64
-  %337 = icmp slt i64 %indvars.iv.next.i42, %336
-  br i1 %337, label %.lr.ph9.i38, label %._crit_edge10.i43, !llvm.loop !17
+  %337 = icmp slt i64 %indvars.iv.next.i41, %336
+  br i1 %337, label %.lr.ph9.i37, label %._crit_edge10.i42, !llvm.loop !17
 
-._crit_edge10.i43:                                ; preds = %._crit_edge.i40
-  %.not.i44 = icmp eq ptr %.1.lcssa.i41, null
-  br i1 %.not.i44, label %340, label %338
+._crit_edge10.i42:                                ; preds = %._crit_edge.i39
+  %.not.i43 = icmp eq ptr %.1.lcssa.i40, null
+  br i1 %.not.i43, label %340, label %338
 
-338:                                              ; preds = %._crit_edge10.i43
-  %339 = call i32 @fclose(ptr noundef nonnull %.1.lcssa.i41)
+338:                                              ; preds = %._crit_edge10.i42
+  %339 = call i32 @fclose(ptr noundef nonnull %.1.lcssa.i40)
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.59) #12
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.82, ptr noundef nonnull %7) #14
   unreachable
 
-340:                                              ; preds = %._crit_edge10.i43, %298
+340:                                              ; preds = %._crit_edge10.i42, %298
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
-  %.pr78 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
-  %341 = icmp ult i32 %.pr78, 130100
-  br i1 %341, label %342, label %.thread88
+  %.pr77 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
+  %341 = icmp ult i32 %.pr77, 130100
+  br i1 %341, label %342, label %.thread87
 
 342:                                              ; preds = %340
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5)
@@ -988,11 +988,11 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   %351 = icmp sgt i32 %350, 0
   br i1 %351, label %.lr.ph8.i, label %384
 
-.lr.ph8.i:                                        ; preds = %.thread.i, %._crit_edge.i50
-  %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i52, %._crit_edge.i50 ], [ 0, %.thread.i ]
-  %.0307.i = phi ptr [ %.1.lcssa.i51, %._crit_edge.i50 ], [ null, %.thread.i ]
+.lr.ph8.i:                                        ; preds = %.thread.i, %._crit_edge.i49
+  %indvars.iv.i48 = phi i64 [ %indvars.iv.next.i51, %._crit_edge.i49 ], [ 0, %.thread.i ]
+  %.0307.i = phi ptr [ %.1.lcssa.i50, %._crit_edge.i49 ], [ null, %.thread.i ]
   %352 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
-  %353 = getelementptr %struct.DbInfo, ptr %352, i64 %indvars.iv.i49, i32 1
+  %353 = getelementptr %struct.DbInfo, ptr %352, i64 %indvars.iv.i48, i32 1
   %354 = load ptr, ptr %353, align 8
   %355 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef %354) #12
   %356 = load ptr, ptr %6, align 8
@@ -1001,16 +1001,16 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   %359 = call i32 @PQfnumber(ptr noundef %357, ptr noundef nonnull @.str.89) #12
   %360 = call i32 @PQfnumber(ptr noundef %357, ptr noundef nonnull @.str.90) #12
   %361 = icmp sgt i32 %358, 0
-  br i1 %361, label %.lr.ph.i54, label %._crit_edge.i50
+  br i1 %361, label %.lr.ph.i53, label %._crit_edge.i49
 
-.lr.ph.i54:                                       ; preds = %.lr.ph8.i, %374
+.lr.ph.i53:                                       ; preds = %.lr.ph8.i, %374
   %.05.i = phi i32 [ %378, %374 ], [ 0, %.lr.ph8.i ]
-  %.14.i = phi ptr [ %.2.i55, %374 ], [ %.0307.i, %.lr.ph8.i ]
+  %.14.i = phi ptr [ %.2.i54, %374 ], [ %.0307.i, %.lr.ph8.i ]
   %.0323.i = phi i1 [ true, %374 ], [ false, %.lr.ph8.i ]
   %362 = icmp eq ptr %.14.i, null
   br i1 %362, label %363, label %370
 
-363:                                              ; preds = %.lr.ph.i54
+363:                                              ; preds = %.lr.ph.i53
   %364 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.27)
   %365 = icmp eq ptr %364, null
   br i1 %365, label %366, label %370
@@ -1022,39 +1022,39 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.28, ptr noundef nonnull %5, ptr noundef %369) #14
   unreachable
 
-370:                                              ; preds = %363, %.lr.ph.i54
-  %.2.i55 = phi ptr [ %364, %363 ], [ %.14.i, %.lr.ph.i54 ]
+370:                                              ; preds = %363, %.lr.ph.i53
+  %.2.i54 = phi ptr [ %364, %363 ], [ %.14.i, %.lr.ph.i53 ]
   br i1 %.0323.i, label %374, label %371
 
 371:                                              ; preds = %370
   %372 = load ptr, ptr %353, align 8
-  %373 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i55, ptr noundef nonnull @.str.70, ptr noundef %372) #12
+  %373 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i54, ptr noundef nonnull @.str.70, ptr noundef %372) #12
   br label %374
 
 374:                                              ; preds = %371, %370
   %375 = call ptr @PQgetvalue(ptr noundef %357, i32 noundef %.05.i, i32 noundef %359) #12
   %376 = call ptr @PQgetvalue(ptr noundef %357, i32 noundef %.05.i, i32 noundef %360) #12
-  %377 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i55, ptr noundef nonnull @.str.91, ptr noundef %375, ptr noundef %376) #12
+  %377 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i54, ptr noundef nonnull @.str.91, ptr noundef %375, ptr noundef %376) #12
   %378 = add nuw nsw i32 %.05.i, 1
-  %exitcond.not.i56 = icmp eq i32 %378, %358
-  br i1 %exitcond.not.i56, label %._crit_edge.i50, label %.lr.ph.i54, !llvm.loop !18
+  %exitcond.not.i55 = icmp eq i32 %378, %358
+  br i1 %exitcond.not.i55, label %._crit_edge.i49, label %.lr.ph.i53, !llvm.loop !18
 
-._crit_edge.i50:                                  ; preds = %374, %.lr.ph8.i
-  %.1.lcssa.i51 = phi ptr [ %.0307.i, %.lr.ph8.i ], [ %.2.i55, %374 ]
+._crit_edge.i49:                                  ; preds = %374, %.lr.ph8.i
+  %.1.lcssa.i50 = phi ptr [ %.0307.i, %.lr.ph8.i ], [ %.2.i54, %374 ]
   call void @PQclear(ptr noundef %357) #12
   call void @PQfinish(ptr noundef %355) #12
-  %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i49, 1
+  %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i48, 1
   %379 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %380 = sext i32 %379 to i64
-  %381 = icmp slt i64 %indvars.iv.next.i52, %380
+  %381 = icmp slt i64 %indvars.iv.next.i51, %380
   br i1 %381, label %.lr.ph8.i, label %._crit_edge9.i, !llvm.loop !19
 
-._crit_edge9.i:                                   ; preds = %._crit_edge.i50
-  %.not.i53 = icmp eq ptr %.1.lcssa.i51, null
-  br i1 %.not.i53, label %384, label %382
+._crit_edge9.i:                                   ; preds = %._crit_edge.i49
+  %.not.i52 = icmp eq ptr %.1.lcssa.i50, null
+  br i1 %.not.i52, label %384, label %382
 
 382:                                              ; preds = %._crit_edge9.i
-  %383 = call i32 @fclose(ptr noundef nonnull %.1.lcssa.i51)
+  %383 = call i32 @fclose(ptr noundef nonnull %.1.lcssa.i50)
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.59) #12
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.92, ptr noundef nonnull %5) #14
   unreachable
@@ -1064,9 +1064,9 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void @termPQExpBuffer(ptr noundef nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %.pr79 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
-  %385 = icmp ult i32 %.pr79, 110100
-  br i1 %385, label %386, label %.thread88
+  %.pr78 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
+  %385 = icmp ult i32 %.pr78, 110100
+  br i1 %385, label %386, label %.thread87
 
 386:                                              ; preds = %384
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
@@ -1075,13 +1075,13 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   %388 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1024, ptr noundef nonnull @.str.49, ptr noundef %387, ptr noundef nonnull @.str.94) #12
   %389 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %390 = icmp sgt i32 %389, 0
-  br i1 %390, label %.lr.ph9.i58, label %.thread80
+  br i1 %390, label %.lr.ph9.i57, label %.thread79
 
-.lr.ph9.i58:                                      ; preds = %386, %._crit_edge.i61
-  %indvars.iv.i59 = phi i64 [ %indvars.iv.next.i63, %._crit_edge.i61 ], [ 0, %386 ]
-  %.0286.i60 = phi ptr [ %.1.lcssa.i62, %._crit_edge.i61 ], [ null, %386 ]
+.lr.ph9.i57:                                      ; preds = %386, %._crit_edge.i60
+  %indvars.iv.i58 = phi i64 [ %indvars.iv.next.i62, %._crit_edge.i60 ], [ 0, %386 ]
+  %.0286.i59 = phi ptr [ %.1.lcssa.i61, %._crit_edge.i60 ], [ null, %386 ]
   %391 = load ptr, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 120), align 8
-  %392 = getelementptr %struct.DbInfo, ptr %391, i64 %indvars.iv.i59, i32 1
+  %392 = getelementptr %struct.DbInfo, ptr %391, i64 %indvars.iv.i58, i32 1
   %393 = load ptr, ptr %392, align 8
   %394 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef %393) #12
   %395 = call ptr (ptr, ptr, ...) @executeQueryOrDie(ptr noundef %394, ptr noundef nonnull @.str.95) #12
@@ -1089,16 +1089,16 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   %397 = call i32 @PQfnumber(ptr noundef %395, ptr noundef nonnull @.str.68) #12
   %398 = call i32 @PQfnumber(ptr noundef %395, ptr noundef nonnull @.str.96) #12
   %399 = icmp sgt i32 %396, 0
-  br i1 %399, label %.lr.ph.i66, label %._crit_edge.i61
+  br i1 %399, label %.lr.ph.i65, label %._crit_edge.i60
 
-.lr.ph.i66:                                       ; preds = %.lr.ph9.i58, %412
-  %.15.i67 = phi ptr [ %.2.i70, %412 ], [ %.0286.i60, %.lr.ph9.i58 ]
-  %.0294.i68 = phi i1 [ true, %412 ], [ false, %.lr.ph9.i58 ]
-  %.0313.i69 = phi i32 [ %416, %412 ], [ 0, %.lr.ph9.i58 ]
-  %400 = icmp eq ptr %.15.i67, null
+.lr.ph.i65:                                       ; preds = %.lr.ph9.i57, %412
+  %.15.i66 = phi ptr [ %.2.i69, %412 ], [ %.0286.i59, %.lr.ph9.i57 ]
+  %.0294.i67 = phi i1 [ true, %412 ], [ false, %.lr.ph9.i57 ]
+  %.0313.i68 = phi i32 [ %416, %412 ], [ 0, %.lr.ph9.i57 ]
+  %400 = icmp eq ptr %.15.i66, null
   br i1 %400, label %401, label %408
 
-401:                                              ; preds = %.lr.ph.i66
+401:                                              ; preds = %.lr.ph.i65
   %402 = call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.27)
   %403 = icmp eq ptr %402, null
   br i1 %403, label %404, label %408
@@ -1110,72 +1110,72 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.28, ptr noundef nonnull %4, ptr noundef %407) #14
   unreachable
 
-408:                                              ; preds = %401, %.lr.ph.i66
-  %.2.i70 = phi ptr [ %402, %401 ], [ %.15.i67, %.lr.ph.i66 ]
-  br i1 %.0294.i68, label %412, label %409
+408:                                              ; preds = %401, %.lr.ph.i65
+  %.2.i69 = phi ptr [ %402, %401 ], [ %.15.i66, %.lr.ph.i65 ]
+  br i1 %.0294.i67, label %412, label %409
 
 409:                                              ; preds = %408
   %410 = load ptr, ptr %392, align 8
-  %411 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i70, ptr noundef nonnull @.str.70, ptr noundef %410) #12
+  %411 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i69, ptr noundef nonnull @.str.70, ptr noundef %410) #12
   br label %412
 
 412:                                              ; preds = %409, %408
-  %413 = call ptr @PQgetvalue(ptr noundef %395, i32 noundef %.0313.i69, i32 noundef %397) #12
-  %414 = call ptr @PQgetvalue(ptr noundef %395, i32 noundef %.0313.i69, i32 noundef %398) #12
-  %415 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i70, ptr noundef nonnull @.str.71, ptr noundef %413, ptr noundef %414) #12
-  %416 = add nuw nsw i32 %.0313.i69, 1
-  %exitcond.not.i71 = icmp eq i32 %416, %396
-  br i1 %exitcond.not.i71, label %._crit_edge.i61, label %.lr.ph.i66, !llvm.loop !20
+  %413 = call ptr @PQgetvalue(ptr noundef %395, i32 noundef %.0313.i68, i32 noundef %397) #12
+  %414 = call ptr @PQgetvalue(ptr noundef %395, i32 noundef %.0313.i68, i32 noundef %398) #12
+  %415 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.2.i69, ptr noundef nonnull @.str.71, ptr noundef %413, ptr noundef %414) #12
+  %416 = add nuw nsw i32 %.0313.i68, 1
+  %exitcond.not.i70 = icmp eq i32 %416, %396
+  br i1 %exitcond.not.i70, label %._crit_edge.i60, label %.lr.ph.i65, !llvm.loop !20
 
-._crit_edge.i61:                                  ; preds = %412, %.lr.ph9.i58
-  %.1.lcssa.i62 = phi ptr [ %.0286.i60, %.lr.ph9.i58 ], [ %.2.i70, %412 ]
+._crit_edge.i60:                                  ; preds = %412, %.lr.ph9.i57
+  %.1.lcssa.i61 = phi ptr [ %.0286.i59, %.lr.ph9.i57 ], [ %.2.i69, %412 ]
   call void @PQclear(ptr noundef %395) #12
   call void @PQfinish(ptr noundef %394) #12
-  %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i59, 1
+  %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i58, 1
   %417 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 128), align 8
   %418 = sext i32 %417 to i64
-  %419 = icmp slt i64 %indvars.iv.next.i63, %418
-  br i1 %419, label %.lr.ph9.i58, label %._crit_edge10.i64, !llvm.loop !21
+  %419 = icmp slt i64 %indvars.iv.next.i62, %418
+  br i1 %419, label %.lr.ph9.i57, label %._crit_edge10.i63, !llvm.loop !21
 
-._crit_edge10.i64:                                ; preds = %._crit_edge.i61
-  %.not.i65 = icmp eq ptr %.1.lcssa.i62, null
-  br i1 %.not.i65, label %.thread80, label %420
+._crit_edge10.i63:                                ; preds = %._crit_edge.i60
+  %.not.i64 = icmp eq ptr %.1.lcssa.i61, null
+  br i1 %.not.i64, label %.thread79, label %420
 
-420:                                              ; preds = %._crit_edge10.i64
-  %421 = call i32 @fclose(ptr noundef nonnull %.1.lcssa.i62)
+420:                                              ; preds = %._crit_edge10.i63
+  %421 = call i32 @fclose(ptr noundef nonnull %.1.lcssa.i61)
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.59) #12
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.97, ptr noundef nonnull %4) #14
   unreachable
 
-.thread80:                                        ; preds = %._crit_edge10.i64, %386
+.thread79:                                        ; preds = %._crit_edge10.i63, %386
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
-  %.pr81.pr = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
-  %422 = icmp ult i32 %.pr81.pr, 110100
-  br i1 %422, label %423, label %.thread88
+  %.pr80.pr = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
+  %422 = icmp ult i32 %.pr80.pr, 110100
+  br i1 %422, label %423, label %.thread87
 
-423:                                              ; preds = %.thread80
+423:                                              ; preds = %.thread79
   call void @old_11_check_for_sql_identifier_data_type_usage(ptr noundef nonnull @old_cluster) #12
-  %.pr83 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
-  %424 = icmp ult i32 %.pr83, 90700
-  br i1 %424, label %425, label %.thread88
+  %.pr82 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
+  %424 = icmp ult i32 %.pr82, 90700
+  br i1 %424, label %425, label %.thread87
 
 425:                                              ; preds = %423
   call void @old_9_6_check_for_unknown_data_type_usage(ptr noundef nonnull @old_cluster) #12
   %426 = load i8, ptr @user_opts, align 8
   %427 = trunc i8 %426 to i1
-  br i1 %427, label %428, label %.thread85
+  br i1 %427, label %428, label %.thread84
 
 428:                                              ; preds = %425
   call void @old_9_6_invalidate_hash_indexes(ptr noundef nonnull @old_cluster, i1 noundef zeroext true) #12
-  br label %.thread85
+  br label %.thread84
 
-.thread85:                                        ; preds = %425, %428
-  %.pr87.pr.pr = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
-  %429 = icmp ult i32 %.pr87.pr.pr, 90600
-  br i1 %429, label %430, label %.thread88
+.thread84:                                        ; preds = %425, %428
+  %.pr86.pr.pr = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
+  %429 = icmp ult i32 %.pr86.pr.pr, 90600
+  br i1 %429, label %430, label %.thread87
 
-430:                                              ; preds = %.thread85
+430:                                              ; preds = %.thread84
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
   %431 = call ptr @connectToServer(ptr noundef nonnull @old_cluster, ptr noundef nonnull @.str.40) #12
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.119) #12
@@ -1186,15 +1186,15 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   %436 = call i32 @PQfnumber(ptr noundef %434, ptr noundef nonnull @.str.122) #12
   %437 = call i32 @PQfnumber(ptr noundef %434, ptr noundef nonnull @.str.123) #12
   %438 = icmp sgt i32 %435, 0
-  br i1 %438, label %.lr.ph.i74, label %._crit_edge.i72
+  br i1 %438, label %.lr.ph.i73, label %._crit_edge.i71
 
-.lr.ph.i74:                                       ; preds = %430, %447
+.lr.ph.i73:                                       ; preds = %430, %447
   %.03.i = phi i32 [ %451, %447 ], [ 0, %430 ]
-  %.0192.i = phi ptr [ %.1.i75, %447 ], [ null, %430 ]
+  %.0192.i = phi ptr [ %.1.i74, %447 ], [ null, %430 ]
   %439 = icmp eq ptr %.0192.i, null
   br i1 %439, label %440, label %447
 
-440:                                              ; preds = %.lr.ph.i74
+440:                                              ; preds = %.lr.ph.i73
   %441 = call noalias ptr @fopen(ptr noundef nonnull %3, ptr noundef nonnull @.str.27)
   %442 = icmp eq ptr %441, null
   br i1 %442, label %443, label %447
@@ -1206,36 +1206,36 @@ check_old_cluster_subscription_state.exit:        ; preds = %check_old_cluster_f
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.28, ptr noundef nonnull %3, ptr noundef %446) #14
   unreachable
 
-447:                                              ; preds = %440, %.lr.ph.i74
-  %.1.i75 = phi ptr [ %441, %440 ], [ %.0192.i, %.lr.ph.i74 ]
+447:                                              ; preds = %440, %.lr.ph.i73
+  %.1.i74 = phi ptr [ %441, %440 ], [ %.0192.i, %.lr.ph.i73 ]
   %448 = call ptr @PQgetvalue(ptr noundef %434, i32 noundef %.03.i, i32 noundef %437) #12
   %449 = call ptr @PQgetvalue(ptr noundef %434, i32 noundef %.03.i, i32 noundef %436) #12
-  %450 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.1.i75, ptr noundef nonnull @.str.124, ptr noundef %448, ptr noundef %449) #12
+  %450 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.1.i74, ptr noundef nonnull @.str.124, ptr noundef %448, ptr noundef %449) #12
   %451 = add nuw nsw i32 %.03.i, 1
-  %exitcond.not.i76 = icmp eq i32 %451, %435
-  br i1 %exitcond.not.i76, label %._crit_edge.i72, label %.lr.ph.i74, !llvm.loop !22
+  %exitcond.not.i75 = icmp eq i32 %451, %435
+  br i1 %exitcond.not.i75, label %._crit_edge.i71, label %.lr.ph.i73, !llvm.loop !22
 
-._crit_edge.i72:                                  ; preds = %447, %430
-  %.019.lcssa.i = phi ptr [ null, %430 ], [ %.1.i75, %447 ]
+._crit_edge.i71:                                  ; preds = %447, %430
+  %.019.lcssa.i = phi ptr [ null, %430 ], [ %.1.i74, %447 ]
   call void @PQclear(ptr noundef %434) #12
   call void @PQfinish(ptr noundef %431) #12
-  %.not.i73 = icmp eq ptr %.019.lcssa.i, null
-  br i1 %.not.i73, label %check_for_pg_role_prefix.exit, label %452
+  %.not.i72 = icmp eq ptr %.019.lcssa.i, null
+  br i1 %.not.i72, label %check_for_pg_role_prefix.exit, label %452
 
-452:                                              ; preds = %._crit_edge.i72
+452:                                              ; preds = %._crit_edge.i71
   %453 = call i32 @fclose(ptr noundef nonnull %.019.lcssa.i)
   call void (i32, ptr, ...) @pg_log(i32 noundef 3, ptr noundef nonnull @.str.59) #12
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.125, ptr noundef nonnull %3) #14
   unreachable
 
-check_for_pg_role_prefix.exit:                    ; preds = %._crit_edge.i72
+check_for_pg_role_prefix.exit:                    ; preds = %._crit_edge.i71
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
-  %.pre100 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
-  br label %.thread88
+  %.pre99 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
+  br label %.thread87
 
-.thread88:                                        ; preds = %245, %255, %296, %340, %.thread80, %384, %423, %check_for_pg_role_prefix.exit, %.thread85
-  %454 = phi i32 [ %.pre99, %296 ], [ %.pr78, %340 ], [ %.pr81.pr, %.thread80 ], [ %.pr79, %384 ], [ %.pr83, %423 ], [ %.pre100, %check_for_pg_role_prefix.exit ], [ %.pr87.pr.pr, %.thread85 ], [ %256, %255 ], [ %246, %245 ]
+.thread87:                                        ; preds = %245, %255, %296, %340, %.thread79, %384, %423, %check_for_pg_role_prefix.exit, %.thread84
+  %454 = phi i32 [ %.pre98, %296 ], [ %.pr77, %340 ], [ %.pr80.pr, %.thread79 ], [ %.pr78, %384 ], [ %.pr82, %423 ], [ %.pre99, %check_for_pg_role_prefix.exit ], [ %.pr86.pr.pr, %.thread84 ], [ %256, %255 ], [ %246, %245 ]
   %.off = add i32 %454, -90400
   %455 = icmp ult i32 %.off, 100
   %456 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 4), align 4
@@ -1243,7 +1243,7 @@ check_for_pg_role_prefix.exit:                    ; preds = %._crit_edge.i72
   %or.cond = select i1 %455, i1 %457, i1 false
   br i1 %or.cond, label %458, label %463
 
-458:                                              ; preds = %.thread88
+458:                                              ; preds = %.thread87
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2)
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.115) #12
   %459 = load ptr, ptr getelementptr inbounds (i8, ptr @log_opts, i64 24), align 8
@@ -1259,11 +1259,11 @@ check_for_pg_role_prefix.exit:                    ; preds = %._crit_edge.i72
 check_for_jsonb_9_4_usage.exit:                   ; preds = %458
   call void @check_ok() #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2)
-  %.pre101 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
+  %.pre100 = load i32, ptr getelementptr inbounds (i8, ptr @old_cluster, i64 180), align 4
   br label %463
 
-463:                                              ; preds = %check_for_jsonb_9_4_usage.exit, %.thread88
-  %464 = phi i32 [ %.pre101, %check_for_jsonb_9_4_usage.exit ], [ %454, %.thread88 ]
+463:                                              ; preds = %check_for_jsonb_9_4_usage.exit, %.thread87
+  %464 = phi i32 [ %.pre100, %check_for_jsonb_9_4_usage.exit ], [ %454, %.thread87 ]
   %465 = icmp ult i32 %464, 90400
   br i1 %465, label %466, label %467
 

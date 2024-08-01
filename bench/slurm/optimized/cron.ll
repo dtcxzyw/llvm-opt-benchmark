@@ -445,7 +445,7 @@ define dso_local i64 @calc_next_cron_start(ptr nocapture noundef readonly %0, i6
   br i1 %35, label %.lr.ph.preheader.i, label %.lr.ph34.i.preheader
 
 .lr.ph34.i.preheader:                             ; preds = %.preheader.i, %34
-  %.132.i.ph = phi i32 [ 0, %34 ], [ %37, %.preheader.i ]
+  %.232.i.ph = phi i32 [ 0, %34 ], [ %37, %.preheader.i ]
   br label %.lr.ph34.i
 
 .lr.ph.preheader.i:                               ; preds = %34
@@ -474,7 +474,7 @@ define dso_local i64 @calc_next_cron_start(ptr nocapture noundef readonly %0, i6
 
 .lr.ph34.i:                                       ; preds = %.lr.ph34.i.preheader, %45
   %indvars.iv39.i = phi i64 [ %indvars.iv.next40.i, %45 ], [ 0, %.lr.ph34.i.preheader ]
-  %.132.i = phi i32 [ %46, %45 ], [ %.132.i.ph, %.lr.ph34.i.preheader ]
+  %.232.i = phi i32 [ %46, %45 ], [ %.232.i.ph, %.lr.ph34.i.preheader ]
   %43 = load ptr, ptr %16, align 8
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
   %44 = call i32 @bit_test(ptr noundef %43, i64 noundef %indvars.iv.next40.i) #6
@@ -482,7 +482,7 @@ define dso_local i64 @calc_next_cron_start(ptr nocapture noundef readonly %0, i6
   br i1 %.not25.i, label %45, label %.loopexit.i
 
 45:                                               ; preds = %.lr.ph34.i
-  %46 = add nuw nsw i32 %.132.i, 1
+  %46 = add nuw nsw i32 %.232.i, 1
   %47 = load i32, ptr %17, align 8
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next40.i, %48
@@ -493,9 +493,9 @@ define dso_local i64 @calc_next_cron_start(ptr nocapture noundef readonly %0, i6
   unreachable
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph34.i
-  %.2.i = phi i32 [ %.132.i, %.lr.ph34.i ], [ %.02230.i, %.lr.ph.i ]
+  %.1.i = phi i32 [ %.232.i, %.lr.ph34.i ], [ %.02230.i, %.lr.ph.i ]
   %50 = load i32, ptr %17, align 8
-  %51 = add nsw i32 %50, %.2.i
+  %51 = add nsw i32 %50, %.1.i
   store i32 %51, ptr %17, align 8
   store i32 0, ptr %18, align 8
   store i32 0, ptr %19, align 4

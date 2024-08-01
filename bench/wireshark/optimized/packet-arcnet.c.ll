@@ -303,20 +303,20 @@ define internal fastcc void @dissect_arcnet_common(ptr noundef %0, ptr noundef %
 
 65:                                               ; preds = %54, %50
   %.080 = phi i8 [ %64, %54 ], [ %51, %50 ]
-  %.1 = phi i32 [ %63, %54 ], [ %49, %50 ]
+  %.2 = phi i32 [ %63, %54 ], [ %49, %50 ]
   %66 = load i32, ptr @hf_arcnet_split_flag, align 4
   %67 = zext i8 %.080 to i32
-  %68 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %66, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef %67) #3
-  %69 = add nuw nsw i32 %.1, 1
+  %68 = tail call ptr @proto_tree_add_uint(ptr noundef %34, i32 noundef %66, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %67) #3
+  %69 = add nuw nsw i32 %.2, 1
   %70 = load i32, ptr @hf_arcnet_sequence, align 4
   %71 = tail call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %70, ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef 0) #3
-  %72 = add nuw nsw i32 %.1, 3
+  %72 = add nuw nsw i32 %.2, 3
   br label %73
 
 73:                                               ; preds = %44, %44, %44, %44, %65
-  %.2 = phi i32 [ %72, %65 ], [ %49, %44 ], [ %49, %44 ], [ %49, %44 ], [ %49, %44 ]
-  tail call void @proto_item_set_len(ptr noundef %32, i32 noundef %.2) #3
-  %74 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2) #3
+  %.1 = phi i32 [ %72, %65 ], [ %49, %44 ], [ %49, %44 ], [ %49, %44 ], [ %49, %44 ]
+  tail call void @proto_item_set_len(ptr noundef %32, i32 noundef %.1) #3
+  %74 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1) #3
   %75 = load ptr, ptr @arcnet_dissector_table, align 8
   %76 = tail call i32 @dissector_try_uint(ptr noundef %75, i32 noundef %47, ptr noundef %74, ptr noundef nonnull %1, ptr noundef %2) #3
   %.not82 = icmp eq i32 %76, 0

@@ -183,13 +183,13 @@ if.end29:                                         ; preds = %if.end28, %if.end4
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end24, %if.end29, %if.then23, %if.then19, %if.then16
-  %retval.0 = phi i32 [ -22, %if.then23 ], [ 0, %if.end29 ], [ -22, %if.then19 ], [ -22, %if.then16 ], [ -22, %if.end24 ]
+  %retval.1 = phi i32 [ -22, %if.then23 ], [ 0, %if.end29 ], [ -22, %if.then19 ], [ -22, %if.then16 ], [ -22, %if.end24 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #4
   br label %return
 
 return:                                           ; preds = %do.end, %glib_autoptr_cleanup_GraphLockableMainloop.exit
-  %retval.1 = phi i32 [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call2, %do.end ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call2, %do.end ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -302,14 +302,14 @@ if.then5:                                         ; preds = %while.body
 
 if.end19:                                         ; preds = %while.body.if.end19_crit_edge, %if.then5
   %.pre29 = phi i64 [ %9, %if.then5 ], [ %.pre29.pre, %while.body.if.end19_crit_edge ]
-  %local_flags.1 = phi i32 [ %spec.select, %if.then5 ], [ %flags, %while.body.if.end19_crit_edge ]
-  %and = and i32 %local_flags.1, 513
+  %local_flags.0 = phi i32 [ %spec.select, %if.then5 ], [ %flags, %while.body.if.end19_crit_edge ]
+  %and = and i32 %local_flags.0, 513
   %cmp20.not = icmp eq i32 %and, 512
   br i1 %cmp20.not, label %if.end27, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
   %10 = load ptr, ptr %file2, align 8
-  %call23 = call i32 @bdrv_co_preadv_part(ptr noundef %10, i64 noundef %offset.addr.026, i64 noundef %.pre29, ptr noundef %qiov, i64 noundef %qiov_offset.addr.025, i32 noundef %local_flags.1) #4
+  %call23 = call i32 @bdrv_co_preadv_part(ptr noundef %10, i64 noundef %offset.addr.026, i64 noundef %.pre29, ptr noundef %qiov, i64 noundef %qiov_offset.addr.025, i32 noundef %local_flags.0) #4
   %cmp24 = icmp slt i32 %call23, 0
   br i1 %cmp24, label %return, label %if.then21.if.end27_crit_edge
 

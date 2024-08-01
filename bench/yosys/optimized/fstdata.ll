@@ -622,51 +622,51 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
 
 170:                                              ; preds = %.loopexit76, %161
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit76 ], [ %162, %161 ]
-  %.028 = phi ptr [ %117, %.loopexit76 ], [ %115, %161 ]
-  %.121 = phi i1 [ %169, %.loopexit76 ], [ false, %161 ]
+  %.634 = phi ptr [ %117, %.loopexit76 ], [ %115, %161 ]
+  %.626 = phi i1 [ %169, %.loopexit76 ], [ false, %161 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #22
   br label %171
 
 171:                                              ; preds = %170, %159
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %170 ], [ %160, %159 ]
-  %.129 = phi ptr [ %.028, %170 ], [ %113, %159 ]
-  %.222 = phi i1 [ %.121, %170 ], [ false, %159 ]
+  %.533 = phi ptr [ %.634, %170 ], [ %113, %159 ]
+  %.525 = phi i1 [ %.626, %170 ], [ false, %159 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #22
   br label %172
 
 172:                                              ; preds = %171, %157
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %171 ], [ %158, %157 ]
-  %.230 = phi ptr [ %.129, %171 ], [ %111, %157 ]
-  %.323 = phi i1 [ %.222, %171 ], [ false, %157 ]
+  %.432 = phi ptr [ %.533, %171 ], [ %111, %157 ]
+  %.424 = phi i1 [ %.525, %171 ], [ false, %157 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #22
   br label %173
 
 173:                                              ; preds = %172, %155
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %172 ], [ %156, %155 ]
-  %.331 = phi ptr [ %.230, %172 ], [ %109, %155 ]
-  %.424 = phi i1 [ %.323, %172 ], [ false, %155 ]
+  %.331 = phi ptr [ %.432, %172 ], [ %109, %155 ]
+  %.323 = phi i1 [ %.424, %172 ], [ false, %155 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #22
   br label %174
 
 174:                                              ; preds = %173, %153
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %173 ], [ %154, %153 ]
-  %.432 = phi ptr [ %.331, %173 ], [ %107, %153 ]
-  %.525 = phi i1 [ %.424, %173 ], [ false, %153 ]
+  %.230 = phi ptr [ %.331, %173 ], [ %107, %153 ]
+  %.222 = phi i1 [ %.323, %173 ], [ false, %153 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #22
   br label %175
 
 175:                                              ; preds = %151, %174
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %174 ], [ %152, %151 ]
-  %.533 = phi ptr [ %.432, %174 ], [ %105, %151 ]
-  %.626 = phi i1 [ %.525, %174 ], [ false, %151 ]
+  %.129 = phi ptr [ %.230, %174 ], [ %105, %151 ]
+  %.121 = phi i1 [ %.222, %174 ], [ false, %151 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #22
-  %176 = icmp eq ptr %9, %.533
-  %or.cond = select i1 %.626, i1 true, i1 %176
+  %176 = icmp eq ptr %9, %.129
+  %or.cond = select i1 %.121, i1 true, i1 %176
   br i1 %or.cond, label %.loopexit75, label %.preheader
 
 .preheader:                                       ; preds = %175, %.preheader
-  %177 = phi ptr [ %178, %.preheader ], [ %.533, %175 ]
+  %177 = phi ptr [ %178, %.preheader ], [ %.129, %175 ]
   %178 = getelementptr inbounds i8, ptr %177, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %178) #22
   %179 = icmp eq ptr %178, %9
@@ -1119,26 +1119,26 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.i, %116
   %.sroa.07.029.i.i.i = phi ptr [ %.sroa.07.0.i.i.i, %116 ], [ %.sroa.07.026.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.i ]
-  %.sroa.013.028.i.i.i = phi ptr [ %.sroa.013.1.i.i.i, %116 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.i ]
+  %.sroa.013.128.i.i.i = phi ptr [ %.sroa.013.2.i.i.i, %116 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.i ]
   %112 = load i8, ptr %.sroa.07.029.i.i.i, align 1, !noalias !14
   %113 = icmp eq i8 %112, 32
   br i1 %113, label %116, label %114
 
 114:                                              ; preds = %.lr.ph.i.i.i
-  store i8 %112, ptr %.sroa.013.028.i.i.i, align 1, !noalias !14
-  %115 = getelementptr inbounds i8, ptr %.sroa.013.028.i.i.i, i64 1
+  store i8 %112, ptr %.sroa.013.128.i.i.i, align 1, !noalias !14
+  %115 = getelementptr inbounds i8, ptr %.sroa.013.128.i.i.i, i64 1
   br label %116
 
 116:                                              ; preds = %114, %.lr.ph.i.i.i
-  %.sroa.013.1.i.i.i = phi ptr [ %.sroa.013.028.i.i.i, %.lr.ph.i.i.i ], [ %115, %114 ]
+  %.sroa.013.2.i.i.i = phi ptr [ %.sroa.013.128.i.i.i, %.lr.ph.i.i.i ], [ %115, %114 ]
   %.sroa.07.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.07.029.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %.sroa.07.0.i.i.i, %70
   br i1 %.not.i.i.i, label %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !18
 
 _ZSt6removeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit.i: ; preds = %116, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.i, %._crit_edge.i.i.i.i.i
-  %.sroa.013.2.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.i ], [ %70, %._crit_edge.i.i.i.i.i ], [ %.sroa.013.1.i.i.i, %116 ]
+  %.sroa.013.0.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.i ], [ %70, %._crit_edge.i.i.i.i.i ], [ %.sroa.013.2.i.i.i, %116 ]
   %117 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #22, !noalias !14
-  %118 = invoke ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr %.sroa.013.2.i.i.i, ptr %117)
+  %118 = invoke ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr %.sroa.013.0.i.i.i, ptr %117)
           to label %119 unwind label %174
 
 119:                                              ; preds = %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit.i

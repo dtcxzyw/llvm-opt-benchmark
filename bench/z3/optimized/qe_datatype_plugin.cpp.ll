@@ -1177,7 +1177,7 @@ _ZN2qe15datatype_plugin14has_recognizerEP3appP4exprRP9func_declS7_.exit.thread8:
   br label %if.end
 
 if.then.i.i.i.i:                                  ; preds = %for.cond.i, %cleanup.i
-  %c.0 = phi ptr [ %call10.i, %cleanup.i ], [ null, %for.cond.i ]
+  %c.1 = phi ptr [ %call10.i, %cleanup.i ], [ null, %for.cond.i ]
   %11 = phi ptr [ %.pre.i, %cleanup.i ], [ %4, %for.cond.i ]
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i)
@@ -1206,8 +1206,8 @@ if.else:                                          ; preds = %_ZN2qe15datatype_pl
   br label %if.end
 
 if.end:                                           ; preds = %_ZN2qe15datatype_plugin14has_recognizerEP3appP4exprRP9func_declS7_.exit.thread8, %_ZN2qe15datatype_plugin14has_recognizerEP3appP4exprRP9func_declS7_.exit, %if.else
-  %c.2 = phi ptr [ %c.0, %_ZN2qe15datatype_plugin14has_recognizerEP3appP4exprRP9func_declS7_.exit ], [ %16, %if.else ], [ %call10.i, %_ZN2qe15datatype_plugin14has_recognizerEP3appP4exprRP9func_declS7_.exit.thread8 ]
-  call void @_ZN2qe15datatype_plugin17subst_constructorER12contains_appP9func_declR7obj_refI4expr11ast_managerEPS8_(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull align 8 dereferenceable(176) %x, ptr noundef %c.2, ptr noundef nonnull align 8 dereferenceable(16) %fml, ptr noundef %def)
+  %c.0 = phi ptr [ %c.1, %_ZN2qe15datatype_plugin14has_recognizerEP3appP4exprRP9func_declS7_.exit ], [ %16, %if.else ], [ %call10.i, %_ZN2qe15datatype_plugin14has_recognizerEP3appP4exprRP9func_declS7_.exit.thread8 ]
+  call void @_ZN2qe15datatype_plugin17subst_constructorER12contains_appP9func_declR7obj_refI4expr11ast_managerEPS8_(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull align 8 dereferenceable(176) %x, ptr noundef %c.0, ptr noundef nonnull align 8 dereferenceable(16) %fml, ptr noundef %def)
   ret void
 }
 
@@ -4420,7 +4420,7 @@ for.inc:                                          ; preds = %.noexc34, %lor.lhs.
   br i1 %cmp33, label %for.body, label %while.cond.backedge, !llvm.loop !18
 
 cleanup:                                          ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %while.cond.backedge, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
-  %retval.0 = phi i1 [ true, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ false, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ], [ false, %while.cond.backedge ], [ false, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ]
+  %retval.1 = phi i1 [ true, %_ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ false, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit ], [ false, %while.cond.backedge ], [ false, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ]
   store ptr getelementptr inbounds (i8, ptr @_ZTV8ast_mark, i64 16), ptr %mark, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %mark, i64 48
   %34 = load ptr, ptr %m_data.i.i.i, align 8
@@ -4473,8 +4473,8 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 return:                                           ; preds = %if.then.i.i.i, %_ZN8ast_markD2Ev.exit, %if.end4, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %if.end4 ], [ %retval.0, %_ZN8ast_markD2Ev.exit ], [ %retval.0, %if.then.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end4 ], [ %retval.1, %_ZN8ast_markD2Ev.exit ], [ %retval.1, %if.then.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4810,8 +4810,8 @@ ehcleanup54:                                      ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %land.rhs.i.i, %if.end7, %if.then2.i.i.i81, %if.then.i.i.i76, %_ZN7obj_refI4expr11ast_managerED2Ev.exit74, %_ZNK8datatype4util14is_constructorEPK3app.exit, %entry, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit38
-  %retval.4 = phi i1 [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit38 ], [ false, %entry ], [ false, %_ZNK8datatype4util14is_constructorEPK3app.exit ], [ %cmp29.lcssa, %_ZN7obj_refI4expr11ast_managerED2Ev.exit74 ], [ %cmp29.lcssa, %if.then.i.i.i76 ], [ %cmp29.lcssa, %if.then2.i.i.i81 ], [ false, %if.end7 ], [ false, %land.rhs.i.i ]
-  ret i1 %retval.4
+  %retval.0 = phi i1 [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit38 ], [ false, %entry ], [ false, %_ZNK8datatype4util14is_constructorEPK3app.exit ], [ %cmp29.lcssa, %_ZN7obj_refI4expr11ast_managerED2Ev.exit74 ], [ %cmp29.lcssa, %if.then.i.i.i76 ], [ %cmp29.lcssa, %if.then2.i.i.i81 ], [ false, %if.end7 ], [ false, %land.rhs.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

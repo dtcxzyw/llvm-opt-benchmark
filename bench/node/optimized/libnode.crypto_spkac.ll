@@ -90,13 +90,13 @@ if.then.i:                                        ; preds = %if.end
   br label %if.then.i5
 
 if.then.i5:                                       ; preds = %if.end, %if.then.i
-  %retval.1.ph = phi i1 [ %cmp, %if.then.i ], [ false, %if.end ]
+  %retval.0.ph = phi i1 [ %cmp, %if.then.i ], [ false, %if.end ]
   tail call void @NETSCAPE_SPKI_free(ptr noundef nonnull %call2) #15
   br label %_ZNSt10unique_ptrI16Netscape_spki_stN4node15FunctionDeleterIS0_XadL_Z18NETSCAPE_SPKI_freeEEEEED2Ev.exit
 
 _ZNSt10unique_ptrI16Netscape_spki_stN4node15FunctionDeleterIS0_XadL_Z18NETSCAPE_SPKI_freeEEEEED2Ev.exit: ; preds = %entry, %if.then.i5
-  %retval.117 = phi i1 [ %retval.1.ph, %if.then.i5 ], [ false, %entry ]
-  ret i1 %retval.117
+  %retval.017 = phi i1 [ %retval.0.ph, %if.then.i5 ], [ false, %entry ]
+  ret i1 %retval.017
 }
 
 declare ptr @NETSCAPE_SPKI_b64_decode(ptr noundef, i32 noundef) local_unnamed_addr #0

@@ -353,7 +353,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %79
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %79 ], [ 0, %.lr.ph.split.us.preheader ]
-  %.05566.us = phi float [ %.4.us, %79 ], [ %9, %.lr.ph.split.us.preheader ]
+  %.05566.us = phi float [ %.1.us, %79 ], [ %9, %.lr.ph.split.us.preheader ]
   %25 = getelementptr inbounds [6 x ptr], ptr %24, i64 0, i64 %indvars.iv70
   %26 = load ptr, ptr %25, align 8
   %27 = trunc nuw nsw i64 %indvars.iv70 to i32
@@ -409,7 +409,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br label %62
 
 62:                                               ; preds = %55, %51, %44
-  %.2.us = phi float [ %61, %55 ], [ %.05566.us, %51 ], [ %.05566.us, %44 ]
+  %.4.us = phi float [ %61, %55 ], [ %.05566.us, %51 ], [ %.05566.us, %44 ]
   %63 = getelementptr inbounds i8, ptr %26, i64 40
   %64 = load i32, ptr %63, align 8
   %65 = add nsw i32 %64, -1
@@ -419,7 +419,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 
 67:                                               ; preds = %62, %34
   %.pre-phi73 = phi i64 [ %46, %62 ], [ %39, %34 ]
-  %.3.us = phi float [ %.2.us, %62 ], [ %.05566.us, %34 ]
+  %.3.us = phi float [ %.4.us, %62 ], [ %.05566.us, %34 ]
   %68 = getelementptr inbounds [2 x ptr], ptr %29, i64 0, i64 %.pre-phi73
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
@@ -441,7 +441,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br label %79
 
 79:                                               ; preds = %76, %62, %34
-  %.4.us = phi float [ %78, %76 ], [ %.05566.us, %34 ], [ %.2.us, %62 ]
+  %.1.us = phi float [ %78, %76 ], [ %.05566.us, %34 ], [ %.4.us, %62 ]
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %80 = load i8, ptr %5, align 4
   %81 = sext i8 %80 to i64
@@ -450,7 +450,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ %indvars.iv.next, %137 ], [ 0, %.lr.ph ]
-  %.05566 = phi float [ %.4, %137 ], [ %9, %.lr.ph ]
+  %.05566 = phi float [ %.1, %137 ], [ %9, %.lr.ph ]
   %83 = getelementptr inbounds [6 x ptr], ptr %23, i64 0, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8
   %85 = trunc nuw nsw i64 %indvars.iv to i32
@@ -506,7 +506,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br label %120
 
 120:                                              ; preds = %113, %109, %102
-  %.1 = phi float [ %119, %113 ], [ %.05566, %109 ], [ %.05566, %102 ]
+  %.2 = phi float [ %119, %113 ], [ %.05566, %109 ], [ %.05566, %102 ]
   %121 = getelementptr inbounds i8, ptr %84, i64 40
   %122 = load i32, ptr %121, align 8
   %123 = add nsw i32 %122, 1
@@ -516,7 +516,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 
 125:                                              ; preds = %92, %120
   %.pre-phi = phi i64 [ %97, %92 ], [ %104, %120 ]
-  %.3 = phi float [ %.05566, %92 ], [ %.1, %120 ]
+  %.3 = phi float [ %.05566, %92 ], [ %.2, %120 ]
   %126 = getelementptr inbounds [2 x ptr], ptr %87, i64 0, i64 %.pre-phi
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
@@ -538,7 +538,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br label %137
 
 137:                                              ; preds = %120, %92, %134
-  %.4 = phi float [ %.05566, %92 ], [ %136, %134 ], [ %.1, %120 ]
+  %.1 = phi float [ %.05566, %92 ], [ %136, %134 ], [ %.2, %120 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %138 = load i8, ptr %5, align 4
   %139 = sext i8 %138 to i64
@@ -546,7 +546,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br i1 %140, label %.lr.ph.split, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %137, %79, %.thread, %18, %4
-  %.057 = phi float [ 0.000000e+00, %4 ], [ %9, %18 ], [ %9, %.thread ], [ %.4.us, %79 ], [ %.4, %137 ]
+  %.057 = phi float [ 0.000000e+00, %4 ], [ %9, %18 ], [ %9, %.thread ], [ %.1.us, %79 ], [ %.1, %137 ]
   ret float %.057
 }
 
@@ -827,7 +827,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   br label %21
 
 .preheader:                                       ; preds = %94, %9
-  %.039.lcssa = phi float [ 0.000000e+00, %9 ], [ %.3, %94 ]
+  %.039.lcssa = phi float [ 0.000000e+00, %9 ], [ %.140, %94 ]
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
@@ -841,7 +841,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
 21:                                               ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %94 ]
   %22 = phi ptr [ %11, %.lr.ph ], [ %95, %94 ]
-  %.03949 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3, %94 ]
+  %.03949 = phi float [ 0.000000e+00, %.lr.ph ], [ %.140, %94 ]
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
@@ -895,7 +895,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   br label %54
 
 54:                                               ; preds = %44, %51, %40, %34
-  %.140 = phi float [ %49, %51 ], [ %49, %44 ], [ %.03949, %40 ], [ %.03949, %34 ]
+  %.3 = phi float [ %49, %51 ], [ %49, %44 ], [ %.03949, %40 ], [ %.03949, %34 ]
   %55 = getelementptr inbounds i8, ptr %25, i64 152
   %56 = load ptr, ptr %55, align 8
   %.not47 = icmp eq ptr %56, null
@@ -917,7 +917,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 236
   %68 = load float, ptr %67, align 4
-  %69 = fadd float %.140, %68
+  %69 = fadd float %.3, %68
   %70 = load i32, ptr %2, align 8
   %.not48 = icmp eq i32 %70, 0
   br i1 %.not48, label %74, label %71
@@ -929,7 +929,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   br label %74
 
 74:                                               ; preds = %54, %61, %71, %64, %32
-  %.2 = phi float [ %69, %71 ], [ %69, %64 ], [ %.140, %61 ], [ %.140, %54 ], [ %.03949, %32 ]
+  %.2 = phi float [ %69, %71 ], [ %69, %64 ], [ %.3, %61 ], [ %.3, %54 ], [ %.03949, %32 ]
   %75 = getelementptr inbounds i8, ptr %25, i64 144
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
@@ -960,7 +960,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   br label %94
 
 94:                                               ; preds = %81, %85, %89, %30, %21
-  %.3 = phi float [ %.03949, %21 ], [ %.03949, %30 ], [ %93, %89 ], [ %.2, %85 ], [ %.2, %81 ]
+  %.140 = phi float [ %.03949, %21 ], [ %.03949, %30 ], [ %93, %89 ], [ %.2, %85 ], [ %.2, %81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load ptr, ptr %10, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 8

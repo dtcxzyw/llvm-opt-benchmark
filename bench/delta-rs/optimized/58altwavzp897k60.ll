@@ -274,16 +274,16 @@ _ZN4core3str11validations15next_code_point17ha72a6b36edb5bb08E.exit.thread.i.i.i
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eabf93b62432d3eE.exit.i"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eabf93b62432d3eE.exit.i": ; preds = %109, %104, %99, %92
-  %.sroa.4.0.i = phi i64 [ %117, %109 ], [ %108, %104 ], [ undef, %99 ], [ undef, %92 ]
-  %.sroa.0.0.i = phi ptr [ %116, %109 ], [ %107, %104 ], [ null, %99 ], [ null, %92 ]
+  %.sroa.4.1.i = phi i64 [ %117, %109 ], [ %108, %104 ], [ undef, %99 ], [ undef, %92 ]
+  %.sroa.0.1.i = phi ptr [ %116, %109 ], [ %107, %104 ], [ null, %99 ], [ null, %92 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !4
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hb52e13dfd4a3fa41E.exit"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hb52e13dfd4a3fa41E.exit": ; preds = %1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eabf93b62432d3eE.exit.i"
-  %.sroa.4.1.i = phi i64 [ %.sroa.4.0.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eabf93b62432d3eE.exit.i" ], [ undef, %1 ]
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eabf93b62432d3eE.exit.i" ], [ null, %1 ]
-  %118 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
-  %119 = insertvalue { ptr, i64 } %118, i64 %.sroa.4.1.i, 1
+  %.sroa.4.0.i = phi i64 [ %.sroa.4.1.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eabf93b62432d3eE.exit.i" ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.0.1.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eabf93b62432d3eE.exit.i" ], [ null, %1 ]
+  %118 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
+  %119 = insertvalue { ptr, i64 } %118, i64 %.sroa.4.0.i, 1
   ret { ptr, i64 } %119
 }
 

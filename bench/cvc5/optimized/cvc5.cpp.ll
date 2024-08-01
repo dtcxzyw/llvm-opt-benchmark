@@ -14975,14 +14975,14 @@ ehcleanup:                                        ; preds = %lpad239, %lpad237
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i.i.i, %lpad.i48, %lpad217, %lpad183, %lpad148, %lpad108.body, %lpad68, %lpad35, %lpad5, %ehcleanup
   %.pn12 = phi { ptr, i32 } [ %eh.lpad-body29, %lpad108.body ], [ %14, %lpad68 ], [ %13, %lpad35 ], [ %.pn, %ehcleanup ], [ %51, %lpad217 ], [ %50, %lpad183 ], [ %49, %lpad148 ], [ %12, %lpad5 ], [ %4, %lpad.i.i.i ], [ %35, %lpad.i48 ], [ %lpad.loopexit87, %lpad.loopexit ], [ %lpad.loopexit.split-lp88, %lpad.loopexit.split-lp ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn12, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn12, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn12, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn12, 1
   %54 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %54
+  %matches = icmp eq i32 %ehselector.slot.0, %54
   br i1 %matches, label %catch295, label %catch.fallthrough
 
 catch295:                                         ; preds = %catch.dispatch
-  %55 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %55 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception298 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %55, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp299, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -15004,11 +15004,11 @@ invoke.cont303:                                   ; preds = %invoke.cont301
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches241 = icmp eq i32 %ehselector.slot.1, %57
+  %matches241 = icmp eq i32 %ehselector.slot.0, %57
   br i1 %matches241, label %catch278, label %catch.fallthrough242
 
 catch278:                                         ; preds = %catch.fallthrough
-  %58 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %58 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception281 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i57 = getelementptr inbounds i8, ptr %58, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp282, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i57)
@@ -15030,11 +15030,11 @@ invoke.cont286:                                   ; preds = %invoke.cont284
 
 catch.fallthrough242:                             ; preds = %catch.fallthrough
   %60 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches243 = icmp eq i32 %ehselector.slot.1, %60
+  %matches243 = icmp eq i32 %ehselector.slot.0, %60
   br i1 %matches243, label %catch261, label %catch.fallthrough244
 
 catch261:                                         ; preds = %catch.fallthrough242
-  %61 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %61 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception264 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i60 = getelementptr inbounds i8, ptr %61, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i60)
@@ -15056,11 +15056,11 @@ invoke.cont269:                                   ; preds = %invoke.cont267
 
 catch.fallthrough244:                             ; preds = %catch.fallthrough242
   %63 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches245 = icmp eq i32 %ehselector.slot.1, %63
+  %matches245 = icmp eq i32 %ehselector.slot.0, %63
   br i1 %matches245, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough244
-  %64 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %64 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %64, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -16897,14 +16897,14 @@ ehcleanup217:                                     ; preds = %lpad213, %lpad215, 
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i, %lpad.i, %lpad157, %lpad122, %lpad68, %lpad35, %lpad5, %ehcleanup217
   %.pn14 = phi { ptr, i32 } [ %12, %lpad68 ], [ %11, %lpad35 ], [ %18, %lpad157 ], [ %17, %lpad122 ], [ %.pn.pn, %ehcleanup217 ], [ %10, %lpad5 ], [ %4, %lpad.i.i.i ], [ %27, %lpad.i ], [ %lpad.loopexit128, %lpad.loopexit ], [ %lpad.loopexit130, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp131, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn14, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn14, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn14, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn14, 1
   %63 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %63
+  %matches = icmp eq i32 %ehselector.slot.0, %63
   br i1 %matches, label %catch272, label %catch.fallthrough
 
 catch272:                                         ; preds = %catch.dispatch
-  %64 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %64 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception275 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %64, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp276, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -16926,11 +16926,11 @@ invoke.cont280:                                   ; preds = %invoke.cont278
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %66 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches218 = icmp eq i32 %ehselector.slot.2, %66
+  %matches218 = icmp eq i32 %ehselector.slot.0, %66
   br i1 %matches218, label %catch255, label %catch.fallthrough219
 
 catch255:                                         ; preds = %catch.fallthrough
-  %67 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %67 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception258 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i98 = getelementptr inbounds i8, ptr %67, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp259, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i98)
@@ -16952,11 +16952,11 @@ invoke.cont263:                                   ; preds = %invoke.cont261
 
 catch.fallthrough219:                             ; preds = %catch.fallthrough
   %69 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches220 = icmp eq i32 %ehselector.slot.2, %69
+  %matches220 = icmp eq i32 %ehselector.slot.0, %69
   br i1 %matches220, label %catch238, label %catch.fallthrough221
 
 catch238:                                         ; preds = %catch.fallthrough219
-  %70 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %70 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception241 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i100 = getelementptr inbounds i8, ptr %70, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp242, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i100)
@@ -16978,11 +16978,11 @@ invoke.cont246:                                   ; preds = %invoke.cont244
 
 catch.fallthrough221:                             ; preds = %catch.fallthrough219
   %72 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches222 = icmp eq i32 %ehselector.slot.2, %72
+  %matches222 = icmp eq i32 %ehselector.slot.0, %72
   br i1 %matches222, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough221
-  %73 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %73 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %73, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -33189,14 +33189,14 @@ ehcleanup557:                                     ; preds = %lpad504, %lpad466, 
 
 catch.dispatch:                                   ; preds = %lpad.i.i.i, %lpad.i.i, %lpad, %lpad55, %lpad31, %lpad5, %ehcleanup557
   %.pn26.pn = phi { ptr, i32 } [ %.pn26, %ehcleanup557 ], [ %33, %lpad55 ], [ %32, %lpad31 ], [ %31, %lpad5 ], [ %4, %lpad.i.i.i ], [ %30, %lpad ], [ %12, %lpad.i.i ]
-  %exn.slot.9 = extractvalue { ptr, i32 } %.pn26.pn, 0
-  %ehselector.slot.9 = extractvalue { ptr, i32 } %.pn26.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn26.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn26.pn, 1
   %571 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.9, %571
+  %matches = icmp eq i32 %ehselector.slot.0, %571
   br i1 %matches, label %catch612, label %catch.fallthrough
 
 catch612:                                         ; preds = %catch.dispatch
-  %572 = call ptr @__cxa_begin_catch(ptr %exn.slot.9) #30
+  %572 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception615 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %572, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp616, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -33218,11 +33218,11 @@ invoke.cont620:                                   ; preds = %invoke.cont618
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %574 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches558 = icmp eq i32 %ehselector.slot.9, %574
+  %matches558 = icmp eq i32 %ehselector.slot.0, %574
   br i1 %matches558, label %catch595, label %catch.fallthrough559
 
 catch595:                                         ; preds = %catch.fallthrough
-  %575 = call ptr @__cxa_begin_catch(ptr %exn.slot.9) #30
+  %575 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception598 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i1122 = getelementptr inbounds i8, ptr %575, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp599, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i1122)
@@ -33244,11 +33244,11 @@ invoke.cont603:                                   ; preds = %invoke.cont601
 
 catch.fallthrough559:                             ; preds = %catch.fallthrough
   %577 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches560 = icmp eq i32 %ehselector.slot.9, %577
+  %matches560 = icmp eq i32 %ehselector.slot.0, %577
   br i1 %matches560, label %catch578, label %catch.fallthrough561
 
 catch578:                                         ; preds = %catch.fallthrough559
-  %578 = call ptr @__cxa_begin_catch(ptr %exn.slot.9) #30
+  %578 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception581 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i1125 = getelementptr inbounds i8, ptr %578, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp582, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i1125)
@@ -33270,11 +33270,11 @@ invoke.cont586:                                   ; preds = %invoke.cont584
 
 catch.fallthrough561:                             ; preds = %catch.fallthrough559
   %580 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches562 = icmp eq i32 %ehselector.slot.9, %580
+  %matches562 = icmp eq i32 %ehselector.slot.0, %580
   br i1 %matches562, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough561
-  %581 = call ptr @__cxa_begin_catch(ptr %exn.slot.9) #30
+  %581 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %581, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -37107,14 +37107,14 @@ lpad124:                                          ; preds = %invoke.cont123
 
 catch.dispatch:                                   ; preds = %lpad122, %lpad124, %lpad, %lpad.i.i.i, %lpad60, %lpad30, %lpad5, %ehcleanup111
   %.pn8.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup111 ], [ %23, %lpad60 ], [ %22, %lpad30 ], [ %21, %lpad5 ], [ %20, %lpad ], [ %4, %lpad.i.i.i ], [ %28, %lpad124 ], [ %27, %lpad122 ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn8.pn, 0
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn8.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn8.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn8.pn, 1
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.3, %29
+  %matches = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches, label %catch183, label %catch.fallthrough
 
 catch183:                                         ; preds = %catch.dispatch
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception186 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %30, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp187, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -37136,11 +37136,11 @@ invoke.cont191:                                   ; preds = %invoke.cont189
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches129 = icmp eq i32 %ehselector.slot.3, %32
+  %matches129 = icmp eq i32 %ehselector.slot.0, %32
   br i1 %matches129, label %catch166, label %catch.fallthrough130
 
 catch166:                                         ; preds = %catch.fallthrough
-  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception169 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i26 = getelementptr inbounds i8, ptr %33, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i26)
@@ -37162,11 +37162,11 @@ invoke.cont174:                                   ; preds = %invoke.cont172
 
 catch.fallthrough130:                             ; preds = %catch.fallthrough
   %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches131 = icmp eq i32 %ehselector.slot.3, %35
+  %matches131 = icmp eq i32 %ehselector.slot.0, %35
   br i1 %matches131, label %catch149, label %catch.fallthrough132
 
 catch149:                                         ; preds = %catch.fallthrough130
-  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception152 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i28 = getelementptr inbounds i8, ptr %36, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp153, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i28)
@@ -37188,11 +37188,11 @@ invoke.cont157:                                   ; preds = %invoke.cont155
 
 catch.fallthrough132:                             ; preds = %catch.fallthrough130
   %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches133 = icmp eq i32 %ehselector.slot.3, %38
+  %matches133 = icmp eq i32 %ehselector.slot.0, %38
   br i1 %matches133, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough132
-  %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %39, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -38492,14 +38492,14 @@ ehcleanup258:                                     ; preds = %lpad254, %lpad.i87,
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i.i.i, %lpad.i, %lpad168, %lpad133, %lpad94, %lpad60, %lpad29, %lpad5, %ehcleanup258, %ehcleanup229
   %.pn19.pn.pn = phi { ptr, i32 } [ %.pn19.pn, %ehcleanup229 ], [ %26, %lpad168 ], [ %25, %lpad133 ], [ %24, %lpad94 ], [ %23, %lpad60 ], [ %.pn.pn, %ehcleanup258 ], [ %22, %lpad29 ], [ %21, %lpad5 ], [ %4, %lpad.i.i.i ], [ %38, %lpad.i ], [ %lpad.loopexit147, %lpad.loopexit ], [ %lpad.loopexit.split-lp148, %lpad.loopexit.split-lp ]
-  %exn.slot.4 = extractvalue { ptr, i32 } %.pn19.pn.pn, 0
-  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn19.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn19.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn19.pn.pn, 1
   %79 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.4, %79
+  %matches = icmp eq i32 %ehselector.slot.0, %79
   br i1 %matches, label %catch313, label %catch.fallthrough
 
 catch313:                                         ; preds = %catch.dispatch
-  %80 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %80 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception316 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %80, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp317, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -38521,11 +38521,11 @@ invoke.cont321:                                   ; preds = %invoke.cont319
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %82 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches259 = icmp eq i32 %ehselector.slot.4, %82
+  %matches259 = icmp eq i32 %ehselector.slot.0, %82
   br i1 %matches259, label %catch296, label %catch.fallthrough260
 
 catch296:                                         ; preds = %catch.fallthrough
-  %83 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %83 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception299 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i119 = getelementptr inbounds i8, ptr %83, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp300, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i119)
@@ -38547,11 +38547,11 @@ invoke.cont304:                                   ; preds = %invoke.cont302
 
 catch.fallthrough260:                             ; preds = %catch.fallthrough
   %85 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches261 = icmp eq i32 %ehselector.slot.4, %85
+  %matches261 = icmp eq i32 %ehselector.slot.0, %85
   br i1 %matches261, label %catch279, label %catch.fallthrough262
 
 catch279:                                         ; preds = %catch.fallthrough260
-  %86 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %86 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception282 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i121 = getelementptr inbounds i8, ptr %86, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp283, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i121)
@@ -38573,11 +38573,11 @@ invoke.cont287:                                   ; preds = %invoke.cont285
 
 catch.fallthrough262:                             ; preds = %catch.fallthrough260
   %88 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches263 = icmp eq i32 %ehselector.slot.4, %88
+  %matches263 = icmp eq i32 %ehselector.slot.0, %88
   br i1 %matches263, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough262
-  %89 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %89 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %89, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -46127,14 +46127,14 @@ terminate.lpad.i.i16:                             ; preds = %lpad70
 
 catch.dispatch:                                   ; preds = %lpad70, %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %14, %lpad5 ], [ %13, %lpad ], [ %4, %lpad.i.i.i ], [ %17, %lpad70 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3, 1
   %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %20
+  %matches = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches, label %catch128, label %catch.fallthrough
 
 catch128:                                         ; preds = %catch.dispatch
-  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception131 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %21, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp132, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -46156,11 +46156,11 @@ invoke.cont136:                                   ; preds = %invoke.cont134
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches74 = icmp eq i32 %ehselector.slot.1, %23
+  %matches74 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches74, label %catch111, label %catch.fallthrough75
 
 catch111:                                         ; preds = %catch.fallthrough
-  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception114 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %24, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -46182,11 +46182,11 @@ invoke.cont119:                                   ; preds = %invoke.cont117
 
 catch.fallthrough75:                              ; preds = %catch.fallthrough
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches76 = icmp eq i32 %ehselector.slot.1, %26
+  %matches76 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches76, label %catch94, label %catch.fallthrough77
 
 catch94:                                          ; preds = %catch.fallthrough75
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception97 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i20 = getelementptr inbounds i8, ptr %27, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i20)
@@ -46208,11 +46208,11 @@ invoke.cont102:                                   ; preds = %invoke.cont100
 
 catch.fallthrough77:                              ; preds = %catch.fallthrough75
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches78 = icmp eq i32 %ehselector.slot.1, %29
+  %matches78 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches78, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough77
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %30, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -46842,14 +46842,14 @@ terminate.lpad.i.i16:                             ; preds = %lpad70
 
 catch.dispatch:                                   ; preds = %lpad70, %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %14, %lpad5 ], [ %13, %lpad ], [ %4, %lpad.i.i.i ], [ %17, %lpad70 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3, 1
   %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %20
+  %matches = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches, label %catch128, label %catch.fallthrough
 
 catch128:                                         ; preds = %catch.dispatch
-  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception131 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %21, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp132, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -46871,11 +46871,11 @@ invoke.cont136:                                   ; preds = %invoke.cont134
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches74 = icmp eq i32 %ehselector.slot.1, %23
+  %matches74 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches74, label %catch111, label %catch.fallthrough75
 
 catch111:                                         ; preds = %catch.fallthrough
-  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception114 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %24, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -46897,11 +46897,11 @@ invoke.cont119:                                   ; preds = %invoke.cont117
 
 catch.fallthrough75:                              ; preds = %catch.fallthrough
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches76 = icmp eq i32 %ehselector.slot.1, %26
+  %matches76 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches76, label %catch94, label %catch.fallthrough77
 
 catch94:                                          ; preds = %catch.fallthrough75
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception97 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i20 = getelementptr inbounds i8, ptr %27, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i20)
@@ -46923,11 +46923,11 @@ invoke.cont102:                                   ; preds = %invoke.cont100
 
 catch.fallthrough77:                              ; preds = %catch.fallthrough75
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches78 = icmp eq i32 %ehselector.slot.1, %29
+  %matches78 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches78, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough77
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %30, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -47557,14 +47557,14 @@ terminate.lpad.i.i16:                             ; preds = %lpad70
 
 catch.dispatch:                                   ; preds = %lpad70, %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %14, %lpad5 ], [ %13, %lpad ], [ %4, %lpad.i.i.i ], [ %17, %lpad70 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3, 1
   %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %20
+  %matches = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches, label %catch128, label %catch.fallthrough
 
 catch128:                                         ; preds = %catch.dispatch
-  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception131 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %21, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp132, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -47586,11 +47586,11 @@ invoke.cont136:                                   ; preds = %invoke.cont134
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches74 = icmp eq i32 %ehselector.slot.1, %23
+  %matches74 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches74, label %catch111, label %catch.fallthrough75
 
 catch111:                                         ; preds = %catch.fallthrough
-  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception114 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %24, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -47612,11 +47612,11 @@ invoke.cont119:                                   ; preds = %invoke.cont117
 
 catch.fallthrough75:                              ; preds = %catch.fallthrough
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches76 = icmp eq i32 %ehselector.slot.1, %26
+  %matches76 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches76, label %catch94, label %catch.fallthrough77
 
 catch94:                                          ; preds = %catch.fallthrough75
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception97 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i20 = getelementptr inbounds i8, ptr %27, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i20)
@@ -47638,11 +47638,11 @@ invoke.cont102:                                   ; preds = %invoke.cont100
 
 catch.fallthrough77:                              ; preds = %catch.fallthrough75
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches78 = icmp eq i32 %ehselector.slot.1, %29
+  %matches78 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches78, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough77
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %30, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -48272,14 +48272,14 @@ terminate.lpad.i.i16:                             ; preds = %lpad70
 
 catch.dispatch:                                   ; preds = %lpad70, %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %14, %lpad5 ], [ %13, %lpad ], [ %4, %lpad.i.i.i ], [ %17, %lpad70 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3, 1
   %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %20
+  %matches = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches, label %catch128, label %catch.fallthrough
 
 catch128:                                         ; preds = %catch.dispatch
-  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception131 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %21, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp132, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -48301,11 +48301,11 @@ invoke.cont136:                                   ; preds = %invoke.cont134
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches74 = icmp eq i32 %ehselector.slot.1, %23
+  %matches74 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches74, label %catch111, label %catch.fallthrough75
 
 catch111:                                         ; preds = %catch.fallthrough
-  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception114 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %24, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -48327,11 +48327,11 @@ invoke.cont119:                                   ; preds = %invoke.cont117
 
 catch.fallthrough75:                              ; preds = %catch.fallthrough
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches76 = icmp eq i32 %ehselector.slot.1, %26
+  %matches76 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches76, label %catch94, label %catch.fallthrough77
 
 catch94:                                          ; preds = %catch.fallthrough75
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception97 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i20 = getelementptr inbounds i8, ptr %27, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i20)
@@ -48353,11 +48353,11 @@ invoke.cont102:                                   ; preds = %invoke.cont100
 
 catch.fallthrough77:                              ; preds = %catch.fallthrough75
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches78 = icmp eq i32 %ehselector.slot.1, %29
+  %matches78 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches78, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough77
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %30, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -49013,14 +49013,14 @@ terminate.lpad.i.i19:                             ; preds = %lpad70
 
 catch.dispatch:                                   ; preds = %lpad70, %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %15, %lpad5 ], [ %14, %lpad ], [ %4, %lpad.i.i.i ], [ %18, %lpad70 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3, 1
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %21
+  %matches = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches, label %catch127, label %catch.fallthrough
 
 catch127:                                         ; preds = %catch.dispatch
-  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception130 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %22, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp131, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -49042,11 +49042,11 @@ invoke.cont135:                                   ; preds = %invoke.cont133
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches73 = icmp eq i32 %ehselector.slot.1, %24
+  %matches73 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches73, label %catch110, label %catch.fallthrough74
 
 catch110:                                         ; preds = %catch.fallthrough
-  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception113 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i21 = getelementptr inbounds i8, ptr %25, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i21)
@@ -49068,11 +49068,11 @@ invoke.cont118:                                   ; preds = %invoke.cont116
 
 catch.fallthrough74:                              ; preds = %catch.fallthrough
   %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches75 = icmp eq i32 %ehselector.slot.1, %27
+  %matches75 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches75, label %catch93, label %catch.fallthrough76
 
 catch93:                                          ; preds = %catch.fallthrough74
-  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception96 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i23 = getelementptr inbounds i8, ptr %28, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i23)
@@ -49094,11 +49094,11 @@ invoke.cont101:                                   ; preds = %invoke.cont99
 
 catch.fallthrough76:                              ; preds = %catch.fallthrough74
   %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches77 = icmp eq i32 %ehselector.slot.1, %30
+  %matches77 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches77, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough76
-  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %31, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -49699,14 +49699,14 @@ cleanup.action63:                                 ; preds = %lpad30, %lpad39
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %12, %lpad5 ], [ %11, %lpad ], [ %4, %lpad.i.i.i ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3, 1
   %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %15
+  %matches = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches, label %catch125, label %catch.fallthrough
 
 catch125:                                         ; preds = %catch.dispatch
-  %16 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %16 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception128 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %16, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp129, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -49728,11 +49728,11 @@ invoke.cont133:                                   ; preds = %invoke.cont131
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches71 = icmp eq i32 %ehselector.slot.1, %18
+  %matches71 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches71, label %catch108, label %catch.fallthrough72
 
 catch108:                                         ; preds = %catch.fallthrough
-  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception111 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i16 = getelementptr inbounds i8, ptr %19, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i16)
@@ -49754,11 +49754,11 @@ invoke.cont116:                                   ; preds = %invoke.cont114
 
 catch.fallthrough72:                              ; preds = %catch.fallthrough
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches73 = icmp eq i32 %ehselector.slot.1, %21
+  %matches73 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches73, label %catch91, label %catch.fallthrough74
 
 catch91:                                          ; preds = %catch.fallthrough72
-  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception94 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %22, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -49780,11 +49780,11 @@ invoke.cont99:                                    ; preds = %invoke.cont97
 
 catch.fallthrough74:                              ; preds = %catch.fallthrough72
   %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches75 = icmp eq i32 %ehselector.slot.1, %24
+  %matches75 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches75, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough74
-  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %25, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -50610,14 +50610,14 @@ terminate.lpad.i.i23:                             ; preds = %ehcleanup85
 
 catch.dispatch:                                   ; preds = %ehcleanup85, %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn4.pn = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %16, %lpad5 ], [ %15, %lpad ], [ %4, %lpad.i.i.i ], [ %.pn4, %ehcleanup85 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn4.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn4.pn, 1
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %25
+  %matches = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches, label %catch140, label %catch.fallthrough
 
 catch140:                                         ; preds = %catch.dispatch
-  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception143 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %26, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp144, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -50639,11 +50639,11 @@ invoke.cont148:                                   ; preds = %invoke.cont146
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches86 = icmp eq i32 %ehselector.slot.2, %28
+  %matches86 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches86, label %catch123, label %catch.fallthrough87
 
 catch123:                                         ; preds = %catch.fallthrough
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception126 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i25 = getelementptr inbounds i8, ptr %29, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp127, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i25)
@@ -50665,11 +50665,11 @@ invoke.cont131:                                   ; preds = %invoke.cont129
 
 catch.fallthrough87:                              ; preds = %catch.fallthrough
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches88 = icmp eq i32 %ehselector.slot.2, %31
+  %matches88 = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches88, label %catch106, label %catch.fallthrough89
 
 catch106:                                         ; preds = %catch.fallthrough87
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception109 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i27 = getelementptr inbounds i8, ptr %32, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i27)
@@ -50691,11 +50691,11 @@ invoke.cont114:                                   ; preds = %invoke.cont112
 
 catch.fallthrough89:                              ; preds = %catch.fallthrough87
   %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches90 = icmp eq i32 %ehselector.slot.2, %34
+  %matches90 = icmp eq i32 %ehselector.slot.0, %34
   br i1 %matches90, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough89
-  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %35, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -51391,14 +51391,14 @@ terminate.lpad.i.i23:                             ; preds = %ehcleanup85
 
 catch.dispatch:                                   ; preds = %ehcleanup85, %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn4.pn = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %16, %lpad5 ], [ %15, %lpad ], [ %4, %lpad.i.i.i ], [ %.pn4, %ehcleanup85 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn4.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn4.pn, 1
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %25
+  %matches = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches, label %catch140, label %catch.fallthrough
 
 catch140:                                         ; preds = %catch.dispatch
-  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception143 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %26, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp144, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -51420,11 +51420,11 @@ invoke.cont148:                                   ; preds = %invoke.cont146
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches86 = icmp eq i32 %ehselector.slot.2, %28
+  %matches86 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches86, label %catch123, label %catch.fallthrough87
 
 catch123:                                         ; preds = %catch.fallthrough
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception126 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i25 = getelementptr inbounds i8, ptr %29, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp127, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i25)
@@ -51446,11 +51446,11 @@ invoke.cont131:                                   ; preds = %invoke.cont129
 
 catch.fallthrough87:                              ; preds = %catch.fallthrough
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches88 = icmp eq i32 %ehselector.slot.2, %31
+  %matches88 = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches88, label %catch106, label %catch.fallthrough89
 
 catch106:                                         ; preds = %catch.fallthrough87
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception109 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i27 = getelementptr inbounds i8, ptr %32, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i27)
@@ -51472,11 +51472,11 @@ invoke.cont114:                                   ; preds = %invoke.cont112
 
 catch.fallthrough89:                              ; preds = %catch.fallthrough87
   %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches90 = icmp eq i32 %ehselector.slot.2, %34
+  %matches90 = icmp eq i32 %ehselector.slot.0, %34
   br i1 %matches90, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough89
-  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %35, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -52112,14 +52112,14 @@ lpad71.body:                                      ; preds = %lpad.i, %lpad71
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5, %lpad71.body
   %.pn4 = phi { ptr, i32 } [ %eh.lpad-body16, %lpad71.body ], [ %.pn, %cleanup.action63 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn4, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn4, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn4, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn4, 1
   %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %17
+  %matches = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches, label %catch130, label %catch.fallthrough
 
 catch130:                                         ; preds = %catch.dispatch
-  %18 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %18 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception133 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %18, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -52141,11 +52141,11 @@ invoke.cont138:                                   ; preds = %invoke.cont136
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches76 = icmp eq i32 %ehselector.slot.1, %20
+  %matches76 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches76, label %catch113, label %catch.fallthrough77
 
 catch113:                                         ; preds = %catch.fallthrough
-  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception116 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %21, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -52167,11 +52167,11 @@ invoke.cont121:                                   ; preds = %invoke.cont119
 
 catch.fallthrough77:                              ; preds = %catch.fallthrough
   %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches78 = icmp eq i32 %ehselector.slot.1, %23
+  %matches78 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches78, label %catch96, label %catch.fallthrough79
 
 catch96:                                          ; preds = %catch.fallthrough77
-  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception99 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i21 = getelementptr inbounds i8, ptr %24, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i21)
@@ -52193,11 +52193,11 @@ invoke.cont104:                                   ; preds = %invoke.cont102
 
 catch.fallthrough79:                              ; preds = %catch.fallthrough77
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches80 = icmp eq i32 %ehselector.slot.1, %26
+  %matches80 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches80, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough79
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %27, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -52814,14 +52814,14 @@ cleanup.action63:                                 ; preds = %lpad30, %lpad39
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3, 1
   %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %16
+  %matches = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches, label %catch127, label %catch.fallthrough
 
 catch127:                                         ; preds = %catch.dispatch
-  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception130 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %17, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp131, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -52843,11 +52843,11 @@ invoke.cont135:                                   ; preds = %invoke.cont133
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches73 = icmp eq i32 %ehselector.slot.1, %19
+  %matches73 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches73, label %catch110, label %catch.fallthrough74
 
 catch110:                                         ; preds = %catch.fallthrough
-  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception113 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i16 = getelementptr inbounds i8, ptr %20, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i16)
@@ -52869,11 +52869,11 @@ invoke.cont118:                                   ; preds = %invoke.cont116
 
 catch.fallthrough74:                              ; preds = %catch.fallthrough
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches75 = icmp eq i32 %ehselector.slot.1, %22
+  %matches75 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches75, label %catch93, label %catch.fallthrough76
 
 catch93:                                          ; preds = %catch.fallthrough74
-  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception96 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -52895,11 +52895,11 @@ invoke.cont101:                                   ; preds = %invoke.cont99
 
 catch.fallthrough76:                              ; preds = %catch.fallthrough74
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches77 = icmp eq i32 %ehselector.slot.1, %25
+  %matches77 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches77, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough76
-  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %26, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -53500,14 +53500,14 @@ cleanup.action63:                                 ; preds = %lpad30, %lpad39
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3, 1
   %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %16
+  %matches = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches, label %catch124, label %catch.fallthrough
 
 catch124:                                         ; preds = %catch.dispatch
-  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception127 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %17, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp128, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -53529,11 +53529,11 @@ invoke.cont132:                                   ; preds = %invoke.cont130
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches70 = icmp eq i32 %ehselector.slot.1, %19
+  %matches70 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches70, label %catch107, label %catch.fallthrough71
 
 catch107:                                         ; preds = %catch.fallthrough
-  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception110 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i16 = getelementptr inbounds i8, ptr %20, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp111, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i16)
@@ -53555,11 +53555,11 @@ invoke.cont115:                                   ; preds = %invoke.cont113
 
 catch.fallthrough71:                              ; preds = %catch.fallthrough
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches72 = icmp eq i32 %ehselector.slot.1, %22
+  %matches72 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches72, label %catch90, label %catch.fallthrough73
 
 catch90:                                          ; preds = %catch.fallthrough71
-  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception93 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp94, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -53581,11 +53581,11 @@ invoke.cont98:                                    ; preds = %invoke.cont96
 
 catch.fallthrough73:                              ; preds = %catch.fallthrough71
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches74 = icmp eq i32 %ehselector.slot.1, %25
+  %matches74 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches74, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough73
-  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %26, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -54186,14 +54186,14 @@ cleanup.action63:                                 ; preds = %lpad30, %lpad39
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %12, %lpad5 ], [ %11, %lpad ], [ %4, %lpad.i.i.i ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3, 1
   %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %15
+  %matches = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches, label %catch125, label %catch.fallthrough
 
 catch125:                                         ; preds = %catch.dispatch
-  %16 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %16 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception128 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %16, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp129, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -54215,11 +54215,11 @@ invoke.cont133:                                   ; preds = %invoke.cont131
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches71 = icmp eq i32 %ehselector.slot.1, %18
+  %matches71 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches71, label %catch108, label %catch.fallthrough72
 
 catch108:                                         ; preds = %catch.fallthrough
-  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception111 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i16 = getelementptr inbounds i8, ptr %19, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i16)
@@ -54241,11 +54241,11 @@ invoke.cont116:                                   ; preds = %invoke.cont114
 
 catch.fallthrough72:                              ; preds = %catch.fallthrough
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches73 = icmp eq i32 %ehselector.slot.1, %21
+  %matches73 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches73, label %catch91, label %catch.fallthrough74
 
 catch91:                                          ; preds = %catch.fallthrough72
-  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception94 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %22, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -54267,11 +54267,11 @@ invoke.cont99:                                    ; preds = %invoke.cont97
 
 catch.fallthrough74:                              ; preds = %catch.fallthrough72
   %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches75 = icmp eq i32 %ehselector.slot.1, %24
+  %matches75 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches75, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough74
-  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %25, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -54907,14 +54907,14 @@ terminate.lpad.i.i16:                             ; preds = %lpad72
 
 catch.dispatch:                                   ; preds = %lpad72, %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %14, %lpad5 ], [ %13, %lpad ], [ %4, %lpad.i.i.i ], [ %17, %lpad72 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3, 1
   %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %20
+  %matches = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches, label %catch129, label %catch.fallthrough
 
 catch129:                                         ; preds = %catch.dispatch
-  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception132 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %21, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp133, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -54936,11 +54936,11 @@ invoke.cont137:                                   ; preds = %invoke.cont135
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches75 = icmp eq i32 %ehselector.slot.1, %23
+  %matches75 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches75, label %catch112, label %catch.fallthrough76
 
 catch112:                                         ; preds = %catch.fallthrough
-  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception115 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %24, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -54962,11 +54962,11 @@ invoke.cont120:                                   ; preds = %invoke.cont118
 
 catch.fallthrough76:                              ; preds = %catch.fallthrough
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches77 = icmp eq i32 %ehselector.slot.1, %26
+  %matches77 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches77, label %catch95, label %catch.fallthrough78
 
 catch95:                                          ; preds = %catch.fallthrough76
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception98 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i20 = getelementptr inbounds i8, ptr %27, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp99, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i20)
@@ -54988,11 +54988,11 @@ invoke.cont103:                                   ; preds = %invoke.cont101
 
 catch.fallthrough78:                              ; preds = %catch.fallthrough76
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches79 = icmp eq i32 %ehselector.slot.1, %29
+  %matches79 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches79, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough78
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %30, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -55612,14 +55612,14 @@ lpad69:                                           ; preds = %invoke.cont66, %inv
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5, %lpad69
   %.pn3 = phi { ptr, i32 } [ %16, %lpad69 ], [ %.pn, %cleanup.action63 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3, 1
   %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %17
+  %matches = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches, label %catch130, label %catch.fallthrough
 
 catch130:                                         ; preds = %catch.dispatch
-  %18 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %18 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception133 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %18, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -55641,11 +55641,11 @@ invoke.cont138:                                   ; preds = %invoke.cont136
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches76 = icmp eq i32 %ehselector.slot.1, %20
+  %matches76 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches76, label %catch113, label %catch.fallthrough77
 
 catch113:                                         ; preds = %catch.fallthrough
-  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception116 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i16 = getelementptr inbounds i8, ptr %21, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i16)
@@ -55667,11 +55667,11 @@ invoke.cont121:                                   ; preds = %invoke.cont119
 
 catch.fallthrough77:                              ; preds = %catch.fallthrough
   %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches78 = icmp eq i32 %ehselector.slot.1, %23
+  %matches78 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches78, label %catch96, label %catch.fallthrough79
 
 catch96:                                          ; preds = %catch.fallthrough77
-  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception99 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %24, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -55693,11 +55693,11 @@ invoke.cont104:                                   ; preds = %invoke.cont102
 
 catch.fallthrough79:                              ; preds = %catch.fallthrough77
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches80 = icmp eq i32 %ehselector.slot.1, %26
+  %matches80 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches80, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough79
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %27, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -56305,7 +56305,7 @@ land.end:                                         ; preds = %invoke.cont33
   br i1 %call36, label %cleanup.action81, label %cond.false38
 
 cond.false38:                                     ; preds = %invoke.cont25, %cleanup.done, %land.end
-  %cleanup.cond31.0 = phi i1 [ true, %land.end ], [ false, %invoke.cont25 ], [ false, %cleanup.done ]
+  %cleanup.cond31.1 = phi i1 [ true, %land.end ], [ false, %invoke.cont25 ], [ false, %cleanup.done ]
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp41)
           to label %invoke.cont42 unwind label %lpad32
 
@@ -56341,7 +56341,7 @@ cleanup.action67:                                 ; preds = %invoke.cont60
           to label %cleanup.done75 unwind label %lpad32
 
 cleanup.done75:                                   ; preds = %cleanup.action67
-  br i1 %cleanup.cond31.0, label %cleanup.action81, label %cleanup.done82
+  br i1 %cleanup.cond31.1, label %cleanup.action81, label %cleanup.done82
 
 cleanup.action81:                                 ; preds = %land.end, %cleanup.done75
   %11 = load ptr, ptr %ref.tmp27, align 8
@@ -56566,7 +56566,7 @@ lpad32:                                           ; preds = %cond.false38, %clea
           catch ptr @_ZTIN4cvc58internal25RecoverableModalExceptionE
           catch ptr @_ZTIN4cvc58internal9ExceptionE
           catch ptr @_ZTISt16invalid_argument
-  br i1 %cleanup.cond31.0, label %cleanup.action85, label %catch.dispatch
+  br i1 %cleanup.cond31.1, label %cleanup.action85, label %catch.dispatch
 
 lpad44:                                           ; preds = %invoke.cont42
   %37 = landingpad { ptr, i32 }
@@ -56592,7 +56592,7 @@ cleanup.action77:                                 ; preds = %lpad44, %lpad53
           to label %ehcleanup83 unwind label %terminate.lpad
 
 ehcleanup83:                                      ; preds = %cleanup.action77
-  br i1 %cleanup.cond31.0, label %cleanup.action85, label %catch.dispatch
+  br i1 %cleanup.cond31.1, label %cleanup.action85, label %catch.dispatch
 
 cleanup.action85:                                 ; preds = %lpad32.thread, %lpad32, %ehcleanup83
   %.pn556 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %lpad32 ], [ %.pn, %ehcleanup83 ], [ %lpad.thr_comm, %lpad32.thread ]
@@ -56651,14 +56651,14 @@ ehcleanup105:                                     ; preds = %lpad89.loopexit, %l
 
 catch.dispatch:                                   ; preds = %lpad32, %lpad, %lpad.i.i.i, %ehcleanup83, %cleanup.action85, %lpad5, %ehcleanup105
   %.pn7.pn.pn = phi { ptr, i32 } [ %.pn7.pn, %ehcleanup105 ], [ %.pn556, %cleanup.action85 ], [ %.pn, %ehcleanup83 ], [ %36, %lpad5 ], [ %35, %lpad ], [ %4, %lpad.i.i.i ], [ %lpad.thr_comm.split-lp, %lpad32 ]
-  %exn.slot.4 = extractvalue { ptr, i32 } %.pn7.pn.pn, 0
-  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn7.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn7.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn7.pn.pn, 1
   %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.4, %41
+  %matches = icmp eq i32 %ehselector.slot.0, %41
   br i1 %matches, label %catch160, label %catch.fallthrough
 
 catch160:                                         ; preds = %catch.dispatch
-  %42 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %42 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception163 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %42, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp164, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -56680,11 +56680,11 @@ invoke.cont168:                                   ; preds = %invoke.cont166
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches106 = icmp eq i32 %ehselector.slot.4, %44
+  %matches106 = icmp eq i32 %ehselector.slot.0, %44
   br i1 %matches106, label %catch143, label %catch.fallthrough107
 
 catch143:                                         ; preds = %catch.fallthrough
-  %45 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %45 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception146 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i45 = getelementptr inbounds i8, ptr %45, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp147, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i45)
@@ -56706,11 +56706,11 @@ invoke.cont151:                                   ; preds = %invoke.cont149
 
 catch.fallthrough107:                             ; preds = %catch.fallthrough
   %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches108 = icmp eq i32 %ehselector.slot.4, %47
+  %matches108 = icmp eq i32 %ehselector.slot.0, %47
   br i1 %matches108, label %catch126, label %catch.fallthrough109
 
 catch126:                                         ; preds = %catch.fallthrough107
-  %48 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %48 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception129 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i48 = getelementptr inbounds i8, ptr %48, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp130, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i48)
@@ -56732,11 +56732,11 @@ invoke.cont134:                                   ; preds = %invoke.cont132
 
 catch.fallthrough109:                             ; preds = %catch.fallthrough107
   %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches110 = icmp eq i32 %ehselector.slot.4, %50
+  %matches110 = icmp eq i32 %ehselector.slot.0, %50
   br i1 %matches110, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough109
-  %51 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %51 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %51, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -57396,14 +57396,14 @@ cleanup.action63:                                 ; preds = %lpad30, %lpad39
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn3 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %23, %lpad5 ], [ %22, %lpad ], [ %4, %lpad.i.i.i ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn3, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn3, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3, 1
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %26
+  %matches = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches, label %catch126, label %catch.fallthrough
 
 catch126:                                         ; preds = %catch.dispatch
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception129 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %27, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp130, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -57425,11 +57425,11 @@ invoke.cont134:                                   ; preds = %invoke.cont132
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches72 = icmp eq i32 %ehselector.slot.1, %29
+  %matches72 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches72, label %catch109, label %catch.fallthrough73
 
 catch109:                                         ; preds = %catch.fallthrough
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception112 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i17 = getelementptr inbounds i8, ptr %30, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i17)
@@ -57451,11 +57451,11 @@ invoke.cont117:                                   ; preds = %invoke.cont115
 
 catch.fallthrough73:                              ; preds = %catch.fallthrough
   %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches74 = icmp eq i32 %ehselector.slot.1, %32
+  %matches74 = icmp eq i32 %ehselector.slot.0, %32
   br i1 %matches74, label %catch92, label %catch.fallthrough75
 
 catch92:                                          ; preds = %catch.fallthrough73
-  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception95 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i20 = getelementptr inbounds i8, ptr %33, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i20)
@@ -57477,11 +57477,11 @@ invoke.cont100:                                   ; preds = %invoke.cont98
 
 catch.fallthrough75:                              ; preds = %catch.fallthrough73
   %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches76 = icmp eq i32 %ehselector.slot.1, %35
+  %matches76 = icmp eq i32 %ehselector.slot.0, %35
   br i1 %matches76, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough75
-  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %36, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -59785,14 +59785,14 @@ terminate.lpad.i.i.i19:                           ; preds = %lpad83
 
 catch.dispatch:                                   ; preds = %lpad83, %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5
   %.pn5 = phi { ptr, i32 } [ %.pn, %cleanup.action63 ], [ %24, %lpad5 ], [ %23, %lpad ], [ %4, %lpad.i.i.i ], [ %27, %lpad83 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn5, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn5, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn5, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn5, 1
   %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %30
+  %matches = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches, label %catch143, label %catch.fallthrough
 
 catch143:                                         ; preds = %catch.dispatch
-  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception146 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %31, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp147, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -59814,11 +59814,11 @@ invoke.cont151:                                   ; preds = %invoke.cont149
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches89 = icmp eq i32 %ehselector.slot.1, %33
+  %matches89 = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches89, label %catch126, label %catch.fallthrough90
 
 catch126:                                         ; preds = %catch.fallthrough
-  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception129 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i21 = getelementptr inbounds i8, ptr %34, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp130, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i21)
@@ -59840,11 +59840,11 @@ invoke.cont134:                                   ; preds = %invoke.cont132
 
 catch.fallthrough90:                              ; preds = %catch.fallthrough
   %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches91 = icmp eq i32 %ehselector.slot.1, %36
+  %matches91 = icmp eq i32 %ehselector.slot.0, %36
   br i1 %matches91, label %catch109, label %catch.fallthrough92
 
 catch109:                                         ; preds = %catch.fallthrough90
-  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception112 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i23 = getelementptr inbounds i8, ptr %37, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp113, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i23)
@@ -59866,11 +59866,11 @@ invoke.cont117:                                   ; preds = %invoke.cont115
 
 catch.fallthrough92:                              ; preds = %catch.fallthrough90
   %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches93 = icmp eq i32 %ehselector.slot.1, %39
+  %matches93 = icmp eq i32 %ehselector.slot.0, %39
   br i1 %matches93, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough92
-  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %40, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -60921,14 +60921,14 @@ lpad76:                                           ; preds = %_ZN4cvc58internal8T
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, %lpad5, %lpad76, %ehcleanup73
   %.pn5 = phi { ptr, i32 } [ %23, %lpad76 ], [ %.pn3, %ehcleanup73 ], [ %19, %lpad5 ], [ %18, %lpad ], [ %4, %lpad.i.i.i ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn5, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn5, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn5, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn5, 1
   %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %24
+  %matches = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches, label %catch133, label %catch.fallthrough
 
 catch133:                                         ; preds = %catch.dispatch
-  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception136 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %25, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp137, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -60950,11 +60950,11 @@ invoke.cont141:                                   ; preds = %invoke.cont139
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches79 = icmp eq i32 %ehselector.slot.2, %27
+  %matches79 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches79, label %catch116, label %catch.fallthrough80
 
 catch116:                                         ; preds = %catch.fallthrough
-  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception119 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %28, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp120, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -60976,11 +60976,11 @@ invoke.cont124:                                   ; preds = %invoke.cont122
 
 catch.fallthrough80:                              ; preds = %catch.fallthrough
   %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches81 = icmp eq i32 %ehselector.slot.2, %30
+  %matches81 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches81, label %catch99, label %catch.fallthrough82
 
 catch99:                                          ; preds = %catch.fallthrough80
-  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception102 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i20 = getelementptr inbounds i8, ptr %31, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp103, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i20)
@@ -61002,11 +61002,11 @@ invoke.cont107:                                   ; preds = %invoke.cont105
 
 catch.fallthrough82:                              ; preds = %catch.fallthrough80
   %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches83 = icmp eq i32 %ehselector.slot.2, %33
+  %matches83 = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches83, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough82
-  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %34, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -61734,14 +61734,14 @@ ehcleanup85:                                      ; preds = %lpad68.loopexit, %l
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5, %ehcleanup85
   %.pn4.pn = phi { ptr, i32 } [ %.pn4, %ehcleanup85 ], [ %.pn, %cleanup.action63 ], [ %25, %lpad5 ], [ %24, %lpad ], [ %4, %lpad.i.i.i ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn4.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn4.pn, 1
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %29
+  %matches = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches, label %catch140, label %catch.fallthrough
 
 catch140:                                         ; preds = %catch.dispatch
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception143 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %30, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp144, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -61763,11 +61763,11 @@ invoke.cont148:                                   ; preds = %invoke.cont146
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches86 = icmp eq i32 %ehselector.slot.2, %32
+  %matches86 = icmp eq i32 %ehselector.slot.0, %32
   br i1 %matches86, label %catch123, label %catch.fallthrough87
 
 catch123:                                         ; preds = %catch.fallthrough
-  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception126 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i21 = getelementptr inbounds i8, ptr %33, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp127, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i21)
@@ -61789,11 +61789,11 @@ invoke.cont131:                                   ; preds = %invoke.cont129
 
 catch.fallthrough87:                              ; preds = %catch.fallthrough
   %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches88 = icmp eq i32 %ehselector.slot.2, %35
+  %matches88 = icmp eq i32 %ehselector.slot.0, %35
   br i1 %matches88, label %catch106, label %catch.fallthrough89
 
 catch106:                                         ; preds = %catch.fallthrough87
-  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception109 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i24 = getelementptr inbounds i8, ptr %36, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i24)
@@ -61815,11 +61815,11 @@ invoke.cont114:                                   ; preds = %invoke.cont112
 
 catch.fallthrough89:                              ; preds = %catch.fallthrough87
   %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches90 = icmp eq i32 %ehselector.slot.2, %38
+  %matches90 = icmp eq i32 %ehselector.slot.0, %38
   br i1 %matches90, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough89
-  %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %39, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -62640,14 +62640,14 @@ lpad137:                                          ; preds = %invoke.cont138, %in
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, %cleanup.action63, %lpad5, %lpad137, %lpad128, %ehcleanup123
   %.pn8 = phi { ptr, i32 } [ %38, %lpad137 ], [ %37, %lpad128 ], [ %.pn6, %ehcleanup123 ], [ %.pn, %cleanup.action63 ], [ %31, %lpad5 ], [ %30, %lpad ], [ %4, %lpad.i.i.i ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn8, 0
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn8, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn8, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn8, 1
   %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.3, %39
+  %matches = icmp eq i32 %ehselector.slot.0, %39
   br i1 %matches, label %catch198, label %catch.fallthrough
 
 catch198:                                         ; preds = %catch.dispatch
-  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception201 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %40, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp202, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -62669,11 +62669,11 @@ invoke.cont206:                                   ; preds = %invoke.cont204
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches144 = icmp eq i32 %ehselector.slot.3, %42
+  %matches144 = icmp eq i32 %ehselector.slot.0, %42
   br i1 %matches144, label %catch181, label %catch.fallthrough145
 
 catch181:                                         ; preds = %catch.fallthrough
-  %43 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %43 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception184 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i37 = getelementptr inbounds i8, ptr %43, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp185, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i37)
@@ -62695,11 +62695,11 @@ invoke.cont189:                                   ; preds = %invoke.cont187
 
 catch.fallthrough145:                             ; preds = %catch.fallthrough
   %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches146 = icmp eq i32 %ehselector.slot.3, %45
+  %matches146 = icmp eq i32 %ehselector.slot.0, %45
   br i1 %matches146, label %catch164, label %catch.fallthrough147
 
 catch164:                                         ; preds = %catch.fallthrough145
-  %46 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %46 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception167 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i39 = getelementptr inbounds i8, ptr %46, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp168, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i39)
@@ -62721,11 +62721,11 @@ invoke.cont172:                                   ; preds = %invoke.cont170
 
 catch.fallthrough147:                             ; preds = %catch.fallthrough145
   %48 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches148 = icmp eq i32 %ehselector.slot.3, %48
+  %matches148 = icmp eq i32 %ehselector.slot.0, %48
   br i1 %matches148, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough147
-  %49 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %49 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %49, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -63430,14 +63430,14 @@ cleanup.action112:                                ; preds = %ehcleanup109.thread
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, %ehcleanup109, %cleanup.action112, %lpad76, %cleanup.action63, %lpad5
   %.pn4.pn = phi { ptr, i32 } [ %.pn431, %cleanup.action112 ], [ %17, %ehcleanup109 ], [ %15, %lpad76 ], [ %.pn, %cleanup.action63 ], [ %12, %lpad5 ], [ %11, %lpad ], [ %4, %lpad.i.i.i ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn4.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn4.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn4.pn, 1
   %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %18
+  %matches = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches, label %catch170, label %catch.fallthrough
 
 catch170:                                         ; preds = %catch.dispatch
-  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception173 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %19, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp174, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -63459,11 +63459,11 @@ invoke.cont178:                                   ; preds = %invoke.cont176
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches114 = icmp eq i32 %ehselector.slot.2, %21
+  %matches114 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches114, label %catch153, label %catch.fallthrough115
 
 catch153:                                         ; preds = %catch.fallthrough
-  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception156 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i23 = getelementptr inbounds i8, ptr %22, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp157, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i23)
@@ -63485,11 +63485,11 @@ invoke.cont161:                                   ; preds = %invoke.cont159
 
 catch.fallthrough115:                             ; preds = %catch.fallthrough
   %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches116 = icmp eq i32 %ehselector.slot.2, %24
+  %matches116 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches116, label %catch136, label %catch.fallthrough117
 
 catch136:                                         ; preds = %catch.fallthrough115
-  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception139 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i26 = getelementptr inbounds i8, ptr %25, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp140, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i26)
@@ -63511,11 +63511,11 @@ invoke.cont144:                                   ; preds = %invoke.cont142
 
 catch.fallthrough117:                             ; preds = %catch.fallthrough115
   %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches118 = icmp eq i32 %ehselector.slot.2, %27
+  %matches118 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches118, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough117
-  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception119 = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %28, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -63894,14 +63894,14 @@ cleanup.action76:                                 ; preds = %ehcleanup73.thread,
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, %ehcleanup73, %cleanup.action76, %cleanup.action63, %lpad5
   %.pn3.pn = phi { ptr, i32 } [ %.pn331, %cleanup.action76 ], [ %eh.lpad-body20, %ehcleanup73 ], [ %.pn, %cleanup.action63 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn3.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn3.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3.pn, 1
   %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %18
+  %matches = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches, label %catch134, label %catch.fallthrough
 
 catch134:                                         ; preds = %catch.dispatch
-  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception137 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i21 = getelementptr inbounds i8, ptr %19, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp138, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i21)
@@ -63923,11 +63923,11 @@ invoke.cont142:                                   ; preds = %invoke.cont140
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches78 = icmp eq i32 %ehselector.slot.2, %21
+  %matches78 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches78, label %catch117, label %catch.fallthrough79
 
 catch117:                                         ; preds = %catch.fallthrough
-  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception120 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i23 = getelementptr inbounds i8, ptr %22, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp121, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i23)
@@ -63949,11 +63949,11 @@ invoke.cont125:                                   ; preds = %invoke.cont123
 
 catch.fallthrough79:                              ; preds = %catch.fallthrough
   %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches80 = icmp eq i32 %ehselector.slot.2, %24
+  %matches80 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches80, label %catch100, label %catch.fallthrough81
 
 catch100:                                         ; preds = %catch.fallthrough79
-  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception103 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i26 = getelementptr inbounds i8, ptr %25, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i26)
@@ -63975,11 +63975,11 @@ invoke.cont108:                                   ; preds = %invoke.cont106
 
 catch.fallthrough81:                              ; preds = %catch.fallthrough79
   %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches82 = icmp eq i32 %ehselector.slot.2, %27
+  %matches82 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches82, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough81
-  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception83 = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %28, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -64339,14 +64339,14 @@ cleanup.action76:                                 ; preds = %ehcleanup73.thread,
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i.i, %ehcleanup73, %cleanup.action76, %cleanup.action63, %lpad5
   %.pn3.pn = phi { ptr, i32 } [ %.pn331, %cleanup.action76 ], [ %eh.lpad-body20, %ehcleanup73 ], [ %.pn, %cleanup.action63 ], [ %13, %lpad5 ], [ %12, %lpad ], [ %4, %lpad.i.i.i ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn3.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn3.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn3.pn, 1
   %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %18
+  %matches = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches, label %catch134, label %catch.fallthrough
 
 catch134:                                         ; preds = %catch.dispatch
-  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception137 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i21 = getelementptr inbounds i8, ptr %19, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp138, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i21)
@@ -64368,11 +64368,11 @@ invoke.cont142:                                   ; preds = %invoke.cont140
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches78 = icmp eq i32 %ehselector.slot.2, %21
+  %matches78 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches78, label %catch117, label %catch.fallthrough79
 
 catch117:                                         ; preds = %catch.fallthrough
-  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception120 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i23 = getelementptr inbounds i8, ptr %22, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp121, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i23)
@@ -64394,11 +64394,11 @@ invoke.cont125:                                   ; preds = %invoke.cont123
 
 catch.fallthrough79:                              ; preds = %catch.fallthrough
   %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches80 = icmp eq i32 %ehselector.slot.2, %24
+  %matches80 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches80, label %catch100, label %catch.fallthrough81
 
 catch100:                                         ; preds = %catch.fallthrough79
-  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception103 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i26 = getelementptr inbounds i8, ptr %25, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i26)
@@ -64420,11 +64420,11 @@ invoke.cont108:                                   ; preds = %invoke.cont106
 
 catch.fallthrough81:                              ; preds = %catch.fallthrough79
   %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches82 = icmp eq i32 %ehselector.slot.2, %27
+  %matches82 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches82, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough81
-  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception83 = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %28, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -65248,14 +65248,14 @@ ehcleanup:                                        ; preds = %lpad90, %lpad88
 
 catch.dispatch:                                   ; preds = %lpad59.body, %lpad30, %lpad5, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad ], [ %eh.lpad-body, %lpad59.body ], [ %12, %lpad30 ], [ %11, %lpad5 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %16
+  %matches = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches, label %catch146, label %catch.fallthrough
 
 catch146:                                         ; preds = %catch.dispatch
-  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception149 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %17, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp150, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -65277,11 +65277,11 @@ invoke.cont154:                                   ; preds = %invoke.cont152
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches92 = icmp eq i32 %ehselector.slot.1, %19
+  %matches92 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches92, label %catch129, label %catch.fallthrough93
 
 catch129:                                         ; preds = %catch.fallthrough
-  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception132 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i29 = getelementptr inbounds i8, ptr %20, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp133, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i29)
@@ -65303,11 +65303,11 @@ invoke.cont137:                                   ; preds = %invoke.cont135
 
 catch.fallthrough93:                              ; preds = %catch.fallthrough
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches94 = icmp eq i32 %ehselector.slot.1, %22
+  %matches94 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches94, label %catch112, label %catch.fallthrough95
 
 catch112:                                         ; preds = %catch.fallthrough93
-  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception115 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i32 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp116, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i32)
@@ -65329,11 +65329,11 @@ invoke.cont120:                                   ; preds = %invoke.cont118
 
 catch.fallthrough95:                              ; preds = %catch.fallthrough93
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches96 = icmp eq i32 %ehselector.slot.1, %25
+  %matches96 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches96, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough95
-  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %26, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -65950,14 +65950,14 @@ ehcleanup29:                                      ; preds = %ehcleanup, %lpad22
 
 catch.dispatch:                                   ; preds = %lpad5, %ehcleanup29, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup29 ], [ %13, %lpad ], [ %14, %lpad5 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %18
+  %matches = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches, label %catch84, label %catch.fallthrough
 
 catch84:                                          ; preds = %catch.dispatch
-  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception87 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %19, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -65979,11 +65979,11 @@ invoke.cont92:                                    ; preds = %invoke.cont90
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches30 = icmp eq i32 %ehselector.slot.2, %21
+  %matches30 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches30, label %catch67, label %catch.fallthrough31
 
 catch67:                                          ; preds = %catch.fallthrough
-  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception70 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i33 = getelementptr inbounds i8, ptr %22, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i33)
@@ -66005,11 +66005,11 @@ invoke.cont75:                                    ; preds = %invoke.cont73
 
 catch.fallthrough31:                              ; preds = %catch.fallthrough
   %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches32 = icmp eq i32 %ehselector.slot.2, %24
+  %matches32 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches32, label %catch50, label %catch.fallthrough33
 
 catch50:                                          ; preds = %catch.fallthrough31
-  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception53 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i36 = getelementptr inbounds i8, ptr %25, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i36)
@@ -66031,11 +66031,11 @@ invoke.cont58:                                    ; preds = %invoke.cont56
 
 catch.fallthrough33:                              ; preds = %catch.fallthrough31
   %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches34 = icmp eq i32 %ehselector.slot.2, %27
+  %matches34 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches34, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough33
-  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %28, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -81980,14 +81980,14 @@ lpad162.body:                                     ; preds = %lpad.i47, %lpad162
 
 catch.dispatch:                                   ; preds = %lpad162.body, %lpad92.body, %lpad57, %lpad27, %lpad6, %ehcleanup151, %lpad
   %.pn12 = phi { ptr, i32 } [ %32, %lpad ], [ %eh.lpad-body49, %lpad162.body ], [ %.pn.pn, %ehcleanup151 ], [ %eh.lpad-body, %lpad92.body ], [ %35, %lpad57 ], [ %34, %lpad27 ], [ %33, %lpad6 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn12, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn12, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn12, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn12, 1
   %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %41
+  %matches = icmp eq i32 %ehselector.slot.0, %41
   br i1 %matches, label %catch249, label %catch.fallthrough
 
 catch249:                                         ; preds = %catch.dispatch
-  %42 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %42 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception252 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %42, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp253, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -82009,11 +82009,11 @@ invoke.cont257:                                   ; preds = %invoke.cont255
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches195 = icmp eq i32 %ehselector.slot.2, %44
+  %matches195 = icmp eq i32 %ehselector.slot.0, %44
   br i1 %matches195, label %catch232, label %catch.fallthrough196
 
 catch232:                                         ; preds = %catch.fallthrough
-  %45 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %45 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception235 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i52 = getelementptr inbounds i8, ptr %45, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp236, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i52)
@@ -82035,11 +82035,11 @@ invoke.cont240:                                   ; preds = %invoke.cont238
 
 catch.fallthrough196:                             ; preds = %catch.fallthrough
   %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches197 = icmp eq i32 %ehselector.slot.2, %47
+  %matches197 = icmp eq i32 %ehselector.slot.0, %47
   br i1 %matches197, label %catch215, label %catch.fallthrough198
 
 catch215:                                         ; preds = %catch.fallthrough196
-  %48 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %48 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception218 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i55 = getelementptr inbounds i8, ptr %48, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp219, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i55)
@@ -82061,11 +82061,11 @@ invoke.cont223:                                   ; preds = %invoke.cont221
 
 catch.fallthrough198:                             ; preds = %catch.fallthrough196
   %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches199 = icmp eq i32 %ehselector.slot.2, %50
+  %matches199 = icmp eq i32 %ehselector.slot.0, %50
   br i1 %matches199, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough198
-  %51 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %51 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %51, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -83134,14 +83134,14 @@ lpad274:                                          ; preds = %invoke.cont273
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i65, %lpad235.body, %lpad193.body, %lpad95, %lpad62, %lpad27, %lpad6, %lpad274, %ehcleanup175
   %.pn22.pn.pn = phi { ptr, i32 } [ %.pn22.pn, %ehcleanup175 ], [ %13, %lpad95 ], [ %12, %lpad62 ], [ %eh.lpad-body61, %lpad235.body ], [ %60, %lpad274 ], [ %eh.lpad-body50, %lpad193.body ], [ %11, %lpad27 ], [ %10, %lpad6 ], [ %52, %lpad.i65 ], [ %lpad.loopexit102, %lpad.loopexit ], [ %lpad.loopexit104, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp105, %lpad.loopexit.split-lp.loopexit.split-lp ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn22.pn.pn, 0
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn22.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn22.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn22.pn.pn, 1
   %61 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.3, %61
+  %matches = icmp eq i32 %ehselector.slot.0, %61
   br i1 %matches, label %catch331, label %catch.fallthrough
 
 catch331:                                         ; preds = %catch.dispatch
-  %62 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %62 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception334 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %62, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp335, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -83163,11 +83163,11 @@ invoke.cont339:                                   ; preds = %invoke.cont337
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %64 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches277 = icmp eq i32 %ehselector.slot.3, %64
+  %matches277 = icmp eq i32 %ehselector.slot.0, %64
   br i1 %matches277, label %catch314, label %catch.fallthrough278
 
 catch314:                                         ; preds = %catch.fallthrough
-  %65 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %65 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception317 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i70 = getelementptr inbounds i8, ptr %65, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp318, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i70)
@@ -83189,11 +83189,11 @@ invoke.cont322:                                   ; preds = %invoke.cont320
 
 catch.fallthrough278:                             ; preds = %catch.fallthrough
   %67 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches279 = icmp eq i32 %ehselector.slot.3, %67
+  %matches279 = icmp eq i32 %ehselector.slot.0, %67
   br i1 %matches279, label %catch297, label %catch.fallthrough280
 
 catch297:                                         ; preds = %catch.fallthrough278
-  %68 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %68 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception300 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i73 = getelementptr inbounds i8, ptr %68, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp301, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i73)
@@ -83215,11 +83215,11 @@ invoke.cont305:                                   ; preds = %invoke.cont303
 
 catch.fallthrough280:                             ; preds = %catch.fallthrough278
   %70 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches281 = icmp eq i32 %ehselector.slot.3, %70
+  %matches281 = icmp eq i32 %ehselector.slot.0, %70
   br i1 %matches281, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough280
-  %71 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %71 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %71, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -89429,15 +89429,15 @@ if.then.i.i.i34:                                  ; preds = %invoke.cont.i33
 
 ehcleanup13:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %35, %lpad ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   call void @_ZNSt6vectorIN4cvc55ProofESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.result) #30
   %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %50
+  %matches = icmp eq i32 %ehselector.slot.0, %50
   br i1 %matches, label %catch65, label %catch.fallthrough
 
 catch65:                                          ; preds = %ehcleanup13
-  %51 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %51 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception68 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %51, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -89459,11 +89459,11 @@ invoke.cont73:                                    ; preds = %invoke.cont71
 
 catch.fallthrough:                                ; preds = %ehcleanup13
   %53 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches14 = icmp eq i32 %ehselector.slot.1, %53
+  %matches14 = icmp eq i32 %ehselector.slot.0, %53
   br i1 %matches14, label %catch48, label %catch.fallthrough15
 
 catch48:                                          ; preds = %catch.fallthrough
-  %54 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %54 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception51 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i38 = getelementptr inbounds i8, ptr %54, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp52, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i38)
@@ -89485,11 +89485,11 @@ invoke.cont56:                                    ; preds = %invoke.cont54
 
 catch.fallthrough15:                              ; preds = %catch.fallthrough
   %56 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches16 = icmp eq i32 %ehselector.slot.1, %56
+  %matches16 = icmp eq i32 %ehselector.slot.0, %56
   br i1 %matches16, label %catch31, label %catch.fallthrough17
 
 catch31:                                          ; preds = %catch.fallthrough15
-  %57 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %57 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception34 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i41 = getelementptr inbounds i8, ptr %57, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp35, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i41)
@@ -89511,11 +89511,11 @@ invoke.cont39:                                    ; preds = %invoke.cont37
 
 catch.fallthrough17:                              ; preds = %catch.fallthrough15
   %59 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches18 = icmp eq i32 %ehselector.slot.1, %59
+  %matches18 = icmp eq i32 %ehselector.slot.0, %59
   br i1 %matches18, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough17
-  %60 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %60 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %60, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -90045,14 +90045,14 @@ ehcleanup15:                                      ; preds = %lpad5, %if.then.i.i
 
 catch.dispatch:                                   ; preds = %ehcleanup15, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup15 ], [ %19, %lpad ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %30
+  %matches = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches, label %catch67, label %catch.fallthrough
 
 catch67:                                          ; preds = %catch.dispatch
-  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception70 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %31, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp71, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -90074,11 +90074,11 @@ invoke.cont75:                                    ; preds = %invoke.cont73
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches16 = icmp eq i32 %ehselector.slot.2, %33
+  %matches16 = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches16, label %catch50, label %catch.fallthrough17
 
 catch50:                                          ; preds = %catch.fallthrough
-  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception53 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i24 = getelementptr inbounds i8, ptr %34, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i24)
@@ -90100,11 +90100,11 @@ invoke.cont58:                                    ; preds = %invoke.cont56
 
 catch.fallthrough17:                              ; preds = %catch.fallthrough
   %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches18 = icmp eq i32 %ehselector.slot.2, %36
+  %matches18 = icmp eq i32 %ehselector.slot.0, %36
   br i1 %matches18, label %catch33, label %catch.fallthrough19
 
 catch33:                                          ; preds = %catch.fallthrough17
-  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception36 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i27 = getelementptr inbounds i8, ptr %37, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i27)
@@ -90126,11 +90126,11 @@ invoke.cont41:                                    ; preds = %invoke.cont39
 
 catch.fallthrough19:                              ; preds = %catch.fallthrough17
   %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches20 = icmp eq i32 %ehselector.slot.2, %39
+  %matches20 = icmp eq i32 %ehselector.slot.0, %39
   br i1 %matches20, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough19
-  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %40, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -95730,10 +95730,10 @@ lpad47:                                           ; preds = %invoke.cont48, %inv
 
 ehcleanup52:                                      ; preds = %lpad45, %lpad47
   %.pn4 = phi { ptr, i32 } [ %16, %lpad47 ], [ %15, %lpad45 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad47 ], [ true, %lpad45 ]
+  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.0, %lpad47 ], [ true, %lpad45 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp40) #30
-  br i1 %cleanup.isactive.1, label %cleanup.action, label %ehcleanup53
+  br i1 %cleanup.isactive.2, label %cleanup.action, label %ehcleanup53
 
 cleanup.action:                                   ; preds = %ehcleanup52.thread, %ehcleanup52
   %.pn4.pn11 = phi { ptr, i32 } [ %14, %ehcleanup52.thread ], [ %.pn4, %ehcleanup52 ]
@@ -98191,14 +98191,14 @@ ehcleanup114:                                     ; preds = %ehcleanup, %lpad108
 
 catch.dispatch:                                   ; preds = %lpad83, %lpad54, %lpad28, %lpad5, %ehcleanup114, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup114 ], [ %23, %lpad ], [ %27, %lpad83 ], [ %26, %lpad54 ], [ %25, %lpad28 ], [ %24, %lpad5 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %31
+  %matches = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches, label %catch169, label %catch.fallthrough
 
 catch169:                                         ; preds = %catch.dispatch
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception172 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %32, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp173, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -98220,11 +98220,11 @@ invoke.cont177:                                   ; preds = %invoke.cont175
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches115 = icmp eq i32 %ehselector.slot.2, %34
+  %matches115 = icmp eq i32 %ehselector.slot.0, %34
   br i1 %matches115, label %catch152, label %catch.fallthrough116
 
 catch152:                                         ; preds = %catch.fallthrough
-  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception155 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i69 = getelementptr inbounds i8, ptr %35, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp156, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i69)
@@ -98246,11 +98246,11 @@ invoke.cont160:                                   ; preds = %invoke.cont158
 
 catch.fallthrough116:                             ; preds = %catch.fallthrough
   %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches117 = icmp eq i32 %ehselector.slot.2, %37
+  %matches117 = icmp eq i32 %ehselector.slot.0, %37
   br i1 %matches117, label %catch135, label %catch.fallthrough118
 
 catch135:                                         ; preds = %catch.fallthrough116
-  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception138 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i72 = getelementptr inbounds i8, ptr %38, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp139, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i72)
@@ -98272,11 +98272,11 @@ invoke.cont143:                                   ; preds = %invoke.cont141
 
 catch.fallthrough118:                             ; preds = %catch.fallthrough116
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches119 = icmp eq i32 %ehselector.slot.2, %40
+  %matches119 = icmp eq i32 %ehselector.slot.0, %40
   br i1 %matches119, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough118
-  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %41, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -99013,14 +99013,14 @@ terminate.lpad.i.i13:                             ; preds = %ehcleanup
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %7, %lpad ], [ %.pn, %ehcleanup ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %13
+  %matches = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches, label %catch87, label %catch.fallthrough
 
 catch87:                                          ; preds = %catch.dispatch
-  %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception90 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %14, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -99042,11 +99042,11 @@ invoke.cont95:                                    ; preds = %invoke.cont93
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches33 = icmp eq i32 %ehselector.slot.1, %16
+  %matches33 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches33, label %catch70, label %catch.fallthrough34
 
 catch70:                                          ; preds = %catch.fallthrough
-  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception73 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i15 = getelementptr inbounds i8, ptr %17, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i15)
@@ -99068,11 +99068,11 @@ invoke.cont78:                                    ; preds = %invoke.cont76
 
 catch.fallthrough34:                              ; preds = %catch.fallthrough
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches35 = icmp eq i32 %ehselector.slot.1, %19
+  %matches35 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches35, label %catch53, label %catch.fallthrough36
 
 catch53:                                          ; preds = %catch.fallthrough34
-  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception56 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i17 = getelementptr inbounds i8, ptr %20, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i17)
@@ -99094,11 +99094,11 @@ invoke.cont61:                                    ; preds = %invoke.cont59
 
 catch.fallthrough36:                              ; preds = %catch.fallthrough34
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches37 = icmp eq i32 %ehselector.slot.1, %22
+  %matches37 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches37, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough36
-  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %23, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -99992,14 +99992,14 @@ ehcleanup172:                                     ; preds = %ehcleanup171, %lpad
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad80.body, %lpad52, %lpad27, %lpad4, %ehcleanup172, %lpad110
   %.pn11.pn.pn = phi { ptr, i32 } [ %.pn11.pn, %ehcleanup172 ], [ %22, %lpad110 ], [ %eh.lpad-body, %lpad80.body ], [ %20, %lpad52 ], [ %19, %lpad27 ], [ %18, %lpad4 ], [ %lpad.loopexit69, %lpad.loopexit ], [ %lpad.loopexit.split-lp70, %lpad.loopexit.split-lp ]
-  %exn.slot.4 = extractvalue { ptr, i32 } %.pn11.pn.pn, 0
-  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn11.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn11.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn11.pn.pn, 1
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.4, %28
+  %matches = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches, label %catch227, label %catch.fallthrough
 
 catch227:                                         ; preds = %catch.dispatch
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception230 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %29, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp231, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -100021,11 +100021,11 @@ invoke.cont235:                                   ; preds = %invoke.cont233
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches173 = icmp eq i32 %ehselector.slot.4, %31
+  %matches173 = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches173, label %catch210, label %catch.fallthrough174
 
 catch210:                                         ; preds = %catch.fallthrough
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception213 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i39 = getelementptr inbounds i8, ptr %32, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp214, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i39)
@@ -100047,11 +100047,11 @@ invoke.cont218:                                   ; preds = %invoke.cont216
 
 catch.fallthrough174:                             ; preds = %catch.fallthrough
   %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches175 = icmp eq i32 %ehselector.slot.4, %34
+  %matches175 = icmp eq i32 %ehselector.slot.0, %34
   br i1 %matches175, label %catch193, label %catch.fallthrough176
 
 catch193:                                         ; preds = %catch.fallthrough174
-  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception196 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i42 = getelementptr inbounds i8, ptr %35, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp197, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i42)
@@ -100073,11 +100073,11 @@ invoke.cont201:                                   ; preds = %invoke.cont199
 
 catch.fallthrough176:                             ; preds = %catch.fallthrough174
   %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches177 = icmp eq i32 %ehselector.slot.4, %37
+  %matches177 = icmp eq i32 %ehselector.slot.0, %37
   br i1 %matches177, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough176
-  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %38, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -100820,15 +100820,15 @@ ehcleanup206:                                     ; preds = %lpad144, %ehcleanup
 
 ehcleanup207:                                     ; preds = %lpad127.loopexit, %lpad127.loopexit.split-lp, %ehcleanup206
   %.pn23 = phi { ptr, i32 } [ %.pn19.pn.pn, %ehcleanup206 ], [ %lpad.loopexit, %lpad127.loopexit ], [ %lpad.loopexit.split-lp, %lpad127.loopexit.split-lp ]
-  %exn.slot.5 = extractvalue { ptr, i32 } %.pn23, 0
-  %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn23, 1
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn23, 0
+  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn23, 1
   call void @_ZNSt6vectorIN4cvc58internal5DTypeESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %datatypes) #30
   %56 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.5, %56
+  %matches = icmp eq i32 %ehselector.slot.1, %56
   br i1 %matches, label %catch262, label %catch.fallthrough
 
 catch262:                                         ; preds = %ehcleanup207
-  %57 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %57 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
   %exception265 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %57, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp266, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -100850,11 +100850,11 @@ invoke.cont270:                                   ; preds = %invoke.cont268
 
 catch.fallthrough:                                ; preds = %ehcleanup207
   %59 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches208 = icmp eq i32 %ehselector.slot.5, %59
+  %matches208 = icmp eq i32 %ehselector.slot.1, %59
   br i1 %matches208, label %catch245, label %catch.fallthrough209
 
 catch245:                                         ; preds = %catch.fallthrough
-  %60 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %60 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
   %exception248 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i71 = getelementptr inbounds i8, ptr %60, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp249, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i71)
@@ -100876,11 +100876,11 @@ invoke.cont253:                                   ; preds = %invoke.cont251
 
 catch.fallthrough209:                             ; preds = %catch.fallthrough
   %62 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches210 = icmp eq i32 %ehselector.slot.5, %62
+  %matches210 = icmp eq i32 %ehselector.slot.1, %62
   br i1 %matches210, label %catch228, label %catch.fallthrough211
 
 catch228:                                         ; preds = %catch.fallthrough209
-  %63 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %63 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
   %exception231 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i74 = getelementptr inbounds i8, ptr %63, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp232, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i74)
@@ -100902,11 +100902,11 @@ invoke.cont236:                                   ; preds = %invoke.cont234
 
 catch.fallthrough211:                             ; preds = %catch.fallthrough209
   %65 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches212 = icmp eq i32 %ehselector.slot.5, %65
+  %matches212 = icmp eq i32 %ehselector.slot.1, %65
   br i1 %matches212, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough211
-  %66 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %66 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %66, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -101662,14 +101662,14 @@ ehcleanup:                                        ; preds = %lpad237, %lpad235
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i39, %lpad203.body, %lpad178, %lpad149, %lpad108, %lpad69, %lpad35, %lpad4, %ehcleanup
   %.pn15 = phi { ptr, i32 } [ %10, %lpad108 ], [ %9, %lpad69 ], [ %8, %lpad35 ], [ %.pn, %ehcleanup ], [ %eh.lpad-body, %lpad203.body ], [ %39, %lpad178 ], [ %38, %lpad149 ], [ %7, %lpad4 ], [ %24, %lpad.i39 ], [ %lpad.loopexit75, %lpad.loopexit ], [ %lpad.loopexit.split-lp76, %lpad.loopexit.split-lp ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn15, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn15, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn15, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn15, 1
   %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %43
+  %matches = icmp eq i32 %ehselector.slot.0, %43
   br i1 %matches, label %catch293, label %catch.fallthrough
 
 catch293:                                         ; preds = %catch.dispatch
-  %44 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %44 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception296 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %44, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp297, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -101691,11 +101691,11 @@ invoke.cont301:                                   ; preds = %invoke.cont299
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %46 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches239 = icmp eq i32 %ehselector.slot.1, %46
+  %matches239 = icmp eq i32 %ehselector.slot.0, %46
   br i1 %matches239, label %catch276, label %catch.fallthrough240
 
 catch276:                                         ; preds = %catch.fallthrough
-  %47 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %47 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception279 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i45 = getelementptr inbounds i8, ptr %47, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp280, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i45)
@@ -101717,11 +101717,11 @@ invoke.cont284:                                   ; preds = %invoke.cont282
 
 catch.fallthrough240:                             ; preds = %catch.fallthrough
   %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches241 = icmp eq i32 %ehselector.slot.1, %49
+  %matches241 = icmp eq i32 %ehselector.slot.0, %49
   br i1 %matches241, label %catch259, label %catch.fallthrough242
 
 catch259:                                         ; preds = %catch.fallthrough240
-  %50 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %50 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception262 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i48 = getelementptr inbounds i8, ptr %50, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp263, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i48)
@@ -101743,11 +101743,11 @@ invoke.cont267:                                   ; preds = %invoke.cont265
 
 catch.fallthrough242:                             ; preds = %catch.fallthrough240
   %52 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches243 = icmp eq i32 %ehselector.slot.1, %52
+  %matches243 = icmp eq i32 %ehselector.slot.0, %52
   br i1 %matches243, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough242
-  %53 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %53 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %53, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -102616,14 +102616,14 @@ ehcleanup:                                        ; preds = %lpad145, %lpad143
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i, %lpad108, %lpad69, %lpad35, %lpad4, %ehcleanup
   %.pn11 = phi { ptr, i32 } [ %10, %lpad108 ], [ %9, %lpad69 ], [ %8, %lpad35 ], [ %.pn, %ehcleanup ], [ %7, %lpad4 ], [ %20, %lpad.i ], [ %lpad.loopexit59, %lpad.loopexit ], [ %lpad.loopexit.split-lp60, %lpad.loopexit.split-lp ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn11, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn11, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn11, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn11, 1
   %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %34
+  %matches = icmp eq i32 %ehselector.slot.0, %34
   br i1 %matches, label %catch201, label %catch.fallthrough
 
 catch201:                                         ; preds = %catch.dispatch
-  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception204 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %35, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp205, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -102645,11 +102645,11 @@ invoke.cont209:                                   ; preds = %invoke.cont207
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches147 = icmp eq i32 %ehselector.slot.1, %37
+  %matches147 = icmp eq i32 %ehselector.slot.0, %37
   br i1 %matches147, label %catch184, label %catch.fallthrough148
 
 catch184:                                         ; preds = %catch.fallthrough
-  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception187 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i31 = getelementptr inbounds i8, ptr %38, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp188, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i31)
@@ -102671,11 +102671,11 @@ invoke.cont192:                                   ; preds = %invoke.cont190
 
 catch.fallthrough148:                             ; preds = %catch.fallthrough
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches149 = icmp eq i32 %ehselector.slot.1, %40
+  %matches149 = icmp eq i32 %ehselector.slot.0, %40
   br i1 %matches149, label %catch167, label %catch.fallthrough150
 
 catch167:                                         ; preds = %catch.fallthrough148
-  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception170 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i33 = getelementptr inbounds i8, ptr %41, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp171, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i33)
@@ -102697,11 +102697,11 @@ invoke.cont175:                                   ; preds = %invoke.cont173
 
 catch.fallthrough150:                             ; preds = %catch.fallthrough148
   %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches151 = icmp eq i32 %ehselector.slot.1, %43
+  %matches151 = icmp eq i32 %ehselector.slot.0, %43
   br i1 %matches151, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough150
-  %44 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %44 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %44, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -103645,14 +103645,14 @@ ehcleanup:                                        ; preds = %lpad50, %lpad48
 
 catch.dispatch:                                   ; preds = %lpad28, %lpad5, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %14, %lpad ], [ %16, %lpad28 ], [ %15, %lpad5 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %19
+  %matches = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches, label %catch106, label %catch.fallthrough
 
 catch106:                                         ; preds = %catch.dispatch
-  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception109 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %20, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -103674,11 +103674,11 @@ invoke.cont114:                                   ; preds = %invoke.cont112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches52 = icmp eq i32 %ehselector.slot.1, %22
+  %matches52 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches52, label %catch89, label %catch.fallthrough53
 
 catch89:                                          ; preds = %catch.fallthrough
-  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception92 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i36 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i36)
@@ -103700,11 +103700,11 @@ invoke.cont97:                                    ; preds = %invoke.cont95
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches54 = icmp eq i32 %ehselector.slot.1, %25
+  %matches54 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches54, label %catch72, label %catch.fallthrough55
 
 catch72:                                          ; preds = %catch.fallthrough53
-  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception75 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i39 = getelementptr inbounds i8, ptr %26, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i39)
@@ -103726,11 +103726,11 @@ invoke.cont80:                                    ; preds = %invoke.cont78
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches56 = icmp eq i32 %ehselector.slot.1, %28
+  %matches56 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches56, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough55
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %29, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -104135,14 +104135,14 @@ ehcleanup:                                        ; preds = %lpad50, %lpad48
 
 catch.dispatch:                                   ; preds = %lpad28, %lpad5, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %14, %lpad ], [ %16, %lpad28 ], [ %15, %lpad5 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %19
+  %matches = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches, label %catch106, label %catch.fallthrough
 
 catch106:                                         ; preds = %catch.dispatch
-  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception109 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %20, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -104164,11 +104164,11 @@ invoke.cont114:                                   ; preds = %invoke.cont112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches52 = icmp eq i32 %ehselector.slot.1, %22
+  %matches52 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches52, label %catch89, label %catch.fallthrough53
 
 catch89:                                          ; preds = %catch.fallthrough
-  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception92 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i36 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i36)
@@ -104190,11 +104190,11 @@ invoke.cont97:                                    ; preds = %invoke.cont95
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches54 = icmp eq i32 %ehselector.slot.1, %25
+  %matches54 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches54, label %catch72, label %catch.fallthrough55
 
 catch72:                                          ; preds = %catch.fallthrough53
-  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception75 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i39 = getelementptr inbounds i8, ptr %26, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i39)
@@ -104216,11 +104216,11 @@ invoke.cont80:                                    ; preds = %invoke.cont78
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches56 = icmp eq i32 %ehselector.slot.1, %28
+  %matches56 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches56, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough55
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %29, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -104555,14 +104555,14 @@ ehcleanup:                                        ; preds = %lpad50, %lpad48
 
 catch.dispatch:                                   ; preds = %lpad28, %lpad5, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %14, %lpad ], [ %16, %lpad28 ], [ %15, %lpad5 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %19
+  %matches = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches, label %catch106, label %catch.fallthrough
 
 catch106:                                         ; preds = %catch.dispatch
-  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception109 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %20, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -104584,11 +104584,11 @@ invoke.cont114:                                   ; preds = %invoke.cont112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches52 = icmp eq i32 %ehselector.slot.1, %22
+  %matches52 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches52, label %catch89, label %catch.fallthrough53
 
 catch89:                                          ; preds = %catch.fallthrough
-  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception92 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i36 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i36)
@@ -104610,11 +104610,11 @@ invoke.cont97:                                    ; preds = %invoke.cont95
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches54 = icmp eq i32 %ehselector.slot.1, %25
+  %matches54 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches54, label %catch72, label %catch.fallthrough55
 
 catch72:                                          ; preds = %catch.fallthrough53
-  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception75 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i39 = getelementptr inbounds i8, ptr %26, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i39)
@@ -104636,11 +104636,11 @@ invoke.cont80:                                    ; preds = %invoke.cont78
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches56 = icmp eq i32 %ehselector.slot.1, %28
+  %matches56 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches56, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough55
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %29, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -105943,14 +105943,14 @@ ehcleanup42:                                      ; preds = %lpad36, %lpad.i, %e
 
 catch.dispatch:                                   ; preds = %lpad4, %ehcleanup42, %lpad29, %lpad
   %.pn8 = phi { ptr, i32 } [ %8, %lpad29 ], [ %6, %lpad ], [ %.pn.pn, %ehcleanup42 ], [ %7, %lpad4 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn8, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn8, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn8, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn8, 1
   %17 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %17
+  %matches = icmp eq i32 %ehselector.slot.0, %17
   br i1 %matches, label %catch97, label %catch.fallthrough
 
 catch97:                                          ; preds = %catch.dispatch
-  %18 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %18 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception100 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %18, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp101, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -105972,11 +105972,11 @@ invoke.cont105:                                   ; preds = %invoke.cont103
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches43 = icmp eq i32 %ehselector.slot.2, %20
+  %matches43 = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches43, label %catch80, label %catch.fallthrough44
 
 catch80:                                          ; preds = %catch.fallthrough
-  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception83 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i32 = getelementptr inbounds i8, ptr %21, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp84, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i32)
@@ -105998,11 +105998,11 @@ invoke.cont88:                                    ; preds = %invoke.cont86
 
 catch.fallthrough44:                              ; preds = %catch.fallthrough
   %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches45 = icmp eq i32 %ehselector.slot.2, %23
+  %matches45 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches45, label %catch63, label %catch.fallthrough46
 
 catch63:                                          ; preds = %catch.fallthrough44
-  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception66 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i35 = getelementptr inbounds i8, ptr %24, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i35)
@@ -106024,11 +106024,11 @@ invoke.cont71:                                    ; preds = %invoke.cont69
 
 catch.fallthrough46:                              ; preds = %catch.fallthrough44
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches47 = icmp eq i32 %ehselector.slot.2, %26
+  %matches47 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches47, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough46
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %27, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -107935,14 +107935,14 @@ ehcleanup68:                                      ; preds = %ehcleanup67, %lpad2
 
 catch.dispatch:                                   ; preds = %lpad4, %ehcleanup68, %lpad
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup68 ], [ %4, %lpad ], [ %5, %lpad4 ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn.pn, 1
   %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.3, %10
+  %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch123, label %catch.fallthrough
 
 catch123:                                         ; preds = %catch.dispatch
-  %11 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %11 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception126 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %11, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp127, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -107964,11 +107964,11 @@ invoke.cont131:                                   ; preds = %invoke.cont129
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches69 = icmp eq i32 %ehselector.slot.3, %13
+  %matches69 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches69, label %catch106, label %catch.fallthrough70
 
 catch106:                                         ; preds = %catch.fallthrough
-  %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception109 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i19 = getelementptr inbounds i8, ptr %14, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i19)
@@ -107990,11 +107990,11 @@ invoke.cont114:                                   ; preds = %invoke.cont112
 
 catch.fallthrough70:                              ; preds = %catch.fallthrough
   %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches71 = icmp eq i32 %ehselector.slot.3, %16
+  %matches71 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches71, label %catch89, label %catch.fallthrough72
 
 catch89:                                          ; preds = %catch.fallthrough70
-  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception92 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i21 = getelementptr inbounds i8, ptr %17, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i21)
@@ -108016,11 +108016,11 @@ invoke.cont97:                                    ; preds = %invoke.cont95
 
 catch.fallthrough72:                              ; preds = %catch.fallthrough70
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches73 = icmp eq i32 %ehselector.slot.3, %19
+  %matches73 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches73, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough72
-  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %20, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -113074,14 +113074,14 @@ ehcleanup:                                        ; preds = %lpad51, %lpad48, %l
 
 catch.dispatch:                                   ; preds = %lpad28, %lpad5, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %16, %lpad ], [ %18, %lpad28 ], [ %17, %lpad5 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %22
+  %matches = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches, label %catch107, label %catch.fallthrough
 
 catch107:                                         ; preds = %catch.dispatch
-  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception110 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp111, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -113103,11 +113103,11 @@ invoke.cont115:                                   ; preds = %invoke.cont113
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches53 = icmp eq i32 %ehselector.slot.1, %25
+  %matches53 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches53, label %catch90, label %catch.fallthrough54
 
 catch90:                                          ; preds = %catch.fallthrough
-  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception93 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i16 = getelementptr inbounds i8, ptr %26, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp94, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i16)
@@ -113129,11 +113129,11 @@ invoke.cont98:                                    ; preds = %invoke.cont96
 
 catch.fallthrough54:                              ; preds = %catch.fallthrough
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches55 = icmp eq i32 %ehselector.slot.1, %28
+  %matches55 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches55, label %catch73, label %catch.fallthrough56
 
 catch73:                                          ; preds = %catch.fallthrough54
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception76 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %29, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -113155,11 +113155,11 @@ invoke.cont81:                                    ; preds = %invoke.cont79
 
 catch.fallthrough56:                              ; preds = %catch.fallthrough54
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches57 = icmp eq i32 %ehselector.slot.1, %31
+  %matches57 = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches57, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough56
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %32, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -114362,14 +114362,14 @@ terminate.lpad.i.i32:                             ; preds = %ehcleanup40
 
 catch.dispatch:                                   ; preds = %ehcleanup40, %lpad5.body, %lpad
   %.pn5.pn = phi { ptr, i32 } [ %18, %lpad ], [ %eh.lpad-body, %lpad5.body ], [ %.pn5, %ehcleanup40 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn5.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn5.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn5.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn5.pn, 1
   %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %30
+  %matches = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches, label %catch95, label %catch.fallthrough
 
 catch95:                                          ; preds = %catch.dispatch
-  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception98 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %31, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp99, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -114391,11 +114391,11 @@ invoke.cont103:                                   ; preds = %invoke.cont101
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches41 = icmp eq i32 %ehselector.slot.2, %33
+  %matches41 = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches41, label %catch78, label %catch.fallthrough42
 
 catch78:                                          ; preds = %catch.fallthrough
-  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception81 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i35 = getelementptr inbounds i8, ptr %34, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i35)
@@ -114417,11 +114417,11 @@ invoke.cont86:                                    ; preds = %invoke.cont84
 
 catch.fallthrough42:                              ; preds = %catch.fallthrough
   %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches43 = icmp eq i32 %ehselector.slot.2, %36
+  %matches43 = icmp eq i32 %ehselector.slot.0, %36
   br i1 %matches43, label %catch61, label %catch.fallthrough44
 
 catch61:                                          ; preds = %catch.fallthrough42
-  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception64 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i38 = getelementptr inbounds i8, ptr %37, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp65, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i38)
@@ -114443,11 +114443,11 @@ invoke.cont69:                                    ; preds = %invoke.cont67
 
 catch.fallthrough44:                              ; preds = %catch.fallthrough42
   %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches45 = icmp eq i32 %ehselector.slot.2, %39
+  %matches45 = icmp eq i32 %ehselector.slot.0, %39
   br i1 %matches45, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough44
-  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %40, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -115149,14 +115149,14 @@ ehcleanup210:                                     ; preds = %lpad177.body, %lpad
 
 catch.dispatch:                                   ; preds = %lpad109.body, %lpad83, %lpad54, %lpad28, %lpad5, %ehcleanup210, %ehcleanup164, %lpad
   %.pn13.pn = phi { ptr, i32 } [ %.pn13, %ehcleanup210 ], [ %21, %lpad ], [ %.pn.pn, %ehcleanup164 ], [ %eh.lpad-body, %lpad109.body ], [ %25, %lpad83 ], [ %24, %lpad54 ], [ %23, %lpad28 ], [ %22, %lpad5 ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn13.pn, 0
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn13.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn13.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn13.pn, 1
   %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.3, %33
+  %matches = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches, label %catch265, label %catch.fallthrough
 
 catch265:                                         ; preds = %catch.dispatch
-  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception268 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %34, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp269, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -115178,11 +115178,11 @@ invoke.cont273:                                   ; preds = %invoke.cont271
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches211 = icmp eq i32 %ehselector.slot.3, %36
+  %matches211 = icmp eq i32 %ehselector.slot.0, %36
   br i1 %matches211, label %catch248, label %catch.fallthrough212
 
 catch248:                                         ; preds = %catch.fallthrough
-  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception251 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i56 = getelementptr inbounds i8, ptr %37, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp252, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i56)
@@ -115204,11 +115204,11 @@ invoke.cont256:                                   ; preds = %invoke.cont254
 
 catch.fallthrough212:                             ; preds = %catch.fallthrough
   %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches213 = icmp eq i32 %ehselector.slot.3, %39
+  %matches213 = icmp eq i32 %ehselector.slot.0, %39
   br i1 %matches213, label %catch231, label %catch.fallthrough214
 
 catch231:                                         ; preds = %catch.fallthrough212
-  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception234 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i59 = getelementptr inbounds i8, ptr %40, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i59)
@@ -115230,11 +115230,11 @@ invoke.cont239:                                   ; preds = %invoke.cont237
 
 catch.fallthrough214:                             ; preds = %catch.fallthrough212
   %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches215 = icmp eq i32 %ehselector.slot.3, %42
+  %matches215 = icmp eq i32 %ehselector.slot.0, %42
   br i1 %matches215, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough214
-  %43 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %43 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %43, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -118101,14 +118101,14 @@ lpad204:                                          ; preds = %invoke.cont203
 
 catch.dispatch:                                   ; preds = %lpad84, %lpad51, %lpad28, %lpad5, %lpad204, %ehcleanup196, %ehcleanup, %lpad
   %.pn19 = phi { ptr, i32 } [ %27, %lpad204 ], [ %18, %lpad ], [ %.pn17, %ehcleanup196 ], [ %.pn, %ehcleanup ], [ %22, %lpad84 ], [ %21, %lpad51 ], [ %20, %lpad28 ], [ %19, %lpad5 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn19, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn19, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn19, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn19, 1
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %28
+  %matches = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches, label %catch261, label %catch.fallthrough
 
 catch261:                                         ; preds = %catch.dispatch
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception264 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %29, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp265, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -118130,11 +118130,11 @@ invoke.cont269:                                   ; preds = %invoke.cont267
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches207 = icmp eq i32 %ehselector.slot.2, %31
+  %matches207 = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches207, label %catch244, label %catch.fallthrough208
 
 catch244:                                         ; preds = %catch.fallthrough
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception247 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i60 = getelementptr inbounds i8, ptr %32, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp248, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i60)
@@ -118156,11 +118156,11 @@ invoke.cont252:                                   ; preds = %invoke.cont250
 
 catch.fallthrough208:                             ; preds = %catch.fallthrough
   %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches209 = icmp eq i32 %ehselector.slot.2, %34
+  %matches209 = icmp eq i32 %ehselector.slot.0, %34
   br i1 %matches209, label %catch227, label %catch.fallthrough210
 
 catch227:                                         ; preds = %catch.fallthrough208
-  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception230 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i63 = getelementptr inbounds i8, ptr %35, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp231, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i63)
@@ -118182,11 +118182,11 @@ invoke.cont235:                                   ; preds = %invoke.cont233
 
 catch.fallthrough210:                             ; preds = %catch.fallthrough208
   %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches211 = icmp eq i32 %ehselector.slot.2, %37
+  %matches211 = icmp eq i32 %ehselector.slot.0, %37
   br i1 %matches211, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough210
-  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %38, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -119377,14 +119377,14 @@ terminate.lpad.i.i.i173:                          ; preds = %ehcleanup418
 
 catch.dispatch:                                   ; preds = %ehcleanup418, %lpad140, %lpad111, %lpad83, %lpad54, %lpad28, %lpad5, %lpad389, %lpad381, %ehcleanup376, %ehcleanup334, %ehcleanup292, %ehcleanup245, %ehcleanup, %lpad
   %.pn32.pn.pn = phi { ptr, i32 } [ %60, %lpad ], [ %78, %lpad389 ], [ %77, %lpad381 ], [ %.pn30, %ehcleanup376 ], [ %.pn28, %ehcleanup334 ], [ %.pn26, %ehcleanup292 ], [ %.pn24, %ehcleanup245 ], [ %.pn, %ehcleanup ], [ %66, %lpad140 ], [ %65, %lpad111 ], [ %64, %lpad83 ], [ %63, %lpad54 ], [ %62, %lpad28 ], [ %61, %lpad5 ], [ %.pn32.pn, %ehcleanup418 ]
-  %exn.slot.7 = extractvalue { ptr, i32 } %.pn32.pn.pn, 0
-  %ehselector.slot.7 = extractvalue { ptr, i32 } %.pn32.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn32.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn32.pn.pn, 1
   %86 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.7, %86
+  %matches = icmp eq i32 %ehselector.slot.0, %86
   br i1 %matches, label %catch473, label %catch.fallthrough
 
 catch473:                                         ; preds = %catch.dispatch
-  %87 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #30
+  %87 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception476 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %87, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp477, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -119406,11 +119406,11 @@ invoke.cont481:                                   ; preds = %invoke.cont479
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %89 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches419 = icmp eq i32 %ehselector.slot.7, %89
+  %matches419 = icmp eq i32 %ehselector.slot.0, %89
   br i1 %matches419, label %catch456, label %catch.fallthrough420
 
 catch456:                                         ; preds = %catch.fallthrough
-  %90 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #30
+  %90 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception459 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i176 = getelementptr inbounds i8, ptr %90, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp460, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i176)
@@ -119432,11 +119432,11 @@ invoke.cont464:                                   ; preds = %invoke.cont462
 
 catch.fallthrough420:                             ; preds = %catch.fallthrough
   %92 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches421 = icmp eq i32 %ehselector.slot.7, %92
+  %matches421 = icmp eq i32 %ehselector.slot.0, %92
   br i1 %matches421, label %catch439, label %catch.fallthrough422
 
 catch439:                                         ; preds = %catch.fallthrough420
-  %93 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #30
+  %93 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception442 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i179 = getelementptr inbounds i8, ptr %93, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp443, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i179)
@@ -119458,11 +119458,11 @@ invoke.cont447:                                   ; preds = %invoke.cont445
 
 catch.fallthrough422:                             ; preds = %catch.fallthrough420
   %95 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches423 = icmp eq i32 %ehselector.slot.7, %95
+  %matches423 = icmp eq i32 %ehselector.slot.0, %95
   br i1 %matches423, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough422
-  %96 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #30
+  %96 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %96, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -119986,14 +119986,14 @@ ehcleanup129:                                     ; preds = %lpad122, %ehcleanup
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad85, %lpad52.body, %lpad28, %lpad5, %ehcleanup129, %lpad
   %.pn9.pn = phi { ptr, i32 } [ %.pn9, %ehcleanup129 ], [ %20, %lpad ], [ %24, %lpad85 ], [ %eh.lpad-body, %lpad52.body ], [ %22, %lpad28 ], [ %21, %lpad5 ], [ %.pn, %ehcleanup ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn9.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn9.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn9.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn9.pn, 1
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %31
+  %matches = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches, label %catch184, label %catch.fallthrough
 
 catch184:                                         ; preds = %catch.dispatch
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception187 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %32, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp188, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -120015,11 +120015,11 @@ invoke.cont192:                                   ; preds = %invoke.cont190
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches130 = icmp eq i32 %ehselector.slot.2, %34
+  %matches130 = icmp eq i32 %ehselector.slot.0, %34
   br i1 %matches130, label %catch167, label %catch.fallthrough131
 
 catch167:                                         ; preds = %catch.fallthrough
-  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception170 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i46 = getelementptr inbounds i8, ptr %35, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp171, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i46)
@@ -120041,11 +120041,11 @@ invoke.cont175:                                   ; preds = %invoke.cont173
 
 catch.fallthrough131:                             ; preds = %catch.fallthrough
   %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches132 = icmp eq i32 %ehselector.slot.2, %37
+  %matches132 = icmp eq i32 %ehselector.slot.0, %37
   br i1 %matches132, label %catch150, label %catch.fallthrough133
 
 catch150:                                         ; preds = %catch.fallthrough131
-  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception153 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i49 = getelementptr inbounds i8, ptr %38, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp154, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i49)
@@ -120067,11 +120067,11 @@ invoke.cont158:                                   ; preds = %invoke.cont156
 
 catch.fallthrough133:                             ; preds = %catch.fallthrough131
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches134 = icmp eq i32 %ehselector.slot.2, %40
+  %matches134 = icmp eq i32 %ehselector.slot.0, %40
   br i1 %matches134, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough133
-  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %41, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -122016,14 +122016,14 @@ lpad78:                                           ; preds = %invoke.cont93, %inv
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad78, %lpad44, %cleanup.action27
   %.pn10 = phi { ptr, i32 } [ %8, %lpad78 ], [ %7, %lpad44 ], [ %.pn, %cleanup.action27 ], [ %lpad.loopexit52, %lpad.loopexit ], [ %lpad.loopexit.split-lp53, %lpad.loopexit.split-lp ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn10, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn10, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn10, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn10, 1
   %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %9
+  %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch164, label %catch.fallthrough
 
 catch164:                                         ; preds = %catch.dispatch
-  %10 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %10 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception167 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %10, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp168, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -122045,11 +122045,11 @@ invoke.cont172:                                   ; preds = %invoke.cont170
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches110 = icmp eq i32 %ehselector.slot.1, %12
+  %matches110 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches110, label %catch147, label %catch.fallthrough111
 
 catch147:                                         ; preds = %catch.fallthrough
-  %13 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %13 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception150 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i24 = getelementptr inbounds i8, ptr %13, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp151, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i24)
@@ -122071,11 +122071,11 @@ invoke.cont155:                                   ; preds = %invoke.cont153
 
 catch.fallthrough111:                             ; preds = %catch.fallthrough
   %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches112 = icmp eq i32 %ehselector.slot.1, %15
+  %matches112 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches112, label %catch130, label %catch.fallthrough113
 
 catch130:                                         ; preds = %catch.fallthrough111
-  %16 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %16 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception133 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i26 = getelementptr inbounds i8, ptr %16, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i26)
@@ -122097,11 +122097,11 @@ invoke.cont138:                                   ; preds = %invoke.cont136
 
 catch.fallthrough113:                             ; preds = %catch.fallthrough111
   %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches114 = icmp eq i32 %ehselector.slot.1, %18
+  %matches114 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches114, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough113
-  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %19, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -123495,14 +123495,14 @@ ehcleanup119:                                     ; preds = %lpad76.loopexit, %l
 
 catch.dispatch:                                   ; preds = %lpad39, %lpad10, %ehcleanup119, %lpad
   %.pn16 = phi { ptr, i32 } [ %4, %lpad ], [ %6, %lpad39 ], [ %5, %lpad10 ], [ %.pn13.pn, %ehcleanup119 ]
-  %exn.slot.5 = extractvalue { ptr, i32 } %.pn16, 0
-  %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn16, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn16, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn16, 1
   %85 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.5, %85
+  %matches = icmp eq i32 %ehselector.slot.0, %85
   br i1 %matches, label %catch175, label %catch.fallthrough
 
 catch175:                                         ; preds = %catch.dispatch
-  %86 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %86 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception178 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %86, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp179, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -123524,11 +123524,11 @@ invoke.cont183:                                   ; preds = %invoke.cont181
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %88 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches121 = icmp eq i32 %ehselector.slot.5, %88
+  %matches121 = icmp eq i32 %ehselector.slot.0, %88
   br i1 %matches121, label %catch158, label %catch.fallthrough122
 
 catch158:                                         ; preds = %catch.fallthrough
-  %89 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %89 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception161 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i127 = getelementptr inbounds i8, ptr %89, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp162, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i127)
@@ -123550,11 +123550,11 @@ invoke.cont166:                                   ; preds = %invoke.cont164
 
 catch.fallthrough122:                             ; preds = %catch.fallthrough
   %91 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches123 = icmp eq i32 %ehselector.slot.5, %91
+  %matches123 = icmp eq i32 %ehselector.slot.0, %91
   br i1 %matches123, label %catch141, label %catch.fallthrough124
 
 catch141:                                         ; preds = %catch.fallthrough122
-  %92 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %92 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception144 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i130 = getelementptr inbounds i8, ptr %92, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp145, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i130)
@@ -123576,11 +123576,11 @@ invoke.cont149:                                   ; preds = %invoke.cont147
 
 catch.fallthrough124:                             ; preds = %catch.fallthrough122
   %94 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches125 = icmp eq i32 %ehselector.slot.5, %94
+  %matches125 = icmp eq i32 %ehselector.slot.0, %94
   br i1 %matches125, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough124
-  %95 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %95 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %95, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -128186,14 +128186,14 @@ ehcleanup1250:                                    ; preds = %if.then.i.i.i1109, 
 
 catch.dispatch:                                   ; preds = %cleanup.action27, %ehcleanup1250, %lpad
   %.pn92.pn = phi { ptr, i32 } [ %.pn92, %ehcleanup1250 ], [ %5, %lpad ], [ %.pn, %cleanup.action27 ]
-  %exn.slot.5 = extractvalue { ptr, i32 } %.pn92.pn, 0
-  %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn92.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn92.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn92.pn, 1
   %507 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.5, %507
+  %matches = icmp eq i32 %ehselector.slot.0, %507
   br i1 %matches, label %catch1305, label %catch.fallthrough
 
 catch1305:                                        ; preds = %catch.dispatch
-  %508 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %508 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception1308 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %508, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1309, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -128215,11 +128215,11 @@ invoke.cont1313:                                  ; preds = %invoke.cont1311
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %510 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches1251 = icmp eq i32 %ehselector.slot.5, %510
+  %matches1251 = icmp eq i32 %ehselector.slot.0, %510
   br i1 %matches1251, label %catch1288, label %catch.fallthrough1252
 
 catch1288:                                        ; preds = %catch.fallthrough
-  %511 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %511 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception1291 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i1129 = getelementptr inbounds i8, ptr %511, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1292, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i1129)
@@ -128241,11 +128241,11 @@ invoke.cont1296:                                  ; preds = %invoke.cont1294
 
 catch.fallthrough1252:                            ; preds = %catch.fallthrough
   %513 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches1253 = icmp eq i32 %ehselector.slot.5, %513
+  %matches1253 = icmp eq i32 %ehselector.slot.0, %513
   br i1 %matches1253, label %catch1271, label %catch.fallthrough1254
 
 catch1271:                                        ; preds = %catch.fallthrough1252
-  %514 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %514 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception1274 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i1132 = getelementptr inbounds i8, ptr %514, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1275, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i1132)
@@ -128267,11 +128267,11 @@ invoke.cont1279:                                  ; preds = %invoke.cont1277
 
 catch.fallthrough1254:                            ; preds = %catch.fallthrough1252
   %516 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches1255 = icmp eq i32 %ehselector.slot.5, %516
+  %matches1255 = icmp eq i32 %ehselector.slot.0, %516
   br i1 %matches1255, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough1254
-  %517 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %517 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %517, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -131710,14 +131710,14 @@ ehcleanup118:                                     ; preds = %ehcleanup117, %lpad
 
 catch.dispatch:                                   ; preds = %cleanup.action67, %cleanup.action27, %ehcleanup118, %lpad
   %.pn11.pn.pn = phi { ptr, i32 } [ %.pn11.pn, %ehcleanup118 ], [ %22, %lpad ], [ %.pn9, %cleanup.action67 ], [ %.pn, %cleanup.action27 ]
-  %exn.slot.4 = extractvalue { ptr, i32 } %.pn11.pn.pn, 0
-  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn11.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn11.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn11.pn.pn, 1
   %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.4, %35
+  %matches = icmp eq i32 %ehselector.slot.0, %35
   br i1 %matches, label %catch173, label %catch.fallthrough
 
 catch173:                                         ; preds = %catch.dispatch
-  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception176 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %36, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -131739,11 +131739,11 @@ invoke.cont181:                                   ; preds = %invoke.cont179
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches119 = icmp eq i32 %ehselector.slot.4, %38
+  %matches119 = icmp eq i32 %ehselector.slot.0, %38
   br i1 %matches119, label %catch156, label %catch.fallthrough120
 
 catch156:                                         ; preds = %catch.fallthrough
-  %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception159 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i31 = getelementptr inbounds i8, ptr %39, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp160, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i31)
@@ -131765,11 +131765,11 @@ invoke.cont164:                                   ; preds = %invoke.cont162
 
 catch.fallthrough120:                             ; preds = %catch.fallthrough
   %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches121 = icmp eq i32 %ehselector.slot.4, %41
+  %matches121 = icmp eq i32 %ehselector.slot.0, %41
   br i1 %matches121, label %catch139, label %catch.fallthrough122
 
 catch139:                                         ; preds = %catch.fallthrough120
-  %42 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %42 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception142 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i33 = getelementptr inbounds i8, ptr %42, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp143, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i33)
@@ -131791,11 +131791,11 @@ invoke.cont147:                                   ; preds = %invoke.cont145
 
 catch.fallthrough122:                             ; preds = %catch.fallthrough120
   %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches123 = icmp eq i32 %ehselector.slot.4, %44
+  %matches123 = icmp eq i32 %ehselector.slot.0, %44
   br i1 %matches123, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough122
-  %45 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %45 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %45, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -132555,14 +132555,14 @@ ehcleanup144:                                     ; preds = %ehcleanup143, %lpad
 
 catch.dispatch:                                   ; preds = %lpad84, %lpad55, %lpad28, %lpad5, %ehcleanup144, %lpad
   %.pn12 = phi { ptr, i32 } [ %11, %lpad ], [ %.pn9.pn, %ehcleanup144 ], [ %15, %lpad84 ], [ %14, %lpad55 ], [ %13, %lpad28 ], [ %12, %lpad5 ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn12, 0
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn12, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn12, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn12, 1
   %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.3, %20
+  %matches = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches, label %catch205, label %catch.fallthrough
 
 catch205:                                         ; preds = %catch.dispatch
-  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception208 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %21, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp209, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -132584,11 +132584,11 @@ invoke.cont213:                                   ; preds = %invoke.cont211
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches151 = icmp eq i32 %ehselector.slot.3, %23
+  %matches151 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches151, label %catch188, label %catch.fallthrough152
 
 catch188:                                         ; preds = %catch.fallthrough
-  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception191 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i31 = getelementptr inbounds i8, ptr %24, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp192, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i31)
@@ -132610,11 +132610,11 @@ invoke.cont196:                                   ; preds = %invoke.cont194
 
 catch.fallthrough152:                             ; preds = %catch.fallthrough
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches153 = icmp eq i32 %ehselector.slot.3, %26
+  %matches153 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches153, label %catch171, label %catch.fallthrough154
 
 catch171:                                         ; preds = %catch.fallthrough152
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception174 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i34 = getelementptr inbounds i8, ptr %27, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp175, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i34)
@@ -132636,11 +132636,11 @@ invoke.cont179:                                   ; preds = %invoke.cont177
 
 catch.fallthrough154:                             ; preds = %catch.fallthrough152
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches155 = icmp eq i32 %ehselector.slot.3, %29
+  %matches155 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches155, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough154
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %30, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -133348,14 +133348,14 @@ lpad125:                                          ; preds = %invoke.cont124
 
 catch.dispatch:                                   ; preds = %lpad58, %lpad31, %lpad10, %lpad125, %ehcleanup116, %lpad
   %.pn10 = phi { ptr, i32 } [ %21, %lpad125 ], [ %13, %lpad ], [ %.pn7.pn, %ehcleanup116 ], [ %16, %lpad58 ], [ %15, %lpad31 ], [ %14, %lpad10 ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn10, 0
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn10, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn10, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn10, 1
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.3, %22
+  %matches = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches, label %catch182, label %catch.fallthrough
 
 catch182:                                         ; preds = %catch.dispatch
-  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception185 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp186, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -133377,11 +133377,11 @@ invoke.cont190:                                   ; preds = %invoke.cont188
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches128 = icmp eq i32 %ehselector.slot.3, %25
+  %matches128 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches128, label %catch165, label %catch.fallthrough129
 
 catch165:                                         ; preds = %catch.fallthrough
-  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception168 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i28 = getelementptr inbounds i8, ptr %26, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp169, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i28)
@@ -133403,11 +133403,11 @@ invoke.cont173:                                   ; preds = %invoke.cont171
 
 catch.fallthrough129:                             ; preds = %catch.fallthrough
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches130 = icmp eq i32 %ehselector.slot.3, %28
+  %matches130 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches130, label %catch148, label %catch.fallthrough131
 
 catch148:                                         ; preds = %catch.fallthrough129
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception151 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i31 = getelementptr inbounds i8, ptr %29, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp152, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i31)
@@ -133429,11 +133429,11 @@ invoke.cont156:                                   ; preds = %invoke.cont154
 
 catch.fallthrough131:                             ; preds = %catch.fallthrough129
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches132 = icmp eq i32 %ehselector.slot.3, %31
+  %matches132 = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches132, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough131
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #30
+  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %32, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -134210,14 +134210,14 @@ ehcleanup232:                                     ; preds = %lpad229, %lpad227
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i51, %lpad202, %lpad172, %lpad70, %lpad36, %lpad11, %ehcleanup232, %ehcleanup150
   %.pn17.pn.pn = phi { ptr, i32 } [ %.pn17.pn, %ehcleanup150 ], [ %17, %lpad70 ], [ %16, %lpad36 ], [ %30, %lpad202 ], [ %29, %lpad172 ], [ %.pn, %ehcleanup232 ], [ %15, %lpad11 ], [ %39, %lpad.i51 ], [ %lpad.loopexit88, %lpad.loopexit ], [ %lpad.loopexit90, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit93, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp94, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %exn.slot.4 = extractvalue { ptr, i32 } %.pn17.pn.pn, 0
-  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn17.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn17.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn17.pn.pn, 1
   %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.4, %50
+  %matches = icmp eq i32 %ehselector.slot.0, %50
   br i1 %matches, label %catch287, label %catch.fallthrough
 
 catch287:                                         ; preds = %catch.dispatch
-  %51 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %51 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception290 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %51, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp291, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -134239,11 +134239,11 @@ invoke.cont295:                                   ; preds = %invoke.cont293
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %53 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches233 = icmp eq i32 %ehselector.slot.4, %53
+  %matches233 = icmp eq i32 %ehselector.slot.0, %53
   br i1 %matches233, label %catch270, label %catch.fallthrough234
 
 catch270:                                         ; preds = %catch.fallthrough
-  %54 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %54 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception273 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i56 = getelementptr inbounds i8, ptr %54, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp274, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i56)
@@ -134265,11 +134265,11 @@ invoke.cont278:                                   ; preds = %invoke.cont276
 
 catch.fallthrough234:                             ; preds = %catch.fallthrough
   %56 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches235 = icmp eq i32 %ehselector.slot.4, %56
+  %matches235 = icmp eq i32 %ehselector.slot.0, %56
   br i1 %matches235, label %catch253, label %catch.fallthrough236
 
 catch253:                                         ; preds = %catch.fallthrough234
-  %57 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %57 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception256 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i59 = getelementptr inbounds i8, ptr %57, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp257, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i59)
@@ -134291,11 +134291,11 @@ invoke.cont261:                                   ; preds = %invoke.cont259
 
 catch.fallthrough236:                             ; preds = %catch.fallthrough234
   %59 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches237 = icmp eq i32 %ehselector.slot.4, %59
+  %matches237 = icmp eq i32 %ehselector.slot.0, %59
   br i1 %matches237, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough236
-  %60 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %60 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %60, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -134799,14 +134799,14 @@ ehcleanup:                                        ; preds = %lpad145.loopexit, %
 
 catch.dispatch:                                   ; preds = %lpad.loopexit75, %lpad.loopexit.split-lp76.loopexit.split-lp, %lpad.loopexit.split-lp76.loopexit, %lpad119, %lpad73, %lpad39, %lpad4, %ehcleanup
   %.pn17 = phi { ptr, i32 } [ %9, %lpad73 ], [ %8, %lpad39 ], [ %12, %lpad119 ], [ %.pn, %ehcleanup ], [ %7, %lpad4 ], [ %lpad.loopexit77, %lpad.loopexit75 ], [ %lpad.loopexit80, %lpad.loopexit.split-lp76.loopexit ], [ %lpad.loopexit.split-lp81, %lpad.loopexit.split-lp76.loopexit.split-lp ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn17, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn17, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn17, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn17, 1
   %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %24
+  %matches = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches, label %catch211, label %catch.fallthrough
 
 catch211:                                         ; preds = %catch.dispatch
-  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception214 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %25, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp215, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -134828,11 +134828,11 @@ invoke.cont219:                                   ; preds = %invoke.cont217
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches157 = icmp eq i32 %ehselector.slot.1, %27
+  %matches157 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches157, label %catch194, label %catch.fallthrough158
 
 catch194:                                         ; preds = %catch.fallthrough
-  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception197 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i47 = getelementptr inbounds i8, ptr %28, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp198, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i47)
@@ -134854,11 +134854,11 @@ invoke.cont202:                                   ; preds = %invoke.cont200
 
 catch.fallthrough158:                             ; preds = %catch.fallthrough
   %30 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches159 = icmp eq i32 %ehselector.slot.1, %30
+  %matches159 = icmp eq i32 %ehselector.slot.0, %30
   br i1 %matches159, label %catch177, label %catch.fallthrough160
 
 catch177:                                         ; preds = %catch.fallthrough158
-  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %31 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception180 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i49 = getelementptr inbounds i8, ptr %31, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp181, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i49)
@@ -134880,11 +134880,11 @@ invoke.cont185:                                   ; preds = %invoke.cont183
 
 catch.fallthrough160:                             ; preds = %catch.fallthrough158
   %33 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches161 = icmp eq i32 %ehselector.slot.1, %33
+  %matches161 = icmp eq i32 %ehselector.slot.0, %33
   br i1 %matches161, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough160
-  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %34 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %34, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -135733,14 +135733,14 @@ ehcleanup220:                                     ; preds = %lpad203, %lpad.i43,
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad173.body, %lpad148, %lpad119, %lpad78, %lpad39, %lpad10, %ehcleanup220
   %.pn17 = phi { ptr, i32 } [ %7, %lpad78 ], [ %6, %lpad39 ], [ %5, %lpad10 ], [ %.pn15, %ehcleanup220 ], [ %eh.lpad-body, %lpad173.body ], [ %42, %lpad148 ], [ %41, %lpad119 ], [ %lpad.loopexit126, %lpad.loopexit ], [ %lpad.loopexit.split-lp127, %lpad.loopexit.split-lp ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn17, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn17, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn17, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn17, 1
   %59 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %59
+  %matches = icmp eq i32 %ehselector.slot.0, %59
   br i1 %matches, label %catch275, label %catch.fallthrough
 
 catch275:                                         ; preds = %catch.dispatch
-  %60 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %60 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception278 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %60, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp279, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -135762,11 +135762,11 @@ invoke.cont283:                                   ; preds = %invoke.cont281
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %62 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches221 = icmp eq i32 %ehselector.slot.2, %62
+  %matches221 = icmp eq i32 %ehselector.slot.0, %62
   br i1 %matches221, label %catch258, label %catch.fallthrough222
 
 catch258:                                         ; preds = %catch.fallthrough
-  %63 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %63 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception261 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i96 = getelementptr inbounds i8, ptr %63, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp262, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i96)
@@ -135788,11 +135788,11 @@ invoke.cont266:                                   ; preds = %invoke.cont264
 
 catch.fallthrough222:                             ; preds = %catch.fallthrough
   %65 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches223 = icmp eq i32 %ehselector.slot.2, %65
+  %matches223 = icmp eq i32 %ehselector.slot.0, %65
   br i1 %matches223, label %catch241, label %catch.fallthrough224
 
 catch241:                                         ; preds = %catch.fallthrough222
-  %66 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %66 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception244 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i99 = getelementptr inbounds i8, ptr %66, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp245, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i99)
@@ -135814,11 +135814,11 @@ invoke.cont249:                                   ; preds = %invoke.cont247
 
 catch.fallthrough224:                             ; preds = %catch.fallthrough222
   %68 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches225 = icmp eq i32 %ehselector.slot.2, %68
+  %matches225 = icmp eq i32 %ehselector.slot.0, %68
   br i1 %matches225, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough224
-  %69 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %69 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %69, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -137769,14 +137769,14 @@ if.then.i.i.i270:                                 ; preds = %invoke.cont.i268
 
 catch.dispatch:                                   ; preds = %if.then.i.i.i270, %invoke.cont.i268, %lpad118, %lpad89, %lpad53.body, %lpad28, %lpad5, %ehcleanup, %lpad
   %.pn40.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %28, %lpad ], [ %33, %lpad118 ], [ %32, %lpad89 ], [ %eh.lpad-body, %lpad53.body ], [ %30, %lpad28 ], [ %29, %lpad5 ], [ %.pn40, %invoke.cont.i268 ], [ %.pn40, %if.then.i.i.i270 ]
-  %exn.slot.8 = extractvalue { ptr, i32 } %.pn40.pn, 0
-  %ehselector.slot.8 = extractvalue { ptr, i32 } %.pn40.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn40.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn40.pn, 1
   %135 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.8, %135
+  %matches = icmp eq i32 %ehselector.slot.0, %135
   br i1 %matches, label %catch550, label %catch.fallthrough
 
 catch550:                                         ; preds = %catch.dispatch
-  %136 = call ptr @__cxa_begin_catch(ptr %exn.slot.8) #30
+  %136 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception553 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %136, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp554, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -137798,11 +137798,11 @@ invoke.cont558:                                   ; preds = %invoke.cont556
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %138 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches496 = icmp eq i32 %ehselector.slot.8, %138
+  %matches496 = icmp eq i32 %ehselector.slot.0, %138
   br i1 %matches496, label %catch533, label %catch.fallthrough497
 
 catch533:                                         ; preds = %catch.fallthrough
-  %139 = call ptr @__cxa_begin_catch(ptr %exn.slot.8) #30
+  %139 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception536 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i273 = getelementptr inbounds i8, ptr %139, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp537, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i273)
@@ -137824,11 +137824,11 @@ invoke.cont541:                                   ; preds = %invoke.cont539
 
 catch.fallthrough497:                             ; preds = %catch.fallthrough
   %141 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches498 = icmp eq i32 %ehselector.slot.8, %141
+  %matches498 = icmp eq i32 %ehselector.slot.0, %141
   br i1 %matches498, label %catch516, label %catch.fallthrough499
 
 catch516:                                         ; preds = %catch.fallthrough497
-  %142 = call ptr @__cxa_begin_catch(ptr %exn.slot.8) #30
+  %142 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception519 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i276 = getelementptr inbounds i8, ptr %142, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp520, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i276)
@@ -137850,11 +137850,11 @@ invoke.cont524:                                   ; preds = %invoke.cont522
 
 catch.fallthrough499:                             ; preds = %catch.fallthrough497
   %144 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches500 = icmp eq i32 %ehselector.slot.8, %144
+  %matches500 = icmp eq i32 %ehselector.slot.0, %144
   br i1 %matches500, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough499
-  %145 = call ptr @__cxa_begin_catch(ptr %exn.slot.8) #30
+  %145 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %145, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -139619,14 +139619,14 @@ if.then.i.i.i291:                                 ; preds = %invoke.cont.i289
 
 catch.dispatch:                                   ; preds = %if.then.i.i.i291, %invoke.cont.i289, %lpad171.body, %lpad145, %lpad115, %lpad88, %lpad60, %ehcleanup237, %ehcleanup50, %ehcleanup, %lpad
   %.pn44.pn = phi { ptr, i32 } [ %.pn32, %ehcleanup237 ], [ %34, %lpad ], [ %eh.lpad-body, %lpad171.body ], [ %42, %lpad145 ], [ %41, %lpad115 ], [ %40, %lpad88 ], [ %39, %lpad60 ], [ %.pn30, %ehcleanup50 ], [ %.pn, %ehcleanup ], [ %.pn44, %invoke.cont.i289 ], [ %.pn44, %if.then.i.i.i291 ]
-  %exn.slot.10 = extractvalue { ptr, i32 } %.pn44.pn, 0
-  %ehselector.slot.10 = extractvalue { ptr, i32 } %.pn44.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn44.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn44.pn, 1
   %145 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.10, %145
+  %matches = icmp eq i32 %ehselector.slot.0, %145
   br i1 %matches, label %catch617, label %catch.fallthrough
 
 catch617:                                         ; preds = %catch.dispatch
-  %146 = call ptr @__cxa_begin_catch(ptr %exn.slot.10) #30
+  %146 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception620 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %146, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp621, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -139648,11 +139648,11 @@ invoke.cont625:                                   ; preds = %invoke.cont623
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %148 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches563 = icmp eq i32 %ehselector.slot.10, %148
+  %matches563 = icmp eq i32 %ehselector.slot.0, %148
   br i1 %matches563, label %catch600, label %catch.fallthrough564
 
 catch600:                                         ; preds = %catch.fallthrough
-  %149 = call ptr @__cxa_begin_catch(ptr %exn.slot.10) #30
+  %149 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception603 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i294 = getelementptr inbounds i8, ptr %149, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp604, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i294)
@@ -139674,11 +139674,11 @@ invoke.cont608:                                   ; preds = %invoke.cont606
 
 catch.fallthrough564:                             ; preds = %catch.fallthrough
   %151 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches565 = icmp eq i32 %ehselector.slot.10, %151
+  %matches565 = icmp eq i32 %ehselector.slot.0, %151
   br i1 %matches565, label %catch583, label %catch.fallthrough566
 
 catch583:                                         ; preds = %catch.fallthrough564
-  %152 = call ptr @__cxa_begin_catch(ptr %exn.slot.10) #30
+  %152 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception586 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i297 = getelementptr inbounds i8, ptr %152, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp587, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i297)
@@ -139700,11 +139700,11 @@ invoke.cont591:                                   ; preds = %invoke.cont589
 
 catch.fallthrough566:                             ; preds = %catch.fallthrough564
   %154 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches567 = icmp eq i32 %ehselector.slot.10, %154
+  %matches567 = icmp eq i32 %ehselector.slot.0, %154
   br i1 %matches567, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough566
-  %155 = call ptr @__cxa_begin_catch(ptr %exn.slot.10) #30
+  %155 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %155, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -141451,14 +141451,14 @@ ehcleanup659:                                     ; preds = %ehcleanup658, %lpad
 
 catch.dispatch:                                   ; preds = %lpad.loopexit264, %lpad.loopexit.split-lp265, %if.then.i.i.i130, %invoke.cont.i128, %lpad.i165, %lpad617.body, %lpad572, %lpad530, %lpad494, %lpad145, %lpad115, %lpad88, %lpad60, %ehcleanup659, %lpad171, %ehcleanup50, %ehcleanup
   %.pn46.pn = phi { ptr, i32 } [ %.pn41.pn, %ehcleanup659 ], [ %40, %lpad171 ], [ %76, %lpad572 ], [ %75, %lpad530 ], [ %74, %lpad494 ], [ %eh.lpad-body161, %lpad617.body ], [ %39, %lpad145 ], [ %38, %lpad115 ], [ %37, %lpad88 ], [ %36, %lpad60 ], [ %.pn36, %ehcleanup50 ], [ %.pn, %ehcleanup ], [ %87, %lpad.i165 ], [ %.pn46, %invoke.cont.i128 ], [ %.pn46, %if.then.i.i.i130 ], [ %lpad.loopexit266, %lpad.loopexit264 ], [ %lpad.loopexit.split-lp267, %lpad.loopexit.split-lp265 ]
-  %exn.slot.8 = extractvalue { ptr, i32 } %.pn46.pn, 0
-  %ehselector.slot.8 = extractvalue { ptr, i32 } %.pn46.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn46.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn46.pn, 1
   %118 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.8, %118
+  %matches = icmp eq i32 %ehselector.slot.0, %118
   br i1 %matches, label %catch714, label %catch.fallthrough
 
 catch714:                                         ; preds = %catch.dispatch
-  %119 = call ptr @__cxa_begin_catch(ptr %exn.slot.8) #30
+  %119 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception717 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %119, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp718, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -141480,11 +141480,11 @@ invoke.cont722:                                   ; preds = %invoke.cont720
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %121 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches660 = icmp eq i32 %ehselector.slot.8, %121
+  %matches660 = icmp eq i32 %ehselector.slot.0, %121
   br i1 %matches660, label %catch697, label %catch.fallthrough661
 
 catch697:                                         ; preds = %catch.fallthrough
-  %122 = call ptr @__cxa_begin_catch(ptr %exn.slot.8) #30
+  %122 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception700 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i232 = getelementptr inbounds i8, ptr %122, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp701, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i232)
@@ -141506,11 +141506,11 @@ invoke.cont705:                                   ; preds = %invoke.cont703
 
 catch.fallthrough661:                             ; preds = %catch.fallthrough
   %124 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches662 = icmp eq i32 %ehselector.slot.8, %124
+  %matches662 = icmp eq i32 %ehselector.slot.0, %124
   br i1 %matches662, label %catch680, label %catch.fallthrough663
 
 catch680:                                         ; preds = %catch.fallthrough661
-  %125 = call ptr @__cxa_begin_catch(ptr %exn.slot.8) #30
+  %125 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception683 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i235 = getelementptr inbounds i8, ptr %125, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp684, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i235)
@@ -141532,11 +141532,11 @@ invoke.cont688:                                   ; preds = %invoke.cont686
 
 catch.fallthrough663:                             ; preds = %catch.fallthrough661
   %127 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches664 = icmp eq i32 %ehselector.slot.8, %127
+  %matches664 = icmp eq i32 %ehselector.slot.0, %127
   br i1 %matches664, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough663
-  %128 = call ptr @__cxa_begin_catch(ptr %exn.slot.8) #30
+  %128 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %128, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -144328,14 +144328,14 @@ ehcleanup903:                                     ; preds = %lpad.i369, %lpad.i4
 
 catch.dispatch:                                   ; preds = %lpad.loopexit526, %lpad.loopexit.split-lp527.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp527.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp527.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp527.loopexit, %if.then.i.i.i256, %invoke.cont.i254, %cleanup.done.i271, %cleanup.done.i316, %lpad.i341, %cleanup.done.i291, %lpad851.body, %lpad806, %lpad764, %lpad728, %lpad353, %lpad313, %lpad271, %lpad236, %lpad190, %lpad154, %lpad99, %lpad65, %ehcleanup903, %lpad391, %ehcleanup50, %ehcleanup
   %.pn68 = phi { ptr, i32 } [ %15, %lpad99 ], [ %14, %lpad65 ], [ %21, %lpad190 ], [ %20, %lpad154 ], [ %76, %lpad391 ], [ %116, %lpad806 ], [ %115, %lpad764 ], [ %114, %lpad728 ], [ %eh.lpad-body340, %lpad851.body ], [ %75, %lpad353 ], [ %74, %lpad313 ], [ %.pn59, %ehcleanup903 ], [ %73, %lpad271 ], [ %72, %lpad236 ], [ %.pn57, %ehcleanup50 ], [ %.pn, %ehcleanup ], [ %.pn4.i272, %cleanup.done.i271 ], [ %.pn4.i292, %cleanup.done.i291 ], [ %.pn4.i317, %cleanup.done.i316 ], [ %127, %lpad.i341 ], [ %.pn66, %invoke.cont.i254 ], [ %.pn66, %if.then.i.i.i256 ], [ %lpad.loopexit528, %lpad.loopexit526 ], [ %lpad.loopexit531, %lpad.loopexit.split-lp527.loopexit ], [ %lpad.loopexit534, %lpad.loopexit.split-lp527.loopexit.split-lp.loopexit ], [ %lpad.loopexit537, %lpad.loopexit.split-lp527.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp538, %lpad.loopexit.split-lp527.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %exn.slot.7 = extractvalue { ptr, i32 } %.pn68, 0
-  %ehselector.slot.7 = extractvalue { ptr, i32 } %.pn68, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn68, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn68, 1
   %186 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.7, %186
+  %matches = icmp eq i32 %ehselector.slot.0, %186
   br i1 %matches, label %catch959, label %catch.fallthrough
 
 catch959:                                         ; preds = %catch.dispatch
-  %187 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #30
+  %187 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception962 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %187, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp963, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -144357,11 +144357,11 @@ invoke.cont967:                                   ; preds = %invoke.cont965
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %189 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches905 = icmp eq i32 %ehselector.slot.7, %189
+  %matches905 = icmp eq i32 %ehselector.slot.0, %189
   br i1 %matches905, label %catch942, label %catch.fallthrough906
 
 catch942:                                         ; preds = %catch.fallthrough
-  %190 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #30
+  %190 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception945 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i488 = getelementptr inbounds i8, ptr %190, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp946, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i488)
@@ -144383,11 +144383,11 @@ invoke.cont950:                                   ; preds = %invoke.cont948
 
 catch.fallthrough906:                             ; preds = %catch.fallthrough
   %192 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches907 = icmp eq i32 %ehselector.slot.7, %192
+  %matches907 = icmp eq i32 %ehselector.slot.0, %192
   br i1 %matches907, label %catch925, label %catch.fallthrough908
 
 catch925:                                         ; preds = %catch.fallthrough906
-  %193 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #30
+  %193 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception928 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i491 = getelementptr inbounds i8, ptr %193, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp929, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i491)
@@ -144409,11 +144409,11 @@ invoke.cont933:                                   ; preds = %invoke.cont931
 
 catch.fallthrough908:                             ; preds = %catch.fallthrough906
   %195 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches909 = icmp eq i32 %ehselector.slot.7, %195
+  %matches909 = icmp eq i32 %ehselector.slot.0, %195
   br i1 %matches909, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough908
-  %196 = call ptr @__cxa_begin_catch(ptr %exn.slot.7) #30
+  %196 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %196, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -148329,14 +148329,14 @@ ehcleanup:                                        ; preds = %lpad4, %cleanup.act
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %35, %lpad ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %38
+  %matches = icmp eq i32 %ehselector.slot.0, %38
   br i1 %matches, label %catch86, label %catch.fallthrough
 
 catch86:                                          ; preds = %catch.dispatch
-  %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception89 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %39, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -148358,11 +148358,11 @@ invoke.cont94:                                    ; preds = %invoke.cont92
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches32 = icmp eq i32 %ehselector.slot.1, %41
+  %matches32 = icmp eq i32 %ehselector.slot.0, %41
   br i1 %matches32, label %catch69, label %catch.fallthrough33
 
 catch69:                                          ; preds = %catch.fallthrough
-  %42 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %42 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception72 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i21 = getelementptr inbounds i8, ptr %42, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i21)
@@ -148384,11 +148384,11 @@ invoke.cont77:                                    ; preds = %invoke.cont75
 
 catch.fallthrough33:                              ; preds = %catch.fallthrough
   %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches34 = icmp eq i32 %ehselector.slot.1, %44
+  %matches34 = icmp eq i32 %ehselector.slot.0, %44
   br i1 %matches34, label %catch52, label %catch.fallthrough35
 
 catch52:                                          ; preds = %catch.fallthrough33
-  %45 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %45 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception55 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i24 = getelementptr inbounds i8, ptr %45, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp56, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i24)
@@ -148410,11 +148410,11 @@ invoke.cont60:                                    ; preds = %invoke.cont58
 
 catch.fallthrough35:                              ; preds = %catch.fallthrough33
   %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches36 = icmp eq i32 %ehselector.slot.1, %47
+  %matches36 = icmp eq i32 %ehselector.slot.0, %47
   br i1 %matches36, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough35
-  %48 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %48 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %48, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -148920,14 +148920,14 @@ ehcleanup:                                        ; preds = %lpad81, %lpad79
 
 catch.dispatch:                                   ; preds = %lpad55, %lpad29, %lpad6, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %20, %lpad ], [ %23, %lpad55 ], [ %22, %lpad29 ], [ %21, %lpad6 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %31
+  %matches = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches, label %catch139, label %catch.fallthrough
 
 catch139:                                         ; preds = %catch.dispatch
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception142 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %32, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp143, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -148949,11 +148949,11 @@ invoke.cont147:                                   ; preds = %invoke.cont145
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches85 = icmp eq i32 %ehselector.slot.1, %34
+  %matches85 = icmp eq i32 %ehselector.slot.0, %34
   br i1 %matches85, label %catch122, label %catch.fallthrough86
 
 catch122:                                         ; preds = %catch.fallthrough
-  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception125 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i19 = getelementptr inbounds i8, ptr %35, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp126, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i19)
@@ -148975,11 +148975,11 @@ invoke.cont130:                                   ; preds = %invoke.cont128
 
 catch.fallthrough86:                              ; preds = %catch.fallthrough
   %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches87 = icmp eq i32 %ehselector.slot.1, %37
+  %matches87 = icmp eq i32 %ehselector.slot.0, %37
   br i1 %matches87, label %catch105, label %catch.fallthrough88
 
 catch105:                                         ; preds = %catch.fallthrough86
-  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception108 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i22 = getelementptr inbounds i8, ptr %38, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp109, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i22)
@@ -149001,11 +149001,11 @@ invoke.cont113:                                   ; preds = %invoke.cont111
 
 catch.fallthrough88:                              ; preds = %catch.fallthrough86
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches89 = icmp eq i32 %ehselector.slot.1, %40
+  %matches89 = icmp eq i32 %ehselector.slot.0, %40
   br i1 %matches89, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough88
-  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %41, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -149339,14 +149339,14 @@ ehcleanup:                                        ; preds = %lpad46.loopexit, %l
 
 catch.dispatch:                                   ; preds = %lpad28, %lpad6, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %15, %lpad ], [ %17, %lpad28 ], [ %16, %lpad6 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %19
+  %matches = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches, label %catch115, label %catch.fallthrough
 
 catch115:                                         ; preds = %catch.dispatch
-  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception118 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %20, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp119, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -149368,11 +149368,11 @@ invoke.cont123:                                   ; preds = %invoke.cont121
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches60 = icmp eq i32 %ehselector.slot.1, %22
+  %matches60 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches60, label %catch98, label %catch.fallthrough61
 
 catch98:                                          ; preds = %catch.fallthrough
-  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception101 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i15 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp102, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i15)
@@ -149394,11 +149394,11 @@ invoke.cont106:                                   ; preds = %invoke.cont104
 
 catch.fallthrough61:                              ; preds = %catch.fallthrough
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches62 = icmp eq i32 %ehselector.slot.1, %25
+  %matches62 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches62, label %catch81, label %catch.fallthrough63
 
 catch81:                                          ; preds = %catch.fallthrough61
-  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception84 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i18 = getelementptr inbounds i8, ptr %26, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp85, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i18)
@@ -149420,11 +149420,11 @@ invoke.cont89:                                    ; preds = %invoke.cont87
 
 catch.fallthrough63:                              ; preds = %catch.fallthrough61
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches64 = icmp eq i32 %ehselector.slot.1, %28
+  %matches64 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches64, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough63
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %29, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -150455,14 +150455,14 @@ ehcleanup47:                                      ; preds = %lpad29.loopexit, %l
 
 catch.dispatch:                                   ; preds = %lpad16, %ehcleanup47, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup47 ], [ %33, %lpad ], [ %34, %lpad16 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %40
+  %matches = icmp eq i32 %ehselector.slot.0, %40
   br i1 %matches, label %catch103, label %catch.fallthrough
 
 catch103:                                         ; preds = %catch.dispatch
-  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception106 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %41, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp107, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -150484,11 +150484,11 @@ invoke.cont111:                                   ; preds = %invoke.cont109
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches49 = icmp eq i32 %ehselector.slot.2, %43
+  %matches49 = icmp eq i32 %ehselector.slot.0, %43
   br i1 %matches49, label %catch86, label %catch.fallthrough50
 
 catch86:                                          ; preds = %catch.fallthrough
-  %44 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %44 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception89 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i23 = getelementptr inbounds i8, ptr %44, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i23)
@@ -150510,11 +150510,11 @@ invoke.cont94:                                    ; preds = %invoke.cont92
 
 catch.fallthrough50:                              ; preds = %catch.fallthrough
   %46 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches51 = icmp eq i32 %ehselector.slot.2, %46
+  %matches51 = icmp eq i32 %ehselector.slot.0, %46
   br i1 %matches51, label %catch69, label %catch.fallthrough52
 
 catch69:                                          ; preds = %catch.fallthrough50
-  %47 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %47 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception72 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i25 = getelementptr inbounds i8, ptr %47, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp73, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i25)
@@ -150536,11 +150536,11 @@ invoke.cont77:                                    ; preds = %invoke.cont75
 
 catch.fallthrough52:                              ; preds = %catch.fallthrough50
   %49 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches53 = icmp eq i32 %ehselector.slot.2, %49
+  %matches53 = icmp eq i32 %ehselector.slot.0, %49
   br i1 %matches53, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough52
-  %50 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %50 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %50, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -152234,14 +152234,14 @@ ehcleanup:                                        ; preds = %lpad54, %lpad52
 
 catch.dispatch:                                   ; preds = %lpad28, %lpad6, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %31, %lpad ], [ %33, %lpad28 ], [ %32, %lpad6 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %36
+  %matches = icmp eq i32 %ehselector.slot.0, %36
   br i1 %matches, label %catch113, label %catch.fallthrough
 
 catch113:                                         ; preds = %catch.dispatch
-  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception116 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %37, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp117, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -152263,11 +152263,11 @@ invoke.cont121:                                   ; preds = %invoke.cont119
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches59 = icmp eq i32 %ehselector.slot.1, %39
+  %matches59 = icmp eq i32 %ehselector.slot.0, %39
   br i1 %matches59, label %catch96, label %catch.fallthrough60
 
 catch96:                                          ; preds = %catch.fallthrough
-  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception99 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i22 = getelementptr inbounds i8, ptr %40, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp100, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i22)
@@ -152289,11 +152289,11 @@ invoke.cont104:                                   ; preds = %invoke.cont102
 
 catch.fallthrough60:                              ; preds = %catch.fallthrough
   %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches61 = icmp eq i32 %ehselector.slot.1, %42
+  %matches61 = icmp eq i32 %ehselector.slot.0, %42
   br i1 %matches61, label %catch79, label %catch.fallthrough62
 
 catch79:                                          ; preds = %catch.fallthrough60
-  %43 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %43 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception82 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i25 = getelementptr inbounds i8, ptr %43, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp83, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i25)
@@ -152315,11 +152315,11 @@ invoke.cont87:                                    ; preds = %invoke.cont85
 
 catch.fallthrough62:                              ; preds = %catch.fallthrough60
   %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches63 = icmp eq i32 %ehselector.slot.1, %45
+  %matches63 = icmp eq i32 %ehselector.slot.0, %45
   br i1 %matches63, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough62
-  %46 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %46 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %46, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -152703,14 +152703,14 @@ ehcleanup:                                        ; preds = %lpad5, %lpad3
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %17, %lpad ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %20
+  %matches = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches, label %catch57, label %catch.fallthrough
 
 catch57:                                          ; preds = %catch.dispatch
-  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception60 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %21, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -152732,11 +152732,11 @@ invoke.cont65:                                    ; preds = %invoke.cont63
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches7 = icmp eq i32 %ehselector.slot.1, %23
+  %matches7 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches7, label %catch40, label %catch.fallthrough8
 
 catch40:                                          ; preds = %catch.fallthrough
-  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception43 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i19 = getelementptr inbounds i8, ptr %24, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i19)
@@ -152758,11 +152758,11 @@ invoke.cont48:                                    ; preds = %invoke.cont46
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches9 = icmp eq i32 %ehselector.slot.1, %26
+  %matches9 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches9, label %catch23, label %catch.fallthrough10
 
 catch23:                                          ; preds = %catch.fallthrough8
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception26 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i21 = getelementptr inbounds i8, ptr %27, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i21)
@@ -152784,11 +152784,11 @@ invoke.cont31:                                    ; preds = %invoke.cont29
 
 catch.fallthrough10:                              ; preds = %catch.fallthrough8
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches11 = icmp eq i32 %ehselector.slot.1, %29
+  %matches11 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches11, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough10
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %30, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -153718,14 +153718,14 @@ ehcleanup174:                                     ; preds = %cleanup.action172, 
 
 catch.dispatch:                                   ; preds = %lpad79, %lpad52, %lpad28, %lpad6, %ehcleanup174, %ehcleanup, %lpad
   %.pn13 = phi { ptr, i32 } [ %7, %lpad ], [ %.pn9.pn.pn, %ehcleanup174 ], [ %.pn, %ehcleanup ], [ %11, %lpad79 ], [ %10, %lpad52 ], [ %9, %lpad28 ], [ %8, %lpad6 ]
-  %exn.slot.4 = extractvalue { ptr, i32 } %.pn13, 0
-  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn13, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn13, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn13, 1
   %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.4, %18
+  %matches = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches, label %catch231, label %catch.fallthrough
 
 catch231:                                         ; preds = %catch.dispatch
-  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception234 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %19, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp235, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -153747,11 +153747,11 @@ invoke.cont239:                                   ; preds = %invoke.cont237
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches177 = icmp eq i32 %ehselector.slot.4, %21
+  %matches177 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches177, label %catch214, label %catch.fallthrough178
 
 catch214:                                         ; preds = %catch.fallthrough
-  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception217 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i32 = getelementptr inbounds i8, ptr %22, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp218, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i32)
@@ -153773,11 +153773,11 @@ invoke.cont222:                                   ; preds = %invoke.cont220
 
 catch.fallthrough178:                             ; preds = %catch.fallthrough
   %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches179 = icmp eq i32 %ehselector.slot.4, %24
+  %matches179 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches179, label %catch197, label %catch.fallthrough180
 
 catch197:                                         ; preds = %catch.fallthrough178
-  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception200 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i34 = getelementptr inbounds i8, ptr %25, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp201, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i34)
@@ -153799,11 +153799,11 @@ invoke.cont205:                                   ; preds = %invoke.cont203
 
 catch.fallthrough180:                             ; preds = %catch.fallthrough178
   %27 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches181 = icmp eq i32 %ehselector.slot.4, %27
+  %matches181 = icmp eq i32 %ehselector.slot.0, %27
   br i1 %matches181, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough180
-  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #30
+  %28 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %28, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -154475,14 +154475,14 @@ ehcleanup230:                                     ; preds = %lpad225, %lpad223
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad182, %lpad148, %lpad28, %lpad6, %ehcleanup230, %ehcleanup128, %ehcleanup
   %.pn18.pn.pn.pn = phi { ptr, i32 } [ %.pn18.pn.pn, %ehcleanup128 ], [ %.pn16, %ehcleanup ], [ %18, %lpad182 ], [ %17, %lpad148 ], [ %.pn, %ehcleanup230 ], [ %8, %lpad28 ], [ %7, %lpad6 ], [ %lpad.loopexit82, %lpad.loopexit ], [ %lpad.loopexit84, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit87, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp88, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %exn.slot.5 = extractvalue { ptr, i32 } %.pn18.pn.pn.pn, 0
-  %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn18.pn.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn18.pn.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn18.pn.pn.pn, 1
   %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.5, %36
+  %matches = icmp eq i32 %ehselector.slot.0, %36
   br i1 %matches, label %catch285, label %catch.fallthrough
 
 catch285:                                         ; preds = %catch.dispatch
-  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %37 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception288 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %37, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp289, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -154504,11 +154504,11 @@ invoke.cont293:                                   ; preds = %invoke.cont291
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %39 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches231 = icmp eq i32 %ehselector.slot.5, %39
+  %matches231 = icmp eq i32 %ehselector.slot.0, %39
   br i1 %matches231, label %catch268, label %catch.fallthrough232
 
 catch268:                                         ; preds = %catch.fallthrough
-  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %40 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception271 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i50 = getelementptr inbounds i8, ptr %40, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp272, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i50)
@@ -154530,11 +154530,11 @@ invoke.cont276:                                   ; preds = %invoke.cont274
 
 catch.fallthrough232:                             ; preds = %catch.fallthrough
   %42 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches233 = icmp eq i32 %ehselector.slot.5, %42
+  %matches233 = icmp eq i32 %ehselector.slot.0, %42
   br i1 %matches233, label %catch251, label %catch.fallthrough234
 
 catch251:                                         ; preds = %catch.fallthrough232
-  %43 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %43 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception254 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i53 = getelementptr inbounds i8, ptr %43, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp255, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i53)
@@ -154556,11 +154556,11 @@ invoke.cont259:                                   ; preds = %invoke.cont257
 
 catch.fallthrough234:                             ; preds = %catch.fallthrough232
   %45 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches235 = icmp eq i32 %ehselector.slot.5, %45
+  %matches235 = icmp eq i32 %ehselector.slot.0, %45
   br i1 %matches235, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough234
-  %46 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %46 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %46, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -155107,14 +155107,14 @@ ehcleanup137:                                     ; preds = %ehcleanup, %lpad123
 
 catch.dispatch:                                   ; preds = %lpad103, %lpad79, %lpad52, %lpad28, %lpad6, %ehcleanup137, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup137 ], [ %26, %lpad ], [ %31, %lpad103 ], [ %30, %lpad79 ], [ %29, %lpad52 ], [ %28, %lpad28 ], [ %27, %lpad6 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %41
+  %matches = icmp eq i32 %ehselector.slot.0, %41
   br i1 %matches, label %catch192, label %catch.fallthrough
 
 catch192:                                         ; preds = %catch.dispatch
-  %42 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %42 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception195 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %42, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp196, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -155136,11 +155136,11 @@ invoke.cont200:                                   ; preds = %invoke.cont198
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches138 = icmp eq i32 %ehselector.slot.2, %44
+  %matches138 = icmp eq i32 %ehselector.slot.0, %44
   br i1 %matches138, label %catch175, label %catch.fallthrough139
 
 catch175:                                         ; preds = %catch.fallthrough
-  %45 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %45 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception178 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i38 = getelementptr inbounds i8, ptr %45, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp179, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i38)
@@ -155162,11 +155162,11 @@ invoke.cont183:                                   ; preds = %invoke.cont181
 
 catch.fallthrough139:                             ; preds = %catch.fallthrough
   %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches140 = icmp eq i32 %ehselector.slot.2, %47
+  %matches140 = icmp eq i32 %ehselector.slot.0, %47
   br i1 %matches140, label %catch158, label %catch.fallthrough141
 
 catch158:                                         ; preds = %catch.fallthrough139
-  %48 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %48 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception161 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i41 = getelementptr inbounds i8, ptr %48, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp162, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i41)
@@ -155188,11 +155188,11 @@ invoke.cont166:                                   ; preds = %invoke.cont164
 
 catch.fallthrough141:                             ; preds = %catch.fallthrough139
   %50 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches142 = icmp eq i32 %ehselector.slot.2, %50
+  %matches142 = icmp eq i32 %ehselector.slot.0, %50
   br i1 %matches142, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough141
-  %51 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %51 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %51, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -156534,14 +156534,14 @@ ehcleanup:                                        ; preds = %lpad.i70, %lpad295
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %lpad.i, %lpad270, %lpad214, %lpad179, %lpad138, %lpad90, %lpad57, %lpad28, %lpad6, %ehcleanup
   %.pn17 = phi { ptr, i32 } [ %11, %lpad90 ], [ %10, %lpad57 ], [ %12, %lpad138 ], [ %18, %lpad214 ], [ %17, %lpad179 ], [ %19, %lpad270 ], [ %.pn, %ehcleanup ], [ %9, %lpad28 ], [ %8, %lpad6 ], [ %29, %lpad.i ], [ %lpad.loopexit134, %lpad.loopexit ], [ %lpad.loopexit136, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit139, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit142, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp143, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn17, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn17, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn17, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn17, 1
   %54 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %54
+  %matches = icmp eq i32 %ehselector.slot.0, %54
   br i1 %matches, label %catch351, label %catch.fallthrough
 
 catch351:                                         ; preds = %catch.dispatch
-  %55 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %55 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception354 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %55, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp355, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -156563,11 +156563,11 @@ invoke.cont359:                                   ; preds = %invoke.cont357
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches297 = icmp eq i32 %ehselector.slot.1, %57
+  %matches297 = icmp eq i32 %ehselector.slot.0, %57
   br i1 %matches297, label %catch334, label %catch.fallthrough298
 
 catch334:                                         ; preds = %catch.fallthrough
-  %58 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %58 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception337 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i100 = getelementptr inbounds i8, ptr %58, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp338, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i100)
@@ -156589,11 +156589,11 @@ invoke.cont342:                                   ; preds = %invoke.cont340
 
 catch.fallthrough298:                             ; preds = %catch.fallthrough
   %60 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches299 = icmp eq i32 %ehselector.slot.1, %60
+  %matches299 = icmp eq i32 %ehselector.slot.0, %60
   br i1 %matches299, label %catch317, label %catch.fallthrough300
 
 catch317:                                         ; preds = %catch.fallthrough298
-  %61 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %61 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception320 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i102 = getelementptr inbounds i8, ptr %61, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp321, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i102)
@@ -156615,11 +156615,11 @@ invoke.cont325:                                   ; preds = %invoke.cont323
 
 catch.fallthrough300:                             ; preds = %catch.fallthrough298
   %63 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches301 = icmp eq i32 %ehselector.slot.1, %63
+  %matches301 = icmp eq i32 %ehselector.slot.0, %63
   br i1 %matches301, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough300
-  %64 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %64 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %64, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -156956,14 +156956,14 @@ ehcleanup:                                        ; preds = %lpad50, %lpad48
 
 catch.dispatch:                                   ; preds = %lpad28, %lpad5, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %15, %lpad ], [ %17, %lpad28 ], [ %16, %lpad5 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %20
+  %matches = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches, label %catch106, label %catch.fallthrough
 
 catch106:                                         ; preds = %catch.dispatch
-  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception109 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %21, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -156985,11 +156985,11 @@ invoke.cont114:                                   ; preds = %invoke.cont112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches52 = icmp eq i32 %ehselector.slot.1, %23
+  %matches52 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches52, label %catch89, label %catch.fallthrough53
 
 catch89:                                          ; preds = %catch.fallthrough
-  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception92 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i36 = getelementptr inbounds i8, ptr %24, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i36)
@@ -157011,11 +157011,11 @@ invoke.cont97:                                    ; preds = %invoke.cont95
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches54 = icmp eq i32 %ehselector.slot.1, %26
+  %matches54 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches54, label %catch72, label %catch.fallthrough55
 
 catch72:                                          ; preds = %catch.fallthrough53
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception75 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i39 = getelementptr inbounds i8, ptr %27, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i39)
@@ -157037,11 +157037,11 @@ invoke.cont80:                                    ; preds = %invoke.cont78
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches56 = icmp eq i32 %ehselector.slot.1, %29
+  %matches56 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches56, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough55
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %30, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -157378,14 +157378,14 @@ ehcleanup:                                        ; preds = %lpad50, %lpad48
 
 catch.dispatch:                                   ; preds = %lpad28, %lpad5, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %15, %lpad ], [ %17, %lpad28 ], [ %16, %lpad5 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %20 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %20
+  %matches = icmp eq i32 %ehselector.slot.0, %20
   br i1 %matches, label %catch106, label %catch.fallthrough
 
 catch106:                                         ; preds = %catch.dispatch
-  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %21 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception109 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %21, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -157407,11 +157407,11 @@ invoke.cont114:                                   ; preds = %invoke.cont112
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %23 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches52 = icmp eq i32 %ehselector.slot.1, %23
+  %matches52 = icmp eq i32 %ehselector.slot.0, %23
   br i1 %matches52, label %catch89, label %catch.fallthrough53
 
 catch89:                                          ; preds = %catch.fallthrough
-  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %24 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception92 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i36 = getelementptr inbounds i8, ptr %24, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i36)
@@ -157433,11 +157433,11 @@ invoke.cont97:                                    ; preds = %invoke.cont95
 
 catch.fallthrough53:                              ; preds = %catch.fallthrough
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches54 = icmp eq i32 %ehselector.slot.1, %26
+  %matches54 = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches54, label %catch72, label %catch.fallthrough55
 
 catch72:                                          ; preds = %catch.fallthrough53
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception75 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i39 = getelementptr inbounds i8, ptr %27, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp76, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i39)
@@ -157459,11 +157459,11 @@ invoke.cont80:                                    ; preds = %invoke.cont78
 
 catch.fallthrough55:                              ; preds = %catch.fallthrough53
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches56 = icmp eq i32 %ehselector.slot.1, %29
+  %matches56 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches56, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough55
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %30, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -157924,14 +157924,14 @@ ehcleanup:                                        ; preds = %lpad135, %lpad133
 
 catch.dispatch:                                   ; preds = %lpad112, %lpad83, %lpad54, %lpad28, %lpad5, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %20, %lpad ], [ %25, %lpad112 ], [ %24, %lpad83 ], [ %23, %lpad54 ], [ %22, %lpad28 ], [ %21, %lpad5 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %28
+  %matches = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches, label %catch191, label %catch.fallthrough
 
 catch191:                                         ; preds = %catch.dispatch
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception194 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %29, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp195, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -157953,11 +157953,11 @@ invoke.cont199:                                   ; preds = %invoke.cont197
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %31 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches137 = icmp eq i32 %ehselector.slot.1, %31
+  %matches137 = icmp eq i32 %ehselector.slot.0, %31
   br i1 %matches137, label %catch174, label %catch.fallthrough138
 
 catch174:                                         ; preds = %catch.fallthrough
-  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %32 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception177 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i60 = getelementptr inbounds i8, ptr %32, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp178, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i60)
@@ -157979,11 +157979,11 @@ invoke.cont182:                                   ; preds = %invoke.cont180
 
 catch.fallthrough138:                             ; preds = %catch.fallthrough
   %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches139 = icmp eq i32 %ehselector.slot.1, %34
+  %matches139 = icmp eq i32 %ehselector.slot.0, %34
   br i1 %matches139, label %catch157, label %catch.fallthrough140
 
 catch157:                                         ; preds = %catch.fallthrough138
-  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception160 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i63 = getelementptr inbounds i8, ptr %35, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp161, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i63)
@@ -158005,11 +158005,11 @@ invoke.cont165:                                   ; preds = %invoke.cont163
 
 catch.fallthrough140:                             ; preds = %catch.fallthrough138
   %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches141 = icmp eq i32 %ehselector.slot.1, %37
+  %matches141 = icmp eq i32 %ehselector.slot.0, %37
   br i1 %matches141, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough140
-  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %38, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -159424,14 +159424,14 @@ ehcleanup141:                                     ; preds = %ehcleanup, %lpad132
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad94, %lpad59, %lpad28, %lpad5, %ehcleanup141, %lpad129
   %.pn11 = phi { ptr, i32 } [ %9, %lpad94 ], [ %8, %lpad59 ], [ %.pn.pn, %ehcleanup141 ], [ %45, %lpad129 ], [ %7, %lpad28 ], [ %6, %lpad5 ], [ %lpad.loopexit93, %lpad.loopexit ], [ %lpad.loopexit.split-lp94, %lpad.loopexit.split-lp ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn11, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn11, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn11, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn11, 1
   %48 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %48
+  %matches = icmp eq i32 %ehselector.slot.0, %48
   br i1 %matches, label %catch196, label %catch.fallthrough
 
 catch196:                                         ; preds = %catch.dispatch
-  %49 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %49 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception199 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %49, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp200, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -159453,11 +159453,11 @@ invoke.cont204:                                   ; preds = %invoke.cont202
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %51 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches142 = icmp eq i32 %ehselector.slot.2, %51
+  %matches142 = icmp eq i32 %ehselector.slot.0, %51
   br i1 %matches142, label %catch179, label %catch.fallthrough143
 
 catch179:                                         ; preds = %catch.fallthrough
-  %52 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %52 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception182 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i63 = getelementptr inbounds i8, ptr %52, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp183, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i63)
@@ -159479,11 +159479,11 @@ invoke.cont187:                                   ; preds = %invoke.cont185
 
 catch.fallthrough143:                             ; preds = %catch.fallthrough
   %54 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches144 = icmp eq i32 %ehselector.slot.2, %54
+  %matches144 = icmp eq i32 %ehselector.slot.0, %54
   br i1 %matches144, label %catch162, label %catch.fallthrough145
 
 catch162:                                         ; preds = %catch.fallthrough143
-  %55 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %55 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception165 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i66 = getelementptr inbounds i8, ptr %55, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp166, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i66)
@@ -159505,11 +159505,11 @@ invoke.cont170:                                   ; preds = %invoke.cont168
 
 catch.fallthrough145:                             ; preds = %catch.fallthrough143
   %57 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches146 = icmp eq i32 %ehselector.slot.2, %57
+  %matches146 = icmp eq i32 %ehselector.slot.0, %57
   br i1 %matches146, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough145
-  %58 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %58 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %58, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -160613,14 +160613,14 @@ ehcleanup257:                                     ; preds = %lpad228, %lpad.i50,
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad210, %lpad173.body, %lpad148, %lpad119, %lpad78, %lpad39, %lpad10, %ehcleanup257
   %.pn21 = phi { ptr, i32 } [ %7, %lpad78 ], [ %6, %lpad39 ], [ %5, %lpad10 ], [ %.pn18.pn, %ehcleanup257 ], [ %48, %lpad210 ], [ %eh.lpad-body, %lpad173.body ], [ %46, %lpad148 ], [ %45, %lpad119 ], [ %lpad.loopexit190, %lpad.loopexit ], [ %lpad.loopexit.split-lp191, %lpad.loopexit.split-lp ]
-  %exn.slot.5 = extractvalue { ptr, i32 } %.pn21, 0
-  %ehselector.slot.5 = extractvalue { ptr, i32 } %.pn21, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn21, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn21, 1
   %95 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.5, %95
+  %matches = icmp eq i32 %ehselector.slot.0, %95
   br i1 %matches, label %catch312, label %catch.fallthrough
 
 catch312:                                         ; preds = %catch.dispatch
-  %96 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %96 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception315 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %96, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp316, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -160642,11 +160642,11 @@ invoke.cont320:                                   ; preds = %invoke.cont318
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %98 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches258 = icmp eq i32 %ehselector.slot.5, %98
+  %matches258 = icmp eq i32 %ehselector.slot.0, %98
   br i1 %matches258, label %catch295, label %catch.fallthrough259
 
 catch295:                                         ; preds = %catch.fallthrough
-  %99 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %99 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception298 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i160 = getelementptr inbounds i8, ptr %99, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp299, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i160)
@@ -160668,11 +160668,11 @@ invoke.cont303:                                   ; preds = %invoke.cont301
 
 catch.fallthrough259:                             ; preds = %catch.fallthrough
   %101 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches260 = icmp eq i32 %ehselector.slot.5, %101
+  %matches260 = icmp eq i32 %ehselector.slot.0, %101
   br i1 %matches260, label %catch278, label %catch.fallthrough261
 
 catch278:                                         ; preds = %catch.fallthrough259
-  %102 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %102 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception281 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i163 = getelementptr inbounds i8, ptr %102, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp282, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i163)
@@ -160694,11 +160694,11 @@ invoke.cont286:                                   ; preds = %invoke.cont284
 
 catch.fallthrough261:                             ; preds = %catch.fallthrough259
   %104 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches262 = icmp eq i32 %ehselector.slot.5, %104
+  %matches262 = icmp eq i32 %ehselector.slot.0, %104
   br i1 %matches262, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough261
-  %105 = call ptr @__cxa_begin_catch(ptr %exn.slot.5) #30
+  %105 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %105, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -161400,14 +161400,14 @@ ehcleanup:                                        ; preds = %lpad75, %lpad72
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i, %lpad53, %lpad28, %lpad5, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %23, %lpad53 ], [ %22, %lpad28 ], [ %21, %lpad5 ], [ %20, %lpad ], [ %7, %lpad.i.i ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %26
+  %matches = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches, label %catch131, label %catch.fallthrough
 
 catch131:                                         ; preds = %catch.dispatch
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception134 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %27, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp135, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -161429,11 +161429,11 @@ invoke.cont139:                                   ; preds = %invoke.cont137
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches77 = icmp eq i32 %ehselector.slot.1, %29
+  %matches77 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches77, label %catch114, label %catch.fallthrough78
 
 catch114:                                         ; preds = %catch.fallthrough
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception117 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i28 = getelementptr inbounds i8, ptr %30, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp118, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i28)
@@ -161455,11 +161455,11 @@ invoke.cont122:                                   ; preds = %invoke.cont120
 
 catch.fallthrough78:                              ; preds = %catch.fallthrough
   %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches79 = icmp eq i32 %ehselector.slot.1, %32
+  %matches79 = icmp eq i32 %ehselector.slot.0, %32
   br i1 %matches79, label %catch97, label %catch.fallthrough80
 
 catch97:                                          ; preds = %catch.fallthrough78
-  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception100 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i30 = getelementptr inbounds i8, ptr %33, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp101, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i30)
@@ -161481,11 +161481,11 @@ invoke.cont105:                                   ; preds = %invoke.cont103
 
 catch.fallthrough80:                              ; preds = %catch.fallthrough78
   %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches81 = icmp eq i32 %ehselector.slot.1, %35
+  %matches81 = icmp eq i32 %ehselector.slot.0, %35
   br i1 %matches81, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough80
-  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %36, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -162615,14 +162615,14 @@ ehcleanup:                                        ; preds = %lpad75, %lpad72
 
 catch.dispatch:                                   ; preds = %lpad, %lpad.i.i, %lpad53, %lpad28, %lpad5, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %23, %lpad53 ], [ %22, %lpad28 ], [ %21, %lpad5 ], [ %20, %lpad ], [ %7, %lpad.i.i ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %26
+  %matches = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches, label %catch131, label %catch.fallthrough
 
 catch131:                                         ; preds = %catch.dispatch
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception134 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %27, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp135, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -162644,11 +162644,11 @@ invoke.cont139:                                   ; preds = %invoke.cont137
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches77 = icmp eq i32 %ehselector.slot.1, %29
+  %matches77 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches77, label %catch114, label %catch.fallthrough78
 
 catch114:                                         ; preds = %catch.fallthrough
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception117 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i28 = getelementptr inbounds i8, ptr %30, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp118, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i28)
@@ -162670,11 +162670,11 @@ invoke.cont122:                                   ; preds = %invoke.cont120
 
 catch.fallthrough78:                              ; preds = %catch.fallthrough
   %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches79 = icmp eq i32 %ehselector.slot.1, %32
+  %matches79 = icmp eq i32 %ehselector.slot.0, %32
   br i1 %matches79, label %catch97, label %catch.fallthrough80
 
 catch97:                                          ; preds = %catch.fallthrough78
-  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception100 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i30 = getelementptr inbounds i8, ptr %33, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp101, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i30)
@@ -162696,11 +162696,11 @@ invoke.cont105:                                   ; preds = %invoke.cont103
 
 catch.fallthrough80:                              ; preds = %catch.fallthrough78
   %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches81 = icmp eq i32 %ehselector.slot.1, %35
+  %matches81 = icmp eq i32 %ehselector.slot.0, %35
   br i1 %matches81, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough80
-  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %36, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -166897,14 +166897,14 @@ ehcleanup:                                        ; preds = %lpad51, %lpad20, %l
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %12
+  %matches = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches, label %catch127, label %catch.fallthrough
 
 catch127:                                         ; preds = %catch.dispatch
-  %13 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %13 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception130 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %13, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp131, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -166926,11 +166926,11 @@ invoke.cont135:                                   ; preds = %invoke.cont133
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches73 = icmp eq i32 %ehselector.slot.1, %15
+  %matches73 = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches73, label %catch110, label %catch.fallthrough74
 
 catch110:                                         ; preds = %catch.fallthrough
-  %16 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %16 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception113 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i22 = getelementptr inbounds i8, ptr %16, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i22)
@@ -166952,11 +166952,11 @@ invoke.cont118:                                   ; preds = %invoke.cont116
 
 catch.fallthrough74:                              ; preds = %catch.fallthrough
   %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches75 = icmp eq i32 %ehselector.slot.1, %18
+  %matches75 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches75, label %catch93, label %catch.fallthrough76
 
 catch93:                                          ; preds = %catch.fallthrough74
-  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception96 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i24 = getelementptr inbounds i8, ptr %19, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp97, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i24)
@@ -166978,11 +166978,11 @@ invoke.cont101:                                   ; preds = %invoke.cont99
 
 catch.fallthrough76:                              ; preds = %catch.fallthrough74
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches77 = icmp eq i32 %ehselector.slot.1, %21
+  %matches77 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches77, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough76
-  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %22, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -167427,14 +167427,14 @@ ehcleanup:                                        ; preds = %lpad76, %lpad71
 
 catch.dispatch:                                   ; preds = %lpad53, %lpad28, %lpad5, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %23, %lpad ], [ %26, %lpad53 ], [ %25, %lpad28 ], [ %24, %lpad5 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %29
+  %matches = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches, label %catch134, label %catch.fallthrough
 
 catch134:                                         ; preds = %catch.dispatch
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception137 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %30, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp138, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -167456,11 +167456,11 @@ invoke.cont142:                                   ; preds = %invoke.cont140
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches80 = icmp eq i32 %ehselector.slot.1, %32
+  %matches80 = icmp eq i32 %ehselector.slot.0, %32
   br i1 %matches80, label %catch117, label %catch.fallthrough81
 
 catch117:                                         ; preds = %catch.fallthrough
-  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception120 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i48 = getelementptr inbounds i8, ptr %33, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp121, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i48)
@@ -167482,11 +167482,11 @@ invoke.cont125:                                   ; preds = %invoke.cont123
 
 catch.fallthrough81:                              ; preds = %catch.fallthrough
   %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches82 = icmp eq i32 %ehselector.slot.1, %35
+  %matches82 = icmp eq i32 %ehselector.slot.0, %35
   br i1 %matches82, label %catch100, label %catch.fallthrough83
 
 catch100:                                         ; preds = %catch.fallthrough81
-  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception103 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i51 = getelementptr inbounds i8, ptr %36, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp104, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i51)
@@ -167508,11 +167508,11 @@ invoke.cont108:                                   ; preds = %invoke.cont106
 
 catch.fallthrough83:                              ; preds = %catch.fallthrough81
   %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches84 = icmp eq i32 %ehselector.slot.1, %38
+  %matches84 = icmp eq i32 %ehselector.slot.0, %38
   br i1 %matches84, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough83
-  %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %39, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -169744,14 +169744,14 @@ lpad117:                                          ; preds = %invoke.cont116
 
 catch.dispatch:                                   ; preds = %lpad96, %lpad28, %lpad5, %lpad117, %ehcleanup85, %lpad
   %.pn8 = phi { ptr, i32 } [ %33, %lpad117 ], [ %26, %lpad ], [ %32, %lpad96 ], [ %.pn.pn, %ehcleanup85 ], [ %28, %lpad28 ], [ %27, %lpad5 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn8, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn8, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn8, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn8, 1
   %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %34
+  %matches = icmp eq i32 %ehselector.slot.0, %34
   br i1 %matches, label %catch174, label %catch.fallthrough
 
 catch174:                                         ; preds = %catch.dispatch
-  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception177 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %35, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp178, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -169773,11 +169773,11 @@ invoke.cont182:                                   ; preds = %invoke.cont180
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches120 = icmp eq i32 %ehselector.slot.2, %37
+  %matches120 = icmp eq i32 %ehselector.slot.0, %37
   br i1 %matches120, label %catch157, label %catch.fallthrough121
 
 catch157:                                         ; preds = %catch.fallthrough
-  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception160 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i56 = getelementptr inbounds i8, ptr %38, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp161, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i56)
@@ -169799,11 +169799,11 @@ invoke.cont165:                                   ; preds = %invoke.cont163
 
 catch.fallthrough121:                             ; preds = %catch.fallthrough
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches122 = icmp eq i32 %ehselector.slot.2, %40
+  %matches122 = icmp eq i32 %ehselector.slot.0, %40
   br i1 %matches122, label %catch140, label %catch.fallthrough123
 
 catch140:                                         ; preds = %catch.fallthrough121
-  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception143 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i59 = getelementptr inbounds i8, ptr %41, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp144, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i59)
@@ -169825,11 +169825,11 @@ invoke.cont148:                                   ; preds = %invoke.cont146
 
 catch.fallthrough123:                             ; preds = %catch.fallthrough121
   %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches124 = icmp eq i32 %ehselector.slot.2, %43
+  %matches124 = icmp eq i32 %ehselector.slot.0, %43
   br i1 %matches124, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough123
-  %44 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %44 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %44, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -170713,14 +170713,14 @@ lpad117:                                          ; preds = %invoke.cont116
 
 catch.dispatch:                                   ; preds = %lpad96, %lpad28, %lpad5, %lpad117, %ehcleanup85, %lpad
   %.pn8 = phi { ptr, i32 } [ %33, %lpad117 ], [ %26, %lpad ], [ %32, %lpad96 ], [ %.pn.pn, %ehcleanup85 ], [ %28, %lpad28 ], [ %27, %lpad5 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn8, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn8, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn8, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn8, 1
   %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %34
+  %matches = icmp eq i32 %ehselector.slot.0, %34
   br i1 %matches, label %catch174, label %catch.fallthrough
 
 catch174:                                         ; preds = %catch.dispatch
-  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %35 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception177 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %35, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp178, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -170742,11 +170742,11 @@ invoke.cont182:                                   ; preds = %invoke.cont180
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %37 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches120 = icmp eq i32 %ehselector.slot.2, %37
+  %matches120 = icmp eq i32 %ehselector.slot.0, %37
   br i1 %matches120, label %catch157, label %catch.fallthrough121
 
 catch157:                                         ; preds = %catch.fallthrough
-  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %38 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception160 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i56 = getelementptr inbounds i8, ptr %38, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp161, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i56)
@@ -170768,11 +170768,11 @@ invoke.cont165:                                   ; preds = %invoke.cont163
 
 catch.fallthrough121:                             ; preds = %catch.fallthrough
   %40 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches122 = icmp eq i32 %ehselector.slot.2, %40
+  %matches122 = icmp eq i32 %ehselector.slot.0, %40
   br i1 %matches122, label %catch140, label %catch.fallthrough123
 
 catch140:                                         ; preds = %catch.fallthrough121
-  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %41 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception143 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i59 = getelementptr inbounds i8, ptr %41, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp144, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i59)
@@ -170794,11 +170794,11 @@ invoke.cont148:                                   ; preds = %invoke.cont146
 
 catch.fallthrough123:                             ; preds = %catch.fallthrough121
   %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches124 = icmp eq i32 %ehselector.slot.2, %43
+  %matches124 = icmp eq i32 %ehselector.slot.0, %43
   br i1 %matches124, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough123
-  %44 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %44 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %44, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -172919,14 +172919,14 @@ ehcleanup468:                                     ; preds = %lpad367, %ehcleanup
 
 catch.dispatch:                                   ; preds = %lpad197, %lpad168, %lpad140, %lpad111, %lpad83, %lpad54, %lpad28, %lpad5, %ehcleanup468, %ehcleanup, %lpad
   %.pn39.pn.pn = phi { ptr, i32 } [ %.pn39.pn, %ehcleanup468 ], [ %56, %lpad ], [ %.pn, %ehcleanup ], [ %64, %lpad197 ], [ %63, %lpad168 ], [ %62, %lpad140 ], [ %61, %lpad111 ], [ %60, %lpad83 ], [ %59, %lpad54 ], [ %58, %lpad28 ], [ %57, %lpad5 ]
-  %exn.slot.11 = extractvalue { ptr, i32 } %.pn39.pn.pn, 0
-  %ehselector.slot.11 = extractvalue { ptr, i32 } %.pn39.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn39.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn39.pn.pn, 1
   %153 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.11, %153
+  %matches = icmp eq i32 %ehselector.slot.0, %153
   br i1 %matches, label %catch523, label %catch.fallthrough
 
 catch523:                                         ; preds = %catch.dispatch
-  %154 = call ptr @__cxa_begin_catch(ptr %exn.slot.11) #30
+  %154 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception526 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %154, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp527, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -172948,11 +172948,11 @@ invoke.cont531:                                   ; preds = %invoke.cont529
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %156 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches469 = icmp eq i32 %ehselector.slot.11, %156
+  %matches469 = icmp eq i32 %ehselector.slot.0, %156
   br i1 %matches469, label %catch506, label %catch.fallthrough470
 
 catch506:                                         ; preds = %catch.fallthrough
-  %157 = call ptr @__cxa_begin_catch(ptr %exn.slot.11) #30
+  %157 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception509 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i337 = getelementptr inbounds i8, ptr %157, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp510, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i337)
@@ -172974,11 +172974,11 @@ invoke.cont514:                                   ; preds = %invoke.cont512
 
 catch.fallthrough470:                             ; preds = %catch.fallthrough
   %159 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches471 = icmp eq i32 %ehselector.slot.11, %159
+  %matches471 = icmp eq i32 %ehselector.slot.0, %159
   br i1 %matches471, label %catch489, label %catch.fallthrough472
 
 catch489:                                         ; preds = %catch.fallthrough470
-  %160 = call ptr @__cxa_begin_catch(ptr %exn.slot.11) #30
+  %160 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception492 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i340 = getelementptr inbounds i8, ptr %160, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp493, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i340)
@@ -173000,11 +173000,11 @@ invoke.cont497:                                   ; preds = %invoke.cont495
 
 catch.fallthrough472:                             ; preds = %catch.fallthrough470
   %162 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches473 = icmp eq i32 %ehselector.slot.11, %162
+  %matches473 = icmp eq i32 %ehselector.slot.0, %162
   br i1 %matches473, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough472
-  %163 = call ptr @__cxa_begin_catch(ptr %exn.slot.11) #30
+  %163 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %163, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -174037,14 +174037,14 @@ ehcleanup:                                        ; preds = %lpad84, %lpad54, %l
 
 catch.dispatch:                                   ; preds = %lpad28, %lpad5, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %13, %lpad ], [ %15, %lpad28 ], [ %14, %lpad5 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %19
+  %matches = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches, label %catch156, label %catch.fallthrough
 
 catch156:                                         ; preds = %catch.dispatch
-  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception159 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %20, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp160, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -174066,11 +174066,11 @@ invoke.cont164:                                   ; preds = %invoke.cont162
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %22 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches102 = icmp eq i32 %ehselector.slot.1, %22
+  %matches102 = icmp eq i32 %ehselector.slot.0, %22
   br i1 %matches102, label %catch139, label %catch.fallthrough103
 
 catch139:                                         ; preds = %catch.fallthrough
-  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %23 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception142 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i21 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp143, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i21)
@@ -174092,11 +174092,11 @@ invoke.cont147:                                   ; preds = %invoke.cont145
 
 catch.fallthrough103:                             ; preds = %catch.fallthrough
   %25 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches104 = icmp eq i32 %ehselector.slot.1, %25
+  %matches104 = icmp eq i32 %ehselector.slot.0, %25
   br i1 %matches104, label %catch122, label %catch.fallthrough105
 
 catch122:                                         ; preds = %catch.fallthrough103
-  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %26 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception125 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i23 = getelementptr inbounds i8, ptr %26, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp126, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i23)
@@ -174118,11 +174118,11 @@ invoke.cont130:                                   ; preds = %invoke.cont128
 
 catch.fallthrough105:                             ; preds = %catch.fallthrough103
   %28 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches106 = icmp eq i32 %ehselector.slot.1, %28
+  %matches106 = icmp eq i32 %ehselector.slot.0, %28
   br i1 %matches106, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough105
-  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %29 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %29, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -174709,14 +174709,14 @@ ehcleanup175:                                     ; preds = %lpad110, %ehcleanup
 
 catch.dispatch:                                   ; preds = %lpad.loopexit79, %lpad.loopexit.split-lp80, %lpad69, %lpad36, %lpad4, %ehcleanup175
   %.pn15 = phi { ptr, i32 } [ %8, %lpad69 ], [ %7, %lpad36 ], [ %.pn.pn, %ehcleanup175 ], [ %6, %lpad4 ], [ %lpad.loopexit81, %lpad.loopexit79 ], [ %lpad.loopexit.split-lp82, %lpad.loopexit.split-lp80 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn15, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn15, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn15, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn15, 1
   %38 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.2, %38
+  %matches = icmp eq i32 %ehselector.slot.0, %38
   br i1 %matches, label %catch230, label %catch.fallthrough
 
 catch230:                                         ; preds = %catch.dispatch
-  %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %39 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception233 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %39, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp234, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -174738,11 +174738,11 @@ invoke.cont238:                                   ; preds = %invoke.cont236
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %41 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches176 = icmp eq i32 %ehselector.slot.2, %41
+  %matches176 = icmp eq i32 %ehselector.slot.0, %41
   br i1 %matches176, label %catch213, label %catch.fallthrough177
 
 catch213:                                         ; preds = %catch.fallthrough
-  %42 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %42 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception216 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i44 = getelementptr inbounds i8, ptr %42, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp217, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i44)
@@ -174764,11 +174764,11 @@ invoke.cont221:                                   ; preds = %invoke.cont219
 
 catch.fallthrough177:                             ; preds = %catch.fallthrough
   %44 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches178 = icmp eq i32 %ehselector.slot.2, %44
+  %matches178 = icmp eq i32 %ehselector.slot.0, %44
   br i1 %matches178, label %catch196, label %catch.fallthrough179
 
 catch196:                                         ; preds = %catch.fallthrough177
-  %45 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %45 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception199 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i47 = getelementptr inbounds i8, ptr %45, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp200, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i47)
@@ -174790,11 +174790,11 @@ invoke.cont204:                                   ; preds = %invoke.cont202
 
 catch.fallthrough179:                             ; preds = %catch.fallthrough177
   %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches180 = icmp eq i32 %ehselector.slot.2, %47
+  %matches180 = icmp eq i32 %ehselector.slot.0, %47
   br i1 %matches180, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough179
-  %48 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #30
+  %48 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %48, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -175148,14 +175148,14 @@ ehcleanup:                                        ; preds = %lpad5, %lpad3
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %12, %lpad ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %15 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %15
+  %matches = icmp eq i32 %ehselector.slot.0, %15
   br i1 %matches, label %catch58, label %catch.fallthrough
 
 catch58:                                          ; preds = %catch.dispatch
-  %16 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %16 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception61 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %16, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -175177,11 +175177,11 @@ invoke.cont66:                                    ; preds = %invoke.cont64
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %18 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches7 = icmp eq i32 %ehselector.slot.1, %18
+  %matches7 = icmp eq i32 %ehselector.slot.0, %18
   br i1 %matches7, label %catch41, label %catch.fallthrough8
 
 catch41:                                          ; preds = %catch.fallthrough
-  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %19 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception44 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i23 = getelementptr inbounds i8, ptr %19, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp45, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i23)
@@ -175203,11 +175203,11 @@ invoke.cont49:                                    ; preds = %invoke.cont47
 
 catch.fallthrough8:                               ; preds = %catch.fallthrough
   %21 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches9 = icmp eq i32 %ehselector.slot.1, %21
+  %matches9 = icmp eq i32 %ehselector.slot.0, %21
   br i1 %matches9, label %catch24, label %catch.fallthrough10
 
 catch24:                                          ; preds = %catch.fallthrough8
-  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %22 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception27 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i26 = getelementptr inbounds i8, ptr %22, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i26)
@@ -175229,11 +175229,11 @@ invoke.cont32:                                    ; preds = %invoke.cont30
 
 catch.fallthrough10:                              ; preds = %catch.fallthrough8
   %24 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches11 = icmp eq i32 %ehselector.slot.1, %24
+  %matches11 = icmp eq i32 %ehselector.slot.0, %24
   br i1 %matches11, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough10
-  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %25 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %25, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -175447,14 +175447,14 @@ ehcleanup:                                        ; preds = %lpad6, %lpad4
 
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %7, %lpad ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %10 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #30
-  %matches = icmp eq i32 %ehselector.slot.1, %10
+  %matches = icmp eq i32 %ehselector.slot.0, %10
   br i1 %matches, label %catch59, label %catch.fallthrough
 
 catch59:                                          ; preds = %catch.dispatch
-  %11 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %11 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception62 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i = getelementptr inbounds i8, ptr %11, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -175476,11 +175476,11 @@ invoke.cont67:                                    ; preds = %invoke.cont65
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %13 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #30
-  %matches8 = icmp eq i32 %ehselector.slot.1, %13
+  %matches8 = icmp eq i32 %ehselector.slot.0, %13
   br i1 %matches8, label %catch42, label %catch.fallthrough9
 
 catch42:                                          ; preds = %catch.fallthrough
-  %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception45 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i12 = getelementptr inbounds i8, ptr %14, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp46, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i12)
@@ -175502,11 +175502,11 @@ invoke.cont50:                                    ; preds = %invoke.cont48
 
 catch.fallthrough9:                               ; preds = %catch.fallthrough
   %16 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #30
-  %matches10 = icmp eq i32 %ehselector.slot.1, %16
+  %matches10 = icmp eq i32 %ehselector.slot.0, %16
   br i1 %matches10, label %catch25, label %catch.fallthrough11
 
 catch25:                                          ; preds = %catch.fallthrough9
-  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %17 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception28 = call ptr @__cxa_allocate_exception(i64 40) #30
   %d_msg.i14 = getelementptr inbounds i8, ptr %17, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i14)
@@ -175528,11 +175528,11 @@ invoke.cont33:                                    ; preds = %invoke.cont31
 
 catch.fallthrough11:                              ; preds = %catch.fallthrough9
   %19 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #30
-  %matches12 = icmp eq i32 %ehselector.slot.1, %19
+  %matches12 = icmp eq i32 %ehselector.slot.0, %19
   br i1 %matches12, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough11
-  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #30
+  %20 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #30
   %exception = call ptr @__cxa_allocate_exception(i64 40) #30
   %vtable = load ptr, ptr %20, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16

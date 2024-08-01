@@ -103,13 +103,13 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %if.end, %if.then7.i
 for.cond.outer.outer:                             ; preds = %_ZNK6icu_7513UnicodeString9getBufferEv.exit, %if.end96
   %textLength.0.ph.ph = phi i32 [ 0, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ %textLength.1, %if.end96 ]
   %maxArg.0.ph.ph = phi i32 [ -1, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ %spec.select, %if.end96 ]
-  %i.0.ph.ph = phi i32 [ 0, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ %i.3, %if.end96 ]
+  %i.0.ph.ph = phi i32 [ 0, %_ZNK6icu_7513UnicodeString9getBufferEv.exit ], [ %i.2, %if.end96 ]
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %for.cond.outer.outer, %if.end109
   %textLength.0.ph = phi i32 [ %spec.store.select, %if.end109 ], [ %textLength.0.ph.ph, %for.cond.outer.outer ]
   %inQuote.0.ph = phi i8 [ %inQuote.1, %if.end109 ], [ 0, %for.cond.outer.outer ]
-  %i.0.ph = phi i32 [ %i.4, %if.end109 ], [ %i.0.ph.ph, %for.cond.outer.outer ]
+  %i.0.ph = phi i32 [ %i.1, %if.end109 ], [ %i.0.ph.ph, %for.cond.outer.outer ]
   %9 = sext i32 %i.0.ph to i64
   %smax = call i32 @llvm.smax.i32(i32 %cond.i, i32 %i.0.ph)
   %wide.trip.count = sext i32 %smax to i64
@@ -238,7 +238,7 @@ if.then71:                                        ; preds = %land.lhs.true62
 
 while.cond:                                       ; preds = %while.body, %if.then71
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %while.body ], [ %28, %if.then71 ]
-  %argNumber.0 = phi i32 [ %add85, %while.body ], [ %sub73, %if.then71 ]
+  %argNumber.2 = phi i32 [ %add85, %while.body ], [ %sub73, %if.then71 ]
   %cmp74 = icmp slt i64 %indvars.iv115, %8
   br i1 %cmp74, label %land.lhs.true75, label %if.then94
 
@@ -252,7 +252,7 @@ land.lhs.true75:                                  ; preds = %while.cond
 
 while.body:                                       ; preds = %land.lhs.true75
   %conv79 = zext nneg i16 %29 to i32
-  %mul = mul nuw nsw i32 %argNumber.0, 10
+  %mul = mul nuw nsw i32 %argNumber.2, 10
   %sub84 = add nsw i32 %mul, -48
   %add85 = add i32 %sub84, %conv79
   %cmp86 = icmp ugt i32 %add85, 255
@@ -268,10 +268,10 @@ if.then94:                                        ; preds = %if.else60, %land.lh
   br label %return
 
 if.end96:                                         ; preds = %if.end89, %if.then58
-  %i.3 = phi i32 [ %add59, %if.then58 ], [ %31, %if.end89 ]
-  %argNumber.2 = phi i32 [ %sub48, %if.then58 ], [ %argNumber.0, %if.end89 ]
-  %spec.select = call i32 @llvm.smax.i32(i32 %argNumber.2, i32 %maxArg.0.ph.ph)
-  %conv101 = trunc i32 %argNumber.2 to i16
+  %i.2 = phi i32 [ %add59, %if.then58 ], [ %31, %if.end89 ]
+  %argNumber.0 = phi i32 [ %sub48, %if.then58 ], [ %argNumber.2, %if.end89 ]
+  %spec.select = call i32 @llvm.smax.i32(i32 %argNumber.0, i32 %maxArg.0.ph.ph)
+  %conv101 = trunc i32 %argNumber.0 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i62)
   store i16 %conv101, ptr %srcChar.addr.i62, align 2
   %call.i = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %compiledPattern, ptr noundef nonnull %srcChar.addr.i62, i32 noundef 0, i32 noundef 1)
@@ -280,8 +280,8 @@ if.end96:                                         ; preds = %if.end89, %if.then5
 
 if.end104:                                        ; preds = %if.else16, %if.else27, %if.then12, %if.then21
   %inQuote.1 = phi i8 [ %inQuote.0, %if.then12 ], [ 1, %if.then21 ], [ %inQuote.0, %if.else27 ], [ 0, %if.else16 ]
-  %i.4 = phi i32 [ %inc13, %if.then12 ], [ %inc22, %if.then21 ], [ %16, %if.else27 ], [ %14, %if.else16 ]
-  %c.3 = phi i16 [ 39, %if.then12 ], [ %c.0, %if.then21 ], [ %11, %if.else27 ], [ 39, %if.else16 ]
+  %i.1 = phi i32 [ %inc13, %if.then12 ], [ %inc22, %if.then21 ], [ %16, %if.else27 ], [ %14, %if.else16 ]
+  %c.1 = phi i16 [ 39, %if.then12 ], [ %c.0, %if.then21 ], [ %11, %if.else27 ], [ 39, %if.else16 ]
   %cmp105 = icmp eq i32 %textLength.0.ph, 0
   br i1 %cmp105, label %if.then106, label %if.end109
 
@@ -294,7 +294,7 @@ if.then106:                                       ; preds = %if.end104
 
 if.end109:                                        ; preds = %if.then106, %if.end104
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i65)
-  store i16 %c.3, ptr %srcChar.addr.i65, align 2
+  store i16 %c.1, ptr %srcChar.addr.i65, align 2
   %call.i66 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %compiledPattern, ptr noundef nonnull %srcChar.addr.i65, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i65)
   %inc112 = add nsw i32 %textLength.0.ph, 1
@@ -1144,7 +1144,7 @@ for.body.lr.ph:                                   ; preds = %_ZN6icu_7515SimpleF
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end39
   %i.067 = phi i32 [ 1, %for.body.lr.ph ], [ %i.1, %if.end39 ]
-  %firstArg.066 = phi i32 [ -1, %for.body.lr.ph ], [ %firstArg.1, %if.end39 ]
+  %firstArg.166 = phi i32 [ -1, %for.body.lr.ph ], [ %firstArg.2, %if.end39 ]
   %inc = add nsw i32 %i.067, 1
   %idxprom = sext i32 %i.067 to i64
   %arrayidx = getelementptr inbounds i16, ptr %retval.0.i, i64 %idxprom
@@ -1197,13 +1197,13 @@ if.else38:                                        ; preds = %for.body
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then23, %if.then19, %if.else, %if.then32, %if.else38
-  %firstArg.1 = phi i32 [ %firstArg.066, %if.then32 ], [ %firstArg.066, %if.else ], [ %firstArg.066, %if.then19 ], [ %firstArg.066, %if.else38 ], [ %conv, %if.then23 ]
+  %firstArg.2 = phi i32 [ %firstArg.166, %if.then32 ], [ %firstArg.166, %if.else ], [ %firstArg.166, %if.then19 ], [ %firstArg.166, %if.else38 ], [ %conv, %if.then23 ]
   %i.1 = phi i32 [ %inc, %if.then32 ], [ %inc, %if.else ], [ %inc, %if.then19 ], [ %add, %if.else38 ], [ 2, %if.then23 ]
   %cmp17 = icmp slt i32 %i.1, %cond.i
   br i1 %cmp17, label %for.body, label %if.end40, !llvm.loop !9
 
 if.end40:                                         ; preds = %if.end39
-  %10 = icmp slt i32 %firstArg.1, 0
+  %10 = icmp slt i32 %firstArg.2, 0
   br i1 %10, label %if.then42, label %if.end45
 
 if.then42:                                        ; preds = %_ZN6icu_7515SimpleFormatter16getArgumentLimitEPKDsi.exit42.thread, %_ZN6icu_7515SimpleFormatter16getArgumentLimitEPKDsi.exit42, %if.end40

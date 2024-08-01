@@ -107,7 +107,7 @@ entry:
   br label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.end284, %entry
-  %pathDef.addr.0 = phi ptr [ %pathDef, %entry ], [ %pathDef.addr.4614, %if.end284 ]
+  %pathDef.addr.0 = phi ptr [ %pathDef, %entry ], [ %pathDef.addr.2614, %if.end284 ]
   %0 = phi <2 x double> [ zeroinitializer, %entry ], [ %312, %if.end284 ]
   br label %while.cond.i.i
 
@@ -140,11 +140,11 @@ _ZN7msdfgenL12readNodeTypeERcRPKc.exit:           ; preds = %land.lhs.true10.i
   br label %while.body
 
 while.body:                                       ; preds = %_ZN7msdfgenL12readNodeTypeERcRPKc.exit, %if.end284
-  %nodeType.2 = phi i8 [ %2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %nodeType.3656, %if.end284 ]
-  %pathDef.addr.3 = phi ptr [ %incdec.ptr.i, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %pathDef.addr.4614, %if.end284 ]
+  %nodeType.1 = phi i8 [ %2, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %nodeType.2656, %if.end284 ]
+  %pathDef.addr.1 = phi ptr [ %incdec.ptr.i, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %pathDef.addr.2614, %if.end284 ]
   %4 = phi <2 x double> [ %0, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit ], [ %312, %if.end284 ]
   %call1 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25) %shape)
-  %5 = load i8, ptr %pathDef.addr.3, align 1
+  %5 = load i8, ptr %pathDef.addr.1, align 1
   %tobool3.not907 = icmp eq i8 %5, 0
   %6 = extractelement <2 x double> %4, i64 0
   %7 = extractelement <2 x double> %4, i64 1
@@ -152,16 +152,16 @@ while.body:                                       ; preds = %_ZN7msdfgenL12readN
 
 while.body4:                                      ; preds = %while.body, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376
   %8 = phi i8 [ %307, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %5, %while.body ]
-  %prevNodeType.1919 = phi i8 [ %nodeType.4, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0, %while.body ]
+  %prevNodeType.1919 = phi i8 [ %nodeType.3, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ 0, %while.body ]
   %contourStart.0918 = phi i1 [ %and29, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ true, %while.body ]
-  %pathDef.addr.4917 = phi ptr [ %pathDef.addr.65, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %pathDef.addr.3, %while.body ]
-  %nodeType.3916 = phi i8 [ %nodeType.5, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %nodeType.2, %while.body ]
+  %pathDef.addr.2917 = phi ptr [ %pathDef.addr.65, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %pathDef.addr.1, %while.body ]
+  %nodeType.2916 = phi i8 [ %nodeType.5, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %nodeType.1, %while.body ]
   %9 = phi <2 x double> [ %299, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ %4, %while.body ]
   %10 = phi <2 x double> [ %300, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ zeroinitializer, %while.body ]
   %11 = phi <2 x double> [ %301, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ zeroinitializer, %while.body ]
   %12 = phi <2 x double> [ %299, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ zeroinitializer, %while.body ]
   %13 = phi <2 x double> [ %302, %_ZN7msdfgenL12readNodeTypeERcRPKc.exit376 ], [ zeroinitializer, %while.body ]
-  switch i8 %nodeType.3916, label %return [
+  switch i8 %nodeType.2916, label %return [
     i8 77, label %sw.bb
     i8 109, label %sw.bb
     i8 90, label %sw.bb13
@@ -193,7 +193,7 @@ if.end:                                           ; preds = %sw.bb
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %if.end
   %14 = phi i8 [ %8, %if.end ], [ %.pre1320, %while.body.i.i.i ]
-  %pathDef.addr.5 = phi ptr [ %pathDef.addr.4917, %if.end ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
+  %pathDef.addr.6 = phi ptr [ %pathDef.addr.2917, %if.end ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   switch i8 %14, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i [
     i8 44, label %while.body.i.i.i
     i8 32, label %while.body.i.i.i
@@ -203,15 +203,15 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
   ]
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %pathDef.addr.5, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %pathDef.addr.6, i64 1
   %.pre1320 = load i8, ptr %incdec.ptr.i.i.i, align 1
   br label %while.cond.i.i.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i:       ; preds = %while.cond.i.i.i
   store ptr null, ptr %end.i.i, align 8
-  %call.i.i = call double @strtod(ptr noundef nonnull %pathDef.addr.5, ptr noundef nonnull %end.i.i) #16
+  %call.i.i = call double @strtod(ptr noundef nonnull %pathDef.addr.6, ptr noundef nonnull %end.i.i) #16
   %15 = load ptr, ptr %end.i.i, align 8
-  %cmp.i.i = icmp ugt ptr %15, %pathDef.addr.5
+  %cmp.i.i = icmp ugt ptr %15, %pathDef.addr.6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
   br i1 %cmp.i.i, label %land.rhs.i, label %return
 
@@ -220,8 +220,8 @@ land.rhs.i:                                       ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i
 
 while.cond.i.i5.i:                                ; preds = %while.body.i.i6.i, %land.rhs.i
-  %pathDef.addr.6 = phi ptr [ %15, %land.rhs.i ], [ %incdec.ptr.i.i7.i, %while.body.i.i6.i ]
-  %16 = load i8, ptr %pathDef.addr.6, align 1
+  %pathDef.addr.7 = phi ptr [ %15, %land.rhs.i ], [ %incdec.ptr.i.i7.i, %while.body.i.i6.i ]
+  %16 = load i8, ptr %pathDef.addr.7, align 1
   switch i8 %16, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i [
     i8 44, label %while.body.i.i6.i
     i8 32, label %while.body.i.i6.i
@@ -231,26 +231,26 @@ while.cond.i.i5.i:                                ; preds = %while.body.i.i6.i, 
   ]
 
 while.body.i.i6.i:                                ; preds = %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i
-  %incdec.ptr.i.i7.i = getelementptr inbounds i8, ptr %pathDef.addr.6, i64 1
+  %incdec.ptr.i.i7.i = getelementptr inbounds i8, ptr %pathDef.addr.7, i64 1
   br label %while.cond.i.i5.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
   store ptr null, ptr %end.i3.i, align 8
-  %call.i9.i = call double @strtod(ptr noundef nonnull %pathDef.addr.6, ptr noundef nonnull %end.i3.i) #16
+  %call.i9.i = call double @strtod(ptr noundef nonnull %pathDef.addr.7, ptr noundef nonnull %end.i3.i) #16
   %17 = load ptr, ptr %end.i3.i, align 8
-  %cmp.i10.i = icmp ugt ptr %17, %pathDef.addr.6
+  %cmp.i10.i = icmp ugt ptr %17, %pathDef.addr.7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i)
   br i1 %cmp.i10.i, label %if.end8, label %return
 
 if.end8:                                          ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i
-  %cmp = icmp eq i8 %nodeType.3916, 109
+  %cmp = icmp eq i8 %nodeType.2916, 109
   %18 = insertelement <2 x double> poison, double %call.i.i, i64 0
   %19 = insertelement <2 x double> %18, double %call.i9.i, i64 1
   %20 = fadd <2 x double> %9, %19
   %21 = insertelement <2 x i1> poison, i1 %cmp, i64 0
   %22 = shufflevector <2 x i1> %21, <2 x i1> poison, <2 x i32> zeroinitializer
   %23 = select <2 x i1> %22, <2 x double> %20, <2 x double> %19
-  %dec = add i8 %nodeType.3916, -1
+  %dec = add i8 %nodeType.2916, -1
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %while.body4, %while.body4
@@ -264,7 +264,7 @@ sw.bb17:                                          ; preds = %while.body4, %while
 
 while.cond.i.i.i37:                               ; preds = %while.body.i.i.i38, %sw.bb17
   %26 = phi i8 [ %8, %sw.bb17 ], [ %.pre1319, %while.body.i.i.i38 ]
-  %pathDef.addr.9 = phi ptr [ %pathDef.addr.4917, %sw.bb17 ], [ %incdec.ptr.i.i.i39, %while.body.i.i.i38 ]
+  %pathDef.addr.10 = phi ptr [ %pathDef.addr.2917, %sw.bb17 ], [ %incdec.ptr.i.i.i39, %while.body.i.i.i38 ]
   switch i8 %26, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40 [
     i8 44, label %while.body.i.i.i38
     i8 32, label %while.body.i.i.i38
@@ -274,15 +274,15 @@ while.cond.i.i.i37:                               ; preds = %while.body.i.i.i38,
   ]
 
 while.body.i.i.i38:                               ; preds = %while.cond.i.i.i37, %while.cond.i.i.i37, %while.cond.i.i.i37, %while.cond.i.i.i37, %while.cond.i.i.i37
-  %incdec.ptr.i.i.i39 = getelementptr inbounds i8, ptr %pathDef.addr.9, i64 1
+  %incdec.ptr.i.i.i39 = getelementptr inbounds i8, ptr %pathDef.addr.10, i64 1
   %.pre1319 = load i8, ptr %incdec.ptr.i.i.i39, align 1
   br label %while.cond.i.i.i37, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i40:     ; preds = %while.cond.i.i.i37
   store ptr null, ptr %end.i.i35, align 8
-  %call.i.i41 = call double @strtod(ptr noundef nonnull %pathDef.addr.9, ptr noundef nonnull %end.i.i35) #16
+  %call.i.i41 = call double @strtod(ptr noundef nonnull %pathDef.addr.10, ptr noundef nonnull %end.i.i35) #16
   %27 = load ptr, ptr %end.i.i35, align 8
-  %cmp.i.i42 = icmp ugt ptr %27, %pathDef.addr.9
+  %cmp.i.i42 = icmp ugt ptr %27, %pathDef.addr.10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i35)
   br i1 %cmp.i.i42, label %land.rhs.i44, label %return
 
@@ -291,8 +291,8 @@ land.rhs.i44:                                     ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i45
 
 while.cond.i.i5.i45:                              ; preds = %while.body.i.i6.i46, %land.rhs.i44
-  %pathDef.addr.10 = phi ptr [ %27, %land.rhs.i44 ], [ %incdec.ptr.i.i7.i47, %while.body.i.i6.i46 ]
-  %28 = load i8, ptr %pathDef.addr.10, align 1
+  %pathDef.addr.11 = phi ptr [ %27, %land.rhs.i44 ], [ %incdec.ptr.i.i7.i47, %while.body.i.i6.i46 ]
+  %28 = load i8, ptr %pathDef.addr.11, align 1
   switch i8 %28, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48 [
     i8 44, label %while.body.i.i6.i46
     i8 32, label %while.body.i.i6.i46
@@ -302,19 +302,19 @@ while.cond.i.i5.i45:                              ; preds = %while.body.i.i6.i46
   ]
 
 while.body.i.i6.i46:                              ; preds = %while.cond.i.i5.i45, %while.cond.i.i5.i45, %while.cond.i.i5.i45, %while.cond.i.i5.i45, %while.cond.i.i5.i45
-  %incdec.ptr.i.i7.i47 = getelementptr inbounds i8, ptr %pathDef.addr.10, i64 1
+  %incdec.ptr.i.i7.i47 = getelementptr inbounds i8, ptr %pathDef.addr.11, i64 1
   br label %while.cond.i.i5.i45, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48:    ; preds = %while.cond.i.i5.i45
   store ptr null, ptr %end.i3.i34, align 8
-  %call.i9.i50 = call double @strtod(ptr noundef nonnull %pathDef.addr.10, ptr noundef nonnull %end.i3.i34) #16
+  %call.i9.i50 = call double @strtod(ptr noundef nonnull %pathDef.addr.11, ptr noundef nonnull %end.i3.i34) #16
   %29 = load ptr, ptr %end.i3.i34, align 8
-  %cmp.i10.i51 = icmp ugt ptr %29, %pathDef.addr.10
+  %cmp.i10.i51 = icmp ugt ptr %29, %pathDef.addr.11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i34)
   br i1 %cmp.i10.i51, label %if.end20, label %return
 
 if.end20:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i48
-  %cmp22 = icmp eq i8 %nodeType.3916, 108
+  %cmp22 = icmp eq i8 %nodeType.2916, 108
   %30 = insertelement <2 x double> poison, double %call.i.i41, i64 0
   %31 = insertelement <2 x double> %30, double %call.i9.i50, i64 1
   %32 = fadd <2 x double> %9, %31
@@ -345,7 +345,7 @@ sw.bb29:                                          ; preds = %while.body4, %while
 
 while.cond.i.i59:                                 ; preds = %while.body.i.i60, %sw.bb29
   %41 = phi i8 [ %8, %sw.bb29 ], [ %.pre1318, %while.body.i.i60 ]
-  %pathDef.addr.13 = phi ptr [ %pathDef.addr.4917, %sw.bb29 ], [ %incdec.ptr.i.i61, %while.body.i.i60 ]
+  %pathDef.addr.14 = phi ptr [ %pathDef.addr.2917, %sw.bb29 ], [ %incdec.ptr.i.i61, %while.body.i.i60 ]
   switch i8 %41, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i62 [
     i8 44, label %while.body.i.i60
     i8 32, label %while.body.i.i60
@@ -355,33 +355,33 @@ while.cond.i.i59:                                 ; preds = %while.body.i.i60, %
   ]
 
 while.body.i.i60:                                 ; preds = %while.cond.i.i59, %while.cond.i.i59, %while.cond.i.i59, %while.cond.i.i59, %while.cond.i.i59
-  %incdec.ptr.i.i61 = getelementptr inbounds i8, ptr %pathDef.addr.13, i64 1
+  %incdec.ptr.i.i61 = getelementptr inbounds i8, ptr %pathDef.addr.14, i64 1
   %.pre1318 = load i8, ptr %incdec.ptr.i.i61, align 1
   br label %while.cond.i.i59, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i62:       ; preds = %while.cond.i.i59
   store ptr null, ptr %end.i, align 8
-  %call.i63 = call double @strtod(ptr noundef nonnull %pathDef.addr.13, ptr noundef nonnull %end.i) #16
+  %call.i63 = call double @strtod(ptr noundef nonnull %pathDef.addr.14, ptr noundef nonnull %end.i) #16
   %42 = load ptr, ptr %end.i, align 8
-  %cmp.i = icmp ugt ptr %42, %pathDef.addr.13
+  %cmp.i = icmp ugt ptr %42, %pathDef.addr.14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i)
   br i1 %cmp.i, label %if.end32, label %return
 
 if.end32:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i62
-  %cmp34 = icmp eq i8 %nodeType.3916, 104
+  %cmp34 = icmp eq i8 %nodeType.2916, 104
   %43 = extractelement <2 x double> %9, i64 0
   %add = fadd double %43, %call.i63
-  %node.sroa.0.3 = select i1 %cmp34, double %add, double %call.i63
+  %node.sroa.0.4 = select i1 %cmp34, double %add, double %call.i63
   %44 = extractelement <2 x double> %9, i64 1
   %45 = extractelement <2 x double> %12, i64 1
-  %call.i65 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %43, double %44, double %node.sroa.0.3, double %45, i32 noundef 7)
+  %call.i65 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %43, double %44, double %node.sroa.0.4, double %45, i32 noundef 7)
   store ptr %call.i65, ptr %ref.tmp39, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp39)
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %if.end32
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp39) #16
-  %46 = insertelement <2 x double> %12, double %node.sroa.0.3, i64 0
+  %46 = insertelement <2 x double> %12, double %node.sroa.0.4, i64 0
   br label %sw.epilog
 
 lpad42:                                           ; preds = %if.end32
@@ -395,7 +395,7 @@ sw.bb44:                                          ; preds = %while.body4, %while
 
 while.cond.i.i68:                                 ; preds = %while.body.i.i69, %sw.bb44
   %48 = phi i8 [ %8, %sw.bb44 ], [ %.pre1317, %while.body.i.i69 ]
-  %pathDef.addr.15 = phi ptr [ %pathDef.addr.4917, %sw.bb44 ], [ %incdec.ptr.i.i70, %while.body.i.i69 ]
+  %pathDef.addr.16 = phi ptr [ %pathDef.addr.2917, %sw.bb44 ], [ %incdec.ptr.i.i70, %while.body.i.i69 ]
   switch i8 %48, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i71 [
     i8 44, label %while.body.i.i69
     i8 32, label %while.body.i.i69
@@ -405,33 +405,33 @@ while.cond.i.i68:                                 ; preds = %while.body.i.i69, %
   ]
 
 while.body.i.i69:                                 ; preds = %while.cond.i.i68, %while.cond.i.i68, %while.cond.i.i68, %while.cond.i.i68, %while.cond.i.i68
-  %incdec.ptr.i.i70 = getelementptr inbounds i8, ptr %pathDef.addr.15, i64 1
+  %incdec.ptr.i.i70 = getelementptr inbounds i8, ptr %pathDef.addr.16, i64 1
   %.pre1317 = load i8, ptr %incdec.ptr.i.i70, align 1
   br label %while.cond.i.i68, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i71:       ; preds = %while.cond.i.i68
   store ptr null, ptr %end.i66, align 8
-  %call.i72 = call double @strtod(ptr noundef nonnull %pathDef.addr.15, ptr noundef nonnull %end.i66) #16
+  %call.i72 = call double @strtod(ptr noundef nonnull %pathDef.addr.16, ptr noundef nonnull %end.i66) #16
   %49 = load ptr, ptr %end.i66, align 8
-  %cmp.i73 = icmp ugt ptr %49, %pathDef.addr.15
+  %cmp.i73 = icmp ugt ptr %49, %pathDef.addr.16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i66)
   br i1 %cmp.i73, label %if.end47, label %return
 
 if.end47:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i71
-  %cmp49 = icmp eq i8 %nodeType.3916, 118
+  %cmp49 = icmp eq i8 %nodeType.2916, 118
   %50 = extractelement <2 x double> %9, i64 1
   %add53 = fadd double %50, %call.i72
-  %node.sroa.39.5 = select i1 %cmp49, double %add53, double %call.i72
+  %node.sroa.39.4 = select i1 %cmp49, double %add53, double %call.i72
   %51 = extractelement <2 x double> %9, i64 0
   %52 = extractelement <2 x double> %12, i64 0
-  %call.i76 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %51, double %50, double %52, double %node.sroa.39.5, i32 noundef 7)
+  %call.i76 = call noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double %51, double %50, double %52, double %node.sroa.39.4, i32 noundef 7)
   store ptr %call.i76, ptr %ref.tmp55, align 8
   invoke void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24) %call1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp55)
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %if.end47
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp55) #16
-  %53 = insertelement <2 x double> %12, double %node.sroa.39.5, i64 1
+  %53 = insertelement <2 x double> %12, double %node.sroa.39.4, i64 1
   br label %sw.epilog
 
 lpad58:                                           ; preds = %if.end47
@@ -445,7 +445,7 @@ sw.bb60:                                          ; preds = %while.body4, %while
 
 while.cond.i.i.i80:                               ; preds = %while.body.i.i.i81, %sw.bb60
   %55 = phi i8 [ %8, %sw.bb60 ], [ %.pre1316, %while.body.i.i.i81 ]
-  %pathDef.addr.17 = phi ptr [ %pathDef.addr.4917, %sw.bb60 ], [ %incdec.ptr.i.i.i82, %while.body.i.i.i81 ]
+  %pathDef.addr.18 = phi ptr [ %pathDef.addr.2917, %sw.bb60 ], [ %incdec.ptr.i.i.i82, %while.body.i.i.i81 ]
   switch i8 %55, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83 [
     i8 44, label %while.body.i.i.i81
     i8 32, label %while.body.i.i.i81
@@ -455,15 +455,15 @@ while.cond.i.i.i80:                               ; preds = %while.body.i.i.i81,
   ]
 
 while.body.i.i.i81:                               ; preds = %while.cond.i.i.i80, %while.cond.i.i.i80, %while.cond.i.i.i80, %while.cond.i.i.i80, %while.cond.i.i.i80
-  %incdec.ptr.i.i.i82 = getelementptr inbounds i8, ptr %pathDef.addr.17, i64 1
+  %incdec.ptr.i.i.i82 = getelementptr inbounds i8, ptr %pathDef.addr.18, i64 1
   %.pre1316 = load i8, ptr %incdec.ptr.i.i.i82, align 1
   br label %while.cond.i.i.i80, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i83:     ; preds = %while.cond.i.i.i80
   store ptr null, ptr %end.i.i78, align 8
-  %call.i.i84 = call double @strtod(ptr noundef nonnull %pathDef.addr.17, ptr noundef nonnull %end.i.i78) #16
+  %call.i.i84 = call double @strtod(ptr noundef nonnull %pathDef.addr.18, ptr noundef nonnull %end.i.i78) #16
   %56 = load ptr, ptr %end.i.i78, align 8
-  %cmp.i.i85 = icmp ugt ptr %56, %pathDef.addr.17
+  %cmp.i.i85 = icmp ugt ptr %56, %pathDef.addr.18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i78)
   br i1 %cmp.i.i85, label %land.rhs.i87, label %return
 
@@ -472,8 +472,8 @@ land.rhs.i87:                                     ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i88
 
 while.cond.i.i5.i88:                              ; preds = %while.body.i.i6.i89, %land.rhs.i87
-  %pathDef.addr.18 = phi ptr [ %56, %land.rhs.i87 ], [ %incdec.ptr.i.i7.i90, %while.body.i.i6.i89 ]
-  %57 = load i8, ptr %pathDef.addr.18, align 1
+  %pathDef.addr.19 = phi ptr [ %56, %land.rhs.i87 ], [ %incdec.ptr.i.i7.i90, %while.body.i.i6.i89 ]
+  %57 = load i8, ptr %pathDef.addr.19, align 1
   switch i8 %57, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i91 [
     i8 44, label %while.body.i.i6.i89
     i8 32, label %while.body.i.i6.i89
@@ -483,14 +483,14 @@ while.cond.i.i5.i88:                              ; preds = %while.body.i.i6.i89
   ]
 
 while.body.i.i6.i89:                              ; preds = %while.cond.i.i5.i88, %while.cond.i.i5.i88, %while.cond.i.i5.i88, %while.cond.i.i5.i88, %while.cond.i.i5.i88
-  %incdec.ptr.i.i7.i90 = getelementptr inbounds i8, ptr %pathDef.addr.18, i64 1
+  %incdec.ptr.i.i7.i90 = getelementptr inbounds i8, ptr %pathDef.addr.19, i64 1
   br label %while.cond.i.i5.i88, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i91:    ; preds = %while.cond.i.i5.i88
   store ptr null, ptr %end.i3.i77, align 8
-  %call.i9.i93 = call double @strtod(ptr noundef nonnull %pathDef.addr.18, ptr noundef nonnull %end.i3.i77) #16
+  %call.i9.i93 = call double @strtod(ptr noundef nonnull %pathDef.addr.19, ptr noundef nonnull %end.i3.i77) #16
   %58 = load ptr, ptr %end.i3.i77, align 8
-  %cmp.i10.i94 = icmp ugt ptr %58, %pathDef.addr.18
+  %cmp.i10.i94 = icmp ugt ptr %58, %pathDef.addr.19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i77)
   br i1 %cmp.i10.i94, label %if.end63, label %return
 
@@ -499,8 +499,8 @@ if.end63:                                         ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i.i101
 
 while.cond.i.i.i101:                              ; preds = %while.body.i.i.i102, %if.end63
-  %pathDef.addr.21 = phi ptr [ %58, %if.end63 ], [ %incdec.ptr.i.i.i103, %while.body.i.i.i102 ]
-  %59 = load i8, ptr %pathDef.addr.21, align 1
+  %pathDef.addr.22 = phi ptr [ %58, %if.end63 ], [ %incdec.ptr.i.i.i103, %while.body.i.i.i102 ]
+  %59 = load i8, ptr %pathDef.addr.22, align 1
   switch i8 %59, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i104 [
     i8 44, label %while.body.i.i.i102
     i8 32, label %while.body.i.i.i102
@@ -510,14 +510,14 @@ while.cond.i.i.i101:                              ; preds = %while.body.i.i.i102
   ]
 
 while.body.i.i.i102:                              ; preds = %while.cond.i.i.i101, %while.cond.i.i.i101, %while.cond.i.i.i101, %while.cond.i.i.i101, %while.cond.i.i.i101
-  %incdec.ptr.i.i.i103 = getelementptr inbounds i8, ptr %pathDef.addr.21, i64 1
+  %incdec.ptr.i.i.i103 = getelementptr inbounds i8, ptr %pathDef.addr.22, i64 1
   br label %while.cond.i.i.i101, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i104:    ; preds = %while.cond.i.i.i101
   store ptr null, ptr %end.i.i99, align 8
-  %call.i.i105 = call double @strtod(ptr noundef nonnull %pathDef.addr.21, ptr noundef nonnull %end.i.i99) #16
+  %call.i.i105 = call double @strtod(ptr noundef nonnull %pathDef.addr.22, ptr noundef nonnull %end.i.i99) #16
   %60 = load ptr, ptr %end.i.i99, align 8
-  %cmp.i.i106 = icmp ugt ptr %60, %pathDef.addr.21
+  %cmp.i.i106 = icmp ugt ptr %60, %pathDef.addr.22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i99)
   br i1 %cmp.i.i106, label %land.rhs.i108, label %return
 
@@ -526,8 +526,8 @@ land.rhs.i108:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i109
 
 while.cond.i.i5.i109:                             ; preds = %while.body.i.i6.i110, %land.rhs.i108
-  %pathDef.addr.22 = phi ptr [ %60, %land.rhs.i108 ], [ %incdec.ptr.i.i7.i111, %while.body.i.i6.i110 ]
-  %61 = load i8, ptr %pathDef.addr.22, align 1
+  %pathDef.addr.23 = phi ptr [ %60, %land.rhs.i108 ], [ %incdec.ptr.i.i7.i111, %while.body.i.i6.i110 ]
+  %61 = load i8, ptr %pathDef.addr.23, align 1
   switch i8 %61, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112 [
     i8 44, label %while.body.i.i6.i110
     i8 32, label %while.body.i.i6.i110
@@ -537,19 +537,19 @@ while.cond.i.i5.i109:                             ; preds = %while.body.i.i6.i11
   ]
 
 while.body.i.i6.i110:                             ; preds = %while.cond.i.i5.i109, %while.cond.i.i5.i109, %while.cond.i.i5.i109, %while.cond.i.i5.i109, %while.cond.i.i5.i109
-  %incdec.ptr.i.i7.i111 = getelementptr inbounds i8, ptr %pathDef.addr.22, i64 1
+  %incdec.ptr.i.i7.i111 = getelementptr inbounds i8, ptr %pathDef.addr.23, i64 1
   br label %while.cond.i.i5.i109, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112:   ; preds = %while.cond.i.i5.i109
   store ptr null, ptr %end.i3.i98, align 8
-  %call.i9.i114 = call double @strtod(ptr noundef nonnull %pathDef.addr.22, ptr noundef nonnull %end.i3.i98) #16
+  %call.i9.i114 = call double @strtod(ptr noundef nonnull %pathDef.addr.23, ptr noundef nonnull %end.i3.i98) #16
   %62 = load ptr, ptr %end.i3.i98, align 8
-  %cmp.i10.i115 = icmp ugt ptr %62, %pathDef.addr.22
+  %cmp.i10.i115 = icmp ugt ptr %62, %pathDef.addr.23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i98)
   br i1 %cmp.i10.i115, label %if.end66, label %return
 
 if.end66:                                         ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i112
-  %cmp68 = icmp eq i8 %nodeType.3916, 113
+  %cmp68 = icmp eq i8 %nodeType.2916, 113
   %63 = insertelement <2 x double> poison, double %call.i.i105, i64 0
   %64 = insertelement <2 x double> %63, double %call.i9.i114, i64 1
   %65 = insertelement <2 x double> poison, double %call.i.i84, i64 0
@@ -598,7 +598,7 @@ if.end105:                                        ; preds = %sw.bb83, %if.then94
 
 while.cond.i.i.i132:                              ; preds = %while.body.i.i.i133, %if.end105
   %81 = phi i8 [ %8, %if.end105 ], [ %.pre1315, %while.body.i.i.i133 ]
-  %pathDef.addr.25 = phi ptr [ %pathDef.addr.4917, %if.end105 ], [ %incdec.ptr.i.i.i134, %while.body.i.i.i133 ]
+  %pathDef.addr.26 = phi ptr [ %pathDef.addr.2917, %if.end105 ], [ %incdec.ptr.i.i.i134, %while.body.i.i.i133 ]
   switch i8 %81, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135 [
     i8 44, label %while.body.i.i.i133
     i8 32, label %while.body.i.i.i133
@@ -608,15 +608,15 @@ while.cond.i.i.i132:                              ; preds = %while.body.i.i.i133
   ]
 
 while.body.i.i.i133:                              ; preds = %while.cond.i.i.i132, %while.cond.i.i.i132, %while.cond.i.i.i132, %while.cond.i.i.i132, %while.cond.i.i.i132
-  %incdec.ptr.i.i.i134 = getelementptr inbounds i8, ptr %pathDef.addr.25, i64 1
+  %incdec.ptr.i.i.i134 = getelementptr inbounds i8, ptr %pathDef.addr.26, i64 1
   %.pre1315 = load i8, ptr %incdec.ptr.i.i.i134, align 1
   br label %while.cond.i.i.i132, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i135:    ; preds = %while.cond.i.i.i132
   store ptr null, ptr %end.i.i130, align 8
-  %call.i.i136 = call double @strtod(ptr noundef nonnull %pathDef.addr.25, ptr noundef nonnull %end.i.i130) #16
+  %call.i.i136 = call double @strtod(ptr noundef nonnull %pathDef.addr.26, ptr noundef nonnull %end.i.i130) #16
   %82 = load ptr, ptr %end.i.i130, align 8
-  %cmp.i.i137 = icmp ugt ptr %82, %pathDef.addr.25
+  %cmp.i.i137 = icmp ugt ptr %82, %pathDef.addr.26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i130)
   br i1 %cmp.i.i137, label %land.rhs.i139, label %return
 
@@ -625,8 +625,8 @@ land.rhs.i139:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i140
 
 while.cond.i.i5.i140:                             ; preds = %while.body.i.i6.i141, %land.rhs.i139
-  %pathDef.addr.26 = phi ptr [ %82, %land.rhs.i139 ], [ %incdec.ptr.i.i7.i142, %while.body.i.i6.i141 ]
-  %83 = load i8, ptr %pathDef.addr.26, align 1
+  %pathDef.addr.27 = phi ptr [ %82, %land.rhs.i139 ], [ %incdec.ptr.i.i7.i142, %while.body.i.i6.i141 ]
+  %83 = load i8, ptr %pathDef.addr.27, align 1
   switch i8 %83, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143 [
     i8 44, label %while.body.i.i6.i141
     i8 32, label %while.body.i.i6.i141
@@ -636,19 +636,19 @@ while.cond.i.i5.i140:                             ; preds = %while.body.i.i6.i14
   ]
 
 while.body.i.i6.i141:                             ; preds = %while.cond.i.i5.i140, %while.cond.i.i5.i140, %while.cond.i.i5.i140, %while.cond.i.i5.i140, %while.cond.i.i5.i140
-  %incdec.ptr.i.i7.i142 = getelementptr inbounds i8, ptr %pathDef.addr.26, i64 1
+  %incdec.ptr.i.i7.i142 = getelementptr inbounds i8, ptr %pathDef.addr.27, i64 1
   br label %while.cond.i.i5.i140, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143:   ; preds = %while.cond.i.i5.i140
   store ptr null, ptr %end.i3.i129, align 8
-  %call.i9.i145 = call double @strtod(ptr noundef nonnull %pathDef.addr.26, ptr noundef nonnull %end.i3.i129) #16
+  %call.i9.i145 = call double @strtod(ptr noundef nonnull %pathDef.addr.27, ptr noundef nonnull %end.i3.i129) #16
   %84 = load ptr, ptr %end.i3.i129, align 8
-  %cmp.i10.i146 = icmp ugt ptr %84, %pathDef.addr.26
+  %cmp.i10.i146 = icmp ugt ptr %84, %pathDef.addr.27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i129)
   br i1 %cmp.i10.i146, label %if.end108, label %return
 
 if.end108:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i143
-  %cmp110 = icmp eq i8 %nodeType.3916, 116
+  %cmp110 = icmp eq i8 %nodeType.2916, 116
   %85 = insertelement <2 x double> poison, double %call.i.i136, i64 0
   %86 = insertelement <2 x double> %85, double %call.i9.i145, i64 1
   %87 = fadd <2 x double> %9, %86
@@ -681,7 +681,7 @@ sw.bb122:                                         ; preds = %while.body4, %while
 
 while.cond.i.i.i157:                              ; preds = %while.body.i.i.i158, %sw.bb122
   %98 = phi i8 [ %8, %sw.bb122 ], [ %.pre1314, %while.body.i.i.i158 ]
-  %pathDef.addr.29 = phi ptr [ %pathDef.addr.4917, %sw.bb122 ], [ %incdec.ptr.i.i.i159, %while.body.i.i.i158 ]
+  %pathDef.addr.30 = phi ptr [ %pathDef.addr.2917, %sw.bb122 ], [ %incdec.ptr.i.i.i159, %while.body.i.i.i158 ]
   switch i8 %98, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160 [
     i8 44, label %while.body.i.i.i158
     i8 32, label %while.body.i.i.i158
@@ -691,15 +691,15 @@ while.cond.i.i.i157:                              ; preds = %while.body.i.i.i158
   ]
 
 while.body.i.i.i158:                              ; preds = %while.cond.i.i.i157, %while.cond.i.i.i157, %while.cond.i.i.i157, %while.cond.i.i.i157, %while.cond.i.i.i157
-  %incdec.ptr.i.i.i159 = getelementptr inbounds i8, ptr %pathDef.addr.29, i64 1
+  %incdec.ptr.i.i.i159 = getelementptr inbounds i8, ptr %pathDef.addr.30, i64 1
   %.pre1314 = load i8, ptr %incdec.ptr.i.i.i159, align 1
   br label %while.cond.i.i.i157, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i160:    ; preds = %while.cond.i.i.i157
   store ptr null, ptr %end.i.i155, align 8
-  %call.i.i161 = call double @strtod(ptr noundef nonnull %pathDef.addr.29, ptr noundef nonnull %end.i.i155) #16
+  %call.i.i161 = call double @strtod(ptr noundef nonnull %pathDef.addr.30, ptr noundef nonnull %end.i.i155) #16
   %99 = load ptr, ptr %end.i.i155, align 8
-  %cmp.i.i162 = icmp ugt ptr %99, %pathDef.addr.29
+  %cmp.i.i162 = icmp ugt ptr %99, %pathDef.addr.30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i155)
   br i1 %cmp.i.i162, label %land.rhs.i164, label %return
 
@@ -708,8 +708,8 @@ land.rhs.i164:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i165
 
 while.cond.i.i5.i165:                             ; preds = %while.body.i.i6.i166, %land.rhs.i164
-  %pathDef.addr.30 = phi ptr [ %99, %land.rhs.i164 ], [ %incdec.ptr.i.i7.i167, %while.body.i.i6.i166 ]
-  %100 = load i8, ptr %pathDef.addr.30, align 1
+  %pathDef.addr.31 = phi ptr [ %99, %land.rhs.i164 ], [ %incdec.ptr.i.i7.i167, %while.body.i.i6.i166 ]
+  %100 = load i8, ptr %pathDef.addr.31, align 1
   switch i8 %100, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i168 [
     i8 44, label %while.body.i.i6.i166
     i8 32, label %while.body.i.i6.i166
@@ -719,14 +719,14 @@ while.cond.i.i5.i165:                             ; preds = %while.body.i.i6.i16
   ]
 
 while.body.i.i6.i166:                             ; preds = %while.cond.i.i5.i165, %while.cond.i.i5.i165, %while.cond.i.i5.i165, %while.cond.i.i5.i165, %while.cond.i.i5.i165
-  %incdec.ptr.i.i7.i167 = getelementptr inbounds i8, ptr %pathDef.addr.30, i64 1
+  %incdec.ptr.i.i7.i167 = getelementptr inbounds i8, ptr %pathDef.addr.31, i64 1
   br label %while.cond.i.i5.i165, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i168:   ; preds = %while.cond.i.i5.i165
   store ptr null, ptr %end.i3.i154, align 8
-  %call.i9.i170 = call double @strtod(ptr noundef nonnull %pathDef.addr.30, ptr noundef nonnull %end.i3.i154) #16
+  %call.i9.i170 = call double @strtod(ptr noundef nonnull %pathDef.addr.31, ptr noundef nonnull %end.i3.i154) #16
   %101 = load ptr, ptr %end.i3.i154, align 8
-  %cmp.i10.i171 = icmp ugt ptr %101, %pathDef.addr.30
+  %cmp.i10.i171 = icmp ugt ptr %101, %pathDef.addr.31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i154)
   br i1 %cmp.i10.i171, label %if.end126, label %return
 
@@ -735,8 +735,8 @@ if.end126:                                        ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i.i178
 
 while.cond.i.i.i178:                              ; preds = %while.body.i.i.i179, %if.end126
-  %pathDef.addr.33 = phi ptr [ %101, %if.end126 ], [ %incdec.ptr.i.i.i180, %while.body.i.i.i179 ]
-  %102 = load i8, ptr %pathDef.addr.33, align 1
+  %pathDef.addr.34 = phi ptr [ %101, %if.end126 ], [ %incdec.ptr.i.i.i180, %while.body.i.i.i179 ]
+  %102 = load i8, ptr %pathDef.addr.34, align 1
   switch i8 %102, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i181 [
     i8 44, label %while.body.i.i.i179
     i8 32, label %while.body.i.i.i179
@@ -746,14 +746,14 @@ while.cond.i.i.i178:                              ; preds = %while.body.i.i.i179
   ]
 
 while.body.i.i.i179:                              ; preds = %while.cond.i.i.i178, %while.cond.i.i.i178, %while.cond.i.i.i178, %while.cond.i.i.i178, %while.cond.i.i.i178
-  %incdec.ptr.i.i.i180 = getelementptr inbounds i8, ptr %pathDef.addr.33, i64 1
+  %incdec.ptr.i.i.i180 = getelementptr inbounds i8, ptr %pathDef.addr.34, i64 1
   br label %while.cond.i.i.i178, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i181:    ; preds = %while.cond.i.i.i178
   store ptr null, ptr %end.i.i176, align 8
-  %call.i.i182 = call double @strtod(ptr noundef nonnull %pathDef.addr.33, ptr noundef nonnull %end.i.i176) #16
+  %call.i.i182 = call double @strtod(ptr noundef nonnull %pathDef.addr.34, ptr noundef nonnull %end.i.i176) #16
   %103 = load ptr, ptr %end.i.i176, align 8
-  %cmp.i.i183 = icmp ugt ptr %103, %pathDef.addr.33
+  %cmp.i.i183 = icmp ugt ptr %103, %pathDef.addr.34
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i176)
   br i1 %cmp.i.i183, label %land.rhs.i185, label %return
 
@@ -762,8 +762,8 @@ land.rhs.i185:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i186
 
 while.cond.i.i5.i186:                             ; preds = %while.body.i.i6.i187, %land.rhs.i185
-  %pathDef.addr.34 = phi ptr [ %103, %land.rhs.i185 ], [ %incdec.ptr.i.i7.i188, %while.body.i.i6.i187 ]
-  %104 = load i8, ptr %pathDef.addr.34, align 1
+  %pathDef.addr.35 = phi ptr [ %103, %land.rhs.i185 ], [ %incdec.ptr.i.i7.i188, %while.body.i.i6.i187 ]
+  %104 = load i8, ptr %pathDef.addr.35, align 1
   switch i8 %104, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i189 [
     i8 44, label %while.body.i.i6.i187
     i8 32, label %while.body.i.i6.i187
@@ -773,14 +773,14 @@ while.cond.i.i5.i186:                             ; preds = %while.body.i.i6.i18
   ]
 
 while.body.i.i6.i187:                             ; preds = %while.cond.i.i5.i186, %while.cond.i.i5.i186, %while.cond.i.i5.i186, %while.cond.i.i5.i186, %while.cond.i.i5.i186
-  %incdec.ptr.i.i7.i188 = getelementptr inbounds i8, ptr %pathDef.addr.34, i64 1
+  %incdec.ptr.i.i7.i188 = getelementptr inbounds i8, ptr %pathDef.addr.35, i64 1
   br label %while.cond.i.i5.i186, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i189:   ; preds = %while.cond.i.i5.i186
   store ptr null, ptr %end.i3.i175, align 8
-  %call.i9.i191 = call double @strtod(ptr noundef nonnull %pathDef.addr.34, ptr noundef nonnull %end.i3.i175) #16
+  %call.i9.i191 = call double @strtod(ptr noundef nonnull %pathDef.addr.35, ptr noundef nonnull %end.i3.i175) #16
   %105 = load ptr, ptr %end.i3.i175, align 8
-  %cmp.i10.i192 = icmp ugt ptr %105, %pathDef.addr.34
+  %cmp.i10.i192 = icmp ugt ptr %105, %pathDef.addr.35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i175)
   br i1 %cmp.i10.i192, label %if.end130, label %return
 
@@ -789,8 +789,8 @@ if.end130:                                        ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i.i199
 
 while.cond.i.i.i199:                              ; preds = %while.body.i.i.i200, %if.end130
-  %pathDef.addr.37 = phi ptr [ %105, %if.end130 ], [ %incdec.ptr.i.i.i201, %while.body.i.i.i200 ]
-  %106 = load i8, ptr %pathDef.addr.37, align 1
+  %pathDef.addr.38 = phi ptr [ %105, %if.end130 ], [ %incdec.ptr.i.i.i201, %while.body.i.i.i200 ]
+  %106 = load i8, ptr %pathDef.addr.38, align 1
   switch i8 %106, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i202 [
     i8 44, label %while.body.i.i.i200
     i8 32, label %while.body.i.i.i200
@@ -800,14 +800,14 @@ while.cond.i.i.i199:                              ; preds = %while.body.i.i.i200
   ]
 
 while.body.i.i.i200:                              ; preds = %while.cond.i.i.i199, %while.cond.i.i.i199, %while.cond.i.i.i199, %while.cond.i.i.i199, %while.cond.i.i.i199
-  %incdec.ptr.i.i.i201 = getelementptr inbounds i8, ptr %pathDef.addr.37, i64 1
+  %incdec.ptr.i.i.i201 = getelementptr inbounds i8, ptr %pathDef.addr.38, i64 1
   br label %while.cond.i.i.i199, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i202:    ; preds = %while.cond.i.i.i199
   store ptr null, ptr %end.i.i197, align 8
-  %call.i.i203 = call double @strtod(ptr noundef nonnull %pathDef.addr.37, ptr noundef nonnull %end.i.i197) #16
+  %call.i.i203 = call double @strtod(ptr noundef nonnull %pathDef.addr.38, ptr noundef nonnull %end.i.i197) #16
   %107 = load ptr, ptr %end.i.i197, align 8
-  %cmp.i.i204 = icmp ugt ptr %107, %pathDef.addr.37
+  %cmp.i.i204 = icmp ugt ptr %107, %pathDef.addr.38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i197)
   br i1 %cmp.i.i204, label %land.rhs.i206, label %return
 
@@ -816,8 +816,8 @@ land.rhs.i206:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i207
 
 while.cond.i.i5.i207:                             ; preds = %while.body.i.i6.i208, %land.rhs.i206
-  %pathDef.addr.38 = phi ptr [ %107, %land.rhs.i206 ], [ %incdec.ptr.i.i7.i209, %while.body.i.i6.i208 ]
-  %108 = load i8, ptr %pathDef.addr.38, align 1
+  %pathDef.addr.39 = phi ptr [ %107, %land.rhs.i206 ], [ %incdec.ptr.i.i7.i209, %while.body.i.i6.i208 ]
+  %108 = load i8, ptr %pathDef.addr.39, align 1
   switch i8 %108, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210 [
     i8 44, label %while.body.i.i6.i208
     i8 32, label %while.body.i.i6.i208
@@ -827,19 +827,19 @@ while.cond.i.i5.i207:                             ; preds = %while.body.i.i6.i20
   ]
 
 while.body.i.i6.i208:                             ; preds = %while.cond.i.i5.i207, %while.cond.i.i5.i207, %while.cond.i.i5.i207, %while.cond.i.i5.i207, %while.cond.i.i5.i207
-  %incdec.ptr.i.i7.i209 = getelementptr inbounds i8, ptr %pathDef.addr.38, i64 1
+  %incdec.ptr.i.i7.i209 = getelementptr inbounds i8, ptr %pathDef.addr.39, i64 1
   br label %while.cond.i.i5.i207, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210:   ; preds = %while.cond.i.i5.i207
   store ptr null, ptr %end.i3.i196, align 8
-  %call.i9.i212 = call double @strtod(ptr noundef nonnull %pathDef.addr.38, ptr noundef nonnull %end.i3.i196) #16
+  %call.i9.i212 = call double @strtod(ptr noundef nonnull %pathDef.addr.39, ptr noundef nonnull %end.i3.i196) #16
   %109 = load ptr, ptr %end.i3.i196, align 8
-  %cmp.i10.i213 = icmp ugt ptr %109, %pathDef.addr.38
+  %cmp.i10.i213 = icmp ugt ptr %109, %pathDef.addr.39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i196)
   br i1 %cmp.i10.i213, label %if.end133, label %return
 
 if.end133:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i210
-  %cmp135 = icmp eq i8 %nodeType.3916, 99
+  %cmp135 = icmp eq i8 %nodeType.2916, 99
   %110 = insertelement <2 x double> poison, double %call.i.i203, i64 0
   %111 = insertelement <2 x double> %110, double %call.i9.i212, i64 1
   %112 = insertelement <2 x double> poison, double %call.i.i182, i64 0
@@ -888,7 +888,7 @@ sw.bb155:                                         ; preds = %while.body4, %while
 
 while.cond.i.i.i238:                              ; preds = %while.body.i.i.i239, %sw.bb155
   %138 = phi i8 [ %8, %sw.bb155 ], [ %.pre1313, %while.body.i.i.i239 ]
-  %pathDef.addr.41 = phi ptr [ %pathDef.addr.4917, %sw.bb155 ], [ %incdec.ptr.i.i.i240, %while.body.i.i.i239 ]
+  %pathDef.addr.42 = phi ptr [ %pathDef.addr.2917, %sw.bb155 ], [ %incdec.ptr.i.i.i240, %while.body.i.i.i239 ]
   switch i8 %138, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241 [
     i8 44, label %while.body.i.i.i239
     i8 32, label %while.body.i.i.i239
@@ -898,15 +898,15 @@ while.cond.i.i.i238:                              ; preds = %while.body.i.i.i239
   ]
 
 while.body.i.i.i239:                              ; preds = %while.cond.i.i.i238, %while.cond.i.i.i238, %while.cond.i.i.i238, %while.cond.i.i.i238, %while.cond.i.i.i238
-  %incdec.ptr.i.i.i240 = getelementptr inbounds i8, ptr %pathDef.addr.41, i64 1
+  %incdec.ptr.i.i.i240 = getelementptr inbounds i8, ptr %pathDef.addr.42, i64 1
   %.pre1313 = load i8, ptr %incdec.ptr.i.i.i240, align 1
   br label %while.cond.i.i.i238, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i241:    ; preds = %while.cond.i.i.i238
   store ptr null, ptr %end.i.i236, align 8
-  %call.i.i242 = call double @strtod(ptr noundef nonnull %pathDef.addr.41, ptr noundef nonnull %end.i.i236) #16
+  %call.i.i242 = call double @strtod(ptr noundef nonnull %pathDef.addr.42, ptr noundef nonnull %end.i.i236) #16
   %139 = load ptr, ptr %end.i.i236, align 8
-  %cmp.i.i243 = icmp ugt ptr %139, %pathDef.addr.41
+  %cmp.i.i243 = icmp ugt ptr %139, %pathDef.addr.42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i236)
   br i1 %cmp.i.i243, label %land.rhs.i245, label %return
 
@@ -915,8 +915,8 @@ land.rhs.i245:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i246
 
 while.cond.i.i5.i246:                             ; preds = %while.body.i.i6.i247, %land.rhs.i245
-  %pathDef.addr.42 = phi ptr [ %139, %land.rhs.i245 ], [ %incdec.ptr.i.i7.i248, %while.body.i.i6.i247 ]
-  %140 = load i8, ptr %pathDef.addr.42, align 1
+  %pathDef.addr.43 = phi ptr [ %139, %land.rhs.i245 ], [ %incdec.ptr.i.i7.i248, %while.body.i.i6.i247 ]
+  %140 = load i8, ptr %pathDef.addr.43, align 1
   switch i8 %140, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249 [
     i8 44, label %while.body.i.i6.i247
     i8 32, label %while.body.i.i6.i247
@@ -926,14 +926,14 @@ while.cond.i.i5.i246:                             ; preds = %while.body.i.i6.i24
   ]
 
 while.body.i.i6.i247:                             ; preds = %while.cond.i.i5.i246, %while.cond.i.i5.i246, %while.cond.i.i5.i246, %while.cond.i.i5.i246, %while.cond.i.i5.i246
-  %incdec.ptr.i.i7.i248 = getelementptr inbounds i8, ptr %pathDef.addr.42, i64 1
+  %incdec.ptr.i.i7.i248 = getelementptr inbounds i8, ptr %pathDef.addr.43, i64 1
   br label %while.cond.i.i5.i246, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i249:   ; preds = %while.cond.i.i5.i246
   store ptr null, ptr %end.i3.i235, align 8
-  %call.i9.i251 = call double @strtod(ptr noundef nonnull %pathDef.addr.42, ptr noundef nonnull %end.i3.i235) #16
+  %call.i9.i251 = call double @strtod(ptr noundef nonnull %pathDef.addr.43, ptr noundef nonnull %end.i3.i235) #16
   %141 = load ptr, ptr %end.i3.i235, align 8
-  %cmp.i10.i252 = icmp ugt ptr %141, %pathDef.addr.42
+  %cmp.i10.i252 = icmp ugt ptr %141, %pathDef.addr.43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i235)
   br i1 %cmp.i10.i252, label %if.end183, label %return
 
@@ -942,8 +942,8 @@ if.end183:                                        ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i.i259
 
 while.cond.i.i.i259:                              ; preds = %while.body.i.i.i260, %if.end183
-  %pathDef.addr.45 = phi ptr [ %141, %if.end183 ], [ %incdec.ptr.i.i.i261, %while.body.i.i.i260 ]
-  %142 = load i8, ptr %pathDef.addr.45, align 1
+  %pathDef.addr.46 = phi ptr [ %141, %if.end183 ], [ %incdec.ptr.i.i.i261, %while.body.i.i.i260 ]
+  %142 = load i8, ptr %pathDef.addr.46, align 1
   switch i8 %142, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262 [
     i8 44, label %while.body.i.i.i260
     i8 32, label %while.body.i.i.i260
@@ -953,14 +953,14 @@ while.cond.i.i.i259:                              ; preds = %while.body.i.i.i260
   ]
 
 while.body.i.i.i260:                              ; preds = %while.cond.i.i.i259, %while.cond.i.i.i259, %while.cond.i.i.i259, %while.cond.i.i.i259, %while.cond.i.i.i259
-  %incdec.ptr.i.i.i261 = getelementptr inbounds i8, ptr %pathDef.addr.45, i64 1
+  %incdec.ptr.i.i.i261 = getelementptr inbounds i8, ptr %pathDef.addr.46, i64 1
   br label %while.cond.i.i.i259, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i262:    ; preds = %while.cond.i.i.i259
   store ptr null, ptr %end.i.i257, align 8
-  %call.i.i263 = call double @strtod(ptr noundef nonnull %pathDef.addr.45, ptr noundef nonnull %end.i.i257) #16
+  %call.i.i263 = call double @strtod(ptr noundef nonnull %pathDef.addr.46, ptr noundef nonnull %end.i.i257) #16
   %143 = load ptr, ptr %end.i.i257, align 8
-  %cmp.i.i264 = icmp ugt ptr %143, %pathDef.addr.45
+  %cmp.i.i264 = icmp ugt ptr %143, %pathDef.addr.46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i257)
   br i1 %cmp.i.i264, label %land.rhs.i266, label %return
 
@@ -969,8 +969,8 @@ land.rhs.i266:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i267
 
 while.cond.i.i5.i267:                             ; preds = %while.body.i.i6.i268, %land.rhs.i266
-  %pathDef.addr.46 = phi ptr [ %143, %land.rhs.i266 ], [ %incdec.ptr.i.i7.i269, %while.body.i.i6.i268 ]
-  %144 = load i8, ptr %pathDef.addr.46, align 1
+  %pathDef.addr.47 = phi ptr [ %143, %land.rhs.i266 ], [ %incdec.ptr.i.i7.i269, %while.body.i.i6.i268 ]
+  %144 = load i8, ptr %pathDef.addr.47, align 1
   switch i8 %144, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270 [
     i8 44, label %while.body.i.i6.i268
     i8 32, label %while.body.i.i6.i268
@@ -980,19 +980,19 @@ while.cond.i.i5.i267:                             ; preds = %while.body.i.i6.i26
   ]
 
 while.body.i.i6.i268:                             ; preds = %while.cond.i.i5.i267, %while.cond.i.i5.i267, %while.cond.i.i5.i267, %while.cond.i.i5.i267, %while.cond.i.i5.i267
-  %incdec.ptr.i.i7.i269 = getelementptr inbounds i8, ptr %pathDef.addr.46, i64 1
+  %incdec.ptr.i.i7.i269 = getelementptr inbounds i8, ptr %pathDef.addr.47, i64 1
   br label %while.cond.i.i5.i267, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270:   ; preds = %while.cond.i.i5.i267
   store ptr null, ptr %end.i3.i256, align 8
-  %call.i9.i272 = call double @strtod(ptr noundef nonnull %pathDef.addr.46, ptr noundef nonnull %end.i3.i256) #16
+  %call.i9.i272 = call double @strtod(ptr noundef nonnull %pathDef.addr.47, ptr noundef nonnull %end.i3.i256) #16
   %145 = load ptr, ptr %end.i3.i256, align 8
-  %cmp.i10.i273 = icmp ugt ptr %145, %pathDef.addr.46
+  %cmp.i10.i273 = icmp ugt ptr %145, %pathDef.addr.47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i256)
   br i1 %cmp.i10.i273, label %if.end186, label %return
 
 if.end186:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i270
-  %cmp188 = icmp eq i8 %nodeType.3916, 115
+  %cmp188 = icmp eq i8 %nodeType.2916, 115
   %146 = insertelement <2 x double> poison, double %call.i.i263, i64 0
   %147 = insertelement <2 x double> %146, double %call.i9.i272, i64 1
   %148 = insertelement <2 x double> poison, double %call.i.i242, i64 0
@@ -1029,7 +1029,7 @@ sw.bb205:                                         ; preds = %while.body4, %while
 
 while.cond.i.i.i288:                              ; preds = %while.body.i.i.i289, %sw.bb205
   %163 = phi i8 [ %8, %sw.bb205 ], [ %.pre, %while.body.i.i.i289 ]
-  %pathDef.addr.49 = phi ptr [ %pathDef.addr.4917, %sw.bb205 ], [ %incdec.ptr.i.i.i290, %while.body.i.i.i289 ]
+  %pathDef.addr.50 = phi ptr [ %pathDef.addr.2917, %sw.bb205 ], [ %incdec.ptr.i.i.i290, %while.body.i.i.i289 ]
   switch i8 %163, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291 [
     i8 44, label %while.body.i.i.i289
     i8 32, label %while.body.i.i.i289
@@ -1039,15 +1039,15 @@ while.cond.i.i.i288:                              ; preds = %while.body.i.i.i289
   ]
 
 while.body.i.i.i289:                              ; preds = %while.cond.i.i.i288, %while.cond.i.i.i288, %while.cond.i.i.i288, %while.cond.i.i.i288, %while.cond.i.i.i288
-  %incdec.ptr.i.i.i290 = getelementptr inbounds i8, ptr %pathDef.addr.49, i64 1
+  %incdec.ptr.i.i.i290 = getelementptr inbounds i8, ptr %pathDef.addr.50, i64 1
   %.pre = load i8, ptr %incdec.ptr.i.i.i290, align 1
   br label %while.cond.i.i.i288, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i291:    ; preds = %while.cond.i.i.i288
   store ptr null, ptr %end.i.i286, align 8
-  %call.i.i292 = call double @strtod(ptr noundef nonnull %pathDef.addr.49, ptr noundef nonnull %end.i.i286) #16
+  %call.i.i292 = call double @strtod(ptr noundef nonnull %pathDef.addr.50, ptr noundef nonnull %end.i.i286) #16
   %164 = load ptr, ptr %end.i.i286, align 8
-  %cmp.i.i293 = icmp ugt ptr %164, %pathDef.addr.49
+  %cmp.i.i293 = icmp ugt ptr %164, %pathDef.addr.50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i286)
   br i1 %cmp.i.i293, label %land.rhs.i295, label %return
 
@@ -1056,8 +1056,8 @@ land.rhs.i295:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i296
 
 while.cond.i.i5.i296:                             ; preds = %while.body.i.i6.i297, %land.rhs.i295
-  %pathDef.addr.50 = phi ptr [ %164, %land.rhs.i295 ], [ %incdec.ptr.i.i7.i298, %while.body.i.i6.i297 ]
-  %165 = load i8, ptr %pathDef.addr.50, align 1
+  %pathDef.addr.51 = phi ptr [ %164, %land.rhs.i295 ], [ %incdec.ptr.i.i7.i298, %while.body.i.i6.i297 ]
+  %165 = load i8, ptr %pathDef.addr.51, align 1
   switch i8 %165, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299 [
     i8 44, label %while.body.i.i6.i297
     i8 32, label %while.body.i.i6.i297
@@ -1067,14 +1067,14 @@ while.cond.i.i5.i296:                             ; preds = %while.body.i.i6.i29
   ]
 
 while.body.i.i6.i297:                             ; preds = %while.cond.i.i5.i296, %while.cond.i.i5.i296, %while.cond.i.i5.i296, %while.cond.i.i5.i296, %while.cond.i.i5.i296
-  %incdec.ptr.i.i7.i298 = getelementptr inbounds i8, ptr %pathDef.addr.50, i64 1
+  %incdec.ptr.i.i7.i298 = getelementptr inbounds i8, ptr %pathDef.addr.51, i64 1
   br label %while.cond.i.i5.i296, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i299:   ; preds = %while.cond.i.i5.i296
   store ptr null, ptr %end.i3.i285, align 8
-  %call.i9.i301 = call double @strtod(ptr noundef nonnull %pathDef.addr.50, ptr noundef nonnull %end.i3.i285) #16
+  %call.i9.i301 = call double @strtod(ptr noundef nonnull %pathDef.addr.51, ptr noundef nonnull %end.i3.i285) #16
   %166 = load ptr, ptr %end.i3.i285, align 8
-  %cmp.i10.i302 = icmp ugt ptr %166, %pathDef.addr.50
+  %cmp.i10.i302 = icmp ugt ptr %166, %pathDef.addr.51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i285)
   br i1 %cmp.i10.i302, label %if.end208, label %return
 
@@ -1083,8 +1083,8 @@ if.end208:                                        ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i308
 
 while.cond.i.i308:                                ; preds = %while.body.i.i309, %if.end208
-  %pathDef.addr.53 = phi ptr [ %166, %if.end208 ], [ %incdec.ptr.i.i310, %while.body.i.i309 ]
-  %167 = load i8, ptr %pathDef.addr.53, align 1
+  %pathDef.addr.54 = phi ptr [ %166, %if.end208 ], [ %incdec.ptr.i.i310, %while.body.i.i309 ]
+  %167 = load i8, ptr %pathDef.addr.54, align 1
   switch i8 %167, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i311 [
     i8 44, label %while.body.i.i309
     i8 32, label %while.body.i.i309
@@ -1094,14 +1094,14 @@ while.cond.i.i308:                                ; preds = %while.body.i.i309, 
   ]
 
 while.body.i.i309:                                ; preds = %while.cond.i.i308, %while.cond.i.i308, %while.cond.i.i308, %while.cond.i.i308, %while.cond.i.i308
-  %incdec.ptr.i.i310 = getelementptr inbounds i8, ptr %pathDef.addr.53, i64 1
+  %incdec.ptr.i.i310 = getelementptr inbounds i8, ptr %pathDef.addr.54, i64 1
   br label %while.cond.i.i308, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i311:      ; preds = %while.cond.i.i308
   store ptr null, ptr %end.i306, align 8
-  %call.i312 = call double @strtod(ptr noundef nonnull %pathDef.addr.53, ptr noundef nonnull %end.i306) #16
+  %call.i312 = call double @strtod(ptr noundef nonnull %pathDef.addr.54, ptr noundef nonnull %end.i306) #16
   %168 = load ptr, ptr %end.i306, align 8
-  %cmp.i313 = icmp ugt ptr %168, %pathDef.addr.53
+  %cmp.i313 = icmp ugt ptr %168, %pathDef.addr.54
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i306)
   br i1 %cmp.i313, label %if.end211, label %return
 
@@ -1110,8 +1110,8 @@ if.end211:                                        ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i318
 
 while.cond.i.i318:                                ; preds = %while.body.i.i319, %if.end211
-  %pathDef.addr.55 = phi ptr [ %168, %if.end211 ], [ %incdec.ptr.i.i320, %while.body.i.i319 ]
-  %169 = load i8, ptr %pathDef.addr.55, align 1
+  %pathDef.addr.56 = phi ptr [ %168, %if.end211 ], [ %incdec.ptr.i.i320, %while.body.i.i319 ]
+  %169 = load i8, ptr %pathDef.addr.56, align 1
   switch i8 %169, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i321 [
     i8 44, label %while.body.i.i319
     i8 32, label %while.body.i.i319
@@ -1121,14 +1121,14 @@ while.cond.i.i318:                                ; preds = %while.body.i.i319, 
   ]
 
 while.body.i.i319:                                ; preds = %while.cond.i.i318, %while.cond.i.i318, %while.cond.i.i318, %while.cond.i.i318, %while.cond.i.i318
-  %incdec.ptr.i.i320 = getelementptr inbounds i8, ptr %pathDef.addr.55, i64 1
+  %incdec.ptr.i.i320 = getelementptr inbounds i8, ptr %pathDef.addr.56, i64 1
   br label %while.cond.i.i318, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i321:      ; preds = %while.cond.i.i318
   store ptr null, ptr %end.i316, align 8
-  %call.i322 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.55, ptr noundef nonnull %end.i316, i32 noundef 10) #16
+  %call.i322 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.56, ptr noundef nonnull %end.i316, i32 noundef 10) #16
   %170 = load ptr, ptr %end.i316, align 8
-  %cmp.i323 = icmp ugt ptr %170, %pathDef.addr.55
+  %cmp.i323 = icmp ugt ptr %170, %pathDef.addr.56
   br i1 %cmp.i323, label %if.end214, label %_ZN7msdfgenL8readBoolERbRPKc.exit
 
 _ZN7msdfgenL8readBoolERbRPKc.exit:                ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i321
@@ -1142,8 +1142,8 @@ if.end214:                                        ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i327
 
 while.cond.i.i327:                                ; preds = %while.body.i.i328, %if.end214
-  %pathDef.addr.57 = phi ptr [ %170, %if.end214 ], [ %incdec.ptr.i.i329, %while.body.i.i328 ]
-  %171 = load i8, ptr %pathDef.addr.57, align 1
+  %pathDef.addr.58 = phi ptr [ %170, %if.end214 ], [ %incdec.ptr.i.i329, %while.body.i.i328 ]
+  %171 = load i8, ptr %pathDef.addr.58, align 1
   switch i8 %171, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i330 [
     i8 44, label %while.body.i.i328
     i8 32, label %while.body.i.i328
@@ -1153,14 +1153,14 @@ while.cond.i.i327:                                ; preds = %while.body.i.i328, 
   ]
 
 while.body.i.i328:                                ; preds = %while.cond.i.i327, %while.cond.i.i327, %while.cond.i.i327, %while.cond.i.i327, %while.cond.i.i327
-  %incdec.ptr.i.i329 = getelementptr inbounds i8, ptr %pathDef.addr.57, i64 1
+  %incdec.ptr.i.i329 = getelementptr inbounds i8, ptr %pathDef.addr.58, i64 1
   br label %while.cond.i.i327, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i330:      ; preds = %while.cond.i.i327
   store ptr null, ptr %end.i325, align 8
-  %call.i331 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.57, ptr noundef nonnull %end.i325, i32 noundef 10) #16
+  %call.i331 = call i64 @strtol(ptr noundef nonnull %pathDef.addr.58, ptr noundef nonnull %end.i325, i32 noundef 10) #16
   %172 = load ptr, ptr %end.i325, align 8
-  %cmp.i332 = icmp ugt ptr %172, %pathDef.addr.57
+  %cmp.i332 = icmp ugt ptr %172, %pathDef.addr.58
   br i1 %cmp.i332, label %if.end217, label %_ZN7msdfgenL8readBoolERbRPKc.exit336
 
 _ZN7msdfgenL8readBoolERbRPKc.exit336:             ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i330
@@ -1174,8 +1174,8 @@ if.end217:                                        ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i.i340
 
 while.cond.i.i.i340:                              ; preds = %while.body.i.i.i341, %if.end217
-  %pathDef.addr.59 = phi ptr [ %172, %if.end217 ], [ %incdec.ptr.i.i.i342, %while.body.i.i.i341 ]
-  %173 = load i8, ptr %pathDef.addr.59, align 1
+  %pathDef.addr.60 = phi ptr [ %172, %if.end217 ], [ %incdec.ptr.i.i.i342, %while.body.i.i.i341 ]
+  %173 = load i8, ptr %pathDef.addr.60, align 1
   switch i8 %173, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343 [
     i8 44, label %while.body.i.i.i341
     i8 32, label %while.body.i.i.i341
@@ -1185,14 +1185,14 @@ while.cond.i.i.i340:                              ; preds = %while.body.i.i.i341
   ]
 
 while.body.i.i.i341:                              ; preds = %while.cond.i.i.i340, %while.cond.i.i.i340, %while.cond.i.i.i340, %while.cond.i.i.i340, %while.cond.i.i.i340
-  %incdec.ptr.i.i.i342 = getelementptr inbounds i8, ptr %pathDef.addr.59, i64 1
+  %incdec.ptr.i.i.i342 = getelementptr inbounds i8, ptr %pathDef.addr.60, i64 1
   br label %while.cond.i.i.i340, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i343:    ; preds = %while.cond.i.i.i340
   store ptr null, ptr %end.i.i338, align 8
-  %call.i.i344 = call double @strtod(ptr noundef nonnull %pathDef.addr.59, ptr noundef nonnull %end.i.i338) #16
+  %call.i.i344 = call double @strtod(ptr noundef nonnull %pathDef.addr.60, ptr noundef nonnull %end.i.i338) #16
   %174 = load ptr, ptr %end.i.i338, align 8
-  %cmp.i.i345 = icmp ugt ptr %174, %pathDef.addr.59
+  %cmp.i.i345 = icmp ugt ptr %174, %pathDef.addr.60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i338)
   br i1 %cmp.i.i345, label %land.rhs.i347, label %return
 
@@ -1201,8 +1201,8 @@ land.rhs.i347:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i348
 
 while.cond.i.i5.i348:                             ; preds = %while.body.i.i6.i349, %land.rhs.i347
-  %pathDef.addr.60 = phi ptr [ %174, %land.rhs.i347 ], [ %incdec.ptr.i.i7.i350, %while.body.i.i6.i349 ]
-  %175 = load i8, ptr %pathDef.addr.60, align 1
+  %pathDef.addr.61 = phi ptr [ %174, %land.rhs.i347 ], [ %incdec.ptr.i.i7.i350, %while.body.i.i6.i349 ]
+  %175 = load i8, ptr %pathDef.addr.61, align 1
   switch i8 %175, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351 [
     i8 44, label %while.body.i.i6.i349
     i8 32, label %while.body.i.i6.i349
@@ -1212,19 +1212,19 @@ while.cond.i.i5.i348:                             ; preds = %while.body.i.i6.i34
   ]
 
 while.body.i.i6.i349:                             ; preds = %while.cond.i.i5.i348, %while.cond.i.i5.i348, %while.cond.i.i5.i348, %while.cond.i.i5.i348, %while.cond.i.i5.i348
-  %incdec.ptr.i.i7.i350 = getelementptr inbounds i8, ptr %pathDef.addr.60, i64 1
+  %incdec.ptr.i.i7.i350 = getelementptr inbounds i8, ptr %pathDef.addr.61, i64 1
   br label %while.cond.i.i5.i348, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351:   ; preds = %while.cond.i.i5.i348
   store ptr null, ptr %end.i3.i337, align 8
-  %call.i9.i353 = call double @strtod(ptr noundef nonnull %pathDef.addr.60, ptr noundef nonnull %end.i3.i337) #16
+  %call.i9.i353 = call double @strtod(ptr noundef nonnull %pathDef.addr.61, ptr noundef nonnull %end.i3.i337) #16
   %176 = load ptr, ptr %end.i3.i337, align 8
-  %cmp.i10.i354 = icmp ugt ptr %176, %pathDef.addr.60
+  %cmp.i10.i354 = icmp ugt ptr %176, %pathDef.addr.61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i337)
   br i1 %cmp.i10.i354, label %if.end220, label %return
 
 if.end220:                                        ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i351
-  %cmp222 = icmp eq i8 %nodeType.3916, 97
+  %cmp222 = icmp eq i8 %nodeType.2916, 97
   %177 = insertelement <2 x double> poison, double %call.i.i344, i64 0
   %178 = insertelement <2 x double> %177, double %call.i9.i353, i64 1
   %179 = fadd <2 x double> %9, %178
@@ -1512,19 +1512,19 @@ _ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit: ; preds
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit, %invoke.cont204, %invoke.cont154, %invoke.cont121, %invoke.cont82, %invoke.cont59, %invoke.cont43, %invoke.cont, %if.end8
-  %nodeType.4 = phi i8 [ %nodeType.3916, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %nodeType.3916, %invoke.cont204 ], [ %nodeType.3916, %invoke.cont154 ], [ %nodeType.3916, %invoke.cont121 ], [ %nodeType.3916, %invoke.cont82 ], [ %nodeType.3916, %invoke.cont59 ], [ %nodeType.3916, %invoke.cont43 ], [ %nodeType.3916, %invoke.cont ], [ %dec, %if.end8 ]
-  %pathDef.addr.63 = phi ptr [ %176, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %145, %invoke.cont204 ], [ %109, %invoke.cont154 ], [ %84, %invoke.cont121 ], [ %62, %invoke.cont82 ], [ %49, %invoke.cont59 ], [ %42, %invoke.cont43 ], [ %29, %invoke.cont ], [ %17, %if.end8 ]
+  %nodeType.3 = phi i8 [ %nodeType.2916, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %nodeType.2916, %invoke.cont204 ], [ %nodeType.2916, %invoke.cont154 ], [ %nodeType.2916, %invoke.cont121 ], [ %nodeType.2916, %invoke.cont82 ], [ %nodeType.2916, %invoke.cont59 ], [ %nodeType.2916, %invoke.cont43 ], [ %nodeType.2916, %invoke.cont ], [ %dec, %if.end8 ]
+  %pathDef.addr.3 = phi ptr [ %176, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %145, %invoke.cont204 ], [ %109, %invoke.cont154 ], [ %84, %invoke.cont121 ], [ %62, %invoke.cont82 ], [ %49, %invoke.cont59 ], [ %42, %invoke.cont43 ], [ %29, %invoke.cont ], [ %17, %if.end8 ]
   %299 = phi <2 x double> [ %182, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %152, %invoke.cont204 ], [ %119, %invoke.cont154 ], [ %90, %invoke.cont121 ], [ %69, %invoke.cont82 ], [ %53, %invoke.cont59 ], [ %46, %invoke.cont43 ], [ %35, %invoke.cont ], [ %23, %if.end8 ]
   %300 = phi <2 x double> [ %10, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %10, %invoke.cont204 ], [ %10, %invoke.cont154 ], [ %10, %invoke.cont121 ], [ %10, %invoke.cont82 ], [ %10, %invoke.cont59 ], [ %10, %invoke.cont43 ], [ %10, %invoke.cont ], [ %23, %if.end8 ]
   %301 = phi <2 x double> [ %11, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %137, %invoke.cont204 ], [ %120, %invoke.cont154 ], [ %80, %invoke.cont121 ], [ %70, %invoke.cont82 ], [ %11, %invoke.cont59 ], [ %11, %invoke.cont43 ], [ %11, %invoke.cont ], [ %11, %if.end8 ]
   %302 = phi <2 x double> [ %13, %_ZN7msdfgenL17addArcApproximateERNS_7ContourENS_7Vector2ES2_S2_dbb.exit ], [ %153, %invoke.cont204 ], [ %121, %invoke.cont154 ], [ %13, %invoke.cont121 ], [ %13, %invoke.cont82 ], [ %13, %invoke.cont59 ], [ %13, %invoke.cont43 ], [ %13, %invoke.cont ], [ %13, %if.end8 ]
-  %303 = and i8 %nodeType.4, -33
+  %303 = and i8 %nodeType.3, -33
   %304 = icmp eq i8 %303, 77
   %and29 = and i1 %contourStart.0918, %304
   br label %while.cond.i.i367
 
 while.cond.i.i367:                                ; preds = %while.body.i.i368, %sw.epilog
-  %pathDef.addr.64 = phi ptr [ %pathDef.addr.63, %sw.epilog ], [ %incdec.ptr.i.i369, %while.body.i.i368 ]
+  %pathDef.addr.64 = phi ptr [ %pathDef.addr.3, %sw.epilog ], [ %incdec.ptr.i.i369, %while.body.i.i368 ]
   %305 = load i8, ptr %pathDef.addr.64, align 1
   switch i8 %305, label %land.lhs.true10.i372 [
     i8 44, label %while.body.i.i368
@@ -1545,7 +1545,7 @@ while.body.i.i368:                                ; preds = %while.cond.i.i367, 
 land.lhs.true10.i372:                             ; preds = %while.cond.i.i367
   %306 = add i8 %305, -58
   %or.cond4.i373 = icmp ult i8 %306, -10
-  %spec.select = select i1 %or.cond4.i373, i8 %305, i8 %nodeType.4
+  %spec.select = select i1 %or.cond4.i373, i8 %305, i8 %nodeType.3
   %spec.select524.idx = zext i1 %or.cond4.i373 to i64
   %spec.select524 = getelementptr inbounds i8, ptr %pathDef.addr.64, i64 %spec.select524.idx
   %.pre1321 = load i8, ptr %spec.select524, align 1
@@ -1553,7 +1553,7 @@ land.lhs.true10.i372:                             ; preds = %while.cond.i.i367
 
 _ZN7msdfgenL12readNodeTypeERcRPKc.exit376:        ; preds = %while.cond.i.i367, %while.cond.i.i367, %while.cond.i.i367, %while.cond.i.i367, %land.lhs.true10.i372
   %307 = phi i8 [ %.pre1321, %land.lhs.true10.i372 ], [ %305, %while.cond.i.i367 ], [ %305, %while.cond.i.i367 ], [ %305, %while.cond.i.i367 ], [ %305, %while.cond.i.i367 ]
-  %nodeType.5 = phi i8 [ %spec.select, %land.lhs.true10.i372 ], [ %nodeType.4, %while.cond.i.i367 ], [ %nodeType.4, %while.cond.i.i367 ], [ %nodeType.4, %while.cond.i.i367 ], [ %nodeType.4, %while.cond.i.i367 ]
+  %nodeType.5 = phi i8 [ %spec.select, %land.lhs.true10.i372 ], [ %nodeType.3, %while.cond.i.i367 ], [ %nodeType.3, %while.cond.i.i367 ], [ %nodeType.3, %while.cond.i.i367 ], [ %nodeType.3, %while.cond.i.i367 ]
   %pathDef.addr.65 = phi ptr [ %spec.select524, %land.lhs.true10.i372 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ], [ %pathDef.addr.64, %while.cond.i.i367 ]
   %tobool3.not = icmp eq i8 %307, 0
   br i1 %tobool3.not, label %NEXT_CONTOUR.loopexit.split.loop.exit1873, label %while.body4, !llvm.loop !8
@@ -1571,8 +1571,8 @@ NEXT_CONTOUR.loopexit.split.loop.exit1873:        ; preds = %_ZN7msdfgenL12readN
 NEXT_CONTOUR:                                     ; preds = %NEXT_CONTOUR.loopexit.split.loop.exit, %NEXT_CONTOUR.loopexit.split.loop.exit1873, %while.body, %sw.bb13
   %prevNode.sroa.25.2906 = phi double [ %25, %sw.bb13 ], [ %7, %while.body ], [ %309, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %311, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
   %prevNode.sroa.0.2865 = phi double [ %24, %sw.bb13 ], [ %6, %while.body ], [ %308, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %310, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
-  %nodeType.3656 = phi i8 [ %nodeType.3916, %sw.bb13 ], [ %nodeType.2, %while.body ], [ %nodeType.3916, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %nodeType.5, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
-  %pathDef.addr.4614 = phi ptr [ %pathDef.addr.4917, %sw.bb13 ], [ %pathDef.addr.3, %while.body ], [ %pathDef.addr.4917, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %pathDef.addr.65, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
+  %nodeType.2656 = phi i8 [ %nodeType.2916, %sw.bb13 ], [ %nodeType.1, %while.body ], [ %nodeType.2916, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %nodeType.5, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
+  %pathDef.addr.2614 = phi ptr [ %pathDef.addr.2917, %sw.bb13 ], [ %pathDef.addr.1, %while.body ], [ %pathDef.addr.2917, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %pathDef.addr.65, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
   %nodeTypePreread.1 = phi i1 [ false, %sw.bb13 ], [ false, %while.body ], [ true, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ false, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
   %312 = phi <2 x double> [ %10, %sw.bb13 ], [ zeroinitializer, %while.body ], [ %10, %NEXT_CONTOUR.loopexit.split.loop.exit ], [ %300, %NEXT_CONTOUR.loopexit.split.loop.exit1873 ]
   %313 = load ptr, ptr %call1, align 8
@@ -2393,14 +2393,14 @@ if.end38:                                         ; preds = %_ZN7msdfgenL10readD
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont9, %invoke.cont11, %if.end38
-  %retval.0 = phi i32 [ %1, %if.end38 ], [ 0, %invoke.cont11 ], [ 0, %invoke.cont9 ]
+  %retval.1 = phi i32 [ %1, %if.end38 ], [ 0, %invoke.cont11 ], [ 0, %invoke.cont9 ]
   call void @_ZN6SkPathD1Ev(ptr noundef nonnull align 8 dereferenceable(15) %fullPath) #16
   br label %cleanup44
 
 cleanup44:                                        ; preds = %invoke.cont1, %invoke.cont, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %invoke.cont ], [ 0, %invoke.cont1 ]
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %invoke.cont ], [ 0, %invoke.cont1 ]
   call void @_ZN8tinyxml211XMLDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(776) %doc) #16
-  ret i32 %retval.1
+  ret i32 %retval.0
 
 ehcleanup:                                        ; preds = %lpad7, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad7 ], [ %0, %lpad ]
@@ -2720,8 +2720,8 @@ if.end139:                                        ; preds = %invoke.cont134
   br label %while.cond.i.i.i
 
 while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %if.end139
-  %pd133.0 = phi ptr [ %call135, %if.end139 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %24 = load i8, ptr %pd133.0, align 1
+  %pd133.1 = phi ptr [ %call135, %if.end139 ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
+  %24 = load i8, ptr %pd133.1, align 1
   switch i8 %24, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i [
     i8 44, label %while.body.i.i.i
     i8 32, label %while.body.i.i.i
@@ -2731,14 +2731,14 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
   ]
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %pd133.0, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %pd133.1, i64 1
   br label %while.cond.i.i.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i:       ; preds = %while.cond.i.i.i
   store ptr null, ptr %end.i.i, align 8
-  %call.i.i = call double @strtod(ptr noundef nonnull %pd133.0, ptr noundef nonnull %end.i.i) #16
+  %call.i.i = call double @strtod(ptr noundef nonnull %pd133.1, ptr noundef nonnull %end.i.i) #16
   %25 = load ptr, ptr %end.i.i, align 8
-  %cmp.i.i = icmp ugt ptr %25, %pd133.0
+  %cmp.i.i = icmp ugt ptr %25, %pd133.1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i)
   br i1 %cmp.i.i, label %land.rhs.i, label %cleanup
 
@@ -2747,8 +2747,8 @@ land.rhs.i:                                       ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i
 
 while.cond.i.i5.i:                                ; preds = %while.body.i.i6.i, %land.rhs.i
-  %pd133.1 = phi ptr [ %25, %land.rhs.i ], [ %incdec.ptr.i.i7.i, %while.body.i.i6.i ]
-  %26 = load i8, ptr %pd133.1, align 1
+  %pd133.2 = phi ptr [ %25, %land.rhs.i ], [ %incdec.ptr.i.i7.i, %while.body.i.i6.i ]
+  %26 = load i8, ptr %pd133.2, align 1
   switch i8 %26, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i [
     i8 44, label %while.body.i.i6.i
     i8 32, label %while.body.i.i6.i
@@ -2758,14 +2758,14 @@ while.cond.i.i5.i:                                ; preds = %while.body.i.i6.i, 
   ]
 
 while.body.i.i6.i:                                ; preds = %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i, %while.cond.i.i5.i
-  %incdec.ptr.i.i7.i = getelementptr inbounds i8, ptr %pd133.1, i64 1
+  %incdec.ptr.i.i7.i = getelementptr inbounds i8, ptr %pd133.2, i64 1
   br label %while.cond.i.i5.i, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i:      ; preds = %while.cond.i.i5.i
   store ptr null, ptr %end.i3.i, align 8
-  %call.i9.i = call double @strtod(ptr noundef nonnull %pd133.1, ptr noundef nonnull %end.i3.i) #16
+  %call.i9.i = call double @strtod(ptr noundef nonnull %pd133.2, ptr noundef nonnull %end.i3.i) #16
   %27 = load ptr, ptr %end.i3.i, align 8
-  %cmp.i10.i = icmp ugt ptr %27, %pd133.1
+  %cmp.i10.i = icmp ugt ptr %27, %pd133.2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i)
   br i1 %cmp.i10.i, label %if.end144, label %cleanup
 
@@ -2780,8 +2780,8 @@ invoke.cont149:                                   ; preds = %if.end144
   br label %while.cond.i.i.i94
 
 while.cond.i.i.i94:                               ; preds = %while.body.i.i.i95, %invoke.cont149
-  %pd133.4 = phi ptr [ %27, %invoke.cont149 ], [ %incdec.ptr.i.i.i96, %while.body.i.i.i95 ]
-  %28 = load i8, ptr %pd133.4, align 1
+  %pd133.5 = phi ptr [ %27, %invoke.cont149 ], [ %incdec.ptr.i.i.i96, %while.body.i.i.i95 ]
+  %28 = load i8, ptr %pd133.5, align 1
   switch i8 %28, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i97 [
     i8 44, label %while.body.i.i.i95
     i8 32, label %while.body.i.i.i95
@@ -2791,14 +2791,14 @@ while.cond.i.i.i94:                               ; preds = %while.body.i.i.i95,
   ]
 
 while.body.i.i.i95:                               ; preds = %while.cond.i.i.i94, %while.cond.i.i.i94, %while.cond.i.i.i94, %while.cond.i.i.i94, %while.cond.i.i.i94
-  %incdec.ptr.i.i.i96 = getelementptr inbounds i8, ptr %pd133.4, i64 1
+  %incdec.ptr.i.i.i96 = getelementptr inbounds i8, ptr %pd133.5, i64 1
   br label %while.cond.i.i.i94, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i97:     ; preds = %while.cond.i.i.i94
   store ptr null, ptr %end.i.i92, align 8
-  %call.i.i98 = call double @strtod(ptr noundef nonnull %pd133.4, ptr noundef nonnull %end.i.i92) #16
+  %call.i.i98 = call double @strtod(ptr noundef nonnull %pd133.5, ptr noundef nonnull %end.i.i92) #16
   %29 = load ptr, ptr %end.i.i92, align 8
-  %cmp.i.i99 = icmp ugt ptr %29, %pd133.4
+  %cmp.i.i99 = icmp ugt ptr %29, %pd133.5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i.i92)
   br i1 %cmp.i.i99, label %land.rhs.i101, label %cleanup
 
@@ -2807,8 +2807,8 @@ land.rhs.i101:                                    ; preds = %_ZN7msdfgenL14skipE
   br label %while.cond.i.i5.i102
 
 while.cond.i.i5.i102:                             ; preds = %while.body.i.i6.i103, %land.rhs.i101
-  %pd133.5 = phi ptr [ %29, %land.rhs.i101 ], [ %incdec.ptr.i.i7.i104, %while.body.i.i6.i103 ]
-  %30 = load i8, ptr %pd133.5, align 1
+  %pd133.6 = phi ptr [ %29, %land.rhs.i101 ], [ %incdec.ptr.i.i7.i104, %while.body.i.i6.i103 ]
+  %30 = load i8, ptr %pd133.6, align 1
   switch i8 %30, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105 [
     i8 44, label %while.body.i.i6.i103
     i8 32, label %while.body.i.i6.i103
@@ -2818,23 +2818,23 @@ while.cond.i.i5.i102:                             ; preds = %while.body.i.i6.i10
   ]
 
 while.body.i.i6.i103:                             ; preds = %while.cond.i.i5.i102, %while.cond.i.i5.i102, %while.cond.i.i5.i102, %while.cond.i.i5.i102, %while.cond.i.i5.i102
-  %incdec.ptr.i.i7.i104 = getelementptr inbounds i8, ptr %pd133.5, i64 1
+  %incdec.ptr.i.i7.i104 = getelementptr inbounds i8, ptr %pd133.6, i64 1
   br label %while.cond.i.i5.i102, !llvm.loop !5
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105:   ; preds = %while.cond.i.i5.i102
   store ptr null, ptr %end.i3.i91, align 8
-  %call.i9.i107 = call double @strtod(ptr noundef nonnull %pd133.5, ptr noundef nonnull %end.i3.i91) #16
+  %call.i9.i107 = call double @strtod(ptr noundef nonnull %pd133.6, ptr noundef nonnull %end.i3.i91) #16
   %31 = load ptr, ptr %end.i3.i91, align 8
-  %cmp.i10.i108 = icmp ugt ptr %31, %pd133.5
+  %cmp.i10.i108 = icmp ugt ptr %31, %pd133.6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %end.i3.i91)
   br i1 %cmp.i10.i108, label %do.body, label %cleanup
 
 do.body:                                          ; preds = %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126
-  %pd133.8 = phi ptr [ %35, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126 ], [ %31, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105 ]
-  %point.sroa.6.2 = phi double [ %call.i9.i128, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126 ], [ %call.i9.i107, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105 ]
+  %pd133.0 = phi ptr [ %35, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126 ], [ %31, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105 ]
+  %point.sroa.6.0 = phi double [ %call.i9.i128, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126 ], [ %call.i9.i107, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105 ]
   %point.sroa.0.0 = phi double [ %call.i.i119, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i126 ], [ %call.i.i98, %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i8.i105 ]
   %conv156 = fptrunc double %point.sroa.0.0 to float
-  %conv158 = fptrunc double %point.sroa.6.2 to float
+  %conv158 = fptrunc double %point.sroa.6.0 to float
   %call160 = invoke noundef nonnull align 8 dereferenceable(15) ptr @_ZN6SkPath6lineToEff(ptr noundef nonnull align 8 dereferenceable(15) %curPath, float noundef %conv156, float noundef %conv158)
           to label %do.cond unwind label %lpad.loopexit
 
@@ -2843,7 +2843,7 @@ do.cond:                                          ; preds = %do.body
   br label %while.cond.i.i.i115
 
 while.cond.i.i.i115:                              ; preds = %while.body.i.i.i116, %do.cond
-  %pd133.9 = phi ptr [ %pd133.8, %do.cond ], [ %incdec.ptr.i.i.i117, %while.body.i.i.i116 ]
+  %pd133.9 = phi ptr [ %pd133.0, %do.cond ], [ %incdec.ptr.i.i.i117, %while.body.i.i.i116 ]
   %32 = load i8, ptr %pd133.9, align 1
   switch i8 %32, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i.i118 [
     i8 44, label %while.body.i.i.i116
@@ -3416,8 +3416,8 @@ if.then:                                          ; preds = %entry
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.then
-  %curStr.0 = phi ptr [ %add.ptr, %if.then ], [ %incdec.ptr.i, %while.body.i ]
-  %1 = load i8, ptr %curStr.0, align 1
+  %curStr.1 = phi ptr [ %add.ptr, %if.then ], [ %incdec.ptr.i, %while.body.i ]
+  %1 = load i8, ptr %curStr.1, align 1
   switch i8 %1, label %return [
     i8 44, label %while.body.i
     i8 32, label %while.body.i
@@ -3428,13 +3428,13 @@ while.cond.i:                                     ; preds = %while.body.i, %if.t
   ]
 
 while.body.i:                                     ; preds = %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i, %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %curStr.0, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %curStr.1, i64 1
   br label %while.cond.i, !llvm.loop !5
 
 while.cond.i8:                                    ; preds = %while.cond.i, %while.cond.i8.backedge
-  %curStr.0.pn = phi ptr [ %curStr.1, %while.cond.i8.backedge ], [ %curStr.0, %while.cond.i ]
-  %curStr.1 = getelementptr inbounds i8, ptr %curStr.0.pn, i64 1
-  %2 = load i8, ptr %curStr.1, align 1
+  %curStr.1.pn = phi ptr [ %curStr.2, %while.cond.i8.backedge ], [ %curStr.1, %while.cond.i ]
+  %curStr.2 = getelementptr inbounds i8, ptr %curStr.1.pn, i64 1
+  %2 = load i8, ptr %curStr.2, align 1
   switch i8 %2, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit11 [
     i8 44, label %while.cond.i8.backedge
     i8 32, label %while.cond.i8.backedge
@@ -3448,12 +3448,12 @@ while.cond.i8.backedge:                           ; preds = %while.cond.i8, %whi
 
 _ZN7msdfgenL14skipExtraCharsERPKc.exit11:         ; preds = %while.cond.i8
   store i32 0, ptr %count, align 4
-  %.pre = load i8, ptr %curStr.1, align 1
+  %.pre = load i8, ptr %curStr.2, align 1
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.i13, %_ZN7msdfgenL14skipExtraCharsERPKc.exit11
   %3 = phi i8 [ %.pre, %_ZN7msdfgenL14skipExtraCharsERPKc.exit11 ], [ %8, %while.cond.i13 ]
-  %curStr.2 = phi ptr [ %curStr.1, %_ZN7msdfgenL14skipExtraCharsERPKc.exit11 ], [ %curStr.5, %while.cond.i13 ]
+  %curStr.0 = phi ptr [ %curStr.2, %_ZN7msdfgenL14skipExtraCharsERPKc.exit11 ], [ %curStr.5, %while.cond.i13 ]
   switch i8 %3, label %while.body [
     i8 41, label %if.then14
     i8 0, label %return
@@ -3470,7 +3470,7 @@ land.lhs.true:                                    ; preds = %while.body
 
 while.cond.i.i:                                   ; preds = %while.body.i.i, %land.lhs.true
   %5 = phi i8 [ %3, %land.lhs.true ], [ %.pre26, %while.body.i.i ]
-  %curStr.3 = phi ptr [ %curStr.2, %land.lhs.true ], [ %incdec.ptr.i.i, %while.body.i.i ]
+  %curStr.3 = phi ptr [ %curStr.0, %land.lhs.true ], [ %incdec.ptr.i.i, %while.body.i.i ]
   switch i8 %5, label %_ZN7msdfgenL14skipExtraCharsERPKc.exit.i [
     i8 44, label %while.body.i.i
     i8 32, label %while.body.i.i
@@ -3518,7 +3518,7 @@ while.body.i14:                                   ; preds = %while.cond.i13, %wh
   br label %while.cond.i13, !llvm.loop !5
 
 if.then14:                                        ; preds = %while.cond
-  %add.ptr15 = getelementptr inbounds i8, ptr %curStr.2, i64 1
+  %add.ptr15 = getelementptr inbounds i8, ptr %curStr.0, i64 1
   store ptr %add.ptr15, ptr %str, align 8
   br label %return
 

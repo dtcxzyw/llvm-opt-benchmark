@@ -3233,18 +3233,18 @@ define linkonce_odr dso_local void @_ZN13UnrollVisitor5visitEP8AstWhile(ptr noun
   br label %39
 
 39:                                               ; preds = %40, %.thread59
-  %.042 = phi ptr [ %38, %.thread59 ], [ %42, %40 ]
-  %.not52 = icmp eq ptr %.042, null
+  %.1 = phi ptr [ %38, %.thread59 ], [ %42, %40 ]
+  %.not52 = icmp eq ptr %.1, null
   br i1 %.not52, label %.critedge56, label %40
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %.042, i64 8
+  %41 = getelementptr inbounds i8, ptr %.1, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not53 = icmp eq ptr %42, null
   br i1 %.not53, label %.critedge, label %39, !llvm.loop !5
 
 .critedge:                                        ; preds = %40
-  %43 = tail call noundef ptr @_ZN7V3Const12constifyEditEP7AstNode(ptr noundef nonnull %.042)
+  %43 = tail call noundef ptr @_ZN7V3Const12constifyEditEP7AstNode(ptr noundef nonnull %.1)
   %.pre64 = load ptr, ptr %32, align 8
   br label %.critedge56
 
@@ -3253,30 +3253,30 @@ define linkonce_odr dso_local void @_ZN13UnrollVisitor5visitEP8AstWhile(ptr noun
   br label %45
 
 45:                                               ; preds = %46, %.critedge56
-  %.1 = phi ptr [ %44, %.critedge56 ], [ %48, %46 ]
-  %.not54 = icmp eq ptr %.1, null
+  %.2 = phi ptr [ %44, %.critedge56 ], [ %48, %46 ]
+  %.not54 = icmp eq ptr %.2, null
   br i1 %.not54, label %.critedge2, label %46
 
 46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %.1, i64 8
+  %47 = getelementptr inbounds i8, ptr %.2, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not55 = icmp eq ptr %48, null
   br i1 %.not55, label %.critedge2, label %45, !llvm.loop !7
 
 .critedge2:                                       ; preds = %45, %46
-  %49 = icmp eq ptr %.1, %44
+  %49 = icmp eq ptr %.2, %44
   %spec.store.select = select i1 %49, ptr null, ptr %44
   br label %50
 
 50:                                               ; preds = %35, %.critedge2
-  %.2 = phi ptr [ %.1, %.critedge2 ], [ %.pr, %35 ]
+  %.042 = phi ptr [ %.2, %.critedge2 ], [ %.pr, %35 ]
   %.0 = phi ptr [ %spec.store.select, %.critedge2 ], [ %36, %35 ]
   %51 = getelementptr inbounds i8, ptr %1, i64 152
   %.sroa.0.0.copyload.i = load i8, ptr %51, align 8
   store i8 %.sroa.0.0.copyload.i, ptr %3, align 1
   %52 = load ptr, ptr %12, align 8
   %53 = load ptr, ptr %17, align 8
-  %54 = call noundef zeroext i1 @_ZN13UnrollVisitor14forUnrollCheckEP7AstNodeRK11VOptionBoolS1_S1_S1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %spec.select, ptr noundef %52, ptr noundef %53, ptr noundef %.2, ptr noundef %.0)
+  %54 = call noundef zeroext i1 @_ZN13UnrollVisitor14forUnrollCheckEP7AstNodeRK11VOptionBoolS1_S1_S1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull %1, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %spec.select, ptr noundef %52, ptr noundef %53, ptr noundef %.042, ptr noundef %.0)
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %50
@@ -4989,7 +4989,7 @@ _ZN8V3NumberC2EP7AstNode.exit33:                  ; preds = %_ZN7AstNode9private
   br label %69
 
 69:                                               ; preds = %66, %61
-  %.017 = phi i32 [ 1, %61 ], [ %., %66 ]
+  %.118 = phi i32 [ 1, %61 ], [ %., %66 ]
   %70 = load i8, ptr %26, align 4
   %71 = icmp eq i8 %70, 3
   br i1 %71, label %72, label %73
@@ -5015,7 +5015,7 @@ _ZN8V3NumberC2EP7AstNode.exit33:                  ; preds = %_ZN7AstNode9private
   br label %_ZN8V3NumberD2Ev.exit
 
 _ZN8V3NumberD2Ev.exit:                            ; preds = %80, %78, %73, %72, %41, %38
-  %.118 = phi i32 [ 1, %38 ], [ 3, %41 ], [ %.017, %72 ], [ %.017, %73 ], [ %.017, %78 ], [ %.017, %80 ]
+  %.017 = phi i32 [ 1, %38 ], [ 3, %41 ], [ %.118, %72 ], [ %.118, %73 ], [ %.118, %78 ], [ %.118, %80 ]
   %81 = load i8, ptr %21, align 4
   %82 = icmp eq i8 %81, 3
   br i1 %82, label %83, label %84
@@ -5041,7 +5041,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %80, %78, %73, %72, 
   br label %_ZN8V3NumberD2Ev.exit35
 
 _ZN8V3NumberD2Ev.exit35:                          ; preds = %83, %84, %89, %91
-  switch i32 %.118, label %.loopexit38.loopexit [
+  switch i32 %.017, label %.loopexit38.loopexit [
     i32 0, label %32
     i32 3, label %.loopexit38
   ], !llvm.loop !14
@@ -5055,7 +5055,7 @@ _ZN8V3NumberD2Ev.exit35:                          ; preds = %83, %84, %89, %91
   br label %.loopexit38
 
 .loopexit38:                                      ; preds = %_ZN8V3NumberD2Ev.exit35, %.loopexit38.loopexit, %19
-  %.3 = phi i1 [ false, %19 ], [ false, %.loopexit38.loopexit ], [ true, %_ZN8V3NumberD2Ev.exit35 ]
+  %.0 = phi i1 [ false, %19 ], [ false, %.loopexit38.loopexit ], [ true, %_ZN8V3NumberD2Ev.exit35 ]
   %92 = load i8, ptr %11, align 4
   %93 = icmp eq i8 %92, 3
   br i1 %93, label %94, label %95
@@ -5081,7 +5081,7 @@ _ZN8V3NumberD2Ev.exit35:                          ; preds = %83, %84, %89, %91
   br label %_ZN8V3NumberD2Ev.exit37
 
 _ZN8V3NumberD2Ev.exit37:                          ; preds = %94, %95, %100, %102
-  ret i1 %.3
+  ret i1 %.0
 
 .body:                                            ; preds = %30, %35, %.body31
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body31 ], [ %31, %30 ], [ %36, %35 ]
@@ -5329,7 +5329,7 @@ _ZN7AstNode9privateIsI9AstGenForPS_EEbPKS_.exit.thread: ; preds = %66, %_ZN7AstN
   br label %98
 
 98:                                               ; preds = %.preheader, %_ZN8V3NumberD2Ev.exit174
-  %.076 = phi ptr [ %.278, %_ZN8V3NumberD2Ev.exit174 ], [ null, %.preheader ]
+  %.177 = phi ptr [ %.278, %_ZN8V3NumberD2Ev.exit174 ], [ null, %.preheader ]
   %.074 = phi i32 [ %.175, %_ZN8V3NumberD2Ev.exit174 ], [ 0, %.preheader ]
   %99 = invoke noundef i32 @_ZL5debugv()
           to label %100 unwind label %.loopexit
@@ -5730,15 +5730,15 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 _ZN9VNVisitor11pushDeletepEP7AstNode.exit:        ; preds = %217
   store ptr null, ptr %86, align 8
-  %.not116 = icmp eq ptr %.076, null
+  %.not116 = icmp eq ptr %.177, null
   br i1 %.not116, label %_ZN7AstNode7addNextEPS_.exit, label %219
 
 219:                                              ; preds = %_ZN9VNVisitor11pushDeletepEP7AstNode.exit
-  %220 = invoke noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef nonnull %.076, ptr noundef %.173)
+  %220 = invoke noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef nonnull %.177, ptr noundef %.173)
           to label %_ZN7AstNode7addNextEPS_.exit unwind label %.loopexit193
 
 _ZN7AstNode7addNextEPS_.exit:                     ; preds = %219, %_ZN9VNVisitor11pushDeletepEP7AstNode.exit
-  %.177 = phi ptr [ %.173, %_ZN9VNVisitor11pushDeletepEP7AstNode.exit ], [ %.076, %219 ]
+  %.379 = phi ptr [ %.173, %_ZN9VNVisitor11pushDeletepEP7AstNode.exit ], [ %.177, %219 ]
   %221 = load double, ptr %91, align 8
   %222 = fadd double %221, 1.000000e+00
   store double %222, ptr %91, align 8
@@ -5863,7 +5863,7 @@ _ZN8V3NumberC2EP7AstNode.exit172:                 ; preds = %_ZN7AstNode9private
           to label %268 unwind label %264
 
 268:                                              ; preds = %266, %263
-  %.083 = phi i32 [ 1, %263 ], [ 0, %266 ]
+  %.184 = phi i32 [ 1, %263 ], [ 0, %266 ]
   %269 = load i8, ptr %94, align 4
   %270 = icmp eq i8 %269, 3
   br i1 %270, label %271, label %272
@@ -5889,8 +5889,8 @@ _ZN8V3NumberC2EP7AstNode.exit172:                 ; preds = %_ZN7AstNode9private
   br label %_ZN8V3NumberD2Ev.exit
 
 _ZN8V3NumberD2Ev.exit:                            ; preds = %279, %277, %272, %271, %238, %134, %131
-  %.184 = phi i32 [ 1, %131 ], [ 5, %134 ], [ 5, %238 ], [ %.083, %271 ], [ %.083, %272 ], [ %.083, %277 ], [ %.083, %279 ]
-  %.278 = phi ptr [ %.076, %131 ], [ %.076, %134 ], [ %.177, %238 ], [ %.177, %271 ], [ %.177, %272 ], [ %.177, %277 ], [ %.177, %279 ]
+  %.083 = phi i32 [ 1, %131 ], [ 5, %134 ], [ 5, %238 ], [ %.184, %271 ], [ %.184, %272 ], [ %.184, %277 ], [ %.184, %279 ]
+  %.278 = phi ptr [ %.177, %131 ], [ %.177, %134 ], [ %.379, %238 ], [ %.379, %271 ], [ %.379, %272 ], [ %.379, %277 ], [ %.379, %279 ]
   %.175 = phi i32 [ %.074, %131 ], [ %.074, %134 ], [ %227, %238 ], [ %227, %271 ], [ %227, %272 ], [ %227, %277 ], [ %227, %279 ]
   %280 = load i8, ptr %82, align 4
   %281 = icmp eq i8 %280, 3
@@ -5917,7 +5917,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %279, %277, %272, %2
   br label %_ZN8V3NumberD2Ev.exit174
 
 _ZN8V3NumberD2Ev.exit174:                         ; preds = %282, %283, %288, %290
-  switch i32 %.184, label %.loopexit198 [
+  switch i32 %.083, label %.loopexit198 [
     i32 0, label %98
     i32 5, label %.loopexit199
   ], !llvm.loop !16
@@ -5928,9 +5928,9 @@ _ZN8V3NumberD2Ev.exit174:                         ; preds = %282, %283, %288, %2
   br label %.body131
 
 .loopexit199:                                     ; preds = %_ZN8V3NumberD2Ev.exit174, %72
-  %.379 = phi ptr [ null, %72 ], [ %.278, %_ZN8V3NumberD2Ev.exit174 ]
-  %.not119 = icmp eq ptr %.379, null
-  %spec.select = select i1 %.not119, ptr %3, ptr %.379
+  %.076 = phi ptr [ null, %72 ], [ %.278, %_ZN8V3NumberD2Ev.exit174 ]
+  %.not119 = icmp eq ptr %.076, null
+  %spec.select = select i1 %.not119, ptr %3, ptr %.076
   invoke void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %spec.select)
           to label %291 unwind label %.loopexit.split-lp
 
@@ -6025,7 +6025,7 @@ _ZNK7AstNode8dumpTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.ex
   br label %.body131
 
 .loopexit198:                                     ; preds = %_ZN8V3NumberD2Ev.exit174, %304, %_ZNK7AstNode8dumpTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit, %53
-  %.3 = phi i1 [ false, %53 ], [ true, %_ZNK7AstNode8dumpTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit ], [ true, %304 ], [ false, %_ZN8V3NumberD2Ev.exit174 ]
+  %.0 = phi i1 [ false, %53 ], [ true, %_ZNK7AstNode8dumpTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.exit ], [ true, %304 ], [ false, %_ZN8V3NumberD2Ev.exit174 ]
   %314 = load i8, ptr %44, align 4
   %315 = icmp eq i8 %314, 3
   br i1 %315, label %316, label %317
@@ -6051,7 +6051,7 @@ _ZNK7AstNode8dumpTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi.ex
   br label %_ZN8V3NumberD2Ev.exit190
 
 _ZN8V3NumberD2Ev.exit190:                         ; preds = %316, %317, %322, %324
-  ret i1 %.3
+  ret i1 %.0
 
 .body131:                                         ; preds = %.loopexit, %.loopexit.split-lp, %121, %.body185, %.body170, %.body
   %.pn122.pn = phi { ptr, i32 } [ %.pn122, %.body185 ], [ %.pn117, %.body170 ], [ %eh.lpad-body, %.body ], [ %122, %121 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]

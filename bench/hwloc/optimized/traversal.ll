@@ -532,7 +532,7 @@ define i32 @hwloc_get_closest_objs(ptr nocapture noundef readonly %0, ptr nocapt
   br label %.preheader42.us
 
 .preheader42.us:                                  ; preds = %.preheader42.us.preheader, %..loopexit_crit_edge.us
-  %.055.us = phi i32 [ %.2.us, %..loopexit_crit_edge.us ], [ 0, %.preheader42.us.preheader ]
+  %.055.us = phi i32 [ %.3.us, %..loopexit_crit_edge.us ], [ 0, %.preheader42.us.preheader ]
   %.03254.us = phi ptr [ %21, %..loopexit_crit_edge.us ], [ %1, %.preheader42.us.preheader ]
   br label %19
 
@@ -554,7 +554,7 @@ define i32 @hwloc_get_closest_objs(ptr nocapture noundef readonly %0, ptr nocapt
 
 28:                                               ; preds = %.preheader.us, %43
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %43 ]
-  %.153.us = phi i32 [ %.055.us, %.preheader.us ], [ %.2.us, %43 ]
+  %.253.us = phi i32 [ %.055.us, %.preheader.us ], [ %.3.us, %43 ]
   %29 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 184
@@ -571,15 +571,15 @@ define i32 @hwloc_get_closest_objs(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not40.us, label %38, label %43
 
 38:                                               ; preds = %35
-  %39 = add i32 %.153.us, 1
-  %40 = zext i32 %.153.us to i64
+  %39 = add i32 %.253.us, 1
+  %40 = zext i32 %.253.us to i64
   %41 = getelementptr inbounds ptr, ptr %2, i64 %40
   store ptr %30, ptr %41, align 8
   %42 = icmp eq i32 %39, %3
   br i1 %42, label %.loopexit41, label %43
 
 43:                                               ; preds = %38, %35, %28
-  %.2.us = phi i32 [ %.153.us, %35 ], [ %39, %38 ], [ %.153.us, %28 ]
+  %.3.us = phi i32 [ %.253.us, %35 ], [ %39, %38 ], [ %.253.us, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %28, !llvm.loop !8
@@ -590,7 +590,7 @@ define i32 @hwloc_get_closest_objs(ptr nocapture noundef readonly %0, ptr nocapt
   br label %28
 
 ..loopexit_crit_edge.us:                          ; preds = %43
-  %46 = icmp ult i32 %.2.us, %3
+  %46 = icmp ult i32 %.3.us, %3
   br i1 %46, label %.preheader42.us, label %.loopexit41, !llvm.loop !9
 
 .preheader42:                                     ; preds = %.preheader42.lr.ph, %.preheader42
@@ -601,7 +601,7 @@ define i32 @hwloc_get_closest_objs(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not37, label %.loopexit41, label %.preheader42
 
 .loopexit41:                                      ; preds = %..loopexit_crit_edge.us, %19, %38, %.preheader42, %7, %4
-  %.030 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %.preheader42 ], [ %3, %38 ], [ %.055.us, %19 ], [ %.2.us, %..loopexit_crit_edge.us ]
+  %.030 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %.preheader42 ], [ %3, %38 ], [ %.055.us, %19 ], [ %.3.us, %..loopexit_crit_edge.us ]
   ret i32 %.030
 }
 
@@ -677,7 +677,7 @@ define internal fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %0
 20:                                               ; preds = %.lr.ph, %42
   %21 = phi i32 [ %12, %.lr.ph ], [ %43, %42 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %.02833 = phi i32 [ 0, %.lr.ph ], [ %.1, %42 ]
+  %.02833 = phi i32 [ 0, %.lr.ph ], [ %.2, %42 ]
   %22 = load ptr, ptr %13, align 8
   %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
@@ -711,14 +711,14 @@ define internal fastcc i32 @hwloc__get_largest_objs_inside_cpuset(ptr noundef %0
 
 42:                                               ; preds = %._crit_edge, %20
   %43 = phi i32 [ %.pre, %._crit_edge ], [ %21, %20 ]
-  %.1 = phi i32 [ %40, %._crit_edge ], [ %.02833, %20 ]
+  %.2 = phi i32 [ %40, %._crit_edge ], [ %.02833, %20 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = zext i32 %43 to i64
   %45 = icmp ult i64 %indvars.iv.next, %44
   br i1 %45, label %20, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %28, %42, %.preheader, %4, %14
-  %.0 = phi i32 [ 1, %14 ], [ 0, %4 ], [ 0, %.preheader ], [ %40, %28 ], [ %.1, %42 ]
+  %.0 = phi i32 [ 1, %14 ], [ 0, %4 ], [ 0, %.preheader ], [ %40, %28 ], [ %.2, %42 ]
   ret i32 %.0
 }
 
@@ -1059,8 +1059,8 @@ hwloc__type_match.exit148.thread:                 ; preds = %._crit_edge.i.threa
   br label %135
 
 135:                                              ; preds = %129, %133, %131, %124
-  %.069 = phi i32 [ %125, %124 ], [ %130, %131 ], [ %130, %133 ], [ %130, %129 ]
-  %.067 = phi i32 [ 2, %124 ], [ 1, %131 ], [ 0, %133 ], [ 0, %129 ]
+  %.170 = phi i32 [ %125, %124 ], [ %130, %131 ], [ %130, %133 ], [ %130, %129 ]
+  %.1 = phi i32 [ 2, %124 ], [ 1, %131 ], [ 0, %133 ], [ 0, %129 ]
   %.0 = phi ptr [ %126, %124 ], [ %132, %131 ], [ %134, %133 ], [ %120, %129 ]
   %136 = tail call fastcc ptr @hwloc__type_match(ptr noundef nonnull %.0, ptr noundef nonnull @.str.39, i64 noundef 0)
   %.not98 = icmp eq ptr %136, null
@@ -1084,16 +1084,16 @@ hwloc__type_match.exit148.thread:                 ; preds = %._crit_edge.i.threa
   br label %hwloc__type_match.exit
 
 hwloc__type_match.exit:                           ; preds = %78, %61, %42, %._crit_edge.i144, %._crit_edge.i124, %._crit_edge.i.thread.thread, %._crit_edge.i, %110, %108, %106, %104, %102, %100, %98, %96, %92, %94, %88, %90, %hwloc__type_match.exit148.thread, %._crit_edge.i.thread, %hwloc__osdev_types_sscanf.exit107, %142, %139, %135, %hwloc__osdev_types_sscanf.exit
-  %.170 = phi i32 [ %.069, %135 ], [ 12, %142 ], [ 12, %139 ], [ 16, %hwloc__osdev_types_sscanf.exit107 ], [ 16, %hwloc__osdev_types_sscanf.exit ], [ 16, %._crit_edge.i.thread ], [ 13, %hwloc__type_match.exit148.thread ], [ 18, %90 ], [ 18, %88 ], [ 1, %94 ], [ 1, %92 ], [ 19, %96 ], [ 2, %98 ], [ 3, %100 ], [ 17, %102 ], [ 14, %104 ], [ 14, %106 ], [ 14, %108 ], [ 15, %110 ], [ 16, %._crit_edge.i ], [ 16, %._crit_edge.i.thread.thread ], [ 0, %._crit_edge.i124 ], [ 13, %._crit_edge.i144 ], [ 16, %42 ], [ 0, %61 ], [ 13, %78 ]
+  %.069 = phi i32 [ %.170, %135 ], [ 12, %142 ], [ 12, %139 ], [ 16, %hwloc__osdev_types_sscanf.exit107 ], [ 16, %hwloc__osdev_types_sscanf.exit ], [ 16, %._crit_edge.i.thread ], [ 13, %hwloc__type_match.exit148.thread ], [ 18, %90 ], [ 18, %88 ], [ 1, %94 ], [ 1, %92 ], [ 19, %96 ], [ 2, %98 ], [ 3, %100 ], [ 17, %102 ], [ 14, %104 ], [ 14, %106 ], [ 14, %108 ], [ 15, %110 ], [ 16, %._crit_edge.i ], [ 16, %._crit_edge.i.thread.thread ], [ 0, %._crit_edge.i124 ], [ 13, %._crit_edge.i144 ], [ 16, %42 ], [ 0, %61 ], [ 13, %78 ]
   %.068 = phi i32 [ %119, %135 ], [ %144, %142 ], [ -1, %139 ], [ -1, %hwloc__osdev_types_sscanf.exit107 ], [ -1, %hwloc__osdev_types_sscanf.exit ], [ -1, %._crit_edge.i.thread ], [ -1, %hwloc__type_match.exit148.thread ], [ -1, %90 ], [ -1, %88 ], [ -1, %94 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ], [ -1, %110 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i124 ], [ -1, %._crit_edge.i144 ], [ -1, %42 ], [ -1, %61 ], [ -1, %78 ]
-  %.1 = phi i32 [ %.067, %135 ], [ -1, %142 ], [ -1, %139 ], [ -1, %hwloc__osdev_types_sscanf.exit107 ], [ -1, %hwloc__osdev_types_sscanf.exit ], [ -1, %._crit_edge.i.thread ], [ -1, %hwloc__type_match.exit148.thread ], [ -1, %90 ], [ -1, %88 ], [ -1, %94 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ], [ -1, %110 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i124 ], [ -1, %._crit_edge.i144 ], [ -1, %42 ], [ -1, %61 ], [ -1, %78 ]
+  %.067 = phi i32 [ %.1, %135 ], [ -1, %142 ], [ -1, %139 ], [ -1, %hwloc__osdev_types_sscanf.exit107 ], [ -1, %hwloc__osdev_types_sscanf.exit ], [ -1, %._crit_edge.i.thread ], [ -1, %hwloc__type_match.exit148.thread ], [ -1, %90 ], [ -1, %88 ], [ -1, %94 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ -1, %106 ], [ -1, %108 ], [ -1, %110 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i124 ], [ -1, %._crit_edge.i144 ], [ -1, %42 ], [ -1, %61 ], [ -1, %78 ]
   %.066 = phi i32 [ -1, %135 ], [ -1, %142 ], [ -1, %139 ], [ -1, %hwloc__osdev_types_sscanf.exit107 ], [ -1, %hwloc__osdev_types_sscanf.exit ], [ -1, %._crit_edge.i.thread ], [ -1, %hwloc__type_match.exit148.thread ], [ -1, %90 ], [ -1, %88 ], [ -1, %94 ], [ -1, %92 ], [ -1, %96 ], [ -1, %98 ], [ -1, %100 ], [ -1, %102 ], [ -1, %104 ], [ 0, %106 ], [ 1, %108 ], [ -1, %110 ], [ -1, %._crit_edge.i ], [ -1, %._crit_edge.i.thread.thread ], [ -1, %._crit_edge.i124 ], [ -1, %._crit_edge.i144 ], [ -1, %42 ], [ -1, %61 ], [ -1, %78 ]
-  store i32 %.170, ptr %1, align 4
+  store i32 %.069, ptr %1, align 4
   %.not99 = icmp eq ptr %2, null
   br i1 %.not99, label %167, label %145
 
 145:                                              ; preds = %hwloc__type_match.exit
-  %146 = add nsw i32 %.170, -4
+  %146 = add nsw i32 %.069, -4
   %147 = icmp ult i32 %146, 8
   %148 = icmp ugt i64 %3, 23
   %or.cond5 = and i1 %148, %147
@@ -1103,11 +1103,11 @@ hwloc__type_match.exit:                           ; preds = %78, %61, %42, %._cr
   %150 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %.068, ptr %150, align 8
   %151 = getelementptr inbounds i8, ptr %2, i64 20
-  store i32 %.1, ptr %151, align 4
+  store i32 %.067, ptr %151, align 4
   br label %167
 
 152:                                              ; preds = %145
-  %153 = icmp eq i32 %.170, 12
+  %153 = icmp eq i32 %.069, 12
   %154 = icmp ugt i64 %3, 15
   %or.cond7 = and i1 %154, %153
   br i1 %or.cond7, label %155, label %156
@@ -1117,7 +1117,7 @@ hwloc__type_match.exit:                           ; preds = %78, %61, %42, %._cr
   br label %167
 
 156:                                              ; preds = %152
-  %157 = icmp eq i32 %.170, 14
+  %157 = icmp eq i32 %.069, 14
   %158 = icmp ugt i64 %3, 43
   %or.cond9 = and i1 %158, %157
   br i1 %or.cond9, label %159, label %162
@@ -1130,7 +1130,7 @@ hwloc__type_match.exit:                           ; preds = %78, %61, %42, %._cr
   br label %167
 
 162:                                              ; preds = %156
-  %163 = icmp eq i32 %.170, 16
+  %163 = icmp eq i32 %.069, 16
   %164 = icmp ugt i64 %3, 7
   %or.cond11 = and i1 %164, %163
   br i1 %or.cond11, label %165, label %167
@@ -2132,7 +2132,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %198
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %198 ]
-  %.0142185 = phi i32 [ %177, %.lr.ph.preheader ], [ %199, %198 ]
+  %.1143185 = phi i32 [ %177, %.lr.ph.preheader ], [ %199, %198 ]
   %.0144184 = phi i64 [ %189, %.lr.ph.preheader ], [ %207, %198 ]
   %.0145183 = phi ptr [ %188, %.lr.ph.preheader ], [ %206, %198 ]
   %.2148182 = phi ptr [ %spec.select168, %.lr.ph.preheader ], [ %.3149, %198 ]
@@ -2149,7 +2149,7 @@ define range(i32 -1, -2147483648) i32 @hwloc_obj_attr_snprintf(ptr noalias nocap
   br i1 %197, label %.loopexit, label %198
 
 198:                                              ; preds = %.lr.ph
-  %199 = add nuw nsw i32 %196, %.0142185
+  %199 = add nuw nsw i32 %196, %.1143185
   %200 = zext nneg i32 %196 to i64
   %.not167 = icmp sgt i64 %.0144184, %200
   %201 = icmp sgt i64 %.0144184, 0

@@ -357,7 +357,7 @@ if.end162:                                        ; preds = %if.then129, %land.l
 
 land.lhs.true167:                                 ; preds = %if.end124, %if.end162
   %hexlen.0107 = phi i32 [ %call130, %if.end162 ], [ 0, %if.end124 ]
-  %nread.1102 = phi i64 [ %add, %if.end162 ], [ %nread.09194, %if.end124 ]
+  %nread.2102 = phi i64 [ %add, %if.end162 ], [ %nread.09194, %if.end124 ]
   %trailers_buf1.i = getelementptr inbounds i8, ptr %data, i64 4744
   %call.i = call i64 @Curl_dyn_len(ptr noundef nonnull %trailers_buf1.i) #10
   %trailers_bytes_sent.i = getelementptr inbounds i8, ptr %data, i64 4736
@@ -390,8 +390,8 @@ if.then192:                                       ; preds = %land.lhs.true184
 if.else195:                                       ; preds = %land.lhs.true167.if.else195_crit_edge, %if.end162.thread108, %if.end162
   %conv196.pre-phi = phi i64 [ %.pre, %land.lhs.true167.if.else195_crit_edge ], [ %idx.ext, %if.end162.thread108 ], [ %idx.ext, %if.end162 ]
   %added_crlf.0104 = phi i1 [ %cmp127.not, %land.lhs.true167.if.else195_crit_edge ], [ false, %if.end162.thread108 ], [ true, %if.end162 ]
-  %nread.1101 = phi i64 [ %nread.1102, %land.lhs.true167.if.else195_crit_edge ], [ %add, %if.end162.thread108 ], [ %add, %if.end162 ]
-  %cmp198 = icmp eq i64 %nread.1101, %conv196.pre-phi
+  %nread.2101 = phi i64 [ %nread.2102, %land.lhs.true167.if.else195_crit_edge ], [ %add, %if.end162.thread108 ], [ %add, %if.end162 ]
+  %cmp198 = icmp eq i64 %nread.2101, %conv196.pre-phi
   br i1 %cmp198, label %land.lhs.true200, label %if.end225
 
 land.lhs.true200:                                 ; preds = %if.else195
@@ -415,18 +415,18 @@ if.then221:                                       ; preds = %land.lhs.true213
 
 if.end225:                                        ; preds = %if.else195, %land.lhs.true200, %land.lhs.true213, %land.lhs.true184
   %added_crlf.0103 = phi i1 [ %added_crlf.0104, %if.else195 ], [ %added_crlf.0104, %land.lhs.true200 ], [ %added_crlf.0104, %land.lhs.true213 ], [ %cmp127.not, %land.lhs.true184 ]
-  %nread.1100 = phi i64 [ %nread.1101, %if.else195 ], [ %nread.1101, %land.lhs.true200 ], [ %nread.1101, %land.lhs.true213 ], [ %nread.1102, %land.lhs.true184 ]
+  %nread.2100 = phi i64 [ %nread.2101, %if.else195 ], [ %nread.2101, %land.lhs.true200 ], [ %nread.2101, %land.lhs.true213 ], [ %nread.2102, %land.lhs.true184 ]
   br i1 %added_crlf.0103, label %if.then227, label %if.end231
 
 if.then227:                                       ; preds = %if.then192, %if.then221, %if.end225
-  %nread.1100113 = phi i64 [ %nread.1101, %if.then221 ], [ %nread.1100, %if.end225 ], [ %nread.1102, %if.then192 ]
+  %nread.2100113 = phi i64 [ %nread.2101, %if.then221 ], [ %nread.2100, %if.end225 ], [ %nread.2102, %if.then192 ]
   %call228 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %endofline_network.0) #11
-  %add229 = add i64 %call228, %nread.1100113
+  %add229 = add i64 %call228, %nread.2100113
   br label %if.end231
 
 if.end231:                                        ; preds = %if.then192, %if.then221, %if.end225, %if.then227, %if.end95
-  %nread.2 = phi i64 [ %nread.09194, %if.end95 ], [ %add229, %if.then227 ], [ %nread.1100, %if.end225 ], [ %nread.1101, %if.then221 ], [ %nread.1102, %if.then192 ]
-  store i64 %nread.2, ptr %nreadp, align 8
+  %nread.1 = phi i64 [ %nread.09194, %if.end95 ], [ %add229, %if.then227 ], [ %nread.2100, %if.end225 ], [ %nread.2101, %if.then221 ], [ %nread.2102, %if.then192 ]
+  store i64 %nread.1, ptr %nreadp, align 8
   br label %return
 
 return:                                           ; preds = %if.end231, %if.then93, %if.end89, %if.then76, %if.then69, %if.then16
@@ -656,7 +656,7 @@ if.then34:                                        ; preds = %if.end28
   br label %do.body2.i
 
 do.body2.i:                                       ; preds = %data_pending.exit.i, %if.then34
-  %didwhat.0 = phi i32 [ 0, %if.then34 ], [ 1, %data_pending.exit.i ]
+  %didwhat.2 = phi i32 [ 0, %if.then34 ], [ 1, %data_pending.exit.i ]
   %is_multiplex.0.i = phi i8 [ 0, %if.then34 ], [ %is_multiplex.1.i, %data_pending.exit.i ]
   %total_received.0.i = phi i64 [ 0, %if.then34 ], [ %29, %data_pending.exit.i ]
   %maxloops.0.i = phi i32 [ 10, %if.then34 ], [ %dec.i, %data_pending.exit.i ]
@@ -891,7 +891,7 @@ data_pending.exit.i:                              ; preds = %return.sink.split.i
   br i1 %tobool75.not.i, label %do.end76.i, label %do.body2.i, !llvm.loop !6
 
 do.end76.i:                                       ; preds = %data_pending.exit.i, %if.end63.i, %if.then6.i, %if.then40.i, %if.then21.i
-  %didwhat.3 = phi i32 [ 1, %if.then40.i ], [ %didwhat.0, %if.then21.i ], [ %didwhat.0, %if.then6.i ], [ 1, %if.end63.i ], [ 1, %data_pending.exit.i ]
+  %didwhat.3 = phi i32 [ 1, %if.then40.i ], [ %didwhat.2, %if.then21.i ], [ %didwhat.2, %if.then6.i ], [ 1, %if.end63.i ], [ 1, %data_pending.exit.i ]
   %maxloops.1.i = phi i32 [ %maxloops.0.i, %if.then40.i ], [ %maxloops.0.i, %if.then21.i ], [ %maxloops.0.i, %if.then6.i ], [ %maxloops.0.i, %if.end63.i ], [ %dec.i, %data_pending.exit.i ]
   %cmp77.i = icmp slt i32 %maxloops.1.i, 1
   %.pre136 = load i32, ptr %keepon29, align 4
@@ -899,7 +899,7 @@ do.end76.i:                                       ; preds = %data_pending.exit.i
 
 if.then79.i:                                      ; preds = %do.cond.i, %do.end76.i
   %39 = phi i32 [ %.pre136, %do.end76.i ], [ %33, %do.cond.i ]
-  %didwhat.4 = phi i32 [ %didwhat.3, %do.end76.i ], [ 1, %do.cond.i ]
+  %didwhat.5 = phi i32 [ %didwhat.3, %do.end76.i ], [ 1, %do.cond.i ]
   %and82.i = and i32 %39, 42
   %cmp83.i = icmp eq i32 %and82.i, 2
   %spec.store.select.i = select i1 %cmp83.i, i8 3, i8 1
@@ -908,7 +908,7 @@ if.then79.i:                                      ; preds = %do.cond.i, %do.end7
 
 if.end92.i:                                       ; preds = %if.then79.i, %do.end76.i
   %40 = phi i32 [ %39, %if.then79.i ], [ %.pre136, %do.end76.i ]
-  %didwhat.5 = phi i32 [ %didwhat.4, %if.then79.i ], [ %didwhat.3, %do.end76.i ]
+  %didwhat.4 = phi i32 [ %didwhat.5, %if.then79.i ], [ %didwhat.3, %do.end76.i ]
   %and94.i = and i32 %40, 3
   %cmp95.i = icmp eq i32 %and94.i, 2
   br i1 %cmp95.i, label %land.lhs.true97.i, label %lor.lhs.false
@@ -943,7 +943,7 @@ do.end118.i:                                      ; preds = %if.then115.i, %land
   br label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %Curl_xfer_recv_resp.exit.i, %lor.lhs.false.i, %do.end118.i, %lor.lhs.false102.i, %if.end92.i
-  %didwhat.6.ph = phi i32 [ %didwhat.5, %if.end92.i ], [ %didwhat.5, %lor.lhs.false102.i ], [ %didwhat.5, %do.end118.i ], [ 1, %lor.lhs.false.i ], [ %didwhat.0, %Curl_xfer_recv_resp.exit.i ]
+  %didwhat.8.ph = phi i32 [ %didwhat.4, %if.end92.i ], [ %didwhat.4, %lor.lhs.false102.i ], [ %didwhat.4, %do.end118.i ], [ 1, %lor.lhs.false.i ], [ %didwhat.2, %Curl_xfer_recv_resp.exit.i ]
   %44 = load i8, ptr %done, align 1
   %tobool37 = trunc i8 %44 to i1
   br i1 %tobool37, label %out, label %lor.lhs.false.if.end41_crit_edge
@@ -954,7 +954,7 @@ lor.lhs.false.if.end41_crit_edge:                 ; preds = %lor.lhs.false
 
 if.end41:                                         ; preds = %lor.lhs.false.if.end41_crit_edge, %if.end28
   %45 = phi i32 [ %8, %if.end28 ], [ %.pre, %lor.lhs.false.if.end41_crit_edge ]
-  %didwhat.7 = phi i32 [ 0, %if.end28 ], [ %didwhat.6.ph, %lor.lhs.false.if.end41_crit_edge ]
+  %didwhat.0 = phi i32 [ 0, %if.end28 ], [ %didwhat.8.ph, %lor.lhs.false.if.end41_crit_edge ]
   %46 = and i32 %select_bits.0, 2
   %47 = and i32 %46, %45
   %or.cond62.not.not = icmp eq i32 %47, 0
@@ -963,7 +963,7 @@ if.end41:                                         ; preds = %lor.lhs.false.if.en
 if.then48:                                        ; preds = %if.end41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes_written.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %fillcount.i)
-  %or.i66 = or i32 %didwhat.7, 2
+  %or.i66 = or i32 %didwhat.0, 2
   %upload_present.i = getelementptr inbounds i8, ptr %data, i64 376
   %48 = load i64, ptr %upload_present.i, align 8
   %cmp.not.not.i = icmp eq i64 %48, 0
@@ -1063,7 +1063,7 @@ if.then49.i:                                      ; preds = %land.lhs.true46.i
   store i64 %65, ptr %start100.i, align 8
   %tmp.sroa.2.0.start100.sroa_idx.i = getelementptr inbounds i8, ptr %data, i64 320
   store i32 %66, ptr %tmp.sroa.2.0.start100.sroa_idx.i, align 8
-  %and52.i = and i32 %didwhat.7, -3
+  %and52.i = and i32 %didwhat.0, -3
   %expect_100_timeout.i = getelementptr inbounds i8, ptr %data, i64 2608
   %67 = load i64, ptr %expect_100_timeout.i, align 8
   call void @Curl_expire(ptr noundef nonnull %data, i64 noundef %67, i32 noundef 0) #10
@@ -1373,7 +1373,7 @@ if.then276.i:                                     ; preds = %if.end265.i
   br label %readwrite_upload.exit.thread
 
 readwrite_upload.exit.thread:                     ; preds = %if.then276.i, %if.then87.i, %if.then256.i, %if.end265.i, %land.lhs.true79.i, %if.then49.i
-  %didwhat.8.ph = phi i32 [ %or.i66, %if.then256.i ], [ %or.i66, %if.then276.i ], [ %or.i66, %if.end265.i ], [ %or.i66, %land.lhs.true79.i ], [ %or.i66, %if.then87.i ], [ %and52.i, %if.then49.i ]
+  %didwhat.9.ph = phi i32 [ %or.i66, %if.then256.i ], [ %or.i66, %if.then276.i ], [ %or.i66, %if.end265.i ], [ %or.i66, %land.lhs.true79.i ], [ %or.i66, %if.then87.i ], [ %and52.i, %if.then49.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes_written.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fillcount.i)
   br label %if.end53
@@ -1385,14 +1385,14 @@ readwrite_upload.exit:                            ; preds = %if.then.i.i80, %if.
   br label %out
 
 if.end53:                                         ; preds = %readwrite_upload.exit.thread, %if.end41
-  %didwhat.9 = phi i32 [ %didwhat.7, %if.end41 ], [ %didwhat.8.ph, %readwrite_upload.exit.thread ]
+  %didwhat.1 = phi i32 [ %didwhat.0, %if.end41 ], [ %didwhat.9.ph, %readwrite_upload.exit.thread ]
   %call54 = call { i64, i32 } @Curl_now() #10
   %116 = extractvalue { i64, i32 } %call54, 0
   %117 = extractvalue { i64, i32 } %call54, 1
   store i64 %116, ptr %now, align 8
   %tmp.sroa.2.0.now.sroa_idx = getelementptr inbounds i8, ptr %now, i64 8
   store i32 %117, ptr %tmp.sroa.2.0.now.sroa_idx, align 8
-  %tobool55.not = icmp eq i32 %didwhat.9, 0
+  %tobool55.not = icmp eq i32 %didwhat.1, 0
   br i1 %tobool55.not, label %if.then56, label %if.end80
 
 if.then56:                                        ; preds = %if.end53
@@ -1526,8 +1526,8 @@ if.end141:                                        ; preds = %if.end136, %if.then
   br label %out
 
 out:                                              ; preds = %if.end42.i, %if.end21.i58.i, %if.end80, %land.lhs.true.i, %readwrite_upload.exit, %if.then21.i, %if.end136, %if.then99, %if.else102, %select_bits_paused.exit, %if.end86, %if.end75, %lor.lhs.false, %if.end141, %if.then133, %if.then27
-  %result.1 = phi i32 [ 55, %if.then27 ], [ 0, %lor.lhs.false ], [ %retval.0.i, %readwrite_upload.exit ], [ %call85, %if.end86 ], [ 0, %if.end141 ], [ 18, %if.then133 ], [ %call76, %if.end75 ], [ 0, %select_bits_paused.exit ], [ 28, %if.else102 ], [ 28, %if.then99 ], [ 42, %if.end136 ], [ %call.i.i, %if.then21.i ], [ 0, %land.lhs.true.i ], [ 42, %if.end80 ], [ %result.0.i.i, %if.end42.i ], [ %result.0.i59.i, %if.end21.i58.i ]
-  ret i32 %result.1
+  %result.0 = phi i32 [ 55, %if.then27 ], [ 0, %lor.lhs.false ], [ %retval.0.i, %readwrite_upload.exit ], [ %call85, %if.end86 ], [ 0, %if.end141 ], [ 18, %if.then133 ], [ %call76, %if.end75 ], [ 0, %select_bits_paused.exit ], [ 28, %if.else102 ], [ 28, %if.then99 ], [ 42, %if.end136 ], [ %call.i.i, %if.then21.i ], [ 0, %land.lhs.true.i ], [ 42, %if.end80 ], [ %result.0.i.i, %if.end42.i ], [ %result.0.i59.i, %if.end21.i58.i ]
+  ret i32 %result.0
 }
 
 declare i32 @Curl_socket_check(i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1

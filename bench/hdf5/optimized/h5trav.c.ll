@@ -514,7 +514,7 @@ trav_token_add.exit:                              ; preds = %39
   br label %96
 
 96:                                               ; preds = %88, %92, %80, %69, %73, %61, %77, %58
-  %.026 = phi i32 [ 0, %58 ], [ 0, %77 ], [ -1, %61 ], [ -1, %73 ], [ -1, %69 ], [ -1, %80 ], [ -1, %92 ], [ -1, %88 ]
+  %.1 = phi i32 [ 0, %58 ], [ 0, %77 ], [ -1, %61 ], [ -1, %73 ], [ -1, %69 ], [ -1, %80 ], [ -1, %92 ], [ -1, %88 ]
   %97 = load ptr, ptr %41, align 8
   %.not35 = icmp eq ptr %97, null
   br i1 %.not35, label %106, label %.preheader
@@ -545,8 +545,8 @@ trav_token_add.exit:                              ; preds = %39
   br label %106
 
 106:                                              ; preds = %12, %24, %20, %35, %._crit_edge, %96
-  %.1 = phi i32 [ %.026, %._crit_edge ], [ %.026, %96 ], [ 0, %35 ], [ -1, %20 ], [ -1, %24 ], [ -1, %12 ]
-  ret i32 %.1
+  %.026 = phi i32 [ %.1, %._crit_edge ], [ %.1, %96 ], [ 0, %35 ], [ -1, %20 ], [ -1, %24 ], [ -1, %12 ]
+  ret i32 %.026
 }
 
 declare i32 @H5Epush2(i64 noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4

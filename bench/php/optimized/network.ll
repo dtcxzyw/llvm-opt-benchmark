@@ -762,7 +762,7 @@ define range(i32 -1, 1) i32 @php_network_parse_network_address_with_port(ptr nou
   br i1 %.not8.i, label %php_network_freeaddresses.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %58, %.preheader.i
-  %.05363 = phi i32 [ 0, %.preheader.i ], [ -1, %58 ]
+  %.163 = phi i32 [ 0, %.preheader.i ], [ -1, %58 ]
   %66 = phi ptr [ %.pr, %.preheader.i ], [ %60, %58 ]
   br label %.lr.ph.i
 
@@ -776,17 +776,17 @@ define range(i32 -1, 1) i32 @php_network_parse_network_address_with_port(ptr nou
   br i1 %.not.i, label %php_network_freeaddresses.exit, label %.lr.ph.i
 
 php_network_freeaddresses.exit:                   ; preds = %.lr.ph.i, %.preheader.i
-  %.05364 = phi i32 [ 0, %.preheader.i ], [ %.05363, %.lr.ph.i ]
+  %.164 = phi i32 [ 0, %.preheader.i ], [ %.163, %.lr.ph.i ]
   call void @_efree(ptr noundef nonnull %59) #19
   br label %70
 
 70:                                               ; preds = %44, %52, %57, %46, %php_network_freeaddresses.exit, %38, %31
-  %.1 = phi i32 [ 0, %31 ], [ 0, %38 ], [ -1, %46 ], [ -1, %57 ], [ -1, %52 ], [ -1, %44 ], [ %.05364, %php_network_freeaddresses.exit ]
+  %.053 = phi i32 [ 0, %31 ], [ 0, %38 ], [ -1, %46 ], [ -1, %57 ], [ -1, %52 ], [ -1, %44 ], [ %.164, %php_network_freeaddresses.exit ]
   call void @_efree(ptr noundef %27) #19
   br label %71
 
 71:                                               ; preds = %18, %9, %13, %70
-  %.0 = phi i32 [ %.1, %70 ], [ -1, %13 ], [ -1, %9 ], [ -1, %18 ]
+  %.0 = phi i32 [ %.053, %70 ], [ -1, %13 ], [ -1, %9 ], [ -1, %18 ]
   ret i32 %.0
 }
 
@@ -1123,7 +1123,7 @@ define i32 @php_network_connect_socket_to_host(ptr noundef %0, i16 noundef zeroe
   br label %42
 
 42:                                               ; preds = %31, %140
-  %.06798 = phi ptr [ %7, %31 ], [ %.2, %140 ]
+  %.06798 = phi ptr [ %7, %31 ], [ %.1, %140 ]
   %.06897 = phi ptr [ %32, %31 ], [ %141, %140 ]
   %43 = load ptr, ptr %.06897, align 8
   %.not82 = icmp eq ptr %43, null
@@ -1185,7 +1185,7 @@ sub_1:                                            ; preds = %sub_0
   br label %65
 
 65:                                               ; preds = %52, %.tail, %64, %49
-  %.1 = phi ptr [ null, %64 ], [ %.06798, %.tail ], [ null, %52 ], [ %.06798, %49 ]
+  %.2 = phi ptr [ null, %64 ], [ %.06798, %.tail ], [ null, %52 ], [ %.06798, %49 ]
   %.066 = phi i32 [ 16, %64 ], [ 16, %.tail ], [ 16, %52 ], [ 28, %49 ]
   %66 = zext nneg i16 %45 to i32
   %67 = call i32 @socket(i32 noundef %66, i32 noundef %2, i32 noundef 0) #19
@@ -1193,7 +1193,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %68, label %140, label %69
 
 69:                                               ; preds = %65
-  %.not88 = icmp eq ptr %.1, null
+  %.not88 = icmp eq ptr %.2, null
   br i1 %.not88, label %94, label %70
 
 70:                                               ; preds = %69
@@ -1202,7 +1202,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %72, label %73, label %79
 
 73:                                               ; preds = %70
-  %74 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.1, ptr noundef nonnull %35) #19
+  %74 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.2, ptr noundef nonnull %35) #19
   %75 = icmp eq i32 %74, 1
   br i1 %75, label %76, label %85
 
@@ -1215,7 +1215,7 @@ sub_1:                                            ; preds = %sub_0
   br label %87
 
 79:                                               ; preds = %70
-  %80 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.1, ptr noundef nonnull %33) #19
+  %80 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.2, ptr noundef nonnull %33) #19
   %81 = icmp eq i32 %80, 1
   br i1 %81, label %82, label %85
 
@@ -1229,7 +1229,7 @@ sub_1:                                            ; preds = %sub_0
 85:                                               ; preds = %73, %79
   store i32 1, ptr %16, align 4
   %86 = call i32 @setsockopt(i32 noundef %67, i32 noundef 0, i32 noundef 24, ptr noundef nonnull %16, i32 noundef 4) #19
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %.1) #19
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.8, ptr noundef nonnull %.2) #19
   br label %94
 
 87:                                               ; preds = %76, %82
@@ -1244,7 +1244,7 @@ sub_1:                                            ; preds = %sub_0
   %91 = tail call ptr @__errno_location() #20
   %92 = load i32, ptr %91, align 4
   %93 = call ptr @strerror(i32 noundef %92) #19
-  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %.1, i32 noundef %36, ptr noundef %93) #19
+  call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %.2, i32 noundef %36, ptr noundef %93) #19
   br label %94
 
 94:                                               ; preds = %85, %90, %87, %69
@@ -1348,15 +1348,15 @@ sub_1:                                            ; preds = %sub_0
   br label %sub_times.exit
 
 sub_times.exit:                                   ; preds = %136, %128, %122, %126, %116
-  %.171 = phi i32 [ 0, %116 ], [ 1, %126 ], [ 1, %122 ], [ 0, %128 ], [ 0, %136 ]
+  %.272 = phi i32 [ 0, %116 ], [ 1, %126 ], [ 1, %122 ], [ 0, %128 ], [ 0, %136 ]
   %139 = call i32 @close(i32 noundef %67) #19
   br label %140
 
 140:                                              ; preds = %65, %44, %47, %sub_times.exit
-  %.272 = phi i32 [ 0, %44 ], [ 0, %65 ], [ %.171, %sub_times.exit ], [ 0, %47 ]
-  %.2 = phi ptr [ %.06798, %44 ], [ %.1, %65 ], [ %.1, %sub_times.exit ], [ %.06798, %47 ]
+  %.171 = phi i32 [ 0, %44 ], [ 0, %65 ], [ %.272, %sub_times.exit ], [ 0, %47 ]
+  %.1 = phi ptr [ %.06798, %44 ], [ %.2, %65 ], [ %.2, %sub_times.exit ], [ %.06798, %47 ]
   %141 = getelementptr inbounds i8, ptr %.06897, i64 8
-  %.not81 = icmp eq i32 %.272, 0
+  %.not81 = icmp eq i32 %.171, 0
   br i1 %.not81, label %42, label %.critedge
 
 .critedge:                                        ; preds = %42, %140, %114

@@ -222,8 +222,8 @@ generic_asn1.exit:                                ; preds = %if.then5, %if.end.i
   br label %if.end8
 
 if.end8:                                          ; preds = %generic_asn1.exit, %if.then2
-  %ext_der.0 = phi ptr [ %call3, %if.then2 ], [ %retval.0.i, %generic_asn1.exit ]
-  %cmp9 = icmp eq ptr %ext_der.0, null
+  %ext_der.1 = phi ptr [ %call3, %if.then2 ], [ %retval.0.i, %generic_asn1.exit ]
+  %cmp9 = icmp eq ptr %ext_der.1, null
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %if.end, %if.end8
@@ -245,7 +245,7 @@ if.then14:                                        ; preds = %if.end11
 
 if.end15:                                         ; preds = %if.end11
   %data = getelementptr inbounds i8, ptr %call12, i64 8
-  store ptr %ext_der.0, ptr %data, align 8
+  store ptr %ext_der.1, ptr %data, align 8
   %1 = load i64, ptr %ext_len, align 8
   %conv = trunc i64 %1 to i32
   store i32 %conv, ptr %call12, align 8
@@ -253,12 +253,12 @@ if.end15:                                         ; preds = %if.end11
   br label %err
 
 err:                                              ; preds = %if.end15, %if.then14, %if.then10, %if.then
-  %ext_der.1 = phi ptr [ null, %if.then ], [ null, %if.then10 ], [ %ext_der.0, %if.then14 ], [ null, %if.end15 ]
+  %ext_der.0 = phi ptr [ null, %if.then ], [ null, %if.then10 ], [ %ext_der.1, %if.then14 ], [ null, %if.end15 ]
   %oct.0 = phi ptr [ null, %if.then ], [ null, %if.then10 ], [ null, %if.then14 ], [ %call12, %if.end15 ]
   %extension.0 = phi ptr [ null, %if.then ], [ null, %if.then10 ], [ null, %if.then14 ], [ %call16, %if.end15 ]
   call void @ASN1_OBJECT_free(ptr noundef %call) #6
   call void @ASN1_OCTET_STRING_free(ptr noundef %oct.0) #6
-  call void @CRYPTO_free(ptr noundef %ext_der.1, ptr noundef nonnull @.str, i32 noundef 279) #6
+  call void @CRYPTO_free(ptr noundef %ext_der.0, ptr noundef nonnull @.str, i32 noundef 279) #6
   ret ptr %extension.0
 }
 

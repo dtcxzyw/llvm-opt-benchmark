@@ -1451,7 +1451,7 @@ if.then23:                                        ; preds = %land.lhs.true18
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then23, %land.lhs.true18, %if.then14
-  %dict_str.0 = phi ptr [ %6, %if.then23 ], [ null, %land.lhs.true18 ], [ null, %if.then14 ]
+  %dict_str.1 = phi ptr [ %6, %if.then23 ], [ null, %land.lhs.true18 ], [ null, %if.then14 ]
   %call25 = tail call ptr @lj_str_new(ptr noundef nonnull %L, ptr noundef nonnull @.str.8, i64 noundef 9) #5
   %call26 = tail call ptr @lj_tab_getstr(ptr noundef %call15, ptr noundef %call25) #5
   %tobool27.not = icmp eq ptr %call26, null
@@ -1471,7 +1471,7 @@ if.then33:                                        ; preds = %land.lhs.true28
 
 if.end37:                                         ; preds = %if.end24, %land.lhs.true28, %if.then33, %if.end8
   %dict_mt.0 = phi i64 [ %and35, %if.then33 ], [ 0, %land.lhs.true28 ], [ 0, %if.end24 ], [ 0, %if.end8 ]
-  %dict_str.1 = phi ptr [ %dict_str.0, %if.then33 ], [ %dict_str.0, %land.lhs.true28 ], [ %dict_str.0, %if.end24 ], [ null, %if.end8 ]
+  %dict_str.0 = phi ptr [ %dict_str.1, %if.then33 ], [ %dict_str.1, %land.lhs.true28 ], [ %dict_str.1, %if.end24 ], [ null, %if.end8 ]
   %9 = load ptr, ptr %base, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %9, i64 -16
   %10 = load i64, ptr %add.ptr39, align 8
@@ -1497,7 +1497,7 @@ if.end37:                                         ; preds = %if.end24, %land.lhs
   %add.i = add i64 %16, 1
   %L1.i = getelementptr inbounds i8, ptr %call44, i64 72
   store i64 %add.i, ptr %L1.i, align 8
-  %17 = ptrtoint ptr %dict_str.1 to i64
+  %17 = ptrtoint ptr %dict_str.0 to i64
   %dict_str48 = getelementptr inbounds i8, ptr %call44, i64 96
   store i64 %17, ptr %dict_str48, align 8
   %dict_mt50 = getelementptr inbounds i8, ptr %call44, i64 104

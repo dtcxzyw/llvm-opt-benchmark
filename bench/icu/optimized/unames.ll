@@ -353,7 +353,7 @@ do.body57:                                        ; preds = %sw.bb43, %if.end63
   %incdec.ptr5344 = phi ptr [ %incdec.ptr53, %if.end63 ], [ %incdec.ptr5339, %sw.bb43 ]
   %buffer.addr.243 = phi ptr [ %buffer.addr.3, %if.end63 ], [ %buffer, %sw.bb43 ]
   %bufferLength.addr.242 = phi i16 [ %bufferLength.addr.3, %if.end63 ], [ %bufferLength, %sw.bb43 ]
-  %bufferPos.141 = phi i16 [ %inc64, %if.end63 ], [ 0, %sw.bb43 ]
+  %bufferPos.241 = phi i16 [ %inc64, %if.end63 ], [ 0, %sw.bb43 ]
   %cmp59.not = icmp eq i16 %bufferLength.addr.242, 0
   br i1 %cmp59.not, label %if.end63, label %if.then60
 
@@ -366,14 +366,14 @@ if.then60:                                        ; preds = %do.body57
 if.end63:                                         ; preds = %if.then60, %do.body57
   %bufferLength.addr.3 = phi i16 [ %dec62, %if.then60 ], [ 0, %do.body57 ]
   %buffer.addr.3 = phi ptr [ %incdec.ptr61, %if.then60 ], [ %buffer.addr.243, %do.body57 ]
-  %inc64 = add i16 %bufferPos.141, 1
+  %inc64 = add i16 %bufferPos.241, 1
   %incdec.ptr53 = getelementptr inbounds i8, ptr %incdec.ptr5344, i64 1
   %13 = load i8, ptr %incdec.ptr5344, align 1
   %cmp55.not = icmp eq i8 %13, 0
   br i1 %cmp55.not, label %while.end66, label %do.body57, !llvm.loop !8
 
 while.end66:                                      ; preds = %if.end63, %sw.bb43
-  %bufferPos.1.lcssa = phi i16 [ 0, %sw.bb43 ], [ %inc64, %if.end63 ]
+  %bufferPos.2.lcssa = phi i16 [ 0, %sw.bb43 ], [ %inc64, %if.end63 ]
   %bufferLength.addr.2.lcssa = phi i16 [ %bufferLength, %sw.bb43 ], [ %bufferLength.addr.3, %if.end63 ]
   %buffer.addr.2.lcssa = phi ptr [ %buffer, %sw.bb43 ], [ %buffer.addr.3, %if.end63 ]
   %incdec.ptr53.lcssa = phi ptr [ %incdec.ptr5339, %sw.bb43 ], [ %incdec.ptr53, %if.end63 ]
@@ -517,7 +517,7 @@ if.then67.i:                                      ; preds = %for.end64.i
   br label %_ZN6icu_75L17writeFactorSuffixEPKttPKcjPtPS3_S5_Pct.exit
 
 _ZN6icu_75L17writeFactorSuffixEPKttPKcjPtPS3_S5_Pct.exit: ; preds = %for.end64.i, %if.then67.i
-  %add69 = add i16 %bufferPos.1.lcssa.i, %bufferPos.1.lcssa
+  %add69 = add i16 %bufferPos.1.lcssa.i, %bufferPos.2.lcssa
   br label %return
 
 sw.default:                                       ; preds = %if.end4
@@ -1854,7 +1854,7 @@ if.end124:                                        ; preds = %_ZN6icu_75L12enumEx
   br i1 %cmp97, label %land.rhs, label %if.else138, !llvm.loop !35
 
 land.lhs.true126:                                 ; preds = %land.rhs, %land.rhs.lr.ph
-  %start.addr.1186.lcssa = phi i32 [ %start.addr.0, %land.rhs.lr.ph ], [ %shl87, %land.rhs ]
+  %start.addr.2186.lcssa = phi i32 [ %start.addr.0, %land.rhs.lr.ph ], [ %shl87, %land.rhs ]
   %group.1185.lcssa = phi ptr [ %group.0, %land.rhs.lr.ph ], [ %add.ptr96, %land.rhs ]
   %.lcssa = phi i16 [ %18, %land.rhs.lr.ph ], [ %19, %land.rhs ]
   %25 = trunc i32 %shr1 to i16
@@ -1872,7 +1872,7 @@ if.then131:                                       ; preds = %land.lhs.true126
 
 if.else138:                                       ; preds = %if.end95, %if.end124, %if.end78, %land.lhs.true126
   %group.1181 = phi ptr [ %group.1185.lcssa, %land.lhs.true126 ], [ %group.0, %if.end78 ], [ %add.ptr96, %if.end124 ], [ %add.ptr96, %if.end95 ]
-  %start.addr.1177 = phi i32 [ %start.addr.1186.lcssa, %land.lhs.true126 ], [ %start.addr.0, %if.end78 ], [ %shl87, %if.end124 ], [ %shl87, %if.end95 ]
+  %start.addr.2177 = phi i32 [ %start.addr.2186.lcssa, %land.lhs.true126 ], [ %start.addr.0, %if.end78 ], [ %shl87, %if.end124 ], [ %shl87, %if.end95 ]
   %cmp141 = icmp eq ptr %group.1181, %add.ptr29
   %or.cond98 = select i1 %cmp5, i1 %cmp141, i1 false
   br i1 %or.cond98, label %if.end154.thread, label %return
@@ -1883,24 +1883,24 @@ if.end154.thread:                                 ; preds = %if.else138
   %conv145 = zext i16 %29 to i32
   %add146 = shl nuw nsw i32 %conv145, 5
   %shl147 = add nuw nsw i32 %add146, 32
-  %spec.select99 = call i32 @llvm.smax.i32(i32 %shl147, i32 %start.addr.1177)
+  %spec.select99 = call i32 @llvm.smax.i32(i32 %shl147, i32 %start.addr.2177)
   br label %if.then156
 
 if.end154:                                        ; preds = %if.then18
   br i1 %cmp5, label %if.then156, label %return
 
 if.then156:                                       ; preds = %if.end154.thread, %if.end154
-  %start.addr.2173 = phi i32 [ %spec.select99, %if.end154.thread ], [ %start.addr.0, %if.end154 ]
+  %start.addr.1173 = phi i32 [ %spec.select99, %if.end154.thread ], [ %start.addr.0, %if.end154 ]
   %spec.store.select = call i32 @llvm.smin.i32(i32 %limit, i32 1114112)
   %sub160 = add nsw i32 %spec.store.select, -1
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %buffer.i147)
   %cmp.not.i148 = icmp eq ptr %fn, null
-  %cmp1.not6.i149 = icmp sge i32 %start.addr.2173, %spec.store.select
+  %cmp1.not6.i149 = icmp sge i32 %start.addr.1173, %spec.store.select
   %or.cond.i150 = or i1 %cmp.not.i148, %cmp1.not6.i149
   br i1 %or.cond.i150, label %_ZN6icu_75L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit165, label %while.body.i151
 
 while.body.i151:                                  ; preds = %if.then156, %if.end8.i161
-  %start.addr.07.i152 = phi i32 [ %inc.i162, %if.end8.i161 ], [ %start.addr.2173, %if.then156 ]
+  %start.addr.07.i152 = phi i32 [ %inc.i162, %if.end8.i161 ], [ %start.addr.1173, %if.then156 ]
   %call.i153 = call fastcc noundef zeroext i16 @_ZN6icu_75L10getExtNameEjPct(i32 noundef %start.addr.07.i152, ptr noundef nonnull %buffer.i147, i16 noundef zeroext 200)
   %idxprom.i154 = zext i16 %call.i153 to i64
   %arrayidx.i155 = getelementptr inbounds [200 x i8], ptr %buffer.i147, i64 0, i64 %idxprom.i154
@@ -2734,7 +2734,7 @@ while.body.preheader.i33:                         ; preds = %if.end.i
 
 while.body.i34:                                   ; preds = %for.end.i50, %while.body.preheader.i33
   %groupCount.0193.i = phi i32 [ %dec.i51, %for.end.i50 ], [ %conv6.i, %while.body.preheader.i33 ]
-  %maxNameLength.addr.0192.i = phi i32 [ %maxNameLength.addr.3.i, %for.end.i50 ], [ %spec.select.i25, %while.body.preheader.i33 ]
+  %maxNameLength.addr.0192.i = phi i32 [ %maxNameLength.addr.2.i, %for.end.i50 ], [ %spec.select.i25, %while.body.preheader.i33 ]
   %group.0191.i = phi ptr [ %add.ptr45.i, %for.end.i50 ], [ %incdec.ptr5.i, %while.body.preheader.i33 ]
   %35 = load ptr, ptr @_ZN6icu_75L10uCharNamesE, align 8
   %groupStringOffset.i = getelementptr inbounds i8, ptr %35, i64 8
@@ -2828,7 +2828,7 @@ if.end47.i.i:                                     ; preds = %if.then37.i.i, %if.
 
 for.body.i39:                                     ; preds = %if.end47.i.i, %for.inc.i
   %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i48, %for.inc.i ], [ 0, %if.end47.i.i ]
-  %maxNameLength.addr.1188.i = phi i32 [ %maxNameLength.addr.3.i, %for.inc.i ], [ %maxNameLength.addr.0192.i, %if.end47.i.i ]
+  %maxNameLength.addr.1188.i = phi i32 [ %maxNameLength.addr.2.i, %for.inc.i ], [ %maxNameLength.addr.0192.i, %if.end47.i.i ]
   %arrayidx24.i = getelementptr inbounds [34 x i16], ptr %lengths.i, i64 0, i64 %indvars.iv.i40
   %47 = load i16, ptr %arrayidx24.i, align 2
   %cmp26.i = icmp eq i16 %47, 0
@@ -2888,7 +2888,7 @@ if.then14.us.i.i:                                 ; preds = %if.else.us.i.i
   br label %if.end.us.i.i
 
 if.end.us.i.i:                                    ; preds = %if.then14.us.i.i, %if.else.us.i.i
-  %line.1.us.i.i = phi ptr [ %incdec.ptr17.us.i.i, %if.then14.us.i.i ], [ %incdec.ptr.us.i.i, %if.else.us.i.i ]
+  %line.3.us.i.i = phi ptr [ %incdec.ptr17.us.i.i, %if.then14.us.i.i ], [ %incdec.ptr.us.i.i, %if.else.us.i.i ]
   %c.0.us.i.i = phi i16 [ %or19.us.i.i, %if.then14.us.i.i ], [ %conv.us.i.i, %if.else.us.i.i ]
   %token.0.us.i.i = phi i16 [ %53, %if.then14.us.i.i ], [ %51, %if.else.us.i.i ]
   %cmp24.us.i.i = icmp eq i16 %token.0.us.i.i, -1
@@ -2940,7 +2940,7 @@ if.then25.us.i.i:                                 ; preds = %if.end.us.i.i
   br label %if.end57.us.i.i
 
 if.end57.us.i.i:                                  ; preds = %if.then25.us.i.i, %if.end55.us.i.i, %if.then.us.i.i
-  %line.2.us.i.i = phi ptr [ %incdec.ptr.us.i.i, %if.then.us.i.i ], [ %line.1.us.i.i, %if.then25.us.i.i ], [ %line.1.us.i.i, %if.end55.us.i.i ]
+  %line.2.us.i.i = phi ptr [ %incdec.ptr.us.i.i, %if.then.us.i.i ], [ %line.3.us.i.i, %if.then25.us.i.i ], [ %line.3.us.i.i, %if.end55.us.i.i ]
   %length.1.us.i.i = phi i32 [ %inc.us.i.i, %if.then.us.i.i ], [ %inc36.us.i.i, %if.then25.us.i.i ], [ %add.us.i.i, %if.end55.us.i.i ]
   %cmp.not.us.i.i = icmp eq ptr %line.2.us.i.i, %add.ptr30.i
   br i1 %cmp.not.us.i.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i, label %land.rhs.us.i.i, !llvm.loop !52
@@ -2990,7 +2990,7 @@ if.then14.i.i:                                    ; preds = %if.else.i34.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then14.i.i, %if.else.i34.i
-  %line.1.i.i = phi ptr [ %incdec.ptr17.i.i, %if.then14.i.i ], [ %incdec.ptr.i30.i, %if.else.i34.i ]
+  %line.3.i.i = phi ptr [ %incdec.ptr17.i.i, %if.then14.i.i ], [ %incdec.ptr.i30.i, %if.else.i34.i ]
   %c.0.i.i = phi i16 [ %or19.i.i, %if.then14.i.i ], [ %conv.i.i, %if.else.i34.i ]
   %token.0.i.i = phi i16 [ %64, %if.then14.i.i ], [ %62, %if.else.i34.i ]
   %cmp24.i.i = icmp eq i16 %token.0.i.i, -1
@@ -3056,7 +3056,7 @@ if.end55.i.i:                                     ; preds = %_ZN6icu_75L19calcSt
   br label %if.end57.i.i
 
 if.end57.i.i:                                     ; preds = %if.end55.i.i, %if.then25.i.i, %if.then.i32.i
-  %line.2.i.i = phi ptr [ %incdec.ptr.i30.i, %if.then.i32.i ], [ %line.1.i.i, %if.then25.i.i ], [ %line.1.i.i, %if.end55.i.i ]
+  %line.2.i.i = phi ptr [ %incdec.ptr.i30.i, %if.then.i32.i ], [ %line.3.i.i, %if.then25.i.i ], [ %line.3.i.i, %if.end55.i.i ]
   %length.1.i.i = phi i32 [ %inc.i33.i, %if.then.i32.i ], [ %inc36.i.i, %if.then25.i.i ], [ %add.i.i, %if.end55.i.i ]
   %cmp.not.i.i47 = icmp eq ptr %line.2.i.i, %add.ptr30.i
   br i1 %cmp.not.i.i47, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i, label %land.rhs.i.i, !llvm.loop !52
@@ -3068,9 +3068,9 @@ _ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i: ; preds = %if.e
 
 _ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i: ; preds = %land.rhs.i.i, %land.rhs.us.i.i
   %length.0.lcssa.i.i53 = phi i32 [ %length.03.us.i.i, %land.rhs.us.i.i ], [ %length.03.i.i, %land.rhs.i.i ]
-  %line.3.i.i = phi ptr [ %incdec.ptr.us.i.i, %land.rhs.us.i.i ], [ %incdec.ptr.i30.i, %land.rhs.i.i ]
+  %line.1.i.i = phi ptr [ %incdec.ptr.us.i.i, %land.rhs.us.i.i ], [ %incdec.ptr.i30.i, %land.rhs.i.i ]
   %spec.select.i54 = tail call i32 @llvm.smax.i32(i32 %length.0.lcssa.i.i53, i32 %maxNameLength.addr.1188.i)
-  %cmp35.i = icmp eq ptr %line.3.i.i, %add.ptr30.i
+  %cmp35.i = icmp eq ptr %line.1.i.i, %add.ptr30.i
   br i1 %cmp35.i, label %for.inc.i, label %land.rhs.lr.ph.i36.i
 
 land.rhs.lr.ph.i36.i:                             ; preds = %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i
@@ -3078,7 +3078,7 @@ land.rhs.lr.ph.i36.i:                             ; preds = %_ZN6icu_75L17calcNa
 
 land.rhs.us.i114.i:                               ; preds = %land.rhs.lr.ph.i36.i, %if.end57.us.i131.i
   %length.03.us.i115.i = phi i32 [ %length.1.us.i133.i, %if.end57.us.i131.i ], [ 0, %land.rhs.lr.ph.i36.i ]
-  %line.02.us.i116.i = phi ptr [ %line.2.us.i132.i, %if.end57.us.i131.i ], [ %line.3.i.i, %land.rhs.lr.ph.i36.i ]
+  %line.02.us.i116.i = phi ptr [ %line.2.us.i132.i, %if.end57.us.i131.i ], [ %line.1.i.i, %land.rhs.lr.ph.i36.i ]
   %incdec.ptr.us.i117.i = getelementptr inbounds i8, ptr %line.02.us.i116.i, i64 1
   %72 = load i8, ptr %line.02.us.i116.i, align 1
   %conv.us.i118.i = zext i8 %72 to i16
@@ -3121,7 +3121,7 @@ if.then14.us.i173.i:                              ; preds = %if.else.us.i135.i
   br label %if.end.us.i139.i
 
 if.end.us.i139.i:                                 ; preds = %if.then14.us.i173.i, %if.else.us.i135.i
-  %line.1.us.i140.i = phi ptr [ %incdec.ptr17.us.i175.i, %if.then14.us.i173.i ], [ %incdec.ptr.us.i117.i, %if.else.us.i135.i ]
+  %line.3.us.i140.i = phi ptr [ %incdec.ptr17.us.i175.i, %if.then14.us.i173.i ], [ %incdec.ptr.us.i117.i, %if.else.us.i135.i ]
   %c.0.us.i141.i = phi i16 [ %or19.us.i177.i, %if.then14.us.i173.i ], [ %conv.us.i118.i, %if.else.us.i135.i ]
   %token.0.us.i142.i = phi i16 [ %76, %if.then14.us.i173.i ], [ %74, %if.else.us.i135.i ]
   %cmp24.us.i143.i = icmp eq i16 %token.0.us.i142.i, -1
@@ -3173,14 +3173,14 @@ if.then25.us.i164.i:                              ; preds = %if.end.us.i139.i
   br label %if.end57.us.i131.i
 
 if.end57.us.i131.i:                               ; preds = %if.then25.us.i164.i, %if.end55.us.i161.i, %if.then.us.i122.i
-  %line.2.us.i132.i = phi ptr [ %incdec.ptr.us.i117.i, %if.then.us.i122.i ], [ %line.1.us.i140.i, %if.then25.us.i164.i ], [ %line.1.us.i140.i, %if.end55.us.i161.i ]
+  %line.2.us.i132.i = phi ptr [ %incdec.ptr.us.i117.i, %if.then.us.i122.i ], [ %line.3.us.i140.i, %if.then25.us.i164.i ], [ %line.3.us.i140.i, %if.end55.us.i161.i ]
   %length.1.us.i133.i = phi i32 [ %inc.us.i130.i, %if.then.us.i122.i ], [ %inc36.us.i172.i, %if.then25.us.i164.i ], [ %add.us.i163.i, %if.end55.us.i161.i ]
   %cmp.not.us.i134.i = icmp eq ptr %line.2.us.i132.i, %add.ptr30.i
   br i1 %cmp.not.us.i134.i, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit180.i, label %land.rhs.us.i114.i, !llvm.loop !52
 
 land.rhs.i38.i:                                   ; preds = %land.rhs.lr.ph.i36.i, %if.end57.i55.i
   %length.03.i39.i = phi i32 [ %length.1.i57.i, %if.end57.i55.i ], [ 0, %land.rhs.lr.ph.i36.i ]
-  %line.02.i40.i = phi ptr [ %line.2.i56.i, %if.end57.i55.i ], [ %line.3.i.i, %land.rhs.lr.ph.i36.i ]
+  %line.02.i40.i = phi ptr [ %line.2.i56.i, %if.end57.i55.i ], [ %line.1.i.i, %land.rhs.lr.ph.i36.i ]
   %incdec.ptr.i41.i = getelementptr inbounds i8, ptr %line.02.i40.i, i64 1
   %83 = load i8, ptr %line.02.i40.i, align 1
   %conv.i42.i = zext i8 %83 to i16
@@ -3223,7 +3223,7 @@ if.then14.i107.i:                                 ; preds = %if.else.i61.i
   br label %if.end.i65.i
 
 if.end.i65.i:                                     ; preds = %if.then14.i107.i, %if.else.i61.i
-  %line.1.i66.i = phi ptr [ %incdec.ptr17.i109.i, %if.then14.i107.i ], [ %incdec.ptr.i41.i, %if.else.i61.i ]
+  %line.3.i66.i = phi ptr [ %incdec.ptr17.i109.i, %if.then14.i107.i ], [ %incdec.ptr.i41.i, %if.else.i61.i ]
   %c.0.i67.i = phi i16 [ %or19.i111.i, %if.then14.i107.i ], [ %conv.i42.i, %if.else.i61.i ]
   %token.0.i68.i = phi i16 [ %87, %if.then14.i107.i ], [ %85, %if.else.i61.i ]
   %cmp24.i69.i = icmp eq i16 %token.0.i68.i, -1
@@ -3289,7 +3289,7 @@ if.end55.i75.i:                                   ; preds = %_ZN6icu_75L19calcSt
   br label %if.end57.i55.i
 
 if.end57.i55.i:                                   ; preds = %if.end55.i75.i, %if.then25.i98.i, %if.then.i46.i
-  %line.2.i56.i = phi ptr [ %incdec.ptr.i41.i, %if.then.i46.i ], [ %line.1.i66.i, %if.then25.i98.i ], [ %line.1.i66.i, %if.end55.i75.i ]
+  %line.2.i56.i = phi ptr [ %incdec.ptr.i41.i, %if.then.i46.i ], [ %line.3.i66.i, %if.then25.i98.i ], [ %line.3.i66.i, %if.end55.i75.i ]
   %length.1.i57.i = phi i32 [ %inc.i54.i, %if.then.i46.i ], [ %inc36.i106.i, %if.then25.i98.i ], [ %add.i77.i, %if.end55.i75.i ]
   %cmp.not.i58.i55 = icmp eq ptr %line.2.i56.i, %add.ptr30.i
   br i1 %cmp.not.i58.i55, label %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit180.i, label %land.rhs.i38.i, !llvm.loop !52
@@ -3300,7 +3300,7 @@ _ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit180.i: ; preds = %if.end57
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit180.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i, %for.body.i39
-  %maxNameLength.addr.3.i = phi i32 [ %maxNameLength.addr.1188.i, %for.body.i39 ], [ %spec.select.i54, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i ], [ %spec.select29.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit180.i ], [ %spec.select202.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i ]
+  %maxNameLength.addr.2.i = phi i32 [ %maxNameLength.addr.1188.i, %for.body.i39 ], [ %spec.select.i54, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.i ], [ %spec.select29.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit180.i ], [ %spec.select202.i, %_ZN6icu_75L17calcNameSetLengthEPKttPKhPaPjPS3_S3_.exit.thread.i ]
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 32
   br i1 %exitcond.not.i49, label %for.end.i50, label %for.body.i39, !llvm.loop !53
@@ -3312,7 +3312,7 @@ for.end.i50:                                      ; preds = %for.inc.i
   br i1 %cmp7.i, label %while.body.i34, label %while.end.i, !llvm.loop !54
 
 while.end.i:                                      ; preds = %for.end.i50, %if.end.i
-  %maxNameLength.addr.0.lcssa.i52 = phi i32 [ %spec.select.i25, %if.end.i ], [ %maxNameLength.addr.3.i, %for.end.i50 ]
+  %maxNameLength.addr.0.lcssa.i52 = phi i32 [ %spec.select.i25, %if.end.i ], [ %maxNameLength.addr.2.i, %for.end.i50 ]
   br i1 %cmp.not.i32, label %_ZN6icu_75L24calcGroupNameSetsLengthsEi.exit, label %if.then47.i
 
 if.then47.i:                                      ; preds = %while.end.i
@@ -3803,9 +3803,9 @@ for.body260.lr.ph:                                ; preds = %if.end246
   br label %for.body260
 
 for.body260:                                      ; preds = %for.body260.lr.ph, %for.inc323
-  %offset.1269 = phi i32 [ %add257, %for.body260.lr.ph ], [ %add272, %for.inc323 ]
+  %offset.2269 = phi i32 [ %add257, %for.body260.lr.ph ], [ %add272, %for.inc323 ]
   %i.5268 = phi i32 [ 0, %for.body260.lr.ph ], [ %inc324, %for.inc323 ]
-  %cmp261 = icmp ugt i32 %offset.1269, %sub
+  %cmp261 = icmp ugt i32 %offset.2269, %sub
   br i1 %cmp261, label %if.then262, label %if.end263
 
 if.then262:                                       ; preds = %for.body260
@@ -3814,7 +3814,7 @@ if.then262:                                       ; preds = %for.body260
   br label %return
 
 if.end263:                                        ; preds = %for.body260
-  %idx.ext264 = zext nneg i32 %offset.1269 to i64
+  %idx.ext264 = zext nneg i32 %offset.2269 to i64
   %add.ptr265 = getelementptr inbounds i8, ptr %add.ptr38, i64 %idx.ext264
   %add.ptr267 = getelementptr inbounds i8, ptr %cond, i64 %idx.ext264
   %56 = load ptr, ptr %readUInt1684, align 8
@@ -3822,7 +3822,7 @@ if.end263:                                        ; preds = %for.body260
   %57 = load i16, ptr %size269, align 2
   %call270 = tail call noundef zeroext i16 %56(i16 noundef zeroext %57)
   %conv271 = zext i16 %call270 to i32
-  %add272 = add nuw i32 %offset.1269, %conv271
+  %add272 = add nuw i32 %offset.2269, %conv271
   %58 = load ptr, ptr %swapArray32, align 8
   %call274 = tail call noundef i32 %58(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr265, i32 noundef 8, ptr noundef %add.ptr267, ptr noundef nonnull %pErrorCode)
   %59 = load ptr, ptr %swapArray16, align 8
@@ -3901,8 +3901,8 @@ for.inc323:                                       ; preds = %while.end318, %sw.b
   br i1 %exitcond301.not, label %if.end326, label %for.body260, !llvm.loop !64
 
 if.end326:                                        ; preds = %for.inc323, %for.body, %if.end246, %if.then56
-  %offset.2 = phi i32 [ %add, %if.then56 ], [ %add257, %if.end246 ], [ %add66, %for.body ], [ %add272, %for.inc323 ]
-  %add327 = add nsw i32 %offset.2, %call
+  %offset.1 = phi i32 [ %add, %if.then56 ], [ %add257, %if.end246 ], [ %add66, %for.body ], [ %add272, %for.inc323 ]
+  %add327 = add nsw i32 %offset.1, %call
   br label %return
 
 return:                                           ; preds = %for.end111, %entry, %lor.lhs.false, %if.end326, %sw.default, %if.then288, %if.then262, %if.then185, %if.then133, %if.then52, %if.then21
@@ -4252,34 +4252,34 @@ do.body.preheader:                                ; preds = %lor.lhs.false, %if.
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond
-  %nameLength.addr.0 = phi i16 [ %nameLength.addr.2, %do.cond ], [ %nameLength, %do.body.preheader ]
-  %name.addr.0 = phi ptr [ %name.addr.2, %do.cond ], [ %name, %do.body.preheader ]
+  %nameLength.addr.1 = phi i16 [ %nameLength.addr.3, %do.cond ], [ %nameLength, %do.body.preheader ]
+  %name.addr.1 = phi ptr [ %name.addr.3, %do.cond ], [ %name, %do.body.preheader ]
   %fieldIndex.0 = phi i32 [ %dec14, %do.cond ], [ %nameChoice, %do.body.preheader ]
-  %cmp9.old.not = icmp eq i16 %nameLength.addr.0, 0
+  %cmp9.old.not = icmp eq i16 %nameLength.addr.1, 0
   br i1 %cmp9.old.not, label %do.cond, label %while.body
 
 while.body:                                       ; preds = %do.body, %while.body
-  %nameLength.addr.1 = phi i16 [ %dec, %while.body ], [ %nameLength.addr.0, %do.body ]
-  %name.addr.1 = phi ptr [ %incdec.ptr10, %while.body ], [ %name.addr.0, %do.body ]
-  %dec = add i16 %nameLength.addr.1, -1
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %name.addr.1, i64 1
-  %4 = load i8, ptr %name.addr.1, align 1
+  %nameLength.addr.2 = phi i16 [ %dec, %while.body ], [ %nameLength.addr.1, %do.body ]
+  %name.addr.2 = phi ptr [ %incdec.ptr10, %while.body ], [ %name.addr.1, %do.body ]
+  %dec = add i16 %nameLength.addr.2, -1
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %name.addr.2, i64 1
+  %4 = load i8, ptr %name.addr.2, align 1
   %cmp12 = icmp ne i8 %4, 59
   %cmp9 = icmp ne i16 %dec, 0
   %or.cond2 = select i1 %cmp12, i1 %cmp9, i1 false
   br i1 %or.cond2, label %while.body, label %do.cond, !llvm.loop !69
 
 do.cond:                                          ; preds = %while.body, %do.body
-  %nameLength.addr.2 = phi i16 [ 0, %do.body ], [ %dec, %while.body ]
-  %name.addr.2 = phi ptr [ %name.addr.0, %do.body ], [ %incdec.ptr10, %while.body ]
+  %nameLength.addr.3 = phi i16 [ 0, %do.body ], [ %dec, %while.body ]
+  %name.addr.3 = phi ptr [ %name.addr.1, %do.body ], [ %incdec.ptr10, %while.body ]
   %dec14 = add nsw i32 %fieldIndex.0, -1
   %cmp15 = icmp sgt i32 %fieldIndex.0, 1
   br i1 %cmp15, label %do.body, label %if.end17, !llvm.loop !70
 
 if.end17:                                         ; preds = %do.cond, %entry
-  %nameLength.addr.3 = phi i16 [ %nameLength, %entry ], [ %nameLength.addr.2, %do.cond ]
-  %name.addr.3 = phi ptr [ %name, %entry ], [ %name.addr.2, %do.cond ]
-  %cmp20.not62112 = icmp eq i16 %nameLength.addr.3, 0
+  %nameLength.addr.0 = phi i16 [ %nameLength, %entry ], [ %nameLength.addr.3, %do.cond ]
+  %name.addr.0 = phi ptr [ %name, %entry ], [ %name.addr.3, %do.cond ]
+  %cmp20.not62112 = icmp eq i16 %nameLength.addr.0, 0
   br i1 %cmp20.not62112, label %while.end106, label %while.body21.lr.ph.lr.ph
 
 while.body21.lr.ph.lr.ph:                         ; preds = %if.end17
@@ -4288,17 +4288,17 @@ while.body21.lr.ph.lr.ph:                         ; preds = %if.end17
   br i1 %cmp72, label %while.body21.lr.ph.us, label %while.body21.lr.ph
 
 while.body21.lr.ph.us:                            ; preds = %while.body21.lr.ph.lr.ph, %if.end105.us
-  %name.addr.4.ph117.us = phi ptr [ %name.addr.6.us, %if.end105.us ], [ %name.addr.3, %while.body21.lr.ph.lr.ph ]
-  %bufferPos.0.ph116.us = phi i16 [ %bufferPos.2.us, %if.end105.us ], [ 0, %while.body21.lr.ph.lr.ph ]
-  %nameLength.addr.4.ph115.us = phi i16 [ %nameLength.addr.6.us, %if.end105.us ], [ %nameLength.addr.3, %while.body21.lr.ph.lr.ph ]
-  %bufferLength.addr.0.ph114.us = phi i16 [ %bufferLength.addr.5.us, %if.end105.us ], [ %bufferLength, %while.body21.lr.ph.lr.ph ]
-  %buffer.addr.0.ph113.us = phi ptr [ %buffer.addr.5.us, %if.end105.us ], [ %buffer, %while.body21.lr.ph.lr.ph ]
+  %name.addr.4.ph117.us = phi ptr [ %name.addr.5.us, %if.end105.us ], [ %name.addr.0, %while.body21.lr.ph.lr.ph ]
+  %bufferPos.0.ph116.us = phi i16 [ %bufferPos.1.us, %if.end105.us ], [ 0, %while.body21.lr.ph.lr.ph ]
+  %nameLength.addr.4.ph115.us = phi i16 [ %nameLength.addr.5.us, %if.end105.us ], [ %nameLength.addr.0, %while.body21.lr.ph.lr.ph ]
+  %bufferLength.addr.0.ph114.us = phi i16 [ %bufferLength.addr.2.us, %if.end105.us ], [ %bufferLength, %while.body21.lr.ph.lr.ph ]
+  %buffer.addr.0.ph113.us = phi ptr [ %buffer.addr.2.us, %if.end105.us ], [ %buffer, %while.body21.lr.ph.lr.ph ]
   br label %while.body21.us
 
 while.body21.us:                                  ; preds = %if.then73.us, %while.body21.lr.ph.us
-  %name.addr.465.us = phi ptr [ %name.addr.4.ph117.us, %while.body21.lr.ph.us ], [ %name.addr.5.us140, %if.then73.us ]
+  %name.addr.465.us = phi ptr [ %name.addr.4.ph117.us, %while.body21.lr.ph.us ], [ %name.addr.6.us140, %if.then73.us ]
   %bufferPos.064.us = phi i16 [ %bufferPos.0.ph116.us, %while.body21.lr.ph.us ], [ 0, %if.then73.us ]
-  %nameLength.addr.463.us = phi i16 [ %nameLength.addr.4.ph115.us, %while.body21.lr.ph.us ], [ %nameLength.addr.5.us139, %if.then73.us ]
+  %nameLength.addr.463.us = phi i16 [ %nameLength.addr.4.ph115.us, %while.body21.lr.ph.us ], [ %nameLength.addr.6.us139, %if.then73.us ]
   %dec22.us121 = add i16 %nameLength.addr.463.us, -1
   %incdec.ptr23.us122 = getelementptr inbounds i8, ptr %name.addr.465.us, i64 1
   %5 = load i8, ptr %name.addr.465.us, align 1
@@ -4346,8 +4346,8 @@ if.then46.us130:                                  ; preds = %if.else42.us126
 
 if.end53.us137:                                   ; preds = %if.then46.us130, %if.else42.us126
   %token.0.us138 = phi i16 [ %9, %if.then46.us130 ], [ %7, %if.else42.us126 ]
-  %nameLength.addr.5.us139 = phi i16 [ %dec52.us136, %if.then46.us130 ], [ %dec22.us121, %if.else42.us126 ]
-  %name.addr.5.us140 = phi ptr [ %incdec.ptr48.us132, %if.then46.us130 ], [ %incdec.ptr23.us122, %if.else42.us126 ]
+  %nameLength.addr.6.us139 = phi i16 [ %dec52.us136, %if.then46.us130 ], [ %dec22.us121, %if.else42.us126 ]
+  %name.addr.6.us140 = phi ptr [ %incdec.ptr48.us132, %if.then46.us130 ], [ %incdec.ptr23.us122, %if.else42.us126 ]
   %cmp55.us141 = icmp eq i16 %token.0.us138, -1
   br i1 %cmp55.us141, label %if.then56.us143, label %if.else84.split.us142
 
@@ -4361,23 +4361,23 @@ if.else84.split.us142:                            ; preds = %if.end53.us137
 do.body93.us:                                     ; preds = %if.else84.split.us142, %if.end99.us
   %11 = phi i8 [ %12, %if.end99.us ], [ %10, %if.else84.split.us142 ]
   %incdec.ptr89108.us.pn = phi ptr [ %incdec.ptr89108.us, %if.end99.us ], [ %add.ptr87.us, %if.else84.split.us142 ]
-  %bufferPos.1107.us = phi i16 [ %inc100.us, %if.end99.us ], [ %bufferPos.064.us, %if.else84.split.us142 ]
-  %bufferLength.addr.3106.us = phi i16 [ %bufferLength.addr.4.us, %if.end99.us ], [ %bufferLength.addr.0.ph114.us, %if.else84.split.us142 ]
-  %buffer.addr.3105.us = phi ptr [ %buffer.addr.4.us, %if.end99.us ], [ %buffer.addr.0.ph113.us, %if.else84.split.us142 ]
+  %bufferPos.2107.us = phi i16 [ %inc100.us, %if.end99.us ], [ %bufferPos.064.us, %if.else84.split.us142 ]
+  %bufferLength.addr.4106.us = phi i16 [ %bufferLength.addr.5.us, %if.end99.us ], [ %bufferLength.addr.0.ph114.us, %if.else84.split.us142 ]
+  %buffer.addr.4105.us = phi ptr [ %buffer.addr.5.us, %if.end99.us ], [ %buffer.addr.0.ph113.us, %if.else84.split.us142 ]
   %incdec.ptr89108.us = getelementptr inbounds i8, ptr %incdec.ptr89108.us.pn, i64 1
-  %cmp95.not.us = icmp eq i16 %bufferLength.addr.3106.us, 0
+  %cmp95.not.us = icmp eq i16 %bufferLength.addr.4106.us, 0
   br i1 %cmp95.not.us, label %if.end99.us, label %if.then96.us
 
 if.then96.us:                                     ; preds = %do.body93.us
-  %incdec.ptr97.us = getelementptr inbounds i8, ptr %buffer.addr.3105.us, i64 1
-  store i8 %11, ptr %buffer.addr.3105.us, align 1
-  %dec98.us = add i16 %bufferLength.addr.3106.us, -1
+  %incdec.ptr97.us = getelementptr inbounds i8, ptr %buffer.addr.4105.us, i64 1
+  store i8 %11, ptr %buffer.addr.4105.us, align 1
+  %dec98.us = add i16 %bufferLength.addr.4106.us, -1
   br label %if.end99.us
 
 if.end99.us:                                      ; preds = %if.then96.us, %do.body93.us
-  %buffer.addr.4.us = phi ptr [ %incdec.ptr97.us, %if.then96.us ], [ %buffer.addr.3105.us, %do.body93.us ]
-  %bufferLength.addr.4.us = phi i16 [ %dec98.us, %if.then96.us ], [ 0, %do.body93.us ]
-  %inc100.us = add i16 %bufferPos.1107.us, 1
+  %buffer.addr.5.us = phi ptr [ %incdec.ptr97.us, %if.then96.us ], [ %buffer.addr.4105.us, %do.body93.us ]
+  %bufferLength.addr.5.us = phi i16 [ %dec98.us, %if.then96.us ], [ 0, %do.body93.us ]
+  %inc100.us = add i16 %bufferPos.2107.us, 1
   %12 = load i8, ptr %incdec.ptr89108.us, align 1
   %cmp91.not.us = icmp eq i8 %12, 0
   br i1 %cmp91.not.us, label %if.end105.us, label %do.body93.us, !llvm.loop !71
@@ -4397,18 +4397,18 @@ if.then63.us:                                     ; preds = %do.body60.split.us1
   br label %if.end66.us
 
 if.end66.us:                                      ; preds = %do.body60.split.us145, %if.then63.us
-  %buffer.addr.2.us = phi ptr [ %incdec.ptr64.us, %if.then63.us ], [ %buffer.addr.0.ph113.us, %do.body60.split.us145 ]
-  %bufferLength.addr.2.us = phi i16 [ %dec65.us, %if.then63.us ], [ 0, %do.body60.split.us145 ]
+  %buffer.addr.3.us = phi ptr [ %incdec.ptr64.us, %if.then63.us ], [ %buffer.addr.0.ph113.us, %do.body60.split.us145 ]
+  %bufferLength.addr.3.us = phi i16 [ %dec65.us, %if.then63.us ], [ 0, %do.body60.split.us145 ]
   %inc67.us = add i16 %bufferPos.064.us, 1
   br label %if.end105.us
 
 if.end105.us:                                     ; preds = %if.end99.us, %if.else84.split.us142, %if.end66.us, %if.end37.us
-  %buffer.addr.5.us = phi ptr [ %buffer.addr.1.us, %if.end37.us ], [ %buffer.addr.2.us, %if.end66.us ], [ %buffer.addr.0.ph113.us, %if.else84.split.us142 ], [ %buffer.addr.4.us, %if.end99.us ]
-  %bufferLength.addr.5.us = phi i16 [ %bufferLength.addr.1.us, %if.end37.us ], [ %bufferLength.addr.2.us, %if.end66.us ], [ %bufferLength.addr.0.ph114.us, %if.else84.split.us142 ], [ %bufferLength.addr.4.us, %if.end99.us ]
-  %nameLength.addr.6.us = phi i16 [ %dec22.us121, %if.end37.us ], [ %nameLength.addr.5.us139, %if.end66.us ], [ %nameLength.addr.5.us139, %if.else84.split.us142 ], [ %nameLength.addr.5.us139, %if.end99.us ]
-  %bufferPos.2.us = phi i16 [ %inc.us, %if.end37.us ], [ %inc67.us, %if.end66.us ], [ %bufferPos.064.us, %if.else84.split.us142 ], [ %inc100.us, %if.end99.us ]
-  %name.addr.6.us = phi ptr [ %incdec.ptr23.us122, %if.end37.us ], [ %name.addr.5.us140, %if.end66.us ], [ %name.addr.5.us140, %if.else84.split.us142 ], [ %name.addr.5.us140, %if.end99.us ]
-  %cmp20.not62.us = icmp eq i16 %nameLength.addr.6.us, 0
+  %buffer.addr.2.us = phi ptr [ %buffer.addr.1.us, %if.end37.us ], [ %buffer.addr.3.us, %if.end66.us ], [ %buffer.addr.0.ph113.us, %if.else84.split.us142 ], [ %buffer.addr.5.us, %if.end99.us ]
+  %bufferLength.addr.2.us = phi i16 [ %bufferLength.addr.1.us, %if.end37.us ], [ %bufferLength.addr.3.us, %if.end66.us ], [ %bufferLength.addr.0.ph114.us, %if.else84.split.us142 ], [ %bufferLength.addr.5.us, %if.end99.us ]
+  %nameLength.addr.5.us = phi i16 [ %dec22.us121, %if.end37.us ], [ %nameLength.addr.6.us139, %if.end66.us ], [ %nameLength.addr.6.us139, %if.else84.split.us142 ], [ %nameLength.addr.6.us139, %if.end99.us ]
+  %bufferPos.1.us = phi i16 [ %inc.us, %if.end37.us ], [ %inc67.us, %if.end66.us ], [ %bufferPos.064.us, %if.else84.split.us142 ], [ %inc100.us, %if.end99.us ]
+  %name.addr.5.us = phi ptr [ %incdec.ptr23.us122, %if.end37.us ], [ %name.addr.6.us140, %if.end66.us ], [ %name.addr.6.us140, %if.else84.split.us142 ], [ %name.addr.6.us140, %if.end99.us ]
+  %cmp20.not62.us = icmp eq i16 %nameLength.addr.5.us, 0
   br i1 %cmp20.not62.us, label %while.end106, label %while.body21.lr.ph.us, !llvm.loop !72
 
 if.else70.us146:                                  ; preds = %if.then56.us143
@@ -4418,16 +4418,16 @@ if.else70.us146:                                  ; preds = %if.then56.us143
 if.then73.us:                                     ; preds = %if.else70.us146
   %13 = load i16, ptr %arrayidx77, align 2
   %cmp79.us = icmp ne i16 %13, -1
-  %cmp20.not.us = icmp eq i16 %nameLength.addr.5.us139, 0
+  %cmp20.not.us = icmp eq i16 %nameLength.addr.6.us139, 0
   %or.cond = select i1 %cmp79.us, i1 true, i1 %cmp20.not.us
   br i1 %or.cond, label %while.end106, label %while.body21.us, !llvm.loop !72
 
 while.body21.lr.ph:                               ; preds = %while.body21.lr.ph.lr.ph, %if.end105
-  %name.addr.4.ph117 = phi ptr [ %name.addr.6, %if.end105 ], [ %name.addr.3, %while.body21.lr.ph.lr.ph ]
-  %bufferPos.0.ph116 = phi i16 [ %bufferPos.2, %if.end105 ], [ 0, %while.body21.lr.ph.lr.ph ]
-  %nameLength.addr.4.ph115 = phi i16 [ %nameLength.addr.6, %if.end105 ], [ %nameLength.addr.3, %while.body21.lr.ph.lr.ph ]
-  %bufferLength.addr.0.ph114 = phi i16 [ %bufferLength.addr.5, %if.end105 ], [ %bufferLength, %while.body21.lr.ph.lr.ph ]
-  %buffer.addr.0.ph113 = phi ptr [ %buffer.addr.5, %if.end105 ], [ %buffer, %while.body21.lr.ph.lr.ph ]
+  %name.addr.4.ph117 = phi ptr [ %name.addr.5, %if.end105 ], [ %name.addr.0, %while.body21.lr.ph.lr.ph ]
+  %bufferPos.0.ph116 = phi i16 [ %bufferPos.1, %if.end105 ], [ 0, %while.body21.lr.ph.lr.ph ]
+  %nameLength.addr.4.ph115 = phi i16 [ %nameLength.addr.5, %if.end105 ], [ %nameLength.addr.0, %while.body21.lr.ph.lr.ph ]
+  %bufferLength.addr.0.ph114 = phi i16 [ %bufferLength.addr.2, %if.end105 ], [ %bufferLength, %while.body21.lr.ph.lr.ph ]
+  %buffer.addr.0.ph113 = phi ptr [ %buffer.addr.2, %if.end105 ], [ %buffer, %while.body21.lr.ph.lr.ph ]
   %dec22.us = add i16 %nameLength.addr.4.ph115, -1
   %incdec.ptr23.us = getelementptr inbounds i8, ptr %name.addr.4.ph117, i64 1
   %14 = load i8, ptr %name.addr.4.ph117, align 1
@@ -4455,8 +4455,8 @@ if.then46.us:                                     ; preds = %if.else42.us
 
 if.end53.us:                                      ; preds = %if.then46.us, %if.else42.us
   %token.0.us = phi i16 [ %18, %if.then46.us ], [ %16, %if.else42.us ]
-  %nameLength.addr.5.us = phi i16 [ %dec52.us, %if.then46.us ], [ %dec22.us, %if.else42.us ]
-  %name.addr.5.us = phi ptr [ %incdec.ptr48.us, %if.then46.us ], [ %incdec.ptr23.us, %if.else42.us ]
+  %nameLength.addr.6.us = phi i16 [ %dec52.us, %if.then46.us ], [ %dec22.us, %if.else42.us ]
+  %name.addr.6.us = phi ptr [ %incdec.ptr48.us, %if.then46.us ], [ %incdec.ptr23.us, %if.else42.us ]
   %cmp55.us = icmp eq i16 %token.0.us, -1
   br i1 %cmp55.us, label %if.then56.us, label %if.else84.split.us
 
@@ -4502,48 +4502,48 @@ if.then63:                                        ; preds = %do.body60.split.us
   br label %if.end66
 
 if.end66:                                         ; preds = %if.then63, %do.body60.split.us
-  %buffer.addr.2 = phi ptr [ %incdec.ptr64, %if.then63 ], [ %buffer.addr.0.ph113, %do.body60.split.us ]
-  %bufferLength.addr.2 = phi i16 [ %dec65, %if.then63 ], [ 0, %do.body60.split.us ]
+  %buffer.addr.3 = phi ptr [ %incdec.ptr64, %if.then63 ], [ %buffer.addr.0.ph113, %do.body60.split.us ]
+  %bufferLength.addr.3 = phi i16 [ %dec65, %if.then63 ], [ 0, %do.body60.split.us ]
   %inc67 = add i16 %bufferPos.0.ph116, 1
   br label %if.end105
 
 do.body93:                                        ; preds = %if.else84.split.us, %if.end99
   %20 = phi i8 [ %21, %if.end99 ], [ %19, %if.else84.split.us ]
   %incdec.ptr89108.pn = phi ptr [ %incdec.ptr89108, %if.end99 ], [ %add.ptr87, %if.else84.split.us ]
-  %bufferPos.1107 = phi i16 [ %inc100, %if.end99 ], [ %bufferPos.0.ph116, %if.else84.split.us ]
-  %bufferLength.addr.3106 = phi i16 [ %bufferLength.addr.4, %if.end99 ], [ %bufferLength.addr.0.ph114, %if.else84.split.us ]
-  %buffer.addr.3105 = phi ptr [ %buffer.addr.4, %if.end99 ], [ %buffer.addr.0.ph113, %if.else84.split.us ]
+  %bufferPos.2107 = phi i16 [ %inc100, %if.end99 ], [ %bufferPos.0.ph116, %if.else84.split.us ]
+  %bufferLength.addr.4106 = phi i16 [ %bufferLength.addr.5, %if.end99 ], [ %bufferLength.addr.0.ph114, %if.else84.split.us ]
+  %buffer.addr.4105 = phi ptr [ %buffer.addr.5, %if.end99 ], [ %buffer.addr.0.ph113, %if.else84.split.us ]
   %incdec.ptr89108 = getelementptr inbounds i8, ptr %incdec.ptr89108.pn, i64 1
-  %cmp95.not = icmp eq i16 %bufferLength.addr.3106, 0
+  %cmp95.not = icmp eq i16 %bufferLength.addr.4106, 0
   br i1 %cmp95.not, label %if.end99, label %if.then96
 
 if.then96:                                        ; preds = %do.body93
-  %incdec.ptr97 = getelementptr inbounds i8, ptr %buffer.addr.3105, i64 1
-  store i8 %20, ptr %buffer.addr.3105, align 1
-  %dec98 = add i16 %bufferLength.addr.3106, -1
+  %incdec.ptr97 = getelementptr inbounds i8, ptr %buffer.addr.4105, i64 1
+  store i8 %20, ptr %buffer.addr.4105, align 1
+  %dec98 = add i16 %bufferLength.addr.4106, -1
   br label %if.end99
 
 if.end99:                                         ; preds = %if.then96, %do.body93
-  %buffer.addr.4 = phi ptr [ %incdec.ptr97, %if.then96 ], [ %buffer.addr.3105, %do.body93 ]
-  %bufferLength.addr.4 = phi i16 [ %dec98, %if.then96 ], [ 0, %do.body93 ]
-  %inc100 = add i16 %bufferPos.1107, 1
+  %buffer.addr.5 = phi ptr [ %incdec.ptr97, %if.then96 ], [ %buffer.addr.4105, %do.body93 ]
+  %bufferLength.addr.5 = phi i16 [ %dec98, %if.then96 ], [ 0, %do.body93 ]
+  %inc100 = add i16 %bufferPos.2107, 1
   %21 = load i8, ptr %incdec.ptr89108, align 1
   %cmp91.not = icmp eq i8 %21, 0
   br i1 %cmp91.not, label %if.end105, label %do.body93, !llvm.loop !71
 
 if.end105:                                        ; preds = %if.end99, %if.else84.split.us, %if.end66, %if.end37
-  %buffer.addr.5 = phi ptr [ %buffer.addr.1, %if.end37 ], [ %buffer.addr.2, %if.end66 ], [ %buffer.addr.0.ph113, %if.else84.split.us ], [ %buffer.addr.4, %if.end99 ]
-  %bufferLength.addr.5 = phi i16 [ %bufferLength.addr.1, %if.end37 ], [ %bufferLength.addr.2, %if.end66 ], [ %bufferLength.addr.0.ph114, %if.else84.split.us ], [ %bufferLength.addr.4, %if.end99 ]
-  %nameLength.addr.6 = phi i16 [ %dec22.us, %if.end37 ], [ %nameLength.addr.5.us, %if.end66 ], [ %nameLength.addr.5.us, %if.else84.split.us ], [ %nameLength.addr.5.us, %if.end99 ]
-  %bufferPos.2 = phi i16 [ %inc, %if.end37 ], [ %inc67, %if.end66 ], [ %bufferPos.0.ph116, %if.else84.split.us ], [ %inc100, %if.end99 ]
-  %name.addr.6 = phi ptr [ %incdec.ptr23.us, %if.end37 ], [ %name.addr.5.us, %if.end66 ], [ %name.addr.5.us, %if.else84.split.us ], [ %name.addr.5.us, %if.end99 ]
-  %cmp20.not62 = icmp eq i16 %nameLength.addr.6, 0
+  %buffer.addr.2 = phi ptr [ %buffer.addr.1, %if.end37 ], [ %buffer.addr.3, %if.end66 ], [ %buffer.addr.0.ph113, %if.else84.split.us ], [ %buffer.addr.5, %if.end99 ]
+  %bufferLength.addr.2 = phi i16 [ %bufferLength.addr.1, %if.end37 ], [ %bufferLength.addr.3, %if.end66 ], [ %bufferLength.addr.0.ph114, %if.else84.split.us ], [ %bufferLength.addr.5, %if.end99 ]
+  %nameLength.addr.5 = phi i16 [ %dec22.us, %if.end37 ], [ %nameLength.addr.6.us, %if.end66 ], [ %nameLength.addr.6.us, %if.else84.split.us ], [ %nameLength.addr.6.us, %if.end99 ]
+  %bufferPos.1 = phi i16 [ %inc, %if.end37 ], [ %inc67, %if.end66 ], [ %bufferPos.0.ph116, %if.else84.split.us ], [ %inc100, %if.end99 ]
+  %name.addr.5 = phi ptr [ %incdec.ptr23.us, %if.end37 ], [ %name.addr.6.us, %if.end66 ], [ %name.addr.6.us, %if.else84.split.us ], [ %name.addr.6.us, %if.end99 ]
+  %cmp20.not62 = icmp eq i16 %nameLength.addr.5, 0
   br i1 %cmp20.not62, label %while.end106, label %while.body21.lr.ph, !llvm.loop !72
 
 while.end106:                                     ; preds = %if.then27.split.us, %if.end105, %if.then56.us, %if.then27.split.us125, %if.end105.us, %if.then73.us, %if.else70.us146, %lor.lhs.false, %if.end17
-  %buffer.addr.0.ph61 = phi ptr [ %buffer, %if.end17 ], [ %buffer, %lor.lhs.false ], [ %buffer.addr.0.ph113.us, %if.else70.us146 ], [ %buffer.addr.0.ph113.us, %if.then73.us ], [ %buffer.addr.5.us, %if.end105.us ], [ %buffer.addr.0.ph113.us, %if.then27.split.us125 ], [ %buffer.addr.5, %if.end105 ], [ %buffer.addr.0.ph113, %if.then56.us ], [ %buffer.addr.0.ph113, %if.then27.split.us ]
-  %bufferLength.addr.0.ph59 = phi i16 [ %bufferLength, %if.end17 ], [ %bufferLength, %lor.lhs.false ], [ %bufferLength.addr.0.ph114.us, %if.else70.us146 ], [ %bufferLength.addr.0.ph114.us, %if.then73.us ], [ %bufferLength.addr.5.us, %if.end105.us ], [ %bufferLength.addr.0.ph114.us, %if.then27.split.us125 ], [ %bufferLength.addr.5, %if.end105 ], [ %bufferLength.addr.0.ph114, %if.then56.us ], [ %bufferLength.addr.0.ph114, %if.then27.split.us ]
-  %bufferPos.057 = phi i16 [ 0, %if.end17 ], [ 0, %lor.lhs.false ], [ 0, %if.then73.us ], [ %bufferPos.064.us, %if.else70.us146 ], [ %bufferPos.2.us, %if.end105.us ], [ %bufferPos.064.us, %if.then27.split.us125 ], [ %bufferPos.2, %if.end105 ], [ %bufferPos.0.ph116, %if.then56.us ], [ %bufferPos.0.ph116, %if.then27.split.us ]
+  %buffer.addr.0.ph61 = phi ptr [ %buffer, %if.end17 ], [ %buffer, %lor.lhs.false ], [ %buffer.addr.0.ph113.us, %if.else70.us146 ], [ %buffer.addr.0.ph113.us, %if.then73.us ], [ %buffer.addr.2.us, %if.end105.us ], [ %buffer.addr.0.ph113.us, %if.then27.split.us125 ], [ %buffer.addr.2, %if.end105 ], [ %buffer.addr.0.ph113, %if.then56.us ], [ %buffer.addr.0.ph113, %if.then27.split.us ]
+  %bufferLength.addr.0.ph59 = phi i16 [ %bufferLength, %if.end17 ], [ %bufferLength, %lor.lhs.false ], [ %bufferLength.addr.0.ph114.us, %if.else70.us146 ], [ %bufferLength.addr.0.ph114.us, %if.then73.us ], [ %bufferLength.addr.2.us, %if.end105.us ], [ %bufferLength.addr.0.ph114.us, %if.then27.split.us125 ], [ %bufferLength.addr.2, %if.end105 ], [ %bufferLength.addr.0.ph114, %if.then56.us ], [ %bufferLength.addr.0.ph114, %if.then27.split.us ]
+  %bufferPos.057 = phi i16 [ 0, %if.end17 ], [ 0, %lor.lhs.false ], [ 0, %if.then73.us ], [ %bufferPos.064.us, %if.else70.us146 ], [ %bufferPos.1.us, %if.end105.us ], [ %bufferPos.064.us, %if.then27.split.us125 ], [ %bufferPos.1, %if.end105 ], [ %bufferPos.0.ph116, %if.then56.us ], [ %bufferPos.0.ph116, %if.then27.split.us ]
   %cmp108.not = icmp eq i16 %bufferLength.addr.0.ph59, 0
   br i1 %cmp108.not, label %if.end110, label %if.then109
 
@@ -4762,47 +4762,47 @@ do.body.i.preheader:                              ; preds = %lor.lhs.false.i, %i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i.preheader, %do.cond.i
-  %nameLength.addr.0.i = phi i16 [ %nameLength.addr.2.i, %do.cond.i ], [ %21, %do.body.i.preheader ]
-  %name.addr.0.i = phi ptr [ %name.addr.2.i, %do.cond.i ], [ %add.ptr41, %do.body.i.preheader ]
+  %nameLength.addr.1.i = phi i16 [ %nameLength.addr.3.i, %do.cond.i ], [ %21, %do.body.i.preheader ]
+  %name.addr.1.i = phi ptr [ %name.addr.3.i, %do.cond.i ], [ %add.ptr41, %do.body.i.preheader ]
   %fieldIndex.0.i = phi i32 [ %dec14.i, %do.cond.i ], [ %nameChoice, %do.body.i.preheader ]
-  %cmp9.old.not.i = icmp eq i16 %nameLength.addr.0.i, 0
+  %cmp9.old.not.i = icmp eq i16 %nameLength.addr.1.i, 0
   br i1 %cmp9.old.not.i, label %do.cond.i, label %while.body.i28
 
 while.body.i28:                                   ; preds = %do.body.i, %while.body.i28
-  %nameLength.addr.1.i = phi i16 [ %dec.i, %while.body.i28 ], [ %nameLength.addr.0.i, %do.body.i ]
-  %name.addr.1.i = phi ptr [ %incdec.ptr10.i, %while.body.i28 ], [ %name.addr.0.i, %do.body.i ]
-  %dec.i = add i16 %nameLength.addr.1.i, -1
-  %incdec.ptr10.i = getelementptr inbounds i8, ptr %name.addr.1.i, i64 1
-  %23 = load i8, ptr %name.addr.1.i, align 1
+  %nameLength.addr.2.i = phi i16 [ %dec.i, %while.body.i28 ], [ %nameLength.addr.1.i, %do.body.i ]
+  %name.addr.2.i = phi ptr [ %incdec.ptr10.i, %while.body.i28 ], [ %name.addr.1.i, %do.body.i ]
+  %dec.i = add i16 %nameLength.addr.2.i, -1
+  %incdec.ptr10.i = getelementptr inbounds i8, ptr %name.addr.2.i, i64 1
+  %23 = load i8, ptr %name.addr.2.i, align 1
   %cmp12.i = icmp ne i8 %23, 59
   %cmp9.i = icmp ne i16 %dec.i, 0
   %or.cond2.i = select i1 %cmp12.i, i1 %cmp9.i, i1 false
   br i1 %or.cond2.i, label %while.body.i28, label %do.cond.i, !llvm.loop !74
 
 do.cond.i:                                        ; preds = %while.body.i28, %do.body.i
-  %nameLength.addr.2.i = phi i16 [ 0, %do.body.i ], [ %dec.i, %while.body.i28 ]
-  %name.addr.2.i = phi ptr [ %name.addr.0.i, %do.body.i ], [ %incdec.ptr10.i, %while.body.i28 ]
+  %nameLength.addr.3.i = phi i16 [ 0, %do.body.i ], [ %dec.i, %while.body.i28 ]
+  %name.addr.3.i = phi ptr [ %name.addr.1.i, %do.body.i ], [ %incdec.ptr10.i, %while.body.i28 ]
   %dec14.i = add nsw i32 %fieldIndex.0.i, -1
   %cmp15.i = icmp sgt i32 %fieldIndex.0.i, 1
   br i1 %cmp15.i, label %do.body.i, label %if.end17.i, !llvm.loop !75
 
 if.end17.i:                                       ; preds = %do.cond.i, %while.body35
-  %nameLength.addr.3.i = phi i16 [ %21, %while.body35 ], [ %nameLength.addr.2.i, %do.cond.i ]
-  %name.addr.3.i = phi ptr [ %add.ptr41, %while.body35 ], [ %name.addr.2.i, %do.cond.i ]
-  %cmp20.not5275.i = icmp eq i16 %nameLength.addr.3.i, 0
+  %nameLength.addr.0.i = phi i16 [ %21, %while.body35 ], [ %nameLength.addr.3.i, %do.cond.i ]
+  %name.addr.0.i = phi ptr [ %add.ptr41, %while.body35 ], [ %name.addr.3.i, %do.cond.i ]
+  %cmp20.not5275.i = icmp eq i16 %nameLength.addr.0.i, 0
   br i1 %cmp20.not5275.i, label %_ZN6icu_75L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit, label %while.body21.lr.ph.i
 
 while.body21.lr.ph.i:                             ; preds = %if.end17.i, %if.end95.i
-  %name.addr.4.ph78.i = phi ptr [ %name.addr.6.i, %if.end95.i ], [ %name.addr.3.i, %if.end17.i ]
-  %nameLength.addr.4.ph77.i = phi i16 [ %nameLength.addr.6.i, %if.end95.i ], [ %nameLength.addr.3.i, %if.end17.i ]
-  %otherName.addr.0.ph76.i = phi ptr [ %otherName.addr.2.i, %if.end95.i ], [ %15, %if.end17.i ]
+  %name.addr.4.ph78.i = phi ptr [ %name.addr.5.i, %if.end95.i ], [ %name.addr.0.i, %if.end17.i ]
+  %nameLength.addr.4.ph77.i = phi i16 [ %nameLength.addr.5.i, %if.end95.i ], [ %nameLength.addr.0.i, %if.end17.i ]
+  %otherName.addr.0.ph76.i = phi ptr [ %otherName.addr.1.i, %if.end95.i ], [ %15, %if.end17.i ]
   %cmp64.i = icmp eq ptr %otherName.addr.0.ph76.i, %15
   %or.cond1.i = and i1 %cmp66.i, %cmp64.i
   br i1 %or.cond1.i, label %while.body21.us.i, label %while.body21.lr.ph.split.i
 
 while.body21.us.i:                                ; preds = %while.body21.lr.ph.i, %if.else63.us.i
-  %name.addr.454.us.i = phi ptr [ %name.addr.5.us.i, %if.else63.us.i ], [ %name.addr.4.ph78.i, %while.body21.lr.ph.i ]
-  %nameLength.addr.453.us.i = phi i16 [ %nameLength.addr.5.us.i, %if.else63.us.i ], [ %nameLength.addr.4.ph77.i, %while.body21.lr.ph.i ]
+  %name.addr.454.us.i = phi ptr [ %name.addr.6.us.i, %if.else63.us.i ], [ %name.addr.4.ph78.i, %while.body21.lr.ph.i ]
+  %nameLength.addr.453.us.i = phi i16 [ %nameLength.addr.6.us.i, %if.else63.us.i ], [ %nameLength.addr.4.ph77.i, %while.body21.lr.ph.i ]
   %dec22.us.i = add i16 %nameLength.addr.453.us.i, -1
   %incdec.ptr23.us.i = getelementptr inbounds i8, ptr %name.addr.454.us.i, i64 1
   %24 = load i8, ptr %name.addr.454.us.i, align 1
@@ -4830,8 +4830,8 @@ if.then43.us.i:                                   ; preds = %if.else39.us.i
 
 if.end50.us.i:                                    ; preds = %if.then43.us.i, %if.else39.us.i
   %token.0.us.i = phi i16 [ %28, %if.then43.us.i ], [ %26, %if.else39.us.i ]
-  %nameLength.addr.5.us.i = phi i16 [ %dec49.us.i, %if.then43.us.i ], [ %dec22.us.i, %if.else39.us.i ]
-  %name.addr.5.us.i = phi ptr [ %incdec.ptr45.us.i, %if.then43.us.i ], [ %incdec.ptr23.us.i, %if.else39.us.i ]
+  %nameLength.addr.6.us.i = phi i16 [ %dec49.us.i, %if.then43.us.i ], [ %dec22.us.i, %if.else39.us.i ]
+  %name.addr.6.us.i = phi ptr [ %incdec.ptr45.us.i, %if.then43.us.i ], [ %incdec.ptr23.us.i, %if.else39.us.i ]
   %cmp52.us.i = icmp eq i16 %token.0.us.i, -1
   br i1 %cmp52.us.i, label %if.then53.us.i, label %if.else78.i
 
@@ -4842,7 +4842,7 @@ if.then53.us.i:                                   ; preds = %if.end50.us.i
 if.else63.us.i:                                   ; preds = %if.then53.us.i
   %29 = load i16, ptr %arrayidx.i, align 2
   %cmp73.us.i = icmp ne i16 %29, -1
-  %cmp20.not.us.i = icmp eq i16 %nameLength.addr.5.us.i, 0
+  %cmp20.not.us.i = icmp eq i16 %nameLength.addr.6.us.i, 0
   %or.cond.i = select i1 %cmp73.us.i, i1 true, i1 %cmp20.not.us.i
   br i1 %or.cond.i, label %_ZN6icu_75L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit, label %while.body21.us.i, !llvm.loop !76
 
@@ -4887,8 +4887,8 @@ if.then43.i:                                      ; preds = %if.else39.i
 
 if.end50.i:                                       ; preds = %if.then43.i, %if.else39.i
   %token.0.i = phi i16 [ %35, %if.then43.i ], [ %33, %if.else39.i ]
-  %nameLength.addr.5.i = phi i16 [ %dec49.i, %if.then43.i ], [ %dec22.i, %if.else39.i ]
-  %name.addr.5.i = phi ptr [ %incdec.ptr45.i, %if.then43.i ], [ %incdec.ptr23.i, %if.else39.i ]
+  %nameLength.addr.6.i = phi i16 [ %dec49.i, %if.then43.i ], [ %dec22.i, %if.else39.i ]
+  %name.addr.6.i = phi ptr [ %incdec.ptr45.i, %if.then43.i ], [ %incdec.ptr23.i, %if.else39.i ]
   %cmp52.i = icmp eq i16 %token.0.i, -1
   br i1 %cmp52.i, label %if.then53.i, label %if.else78.i
 
@@ -4897,8 +4897,8 @@ if.then53.i:                                      ; preds = %if.end50.i
   br i1 %cmp55.not.i, label %_ZN6icu_75L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit, label %if.then56.i
 
 if.then56.i:                                      ; preds = %if.then53.us.i, %if.then53.i
-  %.us-phi64.i = phi i16 [ %nameLength.addr.5.i, %if.then53.i ], [ %nameLength.addr.5.us.i, %if.then53.us.i ]
-  %.us-phi65.i = phi ptr [ %name.addr.5.i, %if.then53.i ], [ %name.addr.5.us.i, %if.then53.us.i ]
+  %.us-phi64.i = phi i16 [ %nameLength.addr.6.i, %if.then53.i ], [ %nameLength.addr.6.us.i, %if.then53.us.i ]
+  %.us-phi65.i = phi ptr [ %name.addr.6.i, %if.then53.i ], [ %name.addr.6.us.i, %if.then53.us.i ]
   %.us-phi66.i = phi i8 [ %30, %if.then53.i ], [ %24, %if.then53.us.i ]
   %incdec.ptr58.i = getelementptr i8, ptr %otherName.addr.0.ph76.i, i64 1
   %36 = load i8, ptr %otherName.addr.0.ph76.i, align 1
@@ -4907,14 +4907,14 @@ if.then56.i:                                      ; preds = %if.then53.us.i, %if
 
 if.else78.i:                                      ; preds = %if.end50.us.i, %if.end50.i
   %.us-phi61.i = phi i16 [ %token.0.i, %if.end50.i ], [ %token.0.us.i, %if.end50.us.i ]
-  %.us-phi62.i = phi i16 [ %nameLength.addr.5.i, %if.end50.i ], [ %nameLength.addr.5.us.i, %if.end50.us.i ]
-  %.us-phi63.i = phi ptr [ %name.addr.5.i, %if.end50.i ], [ %name.addr.5.us.i, %if.end50.us.i ]
+  %.us-phi62.i = phi i16 [ %nameLength.addr.6.i, %if.end50.i ], [ %nameLength.addr.6.us.i, %if.end50.us.i ]
+  %.us-phi63.i = phi ptr [ %name.addr.6.i, %if.end50.i ], [ %name.addr.6.us.i, %if.end50.us.i ]
   %idx.ext80.i = zext i16 %.us-phi61.i to i64
   %add.ptr81.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 %idx.ext80.i
   br label %while.cond82.i
 
 while.cond82.i:                                   ; preds = %while.body86.i, %if.else78.i
-  %otherName.addr.1.i = phi ptr [ %otherName.addr.0.ph76.i, %if.else78.i ], [ %incdec.ptr88.i, %while.body86.i ]
+  %otherName.addr.2.i = phi ptr [ %otherName.addr.0.ph76.i, %if.else78.i ], [ %incdec.ptr88.i, %while.body86.i ]
   %tokenString.0.i = phi ptr [ %add.ptr81.i, %if.else78.i ], [ %incdec.ptr83.i, %while.body86.i ]
   %37 = load i8, ptr %tokenString.0.i, align 1
   %cmp85.not.i = icmp eq i8 %37, 0
@@ -4922,20 +4922,20 @@ while.cond82.i:                                   ; preds = %while.body86.i, %if
 
 while.body86.i:                                   ; preds = %while.cond82.i
   %incdec.ptr83.i = getelementptr inbounds i8, ptr %tokenString.0.i, i64 1
-  %incdec.ptr88.i = getelementptr i8, ptr %otherName.addr.1.i, i64 1
-  %38 = load i8, ptr %otherName.addr.1.i, align 1
+  %incdec.ptr88.i = getelementptr i8, ptr %otherName.addr.2.i, i64 1
+  %38 = load i8, ptr %otherName.addr.2.i, align 1
   %cmp90.not.i = icmp eq i8 %37, %38
   br i1 %cmp90.not.i, label %while.cond82.i, label %if.end48, !llvm.loop !77
 
 if.end95.i:                                       ; preds = %while.cond82.i, %if.then56.i, %if.then30.i
-  %otherName.addr.2.i = phi ptr [ %incdec.ptr32.i, %if.then30.i ], [ %incdec.ptr58.i, %if.then56.i ], [ %otherName.addr.1.i, %while.cond82.i ]
-  %nameLength.addr.6.i = phi i16 [ %.us-phi.i, %if.then30.i ], [ %.us-phi64.i, %if.then56.i ], [ %.us-phi62.i, %while.cond82.i ]
-  %name.addr.6.i = phi ptr [ %.us-phi58.i, %if.then30.i ], [ %.us-phi65.i, %if.then56.i ], [ %.us-phi63.i, %while.cond82.i ]
-  %cmp20.not52.i = icmp eq i16 %nameLength.addr.6.i, 0
+  %otherName.addr.1.i = phi ptr [ %incdec.ptr32.i, %if.then30.i ], [ %incdec.ptr58.i, %if.then56.i ], [ %otherName.addr.2.i, %while.cond82.i ]
+  %nameLength.addr.5.i = phi i16 [ %.us-phi.i, %if.then30.i ], [ %.us-phi64.i, %if.then56.i ], [ %.us-phi62.i, %while.cond82.i ]
+  %name.addr.5.i = phi ptr [ %.us-phi58.i, %if.then30.i ], [ %.us-phi65.i, %if.then56.i ], [ %.us-phi63.i, %while.cond82.i ]
+  %cmp20.not52.i = icmp eq i16 %nameLength.addr.5.i, 0
   br i1 %cmp20.not52.i, label %_ZN6icu_75L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit, label %while.body21.lr.ph.i, !llvm.loop !76
 
 _ZN6icu_75L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit: ; preds = %if.then27.i, %if.then53.i, %if.end95.i, %if.else63.us.i, %lor.lhs.false.i, %if.end17.i
-  %otherName.addr.0.ph51.i = phi ptr [ %15, %if.end17.i ], [ %15, %lor.lhs.false.i ], [ %15, %if.else63.us.i ], [ %otherName.addr.0.ph76.i, %if.then27.i ], [ %otherName.addr.0.ph76.i, %if.then53.i ], [ %otherName.addr.2.i, %if.end95.i ]
+  %otherName.addr.0.ph51.i = phi ptr [ %15, %if.end17.i ], [ %15, %lor.lhs.false.i ], [ %15, %if.else63.us.i ], [ %otherName.addr.0.ph76.i, %if.then27.i ], [ %otherName.addr.0.ph76.i, %if.then53.i ], [ %otherName.addr.1.i, %if.end95.i ]
   %39 = load i8, ptr %otherName.addr.0.ph51.i, align 1
   %cmp98.i.not = icmp eq i8 %39, 0
   br i1 %cmp98.i.not, label %if.then47, label %if.end48

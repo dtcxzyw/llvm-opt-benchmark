@@ -516,13 +516,13 @@ if.then50.us.us.i:                                ; preds = %lor.lhs.false46.us.
   br label %if.end51.us.us.i
 
 if.end51.us.us.i:                                 ; preds = %if.then50.us.us.i, %lor.lhs.false46.us.us.i
-  %extra.0.us.us.i = phi i32 [ 0, %if.then50.us.us.i ], [ %add38.us.us.i, %lor.lhs.false46.us.us.i ]
-  %inc.us.us.i = add nuw nsw i32 %extra.0.us.us.i, 1
-  %cmp52.not.us.us.i = icmp ult i32 %extra.0.us.us.i, %best_extra.159.us.us.i
+  %extra.1.us.us.i = phi i32 [ 0, %if.then50.us.us.i ], [ %add38.us.us.i, %lor.lhs.false46.us.us.i ]
+  %inc.us.us.i = add nuw nsw i32 %extra.1.us.us.i, 1
+  %cmp52.not.us.us.i = icmp ult i32 %extra.1.us.us.i, %best_extra.159.us.us.i
   br i1 %cmp52.not.us.us.i, label %if.end54.us.us.i, label %for.inc.us.us.i
 
 if.end54.us.us.i:                                 ; preds = %if.end51.us.us.i, %for.body9.us.us.i
-  %extra.155.us.us.i = phi i32 [ %inc.us.us.i, %if.end51.us.us.i ], [ 0, %for.body9.us.us.i ]
+  %extra.055.us.us.i = phi i32 [ %inc.us.us.i, %if.end51.us.us.i ], [ 0, %for.body9.us.us.i ]
   %arrayidx84.us.us.i = getelementptr inbounds i32, ptr %call.i93, i64 %idxprom27.us.us.i
   %100 = load i32, ptr %arrayidx84.us.us.i, align 4
   %arrayidx87.us.us.i = getelementptr inbounds i32, ptr %call.i93, i64 %idxprom33.us.us.i
@@ -531,7 +531,7 @@ if.end54.us.us.i:                                 ; preds = %if.end51.us.us.i, %
   %add88.us.us.i = add i32 %add85.us.us.i, %100
   %sub89.us.us.i = add i32 %add88.us.us.i, %101
   %conv90.us.us.i = uitofp i32 %sub89.us.us.i to float
-  %cmp92.us.us.i = icmp ult i32 %extra.155.us.us.i, %best_extra.159.us.us.i
+  %cmp92.us.us.i = icmp ult i32 %extra.055.us.us.i, %best_extra.159.us.us.i
   %cmp94.us.us.i = fcmp ogt float %best_score.158.us.us.i, %conv90.us.us.i
   %or.cond.us.us.i = select i1 %cmp92.us.us.i, i1 true, i1 %cmp94.us.us.i
   br i1 %or.cond.us.us.i, label %if.then95.us.us.i, label %for.inc.us.us.i
@@ -541,7 +541,7 @@ if.then95.us.us.i:                                ; preds = %if.end54.us.us.i
 
 for.inc.us.us.i:                                  ; preds = %if.then95.us.us.i, %if.end54.us.us.i, %if.end51.us.us.i
   %best_score.2.us.us.i = phi float [ %best_score.158.us.us.i, %if.end51.us.us.i ], [ %conv90.us.us.i, %if.then95.us.us.i ], [ %best_score.158.us.us.i, %if.end54.us.us.i ]
-  %best_extra.2.us.us.i = phi i32 [ %best_extra.159.us.us.i, %if.end51.us.us.i ], [ %extra.155.us.us.i, %if.then95.us.us.i ], [ %best_extra.159.us.us.i, %if.end54.us.us.i ]
+  %best_extra.2.us.us.i = phi i32 [ %best_extra.159.us.us.i, %if.end51.us.us.i ], [ %extra.055.us.us.i, %if.then95.us.us.i ], [ %best_extra.159.us.us.i, %if.end54.us.us.i ]
   %best_triangle.2.us.us.i = phi i32 [ %best_triangle.160.us.us.i, %if.end51.us.us.i ], [ %91, %if.then95.us.us.i ], [ %best_triangle.160.us.us.i, %if.end54.us.us.i ]
   %inc97.us.us.i = add nuw nsw i64 %j.057.us.us.i, 1
   %exitcond76.not.i = icmp eq i64 %inc97.us.us.i, %conv6.us.i
@@ -1022,13 +1022,13 @@ if.then50.us.us:                                  ; preds = %lor.lhs.false46.us.
   br label %if.end51.us.us
 
 if.end51.us.us:                                   ; preds = %if.then50.us.us, %lor.lhs.false46.us.us
-  %extra.0.us.us = phi i32 [ 0, %if.then50.us.us ], [ %add38.us.us, %lor.lhs.false46.us.us ]
-  %inc.us.us = add nuw nsw i32 %extra.0.us.us, 1
-  %cmp52.not.us.us = icmp ult i32 %extra.0.us.us, %best_extra.159.us.us
+  %extra.1.us.us = phi i32 [ 0, %if.then50.us.us ], [ %add38.us.us, %lor.lhs.false46.us.us ]
+  %inc.us.us = add nuw nsw i32 %extra.1.us.us, 1
+  %cmp52.not.us.us = icmp ult i32 %extra.1.us.us, %best_extra.159.us.us
   br i1 %cmp52.not.us.us, label %if.end54.us.us, label %for.inc.us.us
 
 if.end54.us.us:                                   ; preds = %for.body9.us.us, %if.end51.us.us
-  %extra.155.us.us = phi i32 [ %inc.us.us, %if.end51.us.us ], [ 0, %for.body9.us.us ]
+  %extra.055.us.us = phi i32 [ %inc.us.us, %if.end51.us.us ], [ 0, %for.body9.us.us ]
   %arrayidx84.us.us = getelementptr inbounds i32, ptr %live_triangles, i64 %idxprom27.us.us
   %17 = load i32, ptr %arrayidx84.us.us, align 4
   %arrayidx87.us.us = getelementptr inbounds i32, ptr %live_triangles, i64 %idxprom33.us.us
@@ -1037,7 +1037,7 @@ if.end54.us.us:                                   ; preds = %for.body9.us.us, %i
   %add88.us.us = add i32 %add85.us.us, %17
   %sub89.us.us = add i32 %add88.us.us, %18
   %conv90.us.us = uitofp i32 %sub89.us.us to float
-  %cmp92.us.us = icmp ult i32 %extra.155.us.us, %best_extra.159.us.us
+  %cmp92.us.us = icmp ult i32 %extra.055.us.us, %best_extra.159.us.us
   %cmp94.us.us = fcmp ogt float %best_score.158.us.us, %conv90.us.us
   %or.cond.us.us = select i1 %cmp92.us.us, i1 true, i1 %cmp94.us.us
   br i1 %or.cond.us.us, label %if.then95.us.us, label %for.inc.us.us
@@ -1047,7 +1047,7 @@ if.then95.us.us:                                  ; preds = %if.end54.us.us
 
 for.inc.us.us:                                    ; preds = %if.then95.us.us, %if.end54.us.us, %if.end51.us.us
   %best_score.2.us.us = phi float [ %best_score.158.us.us, %if.end51.us.us ], [ %conv90.us.us, %if.then95.us.us ], [ %best_score.158.us.us, %if.end54.us.us ]
-  %best_extra.2.us.us = phi i32 [ %best_extra.159.us.us, %if.end51.us.us ], [ %extra.155.us.us, %if.then95.us.us ], [ %best_extra.159.us.us, %if.end54.us.us ]
+  %best_extra.2.us.us = phi i32 [ %best_extra.159.us.us, %if.end51.us.us ], [ %extra.055.us.us, %if.then95.us.us ], [ %best_extra.159.us.us, %if.end54.us.us ]
   %best_triangle.2.us.us = phi i32 [ %best_triangle.160.us.us, %if.end51.us.us ], [ %8, %if.then95.us.us ], [ %best_triangle.160.us.us, %if.end54.us.us ]
   %inc97.us.us = add nuw nsw i64 %j.057.us.us, 1
   %exitcond76.not = icmp eq i64 %inc97.us.us, %conv6.us
@@ -1132,13 +1132,13 @@ if.then50:                                        ; preds = %lor.lhs.false46, %l
   br label %if.end51
 
 if.end51:                                         ; preds = %lor.lhs.false46, %if.then50
-  %extra.0 = phi i32 [ 0, %if.then50 ], [ %add38, %lor.lhs.false46 ]
-  %inc = add nuw nsw i32 %extra.0, 1
-  %cmp52.not = icmp ult i32 %extra.0, %best_extra.159
+  %extra.1 = phi i32 [ 0, %if.then50 ], [ %add38, %lor.lhs.false46 ]
+  %inc = add nuw nsw i32 %extra.1, 1
+  %cmp52.not = icmp ult i32 %extra.1, %best_extra.159
   br i1 %cmp52.not, label %if.end54, label %for.inc
 
 if.end54:                                         ; preds = %for.body9, %if.end51
-  %extra.155 = phi i32 [ %inc, %if.end51 ], [ 0, %for.body9 ]
+  %extra.055 = phi i32 [ %inc, %if.end51 ], [ 0, %for.body9 ]
   %idxprom56 = zext i32 %22 to i64
   %arrayidx57 = getelementptr inbounds %"struct.meshopt::Cone", ptr %triangles, i64 %idxprom56
   %32 = load float, ptr %arrayidx57, align 4
@@ -1175,7 +1175,7 @@ if.end54:                                         ; preds = %for.body9, %if.end5
   %div.i = fdiv float %sqrt, %meshlet_expected_radius
   %49 = tail call float @llvm.fmuladd.f32(float %div.i, float %sub.i, float 1.000000e+00)
   %mul.i = fmul float %49, %cond.i
-  %cmp92 = icmp ult i32 %extra.155, %best_extra.159
+  %cmp92 = icmp ult i32 %extra.055, %best_extra.159
   %cmp94 = fcmp olt float %mul.i, %best_score.158
   %or.cond = select i1 %cmp92, i1 true, i1 %cmp94
   br i1 %or.cond, label %if.then95, label %for.inc
@@ -1185,7 +1185,7 @@ if.then95:                                        ; preds = %if.end54
 
 for.inc:                                          ; preds = %if.end54, %if.then95, %if.end51
   %best_score.2 = phi float [ %best_score.158, %if.end51 ], [ %mul.i, %if.then95 ], [ %best_score.158, %if.end54 ]
-  %best_extra.2 = phi i32 [ %best_extra.159, %if.end51 ], [ %extra.155, %if.then95 ], [ %best_extra.159, %if.end54 ]
+  %best_extra.2 = phi i32 [ %best_extra.159, %if.end51 ], [ %extra.055, %if.then95 ], [ %best_extra.159, %if.end54 ]
   %best_triangle.2 = phi i32 [ %best_triangle.160, %if.end51 ], [ %22, %if.then95 ], [ %best_triangle.160, %if.end54 ]
   %inc97 = add nuw nsw i64 %j.057, 1
   %exitcond.not = icmp eq i64 %inc97, %conv6

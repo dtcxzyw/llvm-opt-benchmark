@@ -445,7 +445,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %157
 .lr.ph212:                                        ; preds = %.lr.ph212.preheader, %140
   %indvars.iv = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next, %140 ]
   %.0128209 = phi i32 [ 0, %.lr.ph212.preheader ], [ %.1129, %140 ]
-  %.0130208 = phi i32 [ 0, %.lr.ph212.preheader ], [ %.2132, %140 ]
+  %.0130208 = phi i32 [ 0, %.lr.ph212.preheader ], [ %.1131, %140 ]
   %111 = getelementptr inbounds %struct.epoll_event, ptr %3, i64 %indvars.iv
   %112 = getelementptr inbounds i8, ptr %111, i64 4
   %113 = load i32, ptr %112, align 4
@@ -497,12 +497,12 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %157
   br label %138
 
 138:                                              ; preds = %133, %135
-  %.1131 = phi i32 [ %.0130208, %135 ], [ 1, %133 ]
+  %.2132 = phi i32 [ %.0130208, %135 ], [ 1, %133 ]
   %139 = add nsw i32 %.0128209, 1
   br label %140
 
 140:                                              ; preds = %124, %138, %.lr.ph212, %121
-  %.2132 = phi i32 [ %.0130208, %.lr.ph212 ], [ %.0130208, %121 ], [ %.1131, %138 ], [ %.0130208, %124 ]
+  %.1131 = phi i32 [ %.0130208, %.lr.ph212 ], [ %.0130208, %121 ], [ %.2132, %138 ], [ %.0130208, %124 ]
   %.1129 = phi i32 [ %.0128209, %.lr.ph212 ], [ %.0128209, %121 ], [ %139, %138 ], [ %.0128209, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -511,7 +511,7 @@ select.unfold.outer179.backedge:                  ; preds = %94, %97, %157
 ._crit_edge213:                                   ; preds = %140
   %.not152 = icmp eq i32 %.1117.ph181, 0
   %spec.select168 = select i1 %.not152, i32 %.1.ph183, i32 %.163
-  %.not153 = icmp eq i32 %.2132, 0
+  %.not153 = icmp eq i32 %.1131, 0
   br i1 %.not153, label %143, label %141
 
 141:                                              ; preds = %._crit_edge213

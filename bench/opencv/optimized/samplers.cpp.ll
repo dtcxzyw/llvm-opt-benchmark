@@ -2537,8 +2537,8 @@ define internal fastcc noundef ptr @_ZN2cvL10adjustRectEPKhmiNS_5Size_IiEES3_NS_
   %24 = mul nsw i32 %22, %2
   %storemerge = tail call i32 @llvm.smax.i32(i32 %22, i32 0)
   %narrow = select i1 %23, i32 %24, i32 0
-  %.1.idx = sext i32 %narrow to i64
-  %.1 = getelementptr inbounds i8, ptr %.031, i64 %.1.idx
+  %.2.idx = sext i32 %narrow to i64
+  %.2 = getelementptr inbounds i8, ptr %.031, i64 %.2.idx
   %.not = icmp sgt i32 %storemerge, %.sroa.020.0.extract.trunc
   br i1 %.not, label %25, label %33
 
@@ -2572,11 +2572,11 @@ define internal fastcc noundef ptr @_ZN2cvL10adjustRectEPKhmiNS_5Size_IiEES3_NS_
 
 33:                                               ; preds = %17, %20
   %.sroa.8.0 = phi i32 [ %storemerge, %20 ], [ %.sroa.020.0.extract.trunc, %17 ]
-  %.2 = phi ptr [ %.1, %20 ], [ %.031, %17 ]
+  %.1 = phi ptr [ %.2, %20 ], [ %.031, %17 ]
   %34 = icmp sgt i64 %5, -1
   %35 = mul i64 %.sroa.6.0.extract.shift, %1
   %.3.idx = select i1 %34, i64 %35, i64 0
-  %.3 = getelementptr inbounds i8, ptr %.2, i64 %.3.idx
+  %.3 = getelementptr inbounds i8, ptr %.1, i64 %.3.idx
   %36 = sub nsw i32 %.sroa.3.0.extract.trunc, %.sroa.625.0.extract.trunc
   %37 = icmp sgt i32 %36, %.sroa.6.0.extract.trunc
   br i1 %37, label %46, label %38

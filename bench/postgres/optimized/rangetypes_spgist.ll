@@ -521,8 +521,8 @@ select.unfold173:                                 ; preds = %64, %58, %61, %70, 
 
 100:                                              ; preds = %.lr.ph294, %.thread272.thread
   %indvars.iv315 = phi i64 [ 0, %.lr.ph294 ], [ %indvars.iv.next316, %.thread272.thread ]
-  %.2293 = phi i32 [ 62, %.lr.ph294 ], [ %.8282, %.thread272.thread ]
-  %.0147291 = phi i1 [ false, %.lr.ph294 ], [ %.1148193220244271278281, %.thread272.thread ]
+  %.3293 = phi i32 [ 62, %.lr.ph294 ], [ %.9282, %.thread272.thread ]
+  %.1148291 = phi i1 [ false, %.lr.ph294 ], [ %.2149193220244271278281, %.thread272.thread ]
   %101 = load ptr, ptr %19, align 8
   %102 = getelementptr %struct.ScanKeyData, ptr %101, i64 %indvars.iv315
   %103 = getelementptr inbounds i8, ptr %102, i64 6
@@ -603,7 +603,7 @@ select.unfold173:                                 ; preds = %64, %58, %61, %70, 
   %.164 = select i1 %130, i32 24, i32 0
   %.0129 = select i1 %129, i32 6, i32 %.164
   %131 = or i32 %.0129, %.0130
-  %132 = and i32 %131, %.2293
+  %132 = and i32 %131, %.3293
   br label %157
 
 133:                                              ; preds = %109
@@ -612,7 +612,7 @@ select.unfold173:                                 ; preds = %64, %58, %61, %70, 
   br i1 %134, label %.thread272.thread, label %.thread207.thread248
 
 .thread207.thread248:                             ; preds = %.thread323, %133
-  %135 = and i32 %.2293, 30
+  %135 = and i32 %.3293, 30
   br label %165
 
 136:                                              ; preds = %109
@@ -621,7 +621,7 @@ select.unfold173:                                 ; preds = %64, %58, %61, %70, 
   br i1 %138, label %139, label %.thread221
 
 139:                                              ; preds = %136
-  %140 = and i32 %.2293, 32
+  %140 = and i32 %.3293, 32
   br label %.thread272
 
 141:                                              ; preds = %109
@@ -661,7 +661,7 @@ getQuadrant.exit:                                 ; preds = %141, %149, %150
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %151 = shl nuw nsw i32 1, %.0.i
-  %152 = and i32 %151, %.2293
+  %152 = and i32 %151, %.3293
   br label %.thread272
 
 153:                                              ; preds = %109
@@ -673,8 +673,8 @@ getQuadrant.exit:                                 ; preds = %141, %149, %150
   unreachable
 
 157:                                              ; preds = %118, %124, %117, %116, %115, %114, %109
-  %.1148.ph = phi i1 [ %.0147291, %109 ], [ %.0147291, %114 ], [ %.0147291, %115 ], [ %.0147291, %116 ], [ %.0147291, %117 ], [ true, %124 ], [ %.0147291, %118 ]
-  %.3.ph = phi i32 [ %.2293, %109 ], [ %.2293, %114 ], [ %.2293, %115 ], [ %.2293, %116 ], [ %.2293, %117 ], [ %132, %124 ], [ %.2293, %118 ]
+  %.2149.ph = phi i1 [ %.1148291, %109 ], [ %.1148291, %114 ], [ %.1148291, %115 ], [ %.1148291, %116 ], [ %.1148291, %117 ], [ true, %124 ], [ %.1148291, %118 ]
+  %.4.ph = phi i32 [ %.3293, %109 ], [ %.3293, %114 ], [ %.3293, %115 ], [ %.3293, %116 ], [ %.3293, %117 ], [ %132, %124 ], [ %.3293, %118 ]
   %.0136.ph = phi ptr [ null, %109 ], [ null, %114 ], [ null, %115 ], [ %11, %116 ], [ %12, %117 ], [ null, %124 ], [ null, %118 ]
   %.0135.ph = phi ptr [ null, %109 ], [ null, %114 ], [ %12, %115 ], [ null, %116 ], [ null, %117 ], [ null, %124 ], [ null, %118 ]
   %.0134.ph = phi ptr [ null, %109 ], [ null, %114 ], [ %11, %115 ], [ null, %116 ], [ null, %117 ], [ null, %124 ], [ null, %118 ]
@@ -685,13 +685,13 @@ getQuadrant.exit:                                 ; preds = %141, %149, %150
   br i1 %159, label %.thread178, label %160
 
 160:                                              ; preds = %157
-  %161 = and i32 %.3.ph, 30
+  %161 = and i32 %.4.ph, 30
   %.not157 = icmp eq ptr %.0136.ph, null
   br i1 %.not157, label %.thread207, label %.thread221
 
 .thread221:                                       ; preds = %136, %160
-  %.4236 = phi i32 [ %161, %160 ], [ %.2293, %136 ]
-  %.1148193235 = phi i1 [ %.1148.ph, %160 ], [ %.0147291, %136 ]
+  %.5236 = phi i32 [ %161, %160 ], [ %.3293, %136 ]
+  %.2149193235 = phi i1 [ %.2149.ph, %160 ], [ %.1148291, %136 ]
   %.0136196234 = phi ptr [ %.0136.ph, %160 ], [ %11, %136 ]
   %.0135198233 = phi ptr [ %.0135.ph, %160 ], [ null, %136 ]
   %.0134200232 = phi ptr [ %.0134.ph, %160 ], [ null, %136 ]
@@ -699,54 +699,54 @@ getQuadrant.exit:                                 ; preds = %141, %149, %150
   %.0132204230 = phi i1 [ %.0132.ph, %160 ], [ false, %136 ]
   %162 = call i32 @range_cmp_bounds(ptr noundef %89, ptr noundef nonnull %8, ptr noundef nonnull %.0136196234) #6
   %163 = icmp slt i32 %162, 1
-  %164 = and i32 %.4236, 38
-  %spec.select165 = select i1 %163, i32 %164, i32 %.4236
+  %164 = and i32 %.5236, 38
+  %spec.select165 = select i1 %163, i32 %164, i32 %.5236
   br label %.thread207
 
 .thread207:                                       ; preds = %.thread221, %160
-  %.1148193220 = phi i1 [ %.1148.ph, %160 ], [ %.1148193235, %.thread221 ]
+  %.2149193220 = phi i1 [ %.2149.ph, %160 ], [ %.2149193235, %.thread221 ]
   %.0135198219 = phi ptr [ %.0135.ph, %160 ], [ %.0135198233, %.thread221 ]
   %.0134200218 = phi ptr [ %.0134.ph, %160 ], [ %.0134200232, %.thread221 ]
   %.0133202217 = phi ptr [ %.0133.ph, %160 ], [ %.0133202231, %.thread221 ]
   %.0132204216 = phi i1 [ %.0132.ph, %160 ], [ %.0132204230, %.thread221 ]
-  %.5 = phi i32 [ %161, %160 ], [ %spec.select165, %.thread221 ]
+  %.6 = phi i32 [ %161, %160 ], [ %spec.select165, %.thread221 ]
   %.not158 = icmp eq ptr %.0135198219, null
   br i1 %.not158, label %170, label %165
 
 165:                                              ; preds = %.thread207.thread248, %.thread207
-  %.5261 = phi i32 [ %135, %.thread207.thread248 ], [ %.5, %.thread207 ]
+  %.6261 = phi i32 [ %135, %.thread207.thread248 ], [ %.6, %.thread207 ]
   %.0132204216260 = phi i1 [ false, %.thread207.thread248 ], [ %.0132204216, %.thread207 ]
   %.0133202217259 = phi ptr [ null, %.thread207.thread248 ], [ %.0133202217, %.thread207 ]
   %.0134200218258 = phi ptr [ %12, %.thread207.thread248 ], [ %.0134200218, %.thread207 ]
   %.0135198219257 = phi ptr [ %11, %.thread207.thread248 ], [ %.0135198219, %.thread207 ]
-  %.1148193220256 = phi i1 [ %.0147291, %.thread207.thread248 ], [ %.1148193220, %.thread207 ]
+  %.2149193220256 = phi i1 [ %.1148291, %.thread207.thread248 ], [ %.2149193220, %.thread207 ]
   %166 = call i32 @range_cmp_bounds(ptr noundef %89, ptr noundef nonnull %8, ptr noundef nonnull %.0135198219257) #6
   %167 = icmp sgt i32 %166, 0
   %168 = icmp eq i32 %166, 0
   %or.cond = and i1 %.0132204216260, %168
   %or.cond166 = or i1 %167, %or.cond
-  %169 = and i32 %.5261, 56
-  %spec.select170 = select i1 %or.cond166, i32 %169, i32 %.5261
+  %169 = and i32 %.6261, 56
+  %spec.select170 = select i1 %or.cond166, i32 %169, i32 %.6261
   br label %170
 
 170:                                              ; preds = %165, %.thread207
   %.0132204216247 = phi i1 [ %.0132204216, %.thread207 ], [ %.0132204216260, %165 ]
   %.0133202217246 = phi ptr [ %.0133202217, %.thread207 ], [ %.0133202217259, %165 ]
   %.0134200218245 = phi ptr [ %.0134200218, %.thread207 ], [ %.0134200218258, %165 ]
-  %.1148193220244 = phi i1 [ %.1148193220, %.thread207 ], [ %.1148193220256, %165 ]
-  %.6 = phi i32 [ %.5, %.thread207 ], [ %spec.select170, %165 ]
+  %.2149193220244 = phi i1 [ %.2149193220, %.thread207 ], [ %.2149193220256, %165 ]
+  %.7 = phi i32 [ %.6, %.thread207 ], [ %spec.select170, %165 ]
   %.not = icmp eq ptr %.0134200218245, null
   br i1 %.not, label %175, label %171
 
 171:                                              ; preds = %170
   %172 = call i32 @range_cmp_bounds(ptr noundef %89, ptr noundef nonnull %9, ptr noundef nonnull %.0134200218245) #6
   %173 = icmp slt i32 %172, 1
-  %174 = and i32 %.6, 50
-  %spec.select167 = select i1 %173, i32 %174, i32 %.6
+  %174 = and i32 %.7, 50
+  %spec.select167 = select i1 %173, i32 %174, i32 %.7
   br label %175
 
 175:                                              ; preds = %171, %170
-  %.7 = phi i32 [ %.6, %170 ], [ %spec.select167, %171 ]
+  %.8 = phi i32 [ %.7, %170 ], [ %spec.select167, %171 ]
   %.not159 = icmp eq ptr %.0133202217246, null
   br i1 %.not159, label %.thread272, label %176
 
@@ -756,19 +756,19 @@ getQuadrant.exit:                                 ; preds = %141, %149, %150
   %179 = icmp eq i32 %177, 0
   %or.cond5 = and i1 %.0132204216247, %179
   %or.cond168 = or i1 %178, %or.cond5
-  %180 = and i32 %.7, 44
-  %spec.select171 = select i1 %or.cond168, i32 %180, i32 %.7
+  %180 = and i32 %.8, 44
+  %spec.select171 = select i1 %or.cond168, i32 %180, i32 %.8
   br label %.thread272
 
 .thread272:                                       ; preds = %getQuadrant.exit, %139, %176, %175
-  %.1148193220244271278 = phi i1 [ %.1148193220244, %175 ], [ %.1148193220244, %176 ], [ %.0147291, %139 ], [ %.0147291, %getQuadrant.exit ]
-  %.8 = phi i32 [ %.7, %175 ], [ %spec.select171, %176 ], [ %140, %139 ], [ %152, %getQuadrant.exit ]
-  %181 = icmp eq i32 %.8, 0
+  %.2149193220244271278 = phi i1 [ %.2149193220244, %175 ], [ %.2149193220244, %176 ], [ %.1148291, %139 ], [ %.1148291, %getQuadrant.exit ]
+  %.9 = phi i32 [ %.8, %175 ], [ %spec.select171, %176 ], [ %140, %139 ], [ %152, %getQuadrant.exit ]
+  %181 = icmp eq i32 %.9, 0
   br i1 %181, label %.thread178, label %.thread272.thread
 
 .thread272.thread:                                ; preds = %133, %.thread272
-  %.8282 = phi i32 [ %.8, %.thread272 ], [ %.2293, %133 ]
-  %.1148193220244271278281 = phi i1 [ %.1148193220244271278, %.thread272 ], [ %.0147291, %133 ]
+  %.9282 = phi i32 [ %.9, %.thread272 ], [ %.3293, %133 ]
+  %.2149193220244271278281 = phi i1 [ %.2149193220244271278, %.thread272 ], [ %.1148291, %133 ]
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %182 = load i32, ptr %90, align 8
   %183 = sext i32 %182 to i64
@@ -776,8 +776,8 @@ getQuadrant.exit:                                 ; preds = %141, %149, %150
   br i1 %184, label %100, label %.thread178, !llvm.loop !11
 
 .thread178:                                       ; preds = %select.unfold173, %.thread175, %58, %.thread272, %.thread272.thread, %157, %.preheader, %82
-  %.2149 = phi i1 [ false, %82 ], [ false, %.preheader ], [ %.1148193220244271278, %.thread272 ], [ %.1148193220244271278281, %.thread272.thread ], [ %.1148.ph, %157 ], [ false, %58 ], [ false, %.thread175 ], [ false, %select.unfold173 ]
-  %.9 = phi i32 [ 62, %82 ], [ 6, %.preheader ], [ 0, %.thread272 ], [ %.8282, %.thread272.thread ], [ 0, %157 ], [ 0, %select.unfold173 ], [ %.1141177, %.thread175 ], [ 0, %58 ]
+  %.0147 = phi i1 [ false, %82 ], [ false, %.preheader ], [ %.2149193220244271278, %.thread272 ], [ %.2149193220244271278281, %.thread272.thread ], [ %.2149.ph, %157 ], [ false, %58 ], [ false, %.thread175 ], [ false, %select.unfold173 ]
+  %.2 = phi i32 [ 62, %82 ], [ 6, %.preheader ], [ 0, %.thread272 ], [ %.9282, %.thread272.thread ], [ 0, %157 ], [ 0, %select.unfold173 ], [ %.1141177, %.thread175 ], [ 0, %58 ]
   %185 = getelementptr inbounds i8, ptr %19, i64 64
   %186 = load i32, ptr %185, align 8
   %187 = sext i32 %186 to i64
@@ -785,7 +785,7 @@ getQuadrant.exit:                                 ; preds = %141, %149, %150
   %189 = call ptr @palloc(i64 noundef %188) #6
   %190 = getelementptr inbounds i8, ptr %22, i64 8
   store ptr %189, ptr %190, align 8
-  br i1 %.2149, label %191, label %.thread324
+  br i1 %.0147, label %191, label %.thread324
 
 191:                                              ; preds = %.thread178
   %192 = load i32, ptr %185, align 8
@@ -822,7 +822,7 @@ getQuadrant.exit:                                 ; preds = %141, %149, %150
   %207 = phi i32 [ %226, %225 ], [ %200, %.lr.ph304.split.us.preheader ]
   %.3145303.us = phi i32 [ %227, %225 ], [ 1, %.lr.ph304.split.us.preheader ]
   %208 = shl nuw i32 1, %.3145303.us
-  %209 = and i32 %208, %.9
+  %209 = and i32 %208, %.2
   %.not161.us = icmp eq i32 %209, 0
   br i1 %.not161.us, label %225, label %210
 
@@ -857,7 +857,7 @@ getQuadrant.exit:                                 ; preds = %141, %149, %150
   %228 = phi i32 [ %240, %239 ], [ %204, %.thread324 ]
   %.3145303 = phi i32 [ %241, %239 ], [ 1, %.thread324 ]
   %229 = shl nuw i32 1, %.3145303
-  %230 = and i32 %229, %.9
+  %230 = and i32 %229, %.2
   %.not161 = icmp eq i32 %230, 0
   br i1 %.not161, label %239, label %231
 

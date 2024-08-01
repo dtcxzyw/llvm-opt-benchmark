@@ -1076,7 +1076,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %142, %147
           to label %160 unwind label %.loopexit.split-lp
 
 160:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit, %158, %156
-  %.036 = phi i1 [ %157, %156 ], [ %159, %158 ], [ false, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ]
+  %.1 = phi i1 [ %157, %156 ], [ %159, %158 ], [ false, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit ]
   %161 = load ptr, ptr %8, align 8
   %.not.i.i.i73 = icmp eq ptr %161, null
   br i1 %.not.i.i.i73, label %_ZNSt6vectorIjSaIjEED2Ev.exit74, label %162
@@ -1099,8 +1099,8 @@ _ZNSt6vectorIjSaIjEED2Ev.exit76:                  ; preds = %_ZNSt6vectorIjSaIjE
   resume { ptr, i32 } %.pn47
 
 _ZNSt6vectorIjSaIjEED2Ev.exit74:                  ; preds = %162, %160, %15, %5
-  %.1 = phi i1 [ false, %5 ], [ true, %15 ], [ %.036, %160 ], [ %.036, %162 ]
-  ret i1 %.1
+  %.036 = phi i1 [ false, %5 ], [ true, %15 ], [ %.1, %160 ], [ %.1, %162 ]
+  ret i1 %.036
 }
 
 declare noundef i32 @_ZNK5draco7Options6GetIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
@@ -3420,8 +3420,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
 .lr.ph:                                           ; preds = %59, %.lr.ph
   %.02588 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
   %.sroa.0.087 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
-  %.sroa.036.286 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.036.286, i64 -4
+  %.sroa.036.386 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
+  %63 = getelementptr inbounds i8, ptr %.sroa.036.386, i64 -4
   %64 = getelementptr inbounds i8, ptr %.sroa.0.087, i64 -4
   %65 = load i32, ptr %63, align 4
   %66 = load i32, ptr %64, align 4
@@ -3432,13 +3432,13 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.sroa.036.2.lcssa = phi ptr [ %61, %59 ], [ %.sroa.036.0, %.lr.ph ]
+  %.sroa.036.3.lcssa = phi ptr [ %61, %59 ], [ %.sroa.036.0, %.lr.ph ]
   %68 = srem i64 %.078, %25
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
-  %.sroa.036.0.be = phi ptr [ %.sroa.036.1.lcssa, %45 ], [ %.sroa.036.2.lcssa, %._crit_edge ]
+  %.sroa.036.0.be = phi ptr [ %.sroa.036.1.lcssa, %45 ], [ %.sroa.036.3.lcssa, %._crit_edge ]
   %.079.be = phi i64 [ %46, %45 ], [ %68, %._crit_edge ]
   %.078.be = phi i64 [ %.079, %45 ], [ %25, %._crit_edge ]
   br label %24, !llvm.loop !35

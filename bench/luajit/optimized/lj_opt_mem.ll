@@ -2503,25 +2503,25 @@ if.end11:                                         ; preds = %if.end
 
 retry:                                            ; preds = %while.end179, %if.end11
   %4 = phi ptr [ %56, %while.end179 ], [ %1, %if.end11 ]
-  %xr.0 = phi ptr [ %arrayidx183, %while.end179 ], [ %arrayidx, %if.end11 ]
-  %lim.0 = phi i32 [ %retval.0.i, %while.end179 ], [ %conv, %if.end11 ]
+  %xr.1 = phi ptr [ %arrayidx183, %while.end179 ], [ %arrayidx, %if.end11 ]
+  %lim.1 = phi i32 [ %retval.0.i, %while.end179 ], [ %conv, %if.end11 ]
   %ref.0 = phi i32 [ %ref.3.lcssa, %while.end179 ], [ %conv13, %if.end11 ]
   %arrayidx15 = getelementptr inbounds i8, ptr %J, i64 600
   %5 = load i16, ptr %arrayidx15, align 2
   %conv16 = zext i16 %5 to i32
-  %spec.select = tail call i32 @llvm.umax.i32(i32 %lim.0, i32 %conv16)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %lim.1, i32 %conv16)
   %arrayidx24 = getelementptr inbounds i8, ptr %J, i64 582
   %6 = load i16, ptr %arrayidx24, align 2
   %conv25 = zext i16 %6 to i32
-  %lim.2 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %conv25)
-  %cmp3377 = icmp ugt i32 %ref.0, %lim.2
+  %lim.3 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %conv25)
+  %cmp3377 = icmp ugt i32 %ref.0, %lim.3
   br i1 %cmp3377, label %while.body, label %cselim
 
 while.body:                                       ; preds = %retry, %sw.epilog
   %ref.178 = phi i32 [ %conv102, %sw.epilog ], [ %ref.0, %retry ]
   %idxprom37 = zext nneg i32 %ref.178 to i64
   %arrayidx38 = getelementptr inbounds %union.IRIns, ptr %4, i64 %idxprom37
-  %call = tail call fastcc i32 @aa_xref(ptr noundef nonnull %J, ptr noundef %xr.0, ptr noundef nonnull %fold, ptr noundef nonnull %arrayidx38)
+  %call = tail call fastcc i32 @aa_xref(ptr noundef nonnull %J, ptr noundef %xr.1, ptr noundef nonnull %fold, ptr noundef nonnull %arrayidx38)
   switch i32 %call, label %sw.epilog [
     i32 2, label %sw.bb42
     i32 1, label %cselim
@@ -2584,18 +2584,18 @@ sw.epilog:                                        ; preds = %while.body
   %prev = getelementptr inbounds i8, ptr %arrayidx38, i64 6
   %13 = load i16, ptr %prev, align 2
   %conv102 = zext i16 %13 to i32
-  %cmp33 = icmp ult i32 %lim.2, %conv102
+  %cmp33 = icmp ult i32 %lim.3, %conv102
   br i1 %cmp33, label %while.body, label %cselim, !llvm.loop !31
 
 cselim:                                           ; preds = %sw.epilog, %while.body, %retry, %entry
   %14 = phi ptr [ %1, %entry ], [ %4, %retry ], [ %4, %while.body ], [ %4, %sw.epilog ]
-  %xref.1 = phi i32 [ %conv, %entry ], [ %lim.0, %retry ], [ %lim.0, %while.body ], [ %lim.0, %sw.epilog ]
-  %xr.1 = phi ptr [ %arrayidx, %entry ], [ %xr.0, %retry ], [ %xr.0, %while.body ], [ %xr.0, %sw.epilog ]
-  %lim.3 = phi i32 [ %conv, %entry ], [ %lim.2, %retry ], [ %lim.2, %sw.epilog ], [ %ref.178, %while.body ]
+  %xref.0 = phi i32 [ %conv, %entry ], [ %lim.1, %retry ], [ %lim.1, %while.body ], [ %lim.1, %sw.epilog ]
+  %xr.0 = phi ptr [ %arrayidx, %entry ], [ %xr.1, %retry ], [ %xr.1, %while.body ], [ %xr.1, %sw.epilog ]
+  %lim.0 = phi i32 [ %conv, %entry ], [ %lim.3, %retry ], [ %lim.3, %sw.epilog ], [ %ref.178, %while.body ]
   %arrayidx104 = getelementptr inbounds i8, ptr %J, i64 542
   %ref.2.in80 = load i16, ptr %arrayidx104, align 2
   %ref.281 = zext i16 %ref.2.in80 to i32
-  %cmp10782 = icmp ult i32 %lim.3, %ref.281
+  %cmp10782 = icmp ult i32 %lim.0, %ref.281
   br i1 %cmp10782, label %while.body109.lr.ph, label %while.end142
 
 while.body109.lr.ph:                              ; preds = %cselim
@@ -2609,7 +2609,7 @@ while.body109:                                    ; preds = %while.body109.lr.ph
   %arrayidx113 = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom112
   %15 = load i16, ptr %arrayidx113, align 8
   %conv115 = zext i16 %15 to i32
-  %cmp116 = icmp eq i32 %xref.1, %conv115
+  %cmp116 = icmp eq i32 %xref.0, %conv115
   br i1 %cmp116, label %land.lhs.true, label %if.end135
 
 land.lhs.true:                                    ; preds = %while.body109
@@ -2625,7 +2625,7 @@ if.end135:                                        ; preds = %land.lhs.true, %whi
   %prev140 = getelementptr inbounds i8, ptr %arrayidx113, i64 6
   %ref.2.in = load i16, ptr %prev140, align 2
   %ref.2 = zext i16 %ref.2.in to i32
-  %cmp107 = icmp ult i32 %lim.3, %ref.2
+  %cmp107 = icmp ult i32 %lim.0, %ref.2
   br i1 %cmp107, label %while.body109, label %while.end142, !llvm.loop !32
 
 while.end142:                                     ; preds = %if.end135, %cselim
@@ -2643,17 +2643,17 @@ land.lhs.true149:                                 ; preds = %while.end142
 land.lhs.true154:                                 ; preds = %land.lhs.true149
   %22 = load i16, ptr %fold, align 8
   %conv158 = zext i16 %22 to i32
-  %cmp159 = icmp eq i32 %xref.1, %conv158
+  %cmp159 = icmp eq i32 %xref.0, %conv158
   br i1 %cmp159, label %land.lhs.true161, label %doemit
 
 land.lhs.true161:                                 ; preds = %land.lhs.true154
-  %o.i = getelementptr inbounds i8, ptr %xr.1, i64 5
+  %o.i = getelementptr inbounds i8, ptr %xr.0, i64 5
   %23 = load i8, ptr %o.i, align 1
   %cmp.i = icmp eq i8 %23, 41
   br i1 %cmp.i, label %land.lhs.true.i, label %doemit
 
 land.lhs.true.i:                                  ; preds = %land.lhs.true161
-  %op2.i = getelementptr inbounds i8, ptr %xr.1, i64 2
+  %op2.i = getelementptr inbounds i8, ptr %xr.0, i64 2
   %24 = load i16, ptr %op2.i, align 2
   %cmp3.i = icmp sgt i16 %24, -1
   br i1 %cmp3.i, label %if.then.i, label %if.then21.i
@@ -2678,7 +2678,7 @@ cond.false.i:                                     ; preds = %if.then.i
 
 if.end.i:                                         ; preds = %cond.false.i, %cond.true.i
   %cond.i = phi i64 [ %26, %cond.true.i ], [ %conv12.i, %cond.false.i ]
-  %28 = load i16, ptr %xr.1, align 8
+  %28 = load i16, ptr %xr.0, align 8
   %idxprom15.i = zext i16 %28 to i64
   %arrayidx16.i = getelementptr inbounds %union.IRIns, ptr %14, i64 %idxprom15.i
   %o17.phi.trans.insert.i = getelementptr inbounds i8, ptr %arrayidx16.i, i64 5
@@ -2687,7 +2687,7 @@ if.end.i:                                         ; preds = %cond.false.i, %cond
   br i1 %29, label %if.then21.i, label %doemit
 
 if.then21.i:                                      ; preds = %if.end.i, %land.lhs.true.i
-  %ir.addr.0144.i = phi ptr [ %arrayidx16.i, %if.end.i ], [ %xr.1, %land.lhs.true.i ]
+  %ir.addr.0144.i = phi ptr [ %arrayidx16.i, %if.end.i ], [ %xr.0, %land.lhs.true.i ]
   %ofs.0143.i = phi i64 [ %cond.i, %if.end.i ], [ 0, %land.lhs.true.i ]
   %30 = load i16, ptr %ir.addr.0144.i, align 8
   %idxprom25.i = zext i16 %30 to i64
@@ -2917,7 +2917,7 @@ if.then165:                                       ; preds = %land.lhs.true.i118.
   %arrayidx167 = getelementptr inbounds i8, ptr %J, i64 558
   %ref.3.in85 = load i16, ptr %arrayidx167, align 2
   %ref.386 = zext i16 %ref.3.in85 to i32
-  %cmp17087 = icmp ult i32 %lim.3, %ref.386
+  %cmp17087 = icmp ult i32 %lim.0, %ref.386
   br i1 %cmp17087, label %while.body172.lr.ph, label %while.end179
 
 while.body172.lr.ph:                              ; preds = %if.then165
@@ -2930,7 +2930,7 @@ while.body172:                                    ; preds = %while.body172.lr.ph
   %gep = getelementptr inbounds %union.IRIns, ptr %invariant.gep, i64 %idxprom175
   %ref.3.in = load i16, ptr %gep, align 2
   %ref.3 = zext i16 %ref.3.in to i32
-  %cmp170 = icmp ult i32 %lim.3, %ref.3
+  %cmp170 = icmp ult i32 %lim.0, %ref.3
   br i1 %cmp170, label %while.body172, label %while.end179, !llvm.loop !34
 
 while.end179:                                     ; preds = %while.body172, %if.then165

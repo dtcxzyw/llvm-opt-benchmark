@@ -2983,15 +2983,15 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %38
 
 38:                                               ; preds = %38, %Vec_PtrPush.exit
-  %.1 = phi ptr [ %.09, %Vec_PtrPush.exit ], [ %39, %38 ]
-  %39 = getelementptr inbounds i8, ptr %.1, i64 1
+  %.2 = phi ptr [ %.09, %Vec_PtrPush.exit ], [ %39, %38 ]
+  %39 = getelementptr inbounds i8, ptr %.2, i64 1
   %40 = load i8, ptr %39, align 1
   %.not = icmp eq i8 %40, 0
   br i1 %.not, label %.loopexit, label %38, !llvm.loop !29
 
 .loopexit:                                        ; preds = %38, %6
-  %.2 = phi ptr [ %.09, %6 ], [ %39, %38 ]
-  %41 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %.09, %6 ], [ %39, %38 ]
+  %41 = getelementptr inbounds i8, ptr %.1, i64 1
   %42 = icmp ult ptr %41, %2
   br i1 %42, label %6, label %._crit_edge, !llvm.loop !30
 

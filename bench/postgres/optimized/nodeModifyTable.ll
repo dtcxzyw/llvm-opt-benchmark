@@ -4648,7 +4648,7 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %46, %55, %59
 
 73:                                               ; preds = %.lr.ph, %132
   %74 = phi i32 [ %33, %.lr.ph ], [ %160, %132 ]
-  %.076117 = phi ptr [ %4, %.lr.ph ], [ %141, %132 ]
+  %.1117 = phi ptr [ %4, %.lr.ph ], [ %141, %132 ]
   switch i32 %74, label %182 [
     i32 2, label %75
     i32 0, label %.loopexit
@@ -4842,7 +4842,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %116
   unreachable
 
 .loopexit:                                        ; preds = %73, %67, %28
-  %.1 = phi ptr [ %4, %28 ], [ %65, %67 ], [ %.076117, %73 ]
+  %.076 = phi ptr [ %4, %28 ], [ %65, %67 ], [ %.1117, %73 ]
   br i1 %5, label %185, label %189
 
 185:                                              ; preds = %.loopexit
@@ -4855,7 +4855,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %116
 189:                                              ; preds = %185, %.loopexit
   %190 = getelementptr inbounds i8, ptr %9, i64 4
   %.val = load i32, ptr %190, align 4
-  call fastcc void @ExecUpdateEpilogue(ptr noundef nonnull %0, i32 %.val, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %.1)
+  call fastcc void @ExecUpdateEpilogue(ptr noundef nonnull %0, i32 %.val, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %.076)
   %191 = getelementptr inbounds i8, ptr %1, i64 248
   %192 = load ptr, ptr %191, align 8
   %.not84 = icmp eq ptr %192, null
@@ -4866,7 +4866,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %116
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds i8, ptr %192, i64 128
   %197 = load ptr, ptr %196, align 8
-  %.not.i85 = icmp eq ptr %.1, null
+  %.not.i85 = icmp eq ptr %.076, null
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %197, i64 8
   br i1 %.not.i85, label %._crit_edge.i, label %198
 
@@ -4875,11 +4875,11 @@ table_tuple_fetch_row_version.exit:               ; preds = %116
   br label %ExecProcessReturning.exit
 
 198:                                              ; preds = %193
-  store ptr %.1, ptr %.phi.trans.insert.i, align 8
+  store ptr %.076, ptr %.phi.trans.insert.i, align 8
   br label %ExecProcessReturning.exit
 
 ExecProcessReturning.exit:                        ; preds = %._crit_edge.i, %198
-  %199 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.1, %198 ]
+  %199 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.076, %198 ]
   %200 = getelementptr inbounds i8, ptr %197, i64 24
   store ptr %195, ptr %200, align 8
   %201 = load ptr, ptr %12, align 8

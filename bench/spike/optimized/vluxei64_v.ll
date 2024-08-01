@@ -580,10 +580,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
   br label %248
 
 248:                                              ; preds = %.lr.ph380, %.loopexit
-  %.sroa.017.0379 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0378 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.021.3, %.loopexit ]
-  %.sroa.025.0377 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.025.3, %.loopexit ]
-  %.sroa.029.0376 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.029.3, %.loopexit ]
+  %.sroa.017.0379 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0378 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.021.1, %.loopexit ]
+  %.sroa.025.0377 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.025.1, %.loopexit ]
+  %.sroa.029.0376 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.029.1, %.loopexit ]
   %.0209375 = phi i64 [ 0, %.lr.ph380 ], [ %437, %.loopexit ]
   %249 = load ptr, ptr %238, align 8
   %250 = load ptr, ptr %249, align 8
@@ -625,10 +625,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
   br label %278
 
 278:                                              ; preds = %265, %435
-  %.sroa.017.1374 = phi i8 [ %.sroa.017.0379, %265 ], [ %.sroa.017.2, %435 ]
-  %.sroa.021.1373 = phi i8 [ %.sroa.021.0378, %265 ], [ %.sroa.021.2, %435 ]
-  %.sroa.025.1372 = phi i8 [ %.sroa.025.0377, %265 ], [ %.sroa.025.2, %435 ]
-  %.sroa.029.1371 = phi i8 [ %.sroa.029.0376, %265 ], [ %.sroa.029.2, %435 ]
+  %.sroa.017.2374 = phi i8 [ %.sroa.017.0379, %265 ], [ %.sroa.017.3, %435 ]
+  %.sroa.021.2373 = phi i8 [ %.sroa.021.0378, %265 ], [ %.sroa.021.3, %435 ]
+  %.sroa.025.2372 = phi i8 [ %.sroa.025.0377, %265 ], [ %.sroa.025.3, %435 ]
+  %.sroa.029.2371 = phi i8 [ %.sroa.029.0376, %265 ], [ %.sroa.029.3, %435 ]
   %.0370 = phi i64 [ 0, %265 ], [ %436, %435 ]
   %279 = load i64, ptr %91, align 8
   %280 = load ptr, ptr %239, align 8
@@ -640,7 +640,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
 
 281:                                              ; preds = %278
   %.reass = add i64 %.0370, %invariant.op
-  %282 = and i8 %.sroa.029.1371, -8
+  %282 = and i8 %.sroa.029.2371, -8
   store i8 0, ptr %10, align 1
   %283 = lshr i64 %.reass, 12
   %284 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -715,7 +715,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
 _ZNK13xlate_flags_t17is_special_accessEv.exit260: ; preds = %278
   %318 = shl nuw i64 %.0370, 1
   %319 = add i64 %272, %318
-  %320 = and i8 %.sroa.025.1372, -8
+  %320 = and i8 %.sroa.025.2372, -8
   store i16 0, ptr %8, align 2
   %321 = lshr i64 %319, 12
   %322 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -791,7 +791,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit260: ; preds = %278
 _ZNK13xlate_flags_t17is_special_accessEv.exit265: ; preds = %278
   %357 = shl i64 %.0370, 2
   %358 = add i64 %269, %357
-  %359 = and i8 %.sroa.021.1373, -8
+  %359 = and i8 %.sroa.021.2373, -8
   store i32 0, ptr %6, align 4
   %360 = lshr i64 %358, 12
   %361 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -867,7 +867,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit265: ; preds = %278
 _ZNK13xlate_flags_t17is_special_accessEv.exit270: ; preds = %278
   %396 = shl i64 %.0370, 3
   %397 = add i64 %275, %396
-  %398 = and i8 %.sroa.017.1374, -8
+  %398 = and i8 %.sroa.017.2374, -8
   store i64 0, ptr %4, align 8
   %399 = lshr i64 %397, 12
   %400 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -941,19 +941,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit270: ; preds = %278
   br label %435
 
 435:                                              ; preds = %.critedge4, %.critedge8, %.critedge12, %.critedge16
-  %.sroa.029.2 = phi i8 [ %.sroa.029.1371, %.critedge16 ], [ %.sroa.029.1371, %.critedge12 ], [ %.sroa.029.1371, %.critedge8 ], [ %282, %.critedge4 ]
-  %.sroa.025.2 = phi i8 [ %.sroa.025.1372, %.critedge16 ], [ %.sroa.025.1372, %.critedge12 ], [ %320, %.critedge8 ], [ %.sroa.025.1372, %.critedge4 ]
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1373, %.critedge16 ], [ %359, %.critedge12 ], [ %.sroa.021.1373, %.critedge8 ], [ %.sroa.021.1373, %.critedge4 ]
-  %.sroa.017.2 = phi i8 [ %398, %.critedge16 ], [ %.sroa.017.1374, %.critedge12 ], [ %.sroa.017.1374, %.critedge8 ], [ %.sroa.017.1374, %.critedge4 ]
+  %.sroa.029.3 = phi i8 [ %.sroa.029.2371, %.critedge16 ], [ %.sroa.029.2371, %.critedge12 ], [ %.sroa.029.2371, %.critedge8 ], [ %282, %.critedge4 ]
+  %.sroa.025.3 = phi i8 [ %.sroa.025.2372, %.critedge16 ], [ %.sroa.025.2372, %.critedge12 ], [ %320, %.critedge8 ], [ %.sroa.025.2372, %.critedge4 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2373, %.critedge16 ], [ %359, %.critedge12 ], [ %.sroa.021.2373, %.critedge8 ], [ %.sroa.021.2373, %.critedge4 ]
+  %.sroa.017.3 = phi i8 [ %398, %.critedge16 ], [ %.sroa.017.2374, %.critedge12 ], [ %.sroa.017.2374, %.critedge8 ], [ %.sroa.017.2374, %.critedge4 ]
   %436 = add nuw nsw i64 %.0370, 1
   %exitcond391 = icmp eq i64 %.0370, %13
   br i1 %exitcond391, label %.loopexit, label %278, !llvm.loop !8
 
 .loopexit:                                        ; preds = %435, %256, %248
-  %.sroa.029.3 = phi i8 [ %.sroa.029.0376, %248 ], [ %.sroa.029.0376, %256 ], [ %.sroa.029.2, %435 ]
-  %.sroa.025.3 = phi i8 [ %.sroa.025.0377, %248 ], [ %.sroa.025.0377, %256 ], [ %.sroa.025.2, %435 ]
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0378, %248 ], [ %.sroa.021.0378, %256 ], [ %.sroa.021.2, %435 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0379, %248 ], [ %.sroa.017.0379, %256 ], [ %.sroa.017.2, %435 ]
+  %.sroa.029.1 = phi i8 [ %.sroa.029.0376, %248 ], [ %.sroa.029.0376, %256 ], [ %.sroa.029.3, %435 ]
+  %.sroa.025.1 = phi i8 [ %.sroa.025.0377, %248 ], [ %.sroa.025.0377, %256 ], [ %.sroa.025.3, %435 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0378, %248 ], [ %.sroa.021.0378, %256 ], [ %.sroa.021.3, %435 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0379, %248 ], [ %.sroa.017.0379, %256 ], [ %.sroa.017.3, %435 ]
   %437 = add nuw i64 %.0209375, 1
   %exitcond392.not = icmp eq i64 %437, %21
   br i1 %exitcond392.not, label %._crit_edge, label %248, !llvm.loop !9
@@ -1483,10 +1483,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
   br label %248
 
 248:                                              ; preds = %.lr.ph380, %.loopexit
-  %.sroa.017.0379 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0378 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.021.3, %.loopexit ]
-  %.sroa.025.0377 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.025.3, %.loopexit ]
-  %.sroa.029.0376 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.029.3, %.loopexit ]
+  %.sroa.017.0379 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0378 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.021.1, %.loopexit ]
+  %.sroa.025.0377 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.025.1, %.loopexit ]
+  %.sroa.029.0376 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.029.1, %.loopexit ]
   %.0209375 = phi i64 [ 0, %.lr.ph380 ], [ %437, %.loopexit ]
   %249 = load ptr, ptr %238, align 8
   %250 = load ptr, ptr %249, align 8
@@ -1528,10 +1528,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
   br label %278
 
 278:                                              ; preds = %265, %435
-  %.sroa.017.1374 = phi i8 [ %.sroa.017.0379, %265 ], [ %.sroa.017.2, %435 ]
-  %.sroa.021.1373 = phi i8 [ %.sroa.021.0378, %265 ], [ %.sroa.021.2, %435 ]
-  %.sroa.025.1372 = phi i8 [ %.sroa.025.0377, %265 ], [ %.sroa.025.2, %435 ]
-  %.sroa.029.1371 = phi i8 [ %.sroa.029.0376, %265 ], [ %.sroa.029.2, %435 ]
+  %.sroa.017.2374 = phi i8 [ %.sroa.017.0379, %265 ], [ %.sroa.017.3, %435 ]
+  %.sroa.021.2373 = phi i8 [ %.sroa.021.0378, %265 ], [ %.sroa.021.3, %435 ]
+  %.sroa.025.2372 = phi i8 [ %.sroa.025.0377, %265 ], [ %.sroa.025.3, %435 ]
+  %.sroa.029.2371 = phi i8 [ %.sroa.029.0376, %265 ], [ %.sroa.029.3, %435 ]
   %.0370 = phi i64 [ 0, %265 ], [ %436, %435 ]
   %279 = load i64, ptr %91, align 8
   %280 = load ptr, ptr %239, align 8
@@ -1543,7 +1543,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
 
 281:                                              ; preds = %278
   %.reass = add i64 %.0370, %invariant.op
-  %282 = and i8 %.sroa.029.1371, -8
+  %282 = and i8 %.sroa.029.2371, -8
   store i8 0, ptr %10, align 1
   %283 = lshr i64 %.reass, 12
   %284 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -1618,7 +1618,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
 _ZNK13xlate_flags_t17is_special_accessEv.exit260: ; preds = %278
   %318 = shl nuw i64 %.0370, 1
   %319 = add i64 %272, %318
-  %320 = and i8 %.sroa.025.1372, -8
+  %320 = and i8 %.sroa.025.2372, -8
   store i16 0, ptr %8, align 2
   %321 = lshr i64 %319, 12
   %322 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -1694,7 +1694,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit260: ; preds = %278
 _ZNK13xlate_flags_t17is_special_accessEv.exit265: ; preds = %278
   %357 = shl i64 %.0370, 2
   %358 = add i64 %269, %357
-  %359 = and i8 %.sroa.021.1373, -8
+  %359 = and i8 %.sroa.021.2373, -8
   store i32 0, ptr %6, align 4
   %360 = lshr i64 %358, 12
   %361 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -1770,7 +1770,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit265: ; preds = %278
 _ZNK13xlate_flags_t17is_special_accessEv.exit270: ; preds = %278
   %396 = shl i64 %.0370, 3
   %397 = add i64 %275, %396
-  %398 = and i8 %.sroa.017.1374, -8
+  %398 = and i8 %.sroa.017.2374, -8
   store i64 0, ptr %4, align 8
   %399 = lshr i64 %397, 12
   %400 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -1844,19 +1844,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit270: ; preds = %278
   br label %435
 
 435:                                              ; preds = %.critedge4, %.critedge8, %.critedge12, %.critedge16
-  %.sroa.029.2 = phi i8 [ %.sroa.029.1371, %.critedge16 ], [ %.sroa.029.1371, %.critedge12 ], [ %.sroa.029.1371, %.critedge8 ], [ %282, %.critedge4 ]
-  %.sroa.025.2 = phi i8 [ %.sroa.025.1372, %.critedge16 ], [ %.sroa.025.1372, %.critedge12 ], [ %320, %.critedge8 ], [ %.sroa.025.1372, %.critedge4 ]
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1373, %.critedge16 ], [ %359, %.critedge12 ], [ %.sroa.021.1373, %.critedge8 ], [ %.sroa.021.1373, %.critedge4 ]
-  %.sroa.017.2 = phi i8 [ %398, %.critedge16 ], [ %.sroa.017.1374, %.critedge12 ], [ %.sroa.017.1374, %.critedge8 ], [ %.sroa.017.1374, %.critedge4 ]
+  %.sroa.029.3 = phi i8 [ %.sroa.029.2371, %.critedge16 ], [ %.sroa.029.2371, %.critedge12 ], [ %.sroa.029.2371, %.critedge8 ], [ %282, %.critedge4 ]
+  %.sroa.025.3 = phi i8 [ %.sroa.025.2372, %.critedge16 ], [ %.sroa.025.2372, %.critedge12 ], [ %320, %.critedge8 ], [ %.sroa.025.2372, %.critedge4 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2373, %.critedge16 ], [ %359, %.critedge12 ], [ %.sroa.021.2373, %.critedge8 ], [ %.sroa.021.2373, %.critedge4 ]
+  %.sroa.017.3 = phi i8 [ %398, %.critedge16 ], [ %.sroa.017.2374, %.critedge12 ], [ %.sroa.017.2374, %.critedge8 ], [ %.sroa.017.2374, %.critedge4 ]
   %436 = add nuw nsw i64 %.0370, 1
   %exitcond391 = icmp eq i64 %.0370, %13
   br i1 %exitcond391, label %.loopexit, label %278, !llvm.loop !12
 
 .loopexit:                                        ; preds = %435, %256, %248
-  %.sroa.029.3 = phi i8 [ %.sroa.029.0376, %248 ], [ %.sroa.029.0376, %256 ], [ %.sroa.029.2, %435 ]
-  %.sroa.025.3 = phi i8 [ %.sroa.025.0377, %248 ], [ %.sroa.025.0377, %256 ], [ %.sroa.025.2, %435 ]
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0378, %248 ], [ %.sroa.021.0378, %256 ], [ %.sroa.021.2, %435 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0379, %248 ], [ %.sroa.017.0379, %256 ], [ %.sroa.017.2, %435 ]
+  %.sroa.029.1 = phi i8 [ %.sroa.029.0376, %248 ], [ %.sroa.029.0376, %256 ], [ %.sroa.029.3, %435 ]
+  %.sroa.025.1 = phi i8 [ %.sroa.025.0377, %248 ], [ %.sroa.025.0377, %256 ], [ %.sroa.025.3, %435 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0378, %248 ], [ %.sroa.021.0378, %256 ], [ %.sroa.021.3, %435 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0379, %248 ], [ %.sroa.017.0379, %256 ], [ %.sroa.017.3, %435 ]
   %437 = add nuw i64 %.0209375, 1
   %exitcond392.not = icmp eq i64 %437, %21
   br i1 %exitcond392.not, label %._crit_edge, label %248, !llvm.loop !13
@@ -2355,10 +2355,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
   br label %248
 
 248:                                              ; preds = %.lr.ph380, %.loopexit
-  %.sroa.017.0379 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0378 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.021.3, %.loopexit ]
-  %.sroa.025.0377 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.025.3, %.loopexit ]
-  %.sroa.029.0376 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.029.3, %.loopexit ]
+  %.sroa.017.0379 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0378 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.021.1, %.loopexit ]
+  %.sroa.025.0377 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.025.1, %.loopexit ]
+  %.sroa.029.0376 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.029.1, %.loopexit ]
   %.0209375 = phi i64 [ 0, %.lr.ph380 ], [ %437, %.loopexit ]
   %249 = load ptr, ptr %238, align 8
   %250 = load ptr, ptr %249, align 8
@@ -2400,10 +2400,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
   br label %278
 
 278:                                              ; preds = %265, %435
-  %.sroa.017.1374 = phi i8 [ %.sroa.017.0379, %265 ], [ %.sroa.017.2, %435 ]
-  %.sroa.021.1373 = phi i8 [ %.sroa.021.0378, %265 ], [ %.sroa.021.2, %435 ]
-  %.sroa.025.1372 = phi i8 [ %.sroa.025.0377, %265 ], [ %.sroa.025.2, %435 ]
-  %.sroa.029.1371 = phi i8 [ %.sroa.029.0376, %265 ], [ %.sroa.029.2, %435 ]
+  %.sroa.017.2374 = phi i8 [ %.sroa.017.0379, %265 ], [ %.sroa.017.3, %435 ]
+  %.sroa.021.2373 = phi i8 [ %.sroa.021.0378, %265 ], [ %.sroa.021.3, %435 ]
+  %.sroa.025.2372 = phi i8 [ %.sroa.025.0377, %265 ], [ %.sroa.025.3, %435 ]
+  %.sroa.029.2371 = phi i8 [ %.sroa.029.0376, %265 ], [ %.sroa.029.3, %435 ]
   %.0370 = phi i64 [ 0, %265 ], [ %436, %435 ]
   %279 = load i64, ptr %91, align 8
   %280 = load ptr, ptr %239, align 8
@@ -2415,7 +2415,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
 
 281:                                              ; preds = %278
   %.reass = add i64 %.0370, %invariant.op
-  %282 = and i8 %.sroa.029.1371, -8
+  %282 = and i8 %.sroa.029.2371, -8
   store i8 0, ptr %10, align 1
   %283 = lshr i64 %.reass, 12
   %284 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -2490,7 +2490,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
 _ZNK13xlate_flags_t17is_special_accessEv.exit260: ; preds = %278
   %318 = shl nuw i64 %.0370, 1
   %319 = add i64 %272, %318
-  %320 = and i8 %.sroa.025.1372, -8
+  %320 = and i8 %.sroa.025.2372, -8
   store i16 0, ptr %8, align 2
   %321 = lshr i64 %319, 12
   %322 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -2566,7 +2566,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit260: ; preds = %278
 _ZNK13xlate_flags_t17is_special_accessEv.exit265: ; preds = %278
   %357 = shl i64 %.0370, 2
   %358 = add i64 %269, %357
-  %359 = and i8 %.sroa.021.1373, -8
+  %359 = and i8 %.sroa.021.2373, -8
   store i32 0, ptr %6, align 4
   %360 = lshr i64 %358, 12
   %361 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -2642,7 +2642,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit265: ; preds = %278
 _ZNK13xlate_flags_t17is_special_accessEv.exit270: ; preds = %278
   %396 = shl i64 %.0370, 3
   %397 = add i64 %275, %396
-  %398 = and i8 %.sroa.017.1374, -8
+  %398 = and i8 %.sroa.017.2374, -8
   store i64 0, ptr %4, align 8
   %399 = lshr i64 %397, 12
   %400 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -2716,19 +2716,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit270: ; preds = %278
   br label %435
 
 435:                                              ; preds = %.critedge4, %.critedge8, %.critedge12, %.critedge16
-  %.sroa.029.2 = phi i8 [ %.sroa.029.1371, %.critedge16 ], [ %.sroa.029.1371, %.critedge12 ], [ %.sroa.029.1371, %.critedge8 ], [ %282, %.critedge4 ]
-  %.sroa.025.2 = phi i8 [ %.sroa.025.1372, %.critedge16 ], [ %.sroa.025.1372, %.critedge12 ], [ %320, %.critedge8 ], [ %.sroa.025.1372, %.critedge4 ]
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1373, %.critedge16 ], [ %359, %.critedge12 ], [ %.sroa.021.1373, %.critedge8 ], [ %.sroa.021.1373, %.critedge4 ]
-  %.sroa.017.2 = phi i8 [ %398, %.critedge16 ], [ %.sroa.017.1374, %.critedge12 ], [ %.sroa.017.1374, %.critedge8 ], [ %.sroa.017.1374, %.critedge4 ]
+  %.sroa.029.3 = phi i8 [ %.sroa.029.2371, %.critedge16 ], [ %.sroa.029.2371, %.critedge12 ], [ %.sroa.029.2371, %.critedge8 ], [ %282, %.critedge4 ]
+  %.sroa.025.3 = phi i8 [ %.sroa.025.2372, %.critedge16 ], [ %.sroa.025.2372, %.critedge12 ], [ %320, %.critedge8 ], [ %.sroa.025.2372, %.critedge4 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2373, %.critedge16 ], [ %359, %.critedge12 ], [ %.sroa.021.2373, %.critedge8 ], [ %.sroa.021.2373, %.critedge4 ]
+  %.sroa.017.3 = phi i8 [ %398, %.critedge16 ], [ %.sroa.017.2374, %.critedge12 ], [ %.sroa.017.2374, %.critedge8 ], [ %.sroa.017.2374, %.critedge4 ]
   %436 = add nuw nsw i64 %.0370, 1
   %exitcond391 = icmp eq i64 %.0370, %13
   br i1 %exitcond391, label %.loopexit, label %278, !llvm.loop !16
 
 .loopexit:                                        ; preds = %435, %256, %248
-  %.sroa.029.3 = phi i8 [ %.sroa.029.0376, %248 ], [ %.sroa.029.0376, %256 ], [ %.sroa.029.2, %435 ]
-  %.sroa.025.3 = phi i8 [ %.sroa.025.0377, %248 ], [ %.sroa.025.0377, %256 ], [ %.sroa.025.2, %435 ]
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0378, %248 ], [ %.sroa.021.0378, %256 ], [ %.sroa.021.2, %435 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0379, %248 ], [ %.sroa.017.0379, %256 ], [ %.sroa.017.2, %435 ]
+  %.sroa.029.1 = phi i8 [ %.sroa.029.0376, %248 ], [ %.sroa.029.0376, %256 ], [ %.sroa.029.3, %435 ]
+  %.sroa.025.1 = phi i8 [ %.sroa.025.0377, %248 ], [ %.sroa.025.0377, %256 ], [ %.sroa.025.3, %435 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0378, %248 ], [ %.sroa.021.0378, %256 ], [ %.sroa.021.3, %435 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0379, %248 ], [ %.sroa.017.0379, %256 ], [ %.sroa.017.3, %435 ]
   %437 = add nuw i64 %.0209375, 1
   %exitcond392.not = icmp eq i64 %437, %21
   br i1 %exitcond392.not, label %._crit_edge, label %248, !llvm.loop !17
@@ -3229,10 +3229,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
   br label %248
 
 248:                                              ; preds = %.lr.ph380, %.loopexit
-  %.sroa.017.0379 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0378 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.021.3, %.loopexit ]
-  %.sroa.025.0377 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.025.3, %.loopexit ]
-  %.sroa.029.0376 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.029.3, %.loopexit ]
+  %.sroa.017.0379 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0378 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.021.1, %.loopexit ]
+  %.sroa.025.0377 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.025.1, %.loopexit ]
+  %.sroa.029.0376 = phi i8 [ undef, %.lr.ph380 ], [ %.sroa.029.1, %.loopexit ]
   %.0209375 = phi i64 [ 0, %.lr.ph380 ], [ %437, %.loopexit ]
   %249 = load ptr, ptr %238, align 8
   %250 = load ptr, ptr %249, align 8
@@ -3274,10 +3274,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
   br label %278
 
 278:                                              ; preds = %265, %435
-  %.sroa.017.1374 = phi i8 [ %.sroa.017.0379, %265 ], [ %.sroa.017.2, %435 ]
-  %.sroa.021.1373 = phi i8 [ %.sroa.021.0378, %265 ], [ %.sroa.021.2, %435 ]
-  %.sroa.025.1372 = phi i8 [ %.sroa.025.0377, %265 ], [ %.sroa.025.2, %435 ]
-  %.sroa.029.1371 = phi i8 [ %.sroa.029.0376, %265 ], [ %.sroa.029.2, %435 ]
+  %.sroa.017.2374 = phi i8 [ %.sroa.017.0379, %265 ], [ %.sroa.017.3, %435 ]
+  %.sroa.021.2373 = phi i8 [ %.sroa.021.0378, %265 ], [ %.sroa.021.3, %435 ]
+  %.sroa.025.2372 = phi i8 [ %.sroa.025.0377, %265 ], [ %.sroa.025.3, %435 ]
+  %.sroa.029.2371 = phi i8 [ %.sroa.029.0376, %265 ], [ %.sroa.029.3, %435 ]
   %.0370 = phi i64 [ 0, %265 ], [ %436, %435 ]
   %279 = load i64, ptr %91, align 8
   %280 = load ptr, ptr %239, align 8
@@ -3289,7 +3289,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
 
 281:                                              ; preds = %278
   %.reass = add i64 %.0370, %invariant.op
-  %282 = and i8 %.sroa.029.1371, -8
+  %282 = and i8 %.sroa.029.2371, -8
   store i8 0, ptr %10, align 1
   %283 = lshr i64 %.reass, 12
   %284 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -3364,7 +3364,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %194, %_ZL19is_overl
 _ZNK13xlate_flags_t17is_special_accessEv.exit260: ; preds = %278
   %318 = shl nuw i64 %.0370, 1
   %319 = add i64 %272, %318
-  %320 = and i8 %.sroa.025.1372, -8
+  %320 = and i8 %.sroa.025.2372, -8
   store i16 0, ptr %8, align 2
   %321 = lshr i64 %319, 12
   %322 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -3440,7 +3440,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit260: ; preds = %278
 _ZNK13xlate_flags_t17is_special_accessEv.exit265: ; preds = %278
   %357 = shl i64 %.0370, 2
   %358 = add i64 %269, %357
-  %359 = and i8 %.sroa.021.1373, -8
+  %359 = and i8 %.sroa.021.2373, -8
   store i32 0, ptr %6, align 4
   %360 = lshr i64 %358, 12
   %361 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -3516,7 +3516,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit265: ; preds = %278
 _ZNK13xlate_flags_t17is_special_accessEv.exit270: ; preds = %278
   %396 = shl i64 %.0370, 3
   %397 = add i64 %275, %396
-  %398 = and i8 %.sroa.017.1374, -8
+  %398 = and i8 %.sroa.017.2374, -8
   store i64 0, ptr %4, align 8
   %399 = lshr i64 %397, 12
   %400 = getelementptr inbounds i8, ptr %280, i64 39056
@@ -3590,19 +3590,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit270: ; preds = %278
   br label %435
 
 435:                                              ; preds = %.critedge4, %.critedge8, %.critedge12, %.critedge16
-  %.sroa.029.2 = phi i8 [ %.sroa.029.1371, %.critedge16 ], [ %.sroa.029.1371, %.critedge12 ], [ %.sroa.029.1371, %.critedge8 ], [ %282, %.critedge4 ]
-  %.sroa.025.2 = phi i8 [ %.sroa.025.1372, %.critedge16 ], [ %.sroa.025.1372, %.critedge12 ], [ %320, %.critedge8 ], [ %.sroa.025.1372, %.critedge4 ]
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1373, %.critedge16 ], [ %359, %.critedge12 ], [ %.sroa.021.1373, %.critedge8 ], [ %.sroa.021.1373, %.critedge4 ]
-  %.sroa.017.2 = phi i8 [ %398, %.critedge16 ], [ %.sroa.017.1374, %.critedge12 ], [ %.sroa.017.1374, %.critedge8 ], [ %.sroa.017.1374, %.critedge4 ]
+  %.sroa.029.3 = phi i8 [ %.sroa.029.2371, %.critedge16 ], [ %.sroa.029.2371, %.critedge12 ], [ %.sroa.029.2371, %.critedge8 ], [ %282, %.critedge4 ]
+  %.sroa.025.3 = phi i8 [ %.sroa.025.2372, %.critedge16 ], [ %.sroa.025.2372, %.critedge12 ], [ %320, %.critedge8 ], [ %.sroa.025.2372, %.critedge4 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2373, %.critedge16 ], [ %359, %.critedge12 ], [ %.sroa.021.2373, %.critedge8 ], [ %.sroa.021.2373, %.critedge4 ]
+  %.sroa.017.3 = phi i8 [ %398, %.critedge16 ], [ %.sroa.017.2374, %.critedge12 ], [ %.sroa.017.2374, %.critedge8 ], [ %.sroa.017.2374, %.critedge4 ]
   %436 = add nuw nsw i64 %.0370, 1
   %exitcond391 = icmp eq i64 %.0370, %13
   br i1 %exitcond391, label %.loopexit, label %278, !llvm.loop !20
 
 .loopexit:                                        ; preds = %435, %256, %248
-  %.sroa.029.3 = phi i8 [ %.sroa.029.0376, %248 ], [ %.sroa.029.0376, %256 ], [ %.sroa.029.2, %435 ]
-  %.sroa.025.3 = phi i8 [ %.sroa.025.0377, %248 ], [ %.sroa.025.0377, %256 ], [ %.sroa.025.2, %435 ]
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0378, %248 ], [ %.sroa.021.0378, %256 ], [ %.sroa.021.2, %435 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0379, %248 ], [ %.sroa.017.0379, %256 ], [ %.sroa.017.2, %435 ]
+  %.sroa.029.1 = phi i8 [ %.sroa.029.0376, %248 ], [ %.sroa.029.0376, %256 ], [ %.sroa.029.3, %435 ]
+  %.sroa.025.1 = phi i8 [ %.sroa.025.0377, %248 ], [ %.sroa.025.0377, %256 ], [ %.sroa.025.3, %435 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0378, %248 ], [ %.sroa.021.0378, %256 ], [ %.sroa.021.3, %435 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0379, %248 ], [ %.sroa.017.0379, %256 ], [ %.sroa.017.3, %435 ]
   %437 = add nuw i64 %.0209375, 1
   %exitcond392.not = icmp eq i64 %437, %21
   br i1 %exitcond392.not, label %._crit_edge, label %248, !llvm.loop !21
@@ -4117,10 +4117,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
   br label %255
 
 255:                                              ; preds = %.lr.ph384, %.loopexit
-  %.sroa.017.0383 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0382 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.021.3, %.loopexit ]
-  %.sroa.025.0381 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.025.3, %.loopexit ]
-  %.sroa.029.0380 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.029.3, %.loopexit ]
+  %.sroa.017.0383 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0382 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.021.1, %.loopexit ]
+  %.sroa.025.0381 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.025.1, %.loopexit ]
+  %.sroa.029.0380 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.029.1, %.loopexit ]
   %.0211379 = phi i64 [ 0, %.lr.ph384 ], [ %444, %.loopexit ]
   %256 = load ptr, ptr %245, align 8
   %257 = load ptr, ptr %256, align 8
@@ -4162,10 +4162,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
   br label %285
 
 285:                                              ; preds = %272, %442
-  %.sroa.017.1378 = phi i8 [ %.sroa.017.0383, %272 ], [ %.sroa.017.2, %442 ]
-  %.sroa.021.1377 = phi i8 [ %.sroa.021.0382, %272 ], [ %.sroa.021.2, %442 ]
-  %.sroa.025.1376 = phi i8 [ %.sroa.025.0381, %272 ], [ %.sroa.025.2, %442 ]
-  %.sroa.029.1375 = phi i8 [ %.sroa.029.0380, %272 ], [ %.sroa.029.2, %442 ]
+  %.sroa.017.2378 = phi i8 [ %.sroa.017.0383, %272 ], [ %.sroa.017.3, %442 ]
+  %.sroa.021.2377 = phi i8 [ %.sroa.021.0382, %272 ], [ %.sroa.021.3, %442 ]
+  %.sroa.025.2376 = phi i8 [ %.sroa.025.0381, %272 ], [ %.sroa.025.3, %442 ]
+  %.sroa.029.2375 = phi i8 [ %.sroa.029.0380, %272 ], [ %.sroa.029.3, %442 ]
   %.0374 = phi i64 [ 0, %272 ], [ %443, %442 ]
   %286 = load i64, ptr %98, align 8
   %287 = load ptr, ptr %246, align 8
@@ -4177,7 +4177,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
 
 288:                                              ; preds = %285
   %.reass = add i64 %.0374, %invariant.op
-  %289 = and i8 %.sroa.029.1375, -8
+  %289 = and i8 %.sroa.029.2375, -8
   store i8 0, ptr %10, align 1
   %290 = lshr i64 %.reass, 12
   %291 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -4252,7 +4252,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
 _ZNK13xlate_flags_t17is_special_accessEv.exit262: ; preds = %285
   %325 = shl nuw i64 %.0374, 1
   %326 = add i64 %279, %325
-  %327 = and i8 %.sroa.025.1376, -8
+  %327 = and i8 %.sroa.025.2376, -8
   store i16 0, ptr %8, align 2
   %328 = lshr i64 %326, 12
   %329 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -4328,7 +4328,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit262: ; preds = %285
 _ZNK13xlate_flags_t17is_special_accessEv.exit267: ; preds = %285
   %364 = shl i64 %.0374, 2
   %365 = add i64 %276, %364
-  %366 = and i8 %.sroa.021.1377, -8
+  %366 = and i8 %.sroa.021.2377, -8
   store i32 0, ptr %6, align 4
   %367 = lshr i64 %365, 12
   %368 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -4404,7 +4404,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit267: ; preds = %285
 _ZNK13xlate_flags_t17is_special_accessEv.exit272: ; preds = %285
   %403 = shl i64 %.0374, 3
   %404 = add i64 %282, %403
-  %405 = and i8 %.sroa.017.1378, -8
+  %405 = and i8 %.sroa.017.2378, -8
   store i64 0, ptr %4, align 8
   %406 = lshr i64 %404, 12
   %407 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -4478,19 +4478,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit272: ; preds = %285
   br label %442
 
 442:                                              ; preds = %.critedge4, %.critedge8, %.critedge12, %.critedge16
-  %.sroa.029.2 = phi i8 [ %.sroa.029.1375, %.critedge16 ], [ %.sroa.029.1375, %.critedge12 ], [ %.sroa.029.1375, %.critedge8 ], [ %289, %.critedge4 ]
-  %.sroa.025.2 = phi i8 [ %.sroa.025.1376, %.critedge16 ], [ %.sroa.025.1376, %.critedge12 ], [ %327, %.critedge8 ], [ %.sroa.025.1376, %.critedge4 ]
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1377, %.critedge16 ], [ %366, %.critedge12 ], [ %.sroa.021.1377, %.critedge8 ], [ %.sroa.021.1377, %.critedge4 ]
-  %.sroa.017.2 = phi i8 [ %405, %.critedge16 ], [ %.sroa.017.1378, %.critedge12 ], [ %.sroa.017.1378, %.critedge8 ], [ %.sroa.017.1378, %.critedge4 ]
+  %.sroa.029.3 = phi i8 [ %.sroa.029.2375, %.critedge16 ], [ %.sroa.029.2375, %.critedge12 ], [ %.sroa.029.2375, %.critedge8 ], [ %289, %.critedge4 ]
+  %.sroa.025.3 = phi i8 [ %.sroa.025.2376, %.critedge16 ], [ %.sroa.025.2376, %.critedge12 ], [ %327, %.critedge8 ], [ %.sroa.025.2376, %.critedge4 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2377, %.critedge16 ], [ %366, %.critedge12 ], [ %.sroa.021.2377, %.critedge8 ], [ %.sroa.021.2377, %.critedge4 ]
+  %.sroa.017.3 = phi i8 [ %405, %.critedge16 ], [ %.sroa.017.2378, %.critedge12 ], [ %.sroa.017.2378, %.critedge8 ], [ %.sroa.017.2378, %.critedge4 ]
   %443 = add nuw nsw i64 %.0374, 1
   %exitcond395 = icmp eq i64 %.0374, %13
   br i1 %exitcond395, label %.loopexit, label %285, !llvm.loop !24
 
 .loopexit:                                        ; preds = %442, %263, %255
-  %.sroa.029.3 = phi i8 [ %.sroa.029.0380, %255 ], [ %.sroa.029.0380, %263 ], [ %.sroa.029.2, %442 ]
-  %.sroa.025.3 = phi i8 [ %.sroa.025.0381, %255 ], [ %.sroa.025.0381, %263 ], [ %.sroa.025.2, %442 ]
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0382, %255 ], [ %.sroa.021.0382, %263 ], [ %.sroa.021.2, %442 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0383, %255 ], [ %.sroa.017.0383, %263 ], [ %.sroa.017.2, %442 ]
+  %.sroa.029.1 = phi i8 [ %.sroa.029.0380, %255 ], [ %.sroa.029.0380, %263 ], [ %.sroa.029.3, %442 ]
+  %.sroa.025.1 = phi i8 [ %.sroa.025.0381, %255 ], [ %.sroa.025.0381, %263 ], [ %.sroa.025.3, %442 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0382, %255 ], [ %.sroa.021.0382, %263 ], [ %.sroa.021.3, %442 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0383, %255 ], [ %.sroa.017.0383, %263 ], [ %.sroa.017.3, %442 ]
   %444 = add nuw i64 %.0211379, 1
   %exitcond396.not = icmp eq i64 %444, %21
   br i1 %exitcond396.not, label %._crit_edge, label %255, !llvm.loop !25
@@ -5007,10 +5007,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
   br label %255
 
 255:                                              ; preds = %.lr.ph384, %.loopexit
-  %.sroa.017.0383 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0382 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.021.3, %.loopexit ]
-  %.sroa.025.0381 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.025.3, %.loopexit ]
-  %.sroa.029.0380 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.029.3, %.loopexit ]
+  %.sroa.017.0383 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0382 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.021.1, %.loopexit ]
+  %.sroa.025.0381 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.025.1, %.loopexit ]
+  %.sroa.029.0380 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.029.1, %.loopexit ]
   %.0211379 = phi i64 [ 0, %.lr.ph384 ], [ %444, %.loopexit ]
   %256 = load ptr, ptr %245, align 8
   %257 = load ptr, ptr %256, align 8
@@ -5052,10 +5052,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
   br label %285
 
 285:                                              ; preds = %272, %442
-  %.sroa.017.1378 = phi i8 [ %.sroa.017.0383, %272 ], [ %.sroa.017.2, %442 ]
-  %.sroa.021.1377 = phi i8 [ %.sroa.021.0382, %272 ], [ %.sroa.021.2, %442 ]
-  %.sroa.025.1376 = phi i8 [ %.sroa.025.0381, %272 ], [ %.sroa.025.2, %442 ]
-  %.sroa.029.1375 = phi i8 [ %.sroa.029.0380, %272 ], [ %.sroa.029.2, %442 ]
+  %.sroa.017.2378 = phi i8 [ %.sroa.017.0383, %272 ], [ %.sroa.017.3, %442 ]
+  %.sroa.021.2377 = phi i8 [ %.sroa.021.0382, %272 ], [ %.sroa.021.3, %442 ]
+  %.sroa.025.2376 = phi i8 [ %.sroa.025.0381, %272 ], [ %.sroa.025.3, %442 ]
+  %.sroa.029.2375 = phi i8 [ %.sroa.029.0380, %272 ], [ %.sroa.029.3, %442 ]
   %.0374 = phi i64 [ 0, %272 ], [ %443, %442 ]
   %286 = load i64, ptr %98, align 8
   %287 = load ptr, ptr %246, align 8
@@ -5067,7 +5067,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
 
 288:                                              ; preds = %285
   %.reass = add i64 %.0374, %invariant.op
-  %289 = and i8 %.sroa.029.1375, -8
+  %289 = and i8 %.sroa.029.2375, -8
   store i8 0, ptr %10, align 1
   %290 = lshr i64 %.reass, 12
   %291 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -5142,7 +5142,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
 _ZNK13xlate_flags_t17is_special_accessEv.exit262: ; preds = %285
   %325 = shl nuw i64 %.0374, 1
   %326 = add i64 %279, %325
-  %327 = and i8 %.sroa.025.1376, -8
+  %327 = and i8 %.sroa.025.2376, -8
   store i16 0, ptr %8, align 2
   %328 = lshr i64 %326, 12
   %329 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -5218,7 +5218,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit262: ; preds = %285
 _ZNK13xlate_flags_t17is_special_accessEv.exit267: ; preds = %285
   %364 = shl i64 %.0374, 2
   %365 = add i64 %276, %364
-  %366 = and i8 %.sroa.021.1377, -8
+  %366 = and i8 %.sroa.021.2377, -8
   store i32 0, ptr %6, align 4
   %367 = lshr i64 %365, 12
   %368 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -5294,7 +5294,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit267: ; preds = %285
 _ZNK13xlate_flags_t17is_special_accessEv.exit272: ; preds = %285
   %403 = shl i64 %.0374, 3
   %404 = add i64 %282, %403
-  %405 = and i8 %.sroa.017.1378, -8
+  %405 = and i8 %.sroa.017.2378, -8
   store i64 0, ptr %4, align 8
   %406 = lshr i64 %404, 12
   %407 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -5368,19 +5368,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit272: ; preds = %285
   br label %442
 
 442:                                              ; preds = %.critedge4, %.critedge8, %.critedge12, %.critedge16
-  %.sroa.029.2 = phi i8 [ %.sroa.029.1375, %.critedge16 ], [ %.sroa.029.1375, %.critedge12 ], [ %.sroa.029.1375, %.critedge8 ], [ %289, %.critedge4 ]
-  %.sroa.025.2 = phi i8 [ %.sroa.025.1376, %.critedge16 ], [ %.sroa.025.1376, %.critedge12 ], [ %327, %.critedge8 ], [ %.sroa.025.1376, %.critedge4 ]
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1377, %.critedge16 ], [ %366, %.critedge12 ], [ %.sroa.021.1377, %.critedge8 ], [ %.sroa.021.1377, %.critedge4 ]
-  %.sroa.017.2 = phi i8 [ %405, %.critedge16 ], [ %.sroa.017.1378, %.critedge12 ], [ %.sroa.017.1378, %.critedge8 ], [ %.sroa.017.1378, %.critedge4 ]
+  %.sroa.029.3 = phi i8 [ %.sroa.029.2375, %.critedge16 ], [ %.sroa.029.2375, %.critedge12 ], [ %.sroa.029.2375, %.critedge8 ], [ %289, %.critedge4 ]
+  %.sroa.025.3 = phi i8 [ %.sroa.025.2376, %.critedge16 ], [ %.sroa.025.2376, %.critedge12 ], [ %327, %.critedge8 ], [ %.sroa.025.2376, %.critedge4 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2377, %.critedge16 ], [ %366, %.critedge12 ], [ %.sroa.021.2377, %.critedge8 ], [ %.sroa.021.2377, %.critedge4 ]
+  %.sroa.017.3 = phi i8 [ %405, %.critedge16 ], [ %.sroa.017.2378, %.critedge12 ], [ %.sroa.017.2378, %.critedge8 ], [ %.sroa.017.2378, %.critedge4 ]
   %443 = add nuw nsw i64 %.0374, 1
   %exitcond395 = icmp eq i64 %.0374, %13
   br i1 %exitcond395, label %.loopexit, label %285, !llvm.loop !28
 
 .loopexit:                                        ; preds = %442, %263, %255
-  %.sroa.029.3 = phi i8 [ %.sroa.029.0380, %255 ], [ %.sroa.029.0380, %263 ], [ %.sroa.029.2, %442 ]
-  %.sroa.025.3 = phi i8 [ %.sroa.025.0381, %255 ], [ %.sroa.025.0381, %263 ], [ %.sroa.025.2, %442 ]
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0382, %255 ], [ %.sroa.021.0382, %263 ], [ %.sroa.021.2, %442 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0383, %255 ], [ %.sroa.017.0383, %263 ], [ %.sroa.017.2, %442 ]
+  %.sroa.029.1 = phi i8 [ %.sroa.029.0380, %255 ], [ %.sroa.029.0380, %263 ], [ %.sroa.029.3, %442 ]
+  %.sroa.025.1 = phi i8 [ %.sroa.025.0381, %255 ], [ %.sroa.025.0381, %263 ], [ %.sroa.025.3, %442 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0382, %255 ], [ %.sroa.021.0382, %263 ], [ %.sroa.021.3, %442 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0383, %255 ], [ %.sroa.017.0383, %263 ], [ %.sroa.017.3, %442 ]
   %444 = add nuw i64 %.0211379, 1
   %exitcond396.not = icmp eq i64 %444, %21
   br i1 %exitcond396.not, label %._crit_edge, label %255, !llvm.loop !29
@@ -5895,10 +5895,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
   br label %255
 
 255:                                              ; preds = %.lr.ph384, %.loopexit
-  %.sroa.017.0383 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0382 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.021.3, %.loopexit ]
-  %.sroa.025.0381 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.025.3, %.loopexit ]
-  %.sroa.029.0380 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.029.3, %.loopexit ]
+  %.sroa.017.0383 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0382 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.021.1, %.loopexit ]
+  %.sroa.025.0381 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.025.1, %.loopexit ]
+  %.sroa.029.0380 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.029.1, %.loopexit ]
   %.0211379 = phi i64 [ 0, %.lr.ph384 ], [ %444, %.loopexit ]
   %256 = load ptr, ptr %245, align 8
   %257 = load ptr, ptr %256, align 8
@@ -5940,10 +5940,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
   br label %285
 
 285:                                              ; preds = %272, %442
-  %.sroa.017.1378 = phi i8 [ %.sroa.017.0383, %272 ], [ %.sroa.017.2, %442 ]
-  %.sroa.021.1377 = phi i8 [ %.sroa.021.0382, %272 ], [ %.sroa.021.2, %442 ]
-  %.sroa.025.1376 = phi i8 [ %.sroa.025.0381, %272 ], [ %.sroa.025.2, %442 ]
-  %.sroa.029.1375 = phi i8 [ %.sroa.029.0380, %272 ], [ %.sroa.029.2, %442 ]
+  %.sroa.017.2378 = phi i8 [ %.sroa.017.0383, %272 ], [ %.sroa.017.3, %442 ]
+  %.sroa.021.2377 = phi i8 [ %.sroa.021.0382, %272 ], [ %.sroa.021.3, %442 ]
+  %.sroa.025.2376 = phi i8 [ %.sroa.025.0381, %272 ], [ %.sroa.025.3, %442 ]
+  %.sroa.029.2375 = phi i8 [ %.sroa.029.0380, %272 ], [ %.sroa.029.3, %442 ]
   %.0374 = phi i64 [ 0, %272 ], [ %443, %442 ]
   %286 = load i64, ptr %98, align 8
   %287 = load ptr, ptr %246, align 8
@@ -5955,7 +5955,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
 
 288:                                              ; preds = %285
   %.reass = add i64 %.0374, %invariant.op
-  %289 = and i8 %.sroa.029.1375, -8
+  %289 = and i8 %.sroa.029.2375, -8
   store i8 0, ptr %10, align 1
   %290 = lshr i64 %.reass, 12
   %291 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -6030,7 +6030,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
 _ZNK13xlate_flags_t17is_special_accessEv.exit262: ; preds = %285
   %325 = shl nuw i64 %.0374, 1
   %326 = add i64 %279, %325
-  %327 = and i8 %.sroa.025.1376, -8
+  %327 = and i8 %.sroa.025.2376, -8
   store i16 0, ptr %8, align 2
   %328 = lshr i64 %326, 12
   %329 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -6106,7 +6106,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit262: ; preds = %285
 _ZNK13xlate_flags_t17is_special_accessEv.exit267: ; preds = %285
   %364 = shl i64 %.0374, 2
   %365 = add i64 %276, %364
-  %366 = and i8 %.sroa.021.1377, -8
+  %366 = and i8 %.sroa.021.2377, -8
   store i32 0, ptr %6, align 4
   %367 = lshr i64 %365, 12
   %368 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -6182,7 +6182,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit267: ; preds = %285
 _ZNK13xlate_flags_t17is_special_accessEv.exit272: ; preds = %285
   %403 = shl i64 %.0374, 3
   %404 = add i64 %282, %403
-  %405 = and i8 %.sroa.017.1378, -8
+  %405 = and i8 %.sroa.017.2378, -8
   store i64 0, ptr %4, align 8
   %406 = lshr i64 %404, 12
   %407 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -6256,19 +6256,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit272: ; preds = %285
   br label %442
 
 442:                                              ; preds = %.critedge4, %.critedge8, %.critedge12, %.critedge16
-  %.sroa.029.2 = phi i8 [ %.sroa.029.1375, %.critedge16 ], [ %.sroa.029.1375, %.critedge12 ], [ %.sroa.029.1375, %.critedge8 ], [ %289, %.critedge4 ]
-  %.sroa.025.2 = phi i8 [ %.sroa.025.1376, %.critedge16 ], [ %.sroa.025.1376, %.critedge12 ], [ %327, %.critedge8 ], [ %.sroa.025.1376, %.critedge4 ]
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1377, %.critedge16 ], [ %366, %.critedge12 ], [ %.sroa.021.1377, %.critedge8 ], [ %.sroa.021.1377, %.critedge4 ]
-  %.sroa.017.2 = phi i8 [ %405, %.critedge16 ], [ %.sroa.017.1378, %.critedge12 ], [ %.sroa.017.1378, %.critedge8 ], [ %.sroa.017.1378, %.critedge4 ]
+  %.sroa.029.3 = phi i8 [ %.sroa.029.2375, %.critedge16 ], [ %.sroa.029.2375, %.critedge12 ], [ %.sroa.029.2375, %.critedge8 ], [ %289, %.critedge4 ]
+  %.sroa.025.3 = phi i8 [ %.sroa.025.2376, %.critedge16 ], [ %.sroa.025.2376, %.critedge12 ], [ %327, %.critedge8 ], [ %.sroa.025.2376, %.critedge4 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2377, %.critedge16 ], [ %366, %.critedge12 ], [ %.sroa.021.2377, %.critedge8 ], [ %.sroa.021.2377, %.critedge4 ]
+  %.sroa.017.3 = phi i8 [ %405, %.critedge16 ], [ %.sroa.017.2378, %.critedge12 ], [ %.sroa.017.2378, %.critedge8 ], [ %.sroa.017.2378, %.critedge4 ]
   %443 = add nuw nsw i64 %.0374, 1
   %exitcond395 = icmp eq i64 %.0374, %13
   br i1 %exitcond395, label %.loopexit, label %285, !llvm.loop !32
 
 .loopexit:                                        ; preds = %442, %263, %255
-  %.sroa.029.3 = phi i8 [ %.sroa.029.0380, %255 ], [ %.sroa.029.0380, %263 ], [ %.sroa.029.2, %442 ]
-  %.sroa.025.3 = phi i8 [ %.sroa.025.0381, %255 ], [ %.sroa.025.0381, %263 ], [ %.sroa.025.2, %442 ]
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0382, %255 ], [ %.sroa.021.0382, %263 ], [ %.sroa.021.2, %442 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0383, %255 ], [ %.sroa.017.0383, %263 ], [ %.sroa.017.2, %442 ]
+  %.sroa.029.1 = phi i8 [ %.sroa.029.0380, %255 ], [ %.sroa.029.0380, %263 ], [ %.sroa.029.3, %442 ]
+  %.sroa.025.1 = phi i8 [ %.sroa.025.0381, %255 ], [ %.sroa.025.0381, %263 ], [ %.sroa.025.3, %442 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0382, %255 ], [ %.sroa.021.0382, %263 ], [ %.sroa.021.3, %442 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0383, %255 ], [ %.sroa.017.0383, %263 ], [ %.sroa.017.3, %442 ]
   %444 = add nuw i64 %.0211379, 1
   %exitcond396.not = icmp eq i64 %444, %21
   br i1 %exitcond396.not, label %._crit_edge, label %255, !llvm.loop !33
@@ -6785,10 +6785,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
   br label %255
 
 255:                                              ; preds = %.lr.ph384, %.loopexit
-  %.sroa.017.0383 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.017.3, %.loopexit ]
-  %.sroa.021.0382 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.021.3, %.loopexit ]
-  %.sroa.025.0381 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.025.3, %.loopexit ]
-  %.sroa.029.0380 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.029.3, %.loopexit ]
+  %.sroa.017.0383 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.017.1, %.loopexit ]
+  %.sroa.021.0382 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.021.1, %.loopexit ]
+  %.sroa.025.0381 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.025.1, %.loopexit ]
+  %.sroa.029.0380 = phi i8 [ undef, %.lr.ph384 ], [ %.sroa.029.1, %.loopexit ]
   %.0211379 = phi i64 [ 0, %.lr.ph384 ], [ %444, %.loopexit ]
   %256 = load ptr, ptr %245, align 8
   %257 = load ptr, ptr %256, align 8
@@ -6830,10 +6830,10 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
   br label %285
 
 285:                                              ; preds = %272, %442
-  %.sroa.017.1378 = phi i8 [ %.sroa.017.0383, %272 ], [ %.sroa.017.2, %442 ]
-  %.sroa.021.1377 = phi i8 [ %.sroa.021.0382, %272 ], [ %.sroa.021.2, %442 ]
-  %.sroa.025.1376 = phi i8 [ %.sroa.025.0381, %272 ], [ %.sroa.025.2, %442 ]
-  %.sroa.029.1375 = phi i8 [ %.sroa.029.0380, %272 ], [ %.sroa.029.2, %442 ]
+  %.sroa.017.2378 = phi i8 [ %.sroa.017.0383, %272 ], [ %.sroa.017.3, %442 ]
+  %.sroa.021.2377 = phi i8 [ %.sroa.021.0382, %272 ], [ %.sroa.021.3, %442 ]
+  %.sroa.025.2376 = phi i8 [ %.sroa.025.0381, %272 ], [ %.sroa.025.3, %442 ]
+  %.sroa.029.2375 = phi i8 [ %.sroa.029.0380, %272 ], [ %.sroa.029.3, %442 ]
   %.0374 = phi i64 [ 0, %272 ], [ %443, %442 ]
   %286 = load i64, ptr %98, align 8
   %287 = load ptr, ptr %246, align 8
@@ -6845,7 +6845,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
 
 288:                                              ; preds = %285
   %.reass = add i64 %.0374, %invariant.op
-  %289 = and i8 %.sroa.029.1375, -8
+  %289 = and i8 %.sroa.029.2375, -8
   store i8 0, ptr %10, align 1
   %290 = lshr i64 %.reass, 12
   %291 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -6920,7 +6920,7 @@ _ZL19is_overlapped_wideniiii.exit.thread:         ; preds = %201, %_ZL19is_overl
 _ZNK13xlate_flags_t17is_special_accessEv.exit262: ; preds = %285
   %325 = shl nuw i64 %.0374, 1
   %326 = add i64 %279, %325
-  %327 = and i8 %.sroa.025.1376, -8
+  %327 = and i8 %.sroa.025.2376, -8
   store i16 0, ptr %8, align 2
   %328 = lshr i64 %326, 12
   %329 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -6996,7 +6996,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit262: ; preds = %285
 _ZNK13xlate_flags_t17is_special_accessEv.exit267: ; preds = %285
   %364 = shl i64 %.0374, 2
   %365 = add i64 %276, %364
-  %366 = and i8 %.sroa.021.1377, -8
+  %366 = and i8 %.sroa.021.2377, -8
   store i32 0, ptr %6, align 4
   %367 = lshr i64 %365, 12
   %368 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -7072,7 +7072,7 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit267: ; preds = %285
 _ZNK13xlate_flags_t17is_special_accessEv.exit272: ; preds = %285
   %403 = shl i64 %.0374, 3
   %404 = add i64 %282, %403
-  %405 = and i8 %.sroa.017.1378, -8
+  %405 = and i8 %.sroa.017.2378, -8
   store i64 0, ptr %4, align 8
   %406 = lshr i64 %404, 12
   %407 = getelementptr inbounds i8, ptr %287, i64 39056
@@ -7146,19 +7146,19 @@ _ZNK13xlate_flags_t17is_special_accessEv.exit272: ; preds = %285
   br label %442
 
 442:                                              ; preds = %.critedge4, %.critedge8, %.critedge12, %.critedge16
-  %.sroa.029.2 = phi i8 [ %.sroa.029.1375, %.critedge16 ], [ %.sroa.029.1375, %.critedge12 ], [ %.sroa.029.1375, %.critedge8 ], [ %289, %.critedge4 ]
-  %.sroa.025.2 = phi i8 [ %.sroa.025.1376, %.critedge16 ], [ %.sroa.025.1376, %.critedge12 ], [ %327, %.critedge8 ], [ %.sroa.025.1376, %.critedge4 ]
-  %.sroa.021.2 = phi i8 [ %.sroa.021.1377, %.critedge16 ], [ %366, %.critedge12 ], [ %.sroa.021.1377, %.critedge8 ], [ %.sroa.021.1377, %.critedge4 ]
-  %.sroa.017.2 = phi i8 [ %405, %.critedge16 ], [ %.sroa.017.1378, %.critedge12 ], [ %.sroa.017.1378, %.critedge8 ], [ %.sroa.017.1378, %.critedge4 ]
+  %.sroa.029.3 = phi i8 [ %.sroa.029.2375, %.critedge16 ], [ %.sroa.029.2375, %.critedge12 ], [ %.sroa.029.2375, %.critedge8 ], [ %289, %.critedge4 ]
+  %.sroa.025.3 = phi i8 [ %.sroa.025.2376, %.critedge16 ], [ %.sroa.025.2376, %.critedge12 ], [ %327, %.critedge8 ], [ %.sroa.025.2376, %.critedge4 ]
+  %.sroa.021.3 = phi i8 [ %.sroa.021.2377, %.critedge16 ], [ %366, %.critedge12 ], [ %.sroa.021.2377, %.critedge8 ], [ %.sroa.021.2377, %.critedge4 ]
+  %.sroa.017.3 = phi i8 [ %405, %.critedge16 ], [ %.sroa.017.2378, %.critedge12 ], [ %.sroa.017.2378, %.critedge8 ], [ %.sroa.017.2378, %.critedge4 ]
   %443 = add nuw nsw i64 %.0374, 1
   %exitcond395 = icmp eq i64 %.0374, %13
   br i1 %exitcond395, label %.loopexit, label %285, !llvm.loop !36
 
 .loopexit:                                        ; preds = %442, %263, %255
-  %.sroa.029.3 = phi i8 [ %.sroa.029.0380, %255 ], [ %.sroa.029.0380, %263 ], [ %.sroa.029.2, %442 ]
-  %.sroa.025.3 = phi i8 [ %.sroa.025.0381, %255 ], [ %.sroa.025.0381, %263 ], [ %.sroa.025.2, %442 ]
-  %.sroa.021.3 = phi i8 [ %.sroa.021.0382, %255 ], [ %.sroa.021.0382, %263 ], [ %.sroa.021.2, %442 ]
-  %.sroa.017.3 = phi i8 [ %.sroa.017.0383, %255 ], [ %.sroa.017.0383, %263 ], [ %.sroa.017.2, %442 ]
+  %.sroa.029.1 = phi i8 [ %.sroa.029.0380, %255 ], [ %.sroa.029.0380, %263 ], [ %.sroa.029.3, %442 ]
+  %.sroa.025.1 = phi i8 [ %.sroa.025.0381, %255 ], [ %.sroa.025.0381, %263 ], [ %.sroa.025.3, %442 ]
+  %.sroa.021.1 = phi i8 [ %.sroa.021.0382, %255 ], [ %.sroa.021.0382, %263 ], [ %.sroa.021.3, %442 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.0383, %255 ], [ %.sroa.017.0383, %263 ], [ %.sroa.017.3, %442 ]
   %444 = add nuw i64 %.0211379, 1
   %exitcond396.not = icmp eq i64 %444, %21
   br i1 %exitcond396.not, label %._crit_edge, label %255, !llvm.loop !37

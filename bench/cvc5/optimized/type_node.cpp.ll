@@ -2507,7 +2507,7 @@ for.body.preheader:                               ; preds = %if.then81
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont88
-  %ret.0106 = phi i64 [ %call89, %invoke.cont88 ], [ %call76, %for.body.preheader ]
+  %ret.1106 = phi i64 [ %call89, %invoke.cont88 ], [ %call76, %for.body.preheader ]
   %i.0105 = phi i64 [ %inc, %invoke.cont88 ], [ 0, %for.body.preheader ]
   %57 = load ptr, ptr %argTypes, align 8
   %add.ptr.i = getelementptr inbounds %"class.cvc5::internal::TypeNode", ptr %57, i64 %i.0105
@@ -2515,7 +2515,7 @@ for.body:                                         ; preds = %for.body.preheader,
           to label %invoke.cont86 unwind label %lpad85
 
 invoke.cont86:                                    ; preds = %for.body
-  %call89 = invoke noundef i64 @_ZN4cvc58internal19maxCardinalityClassENS0_16CardinalityClassES1_(i64 noundef %ret.0106, i64 noundef %call87)
+  %call89 = invoke noundef i64 @_ZN4cvc58internal19maxCardinalityClassENS0_16CardinalityClassES1_(i64 noundef %ret.1106, i64 noundef %call87)
           to label %invoke.cont88 unwind label %lpad85
 
 invoke.cont88:                                    ; preds = %invoke.cont86
@@ -2536,7 +2536,7 @@ lpad85:                                           ; preds = %invoke.cont86, %for
   br label %eh.resume
 
 for.end:                                          ; preds = %invoke.cont88, %if.then81
-  %ret.0.lcssa = phi i64 [ %call76, %if.then81 ], [ %call89, %invoke.cont88 ]
+  %ret.1.lcssa = phi i64 [ %call76, %if.then81 ], [ %call89, %invoke.cont88 ]
   call void @_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %argTypes) #19
   br label %if.end121
 
@@ -2557,7 +2557,7 @@ for.body101.preheader:                            ; preds = %if.then94
   br label %for.body101
 
 for.body101:                                      ; preds = %for.body101.preheader, %invoke.cont107
-  %ret.1103 = phi i64 [ %call108, %invoke.cont107 ], [ 0, %for.body101.preheader ]
+  %ret.2103 = phi i64 [ %call108, %invoke.cont107 ], [ 0, %for.body101.preheader ]
   %i96.0102 = phi i64 [ %inc110, %invoke.cont107 ], [ 0, %for.body101.preheader ]
   %62 = load ptr, ptr %argTypes95, align 8
   %add.ptr.i88 = getelementptr inbounds %"class.cvc5::internal::TypeNode", ptr %62, i64 %i96.0102
@@ -2565,7 +2565,7 @@ for.body101:                                      ; preds = %for.body101.prehead
           to label %invoke.cont105 unwind label %lpad104
 
 invoke.cont105:                                   ; preds = %for.body101
-  %call108 = invoke noundef i64 @_ZN4cvc58internal19maxCardinalityClassENS0_16CardinalityClassES1_(i64 noundef %ret.1103, i64 noundef %call106)
+  %call108 = invoke noundef i64 @_ZN4cvc58internal19maxCardinalityClassENS0_16CardinalityClassES1_(i64 noundef %ret.2103, i64 noundef %call106)
           to label %invoke.cont107 unwind label %lpad104
 
 invoke.cont107:                                   ; preds = %invoke.cont105
@@ -2580,13 +2580,13 @@ lpad104:                                          ; preds = %invoke.cont105, %fo
   br label %eh.resume
 
 for.end111:                                       ; preds = %invoke.cont107, %if.then94
-  %ret.1.lcssa = phi i64 [ 0, %if.then94 ], [ %call108, %invoke.cont107 ]
+  %ret.2.lcssa = phi i64 [ 0, %if.then94 ], [ %call108, %invoke.cont107 ]
   call void @_ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %argTypes95) #19
   br label %if.end121
 
 if.end121:                                        ; preds = %if.else36, %lor.lhs.false12, %lor.lhs.false, %lor.lhs.false, %invoke.cont59, %_ZNK4cvc58internal8TypeNode8isStringEv.exit, %_ZNK4cvc58internal8TypeNode8isRegExpEv.exit, %lor.lhs.false19, %lor.lhs.false21, %lor.lhs.false23, %_ZNK4cvc58internal8TypeNode9isBooleanEv.exit, %_ZNK4cvc58internal8TypeNode14isRoundingModeEv.exit, %if.end, %invoke.cont34, %for.end111, %for.end, %invoke.cont75, %invoke.cont49, %invoke.cont41
-  %ret.2 = phi i64 [ %call35, %invoke.cont34 ], [ %call52, %invoke.cont49 ], [ %call42, %invoke.cont41 ], [ %ret.0.lcssa, %for.end ], [ %call76, %invoke.cont75 ], [ %ret.1.lcssa, %for.end111 ], [ 1, %if.end ], [ 2, %lor.lhs.false12 ], [ 2, %_ZNK4cvc58internal8TypeNode14isRoundingModeEv.exit ], [ 2, %lor.lhs.false ], [ 2, %_ZNK4cvc58internal8TypeNode9isBooleanEv.exit ], [ 4, %lor.lhs.false23 ], [ 4, %lor.lhs.false21 ], [ 4, %lor.lhs.false19 ], [ 4, %_ZNK4cvc58internal8TypeNode8isRegExpEv.exit ], [ 4, %_ZNK4cvc58internal8TypeNode8isStringEv.exit ], [ %spec.select, %invoke.cont59 ], [ 2, %lor.lhs.false ], [ 4, %if.else36 ]
-  store i64 %ret.2, ptr %ref.tmp123, align 8
+  %ret.0 = phi i64 [ %call35, %invoke.cont34 ], [ %call52, %invoke.cont49 ], [ %call42, %invoke.cont41 ], [ %ret.1.lcssa, %for.end ], [ %call76, %invoke.cont75 ], [ %ret.2.lcssa, %for.end111 ], [ 1, %if.end ], [ 2, %lor.lhs.false12 ], [ 2, %_ZNK4cvc58internal8TypeNode14isRoundingModeEv.exit ], [ 2, %lor.lhs.false ], [ 2, %_ZNK4cvc58internal8TypeNode9isBooleanEv.exit ], [ 4, %lor.lhs.false23 ], [ 4, %lor.lhs.false21 ], [ 4, %lor.lhs.false19 ], [ 4, %_ZNK4cvc58internal8TypeNode8isRegExpEv.exit ], [ 4, %_ZNK4cvc58internal8TypeNode8isStringEv.exit ], [ %spec.select, %invoke.cont59 ], [ 2, %lor.lhs.false ], [ 4, %if.else36 ]
+  store i64 %ret.0, ptr %ref.tmp123, align 8
   %call.i89 = call noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
   %64 = load ptr, ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i)
@@ -2597,7 +2597,7 @@ if.end121:                                        ; preds = %if.else36, %lor.lhs
   br label %return
 
 return:                                           ; preds = %lor.lhs.false.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i, %if.end.i.i.i, %if.end15.i.i.i.i.i, %if.end121
-  %retval.0 = phi i64 [ %ret.2, %if.end121 ], [ %36, %if.end.i.i.i ], [ 0, %if.end15.i.i.i.i.i ], [ 0, %for.cond.i.i.i.i.i ], [ 0, %if.end3.i.i.i.i.i.i.i ], [ 0, %lor.lhs.false.i.i.i.i.i.i.i ]
+  %retval.0 = phi i64 [ %ret.0, %if.end121 ], [ %36, %if.end.i.i.i ], [ 0, %if.end15.i.i.i.i.i ], [ 0, %for.cond.i.i.i.i.i ], [ 0, %if.end3.i.i.i.i.i.i.i ], [ 0, %lor.lhs.false.i.i.i.i.i.i.i ]
   ret i64 %retval.0
 
 eh.resume:                                        ; preds = %lpad104, %lpad85, %lpad74, %lpad58, %lpad48, %lpad40, %ehcleanup

@@ -2984,7 +2984,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i233: ; preds = %_ZSt8_DestroyIP
   br label %993
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit235:       ; preds = %956, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i233, %83
-  %.2 = phi i1 [ false, %83 ], [ %.1, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i233 ], [ %.1, %956 ]
+  %.026 = phi i1 [ false, %83 ], [ %.1, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i233 ], [ %.1, %956 ]
   %958 = load ptr, ptr %79, align 8
   %.not.i.i.i.i236 = icmp eq ptr %958, null
   br i1 %.not.i.i.i.i236, label %_ZN2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEED2Ev.exit, label %959
@@ -3061,7 +3061,7 @@ _ZN2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEED2Ev.exit: ; pre
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
-  ret i1 %.2
+  ret i1 %.026
 
 993:                                              ; preds = %957, %228, %92
   %.pn49.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn.pn.pn.pn.pn.pn.pn, %957 ], [ %93, %92 ], [ %229, %228 ]
@@ -6817,7 +6817,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit296:                 ; preds = %1370, %_ZNSt6vector
   br label %1419
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit292:       ; preds = %1365, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i290, %807, %812
-  %.025 = phi i1 [ false, %812 ], [ false, %807 ], [ true, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i290 ], [ true, %1365 ]
+  %.2 = phi i1 [ false, %812 ], [ false, %807 ], [ true, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i290 ], [ true, %1365 ]
   %1372 = load ptr, ptr %35, align 8
   %1373 = getelementptr inbounds i8, ptr %35, i64 8
   %1374 = load ptr, ptr %1373, align 8
@@ -6960,7 +6960,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %1506
 
 _ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i320, %1414, %1401, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit314, %624
-  %.1 = phi i1 [ false, %624 ], [ %.025, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit314 ], [ %.025, %1401 ], [ %.025, %1414 ], [ %.025, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i320 ]
+  %.1 = phi i1 [ false, %624 ], [ %.2, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit314 ], [ %.2, %1401 ], [ %.2, %1414 ], [ %.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i320 ]
   %1422 = load ptr, ptr %24, align 8
   %1423 = getelementptr inbounds i8, ptr %24, i64 8
   %1424 = load ptr, ptr %1423, align 8
@@ -7196,7 +7196,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit346:                 ; preds = %1509, %1507, %627, 
   br label %1551
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit344:       ; preds = %1505, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i342, %_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit81
-  %.2 = phi i1 [ false, %_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit81 ], [ %.1, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i342 ], [ %.1, %1505 ]
+  %.025 = phi i1 [ false, %_ZN2cv3PtrINS_6detail8tracking16TrackerSamplerCSEED2Ev.exit81 ], [ %.1, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i342 ], [ %.1, %1505 ]
   %1510 = load ptr, ptr %14, align 8
   %1511 = load ptr, ptr %209, align 8
   %.not4.i.i.i.i347 = icmp eq ptr %1510, %1511
@@ -7300,7 +7300,7 @@ _ZN2cv3PtrINS_6detail8tracking18TrackerTargetStateEED2Ev.exit362: ; preds = %_ZN
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
-  ret i1 %.2
+  ret i1 %.025
 
 1551:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit346, %224, %222
   %.pn52.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn52.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit346 ], [ %225, %224 ], [ %223, %222 ]

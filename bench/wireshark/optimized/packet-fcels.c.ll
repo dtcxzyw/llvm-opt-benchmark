@@ -1203,21 +1203,21 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %157
 
 .thread342:                                       ; preds = %138, %116, %140
-  %.1288.ph = phi i8 [ %12, %116 ], [ %12, %140 ], [ %139, %138 ]
-  %149 = icmp eq i8 %.1288.ph, 1
+  %.0287.ph = phi i8 [ %12, %116 ], [ %12, %140 ], [ %139, %138 ]
+  %149 = icmp eq i8 %.0287.ph, 1
   br i1 %149, label %.thread337, label %153
 
 .thread337:                                       ; preds = %135, %.thread342
-  %.2286.ph348 = phi i32 [ 0, %.thread342 ], [ %137, %135 ]
+  %.0284.ph348 = phi i32 [ 0, %.thread342 ], [ %137, %135 ]
   %150 = load ptr, ptr %10, align 8
-  %151 = and i32 %.2286.ph348, 255
+  %151 = and i32 %.0284.ph348, 255
   %152 = call ptr @val_to_str_ext(i32 noundef %151, ptr noundef nonnull @fc_els_proto_val_ext, ptr noundef nonnull @.str.582) #3
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %150, i32 noundef 25, ptr noundef nonnull @.str.583, ptr noundef %152) #3
   call fastcc void @dissect_fcels_lsrjt(ptr noundef %0, ptr noundef %2, ptr noundef %.0278)
   br label %dissect_fcels_prli.exit
 
 153:                                              ; preds = %.thread342
-  %154 = zext i8 %.1288.ph to i32
+  %154 = zext i8 %.0287.ph to i32
   %155 = load ptr, ptr %10, align 8
   %156 = call ptr @val_to_str_ext(i32 noundef %154, ptr noundef nonnull @fc_els_proto_val_ext, ptr noundef nonnull @.str.582) #3
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %155, i32 noundef 25, ptr noundef nonnull @.str.584, ptr noundef %156) #3
@@ -1225,8 +1225,8 @@ define internal i32 @dissect_fcels(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 157:                                              ; preds = %153, %146
   %.0281335 = phi i8 [ 0, %153 ], [ 1, %146 ]
-  %.1288333 = phi i8 [ %.1288.ph, %153 ], [ %12, %146 ]
-  switch i8 %.1288333, label %194 [
+  %.0287333 = phi i8 [ %.0287.ph, %153 ], [ %12, %146 ]
+  switch i8 %.0287333, label %194 [
     i8 -28, label %193
     i8 3, label %158
     i8 4, label %159

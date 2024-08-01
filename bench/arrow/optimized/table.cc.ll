@@ -8114,7 +8114,7 @@ for.inc62:                                        ; preds = %invoke.cont59, %_ZN
 
 cleanup65:                                        ; preds = %for.inc62, %invoke.cont28, %cleanup
   %cmp.i95.not767 = phi i1 [ false, %cleanup ], [ true, %invoke.cont28 ], [ true, %for.inc62 ]
-  %tables_to_concat.0 = phi ptr [ %tables, %cleanup ], [ %promoted_tables, %invoke.cont28 ], [ %promoted_tables, %for.inc62 ]
+  %tables_to_concat.1 = phi ptr [ %tables, %cleanup ], [ %promoted_tables, %invoke.cont28 ], [ %promoted_tables, %for.inc62 ]
   %53 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i127 = icmp eq ptr %53, null
   br i1 %cmp.not.i.i.i127, label %cleanup66, label %if.then.i.i.i128
@@ -8188,8 +8188,8 @@ if.end8.sink.split.i.i.i.i148:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %cleanup66
 
 cleanup66:                                        ; preds = %if.end8.sink.split.i.i.i.i148, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i145, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i135, %cleanup65, %if.then21
-  %cleanup.dest.slot.2 = phi i1 [ false, %if.then21 ], [ %cmp.i95.not767, %cleanup65 ], [ %cmp.i95.not767, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i135 ], [ %cmp.i95.not767, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i145 ], [ %cmp.i95.not767, %if.end8.sink.split.i.i.i.i148 ]
-  %tables_to_concat.1 = phi ptr [ %tables, %if.then21 ], [ %tables_to_concat.0, %cleanup65 ], [ %tables_to_concat.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i135 ], [ %tables_to_concat.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i145 ], [ %tables_to_concat.0, %if.end8.sink.split.i.i.i.i148 ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %if.then21 ], [ %cmp.i95.not767, %cleanup65 ], [ %cmp.i95.not767, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i135 ], [ %cmp.i95.not767, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i145 ], [ %cmp.i95.not767, %if.end8.sink.split.i.i.i.i148 ]
+  %tables_to_concat.0 = phi ptr [ %tables, %if.then21 ], [ %tables_to_concat.1, %cleanup65 ], [ %tables_to_concat.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i135 ], [ %tables_to_concat.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i145 ], [ %tables_to_concat.1, %if.end8.sink.split.i.i.i.i148 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6SchemaEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp13) #19
   %64 = load ptr, ptr %schemas, align 8
   %_M_finish.i157 = getelementptr inbounds i8, ptr %schemas, i64 8
@@ -8291,7 +8291,7 @@ if.then.i.i.i168:                                 ; preds = %invoke.cont.i
   br label %_ZNSt6vectorISt10shared_ptrIN5arrow6SchemaEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt10shared_ptrIN5arrow6SchemaEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i168
-  br i1 %cleanup.dest.slot.2, label %if.end114, label %cleanup192
+  br i1 %cleanup.dest.slot.0, label %if.end114, label %cleanup192
 
 ehcleanup71:                                      ; preds = %lpad.loopexit757, %lpad.loopexit.split-lp758, %lpad27, %lpad14
   %.pn36 = phi { ptr, i32 } [ %lpad.phi756, %lpad27 ], [ %25, %lpad14 ], [ %lpad.loopexit759, %lpad.loopexit757 ], [ %lpad.loopexit.split-lp760, %lpad.loopexit.split-lp758 ]
@@ -8666,7 +8666,7 @@ if.end8.sink.split.i.i.i.i283:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %if.end114
 
 if.end114:                                        ; preds = %if.end8.sink.split.i.i.i.i283, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i280, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i270, %if.end114.critedge, %_ZNSt6vectorISt10shared_ptrIN5arrow6SchemaEESaIS3_EED2Ev.exit
-  %tables_to_concat.2 = phi ptr [ %tables_to_concat.1, %_ZNSt6vectorISt10shared_ptrIN5arrow6SchemaEESaIS3_EED2Ev.exit ], [ %tables, %if.end114.critedge ], [ %tables, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i270 ], [ %tables, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i280 ], [ %tables, %if.end8.sink.split.i.i.i.i283 ]
+  %tables_to_concat.2 = phi ptr [ %tables_to_concat.0, %_ZNSt6vectorISt10shared_ptrIN5arrow6SchemaEESaIS3_EED2Ev.exit ], [ %tables, %if.end114.critedge ], [ %tables, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i270 ], [ %tables, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i280 ], [ %tables, %if.end8.sink.split.i.i.i.i283 ]
   %133 = load ptr, ptr %tables_to_concat.2, align 8
   %134 = load ptr, ptr %133, align 8
   %schema_.i293 = getelementptr inbounds i8, ptr %134, i64 8
@@ -11650,12 +11650,12 @@ _ZN5arrow5DatumD2Ev.exit454:                      ; preds = %invoke.cont220
   br label %cleanup222
 
 cleanup222:                                       ; preds = %_ZN5arrow5DatumD2Ev.exit454, %if.then210
-  %cleanup.dest.slot.2 = phi i32 [ 1, %if.then210 ], [ 0, %_ZN5arrow5DatumD2Ev.exit454 ]
+  %cleanup.dest.slot.3 = phi i32 [ 1, %if.then210 ], [ 0, %_ZN5arrow5DatumD2Ev.exit454 ]
   call void @_ZN5arrow6ResultINS_5DatumEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp180) #19
   br label %cleanup224
 
 cleanup224:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit262, %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6Status11DeleteStateEv.exit.i278, %cleanup138, %if.end8.sink.split.i.i.i.i215, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i212, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i202, %invoke.cont107, %_ZN5arrow6Status11DeleteStateEv.exit.i156, %invoke.cont84, %_ZN5arrow6Status11DeleteStateEv.exit.i114, %invoke.cont67, %_ZN5arrow6Status11DeleteStateEv.exit.i74, %cleanup, %cleanup222, %_ZN5arrow6StatusD2Ev.exit344
-  %cleanup.dest.slot.3 = phi i32 [ %cleanup.dest.slot.2, %cleanup222 ], [ 1, %_ZN5arrow6StatusD2Ev.exit344 ], [ 1, %cleanup ], [ 1, %_ZN5arrow6Status11DeleteStateEv.exit.i74 ], [ 1, %invoke.cont67 ], [ 1, %_ZN5arrow6Status11DeleteStateEv.exit.i114 ], [ 1, %invoke.cont84 ], [ 1, %_ZN5arrow6Status11DeleteStateEv.exit.i156 ], [ 3, %invoke.cont107 ], [ 3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i202 ], [ 3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i212 ], [ 3, %if.end8.sink.split.i.i.i.i215 ], [ 1, %cleanup138 ], [ 1, %_ZN5arrow6Status11DeleteStateEv.exit.i278 ], [ 3, %_ZN5arrow6StatusD2Ev.exit ], [ 3, %_ZN5arrow6StatusD2Ev.exit262 ]
+  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.3, %cleanup222 ], [ 1, %_ZN5arrow6StatusD2Ev.exit344 ], [ 1, %cleanup ], [ 1, %_ZN5arrow6Status11DeleteStateEv.exit.i74 ], [ 1, %invoke.cont67 ], [ 1, %_ZN5arrow6Status11DeleteStateEv.exit.i114 ], [ 1, %invoke.cont84 ], [ 1, %_ZN5arrow6Status11DeleteStateEv.exit.i156 ], [ 3, %invoke.cont107 ], [ 3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i202 ], [ 3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i212 ], [ 3, %if.end8.sink.split.i.i.i.i215 ], [ 1, %cleanup138 ], [ 1, %_ZN5arrow6Status11DeleteStateEv.exit.i278 ], [ 3, %_ZN5arrow6StatusD2Ev.exit ], [ 3, %_ZN5arrow6StatusD2Ev.exit262 ]
   %199 = load ptr, ptr %field_indices, align 8
   %tobool.not.i.i.i = icmp eq ptr %199, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %if.then.i.i.i455
@@ -11665,7 +11665,7 @@ if.then.i.i.i455:                                 ; preds = %cleanup224
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %cleanup224, %if.then.i.i.i455
-  switch i32 %cleanup.dest.slot.3, label %cleanup262 [
+  switch i32 %cleanup.dest.slot.1, label %cleanup262 [
     i32 0, label %for.inc
     i32 3, label %for.inc
   ]
@@ -14212,13 +14212,13 @@ lpad96.body:                                      ; preds = %_ZNSt15__allocated_
   br label %ehcleanup110
 
 cleanup107thread-pre-split:                       ; preds = %if.end9.i.i.i, %cleanup102, %cleanup102.thread, %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit241
-  %cleanup.dest.slot.3.ph = phi i32 [ %spec.select, %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit241 ], [ 0, %cleanup102.thread ], [ 4, %if.end9.i.i.i ], [ 1, %cleanup102 ]
+  %cleanup.dest.slot.0.ph = phi i32 [ %spec.select, %_ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EED2Ev.exit241 ], [ 0, %cleanup102.thread ], [ 4, %if.end9.i.i.i ], [ 1, %cleanup102 ]
   %.pr = load ptr, ptr %_M_refcount3.i.i, align 8
   br label %cleanup107
 
 cleanup107:                                       ; preds = %cleanup107thread-pre-split, %if.then
   %174 = phi ptr [ %.pr, %cleanup107thread-pre-split ], [ %9, %if.then ]
-  %cleanup.dest.slot.3 = phi i32 [ %cleanup.dest.slot.3.ph, %cleanup107thread-pre-split ], [ 4, %if.then ]
+  %cleanup.dest.slot.0 = phi i32 [ %cleanup.dest.slot.0.ph, %cleanup107thread-pre-split ], [ 4, %if.then ]
   %cmp.not.i.i.i353 = icmp eq ptr %174, null
   br i1 %cmp.not.i.i.i353, label %_ZNSt10shared_ptrIN5arrow12ChunkedArrayEED2Ev.exit383, label %if.then.i.i.i354
 
@@ -14291,7 +14291,7 @@ if.end8.sink.split.i.i.i.i374:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow12ChunkedArrayEED2Ev.exit383
 
 _ZNSt10shared_ptrIN5arrow12ChunkedArrayEED2Ev.exit383: ; preds = %cleanup107, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i361, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i371, %if.end8.sink.split.i.i.i.i374
-  switch i32 %cleanup.dest.slot.3, label %cleanup122 [
+  switch i32 %cleanup.dest.slot.0, label %cleanup122 [
     i32 0, label %for.inc111
     i32 4, label %for.inc111
   ]
@@ -28355,20 +28355,20 @@ if.end22:                                         ; preds = %sw.bb
 sw.bb24:                                          ; preds = %for.end.sw.bb24_crit_edge, %if.end22
   %.pre-phi = phi i1 [ %.pre171, %for.end.sw.bb24_crit_edge ], [ %12, %if.end22 ]
   %sh_prom.i.i85.pre-phi = phi i64 [ %conv3.i73.pre-phi, %for.end.sw.bb24_crit_edge ], [ %.pre170, %if.end22 ]
-  %__first.sroa.0.6 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end.sw.bb24_crit_edge ], [ %spec.select151, %if.end22 ]
-  %__first.sroa.31.6 = phi i32 [ %__first.sroa.31.0.lcssa, %for.end.sw.bb24_crit_edge ], [ %spec.select152, %if.end22 ]
+  %__first.sroa.0.1 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end.sw.bb24_crit_edge ], [ %spec.select151, %if.end22 ]
+  %__first.sroa.31.1 = phi i32 [ %__first.sroa.31.0.lcssa, %for.end.sw.bb24_crit_edge ], [ %spec.select152, %if.end22 ]
   %shl.i.i86 = shl nuw i64 1, %sh_prom.i.i85.pre-phi
-  %14 = load i64, ptr %__first.sroa.0.6, align 8
+  %14 = load i64, ptr %__first.sroa.0.1, align 8
   %and.i.i87 = and i64 %shl.i.i86, %14
   %15 = icmp eq i64 %and.i.i87, 0
   %cmp.i88 = xor i1 %15, %.pre-phi
   br i1 %cmp.i88, label %return, label %if.end28
 
 if.end28:                                         ; preds = %sw.bb24
-  %inc.i.i90 = add i32 %__first.sroa.31.6, 1
-  %cmp.i.i91 = icmp eq i32 %__first.sroa.31.6, 63
+  %inc.i.i90 = add i32 %__first.sroa.31.1, 1
+  %cmp.i.i91 = icmp eq i32 %__first.sroa.31.1, 63
   %spec.select153.idx = select i1 %cmp.i.i91, i64 8, i64 0
-  %spec.select153 = getelementptr inbounds i8, ptr %__first.sroa.0.6, i64 %spec.select153.idx
+  %spec.select153 = getelementptr inbounds i8, ptr %__first.sroa.0.1, i64 %spec.select153.idx
   %spec.select154 = select i1 %cmp.i.i91, i32 0, i32 %inc.i.i90
   %.pre172 = zext nneg i32 %spec.select154 to i64
   br label %sw.bb30
@@ -28376,20 +28376,20 @@ if.end28:                                         ; preds = %sw.bb24
 sw.bb30:                                          ; preds = %for.end.sw.bb30_crit_edge, %if.end28
   %.pre-phi174 = phi i1 [ %.pre173, %for.end.sw.bb30_crit_edge ], [ %.pre-phi, %if.end28 ]
   %sh_prom.i.i95.pre-phi = phi i64 [ %conv3.i73.pre-phi, %for.end.sw.bb30_crit_edge ], [ %.pre172, %if.end28 ]
-  %__first.sroa.0.8 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end.sw.bb30_crit_edge ], [ %spec.select153, %if.end28 ]
-  %__first.sroa.31.8 = phi i32 [ %__first.sroa.31.0.lcssa, %for.end.sw.bb30_crit_edge ], [ %spec.select154, %if.end28 ]
+  %__first.sroa.0.2 = phi ptr [ %__first.sroa.0.0.lcssa, %for.end.sw.bb30_crit_edge ], [ %spec.select153, %if.end28 ]
+  %__first.sroa.31.2 = phi i32 [ %__first.sroa.31.0.lcssa, %for.end.sw.bb30_crit_edge ], [ %spec.select154, %if.end28 ]
   %shl.i.i96 = shl nuw i64 1, %sh_prom.i.i95.pre-phi
-  %16 = load i64, ptr %__first.sroa.0.8, align 8
+  %16 = load i64, ptr %__first.sroa.0.2, align 8
   %and.i.i97 = and i64 %shl.i.i96, %16
   %17 = icmp eq i64 %and.i.i97, 0
   %cmp.i98 = xor i1 %17, %.pre-phi174
-  %spec.select155 = select i1 %cmp.i98, ptr %__first.sroa.0.8, ptr %__last.coerce0
-  %spec.select156 = select i1 %cmp.i98, i32 %__first.sroa.31.8, i32 %__last.coerce1
+  %spec.select155 = select i1 %cmp.i98, ptr %__first.sroa.0.2, ptr %__last.coerce0
+  %spec.select156 = select i1 %cmp.i98, i32 %__first.sroa.31.2, i32 %__last.coerce1
   br label %return
 
 return:                                           ; preds = %if.end11, %if.end6, %if.end, %for.body, %sw.bb30, %for.end, %sw.bb24, %sw.bb
-  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %sw.bb ], [ %__first.sroa.0.6, %sw.bb24 ], [ %__last.coerce0, %for.end ], [ %spec.select155, %sw.bb30 ], [ %spec.select147, %if.end11 ], [ %spec.select145, %if.end6 ], [ %spec.select, %if.end ], [ %__first.sroa.0.0160, %for.body ]
-  %retval.sroa.9.0 = phi i32 [ %__first.sroa.31.0.lcssa, %sw.bb ], [ %__first.sroa.31.6, %sw.bb24 ], [ %__last.coerce1, %for.end ], [ %spec.select156, %sw.bb30 ], [ %spec.select148, %if.end11 ], [ %spec.select146, %if.end6 ], [ %spec.select144, %if.end ], [ %__first.sroa.31.0161, %for.body ]
+  %retval.sroa.0.0.in.sroa.speculated = phi ptr [ %__first.sroa.0.0.lcssa, %sw.bb ], [ %__first.sroa.0.1, %sw.bb24 ], [ %__last.coerce0, %for.end ], [ %spec.select155, %sw.bb30 ], [ %spec.select147, %if.end11 ], [ %spec.select145, %if.end6 ], [ %spec.select, %if.end ], [ %__first.sroa.0.0160, %for.body ]
+  %retval.sroa.9.0 = phi i32 [ %__first.sroa.31.0.lcssa, %sw.bb ], [ %__first.sroa.31.1, %sw.bb24 ], [ %__last.coerce1, %for.end ], [ %spec.select156, %sw.bb30 ], [ %spec.select148, %if.end11 ], [ %spec.select146, %if.end6 ], [ %spec.select144, %if.end ], [ %__first.sroa.31.0161, %for.body ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0.in.sroa.speculated, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.9.0, 1
   ret { ptr, i32 } %.fca.1.insert

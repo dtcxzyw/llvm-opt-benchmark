@@ -470,7 +470,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
 
 78:                                               ; preds = %77, %.thread
   %79 = phi i64 [ 100, %77 ], [ %75, %.thread ]
-  %.4 = phi i32 [ -25, %77 ], [ %.3311, %.thread ]
+  %.5 = phi i32 [ -25, %77 ], [ %.3311, %.thread ]
   %80 = getelementptr inbounds i8, ptr %1, i64 157
   %81 = load ptr, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %80, ptr noundef nonnull align 1 dereferenceable(1) %81, i64 %79, i1 false)
@@ -478,7 +478,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
 
 82:                                               ; preds = %78, %74
   %.0313 = phi i8 [ %.0312, %78 ], [ -1, %74 ]
-  %.5 = phi i32 [ %.4, %78 ], [ %.3.ph, %74 ]
+  %.4 = phi i32 [ %.5, %78 ], [ %.3.ph, %74 ]
   %83 = call i32 @_archive_entry_uname_l(ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef %5) #10
   %.not115 = icmp eq i32 %83, 0
   br i1 %.not115, label %92, label %84
@@ -500,7 +500,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
   br label %92
 
 92:                                               ; preds = %89, %82
-  %.6 = phi i32 [ -20, %89 ], [ %.5, %82 ]
+  %.6 = phi i32 [ -20, %89 ], [ %.4, %82 ]
   %93 = load i64, ptr %7, align 8
   %.not116 = icmp eq i64 %93, 0
   br i1 %.not116, label %103, label %94
@@ -518,20 +518,20 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
   br label %98
 
 98:                                               ; preds = %97, %96
-  %.7 = phi i32 [ -25, %97 ], [ %.6, %96 ]
+  %.9 = phi i32 [ -25, %97 ], [ %.6, %96 ]
   store i64 32, ptr %7, align 8
   br label %99
 
 99:                                               ; preds = %98, %94
   %100 = phi i64 [ 32, %98 ], [ %93, %94 ]
-  %.8 = phi i32 [ %.7, %98 ], [ %.6, %94 ]
+  %.8 = phi i32 [ %.9, %98 ], [ %.6, %94 ]
   %101 = getelementptr inbounds i8, ptr %1, i64 265
   %102 = load ptr, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %101, ptr align 1 %102, i64 %100, i1 false)
   br label %103
 
 103:                                              ; preds = %99, %92
-  %.9 = phi i32 [ %.8, %99 ], [ %.6, %92 ]
+  %.7 = phi i32 [ %.8, %99 ], [ %.6, %92 ]
   %104 = call i32 @_archive_entry_gname_l(ptr noundef %2, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef %5) #10
   %.not118 = icmp eq i32 %104, 0
   br i1 %.not118, label %113, label %105
@@ -553,7 +553,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
   br label %113
 
 113:                                              ; preds = %110, %103
-  %.10 = phi i32 [ -20, %110 ], [ %.9, %103 ]
+  %.10 = phi i32 [ -20, %110 ], [ %.7, %103 ]
   %114 = load i64, ptr %7, align 8
   %.not119 = icmp eq i64 %114, 0
   br i1 %.not119, label %126, label %115
@@ -575,20 +575,20 @@ define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr 
 
 121:                                              ; preds = %120, %119
   %.pre = phi ptr [ %.pre.pre, %120 ], [ %116, %119 ]
-  %.11 = phi i32 [ -25, %120 ], [ %.10, %119 ]
+  %.13 = phi i32 [ -25, %120 ], [ %.10, %119 ]
   store i64 32, ptr %7, align 8
   br label %122
 
 122:                                              ; preds = %121, %115
   %123 = phi i64 [ 32, %121 ], [ %114, %115 ]
   %124 = phi ptr [ %.pre, %121 ], [ %116, %115 ]
-  %.12 = phi i32 [ %.11, %121 ], [ %.10, %115 ]
+  %.12 = phi i32 [ %.13, %121 ], [ %.10, %115 ]
   %125 = getelementptr inbounds i8, ptr %1, i64 297
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr align 1 %124, i64 %123, i1 false)
   br label %126
 
 126:                                              ; preds = %122, %113
-  %.13 = phi i32 [ %.12, %122 ], [ %.10, %113 ]
+  %.11 = phi i32 [ %.12, %122 ], [ %.10, %113 ]
   %127 = call i32 @archive_entry_mode(ptr noundef %2) #10
   %128 = and i32 %127, 4095
   %129 = zext nneg i32 %128 to i64
@@ -639,7 +639,7 @@ format_number.exit.thread317:                     ; preds = %._crit_edge.i26.i, 
   br label %format_number.exit.thread
 
 format_number.exit.thread:                        ; preds = %._crit_edge.i26.i, %._crit_edge.i.i, %format_number.exit.thread317
-  %.14 = phi i32 [ -25, %format_number.exit.thread317 ], [ %.13, %._crit_edge.i.i ], [ %.13, %._crit_edge.i26.i ]
+  %.14 = phi i32 [ -25, %format_number.exit.thread317 ], [ %.11, %._crit_edge.i.i ], [ %.11, %._crit_edge.i26.i ]
   %147 = call i64 @archive_entry_uid(ptr noundef %2) #10
   %148 = getelementptr inbounds i8, ptr %1, i64 108
   %149 = icmp slt i64 %147, 0
@@ -1165,7 +1165,7 @@ format_number.exit275.thread347:                  ; preds = %.lr.ph27.preheader.
   br label %format_number.exit275.thread
 
 format_number.exit275.thread:                     ; preds = %._crit_edge.i26.i271, %._crit_edge.i.i251, %format_256.exit.i265, %format_number.exit275.thread347
-  %.19 = phi i32 [ -25, %format_number.exit275.thread347 ], [ %.18, %format_256.exit.i265 ], [ %.18, %._crit_edge.i.i251 ], [ %.18, %._crit_edge.i26.i271 ]
+  %.20 = phi i32 [ -25, %format_number.exit275.thread347 ], [ %.18, %format_256.exit.i265 ], [ %.18, %._crit_edge.i.i251 ], [ %.18, %._crit_edge.i26.i271 ]
   %328 = call i64 @archive_entry_rdevminor(ptr noundef %2) #10
   %329 = getelementptr inbounds i8, ptr %1, i64 337
   %330 = icmp slt i64 %328, 0
@@ -1272,7 +1272,7 @@ format_number.exit305.thread353:                  ; preds = %.lr.ph27.preheader.
   br label %format_number.exit305.thread
 
 format_number.exit305.thread:                     ; preds = %._crit_edge.i26.i301, %._crit_edge.i.i281, %format_256.exit.i295, %format_number.exit305.thread353, %288
-  %.20 = phi i32 [ -25, %format_number.exit305.thread353 ], [ %.18, %288 ], [ %.19, %format_256.exit.i295 ], [ %.19, %._crit_edge.i.i281 ], [ %.19, %._crit_edge.i26.i301 ]
+  %.19 = phi i32 [ -25, %format_number.exit305.thread353 ], [ %.18, %288 ], [ %.20, %format_256.exit.i295 ], [ %.20, %._crit_edge.i.i281 ], [ %.20, %._crit_edge.i26.i301 ]
   %364 = icmp sgt i32 %3, -1
   br i1 %364, label %365, label %368
 
@@ -1338,7 +1338,7 @@ format_number.exit305.thread:                     ; preds = %._crit_edge.i26.i30
   br label %388
 
 388:                                              ; preds = %369, %387, %385, %383, %381, %379, %377, %375, %365
-  %.21 = phi i32 [ %.20, %365 ], [ %.20, %369 ], [ -25, %387 ], [ %.20, %385 ], [ %.20, %383 ], [ %.20, %381 ], [ %.20, %379 ], [ %.20, %377 ], [ %.20, %375 ]
+  %.21 = phi i32 [ %.19, %365 ], [ %.19, %369 ], [ -25, %387 ], [ %.19, %385 ], [ %.19, %383 ], [ %.19, %381 ], [ %.19, %379 ], [ %.19, %377 ], [ %.19, %375 ]
   br label %389
 
 389:                                              ; preds = %388, %389

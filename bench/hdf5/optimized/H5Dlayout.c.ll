@@ -284,10 +284,10 @@ define i64 @H5D__layout_meta_size(ptr noundef %0, ptr nocapture noundef readonly
   br label %76
 
 64:                                               ; preds = %45, %49, %30, %58, %56, %54
-  %.0 = phi i64 [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %49 ], [ %39, %45 ], [ %39, %30 ]
+  %.1 = phi i64 [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %49 ], [ %39, %45 ], [ %39, %30 ]
   %65 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #3
   %66 = zext i8 %65 to i64
-  %67 = add nuw i64 %.0, %66
+  %67 = add nuw i64 %.1, %66
   br label %76
 
 68:                                               ; preds = %3
@@ -303,8 +303,8 @@ define i64 @H5D__layout_meta_size(ptr noundef %0, ptr nocapture noundef readonly
   br label %76
 
 76:                                               ; preds = %10, %68, %6, %5, %64, %21, %72, %60, %41
-  %.1 = phi i64 [ 0, %72 ], [ %71, %68 ], [ %29, %21 ], [ 0, %60 ], [ %67, %64 ], [ 0, %41 ], [ %16, %10 ], [ %9, %6 ], [ 4, %5 ]
-  ret i64 %.1
+  %.0 = phi i64 [ 0, %72 ], [ %71, %68 ], [ %29, %21 ], [ 0, %60 ], [ %67, %64 ], [ 0, %41 ], [ %16, %10 ], [ %9, %6 ], [ 4, %5 ]
+  ret i64 %.0
 }
 
 declare zeroext i8 @H5F_sizeof_addr(ptr noundef) local_unnamed_addr #1
@@ -982,11 +982,11 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   br label %112
 
 112:                                              ; preds = %35, %42, %52, %61, %78, %96, %108
-  %.147.ph = phi i1 [ %.not54, %108 ], [ %.not54, %96 ], [ %.not54, %78 ], [ true, %61 ], [ false, %52 ], [ false, %42 ], [ false, %35 ]
+  %.046.ph = phi i1 [ %.not54, %108 ], [ %.not54, %96 ], [ %.not54, %78 ], [ true, %61 ], [ false, %52 ], [ false, %42 ], [ false, %35 ]
   br i1 %.not.not, label %123, label %113
 
 113:                                              ; preds = %.thread69, %112
-  %.147.ph74 = phi i1 [ false, %.thread69 ], [ %.147.ph, %112 ]
+  %.046.ph74 = phi i1 [ false, %.thread69 ], [ %.046.ph, %112 ]
   %.048.ph73 = phi i1 [ false, %.thread69 ], [ %34, %112 ]
   %114 = getelementptr inbounds i8, ptr %0, i64 48
   %115 = load ptr, ptr %114, align 8
@@ -1002,12 +1002,12 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   br i1 %.048.ph73, label %124, label %134
 
 123:                                              ; preds = %113, %112
-  %.147.ph68 = phi i1 [ %.147.ph74, %113 ], [ %.147.ph, %112 ]
+  %.046.ph68 = phi i1 [ %.046.ph74, %113 ], [ %.046.ph, %112 ]
   %.048.ph67 = phi i1 [ %.048.ph73, %113 ], [ %34, %112 ]
   br i1 %.048.ph67, label %124, label %134
 
 124:                                              ; preds = %119, %123
-  %.147.ph6879 = phi i1 [ %.147.ph74, %119 ], [ %.147.ph68, %123 ]
+  %.046.ph6879 = phi i1 [ %.046.ph74, %119 ], [ %.046.ph68, %123 ]
   %125 = getelementptr inbounds i8, ptr %0, i64 48
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 248
@@ -1019,11 +1019,11 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   %131 = load i64, ptr @H5E_DATASET_g, align 8
   %132 = load i64, ptr @H5E_CANTRESET_g, align 8
   %133 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5D__layout_oh_read, i32 noundef 652, i64 noundef %131, i64 noundef %132, ptr noundef nonnull @.str.32) #3
-  br i1 %.147.ph6879, label %135, label %.thread80
+  br i1 %.046.ph6879, label %135, label %.thread80
 
 134:                                              ; preds = %119, %124, %123
-  %.147.ph6878 = phi i1 [ %.147.ph6879, %124 ], [ %.147.ph68, %123 ], [ %.147.ph74, %119 ]
-  br i1 %.147.ph6878, label %135, label %.thread80
+  %.046.ph6878 = phi i1 [ %.046.ph6879, %124 ], [ %.046.ph68, %123 ], [ %.046.ph74, %119 ]
+  br i1 %.046.ph6878, label %135, label %.thread80
 
 135:                                              ; preds = %130, %134
   %136 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1040,8 +1040,8 @@ define range(i32 -1, 1) i32 @H5D__layout_oh_read(ptr noundef %0, i64 noundef %1,
   br label %.thread80
 
 .thread80:                                        ; preds = %130, %6, %17, %105, %100, %134, %141, %135
-  %.3 = phi i32 [ -1, %141 ], [ -1, %135 ], [ -1, %134 ], [ 0, %100 ], [ 0, %105 ], [ -1, %17 ], [ -1, %6 ], [ -1, %130 ]
-  ret i32 %.3
+  %.1 = phi i32 [ -1, %141 ], [ -1, %135 ], [ -1, %134 ], [ 0, %100 ], [ 0, %105 ], [ -1, %17 ], [ -1, %6 ], [ -1, %130 ]
+  ret i32 %.1
 }
 
 declare i32 @H5O_msg_exists(ptr noundef, i32 noundef) local_unnamed_addr #1

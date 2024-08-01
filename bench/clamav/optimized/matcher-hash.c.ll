@@ -335,7 +335,7 @@ define internal fastcc void @hm_sort(ptr nocapture noundef readonly %0, i64 noun
 
 13:                                               ; preds = %.lr.ph, %tailrecurse
   %14 = phi i64 [ %7, %.lr.ph ], [ %66, %tailrecurse ]
-  %.tr8894 = phi i64 [ %1, %.lr.ph ], [ %.2, %tailrecurse ]
+  %.tr8894 = phi i64 [ %1, %.lr.ph ], [ %.1, %tailrecurse ]
   %15 = load ptr, ptr %0, align 8
   %16 = mul i64 %.tr8894, %8
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
@@ -344,7 +344,7 @@ define internal fastcc void @hm_sort(ptr nocapture noundef readonly %0, i64 noun
   br label %19
 
 19:                                               ; preds = %13, %46
-  %.092 = phi i64 [ %2, %13 ], [ %.1, %46 ]
+  %.092 = phi i64 [ %2, %13 ], [ %.2, %46 ]
   %.07691 = phi i64 [ %14, %13 ], [ %.177, %46 ]
   %20 = load ptr, ptr %0, align 8
   %21 = mul i64 %.07691, %8
@@ -395,13 +395,13 @@ hm_cmp.exit.thread86:                             ; preds = %24, %hm_cmp.exit
 
 46:                                               ; preds = %hm_cmp.exit.thread86, %31
   %.177 = phi i64 [ %.07691, %31 ], [ %45, %hm_cmp.exit.thread86 ]
-  %.1 = phi i64 [ %29, %31 ], [ %.092, %hm_cmp.exit.thread86 ]
-  %47 = icmp ult i64 %.177, %.1
+  %.2 = phi i64 [ %29, %31 ], [ %.092, %hm_cmp.exit.thread86 ]
+  %47 = icmp ult i64 %.177, %.2
   br i1 %47, label %19, label %48
 
 48:                                               ; preds = %hm_cmp.exit.thread, %46
   %.076.lcssa = phi i64 [ %.07691, %hm_cmp.exit.thread ], [ %.177, %46 ]
-  %.2 = phi i64 [ %.07691, %hm_cmp.exit.thread ], [ %.1, %46 ]
+  %.1 = phi i64 [ %.07691, %hm_cmp.exit.thread ], [ %.2, %46 ]
   %49 = add i64 %.076.lcssa, -1
   %.not84 = icmp eq i64 %49, %.tr8894
   br i1 %.not84, label %tailrecurse, label %50
@@ -431,7 +431,7 @@ hm_cmp.exit.thread86:                             ; preds = %24, %hm_cmp.exit
 
 tailrecurse:                                      ; preds = %50, %48
   tail call fastcc void @hm_sort(ptr noundef nonnull %0, i64 noundef %.tr8894, i64 noundef %49, i32 noundef %3)
-  %66 = add i64 %.2, 1
+  %66 = add i64 %.1, 1
   %.not = icmp ult i64 %66, %2
   br i1 %.not, label %13, label %tailrecurse._crit_edge
 

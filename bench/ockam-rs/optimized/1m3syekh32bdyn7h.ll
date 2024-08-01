@@ -976,8 +976,8 @@ define hidden noundef zeroext i1 @"_ZN5alloc11collections5btree3map25BTreeMap$LT
   br i1 %trunc.i.i, label %.lr.ph.i.i, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf83d80dd5fc9f3aE.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hdf83d80dd5fc9f3aE.exit": ; preds = %11, %.lr.ph.i.i, %6, %2
-  %.1.i = phi i1 [ false, %2 ], [ true, %6 ], [ %.not.i.not.i.i.not, %.lr.ph.i.i ], [ %.not.i.not.i.i.not, %11 ]
-  ret i1 %.1.i
+  %.0.i = phi i1 [ false, %2 ], [ true, %6 ], [ %.not.i.not.i.i.not, %.lr.ph.i.i ], [ %.not.i.not.i.i.not, %11 ]
+  ret i1 %.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1031,8 +1031,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN5alloc11colle
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h2a23a16255d861cfE.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h2a23a16255d861cfE.exit": ; preds = %.lr.ph.i, %.loopexit, %2
-  %.1 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %18, %.loopexit ], [ null, %.lr.ph.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

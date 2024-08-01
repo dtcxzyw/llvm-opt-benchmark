@@ -681,7 +681,7 @@ land.lhs.true:                                    ; preds = %sw.bb1
   br label %if.end6
 
 if.end6:                                          ; preds = %land.lhs.true, %sw.bb1
-  %dirty_shutdown.0 = phi i32 [ 0, %sw.bb1 ], [ %spec.select, %land.lhs.true ]
+  %dirty_shutdown.1 = phi i32 [ 0, %sw.bb1 ], [ %spec.select, %land.lhs.true ]
   tail call void @bufferevent_ssl_put_error(ptr noundef %bev_ssl, i64 noundef 5) #4
   br label %sw.epilog
 
@@ -698,7 +698,7 @@ land.lhs.true10:                                  ; preds = %sw.bb7
   br label %if.end16
 
 if.end16:                                         ; preds = %land.lhs.true10, %sw.bb7
-  %dirty_shutdown.1 = phi i32 [ 0, %sw.bb7 ], [ %spec.select18, %land.lhs.true10 ]
+  %dirty_shutdown.2 = phi i32 [ 0, %sw.bb7 ], [ %spec.select18, %land.lhs.true10 ]
   tail call void @bufferevent_ssl_put_error(ptr noundef %bev_ssl, i64 noundef 1) #4
   br label %sw.epilog
 
@@ -711,7 +711,7 @@ sw.default:                                       ; preds = %entry
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb, %sw.default, %sw.bb18, %if.end16, %if.end6
-  %dirty_shutdown.2 = phi i32 [ 0, %sw.default ], [ 0, %sw.bb18 ], [ %dirty_shutdown.1, %if.end16 ], [ %dirty_shutdown.0, %if.end6 ], [ %., %sw.bb ]
+  %dirty_shutdown.0 = phi i32 [ 0, %sw.default ], [ 0, %sw.bb18 ], [ %dirty_shutdown.2, %if.end16 ], [ %dirty_shutdown.1, %if.end6 ], [ %., %sw.bb ]
   %event.0 = phi i32 [ 32, %sw.default ], [ 32, %sw.bb18 ], [ 32, %if.end16 ], [ 32, %if.end6 ], [ %.17, %sw.bb ]
   %call2120 = tail call i64 @ERR_get_error() #4
   %tobool22.not21 = icmp eq i64 %call2120, 0
@@ -725,7 +725,7 @@ while.body:                                       ; preds = %sw.epilog, %while.b
   br i1 %tobool22.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %sw.epilog
-  %tobool23.not = icmp eq i32 %dirty_shutdown.2, 0
+  %tobool23.not = icmp eq i32 %dirty_shutdown.0, 0
   br i1 %tobool23.not, label %if.end28, label %land.lhs.true24
 
 land.lhs.true24:                                  ; preds = %while.end

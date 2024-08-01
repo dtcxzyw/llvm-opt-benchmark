@@ -597,11 +597,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %17
   br i1 %33, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread58
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread58: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.161 = phi ptr [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.055, %.backedge ]
-  %34 = load i8, ptr %.161, align 1
+  %.261 = phi ptr [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.055, %.backedge ]
+  %34 = load i8, ptr %.261, align 1
   %35 = zext i8 %34 to i32
   %36 = icmp sgt i8 %34, -1
-  %37 = getelementptr inbounds i8, ptr %.161, i64 1
+  %37 = getelementptr inbounds i8, ptr %.261, i64 1
   br i1 %36, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread, label %38
 
 38:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread58
@@ -614,11 +614,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread58: ; preds = %.
   br i1 %44, label %45, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %.161, i64 2
+  %46 = getelementptr inbounds i8, ptr %.261, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %38
-  %47 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.161, i32 noundef %43)
+  %47 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.261, i32 noundef %43)
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = extractvalue { ptr, i32 } %47, 1
   %.not = icmp eq ptr %48, null
@@ -903,12 +903,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
   br i1 %.not22, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN13sentencepiece31SentencePieceText_SentencePiece23_internal_mutable_pieceB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN13sentencepiece31SentencePieceText_SentencePiece25_internal_mutable_surfaceB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit34, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit39, %147, %179, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %25, %142
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %142 ], [ %.sroa.0.0, %25 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.sroa.0.0, %_ZN13sentencepiece31SentencePieceText_SentencePiece23_internal_mutable_pieceB5cxx11Ev.exit ], [ %70, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN13sentencepiece31SentencePieceText_SentencePiece25_internal_mutable_surfaceB5cxx11Ev.exit ], [ %104, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit34 ], [ %123, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit39 ], [ %.sroa.0.0, %179 ], [ %.sroa.0.0, %147 ]
-  %.2 = phi ptr [ %.0.i66, %142 ], [ %spec.select, %25 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN13sentencepiece31SentencePieceText_SentencePiece23_internal_mutable_pieceB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN13sentencepiece31SentencePieceText_SentencePiece25_internal_mutable_surfaceB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit34 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit39 ], [ null, %179 ], [ null, %147 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %142 ], [ %.sroa.0.0, %25 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %.sroa.0.0, %_ZN13sentencepiece31SentencePieceText_SentencePiece23_internal_mutable_pieceB5cxx11Ev.exit ], [ %70, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ %.sroa.0.0, %_ZN13sentencepiece31SentencePieceText_SentencePiece25_internal_mutable_surfaceB5cxx11Ev.exit ], [ %104, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit34 ], [ %123, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit39 ], [ %.sroa.0.0, %179 ], [ %.sroa.0.0, %147 ]
+  %.1 = phi ptr [ %.0.i66, %142 ], [ %spec.select, %25 ], [ %31, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN13sentencepiece31SentencePieceText_SentencePiece23_internal_mutable_pieceB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN13sentencepiece31SentencePieceText_SentencePiece25_internal_mutable_surfaceB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit34 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit39 ], [ null, %179 ], [ null, %147 ]
   %181 = load i32, ptr %8, align 8
-  %182 = or i32 %181, %.sroa.0.3
+  %182 = or i32 %181, %.sroa.0.1
   store i32 %182, ptr %8, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -1302,7 +1302,7 @@ define noundef i64 @_ZNK13sentencepiece31SentencePieceText_SentencePiece12ByteSi
   br label %27
 
 27:                                               ; preds = %9, %7
-  %.025 = phi i64 [ %26, %9 ], [ %3, %7 ]
+  %.1 = phi i64 [ %26, %9 ], [ %3, %7 ]
   %28 = and i32 %5, 2
   %.not27 = icmp eq i32 %28, 0
   br i1 %.not27, label %47, label %29
@@ -1322,13 +1322,13 @@ define noundef i64 @_ZNK13sentencepiece31SentencePieceText_SentencePiece12ByteSi
   %41 = add nuw nsw i32 %40, 73
   %42 = lshr i32 %41, 6
   %43 = zext nneg i32 %42 to i64
-  %44 = add i64 %.025, 1
+  %44 = add i64 %.1, 1
   %45 = add i64 %44, %35
   %46 = add i64 %45, %43
   br label %47
 
 47:                                               ; preds = %29, %27
-  %.1 = phi i64 [ %46, %29 ], [ %.025, %27 ]
+  %.2 = phi i64 [ %46, %29 ], [ %.1, %27 ]
   %48 = and i32 %5, 4
   %.not28 = icmp eq i32 %48, 0
   br i1 %.not28, label %60, label %49
@@ -1344,11 +1344,11 @@ define noundef i64 @_ZNK13sentencepiece31SentencePieceText_SentencePiece12ByteSi
   %57 = lshr i32 %56, 6
   %narrow = add nuw nsw i32 %57, 1
   %58 = zext nneg i32 %narrow to i64
-  %59 = add i64 %.1, %58
+  %59 = add i64 %.2, %58
   br label %60
 
 60:                                               ; preds = %49, %47
-  %.2 = phi i64 [ %59, %49 ], [ %.1, %47 ]
+  %.3 = phi i64 [ %59, %49 ], [ %.2, %47 ]
   %61 = and i32 %5, 8
   %.not29 = icmp eq i32 %61, 0
   br i1 %.not29, label %73, label %62
@@ -1364,11 +1364,11 @@ define noundef i64 @_ZNK13sentencepiece31SentencePieceText_SentencePiece12ByteSi
   %70 = lshr i32 %69, 6
   %narrow32 = add nuw nsw i32 %70, 1
   %71 = zext nneg i32 %narrow32 to i64
-  %72 = add i64 %.2, %71
+  %72 = add i64 %.3, %71
   br label %73
 
 73:                                               ; preds = %62, %60
-  %.3 = phi i64 [ %72, %62 ], [ %.2, %60 ]
+  %.4 = phi i64 [ %72, %62 ], [ %.3, %60 ]
   %74 = and i32 %5, 16
   %.not30 = icmp eq i32 %74, 0
   br i1 %.not30, label %86, label %75
@@ -1384,11 +1384,11 @@ define noundef i64 @_ZNK13sentencepiece31SentencePieceText_SentencePiece12ByteSi
   %83 = lshr i32 %82, 6
   %narrow33 = add nuw nsw i32 %83, 1
   %84 = zext nneg i32 %narrow33 to i64
-  %85 = add i64 %.3, %84
+  %85 = add i64 %.4, %84
   br label %86
 
 86:                                               ; preds = %73, %75, %1
-  %.4 = phi i64 [ %85, %75 ], [ %.3, %73 ], [ %3, %1 ]
+  %.025 = phi i64 [ %85, %75 ], [ %.4, %73 ], [ %3, %1 ]
   %87 = getelementptr inbounds i8, ptr %0, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = ptrtoint ptr %88 to i64
@@ -1401,11 +1401,11 @@ define noundef i64 @_ZNK13sentencepiece31SentencePieceText_SentencePiece12ByteSi
   %93 = inttoptr i64 %92 to ptr
   %94 = getelementptr inbounds i8, ptr %93, i64 8
   %95 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %94) #15
-  %96 = add i64 %95, %.4
+  %96 = add i64 %95, %.025
   br label %97
 
 97:                                               ; preds = %91, %86
-  %.5 = phi i64 [ %96, %91 ], [ %.4, %86 ]
+  %.5 = phi i64 [ %96, %91 ], [ %.025, %86 ]
   %98 = trunc i64 %.5 to i32
   %99 = getelementptr inbounds i8, ptr %0, i64 44
   store atomic i32 %98, ptr %99 monotonic, align 4
@@ -2393,11 +2393,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %21
   br i1 %37, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread40
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread40: ; preds = %17, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.143 = phi ptr [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.037, %17 ]
-  %38 = load i8, ptr %.143, align 1
+  %.343 = phi ptr [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.037, %17 ]
+  %38 = load i8, ptr %.343, align 1
   %39 = zext i8 %38 to i32
   %40 = icmp sgt i8 %38, -1
-  %41 = getelementptr inbounds i8, ptr %.143, i64 1
+  %41 = getelementptr inbounds i8, ptr %.343, i64 1
   br i1 %40, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread, label %42
 
 42:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread40
@@ -2410,11 +2410,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread40: ; preds = %1
   br i1 %48, label %49, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds i8, ptr %.143, i64 2
+  %50 = getelementptr inbounds i8, ptr %.343, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %42
-  %51 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.143, i32 noundef %47)
+  %51 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.343, i32 noundef %47)
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = extractvalue { ptr, i32 } %51, 1
   %.not = icmp eq ptr %52, null
@@ -2468,8 +2468,8 @@ _ZN13sentencepiece17SentencePieceText22_internal_mutable_textB5cxx11Ev.exit: ; p
   br label %75
 
 75:                                               ; preds = %141, %73
-  %.2 = phi ptr [ %74, %73 ], [ %127, %141 ]
-  %76 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %74, %73 ], [ %127, %141 ]
+  %76 = getelementptr inbounds i8, ptr %.1, i64 1
   %77 = load ptr, ptr %8, align 8
   %.not.i.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i.i, label %..thread_crit_edge.i.i.i, label %78
@@ -2531,7 +2531,7 @@ _ZN13sentencepiece17SentencePieceText20_internal_add_piecesEv.exit: ; preds = %8
   br i1 %107, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i: ; preds = %_ZN13sentencepiece17SentencePieceText20_internal_add_piecesEv.exit
-  %108 = getelementptr inbounds i8, ptr %.2, i64 2
+  %108 = getelementptr inbounds i8, ptr %.1, i64 2
   br label %112
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN13sentencepiece17SentencePieceText20_internal_add_piecesEv.exit
@@ -2695,11 +2695,11 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
   br i1 %.not19, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN13sentencepiece17SentencePieceText22_internal_mutable_textB5cxx11Ev.exit, %158, %190, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %129, %126, %112, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %29, %154
-  %.3 = phi ptr [ %.0.i48, %154 ], [ %spec.select, %29 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %112 ], [ null, %126 ], [ null, %129 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN13sentencepiece17SentencePieceText22_internal_mutable_textB5cxx11Ev.exit ], [ null, %158 ], [ null, %190 ], [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.2 = phi ptr [ %.0.i48, %154 ], [ %spec.select, %29 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %112 ], [ null, %126 ], [ null, %129 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN13sentencepiece17SentencePieceText22_internal_mutable_textB5cxx11Ev.exit ], [ null, %158 ], [ null, %190 ], [ %35, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %192 = load i32, ptr %13, align 8
   %193 = or i32 %192, %.sroa.0.0
   store i32 %193, ptr %13, align 8
-  ret ptr %.3
+  ret ptr %.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2987,15 +2987,15 @@ define noundef i64 @_ZNK13sentencepiece17SentencePieceText12ByteSizeLongEv(ptr n
   br label %48
 
 48:                                               ; preds = %30, %28
-  %.1 = phi i64 [ %47, %30 ], [ %.024.lcssa, %28 ]
+  %.2 = phi i64 [ %47, %30 ], [ %.024.lcssa, %28 ]
   %49 = and i32 %26, 2
   %.not26 = icmp eq i32 %49, 0
-  %50 = add i64 %.1, 5
-  %spec.select = select i1 %.not26, i64 %.1, i64 %50
+  %50 = add i64 %.2, 5
+  %spec.select = select i1 %.not26, i64 %.2, i64 %50
   br label %51
 
 51:                                               ; preds = %48, %._crit_edge
-  %.2 = phi i64 [ %.024.lcssa, %._crit_edge ], [ %spec.select, %48 ]
+  %.1 = phi i64 [ %.024.lcssa, %._crit_edge ], [ %spec.select, %48 ]
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = ptrtoint ptr %53 to i64
@@ -3008,11 +3008,11 @@ define noundef i64 @_ZNK13sentencepiece17SentencePieceText12ByteSizeLongEv(ptr n
   %58 = inttoptr i64 %57 to ptr
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   %60 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %59) #15
-  %61 = add i64 %60, %.2
+  %61 = add i64 %60, %.1
   br label %62
 
 62:                                               ; preds = %56, %51
-  %.3 = phi i64 [ %61, %56 ], [ %.2, %51 ]
+  %.3 = phi i64 [ %61, %56 ], [ %.1, %51 ]
   %63 = trunc i64 %.3 to i32
   %64 = getelementptr inbounds i8, ptr %0, i64 44
   store atomic i32 %63, ptr %64 monotonic, align 4
@@ -3876,11 +3876,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %18
   br i1 %34, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29: ; preds = %14, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.132 = phi ptr [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.026, %14 ]
-  %35 = load i8, ptr %.132, align 1
+  %.332 = phi ptr [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.026, %14 ]
+  %35 = load i8, ptr %.332, align 1
   %36 = zext i8 %35 to i32
   %37 = icmp sgt i8 %35, -1
-  %38 = getelementptr inbounds i8, ptr %.132, i64 1
+  %38 = getelementptr inbounds i8, ptr %.332, i64 1
   br i1 %37, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread, label %39
 
 39:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29
@@ -3893,11 +3893,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread29: ; preds = %1
   br i1 %45, label %46, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %.132, i64 2
+  %47 = getelementptr inbounds i8, ptr %.332, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %39
-  %48 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.132, i32 noundef %44)
+  %48 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.332, i32 noundef %44)
   %49 = extractvalue { ptr, i32 } %48, 0
   %50 = extractvalue { ptr, i32 } %48, 1
   %.not = icmp eq ptr %49, null
@@ -3914,8 +3914,8 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   br label %54
 
 54:                                               ; preds = %120, %52
-  %.2 = phi ptr [ %53, %52 ], [ %106, %120 ]
-  %55 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %53, %52 ], [ %106, %120 ]
+  %55 = getelementptr inbounds i8, ptr %.1, i64 1
   %56 = load ptr, ptr %9, align 8
   %.not.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i.i, label %..thread_crit_edge.i.i.i, label %57
@@ -3977,7 +3977,7 @@ _ZN13sentencepiece22NBestSentencePieceText20_internal_add_nbestsEv.exit: ; preds
   br i1 %86, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i, label %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.thread.i: ; preds = %_ZN13sentencepiece22NBestSentencePieceText20_internal_add_nbestsEv.exit
-  %87 = getelementptr inbounds i8, ptr %.2, i64 2
+  %87 = getelementptr inbounds i8, ptr %.1, i64 2
   br label %91
 
 _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN13sentencepiece22NBestSentencePieceText20_internal_add_nbestsEv.exit
@@ -4118,8 +4118,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
   br i1 %.not13, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %158, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %108, %105, %91, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i, %26, %127
-  %.3 = phi ptr [ %.0.i37, %127 ], [ %spec.select, %26 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %91 ], [ null, %105 ], [ null, %108 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %158 ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.3
+  %.2 = phi ptr [ %.0.i37, %127 ], [ %spec.select, %26 ], [ null, %_ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i ], [ null, %91 ], [ null, %105 ], [ null, %108 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %158 ], [ %32, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.2
 }
 
 ; Function Attrs: mustprogress uwtable

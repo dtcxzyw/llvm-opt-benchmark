@@ -1149,7 +1149,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %ignore_result, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %result.08.us = phi i32 [ %result.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %result.08.us = phi i32 [ %result.2.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %cf.addr.07.us = phi ptr [ %2, %for.inc.us ], [ %cf, %for.body.lr.ph ]
   %0 = load ptr, ptr %cf.addr.07.us, align 8
   %cntrl.us = getelementptr inbounds i8, ptr %0, i64 80
@@ -1162,7 +1162,7 @@ if.end.us:                                        ; preds = %for.body.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end.us, %for.body.us
-  %result.1.us = phi i32 [ %result.08.us, %for.body.us ], [ %call.us, %if.end.us ]
+  %result.2.us = phi i32 [ %result.08.us, %for.body.us ], [ %call.us, %if.end.us ]
   %next.us = getelementptr inbounds i8, ptr %cf.addr.07.us, i64 8
   %2 = load ptr, ptr %next.us, align 8
   %tobool.not.us = icmp eq ptr %2, null
@@ -1188,8 +1188,8 @@ for.inc:                                          ; preds = %if.end, %for.body
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %if.end, %for.inc.us, %entry
-  %result.2 = phi i32 [ 0, %entry ], [ %result.1.us, %for.inc.us ], [ %call, %if.end ], [ 0, %for.inc ]
-  ret i32 %result.2
+  %result.1 = phi i32 [ 0, %entry ], [ %result.2.us, %for.inc.us ], [ %call, %if.end ], [ 0, %for.inc ]
+  ret i32 %result.1
 }
 
 ; Function Attrs: nounwind uwtable

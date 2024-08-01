@@ -987,7 +987,7 @@ slurm_job_step_stat_response_msg_free.exit:       ; preds = %38, %40
 
 .lr.ph:                                           ; preds = %41, %79
   %44 = phi ptr [ %80, %79 ], [ %43, %41 ]
-  %.05172 = phi i32 [ %.1, %79 ], [ 0, %41 ]
+  %.172 = phi i32 [ %.2, %79 ], [ 0, %41 ]
   %45 = load i16, ptr %44, align 8
   switch i16 %45, label %68 [
     i16 5020, label %46
@@ -1049,13 +1049,13 @@ slurm_job_step_stat_response_msg_free.exit:       ; preds = %38, %40
   br label %79
 
 79:                                               ; preds = %63, %62, %59, %68, %50
-  %.1 = phi i32 [ %72, %68 ], [ 2017, %62 ], [ 2017, %59 ], [ %57, %63 ], [ %.05172, %50 ]
+  %.2 = phi i32 [ %72, %68 ], [ 2017, %62 ], [ 2017, %59 ], [ %57, %63 ], [ %.172, %50 ]
   %80 = call ptr @list_next(ptr noundef %42) #11
   %.not68 = icmp eq ptr %80, null
   br i1 %.not68, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %79, %41
-  %.051.lcssa = phi i32 [ 0, %41 ], [ %.1, %79 ]
+  %.1.lcssa = phi i32 [ 0, %41 ], [ %.2, %79 ]
   call void @list_iterator_destroy(ptr noundef %42) #11
   call void @list_destroy(ptr noundef nonnull %35) #11
   %81 = load ptr, ptr %.049, align 8
@@ -1067,12 +1067,12 @@ slurm_job_step_stat_response_msg_free.exit:       ; preds = %38, %40
   br label %83
 
 83:                                               ; preds = %._crit_edge, %82, %36, %slurm_job_step_stat_response_msg_free.exit
-  %.2 = phi i32 [ %.051.lcssa, %82 ], [ %.051.lcssa, %._crit_edge ], [ -1, %slurm_job_step_stat_response_msg_free.exit ], [ -1, %36 ]
+  %.051 = phi i32 [ %.1.lcssa, %82 ], [ %.1.lcssa, %._crit_edge ], [ -1, %slurm_job_step_stat_response_msg_free.exit ], [ -1, %36 ]
   %84 = call i32 @slurm_step_layout_destroy(ptr noundef %.050) #11
   br label %85
 
 85:                                               ; preds = %83, %10
-  %.052 = phi i32 [ %.2, %83 ], [ %12, %10 ]
+  %.052 = phi i32 [ %.051, %83 ], [ %12, %10 ]
   ret i32 %.052
 }
 
@@ -1271,7 +1271,7 @@ slurm_job_step_pids_response_msg_free.exit:       ; preds = %34, %36
 
 .lr.ph:                                           ; preds = %37, %65
   %40 = phi ptr [ %66, %65 ], [ %39, %37 ]
-  %.04561 = phi i32 [ %.1, %65 ], [ 0, %37 ]
+  %.161 = phi i32 [ %.2, %65 ], [ 0, %37 ]
   %41 = load i16, ptr %40, align 8
   switch i16 %41, label %56 [
     i16 5028, label %42
@@ -1316,13 +1316,13 @@ slurm_job_step_pids_response_msg_free.exit:       ; preds = %34, %36
   br label %65
 
 65:                                               ; preds = %56, %50, %46
-  %.1 = phi i32 [ %60, %56 ], [ %53, %50 ], [ %.04561, %46 ]
+  %.2 = phi i32 [ %60, %56 ], [ %53, %50 ], [ %.161, %46 ]
   %66 = call ptr @list_next(ptr noundef %38) #11
   %.not57 = icmp eq ptr %66, null
   br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %65, %37
-  %.045.lcssa = phi i32 [ 0, %37 ], [ %.1, %65 ]
+  %.1.lcssa = phi i32 [ 0, %37 ], [ %.2, %65 ]
   call void @list_iterator_destroy(ptr noundef %38) #11
   call void @list_destroy(ptr noundef nonnull %31) #11
   %67 = load ptr, ptr %.042, align 8
@@ -1334,12 +1334,12 @@ slurm_job_step_pids_response_msg_free.exit:       ; preds = %34, %36
   br label %69
 
 69:                                               ; preds = %._crit_edge, %68, %32, %slurm_job_step_pids_response_msg_free.exit
-  %.2 = phi i32 [ %.045.lcssa, %68 ], [ %.045.lcssa, %._crit_edge ], [ -1, %slurm_job_step_pids_response_msg_free.exit ], [ -1, %32 ]
+  %.045 = phi i32 [ %.1.lcssa, %68 ], [ %.1.lcssa, %._crit_edge ], [ -1, %slurm_job_step_pids_response_msg_free.exit ], [ -1, %32 ]
   %70 = call i32 @slurm_step_layout_destroy(ptr noundef %.043) #11
   br label %71
 
 71:                                               ; preds = %69, %9
-  %.044 = phi i32 [ %.2, %69 ], [ %11, %9 ]
+  %.044 = phi i32 [ %.045, %69 ], [ %11, %9 ]
   ret i32 %.044
 }
 

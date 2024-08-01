@@ -416,7 +416,7 @@ define dso_local void @tokenize_auth_file(ptr noundef %0, ptr noundef %1, ptr no
 
 66:                                               ; preds = %166, %.lr.ph201
   %.1123 = phi ptr [ %.0122198, %.lr.ph201 ], [ %94, %166 ]
-  %.0.i = phi ptr [ null, %.lr.ph201 ], [ %.1.i, %166 ]
+  %.0.i = phi ptr [ null, %.lr.ph201 ], [ %.2.i, %166 ]
   call void @resetStringInfo(ptr noundef nonnull %7) #13
   br label %67
 
@@ -685,25 +685,25 @@ tokenize_expand_file.exit:                        ; preds = %.thread, %151, %107
   br label %166
 
 166:                                              ; preds = %153, %tokenize_expand_file.exit
-  %.1.i = phi ptr [ %.0.i111, %tokenize_expand_file.exit ], [ %165, %153 ]
+  %.2.i = phi ptr [ %.0.i111, %tokenize_expand_file.exit ], [ %165, %153 ]
   %167 = load ptr, ptr %11, align 8
   %168 = icmp eq ptr %167, null
   %or.cond140 = select i1 %.0126, i1 %168, i1 false
   br i1 %or.cond140, label %66, label %next_field_expand.exit, !llvm.loop !10
 
 next_field_expand.exit:                           ; preds = %.critedge2.i, %166
-  %.2.i = phi ptr [ %.1.i, %166 ], [ %.0.i, %.critedge2.i ]
+  %.1.i = phi ptr [ %.2.i, %166 ], [ %.0.i, %.critedge2.i ]
   %169 = load ptr, ptr %7, align 8
   call void @pfree(ptr noundef %169) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %.not100 = icmp eq ptr %.2.i, null
+  %.not100 = icmp eq ptr %.1.i, null
   br i1 %.not100, label %174, label %170
 
 170:                                              ; preds = %next_field_expand.exit
   %171 = load ptr, ptr @tokenize_context, align 8
   %172 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %171, ptr @CurrentMemoryContext, align 8
-  %173 = call ptr @lappend(ptr noundef %.085199, ptr noundef nonnull %.2.i) #13
+  %173 = call ptr @lappend(ptr noundef %.085199, ptr noundef nonnull %.1.i) #13
   store ptr %172, ptr @CurrentMemoryContext, align 8
   br label %174
 

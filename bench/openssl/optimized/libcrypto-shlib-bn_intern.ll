@@ -92,16 +92,16 @@ if.then40.us:                                     ; preds = %if.then37.us
 
 if.end50.us:                                      ; preds = %if.then40.us, %if.then37.us
   %and58.us.pre-phi = phi i32 [ %.pre, %if.then40.us ], [ 1, %if.then37.us ]
-  %digit.0.us = phi i32 [ %spec.select, %if.then40.us ], [ %window_val.0.us, %if.then37.us ]
-  %cmp52.not.us = icmp sle i32 %digit.0.us, %sub51
-  %cmp55.not.us = icmp sge i32 %digit.0.us, %shl
+  %digit.1.us = phi i32 [ %spec.select, %if.then40.us ], [ %window_val.0.us, %if.then37.us ]
+  %cmp52.not.us = icmp sle i32 %digit.1.us, %sub51
+  %cmp55.not.us = icmp sge i32 %digit.1.us, %shl
   %or.cond53.not58.us = or i1 %cmp52.not.us, %cmp55.not.us
   %tobool59.not.us = icmp eq i32 %and58.us.pre-phi, 0
   %or.cond54.us = or i1 %or.cond53.not58.us, %tobool59.not.us
   br i1 %or.cond54.us, label %err.sink.split, label %if.end61.us
 
 if.end61.us:                                      ; preds = %if.end50.us
-  %sub62.us = sub nsw i32 %window_val.0.us, %digit.0.us
+  %sub62.us = sub nsw i32 %window_val.0.us, %digit.1.us
   %cmp63.not.us = icmp eq i32 %sub62.us, 0
   br i1 %cmp63.not.us, label %if.end72.us, label %land.lhs.true.us
 
@@ -118,8 +118,8 @@ lor.rhs.us:                                       ; preds = %while.cond.us
 
 if.end72.us:                                      ; preds = %lor.rhs.us, %land.lhs.true.us, %if.end61.us, %while.body.us
   %window_val.1.us = phi i32 [ %sub62.us, %land.lhs.true.us ], [ 0, %if.end61.us ], [ %window_val.0.us, %while.body.us ], [ 0, %lor.rhs.us ]
-  %digit.1.us = phi i32 [ %digit.0.us, %land.lhs.true.us ], [ %digit.0.us, %if.end61.us ], [ 0, %while.body.us ], [ 0, %lor.rhs.us ]
-  %conv73.us = trunc nsw i32 %digit.1.us to i8
+  %digit.0.us = phi i32 [ %digit.1.us, %land.lhs.true.us ], [ %digit.1.us, %if.end61.us ], [ 0, %while.body.us ], [ 0, %lor.rhs.us ]
+  %conv73.us = trunc nsw i32 %digit.0.us to i8
   %inc.us = add i64 %j.0.us, 1
   %arrayidx74.us = getelementptr inbounds i8, ptr %call19, i64 %j.0.us
   store i8 %conv73.us, ptr %arrayidx74.us, align 1
@@ -164,16 +164,16 @@ if.then40:                                        ; preds = %if.then37
 
 if.end50:                                         ; preds = %if.then40, %if.then37
   %and58.pre-phi = phi i32 [ %.pre74, %if.then40 ], [ 1, %if.then37 ]
-  %digit.0 = phi i32 [ %spec.select62, %if.then40 ], [ %window_val.0, %if.then37 ]
-  %cmp52.not = icmp sle i32 %digit.0, %sub51
-  %cmp55.not = icmp sge i32 %digit.0, %shl
+  %digit.1 = phi i32 [ %spec.select62, %if.then40 ], [ %window_val.0, %if.then37 ]
+  %cmp52.not = icmp sle i32 %digit.1, %sub51
+  %cmp55.not = icmp sge i32 %digit.1, %shl
   %or.cond53.not58 = or i1 %cmp52.not, %cmp55.not
   %tobool59.not = icmp eq i32 %and58.pre-phi, 0
   %or.cond54 = or i1 %or.cond53.not58, %tobool59.not
   br i1 %or.cond54, label %err.sink.split, label %if.end61
 
 if.end61:                                         ; preds = %if.end50
-  %sub62 = sub nsw i32 %window_val.0, %digit.0
+  %sub62 = sub nsw i32 %window_val.0, %digit.1
   %cmp63.not = icmp eq i32 %sub62, 0
   br i1 %cmp63.not, label %if.end72, label %land.lhs.true
 
@@ -185,8 +185,8 @@ land.lhs.true:                                    ; preds = %if.end61
 
 if.end72:                                         ; preds = %lor.rhs, %if.end61, %land.lhs.true, %while.body
   %window_val.1 = phi i32 [ %sub62, %land.lhs.true ], [ 0, %if.end61 ], [ %window_val.0, %while.body ], [ 0, %lor.rhs ]
-  %digit.1 = phi i32 [ %digit.0, %land.lhs.true ], [ %digit.0, %if.end61 ], [ 0, %while.body ], [ 0, %lor.rhs ]
-  %7 = trunc i32 %digit.1 to i8
+  %digit.0 = phi i32 [ %digit.1, %land.lhs.true ], [ %digit.1, %if.end61 ], [ 0, %while.body ], [ 0, %lor.rhs ]
+  %7 = trunc i32 %digit.0 to i8
   %conv73 = sub i8 0, %7
   %inc = add i64 %j.0, 1
   %arrayidx74 = getelementptr inbounds i8, ptr %call19, i64 %j.0

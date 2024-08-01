@@ -1016,8 +1016,8 @@ _ZN10rayon_core8registry19set_global_registry17h8c93fbc64a3f9233E.exit: ; preds 
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hf293763e98a4f866E.llvm.14976363794789945401.exit": ; preds = %.thread, %14, %19, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9e11ae7b94f75448E.exit.i.i.i"
-  %.sroa.6.1.ph = phi ptr [ @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9e11ae7b94f75448E.exit.i.i.i" ], [ @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, %19 ], [ %.sroa.4.0.copyload.pre, %14 ], [ @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, %.thread ]
-  ret ptr %.sroa.6.1.ph
+  %.sroa.6.0.ph = phi ptr [ @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h9e11ae7b94f75448E.exit.i.i.i" ], [ @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, %19 ], [ %.sroa.4.0.copyload.pre, %14 ], [ @_ZN10rayon_core8registry12THE_REGISTRY17hbce80af4cee2695bE, %.thread ]
+  ret ptr %.sroa.6.0.ph
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

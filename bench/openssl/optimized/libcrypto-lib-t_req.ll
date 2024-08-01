@@ -242,21 +242,21 @@ if.then128:                                       ; preds = %if.end124
   br i1 %cmp130, label %return.sink.split, label %if.end136
 
 if.end136:                                        ; preds = %if.then128, %sw.epilog
-  %j.0 = phi i32 [ %call125, %if.then128 ], [ %j.2.lcssa, %sw.epilog ]
-  %count.0 = phi i32 [ %call129, %if.then128 ], [ %count.199, %sw.epilog ]
-  %ii.0 = phi i32 [ 0, %if.then128 ], [ %inc, %sw.epilog ]
-  %call134 = call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %call113, i32 noundef %ii.0) #3
+  %j.1 = phi i32 [ %call125, %if.then128 ], [ %j.2.lcssa, %sw.epilog ]
+  %count.1 = phi i32 [ %call129, %if.then128 ], [ %count.099, %sw.epilog ]
+  %ii.1 = phi i32 [ 0, %if.then128 ], [ %inc, %sw.epilog ]
+  %call134 = call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %call113, i32 noundef %ii.1) #3
   %1 = load i32, ptr %call134, align 8
   %value = getelementptr inbounds i8, ptr %call134, i64 8
   %2 = load ptr, ptr %value, align 8
-  %sub = sub i32 25, %j.0
-  %cmp13878 = icmp slt i32 %j.0, 25
+  %sub = sub i32 25, %j.1
+  %cmp13878 = icmp slt i32 %j.1, 25
   br i1 %cmp13878, label %for.body140.preheader, label %for.end
 
 for.body140.preheader:                            ; preds = %if.end136.thread, %if.end136
   %sub103 = phi i32 [ %sub93, %if.end136.thread ], [ %sub, %if.end136 ]
-  %ii.1102 = phi i32 [ 0, %if.end136.thread ], [ %ii.0, %if.end136 ]
-  %count.1100 = phi i32 [ 1, %if.end136.thread ], [ %count.0, %if.end136 ]
+  %ii.0102 = phi i32 [ 0, %if.end136.thread ], [ %ii.1, %if.end136 ]
+  %count.0100 = phi i32 [ 1, %if.end136.thread ], [ %count.1, %if.end136 ]
   %type.098 = phi i32 [ 0, %if.end136.thread ], [ %1, %if.end136 ]
   %bs.096 = phi ptr [ null, %if.end136.thread ], [ %2, %if.end136 ]
   %smin = call i32 @llvm.smin.i32(i32 %sub103, i32 1)
@@ -275,8 +275,8 @@ for.inc:                                          ; preds = %for.body140
   br i1 %cmp138, label %for.body140, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %if.end136
-  %ii.1101 = phi i32 [ %ii.0, %if.end136 ], [ %ii.1102, %for.inc ]
-  %count.199 = phi i32 [ %count.0, %if.end136 ], [ %count.1100, %for.inc ]
+  %ii.0101 = phi i32 [ %ii.1, %if.end136 ], [ %ii.0102, %for.inc ]
+  %count.099 = phi i32 [ %count.1, %if.end136 ], [ %count.0100, %for.inc ]
   %type.097 = phi i32 [ %1, %if.end136 ], [ %type.098, %for.inc ]
   %bs.095 = phi ptr [ %2, %if.end136 ], [ %bs.096, %for.inc ]
   %j.2.lcssa = phi i32 [ %sub, %if.end136 ], [ %3, %for.inc ]
@@ -313,8 +313,8 @@ sw.default:                                       ; preds = %if.end150
   br i1 %cmp163, label %return.sink.split, label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.default, %if.end156
-  %inc = add nsw i32 %ii.1101, 1
-  %cmp167 = icmp slt i32 %inc, %count.199
+  %inc = add nsw i32 %ii.0101, 1
+  %cmp167 = icmp slt i32 %inc, %count.099
   br i1 %cmp167, label %if.end136, label %for.inc171
 
 for.inc171:                                       ; preds = %sw.epilog, %for.body

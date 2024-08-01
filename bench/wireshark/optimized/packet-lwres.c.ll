@@ -397,27 +397,27 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr nocapture noundef readonl
 
 111:                                              ; preds = %111, %.preheader78.i.i
   %.081.i.i = phi i32 [ 0, %.preheader78.i.i ], [ %126, %111 ]
-  %.07280.i.i = phi i32 [ %108, %.preheader78.i.i ], [ %125, %111 ]
-  %112 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.07280.i.i) #4
+  %.17380.i.i = phi i32 [ %108, %.preheader78.i.i ], [ %125, %111 ]
+  %112 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.17380.i.i) #4
   %113 = load ptr, ptr %110, align 8
-  %114 = add i32 %.07280.i.i, 2
+  %114 = add i32 %.17380.i.i, 2
   %115 = zext i16 %112 to i32
   %116 = tail call ptr @tvb_get_string_enc(ptr noundef %113, ptr noundef %0, i32 noundef %114, i32 noundef %115, i32 noundef 0) #4
   %117 = add nuw nsw i32 %115, 2
   %118 = load i32, ptr @ett_adn_alias, align 4
-  %119 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %93, ptr noundef %0, i32 noundef %.07280.i.i, i32 noundef %117, i32 noundef %118, ptr noundef null, ptr noundef nonnull @.str.140, ptr noundef %116) #4
+  %119 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %93, ptr noundef %0, i32 noundef %.17380.i.i, i32 noundef %117, i32 noundef %118, ptr noundef null, ptr noundef nonnull @.str.140, ptr noundef %116) #4
   %120 = load i32, ptr @hf_adn_namelen, align 4
-  %121 = tail call ptr @proto_tree_add_uint(ptr noundef %119, i32 noundef %120, ptr noundef %0, i32 noundef %.07280.i.i, i32 noundef 2, i32 noundef %115) #4
+  %121 = tail call ptr @proto_tree_add_uint(ptr noundef %119, i32 noundef %120, ptr noundef %0, i32 noundef %.17380.i.i, i32 noundef 2, i32 noundef %115) #4
   %122 = load i32, ptr @hf_adn_aliasname, align 4
   %123 = tail call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %122, ptr noundef %0, i32 noundef %114, i32 noundef %115, i32 noundef 0) #4
-  %124 = add i32 %.07280.i.i, 3
+  %124 = add i32 %.17380.i.i, 3
   %125 = add i32 %124, %115
   %126 = add nuw nsw i32 %.081.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %126, %109
   br i1 %exitcond.not.i.i, label %.loopexit79.i.i, label %111, !llvm.loop !4
 
 .loopexit79.i.i:                                  ; preds = %111, %91
-  %.173.i.i = phi i32 [ %108, %91 ], [ %125, %111 ]
+  %.072.i.i = phi i32 [ %108, %91 ], [ %125, %111 ]
   %.not77.i.i = icmp eq i16 %95, 0
   br i1 %.not77.i.i, label %dissect_noop.exit, label %.preheader.i.i
 
@@ -428,7 +428,7 @@ define internal i32 @dissect_lwres(ptr noundef %0, ptr nocapture noundef readonl
 
 129:                                              ; preds = %129, %.preheader.i.i
   %.183.i.i = phi i32 [ 0, %.preheader.i.i ], [ %148, %129 ]
-  %.282.i.i = phi i32 [ %.173.i.i, %.preheader.i.i ], [ %147, %129 ]
+  %.282.i.i = phi i32 [ %.072.i.i, %.preheader.i.i ], [ %147, %129 ]
   %130 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.282.i.i) #4
   %131 = add i32 %.282.i.i, 4
   %132 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %131) #4

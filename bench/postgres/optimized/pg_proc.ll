@@ -251,7 +251,7 @@ define dso_local { i64, i32 } @ProcedureCreate(ptr noundef %0, i32 noundef %1, i
 
 119:                                              ; preds = %.lr.ph421, %151
   %indvars.iv448 = phi i64 [ 0, %.lr.ph421 ], [ %indvars.iv.next449, %151 ]
-  %.0290420 = phi i32 [ 0, %.lr.ph421 ], [ %.1, %151 ]
+  %.1420 = phi i32 [ 0, %.lr.ph421 ], [ %.2, %151 ]
   %120 = getelementptr i8, ptr %.0289, i64 %indvars.iv448
   %121 = load i8, ptr %120, align 1
   switch i8 %121, label %145 [
@@ -263,7 +263,7 @@ define dso_local { i64, i32 } @ProcedureCreate(ptr noundef %0, i32 noundef %1, i
   ]
 
 122:                                              ; preds = %119, %119
-  %.not379 = icmp eq i32 %.0290420, 0
+  %.not379 = icmp eq i32 %.1420, 0
   br i1 %.not379, label %151, label %123
 
 123:                                              ; preds = %122
@@ -274,7 +274,7 @@ define dso_local { i64, i32 } @ProcedureCreate(ptr noundef %0, i32 noundef %1, i
   unreachable
 
 126:                                              ; preds = %119
-  %127 = icmp ne i32 %.0290420, 0
+  %127 = icmp ne i32 %.1420, 0
   %or.cond6 = and i1 %118, %127
   br i1 %or.cond6, label %128, label %151
 
@@ -286,7 +286,7 @@ define dso_local { i64, i32 } @ProcedureCreate(ptr noundef %0, i32 noundef %1, i
   unreachable
 
 131:                                              ; preds = %119
-  %.not377 = icmp eq i32 %.0290420, 0
+  %.not377 = icmp eq i32 %.1420, 0
   br i1 %.not377, label %135, label %132
 
 132:                                              ; preds = %131
@@ -334,13 +334,13 @@ define dso_local { i64, i32 } @ProcedureCreate(ptr noundef %0, i32 noundef %1, i
   unreachable
 
 151:                                              ; preds = %135, %122, %126, %119, %140, %139, %138
-  %.1 = phi i32 [ %141, %140 ], [ 5077, %139 ], [ 2283, %138 ], [ %.0290420, %119 ], [ %.0290420, %126 ], [ 0, %122 ], [ %137, %135 ]
+  %.2 = phi i32 [ %141, %140 ], [ 5077, %139 ], [ 2283, %138 ], [ %.1420, %119 ], [ %.1420, %126 ], [ 0, %122 ], [ %137, %135 ]
   %indvars.iv.next449 = add nuw nsw i64 %indvars.iv448, 1
   %exitcond452.not = icmp eq i64 %indvars.iv.next449, %wide.trip.count451
   br i1 %exitcond452.not, label %.loopexit401, label %119, !llvm.loop !7
 
 .loopexit401:                                     ; preds = %151, %.lr.ph, %.loopexit403
-  %.2 = phi i32 [ 0, %.loopexit403 ], [ 0, %.lr.ph ], [ %.1, %151 ]
+  %.0290 = phi i32 [ 0, %.loopexit403 ], [ 0, %.lr.ph ], [ %.2, %151 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(30) %29, i8 0, i64 30, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %30, i8 0, i64 240, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(30) %31, i8 1, i64 30, i1 false)
@@ -363,7 +363,7 @@ define dso_local { i64, i32 } @ProcedureCreate(ptr noundef %0, i32 noundef %1, i
   %163 = getelementptr inbounds i8, ptr %30, i64 40
   %164 = sext <2 x i32> %162 to <2 x i64>
   store <2 x i64> %164, ptr %163, align 8
-  %165 = zext i32 %.2 to i64
+  %165 = zext i32 %.0290 to i64
   %166 = getelementptr inbounds i8, ptr %30, i64 56
   store i64 %165, ptr %166, align 8
   %167 = zext i32 %24 to i64
@@ -1475,12 +1475,12 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr nocapture noundef readonly 
 
 .lr.ph142:                                        ; preds = %.lr.ph134, %.lr.ph142
   %indvars.iv151 = phi i64 [ %indvars.iv.next152, %.lr.ph142 ], [ 0, %.lr.ph134 ]
-  %.1132140 = phi ptr [ %112, %.lr.ph142 ], [ null, %.lr.ph134 ]
+  %.2132140 = phi ptr [ %112, %.lr.ph142 ], [ null, %.lr.ph134 ]
   %108 = load ptr, ptr %105, align 8
   %109 = getelementptr %union.ListCell, ptr %108, i64 %indvars.iv151
   %110 = load ptr, ptr %109, align 8
   %111 = call ptr @pg_analyze_and_rewrite_withcb(ptr noundef %110, ptr noundef %67, ptr noundef nonnull @sql_fn_parser_setup, ptr noundef %103, ptr noundef null) #7
-  %112 = call ptr @lappend(ptr noundef %.1132140, ptr noundef %111) #7
+  %112 = call ptr @lappend(ptr noundef %.2132140, ptr noundef %111) #7
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %113 = load i32, ptr %104, align 4
   %114 = sext i32 %113 to i64
@@ -1488,16 +1488,16 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr nocapture noundef readonly 
   br i1 %115, label %.lr.ph142, label %.thread
 
 .thread:                                          ; preds = %.lr.ph129, %.lr.ph142, %87, %.lr.ph122
-  %.2 = phi ptr [ null, %87 ], [ null, %.lr.ph122 ], [ %112, %.lr.ph142 ], [ %96, %.lr.ph129 ]
+  %.1 = phi ptr [ null, %87 ], [ null, %.lr.ph122 ], [ %112, %.lr.ph142 ], [ %96, %.lr.ph129 ]
   br i1 %.096.lcssa, label %.thread.thread156, label %.thread.thread
 
 .thread.thread:                                   ; preds = %.lr.ph134, %102, %.thread
-  %.2155 = phi ptr [ %.2, %.thread ], [ null, %102 ], [ null, %.lr.ph134 ]
-  call void @check_sql_fn_statements(ptr noundef %.2155) #7
+  %.1155 = phi ptr [ %.1, %.thread ], [ null, %102 ], [ null, %.lr.ph134 ]
+  call void @check_sql_fn_statements(ptr noundef %.1155) #7
   %116 = call i32 @get_func_result_type(i32 noundef %9, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %117 = load i32, ptr %5, align 4
   %118 = load ptr, ptr %6, align 8
-  %119 = call zeroext i1 @check_sql_fn_retval(ptr noundef %.2155, i32 noundef %117, ptr noundef %118, i1 noundef zeroext false, ptr noundef null) #7
+  %119 = call zeroext i1 @check_sql_fn_retval(ptr noundef %.1155, i32 noundef %117, ptr noundef %118, i1 noundef zeroext false, ptr noundef null) #7
   br label %.thread.thread156
 
 .thread.thread156:                                ; preds = %100, %.thread.thread, %.thread

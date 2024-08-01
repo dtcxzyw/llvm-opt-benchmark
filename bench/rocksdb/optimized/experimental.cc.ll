@@ -626,8 +626,8 @@ lpad5:                                            ; preds = %if.then161, %if.the
 
 if.end:                                           ; preds = %if.end.lr.ph, %for.inc140
   %__begin2.sroa.0.0268 = phi ptr [ %__begin2.sroa.0.0262, %if.end.lr.ph ], [ %__begin2.sroa.0.0, %for.inc140 ]
-  %files_updated.0267 = phi i64 [ 0, %if.end.lr.ph ], [ %files_updated.6, %for.inc140 ]
-  %cfs_updated.0266 = phi i64 [ 0, %if.end.lr.ph ], [ %cfs_updated.3, %for.inc140 ]
+  %files_updated.0267 = phi i64 [ 0, %if.end.lr.ph ], [ %files_updated.1, %for.inc140 ]
+  %cfs_updated.0266 = phi i64 [ 0, %if.end.lr.ph ], [ %cfs_updated.1, %for.inc140 ]
   %dropped_.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0268, i64 61
   %14 = load atomic i8, ptr %dropped_.i monotonic, align 1
   %tobool.i.i.i = trunc i8 %14 to i1
@@ -675,7 +675,7 @@ invoke.cont40.lr.ph:                              ; preds = %invoke.cont31
 invoke.cont40:                                    ; preds = %invoke.cont40.lr.ph, %for.inc104
   %19 = phi i32 [ %18, %invoke.cont40.lr.ph ], [ %91, %for.inc104 ]
   %indvars.iv = phi i64 [ 0, %invoke.cont40.lr.ph ], [ %indvars.iv.next, %for.inc104 ]
-  %files_updated.1259 = phi i64 [ %files_updated.0267, %invoke.cont40.lr.ph ], [ %files_updated.5, %for.inc104 ]
+  %files_updated.2259 = phi i64 [ %files_updated.0267, %invoke.cont40.lr.ph ], [ %files_updated.6, %for.inc104 ]
   %20 = load i8, ptr %agg.result, align 8
   %cmp.i56 = icmp eq i8 %20, 0
   br i1 %cmp.i56, label %if.end43, label %if.end138
@@ -699,7 +699,7 @@ for.body52.preheader:                             ; preds = %if.end43
   br label %for.body52
 
 for.body52:                                       ; preds = %for.body52.preheader, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit
-  %files_updated.2255 = phi i64 [ %files_updated.4, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit ], [ %files_updated.1259, %for.body52.preheader ]
+  %files_updated.3255 = phi i64 [ %files_updated.5, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit ], [ %files_updated.2259, %for.body52.preheader ]
   %__begin4.sroa.0.0254 = phi ptr [ %incdec.ptr.i, %_ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit ], [ %23, %for.body52.preheader ]
   %26 = load ptr, ptr %__begin4.sroa.0.0254, align 8
   %packed_number_and_path_id.i = getelementptr inbounds i8, ptr %26, i64 8
@@ -876,7 +876,7 @@ if.then.i12.i:                                    ; preds = %_ZNKSt4lessISt4pair
   br label %invoke.cont81
 
 invoke.cont81:                                    ; preds = %cleanup.thread.i, %if.then.i12.i
-  %inc = add i64 %files_updated.2255, 1
+  %inc = add i64 %files_updated.3255, 1
   %46 = load ptr, ptr %__begin4.sroa.0.0254, align 8
   %packed_number_and_path_id.i61 = getelementptr inbounds i8, ptr %46, i64 8
   %47 = load i64, ptr %packed_number_and_path_id.i61, align 8
@@ -1177,7 +1177,7 @@ _ZN7rocksdb6StatusaSERKS0_.exit:                  ; preds = %if.else, %cond.end.
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN7rocksdb6StatusaSERKS0_.exit, %_ZN7rocksdb11VersionEdit7AddFileEimjmRKNS_11InternalKeyES3_RKmS5_bNS_11TemperatureEmmmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt5arrayImLm2EEmmb.exit, %invoke.cont75, %land.lhs.true, %if.then70
-  %files_updated.4 = phi i64 [ %files_updated.2255, %_ZN7rocksdb6StatusaSERKS0_.exit ], [ %inc, %_ZN7rocksdb11VersionEdit7AddFileEimjmRKNS_11InternalKeyES3_RKmS5_bNS_11TemperatureEmmmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt5arrayImLm2EEmmb.exit ], [ %files_updated.2255, %land.lhs.true ], [ %files_updated.2255, %invoke.cont75 ], [ %files_updated.2255, %if.then70 ]
+  %files_updated.5 = phi i64 [ %files_updated.3255, %_ZN7rocksdb6StatusaSERKS0_.exit ], [ %inc, %_ZN7rocksdb11VersionEdit7AddFileEimjmRKNS_11InternalKeyES3_RKmS5_bNS_11TemperatureEmmmmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_RKSt5arrayImLm2EEmmb.exit ], [ %files_updated.3255, %land.lhs.true ], [ %files_updated.3255, %invoke.cont75 ], [ %files_updated.3255, %if.then70 ]
   %81 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i.i75 = icmp eq ptr %81, null
   br i1 %cmp.not.i.i.i75, label %_ZN7rocksdb8IOStatusD2Ev.exit77, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i76
@@ -1266,14 +1266,14 @@ for.inc104.loopexit:                              ; preds = %_ZNSt10unique_ptrIN
 
 for.inc104:                                       ; preds = %for.inc104.loopexit, %if.end43
   %91 = phi i32 [ %19, %if.end43 ], [ %.pre, %for.inc104.loopexit ]
-  %files_updated.5 = phi i64 [ %files_updated.1259, %if.end43 ], [ %files_updated.4, %for.inc104.loopexit ]
+  %files_updated.6 = phi i64 [ %files_updated.2259, %if.end43 ], [ %files_updated.5, %for.inc104.loopexit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %92 = sext i32 %91 to i64
   %cmp = icmp slt i64 %indvars.iv.next, %92
   br i1 %cmp, label %invoke.cont40, label %invoke.cont107, !llvm.loop !10
 
 invoke.cont107:                                   ; preds = %for.inc104, %invoke.cont31
-  %files_updated.1.lcssa = phi i64 [ %files_updated.0267, %invoke.cont31 ], [ %files_updated.5, %for.inc104 ]
+  %files_updated.2.lcssa = phi i64 [ %files_updated.0267, %invoke.cont31 ], [ %files_updated.6, %for.inc104 ]
   %.pr = load i8, ptr %agg.result, align 8
   %cmp.i85 = icmp eq i8 %.pr, 0
   br i1 %cmp.i85, label %invoke.cont110, label %if.end138
@@ -1512,14 +1512,14 @@ _ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit137: ;
   br label %ehcleanup139
 
 if.end138:                                        ; preds = %invoke.cont40, %_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit, %invoke.cont110, %invoke.cont107
-  %files_updated.1230 = phi i64 [ %files_updated.1.lcssa, %_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit ], [ %files_updated.1.lcssa, %invoke.cont110 ], [ %files_updated.1.lcssa, %invoke.cont107 ], [ %files_updated.1259, %invoke.cont40 ]
+  %files_updated.2230 = phi i64 [ %files_updated.2.lcssa, %_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit ], [ %files_updated.2.lcssa, %invoke.cont110 ], [ %files_updated.2.lcssa, %invoke.cont107 ], [ %files_updated.2259, %invoke.cont40 ]
   %cfs_updated.2 = phi i64 [ %spec.select, %_ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit ], [ %cfs_updated.0266, %invoke.cont110 ], [ %cfs_updated.0266, %invoke.cont107 ], [ %cfs_updated.0266, %invoke.cont40 ]
   call void @_ZN7rocksdb11VersionEditD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %edit) #17
   br label %for.inc140
 
 for.inc140:                                       ; preds = %if.end, %lor.lhs.false, %if.end138
-  %cfs_updated.3 = phi i64 [ %cfs_updated.0266, %if.end ], [ %cfs_updated.2, %if.end138 ], [ %cfs_updated.0266, %lor.lhs.false ]
-  %files_updated.6 = phi i64 [ %files_updated.0267, %if.end ], [ %files_updated.1230, %if.end138 ], [ %files_updated.0267, %lor.lhs.false ]
+  %cfs_updated.1 = phi i64 [ %cfs_updated.0266, %if.end ], [ %cfs_updated.2, %if.end138 ], [ %cfs_updated.0266, %lor.lhs.false ]
+  %files_updated.1 = phi i64 [ %files_updated.0267, %if.end ], [ %files_updated.2230, %if.end138 ], [ %files_updated.0267, %lor.lhs.false ]
   %__begin2.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin2.sroa.0.0268, i64 2480
   %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.0.in, align 8
   %cmp.i = icmp ne ptr %__begin2.sroa.0.0, %7
@@ -1534,12 +1534,12 @@ ehcleanup139:                                     ; preds = %_ZNSt10unique_ptrIN
   br label %ehcleanup173
 
 for.end143:                                       ; preds = %for.inc140
-  %cmp144.not = icmp eq i64 %cfs_updated.3, 0
+  %cmp144.not = icmp eq i64 %cfs_updated.1, 0
   br i1 %cmp144.not, label %invoke.cont150, label %if.then145
 
 if.then145:                                       ; preds = %for.end143
   %info_log = getelementptr inbounds i8, ptr %db_opts, i64 48
-  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 93), i64 noundef %files_updated.6, i64 noundef %cfs_updated.3)
+  invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 1, ptr noundef nonnull align 8 dereferenceable(16) %info_log, ptr noundef nonnull @.str.2, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.3, i64 93), i64 noundef %files_updated.1, i64 noundef %cfs_updated.1)
           to label %invoke.cont159 unwind label %lpad5
 
 invoke.cont150:                                   ; preds = %invoke.cont12, %for.end143

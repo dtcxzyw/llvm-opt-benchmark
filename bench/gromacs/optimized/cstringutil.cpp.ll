@@ -911,7 +911,7 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr nocapture noundef readonly %0, i32 
   br label %.loopexit129
 
 .loopexit129:                                     ; preds = %4, %.lr.ph.preheader
-  %.180 = phi i32 [ %2, %.lr.ph.preheader ], [ 0, %4 ]
+  %.079 = phi i32 [ %2, %.lr.ph.preheader ], [ 0, %4 ]
   %.not99 = icmp eq i32 %2, 0
   %invariant.op = add i32 %2, 1
   %invariant.op176 = add i32 %2, 1
@@ -921,7 +921,7 @@ define noundef ptr @_Z10wrap_linesPKciib(ptr nocapture noundef readonly %0, i32 
   %.0115 = phi ptr [ %10, %.loopexit129 ], [ %.3117.ph, %.loopexit127 ]
   %.087 = phi i32 [ %8, %.loopexit129 ], [ %.390.ph, %.loopexit127 ]
   %.082 = phi i32 [ 0, %.loopexit129 ], [ %.486.ph, %.loopexit127 ]
-  %.281 = phi i32 [ %.180, %.loopexit129 ], [ %.8.ph, %.loopexit127 ]
+  %.281 = phi i32 [ %.079, %.loopexit129 ], [ %.8.ph, %.loopexit127 ]
   %.076 = phi i1 [ true, %.loopexit129 ], [ %.278.ph, %.loopexit127 ]
   %.070 = phi i32 [ %1, %.loopexit129 ], [ %.2.ph, %.loopexit127 ]
   %14 = sext i32 %.082 to i64

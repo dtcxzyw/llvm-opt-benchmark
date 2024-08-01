@@ -342,23 +342,23 @@ define internal fastcc void @report_unmatched_relation(ptr nocapture noundef rea
 .loopexit40:                                      ; preds = %.preheader39, %23
   %33 = phi i32 [ %.pre, %23 ], [ %14, %.preheader39 ]
   %.03448 = phi i32 [ %24, %23 ], [ 0, %.preheader39 ]
-  %.0 = phi ptr [ %19, %23 ], [ %0, %.preheader39 ]
+  %.1 = phi ptr [ %19, %23 ], [ %0, %.preheader39 ]
   %.not36 = icmp slt i32 %.03448, %33
   br i1 %.not36, label %40, label %.loopexit40.thread
 
 .loopexit40.thread:                               ; preds = %32, %.loopexit40
-  %.071 = phi ptr [ %.0, %.loopexit40 ], [ %0, %32 ]
+  %.171 = phi ptr [ %.1, %.loopexit40 ], [ %0, %32 ]
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
   %35 = getelementptr i8, ptr %4, i64 %34
   %36 = sub i64 1000, %34
-  %37 = getelementptr inbounds i8, ptr %.071, i64 24
+  %37 = getelementptr inbounds i8, ptr %.171, i64 24
   %38 = load i32, ptr %37, align 8
   %39 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %35, i64 noundef %36, ptr noundef nonnull @.str.8, i32 noundef %38) #8
   br label %40
 
 40:                                               ; preds = %.loopexit40, %.loopexit40.thread, %3
-  %.1 = phi ptr [ %.071, %.loopexit40.thread ], [ %.0, %.loopexit40 ], [ %0, %3 ]
-  %41 = getelementptr inbounds i8, ptr %.1, i64 28
+  %.0 = phi ptr [ %.171, %.loopexit40.thread ], [ %.1, %.loopexit40 ], [ %0, %3 ]
+  %41 = getelementptr inbounds i8, ptr %.0, i64 28
   %42 = load i32, ptr %41, align 4
   %.not37 = icmp eq i32 %42, 0
   br i1 %.not37, label %69, label %.preheader

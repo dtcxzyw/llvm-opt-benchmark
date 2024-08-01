@@ -393,20 +393,20 @@ if.end143:                                        ; preds = %if.end135
   br i1 %or.cond87, label %end, label %do.body.preheader
 
 end:                                              ; preds = %if.end143, %if.end135, %if.end84, %if.then132, %if.then100, %if.then72, %if.then55
-  %bio.0 = phi ptr [ %call26.i, %if.then55 ], [ null, %if.then72 ], [ null, %if.then100 ], [ null, %if.then132 ], [ null, %if.end84 ], [ null, %if.end135 ], [ null, %if.end143 ]
-  %ret.0 = phi i32 [ 1, %if.then55 ], [ 1, %if.then72 ], [ 1, %if.then100 ], [ 1, %if.then132 ], [ 0, %if.end84 ], [ 1, %if.end135 ], [ 1, %if.end143 ]
-  %call149 = call i32 @BIO_free(ptr noundef %bio.0) #9
+  %bio.1 = phi ptr [ %call26.i, %if.then55 ], [ null, %if.then72 ], [ null, %if.then100 ], [ null, %if.then132 ], [ null, %if.end84 ], [ null, %if.end135 ], [ null, %if.end143 ]
+  %ret.1 = phi i32 [ 1, %if.then55 ], [ 1, %if.then72 ], [ 1, %if.then100 ], [ 1, %if.then132 ], [ 0, %if.end84 ], [ 1, %if.end135 ], [ 1, %if.end143 ]
+  %call149 = call i32 @BIO_free(ptr noundef %bio.1) #9
   br label %end2
 
 end2:                                             ; preds = %entry, %end, %if.then48, %if.then28, %if.else20
-  %bio.1 = phi ptr [ null, %entry ], [ null, %if.then28 ], [ %retval.0.i56, %if.then48 ], [ %bio.0, %end ], [ null, %if.else20 ]
+  %bio.0 = phi ptr [ null, %entry ], [ null, %if.then28 ], [ %retval.0.i56, %if.then48 ], [ %bio.1, %end ], [ null, %if.else20 ]
   %qtserv.0 = phi ptr [ null, %entry ], [ null, %if.then28 ], [ null, %if.then48 ], [ %call52, %end ], [ null, %if.else20 ]
-  %ret.1 = phi i32 [ 1, %entry ], [ 1, %if.then28 ], [ 1, %if.then48 ], [ %ret.0, %end ], [ 1, %if.else20 ]
-  %call150 = call i32 @BIO_free(ptr noundef %bio.1) #9
+  %ret.0 = phi i32 [ 1, %entry ], [ 1, %if.then28 ], [ 1, %if.then48 ], [ %ret.1, %end ], [ 1, %if.else20 ]
+  %call150 = call i32 @BIO_free(ptr noundef %bio.0) #9
   call void @ossl_quic_tserver_free(ptr noundef %qtserv.0) #9
   %37 = load ptr, ptr @bio_err, align 8
   %call151 = call i32 @BIO_free(ptr noundef %37) #9
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -223,13 +223,13 @@ for.body.preheader:                               ; preds = %if.then12
   br label %if.end17
 
 lpad:                                             ; preds = %if.then21, %if.end17, %if.then12
-  %paddedBuffer.sroa.0.0 = phi ptr [ %paddedBuffer.sroa.0.1, %if.then21 ], [ %paddedBuffer.sroa.0.1, %if.end17 ], [ null, %if.then12 ]
+  %paddedBuffer.sroa.0.1 = phi ptr [ %paddedBuffer.sroa.0.0, %if.then21 ], [ %paddedBuffer.sroa.0.0, %if.end17 ], [ null, %if.then12 ]
   %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end17:                                         ; preds = %for.body.preheader, %if.end10
-  %paddedBuffer.sroa.0.1 = phi ptr [ null, %if.end10 ], [ %call, %for.body.preheader ]
+  %paddedBuffer.sroa.0.0 = phi ptr [ null, %if.end10 ], [ %call, %for.body.preheader ]
   %inputBytes.0 = phi i64 [ %uncompressedBytes, %if.end10 ], [ 128, %for.body.preheader ]
   %buffer.0 = phi ptr [ %uncompressedBuffer, %if.end10 ], [ %call, %for.body.preheader ]
   %call19 = invoke i32 @blosc_compress_ctx(i32 noundef 9, i32 noundef 1, i64 noundef 4, i64 noundef %inputBytes.0, ptr noundef %buffer.0, ptr noundef %compressedBuffer, i64 noundef %bufferBytes, ptr noundef nonnull @.str, i64 noundef %inputBytes.0, i32 noundef 1)
@@ -294,18 +294,18 @@ if.end42:                                         ; preds = %invoke.cont18
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end42, %if.end41
-  %cmp.not.i = icmp eq ptr %paddedBuffer.sroa.0.1, null
+  %cmp.not.i = icmp eq ptr %paddedBuffer.sroa.0.0, null
   br i1 %cmp.not.i, label %cleanup.cont, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %cleanup
-  call void @_ZdaPv(ptr noundef nonnull %paddedBuffer.sroa.0.1) #20
+  call void @_ZdaPv(ptr noundef nonnull %paddedBuffer.sroa.0.0) #20
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %cleanup, %if.then9, %if.then5, %if.then2, %if.then
   ret void
 
 ehcleanup:                                        ; preds = %lpad23, %lpad
-  %paddedBuffer.sroa.0.2 = phi ptr [ %paddedBuffer.sroa.0.1, %lpad23 ], [ %paddedBuffer.sroa.0.0, %lpad ]
+  %paddedBuffer.sroa.0.2 = phi ptr [ %paddedBuffer.sroa.0.0, %lpad23 ], [ %paddedBuffer.sroa.0.1, %lpad ]
   %.pn = phi { ptr, i32 } [ %2, %lpad23 ], [ %1, %lpad ]
   %cmp.not.i28 = icmp eq ptr %paddedBuffer.sroa.0.2, null
   br i1 %cmp.not.i28, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit30, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i29
@@ -387,8 +387,8 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13: ; preds = %if.then14
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.end12, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13
-  %outBuffer.sroa.0.0 = phi ptr [ %call16, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13 ], [ %cond, %if.end12 ]
-  %3 = ptrtoint ptr %outBuffer.sroa.0.0 to i64
+  %outBuffer.sroa.0.1 = phi ptr [ %call16, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit13 ], [ %cond, %if.end12 ]
+  %3 = ptrtoint ptr %outBuffer.sroa.0.1 to i64
   store i64 %3, ptr %agg.result, align 8
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit16
 
@@ -553,8 +553,8 @@ lpad14:                                           ; preds = %invoke.cont15, %inv
 
 catch20:                                          ; preds = %lpad14, %lpad12
   %.pn14 = phi { ptr, i32 } [ %6, %lpad14 ], [ %5, %lpad12 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn14, 0
-  %7 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #16
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn14, 0
+  %7 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #16
   invoke void @__cxa_end_catch()
           to label %try.cont24 unwind label %lpad22
 
@@ -612,8 +612,8 @@ lpad34:                                           ; preds = %invoke.cont37, %inv
 
 catch42:                                          ; preds = %lpad34, %lpad32
   %.pn13 = phi { ptr, i32 } [ %10, %lpad34 ], [ %9, %lpad32 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn13, 0
-  %11 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #16
+  %exn.slot.3 = extractvalue { ptr, i32 } %.pn13, 0
+  %11 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #16
   invoke void @__cxa_end_catch()
           to label %try.cont46 unwind label %lpad44
 
@@ -701,8 +701,8 @@ lpad58:                                           ; preds = %invoke.cont76, %inv
 
 catch81:                                          ; preds = %lpad58, %lpad56
   %.pn = phi { ptr, i32 } [ %14, %lpad58 ], [ %13, %lpad56 ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn, 0
-  %15 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #16
+  %exn.slot.4 = extractvalue { ptr, i32 } %.pn, 0
+  %15 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #16
   invoke void @__cxa_end_catch()
           to label %try.cont85 unwind label %lpad83
 

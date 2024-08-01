@@ -1052,7 +1052,7 @@ rb_enc_from_encoding.exit:                        ; preds = %2, %8
 .lr.ph:                                           ; preds = %.preheader121, %.critedge2
   %22 = phi i8 [ %33, %.critedge2 ], [ %21, %.preheader121 ]
   %23 = phi ptr [ %32, %.critedge2 ], [ %20, %.preheader121 ]
-  %.062126 = phi i32 [ %spec.select, %.critedge2 ], [ 0, %.preheader121 ]
+  %.163126 = phi i32 [ %spec.select, %.critedge2 ], [ 0, %.preheader121 ]
   %24 = sext i8 %22 to i32
   %25 = and i32 %24, -33
   %26 = add nsw i32 %25, -65
@@ -1067,7 +1067,7 @@ rb_enc_from_encoding.exit:                        ; preds = %2, %8
 .critedge2:                                       ; preds = %.lr.ph
   %30 = add nsw i32 %24, -123
   %31 = icmp ult i32 %30, -26
-  %spec.select = select i1 %31, i32 %.062126, i32 1
+  %spec.select = select i1 %31, i32 %.163126, i32 1
   %32 = getelementptr i8, ptr %23, i64 1
   %33 = load i8, ptr %32, align 1
   %.not77 = icmp eq i8 %33, 0
@@ -1079,19 +1079,19 @@ rb_enc_from_encoding.exit:                        ; preds = %2, %8
 
 .thread:                                          ; preds = %.lr.ph, %.critedge
   %.061.ph153 = phi i32 [ 0, %.critedge ], [ 1, %.lr.ph ]
-  %.264.ph152 = phi i32 [ 0, %.critedge ], [ %.062126, %.lr.ph ]
-  %.167.ph151 = phi ptr [ %0, %.critedge ], [ %23, %.lr.ph ]
-  %34 = icmp ne i32 %.264.ph152, 0
-  %.pre140 = ptrtoint ptr %.167.ph151 to i64
+  %.062.ph152 = phi i32 [ 0, %.critedge ], [ %.163126, %.lr.ph ]
+  %.066.ph151 = phi ptr [ %0, %.critedge ], [ %23, %.lr.ph ]
+  %34 = icmp ne i32 %.062.ph152, 0
+  %.pre140 = ptrtoint ptr %.066.ph151 to i64
   %.pre141 = ptrtoint ptr %0 to i64
   %.pre143 = sub i64 %.pre140, %.pre141
   br label %41
 
 .critedge.thread:                                 ; preds = %.critedge2, %.preheader121, %.critedge
   %.061107 = phi i32 [ 0, %.critedge ], [ 1, %.preheader121 ], [ 1, %.critedge2 ]
-  %.264105 = phi i32 [ 0, %.critedge ], [ 0, %.preheader121 ], [ %spec.select, %.critedge2 ]
-  %.167103 = phi ptr [ %0, %.critedge ], [ %20, %.preheader121 ], [ %32, %.critedge2 ]
-  %35 = ptrtoint ptr %.167103 to i64
+  %.062105 = phi i32 [ 0, %.critedge ], [ 0, %.preheader121 ], [ %spec.select, %.critedge2 ]
+  %.066103 = phi ptr [ %0, %.critedge ], [ %20, %.preheader121 ], [ %32, %.critedge2 ]
+  %35 = ptrtoint ptr %.066103 to i64
   %36 = ptrtoint ptr %0 to i64
   %37 = sub i64 %35, %36
   %38 = icmp sgt i64 %37, 63
@@ -1100,15 +1100,15 @@ rb_enc_from_encoding.exit:                        ; preds = %2, %8
 39:                                               ; preds = %.critedge.thread
   %40 = load i64, ptr @rb_cEncoding, align 8
   tail call void @rb_define_const(i64 noundef %40, ptr noundef nonnull %0, i64 noundef %.0.i) #20
-  %.not = icmp eq i32 %.264105, 0
+  %.not = icmp eq i32 %.062105, 0
   br i1 %.not, label %102, label %41
 
 41:                                               ; preds = %.thread, %39
   %.pre-phi144 = phi i64 [ %.pre143, %.thread ], [ %37, %39 ]
   %.pre-phi142 = phi i64 [ %.pre141, %.thread ], [ %36, %39 ]
   %42 = phi i1 [ %34, %.thread ], [ true, %39 ]
-  %.167104119 = phi ptr [ %.167.ph151, %.thread ], [ %.167103, %39 ]
-  %.264106118 = phi i32 [ %.264.ph152, %.thread ], [ %.264105, %39 ]
+  %.066104119 = phi ptr [ %.066.ph151, %.thread ], [ %.066103, %39 ]
+  %.062106118 = phi i32 [ %.062.ph152, %.thread ], [ %.062105, %39 ]
   %.061108117 = phi i32 [ %.061.ph153, %.thread ], [ %.061107, %39 ]
   %.not79110116 = phi i1 [ true, %.thread ], [ false, %39 ]
   %43 = icmp ugt i64 %.pre-phi144, 63
@@ -1119,45 +1119,45 @@ rb_enc_from_encoding.exit:                        ; preds = %2, %8
   br i1 %or.cond5, label %59, label %.preheader120.preheader
 
 .preheader120.preheader:                          ; preds = %44
-  %.pre = load i8, ptr %.167104119, align 1
+  %.pre = load i8, ptr %.066104119, align 1
   br label %.preheader120
 
 .preheader120:                                    ; preds = %.preheader120.preheader, %53
   %45 = phi i8 [ %52, %53 ], [ %.pre, %.preheader120.preheader ]
-  %.268 = phi ptr [ %51, %53 ], [ %.167104119, %.preheader120.preheader ]
-  %.365 = phi i32 [ %spec.select95, %53 ], [ %.264106118, %.preheader120.preheader ]
-  %.1 = phi i32 [ %.2, %53 ], [ %.061108117, %.preheader120.preheader ]
+  %.369 = phi ptr [ %51, %53 ], [ %.066104119, %.preheader120.preheader ]
+  %.4 = phi i32 [ %spec.select95, %53 ], [ %.062106118, %.preheader120.preheader ]
+  %.2 = phi i32 [ %.3, %53 ], [ %.061108117, %.preheader120.preheader ]
   %46 = sext i8 %45 to i32
   %47 = add nsw i32 %46, -123
   %48 = icmp ult i32 %47, -26
-  %spec.select95 = select i1 %48, i32 %.365, i32 1
+  %spec.select95 = select i1 %48, i32 %.4, i32 1
   %49 = add nsw i32 %46, -91
   %50 = icmp ult i32 %49, -26
-  %.2 = select i1 %50, i32 %.1, i32 1
-  %51 = getelementptr i8, ptr %.268, i64 1
+  %.3 = select i1 %50, i32 %.2, i32 1
+  %51 = getelementptr i8, ptr %.369, i64 1
   %52 = load i8, ptr %51, align 1
   %.not82 = icmp eq i8 %52, 0
   br i1 %.not82, label %.critedge7, label %53
 
 53:                                               ; preds = %.preheader120
   %.not83 = icmp eq i32 %spec.select95, 0
-  %.not84 = icmp eq i32 %.2, 0
+  %.not84 = icmp eq i32 %.3, 0
   %54 = select i1 %.not83, i1 true, i1 %.not84
   br i1 %54, label %.preheader120, label %.critedge7, !llvm.loop !11
 
 .critedge7:                                       ; preds = %.preheader120, %53
   %55 = ptrtoint ptr %51 to i64
   %56 = sub i64 %55, %.pre-phi142
-  %57 = icmp eq i32 %.2, 0
+  %57 = icmp eq i32 %.3, 0
   %58 = icmp eq i32 %spec.select95, 0
   br label %59
 
 59:                                               ; preds = %44, %.critedge7
-  %.369 = phi ptr [ %.167104119, %44 ], [ %51, %.critedge7 ]
-  %.5 = phi i1 [ false, %44 ], [ %58, %.critedge7 ]
-  %.3 = phi i1 [ false, %44 ], [ %57, %.critedge7 ]
+  %.268 = phi ptr [ %.066104119, %44 ], [ %51, %.critedge7 ]
+  %.365 = phi i1 [ false, %44 ], [ %58, %.critedge7 ]
+  %.1 = phi i1 [ false, %44 ], [ %57, %.critedge7 ]
   %.0 = phi i64 [ %.pre-phi144, %44 ], [ %56, %.critedge7 ]
-  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.369) #21
+  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.268) #21
   %61 = add i64 %60, %.0
   %62 = icmp ugt i64 %61, 63
   br i1 %62, label %102, label %ruby_nonempty_memcpy.exit
@@ -1210,7 +1210,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %59
   br i1 %.not87, label %._crit_edge, label %.lr.ph130, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %83, %74
-  br i1 %.3, label %88, label %86
+  br i1 %.1, label %88, label %86
 
 86:                                               ; preds = %._crit_edge
   %87 = load i64, ptr @rb_cEncoding, align 8
@@ -1218,7 +1218,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %59
   br label %88
 
 88:                                               ; preds = %._crit_edge, %86, %ruby_nonempty_memcpy.exit
-  br i1 %.5, label %102, label %.preheader
+  br i1 %.365, label %102, label %.preheader
 
 .preheader:                                       ; preds = %88
   %89 = load i8, ptr %64, align 16

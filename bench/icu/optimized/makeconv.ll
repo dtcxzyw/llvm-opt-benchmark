@@ -477,9 +477,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1649,12 +1649,12 @@ for.end:                                          ; preds = %_ZL15cleanupConvDat
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont117, %if.end86, %for.end, %if.then103
-  %retval.0 = phi i32 [ 15, %if.then103 ], [ %187, %for.end ], [ %59, %invoke.cont117 ], [ %52, %if.end86 ]
+  %retval.2 = phi i32 [ 15, %if.then103 ], [ %187, %for.end ], [ %59, %invoke.cont117 ], [ %52, %if.end86 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %pathBuf) #17
   br label %cleanup227
 
 cleanup227:                                       ; preds = %invoke.cont32, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ %23, %invoke.cont32 ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup ], [ %23, %invoke.cont32 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %outFileName) #17
   br label %return
 
@@ -1664,8 +1664,8 @@ ehcleanup:                                        ; preds = %lpad47, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %cleanup227, %if.then15
-  %retval.2 = phi i32 [ %argc.addr.0.lobit, %if.then15 ], [ %retval.1, %cleanup227 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ %argc.addr.0.lobit, %if.then15 ], [ %retval.1, %cleanup227 ]
+  ret i32 %retval.0
 }
 
 declare void @u_getVersion_75(ptr noundef) local_unnamed_addr #5

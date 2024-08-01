@@ -6758,7 +6758,7 @@ lpad168:                                          ; preds = %invoke.cont167
   br label %ehcleanup610
 
 invoke.cont175:                                   ; preds = %invoke.cont169, %land.lhs.true136, %land.lhs.true133, %if.end129
-  %needs_close.0 = phi i8 [ 0, %if.end129 ], [ 1, %invoke.cont169 ], [ 0, %land.lhs.true136 ], [ 0, %land.lhs.true133 ]
+  %needs_close.2 = phi i8 [ 0, %if.end129 ], [ 1, %invoke.cont169 ], [ 0, %land.lhs.true136 ], [ 0, %land.lhs.true133 ]
   store i64 0, ptr %agg.tmp174, align 8, !alias.scope !104
   invoke fastcc void @_ZN12_GLOBAL__N_124maybe_process_ops_lockedEPNS_13inproc_streamEN4absl12lts_202308026StatusE(ptr noundef %2, ptr noundef nonnull %agg.tmp174)
           to label %invoke.cont180 unwind label %lpad176
@@ -6788,7 +6788,7 @@ lpad182:                                          ; preds = %invoke.cont180
   br label %ehcleanup610
 
 if.end186:                                        ; preds = %lor.lhs.false61, %invoke.cont183, %lor.lhs.false75, %lor.lhs.false63, %if.end51
-  %needs_close.1 = phi i8 [ %needs_close.0, %invoke.cont183 ], [ 0, %lor.lhs.false75 ], [ 0, %lor.lhs.false63 ], [ 0, %if.end51 ], [ 0, %lor.lhs.false61 ]
+  %needs_close.1 = phi i8 [ %needs_close.2, %invoke.cont183 ], [ 0, %lor.lhs.false75 ], [ 0, %lor.lhs.false63 ], [ 0, %if.end51 ], [ 0, %lor.lhs.false61 ]
   %recv_initial_md_op = getelementptr inbounds i8, ptr %s, i64 2376
   %89 = load ptr, ptr %recv_initial_md_op, align 8
   %tobool187.not = icmp eq ptr %89, null
@@ -7465,7 +7465,7 @@ if.then470:                                       ; preds = %do.body468
           to label %if.end477 unwind label %lpad
 
 if.end477:                                        ; preds = %invoke.cont457, %lor.lhs.false435, %do.body468, %if.then470, %if.else464, %if.end307
-  %needs_close.2 = phi i8 [ %196, %invoke.cont457 ], [ %needs_close.1, %lor.lhs.false435 ], [ %needs_close.1, %if.else464 ], [ %needs_close.1, %if.then470 ], [ %needs_close.1, %do.body468 ], [ %needs_close.1, %if.end307 ]
+  %needs_close.3 = phi i8 [ %196, %invoke.cont457 ], [ %needs_close.1, %lor.lhs.false435 ], [ %needs_close.1, %if.else464 ], [ %needs_close.1, %if.then470 ], [ %needs_close.1, %do.body468 ], [ %needs_close.1, %if.end307 ]
   %201 = load ptr, ptr %s, align 8
   %is_client479 = getelementptr inbounds i8, ptr %201, i64 32
   %202 = load i8, ptr %is_client479, align 8
@@ -7748,8 +7748,8 @@ do.end603:                                        ; preds = %if.then594, %do.bod
   br label %done
 
 done:                                             ; preds = %if.then.i.i284, %invoke.cont218, %lor.lhs.false588, %do.end603, %invoke.cont355
-  %needs_close.3 = phi i8 [ %needs_close.2, %do.end603 ], [ %needs_close.2, %lor.lhs.false588 ], [ %needs_close.1, %invoke.cont355 ], [ %needs_close.1, %invoke.cont218 ], [ %needs_close.1, %if.then.i.i284 ]
-  %tobool605 = trunc i8 %needs_close.3 to i1
+  %needs_close.0 = phi i8 [ %needs_close.3, %do.end603 ], [ %needs_close.3, %lor.lhs.false588 ], [ %needs_close.1, %invoke.cont355 ], [ %needs_close.1, %invoke.cont218 ], [ %needs_close.1, %if.then.i.i284 ]
+  %tobool605 = trunc i8 %needs_close.0 to i1
   br i1 %tobool605, label %if.then606, label %if.end609
 
 if.then606:                                       ; preds = %done

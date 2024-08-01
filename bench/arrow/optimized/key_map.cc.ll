@@ -940,24 +940,24 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %num_processed.0 = phi i32 [ %call4, %if.then3 ], [ 0, %if.then ]
-  %sub = sub nsw i32 %num_keys, %num_processed.0
-  %idx.ext = sext i32 %num_processed.0 to i64
+  %num_processed.1 = phi i32 [ %call4, %if.then3 ], [ 0, %if.then ]
+  %sub = sub nsw i32 %num_keys, %num_processed.1
+  %idx.ext = sext i32 %num_processed.1 to i64
   %add.ptr = getelementptr inbounds i32, ptr %hashes, i64 %idx.ext
-  %div = sdiv i32 %num_processed.0, 8
+  %div = sdiv i32 %num_processed.1, 8
   %idx.ext5 = sext i32 %div to i64
   %add.ptr6 = getelementptr inbounds i8, ptr %out_match_bitvector, i64 %idx.ext5
   %add.ptr8 = getelementptr inbounds i8, ptr %out_local_slots, i64 %idx.ext
   %call9 = tail call noundef i32 @_ZNK5arrow7compute10SwissTable24early_filter_imp_avx2_x8EiPKjPhS4_(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %sub, ptr noundef %add.ptr, ptr noundef %add.ptr6, ptr noundef %add.ptr8)
-  %add = add nsw i32 %call9, %num_processed.0
+  %add = add nsw i32 %call9, %num_processed.1
   br label %if.end10
 
 if.end10:                                         ; preds = %land.lhs.true, %if.end, %_ZNK5arrow8internal7CpuInfo16HasEfficientBmi2Ev.exit, %entry
-  %num_processed.1 = phi i32 [ %add, %if.end ], [ 0, %_ZNK5arrow8internal7CpuInfo16HasEfficientBmi2Ev.exit ], [ 0, %entry ], [ 0, %land.lhs.true ]
-  %sub11 = sub nsw i32 %num_keys, %num_processed.1
-  %idx.ext12 = sext i32 %num_processed.1 to i64
+  %num_processed.0 = phi i32 [ %add, %if.end ], [ 0, %_ZNK5arrow8internal7CpuInfo16HasEfficientBmi2Ev.exit ], [ 0, %entry ], [ 0, %land.lhs.true ]
+  %sub11 = sub nsw i32 %num_keys, %num_processed.0
+  %idx.ext12 = sext i32 %num_processed.0 to i64
   %add.ptr13 = getelementptr inbounds i32, ptr %hashes, i64 %idx.ext12
-  %div14 = sdiv i32 %num_processed.1, 8
+  %div14 = sdiv i32 %num_processed.0, 8
   %idx.ext15 = sext i32 %div14 to i64
   %add.ptr16 = getelementptr inbounds i8, ptr %out_match_bitvector, i64 %idx.ext15
   %add.ptr18 = getelementptr inbounds i8, ptr %out_local_slots, i64 %idx.ext12
@@ -1885,7 +1885,7 @@ lpad.loopexit.split-lp:                           ; preds = %for.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %num_inserted_new.0135 = phi i32 [ 0, %for.body.lr.ph ], [ %num_inserted_new.1, %for.inc ]
+  %num_inserted_new.0135 = phi i32 [ 0, %for.body.lr.ph ], [ %num_inserted_new.2, %for.inc ]
   %arrayidx = getelementptr inbounds i16, ptr %inout_selection, i64 %indvars.iv
   %4 = load i16, ptr %arrayidx, align 2
   %idxprom27 = zext i16 %4 to i64
@@ -1990,7 +1990,7 @@ if.then62:                                        ; preds = %if.then
   br label %for.end
 
 for.inc:                                          ; preds = %invoke.cont35, %if.then
-  %num_inserted_new.1 = phi i32 [ %num_inserted_new.0135, %invoke.cont35 ], [ %inc, %if.then ]
+  %num_inserted_new.2 = phi i32 [ %num_inserted_new.0135, %invoke.cont35 ], [ %inc, %if.then ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr %inout_num_selected, align 4
   %35 = zext i32 %34 to i64
@@ -2004,7 +2004,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %entry, %if.then62
   %37 = phi i32 [ %.pre, %if.then62 ], [ 0, %entry ], [ %34, %for.end.loopexit ]
   %num_processed.1 = phi i32 [ %inc63, %if.then62 ], [ 0, %entry ], [ %36, %for.end.loopexit ]
-  %num_inserted_new.2 = phi i32 [ %inc, %if.then62 ], [ 0, %entry ], [ %num_inserted_new.1, %for.end.loopexit ]
+  %num_inserted_new.1 = phi i32 [ %inc, %if.then62 ], [ 0, %entry ], [ %num_inserted_new.2, %for.end.loopexit ]
   store ptr %temp_stack, ptr %temp_ids_buffer, align 8
   %num_elements_.i68 = getelementptr inbounds i8, ptr %temp_ids_buffer, i64 20
   store i32 %37, ptr %num_elements_.i68, align 4
@@ -2032,7 +2032,7 @@ do.body:                                          ; preds = %invoke.cont66
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %__args.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr2.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__args.addr4.i)
-  store i32 %num_inserted_new.2, ptr %__args.addr.i, align 4, !noalias !26
+  store i32 %num_inserted_new.1, ptr %__args.addr.i, align 4, !noalias !26
   store ptr %38, ptr %__args.addr2.i, align 8, !noalias !26
   store ptr %callback_ctx, ptr %__args.addr4.i, align 8, !noalias !26
   %_M_manager.i.i = getelementptr inbounds i8, ptr %append_impl, i64 16
@@ -2060,7 +2060,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.end.i
 _ZN5arrow6StatusD2Ev.exit112:                     ; preds = %_ZN5arrow6StatusD2Ev.exit
   %num_inserted_93 = getelementptr inbounds i8, ptr %this, i64 8
   %44 = load i32, ptr %num_inserted_93, align 8
-  %add94 = add i32 %44, %num_inserted_new.2
+  %add94 = add i32 %44, %num_inserted_new.1
   store i32 %add94, ptr %num_inserted_93, align 8
   %45 = load i64, ptr %hardware_flags_, align 8
   invoke void @_ZN5arrow4util8bit_util19bits_filter_indexesEiliPKhPKtPiPti(i32 noundef 1, i64 noundef %45, i32 noundef %num_processed.1, ptr noundef %2, ptr noundef %inout_selection, ptr noundef nonnull %num_temp_ids, ptr noundef %38, i32 noundef 0)

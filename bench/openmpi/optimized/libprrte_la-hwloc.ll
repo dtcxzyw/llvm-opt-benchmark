@@ -332,7 +332,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %32
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %32 ], [ 0, %.lr.ph ]
   %13 = phi ptr [ %34, %32 ], [ %10, %.lr.ph ]
-  %.05871.us = phi i16 [ %.1.us, %32 ], [ 0, %.lr.ph ]
+  %.171.us = phi i16 [ %.2.us, %32 ], [ 0, %.lr.ph ]
   %14 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv79
   %15 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %13, ptr noundef nonnull @.str.50)
   br i1 %15, label %30, label %16
@@ -353,20 +353,20 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br i1 %24, label %.split74.us, label %.split.us
 
 25:                                               ; preds = %19
-  %26 = and i16 %.05871.us, 24319
+  %26 = and i16 %.171.us, 24319
   %27 = or disjoint i16 %26, 256
   br label %32
 
 28:                                               ; preds = %16
-  %29 = or i16 %.05871.us, 8448
+  %29 = or i16 %.171.us, 8448
   br label %32
 
 30:                                               ; preds = %.lr.ph.split.us
-  %31 = or i16 %.05871.us, 4096
+  %31 = or i16 %.171.us, 4096
   br label %32
 
 32:                                               ; preds = %30, %28, %25
-  %.1.us = phi i16 [ %31, %30 ], [ %29, %28 ], [ %27, %25 ]
+  %.2.us = phi i16 [ %31, %30 ], [ %29, %28 ], [ %27, %25 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %33 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next80
   %34 = load ptr, ptr %33, align 8
@@ -376,13 +376,13 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
 .lr.ph.split:                                     ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph ]
   %35 = phi ptr [ %61, %59 ], [ %10, %.lr.ph ]
-  %.05871 = phi i16 [ %.1, %59 ], [ 0, %.lr.ph ]
+  %.171 = phi i16 [ %.2, %59 ], [ 0, %.lr.ph ]
   %36 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
   %37 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %35, ptr noundef nonnull @.str.50)
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %.lr.ph.split
-  %39 = or i16 %.05871, 4096
+  %39 = or i16 %.171, 4096
   br label %59
 
 40:                                               ; preds = %.lr.ph.split
@@ -391,7 +391,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = or i16 %.05871, 8448
+  %44 = or i16 %.171, 8448
   br label %59
 
 45:                                               ; preds = %40
@@ -400,7 +400,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %45
-  %49 = and i16 %.05871, 24319
+  %49 = and i16 %.171, 24319
   %50 = or disjoint i16 %49, 256
   br label %59
 
@@ -426,7 +426,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br label %96
 
 59:                                               ; preds = %38, %48, %54, %43
-  %.1 = phi i16 [ %39, %38 ], [ %44, %43 ], [ %50, %48 ], [ %.05871, %54 ]
+  %.2 = phi i16 [ %39, %38 ], [ %44, %43 ], [ %50, %48 ], [ %.171, %54 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.next
   %61 = load ptr, ptr %60, align 8
@@ -434,13 +434,13 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br i1 %.not65, label %._crit_edge, label %.lr.ph.split, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %59, %32, %7
-  %.058.lcssa = phi i16 [ 0, %7 ], [ %.1.us, %32 ], [ %.1, %59 ]
+  %.1.lcssa = phi i16 [ 0, %7 ], [ %.2.us, %32 ], [ %.2, %59 ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %9) #9
-  %62 = and i16 %.058.lcssa, 16128
+  %62 = and i16 %.1.lcssa, 16128
   br label %63
 
 63:                                               ; preds = %._crit_edge, %4
-  %.2 = phi i16 [ %62, %._crit_edge ], [ 0, %4 ]
+  %.058 = phi i16 [ %62, %._crit_edge ], [ 0, %4 ]
   %64 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %5, ptr noundef nonnull @.str.15)
   br i1 %64, label %84, label %65
 
@@ -485,7 +485,7 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
 
 84:                                               ; preds = %80, %78, %76, %74, %72, %69, %65, %63
   %.sink = phi i16 [ 16385, %63 ], [ 16392, %65 ], [ %., %69 ], [ 16390, %72 ], [ 16389, %74 ], [ 16388, %76 ], [ 16387, %78 ], [ 16386, %80 ]
-  %85 = or disjoint i16 %.2, %.sink
+  %85 = or disjoint i16 %.058, %.sink
   tail call void @free(ptr noundef %5) #9
   %86 = icmp eq ptr %0, null
   br i1 %86, label %87, label %88

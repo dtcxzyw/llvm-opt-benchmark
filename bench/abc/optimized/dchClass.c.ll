@@ -524,7 +524,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %11
 26:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
   %27 = phi ptr [ %.val123, %.lr.ph ], [ %99, %96 ]
-  %.097153 = phi i32 [ 0, %.lr.ph ], [ %.2, %96 ]
+  %.097153 = phi i32 [ 0, %.lr.ph ], [ %.198, %96 ]
   %28 = getelementptr i8, ptr %27, i64 8
   %.val125 = load ptr, ptr %28, align 8
   %29 = getelementptr inbounds ptr, ptr %.val125, i64 %indvars.iv
@@ -633,7 +633,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %11
 86:                                               ; preds = %80, %69
   %.pre-phi = phi i64 [ %.phi.trans.insert, %80 ], [ %76, %69 ]
   %87 = phi ptr [ %.pre, %80 ], [ %78, %69 ]
-  %.198 = phi i32 [ %85, %80 ], [ %.097153, %69 ]
+  %.2 = phi i32 [ %85, %80 ], [ %.097153, %69 ]
   %88 = getelementptr inbounds ptr, ptr %19, i64 %.pre-phi
   %.val139 = load i32, ptr %72, align 4
   %89 = sext i32 %.val139 to i64
@@ -645,11 +645,11 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %11
   %93 = load i32, ptr %92, align 4
   %94 = add nsw i32 %93, 1
   store i32 %94, ptr %92, align 4
-  %95 = add nsw i32 %.198, 1
+  %95 = add nsw i32 %.2, 1
   br label %96
 
 96:                                               ; preds = %36, %26, %86, %68, %42, %34, %50
-  %.2 = phi i32 [ %.097153, %26 ], [ %.097153, %50 ], [ %.097153, %68 ], [ %95, %86 ], [ %.097153, %34 ], [ %.097153, %42 ], [ %.097153, %36 ]
+  %.198 = phi i32 [ %.097153, %26 ], [ %.097153, %50 ], [ %.097153, %68 ], [ %95, %86 ], [ %.097153, %34 ], [ %.097153, %42 ], [ %.097153, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = load ptr, ptr %0, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 32
@@ -662,7 +662,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %11
 
 .critedge:                                        ; preds = %96, %Abc_PrimeCudd.exit
   %103 = phi ptr [ %4, %Abc_PrimeCudd.exit ], [ %97, %96 ]
-  %.097.lcssa = phi i32 [ 0, %Abc_PrimeCudd.exit ], [ %.2, %96 ]
+  %.097.lcssa = phi i32 [ 0, %Abc_PrimeCudd.exit ], [ %.198, %96 ]
   %104 = getelementptr inbounds i8, ptr %0, i64 28
   %105 = load i32, ptr %104, align 4
   %106 = add nsw i32 %105, %.097.lcssa

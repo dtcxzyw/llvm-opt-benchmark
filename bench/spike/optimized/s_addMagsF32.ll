@@ -141,23 +141,23 @@ softfloat_shiftRightJam32.exit79:                 ; preds = %66, %76
 81:                                               ; preds = %softfloat_shiftRightJam32.exit79, %softfloat_shiftRightJam32.exit
   %.063 = phi i64 [ %32, %softfloat_shiftRightJam32.exit ], [ %80, %softfloat_shiftRightJam32.exit79 ]
   %.062 = phi i64 [ %58, %softfloat_shiftRightJam32.exit ], [ %31, %softfloat_shiftRightJam32.exit79 ]
-  %.059 = phi i64 [ %7, %softfloat_shiftRightJam32.exit ], [ %4, %softfloat_shiftRightJam32.exit79 ]
+  %.1 = phi i64 [ %7, %softfloat_shiftRightJam32.exit ], [ %4, %softfloat_shiftRightJam32.exit79 ]
   %82 = add nuw nsw i64 %.063, 536870912
   %83 = add nuw nsw i64 %82, %.062
   %84 = icmp ult i64 %83, 1073741824
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %81
-  %86 = add nsw i64 %.059, -1
+  %86 = add nsw i64 %.1, -1
   %87 = shl nuw nsw i64 %83, 1
   br label %88
 
 88:                                               ; preds = %81, %85, %27
   %.060.in.in = phi i64 [ %30, %85 ], [ %30, %81 ], [ %16, %27 ]
-  %.1 = phi i64 [ %86, %85 ], [ %.059, %81 ], [ %4, %27 ]
+  %.059 = phi i64 [ %86, %85 ], [ %.1, %81 ], [ %4, %27 ]
   %.0 = phi i64 [ %87, %85 ], [ %83, %81 ], [ %28, %27 ]
   %89 = icmp ne i64 %.060.in.in, 0
-  %90 = tail call i32 @softfloat_roundPackToF32(i1 noundef zeroext %89, i64 noundef %.1, i64 noundef %.0) #2
+  %90 = tail call i32 @softfloat_roundPackToF32(i1 noundef zeroext %89, i64 noundef %.059, i64 noundef %.0) #2
   br label %95
 
 91:                                               ; preds = %61, %36, %13

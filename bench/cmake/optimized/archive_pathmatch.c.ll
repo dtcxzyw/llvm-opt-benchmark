@@ -240,7 +240,7 @@ pm_slashskip.exit86:                              ; preds = %pm_slashskip.exit86
 
 .preheader100:                                    ; preds = %27, %45
   %43 = phi i8 [ %.pr98, %45 ], [ %28, %27 ]
-  %.260 = phi ptr [ %46, %45 ], [ %.159, %27 ]
+  %.361 = phi ptr [ %46, %45 ], [ %.159, %27 ]
   switch i8 %43, label %.preheader99 [
     i8 42, label %45
     i8 0, label %.loopexit
@@ -252,19 +252,19 @@ pm_slashskip.exit86:                              ; preds = %pm_slashskip.exit86
   br i1 %.not76117, label %.loopexit, label %.lr.ph
 
 45:                                               ; preds = %.preheader100
-  %46 = getelementptr inbounds i8, ptr %.260, i64 1
+  %46 = getelementptr inbounds i8, ptr %.361, i64 1
   %.pr98 = load i8, ptr %46, align 1
   br label %.preheader100, !llvm.loop !10
 
 47:                                               ; preds = %.lr.ph
-  %48 = getelementptr inbounds i8, ptr %.3118, i64 1
+  %48 = getelementptr inbounds i8, ptr %.4118, i64 1
   %49 = load i8, ptr %48, align 1
   %.not76 = icmp eq i8 %49, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.preheader99, %47
-  %.3118 = phi ptr [ %48, %47 ], [ %.157, %.preheader99 ]
-  %50 = tail call i32 @__archive_pathmatch(ptr noundef nonnull %.260, ptr noundef nonnull %.3118, i32 noundef %2)
+  %.4118 = phi ptr [ %48, %47 ], [ %.157, %.preheader99 ]
+  %50 = tail call i32 @__archive_pathmatch(ptr noundef nonnull %.361, ptr noundef nonnull %.4118, i32 noundef %2)
   %.not77.not = icmp ne i32 %50, 0
   br i1 %.not77.not, label %.loopexit, label %47
 
@@ -351,7 +351,7 @@ pm_slashskip.exit86:                              ; preds = %pm_slashskip.exit86
   br label %84
 
 84:                                               ; preds = %81, %77
-  %.2.i = phi ptr [ %82, %81 ], [ %78, %77 ]
+  %.3.i = phi ptr [ %82, %81 ], [ %78, %77 ]
   %.0.i87 = phi i8 [ %83, %81 ], [ %79, %77 ]
   %.not.i = icmp sgt i8 %.03447.i, %61
   %.not43.i = icmp slt i8 %.0.i87, %61
@@ -365,12 +365,12 @@ pm_slashskip.exit86:                              ; preds = %pm_slashskip.exit86
 
 87:                                               ; preds = %85, %71
   %88 = phi i8 [ %72, %71 ], [ %.pre.i, %85 ]
-  %.3.i = phi ptr [ %.146.i, %71 ], [ %86, %85 ]
+  %.2.i = phi ptr [ %.146.i, %71 ], [ %86, %85 ]
   %89 = icmp eq i8 %88, %61
   br i1 %89, label %pm_list.exit, label %90
 
 90:                                               ; preds = %87, %84, %76
-  %.4.i = phi ptr [ %.146.i, %76 ], [ %.2.i, %84 ], [ %.3.i, %87 ]
+  %.4.i = phi ptr [ %.146.i, %76 ], [ %.3.i, %84 ], [ %.2.i, %87 ]
   %.033.i = phi i8 [ 0, %76 ], [ 0, %84 ], [ %88, %87 ]
   %91 = getelementptr inbounds i8, ptr %.4.i, i64 1
   %92 = icmp ult ptr %91, %.0
@@ -513,10 +513,10 @@ pm_slashskip.exit96:                              ; preds = %.preheader102, %124
   br i1 %.not79, label %131, label %.loopexit
 
 131:                                              ; preds = %pm_list.exit, %129, %100, %101, %93, %40, %116
-  %.361 = phi ptr [ %.159, %129 ], [ %117, %116 ], [ %.159, %100 ], [ %96, %101 ], [ %.159, %93 ], [ %.159, %40 ], [ %.0, %pm_list.exit ]
-  %.4 = phi ptr [ %.157, %129 ], [ %118, %116 ], [ %.157, %100 ], [ %.157, %101 ], [ %.157, %93 ], [ %.157, %40 ], [ %.157, %pm_list.exit ]
-  %132 = getelementptr inbounds i8, ptr %.361, i64 1
-  %133 = getelementptr inbounds i8, ptr %.4, i64 1
+  %.260 = phi ptr [ %.159, %129 ], [ %117, %116 ], [ %.159, %100 ], [ %96, %101 ], [ %.159, %93 ], [ %.159, %40 ], [ %.0, %pm_list.exit ]
+  %.3 = phi ptr [ %.157, %129 ], [ %118, %116 ], [ %.157, %100 ], [ %.157, %101 ], [ %.157, %93 ], [ %.157, %40 ], [ %.157, %pm_list.exit ]
+  %132 = getelementptr inbounds i8, ptr %.260, i64 1
+  %133 = getelementptr inbounds i8, ptr %.3, i64 1
   br label %27
 
 .loopexit:                                        ; preds = %129, %pm_slashskip.exit93, %102, %101, %100, %93, %pm_list.exit, %40, %.preheader100, %.lr.ph, %47, %.preheader99, %32, %pm_slashskip.exit96, %pm_slashskip.exit86
@@ -765,7 +765,7 @@ pm_slashskip_w.exit86:                            ; preds = %pm_slashskip_w.exit
 
 .preheader100:                                    ; preds = %27, %45
   %43 = phi i32 [ %.pr98, %45 ], [ %28, %27 ]
-  %.260 = phi ptr [ %46, %45 ], [ %.159, %27 ]
+  %.361 = phi ptr [ %46, %45 ], [ %.159, %27 ]
   switch i32 %43, label %.preheader99 [
     i32 42, label %45
     i32 0, label %.loopexit
@@ -777,19 +777,19 @@ pm_slashskip_w.exit86:                            ; preds = %pm_slashskip_w.exit
   br i1 %.not76117, label %.loopexit, label %.lr.ph
 
 45:                                               ; preds = %.preheader100
-  %46 = getelementptr inbounds i8, ptr %.260, i64 4
+  %46 = getelementptr inbounds i8, ptr %.361, i64 4
   %.pr98 = load i32, ptr %46, align 4
   br label %.preheader100, !llvm.loop !18
 
 47:                                               ; preds = %.lr.ph
-  %48 = getelementptr inbounds i8, ptr %.3118, i64 4
+  %48 = getelementptr inbounds i8, ptr %.4118, i64 4
   %49 = load i32, ptr %48, align 4
   %.not76 = icmp eq i32 %49, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.preheader99, %47
-  %.3118 = phi ptr [ %48, %47 ], [ %.157, %.preheader99 ]
-  %50 = tail call i32 @__archive_pathmatch_w(ptr noundef nonnull %.260, ptr noundef nonnull %.3118, i32 noundef %2)
+  %.4118 = phi ptr [ %48, %47 ], [ %.157, %.preheader99 ]
+  %50 = tail call i32 @__archive_pathmatch_w(ptr noundef nonnull %.361, ptr noundef nonnull %.4118, i32 noundef %2)
   %.not77.not = icmp ne i32 %50, 0
   br i1 %.not77.not, label %.loopexit, label %47
 
@@ -876,7 +876,7 @@ pm_slashskip_w.exit86:                            ; preds = %pm_slashskip_w.exit
   br label %84
 
 84:                                               ; preds = %81, %77
-  %.2.i = phi ptr [ %82, %81 ], [ %78, %77 ]
+  %.3.i = phi ptr [ %82, %81 ], [ %78, %77 ]
   %.0.i87 = phi i32 [ %83, %81 ], [ %79, %77 ]
   %.not.i = icmp sgt i32 %.03448.i, %61
   %.not44.i = icmp slt i32 %.0.i87, %61
@@ -890,12 +890,12 @@ pm_slashskip_w.exit86:                            ; preds = %pm_slashskip_w.exit
 
 87:                                               ; preds = %85, %71
   %88 = phi i32 [ %72, %71 ], [ %.pre.i, %85 ]
-  %.3.i = phi ptr [ %.147.i, %71 ], [ %86, %85 ]
+  %.2.i = phi ptr [ %.147.i, %71 ], [ %86, %85 ]
   %89 = icmp eq i32 %88, %61
   br i1 %89, label %pm_list_w.exit, label %90
 
 90:                                               ; preds = %87, %84, %76
-  %.4.i = phi ptr [ %.147.i, %76 ], [ %.2.i, %84 ], [ %.3.i, %87 ]
+  %.4.i = phi ptr [ %.147.i, %76 ], [ %.3.i, %84 ], [ %.2.i, %87 ]
   %.033.i = phi i32 [ 0, %76 ], [ 0, %84 ], [ %88, %87 ]
   %91 = getelementptr inbounds i8, ptr %.4.i, i64 4
   %92 = icmp ult ptr %91, %.0
@@ -1038,10 +1038,10 @@ pm_slashskip_w.exit96:                            ; preds = %.preheader102, %124
   br i1 %.not79, label %131, label %.loopexit
 
 131:                                              ; preds = %pm_list_w.exit, %129, %100, %101, %93, %40, %116
-  %.361 = phi ptr [ %.159, %129 ], [ %117, %116 ], [ %.159, %100 ], [ %96, %101 ], [ %.159, %93 ], [ %.159, %40 ], [ %.0, %pm_list_w.exit ]
-  %.4 = phi ptr [ %.157, %129 ], [ %118, %116 ], [ %.157, %100 ], [ %.157, %101 ], [ %.157, %93 ], [ %.157, %40 ], [ %.157, %pm_list_w.exit ]
-  %132 = getelementptr inbounds i8, ptr %.361, i64 4
-  %133 = getelementptr inbounds i8, ptr %.4, i64 4
+  %.260 = phi ptr [ %.159, %129 ], [ %117, %116 ], [ %.159, %100 ], [ %96, %101 ], [ %.159, %93 ], [ %.159, %40 ], [ %.0, %pm_list_w.exit ]
+  %.3 = phi ptr [ %.157, %129 ], [ %118, %116 ], [ %.157, %100 ], [ %.157, %101 ], [ %.157, %93 ], [ %.157, %40 ], [ %.157, %pm_list_w.exit ]
+  %132 = getelementptr inbounds i8, ptr %.260, i64 4
+  %133 = getelementptr inbounds i8, ptr %.3, i64 4
   br label %27
 
 .loopexit:                                        ; preds = %129, %pm_slashskip_w.exit93, %102, %101, %100, %93, %pm_list_w.exit, %40, %.preheader100, %.lr.ph, %47, %.preheader99, %32, %pm_slashskip_w.exit96, %pm_slashskip_w.exit86

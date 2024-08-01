@@ -2011,7 +2011,7 @@ if.end82:                                         ; preds = %_ZNSt6vectorIN6herm
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit, %if.end82
-  %retval.0 = phi i32 [ 1, %if.end82 ], [ 0, %_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit ]
+  %retval.1 = phi i32 [ 1, %if.end82 ], [ 0, %_ZNSt6vectorIN6hermes14ScopeChainItemESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit ]
   %27 = load ptr, ptr %scopeChain, align 8
   %28 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %27, %28
@@ -2046,7 +2046,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZSt8_DestroyIPN6he
   br label %cleanup85
 
 cleanup85:                                        ; preds = %if.then.i.i.i.i, %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exit.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8CallableEEENS0_6HandleIT_EEPS5_.exit, %entry, %if.then67, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %if.end49
-  %retval.1 = phi i32 [ 1, %if.end49 ], [ %call.i42, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 1, %if.then67 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8CallableEEENS0_6HandleIT_EEPS5_.exit ], [ %retval.0, %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exit.i.i ], [ %retval.0, %if.then.i.i.i.i ]
+  %retval.0 = phi i32 [ 1, %if.end49 ], [ %call.i42, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 1, %if.then67 ], [ 0, %entry ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8CallableEEENS0_6HandleIT_EEPS5_.exit ], [ %retval.1, %_ZSt8_DestroyIPN6hermes14ScopeChainItemES1_EvT_S3_RSaIT0_E.exit.i.i ], [ %retval.1, %if.then.i.i.i.i ]
   %chunks_.i.i.i = getelementptr inbounds i8, ptr %3, i64 144
   %conv.i.i.i = zext i32 %5 to i64
   %31 = load ptr, ptr %chunks_.i.i.i, align 8
@@ -2057,7 +2057,7 @@ cleanup85:                                        ; preds = %if.then.i.i.i.i, %_
   %curChunkEnd_.i.i.i = getelementptr inbounds i8, ptr %3, i64 200
   store ptr %add.ptr.i.i.i49, ptr %curChunkEnd_.i.i.i, align 8
   store ptr %4, ptr %next_.i.i, align 8
-  ret i32 %retval.1
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN6hermes2vm7Runtime9getGlobalEv(ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #1
@@ -2306,7 +2306,7 @@ if.end44:                                         ; preds = %if.end34
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end34, %if.end44
-  %retval.0 = phi i32 [ 1, %if.end44 ], [ 0, %if.end34 ]
+  %retval.1 = phi i32 [ 1, %if.end44 ], [ 0, %if.end34 ]
   %tobool.i.i.i.i = trunc i8 %10 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6hermes2vm10CallResultINS0_14IteratorRecordELNS0_6detail20CallResultSpecializeE0EED2Ev.exit
 
@@ -2328,8 +2328,8 @@ _ZN6hermes2vm10CallResultINS0_14IteratorRecordELNS0_6detail20CallResultSpecializ
   br label %return
 
 return:                                           ; preds = %if.then11, %_ZN6hermes2vm10CallResultINS0_14IteratorRecordELNS0_6detail20CallResultSpecializeE0EED2Ev.exit, %if.then25
-  %retval.1 = phi i32 [ 1, %if.then25 ], [ %retval.0, %_ZN6hermes2vm10CallResultINS0_14IteratorRecordELNS0_6detail20CallResultSpecializeE0EED2Ev.exit ], [ 0, %if.then11 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 1, %if.then25 ], [ %retval.1, %_ZN6hermes2vm10CallResultINS0_14IteratorRecordELNS0_6detail20CallResultSpecializeE0EED2Ev.exit ], [ 0, %if.then11 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2725,7 +2725,7 @@ if.end60:                                         ; preds = %if.end47
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end47, %if.end60
-  %retval.0 = phi i32 [ 1, %if.end60 ], [ 0, %if.end47 ]
+  %retval.1 = phi i32 [ 1, %if.end60 ], [ 0, %if.end47 ]
   %chunks_.i.i.i = getelementptr inbounds i8, ptr %23, i64 144
   %conv.i.i.i = zext i32 %25 to i64
   %30 = load ptr, ptr %chunks_.i.i.i, align 8
@@ -2829,7 +2829,7 @@ cleanup178.sink.split:                            ; preds = %if.end167, %if.then
   br label %cleanup178
 
 cleanup178:                                       ; preds = %cleanup178.sink.split, %if.else, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %if.end90
-  %retval.1 = phi i32 [ 0, %if.end90 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 0, %if.else ], [ 1, %cleanup178.sink.split ]
+  %retval.2 = phi i32 [ 0, %if.end90 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 0, %if.else ], [ 1, %cleanup178.sink.split ]
   %chunks_.i.i.i92 = getelementptr inbounds i8, ptr %33, i64 144
   %conv.i.i.i93 = zext i32 %35 to i64
   %47 = load ptr, ptr %chunks_.i.i.i92, align 8
@@ -2843,8 +2843,8 @@ cleanup178:                                       ; preds = %cleanup178.sink.spl
   br label %return
 
 return:                                           ; preds = %cleanup178, %if.then82, %cleanup, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit, %if.then9
-  %retval.2 = phi i32 [ 1, %if.then9 ], [ 1, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ], [ %retval.0, %cleanup ], [ 1, %if.then82 ], [ %retval.1, %cleanup178 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ 1, %if.then9 ], [ 1, %_ZNK6hermes2vm13HermesValue329unboxToHVERNS0_11PointerBaseE.exit ], [ %retval.1, %cleanup ], [ 1, %if.then82 ], [ %retval.2, %cleanup178 ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN6hermes2vm12iteratorNextERNS0_7RuntimeERKNS0_14IteratorRecordEN4llvh8OptionalINS0_6HandleINS0_11HermesValueEEEEE(ptr noundef nonnull align 8 dereferenceable(9832), ptr noundef nonnull align 8 dereferenceable(16), i64, i8) local_unnamed_addr #1

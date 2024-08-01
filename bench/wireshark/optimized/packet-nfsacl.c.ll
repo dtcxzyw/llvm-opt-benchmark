@@ -311,16 +311,16 @@ define internal fastcc noundef i32 @dissect_nfsacl_secattr(ptr noundef %0, i32 n
 
 .preheader1:                                      ; preds = %3, %.preheader1
   %.04 = phi i32 [ %12, %.preheader1 ], [ 0, %3 ]
-  %.0393 = phi i32 [ %11, %.preheader1 ], [ %10, %3 ]
-  %11 = tail call fastcc i32 @dissect_nfsacl_aclent(ptr noundef %0, i32 noundef %.0393, ptr noundef %9)
+  %.1403 = phi i32 [ %11, %.preheader1 ], [ %10, %3 ]
+  %11 = tail call fastcc i32 @dissect_nfsacl_aclent(ptr noundef %0, i32 noundef %.1403, ptr noundef %9)
   %12 = add nuw i32 %.04, 1
   %exitcond.not = icmp eq i32 %12, %7
   br i1 %exitcond.not, label %.loopexit2, label %.preheader1, !llvm.loop !4
 
 .loopexit2:                                       ; preds = %.preheader1, %3
-  %.140 = phi i32 [ %10, %3 ], [ %11, %.preheader1 ]
+  %.039 = phi i32 [ %10, %3 ], [ %11, %.preheader1 ]
   %13 = load i32, ptr @hf_nfsacl_dfaclcnt, align 4
-  %14 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %.140) #2
+  %14 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %13, i32 noundef %.039) #2
   %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %14) #2
   %16 = load i32, ptr @ett_nfsacl_aclent_entries, align 4
   %17 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef %15) #2
@@ -330,15 +330,15 @@ define internal fastcc noundef i32 @dissect_nfsacl_secattr(ptr noundef %0, i32 n
 
 .preheader:                                       ; preds = %.loopexit2, %.preheader
   %.16 = phi i32 [ %20, %.preheader ], [ 0, %.loopexit2 ]
-  %.25 = phi i32 [ %19, %.preheader ], [ %18, %.loopexit2 ]
-  %19 = tail call fastcc i32 @dissect_nfsacl_aclent(ptr noundef %0, i32 noundef %.25, ptr noundef %17)
+  %.35 = phi i32 [ %19, %.preheader ], [ %18, %.loopexit2 ]
+  %19 = tail call fastcc i32 @dissect_nfsacl_aclent(ptr noundef %0, i32 noundef %.35, ptr noundef %17)
   %20 = add nuw i32 %.16, 1
   %exitcond8.not = icmp eq i32 %20, %15
   br i1 %exitcond8.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit2
-  %.3 = phi i32 [ %18, %.loopexit2 ], [ %19, %.preheader ]
-  ret i32 %.3
+  %.2 = phi i32 [ %18, %.loopexit2 ], [ %19, %.preheader ]
+  ret i32 %.2
 }
 
 declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

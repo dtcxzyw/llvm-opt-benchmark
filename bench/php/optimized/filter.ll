@@ -639,17 +639,17 @@ define ptr @php_stream_filter_create(ptr noundef %0, ptr noundef %1, i8 noundef 
   br label %.thread65
 
 .thread65:                                        ; preds = %.lr.ph, %23
-  %.1 = phi ptr [ %26, %23 ], [ null, %.lr.ph ]
+  %.2 = phi ptr [ %26, %23 ], [ null, %.lr.ph ]
   store i8 0, ptr %.04979, align 1
   %27 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 46) #13
   %28 = icmp ne ptr %27, null
-  %.not60 = icmp eq ptr %.1, null
+  %.not60 = icmp eq ptr %.2, null
   %29 = select i1 %28, i1 %.not60, i1 false
   br i1 %29, label %.lr.ph, label %30
 
 30:                                               ; preds = %.thread65
   tail call void @_efree(ptr noundef nonnull %11) #14
-  %31 = icmp eq ptr %.1, null
+  %31 = icmp eq ptr %.2, null
   br i1 %31, label %36, label %37
 
 .thread:                                          ; preds = %3
@@ -671,8 +671,8 @@ define ptr @php_stream_filter_create(ptr noundef %0, ptr noundef %1, i8 noundef 
   br label %37
 
 37:                                               ; preds = %.sink.split, %.thread, %30
-  %.273 = phi ptr [ %.1, %30 ], [ %34, %.thread ], [ null, %.sink.split ]
-  ret ptr %.273
+  %.05173 = phi ptr [ %.2, %30 ], [ %34, %.thread ], [ null, %.sink.split ]
+  ret ptr %.05173
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

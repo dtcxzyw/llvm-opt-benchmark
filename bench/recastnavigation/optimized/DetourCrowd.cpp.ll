@@ -1644,7 +1644,7 @@ _ZNK14dtPathCorridor12getFirstPolyEv.exit:        ; preds = %22, %35
   br label %92
 
 92:                                               ; preds = %80, %72
-  %.1 = phi i1 [ %.049, %72 ], [ true, %80 ]
+  %.2 = phi i1 [ %.049, %72 ], [ true, %80 ]
   %93 = load i32, ptr %74, align 4
   %.not54 = icmp eq i32 %93, 0
   br i1 %.not54, label %94, label %97
@@ -1658,14 +1658,14 @@ _ZNK14dtPathCorridor12getFirstPolyEv.exit:        ; preds = %22, %35
   br label %97
 
 97:                                               ; preds = %69, %92, %94
-  %.2 = phi i1 [ %.1, %92 ], [ %.1, %94 ], [ %.049, %69 ]
+  %.1 = phi i1 [ %.2, %92 ], [ %.2, %94 ], [ %.049, %69 ]
   %98 = load ptr, ptr %12, align 8
   %99 = load i8, ptr %45, align 2
   %100 = zext i8 %99 to i64
   %101 = getelementptr inbounds [16 x %class.dtQueryFilter], ptr %13, i64 0, i64 %100
   %102 = call noundef zeroext i1 @_ZN14dtPathCorridor7isValidEiP14dtNavMeshQueryPK13dtQueryFilter(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 10, ptr noundef %98, ptr noundef nonnull %101)
   %not. = xor i1 %102, true
-  %spec.select = or i1 %.2, %not.
+  %spec.select = or i1 %.1, %not.
   %103 = load i8, ptr %70, align 8
   %104 = icmp eq i8 %103, 2
   br i1 %104, label %105, label %122
@@ -2559,7 +2559,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
 490:                                              ; preds = %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit, %356
   %491 = phi float [ %sqrt.i388, %356 ], [ %483, %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit ]
   %492 = phi i8 [ %.pre, %356 ], [ %370, %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit ]
-  %.sroa.29.4 = phi float [ %360, %356 ], [ %489, %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit ]
+  %.sroa.29.2 = phi float [ %360, %356 ], [ %489, %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit ]
   %493 = phi <2 x float> [ %358, %356 ], [ %488, %_ZL17getDistanceToGoalPK12dtCrowdAgentf.exit ]
   %494 = and i8 %492, 4
   %.not377 = icmp eq i8 %494, 0
@@ -2590,7 +2590,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
 511:                                              ; preds = %.lr.ph457, %538
   %indvars.iv516 = phi i64 [ 0, %.lr.ph457 ], [ %indvars.iv.next517, %538 ]
   %.0337456 = phi float [ 0.000000e+00, %.lr.ph457 ], [ %.1, %538 ]
-  %.sroa.7411.1454 = phi float [ 0.000000e+00, %.lr.ph457 ], [ %.sroa.7411.2, %538 ]
+  %.sroa.7411.3454 = phi float [ 0.000000e+00, %.lr.ph457 ], [ %.sroa.7411.4, %538 ]
   %512 = phi <2 x float> [ zeroinitializer, %.lr.ph457 ], [ %539, %538 ]
   %513 = getelementptr inbounds [6 x %struct.dtCrowdNeighbour], ptr %505, i64 0, i64 %indvars.iv516
   %514 = load i32, ptr %513, align 8
@@ -2619,12 +2619,12 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %533 = insertelement <2 x float> poison, float %531, i64 0
   %534 = shufflevector <2 x float> %533, <2 x float> poison, <2 x i32> zeroinitializer
   %535 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %532, <2 x float> %534, <2 x float> %512)
-  %536 = call float @llvm.fmuladd.f32(float %521, float %531, float %.sroa.7411.1454)
+  %536 = call float @llvm.fmuladd.f32(float %521, float %531, float %.sroa.7411.3454)
   %537 = fadd float %.0337456, 1.000000e+00
   br label %538
 
 538:                                              ; preds = %511, %526
-  %.sroa.7411.2 = phi float [ %.sroa.7411.1454, %511 ], [ %536, %526 ]
+  %.sroa.7411.4 = phi float [ %.sroa.7411.3454, %511 ], [ %536, %526 ]
   %.1 = phi float [ %.0337456, %511 ], [ %537, %526 ]
   %539 = phi <2 x float> [ %512, %511 ], [ %535, %526 ]
   %indvars.iv.next517 = add nuw nsw i64 %indvars.iv516, 1
@@ -2640,7 +2640,7 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   %543 = insertelement <2 x float> poison, float %542, i64 0
   %544 = shufflevector <2 x float> %543, <2 x float> poison, <2 x i32> zeroinitializer
   %545 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %539, <2 x float> %544, <2 x float> %493)
-  %546 = call float @llvm.fmuladd.f32(float %.sroa.7411.2, float %542, float %.sroa.29.4)
+  %546 = call float @llvm.fmuladd.f32(float %.sroa.7411.4, float %542, float %.sroa.29.2)
   %547 = fmul <2 x float> %545, %545
   %548 = extractelement <2 x float> %547, i64 1
   %549 = extractelement <2 x float> %545, i64 0
@@ -2659,12 +2659,12 @@ _ZL17getDistanceToGoalPK12dtCrowdAgentf.exit:     ; preds = %_ZL24calcSmoothStee
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %495, %._crit_edge, %554, %541, %490
-  %.sroa.29.5 = phi float [ %.sroa.29.4, %490 ], [ %559, %554 ], [ %546, %541 ], [ %.sroa.29.4, %._crit_edge ], [ %.sroa.29.4, %495 ]
+  %.sroa.29.4 = phi float [ %.sroa.29.2, %490 ], [ %559, %554 ], [ %546, %541 ], [ %.sroa.29.2, %._crit_edge ], [ %.sroa.29.2, %495 ]
   %560 = phi <2 x float> [ %493, %490 ], [ %558, %554 ], [ %545, %541 ], [ %493, %._crit_edge ], [ %493, %495 ]
   %561 = getelementptr inbounds i8, ptr %350, i64 440
   store <2 x float> %560, ptr %561, align 4
   %562 = getelementptr inbounds i8, ptr %350, i64 448
-  store float %.sroa.29.5, ptr %562, align 4
+  store float %.sroa.29.4, ptr %562, align 4
   br label %563
 
 563:                                              ; preds = %353, %348, %._crit_edge.thread

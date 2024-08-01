@@ -564,7 +564,7 @@ lor.lhs.false16:                                  ; preds = %lor.lhs.false
   br i1 %tobool18.not, label %err, label %if.end21
 
 if.end21:                                         ; preds = %lor.lhs.false16, %if.end9
-  %pub_point.0 = phi ptr [ %call14, %lor.lhs.false16 ], [ null, %if.end9 ]
+  %pub_point.1 = phi ptr [ %call14, %lor.lhs.false16 ], [ null, %if.end9 ]
   %cmp22 = icmp ne ptr %param_priv_key.0, null
   %or.cond = and i1 %tobool, %cmp22
   br i1 %or.cond, label %if.then24, label %if.end51
@@ -609,11 +609,11 @@ land.lhs.true47:                                  ; preds = %if.end45
   br i1 %tobool49.not, label %err, label %if.end51
 
 if.end51:                                         ; preds = %if.end21, %land.lhs.true47, %if.end45
-  %cmp52.not = icmp eq ptr %pub_point.0, null
+  %cmp52.not = icmp eq ptr %pub_point.1, null
   br i1 %cmp52.not, label %if.end57, label %land.lhs.true53
 
 land.lhs.true53:                                  ; preds = %if.end51
-  %call54 = call i32 @EC_KEY_set_public_key(ptr noundef %ec, ptr noundef nonnull %pub_point.0) #4
+  %call54 = call i32 @EC_KEY_set_public_key(ptr noundef %ec, ptr noundef nonnull %pub_point.1) #4
   %tobool55.not = icmp eq i32 %call54, 0
   br i1 %tobool55.not, label %err, label %if.end57
 
@@ -621,14 +621,14 @@ if.end57:                                         ; preds = %land.lhs.true53, %i
   br label %err
 
 err:                                              ; preds = %land.lhs.true53, %land.lhs.true47, %if.end40, %if.end36, %if.end31, %if.then24, %lor.lhs.false27, %if.then11, %lor.lhs.false, %lor.lhs.false16, %if.end4, %if.end57
-  %pub_point.1 = phi ptr [ null, %if.end4 ], [ null, %lor.lhs.false ], [ %pub_point.0, %if.then24 ], [ %pub_point.0, %lor.lhs.false27 ], [ %pub_point.0, %if.end31 ], [ %pub_point.0, %if.end36 ], [ %pub_point.0, %if.end57 ], [ %pub_point.0, %land.lhs.true53 ], [ %pub_point.0, %land.lhs.true47 ], [ %pub_point.0, %if.end40 ], [ %call14, %lor.lhs.false16 ], [ null, %if.then11 ]
+  %pub_point.0 = phi ptr [ null, %if.end4 ], [ null, %lor.lhs.false ], [ %pub_point.1, %if.then24 ], [ %pub_point.1, %lor.lhs.false27 ], [ %pub_point.1, %if.end31 ], [ %pub_point.1, %if.end36 ], [ %pub_point.1, %if.end57 ], [ %pub_point.1, %land.lhs.true53 ], [ %pub_point.1, %land.lhs.true47 ], [ %pub_point.1, %if.end40 ], [ %call14, %lor.lhs.false16 ], [ null, %if.then11 ]
   %ok.0 = phi i32 [ 0, %if.end4 ], [ 0, %lor.lhs.false ], [ 0, %if.then24 ], [ 0, %lor.lhs.false27 ], [ 0, %if.end31 ], [ 0, %if.end36 ], [ 1, %if.end57 ], [ 0, %land.lhs.true53 ], [ 0, %land.lhs.true47 ], [ 0, %if.end40 ], [ 0, %lor.lhs.false16 ], [ 0, %if.then11 ]
   call void @BN_CTX_free(ptr noundef %call6) #4
   %2 = load ptr, ptr %priv_key, align 8
   call void @BN_clear_free(ptr noundef %2) #4
   %3 = load ptr, ptr %pub_key, align 8
   call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 495) #4
-  call void @EC_POINT_free(ptr noundef %pub_point.1) #4
+  call void @EC_POINT_free(ptr noundef %pub_point.0) #4
   br label %return
 
 return:                                           ; preds = %entry, %err

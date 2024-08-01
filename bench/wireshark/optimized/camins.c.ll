@@ -28,8 +28,8 @@ define hidden range(i32 -1, 2) i32 @camins_open(ptr noundef %0, ptr noundef %1, 
 9:                                                ; preds = %25, %3
   %.018.i = phi i8 [ 0, %3 ], [ %.119.i, %25 ]
   %.016.i = phi i8 [ 0, %3 ], [ %.117.i, %25 ]
-  %.013.i = phi i32 [ 0, %3 ], [ %.114.i, %25 ]
-  %.012.i = phi i32 [ 0, %3 ], [ %.1.i, %25 ]
+  %.013.i = phi i32 [ 0, %3 ], [ %.215.i, %25 ]
+  %.012.i = phi i32 [ 0, %3 ], [ %.2.i, %25 ]
   %.0.i = phi i64 [ 0, %3 ], [ %26, %25 ]
   %10 = call i32 @wtap_read_bytes(ptr noundef %7, ptr noundef nonnull %6, i32 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %5) #4
   %.not.i = icmp eq i32 %10, 0
@@ -79,8 +79,8 @@ define hidden range(i32 -1, 2) i32 @camins_open(ptr noundef %0, ptr noundef %1, 
 25:                                               ; preds = %.fold.split.i, %24, %23, %22, %21, %17, %15
   %.119.i = phi i8 [ 0, %15 ], [ 34, %22 ], [ 43, %23 ], [ 42, %24 ], [ %spec.select.i, %17 ], [ 35, %21 ], [ 0, %.fold.split.i ]
   %.117.i = phi i8 [ %.016.i, %15 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ %18, %17 ], [ 0, %21 ], [ %.016.i, %.fold.split.i ]
-  %.114.i = phi i32 [ %16, %15 ], [ %.013.i, %22 ], [ %.013.i, %23 ], [ %.013.i, %24 ], [ %.013.i, %17 ], [ %.013.i, %21 ], [ %.013.i, %.fold.split.i ]
-  %.1.i = phi i32 [ %.012.i, %15 ], [ %.012.i, %22 ], [ %.012.i, %23 ], [ %.012.i, %24 ], [ %spec.select25.i, %17 ], [ %.012.i, %21 ], [ %.012.i, %.fold.split.i ]
+  %.215.i = phi i32 [ %16, %15 ], [ %.013.i, %22 ], [ %.013.i, %23 ], [ %.013.i, %24 ], [ %.013.i, %17 ], [ %.013.i, %21 ], [ %.013.i, %.fold.split.i ]
+  %.2.i = phi i32 [ %.012.i, %15 ], [ %.012.i, %22 ], [ %.012.i, %23 ], [ %.012.i, %24 ], [ %spec.select25.i, %17 ], [ %.012.i, %21 ], [ %.012.i, %.fold.split.i ]
   %26 = add nuw nsw i64 %.0.i, 2
   %27 = icmp ugt i64 %.0.i, 1073741821
   br i1 %27, label %detect_camins_file.exit, label %9, !llvm.loop !4
@@ -99,10 +99,10 @@ detect_camins_file.exit.thread:                   ; preds = %28
   br label %45
 
 detect_camins_file.exit:                          ; preds = %25, %28, %28
-  %.229.i = phi i32 [ %.012.i, %28 ], [ %.012.i, %28 ], [ %.1.i, %25 ]
-  %.21528.i = phi i32 [ %.013.i, %28 ], [ %.013.i, %28 ], [ %.114.i, %25 ]
-  %29 = mul i32 %.229.i, 10
-  %30 = icmp ugt i32 %.21528.i, %29
+  %.129.i = phi i32 [ %.012.i, %28 ], [ %.012.i, %28 ], [ %.2.i, %25 ]
+  %.11428.i = phi i32 [ %.013.i, %28 ], [ %.013.i, %28 ], [ %.215.i, %25 ]
+  %29 = mul i32 %.129.i, 10
+  %30 = icmp ugt i32 %.11428.i, %29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
@@ -209,7 +209,7 @@ define internal fastcc range(i32 0, 2) i32 @camins_read_packet(ptr noundef %0, p
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %process_timestamp.exit.i.us
   %.0.i93.us = phi i32 [ %.5.i.us, %process_timestamp.exit.i.us ], [ 0, %.lr.ph ]
-  %.06092.us = phi i16 [ %.3.us, %process_timestamp.exit.i.us ], [ 0, %.lr.ph ]
+  %.06092.us = phi i16 [ %.2.us, %process_timestamp.exit.i.us ], [ 0, %.lr.ph ]
   %.06191.us = phi i8 [ %.162.us, %process_timestamp.exit.i.us ], [ 0, %.lr.ph ]
   %11 = load i8, ptr %9, align 1
   switch i8 %11, label %process_timestamp.exit.i.us [
@@ -267,7 +267,7 @@ define internal fastcc range(i32 0, 2) i32 @camins_read_packet(ptr noundef %0, p
 
 process_timestamp.exit.i.us:                      ; preds = %32, %25, %19, %12, %.lr.ph.split.us, %35, %29, %22, %16
   %.162.us = phi i8 [ 40, %16 ], [ 40, %22 ], [ 32, %29 ], [ 32, %35 ], [ %.06191.us, %.lr.ph.split.us ], [ 40, %12 ], [ 40, %19 ], [ 32, %25 ], [ 32, %32 ]
-  %.3.us = phi i16 [ %17, %16 ], [ %23, %22 ], [ %30, %29 ], [ %36, %35 ], [ %.06092.us, %.lr.ph.split.us ], [ %15, %12 ], [ %21, %19 ], [ %28, %25 ], [ %34, %32 ]
+  %.2.us = phi i16 [ %17, %16 ], [ %23, %22 ], [ %30, %29 ], [ %36, %35 ], [ %.06092.us, %.lr.ph.split.us ], [ %15, %12 ], [ %21, %19 ], [ %28, %25 ], [ %34, %32 ]
   %.5.i.us = phi i32 [ 2, %16 ], [ 1, %22 ], [ 2, %29 ], [ 1, %35 ], [ %.0.i93.us, %.lr.ph.split.us ], [ 2, %12 ], [ 1, %19 ], [ 2, %25 ], [ 1, %32 ]
   %38 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 2, ptr noundef %4, ptr noundef %5) #4
   %.not.i.us = icmp eq i32 %38, 0
@@ -275,7 +275,7 @@ process_timestamp.exit.i.us:                      ; preds = %32, %25, %19, %12, 
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %process_timestamp.exit.i
   %.0.i93 = phi i32 [ %.5.i, %process_timestamp.exit.i ], [ 0, %.lr.ph ]
-  %.06092 = phi i16 [ %.3, %process_timestamp.exit.i ], [ 0, %.lr.ph ]
+  %.06092 = phi i16 [ %.2, %process_timestamp.exit.i ], [ 0, %.lr.ph ]
   %.06191 = phi i8 [ %.162, %process_timestamp.exit.i ], [ 0, %.lr.ph ]
   %39 = load i8, ptr %9, align 1
   switch i8 %39, label %66 [
@@ -357,7 +357,7 @@ process_timestamp.exit.i.us:                      ; preds = %32, %25, %19, %12, 
 
 process_timestamp.exit.i:                         ; preds = %59, %53, %46, %40, %68, %66, %63, %56, %50, %43
   %.162 = phi i8 [ %.06191, %66 ], [ %.06191, %68 ], [ 40, %63 ], [ 40, %56 ], [ 32, %50 ], [ 32, %43 ], [ 32, %40 ], [ 32, %46 ], [ 40, %53 ], [ 40, %59 ]
-  %.3 = phi i16 [ %.06092, %66 ], [ %.06092, %68 ], [ %64, %63 ], [ %57, %56 ], [ %51, %50 ], [ %44, %43 ], [ %42, %40 ], [ %49, %46 ], [ %55, %53 ], [ %62, %59 ]
+  %.2 = phi i16 [ %.06092, %66 ], [ %.06092, %68 ], [ %64, %63 ], [ %57, %56 ], [ %51, %50 ], [ %44, %43 ], [ %42, %40 ], [ %49, %46 ], [ %55, %53 ], [ %62, %59 ]
   %.5.i = phi i32 [ %.0.i93, %66 ], [ %.0.i93, %68 ], [ 2, %63 ], [ 1, %56 ], [ 2, %50 ], [ 1, %43 ], [ 1, %40 ], [ 2, %46 ], [ 1, %53 ], [ 2, %59 ]
   %82 = call i32 @wtap_read_bytes_or_eof(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 2, ptr noundef %4, ptr noundef %5) #4
   %.not.i = icmp eq i32 %82, 0

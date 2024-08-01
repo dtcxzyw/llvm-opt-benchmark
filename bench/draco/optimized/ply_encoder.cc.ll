@@ -174,8 +174,8 @@ _ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i: ; preds = %
   br label %_ZNSt10unique_ptrIN5draco19FileWriterInterfaceESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco19FileWriterInterfaceESt14default_deleteIS1_EED2Ev.exit: ; preds = %3, %33, %_ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i
-  %.113 = phi i1 [ %10, %33 ], [ %10, %_ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i ], [ false, %3 ]
-  ret i1 %.113
+  %.0613 = phi i1 [ %10, %33 ], [ %10, %_ZNKSt14default_deleteIN5draco19FileWriterInterfaceEEclEPS1_.exit.i ], [ false, %3 ]
+  ret i1 %.0613
 
 37:                                               ; preds = %14, %12
   %.pn = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ]
@@ -1373,14 +1373,14 @@ _ZN5draco13EncoderBuffer6EncodeINS_9IndexTypeIjNS_20PointIndex_tag_type_EEEEEbRK
   br i1 %607, label %.lr.ph155.split, label %.loopexit141, !llvm.loop !8
 
 .loopexit141:                                     ; preds = %595, %578, %.loopexit.us, %531, %.preheader, %._crit_edge
-  %.0 = phi i1 [ true, %._crit_edge ], [ true, %.preheader ], [ false, %531 ], [ true, %.loopexit.us ], [ false, %578 ], [ true, %595 ]
+  %.1 = phi i1 [ true, %._crit_edge ], [ true, %.preheader ], [ false, %531 ], [ true, %.loopexit.us ], [ false, %578 ], [ true, %595 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   br label %608
 
 608:                                              ; preds = %36, %.loopexit141
-  %.1 = phi i1 [ %.0, %.loopexit141 ], [ false, %36 ]
+  %.0 = phi i1 [ %.1, %.loopexit141 ], [ false, %36 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %2) #14
-  ret i1 %.1
+  ret i1 %.0
 
 609:                                              ; preds = %.loopexit.split-lp, %38
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %39, %38 ]

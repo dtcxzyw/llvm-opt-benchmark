@@ -951,7 +951,7 @@ ehcleanup197:                                     ; preds = %ehcleanup195, %lpad
   br label %ehcleanup201
 
 cleanup200:                                       ; preds = %if.then.i.i.i142, %invoke.cont.i140, %if.then21, %invoke.cont58
-  %retval.1 = phi i1 [ false, %invoke.cont58 ], [ false, %if.then21 ], [ %call79, %invoke.cont.i140 ], [ %call79, %if.then.i.i.i142 ]
+  %retval.0 = phi i1 [ false, %invoke.cont58 ], [ false, %if.then21 ], [ %call79, %invoke.cont.i140 ], [ %call79, %if.then.i.i.i142 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_list_file.i) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %annotation_list_file.i) #23
   %69 = load ptr, ptr %options, align 8
@@ -982,7 +982,7 @@ if.then.i.i.i156:                                 ; preds = %invoke.cont.i154
   br label %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev.exit
 
 _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev.exit: ; preds = %invoke.cont.i154, %if.then.i.i.i156
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup201:                                     ; preds = %lpad8.loopexit, %lpad8.loopexit.split-lp, %ehcleanup197
   %.pn28 = phi { ptr, i32 } [ %.pn18.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup197 ], [ %lpad.loopexit, %lpad8.loopexit ], [ %lpad.loopexit.split-lp, %lpad8.loopexit.split-lp ]

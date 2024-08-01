@@ -398,7 +398,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   %.0197281 = phi i32 [ %.1198, %167 ], [ 0, %118 ]
   %.0199280 = phi i32 [ %.1200, %167 ], [ 0, %118 ]
   %.1204279 = phi i32 [ %.2205, %167 ], [ %.0203.lcssa, %118 ]
-  %.1207278 = phi i32 [ %.3209, %167 ], [ %.0206, %118 ]
+  %.1207278 = phi i32 [ %.2208, %167 ], [ %.0206, %118 ]
   %.pn277 = phi ptr [ %.sroa.0235.1282, %167 ], [ %42, %118 ]
   %119 = load i32, ptr %.sroa.0235.1282, align 4
   %120 = getelementptr inbounds i8, ptr %.pn277, i64 16
@@ -462,7 +462,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   br label %154
 
 154:                                              ; preds = %140, %147, %137
-  %.2208 = phi i32 [ %148, %147 ], [ %141, %140 ], [ %.1207278, %137 ]
+  %.3209 = phi i32 [ %148, %147 ], [ %141, %140 ], [ %.1207278, %137 ]
   %155 = load i32, ptr %86, align 8
   %156 = add nsw i32 %155, 1
   store i32 %156, ptr %86, align 8
@@ -484,7 +484,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   br label %167
 
 167:                                              ; preds = %129, %154, %162
-  %.3209 = phi i32 [ %.2208, %162 ], [ %.2208, %154 ], [ %.1207278, %129 ]
+  %.2208 = phi i32 [ %.3209, %162 ], [ %.3209, %154 ], [ %.1207278, %129 ]
   %.2205 = phi i32 [ %166, %162 ], [ %.1204279, %154 ], [ %.1204279, %129 ]
   %.1200 = phi i32 [ %.0199280, %162 ], [ %.0199280, %154 ], [ %135, %129 ]
   %.1198 = phi i32 [ %.0197281, %162 ], [ %.0197281, %154 ], [ %spec.select, %129 ]
@@ -493,7 +493,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   br i1 %.not258, label %._crit_edge285, label %.lr.ph284, !llvm.loop !8
 
 ._crit_edge285:                                   ; preds = %167, %118
-  %.1207.lcssa = phi i32 [ %.0206, %118 ], [ %.3209, %167 ]
+  %.1207.lcssa = phi i32 [ %.0206, %118 ], [ %.2208, %167 ]
   %.1204.lcssa = phi i32 [ %.0203.lcssa, %118 ], [ %.2205, %167 ]
   %.0199.lcssa = phi i32 [ 0, %118 ], [ %.1200, %167 ]
   %.0197.lcssa = phi i32 [ 0, %118 ], [ %.1198, %167 ]

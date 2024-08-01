@@ -145,9 +145,9 @@ define hidden void @zif_strptime(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 29:                                               ; preds = %25, %.thread180
   %.pn194 = phi ptr [ %24, %.thread180 ], [ %27, %25 ]
-  %.2165 = getelementptr inbounds i8, ptr %.pn194, i64 24
+  %.0163 = getelementptr inbounds i8, ptr %.pn194, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %30 = call ptr @strptime(ptr noundef nonnull %19, ptr noundef nonnull %.2165, ptr noundef nonnull %5) #4
+  %30 = call ptr @strptime(ptr noundef nonnull %19, ptr noundef nonnull %.0163, ptr noundef nonnull %5) #4
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %34
 

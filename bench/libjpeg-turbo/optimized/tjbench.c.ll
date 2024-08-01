@@ -443,7 +443,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
 
 60:                                               ; preds = %.preheader592, %347
   %.0407608 = phi i32 [ %.0412, %.preheader592 ], [ %348, %347 ]
-  %.0414607 = phi i32 [ -1, %.preheader592 ], [ %.1415, %347 ]
+  %.1415607 = phi i32 [ -1, %.preheader592 ], [ %.2416, %347 ]
   %61 = sext i32 %.0407608 to i64
   %62 = getelementptr inbounds ptr, ptr %1, i64 %61
   %63 = load ptr, ptr %62, align 8
@@ -1140,14 +1140,14 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   unreachable
 
 347:                                              ; preds = %155, %279, %270, %65, %82, %88, %98, %106, %112, %118, %124, %130, %183, %189, %195, %201, %209, %217, %241, %250, %265, %290, %296, %320, %344, %340, %341, %308, %293, %285, %284, %283, %282, %281, %253, %247, %229, %212, %204, %198, %192, %186, %178, %133, %127, %121, %115, %109, %103, %93, %85, %79
-  %.1415 = phi i32 [ %.0414607, %344 ], [ %.0414607, %340 ], [ %.0414607, %341 ], [ %.0414607, %320 ], [ %.0414607, %308 ], [ %.0414607, %296 ], [ %.0414607, %293 ], [ %.0414607, %290 ], [ 6, %285 ], [ 5, %284 ], [ 2, %283 ], [ 4, %282 ], [ 1, %281 ], [ %.0414607, %265 ], [ %.0414607, %253 ], [ %.0414607, %250 ], [ %.0414607, %247 ], [ %.0414607, %241 ], [ %.0414607, %229 ], [ %.0414607, %217 ], [ %.0414607, %212 ], [ %.0414607, %209 ], [ %.0414607, %204 ], [ %.0414607, %201 ], [ %.0414607, %198 ], [ %.0414607, %195 ], [ %.0414607, %192 ], [ %.0414607, %189 ], [ %.0414607, %186 ], [ %.0414607, %183 ], [ %.0414607, %178 ], [ %.0414607, %155 ], [ %.0414607, %133 ], [ %.0414607, %130 ], [ %.0414607, %127 ], [ %.0414607, %124 ], [ %.0414607, %121 ], [ %.0414607, %118 ], [ %.0414607, %115 ], [ %.0414607, %112 ], [ %.0414607, %109 ], [ %.0414607, %106 ], [ 0, %103 ], [ %.0414607, %98 ], [ %.0414607, %93 ], [ %.0414607, %88 ], [ %.0414607, %85 ], [ %.0414607, %82 ], [ %.0414607, %79 ], [ %.0414607, %65 ], [ 3, %270 ], [ 0, %279 ]
+  %.2416 = phi i32 [ %.1415607, %344 ], [ %.1415607, %340 ], [ %.1415607, %341 ], [ %.1415607, %320 ], [ %.1415607, %308 ], [ %.1415607, %296 ], [ %.1415607, %293 ], [ %.1415607, %290 ], [ 6, %285 ], [ 5, %284 ], [ 2, %283 ], [ 4, %282 ], [ 1, %281 ], [ %.1415607, %265 ], [ %.1415607, %253 ], [ %.1415607, %250 ], [ %.1415607, %247 ], [ %.1415607, %241 ], [ %.1415607, %229 ], [ %.1415607, %217 ], [ %.1415607, %212 ], [ %.1415607, %209 ], [ %.1415607, %204 ], [ %.1415607, %201 ], [ %.1415607, %198 ], [ %.1415607, %195 ], [ %.1415607, %192 ], [ %.1415607, %189 ], [ %.1415607, %186 ], [ %.1415607, %183 ], [ %.1415607, %178 ], [ %.1415607, %155 ], [ %.1415607, %133 ], [ %.1415607, %130 ], [ %.1415607, %127 ], [ %.1415607, %124 ], [ %.1415607, %121 ], [ %.1415607, %118 ], [ %.1415607, %115 ], [ %.1415607, %112 ], [ %.1415607, %109 ], [ %.1415607, %106 ], [ 0, %103 ], [ %.1415607, %98 ], [ %.1415607, %93 ], [ %.1415607, %88 ], [ %.1415607, %85 ], [ %.1415607, %82 ], [ %.1415607, %79 ], [ %.1415607, %65 ], [ 3, %270 ], [ 0, %279 ]
   %.1408 = phi i32 [ %.0407608, %344 ], [ %324, %340 ], [ %324, %341 ], [ %312, %320 ], [ %300, %308 ], [ %.0407608, %296 ], [ %.0407608, %293 ], [ %.0407608, %290 ], [ %271, %285 ], [ %271, %284 ], [ %271, %283 ], [ %271, %282 ], [ %271, %281 ], [ %257, %265 ], [ %.0407608, %253 ], [ %.0407608, %250 ], [ %.0407608, %247 ], [ %235, %241 ], [ %223, %229 ], [ %.0407608, %217 ], [ %.0407608, %212 ], [ %.0407608, %209 ], [ %.0407608, %204 ], [ %.0407608, %201 ], [ %.0407608, %198 ], [ %.0407608, %195 ], [ %.0407608, %192 ], [ %.0407608, %189 ], [ %.0407608, %186 ], [ %.0407608, %183 ], [ %164, %178 ], [ %137, %155 ], [ %.0407608, %133 ], [ %.0407608, %130 ], [ %.0407608, %127 ], [ %.0407608, %124 ], [ %.0407608, %121 ], [ %.0407608, %118 ], [ %.0407608, %115 ], [ %.0407608, %112 ], [ %.0407608, %109 ], [ %.0407608, %106 ], [ %.0407608, %103 ], [ %.0407608, %98 ], [ %.0407608, %93 ], [ %.0407608, %88 ], [ %.0407608, %85 ], [ %.0407608, %82 ], [ %72, %79 ], [ %.0407608, %65 ], [ %271, %270 ], [ %271, %279 ]
   %348 = add nsw i32 %.1408, 1
   %349 = icmp slt i32 %348, %0
   br i1 %349, label %60, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %347, %57
-  %.2416 = phi i32 [ -1, %57 ], [ %.1415, %347 ]
+  %.0414 = phi i32 [ -1, %57 ], [ %.2416, %347 ]
   %.b453 = load i1, ptr @optimize, align 4
   %350 = xor i1 %.b453, true
   %.b454 = load i1, ptr @progressive, align 4
@@ -1534,7 +1534,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   br label %599
 
 525:                                              ; preds = %496, %499, %485, %516, %519, %505, %465, %479, %476
-  %.0 = phi ptr [ null, %479 ], [ null, %476 ], [ %466, %465 ], [ null, %499 ], [ null, %496 ], [ %486, %485 ], [ null, %519 ], [ null, %516 ], [ %506, %505 ]
+  %.2 = phi ptr [ null, %479 ], [ null, %476 ], [ %466, %465 ], [ null, %499 ], [ null, %496 ], [ %486, %485 ], [ null, %519 ], [ null, %516 ], [ %506, %505 ]
   %526 = load ptr, ptr %26, align 8
   %527 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %526, i32 noundef 46) #22
   %.not495 = icmp eq ptr %527, null
@@ -1603,8 +1603,8 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   br i1 %.b.pr, label %.thread657, label %554
 
 .thread657:                                       ; preds = %.thread, %551, %552
-  %.1653 = phi ptr [ %.0, %551 ], [ %.0, %552 ], [ null, %.thread ]
-  %.0417649 = phi ptr [ %394, %551 ], [ %394, %552 ], [ null, %.thread ]
+  %.1653 = phi ptr [ %.2, %551 ], [ %.2, %552 ], [ null, %.thread ]
+  %.1418649 = phi ptr [ %394, %551 ], [ %394, %552 ], [ null, %.thread ]
   %553 = load ptr, ptr %26, align 8
   call fastcc void @decompTest(ptr noundef %553)
   %putchar512 = call i32 @putchar(i32 10)
@@ -1643,7 +1643,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   unreachable
 
 569:                                              ; preds = %563, %557
-  %570 = icmp sgt i32 %.2416, -1
+  %570 = icmp sgt i32 %.0414, -1
   br i1 %570, label %571, label %576
 
 571:                                              ; preds = %569
@@ -1655,7 +1655,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %572 = load i32, ptr %3, align 4
   %573 = load i32, ptr %4, align 4
   %574 = load ptr, ptr %26, align 8
-  call fastcc void @fullTest(ptr noundef %394, ptr noundef %.0, i32 noundef %572, i32 noundef %573, i32 noundef %.2416, i32 noundef %.2409628, ptr noundef %574)
+  call fastcc void @fullTest(ptr noundef %394, ptr noundef %.2, i32 noundef %572, i32 noundef %573, i32 noundef %.0414, i32 noundef %.2409628, ptr noundef %574)
   %575 = add nsw i32 %.2409628, -1
   %.not510.not = icmp sgt i32 %.2409628, %.0411
   br i1 %.not510.not, label %.lr.ph630, label %._crit_edge631, !llvm.loop !8
@@ -1678,7 +1678,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %579 = load i32, ptr %3, align 4
   %580 = load i32, ptr %4, align 4
   %581 = load ptr, ptr %26, align 8
-  call fastcc void @fullTest(ptr noundef %394, ptr noundef %.0, i32 noundef %579, i32 noundef %580, i32 noundef 3, i32 noundef %.3610, ptr noundef %581)
+  call fastcc void @fullTest(ptr noundef %394, ptr noundef %.2, i32 noundef %579, i32 noundef %580, i32 noundef 3, i32 noundef %.3610, ptr noundef %581)
   %582 = add nsw i32 %.3610, -1
   %.not502.not = icmp sgt i32 %.3610, %.0411
   br i1 %.not502.not, label %.lr.ph611, label %._crit_edge, !llvm.loop !9
@@ -1698,7 +1698,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %585 = load i32, ptr %3, align 4
   %586 = load i32, ptr %4, align 4
   %587 = load ptr, ptr %26, align 8
-  call fastcc void @fullTest(ptr noundef %394, ptr noundef %.0, i32 noundef %585, i32 noundef %586, i32 noundef 2, i32 noundef %.4613, ptr noundef %587)
+  call fastcc void @fullTest(ptr noundef %394, ptr noundef %.2, i32 noundef %585, i32 noundef %586, i32 noundef 2, i32 noundef %.4613, ptr noundef %587)
   %588 = add nsw i32 %.4613, -1
   %.not504.not = icmp sgt i32 %.4613, %.0411
   br i1 %.not504.not, label %.lr.ph615, label %._crit_edge616, !llvm.loop !10
@@ -1714,7 +1714,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %590 = load i32, ptr %3, align 4
   %591 = load i32, ptr %4, align 4
   %592 = load ptr, ptr %26, align 8
-  call fastcc void @fullTest(ptr noundef %394, ptr noundef %.0, i32 noundef %590, i32 noundef %591, i32 noundef 1, i32 noundef %.5618, ptr noundef %592)
+  call fastcc void @fullTest(ptr noundef %394, ptr noundef %.2, i32 noundef %590, i32 noundef %591, i32 noundef 1, i32 noundef %.5618, ptr noundef %592)
   %593 = add nsw i32 %.5618, -1
   %.not506.not = icmp sgt i32 %.5618, %.0411
   br i1 %.not506.not, label %.lr.ph620, label %._crit_edge621, !llvm.loop !11
@@ -1730,7 +1730,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %595 = load i32, ptr %3, align 4
   %596 = load i32, ptr %4, align 4
   %597 = load ptr, ptr %26, align 8
-  call fastcc void @fullTest(ptr noundef %394, ptr noundef %.0, i32 noundef %595, i32 noundef %596, i32 noundef 0, i32 noundef %.6623, ptr noundef %597)
+  call fastcc void @fullTest(ptr noundef %394, ptr noundef %.2, i32 noundef %595, i32 noundef %596, i32 noundef 0, i32 noundef %.6623, ptr noundef %597)
   %598 = add nsw i32 %.6623, -1
   %.not508.not = icmp sgt i32 %.6623, %.0411
   br i1 %.not508.not, label %.lr.ph625, label %._crit_edge626, !llvm.loop !12
@@ -1740,11 +1740,11 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   br label %599
 
 599:                                              ; preds = %._crit_edge631, %._crit_edge626, %.thread657, %522, %502, %482, %459, %438, %417, %396, %388, %382, %366, %364, %361, %18
-  %.1418 = phi ptr [ null, %18 ], [ null, %364 ], [ null, %366 ], [ null, %388 ], [ %.0417649, %.thread657 ], [ %394, %._crit_edge631 ], [ %394, %._crit_edge626 ], [ null, %396 ], [ %394, %482 ], [ %394, %502 ], [ %394, %522 ], [ %394, %459 ], [ %394, %438 ], [ %394, %417 ], [ null, %382 ], [ null, %361 ]
+  %.0417 = phi ptr [ null, %18 ], [ null, %364 ], [ null, %366 ], [ null, %388 ], [ %.1418649, %.thread657 ], [ %394, %._crit_edge631 ], [ %394, %._crit_edge626 ], [ null, %396 ], [ %394, %482 ], [ %394, %502 ], [ %394, %522 ], [ %394, %459 ], [ %394, %438 ], [ %394, %417 ], [ null, %382 ], [ null, %361 ]
   %.0413 = phi i32 [ -1, %18 ], [ -1, %364 ], [ -1, %366 ], [ -1, %388 ], [ 0, %.thread657 ], [ 0, %._crit_edge631 ], [ 0, %._crit_edge626 ], [ -1, %396 ], [ -1, %482 ], [ -1, %502 ], [ -1, %522 ], [ -1, %459 ], [ -1, %438 ], [ -1, %417 ], [ -1, %382 ], [ -1, %361 ]
-  %.2 = phi ptr [ null, %18 ], [ null, %364 ], [ null, %366 ], [ null, %388 ], [ %.1653, %.thread657 ], [ %.0, %._crit_edge631 ], [ %.0, %._crit_edge626 ], [ null, %396 ], [ null, %482 ], [ null, %502 ], [ null, %522 ], [ null, %459 ], [ null, %438 ], [ null, %417 ], [ null, %382 ], [ null, %361 ]
-  call void @tj3Destroy(ptr noundef %.1418) #21
-  call void @tj3Free(ptr noundef %.2) #21
+  %.0 = phi ptr [ null, %18 ], [ null, %364 ], [ null, %366 ], [ null, %388 ], [ %.1653, %.thread657 ], [ %.2, %._crit_edge631 ], [ %.2, %._crit_edge626 ], [ null, %396 ], [ null, %482 ], [ null, %502 ], [ null, %522 ], [ null, %459 ], [ null, %438 ], [ null, %417 ], [ null, %382 ], [ null, %361 ]
+  call void @tj3Destroy(ptr noundef %.0417) #21
+  call void @tj3Free(ptr noundef %.0) #21
   ret i32 %.0413
 }
 
@@ -1999,7 +1999,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @strerror(i32 noundef %14) #21
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 641, ptr noundef nonnull @.str.178, ptr noundef %15)
-  br label %.thread756
+  br label %.thread755
 
 17:                                               ; preds = %1
   %18 = tail call i32 @fseek(ptr noundef nonnull %10, i64 noundef 0, i32 noundef 2)
@@ -2017,7 +2017,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %25 = load i32, ptr %24, align 4
   %26 = tail call ptr @strerror(i32 noundef %25) #21
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 644, ptr noundef nonnull @.str.179, ptr noundef %26)
-  br label %.thread741
+  br label %.thread740
 
 28:                                               ; preds = %20
   %29 = tail call noalias ptr @malloc(i64 noundef %21) #25
@@ -2030,7 +2030,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %33 = load i32, ptr %32, align 4
   %34 = tail call ptr @strerror(i32 noundef %33) #21
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 646, ptr noundef nonnull @.str.180, ptr noundef %34)
-  br label %.thread741
+  br label %.thread740
 
 36:                                               ; preds = %28
   %37 = tail call i32 @fseek(ptr noundef nonnull %10, i64 noundef 0, i32 noundef 0)
@@ -2042,7 +2042,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %41 = load i32, ptr %40, align 4
   %42 = tail call ptr @strerror(i32 noundef %41) #21
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 648, ptr noundef nonnull @.str.181, ptr noundef %42)
-  br label %.thread741
+  br label %.thread740
 
 44:                                               ; preds = %36
   %45 = tail call i64 @fread(ptr noundef nonnull %29, i64 noundef %21, i64 noundef 1, ptr noundef nonnull %10)
@@ -2054,7 +2054,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %49 = load i32, ptr %48, align 4
   %50 = tail call ptr @strerror(i32 noundef %49) #21
   %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 650, ptr noundef nonnull @.str.182, ptr noundef %50)
-  br label %.thread741
+  br label %.thread740
 
 52:                                               ; preds = %44
   %53 = tail call i32 @fclose(ptr noundef nonnull %10)
@@ -2074,11 +2074,11 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 59:                                               ; preds = %56
   %60 = tail call ptr @tj3GetErrorStr(ptr noundef null) #21
   %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.72, i32 noundef 657, ptr noundef %60)
-  br label %.thread756
+  br label %.thread755
 
 62:                                               ; preds = %56
-  %.b657 = load i1, ptr @stopOnWarning, align 4
-  %63 = zext i1 %.b657 to i32
+  %.b656 = load i1, ptr @stopOnWarning, align 4
+  %63 = zext i1 %.b656 to i32
   %64 = tail call i32 @tj3Set(ptr noundef nonnull %57, i32 noundef 0, i32 noundef %63) #21
   %65 = icmp eq i32 %64, -1
   br i1 %65, label %66, label %83
@@ -2094,14 +2094,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 72:                                               ; preds = %66
   %73 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %68, i64 noundef 200) #22
-  %.not672 = icmp eq i32 %73, 0
-  br i1 %.not672, label %74, label %77
+  %.not671 = icmp eq i32 %73, 0
+  br i1 %.not671, label %74, label %77
 
 74:                                               ; preds = %72
-  %.b671 = load i1, ptr @tjErrorCode, align 4
+  %.b670 = load i1, ptr @tjErrorCode, align 4
   %75 = load i32, ptr @tjErrorLine, align 4
   %76 = icmp eq i32 %75, 659
-  %or.cond3.not = select i1 %.b671, i1 %76, i1 false
+  %or.cond3.not = select i1 %.b670, i1 %76, i1 false
   br i1 %or.cond3.not, label %83, label %77
 
 77:                                               ; preds = %74, %72
@@ -2115,11 +2115,11 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 80:                                               ; preds = %66
   %81 = select i1 %71, ptr @.str.75, ptr @.str.76
   %82 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %81, i32 noundef 659, ptr noundef %68)
-  br label %.thread756
+  br label %.thread755
 
 83:                                               ; preds = %74, %77, %62
-  %.b651 = load i1, ptr @bottomUp, align 4
-  %84 = zext i1 %.b651 to i32
+  %.b650 = load i1, ptr @bottomUp, align 4
+  %84 = zext i1 %.b650 to i32
   %85 = tail call i32 @tj3Set(ptr noundef nonnull %57, i32 noundef 1, i32 noundef %84) #21
   %86 = icmp eq i32 %85, -1
   br i1 %86, label %87, label %104
@@ -2135,14 +2135,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 93:                                               ; preds = %87
   %94 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %89, i64 noundef 200) #22
-  %.not674 = icmp eq i32 %94, 0
-  br i1 %.not674, label %95, label %98
+  %.not673 = icmp eq i32 %94, 0
+  br i1 %.not673, label %95, label %98
 
 95:                                               ; preds = %93
-  %.b670 = load i1, ptr @tjErrorCode, align 4
+  %.b669 = load i1, ptr @tjErrorCode, align 4
   %96 = load i32, ptr @tjErrorLine, align 4
   %97 = icmp eq i32 %96, 661
-  %or.cond7.not = select i1 %.b670, i1 %97, i1 false
+  %or.cond7.not = select i1 %.b669, i1 %97, i1 false
   br i1 %or.cond7.not, label %104, label %98
 
 98:                                               ; preds = %95, %93
@@ -2156,12 +2156,12 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 101:                                              ; preds = %87
   %102 = select i1 %92, ptr @.str.75, ptr @.str.76
   %103 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %102, i32 noundef 661, ptr noundef %89)
-  br label %.thread756
+  br label %.thread755
 
 104:                                              ; preds = %95, %98, %83
-  %.b653 = load i1, ptr @noRealloc, align 4
-  %not..b653 = xor i1 %.b653, true
-  %105 = zext i1 %not..b653 to i32
+  %.b652 = load i1, ptr @noRealloc, align 4
+  %not..b652 = xor i1 %.b652, true
+  %105 = zext i1 %not..b652 to i32
   %106 = tail call i32 @tj3Set(ptr noundef nonnull %57, i32 noundef 2, i32 noundef %105) #21
   %107 = icmp eq i32 %106, -1
   br i1 %107, label %108, label %125
@@ -2177,14 +2177,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 114:                                              ; preds = %108
   %115 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %110, i64 noundef 200) #22
-  %.not676 = icmp eq i32 %115, 0
-  br i1 %.not676, label %116, label %119
+  %.not675 = icmp eq i32 %115, 0
+  br i1 %.not675, label %116, label %119
 
 116:                                              ; preds = %114
-  %.b669 = load i1, ptr @tjErrorCode, align 4
+  %.b668 = load i1, ptr @tjErrorCode, align 4
   %117 = load i32, ptr @tjErrorLine, align 4
   %118 = icmp eq i32 %117, 663
-  %or.cond11.not = select i1 %.b669, i1 %118, i1 false
+  %or.cond11.not = select i1 %.b668, i1 %118, i1 false
   br i1 %or.cond11.not, label %125, label %119
 
 119:                                              ; preds = %116, %114
@@ -2198,11 +2198,11 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 122:                                              ; preds = %108
   %123 = select i1 %113, ptr @.str.75, ptr @.str.76
   %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %123, i32 noundef 663, ptr noundef %110)
-  br label %.thread756
+  br label %.thread755
 
 125:                                              ; preds = %116, %119, %104
-  %.b645 = load i1, ptr @fastUpsample, align 4
-  %126 = zext i1 %.b645 to i32
+  %.b644 = load i1, ptr @fastUpsample, align 4
+  %126 = zext i1 %.b644 to i32
   %127 = tail call i32 @tj3Set(ptr noundef nonnull %57, i32 noundef 9, i32 noundef %126) #21
   %128 = icmp eq i32 %127, -1
   br i1 %128, label %129, label %146
@@ -2218,14 +2218,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 135:                                              ; preds = %129
   %136 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %131, i64 noundef 200) #22
-  %.not678 = icmp eq i32 %136, 0
-  br i1 %.not678, label %137, label %140
+  %.not677 = icmp eq i32 %136, 0
+  br i1 %.not677, label %137, label %140
 
 137:                                              ; preds = %135
-  %.b668 = load i1, ptr @tjErrorCode, align 4
+  %.b667 = load i1, ptr @tjErrorCode, align 4
   %138 = load i32, ptr @tjErrorLine, align 4
   %139 = icmp eq i32 %138, 665
-  %or.cond15.not = select i1 %.b668, i1 %139, i1 false
+  %or.cond15.not = select i1 %.b667, i1 %139, i1 false
   br i1 %or.cond15.not, label %146, label %140
 
 140:                                              ; preds = %137, %135
@@ -2239,11 +2239,11 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 143:                                              ; preds = %129
   %144 = select i1 %134, ptr @.str.75, ptr @.str.76
   %145 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %144, i32 noundef 665, ptr noundef %131)
-  br label %.thread756
+  br label %.thread755
 
 146:                                              ; preds = %137, %140, %125
-  %.b646 = load i1, ptr @fastDCT, align 4
-  %147 = zext i1 %.b646 to i32
+  %.b645 = load i1, ptr @fastDCT, align 4
+  %147 = zext i1 %.b645 to i32
   %148 = tail call i32 @tj3Set(ptr noundef nonnull %57, i32 noundef 10, i32 noundef %147) #21
   %149 = icmp eq i32 %148, -1
   br i1 %149, label %150, label %167
@@ -2259,14 +2259,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 156:                                              ; preds = %150
   %157 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %152, i64 noundef 200) #22
-  %.not680 = icmp eq i32 %157, 0
-  br i1 %.not680, label %158, label %161
+  %.not679 = icmp eq i32 %157, 0
+  br i1 %.not679, label %158, label %161
 
 158:                                              ; preds = %156
-  %.b667 = load i1, ptr @tjErrorCode, align 4
+  %.b666 = load i1, ptr @tjErrorCode, align 4
   %159 = load i32, ptr @tjErrorLine, align 4
   %160 = icmp eq i32 %159, 667
-  %or.cond19.not = select i1 %.b667, i1 %160, i1 false
+  %or.cond19.not = select i1 %.b666, i1 %160, i1 false
   br i1 %or.cond19.not, label %167, label %161
 
 161:                                              ; preds = %158, %156
@@ -2280,11 +2280,11 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 164:                                              ; preds = %150
   %165 = select i1 %155, ptr @.str.75, ptr @.str.76
   %166 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %165, i32 noundef 667, ptr noundef %152)
-  br label %.thread756
+  br label %.thread755
 
 167:                                              ; preds = %158, %161, %146
-  %.b656 = load i1, ptr @limitScans, align 4
-  %168 = select i1 %.b656, i32 500, i32 0
+  %.b655 = load i1, ptr @limitScans, align 4
+  %168 = select i1 %.b655, i32 500, i32 0
   %169 = tail call i32 @tj3Set(ptr noundef nonnull %57, i32 noundef 13, i32 noundef %168) #21
   %170 = icmp eq i32 %169, -1
   br i1 %170, label %171, label %188
@@ -2300,14 +2300,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 177:                                              ; preds = %171
   %178 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %173, i64 noundef 200) #22
-  %.not682 = icmp eq i32 %178, 0
-  br i1 %.not682, label %179, label %182
+  %.not681 = icmp eq i32 %178, 0
+  br i1 %.not681, label %179, label %182
 
 179:                                              ; preds = %177
-  %.b666 = load i1, ptr @tjErrorCode, align 4
+  %.b665 = load i1, ptr @tjErrorCode, align 4
   %180 = load i32, ptr @tjErrorLine, align 4
   %181 = icmp eq i32 %180, 669
-  %or.cond23.not = select i1 %.b666, i1 %181, i1 false
+  %or.cond23.not = select i1 %.b665, i1 %181, i1 false
   br i1 %or.cond23.not, label %188, label %182
 
 182:                                              ; preds = %179, %177
@@ -2321,7 +2321,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 185:                                              ; preds = %171
   %186 = select i1 %176, ptr @.str.75, ptr @.str.76
   %187 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %186, i32 noundef 669, ptr noundef %173)
-  br label %.thread756
+  br label %.thread755
 
 188:                                              ; preds = %179, %182, %167
   %189 = load i32, ptr @maxMemory, align 4
@@ -2340,14 +2340,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 198:                                              ; preds = %192
   %199 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %194, i64 noundef 200) #22
-  %.not684 = icmp eq i32 %199, 0
-  br i1 %.not684, label %200, label %203
+  %.not683 = icmp eq i32 %199, 0
+  br i1 %.not683, label %200, label %203
 
 200:                                              ; preds = %198
-  %.b665 = load i1, ptr @tjErrorCode, align 4
+  %.b664 = load i1, ptr @tjErrorCode, align 4
   %201 = load i32, ptr @tjErrorLine, align 4
   %202 = icmp eq i32 %201, 671
-  %or.cond27.not = select i1 %.b665, i1 %202, i1 false
+  %or.cond27.not = select i1 %.b664, i1 %202, i1 false
   br i1 %or.cond27.not, label %209, label %203
 
 203:                                              ; preds = %200, %198
@@ -2361,7 +2361,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 206:                                              ; preds = %192
   %207 = select i1 %197, ptr @.str.75, ptr @.str.76
   %208 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %207, i32 noundef 671, ptr noundef %194)
-  br label %.thread756
+  br label %.thread755
 
 209:                                              ; preds = %200, %203, %188
   %210 = load i32, ptr @maxPixels, align 4
@@ -2380,14 +2380,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 219:                                              ; preds = %213
   %220 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %215, i64 noundef 200) #22
-  %.not686 = icmp eq i32 %220, 0
-  br i1 %.not686, label %221, label %224
+  %.not685 = icmp eq i32 %220, 0
+  br i1 %.not685, label %221, label %224
 
 221:                                              ; preds = %219
-  %.b664 = load i1, ptr @tjErrorCode, align 4
+  %.b663 = load i1, ptr @tjErrorCode, align 4
   %222 = load i32, ptr @tjErrorLine, align 4
   %223 = icmp eq i32 %222, 673
-  %or.cond31.not = select i1 %.b664, i1 %223, i1 false
+  %or.cond31.not = select i1 %.b663, i1 %223, i1 false
   br i1 %or.cond31.not, label %230, label %224
 
 224:                                              ; preds = %221, %219
@@ -2401,7 +2401,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 227:                                              ; preds = %213
   %228 = select i1 %218, ptr @.str.75, ptr @.str.76
   %229 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %228, i32 noundef 673, ptr noundef %215)
-  br label %.thread756
+  br label %.thread755
 
 230:                                              ; preds = %221, %224, %209
   %231 = tail call i32 @tj3DecompressHeader(ptr noundef nonnull %57, ptr noundef nonnull %29, i64 noundef %21) #21
@@ -2419,14 +2419,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 239:                                              ; preds = %233
   %240 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %235, i64 noundef 200) #22
-  %.not688 = icmp eq i32 %240, 0
-  br i1 %.not688, label %241, label %244
+  %.not687 = icmp eq i32 %240, 0
+  br i1 %.not687, label %241, label %244
 
 241:                                              ; preds = %239
-  %.b663 = load i1, ptr @tjErrorCode, align 4
+  %.b662 = load i1, ptr @tjErrorCode, align 4
   %242 = load i32, ptr @tjErrorLine, align 4
   %243 = icmp eq i32 %242, 676
-  %or.cond35.not = select i1 %.b663, i1 %243, i1 false
+  %or.cond35.not = select i1 %.b662, i1 %243, i1 false
   br i1 %or.cond35.not, label %250, label %244
 
 244:                                              ; preds = %241, %239
@@ -2440,7 +2440,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 247:                                              ; preds = %233
   %248 = select i1 %238, ptr @.str.75, ptr @.str.76
   %249 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %248, i32 noundef 676, ptr noundef %235)
-  br label %.thread756
+  br label %.thread755
 
 250:                                              ; preds = %241, %244, %230
   %251 = tail call i32 @tj3Get(ptr noundef nonnull %57, i32 noundef 5) #21
@@ -2463,12 +2463,12 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   br i1 %260, label %261, label %262
 
 261:                                              ; preds = %258
-  %puts690 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.97)
+  %puts689 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.97)
   br label %262
 
 262:                                              ; preds = %261, %258
-  %.b647 = load i1, ptr @progressive, align 4
-  %263 = zext i1 %.b647 to i32
+  %.b646 = load i1, ptr @progressive, align 4
+  %263 = zext i1 %.b646 to i32
   %264 = tail call i32 @tj3Set(ptr noundef nonnull %57, i32 noundef 12, i32 noundef %263) #21
   %265 = icmp eq i32 %264, -1
   br i1 %265, label %266, label %283
@@ -2484,14 +2484,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 272:                                              ; preds = %266
   %273 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %268, i64 noundef 200) #22
-  %.not691 = icmp eq i32 %273, 0
-  br i1 %.not691, label %274, label %277
+  %.not690 = icmp eq i32 %273, 0
+  br i1 %.not690, label %274, label %277
 
 274:                                              ; preds = %272
-  %.b662 = load i1, ptr @tjErrorCode, align 4
+  %.b661 = load i1, ptr @tjErrorCode, align 4
   %275 = load i32, ptr @tjErrorLine, align 4
   %276 = icmp eq i32 %275, 686
-  %or.cond39.not = select i1 %.b662, i1 %276, i1 false
+  %or.cond39.not = select i1 %.b661, i1 %276, i1 false
   br i1 %or.cond39.not, label %283, label %277
 
 277:                                              ; preds = %274, %272
@@ -2505,11 +2505,11 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 280:                                              ; preds = %266
   %281 = select i1 %271, ptr @.str.75, ptr @.str.76
   %282 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %281, i32 noundef 686, ptr noundef %268)
-  br label %.thread756
+  br label %.thread755
 
 283:                                              ; preds = %274, %277, %262
-  %.b648 = load i1, ptr @arithmetic, align 4
-  %284 = zext i1 %.b648 to i32
+  %.b647 = load i1, ptr @arithmetic, align 4
+  %284 = zext i1 %.b647 to i32
   %285 = tail call i32 @tj3Set(ptr noundef nonnull %57, i32 noundef 14, i32 noundef %284) #21
   %286 = icmp eq i32 %285, -1
   br i1 %286, label %287, label %304
@@ -2525,14 +2525,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 293:                                              ; preds = %287
   %294 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %289, i64 noundef 200) #22
-  %.not693 = icmp eq i32 %294, 0
-  br i1 %.not693, label %295, label %298
+  %.not692 = icmp eq i32 %294, 0
+  br i1 %.not692, label %295, label %298
 
 295:                                              ; preds = %293
-  %.b661 = load i1, ptr @tjErrorCode, align 4
+  %.b660 = load i1, ptr @tjErrorCode, align 4
   %296 = load i32, ptr @tjErrorLine, align 4
   %297 = icmp eq i32 %296, 688
-  %or.cond43.not = select i1 %.b661, i1 %297, i1 false
+  %or.cond43.not = select i1 %.b660, i1 %297, i1 false
   br i1 %or.cond43.not, label %304, label %298
 
 298:                                              ; preds = %295, %293
@@ -2546,7 +2546,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 301:                                              ; preds = %287
   %302 = select i1 %292, ptr @.str.75, ptr @.str.76
   %303 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %302, i32 noundef 688, ptr noundef %289)
-  br label %.thread756
+  br label %.thread755
 
 304:                                              ; preds = %295, %298, %283
   %305 = tail call i32 @tj3Get(ptr noundef nonnull %57, i32 noundef 15) #21
@@ -2563,7 +2563,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 312:                                              ; preds = %304
   %313 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 694, ptr noundef nonnull @.str.185, ptr noundef nonnull @.str.186)
-  br label %.thread756
+  br label %.thread755
 
 314:                                              ; preds = %304
   %315 = add i32 %309, -3
@@ -2577,10 +2577,10 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 317:                                              ; preds = %314, %316
   %.0559 = phi i32 [ 4, %316 ], [ %9, %314 ]
   %318 = load i32, ptr @lossless, align 4
-  %.not695 = icmp eq i32 %318, 0
-  br i1 %.not695, label %._crit_edge894, label %319
+  %.not694 = icmp eq i32 %318, 0
+  br i1 %.not694, label %._crit_edge893, label %319
 
-._crit_edge894:                                   ; preds = %317
+._crit_edge893:                                   ; preds = %317
   %.pre = load i64, ptr @sf, align 8
   br label %320
 
@@ -2588,8 +2588,8 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   store i64 4294967297, ptr @sf, align 8
   br label %320
 
-320:                                              ; preds = %._crit_edge894, %319
-  %321 = phi i64 [ %.pre, %._crit_edge894 ], [ 4294967297, %319 ]
+320:                                              ; preds = %._crit_edge893, %319
+  %321 = phi i64 [ %.pre, %._crit_edge893 ], [ 4294967297, %319 ]
   %322 = tail call i32 @tj3SetScalingFactor(ptr noundef nonnull %57, i64 %321) #21
   %323 = icmp eq i32 %322, -1
   br i1 %323, label %324, label %341
@@ -2605,14 +2605,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 330:                                              ; preds = %324
   %331 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %326, i64 noundef 200) #22
-  %.not696 = icmp eq i32 %331, 0
-  br i1 %.not696, label %332, label %335
+  %.not695 = icmp eq i32 %331, 0
+  br i1 %.not695, label %332, label %335
 
 332:                                              ; preds = %330
-  %.b660 = load i1, ptr @tjErrorCode, align 4
+  %.b659 = load i1, ptr @tjErrorCode, align 4
   %333 = load i32, ptr @tjErrorLine, align 4
   %334 = icmp eq i32 %333, 701
-  %or.cond51.not = select i1 %.b660, i1 %334, i1 false
+  %or.cond51.not = select i1 %.b659, i1 %334, i1 false
   br i1 %or.cond51.not, label %341, label %335
 
 335:                                              ; preds = %332, %330
@@ -2626,7 +2626,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 338:                                              ; preds = %324
   %339 = select i1 %329, ptr @.str.75, ptr @.str.76
   %340 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %339, i32 noundef 701, ptr noundef %326)
-  br label %.thread756
+  br label %.thread755
 
 341:                                              ; preds = %332, %335, %320
   %342 = load i64, ptr @cr, align 16
@@ -2646,14 +2646,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 352:                                              ; preds = %346
   %353 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %348, i64 noundef 200) #22
-  %.not698 = icmp eq i32 %353, 0
-  br i1 %.not698, label %354, label %357
+  %.not697 = icmp eq i32 %353, 0
+  br i1 %.not697, label %354, label %357
 
 354:                                              ; preds = %352
-  %.b659 = load i1, ptr @tjErrorCode, align 4
+  %.b658 = load i1, ptr @tjErrorCode, align 4
   %355 = load i32, ptr @tjErrorLine, align 4
   %356 = icmp eq i32 %355, 703
-  %or.cond55.not = select i1 %.b659, i1 %356, i1 false
+  %or.cond55.not = select i1 %.b658, i1 %356, i1 false
   br i1 %or.cond55.not, label %363, label %357
 
 357:                                              ; preds = %354, %352
@@ -2667,7 +2667,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 360:                                              ; preds = %346
   %361 = select i1 %351, ptr @.str.75, ptr @.str.76
   %362 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %361, i32 noundef 703, ptr noundef %348)
-  br label %.thread756
+  br label %.thread755
 
 363:                                              ; preds = %354, %357, %341
   %364 = load i32, ptr @quiet, align 4
@@ -2677,12 +2677,12 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   ]
 
 365:                                              ; preds = %363
-  %puts701 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.98)
-  %.b644 = load i1, ptr @doTile, align 4
-  %366 = select i1 %.b644, ptr @.str.79, ptr @.str.80
+  %puts700 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.98)
+  %.b643 = load i1, ptr @doTile, align 4
+  %366 = select i1 %.b643, ptr @.str.79, ptr @.str.80
   %367 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.187, ptr noundef nonnull %366, ptr noundef nonnull %366)
-  %.b655 = load i1, ptr @doYUV, align 4
-  br i1 %.b655, label %368, label %370
+  %.b654 = load i1, ptr @doYUV, align 4
+  br i1 %.b654, label %368, label %370
 
 368:                                              ; preds = %365
   %369 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.83)
@@ -2691,15 +2691,15 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 370:                                              ; preds = %368, %365
   %putchar = tail call i32 @putchar(i32 10)
   %371 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.188)
-  %.b654 = load i1, ptr @doYUV, align 4
-  br i1 %.b654, label %372, label %374
+  %.b653 = load i1, ptr @doYUV, align 4
+  br i1 %.b653, label %372, label %374
 
 372:                                              ; preds = %370
   %373 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.89)
   br label %374
 
 374:                                              ; preds = %372, %370
-  %puts702 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.99)
+  %puts701 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.99)
   br label %384
 
 375:                                              ; preds = %363
@@ -2709,14 +2709,14 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %379 = sext i32 %378 to i64
   %380 = getelementptr inbounds [12 x ptr], ptr @pixFormatStr, i64 0, i64 %379
   %381 = load ptr, ptr %380, align 8
-  %.b650 = load i1, ptr @bottomUp, align 4
-  %382 = select i1 %.b650, ptr @.str.190, ptr @.str.191
+  %.b649 = load i1, ptr @bottomUp, align 4
+  %382 = select i1 %.b649, ptr @.str.190, ptr @.str.191
   %383 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.189, i32 noundef %376, ptr noundef %377, ptr noundef %381, ptr noundef nonnull %382)
   br label %384
 
 384:                                              ; preds = %363, %375, %374
-  %.b643 = load i1, ptr @doTile, align 4
-  br i1 %.b643, label %385, label %395
+  %.b642 = load i1, ptr @doTile, align 4
+  br i1 %.b642, label %385, label %395
 
 385:                                              ; preds = %384
   %386 = icmp eq i32 %.fr, -1
@@ -2724,7 +2724,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 387:                                              ; preds = %385
   %388 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 722, ptr noundef nonnull @.str.192, ptr noundef nonnull @.str.193)
-  br label %.thread756
+  br label %.thread755
 
 389:                                              ; preds = %385
   %390 = sext i32 %.fr to i64
@@ -2762,8 +2762,8 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %412 = shl nsw i64 %411, 3
   %413 = sext i32 %410 to i64
   %414 = mul i64 %412, %413
-  %calloc910 = call ptr @calloc(i64 1, i64 %414)
-  %415 = icmp eq ptr %calloc910, null
+  %calloc909 = call ptr @calloc(i64 1, i64 %414)
+  %415 = icmp eq ptr %calloc909, null
   br i1 %415, label %416, label %421
 
 416:                                              ; preds = %406
@@ -2771,7 +2771,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %418 = load i32, ptr %417, align 4
   %419 = call ptr @strerror(i32 noundef %418) #21
   %420 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 734, ptr noundef nonnull @.str.194, ptr noundef %419)
-  br label %.thread756
+  br label %.thread755
 
 421:                                              ; preds = %406
   %calloc = call ptr @calloc(i64 1, i64 %414)
@@ -2783,31 +2783,31 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %425 = load i32, ptr %424, align 4
   %426 = call ptr @strerror(i32 noundef %425) #21
   %427 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 738, ptr noundef nonnull @.str.195, ptr noundef %426)
-  br label %.loopexit769
+  br label %.loopexit768
 
 428:                                              ; preds = %421
-  %.b652 = load i1, ptr @noRealloc, align 4
-  br i1 %.b652, label %.loopexit, label %429
+  %.b651 = load i1, ptr @noRealloc, align 4
+  br i1 %.b651, label %.loopexit, label %429
 
 429:                                              ; preds = %428
-  %.b641 = load i1, ptr @doTile, align 4
+  %.b640 = load i1, ptr @doTile, align 4
   %430 = load i32, ptr @xformOp, align 4
   %431 = icmp ne i32 %430, 0
-  %or.cond57 = select i1 %.b641, i1 true, i1 %431
+  %or.cond57 = select i1 %.b640, i1 true, i1 %431
   %432 = load i32, ptr @xformOpt, align 4
   %433 = icmp ne i32 %432, 0
   %or.cond59 = select i1 %or.cond57, i1 true, i1 %433
   %434 = load ptr, ptr @customFilter, align 8
   %435 = icmp ne ptr %434, null
   %or.cond61 = select i1 %or.cond59, i1 true, i1 %435
-  br i1 %or.cond61, label %.preheader768, label %.loopexit
+  br i1 %or.cond61, label %.preheader767, label %.loopexit
 
-.preheader768:                                    ; preds = %429
+.preheader767:                                    ; preds = %429
   %436 = mul nsw i32 %410, %408
   %437 = icmp sgt i32 %436, 0
   br i1 %437, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %.preheader768
+.lr.ph.preheader:                                 ; preds = %.preheader767
   %wide.trip.count = zext nneg i32 %436 to i64
   br label %.lr.ph
 
@@ -2842,11 +2842,11 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 446:                                              ; preds = %444
   %447 = call ptr @tj3GetErrorStr(ptr noundef null) #21
   %448 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.72, i32 noundef 752, ptr noundef %447)
-  br label %.loopexit769
+  br label %.loopexit768
 
 449:                                              ; preds = %444
   %450 = call ptr @tj3Alloc(i64 noundef %.0551) #21
-  %451 = getelementptr inbounds ptr, ptr %calloc910, i64 %indvars.iv
+  %451 = getelementptr inbounds ptr, ptr %calloc909, i64 %indvars.iv
   store ptr %450, ptr %451, align 8
   %452 = icmp eq ptr %450, null
   br i1 %452, label %453, label %438
@@ -2856,9 +2856,9 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %455 = load i32, ptr %454, align 4
   %456 = call ptr @strerror(i32 noundef %455) #21
   %457 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 754, ptr noundef nonnull @.str.196, ptr noundef %456)
-  br label %.loopexit769
+  br label %.loopexit768
 
-.loopexit:                                        ; preds = %438, %.preheader768, %429, %428
+.loopexit:                                        ; preds = %438, %.preheader767, %429, %428
   %458 = load i32, ptr @quiet, align 4
   switch i32 %458, label %550 [
     i32 0, label %459
@@ -2866,8 +2866,8 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   ]
 
 459:                                              ; preds = %.loopexit
-  %.b640 = load i1, ptr @doTile, align 4
-  %460 = select i1 %.b640, ptr @.str.198, ptr @.str.80
+  %.b639 = load i1, ptr @doTile, align 4
+  %460 = select i1 %.b639, ptr @.str.198, ptr @.str.80
   %461 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.197, ptr noundef nonnull %460, i32 noundef %spec.select, i32 noundef %.1577)
   %462 = load i32, ptr @sf, align 8
   %463 = icmp ne i32 %462, 1
@@ -2934,7 +2934,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   br label %501
 
 501:                                              ; preds = %459, %497
-  %putchar704 = call i32 @putchar(i32 10)
+  %putchar703 = call i32 @putchar(i32 10)
   br label %550
 
 502:                                              ; preds = %.loopexit
@@ -2942,8 +2942,8 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %504 = sext i32 %503 to i64
   %505 = getelementptr inbounds [12 x ptr], ptr @pixFormatStr, i64 0, i64 %504
   %506 = load ptr, ptr %505, align 8
-  %.b649 = load i1, ptr @bottomUp, align 4
-  %507 = select i1 %.b649, ptr @.str.201, ptr @.str.202
+  %.b648 = load i1, ptr @bottomUp, align 4
+  %507 = select i1 %.b648, ptr @.str.201, ptr @.str.202
   %508 = call fastcc ptr @formatName(i32 noundef %.fr, i32 noundef %309, ptr noundef nonnull %4)
   %509 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.200, ptr noundef %506, ptr noundef nonnull %507, ptr noundef %508)
   %510 = load i32, ptr @cr, align 16
@@ -2973,7 +2973,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   br label %527
 
 527:                                              ; preds = %518, %519
-  %.ph721 = phi i32 [ %514, %518 ], [ %526, %519 ]
+  %.ph720 = phi i32 [ %514, %518 ], [ %526, %519 ]
   br i1 %517, label %546, label %528
 
 528:                                              ; preds = %527
@@ -2999,7 +2999,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   br label %546
 
 546:                                              ; preds = %527, %528, %536
-  %547 = phi i32 [ %542, %536 ], [ %.ph721, %528 ], [ %.ph721, %527 ]
+  %547 = phi i32 [ %542, %536 ], [ %.ph720, %528 ], [ %.ph720, %527 ]
   %548 = phi i32 [ %545, %536 ], [ %535, %528 ], [ %516, %527 ]
   %549 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.203, i32 noundef %547, i32 noundef %548)
   br label %550
@@ -3029,7 +3029,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %564 = load i32, ptr %563, align 4
   %565 = call ptr @strerror(i32 noundef %564) #21
   %566 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 774, ptr noundef nonnull @.str.204, ptr noundef %565)
-  br label %.loopexit769
+  br label %.loopexit768
 
 567:                                              ; preds = %557
   switch i32 %551, label %569 [
@@ -3057,19 +3057,19 @@ switch.early.test:                                ; preds = %569
 
 570:                                              ; preds = %switch.early.test
   %571 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef 784, ptr noundef nonnull @.str.192, ptr noundef nonnull @.str.193)
-  br label %.loopexit769
+  br label %.loopexit768
 
 572:                                              ; preds = %switch.early.test, %switch.early.test, %569
   %573 = and i32 %553, 8
-  %.not705 = icmp eq i32 %573, 0
-  %spec.select716 = select i1 %.not705, i32 %.fr, i32 3
+  %.not704 = icmp eq i32 %573, 0
+  %spec.select715 = select i1 %.not704, i32 %.fr, i32 3
   switch i32 %551, label %580 [
     i32 6, label %574
     i32 1, label %574
   ]
 
 574:                                              ; preds = %572, %572
-  %575 = sext i32 %spec.select716 to i64
+  %575 = sext i32 %spec.select715 to i64
   %576 = getelementptr inbounds [7 x i32], ptr @tjMCUWidth, i64 0, i64 %575
   %577 = load i32, ptr %576, align 4
   %578 = srem i32 %.0580, %577
@@ -3083,7 +3083,7 @@ switch.early.test:                                ; preds = %569
   br i1 %or.cond121, label %582, label %588
 
 582:                                              ; preds = %580
-  %583 = sext i32 %spec.select716 to i64
+  %583 = sext i32 %spec.select715 to i64
   %584 = getelementptr inbounds [7 x i32], ptr @tjMCUHeight, i64 0, i64 %583
   %585 = load i32, ptr %584, align 4
   %586 = srem i32 %.0583, %585
@@ -3097,7 +3097,7 @@ switch.early.test:                                ; preds = %569
   br i1 %or.cond123, label %590, label %596
 
 590:                                              ; preds = %588
-  %591 = sext i32 %spec.select716 to i64
+  %591 = sext i32 %spec.select715 to i64
   %592 = getelementptr inbounds [7 x i32], ptr @tjMCUHeight, i64 0, i64 %591
   %593 = load i32, ptr %592, align 4
   %594 = srem i32 %.1581, %593
@@ -3112,7 +3112,7 @@ switch.early.test:                                ; preds = %569
   ]
 
 597:                                              ; preds = %596, %596
-  %598 = sext i32 %spec.select716 to i64
+  %598 = sext i32 %spec.select715 to i64
   %599 = getelementptr inbounds [7 x i32], ptr @tjMCUWidth, i64 0, i64 %598
   %600 = load i32, ptr %599, align 4
   %601 = srem i32 %.1584, %600
@@ -3135,7 +3135,7 @@ switch.early.test:                                ; preds = %569
   ]
 
 610:                                              ; preds = %603, %603, %603, %603
-  switch i32 %spec.select716, label %613 [
+  switch i32 %spec.select715, label %613 [
     i32 1, label %615
     i32 4, label %611
     i32 5, label %612
@@ -3148,43 +3148,43 @@ switch.early.test:                                ; preds = %569
   br label %615
 
 613:                                              ; preds = %610
-  %614 = icmp eq i32 %spec.select716, 6
-  %spec.store.select = select i1 %614, i32 5, i32 %spec.select716
+  %614 = icmp eq i32 %spec.select715, 6
+  %spec.store.select = select i1 %614, i32 5, i32 %spec.select715
   br label %615
 
 615:                                              ; preds = %610, %603, %612, %613, %611
-  %.1591 = phi i32 [ 1, %611 ], [ 6, %612 ], [ %spec.store.select, %613 ], [ %spec.select716, %603 ], [ 4, %610 ]
+  %.1591 = phi i32 [ 1, %611 ], [ 6, %612 ], [ %spec.store.select, %613 ], [ %spec.select715, %603 ], [ 4, %610 ]
   %616 = icmp sgt i32 %609, 0
   %617 = icmp sgt i32 %606, 0
-  %or.cond953 = select i1 %616, i1 %617, i1 false
-  br i1 %or.cond953, label %.preheader.us, label %.preheader767
+  %or.cond952 = select i1 %616, i1 %617, i1 false
+  br i1 %or.cond952, label %.preheader.us, label %.preheader766
 
 .preheader.us:                                    ; preds = %615, %._crit_edge.us
-  %.pre900 = phi ptr [ %.pre900907, %._crit_edge.us ], [ %555, %615 ]
-  %.pre898 = phi i32 [ %.pre898904, %._crit_edge.us ], [ %553, %615 ]
-  %.pre896 = phi i32 [ %.pre896901, %._crit_edge.us ], [ %551, %615 ]
-  %.0560818.us = phi i64 [ %indvars.iv.next875, %._crit_edge.us ], [ 0, %615 ]
-  %.0563817.us = phi i32 [ %646, %._crit_edge.us ], [ 0, %615 ]
-  %618 = mul nsw i32 %.0563817.us, %.0593
+  %.pre899 = phi ptr [ %.pre899906, %._crit_edge.us ], [ %555, %615 ]
+  %.pre897 = phi i32 [ %.pre897903, %._crit_edge.us ], [ %553, %615 ]
+  %.pre895 = phi i32 [ %.pre895900, %._crit_edge.us ], [ %551, %615 ]
+  %.0560817.us = phi i64 [ %indvars.iv.next874, %._crit_edge.us ], [ 0, %615 ]
+  %.0563816.us = phi i32 [ %646, %._crit_edge.us ], [ 0, %615 ]
+  %618 = mul nsw i32 %.0563816.us, %.0593
   %619 = sub nsw i32 %.2585, %618
   %620 = call i32 @llvm.smin.i32(i32 %.0593, i32 %619)
-  %sext = shl i64 %.0560818.us, 32
+  %sext = shl i64 %.0560817.us, 32
   %621 = ashr exact i64 %sext, 32
   br label %622
 
 622:                                              ; preds = %.preheader.us, %641
-  %.pre900908 = phi ptr [ %.pre900, %.preheader.us ], [ %.pre900907, %641 ]
-  %.pre898905 = phi i32 [ %.pre898, %.preheader.us ], [ %.pre898904, %641 ]
-  %.pre896902 = phi i32 [ %.pre896, %.preheader.us ], [ %.pre896901, %641 ]
-  %623 = phi ptr [ %.pre900, %.preheader.us ], [ %642, %641 ]
-  %624 = phi i32 [ %.pre898, %.preheader.us ], [ %643, %641 ]
-  %625 = phi i32 [ %.pre896, %.preheader.us ], [ %644, %641 ]
-  %indvars.iv874 = phi i64 [ %621, %.preheader.us ], [ %indvars.iv.next875, %641 ]
-  %.0564814.us = phi i32 [ 0, %.preheader.us ], [ %645, %641 ]
-  %626 = mul nsw i32 %.0564814.us, %.0587
+  %.pre899907 = phi ptr [ %.pre899, %.preheader.us ], [ %.pre899906, %641 ]
+  %.pre897904 = phi i32 [ %.pre897, %.preheader.us ], [ %.pre897903, %641 ]
+  %.pre895901 = phi i32 [ %.pre895, %.preheader.us ], [ %.pre895900, %641 ]
+  %623 = phi ptr [ %.pre899, %.preheader.us ], [ %642, %641 ]
+  %624 = phi i32 [ %.pre897, %.preheader.us ], [ %643, %641 ]
+  %625 = phi i32 [ %.pre895, %.preheader.us ], [ %644, %641 ]
+  %indvars.iv873 = phi i64 [ %621, %.preheader.us ], [ %indvars.iv.next874, %641 ]
+  %.0564813.us = phi i32 [ 0, %.preheader.us ], [ %645, %641 ]
+  %626 = mul nsw i32 %.0564813.us, %.0587
   %627 = sub nsw i32 %.2582, %626
   %.0587..us = call i32 @llvm.smin.i32(i32 %.0587, i32 %627)
-  %628 = getelementptr inbounds %struct.tjtransform, ptr %560, i64 %indvars.iv874
+  %628 = getelementptr inbounds %struct.tjtransform, ptr %560, i64 %indvars.iv873
   %629 = getelementptr inbounds i8, ptr %628, i64 8
   store i32 %.0587..us, ptr %629, align 8
   %630 = getelementptr inbounds i8, ptr %628, i64 12
@@ -3200,54 +3200,54 @@ switch.early.test:                                ; preds = %569
   %635 = getelementptr inbounds i8, ptr %628, i64 32
   store ptr %623, ptr %635, align 8
   %636 = and i32 %624, 16
-  %.not712.us = icmp eq i32 %636, 0
-  br i1 %.not712.us, label %641, label %637
+  %.not711.us = icmp eq i32 %636, 0
+  br i1 %.not711.us, label %641, label %637
 
 637:                                              ; preds = %622
-  %638 = getelementptr inbounds ptr, ptr %calloc910, i64 %indvars.iv874
+  %638 = getelementptr inbounds ptr, ptr %calloc909, i64 %indvars.iv873
   %639 = load ptr, ptr %638, align 8
-  %.not713.us = icmp eq ptr %639, null
-  br i1 %.not713.us, label %641, label %640
+  %.not712.us = icmp eq ptr %639, null
+  br i1 %.not712.us, label %641, label %640
 
 640:                                              ; preds = %637
   call void @tj3Free(ptr noundef nonnull %639) #21
   store ptr null, ptr %638, align 8
-  %.pre895 = load i32, ptr @xformOp, align 4
-  %.pre897 = load i32, ptr @xformOpt, align 4
-  %.pre899 = load ptr, ptr @customFilter, align 8
+  %.pre894 = load i32, ptr @xformOp, align 4
+  %.pre896 = load i32, ptr @xformOpt, align 4
+  %.pre898 = load ptr, ptr @customFilter, align 8
   br label %641
 
 641:                                              ; preds = %640, %637, %622
-  %.pre900907 = phi ptr [ %.pre899, %640 ], [ %.pre900908, %637 ], [ %.pre900908, %622 ]
-  %.pre898904 = phi i32 [ %.pre897, %640 ], [ %.pre898905, %637 ], [ %.pre898905, %622 ]
-  %.pre896901 = phi i32 [ %.pre895, %640 ], [ %.pre896902, %637 ], [ %.pre896902, %622 ]
-  %642 = phi ptr [ %.pre899, %640 ], [ %623, %637 ], [ %623, %622 ]
-  %643 = phi i32 [ %.pre897, %640 ], [ %624, %637 ], [ %624, %622 ]
-  %644 = phi i32 [ %.pre895, %640 ], [ %625, %637 ], [ %625, %622 ]
-  %645 = add nuw nsw i32 %.0564814.us, 1
-  %indvars.iv.next875 = add nsw i64 %indvars.iv874, 1
-  %exitcond877.not = icmp eq i32 %645, %606
-  br i1 %exitcond877.not, label %._crit_edge.us, label %622, !llvm.loop !16
+  %.pre899906 = phi ptr [ %.pre898, %640 ], [ %.pre899907, %637 ], [ %.pre899907, %622 ]
+  %.pre897903 = phi i32 [ %.pre896, %640 ], [ %.pre897904, %637 ], [ %.pre897904, %622 ]
+  %.pre895900 = phi i32 [ %.pre894, %640 ], [ %.pre895901, %637 ], [ %.pre895901, %622 ]
+  %642 = phi ptr [ %.pre898, %640 ], [ %623, %637 ], [ %623, %622 ]
+  %643 = phi i32 [ %.pre896, %640 ], [ %624, %637 ], [ %624, %622 ]
+  %644 = phi i32 [ %.pre894, %640 ], [ %625, %637 ], [ %625, %622 ]
+  %645 = add nuw nsw i32 %.0564813.us, 1
+  %indvars.iv.next874 = add nsw i64 %indvars.iv873, 1
+  %exitcond876.not = icmp eq i32 %645, %606
+  br i1 %exitcond876.not, label %._crit_edge.us, label %622, !llvm.loop !16
 
 ._crit_edge.us:                                   ; preds = %641
-  %646 = add nuw nsw i32 %.0563817.us, 1
-  %exitcond878.not = icmp eq i32 %646, %609
-  br i1 %exitcond878.not, label %.preheader767, label %.preheader.us, !llvm.loop !17
+  %646 = add nuw nsw i32 %.0563816.us, 1
+  %exitcond877.not = icmp eq i32 %646, %609
+  br i1 %exitcond877.not, label %.preheader766, label %.preheader.us, !llvm.loop !17
 
-.preheader767:                                    ; preds = %._crit_edge.us, %615
+.preheader766:                                    ; preds = %._crit_edge.us, %615
   %647 = mul i32 %609, %606
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %.preheader767
-  %.0568.ph = phi i32 [ -1, %.preheader767 ], [ %.0568.ph.be, %.outer.backedge ]
-  %.0557.ph = phi double [ 0.000000e+00, %.preheader767 ], [ %.0557.ph.be, %.outer.backedge ]
+.outer:                                           ; preds = %.outer.backedge, %.preheader766
+  %.0568.ph = phi i32 [ -1, %.preheader766 ], [ %.0568.ph.be, %.outer.backedge ]
+  %.0557.ph = phi double [ 0.000000e+00, %.preheader766 ], [ %.0557.ph.be, %.outer.backedge ]
   %648 = icmp sgt i32 %.0568.ph, -1
   br label %649
 
 649:                                              ; preds = %.outer, %678
   %.0557 = phi double [ %673, %678 ], [ %.0557.ph, %.outer ]
   %650 = call double @getTime() #21
-  %651 = call i32 @tj3Transform(ptr noundef %57, ptr noundef nonnull %29, i64 noundef %21, i32 noundef %647, ptr noundef nonnull %calloc910, ptr noundef nonnull %calloc, ptr noundef nonnull %560) #21
+  %651 = call i32 @tj3Transform(ptr noundef %57, ptr noundef nonnull %29, i64 noundef %21, i32 noundef %647, ptr noundef nonnull %calloc909, ptr noundef nonnull %calloc, ptr noundef nonnull %560) #21
   %652 = icmp eq i32 %651, -1
   br i1 %652, label %653, label %670
 
@@ -3262,14 +3262,14 @@ switch.early.test:                                ; preds = %569
 
 659:                                              ; preds = %653
   %660 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) @tjErrorStr, ptr noundef nonnull dereferenceable(1) %655, i64 noundef 200) #22
-  %.not706 = icmp eq i32 %660, 0
-  br i1 %.not706, label %661, label %664
+  %.not705 = icmp eq i32 %660, 0
+  br i1 %.not705, label %661, label %664
 
 661:                                              ; preds = %659
-  %.b658 = load i1, ptr @tjErrorCode, align 4
+  %.b657 = load i1, ptr @tjErrorCode, align 4
   %662 = load i32, ptr @tjErrorLine, align 4
   %663 = icmp eq i32 %662, 826
-  %or.cond135.not = select i1 %.b658, i1 %663, i1 false
+  %or.cond135.not = select i1 %.b657, i1 %663, i1 false
   br i1 %or.cond135.not, label %670, label %664
 
 664:                                              ; preds = %661, %659
@@ -3283,7 +3283,7 @@ switch.early.test:                                ; preds = %569
 667:                                              ; preds = %653
   %668 = select i1 %658, ptr @.str.75, ptr @.str.76
   %669 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.74, ptr noundef nonnull %668, i32 noundef 826, ptr noundef %655)
-  br label %.loopexit769
+  br label %.loopexit768
 
 670:                                              ; preds = %661, %664, %649
   %671 = call double @getTime() #21
@@ -3310,27 +3310,27 @@ switch.early.test:                                ; preds = %569
 681:                                              ; preds = %674
   call void @free(ptr noundef %560) #21
   %682 = icmp sgt i32 %647, 0
-  br i1 %682, label %.lr.ph821.preheader, label %._crit_edge
+  br i1 %682, label %.lr.ph820.preheader, label %._crit_edge
 
-.lr.ph821.preheader:                              ; preds = %681
-  %wide.trip.count882 = zext nneg i32 %647 to i64
-  br label %.lr.ph821
+.lr.ph820.preheader:                              ; preds = %681
+  %wide.trip.count881 = zext nneg i32 %647 to i64
+  br label %.lr.ph820
 
-.lr.ph821:                                        ; preds = %.lr.ph821.preheader, %.lr.ph821
-  %indvars.iv879 = phi i64 [ 0, %.lr.ph821.preheader ], [ %indvars.iv.next880, %.lr.ph821 ]
-  %.0554820 = phi i64 [ 0, %.lr.ph821.preheader ], [ %685, %.lr.ph821 ]
-  %683 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv879
+.lr.ph820:                                        ; preds = %.lr.ph820.preheader, %.lr.ph820
+  %indvars.iv878 = phi i64 [ 0, %.lr.ph820.preheader ], [ %indvars.iv.next879, %.lr.ph820 ]
+  %.0554819 = phi i64 [ 0, %.lr.ph820.preheader ], [ %685, %.lr.ph820 ]
+  %683 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv878
   %684 = load i64, ptr %683, align 8
-  %685 = add i64 %684, %.0554820
-  %indvars.iv.next880 = add nuw nsw i64 %indvars.iv879, 1
-  %exitcond883.not = icmp eq i64 %indvars.iv.next880, %wide.trip.count882
-  br i1 %exitcond883.not, label %._crit_edge, label %.lr.ph821, !llvm.loop !18
+  %685 = add i64 %684, %.0554819
+  %indvars.iv.next879 = add nuw nsw i64 %indvars.iv878, 1
+  %exitcond882.not = icmp eq i64 %indvars.iv.next879, %wide.trip.count881
+  br i1 %exitcond882.not, label %._crit_edge, label %.lr.ph820, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.lr.ph821, %681
-  %.0554.lcssa = phi i64 [ 0, %681 ], [ %685, %.lr.ph821 ]
+._crit_edge:                                      ; preds = %.lr.ph820, %681
+  %.0554.lcssa = phi i64 [ 0, %681 ], [ %685, %.lr.ph820 ]
   %686 = load i32, ptr @quiet, align 4
-  %.not708 = icmp eq i32 %686, 0
-  br i1 %.not708, label %700, label %687
+  %.not707 = icmp eq i32 %686, 0
+  br i1 %.not707, label %700, label %687
 
 687:                                              ; preds = %._crit_edge
   %688 = fdiv double %403, %673
@@ -3372,9 +3372,9 @@ switch.early.test:                                ; preds = %569
   br label %718
 
 718:                                              ; preds = %716, %713
-  %719 = load ptr, ptr %calloc910, align 8
+  %719 = load ptr, ptr %calloc909, align 8
   call void @tj3Free(ptr noundef %719) #21
-  store ptr null, ptr %calloc910, align 8
+  store ptr null, ptr %calloc909, align 8
   br label %720
 
 720:                                              ; preds = %687, %700, %718
@@ -3384,22 +3384,22 @@ switch.early.test:                                ; preds = %569
   %.3586 = phi i32 [ %.2585, %687 ], [ %.2585, %700 ], [ %252, %718 ]
   %.3 = phi i32 [ %.2582, %687 ], [ %.2582, %700 ], [ %251, %718 ]
   %.1572 = phi i32 [ %.0571, %687 ], [ %.0571, %700 ], [ 1, %718 ]
-  %.not765 = icmp sgt i32 %251, %.0574
-  %.not766 = icmp sgt i32 %252, %.0576
+  %.not764 = icmp sgt i32 %251, %.0574
+  %.not765 = icmp sgt i32 %252, %.0576
   %721 = load i32, ptr @xformOpt, align 4
   %722 = and i32 %721, 16
-  %.not709 = icmp eq i32 %722, 0
-  br i1 %.not709, label %723, label %728
+  %.not708 = icmp eq i32 %722, 0
+  br i1 %.not708, label %723, label %728
 
 723:                                              ; preds = %720
-  %.2595 = select i1 %.not766, i32 %.1594, i32 %.3586
-  %spec.select717 = select i1 %.not765, i32 %.1588, i32 %.3
-  %.not710 = icmp eq i32 %.1572, 0
-  %724 = select i1 %.not710, ptr %calloc910, ptr %2
-  %725 = select i1 %.not710, ptr %calloc, ptr %3
-  %726 = call fastcc i32 @decomp(ptr noundef nonnull %724, ptr noundef nonnull %725, ptr noundef null, i32 noundef %.3, i32 noundef %.3586, i32 noundef %.2592, i32 noundef 0, ptr noundef %0, i32 noundef %spec.select717, i32 noundef %.2595)
+  %.2595 = select i1 %.not765, i32 %.1594, i32 %.3586
+  %spec.select716 = select i1 %.not764, i32 %.1588, i32 %.3
+  %.not709 = icmp eq i32 %.1572, 0
+  %724 = select i1 %.not709, ptr %calloc909, ptr %2
+  %725 = select i1 %.not709, ptr %calloc, ptr %3
+  %726 = call fastcc i32 @decomp(ptr noundef nonnull %724, ptr noundef nonnull %725, ptr noundef null, i32 noundef %.3, i32 noundef %.3586, i32 noundef %.2592, i32 noundef 0, ptr noundef %0, i32 noundef %spec.select716, i32 noundef %.2595)
   %727 = icmp eq i32 %726, -1
-  br i1 %727, label %.loopexit769, label %732
+  br i1 %727, label %.loopexit768, label %732
 
 728:                                              ; preds = %720
   %729 = load i32, ptr @quiet, align 4
@@ -3407,73 +3407,73 @@ switch.early.test:                                ; preds = %569
   br i1 %730, label %731, label %732
 
 731:                                              ; preds = %728
-  %puts711 = call i32 @puts(ptr nonnull dereferenceable(1) @str.101)
+  %puts710 = call i32 @puts(ptr nonnull dereferenceable(1) @str.101)
   br label %732
 
 732:                                              ; preds = %728, %731, %723
   %733 = mul nsw i32 %410, %408
   %734 = icmp sgt i32 %733, 0
-  br i1 %734, label %.lr.ph824.preheader, label %._crit_edge825
+  br i1 %734, label %.lr.ph823.preheader, label %._crit_edge824
 
-.lr.ph824.preheader:                              ; preds = %732
-  %wide.trip.count887 = zext nneg i32 %733 to i64
-  br label %.lr.ph824
+.lr.ph823.preheader:                              ; preds = %732
+  %wide.trip.count886 = zext nneg i32 %733 to i64
+  br label %.lr.ph823
 
-.lr.ph824:                                        ; preds = %.lr.ph824.preheader, %.lr.ph824
-  %indvars.iv884 = phi i64 [ 0, %.lr.ph824.preheader ], [ %indvars.iv.next885, %.lr.ph824 ]
-  %735 = getelementptr inbounds ptr, ptr %calloc910, i64 %indvars.iv884
+.lr.ph823:                                        ; preds = %.lr.ph823.preheader, %.lr.ph823
+  %indvars.iv883 = phi i64 [ 0, %.lr.ph823.preheader ], [ %indvars.iv.next884, %.lr.ph823 ]
+  %735 = getelementptr inbounds ptr, ptr %calloc909, i64 %indvars.iv883
   %736 = load ptr, ptr %735, align 8
   call void @tj3Free(ptr noundef %736) #21
   store ptr null, ptr %735, align 8
-  %indvars.iv.next885 = add nuw nsw i64 %indvars.iv884, 1
-  %exitcond888.not = icmp eq i64 %indvars.iv.next885, %wide.trip.count887
-  br i1 %exitcond888.not, label %._crit_edge825, label %.lr.ph824, !llvm.loop !19
+  %indvars.iv.next884 = add nuw nsw i64 %indvars.iv883, 1
+  %exitcond887.not = icmp eq i64 %indvars.iv.next884, %wide.trip.count886
+  br i1 %exitcond887.not, label %._crit_edge824, label %.lr.ph823, !llvm.loop !19
 
-._crit_edge825:                                   ; preds = %.lr.ph824, %732
-  call void @free(ptr noundef %calloc910) #21
+._crit_edge824:                                   ; preds = %.lr.ph823, %732
+  call void @free(ptr noundef %calloc909) #21
   call void @free(ptr noundef %calloc) #21
-  %brmerge = select i1 %.not765, i1 true, i1 %.not766
-  br i1 %brmerge, label %737, label %.thread756
+  %brmerge = select i1 %.not764, i1 true, i1 %.not765
+  br i1 %brmerge, label %737, label %.thread755
 
-737:                                              ; preds = %._crit_edge825
+737:                                              ; preds = %._crit_edge824
   %738 = shl nsw i32 %spec.select, 1
   %739 = shl nsw i32 %.1577, 1
   br label %406
 
-.thread741:                                       ; preds = %47, %39, %31, %23
+.thread740:                                       ; preds = %47, %39, %31, %23
   %740 = tail call i32 @fclose(ptr noundef nonnull %10)
-  br label %.thread756
+  br label %.thread755
 
-.loopexit769:                                     ; preds = %723, %423, %446, %453, %562, %570, %667
-  %.2.ph = phi ptr [ %560, %667 ], [ %560, %570 ], [ null, %562 ], [ null, %453 ], [ null, %446 ], [ null, %423 ], [ null, %723 ]
+.loopexit768:                                     ; preds = %723, %423, %446, %453, %562, %570, %667
+  %.0555.ph = phi ptr [ %560, %667 ], [ %560, %570 ], [ null, %562 ], [ null, %453 ], [ null, %446 ], [ null, %423 ], [ null, %723 ]
   %741 = mul nsw i32 %410, %408
   %742 = icmp sgt i32 %741, 0
-  br i1 %742, label %.lr.ph828.preheader, label %.thread756
+  br i1 %742, label %.lr.ph827.preheader, label %.thread755
 
-.lr.ph828.preheader:                              ; preds = %.loopexit769
-  %wide.trip.count892 = zext nneg i32 %741 to i64
-  br label %.lr.ph828
+.lr.ph827.preheader:                              ; preds = %.loopexit768
+  %wide.trip.count891 = zext nneg i32 %741 to i64
+  br label %.lr.ph827
 
-.lr.ph828:                                        ; preds = %.lr.ph828.preheader, %.lr.ph828
-  %indvars.iv889 = phi i64 [ 0, %.lr.ph828.preheader ], [ %indvars.iv.next890, %.lr.ph828 ]
-  %743 = getelementptr inbounds ptr, ptr %calloc910, i64 %indvars.iv889
+.lr.ph827:                                        ; preds = %.lr.ph827.preheader, %.lr.ph827
+  %indvars.iv888 = phi i64 [ 0, %.lr.ph827.preheader ], [ %indvars.iv.next889, %.lr.ph827 ]
+  %743 = getelementptr inbounds ptr, ptr %calloc909, i64 %indvars.iv888
   %744 = load ptr, ptr %743, align 8
   call void @tj3Free(ptr noundef %744) #21
-  %indvars.iv.next890 = add nuw nsw i64 %indvars.iv889, 1
-  %exitcond893.not = icmp eq i64 %indvars.iv.next890, %wide.trip.count892
-  br i1 %exitcond893.not, label %.thread756, label %.lr.ph828, !llvm.loop !20
+  %indvars.iv.next889 = add nuw nsw i64 %indvars.iv888, 1
+  %exitcond892.not = icmp eq i64 %indvars.iv.next889, %wide.trip.count891
+  br i1 %exitcond892.not, label %.thread755, label %.lr.ph827, !llvm.loop !20
 
-.thread756:                                       ; preds = %._crit_edge825, %.lr.ph828, %.loopexit769, %12, %59, %312, %387, %416, %360, %338, %301, %280, %247, %227, %206, %185, %164, %143, %122, %101, %80, %.thread741
-  %.2737753 = phi ptr [ null, %.thread741 ], [ null, %12 ], [ null, %59 ], [ null, %312 ], [ null, %387 ], [ null, %416 ], [ null, %360 ], [ null, %338 ], [ null, %301 ], [ null, %280 ], [ null, %247 ], [ null, %227 ], [ null, %206 ], [ null, %185 ], [ null, %164 ], [ null, %143 ], [ null, %122 ], [ null, %101 ], [ null, %80 ], [ %.2.ph, %.loopexit769 ], [ %.2.ph, %.lr.ph828 ], [ null, %._crit_edge825 ]
-  %.1738752 = phi ptr [ null, %.thread741 ], [ null, %12 ], [ null, %59 ], [ null, %312 ], [ null, %387 ], [ null, %416 ], [ null, %360 ], [ null, %338 ], [ null, %301 ], [ null, %280 ], [ null, %247 ], [ null, %227 ], [ null, %206 ], [ null, %185 ], [ null, %164 ], [ null, %143 ], [ null, %122 ], [ null, %101 ], [ null, %80 ], [ %calloc, %.loopexit769 ], [ %calloc, %.lr.ph828 ], [ null, %._crit_edge825 ]
-  %.0552739751 = phi ptr [ null, %.thread741 ], [ null, %12 ], [ null, %59 ], [ null, %312 ], [ null, %387 ], [ null, %416 ], [ null, %360 ], [ null, %338 ], [ null, %301 ], [ null, %280 ], [ null, %247 ], [ null, %227 ], [ null, %206 ], [ null, %185 ], [ null, %164 ], [ null, %143 ], [ null, %122 ], [ null, %101 ], [ null, %80 ], [ %calloc910, %.loopexit769 ], [ %calloc910, %.lr.ph828 ], [ null, %._crit_edge825 ]
-  %.0550740750 = phi ptr [ null, %.thread741 ], [ null, %12 ], [ null, %59 ], [ %57, %312 ], [ %57, %387 ], [ %57, %416 ], [ %57, %360 ], [ %57, %338 ], [ %57, %301 ], [ %57, %280 ], [ %57, %247 ], [ %57, %227 ], [ %57, %206 ], [ %57, %185 ], [ %57, %164 ], [ %57, %143 ], [ %57, %122 ], [ %57, %101 ], [ %57, %80 ], [ %57, %.loopexit769 ], [ %57, %.lr.ph828 ], [ %57, %._crit_edge825 ]
-  call void @free(ptr noundef %.0552739751) #21
-  call void @free(ptr noundef %.1738752) #21
+.thread755:                                       ; preds = %._crit_edge824, %.lr.ph827, %.loopexit768, %12, %59, %312, %387, %416, %360, %338, %301, %280, %247, %227, %206, %185, %164, %143, %122, %101, %80, %.thread740
+  %.0555736752 = phi ptr [ null, %.thread740 ], [ null, %12 ], [ null, %59 ], [ null, %312 ], [ null, %387 ], [ null, %416 ], [ null, %360 ], [ null, %338 ], [ null, %301 ], [ null, %280 ], [ null, %247 ], [ null, %227 ], [ null, %206 ], [ null, %185 ], [ null, %164 ], [ null, %143 ], [ null, %122 ], [ null, %101 ], [ null, %80 ], [ %.0555.ph, %.loopexit768 ], [ %.0555.ph, %.lr.ph827 ], [ null, %._crit_edge824 ]
+  %.0553737751 = phi ptr [ null, %.thread740 ], [ null, %12 ], [ null, %59 ], [ null, %312 ], [ null, %387 ], [ null, %416 ], [ null, %360 ], [ null, %338 ], [ null, %301 ], [ null, %280 ], [ null, %247 ], [ null, %227 ], [ null, %206 ], [ null, %185 ], [ null, %164 ], [ null, %143 ], [ null, %122 ], [ null, %101 ], [ null, %80 ], [ %calloc, %.loopexit768 ], [ %calloc, %.lr.ph827 ], [ null, %._crit_edge824 ]
+  %.0552738750 = phi ptr [ null, %.thread740 ], [ null, %12 ], [ null, %59 ], [ null, %312 ], [ null, %387 ], [ null, %416 ], [ null, %360 ], [ null, %338 ], [ null, %301 ], [ null, %280 ], [ null, %247 ], [ null, %227 ], [ null, %206 ], [ null, %185 ], [ null, %164 ], [ null, %143 ], [ null, %122 ], [ null, %101 ], [ null, %80 ], [ %calloc909, %.loopexit768 ], [ %calloc909, %.lr.ph827 ], [ null, %._crit_edge824 ]
+  %.0550739749 = phi ptr [ null, %.thread740 ], [ null, %12 ], [ null, %59 ], [ %57, %312 ], [ %57, %387 ], [ %57, %416 ], [ %57, %360 ], [ %57, %338 ], [ %57, %301 ], [ %57, %280 ], [ %57, %247 ], [ %57, %227 ], [ %57, %206 ], [ %57, %185 ], [ %57, %164 ], [ %57, %143 ], [ %57, %122 ], [ %57, %101 ], [ %57, %80 ], [ %57, %.loopexit768 ], [ %57, %.lr.ph827 ], [ %57, %._crit_edge824 ]
+  call void @free(ptr noundef %.0552738750) #21
+  call void @free(ptr noundef %.0553737751) #21
   %745 = load ptr, ptr %2, align 8
   call void @free(ptr noundef %745) #21
-  call void @free(ptr noundef %.2737753) #21
-  call void @tj3Destroy(ptr noundef %.0550740750) #21
+  call void @free(ptr noundef %.0555736752) #21
+  call void @tj3Destroy(ptr noundef %.0550739749) #21
   ret void
 }
 
@@ -3559,7 +3559,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %.0563 = phi i64 [ 0, %44 ], [ %.1564, %648 ]
   %.0552 = phi i32 [ %46, %44 ], [ %650, %648 ]
   %.0550 = phi i32 [ %45, %44 ], [ %649, %648 ]
-  %.0531 = phi ptr [ null, %44 ], [ %.2533, %648 ]
+  %.1532 = phi ptr [ null, %44 ], [ %.3, %648 ]
   %spec.select = call i32 @llvm.smin.i32(i32 %.0550, i32 %2)
   %.1553 = call i32 @llvm.smin.i32(i32 %.0552, i32 %3)
   %59 = add i32 %47, %spec.select
@@ -4216,7 +4216,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 389:                                              ; preds = %388, %372
   %.1564 = phi i64 [ %375, %388 ], [ %.0563, %372 ]
-  %.1532 = phi ptr [ %381, %388 ], [ %.0531, %372 ]
+  %.2533 = phi ptr [ %381, %388 ], [ %.1532, %372 ]
   %390 = icmp sgt i32 %62, 0
   %391 = icmp sgt i32 %60, 0
   %392 = mul nsw i32 %spec.select, %13
@@ -4381,7 +4381,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %462 = call double @getTime() #21
   %463 = load i32, ptr @pf, align 4
   %464 = load i32, ptr @yuvAlign, align 4
-  %465 = call i32 @tj3EncodeYUV8(ptr noundef %0, ptr noundef %.0535931.us, i32 noundef %spec.select..us, i32 noundef %14, i32 noundef %400, i32 noundef %463, ptr noundef %.1532, i32 noundef %464) #21
+  %465 = call i32 @tj3EncodeYUV8(ptr noundef %0, ptr noundef %.0535931.us, i32 noundef %spec.select..us, i32 noundef %14, i32 noundef %400, i32 noundef %463, ptr noundef %.2533, i32 noundef %464) #21
   %466 = icmp eq i32 %465, -1
   br i1 %466, label %467, label %481
 
@@ -4428,7 +4428,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %487 = load i32, ptr @yuvAlign, align 4
   %488 = getelementptr inbounds ptr, ptr %calloc1216, i64 %indvars.iv1185
   %489 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1185
-  %490 = call i32 @tj3CompressFromYUV8(ptr noundef %0, ptr noundef %.1532, i32 noundef %spec.select..us, i32 noundef %487, i32 noundef %400, ptr noundef nonnull %488, ptr noundef nonnull %489) #21
+  %490 = call i32 @tj3CompressFromYUV8(ptr noundef %0, ptr noundef %.2533, i32 noundef %spec.select..us, i32 noundef %487, i32 noundef %400, ptr noundef nonnull %488, ptr noundef nonnull %489) #21
   %491 = icmp eq i32 %490, -1
   br i1 %491, label %492, label %506
 
@@ -4727,11 +4727,11 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %.b615, label %645, label %646
 
 645:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %.1532) #21
+  call void @free(ptr noundef %.2533) #21
   br label %646
 
 646:                                              ; preds = %645, %._crit_edge
-  %.2533 = phi ptr [ null, %645 ], [ %.1532, %._crit_edge ]
+  %.3 = phi ptr [ null, %645 ], [ %.2533, %._crit_edge ]
   %647 = icmp sge i32 %.0552, %3
   %or.cond687 = and i1 %647, %605
   br i1 %or.cond687, label %.thread.thread, label %648
@@ -4750,7 +4750,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.thread
 
 .thread:                                          ; preds = %633, %139, %159, %180, %201, %222, %243, %264, %306, %286, %327, %348, %369, %618, %.split961.us, %.split.us, %.split952.us, %.split970.us, %.split979.us, %383, %377, %93, %86, %75, %651
-  %.3700 = phi ptr [ %.1532, %651 ], [ %.0531, %139 ], [ %.0531, %159 ], [ %.0531, %180 ], [ %.0531, %201 ], [ %.0531, %222 ], [ %.0531, %243 ], [ %.0531, %264 ], [ %.0531, %306 ], [ %.0531, %286 ], [ %.0531, %327 ], [ %.0531, %348 ], [ %.0531, %369 ], [ %.1532, %618 ], [ %.1532, %.split961.us ], [ %.1532, %.split.us ], [ %.1532, %.split952.us ], [ %.1532, %.split970.us ], [ %.1532, %.split979.us ], [ null, %383 ], [ %.0531, %377 ], [ %.0531, %93 ], [ %.0531, %86 ], [ %.0531, %75 ], [ %.1532, %633 ]
+  %.0531700 = phi ptr [ %.2533, %651 ], [ %.1532, %139 ], [ %.1532, %159 ], [ %.1532, %180 ], [ %.1532, %201 ], [ %.1532, %222 ], [ %.1532, %243 ], [ %.1532, %264 ], [ %.1532, %306 ], [ %.1532, %286 ], [ %.1532, %327 ], [ %.1532, %348 ], [ %.1532, %369 ], [ %.2533, %618 ], [ %.2533, %.split961.us ], [ %.2533, %.split.us ], [ %.2533, %.split952.us ], [ %.2533, %.split970.us ], [ %.2533, %.split979.us ], [ null, %383 ], [ %.1532, %377 ], [ %.1532, %93 ], [ %.1532, %86 ], [ %.1532, %75 ], [ %.2533, %633 ]
   %657 = mul nsw i32 %62, %60
   %658 = icmp sgt i32 %657, 0
   br i1 %658, label %.lr.ph990.preheader, label %.thread.thread
@@ -4769,12 +4769,12 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %exitcond1199.not, label %.thread.thread, label %.lr.ph990, !llvm.loop !27
 
 .thread.thread:                                   ; preds = %646, %.lr.ph990, %.thread, %25, %68
-  %.1562698712 = phi ptr [ null, %68 ], [ null, %25 ], [ %calloc, %.thread ], [ %calloc, %.lr.ph990 ], [ null, %646 ]
-  %.3700710 = phi ptr [ %.0531, %68 ], [ null, %25 ], [ %.3700, %.thread ], [ %.3700, %.lr.ph990 ], [ %.2533, %646 ]
+  %.0561698712 = phi ptr [ null, %68 ], [ null, %25 ], [ %calloc, %.thread ], [ %calloc, %.lr.ph990 ], [ null, %646 ]
+  %.0531700710 = phi ptr [ %.1532, %68 ], [ null, %25 ], [ %.0531700, %.thread ], [ %.0531700, %.lr.ph990 ], [ %.3, %646 ]
   %.0530701709 = phi ptr [ null, %68 ], [ null, %25 ], [ %calloc1216, %.thread ], [ %calloc1216, %.lr.ph990 ], [ null, %646 ]
   call void @free(ptr noundef %.0530701709) #21
-  call void @free(ptr noundef %.3700710) #21
-  call void @free(ptr noundef %.1562698712) #21
+  call void @free(ptr noundef %.0531700710) #21
+  call void @free(ptr noundef %.0561698712) #21
   call void @free(ptr noundef %23) #21
   ret void
 }
@@ -5425,7 +5425,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
   br label %.thread
 
 291:                                              ; preds = %277, %263
-  %.0 = phi ptr [ %2, %263 ], [ %284, %277 ]
+  %.1 = phi ptr [ %2, %263 ], [ %284, %277 ]
   %292 = load i32, ptr @precision, align 4
   switch i32 %292, label %.preheader606 [
     i32 8, label %297
@@ -5454,12 +5454,12 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
   %298 = sext i32 %276 to i64
   %299 = sext i32 %.0477 to i64
   %300 = mul nsw i64 %298, %299
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0, i8 127, i64 %300, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.1, i8 127, i64 %300, i1 false)
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %301 = getelementptr inbounds i16, ptr %.0, i64 %indvars.iv
+  %301 = getelementptr inbounds i16, ptr %.1, i64 %indvars.iv
   store i16 2047, ptr %301, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5467,7 +5467,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
 
 .lr.ph637:                                        ; preds = %.lr.ph637.preheader, %.lr.ph637
   %indvars.iv721 = phi i64 [ 0, %.lr.ph637.preheader ], [ %indvars.iv.next722, %.lr.ph637 ]
-  %302 = getelementptr inbounds i16, ptr %.0, i64 %indvars.iv721
+  %302 = getelementptr inbounds i16, ptr %.1, i64 %indvars.iv721
   store i16 32767, ptr %302, align 2
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 1
   %exitcond725.not = icmp eq i64 %indvars.iv.next722, %wide.trip.count724
@@ -5508,7 +5508,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
   br label %321
 
 321:                                              ; preds = %320, %.loopexit
-  %.0480 = phi ptr [ %313, %320 ], [ null, %.loopexit ]
+  %.1481 = phi ptr [ %313, %320 ], [ null, %.loopexit ]
   %322 = icmp sgt i32 %23, 0
   %323 = mul nsw i32 %17, %8
   %324 = sext i32 %276 to i64
@@ -5553,7 +5553,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader.lr.ph.us.us
   %.0464647.us.us.us = phi i32 [ 0, %.preheader.lr.ph.us.us ], [ %456, %._crit_edge.us.us.us ]
   %.1474646.us.us.us = phi double [ %.0473.us.us, %.preheader.lr.ph.us.us ], [ %.3.us.us.us, %._crit_edge.us.us.us ]
-  %.0478645.us.us.us = phi ptr [ %.0, %.preheader.lr.ph.us.us ], [ %459, %._crit_edge.us.us.us ]
+  %.0478645.us.us.us = phi ptr [ %.1, %.preheader.lr.ph.us.us ], [ %459, %._crit_edge.us.us.us ]
   %.0482644.us.us.us = phi i64 [ 0, %.preheader.lr.ph.us.us ], [ %indvars.iv.next727, %._crit_edge.us.us.us ]
   %337 = mul nsw i32 %.0464647.us.us.us, %9
   %338 = sub nsw i32 %4, %337
@@ -5696,7 +5696,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
   %406 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv726
   %407 = load i64, ptr %406, align 8
   %408 = load i32, ptr @yuvAlign, align 4
-  %409 = tail call i32 @tj3DecompressToYUV8(ptr noundef %42, ptr noundef %405, i64 noundef %407, ptr noundef %.0480, i32 noundef %408) #21
+  %409 = tail call i32 @tj3DecompressToYUV8(ptr noundef %42, ptr noundef %405, i64 noundef %407, ptr noundef %.1481, i32 noundef %408) #21
   %410 = icmp eq i32 %409, -1
   br i1 %410, label %411, label %425
 
@@ -5733,7 +5733,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
   %426 = tail call double @getTime() #21
   %427 = load i32, ptr @yuvAlign, align 4
   %428 = load i32, ptr @pf, align 4
-  %429 = tail call i32 @tj3DecodeYUV8(ptr noundef %42, ptr noundef %.0480, i32 noundef %427, ptr noundef %.0479639.us.us.us, i32 noundef %343, i32 noundef %276, i32 noundef %344, i32 noundef %428) #21
+  %429 = tail call i32 @tj3DecodeYUV8(ptr noundef %42, ptr noundef %.1481, i32 noundef %427, ptr noundef %.0479639.us.us.us, i32 noundef %343, i32 noundef %276, i32 noundef %344, i32 noundef %428) #21
   %430 = icmp eq i32 %429, -1
   br i1 %430, label %431, label %445
 
@@ -6012,7 +6012,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
   ]
 
 562:                                              ; preds = %559
-  %563 = call i32 @tj3SaveImage8(ptr noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %.0, i32 noundef %.0476, i32 noundef 0, i32 noundef %.0477, i32 noundef %561) #21
+  %563 = call i32 @tj3SaveImage8(ptr noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %.1, i32 noundef %.0476, i32 noundef 0, i32 noundef %.0477, i32 noundef %561) #21
   %564 = icmp eq i32 %563, -1
   br i1 %564, label %565, label %622
 
@@ -6051,7 +6051,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
   br label %622
 
 582:                                              ; preds = %559
-  %583 = call i32 @tj3SaveImage12(ptr noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %.0, i32 noundef %.0476, i32 noundef 0, i32 noundef %.0477, i32 noundef %561) #21
+  %583 = call i32 @tj3SaveImage12(ptr noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %.1, i32 noundef %.0476, i32 noundef 0, i32 noundef %.0477, i32 noundef %561) #21
   %584 = icmp eq i32 %583, -1
   br i1 %584, label %585, label %622
 
@@ -6090,7 +6090,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
   br label %622
 
 602:                                              ; preds = %559
-  %603 = call i32 @tj3SaveImage16(ptr noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %.0, i32 noundef %.0476, i32 noundef 0, i32 noundef %.0477, i32 noundef %561) #21
+  %603 = call i32 @tj3SaveImage16(ptr noundef %42, ptr noundef nonnull %11, ptr noundef nonnull %.1, i32 noundef %.0476, i32 noundef 0, i32 noundef %.0477, i32 noundef %561) #21
   %604 = icmp eq i32 %603, -1
   br i1 %604, label %605, label %622
 
@@ -6133,19 +6133,19 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr nocapture noundef readon
   br label %624
 
 622:                                              ; preds = %309, %315, %.split661.us, %.split665.us, %.split653.us, %.split.us, %.split657.us, %579, %599, %619, %533, %593, %596, %582, %613, %616, %602, %562, %576, %573
-  %.1481 = phi ptr [ null, %309 ], [ null, %315 ], [ %.0480, %.split665.us ], [ %.0480, %.split661.us ], [ %.0480, %.split653.us ], [ %.0480, %.split.us ], [ %.0480, %.split657.us ], [ %.0480, %576 ], [ %.0480, %573 ], [ %.0480, %579 ], [ %.0480, %562 ], [ %.0480, %596 ], [ %.0480, %593 ], [ %.0480, %599 ], [ %.0480, %582 ], [ %.0480, %616 ], [ %.0480, %613 ], [ %.0480, %619 ], [ %.0480, %602 ], [ %.0480, %533 ]
+  %.0480 = phi ptr [ null, %309 ], [ null, %315 ], [ %.1481, %.split665.us ], [ %.1481, %.split661.us ], [ %.1481, %.split653.us ], [ %.1481, %.split.us ], [ %.1481, %.split657.us ], [ %.1481, %576 ], [ %.1481, %573 ], [ %.1481, %579 ], [ %.1481, %562 ], [ %.1481, %596 ], [ %.1481, %593 ], [ %.1481, %599 ], [ %.1481, %582 ], [ %.1481, %616 ], [ %.1481, %613 ], [ %.1481, %619 ], [ %.1481, %602 ], [ %.1481, %533 ]
   %.0470 = phi i32 [ -1, %309 ], [ -1, %315 ], [ -1, %.split665.us ], [ -1, %.split661.us ], [ -1, %.split653.us ], [ -1, %.split.us ], [ -1, %.split657.us ], [ 0, %576 ], [ 0, %573 ], [ -1, %579 ], [ 0, %562 ], [ 0, %596 ], [ 0, %593 ], [ -1, %599 ], [ 0, %582 ], [ 0, %616 ], [ 0, %613 ], [ -1, %619 ], [ 0, %602 ], [ 0, %533 ]
   call void @tj3Destroy(ptr noundef %42) #21
   br i1 %.not605, label %623, label %624
 
 623:                                              ; preds = %622
-  call void @free(ptr noundef nonnull %.0) #21
+  call void @free(ptr noundef nonnull %.1) #21
   br label %624
 
 624:                                              ; preds = %.thread, %623, %622
   %.0470604 = phi i32 [ -1, %.thread ], [ %.0470, %623 ], [ %.0470, %622 ]
-  %.1481603 = phi ptr [ null, %.thread ], [ %.1481, %623 ], [ %.1481, %622 ]
-  call void @free(ptr noundef %.1481603) #21
+  %.0480603 = phi ptr [ null, %.thread ], [ %.0480, %623 ], [ %.0480, %622 ]
+  call void @free(ptr noundef %.0480603) #21
   ret i32 %.0470604
 }
 

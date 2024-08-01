@@ -6644,13 +6644,13 @@ define internal fastcc void @_ZN6uu_ptx17get_output_chunks17h06269a27f79852f5E(p
           to label %66 unwind label %64
 
 62:                                               ; preds = %96, %64
-  %.3 = phi i8 [ %.4, %64 ], [ %.5, %96 ]
+  %.4 = phi i8 [ %.3, %64 ], [ %.6, %96 ]
   %.pn113 = phi { ptr, i32 } [ %65, %64 ], [ %.pn111, %96 ]
-  %63 = trunc nuw i8 %.3 to i1
+  %63 = trunc nuw i8 %.4 to i1
   br i1 %63, label %333, label %.thread29
 
 64:                                               ; preds = %321, %79, %78, %80, %70, %66, %58
-  %.4 = phi i8 [ 1, %80 ], [ 1, %70 ], [ 1, %66 ], [ 1, %58 ], [ 1, %78 ], [ 1, %79 ], [ 0, %321 ]
+  %.3 = phi i8 [ 1, %80 ], [ 1, %70 ], [ 1, %66 ], [ 1, %58 ], [ 1, %78 ], [ 1, %79 ], [ 0, %321 ]
   %65 = landingpad { ptr, i32 }
           cleanup
   br label %62
@@ -6723,13 +6723,13 @@ define internal fastcc void @_ZN6uu_ptx17get_output_chunks17h06269a27f79852f5E(p
   br label %99
 
 96:                                               ; preds = %130, %97
-  %.5 = phi i8 [ %.6, %97 ], [ %.7, %130 ]
+  %.6 = phi i8 [ %.5, %97 ], [ %.8, %130 ]
   %.pn111 = phi { ptr, i32 } [ %98, %97 ], [ %.pn109, %130 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h657bdb27525cf062E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #20
           to label %62 unwind label %331
 
 97:                                               ; preds = %312, %114, %.noexc121, %92, %115, %109, %107, %105
-  %.6 = phi i8 [ 1, %115 ], [ 1, %109 ], [ 1, %107 ], [ 1, %105 ], [ 1, %92 ], [ 1, %.noexc121 ], [ 1, %114 ], [ 0, %312 ]
+  %.5 = phi i8 [ 1, %115 ], [ 1, %109 ], [ 1, %107 ], [ 1, %105 ], [ 1, %92 ], [ 1, %.noexc121 ], [ 1, %114 ], [ 0, %312 ]
   %98 = landingpad { ptr, i32 }
           cleanup
   br label %96
@@ -6805,13 +6805,13 @@ define internal fastcc void @_ZN6uu_ptx17get_output_chunks17h06269a27f79852f5E(p
   br label %133
 
 130:                                              ; preds = %175, %131
-  %.7 = phi i8 [ %.8, %131 ], [ %.9, %175 ]
+  %.8 = phi i8 [ %.7, %131 ], [ %.10, %175 ]
   %.pn109 = phi { ptr, i32 } [ %132, %131 ], [ %.pn107, %175 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h657bdb27525cf062E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %22) #20
           to label %96 unwind label %331
 
 131:                                              ; preds = %303, %158, %157, %.noexc127, %126, %159, %149, %143, %140, %139
-  %.8 = phi i8 [ 1, %159 ], [ 1, %149 ], [ 1, %143 ], [ 1, %140 ], [ 1, %139 ], [ 1, %126 ], [ 1, %.noexc127 ], [ 1, %157 ], [ 1, %158 ], [ 0, %303 ]
+  %.7 = phi i8 [ 1, %159 ], [ 1, %149 ], [ 1, %143 ], [ 1, %140 ], [ 1, %139 ], [ 1, %126 ], [ 1, %.noexc127 ], [ 1, %157 ], [ 1, %158 ], [ 0, %303 ]
   %132 = landingpad { ptr, i32 }
           cleanup
   br label %130
@@ -6907,13 +6907,13 @@ define internal fastcc void @_ZN6uu_ptx17get_output_chunks17h06269a27f79852f5E(p
   br label %178
 
 175:                                              ; preds = %218, %176
-  %.9 = phi i8 [ %.10, %176 ], [ 1, %218 ]
+  %.10 = phi i8 [ %.9, %176 ], [ 1, %218 ]
   %.pn107 = phi { ptr, i32 } [ %177, %176 ], [ %.pn, %218 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h657bdb27525cf062E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #20
           to label %130 unwind label %331
 
 176:                                              ; preds = %276, %201, %200, %.noexc136, %171, %202, %192, %186, %178
-  %.10 = phi i8 [ 1, %202 ], [ 1, %192 ], [ 1, %186 ], [ 1, %178 ], [ 1, %171 ], [ 1, %.noexc136 ], [ 1, %200 ], [ 1, %201 ], [ 0, %276 ]
+  %.9 = phi i8 [ 1, %202 ], [ 1, %192 ], [ 1, %186 ], [ 1, %178 ], [ 1, %171 ], [ 1, %.noexc136 ], [ 1, %200 ], [ 1, %201 ], [ 0, %276 ]
   %177 = landingpad { ptr, i32 }
           cleanup
   br label %175
@@ -7336,7 +7336,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15335730073246084912.exit168: ; pr
 
 .thread37:                                        ; preds = %333, %.thread17
   %.pn113.pn21 = phi { ptr, i32 } [ %57, %.thread17 ], [ %.pn113, %333 ]
-  %.220 = phi i8 [ 1, %.thread17 ], [ %.3, %333 ]
+  %.220 = phi i8 [ 1, %.thread17 ], [ %.4, %333 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h657bdb27525cf062E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #20
           to label %51 unwind label %331
 

@@ -787,7 +787,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hab5ed6b
   br i1 %or.cond.not.i.i.i.us, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us", label %._crit_edge
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us": ; preds = %.lr.ph.split.us
-  %.sroa.0.1.i.i.us = getelementptr inbounds i8, ptr %.val.i.i, i64 %.promoted14
+  %.sroa.0.0.i.i.us = getelementptr inbounds i8, ptr %.val.i.i, i64 %.promoted14
   %22 = sub i64 %.pre5.i.i.i, %.promoted14
   %23 = load i64, ptr %20, align 8, !noundef !4
   %24 = load i64, ptr %0, align 8, !noundef !4
@@ -809,7 +809,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hab5ed6b
   br i1 %or.cond.not.i.i.i.us21, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us", label %._crit_edge
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us": ; preds = %.lr.ph.split.split.us
-  %.sroa.0.1.i.i.us25 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.promoted14
+  %.sroa.0.0.i.i.us25 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.promoted14
   %28 = sub i64 %.pre5.i.i.i, %.promoted14
   %29 = load i64, ptr %20, align 8, !noundef !4
   %30 = load i64, ptr %0, align 8, !noundef !4
@@ -976,8 +976,8 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   %.lcssa1115 = phi i64 [ %76, %85 ], [ %.lcssa111617, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i" ]
   %86 = phi i8 [ %32, %85 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i" ]
   %.pn = phi i64 [ %82, %85 ], [ %.pre5.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i" ]
-  %.sroa.4.1.i.i = sub i64 %.pn, %.lcssa111617
-  %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.val.i.i, i64 %.lcssa111617
+  %.sroa.4.0.i.i = sub i64 %.pn, %.lcssa111617
+  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.val.i.i, i64 %.lcssa111617
   %87 = load i64, ptr %20, align 8, !noundef !4
   %88 = load i64, ptr %0, align 8, !noundef !4
   %89 = icmp eq i64 %87, %88
@@ -990,9 +990,9 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
 90:                                               ; preds = %select.unfold, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd15f4cd93c0019acE.exit"
   %91 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
   %92 = getelementptr inbounds { ptr, i64 }, ptr %91, i64 %87
-  store ptr %.sroa.0.1.i.i, ptr %92, align 8
+  store ptr %.sroa.0.0.i.i, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 8
-  store i64 %.sroa.4.1.i.i, ptr %93, align 8
+  store i64 %.sroa.4.0.i.i, ptr %93, align 8
   %94 = add i64 %87, 1
   store i64 %94, ptr %20, align 8
   %95 = trunc nuw i8 %86 to i1
@@ -1000,18 +1000,18 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
 
 ._crit_edge.sink.split.sink.split:                ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us", %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us"
   %.sink46 = phi i64 [ %23, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %29, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ]
-  %.sroa.0.1.i.i.us.sink.ph = phi ptr [ %.sroa.0.1.i.i.us, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %.sroa.0.1.i.i.us25, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ]
+  %.sroa.0.0.i.i.us.sink.ph = phi ptr [ %.sroa.0.0.i.i.us, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %.sroa.0.0.i.i.us25, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ]
   %.sink.ph = phi i64 [ %22, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %28, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ]
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h63ac1e67645c3b58E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %.sink46, i64 noundef 1)
   br label %._crit_edge.sink.split
 
 ._crit_edge.sink.split:                           ; preds = %._crit_edge.sink.split.sink.split, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us", %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us"
   %.sink45 = phi i64 [ %23, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %29, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ], [ %.sink46, %._crit_edge.sink.split.sink.split ]
-  %.sroa.0.1.i.i.us.sink = phi ptr [ %.sroa.0.1.i.i.us, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %.sroa.0.1.i.i.us25, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ], [ %.sroa.0.1.i.i.us.sink.ph, %._crit_edge.sink.split.sink.split ]
+  %.sroa.0.0.i.i.us.sink = phi ptr [ %.sroa.0.0.i.i.us, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %.sroa.0.0.i.i.us25, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ], [ %.sroa.0.0.i.i.us.sink.ph, %._crit_edge.sink.split.sink.split ]
   %.sink = phi i64 [ %22, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us.us" ], [ %28, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.us19.us" ], [ %.sink.ph, %._crit_edge.sink.split.sink.split ]
   %96 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
   %97 = getelementptr inbounds { ptr, i64 }, ptr %96, i64 %.sink45
-  store ptr %.sroa.0.1.i.i.us.sink, ptr %97, align 8
+  store ptr %.sroa.0.0.i.i.us.sink, ptr %97, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 8
   store i64 %.sink, ptr %98, align 8
   %99 = add i64 %.sink45, 1

@@ -1446,17 +1446,17 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
   br i1 %.not58.i, label %.outer.i.backedge, label %.preheader60.i
 
 .outer.i.backedge:                                ; preds = %.preheader60.i, %142, %139
-  %.050.ph.i.be = phi ptr [ %.us-phi.i, %139 ], [ %.15381.i, %.preheader60.i ], [ %143, %142 ]
+  %.050.ph.i.be = phi ptr [ %.us-phi.i, %139 ], [ %.25481.i, %.preheader60.i ], [ %143, %142 ]
   br label %.outer.i
 
 .preheader60.i:                                   ; preds = %139, %142
-  %.15381.i = phi ptr [ %143, %142 ], [ %.us-phi.i, %139 ]
-  %141 = load i8, ptr %.15381.i, align 1
+  %.25481.i = phi ptr [ %143, %142 ], [ %.us-phi.i, %139 ]
+  %141 = load i8, ptr %.25481.i, align 1
   %.not59.i = icmp eq i8 %141, %140
   br i1 %.not59.i, label %.outer.i.backedge, label %142
 
 142:                                              ; preds = %.preheader60.i
-  %143 = getelementptr inbounds i8, ptr %.15381.i, i64 1
+  %143 = getelementptr inbounds i8, ptr %.25481.i, i64 1
   %144 = icmp ult ptr %143, %106
   br i1 %144, label %.preheader60.i, label %.outer.i.backedge
 
@@ -1910,11 +1910,11 @@ define internal void @php_browscap_parser_cb(ptr noundef %0, ptr noundef readonl
   br label %96
 
 96:                                               ; preds = %93, %92
-  %.0.i = phi ptr [ %95, %93 ], [ %74, %92 ]
-  store ptr %.0.i, ptr %6, align 8
+  %.1.i = phi ptr [ %95, %93 ], [ %74, %92 ]
+  store ptr %.1.i, ptr %6, align 8
   %97 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 13, ptr %97, align 8
-  %98 = call ptr @zend_hash_add_new(ptr noundef nonnull %75, ptr noundef %.0.i, ptr noundef nonnull %6) #13
+  %98 = call ptr @zend_hash_add_new(ptr noundef nonnull %75, ptr noundef %.1.i, ptr noundef nonnull %6) #13
   %.not36.i = icmp eq ptr %98, null
   br i1 %.not36.i, label %browscap_intern_str.exit, label %99
 
@@ -1925,12 +1925,12 @@ define internal void @php_browscap_parser_cb(ptr noundef %0, ptr noundef readonl
   br label %browscap_intern_str.exit
 
 browscap_intern_str.exit:                         ; preds = %77, %82, %96, %99
-  %.1.i = phi ptr [ %78, %82 ], [ %.0.i, %99 ], [ %78, %77 ], [ %.0.i, %96 ]
+  %.0.i = phi ptr [ %78, %82 ], [ %.1.i, %99 ], [ %78, %77 ], [ %.1.i, %96 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %102
 
 102:                                              ; preds = %71, %browscap_intern_str.exit, %41
-  %.0138 = phi ptr [ %.1.i, %browscap_intern_str.exit ], [ %72, %71 ], [ %42, %41 ]
+  %.0138 = phi ptr [ %.0.i, %browscap_intern_str.exit ], [ %72, %71 ], [ %42, %41 ]
   %103 = load ptr, ptr %0, align 8
   %104 = getelementptr inbounds i8, ptr %103, i64 16
   %105 = load i64, ptr %104, align 8

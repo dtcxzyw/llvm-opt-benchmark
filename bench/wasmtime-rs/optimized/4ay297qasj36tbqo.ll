@@ -1486,15 +1486,15 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
           to label %111 unwind label %109
 
 107:                                              ; preds = %397, %109
-  %.0117 = phi i8 [ %.1118, %109 ], [ %.2119155169, %397 ]
-  %.0109 = phi i8 [ %.1110, %109 ], [ %.2111157167, %397 ]
+  %.2119 = phi i8 [ %.1118, %109 ], [ %.3120155169, %397 ]
+  %.2111 = phi i8 [ %.1110, %109 ], [ %.4113157167, %397 ]
   %.pn145 = phi { ptr, i32 } [ %110, %109 ], [ %.pn143159165, %397 ]
-  %108 = trunc nuw i8 %.0117 to i1
+  %108 = trunc nuw i8 %.2119 to i1
   br i1 %108, label %398, label %322
 
 109:                                              ; preds = %316, %127, %126, %120, %118, %116, %115, %114, %111, %105
   %.1118 = phi i8 [ %.10127, %316 ], [ 1, %127 ], [ 1, %126 ], [ 1, %120 ], [ 1, %118 ], [ 1, %116 ], [ 1, %115 ], [ 1, %114 ], [ 1, %111 ], [ 1, %105 ]
-  %.1110 = phi i8 [ %.10, %316 ], [ 1, %127 ], [ 1, %126 ], [ 1, %120 ], [ 1, %118 ], [ 1, %116 ], [ 1, %115 ], [ 1, %114 ], [ 1, %111 ], [ 1, %105 ]
+  %.1110 = phi i8 [ %.11, %316 ], [ 1, %127 ], [ 1, %126 ], [ 1, %120 ], [ 1, %118 ], [ 1, %116 ], [ 1, %115 ], [ 1, %114 ], [ 1, %111 ], [ 1, %105 ]
   %110 = landingpad { ptr, i32 }
           cleanup
   br label %107
@@ -1547,7 +1547,7 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
           to label %96 unwind label %109
 
 .loopexit.split-lp:                               ; preds = %223
-  br i1 %.2, label %.thread, label %397
+  br i1 %.3, label %.thread, label %397
 
 .loopexit:                                        ; preds = %173, %180, %333, %337, %338
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1788,17 +1788,17 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
           to label %232 unwind label %224
 
 223:                                              ; preds = %241, %238, %234, %224
-  %.4121 = phi i8 [ %.5122, %224 ], [ %.6123, %241 ], [ 1, %238 ], [ 1, %234 ]
-  %.4113 = phi i8 [ %.5114, %224 ], [ %.6115, %241 ], [ 1, %238 ], [ 1, %234 ]
-  %.2 = phi i1 [ %.3, %224 ], [ %.4, %241 ], [ true, %238 ], [ true, %234 ]
+  %.5122 = phi i8 [ %.4121, %224 ], [ %.7124, %241 ], [ 1, %238 ], [ 1, %234 ]
+  %.6115 = phi i8 [ %.5114, %224 ], [ %.8, %241 ], [ 1, %238 ], [ 1, %234 ]
+  %.3 = phi i1 [ %.2, %224 ], [ %.5, %241 ], [ true, %238 ], [ true, %234 ]
   %.pn141 = phi { ptr, i32 } [ %225, %224 ], [ %.pn139, %241 ], [ %239, %238 ], [ %235, %234 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %37) #8
           to label %.loopexit.split-lp unwind label %331
 
 224:                                              ; preds = %314, %221, %219
-  %.5122 = phi i8 [ %.10127, %314 ], [ 1, %219 ], [ 1, %221 ]
-  %.5114 = phi i8 [ %.10, %314 ], [ 1, %219 ], [ 1, %221 ]
-  %.3 = phi i1 [ false, %314 ], [ true, %219 ], [ true, %221 ]
+  %.4121 = phi i8 [ %.10127, %314 ], [ 1, %219 ], [ 1, %221 ]
+  %.5114 = phi i8 [ %.11, %314 ], [ 1, %219 ], [ 1, %221 ]
+  %.2 = phi i1 [ false, %314 ], [ true, %219 ], [ true, %221 ]
   %225 = landingpad { ptr, i32 }
           cleanup
   br label %223
@@ -1852,17 +1852,17 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
   br label %230
 
 241:                                              ; preds = %268, %264, %260, %242
-  %.6123 = phi i8 [ %.7124, %242 ], [ %.8125, %268 ], [ 1, %264 ], [ 1, %260 ]
-  %.6115 = phi i8 [ %.7116, %242 ], [ %.8, %268 ], [ 1, %264 ], [ 1, %260 ]
-  %.4 = phi i1 [ %.5, %242 ], [ %.6, %268 ], [ true, %264 ], [ true, %260 ]
+  %.7124 = phi i8 [ %.6123, %242 ], [ %.9126, %268 ], [ 1, %264 ], [ 1, %260 ]
+  %.8 = phi i8 [ %.7116, %242 ], [ %.10, %268 ], [ 1, %264 ], [ 1, %260 ]
+  %.5 = phi i1 [ %.4, %242 ], [ %.7, %268 ], [ true, %264 ], [ true, %260 ]
   %.pn139 = phi { ptr, i32 } [ %243, %242 ], [ %.pn137, %268 ], [ %265, %264 ], [ %261, %260 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %31) #8
           to label %223 unwind label %331
 
 242:                                              ; preds = %313, %244, %230
-  %.7124 = phi i8 [ %.10127, %313 ], [ 1, %244 ], [ 1, %230 ]
-  %.7116 = phi i8 [ %.10, %313 ], [ 1, %244 ], [ 1, %230 ]
-  %.5 = phi i1 [ false, %313 ], [ true, %244 ], [ true, %230 ]
+  %.6123 = phi i8 [ %.10127, %313 ], [ 1, %244 ], [ 1, %230 ]
+  %.7116 = phi i8 [ %.11, %313 ], [ 1, %244 ], [ 1, %230 ]
+  %.4 = phi i1 [ false, %313 ], [ true, %244 ], [ true, %230 ]
   %243 = landingpad { ptr, i32 }
           cleanup
   br label %241
@@ -1927,17 +1927,17 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
           to label %271 unwind label %269
 
 268:                                              ; preds = %297, %283, %269
-  %.8125 = phi i8 [ %.9126, %269 ], [ 0, %297 ], [ 1, %283 ]
-  %.8 = phi i8 [ %.9, %269 ], [ %.10, %297 ], [ 0, %283 ]
-  %.6 = phi i1 [ %.7, %269 ], [ true, %297 ], [ true, %283 ]
+  %.9126 = phi i8 [ %.8125, %269 ], [ 0, %297 ], [ 1, %283 ]
+  %.10 = phi i8 [ %.9, %269 ], [ %.11, %297 ], [ 0, %283 ]
+  %.7 = phi i1 [ %.6, %269 ], [ true, %297 ], [ true, %283 ]
   %.pn137 = phi { ptr, i32 } [ %270, %269 ], [ %298, %297 ], [ %284, %283 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr nonnull align 8 %26) #8
           to label %241 unwind label %331
 
 269:                                              ; preds = %312, %308, %307, %306, %304, %302, %294, %293, %292, %291, %290, %288, %280, %279, %278, %277, %266
-  %.9126 = phi i8 [ %.10127, %312 ], [ %.10127, %308 ], [ %.10127, %307 ], [ %.10127, %306 ], [ %.10127, %304 ], [ %.10127, %290 ], [ 0, %302 ], [ 0, %294 ], [ 1, %293 ], [ 1, %292 ], [ 1, %291 ], [ 1, %288 ], [ 1, %280 ], [ 1, %279 ], [ 1, %278 ], [ 1, %277 ], [ 1, %266 ]
-  %.9 = phi i8 [ %.10, %312 ], [ %.10, %308 ], [ %.10, %307 ], [ %.10, %306 ], [ %.10, %304 ], [ %.10, %290 ], [ %.10, %302 ], [ %.10, %294 ], [ %.10, %293 ], [ %.10, %292 ], [ %.10, %291 ], [ 0, %288 ], [ 0, %280 ], [ 1, %279 ], [ 1, %278 ], [ 1, %277 ], [ 1, %266 ]
-  %.7 = phi i1 [ false, %312 ], [ false, %308 ], [ true, %307 ], [ true, %306 ], [ true, %304 ], [ true, %290 ], [ true, %302 ], [ true, %294 ], [ true, %293 ], [ true, %292 ], [ true, %291 ], [ true, %288 ], [ true, %280 ], [ true, %279 ], [ true, %278 ], [ true, %277 ], [ true, %266 ]
+  %.8125 = phi i8 [ %.10127, %312 ], [ %.10127, %308 ], [ %.10127, %307 ], [ %.10127, %306 ], [ %.10127, %304 ], [ %.10127, %290 ], [ 0, %302 ], [ 0, %294 ], [ 1, %293 ], [ 1, %292 ], [ 1, %291 ], [ 1, %288 ], [ 1, %280 ], [ 1, %279 ], [ 1, %278 ], [ 1, %277 ], [ 1, %266 ]
+  %.9 = phi i8 [ %.11, %312 ], [ %.11, %308 ], [ %.11, %307 ], [ %.11, %306 ], [ %.11, %304 ], [ %.11, %290 ], [ %.11, %302 ], [ %.11, %294 ], [ %.11, %293 ], [ %.11, %292 ], [ %.11, %291 ], [ 0, %288 ], [ 0, %280 ], [ 1, %279 ], [ 1, %278 ], [ 1, %277 ], [ 1, %266 ]
+  %.6 = phi i1 [ false, %312 ], [ false, %308 ], [ true, %307 ], [ true, %306 ], [ true, %304 ], [ true, %290 ], [ true, %302 ], [ true, %294 ], [ true, %293 ], [ true, %292 ], [ true, %291 ], [ true, %288 ], [ true, %280 ], [ true, %279 ], [ true, %278 ], [ true, %277 ], [ true, %266 ]
   %270 = landingpad { ptr, i32 }
           cleanup
   br label %268
@@ -1948,7 +1948,7 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
   br i1 %273, label %274, label %277
 
 274:                                              ; preds = %288, %271
-  %.10 = phi i8 [ 1, %271 ], [ 0, %288 ]
+  %.11 = phi i8 [ 1, %271 ], [ 0, %288 ]
   %275 = load i64, ptr %88, align 8, !noundef !4
   %276 = icmp eq i64 %275, 0
   br i1 %276, label %290, label %291
@@ -2099,7 +2099,7 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
   br i1 %318, label %321, label %319
 
 319:                                              ; preds = %321, %317
-  %320 = trunc nuw i8 %.10 to i1
+  %320 = trunc nuw i8 %.11 to i1
   br i1 %320, label %327, label %326
 
 321:                                              ; preds = %317
@@ -2107,9 +2107,9 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
           to label %319 unwind label %324
 
 322:                                              ; preds = %398, %324, %107
-  %.11 = phi i8 [ %.10, %324 ], [ %.0109, %398 ], [ %.0109, %107 ]
+  %.3112 = phi i8 [ %.11, %324 ], [ %.2111, %398 ], [ %.2111, %107 ]
   %.pn147 = phi { ptr, i32 } [ %325, %324 ], [ %.pn145, %398 ], [ %.pn145, %107 ]
-  %323 = trunc nuw i8 %.11 to i1
+  %323 = trunc nuw i8 %.3112 to i1
   br i1 %323, label %399, label %328
 
 324:                                              ; preds = %321
@@ -2357,14 +2357,14 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
 
 .thread:                                          ; preds = %.loopexit.split-lp.loopexit, %.loopexit, %.loopexit.split-lp.loopexit.split-lp.thread, %363, %373, %203, %215, %.loopexit.split-lp
   %.pn143160 = phi { ptr, i32 } [ %.pn141, %.loopexit.split-lp ], [ %364, %363 ], [ %374, %373 ], [ %.pn, %203 ], [ %.pn135, %215 ], [ %lpad.thr_comm, %.loopexit.split-lp.loopexit.split-lp.thread ], [ %lpad.loopexit171, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit, %.loopexit ]
-  %.2111158 = phi i8 [ %.4113, %.loopexit.split-lp ], [ 1, %363 ], [ 1, %373 ], [ 1, %203 ], [ 1, %215 ], [ 1, %.loopexit.split-lp.loopexit.split-lp.thread ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit ]
-  %.2119156 = phi i8 [ %.4121, %.loopexit.split-lp ], [ 1, %363 ], [ 1, %373 ], [ 1, %203 ], [ 1, %215 ], [ 1, %.loopexit.split-lp.loopexit.split-lp.thread ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit ]
+  %.4113158 = phi i8 [ %.6115, %.loopexit.split-lp ], [ 1, %363 ], [ 1, %373 ], [ 1, %203 ], [ 1, %215 ], [ 1, %.loopexit.split-lp.loopexit.split-lp.thread ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit ]
+  %.3120156 = phi i8 [ %.5122, %.loopexit.split-lp ], [ 1, %363 ], [ 1, %373 ], [ 1, %203 ], [ 1, %215 ], [ 1, %.loopexit.split-lp.loopexit.split-lp.thread ], [ 1, %.loopexit.split-lp.loopexit ], [ 1, %.loopexit ]
   invoke void @"_ZN4core3ptr95drop_in_place$LT$alloc..vec..Vec$LT$$RF$cranelift_codegen_meta..cdsl..operands..Operand$GT$$GT$17h66204603d2a423a9E"(ptr nonnull align 8 %72) #8
           to label %.thread161 unwind label %331
 
 397:                                              ; preds = %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp, %.thread161
-  %.2119155169 = phi i8 [ %.2119156, %.thread161 ], [ %.4121, %.loopexit.split-lp ], [ %.10127, %.loopexit.split-lp.loopexit.split-lp ]
-  %.2111157167 = phi i8 [ %.2111158, %.thread161 ], [ %.4113, %.loopexit.split-lp ], [ %.10, %.loopexit.split-lp.loopexit.split-lp ]
+  %.3120155169 = phi i8 [ %.3120156, %.thread161 ], [ %.5122, %.loopexit.split-lp ], [ %.10127, %.loopexit.split-lp.loopexit.split-lp ]
+  %.4113157167 = phi i8 [ %.4113158, %.thread161 ], [ %.6115, %.loopexit.split-lp ], [ %.11, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn143159165 = phi { ptr, i32 } [ %.pn143160, %.thread161 ], [ %.pn141, %.loopexit.split-lp ], [ %lpad.thr_comm.split-lp, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h8be6d95f1e23f02fE"(ptr nonnull align 8 %74) #8
           to label %107 unwind label %331
@@ -2567,7 +2567,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
           to label %129 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %369, %358, %340, %329, %240, %193, %.body
-  %.0 = phi i1 [ false, %369 ], [ false, %358 ], [ false, %340 ], [ false, %329 ], [ false, %240 ], [ false, %193 ], [ false, %.body ], [ false, %.loopexit ], [ true, %.loopexit.split-lp.loopexit ], [ %.1.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.1 = phi i1 [ false, %369 ], [ false, %358 ], [ false, %340 ], [ false, %329 ], [ false, %240 ], [ false, %193 ], [ false, %.body ], [ false, %.loopexit ], [ true, %.loopexit.split-lp.loopexit ], [ %.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn319 = phi { ptr, i32 } [ %.pn317, %369 ], [ %.pn315, %358 ], [ %.pn313, %340 ], [ %.pn311, %329 ], [ %.pn309, %240 ], [ %.pn303, %193 ], [ %eh.lpad-body, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit331, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp332, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr144drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$$RF$$RF$str$C$$RF$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$$GT$17h371ceaa74c7bfb33E"(ptr nonnull align 8 %105) #8
           to label %305 unwind label %375
@@ -2583,7 +2583,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %273, %272, %271, %266, %265, %264, %263, %262, %261, %260, %255, %254, %253, %252, %251, %250, %249, %246, %208, %204, %203, %202, %199, %174, %170, %169, %168, %163, %145, %143, %129, %127
-  %.1.ph.ph = phi i1 [ false, %273 ], [ false, %272 ], [ false, %271 ], [ false, %266 ], [ false, %265 ], [ false, %264 ], [ false, %263 ], [ false, %262 ], [ false, %261 ], [ false, %260 ], [ false, %255 ], [ false, %254 ], [ false, %253 ], [ false, %252 ], [ false, %251 ], [ false, %250 ], [ false, %249 ], [ false, %246 ], [ false, %208 ], [ false, %204 ], [ false, %203 ], [ false, %202 ], [ false, %199 ], [ false, %174 ], [ false, %170 ], [ false, %169 ], [ false, %168 ], [ false, %163 ], [ false, %145 ], [ true, %143 ], [ true, %129 ], [ true, %127 ]
+  %.0.ph.ph = phi i1 [ false, %273 ], [ false, %272 ], [ false, %271 ], [ false, %266 ], [ false, %265 ], [ false, %264 ], [ false, %263 ], [ false, %262 ], [ false, %261 ], [ false, %260 ], [ false, %255 ], [ false, %254 ], [ false, %253 ], [ false, %252 ], [ false, %251 ], [ false, %250 ], [ false, %249 ], [ false, %246 ], [ false, %208 ], [ false, %204 ], [ false, %203 ], [ false, %202 ], [ false, %199 ], [ false, %174 ], [ false, %170 ], [ false, %169 ], [ false, %168 ], [ false, %163 ], [ false, %145 ], [ true, %143 ], [ true, %129 ], [ true, %127 ]
   %lpad.loopexit.split-lp332 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -3036,7 +3036,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   br i1 %304, label %308, label %314
 
 305:                                              ; preds = %.loopexit.split-lp
-  br i1 %.0, label %472, label %124
+  br i1 %.1, label %472, label %124
 
 .thread:                                          ; preds = %301
   %306 = landingpad { ptr, i32 }
@@ -4422,12 +4422,12 @@ _ZN22cranelift_codegen_meta8gen_inst14gen_lower_isle17h790988203db05d7aE.exit: ;
           to label %178 unwind label %54
 
 178:                                              ; preds = %177, %182, %146
-  %.0 = phi ptr [ %.2, %182 ], [ %145, %146 ], [ null, %177 ]
+  %.3 = phi ptr [ %.1, %182 ], [ %145, %146 ], [ null, %177 ]
   call void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen_meta..srcgen..Formatter$GT$17h742a67427e87c87dE"(ptr nonnull align 8 %52)
-  ret ptr %.0
+  ret ptr %.3
 
 179:                                              ; preds = %162, %175
-  %.1 = phi ptr [ %171, %175 ], [ %161, %162 ]
+  %.2 = phi ptr [ %171, %175 ], [ %161, %162 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen_meta..srcgen..Formatter$GT$17h742a67427e87c87dE"(ptr nonnull align 8 %50)
           to label %182 unwind label %151
 
@@ -4438,7 +4438,7 @@ _ZN22cranelift_codegen_meta8gen_inst14gen_lower_isle17h790988203db05d7aE.exit: ;
   unreachable
 
 182:                                              ; preds = %154, %179
-  %.2 = phi ptr [ %.1, %179 ], [ %153, %154 ]
+  %.1 = phi ptr [ %.2, %179 ], [ %153, %154 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen_meta..srcgen..Formatter$GT$17h742a67427e87c87dE"(ptr nonnull align 8 %51)
           to label %178 unwind label %54
 

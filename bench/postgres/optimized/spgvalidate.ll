@@ -420,7 +420,7 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph240:                                        ; preds = %.lr.ph211, %.loopexit
   %.0128209239 = phi ptr [ %.1129, %.loopexit ], [ null, %.lr.ph211 ]
-  %.9210238 = phi i1 [ %.13, %.loopexit ], [ %.5.lcssa, %.lr.ph211 ]
+  %.9210238 = phi i1 [ %.11, %.loopexit ], [ %.5.lcssa, %.lr.ph211 ]
   %indvars.iv226237 = phi i64 [ %indvars.iv.next227, %.loopexit ], [ 0, %.lr.ph211 ]
   %214 = load ptr, ptr %153, align 8
   %215 = getelementptr %union.ListCell, ptr %214, i64 %indvars.iv226237
@@ -472,7 +472,7 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
 
 242:                                              ; preds = %.preheader, %256
   %indvars.iv223 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next224, %256 ]
-  %.11207 = phi i1 [ %.10, %.preheader ], [ %.12, %256 ]
+  %.12207 = phi i1 [ %.10, %.preheader ], [ %.13, %256 ]
   %243 = load i64, ptr %241, align 8
   %244 = shl nuw nsw i64 1, %indvars.iv223
   %245 = and i64 %243, %244
@@ -495,13 +495,13 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %256
 
 256:                                              ; preds = %250, %248, %242
-  %.12 = phi i1 [ %.11207, %242 ], [ false, %248 ], [ false, %250 ]
+  %.13 = phi i1 [ %.12207, %242 ], [ false, %248 ], [ false, %250 ]
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond225.not = icmp eq i64 %indvars.iv.next224, 8
   br i1 %exitcond225.not, label %.loopexit, label %242, !llvm.loop !8
 
 .loopexit:                                        ; preds = %256, %237
-  %.13 = phi i1 [ %.10, %237 ], [ %.12, %256 ]
+  %.11 = phi i1 [ %.10, %237 ], [ %.13, %256 ]
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226237, 1
   %257 = load i32, ptr %152, align 4
   %258 = sext i32 %257 to i64
@@ -513,7 +513,7 @@ define dso_local zeroext i1 @spgvalidate(i32 noundef %0) local_unnamed_addr #0 {
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %.lr.ph211
-  %.9210.lcssa = phi i1 [ %.13, %.._crit_edge_crit_edge ], [ %.5.lcssa, %.lr.ph211 ]
+  %.9210.lcssa = phi i1 [ %.11, %.._crit_edge_crit_edge ], [ %.5.lcssa, %.lr.ph211 ]
   %.0128209.lcssa = phi i1 [ %260, %.._crit_edge_crit_edge ], [ true, %.lr.ph211 ]
   br i1 %.0128209.lcssa, label %._crit_edge.thread, label %265
 

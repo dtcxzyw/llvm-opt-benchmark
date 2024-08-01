@@ -333,10 +333,10 @@ if.else.i:                                        ; preds = %if.end22.i
 
 if.end32.i:                                       ; preds = %if.else.i, %if.end28.i
   %12 = phi i64 [ %.pre.i, %if.end28.i ], [ %4, %if.else.i ]
-  %ciphertext.0.i = phi ptr [ %call25.i, %if.end28.i ], [ null, %if.else.i ]
+  %ciphertext.1.i = phi ptr [ %call25.i, %if.end28.i ], [ null, %if.else.i ]
   %storemerge.i = phi ptr [ %call29.i, %if.end28.i ], [ %call31.i, %if.else.i ]
-  %tobool33.not.i = icmp eq ptr %ciphertext.0.i, null
-  %cond.i = select i1 %tobool33.not.i, ptr %3, ptr %ciphertext.0.i
+  %tobool33.not.i = icmp eq ptr %ciphertext.1.i, null
+  %cond.i = select i1 %tobool33.not.i, ptr %3, ptr %ciphertext.1.i
   %call34.i = call i32 @qcrypto_cipher_decrypt(ptr noundef nonnull %call15.i, ptr noundef %cond.i, ptr noundef %storemerge.i, i64 noundef %12, ptr noundef nonnull %local_err) #5
   %cmp35.i = icmp slt i32 %call34.i, 0
   br i1 %cmp35.i, label %if.then.i.i.i, label %if.end37.i
@@ -374,7 +374,7 @@ cleanup.thread.i:                                 ; preds = %if.end14.i, %if.the
 
 if.then.i.i.i:                                    ; preds = %if.end49.i, %if.then45.i, %if.end32.i, %if.then24.i, %if.end18.i
   %output.0 = phi ptr [ null, %if.end18.i ], [ null, %if.then24.i ], [ null, %if.end32.i ], [ null, %if.then45.i ], [ %storemerge.i, %if.end49.i ]
-  %ciphertext.1.i = phi ptr [ null, %if.end18.i ], [ null, %if.then24.i ], [ %ciphertext.0.i, %if.end32.i ], [ %ciphertext.0.i, %if.then45.i ], [ %ciphertext.0.i, %if.end49.i ]
+  %ciphertext.0.i = phi ptr [ null, %if.end18.i ], [ null, %if.then24.i ], [ %ciphertext.1.i, %if.end32.i ], [ %ciphertext.1.i, %if.then45.i ], [ %ciphertext.1.i, %if.end49.i ]
   %plaintext.0.i = phi ptr [ null, %if.end18.i ], [ null, %if.then24.i ], [ %storemerge.i, %if.end32.i ], [ %storemerge.i, %if.then45.i ], [ null, %if.end49.i ]
   call void @g_free(ptr noundef %plaintext.0.i) #5
   call void @qcrypto_cipher_free(ptr noundef nonnull %call15.i) #5
@@ -382,9 +382,9 @@ if.then.i.i.i:                                    ; preds = %if.end49.i, %if.the
 
 qcrypto_secret_decrypt.exit:                      ; preds = %cleanup.thread.i, %if.then.i.i.i
   %output.1 = phi ptr [ null, %cleanup.thread.i ], [ %output.0, %if.then.i.i.i ]
-  %ciphertext.129.i = phi ptr [ null, %cleanup.thread.i ], [ %ciphertext.1.i, %if.then.i.i.i ]
+  %ciphertext.029.i = phi ptr [ null, %cleanup.thread.i ], [ %ciphertext.0.i, %if.then.i.i.i ]
   %iv.028.i = phi ptr [ %iv.0.ph.i, %cleanup.thread.i ], [ %call8.i, %if.then.i.i.i ]
-  call void @g_free(ptr noundef %ciphertext.129.i) #5
+  call void @g_free(ptr noundef %ciphertext.029.i) #5
   %key.val.i = load ptr, ptr %key.i, align 8
   call void @g_free(ptr noundef %key.val.i) #5
   call void @g_free(ptr noundef %iv.028.i) #5

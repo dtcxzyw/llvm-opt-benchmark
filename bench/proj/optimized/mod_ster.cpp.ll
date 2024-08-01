@@ -665,15 +665,15 @@ define internal { double, double } @_ZL18mod_ster_e_inverse5PJ_XYP8PJconsts(doub
   br label %78
 
 76:                                               ; preds = %78
-  %77 = add nsw i32 %.187, -1
+  %77 = add nsw i32 %.287, -1
   %.not66 = icmp eq i32 %77, 0
   br i1 %.not66, label %.thread72, label %78, !llvm.loop !6
 
 78:                                               ; preds = %62, %76
-  %.187 = phi i32 [ 20, %62 ], [ %77, %76 ]
-  %.06286 = phi double [ %72, %62 ], [ %93, %76 ]
+  %.287 = phi i32 [ 20, %62 ], [ %77, %76 ]
+  %.16386 = phi double [ %72, %62 ], [ %93, %76 ]
   %79 = load double, ptr %73, align 8
-  %80 = call double @sin(double noundef %.06286) #8
+  %80 = call double @sin(double noundef %.16386) #8
   %81 = fmul double %79, %80
   %82 = call double @tan(double noundef %75) #8
   %83 = fadd double %81, 1.000000e+00
@@ -685,8 +685,8 @@ define internal { double, double } @_ZL18mod_ster_e_inverse5PJ_XYP8PJconsts(doub
   %89 = fmul double %82, %88
   %90 = call double @atan(double noundef %89) #8
   %91 = call double @llvm.fmuladd.f64(double %90, double 2.000000e+00, double 0xBFF921FB54442D18)
-  %92 = fsub double %91, %.06286
-  %93 = fadd double %.06286, %92
+  %92 = fsub double %91, %.16386
+  %93 = fadd double %.16386, %92
   %94 = call double @llvm.fabs.f64(double %92)
   %95 = fcmp ugt double %94, 0x3D719799812DEA11
   br i1 %95, label %76, label %96

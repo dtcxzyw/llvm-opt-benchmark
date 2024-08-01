@@ -43,18 +43,18 @@ define void @ssyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %30 = mul nsw i32 %15, %29
   %31 = sub nsw i32 1, %30
   %.inv = icmp slt i32 %15, 1
-  %.0 = select i1 %.inv, i32 %31, i32 1
+  %.1 = select i1 %.inv, i32 %31, i32 1
   %32 = mul nsw i32 %16, %29
   %33 = sub nsw i32 1, %32
   %.inv192 = icmp slt i32 %16, 1
-  %.0164 = select i1 %.inv192, i32 %33, i32 1
-  %34 = sext i32 %.0 to i64
-  %35 = sext i32 %.0164 to i64
+  %.1165 = select i1 %.inv192, i32 %33, i32 1
+  %34 = sext i32 %.1 to i64
+  %35 = sext i32 %.1165 to i64
   br label %36
 
 36:                                               ; preds = %25, %28
-  %.1165 = phi i64 [ %35, %28 ], [ 0, %25 ]
-  %.1 = phi i64 [ %34, %28 ], [ 0, %25 ]
+  %.0164 = phi i64 [ %35, %28 ], [ 0, %25 ]
+  %.0 = phi i64 [ %34, %28 ], [ 0, %25 ]
   %37 = icmp eq i32 %sext, 1426063360
   %38 = icmp eq i32 %15, 1
   %39 = icmp eq i32 %16, 1
@@ -128,8 +128,8 @@ define void @ssyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   br i1 %exitcond335.not, label %.loopexit193, label %.lr.ph253, !llvm.loop !6
 
 69:                                               ; preds = %.lr.ph247, %.loopexit194
-  %indvars.iv309 = phi i64 [ %.1165, %.lr.ph247 ], [ %indvars.iv.next310, %.loopexit194 ]
-  %indvars.iv307 = phi i64 [ %.1, %.lr.ph247 ], [ %indvars.iv.next308, %.loopexit194 ]
+  %indvars.iv309 = phi i64 [ %.0164, %.lr.ph247 ], [ %indvars.iv.next310, %.loopexit194 ]
+  %indvars.iv307 = phi i64 [ %.0, %.lr.ph247 ], [ %indvars.iv.next308, %.loopexit194 ]
   %indvars.iv305 = phi i64 [ 2, %.lr.ph247 ], [ %indvars.iv.next306, %.loopexit194 ]
   %.1179244 = phi i32 [ 1, %.lr.ph247 ], [ %91, %.loopexit194 ]
   %gep238 = getelementptr float, ptr %invariant.gep237, i64 %indvars.iv307
@@ -153,8 +153,8 @@ define void @ssyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 80:                                               ; preds = %._crit_edge337, %80
   %indvars.iv294 = phi i64 [ 1, %._crit_edge337 ], [ %indvars.iv.next295, %80 ]
-  %indvars.iv292 = phi i64 [ %.1165, %._crit_edge337 ], [ %indvars.iv.next293, %80 ]
-  %indvars.iv290 = phi i64 [ %.1, %._crit_edge337 ], [ %indvars.iv.next291, %80 ]
+  %indvars.iv292 = phi i64 [ %.0164, %._crit_edge337 ], [ %indvars.iv.next293, %80 ]
+  %indvars.iv290 = phi i64 [ %.0, %._crit_edge337 ], [ %indvars.iv.next291, %80 ]
   %gep231 = getelementptr float, ptr %invariant.gep237, i64 %indvars.iv290
   %81 = load float, ptr %gep231, align 4
   %gep233 = getelementptr float, ptr %invariant.gep239, i64 %indvars.iv292
@@ -257,8 +257,8 @@ define void @ssyr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 124:                                              ; preds = %.lr.ph222, %.loopexit200
   %indvars.iv263 = phi i64 [ 1, %.lr.ph222 ], [ %indvars.iv.next264, %.loopexit200 ]
-  %indvars.iv259 = phi i64 [ %.1165, %.lr.ph222 ], [ %indvars.iv.next260, %.loopexit200 ]
-  %indvars.iv = phi i64 [ %.1, %.lr.ph222 ], [ %indvars.iv.next, %.loopexit200 ]
+  %indvars.iv259 = phi i64 [ %.0164, %.lr.ph222 ], [ %indvars.iv.next260, %.loopexit200 ]
+  %indvars.iv = phi i64 [ %.0, %.lr.ph222 ], [ %indvars.iv.next, %.loopexit200 ]
   %indvars276 = trunc i64 %indvars.iv263 to i32
   %gep210 = getelementptr float, ptr %invariant.gep209, i64 %indvars.iv
   %125 = load float, ptr %gep210, align 4

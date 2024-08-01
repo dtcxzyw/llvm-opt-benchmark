@@ -1427,7 +1427,7 @@ invoke.cont100:                                   ; preds = %if.end98
   br label %cleanup
 
 cleanup:                                          ; preds = %while.cond, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit245, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit163, %invoke.cont100, %invoke.cont95
-  %retval.0 = phi i1 [ false, %invoke.cont95 ], [ %cmp.i418.not, %invoke.cont100 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit163 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit245 ], [ false, %while.cond ]
+  %retval.1 = phi i1 [ false, %invoke.cont95 ], [ %cmp.i418.not, %invoke.cont100 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit163 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit245 ], [ false, %while.cond ]
   %72 = load ptr, ptr %current, align 8
   %bf.load.i.i419 = load i64, ptr %72, align 8
   %73 = and i64 %bf.load.i.i419, 1152920405095219200
@@ -1494,8 +1494,8 @@ return.fold.split:                                ; preds = %entry
   br label %return
 
 return:                                           ; preds = %entry, %return.fold.split, %if.then8, %if.then13.i.i438, %if.then.i.i432, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit429, %land.rhs, %if.then3
-  %retval.1 = phi i1 [ %call4, %if.then3 ], [ true, %entry ], [ false, %land.rhs ], [ %retval.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit429 ], [ %retval.0, %if.then.i.i432 ], [ %retval.0, %if.then13.i.i438 ], [ false, %if.then8 ], [ false, %return.fold.split ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %call4, %if.then3 ], [ true, %entry ], [ false, %land.rhs ], [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit429 ], [ %retval.1, %if.then.i.i432 ], [ %retval.1, %if.then13.i.i438 ], [ false, %if.then8 ], [ false, %return.fold.split ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0

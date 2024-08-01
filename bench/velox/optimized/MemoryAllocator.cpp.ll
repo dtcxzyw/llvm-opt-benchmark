@@ -461,8 +461,8 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv40 = phi i64 [ %5, %for.body.lr.ph ], [ %indvars.iv.next41, %for.inc ]
   %indvars.iv = phi i64 [ %4, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %needed.037 = phi i32 [ %conv, %for.body.lr.ph ], [ %needed.2, %for.inc ]
-  %pagesToAlloc.036 = phi i32 [ 0, %for.body.lr.ph ], [ %pagesToAlloc.1, %for.inc ]
+  %needed.037 = phi i32 [ %conv, %for.body.lr.ph ], [ %needed.1, %for.inc ]
+  %pagesToAlloc.036 = phi i32 [ 0, %for.body.lr.ph ], [ %pagesToAlloc.2, %for.inc ]
   %add.ptr.i = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
   %6 = load i64, ptr %add.ptr.i, align 8
   %conv9 = trunc i64 %6 to i32
@@ -501,7 +501,7 @@ if.then32:                                        ; preds = %if.end18
 
 if.end33:                                         ; preds = %if.end18
   %sub27 = select i1 %or.cond, i32 %conv9, i32 0
-  %needed.1 = sub nsw i32 %sub22, %sub27
+  %needed.2 = sub nsw i32 %sub22, %sub27
   %9 = load i32, ptr %numSizes, align 4
   %conv34 = sext i32 %9 to i64
   %arrayidx.i.i = getelementptr inbounds [12 x i32], ptr %sizeCounts, i64 0, i64 %conv34
@@ -514,21 +514,21 @@ if.end33:                                         ; preds = %if.end18
   %arrayidx.i.i25 = getelementptr inbounds [12 x i32], ptr %agg.result, i64 0, i64 %conv40
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %11, ptr %arrayidx.i.i25, align 4
-  %cmp42 = icmp slt i32 %needed.1, 1
+  %cmp42 = icmp slt i32 %needed.2, 1
   br i1 %cmp42, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %lor.end, %if.end33
-  %pagesToAlloc.1 = phi i32 [ %add37, %if.end33 ], [ %pagesToAlloc.036, %lor.end ]
-  %needed.2 = phi i32 [ %needed.1, %if.end33 ], [ %needed.037, %lor.end ]
+  %pagesToAlloc.2 = phi i32 [ %add37, %if.end33 ], [ %pagesToAlloc.036, %lor.end ]
+  %needed.1 = phi i32 [ %needed.2, %if.end33 ], [ %needed.037, %lor.end ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp5 = icmp sgt i64 %indvars.iv, 0
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %if.end33, %if.end
-  %pagesToAlloc.2 = phi i32 [ 0, %if.end ], [ %add37, %if.end33 ], [ %pagesToAlloc.1, %for.inc ]
+  %pagesToAlloc.1 = phi i32 [ 0, %if.end ], [ %add37, %if.end33 ], [ %pagesToAlloc.2, %for.inc ]
   %totalPages = getelementptr inbounds i8, ptr %agg.result, i64 100
-  store i32 %pagesToAlloc.2, ptr %totalPages, align 4
+  store i32 %pagesToAlloc.1, ptr %totalPages, align 4
   ret void
 }
 

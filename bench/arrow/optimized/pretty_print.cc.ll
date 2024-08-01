@@ -27662,7 +27662,7 @@ eh.resume.i:                                      ; preds = %lpad32.i, %lpad.i
   resume { ptr, i32 } %.pn.i
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit251
-  %ref.tmp.sroa.0.4 = phi ptr [ %92, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit ], [ %61, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit251 ]
+  %ref.tmp.sroa.0.2 = phi ptr [ %92, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit ], [ %61, %_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev.exit251 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp24.i)
@@ -27698,7 +27698,7 @@ _ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit: ; preds = %if.end67, %if.
   br i1 %cmp, label %for.body, label %return, !llvm.loop !804
 
 return:                                           ; preds = %_ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit, %entry, %_ZN5arrow6StatusD2Ev.exit
-  %storemerge = phi ptr [ %ref.tmp.sroa.0.4, %_ZN5arrow6StatusD2Ev.exit ], [ null, %entry ], [ null, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit ]
+  %storemerge = phi ptr [ %ref.tmp.sroa.0.2, %_ZN5arrow6StatusD2Ev.exit ], [ null, %entry ], [ null, %_ZN5arrow12_GLOBAL__N_113PrettyPrinter7NewlineEv.exit ]
   store ptr %storemerge, ptr %agg.result, align 8
   ret void
 }

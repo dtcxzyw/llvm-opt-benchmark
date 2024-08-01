@@ -1656,12 +1656,12 @@ _ZN7uu_test6parser6Parser10next_token17h7aec2c9e9b705b97E.exit: ; preds = %70, %
 
 113:                                              ; preds = %214, %204, %197, %183, %164, %145, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %111
   %114 = phi i1 [ true, %214 ], [ true, %183 ], [ true, %197 ], [ true, %204 ], [ true, %164 ], [ true, %145 ], [ false, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ true, %111 ]
-  %.sroa.0.0215 = phi i64 [ 6, %214 ], [ 6, %183 ], [ 6, %197 ], [ 6, %204 ], [ 6, %164 ], [ 6, %145 ], [ 3, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ 6, %111 ]
+  %.sroa.0.1 = phi i64 [ 6, %214 ], [ 6, %183 ], [ 6, %197 ], [ 6, %204 ], [ 6, %164 ], [ 6, %145 ], [ 3, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ 6, %111 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$uu_test..parser..Symbol$GT$$GT$17hdce30c76222c2353E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %55)
           to label %506 unwind label %.body.thread258
 
 115:                                              ; preds = %215, %210, %205, %198, %193, %184, %165, %160, %146, %112
-  %.sroa.0.1 = phi i64 [ %212, %215 ], [ %207, %210 ], [ %181, %184 ], [ %195, %198 ], [ %190, %193 ], [ %202, %205 ], [ %162, %165 ], [ %157, %160 ], [ %143, %146 ], [ %109, %112 ]
+  %.sroa.0.0215 = phi i64 [ %212, %215 ], [ %207, %210 ], [ %181, %184 ], [ %195, %198 ], [ %190, %193 ], [ %202, %205 ], [ %162, %165 ], [ %157, %160 ], [ %143, %146 ], [ %109, %112 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$uu_test..parser..Symbol$GT$$GT$17hdce30c76222c2353E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %55)
           to label %.thread261 unwind label %.body.thread258
 
@@ -3016,7 +3016,7 @@ default.unreachable:                              ; preds = %376
   br label %509
 
 508:                                              ; preds = %.thread261, %506
-  %.sroa.0.2263 = phi i64 [ %.sroa.0.1, %.thread261 ], [ %.sroa.0.0215, %506 ]
+  %.sroa.0.2263 = phi i64 [ %.sroa.0.0215, %.thread261 ], [ %.sroa.0.1, %506 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.222, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.21, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.21)
   br label %523
@@ -4593,14 +4593,14 @@ define void @_ZN7uu_test6parser5parse17ha881e1f8baa2381fE(ptr noalias nocapture 
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i": ; preds = %25, %23
   %.sroa.5.0..sroa_idx.i11.sink = phi ptr [ %.sroa.5.0..sroa_idx.i11, %25 ], [ %.sroa.527.0..sroa_idx28.i, %23 ]
-  %.sroa.025.1.i = phi i64 [ %.sroa.09.0.copyload.i, %25 ], [ %.sroa.025.0.copyload26.i, %23 ]
+  %.sroa.025.0.i = phi i64 [ %.sroa.09.0.copyload.i, %25 ], [ %.sroa.025.0.copyload26.i, %23 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.527.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i11.sink, i64 16, i1 false), !noalias !1016
-  %26 = icmp eq i64 %.sroa.025.1.i, -9223372036854775808
+  %26 = icmp eq i64 %.sroa.025.0.i, -9223372036854775808
   br i1 %26, label %58, label %27
 
 27:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd4c9048eab5b7b3E.exit.i"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !1014
-  store i64 %.sroa.025.1.i, ptr %9, align 8, !noalias !1014
+  store i64 %.sroa.025.0.i, ptr %9, align 8, !noalias !1014
   %.sroa.527.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.527.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.527.i, i64 16, i1 false), !noalias !1014
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !1014

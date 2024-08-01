@@ -68,22 +68,22 @@ define internal range(i64 0, 3) i64 @fun_so_universal_newline(ptr nocapture noun
 
 20:                                               ; preds = %16, %14
   %21 = phi i8 [ %.pr, %16 ], [ %6, %14 ]
-  %.0 = phi i32 [ 1, %16 ], [ 0, %14 ]
+  %.1 = phi i32 [ 1, %16 ], [ 0, %14 ]
   %22 = icmp eq i8 %21, 13
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %20
-  %24 = add nuw nsw i32 %.0, 1
-  %25 = zext nneg i32 %.0 to i64
+  %24 = add nuw nsw i32 %.1, 1
+  %25 = zext nneg i32 %.1 to i64
   %26 = getelementptr i8, ptr %3, i64 %25
   store i8 %21, ptr %26, align 1
   br label %27
 
 27:                                               ; preds = %20, %23, %9
   %.sink = phi i8 [ 0, %23 ], [ 0, %9 ], [ 1, %20 ]
-  %.1 = phi i32 [ %24, %23 ], [ 1, %9 ], [ %.0, %20 ]
+  %.0 = phi i32 [ %24, %23 ], [ 1, %9 ], [ %.1, %20 ]
   store i8 %.sink, ptr %0, align 1
-  %28 = zext nneg i32 %.1 to i64
+  %28 = zext nneg i32 %.0 to i64
   ret i64 %28
 }
 

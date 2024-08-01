@@ -844,16 +844,16 @@ Cnf_IsopCountLiterals.exit385:                    ; preds = %._crit_edge.us.i382
 
 .lr.ph429:                                        ; preds = %.lr.ph429.preheader, %.lr.ph429
   %indvars.iv490 = phi i64 [ 0, %.lr.ph429.preheader ], [ %indvars.iv.next491, %.lr.ph429 ]
-  %.0428 = phi i32 [ 1, %.lr.ph429.preheader ], [ %139, %.lr.ph429 ]
+  %.1428 = phi i32 [ 1, %.lr.ph429.preheader ], [ %139, %.lr.ph429 ]
   %.val325 = load ptr, ptr %136, align 8
   %137 = getelementptr inbounds ptr, ptr %.val325, i64 %indvars.iv490
   %138 = load ptr, ptr %137, align 8
-  %139 = add nuw nsw i32 %.0428, 1
+  %139 = add nuw nsw i32 %.1428, 1
   %140 = getelementptr inbounds i8, ptr %138, i64 36
   %141 = load i32, ptr %140, align 4
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds i32, ptr %123, i64 %142
-  store i32 %.0428, ptr %143, align 4
+  store i32 %.1428, ptr %143, align 4
   %indvars.iv.next491 = add nuw nsw i64 %indvars.iv490, 1
   %.val316 = load i32, ptr %134, align 4
   %144 = sext i32 %.val316 to i64
@@ -876,16 +876,16 @@ Cnf_IsopCountLiterals.exit385:                    ; preds = %._crit_edge.us.i382
 
 .lr.ph424:                                        ; preds = %.lr.ph424.preheader, %.lr.ph424
   %indvars.iv487 = phi i64 [ %152, %.lr.ph424.preheader ], [ %indvars.iv.next488, %.lr.ph424 ]
-  %.1422 = phi i32 [ 1, %.lr.ph424.preheader ], [ %156, %.lr.ph424 ]
+  %.2422 = phi i32 [ 1, %.lr.ph424.preheader ], [ %156, %.lr.ph424 ]
   %.val324 = load ptr, ptr %153, align 8
   %154 = getelementptr inbounds ptr, ptr %.val324, i64 %indvars.iv487
   %155 = load ptr, ptr %154, align 8
-  %156 = add nuw nsw i32 %.1422, 1
+  %156 = add nuw nsw i32 %.2422, 1
   %157 = getelementptr inbounds i8, ptr %155, i64 36
   %158 = load i32, ptr %157, align 4
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds i32, ptr %123, i64 %159
-  store i32 %.1422, ptr %160, align 4
+  store i32 %.2422, ptr %160, align 4
   %indvars.iv.next488 = add nsw i64 %indvars.iv487, 1
   %.val315 = load i32, ptr %150, align 4
   %161 = sext i32 %.val315 to i64
@@ -893,7 +893,7 @@ Cnf_IsopCountLiterals.exit385:                    ; preds = %._crit_edge.us.i382
   br i1 %162, label %.lr.ph424, label %.critedge2, !llvm.loop !19
 
 .critedge2:                                       ; preds = %.lr.ph424, %.lr.ph429, %146, %.preheader, %._crit_edge
-  %.2 = phi i32 [ 1, %._crit_edge ], [ 1, %.preheader ], [ 1, %146 ], [ %139, %.lr.ph429 ], [ %156, %.lr.ph424 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 1, %.preheader ], [ 1, %146 ], [ %139, %.lr.ph429 ], [ %156, %.lr.ph424 ]
   br i1 %12, label %.lr.ph433, label %.critedge6.preheader
 
 .lr.ph433:                                        ; preds = %.critedge2
@@ -903,7 +903,7 @@ Cnf_IsopCountLiterals.exit385:                    ; preds = %._crit_edge.us.i382
   br label %169
 
 .critedge6.preheader:                             ; preds = %169, %.critedge2
-  %.3.lcssa = phi i32 [ %.2, %.critedge2 ], [ %172, %169 ]
+  %.3.lcssa = phi i32 [ %.0, %.critedge2 ], [ %172, %169 ]
   %164 = getelementptr inbounds i8, ptr %5, i64 16
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr i8, ptr %165, i64 4
@@ -917,7 +917,7 @@ Cnf_IsopCountLiterals.exit385:                    ; preds = %._crit_edge.us.i382
 
 169:                                              ; preds = %.lr.ph433, %169
   %indvars.iv493 = phi i64 [ 0, %.lr.ph433 ], [ %indvars.iv.next494, %169 ]
-  %.3432 = phi i32 [ %.2, %.lr.ph433 ], [ %172, %169 ]
+  %.3432 = phi i32 [ %.0, %.lr.ph433 ], [ %172, %169 ]
   %170 = getelementptr inbounds ptr, ptr %.val323, i64 %indvars.iv493
   %171 = load ptr, ptr %170, align 8
   %172 = add nuw nsw i32 %.3432, 1
@@ -2226,16 +2226,16 @@ define noalias noundef ptr @Cnf_DeriveSimple(ptr noundef %0, i32 noundef %1) loc
 
 42:                                               ; preds = %.lr.ph200, %42
   %indvars.iv225 = phi i64 [ 0, %.lr.ph200 ], [ %indvars.iv.next226, %42 ]
-  %.0199 = phi i32 [ 1, %.lr.ph200 ], [ %45, %42 ]
+  %.1199 = phi i32 [ 1, %.lr.ph200 ], [ %45, %42 ]
   %.val172 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds ptr, ptr %.val172, i64 %indvars.iv225
   %44 = load ptr, ptr %43, align 8
-  %45 = add nuw nsw i32 %.0199, 1
+  %45 = add nuw nsw i32 %.1199, 1
   %46 = getelementptr inbounds i8, ptr %44, i64 36
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i32, ptr %32, i64 %48
-  store i32 %.0199, ptr %49, align 4
+  store i32 %.1199, ptr %49, align 4
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %.val165 = load i32, ptr %39, align 4
   %50 = sext i32 %.val165 to i64
@@ -2243,7 +2243,7 @@ define noalias noundef ptr @Cnf_DeriveSimple(ptr noundef %0, i32 noundef %1) loc
   br i1 %51, label %42, label %.critedge, !llvm.loop !35
 
 .critedge:                                        ; preds = %42, %.preheader, %._crit_edge
-  %.1 = phi i32 [ 1, %._crit_edge ], [ 1, %.preheader ], [ %45, %42 ]
+  %.0 = phi i32 [ 1, %._crit_edge ], [ 1, %.preheader ], [ %45, %42 ]
   br i1 %34, label %.lr.ph204, label %.critedge2.preheader
 
 .lr.ph204:                                        ; preds = %.critedge
@@ -2252,7 +2252,7 @@ define noalias noundef ptr @Cnf_DeriveSimple(ptr noundef %0, i32 noundef %1) loc
   br label %58
 
 .critedge2.preheader:                             ; preds = %73, %.critedge
-  %.2.lcssa = phi i32 [ %.1, %.critedge ], [ %.3, %73 ]
+  %.2.lcssa = phi i32 [ %.0, %.critedge ], [ %.3, %73 ]
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr i8, ptr %54, i64 4
@@ -2266,7 +2266,7 @@ define noalias noundef ptr @Cnf_DeriveSimple(ptr noundef %0, i32 noundef %1) loc
 
 58:                                               ; preds = %.lr.ph204, %73
   %indvars.iv228 = phi i64 [ 0, %.lr.ph204 ], [ %indvars.iv.next229, %73 ]
-  %.2203 = phi i32 [ %.1, %.lr.ph204 ], [ %.3, %73 ]
+  %.2203 = phi i32 [ %.0, %.lr.ph204 ], [ %.3, %73 ]
   %59 = getelementptr inbounds ptr, ptr %.val171.pre, i64 %indvars.iv228
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null

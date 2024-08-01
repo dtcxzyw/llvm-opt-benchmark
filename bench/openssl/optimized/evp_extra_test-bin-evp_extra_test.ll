@@ -1185,10 +1185,10 @@ lor.lhs.false25:                                  ; preds = %if.else
   br i1 %tobool28.not, label %out, label %if.end31
 
 if.end31:                                         ; preds = %lor.lhs.false25, %if.end15
-  %a_md_ctx.0 = phi ptr [ null, %if.end15 ], [ %call22, %lor.lhs.false25 ]
-  %a_md_ctx_verify.0 = phi ptr [ null, %if.end15 ], [ %call26, %lor.lhs.false25 ]
-  %mdbio.0 = phi ptr [ %call10, %if.end15 ], [ null, %lor.lhs.false25 ]
-  %membio.0 = phi ptr [ %call8, %if.end15 ], [ null, %lor.lhs.false25 ]
+  %a_md_ctx.1 = phi ptr [ null, %if.end15 ], [ %call22, %lor.lhs.false25 ]
+  %a_md_ctx_verify.1 = phi ptr [ null, %if.end15 ], [ %call26, %lor.lhs.false25 ]
+  %mdbio.1 = phi ptr [ %call10, %if.end15 ], [ null, %lor.lhs.false25 ]
+  %membio.1 = phi ptr [ %call8, %if.end15 ], [ null, %lor.lhs.false25 ]
   %rem = srem i32 %spec.select, 3
   switch i32 %rem, label %if.else50 [
     i32 0, label %if.then34
@@ -1247,7 +1247,7 @@ if.else50:                                        ; preds = %if.end31
   br i1 %tobool53.not, label %out, label %if.end57
 
 if.end57:                                         ; preds = %if.then44, %if.else50, %if.then34
-  %pkey.0 = phi ptr [ %3, %if.then34 ], [ %5, %if.then44 ], [ %.call.i, %if.else50 ]
+  %pkey.1 = phi ptr [ %3, %if.then34 ], [ %5, %if.then44 ], [ %.call.i, %if.else50 ]
   %7 = add i32 %spec.select, -3
   %or.cond1 = icmp ult i32 %7, 3
   br i1 %or.cond1, label %if.then63, label %if.else65
@@ -1262,9 +1262,9 @@ if.else65:                                        ; preds = %if.end57
 
 if.end67:                                         ; preds = %if.else65, %if.then63
   %md.0 = phi ptr [ %call64, %if.then63 ], [ %call66, %if.else65 ]
-  %mdexp.0 = phi ptr [ %call64, %if.then63 ], [ null, %if.else65 ]
+  %mdexp.1 = phi ptr [ %call64, %if.then63 ], [ null, %if.else65 ]
   %8 = load ptr, ptr %md_ctx, align 8
-  %call68 = call i32 @EVP_DigestSignInit(ptr noundef %8, ptr noundef null, ptr noundef %md.0, ptr noundef null, ptr noundef %pkey.0) #8
+  %call68 = call i32 @EVP_DigestSignInit(ptr noundef %8, ptr noundef null, ptr noundef %md.0, ptr noundef null, ptr noundef %pkey.1) #8
   %cmp69 = icmp ne i32 %call68, 0
   %conv70 = zext i1 %cmp69 to i32
   %call71 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 1535, ptr noundef nonnull @.str.106, i32 noundef %conv70) #8
@@ -1287,7 +1287,7 @@ if.end83:                                         ; preds = %land.lhs.true76, %i
   br i1 %or.cond, label %if.then89, label %if.else94
 
 if.then89:                                        ; preds = %if.end83
-  %call90 = call i32 @BIO_write_ex(ptr noundef %mdbio.0, ptr noundef nonnull @kMsg, i64 noundef 4, ptr noundef nonnull %written) #8
+  %call90 = call i32 @BIO_write_ex(ptr noundef %mdbio.1, ptr noundef nonnull @kMsg, i64 noundef 4, ptr noundef nonnull %written) #8
   %tobool91.not = icmp eq i32 %call90, 0
   br i1 %tobool91.not, label %out, label %if.else139
 
@@ -1392,14 +1392,14 @@ if.then167:                                       ; preds = %if.end163
   br i1 %or.cond, label %if.then173, label %if.end185
 
 if.then173:                                       ; preds = %if.then167
-  %call174 = call i64 @BIO_ctrl(ptr noundef %mdbio.0, i32 noundef 1, i64 noundef 0, ptr noundef null) #8
+  %call174 = call i64 @BIO_ctrl(ptr noundef %mdbio.1, i32 noundef 1, i64 noundef 0, ptr noundef null) #8
   %conv175 = trunc i64 %call174 to i32
   %call176 = call i32 @test_int_gt(ptr noundef nonnull @.str.16, i32 noundef 1589, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.99, i32 noundef %conv175, i32 noundef 0) #8
   %tobool177.not = icmp eq i32 %call176, 0
   br i1 %tobool177.not, label %out, label %lor.lhs.false178
 
 lor.lhs.false178:                                 ; preds = %if.then173
-  %call179 = call i64 @BIO_ctrl(ptr noundef %mdbio.0, i32 noundef 120, i64 noundef 0, ptr noundef nonnull %md_ctx_verify) #8
+  %call179 = call i64 @BIO_ctrl(ptr noundef %mdbio.1, i32 noundef 120, i64 noundef 0, ptr noundef nonnull %md_ctx_verify) #8
   %conv180 = trunc i64 %call179 to i32
   %call181 = call i32 @test_int_gt(ptr noundef nonnull @.str.16, i32 noundef 1590, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.99, i32 noundef %conv180, i32 noundef 0) #8
   %tobool182.not = icmp eq i32 %call181, 0
@@ -1410,9 +1410,9 @@ lor.lhs.false178.if.end185_crit_edge:             ; preds = %lor.lhs.false178
   br label %if.end185
 
 if.end185:                                        ; preds = %lor.lhs.false178.if.end185_crit_edge, %if.end163.thread, %if.then167
-  %18 = phi ptr [ %.pre, %lor.lhs.false178.if.end185_crit_edge ], [ %a_md_ctx_verify.0, %if.then167 ], [ %a_md_ctx_verify.0, %if.end163.thread ]
-  %sig.05256 = phi ptr [ %call146, %lor.lhs.false178.if.end185_crit_edge ], [ %call146, %if.then167 ], [ %call116, %if.end163.thread ]
-  %call186 = call i32 @EVP_DigestVerifyInit(ptr noundef %18, ptr noundef null, ptr noundef %md.0, ptr noundef null, ptr noundef %pkey.0) #8
+  %18 = phi ptr [ %.pre, %lor.lhs.false178.if.end185_crit_edge ], [ %a_md_ctx_verify.1, %if.then167 ], [ %a_md_ctx_verify.1, %if.end163.thread ]
+  %sig.15256 = phi ptr [ %call146, %lor.lhs.false178.if.end185_crit_edge ], [ %call146, %if.then167 ], [ %call116, %if.end163.thread ]
+  %call186 = call i32 @EVP_DigestVerifyInit(ptr noundef %18, ptr noundef null, ptr noundef %md.0, ptr noundef null, ptr noundef %pkey.1) #8
   %cmp187 = icmp ne i32 %call186, 0
   %conv188 = zext i1 %cmp187 to i32
   %call189 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 1595, ptr noundef nonnull @.str.118, i32 noundef %conv188) #8
@@ -1423,7 +1423,7 @@ if.end192:                                        ; preds = %if.end185
   br i1 %or.cond, label %if.then198, label %if.else206
 
 if.then198:                                       ; preds = %if.end192
-  %call199 = call i32 @BIO_write_ex(ptr noundef %mdbio.0, ptr noundef nonnull @kMsg, i64 noundef 4, ptr noundef nonnull %written) #8
+  %call199 = call i32 @BIO_write_ex(ptr noundef %mdbio.1, ptr noundef nonnull @kMsg, i64 noundef 4, ptr noundef nonnull %written) #8
   %cmp200 = icmp ne i32 %call199, 0
   %conv201 = zext i1 %cmp200 to i32
   %call202 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 1599, ptr noundef nonnull @.str.119, i32 noundef %conv201) #8
@@ -1442,7 +1442,7 @@ if.else206:                                       ; preds = %if.end192
 if.end214:                                        ; preds = %if.else206, %if.then198
   %20 = load ptr, ptr %md_ctx_verify, align 8
   %21 = load i64, ptr %sig_len, align 8
-  %call215 = call i32 @EVP_DigestVerifyFinal(ptr noundef %20, ptr noundef %sig.05256, i64 noundef %21) #8
+  %call215 = call i32 @EVP_DigestVerifyFinal(ptr noundef %20, ptr noundef %sig.15256, i64 noundef %21) #8
   %call216 = call i32 @test_int_gt(ptr noundef nonnull @.str.16, i32 noundef 1606, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.99, i32 noundef %call215, i32 noundef 0) #8
   %tobool217.not = icmp eq i32 %call216, 0
   br i1 %tobool217.not, label %out, label %if.end219
@@ -1450,13 +1450,13 @@ if.end214:                                        ; preds = %if.else206, %if.the
 if.end219:                                        ; preds = %if.end214
   %22 = load ptr, ptr %md_ctx_verify, align 8
   %23 = load i64, ptr %sig_len, align 8
-  %call220 = call i32 @EVP_DigestVerifyFinal(ptr noundef %22, ptr noundef %sig.05256, i64 noundef %23) #8
+  %call220 = call i32 @EVP_DigestVerifyFinal(ptr noundef %22, ptr noundef %sig.15256, i64 noundef %23) #8
   %call221 = call i32 @test_int_gt(ptr noundef nonnull @.str.16, i32 noundef 1610, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.99, i32 noundef %call220, i32 noundef 0) #8
   %tobool222.not = icmp eq i32 %call221, 0
   br i1 %tobool222.not, label %out, label %if.end247
 
 if.else225:                                       ; preds = %if.end163.thread, %if.end163
-  %sig.053 = phi ptr [ %call116, %if.end163.thread ], [ %call146, %if.end163 ]
+  %sig.153 = phi ptr [ %call116, %if.end163.thread ], [ %call146, %if.end163 ]
   %24 = load ptr, ptr %md_ctx, align 8
   %call226 = call i32 @EVP_DigestSignFinal(ptr noundef %24, ptr noundef null, ptr noundef nonnull %sig2_len) #8
   %cmp227 = icmp ne i32 %call226, 0
@@ -1484,33 +1484,33 @@ lor.lhs.false235:                                 ; preds = %lor.lhs.false231
 if.end242:                                        ; preds = %lor.lhs.false235
   %27 = load i64, ptr %sig_len, align 8
   %28 = load i64, ptr %sig2_len, align 8
-  %call243 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 1622, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef %sig.053, i64 noundef %27, ptr noundef %call232, i64 noundef %28) #8
+  %call243 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 1622, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, ptr noundef %sig.153, i64 noundef %27, ptr noundef %call232, i64 noundef %28) #8
   %tobool244.not = icmp eq i32 %call243, 0
   br i1 %tobool244.not, label %out, label %if.end247
 
 if.end247:                                        ; preds = %if.end242, %if.end219
-  %sig.054 = phi ptr [ %sig.05256, %if.end219 ], [ %sig.053, %if.end242 ]
-  %sig2.0 = phi ptr [ null, %if.end219 ], [ %call232, %if.end242 ]
+  %sig.154 = phi ptr [ %sig.15256, %if.end219 ], [ %sig.153, %if.end242 ]
+  %sig2.1 = phi ptr [ null, %if.end219 ], [ %call232, %if.end242 ]
   br label %out
 
 out:                                              ; preds = %if.then123, %if.end242, %if.else225, %lor.lhs.false231, %lor.lhs.false235, %if.end219, %if.end214, %if.else206, %if.then198, %if.end185, %if.then173, %lor.lhs.false178, %if.else139, %lor.lhs.false145, %lor.lhs.false149, %lor.lhs.false155, %if.end131, %if.then109, %lor.lhs.false115, %if.then97, %if.then89, %land.lhs.true76, %if.end67, %if.else50, %if.then44, %if.then34, %if.else, %lor.lhs.false25, %if.end15, %if.then6, %lor.lhs.false, %if.end247
   %ret.0 = phi i32 [ 1, %if.end247 ], [ 0, %if.end219 ], [ 0, %if.end214 ], [ 0, %if.then198 ], [ 0, %if.else206 ], [ 0, %if.end185 ], [ 0, %lor.lhs.false178 ], [ 0, %if.then173 ], [ 0, %if.end242 ], [ 0, %lor.lhs.false235 ], [ 0, %lor.lhs.false231 ], [ 0, %if.else225 ], [ 0, %if.end131 ], [ 0, %lor.lhs.false115 ], [ 0, %if.then109 ], [ 0, %lor.lhs.false155 ], [ 0, %lor.lhs.false149 ], [ 0, %lor.lhs.false145 ], [ 0, %if.else139 ], [ 0, %if.then89 ], [ 0, %if.then97 ], [ 0, %land.lhs.true76 ], [ 0, %if.end67 ], [ 0, %if.then34 ], [ 0, %if.then44 ], [ 0, %if.else50 ], [ 0, %if.end15 ], [ 0, %lor.lhs.false ], [ 0, %if.then6 ], [ 0, %lor.lhs.false25 ], [ 0, %if.else ], [ %spec.select43, %if.then123 ]
-  %pkey.1 = phi ptr [ %pkey.0, %if.end247 ], [ %pkey.0, %if.end219 ], [ %pkey.0, %if.end214 ], [ %pkey.0, %if.then198 ], [ %pkey.0, %if.else206 ], [ %pkey.0, %if.end185 ], [ %pkey.0, %lor.lhs.false178 ], [ %pkey.0, %if.then173 ], [ %pkey.0, %if.end242 ], [ %pkey.0, %lor.lhs.false235 ], [ %pkey.0, %lor.lhs.false231 ], [ %pkey.0, %if.else225 ], [ %pkey.0, %if.end131 ], [ %pkey.0, %lor.lhs.false115 ], [ %pkey.0, %if.then109 ], [ %pkey.0, %lor.lhs.false155 ], [ %pkey.0, %lor.lhs.false149 ], [ %pkey.0, %lor.lhs.false145 ], [ %pkey.0, %if.else139 ], [ %pkey.0, %if.then89 ], [ %pkey.0, %if.then97 ], [ %pkey.0, %land.lhs.true76 ], [ %pkey.0, %if.end67 ], [ %3, %if.then34 ], [ %5, %if.then44 ], [ %.call.i, %if.else50 ], [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %if.then6 ], [ null, %lor.lhs.false25 ], [ null, %if.else ], [ %pkey.0, %if.then123 ]
-  %sig.1 = phi ptr [ %sig.054, %if.end247 ], [ %sig.05256, %if.end219 ], [ %sig.05256, %if.end214 ], [ %sig.05256, %if.then198 ], [ %sig.05256, %if.else206 ], [ %sig.05256, %if.end185 ], [ %call146, %lor.lhs.false178 ], [ %call146, %if.then173 ], [ %sig.053, %if.end242 ], [ %sig.053, %lor.lhs.false235 ], [ %sig.053, %lor.lhs.false231 ], [ %sig.053, %if.else225 ], [ %call116, %if.end131 ], [ %call116, %lor.lhs.false115 ], [ null, %if.then109 ], [ %call146, %lor.lhs.false155 ], [ %call146, %lor.lhs.false149 ], [ %call146, %lor.lhs.false145 ], [ null, %if.else139 ], [ null, %if.then89 ], [ null, %if.then97 ], [ null, %land.lhs.true76 ], [ null, %if.end67 ], [ null, %if.then34 ], [ null, %if.then44 ], [ null, %if.else50 ], [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %if.then6 ], [ null, %lor.lhs.false25 ], [ null, %if.else ], [ %call116, %if.then123 ]
-  %sig2.1 = phi ptr [ %sig2.0, %if.end247 ], [ null, %if.end219 ], [ null, %if.end214 ], [ null, %if.then198 ], [ null, %if.else206 ], [ null, %if.end185 ], [ null, %lor.lhs.false178 ], [ null, %if.then173 ], [ %call232, %if.end242 ], [ %call232, %lor.lhs.false235 ], [ %call232, %lor.lhs.false231 ], [ null, %if.else225 ], [ null, %if.end131 ], [ null, %lor.lhs.false115 ], [ null, %if.then109 ], [ null, %lor.lhs.false155 ], [ null, %lor.lhs.false149 ], [ null, %lor.lhs.false145 ], [ null, %if.else139 ], [ null, %if.then89 ], [ null, %if.then97 ], [ null, %land.lhs.true76 ], [ null, %if.end67 ], [ null, %if.then34 ], [ null, %if.then44 ], [ null, %if.else50 ], [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %if.then6 ], [ null, %lor.lhs.false25 ], [ null, %if.else ], [ null, %if.then123 ]
-  %a_md_ctx.1 = phi ptr [ %a_md_ctx.0, %if.end247 ], [ %a_md_ctx.0, %if.end219 ], [ %a_md_ctx.0, %if.end214 ], [ %a_md_ctx.0, %if.then198 ], [ %a_md_ctx.0, %if.else206 ], [ %a_md_ctx.0, %if.end185 ], [ %a_md_ctx.0, %lor.lhs.false178 ], [ %a_md_ctx.0, %if.then173 ], [ %a_md_ctx.0, %if.end242 ], [ %a_md_ctx.0, %lor.lhs.false235 ], [ %a_md_ctx.0, %lor.lhs.false231 ], [ %a_md_ctx.0, %if.else225 ], [ %a_md_ctx.0, %if.end131 ], [ %a_md_ctx.0, %lor.lhs.false115 ], [ %a_md_ctx.0, %if.then109 ], [ %a_md_ctx.0, %lor.lhs.false155 ], [ %a_md_ctx.0, %lor.lhs.false149 ], [ %a_md_ctx.0, %lor.lhs.false145 ], [ %a_md_ctx.0, %if.else139 ], [ %a_md_ctx.0, %if.then89 ], [ %a_md_ctx.0, %if.then97 ], [ %a_md_ctx.0, %land.lhs.true76 ], [ %a_md_ctx.0, %if.end67 ], [ %a_md_ctx.0, %if.then34 ], [ %a_md_ctx.0, %if.then44 ], [ %a_md_ctx.0, %if.else50 ], [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %if.then6 ], [ %call22, %lor.lhs.false25 ], [ %call22, %if.else ], [ %a_md_ctx.0, %if.then123 ]
-  %a_md_ctx_verify.1 = phi ptr [ %a_md_ctx_verify.0, %if.end247 ], [ %a_md_ctx_verify.0, %if.end219 ], [ %a_md_ctx_verify.0, %if.end214 ], [ %a_md_ctx_verify.0, %if.then198 ], [ %a_md_ctx_verify.0, %if.else206 ], [ %a_md_ctx_verify.0, %if.end185 ], [ %a_md_ctx_verify.0, %lor.lhs.false178 ], [ %a_md_ctx_verify.0, %if.then173 ], [ %a_md_ctx_verify.0, %if.end242 ], [ %a_md_ctx_verify.0, %lor.lhs.false235 ], [ %a_md_ctx_verify.0, %lor.lhs.false231 ], [ %a_md_ctx_verify.0, %if.else225 ], [ %a_md_ctx_verify.0, %if.end131 ], [ %a_md_ctx_verify.0, %lor.lhs.false115 ], [ %a_md_ctx_verify.0, %if.then109 ], [ %a_md_ctx_verify.0, %lor.lhs.false155 ], [ %a_md_ctx_verify.0, %lor.lhs.false149 ], [ %a_md_ctx_verify.0, %lor.lhs.false145 ], [ %a_md_ctx_verify.0, %if.else139 ], [ %a_md_ctx_verify.0, %if.then89 ], [ %a_md_ctx_verify.0, %if.then97 ], [ %a_md_ctx_verify.0, %land.lhs.true76 ], [ %a_md_ctx_verify.0, %if.end67 ], [ %a_md_ctx_verify.0, %if.then34 ], [ %a_md_ctx_verify.0, %if.then44 ], [ %a_md_ctx_verify.0, %if.else50 ], [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %if.then6 ], [ %call26, %lor.lhs.false25 ], [ null, %if.else ], [ %a_md_ctx_verify.0, %if.then123 ]
-  %mdbio.1 = phi ptr [ %mdbio.0, %if.end247 ], [ %mdbio.0, %if.end219 ], [ %mdbio.0, %if.end214 ], [ %mdbio.0, %if.then198 ], [ %mdbio.0, %if.else206 ], [ %mdbio.0, %if.end185 ], [ %mdbio.0, %lor.lhs.false178 ], [ %mdbio.0, %if.then173 ], [ %mdbio.0, %if.end242 ], [ %mdbio.0, %lor.lhs.false235 ], [ %mdbio.0, %lor.lhs.false231 ], [ %mdbio.0, %if.else225 ], [ %mdbio.0, %if.end131 ], [ %mdbio.0, %lor.lhs.false115 ], [ %mdbio.0, %if.then109 ], [ %mdbio.0, %lor.lhs.false155 ], [ %mdbio.0, %lor.lhs.false149 ], [ %mdbio.0, %lor.lhs.false145 ], [ %mdbio.0, %if.else139 ], [ %mdbio.0, %if.then89 ], [ %mdbio.0, %if.then97 ], [ %mdbio.0, %land.lhs.true76 ], [ %mdbio.0, %if.end67 ], [ %mdbio.0, %if.then34 ], [ %mdbio.0, %if.then44 ], [ %mdbio.0, %if.else50 ], [ %call10, %if.end15 ], [ %call10, %lor.lhs.false ], [ %call10, %if.then6 ], [ null, %lor.lhs.false25 ], [ null, %if.else ], [ %mdbio.0, %if.then123 ]
-  %membio.1 = phi ptr [ %membio.0, %if.end247 ], [ %membio.0, %if.end219 ], [ %membio.0, %if.end214 ], [ %membio.0, %if.then198 ], [ %membio.0, %if.else206 ], [ %membio.0, %if.end185 ], [ %membio.0, %lor.lhs.false178 ], [ %membio.0, %if.then173 ], [ %membio.0, %if.end242 ], [ %membio.0, %lor.lhs.false235 ], [ %membio.0, %lor.lhs.false231 ], [ %membio.0, %if.else225 ], [ %membio.0, %if.end131 ], [ %membio.0, %lor.lhs.false115 ], [ %membio.0, %if.then109 ], [ %membio.0, %lor.lhs.false155 ], [ %membio.0, %lor.lhs.false149 ], [ %membio.0, %lor.lhs.false145 ], [ %membio.0, %if.else139 ], [ %membio.0, %if.then89 ], [ %membio.0, %if.then97 ], [ %membio.0, %land.lhs.true76 ], [ %membio.0, %if.end67 ], [ %membio.0, %if.then34 ], [ %membio.0, %if.then44 ], [ %membio.0, %if.else50 ], [ %call8, %if.end15 ], [ %call8, %lor.lhs.false ], [ %call8, %if.then6 ], [ null, %lor.lhs.false25 ], [ null, %if.else ], [ %membio.0, %if.then123 ]
-  %mdexp.1 = phi ptr [ %mdexp.0, %if.end247 ], [ %mdexp.0, %if.end219 ], [ %mdexp.0, %if.end214 ], [ %mdexp.0, %if.then198 ], [ %mdexp.0, %if.else206 ], [ %mdexp.0, %if.end185 ], [ %mdexp.0, %lor.lhs.false178 ], [ %mdexp.0, %if.then173 ], [ %mdexp.0, %if.end242 ], [ %mdexp.0, %lor.lhs.false235 ], [ %mdexp.0, %lor.lhs.false231 ], [ %mdexp.0, %if.else225 ], [ %mdexp.0, %if.end131 ], [ %mdexp.0, %lor.lhs.false115 ], [ %mdexp.0, %if.then109 ], [ %mdexp.0, %lor.lhs.false155 ], [ %mdexp.0, %lor.lhs.false149 ], [ %mdexp.0, %lor.lhs.false145 ], [ %mdexp.0, %if.else139 ], [ %mdexp.0, %if.then89 ], [ %mdexp.0, %if.then97 ], [ %mdexp.0, %land.lhs.true76 ], [ %mdexp.0, %if.end67 ], [ null, %if.then34 ], [ null, %if.then44 ], [ null, %if.else50 ], [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %if.then6 ], [ null, %lor.lhs.false25 ], [ null, %if.else ], [ %mdexp.0, %if.then123 ]
-  %call248 = call i32 @BIO_free(ptr noundef %membio.1) #8
-  %call249 = call i32 @BIO_free(ptr noundef %mdbio.1) #8
-  call void @EVP_MD_CTX_free(ptr noundef %a_md_ctx.1) #8
-  call void @EVP_MD_CTX_free(ptr noundef %a_md_ctx_verify.1) #8
-  call void @EVP_PKEY_free(ptr noundef %pkey.1) #8
-  call void @CRYPTO_free(ptr noundef %sig.1, ptr noundef nonnull @.str.16, i32 noundef 1634) #8
-  call void @CRYPTO_free(ptr noundef %sig2.1, ptr noundef nonnull @.str.16, i32 noundef 1635) #8
-  call void @EVP_MD_free(ptr noundef %mdexp.1) #8
+  %pkey.0 = phi ptr [ %pkey.1, %if.end247 ], [ %pkey.1, %if.end219 ], [ %pkey.1, %if.end214 ], [ %pkey.1, %if.then198 ], [ %pkey.1, %if.else206 ], [ %pkey.1, %if.end185 ], [ %pkey.1, %lor.lhs.false178 ], [ %pkey.1, %if.then173 ], [ %pkey.1, %if.end242 ], [ %pkey.1, %lor.lhs.false235 ], [ %pkey.1, %lor.lhs.false231 ], [ %pkey.1, %if.else225 ], [ %pkey.1, %if.end131 ], [ %pkey.1, %lor.lhs.false115 ], [ %pkey.1, %if.then109 ], [ %pkey.1, %lor.lhs.false155 ], [ %pkey.1, %lor.lhs.false149 ], [ %pkey.1, %lor.lhs.false145 ], [ %pkey.1, %if.else139 ], [ %pkey.1, %if.then89 ], [ %pkey.1, %if.then97 ], [ %pkey.1, %land.lhs.true76 ], [ %pkey.1, %if.end67 ], [ %3, %if.then34 ], [ %5, %if.then44 ], [ %.call.i, %if.else50 ], [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %if.then6 ], [ null, %lor.lhs.false25 ], [ null, %if.else ], [ %pkey.1, %if.then123 ]
+  %sig.0 = phi ptr [ %sig.154, %if.end247 ], [ %sig.15256, %if.end219 ], [ %sig.15256, %if.end214 ], [ %sig.15256, %if.then198 ], [ %sig.15256, %if.else206 ], [ %sig.15256, %if.end185 ], [ %call146, %lor.lhs.false178 ], [ %call146, %if.then173 ], [ %sig.153, %if.end242 ], [ %sig.153, %lor.lhs.false235 ], [ %sig.153, %lor.lhs.false231 ], [ %sig.153, %if.else225 ], [ %call116, %if.end131 ], [ %call116, %lor.lhs.false115 ], [ null, %if.then109 ], [ %call146, %lor.lhs.false155 ], [ %call146, %lor.lhs.false149 ], [ %call146, %lor.lhs.false145 ], [ null, %if.else139 ], [ null, %if.then89 ], [ null, %if.then97 ], [ null, %land.lhs.true76 ], [ null, %if.end67 ], [ null, %if.then34 ], [ null, %if.then44 ], [ null, %if.else50 ], [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %if.then6 ], [ null, %lor.lhs.false25 ], [ null, %if.else ], [ %call116, %if.then123 ]
+  %sig2.0 = phi ptr [ %sig2.1, %if.end247 ], [ null, %if.end219 ], [ null, %if.end214 ], [ null, %if.then198 ], [ null, %if.else206 ], [ null, %if.end185 ], [ null, %lor.lhs.false178 ], [ null, %if.then173 ], [ %call232, %if.end242 ], [ %call232, %lor.lhs.false235 ], [ %call232, %lor.lhs.false231 ], [ null, %if.else225 ], [ null, %if.end131 ], [ null, %lor.lhs.false115 ], [ null, %if.then109 ], [ null, %lor.lhs.false155 ], [ null, %lor.lhs.false149 ], [ null, %lor.lhs.false145 ], [ null, %if.else139 ], [ null, %if.then89 ], [ null, %if.then97 ], [ null, %land.lhs.true76 ], [ null, %if.end67 ], [ null, %if.then34 ], [ null, %if.then44 ], [ null, %if.else50 ], [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %if.then6 ], [ null, %lor.lhs.false25 ], [ null, %if.else ], [ null, %if.then123 ]
+  %a_md_ctx.0 = phi ptr [ %a_md_ctx.1, %if.end247 ], [ %a_md_ctx.1, %if.end219 ], [ %a_md_ctx.1, %if.end214 ], [ %a_md_ctx.1, %if.then198 ], [ %a_md_ctx.1, %if.else206 ], [ %a_md_ctx.1, %if.end185 ], [ %a_md_ctx.1, %lor.lhs.false178 ], [ %a_md_ctx.1, %if.then173 ], [ %a_md_ctx.1, %if.end242 ], [ %a_md_ctx.1, %lor.lhs.false235 ], [ %a_md_ctx.1, %lor.lhs.false231 ], [ %a_md_ctx.1, %if.else225 ], [ %a_md_ctx.1, %if.end131 ], [ %a_md_ctx.1, %lor.lhs.false115 ], [ %a_md_ctx.1, %if.then109 ], [ %a_md_ctx.1, %lor.lhs.false155 ], [ %a_md_ctx.1, %lor.lhs.false149 ], [ %a_md_ctx.1, %lor.lhs.false145 ], [ %a_md_ctx.1, %if.else139 ], [ %a_md_ctx.1, %if.then89 ], [ %a_md_ctx.1, %if.then97 ], [ %a_md_ctx.1, %land.lhs.true76 ], [ %a_md_ctx.1, %if.end67 ], [ %a_md_ctx.1, %if.then34 ], [ %a_md_ctx.1, %if.then44 ], [ %a_md_ctx.1, %if.else50 ], [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %if.then6 ], [ %call22, %lor.lhs.false25 ], [ %call22, %if.else ], [ %a_md_ctx.1, %if.then123 ]
+  %a_md_ctx_verify.0 = phi ptr [ %a_md_ctx_verify.1, %if.end247 ], [ %a_md_ctx_verify.1, %if.end219 ], [ %a_md_ctx_verify.1, %if.end214 ], [ %a_md_ctx_verify.1, %if.then198 ], [ %a_md_ctx_verify.1, %if.else206 ], [ %a_md_ctx_verify.1, %if.end185 ], [ %a_md_ctx_verify.1, %lor.lhs.false178 ], [ %a_md_ctx_verify.1, %if.then173 ], [ %a_md_ctx_verify.1, %if.end242 ], [ %a_md_ctx_verify.1, %lor.lhs.false235 ], [ %a_md_ctx_verify.1, %lor.lhs.false231 ], [ %a_md_ctx_verify.1, %if.else225 ], [ %a_md_ctx_verify.1, %if.end131 ], [ %a_md_ctx_verify.1, %lor.lhs.false115 ], [ %a_md_ctx_verify.1, %if.then109 ], [ %a_md_ctx_verify.1, %lor.lhs.false155 ], [ %a_md_ctx_verify.1, %lor.lhs.false149 ], [ %a_md_ctx_verify.1, %lor.lhs.false145 ], [ %a_md_ctx_verify.1, %if.else139 ], [ %a_md_ctx_verify.1, %if.then89 ], [ %a_md_ctx_verify.1, %if.then97 ], [ %a_md_ctx_verify.1, %land.lhs.true76 ], [ %a_md_ctx_verify.1, %if.end67 ], [ %a_md_ctx_verify.1, %if.then34 ], [ %a_md_ctx_verify.1, %if.then44 ], [ %a_md_ctx_verify.1, %if.else50 ], [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %if.then6 ], [ %call26, %lor.lhs.false25 ], [ null, %if.else ], [ %a_md_ctx_verify.1, %if.then123 ]
+  %mdbio.0 = phi ptr [ %mdbio.1, %if.end247 ], [ %mdbio.1, %if.end219 ], [ %mdbio.1, %if.end214 ], [ %mdbio.1, %if.then198 ], [ %mdbio.1, %if.else206 ], [ %mdbio.1, %if.end185 ], [ %mdbio.1, %lor.lhs.false178 ], [ %mdbio.1, %if.then173 ], [ %mdbio.1, %if.end242 ], [ %mdbio.1, %lor.lhs.false235 ], [ %mdbio.1, %lor.lhs.false231 ], [ %mdbio.1, %if.else225 ], [ %mdbio.1, %if.end131 ], [ %mdbio.1, %lor.lhs.false115 ], [ %mdbio.1, %if.then109 ], [ %mdbio.1, %lor.lhs.false155 ], [ %mdbio.1, %lor.lhs.false149 ], [ %mdbio.1, %lor.lhs.false145 ], [ %mdbio.1, %if.else139 ], [ %mdbio.1, %if.then89 ], [ %mdbio.1, %if.then97 ], [ %mdbio.1, %land.lhs.true76 ], [ %mdbio.1, %if.end67 ], [ %mdbio.1, %if.then34 ], [ %mdbio.1, %if.then44 ], [ %mdbio.1, %if.else50 ], [ %call10, %if.end15 ], [ %call10, %lor.lhs.false ], [ %call10, %if.then6 ], [ null, %lor.lhs.false25 ], [ null, %if.else ], [ %mdbio.1, %if.then123 ]
+  %membio.0 = phi ptr [ %membio.1, %if.end247 ], [ %membio.1, %if.end219 ], [ %membio.1, %if.end214 ], [ %membio.1, %if.then198 ], [ %membio.1, %if.else206 ], [ %membio.1, %if.end185 ], [ %membio.1, %lor.lhs.false178 ], [ %membio.1, %if.then173 ], [ %membio.1, %if.end242 ], [ %membio.1, %lor.lhs.false235 ], [ %membio.1, %lor.lhs.false231 ], [ %membio.1, %if.else225 ], [ %membio.1, %if.end131 ], [ %membio.1, %lor.lhs.false115 ], [ %membio.1, %if.then109 ], [ %membio.1, %lor.lhs.false155 ], [ %membio.1, %lor.lhs.false149 ], [ %membio.1, %lor.lhs.false145 ], [ %membio.1, %if.else139 ], [ %membio.1, %if.then89 ], [ %membio.1, %if.then97 ], [ %membio.1, %land.lhs.true76 ], [ %membio.1, %if.end67 ], [ %membio.1, %if.then34 ], [ %membio.1, %if.then44 ], [ %membio.1, %if.else50 ], [ %call8, %if.end15 ], [ %call8, %lor.lhs.false ], [ %call8, %if.then6 ], [ null, %lor.lhs.false25 ], [ null, %if.else ], [ %membio.1, %if.then123 ]
+  %mdexp.0 = phi ptr [ %mdexp.1, %if.end247 ], [ %mdexp.1, %if.end219 ], [ %mdexp.1, %if.end214 ], [ %mdexp.1, %if.then198 ], [ %mdexp.1, %if.else206 ], [ %mdexp.1, %if.end185 ], [ %mdexp.1, %lor.lhs.false178 ], [ %mdexp.1, %if.then173 ], [ %mdexp.1, %if.end242 ], [ %mdexp.1, %lor.lhs.false235 ], [ %mdexp.1, %lor.lhs.false231 ], [ %mdexp.1, %if.else225 ], [ %mdexp.1, %if.end131 ], [ %mdexp.1, %lor.lhs.false115 ], [ %mdexp.1, %if.then109 ], [ %mdexp.1, %lor.lhs.false155 ], [ %mdexp.1, %lor.lhs.false149 ], [ %mdexp.1, %lor.lhs.false145 ], [ %mdexp.1, %if.else139 ], [ %mdexp.1, %if.then89 ], [ %mdexp.1, %if.then97 ], [ %mdexp.1, %land.lhs.true76 ], [ %mdexp.1, %if.end67 ], [ null, %if.then34 ], [ null, %if.then44 ], [ null, %if.else50 ], [ null, %if.end15 ], [ null, %lor.lhs.false ], [ null, %if.then6 ], [ null, %lor.lhs.false25 ], [ null, %if.else ], [ %mdexp.1, %if.then123 ]
+  %call248 = call i32 @BIO_free(ptr noundef %membio.0) #8
+  %call249 = call i32 @BIO_free(ptr noundef %mdbio.0) #8
+  call void @EVP_MD_CTX_free(ptr noundef %a_md_ctx.0) #8
+  call void @EVP_MD_CTX_free(ptr noundef %a_md_ctx_verify.0) #8
+  call void @EVP_PKEY_free(ptr noundef %pkey.0) #8
+  call void @CRYPTO_free(ptr noundef %sig.0, ptr noundef nonnull @.str.16, i32 noundef 1634) #8
+  call void @CRYPTO_free(ptr noundef %sig2.0, ptr noundef nonnull @.str.16, i32 noundef 1635) #8
+  call void @EVP_MD_free(ptr noundef %mdexp.0) #8
   br label %return
 
 return:                                           ; preds = %out, %if.then
@@ -1996,9 +1996,9 @@ if.else10:                                        ; preds = %entry
   br i1 %tobool13.not, label %out, label %if.end17
 
 if.end17:                                         ; preds = %if.then4, %if.else10, %if.then
-  %pkey.0 = phi ptr [ %1, %if.then ], [ %3, %if.then4 ], [ %5, %if.else10 ]
+  %pkey.1 = phi ptr [ %1, %if.then ], [ %3, %if.then4 ], [ %5, %if.else10 ]
   %6 = load ptr, ptr @testctx, align 8
-  %call18 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %6, ptr noundef %pkey.0, ptr noundef null) #8
+  %call18 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %6, ptr noundef %pkey.1, ptr noundef null) #8
   %call19 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 1294, ptr noundef nonnull @.str.164, ptr noundef %call18) #8
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %out, label %lor.lhs.false
@@ -2050,12 +2050,12 @@ lor.lhs.false47:                                  ; preds = %lor.lhs.false43
 
 out:                                              ; preds = %lor.lhs.false47, %if.end29, %lor.lhs.false33, %lor.lhs.false38, %lor.lhs.false43, %if.end17, %lor.lhs.false, %lor.lhs.false24, %if.else10, %if.then4, %if.then
   %ret.0 = phi i32 [ 0, %lor.lhs.false43 ], [ 0, %lor.lhs.false38 ], [ 0, %lor.lhs.false33 ], [ 0, %if.end29 ], [ 0, %lor.lhs.false24 ], [ 0, %lor.lhs.false ], [ 0, %if.end17 ], [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %if.else10 ], [ %spec.select, %lor.lhs.false47 ]
-  %pkey.1 = phi ptr [ %pkey.0, %lor.lhs.false43 ], [ %pkey.0, %lor.lhs.false38 ], [ %pkey.0, %lor.lhs.false33 ], [ %pkey.0, %if.end29 ], [ %pkey.0, %lor.lhs.false24 ], [ %pkey.0, %lor.lhs.false ], [ %pkey.0, %if.end17 ], [ %1, %if.then ], [ %3, %if.then4 ], [ %5, %if.else10 ], [ %pkey.0, %lor.lhs.false47 ]
+  %pkey.0 = phi ptr [ %pkey.1, %lor.lhs.false43 ], [ %pkey.1, %lor.lhs.false38 ], [ %pkey.1, %lor.lhs.false33 ], [ %pkey.1, %if.end29 ], [ %pkey.1, %lor.lhs.false24 ], [ %pkey.1, %lor.lhs.false ], [ %pkey.1, %if.end17 ], [ %1, %if.then ], [ %3, %if.then4 ], [ %5, %if.else10 ], [ %pkey.1, %lor.lhs.false47 ]
   %sig.0 = phi ptr [ %call30, %lor.lhs.false43 ], [ %call30, %lor.lhs.false38 ], [ %call30, %lor.lhs.false33 ], [ %call30, %if.end29 ], [ null, %lor.lhs.false24 ], [ null, %lor.lhs.false ], [ null, %if.end17 ], [ null, %if.then ], [ null, %if.then4 ], [ null, %if.else10 ], [ %call30, %lor.lhs.false47 ]
   %ctx.0 = phi ptr [ %call18, %lor.lhs.false43 ], [ %call18, %lor.lhs.false38 ], [ %call18, %lor.lhs.false33 ], [ %call18, %if.end29 ], [ %call18, %lor.lhs.false24 ], [ %call18, %lor.lhs.false ], [ %call18, %if.end17 ], [ null, %if.then ], [ null, %if.then4 ], [ null, %if.else10 ], [ %call18, %lor.lhs.false47 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %ctx.0) #8
   call void @CRYPTO_free(ptr noundef %sig.0, ptr noundef nonnull @.str.16, i32 noundef 1315) #8
-  call void @EVP_PKEY_free(ptr noundef %pkey.1) #8
+  call void @EVP_PKEY_free(ptr noundef %pkey.0) #8
   ret i32 %ret.0
 }
 
@@ -2166,11 +2166,11 @@ lor.lhs.false39:                                  ; preds = %lor.lhs.false35
   br i1 %tobool42.not, label %out, label %if.end45
 
 if.end45:                                         ; preds = %lor.lhs.false39, %lor.lhs.false15
-  %pkey.0 = phi ptr [ %1, %lor.lhs.false15 ], [ %3, %lor.lhs.false39 ]
-  %rsa_meth.0 = phi ptr [ %call4, %lor.lhs.false15 ], [ null, %lor.lhs.false39 ]
-  %dsa_meth.0 = phi ptr [ null, %lor.lhs.false15 ], [ %call27, %lor.lhs.false39 ]
+  %pkey.1 = phi ptr [ %1, %lor.lhs.false15 ], [ %3, %lor.lhs.false39 ]
+  %rsa_meth.1 = phi ptr [ %call4, %lor.lhs.false15 ], [ null, %lor.lhs.false39 ]
+  %dsa_meth.1 = phi ptr [ null, %lor.lhs.false15 ], [ %call27, %lor.lhs.false39 ]
   %4 = load ptr, ptr @testctx, align 8
-  %call46 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %4, ptr noundef %pkey.0, ptr noundef null) #8
+  %call46 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %4, ptr noundef %pkey.1, ptr noundef null) #8
   %call47 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 1369, ptr noundef nonnull @.str.164, ptr noundef %call46) #8
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %out, label %lor.lhs.false49
@@ -2222,20 +2222,20 @@ lor.lhs.false76:                                  ; preds = %lor.lhs.false72
 
 out:                                              ; preds = %lor.lhs.false76, %if.end58, %lor.lhs.false62, %lor.lhs.false67, %lor.lhs.false72, %if.end45, %lor.lhs.false49, %lor.lhs.false53, %if.end31, %lor.lhs.false35, %lor.lhs.false39, %if.end25, %if.else, %if.end8, %lor.lhs.false, %lor.lhs.false15, %if.end, %if.then
   %ret.0 = phi i32 [ 0, %lor.lhs.false72 ], [ 0, %lor.lhs.false67 ], [ 0, %lor.lhs.false62 ], [ 0, %if.end58 ], [ 0, %lor.lhs.false53 ], [ 0, %lor.lhs.false49 ], [ 0, %if.end45 ], [ 0, %lor.lhs.false15 ], [ 0, %lor.lhs.false ], [ 0, %if.end8 ], [ 0, %if.end ], [ 0, %if.then ], [ 0, %lor.lhs.false39 ], [ 0, %lor.lhs.false35 ], [ 0, %if.end31 ], [ 0, %if.end25 ], [ 0, %if.else ], [ %spec.select, %lor.lhs.false76 ]
-  %pkey.1 = phi ptr [ %pkey.0, %lor.lhs.false72 ], [ %pkey.0, %lor.lhs.false67 ], [ %pkey.0, %lor.lhs.false62 ], [ %pkey.0, %if.end58 ], [ %pkey.0, %lor.lhs.false53 ], [ %pkey.0, %lor.lhs.false49 ], [ %pkey.0, %if.end45 ], [ %1, %lor.lhs.false15 ], [ %1, %lor.lhs.false ], [ %1, %if.end8 ], [ %1, %if.end ], [ %1, %if.then ], [ %3, %lor.lhs.false39 ], [ %3, %lor.lhs.false35 ], [ %3, %if.end31 ], [ %3, %if.end25 ], [ %3, %if.else ], [ %pkey.0, %lor.lhs.false76 ]
-  %rsa.1 = phi ptr [ null, %lor.lhs.false72 ], [ null, %lor.lhs.false67 ], [ null, %lor.lhs.false62 ], [ null, %if.end58 ], [ null, %lor.lhs.false53 ], [ null, %lor.lhs.false49 ], [ null, %if.end45 ], [ %call9, %lor.lhs.false15 ], [ %call9, %lor.lhs.false ], [ %call9, %if.end8 ], [ null, %if.end ], [ null, %if.then ], [ null, %lor.lhs.false39 ], [ null, %lor.lhs.false35 ], [ null, %if.end31 ], [ null, %if.end25 ], [ null, %if.else ], [ null, %lor.lhs.false76 ]
-  %rsa_meth.1 = phi ptr [ %rsa_meth.0, %lor.lhs.false72 ], [ %rsa_meth.0, %lor.lhs.false67 ], [ %rsa_meth.0, %lor.lhs.false62 ], [ %rsa_meth.0, %if.end58 ], [ %rsa_meth.0, %lor.lhs.false53 ], [ %rsa_meth.0, %lor.lhs.false49 ], [ %rsa_meth.0, %if.end45 ], [ %call4, %lor.lhs.false15 ], [ %call4, %lor.lhs.false ], [ %call4, %if.end8 ], [ %call4, %if.end ], [ null, %if.then ], [ null, %lor.lhs.false39 ], [ null, %lor.lhs.false35 ], [ null, %if.end31 ], [ null, %if.end25 ], [ null, %if.else ], [ %rsa_meth.0, %lor.lhs.false76 ]
-  %dsa.1 = phi ptr [ null, %lor.lhs.false72 ], [ null, %lor.lhs.false67 ], [ null, %lor.lhs.false62 ], [ null, %if.end58 ], [ null, %lor.lhs.false53 ], [ null, %lor.lhs.false49 ], [ null, %if.end45 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false ], [ null, %if.end8 ], [ null, %if.end ], [ null, %if.then ], [ %call32, %lor.lhs.false39 ], [ %call32, %lor.lhs.false35 ], [ %call32, %if.end31 ], [ null, %if.end25 ], [ null, %if.else ], [ null, %lor.lhs.false76 ]
-  %dsa_meth.1 = phi ptr [ %dsa_meth.0, %lor.lhs.false72 ], [ %dsa_meth.0, %lor.lhs.false67 ], [ %dsa_meth.0, %lor.lhs.false62 ], [ %dsa_meth.0, %if.end58 ], [ %dsa_meth.0, %lor.lhs.false53 ], [ %dsa_meth.0, %lor.lhs.false49 ], [ %dsa_meth.0, %if.end45 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false ], [ null, %if.end8 ], [ null, %if.end ], [ null, %if.then ], [ %call27, %lor.lhs.false39 ], [ %call27, %lor.lhs.false35 ], [ %call27, %if.end31 ], [ %call27, %if.end25 ], [ null, %if.else ], [ %dsa_meth.0, %lor.lhs.false76 ]
+  %pkey.0 = phi ptr [ %pkey.1, %lor.lhs.false72 ], [ %pkey.1, %lor.lhs.false67 ], [ %pkey.1, %lor.lhs.false62 ], [ %pkey.1, %if.end58 ], [ %pkey.1, %lor.lhs.false53 ], [ %pkey.1, %lor.lhs.false49 ], [ %pkey.1, %if.end45 ], [ %1, %lor.lhs.false15 ], [ %1, %lor.lhs.false ], [ %1, %if.end8 ], [ %1, %if.end ], [ %1, %if.then ], [ %3, %lor.lhs.false39 ], [ %3, %lor.lhs.false35 ], [ %3, %if.end31 ], [ %3, %if.end25 ], [ %3, %if.else ], [ %pkey.1, %lor.lhs.false76 ]
+  %rsa.0 = phi ptr [ null, %lor.lhs.false72 ], [ null, %lor.lhs.false67 ], [ null, %lor.lhs.false62 ], [ null, %if.end58 ], [ null, %lor.lhs.false53 ], [ null, %lor.lhs.false49 ], [ null, %if.end45 ], [ %call9, %lor.lhs.false15 ], [ %call9, %lor.lhs.false ], [ %call9, %if.end8 ], [ null, %if.end ], [ null, %if.then ], [ null, %lor.lhs.false39 ], [ null, %lor.lhs.false35 ], [ null, %if.end31 ], [ null, %if.end25 ], [ null, %if.else ], [ null, %lor.lhs.false76 ]
+  %rsa_meth.0 = phi ptr [ %rsa_meth.1, %lor.lhs.false72 ], [ %rsa_meth.1, %lor.lhs.false67 ], [ %rsa_meth.1, %lor.lhs.false62 ], [ %rsa_meth.1, %if.end58 ], [ %rsa_meth.1, %lor.lhs.false53 ], [ %rsa_meth.1, %lor.lhs.false49 ], [ %rsa_meth.1, %if.end45 ], [ %call4, %lor.lhs.false15 ], [ %call4, %lor.lhs.false ], [ %call4, %if.end8 ], [ %call4, %if.end ], [ null, %if.then ], [ null, %lor.lhs.false39 ], [ null, %lor.lhs.false35 ], [ null, %if.end31 ], [ null, %if.end25 ], [ null, %if.else ], [ %rsa_meth.1, %lor.lhs.false76 ]
+  %dsa.0 = phi ptr [ null, %lor.lhs.false72 ], [ null, %lor.lhs.false67 ], [ null, %lor.lhs.false62 ], [ null, %if.end58 ], [ null, %lor.lhs.false53 ], [ null, %lor.lhs.false49 ], [ null, %if.end45 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false ], [ null, %if.end8 ], [ null, %if.end ], [ null, %if.then ], [ %call32, %lor.lhs.false39 ], [ %call32, %lor.lhs.false35 ], [ %call32, %if.end31 ], [ null, %if.end25 ], [ null, %if.else ], [ null, %lor.lhs.false76 ]
+  %dsa_meth.0 = phi ptr [ %dsa_meth.1, %lor.lhs.false72 ], [ %dsa_meth.1, %lor.lhs.false67 ], [ %dsa_meth.1, %lor.lhs.false62 ], [ %dsa_meth.1, %if.end58 ], [ %dsa_meth.1, %lor.lhs.false53 ], [ %dsa_meth.1, %lor.lhs.false49 ], [ %dsa_meth.1, %if.end45 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false ], [ null, %if.end8 ], [ null, %if.end ], [ null, %if.then ], [ %call27, %lor.lhs.false39 ], [ %call27, %lor.lhs.false35 ], [ %call27, %if.end31 ], [ %call27, %if.end25 ], [ null, %if.else ], [ %dsa_meth.1, %lor.lhs.false76 ]
   %sig.0 = phi ptr [ %call59, %lor.lhs.false72 ], [ %call59, %lor.lhs.false67 ], [ %call59, %lor.lhs.false62 ], [ %call59, %if.end58 ], [ null, %lor.lhs.false53 ], [ null, %lor.lhs.false49 ], [ null, %if.end45 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false ], [ null, %if.end8 ], [ null, %if.end ], [ null, %if.then ], [ null, %lor.lhs.false39 ], [ null, %lor.lhs.false35 ], [ null, %if.end31 ], [ null, %if.end25 ], [ null, %if.else ], [ %call59, %lor.lhs.false76 ]
   %ctx.0 = phi ptr [ %call46, %lor.lhs.false72 ], [ %call46, %lor.lhs.false67 ], [ %call46, %lor.lhs.false62 ], [ %call46, %if.end58 ], [ %call46, %lor.lhs.false53 ], [ %call46, %lor.lhs.false49 ], [ %call46, %if.end45 ], [ null, %lor.lhs.false15 ], [ null, %lor.lhs.false ], [ null, %if.end8 ], [ null, %if.end ], [ null, %if.then ], [ null, %lor.lhs.false39 ], [ null, %lor.lhs.false35 ], [ null, %if.end31 ], [ null, %if.end25 ], [ null, %if.else ], [ %call46, %lor.lhs.false76 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %ctx.0) #8
   call void @CRYPTO_free(ptr noundef %sig.0, ptr noundef nonnull @.str.16, i32 noundef 1390) #8
-  call void @EVP_PKEY_free(ptr noundef %pkey.1) #8
-  call void @RSA_free(ptr noundef %rsa.1) #8
-  call void @RSA_meth_free(ptr noundef %rsa_meth.1) #8
-  call void @DSA_free(ptr noundef %dsa.1) #8
-  call void @DSA_meth_free(ptr noundef %dsa_meth.1) #8
+  call void @EVP_PKEY_free(ptr noundef %pkey.0) #8
+  call void @RSA_free(ptr noundef %rsa.0) #8
+  call void @RSA_meth_free(ptr noundef %rsa_meth.0) #8
+  call void @DSA_free(ptr noundef %dsa.0) #8
+  call void @DSA_meth_free(ptr noundef %dsa_meth.0) #8
   ret i32 %ret.0
 }
 
@@ -2966,9 +2966,9 @@ if.end144:                                        ; preds = %if.end139
 for.body:                                         ; preds = %if.end238, %if.end144
   %cmp146.not = phi i1 [ false, %if.end144 ], [ true, %if.end238 ]
   %indvars.iv = phi i64 [ 0, %if.end144 ], [ 1, %if.end238 ]
-  %check_md.045 = phi ptr [ %call53, %if.end144 ], [ %call214, %if.end238 ]
-  %cctx.044 = phi ptr [ null, %if.end144 ], [ %call157, %if.end238 ]
-  call void @EVP_PKEY_CTX_free(ptr noundef %cctx.044) #8
+  %check_md.145 = phi ptr [ %call53, %if.end144 ], [ %call214, %if.end238 ]
+  %cctx.144 = phi ptr [ null, %if.end144 ], [ %call157, %if.end238 ]
+  call void @EVP_PKEY_CTX_free(ptr noundef %cctx.144) #8
   %arrayidx148 = getelementptr inbounds [2 x ptr], ptr @__const.test_EVP_SM2.mdnames, i64 0, i64 %indvars.iv
   %12 = load ptr, ptr %arrayidx148, align 8
   call void @OSSL_PARAM_construct_utf8_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp154, ptr noundef nonnull @.str.144, ptr noundef %12, i64 noundef 0) #8
@@ -3034,7 +3034,7 @@ if.end204:                                        ; preds = %if.end197
   br i1 %tobool210.not, label %done, label %if.end212
 
 if.end212:                                        ; preds = %if.end204
-  call void @EVP_MD_free(ptr noundef %check_md.045) #8
+  call void @EVP_MD_free(ptr noundef %check_md.145) #8
   %16 = load ptr, ptr @testctx, align 8
   %call214 = call ptr @EVP_MD_fetch(ptr noundef %16, ptr noundef nonnull %mdname, ptr noundef null) #8
   %call215 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 2304, ptr noundef nonnull @.str.255, ptr noundef %call214) #8
@@ -3082,19 +3082,19 @@ done:                                             ; preds = %done.loopexit.split
   %sig.0 = phi ptr [ %call84, %if.then226 ], [ %call84, %if.end139 ], [ %call84, %if.end132 ], [ %call84, %if.end127 ], [ %call84, %if.end120 ], [ %call84, %if.end115 ], [ %call84, %if.end108 ], [ %call84, %if.end102 ], [ %call84, %if.end95 ], [ %call84, %if.end88 ], [ %call84, %if.end83 ], [ null, %if.end76 ], [ null, %if.end69 ], [ null, %if.end64 ], [ null, %if.end57 ], [ null, %if.end52 ], [ null, %if.end47 ], [ null, %if.end42 ], [ null, %if.end37 ], [ null, %if.end30 ], [ null, %if.end25 ], [ null, %if.end20 ], [ null, %if.end13 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %entry ], [ %call84, %if.end230 ], [ %call84, %if.end212 ], [ %call84, %if.end204 ], [ %call84, %if.end197 ], [ %call84, %if.end189 ], [ %call84, %if.end184 ], [ %call84, %if.end176 ], [ %call84, %if.end168 ], [ %call84, %if.end161 ], [ %call84, %for.body ], [ %call84, %done.loopexit.split.loop.exit ]
   %md_ctx.0 = phi ptr [ %call38, %if.then226 ], [ %call38, %if.end139 ], [ %call38, %if.end132 ], [ %call38, %if.end127 ], [ %call38, %if.end120 ], [ %call38, %if.end115 ], [ %call38, %if.end108 ], [ %call38, %if.end102 ], [ %call38, %if.end95 ], [ %call38, %if.end88 ], [ %call38, %if.end83 ], [ %call38, %if.end76 ], [ %call38, %if.end69 ], [ %call38, %if.end64 ], [ %call38, %if.end57 ], [ %call38, %if.end52 ], [ %call38, %if.end47 ], [ %call38, %if.end42 ], [ %call38, %if.end37 ], [ null, %if.end30 ], [ null, %if.end25 ], [ null, %if.end20 ], [ null, %if.end13 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %entry ], [ %call38, %if.end230 ], [ %call38, %if.end212 ], [ %call38, %if.end204 ], [ %call38, %if.end197 ], [ %call38, %if.end189 ], [ %call38, %if.end184 ], [ %call38, %if.end176 ], [ %call38, %if.end168 ], [ %call38, %if.end161 ], [ %call38, %for.body ], [ %call38, %done.loopexit.split.loop.exit ]
   %md_ctx_verify.0 = phi ptr [ %call43, %if.then226 ], [ %call43, %if.end139 ], [ %call43, %if.end132 ], [ %call43, %if.end127 ], [ %call43, %if.end120 ], [ %call43, %if.end115 ], [ %call43, %if.end108 ], [ %call43, %if.end102 ], [ %call43, %if.end95 ], [ %call43, %if.end88 ], [ %call43, %if.end83 ], [ %call43, %if.end76 ], [ %call43, %if.end69 ], [ %call43, %if.end64 ], [ %call43, %if.end57 ], [ %call43, %if.end52 ], [ %call43, %if.end47 ], [ %call43, %if.end42 ], [ null, %if.end37 ], [ null, %if.end30 ], [ null, %if.end25 ], [ null, %if.end20 ], [ null, %if.end13 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %entry ], [ %call43, %if.end230 ], [ %call43, %if.end212 ], [ %call43, %if.end204 ], [ %call43, %if.end197 ], [ %call43, %if.end189 ], [ %call43, %if.end184 ], [ %call43, %if.end176 ], [ %call43, %if.end168 ], [ %call43, %if.end161 ], [ %call43, %for.body ], [ %call43, %done.loopexit.split.loop.exit ]
-  %cctx.2 = phi ptr [ %call157, %if.then226 ], [ null, %if.end139 ], [ null, %if.end132 ], [ null, %if.end127 ], [ null, %if.end120 ], [ null, %if.end115 ], [ null, %if.end108 ], [ null, %if.end102 ], [ null, %if.end95 ], [ null, %if.end88 ], [ null, %if.end83 ], [ null, %if.end76 ], [ null, %if.end69 ], [ null, %if.end64 ], [ null, %if.end57 ], [ null, %if.end52 ], [ null, %if.end47 ], [ null, %if.end42 ], [ null, %if.end37 ], [ null, %if.end30 ], [ null, %if.end25 ], [ null, %if.end20 ], [ null, %if.end13 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %entry ], [ %call157, %if.end230 ], [ %call157, %if.end212 ], [ %call157, %if.end204 ], [ %call157, %if.end197 ], [ %call157, %if.end189 ], [ %call157, %if.end184 ], [ %call157, %if.end176 ], [ %call157, %if.end168 ], [ %call157, %if.end161 ], [ %call157, %for.body ], [ %call157, %done.loopexit.split.loop.exit ]
-  %check_md.2 = phi ptr [ %call214, %if.then226 ], [ %call53, %if.end139 ], [ %call53, %if.end132 ], [ %call53, %if.end127 ], [ %call53, %if.end120 ], [ %call53, %if.end115 ], [ %call53, %if.end108 ], [ %call53, %if.end102 ], [ %call53, %if.end95 ], [ %call53, %if.end88 ], [ %call53, %if.end83 ], [ %call53, %if.end76 ], [ %call53, %if.end69 ], [ %call53, %if.end64 ], [ %call53, %if.end57 ], [ %call53, %if.end52 ], [ null, %if.end47 ], [ null, %if.end42 ], [ null, %if.end37 ], [ null, %if.end30 ], [ null, %if.end25 ], [ null, %if.end20 ], [ null, %if.end13 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %entry ], [ %call214, %done.loopexit.split.loop.exit ], [ %check_md.045, %for.body ], [ %check_md.045, %if.end161 ], [ %check_md.045, %if.end168 ], [ %check_md.045, %if.end176 ], [ %check_md.045, %if.end184 ], [ %check_md.045, %if.end189 ], [ %check_md.045, %if.end197 ], [ %check_md.045, %if.end204 ], [ %call214, %if.end212 ], [ %call214, %if.end230 ]
+  %cctx.0 = phi ptr [ %call157, %if.then226 ], [ null, %if.end139 ], [ null, %if.end132 ], [ null, %if.end127 ], [ null, %if.end120 ], [ null, %if.end115 ], [ null, %if.end108 ], [ null, %if.end102 ], [ null, %if.end95 ], [ null, %if.end88 ], [ null, %if.end83 ], [ null, %if.end76 ], [ null, %if.end69 ], [ null, %if.end64 ], [ null, %if.end57 ], [ null, %if.end52 ], [ null, %if.end47 ], [ null, %if.end42 ], [ null, %if.end37 ], [ null, %if.end30 ], [ null, %if.end25 ], [ null, %if.end20 ], [ null, %if.end13 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %entry ], [ %call157, %if.end230 ], [ %call157, %if.end212 ], [ %call157, %if.end204 ], [ %call157, %if.end197 ], [ %call157, %if.end189 ], [ %call157, %if.end184 ], [ %call157, %if.end176 ], [ %call157, %if.end168 ], [ %call157, %if.end161 ], [ %call157, %for.body ], [ %call157, %done.loopexit.split.loop.exit ]
+  %check_md.0 = phi ptr [ %call214, %if.then226 ], [ %call53, %if.end139 ], [ %call53, %if.end132 ], [ %call53, %if.end127 ], [ %call53, %if.end120 ], [ %call53, %if.end115 ], [ %call53, %if.end108 ], [ %call53, %if.end102 ], [ %call53, %if.end95 ], [ %call53, %if.end88 ], [ %call53, %if.end83 ], [ %call53, %if.end76 ], [ %call53, %if.end69 ], [ %call53, %if.end64 ], [ %call53, %if.end57 ], [ %call53, %if.end52 ], [ null, %if.end47 ], [ null, %if.end42 ], [ null, %if.end37 ], [ null, %if.end30 ], [ null, %if.end25 ], [ null, %if.end20 ], [ null, %if.end13 ], [ null, %if.end8 ], [ null, %if.end ], [ null, %entry ], [ %call214, %done.loopexit.split.loop.exit ], [ %check_md.145, %for.body ], [ %check_md.145, %if.end161 ], [ %check_md.145, %if.end168 ], [ %check_md.145, %if.end176 ], [ %check_md.145, %if.end184 ], [ %check_md.145, %if.end189 ], [ %check_md.145, %if.end197 ], [ %check_md.145, %if.end204 ], [ %call214, %if.end212 ], [ %call214, %if.end230 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %call) #8
   call void @EVP_PKEY_CTX_free(ptr noundef %kctx.0) #8
   call void @EVP_PKEY_CTX_free(ptr noundef %sctx.0) #8
-  call void @EVP_PKEY_CTX_free(ptr noundef %cctx.2) #8
+  call void @EVP_PKEY_CTX_free(ptr noundef %cctx.0) #8
   %18 = load ptr, ptr %pkey, align 8
   call void @EVP_PKEY_free(ptr noundef %18) #8
   %19 = load ptr, ptr %pkeyparams, align 8
   call void @EVP_PKEY_free(ptr noundef %19) #8
   call void @EVP_MD_CTX_free(ptr noundef %md_ctx.0) #8
   call void @EVP_MD_CTX_free(ptr noundef %md_ctx_verify.0) #8
-  call void @EVP_MD_free(ptr noundef %check_md.2) #8
+  call void @EVP_MD_free(ptr noundef %check_md.0) #8
   call void @CRYPTO_free(ptr noundef %sig.0, ptr noundef nonnull @.str.16, i32 noundef 2329) #8
   ret i32 %ret.0
 }
@@ -5074,7 +5074,7 @@ if.end16:                                         ; preds = %if.end11
   br i1 %tobool21.not, label %err, label %while.body
 
 while.body:                                       ; preds = %if.end16, %if.end42
-  %pkey.0 = phi ptr [ null, %if.end42 ], [ %call12, %if.end16 ]
+  %pkey.1 = phi ptr [ null, %if.end42 ], [ %call12, %if.end16 ]
   %call26 = tail call ptr @EVP_MD_CTX_new() #8
   %call27 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 1156, ptr noundef nonnull @.str.164, ptr noundef %call26) #8
   %tobool28.not = icmp eq i32 %call27, 0
@@ -5082,7 +5082,7 @@ while.body:                                       ; preds = %if.end16, %if.end42
 
 if.end30:                                         ; preds = %while.body
   %0 = load ptr, ptr @testctx, align 8
-  %call31 = tail call i32 @EVP_DigestSignInit_ex(ptr noundef %call26, ptr noundef null, ptr noundef null, ptr noundef %0, ptr noundef null, ptr noundef %pkey.0, ptr noundef null) #8
+  %call31 = tail call i32 @EVP_DigestSignInit_ex(ptr noundef %call26, ptr noundef null, ptr noundef null, ptr noundef %0, ptr noundef null, ptr noundef %pkey.1, ptr noundef null) #8
   %cmp32 = icmp ne i32 %call31, 0
   %conv33 = zext i1 %cmp32 to i32
   %call34 = tail call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 1164, ptr noundef nonnull @.str.476, i32 noundef %conv33) #8
@@ -5091,15 +5091,15 @@ if.end30:                                         ; preds = %while.body
 
 if.end37:                                         ; preds = %if.end30
   tail call void @EVP_MD_CTX_free(ptr noundef %call26) #8
-  %call38 = tail call ptr @EVP_PKEY_dup(ptr noundef %pkey.0) #8
+  %call38 = tail call ptr @EVP_PKEY_dup(ptr noundef %pkey.1) #8
   %call39 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 1169, ptr noundef nonnull @.str.477, ptr noundef %call38) #8
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %err, label %if.end42
 
 if.end42:                                         ; preds = %if.end37
-  %call43 = tail call i32 @EVP_PKEY_eq(ptr noundef %pkey.0, ptr noundef %call38) #8
+  %call43 = tail call i32 @EVP_PKEY_eq(ptr noundef %pkey.1, ptr noundef %call38) #8
   %call44 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 1172, ptr noundef nonnull @.str.478, ptr noundef nonnull @.str.479, i32 noundef %call43, i32 noundef -2) #8
-  tail call void @EVP_PKEY_free(ptr noundef %pkey.0) #8
+  tail call void @EVP_PKEY_free(ptr noundef %pkey.1) #8
   %tobool45 = icmp ne i32 %call44, 0
   %cmp24 = icmp eq ptr %call38, null
   %or.cond = and i1 %cmp24, %tobool45
@@ -5108,10 +5108,10 @@ if.end42:                                         ; preds = %if.end37
 err:                                              ; preds = %if.end42, %if.end37, %if.end30, %while.body, %if.end16, %if.end11, %if.end6, %if.end, %entry
   %ret.0 = phi i32 [ 0, %if.end16 ], [ 0, %if.end11 ], [ 0, %if.end6 ], [ 0, %if.end ], [ 0, %entry ], [ 0, %while.body ], [ 0, %if.end30 ], [ 0, %if.end37 ], [ %call44, %if.end42 ]
   %eckey.0 = phi ptr [ %call2, %if.end16 ], [ %call2, %if.end11 ], [ %call2, %if.end6 ], [ %call2, %if.end ], [ null, %entry ], [ null, %while.body ], [ null, %if.end30 ], [ null, %if.end37 ], [ null, %if.end42 ]
-  %pkey.1 = phi ptr [ %call12, %if.end16 ], [ %call12, %if.end11 ], [ null, %if.end6 ], [ null, %if.end ], [ null, %entry ], [ %pkey.0, %while.body ], [ %pkey.0, %if.end30 ], [ %pkey.0, %if.end37 ], [ %call38, %if.end42 ]
+  %pkey.0 = phi ptr [ %call12, %if.end16 ], [ %call12, %if.end11 ], [ null, %if.end6 ], [ null, %if.end ], [ null, %entry ], [ %pkey.1, %while.body ], [ %pkey.1, %if.end30 ], [ %pkey.1, %if.end37 ], [ %call38, %if.end42 ]
   %ctx.0 = phi ptr [ null, %if.end16 ], [ null, %if.end11 ], [ null, %if.end6 ], [ null, %if.end ], [ null, %entry ], [ %call26, %while.body ], [ %call26, %if.end30 ], [ null, %if.end37 ], [ null, %if.end42 ]
   tail call void @EVP_MD_CTX_free(ptr noundef %ctx.0) #8
-  tail call void @EVP_PKEY_free(ptr noundef %pkey.1) #8
+  tail call void @EVP_PKEY_free(ptr noundef %pkey.0) #8
   tail call void @EC_KEY_free(ptr noundef %eckey.0) #8
   tail call void @BN_free(ptr noundef %call) #8
   ret i32 %ret.0
@@ -7309,17 +7309,17 @@ lor.lhs.false164:                                 ; preds = %if.else157
   br i1 %tobool169.not, label %err, label %if.end173
 
 if.end173:                                        ; preds = %if.then149, %lor.lhs.false164, %lor.lhs.false116
-  %ctx.0 = phi ptr [ null, %lor.lhs.false116 ], [ %call123, %if.then149 ], [ %call123, %lor.lhs.false164 ]
-  %res.0 = phi ptr [ %call113, %lor.lhs.false116 ], [ %call126, %if.then149 ], [ %call126, %lor.lhs.false164 ]
+  %ctx.1 = phi ptr [ null, %lor.lhs.false116 ], [ %call123, %if.then149 ], [ %call123, %lor.lhs.false164 ]
+  %res.1 = phi ptr [ %call113, %lor.lhs.false116 ], [ %call126, %if.then149 ], [ %call126, %lor.lhs.false164 ]
   br label %err
 
 err:                                              ; preds = %if.end28, %if.else157, %lor.lhs.false164, %if.then149, %if.else122, %lor.lhs.false129, %lor.lhs.false132, %lor.lhs.false138, %lor.lhs.false142, %if.then89, %lor.lhs.false93, %lor.lhs.false97, %lor.lhs.false101, %lor.lhs.false104, %lor.lhs.false108, %lor.lhs.false112, %lor.lhs.false116, %if.end80, %if.end54, %lor.lhs.false57, %if.end47, %lor.lhs.false, %land.end, %if.then16, %sw.epilog, %if.end173, %if.then27, %sw.default
-  %ctx.1 = phi ptr [ null, %sw.default ], [ %ctx.0, %if.end173 ], [ null, %lor.lhs.false116 ], [ null, %lor.lhs.false112 ], [ null, %lor.lhs.false108 ], [ null, %lor.lhs.false104 ], [ null, %lor.lhs.false101 ], [ null, %lor.lhs.false97 ], [ null, %lor.lhs.false93 ], [ null, %if.then89 ], [ %call123, %if.then149 ], [ %call123, %lor.lhs.false164 ], [ %call123, %if.else157 ], [ %call123, %lor.lhs.false142 ], [ %call123, %lor.lhs.false138 ], [ %call123, %lor.lhs.false132 ], [ %call123, %lor.lhs.false129 ], [ %call123, %if.else122 ], [ null, %if.end80 ], [ null, %lor.lhs.false57 ], [ null, %if.end54 ], [ null, %lor.lhs.false ], [ null, %if.end47 ], [ null, %if.then16 ], [ null, %land.end ], [ null, %if.then27 ], [ null, %sw.epilog ], [ null, %if.end28 ]
+  %ctx.0 = phi ptr [ null, %sw.default ], [ %ctx.1, %if.end173 ], [ null, %lor.lhs.false116 ], [ null, %lor.lhs.false112 ], [ null, %lor.lhs.false108 ], [ null, %lor.lhs.false104 ], [ null, %lor.lhs.false101 ], [ null, %lor.lhs.false97 ], [ null, %lor.lhs.false93 ], [ null, %if.then89 ], [ %call123, %if.then149 ], [ %call123, %lor.lhs.false164 ], [ %call123, %if.else157 ], [ %call123, %lor.lhs.false142 ], [ %call123, %lor.lhs.false138 ], [ %call123, %lor.lhs.false132 ], [ %call123, %lor.lhs.false129 ], [ %call123, %if.else122 ], [ null, %if.end80 ], [ null, %lor.lhs.false57 ], [ null, %if.end54 ], [ null, %lor.lhs.false ], [ null, %if.end47 ], [ null, %if.then16 ], [ null, %land.end ], [ null, %if.then27 ], [ null, %sw.epilog ], [ null, %if.end28 ]
   %testresult.0 = phi i32 [ 0, %sw.default ], [ 1, %if.end173 ], [ 0, %lor.lhs.false116 ], [ 0, %lor.lhs.false112 ], [ 0, %lor.lhs.false108 ], [ 0, %lor.lhs.false104 ], [ 0, %lor.lhs.false101 ], [ 0, %lor.lhs.false97 ], [ 0, %lor.lhs.false93 ], [ 0, %if.then89 ], [ 0, %if.then149 ], [ 0, %lor.lhs.false164 ], [ 0, %if.else157 ], [ 0, %lor.lhs.false142 ], [ 0, %lor.lhs.false138 ], [ 0, %lor.lhs.false132 ], [ 0, %lor.lhs.false129 ], [ 0, %if.else122 ], [ 0, %if.end80 ], [ 0, %lor.lhs.false57 ], [ 0, %if.end54 ], [ 0, %lor.lhs.false ], [ 0, %if.end47 ], [ 0, %if.then16 ], [ 0, %land.end ], [ 0, %if.then27 ], [ 0, %sw.epilog ], [ 0, %if.end28 ]
-  %res.1 = phi ptr [ null, %sw.default ], [ %res.0, %if.end173 ], [ %call113, %lor.lhs.false116 ], [ %call113, %lor.lhs.false112 ], [ null, %lor.lhs.false108 ], [ null, %lor.lhs.false104 ], [ null, %lor.lhs.false101 ], [ null, %lor.lhs.false97 ], [ null, %lor.lhs.false93 ], [ null, %if.then89 ], [ %call126, %if.then149 ], [ %call126, %lor.lhs.false164 ], [ %call126, %if.else157 ], [ %call126, %lor.lhs.false142 ], [ %call126, %lor.lhs.false138 ], [ %call126, %lor.lhs.false132 ], [ %call126, %lor.lhs.false129 ], [ %call126, %if.else122 ], [ null, %if.end80 ], [ null, %lor.lhs.false57 ], [ null, %if.end54 ], [ null, %lor.lhs.false ], [ null, %if.end47 ], [ null, %if.then16 ], [ null, %land.end ], [ null, %if.then27 ], [ null, %sw.epilog ], [ null, %if.end28 ]
+  %res.0 = phi ptr [ null, %sw.default ], [ %res.1, %if.end173 ], [ %call113, %lor.lhs.false116 ], [ %call113, %lor.lhs.false112 ], [ null, %lor.lhs.false108 ], [ null, %lor.lhs.false104 ], [ null, %lor.lhs.false101 ], [ null, %lor.lhs.false97 ], [ null, %lor.lhs.false93 ], [ null, %if.then89 ], [ %call126, %if.then149 ], [ %call126, %lor.lhs.false164 ], [ %call126, %if.else157 ], [ %call126, %lor.lhs.false142 ], [ %call126, %lor.lhs.false138 ], [ %call126, %lor.lhs.false132 ], [ %call126, %lor.lhs.false129 ], [ %call126, %if.else122 ], [ null, %if.end80 ], [ null, %lor.lhs.false57 ], [ null, %if.end54 ], [ null, %lor.lhs.false ], [ null, %if.end47 ], [ null, %if.then16 ], [ null, %land.end ], [ null, %if.then27 ], [ null, %sw.epilog ], [ null, %if.end28 ]
   %doderive.1 = phi i32 [ 0, %sw.default ], [ %doderive.0, %if.end173 ], [ 1, %lor.lhs.false116 ], [ 1, %lor.lhs.false112 ], [ 1, %lor.lhs.false108 ], [ 1, %lor.lhs.false104 ], [ 1, %lor.lhs.false101 ], [ 1, %lor.lhs.false97 ], [ 1, %lor.lhs.false93 ], [ 1, %if.then89 ], [ 0, %if.then149 ], [ 0, %lor.lhs.false164 ], [ 0, %if.else157 ], [ 0, %lor.lhs.false142 ], [ 0, %lor.lhs.false138 ], [ 0, %lor.lhs.false132 ], [ 0, %lor.lhs.false129 ], [ 0, %if.else122 ], [ %doderive.0, %if.end80 ], [ %doderive.0, %lor.lhs.false57 ], [ %doderive.0, %if.end54 ], [ %doderive.0, %lor.lhs.false ], [ %doderive.0, %if.end47 ], [ %doderive.0, %if.then16 ], [ %doderive.0, %land.end ], [ %doderive.0, %if.then27 ], [ %doderive.0, %sw.epilog ], [ %doderive.0, %if.end28 ]
-  call void @CRYPTO_free(ptr noundef %res.1, ptr noundef nonnull @.str.16, i32 noundef 4675) #8
-  call void @EVP_MD_CTX_free(ptr noundef %ctx.1) #8
+  call void @CRYPTO_free(ptr noundef %res.0, ptr noundef nonnull @.str.16, i32 noundef 4675) #8
+  call void @EVP_MD_CTX_free(ptr noundef %ctx.0) #8
   %tobool174.not = icmp eq i32 %doderive.1, 0
   br i1 %tobool174.not, label %if.end176, label %if.then175
 
@@ -7720,16 +7720,16 @@ if.else:                                          ; preds = %cond.end.thread, %c
   br i1 %tobool67.not, label %err, label %if.end70
 
 if.end70:                                         ; preds = %if.else, %if.end56
-  %mac.0 = phi ptr [ %call52, %if.end56 ], [ null, %if.else ]
+  %mac.1 = phi ptr [ %call52, %if.end56 ], [ null, %if.else ]
   br label %err
 
 err:                                              ; preds = %if.else, %if.end56, %if.end51, %if.end38, %lor.lhs.false, %if.then32, %if.end20, %sw.epilog, %if.end70, %sw.default
   %pkey.1 = phi ptr [ null, %sw.default ], [ %pkey.0, %if.end70 ], [ %pkey.0, %if.end56 ], [ %pkey.0, %if.end51 ], [ %pkey.0, %lor.lhs.false ], [ %pkey.0, %if.end38 ], [ %pkey.0, %if.then32 ], [ %pkey.0, %if.else ], [ %pkey.0, %if.end20 ], [ %pkey.0, %sw.epilog ]
   %testresult.0 = phi i32 [ 0, %sw.default ], [ 1, %if.end70 ], [ 0, %if.end56 ], [ 0, %if.end51 ], [ 0, %lor.lhs.false ], [ 0, %if.end38 ], [ 0, %if.then32 ], [ 0, %if.else ], [ 0, %if.end20 ], [ 0, %sw.epilog ]
   %ctx.0 = phi ptr [ null, %sw.default ], [ %call21, %if.end70 ], [ %call21, %if.end56 ], [ %call21, %if.end51 ], [ %call21, %lor.lhs.false ], [ %call21, %if.end38 ], [ %call21, %if.then32 ], [ %call21, %if.else ], [ %call21, %if.end20 ], [ null, %sw.epilog ]
-  %mac.1 = phi ptr [ null, %sw.default ], [ %mac.0, %if.end70 ], [ %call52, %if.end56 ], [ %call52, %if.end51 ], [ null, %lor.lhs.false ], [ null, %if.end38 ], [ null, %if.then32 ], [ null, %if.else ], [ null, %if.end20 ], [ null, %sw.epilog ]
+  %mac.0 = phi ptr [ null, %sw.default ], [ %mac.1, %if.end70 ], [ %call52, %if.end56 ], [ %call52, %if.end51 ], [ null, %lor.lhs.false ], [ null, %if.end38 ], [ null, %if.then32 ], [ null, %if.else ], [ null, %if.end20 ], [ null, %sw.epilog ]
   call void @EVP_MD_CTX_free(ptr noundef %ctx.0) #8
-  call void @CRYPTO_free(ptr noundef %mac.1, ptr noundef nonnull @.str.16, i32 noundef 4960) #8
+  call void @CRYPTO_free(ptr noundef %mac.0, ptr noundef nonnull @.str.16, i32 noundef 4960) #8
   call void @EVP_PKEY_free(ptr noundef %pkey.1) #8
   %call71 = call i32 @ENGINE_finish(ptr noundef %call) #8
   %call72 = call i32 @ENGINE_free(ptr noundef %call) #8
@@ -7921,7 +7921,7 @@ if.end36:                                         ; preds = %if.end31
   br i1 %tobool40.not, label %err, label %check_err
 
 check_err:                                        ; preds = %if.end36, %if.end27, %if.end23
-  %mac.0 = phi ptr [ null, %if.end23 ], [ null, %if.end27 ], [ %call32, %if.end36 ]
+  %mac.1 = phi ptr [ null, %if.end23 ], [ null, %if.end27 ], [ %call32, %if.end36 ]
   %call43 = call i64 @ERR_peek_error() #8
   %and.i = and i64 %call43, 2147483648
   %cmp.not.i = icmp eq i64 %and.i, 0
@@ -7938,9 +7938,9 @@ if.then46:                                        ; preds = %check_err
 err:                                              ; preds = %check_err, %if.then46, %if.end36, %if.end31, %if.end18, %if.end
   %testresult.0 = phi i32 [ 1, %if.then46 ], [ 0, %check_err ], [ 0, %if.end36 ], [ 0, %if.end31 ], [ 0, %if.end18 ], [ 0, %if.end ]
   %ctx.0 = phi ptr [ %call19, %if.then46 ], [ %call19, %check_err ], [ %call19, %if.end36 ], [ %call19, %if.end31 ], [ %call19, %if.end18 ], [ null, %if.end ]
-  %mac.1 = phi ptr [ %mac.0, %if.then46 ], [ %mac.0, %check_err ], [ %call32, %if.end36 ], [ %call32, %if.end31 ], [ null, %if.end18 ], [ null, %if.end ]
+  %mac.0 = phi ptr [ %mac.1, %if.then46 ], [ %mac.1, %check_err ], [ %call32, %if.end36 ], [ %call32, %if.end31 ], [ null, %if.end18 ], [ null, %if.end ]
   call void @EVP_MD_CTX_free(ptr noundef %ctx.0) #8
-  call void @CRYPTO_free(ptr noundef %mac.1, ptr noundef nonnull @.str.16, i32 noundef 5120) #8
+  call void @CRYPTO_free(ptr noundef %mac.0, ptr noundef nonnull @.str.16, i32 noundef 5120) #8
   call void @EVP_PKEY_free(ptr noundef %call15) #8
   br label %return
 

@@ -2656,7 +2656,7 @@ _ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i.loopexit: ; preds = %_ZN17cmExe
   br label %_ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i
 
 _ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i: ; preds = %_ZN17cmExecutionStatusD2Ev.exit.i.i.i, %_ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i.loopexit, %182
-  %.2.i.i.i = phi i1 [ true, %182 ], [ true, %_ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i.loopexit ], [ false, %_ZN17cmExecutionStatusD2Ev.exit.i.i.i ]
+  %.3.i.i.i = phi i1 [ true, %182 ], [ true, %_ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i.loopexit ], [ false, %_ZN17cmExecutionStatusD2Ev.exit.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
   call void @_ZN10cmMakefile15FunctionPushPopD1Ev(ptr noundef nonnull align 8 dereferenceable(9) %8) #18
@@ -2678,7 +2678,7 @@ _ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i: ; preds = %_ZN17cmExecutionSta
   br label %249
 
 243:                                              ; preds = %_ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i
-  %.3.i.i.i = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i ], [ %.2.i.i.i, %_ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i ]
+  %.0.i.i.i = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i ], [ %.3.i.i.i, %_ZN17cmExecutionStatusD2Ev.exit._crit_edge.i.i.i ]
   %244 = load ptr, ptr %6, align 8
   %245 = load ptr, ptr %21, align 8
   %.not4.i.i.i.i.i.i.i = icmp eq ptr %244, %245
@@ -2722,7 +2722,7 @@ _ZSt10__invoke_rIbRN12_GLOBAL__N_123cmFunctionHelperCommandEJRKSt6vectorI18cmLis
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
-  ret i1 %.3.i.i.i
+  ret i1 %.0.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable

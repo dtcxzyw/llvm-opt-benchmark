@@ -7517,8 +7517,8 @@ _ZN4zstd6stream9functions10encode_all17he1924b0ff15abfe4E.exit: ; preds = %71
   br label %237
 
 237:                                              ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit126", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit"
-  %.2 = phi i1 [ %.3, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit126" ], [ %188, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit" ]
-  ret i1 %.2
+  %.3 = phi i1 [ %.0, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit126" ], [ %188, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h478b587f603d9b7cE.exit" ]
+  ret i1 %.3
 
 238:                                              ; preds = %225, %221, %203, %.body118, %.body
   %239 = landingpad { ptr, i32 }
@@ -7531,7 +7531,7 @@ _ZN4zstd6stream9functions10encode_all17he1924b0ff15abfe4E.exit: ; preds = %71
   resume { ptr, i32 } %.pn91.pn
 
 241:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hd5b6ff8c36956473E.exit", %113
-  %.3 = phi i1 [ false, %113 ], [ %117, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hd5b6ff8c36956473E.exit" ]
+  %.0 = phi i1 [ false, %113 ], [ %117, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hd5b6ff8c36956473E.exit" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1858
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hd24456aea2e035a1E.llvm.1979644106479486265"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35)

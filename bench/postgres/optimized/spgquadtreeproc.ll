@@ -386,7 +386,7 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr nocapture noundef re
 
 79:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %.0110129 = phi i32 [ 30, %.lr.ph ], [ %.1121, %.thread ]
+  %.0110129 = phi i32 [ 30, %.lr.ph ], [ %.2121, %.thread ]
   %80 = load ptr, ptr %6, align 8
   %81 = getelementptr %struct.ScanKeyData, ptr %80, i64 %indvars.iv, i32 6
   %82 = load i64, ptr %81, align 8
@@ -475,12 +475,12 @@ define dso_local noundef i64 @spg_quad_inner_consistent(ptr nocapture noundef re
 
 select.unfold:                                    ; preds = %96, %94, %87, %85, %100, %89
   %.pn = phi i32 [ %120, %100 ], [ %93, %89 ], [ 24, %85 ], [ 6, %87 ], [ 12, %94 ], [ 18, %96 ]
-  %.1 = and i32 %.pn, %.0110129
-  %128 = icmp eq i32 %.1, 0
+  %.2 = and i32 %.pn, %.0110129
+  %128 = icmp eq i32 %.2, 0
   br i1 %128, label %select.unfold._crit_edge, label %.thread
 
 .thread:                                          ; preds = %96, %94, %87, %85, %98, %select.unfold
-  %.1121 = phi i32 [ %.1, %select.unfold ], [ %.0110129, %98 ], [ %.0110129, %85 ], [ %.0110129, %87 ], [ %.0110129, %94 ], [ %.0110129, %96 ]
+  %.2121 = phi i32 [ %.2, %select.unfold ], [ %.0110129, %98 ], [ %.0110129, %85 ], [ %.0110129, %87 ], [ %.0110129, %94 ], [ %.0110129, %96 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %129 = load i32, ptr %40, align 8
   %130 = sext i32 %129 to i64
@@ -488,7 +488,7 @@ select.unfold:                                    ; preds = %96, %94, %87, %85, 
   br i1 %131, label %79, label %select.unfold._crit_edge, !llvm.loop !9
 
 select.unfold._crit_edge:                         ; preds = %.thread, %select.unfold, %.preheader
-  %.2 = phi i32 [ 30, %.preheader ], [ 0, %select.unfold ], [ %.1121, %.thread ]
+  %.1 = phi i32 [ 30, %.preheader ], [ 0, %select.unfold ], [ %.2121, %.thread ]
   %132 = call ptr @palloc(i64 noundef 16) #6
   %133 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %132, ptr %133, align 8
@@ -522,7 +522,7 @@ select.unfold._crit_edge:                         ; preds = %.thread, %select.un
   %149 = phi i32 [ 0, %137 ], [ %199, %198 ]
   %.3132 = phi i32 [ 1, %137 ], [ %200, %198 ]
   %150 = shl nuw nsw i32 1, %.3132
-  %151 = and i32 %150, %.2
+  %151 = and i32 %150, %.1
   %.not = icmp eq i32 %151, 0
   br i1 %.not, label %198, label %152
 

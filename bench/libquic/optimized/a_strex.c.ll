@@ -234,18 +234,18 @@ if.end88:                                         ; preds = %for.cond.i77, %if.t
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end88, %if.end78
-  %outlen.2 = phi i32 [ %add90, %if.end88 ], [ %outlen.1, %if.end78 ]
+  %outlen.3 = phi i32 [ %add90, %if.end88 ], [ %outlen.1, %if.end78 ]
   %call92 = call i32 %io_ch(ptr noundef %arg, ptr noundef nonnull %.str.7..str.6, i32 noundef %.) #10, !callees !9
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %return, label %if.end95
 
 if.end95:                                         ; preds = %if.end91
   %add96 = add nsw i32 %., %conv74
-  %add97 = add nsw i32 %add96, %outlen.2
+  %add97 = add nsw i32 %add96, %outlen.3
   br label %if.end98
 
 if.end98:                                         ; preds = %if.end95, %if.end44
-  %outlen.3 = phi i32 [ %add97, %if.end95 ], [ %outlen.1, %if.end44 ]
+  %outlen.2 = phi i32 [ %add97, %if.end95 ], [ %outlen.1, %if.end44 ]
   %cmp99 = icmp ne i32 %call48, 0
   %or.cond60 = or i1 %tobool103.not, %cmp99
   %orflags.0 = select i1 %or.cond60, i64 0, i64 128
@@ -255,7 +255,7 @@ if.end98:                                         ; preds = %if.end95, %if.end44
   br i1 %cmp109, label %return, label %if.end112
 
 if.end112:                                        ; preds = %if.end98
-  %add113 = add nsw i32 %call108, %outlen.3
+  %add113 = add nsw i32 %call108, %outlen.2
   %inc = add nuw nsw i32 %i.092, 1
   %exitcond.not = icmp eq i32 %inc, %call11
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
@@ -560,11 +560,11 @@ if.end44:                                         ; preds = %if.end25
   br label %if.end44.thread
 
 if.end44.thread:                                  ; preds = %if.else, %land.lhs.true28, %if.end44
-  %type.15774 = phi i32 [ %conv23, %if.end44 ], [ 1, %land.lhs.true28 ], [ 1, %if.else ]
+  %type.05774 = phi i32 [ %conv23, %if.end44 ], [ 1, %land.lhs.true28 ], [ 1, %if.else ]
   %19 = phi i32 [ %spec.select, %if.end44 ], [ 9, %land.lhs.true28 ], [ 9, %if.else ]
   %tobool46.not75.in = and i64 %lflags, 16
   %tobool46.not75 = icmp eq i64 %tobool46.not75.in, 0
-  %type.2 = select i1 %tobool46.not75, i32 %type.15774, i32 %19
+  %type.2 = select i1 %tobool46.not75, i32 %type.05774, i32 %19
   %data = getelementptr inbounds i8, ptr %str, i64 8
   %20 = load ptr, ptr %data, align 8
   %21 = load i32, ptr %str, align 8

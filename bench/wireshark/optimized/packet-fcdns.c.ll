@@ -556,9 +556,9 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %110
 
 110:                                              ; preds = %107, %102
-  %.0223 = phi i32 [ %23, %102 ], [ %., %107 ]
+  %.1 = phi i32 [ %23, %102 ], [ %., %107 ]
   %.0222 = phi i32 [ 0, %102 ], [ %.242, %107 ]
-  %.not240 = icmp eq i32 %.0223, 32769
+  %.not240 = icmp eq i32 %.1, 32769
   %111 = getelementptr inbounds i8, ptr %1, i64 8
   %112 = load ptr, ptr %111, align 8
   br i1 %.not240, label %.thread, label %114
@@ -569,7 +569,7 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %118
 
 114:                                              ; preds = %110
-  %115 = call ptr @val_to_str(i32 noundef %.0223, ptr noundef nonnull @fc_dns_opcode_val, ptr noundef nonnull @.str.221) #4
+  %115 = call ptr @val_to_str(i32 noundef %.1, ptr noundef nonnull @fc_dns_opcode_val, ptr noundef nonnull @.str.221) #4
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %112, i32 noundef 25, ptr noundef nonnull @.str.222, ptr noundef %115) #4
   %or.cond = and i1 %.not, %.not234
   br i1 %or.cond, label %116, label %118
@@ -579,7 +579,7 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %174
 
 118:                                              ; preds = %.thread, %95, %114, %76
-  %.1 = phi i32 [ %23, %76 ], [ %.0223, %114 ], [ %23, %95 ], [ 32769, %.thread ]
+  %.0223 = phi i32 [ %23, %76 ], [ %.1, %114 ], [ %23, %95 ], [ 32769, %.thread ]
   %.not.i = phi i1 [ false, %76 ], [ true, %114 ], [ true, %95 ], [ true, %.thread ]
   %.0221 = phi i32 [ 1, %76 ], [ 0, %114 ], [ 0, %95 ], [ 0, %.thread ]
   br i1 %.not, label %119, label %124
@@ -592,7 +592,7 @@ define internal i32 @dissect_fcdns(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %124
 
 124:                                              ; preds = %119, %118
-  switch i32 %.1, label %dissect_fcdns_daid.exit [
+  switch i32 %.0223, label %dissect_fcdns_daid.exit [
     i32 32769, label %125
     i32 256, label %126
     i32 274, label %127

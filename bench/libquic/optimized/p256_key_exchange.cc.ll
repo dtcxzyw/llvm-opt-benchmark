@@ -208,8 +208,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 return:                                           ; preds = %if.then.i, %if.end, %cleanup, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %call21, %cleanup ], [ null, %if.then.i ], [ null, %if.end ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ %call21, %cleanup ], [ null, %if.then.i ], [ null, %if.end ]
+  ret ptr %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
@@ -459,7 +459,7 @@ if.end25:                                         ; preds = %invoke.cont21
           to label %if.then.i unwind label %lpad
 
 if.then.i:                                        ; preds = %invoke.cont14, %invoke.cont21, %if.end25
-  %retval.0.ph = phi i1 [ true, %if.end25 ], [ false, %invoke.cont21 ], [ false, %invoke.cont14 ]
+  %retval.1.ph = phi i1 [ true, %if.end25 ], [ false, %invoke.cont21 ], [ false, %invoke.cont14 ]
   invoke void @EC_POINT_free(ptr noundef nonnull %call4)
           to label %return unwind label %terminate.lpad.i
 
@@ -471,8 +471,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 return:                                           ; preds = %if.then.i, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.0.ph, %if.then.i ], [ false, %if.end ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1.ph, %if.then.i ], [ false, %if.end ]
+  ret i1 %retval.0
 }
 
 declare ptr @EC_POINT_new(ptr noundef) local_unnamed_addr #5

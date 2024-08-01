@@ -932,7 +932,7 @@ _ZL3lrbP7oopDesc.exit:                            ; preds = %19, %_ZNK24Shenando
   br label %66
 
 66:                                               ; preds = %_ZL3lrbP7oopDesc.exit53, %63
-  %.0 = phi ptr [ %1, %63 ], [ %.1, %_ZL3lrbP7oopDesc.exit53 ]
+  %.0 = phi ptr [ %1, %63 ], [ %.2, %_ZL3lrbP7oopDesc.exit53 ]
   %67 = load i32, ptr %.0, align 4
   %68 = icmp eq i32 %67, 0
   %69 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -1169,7 +1169,7 @@ _ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.
 
 223:                                              ; preds = %_ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.exit, %_ZNK28ShenandoahReferenceProcessor11should_dropI9narrowOopEEbP7oopDesc13ReferenceType.exit.thread
   %.pre-phi84 = phi ptr [ %222, %_ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.exit ], [ %.pre83, %_ZNK28ShenandoahReferenceProcessor11should_dropI9narrowOopEEbP7oopDesc13ReferenceType.exit.thread ]
-  %.1 = phi ptr [ %222, %_ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.exit ], [ %.0, %_ZNK28ShenandoahReferenceProcessor11should_dropI9narrowOopEEbP7oopDesc13ReferenceType.exit.thread ]
+  %.2 = phi ptr [ %222, %_ZN28ShenandoahReferenceProcessor4keepI9narrowOopEEPT_P7oopDesc13ReferenceTypej.exit ], [ %.0, %_ZNK28ShenandoahReferenceProcessor11should_dropI9narrowOopEEbP7oopDesc13ReferenceType.exit.thread ]
   %224 = load i32, ptr %.pre-phi84, align 4
   %225 = icmp eq i32 %224, 0
   %226 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -1282,7 +1282,7 @@ _ZL3lrbP7oopDesc.exit53:                          ; preds = %223, %_ZL20referenc
   br label %_ZL3lrbP7oopDesc.exit39.thread
 
 _ZL3lrbP7oopDesc.exit39.thread:                   ; preds = %66, %_ZL3lrbP7oopDesc.exit39, %294
-  %.2 = phi ptr [ %.1, %294 ], [ %.0, %_ZL3lrbP7oopDesc.exit39 ], [ %.0, %66 ]
+  %.1 = phi ptr [ %.2, %294 ], [ %.0, %_ZL3lrbP7oopDesc.exit39 ], [ %.0, %66 ]
   %299 = load i32, ptr %1, align 8
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %354, label %301
@@ -1352,12 +1352,12 @@ _ZL3lrbP7oopDesc.exit60:                          ; preds = %301, %_ZNK24Shenand
   %348 = lshr i64 %345, %347
   %349 = trunc i64 %348 to i32
   %350 = select i1 %341, i32 0, i32 %349
-  store i32 %350, ptr %.2, align 4
+  store i32 %350, ptr %.1, align 4
   br i1 %341, label %351, label %353
 
 351:                                              ; preds = %_ZL3lrbP7oopDesc.exit60
   %352 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.2, ptr %352, align 8
+  store ptr %.1, ptr %352, align 8
   br label %353
 
 353:                                              ; preds = %351, %_ZL3lrbP7oopDesc.exit60
@@ -1436,7 +1436,7 @@ _ZL3lrbP7oopDesc.exit:                            ; preds = %_ZNK24ShenandoahMar
   br label %44
 
 44:                                               ; preds = %_ZL3lrbP7oopDesc.exit53, %41
-  %.0 = phi ptr [ %1, %41 ], [ %.1, %_ZL3lrbP7oopDesc.exit53 ]
+  %.0 = phi ptr [ %1, %41 ], [ %.2, %_ZL3lrbP7oopDesc.exit53 ]
   %45 = load ptr, ptr %.0, align 8
   %.not.i33 = icmp eq ptr %45, null
   br i1 %.not.i33, label %_ZL3lrbP7oopDesc.exit39.thread, label %46
@@ -1645,7 +1645,7 @@ _ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit: ;
 
 174:                                              ; preds = %_ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit, %_ZNK28ShenandoahReferenceProcessor11should_dropIP7oopDescEEbS2_13ReferenceType.exit.thread
   %.pre-phi90 = phi ptr [ %173, %_ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit ], [ %.pre89, %_ZNK28ShenandoahReferenceProcessor11should_dropIP7oopDescEEbS2_13ReferenceType.exit.thread ]
-  %.1 = phi ptr [ %173, %_ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit ], [ %.0, %_ZNK28ShenandoahReferenceProcessor11should_dropIP7oopDescEEbS2_13ReferenceType.exit.thread ]
+  %.2 = phi ptr [ %173, %_ZN28ShenandoahReferenceProcessor4keepIP7oopDescEEPT_S2_13ReferenceTypej.exit ], [ %.0, %_ZNK28ShenandoahReferenceProcessor11should_dropIP7oopDescEEbS2_13ReferenceType.exit.thread ]
   %175 = load ptr, ptr %.pre-phi90, align 8
   %.not.i.i45 = icmp eq ptr %175, null
   br i1 %.not.i.i45, label %_ZL3lrbP7oopDesc.exit53, label %176
@@ -1753,7 +1753,7 @@ _ZL3lrbP7oopDesc.exit53:                          ; preds = %174, %_ZL20referenc
   br label %_ZL3lrbP7oopDesc.exit39.thread
 
 _ZL3lrbP7oopDesc.exit39.thread:                   ; preds = %44, %_ZL3lrbP7oopDesc.exit39, %230
-  %.2 = phi ptr [ %.1, %230 ], [ %.0, %_ZL3lrbP7oopDesc.exit39 ], [ %.0, %44 ]
+  %.1 = phi ptr [ %.2, %230 ], [ %.0, %_ZL3lrbP7oopDesc.exit39 ], [ %.0, %44 ]
   %235 = load ptr, ptr %1, align 8
   %236 = icmp eq ptr %235, null
   br i1 %236, label %273, label %237
@@ -1802,13 +1802,13 @@ _ZL3lrbP7oopDesc.exit60:                          ; preds = %_ZNK24ShenandoahMar
   %.0.i57 = phi ptr [ %266, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread.i56 ], [ %235, %_ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.i58 ]
   %267 = getelementptr inbounds i8, ptr %0, i64 24
   %268 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.0.i57, ptr nonnull %267) #14, !srcloc !15
-  store ptr %268, ptr %.2, align 8
+  store ptr %268, ptr %.1, align 8
   %269 = icmp eq ptr %268, null
   br i1 %269, label %270, label %272
 
 270:                                              ; preds = %_ZL3lrbP7oopDesc.exit60
   %271 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.2, ptr %271, align 8
+  store ptr %.1, ptr %271, align 8
   br label %272
 
 272:                                              ; preds = %270, %_ZL3lrbP7oopDesc.exit60

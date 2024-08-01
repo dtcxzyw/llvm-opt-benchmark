@@ -539,7 +539,7 @@ ELgethash.exit:                                   ; preds = %1, %13, %22, %27
 ELgethash.exit56:                                 ; preds = %57, %39
   %68 = phi ptr [ %35, %39 ], [ %53, %57 ]
   %69 = phi i32 [ %30, %39 ], [ %49, %57 ]
-  %.0 = phi ptr [ %37, %39 ], [ %55, %57 ]
+  %.1 = phi ptr [ %37, %39 ], [ %55, %57 ]
   %70 = trunc nuw nsw i64 %indvars.iv to i32
   %71 = load i32, ptr @totalsearch, align 4
   %72 = add nsw i32 %71, %70
@@ -549,24 +549,24 @@ ELgethash.exit56:                                 ; preds = %57, %39
 ELgethash.exit.thread:                            ; preds = %19, %ELgethash.exit56
   %73 = phi ptr [ %68, %ELgethash.exit56 ], [ %14, %19 ]
   %74 = phi i32 [ %69, %ELgethash.exit56 ], [ %7, %19 ]
-  %.1 = phi ptr [ %.0, %ELgethash.exit56 ], [ %17, %19 ]
+  %.0 = phi ptr [ %.1, %ELgethash.exit56 ], [ %17, %19 ]
   %75 = load i32, ptr @ntry, align 4
   %76 = add nsw i32 %75, 1
   store i32 %76, ptr @ntry, align 4
   %77 = load ptr, ptr @ELleftend, align 8
-  %78 = icmp eq ptr %.1, %77
+  %78 = icmp eq ptr %.0, %77
   %.pre72 = load ptr, ptr @ELrightend, align 8
   br i1 %78, label %.preheader, label %79
 
 79:                                               ; preds = %ELgethash.exit.thread
-  %.not45 = icmp eq ptr %.1, %.pre72
+  %.not45 = icmp eq ptr %.0, %.pre72
   br i1 %.not45, label %.preheader79, label %80
 
 .preheader79:                                     ; preds = %80, %79
   br label %88
 
 80:                                               ; preds = %79
-  %81 = tail call i32 @right_of(ptr noundef nonnull %.1, ptr noundef nonnull %0)
+  %81 = tail call i32 @right_of(ptr noundef nonnull %.0, ptr noundef nonnull %0)
   %.not46 = icmp eq i32 %81, 0
   br i1 %.not46, label %.preheader79, label %.preheader
 
@@ -574,7 +574,7 @@ ELgethash.exit.thread:                            ; preds = %19, %ELgethash.exit
   br label %82
 
 82:                                               ; preds = %.preheader, %85
-  %.2 = phi ptr [ %84, %85 ], [ %.1, %.preheader ]
+  %.2 = phi ptr [ %84, %85 ], [ %.0, %.preheader ]
   %83 = getelementptr inbounds i8, ptr %.2, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not49 = icmp eq ptr %84, %.pre72
@@ -590,8 +590,8 @@ ELgethash.exit.thread:                            ; preds = %19, %ELgethash.exit
   br label %.critedge2
 
 88:                                               ; preds = %.preheader79, %90
-  %.3 = phi ptr [ %89, %90 ], [ %.1, %.preheader79 ]
-  %89 = load ptr, ptr %.3, align 8
+  %.4 = phi ptr [ %89, %90 ], [ %.0, %.preheader79 ]
+  %89 = load ptr, ptr %.4, align 8
   %.not47 = icmp eq ptr %89, %77
   br i1 %.not47, label %.critedge2, label %90
 
@@ -601,7 +601,7 @@ ELgethash.exit.thread:                            ; preds = %19, %ELgethash.exit
   br i1 %.not48, label %88, label %.critedge2
 
 .critedge2:                                       ; preds = %88, %90, %.critedge
-  %.4 = phi ptr [ %87, %.critedge ], [ %89, %90 ], [ %89, %88 ]
+  %.3 = phi ptr [ %87, %.critedge ], [ %89, %90 ], [ %89, %88 ]
   %92 = icmp sgt i32 %spec.select, 0
   %93 = add nsw i32 %74, -1
   %94 = icmp slt i32 %spec.select, %93
@@ -623,15 +623,15 @@ ELgethash.exit.thread:                            ; preds = %19, %ELgethash.exit
   br label %103
 
 103:                                              ; preds = %99, %95
-  store ptr %.4, ptr %97, align 8
-  %104 = getelementptr inbounds i8, ptr %.4, i64 24
+  store ptr %.3, ptr %97, align 8
+  %104 = getelementptr inbounds i8, ptr %.3, i64 24
   %105 = load i32, ptr %104, align 8
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %104, align 8
   br label %107
 
 107:                                              ; preds = %103, %.critedge2
-  ret ptr %.4
+  ret ptr %.3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable

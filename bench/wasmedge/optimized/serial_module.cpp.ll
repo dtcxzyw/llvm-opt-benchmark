@@ -638,30 +638,30 @@ _ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSect
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit
 
 _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE13_M_deallocateEPS16_m.exit.i, %61
-  %.sroa.88.0 = phi ptr [ %64, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE13_M_deallocateEPS16_m.exit.i ], [ null, %61 ]
-  %.sroa.32.0 = phi ptr [ %63, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE13_M_deallocateEPS16_m.exit.i ], [ null, %61 ]
+  %.sroa.88.1 = phi ptr [ %64, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE13_M_deallocateEPS16_m.exit.i ], [ null, %61 ]
+  %.sroa.32.1 = phi ptr [ %63, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE13_M_deallocateEPS16_m.exit.i ], [ null, %61 ]
   %.not491 = icmp eq ptr %52, %54
   br i1 %.not491, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit
   %.0495 = phi ptr [ %85, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit ], [ %52, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit ]
-  %.sroa.0387.1494 = phi ptr [ %.sroa.0387.2, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit ], [ %.sroa.32.0, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit ]
-  %.sroa.32.1493 = phi ptr [ %.sroa.32.2, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit ], [ %.sroa.32.0, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit ]
-  %.sroa.88.1492 = phi ptr [ %.sroa.88.2, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit ], [ %.sroa.88.0, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit ]
-  %.not.i.i = icmp eq ptr %.sroa.32.1493, %.sroa.88.1492
+  %.sroa.0387.0494 = phi ptr [ %.sroa.0387.2, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit ], [ %.sroa.32.1, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit ]
+  %.sroa.32.0493 = phi ptr [ %.sroa.32.2, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit ], [ %.sroa.32.1, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit ]
+  %.sroa.88.0492 = phi ptr [ %.sroa.88.2, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit ], [ %.sroa.88.1, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit ]
+  %.not.i.i = icmp eq ptr %.sroa.32.0493, %.sroa.88.0492
   br i1 %.not.i.i, label %66, label %65
 
 65:                                               ; preds = %.lr.ph
-  store ptr %.0495, ptr %.sroa.32.1493, align 8
-  %.sroa.3378.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.32.1493, i64 8
+  store ptr %.0495, ptr %.sroa.32.0493, align 8
+  %.sroa.3378.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.32.0493, i64 8
   store i8 0, ptr %.sroa.3378.0..sroa_idx, align 8
-  %.sroa.4381.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.32.1493, i64 9
+  %.sroa.4381.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.32.0493, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4381.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4381, i64 7, i1 false)
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit
 
 66:                                               ; preds = %.lr.ph
-  %67 = ptrtoint ptr %.sroa.32.1493 to i64
-  %68 = ptrtoint ptr %.sroa.0387.1494 to i64
+  %67 = ptrtoint ptr %.sroa.32.0493 to i64
+  %68 = ptrtoint ptr %.sroa.0387.0494 to i64
   %69 = sub i64 %67, %68
   %70 = icmp eq i64 %69, 9223372036854775792
   br i1 %70, label %.invoke, label %_ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -689,25 +689,25 @@ _ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSect
   store i8 0, ptr %.sroa.3378.0..sroa_idx379, align 8
   %.sroa.4381.0..sroa_idx382 = getelementptr inbounds i8, ptr %80, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4381.0..sroa_idx382, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4381, i64 7, i1 false)
-  %.not10.i.i.i.i.i.i = icmp eq ptr %.sroa.0387.1494, %.sroa.32.1493
+  %.not10.i.i.i.i.i.i = icmp eq ptr %.sroa.0387.0494, %.sroa.32.0493
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_M_allocateEm.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %82, %.lr.ph.i.i.i.i.i.i ], [ %79, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_M_allocateEm.exit.i.i.i ]
-  %.0911.i.i.i.i.i.i = phi ptr [ %81, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0387.1494, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_M_allocateEm.exit.i.i.i ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %81, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0387.0494, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_M_allocateEm.exit.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !4
   %81 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i, i64 16
   %82 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i = icmp eq ptr %81, %.sroa.32.1493
+  %.not.i.i.i.i.i.i = icmp eq ptr %81, %.sroa.32.0493
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !8
 
 _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_M_allocateEm.exit.i.i.i
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %79, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_M_allocateEm.exit.i.i.i ], [ %82, %.lr.ph.i.i.i.i.i.i ]
-  %.not.i23.i.i.i = icmp eq ptr %.sroa.0387.1494, null
+  %.not.i23.i.i.i = icmp eq ptr %.sroa.0387.0494, null
   br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i, label %83
 
 83:                                               ; preds = %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0387.1494, i64 noundef %69) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0387.0494, i64 noundef %69) #18
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i
 
 _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i: ; preds = %83, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i
@@ -715,33 +715,33 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit
 
 _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit: ; preds = %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i, %65
-  %.sroa.88.2 = phi ptr [ %84, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i ], [ %.sroa.88.1492, %65 ]
-  %.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i ], [ %.sroa.32.1493, %65 ]
-  %.sroa.0387.2 = phi ptr [ %79, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i ], [ %.sroa.0387.1494, %65 ]
+  %.sroa.88.2 = phi ptr [ %84, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i ], [ %.sroa.88.0492, %65 ]
+  %.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i ], [ %.sroa.32.0493, %65 ]
+  %.sroa.0387.2 = phi ptr [ %79, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i ], [ %.sroa.0387.0494, %65 ]
   %.sroa.32.2 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.pn, i64 16
   %85 = getelementptr inbounds i8, ptr %.0495, i64 72
   %.not = icmp eq ptr %85, %54
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit
-  %.sroa.88.1.lcssa = phi ptr [ %.sroa.88.0, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit ], [ %.sroa.88.2, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit ]
-  %.sroa.32.1.lcssa = phi ptr [ %.sroa.32.0, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit ], [ %.sroa.32.2, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit ]
-  %.sroa.0387.1.lcssa = phi ptr [ %.sroa.32.0, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit ], [ %.sroa.0387.2, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit ]
+  %.sroa.88.0.lcssa = phi ptr [ %.sroa.88.1, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit ], [ %.sroa.88.2, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit ]
+  %.sroa.32.0.lcssa = phi ptr [ %.sroa.32.1, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit ], [ %.sroa.32.2, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit ]
+  %.sroa.0387.0.lcssa = phi ptr [ %.sroa.32.1, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE7reserveEm.exit ], [ %.sroa.0387.2, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit ]
   %86 = getelementptr inbounds i8, ptr %2, i64 72
-  %.not.i.i50 = icmp eq ptr %.sroa.32.1.lcssa, %.sroa.88.1.lcssa
+  %.not.i.i50 = icmp eq ptr %.sroa.32.0.lcssa, %.sroa.88.0.lcssa
   br i1 %.not.i.i50, label %88, label %87
 
 87:                                               ; preds = %._crit_edge
-  store ptr %86, ptr %.sroa.32.1.lcssa, align 8
-  %.sroa.3370.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.32.1.lcssa, i64 8
+  store ptr %86, ptr %.sroa.32.0.lcssa, align 8
+  %.sroa.3370.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.32.0.lcssa, i64 8
   store i8 1, ptr %.sroa.3370.0..sroa_idx, align 8
-  %.sroa.4373.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.32.1.lcssa, i64 9
+  %.sroa.4373.0..sroa_idx = getelementptr inbounds i8, ptr %.sroa.32.0.lcssa, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4373.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4373, i64 7, i1 false)
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit66
 
 88:                                               ; preds = %._crit_edge
-  %89 = ptrtoint ptr %.sroa.88.1.lcssa to i64
-  %90 = ptrtoint ptr %.sroa.0387.1.lcssa to i64
+  %89 = ptrtoint ptr %.sroa.88.0.lcssa to i64
+  %90 = ptrtoint ptr %.sroa.0387.0.lcssa to i64
   %91 = sub i64 %89, %90
   %92 = icmp eq i64 %91, 9223372036854775792
   br i1 %92, label %.invoke, label %_ZNKSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE12_M_check_lenEmPKc.exit.i.i.i51
@@ -769,25 +769,25 @@ _ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSect
   store i8 1, ptr %.sroa.3370.0..sroa_idx371, align 8
   %.sroa.4373.0..sroa_idx374 = getelementptr inbounds i8, ptr %102, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4373.0..sroa_idx374, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4373, i64 7, i1 false)
-  %.not10.i.i.i.i.i.i55 = icmp eq ptr %.sroa.0387.1.lcssa, %.sroa.88.1.lcssa
+  %.not10.i.i.i.i.i.i55 = icmp eq ptr %.sroa.0387.0.lcssa, %.sroa.88.0.lcssa
   br i1 %.not10.i.i.i.i.i.i55, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i60, label %.lr.ph.i.i.i.i.i.i56
 
 .lr.ph.i.i.i.i.i.i56:                             ; preds = %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_M_allocateEm.exit.i.i.i54, %.lr.ph.i.i.i.i.i.i56
   %.012.i.i.i.i.i.i57 = phi ptr [ %104, %.lr.ph.i.i.i.i.i.i56 ], [ %101, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_M_allocateEm.exit.i.i.i54 ]
-  %.0911.i.i.i.i.i.i58 = phi ptr [ %103, %.lr.ph.i.i.i.i.i.i56 ], [ %.sroa.0387.1.lcssa, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_M_allocateEm.exit.i.i.i54 ]
+  %.0911.i.i.i.i.i.i58 = phi ptr [ %103, %.lr.ph.i.i.i.i.i.i56 ], [ %.sroa.0387.0.lcssa, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_M_allocateEm.exit.i.i.i54 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i57, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i58, i64 16, i1 false), !alias.scope !10
   %103 = getelementptr inbounds i8, ptr %.0911.i.i.i.i.i.i58, i64 16
   %104 = getelementptr inbounds i8, ptr %.012.i.i.i.i.i.i57, i64 16
-  %.not.i.i.i.i.i.i59 = icmp eq ptr %103, %.sroa.88.1.lcssa
+  %.not.i.i.i.i.i.i59 = icmp eq ptr %103, %.sroa.88.0.lcssa
   br i1 %.not.i.i.i.i.i.i59, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i60, label %.lr.ph.i.i.i.i.i.i56, !llvm.loop !8
 
 _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i60: ; preds = %.lr.ph.i.i.i.i.i.i56, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_M_allocateEm.exit.i.i.i54
   %.0.lcssa.i.i.i.i.i.i61 = phi ptr [ %101, %_ZNSt12_Vector_baseISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_M_allocateEm.exit.i.i.i54 ], [ %104, %.lr.ph.i.i.i.i.i.i56 ]
-  %.not.i23.i.i.i62 = icmp eq ptr %.sroa.0387.1.lcssa, null
+  %.not.i23.i.i.i62 = icmp eq ptr %.sroa.0387.0.lcssa, null
   br i1 %.not.i23.i.i.i62, label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i63, label %105
 
 105:                                              ; preds = %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i60
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0387.1.lcssa, i64 noundef %91) #18
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0387.0.lcssa, i64 noundef %91) #18
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i63
 
 _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i63: ; preds = %105, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE11_S_relocateEPS16_S19_S19_RS17_.exit22.i.i.i60
@@ -795,9 +795,9 @@ _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKN
   br label %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit66
 
 _ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE9push_backEOS16_.exit66: ; preds = %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i63, %87
-  %.sroa.88.3 = phi ptr [ %106, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i63 ], [ %.sroa.88.1.lcssa, %87 ]
-  %.0.lcssa.i.i.i.i.i.i61.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i61, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i63 ], [ %.sroa.32.1.lcssa, %87 ]
-  %.sroa.0387.3 = phi ptr [ %101, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i63 ], [ %.sroa.0387.1.lcssa, %87 ]
+  %.sroa.88.3 = phi ptr [ %106, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i63 ], [ %.sroa.88.0.lcssa, %87 ]
+  %.0.lcssa.i.i.i.i.i.i61.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i61, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i63 ], [ %.sroa.32.0.lcssa, %87 ]
+  %.sroa.0387.3 = phi ptr [ %101, %_ZNSt6vectorISt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS2_11TypeSectionEPKNS2_13ImportSectionEPKNS2_15FunctionSectionEPKNS2_12TableSectionEPKNS2_13MemorySectionEPKNS2_13GlobalSectionEPKNS2_13ExportSectionEPKNS2_12StartSectionEPKNS2_14ElementSectionEPKNS2_11CodeSectionEPKNS2_11DataSectionEPKNS2_16DataCountSectionEEESaIS16_EE17_M_realloc_insertIJS16_EEEvN9__gnu_cxx17__normal_iteratorIPS16_S18_EEDpOT_.exit.i.i63 ], [ %.sroa.0387.0.lcssa, %87 ]
   %.sroa.32.3 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i61.pn, i64 16
   %107 = getelementptr inbounds i8, ptr %2, i64 112
   %.not.i.i67 = icmp eq ptr %.sroa.32.3, %.sroa.88.3
@@ -14433,7 +14433,7 @@ _ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17b
           to label %_ZN3fmt2v86detail11write_floatINS0_8appenderENS1_14big_decimal_fpEcEET_S5_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE.exit unwind label %96
 
 _ZN3fmt2v86detail11write_floatINS0_8appenderENS1_14big_decimal_fpEcEET_S5_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE.exit: ; preds = %124, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit
-  %.sroa.026.0 = phi ptr [ %106, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit ], [ %131, %124 ]
+  %.sroa.026.1 = phi ptr [ %106, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit ], [ %131, %124 ]
   %132 = load ptr, ptr %72, align 8
   %.not.i.i = icmp eq ptr %132, %75
   br i1 %.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %133
@@ -14448,8 +14448,8 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %_ZN3fmt2v86de
   br label %135
 
 135:                                              ; preds = %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
-  %.sroa.026.1 = phi ptr [ %.sroa.026.0, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %43, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit ]
-  ret ptr %.sroa.026.1
+  %.sroa.026.0 = phi ptr [ %.sroa.026.1, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %43, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit ]
+  ret ptr %.sroa.026.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -20118,13 +20118,13 @@ _ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcE
   br label %93
 
 93:                                               ; preds = %53, %_ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN17precision_adapterclEv.exit, %49
-  %.043 = phi ptr [ %50, %49 ], [ %54, %53 ], [ %50, %_ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN17precision_adapterclEv.exit ]
-  %94 = icmp eq ptr %.043, %1
+  %.1 = phi ptr [ %50, %49 ], [ %54, %53 ], [ %50, %_ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEEPKT_SA_SA_OT0_EN17precision_adapterclEv.exit ]
+  %94 = icmp eq ptr %.1, %1
   br i1 %94, label %98, label %95
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds i8, ptr %.043, i64 1
-  %97 = load i8, ptr %.043, align 1
+  %96 = getelementptr inbounds i8, ptr %.1, i64 1
+  %97 = load i8, ptr %.1, align 1
   %.not37 = icmp eq i8 %97, 125
   br i1 %.not37, label %99, label %98
 
@@ -20139,7 +20139,7 @@ _ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcE
   unreachable
 
 99:                                               ; preds = %95, %44
-  %.1 = phi ptr [ %.lcssa.i, %44 ], [ %96, %95 ]
+  %.043 = phi ptr [ %.lcssa.i, %44 ], [ %96, %95 ]
   %100 = getelementptr inbounds i8, ptr %2, i64 24
   %101 = load i32, ptr %100, align 8
   switch i32 %101, label %_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE13end_precisionEv.exit [
@@ -20160,7 +20160,7 @@ _ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_13specs_handlerIcE
   unreachable
 
 _ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE13end_precisionEv.exit: ; preds = %99
-  ret ptr %.1
+  ret ptr %.043
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27166,7 +27166,7 @@ _ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17b
           to label %_ZN3fmt2v86detail11write_floatINS0_8appenderENS1_14big_decimal_fpEcEET_S5_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE.exit unwind label %96
 
 _ZN3fmt2v86detail11write_floatINS0_8appenderENS1_14big_decimal_fpEcEET_S5_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE.exit: ; preds = %126, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit
-  %.sroa.026.0 = phi ptr [ %107, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit ], [ %133, %126 ]
+  %.sroa.026.1 = phi ptr [ %107, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit ], [ %133, %126 ]
   %134 = load ptr, ptr %72, align 8
   %.not.i.i = icmp eq ptr %134, %75
   br i1 %.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %135
@@ -27181,8 +27181,8 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %_ZN3fmt2v86de
   br label %137
 
 137:                                              ; preds = %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
-  %.sroa.026.1 = phi ptr [ %.sroa.026.0, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %43, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit ]
-  ret ptr %.sroa.026.1
+  %.sroa.026.0 = phi ptr [ %.sroa.026.1, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %43, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit ]
+  ret ptr %.sroa.026.0
 }
 
 declare noundef i32 @_ZN3fmt2v86detail14snprintf_floatIdEEiT_iNS1_11float_specsERNS1_6bufferIcEE(double noundef, i32 noundef, i64, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
@@ -27452,7 +27452,7 @@ _ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17b
           to label %_ZN3fmt2v86detail11write_floatINS0_8appenderENS1_14big_decimal_fpEcEET_S5_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE.exit unwind label %96
 
 _ZN3fmt2v86detail11write_floatINS0_8appenderENS1_14big_decimal_fpEcEET_S5_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE.exit: ; preds = %123, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit
-  %.sroa.026.0 = phi ptr [ %106, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit ], [ %130, %123 ]
+  %.sroa.026.1 = phi ptr [ %106, %_ZN3fmt2v86detail11write_bytesILNS0_5align4typeE2EcNS0_8appenderEEET1_S6_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EE.exit ], [ %130, %123 ]
   %131 = load ptr, ptr %72, align 8
   %.not.i.i = icmp eq ptr %131, %75
   br i1 %.not.i.i, label %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %132
@@ -27467,8 +27467,8 @@ _ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %_ZN3fmt2v86de
   br label %134
 
 134:                                              ; preds = %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit
-  %.sroa.026.1 = phi ptr [ %.sroa.026.0, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %43, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit ]
-  ret ptr %.sroa.026.1
+  %.sroa.026.0 = phi ptr [ %.sroa.026.1, %_ZN3fmt2v819basic_memory_bufferIcLm500ESaIcEED2Ev.exit ], [ %43, %_ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_specsIT_EERKNS1_11float_specsE.exit ]
+  ret ptr %.sroa.026.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27502,33 +27502,33 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_N
   br label %19
 
 19:                                               ; preds = %21, %16
-  %.0.i.i = phi ptr [ %1, %16 ], [ %22, %21 ]
-  %20 = icmp ult ptr %.0.i.i, %18
+  %.1.i.i = phi ptr [ %1, %16 ], [ %22, %21 ]
+  %20 = icmp ult ptr %.1.i.i, %18
   br i1 %20, label %21, label %.loopexit28.i.i
 
 21:                                               ; preds = %19
-  %22 = call noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.0.i.i, ptr noundef %.0.i.i)
+  %22 = call noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %.1.i.i, ptr noundef %.1.i.i)
   %.not24.i.i = icmp eq ptr %22, null
   br i1 %.not24.i.i, label %_ZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %19, !llvm.loop !230
 
 .loopexit28.i.i:                                  ; preds = %19, %14
-  %.1.i.i = phi ptr [ %1, %14 ], [ %.0.i.i, %19 ]
+  %.0.i.i = phi ptr [ %1, %14 ], [ %.1.i.i, %19 ]
   %23 = getelementptr inbounds i8, ptr %1, i64 %.0
   %24 = ptrtoint ptr %23 to i64
-  %25 = ptrtoint ptr %.1.i.i to i64
+  %25 = ptrtoint ptr %.0.i.i to i64
   %26 = sub i64 %24, %25
-  %.not.i.i = icmp eq ptr %23, %.1.i.i
+  %.not.i.i = icmp eq ptr %23, %.0.i.i
   br i1 %.not.i.i, label %_ZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %27
 
 27:                                               ; preds = %.loopexit28.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %6, i8 0, i64 7, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %.1.i.i, i64 %26, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr align 1 %.0.i.i, i64 %26, i1 false)
   %28 = ptrtoint ptr %6 to i64
   br label %29
 
 29:                                               ; preds = %31, %27
   %.019.i.i = phi ptr [ %6, %27 ], [ %30, %31 ]
-  %.2.i.i = phi ptr [ %.1.i.i, %27 ], [ %35, %31 ]
+  %.2.i.i = phi ptr [ %.0.i.i, %27 ], [ %35, %31 ]
   %30 = call noundef ptr @_ZZN3fmt2v86detail18for_each_codepointIZNS1_13compute_widthENS0_17basic_string_viewIcEEE17count_code_pointsEEvS4_T_ENKUlPKcS8_E_clES8_S8_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %.019.i.i, ptr noundef %.2.i.i)
   %.not23.i.i = icmp eq ptr %30, null
   br i1 %.not23.i.i, label %_ZN3fmt2v86detail13compute_widthENS0_17basic_string_viewIcEE.exit, label %31
@@ -28528,13 +28528,13 @@ _ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_ha
   br label %62
 
 62:                                               ; preds = %49, %_ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN17precision_adapterclEv.exit, %45
-  %.043 = phi ptr [ %46, %45 ], [ %50, %49 ], [ %46, %_ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN17precision_adapterclEv.exit ]
-  %63 = icmp eq ptr %.043, %1
+  %.1 = phi ptr [ %46, %45 ], [ %50, %49 ], [ %46, %_ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_EN17precision_adapterclEv.exit ]
+  %63 = icmp eq ptr %.1, %1
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %.043, i64 1
-  %66 = load i8, ptr %.043, align 1
+  %65 = getelementptr inbounds i8, ptr %.1, i64 1
+  %66 = load i8, ptr %.1, align 1
   %.not37 = icmp eq i8 %66, 125
   br i1 %.not37, label %72, label %67
 
@@ -28551,7 +28551,7 @@ _ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_ha
   unreachable
 
 72:                                               ; preds = %64, %38
-  %.1 = phi ptr [ %.lcssa.i, %38 ], [ %65, %64 ]
+  %.043 = phi ptr [ %.lcssa.i, %38 ], [ %65, %64 ]
   %73 = getelementptr inbounds i8, ptr %2, i64 24
   %74 = load i32, ptr %73, align 8
   switch i32 %74, label %_ZN3fmt2v86detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE13end_precisionEv.exit [
@@ -28573,7 +28573,7 @@ _ZZN3fmt2v86detail15parse_precisionIcRNS1_13specs_checkerINS1_21dynamic_specs_ha
   unreachable
 
 _ZN3fmt2v86detail13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEE13end_precisionEv.exit: ; preds = %72
-  ret ptr %.1
+  ret ptr %.043
 }
 
 ; Function Attrs: mustprogress uwtable

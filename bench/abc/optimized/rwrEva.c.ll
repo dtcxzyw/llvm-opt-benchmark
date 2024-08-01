@@ -124,7 +124,7 @@ Abc_Clock.exit163:                                ; preds = %Abc_Clock.exit161, 
   %.0137237 = phi ptr [ %.0137231, %.lr.ph238 ], [ %.0137, %.critedge6 ]
   %.0130236 = phi i32 [ -1, %.lr.ph238 ], [ %.1131, %.critedge6 ]
   %.0138234 = phi i32 [ 0, %.lr.ph238 ], [ %.1139, %.critedge6 ]
-  %.0181233 = phi i32 [ -1, %.lr.ph238 ], [ %.2182, %.critedge6 ]
+  %.0181233 = phi i32 [ -1, %.lr.ph238 ], [ %.1, %.critedge6 ]
   %67 = load i32, ptr %.0137237, align 8
   %68 = icmp ult i32 %67, 1073741824
   br i1 %68, label %.critedge6, label %69
@@ -602,7 +602,7 @@ Abc_Clock.exit169:                                ; preds = %Abc_Clock.exit167, 
   br label %Rwr_CutEvaluate.exit
 
 Rwr_CutEvaluate.exit:                             ; preds = %.thread, %.critedge.i, %Abc_Clock.exit169
-  %.1 = phi i32 [ %.0181233, %Abc_Clock.exit169 ], [ %spec.select193, %.critedge.i ], [ 0, %.thread ]
+  %.2182 = phi i32 [ %.0181233, %Abc_Clock.exit169 ], [ %spec.select193, %.critedge.i ], [ 0, %.thread ]
   %.0.i170 = phi ptr [ null, %Abc_Clock.exit169 ], [ %spec.select194, %.critedge.i ], [ %278, %.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %310 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #11
@@ -625,7 +625,7 @@ Abc_Clock.exit176:                                ; preds = %Rwr_CutEvaluate.exi
   %320 = add nsw i64 %318, %319
   store i64 %320, ptr %62, align 8
   %.not146 = icmp ne ptr %.0.i170, null
-  %321 = icmp slt i32 %.0130236, %.1
+  %321 = icmp slt i32 %.0130236, %.2182
   %or.cond195 = select i1 %.not146, i1 %321, i1 false
   br i1 %or.cond195, label %322, label %.critedge6
 
@@ -733,9 +733,9 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %375, label %.lr.ph229, label %.critedge6, !llvm.loop !13
 
 .critedge6:                                       ; preds = %Vec_PtrPush.exit, %322, %Abc_Clock.exit176, %.critedge, %66, %153
-  %.2182 = phi i32 [ %.0181233, %66 ], [ %.0181233, %.critedge ], [ %.1, %Abc_Clock.exit176 ], [ %.0181233, %153 ], [ %.1, %322 ], [ %.1, %Vec_PtrPush.exit ]
+  %.1 = phi i32 [ %.0181233, %66 ], [ %.0181233, %.critedge ], [ %.2182, %Abc_Clock.exit176 ], [ %.0181233, %153 ], [ %.2182, %322 ], [ %.2182, %Vec_PtrPush.exit ]
   %.1139 = phi i32 [ %.0138234, %66 ], [ %.0138234, %.critedge ], [ %.0138234, %Abc_Clock.exit176 ], [ %.0138234, %153 ], [ %330, %322 ], [ %330, %Vec_PtrPush.exit ]
-  %.1131 = phi i32 [ %.0130236, %66 ], [ %.0130236, %.critedge ], [ %.0130236, %Abc_Clock.exit176 ], [ %.0130236, %153 ], [ %.1, %322 ], [ %.1, %Vec_PtrPush.exit ]
+  %.1131 = phi i32 [ %.0130236, %66 ], [ %.0130236, %.critedge ], [ %.0130236, %Abc_Clock.exit176 ], [ %.0130236, %153 ], [ %.2182, %322 ], [ %.2182, %Vec_PtrPush.exit ]
   %.0137.in = getelementptr inbounds i8, ptr %.0137237, i64 16
   %.0137 = load ptr, ptr %.0137.in, align 8
   %.not144 = icmp eq ptr %.0137, null

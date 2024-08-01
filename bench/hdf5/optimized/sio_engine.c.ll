@@ -2033,8 +2033,8 @@ define internal fastcc range(i32 -1, 1) i32 @dset_read(i32 noundef %0, ptr nocap
   br i1 %57, label %.lr.ph7.split, label %.loopexit
 
 .loopexit:                                        ; preds = %53, %.lr.ph7.split.us, %4, %47, %35
-  %.2 = phi i32 [ -1, %47 ], [ -1, %35 ], [ 0, %4 ], [ %20, %.lr.ph7.split.us ], [ 0, %53 ]
-  ret i32 %.2
+  %.1 = phi i32 [ -1, %47 ], [ -1, %35 ], [ 0, %4 ], [ %20, %.lr.ph7.split.us ], [ 0, %53 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable

@@ -3113,8 +3113,8 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refIP7oopDesc
   br label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit
 
 _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit: ; preds = %39, %66
-  %.1 = phi i64 [ %69, %66 ], [ 0, %39 ]
-  %spec.select.i.i = or i64 %.1, %8
+  %.0 = phi i64 [ %69, %66 ], [ 0, %39 ]
+  %spec.select.i.i = or i64 %.0, %8
   %70 = or i64 %spec.select.i.i, 2
   %.1.i.i = select i1 %3, i64 %70, i64 %spec.select.i.i
   %71 = getelementptr inbounds i8, ptr %1, i64 712
@@ -3330,8 +3330,8 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refI9narrowOo
   br label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit
 
 _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit: ; preds = %46, %73
-  %.1 = phi i64 [ %76, %73 ], [ 0, %46 ]
-  %spec.select.i.i = or i64 %.1, %14
+  %.0 = phi i64 [ %76, %73 ], [ 0, %46 ]
+  %spec.select.i.i = or i64 %.0, %14
   %77 = or i64 %spec.select.i.i, 2
   %.1.i.i = select i1 %3, i64 %77, i64 %spec.select.i.i
   %78 = getelementptr inbounds i8, ptr %1, i64 712
@@ -4385,7 +4385,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
 
 .loopexit:                                        ; preds = %.preheader, %12
   %.pre62 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
-  %.1 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
+  %.034 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
   %26 = getelementptr inbounds i8, ptr %8, i64 516
   br label %27
 
@@ -4403,13 +4403,13 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   %35 = load i32, ptr %9, align 8
   %36 = urem i32 %.0.i.i41, %35
   %37 = icmp eq i32 %36, %1
-  %38 = icmp eq i32 %36, %.1
+  %38 = icmp eq i32 %36, %.034
   %39 = or i1 %37, %38
   br i1 %39, label %27, label %40, !llvm.loop !33
 
 40:                                               ; preds = %27
   %41 = load ptr, ptr %4, align 8
-  %42 = zext i32 %.1 to i64
+  %42 = zext i32 %.034 to i64
   %43 = getelementptr inbounds ptr, ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 128
@@ -4503,7 +4503,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   br i1 %99, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, label %100
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit: ; preds = %88, %70
-  %.036 = phi i32 [ %36, %70 ], [ %.1, %88 ]
+  %.036 = phi i32 [ %36, %70 ], [ %.034, %88 ]
   store i32 %.036, ptr %13, align 8
   br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
 
@@ -8867,9 +8867,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br label %25
 
 25:                                               ; preds = %23, %16
-  %.1.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
+  %.027.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
   %.026.ph.i.i = phi i64 [ %.0917, %16 ], [ %24, %23 ]
-  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %27 = add i64 %.026.ph.i.i, %26
   %28 = icmp ult i64 %27, %3
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
@@ -9260,9 +9260,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br label %25
 
 25:                                               ; preds = %23, %16
-  %.1.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
+  %.027.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
   %.026.ph.i.i = phi i64 [ %.0917, %16 ], [ %24, %23 ]
-  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %27 = add i64 %.026.ph.i.i, %26
   %28 = icmp ult i64 %27, %3
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
@@ -10802,9 +10802,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %48
 
 48:                                               ; preds = %46, %39
-  %.1.ph.i.i.i.i = phi i64 [ %37, %39 ], [ %45, %46 ]
+  %.027.ph.i.i.i.i = phi i64 [ %37, %39 ], [ %45, %46 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %39 ], [ %47, %46 ]
-  %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %50 = add i64 %.026.ph.i.i.i.i, %49
   %51 = icmp ult i64 %50, %25
   br i1 %51, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEEbPT_mm.exit
@@ -11024,9 +11024,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %48
 
 48:                                               ; preds = %46, %39
-  %.1.ph.i.i.i.i = phi i64 [ %37, %39 ], [ %45, %46 ]
+  %.027.ph.i.i.i.i = phi i64 [ %37, %39 ], [ %45, %46 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %39 ], [ %47, %46 ]
-  %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %50 = add i64 %.026.ph.i.i.i.i, %49
   %51 = icmp ult i64 %50, %25
   br i1 %51, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc25ShenandoahMarkRefsClosureIL24ShenandoahGenerationType0EEEEEbPT_mm.exit

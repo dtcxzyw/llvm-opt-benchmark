@@ -49,7 +49,7 @@ define void @Ptngc_comp_make_dict_hist(ptr nocapture noundef readonly %0, i32 no
 
 .preheader:                                       ; preds = %.preheader.preheader, %22
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %22 ], [ 0, %.preheader.preheader ]
-  %.030 = phi i32 [ %.1, %22 ], [ 0, %.preheader.preheader ]
+  %.030 = phi i32 [ %.2, %22 ], [ 0, %.preheader.preheader ]
   %13 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv32
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, 0
@@ -67,14 +67,14 @@ define void @Ptngc_comp_make_dict_hist(ptr nocapture noundef readonly %0, i32 no
   br i1 %21, label %23, label %22
 
 22:                                               ; preds = %.preheader, %15
-  %.1 = phi i32 [ %20, %15 ], [ %.030, %.preheader ]
+  %.2 = phi i32 [ %20, %15 ], [ %.030, %.preheader ]
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 131076
   br i1 %exitcond35.not, label %23, label %.preheader, !llvm.loop !7
 
 23:                                               ; preds = %15, %22
-  %.2 = phi i32 [ %1, %15 ], [ %.1, %22 ]
-  store i32 %.2, ptr %3, align 4
+  %.1 = phi i32 [ %1, %15 ], [ %.2, %22 ]
+  store i32 %.1, ptr %3, align 4
   ret void
 }
 

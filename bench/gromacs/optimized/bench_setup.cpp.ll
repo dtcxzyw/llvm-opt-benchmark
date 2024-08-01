@@ -1879,7 +1879,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit181: ;
   br label %.body159
 
 .body159:                                         ; preds = %429, %350, %.body164
-  %.0130 = phi ptr [ %352, %.body164 ], [ %348, %350 ], [ %348, %429 ]
+  %.2132 = phi ptr [ %352, %.body164 ], [ %348, %350 ], [ %348, %429 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body165, %.body164 ], [ %351, %350 ], [ %430, %429 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #19
   br label %.body150
@@ -1890,7 +1890,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit181: ;
   br label %_ZN3gmx16EnumerationArrayIN5Nbnxm16BenchMarkKernelsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS2_4EED2Ev.exit186
 
 .body150:                                         ; preds = %.body159, %346, %427
-  %.1131 = phi ptr [ %.0130, %.body159 ], [ %344, %346 ], [ %344, %427 ]
+  %.1131 = phi ptr [ %.2132, %.body159 ], [ %344, %346 ], [ %344, %427 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body159 ], [ %347, %346 ], [ %428, %427 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %30) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #19
@@ -1929,14 +1929,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit181: ;
   br label %_ZN3gmx16EnumerationArrayIN5Nbnxm17BenchMarkCombRuleENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS2_3EED2Ev.exit
 
 .body169:                                         ; preds = %.body179, %361, %439
-  %.0133 = phi ptr [ %363, %.body179 ], [ %359, %361 ], [ %359, %439 ]
+  %.1134 = phi ptr [ %363, %.body179 ], [ %359, %361 ], [ %359, %439 ]
   %.pn139 = phi { ptr, i32 } [ %eh.lpad-body180, %.body179 ], [ %362, %361 ], [ %440, %439 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #19
   br label %443
 
 443:                                              ; preds = %.body169, %443
-  %444 = phi ptr [ %445, %443 ], [ %.0133, %.body169 ]
+  %444 = phi ptr [ %445, %443 ], [ %.1134, %.body169 ]
   %445 = getelementptr inbounds i8, ptr %444, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %445) #19
   %446 = icmp eq ptr %445, %33

@@ -1577,20 +1577,20 @@ if.then184.i.i:                                   ; preds = %if.end169.i.i, %if.
   br label %enable_discards_exit.i.i
 
 enable_discards_exit.i.i:                         ; preds = %if.then184.i.i, %if.end169.i.i, %sw.bb77.i.i, %if.then63.i.i
-  %ret.0.i.i = phi i32 [ -1, %if.then184.i.i ], [ %call78.i.i, %sw.bb77.i.i ], [ %call61.i.i, %if.then63.i.i ], [ -1, %if.end169.i.i ]
+  %ret.3.i.i = phi i32 [ -1, %if.then184.i.i ], [ %call78.i.i, %sw.bb77.i.i ], [ %call61.i.i, %if.then63.i.i ], [ -1, %if.end169.i.i ]
   %call42.val111.i.i = load i32, ptr %36, align 8
   call fastcc void @vfio_ram_block_discard_disable(i32 %call42.val111.i.i, i1 noundef zeroext false)
   br label %free_container_exit.i.i
 
 free_container_exit.i.i:                          ; preds = %enable_discards_exit.i.i, %if.then58.i.i, %vfio_init_container.exit.i.i, %vfio_init_container.exit.thread124.i.i
-  %ret.1.i.i = phi i32 [ %retval.0.i114.i.i, %vfio_init_container.exit.i.i ], [ %retval.0.i117.i.i, %if.then58.i.i ], [ %ret.0.i.i, %enable_discards_exit.i.i ], [ -22, %vfio_init_container.exit.thread124.i.i ]
+  %ret.2.i.i = phi i32 [ %retval.0.i114.i.i, %vfio_init_container.exit.i.i ], [ %retval.0.i117.i.i, %if.then58.i.i ], [ %ret.3.i.i, %enable_discards_exit.i.i ], [ -22, %vfio_init_container.exit.thread124.i.i ]
   %51 = load ptr, ptr %iova_ranges.i.i, align 8
   call void @g_list_free_full(ptr noundef %51, ptr noundef nonnull @g_free) #15
   call void @g_free(ptr noundef nonnull %call42.i.i) #15
   br label %close_fd_exit.i.i
 
 close_fd_exit.i.i:                                ; preds = %free_container_exit.i.i, %if.then40.i.i
-  %ret.2.i.i = phi i32 [ -22, %if.then40.i.i ], [ %ret.1.i.i, %free_container_exit.i.i ]
+  %ret.1.i.i = phi i32 [ -22, %if.then40.i.i ], [ %ret.2.i.i, %free_container_exit.i.i ]
   %call187.i.i = call i32 @close(i32 noundef %call31.i.i) #15
   br label %vfio_connect_container.exit.i
 
@@ -1603,10 +1603,10 @@ vfio_connect_container.exit.thread34.i:           ; preds = %if.then12.i.i, %if.
   br label %if.then27.i
 
 vfio_connect_container.exit.i:                    ; preds = %close_fd_exit.i.i, %if.then33.i.i
-  %ret.3.i.i = phi i32 [ %sub36.i.i, %if.then33.i.i ], [ %ret.2.i.i, %close_fd_exit.i.i ]
+  %ret.0.i.i = phi i32 [ %sub36.i.i, %if.then33.i.i ], [ %ret.1.i.i, %close_fd_exit.i.i ]
   call void @vfio_put_address_space(ptr noundef %call.i.i) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %info.i.i)
-  %tobool26.not.i = icmp eq i32 %ret.3.i.i, 0
+  %tobool26.not.i = icmp eq i32 %ret.0.i.i, 0
   br i1 %tobool26.not.i, label %do.body29.i, label %if.then27.i
 
 if.then27.i:                                      ; preds = %vfio_connect_container.exit.i, %vfio_connect_container.exit.thread34.i

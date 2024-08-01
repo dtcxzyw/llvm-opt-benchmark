@@ -7289,7 +7289,7 @@ __dot.exit115:                                    ; preds = %43
 
 65:                                               ; preds = %65, %.preheader.us.us
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %65 ], [ 0, %.preheader.us.us ]
-  %.7156.us.us = phi double [ %76, %65 ], [ 0.000000e+00, %.preheader.us.us ]
+  %.5156.us.us = phi double [ %76, %65 ], [ 0.000000e+00, %.preheader.us.us ]
   %66 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv186
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds double, ptr %67, i64 %indvars.iv191
@@ -7300,7 +7300,7 @@ __dot.exit115:                                    ; preds = %43
   %73 = getelementptr inbounds double, ptr %2, i64 %indvars.iv186
   %74 = load double, ptr %73, align 8
   %75 = tail call double @SUNRpowerI(double noundef %74, i32 noundef %63) #16
-  %76 = tail call double @llvm.fmuladd.f64(double %72, double %75, double %.7156.us.us)
+  %76 = tail call double @llvm.fmuladd.f64(double %72, double %75, double %.5156.us.us)
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count.i
   br i1 %exitcond190.not, label %._crit_edge.us.us, label %65

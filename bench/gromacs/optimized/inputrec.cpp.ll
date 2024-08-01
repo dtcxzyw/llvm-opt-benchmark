@@ -1726,19 +1726,19 @@ define noundef i32 @_Z21ir_optimal_nsttcouplePK10t_inputrec(ptr nocapture nounde
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %.02427 = phi float [ 0x4415AF1D80000000, %.lr.ph ], [ %.125, %11 ]
+  %.12527 = phi float [ 0x4415AF1D80000000, %.lr.ph ], [ %.2, %11 ]
   %12 = getelementptr inbounds float, ptr %10, i64 %indvars.iv
   %13 = load float, ptr %12, align 4
   %14 = fcmp ogt float %13, 0.000000e+00
-  %15 = fcmp olt float %13, %.02427
+  %15 = fcmp olt float %13, %.12527
   %16 = select i1 %14, i1 %15, i1 false
-  %.125 = select i1 %16, float %13, float %.02427
+  %.2 = select i1 %16, float %13, float %.12527
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit26, label %11, !llvm.loop !22
 
 .loopexit26:                                      ; preds = %11, %.preheader, %1
-  %.2 = phi float [ 0x4415AF1D80000000, %1 ], [ 0x4415AF1D80000000, %.preheader ], [ %.125, %11 ]
+  %.024 = phi float [ 0x4415AF1D80000000, %1 ], [ 0x4415AF1D80000000, %.preheader ], [ %.2, %11 ]
   %17 = icmp eq i32 %4, 0
   br i1 %17, label %.loopexit, label %18
 
@@ -1747,13 +1747,13 @@ define noundef i32 @_Z21ir_optimal_nsttcouplePK10t_inputrec(ptr nocapture nounde
   %20 = load double, ptr %19, align 8
   %21 = fmul double %20, 1.000000e+02
   %22 = uitofp nneg i32 %4 to float
-  %23 = fdiv float %.2, %22
+  %23 = fdiv float %.024, %22
   %24 = fpext float %23 to double
   %25 = fcmp ugt double %21, %24
   br i1 %25, label %26, label %.loopexit
 
 26:                                               ; preds = %18
-  %27 = fpext float %.2 to double
+  %27 = fpext float %.024 to double
   %28 = uitofp nneg i32 %4 to double
   %29 = fmul double %20, %28
   %30 = fdiv double %27, %29
@@ -1763,15 +1763,15 @@ define noundef i32 @_Z21ir_optimal_nsttcouplePK10t_inputrec(ptr nocapture nounde
   br label %33
 
 33:                                               ; preds = %33, %26
-  %.020 = phi i32 [ %spec.store.select, %26 ], [ %35, %33 ]
-  %34 = srem i32 100, %.020
+  %.1 = phi i32 [ %spec.store.select, %26 ], [ %35, %33 ]
+  %34 = srem i32 100, %.1
   %.not22 = icmp eq i32 %34, 0
-  %35 = add nsw i32 %.020, -1
+  %35 = add nsw i32 %.1, -1
   br i1 %.not22, label %.loopexit, label %33, !llvm.loop !23
 
 .loopexit:                                        ; preds = %33, %.loopexit26, %18
-  %.1 = phi i32 [ 100, %18 ], [ 100, %.loopexit26 ], [ %.020, %33 ]
-  ret i32 %.1
+  %.020 = phi i32 [ 100, %18 ], [ 100, %.loopexit26 ], [ %.1, %33 ]
+  ret i32 %.020
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1876,24 +1876,24 @@ define noundef i32 @_Z21ir_optimal_nstpcouplePK10t_inputrec(ptr nocapture nounde
   br i1 %7, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %26, %.preheader
-  %.1 = phi i32 [ %34, %.preheader ], [ %spec.select, %26 ]
-  %33 = srem i32 100, %.1
+  %.2 = phi i32 [ %34, %.preheader ], [ %spec.select, %26 ]
+  %33 = srem i32 100, %.2
   %.not = icmp eq i32 %33, 0
-  %34 = add nsw i32 %.1, -1
+  %34 = add nsw i32 %.2, -1
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %13, %16
-  %.2 = phi i32 [ 100, %16 ], [ 100, %13 ], [ %.1, %.preheader ]
+  %.0 = phi i32 [ 100, %16 ], [ 100, %13 ], [ %.2, %.preheader ]
   br i1 %7, label %.thread, label %37
 
 .thread:                                          ; preds = %26, %.loopexit
-  %.224 = phi i32 [ %.2, %.loopexit ], [ %spec.select, %26 ]
-  %35 = srem i32 %.224, %14
-  %36 = sub nsw i32 %.224, %35
+  %.024 = phi i32 [ %.0, %.loopexit ], [ %spec.select, %26 ]
+  %35 = srem i32 %.024, %14
+  %36 = sub nsw i32 %.024, %35
   br label %37
 
 37:                                               ; preds = %.thread, %.loopexit
-  %.3 = phi i32 [ %36, %.thread ], [ %.2, %.loopexit ]
+  %.3 = phi i32 [ %36, %.thread ], [ %.0, %.loopexit ]
   ret i32 %.3
 }
 
@@ -7570,25 +7570,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit47.i: 
   br label %.body45.i
 
 .body45.i:                                        ; preds = %.body50.i, %81, %.body1
-  %.010.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 192), %.body50.i ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 160), %.body1 ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 160), %81 ]
+  %.515.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 192), %.body50.i ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 160), %.body1 ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 160), %81 ]
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body51.i, %.body50.i ], [ %61, %.body1 ], [ %82, %81 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #20
   br label %.body40.i
 
 .body40.i:                                        ; preds = %.body45.i, %79, %.body4
-  %.111.i = phi ptr [ %.010.i, %.body45.i ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 128), %.body4 ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 128), %79 ]
+  %.414.i = phi ptr [ %.515.i, %.body45.i ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 128), %.body4 ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 128), %79 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %.body45.i ], [ %52, %.body4 ], [ %80, %79 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #20
   br label %.body35.i
 
 .body35.i:                                        ; preds = %.body40.i, %77, %.body7
-  %.212.i = phi ptr [ %.111.i, %.body40.i ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 96), %.body7 ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 96), %77 ]
+  %.313.i = phi ptr [ %.414.i, %.body40.i ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 96), %.body7 ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 96), %77 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %.body40.i ], [ %43, %.body7 ], [ %78, %77 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #20
   br label %.body30.i
 
 .body30.i:                                        ; preds = %.body35.i, %75, %.body10
-  %.313.i = phi ptr [ %.212.i, %.body35.i ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 64), %.body10 ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 64), %75 ]
+  %.212.i = phi ptr [ %.313.i, %.body35.i ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 64), %.body10 ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 64), %75 ]
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %.body35.i ], [ %34, %.body10 ], [ %76, %75 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #20
   br label %.body.i
@@ -7599,15 +7599,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit47.i: 
   br label %.loopexit.i
 
 .body.i:                                          ; preds = %.body30.i, %73, %.body13
-  %.414.i = phi ptr [ %.313.i, %.body30.i ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 32), %.body13 ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 32), %73 ]
+  %.111.i = phi ptr [ %.212.i, %.body30.i ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 32), %.body13 ], [ getelementptr inbounds (i8, ptr @_ZN3gmxL18mtsForceGroupNamesB5cxx11E, i64 32), %73 ]
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %.body30.i ], [ %25, %.body13 ], [ %74, %73 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
-  %85 = icmp eq ptr %.414.i, @_ZN3gmxL18mtsForceGroupNamesB5cxx11E
+  %85 = icmp eq ptr %.111.i, @_ZN3gmxL18mtsForceGroupNamesB5cxx11E
   br i1 %85, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body.i, %.preheader.i
-  %86 = phi ptr [ %87, %.preheader.i ], [ %.414.i, %.body.i ]
+  %86 = phi ptr [ %87, %.preheader.i ], [ %.111.i, %.body.i ]
   %87 = getelementptr inbounds i8, ptr %86, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %87) #20
   %88 = icmp eq ptr %87, @_ZN3gmxL18mtsForceGroupNamesB5cxx11E

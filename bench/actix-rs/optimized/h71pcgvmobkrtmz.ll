@@ -887,7 +887,7 @@ _ZN2h25proto7streams6counts6Counts10transition17h7fffe002cb8e8c2fE.exit.i: ; pre
   br i1 %switch.i22, label %73, label %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.exit
 
 _ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.exit: ; preds = %_ZN2h25proto7streams6counts6Counts10transition17h7fffe002cb8e8c2fE.exit.i, %50
-  %.sroa.0.0.i = phi i64 [ %53, %50 ], [ %181, %_ZN2h25proto7streams6counts6Counts10transition17h7fffe002cb8e8c2fE.exit.i ]
+  %.sroa.0.1.i = phi i64 [ %53, %50 ], [ %181, %_ZN2h25proto7streams6counts6Counts10transition17h7fffe002cb8e8c2fE.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   br label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit
 
@@ -896,10 +896,10 @@ _ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.e
   br label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit
 
 _ZN2h25proto7streams4recv4Recv29send_connection_window_update17h4e1ca61c44d33c73E.exit: ; preds = %33, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.exit, %37, %.loopexit
-  %.sroa.6.0 = phi ptr [ undef, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.exit ], [ %75, %.loopexit ], [ %38, %37 ], [ undef, %33 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.exit ], [ 0, %.loopexit ], [ 0, %37 ], [ %36, %33 ]
-  %182 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %183 = insertvalue { i64, ptr } %182, ptr %.sroa.6.0, 1
+  %.sroa.6.2 = phi ptr [ undef, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.exit ], [ %75, %.loopexit ], [ %38, %37 ], [ undef, %33 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1.i, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17hdedacff5c3441162E.exit ], [ 0, %.loopexit ], [ 0, %37 ], [ %36, %33 ]
+  %182 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
+  %183 = insertvalue { i64, ptr } %182, ptr %.sroa.6.2, 1
   ret { i64, ptr } %183
 }
 
@@ -1330,7 +1330,7 @@ _ZN2h25proto7streams6counts6Counts10transition17h11bc18d89a555085E.exit.i: ; pre
   br i1 %switch.i22, label %73, label %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.exit
 
 _ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.exit: ; preds = %_ZN2h25proto7streams6counts6Counts10transition17h11bc18d89a555085E.exit.i, %50
-  %.sroa.0.0.i = phi i64 [ %53, %50 ], [ %181, %_ZN2h25proto7streams6counts6Counts10transition17h11bc18d89a555085E.exit.i ]
+  %.sroa.0.1.i = phi i64 [ %53, %50 ], [ %181, %_ZN2h25proto7streams6counts6Counts10transition17h11bc18d89a555085E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24)
   br label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit
 
@@ -1339,10 +1339,10 @@ _ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.e
   br label %_ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit
 
 _ZN2h25proto7streams4recv4Recv29send_connection_window_update17h992ace00f3e08416E.exit: ; preds = %33, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.exit, %37, %.loopexit
-  %.sroa.6.0 = phi ptr [ undef, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.exit ], [ %75, %.loopexit ], [ %38, %37 ], [ undef, %33 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.exit ], [ 0, %.loopexit ], [ 0, %37 ], [ %36, %33 ]
-  %182 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %183 = insertvalue { i64, ptr } %182, ptr %.sroa.6.0, 1
+  %.sroa.6.2 = phi ptr [ undef, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.exit ], [ %75, %.loopexit ], [ %38, %37 ], [ undef, %33 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1.i, %_ZN2h25proto7streams4recv4Recv26send_stream_window_updates17h6b9acb7bee065c35E.exit ], [ 0, %.loopexit ], [ 0, %37 ], [ %36, %33 ]
+  %182 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
+  %183 = insertvalue { i64, ptr } %182, ptr %.sroa.6.2, 1
   ret { i64, ptr } %183
 }
 
@@ -1392,10 +1392,10 @@ define hidden { i64, ptr } @_ZN2h25proto7streams4recv4Recv20send_pending_refusal
   unreachable
 
 23:                                               ; preds = %8, %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit"
-  %.sroa.4.1 = phi ptr [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ], [ undef, %8 ], [ %15, %14 ]
-  %.sroa.0.1 = phi i64 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ], [ %13, %8 ], [ 0, %14 ]
-  %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %25 = insertvalue { i64, ptr } %24, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ], [ undef, %8 ], [ %15, %14 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ], [ %13, %8 ], [ 0, %14 ]
+  %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %25 = insertvalue { i64, ptr } %24, ptr %.sroa.4.0, 1
   ret { i64, ptr } %25
 }
 
@@ -1445,10 +1445,10 @@ define hidden { i64, ptr } @_ZN2h25proto7streams4recv4Recv20send_pending_refusal
   unreachable
 
 23:                                               ; preds = %8, %14, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit"
-  %.sroa.4.1 = phi ptr [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ], [ undef, %8 ], [ %15, %14 ]
-  %.sroa.0.1 = phi i64 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ], [ %13, %8 ], [ 0, %14 ]
-  %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %25 = insertvalue { i64, ptr } %24, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ null, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ], [ undef, %8 ], [ %15, %14 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h58ba6cf45b66e6bdE.exit" ], [ %13, %8 ], [ 0, %14 ]
+  %24 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %25 = insertvalue { i64, ptr } %24, ptr %.sroa.4.0, 1
   ret { i64, ptr } %25
 }
 

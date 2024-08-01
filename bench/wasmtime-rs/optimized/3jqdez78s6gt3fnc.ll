@@ -1273,8 +1273,8 @@ _ZN4core4iter6traits8iterator8Iterator3nth17ha0679fd6148d50b4E.exit.i.i.i.i: ; p
   br label %.preheader
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0f248e231828b68dE.exit": ; preds = %22, %26, %14, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.i.i.i.i.i, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.thread.i.i.i.i.i
-  %.1.i.i.i = phi i32 [ 0, %14 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.thread.i.i.i.i.i ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.i.i.i.i.i ], [ %.0.i.i.i.i.i, %22 ], [ %33, %26 ]
-  ret i32 %.1.i.i.i
+  %.0.i.i.i = phi i32 [ 0, %14 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.thread.i.i.i.i.i ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h7ffe32e96676daf0E.exit.i.i.i.i.i ], [ %.0.i.i.i.i.i, %22 ], [ %33, %26 ]
+  ret i32 %.0.i.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable

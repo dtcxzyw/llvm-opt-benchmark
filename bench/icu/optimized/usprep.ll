@@ -139,7 +139,7 @@ if.then10.i:                                      ; preds = %call.i.noexc.i
   br label %cleanup106.i
 
 lpad.i:                                           ; preds = %if.then60.i.i, %if.then57.i.invoke.i, %.noexc34.i, %if.end19.i.i, %if.else.i.i, %if.end11.i.i, %call6.i.noexc.i, %if.end5.i.i, %if.end.i.i, %if.then3.i.i, %if.then7.i
-  %newProfile.sroa.0.1.i = phi ptr [ %call.i25.i, %if.then60.i.i ], [ %call.i25.i, %.noexc34.i ], [ %call.i25.i, %if.end19.i.i ], [ %call.i25.i, %if.else.i.i ], [ %call.i25.i, %if.end11.i.i ], [ %call.i25.i, %call6.i.noexc.i ], [ %call.i25.i, %if.end5.i.i ], [ %call.i25.i, %if.end.i.i ], [ null, %if.then3.i.i ], [ null, %if.then7.i ], [ %call.i25.i, %if.then57.i.invoke.i ]
+  %newProfile.sroa.0.0.i = phi ptr [ %call.i25.i, %if.then60.i.i ], [ %call.i25.i, %.noexc34.i ], [ %call.i25.i, %if.end19.i.i ], [ %call.i25.i, %if.else.i.i ], [ %call.i25.i, %if.end11.i.i ], [ %call.i25.i, %call6.i.noexc.i ], [ %call.i25.i, %if.end5.i.i ], [ %call.i25.i, %if.end.i.i ], [ null, %if.then3.i.i ], [ null, %if.then7.i ], [ %call.i25.i, %if.then57.i.invoke.i ]
   %7 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup107.i
@@ -365,8 +365,8 @@ if.then58.i:                                      ; preds = %invoke.cont55.i, %i
           to label %cleanup.i unwind label %lpad40.i
 
 lpad40.i:                                         ; preds = %if.end101.i, %if.end93.i, %if.then67.i, %invoke.cont63.i, %if.end62.i, %if.then58.i, %land.lhs.true.i, %lor.lhs.false44.i, %if.then3.i42.i, %invoke.cont39.i
-  %newProfile.sroa.0.2.i = phi ptr [ %call.i25.i, %if.then58.i ], [ %newProfile.sroa.0.3.i, %if.end101.i ], [ null, %if.end93.i ], [ %call.i25.i, %if.then67.i ], [ %call.i25.i, %invoke.cont63.i ], [ %call.i25.i, %if.end62.i ], [ %call.i25.i, %land.lhs.true.i ], [ %call.i25.i, %lor.lhs.false44.i ], [ %call.i25.i, %if.then3.i42.i ], [ %call.i25.i, %invoke.cont39.i ]
-  %key.sroa.0.1.i = phi ptr [ %call.i45.i, %if.then58.i ], [ %key.sroa.0.2.i, %if.end101.i ], [ null, %if.end93.i ], [ %call.i45.i, %if.then67.i ], [ %call.i45.i, %invoke.cont63.i ], [ %call.i45.i, %if.end62.i ], [ %call.i45.i, %land.lhs.true.i ], [ %call.i45.i, %lor.lhs.false44.i ], [ null, %if.then3.i42.i ], [ null, %invoke.cont39.i ]
+  %newProfile.sroa.0.3.i = phi ptr [ %call.i25.i, %if.then58.i ], [ %newProfile.sroa.0.5.i, %if.end101.i ], [ null, %if.end93.i ], [ %call.i25.i, %if.then67.i ], [ %call.i25.i, %invoke.cont63.i ], [ %call.i25.i, %if.end62.i ], [ %call.i25.i, %land.lhs.true.i ], [ %call.i25.i, %lor.lhs.false44.i ], [ %call.i25.i, %if.then3.i42.i ], [ %call.i25.i, %invoke.cont39.i ]
+  %key.sroa.0.0.i = phi ptr [ %call.i45.i, %if.then58.i ], [ %key.sroa.0.2.i, %if.end101.i ], [ null, %if.end93.i ], [ %call.i45.i, %if.then67.i ], [ %call.i45.i, %invoke.cont63.i ], [ %call.i45.i, %if.end62.i ], [ %call.i45.i, %land.lhs.true.i ], [ %call.i45.i, %lor.lhs.false44.i ], [ null, %if.then3.i42.i ], [ null, %invoke.cont39.i ]
   %31 = landingpad { ptr, i32 }
           cleanup
   %32 = load ptr, ptr %keyPath.i, align 8
@@ -425,17 +425,17 @@ if.end93.i:                                       ; preds = %if.then83.i, %if.el
           to label %if.end101.i unwind label %lpad40.i
 
 if.end101.i:                                      ; preds = %if.end93.i, %if.then67.i
-  %newProfile.sroa.0.3.i = phi ptr [ null, %if.end93.i ], [ %call.i25.i, %if.then67.i ]
+  %newProfile.sroa.0.5.i = phi ptr [ null, %if.end93.i ], [ %call.i25.i, %if.then67.i ]
   %key.sroa.0.2.i = phi ptr [ null, %if.end93.i ], [ %call.i45.i, %if.then67.i ]
-  %profile.0.i = phi ptr [ %call.i25.i, %if.end93.i ], [ %call65.i, %if.then67.i ]
+  %profile.3.i = phi ptr [ %call.i25.i, %if.end93.i ], [ %call65.i, %if.then67.i ]
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZL11usprepMutex)
           to label %cleanup.i unwind label %lpad40.i
 
 cleanup.i:                                        ; preds = %if.end101.i, %if.then58.i
-  %newProfile.sroa.0.4.i = phi ptr [ %newProfile.sroa.0.3.i, %if.end101.i ], [ %call.i25.i, %if.then58.i ]
-  %key.sroa.0.3.i = phi ptr [ %key.sroa.0.2.i, %if.end101.i ], [ %call.i45.i, %if.then58.i ]
-  %profile.1.i = phi ptr [ %profile.0.i, %if.end101.i ], [ null, %if.then58.i ]
-  %cleanup.dest.slot.0.i = phi i32 [ 0, %if.end101.i ], [ 1, %if.then58.i ]
+  %newProfile.sroa.0.4.i = phi ptr [ %newProfile.sroa.0.5.i, %if.end101.i ], [ %call.i25.i, %if.then58.i ]
+  %key.sroa.0.1.i = phi ptr [ %key.sroa.0.2.i, %if.end101.i ], [ %call.i45.i, %if.then58.i ]
+  %profile.2.i = phi ptr [ %profile.3.i, %if.end101.i ], [ null, %if.then58.i ]
+  %cleanup.dest.slot.1.i = phi i32 [ 0, %if.end101.i ], [ 1, %if.then58.i ]
   %40 = load ptr, ptr %keyPath.i, align 8
   invoke void @uprv_free_75(ptr noundef %40)
           to label %_ZN6icu_7511LocalMemoryIcED2Ev.exit51.i unwind label %terminate.lpad.i50.i
@@ -460,7 +460,7 @@ terminate.lpad.i52.i:                             ; preds = %_ZN6icu_7511LocalMe
   unreachable
 
 _ZN6icu_7511LocalMemoryIcED2Ev.exit53.i:          ; preds = %_ZN6icu_7511LocalMemoryIcED2Ev.exit51.i
-  invoke void @uprv_free_75(ptr noundef %key.sroa.0.3.i)
+  invoke void @uprv_free_75(ptr noundef %key.sroa.0.1.i)
           to label %cleanup106.i unwind label %terminate.lpad.i54.i
 
 terminate.lpad.i54.i:                             ; preds = %_ZN6icu_7511LocalMemoryIcED2Ev.exit53.i
@@ -471,10 +471,10 @@ terminate.lpad.i54.i:                             ; preds = %_ZN6icu_7511LocalMe
   unreachable
 
 cleanup106.i:                                     ; preds = %_ZN6icu_7511LocalMemoryIcED2Ev.exit53.i, %lor.lhs.false.i, %invoke.cont14.i, %invoke.cont14.thread.i, %if.then10.i
-  %newProfile.sroa.0.5.i = phi ptr [ null, %if.then10.i ], [ %call.i25.i, %invoke.cont14.i ], [ %call.i25.i, %lor.lhs.false.i ], [ %call.i25.i, %invoke.cont14.thread.i ], [ %newProfile.sroa.0.4.i, %_ZN6icu_7511LocalMemoryIcED2Ev.exit53.i ]
-  %profile.2.i = phi ptr [ null, %if.then10.i ], [ null, %invoke.cont14.i ], [ null, %lor.lhs.false.i ], [ null, %invoke.cont14.thread.i ], [ %profile.1.i, %_ZN6icu_7511LocalMemoryIcED2Ev.exit53.i ]
-  %cleanup.dest.slot.1.i = phi i32 [ 1, %if.then10.i ], [ 1, %invoke.cont14.i ], [ 1, %lor.lhs.false.i ], [ 1, %invoke.cont14.thread.i ], [ %cleanup.dest.slot.0.i, %_ZN6icu_7511LocalMemoryIcED2Ev.exit53.i ]
-  invoke void @uprv_free_75(ptr noundef %newProfile.sroa.0.5.i)
+  %newProfile.sroa.0.1.i = phi ptr [ null, %if.then10.i ], [ %call.i25.i, %invoke.cont14.i ], [ %call.i25.i, %lor.lhs.false.i ], [ %call.i25.i, %invoke.cont14.thread.i ], [ %newProfile.sroa.0.4.i, %_ZN6icu_7511LocalMemoryIcED2Ev.exit53.i ]
+  %profile.1.i = phi ptr [ null, %if.then10.i ], [ null, %invoke.cont14.i ], [ null, %lor.lhs.false.i ], [ null, %invoke.cont14.thread.i ], [ %profile.2.i, %_ZN6icu_7511LocalMemoryIcED2Ev.exit53.i ]
+  %cleanup.dest.slot.0.i = phi i32 [ 1, %if.then10.i ], [ 1, %invoke.cont14.i ], [ 1, %lor.lhs.false.i ], [ 1, %invoke.cont14.thread.i ], [ %cleanup.dest.slot.1.i, %_ZN6icu_7511LocalMemoryIcED2Ev.exit53.i ]
+  invoke void @uprv_free_75(ptr noundef %newProfile.sroa.0.1.i)
           to label %_ZN6icu_7511LocalMemoryI18UStringPrepProfileED2Ev.exit.i unwind label %terminate.lpad.i55.i
 
 terminate.lpad.i55.i:                             ; preds = %cleanup106.i
@@ -485,8 +485,8 @@ terminate.lpad.i55.i:                             ; preds = %cleanup106.i
   unreachable
 
 _ZN6icu_7511LocalMemoryI18UStringPrepProfileED2Ev.exit.i: ; preds = %cleanup106.i
-  %switch.i = icmp eq i32 %cleanup.dest.slot.1.i, 0
-  %spec.select.i = select i1 %switch.i, ptr %profile.2.i, ptr null
+  %switch.i = icmp eq i32 %cleanup.dest.slot.0.i, 0
+  %spec.select.i = select i1 %switch.i, ptr %profile.1.i, ptr null
   br label %_ZL17usprep_getProfilePKcS0_P10UErrorCode.exit
 
 ehcleanup.i:                                      ; preds = %lpad40.i
@@ -502,7 +502,7 @@ terminate.lpad.i56.i:                             ; preds = %ehcleanup.i
   unreachable
 
 ehcleanup105.i:                                   ; preds = %ehcleanup.i
-  invoke void @uprv_free_75(ptr noundef %key.sroa.0.1.i)
+  invoke void @uprv_free_75(ptr noundef %key.sroa.0.0.i)
           to label %ehcleanup107.i unwind label %terminate.lpad.i58.i
 
 terminate.lpad.i58.i:                             ; preds = %ehcleanup105.i
@@ -513,9 +513,9 @@ terminate.lpad.i58.i:                             ; preds = %ehcleanup105.i
   unreachable
 
 ehcleanup107.i:                                   ; preds = %ehcleanup105.i, %lpad.i
-  %newProfile.sroa.0.6.i = phi ptr [ %newProfile.sroa.0.1.i, %lpad.i ], [ %newProfile.sroa.0.2.i, %ehcleanup105.i ]
+  %newProfile.sroa.0.2.i = phi ptr [ %newProfile.sroa.0.0.i, %lpad.i ], [ %newProfile.sroa.0.3.i, %ehcleanup105.i ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %7, %lpad.i ], [ %31, %ehcleanup105.i ]
-  invoke void @uprv_free_75(ptr noundef %newProfile.sroa.0.6.i)
+  invoke void @uprv_free_75(ptr noundef %newProfile.sroa.0.2.i)
           to label %_ZN6icu_7511LocalMemoryI18UStringPrepProfileED2Ev.exit61.i unwind label %terminate.lpad.i60.i
 
 terminate.lpad.i60.i:                             ; preds = %ehcleanup107.i
@@ -529,14 +529,14 @@ _ZN6icu_7511LocalMemoryI18UStringPrepProfileED2Ev.exit61.i: ; preds = %ehcleanup
   resume { ptr, i32 } %.pn.pn.pn.i
 
 _ZL17usprep_getProfilePKcS0_P10UErrorCode.exit:   ; preds = %if.then8.i.i.i, %_ZL9initCacheP10UErrorCode.exit.i, %if.end5.i, %_ZN6icu_7511LocalMemoryI18UStringPrepProfileED2Ev.exit.i
-  %retval.2.i = phi ptr [ null, %_ZL9initCacheP10UErrorCode.exit.i ], [ %call3.i, %if.end5.i ], [ %spec.select.i, %_ZN6icu_7511LocalMemoryI18UStringPrepProfileED2Ev.exit.i ], [ null, %if.then8.i.i.i ]
+  %retval.0.i = phi ptr [ null, %_ZL9initCacheP10UErrorCode.exit.i ], [ %call3.i, %if.end5.i ], [ %spec.select.i, %_ZN6icu_7511LocalMemoryI18UStringPrepProfileED2Ev.exit.i ], [ null, %if.then8.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stackKey.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %keyName.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %keyPath.i)
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %_ZL17usprep_getProfilePKcS0_P10UErrorCode.exit
-  %retval.0 = phi ptr [ %retval.2.i, %_ZL17usprep_getProfilePKcS0_P10UErrorCode.exit ], [ null, %lor.lhs.false ], [ null, %entry ]
+  %retval.0 = phi ptr [ %retval.0.i, %_ZL17usprep_getProfilePKcS0_P10UErrorCode.exit ], [ null, %lor.lhs.false ], [ null, %entry ]
   ret ptr %retval.0
 }
 
@@ -886,11 +886,11 @@ for.body.lr.ph:                                   ; preds = %_ZNK6icu_7513Unicod
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end207
   %b2Index.0165 = phi i32 [ 0, %for.body.lr.ph ], [ %b2Index.1131, %if.end207 ]
-  %ltrPos.0164 = phi i32 [ -1, %for.body.lr.ph ], [ %ltrPos.2, %if.end207 ]
+  %ltrPos.0164 = phi i32 [ -1, %for.body.lr.ph ], [ %ltrPos.1, %if.end207 ]
   %rtlPos.0163 = phi i32 [ -1, %for.body.lr.ph ], [ %rtlPos.1, %if.end207 ]
   %rightToLeft.0162 = phi i8 [ 0, %for.body.lr.ph ], [ %rightToLeft.1, %if.end207 ]
-  %leftToRight.0161 = phi i8 [ 0, %for.body.lr.ph ], [ %leftToRight.2, %if.end207 ]
-  %firstCharDir.0160 = phi i32 [ 23, %for.body.lr.ph ], [ %firstCharDir.2, %if.end207 ]
+  %leftToRight.0161 = phi i8 [ 0, %for.body.lr.ph ], [ %leftToRight.1, %if.end207 ]
+  %firstCharDir.0160 = phi i32 [ 23, %for.body.lr.ph ], [ %firstCharDir.1, %if.end207 ]
   %direction.0159 = phi i32 [ 23, %for.body.lr.ph ], [ %direction.1, %if.end207 ]
   %inc = add nsw i32 %b2Index.0165, 1
   %idxprom = sext i32 %b2Index.0165 to i64
@@ -1034,8 +1034,8 @@ invoke.cont192:                                   ; preds = %if.then191
   %spec.select = select i1 %cmp194, i32 %call193, i32 %firstCharDir.0160
   %cmp197 = icmp eq i32 %call193, 0
   %sub199 = add nsw i32 %b2Index.1131, -1
-  %leftToRight.1 = select i1 %cmp197, i8 1, i8 %leftToRight.0161
-  %ltrPos.1 = select i1 %cmp197, i32 %sub199, i32 %ltrPos.0164
+  %leftToRight.2 = select i1 %cmp197, i8 1, i8 %leftToRight.0161
+  %ltrPos.2 = select i1 %cmp197, i32 %sub199, i32 %ltrPos.0164
   switch i32 %call193, label %if.end207 [
     i32 13, label %if.then204
     i32 1, label %if.then204
@@ -1046,11 +1046,11 @@ if.then204:                                       ; preds = %invoke.cont192, %in
 
 if.end207:                                        ; preds = %invoke.cont192, %if.then204, %if.end189
   %direction.1 = phi i32 [ %call193, %if.then204 ], [ %call193, %invoke.cont192 ], [ %direction.0159, %if.end189 ]
-  %firstCharDir.2 = phi i32 [ %spec.select, %if.then204 ], [ %spec.select, %invoke.cont192 ], [ %firstCharDir.0160, %if.end189 ]
-  %leftToRight.2 = phi i8 [ %leftToRight.1, %if.then204 ], [ %leftToRight.1, %invoke.cont192 ], [ %leftToRight.0161, %if.end189 ]
+  %firstCharDir.1 = phi i32 [ %spec.select, %if.then204 ], [ %spec.select, %invoke.cont192 ], [ %firstCharDir.0160, %if.end189 ]
+  %leftToRight.1 = phi i8 [ %leftToRight.2, %if.then204 ], [ %leftToRight.2, %invoke.cont192 ], [ %leftToRight.0161, %if.end189 ]
   %rightToLeft.1 = phi i8 [ 1, %if.then204 ], [ %rightToLeft.0162, %invoke.cont192 ], [ %rightToLeft.0162, %if.end189 ]
   %rtlPos.1 = phi i32 [ %sub199, %if.then204 ], [ %rtlPos.0163, %invoke.cont192 ], [ %rtlPos.0163, %if.end189 ]
-  %ltrPos.2 = phi i32 [ %ltrPos.1, %if.then204 ], [ %ltrPos.1, %invoke.cont192 ], [ %ltrPos.0164, %if.end189 ]
+  %ltrPos.1 = phi i32 [ %ltrPos.2, %if.then204 ], [ %ltrPos.2, %invoke.cont192 ], [ %ltrPos.0164, %if.end189 ]
   %cmp84 = icmp slt i32 %b2Index.1131, %cond.i123
   br i1 %cmp84, label %for.body, label %for.end, !llvm.loop !4
 
@@ -1062,20 +1062,20 @@ for.end:                                          ; preds = %if.end207
   br i1 %tobool209.not, label %if.end234, label %if.then210
 
 if.then210:                                       ; preds = %for.end
-  %40 = icmp ne i8 %leftToRight.2, 0
+  %40 = icmp ne i8 %leftToRight.1, 0
   %41 = select i1 %40, i1 %38, i1 false
   br i1 %41, label %if.then214, label %if.end221
 
 if.then214:                                       ; preds = %if.then210
   store i32 66562, ptr %status, align 4
-  %cond219 = call i32 @llvm.smax.i32(i32 %rtlPos.1, i32 %ltrPos.2)
+  %cond219 = call i32 @llvm.smax.i32(i32 %rtlPos.1, i32 %ltrPos.1)
   br label %if.then184.invoke
 
 if.end221:                                        ; preds = %if.then210
   br i1 %38, label %land.lhs.true223, label %if.end234
 
 land.lhs.true223:                                 ; preds = %if.end221
-  switch i32 %firstCharDir.2, label %if.then231 [
+  switch i32 %firstCharDir.1, label %if.then231 [
     i32 13, label %land.lhs.true227
     i32 1, label %land.lhs.true227
   ]
@@ -1112,7 +1112,7 @@ cleanup239.critedge:                              ; preds = %invoke.cont61
   br label %cleanup239
 
 cleanup239:                                       ; preds = %if.then184.invoke, %if.end74, %cleanup239.critedge, %invoke.cont237
-  %retval.1 = phi i32 [ %call238, %invoke.cont237 ], [ 0, %cleanup239.critedge ], [ 0, %if.end74 ], [ 0, %if.then184.invoke ]
+  %retval.3 = phi i32 [ %call238, %invoke.cont237 ], [ 0, %cleanup239.critedge ], [ 0, %if.end74 ], [ 0, %if.then184.invoke ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %s2) #16
   br label %cleanup240
 
@@ -1122,7 +1122,7 @@ ehcleanup:                                        ; preds = %lpad58.loopexit, %l
   br label %ehcleanup241
 
 cleanup240:                                       ; preds = %if.end49, %cleanup239, %if.then35, %if.then18
-  %retval.2 = phi i32 [ 0, %if.then18 ], [ 0, %if.then35 ], [ %retval.1, %cleanup239 ], [ 0, %if.end49 ]
+  %retval.1 = phi i32 [ 0, %if.then18 ], [ 0, %if.then35 ], [ %retval.3, %cleanup239 ], [ 0, %if.end49 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %s1) #16
   br label %return
 
@@ -1132,8 +1132,8 @@ ehcleanup241:                                     ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %entry, %cleanup240, %if.then10
-  %retval.3 = phi i32 [ 0, %if.then10 ], [ %retval.2, %cleanup240 ], [ 0, %entry ]
-  ret i32 %retval.3
+  %retval.0 = phi i32 [ 0, %if.then10 ], [ %retval.1, %cleanup240 ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #1

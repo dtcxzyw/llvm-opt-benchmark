@@ -68,8 +68,8 @@ if.then68:                                        ; preds = %if.end28, %cond.fal
   br i1 %tobool74.not, label %for.end, label %if.end77
 
 if.end77:                                         ; preds = %cond.false36, %if.then68, %cond.false44
-  %t.addr.1 = phi ptr [ %2, %if.then68 ], [ %t.addr.0, %cond.false44 ], [ %t.addr.0, %cond.false36 ]
-  store ptr %t.addr.1, ptr %r.0, align 8
+  %t.addr.2 = phi ptr [ %2, %if.then68 ], [ %t.addr.0, %cond.false44 ], [ %t.addr.0, %cond.false36 ]
+  store ptr %t.addr.2, ptr %r.0, align 8
   br label %if.end140
 
 if.else:                                          ; preds = %cond.false7
@@ -108,35 +108,35 @@ if.then126:                                       ; preds = %cond.false94, %cond
   br i1 %tobool132.not, label %for.end, label %if.end135
 
 if.end135:                                        ; preds = %if.end86, %if.then126, %cond.false102
-  %t.addr.2 = phi ptr [ %7, %if.then126 ], [ %t.addr.0, %cond.false102 ], [ %t.addr.0, %if.end86 ]
+  %t.addr.4 = phi ptr [ %7, %if.then126 ], [ %t.addr.0, %cond.false102 ], [ %t.addr.0, %if.end86 ]
   %larger136 = getelementptr inbounds i8, ptr %l.0, i64 8
-  store ptr %t.addr.2, ptr %larger136, align 8
-  %larger137 = getelementptr inbounds i8, ptr %t.addr.2, i64 8
+  store ptr %t.addr.4, ptr %larger136, align 8
+  %larger137 = getelementptr inbounds i8, ptr %t.addr.4, i64 8
   br label %if.end140
 
 if.end140:                                        ; preds = %if.end135, %if.end77
-  %t.addr.3.in = phi ptr [ %t.addr.1, %if.end77 ], [ %larger137, %if.end135 ]
-  %l.1 = phi ptr [ %l.0, %if.end77 ], [ %t.addr.2, %if.end135 ]
-  %r.1 = phi ptr [ %t.addr.1, %if.end77 ], [ %r.0, %if.end135 ]
+  %t.addr.3.in = phi ptr [ %t.addr.2, %if.end77 ], [ %larger137, %if.end135 ]
+  %l.1 = phi ptr [ %l.0, %if.end77 ], [ %t.addr.4, %if.end135 ]
+  %r.1 = phi ptr [ %t.addr.2, %if.end77 ], [ %r.0, %if.end135 ]
   %t.addr.3 = load ptr, ptr %t.addr.3.in, align 8
   br label %for.cond
 
 for.end:                                          ; preds = %if.else, %if.then126, %if.then82, %if.then68, %if.then24
-  %t.addr.4 = phi ptr [ %2, %if.then68 ], [ %t.addr.0, %if.then24 ], [ %7, %if.then126 ], [ %t.addr.0, %if.then82 ], [ %t.addr.0, %if.else ]
-  %12 = load ptr, ptr %t.addr.4, align 8
+  %t.addr.1 = phi ptr [ %2, %if.then68 ], [ %t.addr.0, %if.then24 ], [ %7, %if.then126 ], [ %t.addr.0, %if.then82 ], [ %t.addr.0, %if.else ]
+  %12 = load ptr, ptr %t.addr.1, align 8
   %larger142 = getelementptr inbounds i8, ptr %l.0, i64 8
   store ptr %12, ptr %larger142, align 8
-  %larger143 = getelementptr inbounds i8, ptr %t.addr.4, i64 8
+  %larger143 = getelementptr inbounds i8, ptr %t.addr.1, i64 8
   %13 = load ptr, ptr %larger143, align 8
   store ptr %13, ptr %r.0, align 8
   %14 = load ptr, ptr %larger, align 8
-  store ptr %14, ptr %t.addr.4, align 8
+  store ptr %14, ptr %t.addr.1, align 8
   %15 = load ptr, ptr %N, align 8
   store ptr %15, ptr %larger143, align 8
   br label %return
 
 return:                                           ; preds = %entry, %for.end
-  %retval.0 = phi ptr [ %t.addr.4, %for.end ], [ null, %entry ]
+  %retval.0 = phi ptr [ %t.addr.1, %for.end ], [ null, %entry ]
   ret ptr %retval.0
 }
 
@@ -207,8 +207,8 @@ if.then68.i:                                      ; preds = %cond.false44.i, %if
   br i1 %tobool74.not.i, label %Curl_splay.exit, label %if.end77.i
 
 if.end77.i:                                       ; preds = %if.then68.i, %cond.false44.i, %cond.false36.i
-  %t.addr.1.i = phi ptr [ %2, %if.then68.i ], [ %t.addr.0.i, %cond.false44.i ], [ %t.addr.0.i, %cond.false36.i ]
-  store ptr %t.addr.1.i, ptr %r.0.i, align 8
+  %t.addr.2.i = phi ptr [ %2, %if.then68.i ], [ %t.addr.0.i, %cond.false44.i ], [ %t.addr.0.i, %cond.false36.i ]
+  store ptr %t.addr.2.i, ptr %r.0.i, align 8
   br label %if.end140.i
 
 if.else.i:                                        ; preds = %cond.false7.i
@@ -247,39 +247,39 @@ if.then126.i:                                     ; preds = %cond.false102.i, %c
   br i1 %tobool132.not.i, label %Curl_splay.exit, label %if.end135.i
 
 if.end135.i:                                      ; preds = %if.then126.i, %cond.false102.i, %if.end86.i
-  %t.addr.2.i = phi ptr [ %7, %if.then126.i ], [ %t.addr.0.i, %cond.false102.i ], [ %t.addr.0.i, %if.end86.i ]
+  %t.addr.4.i = phi ptr [ %7, %if.then126.i ], [ %t.addr.0.i, %cond.false102.i ], [ %t.addr.0.i, %if.end86.i ]
   %larger136.i = getelementptr inbounds i8, ptr %l.0.i, i64 8
-  store ptr %t.addr.2.i, ptr %larger136.i, align 8
-  %larger137.i = getelementptr inbounds i8, ptr %t.addr.2.i, i64 8
+  store ptr %t.addr.4.i, ptr %larger136.i, align 8
+  %larger137.i = getelementptr inbounds i8, ptr %t.addr.4.i, i64 8
   br label %if.end140.i
 
 if.end140.i:                                      ; preds = %if.end135.i, %if.end77.i
-  %t.addr.3.in.i = phi ptr [ %t.addr.1.i, %if.end77.i ], [ %larger137.i, %if.end135.i ]
-  %l.1.i = phi ptr [ %l.0.i, %if.end77.i ], [ %t.addr.2.i, %if.end135.i ]
-  %r.1.i = phi ptr [ %t.addr.1.i, %if.end77.i ], [ %r.0.i, %if.end135.i ]
+  %t.addr.3.in.i = phi ptr [ %t.addr.2.i, %if.end77.i ], [ %larger137.i, %if.end135.i ]
+  %l.1.i = phi ptr [ %l.0.i, %if.end77.i ], [ %t.addr.4.i, %if.end135.i ]
+  %r.1.i = phi ptr [ %t.addr.2.i, %if.end77.i ], [ %r.0.i, %if.end135.i ]
   %t.addr.3.i = load ptr, ptr %t.addr.3.in.i, align 8
   br label %for.cond.i
 
 Curl_splay.exit:                                  ; preds = %if.then24.i, %if.then68.i, %if.else.i, %if.then82.i, %if.then126.i
-  %t.addr.4.i = phi ptr [ %2, %if.then68.i ], [ %t.addr.0.i, %if.then24.i ], [ %7, %if.then126.i ], [ %t.addr.0.i, %if.then82.i ], [ %t.addr.0.i, %if.else.i ]
-  %12 = load ptr, ptr %t.addr.4.i, align 8
+  %t.addr.1.i = phi ptr [ %2, %if.then68.i ], [ %t.addr.0.i, %if.then24.i ], [ %7, %if.then126.i ], [ %t.addr.0.i, %if.then82.i ], [ %t.addr.0.i, %if.else.i ]
+  %12 = load ptr, ptr %t.addr.1.i, align 8
   %larger142.i = getelementptr inbounds i8, ptr %l.0.i, i64 8
   store ptr %12, ptr %larger142.i, align 8
-  %larger143.i = getelementptr inbounds i8, ptr %t.addr.4.i, i64 8
+  %larger143.i = getelementptr inbounds i8, ptr %t.addr.1.i, i64 8
   %13 = load ptr, ptr %larger143.i, align 8
   store ptr %13, ptr %r.0.i, align 8
   %14 = load ptr, ptr %larger.i, align 8
-  store ptr %14, ptr %t.addr.4.i, align 8
+  store ptr %14, ptr %t.addr.1.i, align 8
   %15 = load ptr, ptr %N.i, align 8
   store ptr %15, ptr %larger143.i, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %N.i)
-  %key = getelementptr inbounds i8, ptr %t.addr.4.i, i64 32
+  %key = getelementptr inbounds i8, ptr %t.addr.1.i, i64 32
   %16 = load i64, ptr %key, align 8
   %or.cond.not = icmp eq i64 %16, %i.coerce0
   br i1 %or.cond.not, label %cond.false9, label %if.else
 
 cond.false9:                                      ; preds = %Curl_splay.exit
-  %tv_usec11 = getelementptr inbounds i8, ptr %t.addr.4.i, i64 40
+  %tv_usec11 = getelementptr inbounds i8, ptr %t.addr.1.i, i64 40
   %17 = load i32, ptr %tv_usec11, align 8
   %spec.select = icmp eq i32 %17, %i.coerce1
   br i1 %spec.select, label %if.then25, label %if.else
@@ -288,8 +288,8 @@ if.then25:                                        ; preds = %cond.false9
   %key26 = getelementptr inbounds i8, ptr %node, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key26, i8 -1, i64 16, i1 false)
   %samen = getelementptr inbounds i8, ptr %node, i64 16
-  store ptr %t.addr.4.i, ptr %samen, align 8
-  %samep = getelementptr inbounds i8, ptr %t.addr.4.i, i64 24
+  store ptr %t.addr.1.i, ptr %samen, align 8
+  %samep = getelementptr inbounds i8, ptr %t.addr.1.i, i64 24
   %18 = load ptr, ptr %samep, align 8
   %samep27 = getelementptr inbounds i8, ptr %node, i64 24
   store ptr %18, ptr %samep27, align 8
@@ -310,24 +310,24 @@ cond.false40:                                     ; preds = %if.else
   br i1 %cmp44, label %if.else70, label %cond.false46
 
 cond.false46:                                     ; preds = %cond.false40
-  %tv_usec49 = getelementptr inbounds i8, ptr %t.addr.4.i, i64 40
+  %tv_usec49 = getelementptr inbounds i8, ptr %t.addr.1.i, i64 40
   %19 = load i32, ptr %tv_usec49, align 8
   %cmp50 = icmp sgt i32 %19, %i.coerce1
   br i1 %cmp50, label %if.then65, label %if.else70
 
 if.then65:                                        ; preds = %if.else, %cond.false46
-  %20 = load ptr, ptr %t.addr.4.i, align 8
+  %20 = load ptr, ptr %t.addr.1.i, align 8
   store ptr %20, ptr %node, align 8
   %larger68 = getelementptr inbounds i8, ptr %node, i64 8
-  store ptr %t.addr.4.i, ptr %larger68, align 8
-  store ptr null, ptr %t.addr.4.i, align 8
+  store ptr %t.addr.1.i, ptr %larger68, align 8
+  store ptr null, ptr %t.addr.1.i, align 8
   br label %if.end76
 
 if.else70:                                        ; preds = %cond.false40, %cond.false46
   %21 = load ptr, ptr %larger143.i, align 8
   %larger72 = getelementptr inbounds i8, ptr %node, i64 8
   store ptr %21, ptr %larger72, align 8
-  store ptr %t.addr.4.i, ptr %node, align 8
+  store ptr %t.addr.1.i, ptr %node, align 8
   store ptr null, ptr %larger143.i, align 8
   br label %if.end76
 
@@ -343,7 +343,7 @@ if.end76:                                         ; preds = %if.then65, %if.else
 
 return.sink.split:                                ; preds = %if.then25, %if.end76
   %samep79.sink = phi ptr [ %samep79, %if.end76 ], [ %samep, %if.then25 ]
-  %retval.0.ph = phi ptr [ %node, %if.end76 ], [ %t.addr.4.i, %if.then25 ]
+  %retval.0.ph = phi ptr [ %node, %if.end76 ], [ %t.addr.1.i, %if.then25 ]
   store ptr %node, ptr %samep79.sink, align 8
   br label %return
 
@@ -418,8 +418,8 @@ if.then68.i:                                      ; preds = %cond.false44.i, %if
   br i1 %tobool74.not.i, label %Curl_splay.exit, label %if.end77.i
 
 if.end77.i:                                       ; preds = %if.then68.i, %cond.false44.i, %cond.false36.i
-  %t.addr.1.i = phi ptr [ %2, %if.then68.i ], [ %t.addr.0.i, %cond.false44.i ], [ %t.addr.0.i, %cond.false36.i ]
-  store ptr %t.addr.1.i, ptr %r.0.i, align 8
+  %t.addr.2.i = phi ptr [ %2, %if.then68.i ], [ %t.addr.0.i, %cond.false44.i ], [ %t.addr.0.i, %cond.false36.i ]
+  store ptr %t.addr.2.i, ptr %r.0.i, align 8
   br label %if.end140.i
 
 if.else.i:                                        ; preds = %cond.false7.i
@@ -458,33 +458,33 @@ if.then126.i:                                     ; preds = %cond.false102.i, %c
   br i1 %tobool132.not.i, label %Curl_splay.exit, label %if.end135.i
 
 if.end135.i:                                      ; preds = %if.then126.i, %cond.false102.i, %if.end86.i
-  %t.addr.2.i = phi ptr [ %7, %if.then126.i ], [ %t.addr.0.i, %cond.false102.i ], [ %t.addr.0.i, %if.end86.i ]
+  %t.addr.4.i = phi ptr [ %7, %if.then126.i ], [ %t.addr.0.i, %cond.false102.i ], [ %t.addr.0.i, %if.end86.i ]
   %larger136.i = getelementptr inbounds i8, ptr %l.0.i, i64 8
-  store ptr %t.addr.2.i, ptr %larger136.i, align 8
-  %larger137.i = getelementptr inbounds i8, ptr %t.addr.2.i, i64 8
+  store ptr %t.addr.4.i, ptr %larger136.i, align 8
+  %larger137.i = getelementptr inbounds i8, ptr %t.addr.4.i, i64 8
   br label %if.end140.i
 
 if.end140.i:                                      ; preds = %if.end135.i, %if.end77.i
-  %t.addr.3.in.i = phi ptr [ %t.addr.1.i, %if.end77.i ], [ %larger137.i, %if.end135.i ]
-  %l.1.i = phi ptr [ %l.0.i, %if.end77.i ], [ %t.addr.2.i, %if.end135.i ]
-  %r.1.i = phi ptr [ %t.addr.1.i, %if.end77.i ], [ %r.0.i, %if.end135.i ]
+  %t.addr.3.in.i = phi ptr [ %t.addr.2.i, %if.end77.i ], [ %larger137.i, %if.end135.i ]
+  %l.1.i = phi ptr [ %l.0.i, %if.end77.i ], [ %t.addr.4.i, %if.end135.i ]
+  %r.1.i = phi ptr [ %t.addr.2.i, %if.end77.i ], [ %r.0.i, %if.end135.i ]
   %t.addr.3.i = load ptr, ptr %t.addr.3.in.i, align 8
   br label %for.cond.i
 
 Curl_splay.exit:                                  ; preds = %if.then24.i, %if.then68.i, %if.else.i, %if.then82.i, %if.then126.i
-  %t.addr.4.i = phi ptr [ %2, %if.then68.i ], [ %t.addr.0.i, %if.then24.i ], [ %7, %if.then126.i ], [ %t.addr.0.i, %if.then82.i ], [ %t.addr.0.i, %if.else.i ]
-  %12 = load ptr, ptr %t.addr.4.i, align 8
+  %t.addr.1.i = phi ptr [ %2, %if.then68.i ], [ %t.addr.0.i, %if.then24.i ], [ %7, %if.then126.i ], [ %t.addr.0.i, %if.then82.i ], [ %t.addr.0.i, %if.else.i ]
+  %12 = load ptr, ptr %t.addr.1.i, align 8
   %larger142.i = getelementptr inbounds i8, ptr %l.0.i, i64 8
   store ptr %12, ptr %larger142.i, align 8
-  %larger143.i = getelementptr inbounds i8, ptr %t.addr.4.i, i64 8
+  %larger143.i = getelementptr inbounds i8, ptr %t.addr.1.i, i64 8
   %13 = load ptr, ptr %larger143.i, align 8
   store ptr %13, ptr %r.0.i, align 8
   %14 = load ptr, ptr %larger.i, align 8
-  store ptr %14, ptr %t.addr.4.i, align 8
+  store ptr %14, ptr %t.addr.1.i, align 8
   %15 = load ptr, ptr %N.i, align 8
   store ptr %15, ptr %larger143.i, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %N.i)
-  %key = getelementptr inbounds i8, ptr %t.addr.4.i, i64 32
+  %key = getelementptr inbounds i8, ptr %t.addr.1.i, i64 32
   %16 = load i64, ptr %key, align 8
   %cmp = icmp sgt i64 %16, %i.coerce0
   br i1 %cmp, label %return, label %cond.false
@@ -494,15 +494,15 @@ cond.false:                                       ; preds = %Curl_splay.exit
   br i1 %cmp5, label %if.end24, label %cond.false7
 
 cond.false7:                                      ; preds = %cond.false
-  %tv_usec9 = getelementptr inbounds i8, ptr %t.addr.4.i, i64 40
+  %tv_usec9 = getelementptr inbounds i8, ptr %t.addr.1.i, i64 40
   %17 = load i32, ptr %tv_usec9, align 8
   %cmp10 = icmp sgt i32 %17, %i.coerce1
   br i1 %cmp10, label %return, label %if.end24
 
 if.end24:                                         ; preds = %cond.false, %cond.false7
-  %samen = getelementptr inbounds i8, ptr %t.addr.4.i, i64 16
+  %samen = getelementptr inbounds i8, ptr %t.addr.1.i, i64 16
   %18 = load ptr, ptr %samen, align 8
-  %cmp25.not = icmp eq ptr %18, %t.addr.4.i
+  %cmp25.not = icmp eq ptr %18, %t.addr.1.i
   br i1 %cmp25.not, label %if.end34, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
@@ -511,9 +511,9 @@ if.then26:                                        ; preds = %if.end24
   %19 = load ptr, ptr %larger143.i, align 8
   %larger29 = getelementptr inbounds i8, ptr %18, i64 8
   store ptr %19, ptr %larger29, align 8
-  %20 = load ptr, ptr %t.addr.4.i, align 8
+  %20 = load ptr, ptr %t.addr.1.i, align 8
   store ptr %20, ptr %18, align 8
-  %samep = getelementptr inbounds i8, ptr %t.addr.4.i, i64 24
+  %samep = getelementptr inbounds i8, ptr %t.addr.1.i, i64 24
   %21 = load ptr, ptr %samep, align 8
   %samep31 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr %21, ptr %samep31, align 8
@@ -526,9 +526,9 @@ if.end34:                                         ; preds = %if.end24
   br label %return
 
 return:                                           ; preds = %cond.false7, %Curl_splay.exit, %entry, %if.end34, %if.then26
-  %t.addr.4.i.sink = phi ptr [ %t.addr.4.i, %if.end34 ], [ %t.addr.4.i, %if.then26 ], [ null, %entry ], [ null, %Curl_splay.exit ], [ null, %cond.false7 ]
-  %retval.0 = phi ptr [ %22, %if.end34 ], [ %18, %if.then26 ], [ null, %entry ], [ %t.addr.4.i, %Curl_splay.exit ], [ %t.addr.4.i, %cond.false7 ]
-  store ptr %t.addr.4.i.sink, ptr %removed, align 8
+  %t.addr.1.i.sink = phi ptr [ %t.addr.1.i, %if.end34 ], [ %t.addr.1.i, %if.then26 ], [ null, %entry ], [ null, %Curl_splay.exit ], [ null, %cond.false7 ]
+  %retval.0 = phi ptr [ %22, %if.end34 ], [ %18, %if.then26 ], [ null, %entry ], [ %t.addr.1.i, %Curl_splay.exit ], [ %t.addr.1.i, %cond.false7 ]
+  store ptr %t.addr.1.i.sink, ptr %removed, align 8
   ret ptr %retval.0
 }
 
@@ -627,8 +627,8 @@ if.then68.i:                                      ; preds = %cond.false44.i, %if
   br i1 %tobool74.not.i, label %Curl_splay.exit, label %if.end77.i
 
 if.end77.i:                                       ; preds = %if.then68.i, %cond.false44.i, %cond.false36.i
-  %t.addr.1.i = phi ptr [ %9, %if.then68.i ], [ %t.addr.0.i, %cond.false44.i ], [ %t.addr.0.i, %cond.false36.i ]
-  store ptr %t.addr.1.i, ptr %r.0.i, align 8
+  %t.addr.2.i = phi ptr [ %9, %if.then68.i ], [ %t.addr.0.i, %cond.false44.i ], [ %t.addr.0.i, %cond.false36.i ]
+  store ptr %t.addr.2.i, ptr %r.0.i, align 8
   br label %if.end140.i
 
 if.else.i:                                        ; preds = %cond.false7.i
@@ -667,51 +667,51 @@ if.then126.i:                                     ; preds = %cond.false102.i, %c
   br i1 %tobool132.not.i, label %Curl_splay.exit, label %if.end135.i
 
 if.end135.i:                                      ; preds = %if.then126.i, %cond.false102.i, %if.end86.i
-  %t.addr.2.i = phi ptr [ %14, %if.then126.i ], [ %t.addr.0.i, %cond.false102.i ], [ %t.addr.0.i, %if.end86.i ]
+  %t.addr.4.i = phi ptr [ %14, %if.then126.i ], [ %t.addr.0.i, %cond.false102.i ], [ %t.addr.0.i, %if.end86.i ]
   %larger136.i = getelementptr inbounds i8, ptr %l.0.i, i64 8
-  store ptr %t.addr.2.i, ptr %larger136.i, align 8
-  %larger137.i = getelementptr inbounds i8, ptr %t.addr.2.i, i64 8
+  store ptr %t.addr.4.i, ptr %larger136.i, align 8
+  %larger137.i = getelementptr inbounds i8, ptr %t.addr.4.i, i64 8
   br label %if.end140.i
 
 if.end140.i:                                      ; preds = %if.end135.i, %if.end77.i
-  %t.addr.3.in.i = phi ptr [ %t.addr.1.i, %if.end77.i ], [ %larger137.i, %if.end135.i ]
-  %l.1.i = phi ptr [ %l.0.i, %if.end77.i ], [ %t.addr.2.i, %if.end135.i ]
-  %r.1.i = phi ptr [ %t.addr.1.i, %if.end77.i ], [ %r.0.i, %if.end135.i ]
+  %t.addr.3.in.i = phi ptr [ %t.addr.2.i, %if.end77.i ], [ %larger137.i, %if.end135.i ]
+  %l.1.i = phi ptr [ %l.0.i, %if.end77.i ], [ %t.addr.4.i, %if.end135.i ]
+  %r.1.i = phi ptr [ %t.addr.2.i, %if.end77.i ], [ %r.0.i, %if.end135.i ]
   %t.addr.3.i = load ptr, ptr %t.addr.3.in.i, align 8
   br label %for.cond.i
 
 Curl_splay.exit:                                  ; preds = %if.then24.i, %if.then68.i, %if.else.i, %if.then82.i, %if.then126.i
-  %t.addr.4.i = phi ptr [ %9, %if.then68.i ], [ %t.addr.0.i, %if.then24.i ], [ %14, %if.then126.i ], [ %t.addr.0.i, %if.then82.i ], [ %t.addr.0.i, %if.else.i ]
-  %19 = load ptr, ptr %t.addr.4.i, align 8
+  %t.addr.1.i = phi ptr [ %9, %if.then68.i ], [ %t.addr.0.i, %if.then24.i ], [ %14, %if.then126.i ], [ %t.addr.0.i, %if.then82.i ], [ %t.addr.0.i, %if.else.i ]
+  %19 = load ptr, ptr %t.addr.1.i, align 8
   %larger142.i = getelementptr inbounds i8, ptr %l.0.i, i64 8
   store ptr %19, ptr %larger142.i, align 8
-  %larger143.i = getelementptr inbounds i8, ptr %t.addr.4.i, i64 8
+  %larger143.i = getelementptr inbounds i8, ptr %t.addr.1.i, i64 8
   %20 = load ptr, ptr %larger143.i, align 8
   store ptr %20, ptr %r.0.i, align 8
   %21 = load ptr, ptr %larger.i, align 8
-  store ptr %21, ptr %t.addr.4.i, align 8
+  store ptr %21, ptr %t.addr.1.i, align 8
   %22 = load ptr, ptr %N.i, align 8
   store ptr %22, ptr %larger143.i, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %N.i)
-  %cmp32.not = icmp eq ptr %t.addr.4.i, %removenode
+  %cmp32.not = icmp eq ptr %t.addr.1.i, %removenode
   br i1 %cmp32.not, label %if.end34, label %return
 
 if.end34:                                         ; preds = %Curl_splay.exit
-  %samen35 = getelementptr inbounds i8, ptr %t.addr.4.i, i64 16
+  %samen35 = getelementptr inbounds i8, ptr %t.addr.1.i, i64 16
   %23 = load ptr, ptr %samen35, align 8
   %cmp36.not = icmp eq ptr %23, %removenode
   br i1 %cmp36.not, label %if.else, label %if.then37
 
 if.then37:                                        ; preds = %if.end34
   %key38 = getelementptr inbounds i8, ptr %23, i64 32
-  %key39 = getelementptr inbounds i8, ptr %t.addr.4.i, i64 32
+  %key39 = getelementptr inbounds i8, ptr %t.addr.1.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %key38, ptr noundef nonnull align 8 dereferenceable(16) %key39, i64 16, i1 false)
   %24 = load ptr, ptr %larger143.i, align 8
   %larger40 = getelementptr inbounds i8, ptr %23, i64 8
   store ptr %24, ptr %larger40, align 8
-  %25 = load ptr, ptr %t.addr.4.i, align 8
+  %25 = load ptr, ptr %t.addr.1.i, align 8
   store ptr %25, ptr %23, align 8
-  %samep42 = getelementptr inbounds i8, ptr %t.addr.4.i, i64 24
+  %samep42 = getelementptr inbounds i8, ptr %t.addr.1.i, i64 24
   %26 = load ptr, ptr %samep42, align 8
   %samep43 = getelementptr inbounds i8, ptr %23, i64 24
   store ptr %26, ptr %samep43, align 8
@@ -720,7 +720,7 @@ if.then37:                                        ; preds = %if.end34
   br label %return.sink.split
 
 if.else:                                          ; preds = %if.end34
-  %27 = load ptr, ptr %t.addr.4.i, align 8
+  %27 = load ptr, ptr %t.addr.1.i, align 8
   %tobool47.not = icmp eq ptr %27, null
   br i1 %tobool47.not, label %if.then48, label %if.end.i45
 
@@ -786,8 +786,8 @@ if.then68.i100:                                   ; preds = %cond.false44.i95, %
   br i1 %tobool74.not.i102, label %Curl_splay.exit103, label %if.end77.i98
 
 if.end77.i98:                                     ; preds = %if.then68.i100, %cond.false44.i95, %cond.false36.i93
-  %t.addr.1.i99 = phi ptr [ %33, %if.then68.i100 ], [ %t.addr.0.i48, %cond.false44.i95 ], [ %t.addr.0.i48, %cond.false36.i93 ]
-  store ptr %t.addr.1.i99, ptr %r.0.i50, align 8
+  %t.addr.2.i99 = phi ptr [ %33, %if.then68.i100 ], [ %t.addr.0.i48, %cond.false44.i95 ], [ %t.addr.0.i48, %cond.false36.i93 ]
+  store ptr %t.addr.2.i99, ptr %r.0.i50, align 8
   br label %if.end140.i80
 
 if.else.i58:                                      ; preds = %cond.false7.i55
@@ -826,29 +826,29 @@ if.then126.i85:                                   ; preds = %cond.false102.i73, 
   br i1 %tobool132.not.i87, label %Curl_splay.exit103, label %if.end135.i76
 
 if.end135.i76:                                    ; preds = %if.then126.i85, %cond.false102.i73, %if.end86.i68
-  %t.addr.2.i77 = phi ptr [ %38, %if.then126.i85 ], [ %t.addr.0.i48, %cond.false102.i73 ], [ %t.addr.0.i48, %if.end86.i68 ]
+  %t.addr.4.i77 = phi ptr [ %38, %if.then126.i85 ], [ %t.addr.0.i48, %cond.false102.i73 ], [ %t.addr.0.i48, %if.end86.i68 ]
   %larger136.i78 = getelementptr inbounds i8, ptr %l.0.i49, i64 8
-  store ptr %t.addr.2.i77, ptr %larger136.i78, align 8
-  %larger137.i79 = getelementptr inbounds i8, ptr %t.addr.2.i77, i64 8
+  store ptr %t.addr.4.i77, ptr %larger136.i78, align 8
+  %larger137.i79 = getelementptr inbounds i8, ptr %t.addr.4.i77, i64 8
   br label %if.end140.i80
 
 if.end140.i80:                                    ; preds = %if.end135.i76, %if.end77.i98
-  %t.addr.3.in.i81 = phi ptr [ %t.addr.1.i99, %if.end77.i98 ], [ %larger137.i79, %if.end135.i76 ]
-  %l.1.i82 = phi ptr [ %l.0.i49, %if.end77.i98 ], [ %t.addr.2.i77, %if.end135.i76 ]
-  %r.1.i83 = phi ptr [ %t.addr.1.i99, %if.end77.i98 ], [ %r.0.i50, %if.end135.i76 ]
+  %t.addr.3.in.i81 = phi ptr [ %t.addr.2.i99, %if.end77.i98 ], [ %larger137.i79, %if.end135.i76 ]
+  %l.1.i82 = phi ptr [ %l.0.i49, %if.end77.i98 ], [ %t.addr.4.i77, %if.end135.i76 ]
+  %r.1.i83 = phi ptr [ %t.addr.2.i99, %if.end77.i98 ], [ %r.0.i50, %if.end135.i76 ]
   %t.addr.3.i84 = load ptr, ptr %t.addr.3.in.i81, align 8
   br label %for.cond.i47
 
 Curl_splay.exit103:                               ; preds = %if.then24.i88, %if.then68.i100, %if.else.i58, %if.then82.i65, %if.then126.i85
-  %t.addr.4.i61 = phi ptr [ %33, %if.then68.i100 ], [ %t.addr.0.i48, %if.then24.i88 ], [ %38, %if.then126.i85 ], [ %t.addr.0.i48, %if.then82.i65 ], [ %t.addr.0.i48, %if.else.i58 ]
-  %43 = load ptr, ptr %t.addr.4.i61, align 8
+  %t.addr.1.i61 = phi ptr [ %33, %if.then68.i100 ], [ %t.addr.0.i48, %if.then24.i88 ], [ %38, %if.then126.i85 ], [ %t.addr.0.i48, %if.then82.i65 ], [ %t.addr.0.i48, %if.else.i58 ]
+  %43 = load ptr, ptr %t.addr.1.i61, align 8
   %larger142.i62 = getelementptr inbounds i8, ptr %l.0.i49, i64 8
   store ptr %43, ptr %larger142.i62, align 8
-  %larger143.i63 = getelementptr inbounds i8, ptr %t.addr.4.i61, i64 8
+  %larger143.i63 = getelementptr inbounds i8, ptr %t.addr.1.i61, i64 8
   %44 = load ptr, ptr %larger143.i63, align 8
   store ptr %44, ptr %r.0.i50, align 8
   %45 = load ptr, ptr %larger.i46, align 8
-  store ptr %45, ptr %t.addr.4.i61, align 8
+  store ptr %45, ptr %t.addr.1.i61, align 8
   %46 = load ptr, ptr %N.i43, align 8
   store ptr %46, ptr %larger143.i63, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %N.i43)
@@ -857,7 +857,7 @@ Curl_splay.exit103:                               ; preds = %if.then24.i88, %if.
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then37, %Curl_splay.exit103, %if.then48, %if.end23
-  %x.0.sink = phi ptr [ %t, %if.end23 ], [ %23, %if.then37 ], [ %t.addr.4.i61, %Curl_splay.exit103 ], [ %28, %if.then48 ]
+  %x.0.sink = phi ptr [ %t, %if.end23 ], [ %23, %if.then37 ], [ %t.addr.1.i61, %Curl_splay.exit103 ], [ %28, %if.then48 ]
   store ptr %x.0.sink, ptr %newroot, align 8
   br label %return
 

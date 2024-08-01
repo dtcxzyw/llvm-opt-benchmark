@@ -149,30 +149,30 @@ define internal i32 @dissector_wimax_harq_map_decoder(ptr noundef %0, ptr nounde
   br i1 %41, label %.lr.ph99, label %.loopexit
 
 .lr.ph99:                                         ; preds = %39, %.lr.ph99
-  %.197 = phi i32 [ %45, %.lr.ph99 ], [ %.081.lcssa, %39 ]
-  %.18396 = phi i32 [ %46, %.lr.ph99 ], [ %.082.lcssa, %39 ]
-  %42 = tail call i32 @wimax_compact_ulmap_ie_decoder(ptr noundef %17, ptr noundef %1, ptr noundef %0, i32 noundef %.197, i32 noundef %.18396) #3
+  %.297 = phi i32 [ %45, %.lr.ph99 ], [ %.081.lcssa, %39 ]
+  %.28496 = phi i32 [ %46, %.lr.ph99 ], [ %.082.lcssa, %39 ]
+  %42 = tail call i32 @wimax_compact_ulmap_ie_decoder(ptr noundef %17, ptr noundef %1, ptr noundef %0, i32 noundef %.297, i32 noundef %.28496) #3
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %42, i32 2)
-  %43 = add i32 %spec.store.select, %.18396
+  %43 = add i32 %spec.store.select, %.28496
   %44 = lshr i32 %43, 1
-  %45 = add i32 %44, %.197
+  %45 = add i32 %44, %.297
   %46 = and i32 %43, 1
   %47 = icmp ult i32 %45, %40
   br i1 %47, label %.lr.ph99, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph99, %39, %._crit_edge
-  %.284 = phi i32 [ %.082.lcssa, %._crit_edge ], [ %.082.lcssa, %39 ], [ %46, %.lr.ph99 ]
-  %.2 = phi i32 [ %.081.lcssa, %._crit_edge ], [ %.081.lcssa, %39 ], [ %45, %.lr.ph99 ]
-  %.not91 = icmp eq i32 %.284, 0
+  %.183 = phi i32 [ %.082.lcssa, %._crit_edge ], [ %.082.lcssa, %39 ], [ %46, %.lr.ph99 ]
+  %.1 = phi i32 [ %.081.lcssa, %._crit_edge ], [ %.081.lcssa, %39 ], [ %45, %.lr.ph99 ]
+  %.not91 = icmp eq i32 %.183, 0
   br i1 %.not91, label %54, label %48
 
 48:                                               ; preds = %.loopexit
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.25) #3
   %49 = load i32, ptr @proto_wimax_harq_map_decoder, align 4
-  %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #3
+  %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #3
   %51 = and i8 %50, 15
   %52 = zext nneg i8 %51 to i32
-  %53 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %17, i32 noundef %49, ptr noundef %0, i32 noundef %.2, i32 noundef 1, ptr noundef nonnull @.str.26, i32 noundef %52) #3
+  %53 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %17, i32 noundef %49, ptr noundef %0, i32 noundef %.1, i32 noundef 1, ptr noundef nonnull @.str.26, i32 noundef %52) #3
   br label %54
 
 54:                                               ; preds = %48, %.loopexit

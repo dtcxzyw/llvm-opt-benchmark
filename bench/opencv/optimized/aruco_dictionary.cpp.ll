@@ -605,8 +605,8 @@ _ZN2cv3Mat2atIhEERT_i.exit:                       ; preds = %102, %96, %89
   br label %.critedge57.thread
 
 .critedge57.thread:                               ; preds = %.critedge57.thread.critedge, %.critedge, %2, %.loopexit91
-  %.343 = phi i1 [ %145, %.loopexit91 ], [ false, %2 ], [ false, %.critedge ], [ false, %.critedge57.thread.critedge ]
-  ret i1 %.343
+  %.040 = phi i1 [ %145, %.loopexit91 ], [ false, %2 ], [ false, %.critedge ], [ false, %.critedge57.thread.critedge ]
+  ret i1 %.040
 
 148:                                              ; preds = %50, %147
   %.pn51.pn.pn.pn = phi { ptr, i32 } [ %.pn51.pn.pn, %147 ], [ %.pn.pn.pn, %50 ]
@@ -3392,7 +3392,7 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
 
 137:                                              ; preds = %.lr.ph154, %194
   %.039152 = phi i32 [ 0, %.lr.ph154 ], [ %.140, %194 ]
-  %.050151 = phi i32 [ 0, %.lr.ph154 ], [ %.252, %194 ]
+  %.050151 = phi i32 [ 0, %.lr.ph154 ], [ %.151, %194 ]
   %.156150 = phi i32 [ %.055, %.lr.ph154 ], [ %.257, %194 ]
   %.sroa.0.0149 = phi i64 [ %39, %.lr.ph154 ], [ %.sroa.0.3, %194 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
@@ -3493,7 +3493,7 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
 
 .lr.ph145:                                        ; preds = %165, %169
   %.0144 = phi i32 [ %170, %169 ], [ 0, %165 ]
-  %.0116143 = phi i32 [ %.sroa.speculated, %169 ], [ %spec.select.i88, %165 ]
+  %.1143 = phi i32 [ %.sroa.speculated, %169 ], [ %spec.select.i88, %165 ]
   store i32 0, ptr %134, align 8
   store i32 0, ptr %135, align 4
   store i32 16842752, ptr %25, align 8
@@ -3502,7 +3502,7 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
           to label %169 unwind label %177
 
 169:                                              ; preds = %.lr.ph145
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %.0116143, i32 %168)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %.1143, i32 %168)
   %.not66 = icmp sgt i32 %.sroa.speculated, %.050151
   %170 = add nuw nsw i32 %.0144, 1
   %171 = load i32, ptr %126, align 8
@@ -3526,8 +3526,8 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
   br label %.body91
 
 .loopexit:                                        ; preds = %169, %165
-  %.1 = phi i32 [ %spec.select.i88, %165 ], [ %.sroa.speculated, %169 ]
-  %.not67 = icmp slt i32 %.1, %.156150
+  %.0116 = phi i32 [ %spec.select.i88, %165 ], [ %.sroa.speculated, %169 ]
+  %.not67 = icmp slt i32 %.0116, %.156150
   br i1 %.not67, label %183, label %179
 
 179:                                              ; preds = %.loopexit
@@ -3546,7 +3546,7 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
 
 183:                                              ; preds = %.loopexit
   %184 = add nsw i32 %.039152, 1
-  %185 = icmp sgt i32 %.1, %.050151
+  %185 = icmp sgt i32 %.0116, %.050151
   br i1 %185, label %186, label %188
 
 186:                                              ; preds = %183
@@ -3554,7 +3554,7 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
           to label %188 unwind label %175
 
 188:                                              ; preds = %186, %183
-  %.151 = phi i32 [ %.1, %186 ], [ %.050151, %183 ]
+  %.252 = phi i32 [ %.0116, %186 ], [ %.050151, %183 ]
   %189 = icmp eq i32 %184, 5000
   br i1 %189, label %190, label %194
 
@@ -3574,13 +3574,13 @@ define void @_ZN2cv5aruco16extendDictionaryEiiRKNS0_10DictionaryEi(ptr dead_on_u
 
 .sink.split:                                      ; preds = %191, %180
   %.sink = phi ptr [ %26, %180 ], [ %27, %191 ]
-  %.257.ph = phi i32 [ %.156150, %180 ], [ %.151, %191 ]
+  %.257.ph = phi i32 [ %.156150, %180 ], [ %.252, %191 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #11
   br label %194
 
 194:                                              ; preds = %.sink.split, %188
   %.257 = phi i32 [ %.156150, %188 ], [ %.257.ph, %.sink.split ]
-  %.252 = phi i32 [ %.151, %188 ], [ 0, %.sink.split ]
+  %.151 = phi i32 [ %.252, %188 ], [ 0, %.sink.split ]
   %.140 = phi i32 [ %184, %188 ], [ 0, %.sink.split ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #11
   %195 = load i32, ptr %126, align 8

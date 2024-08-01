@@ -254,8 +254,8 @@ H5B2__leaf_free.exit:                             ; preds = %107
   br label %.thread
 
 .thread:                                          ; preds = %6, %62, %69, %H5B2__leaf_free.exit, %113
-  %.3 = phi i32 [ -1, %113 ], [ -1, %H5B2__leaf_free.exit ], [ 0, %62 ], [ 0, %69 ], [ -1, %6 ]
-  ret i32 %.3
+  %.1 = phi i32 [ -1, %113 ], [ -1, %H5B2__leaf_free.exit ], [ 0, %62 ], [ 0, %69 ], [ -1, %6 ]
+  ret i32 %.1
 }
 
 declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #1
@@ -423,8 +423,8 @@ define ptr @H5B2__protect_leaf(ptr noundef %0, ptr noundef %1, ptr nocapture nou
   br label %.thread
 
 .thread:                                          ; preds = %17, %38, %39, %62, %57
-  %.3 = phi ptr [ null, %62 ], [ null, %57 ], [ %15, %38 ], [ %15, %39 ], [ null, %17 ]
-  ret ptr %.3
+  %.1 = phi ptr [ null, %62 ], [ null, %57 ], [ %15, %38 ], [ %15, %39 ], [ null, %17 ]
+  ret ptr %.1
 }
 
 declare ptr @H5AC_protect(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -855,7 +855,7 @@ define range(i32 -1, 1) i32 @H5B2__insert_leaf(ptr noundef %0, ptr nocapture nou
 
 .thread84:                                        ; preds = %77, %25, %32, %150, %154, %157
   %.064.ph90 = phi i32 [ 2, %157 ], [ 2, %154 ], [ 2, %150 ], [ 0, %32 ], [ 0, %25 ], [ 0, %77 ]
-  %.1 = phi i32 [ -1, %157 ], [ %.0.ph, %154 ], [ %.0.ph, %150 ], [ -1, %32 ], [ -1, %25 ], [ -1, %77 ]
+  %.2 = phi i32 [ -1, %157 ], [ %.0.ph, %154 ], [ %.0.ph, %150 ], [ -1, %32 ], [ -1, %25 ], [ -1, %77 ]
   %161 = getelementptr inbounds i8, ptr %0, i64 288
   %162 = load ptr, ptr %161, align 8
   %163 = load i64, ptr %1, align 8
@@ -870,8 +870,8 @@ define range(i32 -1, 1) i32 @H5B2__insert_leaf(ptr noundef %0, ptr nocapture nou
   br label %170
 
 170:                                              ; preds = %146, %.thread84, %166
-  %.2 = phi i32 [ -1, %166 ], [ %.1, %.thread84 ], [ -1, %146 ]
-  ret i32 %.2
+  %.1 = phi i32 [ -1, %166 ], [ %.2, %.thread84 ], [ -1, %146 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1053,7 +1053,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr nocapture nou
   br label %117
 
 117:                                              ; preds = %108, %86
-  %.076 = phi i32 [ %89, %86 ], [ 2, %108 ]
+  %.177 = phi i32 [ %89, %86 ], [ 2, %108 ]
   %.not85 = icmp eq i32 %3, 3
   br i1 %.not85, label %184, label %118
 
@@ -1160,7 +1160,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr nocapture nou
   %185 = getelementptr inbounds i8, ptr %0, i64 392
   %186 = load i8, ptr %185, align 8
   %187 = trunc i8 %186 to i1
-  %.not87 = icmp ne i32 %.076, 0
+  %.not87 = icmp ne i32 %.177, 0
   %or.cond91.not = select i1 %187, i1 %.not87, i1 false
   br i1 %or.cond91.not, label %188, label %.thread98
 
@@ -1176,7 +1176,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr nocapture nou
   br label %195
 
 195:                                              ; preds = %191, %188
-  %.1 = phi i32 [ -1, %191 ], [ %.0.ph, %188 ]
+  %.3 = phi i32 [ -1, %191 ], [ %.0.ph, %188 ]
   %196 = load i32, ptr %2, align 4
   %197 = icmp eq i32 %196, 1
   br i1 %197, label %198, label %.thread98
@@ -1186,12 +1186,12 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr nocapture nou
   br label %.thread98
 
 .thread98:                                        ; preds = %82, %104, %29, %44, %195, %198, %184
-  %.177.ph104 = phi i32 [ 2, %198 ], [ 2, %195 ], [ %.076, %184 ], [ 0, %44 ], [ 0, %29 ], [ 0, %104 ], [ 0, %82 ]
-  %.2 = phi i32 [ %.1, %198 ], [ %.1, %195 ], [ %.0.ph, %184 ], [ 0, %44 ], [ -1, %29 ], [ -1, %104 ], [ -1, %82 ]
+  %.076.ph104 = phi i32 [ 2, %198 ], [ 2, %195 ], [ %.177, %184 ], [ 0, %44 ], [ 0, %29 ], [ 0, %104 ], [ 0, %82 ]
+  %.2 = phi i32 [ %.3, %198 ], [ %.3, %195 ], [ %.0.ph, %184 ], [ 0, %44 ], [ -1, %29 ], [ -1, %104 ], [ -1, %82 ]
   %199 = getelementptr inbounds i8, ptr %0, i64 288
   %200 = load ptr, ptr %199, align 8
   %201 = load i64, ptr %1, align 8
-  %202 = call i32 @H5AC_unprotect(ptr noundef %200, ptr noundef nonnull @H5AC_BT2_LEAF, i64 noundef %201, ptr noundef nonnull %12, i32 noundef %.177.ph104) #5
+  %202 = call i32 @H5AC_unprotect(ptr noundef %200, ptr noundef nonnull @H5AC_BT2_LEAF, i64 noundef %201, ptr noundef nonnull %12, i32 noundef %.076.ph104) #5
   %203 = icmp slt i32 %202, 0
   br i1 %203, label %204, label %208
 
@@ -1202,8 +1202,8 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr nocapture nou
   br label %208
 
 208:                                              ; preds = %180, %.thread98, %204
-  %.3 = phi i32 [ -1, %204 ], [ %.2, %.thread98 ], [ -1, %180 ]
-  ret i32 %.3
+  %.1 = phi i32 [ -1, %204 ], [ %.2, %.thread98 ], [ -1, %180 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1239,12 +1239,12 @@ define range(i32 -1, 1) i32 @H5B2__swap_leaf(ptr noundef %0, i16 noundef zeroext
   br label %.thread
 
 27:                                               ; preds = %20, %12
-  %.043 = phi ptr [ %14, %12 ], [ %21, %20 ]
-  %.0 = phi ptr [ @H5AC_BT2_INT, %12 ], [ @H5AC_BT2_LEAF, %20 ]
+  %.144 = phi ptr [ %14, %12 ], [ %21, %20 ]
+  %.1 = phi ptr [ @H5AC_BT2_INT, %12 ], [ @H5AC_BT2_LEAF, %20 ]
   %28 = load ptr, ptr %8, align 8
   %29 = getelementptr inbounds %struct.H5B2_node_ptr_t, ptr %28, i64 %10
-  %.038 = load i64, ptr %29, align 8
-  %.042.in = getelementptr inbounds i8, ptr %.043, i64 256
+  %.139 = load i64, ptr %29, align 8
+  %.042.in = getelementptr inbounds i8, ptr %.144, i64 256
   %.042 = load ptr, ptr %.042.in, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 352
   %31 = load ptr, ptr %30, align 8
@@ -1274,7 +1274,7 @@ define range(i32 -1, 1) i32 @H5B2__swap_leaf(ptr noundef %0, i16 noundef zeroext
   store i32 %51, ptr %3, align 4
   %52 = getelementptr inbounds i8, ptr %0, i64 288
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 @H5AC_unprotect(ptr noundef %53, ptr noundef nonnull %.0, i64 noundef %.038, ptr noundef nonnull %.043, i32 noundef 2) #5
+  %54 = tail call i32 @H5AC_unprotect(ptr noundef %53, ptr noundef nonnull %.1, i64 noundef %.139, ptr noundef nonnull %.144, i32 noundef 2) #5
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %56, label %.thread
 
@@ -1429,7 +1429,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf(ptr noundef %0, ptr nocapture nou
 
 87:                                               ; preds = %85, %77
   %88 = phi i16 [ %.pre86, %85 ], [ %73, %77 ]
-  %.061 = phi i64 [ %86, %85 ], [ %13, %77 ]
+  %.162 = phi i64 [ %86, %85 ], [ %13, %77 ]
   %89 = load i32, ptr %8, align 4
   %90 = zext i16 %88 to i32
   %91 = icmp ult i32 %89, %90
@@ -1460,7 +1460,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf(ptr noundef %0, ptr nocapture nou
   br label %109
 
 109:                                              ; preds = %87, %92, %108
-  %.162 = phi i64 [ %13, %108 ], [ %.061, %92 ], [ %.061, %87 ]
+  %.263 = phi i64 [ %13, %108 ], [ %.162, %92 ], [ %.162, %87 ]
   %.160 = phi i32 [ %spec.select, %108 ], [ 2, %92 ], [ 2, %87 ]
   %110 = getelementptr inbounds i8, ptr %1, i64 8
   %111 = load i16, ptr %110, align 8
@@ -1475,12 +1475,12 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf(ptr noundef %0, ptr nocapture nou
   br label %126
 
 117:                                              ; preds = %109, %81, %67, %31, %25
-  %.263.ph = phi i64 [ %.162, %109 ], [ %13, %81 ], [ %13, %67 ], [ %13, %31 ], [ %13, %25 ]
-  %.2.ph = phi i32 [ %.160, %109 ], [ 0, %81 ], [ 0, %67 ], [ 0, %31 ], [ 0, %25 ]
+  %.061.ph = phi i64 [ %.263, %109 ], [ %13, %81 ], [ %13, %67 ], [ %13, %31 ], [ %13, %25 ]
+  %.059.ph = phi i32 [ %.160, %109 ], [ 0, %81 ], [ 0, %67 ], [ 0, %31 ], [ 0, %25 ]
   %.0.ph = phi i32 [ 0, %109 ], [ -1, %81 ], [ -1, %67 ], [ -1, %31 ], [ -1, %25 ]
   %118 = getelementptr inbounds i8, ptr %0, i64 288
   %119 = load ptr, ptr %118, align 8
-  %120 = call i32 @H5AC_unprotect(ptr noundef %119, ptr noundef nonnull @H5AC_BT2_LEAF, i64 noundef %.263.ph, ptr noundef nonnull %10, i32 noundef %.2.ph) #5
+  %120 = call i32 @H5AC_unprotect(ptr noundef %119, ptr noundef nonnull @H5AC_BT2_LEAF, i64 noundef %.061.ph, ptr noundef nonnull %10, i32 noundef %.059.ph) #5
   %121 = icmp slt i32 %120, 0
   br i1 %121, label %122, label %126
 
@@ -1601,7 +1601,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf_by_idx(ptr noundef %0, ptr nocapt
 
 64:                                               ; preds = %62, %54
   %65 = phi i16 [ %.pre, %62 ], [ %50, %54 ]
-  %.061 = phi i64 [ %63, %62 ], [ %11, %54 ]
+  %.162 = phi i64 [ %63, %62 ], [ %11, %54 ]
   %66 = zext i16 %65 to i32
   %67 = icmp ugt i32 %66, %4
   br i1 %67, label %68, label %88
@@ -1634,7 +1634,7 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf_by_idx(ptr noundef %0, ptr nocapt
   br label %88
 
 88:                                               ; preds = %64, %68, %87
-  %.162 = phi i64 [ %11, %87 ], [ %.061, %68 ], [ %.061, %64 ]
+  %.263 = phi i64 [ %11, %87 ], [ %.162, %68 ], [ %.162, %64 ]
   %.160 = phi i32 [ %spec.select, %87 ], [ 2, %68 ], [ 2, %64 ]
   %89 = getelementptr inbounds i8, ptr %1, i64 8
   %90 = load i16, ptr %89, align 8
@@ -1649,12 +1649,12 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf_by_idx(ptr noundef %0, ptr nocapt
   br label %105
 
 96:                                               ; preds = %88, %58, %43
-  %.263.ph = phi i64 [ %.162, %88 ], [ %11, %58 ], [ %11, %43 ]
-  %.2.ph = phi i32 [ %.160, %88 ], [ 0, %58 ], [ 0, %43 ]
+  %.061.ph = phi i64 [ %.263, %88 ], [ %11, %58 ], [ %11, %43 ]
+  %.059.ph = phi i32 [ %.160, %88 ], [ 0, %58 ], [ 0, %43 ]
   %.0.ph = phi i32 [ 0, %88 ], [ -1, %58 ], [ -1, %43 ]
   %97 = getelementptr inbounds i8, ptr %0, i64 288
   %98 = load ptr, ptr %97, align 8
-  %99 = tail call i32 @H5AC_unprotect(ptr noundef %98, ptr noundef nonnull @H5AC_BT2_LEAF, i64 noundef %.263.ph, ptr noundef nonnull %8, i32 noundef %.2.ph) #5
+  %99 = tail call i32 @H5AC_unprotect(ptr noundef %98, ptr noundef nonnull @H5AC_BT2_LEAF, i64 noundef %.061.ph, ptr noundef nonnull %8, i32 noundef %.059.ph) #5
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %101, label %105
 

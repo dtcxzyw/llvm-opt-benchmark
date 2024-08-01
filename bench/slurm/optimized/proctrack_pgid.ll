@@ -301,7 +301,7 @@ define range(i32 -1, 1) i32 @proctrack_p_get_pids(i64 noundef %0, ptr nocapture 
   br label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer._crit_edge.loopexit39, %.outer._crit_edge.loopexit, %17
-  %.0.ph.lcssa = phi i32 [ 0, %17 ], [ %63, %.outer._crit_edge.loopexit ], [ %64, %.outer._crit_edge.loopexit39 ]
+  %.1.ph.lcssa = phi i32 [ 0, %17 ], [ %63, %.outer._crit_edge.loopexit ], [ %64, %.outer._crit_edge.loopexit39 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #8
   %65 = call i32 @closedir(ptr noundef nonnull %13)
   %.pre = load ptr, ptr %12, align 8
@@ -310,9 +310,9 @@ define range(i32 -1, 1) i32 @proctrack_p_get_pids(i64 noundef %0, ptr nocapture 
 66:                                               ; preds = %.outer._crit_edge, %15
   %67 = phi ptr [ null, %15 ], [ %.pre, %.outer._crit_edge ]
   %.025 = phi i32 [ -1, %15 ], [ 0, %.outer._crit_edge ]
-  %.1 = phi i32 [ 0, %15 ], [ %.0.ph.lcssa, %.outer._crit_edge ]
+  %.0 = phi i32 [ 0, %15 ], [ %.1.ph.lcssa, %.outer._crit_edge ]
   store ptr %67, ptr %1, align 8
-  store i32 %.1, ptr %2, align 4
+  store i32 %.0, ptr %2, align 4
   ret i32 %.025
 }
 

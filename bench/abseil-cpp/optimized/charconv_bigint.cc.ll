@@ -482,7 +482,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %begin.addr.1207 = phi ptr [ %begin.addr.0.lcssa, %for.body.lr.ph ], [ %incdec.ptr65, %for.inc ]
   %digits_queued.0206 = phi i32 [ 0, %for.body.lr.ph ], [ %digits_queued.1, %for.inc ]
   %queued.0205 = phi i32 [ 0, %for.body.lr.ph ], [ %queued.1, %for.inc ]
-  %exponent_adjust.0204 = phi i32 [ %dropped_digits.2, %for.body.lr.ph ], [ %exponent_adjust.2, %for.inc ]
+  %exponent_adjust.0204 = phi i32 [ %dropped_digits.2, %for.body.lr.ph ], [ %exponent_adjust.1, %for.inc ]
   %after_decimal_point.0203 = phi i8 [ 0, %for.body.lr.ph ], [ %after_decimal_point.1, %for.inc ]
   %significant_digits.addr.0202 = phi i32 [ %significant_digits, %for.body.lr.ph ], [ %significant_digits.addr.1, %for.inc ]
   %.sroa.speculated.i196201 = phi i32 [ 0, %for.body.lr.ph ], [ %.sroa.speculated.i197, %for.inc ]
@@ -589,7 +589,7 @@ for.inc:                                          ; preds = %while.end.i, %_ZN4a
   %.sroa.speculated.i197 = phi i32 [ %.sroa.speculated.i196201, %if.end59 ], [ %.sroa.speculated.i196201, %for.body ], [ %.sroa.speculated.i198, %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit ], [ %26, %while.end.i ]
   %significant_digits.addr.1 = phi i32 [ %dec47, %if.end59 ], [ %significant_digits.addr.0202, %for.body ], [ %dec47, %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit ], [ %dec47, %while.end.i ]
   %after_decimal_point.1 = phi i8 [ %after_decimal_point.0203, %if.end59 ], [ 1, %for.body ], [ %after_decimal_point.0203, %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit ], [ %after_decimal_point.0203, %while.end.i ]
-  %exponent_adjust.2 = phi i32 [ %spec.select46, %if.end59 ], [ %exponent_adjust.0204, %for.body ], [ %spec.select46, %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit ], [ %spec.select46, %while.end.i ]
+  %exponent_adjust.1 = phi i32 [ %spec.select46, %if.end59 ], [ %exponent_adjust.0204, %for.body ], [ %spec.select46, %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit ], [ %spec.select46, %while.end.i ]
   %queued.1 = phi i32 [ %add, %if.end59 ], [ %queued.0205, %for.body ], [ 0, %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit ], [ 0, %while.end.i ]
   %digits_queued.1 = phi i32 [ %inc61, %if.end59 ], [ %digits_queued.0206, %for.body ], [ 0, %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit ], [ 0, %while.end.i ]
   %incdec.ptr65 = getelementptr inbounds i8, ptr %begin.addr.1207, i64 1
@@ -691,7 +691,7 @@ if.end68.thread:                                  ; preds = %if.end33
 
 if.then72:                                        ; preds = %if.end68, %if.end68.thread
   %begin.addr.1.lcssa246251258 = phi ptr [ %begin.addr.0.lcssa, %if.end68.thread ], [ %incdec.ptr65, %if.end68 ]
-  %exponent_adjust.0.lcssa245252257 = phi i32 [ %dropped_digits.2, %if.end68.thread ], [ %exponent_adjust.2, %if.end68 ]
+  %exponent_adjust.0.lcssa245252257 = phi i32 [ %dropped_digits.2, %if.end68.thread ], [ %exponent_adjust.1, %if.end68 ]
   %sub.ptr.lhs.cast.i.i.i105 = ptrtoint ptr %end.addr.2 to i64
   %sub.ptr.rhs.cast.i.i.i106 = ptrtoint ptr %begin.addr.1.lcssa246251258 to i64
   %sub.ptr.sub.i.i.i107 = sub i64 %sub.ptr.lhs.cast.i.i.i105, %sub.ptr.rhs.cast.i.i.i106
@@ -798,7 +798,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit159:             ; preds = %for.body.i.i.i134, 
   br label %if.end78
 
 if.end78:                                         ; preds = %if.end68, %if.end68.thread, %_ZSt4findIPKccET_S2_S2_RKT0_.exit159
-  %exponent_adjust.3 = phi i32 [ %conv77, %_ZSt4findIPKccET_S2_S2_RKT0_.exit159 ], [ %exponent_adjust.2, %if.end68 ], [ %dropped_digits.2, %if.end68.thread ]
+  %exponent_adjust.3 = phi i32 [ %conv77, %_ZSt4findIPKccET_S2_S2_RKT0_.exit159 ], [ %exponent_adjust.1, %if.end68 ], [ %dropped_digits.2, %if.end68.thread ]
   ret i32 %exponent_adjust.3
 }
 
@@ -2767,7 +2767,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %begin.addr.1207 = phi ptr [ %begin.addr.0.lcssa, %for.body.lr.ph ], [ %incdec.ptr65, %for.inc ]
   %digits_queued.0206 = phi i32 [ 0, %for.body.lr.ph ], [ %digits_queued.1, %for.inc ]
   %queued.0205 = phi i32 [ 0, %for.body.lr.ph ], [ %queued.1, %for.inc ]
-  %exponent_adjust.0204 = phi i32 [ %dropped_digits.2, %for.body.lr.ph ], [ %exponent_adjust.2, %for.inc ]
+  %exponent_adjust.0204 = phi i32 [ %dropped_digits.2, %for.body.lr.ph ], [ %exponent_adjust.1, %for.inc ]
   %after_decimal_point.0203 = phi i8 [ 0, %for.body.lr.ph ], [ %after_decimal_point.1, %for.inc ]
   %significant_digits.addr.0202 = phi i32 [ %significant_digits, %for.body.lr.ph ], [ %significant_digits.addr.1, %for.inc ]
   %.sroa.speculated.i196201 = phi i32 [ 0, %for.body.lr.ph ], [ %.sroa.speculated.i197, %for.inc ]
@@ -2874,7 +2874,7 @@ for.inc:                                          ; preds = %while.end.i, %_ZN4a
   %.sroa.speculated.i197 = phi i32 [ %.sroa.speculated.i196201, %if.end59 ], [ %.sroa.speculated.i196201, %for.body ], [ %.sroa.speculated.i198, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit ], [ %26, %while.end.i ]
   %significant_digits.addr.1 = phi i32 [ %dec47, %if.end59 ], [ %significant_digits.addr.0202, %for.body ], [ %dec47, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit ], [ %dec47, %while.end.i ]
   %after_decimal_point.1 = phi i8 [ %after_decimal_point.0203, %if.end59 ], [ 1, %for.body ], [ %after_decimal_point.0203, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit ], [ %after_decimal_point.0203, %while.end.i ]
-  %exponent_adjust.2 = phi i32 [ %spec.select46, %if.end59 ], [ %exponent_adjust.0204, %for.body ], [ %spec.select46, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit ], [ %spec.select46, %while.end.i ]
+  %exponent_adjust.1 = phi i32 [ %spec.select46, %if.end59 ], [ %exponent_adjust.0204, %for.body ], [ %spec.select46, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit ], [ %spec.select46, %while.end.i ]
   %queued.1 = phi i32 [ %add, %if.end59 ], [ %queued.0205, %for.body ], [ 0, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit ], [ 0, %while.end.i ]
   %digits_queued.1 = phi i32 [ %inc61, %if.end59 ], [ %digits_queued.0206, %for.body ], [ 0, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit ], [ 0, %while.end.i ]
   %incdec.ptr65 = getelementptr inbounds i8, ptr %begin.addr.1207, i64 1
@@ -2976,7 +2976,7 @@ if.end68.thread:                                  ; preds = %if.end33
 
 if.then72:                                        ; preds = %if.end68, %if.end68.thread
   %begin.addr.1.lcssa246251258 = phi ptr [ %begin.addr.0.lcssa, %if.end68.thread ], [ %incdec.ptr65, %if.end68 ]
-  %exponent_adjust.0.lcssa245252257 = phi i32 [ %dropped_digits.2, %if.end68.thread ], [ %exponent_adjust.2, %if.end68 ]
+  %exponent_adjust.0.lcssa245252257 = phi i32 [ %dropped_digits.2, %if.end68.thread ], [ %exponent_adjust.1, %if.end68 ]
   %sub.ptr.lhs.cast.i.i.i105 = ptrtoint ptr %end.addr.2 to i64
   %sub.ptr.rhs.cast.i.i.i106 = ptrtoint ptr %begin.addr.1.lcssa246251258 to i64
   %sub.ptr.sub.i.i.i107 = sub i64 %sub.ptr.lhs.cast.i.i.i105, %sub.ptr.rhs.cast.i.i.i106
@@ -3083,7 +3083,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit159:             ; preds = %for.body.i.i.i134, 
   br label %if.end78
 
 if.end78:                                         ; preds = %if.end68, %if.end68.thread, %_ZSt4findIPKccET_S2_S2_RKT0_.exit159
-  %exponent_adjust.3 = phi i32 [ %conv77, %_ZSt4findIPKccET_S2_S2_RKT0_.exit159 ], [ %exponent_adjust.2, %if.end68 ], [ %dropped_digits.2, %if.end68.thread ]
+  %exponent_adjust.3 = phi i32 [ %conv77, %_ZSt4findIPKccET_S2_S2_RKT0_.exit159 ], [ %exponent_adjust.1, %if.end68 ], [ %dropped_digits.2, %if.end68.thread ]
   ret i32 %exponent_adjust.3
 }
 

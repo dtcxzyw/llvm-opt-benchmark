@@ -881,7 +881,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit96
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %330, %328, %309, %286
-  %.027 = phi i32 [ -1, %286 ], [ 0, %309 ], [ 0, %328 ], [ 0, %330 ]
+  %.330 = phi i32 [ -1, %286 ], [ 0, %309 ], [ 0, %328 ], [ 0, %330 ]
   %335 = getelementptr inbounds i8, ptr %24, i64 8
   %336 = load ptr, ptr %335, align 8
   %.not.i.i.i.i97 = icmp eq ptr %336, null
@@ -966,7 +966,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit96:                  ; preds = %334, %331, %311, %3
   br label %372
 
 371:                                              ; preds = %_ZN2cv3PtrINS_6xphoto13WhiteBalancerEED2Ev.exit, %95
-  %.128 = phi i32 [ -1, %95 ], [ %.027, %_ZN2cv3PtrINS_6xphoto13WhiteBalancerEED2Ev.exit ]
+  %.229 = phi i32 [ -1, %95 ], [ %.330, %_ZN2cv3PtrINS_6xphoto13WhiteBalancerEED2Ev.exit ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #7
   br label %373
 
@@ -976,7 +976,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit96:                  ; preds = %334, %331, %311, %3
   br label %374
 
 373:                                              ; preds = %76, %371
-  %.229 = phi i32 [ %.128, %371 ], [ -1, %76 ]
+  %.128 = phi i32 [ %.229, %371 ], [ -1, %76 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #7
@@ -1004,9 +1004,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit96:                  ; preds = %334, %331, %311, %3
   br label %379
 
 378:                                              ; preds = %47, %373
-  %.330 = phi i32 [ %.229, %373 ], [ 0, %47 ]
+  %.027 = phi i32 [ %.128, %373 ], [ 0, %47 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  ret i32 %.330
+  ret i32 %.027
 
 379:                                              ; preds = %377, %79, %63, %62, %57
   %.pn58 = phi { ptr, i32 } [ %64, %63 ], [ %.pn51.pn.pn.pn.pn.pn, %377 ], [ %.pn36, %79 ], [ %.pn34, %62 ], [ %.pn32, %57 ]

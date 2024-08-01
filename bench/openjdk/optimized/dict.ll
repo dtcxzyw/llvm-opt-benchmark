@@ -742,9 +742,9 @@ define hidden void @_ZN4Dict5printEv(ptr noundef nonnull align 8 dereferenceable
 
 _ZN5DictIC2EPK4Dict.exit:                         ; preds = %6, %1, %13
   %25 = phi i32 [ %9, %13 ], [ 0, %1 ], [ %4, %6 ]
-  %.sroa.22.0 = phi ptr [ %24, %13 ], [ null, %1 ], [ null, %6 ]
-  %.sroa.9.1 = phi i32 [ %14, %13 ], [ -1, %1 ], [ 0, %6 ]
-  %.sroa.16.0 = phi ptr [ %20, %13 ], [ null, %1 ], [ null, %6 ]
+  %.sroa.22.1 = phi ptr [ %24, %13 ], [ null, %1 ], [ null, %6 ]
+  %.sroa.9.2 = phi i32 [ %14, %13 ], [ -1, %1 ], [ 0, %6 ]
+  %.sroa.16.1 = phi ptr [ %20, %13 ], [ null, %1 ], [ null, %6 ]
   %26 = load ptr, ptr @tty, align 8
   %27 = ptrtoint ptr %0 to i64
   %28 = getelementptr inbounds i8, ptr %0, i64 20
@@ -755,15 +755,15 @@ _ZN5DictIC2EPK4Dict.exit:                         ; preds = %6, %1, %13
   br i1 %.not22, label %.lr.ph27, label %._crit_edge
 
 .lr.ph27:                                         ; preds = %_ZN5DictIC2EPK4Dict.exit, %_ZN5DictIppEv.exit
-  %.sroa.16.126 = phi ptr [ %.sroa.16.2, %_ZN5DictIppEv.exit ], [ %.sroa.16.0, %_ZN5DictIC2EPK4Dict.exit ]
+  %.sroa.16.026 = phi ptr [ %.sroa.16.2, %_ZN5DictIppEv.exit ], [ %.sroa.16.1, %_ZN5DictIC2EPK4Dict.exit ]
   %.sroa.4.025 = phi i32 [ %.sroa.4.1, %_ZN5DictIppEv.exit ], [ %25, %_ZN5DictIC2EPK4Dict.exit ]
-  %.sroa.9.224 = phi i32 [ %.sroa.9.4, %_ZN5DictIppEv.exit ], [ %.sroa.9.1, %_ZN5DictIC2EPK4Dict.exit ]
-  %.sroa.22.123 = phi ptr [ %.sroa.22.2, %_ZN5DictIppEv.exit ], [ %.sroa.22.0, %_ZN5DictIC2EPK4Dict.exit ]
+  %.sroa.9.024 = phi i32 [ %.sroa.9.4, %_ZN5DictIppEv.exit ], [ %.sroa.9.2, %_ZN5DictIC2EPK4Dict.exit ]
+  %.sroa.22.023 = phi ptr [ %.sroa.22.2, %_ZN5DictIppEv.exit ], [ %.sroa.22.1, %_ZN5DictIC2EPK4Dict.exit ]
   %31 = load ptr, ptr @tty, align 8
-  %32 = ptrtoint ptr %.sroa.16.126 to i64
-  %33 = ptrtoint ptr %.sroa.22.123 to i64
+  %32 = ptrtoint ptr %.sroa.16.026 to i64
+  %33 = ptrtoint ptr %.sroa.22.023 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull @.str.4, i64 noundef %32, i64 noundef %33) #11
-  %.not.i = icmp eq i32 %.sroa.9.224, 0
+  %.not.i = icmp eq i32 %.sroa.9.024, 0
   br i1 %.not.i, label %.preheader.i.preheader, label %38
 
 .preheader.i.preheader:                           ; preds = %.lr.ph27
@@ -777,7 +777,7 @@ _ZN5DictIC2EPK4Dict.exit:                         ; preds = %6, %1, %13
   br label %53
 
 38:                                               ; preds = %.lr.ph27
-  %39 = add i32 %.sroa.9.224, -1
+  %39 = add i32 %.sroa.9.024, -1
   %40 = load ptr, ptr %3, align 8
   %41 = zext i32 %.sroa.4.025 to i64
   %42 = getelementptr inbounds %class.bucket, ptr %40, i64 %41, i32 2

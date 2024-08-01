@@ -1120,7 +1120,7 @@ SkipDataBlocks.exit:                              ; preds = %ReadByte.exit.i.i, 
   br label %95
 
 95:                                               ; preds = %86, %84
-  %.0 = phi i32 [ 0, %86 ], [ %13, %84 ]
+  %.1 = phi i32 [ 0, %86 ], [ %13, %84 ]
   %96 = getelementptr inbounds i8, ptr %0, i64 388
   %97 = load i32, ptr %96, align 4
   %98 = trunc i32 %97 to i8
@@ -1136,7 +1136,7 @@ SkipDataBlocks.exit:                              ; preds = %ReadByte.exit.i.i, 
 103:                                              ; preds = %95, %81
   %104 = phi i32 [ %.pre, %95 ], [ %15, %81 ]
   %.164 = phi i32 [ %102, %95 ], [ %13, %81 ]
-  %.1 = phi i32 [ %.0, %95 ], [ %13, %81 ]
+  %.0 = phi i32 [ %.1, %95 ], [ %13, %81 ]
   %.not7377 = icmp slt i32 %.164, %104
   br i1 %.not7377, label %._crit_edge, label %.lr.ph
 
@@ -1209,7 +1209,7 @@ SkipDataBlocks.exit:                              ; preds = %ReadByte.exit.i.i, 
 
 146:                                              ; preds = %122, %139, %143, %._crit_edge
   %147 = getelementptr inbounds i8, ptr %0, i64 384
-  store i32 %.1, ptr %147, align 8
+  store i32 %.0, ptr %147, align 8
   %148 = load i32, ptr %119, align 4
   br label %149
 

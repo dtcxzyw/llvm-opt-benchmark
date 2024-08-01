@@ -210,9 +210,9 @@ if.else21:                                        ; preds = %if.else16
   br i1 %cmp23, label %while.cond.backedge, label %if.end28
 
 if.end28:                                         ; preds = %if.else21, %while.body, %if.then12
-  %lock_value.17 = phi i32 [ %or, %if.then12 ], [ %12, %if.else21 ], [ %lock_value.096, %while.body ]
+  %lock_value.1 = phi i32 [ %or, %if.then12 ], [ %12, %if.else21 ], [ %lock_value.096, %while.body ]
   %inc = add nuw nsw i32 %lock_wait_call_count.0.ph101, 1
-  tail call void @AbslInternalSpinLockDelay(ptr noundef nonnull %this, i32 noundef %lock_value.17, i32 noundef %inc, i32 noundef %and3.lobit)
+  tail call void @AbslInternalSpinLockDelay(ptr noundef nonnull %this, i32 noundef %lock_value.1, i32 noundef %inc, i32 noundef %and3.lobit)
   %15 = load atomic i32, ptr @_ZZN4absl13base_internal8SpinLock8SpinLoopEvE24init_adaptive_spin_count acquire, align 4
   %cmp.not.i.i51 = icmp eq i32 %15, 221
   br i1 %cmp.not.i.i51, label %"_ZN4absl13base_internal16LowLevelCallOnceIZNS0_8SpinLock8SpinLoopEvE3$_0JEEEvPNS_9once_flagEOT_DpOT0_.exit.i56", label %if.then.i.i52

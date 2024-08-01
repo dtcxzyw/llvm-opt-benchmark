@@ -388,8 +388,8 @@ if.end69:                                         ; preds = %lor.lhs.false64
   br i1 %tobool72.not, label %if.then.i78, label %if.end75
 
 if.end75:                                         ; preds = %if.end69, %if.end52
-  %alg.0 = phi ptr [ %call57, %if.end69 ], [ %call.i.i, %if.end52 ]
-  %impls76 = getelementptr inbounds i8, ptr %alg.0, i64 8
+  %alg.1 = phi ptr [ %call57, %if.end69 ], [ %call.i.i, %if.end52 ]
+  %impls76 = getelementptr inbounds i8, ptr %alg.1, i64 8
   %10 = load ptr, ptr %impls76, align 8
   %call.i6094 = tail call i32 @OPENSSL_sk_num(ptr noundef %10) #6
   %cmp7895 = icmp sgt i32 %call.i6094, 0
@@ -947,8 +947,8 @@ for.inc74.us.us:                                  ; preds = %land.lhs.true60.us.
 for.body56.us:                                    ; preds = %for.body56.lr.ph.split.us, %for.inc74.us
   %best.086.us = phi i32 [ %best.1.us, %for.inc74.us ], [ -1, %for.body56.lr.ph.split.us ]
   %j.185.us = phi i32 [ %inc75.us, %for.inc74.us ], [ 0, %for.body56.lr.ph.split.us ]
-  %ret.084.us = phi i32 [ %ret.1.us, %for.inc74.us ], [ 0, %for.body56.lr.ph.split.us ]
-  %best_impl.083.us = phi ptr [ %best_impl.1.us, %for.inc74.us ], [ null, %for.body56.lr.ph.split.us ]
+  %ret.184.us = phi i32 [ %ret.2.us, %for.inc74.us ], [ 0, %for.body56.lr.ph.split.us ]
+  %best_impl.183.us = phi ptr [ %best_impl.2.us, %for.inc74.us ], [ null, %for.body56.lr.ph.split.us ]
   %19 = load ptr, ptr %impls53, align 8
   %call.i51.us = tail call ptr @OPENSSL_sk_value(ptr noundef %19, i32 noundef %j.185.us) #6
   %cmp59.not.us = icmp eq ptr %call.i51.us, null
@@ -965,8 +965,8 @@ if.then68.us:                                     ; preds = %land.lhs.true60.us
   br label %for.inc74.us
 
 for.inc74.us:                                     ; preds = %if.then68.us, %land.lhs.true60.us, %for.body56.us
-  %best_impl.1.us = phi ptr [ %call.i51.us, %if.then68.us ], [ %best_impl.083.us, %land.lhs.true60.us ], [ %best_impl.083.us, %for.body56.us ]
-  %ret.1.us = phi i32 [ 1, %if.then68.us ], [ %ret.084.us, %land.lhs.true60.us ], [ %ret.084.us, %for.body56.us ]
+  %best_impl.2.us = phi ptr [ %call.i51.us, %if.then68.us ], [ %best_impl.183.us, %land.lhs.true60.us ], [ %best_impl.183.us, %for.body56.us ]
+  %ret.2.us = phi i32 [ 1, %if.then68.us ], [ %ret.184.us, %land.lhs.true60.us ], [ %ret.184.us, %for.body56.us ]
   %best.1.us = phi i32 [ %call66.us, %if.then68.us ], [ %best.086.us, %land.lhs.true60.us ], [ %best.086.us, %for.body56.us ]
   %inc75.us = add nuw nsw i32 %j.185.us, 1
   %21 = load ptr, ptr %impls53, align 8
@@ -1006,8 +1006,8 @@ for.inc74.us103:                                  ; preds = %if.then65.us98, %la
 for.body56:                                       ; preds = %for.body56.lr.ph.split, %for.inc74
   %best.086 = phi i32 [ %best.1, %for.inc74 ], [ -1, %for.body56.lr.ph.split ]
   %j.185 = phi i32 [ %inc75, %for.inc74 ], [ 0, %for.body56.lr.ph.split ]
-  %ret.084 = phi i32 [ %ret.1, %for.inc74 ], [ 0, %for.body56.lr.ph.split ]
-  %best_impl.083 = phi ptr [ %best_impl.1, %for.inc74 ], [ null, %for.body56.lr.ph.split ]
+  %ret.184 = phi i32 [ %ret.2, %for.inc74 ], [ 0, %for.body56.lr.ph.split ]
+  %best_impl.183 = phi ptr [ %best_impl.2, %for.inc74 ], [ null, %for.body56.lr.ph.split ]
   %26 = load ptr, ptr %impls53, align 8
   %call.i51 = tail call ptr @OPENSSL_sk_value(ptr noundef %26, i32 noundef %j.185) #6
   %cmp59.not = icmp eq ptr %call.i51, null
@@ -1029,8 +1029,8 @@ if.then68:                                        ; preds = %if.then65
   br label %for.inc74
 
 for.inc74:                                        ; preds = %if.then68, %for.body56, %land.lhs.true60, %if.then65
-  %best_impl.1 = phi ptr [ %call.i51, %if.then68 ], [ %best_impl.083, %if.then65 ], [ %best_impl.083, %land.lhs.true60 ], [ %best_impl.083, %for.body56 ]
-  %ret.1 = phi i32 [ 1, %if.then68 ], [ %ret.084, %if.then65 ], [ %ret.084, %land.lhs.true60 ], [ %ret.084, %for.body56 ]
+  %best_impl.2 = phi ptr [ %call.i51, %if.then68 ], [ %best_impl.183, %if.then65 ], [ %best_impl.183, %land.lhs.true60 ], [ %best_impl.183, %for.body56 ]
+  %ret.2 = phi i32 [ 1, %if.then68 ], [ %ret.184, %if.then65 ], [ %ret.184, %land.lhs.true60 ], [ %ret.184, %for.body56 ]
   %best.1 = phi i32 [ %call66, %if.then68 ], [ %best.086, %if.then65 ], [ %best.086, %land.lhs.true60 ], [ %best.086, %for.body56 ]
   %inc75 = add nuw nsw i32 %j.185, 1
   %29 = load ptr, ptr %impls53, align 8
@@ -1039,17 +1039,17 @@ for.inc74:                                        ; preds = %if.then68, %for.bod
   br i1 %cmp55, label %for.body56, label %fin, !llvm.loop !10
 
 fin:                                              ; preds = %for.inc74, %for.inc74.us
-  %best_impl.0.lcssa = phi ptr [ %best_impl.1.us, %for.inc74.us ], [ %best_impl.1, %for.inc74 ]
-  %ret.0.lcssa = phi i32 [ %ret.1.us, %for.inc74.us ], [ %ret.1, %for.inc74 ]
-  %tobool77.not = icmp eq i32 %ret.0.lcssa, 0
+  %best_impl.1.lcssa = phi ptr [ %best_impl.2.us, %for.inc74.us ], [ %best_impl.2, %for.inc74 ]
+  %ret.1.lcssa = phi i32 [ %ret.2.us, %for.inc74.us ], [ %ret.2, %for.inc74 ]
+  %tobool77.not = icmp eq i32 %ret.1.lcssa, 0
   br i1 %tobool77.not, label %ossl_property_unlock.exit58, label %land.lhs.true78
 
 land.lhs.true78:                                  ; preds = %if.then65.us98, %land.lhs.true60.us.us, %land.lhs.true44, %for.body.us, %fin
-  %best_impl.270 = phi ptr [ %best_impl.0.lcssa, %fin ], [ %call.i49.us, %for.body.us ], [ %call.i49, %land.lhs.true44 ], [ %call.i51.us.us, %land.lhs.true60.us.us ], [ %call.i51.us95, %if.then65.us98 ]
+  %best_impl.070 = phi ptr [ %best_impl.1.lcssa, %fin ], [ %call.i49.us, %for.body.us ], [ %call.i49, %land.lhs.true44 ], [ %call.i51.us.us, %land.lhs.true60.us.us ], [ %call.i51.us95, %if.then65.us98 ]
   %p2.268 = phi ptr [ %p2.163, %fin ], [ null, %for.body.us ], [ null, %land.lhs.true44 ], [ %p2.163, %land.lhs.true60.us.us ], [ %p2.163, %if.then65.us98 ]
-  %method79 = getelementptr inbounds i8, ptr %best_impl.270, i64 16
+  %method79 = getelementptr inbounds i8, ptr %best_impl.070, i64 16
   %method79.val = load ptr, ptr %method79, align 8
-  %30 = getelementptr i8, ptr %best_impl.270, i64 24
+  %30 = getelementptr i8, ptr %best_impl.070, i64 24
   %method79.val45 = load ptr, ptr %30, align 8
   %call.i52 = tail call i32 %method79.val45(ptr noundef %method79.val) #6
   %tobool81.not = icmp eq i32 %call.i52, 0
@@ -1061,7 +1061,7 @@ if.then82:                                        ; preds = %land.lhs.true78
   br i1 %cmp.not, label %ossl_property_unlock.exit58, label %if.then86
 
 if.then86:                                        ; preds = %if.then82
-  %32 = load ptr, ptr %best_impl.270, align 8
+  %32 = load ptr, ptr %best_impl.070, align 8
   store ptr %32, ptr %prov_rw, align 8
   br label %ossl_property_unlock.exit58
 

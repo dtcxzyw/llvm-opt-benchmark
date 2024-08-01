@@ -146,10 +146,10 @@ define void @_ZN4core4iter8adapters11try_process17h30c3f45d9218bb3aE(ptr sret([2
 
 8:                                                ; preds = %.thread, %10
   %.pn = phi { ptr, i32 } [ %12, %10 ], [ %16, %.thread ]
-  %.sroa.02.0 = phi i1 [ %11, %10 ], [ false, %.thread ]
+  %.sroa.02.1 = phi i1 [ %11, %10 ], [ false, %.thread ]
   %9 = load ptr, ptr %7, align 8
   %.not5 = icmp eq ptr %9, null
-  %brmerge = or i1 %.sroa.02.0, %.not5
+  %brmerge = or i1 %.sroa.02.1, %.not5
   br i1 %brmerge, label %.thread7, label %26
 
 10:                                               ; preds = %21, %2

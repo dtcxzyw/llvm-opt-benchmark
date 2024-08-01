@@ -127,12 +127,12 @@ callerid_find_conn_by_inode.exit:                 ; preds = %38
   br i1 %.not18, label %.loopexit, label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %callerid_find_conn_by_inode.exit, %.preheader, %callerid_find_conn_by_inode.exit.thread
-  %.2 = phi i32 [ 0, %callerid_find_conn_by_inode.exit.thread ], [ -1, %.preheader ], [ -1, %.backedge ], [ 0, %callerid_find_conn_by_inode.exit ]
+  %.1 = phi i32 [ 0, %callerid_find_conn_by_inode.exit.thread ], [ -1, %.preheader ], [ -1, %.backedge ], [ 0, %callerid_find_conn_by_inode.exit ]
   %43 = call i32 @closedir(ptr noundef nonnull %5)
   br label %44
 
 44:                                               ; preds = %.loopexit, %10
-  %.011 = phi i32 [ -1, %10 ], [ %.2, %.loopexit ]
+  %.011 = phi i32 [ -1, %10 ], [ %.1, %.loopexit ]
   ret i32 %.011
 }
 

@@ -1560,8 +1560,8 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #0 {
   br i1 %31, label %.lr.ph115, label %._crit_edge
 
 .lr.ph115:                                        ; preds = %.lr.ph96, %92
-  %.06592114 = phi i1 [ %.267, %92 ], [ false, %.lr.ph96 ]
-  %.06393113 = phi ptr [ %.3, %92 ], [ null, %.lr.ph96 ]
+  %.06592114 = phi i1 [ %.166, %92 ], [ false, %.lr.ph96 ]
+  %.06393113 = phi ptr [ %.2, %92 ], [ null, %.lr.ph96 ]
   %.06194112 = phi i1 [ %.162, %92 ], [ false, %.lr.ph96 ]
   %.06095111 = phi i1 [ %.1, %92 ], [ false, %.lr.ph96 ]
   %indvars.iv110 = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph96 ]
@@ -1676,8 +1676,8 @@ select.unfold:                                    ; preds = %67
   br label %92
 
 92:                                               ; preds = %53, %58, %40, %45, %82, %91, %76, %60, %59, %46
-  %.267 = phi i1 [ %.06592114, %46 ], [ %.06592114, %59 ], [ true, %76 ], [ false, %91 ], [ false, %82 ], [ %.06592114, %60 ], [ %.06592114, %45 ], [ %.06592114, %40 ], [ %.06592114, %58 ], [ %.06592114, %53 ]
-  %.3 = phi ptr [ %.06393113, %46 ], [ %.06393113, %59 ], [ %.06393113, %76 ], [ %34, %91 ], [ %.06393113, %82 ], [ %.06393113, %60 ], [ %34, %45 ], [ %.06393113, %40 ], [ %34, %58 ], [ %.06393113, %53 ]
+  %.166 = phi i1 [ %.06592114, %46 ], [ %.06592114, %59 ], [ true, %76 ], [ false, %91 ], [ false, %82 ], [ %.06592114, %60 ], [ %.06592114, %45 ], [ %.06592114, %40 ], [ %.06592114, %58 ], [ %.06592114, %53 ]
+  %.2 = phi ptr [ %.06393113, %46 ], [ %.06393113, %59 ], [ %.06393113, %76 ], [ %34, %91 ], [ %.06393113, %82 ], [ %.06393113, %60 ], [ %34, %45 ], [ %.06393113, %40 ], [ %34, %58 ], [ %.06393113, %53 ]
   %.162 = phi i1 [ %.06194112, %46 ], [ true, %59 ], [ false, %76 ], [ false, %91 ], [ false, %82 ], [ false, %60 ], [ %.06194112, %45 ], [ %.06194112, %40 ], [ true, %58 ], [ true, %53 ]
   %.1 = phi i1 [ true, %46 ], [ false, %59 ], [ false, %76 ], [ false, %91 ], [ false, %82 ], [ false, %60 ], [ true, %45 ], [ true, %40 ], [ false, %58 ], [ false, %53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv110, 1
@@ -1687,8 +1687,8 @@ select.unfold:                                    ; preds = %67
   br i1 %95, label %.lr.ph115, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %92, %.lr.ph96
-  %.06393.lcssa = phi ptr [ null, %.lr.ph96 ], [ %.3, %92 ]
-  %.06592.lcssa = phi i1 [ false, %.lr.ph96 ], [ %.267, %92 ]
+  %.06393.lcssa = phi ptr [ null, %.lr.ph96 ], [ %.2, %92 ]
+  %.06592.lcssa = phi i1 [ false, %.lr.ph96 ], [ %.166, %92 ]
   %.not76 = icmp eq ptr %.06393.lcssa, null
   br i1 %.not76, label %117, label %96
 
@@ -2605,8 +2605,8 @@ extract_autovac_opts.exit214:                     ; preds = %132
   br i1 %224, label %.critedge, label %._crit_edge
 
 .critedge212:                                     ; preds = %.lr.ph244, %538
-  %.0161241278 = phi i1 [ %.2163, %538 ], [ false, %.lr.ph244 ]
-  %.0158242277 = phi i1 [ %.2160, %538 ], [ false, %.lr.ph244 ]
+  %.0161241278 = phi i1 [ %.1162, %538 ], [ false, %.lr.ph244 ]
+  %.0158242277 = phi i1 [ %.1159, %538 ], [ false, %.lr.ph244 ]
   %indvars.iv258276 = phi i64 [ %indvars.iv.next259, %538 ], [ 0, %.lr.ph244 ]
   %225 = load ptr, ptr %180, align 8
   %226 = getelementptr %union.ListCell, ptr %225, i64 %indvars.iv258276
@@ -2618,8 +2618,8 @@ extract_autovac_opts.exit214:                     ; preds = %132
   br i1 %.not191, label %235, label %234
 
 .._crit_edge245.loopexit_crit_edge:               ; preds = %538
-  %229 = xor i1 %.2163, true
-  %230 = select i1 %.2160, i1 true, i1 %229
+  %229 = xor i1 %.1162, true
+  %230 = select i1 %.1159, i1 true, i1 %229
   br label %._crit_edge245
 
 ._crit_edge245:                                   ; preds = %.lr.ph244, %.._crit_edge245.loopexit_crit_edge, %._crit_edge
@@ -3160,7 +3160,7 @@ autovacuum_do_vac_analyze.exit:                   ; preds = %479, %483
 
 thread-pre-split:                                 ; preds = %468, %516, %autovac_recalculate_workers_for_balance.exit
   %518 = phi ptr [ %465, %autovac_recalculate_workers_for_balance.exit ], [ %465, %468 ], [ %.pr.pre, %516 ]
-  %.1159 = phi i1 [ %.0158242277, %autovac_recalculate_workers_for_balance.exit ], [ %.0158242277, %468 ], [ true, %516 ]
+  %.2160 = phi i1 [ %.0158242277, %autovac_recalculate_workers_for_balance.exit ], [ %.0158242277, %468 ], [ true, %516 ]
   %.not201 = icmp eq ptr %518, null
   br i1 %.not201, label %520, label %519
 
@@ -3205,8 +3205,8 @@ thread-pre-split:                                 ; preds = %468, %516, %autovac
   br label %538
 
 538:                                              ; preds = %238, %526, %409, %279
-  %.2163 = phi i1 [ true, %279 ], [ %.0161241278, %409 ], [ %.0161241278, %526 ], [ %.0161241278, %238 ]
-  %.2160 = phi i1 [ %.0158242277, %279 ], [ %.0158242277, %409 ], [ %.1159, %526 ], [ %.0158242277, %238 ]
+  %.1162 = phi i1 [ true, %279 ], [ %.0161241278, %409 ], [ %.0161241278, %526 ], [ %.0161241278, %238 ]
+  %.1159 = phi i1 [ %.0158242277, %279 ], [ %.0158242277, %409 ], [ %.2160, %526 ], [ %.0158242277, %238 ]
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258276, 1
   %539 = load i32, ptr %179, align 4
   %540 = sext i32 %539 to i64

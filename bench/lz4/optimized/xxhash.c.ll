@@ -199,14 +199,14 @@ if.then53.i52:                                    ; preds = %if.end49.i35
   br label %do.body.i58
 
 do.body.i58:                                      ; preds = %do.body.i58, %if.then53.i52
-  %p.i8.1 = phi ptr [ %p.i8.0, %if.then53.i52 ], [ %add.ptr74.i70, %do.body.i58 ]
+  %p.i8.2 = phi ptr [ %p.i8.0, %if.then53.i52 ], [ %add.ptr74.i70, %do.body.i58 ]
   %12 = phi <4 x i32> [ %11, %if.then53.i52 ], [ %17, %do.body.i58 ]
-  %13 = load <4 x i32>, ptr %p.i8.1, align 1
+  %13 = load <4 x i32>, ptr %p.i8.2, align 1
   %14 = mul <4 x i32> %13, <i32 -2048144777, i32 -2048144777, i32 -2048144777, i32 -2048144777>
   %15 = add <4 x i32> %14, %12
   %16 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %15, <4 x i32> %15, <4 x i32> <i32 13, i32 13, i32 13, i32 13>)
   %17 = mul <4 x i32> %16, <i32 -1640531535, i32 -1640531535, i32 -1640531535, i32 -1640531535>
-  %add.ptr74.i70 = getelementptr inbounds i8, ptr %p.i8.1, i64 16
+  %add.ptr74.i70 = getelementptr inbounds i8, ptr %p.i8.2, i64 16
   %cmp75.i71.not = icmp ugt ptr %add.ptr74.i70, %add.ptr50.i36
   br i1 %cmp75.i71.not, label %do.end.i72, label %do.body.i58, !llvm.loop !6
 
@@ -215,16 +215,16 @@ do.end.i72:                                       ; preds = %do.body.i58
   br label %if.end81.i38
 
 if.end81.i38:                                     ; preds = %do.end.i72, %if.end49.i35
-  %p.i8.2 = phi ptr [ %add.ptr74.i70, %do.end.i72 ], [ %p.i8.0, %if.end49.i35 ]
-  %cmp82.i39 = icmp ult ptr %p.i8.2, %add.ptr.i18
+  %p.i8.1 = phi ptr [ %add.ptr74.i70, %do.end.i72 ], [ %p.i8.0, %if.end49.i35 ]
+  %cmp82.i39 = icmp ult ptr %p.i8.1, %add.ptr.i18
   br i1 %cmp82.i39, label %if.then84.i41, label %return
 
 if.then84.i41:                                    ; preds = %if.end81.i38
   %mem3285.i42 = getelementptr inbounds i8, ptr %state_in, i64 24
   %sub.ptr.lhs.cast.i43 = ptrtoint ptr %add.ptr.i18 to i64
-  %sub.ptr.rhs.cast.i44 = ptrtoint ptr %p.i8.2 to i64
+  %sub.ptr.rhs.cast.i44 = ptrtoint ptr %p.i8.1 to i64
   %sub.ptr.sub.i45 = sub i64 %sub.ptr.lhs.cast.i43, %sub.ptr.rhs.cast.i44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem3285.i42, ptr nonnull readonly align 1 %p.i8.2, i64 %sub.ptr.sub.i45, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem3285.i42, ptr nonnull readonly align 1 %p.i8.1, i64 %sub.ptr.sub.i45, i1 false)
   %conv91.i50 = trunc i64 %sub.ptr.sub.i45 to i32
   br label %return.sink.split
 
@@ -519,35 +519,35 @@ if.then54.i43:                                    ; preds = %if.end50.i26
   br label %do.body.i49
 
 do.body.i49:                                      ; preds = %do.body.i49, %if.then54.i43
-  %p.i8.1 = phi ptr [ %p.i8.0, %if.then54.i43 ], [ %add.ptr75.i61, %do.body.i49 ]
+  %p.i8.2 = phi ptr [ %p.i8.0, %if.then54.i43 ], [ %add.ptr75.i61, %do.body.i49 ]
   %v156.i11.0 = phi i64 [ %8, %if.then54.i43 ], [ %mul1.i222, %do.body.i49 ]
   %v258.i12.0 = phi i64 [ %9, %if.then54.i43 ], [ %mul1.i226, %do.body.i49 ]
   %v360.i13.0 = phi i64 [ %10, %if.then54.i43 ], [ %mul1.i230, %do.body.i49 ]
   %v462.i14.0 = phi i64 [ %11, %if.then54.i43 ], [ %mul1.i234, %do.body.i49 ]
-  %p.i8.1.val = load i64, ptr %p.i8.1, align 1
-  %mul.i219 = mul i64 %p.i8.1.val, -4417276706812531889
+  %p.i8.2.val = load i64, ptr %p.i8.2, align 1
+  %mul.i219 = mul i64 %p.i8.2.val, -4417276706812531889
   %add.i220 = add i64 %mul.i219, %v156.i11.0
   %or.i221 = tail call i64 @llvm.fshl.i64(i64 %add.i220, i64 %add.i220, i64 31)
   %mul1.i222 = mul i64 %or.i221, -7046029288634856825
-  %add.ptr66.i52 = getelementptr inbounds i8, ptr %p.i8.1, i64 8
+  %add.ptr66.i52 = getelementptr inbounds i8, ptr %p.i8.2, i64 8
   %add.ptr66.i52.val = load i64, ptr %add.ptr66.i52, align 1
   %mul.i223 = mul i64 %add.ptr66.i52.val, -4417276706812531889
   %add.i224 = add i64 %mul.i223, %v258.i12.0
   %or.i225 = tail call i64 @llvm.fshl.i64(i64 %add.i224, i64 %add.i224, i64 31)
   %mul1.i226 = mul i64 %or.i225, -7046029288634856825
-  %add.ptr69.i55 = getelementptr inbounds i8, ptr %p.i8.1, i64 16
+  %add.ptr69.i55 = getelementptr inbounds i8, ptr %p.i8.2, i64 16
   %add.ptr69.i55.val = load i64, ptr %add.ptr69.i55, align 1
   %mul.i227 = mul i64 %add.ptr69.i55.val, -4417276706812531889
   %add.i228 = add i64 %mul.i227, %v360.i13.0
   %or.i229 = tail call i64 @llvm.fshl.i64(i64 %add.i228, i64 %add.i228, i64 31)
   %mul1.i230 = mul i64 %or.i229, -7046029288634856825
-  %add.ptr72.i58 = getelementptr inbounds i8, ptr %p.i8.1, i64 24
+  %add.ptr72.i58 = getelementptr inbounds i8, ptr %p.i8.2, i64 24
   %add.ptr72.i58.val = load i64, ptr %add.ptr72.i58, align 1
   %mul.i231 = mul i64 %add.ptr72.i58.val, -4417276706812531889
   %add.i232 = add i64 %mul.i231, %v462.i14.0
   %or.i233 = tail call i64 @llvm.fshl.i64(i64 %add.i232, i64 %add.i232, i64 31)
   %mul1.i234 = mul i64 %or.i233, -7046029288634856825
-  %add.ptr75.i61 = getelementptr inbounds i8, ptr %p.i8.1, i64 32
+  %add.ptr75.i61 = getelementptr inbounds i8, ptr %p.i8.2, i64 32
   %cmp76.i62.not = icmp ugt ptr %add.ptr75.i61, %add.ptr55.i44
   br i1 %cmp76.i62.not, label %do.end.i63, label %do.body.i49, !llvm.loop !8
 
@@ -559,16 +559,16 @@ do.end.i63:                                       ; preds = %do.body.i49
   br label %if.end82.i29
 
 if.end82.i29:                                     ; preds = %do.end.i63, %if.end50.i26
-  %p.i8.2 = phi ptr [ %add.ptr75.i61, %do.end.i63 ], [ %p.i8.0, %if.end50.i26 ]
-  %cmp83.i30 = icmp ult ptr %p.i8.2, %add.ptr.i17
+  %p.i8.1 = phi ptr [ %add.ptr75.i61, %do.end.i63 ], [ %p.i8.0, %if.end50.i26 ]
+  %cmp83.i30 = icmp ult ptr %p.i8.1, %add.ptr.i17
   br i1 %cmp83.i30, label %if.then85.i32, label %return
 
 if.then85.i32:                                    ; preds = %if.end82.i29
   %mem6486.i33 = getelementptr inbounds i8, ptr %state_in, i64 40
   %sub.ptr.lhs.cast.i34 = ptrtoint ptr %add.ptr.i17 to i64
-  %sub.ptr.rhs.cast.i35 = ptrtoint ptr %p.i8.2 to i64
+  %sub.ptr.rhs.cast.i35 = ptrtoint ptr %p.i8.1 to i64
   %sub.ptr.sub.i36 = sub i64 %sub.ptr.lhs.cast.i34, %sub.ptr.rhs.cast.i35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem6486.i33, ptr readonly align 1 %p.i8.2, i64 %sub.ptr.sub.i36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %mem6486.i33, ptr readonly align 1 %p.i8.1, i64 %sub.ptr.sub.i36, i1 false)
   %conv92.i41 = trunc i64 %sub.ptr.sub.i36 to i32
   br label %return.sink.split
 

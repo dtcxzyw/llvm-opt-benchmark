@@ -1311,7 +1311,7 @@ if.else:                                          ; preds = %if.end23
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else, %if.then26
-  %result.0 = phi ptr [ %call30, %if.else ], [ %call29, %if.then26 ]
+  %result.1 = phi ptr [ %call30, %if.else ], [ %call29, %if.then26 ]
   %12 = load i64, ptr %call20, align 8
   %13 = and i64 %12, 2147483648
   %cmp.i58.not = icmp eq i64 %13, 0
@@ -1328,12 +1328,12 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %done
 
 done:                                             ; preds = %if.end.i, %if.then1.i, %if.end31, %Py_DECREF.exit40, %Py_DECREF.exit49, %if.end10
-  %result.1 = phi ptr [ null, %if.end10 ], [ null, %Py_DECREF.exit49 ], [ null, %Py_DECREF.exit40 ], [ %result.0, %if.end31 ], [ %result.0, %if.then1.i ], [ %result.0, %if.end.i ]
+  %result.0 = phi ptr [ null, %if.end10 ], [ null, %Py_DECREF.exit49 ], [ null, %Py_DECREF.exit40 ], [ %result.1, %if.end31 ], [ %result.1, %if.then1.i ], [ %result.1, %if.end.i ]
   tail call void @Py_ReprLeave(ptr noundef nonnull %so) #10
   br label %return
 
 return:                                           ; preds = %if.then, %done, %if.then6, %if.end
-  %retval.0 = phi ptr [ %call4, %if.end ], [ %result.1, %done ], [ %call9, %if.then6 ], [ null, %if.then ]
+  %retval.0 = phi ptr [ %call4, %if.end ], [ %result.0, %done ], [ %call9, %if.then6 ], [ null, %if.then ]
   ret ptr %retval.0
 }
 
@@ -2976,8 +2976,8 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end.i.i, %for.cond.i.i
   %j.016.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 0, %if.end.i.i ]
-  %entry1.015.i.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i.i ], [ %arrayidx22.i.i, %if.end.i.i ]
-  %incdec.ptr.i.i = getelementptr i8, ptr %entry1.015.i.i, i64 16
+  %entry1.115.i.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i.i ], [ %arrayidx22.i.i, %if.end.i.i ]
+  %incdec.ptr.i.i = getelementptr i8, ptr %entry1.115.i.i, i64 16
   %25 = load ptr, ptr %incdec.ptr.i.i, align 8
   %cmp7.i.i = icmp eq ptr %25, null
   br i1 %cmp7.i.i, label %set_insert_clean.exit.i, label %for.cond.i.i
@@ -2994,9 +2994,9 @@ if.end10.i.i:                                     ; preds = %for.cond.i.i, %if.e
   br i1 %cmp.i.i, label %set_insert_clean.exit.i, label %if.end.i.i
 
 set_insert_clean.exit.i:                          ; preds = %if.end10.i.i, %for.body.i.i, %_Py_NewRef.exit60.i
-  %entry1.1.i.i = phi ptr [ %arrayidx18.i.i, %_Py_NewRef.exit60.i ], [ %incdec.ptr.i.i, %for.body.i.i ], [ %arrayidx.i.i, %if.end10.i.i ]
-  store ptr %21, ptr %entry1.1.i.i, align 8
-  %hash15.i.i = getelementptr inbounds i8, ptr %entry1.1.i.i, i64 8
+  %entry1.0.i.i = phi ptr [ %arrayidx18.i.i, %_Py_NewRef.exit60.i ], [ %incdec.ptr.i.i, %for.body.i.i ], [ %arrayidx.i.i, %if.end10.i.i ]
+  store ptr %21, ptr %entry1.0.i.i, align 8
+  %hash15.i.i = getelementptr inbounds i8, ptr %entry1.0.i.i, i64 8
   store i64 %23, ptr %hash15.i.i, align 8
   br label %for.inc62.i
 
@@ -4109,14 +4109,14 @@ Py_DECREF.exit110:                                ; preds = %if.end46, %if.then1
 
 land.rhs.preheader.i91:                           ; preds = %land.rhs.preheader.i91.lr.ph, %Py_DECREF.exit
   %so.val72143 = phi i64 [ %so.val74144, %land.rhs.preheader.i91.lr.ph ], [ %so.val72, %Py_DECREF.exit ]
-  %pos.2142 = phi i64 [ 0, %land.rhs.preheader.i91.lr.ph ], [ %inc.i103, %Py_DECREF.exit ]
+  %pos.1142 = phi i64 [ 0, %land.rhs.preheader.i91.lr.ph ], [ %inc.i103, %Py_DECREF.exit ]
   %so.val73 = load ptr, ptr %6, align 8
-  %arrayidx.i92 = getelementptr %struct.setentry, ptr %so.val73, i64 %pos.2142
+  %arrayidx.i92 = getelementptr %struct.setentry, ptr %so.val73, i64 %pos.1142
   br label %land.rhs.i93
 
 land.rhs.i93:                                     ; preds = %while.body.i102, %land.rhs.preheader.i91
   %entry1.06.i94 = phi ptr [ %incdec.ptr.i104, %while.body.i102 ], [ %arrayidx.i92, %land.rhs.preheader.i91 ]
-  %i.05.i95 = phi i64 [ %inc.i103, %while.body.i102 ], [ %pos.2142, %land.rhs.preheader.i91 ]
+  %i.05.i95 = phi i64 [ %inc.i103, %while.body.i102 ], [ %pos.1142, %land.rhs.preheader.i91 ]
   %21 = load ptr, ptr %entry1.06.i94, align 8
   %cmp3.i96 = icmp eq ptr %21, null
   %cmp5.i97 = icmp eq ptr %21, @_dummy_struct
@@ -5666,8 +5666,8 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.cond.i
   %j.016.i = phi i64 [ %inc.i, %for.cond.i ], [ 0, %if.end.i ]
-  %entry1.015.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %arrayidx22.i, %if.end.i ]
-  %incdec.ptr.i = getelementptr i8, ptr %entry1.015.i, i64 16
+  %entry1.115.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %arrayidx22.i, %if.end.i ]
+  %incdec.ptr.i = getelementptr i8, ptr %entry1.115.i, i64 16
   %9 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp7.i = icmp eq ptr %9, null
   br i1 %cmp7.i, label %set_insert_clean.exit, label %for.cond.i
@@ -5684,9 +5684,9 @@ if.end10.i:                                       ; preds = %for.cond.i, %if.end
   br i1 %cmp.i, label %set_insert_clean.exit, label %if.end.i
 
 set_insert_clean.exit:                            ; preds = %if.end10.i, %for.body.i, %if.then37
-  %entry1.1.i = phi ptr [ %arrayidx18.i, %if.then37 ], [ %incdec.ptr.i, %for.body.i ], [ %arrayidx.i, %if.end10.i ]
-  store ptr %6, ptr %entry1.1.i, align 8
-  %hash15.i = getelementptr inbounds i8, ptr %entry1.1.i, i64 8
+  %entry1.0.i = phi ptr [ %arrayidx18.i, %if.then37 ], [ %incdec.ptr.i, %for.body.i ], [ %arrayidx.i, %if.end10.i ]
+  store ptr %6, ptr %entry1.0.i, align 8
+  %hash15.i = getelementptr inbounds i8, ptr %entry1.0.i, i64 8
   store i64 %7, ptr %hash15.i, align 8
   br label %for.inc
 
@@ -5733,8 +5733,8 @@ for.cond.i60:                                     ; preds = %for.body.i55
 
 for.body.i55:                                     ; preds = %if.end.i49, %for.cond.i60
   %j.016.i56 = phi i64 [ %inc.i61, %for.cond.i60 ], [ 0, %if.end.i49 ]
-  %entry1.015.i57 = phi ptr [ %incdec.ptr.i58, %for.cond.i60 ], [ %arrayidx22.i50, %if.end.i49 ]
-  %incdec.ptr.i58 = getelementptr i8, ptr %entry1.015.i57, i64 16
+  %entry1.115.i57 = phi ptr [ %incdec.ptr.i58, %for.cond.i60 ], [ %arrayidx22.i50, %if.end.i49 ]
+  %incdec.ptr.i58 = getelementptr i8, ptr %entry1.115.i57, i64 16
   %14 = load ptr, ptr %incdec.ptr.i58, align 8
   %cmp7.i59 = icmp eq ptr %14, null
   br i1 %cmp7.i59, label %set_insert_clean.exit73, label %for.cond.i60
@@ -5751,9 +5751,9 @@ if.end10.i63:                                     ; preds = %for.cond.i60, %if.e
   br i1 %cmp.i70, label %set_insert_clean.exit73, label %if.end.i49
 
 set_insert_clean.exit73:                          ; preds = %if.end10.i63, %for.body.i55, %if.then54
-  %entry1.1.i71 = phi ptr [ %arrayidx18.i47, %if.then54 ], [ %incdec.ptr.i58, %for.body.i55 ], [ %arrayidx.i69, %if.end10.i63 ]
-  store ptr %11, ptr %entry1.1.i71, align 8
-  %hash15.i72 = getelementptr inbounds i8, ptr %entry1.1.i71, i64 8
+  %entry1.0.i71 = phi ptr [ %arrayidx18.i47, %if.then54 ], [ %incdec.ptr.i58, %for.body.i55 ], [ %arrayidx.i69, %if.end10.i63 ]
+  store ptr %11, ptr %entry1.0.i71, align 8
+  %hash15.i72 = getelementptr inbounds i8, ptr %entry1.0.i71, i64 8
   store i64 %12, ptr %hash15.i72, align 8
   br label %for.inc58
 

@@ -682,8 +682,8 @@ define hidden void @delete_thread_info(ptr nocapture noundef %0, ptr noundef rea
   br label %19
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.01519 = phi ptr [ %10, %.lr.ph ], [ %4, %.preheader ]
-  %9 = getelementptr inbounds i8, ptr %.01519, i64 224
+  %.119 = phi ptr [ %10, %.lr.ph ], [ %4, %.preheader ]
+  %9 = getelementptr inbounds i8, ptr %.119, i64 224
   %10 = load ptr, ptr %9, align 8
   %11 = icmp ne ptr %10, null
   %12 = icmp ne ptr %10, %1
@@ -701,17 +701,17 @@ define hidden void @delete_thread_info(ptr nocapture noundef %0, ptr noundef rea
 15:                                               ; preds = %._crit_edge
   %16 = getelementptr inbounds i8, ptr %10, i64 224
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.01519, i64 224
+  %18 = getelementptr inbounds i8, ptr %.119, i64 224
   store ptr %17, ptr %18, align 8
   br label %19
 
 19:                                               ; preds = %15, %6
-  %.1 = phi ptr [ %4, %6 ], [ %10, %15 ]
+  %.015 = phi ptr [ %4, %6 ], [ %10, %15 ]
   %20 = getelementptr inbounds i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = add nsw i32 %21, -1
   store i32 %22, ptr %20, align 8
-  tail call void @free(ptr noundef nonnull %.1) #21
+  tail call void @free(ptr noundef nonnull %.015) #21
   br label %23
 
 23:                                               ; preds = %19, %._crit_edge.thread

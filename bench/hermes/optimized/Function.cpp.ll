@@ -333,8 +333,8 @@ _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit: ;
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i, %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEN4llvh9StringRefE.exit, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit
-  %retval.sroa.0.0 = phi i32 [ %35, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ], [ 0, %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEN4llvh9StringRefE.exit ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i ]
-  %retval.sroa.8.0 = phi i64 [ %36, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ], [ undef, %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEN4llvh9StringRefE.exit ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i ]
+  %retval.sroa.0.1 = phi i32 [ %35, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ], [ 0, %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEN4llvh9StringRefE.exit ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i ]
+  %retval.sroa.8.1 = phi i64 [ %36, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit ], [ undef, %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEN4llvh9StringRefE.exit ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i ]
   %37 = load ptr, ptr %strBuf, align 8
   %cmp.i.i.i.i = icmp eq ptr %37, %add.ptr.i.i.i.i.i.i38
   br i1 %cmp.i.i.i.i, label %cleanup89, label %if.then.i.i.i71
@@ -713,8 +713,8 @@ _ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit322
   br label %cleanup88
 
 cleanup88:                                        ; preds = %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEc.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i173, %if.end49, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit322
-  %retval.sroa.0.1 = phi i32 [ %80, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit322 ], [ 0, %if.end49 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i173 ], [ 0, %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEc.exit ]
-  %retval.sroa.8.1 = phi i64 [ %81, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit322 ], [ undef, %if.end49 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i173 ], [ undef, %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEc.exit ]
+  %retval.sroa.0.2 = phi i32 [ %80, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit322 ], [ 0, %if.end49 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i173 ], [ 0, %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEc.exit ]
+  %retval.sroa.8.2 = phi i64 [ %81, %_ZN6hermes2vm15StringPrimitive6createERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit322 ], [ undef, %if.end49 ], [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit.i173 ], [ undef, %_ZN6hermes2vm12SmallXStringIDsLj64EE6appendEc.exit ]
   %82 = load ptr, ptr %strBuf33, align 8
   %cmp.i.i.i.i324 = icmp eq ptr %82, %add.ptr.i.i.i.i.i.i72
   br i1 %cmp.i.i.i.i324, label %cleanup89, label %if.then.i.i.i325
@@ -724,11 +724,11 @@ if.then.i.i.i325:                                 ; preds = %cleanup88
   br label %cleanup89
 
 cleanup89:                                        ; preds = %if.then.i.i.i325, %cleanup88, %if.then.i.i.i71, %cleanup, %if.else, %if.then
-  %retval.sroa.0.2 = phi i32 [ 1, %if.else ], [ %call3, %if.then ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %if.then.i.i.i71 ], [ %retval.sroa.0.1, %cleanup88 ], [ %retval.sroa.0.1, %if.then.i.i.i325 ]
-  %retval.sroa.8.2 = phi i64 [ %or.i.i.i, %if.else ], [ undef, %if.then ], [ %retval.sroa.8.0, %cleanup ], [ %retval.sroa.8.0, %if.then.i.i.i71 ], [ %retval.sroa.8.1, %cleanup88 ], [ %retval.sroa.8.1, %if.then.i.i.i325 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.else ], [ %call3, %if.then ], [ %retval.sroa.0.1, %cleanup ], [ %retval.sroa.0.1, %if.then.i.i.i71 ], [ %retval.sroa.0.2, %cleanup88 ], [ %retval.sroa.0.2, %if.then.i.i.i325 ]
+  %retval.sroa.8.0 = phi i64 [ %or.i.i.i, %if.else ], [ undef, %if.then ], [ %retval.sroa.8.1, %cleanup ], [ %retval.sroa.8.1, %if.then.i.i.i71 ], [ %retval.sroa.8.2, %cleanup88 ], [ %retval.sroa.8.2, %if.then.i.i.i325 ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #13
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.2, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.8.2, 1
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.8.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 
@@ -880,8 +880,8 @@ if.end20:                                         ; preds = %_ZNK6hermes2vm10Nat
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end20, %if.then18
-  %retval.sroa.0.0 = phi i32 [ %call19, %if.then18 ], [ %18, %if.end20 ]
-  %retval.sroa.6.0 = phi i64 [ undef, %if.then18 ], [ %19, %if.end20 ]
+  %retval.sroa.0.1 = phi i32 [ %call19, %if.then18 ], [ %18, %if.end20 ]
+  %retval.sroa.6.1 = phi i64 [ undef, %if.then18 ], [ %19, %if.end20 ]
   %20 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
   %dec.i = add i32 %20, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i.i, align 8
@@ -931,11 +931,11 @@ if.end40:                                         ; preds = %_ZN6hermes2vm6Handl
   br label %cleanup62
 
 cleanup62:                                        ; preds = %if.end40, %if.then37, %cleanup, %if.then
-  %retval.sroa.0.1 = phi i32 [ %retval.sroa.0.0, %cleanup ], [ %27, %if.end40 ], [ %call39, %if.then37 ], [ %call3, %if.then ]
-  %retval.sroa.6.1 = phi i64 [ %retval.sroa.6.0, %cleanup ], [ %28, %if.end40 ], [ undef, %if.then37 ], [ undef, %if.then ]
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.1, %cleanup ], [ %27, %if.end40 ], [ %call39, %if.then37 ], [ %call3, %if.then ]
+  %retval.sroa.6.0 = phi i64 [ %retval.sroa.6.1, %cleanup ], [ %28, %if.end40 ], [ undef, %if.then37 ], [ undef, %if.then ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #13
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.1, 1
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 
@@ -1098,8 +1098,8 @@ for.end:                                          ; preds = %_ZNK6hermes2vm10Nat
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end, %if.then10
-  %retval.sroa.0.0 = phi i32 [ %call11, %if.then10 ], [ %spec.select, %for.end ]
-  %retval.sroa.5.0 = phi i64 [ undef, %if.then10 ], [ %spec.select34, %for.end ]
+  %retval.sroa.0.1 = phi i32 [ %call11, %if.then10 ], [ %spec.select, %for.end ]
+  %retval.sroa.5.1 = phi i64 [ undef, %if.then10 ], [ %spec.select34, %for.end ]
   %20 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
   %dec.i = add i32 %20, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i.i, align 8
@@ -1107,10 +1107,10 @@ cleanup:                                          ; preds = %for.end, %if.then10
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.sroa.0.1 = phi i32 [ %retval.sroa.0.0, %cleanup ], [ %call3, %if.then ]
-  %retval.sroa.5.1 = phi i64 [ %retval.sroa.5.0, %cleanup ], [ undef, %if.then ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.5.1, 1
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.1, %cleanup ], [ %call3, %if.then ]
+  %retval.sroa.5.0 = phi i64 [ %retval.sroa.5.1, %cleanup ], [ undef, %if.then ]
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 

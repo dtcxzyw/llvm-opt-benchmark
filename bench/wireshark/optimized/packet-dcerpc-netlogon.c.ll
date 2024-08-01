@@ -4731,26 +4731,26 @@ dissect_dcerpc_8bytes.exit:                       ; preds = %28, %30
   br i1 %exitcond183.not, label %.loopexit, label %136, !llvm.loop !11
 
 .loopexit124:                                     ; preds = %116, %140
-  %.2 = phi ptr [ %138, %140 ], [ %88, %116 ]
+  %.194 = phi ptr [ %138, %140 ], [ %88, %116 ]
   %.092 = phi ptr [ @.str.1038, %140 ], [ @.str.413, %116 ]
   %144 = getelementptr inbounds i8, ptr %.095148, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(273) %144, ptr noundef nonnull align 1 dereferenceable(273) %.2, i64 273, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(273) %144, ptr noundef nonnull align 1 dereferenceable(273) %.194, i64 273, i1 false)
   %145 = load i32, ptr %68, align 4
   %146 = getelementptr inbounds i8, ptr %.095148, i64 292
   store i32 %145, ptr %146, align 4
   %147 = getelementptr inbounds i8, ptr %.095148, i64 296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %147, ptr noundef nonnull align 16 dereferenceable(16) %11, i64 16, i1 false)
   %148 = call ptr @proto_tree_get_parent(ptr noundef %3) #9
-  %149 = getelementptr inbounds i8, ptr %.2, i64 16
-  %150 = load i8, ptr %.2, align 1
+  %149 = getelementptr inbounds i8, ptr %.194, i64 16
+  %150 = load i8, ptr %.194, align 1
   %151 = zext i8 %150 to i32
-  %152 = getelementptr i8, ptr %.2, i64 1
+  %152 = getelementptr i8, ptr %.194, i64 1
   %153 = load i8, ptr %152, align 1
   %154 = zext i8 %153 to i32
-  %155 = getelementptr i8, ptr %.2, i64 2
+  %155 = getelementptr i8, ptr %.194, i64 2
   %156 = load i8, ptr %155, align 1
   %157 = zext i8 %156 to i32
-  %158 = getelementptr i8, ptr %.2, i64 3
+  %158 = getelementptr i8, ptr %.194, i64 3
   %159 = load i8, ptr %158, align 1
   %160 = zext i8 %159 to i32
   %161 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %148, ptr noundef nonnull @ei_netlogon_auth_nthash, ptr noundef nonnull @.str.1040, ptr noundef nonnull %.092, ptr noundef nonnull %149, i32 noundef %151, i32 noundef %154, i32 noundef %157, i32 noundef %160) #9
@@ -7326,7 +7326,7 @@ dissect_dcerpc_8bytes.exit82:                     ; preds = %85, %87
   %.088 = phi i64 [ undef, %36 ], [ %62, %dissect_dcerpc_8bytes.exit79 ], [ %62, %dissect_dcerpc_8bytes.exit82 ]
   %.087 = phi i64 [ 0, %36 ], [ %73, %dissect_dcerpc_8bytes.exit79 ], [ %73, %dissect_dcerpc_8bytes.exit82 ]
   %.0 = phi i64 [ 0, %36 ], [ 0, %dissect_dcerpc_8bytes.exit79 ], [ %86, %dissect_dcerpc_8bytes.exit82 ]
-  %.1 = phi i32 [ %1, %36 ], [ %76, %dissect_dcerpc_8bytes.exit79 ], [ %89, %dissect_dcerpc_8bytes.exit82 ]
+  %.065 = phi i32 [ %1, %36 ], [ %76, %dissect_dcerpc_8bytes.exit79 ], [ %89, %dissect_dcerpc_8bytes.exit82 ]
   %.062 = phi ptr [ null, %36 ], [ %45, %dissect_dcerpc_8bytes.exit79 ], [ %45, %dissect_dcerpc_8bytes.exit82 ]
   %.not71 = phi i1 [ true, %36 ], [ false, %dissect_dcerpc_8bytes.exit79 ], [ false, %dissect_dcerpc_8bytes.exit82 ]
   %.not68 = icmp eq ptr %35, null
@@ -7564,7 +7564,7 @@ uncrypt_sequence.exit:                            ; preds = %uncrypt_sequence_ae
   br label %.loopexit
 
 .loopexit:                                        ; preds = %98, %181
-  ret i32 %.1
+  ret i32 %.065
 }
 
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1

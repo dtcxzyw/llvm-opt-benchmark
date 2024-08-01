@@ -178,7 +178,7 @@ phpdbg_free_err_buf.exit:                         ; preds = %17, %20
   br label %59
 
 59:                                               ; preds = %57, %55
-  %.0.i = phi i32 [ %56, %55 ], [ 1, %57 ]
+  %.1.i = phi i32 [ %56, %55 ], [ 1, %57 ]
   store i8 1, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1608), align 8
   br label %91
 
@@ -240,8 +240,8 @@ phpdbg_free_err_buf.exit:                         ; preds = %17, %20
   unreachable
 
 91:                                               ; preds = %83, %61, %59, %52, %48, %38, %34
-  %.1.i = phi i32 [ %89, %83 ], [ %.018, %61 ], [ %.0.i, %59 ], [ %51, %48 ], [ %53, %52 ], [ %37, %34 ], [ %39, %38 ]
-  %.not42.i = icmp eq i32 %.1.i, -1
+  %.0.i = phi i32 [ %89, %83 ], [ %.018, %61 ], [ %.1.i, %59 ], [ %51, %48 ], [ %53, %52 ], [ %37, %34 ], [ %39, %38 ]
+  %.not42.i = icmp eq i32 %.0.i, -1
   br i1 %.not42.i, label %phpdbg_process_print.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %91
@@ -250,14 +250,14 @@ phpdbg_free_err_buf.exit:                         ; preds = %17, %20
 
 92:                                               ; preds = %._crit_edge.i, %.thread45.i
   %93 = phi ptr [ %69, %.thread45.i ], [ %.pre.i, %._crit_edge.i ]
-  %.148.i = phi i32 [ 0, %.thread45.i ], [ %.1.i, %._crit_edge.i ]
-  %94 = call i32 @phpdbg_mixed_write(i32 noundef %1, ptr noundef %93, i32 noundef %.148.i) #10
+  %.048.i = phi i32 [ 0, %.thread45.i ], [ %.0.i, %._crit_edge.i ]
+  %94 = call i32 @phpdbg_mixed_write(i32 noundef %1, ptr noundef %93, i32 noundef %.048.i) #10
   %95 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %95) #10
   br label %phpdbg_process_print.exit
 
 phpdbg_process_print.exit:                        ; preds = %70, %71, %79, %80, %91, %92
-  %.034.i = phi i32 [ %.018, %71 ], [ %.018, %70 ], [ %.148.i, %92 ], [ -1, %91 ], [ -1, %79 ], [ -1, %80 ]
+  %.034.i = phi i32 [ %.018, %71 ], [ %.018, %70 ], [ %.048.i, %92 ], [ -1, %91 ], [ -1, %79 ], [ -1, %80 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %.pre = load ptr, ptr %7, align 8

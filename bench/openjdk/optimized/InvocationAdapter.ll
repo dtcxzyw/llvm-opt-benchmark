@@ -501,8 +501,8 @@ splitPathList.exit:                               ; preds = %16, %20, %7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %148
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %148 ]
-  %.022 = phi ptr [ null, %.lr.ph.preheader ], [ %.3, %148 ]
-  %.06021 = phi i32 [ 0, %.lr.ph.preheader ], [ %.363, %148 ]
+  %.022 = phi ptr [ null, %.lr.ph.preheader ], [ %.1, %148 ]
+  %.06021 = phi i32 [ 0, %.lr.ph.preheader ], [ %.161, %148 ]
   %25 = getelementptr inbounds ptr, ptr %.123.i, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = call noalias ptr @strdup(ptr noundef %26) #15
@@ -562,12 +562,12 @@ splitPathList.exit:                               ; preds = %16, %20, %7
   %.03863.i = phi ptr [ %47, %.lr.ph.i ], [ %.038.be.i, %.backedge.i ]
   %.03962.i = phi i32 [ %52, %.lr.ph.i ], [ %.039.be.i, %.backedge.i ]
   %.04261.i = phi i32 [ 0, %.lr.ph.i ], [ %.042.be.i, %.backedge.i ]
-  %.not.i85 = icmp eq i32 %.03962.i, 37
-  br i1 %.not.i85, label %.preheader.preheader.i, label %56
+  %.not.i86 = icmp eq i32 %.03962.i, 37
+  br i1 %.not.i86, label %.preheader.preheader.i, label %56
 
 .preheader.preheader.i:                           ; preds = %54
   %55 = sext i32 %.04261.i to i64
-  br label %.preheader.i86
+  br label %.preheader.i87
 
 56:                                               ; preds = %54
   %57 = trunc nsw i32 %.03962.i to i8
@@ -595,18 +595,18 @@ splitPathList.exit:                               ; preds = %16, %20, %7
   %66 = icmp slt i32 %.042.be.i, %39
   br i1 %66, label %54, label %._crit_edge.i, !llvm.loop !9
 
-.preheader.i86:                                   ; preds = %89, %.preheader.preheader.i
-  %indvars.iv.i87 = phi i64 [ %55, %.preheader.preheader.i ], [ %indvars.iv.next.i89, %89 ]
-  %.1.i88 = phi ptr [ %.03863.i, %.preheader.preheader.i ], [ %88, %89 ]
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i87
+.preheader.i87:                                   ; preds = %89, %.preheader.preheader.i
+  %indvars.iv.i88 = phi i64 [ %55, %.preheader.preheader.i ], [ %indvars.iv.next.i89, %89 ]
+  %.2.i = phi ptr [ %.03863.i, %.preheader.preheader.i ], [ %88, %89 ]
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i88
   %67 = load i8, ptr %gep.i, align 1
-  %gep60.i = getelementptr i8, ptr %invariant.gep59.i, i64 %indvars.iv.i87
+  %gep60.i = getelementptr i8, ptr %invariant.gep59.i, i64 %indvars.iv.i88
   %68 = load i8, ptr %gep60.i, align 1
   %69 = add i8 %67, -48
   %or.cond.i.i.i = icmp ult i8 %69, 10
   br i1 %or.cond.i.i.i, label %decodeNibble.exit.i.i, label %70
 
-70:                                               ; preds = %.preheader.i86
+70:                                               ; preds = %.preheader.i87
   %71 = add i8 %67, -97
   %or.cond5.i.i.i = icmp ult i8 %71, 6
   br i1 %or.cond5.i.i.i, label %72, label %74
@@ -622,8 +622,8 @@ splitPathList.exit:                               ; preds = %16, %20, %7
   %spec.select.i.i.i = select i1 %or.cond8.i.i.i, i8 %76, i8 -1
   br label %decodeNibble.exit.i.i
 
-decodeNibble.exit.i.i:                            ; preds = %74, %72, %.preheader.i86
-  %.0.i.i.i = phi i8 [ %73, %72 ], [ %spec.select.i.i.i, %74 ], [ %69, %.preheader.i86 ]
+decodeNibble.exit.i.i:                            ; preds = %74, %72, %.preheader.i87
+  %.0.i.i.i = phi i8 [ %73, %72 ], [ %spec.select.i.i.i, %74 ], [ %69, %.preheader.i87 ]
   %77 = add i8 %68, -48
   %or.cond.i2.i.i = icmp ult i8 %77, 10
   br i1 %or.cond.i2.i.i, label %decodeByte.exit.i, label %78
@@ -649,9 +649,9 @@ decodeByte.exit.i:                                ; preds = %82, %80, %decodeNib
   %85 = shl i8 %.0.i.i.i, 4
   %86 = and i8 %.0.i6.i.i, 15
   %87 = or disjoint i8 %86, %85
-  %88 = getelementptr inbounds i8, ptr %.1.i88, i64 1
-  store i8 %87, ptr %.1.i88, align 1
-  %indvars.iv.next.i89 = add nsw i64 %indvars.iv.i87, 3
+  %88 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  store i8 %87, ptr %.2.i, align 1
+  %indvars.iv.next.i89 = add nsw i64 %indvars.iv.i88, 3
   %.not50.i = icmp slt i64 %indvars.iv.next.i89, %53
   br i1 %.not50.i, label %89, label %.backedge.loopexit.i
 
@@ -659,7 +659,7 @@ decodeByte.exit.i:                                ; preds = %82, %80, %decodeNib
   %90 = getelementptr inbounds i8, ptr %27, i64 %indvars.iv.next.i89
   %91 = load i8, ptr %90, align 1
   %.not51.i = icmp eq i8 %91, 37
-  br i1 %.not51.i, label %.preheader.i86, label %.split.loop.exit.i
+  br i1 %.not51.i, label %.preheader.i87, label %.split.loop.exit.i
 
 .split.loop.exit.i:                               ; preds = %89
   %92 = trunc nsw i64 %indvars.iv.next.i89 to i32
@@ -667,8 +667,8 @@ decodeByte.exit.i:                                ; preds = %82, %80, %decodeNib
   br label %.backedge.i
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %56, %49
-  %.2.i = phi ptr [ %47, %49 ], [ %.038.be.i, %.backedge.i ], [ %58, %56 ]
-  %94 = ptrtoint ptr %.2.i to i64
+  %.1.i85 = phi ptr [ %47, %49 ], [ %.038.be.i, %.backedge.i ], [ %58, %56 ]
+  %94 = ptrtoint ptr %.1.i85 to i64
   %95 = ptrtoint ptr %47 to i64
   %96 = sub i64 %94, %95
   %97 = trunc i64 %96 to i32
@@ -758,8 +758,8 @@ decodePath.exit.thread:                           ; preds = %41, %37, %98, %deco
   br label %133
 
 133:                                              ; preds = %129, %123
-  %.1 = phi ptr [ %.022, %123 ], [ %130, %129 ]
-  %134 = call ptr @resolve(ptr noundef %.1, ptr noundef %.268) #15
+  %.3 = phi ptr [ %.022, %123 ], [ %130, %129 ]
+  %134 = call ptr @resolve(ptr noundef %.3, ptr noundef %.268) #15
   %135 = load ptr, ptr %.8.val, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 1184
   %137 = load ptr, ptr %136, align 8
@@ -770,7 +770,7 @@ decodePath.exit.thread:                           ; preds = %41, %37, %98, %deco
 139:                                              ; preds = %133, %118
   %.065 = phi i32 [ %122, %118 ], [ %138, %133 ]
   %.262 = phi i32 [ %.06021, %118 ], [ 1, %133 ]
-  %.2 = phi ptr [ %.022, %118 ], [ %.1, %133 ]
+  %.2 = phi ptr [ %.022, %118 ], [ %.3, %133 ]
   switch i32 %.065, label %140 [
     i32 0, label %.sink.split
     i32 112, label %._crit_edge.thread
@@ -793,26 +793,26 @@ decodePath.exit.thread:                           ; preds = %41, %37, %98, %deco
 
 .sink.split:                                      ; preds = %146, %144, %139, %34, %126
   %.268.sink = phi ptr [ %.268, %126 ], [ %27, %34 ], [ %.268, %139 ], [ %.268, %144 ], [ %.268, %146 ]
-  %.363.ph = phi i32 [ 0, %126 ], [ %.06021, %34 ], [ %.262, %139 ], [ %.262, %144 ], [ %.262, %146 ]
-  %.3.ph = phi ptr [ %.022, %126 ], [ %.022, %34 ], [ %.2, %139 ], [ %.2, %144 ], [ %.2, %146 ]
+  %.161.ph = phi i32 [ 0, %126 ], [ %.06021, %34 ], [ %.262, %139 ], [ %.262, %144 ], [ %.262, %146 ]
+  %.1.ph = phi ptr [ %.022, %126 ], [ %.022, %34 ], [ %.2, %139 ], [ %.2, %144 ], [ %.2, %146 ]
   call void @free(ptr noundef %.268.sink) #15
   br label %148
 
 148:                                              ; preds = %.sink.split, %decodePath.exit.thread
-  %.363 = phi i32 [ %.06021, %decodePath.exit.thread ], [ %.363.ph, %.sink.split ]
-  %.3 = phi ptr [ %.022, %decodePath.exit.thread ], [ %.3.ph, %.sink.split ]
+  %.161 = phi i32 [ %.06021, %decodePath.exit.thread ], [ %.161.ph, %.sink.split ]
+  %.1 = phi ptr [ %.022, %decodePath.exit.thread ], [ %.1.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %148
-  %149 = icmp ne i32 %.363, 0
-  %150 = icmp ne ptr %.3, %3
+  %149 = icmp ne i32 %.161, 0
+  %150 = icmp ne ptr %.1, %3
   %or.cond = select i1 %149, i1 %150, i1 false
   br i1 %or.cond, label %151, label %._crit_edge.thread
 
 151:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef %.3) #15
+  call void @free(ptr noundef %.1) #15
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %139, %._crit_edge, %151, %splitPathList.exit, %15, %2
@@ -1035,14 +1035,14 @@ appendClassPath.exit:                             ; preds = %37
   br label %102
 
 102:                                              ; preds = %.critedge81, %.critedge
-  %.054 = phi i32 [ %11, %.critedge ], [ 102, %.critedge81 ]
+  %.155 = phi i32 [ %11, %.critedge ], [ 102, %.critedge81 ]
   call void @free(ptr noundef nonnull %.05388) #15
   call void @freeAttributes(ptr noundef nonnull %21) #15
   br label %103
 
 103:                                              ; preds = %102, %15
-  %.155 = phi i32 [ %.054, %102 ], [ %11, %15 ]
-  %104 = or i32 %.155, %18
+  %.054 = phi i32 [ %.155, %102 ], [ %11, %15 ]
+  %104 = or i32 %.054, %18
   %or.cond5.not = icmp eq i32 %104, 0
   br i1 %or.cond5.not, label %106, label %105
 
@@ -1060,7 +1060,7 @@ appendClassPath.exit:                             ; preds = %37
   br label %109
 
 109:                                              ; preds = %106, %108, %23, %27, %3, %78, %66, %55, %36
-  %.0 = phi i32 [ 100, %36 ], [ 101, %55 ], [ 100, %66 ], [ -4, %78 ], [ -4, %3 ], [ 100, %27 ], [ 100, %23 ], [ %.155, %108 ], [ %.155, %106 ]
+  %.0 = phi i32 [ 100, %36 ], [ 101, %55 ], [ 100, %66 ], [ -4, %78 ], [ -4, %3 ], [ 100, %27 ], [ 100, %23 ], [ %.054, %108 ], [ %.054, %106 ]
   ret i32 %.0
 }
 
@@ -1158,7 +1158,7 @@ define hidden range(i32 -1, 1) i32 @loadAgent(ptr noundef %0, ptr noundef %1) lo
   br label %.thread107
 
 46:                                               ; preds = %.thread84, %37
-  %.06286 = phi ptr [ %36, %.thread84 ], [ %38, %37 ]
+  %.186 = phi ptr [ %36, %.thread84 ], [ %38, %37 ]
   %47 = call ptr @getAttribute(ptr noundef nonnull %20, ptr noundef nonnull @.str.11) #15
   %.not74 = icmp eq ptr %47, null
   br i1 %.not74, label %51, label %48
@@ -1188,7 +1188,7 @@ define hidden range(i32 -1, 1) i32 @loadAgent(ptr noundef %0, ptr noundef %1) lo
   %59 = load ptr, ptr %4, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 72
   %61 = load ptr, ptr %60, align 8
-  %62 = call zeroext i8 @startJavaAgent(ptr noundef %59, ptr noundef nonnull %0, ptr noundef nonnull %.06286, ptr noundef nonnull @.str.31, ptr noundef %61) #15
+  %62 = call zeroext i8 @startJavaAgent(ptr noundef %59, ptr noundef nonnull %0, ptr noundef nonnull %.186, ptr noundef nonnull @.str.31, ptr noundef %61) #15
   %.not77 = icmp ne i8 %62, 0
   %not..not77 = xor i1 %.not77, true
   %spec.select82 = sext i1 %not..not77 to i32
@@ -1199,10 +1199,10 @@ define hidden range(i32 -1, 1) i32 @loadAgent(ptr noundef %0, ptr noundef %1) lo
   br label %.sink.split
 
 63:                                               ; preds = %58, %55, %51, %25
-  %.1 = phi ptr [ %23, %25 ], [ %.06286, %55 ], [ %.06286, %51 ], [ %.06286, %58 ]
+  %.062 = phi ptr [ %23, %25 ], [ %.186, %55 ], [ %.186, %51 ], [ %.186, %58 ]
   %.not81 = phi i1 [ false, %25 ], [ false, %55 ], [ false, %51 ], [ %.not77, %58 ]
   %.061 = phi i32 [ -1, %25 ], [ -1, %55 ], [ -1, %51 ], [ %spec.select82, %58 ]
-  call void @free(ptr noundef nonnull %.1) #15
+  call void @free(ptr noundef nonnull %.062) #15
   call void @freeAttributes(ptr noundef nonnull %20) #15
   br i1 %.not81, label %67, label %.sink.split
 

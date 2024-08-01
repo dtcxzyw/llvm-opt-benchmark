@@ -110,8 +110,8 @@ if.else.i.i:                                      ; preds = %if.end9.i.i
   br i1 %cmp16.i.i, label %lor.rhs.i, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %if.else.i.i, %do.body.i.i
-  %loindex.0.i.i = phi i64 [ %dec.i.i, %do.body.i.i ], [ %retval.0.i.i.i, %if.else.i.i ]
-  %dec.i.i = add nsw i64 %loindex.0.i.i, -1
+  %loindex.1.i.i = phi i64 [ %dec.i.i, %do.body.i.i ], [ %retval.0.i.i.i, %if.else.i.i ]
+  %dec.i.i = add nsw i64 %loindex.1.i.i, -1
   %arrayidx20.i.i = getelementptr inbounds [20481 x i64], ptr @mi_segment_map, i64 0, i64 %dec.i.i
   %3 = load atomic i64, ptr %arrayidx20.i.i monotonic, align 8
   %cmp22.i.i = icmp ne i64 %3, 0
@@ -125,10 +125,10 @@ do.end.i.i:                                       ; preds = %do.body.i.i
 
 if.end32.i.i:                                     ; preds = %do.end.i.i, %if.end9.i.i
   %.lcssa.sink.i.i = phi i64 [ %and11.i.i, %if.end9.i.i ], [ %3, %do.end.i.i ]
-  %loindex.1.i.i = phi i64 [ %retval.0.i.i.i, %if.end9.i.i ], [ %dec.i.i, %do.end.i.i ]
+  %loindex.0.i.i = phi i64 [ %retval.0.i.i.i, %if.end9.i.i ], [ %dec.i.i, %do.end.i.i ]
   %5 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %.lcssa.sink.i.i, i1 true)
   %lobitidx.0.i.i = xor i64 %5, 63
-  %sub33.neg.i.i = sub i64 %loindex.1.i.i, %retval.0.i.i.i
+  %sub33.neg.i.i = sub i64 %loindex.0.i.i, %retval.0.i.i.i
   %add.neg.i.i = sub nsw i64 %lobitidx.0.i.i, %rem.sink.i.i.i
   %6 = shl i64 %sub33.neg.i.i, 31
   %7 = shl nsw i64 %add.neg.i.i, 25

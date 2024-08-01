@@ -180,51 +180,51 @@ define internal i32 @dissect_syslog(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %13
 
 13:                                               ; preds = %.lr.ph, %21
-  %.0110 = phi i32 [ 0, %.lr.ph ], [ %26, %21 ]
-  %.090109 = phi i32 [ 1, %.lr.ph ], [ %27, %21 ]
-  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.090109) #4
+  %.1110 = phi i32 [ 0, %.lr.ph ], [ %26, %21 ]
+  %.191109 = phi i32 [ 1, %.lr.ph ], [ %27, %21 ]
+  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.191109) #4
   %15 = zext i8 %14 to i64
   %16 = getelementptr i16, ptr %12, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8
   %19 = icmp ne i16 %18, 0
-  %20 = icmp ult i32 %.090109, 4
+  %20 = icmp ult i32 %.191109, 4
   %or.cond = and i1 %20, %19
   br i1 %or.cond, label %21, label %.critedge
 
 21:                                               ; preds = %13
-  %22 = mul i32 %.0110, 10
-  %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.090109) #4
+  %22 = mul i32 %.1110, 10
+  %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.191109) #4
   %24 = zext i8 %23 to i32
   %25 = add i32 %22, -48
   %26 = add i32 %25, %24
-  %27 = add nuw nsw i32 %.090109, 1
+  %27 = add nuw nsw i32 %.191109, 1
   %28 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %27, i32 noundef 1) #4
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %.critedge, label %13, !llvm.loop !4
 
 .critedge:                                        ; preds = %21, %13, %.preheader
-  %.090.lcssa = phi i32 [ 1, %.preheader ], [ %.090109, %13 ], [ %27, %21 ]
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.0110, %13 ], [ %26, %21 ]
-  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.090.lcssa) #4
+  %.191.lcssa = phi i32 [ 1, %.preheader ], [ %.191109, %13 ], [ %27, %21 ]
+  %.1.lcssa = phi i32 [ 0, %.preheader ], [ %.1110, %13 ], [ %26, %21 ]
+  %29 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.191.lcssa) #4
   %30 = icmp eq i8 %29, 62
   %31 = zext i1 %30 to i32
-  %spec.select = add nuw nsw i32 %.090.lcssa, %31
-  %32 = lshr i32 %.0.lcssa, 3
+  %spec.select = add nuw nsw i32 %.191.lcssa, %31
+  %32 = lshr i32 %.1.lcssa, 3
   %33 = and i32 %32, 127
-  %34 = and i32 %.0.lcssa, 7
+  %34 = and i32 %.1.lcssa, 7
   br label %35
 
 35:                                               ; preds = %.critedge, %4
-  %.2 = phi i32 [ %spec.select, %.critedge ], [ 0, %4 ]
+  %.090 = phi i32 [ %spec.select, %.critedge ], [ 0, %4 ]
   %.089 = phi i32 [ %33, %.critedge ], [ -1, %4 ]
   %.088 = phi i32 [ %34, %.critedge ], [ -1, %4 ]
-  %.1 = phi i32 [ %.0.lcssa, %.critedge ], [ -1, %4 ]
-  %36 = tail call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.2) #4
+  %.0 = phi i32 [ %.1.lcssa, %.critedge ], [ -1, %4 ]
+  %36 = tail call i32 @tvb_ensure_captured_length_remaining(ptr noundef %0, i32 noundef %.090) #4
   %37 = getelementptr inbounds i8, ptr %1, i64 408
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr @tvb_format_text(ptr noundef %38, ptr noundef %0, i32 noundef %.2, i32 noundef %36) #4
-  %40 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #4
+  %39 = tail call ptr @tvb_format_text(ptr noundef %38, ptr noundef %0, i32 noundef %.090, i32 noundef %36) #4
+  %40 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.090) #4
   %41 = sub i32 %40, %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %42 = icmp eq i32 %.089, 16
@@ -288,7 +288,7 @@ mtp3_msu_present.exit:                            ; preds = %58
   br i1 %65, label %66, label %73
 
 66:                                               ; preds = %mtp3_msu_present.exit.thread103, %mtp3_msu_present.exit.thread, %mtp3_msu_present.exit
-  %67 = icmp sgt i32 %.1, -1
+  %67 = icmp sgt i32 %.0, -1
   %68 = load ptr, ptr %6, align 8
   br i1 %67, label %69, label %72
 
@@ -309,7 +309,7 @@ mtp3_msu_present.exit:                            ; preds = %58
   br i1 %.not95, label %proto_item_set_generated.exit, label %75
 
 75:                                               ; preds = %73
-  %76 = icmp sgt i32 %.1, -1
+  %76 = icmp sgt i32 %.0, -1
   %77 = load i32, ptr @proto_syslog, align 4
   br i1 %76, label %82, label %78
 
@@ -326,34 +326,34 @@ mtp3_msu_present.exit:                            ; preds = %58
   %86 = load i32, ptr @ett_syslog, align 4
   %87 = call ptr @proto_item_add_subtree(ptr noundef %85, i32 noundef %86) #4
   %88 = load i32, ptr @hf_syslog_facility, align 4
-  %89 = call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef 0, i32 noundef %.2, i32 noundef %.1) #4
+  %89 = call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %88, ptr noundef %0, i32 noundef 0, i32 noundef %.090, i32 noundef %.0) #4
   %90 = load i32, ptr @hf_syslog_level, align 4
-  %91 = call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %90, ptr noundef %0, i32 noundef 0, i32 noundef %.2, i32 noundef %.1) #4
+  %91 = call ptr @proto_tree_add_uint(ptr noundef %87, i32 noundef %90, ptr noundef %0, i32 noundef 0, i32 noundef %.090, i32 noundef %.0) #4
   br label %92
 
 92:                                               ; preds = %78, %82
   %93 = phi ptr [ %87, %82 ], [ %81, %78 ]
   %94 = load i32, ptr @hf_syslog_msg, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %0, i32 noundef %.2, i32 noundef %36, i32 noundef 2) #4
+  %95 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %0, i32 noundef %.090, i32 noundef %36, i32 noundef 2) #4
   %96 = load i32, ptr @ett_syslog_msg, align 4
   %97 = call ptr @proto_item_add_subtree(ptr noundef %95, i32 noundef %96) #4
   %98 = icmp sgt i32 %36, 2
   br i1 %98, label %99, label %dissect_syslog_message.exit
 
 99:                                               ; preds = %92
-  %100 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2) #4
+  %100 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.090) #4
   %101 = icmp eq i16 %100, 12576
   br i1 %101, label %102, label %153
 
 102:                                              ; preds = %99
   %103 = load i32, ptr @hf_syslog_version, align 4
-  %104 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.2, i32 noundef -1, i8 noundef zeroext 32) #4
+  %104 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.090, i32 noundef -1, i8 noundef zeroext 32) #4
   %105 = icmp eq i32 %104, -1
   br i1 %105, label %dissect_syslog_message.exit, label %106
 
 106:                                              ; preds = %102
-  %107 = sub i32 %104, %.2
-  %108 = call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %103, ptr noundef %0, i32 noundef %.2, i32 noundef %107, i32 noundef 0) #4
+  %107 = sub i32 %104, %.090
+  %108 = call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %103, ptr noundef %0, i32 noundef %.090, i32 noundef %107, i32 noundef 0) #4
   %109 = add nuw i32 %104, 1
   %110 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %109, i32 noundef -1, i8 noundef zeroext 32) #4
   %111 = icmp eq i32 %110, -1
@@ -422,39 +422,39 @@ mtp3_msu_present.exit:                            ; preds = %58
   br i1 %154, label %155, label %dissect_syslog_message.exit
 
 155:                                              ; preds = %153
-  %156 = add nsw i32 %.2, 3
+  %156 = add nsw i32 %.090, 3
   %157 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %156) #4
   %158 = icmp eq i8 %157, 32
   br i1 %158, label %159, label %dissect_syslog_message.exit
 
 159:                                              ; preds = %155
-  %160 = add nsw i32 %.2, 6
+  %160 = add nsw i32 %.090, 6
   %161 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %160) #4
   %162 = icmp eq i8 %161, 32
   br i1 %162, label %163, label %dissect_syslog_message.exit
 
 163:                                              ; preds = %159
-  %164 = add nsw i32 %.2, 9
+  %164 = add nsw i32 %.090, 9
   %165 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %164) #4
   %166 = icmp eq i8 %165, 58
   br i1 %166, label %167, label %dissect_syslog_message.exit
 
 167:                                              ; preds = %163
-  %168 = add nsw i32 %.2, 12
+  %168 = add nsw i32 %.090, 12
   %169 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %168) #4
   %170 = icmp eq i8 %169, 58
   br i1 %170, label %171, label %dissect_syslog_message.exit
 
 171:                                              ; preds = %167
-  %172 = add nsw i32 %.2, 15
+  %172 = add nsw i32 %.090, 15
   %173 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %172) #4
   %174 = icmp eq i8 %173, 32
   br i1 %174, label %175, label %dissect_syslog_message.exit
 
 175:                                              ; preds = %171
   %176 = load i32, ptr @hf_syslog_timestamp_old, align 4
-  %177 = call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %176, ptr noundef %0, i32 noundef %.2, i32 noundef 15, i32 noundef 0) #4
-  %178 = add nsw i32 %.2, 16
+  %177 = call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %176, ptr noundef %0, i32 noundef %.090, i32 noundef 15, i32 noundef 0) #4
+  %178 = add nsw i32 %.090, 16
   %179 = load i32, ptr @hf_syslog_hostname, align 4
   %180 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %178, i32 noundef -1, i8 noundef zeroext 32) #4
   %181 = icmp eq i32 %180, -1
@@ -494,10 +494,10 @@ mtp3_msu_present.exit:                            ; preds = %58
   br i1 %exitcond.not.i, label %.loopexit.i, label %189, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %199, %195, %182
-  %.1.i = phi i32 [ %.037.i, %195 ], [ %185, %182 ], [ %185, %199 ]
+  %.032.i = phi i32 [ %.037.i, %195 ], [ %185, %182 ], [ %185, %199 ]
   %201 = load i32, ptr @hf_syslog_msgid, align 4
-  %202 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #4
-  %203 = call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %201, ptr noundef %0, i32 noundef %.1.i, i32 noundef %202, i32 noundef 0) #4
+  %202 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.032.i) #4
+  %203 = call ptr @proto_tree_add_item(ptr noundef %97, i32 noundef %201, ptr noundef %0, i32 noundef %.032.i, i32 noundef %202, i32 noundef 0) #4
   br label %dissect_syslog_message.exit
 
 dissect_syslog_message.exit:                      ; preds = %92, %.loopexit.i, %175, %171, %167, %163, %159, %155, %149, %142, %129, %122, %117, %106, %102, %153
@@ -506,7 +506,7 @@ dissect_syslog_message.exit:                      ; preds = %92, %.loopexit.i, %
 
 204:                                              ; preds = %dissect_syslog_message.exit
   %205 = load i32, ptr @hf_syslog_msu_present, align 4
-  %206 = call ptr @proto_tree_add_boolean(ptr noundef %93, i32 noundef %205, ptr noundef %0, i32 noundef %.2, i32 noundef %36, i64 noundef 1) #4
+  %206 = call ptr @proto_tree_add_boolean(ptr noundef %93, i32 noundef %205, ptr noundef %0, i32 noundef %.090, i32 noundef %36, i64 noundef 1) #4
   %.not.i98 = icmp eq ptr %206, null
   br i1 %.not.i98, label %proto_item_set_generated.exit, label %207
 

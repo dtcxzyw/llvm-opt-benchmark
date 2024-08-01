@@ -37,7 +37,7 @@ _ZL13WideToCharMapPKwPcmRb.exit.thread24:         ; preds = %10
   br label %59
 
 .lr.ph.i:                                         ; preds = %10, %.outer.i
-  %.021 = phi i1 [ %.2, %.outer.i ], [ true, %10 ]
+  %.1 = phi i1 [ %.4, %.outer.i ], [ true, %10 ]
   %12 = phi ptr [ %45, %.outer.i ], [ %0, %10 ]
   %.037.ph51.i = phi i32 [ %.1.i, %.outer.i ], [ 0, %10 ]
   %.038.ph50.i = phi i32 [ %.139.i, %.outer.i ], [ 0, %10 ]
@@ -89,7 +89,7 @@ _ZL13WideToCharMapPKwPcmRb.exit.thread24:         ; preds = %10
   br label %38
 
 38:                                               ; preds = %37, %33
-  %.1 = phi i1 [ false, %37 ], [ %.021, %33 ]
+  %.3 = phi i1 [ false, %37 ], [ %.1, %33 ]
   store i64 0, ptr %4, align 8
   %39 = call i64 @__ctype_get_mb_cur_max() #12
   %40 = call i64 @mbrlen(ptr noundef nonnull %34, i64 noundef %39, ptr noundef nonnull %4) #12
@@ -99,7 +99,7 @@ _ZL13WideToCharMapPKwPcmRb.exit.thread24:         ; preds = %10
   br label %.outer.i
 
 .outer.i:                                         ; preds = %38, %29
-  %.2 = phi i1 [ %.021, %29 ], [ %.1, %38 ]
+  %.4 = phi i1 [ %.1, %29 ], [ %.3, %38 ]
   %.1.i = phi i32 [ %31, %29 ], [ %43, %38 ]
   %.139.i = add i32 %.03845.i, 1
   %44 = zext i32 %.139.i to i64
@@ -114,7 +114,7 @@ _ZL13WideToCharMapPKwPcmRb.exit.loopexit33:       ; preds = %.outer.i
 
 _ZL13WideToCharMapPKwPcmRb.exit:                  ; preds = %14, %22, %_ZL13WideToCharMapPKwPcmRb.exit.loopexit33
   %.pre-phi = phi i64 [ %.pre, %_ZL13WideToCharMapPKwPcmRb.exit.loopexit33 ], [ %13, %22 ], [ %13, %14 ]
-  %.3 = phi i1 [ %.2, %_ZL13WideToCharMapPKwPcmRb.exit.loopexit33 ], [ %.021, %22 ], [ %.021, %14 ]
+  %.2 = phi i1 [ %.4, %_ZL13WideToCharMapPKwPcmRb.exit.loopexit33 ], [ %.1, %22 ], [ %.1, %14 ]
   %47 = add i64 %2, -1
   %48 = call i64 @llvm.umin.i64(i64 %47, i64 %.pre-phi)
   %49 = getelementptr inbounds i8, ptr %1, i64 %48
@@ -151,7 +151,7 @@ _ZL13WideToCharMapPKwPcmRb.exit:                  ; preds = %14, %22, %_ZL13Wide
   br label %59
 
 59:                                               ; preds = %_ZL13WideToCharMapPKwPcmRb.exit, %57, %_ZL13WideToCharMapPKwPcmRb.exit.thread24, %.thread, %56
-  %.5 = phi i1 [ %.3, %_ZL13WideToCharMapPKwPcmRb.exit ], [ true, %56 ], [ false, %.thread ], [ true, %_ZL13WideToCharMapPKwPcmRb.exit.thread24 ], [ %.not, %57 ]
+  %.021 = phi i1 [ %.2, %_ZL13WideToCharMapPKwPcmRb.exit ], [ true, %56 ], [ false, %.thread ], [ true, %_ZL13WideToCharMapPKwPcmRb.exit.thread24 ], [ %.not, %57 ]
   %.not20 = icmp eq i64 %2, 0
   br i1 %.not20, label %63, label %60
 
@@ -162,7 +162,7 @@ _ZL13WideToCharMapPKwPcmRb.exit:                  ; preds = %14, %22, %_ZL13Wide
   br label %63
 
 63:                                               ; preds = %60, %59
-  ret i1 %.5
+  ret i1 %.021
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -205,7 +205,7 @@ define noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef %1, 
   %13 = phi i64 [ %42, %41 ], [ 0, %12 ]
   %.044.i = phi i1 [ %.2.i, %41 ], [ false, %12 ]
   %.03443.i = phi i32 [ %.135.i, %41 ], [ 0, %12 ]
-  %.03642.i = phi i32 [ %.238.i, %41 ], [ 0, %12 ]
+  %.03642.i = phi i32 [ %.3.i, %41 ], [ 0, %12 ]
   %14 = zext i32 %.03443.i to i64
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
   %16 = load i8, ptr %15, align 1
@@ -246,7 +246,7 @@ define noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef %1, 
 29:                                               ; preds = %._crit_edge.i, %._crit_edge51.i
   %.pre-phi.i = phi i64 [ %.pre52.i, %._crit_edge51.i ], [ %28, %._crit_edge.i ]
   %30 = phi i8 [ %23, %._crit_edge51.i ], [ %.pre.i, %._crit_edge.i ]
-  %.137.i = phi i32 [ %.03642.i, %._crit_edge51.i ], [ %27, %._crit_edge.i ]
+  %.238.i = phi i32 [ %.03642.i, %._crit_edge51.i ], [ %27, %._crit_edge.i ]
   %31 = add i32 %.03443.i, 1
   %32 = zext i8 %30 to i32
   %33 = or disjoint i32 %32, 57344
@@ -264,17 +264,17 @@ define noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %0, ptr noundef %1, 
   br label %41
 
 41:                                               ; preds = %35, %29
-  %.238.in.i = phi i32 [ %.137.i, %29 ], [ %.03642.i, %35 ]
+  %.3.in.i = phi i32 [ %.238.i, %29 ], [ %.03642.i, %35 ]
   %.135.i = phi i32 [ %31, %29 ], [ %40, %35 ]
   %.2.i = phi i1 [ true, %29 ], [ %.044.i, %35 ]
-  %.238.i = add i32 %.238.in.i, 1
-  %42 = zext i32 %.238.i to i64
+  %.3.i = add i32 %.3.in.i, 1
+  %42 = zext i32 %.3.i to i64
   %43 = icmp ult i64 %42, %2
   br i1 %43, label %.lr.ph.i, label %_ZL13CharToWideMapPKcPwmRb.exit, !llvm.loop !6
 
 _ZL13CharToWideMapPKcPwmRb.exit:                  ; preds = %.lr.ph.i, %22, %26, %41
-  %.3.i = phi i32 [ %.03642.i, %.lr.ph.i ], [ %.03642.i, %22 ], [ %27, %26 ], [ %.238.i, %41 ]
-  %44 = zext i32 %.3.i to i64
+  %.137.i = phi i32 [ %.03642.i, %.lr.ph.i ], [ %.03642.i, %22 ], [ %27, %26 ], [ %.3.i, %41 ]
+  %44 = zext i32 %.137.i to i64
   %45 = add i64 %2, -1
   %46 = call i64 @llvm.umin.i64(i64 %45, i64 %44)
   %47 = getelementptr inbounds i32, ptr %1, i64 %46
@@ -283,7 +283,7 @@ _ZL13CharToWideMapPKcPwmRb.exit:                  ; preds = %.lr.ph.i, %22, %26,
   br label %.thread
 
 .thread:                                          ; preds = %8, %3, %_ZL13CharToWideMapPKcPwmRb.exit, %10
-  %.2 = phi i1 [ %17, %_ZL13CharToWideMapPKcPwmRb.exit ], [ false, %10 ], [ true, %3 ], [ true, %8 ]
+  %.1 = phi i1 [ %17, %_ZL13CharToWideMapPKcPwmRb.exit ], [ false, %10 ], [ true, %3 ], [ true, %8 ]
   %.not14 = icmp eq i64 %2, 0
   br i1 %.not14, label %51, label %48
 
@@ -294,7 +294,7 @@ _ZL13CharToWideMapPKcPwmRb.exit:                  ; preds = %.lr.ph.i, %22, %26,
   br label %51
 
 51:                                               ; preds = %48, %.thread
-  ret i1 %.2
+  ret i1 %.1
 }
 
 ; Function Attrs: nounwind
@@ -376,8 +376,8 @@ define void @_Z9WideToUtfPKwPcm(ptr nocapture noundef readonly %0, ptr nocapture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %79
   %6 = phi i32 [ %80, %79 ], [ %4, %.lr.ph.preheader ]
-  %.04079 = phi i64 [ %.3, %79 ], [ %5, %.lr.ph.preheader ]
-  %.04178 = phi ptr [ %.243, %79 ], [ %0, %.lr.ph.preheader ]
+  %.04079 = phi i64 [ %.1, %79 ], [ %5, %.lr.ph.preheader ]
+  %.04178 = phi ptr [ %.142, %79 ], [ %0, %.lr.ph.preheader ]
   %.04477 = phi ptr [ %.145, %79 ], [ %1, %.lr.ph.preheader ]
   %7 = add nsw i64 %.04079, -1
   %8 = icmp sgt i64 %.04079, 0
@@ -417,7 +417,7 @@ define void @_Z9WideToUtfPKwPcm(ptr nocapture noundef readonly %0, ptr nocapture
   br label %79
 
 28:                                               ; preds = %17, %15
-  %.1 = phi i64 [ -1, %17 ], [ %7, %15 ]
+  %.2 = phi i64 [ -1, %17 ], [ %7, %15 ]
   %29 = and i32 %6, -1024
   %or.cond = icmp eq i32 %29, 55296
   br i1 %or.cond, label %30, label %37
@@ -440,15 +440,15 @@ define void @_Z9WideToUtfPKwPcm(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %38, label %.thread, label %56
 
 .thread:                                          ; preds = %30, %37
-  %39 = icmp sgt i64 %.1, 1
+  %39 = icmp sgt i64 %.2, 1
   br i1 %39, label %41, label %.thread66.thread
 
 .thread66.thread:                                 ; preds = %.thread
-  %40 = add nsw i64 %.1, -5
+  %40 = add nsw i64 %.2, -5
   br label %79
 
 41:                                               ; preds = %.thread
-  %42 = add nsw i64 %.1, -2
+  %42 = add nsw i64 %.2, -2
   %43 = lshr i32 %6, 12
   %44 = trunc nuw i32 %43 to i8
   %45 = or disjoint i8 %44, -32
@@ -472,10 +472,10 @@ define void @_Z9WideToUtfPKwPcm(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %57, label %.thread66, label %79
 
 .thread66:                                        ; preds = %.thread63, %56
-  %.1426071 = phi ptr [ %10, %56 ], [ %36, %.thread63 ]
+  %.2436071 = phi ptr [ %10, %56 ], [ %36, %.thread63 ]
   %.06170 = phi i32 [ %6, %56 ], [ %35, %.thread63 ]
-  %58 = add nsw i64 %.1, -3
-  %59 = icmp sgt i64 %.1, 2
+  %58 = add nsw i64 %.2, -3
+  %59 = icmp sgt i64 %.2, 2
   br i1 %59, label %60, label %79
 
 60:                                               ; preds = %.thread66
@@ -505,9 +505,9 @@ define void @_Z9WideToUtfPKwPcm(ptr nocapture noundef readonly %0, ptr nocapture
 
 79:                                               ; preds = %.thread66.thread, %18, %56, %.thread66, %60, %41, %12
   %.145 = phi ptr [ %14, %12 ], [ %27, %18 ], [ %55, %41 ], [ %78, %60 ], [ %.04477, %.thread66 ], [ %.04477, %56 ], [ %.04477, %.thread66.thread ]
-  %.243 = phi ptr [ %10, %12 ], [ %10, %18 ], [ %10, %41 ], [ %.1426071, %60 ], [ %.1426071, %.thread66 ], [ %10, %56 ], [ %10, %.thread66.thread ]
-  %.3 = phi i64 [ %7, %12 ], [ %19, %18 ], [ %42, %41 ], [ %58, %60 ], [ %58, %.thread66 ], [ %.1, %56 ], [ %40, %.thread66.thread ]
-  %80 = load i32, ptr %.243, align 4
+  %.142 = phi ptr [ %10, %12 ], [ %10, %18 ], [ %10, %41 ], [ %.2436071, %60 ], [ %.2436071, %.thread66 ], [ %10, %56 ], [ %10, %.thread66.thread ]
+  %.1 = phi i64 [ %7, %12 ], [ %19, %18 ], [ %42, %41 ], [ %58, %60 ], [ %58, %.thread66 ], [ %.2, %56 ], [ %40, %.thread66.thread ]
+  %80 = load i32, ptr %.142, align 4
   %.not = icmp eq i32 %80, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
 

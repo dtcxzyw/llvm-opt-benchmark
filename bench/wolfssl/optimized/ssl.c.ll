@@ -660,10 +660,10 @@ if.then14:                                        ; preds = %land.lhs.true
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then, %if.then14, %land.lhs.true
-  %ret.3 = phi i32 [ %call29, %if.then14 ], [ %call11, %land.lhs.true ], [ %call, %if.then ]
+  %ret.2 = phi i32 [ %call29, %if.then14 ], [ %call11, %land.lhs.true ], [ %call, %if.then ]
   call void @FreeDecodedCert(ptr noundef nonnull %cert) #20
   call void @FreeDer(ptr noundef nonnull %der) #20
-  %cond = call i32 @llvm.umax.i32(i32 %ret.3, i32 1)
+  %cond = call i32 @llvm.umax.i32(i32 %ret.2, i32 1)
   ret i32 %cond
 }
 
@@ -1454,7 +1454,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %buf.addr.020 = phi ptr [ %buf, %for.body.lr.ph ], [ %buf.addr.2, %for.inc ]
+  %buf.addr.020 = phi ptr [ %buf, %for.body.lr.ph ], [ %buf.addr.1, %for.inc ]
   %len.addr.019 = phi i32 [ %len, %for.body.lr.ph ], [ %len.addr.1, %for.inc ]
   %arrayidx = getelementptr inbounds %struct.CipherSuiteInfo, ptr %call, i64 %indvars.iv
   %flags = getelementptr inbounds i8, ptr %arrayidx, i64 18
@@ -1487,14 +1487,14 @@ if.then20:                                        ; preds = %if.then12
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then20, %if.then12
-  %buf.addr.1 = phi ptr [ %incdec.ptr, %if.then20 ], [ %add.ptr, %if.then12 ]
-  store i8 0, ptr %buf.addr.1, align 1
+  %buf.addr.2 = phi ptr [ %incdec.ptr, %if.then20 ], [ %add.ptr, %if.then12 ]
+  store i8 0, ptr %buf.addr.2, align 1
   %sub23 = sub nsw i32 %len.addr.019, %add
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end21
   %len.addr.1 = phi i32 [ %len.addr.019, %for.body ], [ %sub23, %if.end21 ]
-  %buf.addr.2 = phi ptr [ %buf.addr.020, %for.body ], [ %buf.addr.1, %if.end21 ]
+  %buf.addr.1 = phi ptr [ %buf.addr.020, %for.body ], [ %buf.addr.2, %if.end21 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7
@@ -5110,7 +5110,7 @@ if.then57:                                        ; preds = %if.then51
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then39, %if.end34, %if.then51, %if.then57, %if.end45, %if.then14
-  %ret.1 = phi i32 [ %call16, %if.then14 ], [ 0, %if.end45 ], [ -140, %if.end34 ], [ 0, %if.then57 ], [ 0, %if.then51 ], [ %call40, %if.then39 ]
+  %ret.0 = phi i32 [ %call16, %if.then14 ], [ 0, %if.end45 ], [ -140, %if.end34 ], [ 0, %if.then57 ], [ 0, %if.then51 ], [ %call40, %if.then39 ]
   br i1 %tobool.not, label %if.end67, label %if.then64
 
 if.then64:                                        ; preds = %if.end62
@@ -5119,7 +5119,7 @@ if.then64:                                        ; preds = %if.end62
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then64, %if.end62
-  %cmp68 = icmp sgt i32 %ret.1, -1
+  %cmp68 = icmp sgt i32 %ret.0, -1
   %tobool71 = icmp ne i32 %userChain, 0
   %or.cond9 = and i1 %tobool71, %cmp68
   br i1 %or.cond9, label %if.then72, label %if.end80
@@ -5172,8 +5172,8 @@ do.end25.i:                                       ; preds = %do.end16.i, %if.the
   br i1 %cmp13, label %while.cond.us.i, label %while.cond.i
 
 while.cond.us.i:                                  ; preds = %do.end25.i, %if.end109.us.i
-  %consumed9.0.us.i = phi i64 [ %consumed9.2.us.i, %if.end109.us.i ], [ %21, %do.end25.i ]
-  %idx.0.us.i = phi i32 [ %idx.2.us.i, %if.end109.us.i ], [ 0, %do.end25.i ]
+  %consumed9.0.us.i = phi i64 [ %consumed9.1.us.i, %if.end109.us.i ], [ %21, %do.end25.i ]
+  %idx.0.us.i = phi i32 [ %idx.1.us.i, %if.end109.us.i ], [ 0, %do.end25.i ]
   %gotOne.0.us.i = phi i32 [ %gotOne.1.us.i, %if.end109.us.i ], [ 0, %do.end25.i ]
   %cnt.0.us.i = phi i32 [ %cnt.1.us.i, %if.end109.us.i ], [ 0, %do.end25.i ]
   %cmp26.us.i = icmp slt i64 %consumed9.0.us.i, %sz
@@ -5235,8 +5235,8 @@ if.then84.us.i:                                   ; preds = %if.else72.us.i
   br label %if.end101.us.i
 
 if.end101.us.i:                                   ; preds = %if.then84.us.i, %if.else72.us.i, %if.then63.us.i, %while.body.us.i
-  %consumed9.2.us.i = phi i64 [ %consumed9.0.us.i, %while.body.us.i ], [ %add83.us.i, %if.then84.us.i ], [ %add83.us.i, %if.else72.us.i ], [ %consumed9.0.us.i, %if.then63.us.i ]
-  %idx.2.us.i = phi i32 [ %idx.0.us.i, %while.body.us.i ], [ %add81.us.i, %if.then84.us.i ], [ %add81.us.i, %if.else72.us.i ], [ %idx.0.us.i, %if.then63.us.i ]
+  %consumed9.1.us.i = phi i64 [ %consumed9.0.us.i, %while.body.us.i ], [ %add83.us.i, %if.then84.us.i ], [ %add83.us.i, %if.else72.us.i ], [ %consumed9.0.us.i, %if.then63.us.i ]
+  %idx.1.us.i = phi i32 [ %idx.0.us.i, %while.body.us.i ], [ %add81.us.i, %if.then84.us.i ], [ %add81.us.i, %if.else72.us.i ], [ %idx.0.us.i, %if.then63.us.i ]
   %gotOne.1.us.i = phi i32 [ %gotOne.0.us.i, %while.body.us.i ], [ 1, %if.then84.us.i ], [ 1, %if.else72.us.i ], [ 1, %if.then63.us.i ]
   %cnt.1.us.i = phi i32 [ %cnt.0.us.i, %while.body.us.i ], [ %inc.us.i, %if.then84.us.i ], [ %inc.us.i, %if.else72.us.i ], [ %inc.us.i, %if.then63.us.i ]
   %ret.5.us.i = phi i32 [ %call35.us.i, %while.body.us.i ], [ 0, %if.then84.us.i ], [ 0, %if.else72.us.i ], [ -132, %if.then63.us.i ]
@@ -5251,11 +5251,11 @@ if.end109.us.i:                                   ; preds = %if.end101.us.i
   br i1 %cmp110.us.i, label %do.end114.i, label %while.cond.us.i, !llvm.loop !22
 
 while.cond.i:                                     ; preds = %do.end25.i, %if.end109.i
-  %consumed9.0.i = phi i64 [ %consumed9.2.i, %if.end109.i ], [ %21, %do.end25.i ]
-  %idx.0.i = phi i32 [ %idx.2.i, %if.end109.i ], [ 0, %do.end25.i ]
+  %consumed9.0.i = phi i64 [ %consumed9.1.i, %if.end109.i ], [ %21, %do.end25.i ]
+  %idx.0.i = phi i32 [ %idx.1.i, %if.end109.i ], [ 0, %do.end25.i ]
   %gotOne.0.i = phi i32 [ %gotOne.1.i, %if.end109.i ], [ 0, %do.end25.i ]
   %cnt.0.i = phi i32 [ %cnt.1.i, %if.end109.i ], [ 0, %do.end25.i ]
-  %ret.0.i = phi i32 [ %ret.5.i, %if.end109.i ], [ 0, %do.end25.i ]
+  %ret.1.i = phi i32 [ %ret.5.i, %if.end109.i ], [ 0, %do.end25.i ]
   %cmp26.i = icmp slt i64 %consumed9.0.i, %sz
   br i1 %cmp26.i, label %while.body.i, label %do.end125.i
 
@@ -5287,7 +5287,7 @@ if.end46.i:                                       ; preds = %if.then38.i, %while
   %33 = phi i32 [ %add45.i, %if.then38.i ], [ %conv29.i, %while.body.i ]
   %conv47.i = sext i32 %33 to i64
   store i64 %conv47.i, ptr %info, align 8
-  %cmp49.i = icmp eq i32 %ret.0.i, 0
+  %cmp49.i = icmp eq i32 %ret.1.i, 0
   br i1 %cmp49.i, label %if.then51.i, label %if.end101.i
 
 if.then51.i:                                      ; preds = %if.end46.i
@@ -5347,11 +5347,11 @@ if.then84.i:                                      ; preds = %if.else72.i
   br label %if.end101.i
 
 if.end101.i:                                      ; preds = %if.then84.i, %if.else72.i, %if.end60.thread88.i, %if.then51.i, %if.end46.i, %if.end46.thread.i
-  %consumed9.2.i = phi i64 [ %add83.i, %if.then84.i ], [ %add83.i, %if.else72.i ], [ %consumed9.0.i, %if.end60.thread88.i ], [ %consumed9.0.i, %if.then51.i ], [ %consumed9.0.i, %if.end46.i ], [ %consumed9.0.i, %if.end46.thread.i ]
-  %idx.2.i = phi i32 [ %add81.i, %if.then84.i ], [ %add81.i, %if.else72.i ], [ %idx.0.i, %if.end60.thread88.i ], [ %idx.0.i, %if.then51.i ], [ %idx.0.i, %if.end46.i ], [ %idx.0.i, %if.end46.thread.i ]
+  %consumed9.1.i = phi i64 [ %add83.i, %if.then84.i ], [ %add83.i, %if.else72.i ], [ %consumed9.0.i, %if.end60.thread88.i ], [ %consumed9.0.i, %if.then51.i ], [ %consumed9.0.i, %if.end46.i ], [ %consumed9.0.i, %if.end46.thread.i ]
+  %idx.1.i = phi i32 [ %add81.i, %if.then84.i ], [ %add81.i, %if.else72.i ], [ %idx.0.i, %if.end60.thread88.i ], [ %idx.0.i, %if.then51.i ], [ %idx.0.i, %if.end46.i ], [ %idx.0.i, %if.end46.thread.i ]
   %gotOne.1.i = phi i32 [ 1, %if.then84.i ], [ 1, %if.else72.i ], [ 1, %if.end60.thread88.i ], [ %gotOne.0.i, %if.then51.i ], [ %gotOne.0.i, %if.end46.i ], [ %gotOne.0.i, %if.end46.thread.i ]
   %cnt.1.i = phi i32 [ %inc.i, %if.then84.i ], [ %inc.i, %if.else72.i ], [ %inc.i, %if.end60.thread88.i ], [ %cnt.0.i, %if.then51.i ], [ %cnt.0.i, %if.end46.i ], [ %cnt.0.i, %if.end46.thread.i ]
-  %ret.5.i = phi i32 [ 0, %if.then84.i ], [ 0, %if.else72.i ], [ -132, %if.end60.thread88.i ], [ %call52.i, %if.then51.i ], [ %ret.0.i, %if.end46.i ], [ -162, %if.end46.thread.i ]
+  %ret.5.i = phi i32 [ 0, %if.then84.i ], [ 0, %if.else72.i ], [ -132, %if.end60.thread88.i ], [ %call52.i, %if.then51.i ], [ %ret.1.i, %if.end46.i ], [ -162, %if.end46.thread.i ]
   call void @FreeDer(ptr noundef nonnull %part.i) #20
   %cmp102.i = icmp eq i32 %ret.5.i, -162
   %tobool105.i = icmp ne i32 %gotOne.1.i, 0
@@ -5367,7 +5367,7 @@ do.end114.i:                                      ; preds = %if.end109.i, %if.en
   br i1 %cmp12.i, label %ProcessUserChain.exit, label %return.sink.split.i
 
 do.end125.i:                                      ; preds = %if.end101.i, %while.cond.i, %if.end101.us.i, %while.cond.us.i
-  %.us-phi.i = phi i32 [ %idx.0.us.i, %while.cond.us.i ], [ %idx.2.us.i, %if.end101.us.i ], [ %idx.0.i, %while.cond.i ], [ %idx.2.i, %if.end101.i ]
+  %.us-phi.i = phi i32 [ %idx.0.us.i, %while.cond.us.i ], [ %idx.1.us.i, %if.end101.us.i ], [ %idx.0.i, %while.cond.i ], [ %idx.1.i, %if.end101.i ]
   %.us-phi91.i = phi i32 [ %cnt.0.us.i, %while.cond.us.i ], [ %cnt.1.us.i, %if.end101.us.i ], [ %cnt.0.i, %while.cond.i ], [ %cnt.1.i, %if.end101.i ]
   %cmp126.not.i = icmp eq i32 %.us-phi.i, 0
   br i1 %cmp126.not.i, label %if.end165.i, label %if.then128.i
@@ -5428,11 +5428,11 @@ if.end161.i:                                      ; preds = %if.then157.i, %if.t
   br label %if.end165.i
 
 if.end165.i:                                      ; preds = %if.end161.i, %if.else149.i, %if.end147.i, %do.end125.i
-  %ret.6.i = phi i32 [ %call137.i, %if.end147.i ], [ %call154.i, %if.end161.i ], [ 0, %if.else149.i ], [ 0, %do.end125.i ]
+  %ret.7.i = phi i32 [ %call137.i, %if.end147.i ], [ %call154.i, %if.end161.i ], [ 0, %if.else149.i ], [ 0, %do.end125.i ]
   br i1 %cmp12.i, label %ProcessUserChain.exit, label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.end165.i, %do.end114.i
-  %retval.0.ph.i = phi i32 [ %.us-phi92.i, %do.end114.i ], [ %ret.6.i, %if.end165.i ]
+  %retval.0.ph.i = phi i32 [ %.us-phi92.i, %do.end114.i ], [ %ret.7.i, %if.end165.i ]
   call void @wolfSSL_Free(ptr noundef nonnull %chainBuffer.0.i) #20
   br label %ProcessUserChain.exit
 
@@ -5445,7 +5445,7 @@ ProcessUserChain.exit.thread:                     ; preds = %do.end16.i, %wolfSS
   br label %if.end80
 
 ProcessUserChain.exit:                            ; preds = %do.end114.i, %if.end165.i, %return.sink.split.i
-  %retval.0.i = phi i32 [ %.us-phi92.i, %do.end114.i ], [ %ret.6.i, %if.end165.i ], [ %retval.0.ph.i, %return.sink.split.i ]
+  %retval.0.i = phi i32 [ %.us-phi92.i, %do.end114.i ], [ %ret.7.i, %if.end165.i ], [ %retval.0.ph.i, %return.sink.split.i ]
   %retval.0.i.fr = freeze i32 %retval.0.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %staticBuffer.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %part.i)
@@ -5455,7 +5455,7 @@ ProcessUserChain.exit:                            ; preds = %do.end114.i, %if.en
   br i1 %cmp75, label %if.else94, label %if.end80
 
 if.end80:                                         ; preds = %ProcessUserChain.exit, %ProcessUserChain.exit.thread, %if.end67
-  %ret.2 = phi i32 [ %ret.1, %if.end67 ], [ %retval.0.i.fr, %ProcessUserChain.exit ], [ %retval.0.i.ph, %ProcessUserChain.exit.thread ]
+  %ret.2 = phi i32 [ %ret.0, %if.end67 ], [ %retval.0.i.fr, %ProcessUserChain.exit ], [ %retval.0.i.ph, %ProcessUserChain.exit.thread ]
   %cmp81 = icmp slt i32 %ret.2, 0
   br i1 %cmp81, label %if.then89, label %if.else94
 
@@ -5646,7 +5646,7 @@ if.then22.i.i:                                    ; preds = %land.lhs.true.i.i
   br label %ProcessBufferTryDecodeRsa.exit.i
 
 ProcessBufferTryDecodeRsa.exit.i:                 ; preds = %if.then22.i.i, %land.lhs.true.i.i, %if.end14.thread.i.i
-  %resetSuites.0 = phi i32 [ 0, %if.end14.thread.i.i ], [ 1, %if.then22.i.i ], [ 0, %land.lhs.true.i.i ]
+  %resetSuites.6 = phi i32 [ 0, %if.end14.thread.i.i ], [ 1, %if.then22.i.i ], [ 0, %land.lhs.true.i.i ]
   br i1 %cmp3.i.not.i, label %return, label %if.end185
 
 if.end18.i:                                       ; preds = %if.then14.i.if.end18thread-pre-split.i_crit_edge, %if.end10.i
@@ -5669,11 +5669,11 @@ ProcessBufferTryDecodeEcc.exit.thread.i:          ; preds = %if.then22.i
 if.then.i.i188:                                   ; preds = %if.then22.i
   store i32 0, ptr %idx, align 4
   %71 = load ptr, ptr %64, align 8
-  %length.i30.i = getelementptr inbounds i8, ptr %64, i64 16
-  %72 = load i32, ptr %length.i30.i, align 8
+  %length.i31.i = getelementptr inbounds i8, ptr %64, i64 16
+  %72 = load i32, ptr %length.i31.i, align 8
   %call2.i.i = call i32 @wc_EccPrivateKeyDecode(ptr noundef %71, ptr noundef nonnull %idx, ptr noundef nonnull %key.i.i, i32 noundef %72) #20
-  %cmp3.i31.i = icmp eq i32 %call2.i.i, 0
-  br i1 %cmp3.i31.i, label %if.then4.i.i, label %ProcessBufferTryDecodeEcc.exit.thread48.i
+  %cmp3.i32.i = icmp eq i32 %call2.i.i, 0
+  br i1 %cmp3.i32.i, label %if.then4.i.i, label %ProcessBufferTryDecodeEcc.exit.thread48.i
 
 ProcessBufferTryDecodeEcc.exit.thread48.i:        ; preds = %if.then.i.i188
   %call49.i50.i = call i32 @wc_ecc_free(ptr noundef nonnull %key.i.i) #20
@@ -5724,13 +5724,13 @@ land.lhs.true.i38.i:                              ; preds = %if.then4.i.i
   br label %ProcessBufferTryDecodeEcc.exit.i
 
 ProcessBufferTryDecodeEcc.exit.i:                 ; preds = %land.lhs.true.i38.i, %if.end36.thread.i.i
-  %resetSuites.3 = phi i32 [ 0, %if.end36.thread.i.i ], [ %spec.select, %land.lhs.true.i38.i ]
+  %resetSuites.5 = phi i32 [ 0, %if.end36.thread.i.i ], [ %spec.select, %land.lhs.true.i38.i ]
   %call49.i.i = call i32 @wc_ecc_free(ptr noundef nonnull %key.i.i) #20
   call void @llvm.lifetime.end.p0(i64 4200, ptr nonnull %key.i.i)
   br i1 %cmp9.i.not.i, label %return, label %if.end185
 
 if.end185:                                        ; preds = %ProcessBufferTryDecodeRsa.exit.i, %ProcessBufferTryDecodeEcc.exit.i, %ProcessBufferTryDecodeEcc.exit.thread48.i, %ProcessBufferTryDecodeEcc.exit.thread.i, %if.end18.i
-  %resetSuites.5.ph = phi i32 [ 0, %ProcessBufferTryDecodeEcc.exit.thread.i ], [ 0, %ProcessBufferTryDecodeEcc.exit.thread48.i ], [ 0, %if.end18.i ], [ %resetSuites.3, %ProcessBufferTryDecodeEcc.exit.i ], [ %resetSuites.0, %ProcessBufferTryDecodeRsa.exit.i ]
+  %resetSuites.7.ph = phi i32 [ 0, %ProcessBufferTryDecodeEcc.exit.thread.i ], [ 0, %ProcessBufferTryDecodeEcc.exit.thread48.i ], [ 0, %if.end18.i ], [ %resetSuites.5, %ProcessBufferTryDecodeEcc.exit.i ], [ %resetSuites.6, %ProcessBufferTryDecodeRsa.exit.i ]
   %74 = load i32, ptr %keyFormat, align 4
   %cmp186 = icmp eq i32 %74, 0
   br i1 %cmp186, label %return, label %if.end531
@@ -5780,8 +5780,8 @@ do.end236:                                        ; preds = %if.then209
   br label %if.end241
 
 if.end241:                                        ; preds = %land.lhs.true217, %if.else215, %do.end236, %if.then209
-  %resetSuites.6236.shrunk = phi i1 [ %cmp211, %do.end236 ], [ %cmp211, %if.then209 ], [ false, %if.else215 ], [ %cmp220, %land.lhs.true217 ]
-  %resetSuites.6236 = zext i1 %resetSuites.6236.shrunk to i32
+  %resetSuites.1236.shrunk = phi i1 [ %cmp211, %do.end236 ], [ %cmp211, %if.then209 ], [ false, %if.else215 ], [ %cmp220, %land.lhs.true217 ]
+  %resetSuites.1236 = zext i1 %resetSuites.1236.shrunk to i32
   %signatureOID = getelementptr inbounds i8, ptr %cert, i64 28
   %83 = load i32, ptr %signatureOID, align 4
   switch i32 %83, label %sw.epilog [
@@ -6016,19 +6016,19 @@ if.then477:                                       ; preds = %land.lhs.true470
   br i1 %or.cond175, label %sw.epilog496.thread, label %sw.epilog496
 
 sw.epilog496.thread:                              ; preds = %sw.bb377, %lor.lhs.false398, %if.then393, %lor.lhs.false425, %if.then420, %if.then453, %if.then477
-  %ret.4.ph = phi i32 [ %call380, %sw.bb377 ], [ -409, %lor.lhs.false398 ], [ -409, %if.then393 ], [ -409, %lor.lhs.false425 ], [ -409, %if.then420 ], [ -410, %if.then453 ], [ -410, %if.then477 ]
+  %ret.5.ph = phi i32 [ %call380, %sw.bb377 ], [ -409, %lor.lhs.false398 ], [ -409, %if.then393 ], [ -409, %lor.lhs.false425 ], [ -409, %if.then420 ], [ -410, %if.then453 ], [ -410, %if.then477 ]
   call void @FreeDecodedCert(ptr noundef nonnull %cert) #20
   br label %if.then507
 
 sw.epilog496:                                     ; preds = %if.then477, %if.then453, %if.end374, %land.lhs.true470, %if.else468, %lor.lhs.false398, %lor.lhs.false425, %land.lhs.true413, %if.else411
-  %ret.4 = phi i32 [ %ret.2225, %if.end374 ], [ %ret.2225, %land.lhs.true470 ], [ %ret.2225, %if.else468 ], [ %call380, %land.lhs.true413 ], [ %call380, %lor.lhs.false425 ], [ %call380, %if.else411 ], [ %call380, %lor.lhs.false398 ], [ %ret.2225, %if.then453 ], [ %ret.2225, %if.then477 ]
-  %ret.4.fr = freeze i32 %ret.4
+  %ret.5 = phi i32 [ %ret.2225, %if.end374 ], [ %ret.2225, %land.lhs.true470 ], [ %ret.2225, %if.else468 ], [ %call380, %land.lhs.true413 ], [ %call380, %lor.lhs.false425 ], [ %call380, %if.else411 ], [ %call380, %lor.lhs.false398 ], [ %ret.2225, %if.then453 ], [ %ret.2225, %if.then477 ]
+  %ret.5.fr = freeze i32 %ret.5
   call void @FreeDecodedCert(ptr noundef nonnull %cert) #20
-  %cmp498.not = icmp eq i32 %ret.4.fr, 0
+  %cmp498.not = icmp eq i32 %ret.5.fr, 0
   br i1 %cmp498.not, label %if.end531, label %if.then507
 
 if.then507:                                       ; preds = %if.then89, %if.end101, %sw.epilog496, %sw.epilog496.thread
-  %ret.5.ph = phi i32 [ %ret.4.ph, %sw.epilog496.thread ], [ %ret.4.fr, %sw.epilog496 ], [ %call102, %if.end101 ], [ %ret.2, %if.then89 ]
+  %ret.4.ph = phi i32 [ %ret.5.ph, %sw.epilog496.thread ], [ %ret.5.fr, %sw.epilog496 ], [ %call102, %if.end101 ], [ %ret.2, %if.then89 ]
   %cmp508 = icmp eq i32 %type, 6
   %cmp511 = icmp eq i32 %type, 0
   %or.cond6 = or i1 %cmp508, %cmp511
@@ -6048,15 +6048,15 @@ land.lhs.true520:                                 ; preds = %land.lhs.true516
   br i1 %cmp522.not, label %return, label %if.then524
 
 if.then524:                                       ; preds = %land.lhs.true520
-  %cmp526 = icmp eq i32 %ret.5.ph, 1
-  %cond = select i1 %cmp526, i32 0, i32 %ret.5.ph
+  %cmp526 = icmp eq i32 %ret.4.ph, 1
+  %cond = select i1 %cmp526, i32 0, i32 %ret.4.ph
   %call528 = call i32 @CM_VerifyBuffer_ex(ptr noundef nonnull %102, ptr noundef %buff, i64 noundef %sz, i32 noundef %format, i32 noundef %cond)
   br label %return
 
 if.end531:                                        ; preds = %sw.epilog496, %if.end185
-  %resetSuites.7 = phi i32 [ %resetSuites.5.ph, %if.end185 ], [ %resetSuites.6236, %sw.epilog496 ]
+  %resetSuites.0 = phi i32 [ %resetSuites.7.ph, %if.end185 ], [ %resetSuites.1236, %sw.epilog496 ]
   %tobool532 = icmp ne ptr %ssl, null
-  %tobool534 = icmp ne i32 %resetSuites.7, 0
+  %tobool534 = icmp ne i32 %resetSuites.0, 0
   %or.cond7 = select i1 %tobool532, i1 %tobool534, i1 false
   br i1 %or.cond7, label %if.then535, label %if.else590
 
@@ -6143,7 +6143,7 @@ if.end601:                                        ; preds = %if.then594
   br label %return
 
 return:                                           ; preds = %ProcessBufferTryDecodeEcc.exit.i, %ProcessBufferTryDecodeRsa.exit.i, %if.end.i184, %if.end543, %if.end601, %if.else590, %if.then594, %if.then535, %if.then507, %if.then524, %land.lhs.true520, %land.lhs.true516, %if.end185, %if.end4, %if.end, %do.end205, %if.else169, %do.end
-  %retval.0 = phi i32 [ -4, %do.end205 ], [ -173, %do.end ], [ -8, %if.else169 ], [ -5, %if.end ], [ -173, %if.end4 ], [ -4, %if.end185 ], [ %call528, %if.then524 ], [ %ret.5.ph, %land.lhs.true520 ], [ %ret.5.ph, %land.lhs.true516 ], [ %ret.5.ph, %if.then507 ], [ 0, %if.then535 ], [ 0, %if.then594 ], [ 1, %if.else590 ], [ 1, %if.end601 ], [ 1, %if.end543 ], [ -173, %if.end.i184 ], [ -409, %ProcessBufferTryDecodeRsa.exit.i ], [ -410, %ProcessBufferTryDecodeEcc.exit.i ]
+  %retval.0 = phi i32 [ -4, %do.end205 ], [ -173, %do.end ], [ -8, %if.else169 ], [ -5, %if.end ], [ -173, %if.end4 ], [ -4, %if.end185 ], [ %call528, %if.then524 ], [ %ret.4.ph, %land.lhs.true520 ], [ %ret.4.ph, %land.lhs.true516 ], [ %ret.4.ph, %if.then507 ], [ 0, %if.then535 ], [ 0, %if.then594 ], [ 1, %if.else590 ], [ 1, %if.end601 ], [ 1, %if.end543 ], [ -173, %if.end.i184 ], [ -409, %ProcessBufferTryDecodeRsa.exit.i ], [ -410, %ProcessBufferTryDecodeEcc.exit.i ]
   ret i32 %retval.0
 }
 
@@ -9666,8 +9666,8 @@ if.then17:                                        ; preds = %if.then12
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then12, %if.then17
-  %ret.0 = phi i32 [ %call19, %if.then17 ], [ %call14, %if.then12 ]
-  %cmp22 = icmp eq i32 %ret.0, 0
+  %ret.1 = phi i32 [ %call19, %if.then17 ], [ %call14, %if.then12 ]
+  %cmp22 = icmp eq i32 %ret.1, 0
   br i1 %cmp22, label %if.end21.if.then24_crit_edge, label %if.end44
 
 if.end21.if.then24_crit_edge:                     ; preds = %if.end21
@@ -9699,12 +9699,12 @@ if.else37:                                        ; preds = %if.else32
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then24, %if.end4, %if.end21, %if.then33, %if.else37
-  %ret.1 = phi i32 [ %call36, %if.then33 ], [ %call40, %if.else37 ], [ %ret.0, %if.end21 ], [ -5, %if.end4 ], [ -5, %if.then24 ]
+  %ret.0 = phi i32 [ %call36, %if.then33 ], [ %call40, %if.else37 ], [ %ret.1, %if.end21 ], [ -5, %if.end4 ], [ -5, %if.then24 ]
   call void @FreeDer(ptr noundef nonnull %der) #20
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %if.end44
-  %retval.0 = phi i32 [ %ret.1, %if.end44 ], [ -173, %entry ], [ %call, %if.end ]
+  %retval.0 = phi i32 [ %ret.0, %if.end44 ], [ -173, %entry ], [ %call, %if.end ]
   ret i32 %retval.0
 }
 
@@ -10829,13 +10829,13 @@ if.else13:                                        ; preds = %if.then7
   br label %if.end20
 
 if.end20:                                         ; preds = %if.else13, %if.then7
-  %ret.1 = phi i32 [ 0, %if.then7 ], [ %., %if.else13 ]
+  %ret.2 = phi i32 [ 0, %if.then7 ], [ %., %if.else13 ]
   call void @FreeDecodedCert(ptr noundef nonnull %dCert) #20
   br label %if.end22
 
 if.end22:                                         ; preds = %entry, %if.end20, %lor.lhs.false
-  %ret.2 = phi i32 [ %ret.1, %if.end20 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
-  ret i32 %ret.2
+  %ret.1 = phi i32 [ %ret.2, %if.end20 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
+  ret i32 %ret.1
 }
 
 declare i32 @CheckIPAddr(ptr noundef, ptr noundef) local_unnamed_addr #1

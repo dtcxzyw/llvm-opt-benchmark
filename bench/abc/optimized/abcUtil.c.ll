@@ -6843,7 +6843,7 @@ define range(i32 0, 2) i32 @Abc_NtkCrossCut_rec(ptr nocapture noundef %0, ptr no
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.160 = phi i32 [ 0, %.lr.ph ], [ %35, %26 ]
+  %.260 = phi i32 [ 0, %.lr.ph ], [ %35, %26 ]
   %.val44 = load ptr, ptr %0, align 8
   %.val45 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %.val44, i64 32
@@ -6856,7 +6856,7 @@ define range(i32 0, 2) i32 @Abc_NtkCrossCut_rec(ptr nocapture noundef %0, ptr no
   %32 = getelementptr inbounds ptr, ptr %.val44.val.val, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @Abc_NtkCrossCut_rec(ptr noundef %33, ptr noundef %1, ptr noundef %2)
-  %35 = add nuw nsw i32 %34, %.160
+  %35 = add nuw nsw i32 %34, %.260
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %23, align 4
   %36 = sext i32 %.val to i64
@@ -6864,7 +6864,7 @@ define range(i32 0, 2) i32 @Abc_NtkCrossCut_rec(ptr nocapture noundef %0, ptr no
   br i1 %37, label %26, label %.critedge, !llvm.loop !86
 
 .critedge:                                        ; preds = %26, %.preheader, %16, %16
-  %.2 = phi i32 [ 0, %16 ], [ 0, %16 ], [ 0, %.preheader ], [ %35, %26 ]
+  %.037 = phi i32 [ 0, %16 ], [ 0, %16 ], [ 0, %.preheader ], [ %35, %26 ]
   %38 = load i32, ptr %1, align 4
   %39 = add nsw i32 %38, 1
   store i32 %39, ptr %1, align 4
@@ -6879,7 +6879,7 @@ define range(i32 0, 2) i32 @Abc_NtkCrossCut_rec(ptr nocapture noundef %0, ptr no
 
 42:                                               ; preds = %41, %.critedge
   %43 = phi i32 [ %.pre, %41 ], [ %39, %.critedge ]
-  %44 = sub nsw i32 %43, %.2
+  %44 = sub nsw i32 %43, %.037
   store i32 %44, ptr %1, align 4
   br label %.sink.split
 
@@ -7714,9 +7714,9 @@ define ptr @Abc_NtkAddBuffsOne(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %20
 
 20:                                               ; preds = %13, %18
-  %.0 = phi ptr [ %19, %18 ], [ %1, %13 ]
+  %.1 = phi ptr [ %19, %18 ], [ %1, %13 ]
   %.val22 = load ptr, ptr %1, align 8
-  %21 = tail call ptr @Abc_NtkCreateNodeBuf(ptr noundef %.val22, ptr noundef %.0) #28
+  %21 = tail call ptr @Abc_NtkCreateNodeBuf(ptr noundef %.val22, ptr noundef %.1) #28
   %.val24 = load i32, ptr %5, align 8
   %22 = mul i32 %.val24, %3
   %23 = add i32 %22, %2
@@ -7727,8 +7727,8 @@ define ptr @Abc_NtkAddBuffsOne(ptr nocapture noundef readonly %0, ptr noundef %1
   br label %26
 
 26:                                               ; preds = %20, %4
-  %.1 = phi ptr [ %21, %20 ], [ %11, %4 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %21, %20 ], [ %11, %4 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

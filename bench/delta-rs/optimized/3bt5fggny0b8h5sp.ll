@@ -1884,7 +1884,7 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %381, %199, %195
   unreachable
 
 357:                                              ; preds = %362, %325
-  %.sroa.18.0 = phi i64 [ %.sroa.18.8.copyload281, %362 ], [ %.sroa.18.8.copyload279, %325 ]
+  %.sroa.18.3 = phi i64 [ %.sroa.18.8.copyload281, %362 ], [ %.sroa.18.8.copyload279, %325 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %47), !noalias !306
   call void @llvm.experimental.noalias.scope.decl(metadata !415)
   call void @llvm.experimental.noalias.scope.decl(metadata !418)
@@ -1936,12 +1936,12 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %381, %199, %195
   br label %.critedge.i.i
 
 365:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4a738b5e8f2dfe73E.exit.i.i", %363, %"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17h4134a73fe6bc1369E.exit.i.i"
-  %.sroa.18.1 = phi i64 [ %.sroa.18.2, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4a738b5e8f2dfe73E.exit.i.i" ], [ %.sroa.18.8.copyload283, %363 ], [ %.sroa.18.0, %"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17h4134a73fe6bc1369E.exit.i.i" ]
+  %.sroa.18.1 = phi i64 [ %.sroa.18.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4a738b5e8f2dfe73E.exit.i.i" ], [ %.sroa.18.8.copyload283, %363 ], [ %.sroa.18.3, %"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17h4134a73fe6bc1369E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50), !noalias !306
   br label %374
 
 .critedge.i.i:                                    ; preds = %364, %250
-  %.sroa.18.2 = phi i64 [ %.sroa.18.8.copyload285, %364 ], [ %.sroa.18.8.copyload277, %250 ]
+  %.sroa.18.0 = phi i64 [ %.sroa.18.8.copyload285, %364 ], [ %.sroa.18.8.copyload277, %250 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31), !noalias !429
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h06e9e8ad62caf2d8E.llvm.14011817705576975213"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %50)
           to label %.noexc139.i.i unwind label %211, !noalias !313
@@ -1968,7 +1968,7 @@ _ZN3std4path7PathBuf4push17h61c7ec98beb2db6dE.exit: ; preds = %381, %199, %195
   br label %365
 
 374:                                              ; preds = %376, %365
-  %.sroa.18.3 = phi i64 [ %.sroa.18.8.copyload287, %376 ], [ %.sroa.18.1, %365 ]
+  %.sroa.18.2 = phi i64 [ %.sroa.18.8.copyload287, %376 ], [ %.sroa.18.1, %365 ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hde1de4256b4d7853E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %53)
           to label %380 unwind label %378, !noalias !313
 
@@ -2025,7 +2025,7 @@ _ZN8fs_extra3dir16get_dir_content217h0d1156ee7c5aa15bE.exit: ; preds = %244, %29
   br i1 %382, label %383, label %385
 
 383:                                              ; preds = %_ZN8fs_extra3dir16get_dir_content217h0d1156ee7c5aa15bE.exit, %_ZN8fs_extra3dir16get_dir_content217h0d1156ee7c5aa15bE.exit.thread
-  %.sroa.18.4363 = phi i64 [ %.sroa.18.3, %_ZN8fs_extra3dir16get_dir_content217h0d1156ee7c5aa15bE.exit.thread ], [ %.092.i.i, %_ZN8fs_extra3dir16get_dir_content217h0d1156ee7c5aa15bE.exit ]
+  %.sroa.18.4363 = phi i64 [ %.sroa.18.2, %_ZN8fs_extra3dir16get_dir_content217h0d1156ee7c5aa15bE.exit.thread ], [ %.092.i.i, %_ZN8fs_extra3dir16get_dir_content217h0d1156ee7c5aa15bE.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.710.sroa.0, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.10274, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.10274)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.710.sroa.0, i64 40, i1 false)

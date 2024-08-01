@@ -45,17 +45,17 @@ define hidden ptr @get_profile_parent(ptr noundef readonly %0) local_unnamed_add
 
 .preheader:                                       ; preds = %1, %._crit_edge
   %.030 = phi i32 [ %24, %._crit_edge ], [ 0, %1 ]
-  %.01529 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %1 ]
+  %.129 = phi ptr [ %.2.lcssa, %._crit_edge ], [ %0, %1 ]
   %.01628 = phi ptr [ %23, %._crit_edge ], [ %3, %1 ]
   %.not2025 = icmp eq ptr %.01628, null
   br i1 %.not2025, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %19
-  %.127 = phi ptr [ %.2, %19 ], [ %.01529, %.preheader ]
+  %.227 = phi ptr [ %.3, %19 ], [ %.129, %.preheader ]
   %.11726 = phi ptr [ %21, %19 ], [ %.01628, %.preheader ]
   %7 = load ptr, ptr %.11726, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %.127) #6
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %.227) #6
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %19
 
@@ -72,14 +72,14 @@ define hidden ptr @get_profile_parent(ptr noundef readonly %0) local_unnamed_add
   br i1 %18, label %.loopexit, label %19
 
 19:                                               ; preds = %15, %.lr.ph
-  %.2 = phi ptr [ %.127, %.lr.ph ], [ %17, %15 ]
+  %.3 = phi ptr [ %.227, %.lr.ph ], [ %17, %15 ]
   %20 = getelementptr inbounds i8, ptr %.11726, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not20 = icmp eq ptr %21, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %19, %.preheader
-  %.1.lcssa = phi ptr [ %.01529, %.preheader ], [ %.2, %19 ]
+  %.2.lcssa = phi ptr [ %.129, %.preheader ], [ %.3, %19 ]
   %22 = load ptr, ptr @edited_profiles, align 8
   %23 = tail call ptr @g_list_first(ptr noundef %22) #5
   %24 = add nuw i32 %.030, 1
@@ -87,7 +87,7 @@ define hidden ptr @get_profile_parent(ptr noundef readonly %0) local_unnamed_add
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %._crit_edge, %11, %15, %1
-  %.014 = phi ptr [ %0, %1 ], [ null, %15 ], [ null, %11 ], [ %.1.lcssa, %._crit_edge ]
+  %.014 = phi ptr [ %0, %1 ], [ null, %15 ], [ null, %11 ], [ %.2.lcssa, %._crit_edge ]
   ret ptr %.014
 }
 
@@ -647,7 +647,7 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader52, %19
   %12 = phi ptr [ %20, %19 ], [ %11, %.preheader52 ]
-  %.04254 = phi ptr [ %.143, %19 ], [ null, %.preheader52 ]
+  %.14354 = phi ptr [ %.244, %19 ], [ null, %.preheader52 ]
   %13 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %9, ptr noundef nonnull @.str.7, ptr noundef nonnull %12) #5
   %14 = tail call i32 @test_for_directory(ptr noundef %13) #5
   %15 = icmp eq i32 %14, 21
@@ -655,25 +655,25 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
 
 16:                                               ; preds = %.lr.ph
   %17 = tail call noalias ptr @g_strdup(ptr noundef nonnull %12) #5
-  %18 = tail call ptr @g_list_prepend(ptr noundef %.04254, ptr noundef %17) #5
+  %18 = tail call ptr @g_list_prepend(ptr noundef %.14354, ptr noundef %17) #5
   br label %19
 
 19:                                               ; preds = %16, %.lr.ph
-  %.143 = phi ptr [ %18, %16 ], [ %.04254, %.lr.ph ]
+  %.244 = phi ptr [ %18, %16 ], [ %.14354, %.lr.ph ]
   tail call void @g_free(ptr noundef %13) #5
   %20 = tail call ptr @g_dir_read_name(ptr noundef nonnull %10) #5
   %.not47 = icmp eq ptr %20, null
   br i1 %.not47, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %19, %.preheader52
-  %.042.lcssa = phi ptr [ null, %.preheader52 ], [ %.143, %19 ]
+  %.143.lcssa = phi ptr [ null, %.preheader52 ], [ %.244, %19 ]
   tail call void @g_dir_close(ptr noundef nonnull %10) #5
   br label %21
 
 21:                                               ; preds = %._crit_edge, %0
-  %.244 = phi ptr [ %.042.lcssa, %._crit_edge ], [ null, %0 ]
+  %.042 = phi ptr [ %.143.lcssa, %._crit_edge ], [ null, %0 ]
   tail call void @g_free(ptr noundef %9) #5
-  %22 = tail call ptr @g_list_sort(ptr noundef %.244, ptr noundef nonnull @g_ascii_strcasecmp) #5
+  %22 = tail call ptr @g_list_sort(ptr noundef %.042, ptr noundef nonnull @g_ascii_strcasecmp) #5
   %23 = tail call ptr @g_list_first(ptr noundef %22) #5
   %.not4855 = icmp eq ptr %23, null
   br i1 %.not4855, label %._crit_edge59, label %.lr.ph58
@@ -712,7 +712,7 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
 
 .lr.ph62:                                         ; preds = %.preheader, %45
   %38 = phi ptr [ %46, %45 ], [ %37, %.preheader ]
-  %.04061 = phi ptr [ %.141, %45 ], [ null, %.preheader ]
+  %.14161 = phi ptr [ %.2, %45 ], [ null, %.preheader ]
   %39 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %35, ptr noundef nonnull @.str.7, ptr noundef nonnull %38) #5
   %40 = tail call i32 @test_for_directory(ptr noundef %39) #5
   %41 = icmp eq i32 %40, 21
@@ -720,25 +720,25 @@ define hidden void @init_profile_list() local_unnamed_addr #0 {
 
 42:                                               ; preds = %.lr.ph62
   %43 = tail call noalias ptr @g_strdup(ptr noundef nonnull %38) #5
-  %44 = tail call ptr @g_list_prepend(ptr noundef %.04061, ptr noundef %43) #5
+  %44 = tail call ptr @g_list_prepend(ptr noundef %.14161, ptr noundef %43) #5
   br label %45
 
 45:                                               ; preds = %42, %.lr.ph62
-  %.141 = phi ptr [ %44, %42 ], [ %.04061, %.lr.ph62 ]
+  %.2 = phi ptr [ %44, %42 ], [ %.14161, %.lr.ph62 ]
   tail call void @g_free(ptr noundef %39) #5
   %46 = tail call ptr @g_dir_read_name(ptr noundef nonnull %36) #5
   %.not50 = icmp eq ptr %46, null
   br i1 %.not50, label %._crit_edge63, label %.lr.ph62, !llvm.loop !17
 
 ._crit_edge63:                                    ; preds = %45, %.preheader
-  %.040.lcssa = phi ptr [ null, %.preheader ], [ %.141, %45 ]
+  %.141.lcssa = phi ptr [ null, %.preheader ], [ %.2, %45 ]
   tail call void @g_dir_close(ptr noundef nonnull %36) #5
   br label %47
 
 47:                                               ; preds = %._crit_edge63, %._crit_edge59
-  %.2 = phi ptr [ %.040.lcssa, %._crit_edge63 ], [ null, %._crit_edge59 ]
+  %.040 = phi ptr [ %.141.lcssa, %._crit_edge63 ], [ null, %._crit_edge59 ]
   tail call void @g_free(ptr noundef %35) #5
-  %48 = tail call ptr @g_list_sort(ptr noundef %.2, ptr noundef nonnull @g_ascii_strcasecmp) #5
+  %48 = tail call ptr @g_list_sort(ptr noundef %.040, ptr noundef nonnull @g_ascii_strcasecmp) #5
   %49 = tail call ptr @g_list_first(ptr noundef %48) #5
   %.not5165 = icmp eq ptr %49, null
   br i1 %.not5165, label %._crit_edge69, label %.lr.ph68

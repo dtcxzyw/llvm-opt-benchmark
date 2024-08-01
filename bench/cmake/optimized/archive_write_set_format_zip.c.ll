@@ -698,7 +698,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br label %97
 
 97:                                               ; preds = %94, %87
-  %.0306 = phi i32 [ -20, %94 ], [ 0, %87 ]
+  %.1307 = phi i32 [ -20, %94 ], [ 0, %87 ]
   %98 = load i64, ptr %10, align 8
   %.not321 = icmp eq i64 %98, 0
   br i1 %.not321, label %102, label %99
@@ -740,7 +740,7 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   br label %116
 
 116:                                              ; preds = %102, %111, %113, %106, %86
-  %.1307 = phi i32 [ %.0306, %106 ], [ %.0306, %113 ], [ %.0306, %111 ], [ %.0306, %102 ], [ 0, %86 ]
+  %.0306 = phi i32 [ %.1307, %106 ], [ %.1307, %113 ], [ %.1307, %111 ], [ %.1307, %102 ], [ 0, %86 ]
   %117 = load ptr, ptr %55, align 8
   %118 = call ptr @archive_entry_pathname(ptr noundef %117) #13
   br label %119
@@ -870,7 +870,7 @@ path_length.exit:                                 ; preds = %is_all_ascii.exit, 
   br label %180
 
 180:                                              ; preds = %171, %179
-  %.0300 = phi i32 [ 10, %179 ], [ 20, %171 ]
+  %.1301 = phi i32 [ 10, %179 ], [ 20, %171 ]
   store i64 %173, ptr %45, align 8
   %181 = load i32, ptr %47, align 4
   %182 = and i32 %181, 1
@@ -884,23 +884,23 @@ path_length.exit:                                 ; preds = %is_all_ascii.exit, 
   %switch.idx.cast = zext i32 %switch.tableidx to i64
   %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 3
   %switch.offset = add nuw nsw i64 %switch.idx.mult, 12
-  %.1301 = select i1 %185, i32 20, i32 %.0300
-  %.0296 = select i1 %185, i64 %switch.offset, i64 0
+  %.3303 = select i1 %185, i32 20, i32 %.1301
+  %.1297 = select i1 %185, i64 %switch.offset, i64 0
   br i1 %178, label %186, label %189
 
 186:                                              ; preds = %183
   %187 = load i64, ptr %44, align 8
-  %188 = add nsw i64 %187, %.0296
+  %188 = add nsw i64 %187, %.1297
   store i64 %188, ptr %44, align 8
   br label %189
 
 189:                                              ; preds = %183, %186, %180
-  %.2302 = phi i32 [ %.1301, %186 ], [ %.1301, %183 ], [ %.0300, %180 ]
-  %.1297 = phi i64 [ %.0296, %186 ], [ %.0296, %183 ], [ 0, %180 ]
+  %.2302 = phi i32 [ %.3303, %186 ], [ %.3303, %183 ], [ %.1301, %180 ]
+  %.0296 = phi i64 [ %.1297, %186 ], [ %.1297, %183 ], [ 0, %180 ]
   %190 = load i32, ptr %24, align 8
   %191 = and i32 %190, 2
   %.not330 = icmp eq i32 %191, 0
-  %192 = add nsw i64 %173, %.1297
+  %192 = add nsw i64 %173, %.0296
   %193 = icmp slt i64 %192, 4294967296
   %194 = icmp slt i64 %173, 4278190081
   %brmerge = or i1 %194, %178
@@ -913,7 +913,7 @@ path_length.exit:                                 ; preds = %is_all_ascii.exit, 
   br label %197
 
 197:                                              ; preds = %189, %196
-  %.3303 = phi i32 [ 45, %196 ], [ %.2302, %189 ]
+  %.4304 = phi i32 [ 45, %196 ], [ %.2302, %189 ]
   %198 = or i32 %181, 8
   store i32 %198, ptr %47, align 4
   br label %216
@@ -944,7 +944,7 @@ path_length.exit:                                 ; preds = %is_all_ascii.exit, 
 
 212:                                              ; preds = %210, %209
   %spec.store.select = phi i32 [ 45, %209 ], [ 20, %210 ]
-  %.4304 = phi i32 [ 45, %209 ], [ %., %210 ]
+  %.5305 = phi i32 [ 45, %209 ], [ %., %210 ]
   %213 = and i32 %204, 1
   %.not327 = icmp eq i32 %213, 0
   br i1 %.not327, label %216, label %214
@@ -953,22 +953,22 @@ path_length.exit:                                 ; preds = %is_all_ascii.exit, 
   %215 = load i32, ptr %54, align 8
   %.off354 = add i32 %215, -1
   %switch355 = icmp ult i32 %.off354, 3
-  %spec.select356 = select i1 %switch355, i32 %spec.store.select, i32 %.4304
+  %spec.select356 = select i1 %switch355, i32 %spec.store.select, i32 %.5305
   br label %216
 
 216:                                              ; preds = %214, %166, %212, %197, %158
   %217 = phi i32 [ 0, %158 ], [ 0, %166 ], [ %spec.select, %197 ], [ %spec.select353, %212 ], [ %spec.select353, %214 ]
-  %.5305 = phi i32 [ 20, %158 ], [ 20, %166 ], [ %.3303, %197 ], [ %.4304, %212 ], [ %spec.select356, %214 ]
+  %.0300 = phi i32 [ 20, %158 ], [ 20, %166 ], [ %.4304, %197 ], [ %.5305, %212 ], [ %spec.select356, %214 ]
   %.1299 = phi i64 [ %.0298, %158 ], [ 0, %166 ], [ 0, %197 ], [ 0, %212 ], [ 0, %214 ]
   %.0295 = phi ptr [ %155, %158 ], [ null, %166 ], [ null, %197 ], [ null, %212 ], [ null, %214 ]
   %218 = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %218, i8 0, i64 16, i1 false)
   store i32 67324752, ptr %7, align 16
   %219 = getelementptr inbounds i8, ptr %7, i64 4
-  %220 = trunc i32 %.5305 to i16
-  %221 = trunc i32 %.5305 to i8
+  %220 = trunc i32 %.0300 to i16
+  %221 = trunc i32 %.0300 to i8
   store i8 %221, ptr %219, align 4
-  %222 = lshr i32 %.5305, 8
+  %222 = lshr i32 %.0300, 8
   %223 = trunc i32 %222 to i8
   %224 = getelementptr inbounds i8, ptr %7, i64 5
   store i8 %223, ptr %224, align 1
@@ -1830,9 +1830,9 @@ cd_alloc.exit377:                                 ; preds = %661, %669, %676
   br label %755
 
 755:                                              ; preds = %737, %734
-  %.8 = phi ptr [ %752, %737 ], [ %.4, %734 ]
+  %.5 = phi ptr [ %752, %737 ], [ %.4, %734 ]
   %756 = getelementptr inbounds i8, ptr %7, i64 28
-  %757 = ptrtoint ptr %.8 to i64
+  %757 = ptrtoint ptr %.5 to i64
   %758 = sub i64 %757, %645
   %759 = trunc i64 %758 to i8
   store i8 %759, ptr %756, align 4
@@ -1947,7 +1947,7 @@ write_path.exit:                                  ; preds = %774, %784
   br label %write_path.exit.thread
 
 write_path.exit.thread:                           ; preds = %782, %771, %764, %805, %809, %796, %788, %write_path.exit, %755, %822, %110, %93, %85, %37, %32, %22
-  %.0 = phi i32 [ -25, %22 ], [ -25, %32 ], [ -25, %37 ], [ -30, %85 ], [ -30, %93 ], [ -30, %110 ], [ -30, %822 ], [ -30, %755 ], [ -30, %write_path.exit ], [ -30, %788 ], [ -30, %796 ], [ %.1307, %809 ], [ %.1307, %805 ], [ -30, %764 ], [ -30, %771 ], [ -30, %782 ]
+  %.0 = phi i32 [ -25, %22 ], [ -25, %32 ], [ -25, %37 ], [ -30, %85 ], [ -30, %93 ], [ -30, %110 ], [ -30, %822 ], [ -30, %755 ], [ -30, %write_path.exit ], [ -30, %788 ], [ -30, %796 ], [ %.0306, %809 ], [ %.0306, %805 ], [ -30, %764 ], [ -30, %771 ], [ -30, %782 ]
   ret i32 %.0
 }
 

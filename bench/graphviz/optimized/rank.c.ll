@@ -352,7 +352,7 @@ compile_nodes.exit.i:                             ; preds = %69, %._crit_edge.i3
 
 .lr.ph.i32.i:                                     ; preds = %.lr.ph86.i.i, %strong.exit.i.i
   %.05681.i.i = phi ptr [ %300, %strong.exit.i.i ], [ %76, %.lr.ph86.i.i ]
-  %.05780.i.i = phi ptr [ %.2.i.i, %strong.exit.i.i ], [ %75, %.lr.ph86.i.i ]
+  %.05780.i.i = phi ptr [ %.1.i.i, %strong.exit.i.i ], [ %75, %.lr.ph86.i.i ]
   %77 = load ptr, ptr @E_constr, align 8
   %.not.i.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i.i, label %is_nonconstraint.exit.i.i, label %78
@@ -491,18 +491,18 @@ is_internal_to_cluster.exit.thread.i.i:           ; preds = %is_internal_to_clus
 
 163:                                              ; preds = %162, %149, %148
   %.058.i.i = phi ptr [ %.05780.i.i, %162 ], [ %95, %149 ], [ %95, %148 ]
-  %.1.i.i = phi ptr [ %95, %162 ], [ %.05780.i.i, %149 ], [ %.05780.i.i, %148 ]
-  %164 = call ptr @agedge(ptr noundef %11, ptr noundef %.1.i.i, ptr noundef %.058.i.i, ptr noundef null, i32 noundef 0) #14
+  %.2.i.i = phi ptr [ %95, %162 ], [ %.05780.i.i, %149 ], [ %.05780.i.i, %148 ]
+  %164 = call ptr @agedge(ptr noundef %11, ptr noundef %.2.i.i, ptr noundef %.058.i.i, ptr noundef null, i32 noundef 0) #14
   %.not.i66.i.i = icmp eq ptr %164, null
   br i1 %.not.i66.i.i, label %165, label %169
 
 165:                                              ; preds = %163
-  %166 = call ptr @agedge(ptr noundef %11, ptr noundef %.058.i.i, ptr noundef %.1.i.i, ptr noundef null, i32 noundef 0) #14
+  %166 = call ptr @agedge(ptr noundef %11, ptr noundef %.058.i.i, ptr noundef %.2.i.i, ptr noundef null, i32 noundef 0) #14
   %.not17.i.i.i = icmp eq ptr %166, null
   br i1 %.not17.i.i.i, label %167, label %169
 
 167:                                              ; preds = %165
-  %168 = call ptr @agedge(ptr noundef %11, ptr noundef %.1.i.i, ptr noundef %.058.i.i, ptr noundef null, i32 noundef 1) #14
+  %168 = call ptr @agedge(ptr noundef %11, ptr noundef %.2.i.i, ptr noundef %.058.i.i, ptr noundef null, i32 noundef 1) #14
   %.not18.i.i.i = icmp eq ptr %168, null
   br i1 %.not18.i.i.i, label %184, label %169
 
@@ -528,7 +528,7 @@ is_internal_to_cluster.exit.thread.i.i:           ; preds = %is_internal_to_clus
   br label %strong.exit.i.i
 
 184:                                              ; preds = %167
-  %185 = call ptr @agnameof(ptr noundef %.1.i.i) #14
+  %185 = call ptr @agnameof(ptr noundef %.2.i.i) #14
   %186 = call ptr @agnameof(ptr noundef %.058.i.i) #14
   %187 = call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.17, ptr noundef %185, ptr noundef %186) #14
   br label %strong.exit.i.i
@@ -718,7 +718,7 @@ weak.exit.i.i:                                    ; preds = %203, %makeXnode.exi
   br label %strong.exit.i.i
 
 strong.exit.i.i:                                  ; preds = %296, %281, %weak.exit.i.i, %184, %169, %is_nonconstraint.exit.i.i, %82
-  %.2.i.i = phi ptr [ %.05780.i.i, %is_nonconstraint.exit.i.i ], [ %.05780.i.i, %weak.exit.i.i ], [ %.1.i.i, %169 ], [ %.1.i.i, %184 ], [ %.05780.i.i, %281 ], [ %.05780.i.i, %296 ], [ %.05780.i.i, %82 ]
+  %.1.i.i = phi ptr [ %.05780.i.i, %is_nonconstraint.exit.i.i ], [ %.05780.i.i, %weak.exit.i.i ], [ %.2.i.i, %169 ], [ %.2.i.i, %184 ], [ %.05780.i.i, %281 ], [ %.05780.i.i, %296 ], [ %.05780.i.i, %82 ]
   %300 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.05681.i.i) #14
   %.not62.i.i = icmp eq ptr %300, null
   br i1 %.not62.i.i, label %._crit_edge.i33.i, label %.lr.ph.i32.i
@@ -1398,7 +1398,7 @@ edgelabel_ranks.exit:                             ; preds = %1, %._crit_edge22.i
 
 .loopexit26.i:                                    ; preds = %.loopexit26.loopexit.i, %38, %.thread38.i, %.thread.i
   %52 = phi ptr [ %.pre33.i, %.thread38.i ], [ %.pre33.i, %38 ], [ %.pre36.i, %.loopexit26.loopexit.i ], [ %.pre30.i, %.thread.i ]
-  %.sroa.3.0.shrunk.i = phi i1 [ false, %.thread38.i ], [ %43, %38 ], [ %43, %.loopexit26.loopexit.i ], [ false, %.thread.i ]
+  %.sroa.3.1.shrunk.i = phi i1 [ false, %.thread38.i ], [ %43, %38 ], [ %43, %.loopexit26.loopexit.i ], [ false, %.thread.i ]
   %53 = getelementptr inbounds i8, ptr %52, i64 320
   %54 = load ptr, ptr %53, align 8
   %.not24.i = icmp eq ptr %54, null
@@ -1429,7 +1429,7 @@ edgelabel_ranks.exit:                             ; preds = %1, %._crit_edge22.i
 .loopexit.i:                                      ; preds = %.lr.ph29.i, %55, %.loopexit26.i
   %.sroa.0.0.shrunk.i = phi i1 [ false, %.loopexit26.i ], [ %60, %55 ], [ %60, %.lr.ph29.i ]
   %.sroa.0.0.i = zext i1 %.sroa.0.0.shrunk.i to i64
-  %cond.fr.i = freeze i1 %.sroa.3.0.shrunk.i
+  %cond.fr.i = freeze i1 %.sroa.3.1.shrunk.i
   %spec.select.i = select i1 %cond.fr.i, i64 4294967296, i64 0
   %69 = or disjoint i64 %spec.select.i, %.sroa.0.0.i
   br label %minmax_edges.exit
@@ -1459,7 +1459,7 @@ minmax_edges.exit:                                ; preds = %29, %.loopexit.i
   br i1 %.not2936.i, label %minmax_edges2.exit.thread, label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %76, %112
-  %.038.i = phi ptr [ %.2.i, %112 ], [ null, %76 ]
+  %.138.i = phi ptr [ %.2.i, %112 ], [ null, %76 ]
   %.02537.i = phi ptr [ %113, %112 ], [ %77, %76 ]
   %78 = tail call ptr @UF_find(ptr noundef nonnull %.02537.i) #14
   %.not30.i = icmp eq ptr %.02537.i, %78
@@ -1496,7 +1496,7 @@ minmax_edges.exit:                                ; preds = %29, %.loopexit.i
 
 96:                                               ; preds = %89, %85, %79
   %97 = phi ptr [ %.pre.i, %89 ], [ %81, %85 ], [ %81, %79 ]
-  %.1.i = phi ptr [ %90, %89 ], [ %.038.i, %85 ], [ %.038.i, %79 ]
+  %.3.i = phi ptr [ %90, %89 ], [ %.138.i, %85 ], [ %.138.i, %79 ]
   %98 = getelementptr inbounds i8, ptr %97, i64 264
   %99 = load i64, ptr %98, align 8
   %100 = icmp eq i64 %99, 0
@@ -1523,7 +1523,7 @@ minmax_edges.exit:                                ; preds = %29, %.loopexit.i
   br label %112
 
 112:                                              ; preds = %105, %101, %96, %.lr.ph.i15
-  %.2.i = phi ptr [ %.038.i, %.lr.ph.i15 ], [ %106, %105 ], [ %.1.i, %101 ], [ %.1.i, %96 ]
+  %.2.i = phi ptr [ %.138.i, %.lr.ph.i15 ], [ %106, %105 ], [ %.3.i, %101 ], [ %.3.i, %96 ]
   %113 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.02537.i) #14
   %.not29.i = icmp eq ptr %113, null
   br i1 %.not29.i, label %minmax_edges2.exit, label %.lr.ph.i15
@@ -1657,12 +1657,12 @@ minmax_edges2.exit.thread:                        ; preds = %76, %73, %114, %min
 176:                                              ; preds = %161
   %177 = tail call ptr @dot_root(ptr noundef nonnull %0) #14
   %178 = tail call ptr @agfstsubg(ptr noundef %177) #14
-  %.not.i2344 = icmp eq ptr %178, null
-  br i1 %.not.i2344, label %expand_ranksets.exit, label %.lr.ph
+  %.not.i2444 = icmp eq ptr %178, null
+  br i1 %.not.i2444, label %expand_ranksets.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %176, %collapse_cluster.exit.i
-  %.0.i2245 = phi ptr [ %271, %collapse_cluster.exit.i ], [ %178, %176 ]
-  %179 = getelementptr inbounds i8, ptr %.0.i2245, i64 16
+  %.0.i2345 = phi ptr [ %271, %collapse_cluster.exit.i ], [ %178, %176 ]
+  %179 = getelementptr inbounds i8, ptr %.0.i2345, i64 16
   %180 = load ptr, ptr %179, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 402
   %182 = load i8, ptr %181, align 2
@@ -1672,13 +1672,13 @@ minmax_edges2.exit.thread:                        ; preds = %76, %73, %114, %min
 184:                                              ; preds = %.lr.ph
   %185 = getelementptr inbounds i8, ptr %180, i64 272
   %186 = load ptr, ptr %185, align 8
-  %.not.i.i24 = icmp eq ptr %186, null
-  br i1 %.not.i.i24, label %187, label %collapse_cluster.exit.i
+  %.not.i.i25 = icmp eq ptr %186, null
+  br i1 %.not.i.i25, label %187, label %collapse_cluster.exit.i
 
 187:                                              ; preds = %184
   store ptr %0, ptr %185, align 8
-  tail call fastcc void @node_induce(ptr noundef %0, ptr noundef nonnull %.0.i2245)
-  %188 = tail call ptr @agfstnode(ptr noundef nonnull %.0.i2245) #14
+  tail call fastcc void @node_induce(ptr noundef %0, ptr noundef nonnull %.0.i2345)
+  %188 = tail call ptr @agfstnode(ptr noundef nonnull %.0.i2345) #14
   %189 = icmp eq ptr %188, null
   br i1 %189, label %collapse_cluster.exit.i, label %190
 
@@ -1705,14 +1705,14 @@ minmax_edges2.exit.thread:                        ; preds = %76, %73, %114, %min
   %208 = load ptr, ptr %207, align 8
   %209 = sext i32 %194 to i64
   %210 = getelementptr inbounds ptr, ptr %208, i64 %209
-  store ptr %.0.i2245, ptr %210, align 8
-  tail call void @do_graph_label(ptr noundef nonnull %.0.i2245) #14
+  store ptr %.0.i2345, ptr %210, align 8
+  tail call void @do_graph_label(ptr noundef nonnull %.0.i2345) #14
   %211 = load i32, ptr @CL_type, align 4
   %212 = icmp eq i32 %211, 100
   br i1 %212, label %213, label %234
 
 213:                                              ; preds = %190
-  tail call fastcc void @dot1_rank(ptr noundef nonnull %.0.i2245)
+  tail call fastcc void @dot1_rank(ptr noundef nonnull %.0.i2345)
   %214 = load ptr, ptr %179, align 8
   %215 = getelementptr inbounds i8, ptr %214, i64 256
   %.01724.i = load ptr, ptr %215, align 8
@@ -1747,7 +1747,7 @@ minmax_edges2.exit.thread:                        ; preds = %76, %73, %114, %min
   %.019.lcssa.i = phi ptr [ null, %213 ], [ %.120.i, %225 ]
   %227 = getelementptr inbounds i8, ptr %214, i64 384
   store ptr %.019.lcssa.i, ptr %227, align 8
-  %228 = tail call ptr @agfstnode(ptr noundef nonnull %.0.i2245) #14
+  %228 = tail call ptr @agfstnode(ptr noundef nonnull %.0.i2345) #14
   %.not2229.i = icmp eq ptr %228, null
   br i1 %.not2229.i, label %collapse_cluster.exit.i, label %.lr.ph32.i
 
@@ -1758,7 +1758,7 @@ minmax_edges2.exit.thread:                        ; preds = %76, %73, %114, %min
   %231 = load ptr, ptr %230, align 8
   %232 = getelementptr inbounds i8, ptr %231, i64 233
   store i8 7, ptr %232, align 1
-  %233 = tail call ptr @agnxtnode(ptr noundef nonnull %.0.i2245, ptr noundef nonnull %.11830.i) #14
+  %233 = tail call ptr @agnxtnode(ptr noundef nonnull %.0.i2345, ptr noundef nonnull %.11830.i) #14
   %.not22.i37 = icmp eq ptr %233, null
   br i1 %.not22.i37, label %collapse_cluster.exit.i, label %.lr.ph32.i
 
@@ -1769,12 +1769,12 @@ minmax_edges2.exit.thread:                        ; preds = %76, %73, %114, %min
   %237 = load ptr, ptr %179, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 348
   store i32 -1, ptr %238, align 4
-  %239 = tail call ptr @agfstnode(ptr noundef nonnull %.0.i2245) #14
-  %.not24.i25 = icmp eq ptr %239, null
-  br i1 %.not24.i25, label %dot_scan_ranks.exit, label %.lr.ph.i26
+  %239 = tail call ptr @agfstnode(ptr noundef nonnull %.0.i2345) #14
+  %.not24.i26 = icmp eq ptr %239, null
+  br i1 %.not24.i26, label %dot_scan_ranks.exit, label %.lr.ph.i27
 
-.lr.ph.i26:                                       ; preds = %234, %267
-  %.026.i = phi ptr [ %.1.i28, %267 ], [ null, %234 ]
+.lr.ph.i27:                                       ; preds = %234, %267
+  %.026.i = phi ptr [ %.1.i, %267 ], [ null, %234 ]
   %.02125.i = phi ptr [ %268, %267 ], [ %239, %234 ]
   %240 = load ptr, ptr %179, align 8
   %241 = getelementptr inbounds i8, ptr %240, i64 348
@@ -1786,7 +1786,7 @@ minmax_edges2.exit.thread:                        ; preds = %76, %73, %114, %min
   %247 = icmp slt i32 %242, %246
   br i1 %247, label %248, label %249
 
-248:                                              ; preds = %.lr.ph.i26
+248:                                              ; preds = %.lr.ph.i27
   store i32 %246, ptr %241, align 4
   %.pre.i31 = load ptr, ptr %179, align 8
   %.pre27.i = load ptr, ptr %243, align 8
@@ -1794,9 +1794,9 @@ minmax_edges2.exit.thread:                        ; preds = %76, %73, %114, %min
   %.pre28.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %249
 
-249:                                              ; preds = %248, %.lr.ph.i26
-  %250 = phi i32 [ %.pre28.i, %248 ], [ %246, %.lr.ph.i26 ]
-  %251 = phi ptr [ %.pre.i31, %248 ], [ %240, %.lr.ph.i26 ]
+249:                                              ; preds = %248, %.lr.ph.i27
+  %250 = phi i32 [ %.pre28.i, %248 ], [ %246, %.lr.ph.i27 ]
+  %251 = phi ptr [ %.pre.i31, %248 ], [ %240, %.lr.ph.i27 ]
   %252 = getelementptr inbounds i8, ptr %251, i64 344
   %253 = load i32, ptr %252, align 8
   %254 = icmp sgt i32 %253, %250
@@ -1819,26 +1819,26 @@ minmax_edges2.exit.thread:                        ; preds = %76, %73, %114, %min
   %264 = getelementptr inbounds i8, ptr %263, i64 360
   %265 = load i32, ptr %264, align 8
   %266 = icmp slt i32 %261, %265
-  %spec.select.i27 = select i1 %266, ptr %.02125.i, ptr %.026.i
+  %spec.select.i28 = select i1 %266, ptr %.02125.i, ptr %.026.i
   br label %267
 
 267:                                              ; preds = %258, %256
-  %.1.i28 = phi ptr [ %.02125.i, %256 ], [ %spec.select.i27, %258 ]
-  %268 = tail call ptr @agnxtnode(ptr noundef nonnull %.0.i2245, ptr noundef nonnull %.02125.i) #14
+  %.1.i = phi ptr [ %.02125.i, %256 ], [ %spec.select.i28, %258 ]
+  %268 = tail call ptr @agnxtnode(ptr noundef nonnull %.0.i2345, ptr noundef nonnull %.02125.i) #14
   %.not.i29 = icmp eq ptr %268, null
-  br i1 %.not.i29, label %dot_scan_ranks.exit, label %.lr.ph.i26
+  br i1 %.not.i29, label %dot_scan_ranks.exit, label %.lr.ph.i27
 
 dot_scan_ranks.exit:                              ; preds = %267, %234
-  %.0.lcssa.i = phi ptr [ null, %234 ], [ %.1.i28, %267 ]
+  %.0.lcssa.i = phi ptr [ null, %234 ], [ %.1.i, %267 ]
   %269 = load ptr, ptr %179, align 8
   %270 = getelementptr inbounds i8, ptr %269, i64 384
   store ptr %.0.lcssa.i, ptr %270, align 8
   br label %collapse_cluster.exit.i
 
 collapse_cluster.exit.i:                          ; preds = %.lr.ph32.i, %184, %187, %dot_scan_ranks.exit, %._crit_edge.i36, %.lr.ph
-  %271 = tail call ptr @agnxtsubg(ptr noundef nonnull %.0.i2245) #14
-  %.not.i23 = icmp eq ptr %271, null
-  br i1 %.not.i23, label %expand_ranksets.exit, label %.lr.ph
+  %271 = tail call ptr @agnxtsubg(ptr noundef nonnull %.0.i2345) #14
+  %.not.i24 = icmp eq ptr %271, null
+  br i1 %.not.i24, label %expand_ranksets.exit, label %.lr.ph
 
 272:                                              ; preds = %minmax_edges2.exit.thread
   %273 = getelementptr inbounds i8, ptr %116, i64 348
@@ -1855,9 +1855,9 @@ expand_ranksets.exit:                             ; preds = %collapse_cluster.ex
   %.not88.i = icmp eq i64 %278, 0
   br i1 %.not88.i, label %._crit_edge67.i, label %.lr.ph66.i
 
-.lr.ph66.i:                                       ; preds = %expand_ranksets.exit, %._crit_edge.i20
-  %279 = phi ptr [ %306, %._crit_edge.i20 ], [ %276, %expand_ranksets.exit ]
-  %.064.i = phi i64 [ %307, %._crit_edge.i20 ], [ 0, %expand_ranksets.exit ]
+.lr.ph66.i:                                       ; preds = %expand_ranksets.exit, %._crit_edge.i21
+  %279 = phi ptr [ %306, %._crit_edge.i21 ], [ %276, %expand_ranksets.exit ]
+  %.064.i = phi i64 [ %307, %._crit_edge.i21 ], [ 0, %expand_ranksets.exit ]
   %280 = getelementptr inbounds i8, ptr %279, i64 304
   %281 = load ptr, ptr %280, align 8
   %282 = getelementptr inbounds ptr, ptr %281, i64 %.064.i
@@ -1868,9 +1868,9 @@ expand_ranksets.exit:                             ; preds = %collapse_cluster.ex
   %286 = getelementptr inbounds i8, ptr %285, i64 256
   %.04561.i = load ptr, ptr %286, align 8
   %.not5562.i = icmp eq ptr %.04561.i, null
-  br i1 %.not5562.i, label %._crit_edge.i20, label %.lr.ph.i18
+  br i1 %.not5562.i, label %._crit_edge.i21, label %.lr.ph.i19
 
-.lr.ph.i18:                                       ; preds = %.lr.ph66.i, %renewlist.exit60.i
+.lr.ph.i19:                                       ; preds = %.lr.ph66.i, %renewlist.exit60.i
   %.04563.i = phi ptr [ %.045.i, %renewlist.exit60.i ], [ %.04561.i, %.lr.ph66.i ]
   %287 = getelementptr inbounds i8, ptr %.04563.i, i64 16
   %288 = load ptr, ptr %287, align 8
@@ -1880,8 +1880,8 @@ expand_ranksets.exit:                             ; preds = %collapse_cluster.ex
   %.not5.i.i = icmp eq i64 %291, -1
   br i1 %.not5.i.i, label %renewlist.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i18, %.lr.ph.i.i
-  %.06.i.i = phi i64 [ %294, %.lr.ph.i.i ], [ %291, %.lr.ph.i18 ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i19, %.lr.ph.i.i
+  %.06.i.i = phi i64 [ %294, %.lr.ph.i.i ], [ %291, %.lr.ph.i19 ]
   %292 = load ptr, ptr %289, align 8
   %293 = getelementptr inbounds ptr, ptr %292, i64 %.06.i.i
   store ptr null, ptr %293, align 8
@@ -1889,7 +1889,7 @@ expand_ranksets.exit:                             ; preds = %collapse_cluster.ex
   %.not.i.i = icmp eq i64 %.06.i.i, 0
   br i1 %.not.i.i, label %renewlist.exit.i, label %.lr.ph.i.i
 
-renewlist.exit.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.i18
+renewlist.exit.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.i19
   store i64 0, ptr %290, align 8
   %295 = load ptr, ptr %287, align 8
   %296 = getelementptr inbounds i8, ptr %295, i64 272
@@ -1916,21 +1916,21 @@ renewlist.exit60.i:                               ; preds = %.lr.ph.i57.i, %rene
   %305 = getelementptr inbounds i8, ptr %304, i64 240
   %.045.i = load ptr, ptr %305, align 8
   %.not55.i = icmp eq ptr %.045.i, null
-  br i1 %.not55.i, label %._crit_edge.loopexit.i, label %.lr.ph.i18
+  br i1 %.not55.i, label %._crit_edge.loopexit.i, label %.lr.ph.i19
 
 ._crit_edge.loopexit.i:                           ; preds = %renewlist.exit60.i
-  %.pre.i19 = load ptr, ptr %2, align 8
-  br label %._crit_edge.i20
+  %.pre.i20 = load ptr, ptr %2, align 8
+  br label %._crit_edge.i21
 
-._crit_edge.i20:                                  ; preds = %._crit_edge.loopexit.i, %.lr.ph66.i
-  %306 = phi ptr [ %.pre.i19, %._crit_edge.loopexit.i ], [ %285, %.lr.ph66.i ]
+._crit_edge.i21:                                  ; preds = %._crit_edge.loopexit.i, %.lr.ph66.i
+  %306 = phi ptr [ %.pre.i20, %._crit_edge.loopexit.i ], [ %285, %.lr.ph66.i ]
   %307 = add nuw i64 %.064.i, 1
   %308 = getelementptr inbounds i8, ptr %306, i64 312
   %309 = load i64, ptr %308, align 8
   %310 = icmp ult i64 %307, %309
   br i1 %310, label %.lr.ph66.i, label %._crit_edge67.i
 
-._crit_edge67.i:                                  ; preds = %._crit_edge.i20, %expand_ranksets.exit
+._crit_edge67.i:                                  ; preds = %._crit_edge.i21, %expand_ranksets.exit
   %311 = tail call ptr @agfstnode(ptr noundef nonnull %0) #14
   %.not73.i = icmp eq ptr %311, null
   br i1 %.not73.i, label %._crit_edge77.i, label %.lr.ph76.i
@@ -1969,8 +1969,8 @@ renewlist.exit60.i:                               ; preds = %.lr.ph.i57.i, %rene
 
 ._crit_edge72.i:                                  ; preds = %323, %.lr.ph76.i
   %325 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.14674.i) #14
-  %.not.i21 = icmp eq ptr %325, null
-  br i1 %.not.i21, label %._crit_edge77.i, label %.lr.ph76.i
+  %.not.i22 = icmp eq ptr %325, null
+  br i1 %.not.i22, label %._crit_edge77.i, label %.lr.ph76.i
 
 ._crit_edge77.i:                                  ; preds = %._crit_edge72.i, %._crit_edge67.i
   %326 = tail call ptr @agfstnode(ptr noundef %0) #14
@@ -2971,9 +2971,9 @@ define internal fastcc void @compile_clusters(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %36
-  %.03648 = phi ptr [ %.2, %36 ], [ %2, %9 ]
+  %.148 = phi ptr [ %.2, %36 ], [ %2, %9 ]
   %.03747 = phi ptr [ %37, %36 ], [ %10, %9 ]
-  %.03846 = phi ptr [ %.240, %36 ], [ %3, %9 ]
+  %.13946 = phi ptr [ %.341, %36 ], [ %3, %9 ]
   %11 = tail call ptr @agfstin(ptr noundef %0, ptr noundef nonnull %.03747) #14
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %23
@@ -2984,7 +2984,7 @@ define internal fastcc void @compile_clusters(ptr noundef %0, ptr noundef %1, pt
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 200
   %18 = load ptr, ptr %17, align 8
-  %.not43 = icmp eq ptr %.03648, null
+  %.not43 = icmp eq ptr %.148, null
   br i1 %.not43, label %19, label %21
 
 19:                                               ; preds = %13
@@ -2992,12 +2992,12 @@ define internal fastcc void @compile_clusters(ptr noundef %0, ptr noundef %1, pt
   br label %21
 
 21:                                               ; preds = %19, %13
-  %.1 = phi ptr [ %.03648, %13 ], [ %20, %19 ]
-  %22 = tail call ptr @agedge(ptr noundef %1, ptr noundef %.1, ptr noundef %18, ptr noundef null, i32 noundef 1) #14
+  %.3 = phi ptr [ %.148, %13 ], [ %20, %19 ]
+  %22 = tail call ptr @agedge(ptr noundef %1, ptr noundef %.3, ptr noundef %18, ptr noundef null, i32 noundef 1) #14
   br label %23
 
 23:                                               ; preds = %21, %.lr.ph
-  %.2 = phi ptr [ %.1, %21 ], [ %.03648, %.lr.ph ]
+  %.2 = phi ptr [ %.3, %21 ], [ %.148, %.lr.ph ]
   %24 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.03747) #14
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %36
@@ -3008,7 +3008,7 @@ define internal fastcc void @compile_clusters(ptr noundef %0, ptr noundef %1, pt
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 200
   %31 = load ptr, ptr %30, align 8
-  %.not44 = icmp eq ptr %.03846, null
+  %.not44 = icmp eq ptr %.13946, null
   br i1 %.not44, label %32, label %34
 
 32:                                               ; preds = %26
@@ -3016,26 +3016,26 @@ define internal fastcc void @compile_clusters(ptr noundef %0, ptr noundef %1, pt
   br label %34
 
 34:                                               ; preds = %32, %26
-  %.139 = phi ptr [ %.03846, %26 ], [ %33, %32 ]
-  %35 = tail call ptr @agedge(ptr noundef %1, ptr noundef %31, ptr noundef %.139, ptr noundef null, i32 noundef 1) #14
+  %.240 = phi ptr [ %.13946, %26 ], [ %33, %32 ]
+  %35 = tail call ptr @agedge(ptr noundef %1, ptr noundef %31, ptr noundef %.240, ptr noundef null, i32 noundef 1) #14
   br label %36
 
 36:                                               ; preds = %23, %34
-  %.240 = phi ptr [ %.139, %34 ], [ %.03846, %23 ]
+  %.341 = phi ptr [ %.240, %34 ], [ %.13946, %23 ]
   %37 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.03747) #14
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %36, %9
-  %.038.lcssa = phi ptr [ %3, %9 ], [ %.240, %36 ]
-  %.036.lcssa = phi ptr [ %2, %9 ], [ %.2, %36 ]
-  %38 = icmp ne ptr %.036.lcssa, null
-  %39 = icmp ne ptr %.038.lcssa, null
+  %.139.lcssa = phi ptr [ %3, %9 ], [ %.341, %36 ]
+  %.1.lcssa = phi ptr [ %2, %9 ], [ %.2, %36 ]
+  %38 = icmp ne ptr %.1.lcssa, null
+  %39 = icmp ne ptr %.139.lcssa, null
   %or.cond = select i1 %38, i1 %39, i1 false
   br i1 %or.cond, label %40, label %50
 
 40:                                               ; preds = %._crit_edge
-  %41 = tail call ptr @agedge(ptr noundef %1, ptr noundef nonnull %.036.lcssa, ptr noundef nonnull %.038.lcssa, ptr noundef null, i32 noundef 1) #14
+  %41 = tail call ptr @agedge(ptr noundef %1, ptr noundef nonnull %.1.lcssa, ptr noundef nonnull %.139.lcssa, ptr noundef null, i32 noundef 1) #14
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 228
@@ -3050,15 +3050,15 @@ define internal fastcc void @compile_clusters(ptr noundef %0, ptr noundef %1, pt
   br label %50
 
 50:                                               ; preds = %._crit_edge, %40, %6, %4
-  %.341 = phi ptr [ %.038.lcssa, %40 ], [ %.038.lcssa, %._crit_edge ], [ %3, %6 ], [ %3, %4 ]
-  %.3 = phi ptr [ %.036.lcssa, %40 ], [ %.036.lcssa, %._crit_edge ], [ %2, %6 ], [ %2, %4 ]
+  %.038 = phi ptr [ %.139.lcssa, %40 ], [ %.139.lcssa, %._crit_edge ], [ %3, %6 ], [ %3, %4 ]
+  %.036 = phi ptr [ %.1.lcssa, %40 ], [ %.1.lcssa, %._crit_edge ], [ %2, %6 ], [ %2, %4 ]
   %51 = tail call ptr @agfstsubg(ptr noundef %0) #14
   %.not4250 = icmp eq ptr %51, null
   br i1 %.not4250, label %._crit_edge54, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %50, %.lr.ph53
   %.051 = phi ptr [ %52, %.lr.ph53 ], [ %51, %50 ]
-  tail call fastcc void @compile_clusters(ptr noundef nonnull %.051, ptr noundef %1, ptr noundef %.3, ptr noundef %.341)
+  tail call fastcc void @compile_clusters(ptr noundef nonnull %.051, ptr noundef %1, ptr noundef %.036, ptr noundef %.038)
   %52 = tail call ptr @agnxtsubg(ptr noundef nonnull %.051) #14
   %.not42 = icmp eq ptr %52, null
   br i1 %.not42, label %._crit_edge54, label %.lr.ph53

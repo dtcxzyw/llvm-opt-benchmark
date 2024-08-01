@@ -3716,7 +3716,7 @@ while.end331:                                     ; preds = %while.cond276.backe
 
 cleanup:                                          ; preds = %while.end331, %invoke.cont163, %for.end161, %invoke.cont20
   %254 = phi ptr [ %22, %invoke.cont20 ], [ %51, %for.end161 ], [ %51, %invoke.cont163 ], [ %51, %while.end331 ]
-  %retval.0 = phi i32 [ 0, %invoke.cont20 ], [ 1, %for.end161 ], [ 1, %invoke.cont163 ], [ 1, %while.end331 ]
+  %retval.1 = phi i32 [ 0, %invoke.cont20 ], [ 1, %for.end161 ], [ 1, %invoke.cont163 ], [ 1, %while.end331 ]
   %255 = load ptr, ptr %m_data.i.i89, align 8
   %tobool.not.i.i.i502 = icmp eq ptr %255, null
   br i1 %tobool.not.i.i.i502, label %_ZN20btAlignedObjectArrayIiED2Ev.exit, label %if.then.i.i.i503
@@ -3767,8 +3767,8 @@ ehcleanup:                                        ; preds = %lpad6, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then3.i.i.i515, %if.then.i.i.i509, %_ZN20btAlignedObjectArrayIiED2Ev.exit, %entry
-  %retval.1 = phi i32 [ 0, %entry ], [ %retval.0, %_ZN20btAlignedObjectArrayIiED2Ev.exit ], [ %retval.0, %if.then.i.i.i509 ], [ %retval.0, %if.then3.i.i.i515 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %entry ], [ %retval.1, %_ZN20btAlignedObjectArrayIiED2Ev.exit ], [ %retval.1, %if.then.i.i.i509 ], [ %retval.1, %if.then3.i.i.i515 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5070,9 +5070,9 @@ if.then60:                                        ; preds = %for.end36
 
 if.else:                                          ; preds = %if.then60
   %mul = fmul float %len.2, 0x3FA99999A0000000
-  %dx.0 = select i1 %cmp54, float %mul, float %sub
-  %dy.0 = select i1 %cmp55, float %mul, float %16
-  %18 = insertelement <2 x float> %13, float %dy.0, i64 0
+  %dx.1 = select i1 %cmp54, float %mul, float %sub
+  %dy.1 = select i1 %cmp55, float %mul, float %16
+  %18 = insertelement <2 x float> %13, float %dy.1, i64 0
   br i1 %cmp57, label %if.then85, label %if.end88
 
 if.then85:                                        ; preds = %if.else
@@ -5080,10 +5080,10 @@ if.then85:                                        ; preds = %if.else
   br label %if.end88
 
 if.end88:                                         ; preds = %if.then60, %if.else, %if.then85
-  %dx.1 = phi float [ %dx.0, %if.then85 ], [ %dx.0, %if.else ], [ 0x3F847AE140000000, %if.then60 ]
+  %dx.0 = phi float [ %dx.1, %if.then85 ], [ %dx.1, %if.else ], [ 0x3F847AE140000000, %if.then60 ]
   %20 = phi <2 x float> [ %19, %if.then85 ], [ %18, %if.else ], [ <float 0x3F847AE140000000, float 0x3F847AE140000000>, %if.then60 ]
-  %sub91 = fsub float %14, %dx.1
-  %add = fadd float %14, %dx.1
+  %sub91 = fsub float %14, %dx.0
+  %add = fadd float %14, %dx.0
   %21 = fsub <2 x float> %15, %20
   %22 = fadd <2 x float> %15, %20
   %23 = load i32, ptr %vcount, align 4
@@ -5376,9 +5376,9 @@ if.then286:                                       ; preds = %for.end266
 
 if.else311:                                       ; preds = %if.then286
   %mul314 = fmul float %len293.2, 0x3FA99999A0000000
-  %dx267.0 = select i1 %cmp279, float %mul314, float %sub270
-  %dy271.0 = select i1 %cmp281, float %mul314, float %86
-  %90 = insertelement <2 x float> %85, float %dy271.0, i64 0
+  %dx267.1 = select i1 %cmp279, float %mul314, float %sub270
+  %dy271.1 = select i1 %cmp281, float %mul314, float %86
+  %90 = insertelement <2 x float> %85, float %dy271.1, i64 0
   br i1 %cmp283, label %if.then321, label %if.end324
 
 if.then321:                                       ; preds = %if.else311
@@ -5386,10 +5386,10 @@ if.then321:                                       ; preds = %if.else311
   br label %if.end324
 
 if.end324:                                        ; preds = %if.then286, %if.else311, %if.then321
-  %dx267.1 = phi float [ %dx267.0, %if.then321 ], [ %dx267.0, %if.else311 ], [ 0x3F847AE140000000, %if.then286 ]
+  %dx267.0 = phi float [ %dx267.1, %if.then321 ], [ %dx267.1, %if.else311 ], [ 0x3F847AE140000000, %if.then286 ]
   %92 = phi <2 x float> [ %91, %if.then321 ], [ %90, %if.else311 ], [ <float 0x3F847AE140000000, float 0x3F847AE140000000>, %if.then286 ]
-  %sub326 = fsub float %88, %dx267.1
-  %add328 = fadd float %88, %dx267.1
+  %sub326 = fsub float %88, %dx267.0
+  %add328 = fadd float %88, %dx267.0
   %93 = fsub <2 x float> %89, %92
   %94 = fadd <2 x float> %89, %92
   store i32 0, ptr %vcount, align 4

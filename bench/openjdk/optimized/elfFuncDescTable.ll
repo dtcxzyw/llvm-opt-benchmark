@@ -105,13 +105,13 @@ define hidden noundef ptr @_ZN16ElfFuncDescTable6lookupEm(ptr nocapture noundef 
   br label %41
 
 41:                                               ; preds = %39, %38
-  %.0 = phi ptr [ %40, %39 ], [ null, %38 ]
+  %.1 = phi ptr [ %40, %39 ], [ null, %38 ]
   call void @_ZN16MarkedFileReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
   br label %42
 
 42:                                               ; preds = %8, %13, %2, %41, %18
-  %.1 = phi ptr [ %22, %18 ], [ %.0, %41 ], [ null, %2 ], [ null, %13 ], [ null, %8 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %22, %18 ], [ %.1, %41 ], [ null, %2 ], [ null, %13 ], [ null, %8 ]
+  ret ptr %.0
 }
 
 declare void @_ZN16MarkedFileReaderC1EP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #1

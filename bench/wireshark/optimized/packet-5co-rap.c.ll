@@ -832,7 +832,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   br label %103
 
 103:                                              ; preds = %.lr.ph434, %356
-  %.0337430 = phi i32 [ %28, %.lr.ph434 ], [ %.2, %356 ]
+  %.0337430 = phi i32 [ %28, %.lr.ph434 ], [ %.1, %356 ]
   %104 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0337430) #7
   %105 = zext i8 %104 to i32
   %106 = lshr i32 %105, 5
@@ -1163,10 +1163,10 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   br i1 %283, label %.lr.ph.i365, label %.lr.ph.i371
 
 .lr.ph.i365:                                      ; preds = %281, %287
-  %.0393 = phi i32 [ %293, %287 ], [ 2, %281 ]
+  %.1394 = phi i32 [ %293, %287 ], [ 2, %281 ]
   %.021.i366 = phi i32 [ %292, %287 ], [ 0, %281 ]
   %.01620.i367 = phi i32 [ %291, %287 ], [ 0, %281 ]
-  %284 = add i32 %.0393, %.0337430
+  %284 = add i32 %.1394, %.0337430
   %285 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %284) #7
   %286 = zext i8 %285 to i32
   %.not.i368 = icmp sgt i8 %285, -1
@@ -1178,7 +1178,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   %290 = shl i32 %288, %289
   %291 = or i32 %290, %.01620.i367
   %292 = add nuw nsw i32 %.021.i366, 1
-  %293 = add nuw nsw i32 %.0393, 1
+  %293 = add nuw nsw i32 %.1394, 1
   %exitcond466.not = icmp eq i32 %292, 4
   br i1 %exitcond466.not, label %get_data_size.exit369, label %.lr.ph.i365, !llvm.loop !8
 
@@ -1186,16 +1186,16 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   %295 = mul i32 %.021.i366, 7
   %296 = shl i32 %286, %295
   %297 = or i32 %296, %.01620.i367
-  %298 = add nuw nsw i32 %.0393, 1
+  %298 = add nuw nsw i32 %.1394, 1
   br label %get_data_size.exit369
 
 get_data_size.exit369:                            ; preds = %287, %294
-  %.1394 = phi i32 [ %298, %294 ], [ 6, %287 ]
+  %.2395 = phi i32 [ %298, %294 ], [ 6, %287 ]
   %.1.i364 = phi i32 [ %297, %294 ], [ %291, %287 ]
   %299 = add i32 %.0337430, 1
   %300 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %299) #7
   %301 = load i32, ptr @hf_fiveco_routing, align 4
-  %302 = add i32 %.1.i364, %.1394
+  %302 = add i32 %.1.i364, %.2395
   %303 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %301, ptr noundef %0, i32 noundef %.0337430, i32 noundef %302, i32 noundef 0) #7
   %304 = zext nneg i8 %282 to i32
   %305 = zext i8 %300 to i32
@@ -1203,10 +1203,10 @@ get_data_size.exit369:                            ; preds = %287, %294
   br label %325
 
 .lr.ph.i371:                                      ; preds = %281, %309
-  %.2395 = phi i32 [ %315, %309 ], [ 1, %281 ]
+  %.3396 = phi i32 [ %315, %309 ], [ 1, %281 ]
   %.021.i372 = phi i32 [ %314, %309 ], [ 0, %281 ]
   %.01620.i373 = phi i32 [ %313, %309 ], [ 0, %281 ]
-  %306 = add i32 %.2395, %.0337430
+  %306 = add i32 %.3396, %.0337430
   %307 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %306) #7
   %308 = zext i8 %307 to i32
   %.not.i374 = icmp sgt i8 %307, -1
@@ -1218,7 +1218,7 @@ get_data_size.exit369:                            ; preds = %287, %294
   %312 = shl i32 %310, %311
   %313 = or i32 %312, %.01620.i373
   %314 = add nuw nsw i32 %.021.i372, 1
-  %315 = add nuw nsw i32 %.2395, 1
+  %315 = add nuw nsw i32 %.3396, 1
   %exitcond465.not = icmp eq i32 %314, 4
   br i1 %exitcond465.not, label %get_data_size.exit375, label %.lr.ph.i371, !llvm.loop !8
 
@@ -1226,21 +1226,21 @@ get_data_size.exit369:                            ; preds = %287, %294
   %317 = mul i32 %.021.i372, 7
   %318 = shl i32 %308, %317
   %319 = or i32 %318, %.01620.i373
-  %320 = add nuw nsw i32 %.2395, 1
+  %320 = add nuw nsw i32 %.3396, 1
   br label %get_data_size.exit375
 
 get_data_size.exit375:                            ; preds = %309, %316
-  %.3396 = phi i32 [ %320, %316 ], [ 5, %309 ]
+  %.4 = phi i32 [ %320, %316 ], [ 5, %309 ]
   %.1.i370 = phi i32 [ %319, %316 ], [ %313, %309 ]
   %321 = load i32, ptr @hf_fiveco_routing_answer, align 4
-  %322 = add i32 %.1.i370, %.3396
+  %322 = add i32 %.1.i370, %.4
   %323 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %321, ptr noundef %0, i32 noundef %.0337430, i32 noundef %322, i32 noundef 0) #7
   %324 = zext nneg i8 %282 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %323, ptr noundef nonnull @.str.163, i32 noundef %324, i32 noundef %.1.i370) #7
   br label %325
 
 325:                                              ; preds = %get_data_size.exit375, %get_data_size.exit369
-  %.4 = phi i32 [ %.1394, %get_data_size.exit369 ], [ %.3396, %get_data_size.exit375 ]
+  %.0393 = phi i32 [ %.2395, %get_data_size.exit369 ], [ %.4, %get_data_size.exit375 ]
   %.0341 = phi ptr [ %303, %get_data_size.exit369 ], [ %323, %get_data_size.exit375 ]
   %.0335 = phi i32 [ %.1.i364, %get_data_size.exit369 ], [ %.1.i370, %get_data_size.exit375 ]
   %.0 = phi i32 [ 2, %get_data_size.exit369 ], [ 1, %get_data_size.exit375 ]
@@ -1270,10 +1270,10 @@ get_data_size.exit375:                            ; preds = %309, %316
 341:                                              ; preds = %337, %328
   %342 = load i32, ptr @hf_fiveco_routing_size, align 4
   %343 = add i32 %.0, %.0337430
-  %344 = sub nuw i32 %.4, %.0
+  %344 = sub nuw i32 %.0393, %.0
   %345 = tail call ptr @proto_tree_add_item(ptr noundef %333, i32 noundef %342, ptr noundef %0, i32 noundef %343, i32 noundef %344, i32 noundef 0) #7
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %345, ptr noundef nonnull @.str.164, i32 noundef %.0335) #7
-  %346 = add i32 %.4, %.0337430
+  %346 = add i32 %.0393, %.0337430
   %347 = load i32, ptr %6, align 4
   %348 = zext i32 %347 to i64
   %349 = getelementptr [10 x i32], ptr @ett_fiveco_sub, i64 0, i64 %348
@@ -1287,17 +1287,17 @@ get_data_size.exit375:                            ; preds = %309, %316
   br label %354
 
 354:                                              ; preds = %353, %341
-  %.1 = phi i32 [ %346, %341 ], [ %.0337430, %353 ]
-  %355 = add i32 %.1, %.0335
+  %.2 = phi i32 [ %346, %341 ], [ %.0337430, %353 ]
+  %355 = add i32 %.2, %.0335
   br label %356
 
 356:                                              ; preds = %354, %222, %229, %236, %243, %247, %251, %.loopexit400, %.loopexit, %126
-  %.2 = phi i32 [ %355, %354 ], [ %278, %251 ], [ %250, %247 ], [ %246, %243 ], [ %242, %236 ], [ %235, %229 ], [ %228, %222 ], [ %220, %.loopexit400 ], [ %172, %.loopexit ], [ %127, %126 ]
-  %357 = icmp ult i32 %.2, %42
+  %.1 = phi i32 [ %355, %354 ], [ %278, %251 ], [ %250, %247 ], [ %246, %243 ], [ %242, %236 ], [ %235, %229 ], [ %228, %222 ], [ %220, %.loopexit400 ], [ %172, %.loopexit ], [ %127, %126 ]
+  %357 = icmp ult i32 %.1, %42
   br i1 %357, label %103, label %.loopexit402, !llvm.loop !14
 
 .loopexit402:                                     ; preds = %279, %221, %356, %91, %27, %get_data_size.exit
-  %.0336 = phi i32 [ 0, %get_data_size.exit ], [ 0, %27 ], [ %28, %91 ], [ %42, %279 ], [ %42, %221 ], [ %.2, %356 ]
+  %.0336 = phi i32 [ 0, %get_data_size.exit ], [ 0, %27 ], [ %28, %91 ], [ %42, %279 ], [ %42, %221 ], [ %.1, %356 ]
   ret i32 %.0336
 }
 

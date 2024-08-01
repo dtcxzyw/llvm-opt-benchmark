@@ -545,9 +545,9 @@ define hidden void @_ZN17ArchiveHeapLoader34patch_compressed_embedded_pointersE1
   br label %61
 
 61:                                               ; preds = %59, %52
-  %.1.ph.i.i.i.i.i = phi i64 [ %50, %52 ], [ %58, %59 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %50, %52 ], [ %58, %59 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %52 ], [ %60, %59 ]
-  %62 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %62 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %63 = add i64 %.026.ph.i.i.i.i.i, %62
   %64 = icmp ult i64 %63, %41
   br i1 %64, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZNK6BitMap7iterateI36PatchCompressedEmbeddedPointersQuickEEbPT_.exit
@@ -622,9 +622,9 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i:    ; preds = %61, %44
   br label %97
 
 97:                                               ; preds = %95, %88
-  %.1.ph.i.i.i.i.i17 = phi i64 [ %86, %88 ], [ %94, %95 ]
+  %.027.ph.i.i.i.i.i17 = phi i64 [ %86, %88 ], [ %94, %95 ]
   %.026.ph.i.i.i.i.i18 = phi i64 [ %.0917.i.i.i11, %88 ], [ %96, %95 ]
-  %98 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i17, i1 true)
+  %98 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i17, i1 true)
   %99 = add i64 %.026.ph.i.i.i.i.i18, %98
   %100 = icmp ult i64 %99, %77
   br i1 %100, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i13, label %_ZNK6BitMap7iterateI36PatchCompressedEmbeddedPointersQuickEEbPT_.exit
@@ -723,9 +723,9 @@ define hidden void @_ZN17ArchiveHeapLoader23patch_embedded_pointersEP11FileMapIn
   br label %37
 
 37:                                               ; preds = %35, %28
-  %.1.ph.i.i.i.i.i = phi i64 [ %26, %28 ], [ %34, %35 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %26, %28 ], [ %34, %35 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %28 ], [ %36, %35 ]
-  %38 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %38 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %39 = add i64 %.026.ph.i.i.i.i.i, %38
   %40 = icmp ult i64 %39, %4
   br i1 %40, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZNK6BitMap7iterateI33PatchUncompressedEmbeddedPointersEEbPT_.exit
@@ -945,9 +945,9 @@ define hidden noundef zeroext i1 @_ZN17ArchiveHeapLoader21load_heap_region_implE
   br label %74
 
 74:                                               ; preds = %72, %65
-  %.1.ph.i.i.i.i.i = phi i64 [ %63, %65 ], [ %71, %72 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %63, %65 ], [ %71, %72 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %65 ], [ %73, %72 ]
-  %75 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %75 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %76 = add i64 %.026.ph.i.i.i.i.i, %75
   %77 = icmp ult i64 %76, %38
   br i1 %77, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZNK6BitMap7iterateIN17ArchiveHeapLoader25PatchLoadedRegionPointersEEEbPT_.exit
@@ -1533,9 +1533,9 @@ define hidden void @_ZN17ArchiveHeapLoader21patch_native_pointersEv() local_unna
   br label %48
 
 48:                                               ; preds = %46, %39
-  %.1.ph.i.i.i.i.i = phi i64 [ %37, %39 ], [ %45, %46 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %37, %39 ], [ %45, %46 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %39 ], [ %47, %46 ]
-  %49 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %49 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %50 = add i64 %.026.ph.i.i.i.i.i, %49
   %51 = icmp ult i64 %50, %28
   br i1 %51, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZNK6BitMap7iterateI19PatchNativePointersEEbPT_.exit
@@ -4904,9 +4904,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br label %31
 
 31:                                               ; preds = %29, %22
-  %.1.ph.i.i = phi i64 [ %20, %22 ], [ %28, %29 ]
+  %.027.ph.i.i = phi i64 [ %20, %22 ], [ %28, %29 ]
   %.026.ph.i.i = phi i64 [ %.0918, %22 ], [ %30, %29 ]
-  %32 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %32 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %33 = add i64 %.026.ph.i.i, %32
   %34 = icmp ult i64 %33, %3
   br i1 %34, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
@@ -5059,9 +5059,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %60
 
 60:                                               ; preds = %58, %47
-  %.1.ph.i.i.i.i.i = phi i64 [ %45, %47 ], [ %57, %58 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %45, %47 ], [ %57, %58 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %35, %47 ], [ %59, %58 ]
-  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %62 = add i64 %.026.ph.i.i.i.i.i, %61
   %63 = icmp ult i64 %62, %38
   br i1 %63, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc32VerifyLoadedHeapEmbeddedPointersEEvP17stackChunkOopDescPT0_PlS8_.exit

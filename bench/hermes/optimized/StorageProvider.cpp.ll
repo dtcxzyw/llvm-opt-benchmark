@@ -231,12 +231,12 @@ while.end.loopexit:                               ; preds = %if.end
 
 while.end:                                        ; preds = %entry, %while.end.loopexit
   %2 = phi ptr [ %retval.sroa.31.0.copyload.i.i.i.i.i, %while.end.loopexit ], [ %call.i, %entry ]
-  %result.sroa.0.2 = phi i32 [ %retval.sroa.0.0.copyload.i.i.i.i.i, %while.end.loopexit ], [ 0, %entry ]
+  %result.sroa.0.1 = phi i32 [ %retval.sroa.0.0.copyload.i.i.i.i.i, %while.end.loopexit ], [ 0, %entry ]
   %HasError.i14 = getelementptr inbounds i8, ptr %agg.result, i64 16
   %bf.load.i15 = load i8, ptr %HasError.i14, align 8
   %bf.set.i16 = or i8 %bf.load.i15, 1
   store i8 %bf.set.i16, ptr %HasError.i14, align 8
-  store i32 %result.sroa.0.2, ptr %agg.result, align 8
+  store i32 %result.sroa.0.1, ptr %agg.result, align 8
   %EC.sroa.21.0.call.sroa_idx.i17 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %2, ptr %EC.sroa.21.0.call.sroa_idx.i17, align 8
   br label %cleanup

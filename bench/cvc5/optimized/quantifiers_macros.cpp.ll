@@ -1901,7 +1901,7 @@ terminate.lpad.i1115:                             ; preds = %if.then13.i.i1114
   unreachable
 
 cleanup268:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit819, %cleanup.done220, %if.end267.critedge, %if.then.i.i1108, %if.then13.i.i1114, %if.then13.i.i1103, %if.then.i.i1097, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1094, %invoke.cont135
-  %cleanup.dest.slot.1 = phi i32 [ 5, %invoke.cont135 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1094 ], [ 1, %if.then.i.i1097 ], [ 1, %if.then13.i.i1103 ], [ 0, %if.then13.i.i1114 ], [ 0, %if.then.i.i1108 ], [ 0, %if.end267.critedge ], [ 0, %cleanup.done220 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit819 ]
+  %cleanup.dest.slot.0 = phi i32 [ 5, %invoke.cont135 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1094 ], [ 1, %if.then.i.i1097 ], [ 1, %if.then13.i.i1103 ], [ 0, %if.then13.i.i1114 ], [ 0, %if.then.i.i1108 ], [ 0, %if.end267.critedge ], [ 0, %cleanup.done220 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit819 ]
   %164 = load ptr, ptr %n_def124, align 8
   %bf.load.i.i1117 = load i64, ptr %164, align 8
   %165 = and i64 %bf.load.i.i1117, 1152920405095219200
@@ -1956,7 +1956,7 @@ terminate.lpad.i1137:                             ; preds = %if.then13.i.i1136
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1138: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1127, %if.then.i.i1130, %if.then13.i.i1136
-  switch i32 %cleanup.dest.slot.1, label %cleanup277 [
+  switch i32 %cleanup.dest.slot.0, label %cleanup277 [
     i32 0, label %for.inc274
     i32 5, label %for.inc274
   ]
@@ -1977,7 +1977,7 @@ ehcleanup273:                                     ; preds = %ehcleanup269, %ehcl
   br label %ehcleanup278
 
 cleanup277:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1138, %for.inc274
-  %cleanup.dest.slot.2.ph = phi i32 [ %cleanup.dest.slot.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1138 ], [ 0, %for.inc274 ]
+  %cleanup.dest.slot.2.ph = phi i32 [ %cleanup.dest.slot.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1138 ], [ 0, %for.inc274 ]
   %.pre = load ptr, ptr %candidates, align 8
   %.pre1214 = load ptr, ptr %_M_finish.i, align 8
   %172 = icmp eq i32 %cleanup.dest.slot.2.ph, 0

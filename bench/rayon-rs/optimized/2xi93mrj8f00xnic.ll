@@ -701,7 +701,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
   br label %.outer
 
 .outer:                                           ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit, %3
-  %.043.ph = phi ptr [ %.144, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ null, %3 ]
+  %.043.ph = phi ptr [ %.245, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ null, %3 ]
   %.0.ph = phi i32 [ %spec.select55, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ 0, %3 ]
   %.023.ph = phi i64 [ %37, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %6, %3 ]
   %.022.in.ph = phi i64 [ %58, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %8, %3 ]
@@ -781,7 +781,7 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
   br label %33
 
 33:                                               ; preds = %32, %._crit_edge
-  %.144 = phi ptr [ %30, %32 ], [ %.043.ph, %._crit_edge ]
+  %.245 = phi ptr [ %30, %32 ], [ %.043.ph, %._crit_edge ]
   %34 = add i64 %.023.lcssa, 2
   %35 = cmpxchg weak ptr %5, i64 %.023.lcssa, i64 %34 seq_cst acquire, align 8
   %36 = extractvalue { i64, i1 } %35, 1
@@ -793,11 +793,11 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
   br i1 %.not26, label %39, label %49
 
 39:                                               ; preds = %38
-  %40 = icmp eq ptr %.144, null
+  %40 = icmp eq ptr %.245, null
   br i1 %40, label %48, label %41
 
 41:                                               ; preds = %39
-  %42 = ptrtoint ptr %.144 to i64
+  %42 = ptrtoint ptr %.245 to i64
   store atomic i64 %42, ptr %7 release, align 8
   %43 = add i64 %.023.lcssa, 4
   store atomic i64 %43, ptr %5 release, align 128
@@ -825,11 +825,11 @@ define hidden void @"_ZN15crossbeam_deque5deque17Injector$LT$T$GT$4push17h6dd832
   store ptr %2, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 16
   %54 = atomicrmw or ptr %53, i64 1 release, align 8
-  %55 = icmp eq ptr %.144, null
+  %55 = icmp eq ptr %.245, null
   br i1 %55, label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit33", label %56
 
 56:                                               ; preds = %49
-  tail call void @__rust_dealloc(ptr noundef nonnull %.144, i64 noundef 1520, i64 noundef 8) #14
+  tail call void @__rust_dealloc(ptr noundef nonnull %.245, i64 noundef 1520, i64 noundef 8) #14
   br label %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$crossbeam_deque..deque..Block$LT$rayon_core..job..JobRef$GT$$GT$$GT$$GT$17h97ef277e5ed1365fE.exit33"
 
 57:                                               ; preds = %33

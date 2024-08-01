@@ -212,33 +212,33 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse() local_unnamed_addr #0 {
   br label %20
 
 18:                                               ; preds = %1830, %1794, %99
-  %.0900 = phi ptr [ %1833, %1830 ], [ %117, %1794 ], [ %102, %99 ]
-  %.0891 = phi ptr [ %1832, %1830 ], [ %1774, %1794 ], [ %100, %99 ]
-  %.0885 = phi ptr [ %.3888, %1830 ], [ %1773, %1794 ], [ %.2887, %99 ]
-  %.0876 = phi i32 [ 3, %1830 ], [ %.1877, %1794 ], [ %spec.select, %99 ]
-  %.0 = phi i32 [ %1831, %1830 ], [ %1795, %1794 ], [ %95, %99 ]
-  %19 = getelementptr i8, ptr %.0885, i64 2
+  %.1901 = phi ptr [ %1833, %1830 ], [ %117, %1794 ], [ %102, %99 ]
+  %.1892 = phi ptr [ %1832, %1830 ], [ %1774, %1794 ], [ %100, %99 ]
+  %.1886 = phi ptr [ %.4, %1830 ], [ %1773, %1794 ], [ %.2887, %99 ]
+  %.1877 = phi i32 [ 3, %1830 ], [ %.0876, %1794 ], [ %spec.select, %99 ]
+  %.1 = phi i32 [ %1831, %1830 ], [ %1795, %1794 ], [ %95, %99 ]
+  %19 = getelementptr i8, ptr %.1886, i64 2
   br label %20
 
 20:                                               ; preds = %18, %0
-  %.1901 = phi ptr [ %3, %0 ], [ %.0900, %18 ]
+  %.0900 = phi ptr [ %3, %0 ], [ %.1901, %18 ]
   %.0898 = phi ptr [ %3, %0 ], [ %.1899, %18 ]
-  %.1892 = phi ptr [ %2, %0 ], [ %.0891, %18 ]
+  %.0891 = phi ptr [ %2, %0 ], [ %.1892, %18 ]
   %.0889 = phi ptr [ %2, %0 ], [ %.1890, %18 ]
-  %.1886 = phi ptr [ %1, %0 ], [ %19, %18 ]
+  %.0885 = phi ptr [ %1, %0 ], [ %19, %18 ]
   %.0881 = phi ptr [ %1, %0 ], [ %.1882, %18 ]
   %.0879 = phi i64 [ 200, %0 ], [ %.1880, %18 ]
-  %.1877 = phi i32 [ 0, %0 ], [ %.0876, %18 ]
-  %.1 = phi i32 [ 0, %0 ], [ %.0, %18 ]
-  %21 = trunc nsw i32 %.1 to i16
-  store i16 %21, ptr %.1886, align 2
+  %.0876 = phi i32 [ 0, %0 ], [ %.1877, %18 ]
+  %.0 = phi i32 [ 0, %0 ], [ %.1, %18 ]
+  %21 = trunc nsw i32 %.0 to i16
+  store i16 %21, ptr %.0885, align 2
   %22 = getelementptr i16, ptr %.0881, i64 %.0879
   %23 = getelementptr i8, ptr %22, i64 -2
-  %.not = icmp ugt ptr %23, %.1886
+  %.not = icmp ugt ptr %23, %.0885
   br i1 %.not, label %57, label %24
 
 24:                                               ; preds = %20
-  %25 = ptrtoint ptr %.1886 to i64
+  %25 = ptrtoint ptr %.0885 to i64
   %26 = ptrtoint ptr %.0881 to i64
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 1
@@ -289,18 +289,18 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse() local_unnamed_addr #0 {
   br i1 %.not969, label %57, label %.loopexit1062
 
 57:                                               ; preds = %49, %20
-  %.2902 = phi ptr [ %55, %49 ], [ %.1901, %20 ]
+  %.2902 = phi ptr [ %55, %49 ], [ %.0900, %20 ]
   %.1899 = phi ptr [ %46, %49 ], [ %.0898, %20 ]
-  %.2893 = phi ptr [ %53, %49 ], [ %.1892, %20 ]
+  %.2893 = phi ptr [ %53, %49 ], [ %.0891, %20 ]
   %.1890 = phi ptr [ %41, %49 ], [ %.0889, %20 ]
-  %.2887 = phi ptr [ %51, %49 ], [ %.1886, %20 ]
+  %.2887 = phi ptr [ %51, %49 ], [ %.0885, %20 ]
   %.1882 = phi ptr [ %35, %49 ], [ %.0881, %20 ]
   %.1880 = phi i64 [ %spec.store.select, %49 ], [ %.0879, %20 ]
-  %58 = icmp eq i32 %.1, 3
+  %58 = icmp eq i32 %.0, 3
   br i1 %58, label %.loopexit1062, label %59
 
 59:                                               ; preds = %57
-  %60 = sext i32 %.1 to i64
+  %60 = sext i32 %.0 to i64
   %61 = getelementptr [334 x i16], ptr @yypact, i64 0, i64 %60
   %62 = load i16, ptr %61, align 2
   %63 = sext i16 %62 to i32
@@ -372,7 +372,7 @@ define hidden range(i32 0, 2) i32 @plpgsql_yyparse() local_unnamed_addr #0 {
   br label %108
 
 99:                                               ; preds = %92
-  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.1877, i32 1)
+  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.0876, i32 1)
   %100 = getelementptr i8, ptr %.2893, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) @plpgsql_yylval, i64 32, i1 false)
   %101 = load i32, ptr @plpgsql_yylloc, align 4
@@ -3743,7 +3743,7 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
 
 1796:                                             ; preds = %103
   %1797 = load i32, ptr @plpgsql_yychar, align 4
-  %.not1023 = icmp eq i32 %.1877, 0
+  %.not1023 = icmp eq i32 %.0876, 0
   br i1 %.not1023, label %1798, label %1801
 
 1798:                                             ; preds = %1796
@@ -3755,7 +3755,7 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
 
 1801:                                             ; preds = %1796
   %1802 = load i32, ptr @plpgsql_yylloc, align 4
-  %1803 = icmp eq i32 %.1877, 3
+  %1803 = icmp eq i32 %.0876, 3
   br i1 %1803, label %1804, label %.preheader1891
 
 1804:                                             ; preds = %1801
@@ -3777,9 +3777,9 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
 1809:                                             ; preds = %.preheader1891, %1824
   %1810 = phi i16 [ %.pre1487, %1824 ], [ %62, %.preheader1891 ]
   %.sroa.0442.1 = phi i32 [ %1825, %1824 ], [ %.sroa.0442.1.ph, %.preheader1891 ]
-  %.3903 = phi ptr [ %1828, %1824 ], [ %.2902, %.preheader1891 ]
-  %.3894 = phi ptr [ %1826, %1824 ], [ %.2893, %.preheader1891 ]
-  %.3888 = phi ptr [ %1827, %1824 ], [ %.2887, %.preheader1891 ]
+  %.4904 = phi ptr [ %1828, %1824 ], [ %.2902, %.preheader1891 ]
+  %.4895 = phi ptr [ %1826, %1824 ], [ %.2893, %.preheader1891 ]
+  %.4 = phi ptr [ %1827, %1824 ], [ %.2887, %.preheader1891 ]
   %1811 = icmp sgt i16 %1810, -2
   br i1 %1811, label %1812, label %1822
 
@@ -3798,14 +3798,14 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
   br i1 %1821, label %1830, label %1822
 
 1822:                                             ; preds = %1812, %1818, %1809
-  %1823 = icmp eq ptr %.3888, %.1882
+  %1823 = icmp eq ptr %.4, %.1882
   br i1 %1823, label %.loopexit1062, label %1824
 
 1824:                                             ; preds = %1822
-  %1825 = load i32, ptr %.3903, align 4
-  %1826 = getelementptr i8, ptr %.3894, i64 -32
-  %1827 = getelementptr i8, ptr %.3888, i64 -2
-  %1828 = getelementptr i8, ptr %.3903, i64 -4
+  %1825 = load i32, ptr %.4904, align 4
+  %1826 = getelementptr i8, ptr %.4895, i64 -32
+  %1827 = getelementptr i8, ptr %.4, i64 -2
+  %1828 = getelementptr i8, ptr %.4904, i64 -4
   %1829 = load i16, ptr %1827, align 2
   %.phi.trans.insert = sext i16 %1829 to i64
   %.phi.trans.insert1486 = getelementptr [334 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
@@ -3814,9 +3814,9 @@ thread-pre-split1058.thread:                      ; preds = %thread-pre-split, %
 
 1830:                                             ; preds = %1818
   %1831 = zext nneg i16 %1820 to i32
-  %1832 = getelementptr i8, ptr %.3894, i64 32
+  %1832 = getelementptr i8, ptr %.4895, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1832, ptr noundef nonnull align 8 dereferenceable(32) @plpgsql_yylval, i64 32, i1 false)
-  %1833 = getelementptr i8, ptr %.3903, i64 4
+  %1833 = getelementptr i8, ptr %.4904, i64 4
   store i32 %.sroa.0442.1, ptr %1833, align 4
   br label %18
 
@@ -5814,7 +5814,7 @@ define internal fastcc noundef ptr @make_execsql_stmt(i32 noundef %0, i32 nounde
   %.0101.ph.ph = phi i32 [ %spec.select, %72 ], [ -1, %17 ]
   %.099.ph.ph = phi i32 [ %spec.select116, %72 ], [ 0, %17 ]
   %.097.ph.ph = phi i32 [ %.198121, %72 ], [ 0, %17 ]
-  %.095.ph.ph = phi i1 [ %.2, %72 ], [ false, %17 ]
+  %.095.ph.ph = phi i1 [ %.196, %72 ], [ false, %17 ]
   %.0.ph.ph = phi i32 [ %.1, %72 ], [ 1, %17 ]
   %22 = trunc nuw i8 %.0105.ph.ph to i1
   br label %.outer
@@ -5824,7 +5824,7 @@ define internal fastcc noundef ptr @make_execsql_stmt(i32 noundef %0, i32 nounde
   %.0101.ph = phi i32 [ %.0101.ph.ph, %.outer.outer ], [ %spec.select, %67 ]
   %.099.ph = phi i32 [ %.099.ph.ph, %.outer.outer ], [ %spec.select116, %67 ]
   %.097.ph = phi i32 [ %.097.ph.ph, %.outer.outer ], [ %.198121, %67 ]
-  %.095.ph = phi i1 [ %.095.ph.ph, %.outer.outer ], [ %.2, %67 ]
+  %.095.ph = phi i1 [ %.095.ph.ph, %.outer.outer ], [ %.196, %67 ]
   %.0.ph = phi i32 [ %.0.ph.ph, %.outer.outer ], [ %.1, %67 ]
   br label %.backedge
 
@@ -5833,7 +5833,7 @@ define internal fastcc noundef ptr @make_execsql_stmt(i32 noundef %0, i32 nounde
   %.0101 = phi i32 [ %.0101.ph, %.outer ], [ %spec.select, %.backedge.backedge ]
   %.099 = phi i32 [ %.099.ph, %.outer ], [ %spec.select116, %.backedge.backedge ]
   %.097 = phi i32 [ %.097.ph, %.outer ], [ %.198121, %.backedge.backedge ]
-  %.095 = phi i1 [ %.095.ph, %.outer ], [ %.2, %.backedge.backedge ]
+  %.095 = phi i1 [ %.095.ph, %.outer ], [ %.196, %.backedge.backedge ]
   %.0 = phi i32 [ %.0.ph, %.outer ], [ %.1, %.backedge.backedge ]
   %23 = call i32 @plpgsql_yylex() #12
   %24 = icmp slt i32 %.0101, 0
@@ -5894,12 +5894,12 @@ define internal fastcc noundef ptr @make_execsql_stmt(i32 noundef %0, i32 nounde
   br label %50
 
 50:                                               ; preds = %49, %43
-  %.196 = phi i1 [ true, %49 ], [ %.095, %43 ]
+  %.2 = phi i1 [ true, %49 ], [ %.095, %43 ]
   %51 = add nuw nsw i32 %.0, 1
   br label %52
 
 52:                                               ; preds = %50, %.backedge
-  %.2 = phi i1 [ %.196, %50 ], [ %.095, %.backedge ]
+  %.196 = phi i1 [ %.2, %50 ], [ %.095, %.backedge ]
   %.1 = phi i32 [ %51, %50 ], [ %.0, %.backedge ]
   %53 = icmp eq i32 %23, 40
   %54 = icmp eq i32 %23, 41
@@ -5909,7 +5909,7 @@ define internal fastcc noundef ptr @make_execsql_stmt(i32 noundef %0, i32 nounde
   %.sink224 = select i1 %53, i32 1, i32 %56
   %spec.select116 = add i32 %.099, %.sink224
   %57 = icmp eq i32 %spec.select116, 0
-  %or.cond16 = select i1 %.2, i1 %57, i1 false
+  %or.cond16 = select i1 %.196, i1 %57, i1 false
   br i1 %or.cond16, label %58, label %64
 
 58:                                               ; preds = %52

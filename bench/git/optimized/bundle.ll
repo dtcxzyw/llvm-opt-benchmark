@@ -1096,7 +1096,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end70
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %32 = phi i32 [ %31, %for.body.lr.ph.i ], [ %65, %for.inc.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
-  %ref_count.042.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %ref_count.2.i, %for.inc.i ]
+  %ref_count.042.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %ref_count.1.i, %for.inc.i ]
   %33 = load ptr, ptr %objects, align 8
   %add.ptr.i = getelementptr inbounds %struct.object_array_entry, ptr %33, i64 %indvars.iv.i
   %34 = load ptr, ptr %add.ptr.i, align 8
@@ -1312,7 +1312,7 @@ if.end69.i:                                       ; preds = %oideq.exit.i
   br label %skip_write_ref.i
 
 skip_write_ref.i:                                 ; preds = %if.end69.i, %if.then56.i, %if.then51.i, %_.exit.i, %if.then24.i, %if.end.i
-  %ref_count.1.i = phi i32 [ %ref_count.042.i, %if.end.i ], [ %inc.i, %if.end69.i ], [ %ref_count.042.i, %if.then56.i ], [ %ref_count.042.i, %if.then51.i ], [ %ref_count.042.i, %_.exit.i ], [ %ref_count.042.i, %if.then24.i ]
+  %ref_count.2.i = phi i32 [ %ref_count.042.i, %if.end.i ], [ %inc.i, %if.end69.i ], [ %ref_count.042.i, %if.then56.i ], [ %ref_count.042.i, %if.then51.i ], [ %ref_count.042.i, %_.exit.i ], [ %ref_count.042.i, %if.then24.i ]
   %64 = load ptr, ptr %ref.i, align 8
   call void @free(ptr noundef %64) #15
   %.pre46.i = load i32, ptr %pending, align 8
@@ -1320,7 +1320,7 @@ skip_write_ref.i:                                 ; preds = %if.end69.i, %if.the
 
 for.inc.i:                                        ; preds = %skip_write_ref.i, %for.body.i
   %65 = phi i32 [ %32, %for.body.i ], [ %.pre46.i, %skip_write_ref.i ]
-  %ref_count.2.i = phi i32 [ %ref_count.042.i, %for.body.i ], [ %ref_count.1.i, %skip_write_ref.i ]
+  %ref_count.1.i = phi i32 [ %ref_count.042.i, %for.body.i ], [ %ref_count.2.i, %skip_write_ref.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %66 = zext i32 %65 to i64
   %cmp.i = icmp ult i64 %indvars.iv.next.i, %66
@@ -1331,7 +1331,7 @@ write_bundle_refs.exit:                           ; preds = %for.inc.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %flag.i)
-  %tobool83.not = icmp eq i32 %ref_count.2.i, 0
+  %tobool83.not = icmp eq i32 %ref_count.1.i, 0
   br i1 %tobool83.not, label %if.then84, label %if.else86
 
 if.then84:                                        ; preds = %write_bundle_refs.exit.thread, %write_bundle_refs.exit
@@ -1340,7 +1340,7 @@ if.then84:                                        ; preds = %write_bundle_refs.e
   unreachable
 
 if.else86:                                        ; preds = %write_bundle_refs.exit
-  %cmp87 = icmp slt i32 %ref_count.2.i, 0
+  %cmp87 = icmp slt i32 %ref_count.1.i, 0
   br i1 %cmp87, label %err, label %if.end90
 
 if.end90:                                         ; preds = %if.else86

@@ -1894,7 +1894,7 @@ for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
   %__first.sroa.0.015.i.i = phi ptr [ %__first.sroa.0.012.i.i, %for.body.lr.ph.i.i ], [ %__first.sroa.0.0.i.i, %for.inc.i.i ]
-  %retval.sroa.0.014.i.i = phi ptr [ %call.i.i.i76, %for.body.lr.ph.i.i ], [ %retval.sroa.0.1.i.i, %for.inc.i.i ]
+  %retval.sroa.0.114.i.i = phi ptr [ %call.i.i.i76, %for.body.lr.ph.i.i ], [ %retval.sroa.0.2.i.i, %for.inc.i.i ]
   %101 = load ptr, ptr %__first.sroa.0.015.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2.i.i.i.i.i.i.i)
   %102 = load ptr, ptr %__pred.i, align 8
@@ -1915,27 +1915,27 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
 
 if.then17.i.i:                                    ; preds = %for.body.i.i
   %106 = load ptr, ptr %__first.sroa.0.015.i.i, align 8
-  store ptr %106, ptr %retval.sroa.0.014.i.i, align 8
-  %incdec.ptr.i2.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.014.i.i, i64 8
+  store ptr %106, ptr %retval.sroa.0.114.i.i, align 8
+  %incdec.ptr.i2.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.114.i.i, i64 8
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then17.i.i, %for.body.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.014.i.i, %for.body.i.i ], [ %incdec.ptr.i2.i.i, %if.then17.i.i ]
+  %retval.sroa.0.2.i.i = phi ptr [ %retval.sroa.0.114.i.i, %for.body.i.i ], [ %incdec.ptr.i2.i.i, %if.then17.i.i ]
   %__first.sroa.0.0.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.015.i.i, i64 8
   %cmp.i1.i.i78 = icmp eq ptr %__first.sroa.0.0.i.i, %98
   br i1 %cmp.i1.i.i78, label %_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS3_4M68KEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predISt17reference_wrapperIZNS3_8elf_mainIS5_EEiiPPcEUlS7_E_EEEET_SM_SM_T0_.exit.i, label %for.body.i.i, !llvm.loop !16
 
 _ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS3_4M68KEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predISt17reference_wrapperIZNS3_8elf_mainIS5_EEiiPPcEUlS7_E_EEEET_SM_SM_T0_.exit.i: ; preds = %for.inc.i.i, %for.cond.preheader.i.i
-  %retval.sroa.0.2.i.i = phi ptr [ %call.i.i.i76, %for.cond.preheader.i.i ], [ %retval.sroa.0.1.i.i, %for.inc.i.i ]
-  %cmp.i.i79 = icmp eq ptr %retval.sroa.0.2.i.i, %98
+  %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i76, %for.cond.preheader.i.i ], [ %retval.sroa.0.2.i.i, %for.inc.i.i ]
+  %cmp.i.i79 = icmp eq ptr %retval.sroa.0.0.i.i, %98
   %107 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i.i.i81 = icmp eq ptr %retval.sroa.0.2.i.i, %107
+  %cmp.i.i.i.i81 = icmp eq ptr %retval.sroa.0.0.i.i, %107
   %or.cond = select i1 %cmp.i.i79, i1 true, i1 %cmp.i.i.i.i81
   br i1 %or.cond, label %_ZSt8erase_ifIPN4mold3elf10SharedFileINS1_4M68KEEESaIS5_EZNS1_8elf_mainIS3_EEiiPPcEUlS5_E_ENSt6vectorIT_T0_E9size_typeERSE_T1_.exit, label %if.then.i.i.i.i82
 
 if.then.i.i.i.i82:                                ; preds = %_ZSt11__remove_ifIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf10SharedFileINS3_4M68KEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predISt17reference_wrapperIZNS3_8elf_mainIS5_EEiiPPcEUlS7_E_EEEET_SM_SM_T0_.exit.i
   %.pre.i = load ptr, ptr %dsos, align 8
-  %sub.ptr.lhs.cast.i.i.i83 = ptrtoint ptr %retval.sroa.0.2.i.i to i64
+  %sub.ptr.lhs.cast.i.i.i83 = ptrtoint ptr %retval.sroa.0.0.i.i to i64
   %sub.ptr.rhs.cast.i.i.i84 = ptrtoint ptr %.pre.i to i64
   %sub.ptr.sub.i.i.i85 = sub i64 %sub.ptr.lhs.cast.i.i.i83, %sub.ptr.rhs.cast.i.i.i84
   %add.ptr.i.i.i86 = getelementptr inbounds i8, ptr %.pre.i, i64 %sub.ptr.sub.i.i.i85
@@ -11007,16 +11007,16 @@ sw.default.i47:                                   ; preds = %if.then
   br label %cleanupthread-pre-split
 
 cleanupthread-pre-split:                          ; preds = %for.cond, %if.then, %sw.bb18.i46, %sw.bb19.i45, %sw.bb20.i44, %if.then23.i42, %if.end25.i40, %sw.bb31.i38, %sw.bb32.i36, %sw.bb38.i35, %sw.bb39.i34, %sw.bb40.i33, %sw.bb41.i32, %sw.bb42.i31, %sw.bb43.i25, %sw.default.i47
-  %retval.sroa.0.0.ph = phi i64 [ 4, %if.then ], [ 6, %sw.bb18.i46 ], [ 5, %sw.bb19.i45 ], [ 5, %sw.bb20.i44 ], [ 9, %if.end25.i40 ], [ 7, %if.then23.i42 ], [ 5, %sw.bb31.i38 ], [ 7, %sw.bb32.i36 ], [ 5, %sw.bb38.i35 ], [ 7, %sw.bb39.i34 ], [ 4, %sw.bb40.i33 ], [ 3, %sw.bb41.i32 ], [ 5, %sw.bb42.i31 ], [ 11, %sw.bb43.i25 ], [ 0, %sw.default.i47 ], [ undef, %for.cond ]
-  %retval.sroa.8.0.ph = phi ptr [ @.str.51, %if.then ], [ @.str.52, %sw.bb18.i46 ], [ @.str.53, %sw.bb19.i45 ], [ @.str.54, %sw.bb20.i44 ], [ %retval.sroa.16.0.copyload27.i41, %if.end25.i40 ], [ %retval.sroa.16.0.copyload26.i43, %if.then23.i42 ], [ @.str.59, %sw.bb31.i38 ], [ %retval.sroa.16.0.copyload29.i37, %sw.bb32.i36 ], [ @.str.62, %sw.bb38.i35 ], [ @.str.63, %sw.bb39.i34 ], [ @.str.64, %sw.bb40.i33 ], [ @.str.65, %sw.bb41.i32 ], [ @.str.66, %sw.bb42.i31 ], [ %retval.sroa.16.0.copyload35.i26, %sw.bb43.i25 ], [ @.str.22, %sw.default.i47 ], [ undef, %for.cond ]
+  %retval.sroa.0.1.ph = phi i64 [ 4, %if.then ], [ 6, %sw.bb18.i46 ], [ 5, %sw.bb19.i45 ], [ 5, %sw.bb20.i44 ], [ 9, %if.end25.i40 ], [ 7, %if.then23.i42 ], [ 5, %sw.bb31.i38 ], [ 7, %sw.bb32.i36 ], [ 5, %sw.bb38.i35 ], [ 7, %sw.bb39.i34 ], [ 4, %sw.bb40.i33 ], [ 3, %sw.bb41.i32 ], [ 5, %sw.bb42.i31 ], [ 11, %sw.bb43.i25 ], [ 0, %sw.default.i47 ], [ undef, %for.cond ]
+  %retval.sroa.8.1.ph = phi ptr [ @.str.51, %if.then ], [ @.str.52, %sw.bb18.i46 ], [ @.str.53, %sw.bb19.i45 ], [ @.str.54, %sw.bb20.i44 ], [ %retval.sroa.16.0.copyload27.i41, %if.end25.i40 ], [ %retval.sroa.16.0.copyload26.i43, %if.then23.i42 ], [ @.str.59, %sw.bb31.i38 ], [ %retval.sroa.16.0.copyload29.i37, %sw.bb32.i36 ], [ @.str.62, %sw.bb38.i35 ], [ @.str.63, %sw.bb39.i34 ], [ @.str.64, %sw.bb40.i33 ], [ @.str.65, %sw.bb41.i32 ], [ @.str.66, %sw.bb42.i31 ], [ %retval.sroa.16.0.copyload35.i26, %sw.bb43.i25 ], [ @.str.22, %sw.default.i47 ], [ undef, %for.cond ]
   %.pr = load ptr, ptr %ref.tmp, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanupthread-pre-split, %sw.bb2
   %9 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %3, %sw.bb2 ]
   %cmp.i1699 = phi i1 [ %cmp, %cleanupthread-pre-split ], [ true, %sw.bb2 ]
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.ph, %cleanupthread-pre-split ], [ undef, %sw.bb2 ]
-  %retval.sroa.8.0 = phi ptr [ %retval.sroa.8.0.ph, %cleanupthread-pre-split ], [ undef, %sw.bb2 ]
+  %retval.sroa.0.1 = phi i64 [ %retval.sroa.0.1.ph, %cleanupthread-pre-split ], [ undef, %sw.bb2 ]
+  %retval.sroa.8.1 = phi ptr [ %retval.sroa.8.1.ph, %cleanupthread-pre-split ], [ undef, %sw.bb2 ]
   %tobool.not.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit, label %if.then.i.i.i
 
@@ -11025,8 +11025,8 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit
 
 _ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit: ; preds = %cleanup, %if.then.i.i.i
-  %spec.select = select i1 %cmp.i1699, i64 0, i64 %retval.sroa.0.0
-  %spec.select95 = select i1 %cmp.i1699, ptr @.str.22, ptr %retval.sroa.8.0
+  %spec.select = select i1 %cmp.i1699, i64 0, i64 %retval.sroa.0.1
+  %spec.select95 = select i1 %cmp.i1699, ptr @.str.22, ptr %retval.sroa.8.1
   br label %return
 
 sw.bb12:                                          ; preds = %entry
@@ -11128,16 +11128,16 @@ sw.default.i81:                                   ; preds = %if.then30
   br label %cleanup36thread-pre-split
 
 cleanup36thread-pre-split:                        ; preds = %for.cond21, %if.then30, %sw.bb18.i80, %sw.bb19.i79, %sw.bb20.i78, %if.then23.i76, %if.end25.i74, %sw.bb31.i72, %sw.bb32.i70, %sw.bb38.i69, %sw.bb39.i68, %sw.bb40.i67, %sw.bb41.i66, %sw.bb42.i65, %sw.bb43.i59, %sw.default.i81
-  %retval.sroa.0.1.ph = phi i64 [ 4, %if.then30 ], [ 6, %sw.bb18.i80 ], [ 5, %sw.bb19.i79 ], [ 5, %sw.bb20.i78 ], [ 9, %if.end25.i74 ], [ 7, %if.then23.i76 ], [ 5, %sw.bb31.i72 ], [ 7, %sw.bb32.i70 ], [ 5, %sw.bb38.i69 ], [ 7, %sw.bb39.i68 ], [ 4, %sw.bb40.i67 ], [ 3, %sw.bb41.i66 ], [ 5, %sw.bb42.i65 ], [ 11, %sw.bb43.i59 ], [ 0, %sw.default.i81 ], [ undef, %for.cond21 ]
-  %retval.sroa.8.1.ph = phi ptr [ @.str.51, %if.then30 ], [ @.str.52, %sw.bb18.i80 ], [ @.str.53, %sw.bb19.i79 ], [ @.str.54, %sw.bb20.i78 ], [ %retval.sroa.16.0.copyload27.i75, %if.end25.i74 ], [ %retval.sroa.16.0.copyload26.i77, %if.then23.i76 ], [ @.str.59, %sw.bb31.i72 ], [ %retval.sroa.16.0.copyload29.i71, %sw.bb32.i70 ], [ @.str.62, %sw.bb38.i69 ], [ @.str.63, %sw.bb39.i68 ], [ @.str.64, %sw.bb40.i67 ], [ @.str.65, %sw.bb41.i66 ], [ @.str.66, %sw.bb42.i65 ], [ %retval.sroa.16.0.copyload35.i60, %sw.bb43.i59 ], [ @.str.22, %sw.default.i81 ], [ undef, %for.cond21 ]
+  %retval.sroa.0.2.ph = phi i64 [ 4, %if.then30 ], [ 6, %sw.bb18.i80 ], [ 5, %sw.bb19.i79 ], [ 5, %sw.bb20.i78 ], [ 9, %if.end25.i74 ], [ 7, %if.then23.i76 ], [ 5, %sw.bb31.i72 ], [ 7, %sw.bb32.i70 ], [ 5, %sw.bb38.i69 ], [ 7, %sw.bb39.i68 ], [ 4, %sw.bb40.i67 ], [ 3, %sw.bb41.i66 ], [ 5, %sw.bb42.i65 ], [ 11, %sw.bb43.i59 ], [ 0, %sw.default.i81 ], [ undef, %for.cond21 ]
+  %retval.sroa.8.2.ph = phi ptr [ @.str.51, %if.then30 ], [ @.str.52, %sw.bb18.i80 ], [ @.str.53, %sw.bb19.i79 ], [ @.str.54, %sw.bb20.i78 ], [ %retval.sroa.16.0.copyload27.i75, %if.end25.i74 ], [ %retval.sroa.16.0.copyload26.i77, %if.then23.i76 ], [ @.str.59, %sw.bb31.i72 ], [ %retval.sroa.16.0.copyload29.i71, %sw.bb32.i70 ], [ @.str.62, %sw.bb38.i69 ], [ @.str.63, %sw.bb39.i68 ], [ @.str.64, %sw.bb40.i67 ], [ @.str.65, %sw.bb41.i66 ], [ @.str.66, %sw.bb42.i65 ], [ %retval.sroa.16.0.copyload35.i60, %sw.bb43.i59 ], [ @.str.22, %sw.default.i81 ], [ undef, %for.cond21 ]
   %.pr115 = load ptr, ptr %ref.tmp14, align 8
   br label %cleanup36
 
 cleanup36:                                        ; preds = %cleanup36thread-pre-split, %sw.bb12
   %16 = phi ptr [ %.pr115, %cleanup36thread-pre-split ], [ %10, %sw.bb12 ]
   %cmp.i50101 = phi i1 [ %cmp29, %cleanup36thread-pre-split ], [ true, %sw.bb12 ]
-  %retval.sroa.0.1 = phi i64 [ %retval.sroa.0.1.ph, %cleanup36thread-pre-split ], [ undef, %sw.bb12 ]
-  %retval.sroa.8.1 = phi ptr [ %retval.sroa.8.1.ph, %cleanup36thread-pre-split ], [ undef, %sw.bb12 ]
+  %retval.sroa.0.2 = phi i64 [ %retval.sroa.0.2.ph, %cleanup36thread-pre-split ], [ undef, %sw.bb12 ]
+  %retval.sroa.8.2 = phi ptr [ %retval.sroa.8.2.ph, %cleanup36thread-pre-split ], [ undef, %sw.bb12 ]
   %tobool.not.i.i.i84 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i84, label %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit86, label %if.then.i.i.i85
 
@@ -11146,8 +11146,8 @@ if.then.i.i.i85:                                  ; preds = %cleanup36
   br label %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit86
 
 _ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit86: ; preds = %cleanup36, %if.then.i.i.i85
-  %spec.select96 = select i1 %cmp.i50101, i64 0, i64 %retval.sroa.0.1
-  %spec.select97 = select i1 %cmp.i50101, ptr @.str.22, ptr %retval.sroa.8.1
+  %spec.select96 = select i1 %cmp.i50101, i64 0, i64 %retval.sroa.0.2
+  %spec.select97 = select i1 %cmp.i50101, ptr @.str.22, ptr %retval.sroa.8.2
   br label %return
 
 sw.bb39:                                          ; preds = %entry
@@ -11157,10 +11157,10 @@ sw.bb39:                                          ; preds = %entry
   br label %return
 
 return:                                           ; preds = %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit86, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit, %entry, %sw.default.i, %sw.bb43.i, %sw.bb42.i, %sw.bb41.i, %sw.bb40.i, %sw.bb39.i, %sw.bb38.i, %sw.bb32.i, %sw.bb31.i, %if.end25.i, %if.then23.i, %sw.bb20.i, %sw.bb19.i, %sw.bb18.i, %sw.bb, %sw.bb39
-  %retval.sroa.0.2 = phi i64 [ %17, %sw.bb39 ], [ 0, %sw.default.i ], [ 11, %sw.bb43.i ], [ 5, %sw.bb42.i ], [ 3, %sw.bb41.i ], [ 4, %sw.bb40.i ], [ 7, %sw.bb39.i ], [ 5, %sw.bb38.i ], [ 7, %sw.bb32.i ], [ 5, %sw.bb31.i ], [ 7, %if.then23.i ], [ 9, %if.end25.i ], [ 5, %sw.bb20.i ], [ 5, %sw.bb19.i ], [ 6, %sw.bb18.i ], [ 4, %sw.bb ], [ %spec.select, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit ], [ %spec.select96, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit86 ], [ 0, %entry ]
-  %retval.sroa.8.2 = phi ptr [ %18, %sw.bb39 ], [ @.str.22, %sw.default.i ], [ %retval.sroa.16.0.copyload35.i, %sw.bb43.i ], [ @.str.66, %sw.bb42.i ], [ @.str.65, %sw.bb41.i ], [ @.str.64, %sw.bb40.i ], [ @.str.63, %sw.bb39.i ], [ @.str.62, %sw.bb38.i ], [ %retval.sroa.16.0.copyload29.i, %sw.bb32.i ], [ @.str.59, %sw.bb31.i ], [ %retval.sroa.16.0.copyload26.i, %if.then23.i ], [ %retval.sroa.16.0.copyload27.i, %if.end25.i ], [ @.str.54, %sw.bb20.i ], [ @.str.53, %sw.bb19.i ], [ @.str.52, %sw.bb18.i ], [ @.str.51, %sw.bb ], [ %spec.select95, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit ], [ %spec.select97, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit86 ], [ @.str.22, %entry ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.2, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.8.2, 1
+  %retval.sroa.0.0 = phi i64 [ %17, %sw.bb39 ], [ 0, %sw.default.i ], [ 11, %sw.bb43.i ], [ 5, %sw.bb42.i ], [ 3, %sw.bb41.i ], [ 4, %sw.bb40.i ], [ 7, %sw.bb39.i ], [ 5, %sw.bb38.i ], [ 7, %sw.bb32.i ], [ 5, %sw.bb31.i ], [ 7, %if.then23.i ], [ 9, %if.end25.i ], [ 5, %sw.bb20.i ], [ 5, %sw.bb19.i ], [ 6, %sw.bb18.i ], [ 4, %sw.bb ], [ %spec.select, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit ], [ %spec.select96, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit86 ], [ 0, %entry ]
+  %retval.sroa.8.0 = phi ptr [ %18, %sw.bb39 ], [ @.str.22, %sw.default.i ], [ %retval.sroa.16.0.copyload35.i, %sw.bb43.i ], [ @.str.66, %sw.bb42.i ], [ @.str.65, %sw.bb41.i ], [ @.str.64, %sw.bb40.i ], [ @.str.63, %sw.bb39.i ], [ @.str.62, %sw.bb38.i ], [ %retval.sroa.16.0.copyload29.i, %sw.bb32.i ], [ @.str.59, %sw.bb31.i ], [ %retval.sroa.16.0.copyload26.i, %if.then23.i ], [ %retval.sroa.16.0.copyload27.i, %if.end25.i ], [ @.str.54, %sw.bb20.i ], [ @.str.53, %sw.bb19.i ], [ @.str.52, %sw.bb18.i ], [ @.str.51, %sw.bb ], [ %spec.select95, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit ], [ %spec.select97, %_ZNSt6vectorIPN4mold10MappedFileINS0_3elf7ContextINS2_4M68KEEEEESaIS7_EED2Ev.exit86 ], [ @.str.22, %entry ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.8.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
 
@@ -14404,7 +14404,7 @@ for.cond25:                                       ; preds = %_ZNSt7__cxx1112basi
   br i1 %cmp.i44, label %for.end55, label %for.body28
 
 for.body28:                                       ; preds = %for.body28.lr.ph, %for.cond25
-  %retval.2113 = phi ptr [ undef, %for.body28.lr.ph ], [ %retval.3, %for.cond25 ]
+  %retval.3113 = phi ptr [ undef, %for.body28.lr.ph ], [ %retval.4, %for.cond25 ]
   %__begin019.sroa.0.0112 = phi ptr [ %24, %for.body28.lr.ph ], [ %incdec.ptr.i102, %for.cond25 ]
   %32 = load ptr, ptr %__begin019.sroa.0.0112, align 8
   %_M_string_length.i.i45 = getelementptr inbounds i8, ptr %__begin019.sroa.0.0112, i64 8
@@ -14573,12 +14573,12 @@ if.then.i.i91:                                    ; preds = %_ZStplIcSt11char_tr
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i92, %if.then.i.i91
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp45) #17
   %tobool47.not = icmp ne ptr %call46, null
-  %retval.2.call46 = select i1 %tobool47.not, ptr %call46, ptr %retval.2113
+  %retval.3.call46 = select i1 %tobool47.not, ptr %call46, ptr %retval.3113
   br label %cleanup50
 
 cleanup50:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66
   %cleanup.dest.slot.1 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66 ], [ %tobool47.not, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95 ]
-  %retval.3 = phi ptr [ %call39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66 ], [ %retval.2.call46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95 ]
+  %retval.4 = phi ptr [ %call39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66 ], [ %retval.3.call46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95 ]
   %52 = load ptr, ptr %stem, align 8
   %cmp.i.i.i96 = icmp eq ptr %52, %31
   br i1 %cmp.i.i.i96, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i98, label %if.then.i.i97
@@ -14605,8 +14605,8 @@ for.end55:                                        ; preds = %for.cond25, %if.end
   unreachable
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101
-  %retval.4 = phi ptr [ %retval.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101 ], [ %call10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ]
-  ret ptr %retval.4
+  %retval.2 = phi ptr [ %retval.4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101 ], [ %call10, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42 ]
+  ret ptr %retval.2
 }
 
 ; Function Attrs: mustprogress nounwind

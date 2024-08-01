@@ -977,13 +977,13 @@ define hidden noundef zeroext i1 @_ZN28ShenandoahAdaptiveHeuristics15should_star
   br label %43
 
 43:                                               ; preds = %34, %31
-  %.0.i = phi double [ %39, %34 ], [ 0.000000e+00, %31 ]
+  %.1.i = phi double [ %39, %34 ], [ 0.000000e+00, %31 ]
   store double %25, ptr %24, align 8
   store i64 %21, ptr %32, align 8
   br label %_ZN24ShenandoahAllocationRate6sampleEm.exit
 
 _ZN24ShenandoahAllocationRate6sampleEm.exit:      ; preds = %1, %43
-  %.1.i = phi double [ %.0.i, %43 ], [ 0.000000e+00, %1 ]
+  %.0.i = phi double [ %.1.i, %43 ], [ 0.000000e+00, %1 ]
   %44 = getelementptr inbounds i8, ptr %0, i64 384
   store i32 2, ptr %44, align 8
   %45 = udiv i64 %11, 100
@@ -1343,7 +1343,7 @@ _Z25proper_unit_for_byte_sizem.exit119:           ; preds = %.thread174, %_Z24by
 188:                                              ; preds = %97
   %189 = getelementptr inbounds i8, ptr %0, i64 376
   %190 = load double, ptr %189, align 8
-  %191 = fcmp ugt double %.1.i, 0.000000e+00
+  %191 = fcmp ugt double %.0.i, 0.000000e+00
   br i1 %191, label %192, label %_ZNK24ShenandoahAllocationRate10is_spikingEdd.exit.thread
 
 192:                                              ; preds = %188
@@ -1353,10 +1353,10 @@ _Z25proper_unit_for_byte_sizem.exit119:           ; preds = %.thread174, %_Z24by
 
 195:                                              ; preds = %192
   %196 = tail call noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenceable(56) %114) #11
-  %197 = fsub double %.1.i, %196
+  %197 = fsub double %.0.i, %196
   %198 = fdiv double %197, %193
   %199 = fcmp ogt double %198, %190
-  %200 = fdiv double %119, %.1.i
+  %200 = fdiv double %119, %.0.i
   %201 = fcmp ogt double %112, %200
   %or.cond = select i1 %199, i1 %201, i1 false
   br i1 %or.cond, label %202, label %_ZNK24ShenandoahAllocationRate10is_spikingEdd.exit.thread
@@ -1368,32 +1368,32 @@ _Z25proper_unit_for_byte_sizem.exit119:           ; preds = %.thread174, %_Z24by
 
 204:                                              ; preds = %202
   %205 = fmul double %112, 1.000000e+03
-  %206 = fcmp ult double %.1.i, 0x4239000000000000
+  %206 = fcmp ult double %.0.i, 0x4239000000000000
   br i1 %206, label %209, label %207
 
 207:                                              ; preds = %204
-  %208 = fmul double %.1.i, 0x3E10000000000000
+  %208 = fmul double %.0.i, 0x3E10000000000000
   br label %_Z24byte_size_in_proper_unitIdET_S0_.exit122
 
 209:                                              ; preds = %204
-  %210 = fcmp ult double %.1.i, 0x4199000000000000
+  %210 = fcmp ult double %.0.i, 0x4199000000000000
   br i1 %210, label %213, label %211
 
 211:                                              ; preds = %209
-  %212 = fmul double %.1.i, 0x3EB0000000000000
+  %212 = fmul double %.0.i, 0x3EB0000000000000
   br label %_Z24byte_size_in_proper_unitIdET_S0_.exit122
 
 213:                                              ; preds = %209
-  %214 = fcmp ult double %.1.i, 1.024000e+05
+  %214 = fcmp ult double %.0.i, 1.024000e+05
   br i1 %214, label %_Z24byte_size_in_proper_unitIdET_S0_.exit122, label %215
 
 215:                                              ; preds = %213
-  %216 = fmul double %.1.i, 0x3F50000000000000
+  %216 = fmul double %.0.i, 0x3F50000000000000
   br label %_Z24byte_size_in_proper_unitIdET_S0_.exit122
 
 _Z24byte_size_in_proper_unitIdET_S0_.exit122:     ; preds = %207, %211, %213, %215
-  %.0.i121 = phi double [ %208, %207 ], [ %212, %211 ], [ %216, %215 ], [ %.1.i, %213 ]
-  %217 = fptoui double %.1.i to i64
+  %.0.i121 = phi double [ %208, %207 ], [ %212, %211 ], [ %216, %215 ], [ %.0.i, %213 ]
+  %217 = fptoui double %.0.i to i64
   %218 = icmp ugt i64 %217, 107374182399
   br i1 %218, label %_Z25proper_unit_for_byte_sizem.exit125, label %219
 
@@ -1480,14 +1480,14 @@ define hidden noundef double @_ZN24ShenandoahAllocationRate6sampleEm(ptr noundef
   br label %21
 
 21:                                               ; preds = %12, %9
-  %.0 = phi double [ %17, %12 ], [ 0.000000e+00, %9 ]
+  %.1 = phi double [ %17, %12 ], [ 0.000000e+00, %9 ]
   store double %3, ptr %0, align 8
   store i64 %1, ptr %10, align 8
   br label %22
 
 22:                                               ; preds = %21, %2
-  %.1 = phi double [ %.0, %21 ], [ 0.000000e+00, %2 ]
-  ret double %.1
+  %.0 = phi double [ %.1, %21 ], [ 0.000000e+00, %2 ]
+  ret double %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

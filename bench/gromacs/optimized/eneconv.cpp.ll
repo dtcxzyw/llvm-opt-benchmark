@@ -433,7 +433,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit:          ; preds = %_ZL13gmx_snew_implI
   %.0318 = phi i32 [ 0, %.lr.ph.i ], [ %.1319, %.noexc167 ]
   %139 = phi ptr [ %135, %.lr.ph.i ], [ %201, %.noexc167 ]
   %.03461.i = phi i64 [ 0, %.lr.ph.i ], [ %199, %.noexc167 ]
-  %.03560.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %.noexc167 ]
+  %.03560.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.noexc167 ]
   %.059.i = phi i32 [ 0, %.lr.ph.i ], [ %.154.i, %.noexc167 ]
   %140 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %139, i64 %.03461.i
   %141 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %140) #21
@@ -547,7 +547,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %145, %143
   br label %190
 
 190:                                              ; preds = %188, %158
-  %.1.i = phi i32 [ %189, %188 ], [ %.03560.i, %158 ]
+  %.2.i = phi i32 [ %189, %188 ], [ %.03560.i, %158 ]
   %191 = invoke noundef zeroext i1 @_Z6do_enxP9ener_fileP10t_enxframe(ptr noundef %142, ptr noundef nonnull %133)
           to label %.noexc165 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -562,7 +562,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %145, %143
   %.1332 = phi float [ %155, %.noexc163 ], [ %.0331, %.noexc165 ]
   %.1319 = phi i32 [ %148, %.noexc163 ], [ %160, %.noexc165 ]
   %.154.i = phi i32 [ %148, %.noexc163 ], [ %.sroa.speculated.i, %.noexc165 ]
-  %.2.i = phi i32 [ %148, %.noexc163 ], [ %.1.i, %.noexc165 ]
+  %.1.i = phi i32 [ %148, %.noexc163 ], [ %.2.i, %.noexc165 ]
   invoke void @_Z9close_enxP9ener_file(ptr noundef %142)
           to label %.noexc166 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -948,18 +948,18 @@ _ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit183: ; preds = %_ZL13gmx_snew_
   %.089521 = phi i64 [ 0, %.lr.ph523 ], [ %806, %843 ]
   %.095520 = phi i32 [ 0, %.lr.ph523 ], [ %.196.ph384, %843 ]
   %.0100519 = phi i1 [ false, %.lr.ph523 ], [ %.1101.ph388, %843 ]
-  %.0112517 = phi float [ 0.000000e+00, %.lr.ph523 ], [ %.3115, %843 ]
+  %.0112517 = phi float [ 0.000000e+00, %.lr.ph523 ], [ %.2114, %843 ]
   %.0116516 = phi double [ %343, %.lr.ph523 ], [ %.1117.ph396, %843 ]
-  %.0119515 = phi ptr [ null, %.lr.ph523 ], [ %.2121, %843 ]
+  %.0119515 = phi ptr [ null, %.lr.ph523 ], [ %.1120, %843 ]
   %.0126514 = phi i32 [ 0, %.lr.ph523 ], [ %.1127.ph400, %843 ]
-  %.0129513 = phi i64 [ 0, %.lr.ph523 ], [ %.3132, %843 ]
+  %.0129513 = phi i64 [ 0, %.lr.ph523 ], [ %.2131, %843 ]
   %.0133512 = phi i64 [ 0, %.lr.ph523 ], [ %.1134.ph404, %843 ]
   %.0137511 = phi ptr [ null, %.lr.ph523 ], [ %.1138, %843 ]
   %.0308510 = phi i64 [ 0, %.lr.ph523 ], [ %.1309.ph408, %843 ]
   %.0310509 = phi i64 [ 0, %.lr.ph523 ], [ %.1311.ph412, %843 ]
   %.0314508 = phi i64 [ 0, %.lr.ph523 ], [ %.1315.ph416, %843 ]
   %.0321507 = phi ptr [ null, %.lr.ph523 ], [ %.1322.ph420, %843 ]
-  %.0326506 = phi i32 [ 0, %.lr.ph523 ], [ %.5, %843 ]
+  %.0326506 = phi i32 [ 0, %.lr.ph523 ], [ %.1327, %843 ]
   %363 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %362, i64 %.089521
   %364 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %363) #21
   store ptr %364, ptr %30, align 8
@@ -1105,7 +1105,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %367, %369
   br label %.lr.ph.i190
 
 .lr.ph.i190:                                      ; preds = %422, %.lr.ph.preheader.i
-  %.1327 = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.2328, %422 ]
+  %.4330 = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.5, %422 ]
   %indvars.iv40.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next41.i, %422 ]
   %414 = getelementptr inbounds i8, ptr %399, i64 %indvars.iv40.i
   %415 = load i8, ptr %414, align 1
@@ -1113,21 +1113,21 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %367, %369
   br i1 %416, label %417, label %422
 
 417:                                              ; preds = %.lr.ph.i190
-  %418 = add nsw i32 %.1327, 1
-  %419 = sext i32 %.1327 to i64
+  %418 = add nsw i32 %.4330, 1
+  %419 = sext i32 %.4330 to i64
   %420 = getelementptr inbounds i32, ptr %413, i64 %419
   %421 = trunc nuw nsw i64 %indvars.iv40.i to i32
   store i32 %421, ptr %420, align 4
   br label %422
 
 422:                                              ; preds = %417, %.lr.ph.i190
-  %.2328 = phi i32 [ %418, %417 ], [ %.1327, %.lr.ph.i190 ]
+  %.5 = phi i32 [ %418, %417 ], [ %.4330, %.lr.ph.i190 ]
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
   %exitcond.not.i191 = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count.i
   br i1 %exitcond.not.i191, label %._crit_edge.i189, label %.lr.ph.i190, !llvm.loop !19
 
 ._crit_edge.i189:                                 ; preds = %422, %.noexc198
-  %.3329 = phi i32 [ 0, %.noexc198 ], [ %.2328, %422 ]
+  %.3329 = phi i32 [ 0, %.noexc198 ], [ %.5, %422 ]
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.38, i32 noundef 116, ptr noundef %399)
           to label %_ZL9select_itiP11gmx_enxnm_tPi.exit unwind label %.loopexit.split-lp.loopexit
 
@@ -1143,8 +1143,8 @@ _ZL9select_itiP11gmx_enxnm_tPi.exit:              ; preds = %._crit_edge.i189
   br label %.body170
 
 425:                                              ; preds = %_ZL9select_itiP11gmx_enxnm_tPi.exit, %372
-  %.4330 = phi i32 [ %.3329, %_ZL9select_itiP11gmx_enxnm_tPi.exit ], [ %.0326506, %372 ]
-  %.1120 = phi ptr [ %413, %_ZL9select_itiP11gmx_enxnm_tPi.exit ], [ %.0119515, %372 ]
+  %.2328 = phi i32 [ %.3329, %_ZL9select_itiP11gmx_enxnm_tPi.exit ], [ %.0326506, %372 ]
+  %.2121 = phi ptr [ %413, %_ZL9select_itiP11gmx_enxnm_tPi.exit ], [ %.0119515, %372 ]
   %426 = invoke noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef nonnull @.str.17, i32 noundef 2, ptr noundef nonnull %24)
           to label %427 unwind label %.loopexit.split-lp.loopexit
 
@@ -1179,9 +1179,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit201:       ; preds = %430, %432
   br label %.body170
 
 435:                                              ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit201, %370
-  %.5 = phi i32 [ %.4330, %_ZNSt10filesystem7__cxx114pathD2Ev.exit201 ], [ %.0326506, %370 ]
+  %.1327 = phi i32 [ %.2328, %_ZNSt10filesystem7__cxx114pathD2Ev.exit201 ], [ %.0326506, %370 ]
   %.1138 = phi ptr [ %429, %_ZNSt10filesystem7__cxx114pathD2Ev.exit201 ], [ %.0137511, %370 ]
-  %.2121 = phi ptr [ %.1120, %_ZNSt10filesystem7__cxx114pathD2Ev.exit201 ], [ %.0119515, %370 ]
+  %.1120 = phi ptr [ %.2121, %_ZNSt10filesystem7__cxx114pathD2Ev.exit201 ], [ %.0119515, %370 ]
   %436 = add i64 %.089521, 1
   %437 = getelementptr inbounds float, ptr %116, i64 %436
   %438 = load double, ptr %335, align 8
@@ -1196,30 +1196,30 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit201:       ; preds = %430, %432
   %444 = getelementptr inbounds i32, ptr %132, i64 %436
   %445 = getelementptr inbounds float, ptr %124, i64 %436
   %446 = getelementptr inbounds float, ptr %124, i64 %.089521
-  %447 = icmp slt i32 %.5, 1
-  %wide.trip.count582 = zext nneg i32 %.5 to i64
+  %447 = icmp slt i32 %.1327, 1
+  %wide.trip.count582 = zext nneg i32 %.1327 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344
-  %.196.ph493 = phi i32 [ %.095520, %.lr.ph.lr.ph ], [ %.4, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
-  %.1101.ph492 = phi i1 [ %.0100519, %.lr.ph.lr.ph ], [ %.3103, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
-  %.0104.ph491 = phi i1 [ true, %.lr.ph.lr.ph ], [ %.2106, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
+  %.196.ph493 = phi i32 [ %.095520, %.lr.ph.lr.ph ], [ %.297, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
+  %.1101.ph492 = phi i1 [ %.0100519, %.lr.ph.lr.ph ], [ %.2102, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
+  %.0104.ph491 = phi i1 [ true, %.lr.ph.lr.ph ], [ %.1105, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.0110.ph489 = phi i1 [ true, %.lr.ph.lr.ph ], [ false, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
-  %.1113.ph488 = phi float [ %.0112517, %.lr.ph.lr.ph ], [ %.2114, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
+  %.1113.ph488 = phi float [ %.0112517, %.lr.ph.lr.ph ], [ %.3115, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.1117.ph487 = phi double [ %.0116516, %.lr.ph.lr.ph ], [ %.2118, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.1127.ph486 = phi i32 [ %.0126514, %.lr.ph.lr.ph ], [ %.2128, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
-  %.1130.ph485 = phi i64 [ %.0129513, %.lr.ph.lr.ph ], [ %.2131, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
+  %.1130.ph485 = phi i64 [ %.0129513, %.lr.ph.lr.ph ], [ %.3132, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.1134.ph484 = phi i64 [ %.0133512, %.lr.ph.lr.ph ], [ %.2135, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.1309.ph483 = phi i64 [ %.0308510, %.lr.ph.lr.ph ], [ %.2340, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.1311.ph482 = phi i64 [ %.0310509, %.lr.ph.lr.ph ], [ %.3313, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.1315.ph481 = phi i64 [ %.0314508, %.lr.ph.lr.ph ], [ %.3317, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
-  %.1322.ph480 = phi ptr [ %.0321507, %.lr.ph.lr.ph ], [ %.4325, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
+  %.1322.ph480 = phi ptr [ %.0321507, %.lr.ph.lr.ph ], [ %.2323, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   br label %448
 
 448:                                              ; preds = %.lr.ph, %481
   %.0110429 = phi i1 [ %.0110.ph489, %.lr.ph ], [ false, %481 ]
-  %.1113428 = phi float [ %.1113.ph488, %.lr.ph ], [ %.2114, %481 ]
-  %.1130427 = phi i64 [ %.1130.ph485, %.lr.ph ], [ %.2131, %481 ]
+  %.1113428 = phi float [ %.1113.ph488, %.lr.ph ], [ %.3115, %481 ]
+  %.1130427 = phi i64 [ %.1130.ph485, %.lr.ph ], [ %.3132, %481 ]
   %449 = invoke noundef zeroext i1 @_Z6do_enxP9ener_fileP10t_enxframe(ptr noundef %366, ptr noundef %334)
           to label %450 unwind label %.loopexit358.loopexit
 
@@ -1252,9 +1252,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit201:       ; preds = %430, %432
 
 465:                                              ; preds = %452, %460, %451
   %466 = phi double [ %.pre592, %451 ], [ %.pre, %460 ], [ %.pre592, %452 ]
-  %.2131 = phi i64 [ %.1130427, %451 ], [ %453, %460 ], [ %453, %452 ]
-  %.2114 = phi float [ %.1113428, %451 ], [ %457, %460 ], [ %457, %452 ]
-  %467 = fpext float %.2114 to double
+  %.3132 = phi i64 [ %.1130427, %451 ], [ %453, %460 ], [ %453, %452 ]
+  %.3115 = phi float [ %.1113428, %451 ], [ %457, %460 ], [ %457, %452 ]
+  %467 = fpext float %.3115 to double
   %468 = fadd double %466, %467
   %469 = fcmp ugt double %468, %.1117.ph487
   br i1 %469, label %487, label %470
@@ -1287,7 +1287,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit201:       ; preds = %430, %432
 
 487:                                              ; preds = %465
   %488 = load i64, ptr %346, align 8
-  %489 = sub i64 %.0133512, %.2131
+  %489 = sub i64 %.0133512, %.3132
   %490 = add i64 %489, %488
   store i64 %490, ptr %347, align 8
   %491 = load double, ptr %334, align 8
@@ -1677,7 +1677,7 @@ _ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread: ; preds = %649, %
   %indvars.iv579 = phi i64 [ %indvars.iv.next580, %726 ], [ 0, %.loopexit355 ]
   %699 = load float, ptr @_ZZ11gmx_eneconviPPcE8scalefac, align 4
   %700 = load ptr, ptr %338, align 8
-  %701 = getelementptr inbounds i32, ptr %.2121, i64 %indvars.iv579
+  %701 = getelementptr inbounds i32, ptr %.1120, i64 %indvars.iv579
   %702 = load i32, ptr %701, align 4
   %703 = sext i32 %702 to i64
   %704 = getelementptr inbounds %struct.t_energy, ptr %700, i64 %703
@@ -1745,8 +1745,8 @@ _ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread: ; preds = %649, %
 
 _ZL13gmx_snew_implI10t_enxblockEvPKcS2_iRPT_m.exit: ; preds = %733, %._ZL13gmx_snew_implI10t_enxblockEvPKcS2_iRPT_m.exit_crit_edge
   %738 = phi i32 [ %.pre598, %._ZL13gmx_snew_implI10t_enxblockEvPKcS2_iRPT_m.exit_crit_edge ], [ %.pre597, %733 ]
-  %.2323 = phi ptr [ %737, %._ZL13gmx_snew_implI10t_enxblockEvPKcS2_iRPT_m.exit_crit_edge ], [ %.1322.ph480, %733 ]
-  %.297 = phi i32 [ %.pre597, %._ZL13gmx_snew_implI10t_enxblockEvPKcS2_iRPT_m.exit_crit_edge ], [ %.196.ph493, %733 ]
+  %.4325 = phi ptr [ %737, %._ZL13gmx_snew_implI10t_enxblockEvPKcS2_iRPT_m.exit_crit_edge ], [ %.1322.ph480, %733 ]
+  %.4 = phi i32 [ %.pre597, %._ZL13gmx_snew_implI10t_enxblockEvPKcS2_iRPT_m.exit_crit_edge ], [ %.196.ph493, %733 ]
   %739 = icmp sgt i32 %738, 0
   br i1 %739, label %.lr.ph477, label %._crit_edge478
 
@@ -1763,7 +1763,7 @@ _ZL13gmx_snew_implI10t_enxblockEvPKcS2_iRPT_m.exit: ; preds = %733, %._ZL13gmx_s
 
 744:                                              ; preds = %.lr.ph477
   %745 = sext i32 %.098475 to i64
-  %746 = getelementptr inbounds %struct.t_enxblock, ptr %.2323, i64 %745
+  %746 = getelementptr inbounds %struct.t_enxblock, ptr %.4325, i64 %745
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %746, ptr noundef nonnull align 8 dereferenceable(24) %742, i64 24, i1 false)
   %747 = add nsw i32 %.098475, 1
   %.pre599 = load i32, ptr %357, align 8
@@ -1780,7 +1780,7 @@ _ZL13gmx_snew_implI10t_enxblockEvPKcS2_iRPT_m.exit: ; preds = %733, %._ZL13gmx_s
 ._crit_edge478:                                   ; preds = %748, %_ZL13gmx_snew_implI10t_enxblockEvPKcS2_iRPT_m.exit
   %.098.lcssa = phi i32 [ 0, %_ZL13gmx_snew_implI10t_enxblockEvPKcS2_iRPT_m.exit ], [ %.199, %748 ]
   store i32 %.098.lcssa, ptr %358, align 8
-  store ptr %.2323, ptr %360, align 8
+  store ptr %.4325, ptr %360, align 8
   br label %.loopexit
 
 752:                                              ; preds = %730
@@ -1840,9 +1840,9 @@ _ZL13gmx_snew_implI10t_enxblockEvPKcS2_iRPT_m.exit: ; preds = %733, %._ZL13gmx_s
   br i1 %exitcond588.not, label %.loopexit, label %757, !llvm.loop !29
 
 .loopexit:                                        ; preds = %777, %.preheader, %752, %._crit_edge478, %772, %.loopexit354
-  %.3324 = phi ptr [ %.2323, %._crit_edge478 ], [ %.1322.ph480, %772 ], [ %.1322.ph480, %752 ], [ %.1322.ph480, %.loopexit354 ], [ %.1322.ph480, %.preheader ], [ %.1322.ph480, %777 ]
-  %.2102 = phi i1 [ %.1101.ph492, %._crit_edge478 ], [ true, %772 ], [ %.1101.ph492, %752 ], [ %.1101.ph492, %.loopexit354 ], [ false, %.preheader ], [ false, %777 ]
-  %.3 = phi i32 [ %.297, %._crit_edge478 ], [ %.196.ph493, %772 ], [ %.196.ph493, %752 ], [ %.196.ph493, %.loopexit354 ], [ %.196.ph493, %.preheader ], [ %.196.ph493, %777 ]
+  %.3324 = phi ptr [ %.4325, %._crit_edge478 ], [ %.1322.ph480, %772 ], [ %.1322.ph480, %752 ], [ %.1322.ph480, %.loopexit354 ], [ %.1322.ph480, %.preheader ], [ %.1322.ph480, %777 ]
+  %.3103 = phi i1 [ %.1101.ph492, %._crit_edge478 ], [ true, %772 ], [ %.1101.ph492, %752 ], [ %.1101.ph492, %.loopexit354 ], [ false, %.preheader ], [ false, %777 ]
+  %.3 = phi i32 [ %.4, %._crit_edge478 ], [ %.196.ph493, %772 ], [ %.196.ph493, %752 ], [ %.196.ph493, %.loopexit354 ], [ %.196.ph493, %.preheader ], [ %.196.ph493, %777 ]
   %778 = invoke noundef zeroext i1 @_Z6do_enxP9ener_fileP10t_enxframe(ptr noundef %.1138, ptr noundef nonnull %335)
           to label %779 unwind label %.loopexit358.loopexit.split-lp
 
@@ -1863,15 +1863,15 @@ _ZL13gmx_snew_implI10t_enxblockEvPKcS2_iRPT_m.exit: ; preds = %733, %._ZL13gmx_s
 
 _ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344: ; preds = %546, %786, %661, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit
   %.2340 = phi i64 [ %.2341, %786 ], [ %.2341, %661 ], [ %.2, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.1309.ph483, %546 ]
-  %.4325 = phi ptr [ %.3324, %786 ], [ %.1322.ph480, %661 ], [ %.1322.ph480, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.1322.ph480, %546 ]
+  %.2323 = phi ptr [ %.3324, %786 ], [ %.1322.ph480, %661 ], [ %.1322.ph480, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.1322.ph480, %546 ]
   %.3317 = phi i64 [ 0, %786 ], [ %.2316338, %661 ], [ %.2316, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.1315.ph481, %546 ]
   %.3313 = phi i64 [ 0, %786 ], [ %.2312339, %661 ], [ %.2312, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.1311.ph482, %546 ]
   %.2135 = phi i64 [ %664, %786 ], [ %.1134.ph484, %661 ], [ %.1134.ph484, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.1134.ph484, %546 ]
   %.2128 = phi i32 [ %787, %786 ], [ %.1127.ph486, %661 ], [ %.1127.ph486, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.1127.ph486, %546 ]
   %.2118 = phi double [ %663, %786 ], [ %.1117.ph487, %661 ], [ %.1117.ph487, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.1117.ph487, %546 ]
-  %.2106 = phi i1 [ false, %786 ], [ %.0104.ph491, %661 ], [ %.0104.ph491, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.0104.ph491, %546 ]
-  %.3103 = phi i1 [ %.2102, %786 ], [ %.1101.ph492, %661 ], [ %.1101.ph492, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.1101.ph492, %546 ]
-  %.4 = phi i32 [ %.3, %786 ], [ %.196.ph493, %661 ], [ %.196.ph493, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.196.ph493, %546 ]
+  %.1105 = phi i1 [ false, %786 ], [ %.0104.ph491, %661 ], [ %.0104.ph491, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.0104.ph491, %546 ]
+  %.2102 = phi i1 [ %.3103, %786 ], [ %.1101.ph492, %661 ], [ %.1101.ph492, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.1101.ph492, %546 ]
+  %.297 = phi i32 [ %.3, %786 ], [ %.196.ph493, %661 ], [ %.196.ph493, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit ], [ %.196.ph493, %546 ]
   %788 = load double, ptr %335, align 8
   %789 = load float, ptr %437, align 4
   %790 = fadd float %789, 0x3E80000000000000
@@ -1880,17 +1880,17 @@ _ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344: ; preds = %546
   br i1 %792, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .critedge:                                        ; preds = %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344, %450, %481, %435, %534
-  %.1322.ph420 = phi ptr [ %.1322.ph480, %534 ], [ %.0321507, %435 ], [ %.1322.ph480, %481 ], [ %.1322.ph480, %450 ], [ %.4325, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
+  %.1322.ph420 = phi ptr [ %.1322.ph480, %534 ], [ %.0321507, %435 ], [ %.1322.ph480, %481 ], [ %.1322.ph480, %450 ], [ %.2323, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.1315.ph416 = phi i64 [ %.1315.ph481, %534 ], [ %.0314508, %435 ], [ %.1315.ph481, %481 ], [ %.1315.ph481, %450 ], [ %.3317, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.1311.ph412 = phi i64 [ %.1311.ph482, %534 ], [ %.0310509, %435 ], [ %.1311.ph482, %481 ], [ %.1311.ph482, %450 ], [ %.3313, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.1309.ph408 = phi i64 [ %.1309.ph483, %534 ], [ %.0308510, %435 ], [ %.1309.ph483, %481 ], [ %.1309.ph483, %450 ], [ %.2340, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.1134.ph404 = phi i64 [ %.1134.ph484, %534 ], [ %.0133512, %435 ], [ %.1134.ph484, %481 ], [ %.1134.ph484, %450 ], [ %.2135, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.1127.ph400 = phi i32 [ %.1127.ph486, %534 ], [ %.0126514, %435 ], [ %.1127.ph486, %481 ], [ %.1127.ph486, %450 ], [ %.2128, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.1117.ph396 = phi double [ %.1117.ph487, %534 ], [ %.0116516, %435 ], [ %.1117.ph487, %481 ], [ %.1117.ph487, %450 ], [ %.2118, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
-  %.1101.ph388 = phi i1 [ %.1101.ph492, %534 ], [ %.0100519, %435 ], [ %.1101.ph492, %481 ], [ %.1101.ph492, %450 ], [ %.3103, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
-  %.196.ph384 = phi i32 [ %.196.ph493, %534 ], [ %.095520, %435 ], [ %.196.ph493, %481 ], [ %.196.ph493, %450 ], [ %.4, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
-  %.3132 = phi i64 [ %.2131, %534 ], [ %.0129513, %435 ], [ %.1130427, %450 ], [ %.2131, %481 ], [ %.2131, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
-  %.3115 = phi float [ %.2114, %534 ], [ %.0112517, %435 ], [ %.1113428, %450 ], [ %.2114, %481 ], [ %.2114, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
+  %.1101.ph388 = phi i1 [ %.1101.ph492, %534 ], [ %.0100519, %435 ], [ %.1101.ph492, %481 ], [ %.1101.ph492, %450 ], [ %.2102, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
+  %.196.ph384 = phi i32 [ %.196.ph493, %534 ], [ %.095520, %435 ], [ %.196.ph493, %481 ], [ %.196.ph493, %450 ], [ %.297, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
+  %.2131 = phi i64 [ %.3132, %534 ], [ %.0129513, %435 ], [ %.1130427, %450 ], [ %.3132, %481 ], [ %.3132, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
+  %.2114 = phi float [ %.3115, %534 ], [ %.0112517, %435 ], [ %.1113428, %450 ], [ %.3115, %481 ], [ %.3115, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %.1 = phi i64 [ %540, %534 ], [ %.089521, %435 ], [ %.089521, %481 ], [ %.089521, %450 ], [ %.089521, %_ZL13update_ee_sumiPlS_S_P8t_energyP10t_enxframei.exit.thread344 ]
   %793 = load ptr, ptr %102, align 8
   %794 = load ptr, ptr %27, align 8

@@ -245,8 +245,8 @@ define void @clamav_stats_add_sample(ptr noundef %0, ptr nocapture noundef reado
   br label %98
 
 98:                                               ; preds = %75, %83, %85, %93, %97, %88, %54
-  %.1116 = phi ptr [ %55, %54 ], [ %59, %85 ], [ %59, %93 ], [ %59, %97 ], [ %59, %88 ], [ %59, %83 ], [ %59, %75 ]
-  %99 = getelementptr inbounds i8, ptr %.1116, i64 28
+  %.0115 = phi ptr [ %55, %54 ], [ %59, %85 ], [ %59, %93 ], [ %59, %97 ], [ %59, %88 ], [ %59, %83 ], [ %59, %75 ]
+  %99 = getelementptr inbounds i8, ptr %.0115, i64 28
   %100 = load i32, ptr %99, align 4
   %101 = add i32 %100, 1
   store i32 %101, ptr %99, align 4

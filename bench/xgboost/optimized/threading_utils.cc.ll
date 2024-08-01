@@ -187,14 +187,14 @@ _ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit: ; pre
           to label %44 unwind label %46
 
 44:                                               ; preds = %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit, %42
-  %.0 = phi i32 [ -1, %42 ], [ %37, %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit ]
+  %.1 = phi i32 [ -1, %42 ], [ %37, %_ZNSt7__cxx114stoiERKNS_12basic_stringIcSt11char_traitsIcESaIcEEEPmi.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   br label %45
 
 45:                                               ; preds = %11, %44
-  %.1 = phi i32 [ %.0, %44 ], [ -1, %11 ]
+  %.0 = phi i32 [ %.1, %44 ], [ -1, %11 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #16
-  ret i32 %.1
+  ret i32 %.0
 
 46:                                               ; preds = %42, %12, %5, %1
   %47 = landingpad { ptr, i32 }
@@ -455,7 +455,7 @@ define noundef i32 @_ZN7xgboost6common14GetCfsCPUCountEv() local_unnamed_addr #3
   br label %.critedge
 
 .critedge:                                        ; preds = %16, %16, %13, %13, %24, %17
-  %.0 = phi i32 [ -1, %13 ], [ -1, %16 ], [ %.sroa.speculated.i, %24 ], [ -1, %17 ], [ -1, %13 ], [ -1, %16 ]
+  %.1 = phi i32 [ -1, %13 ], [ -1, %16 ], [ %.sroa.speculated.i, %24 ], [ -1, %17 ], [ -1, %13 ], [ -1, %16 ]
   %27 = getelementptr inbounds i8, ptr %3, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not.i.i.i = icmp eq ptr %28, null
@@ -483,7 +483,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit6:         ; preds = %_ZNSt10filesystem7_
   br label %33
 
 33:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit6, %7
-  %.1 = phi i32 [ %8, %7 ], [ %.0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit6 ]
+  %.0 = phi i32 [ %8, %7 ], [ %.1, %_ZNSt10filesystem7__cxx114pathD2Ev.exit6 ]
   %34 = getelementptr inbounds i8, ptr %1, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not.i.i.i7 = icmp eq ptr %35, null
@@ -496,7 +496,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit6:         ; preds = %_ZNSt10filesystem7_
 _ZNSt10filesystem7__cxx114pathD2Ev.exit8:         ; preds = %33, %36
   store ptr null, ptr %34, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
-  ret i32 %.1
+  ret i32 %.0
 
 37:                                               ; preds = %14, %11, %4, %10, %9, %0
   %38 = landingpad { ptr, i32 }

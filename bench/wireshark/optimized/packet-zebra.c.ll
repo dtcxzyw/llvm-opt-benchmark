@@ -1416,11 +1416,11 @@ define internal fastcc void @zebra_interface(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not, label %.thread94, label %59
 
 59:                                               ; preds = %.thread91, %58
-  %.493 = phi i32 [ %57, %.thread91 ], [ %51, %58 ]
-  %60 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.493) #4
+  %.593 = phi i32 [ %57, %.thread91 ], [ %51, %58 ]
+  %60 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %.593) #4
   %61 = load i32, ptr @hf_zebra_maclen, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %61, ptr noundef %1, i32 noundef %.493, i32 noundef 4, i32 noundef 0) #4
-  %63 = add i32 %.493, 4
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %61, ptr noundef %1, i32 noundef %.593, i32 noundef 4, i32 noundef 0) #4
+  %63 = add i32 %.593, 4
   %64 = icmp sgt i32 %60, 0
   br i1 %64, label %65, label %68
 
@@ -1587,21 +1587,21 @@ define internal fastcc void @zebra_route(ptr noundef %0, i32 noundef %1, ptr nou
   br label %65
 
 65:                                               ; preds = %61, %59
-  %.1 = phi i32 [ %64, %61 ], [ %56, %59 ]
-  %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.1) #4
+  %.2 = phi i32 [ %64, %61 ], [ %56, %59 ]
+  %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.2) #4
   %67 = load i32, ptr @hf_zebra_family, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %67, ptr noundef %2, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #4
-  %69 = add i32 %.1, 1
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %67, ptr noundef %2, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #4
+  %69 = add i32 %.2, 1
   br label %70
 
 70:                                               ; preds = %52, %65, %47, %48
   %.0232 = phi i8 [ %5, %48 ], [ %5, %47 ], [ %66, %65 ], [ %5, %52 ]
-  %.2 = phi i32 [ %51, %48 ], [ %41, %47 ], [ %69, %65 ], [ %41, %52 ]
-  %71 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.2) #4
+  %.1 = phi i32 [ %51, %48 ], [ %41, %47 ], [ %69, %65 ], [ %41, %52 ]
+  %71 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.1) #4
   %72 = load i32, ptr @hf_zebra_prefixlen, align 4
   %73 = zext i8 %71 to i32
-  %74 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %72, ptr noundef %2, i32 noundef %.2, i32 noundef 1, i32 noundef %73) #4
-  %75 = add i32 %.2, 1
+  %74 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %72, ptr noundef %2, i32 noundef %.1, i32 noundef 1, i32 noundef %73) #4
+  %75 = add i32 %.1, 1
   %76 = icmp eq i8 %.0232, 10
   br i1 %76, label %89, label %77
 
@@ -2016,7 +2016,7 @@ define internal fastcc void @zebra_nexthop_update(ptr noundef %0, ptr noundef %1
 
 43:                                               ; preds = %.lr.ph175, %.loopexit
   %.in = phi i8 [ %37, %.lr.ph175 ], [ %44, %.loopexit ]
-  %.4174 = phi i32 [ %41, %.lr.ph175 ], [ %.9, %.loopexit ]
+  %.4174 = phi i32 [ %41, %.lr.ph175 ], [ %.8, %.loopexit ]
   %44 = add i8 %.in, -1
   %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.4174) #4
   %hf_zebra_nexthoptype_frr.val = load i32, ptr @hf_zebra_nexthoptype_frr, align 4
@@ -2105,16 +2105,16 @@ define internal fastcc void @zebra_nexthop_update(ptr noundef %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %72, %.lr.ph
   %.0172 = phi i8 [ %78, %.lr.ph ], [ %73, %72 ]
-  %.8171 = phi i32 [ %81, %.lr.ph ], [ %77, %72 ]
+  %.9171 = phi i32 [ %81, %.lr.ph ], [ %77, %72 ]
   %78 = add i8 %.0172, -1
   %79 = load i32, ptr @hf_zebra_label, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %79, ptr noundef %1, i32 noundef %.8171, i32 noundef 4, i32 noundef 0) #4
-  %81 = add i32 %.8171, 4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %79, ptr noundef %1, i32 noundef %.9171, i32 noundef 4, i32 noundef 0) #4
+  %81 = add i32 %.9171, 4
   %.not153 = icmp eq i8 %78, 0
   br i1 %.not153, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %72, %71
-  %.9 = phi i32 [ %.7, %71 ], [ %77, %72 ], [ %81, %.lr.ph ]
+  %.8 = phi i32 [ %.7, %71 ], [ %77, %72 ], [ %81, %.lr.ph ]
   %.not = icmp eq i8 %44, 0
   br i1 %.not, label %._crit_edge, label %43, !llvm.loop !8
 

@@ -514,7 +514,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %227
 
 192:                                              ; preds = %124, %135
-  %.0 = phi i32 [ 1, %124 ], [ 0, %135 ]
+  %.3 = phi i32 [ 1, %124 ], [ 0, %135 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #7
   br i1 %118, label %325, label %193
@@ -896,7 +896,7 @@ _ZN2cv3ocl6Kernel4argsIJNS0_9KernelArgES3_fEEERS1_DpRKT_.exit: ; preds = %.noexc
   br label %319
 
 319:                                              ; preds = %225, %318
-  %.461 = phi i32 [ %.360, %318 ], [ 1, %225 ]
+  %.259 = phi i32 [ %.360, %318 ], [ 1, %225 ]
   call void @_ZN2cv3ocl7ProgramD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #7
   call void @_ZN2cv3ocl13ProgramSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #7
@@ -930,7 +930,7 @@ _ZN2cv3ocl6Kernel4argsIJNS0_9KernelArgES3_fEEERS1_DpRKT_.exit: ; preds = %.noexc
   br label %326
 
 325:                                              ; preds = %192, %319
-  %.7 = phi i32 [ %.461, %319 ], [ %.0, %192 ]
+  %.6 = phi i32 [ %.259, %319 ], [ %.3, %192 ]
   call void @_ZN2cv4UMatD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %10) #7
   br label %327
 
@@ -940,7 +940,7 @@ _ZN2cv3ocl6Kernel4argsIJNS0_9KernelArgES3_fEEERS1_DpRKT_.exit: ; preds = %.noexc
   br label %328
 
 327:                                              ; preds = %107, %325
-  %.8 = phi i32 [ %.7, %325 ], [ 1, %107 ]
+  %.2 = phi i32 [ %.6, %325 ], [ 1, %107 ]
   call void @_ZN2cv3ocl6DeviceD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #7
   br label %329
 
@@ -950,7 +950,7 @@ _ZN2cv3ocl6Kernel4argsIJNS0_9KernelArgES3_fEEERS1_DpRKT_.exit: ; preds = %.noexc
   br label %330
 
 329:                                              ; preds = %95, %327
-  %.9 = phi i32 [ %.8, %327 ], [ 1, %95 ]
+  %.1 = phi i32 [ %.2, %327 ], [ 1, %95 ]
   call void @_ZN2cv3ocl7ContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #7
   br label %331
 
@@ -960,9 +960,9 @@ _ZN2cv3ocl6Kernel4argsIJNS0_9KernelArgES3_fEEERS1_DpRKT_.exit: ; preds = %.noexc
   br label %332
 
 331:                                              ; preds = %74, %329
-  %.10 = phi i32 [ %.9, %329 ], [ 0, %74 ]
+  %.0 = phi i32 [ %.1, %329 ], [ 0, %74 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  ret i32 %.10
+  ret i32 %.0
 
 332:                                              ; preds = %330, %85, %84
   %.pn98 = phi { ptr, i32 } [ %86, %85 ], [ %.pn91.pn.pn.pn.pn.pn, %330 ], [ %.pn63, %84 ]

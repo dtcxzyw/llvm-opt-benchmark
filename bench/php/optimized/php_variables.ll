@@ -943,19 +943,19 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
 
 259:                                              ; preds = %257, %253
   %260 = phi i8 [ %.pre556, %257 ], [ %255, %253 ]
-  %.0381 = phi ptr [ %258, %257 ], [ %.0385, %253 ]
-  %261 = getelementptr inbounds i8, ptr %.0381, i64 8
+  %.1382 = phi ptr [ %258, %257 ], [ %.0385, %253 ]
+  %261 = getelementptr inbounds i8, ptr %.1382, i64 8
   %.not441 = icmp eq i8 %260, 7
   br i1 %.not441, label %274, label %262
 
 262:                                              ; preds = %259
-  %263 = getelementptr inbounds i8, ptr %.0381, i64 9
+  %263 = getelementptr inbounds i8, ptr %.1382, i64 9
   %264 = load i8, ptr %263, align 1
   %.not443 = icmp eq i8 %264, 0
   br i1 %.not443, label %272, label %265
 
 265:                                              ; preds = %262
-  %266 = load ptr, ptr %.0381, align 8
+  %266 = load ptr, ptr %.1382, align 8
   %267 = load i32, ptr %266, align 4
   %268 = icmp ne i32 %267, 0
   call void @llvm.assume(i1 %268)
@@ -965,25 +965,25 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not444, label %270, label %272
 
 270:                                              ; preds = %265
-  %271 = load ptr, ptr %.0381, align 8
+  %271 = load ptr, ptr %.1382, align 8
   call void @rc_dtor_func(ptr noundef %271) #17
   br label %272
 
 272:                                              ; preds = %262, %265, %270
   %273 = call ptr @_zend_new_array_0() #17
-  store ptr %273, ptr %.0381, align 8
+  store ptr %273, ptr %.1382, align 8
   store i32 775, ptr %261, align 8
   br label %286
 
 274:                                              ; preds = %259
-  %275 = load ptr, ptr %.0381, align 8
+  %275 = load ptr, ptr %.1382, align 8
   %276 = load i32, ptr %275, align 4
   %277 = icmp ugt i32 %276, 1
   br i1 %277, label %278, label %286
 
 278:                                              ; preds = %274
   %279 = call ptr @zend_array_dup(ptr noundef nonnull %275) #17
-  store ptr %279, ptr %.0381, align 8
+  store ptr %279, ptr %.1382, align 8
   store i32 775, ptr %261, align 8
   %280 = getelementptr inbounds i8, ptr %275, i64 4
   %281 = load i32, ptr %280, align 4
@@ -998,8 +998,8 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
   br label %286
 
 286:                                              ; preds = %249, %.critedge472, %278, %283, %274, %272, %202
-  %.1382 = phi ptr [ %.0381, %272 ], [ %.0381, %278 ], [ %.0381, %283 ], [ %.0381, %274 ], [ %204, %202 ], [ %251, %249 ], [ %252, %.critedge472 ]
-  %287 = load ptr, ptr %.1382, align 8
+  %.0381 = phi ptr [ %.1382, %272 ], [ %.1382, %278 ], [ %.1382, %283 ], [ %.1382, %274 ], [ %204, %202 ], [ %251, %249 ], [ %252, %.critedge472 ]
+  %287 = load ptr, ptr %.0381, align 8
   %288 = getelementptr inbounds i8, ptr %.3, i64 1
   %289 = load i8, ptr %288, align 1
   %290 = icmp eq i8 %289, 91
@@ -1754,24 +1754,24 @@ define void @php_default_treat_data(i32 noundef %0, ptr noundef %1, ptr nocaptur
   br label %65
 
 65:                                               ; preds = %65, %.preheader
-  %.1 = phi ptr [ %71, %65 ], [ %.088133, %.preheader ]
-  %66 = load i8, ptr %.1, align 1
+  %.2 = phi ptr [ %71, %65 ], [ %.088133, %.preheader ]
+  %66 = load i8, ptr %.2, align 1
   %67 = sext i8 %66 to i64
   %68 = getelementptr inbounds i16, ptr %64, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = and i16 %69, 8192
   %.not110 = icmp eq i16 %70, 0
-  %71 = getelementptr inbounds i8, ptr %.1, i64 1
+  %71 = getelementptr inbounds i8, ptr %.2, i64 1
   br i1 %.not110, label %72, label %65
 
 72:                                               ; preds = %65
-  %73 = icmp eq ptr %.1, %62
+  %73 = icmp eq ptr %.2, %62
   %74 = icmp eq i8 %66, 0
   %or.cond = or i1 %73, %74
   br i1 %or.cond, label %130, label %75
 
 75:                                               ; preds = %72, %61
-  %.2 = phi ptr [ %.088133, %61 ], [ %.1, %72 ]
+  %.1 = phi ptr [ %.088133, %61 ], [ %.2, %72 ]
   %76 = load i8, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 584), align 8
   %77 = trunc i8 %76 to i1
   %78 = load i64, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 592), align 8
@@ -1819,14 +1819,14 @@ define void @php_default_treat_data(i32 noundef %0, ptr noundef %1, ptr nocaptur
 
 96:                                               ; preds = %.thread125, %94
   %.087127 = phi i64 [ %91, %.thread125 ], [ 0, %94 ]
-  %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #15
-  %98 = call i64 @php_url_decode(ptr noundef nonnull %.2, i64 noundef %97) #17
+  %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #15
+  %98 = call i64 @php_url_decode(ptr noundef nonnull %.1, i64 noundef %97) #17
   br label %99
 
 99:                                               ; preds = %.thread122, %96, %94
   %.087124 = phi i64 [ %88, %.thread122 ], [ %.087127, %96 ], [ 0, %94 ]
   %100 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 232), align 8
-  %101 = call i32 %100(i32 noundef %0, ptr noundef nonnull %.2, ptr noundef nonnull %5, i64 noundef %.087124, ptr noundef nonnull %8) #17
+  %101 = call i32 %100(i32 noundef %0, ptr noundef nonnull %.1, ptr noundef nonnull %5, i64 noundef %.087124, ptr noundef nonnull %8) #17
   %.not114 = icmp eq i32 %101, 0
   br i1 %.not114, label %128, label %102
 
@@ -1878,7 +1878,7 @@ php_register_variable_safe.exit:                  ; preds = %106, %117, %119
   %.not.i = icmp eq i32 %126, 0
   %127 = select i1 %.not.i, i32 262, i32 6
   store i32 %127, ptr %60, align 8
-  call void @php_register_variable_ex(ptr noundef nonnull readonly %.2, ptr noundef nonnull %4, ptr noundef nonnull %6)
+  call void @php_register_variable_ex(ptr noundef nonnull readonly %.1, ptr noundef nonnull %4, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %128
 
@@ -2005,7 +2005,7 @@ define void @php_build_argv(ptr noundef %0, ptr noundef readonly %1) local_unnam
   br label %41
 
 41:                                               ; preds = %65, %.preheader
-  %.0159 = phi i32 [ %59, %65 ], [ 0, %.preheader ]
+  %.1 = phi i32 [ %59, %65 ], [ 0, %.preheader ]
   %.0 = phi ptr [ %66, %65 ], [ %0, %.preheader ]
   %42 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0, i32 noundef 43) #15
   %.not170 = icmp eq ptr %42, null
@@ -2039,7 +2039,7 @@ define void @php_build_argv(ptr noundef %0, ptr noundef readonly %1) local_unnam
   store i8 0, ptr %58, align 1
   store ptr %53, ptr %5, align 8
   store i32 262, ptr %40, align 8
-  %59 = add nuw nsw i32 %.0159, 1
+  %59 = add nuw nsw i32 %.1, 1
   %60 = load ptr, ptr %3, align 8
   %61 = call ptr @zend_hash_next_index_insert(ptr noundef %60, ptr noundef nonnull %5) #17
   %62 = icmp eq ptr %61, null
@@ -2061,13 +2061,13 @@ thread-pre-split.loopexit:                        ; preds = %65
 
 .loopexit:                                        ; preds = %33, %thread-pre-split.loopexit
   %68 = phi i32 [ %.pr.pre, %thread-pre-split.loopexit ], [ %34, %33 ]
-  %.1 = phi i64 [ %67, %thread-pre-split.loopexit ], [ 0, %33 ]
+  %.0159 = phi i64 [ %67, %thread-pre-split.loopexit ], [ 0, %33 ]
   %.not171 = icmp eq i32 %68, 0
   br i1 %.not171, label %.thread182, label %.loopexit.thread194
 
 .thread182:                                       ; preds = %38, %.loopexit
-  %.1193 = phi i64 [ %.1, %.loopexit ], [ 0, %38 ]
-  store i64 %.1193, ptr %4, align 8
+  %.0159193 = phi i64 [ %.0159, %.loopexit ], [ 0, %38 ]
+  store i64 %.0159193, ptr %4, align 8
   %69 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 4, ptr %69, align 8
   br label %89
@@ -3087,8 +3087,8 @@ define internal fastcc void @php_autoglobal_merge(ptr noundef %0, ptr nocapture 
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %25, %28
-  %.2 = phi ptr [ %29, %28 ], [ %26, %25 ]
-  %32 = getelementptr inbounds i8, ptr %.2, i64 8
+  %.3 = phi ptr [ %29, %28 ], [ %26, %25 ]
+  %32 = getelementptr inbounds i8, ptr %.3, i64 8
   %33 = load i8, ptr %32, align 8
   %.not88 = icmp eq i8 %33, 7
   br i1 %.not88, label %59, label %34
@@ -3148,14 +3148,14 @@ define internal fastcc void @php_autoglobal_merge(ptr noundef %0, ptr nocapture 
   br label %74
 
 59:                                               ; preds = %31
-  %60 = load ptr, ptr %.2, align 8
+  %60 = load ptr, ptr %.3, align 8
   %61 = load i32, ptr %60, align 4
   %62 = icmp ugt i32 %61, 1
   br i1 %62, label %63, label %71
 
 63:                                               ; preds = %59
   %64 = tail call ptr @zend_array_dup(ptr noundef nonnull %60) #17
-  store ptr %64, ptr %.2, align 8
+  store ptr %64, ptr %.3, align 8
   store i32 775, ptr %32, align 8
   %65 = getelementptr inbounds i8, ptr %60, i64 4
   %66 = load i32, ptr %65, align 4
@@ -3167,7 +3167,7 @@ define internal fastcc void @php_autoglobal_merge(ptr noundef %0, ptr nocapture 
   %69 = load i32, ptr %60, align 4
   %70 = add i32 %69, -1
   store i32 %70, ptr %60, align 4
-  %.pre = load ptr, ptr %.2, align 8
+  %.pre = load ptr, ptr %.3, align 8
   br label %71
 
 71:                                               ; preds = %59, %68, %63

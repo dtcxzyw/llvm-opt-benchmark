@@ -2269,8 +2269,8 @@ ssl_print_hexbuf.exit:                            ; preds = %for.body.i.i, %if.e
   br label %if.end6
 
 if.end6:                                          ; preds = %ssl_print_hexbuf.exit, %ssl_get_keyex.exit
-  %msglen.addr.1 = phi i64 [ %msglen, %ssl_get_keyex.exit ], [ %sub.i, %ssl_print_hexbuf.exit ]
-  %msg.addr.1 = phi ptr [ %msg, %ssl_get_keyex.exit ], [ %add.ptr12.i, %ssl_print_hexbuf.exit ]
+  %msglen.addr.0 = phi i64 [ %msglen, %ssl_get_keyex.exit ], [ %sub.i, %ssl_print_hexbuf.exit ]
+  %msg.addr.0 = phi ptr [ %msg, %ssl_get_keyex.exit ], [ %add.ptr12.i, %ssl_print_hexbuf.exit ]
   switch i32 %retval.0.i, label %sw.epilog [
     i32 1, label %sw.bb
     i32 64, label %sw.bb
@@ -2295,19 +2295,19 @@ cond.true:                                        ; preds = %sw.bb
 
 if.then11:                                        ; preds = %cond.true
   %call.i = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
-  %conv.i22 = trunc i64 %msglen.addr.1 to i32
+  %conv.i22 = trunc i64 %msglen.addr.0 to i32
   %call1.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.484, i32 noundef %conv.i22) #3
-  %cmp7.not.i = icmp eq i64 %msglen.addr.1, 0
+  %cmp7.not.i = icmp eq i64 %msglen.addr.0, 0
   br i1 %cmp7.not.i, label %ssl_print_hex.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then11, %for.body.i
   %i.08.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then11 ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %msg.addr.1, i64 %i.08.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %msg.addr.0, i64 %i.08.i
   %6 = load i8, ptr %arrayidx.i, align 1
   %conv3.i = zext i8 %6 to i32
   %call4.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.14, i32 noundef %conv3.i) #3
   %inc.i = add nuw i64 %i.08.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %msglen.addr.1
+  %exitcond.not.i = icmp eq i64 %inc.i, %msglen.addr.0
   br i1 %exitcond.not.i, label %ssl_print_hex.exit, label %for.body.i, !llvm.loop !4
 
 ssl_print_hex.exit:                               ; preds = %for.body.i, %if.then11
@@ -2315,23 +2315,23 @@ ssl_print_hex.exit:                               ; preds = %for.body.i, %if.the
   br label %sw.epilog
 
 if.else:                                          ; preds = %sw.bb, %cond.true
-  %cmp.i23 = icmp ult i64 %msglen.addr.1, 2
+  %cmp.i23 = icmp ult i64 %msglen.addr.0, 2
   br i1 %cmp.i23, label %return, label %if.end.i24
 
 if.end.i24:                                       ; preds = %if.else
-  %7 = load i8, ptr %msg.addr.1, align 1
+  %7 = load i8, ptr %msg.addr.0, align 1
   %conv.i25 = zext i8 %7 to i64
   %shl.i26 = shl nuw nsw i64 %conv.i25, 8
-  %arrayidx4.i27 = getelementptr inbounds i8, ptr %msg.addr.1, i64 1
+  %arrayidx4.i27 = getelementptr inbounds i8, ptr %msg.addr.0, i64 1
   %8 = load i8, ptr %arrayidx4.i27, align 1
   %conv5.i28 = zext i8 %8 to i64
   %or.i29 = or disjoint i64 %shl.i26, %conv5.i28
   %add.i30 = add nuw nsw i64 %or.i29, 2
-  %cmp7.i31 = icmp ult i64 %msglen.addr.1, %add.i30
+  %cmp7.i31 = icmp ult i64 %msglen.addr.0, %add.i30
   br i1 %cmp7.i31, label %return, label %if.end10.i32
 
 if.end10.i32:                                     ; preds = %if.end.i24
-  %add.ptr.i33 = getelementptr inbounds i8, ptr %msg.addr.1, i64 2
+  %add.ptr.i33 = getelementptr inbounds i8, ptr %msg.addr.0, i64 2
   %call.i.i34 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
   %conv.i.i35 = trunc nuw nsw i64 %or.i29 to i32
   %call1.i.i36 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.484, i32 noundef %conv.i.i35) #3
@@ -2350,27 +2350,27 @@ for.body.i.i38:                                   ; preds = %if.end10.i32, %for.
 
 ssl_print_hexbuf.exit50:                          ; preds = %for.body.i.i38, %if.end10.i32
   %call5.i.i46 = tail call i32 @BIO_puts(ptr noundef %bio, ptr noundef nonnull @.str.12) #3
-  %sub.i48 = sub i64 %msglen.addr.1, %add.i30
+  %sub.i48 = sub i64 %msglen.addr.0, %add.i30
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %if.end6, %if.end6
-  %cmp.i51 = icmp ult i64 %msglen.addr.1, 2
+  %cmp.i51 = icmp ult i64 %msglen.addr.0, 2
   br i1 %cmp.i51, label %return, label %if.end.i52
 
 if.end.i52:                                       ; preds = %sw.bb19
-  %10 = load i8, ptr %msg.addr.1, align 1
+  %10 = load i8, ptr %msg.addr.0, align 1
   %conv.i53 = zext i8 %10 to i64
   %shl.i54 = shl nuw nsw i64 %conv.i53, 8
-  %arrayidx4.i55 = getelementptr inbounds i8, ptr %msg.addr.1, i64 1
+  %arrayidx4.i55 = getelementptr inbounds i8, ptr %msg.addr.0, i64 1
   %11 = load i8, ptr %arrayidx4.i55, align 1
   %conv5.i56 = zext i8 %11 to i64
   %or.i57 = or disjoint i64 %shl.i54, %conv5.i56
   %add.i58 = add nuw nsw i64 %or.i57, 2
-  %cmp7.i59 = icmp ult i64 %msglen.addr.1, %add.i58
+  %cmp7.i59 = icmp ult i64 %msglen.addr.0, %add.i58
   br i1 %cmp7.i59, label %return, label %if.end10.i60
 
 if.end10.i60:                                     ; preds = %if.end.i52
-  %add.ptr.i61 = getelementptr inbounds i8, ptr %msg.addr.1, i64 2
+  %add.ptr.i61 = getelementptr inbounds i8, ptr %msg.addr.0, i64 2
   %call.i.i62 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
   %conv.i.i63 = trunc nuw nsw i64 %or.i57 to i32
   %call1.i.i64 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.485, i32 noundef %conv.i.i63) #3
@@ -2389,22 +2389,22 @@ for.body.i.i66:                                   ; preds = %if.end10.i60, %for.
 
 ssl_print_hexbuf.exit78:                          ; preds = %for.body.i.i66, %if.end10.i60
   %call5.i.i74 = tail call i32 @BIO_puts(ptr noundef %bio, ptr noundef nonnull @.str.12) #3
-  %sub.i76 = sub i64 %msglen.addr.1, %add.i58
+  %sub.i76 = sub i64 %msglen.addr.0, %add.i58
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %if.end6, %if.end6
-  %cmp.i79 = icmp eq i64 %msglen.addr.1, 0
+  %cmp.i79 = icmp eq i64 %msglen.addr.0, 0
   br i1 %cmp.i79, label %return, label %if.end.i80
 
 if.end.i80:                                       ; preds = %sw.bb25
-  %13 = load i8, ptr %msg.addr.1, align 1
+  %13 = load i8, ptr %msg.addr.0, align 1
   %conv.i81 = zext i8 %13 to i64
   %add.i82.neg = xor i64 %conv.i81, -1
-  %cmp7.i83.not = icmp ugt i64 %msglen.addr.1, %conv.i81
+  %cmp7.i83.not = icmp ugt i64 %msglen.addr.0, %conv.i81
   br i1 %cmp7.i83.not, label %if.end10.i84, label %return
 
 if.end10.i84:                                     ; preds = %if.end.i80
-  %add.ptr.i85 = getelementptr inbounds i8, ptr %msg.addr.1, i64 1
+  %add.ptr.i85 = getelementptr inbounds i8, ptr %msg.addr.0, i64 1
   %call.i.i86 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
   %conv.i.i87 = zext i8 %13 to i32
   %call1.i.i88 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.486, i32 noundef %conv.i.i87) #3
@@ -2423,24 +2423,24 @@ for.body.i.i90:                                   ; preds = %if.end10.i84, %for.
 
 ssl_print_hexbuf.exit102:                         ; preds = %for.body.i.i90, %if.end10.i84
   %call5.i.i98 = tail call i32 @BIO_puts(ptr noundef %bio, ptr noundef nonnull @.str.12) #3
-  %sub.i100 = add i64 %msglen.addr.1, %add.i82.neg
+  %sub.i100 = add i64 %msglen.addr.0, %add.i82.neg
   br label %sw.epilog
 
 sw.bb31:                                          ; preds = %if.end6
   %call.i103 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
-  %conv.i104 = trunc i64 %msglen.addr.1 to i32
+  %conv.i104 = trunc i64 %msglen.addr.0 to i32
   %call1.i105 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.487, i32 noundef %conv.i104) #3
-  %cmp7.not.i106 = icmp eq i64 %msglen.addr.1, 0
+  %cmp7.not.i106 = icmp eq i64 %msglen.addr.0, 0
   br i1 %cmp7.not.i106, label %ssl_print_hex.exit115, label %for.body.i107
 
 for.body.i107:                                    ; preds = %sw.bb31, %for.body.i107
   %i.08.i108 = phi i64 [ %inc.i112, %for.body.i107 ], [ 0, %sw.bb31 ]
-  %arrayidx.i109 = getelementptr inbounds i8, ptr %msg.addr.1, i64 %i.08.i108
+  %arrayidx.i109 = getelementptr inbounds i8, ptr %msg.addr.0, i64 %i.08.i108
   %15 = load i8, ptr %arrayidx.i109, align 1
   %conv3.i110 = zext i8 %15 to i32
   %call4.i111 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.14, i32 noundef %conv3.i110) #3
   %inc.i112 = add nuw i64 %i.08.i108, 1
-  %exitcond.not.i113 = icmp eq i64 %inc.i112, %msglen.addr.1
+  %exitcond.not.i113 = icmp eq i64 %inc.i112, %msglen.addr.0
   br i1 %exitcond.not.i113, label %ssl_print_hex.exit115, label %for.body.i107, !llvm.loop !4
 
 ssl_print_hex.exit115:                            ; preds = %for.body.i107, %sw.bb31
@@ -2449,19 +2449,19 @@ ssl_print_hex.exit115:                            ; preds = %for.body.i107, %sw.
 
 sw.bb33:                                          ; preds = %if.end6
   %call.i116 = tail call i32 @BIO_indent(ptr noundef %bio, i32 noundef 8, i32 noundef 80) #3
-  %conv.i117 = trunc i64 %msglen.addr.1 to i32
+  %conv.i117 = trunc i64 %msglen.addr.0 to i32
   %call1.i118 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.488, i32 noundef %conv.i117) #3
-  %cmp7.not.i119 = icmp eq i64 %msglen.addr.1, 0
+  %cmp7.not.i119 = icmp eq i64 %msglen.addr.0, 0
   br i1 %cmp7.not.i119, label %ssl_print_hex.exit128, label %for.body.i120
 
 for.body.i120:                                    ; preds = %sw.bb33, %for.body.i120
   %i.08.i121 = phi i64 [ %inc.i125, %for.body.i120 ], [ 0, %sw.bb33 ]
-  %arrayidx.i122 = getelementptr inbounds i8, ptr %msg.addr.1, i64 %i.08.i121
+  %arrayidx.i122 = getelementptr inbounds i8, ptr %msg.addr.0, i64 %i.08.i121
   %16 = load i8, ptr %arrayidx.i122, align 1
   %conv3.i123 = zext i8 %16 to i32
   %call4.i124 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %bio, ptr noundef nonnull @.str.14, i32 noundef %conv3.i123) #3
   %inc.i125 = add nuw i64 %i.08.i121, 1
-  %exitcond.not.i126 = icmp eq i64 %inc.i125, %msglen.addr.1
+  %exitcond.not.i126 = icmp eq i64 %inc.i125, %msglen.addr.0
   br i1 %exitcond.not.i126, label %ssl_print_hex.exit128, label %for.body.i120, !llvm.loop !4
 
 ssl_print_hex.exit128:                            ; preds = %for.body.i120, %sw.bb33
@@ -2469,8 +2469,8 @@ ssl_print_hex.exit128:                            ; preds = %for.body.i120, %sw.
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %ssl_print_hexbuf.exit102, %ssl_print_hexbuf.exit78, %ssl_print_hexbuf.exit50, %ssl_print_hex.exit, %ssl_print_hex.exit128, %ssl_print_hex.exit115, %if.end6
-  %msglen.addr.5 = phi i64 [ %msglen.addr.1, %if.end6 ], [ 0, %ssl_print_hex.exit128 ], [ 0, %ssl_print_hex.exit115 ], [ %sub.i100, %ssl_print_hexbuf.exit102 ], [ %sub.i76, %ssl_print_hexbuf.exit78 ], [ %msglen.addr.1, %ssl_print_hex.exit ], [ %sub.i48, %ssl_print_hexbuf.exit50 ]
-  %tobool35.not = icmp eq i64 %msglen.addr.5, 0
+  %msglen.addr.1 = phi i64 [ %msglen.addr.0, %if.end6 ], [ 0, %ssl_print_hex.exit128 ], [ 0, %ssl_print_hex.exit115 ], [ %sub.i100, %ssl_print_hexbuf.exit102 ], [ %sub.i76, %ssl_print_hexbuf.exit78 ], [ %msglen.addr.0, %ssl_print_hex.exit ], [ %sub.i48, %ssl_print_hexbuf.exit50 ]
+  %tobool35.not = icmp eq i64 %msglen.addr.1, 0
   %lnot.ext = zext i1 %tobool35.not to i32
   br label %return
 
@@ -2545,7 +2545,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 
 if.end12:                                         ; preds = %ssl_print_hexbuf.exit, %if.end
   %6 = phi ptr [ %msg, %if.end ], [ %add.ptr12.i, %ssl_print_hexbuf.exit ]
-  %msglen.addr.1 = phi i64 [ %msglen, %if.end ], [ %sub.i, %ssl_print_hexbuf.exit ]
+  %msglen.addr.0 = phi i64 [ %msglen, %if.end ], [ %sub.i, %ssl_print_hexbuf.exit ]
   %7 = load i8, ptr %6, align 1
   %conv = zext i8 %7 to i64
   %shl = shl nuw nsw i64 %conv, 16
@@ -2560,7 +2560,7 @@ if.end12:                                         ; preds = %ssl_print_hexbuf.ex
   %or18 = or disjoint i64 %or, %conv17
   store i64 %or18, ptr %clen, align 8
   %add = add nuw nsw i64 %or18, 3
-  %cmp20.not = icmp eq i64 %msglen.addr.1, %add
+  %cmp20.not = icmp eq i64 %msglen.addr.0, %add
   br i1 %cmp20.not, label %if.end23, label %return
 
 if.end23:                                         ; preds = %if.end12

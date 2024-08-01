@@ -799,12 +799,12 @@ Ssw_ObjSatNum.exit:                               ; preds = %Vec_PtrFillExtra.ex
   br i1 %.not66, label %.critedge, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %161, %158
-  %.2.ph = phi i32 [ 0, %158 ], [ -1, %161 ]
+  %.3.ph = phi i32 [ 0, %158 ], [ -1, %161 ]
   store i32 %.060104, ptr %4, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %155, %.critedge.sink.split, %Abc_Clock.exit, %161, %158
-  %.2 = phi i32 [ 0, %158 ], [ -1, %161 ], [ %.0106, %Abc_Clock.exit ], [ %.2.ph, %.critedge.sink.split ], [ 1, %155 ]
+  %.3 = phi i32 [ 0, %158 ], [ -1, %161 ], [ %.0106, %Abc_Clock.exit ], [ %.3.ph, %.critedge.sink.split ], [ 1, %155 ]
   br i1 %.not, label %186, label %162
 
 162:                                              ; preds = %.critedge
@@ -851,14 +851,14 @@ Abc_Clock.exit87:                                 ; preds = %162, %174
   br label %186
 
 186:                                              ; preds = %Abc_Clock.exit87, %.critedge
-  %.not67 = icmp eq i32 %.2, 1
+  %.not67 = icmp eq i32 %.3, 1
   br i1 %.not67, label %41, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %41, %186, %27
-  %.3 = phi i32 [ -1, %27 ], [ %.2, %186 ], [ 1, %41 ]
+  %.1 = phi i32 [ -1, %27 ], [ %.3, %186 ], [ 1, %41 ]
   call void @Ssw_SatStop(ptr noundef %10) #10
   call void @Ssw_FrmStop(ptr noundef %11) #10
-  ret i32 %.3
+  ret i32 %.1
 }
 
 declare void @Aig_ManSetCioIds(ptr noundef) local_unnamed_addr #1

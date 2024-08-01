@@ -623,7 +623,7 @@ gv_calloc.exit82:                                 ; preds = %gv_calloc.exit82.pr
 
 .loopexit:                                        ; preds = %gv_calloc.exit82, %60
   %62 = phi ptr [ %.pre104, %60 ], [ %33, %gv_calloc.exit82 ]
-  %.074 = phi ptr [ %61, %60 ], [ %44, %gv_calloc.exit82 ]
+  %.1 = phi ptr [ %61, %60 ], [ %44, %gv_calloc.exit82 ]
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
@@ -645,26 +645,26 @@ gv_calloc.exit82:                                 ; preds = %gv_calloc.exit82.pr
   br i1 %or.cond96, label %74, label %isBox.exit.thread
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %.074, i64 8
+  %75 = getelementptr inbounds i8, ptr %.1, i64 8
   %76 = load double, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %.074, i64 16
-  %78 = getelementptr inbounds i8, ptr %.074, i64 24
+  %77 = getelementptr inbounds i8, ptr %.1, i64 16
+  %78 = getelementptr inbounds i8, ptr %.1, i64 24
   %79 = load double, ptr %78, align 8
   %80 = fcmp oeq double %76, %79
   br i1 %80, label %81, label %95
 
 81:                                               ; preds = %74
-  %82 = getelementptr inbounds i8, ptr %.074, i64 32
-  %83 = getelementptr inbounds i8, ptr %.074, i64 40
+  %82 = getelementptr inbounds i8, ptr %.1, i64 32
+  %83 = getelementptr inbounds i8, ptr %.1, i64 40
   %84 = load double, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %.074, i64 56
+  %85 = getelementptr inbounds i8, ptr %.1, i64 56
   %86 = load double, ptr %85, align 8
   %87 = fcmp oeq double %84, %86
   br i1 %87, label %88, label %isBox.exit.thread
 
 88:                                               ; preds = %81
-  %89 = getelementptr inbounds i8, ptr %.074, i64 48
-  %90 = load double, ptr %.074, align 8
+  %89 = getelementptr inbounds i8, ptr %.1, i64 48
+  %90 = load double, ptr %.1, align 8
   %91 = load double, ptr %89, align 8
   %92 = fcmp oeq double %90, %91
   br i1 %92, label %93, label %isBox.exit.thread
@@ -674,27 +674,27 @@ gv_calloc.exit82:                                 ; preds = %gv_calloc.exit82.pr
   br label %isBox.exit
 
 95:                                               ; preds = %74
-  %96 = load double, ptr %.074, align 8
+  %96 = load double, ptr %.1, align 8
   %97 = load double, ptr %77, align 8
   %98 = fcmp oeq double %96, %97
   br i1 %98, label %99, label %isBox.exit.thread
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %.074, i64 32
+  %100 = getelementptr inbounds i8, ptr %.1, i64 32
   %101 = load double, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %.074, i64 48
+  %102 = getelementptr inbounds i8, ptr %.1, i64 48
   %103 = load double, ptr %102, align 8
   %104 = fcmp oeq double %101, %103
   br i1 %104, label %105, label %isBox.exit.thread
 
 105:                                              ; preds = %99
-  %106 = getelementptr inbounds i8, ptr %.074, i64 56
+  %106 = getelementptr inbounds i8, ptr %.1, i64 56
   %107 = load double, ptr %106, align 8
   %108 = fcmp oeq double %76, %107
   br i1 %108, label %109, label %isBox.exit.thread
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %.074, i64 40
+  %110 = getelementptr inbounds i8, ptr %.1, i64 40
   br label %isBox.exit
 
 isBox.exit:                                       ; preds = %93, %109
@@ -782,7 +782,7 @@ gv_calloc.exit84:                                 ; preds = %123
   br label %187
 
 153:                                              ; preds = %gv_calloc.exit84, %144, %113, %121, %119, %68, %gv_calloc.exit
-  %.1 = phi ptr [ %14, %gv_calloc.exit ], [ %146, %144 ], [ %124, %gv_calloc.exit84 ], [ %.074, %68 ], [ %.074, %113 ], [ %.074, %119 ], [ %.074, %121 ]
+  %.074 = phi ptr [ %14, %gv_calloc.exit ], [ %146, %144 ], [ %124, %gv_calloc.exit84 ], [ %.1, %68 ], [ %.1, %113 ], [ %.1, %119 ], [ %.1, %121 ]
   %154 = fcmp une float %2, 1.000000e+00
   %155 = fcmp une float %3, 1.000000e+00
   %or.cond = or i1 %154, %155
@@ -795,11 +795,11 @@ gv_calloc.exit84:                                 ; preds = %123
 
 bbox.exit.thread:                                 ; preds = %156
   %157 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.1, ptr %157, align 8
+  store ptr %.074, ptr %157, align 8
   %158 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %158, align 8
   %159 = getelementptr inbounds i8, ptr %0, i64 16
-  %160 = load <2 x double>, ptr %.1, align 8
+  %160 = load <2 x double>, ptr %.074, align 8
   store <2 x double> %160, ptr %0, align 8
   store <2 x double> %160, ptr %159, align 8
   br label %187
@@ -812,7 +812,7 @@ bbox.exit.thread:                                 ; preds = %156
 
 164:                                              ; preds = %164, %.lr.ph.i
   %.010.i = phi i64 [ 0, %.lr.ph.i ], [ %168, %164 ]
-  %.089.i = phi ptr [ %.1, %.lr.ph.i ], [ %167, %164 ]
+  %.089.i = phi ptr [ %.074, %.lr.ph.i ], [ %167, %164 ]
   %165 = load <2 x double>, ptr %.089.i, align 8
   %166 = fmul <2 x double> %165, %163
   store <2 x double> %166, ptr %.089.i, align 8
@@ -828,17 +828,17 @@ inflatePts.exit.loopexit:                         ; preds = %164
 inflatePts.exit:                                  ; preds = %inflatePts.exit.loopexit, %153
   %.pr = phi i64 [ %.pr.pre, %inflatePts.exit.loopexit ], [ %.pr.pre105, %153 ]
   %169 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.1, ptr %169, align 8
+  store ptr %.074, ptr %169, align 8
   %170 = trunc i64 %.pr to i32
   %171 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %170, ptr %171, align 8
-  %172 = load <2 x double>, ptr %.1, align 8
+  %172 = load <2 x double>, ptr %.074, align 8
   %173 = icmp ugt i64 %.pr, 1
   br i1 %173, label %.lr.ph.i92, label %bbox.exit
 
 .lr.ph.i92:                                       ; preds = %inflatePts.exit, %.lr.ph.i92
   %.031.i = phi i64 [ %180, %.lr.ph.i92 ], [ 1, %inflatePts.exit ]
-  %.02526.i = phi ptr [ %176, %.lr.ph.i92 ], [ %.1, %inflatePts.exit ]
+  %.02526.i = phi ptr [ %176, %.lr.ph.i92 ], [ %.074, %inflatePts.exit ]
   %174 = phi <2 x double> [ %178, %.lr.ph.i92 ], [ %172, %inflatePts.exit ]
   %175 = phi <2 x double> [ %179, %.lr.ph.i92 ], [ %172, %inflatePts.exit ]
   %176 = getelementptr inbounds i8, ptr %.02526.i, i64 16

@@ -616,7 +616,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %3, %_ZN26GrowableAr
   br label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %75
-  %.02735 = phi i32 [ %.1, %75 ], [ 0, %.lr.ph37.preheader ]
+  %.135 = phi i32 [ %.2, %75 ], [ 0, %.lr.ph37.preheader ]
   %.02834 = phi ptr [ %76, %75 ], [ %61, %.lr.ph37.preheader ]
   call void @_ZN9ScopeDescC1EPK7nmethodP6PcDescb(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %0, ptr noundef %.02834, i1 noundef zeroext true) #9
   %62 = call noundef zeroext i1 @_ZNK9ScopeDesc6is_topEv(ptr noundef nonnull align 8 dereferenceable(56) %5) #9
@@ -637,17 +637,17 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %3, %_ZN26GrowableAr
 
 68:                                               ; preds = %._crit_edge
   %69 = call noundef ptr @_ZNK6PcDesc7real_pcEPK7nmethod(ptr noundef nonnull align 4 dereferenceable(16) %.02834, ptr noundef nonnull %0) #9
-  %70 = sext i32 %.02735 to i64
+  %70 = sext i32 %.135 to i64
   %71 = getelementptr inbounds %struct.jvmtiAddrLocationMap, ptr %55, i64 %70
   store ptr %69, ptr %71, align 8
   %72 = zext nneg i32 %66 to i64
   %73 = getelementptr inbounds i8, ptr %71, i64 8
   store i64 %72, ptr %73, align 8
-  %74 = add nsw i32 %.02735, 1
+  %74 = add nsw i32 %.135, 1
   br label %75
 
 75:                                               ; preds = %._crit_edge, %68
-  %.1 = phi i32 [ %74, %68 ], [ %.02735, %._crit_edge ]
+  %.2 = phi i32 [ %74, %68 ], [ %.135, %._crit_edge ]
   %76 = getelementptr inbounds i8, ptr %.02834, i64 16
   %77 = load ptr, ptr %47, align 8
   %78 = load i32, ptr %48, align 8
@@ -657,10 +657,10 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %3, %_ZN26GrowableAr
   br i1 %81, label %.lr.ph37, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %75, %46, %_ZN12methodHandleC2EP6ThreadP6Method.exit
-  %.2 = phi i32 [ 0, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ 0, %46 ], [ %.1, %75 ]
+  %.027 = phi i32 [ 0, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ 0, %46 ], [ %.2, %75 ]
   %.0 = phi ptr [ null, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ %55, %46 ], [ %55, %75 ]
   store ptr %.0, ptr %1, align 8
-  store i32 %.2, ptr %2, align 4
+  store i32 %.027, ptr %2, align 4
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #9
   %82 = load ptr, ptr %11, align 8
   %.not.i.i.i.i = icmp eq ptr %82, null
@@ -959,8 +959,8 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
   br label %35
 
 35:                                               ; preds = %33, %32
-  %.0 = phi ptr [ %34, %33 ], [ %21, %32 ]
-  %36 = icmp eq ptr %.0, null
+  %.1 = phi ptr [ %34, %33 ], [ %21, %32 ]
+  %36 = icmp eq ptr %.1, null
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
@@ -969,7 +969,7 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
   br label %39
 
 39:                                               ; preds = %30, %37, %35, %8, %16
-  %.025 = phi ptr [ null, %16 ], [ null, %8 ], [ %38, %37 ], [ %.0, %35 ], [ %21, %30 ]
+  %.025 = phi ptr [ null, %16 ], [ null, %8 ], [ %38, %37 ], [ %.1, %35 ], [ %21, %30 ]
   ret ptr %.025
 }
 

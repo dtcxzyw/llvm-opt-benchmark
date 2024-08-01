@@ -111,7 +111,7 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly %0, ptr 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %125
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %125 ], [ 0, %.lr.ph.i ]
   %.089.i = phi ptr [ %.1.i, %125 ], [ null, %.lr.ph.i ]
-  %.06987.i = phi i32 [ %.2.i, %125 ], [ 0, %.lr.ph.i ]
+  %.06987.i = phi i32 [ %.170.i, %125 ], [ 0, %.lr.ph.i ]
   %54 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %32, i64 0, i64 %indvars.iv.i
   %55 = getelementptr inbounds i8, ptr %54, i64 95
   %56 = load i8, ptr %55, align 1
@@ -179,7 +179,7 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly %0, ptr 
 
 97:                                               ; preds = %84, %74
   %.071.i = phi ptr [ %96, %84 ], [ %70, %74 ]
-  %.170.i = phi i32 [ %94, %84 ], [ %.06987.i, %74 ]
+  %.2.i = phi i32 [ %94, %84 ], [ %.06987.i, %74 ]
   %98 = getelementptr inbounds i8, ptr %.071.i, i64 68
   %99 = load i32, ptr %98, align 4
   %.not79.i = icmp eq i32 %63, %99
@@ -216,19 +216,19 @@ define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly %0, ptr 
   unreachable
 
 116:                                              ; preds = %108
-  %117 = add nsw i32 %.170.i, 1
+  %117 = add nsw i32 %.2.i, 1
   %118 = trunc i32 %117 to i16
   %119 = tail call ptr @makeVar(i32 noundef %3, i16 noundef signext %118, i32 noundef %63, i32 noundef %65, i32 noundef %67, i32 noundef 0) #8
   %120 = tail call ptr @lappend(ptr noundef %.089.i, ptr noundef %119) #8
   %121 = trunc i64 %indvars.iv.i to i16
   %122 = add i16 %121, 1
-  %123 = sext i32 %.170.i to i64
+  %123 = sext i32 %.2.i to i64
   %124 = getelementptr i16, ptr %29, i64 %123
   store i16 %122, ptr %124, align 2
   br label %125
 
 125:                                              ; preds = %116, %58
-  %.2.i = phi i32 [ %.06987.i, %58 ], [ %117, %116 ]
+  %.170.i = phi i32 [ %.06987.i, %58 ], [ %117, %116 ]
   %.1.i = phi ptr [ %59, %58 ], [ %120, %116 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count97.i

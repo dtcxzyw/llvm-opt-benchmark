@@ -473,7 +473,7 @@ for.cond.preheader:                               ; preds = %if.end
 
 for.cond:                                         ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit678, %for.cond.preheader
   %storemerge = phi i32 [ %inc, %_ZN4cvc58internal8TypeNodeD2Ev.exit678 ], [ 0, %for.cond.preheader ]
-  %takeOwnership.0 = phi i1 [ %takeOwnership.3, %_ZN4cvc58internal8TypeNodeD2Ev.exit678 ], [ false, %for.cond.preheader ]
+  %takeOwnership.0 = phi i1 [ %takeOwnership.4, %_ZN4cvc58internal8TypeNodeD2Ev.exit678 ], [ false, %for.cond.preheader ]
   %doSplit.0 = phi i1 [ %doSplit.3, %_ZN4cvc58internal8TypeNodeD2Ev.exit678 ], [ false, %for.cond.preheader ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %8 = load ptr, ptr %q, align 8, !noalias !4
@@ -1158,12 +1158,12 @@ invoke.cont108:                                   ; preds = %land.lhs.true
   br i1 %spec.select, label %if.then117, label %cleanup
 
 if.end115:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit436, %invoke.cont75, %invoke.cont81, %invoke.cont105
-  %takeOwnership.1 = phi i1 [ %takeOwnership.0, %invoke.cont105 ], [ %takeOwnership.0.mux, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit436 ], [ %takeOwnership.0, %invoke.cont81 ], [ %takeOwnership.0, %invoke.cont75 ]
-  %doSplit.1 = phi i1 [ %doSplit.0, %invoke.cont105 ], [ %doSplit.0.mux, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit436 ], [ %doSplit.0, %invoke.cont81 ], [ %call38, %invoke.cont75 ]
-  br i1 %doSplit.1, label %if.then117, label %cleanup
+  %takeOwnership.3 = phi i1 [ %takeOwnership.0, %invoke.cont105 ], [ %takeOwnership.0.mux, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit436 ], [ %takeOwnership.0, %invoke.cont81 ], [ %takeOwnership.0, %invoke.cont75 ]
+  %doSplit.2 = phi i1 [ %doSplit.0, %invoke.cont105 ], [ %doSplit.0.mux, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit436 ], [ %doSplit.0, %invoke.cont81 ], [ %call38, %invoke.cont75 ]
+  br i1 %doSplit.2, label %if.then117, label %cleanup
 
 if.then117:                                       ; preds = %invoke.cont108, %if.end115
-  %takeOwnership.1777 = phi i1 [ %takeOwnership.0, %invoke.cont108 ], [ %takeOwnership.1, %if.end115 ]
+  %takeOwnership.3777 = phi i1 [ %takeOwnership.0, %invoke.cont108 ], [ %takeOwnership.3, %if.end115 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i)
   %70 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -1218,7 +1218,7 @@ cond.true123:                                     ; preds = %if.then.i440, %lor.
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont108, %if.end115, %_ZN4cvc58internal8TypeNodeD2Ev.exit218, %cond.true123, %invoke.cont31
-  %takeOwnership.3 = phi i1 [ %takeOwnership.0, %invoke.cont31 ], [ %takeOwnership.1777, %cond.true123 ], [ %takeOwnership.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit218 ], [ %takeOwnership.1, %if.end115 ], [ %takeOwnership.0, %invoke.cont108 ]
+  %takeOwnership.4 = phi i1 [ %takeOwnership.0, %invoke.cont31 ], [ %takeOwnership.3777, %cond.true123 ], [ %takeOwnership.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit218 ], [ %takeOwnership.3, %if.end115 ], [ %takeOwnership.0, %invoke.cont108 ]
   %doSplit.3 = phi i1 [ %doSplit.0, %invoke.cont31 ], [ true, %cond.true123 ], [ %doSplit.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit218 ], [ false, %if.end115 ], [ false, %invoke.cont108 ]
   %switch = phi i1 [ true, %invoke.cont31 ], [ false, %cond.true123 ], [ true, %_ZN4cvc58internal8TypeNodeD2Ev.exit218 ], [ true, %if.end115 ], [ true, %invoke.cont108 ]
   %74 = load ptr, ptr %tn, align 8
@@ -1257,8 +1257,8 @@ ehcleanup183:                                     ; preds = %ehcleanup100, %lpad
   br label %ehcleanup211
 
 for.end:                                          ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit678, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit90
-  %takeOwnership.4 = phi i1 [ %takeOwnership.3, %_ZN4cvc58internal8TypeNodeD2Ev.exit678 ], [ %takeOwnership.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit90 ]
-  br i1 %takeOwnership.4, label %cond.true189, label %cleanup208
+  %takeOwnership.1 = phi i1 [ %takeOwnership.4, %_ZN4cvc58internal8TypeNodeD2Ev.exit678 ], [ %takeOwnership.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit90 ]
+  br i1 %takeOwnership.1, label %cond.true189, label %cleanup208
 
 cond.true189:                                     ; preds = %for.end
   %78 = load ptr, ptr %d_qreg, align 8

@@ -702,11 +702,11 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef %0, ptr nocapture n
   br label %610
 
 70:                                               ; preds = %.preheader78, %._crit_edge505
-  %.0232 = phi i32 [ %.1233.lcssa, %._crit_edge505 ], [ -1, %.preheader78 ]
+  %.0232 = phi i32 [ %.2234.lcssa, %._crit_edge505 ], [ -1, %.preheader78 ]
   %.0221 = phi i1 [ %.1222.lcssa, %._crit_edge505 ], [ false, %.preheader78 ]
   %.0219 = phi i32 [ %76, %._crit_edge505 ], [ 0, %.preheader78 ]
   %.0218 = phi i32 [ %82, %._crit_edge505 ], [ %26, %.preheader78 ]
-  %.0211 = phi i32 [ %.1212.lcssa, %._crit_edge505 ], [ 0, %.preheader78 ]
+  %.0211 = phi i32 [ %.2.lcssa, %._crit_edge505 ], [ 0, %.preheader78 ]
   %71 = icmp eq i32 %.0211, 0
   br i1 %71, label %72, label %.preheader.thread
 
@@ -783,9 +783,9 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef %0, ptr nocapture n
 99:                                               ; preds = %.lr.ph504, %555
   %indvars.iv = phi i64 [ 0, %.lr.ph504 ], [ %indvars.iv.next, %555 ]
   %100 = phi i32 [ 0, %.lr.ph504 ], [ %556, %555 ]
-  %.1212501 = phi i32 [ 0, %.lr.ph504 ], [ %.9, %555 ]
-  %.1222497 = phi i1 [ %.0221, %.lr.ph504 ], [ %.11, %555 ]
-  %.1233495 = phi i32 [ %.0232, %.lr.ph504 ], [ %.5237, %555 ]
+  %.2501 = phi i32 [ 0, %.lr.ph504 ], [ %.3, %555 ]
+  %.1222497 = phi i1 [ %.0221, %.lr.ph504 ], [ %.2223, %555 ]
+  %.2234495 = phi i32 [ %.0232, %.lr.ph504 ], [ %.3235, %555 ]
   %.0247494 = phi i16 [ 14, %.lr.ph504 ], [ %112, %555 ]
   store ptr null, ptr %14, align 8
   %101 = trunc nuw i64 %indvars.iv to i16
@@ -1372,7 +1372,7 @@ hfsplus_check_attribute.exit.thread43:            ; preds = %283, %277, %268, %2
   br label %351
 
 351:                                              ; preds = %348, %324
-  %.2223 = phi i1 [ %.1222497, %324 ], [ true, %348 ]
+  %.4225 = phi i1 [ %.1222497, %324 ], [ true, %348 ]
   %.0217 = phi i64 [ %326, %324 ], [ %350, %348 ]
   %.not341 = icmp eq i64 %.0217, %.sroa.17.0
   br i1 %.not341, label %518, label %352
@@ -1599,7 +1599,7 @@ hfsplus_read_block_table.exit:                    ; preds = %._crit_edge
   %448 = phi i32 [ %446, %hfsplus_read_block_table.exit ], [ %441, %hfsplus_read_block_table.exit.preheader ]
   %.0210490 = phi i32 [ %445, %hfsplus_read_block_table.exit ], [ 0, %hfsplus_read_block_table.exit.preheader ]
   %.0213489 = phi i64 [ %.1214.lcssa, %hfsplus_read_block_table.exit ], [ 0, %hfsplus_read_block_table.exit.preheader ]
-  %.3224488 = phi i1 [ %.4225.lcssa, %hfsplus_read_block_table.exit ], [ %.1222497, %hfsplus_read_block_table.exit.preheader ]
+  %.6227488 = phi i1 [ %.7228.lcssa, %hfsplus_read_block_table.exit ], [ %.1222497, %hfsplus_read_block_table.exit.preheader ]
   %449 = zext i32 %.0210490 to i64
   %450 = getelementptr inbounds %struct.hfsPlusResourceBlockTable, ptr %435, i64 %449
   %451 = load i32, ptr %450, align 1
@@ -1627,7 +1627,7 @@ hfsplus_read_block_table.exit:                    ; preds = %._crit_edge
   br label %.preheader.split.split.preheader
 
 .preheader.split.split.preheader:                 ; preds = %464, %472, %476, %486, %498, %506, %460
-  %.10.ph = phi i32 [ 14, %498 ], [ 26, %476 ], [ 14, %486 ], [ 26, %472 ], [ 12, %464 ], [ 13, %460 ], [ 26, %506 ]
+  %.1212.ph = phi i32 [ 14, %498 ], [ 26, %476 ], [ 14, %486 ], [ 26, %472 ], [ 12, %464 ], [ 13, %460 ], [ 26, %506 ]
   br label %.preheader.split.split
 
 .lr.ph486:                                        ; preds = %.lr.ph486.preheader, %.loopexit76
@@ -1636,7 +1636,7 @@ hfsplus_read_block_table.exit:                    ; preds = %._crit_edge
   %.not330484 = phi i1 [ true, %.loopexit76 ], [ false, %.lr.ph486.preheader ]
   %.0208483 = phi i64 [ %501, %.loopexit76 ], [ 0, %.lr.ph486.preheader ]
   %.1214482 = phi i64 [ %.3216, %.loopexit76 ], [ %.0213489, %.lr.ph486.preheader ]
-  %.4225481 = phi i1 [ %.6227, %.loopexit76 ], [ %.3224488, %.lr.ph486.preheader ]
+  %.7228481 = phi i1 [ %.9230, %.loopexit76 ], [ %.6227488, %.lr.ph486.preheader ]
   %462 = sub nuw nsw i64 %461, %.0208483
   %spec.store.select = call i64 @llvm.umin.i64(i64 %462, i64 4096)
   %463 = call i64 @cli_readn(i32 noundef %366, ptr noundef nonnull %20, i64 noundef %spec.store.select) #13
@@ -1754,7 +1754,7 @@ hfsplus_read_block_table.exit:                    ; preds = %._crit_edge
 
 .loopexit76:                                      ; preds = %474, %.thread69, %492, %499
   %.167 = phi i32 [ %.172, %492 ], [ 0, %499 ], [ %.172, %.thread69 ], [ %.172, %474 ]
-  %.6227 = phi i1 [ true, %492 ], [ true, %499 ], [ %.4225481, %.thread69 ], [ true, %474 ]
+  %.9230 = phi i1 [ true, %492 ], [ true, %499 ], [ %.7228481, %.thread69 ], [ true, %474 ]
   %.3216 = phi i64 [ %488, %492 ], [ %500, %499 ], [ %.1214482, %.thread69 ], [ %488, %474 ]
   %501 = add nuw nsw i64 %spec.store.select, %.0208483
   %502 = load i32, ptr %457, align 1
@@ -1763,7 +1763,7 @@ hfsplus_read_block_table.exit:                    ; preds = %._crit_edge
   br i1 %504, label %.lr.ph486, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit76, %.preheader77
-  %.4225.lcssa = phi i1 [ %.3224488, %.preheader77 ], [ %.6227, %.loopexit76 ]
+  %.7228.lcssa = phi i1 [ %.6227488, %.preheader77 ], [ %.9230, %.loopexit76 ]
   %.1214.lcssa = phi i64 [ %.0213489, %.preheader77 ], [ %.3216, %.loopexit76 ]
   %505 = call i32 @inflateEnd(ptr noundef nonnull %22) #13
   %.not328 = icmp eq i32 %505, 0
@@ -1774,7 +1774,7 @@ hfsplus_read_block_table.exit:                    ; preds = %._crit_edge
   br label %.preheader.split.split.preheader
 
 hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_table.exit, %hfsplus_read_block_table.exit.preheader
-  %.3224.lcssa = phi i1 [ %.1222497, %hfsplus_read_block_table.exit.preheader ], [ %.4225.lcssa, %hfsplus_read_block_table.exit ]
+  %.6227.lcssa = phi i1 [ %.1222497, %hfsplus_read_block_table.exit.preheader ], [ %.7228.lcssa, %hfsplus_read_block_table.exit ]
   %.0213.lcssa = phi i64 [ 0, %hfsplus_read_block_table.exit.preheader ], [ %.1214.lcssa, %hfsplus_read_block_table.exit ]
   %507 = load ptr, ptr %11, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.91, ptr noundef %507, i64 noundef %.0213.lcssa) #13
@@ -1782,8 +1782,8 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   br label %508
 
 508:                                              ; preds = %._crit_edge.thread.i, %hfsplus_read_block_table.exit._crit_edge, %444
-  %.7228 = phi i1 [ %.1222497, %._crit_edge.thread.i ], [ %.1222497, %444 ], [ %.3224.lcssa, %hfsplus_read_block_table.exit._crit_edge ]
-  %.2 = phi i32 [ %.0.i378.ph, %._crit_edge.thread.i ], [ %.03142.ph.i, %444 ], [ 0, %hfsplus_read_block_table.exit._crit_edge ]
+  %.10231 = phi i1 [ %.1222497, %._crit_edge.thread.i ], [ %.1222497, %444 ], [ %.6227.lcssa, %hfsplus_read_block_table.exit._crit_edge ]
+  %.6 = phi i32 [ %.0.i378.ph, %._crit_edge.thread.i ], [ %.03142.ph.i, %444 ], [ 0, %hfsplus_read_block_table.exit._crit_edge ]
   %509 = load ptr, ptr %60, align 8
   %510 = getelementptr inbounds i8, ptr %509, i64 40
   %511 = load i32, ptr %510, align 8
@@ -1808,15 +1808,15 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   br label %518
 
 518:                                              ; preds = %351, %517, %515
-  %.2234 = phi i32 [ %.1233495, %517 ], [ %366, %515 ], [ %.1233495, %351 ]
-  %.8229 = phi i1 [ %.1222497, %517 ], [ %.7228, %515 ], [ %.2223, %351 ]
-  %.3 = phi i32 [ 0, %517 ], [ %.2, %515 ], [ 0, %351 ]
+  %.5237 = phi i32 [ %.2234495, %517 ], [ %366, %515 ], [ %.2234495, %351 ]
+  %.5226 = phi i1 [ %.1222497, %517 ], [ %.10231, %515 ], [ %.4225, %351 ]
+  %.5 = phi i32 [ 0, %517 ], [ %.6, %515 ], [ 0, %351 ]
   %519 = load ptr, ptr %11, align 8
   %.not342 = icmp eq ptr %519, null
   br i1 %.not342, label %534, label %520
 
 520:                                              ; preds = %518
-  br i1 %.8229, label %521, label %526
+  br i1 %.5226, label %521, label %526
 
 521:                                              ; preds = %520
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.94, ptr noundef nonnull %519) #13
@@ -1833,7 +1833,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
 
 526:                                              ; preds = %._crit_edge852, %520
   %.pre848 = phi ptr [ %.pre848.pre, %._crit_edge852 ], [ %519, %520 ]
-  %.4 = phi i32 [ 0, %._crit_edge852 ], [ %.3, %520 ]
+  %.8 = phi i32 [ 0, %._crit_edge852 ], [ %.5, %520 ]
   %527 = load ptr, ptr %60, align 8
   %528 = getelementptr inbounds i8, ptr %527, i64 40
   %529 = load i32, ptr %528, align 8
@@ -1856,7 +1856,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   br label %534
 
 534:                                              ; preds = %532, %518
-  %.5 = phi i32 [ %.4, %532 ], [ %.3, %518 ]
+  %.7 = phi i32 [ %.8, %532 ], [ %.5, %518 ]
   %535 = load i32, ptr %13, align 4
   %536 = icmp sgt i32 %535, -1
   br i1 %536, label %537, label %539
@@ -1867,9 +1867,9 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   br label %539
 
 539:                                              ; preds = %.thread51, %.thread, %534, %537
-  %.3235 = phi i32 [ %.2234, %537 ], [ %.2234, %534 ], [ %.1233495, %.thread ], [ %.1233495, %.thread51 ]
-  %.9230 = phi i1 [ %.8229, %537 ], [ %.8229, %534 ], [ %.1222497, %.thread ], [ %.1222497, %.thread51 ]
-  %.6 = phi i32 [ %.5, %537 ], [ %.5, %534 ], [ %.1212501, %.thread ], [ %.1212501, %.thread51 ]
+  %.4236 = phi i32 [ %.5237, %537 ], [ %.5237, %534 ], [ %.2234495, %.thread ], [ %.2234495, %.thread51 ]
+  %.3224 = phi i1 [ %.5226, %537 ], [ %.5226, %534 ], [ %.1222497, %.thread ], [ %.1222497, %.thread51 ]
+  %.4 = phi i32 [ %.7, %537 ], [ %.7, %534 ], [ %.2501, %.thread ], [ %.2501, %.thread51 ]
   %540 = load i64, ptr %36, align 4
   %.not346 = icmp eq i64 %540, 0
   br i1 %.not346, label %545, label %541
@@ -1885,7 +1885,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   br label %.preheader.thread
 
 545:                                              ; preds = %541, %539
-  %.7 = phi i32 [ 0, %541 ], [ %.6, %539 ]
+  %.9 = phi i32 [ 0, %541 ], [ %.4, %539 ]
   %546 = load i64, ptr %40, align 4
   %.not348 = icmp eq i64 %546, 0
   br i1 %.not348, label %552, label %547
@@ -1905,9 +1905,9 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   br label %552
 
 552:                                              ; preds = %545, %547, %551
-  %.4236 = phi i32 [ %.3235, %547 ], [ %.3235, %545 ], [ %.1233495, %551 ]
-  %.10231 = phi i1 [ %.9230, %547 ], [ %.9230, %545 ], [ %.1222497, %551 ]
-  %.8 = phi i32 [ 0, %547 ], [ %.7, %545 ], [ %.1212501, %551 ]
+  %.6238 = phi i32 [ %.4236, %547 ], [ %.4236, %545 ], [ %.2234495, %551 ]
+  %.11 = phi i1 [ %.3224, %547 ], [ %.3224, %545 ], [ %.1222497, %551 ]
+  %.10 = phi i32 [ 0, %547 ], [ %.9, %545 ], [ %.2501, %551 ]
   %553 = load ptr, ptr %14, align 8
   %.not350 = icmp eq ptr %553, null
   br i1 %.not350, label %555, label %554
@@ -1918,18 +1918,18 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   br label %555
 
 555:                                              ; preds = %552, %554, %157, %159
-  %.5237 = phi i32 [ %.1233495, %159 ], [ %.1233495, %157 ], [ %.4236, %554 ], [ %.4236, %552 ]
-  %.11 = phi i1 [ %.1222497, %159 ], [ %.1222497, %157 ], [ %.10231, %554 ], [ %.10231, %552 ]
-  %.9 = phi i32 [ %.1212501, %159 ], [ %.1212501, %157 ], [ %.8, %554 ], [ %.8, %552 ]
+  %.3235 = phi i32 [ %.2234495, %159 ], [ %.2234495, %157 ], [ %.6238, %554 ], [ %.6238, %552 ]
+  %.2223 = phi i1 [ %.1222497, %159 ], [ %.1222497, %157 ], [ %.11, %554 ], [ %.11, %552 ]
+  %.3 = phi i32 [ %.2501, %159 ], [ %.2501, %157 ], [ %.10, %554 ], [ %.10, %552 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %556 = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge505, label %99
 
 ._crit_edge505:                                   ; preds = %555, %93
-  %.1233.lcssa = phi i32 [ %.0232, %93 ], [ %.5237, %555 ]
-  %.1222.lcssa = phi i1 [ %.0221, %93 ], [ %.11, %555 ]
-  %.1212.lcssa = phi i32 [ 0, %93 ], [ %.9, %555 ]
+  %.2234.lcssa = phi i32 [ %.0232, %93 ], [ %.3235, %555 ]
+  %.1222.lcssa = phi i1 [ %.0221, %93 ], [ %.2223, %555 ]
+  %.2.lcssa = phi i32 [ 0, %93 ], [ %.3, %555 ]
   %557 = icmp eq i32 %.0218, %82
   br i1 %557, label %558, label %70
 
@@ -1938,18 +1938,18 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   br label %.preheader.thread
 
 .preheader.thread:                                ; preds = %70, %530, %512, %521, %80, %558, %131, %162, %309, %312, %343, %332, %329, %323, %352, %316, %360, %368, %364, %356, %304, %544, %550, %115, %92, %89, %77, %74, %340, %339, %338, %337
-  %.7246.ph.ph = phi ptr [ %331, %337 ], [ %331, %338 ], [ %331, %339 ], [ %331, %340 ], [ null, %74 ], [ null, %77 ], [ null, %89 ], [ null, %92 ], [ null, %115 ], [ null, %550 ], [ null, %544 ], [ null, %304 ], [ null, %356 ], [ null, %364 ], [ null, %368 ], [ null, %360 ], [ null, %316 ], [ null, %352 ], [ null, %323 ], [ null, %329 ], [ null, %332 ], [ %331, %343 ], [ null, %312 ], [ null, %309 ], [ null, %162 ], [ null, %131 ], [ null, %558 ], [ null, %80 ], [ null, %521 ], [ null, %512 ], [ null, %530 ], [ null, %70 ]
-  %.6238.ph.ph = phi i32 [ %.1233495, %337 ], [ %.1233495, %338 ], [ %.1233495, %339 ], [ %.1233495, %340 ], [ %.0232, %74 ], [ %.0232, %77 ], [ %.0232, %89 ], [ %.0232, %92 ], [ %.1233495, %115 ], [ %.3235, %550 ], [ %.3235, %544 ], [ %.1233495, %304 ], [ %.1233495, %356 ], [ %.1233495, %364 ], [ -1, %368 ], [ %.1233495, %360 ], [ %.1233495, %316 ], [ %.1233495, %352 ], [ %.1233495, %323 ], [ %.1233495, %329 ], [ %.1233495, %332 ], [ %.1233495, %343 ], [ %.1233495, %312 ], [ %.1233495, %309 ], [ %.1233495, %162 ], [ %.1233495, %131 ], [ %.1233.lcssa, %558 ], [ %.0232, %80 ], [ %.2234, %530 ], [ %366, %512 ], [ %.2234, %521 ], [ %.0232, %70 ]
-  %.10.ph.ph = phi i32 [ 26, %337 ], [ 26, %338 ], [ 26, %339 ], [ 26, %340 ], [ 0, %74 ], [ 0, %77 ], [ 26, %89 ], [ 26, %92 ], [ 26, %115 ], [ %549, %550 ], [ %543, %544 ], [ 26, %304 ], [ 26, %356 ], [ 26, %364 ], [ 8, %368 ], [ %359, %360 ], [ 26, %316 ], [ 14, %352 ], [ 26, %323 ], [ 26, %329 ], [ 20, %332 ], [ 26, %343 ], [ %311, %312 ], [ 26, %309 ], [ 26, %162 ], [ 26, %131 ], [ 26, %558 ], [ %79, %80 ], [ 10, %530 ], [ 10, %512 ], [ %525, %521 ], [ %.0211, %70 ]
-  %.not353860 = icmp eq i32 %.6238.ph.ph, -1
+  %.1240.ph.ph = phi ptr [ %331, %337 ], [ %331, %338 ], [ %331, %339 ], [ %331, %340 ], [ null, %74 ], [ null, %77 ], [ null, %89 ], [ null, %92 ], [ null, %115 ], [ null, %550 ], [ null, %544 ], [ null, %304 ], [ null, %356 ], [ null, %364 ], [ null, %368 ], [ null, %360 ], [ null, %316 ], [ null, %352 ], [ null, %323 ], [ null, %329 ], [ null, %332 ], [ %331, %343 ], [ null, %312 ], [ null, %309 ], [ null, %162 ], [ null, %131 ], [ null, %558 ], [ null, %80 ], [ null, %521 ], [ null, %512 ], [ null, %530 ], [ null, %70 ]
+  %.1233.ph.ph = phi i32 [ %.2234495, %337 ], [ %.2234495, %338 ], [ %.2234495, %339 ], [ %.2234495, %340 ], [ %.0232, %74 ], [ %.0232, %77 ], [ %.0232, %89 ], [ %.0232, %92 ], [ %.2234495, %115 ], [ %.4236, %550 ], [ %.4236, %544 ], [ %.2234495, %304 ], [ %.2234495, %356 ], [ %.2234495, %364 ], [ -1, %368 ], [ %.2234495, %360 ], [ %.2234495, %316 ], [ %.2234495, %352 ], [ %.2234495, %323 ], [ %.2234495, %329 ], [ %.2234495, %332 ], [ %.2234495, %343 ], [ %.2234495, %312 ], [ %.2234495, %309 ], [ %.2234495, %162 ], [ %.2234495, %131 ], [ %.2234.lcssa, %558 ], [ %.0232, %80 ], [ %.5237, %530 ], [ %366, %512 ], [ %.5237, %521 ], [ %.0232, %70 ]
+  %.1212.ph.ph = phi i32 [ 26, %337 ], [ 26, %338 ], [ 26, %339 ], [ 26, %340 ], [ 0, %74 ], [ 0, %77 ], [ 26, %89 ], [ 26, %92 ], [ 26, %115 ], [ %549, %550 ], [ %543, %544 ], [ 26, %304 ], [ 26, %356 ], [ 26, %364 ], [ 8, %368 ], [ %359, %360 ], [ 26, %316 ], [ 14, %352 ], [ 26, %323 ], [ 26, %329 ], [ 20, %332 ], [ 26, %343 ], [ %311, %312 ], [ 26, %309 ], [ 26, %162 ], [ 26, %131 ], [ 26, %558 ], [ %79, %80 ], [ 10, %530 ], [ 10, %512 ], [ %525, %521 ], [ %.0211, %70 ]
+  %.not353860 = icmp eq i32 %.1233.ph.ph, -1
   br label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader.thread, %581
-  %.10.us = phi i32 [ 10, %581 ], [ %.10.ph.ph, %.preheader.thread ]
+  %.1212.us = phi i32 [ 10, %581 ], [ %.1212.ph.ph, %.preheader.thread ]
   br i1 %.not353860, label %561, label %559
 
 559:                                              ; preds = %.preheader.split.us
-  %560 = call i32 @close(i32 noundef %.6238.ph.ph) #13
+  %560 = call i32 @close(i32 noundef %.1233.ph.ph) #13
   br label %561
 
 561:                                              ; preds = %559, %.preheader.split.us
@@ -2001,7 +2001,7 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   br i1 %.not359.us, label %.split.us, label %.preheader.split.us
 
 .preheader.split.split:                           ; preds = %.preheader.split.split.preheader, %603
-  %.10 = phi i32 [ 10, %603 ], [ %.10.ph, %.preheader.split.split.preheader ]
+  %.1212 = phi i32 [ 10, %603 ], [ %.1212.ph, %.preheader.split.split.preheader ]
   call void @free(ptr noundef nonnull %435) #13
   %583 = call i32 @close(i32 noundef %366) #13
   %584 = load i32, ptr %13, align 4
@@ -2052,15 +2052,15 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   br i1 %.not359, label %.split.us, label %.preheader.split.split
 
 .split.us:                                        ; preds = %603, %599, %577, %581
-  %.7246.ph862 = phi ptr [ %.7246.ph.ph, %581 ], [ %.7246.ph.ph, %577 ], [ null, %599 ], [ null, %603 ]
-  %.us-phi509 = phi i32 [ %.10.us, %581 ], [ %.10.us, %577 ], [ %.10, %599 ], [ %.10, %603 ]
+  %.1240.ph862 = phi ptr [ %.1240.ph.ph, %581 ], [ %.1240.ph.ph, %577 ], [ null, %599 ], [ null, %603 ]
+  %.us-phi509 = phi i32 [ %.1212.us, %581 ], [ %.1212.us, %577 ], [ %.1212, %599 ], [ %.1212, %603 ]
   %605 = load ptr, ptr %11, align 8
   call void @free(ptr noundef %605) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %597, %575, %.split.us
-  %.7246.ph861 = phi ptr [ %.7246.ph862, %.split.us ], [ %.7246.ph.ph, %575 ], [ null, %597 ]
-  %.1081 = phi i32 [ %.us-phi509, %.split.us ], [ %.10.us, %575 ], [ %.10, %597 ]
+  %.1240.ph861 = phi ptr [ %.1240.ph862, %.split.us ], [ %.1240.ph.ph, %575 ], [ null, %597 ]
+  %.121281 = phi i32 [ %.us-phi509, %.split.us ], [ %.1212.us, %575 ], [ %.1212, %597 ]
   call void @free(ptr noundef %30) #13
   %606 = load ptr, ptr %14, align 8
   %.not360 = icmp eq ptr %606, null
@@ -2071,15 +2071,15 @@ hfsplus_read_block_table.exit._crit_edge:         ; preds = %hfsplus_read_block_
   br label %608
 
 608:                                              ; preds = %607, %.loopexit
-  %.not361 = icmp eq ptr %.7246.ph861, null
+  %.not361 = icmp eq ptr %.1240.ph861, null
   br i1 %.not361, label %610, label %609
 
 609:                                              ; preds = %608
-  call void @free(ptr noundef nonnull %.7246.ph861) #13
+  call void @free(ptr noundef nonnull %.1240.ph861) #13
   br label %610
 
 610:                                              ; preds = %608, %609, %68
-  %.0209 = phi i32 [ 20, %68 ], [ %.1081, %609 ], [ %.1081, %608 ]
+  %.0209 = phi i32 [ 20, %68 ], [ %.121281, %609 ], [ %.121281, %608 ]
   ret i32 %.0209
 }
 

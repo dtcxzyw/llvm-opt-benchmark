@@ -714,7 +714,7 @@ opal_interval_tree_insert_node.exit:              ; preds = %._crit_edge.thread.
   br label %tailrecurse.backedge.i.i
 
 tailrecurse.backedge.i.i:                         ; preds = %left_rotate.exit47.i.i, %right_rotate.exit.i.i, %191
-  %.tr50.be.i.i = phi ptr [ %195, %191 ], [ %.034.i.i, %right_rotate.exit.i.i ], [ %.135.i.i, %left_rotate.exit47.i.i ]
+  %.tr50.be.i.i = phi ptr [ %195, %191 ], [ %.034.i.i, %right_rotate.exit.i.i ], [ %.2.i.i, %left_rotate.exit47.i.i ]
   %196 = getelementptr inbounds i8, ptr %.tr50.be.i.i, i64 64
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 56
@@ -855,7 +855,7 @@ right_rotate.exit44.i.i:                          ; preds = %252, %249
 
 263:                                              ; preds = %right_rotate.exit44.i.i, %.thread49.i.i
   %264 = phi ptr [ %.pre.i.i30, %right_rotate.exit44.i.i ], [ %178, %.thread49.i.i ]
-  %.135.i.i = phi ptr [ %176, %right_rotate.exit44.i.i ], [ %.tr5051.i.i, %.thread49.i.i ]
+  %.2.i.i = phi ptr [ %176, %right_rotate.exit44.i.i ], [ %.tr5051.i.i, %.thread49.i.i ]
   %.1.i.i = phi ptr [ %262, %right_rotate.exit44.i.i ], [ %176, %.thread49.i.i ]
   %265 = getelementptr inbounds i8, ptr %.1.i.i, i64 56
   store i32 1, ptr %265, align 8

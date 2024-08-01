@@ -579,11 +579,11 @@ _ZNSt10unique_ptrI21cmGeneratedFileStreamSt14default_deleteIS0_EED2Ev.exit22: ; 
   br label %_ZNSt10unique_ptrISt14basic_ofstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit32
 
 _ZNSt10unique_ptrISt14basic_ofstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit: ; preds = %.noexc, %20
-  %.sroa.038.2 = phi ptr [ %14, %.noexc ], [ %18, %20 ]
-  %27 = load ptr, ptr %.sroa.038.2, align 8
+  %.sroa.038.1 = phi ptr [ %14, %.noexc ], [ %18, %20 ]
+  %27 = load ptr, ptr %.sroa.038.1, align 8
   %28 = getelementptr i8, ptr %27, i64 -24
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.sroa.038.2, i64 %29
+  %30 = getelementptr inbounds i8, ptr %.sroa.038.1, i64 %29
   %31 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %30)
           to label %32 unwind label %.body.thread58
 
@@ -807,7 +807,7 @@ _ZN21cmExportFileGenerator23SetRequiredCMakeVersionEjjj.exit: ; preds = %84, %10
   %126 = load ptr, ptr %0, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 16
   %128 = load ptr, ptr %127, align 8
-  invoke void %128(ptr noundef nonnull align 8 dereferenceable(341) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.038.2)
+  invoke void %128(ptr noundef nonnull align 8 dereferenceable(341) %0, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.038.1)
           to label %129 unwind label %111
 
 129:                                              ; preds = %125
@@ -815,7 +815,7 @@ _ZN21cmExportFileGenerator23SetRequiredCMakeVersionEjjj.exit: ; preds = %84, %10
           to label %131 unwind label %111
 
 131:                                              ; preds = %129
-  %132 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.038.2, ptr noundef %130)
+  %132 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.038.1, ptr noundef %130)
           to label %133 unwind label %111
 
 133:                                              ; preds = %131
@@ -830,10 +830,10 @@ _ZN21cmExportFileGenerator23SetRequiredCMakeVersionEjjj.exit: ; preds = %84, %10
 
 _ZNSt10unique_ptrISt14basic_ofstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit29: ; preds = %133, %46
   %.0 = phi i1 [ false, %46 ], [ %70, %133 ]
-  %135 = load ptr, ptr %.sroa.038.2, align 8
+  %135 = load ptr, ptr %.sroa.038.1, align 8
   %136 = getelementptr inbounds i8, ptr %135, i64 8
   %137 = load ptr, ptr %136, align 8
-  call void %137(ptr noundef nonnull align 8 dereferenceable(248) %.sroa.038.2) #23
+  call void %137(ptr noundef nonnull align 8 dereferenceable(248) %.sroa.038.1) #23
   ret i1 %.0
 
 .body.thread58:                                   ; preds = %33, %55, %_ZNSt10unique_ptrISt14basic_ofstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit
@@ -843,10 +843,10 @@ _ZNSt10unique_ptrISt14basic_ofstreamIcSt11char_traitsIcEESt14default_deleteIS3_E
 
 _ZNKSt14default_deleteISt14basic_ofstreamIcSt11char_traitsIcEEEclEPS3_.exit.i31: ; preds = %134, %54, %.body.thread58
   %.pn15.pn.pn56 = phi { ptr, i32 } [ %lpad.thr_comm, %.body.thread58 ], [ %.pn13, %134 ], [ %.pn15.pn, %54 ]
-  %138 = load ptr, ptr %.sroa.038.2, align 8
+  %138 = load ptr, ptr %.sroa.038.1, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8
-  call void %140(ptr noundef nonnull align 8 dereferenceable(248) %.sroa.038.2) #23
+  call void %140(ptr noundef nonnull align 8 dereferenceable(248) %.sroa.038.1) #23
   br label %_ZNSt10unique_ptrISt14basic_ofstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit32
 
 _ZNSt10unique_ptrISt14basic_ofstreamIcSt11char_traitsIcEESt14default_deleteIS3_EED2Ev.exit32: ; preds = %15, %21, %_ZNSt10unique_ptrI21cmGeneratedFileStreamSt14default_deleteIS0_EED2Ev.exit22, %_ZNKSt14default_deleteISt14basic_ofstreamIcSt11char_traitsIcEEEclEPS3_.exit.i31
@@ -1433,13 +1433,13 @@ define dso_local noundef zeroext i1 @_ZN21cmExportFileGenerator38PopulateInterfa
 
 34:                                               ; preds = %30, %32
   %.pn = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
-  %.018 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, i64 64), %32 ], [ getelementptr inbounds (i8, ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, i64 32), %30 ]
+  %.1 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, i64 64), %32 ], [ getelementptr inbounds (i8, ptr @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11, i64 32), %30 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #23
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   br label %35
 
 35:                                               ; preds = %34, %35
-  %36 = phi ptr [ %37, %35 ], [ %.018, %34 ]
+  %36 = phi ptr [ %37, %35 ], [ %.1, %34 ]
   %37 = getelementptr inbounds i8, ptr %36, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #23
   %38 = icmp eq ptr %37, @_ZZN21cmExportFileGenerator38PopulateInterfaceLinkLibrariesPropertyEPK17cmGeneratorTargetN21cmGeneratorExpression17PreprocessContextERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4lessISB_ESaISt4pairIKSB_SB_EEEE14linkIfacePropsB5cxx11
@@ -1878,7 +1878,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %42
 
 42:                                               ; preds = %.lr.ph, %221
-  %.066118 = phi i1 [ false, %.lr.ph ], [ %.369, %221 ]
+  %.066118 = phi i1 [ false, %.lr.ph ], [ %.167, %221 ]
   %.sroa.0101.0117 = phi ptr [ %38, %.lr.ph ], [ %222, %221 ]
   %43 = invoke noundef i64 @_ZN21cmGeneratorExpression4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0101.0117)
           to label %44 unwind label %.loopexit
@@ -1985,7 +1985,7 @@ _ZNK17cmGeneratorTarget22GetPolicyStatusCMP0041Ev.exit: ; preds = %61
   br label %74
 
 74:                                               ; preds = %58, %73, %70, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0041Ev.exit, %57
-  %.167 = phi i1 [ %.066118, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0041Ev.exit ], [ true, %73 ], [ %.066118, %70 ], [ %.066118, %57 ], [ true, %58 ]
+  %.268 = phi i1 [ %.066118, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0041Ev.exit ], [ true, %73 ], [ %.066118, %70 ], [ %.066118, %57 ], [ true, %58 ]
   %.065 = phi i32 [ 2, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0041Ev.exit ], [ 2, %73 ], [ 5, %70 ], [ 2, %57 ], [ 2, %58 ]
   %75 = invoke noundef zeroext i1 @_ZN5cmsys11SystemTools14FileIsFullPathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0101.0117)
           to label %76 unwind label %63
@@ -2365,12 +2365,12 @@ _ZNK17cmGeneratorTarget22GetPolicyStatusCMP0052Ev.exit: ; preds = %126
   br label %223
 
 .critedge:                                        ; preds = %.thread, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0052Ev.exit, %164, %218, %197, %172, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0041Ev.exit
-  %.268 = phi i1 [ %.066118, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0041Ev.exit ], [ %.167, %172 ], [ %.167, %197 ], [ %.167, %218 ], [ %.167, %164 ], [ %.167, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0052Ev.exit ], [ %.167, %.thread ]
+  %.369 = phi i1 [ %.066118, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0041Ev.exit ], [ %.268, %172 ], [ %.268, %197 ], [ %.268, %218 ], [ %.268, %164 ], [ %.268, %_ZNK17cmGeneratorTarget22GetPolicyStatusCMP0052Ev.exit ], [ %.268, %.thread ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #23
   br label %221
 
 221:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %.critedge, %44
-  %.369 = phi i1 [ %.066118, %44 ], [ %.268, %.critedge ], [ %.066118, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %.167 = phi i1 [ %.066118, %44 ], [ %.369, %.critedge ], [ %.066118, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   %222 = getelementptr inbounds i8, ptr %.sroa.0101.0117, i64 32
   %.not106 = icmp eq ptr %222, %40
   br i1 %.not106, label %._crit_edge, label %42
@@ -2383,7 +2383,7 @@ _ZNK17cmGeneratorTarget22GetPolicyStatusCMP0052Ev.exit: ; preds = %126
 ._crit_edge:                                      ; preds = %221
   %.pre = load ptr, ptr %6, align 8
   %.pre119 = load ptr, ptr %39, align 8
-  %224 = xor i1 %.369, true
+  %224 = xor i1 %.167, true
   %.not4.i.i.i.i = icmp eq ptr %.pre, %.pre119
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 

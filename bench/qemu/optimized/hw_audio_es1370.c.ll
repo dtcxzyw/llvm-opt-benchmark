@@ -1187,7 +1187,7 @@ while.body51.lr.ph.i:                             ; preds = %if.else.i
 while.body51.i:                                   ; preds = %if.end72.i, %while.body51.lr.ph.i
   %to_transfer.197.i = phi i64 [ %conv17.i, %while.body51.lr.ph.i ], [ %sub74.i, %if.end72.i ]
   %addr.196.i = phi i32 [ %add21.i, %while.body51.lr.ph.i ], [ %add75.i, %if.end72.i ]
-  %transferred.195.i = phi i32 [ 0, %while.body51.lr.ph.i ], [ %add76.i, %if.end72.i ]
+  %transferred.295.i = phi i32 [ 0, %while.body51.lr.ph.i ], [ %add76.i, %if.end72.i ]
   %cond59.i = call i64 @llvm.umin.i64(i64 %to_transfer.197.i, i64 4096)
   %conv62.i = zext i32 %addr.196.i to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !7
@@ -1203,13 +1203,13 @@ if.end72.i:                                       ; preds = %while.body51.i
   %conv73.i = ashr exact i64 %sext75.i, 32
   %sub74.i = sub i64 %to_transfer.197.i, %conv73.i
   %add75.i = add i32 %addr.196.i, %conv69.i
-  %add76.i = add i32 %transferred.195.i, %conv69.i
+  %add76.i = add i32 %transferred.295.i, %conv69.i
   %cmp49.not.i = icmp eq i64 %sub74.i, 0
   br i1 %cmp49.not.i, label %if.end78.i, label %while.body51.i, !llvm.loop !9
 
 if.end78.i:                                       ; preds = %if.end72.i, %while.body51.i, %if.end38.i, %while.body.i, %if.else.i, %while.cond.preheader.i
-  %transferred.2.i = phi i32 [ 0, %while.cond.preheader.i ], [ 0, %if.else.i ], [ %add46.i, %if.end38.i ], [ %transferred.0100.i, %while.body.i ], [ %add76.i, %if.end72.i ], [ %transferred.195.i, %while.body51.i ]
-  %cmp79.i = icmp eq i32 %shl.i, %transferred.2.i
+  %transferred.1.i = phi i32 [ 0, %while.cond.preheader.i ], [ 0, %if.else.i ], [ %add46.i, %if.end38.i ], [ %transferred.0100.i, %while.body.i ], [ %add76.i, %if.end72.i ], [ %transferred.295.i, %while.body51.i ]
+  %cmp79.i = icmp eq i32 %shl.i, %transferred.1.i
   br i1 %cmp79.i, label %if.then81.i, label %if.else87.i
 
 if.then81.i:                                      ; preds = %if.end78.i
@@ -1254,7 +1254,7 @@ trace_es1370_lost_interrupt.exit.i:               ; preds = %if.else.i.i.i, %if.
   br label %if.end95.i
 
 if.else87.i:                                      ; preds = %if.end78.i
-  %22 = xor i32 %transferred.2.i, -1
+  %22 = xor i32 %transferred.1.i, -1
   %sub89.i = add i32 %shl.i, %22
   %23 = load i32, ptr %arrayidx, align 4
   %shr91.i = ashr i32 %sub89.i, %23
@@ -1267,7 +1267,7 @@ if.end95.i:                                       ; preds = %if.then81.i, %trace
   %storemerge.i = or disjoint i32 %shl92.pn.i, %and.i
   store i32 %storemerge.i, ptr %scount.i, align 4
   %24 = load i32, ptr %leftover.i, align 4
-  %add97.i = add i32 %24, %transferred.2.i
+  %add97.i = add i32 %24, %transferred.1.i
   %shr98.i = lshr i32 %add97.i, 2
   %add99.i = add nuw nsw i32 %shr98.i, %shr2.i
   %25 = load i32, ptr %sctl, align 8
@@ -1280,7 +1280,7 @@ if.then102.i:                                     ; preds = %if.end95.i
   %.pre.i = load i32, ptr %leftover.i, align 4
   %.pre107.i = load i32, ptr %frame_cnt.i, align 4
   %.pre108.i = load i32, ptr %scount.i, align 4
-  %.pre109.i = add i32 %.pre.i, %transferred.2.i
+  %.pre109.i = add i32 %.pre.i, %transferred.1.i
   br label %if.end113.i
 
 if.else103.i:                                     ; preds = %if.end95.i

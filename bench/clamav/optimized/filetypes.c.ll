@@ -530,7 +530,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   br label %78
 
 78:                                               ; preds = %76, %129
-  %.0147248 = phi i32 [ 0, %76 ], [ %.3219, %129 ]
+  %.0147248 = phi i32 [ 0, %76 ], [ %.1219, %129 ]
   %.0149247 = phi i32 [ 0, %76 ], [ %130, %129 ]
   %.0150246 = phi i32 [ 0, %76 ], [ %.1151217, %129 ]
   %.0152245 = phi i32 [ %.0146, %76 ], [ %.2154, %129 ]
@@ -557,7 +557,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   %indvars.iv = phi i64 [ %indvars.iv.next, %101 ], [ 0, %81 ]
   %88 = phi ptr [ %103, %101 ], [ @.str.3, %81 ]
   %89 = phi ptr [ %102, %101 ], [ @ooxml_detect, %81 ]
-  %.1240 = phi i32 [ %.2, %101 ], [ %.0147248, %81 ]
+  %.2240 = phi i32 [ %.3, %101 ], [ %.0147248, %81 ]
   %90 = getelementptr inbounds i8, ptr %89, i64 8
   %91 = load i64, ptr %90, align 8
   %bcmp = call i32 @bcmp(ptr nonnull %82, ptr nonnull %88, i64 %91)
@@ -596,7 +596,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   br label %cli_compare_ftm_partition.exit.thread
 
 101:                                              ; preds = %93, %.preheader
-  %.2 = phi i32 [ %.1240, %.preheader ], [ 1, %93 ]
+  %.3 = phi i32 [ %.2240, %.preheader ], [ 1, %93 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %102 = getelementptr inbounds [17 x %struct.ooxml_ftcodes], ptr @ooxml_detect, i64 0, i64 %indvars.iv.next
   %103 = load ptr, ptr %102, align 8
@@ -609,7 +609,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   br i1 %106, label %107, label %129
 
 107:                                              ; preds = %104
-  %.not194 = icmp eq i32 %.2, 0
+  %.not194 = icmp eq i32 %.3, 0
   br i1 %.not194, label %cli_compare_ftm_partition.exit.thread, label %108
 
 108:                                              ; preds = %107
@@ -669,7 +669,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
   br label %129
 
 129:                                              ; preds = %104, %126
-  %.3219 = phi i32 [ %.0147248, %126 ], [ %.2, %104 ]
+  %.1219 = phi i32 [ %.0147248, %126 ], [ %.3, %104 ]
   %.1151217 = phi i32 [ %.0150246, %126 ], [ %105, %104 ]
   %.1163 = phi ptr [ %123, %126 ], [ %.0162241, %104 ]
   %.1161 = phi i32 [ %127, %126 ], [ %.0160242, %104 ]
@@ -762,7 +762,7 @@ cli_compare_ftm_partition.exit.thread224:         ; preds = %138, %69, %cli_comp
   br label %169
 
 169:                                              ; preds = %163, %161
-  %.1165 = phi i32 [ %.0164227, %161 ], [ %spec.select204, %163 ]
+  %.2166 = phi i32 [ %.0164227, %161 ], [ %spec.select204, %163 ]
   call void @cli_ac_freedata(ptr noundef nonnull %5) #10
   %170 = getelementptr inbounds i8, ptr %1, i64 168
   %171 = load ptr, ptr %170, align 8
@@ -770,7 +770,7 @@ cli_compare_ftm_partition.exit.thread224:         ; preds = %138, %69, %cli_comp
   %173 = load i32, ptr %172, align 4
   %174 = and i32 %173, 2
   %175 = icmp ne i32 %174, 0
-  %176 = icmp ne i32 %.1165, 539
+  %176 = icmp ne i32 %.2166, 539
   %or.cond17 = and i1 %176, %175
   br i1 %or.cond17, label %177, label %cli_compare_ftm_partition.exit.thread
 
@@ -824,12 +824,12 @@ cli_compare_ftm_partition.exit.thread224:         ; preds = %138, %69, %cli_comp
   br label %203
 
 203:                                              ; preds = %196, %202, %193
-  %.2166 = phi i32 [ 560, %202 ], [ %.1165, %196 ], [ %.1165, %193 ]
+  %.3167 = phi i32 [ 560, %202 ], [ %.2166, %196 ], [ %.2166, %193 ]
   call void @cli_ac_freedata(ptr noundef nonnull %5) #10
   br label %cli_compare_ftm_partition.exit.thread
 
 cli_compare_ftm_partition.exit.thread:            ; preds = %129, %115, %._crit_edge.i, %107, %108, %108, %114, %151, %cli_compare_ftm_partition.exit, %169, %179, %203, %177, %188, %156, %143, %cli_compare_ftm_partition.exit.thread224, %133, %17, %137, %125, %113, %112, %111, %110, %100, %99, %98, %97, %96, %72, %71, %23, %10
-  %.0 = phi i32 [ 505, %23 ], [ 510, %72 ], [ 511, %71 ], [ %95, %100 ], [ 551, %99 ], [ 546, %98 ], [ 547, %97 ], [ 548, %96 ], [ 551, %113 ], [ 546, %112 ], [ 547, %111 ], [ 548, %110 ], [ 505, %125 ], [ 574, %137 ], [ 505, %10 ], [ 505, %17 ], [ 559, %133 ], [ %.0164227, %cli_compare_ftm_partition.exit.thread224 ], [ %.0164227, %143 ], [ %.0164227, %156 ], [ %.1165, %188 ], [ %.2166, %203 ], [ %.1165, %179 ], [ %.1165, %177 ], [ %.1165, %169 ], [ %.0164, %cli_compare_ftm_partition.exit ], [ %.fr, %151 ], [ 557, %._crit_edge.i ], [ 517, %108 ], [ 517, %107 ], [ 517, %108 ], [ 517, %114 ], [ 517, %115 ], [ 517, %129 ]
+  %.0 = phi i32 [ 505, %23 ], [ 510, %72 ], [ 511, %71 ], [ %95, %100 ], [ 551, %99 ], [ 546, %98 ], [ 547, %97 ], [ 548, %96 ], [ 551, %113 ], [ 546, %112 ], [ 547, %111 ], [ 548, %110 ], [ 505, %125 ], [ 574, %137 ], [ 505, %10 ], [ 505, %17 ], [ 559, %133 ], [ %.0164227, %cli_compare_ftm_partition.exit.thread224 ], [ %.0164227, %143 ], [ %.0164227, %156 ], [ %.2166, %188 ], [ %.3167, %203 ], [ %.2166, %179 ], [ %.2166, %177 ], [ %.2166, %169 ], [ %.0164, %cli_compare_ftm_partition.exit ], [ %.fr, %151 ], [ 557, %._crit_edge.i ], [ 517, %108 ], [ 517, %107 ], [ 517, %108 ], [ 517, %114 ], [ 517, %115 ], [ 517, %129 ]
   ret i32 %.0
 }
 

@@ -7886,8 +7886,8 @@ lpad79:                                           ; preds = %_ZN3refI5modelEC2ER
   br label %eh.resume
 
 return:                                           ; preds = %land.rhs.i.i, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit142, %entry, %land.rhs.i.i174, %if.end68, %_ZNK17array_recognizers11is_as_arrayEP4expr.exit, %_ZNK17array_recognizers11is_as_arrayEP4expr.exit182, %invoke.cont82, %_Z9is_groundPK4expr.exit169, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit155, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %retval.2 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit155 ], [ false, %_Z9is_groundPK4expr.exit169 ], [ true, %invoke.cont82 ], [ true, %_ZNK17array_recognizers11is_as_arrayEP4expr.exit182 ], [ false, %_ZNK17array_recognizers11is_as_arrayEP4expr.exit ], [ false, %if.end68 ], [ true, %land.rhs.i.i174 ], [ false, %entry ], [ false, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit142 ], [ false, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ], [ false, %land.rhs.i.i ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit155 ], [ false, %_Z9is_groundPK4expr.exit169 ], [ true, %invoke.cont82 ], [ true, %_ZNK17array_recognizers11is_as_arrayEP4expr.exit182 ], [ false, %_ZNK17array_recognizers11is_as_arrayEP4expr.exit ], [ false, %if.end68 ], [ true, %land.rhs.i.i174 ], [ false, %entry ], [ false, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit142 ], [ false, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ], [ false, %land.rhs.i.i ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad79, %lpad35, %lpad.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad.body ], [ %lpad.phi, %lpad35 ], [ %112, %lpad79 ]

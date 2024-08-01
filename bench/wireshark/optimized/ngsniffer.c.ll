@@ -803,23 +803,23 @@ define internal range(i32 0, 2) i32 @ngsniffer_seek_read(ptr nocapture noundef r
   %56 = icmp eq ptr %55, null
   %57 = getelementptr inbounds i8, ptr %11, i64 104
   %58 = getelementptr inbounds i8, ptr %55, i64 16
-  %.2.in.i = select i1 %56, ptr %57, ptr %58
-  %.383.i = load ptr, ptr %.2.in.i, align 8
-  %cond7784.i = icmp eq ptr %.383.i, null
+  %.3.in.i = select i1 %56, ptr %57, ptr %58
+  %.483.i = load ptr, ptr %.3.in.i, align 8
+  %cond7784.i = icmp eq ptr %.483.i, null
   br i1 %cond7784.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53, %62
-  %.385.i = phi ptr [ %.3.i, %62 ], [ %.383.i, %53 ]
-  %59 = load ptr, ptr %.385.i, align 8
+  %.485.i = phi ptr [ %.4.i, %62 ], [ %.483.i, %53 ]
+  %59 = load ptr, ptr %.485.i, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 8
   %61 = load i64, ptr %60, align 8
   %.not71.i = icmp sgt i64 %61, %1
   br i1 %.not71.i, label %62, label %.loopexit.i
 
 62:                                               ; preds = %.lr.ph.i
-  %63 = getelementptr inbounds i8, ptr %.385.i, i64 16
-  %.3.i = load ptr, ptr %63, align 8
-  %cond77.i = icmp eq ptr %.3.i, null
+  %63 = getelementptr inbounds i8, ptr %.485.i, i64 16
+  %.4.i = load ptr, ptr %63, align 8
+  %cond77.i = icmp eq ptr %.4.i, null
   br i1 %cond77.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %62, %53
@@ -832,7 +832,7 @@ define internal range(i32 0, 2) i32 @ngsniffer_seek_read(ptr nocapture noundef r
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.loopexit.loopexit.i
   %64 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %59, %.lr.ph.i ]
-  %.4.i = phi ptr [ %.1.i, %.loopexit.loopexit.i ], [ %.385.i, %.lr.ph.i ]
+  %.2.i = phi ptr [ %.1.i, %.loopexit.loopexit.i ], [ %.485.i, %.lr.ph.i ]
   %65 = getelementptr inbounds i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = load i64, ptr %64, align 8
@@ -852,7 +852,7 @@ define internal range(i32 0, 2) i32 @ngsniffer_seek_read(ptr nocapture noundef r
 
 75:                                               ; preds = %73, %70
   %76 = getelementptr inbounds i8, ptr %11, i64 112
-  store ptr %.4.i, ptr %76, align 8
+  store ptr %.2.i, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %64, i64 8
   %78 = load i64, ptr %77, align 8
   store i64 %78, ptr %16, align 8
@@ -1248,8 +1248,8 @@ default.unreachable:                              ; preds = %106
   br label %130
 
 130:                                              ; preds = %125, %122
-  %.090 = phi i32 [ %14, %122 ], [ %spec.select, %125 ]
-  %131 = icmp ult i32 %.090, 48
+  %.1 = phi i32 [ %14, %122 ], [ %spec.select, %125 ]
+  %131 = icmp ult i32 %.1, 48
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %130
@@ -1284,7 +1284,7 @@ ng_read_bytes.exit133:                            ; preds = %134
   %.val114 = load i16, ptr %145, align 2
   %146 = getelementptr inbounds i8, ptr %10, i64 10
   %.val112 = load i16, ptr %146, align 2
-  %147 = add nsw i32 %.090, -48
+  %147 = add nsw i32 %.1, -48
   %148 = getelementptr inbounds i8, ptr %4, i64 80
   %149 = getelementptr inbounds i8, ptr %10, i64 16
   %150 = load i32, ptr %149, align 4
@@ -1707,9 +1707,9 @@ set_metadata_frame2.exit:                         ; preds = %317, %ng_read_bytes
   %.093 = phi i8 [ %142, %set_pseudo_header_frame4.exit ], [ %49, %92 ], [ %49, %96 ], [ %49, %97 ], [ %49, %101 ], [ %49, %113 ], [ %49, %114 ], [ %49, %115 ], [ %49, %116 ], [ %300, %ng_read_bytes.exit139 ], [ %300, %317 ]
   %.092 = phi i8 [ %144, %set_pseudo_header_frame4.exit ], [ %51, %92 ], [ %51, %96 ], [ %51, %97 ], [ %51, %101 ], [ %51, %113 ], [ %51, %114 ], [ %51, %115 ], [ %51, %116 ], [ %302, %ng_read_bytes.exit139 ], [ %302, %317 ]
   %.091 = phi i16 [ %.val118, %set_pseudo_header_frame4.exit ], [ %41, %92 ], [ %41, %96 ], [ %41, %97 ], [ %41, %101 ], [ %41, %113 ], [ %41, %114 ], [ %41, %115 ], [ %41, %116 ], [ %292, %ng_read_bytes.exit139 ], [ %292, %317 ]
-  %.1 = phi i32 [ %147, %set_pseudo_header_frame4.exit ], [ %64, %92 ], [ %64, %96 ], [ %64, %97 ], [ %64, %101 ], [ %64, %113 ], [ %64, %114 ], [ %64, %115 ], [ %64, %116 ], [ %315, %ng_read_bytes.exit139 ], [ %315, %317 ]
+  %.090 = phi i32 [ %147, %set_pseudo_header_frame4.exit ], [ %64, %92 ], [ %64, %96 ], [ %64, %97 ], [ %64, %101 ], [ %64, %113 ], [ %64, %114 ], [ %64, %115 ], [ %64, %116 ], [ %315, %ng_read_bytes.exit139 ], [ %315, %317 ]
   %320 = zext i16 %.094 to i32
-  %321 = icmp ult i32 %.1, %320
+  %321 = icmp ult i32 %.090, %320
   br i1 %321, label %322, label %324
 
 322:                                              ; preds = %set_metadata_frame2.exit
@@ -1723,7 +1723,7 @@ set_metadata_frame2.exit:                         ; preds = %317, %ng_read_bytes
   br i1 %.not102, label %327, label %325
 
 325:                                              ; preds = %324
-  %326 = sub nsw i32 %.1, %320
+  %326 = sub nsw i32 %.090, %320
   store i32 %326, ptr %2, align 4
   br label %327
 

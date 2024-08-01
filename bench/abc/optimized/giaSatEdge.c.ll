@@ -1236,7 +1236,7 @@ Abc_Clock.exit:                                   ; preds = %3, %13
 28:                                               ; preds = %.lr.ph307, %.critedge3
   %indvars.iv344 = phi i64 [ 0, %.lr.ph307 ], [ %indvars.iv.next345, %.critedge3 ]
   %29 = phi ptr [ %19, %.lr.ph307 ], [ %203, %.critedge3 ]
-  %.0204305 = phi i32 [ 0, %.lr.ph307 ], [ %.3, %.critedge3 ]
+  %.0204305 = phi i32 [ 0, %.lr.ph307 ], [ %.1205, %.critedge3 ]
   %30 = getelementptr i8, ptr %29, i64 32
   %.val254 = load ptr, ptr %30, align 8
   %31 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val254, i64 %indvars.iv344
@@ -1415,7 +1415,7 @@ Abc_Clock.exit:                                   ; preds = %3, %13
   %indvars.iv341 = phi i64 [ 0, %.lr.ph304 ], [ %indvars.iv.next342, %.loopexit ]
   %133 = phi ptr [ %127, %.lr.ph304 ], [ %199, %.loopexit ]
   %134 = phi ptr [ %29, %.lr.ph304 ], [ %193, %.loopexit ]
-  %.1205303 = phi i32 [ %.0204305, %.lr.ph304 ], [ %.2, %.loopexit ]
+  %.2303 = phi i32 [ %.0204305, %.lr.ph304 ], [ %.3, %.loopexit ]
   %135 = getelementptr inbounds i8, ptr %133, i64 4
   %136 = getelementptr inbounds i32, ptr %135, i64 %indvars.iv341
   %137 = load i32, ptr %136, align 4
@@ -1481,7 +1481,7 @@ Abc_Clock.exit:                                   ; preds = %3, %13
   br i1 %169, label %.thread, label %176
 
 .thread:                                          ; preds = %160
-  %170 = shl nsw i32 %.1205303, 1
+  %170 = shl nsw i32 %.2303, 1
   %171 = or disjoint i32 %170, 1
   store i32 %171, ptr %6, align 4
   store i32 %130, ptr %25, align 4
@@ -1498,7 +1498,7 @@ Abc_Clock.exit:                                   ; preds = %3, %13
   br i1 %177, label %.lr.ph298, label %._crit_edge299
 
 .lr.ph298:                                        ; preds = %176
-  %178 = shl nsw i32 %.1205303, 1
+  %178 = shl nsw i32 %.2303, 1
   %179 = or disjoint i32 %178, 1
   br label %180
 
@@ -1525,11 +1525,11 @@ Abc_Clock.exit:                                   ; preds = %3, %13
   br i1 %exitcond340.not, label %._crit_edge299, label %180, !llvm.loop !14
 
 ._crit_edge299:                                   ; preds = %180, %.thread, %176
-  %192 = add nsw i32 %.1205303, 1
+  %192 = add nsw i32 %.2303, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %139, %._crit_edge299, %._crit_edge379
-  %.2 = phi i32 [ %.1205303, %139 ], [ %192, %._crit_edge299 ], [ %.1205303, %._crit_edge379 ], [ %.1205303, %.preheader ]
+  %.3 = phi i32 [ %.2303, %139 ], [ %192, %._crit_edge299 ], [ %.2303, %._crit_edge379 ], [ %.2303, %.preheader ]
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
   %193 = load ptr, ptr %7, align 8
   %194 = getelementptr i8, ptr %193, i64 264
@@ -1546,7 +1546,7 @@ Abc_Clock.exit:                                   ; preds = %3, %13
   br i1 %202, label %132, label %.critedge3, !llvm.loop !15
 
 .critedge3:                                       ; preds = %.loopexit, %.preheader288, %._crit_edge, %56, %.preheader286, %121, %43, %96
-  %.3 = phi i32 [ %.0204305, %96 ], [ %.0204305, %43 ], [ %.0204305, %121 ], [ %.0204305, %.preheader286 ], [ %.0204305, %56 ], [ %.0204305, %._crit_edge ], [ %.0204305, %.preheader288 ], [ %.2, %.loopexit ]
+  %.1205 = phi i32 [ %.0204305, %96 ], [ %.0204305, %43 ], [ %.0204305, %121 ], [ %.0204305, %.preheader286 ], [ %.0204305, %56 ], [ %.0204305, %._crit_edge ], [ %.0204305, %.preheader288 ], [ %.3, %.loopexit ]
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %203 = load ptr, ptr %7, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 24

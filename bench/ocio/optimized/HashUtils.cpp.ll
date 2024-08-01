@@ -206,8 +206,8 @@ if.then4.i.i.i:                                   ; preds = %if.then2.i26.i.i
   br label %if.end.i27.i.i
 
 if.end.i27.i.i:                                   ; preds = %if.then4.i.i.i, %if.then2.i26.i.i
-  %acc.sroa.0.0.i.i.i = phi i64 [ %xor.i.i.i.i, %if.then4.i.i.i ], [ %mul.i.i.i, %if.then2.i26.i.i ]
-  %acc.sroa.11.0.i.i.i = phi i64 [ %xor14.i.i32.i.i, %if.then4.i.i.i ], [ 0, %if.then2.i26.i.i ]
+  %acc.sroa.0.2.i.i.i = phi i64 [ %xor.i.i.i.i, %if.then4.i.i.i ], [ %mul.i.i.i, %if.then2.i26.i.i ]
+  %acc.sroa.11.2.i.i.i = phi i64 [ %xor14.i.i32.i.i, %if.then4.i.i.i ], [ 0, %if.then2.i26.i.i ]
   %add.ptr10.i.i.i = getelementptr inbounds i8, ptr %array, i64 32
   %add.ptr11.i.i.i = getelementptr inbounds i8, ptr %array, i64 %size
   %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr11.i.i.i, i64 -48
@@ -225,7 +225,7 @@ if.end.i27.i.i:                                   ; preds = %if.then4.i.i.i, %if
   %shr.i.i.i.i48.i.i.i = lshr i128 %mul.i.i.i.i47.i.i.i, 64
   %xor1.i.i.i49.i.i.i = xor i128 %shr.i.i.i.i48.i.i.i, %mul.i.i.i.i47.i.i.i
   %xor.i.i.i50.i.i.i = trunc i128 %xor1.i.i.i49.i.i.i to i64
-  %add.i51.i.i.i = add i64 %acc.sroa.0.0.i.i.i, %xor.i.i.i50.i.i.i
+  %add.i51.i.i.i = add i64 %acc.sroa.0.2.i.i.i, %xor.i.i.i50.i.i.i
   %add4.i52.i.i.i = add i64 %add.ptr12.val38.i.i.i, %add.ptr12.val.i.i.i
   %xor.i53.i.i.i = xor i64 %add.i51.i.i.i, %add4.i52.i.i.i
   %xor.i15.i54.i.i.i = xor i64 %add.ptr12.val.i.i.i, 5690594596133299313
@@ -236,7 +236,7 @@ if.end.i27.i.i:                                   ; preds = %if.then4.i.i.i, %if
   %shr.i.i.i20.i59.i.i.i = lshr i128 %mul.i.i.i19.i58.i.i.i, 64
   %xor1.i.i21.i60.i.i.i = xor i128 %shr.i.i.i20.i59.i.i.i, %mul.i.i.i19.i58.i.i.i
   %xor.i.i22.i61.i.i.i = trunc i128 %xor1.i.i21.i60.i.i.i to i64
-  %add8.i.i.i.i = add i64 %acc.sroa.11.0.i.i.i, %xor.i.i22.i61.i.i.i
+  %add8.i.i.i.i = add i64 %acc.sroa.11.2.i.i.i, %xor.i.i22.i61.i.i.i
   %add12.i62.i.i.i = add i64 %add.ptr10.val37.i.i.i, %add.ptr10.val.i.i.i
   %xor14.i63.i.i.i = xor i64 %add8.i.i.i.i, %add12.i62.i.i.i
   br label %if.end15.i.i.i
@@ -278,8 +278,8 @@ if.end15.i.i.i:                                   ; preds = %if.end.i27.i.i, %if
   br label %_ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i
 
 _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i:     ; preds = %if.end15.i.i.i, %if.then2.i.i
-  %acc.sroa.0.2.i.i.i = phi i64 [ %xor.i76.i.i.i, %if.end15.i.i.i ], [ %mul.i.i.i, %if.then2.i.i ]
-  %acc.sroa.11.2.i.i.i = phi i64 [ %xor14.i87.i.i.i, %if.end15.i.i.i ], [ 0, %if.then2.i.i ]
+  %acc.sroa.0.0.i.i.i = phi i64 [ %xor.i76.i.i.i, %if.end15.i.i.i ], [ %mul.i.i.i, %if.then2.i.i ]
+  %acc.sroa.11.0.i.i.i = phi i64 [ %xor14.i87.i.i.i, %if.end15.i.i.i ], [ 0, %if.then2.i.i ]
   %add.ptr26.i.i.i = getelementptr inbounds i8, ptr %array, i64 %size
   %add.ptr27.i.i.i = getelementptr inbounds i8, ptr %add.ptr26.i.i.i, i64 -16
   %input.val.i.i.i = load i64, ptr %array, align 1
@@ -296,7 +296,7 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i:     ; preds = %if.end15.i.i.i, %if
   %shr.i.i.i.i95.i.i.i = lshr i128 %mul.i.i.i.i94.i.i.i, 64
   %xor1.i.i.i96.i.i.i = xor i128 %shr.i.i.i.i95.i.i.i, %mul.i.i.i.i94.i.i.i
   %xor.i.i.i97.i.i.i = trunc i128 %xor1.i.i.i96.i.i.i to i64
-  %add.i98.i.i.i = add i64 %acc.sroa.0.2.i.i.i, %xor.i.i.i97.i.i.i
+  %add.i98.i.i.i = add i64 %acc.sroa.0.0.i.i.i, %xor.i.i.i97.i.i.i
   %add4.i99.i.i.i = add i64 %add.ptr27.val42.i.i.i, %add.ptr27.val.i.i.i
   %xor.i100.i.i.i = xor i64 %add.i98.i.i.i, %add4.i99.i.i.i
   %xor.i15.i101.i.i.i = xor i64 %add.ptr27.val.i.i.i, -2623469361688619810
@@ -307,7 +307,7 @@ _ZL21XXH3_len_17to128_128bPKhmS0_mm.exit.i.i:     ; preds = %if.end15.i.i.i, %if
   %shr.i.i.i20.i106.i.i.i = lshr i128 %mul.i.i.i19.i105.i.i.i, 64
   %xor1.i.i21.i107.i.i.i = xor i128 %shr.i.i.i20.i106.i.i.i, %mul.i.i.i19.i105.i.i.i
   %xor.i.i22.i108.i.i.i = trunc i128 %xor1.i.i21.i107.i.i.i to i64
-  %add8.i109.i.i.i = add i64 %acc.sroa.11.2.i.i.i, %xor.i.i22.i108.i.i.i
+  %add8.i109.i.i.i = add i64 %acc.sroa.11.0.i.i.i, %xor.i.i22.i108.i.i.i
   %add12.i110.i.i.i = add i64 %input.val41.i.i.i, %input.val.i.i.i
   %xor14.i111.i.i.i = xor i64 %add8.i109.i.i.i, %add12.i110.i.i.i
   %add.i.i.i = add i64 %xor14.i111.i.i.i, %xor.i100.i.i.i

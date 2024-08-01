@@ -241,27 +241,27 @@ land.lhs.true42:                                  ; preds = %if.end38
   br i1 %tobool44.not, label %err, label %if.end47
 
 if.end47:                                         ; preds = %if.end38, %land.lhs.true42, %if.end23
-  %factors.0 = phi ptr [ %call.i, %land.lhs.true42 ], [ %call.i, %if.end38 ], [ null, %if.end23 ]
-  %exps.0 = phi ptr [ %call.i19, %land.lhs.true42 ], [ %call.i19, %if.end38 ], [ null, %if.end23 ]
-  %coeffs.0 = phi ptr [ %call.i41, %land.lhs.true42 ], [ %call.i41, %if.end38 ], [ null, %if.end23 ]
-  call void @OPENSSL_sk_free(ptr noundef %factors.0) #4
-  call void @OPENSSL_sk_free(ptr noundef %exps.0) #4
-  call void @OPENSSL_sk_free(ptr noundef %coeffs.0) #4
+  %factors.1 = phi ptr [ %call.i, %land.lhs.true42 ], [ %call.i, %if.end38 ], [ null, %if.end23 ]
+  %exps.1 = phi ptr [ %call.i19, %land.lhs.true42 ], [ %call.i19, %if.end38 ], [ null, %if.end23 ]
+  %coeffs.1 = phi ptr [ %call.i41, %land.lhs.true42 ], [ %call.i41, %if.end38 ], [ null, %if.end23 ]
+  call void @OPENSSL_sk_free(ptr noundef %factors.1) #4
+  call void @OPENSSL_sk_free(ptr noundef %exps.1) #4
+  call void @OPENSSL_sk_free(ptr noundef %coeffs.1) #4
   br label %return
 
 err:                                              ; preds = %collect_numbers.exit62.thread, %collect_numbers.exit40.thread, %collect_numbers.exit.thread, %land.lhs.true42, %if.end18, %land.lhs.true, %land.lhs.true9, %land.lhs.true14
-  %factors.1 = phi ptr [ %call.i, %land.lhs.true42 ], [ null, %if.end18 ], [ null, %land.lhs.true14 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true ], [ %call.i, %collect_numbers.exit.thread ], [ %call.i, %collect_numbers.exit40.thread ], [ %call.i, %collect_numbers.exit62.thread ]
-  %exps.1 = phi ptr [ %call.i19, %land.lhs.true42 ], [ null, %if.end18 ], [ null, %land.lhs.true14 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true ], [ null, %collect_numbers.exit.thread ], [ %call.i19, %collect_numbers.exit40.thread ], [ %call.i19, %collect_numbers.exit62.thread ]
-  %coeffs.1 = phi ptr [ %call.i41, %land.lhs.true42 ], [ null, %if.end18 ], [ null, %land.lhs.true14 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true ], [ null, %collect_numbers.exit.thread ], [ null, %collect_numbers.exit40.thread ], [ %call.i41, %collect_numbers.exit62.thread ]
+  %factors.0 = phi ptr [ %call.i, %land.lhs.true42 ], [ null, %if.end18 ], [ null, %land.lhs.true14 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true ], [ %call.i, %collect_numbers.exit.thread ], [ %call.i, %collect_numbers.exit40.thread ], [ %call.i, %collect_numbers.exit62.thread ]
+  %exps.0 = phi ptr [ %call.i19, %land.lhs.true42 ], [ null, %if.end18 ], [ null, %land.lhs.true14 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true ], [ null, %collect_numbers.exit.thread ], [ %call.i19, %collect_numbers.exit40.thread ], [ %call.i19, %collect_numbers.exit62.thread ]
+  %coeffs.0 = phi ptr [ %call.i41, %land.lhs.true42 ], [ null, %if.end18 ], [ null, %land.lhs.true14 ], [ null, %land.lhs.true9 ], [ null, %land.lhs.true ], [ null, %collect_numbers.exit.thread ], [ null, %collect_numbers.exit40.thread ], [ %call.i41, %collect_numbers.exit62.thread ]
   %18 = load ptr, ptr %n, align 8
   call void @BN_free(ptr noundef %18) #4
   %19 = load ptr, ptr %e, align 8
   call void @BN_free(ptr noundef %19) #4
   %20 = load ptr, ptr %d, align 8
   call void @BN_free(ptr noundef %20) #4
-  call void @OPENSSL_sk_pop_free(ptr noundef %factors.1, ptr noundef nonnull @BN_free) #4
-  call void @OPENSSL_sk_pop_free(ptr noundef %exps.1, ptr noundef nonnull @BN_free) #4
-  call void @OPENSSL_sk_pop_free(ptr noundef %coeffs.1, ptr noundef nonnull @BN_free) #4
+  call void @OPENSSL_sk_pop_free(ptr noundef %factors.0, ptr noundef nonnull @BN_free) #4
+  call void @OPENSSL_sk_pop_free(ptr noundef %exps.0, ptr noundef nonnull @BN_free) #4
+  call void @OPENSSL_sk_pop_free(ptr noundef %coeffs.0, ptr noundef nonnull @BN_free) #4
   br label %return
 
 return:                                           ; preds = %entry, %err, %if.end47
@@ -627,7 +627,7 @@ lor.lhs.false77:                                  ; preds = %if.end74
   br i1 %tobool80.not, label %err, label %if.end83
 
 if.end83:                                         ; preds = %lor.lhs.false77, %if.end62
-  %mgf1md.0 = phi ptr [ %call75, %lor.lhs.false77 ], [ null, %if.end62 ]
+  %mgf1md.1 = phi ptr [ %call75, %lor.lhs.false77 ], [ null, %if.end62 ]
   %cmp84.not = icmp eq ptr %call4, null
   br i1 %cmp84.not, label %err, label %if.then85
 
@@ -645,10 +645,10 @@ lor.lhs.false88:                                  ; preds = %if.then85
 
 err:                                              ; preds = %lor.lhs.false88, %land.lhs.true, %if.end83, %if.then85, %if.end74, %lor.lhs.false77, %if.else69, %if.end53, %lor.lhs.false56, %if.else48
   %md.1 = phi ptr [ null, %if.end53 ], [ %md.0, %if.end74 ], [ %md.0, %if.then85 ], [ %md.0, %lor.lhs.false77 ], [ %md.0, %if.else69 ], [ %call54, %lor.lhs.false56 ], [ null, %if.else48 ], [ %md.0, %if.end83 ], [ null, %land.lhs.true ], [ %md.0, %lor.lhs.false88 ]
-  %mgf1md.1 = phi ptr [ null, %if.end53 ], [ null, %if.end74 ], [ %mgf1md.0, %if.then85 ], [ %call75, %lor.lhs.false77 ], [ null, %if.else69 ], [ null, %lor.lhs.false56 ], [ null, %if.else48 ], [ %mgf1md.0, %if.end83 ], [ null, %land.lhs.true ], [ %mgf1md.0, %lor.lhs.false88 ]
+  %mgf1md.0 = phi ptr [ null, %if.end53 ], [ null, %if.end74 ], [ %mgf1md.1, %if.then85 ], [ %call75, %lor.lhs.false77 ], [ null, %if.else69 ], [ null, %lor.lhs.false56 ], [ null, %if.else48 ], [ %mgf1md.1, %if.end83 ], [ null, %land.lhs.true ], [ %mgf1md.1, %lor.lhs.false88 ]
   %ret.0 = phi i32 [ 0, %if.end53 ], [ 0, %if.end74 ], [ 0, %if.then85 ], [ 0, %lor.lhs.false77 ], [ 0, %if.else69 ], [ 0, %lor.lhs.false56 ], [ 0, %if.else48 ], [ 1, %if.end83 ], [ 1, %land.lhs.true ], [ %spec.select, %lor.lhs.false88 ]
   call void @EVP_MD_free(ptr noundef %md.1) #4
-  call void @EVP_MD_free(ptr noundef %mgf1md.1) #4
+  call void @EVP_MD_free(ptr noundef %mgf1md.0) #4
   br label %return
 
 return:                                           ; preds = %if.end34, %if.else, %if.then17, %entry, %err

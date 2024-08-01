@@ -368,16 +368,16 @@ _ZN6XUtils20object_copy_disjointEmmm.exit.i:      ; preds = %147, %145, %115
   br i1 %.not20.i.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit.i, label %.lr.ph21.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %171, %.lr.ph21.i.i.i
-  %.2 = phi i64 [ %.3, %.lr.ph21.i.i.i ], [ %175, %171 ]
-  %160 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %.2
+  %.4 = phi i64 [ %.2, %.lr.ph21.i.i.i ], [ %175, %171 ]
+  %160 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %.4
   %161 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %156, i64 0, ptr %160) #8, !srcloc !9
   %162 = and i64 %161, 1
   %.not.i.i.i = icmp eq i64 %162, 0
   br i1 %.not.i.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit.i, label %.lr.ph21.i.i.i, !llvm.loop !10
 
 .lr.ph21.i.i.i:                                   ; preds = %_ZN6XUtils20object_copy_disjointEmmm.exit.i, %.loopexit.i.i.i
-  %.3 = phi i64 [ %.2, %.loopexit.i.i.i ], [ %.1, %_ZN6XUtils20object_copy_disjointEmmm.exit.i ]
-  %163 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %.3
+  %.2 = phi i64 [ %.4, %.loopexit.i.i.i ], [ %.1, %_ZN6XUtils20object_copy_disjointEmmm.exit.i ]
+  %163 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %.2
   %164 = load volatile i64, ptr %163, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %165 = and i64 %164, 1
@@ -385,7 +385,7 @@ _ZN6XUtils20object_copy_disjointEmmm.exit.i:      ; preds = %147, %145, %115
   br i1 %.not1518.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph21.i.i.i, %171
-  %.4 = phi i64 [ %175, %171 ], [ %.3, %.lr.ph21.i.i.i ]
+  %.3 = phi i64 [ %175, %171 ], [ %.2, %.lr.ph21.i.i.i ]
   %storemerge19.i.i.i = phi i64 [ %177, %171 ], [ %164, %.lr.ph21.i.i.i ]
   %166 = lshr i64 %storemerge19.i.i.i, 46
   %167 = icmp eq i64 %166, %151
@@ -399,7 +399,7 @@ _ZN6XUtils20object_copy_disjointEmmm.exit.i:      ; preds = %147, %145, %115
 171:                                              ; preds = %.lr.ph.i.i.i
   %172 = load i64, ptr %9, align 8
   %173 = add i64 %172, -1
-  %174 = add i64 %.4, 1
+  %174 = add i64 %.3, 1
   %175 = and i64 %173, %174
   %176 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %175
   %177 = load volatile i64, ptr %176, align 8
@@ -409,7 +409,7 @@ _ZN6XUtils20object_copy_disjointEmmm.exit.i:      ; preds = %147, %145, %115
   br i1 %.not15.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZL17forwarding_insertP11XForwardingmmPm.exit.i:  ; preds = %.loopexit.i.i.i, %168, %_ZN6XUtils20object_copy_disjointEmmm.exit.i
-  %.5 = phi i64 [ %.1, %_ZN6XUtils20object_copy_disjointEmmm.exit.i ], [ %.4, %168 ], [ %.2, %.loopexit.i.i.i ]
+  %.5 = phi i64 [ %.1, %_ZN6XUtils20object_copy_disjointEmmm.exit.i ], [ %.3, %168 ], [ %.4, %.loopexit.i.i.i ]
   %.0.i.i.i = phi i64 [ %152, %_ZN6XUtils20object_copy_disjointEmmm.exit.i ], [ %170, %168 ], [ %152, %.loopexit.i.i.i ]
   %179 = load i64, ptr @XAddressOffsetMask, align 8
   %180 = and i64 %179, %.0.i.i.i
@@ -460,16 +460,16 @@ _ZL21relocate_object_innerP11XForwardingmPm.exit: ; preds = %_ZL17forwarding_ins
   br i1 %.not20.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %.lr.ph21.i.i
 
 .loopexit.i.i:                                    ; preds = %217, %.lr.ph21.i.i
-  %.7 = phi i64 [ %.8, %.lr.ph21.i.i ], [ %221, %217 ]
-  %206 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %.7
+  %.9 = phi i64 [ %.7, %.lr.ph21.i.i ], [ %221, %217 ]
+  %206 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %.9
   %207 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %202, i64 0, ptr %206) #8, !srcloc !9
   %208 = and i64 %207, 1
   %.not.i.i = icmp eq i64 %208, 0
   br i1 %.not.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %.lr.ph21.i.i, !llvm.loop !10
 
 .lr.ph21.i.i:                                     ; preds = %194, %.loopexit.i.i
-  %.8 = phi i64 [ %.7, %.loopexit.i.i ], [ %.640, %194 ]
-  %209 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %.8
+  %.7 = phi i64 [ %.9, %.loopexit.i.i ], [ %.640, %194 ]
+  %209 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %.7
   %210 = load volatile i64, ptr %209, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %211 = and i64 %210, 1
@@ -477,7 +477,7 @@ _ZL21relocate_object_innerP11XForwardingmPm.exit: ; preds = %_ZL17forwarding_ins
   br i1 %.not1518.i.i, label %.loopexit.i.i, label %.lr.ph.i.i22
 
 .lr.ph.i.i22:                                     ; preds = %.lr.ph21.i.i, %217
-  %.9 = phi i64 [ %221, %217 ], [ %.8, %.lr.ph21.i.i ]
+  %.8 = phi i64 [ %221, %217 ], [ %.7, %.lr.ph21.i.i ]
   %storemerge19.i.i = phi i64 [ %223, %217 ], [ %210, %.lr.ph21.i.i ]
   %212 = lshr i64 %storemerge19.i.i, 46
   %213 = icmp eq i64 %212, %198
@@ -491,7 +491,7 @@ _ZL21relocate_object_innerP11XForwardingmPm.exit: ; preds = %_ZL17forwarding_ins
 217:                                              ; preds = %.lr.ph.i.i22
   %218 = load i64, ptr %9, align 8
   %219 = add i64 %218, -1
-  %220 = add i64 %.9, 1
+  %220 = add i64 %.8, 1
   %221 = and i64 %219, %220
   %222 = getelementptr inbounds %class.XForwardingEntry, ptr %28, i64 %221
   %223 = load volatile i64, ptr %222, align 8
@@ -1378,16 +1378,16 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %174, %172, %142, %1
   br label %196
 
 .loopexit.i.i:                                    ; preds = %205, %196
-  %.2 = phi i64 [ %.3, %196 ], [ %209, %205 ]
-  %193 = getelementptr inbounds %class.XForwardingEntry, ptr %188, i64 %.2
+  %.4 = phi i64 [ %.2, %196 ], [ %209, %205 ]
+  %193 = getelementptr inbounds %class.XForwardingEntry, ptr %188, i64 %.4
   %194 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %185, i64 0, ptr %193) #8, !srcloc !9
   %195 = and i64 %194, 1
   %.not.i.i = icmp eq i64 %195, 0
   br i1 %.not.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %196, !llvm.loop !10
 
 196:                                              ; preds = %.loopexit.i.i, %.lr.ph21.i.i
-  %.3 = phi i64 [ %.1, %.lr.ph21.i.i ], [ %.2, %.loopexit.i.i ]
-  %197 = getelementptr inbounds %class.XForwardingEntry, ptr %188, i64 %.3
+  %.2 = phi i64 [ %.1, %.lr.ph21.i.i ], [ %.4, %.loopexit.i.i ]
+  %197 = getelementptr inbounds %class.XForwardingEntry, ptr %188, i64 %.2
   %198 = load volatile i64, ptr %197, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %199 = and i64 %198, 1
@@ -1395,7 +1395,7 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %174, %172, %142, %1
   br i1 %.not1518.i.i, label %.loopexit.i.i, label %.lr.ph.i.i27
 
 .lr.ph.i.i27:                                     ; preds = %196, %205
-  %.4 = phi i64 [ %209, %205 ], [ %.3, %196 ]
+  %.3 = phi i64 [ %209, %205 ], [ %.2, %196 ]
   %storemerge19.i.i = phi i64 [ %211, %205 ], [ %198, %196 ]
   %200 = lshr i64 %storemerge19.i.i, 46
   %201 = icmp eq i64 %200, %180
@@ -1409,7 +1409,7 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %174, %172, %142, %1
 205:                                              ; preds = %.lr.ph.i.i27
   %206 = load i64, ptr %192, align 8
   %207 = add i64 %206, -1
-  %208 = add i64 %.4, 1
+  %208 = add i64 %.3, 1
   %209 = and i64 %207, %208
   %210 = getelementptr inbounds %class.XForwardingEntry, ptr %188, i64 %209
   %211 = load volatile i64, ptr %210, align 8
@@ -1899,16 +1899,16 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %178, %176, %146, %1
   br label %200
 
 .loopexit.i.i:                                    ; preds = %209, %200
-  %.2 = phi i64 [ %.3, %200 ], [ %213, %209 ]
-  %197 = getelementptr inbounds %class.XForwardingEntry, ptr %192, i64 %.2
+  %.4 = phi i64 [ %.2, %200 ], [ %213, %209 ]
+  %197 = getelementptr inbounds %class.XForwardingEntry, ptr %192, i64 %.4
   %198 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %189, i64 0, ptr %197) #8, !srcloc !9
   %199 = and i64 %198, 1
   %.not.i.i = icmp eq i64 %199, 0
   br i1 %.not.i.i, label %_ZL17forwarding_insertP11XForwardingmmPm.exit, label %200, !llvm.loop !10
 
 200:                                              ; preds = %.loopexit.i.i, %.lr.ph21.i.i
-  %.3 = phi i64 [ %.1, %.lr.ph21.i.i ], [ %.2, %.loopexit.i.i ]
-  %201 = getelementptr inbounds %class.XForwardingEntry, ptr %192, i64 %.3
+  %.2 = phi i64 [ %.1, %.lr.ph21.i.i ], [ %.4, %.loopexit.i.i ]
+  %201 = getelementptr inbounds %class.XForwardingEntry, ptr %192, i64 %.2
   %202 = load volatile i64, ptr %201, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !6
   %203 = and i64 %202, 1
@@ -1916,7 +1916,7 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %178, %176, %146, %1
   br i1 %.not1518.i.i, label %.loopexit.i.i, label %.lr.ph.i.i27
 
 .lr.ph.i.i27:                                     ; preds = %200, %209
-  %.4 = phi i64 [ %213, %209 ], [ %.3, %200 ]
+  %.3 = phi i64 [ %213, %209 ], [ %.2, %200 ]
   %storemerge19.i.i = phi i64 [ %215, %209 ], [ %202, %200 ]
   %204 = lshr i64 %storemerge19.i.i, 46
   %205 = icmp eq i64 %204, %184
@@ -1930,7 +1930,7 @@ _ZN6XUtils20object_copy_conjointEmmm.exit:        ; preds = %178, %176, %146, %1
 209:                                              ; preds = %.lr.ph.i.i27
   %210 = load i64, ptr %196, align 8
   %211 = add i64 %210, -1
-  %212 = add i64 %.4, 1
+  %212 = add i64 %.3, 1
   %213 = and i64 %211, %212
   %214 = getelementptr inbounds %class.XForwardingEntry, ptr %192, i64 %213
   %215 = load volatile i64, ptr %214, align 8
@@ -2132,9 +2132,9 @@ define linkonce_odr hidden void @_ZN8XLiveMap15iterate_segmentEP13ObjectClosurem
   br label %35
 
 35:                                               ; preds = %33, %22
-  %.1.ph.i.i = phi i64 [ %20, %22 ], [ %32, %33 ]
+  %.027.ph.i.i = phi i64 [ %20, %22 ], [ %32, %33 ]
   %.026.ph.i.i = phi i64 [ %9, %22 ], [ %34, %33 ]
-  %36 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %36 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %37 = add i64 %.026.ph.i.i, %36
   %38 = icmp ult i64 %37, %11
   br i1 %38, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZN6XUtils11object_sizeEm.exit._crit_edge
@@ -2287,9 +2287,9 @@ _ZN6XUtils11object_sizeEm.exit:                   ; preds = %73, %76, %83, %103
   br label %133
 
 133:                                              ; preds = %131, %124
-  %.1.ph.i.i27 = phi i64 [ %122, %124 ], [ %130, %131 ]
+  %.027.ph.i.i27 = phi i64 [ %122, %124 ], [ %130, %131 ]
   %.026.ph.i.i28 = phi i64 [ %115, %124 ], [ %132, %131 ]
-  %134 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i27, i1 true)
+  %134 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i27, i1 true)
   %135 = add i64 %.026.ph.i.i28, %134
   %136 = icmp ult i64 %135, %11
   br i1 %136, label %_ZNK6BitMap18find_first_set_bitEmm.exit31, label %_ZN6XUtils11object_sizeEm.exit._crit_edge

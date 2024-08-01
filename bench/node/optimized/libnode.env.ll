@@ -3146,40 +3146,40 @@ sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %
 
 for.body.i.i:                                     ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i", %for.inc.i.i
   %__first.sroa.0.034.i.i = phi ptr [ %__first.sroa.0.0.i.i, %for.inc.i.i ], [ %__first.sroa.0.031.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i" ]
-  %retval.sroa.0.033.i.i = phi ptr [ %retval.sroa.0.1.i.i, %for.inc.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i" ]
+  %retval.sroa.0.133.i.i = phi ptr [ %retval.sroa.0.2.i.i, %for.inc.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i" ]
   %call.val.i.i.i = load ptr, ptr %__first.sroa.0.034.i.i, align 8
   %cmp.i.i.i9.i.i = icmp eq ptr %call.val.i.i.i, null
   br i1 %cmp.i.i.i9.i.i, label %for.inc.i.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %for.body.i.i
-  %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.033.i.i, %__first.sroa.0.034.i.i
+  %cmp.i.not.i.i = icmp eq ptr %retval.sroa.0.133.i.i, %__first.sroa.0.034.i.i
   br i1 %cmp.i.not.i.i, label %_ZN2v86GlobalINS_7ContextEEaSIS1_EERS2_ONS0_IT_EE.exit.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then13.i.i
-  %4 = load ptr, ptr %retval.sroa.0.033.i.i, align 8
+  %4 = load ptr, ptr %retval.sroa.0.133.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i.i.i.i, label %if.then2.i.i.i, label %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit.i.i.i
 
 _ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit.i.i.i: ; preds = %if.then.i.i.i
   call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %4) #24
-  store ptr null, ptr %retval.sroa.0.033.i.i, align 8
+  store ptr null, ptr %retval.sroa.0.133.i.i, align 8
   %.pre.i.i = load ptr, ptr %__first.sroa.0.034.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %.pre.i.i, null
   br i1 %cmp.i.i.i.i, label %_ZN2v86GlobalINS_7ContextEEaSIS1_EERS2_ONS0_IT_EE.exit.i.i, label %if.then2.i.i.i
 
 if.then2.i.i.i:                                   ; preds = %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit.i.i.i, %if.then.i.i.i
   %5 = phi ptr [ %.pre.i.i, %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit.i.i.i ], [ %call.val.i.i.i, %if.then.i.i.i ]
-  store ptr %5, ptr %retval.sroa.0.033.i.i, align 8
-  call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef nonnull %__first.sroa.0.034.i.i, ptr noundef nonnull %retval.sroa.0.033.i.i) #24
+  store ptr %5, ptr %retval.sroa.0.133.i.i, align 8
+  call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef nonnull %__first.sroa.0.034.i.i, ptr noundef nonnull %retval.sroa.0.133.i.i) #24
   store ptr null, ptr %__first.sroa.0.034.i.i, align 8
   br label %_ZN2v86GlobalINS_7ContextEEaSIS1_EERS2_ONS0_IT_EE.exit.i.i
 
 _ZN2v86GlobalINS_7ContextEEaSIS1_EERS2_ONS0_IT_EE.exit.i.i: ; preds = %if.then2.i.i.i, %_ZN2v814PersistentBaseINS_7ContextEE5ResetEv.exit.i.i.i, %if.then13.i.i
-  %incdec.ptr.i10.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.033.i.i, i64 8
+  %incdec.ptr.i10.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.133.i.i, i64 8
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %_ZN2v86GlobalINS_7ContextEEaSIS1_EERS2_ONS0_IT_EE.exit.i.i, %for.body.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.033.i.i, %for.body.i.i ], [ %incdec.ptr.i10.i.i, %_ZN2v86GlobalINS_7ContextEEaSIS1_EERS2_ONS0_IT_EE.exit.i.i ]
+  %retval.sroa.0.2.i.i = phi ptr [ %retval.sroa.0.133.i.i, %for.body.i.i ], [ %incdec.ptr.i10.i.i, %_ZN2v86GlobalINS_7ContextEEaSIS1_EERS2_ONS0_IT_EE.exit.i.i ]
   %__first.sroa.0.0.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.034.i.i, i64 8
   %cmp.i8.not.i.i = icmp eq ptr %__first.sroa.0.0.i.i, %2
   br i1 %cmp.i8.not.i.i, label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEEZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0ET_SG_SG_T0_.exit.loopexit", label %for.body.i.i, !llvm.loop !16
@@ -3190,8 +3190,8 @@ for.inc.i.i:                                      ; preds = %_ZN2v86GlobalINS_7C
 
 "_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEEZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0ET_SG_SG_T0_.exit": ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEEZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0ET_SG_SG_T0_.exit.loopexit", %for.end.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i"
   %6 = phi ptr [ %2, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i" ], [ %2, %for.end.i.i.i.i ], [ %.pre, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEEZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0ET_SG_SG_T0_.exit.loopexit" ]
-  %retval.sroa.0.2.i.i = phi ptr [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i" ], [ %2, %for.end.i.i.i.i ], [ %retval.sroa.0.1.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEEZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0ET_SG_SG_T0_.exit.loopexit" ]
-  %call23 = call ptr @_ZNSt6vectorIN2v86GlobalINS0_7ContextEEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_(ptr noundef nonnull align 8 dereferenceable(24) %contexts_, ptr %retval.sroa.0.2.i.i, ptr %6)
+  %retval.sroa.0.0.i.i = phi ptr [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEENS0_5__ops10_Iter_predIZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0EEET_SJ_SJ_T0_.exit.i.i" ], [ %2, %for.end.i.i.i.i ], [ %retval.sroa.0.2.i.i, %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN2v86GlobalINS2_7ContextEEESt6vectorIS5_SaIS5_EEEEZN4node11Environment14UntrackContextENS2_5LocalIS4_EEE3$_0ET_SG_SG_T0_.exit.loopexit" ]
+  %call23 = call ptr @_ZNSt6vectorIN2v86GlobalINS0_7ContextEEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EESA_(ptr noundef nonnull align 8 dereferenceable(24) %contexts_, ptr %retval.sroa.0.0.i.i, ptr %6)
   %7 = load ptr, ptr %contexts_, align 8
   %8 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i9.not30 = icmp eq ptr %7, %8

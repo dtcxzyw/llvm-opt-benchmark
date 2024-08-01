@@ -1194,9 +1194,9 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %28, %2
   br label %52
 
 52:                                               ; preds = %45, %43
-  %.0 = phi ptr [ %44, %43 ], [ %49, %45 ]
+  %.1 = phi ptr [ %44, %43 ], [ %49, %45 ]
   %53 = call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @era_incomplete_msg_mutex, i64 16)) #19
-  %54 = getelementptr inbounds i8, ptr %.0, i64 4
+  %54 = getelementptr inbounds i8, ptr %.1, i64 4
   %55 = getelementptr inbounds i8, ptr %7, i64 20
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
@@ -1206,9 +1206,9 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %28, %2
   %61 = zext i32 %60 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr nonnull align 4 %59, i64 %61, i1 false)
   %62 = load i32, ptr %10, align 8
-  %63 = load i32, ptr %.0, align 4
+  %63 = load i32, ptr %.1, align 4
   %64 = add i32 %63, %62
-  store i32 %64, ptr %.0, align 4
+  store i32 %64, ptr %.1, align 4
   %65 = load i32, ptr %8, align 8
   %66 = icmp eq i32 %64, %65
   br i1 %66, label %67, label %165
@@ -1222,7 +1222,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %28, %2
 
 72:                                               ; preds = %67, %13
   %.073 = phi ptr [ %14, %13 ], [ %54, %67 ]
-  %.1 = phi ptr [ null, %13 ], [ %.0, %67 ]
+  %.0 = phi ptr [ null, %13 ], [ %.1, %67 ]
   %73 = getelementptr inbounds i8, ptr %.073, i64 56
   %74 = getelementptr inbounds i8, ptr %.073, i64 44
   %75 = load i32, ptr %74, align 4
@@ -1378,11 +1378,11 @@ opal_pointer_array_get_item.exit83:               ; preds = %105, %112
   br label %163
 
 163:                                              ; preds = %161, %130
-  %.not78 = icmp eq ptr %.1, null
+  %.not78 = icmp eq ptr %.0, null
   br i1 %.not78, label %165, label %164
 
 164:                                              ; preds = %163
-  call void @free(ptr noundef nonnull %.1) #19
+  call void @free(ptr noundef nonnull %.0) #19
   br label %165
 
 165:                                              ; preds = %52, %164, %163
@@ -4858,8 +4858,8 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
 
 .preheader141:                                    ; preds = %15, %.preheader141
   %16 = phi ptr [ %21, %.preheader141 ], [ %6, %15 ]
-  %.0118 = phi i32 [ %23, %.preheader141 ], [ %12, %15 ]
-  %17 = sext i32 %.0118 to i64
+  %.1119 = phi i32 [ %23, %.preheader141 ], [ %12, %15 ]
+  %17 = sext i32 %.1119 to i64
   %18 = getelementptr inbounds %struct.era_tree_s, ptr %16, i64 %17, i32 1
   store i32 %10, ptr %18, align 4
   %19 = load ptr, ptr %3, align 8
@@ -4875,7 +4875,7 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
 .loopexit142:                                     ; preds = %.preheader141, %15
   %27 = phi i32 [ %12, %15 ], [ %23, %.preheader141 ]
   %28 = phi ptr [ %6, %15 ], [ %21, %.preheader141 ]
-  %.1119 = phi i32 [ %12, %15 ], [ %.0118, %.preheader141 ]
+  %.0118 = phi i32 [ %12, %15 ], [ %.1119, %.preheader141 ]
   %29 = sext i32 %10 to i64
   %30 = getelementptr inbounds %struct.era_tree_s, ptr %28, i64 %29, i32 3
   %31 = load i32, ptr %30, align 4
@@ -4899,7 +4899,7 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds %struct.era_tree_s, ptr %41, i64 %7, i32 2
   %43 = load i32, ptr %42, align 4
-  %44 = sext i32 %.1119 to i64
+  %44 = sext i32 %.0118 to i64
   %45 = getelementptr inbounds %struct.era_tree_s, ptr %41, i64 %44, i32 2
   store i32 %43, ptr %45, align 4
   br label %.loopexit
@@ -4929,7 +4929,7 @@ define internal fastcc void @era_tree_remove_node(ptr nocapture noundef readonly
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds %struct.era_tree_s, ptr %57, i64 %7, i32 2
   %59 = load i32, ptr %58, align 4
-  %60 = sext i32 %.1119 to i64
+  %60 = sext i32 %.0118 to i64
   %61 = getelementptr inbounds %struct.era_tree_s, ptr %57, i64 %60, i32 2
   store i32 %59, ptr %61, align 4
   br label %.loopexit

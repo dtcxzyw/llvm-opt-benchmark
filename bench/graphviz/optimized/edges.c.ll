@@ -266,8 +266,8 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 
 109:                                              ; preds = %98, %95, %103
   %110 = phi double [ %93, %95 ], [ %93, %98 ], [ %104, %103 ]
-  %.3109 = phi double [ %89, %95 ], [ %93, %98 ], [ %104, %103 ]
-  %.399 = phi double [ %97, %95 ], [ %102, %98 ], [ %108, %103 ]
+  %.4110 = phi double [ %89, %95 ], [ %93, %98 ], [ %104, %103 ]
+  %.4100 = phi double [ %97, %95 ], [ %102, %98 ], [ %108, %103 ]
   %.not136 = icmp eq ptr %.0113, null
   br i1 %.not136, label %125, label %111
 
@@ -302,18 +302,18 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br label %131
 
 131:                                              ; preds = %120, %117, %125
-  %.2103 = phi double [ %112, %117 ], [ %115, %120 ], [ %126, %125 ]
-  %.2 = phi double [ %119, %117 ], [ %124, %120 ], [ %130, %125 ]
+  %.3104 = phi double [ %112, %117 ], [ %115, %120 ], [ %126, %125 ]
+  %.3 = phi double [ %119, %117 ], [ %124, %120 ], [ %130, %125 ]
   %132 = load double, ptr @pymax, align 8
-  %133 = fcmp ogt double %.399, %132
-  %134 = fcmp ogt double %.2, %132
+  %133 = fcmp ogt double %.4100, %132
+  %134 = fcmp ogt double %.3, %132
   %or.cond140 = select i1 %133, i1 %134, i1 false
   br i1 %or.cond140, label %172, label %135
 
 135:                                              ; preds = %131
   %136 = load double, ptr @pymin, align 8
-  %137 = fcmp olt double %.399, %136
-  %138 = fcmp olt double %.2, %136
+  %137 = fcmp olt double %.4100, %136
+  %138 = fcmp olt double %.3, %136
   %or.cond141 = select i1 %137, i1 %138, i1 false
   br i1 %or.cond141, label %172, label %139
 
@@ -328,9 +328,9 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br label %145
 
 145:                                              ; preds = %140, %139
-  %.4110 = phi double [ %144, %140 ], [ %.3109, %139 ]
-  %.4100 = phi double [ %132, %140 ], [ %.399, %139 ]
-  %146 = fcmp olt double %.4100, %136
+  %.5111 = phi double [ %144, %140 ], [ %.4110, %139 ]
+  %.5 = phi double [ %132, %140 ], [ %.4100, %139 ]
+  %146 = fcmp olt double %.5, %136
   br i1 %146, label %147, label %152
 
 147:                                              ; preds = %145
@@ -341,8 +341,8 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br label %152
 
 152:                                              ; preds = %147, %145
-  %.5111 = phi double [ %151, %147 ], [ %.4110, %145 ]
-  %.5 = phi double [ %136, %147 ], [ %.4100, %145 ]
+  %.6112 = phi double [ %151, %147 ], [ %.5111, %145 ]
+  %.6 = phi double [ %136, %147 ], [ %.5, %145 ]
   br i1 %134, label %153, label %158
 
 153:                                              ; preds = %152
@@ -353,9 +353,9 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br label %158
 
 158:                                              ; preds = %153, %152
-  %.3104 = phi double [ %157, %153 ], [ %.2103, %152 ]
-  %.3 = phi double [ %132, %153 ], [ %.2, %152 ]
-  %159 = fcmp olt double %.3, %136
+  %.4105 = phi double [ %157, %153 ], [ %.3104, %152 ]
+  %.4 = phi double [ %132, %153 ], [ %.3, %152 ]
+  %159 = fcmp olt double %.4, %136
   br i1 %159, label %160, label %165
 
 160:                                              ; preds = %158
@@ -366,20 +366,20 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br label %165
 
 165:                                              ; preds = %158, %160, %78, %80
-  %.6112 = phi double [ %.2108, %80 ], [ %.2108, %78 ], [ %.5111, %160 ], [ %.5111, %158 ]
-  %.4105 = phi double [ %56, %80 ], [ %.1102, %78 ], [ %164, %160 ], [ %.3104, %158 ]
-  %.6 = phi double [ %.298, %80 ], [ %.298, %78 ], [ %.5, %160 ], [ %.5, %158 ]
-  %.4 = phi double [ %84, %80 ], [ %.1, %78 ], [ %136, %160 ], [ %.3, %158 ]
+  %.3109 = phi double [ %.2108, %80 ], [ %.2108, %78 ], [ %.6112, %160 ], [ %.6112, %158 ]
+  %.2103 = phi double [ %56, %80 ], [ %.1102, %78 ], [ %164, %160 ], [ %.4105, %158 ]
+  %.399 = phi double [ %.298, %80 ], [ %.298, %78 ], [ %.6, %160 ], [ %.6, %158 ]
+  %.2 = phi double [ %84, %80 ], [ %.1, %78 ], [ %136, %160 ], [ %.4, %158 ]
   %166 = getelementptr inbounds i8, ptr %0, i64 40
   %167 = load ptr, ptr %166, align 8
-  tail call void @addVertex(ptr noundef %167, double noundef %.6112, double noundef %.6) #5
+  tail call void @addVertex(ptr noundef %167, double noundef %.3109, double noundef %.399) #5
   %168 = load ptr, ptr %166, align 8
-  tail call void @addVertex(ptr noundef %168, double noundef %.4105, double noundef %.4) #5
+  tail call void @addVertex(ptr noundef %168, double noundef %.2103, double noundef %.2) #5
   %169 = getelementptr inbounds i8, ptr %0, i64 48
   %170 = load ptr, ptr %169, align 8
-  tail call void @addVertex(ptr noundef %170, double noundef %.6112, double noundef %.6) #5
+  tail call void @addVertex(ptr noundef %170, double noundef %.3109, double noundef %.399) #5
   %171 = load ptr, ptr %169, align 8
-  tail call void @addVertex(ptr noundef %171, double noundef %.4105, double noundef %.4) #5
+  tail call void @addVertex(ptr noundef %171, double noundef %.2103, double noundef %.2) #5
   br label %172
 
 172:                                              ; preds = %135, %131, %55, %51, %111, %88, %31, %8, %165

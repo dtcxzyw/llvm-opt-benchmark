@@ -8004,9 +8004,9 @@ _ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit: ; preds = %._crit_edge274.t
 
 _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %.lr.ph19.preheader.i.thread, %._crit_edge280._ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge, %135, %.lr.ph19.preheader.i
   %.pre-phi352 = phi i1 [ %123, %._crit_edge280._ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge ], [ false, %135 ], [ false, %.lr.ph19.preheader.i ], [ true, %.lr.ph19.preheader.i.thread ]
-  %.sroa.16.0 = phi i32 [ %71, %._crit_edge280._ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge ], [ 1, %135 ], [ 1, %.lr.ph19.preheader.i ], [ 1, %.lr.ph19.preheader.i.thread ]
-  %.sroa.27.0 = phi ptr [ %70, %._crit_edge280._ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge ], [ %134, %135 ], [ %134, %.lr.ph19.preheader.i ], [ %.0.i.i138.ph, %.lr.ph19.preheader.i.thread ]
-  store ptr %82, ptr %.sroa.27.0, align 8
+  %.sroa.16.3 = phi i32 [ %71, %._crit_edge280._ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge ], [ 1, %135 ], [ 1, %.lr.ph19.preheader.i ], [ 1, %.lr.ph19.preheader.i.thread ]
+  %.sroa.27.3 = phi ptr [ %70, %._crit_edge280._ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit_crit_edge ], [ %134, %135 ], [ %134, %.lr.ph19.preheader.i ], [ %.0.i.i138.ph, %.lr.ph19.preheader.i.thread ]
+  store ptr %82, ptr %.sroa.27.3, align 8
   %136 = icmp sgt i32 %14, 0
   %137 = getelementptr inbounds i8, ptr %3, i64 16
   %138 = getelementptr inbounds i8, ptr %0, i64 40
@@ -8029,18 +8029,18 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit: 
 
 .loopexit:                                        ; preds = %468, %.loopexit262
   %.sroa.0215.1.lcssa = phi i32 [ %153, %.loopexit262 ], [ %.sroa.0215.2, %468 ]
-  %.sroa.16.2.lcssa = phi i32 [ %.sroa.16.1306, %.loopexit262 ], [ %.sroa.16.4, %468 ]
-  %.sroa.27.2.lcssa = phi ptr [ %.sroa.27.1307, %.loopexit262 ], [ %.sroa.27.4, %468 ]
+  %.sroa.16.1.lcssa = phi i32 [ %.sroa.16.0306, %.loopexit262 ], [ %.sroa.16.2, %468 ]
+  %.sroa.27.1.lcssa = phi ptr [ %.sroa.27.0307, %.loopexit262 ], [ %.sroa.27.2, %468 ]
   %151 = icmp sgt i32 %.sroa.0215.1.lcssa, 0
   br i1 %151, label %152, label %471, !llvm.loop !35
 
 152:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit, %.loopexit
-  %.sroa.27.1307 = phi ptr [ %.sroa.27.0, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.27.2.lcssa, %.loopexit ]
-  %.sroa.16.1306 = phi i32 [ %.sroa.16.0, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.16.2.lcssa, %.loopexit ]
+  %.sroa.27.0307 = phi ptr [ %.sroa.27.3, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.27.1.lcssa, %.loopexit ]
+  %.sroa.16.0306 = phi i32 [ %.sroa.16.3, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.16.1.lcssa, %.loopexit ]
   %.sroa.0215.0305 = phi i32 [ 1, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.0215.1.lcssa, %.loopexit ]
   %153 = add nsw i32 %.sroa.0215.0305, -1
   %154 = zext nneg i32 %153 to i64
-  %155 = getelementptr inbounds ptr, ptr %.sroa.27.1307, i64 %154
+  %155 = getelementptr inbounds ptr, ptr %.sroa.27.0307, i64 %154
   %156 = load ptr, ptr %155, align 8
   %157 = load i32, ptr %156, align 4
   %158 = sext i32 %157 to i64
@@ -8318,8 +8318,8 @@ _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit13
 
 .lr.ph301:                                        ; preds = %.loopexit262, %468
   %276 = phi i32 [ %469, %468 ], [ %274, %.loopexit262 ]
-  %.sroa.27.2299 = phi ptr [ %.sroa.27.4, %468 ], [ %.sroa.27.1307, %.loopexit262 ]
-  %.sroa.16.2298 = phi i32 [ %.sroa.16.4, %468 ], [ %.sroa.16.1306, %.loopexit262 ]
+  %.sroa.27.1299 = phi ptr [ %.sroa.27.2, %468 ], [ %.sroa.27.0307, %.loopexit262 ]
+  %.sroa.16.1298 = phi i32 [ %.sroa.16.2, %468 ], [ %.sroa.16.0306, %.loopexit262 ]
   %.sroa.0215.1296 = phi i32 [ %.sroa.0215.2, %468 ], [ %153, %.loopexit262 ]
   %277 = load ptr, ptr %75, align 8
   %278 = add nsw i32 %276, -1
@@ -8671,13 +8671,13 @@ _ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7ciBlockS1_.exit: ; pr
   br i1 %.not260, label %432, label %468
 
 432:                                              ; preds = %_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7ciBlockS1_.exit
-  %433 = icmp eq i32 %.sroa.0215.1296, %.sroa.16.2298
+  %433 = icmp eq i32 %.sroa.0215.1296, %.sroa.16.1298
   br i1 %433, label %434, label %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit133
 
 434:                                              ; preds = %432
-  %435 = add nsw i32 %.sroa.16.2298, 1
-  %436 = icmp sgt i32 %.sroa.16.2298, -1
-  %437 = xor i32 %.sroa.16.2298, -2147483648
+  %435 = add nsw i32 %.sroa.16.1298, 1
+  %436 = icmp sgt i32 %.sroa.16.1298, -1
+  %437 = xor i32 %.sroa.16.1298, -2147483648
   %438 = and i32 %437, %435
   %439 = icmp eq i32 %438, 0
   %440 = and i1 %436, %439
@@ -8704,15 +8704,15 @@ _ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7ciBlockS1_.exit: ; pr
 
 _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i165: ; preds = %449, %447, %444
   %.0.i.i166 = phi ptr [ %445, %444 ], [ %448, %447 ], [ %450, %449 ]
-  %451 = icmp sgt i32 %.sroa.16.2298, 0
+  %451 = icmp sgt i32 %.sroa.16.1298, 0
   br i1 %451, label %.lr.ph.i176.preheader, label %.preheader16.i167
 
 .lr.ph.i176.preheader:                            ; preds = %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i165
-  %452 = zext nneg i32 %.sroa.16.2298 to i64
+  %452 = zext nneg i32 %.sroa.16.1298 to i64
   br label %.lr.ph.i176
 
 .preheader16.i167:                                ; preds = %.lr.ph.i176, %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i165
-  %.0.lcssa.i168 = phi i32 [ 0, %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i165 ], [ %.sroa.16.2298, %.lr.ph.i176 ]
+  %.0.lcssa.i168 = phi i32 [ 0, %_ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i165 ], [ %.sroa.16.1298, %.lr.ph.i176 ]
   %453 = icmp slt i32 %.0.lcssa.i168, %.0.i.i.i.i.i131
   br i1 %453, label %.lr.ph19.preheader.i172, label %.preheader.i169
 
@@ -8731,7 +8731,7 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i165: ; preds = %449, %447, %444
 .lr.ph.i176:                                      ; preds = %.lr.ph.i176.preheader, %.lr.ph.i176
   %indvars.iv.i177 = phi i64 [ %indvars.iv.next.i178, %.lr.ph.i176 ], [ 0, %.lr.ph.i176.preheader ]
   %461 = getelementptr inbounds ptr, ptr %.0.i.i166, i64 %indvars.iv.i177
-  %462 = getelementptr inbounds ptr, ptr %.sroa.27.2299, i64 %indvars.iv.i177
+  %462 = getelementptr inbounds ptr, ptr %.sroa.27.1299, i64 %indvars.iv.i177
   %463 = load ptr, ptr %462, align 8
   store ptr %463, ptr %461, align 8
   %indvars.iv.next.i178 = add nuw nsw i64 %indvars.iv.i177, 1
@@ -8739,27 +8739,27 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i165: ; preds = %449, %447, %444
   br i1 %exitcond339.not, label %.preheader16.i167, label %.lr.ph.i176, !llvm.loop !40
 
 .preheader.i169:                                  ; preds = %.lr.ph19.preheader.i172, %.preheader16.i167
-  %.not.i170 = icmp eq ptr %.sroa.27.2299, null
+  %.not.i170 = icmp eq ptr %.sroa.27.1299, null
   %or.cond253 = or i1 %.pre-phi352, %.not.i170
   br i1 %or.cond253, label %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit133, label %464
 
 464:                                              ; preds = %.preheader.i169
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.27.2299) #12
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.27.1299) #12
   br label %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit133
 
 _ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit133: ; preds = %464, %.preheader.i169, %432
-  %.sroa.16.3 = phi i32 [ %.sroa.16.2298, %432 ], [ %.0.i.i.i.i.i131, %.preheader.i169 ], [ %.0.i.i.i.i.i131, %464 ]
-  %.sroa.27.3 = phi ptr [ %.sroa.27.2299, %432 ], [ %.0.i.i166, %.preheader.i169 ], [ %.0.i.i166, %464 ]
+  %.sroa.16.4 = phi i32 [ %.sroa.16.1298, %432 ], [ %.0.i.i.i.i.i131, %.preheader.i169 ], [ %.0.i.i.i.i.i131, %464 ]
+  %.sroa.27.4 = phi ptr [ %.sroa.27.1299, %432 ], [ %.0.i.i166, %.preheader.i169 ], [ %.0.i.i166, %464 ]
   %465 = add nsw i32 %.sroa.0215.1296, 1
   %466 = sext i32 %.sroa.0215.1296 to i64
-  %467 = getelementptr inbounds ptr, ptr %.sroa.27.3, i64 %466
+  %467 = getelementptr inbounds ptr, ptr %.sroa.27.4, i64 %466
   store ptr %281, ptr %467, align 8
   br label %468
 
 468:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit133, %_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7ciBlockS1_.exit
   %.sroa.0215.2 = phi i32 [ %.sroa.0215.1296, %_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7ciBlockS1_.exit ], [ %465, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit133 ]
-  %.sroa.16.4 = phi i32 [ %.sroa.16.2298, %_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7ciBlockS1_.exit ], [ %.sroa.16.3, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit133 ]
-  %.sroa.27.4 = phi ptr [ %.sroa.27.2299, %_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7ciBlockS1_.exit ], [ %.sroa.27.3, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit133 ]
+  %.sroa.16.2 = phi i32 [ %.sroa.16.1298, %_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7ciBlockS1_.exit ], [ %.sroa.16.4, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit133 ]
+  %.sroa.27.2 = phi ptr [ %.sroa.27.1299, %_ZN16BCEscapeAnalyzer18merge_block_statesEPNS_9StateInfoEP7ciBlockS1_.exit ], [ %.sroa.27.4, %_ZN26GrowableArrayWithAllocatorIP7ciBlock13GrowableArrayIS1_EE4pushERKS1_.exit133 ]
   %469 = load i32, ptr %4, align 8
   %470 = icmp sgt i32 %469, 0
   br i1 %470, label %.lr.ph301, label %.loopexit, !llvm.loop !43
@@ -8791,14 +8791,14 @@ _ZN13GrowableArrayIP7ciBlockE10deallocateEPS1_.exit.i: ; preds = %.loopexit.thre
   br label %_ZN13GrowableArrayIP7ciBlockED2Ev.exit
 
 _ZN13GrowableArrayIP7ciBlockED2Ev.exit:           ; preds = %_ZN13GrowableArrayIP7ciBlockE10deallocateEPS1_.exit.i, %474, %471
-  %478 = icmp eq i32 %.sroa.16.2.lcssa, 0
+  %478 = icmp eq i32 %.sroa.16.1.lcssa, 0
   %or.cond254 = select i1 %.pre-phi352, i1 true, i1 %478
-  %.not.i191 = icmp eq ptr %.sroa.27.2.lcssa, null
+  %.not.i191 = icmp eq ptr %.sroa.27.1.lcssa, null
   %or.cond255 = select i1 %or.cond254, i1 true, i1 %.not.i191
   br i1 %or.cond255, label %_ZN13GrowableArrayIP7ciBlockED2Ev.exit136, label %.loopexit.thread.i192
 
 .loopexit.thread.i192:                            ; preds = %_ZN13GrowableArrayIP7ciBlockED2Ev.exit
-  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.27.2.lcssa) #12
+  call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.27.1.lcssa) #12
   br label %_ZN13GrowableArrayIP7ciBlockED2Ev.exit136
 
 _ZN13GrowableArrayIP7ciBlockED2Ev.exit136:        ; preds = %.loopexit.thread.i192, %_ZN13GrowableArrayIP7ciBlockED2Ev.exit

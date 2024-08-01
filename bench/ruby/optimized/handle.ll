@@ -635,13 +635,13 @@ define internal fastcc ptr @fiddle_handle_find_func(ptr noundef %0, i64 noundef 
   br i1 %.not41, label %28, label %.loopexit
 
 .loopexit:                                        ; preds = %21, %28, %31
-  %.6 = phi ptr [ null, %28 ], [ %33, %31 ], [ %23, %21 ]
+  %.5 = phi ptr [ null, %28 ], [ %33, %31 ], [ %23, %21 ]
   call void @ruby_xfree(ptr noundef nonnull %12) #11
   br label %35
 
 35:                                               ; preds = %.loopexit, %2
-  %.7 = phi ptr [ %6, %2 ], [ %.6, %.loopexit ]
-  ret ptr %.7
+  %.133 = phi ptr [ %6, %2 ], [ %.5, %.loopexit ]
+  ret ptr %.133
 }
 
 ; Function Attrs: noreturn

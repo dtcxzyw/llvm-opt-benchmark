@@ -195,14 +195,14 @@ calculate_num_nodes_up_to_level.exit:             ; preds = %._crit_edge92, %pow
   br label %66
 
 66:                                               ; preds = %.lr.ph96, %66
-  %.06295 = phi i32 [ %spec.select, %.lr.ph96 ], [ %67, %66 ]
-  %67 = sub nsw i32 %.06295, %65
+  %.195 = phi i32 [ %spec.select, %.lr.ph96 ], [ %67, %66 ]
+  %67 = sub nsw i32 %.195, %65
   %.not72 = icmp slt i32 %67, %.0.i
   br i1 %.not72, label %.loopexit, label %66, !llvm.loop !8
 
 .loopexit:                                        ; preds = %66, %.preheader, %calculate_num_nodes_up_to_level.exit
-  %.1 = phi i32 [ 0, %calculate_num_nodes_up_to_level.exit ], [ %spec.select, %.preheader ], [ %67, %66 ]
-  %68 = add nsw i32 %.1, %2
+  %.062 = phi i32 [ 0, %calculate_num_nodes_up_to_level.exit ], [ %spec.select, %.preheader ], [ %67, %66 ]
+  %68 = add nsw i32 %.062, %2
   %69 = srem i32 %68, %.val.val
   store i32 %69, ptr %13, align 4
   br label %70

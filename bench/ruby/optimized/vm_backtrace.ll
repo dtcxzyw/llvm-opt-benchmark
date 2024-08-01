@@ -807,7 +807,7 @@ define hidden void @rb_backtrace_print_as_bugreport(ptr nocapture noundef %0) lo
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %oldbt_bugreport.exit
-  %.sroa.3.0 = phi i32 [ 0, %.lr.ph.i.preheader ], [ %.sroa.3.3, %oldbt_bugreport.exit ]
+  %.sroa.3.0 = phi i32 [ 0, %.lr.ph.i.preheader ], [ %.sroa.3.1, %oldbt_bugreport.exit ]
   %.sroa.4.0 = phi i32 [ 0, %.lr.ph.i.preheader ], [ %.sroa.4.1, %oldbt_bugreport.exit ]
   %.sroa.0.0 = phi i64 [ %20, %.lr.ph.i.preheader ], [ %.sroa.0.1, %oldbt_bugreport.exit ]
   %.036.i = phi ptr [ %10, %.lr.ph.i.preheader ], [ %89, %oldbt_bugreport.exit ]
@@ -865,7 +865,7 @@ RSTRING_PTR.exit.i:                               ; preds = %45, %40, %oldbt_ite
   br label %49
 
 49:                                               ; preds = %47, %RSTRING_PTR.exit.i
-  %.sroa.3.1 = phi i32 [ 1, %47 ], [ %.sroa.3.0, %RSTRING_PTR.exit.i ]
+  %.sroa.3.2 = phi i32 [ 1, %47 ], [ %.sroa.3.0, %RSTRING_PTR.exit.i ]
   %50 = icmp eq i64 %29, 4
   br i1 %50, label %51, label %53
 
@@ -924,7 +924,7 @@ RSTRING_PTR.exit.i7:                              ; preds = %73, %68, %60
   br label %77
 
 77:                                               ; preds = %75, %RSTRING_PTR.exit.i7
-  %.sroa.3.2 = phi i32 [ 1, %75 ], [ %.sroa.3.0, %RSTRING_PTR.exit.i7 ]
+  %.sroa.3.3 = phi i32 [ 1, %75 ], [ %.sroa.3.0, %RSTRING_PTR.exit.i7 ]
   %78 = icmp eq i64 %..i.i, 4
   br i1 %78, label %79, label %81
 
@@ -950,7 +950,7 @@ RSTRING_PTR.exit17.i11:                           ; preds = %86, %81
   br label %oldbt_bugreport.exit
 
 oldbt_bugreport.exit:                             ; preds = %RSTRING_PTR.exit17.i11, %79, %RSTRING_PTR.exit17.i, %51, %23
-  %.sroa.3.3 = phi i32 [ %.sroa.3.0, %23 ], [ %.sroa.3.1, %51 ], [ %.sroa.3.1, %RSTRING_PTR.exit17.i ], [ %.sroa.3.2, %79 ], [ %.sroa.3.2, %RSTRING_PTR.exit17.i11 ]
+  %.sroa.3.1 = phi i32 [ %.sroa.3.0, %23 ], [ %.sroa.3.2, %51 ], [ %.sroa.3.2, %RSTRING_PTR.exit17.i ], [ %.sroa.3.3, %79 ], [ %.sroa.3.3, %RSTRING_PTR.exit17.i11 ]
   %.sroa.4.1 = phi i32 [ %.sroa.4.0, %23 ], [ %38, %51 ], [ %38, %RSTRING_PTR.exit17.i ], [ %.sroa.4.0, %79 ], [ %.sroa.4.0, %RSTRING_PTR.exit17.i11 ]
   %.sroa.0.1 = phi i64 [ %.sroa.0.0, %23 ], [ %25, %51 ], [ %25, %RSTRING_PTR.exit17.i ], [ %.sroa.0.0, %79 ], [ %.sroa.0.0, %RSTRING_PTR.exit17.i11 ]
   %88 = add nuw nsw i64 %.02835.i, 1
@@ -4056,14 +4056,14 @@ define internal fastcc i64 @calculate_iseq_label(i64 noundef %0, ptr noundef %1)
   br i1 %.not2232, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.01834 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
-  %.12033 = phi ptr [ %25, %.lr.ph ], [ %.019, %.preheader ]
-  %19 = getelementptr inbounds i8, ptr %.12033, i64 16
+  %.134 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
+  %.22133 = phi ptr [ %25, %.lr.ph ], [ %.019, %.preheader ]
+  %19 = getelementptr inbounds i8, ptr %.22133, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 2
   %23 = zext i1 %22 to i32
-  %spec.select = add i32 %.01834, %23
+  %spec.select = add i32 %.134, %23
   %24 = getelementptr inbounds i8, ptr %20, i64 160
   %25 = load ptr, ptr %24, align 8
   %.not22 = icmp eq ptr %18, %25
@@ -4078,8 +4078,8 @@ common.ret73:                                     ; preds = %10, %7, %29, %.thre
   ret i64 %common.ret73.op
 
 .thread:                                          ; preds = %.preheader, %14, %._crit_edge
-  %.22125 = phi ptr [ %25, %._crit_edge ], [ %.019, %14 ], [ %.019, %.preheader ]
-  %27 = tail call fastcc i64 @calculate_iseq_label(i64 noundef %0, ptr noundef %.22125)
+  %.12025 = phi ptr [ %25, %._crit_edge ], [ %.019, %14 ], [ %.019, %.preheader ]
+  %27 = tail call fastcc i64 @calculate_iseq_label(i64 noundef %0, ptr noundef %.12025)
   %28 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.22, i64 noundef %27) #4
   br label %common.ret73
 

@@ -581,7 +581,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i: ; pr
 
 38:                                               ; preds = %.body, %34
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %35, %34 ]
-  %.1 = phi i1 [ %.0.lpad-body, %.body ], [ true, %34 ]
+  %.2 = phi i1 [ %.0.lpad-body, %.body ], [ true, %34 ]
   %39 = getelementptr inbounds i8, ptr %6, i64 32
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %6, i64 40
@@ -619,7 +619,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: 
 
 48:                                               ; preds = %47, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
-  br i1 %.1, label %49, label %50
+  br i1 %.2, label %49, label %50
 
 49:                                               ; preds = %.thread, %48
   %.pn.pn13 = phi { ptr, i32 } [ %33, %.thread ], [ %.pn, %48 ]

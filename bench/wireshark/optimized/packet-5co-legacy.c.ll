@@ -300,7 +300,7 @@ define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr no
   %23 = phi i32 [ 0, %9 ], [ %440, %.critedge ]
   %.0441542 = phi i16 [ 0, %9 ], [ %439, %.critedge ]
   %.0442541 = phi ptr [ null, %9 ], [ %.1443, %.critedge ]
-  %.0446540 = phi i32 [ 0, %9 ], [ %.2448, %.critedge ]
+  %.0446540 = phi i32 [ 0, %9 ], [ %.1447, %.critedge ]
   %24 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %23) #8
   %25 = zext i16 %24 to i32
   %26 = call ptr @try_val_to_str(i32 noundef %25, ptr noundef nonnull @packettypenames) #8
@@ -341,7 +341,7 @@ define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr no
   br label %50
 
 50:                                               ; preds = %41, %47
-  %.1447 = phi i32 [ 1, %47 ], [ %.0446540, %41 ]
+  %.2448 = phi i32 [ 1, %47 ], [ %.0446540, %41 ]
   %51 = call ptr @wmem_file_scope() #8
   %52 = call noalias ptr @wmem_alloc(ptr noundef %51, i64 noundef 8) #8
   %53 = load i64, ptr @g_unInternalID, align 8
@@ -353,7 +353,7 @@ define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr no
   br label %57
 
 57:                                               ; preds = %50, %36
-  %.2448 = phi i32 [ %.0446540, %36 ], [ %.1447, %50 ]
+  %.1447 = phi i32 [ %.0446540, %36 ], [ %.2448, %50 ]
   %.0445 = phi ptr [ %40, %36 ], [ %52, %50 ]
   store i16 %24, ptr %18, align 8
   %58 = load i64, ptr %.0445, align 8
@@ -367,7 +367,7 @@ define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr no
   %65 = icmp eq i16 %64, 0
   %66 = icmp eq ptr %60, null
   %or.cond16.not475 = select i1 %65, i1 %66, i1 false
-  %67 = icmp ne i32 %.2448, 0
+  %67 = icmp ne i32 %.1447, 0
   %or.cond18 = select i1 %or.cond16.not475, i1 %67, i1 false
   br i1 %or.cond18, label %68, label %89
 
@@ -1041,9 +1041,9 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
 
 .lr.ph:                                           ; preds = %408, %.lr.ph
   %indvars.iv = phi i32 [ %indvars.iv.next, %.lr.ph ], [ 0, %408 ]
-  %.14509 = phi i16 [ %415, %.lr.ph ], [ %378, %408 ]
-  %415 = add i16 %.14509, 1
-  %416 = zext i16 %.14509 to i32
+  %.15509 = phi i16 [ %415, %.lr.ph ], [ %378, %408 ]
+  %415 = add i16 %.15509, 1
+  %416 = zext i16 %.15509 to i32
   %417 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %416) #8
   %418 = zext i8 %417 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %412, ptr noundef nonnull @.str.124, i32 noundef %418) #8

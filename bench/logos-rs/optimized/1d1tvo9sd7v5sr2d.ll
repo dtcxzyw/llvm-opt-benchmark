@@ -37,13 +37,13 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
           to label %21 unwind label %19
 
 17:                                               ; preds = %38, %19
-  %.sroa.012.0 = phi i8 [ %.sroa.012.1, %19 ], [ %.sroa.012.2, %38 ]
+  %.sroa.012.1 = phi i8 [ %.sroa.012.0, %19 ], [ %.sroa.012.2, %38 ]
   %.pn31 = phi { ptr, i32 } [ %20, %19 ], [ %.pn29, %38 ]
-  %18 = trunc nuw i8 %.sroa.012.0 to i1
+  %18 = trunc nuw i8 %.sroa.012.1 to i1
   br i1 %18, label %.thread, label %135
 
 19:                                               ; preds = %132, %106, %66, %4
-  %.sroa.012.1 = phi i8 [ 1, %66 ], [ 0, %106 ], [ 1, %132 ], [ 1, %4 ]
+  %.sroa.012.0 = phi i8 [ 1, %66 ], [ 0, %106 ], [ 1, %132 ], [ 1, %4 ]
   %20 = landingpad { ptr, i32 }
           cleanup
   br label %17
@@ -78,7 +78,7 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
           to label %126 unwind label %124
 
 38:                                               ; preds = %122, %77, %39
-  %.sroa.012.2 = phi i8 [ 1, %39 ], [ %.sroa.010.0, %122 ], [ %.sroa.010.0, %77 ]
+  %.sroa.012.2 = phi i8 [ 1, %39 ], [ %.sroa.010.1, %122 ], [ %.sroa.010.1, %77 ]
   %.pn29 = phi { ptr, i32 } [ %40, %39 ], [ %.pn27, %122 ], [ %.pn27, %77 ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$logos_codegen..parser..definition..Literal$GT$17h4114305ab5e0b3e4E"(ptr nonnull align 8 %16) #4
           to label %17 unwind label %110
@@ -170,13 +170,13 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
           to label %81 unwind label %79
 
 77:                                               ; preds = %120, %119, %118, %79
-  %.sroa.010.0 = phi i8 [ %.sroa.010.1, %79 ], [ %.sroa.010.2, %120 ], [ %.sroa.010.2, %118 ], [ %.sroa.010.2, %119 ]
+  %.sroa.010.1 = phi i8 [ %.sroa.010.0, %79 ], [ %.sroa.010.3, %120 ], [ %.sroa.010.3, %118 ], [ %.sroa.010.3, %119 ]
   %.pn27 = phi { ptr, i32 } [ %80, %79 ], [ %.pn25, %120 ], [ %.pn25, %118 ], [ %.pn25, %119 ]
-  %78 = trunc nuw i8 %.sroa.010.0 to i1
+  %78 = trunc nuw i8 %.sroa.010.1 to i1
   br i1 %78, label %122, label %38
 
 79:                                               ; preds = %115, %107, %76, %75
-  %.sroa.010.1 = phi i8 [ 0, %107 ], [ 0, %115 ], [ 1, %75 ], [ 1, %76 ]
+  %.sroa.010.0 = phi i8 [ 0, %107 ], [ 0, %115 ], [ 1, %75 ], [ 1, %76 ]
   %80 = landingpad { ptr, i32 }
           cleanup
   br label %77
@@ -221,7 +221,7 @@ define hidden void @_ZN13logos_codegen6parser10subpattern11Subpatterns3add17hf4e
           to label %103 unwind label %101
 
 98:                                               ; preds = %92, %108, %101
-  %.sroa.010.2 = phi i8 [ 0, %101 ], [ 1, %108 ], [ 1, %92 ]
+  %.sroa.010.3 = phi i8 [ 0, %101 ], [ 1, %108 ], [ 1, %92 ]
   %.pn25 = phi { ptr, i32 } [ %102, %101 ], [ %109, %108 ], [ %93, %92 ]
   %99 = load i64, ptr %7, align 8
   %100 = icmp eq i64 %99, 9

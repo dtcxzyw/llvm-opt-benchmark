@@ -328,12 +328,12 @@ define zeroext i16 @crc16_0x080F_seed(ptr nocapture noundef readonly %0, i32 nou
 
 .preheader:                                       ; preds = %3, %.preheader
   %.013 = phi ptr [ %5, %.preheader ], [ %0, %3 ]
-  %.0712 = phi i16 [ %16, %.preheader ], [ %2, %3 ]
+  %.112 = phi i16 [ %16, %.preheader ], [ %2, %3 ]
   %.0811 = phi i32 [ %4, %.preheader ], [ %1, %3 ]
   %4 = add i32 %.0811, -1
   %5 = getelementptr i8, ptr %.013, i64 1
   %6 = load i8, ptr %.013, align 1
-  %7 = zext i16 %.0712 to i32
+  %7 = zext i16 %.112 to i32
   %8 = lshr i32 %7, 8
   %9 = zext i8 %6 to i32
   %10 = xor i32 %8, %9
@@ -347,8 +347,8 @@ define zeroext i16 @crc16_0x080F_seed(ptr nocapture noundef readonly %0, i32 nou
   br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.preheader, %3
-  %.1 = phi i16 [ %2, %3 ], [ %16, %.preheader ]
-  ret i16 %.1
+  %.07 = phi i16 [ %2, %3 ], [ %16, %.preheader ]
+  ret i16 %.07
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

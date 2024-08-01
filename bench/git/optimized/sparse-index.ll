@@ -869,9 +869,9 @@ for.body.lr.ph:                                   ; preds = %if.end, %ensure_ful
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %dir_found.133 = phi i32 [ %dir_found.039, %for.body.lr.ph ], [ %dir_found.3, %for.inc ]
-  %dir_len.132 = phi i64 [ %dir_len.038, %for.body.lr.ph ], [ %dir_len.3, %for.inc ]
-  %last_dirname.131 = phi ptr [ %last_dirname.037, %for.body.lr.ph ], [ %last_dirname.3, %for.inc ]
+  %dir_found.133 = phi i32 [ %dir_found.039, %for.body.lr.ph ], [ %dir_found.2, %for.inc ]
+  %dir_len.132 = phi i64 [ %dir_len.038, %for.body.lr.ph ], [ %dir_len.2, %for.inc ]
+  %last_dirname.131 = phi ptr [ %last_dirname.037, %for.body.lr.ph ], [ %last_dirname.2, %for.inc ]
   %4 = load ptr, ptr %istate, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
@@ -928,9 +928,9 @@ if.end17.i:                                       ; preds = %land.lhs.true13.i, 
   br label %path_found.exit.thread
 
 path_found.exit.thread:                           ; preds = %if.end17.i, %land.lhs.true.i, %if.end5.i, %land.lhs.true13.i
-  %last_dirname.2.ph = phi ptr [ %last_dirname.131, %land.lhs.true13.i ], [ %name, %if.end17.i ], [ %last_dirname.131, %if.end5.i ], [ %last_dirname.131, %land.lhs.true.i ]
-  %dir_len.2.ph = phi i64 [ %dir_len.132, %land.lhs.true13.i ], [ %add.i, %if.end17.i ], [ %dir_len.132, %if.end5.i ], [ %dir_len.132, %land.lhs.true.i ]
-  %dir_found.2.ph = phi i32 [ %dir_found.133, %land.lhs.true13.i ], [ %lnot.ext.i, %if.end17.i ], [ %dir_found.133, %if.end5.i ], [ 0, %land.lhs.true.i ]
+  %last_dirname.3.ph = phi ptr [ %last_dirname.131, %land.lhs.true13.i ], [ %name, %if.end17.i ], [ %last_dirname.131, %if.end5.i ], [ %last_dirname.131, %land.lhs.true.i ]
+  %dir_len.3.ph = phi i64 [ %dir_len.132, %land.lhs.true13.i ], [ %add.i, %if.end17.i ], [ %dir_len.132, %if.end5.i ], [ %dir_len.132, %land.lhs.true.i ]
+  %dir_found.3.ph = phi i32 [ %dir_found.133, %land.lhs.true13.i ], [ %lnot.ext.i, %if.end17.i ], [ %dir_found.133, %if.end5.i ], [ 0, %land.lhs.true.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   br label %for.inc
 
@@ -961,9 +961,9 @@ if.end13:                                         ; preds = %if.then7
   br label %for.inc
 
 for.inc:                                          ; preds = %path_found.exit.thread, %for.body, %if.end13
-  %last_dirname.3 = phi ptr [ %last_dirname.131, %for.body ], [ %last_dirname.131, %if.end13 ], [ %last_dirname.2.ph, %path_found.exit.thread ]
-  %dir_len.3 = phi i64 [ %dir_len.132, %for.body ], [ %dir_len.132, %if.end13 ], [ %dir_len.2.ph, %path_found.exit.thread ]
-  %dir_found.3 = phi i32 [ %dir_found.133, %for.body ], [ %dir_found.133, %if.end13 ], [ %dir_found.2.ph, %path_found.exit.thread ]
+  %last_dirname.2 = phi ptr [ %last_dirname.131, %for.body ], [ %last_dirname.131, %if.end13 ], [ %last_dirname.3.ph, %path_found.exit.thread ]
+  %dir_len.2 = phi i64 [ %dir_len.132, %for.body ], [ %dir_len.132, %if.end13 ], [ %dir_len.3.ph, %path_found.exit.thread ]
+  %dir_found.2 = phi i32 [ %dir_found.133, %for.body ], [ %dir_found.133, %if.end13 ], [ %dir_found.3.ph, %path_found.exit.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %cache_nr, align 4
   %12 = zext i32 %11 to i64

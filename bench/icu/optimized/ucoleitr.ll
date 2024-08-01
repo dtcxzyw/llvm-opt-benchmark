@@ -631,9 +631,9 @@ if.else:                                          ; preds = %lor.lhs.false
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else, %if.end
-  %quaternary.2 = phi i64 [ %spec.select, %if.end ], [ %spec.select9, %if.else ]
+  %quaternary.1 = phi i64 [ %spec.select, %if.end ], [ %spec.select9, %if.else ]
   %or27 = phi i64 [ 0, %if.end ], [ %9, %if.else ]
-  %or28 = or i64 %or27, %quaternary.2
+  %or28 = or i64 %or27, %quaternary.1
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %if.end24
@@ -734,8 +734,8 @@ cleanup:                                          ; preds = %invoke.cont11, %if.
   br label %return
 
 return:                                           ; preds = %entry, %cleanup, %if.then7, %if.then3
-  %retval.1 = phi ptr [ null, %if.then3 ], [ null, %if.then7 ], [ %call12, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then3 ], [ null, %if.then7 ], [ %call12, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad10, %lpad
   %.pn = phi { ptr, i32 } [ %5, %lpad10 ], [ %3, %lpad ]
@@ -884,9 +884,9 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
   br label %if.end24.i
 
 if.end24.i:                                       ; preds = %if.else.i, %if.end.i
-  %quaternary.2.i = phi i64 [ %spec.select.i, %if.end.i ], [ %spec.select9.i, %if.else.i ]
+  %quaternary.1.i = phi i64 [ %spec.select.i, %if.end.i ], [ %spec.select9.i, %if.else.i ]
   %or27.i = phi i64 [ 0, %if.end.i ], [ %13, %if.else.i ]
-  %or28.i = or i64 %or27.i, %quaternary.2.i
+  %or28.i = or i64 %or27.i, %quaternary.1.i
   br label %_ZN6icu_7513UCollationPCE9processCEEj.exit
 
 _ZN6icu_7513UCollationPCE9processCEEj.exit:       ; preds = %lor.lhs.false.i, %if.end24.i
@@ -1168,9 +1168,9 @@ if.else.i:                                        ; preds = %lor.lhs.false.i
   br label %invoke.cont35
 
 invoke.cont35:                                    ; preds = %if.end.i43, %if.else.i
-  %quaternary.2.i = phi i64 [ %spec.select.i, %if.end.i43 ], [ %spec.select9.i, %if.else.i ]
+  %quaternary.1.i = phi i64 [ %spec.select.i, %if.end.i43 ], [ %spec.select9.i, %if.else.i ]
   %or27.i = phi i64 [ 0, %if.end.i43 ], [ %33, %if.else.i ]
-  %or28.i = or i64 %or27.i, %quaternary.2.i
+  %or28.i = or i64 %or27.i, %quaternary.1.i
   %cmp37.not = icmp eq i64 %or28.i, 0
   %.pre119 = load i32, ptr %status, align 4
   br i1 %cmp37.not, label %if.end43, label %if.then38
@@ -1324,8 +1324,8 @@ if.end70:                                         ; preds = %if.then68, %if.end6
   br label %return
 
 return:                                           ; preds = %cleanup.thread, %if.end56, %if.then58, %entry, %if.end70
-  %retval.2 = phi i64 [ %54, %if.end70 ], [ 9223372036854775807, %entry ], [ 9223372036854775807, %if.then58 ], [ 9223372036854775807, %if.end56 ], [ 9223372036854775807, %cleanup.thread ]
-  ret i64 %retval.2
+  %retval.0 = phi i64 [ %54, %if.end70 ], [ 9223372036854775807, %entry ], [ 9223372036854775807, %if.then58 ], [ 9223372036854775807, %if.end56 ], [ 9223372036854775807, %cleanup.thread ]
+  ret i64 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

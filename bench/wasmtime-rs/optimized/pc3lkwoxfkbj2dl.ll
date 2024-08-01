@@ -238,9 +238,9 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   br label %.lr.ph34.i
 
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.preheader.i
-  %.030.i = phi i64 [ %47, %46 ], [ 2, %.lr.ph.preheader.i ]
-  %44 = getelementptr inbounds { i64, [11 x i64] }, ptr %39, i64 %.030.i
-  %gep.i = getelementptr { i64, [11 x i64] }, ptr %invariant.gep.i, i64 %.030.i
+  %.130.i = phi i64 [ %47, %46 ], [ 2, %.lr.ph.preheader.i ]
+  %44 = getelementptr inbounds { i64, [11 x i64] }, ptr %39, i64 %.130.i
+  %gep.i = getelementptr { i64, [11 x i64] }, ptr %invariant.gep.i, i64 %.130.i
   %45 = invoke zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h4ce80d04be5f66a4E"(ptr align 8 %2, ptr nonnull align 8 %44, ptr nonnull align 8 %gep.i)
           to label %.noexc36 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -248,14 +248,14 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %.noexc36
-  %47 = add nuw i64 %.030.i, 1
+  %47 = add nuw i64 %.130.i, 1
   %exitcond.not.i = icmp eq i64 %47, %38
   br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i
 
 .lr.ph34.i:                                       ; preds = %50, %.lr.ph34.preheader.i
-  %.133.i = phi i64 [ %51, %50 ], [ 2, %.lr.ph34.preheader.i ]
-  %48 = getelementptr inbounds { i64, [11 x i64] }, ptr %39, i64 %.133.i
-  %gep45.i = getelementptr { i64, [11 x i64] }, ptr %invariant.gep44.i, i64 %.133.i
+  %.033.i = phi i64 [ %51, %50 ], [ 2, %.lr.ph34.preheader.i ]
+  %48 = getelementptr inbounds { i64, [11 x i64] }, ptr %39, i64 %.033.i
+  %gep45.i = getelementptr { i64, [11 x i64] }, ptr %invariant.gep44.i, i64 %.033.i
   %49 = invoke zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h4ce80d04be5f66a4E"(ptr align 8 %2, ptr nonnull align 8 %48, ptr nonnull align 8 %gep45.i)
           to label %.noexc37 unwind label %.loopexit.split-lp.loopexit
 
@@ -263,7 +263,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
   br i1 %49, label %50, label %.loopexit60
 
 50:                                               ; preds = %.noexc37
-  %51 = add nuw i64 %.133.i, 1
+  %51 = add nuw i64 %.033.i, 1
   %exitcond41.not.i = icmp eq i64 %51, %38
   br i1 %exitcond41.not.i, label %.loopexit60, label %.lr.ph34.i
 
@@ -298,7 +298,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
           to label %30 unwind label %175
 
 .thread:                                          ; preds = %46, %.noexc36, %37, %.preheader28.i
-  %.sroa.0.0.i.ph = phi i64 [ 2, %.preheader28.i ], [ %38, %37 ], [ %38, %46 ], [ %.030.i, %.noexc36 ]
+  %.sroa.0.0.i.ph = phi i64 [ 2, %.preheader28.i ], [ %38, %37 ], [ %38, %46 ], [ %.130.i, %.noexc36 ]
   %52 = add i64 %.sroa.0.0.i.ph, %.067
   br label %53
 
@@ -308,7 +308,7 @@ define void @_ZN4core5slice4sort10merge_sort17hcc30410b81815c73E(ptr align 8 %0,
           to label %61 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit60:                                      ; preds = %.noexc37, %50, %.preheader.i
-  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.133.i, %.noexc37 ], [ %38, %50 ]
+  %.sroa.0.0.i = phi i64 [ 2, %.preheader.i ], [ %.033.i, %.noexc37 ], [ %38, %50 ]
   %56 = add i64 %.sroa.0.0.i, %.067
   %57 = invoke { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3e4456e33477cf74E"(i64 %.067, i64 %56, ptr nonnull align 8 %0, i64 %13, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.9)
           to label %58 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -762,32 +762,32 @@ define { i64, i1 } @_ZN4core5slice4sort11find_streak17hee4e9ef47a3cf12cE(ptr ali
   br label %.lr.ph34
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
-  %.030 = phi i64 [ %12, %11 ], [ 2, %.lr.ph.preheader ]
-  %9 = getelementptr inbounds { i64, [11 x i64] }, ptr %0, i64 %.030
-  %gep = getelementptr { i64, [11 x i64] }, ptr %invariant.gep, i64 %.030
+  %.130 = phi i64 [ %12, %11 ], [ 2, %.lr.ph.preheader ]
+  %9 = getelementptr inbounds { i64, [11 x i64] }, ptr %0, i64 %.130
+  %gep = getelementptr { i64, [11 x i64] }, ptr %invariant.gep, i64 %.130
   %10 = tail call zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h4ce80d04be5f66a4E"(ptr align 8 %2, ptr nonnull align 8 %9, ptr nonnull align 8 %gep)
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = add nuw i64 %.030, 1
+  %12 = add nuw i64 %.130, 1
   %exitcond.not = icmp eq i64 %12, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %15
-  %.133 = phi i64 [ %16, %15 ], [ 2, %.lr.ph34.preheader ]
-  %13 = getelementptr inbounds { i64, [11 x i64] }, ptr %0, i64 %.133
-  %gep45 = getelementptr { i64, [11 x i64] }, ptr %invariant.gep44, i64 %.133
+  %.033 = phi i64 [ %16, %15 ], [ 2, %.lr.ph34.preheader ]
+  %13 = getelementptr inbounds { i64, [11 x i64] }, ptr %0, i64 %.033
+  %gep45 = getelementptr { i64, [11 x i64] }, ptr %invariant.gep44, i64 %.033
   %14 = tail call zeroext i1 @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h4ce80d04be5f66a4E"(ptr align 8 %2, ptr nonnull align 8 %13, ptr nonnull align 8 %gep45)
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %.lr.ph34
-  %16 = add nuw i64 %.133, 1
+  %16 = add nuw i64 %.033, 1
   %exitcond41.not = icmp eq i64 %16, %1
   br i1 %exitcond41.not, label %.loopexit, label %.lr.ph34
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %.lr.ph34, %15, %.preheader28, %.preheader, %3
   %.sroa.4.0 = phi i1 [ false, %3 ], [ true, %.preheader ], [ false, %.preheader28 ], [ true, %15 ], [ true, %.lr.ph34 ], [ false, %11 ], [ false, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ 2, %.preheader28 ], [ %.133, %.lr.ph34 ], [ %1, %15 ], [ %.030, %.lr.ph ], [ %1, %11 ]
+  %.sroa.0.0 = phi i64 [ %1, %3 ], [ 2, %.preheader ], [ 2, %.preheader28 ], [ %.033, %.lr.ph34 ], [ %1, %15 ], [ %.130, %.lr.ph ], [ %1, %11 ]
   %17 = insertvalue { i64, i1 } poison, i64 %.sroa.0.0, 0
   %18 = insertvalue { i64, i1 } %17, i1 %.sroa.4.0, 1
   ret { i64, i1 } %18

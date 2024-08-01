@@ -1706,13 +1706,13 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
   br label %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEEaSERKS3_.exitthread-pre-split
 
 _ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEEaSERKS3_.exitthread-pre-split: ; preds = %364, %377, %397, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
-  %.030.ph = phi i32 [ 1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ], [ 5, %397 ], [ 5, %377 ], [ 5, %364 ]
+  %.131.ph = phi i32 [ 1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i ], [ 5, %397 ], [ 5, %377 ], [ 5, %364 ]
   %.pr83 = load ptr, ptr %348, align 8
   br label %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEEaSERKS3_.exit
 
 _ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEEaSERKS3_.exit: ; preds = %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEEaSERKS3_.exitthread-pre-split, %405
   %454 = phi ptr [ %.pr83, %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEEaSERKS3_.exitthread-pre-split ], [ %408, %405 ]
-  %.030 = phi i32 [ %.030.ph, %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEEaSERKS3_.exitthread-pre-split ], [ 1, %405 ]
+  %.131 = phi i32 [ %.131.ph, %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEEaSERKS3_.exitthread-pre-split ], [ 1, %405 ]
   %.not.i.i.i43 = icmp eq ptr %454, null
   br i1 %.not.i.i.i43, label %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEED2Ev.exit, label %455
 
@@ -1791,8 +1791,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 490:                                              ; preds = %489, %366
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %489 ], [ %367, %366 ]
-  %.3 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %491 = call ptr @__cxa_begin_catch(ptr %.3) #25
+  %.4 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %491 = call ptr @__cxa_begin_catch(ptr %.4) #25
   %492 = invoke noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
           to label %495 unwind label %493
 
@@ -1881,13 +1881,13 @@ _ZN2cv6plugin4implL15toPrintablePathERKNSt7__cxx1112basic_stringIcSt11char_trait
           to label %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEED2Ev.exit unwind label %361
 
 _ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i48, %484, %471, %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEEaSERKS3_.exit, %522
-  %.131.ph = phi i32 [ %.030, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i48 ], [ %.030, %484 ], [ %.030, %471 ], [ %.030, %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEEaSERKS3_.exit ], [ 0, %522 ]
+  %.030.ph = phi i32 [ %.131, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i48 ], [ %.131, %484 ], [ %.131, %471 ], [ %.131, %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEEaSERKS3_.exit ], [ 0, %522 ]
   %.pr = load ptr, ptr %345, align 8
   %.not.i.i.i51 = icmp eq ptr %.pr, null
   br i1 %.not.i.i.i51, label %_ZNSt10shared_ptrIN2cv6plugin4impl10DynamicLibEED2Ev.exit, label %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEED2Ev.exit.thread
 
 _ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEED2Ev.exit.thread: ; preds = %357, %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEED2Ev.exit
-  %.13164 = phi i32 [ %.131.ph, %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEED2Ev.exit ], [ 5, %357 ]
+  %.03064 = phi i32 [ %.030.ph, %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEED2Ev.exit ], [ 5, %357 ]
   %523 = phi ptr [ %.pr, %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEED2Ev.exit ], [ %352, %357 ]
   %524 = getelementptr inbounds i8, ptr %523, i64 8
   %525 = load atomic i64, ptr %524 acquire, align 8
@@ -1957,8 +1957,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN2cv6plugin4impl10DynamicLibEED2Ev.exit
 
 _ZNSt10shared_ptrIN2cv6plugin4impl10DynamicLibEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEED2Ev.exit, %539, %552, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i56
-  %.13165 = phi i32 [ %.131.ph, %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEED2Ev.exit ], [ %.13164, %539 ], [ %.13164, %552 ], [ %.13164, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i56 ]
-  switch i32 %.13165, label %._crit_edge [
+  %.03065 = phi i32 [ %.030.ph, %_ZNSt10shared_ptrIN2cv4impl15PluginUIBackendEED2Ev.exit ], [ %.03064, %539 ], [ %.03064, %552 ], [ %.03064, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i56 ]
+  switch i32 %.03065, label %._crit_edge [
     i32 0, label %557
     i32 5, label %557
   ]
@@ -3344,7 +3344,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %322
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit80.thread: ; preds = %274, %267, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit80, %237, %218
-  %.036 = phi i1 [ false, %218 ], [ false, %237 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit80 ], [ true, %267 ], [ true, %274 ]
+  %.1 = phi i1 [ false, %218 ], [ false, %237 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit80 ], [ true, %267 ], [ true, %274 ]
   %287 = load ptr, ptr %200, align 8
   %.not.i.i.i81 = icmp eq ptr %287, null
   br i1 %.not.i.i.i81, label %_ZNSt10shared_ptrIN2cv15highgui_backend9UIBackendEED2Ev.exit87, label %288
@@ -3423,7 +3423,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.body74
 
 _ZNSt10shared_ptrIN2cv15highgui_backend9UIBackendEED2Ev.exit87: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i86, %317, %304, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit80.thread, %67, %44
-  %.1 = phi i1 [ true, %44 ], [ true, %67 ], [ %.036, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit80.thread ], [ %.036, %304 ], [ %.036, %317 ], [ %.036, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i86 ]
+  %.036 = phi i1 [ true, %44 ], [ true, %67 ], [ %.1, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit80.thread ], [ %.1, %304 ], [ %.1, %317 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i86 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %323 = getelementptr inbounds i8, ptr %2, i64 8
   %324 = load i32, ptr %323, align 8
@@ -3442,7 +3442,7 @@ _ZNSt10shared_ptrIN2cv15highgui_backend9UIBackendEED2Ev.exit87: ; preds = %_ZNSt
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt10shared_ptrIN2cv15highgui_backend9UIBackendEED2Ev.exit87, %325
-  ret i1 %.1
+  ret i1 %.036
 
 .body74:                                          ; preds = %40, %197, %322, %.body, %101, %78
   %.pn68.pn = phi { ptr, i32 } [ %.pn68, %78 ], [ %.pn62.pn, %322 ], [ %114, %.body ], [ %.pn, %101 ], [ %41, %40 ], [ %198, %197 ]
@@ -3663,7 +3663,7 @@ _ZN2cv15highgui_backend15getBackendsInfoEv.exit:  ; preds = %1, %20, %23
 
 61:                                               ; preds = %.lr.ph, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
   %62 = phi ptr [ %54, %.lr.ph ], [ %295, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ]
-  %.085157 = phi i1 [ false, %.lr.ph ], [ %.2, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ]
+  %.085157 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ]
   %.0106156 = phi i64 [ 0, %.lr.ph ], [ %293, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread ]
   %63 = getelementptr inbounds %"struct.cv::highgui_backend::BackendInfo", ptr %62, i64 %.0106156
   %64 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv15highgui_backendL16getUIBackendNameB5cxx11EvE13g_backendNameB5cxx11) #25
@@ -3689,7 +3689,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
   br i1 %.not146, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread140, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread140: ; preds = %70, %61, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %.1 = phi i1 [ %.085157, %61 ], [ true, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ true, %70 ]
+  %.2 = phi i1 [ %.085157, %61 ], [ true, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ true, %70 ]
   %75 = invoke noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
           to label %78 unwind label %76
 
@@ -4036,11 +4036,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 
 220:                                              ; preds = %219, %137, %108, %76
   %.pn128.pn = phi { ptr, i32 } [ %.pn128, %219 ], [ %77, %76 ], [ %.pn123, %137 ], [ %.pn120, %108 ]
-  %.5 = extractvalue { ptr, i32 } %.pn128.pn, 0
-  %.597 = extractvalue { ptr, i32 } %.pn128.pn, 1
+  %.291 = extractvalue { ptr, i32 } %.pn128.pn, 0
+  %.294 = extractvalue { ptr, i32 } %.pn128.pn, 1
   %221 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #25
-  %222 = icmp eq i32 %.597, %221
-  %223 = call ptr @__cxa_begin_catch(ptr %.5) #25
+  %222 = icmp eq i32 %.294, %221
+  %223 = call ptr @__cxa_begin_catch(ptr %.291) #25
   br i1 %222, label %224, label %226
 
 224:                                              ; preds = %220
@@ -4213,7 +4213,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %214, %201, %183, %65, %256, %292, %132, %115, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
-  %.2 = phi i1 [ %.1, %292 ], [ %.1, %256 ], [ %.1, %115 ], [ %.1, %132 ], [ %.085157, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %.085157, %65 ], [ %.1, %183 ], [ %.1, %201 ], [ %.1, %214 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ]
+  %.1 = phi i1 [ %.2, %292 ], [ %.2, %256 ], [ %.2, %115 ], [ %.2, %132 ], [ %.085157, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %.085157, %65 ], [ %.2, %183 ], [ %.2, %201 ], [ %.2, %214 ], [ %.2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i ]
   %293 = add nuw i64 %.0106156, 1
   %294 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cv15highgui_backend17UIBackendRegistry11getInstanceEvE10g_instance, i64 8), align 8
   %295 = load ptr, ptr @_ZZN2cv15highgui_backend17UIBackendRegistry11getInstanceEvE10g_instance, align 8
@@ -4288,7 +4288,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br label %common.resume
 
 325:                                              ; preds = %._crit_edge
-  br i1 %.2, label %348, label %.thread
+  br i1 %.1, label %348, label %.thread
 
 .thread:                                          ; preds = %._crit_edge.thread, %325
   %326 = call noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
@@ -4566,11 +4566,11 @@ define linkonce_odr hidden void @_ZN2cv15highgui_backend17UIBackendRegistryC2Ev(
 
 82:                                               ; preds = %78, %77, %68
   %.pn.pn.i = phi { ptr, i32 } [ %79, %78 ], [ %71, %77 ], [ %69, %68 ]
-  %.1.i = phi i1 [ true, %78 ], [ false, %77 ], [ true, %68 ]
+  %.2.i = phi i1 [ true, %78 ], [ false, %77 ], [ true, %68 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #25
   call void @_ZNSt10shared_ptrIN2cv15highgui_backend20StaticBackendFactoryEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #25
-  br i1 %.1.i, label %.preheader.preheader.i, label %.loopexit.i
+  br i1 %.2.i, label %.preheader.preheader.i, label %.loopexit.i
 
 .preheader.preheader.i:                           ; preds = %82
   call void @_ZN2cv15highgui_backend11BackendInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #25

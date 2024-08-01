@@ -1168,17 +1168,17 @@ _ZN7svectorISt4pairIN3sat7literalES2_EjED2Ev.exit: ; preds = %_ZN10ptr_vectorIN3
   ret void
 
 ehcleanup:                                        ; preds = %lpad35, %lpad13, %lpad10
-  %ehselector.slot.0 = phi i32 [ %27, %lpad10 ], [ %38, %lpad35 ], [ %29, %lpad13 ]
-  %exn.slot.0 = phi ptr [ %26, %lpad10 ], [ %37, %lpad35 ], [ %28, %lpad13 ]
+  %ehselector.slot.1 = phi i32 [ %27, %lpad10 ], [ %38, %lpad35 ], [ %29, %lpad13 ]
+  %exn.slot.1 = phi ptr [ %26, %lpad10 ], [ %37, %lpad35 ], [ %28, %lpad13 ]
   call void @_ZN10ptr_vectorIN3sat6clauseEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %clauses) #24
   br label %ehcleanup55
 
 ehcleanup55:                                      ; preds = %ehcleanup, %lpad
-  %ehselector.slot.1 = phi i32 [ %ehselector.slot.0, %ehcleanup ], [ %24, %lpad ]
-  %exn.slot.1 = phi ptr [ %exn.slot.0, %ehcleanup ], [ %23, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup ], [ %24, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup ], [ %23, %lpad ]
   call void @_ZN7svectorISt4pairIN3sat7literalES2_EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %bins) #24
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.1, 0
-  %lpad.val58 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.1, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val58 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val58
 
 terminate.lpad:                                   ; preds = %lpad35

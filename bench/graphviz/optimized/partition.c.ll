@@ -182,9 +182,9 @@ generateRandomOrdering.exit47:                    ; preds = %53, %generateRandom
 .lr.ph:                                           ; preds = %.preheader, %105
   %66 = phi i64 [ %106, %105 ], [ %64, %.preheader ]
   %.069 = phi i64 [ %107, %105 ], [ 0, %.preheader ]
-  %.sroa.10.168 = phi i64 [ %.sroa.10.3, %105 ], [ %.sroa.10.074, %.preheader ]
+  %.sroa.10.168 = phi i64 [ %.sroa.10.2, %105 ], [ %.sroa.10.074, %.preheader ]
   %.sroa.550.167 = phi i64 [ %.sroa.550.2, %105 ], [ %.sroa.550.073, %.preheader ]
-  %.sroa.048.166 = phi ptr [ %.sroa.048.3, %105 ], [ %.sroa.048.072, %.preheader ]
+  %.sroa.048.166 = phi ptr [ %.sroa.048.2, %105 ], [ %.sroa.048.072, %.preheader ]
   %67 = load ptr, ptr %8, align 8
   %68 = getelementptr inbounds %struct.boxf, ptr %67, i64 %.03175
   %69 = load ptr, ptr %6, align 8
@@ -239,9 +239,9 @@ generateRandomOrdering.exit47:                    ; preds = %53, %generateRandom
   unreachable
 
 boxes_append.exit:                                ; preds = %85, %94
-  %.sroa.048.2 = phi ptr [ %92, %94 ], [ %.sroa.048.166, %85 ]
-  %.sroa.10.2 = phi i64 [ %spec.select.i.i, %94 ], [ %.sroa.10.168, %85 ]
-  %103 = getelementptr inbounds %struct.boxf, ptr %.sroa.048.2, i64 %.sroa.550.167
+  %.sroa.048.3 = phi ptr [ %92, %94 ], [ %.sroa.048.166, %85 ]
+  %.sroa.10.3 = phi i64 [ %spec.select.i.i, %94 ], [ %.sroa.10.168, %85 ]
+  %103 = getelementptr inbounds %struct.boxf, ptr %.sroa.048.3, i64 %.sroa.550.167
   store <2 x double> %75, ptr %103, align 8
   %.sroa.559.0..sroa_idx = getelementptr inbounds i8, ptr %103, i64 16
   store <2 x double> %78, ptr %.sroa.559.0..sroa_idx, align 8
@@ -251,9 +251,9 @@ boxes_append.exit:                                ; preds = %85, %94
 
 105:                                              ; preds = %.lr.ph, %boxes_append.exit
   %106 = phi i64 [ %.pre, %boxes_append.exit ], [ %66, %.lr.ph ]
-  %.sroa.048.3 = phi ptr [ %.sroa.048.2, %boxes_append.exit ], [ %.sroa.048.166, %.lr.ph ]
+  %.sroa.048.2 = phi ptr [ %.sroa.048.3, %boxes_append.exit ], [ %.sroa.048.166, %.lr.ph ]
   %.sroa.550.2 = phi i64 [ %104, %boxes_append.exit ], [ %.sroa.550.167, %.lr.ph ]
-  %.sroa.10.3 = phi i64 [ %.sroa.10.2, %boxes_append.exit ], [ %.sroa.10.168, %.lr.ph ]
+  %.sroa.10.2 = phi i64 [ %.sroa.10.3, %boxes_append.exit ], [ %.sroa.10.168, %.lr.ph ]
   %107 = add nuw i64 %.069, 1
   %108 = icmp ult i64 %107, %106
   br i1 %108, label %.lr.ph, label %._crit_edge.loopexit
@@ -266,9 +266,9 @@ boxes_append.exit:                                ; preds = %85, %94
   %109 = phi i64 [ %63, %.preheader ], [ %.pre83, %._crit_edge.loopexit ]
   %110 = phi i64 [ %64, %.preheader ], [ %106, %._crit_edge.loopexit ]
   %111 = phi i64 [ 0, %.preheader ], [ %106, %._crit_edge.loopexit ]
-  %.sroa.048.1.lcssa = phi ptr [ %.sroa.048.072, %.preheader ], [ %.sroa.048.3, %._crit_edge.loopexit ]
+  %.sroa.048.1.lcssa = phi ptr [ %.sroa.048.072, %.preheader ], [ %.sroa.048.2, %._crit_edge.loopexit ]
   %.sroa.550.1.lcssa = phi i64 [ %.sroa.550.073, %.preheader ], [ %.sroa.550.2, %._crit_edge.loopexit ]
-  %.sroa.10.1.lcssa = phi i64 [ %.sroa.10.074, %.preheader ], [ %.sroa.10.3, %._crit_edge.loopexit ]
+  %.sroa.10.1.lcssa = phi i64 [ %.sroa.10.074, %.preheader ], [ %.sroa.10.2, %._crit_edge.loopexit ]
   %112 = add nuw i64 %.03175, 1
   %113 = icmp ult i64 %112, %109
   br i1 %113, label %.preheader, label %._crit_edge76, !llvm.loop !4

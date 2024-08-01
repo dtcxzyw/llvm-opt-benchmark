@@ -532,8 +532,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   br label %33
 
 33:                                               ; preds = %31, %29
-  %.023 = phi ptr [ %30, %29 ], [ %32, %31 ]
-  %34 = icmp eq ptr %.023, null
+  %.1 = phi ptr [ %30, %29 ], [ %32, %31 ]
+  %34 = icmp eq ptr %.1, null
   br i1 %34, label %_ZN11VtableStubs6lookupEbi.exit, label %35
 
 35:                                               ; preds = %33
@@ -548,9 +548,9 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds [256 x ptr], ptr @_ZN11VtableStubs6_tableE, i64 0, i64 %44
   %46 = load volatile ptr, ptr %45, align 8
-  store ptr %46, ptr %.023, align 8
+  store ptr %46, ptr %.1, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
-  store volatile ptr %.023, ptr %45, align 8
+  store volatile ptr %.1, ptr %45, align 8
   %47 = load i8, ptr @PrintAdapterHandlers, align 1
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %71
@@ -560,9 +560,9 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   %.str.17..str.18 = select i1 %0, ptr @.str.17, ptr @.str.18
   %51 = load ptr, ptr @_ZN10VtableStub18_receiver_locationE, align 8
   %52 = ptrtoint ptr %51 to i64
-  %53 = getelementptr inbounds i8, ptr %.023, i64 16
+  %53 = getelementptr inbounds i8, ptr %.1, i64 16
   %54 = ptrtoint ptr %53 to i64
-  %55 = getelementptr inbounds i8, ptr %.023, i64 14
+  %55 = getelementptr inbounds i8, ptr %.1, i64 14
   %56 = load i8, ptr %55, align 2
   %57 = icmp eq i8 %56, 1
   %..i.i = select i1 %57, i32 64, i32 256
@@ -595,8 +595,8 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
 
 74:                                               ; preds = %71
   %.str.5..str.19 = select i1 %0, ptr @.str.5, ptr @.str.19
-  %75 = getelementptr inbounds i8, ptr %.023, i64 16
-  %76 = getelementptr inbounds i8, ptr %.023, i64 14
+  %75 = getelementptr inbounds i8, ptr %.1, i64 16
+  %76 = getelementptr inbounds i8, ptr %.1, i64 14
   %77 = load i8, ptr %76, align 2
   %78 = icmp eq i8 %77, 1
   %..i.i33 = select i1 %78, i32 64, i32 256
@@ -611,7 +611,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   br label %_ZN11VtableStubs6lookupEbi.exit
 
 _ZN11VtableStubs6lookupEbi.exit:                  ; preds = %.lr.ph.i, %74, %71, %33
-  %.2 = phi ptr [ null, %33 ], [ %.023, %74 ], [ %.023, %71 ], [ %.09.i, %.lr.ph.i ]
+  %.2 = phi ptr [ null, %33 ], [ %.1, %74 ], [ %.1, %71 ], [ %.09.i, %.lr.ph.i ]
   %switch = phi i1 [ false, %33 ], [ true, %74 ], [ true, %71 ], [ true, %.lr.ph.i ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %84
 

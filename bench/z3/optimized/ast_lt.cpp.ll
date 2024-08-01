@@ -484,7 +484,7 @@ invoke.cont159:                                   ; preds = %sw.default
   unreachable
 
 cleanup.thread:                                   ; preds = %if.then48, %invoke.cont140, %invoke.cont127, %invoke.cont66, %invoke.cont97, %invoke.cont154, %if.else.i.i, %if.then.i.i.i.i, %call4.i.i.i.i.noexc
-  %retval.2.ph = phi i1 [ %call5.i.i330, %if.else.i.i ], [ %cmp5.i.i.i.i, %call4.i.i.i.i.noexc ], [ %cmp.i.i.i.i, %if.then.i.i.i.i ], [ %call157, %invoke.cont154 ], [ %call101, %invoke.cont97 ], [ %cmp68, %invoke.cont66 ], [ %cmp129, %invoke.cont127 ], [ %cmp142, %invoke.cont140 ], [ %cmp53, %if.then48 ]
+  %retval.3.ph = phi i1 [ %call5.i.i330, %if.else.i.i ], [ %cmp5.i.i.i.i, %call4.i.i.i.i.noexc ], [ %cmp.i.i.i.i, %if.then.i.i.i.i ], [ %call157, %invoke.cont154 ], [ %call101, %invoke.cont97 ], [ %cmp68, %invoke.cont66 ], [ %cmp129, %invoke.cont127 ], [ %cmp142, %invoke.cont140 ], [ %cmp53, %if.then48 ]
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %p2) #8
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %p1) #8
   br label %return
@@ -903,7 +903,7 @@ invoke.cont334:                                   ; preds = %sw.default333
   unreachable
 
 cleanup336.thread:                                ; preds = %if.then220, %invoke.cont314, %invoke.cont301, %invoke.cont238, %invoke.cont271, %invoke.cont328, %if.else.i.i647, %if.then.i.i.i.i668, %call4.i.i.i.i.noexc670
-  %retval.4.ph = phi i1 [ %call5.i.i673, %if.else.i.i647 ], [ %cmp5.i.i.i.i662, %call4.i.i.i.i.noexc670 ], [ %cmp.i.i.i.i669, %if.then.i.i.i.i668 ], [ %call331, %invoke.cont328 ], [ %call275, %invoke.cont271 ], [ %cmp240, %invoke.cont238 ], [ %cmp303, %invoke.cont301 ], [ %cmp316, %invoke.cont314 ], [ %cmp225, %if.then220 ]
+  %retval.5.ph = phi i1 [ %call5.i.i673, %if.else.i.i647 ], [ %cmp5.i.i.i.i662, %call4.i.i.i.i.noexc670 ], [ %cmp.i.i.i.i669, %if.then.i.i.i.i668 ], [ %call331, %invoke.cont328 ], [ %call275, %invoke.cont271 ], [ %cmp240, %invoke.cont238 ], [ %cmp303, %invoke.cont301 ], [ %cmp316, %invoke.cont314 ], [ %cmp225, %if.then220 ]
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %p2207) #8
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %p1204) #8
   br label %return
@@ -1212,8 +1212,8 @@ sw.default571:                                    ; preds = %if.end7
   unreachable
 
 return:                                           ; preds = %start.backedge, %entry, %cleanup336.thread, %cleanup.thread, %if.then560, %if.then489, %if.then471, %if.then459, %if.then447, %if.then435, %if.then423, %if.then383, %if.then371, %_ZNK4decl18get_num_parametersEv.exit455, %if.then179, %if.then167, %_ZNK4decl18get_num_parametersEv.exit187, %if.then14, %if.then3
-  %retval.5 = phi i1 [ %cmp6, %if.then3 ], [ %cmp565, %if.then560 ], [ %cmp428, %if.then423 ], [ %cmp440, %if.then435 ], [ %cmp452, %if.then447 ], [ %cmp464, %if.then459 ], [ %cmp476, %if.then471 ], [ %call494, %if.then489 ], [ %cmp376, %if.then371 ], [ %cmp388, %if.then383 ], [ %call172, %if.then167 ], [ %cmp184, %if.then179 ], [ %cmp196, %_ZNK4decl18get_num_parametersEv.exit455 ], [ %call19, %if.then14 ], [ %cmp31, %_ZNK4decl18get_num_parametersEv.exit187 ], [ %retval.2.ph, %cleanup.thread ], [ %retval.4.ph, %cleanup336.thread ], [ false, %entry ], [ false, %start.backedge ]
-  ret i1 %retval.5
+  %retval.1 = phi i1 [ %cmp6, %if.then3 ], [ %cmp565, %if.then560 ], [ %cmp428, %if.then423 ], [ %cmp440, %if.then435 ], [ %cmp452, %if.then447 ], [ %cmp464, %if.then459 ], [ %cmp476, %if.then471 ], [ %call494, %if.then489 ], [ %cmp376, %if.then371 ], [ %cmp388, %if.then383 ], [ %call172, %if.then167 ], [ %cmp184, %if.then179 ], [ %cmp196, %_ZNK4decl18get_num_parametersEv.exit455 ], [ %call19, %if.then14 ], [ %cmp31, %_ZNK4decl18get_num_parametersEv.exit187 ], [ %retval.3.ph, %cleanup.thread ], [ %retval.5.ph, %cleanup336.thread ], [ false, %entry ], [ false, %start.backedge ]
+  ret i1 %retval.1
 
 eh.resume:                                        ; preds = %lpad208, %lpad214, %lpad, %lpad42
   %p1204.sink = phi ptr [ %p1, %lpad42 ], [ %p1, %lpad ], [ %p1204, %lpad214 ], [ %p1204, %lpad208 ]

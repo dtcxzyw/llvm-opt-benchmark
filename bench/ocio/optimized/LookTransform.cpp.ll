@@ -1321,14 +1321,14 @@ ehcleanup:                                        ; preds = %invoke.cont42
   %71 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #13
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %71, 1
-  %exn.slot.0 = extractvalue { ptr, i32 } %71, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %71, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %71, 0
   br label %ehcleanup44
 
 cleanup.action:                                   ; preds = %ehcleanup.thread107, %ehcleanup.thread
   %.pn = phi { ptr, i32 } [ %70, %ehcleanup.thread ], [ %69, %ehcleanup.thread107 ]
-  %ehselector.slot.0105 = extractvalue { ptr, i32 } %.pn, 1
-  %exn.slot.0106 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2105 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2106 = extractvalue { ptr, i32 } %.pn, 0
   call void @__cxa_free_exception(ptr %exception) #13
   br label %ehcleanup44
 
@@ -1411,18 +1411,18 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit: ; preds = %if.
   br label %if.end48
 
 ehcleanup44:                                      ; preds = %lpad12, %ehcleanup, %cleanup.action, %lpad16, %lpad29
-  %exn.slot.1 = phi ptr [ %50, %lpad29 ], [ %exn.slot.0106, %cleanup.action ], [ %exn.slot.0, %ehcleanup ], [ %44, %lpad16 ], [ %39, %lpad12 ]
-  %ehselector.slot.1 = phi i32 [ %51, %lpad29 ], [ %ehselector.slot.0105, %cleanup.action ], [ %ehselector.slot.0, %ehcleanup ], [ %45, %lpad16 ], [ %40, %lpad12 ]
+  %exn.slot.1 = phi ptr [ %50, %lpad29 ], [ %exn.slot.2106, %cleanup.action ], [ %exn.slot.2, %ehcleanup ], [ %44, %lpad16 ], [ %39, %lpad12 ]
+  %ehselector.slot.1 = phi i32 [ %51, %lpad29 ], [ %ehselector.slot.2105, %cleanup.action ], [ %ehselector.slot.2, %ehcleanup ], [ %45, %lpad16 ], [ %40, %lpad12 ]
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cs) #13
   call void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVecD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %tmpOps) #13
   br label %ehcleanup46
 
 ehcleanup46:                                      ; preds = %ehcleanup44, %lpad
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %ehcleanup44 ], [ %36, %lpad ]
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %ehcleanup44 ], [ %37, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup44 ], [ %36, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup44 ], [ %37, %lpad ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os) #13
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val51 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val51 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val51
 
 if.end48:                                         ; preds = %if.then3, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit, %entry
@@ -3950,7 +3950,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont21
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc49
-  %foundContextVars.2109 = phi i1 [ %narrow, %for.body.lr.ph ], [ %foundContextVars.3.lcssa, %for.inc49 ]
+  %foundContextVars.3109 = phi i1 [ %narrow, %for.body.lr.ph ], [ %foundContextVars.4.lcssa, %for.inc49 ]
   %__begin2.sroa.0.0108 = phi ptr [ %6, %for.body.lr.ph ], [ %incdec.ptr.i31, %for.inc49 ]
   %8 = load ptr, ptr %__begin2.sroa.0.0108, align 8
   %_M_finish.i28 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0108, i64 8
@@ -3959,7 +3959,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i29.not104, label %for.inc49, label %for.body34
 
 for.body34:                                       ; preds = %for.body, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit
-  %foundContextVars.3106 = phi i1 [ %foundContextVars.4, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit ], [ %foundContextVars.2109, %for.body ]
+  %foundContextVars.4106 = phi i1 [ %foundContextVars.5, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit ], [ %foundContextVars.3109, %for.body ]
   %__begin3.sroa.0.0105 = phi ptr [ %incdec.ptr.i, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit ], [ %8, %for.body ]
   %call37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0105) #13
   invoke void @_ZNK19OpenColorIO_v2_4dev6Config7getLookEPKc(ptr nonnull sret(%"class.std::shared_ptr.40") align 8 %look36, ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef %call37)
@@ -3977,7 +3977,7 @@ land.lhs.true40:                                  ; preds = %invoke.cont38
           to label %invoke.cont43 unwind label %lpad42
 
 invoke.cont43:                                    ; preds = %land.lhs.true40
-  %spec.select23 = select i1 %call44, i1 true, i1 %foundContextVars.3106
+  %spec.select23 = select i1 %call44, i1 true, i1 %foundContextVars.4106
   br label %if.end46
 
 lpad15:                                           ; preds = %if.then13
@@ -4013,7 +4013,7 @@ lpad42:                                           ; preds = %land.lhs.true40
   br label %ehcleanup52
 
 if.end46:                                         ; preds = %invoke.cont43, %invoke.cont38
-  %foundContextVars.4 = phi i1 [ %foundContextVars.3106, %invoke.cont38 ], [ %spec.select23, %invoke.cont43 ]
+  %foundContextVars.5 = phi i1 [ %foundContextVars.4106, %invoke.cont38 ], [ %spec.select23, %invoke.cont43 ]
   %15 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit, label %if.then.i.i.i
@@ -4092,13 +4092,13 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit: ; preds = %if.end46, 
   br i1 %cmp.i29.not, label %for.inc49, label %for.body34
 
 for.inc49:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit, %for.body
-  %foundContextVars.3.lcssa = phi i1 [ %foundContextVars.2109, %for.body ], [ %foundContextVars.4, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit ]
+  %foundContextVars.4.lcssa = phi i1 [ %foundContextVars.3109, %for.body ], [ %foundContextVars.5, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit ]
   %incdec.ptr.i31 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0108, i64 24
   %cmp.i.not = icmp eq ptr %incdec.ptr.i31, %7
   br i1 %cmp.i.not, label %for.end51, label %for.body
 
 for.end51:                                        ; preds = %for.inc49, %invoke.cont21
-  %foundContextVars.2.lcssa = phi i1 [ %narrow, %invoke.cont21 ], [ %foundContextVars.3.lcssa, %for.inc49 ]
+  %foundContextVars.3.lcssa = phi i1 [ %narrow, %invoke.cont21 ], [ %foundContextVars.4.lcssa, %for.inc49 ]
   %26 = load ptr, ptr %lookList, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %lookList, i64 8
   %27 = load ptr, ptr %_M_finish.i.i, align 8
@@ -4157,7 +4157,7 @@ ehcleanup52:                                      ; preds = %lpad20.loopexit, %l
   br label %ehcleanup55
 
 if.end53:                                         ; preds = %if.then.i.i.i.i32, %invoke.cont.i.i, %land.lhs.true, %invoke.cont10
-  %foundContextVars.5 = phi i1 [ %narrow, %land.lhs.true ], [ %narrow, %invoke.cont10 ], [ %foundContextVars.2.lcssa, %invoke.cont.i.i ], [ %foundContextVars.2.lcssa, %if.then.i.i.i.i32 ]
+  %foundContextVars.2 = phi i1 [ %narrow, %land.lhs.true ], [ %narrow, %invoke.cont10 ], [ %foundContextVars.3.lcssa, %invoke.cont.i.i ], [ %foundContextVars.3.lcssa, %if.then.i.i.i.i32 ]
   %_M_refcount.i.i33 = getelementptr inbounds i8, ptr %dst, i64 8
   %32 = load ptr, ptr %_M_refcount.i.i33, align 8
   %cmp.not.i.i.i34 = icmp eq ptr %32, null
@@ -4306,7 +4306,7 @@ if.end8.sink.split.i.i.i.i86:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit95
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit95: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i73, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i83, %if.end8.sink.split.i.i.i.i86
-  ret i1 %foundContextVars.5
+  ret i1 %foundContextVars.2
 
 ehcleanup55:                                      ; preds = %ehcleanup52, %lpad5
   %.pn18.pn = phi { ptr, i32 } [ %.pn18, %ehcleanup52 ], [ %3, %lpad5 ]

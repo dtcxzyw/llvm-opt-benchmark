@@ -1514,7 +1514,7 @@ sw.bb51.i:                                        ; preds = %sw.bb46.i, %for.end
   br label %sw.bb60.i
 
 sw.bb60.i:                                        ; preds = %sw.bb51.i, %for.end.i
-  %h2.1.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %xor59.i, %sw.bb51.i ]
+  %h2.2.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %xor59.i, %sw.bb51.i ]
   %arrayidx61.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 7
   %9 = load i8, ptr %arrayidx61.i, align 1
   %conv62.i = zext i8 %9 to i64
@@ -1522,7 +1522,7 @@ sw.bb60.i:                                        ; preds = %sw.bb51.i, %for.end
   br label %sw.bb65.i
 
 sw.bb65.i:                                        ; preds = %sw.bb60.i, %for.end.i
-  %h2.2.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.1.i, %sw.bb60.i ]
+  %h2.3.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.2.i, %sw.bb60.i ]
   %k122.0.i = phi i64 [ 0, %for.end.i ], [ %shl63.i, %sw.bb60.i ]
   %arrayidx66.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 6
   %10 = load i8, ptr %arrayidx66.i, align 1
@@ -1532,7 +1532,7 @@ sw.bb65.i:                                        ; preds = %sw.bb60.i, %for.end
   br label %sw.bb70.i
 
 sw.bb70.i:                                        ; preds = %sw.bb65.i, %for.end.i
-  %h2.3.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.2.i, %sw.bb65.i ]
+  %h2.4.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.3.i, %sw.bb65.i ]
   %k122.1.i = phi i64 [ 0, %for.end.i ], [ %xor69.i, %sw.bb65.i ]
   %arrayidx71.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
   %11 = load i8, ptr %arrayidx71.i, align 1
@@ -1542,7 +1542,7 @@ sw.bb70.i:                                        ; preds = %sw.bb65.i, %for.end
   br label %sw.bb75.i
 
 sw.bb75.i:                                        ; preds = %sw.bb70.i, %for.end.i
-  %h2.4.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.3.i, %sw.bb70.i ]
+  %h2.5.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.4.i, %sw.bb70.i ]
   %k122.2.i = phi i64 [ 0, %for.end.i ], [ %xor74.i, %sw.bb70.i ]
   %arrayidx76.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
   %12 = load i8, ptr %arrayidx76.i, align 1
@@ -1552,7 +1552,7 @@ sw.bb75.i:                                        ; preds = %sw.bb70.i, %for.end
   br label %sw.bb80.i
 
 sw.bb80.i:                                        ; preds = %sw.bb75.i, %for.end.i
-  %h2.5.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.4.i, %sw.bb75.i ]
+  %h2.6.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.5.i, %sw.bb75.i ]
   %k122.3.i = phi i64 [ 0, %for.end.i ], [ %xor79.i, %sw.bb75.i ]
   %arrayidx81.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 3
   %13 = load i8, ptr %arrayidx81.i, align 1
@@ -1562,7 +1562,7 @@ sw.bb80.i:                                        ; preds = %sw.bb75.i, %for.end
   br label %sw.bb85.i
 
 sw.bb85.i:                                        ; preds = %sw.bb80.i, %for.end.i
-  %h2.6.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.5.i, %sw.bb80.i ]
+  %h2.7.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.6.i, %sw.bb80.i ]
   %k122.4.i = phi i64 [ 0, %for.end.i ], [ %xor84.i, %sw.bb80.i ]
   %arrayidx86.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
   %14 = load i8, ptr %arrayidx86.i, align 1
@@ -1572,7 +1572,7 @@ sw.bb85.i:                                        ; preds = %sw.bb80.i, %for.end
   br label %sw.bb90.i
 
 sw.bb90.i:                                        ; preds = %sw.bb85.i, %for.end.i
-  %h2.7.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.6.i, %sw.bb85.i ]
+  %h2.8.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.7.i, %sw.bb85.i ]
   %k122.5.i = phi i64 [ 0, %for.end.i ], [ %xor89.i, %sw.bb85.i ]
   %arrayidx91.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
   %15 = load i8, ptr %arrayidx91.i, align 1
@@ -1582,7 +1582,7 @@ sw.bb90.i:                                        ; preds = %sw.bb85.i, %for.end
   br label %sw.bb95.i
 
 sw.bb95.i:                                        ; preds = %sw.bb90.i, %for.end.i
-  %h2.8.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.7.i, %sw.bb90.i ]
+  %h2.9.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.8.i, %sw.bb90.i ]
   %k122.6.i = phi i64 [ 0, %for.end.i ], [ %xor94.i, %sw.bb90.i ]
   %16 = load i8, ptr %add.ptr.i, align 1
   %conv97.i = zext i8 %16 to i64
@@ -1599,12 +1599,12 @@ default.unreachable:                              ; preds = %for.end.i
   unreachable
 
 hash_x64_128.exit:                                ; preds = %for.end.i, %sw.bb95.i
-  %h2.9.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.8.i, %sw.bb95.i ]
+  %h2.1.i = phi i64 [ %h2.0.lcssa.i, %for.end.i ], [ %h2.9.i, %sw.bb95.i ]
   %h1.1.i = phi i64 [ %h1.0.lcssa.i, %for.end.i ], [ %xor103.i, %sw.bb95.i ]
   %sext = shl i64 %len, 32
   %conv104.i = ashr exact i64 %sext, 32
   %xor105.i = xor i64 %h1.1.i, %conv104.i
-  %xor107.i = xor i64 %h2.9.i, %conv104.i
+  %xor107.i = xor i64 %h2.1.i, %conv104.i
   %add108.i = add i64 %xor105.i, %xor107.i
   %add109.i = add i64 %add108.i, %xor107.i
   %shr.i95.i = lshr i64 %add108.i, 33

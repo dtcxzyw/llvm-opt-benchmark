@@ -1759,8 +1759,8 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %34, %35
   br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.backedge, %_ZN13MonitorLockerD2Ev.exit, %36, %1
-  %.2 = phi i1 [ false, %1 ], [ true, %36 ], [ false, %_ZN13MonitorLockerD2Ev.exit ], [ false, %.backedge ]
-  ret i1 %.2
+  %.1 = phi i1 [ false, %1 ], [ true, %36 ], [ false, %_ZN13MonitorLockerD2Ev.exit ], [ false, %.backedge ]
+  ret i1 %.1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -833,17 +833,17 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   br i1 %or.cond, label %.preheader, label %.critedge2
 
 .preheader:                                       ; preds = %.critedge
-  %.197144 = add i64 %.096.lcssa, 1
+  %.298144 = add i64 %.096.lcssa, 1
   br label %71
 
 69:                                               ; preds = %71
   %70 = add i64 %.295145, 1
-  %.197 = add i64 %.197146, 1
+  %.298 = add i64 %.298146, 1
   %exitcond179.not = icmp eq i64 %70, %.099156
   br i1 %exitcond179.not, label %.critedge2, label %71, !llvm.loop !12
 
 71:                                               ; preds = %.preheader, %69
-  %.197146 = phi i64 [ %.197144, %.preheader ], [ %.197, %69 ]
+  %.298146 = phi i64 [ %.298144, %.preheader ], [ %.298, %69 ]
   %.295145 = phi i64 [ %.194, %.preheader ], [ %70, %69 ]
   %72 = getelementptr i8, ptr %0, i64 %.295145
   %73 = load i8, ptr %72, align 1
@@ -851,12 +851,12 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
   br i1 %.not119, label %.critedge2, label %69
 
 .critedge2:                                       ; preds = %71, %69, %.critedge
-  %.298 = phi i64 [ %.096.lcssa, %.critedge ], [ %.197, %69 ], [ %.197146, %71 ]
-  %.not120 = icmp ult i64 %.298, %.099156
+  %.197 = phi i64 [ %.096.lcssa, %.critedge ], [ %.298, %69 ], [ %.298146, %71 ]
+  %.not120 = icmp ult i64 %.197, %.099156
   br i1 %.not120, label %74, label %.critedge2.thread
 
 74:                                               ; preds = %.critedge2, %60
-  %.1100 = phi i64 [ %.099156, %60 ], [ %.298, %.critedge2 ]
+  %.1100 = phi i64 [ %.099156, %60 ], [ %.197, %.critedge2 ]
   %75 = load ptr, ptr @QL_HELP, align 8
   %.not121147 = icmp eq ptr %75, null
   br i1 %.not121147, label %.critedge2.thread, label %.lr.ph150
@@ -864,7 +864,7 @@ define dso_local void @helpSQL(ptr noundef %0, i16 noundef zeroext %1) local_unn
 .lr.ph150:                                        ; preds = %74, %94
   %76 = phi ptr [ %98, %94 ], [ %75, %74 ]
   %77 = phi ptr [ %97, %94 ], [ @QL_HELP, %74 ]
-  %.092149 = phi i32 [ %.1, %94 ], [ 0, %74 ]
+  %.092149 = phi i32 [ %.2, %94 ], [ 0, %74 ]
   %.0106148 = phi i32 [ %95, %94 ], [ 0, %74 ]
   %78 = tail call i32 @pg_strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull %76, i64 noundef %.1100) #9
   %79 = icmp eq i32 %78, 0
@@ -897,7 +897,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %93, label %._crit_edge, label %94
 
 94:                                               ; preds = %.tail, %87
-  %.1 = phi i32 [ %91, %87 ], [ %.092149, %.tail ]
+  %.2 = phi i32 [ %91, %87 ], [ %.092149, %.tail ]
   %95 = add i32 %.0106148, 1
   %96 = sext i32 %95 to i64
   %97 = getelementptr [0 x %struct._helpStruct], ptr @QL_HELP, i64 0, i64 %96
@@ -906,14 +906,14 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not121, label %._crit_edge, label %.lr.ph150, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %94, %87
-  %.2 = phi i32 [ %.1, %94 ], [ %91, %87 ]
-  %99 = icmp eq i32 %.2, 0
+  %.1 = phi i32 [ %.2, %94 ], [ %91, %87 ]
+  %99 = icmp eq i32 %.1, 0
   br i1 %99, label %.critedge2.thread, label %100
 
 100:                                              ; preds = %._crit_edge
   %.not122 = icmp eq i16 %1, 0
   %101 = select i1 %.not122, ptr null, ptr getelementptr inbounds (i8, ptr @pset, i64 48)
-  %102 = tail call ptr @PageOutput(i32 noundef %.2, ptr noundef %101) #9
+  %102 = tail call ptr @PageOutput(i32 noundef %.1, ptr noundef %101) #9
   br i1 %.not121147, label %._crit_edge161, label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %100, %126

@@ -1176,24 +1176,24 @@ Io_NtkWriteBlifMvNodeFanins.exit.i.i:             ; preds = %491, %486, %.crited
   br label %519
 
 519:                                              ; preds = %521, %507
-  %.2.i.i = phi ptr [ %.171.i.i, %507 ], [ %522, %521 ]
-  %520 = load i8, ptr %.2.i.i, align 1
+  %.3.i.i = phi ptr [ %.171.i.i, %507 ], [ %522, %521 ]
+  %520 = load i8, ptr %.3.i.i, align 1
   switch i8 %520, label %521 [
     i8 32, label %.critedge2.i168.i
     i8 10, label %.critedge2.i168.i
   ]
 
 521:                                              ; preds = %519
-  %522 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
+  %522 = getelementptr inbounds i8, ptr %.3.i.i, i64 1
   br label %519, !llvm.loop !18
 
 .critedge2.i168.i:                                ; preds = %519, %519
-  %523 = getelementptr inbounds i8, ptr %.2.i.i, i64 -1
+  %523 = getelementptr inbounds i8, ptr %.3.i.i, i64 -1
   br label %524
 
 524:                                              ; preds = %.critedge2.i168.i, %503
-  %.3.i.i = phi ptr [ %.171.i.i, %503 ], [ %523, %.critedge2.i168.i ]
-  %525 = getelementptr inbounds i8, ptr %.3.i.i, i64 1
+  %.2.i.i = phi ptr [ %.171.i.i, %503 ], [ %523, %.critedge2.i168.i ]
+  %525 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
   %526 = load i8, ptr %525, align 1
   %.not.i164.i = icmp eq i8 %526, 0
   br i1 %.not.i164.i, label %Io_NtkWriteBlifMvNode.exit.i, label %503, !llvm.loop !19

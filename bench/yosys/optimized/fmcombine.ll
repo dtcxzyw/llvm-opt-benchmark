@@ -8401,7 +8401,7 @@ _ZNK5Yosys7hashlib4dictIPNS_5RTLIL4CellENS2_7SigSpecENS0_8hash_opsIS4_EEE5countE
 
 .lr.ph2660:                                       ; preds = %.lr.ph2660.preheader, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit832
   %indvars.iv3406 = phi i64 [ %2302, %.lr.ph2660.preheader ], [ %indvars.iv.next3407, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit832 ]
-  %.01612657 = phi i8 [ %2292, %.lr.ph2660.preheader ], [ %.3164, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit832 ]
+  %.01612657 = phi i8 [ %2292, %.lr.ph2660.preheader ], [ %.1162, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit832 ]
   %indvars.iv.next3407 = add nsw i64 %indvars.iv3406, -1
   %2303 = load ptr, ptr %2293, align 8
   %2304 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::SigSpec>::entry_t", ptr %2303, i64 %indvars.iv.next3407
@@ -8644,7 +8644,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit789:              ; preds = %_ZSt8_DestroyIPN5Yo
   br label %.lr.ph2652
 
 ._crit_edge2653:                                  ; preds = %.thread1708, %2363
-  %.1162.lcssa = phi i8 [ %.01612657, %2363 ], [ %.2163, %.thread1708 ]
+  %.2163.lcssa = phi i8 [ %.01612657, %2363 ], [ %.3164, %.thread1708 ]
   %2366 = load ptr, ptr %2035, align 8
   %.not.i.i.i.i794 = icmp eq ptr %2366, null
   br i1 %.not.i.i.i.i794, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i795, label %2367
@@ -8860,7 +8860,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i830: ; preds = 
 
 .lr.ph2652:                                       ; preds = %.lr.ph2652.preheader, %.thread1708
   %indvars.iv3404 = phi i64 [ 0, %.lr.ph2652.preheader ], [ %indvars.iv.next3405, %.thread1708 ]
-  %.11622650 = phi i8 [ %.01612657, %.lr.ph2652.preheader ], [ %.2163, %.thread1708 ]
+  %.21632650 = phi i8 [ %.01612657, %.lr.ph2652.preheader ], [ %.3164, %.thread1708 ]
   %2418 = load ptr, ptr %2030, align 8
   %2419 = load ptr, ptr %2032, align 8
   %2420 = icmp eq ptr %2418, %2419
@@ -10032,13 +10032,13 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE6insertERKS3_.exit: 
   br label %.thread1708
 
 .thread1708:                                      ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i846, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i849, %2429, %._crit_edge.i.i840, %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE6insertERKS3_.exit
-  %.2163 = phi i8 [ %.11622650, %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE6insertERKS3_.exit ], [ 1, %._crit_edge.i.i840 ], [ 1, %2429 ], [ 1, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i849 ], [ 1, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i846 ]
+  %.3164 = phi i8 [ %.21632650, %_ZN5Yosys7hashlib4poolINS_5RTLIL6SigBitENS0_8hash_opsIS3_EEE6insertERKS3_.exit ], [ 1, %._crit_edge.i.i840 ], [ 1, %2429 ], [ 1, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i849 ], [ 1, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i846 ]
   %indvars.iv.next3405 = add nuw nsw i64 %indvars.iv3404, 1
   %.not1720 = icmp eq i64 %indvars.iv.next3405, %2365
   br i1 %.not1720, label %._crit_edge2653, label %.lr.ph2652
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit832:              ; preds = %2395, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i830, %2309
-  %.3164 = phi i8 [ %.01612657, %2309 ], [ %.1162.lcssa, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i830 ], [ %.1162.lcssa, %2395 ]
+  %.1162 = phi i8 [ %.01612657, %2309 ], [ %.2163.lcssa, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i830 ], [ %.2163.lcssa, %2395 ]
   %.not1719 = icmp eq i64 %indvars.iv.next3407, 0
   br i1 %.not1719, label %._crit_edge2661, label %.lr.ph2660
 
@@ -10053,7 +10053,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit832:              ; preds = %2395, %_ZSt8_Destro
   br label %3589
 
 ._crit_edge2661:                                  ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit832, %.lr.ph2660, %2291
-  %.0161.lcssa = phi i8 [ %2292, %2291 ], [ %.3164, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit832 ], [ %.01612657, %.lr.ph2660 ]
+  %.0161.lcssa = phi i8 [ %2292, %2291 ], [ %.1162, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit832 ], [ %.01612657, %.lr.ph2660 ]
   %3009 = trunc nuw i8 %.0161.lcssa to i1
   br i1 %3009, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1062, label %3010
 

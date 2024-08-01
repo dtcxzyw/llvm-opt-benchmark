@@ -191,7 +191,7 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr nocapture noundef readonly %1,
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %106, %.lr.ph ]
-  %.087 = phi i64 [ %130, %.lr.ph.split ], [ %13, %.lr.ph ]
+  %.187 = phi i64 [ %130, %.lr.ph.split ], [ %13, %.lr.ph ]
   %.08085 = phi i64 [ %126, %.lr.ph.split ], [ 1, %.lr.ph ]
   %117 = add nuw nsw i64 %indvars.iv, 1
   %118 = getelementptr inbounds i64, ptr %2, i64 %117
@@ -207,14 +207,14 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr nocapture noundef readonly %1,
   %127 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv
   %128 = load i64, ptr %127, align 8
   %129 = mul i64 %128, %126
-  %130 = add i64 %129, %.087
+  %130 = add i64 %129, %.187
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not96 = icmp eq i64 %indvars.iv, 0
   br i1 %.not96, label %.loopexit, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %103, %96, %51, %23
-  %.1 = phi i64 [ %102, %96 ], [ %56, %51 ], [ %26, %23 ], [ %13, %103 ], [ %13, %.lr.ph.split.us ], [ %130, %.lr.ph.split ]
-  ret i64 %.1
+  %.0 = phi i64 [ %102, %96 ], [ %56, %51 ], [ %26, %23 ], [ %13, %103 ], [ %13, %.lr.ph.split.us ], [ %130, %.lr.ph.split ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -502,13 +502,13 @@ H5VM__stride_optimize1.exit:                      ; preds = %H5VM__stride_optimi
   br label %.lr.ph46.split.preheader.i
 
 .lr.ph.i.i:                                       ; preds = %H5VM__stride_optimize1.exit, %.lr.ph.i.i
-  %.011.i.i = phi i64 [ %48, %.lr.ph.i.i ], [ 1, %H5VM__stride_optimize1.exit ]
+  %.111.i.i = phi i64 [ %48, %.lr.ph.i.i ], [ 1, %H5VM__stride_optimize1.exit ]
   %.0610.i.i = phi ptr [ %46, %.lr.ph.i.i ], [ %8, %H5VM__stride_optimize1.exit ]
   %.079.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ %.017.lcssa, %H5VM__stride_optimize1.exit ]
   %45 = add i32 %.079.i.i, -1
   %46 = getelementptr inbounds i8, ptr %.0610.i.i, i64 8
   %47 = load i64, ptr %.0610.i.i, align 8
-  %48 = mul i64 %47, %.011.i.i
+  %48 = mul i64 %47, %.111.i.i
   %.not.i.i = icmp eq i32 %45, 0
   br i1 %.not.i.i, label %H5VM_vector_reduce_product.exit.i, label %.lr.ph.i.i
 
@@ -602,13 +602,13 @@ define noundef i32 @H5VM_stride_fill(i32 noundef %0, i64 noundef %1, ptr noundef
   br label %.lr.ph46.split.preheader
 
 .lr.ph.i:                                         ; preds = %.split28, %.lr.ph.i
-  %.011.i = phi i64 [ %15, %.lr.ph.i ], [ 1, %.split28 ]
+  %.111.i = phi i64 [ %15, %.lr.ph.i ], [ 1, %.split28 ]
   %.0610.i = phi ptr [ %13, %.lr.ph.i ], [ %2, %.split28 ]
   %.079.i = phi i32 [ %12, %.lr.ph.i ], [ %0, %.split28 ]
   %12 = add i32 %.079.i, -1
   %13 = getelementptr inbounds i8, ptr %.0610.i, i64 8
   %14 = load i64, ptr %.0610.i, align 8
-  %15 = mul i64 %14, %.011.i
+  %15 = mul i64 %14, %.111.i
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %H5VM_vector_reduce_product.exit, label %.lr.ph.i
 
@@ -955,8 +955,8 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   %indvars.iv = phi i64 [ %167, %.lr.ph.preheader ], [ %indvars.iv.next, %193 ]
   %.0124218 = phi i64 [ 1, %.lr.ph.preheader ], [ %182, %193 ]
   %.0125217 = phi i64 [ 1, %.lr.ph.preheader ], [ %181, %193 ]
-  %.0126216 = phi i64 [ %26, %.lr.ph.preheader ], [ %189, %193 ]
-  %.0127215 = phi i64 [ %31, %.lr.ph.preheader ], [ %196, %193 ]
+  %.1216 = phi i64 [ %26, %.lr.ph.preheader ], [ %189, %193 ]
+  %.1128215 = phi i64 [ %31, %.lr.ph.preheader ], [ %196, %193 ]
   %168 = add nuw nsw i64 %indvars.iv, 1
   %169 = getelementptr inbounds i64, ptr %2, i64 %168
   %170 = load i64, ptr %169, align 8
@@ -984,7 +984,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
 186:                                              ; preds = %.lr.ph, %183
   %187 = phi i64 [ %185, %183 ], [ 0, %.lr.ph ]
   %188 = mul i64 %187, %181
-  %189 = add i64 %188, %.0126216
+  %189 = add i64 %188, %.1216
   br i1 %.not141, label %193, label %190
 
 190:                                              ; preds = %186
@@ -995,14 +995,14 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
 193:                                              ; preds = %186, %190
   %194 = phi i64 [ %192, %190 ], [ 0, %186 ]
   %195 = mul i64 %194, %182
-  %196 = add i64 %195, %.0127215
+  %196 = add i64 %195, %.1128215
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %197 = icmp sgt i64 %indvars.iv, 0
   br i1 %197, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %193, %164
-  %.0127.lcssa = phi i64 [ %31, %164 ], [ %196, %193 ]
-  %.0126.lcssa = phi i64 [ %26, %164 ], [ %189, %193 ]
+  %.1128.lcssa = phi i64 [ %31, %164 ], [ %196, %193 ]
+  %.1.lcssa = phi i64 [ %26, %164 ], [ %189, %193 ]
   switch i32 %0, label %.lr.ph.i.preheader [
     i32 1, label %200
     i32 2, label %205
@@ -1029,8 +1029,8 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %or.cond, label %.critedge.sink.split.i, label %.loopexit
 
 205:                                              ; preds = %.thread, %._crit_edge
-  %.1183 = phi i64 [ %46, %.thread ], [ %.0126.lcssa, %._crit_edge ]
-  %.1128180 = phi i64 [ %51, %.thread ], [ %.0127.lcssa, %._crit_edge ]
+  %.0126183 = phi i64 [ %46, %.thread ], [ %.1.lcssa, %._crit_edge ]
+  %.0127180 = phi i64 [ %51, %.thread ], [ %.1128.lcssa, %._crit_edge ]
   %206 = getelementptr inbounds i8, ptr %12, i64 8
   %207 = load i64, ptr %206, align 8
   %208 = icmp eq i64 %207, 1
@@ -1055,8 +1055,8 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %or.cond.i, label %.critedge.sink.split.i, label %.loopexit
 
 221:                                              ; preds = %.thread184, %._crit_edge
-  %.1188 = phi i64 [ %88, %.thread184 ], [ %.0126.lcssa, %._crit_edge ]
-  %.1128187 = phi i64 [ %93, %.thread184 ], [ %.0127.lcssa, %._crit_edge ]
+  %.0126188 = phi i64 [ %88, %.thread184 ], [ %.1.lcssa, %._crit_edge ]
+  %.0127187 = phi i64 [ %93, %.thread184 ], [ %.1128.lcssa, %._crit_edge ]
   %222 = getelementptr inbounds i8, ptr %12, i64 16
   %223 = load i64, ptr %222, align 16
   %224 = icmp eq i64 %223, 1
@@ -1099,8 +1099,8 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %or.cond144.i, label %.critedge.sink.split.i, label %.loopexit
 
 250:                                              ; preds = %.thread189, %._crit_edge
-  %.1193 = phi i64 [ %157, %.thread189 ], [ %.0126.lcssa, %._crit_edge ]
-  %.1128192 = phi i64 [ %163, %.thread189 ], [ %.0127.lcssa, %._crit_edge ]
+  %.0126193 = phi i64 [ %157, %.thread189 ], [ %.1.lcssa, %._crit_edge ]
+  %.0127192 = phi i64 [ %163, %.thread189 ], [ %.1128.lcssa, %._crit_edge ]
   %251 = getelementptr inbounds i8, ptr %12, i64 24
   %252 = load i64, ptr %251, align 8
   %253 = icmp eq i64 %252, 1
@@ -1164,7 +1164,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   %293 = phi i64 [ %.pre, %.lr.ph223 ], [ %316, %.lr.ph.i ]
   %294 = phi i64 [ 1, %.lr.ph223 ], [ %300, %.lr.ph.i ]
   %295 = phi i64 [ %19, %.lr.ph223 ], [ %309, %.lr.ph.i ]
-  %.0174221 = phi i32 [ %0, %.lr.ph223 ], [ %301, %.lr.ph.i ]
+  %.1175221 = phi i32 [ %0, %.lr.ph223 ], [ %301, %.lr.ph.i ]
   %296 = icmp eq i64 %293, %294
   br i1 %296, label %297, label %.loopexit
 
@@ -1172,7 +1172,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   %298 = getelementptr inbounds i64, ptr %10, i64 %295
   %299 = load i64, ptr %298, align 8
   %300 = mul i64 %299, %293
-  %301 = add i32 %.0174221, -1
+  %301 = add i32 %.1175221, -1
   %.not142.i = icmp eq i32 %301, 0
   br i1 %.not142.i, label %.loopexit209, label %.lr.ph.i
 
@@ -1183,7 +1183,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   %305 = getelementptr inbounds i64, ptr %12, i64 %302
   %306 = load i64, ptr %305, align 8
   %307 = mul i64 %306, %304
-  %308 = add i32 %.0174221, -2
+  %308 = add i32 %.1175221, -2
   %309 = zext i32 %308 to i64
   %310 = getelementptr inbounds i64, ptr %12, i64 %309
   %311 = load i64, ptr %310, align 8
@@ -1198,19 +1198,19 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br i1 %317, label %292, label %.loopexit
 
 .critedge.sink.split.i:                           ; preds = %200, %281, %239, %212
-  %.1182 = phi i64 [ %.1193, %281 ], [ %.1188, %239 ], [ %.1183, %212 ], [ %.0126.lcssa, %200 ]
-  %.1128179 = phi i64 [ %.1128192, %281 ], [ %.1128187, %239 ], [ %.1128180, %212 ], [ %.0127.lcssa, %200 ]
+  %.0126182 = phi i64 [ %.0126193, %281 ], [ %.0126188, %239 ], [ %.0126183, %212 ], [ %.1.lcssa, %200 ]
+  %.0127179 = phi i64 [ %.0127192, %281 ], [ %.0127187, %239 ], [ %.0127180, %212 ], [ %.1128.lcssa, %200 ]
   %.sink156.i = phi i64 [ %289, %281 ], [ %247, %239 ], [ %214, %212 ], [ 1, %200 ]
   %318 = load i64, ptr %10, align 16
   %319 = mul i64 %318, %.sink156.i
   br label %.loopexit209
 
 .loopexit:                                        ; preds = %.lr.ph.i, %292, %.lr.ph.i.preheader, %281, %268, %257, %250, %239, %228, %221, %212, %205, %200
-  %.1181.ph = phi i64 [ %.0126.lcssa, %200 ], [ %.1183, %205 ], [ %.1183, %212 ], [ %.1188, %221 ], [ %.1188, %228 ], [ %.1188, %239 ], [ %.1193, %250 ], [ %.1193, %257 ], [ %.1193, %268 ], [ %.1193, %281 ], [ %.0126.lcssa, %.lr.ph.i.preheader ], [ %.0126.lcssa, %292 ], [ %.0126.lcssa, %.lr.ph.i ]
-  %.1128178.ph = phi i64 [ %.0127.lcssa, %200 ], [ %.1128180, %205 ], [ %.1128180, %212 ], [ %.1128187, %221 ], [ %.1128187, %228 ], [ %.1128187, %239 ], [ %.1128192, %250 ], [ %.1128192, %257 ], [ %.1128192, %268 ], [ %.1128192, %281 ], [ %.0127.lcssa, %.lr.ph.i.preheader ], [ %.0127.lcssa, %292 ], [ %.0127.lcssa, %.lr.ph.i ]
-  %.2.ph = phi i32 [ 1, %200 ], [ 2, %205 ], [ 1, %212 ], [ 3, %221 ], [ 2, %228 ], [ 1, %239 ], [ 4, %250 ], [ 3, %257 ], [ 2, %268 ], [ 1, %281 ], [ %0, %.lr.ph.i.preheader ], [ %301, %.lr.ph.i ], [ %.0174221, %292 ]
+  %.0126181.ph = phi i64 [ %.1.lcssa, %200 ], [ %.0126183, %205 ], [ %.0126183, %212 ], [ %.0126188, %221 ], [ %.0126188, %228 ], [ %.0126188, %239 ], [ %.0126193, %250 ], [ %.0126193, %257 ], [ %.0126193, %268 ], [ %.0126193, %281 ], [ %.1.lcssa, %.lr.ph.i.preheader ], [ %.1.lcssa, %292 ], [ %.1.lcssa, %.lr.ph.i ]
+  %.0127178.ph = phi i64 [ %.1128.lcssa, %200 ], [ %.0127180, %205 ], [ %.0127180, %212 ], [ %.0127187, %221 ], [ %.0127187, %228 ], [ %.0127187, %239 ], [ %.0127192, %250 ], [ %.0127192, %257 ], [ %.0127192, %268 ], [ %.0127192, %281 ], [ %.1128.lcssa, %.lr.ph.i.preheader ], [ %.1128.lcssa, %292 ], [ %.1128.lcssa, %.lr.ph.i ]
+  %.2.ph = phi i32 [ 1, %200 ], [ 2, %205 ], [ 1, %212 ], [ 3, %221 ], [ 2, %228 ], [ 1, %239 ], [ 4, %250 ], [ 3, %257 ], [ 2, %268 ], [ 1, %281 ], [ %0, %.lr.ph.i.preheader ], [ %301, %.lr.ph.i ], [ %.1175221, %292 ]
   %.1173.ph = phi i64 [ 1, %200 ], [ 1, %205 ], [ %214, %212 ], [ 1, %221 ], [ %230, %228 ], [ %242, %239 ], [ 1, %250 ], [ %259, %257 ], [ %271, %268 ], [ %284, %281 ], [ 1, %.lr.ph.i.preheader ], [ %300, %.lr.ph.i ], [ %294, %292 ]
-  %320 = getelementptr inbounds i8, ptr %4, i64 %.1181.ph
+  %320 = getelementptr inbounds i8, ptr %4, i64 %.0126181.ph
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %9)
   %321 = zext i32 %.2.ph to i64
   %322 = shl nuw nsw i64 %321, 3
@@ -1218,18 +1218,18 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly %1, ptr
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.loopexit
-  %.011.i.i = phi i64 [ %326, %.lr.ph.i.i ], [ 1, %.loopexit ]
+  %.111.i.i = phi i64 [ %326, %.lr.ph.i.i ], [ 1, %.loopexit ]
   %.0610.i.i = phi ptr [ %324, %.lr.ph.i.i ], [ %10, %.loopexit ]
   %.079.i.i = phi i32 [ %323, %.lr.ph.i.i ], [ %.2.ph, %.loopexit ]
   %323 = add i32 %.079.i.i, -1
   %324 = getelementptr inbounds i8, ptr %.0610.i.i, i64 8
   %325 = load i64, ptr %.0610.i.i, align 8
-  %326 = mul i64 %325, %.011.i.i
+  %326 = mul i64 %325, %.111.i.i
   %.not.i.i = icmp eq i32 %323, 0
   br i1 %.not.i.i, label %H5VM_vector_reduce_product.exit.i, label %.lr.ph.i.i
 
 H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
-  %327 = getelementptr inbounds i8, ptr %7, i64 %.1128178.ph
+  %327 = getelementptr inbounds i8, ptr %7, i64 %.0127178.ph
   %.not62.i = icmp eq i64 %326, 0
   br i1 %.not62.i, label %H5VM_stride_copy.exit, label %.lr.ph61.i
 
@@ -1287,11 +1287,11 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   br i1 %exitcond.not.i, label %H5VM_stride_copy.exit, label %.lr.ph61.split.i
 
 .loopexit209:                                     ; preds = %297, %.critedge.sink.split.i, %._crit_edge
-  %.1181 = phi i64 [ %.0126.lcssa, %._crit_edge ], [ %.1182, %.critedge.sink.split.i ], [ %.0126.lcssa, %297 ]
-  %.1128178 = phi i64 [ %.0127.lcssa, %._crit_edge ], [ %.1128179, %.critedge.sink.split.i ], [ %.0127.lcssa, %297 ]
+  %.0126181 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %.0126182, %.critedge.sink.split.i ], [ %.1.lcssa, %297 ]
+  %.0127178 = phi i64 [ %.1128.lcssa, %._crit_edge ], [ %.0127179, %.critedge.sink.split.i ], [ %.1128.lcssa, %297 ]
   %.1173 = phi i64 [ 1, %._crit_edge ], [ %319, %.critedge.sink.split.i ], [ %300, %297 ]
-  %346 = getelementptr inbounds i8, ptr %4, i64 %.1181
-  %347 = getelementptr inbounds i8, ptr %7, i64 %.1128178
+  %346 = getelementptr inbounds i8, ptr %4, i64 %.0126181
+  %347 = getelementptr inbounds i8, ptr %7, i64 %.0127178
   call void @llvm.lifetime.start.p0(i64 264, ptr nonnull %9)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %346, ptr readonly align 1 %347, i64 %.1173, i1 false)
   br label %H5VM_stride_copy.exit
@@ -1318,13 +1318,13 @@ define noundef i32 @H5VM_stride_copy(i32 noundef %0, i64 noundef %1, ptr noundef
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split38, %.lr.ph.i
-  %.011.i = phi i64 [ %15, %.lr.ph.i ], [ 1, %.split38 ]
+  %.111.i = phi i64 [ %15, %.lr.ph.i ], [ 1, %.split38 ]
   %.0610.i = phi ptr [ %13, %.lr.ph.i ], [ %2, %.split38 ]
   %.079.i = phi i32 [ %12, %.lr.ph.i ], [ %0, %.split38 ]
   %12 = add i32 %.079.i, -1
   %13 = getelementptr inbounds i8, ptr %.0610.i, i64 8
   %14 = load i64, ptr %.0610.i, align 8
-  %15 = mul i64 %14, %.011.i
+  %15 = mul i64 %14, %.111.i
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %H5VM_vector_reduce_product.exit, label %.lr.ph.i
 
@@ -1411,13 +1411,13 @@ define noundef i32 @H5VM_stride_copy_s(i32 noundef %0, i64 noundef %1, ptr nound
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split38, %.lr.ph.i
-  %.011.i = phi i64 [ %15, %.lr.ph.i ], [ 1, %.split38 ]
+  %.111.i = phi i64 [ %15, %.lr.ph.i ], [ 1, %.split38 ]
   %.0610.i = phi ptr [ %13, %.lr.ph.i ], [ %2, %.split38 ]
   %.079.i = phi i32 [ %12, %.lr.ph.i ], [ %0, %.split38 ]
   %12 = add i32 %.079.i, -1
   %13 = getelementptr inbounds i8, ptr %.0610.i, i64 8
   %14 = load i64, ptr %.0610.i, align 8
-  %15 = mul i64 %14, %.011.i
+  %15 = mul i64 %14, %.111.i
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %H5VM_vector_reduce_product.exit, label %.lr.ph.i
 
@@ -1839,7 +1839,7 @@ define i64 @H5VM_opvv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture no
 
 24:                                               ; preds = %90, %67, %10
   %.0151 = phi ptr [ %13, %10 ], [ %60, %67 ], [ %81, %90 ]
-  %.0145 = phi ptr [ %16, %10 ], [ %.2147, %67 ], [ %80, %90 ]
+  %.0145 = phi ptr [ %16, %10 ], [ %.3148, %67 ], [ %80, %90 ]
   %.0140 = phi ptr [ %12, %10 ], [ %64, %67 ], [ %87, %90 ]
   %.0135 = phi ptr [ %15, %10 ], [ %.2137, %67 ], [ %85, %90 ]
   %.0129 = phi i64 [ %18, %10 ], [ %63, %67 ], [ %84, %90 ]
@@ -1897,26 +1897,26 @@ define i64 @H5VM_opvv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture no
   br i1 %47, label %48, label %70
 
 48:                                               ; preds = %90, %46, %43
-  %.1152 = phi ptr [ %.0151, %43 ], [ %81, %90 ], [ %13, %46 ]
-  %.2147 = phi ptr [ %36, %43 ], [ %80, %90 ], [ %16, %46 ]
+  %.2153 = phi ptr [ %.0151, %43 ], [ %81, %90 ], [ %13, %46 ]
+  %.3148 = phi ptr [ %36, %43 ], [ %80, %90 ], [ %16, %46 ]
   %.1141 = phi ptr [ %.0140, %43 ], [ %87, %90 ], [ %12, %46 ]
   %.2137 = phi ptr [ %40, %43 ], [ %85, %90 ], [ %15, %46 ]
   %.2131 = phi i64 [ %34, %43 ], [ %84, %90 ], [ %18, %46 ]
   %.2125 = phi i64 [ %39, %43 ], [ %83, %90 ], [ %20, %46 ]
   %.2120 = phi i64 [ %35, %43 ], [ %88, %90 ], [ %17, %46 ]
   %.2116 = phi i64 [ %41, %43 ], [ %86, %90 ], [ %19, %46 ]
-  %.1 = phi i64 [ %44, %43 ], [ %91, %90 ], [ 0, %46 ]
+  %.3 = phi i64 [ %44, %43 ], [ %91, %90 ], [ 0, %46 ]
   br label %49
 
 49:                                               ; preds = %62, %48
-  %.2153 = phi ptr [ %.1152, %48 ], [ %60, %62 ]
-  %.2142 = phi ptr [ %.1141, %48 ], [ %64, %62 ]
-  %.3132 = phi i64 [ %.2131, %48 ], [ %63, %62 ]
-  %.3126 = phi i64 [ %.2125, %48 ], [ %58, %62 ]
-  %.3121 = phi i64 [ %.2120, %48 ], [ %65, %62 ]
+  %.4155 = phi ptr [ %.2153, %48 ], [ %60, %62 ]
+  %.3143 = phi ptr [ %.1141, %48 ], [ %64, %62 ]
+  %.4133 = phi i64 [ %.2131, %48 ], [ %63, %62 ]
+  %.4127 = phi i64 [ %.2125, %48 ], [ %58, %62 ]
+  %.4122 = phi i64 [ %.2120, %48 ], [ %65, %62 ]
   %.3117 = phi i64 [ %.2116, %48 ], [ %59, %62 ]
-  %.1111 = phi i64 [ 0, %48 ], [ %57, %62 ]
-  %50 = tail call i32 %8(i64 noundef %.3132, i64 noundef %.3126, i64 noundef %.3121, ptr noundef %9) #7
+  %.2112 = phi i64 [ 0, %48 ], [ %57, %62 ]
+  %50 = tail call i32 %8(i64 noundef %.4133, i64 noundef %.4127, i64 noundef %.4122, ptr noundef %9) #7
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %56
 
@@ -1927,50 +1927,50 @@ define i64 @H5VM_opvv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture no
   br label %102
 
 56:                                               ; preds = %49
-  %57 = add i64 %.1111, %.3121
-  %58 = add i64 %.3121, %.3126
-  %59 = sub i64 %.3117, %.3121
-  %60 = getelementptr inbounds i8, ptr %.2153, i64 8
+  %57 = add i64 %.2112, %.4122
+  %58 = add i64 %.4122, %.4127
+  %59 = sub i64 %.3117, %.4122
+  %60 = getelementptr inbounds i8, ptr %.4155, i64 8
   %.not180 = icmp ult ptr %60, %21
   br i1 %.not180, label %62, label %61
 
 61:                                               ; preds = %56
-  store i64 %58, ptr %.2147, align 8
+  store i64 %58, ptr %.3148, align 8
   store i64 %59, ptr %.2137, align 8
   br label %.loopexit
 
 62:                                               ; preds = %56
   %63 = load i64, ptr %60, align 8
-  %64 = getelementptr inbounds i8, ptr %.2142, i64 8
+  %64 = getelementptr inbounds i8, ptr %.3143, i64 8
   %65 = load i64, ptr %64, align 8
   %66 = icmp ult i64 %65, %59
   br i1 %66, label %49, label %67
 
 67:                                               ; preds = %62
-  %68 = add nsw i64 %57, %.1
+  %68 = add nsw i64 %57, %.3
   %69 = icmp ult i64 %59, %65
   br i1 %69, label %24, label %70
 
 70:                                               ; preds = %46, %67, %43
   %.3154 = phi ptr [ %60, %67 ], [ %.0151, %43 ], [ %13, %46 ]
-  %.3148 = phi ptr [ %.2147, %67 ], [ %36, %43 ], [ %16, %46 ]
-  %.3143 = phi ptr [ %64, %67 ], [ %.0140, %43 ], [ %12, %46 ]
+  %.4149 = phi ptr [ %.3148, %67 ], [ %36, %43 ], [ %16, %46 ]
+  %.2142 = phi ptr [ %64, %67 ], [ %.0140, %43 ], [ %12, %46 ]
   %.3138 = phi ptr [ %.2137, %67 ], [ %40, %43 ], [ %15, %46 ]
-  %.4133 = phi i64 [ %63, %67 ], [ %34, %43 ], [ %18, %46 ]
-  %.4127 = phi i64 [ %58, %67 ], [ %39, %43 ], [ %20, %46 ]
-  %.4122 = phi i64 [ %65, %67 ], [ %35, %43 ], [ %17, %46 ]
-  %.2 = phi i64 [ %68, %67 ], [ %44, %43 ], [ 0, %46 ]
+  %.3132 = phi i64 [ %63, %67 ], [ %34, %43 ], [ %18, %46 ]
+  %.3126 = phi i64 [ %58, %67 ], [ %39, %43 ], [ %20, %46 ]
+  %.3121 = phi i64 [ %65, %67 ], [ %35, %43 ], [ %17, %46 ]
+  %.4 = phi i64 [ %68, %67 ], [ %44, %43 ], [ 0, %46 ]
   br label %71
 
 71:                                               ; preds = %82, %70
-  %.4155 = phi ptr [ %.3154, %70 ], [ %81, %82 ]
-  %.4149 = phi ptr [ %.3148, %70 ], [ %80, %82 ]
-  %.4144 = phi ptr [ %.3143, %70 ], [ %87, %82 ]
+  %.5156 = phi ptr [ %.3154, %70 ], [ %81, %82 ]
+  %.5150 = phi ptr [ %.4149, %70 ], [ %80, %82 ]
+  %.4144 = phi ptr [ %.2142, %70 ], [ %87, %82 ]
   %.4139 = phi ptr [ %.3138, %70 ], [ %85, %82 ]
-  %.5134 = phi i64 [ %.4133, %70 ], [ %84, %82 ]
-  %.5128 = phi i64 [ %.4127, %70 ], [ %83, %82 ]
-  %.5 = phi i64 [ %.4122, %70 ], [ %86, %82 ]
-  %.2112 = phi i64 [ 0, %70 ], [ %79, %82 ]
+  %.5134 = phi i64 [ %.3132, %70 ], [ %84, %82 ]
+  %.5128 = phi i64 [ %.3126, %70 ], [ %83, %82 ]
+  %.5 = phi i64 [ %.3121, %70 ], [ %86, %82 ]
+  %.3113 = phi i64 [ 0, %70 ], [ %79, %82 ]
   %72 = tail call i32 %8(i64 noundef %.5134, i64 noundef %.5128, i64 noundef %.5, ptr noundef %9) #7
   %73 = icmp slt i32 %72, 0
   br i1 %73, label %74, label %78
@@ -1982,9 +1982,9 @@ define i64 @H5VM_opvv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture no
   br label %102
 
 78:                                               ; preds = %71
-  %79 = add i64 %.2112, %.5
-  %80 = getelementptr inbounds i8, ptr %.4149, i64 8
-  %81 = getelementptr inbounds i8, ptr %.4155, i64 8
+  %79 = add i64 %.3113, %.5
+  %80 = getelementptr inbounds i8, ptr %.5150, i64 8
+  %81 = getelementptr inbounds i8, ptr %.5156, i64 8
   %.not181 = icmp ult ptr %80, %22
   %.not182 = icmp ult ptr %81, %21
   %or.cond = select i1 %.not181, i1 %.not182, i1 false
@@ -2001,22 +2001,22 @@ define i64 @H5VM_opvv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture no
   br i1 %89, label %71, label %90
 
 90:                                               ; preds = %82
-  %91 = add nsw i64 %79, %.2
+  %91 = add nsw i64 %79, %.4
   %92 = icmp ult i64 %88, %86
   br i1 %92, label %48, label %24
 
 .loopexit:                                        ; preds = %78, %61, %37
-  %.5156 = phi ptr [ %.0151, %37 ], [ %60, %61 ], [ %81, %78 ]
-  %.5150 = phi ptr [ %36, %37 ], [ %.2147, %61 ], [ %80, %78 ]
-  %.3113 = phi i64 [ %33, %37 ], [ %57, %61 ], [ %79, %78 ]
-  %.3 = phi i64 [ %.0, %37 ], [ %.1, %61 ], [ %.2, %78 ]
-  %93 = add nsw i64 %.3, %.3113
-  %94 = ptrtoint ptr %.5156 to i64
+  %.1152 = phi ptr [ %.0151, %37 ], [ %60, %61 ], [ %81, %78 ]
+  %.2147 = phi ptr [ %36, %37 ], [ %.3148, %61 ], [ %80, %78 ]
+  %.1111 = phi i64 [ %33, %37 ], [ %57, %61 ], [ %79, %78 ]
+  %.2 = phi i64 [ %.0, %37 ], [ %.3, %61 ], [ %.4, %78 ]
+  %93 = add nsw i64 %.2, %.1111
+  %94 = ptrtoint ptr %.1152 to i64
   %95 = ptrtoint ptr %3 to i64
   %96 = sub i64 %94, %95
   %97 = ashr exact i64 %96, 3
   store i64 %97, ptr %1, align 8
-  %98 = ptrtoint ptr %.5150 to i64
+  %98 = ptrtoint ptr %.2147 to i64
   %99 = ptrtoint ptr %7 to i64
   %100 = sub i64 %98, %99
   %101 = ashr exact i64 %100, 3
@@ -2024,8 +2024,8 @@ define i64 @H5VM_opvv(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture no
   br label %102
 
 102:                                              ; preds = %.loopexit, %74, %52, %28
-  %.4 = phi i64 [ -1, %28 ], [ %93, %.loopexit ], [ -1, %52 ], [ -1, %74 ]
-  ret i64 %.4
+  %.1 = phi i64 [ -1, %28 ], [ %93, %.loopexit ], [ -1, %52 ], [ -1, %74 ]
+  ret i64 %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -2051,7 +2051,7 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   %.0147 = phi ptr [ %24, %10 ], [ %55, %61 ], [ %73, %79 ]
   %.0141 = phi ptr [ %22, %10 ], [ %59, %61 ], [ %77, %79 ]
   %.0135 = phi ptr [ %13, %10 ], [ %50, %61 ], [ %68, %79 ]
-  %.0129 = phi ptr [ %16, %10 ], [ %.2131, %61 ], [ %67, %79 ]
+  %.0129 = phi ptr [ %16, %10 ], [ %.3132, %61 ], [ %67, %79 ]
   %.0124 = phi ptr [ %12, %10 ], [ %56, %61 ], [ %74, %79 ]
   %.0119 = phi ptr [ %15, %10 ], [ %.2121, %61 ], [ %70, %79 ]
   %.0115 = phi i64 [ %17, %10 ], [ %57, %61 ], [ %75, %79 ]
@@ -2102,40 +2102,40 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
 46:                                               ; preds = %79, %44, %41
   %.2149 = phi ptr [ %39, %41 ], [ %73, %79 ], [ %24, %44 ]
   %.2143 = phi ptr [ %35, %41 ], [ %77, %79 ], [ %22, %44 ]
-  %.1136 = phi ptr [ %.0135, %41 ], [ %68, %79 ], [ %13, %44 ]
-  %.2131 = phi ptr [ %30, %41 ], [ %67, %79 ], [ %16, %44 ]
+  %.2137 = phi ptr [ %.0135, %41 ], [ %68, %79 ], [ %13, %44 ]
+  %.3132 = phi ptr [ %30, %41 ], [ %67, %79 ], [ %16, %44 ]
   %.1125 = phi ptr [ %.0124, %41 ], [ %74, %79 ], [ %12, %44 ]
   %.2121 = phi ptr [ %36, %41 ], [ %70, %79 ], [ %15, %44 ]
   %.2117 = phi i64 [ %29, %41 ], [ %75, %79 ], [ %17, %44 ]
   %.2113 = phi i64 [ %37, %41 ], [ %71, %79 ], [ %18, %44 ]
-  %.1 = phi i64 [ %42, %41 ], [ %80, %79 ], [ 0, %44 ]
+  %.2 = phi i64 [ %42, %41 ], [ %80, %79 ], [ 0, %44 ]
   br label %47
 
 47:                                               ; preds = %54, %46
-  %.3150 = phi ptr [ %.2149, %46 ], [ %55, %54 ]
-  %.3144 = phi ptr [ %.2143, %46 ], [ %59, %54 ]
-  %.2137 = phi ptr [ %.1136, %46 ], [ %50, %54 ]
-  %.2126 = phi ptr [ %.1125, %46 ], [ %56, %54 ]
-  %.3118 = phi i64 [ %.2117, %46 ], [ %57, %54 ]
+  %.4151 = phi ptr [ %.2149, %46 ], [ %55, %54 ]
+  %.4145 = phi ptr [ %.2143, %46 ], [ %59, %54 ]
+  %.4139 = phi ptr [ %.2137, %46 ], [ %50, %54 ]
+  %.3127 = phi ptr [ %.1125, %46 ], [ %56, %54 ]
+  %.4 = phi i64 [ %.2117, %46 ], [ %57, %54 ]
   %.3114 = phi i64 [ %.2113, %46 ], [ %49, %54 ]
-  %.1108 = phi i64 [ 0, %46 ], [ %48, %54 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3144, ptr align 1 %.3150, i64 %.3118, i1 false)
-  %48 = add i64 %.1108, %.3118
-  %49 = sub i64 %.3114, %.3118
-  %50 = getelementptr inbounds i8, ptr %.2137, i64 8
+  %.2109 = phi i64 [ 0, %46 ], [ %48, %54 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.4145, ptr align 1 %.4151, i64 %.4, i1 false)
+  %48 = add i64 %.2109, %.4
+  %49 = sub i64 %.3114, %.4
+  %50 = getelementptr inbounds i8, ptr %.4139, i64 8
   %.not176 = icmp ult ptr %50, %19
   br i1 %.not176, label %54, label %51
 
 51:                                               ; preds = %47
-  %52 = load i64, ptr %.2131, align 8
+  %52 = load i64, ptr %.3132, align 8
   %53 = add i64 %52, %48
-  store i64 %53, ptr %.2131, align 8
+  store i64 %53, ptr %.3132, align 8
   store i64 %49, ptr %.2121, align 8
   br label %.loopexit
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %.3150, i64 %.3118
-  %56 = getelementptr inbounds i8, ptr %.2126, i64 8
+  %55 = getelementptr inbounds i8, ptr %.4151, i64 %.4
+  %56 = getelementptr inbounds i8, ptr %.3127, i64 8
   %57 = load i64, ptr %56, align 8
   %58 = load i64, ptr %50, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 %58
@@ -2143,34 +2143,34 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   br i1 %60, label %47, label %61
 
 61:                                               ; preds = %54
-  %62 = add nsw i64 %48, %.1
+  %62 = add nsw i64 %48, %.2
   %63 = icmp ult i64 %49, %57
   br i1 %63, label %26, label %64
 
 64:                                               ; preds = %44, %61, %41
-  %.4151 = phi ptr [ %55, %61 ], [ %39, %41 ], [ %24, %44 ]
-  %.4145 = phi ptr [ %59, %61 ], [ %35, %41 ], [ %22, %44 ]
+  %.3150 = phi ptr [ %55, %61 ], [ %39, %41 ], [ %24, %44 ]
+  %.3144 = phi ptr [ %59, %61 ], [ %35, %41 ], [ %22, %44 ]
   %.3138 = phi ptr [ %50, %61 ], [ %.0135, %41 ], [ %13, %44 ]
-  %.3132 = phi ptr [ %.2131, %61 ], [ %30, %41 ], [ %16, %44 ]
-  %.3127 = phi ptr [ %56, %61 ], [ %.0124, %41 ], [ %12, %44 ]
+  %.4133 = phi ptr [ %.3132, %61 ], [ %30, %41 ], [ %16, %44 ]
+  %.2126 = phi ptr [ %56, %61 ], [ %.0124, %41 ], [ %12, %44 ]
   %.3122 = phi ptr [ %.2121, %61 ], [ %36, %41 ], [ %15, %44 ]
-  %.4 = phi i64 [ %57, %61 ], [ %29, %41 ], [ %17, %44 ]
-  %.2 = phi i64 [ %62, %61 ], [ %42, %41 ], [ 0, %44 ]
+  %.3118 = phi i64 [ %57, %61 ], [ %29, %41 ], [ %17, %44 ]
+  %.3 = phi i64 [ %62, %61 ], [ %42, %41 ], [ 0, %44 ]
   br label %65
 
 65:                                               ; preds = %69, %64
-  %.5152 = phi ptr [ %.4151, %64 ], [ %73, %69 ]
-  %.5146 = phi ptr [ %.4145, %64 ], [ %77, %69 ]
-  %.4139 = phi ptr [ %.3138, %64 ], [ %68, %69 ]
-  %.4133 = phi ptr [ %.3132, %64 ], [ %67, %69 ]
-  %.4128 = phi ptr [ %.3127, %64 ], [ %74, %69 ]
+  %.5152 = phi ptr [ %.3150, %64 ], [ %73, %69 ]
+  %.5146 = phi ptr [ %.3144, %64 ], [ %77, %69 ]
+  %.5140 = phi ptr [ %.3138, %64 ], [ %68, %69 ]
+  %.5134 = phi ptr [ %.4133, %64 ], [ %67, %69 ]
+  %.4128 = phi ptr [ %.2126, %64 ], [ %74, %69 ]
   %.4123 = phi ptr [ %.3122, %64 ], [ %70, %69 ]
-  %.5 = phi i64 [ %.4, %64 ], [ %71, %69 ]
-  %.2109 = phi i64 [ 0, %64 ], [ %66, %69 ]
+  %.5 = phi i64 [ %.3118, %64 ], [ %71, %69 ]
+  %.3110 = phi i64 [ 0, %64 ], [ %66, %69 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.5146, ptr align 1 %.5152, i64 %.5, i1 false)
-  %66 = add i64 %.2109, %.5
-  %67 = getelementptr inbounds i8, ptr %.4133, i64 8
-  %68 = getelementptr inbounds i8, ptr %.4139, i64 8
+  %66 = add i64 %.3110, %.5
+  %67 = getelementptr inbounds i8, ptr %.5134, i64 8
+  %68 = getelementptr inbounds i8, ptr %.5140, i64 8
   %.not177 = icmp ult ptr %67, %20
   %.not178 = icmp ult ptr %68, %19
   %or.cond = select i1 %.not177, i1 %.not178, i1 false
@@ -2189,22 +2189,22 @@ define i64 @H5VM_memcpyvv(ptr nocapture noundef writeonly %0, i64 noundef %1, pt
   br i1 %78, label %65, label %79
 
 79:                                               ; preds = %69
-  %80 = add nsw i64 %66, %.2
+  %80 = add nsw i64 %66, %.3
   %81 = icmp ult i64 %75, %71
   br i1 %81, label %46, label %26
 
 .loopexit:                                        ; preds = %65, %51, %31
-  %.5140 = phi ptr [ %.0135, %31 ], [ %50, %51 ], [ %68, %65 ]
-  %.5134 = phi ptr [ %30, %31 ], [ %.2131, %51 ], [ %67, %65 ]
-  %.3110 = phi i64 [ %28, %31 ], [ %48, %51 ], [ %66, %65 ]
-  %.3 = phi i64 [ %.0, %31 ], [ %.1, %51 ], [ %.2, %65 ]
-  %82 = add nsw i64 %.3, %.3110
-  %83 = ptrtoint ptr %.5140 to i64
+  %.1136 = phi ptr [ %.0135, %31 ], [ %50, %51 ], [ %68, %65 ]
+  %.2131 = phi ptr [ %30, %31 ], [ %.3132, %51 ], [ %67, %65 ]
+  %.1108 = phi i64 [ %28, %31 ], [ %48, %51 ], [ %66, %65 ]
+  %.1 = phi i64 [ %.0, %31 ], [ %.2, %51 ], [ %.3, %65 ]
+  %82 = add nsw i64 %.1, %.1108
+  %83 = ptrtoint ptr %.1136 to i64
   %84 = ptrtoint ptr %4 to i64
   %85 = sub i64 %83, %84
   %86 = ashr exact i64 %85, 3
   store i64 %86, ptr %2, align 8
-  %87 = ptrtoint ptr %.5134 to i64
+  %87 = ptrtoint ptr %.2131 to i64
   %88 = ptrtoint ptr %9 to i64
   %89 = sub i64 %87, %88
   %90 = ashr exact i64 %89, 3

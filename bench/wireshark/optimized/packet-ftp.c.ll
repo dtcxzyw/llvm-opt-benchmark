@@ -722,8 +722,8 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 
 .critedge:                                        ; preds = %99, %139, %238, %237, %.thread410, %150, %153, %155
   %.0304 = phi i32 [ %86, %153 ], [ %86, %155 ], [ %86, %150 ], [ 0, %.thread410 ], [ 0, %237 ], [ 0, %238 ], [ %86, %139 ], [ %86, %99 ]
-  %.1303.shrunk = phi i1 [ false, %153 ], [ false, %155 ], [ false, %150 ], [ %189, %.thread410 ], [ %189, %237 ], [ false, %238 ], [ false, %139 ], [ false, %99 ]
-  %.1301.shrunk = phi i1 [ false, %153 ], [ false, %155 ], [ false, %150 ], [ %188, %.thread410 ], [ %188, %237 ], [ false, %238 ], [ false, %139 ], [ false, %99 ]
+  %.0302.shrunk = phi i1 [ false, %153 ], [ false, %155 ], [ false, %150 ], [ %189, %.thread410 ], [ %189, %237 ], [ false, %238 ], [ false, %139 ], [ false, %99 ]
+  %.0300.shrunk = phi i1 [ false, %153 ], [ false, %155 ], [ false, %150 ], [ %188, %.thread410 ], [ %188, %237 ], [ false, %238 ], [ false, %139 ], [ false, %99 ]
   %.1299 = phi i32 [ %.0298403, %153 ], [ %.0298403, %155 ], [ %.0298403, %150 ], [ 0, %.thread410 ], [ 0, %237 ], [ 0, %238 ], [ %.0298, %139 ], [ 0, %99 ]
   %.1 = phi i32 [ %.0297404, %153 ], [ %.0297404, %155 ], [ %.0297404, %150 ], [ 0, %.thread410 ], [ 0, %237 ], [ 0, %238 ], [ %.0297, %139 ], [ 0, %99 ]
   %239 = load i32, ptr %9, align 4
@@ -793,7 +793,7 @@ addresses_equal.exit:                             ; preds = %267, %270
   br label %275
 
 275:                                              ; preds = %245, %addresses_equal.exit, %244
-  %or.cond7 = and i1 %.1301.shrunk, %241
+  %or.cond7 = and i1 %.0300.shrunk, %241
   br i1 %or.cond7, label %276, label %307
 
 276:                                              ; preds = %275
@@ -915,7 +915,7 @@ isvalid_rfc2428_delimiter.exit.i:                 ; preds = %310
 .lr.ph87.i:                                       ; preds = %363, %.lr.ph87.preheader.i
   %indvars.iv98.i = phi i64 [ 1, %.lr.ph87.preheader.i ], [ %indvars.iv.next99.i, %363 ]
   %.286.i = phi i32 [ 1, %.lr.ph87.preheader.i ], [ %.3.i, %363 ]
-  %.05985.i = phi i32 [ 1, %.lr.ph87.preheader.i ], [ %.362.i, %363 ]
+  %.05985.i = phi i32 [ 1, %.lr.ph87.preheader.i ], [ %.160.i, %363 ]
   %.06583.i = phi i32 [ 0, %.lr.ph87.preheader.i ], [ %.166.i, %363 ]
   %333 = getelementptr i8, ptr %314, i64 %indvars.iv98.i
   %334 = load i8, ptr %333, align 1
@@ -965,9 +965,9 @@ isvalid_rfc2428_delimiter.exit.i:                 ; preds = %310
   br label %357
 
 357:                                              ; preds = %355, %353
-  %.160.in.in.i = phi i32 [ %354, %353 ], [ %356, %355 ]
-  %.160.in.i = icmp ne i32 %.160.in.in.i, 0
-  %.160.i = zext i1 %.160.in.i to i32
+  %.362.in.in.i = phi i32 [ %354, %353 ], [ %356, %355 ]
+  %.362.in.i = icmp ne i32 %.362.in.in.i, 0
+  %.362.i = zext i1 %.362.in.i to i32
   br label %.sink.split.i
 
 358:                                              ; preds = %340
@@ -979,21 +979,21 @@ isvalid_rfc2428_delimiter.exit.i:                 ; preds = %310
 
 .sink.split.i:                                    ; preds = %358, %357
   %.sink.i = phi ptr [ %17, %357 ], [ %19, %358 ]
-  %.362.ph.i = phi i32 [ %.160.i, %357 ], [ %.05985.i, %358 ]
+  %.160.ph.i = phi i32 [ %.362.i, %357 ], [ %.05985.i, %358 ]
   %.3.ph.i = phi i32 [ 3, %357 ], [ 4, %358 ]
   store i32 %338, ptr %.sink.i, align 4
   br label %363
 
 363:                                              ; preds = %.sink.split.i, %343, %340, %.lr.ph87.i
   %.166.i = phi i32 [ %.06583.i, %.lr.ph87.i ], [ %337, %340 ], [ %337, %343 ], [ %337, %.sink.split.i ]
-  %.362.i = phi i32 [ %.05985.i, %.lr.ph87.i ], [ %.05985.i, %340 ], [ %.05985.i, %343 ], [ %.362.ph.i, %.sink.split.i ]
+  %.160.i = phi i32 [ %.05985.i, %.lr.ph87.i ], [ %.05985.i, %340 ], [ %.05985.i, %343 ], [ %.160.ph.i, %.sink.split.i ]
   %.3.i = phi i32 [ %.286.i, %.lr.ph87.i ], [ %341, %340 ], [ 2, %343 ], [ %.3.ph.i, %.sink.split.i ]
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %exitcond102.not.i = icmp eq i64 %indvars.iv.next99.i, %wide.trip.count101.i
   br i1 %exitcond102.not.i, label %parse_eprt_request.exit, label %.lr.ph87.i, !llvm.loop !6
 
 parse_eprt_request.exit:                          ; preds = %363
-  %.not342 = icmp eq i32 %.362.i, 0
+  %.not342 = icmp eq i32 %.160.i, 0
   br i1 %.not342, label %parse_eprt_request.exit.thread, label %parse_eprt_request.exit.thread420
 
 parse_eprt_request.exit.thread420:                ; preds = %.preheader.i, %parse_eprt_request.exit
@@ -1053,7 +1053,7 @@ parse_eprt_request.exit.thread:                   ; preds = %358, %348, %343, %3
   br label %389
 
 389:                                              ; preds = %377, %parse_eprt_request.exit.thread, %307
-  %or.cond9 = and i1 %.1303.shrunk, %241
+  %or.cond9 = and i1 %.0302.shrunk, %241
   br i1 %or.cond9, label %390, label %456
 
 390:                                              ; preds = %389

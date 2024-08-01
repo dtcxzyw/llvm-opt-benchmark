@@ -656,7 +656,7 @@ block_crypto_amend_options_generic_luks.exit:     ; preds = %if.end.i19
   br label %perm_cleanup
 
 perm_cleanup:                                     ; preds = %block_crypto_amend_prepare.exit.thread, %block_crypto_amend_prepare.exit, %block_crypto_amend_options_generic_luks.exit
-  %ret.0 = phi i32 [ %call.i14, %block_crypto_amend_prepare.exit ], [ %call.i21, %block_crypto_amend_options_generic_luks.exit ], [ %call.i14, %block_crypto_amend_prepare.exit.thread ]
+  %ret.1 = phi i32 [ %call.i14, %block_crypto_amend_prepare.exit ], [ %call.i21, %block_crypto_amend_options_generic_luks.exit ], [ %call.i14, %block_crypto_amend_prepare.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %errp.i)
   %8 = load ptr, ptr %opaque, align 8
   store ptr null, ptr %errp.i, align 8
@@ -677,9 +677,9 @@ block_crypto_amend_cleanup.exit:                  ; preds = %perm_cleanup, %if.t
   br label %cleanup
 
 cleanup:                                          ; preds = %qobject_unref_impl.exit, %block_crypto_amend_cleanup.exit
-  %ret.1 = phi i32 [ %ret.0, %block_crypto_amend_cleanup.exit ], [ -22, %qobject_unref_impl.exit ]
+  %ret.0 = phi i32 [ %ret.1, %block_crypto_amend_cleanup.exit ], [ -22, %qobject_unref_impl.exit ]
   call void @qapi_free_QCryptoBlockAmendOptions(ptr noundef %retval.0.i) #9
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -854,10 +854,10 @@ if.end35:                                         ; preds = %if.end29
   br i1 %tobool.not, label %cleanup, label %while.body, !llvm.loop !5
 
 cleanup:                                          ; preds = %while.body, %if.end35, %if.end29, %while.cond.preheader, %if.end11
-  %ret.1 = phi i32 [ -12, %if.end11 ], [ 0, %while.cond.preheader ], [ %call26, %while.body ], [ %call26, %if.end35 ], [ -5, %if.end29 ]
+  %ret.0 = phi i32 [ -12, %if.end11 ], [ 0, %while.cond.preheader ], [ %call26, %while.body ], [ %call26, %if.end35 ], [ -5, %if.end29 ]
   call void @qemu_iovec_destroy(ptr noundef nonnull %hd_qiov) #9
   call void @qemu_vfree(ptr noundef %call14) #9
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -945,10 +945,10 @@ if.end36:                                         ; preds = %if.end29
   br i1 %tobool.not, label %cleanup, label %while.body, !llvm.loop !7
 
 cleanup:                                          ; preds = %if.end29, %if.end36, %while.body, %while.cond.preheader, %if.end11
-  %ret.1 = phi i32 [ -12, %if.end11 ], [ 0, %while.cond.preheader ], [ %call33, %if.end29 ], [ %call33, %if.end36 ], [ -5, %while.body ]
+  %ret.0 = phi i32 [ -12, %if.end11 ], [ 0, %while.cond.preheader ], [ %call33, %if.end29 ], [ %call33, %if.end36 ], [ -5, %while.body ]
   call void @qemu_iovec_destroy(ptr noundef nonnull %hd_qiov) #9
   call void @qemu_vfree(ptr noundef %call14) #9
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

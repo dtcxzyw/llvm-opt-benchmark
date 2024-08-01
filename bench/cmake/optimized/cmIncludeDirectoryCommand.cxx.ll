@@ -546,8 +546,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %144
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit68: ; preds = %142, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i66, %2
-  %.1 = phi i1 [ true, %2 ], [ %.not90, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i66 ], [ %.not90, %142 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %2 ], [ %.not90, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i66 ], [ %.not90, %142 ]
+  ret i1 %.0
 
 144:                                              ; preds = %143, %.body
   %.pn28.pn.pn = phi { ptr, i32 } [ %.pn28.pn, %143 ], [ %.pn, %.body ]

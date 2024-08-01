@@ -210,11 +210,11 @@ define internal i32 @cf_h1_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   br label %tunnel_is_established.exit.i
 
 tunnel_is_established.exit.i:                     ; preds = %38, %60
-  %.1 = phi ptr [ %53, %60 ], [ %12, %38 ]
+  %.056 = phi ptr [ %53, %60 ], [ %12, %38 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   %71 = getelementptr inbounds i8, ptr %0, i64 24
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %.1, i64 280
+  %73 = getelementptr inbounds i8, ptr %.056, i64 280
   %74 = load i32, ptr %73, align 8
   switch i32 %74, label %tunnel_is_failed.exit.preheader.i [
     i32 4, label %.loopexit
@@ -224,17 +224,17 @@ tunnel_is_established.exit.i:                     ; preds = %38, %60
 tunnel_is_failed.exit.preheader.i:                ; preds = %tunnel_is_established.exit.i
   %75 = getelementptr inbounds i8, ptr %1, i64 2642
   %76 = getelementptr inbounds i8, ptr %1, i64 360
-  %77 = getelementptr inbounds i8, ptr %.1, i64 144
-  %78 = getelementptr inbounds i8, ptr %.1, i64 176
-  %79 = getelementptr inbounds i8, ptr %.1, i64 264
-  %80 = getelementptr inbounds i8, ptr %.1, i64 112
+  %77 = getelementptr inbounds i8, ptr %.056, i64 144
+  %78 = getelementptr inbounds i8, ptr %.056, i64 176
+  %79 = getelementptr inbounds i8, ptr %.056, i64 264
+  %80 = getelementptr inbounds i8, ptr %.056, i64 112
   %81 = getelementptr inbounds i8, ptr %0, i64 32
-  %82 = getelementptr inbounds i8, ptr %.1, i64 184
+  %82 = getelementptr inbounds i8, ptr %.056, i64 184
   %83 = getelementptr inbounds i8, ptr %1, i64 296
   %84 = getelementptr inbounds i8, ptr %1, i64 4940
-  %85 = getelementptr inbounds i8, ptr %.1, i64 272
-  %86 = getelementptr inbounds i8, ptr %.1, i64 284
-  %87 = getelementptr inbounds i8, ptr %.1, i64 192
+  %85 = getelementptr inbounds i8, ptr %.056, i64 272
+  %86 = getelementptr inbounds i8, ptr %.056, i64 284
+  %87 = getelementptr inbounds i8, ptr %.056, i64 192
   %88 = getelementptr inbounds i8, ptr %1, i64 4956
   %89 = getelementptr inbounds i8, ptr %1, i64 472
   %90 = getelementptr inbounds i8, ptr %1, i64 3536
@@ -1121,7 +1121,7 @@ h1_tunnel_go_state.exit147.i:                     ; preds = %463, %450
   br label %.critedge
 
 468:                                              ; preds = %h1_tunnel_go_state.exit145.thread.i
-  call fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef nonnull %.1, i32 noundef 4, ptr noundef nonnull %1)
+  call fastcc void @h1_tunnel_go_state(ptr noundef %0, ptr noundef nonnull %.056, i32 noundef 4, ptr noundef nonnull %1)
   %469 = load i64, ptr %75, align 2
   %470 = and i64 %469, 268435456
   %.not131.i = icmp eq i64 %470, 0

@@ -679,14 +679,14 @@ if.end103:                                        ; preds = %land.lhs.true79
   br i1 %tobool.not, label %if.end108, label %return
 
 if.end108:                                        ; preds = %if.else97, %if.end103
-  %code.2 = phi i16 [ %14, %if.end103 ], [ 8512, %if.else97 ]
-  %shr110 = lshr i16 %code.2, 8
+  %code.1 = phi i16 [ %14, %if.end103 ], [ 8512, %if.else97 ]
+  %shr110 = lshr i16 %code.1, 8
   %conv111 = zext nneg i16 %shr110 to i32
   %sub116 = add nsw i32 %conv111, -33
   %and117 = and i32 %sub116, 1
   %tobool118.not = icmp eq i32 %and117, 0
   %cond = select i1 %tobool118.not, i32 0, i32 94
-  %narrow = add nuw i16 %code.2, 223
+  %narrow = add nuw i16 %code.1, 223
   %sub120 = zext i16 %narrow to i32
   %add121 = add nuw nsw i32 %cond, %sub120
   %shr125 = lshr i32 %sub116, 1

@@ -142,7 +142,7 @@ for.cond.preheader.split.us:                      ; preds = %for.cond.preheader
   br i1 %cmp21.not, label %for.cond.us.us, label %for.cond.preheader.split.us.split
 
 for.cond.us.us:                                   ; preds = %for.cond.preheader.split.us, %for.inc.us.us
-  %wordCount.0.us.us = phi i32 [ %wordCount.2.us.us, %for.inc.us.us ], [ 0, %for.cond.preheader.split.us ]
+  %wordCount.0.us.us = phi i32 [ %wordCount.3.us.us, %for.inc.us.us ], [ 0, %for.cond.preheader.split.us ]
   %codePointsMatched.0.us.us = phi i32 [ %add.us.us, %for.inc.us.us ], [ 0, %for.cond.preheader.split.us ]
   %c.0.us.us = phi i32 [ %call43.us.us, %for.inc.us.us ], [ %call5, %for.cond.preheader.split.us ]
   %cmp.us.us = icmp sgt i32 %c.0.us.us, -1
@@ -196,12 +196,12 @@ if.end30.us.us:                                   ; preds = %if.then27.us.us, %i
   br label %if.end31.us.us
 
 if.end31.us.us:                                   ; preds = %if.end30.us.us, %if.then.us.us
-  %wordCount.1.us.us = phi i32 [ %inc.us.us, %if.end30.us.us ], [ %wordCount.0.us.us, %if.then.us.us ]
+  %wordCount.2.us.us = phi i32 [ %inc.us.us, %if.end30.us.us ], [ %wordCount.0.us.us, %if.then.us.us ]
   %cmp32.us.us = icmp eq i32 %cond.us.us, 2
   br i1 %cmp32.us.us, label %for.end, label %if.end38.us.us
 
 if.end38.us.us:                                   ; preds = %if.end31.us.us, %if.else.us.us
-  %wordCount.2.us.us = phi i32 [ %wordCount.1.us.us, %if.end31.us.us ], [ %wordCount.0.us.us, %if.else.us.us ]
+  %wordCount.3.us.us = phi i32 [ %wordCount.2.us.us, %if.end31.us.us ], [ %wordCount.0.us.us, %if.else.us.us ]
   %cmp39.not.us.us = icmp slt i32 %sub.us.us, %maxLength
   br i1 %cmp39.not.us.us, label %for.inc.us.us, label %for.end
 
@@ -218,7 +218,7 @@ for.cond.preheader.split.us.split:                ; preds = %for.cond.preheader.
   br i1 %cmp26.not, label %for.cond.us.us33, label %for.cond.us
 
 for.cond.us.us33:                                 ; preds = %for.cond.preheader.split.us.split, %for.inc.us.us65
-  %wordCount.0.us.us34 = phi i32 [ %wordCount.2.us.us63, %for.inc.us.us65 ], [ 0, %for.cond.preheader.split.us.split ]
+  %wordCount.0.us.us34 = phi i32 [ %wordCount.3.us.us63, %for.inc.us.us65 ], [ 0, %for.cond.preheader.split.us.split ]
   %codePointsMatched.0.us.us35 = phi i32 [ %add.us.us50, %for.inc.us.us65 ], [ 0, %for.cond.preheader.split.us.split ]
   %c.0.us.us36 = phi i32 [ %call43.us.us66, %for.inc.us.us65 ], [ %call5, %for.cond.preheader.split.us.split ]
   %cmp.us.us37 = icmp sgt i32 %c.0.us.us36, -1
@@ -266,12 +266,12 @@ if.then16.us.us56:                                ; preds = %if.then.us.us54
   br label %if.end31.us.us59
 
 if.end31.us.us59:                                 ; preds = %if.then16.us.us56, %if.then.us.us54
-  %wordCount.1.us.us60 = phi i32 [ %inc.us.us58, %if.then16.us.us56 ], [ %wordCount.0.us.us34, %if.then.us.us54 ]
+  %wordCount.2.us.us60 = phi i32 [ %inc.us.us58, %if.then16.us.us56 ], [ %wordCount.0.us.us34, %if.then.us.us54 ]
   %cmp32.us.us61 = icmp eq i32 %cond.us.us45, 2
   br i1 %cmp32.us.us61, label %for.end, label %if.end38.us.us62
 
 if.end38.us.us62:                                 ; preds = %if.end31.us.us59, %if.else.us.us52
-  %wordCount.2.us.us63 = phi i32 [ %wordCount.1.us.us60, %if.end31.us.us59 ], [ %wordCount.0.us.us34, %if.else.us.us52 ]
+  %wordCount.3.us.us63 = phi i32 [ %wordCount.2.us.us60, %if.end31.us.us59 ], [ %wordCount.0.us.us34, %if.else.us.us52 ]
   %cmp39.not.us.us64 = icmp slt i32 %sub.us.us49, %maxLength
   br i1 %cmp39.not.us.us64, label %for.inc.us.us65, label %for.end
 
@@ -285,7 +285,7 @@ lpad2.loopexit.split.us.split.split.us:           ; preds = %for.inc.us.us65, %c
   br label %lpad2
 
 for.cond.us:                                      ; preds = %for.cond.preheader.split.us.split, %for.inc.us
-  %wordCount.0.us = phi i32 [ %wordCount.2.us, %for.inc.us ], [ 0, %for.cond.preheader.split.us.split ]
+  %wordCount.0.us = phi i32 [ %wordCount.3.us, %for.inc.us ], [ 0, %for.cond.preheader.split.us.split ]
   %codePointsMatched.0.us = phi i32 [ %add.us, %for.inc.us ], [ 0, %for.cond.preheader.split.us.split ]
   %c.0.us = phi i32 [ %call43.us, %for.inc.us ], [ %call5, %for.cond.preheader.split.us.split ]
   %cmp.us = icmp sgt i32 %c.0.us, -1
@@ -335,12 +335,12 @@ if.then16.us:                                     ; preds = %if.then.us
   br label %if.end31.us
 
 if.end31.us:                                      ; preds = %if.then16.us, %if.then.us
-  %wordCount.1.us = phi i32 [ %inc.us, %if.then16.us ], [ %wordCount.0.us, %if.then.us ]
+  %wordCount.2.us = phi i32 [ %inc.us, %if.then16.us ], [ %wordCount.0.us, %if.then.us ]
   %cmp32.us = icmp eq i32 %cond.us, 2
   br i1 %cmp32.us, label %for.end, label %if.end38.us
 
 if.end38.us:                                      ; preds = %if.end31.us, %if.else.us
-  %wordCount.2.us = phi i32 [ %wordCount.1.us, %if.end31.us ], [ %wordCount.0.us, %if.else.us ]
+  %wordCount.3.us = phi i32 [ %wordCount.2.us, %if.end31.us ], [ %wordCount.0.us, %if.else.us ]
   %cmp39.not.us = icmp slt i32 %sub.us, %maxLength
   br i1 %cmp39.not.us, label %for.inc.us, label %for.end
 
@@ -354,7 +354,7 @@ lpad2.loopexit.split.us.split.split:              ; preds = %for.inc.us, %cond.e
   br label %lpad2
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
-  %wordCount.0 = phi i32 [ %wordCount.2, %for.inc ], [ 0, %for.cond.preheader ]
+  %wordCount.0 = phi i32 [ %wordCount.3, %for.inc ], [ 0, %for.cond.preheader ]
   %codePointsMatched.0 = phi i32 [ %add, %for.inc ], [ 0, %for.cond.preheader ]
   %c.0 = phi i32 [ %call43, %for.inc ], [ %call5, %for.cond.preheader ]
   %cmp = icmp sgt i32 %c.0, -1
@@ -499,7 +499,7 @@ if.end30:                                         ; preds = %if.then27, %if.end2
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end30, %if.then
-  %wordCount.1 = phi i32 [ %inc, %if.end30 ], [ %wordCount.0, %if.then ]
+  %wordCount.2 = phi i32 [ %inc, %if.end30 ], [ %wordCount.0, %if.then ]
   %cmp32 = icmp eq i32 %cond, 2
   br i1 %cmp32, label %for.end, label %if.end38
 
@@ -508,7 +508,7 @@ if.else:                                          ; preds = %invoke.cont11
   br i1 %cmp35, label %for.end, label %if.end38
 
 if.end38:                                         ; preds = %if.else, %if.end31
-  %wordCount.2 = phi i32 [ %wordCount.1, %if.end31 ], [ %wordCount.0, %if.else ]
+  %wordCount.3 = phi i32 [ %wordCount.2, %if.end31 ], [ %wordCount.0, %if.else ]
   %cmp39.not = icmp slt i32 %sub, %maxLength
   br i1 %cmp39.not, label %for.inc, label %for.end
 
@@ -517,7 +517,7 @@ for.inc:                                          ; preds = %if.end38
           to label %for.cond unwind label %lpad2.loopexit.split, !llvm.loop !5
 
 for.end:                                          ; preds = %for.cond, %if.end31, %if.else, %if.end38, %for.cond.us, %if.else.us, %if.end31.us, %if.end38.us, %for.cond.us.us33, %if.else.us.us52, %if.end31.us.us59, %if.end38.us.us62, %if.end38.us.us, %if.end31.us.us, %if.else.us.us, %for.cond.us.us
-  %.us-phi = phi i32 [ %wordCount.1.us.us, %if.end31.us.us ], [ %wordCount.2.us.us, %if.end38.us.us ], [ %wordCount.0.us.us, %if.else.us.us ], [ %wordCount.0.us.us, %for.cond.us.us ], [ %wordCount.1.us.us60, %if.end31.us.us59 ], [ %wordCount.2.us.us63, %if.end38.us.us62 ], [ %wordCount.0.us.us34, %if.else.us.us52 ], [ %wordCount.0.us.us34, %for.cond.us.us33 ], [ %wordCount.1.us, %if.end31.us ], [ %wordCount.2.us, %if.end38.us ], [ %wordCount.0.us, %if.else.us ], [ %wordCount.0.us, %for.cond.us ], [ %wordCount.1, %if.end31 ], [ %wordCount.2, %if.end38 ], [ %wordCount.0, %if.else ], [ %wordCount.0, %for.cond ]
+  %.us-phi = phi i32 [ %wordCount.2.us.us, %if.end31.us.us ], [ %wordCount.3.us.us, %if.end38.us.us ], [ %wordCount.0.us.us, %if.else.us.us ], [ %wordCount.0.us.us, %for.cond.us.us ], [ %wordCount.2.us.us60, %if.end31.us.us59 ], [ %wordCount.3.us.us63, %if.end38.us.us62 ], [ %wordCount.0.us.us34, %if.else.us.us52 ], [ %wordCount.0.us.us34, %for.cond.us.us33 ], [ %wordCount.2.us, %if.end31.us ], [ %wordCount.3.us, %if.end38.us ], [ %wordCount.0.us, %if.else.us ], [ %wordCount.0.us, %for.cond.us ], [ %wordCount.2, %if.end31 ], [ %wordCount.3, %if.end38 ], [ %wordCount.0, %if.else ], [ %wordCount.0, %for.cond ]
   %.us-phi28 = phi i32 [ %add.us.us, %if.end31.us.us ], [ %add.us.us, %if.end38.us.us ], [ %add.us.us, %if.else.us.us ], [ %codePointsMatched.0.us.us, %for.cond.us.us ], [ %add.us.us50, %if.end31.us.us59 ], [ %add.us.us50, %if.end38.us.us62 ], [ %add.us.us50, %if.else.us.us52 ], [ %codePointsMatched.0.us.us35, %for.cond.us.us33 ], [ %add.us, %if.end31.us ], [ %add.us, %if.end38.us ], [ %add.us, %if.else.us ], [ %codePointsMatched.0.us, %for.cond.us ], [ %add, %if.end31 ], [ %add, %if.end38 ], [ %add, %if.else ], [ %codePointsMatched.0, %for.cond ]
   %cmp44.not = icmp eq ptr %prefix, null
   br i1 %cmp44.not, label %if.end46, label %if.then45
@@ -635,7 +635,7 @@ for.cond.preheader:                               ; preds = %invoke.cont
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
   %c.0 = phi i32 [ %call43, %for.inc ], [ %call3, %for.cond.preheader ]
   %codePointsMatched.0 = phi i32 [ %add, %for.inc ], [ 0, %for.cond.preheader ]
-  %wordCount.0 = phi i32 [ %wordCount.2, %for.inc ], [ 0, %for.cond.preheader ]
+  %wordCount.0 = phi i32 [ %wordCount.3, %for.inc ], [ 0, %for.cond.preheader ]
   %cmp = icmp sgt i32 %c.0, -1
   br i1 %cmp, label %for.body, label %for.end
 
@@ -771,7 +771,7 @@ if.end30:                                         ; preds = %if.then27, %if.end2
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end30, %if.then
-  %wordCount.1 = phi i32 [ %inc, %if.end30 ], [ %wordCount.0, %if.then ]
+  %wordCount.2 = phi i32 [ %inc, %if.end30 ], [ %wordCount.0, %if.then ]
   %cmp32 = icmp eq i32 %cond, 2
   br i1 %cmp32, label %for.end, label %if.end38
 
@@ -780,7 +780,7 @@ if.else:                                          ; preds = %invoke.cont11
   br i1 %cmp35, label %for.end, label %if.end38
 
 if.end38:                                         ; preds = %if.else, %if.end31
-  %wordCount.2 = phi i32 [ %wordCount.1, %if.end31 ], [ %wordCount.0, %if.else ]
+  %wordCount.3 = phi i32 [ %wordCount.2, %if.end31 ], [ %wordCount.0, %if.else ]
   %cmp39.not = icmp slt i32 %sub, %maxLength
   br i1 %cmp39.not, label %for.inc, label %for.end
 
@@ -790,7 +790,7 @@ for.inc:                                          ; preds = %if.end38
 
 for.end:                                          ; preds = %if.end38, %if.else, %if.end31, %for.cond
   %codePointsMatched.1 = phi i32 [ %add, %if.end31 ], [ %add, %if.end38 ], [ %add, %if.else ], [ %codePointsMatched.0, %for.cond ]
-  %wordCount.3 = phi i32 [ %wordCount.1, %if.end31 ], [ %wordCount.2, %if.end38 ], [ %wordCount.0, %if.else ], [ %wordCount.0, %for.cond ]
+  %wordCount.1 = phi i32 [ %wordCount.2, %if.end31 ], [ %wordCount.3, %if.end38 ], [ %wordCount.0, %if.else ], [ %wordCount.0, %for.cond ]
   %cmp44.not = icmp eq ptr %prefix, null
   br i1 %cmp44.not, label %if.end46, label %if.then45
 
@@ -800,7 +800,7 @@ if.then45:                                        ; preds = %for.end
 
 if.end46:                                         ; preds = %if.then45, %for.end
   call void @_ZN6icu_759BytesTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %bt) #11
-  ret i32 %wordCount.3
+  ret i32 %wordCount.1
 }
 
 declare noundef i32 @_ZN6icu_759BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #4

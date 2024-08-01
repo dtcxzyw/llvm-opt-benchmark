@@ -37,7 +37,7 @@ if.then.i:                                        ; preds = %invoke.cont.i
   br label %_ZL12TestChaCha20m.exit.thread
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.i: ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i, %for.body.i
-  %buf.sroa.0.0.ph.i = phi ptr [ %buf.sroa.0.129.i, %for.body.i ], [ %call8.i, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i ]
+  %buf.sroa.0.0.ph.i = phi ptr [ %buf.sroa.0.229.i, %for.body.i ], [ %call8.i, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i ]
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.i
@@ -60,7 +60,7 @@ for.cond.i:                                       ; preds = %invoke.cont13.i
 
 for.body.i:                                       ; preds = %invoke.cont.i, %for.cond.i
   %__begin1.0.idx30.i = phi i64 [ %__begin1.0.add.i, %for.cond.i ], [ 0, %invoke.cont.i ]
-  %buf.sroa.0.129.i = phi ptr [ %call8.i, %for.cond.i ], [ %call.i, %invoke.cont.i ]
+  %buf.sroa.0.229.i = phi ptr [ %call8.i, %for.cond.i ], [ %call.i, %invoke.cont.i ]
   %__begin1.0.ptr.i = getelementptr inbounds i8, ptr @_ZZL12TestChaCha20mE8kOffsets, i64 %__begin1.0.idx30.i
   %1 = load i64, ptr %__begin1.0.ptr.i, align 8
   %add.i = add i64 %1, %len.015
@@ -68,7 +68,7 @@ for.body.i:                                       ; preds = %invoke.cont.i, %for
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.loopexit.i
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i: ; preds = %for.body.i
-  tail call void @_ZdaPv(ptr noundef nonnull %buf.sroa.0.129.i) #10
+  tail call void @_ZdaPv(ptr noundef nonnull %buf.sroa.0.229.i) #10
   %add.ptr.i = getelementptr inbounds i8, ptr %call8.i, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr nonnull align 16 @_ZL6kInput, i64 %len.015, i1 false)
   invoke void @CRYPTO_chacha_20(ptr noundef nonnull %call8.i, ptr noundef nonnull %add.ptr.i, i64 noundef %len.015, ptr noundef nonnull @_ZL4kKey, ptr noundef nonnull @_ZL6kNonce, i32 noundef 42)
@@ -87,8 +87,8 @@ if.then17.i:                                      ; preds = %invoke.cont13.i
   br label %_ZL12TestChaCha20m.exit.thread
 
 _ZL12TestChaCha20m.exit.thread:                   ; preds = %if.then17.i, %if.then.i
-  %buf.sroa.0.2.i.ph = phi ptr [ %call.i, %if.then.i ], [ %call8.i, %if.then17.i ]
-  tail call void @_ZdaPv(ptr noundef nonnull %buf.sroa.0.2.i.ph) #10
+  %buf.sroa.0.1.i.ph = phi ptr [ %call.i, %if.then.i ], [ %call8.i, %if.then17.i ]
+  tail call void @_ZdaPv(ptr noundef nonnull %buf.sroa.0.1.i.ph) #10
   br label %return
 
 for.inc:                                          ; preds = %for.cond.i

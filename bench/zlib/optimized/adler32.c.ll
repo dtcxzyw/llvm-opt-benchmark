@@ -181,10 +181,10 @@ while.cond106.preheader:                          ; preds = %while.end103
   br i1 %cmp107177, label %while.body109.preheader, label %while.body180.preheader
 
 while.body109.preheader:                          ; preds = %while.cond30.preheader, %while.cond106.preheader
-  %sum2.4181.ph = phi i64 [ %and, %while.cond30.preheader ], [ %rem102, %while.cond106.preheader ]
+  %sum2.5181.ph = phi i64 [ %and, %while.cond30.preheader ], [ %rem102, %while.cond106.preheader ]
   %len.addr.2180.ph = phi i64 [ %len, %while.cond30.preheader ], [ %sub34, %while.cond106.preheader ]
   %buf.addr.3179.ph = phi ptr [ %buf, %while.cond30.preheader ], [ %scevgep, %while.cond106.preheader ]
-  %adler.addr.5178.ph = phi i64 [ %and1, %while.cond30.preheader ], [ %rem101, %while.cond106.preheader ]
+  %adler.addr.6178.ph = phi i64 [ %and1, %while.cond30.preheader ], [ %rem101, %while.cond106.preheader ]
   br label %while.body109
 
 while.cond177.preheader:                          ; preds = %while.body109
@@ -192,22 +192,22 @@ while.cond177.preheader:                          ; preds = %while.body109
   br i1 %tobool179.not186, label %while.end185, label %while.body180.preheader
 
 while.body180.preheader:                          ; preds = %while.cond106.preheader, %while.cond177.preheader
-  %sum2.5190.ph = phi i64 [ %rem102, %while.cond106.preheader ], [ %add174, %while.cond177.preheader ]
+  %sum2.6190.ph = phi i64 [ %rem102, %while.cond106.preheader ], [ %add174, %while.cond177.preheader ]
   %len.addr.3189.ph = phi i64 [ %sub34, %while.cond106.preheader ], [ %sub110, %while.cond177.preheader ]
   %buf.addr.4188.ph = phi ptr [ %scevgep, %while.cond106.preheader ], [ %add.ptr175, %while.cond177.preheader ]
-  %adler.addr.6187.ph = phi i64 [ %rem101, %while.cond106.preheader ], [ %add173, %while.cond177.preheader ]
+  %adler.addr.7187.ph = phi i64 [ %rem101, %while.cond106.preheader ], [ %add173, %while.cond177.preheader ]
   br label %while.body180
 
 while.body109:                                    ; preds = %while.body109.preheader, %while.body109
-  %sum2.4181 = phi i64 [ %add174, %while.body109 ], [ %sum2.4181.ph, %while.body109.preheader ]
+  %sum2.5181 = phi i64 [ %add174, %while.body109 ], [ %sum2.5181.ph, %while.body109.preheader ]
   %len.addr.2180 = phi i64 [ %sub110, %while.body109 ], [ %len.addr.2180.ph, %while.body109.preheader ]
   %buf.addr.3179 = phi ptr [ %add.ptr175, %while.body109 ], [ %buf.addr.3179.ph, %while.body109.preheader ]
-  %adler.addr.5178 = phi i64 [ %add173, %while.body109 ], [ %adler.addr.5178.ph, %while.body109.preheader ]
+  %adler.addr.6178 = phi i64 [ %add173, %while.body109 ], [ %adler.addr.6178.ph, %while.body109.preheader ]
   %sub110 = add nsw i64 %len.addr.2180, -16
   %20 = load i8, ptr %buf.addr.3179, align 1
   %conv112 = zext i8 %20 to i64
-  %add113 = add i64 %adler.addr.5178, %conv112
-  %add114 = add i64 %add113, %sum2.4181
+  %add113 = add i64 %adler.addr.6178, %conv112
+  %add114 = add i64 %add113, %sum2.5181
   %arrayidx115 = getelementptr inbounds i8, ptr %buf.addr.3179, i64 1
   %21 = load i8, ptr %arrayidx115, align 1
   %conv116 = zext i8 %21 to i64
@@ -288,31 +288,31 @@ while.body109:                                    ; preds = %while.body109.prehe
   br i1 %cmp107, label %while.body109, label %while.cond177.preheader, !llvm.loop !8
 
 while.body180:                                    ; preds = %while.body180.preheader, %while.body180
-  %sum2.5190 = phi i64 [ %add184, %while.body180 ], [ %sum2.5190.ph, %while.body180.preheader ]
+  %sum2.6190 = phi i64 [ %add184, %while.body180 ], [ %sum2.6190.ph, %while.body180.preheader ]
   %len.addr.3189 = phi i64 [ %dec178, %while.body180 ], [ %len.addr.3189.ph, %while.body180.preheader ]
   %buf.addr.4188 = phi ptr [ %incdec.ptr181, %while.body180 ], [ %buf.addr.4188.ph, %while.body180.preheader ]
-  %adler.addr.6187 = phi i64 [ %add183, %while.body180 ], [ %adler.addr.6187.ph, %while.body180.preheader ]
+  %adler.addr.7187 = phi i64 [ %add183, %while.body180 ], [ %adler.addr.7187.ph, %while.body180.preheader ]
   %dec178 = add i64 %len.addr.3189, -1
   %incdec.ptr181 = getelementptr inbounds i8, ptr %buf.addr.4188, i64 1
   %36 = load i8, ptr %buf.addr.4188, align 1
   %conv182 = zext i8 %36 to i64
-  %add183 = add i64 %adler.addr.6187, %conv182
-  %add184 = add i64 %add183, %sum2.5190
+  %add183 = add i64 %adler.addr.7187, %conv182
+  %add184 = add i64 %add183, %sum2.6190
   %tobool179.not = icmp eq i64 %dec178, 0
   br i1 %tobool179.not, label %while.end185, label %while.body180, !llvm.loop !9
 
 while.end185:                                     ; preds = %while.body180, %while.cond177.preheader
-  %adler.addr.6.lcssa = phi i64 [ %add173, %while.cond177.preheader ], [ %add183, %while.body180 ]
-  %sum2.5.lcssa = phi i64 [ %add174, %while.cond177.preheader ], [ %add184, %while.body180 ]
-  %rem186 = urem i64 %adler.addr.6.lcssa, 65521
-  %rem187 = urem i64 %sum2.5.lcssa, 65521
+  %adler.addr.7.lcssa = phi i64 [ %add173, %while.cond177.preheader ], [ %add183, %while.body180 ]
+  %sum2.6.lcssa = phi i64 [ %add174, %while.cond177.preheader ], [ %add184, %while.body180 ]
+  %rem186 = urem i64 %adler.addr.7.lcssa, 65521
+  %rem187 = urem i64 %sum2.6.lcssa, 65521
   br label %if.end188
 
 if.end188:                                        ; preds = %while.end185, %while.end103
-  %adler.addr.7 = phi i64 [ %rem186, %while.end185 ], [ %rem101, %while.end103 ]
-  %sum2.6 = phi i64 [ %rem187, %while.end185 ], [ %rem102, %while.end103 ]
-  %shl189 = shl nuw nsw i64 %sum2.6, 16
-  %or190 = or disjoint i64 %shl189, %adler.addr.7
+  %adler.addr.5 = phi i64 [ %rem186, %while.end185 ], [ %rem101, %while.end103 ]
+  %sum2.4 = phi i64 [ %rem187, %while.end185 ], [ %rem102, %while.end103 ]
+  %shl189 = shl nuw nsw i64 %sum2.4, 16
+  %or190 = or disjoint i64 %shl189, %adler.addr.5
   br label %return
 
 return:                                           ; preds = %if.end11, %if.end188, %while.end, %if.then

@@ -585,7 +585,7 @@ if.end92:                                         ; preds = %for.end
   br label %ro_cleanup
 
 ro_cleanup:                                       ; preds = %if.end79, %if.then74, %for.body, %if.end60, %for.end, %if.end92, %if.then58, %if.then49, %if.then43, %if.then38, %if.then31, %if.then26
-  %buf.0 = phi ptr [ null, %if.then26 ], [ null, %if.then31 ], [ null, %if.then38 ], [ null, %if.then43 ], [ null, %if.then49 ], [ null, %if.then58 ], [ null, %if.end60 ], [ %call61, %for.end ], [ %call61, %if.end92 ], [ %call61, %for.body ], [ %call61, %if.then74 ], [ %call61, %if.end79 ]
+  %buf.1 = phi ptr [ null, %if.then26 ], [ null, %if.then31 ], [ null, %if.then38 ], [ null, %if.then43 ], [ null, %if.then49 ], [ null, %if.then58 ], [ null, %if.end60 ], [ %call61, %for.end ], [ %call61, %if.end92 ], [ %call61, %for.body ], [ %call61, %if.then74 ], [ %call61, %if.end79 ]
   %commit_top_bs.0 = phi ptr [ null, %if.then26 ], [ null, %if.then31 ], [ %call28, %if.then38 ], [ %call28, %if.then43 ], [ %call28, %if.then49 ], [ %call28, %if.then58 ], [ %call28, %if.end60 ], [ %call28, %for.end ], [ %call28, %if.end92 ], [ %call28, %for.body ], [ %call28, %if.then74 ], [ %call28, %if.end79 ]
   %ret.0 = phi i32 [ %call24, %if.then26 ], [ %call24, %if.then31 ], [ %call35, %if.then38 ], [ %conv44, %if.then43 ], [ %conv50, %if.then49 ], [ %call55, %if.then58 ], [ -12, %if.end60 ], [ %call86, %for.end ], [ 0, %if.end92 ], [ %call80, %if.end79 ], [ %call75, %if.then74 ], [ %call68, %for.body ]
   call void @blk_unref(ptr noundef %call23) #6
@@ -616,10 +616,10 @@ if.then102:                                       ; preds = %if.end100
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end4, %if.end100, %if.then102, %if.then15, %if.end8, %lor.lhs.false, %bdrv_cow_bs.exit, %do.end
-  %buf.1 = phi ptr [ null, %do.end ], [ null, %bdrv_cow_bs.exit ], [ null, %if.end8 ], [ null, %lor.lhs.false ], [ %buf.0, %if.then102 ], [ %buf.0, %if.end100 ], [ null, %if.then15 ], [ null, %if.end4 ]
+  %buf.0 = phi ptr [ null, %do.end ], [ null, %bdrv_cow_bs.exit ], [ null, %if.end8 ], [ null, %lor.lhs.false ], [ %buf.1, %if.then102 ], [ %buf.1, %if.end100 ], [ null, %if.then15 ], [ null, %if.end4 ]
   %retval.0 = phi i32 [ -123, %do.end ], [ -95, %bdrv_cow_bs.exit ], [ -16, %if.end8 ], [ -16, %lor.lhs.false ], [ %ret.0, %if.then102 ], [ %ret.0, %if.end100 ], [ -13, %if.then15 ], [ -95, %if.end4 ]
   call void @bdrv_graph_rdunlock_main_loop() #6
-  call void @qemu_vfree(ptr noundef %buf.1) #6
+  call void @qemu_vfree(ptr noundef %buf.0) #6
   ret i32 %retval.0
 }
 

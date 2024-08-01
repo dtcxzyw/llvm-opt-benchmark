@@ -1773,7 +1773,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
 
 .body51.i.i:                                      ; preds = %329, %.body55.i.i, %307, %304
   %.pn.pn.i.i = phi { ptr, i32 } [ %330, %329 ], [ %328, %.body55.i.i ], [ %305, %307 ], [ %305, %304 ]
-  %.1.i.i = phi i1 [ true, %329 ], [ false, %.body55.i.i ], [ true, %307 ], [ true, %304 ]
+  %.3.i.i = phi i1 [ true, %329 ], [ false, %.body55.i.i ], [ true, %307 ], [ true, %304 ]
   %331 = load i64, ptr %27, align 8, !noalias !31
   %332 = getelementptr inbounds [3 x ptr], ptr @constinit.45, i64 0, i64 %331
   %333 = load ptr, ptr %332, align 8, !noalias !31
@@ -1789,7 +1789,7 @@ _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFv
   unreachable
 
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit58.i.i: ; preds = %.body51.i.i
-  br i1 %.1.i.i, label %338, label %.critedge.i.i
+  br i1 %.3.i.i, label %338, label %.critedge.i.i
 
 338:                                              ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit58.i.i
   %339 = load ptr, ptr %294, align 8, !noalias !31
@@ -3214,7 +3214,7 @@ _ZN2cv9TickMeter5startEv.exit.preheader:          ; preds = %895
 
 _ZN2cv9TickMeter5startEv.exit.outer:              ; preds = %_ZN2cv9TickMeter5startEv.exit232, %_ZN2cv9TickMeter5startEv.exit.preheader
   %.sroa.12.0.ph = phi i64 [ %1091, %_ZN2cv9TickMeter5startEv.exit232 ], [ %896, %_ZN2cv9TickMeter5startEv.exit.preheader ]
-  %.sroa.5.0.ph = phi i64 [ %.sroa.5.1, %_ZN2cv9TickMeter5startEv.exit232 ], [ 0, %_ZN2cv9TickMeter5startEv.exit.preheader ]
+  %.sroa.5.0.ph = phi i64 [ %.sroa.5.2, %_ZN2cv9TickMeter5startEv.exit232 ], [ 0, %_ZN2cv9TickMeter5startEv.exit.preheader ]
   %.013.ph = phi i64 [ %.114, %_ZN2cv9TickMeter5startEv.exit232 ], [ 0, %_ZN2cv9TickMeter5startEv.exit.preheader ]
   %.012.ph = phi i64 [ %.1, %_ZN2cv9TickMeter5startEv.exit232 ], [ 0, %_ZN2cv9TickMeter5startEv.exit.preheader ]
   br label %_ZN2cv9TickMeter5startEv.exit
@@ -3415,8 +3415,8 @@ _ZN2cv9TickMeter5startEv.exit.backedge:           ; preds = %992, %989
   %.not = icmp eq i64 %.sroa.12.0.ph, 0
   %995 = sub i64 %994, %.sroa.12.0.ph
   %996 = select i1 %.not, i64 0, i64 %995
-  %.sroa.5.1 = add nsw i64 %996, %.sroa.5.0.ph
-  %997 = sitofp i64 %.sroa.5.1 to double
+  %.sroa.5.2 = add nsw i64 %996, %.sroa.5.0.ph
+  %997 = sitofp i64 %.sroa.5.2 to double
   %998 = invoke noundef double @_ZN2cv16getTickFrequencyEv()
           to label %999 unwind label %.loopexit.loopexit.split-lp
 
@@ -4687,7 +4687,7 @@ _ZN2cv6detail5YieldINS_4GMatEE5yieldERNS_5GCallEi.exit: ; preds = %51
 
 .body50:                                          ; preds = %.body54, %35, %32, %57
   %.pn.pn = phi { ptr, i32 } [ %58, %57 ], [ %56, %.body54 ], [ %33, %35 ], [ %33, %32 ]
-  %.1 = phi i1 [ true, %57 ], [ false, %.body54 ], [ true, %35 ], [ true, %32 ]
+  %.3 = phi i1 [ true, %57 ], [ false, %.body54 ], [ true, %35 ], [ true, %32 ]
   %59 = load i64, ptr %8, align 8
   %60 = getelementptr inbounds [3 x ptr], ptr @constinit.45, i64 0, i64 %59
   %61 = load ptr, ptr %60, align 8
@@ -4703,7 +4703,7 @@ _ZN2cv6detail5YieldINS_4GMatEE5yieldERNS_5GCallEi.exit: ; preds = %51
   unreachable
 
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit57: ; preds = %.body50
-  br i1 %.1, label %66, label %.critedge
+  br i1 %.3, label %66, label %.critedge
 
 66:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit57
   %67 = load ptr, ptr %22, align 8
@@ -17680,8 +17680,8 @@ _ZN2cv4util3anyD2Ev.exit37:                       ; preds = %98, %96
   br label %104
 
 103:                                              ; preds = %65, %39, %_ZN2cv4util3anyD2Ev.exit31
-  %.115 = phi i1 [ false, %65 ], [ true, %_ZN2cv4util3anyD2Ev.exit31 ], [ false, %39 ]
-  ret i1 %.115
+  %.014 = phi i1 [ false, %65 ], [ true, %_ZN2cv4util3anyD2Ev.exit31 ], [ false, %39 ]
+  ret i1 %.014
 
 104:                                              ; preds = %_ZN2cv4util3anyD2Ev.exit37, %_ZN2cv4util3anyD2Ev.exit34, %66, %25
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %_ZN2cv4util3anyD2Ev.exit37 ], [ %.pn19, %_ZN2cv4util3anyD2Ev.exit34 ], [ %.pn17, %66 ], [ %.pn, %25 ]

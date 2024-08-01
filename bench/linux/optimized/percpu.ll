@@ -5445,7 +5445,7 @@ define internal fastcc i32 @pcpu_find_block_fit(ptr noundef %0, i32 noundef %1, 
 
 45:                                               ; preds = %101, %38
   %.015 = phi i32 [ %33, %38 ], [ %.116, %101 ]
-  %46 = phi i32 [ 0, %38 ], [ %.0, %101 ]
+  %46 = phi i32 [ 0, %38 ], [ %.3, %101 ]
   %47 = phi i32 [ %34, %38 ], [ %104, %101 ]
   %48 = phi ptr [ %42, %38 ], [ %103, %101 ]
   %49 = phi i32 [ %43, %38 ], [ %102, %101 ]
@@ -5524,7 +5524,7 @@ define internal fastcc i32 @pcpu_find_block_fit(ptr noundef %0, i32 noundef %1, 
 
 101:                                              ; preds = %92, %56
   %.116 = phi i32 [ %99, %92 ], [ %.015, %56 ]
-  %.0 = phi i32 [ %97, %92 ], [ %54, %56 ]
+  %.3 = phi i32 [ %97, %92 ], [ %54, %56 ]
   %102 = phi i32 [ 0, %92 ], [ %49, %56 ]
   %103 = getelementptr i8, ptr %48, i64 32
   %104 = add i32 %47, 1
@@ -5532,13 +5532,13 @@ define internal fastcc i32 @pcpu_find_block_fit(ptr noundef %0, i32 noundef %1, 
   br i1 %exitcond.not, label %.loopexit11.i, label %45, !llvm.loop !148
 
 .loopexit11.i:                                    ; preds = %101, %32
-  %.1 = phi i32 [ 0, %32 ], [ %.0, %101 ]
+  %.1 = phi i32 [ 0, %32 ], [ %.3, %101 ]
   %105 = shl i32 %36, 10
   br label %pcpu_next_fit_region.exit
 
 pcpu_next_fit_region.exit:                        ; preds = %51, %92, %86, %.loopexit11.i
   %.217 = phi i32 [ %105, %.loopexit11.i ], [ %91, %86 ], [ %.015, %51 ], [ %99, %92 ]
-  %.3 = phi i32 [ %.1, %.loopexit11.i ], [ %89, %86 ], [ %54, %51 ], [ %97, %92 ]
+  %.4 = phi i32 [ %.1, %.loopexit11.i ], [ %89, %86 ], [ %54, %51 ], [ %97, %92 ]
   %106 = shl i32 %36, 10
   %107 = icmp slt i32 %.217, %106
   %108 = and i1 %107, %3
@@ -5551,9 +5551,9 @@ pcpu_next_fit_region.exit:                        ; preds = %51, %92, %86, %.loo
   br label %113
 
 113:                                              ; preds = %pcpu_next_fit_region.exit6, %109
-  %.4 = phi i32 [ %.3, %109 ], [ %.8, %pcpu_next_fit_region.exit6 ]
+  %.0 = phi i32 [ %.4, %109 ], [ %.8, %pcpu_next_fit_region.exit6 ]
   %114 = phi i32 [ %.217, %109 ], [ %.520, %pcpu_next_fit_region.exit6 ]
-  %115 = add i32 %114, %.4
+  %115 = add i32 %114, %.0
   %116 = shl i32 %115, 2
   %117 = sext i32 %116 to i64
   %118 = add nsw i64 %117, 4095
@@ -5593,7 +5593,7 @@ pcpu_next_fit_region.exit:                        ; preds = %51, %92, %86, %.loo
 
 142:                                              ; preds = %197, %137
   %.318 = phi i32 [ %133, %137 ], [ %.419, %197 ]
-  %143 = phi i32 [ 0, %137 ], [ %.5, %197 ]
+  %143 = phi i32 [ 0, %137 ], [ %.7, %197 ]
   %144 = phi i32 [ %134, %137 ], [ %199, %197 ]
   %145 = phi ptr [ %141, %137 ], [ %198, %197 ]
   %146 = icmp eq i32 %143, 0
@@ -5671,20 +5671,20 @@ pcpu_next_fit_region.exit:                        ; preds = %51, %92, %86, %.loo
 
 197:                                              ; preds = %188, %152
   %.419 = phi i32 [ %195, %188 ], [ %.318, %152 ]
-  %.5 = phi i32 [ %193, %188 ], [ %150, %152 ]
+  %.7 = phi i32 [ %193, %188 ], [ %150, %152 ]
   %198 = getelementptr i8, ptr %145, i64 32
   %199 = add i32 %144, 1
   %exitcond57.not = icmp eq i32 %199, %135
   br i1 %exitcond57.not, label %.loopexit11.i5, label %142, !llvm.loop !148
 
 .loopexit11.i5:                                   ; preds = %197, %128
-  %.6 = phi i32 [ 0, %128 ], [ %.5, %197 ]
+  %.5 = phi i32 [ 0, %128 ], [ %.7, %197 ]
   %200 = shl i32 %135, 10
   br label %pcpu_next_fit_region.exit6
 
 pcpu_next_fit_region.exit6:                       ; preds = %147, %188, %182, %.loopexit11.i5
   %.520 = phi i32 [ %200, %.loopexit11.i5 ], [ %187, %182 ], [ %.318, %147 ], [ %195, %188 ]
-  %.8 = phi i32 [ %.6, %.loopexit11.i5 ], [ %185, %182 ], [ %150, %147 ], [ %193, %188 ]
+  %.8 = phi i32 [ %.5, %.loopexit11.i5 ], [ %185, %182 ], [ %150, %147 ], [ %193, %188 ]
   %201 = shl i32 %135, 10
   %202 = icmp slt i32 %.520, %201
   br i1 %202, label %113, label %.loopexit, !llvm.loop !149

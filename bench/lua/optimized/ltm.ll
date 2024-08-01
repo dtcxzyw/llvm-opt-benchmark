@@ -893,14 +893,14 @@ if.end:                                           ; preds = %if.then12, %if.then
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then, %if.end
-  %where.addr.0 = phi ptr [ %add.ptr, %if.end ], [ %where, %if.then ]
-  %add.ptr15 = getelementptr inbounds %union.StackValue, ptr %where.addr.0, i64 %conv
+  %where.addr.1 = phi ptr [ %add.ptr, %if.end ], [ %where, %if.then ]
+  %add.ptr15 = getelementptr inbounds %union.StackValue, ptr %where.addr.1, i64 %conv
   store ptr %add.ptr15, ptr %top, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end14, %entry
   %wanted.addr.0 = phi i32 [ %.fr, %if.end14 ], [ %wanted, %entry ]
-  %where.addr.1 = phi ptr [ %where.addr.0, %if.end14 ], [ %where, %entry ]
+  %where.addr.0 = phi ptr [ %where.addr.1, %if.end14 ], [ %where, %entry ]
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %wanted.addr.0, i32 %.fr)
   %7 = icmp sgt i32 %invariant.smin, 0
   br i1 %7, label %for.body.lr.ph, label %for.cond30.preheader
@@ -923,7 +923,7 @@ for.body33.preheader:                             ; preds = %for.cond30.preheade
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %add.ptr23 = getelementptr inbounds %union.StackValue, ptr %where.addr.1, i64 %indvars.iv
+  %add.ptr23 = getelementptr inbounds %union.StackValue, ptr %where.addr.0, i64 %indvars.iv
   %9 = load ptr, ptr %ci, align 8
   %add.ptr25 = getelementptr inbounds %union.StackValue, ptr %9, i64 %idx.neg
   %add.ptr27 = getelementptr inbounds %union.StackValue, ptr %add.ptr25, i64 %indvars.iv
@@ -939,7 +939,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body33:                                       ; preds = %for.body33.preheader, %for.body33
   %indvars.iv32 = phi i64 [ %8, %for.body33.preheader ], [ %indvars.iv.next33, %for.body33 ]
-  %tt_36 = getelementptr inbounds %union.StackValue, ptr %where.addr.1, i64 %indvars.iv32, i32 0, i32 1
+  %tt_36 = getelementptr inbounds %union.StackValue, ptr %where.addr.0, i64 %indvars.iv32, i32 0, i32 1
   store i8 0, ptr %tt_36, align 8
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35

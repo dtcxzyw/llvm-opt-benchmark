@@ -1142,9 +1142,9 @@ list_length.exit160.thread:                       ; preds = %104
   br i1 %139, label %.lr.ph332, label %._crit_edge
 
 .lr.ph332:                                        ; preds = %.lr.ph, %136
-  %.1119205331 = phi ptr [ %.2120, %136 ], [ %.0118216338, %.lr.ph ]
-  %.1115206330 = phi i64 [ %.2116, %136 ], [ %.0114217337, %.lr.ph ]
-  %.1207329 = phi i32 [ %.2, %136 ], [ %.0218336, %.lr.ph ]
+  %.1119205331 = phi ptr [ %.3121, %136 ], [ %.0118216338, %.lr.ph ]
+  %.1115206330 = phi i64 [ %.3117, %136 ], [ %.0114217337, %.lr.ph ]
+  %.1207329 = phi i32 [ %.3, %136 ], [ %.0218336, %.lr.ph ]
   %indvars.iv328 = phi i64 [ %indvars.iv.next, %136 ], [ 0, %.lr.ph ]
   %140 = load ptr, ptr %132, align 8
   %141 = getelementptr %union.ListCell, ptr %140, i64 %indvars.iv328
@@ -1433,17 +1433,17 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
   br label %288
 
 288:                                              ; preds = %283, %278
-  %.2120 = phi ptr [ %282, %278 ], [ %.1119205331, %283 ]
-  %.2116 = phi i64 [ %279, %278 ], [ %.1115206330, %283 ]
-  %.2 = phi i32 [ %.0123, %278 ], [ %.1207329, %283 ]
+  %.3121 = phi ptr [ %282, %278 ], [ %.1119205331, %283 ]
+  %.3117 = phi i64 [ %279, %278 ], [ %.1115206330, %283 ]
+  %.3 = phi i32 [ %.0123, %278 ], [ %.1207329, %283 ]
   %289 = icmp slt i32 %.0123, 0
   br i1 %289, label %.thread, label %136
 
 ._crit_edge:                                      ; preds = %136, %.lr.ph, %list_length.exit160.thread
   %.2126255 = phi i8 [ %.1125215339, %list_length.exit160.thread ], [ %.2126254, %.lr.ph ], [ %.2126254, %136 ]
-  %.1119.lcssa = phi ptr [ %.0118216338, %list_length.exit160.thread ], [ %.0118216338, %.lr.ph ], [ %.2120, %136 ]
-  %.1115.lcssa = phi i64 [ %.0114217337, %list_length.exit160.thread ], [ %.0114217337, %.lr.ph ], [ %.2116, %136 ]
-  %.1.lcssa = phi i32 [ %.0218336, %list_length.exit160.thread ], [ %.0218336, %.lr.ph ], [ %.2, %136 ]
+  %.1119.lcssa = phi ptr [ %.0118216338, %list_length.exit160.thread ], [ %.0118216338, %.lr.ph ], [ %.3121, %136 ]
+  %.1115.lcssa = phi i64 [ %.0114217337, %list_length.exit160.thread ], [ %.0114217337, %.lr.ph ], [ %.3117, %136 ]
+  %.1.lcssa = phi i32 [ %.0218336, %list_length.exit160.thread ], [ %.0218336, %.lr.ph ], [ %.3, %136 ]
   call void @ReleaseCachedPlan(ptr noundef %109, ptr noundef %.0128) #15
   %290 = load i8, ptr %49, align 8
   %291 = trunc i8 %290 to i1
@@ -1463,9 +1463,9 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
 .thread:                                          ; preds = %293, %288, %149, %151, %.lr.ph220, %40
   %.1132 = phi ptr [ null, %40 ], [ null, %.lr.ph220 ], [ %109, %151 ], [ %109, %149 ], [ %109, %288 ], [ null, %293 ]
   %.3127 = phi i8 [ %.0124, %40 ], [ %.0124, %.lr.ph220 ], [ %.2126254, %151 ], [ %.2126254, %149 ], [ %.2126254, %288 ], [ %.2126255, %293 ]
-  %.3121 = phi ptr [ null, %40 ], [ null, %.lr.ph220 ], [ %.2120, %288 ], [ %.1119205331, %149 ], [ %.1119205331, %151 ], [ %.1119.lcssa, %293 ]
-  %.3117 = phi i64 [ 0, %40 ], [ 0, %.lr.ph220 ], [ %.2116, %288 ], [ %.1115206330, %149 ], [ %.1115206330, %151 ], [ %.1115.lcssa, %293 ]
-  %.3 = phi i32 [ 0, %40 ], [ 0, %.lr.ph220 ], [ %.0123, %288 ], [ -8, %149 ], [ -2, %151 ], [ %.1.lcssa, %293 ]
+  %.2120 = phi ptr [ null, %40 ], [ null, %.lr.ph220 ], [ %.3121, %288 ], [ %.1119205331, %149 ], [ %.1119205331, %151 ], [ %.1119.lcssa, %293 ]
+  %.2116 = phi i64 [ 0, %40 ], [ 0, %.lr.ph220 ], [ %.3117, %288 ], [ %.1115206330, %149 ], [ %.1115206330, %151 ], [ %.1115.lcssa, %293 ]
+  %.2 = phi i32 [ 0, %40 ], [ 0, %.lr.ph220 ], [ %.0123, %288 ], [ -8, %149 ], [ -2, %151 ], [ %.1.lcssa, %293 ]
   %297 = trunc nuw i8 %.3127 to i1
   br i1 %297, label %298, label %299
 
@@ -1484,13 +1484,13 @@ _SPI_pquery.exit:                                 ; preds = %189, %243
 301:                                              ; preds = %300, %299
   %302 = load ptr, ptr %7, align 8
   store ptr %302, ptr @error_context_stack, align 8
-  store i64 %.3117, ptr @SPI_processed, align 8
-  store ptr %.3121, ptr @SPI_tuptable, align 8
+  store i64 %.2116, ptr @SPI_processed, align 8
+  store ptr %.2120, ptr @SPI_tuptable, align 8
   %303 = load ptr, ptr @_SPI_current, align 8
   %304 = getelementptr inbounds i8, ptr %303, i64 8
   store ptr null, ptr %304, align 8
-  %305 = icmp eq i32 %.3, 0
-  %spec.store.select = select i1 %305, i32 14, i32 %.3
+  %305 = icmp eq i32 %.2, 0
+  %spec.store.select = select i1 %305, i32 14, i32 %.2
   ret i32 %spec.store.select
 }
 

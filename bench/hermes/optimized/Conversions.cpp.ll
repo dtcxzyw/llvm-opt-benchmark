@@ -169,18 +169,18 @@ for.body39.preheader:                             ; preds = %if.else
 
 for.body39:                                       ; preds = %for.body39.preheader, %for.body39
   %indvars.iv125 = phi i64 [ 0, %for.body39.preheader ], [ %indvars.iv.next126, %for.body39 ]
-  %destPtr.391 = phi ptr [ %destPtr.0, %for.body39.preheader ], [ %incdec.ptr42, %for.body39 ]
+  %destPtr.491 = phi ptr [ %destPtr.0, %for.body39.preheader ], [ %incdec.ptr42, %for.body39 ]
   %arrayidx41 = getelementptr inbounds i8, ptr %call16, i64 %indvars.iv125
   %13 = load i8, ptr %arrayidx41, align 1
-  %incdec.ptr42 = getelementptr inbounds i8, ptr %destPtr.391, i64 1
-  store i8 %13, ptr %destPtr.391, align 1
+  %incdec.ptr42 = getelementptr inbounds i8, ptr %destPtr.491, i64 1
+  store i8 %13, ptr %destPtr.491, align 1
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
   br i1 %exitcond129.not, label %for.end45, label %for.body39, !llvm.loop !6
 
 for.end45:                                        ; preds = %for.body39
   store i8 46, ptr %incdec.ptr42, align 1
-  %destPtr.494 = getelementptr i8, ptr %destPtr.391, i64 2
+  %destPtr.594 = getelementptr i8, ptr %destPtr.491, i64 2
   %cmp4995 = icmp slt i32 %3, %conv
   br i1 %cmp4995, label %for.body50.preheader, label %if.end141
 
@@ -190,12 +190,12 @@ for.body50.preheader:                             ; preds = %for.end45
 
 for.body50:                                       ; preds = %for.body50.preheader, %for.body50
   %indvars.iv131 = phi i64 [ %14, %for.body50.preheader ], [ %indvars.iv.next132, %for.body50 ]
-  %destPtr.497 = phi ptr [ %destPtr.494, %for.body50.preheader ], [ %destPtr.4, %for.body50 ]
+  %destPtr.597 = phi ptr [ %destPtr.594, %for.body50.preheader ], [ %destPtr.5, %for.body50 ]
   %arrayidx52 = getelementptr inbounds i8, ptr %call16, i64 %indvars.iv131
   %15 = load i8, ptr %arrayidx52, align 1
-  store i8 %15, ptr %destPtr.497, align 1
+  store i8 %15, ptr %destPtr.597, align 1
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %destPtr.4 = getelementptr inbounds i8, ptr %destPtr.497, i64 1
+  %destPtr.5 = getelementptr inbounds i8, ptr %destPtr.597, i64 1
   %16 = trunc nuw i64 %indvars.iv.next132 to i32
   %cmp49 = icmp slt i32 %16, %conv
   br i1 %cmp49, label %for.body50, label %if.end141, !llvm.loop !7
@@ -214,7 +214,7 @@ if.then61:                                        ; preds = %if.else57
   br i1 %cmp6782, label %for.body68, label %for.cond74.preheader
 
 for.cond74.preheader:                             ; preds = %for.body68, %if.then61
-  %destPtr.5.lcssa = phi ptr [ %incdec.ptr63, %if.then61 ], [ %incdec.ptr69, %for.body68 ]
+  %destPtr.6.lcssa = phi ptr [ %incdec.ptr63, %if.then61 ], [ %incdec.ptr69, %for.body68 ]
   %cmp7586 = icmp sgt i32 %conv, 0
   br i1 %cmp7586, label %for.body76.preheader, label %if.end141
 
@@ -224,9 +224,9 @@ for.body76.preheader:                             ; preds = %for.cond74.preheade
 
 for.body68:                                       ; preds = %if.then61, %for.body68
   %i64.084 = phi i32 [ %inc71, %for.body68 ], [ 0, %if.then61 ]
-  %destPtr.583 = phi ptr [ %incdec.ptr69, %for.body68 ], [ %incdec.ptr63, %if.then61 ]
-  %incdec.ptr69 = getelementptr inbounds i8, ptr %destPtr.583, i64 1
-  store i8 48, ptr %destPtr.583, align 1
+  %destPtr.683 = phi ptr [ %incdec.ptr69, %for.body68 ], [ %incdec.ptr63, %if.then61 ]
+  %incdec.ptr69 = getelementptr inbounds i8, ptr %destPtr.683, i64 1
+  store i8 48, ptr %destPtr.683, align 1
   %inc71 = add nuw nsw i32 %i64.084, 1
   %18 = load i32, ptr %n, align 4
   %sub66 = sub nsw i32 0, %18
@@ -235,11 +235,11 @@ for.body68:                                       ; preds = %if.then61, %for.bod
 
 for.body76:                                       ; preds = %for.body76.preheader, %for.body76
   %indvars.iv120 = phi i64 [ 0, %for.body76.preheader ], [ %indvars.iv.next121, %for.body76 ]
-  %destPtr.687 = phi ptr [ %destPtr.5.lcssa, %for.body76.preheader ], [ %incdec.ptr79, %for.body76 ]
+  %destPtr.787 = phi ptr [ %destPtr.6.lcssa, %for.body76.preheader ], [ %incdec.ptr79, %for.body76 ]
   %arrayidx78 = getelementptr inbounds i8, ptr %call16, i64 %indvars.iv120
   %19 = load i8, ptr %arrayidx78, align 1
-  %incdec.ptr79 = getelementptr inbounds i8, ptr %destPtr.687, i64 1
-  store i8 %19, ptr %destPtr.687, align 1
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %destPtr.787, i64 1
+  store i8 %19, ptr %destPtr.787, align 1
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
   br i1 %exitcond124.not, label %if.end141, label %for.body76, !llvm.loop !9
@@ -286,23 +286,23 @@ for.body116.preheader:                            ; preds = %if.else104
 
 for.body116:                                      ; preds = %for.body116.preheader, %for.body116
   %indvars.iv = phi i64 [ 1, %for.body116.preheader ], [ %indvars.iv.next, %for.body116 ]
-  %destPtr.871 = phi ptr [ %incdec.ptr90, %for.body116.preheader ], [ %incdec.ptr119, %for.body116 ]
+  %destPtr.971 = phi ptr [ %incdec.ptr90, %for.body116.preheader ], [ %incdec.ptr119, %for.body116 ]
   %arrayidx118 = getelementptr inbounds i8, ptr %call16, i64 %indvars.iv
   %26 = load i8, ptr %arrayidx118, align 1
-  %incdec.ptr119 = getelementptr inbounds i8, ptr %destPtr.871, i64 1
-  store i8 %26, ptr %destPtr.871, align 1
+  %incdec.ptr119 = getelementptr inbounds i8, ptr %destPtr.971, i64 1
+  store i8 %26, ptr %destPtr.971, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end122, label %for.body116, !llvm.loop !10
 
 for.end122:                                       ; preds = %for.body116, %if.else104
-  %destPtr.8.lcssa = phi ptr [ %incdec.ptr90, %if.else104 ], [ %incdec.ptr119, %for.body116 ]
-  %incdec.ptr123 = getelementptr inbounds i8, ptr %destPtr.8.lcssa, i64 1
-  store i8 101, ptr %destPtr.8.lcssa, align 1
+  %destPtr.9.lcssa = phi ptr [ %incdec.ptr90, %if.else104 ], [ %incdec.ptr119, %for.body116 ]
+  %incdec.ptr123 = getelementptr inbounds i8, ptr %destPtr.9.lcssa, i64 1
+  store i8 101, ptr %destPtr.9.lcssa, align 1
   %27 = load i32, ptr %n, align 4
   %cmp125 = icmp slt i32 %27, 1
   %cond126 = select i1 %cmp125, i8 45, i8 43
-  %incdec.ptr127 = getelementptr i8, ptr %destPtr.8.lcssa, i64 2
+  %incdec.ptr127 = getelementptr i8, ptr %destPtr.9.lcssa, i64 2
   store i8 %cond126, ptr %incdec.ptr123, align 1
   %cmp13073 = icmp sgt i32 %call109, 0
   br i1 %cmp13073, label %for.body131.preheader, label %if.end141
@@ -313,19 +313,19 @@ for.body131.preheader:                            ; preds = %for.end122
 
 for.body131:                                      ; preds = %for.body131.preheader, %for.body131
   %indvars.iv112 = phi i64 [ 0, %for.body131.preheader ], [ %indvars.iv.next113, %for.body131 ]
-  %destPtr.974 = phi ptr [ %incdec.ptr127, %for.body131.preheader ], [ %incdec.ptr134, %for.body131 ]
+  %destPtr.1074 = phi ptr [ %incdec.ptr127, %for.body131.preheader ], [ %incdec.ptr134, %for.body131 ]
   %arrayidx133 = getelementptr inbounds [32 x i8], ptr %nBuf105, i64 0, i64 %indvars.iv112
   %28 = load i8, ptr %arrayidx133, align 1
-  %incdec.ptr134 = getelementptr inbounds i8, ptr %destPtr.974, i64 1
-  store i8 %28, ptr %destPtr.974, align 1
+  %incdec.ptr134 = getelementptr inbounds i8, ptr %destPtr.1074, i64 1
+  store i8 %28, ptr %destPtr.1074, align 1
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
   br i1 %exitcond116.not, label %if.end141, label %for.body131, !llvm.loop !11
 
 if.end141:                                        ; preds = %for.body131, %for.body76, %for.body50, %for.body97.preheader, %for.body27.preheader, %for.end122, %if.then85, %for.cond74.preheader, %for.end45, %for.cond25.preheader
-  %destPtr.10 = phi ptr [ %destPtr.1.lcssa, %for.cond25.preheader ], [ %destPtr.494, %for.end45 ], [ %destPtr.5.lcssa, %for.cond74.preheader ], [ %incdec.ptr93, %if.then85 ], [ %incdec.ptr127, %for.end122 ], [ %scevgep139, %for.body27.preheader ], [ %scevgep, %for.body97.preheader ], [ %destPtr.4, %for.body50 ], [ %incdec.ptr79, %for.body76 ], [ %incdec.ptr134, %for.body131 ]
-  %incdec.ptr142 = getelementptr inbounds i8, ptr %destPtr.10, i64 1
-  store i8 0, ptr %destPtr.10, align 1
+  %destPtr.3 = phi ptr [ %destPtr.1.lcssa, %for.cond25.preheader ], [ %destPtr.594, %for.end45 ], [ %destPtr.6.lcssa, %for.cond74.preheader ], [ %incdec.ptr93, %if.then85 ], [ %incdec.ptr127, %for.end122 ], [ %scevgep139, %for.body27.preheader ], [ %scevgep, %for.body97.preheader ], [ %destPtr.5, %for.body50 ], [ %incdec.ptr79, %for.body76 ], [ %incdec.ptr134, %for.body131 ]
+  %incdec.ptr142 = getelementptr inbounds i8, ptr %destPtr.3, i64 1
+  store i8 0, ptr %destPtr.3, align 1
   %29 = load ptr, ptr %dalloc_.i, align 8
   call void @g_freedtoa(ptr noundef %29, ptr noundef %call16) #7
   %sub.ptr.lhs.cast144 = ptrtoint ptr %incdec.ptr142 to i64

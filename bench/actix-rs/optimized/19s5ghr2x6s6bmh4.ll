@@ -1950,8 +1950,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %57,
 
 ._crit_edge.i:                                    ; preds = %87
   %92 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val.i1 = load ptr, ptr %92, align 8, !alias.scope !303, !nonnull !4, !align !40, !noundef !4
-  %93 = getelementptr inbounds i8, ptr %.val.i1, i64 %.pre.i
+  %.val.i2 = load ptr, ptr %92, align 8, !alias.scope !303, !nonnull !4, !align !40, !noundef !4
+  %93 = getelementptr inbounds i8, ptr %.val.i2, i64 %.pre.i
   %94 = sub i64 %.pre5.i, %.pre.i
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h5b7fed32eccb2923E.exit"
 

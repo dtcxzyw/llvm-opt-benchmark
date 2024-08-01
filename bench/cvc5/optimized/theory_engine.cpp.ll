@@ -2031,7 +2031,7 @@ invoke.cont10:                                    ; preds = %.noexc
           to label %cond.end unwind label %lpad12.body.thread
 
 cond.end:                                         ; preds = %invoke.cont10, %entry
-  %saved-rvalue.0 = phi ptr [ undef, %entry ], [ %call3, %invoke.cont10 ]
+  %saved-rvalue.1 = phi ptr [ undef, %entry ], [ %call3, %invoke.cont10 ]
   %cond = phi ptr [ null, %entry ], [ %call3, %invoke.cont10 ]
   store ptr %cond, ptr %d_lazyProof, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -2628,16 +2628,16 @@ ehcleanup24.thread231:                            ; preds = %lpad9, %lpad.i
 
 ehcleanup24:                                      ; preds = %lpad12.body, %lpad12.body.thread
   %eh.lpad-body29214 = phi { ptr, i32 } [ %66, %lpad12.body.thread ], [ %5, %lpad12.body ]
-  %cleanup.cond.1.lpad-body212 = phi i1 [ true, %lpad12.body.thread ], [ false, %lpad12.body ]
-  %saved-rvalue.1.lpad-body211 = phi ptr [ %call3, %lpad12.body.thread ], [ %saved-rvalue.0, %lpad12.body ]
+  %cleanup.cond.0.lpad-body212 = phi i1 [ true, %lpad12.body.thread ], [ false, %lpad12.body ]
+  %saved-rvalue.0.lpad-body211 = phi ptr [ %call3, %lpad12.body.thread ], [ %saved-rvalue.1, %lpad12.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #22
-  br i1 %cleanup.cond.1.lpad-body212, label %cleanup.action26, label %ehcleanup174
+  br i1 %cleanup.cond.0.lpad-body212, label %cleanup.action26, label %ehcleanup174
 
 cleanup.action26:                                 ; preds = %ehcleanup24.thread231, %ehcleanup24.thread, %ehcleanup24
-  %saved-rvalue.3226 = phi ptr [ %call3, %ehcleanup24.thread ], [ %saved-rvalue.1.lpad-body211, %ehcleanup24 ], [ %call3, %ehcleanup24.thread231 ]
+  %saved-rvalue.2226 = phi ptr [ %call3, %ehcleanup24.thread ], [ %saved-rvalue.0.lpad-body211, %ehcleanup24 ], [ %call3, %ehcleanup24.thread231 ]
   %.pn.pn225 = phi { ptr, i32 } [ %64, %ehcleanup24.thread ], [ %eh.lpad-body29214, %ehcleanup24 ], [ %.pn.ph.ph, %ehcleanup24.thread231 ]
-  call void @_ZdlPv(ptr noundef %saved-rvalue.3226) #25
+  call void @_ZdlPv(ptr noundef %saved-rvalue.2226) #25
   br label %ehcleanup174
 
 lpad28:                                           ; preds = %cleanup.done20
@@ -5540,14 +5540,14 @@ if.then665:                                       ; preds = %land.lhs.true662
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit, %lpad637
   %.pn27 = phi { ptr, i32 } [ %54, %lpad637 ], [ %lpad.loopexit1310, %lpad.loopexit ], [ %lpad.loopexit1312, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit1315, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1318, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1321, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1322, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn27, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn27, 1
   %59 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal6theory11InterruptedE) #22
-  %matches = icmp eq i32 %ehselector.slot.3, %59
+  %matches = icmp eq i32 %ehselector.slot.0, %59
   br i1 %matches, label %cond.end897, label %eh.resume
 
 cond.end897:                                      ; preds = %catch.dispatch
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn27, 0
-  %60 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #22
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn27, 0
+  %60 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   call void @__cxa_end_catch()
   br label %try.cont
 
@@ -21955,7 +21955,7 @@ invoke.cont10:                                    ; preds = %invoke.cont5
   br i1 %cmp.i.not111, label %for.inc119, label %for.body15
 
 for.body15:                                       ; preds = %invoke.cont10, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58
-  %hasFailure.1113 = phi i1 [ %hasFailure.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58 ], [ %hasFailure.0114, %invoke.cont10 ]
+  %hasFailure.1113 = phi i1 [ %hasFailure.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58 ], [ %hasFailure.0114, %invoke.cont10 ]
   %it.sroa.0.0112 = phi ptr [ %incdec.ptr.i, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58 ], [ %12, %invoke.cont10 ]
   %14 = load ptr, ptr %it.sroa.0.0112, align 8
   store ptr %14, ptr %assertion, align 8
@@ -22201,12 +22201,12 @@ lpad107:                                          ; preds = %invoke.cont106
 
 if.end112.sink.split:                             ; preds = %invoke.cont106, %invoke.cont97
   %ref.tmp96.sink = phi ptr [ %ref.tmp96, %invoke.cont97 ], [ %ref.tmp105, %invoke.cont106 ]
-  %hasFailure.2.ph = phi i1 [ true, %invoke.cont97 ], [ %hasFailure.1113, %invoke.cont106 ]
+  %hasFailure.4.ph = phi i1 [ true, %invoke.cont97 ], [ %hasFailure.1113, %invoke.cont106 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp96.sink) #22
   br label %if.end112
 
 if.end112:                                        ; preds = %if.end112.sink.split, %invoke.cont87
-  %hasFailure.2 = phi i1 [ %hasFailure.1113, %invoke.cont87 ], [ %hasFailure.2.ph, %if.end112.sink.split ]
+  %hasFailure.4 = phi i1 [ %hasFailure.1113, %invoke.cont87 ], [ %hasFailure.4.ph, %if.end112.sink.split ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss) #22
   %.pre = load ptr, ptr %val, align 8
   br label %if.end114
@@ -22218,7 +22218,7 @@ ehcleanup113:                                     ; preds = %lpad75, %lpad84, %l
 
 if.end114:                                        ; preds = %if.end112, %invoke.cont43
   %52 = phi ptr [ %.pre, %if.end112 ], [ %34, %invoke.cont43 ]
-  %hasFailure.3 = phi i1 [ %hasFailure.2, %if.end112 ], [ %hasFailure.1113, %invoke.cont43 ]
+  %hasFailure.3 = phi i1 [ %hasFailure.4, %if.end112 ], [ %hasFailure.1113, %invoke.cont43 ]
   %bf.load.i.i40 = load i64, ptr %52, align 8
   %53 = and i64 %bf.load.i.i40, 1152920405095219200
   %cmp.not.i.i = icmp eq i64 %53, 1152920405095219200
@@ -22245,7 +22245,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i47
   unreachable
 
 cleanup:                                          ; preds = %lor.lhs.false.i.i.i.i, %if.end3.i.i.i.i, %for.cond.i.i, %call2.i.i.i.noexc, %if.then13.i.i47, %if.then.i.i41, %if.end114
-  %hasFailure.4 = phi i1 [ %hasFailure.3, %if.end114 ], [ %hasFailure.3, %if.then.i.i41 ], [ %hasFailure.3, %if.then13.i.i47 ], [ %hasFailure.1113, %call2.i.i.i.noexc ], [ %hasFailure.1113, %for.cond.i.i ], [ %hasFailure.1113, %if.end3.i.i.i.i ], [ %hasFailure.1113, %lor.lhs.false.i.i.i.i ]
+  %hasFailure.2 = phi i1 [ %hasFailure.3, %if.end114 ], [ %hasFailure.3, %if.then.i.i41 ], [ %hasFailure.3, %if.then13.i.i47 ], [ %hasFailure.1113, %call2.i.i.i.noexc ], [ %hasFailure.1113, %for.cond.i.i ], [ %hasFailure.1113, %if.end3.i.i.i.i ], [ %hasFailure.1113, %lor.lhs.false.i.i.i.i ]
   %bf.load.i.i48 = load i64, ptr %14, align 8
   %56 = and i64 %bf.load.i.i48, 1152920405095219200
   %cmp.not.i.i49 = icmp eq i64 %56, 1152920405095219200
@@ -22287,7 +22287,7 @@ ehcleanup116:                                     ; preds = %lpad23, %ehcleanup1
   br label %ehcleanup140
 
 for.inc119:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58, %invoke.cont10, %for.body, %invoke.cont5
-  %hasFailure.5 = phi i1 [ %hasFailure.0114, %invoke.cont5 ], [ %hasFailure.0114, %for.body ], [ %hasFailure.0114, %invoke.cont10 ], [ %hasFailure.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58 ]
+  %hasFailure.5 = phi i1 [ %hasFailure.0114, %invoke.cont5 ], [ %hasFailure.0114, %for.body ], [ %hasFailure.0114, %invoke.cont10 ], [ %hasFailure.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit58 ]
   %call121 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryppERNS1_8TheoryIdE(ptr noundef nonnull align 4 dereferenceable(4) %theoryId)
           to label %for.condthread-pre-split unwind label %lpad.loopexit.split-lp.loopexit, !llvm.loop !175
 

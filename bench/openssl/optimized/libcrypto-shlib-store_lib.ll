@@ -91,7 +91,7 @@ if.then6.tail:                                    ; preds = %if.then6
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then, %.thread, %entry
-  %schemes_n.1 = phi i64 [ %4, %.thread ], [ 1, %if.then ], [ 1, %entry ]
+  %schemes_n.0 = phi i64 [ %4, %.thread ], [ 1, %if.then ], [ 1, %entry ]
   %call15 = call i32 @ERR_set_mark() #9
   %cmp16.not = icmp eq ptr %ui_method, null
   br i1 %cmp16.not, label %if.end21, label %land.lhs.true
@@ -122,7 +122,7 @@ if.end21:                                         ; preds = %lor.lhs.false, %if.
 for.body:                                         ; preds = %if.end21, %for.inc
   %i.094 = phi i64 [ 0, %if.end21 ], [ %inc64, %for.inc ]
   %no_loader_found.093 = phi i32 [ 1, %if.end21 ], [ %no_loader_found.2, %for.inc ]
-  %fetched_loader.092 = phi ptr [ null, %if.end21 ], [ %fetched_loader.2, %for.inc ]
+  %fetched_loader.192 = phi ptr [ null, %if.end21 ], [ %fetched_loader.3, %for.inc ]
   %arrayidx24 = getelementptr inbounds [2 x ptr], ptr %schemes, i64 0, i64 %i.094
   %6 = load ptr, ptr %arrayidx24, align 8
   %call25 = call i32 @ERR_set_mark() #9
@@ -225,19 +225,19 @@ if.then61:                                        ; preds = %if.else50, %if.then
   br label %if.end62
 
 if.end62:                                         ; preds = %if.end59.thread70, %if.then61, %if.end59
-  %loader_ctx.268 = phi ptr [ null, %if.then61 ], [ %call49, %if.end59 ], [ %call51, %if.end59.thread70 ]
-  %fetched_loader.1 = phi ptr [ null, %if.then61 ], [ %call41, %if.end59 ], [ %call41, %if.end59.thread70 ]
+  %loader_ctx.368 = phi ptr [ null, %if.then61 ], [ %call49, %if.end59 ], [ %call51, %if.end59.thread70 ]
+  %fetched_loader.2 = phi ptr [ null, %if.then61 ], [ %call41, %if.end59 ], [ %call41, %if.end59.thread70 ]
   call void @ossl_pw_clear_passphrase_cache(ptr noundef nonnull %pwdata) #9
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else, %if.then31, %land.lhs.true40, %if.end62
-  %fetched_loader.2 = phi ptr [ %fetched_loader.1, %if.end62 ], [ null, %land.lhs.true40 ], [ %fetched_loader.092, %if.then31 ], [ %fetched_loader.092, %if.else ]
-  %loader_ctx.3 = phi ptr [ %loader_ctx.268, %if.end62 ], [ null, %land.lhs.true40 ], [ %call33, %if.then31 ], [ %call34, %if.else ]
+  %fetched_loader.3 = phi ptr [ %fetched_loader.2, %if.end62 ], [ null, %land.lhs.true40 ], [ %fetched_loader.192, %if.then31 ], [ %fetched_loader.192, %if.else ]
+  %loader_ctx.4 = phi ptr [ %loader_ctx.368, %if.end62 ], [ null, %land.lhs.true40 ], [ %call33, %if.then31 ], [ %call34, %if.else ]
   %no_loader_found.2 = phi i32 [ 0, %if.end62 ], [ %no_loader_found.093, %land.lhs.true40 ], [ 0, %if.then31 ], [ 0, %if.else ]
-  %loader.1 = phi ptr [ %fetched_loader.1, %if.end62 ], [ null, %land.lhs.true40 ], [ %call26, %if.then31 ], [ %call26, %if.else ]
+  %loader.2 = phi ptr [ %fetched_loader.2, %if.end62 ], [ null, %land.lhs.true40 ], [ %call26, %if.then31 ], [ %call26, %if.else ]
   %inc64 = add nuw nsw i64 %i.094, 1
-  %cmp22 = icmp eq ptr %loader_ctx.3, null
-  %cmp23 = icmp ult i64 %inc64, %schemes_n.1
+  %cmp22 = icmp eq ptr %loader_ctx.4, null
+  %cmp23 = icmp ult i64 %inc64, %schemes_n.0
   %14 = select i1 %cmp22, i1 %cmp23, i1 false
   br i1 %14, label %for.body, label %for.end, !llvm.loop !4
 
@@ -255,19 +255,19 @@ land.lhs.true72:                                  ; preds = %if.end70
   br i1 %cmp74, label %err.thread, label %lor.lhs.false75
 
 lor.lhs.false75:                                  ; preds = %land.lhs.true72, %if.end70
-  %propq_copy.0 = phi ptr [ %call73, %land.lhs.true72 ], [ null, %if.end70 ]
+  %propq_copy.1 = phi ptr [ %call73, %land.lhs.true72 ], [ null, %if.end70 ]
   %call76 = call noalias ptr @CRYPTO_zalloc(i64 noundef 120, ptr noundef nonnull @.str.2, i32 noundef 190) #9
   %cmp77 = icmp eq ptr %call76, null
   br i1 %cmp77, label %err.thread, label %if.end79
 
 if.end79:                                         ; preds = %lor.lhs.false75
   %properties = getelementptr inbounds i8, ptr %call76, i64 48
-  store ptr %propq_copy.0, ptr %properties, align 8
+  store ptr %propq_copy.1, ptr %properties, align 8
   %fetched_loader80 = getelementptr inbounds i8, ptr %call76, i64 8
-  store ptr %fetched_loader.2, ptr %fetched_loader80, align 8
-  store ptr %loader.1, ptr %call76, align 8
+  store ptr %fetched_loader.3, ptr %fetched_loader80, align 8
+  store ptr %loader.2, ptr %call76, align 8
   %loader_ctx82 = getelementptr inbounds i8, ptr %call76, i64 16
-  store ptr %loader_ctx.3, ptr %loader_ctx82, align 8
+  store ptr %loader_ctx.4, ptr %loader_ctx82, align 8
   %post_process83 = getelementptr inbounds i8, ptr %call76, i64 24
   store ptr %post_process, ptr %post_process83, align 8
   %post_process_data84 = getelementptr inbounds i8, ptr %call76, i64 32
@@ -278,7 +278,7 @@ if.end79:                                         ; preds = %lor.lhs.false75
   br label %return
 
 err.thread:                                       ; preds = %land.lhs.true72, %lor.lhs.false75
-  %propq_copy.1.ph = phi ptr [ %propq_copy.0, %lor.lhs.false75 ], [ null, %land.lhs.true72 ]
+  %propq_copy.0.ph = phi ptr [ %propq_copy.1, %lor.lhs.false75 ], [ null, %land.lhs.true72 ]
   %call8777 = call i32 @ERR_clear_last_mark() #9
   br label %if.then89
 
@@ -287,21 +287,21 @@ err:                                              ; preds = %for.end
   br i1 %cmp22, label %if.end94, label %if.then89
 
 if.then89:                                        ; preds = %err.thread, %err
-  %propq_copy.182 = phi ptr [ %propq_copy.1.ph, %err.thread ], [ null, %err ]
+  %propq_copy.082 = phi ptr [ %propq_copy.0.ph, %err.thread ], [ null, %err ]
   %15 = getelementptr inbounds i8, ptr %tmpctx, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %15, i8 0, i64 96, i1 false)
   %fetched_loader90 = getelementptr inbounds i8, ptr %tmpctx, i64 8
-  store ptr %fetched_loader.2, ptr %fetched_loader90, align 8
-  store ptr %loader.1, ptr %tmpctx, align 8
+  store ptr %fetched_loader.3, ptr %fetched_loader90, align 8
+  store ptr %loader.2, ptr %tmpctx, align 8
   %loader_ctx92 = getelementptr inbounds i8, ptr %tmpctx, i64 16
-  store ptr %loader_ctx.3, ptr %loader_ctx92, align 8
-  %cmp1.not.i = icmp eq ptr %fetched_loader.2, null
+  store ptr %loader_ctx.4, ptr %loader_ctx92, align 8
+  %cmp1.not.i = icmp eq ptr %fetched_loader.3, null
   br i1 %cmp1.not.i, label %if.then6.i, label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then89
-  %p_close.i = getelementptr inbounds i8, ptr %loader.1, i64 184
+  %p_close.i = getelementptr inbounds i8, ptr %loader.2, i64 184
   %16 = load ptr, ptr %p_close.i, align 8
-  %call.i59 = call i32 %16(ptr noundef nonnull %loader_ctx.3) #9
+  %call.i59 = call i32 %16(ptr noundef nonnull %loader_ctx.4) #9
   %.pr.i = load ptr, ptr %fetched_loader90, align 8
   %cmp5.i = icmp eq ptr %.pr.i, null
   br i1 %cmp5.i, label %if.end3.i.if.then6.i_crit_edge, label %ossl_store_close_it.exit
@@ -312,8 +312,8 @@ if.end3.i.if.then6.i_crit_edge:                   ; preds = %if.end3.i
   br label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end3.i.if.then6.i_crit_edge, %if.then89
-  %17 = phi ptr [ %.pre96, %if.end3.i.if.then6.i_crit_edge ], [ %loader_ctx.3, %if.then89 ]
-  %18 = phi ptr [ %.pre, %if.end3.i.if.then6.i_crit_edge ], [ %loader.1, %if.then89 ]
+  %17 = phi ptr [ %.pre96, %if.end3.i.if.then6.i_crit_edge ], [ %loader_ctx.4, %if.then89 ]
+  %18 = phi ptr [ %.pre, %if.end3.i.if.then6.i_crit_edge ], [ %loader.2, %if.then89 ]
   %closefn.i = getelementptr inbounds i8, ptr %18, i64 80
   %19 = load ptr, ptr %closefn.i, align 8
   %call9.i = call i32 %19(ptr noundef %17) #9
@@ -334,10 +334,10 @@ ossl_store_close_it.exit:                         ; preds = %if.end3.i, %if.then
   br label %if.end94
 
 if.end94:                                         ; preds = %err.thread85, %ossl_store_close_it.exit, %err
-  %propq_copy.183 = phi ptr [ %propq_copy.182, %ossl_store_close_it.exit ], [ null, %err ], [ null, %err.thread85 ]
-  %fetched_loader.380 = phi ptr [ %fetched_loader.2, %ossl_store_close_it.exit ], [ %fetched_loader.2, %err ], [ null, %err.thread85 ]
-  call void @OSSL_STORE_LOADER_free(ptr noundef %fetched_loader.380) #9
-  call void @CRYPTO_free(ptr noundef %propq_copy.183, ptr noundef nonnull @.str.2, i32 noundef 233) #9
+  %propq_copy.083 = phi ptr [ %propq_copy.082, %ossl_store_close_it.exit ], [ null, %err ], [ null, %err.thread85 ]
+  %fetched_loader.080 = phi ptr [ %fetched_loader.3, %ossl_store_close_it.exit ], [ %fetched_loader.3, %err ], [ null, %err.thread85 ]
+  call void @OSSL_STORE_LOADER_free(ptr noundef %fetched_loader.080) #9
+  call void @CRYPTO_free(ptr noundef %propq_copy.083, ptr noundef nonnull @.str.2, i32 noundef 233) #9
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 234) #9
   br label %return
 
@@ -957,16 +957,16 @@ if.then30:                                        ; preds = %if.else, %if.end27
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end27, %if.then30, %if.then13
-  %v.2 = phi ptr [ %call.i40, %if.then13 ], [ %call36, %if.then30 ], [ %12, %if.end27 ]
+  %v.1 = phi ptr [ %call.i40, %if.then13 ], [ %call36, %if.then30 ], [ %12, %if.end27 ]
   %18 = load ptr, ptr %post_process, align 8
   %cmp39 = icmp ne ptr %18, null
-  %cmp41 = icmp ne ptr %v.2, null
+  %cmp41 = icmp ne ptr %v.1, null
   %or.cond = select i1 %cmp39, i1 %cmp41, i1 false
   br i1 %or.cond, label %if.then42, label %if.end48
 
 if.then42:                                        ; preds = %if.end38
   %19 = load ptr, ptr %post_process_data, align 8
-  %call44 = call ptr %18(ptr noundef nonnull %v.2, ptr noundef %19) #9
+  %call44 = call ptr %18(ptr noundef nonnull %v.1, ptr noundef %19) #9
   %cmp45 = icmp eq ptr %call44, null
   br i1 %cmp45, label %again.backedge, label %if.end48.thread
 
@@ -976,11 +976,11 @@ if.end48.thread:                                  ; preds = %if.then42
 
 if.end48:                                         ; preds = %if.end38
   call void @ossl_pw_clear_passphrase_cache(ptr noundef nonnull %pwdata) #9
-  %cmp50.not = icmp eq ptr %v.2, null
+  %cmp50.not = icmp eq ptr %v.1, null
   br i1 %cmp50.not, label %return, label %land.lhs.true51
 
 land.lhs.true51:                                  ; preds = %if.end48.thread, %if.end48
-  %v.348 = phi ptr [ %call44, %if.end48.thread ], [ %v.2, %if.end48 ]
+  %v.348 = phi ptr [ %call44, %if.end48.thread ], [ %v.1, %if.end48 ]
   %20 = load i32, ptr %expected_type, align 8
   %cmp52.not = icmp eq i32 %20, 0
   br i1 %cmp52.not, label %return, label %if.then53
@@ -2086,16 +2086,16 @@ if.then18:                                        ; preds = %if.then.i, %if.end8
   br label %if.end21
 
 if.end21:                                         ; preds = %loader_set_params.exit, %if.then18, %if.then16
-  %fetched_loader.0 = phi ptr [ null, %if.then16 ], [ %call7, %loader_set_params.exit ], [ null, %if.then18 ]
-  %loader_ctx.2 = phi ptr [ null, %if.then16 ], [ %call14, %loader_set_params.exit ], [ %call14, %if.then18 ]
+  %fetched_loader.1 = phi ptr [ null, %if.then16 ], [ %call7, %loader_set_params.exit ], [ null, %if.then18 ]
+  %loader_ctx.3 = phi ptr [ null, %if.then16 ], [ %call14, %loader_set_params.exit ], [ %call14, %if.then18 ]
   %call22 = call i32 @ossl_core_bio_free(ptr noundef %call12) #9
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end5, %if.end21
-  %fetched_loader.1 = phi ptr [ %fetched_loader.0, %if.end21 ], [ null, %if.end5 ]
-  %loader_ctx.3 = phi ptr [ %loader_ctx.2, %if.end21 ], [ %call4, %if.end5 ]
-  %loader.0 = phi ptr [ %fetched_loader.0, %if.end21 ], [ %call1, %if.end5 ]
-  %cmp24 = icmp eq ptr %loader_ctx.3, null
+  %fetched_loader.0 = phi ptr [ %fetched_loader.1, %if.end21 ], [ null, %if.end5 ]
+  %loader_ctx.1 = phi ptr [ %loader_ctx.3, %if.end21 ], [ %call4, %if.end5 ]
+  %loader.0 = phi ptr [ %fetched_loader.1, %if.end21 ], [ %call1, %if.end5 ]
+  %cmp24 = icmp eq ptr %loader_ctx.1, null
   br i1 %cmp24, label %if.then25, label %if.end27
 
 if.then25:                                        ; preds = %land.lhs.true, %if.end23
@@ -2128,10 +2128,10 @@ if.then37:                                        ; preds = %land.lhs.true34
 
 if.end39:                                         ; preds = %land.lhs.true34, %if.end32
   %fetched_loader40 = getelementptr inbounds i8, ptr %call28, i64 8
-  store ptr %fetched_loader.1, ptr %fetched_loader40, align 8
+  store ptr %fetched_loader.0, ptr %fetched_loader40, align 8
   store ptr %loader.0, ptr %call28, align 8
   %loader_ctx42 = getelementptr inbounds i8, ptr %call28, i64 16
-  store ptr %loader_ctx.3, ptr %loader_ctx42, align 8
+  store ptr %loader_ctx.1, ptr %loader_ctx42, align 8
   %post_process43 = getelementptr inbounds i8, ptr %call28, i64 24
   store ptr %post_process, ptr %post_process43, align 8
   %post_process_data44 = getelementptr inbounds i8, ptr %call28, i64 32

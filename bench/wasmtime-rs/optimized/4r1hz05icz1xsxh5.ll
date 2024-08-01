@@ -59,7 +59,7 @@ define hidden void @_ZN22cranelift_codegen_meta6shared6define17h5aa7021602ab0dcf
   br label %148
 
 28:                                               ; preds = %30
-  br i1 %.2, label %148, label %147
+  br i1 %.3, label %148, label %147
 
 29:                                               ; preds = %1
   invoke void @_ZN22cranelift_codegen_meta6shared8entities10EntityRefs3new17h0b970f08cd293025E(ptr nonnull sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } } }) align 8 %22)
@@ -67,12 +67,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared6define17h5aa7021602ab0dcf
 
 30:                                               ; preds = %34, %31
   %.pn4 = phi { ptr, i32 } [ %32, %31 ], [ %.pn2, %34 ]
-  %.2 = phi i1 [ %.3, %31 ], [ %.4, %34 ]
+  %.3 = phi i1 [ %.2, %31 ], [ %.5, %34 ]
   invoke void @"_ZN4core3ptr75drop_in_place$LT$cranelift_codegen_meta..shared..immediates..Immediates$GT$17hf610bf7274ee7d63E"(ptr nonnull align 8 %23) #6
           to label %28 unwind label %145
 
 31:                                               ; preds = %143, %29
-  %.3 = phi i1 [ false, %143 ], [ true, %29 ]
+  %.2 = phi i1 [ false, %143 ], [ true, %29 ]
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %30
@@ -83,12 +83,12 @@ define hidden void @_ZN22cranelift_codegen_meta6shared6define17h5aa7021602ab0dcf
 
 34:                                               ; preds = %.body, %35
   %.pn2 = phi { ptr, i32 } [ %36, %35 ], [ %.pn, %.body ]
-  %.4 = phi i1 [ %.5, %35 ], [ true, %.body ]
+  %.5 = phi i1 [ %.4, %35 ], [ true, %.body ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$cranelift_codegen_meta..shared..entities..EntityRefs$GT$17h07079190150347faE"(ptr nonnull align 8 %22) #6
           to label %30 unwind label %145
 
 35:                                               ; preds = %140, %33
-  %.5 = phi i1 [ false, %140 ], [ true, %33 ]
+  %.4 = phi i1 [ false, %140 ], [ true, %33 ]
   %36 = landingpad { ptr, i32 }
           cleanup
   br label %34

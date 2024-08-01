@@ -172,14 +172,14 @@ _ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit: ; preds = %3, %29
   br label %34
 
 34:                                               ; preds = %.preheader.preheader, %_ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit
-  %.2 = phi ptr [ %scevgep, %.preheader.preheader ], [ %.017, %_ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit ]
+  %.1 = phi ptr [ %scevgep, %.preheader.preheader ], [ %.017, %_ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit ]
   %35 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr null, ptr %35, align 8
   store ptr %8, ptr %4, align 8
   br label %36
 
 36:                                               ; preds = %23, %34
-  %.018 = phi ptr [ %.2, %34 ], [ null, %23 ]
+  %.018 = phi ptr [ %.1, %34 ], [ null, %23 ]
   ret ptr %.018
 }
 

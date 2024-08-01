@@ -260,7 +260,7 @@ define void @Ssw_ManUpdateEquivs(ptr nocapture noundef %0, ptr noundef %1, i32 %
   %20 = phi ptr [ %14, %.lr.ph ], [ %49, %48 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
   %.062 = phi i32 [ 0, %.lr.ph ], [ %.1, %48 ]
-  %.03661 = phi i32 [ 0, %.lr.ph ], [ %.2, %48 ]
+  %.03661 = phi i32 [ 0, %.lr.ph ], [ %.137, %48 ]
   %21 = getelementptr i8, ptr %20, i64 8
   %.val48 = load ptr, ptr %21, align 8
   %22 = getelementptr inbounds ptr, ptr %.val48, i64 %indvars.iv
@@ -318,7 +318,7 @@ define void @Ssw_ManUpdateEquivs(ptr nocapture noundef %0, ptr noundef %1, i32 %
 
 48:                                               ; preds = %32, %19, %39, %43, %46, %28
   %49 = phi ptr [ %20, %19 ], [ %20, %43 ], [ %.pre, %46 ], [ %20, %39 ], [ %20, %32 ], [ %20, %28 ]
-  %.2 = phi i32 [ %.03661, %19 ], [ %36, %43 ], [ %36, %46 ], [ %36, %39 ], [ %spec.select.mux, %32 ], [ %.03661, %28 ]
+  %.137 = phi i32 [ %.03661, %19 ], [ %36, %43 ], [ %36, %46 ], [ %36, %39 ], [ %spec.select.mux, %32 ], [ %.03661, %28 ]
   %.1 = phi i32 [ %.062, %19 ], [ %.062, %43 ], [ %47, %46 ], [ %.062, %39 ], [ %.062, %32 ], [ %.062, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = getelementptr i8, ptr %49, i64 4
@@ -328,7 +328,7 @@ define void @Ssw_ManUpdateEquivs(ptr nocapture noundef %0, ptr noundef %1, i32 %
   br i1 %52, label %19, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %48, %3
-  %.036.lcssa = phi i32 [ 0, %3 ], [ %.2, %48 ]
+  %.036.lcssa = phi i32 [ 0, %3 ], [ %.137, %48 ]
   %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %48 ]
   %53 = getelementptr i8, ptr %1, i64 136
   %.val58 = load i32, ptr %53, align 8
@@ -531,12 +531,12 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   %.sroa.5.0211 = phi i32 [ 0, %.lr.ph ], [ %.sroa.5.1, %302 ]
   %.sroa.3.0210 = phi i32 [ 0, %.lr.ph ], [ %.sroa.3.1, %302 ]
   %.sroa.0.0209 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0.1, %302 ]
-  %.0148208 = phi i32 [ 0, %.lr.ph ], [ %304, %302 ]
+  %.1208 = phi i32 [ 0, %.lr.ph ], [ %304, %302 ]
   %.0151207 = phi i32 [ 0, %.lr.ph ], [ %259, %302 ]
   %90 = getelementptr inbounds i8, ptr %89, i64 44
   %91 = load i32, ptr %90, align 4
   %92 = icmp sgt i32 %91, -1
-  %93 = icmp eq i32 %91, %.0148208
+  %93 = icmp eq i32 %91, %.1208
   %or.cond = and i1 %92, %93
   br i1 %or.cond, label %94, label %96
 
@@ -544,7 +544,7 @@ Abc_Clock.exit:                                   ; preds = %1, %9
   %95 = call ptr @Ssw_SpeculativeReduction(ptr noundef nonnull %0) #13
   call void @Aig_ManDumpBlif(ptr noundef %95, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef null) #13
   call void @Aig_ManStop(ptr noundef %95) #13
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, i32 noundef %.0148208)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, i32 noundef %.1208)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.10)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14)
@@ -596,7 +596,7 @@ Abc_Clock.exit186:                                ; preds = %96, %99
   %124 = sub nsw i32 %123, %.0147213
   %125 = load i32, ptr %80, align 4
   %126 = sub nsw i32 %125, %.0151207
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, i32 noundef %.0148208, i32 noundef %116, i32 noundef %118, i32 noundef %120, i32 noundef %122, i32 noundef %124, i32 noundef %126)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, i32 noundef %.1208, i32 noundef %116, i32 noundef %118, i32 noundef %120, i32 noundef %122, i32 noundef %124, i32 noundef %126)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %127 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #13
@@ -645,7 +645,7 @@ Abc_Clock.exit188:                                ; preds = %114, %129
   br label %150
 
 150:                                              ; preds = %146, %148, %141
-  %.0149 = phi i32 [ %142, %141 ], [ %147, %146 ], [ %149, %148 ]
+  %.1150 = phi i32 [ %142, %141 ], [ %147, %146 ], [ %149, %148 ]
   %151 = load ptr, ptr %76, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 16
   %153 = load ptr, ptr %152, align 8
@@ -675,7 +675,7 @@ Abc_Clock.exit188:                                ; preds = %114, %129
   %172 = getelementptr i8, ptr %170, i64 152
   %.val174 = load i32, ptr %172, align 8
   %173 = add nsw i32 %.val174, %.val173
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, i32 noundef %.0148208, i32 noundef %166, i32 noundef %168, i32 noundef %169, i32 noundef %173)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, i32 noundef %.1208, i32 noundef %166, i32 noundef %168, i32 noundef %169, i32 noundef %173)
   %174 = load ptr, ptr %0, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 88
   %176 = load i32, ptr %175, align 8
@@ -806,7 +806,7 @@ Ssw_ObjIsConst1Cand.exit194:                      ; preds = %226, %228
   br i1 %.not198, label %255, label %242
 
 242:                                              ; preds = %Ssw_ObjIsConst1Cand.exit194
-  %243 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.0148208)
+  %243 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.1208)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %244 = load i32, ptr %16, align 8
   %245 = getelementptr inbounds i8, ptr %0, i64 292
@@ -830,7 +830,7 @@ Ssw_ObjIsConst1Cand.exit194:                      ; preds = %226, %228
   br label %337
 
 255:                                              ; preds = %218, %222, %Ssw_ObjIsConst1Cand.exit194, %109, %Abc_Clock.exit188
-  %.1150 = phi i32 [ %110, %Abc_Clock.exit188 ], [ %110, %109 ], [ %.0149, %Ssw_ObjIsConst1Cand.exit194 ], [ %.0149, %222 ], [ %.0149, %218 ]
+  %.0149 = phi i32 [ %110, %Abc_Clock.exit188 ], [ %110, %109 ], [ %.1150, %Ssw_ObjIsConst1Cand.exit194 ], [ %.1150, %222 ], [ %.1150, %218 ]
   %256 = load i32, ptr %77, align 8
   %257 = load i32, ptr %78, align 4
   %258 = load i32, ptr %79, align 4
@@ -849,7 +849,7 @@ Ssw_ObjIsConst1Cand.exit194:                      ; preds = %226, %228
   call void @Ssw_SatStop(ptr noundef %261) #13
   store ptr null, ptr %76, align 8
   call void @Ssw_ManCleanup(ptr noundef nonnull %0) #13
-  %.not167 = icmp eq i32 %.1150, 0
+  %.not167 = icmp eq i32 %.0149, 0
   br i1 %.not167, label %.loopexit, label %269
 
 269:                                              ; preds = %255
@@ -876,7 +876,7 @@ Ssw_ObjIsConst1Cand.exit194:                      ; preds = %226, %228
 281:                                              ; preds = %277
   %282 = load ptr, ptr %13, align 8
   %283 = call i32 @Ssw_ClassesCand1Num(ptr noundef %282) #13
-  %284 = icmp ugt i32 %.0148208, 4
+  %284 = icmp ugt i32 %.1208, 4
   %.pre225 = load ptr, ptr %0, align 8
   br i1 %284, label %285, label %302
 
@@ -889,7 +889,7 @@ Ssw_ObjIsConst1Cand.exit194:                      ; preds = %226, %228
   br i1 %.not170, label %302, label %290
 
 290:                                              ; preds = %285
-  %291 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.0148208)
+  %291 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %.1208)
   %puts171 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %292 = load i32, ptr %16, align 8
   %293 = getelementptr inbounds i8, ptr %0, i64 292
@@ -914,15 +914,15 @@ Ssw_ObjIsConst1Cand.exit194:                      ; preds = %226, %228
   %.sroa.3.1 = phi i32 [ %.sroa.3.0210, %277 ], [ %.sroa.5.0211, %285 ], [ %.sroa.5.0211, %281 ]
   %.sroa.5.1 = phi i32 [ %.sroa.5.0211, %277 ], [ %.sroa.7.0212, %285 ], [ %.sroa.7.0212, %281 ]
   %.sroa.7.1 = phi i32 [ %.sroa.7.0212, %277 ], [ %283, %285 ], [ %283, %281 ]
-  %304 = add nuw nsw i32 %.0148208, 1
+  %304 = add nuw nsw i32 %.1208, 1
   %305 = getelementptr inbounds i8, ptr %303, i64 56
   %306 = load i32, ptr %305, align 8
   %307 = icmp eq i32 %306, %304
   br i1 %307, label %._crit_edge, label %88
 
 .loopexit:                                        ; preds = %255, %94, %._crit_edge, %87
-  %.1 = phi i32 [ -1, %87 ], [ %304, %._crit_edge ], [ %.0148208, %94 ], [ %.0148208, %255 ]
-  %308 = add nsw i32 %.1, 1
+  %.0148 = phi i32 [ -1, %87 ], [ %304, %._crit_edge ], [ %.1208, %94 ], [ %.1208, %255 ]
+  %308 = add nsw i32 %.0148, 1
   %309 = load ptr, ptr %0, align 8
   %310 = getelementptr inbounds i8, ptr %309, i64 152
   store i32 %308, ptr %310, align 8

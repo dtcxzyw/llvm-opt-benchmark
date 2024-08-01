@@ -1673,7 +1673,7 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
 19:                                               ; preds = %.lr.ph, %64
   %.060 = phi ptr [ %13, %.lr.ph ], [ %66, %64 ]
   %.05159 = phi ptr [ %15, %.lr.ph ], [ %68, %64 ]
-  %.05258 = phi i32 [ 0, %.lr.ph ], [ %.2, %64 ]
+  %.05258 = phi i32 [ 0, %.lr.ph ], [ %.1, %64 ]
   %20 = load ptr, ptr %.05159, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 24
   %22 = load i32, ptr %21, align 8
@@ -1693,7 +1693,7 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   br label %27
 
 27:                                               ; preds = %24, %23
-  %.1 = phi i32 [ 1, %24 ], [ %.05258, %23 ]
+  %.2 = phi i32 [ 1, %24 ], [ %.05258, %23 ]
   %28 = load ptr, ptr %.060, align 8
   %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(6) @.str.4) #9
   %30 = icmp eq i32 %29, 0
@@ -1745,7 +1745,7 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   br label %64
 
 64:                                               ; preds = %31, %52, %44, %19
-  %.2 = phi i32 [ %.05258, %19 ], [ %.1, %31 ], [ %.1, %44 ], [ %.1, %52 ]
+  %.1 = phi i32 [ %.05258, %19 ], [ %.2, %31 ], [ %.2, %44 ], [ %.2, %52 ]
   %65 = getelementptr inbounds i8, ptr %.060, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %.05159, i64 8
@@ -1756,7 +1756,7 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
   br i1 %71, label %19, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %64
-  %72 = icmp ne i32 %.2, 0
+  %72 = icmp ne i32 %.1, 0
   %73 = icmp ne i32 %4, 0
   %or.cond = and i1 %73, %72
   br i1 %or.cond, label %74, label %._crit_edge.thread

@@ -91,28 +91,28 @@ define { i64, i64 } @softfloat_subMagsF128(i64 noundef %0, i64 noundef %1, i64 n
 
 50:                                               ; preds = %48, %46
   %.087 = phi i64 [ %16, %46 ], [ %49, %48 ]
-  %.sroa.1154.0 = phi i64 [ %47, %46 ], [ %12, %48 ]
+  %.sroa.1154.2 = phi i64 [ %47, %46 ], [ %12, %48 ]
   %51 = sub nsw i64 0, %.087
-  %52 = tail call { i64, i64 } @softfloat_shiftRightJam128(i64 noundef %.sroa.1154.0, i64 noundef %13, i64 noundef %51) #3
+  %52 = tail call { i64, i64 } @softfloat_shiftRightJam128(i64 noundef %.sroa.1154.2, i64 noundef %13, i64 noundef %51) #3
   %53 = extractvalue { i64, i64 } %52, 0
   %54 = extractvalue { i64, i64 } %52, 1
   br label %55
 
 55:                                               ; preds = %48, %50
-  %.sroa.046.0 = phi i64 [ %53, %50 ], [ %13, %48 ]
-  %.sroa.1154.1 = phi i64 [ %54, %50 ], [ %12, %48 ]
+  %.sroa.046.1 = phi i64 [ %53, %50 ], [ %13, %48 ]
+  %.sroa.1154.3 = phi i64 [ %54, %50 ], [ %12, %48 ]
   %56 = or disjoint i64 %14, 4503599627370496
   br label %57
 
 57:                                               ; preds = %33, %29, %55
-  %.088 = phi i64 [ %10, %55 ], [ %spec.store.select, %29 ], [ %spec.store.select, %33 ]
-  %.sroa.11.0 = phi i64 [ %56, %55 ], [ %14, %29 ], [ %14, %33 ]
-  %.sroa.046.1 = phi i64 [ %.sroa.046.0, %55 ], [ %13, %29 ], [ %13, %33 ]
-  %.sroa.1154.2 = phi i64 [ %.sroa.1154.1, %55 ], [ %12, %29 ], [ %12, %33 ]
+  %.189 = phi i64 [ %10, %55 ], [ %spec.store.select, %29 ], [ %spec.store.select, %33 ]
+  %.sroa.11.1 = phi i64 [ %56, %55 ], [ %14, %29 ], [ %14, %33 ]
+  %.sroa.046.0 = phi i64 [ %.sroa.046.1, %55 ], [ %13, %29 ], [ %13, %33 ]
+  %.sroa.1154.1 = phi i64 [ %.sroa.1154.3, %55 ], [ %12, %29 ], [ %12, %33 ]
   %58 = xor i1 %4, true
-  %59 = sub i64 %15, %.sroa.046.1
-  %60 = sub i64 %.sroa.11.0, %.sroa.1154.2
-  %61 = icmp ult i64 %15, %.sroa.046.1
+  %59 = sub i64 %15, %.sroa.046.0
+  %60 = sub i64 %.sroa.11.1, %.sroa.1154.1
+  %61 = icmp ult i64 %15, %.sroa.046.0
   br label %81
 
 62:                                               ; preds = %5
@@ -139,32 +139,32 @@ define { i64, i64 } @softfloat_subMagsF128(i64 noundef %0, i64 noundef %1, i64 n
 
 71:                                               ; preds = %69, %67
   %.1 = phi i64 [ %16, %67 ], [ %70, %69 ]
-  %.sroa.11.1 = phi i64 [ %68, %67 ], [ %14, %69 ]
-  %72 = tail call { i64, i64 } @softfloat_shiftRightJam128(i64 noundef %.sroa.11.1, i64 noundef %15, i64 noundef %.1) #3
+  %.sroa.11.2 = phi i64 [ %68, %67 ], [ %14, %69 ]
+  %72 = tail call { i64, i64 } @softfloat_shiftRightJam128(i64 noundef %.sroa.11.2, i64 noundef %15, i64 noundef %.1) #3
   %73 = extractvalue { i64, i64 } %72, 0
   %74 = extractvalue { i64, i64 } %72, 1
   br label %75
 
 75:                                               ; preds = %69, %71
-  %.sroa.025.0 = phi i64 [ %73, %71 ], [ %15, %69 ]
-  %.sroa.11.2 = phi i64 [ %74, %71 ], [ %14, %69 ]
+  %.sroa.025.1 = phi i64 [ %73, %71 ], [ %15, %69 ]
+  %.sroa.11.3 = phi i64 [ %74, %71 ], [ %14, %69 ]
   %76 = or disjoint i64 %12, 4503599627370496
   br label %77
 
 77:                                               ; preds = %31, %27, %75
-  %.189 = phi i64 [ %7, %75 ], [ %spec.store.select, %27 ], [ %spec.store.select, %31 ]
-  %.sroa.025.1 = phi i64 [ %.sroa.025.0, %75 ], [ %15, %27 ], [ %15, %31 ]
-  %.sroa.11.3 = phi i64 [ %.sroa.11.2, %75 ], [ %14, %27 ], [ %14, %31 ]
-  %.sroa.1154.3 = phi i64 [ %76, %75 ], [ %12, %27 ], [ %12, %31 ]
-  %78 = sub i64 %13, %.sroa.025.1
-  %79 = sub i64 %.sroa.1154.3, %.sroa.11.3
-  %80 = icmp ult i64 %13, %.sroa.025.1
+  %.088 = phi i64 [ %7, %75 ], [ %spec.store.select, %27 ], [ %spec.store.select, %31 ]
+  %.sroa.025.0 = phi i64 [ %.sroa.025.1, %75 ], [ %15, %27 ], [ %15, %31 ]
+  %.sroa.11.0 = phi i64 [ %.sroa.11.3, %75 ], [ %14, %27 ], [ %14, %31 ]
+  %.sroa.1154.0 = phi i64 [ %76, %75 ], [ %12, %27 ], [ %12, %31 ]
+  %78 = sub i64 %13, %.sroa.025.0
+  %79 = sub i64 %.sroa.1154.0, %.sroa.11.0
+  %80 = icmp ult i64 %13, %.sroa.025.0
   br label %81
 
 81:                                               ; preds = %77, %57
   %.sink121 = phi i1 [ %80, %77 ], [ %61, %57 ]
   %.sink = phi i64 [ %79, %77 ], [ %60, %57 ]
-  %.2 = phi i64 [ %.189, %77 ], [ %.088, %57 ]
+  %.2 = phi i64 [ %.088, %77 ], [ %.189, %57 ]
   %.pn120 = phi i64 [ %78, %77 ], [ %59, %57 ]
   %.0.in = phi i1 [ %4, %77 ], [ %58, %57 ]
   %.neg.i115 = sext i1 %.sink121 to i64

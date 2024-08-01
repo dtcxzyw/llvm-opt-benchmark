@@ -2529,8 +2529,8 @@ delete.notnull.i157:                              ; preds = %if.then.i155
   br label %return
 
 return:                                           ; preds = %delete.notnull.i157, %if.then.i155, %_ZN4llvh5APIntD2Ev.exit152, %if.end, %_ZN4llvh5APIntD2Ev.exit
-  %retval.1 = phi i1 [ false, %_ZN4llvh5APIntD2Ev.exit ], [ true, %if.end ], [ %cmp.i.not.lcssa, %_ZN4llvh5APIntD2Ev.exit152 ], [ %cmp.i.not.lcssa, %if.then.i155 ], [ %cmp.i.not.lcssa, %delete.notnull.i157 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZN4llvh5APIntD2Ev.exit ], [ true, %if.end ], [ %cmp.i.not.lcssa, %_ZN4llvh5APIntD2Ev.exit152 ], [ %cmp.i.not.lcssa, %if.then.i155 ], [ %cmp.i.not.lcssa, %delete.notnull.i157 ]
+  ret i1 %retval.0
 }
 
 declare void @_ZNK4llvh5APInt4zextEj(ptr sret(%"class.llvh::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #4

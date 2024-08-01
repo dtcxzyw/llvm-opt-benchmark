@@ -763,7 +763,7 @@ terminate.lpad.i:                                 ; preds = %lpad
   unreachable
 
 if.end36:                                         ; preds = %if.then34, %if.then32
-  %allModes.1 = phi ptr [ null, %if.then32 ], [ %call35, %if.then34 ]
+  %allModes.2 = phi ptr [ null, %if.then32 ], [ %call35, %if.then34 ]
   invoke void @umtx_unlock_75(ptr noundef null)
           to label %_ZN6icu_755MutexD2Ev.exit41 unwind label %terminate.lpad.i40
 
@@ -775,7 +775,7 @@ terminate.lpad.i40:                               ; preds = %if.end36
   unreachable
 
 _ZN6icu_755MutexD2Ev.exit41:                      ; preds = %if.end36
-  %cmp37 = icmp eq ptr %allModes.1, null
+  %cmp37 = icmp eq ptr %allModes.2, null
   br i1 %cmp37, label %if.then38, label %land.lhs.true90
 
 if.then38:                                        ; preds = %_ZN6icu_755MutexD2Ev.exit41
@@ -875,7 +875,7 @@ do.body:                                          ; preds = %invoke.cont69
 
 cleanup:                                          ; preds = %do.body, %invoke.cont62, %invoke.cont50, %if.then72
   %cond.not = phi i1 [ true, %if.then72 ], [ true, %invoke.cont50 ], [ false, %invoke.cont62 ], [ false, %do.body ]
-  %allModes.3 = phi ptr [ null, %if.then72 ], [ null, %invoke.cont50 ], [ %call63, %invoke.cont62 ], [ %17, %do.body ]
+  %allModes.4 = phi ptr [ null, %if.then72 ], [ null, %invoke.cont50 ], [ %call63, %invoke.cont62 ], [ %17, %do.body ]
   invoke void @umtx_unlock_75(ptr noundef null)
           to label %_ZN6icu_755MutexD2Ev.exit49 unwind label %terminate.lpad.i48
 
@@ -888,7 +888,7 @@ terminate.lpad.i48:                               ; preds = %cleanup
 
 _ZN6icu_755MutexD2Ev.exit49:                      ; preds = %cleanup
   call void @_ZN6icu_7512LocalPointerINS_13Norm2AllModesEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %localAllModes) #11
-  %cmp89.not = icmp eq ptr %allModes.3, null
+  %cmp89.not = icmp eq ptr %allModes.4, null
   %or.cond = select i1 %cond.not, i1 true, i1 %cmp89.not
   br i1 %or.cond, label %return, label %land.lhs.true90
 
@@ -898,7 +898,7 @@ ehcleanup:                                        ; preds = %lpad49, %lpad40
   br label %eh.resume
 
 land.lhs.true90:                                  ; preds = %_ZN6icu_755MutexD2Ev.exit49, %if.end28, %_ZN6icu_755MutexD2Ev.exit41
-  %allModes.661 = phi ptr [ %allModes.0, %if.end28 ], [ %allModes.1, %_ZN6icu_755MutexD2Ev.exit41 ], [ %allModes.3, %_ZN6icu_755MutexD2Ev.exit49 ]
+  %allModes.161 = phi ptr [ %allModes.0, %if.end28 ], [ %allModes.2, %_ZN6icu_755MutexD2Ev.exit41 ], [ %allModes.4, %_ZN6icu_755MutexD2Ev.exit49 ]
   %21 = load i32, ptr %errorCode, align 4
   %cmp.i50 = icmp sgt i32 %21, 0
   br i1 %cmp.i50, label %return, label %if.then93
@@ -912,24 +912,24 @@ if.then93:                                        ; preds = %land.lhs.true90
   ]
 
 sw.bb:                                            ; preds = %if.then93
-  %comp = getelementptr inbounds i8, ptr %allModes.661, i64 8
+  %comp = getelementptr inbounds i8, ptr %allModes.161, i64 8
   br label %return
 
 sw.bb94:                                          ; preds = %if.then93
-  %decomp = getelementptr inbounds i8, ptr %allModes.661, i64 32
+  %decomp = getelementptr inbounds i8, ptr %allModes.161, i64 32
   br label %return
 
 sw.bb95:                                          ; preds = %if.then93
-  %fcd = getelementptr inbounds i8, ptr %allModes.661, i64 48
+  %fcd = getelementptr inbounds i8, ptr %allModes.161, i64 48
   br label %return
 
 sw.bb96:                                          ; preds = %if.then93
-  %fcc = getelementptr inbounds i8, ptr %allModes.661, i64 64
+  %fcc = getelementptr inbounds i8, ptr %allModes.161, i64 64
   br label %return
 
 return:                                           ; preds = %_ZN6icu_755MutexD2Ev.exit49, %land.lhs.true, %if.end88.thread65, %land.lhs.true90, %if.then93, %entry, %sw.bb96, %sw.bb95, %sw.bb94, %sw.bb, %if.then2
-  %retval.3 = phi ptr [ null, %if.then2 ], [ %fcc, %sw.bb96 ], [ %fcd, %sw.bb95 ], [ %decomp, %sw.bb94 ], [ %comp, %sw.bb ], [ null, %entry ], [ null, %if.then93 ], [ null, %land.lhs.true90 ], [ null, %if.end88.thread65 ], [ null, %land.lhs.true ], [ null, %_ZN6icu_755MutexD2Ev.exit49 ]
-  ret ptr %retval.3
+  %retval.0 = phi ptr [ null, %if.then2 ], [ %fcc, %sw.bb96 ], [ %fcd, %sw.bb95 ], [ %decomp, %sw.bb94 ], [ %comp, %sw.bb ], [ null, %entry ], [ null, %if.then93 ], [ null, %land.lhs.true90 ], [ null, %if.end88.thread65 ], [ null, %land.lhs.true ], [ null, %_ZN6icu_755MutexD2Ev.exit49 ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad ]

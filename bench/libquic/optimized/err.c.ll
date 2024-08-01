@@ -1040,10 +1040,10 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %alloced.028.i = phi i64 [ 80, %for.body.lr.ph.i ], [ %alloced.2.i, %for.inc.i ]
+  %alloced.028.i = phi i64 [ 80, %for.body.lr.ph.i ], [ %alloced.1.i, %for.inc.i ]
   %i.027.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %len.026.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %len.1.i, %for.inc.i ]
-  %buf.025.i = phi ptr [ %call.i, %for.body.lr.ph.i ], [ %buf.2.i, %for.inc.i ]
+  %buf.025.i = phi ptr [ %call.i, %for.body.lr.ph.i ], [ %buf.1.i, %for.inc.i ]
   %gp_offset.i = load i32, ptr %args, align 16
   %fits_in_gp.i = icmp ult i32 %gp_offset.i, 41
   br i1 %fits_in_gp.i, label %vaarg.in_reg.i, label %vaarg.in_mem.i
@@ -1097,22 +1097,22 @@ if.end19.i:                                       ; preds = %if.end13.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end19.i, %if.end4.i
-  %buf.1.i = phi ptr [ %call16.i, %if.end19.i ], [ %buf.025.i, %if.end4.i ]
-  %alloced.1.i = phi i64 [ %add14.i, %if.end19.i ], [ %alloced.028.i, %if.end4.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf.1.i, i64 %len.026.i
+  %buf.2.i = phi ptr [ %call16.i, %if.end19.i ], [ %buf.025.i, %if.end4.i ]
+  %alloced.2.i = phi i64 [ %add14.i, %if.end19.i ], [ %alloced.028.i, %if.end4.i ]
+  %add.ptr.i = getelementptr inbounds i8, ptr %buf.2.i, i64 %len.026.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %4, i64 %call5.i, i1 false)
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end20.i, %vaarg.end.i
-  %buf.2.i = phi ptr [ %buf.025.i, %vaarg.end.i ], [ %buf.1.i, %if.end20.i ]
+  %buf.1.i = phi ptr [ %buf.025.i, %vaarg.end.i ], [ %buf.2.i, %if.end20.i ]
   %len.1.i = phi i64 [ %len.026.i, %vaarg.end.i ], [ %add6.i, %if.end20.i ]
-  %alloced.2.i = phi i64 [ %alloced.028.i, %vaarg.end.i ], [ %alloced.1.i, %if.end20.i ]
+  %alloced.1.i = phi i64 [ %alloced.028.i, %vaarg.end.i ], [ %alloced.2.i, %if.end20.i ]
   %inc.i = add nuw i32 %i.027.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %count
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
-  %buf.0.lcssa.i = phi ptr [ %call.i, %for.cond.preheader.i ], [ %buf.2.i, %for.inc.i ]
+  %buf.0.lcssa.i = phi ptr [ %call.i, %for.cond.preheader.i ], [ %buf.1.i, %for.inc.i ]
   %len.0.lcssa.i = phi i64 [ 0, %for.cond.preheader.i ], [ %len.1.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds i8, ptr %buf.0.lcssa.i, i64 %len.0.lcssa.i
   store i8 0, ptr %arrayidx.i, align 1

@@ -647,11 +647,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %19
   br i1 %30, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread89
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread89: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.192 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.086, %.backedge ]
-  %31 = load i8, ptr %.192, align 1
+  %.292 = phi ptr [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.086, %.backedge ]
+  %31 = load i8, ptr %.292, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp sgt i8 %31, -1
-  %34 = getelementptr inbounds i8, ptr %.192, i64 1
+  %34 = getelementptr inbounds i8, ptr %.292, i64 1
   br i1 %33, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread89
@@ -664,11 +664,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread89: ; preds = %.
   br i1 %41, label %42, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.192, i64 2
+  %43 = getelementptr inbounds i8, ptr %.292, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %35
-  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.192, i32 noundef %40)
+  %44 = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.292, i32 noundef %40)
   %45 = extractvalue { ptr, i32 } %44, 0
   %46 = extractvalue { ptr, i32 } %44, 1
   %.not = icmp eq ptr %45, null
@@ -1131,12 +1131,12 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
   br i1 %.not29, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %19, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37, %_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_extensionB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44, %_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_raw_inputB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit51, %_ZN4i18n12phonenumbers11PhoneNumber49_internal_mutable_preferred_domestic_carrier_codeB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit61, %254, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %230
-  %.2 = phi ptr [ %.0.i3097, %230 ], [ %.086, %19 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37 ], [ null, %_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_extensionB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44 ], [ null, %_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_raw_inputB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit51 ], [ null, %_ZN4i18n12phonenumbers11PhoneNumber49_internal_mutable_preferred_domestic_carrier_codeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit61 ], [ null, %254 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %230 ], [ %.sroa.0.0, %19 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %52, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %72, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37 ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_extensionB5cxx11Ev.exit ], [ %109, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44 ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_raw_inputB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit51 ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers11PhoneNumber49_internal_mutable_preferred_domestic_carrier_codeB5cxx11Ev.exit ], [ %210, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit61 ], [ %.sroa.0.0, %254 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.1 = phi ptr [ %.0.i3097, %230 ], [ %.086, %19 ], [ null, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37 ], [ null, %_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_extensionB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44 ], [ null, %_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_raw_inputB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit51 ], [ null, %_ZN4i18n12phonenumbers11PhoneNumber49_internal_mutable_preferred_domestic_carrier_codeB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit61 ], [ null, %254 ], [ %28, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %230 ], [ %.sroa.0.0, %19 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit ], [ %52, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %72, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37 ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_extensionB5cxx11Ev.exit ], [ %109, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44 ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_raw_inputB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit51 ], [ %.sroa.0.0, %_ZN4i18n12phonenumbers11PhoneNumber49_internal_mutable_preferred_domestic_carrier_codeB5cxx11Ev.exit ], [ %210, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit61 ], [ %.sroa.0.0, %254 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
   %256 = load i32, ptr %8, align 8
-  %257 = or i32 %256, %.sroa.0.1
+  %257 = or i32 %256, %.sroa.0.2
   store i32 %257, ptr %8, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParserEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -1775,7 +1775,7 @@ _ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv.exit: ; p
   br label %73
 
 73:                                               ; preds = %58, %56
-  %.1 = phi i64 [ %72, %58 ], [ %.032, %56 ]
+  %.2 = phi i64 [ %72, %58 ], [ %.032, %56 ]
   %74 = and i32 %3, 2
   %.not34 = icmp eq i32 %74, 0
   br i1 %.not34, label %90, label %75
@@ -1792,13 +1792,13 @@ _ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv.exit: ; p
   %84 = add nuw nsw i32 %83, 73
   %85 = lshr i32 %84, 6
   %86 = zext nneg i32 %85 to i64
-  %87 = add i64 %.1, 1
+  %87 = add i64 %.2, 1
   %88 = add i64 %87, %78
   %89 = add i64 %88, %86
   br label %90
 
 90:                                               ; preds = %75, %73
-  %.2 = phi i64 [ %89, %75 ], [ %.1, %73 ]
+  %.3 = phi i64 [ %89, %75 ], [ %.2, %73 ]
   %91 = and i32 %3, 4
   %.not35 = icmp eq i32 %91, 0
   br i1 %.not35, label %107, label %92
@@ -1815,13 +1815,13 @@ _ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv.exit: ; p
   %101 = add nuw nsw i32 %100, 73
   %102 = lshr i32 %101, 6
   %103 = zext nneg i32 %102 to i64
-  %104 = add i64 %.2, 1
+  %104 = add i64 %.3, 1
   %105 = add i64 %104, %95
   %106 = add i64 %105, %103
   br label %107
 
 107:                                              ; preds = %90, %92, %_ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv.exit
-  %.3 = phi i64 [ %106, %92 ], [ %.2, %90 ], [ %.032, %_ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv.exit ]
+  %.1 = phi i64 [ %106, %92 ], [ %.3, %90 ], [ %.032, %_ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv.exit ]
   %108 = and i32 %3, 224
   %.not36 = icmp eq i32 %108, 0
   br i1 %.not36, label %142, label %109
@@ -1830,7 +1830,7 @@ _ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv.exit: ; p
   %110 = lshr i32 %3, 4
   %111 = and i32 %110, 2
   %112 = zext nneg i32 %111 to i64
-  %spec.select = add i64 %.3, %112
+  %spec.select = add i64 %.1, %112
   %113 = and i32 %3, 64
   %.not38 = icmp eq i32 %113, 0
   br i1 %.not38, label %127, label %114
@@ -1858,7 +1858,7 @@ _ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit: ; preds = %114, %1
   br label %127
 
 127:                                              ; preds = %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, %109
-  %.5 = phi i64 [ %126, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit ], [ %spec.select, %109 ]
+  %.6 = phi i64 [ %126, %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit ], [ %spec.select, %109 ]
   %128 = and i32 %3, 128
   %.not39 = icmp eq i32 %128, 0
   br i1 %.not39, label %142, label %129
@@ -1882,11 +1882,11 @@ _ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit: ; preds = %114, %1
 
 _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit43: ; preds = %129, %133
   %.0.i.i42 = phi i64 [ %140, %133 ], [ 11, %129 ]
-  %141 = add i64 %.0.i.i42, %.5
+  %141 = add i64 %.0.i.i42, %.6
   br label %142
 
 142:                                              ; preds = %127, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit43, %107
-  %.6 = phi i64 [ %141, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit43 ], [ %.5, %127 ], [ %.3, %107 ]
+  %.4 = phi i64 [ %141, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit43 ], [ %.6, %127 ], [ %.1, %107 ]
   %143 = getelementptr inbounds i8, ptr %0, i64 8
   %144 = load ptr, ptr %143, align 8
   %145 = ptrtoint ptr %144 to i64
@@ -1899,11 +1899,11 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit43: ; preds = %129,
   %149 = inttoptr i64 %148 to ptr
   %150 = getelementptr inbounds i8, ptr %149, i64 8
   %151 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %150) #15
-  %152 = add i64 %151, %.6
+  %152 = add i64 %151, %.4
   br label %153
 
 153:                                              ; preds = %147, %142
-  %.7 = phi i64 [ %152, %147 ], [ %.6, %142 ]
+  %.7 = phi i64 [ %152, %147 ], [ %.4, %142 ]
   %154 = trunc i64 %.7 to i32
   %155 = getelementptr inbounds i8, ptr %0, i64 20
   store atomic i32 %154, ptr %155 monotonic, align 4

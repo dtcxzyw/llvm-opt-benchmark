@@ -3234,8 +3234,8 @@ for.inc:                                          ; preds = %for.inc.critedge, %
   br i1 %cmp11.not, label %_ZN7testing8internal11NativeArrayIjED2Ev.exit, label %for.body, !llvm.loop !22
 
 _ZN7testing8internal11NativeArrayIjED2Ev.exit:    ; preds = %if.end.i.i, %for.inc, %if.then.i26, %if.then, %if.then.i, %if.then.i21, %invoke.cont45
-  %retval.3 = phi i1 [ false, %invoke.cont45 ], [ false, %if.then.i26 ], [ false, %if.then.i21 ], [ false, %if.then.i ], [ false, %if.then ], [ true, %for.inc ], [ false, %if.end.i.i ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ false, %invoke.cont45 ], [ false, %if.then.i26 ], [ false, %if.then.i21 ], [ false, %if.then.i ], [ false, %if.then ], [ true, %for.inc ], [ false, %if.end.i.i ]
+  ret i1 %retval.0
 
 _ZN7testing8internal11NativeArrayIjED2Ev.exit100: ; preds = %ehcleanup, %lpad.i.i
   %.pn15 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %18, %lpad.i.i ]

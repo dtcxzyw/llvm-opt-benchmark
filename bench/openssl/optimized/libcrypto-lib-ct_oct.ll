@@ -431,7 +431,7 @@ if.else11:                                        ; preds = %if.end7
 if.end17:                                         ; preds = %if.else11, %if.then10
   %5 = phi ptr [ %4, %if.then10 ], [ %call12, %if.else11 ]
   %storemerge = phi ptr [ %add.ptr, %if.then10 ], [ %call12, %if.else11 ]
-  %pstart.0 = phi ptr [ null, %if.then10 ], [ %call12, %if.else11 ]
+  %pstart.1 = phi ptr [ null, %if.then10 ], [ %call12, %if.else11 ]
   store ptr %storemerge, ptr %out, align 8
   %6 = load i32, ptr %sct, align 8
   %cmp19 = icmp eq i32 %6, 0
@@ -524,8 +524,8 @@ if.end85:                                         ; preds = %if.end77, %if.else8
   br label %return
 
 err:                                              ; preds = %if.end77, %if.else11, %if.then
-  %pstart.1 = phi ptr [ %pstart.0, %if.end77 ], [ null, %if.else11 ], [ null, %if.then ]
-  call void @CRYPTO_free(ptr noundef %pstart.1, ptr noundef nonnull @.str, i32 noundef 249) #3
+  %pstart.0 = phi ptr [ %pstart.1, %if.end77 ], [ null, %if.else11 ], [ null, %if.then ]
+  call void @CRYPTO_free(ptr noundef %pstart.0, ptr noundef nonnull @.str, i32 noundef 249) #3
   br label %return
 
 return:                                           ; preds = %err, %if.end85, %if.then6
@@ -861,7 +861,7 @@ i2o_SCT.exit.thread:                              ; preds = %for.body.us
   br label %return
 
 for.end:                                          ; preds = %if.end26, %if.end39.us
-  %is_pp_new.176 = phi i1 [ true, %if.end39.us ], [ %cmp1, %if.end26 ]
+  %is_pp_new.076 = phi i1 [ true, %if.end39.us ], [ %cmp1, %if.end26 ]
   %len2.0.lcssa = phi i64 [ %add41.us, %if.end39.us ], [ %add41, %if.end26 ]
   %cmp42 = icmp ugt i64 %len2.0.lcssa, 65535
   br i1 %cmp42, label %err, label %if.end45
@@ -870,7 +870,7 @@ if.end45:                                         ; preds = %for.end
   br i1 %cmp.not, label %if.end61, label %if.then48
 
 if.then48:                                        ; preds = %if.end11, %if.end45
-  %is_pp_new.1768493 = phi i1 [ %is_pp_new.176, %if.end45 ], [ %cmp1, %if.end11 ]
+  %is_pp_new.0768493 = phi i1 [ %is_pp_new.076, %if.end45 ], [ %cmp1, %if.end11 ]
   %len2.0.lcssa8592 = phi i64 [ %len2.0.lcssa, %if.end45 ], [ 2, %if.end11 ]
   %13 = load ptr, ptr %pp, align 8
   store ptr %13, ptr %p, align 8
@@ -882,7 +882,7 @@ if.then48:                                        ; preds = %if.end11, %if.end45
   %14 = load ptr, ptr %p, align 8
   %arrayidx56 = getelementptr inbounds i8, ptr %14, i64 1
   store i8 %conv55, ptr %arrayidx56, align 1
-  br i1 %is_pp_new.1768493, label %if.then58, label %if.end61
+  br i1 %is_pp_new.0768493, label %if.then58, label %if.end61
 
 if.then58:                                        ; preds = %if.then48
   %15 = load ptr, ptr %pp, align 8
@@ -896,8 +896,8 @@ if.end61:                                         ; preds = %if.end11.thread, %i
   br label %return
 
 err:                                              ; preds = %for.body, %for.end
-  %is_pp_new.178 = phi i1 [ %is_pp_new.176, %for.end ], [ %cmp1, %for.body ]
-  br i1 %is_pp_new.178, label %return, label %if.then64
+  %is_pp_new.078 = phi i1 [ %is_pp_new.076, %for.end ], [ %cmp1, %for.body ]
+  br i1 %is_pp_new.078, label %return, label %if.then64
 
 if.then64:                                        ; preds = %err
   %16 = load ptr, ptr %pp, align 8

@@ -93,11 +93,11 @@ while.cond3.preheader:                            ; preds = %while.body
   br i1 %cmp433, label %while.body5, label %if.else
 
 while.body5:                                      ; preds = %while.cond3.preheader, %while.body5
-  %mask.135 = phi i64 [ %shr6, %while.body5 ], [ %shr, %while.cond3.preheader ]
-  %ofs.134 = phi i64 [ %inc, %while.body5 ], [ %ofs.031, %while.cond3.preheader ]
-  %shr6 = lshr exact i64 %mask.135, 1
-  %inc = add i64 %ofs.134, 1
-  %2 = and i64 %mask.135, 2
+  %mask.235 = phi i64 [ %shr6, %while.body5 ], [ %shr, %while.cond3.preheader ]
+  %ofs.234 = phi i64 [ %inc, %while.body5 ], [ %ofs.031, %while.cond3.preheader ]
+  %shr6 = lshr exact i64 %mask.235, 1
+  %inc = add i64 %ofs.234, 1
+  %2 = and i64 %mask.235, 2
   %cmp4 = icmp eq i64 %2, 0
   br i1 %cmp4, label %while.body5, label %if.else, !llvm.loop !7
 
@@ -111,16 +111,16 @@ if.then10:                                        ; preds = %if.end, %entry
   br label %return
 
 if.else:                                          ; preds = %while.body5, %while.cond3.preheader
-  %ofs.1.lcssa = phi i64 [ %ofs.031, %while.cond3.preheader ], [ %inc, %while.body5 ]
-  %mask.1.lcssa = phi i64 [ %shr, %while.cond3.preheader ], [ %shr6, %while.body5 ]
+  %ofs.2.lcssa = phi i64 [ %ofs.031, %while.cond3.preheader ], [ %inc, %while.body5 ]
+  %mask.2.lcssa = phi i64 [ %shr, %while.cond3.preheader ], [ %shr6, %while.body5 ]
   %mul = shl nuw nsw i64 %i.030, 6
-  %add = add i64 %ofs.1.lcssa, %mul
+  %add = add i64 %ofs.2.lcssa, %mul
   store i64 %add, ptr %idx, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.cond27, %if.else
   %i.1 = phi i64 [ %i.030, %if.else ], [ %i.2, %do.cond27 ]
-  %mask.3 = phi i64 [ %mask.1.lcssa, %if.else ], [ %mask.5, %do.cond27 ]
+  %mask.3 = phi i64 [ %mask.2.lcssa, %if.else ], [ %mask.5, %do.cond27 ]
   %count.0 = phi i64 [ 0, %if.else ], [ %inc12, %do.cond27 ]
   br label %do.body11
 
@@ -134,7 +134,7 @@ do.body11:                                        ; preds = %do.body11, %do.body
   br i1 %cmp15.not, label %do.end, label %do.body11, !llvm.loop !9
 
 do.end:                                           ; preds = %do.body11
-  %add16 = add i64 %inc12, %ofs.1.lcssa
+  %add16 = add i64 %inc12, %ofs.2.lcssa
   %rem17 = and i64 %add16, 63
   %cmp18 = icmp eq i64 %rem17, 0
   br i1 %cmp18, label %if.then19, label %do.cond27
@@ -1452,11 +1452,11 @@ while.cond3.preheader.i:                          ; preds = %while.body.i
   br i1 %cmp433.i, label %while.body5.i, label %if.else.i
 
 while.body5.i:                                    ; preds = %while.cond3.preheader.i, %while.body5.i
-  %mask.135.i = phi i64 [ %shr6.i, %while.body5.i ], [ %shr.i, %while.cond3.preheader.i ]
-  %ofs.134.i = phi i64 [ %inc.i11, %while.body5.i ], [ %ofs.031.i, %while.cond3.preheader.i ]
-  %shr6.i = lshr exact i64 %mask.135.i, 1
-  %inc.i11 = add i64 %ofs.134.i, 1
-  %5 = and i64 %mask.135.i, 2
+  %mask.235.i = phi i64 [ %shr6.i, %while.body5.i ], [ %shr.i, %while.cond3.preheader.i ]
+  %ofs.234.i = phi i64 [ %inc.i11, %while.body5.i ], [ %ofs.031.i, %while.cond3.preheader.i ]
+  %shr6.i = lshr exact i64 %mask.235.i, 1
+  %inc.i11 = add i64 %ofs.234.i, 1
+  %5 = and i64 %mask.235.i, 2
   %cmp4.i12 = icmp eq i64 %5, 0
   br i1 %cmp4.i12, label %while.body5.i, label %if.else.i, !llvm.loop !7
 
@@ -1466,15 +1466,15 @@ if.end.i:                                         ; preds = %while.body.i
   br i1 %exitcond.not.i, label %while.end, label %while.body.i, !llvm.loop !8
 
 if.else.i:                                        ; preds = %while.body5.i, %while.cond3.preheader.i
-  %ofs.1.lcssa.i = phi i64 [ %ofs.031.i, %while.cond3.preheader.i ], [ %inc.i11, %while.body5.i ]
-  %mask.1.lcssa.i = phi i64 [ %shr.i, %while.cond3.preheader.i ], [ %shr6.i, %while.body5.i ]
+  %ofs.2.lcssa.i = phi i64 [ %ofs.031.i, %while.cond3.preheader.i ], [ %inc.i11, %while.body5.i ]
+  %mask.2.lcssa.i = phi i64 [ %shr.i, %while.cond3.preheader.i ], [ %shr6.i, %while.body5.i ]
   %mul.i = shl nuw nsw i64 %i.030.i, 6
-  %add.i = add i64 %ofs.1.lcssa.i, %mul.i
+  %add.i = add i64 %ofs.2.lcssa.i, %mul.i
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.cond27.i, %if.else.i
   %i.1.i = phi i64 [ %i.030.i, %if.else.i ], [ %i.2.i, %do.cond27.i ]
-  %mask.3.i = phi i64 [ %mask.1.lcssa.i, %if.else.i ], [ %mask.5.i, %do.cond27.i ]
+  %mask.3.i = phi i64 [ %mask.2.lcssa.i, %if.else.i ], [ %mask.5.i, %do.cond27.i ]
   %count.0.i = phi i64 [ 0, %if.else.i ], [ %inc12.i, %do.cond27.i ]
   br label %do.body11.i
 
@@ -1488,7 +1488,7 @@ do.body11.i:                                      ; preds = %do.body11.i, %do.bo
   br i1 %cmp15.not.i, label %do.end.i, label %do.body11.i, !llvm.loop !9
 
 do.end.i:                                         ; preds = %do.body11.i
-  %add16.i = add i64 %inc12.i, %ofs.1.lcssa.i
+  %add16.i = add i64 %inc12.i, %ofs.2.lcssa.i
   %rem17.i = and i64 %add16.i, 63
   %cmp18.i = icmp eq i64 %rem17.i, 0
   br i1 %cmp18.i, label %if.then19.i, label %do.cond27.i

@@ -4375,8 +4375,8 @@ while.body43.preheader:                           ; preds = %_ZNKSt8functionIFN4
 
 while.body43:                                     ; preds = %while.body43.preheader, %if.end55
   %step.1 = phi i32 [ %inc44, %if.end55 ], [ %indvars92, %while.body43.preheader ]
-  %hash.1 = phi i32 [ %hash.2, %if.end55 ], [ %hash.080, %while.body43.preheader ]
-  %add = add i32 %hash.1, %step.1
+  %hash.2 = phi i32 [ %hash.3, %if.end55 ], [ %hash.080, %while.body43.preheader ]
+  %add = add i32 %hash.2, %step.1
   %inc44 = add nuw nsw i32 %step.1, 1
   %conv45 = zext i32 %add to i64
   %cmp48.not = icmp ugt i64 %sub.ptr.div.i42, %conv45
@@ -4389,14 +4389,14 @@ if.then49:                                        ; preds = %while.body43
 
 if.end55:                                         ; preds = %if.then49, %while.body43
   %conv57.pre-phi = phi i64 [ %.pre, %if.then49 ], [ %conv45, %while.body43 ]
-  %hash.2 = phi i32 [ %rem5371, %if.then49 ], [ %add, %while.body43 ]
+  %hash.3 = phi i32 [ %rem5371, %if.then49 ], [ %add, %while.body43 ]
   %set.i49 = getelementptr inbounds %"class.pstd::optional.101", ptr %9, i64 %conv57.pre-phi, i32 1
   %12 = load i8, ptr %set.i49, align 8
   %tobool.i50 = trunc i8 %12 to i1
   br i1 %tobool.i50, label %while.body43, label %if.end62.loopexit, !llvm.loop !47
 
 if.end62.loopexit:                                ; preds = %if.end55
-  %.pre93 = zext i32 %hash.2 to i64
+  %.pre93 = zext i32 %hash.3 to i64
   br label %if.end62
 
 if.end62:                                         ; preds = %if.end62.loopexit, %_ZNKSt8functionIFN4pstd3pmr21polymorphic_allocatorISt4byteEEvEEclEv.exit
@@ -9233,12 +9233,12 @@ if.end9.lr.ph:                                    ; preds = %if.end
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.lr.ph, %if.end121
-  %rayTMax.addr.0175 = phi float [ %rayTMax, %if.end9.lr.ph ], [ %rayTMax.addr.5, %if.end121 ]
+  %rayTMax.addr.0175 = phi float [ %rayTMax, %if.end9.lr.ph ], [ %rayTMax.addr.1, %if.end121 ]
   %toVisitIndex.0174 = phi i32 [ 0, %if.end9.lr.ph ], [ %toVisitIndex.1, %if.end121 ]
   %nodesVisited.0173 = phi i32 [ 0, %if.end9.lr.ph ], [ %inc, %if.end121 ]
   %node.0172 = phi ptr [ %2, %if.end9.lr.ph ], [ %node.1, %if.end121 ]
-  %tMin.1171 = phi float [ %cond.i, %if.end9.lr.ph ], [ %tMin.2, %if.end121 ]
-  %tMax.1170 = phi float [ %cond18.i, %if.end9.lr.ph ], [ %tMax.2, %if.end121 ]
+  %tMin.0171 = phi float [ %cond.i, %if.end9.lr.ph ], [ %tMin.1, %if.end121 ]
+  %tMax.0170 = phi float [ %cond18.i, %if.end9.lr.ph ], [ %tMax.1, %if.end121 ]
   %3 = phi i8 [ 0, %if.end9.lr.ph ], [ %29, %if.end121 ]
   %inc = add nuw nsw i32 %nodesVisited.0173, 1
   %flags.i = getelementptr inbounds i8, ptr %node.0172, i64 4
@@ -9340,13 +9340,13 @@ if.else:                                          ; preds = %_ZNK4pbrt6Tuple3INS
 if.end49:                                         ; preds = %if.else, %if.then38
   %firstChild.0 = phi ptr [ %add.ptr, %if.then38 ], [ %arrayidx47, %if.else ]
   %secondChild.0 = phi ptr [ %arrayidx42, %if.then38 ], [ %add.ptr48, %if.else ]
-  %cmp50 = fcmp ogt float %mul154, %tMax.1170
+  %cmp50 = fcmp ogt float %mul154, %tMax.0170
   %cmp51 = fcmp ole float %mul154, 0.000000e+00
   %or.cond = or i1 %cmp50, %cmp51
   br i1 %or.cond, label %if.end121, label %if.else53
 
 if.else53:                                        ; preds = %if.end49
-  %cmp54 = fcmp olt float %mul154, %tMin.1171
+  %cmp54 = fcmp olt float %mul154, %tMin.0171
   br i1 %cmp54, label %if.end121, label %if.else56
 
 if.else56:                                        ; preds = %if.else53
@@ -9356,7 +9356,7 @@ if.else56:                                        ; preds = %if.else53
   %tMin62 = getelementptr inbounds i8, ptr %arrayidx58, i64 8
   store float %mul154, ptr %tMin62, align 8
   %tMax65 = getelementptr inbounds i8, ptr %arrayidx58, i64 12
-  store float %tMax.1170, ptr %tMax65, align 4
+  store float %tMax.0170, ptr %tMax65, align 4
   %inc66 = add nsw i32 %toVisitIndex.0174, 1
   br label %if.end121
 
@@ -9406,7 +9406,7 @@ invoke.cont81:                                    ; preds = %if.then80, %_ZN4pst
 
 for.body:                                         ; preds = %for.cond.preheader, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit130
   %15 = phi i8 [ %24, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit130 ], [ %3, %for.cond.preheader ]
-  %rayTMax.addr.2166 = phi float [ %rayTMax.addr.3159, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit130 ], [ %rayTMax.addr.0175, %for.cond.preheader ]
+  %rayTMax.addr.4166 = phi float [ %rayTMax.addr.5159, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit130 ], [ %rayTMax.addr.0175, %for.cond.preheader ]
   %i.0165 = phi i32 [ %inc106, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit130 ], [ 0, %for.cond.preheader ]
   %16 = load i32, ptr %node.0172, align 8
   %add = add nsw i32 %16, %i.0165
@@ -9417,7 +9417,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %conv92 = sext i32 %18 to i64
   %19 = load ptr, ptr %primitives91, align 8
   %add.ptr.i95 = getelementptr inbounds %"class.pbrt::Primitive", ptr %19, i64 %conv92
-  invoke void @_ZNK4pbrt9Primitive9IntersectERKNS_3RayEf(ptr nonnull sret(%"class.pstd::optional") align 8 %primSi94, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i95, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %rayTMax.addr.2166)
+  invoke void @_ZNK4pbrt9Primitive9IntersectERKNS_3RayEf(ptr nonnull sret(%"class.pstd::optional") align 8 %primSi94, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i95, ptr noundef nonnull align 8 dereferenceable(40) %ray, float noundef %rayTMax.addr.4166)
           to label %invoke.cont95 unwind label %lpad.loopexit
 
 invoke.cont95:                                    ; preds = %for.body
@@ -9449,14 +9449,14 @@ invoke.cont100:                                   ; preds = %if.then99, %_ZN4pst
 
 _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit130: ; preds = %invoke.cont95, %invoke.cont100
   %24 = phi i8 [ 1, %invoke.cont100 ], [ %15, %invoke.cont95 ]
-  %rayTMax.addr.3159 = phi float [ %23, %invoke.cont100 ], [ %rayTMax.addr.2166, %invoke.cont95 ]
+  %rayTMax.addr.5159 = phi float [ %23, %invoke.cont100 ], [ %rayTMax.addr.4166, %invoke.cont95 ]
   %inc106 = add nuw nsw i32 %i.0165, 1
   %exitcond.not = icmp eq i32 %inc106, %shr.i83
   br i1 %exitcond.not, label %if.end107, label %for.body, !llvm.loop !120
 
 if.end107:                                        ; preds = %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit130, %for.cond.preheader, %invoke.cont81, %invoke.cont76
   %25 = phi i8 [ 1, %invoke.cont81 ], [ %3, %invoke.cont76 ], [ %3, %for.cond.preheader ], [ %24, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit130 ]
-  %rayTMax.addr.4 = phi float [ %14, %invoke.cont81 ], [ %rayTMax.addr.0175, %invoke.cont76 ], [ %rayTMax.addr.0175, %for.cond.preheader ], [ %rayTMax.addr.3159, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit130 ]
+  %rayTMax.addr.3 = phi float [ %14, %invoke.cont81 ], [ %rayTMax.addr.0175, %invoke.cont76 ], [ %rayTMax.addr.0175, %for.cond.preheader ], [ %rayTMax.addr.5159, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit130 ]
   %cmp108 = icmp sgt i32 %toVisitIndex.0174, 0
   br i1 %cmp108, label %if.then109, label %while.end.loopexit
 
@@ -9473,13 +9473,13 @@ if.then109:                                       ; preds = %if.end107
 
 if.end121:                                        ; preds = %if.else53, %if.end49, %if.else56, %if.then109
   %29 = phi i8 [ %25, %if.then109 ], [ %3, %if.end49 ], [ %3, %if.else53 ], [ %3, %if.else56 ]
-  %tMax.2 = phi float [ %28, %if.then109 ], [ %tMax.1170, %if.end49 ], [ %tMax.1170, %if.else53 ], [ %mul154, %if.else56 ]
-  %tMin.2 = phi float [ %27, %if.then109 ], [ %tMin.1171, %if.end49 ], [ %tMin.1171, %if.else53 ], [ %tMin.1171, %if.else56 ]
+  %tMax.1 = phi float [ %28, %if.then109 ], [ %tMax.0170, %if.end49 ], [ %tMax.0170, %if.else53 ], [ %mul154, %if.else56 ]
+  %tMin.1 = phi float [ %27, %if.then109 ], [ %tMin.0171, %if.end49 ], [ %tMin.0171, %if.else53 ], [ %tMin.0171, %if.else56 ]
   %node.1 = phi ptr [ %26, %if.then109 ], [ %firstChild.0, %if.end49 ], [ %secondChild.0, %if.else53 ], [ %firstChild.0, %if.else56 ]
   %toVisitIndex.1 = phi i32 [ %dec, %if.then109 ], [ %toVisitIndex.0174, %if.end49 ], [ %toVisitIndex.0174, %if.else53 ], [ %inc66, %if.else56 ]
-  %rayTMax.addr.5 = phi float [ %rayTMax.addr.4, %if.then109 ], [ %rayTMax.addr.0175, %if.end49 ], [ %rayTMax.addr.0175, %if.else53 ], [ %rayTMax.addr.0175, %if.else56 ]
+  %rayTMax.addr.1 = phi float [ %rayTMax.addr.3, %if.then109 ], [ %rayTMax.addr.0175, %if.end49 ], [ %rayTMax.addr.0175, %if.else53 ], [ %rayTMax.addr.0175, %if.else56 ]
   %tobool.not = icmp eq ptr %node.1, null
-  %cmp = fcmp olt float %rayTMax.addr.5, %tMin.2
+  %cmp = fcmp olt float %rayTMax.addr.1, %tMin.1
   %or.cond49 = select i1 %tobool.not, i1 true, i1 %cmp
   br i1 %or.cond49, label %while.end.loopexit, label %if.end9, !llvm.loop !121
 
@@ -9607,8 +9607,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %toVisitIndex.0111 = phi i32 [ 0, %while.body.lr.ph ], [ %toVisitIndex.1, %if.end93 ]
   %nodesVisited.0110 = phi i32 [ 0, %while.body.lr.ph ], [ %inc, %if.end93 ]
   %node.0109 = phi ptr [ %2, %while.body.lr.ph ], [ %node.1, %if.end93 ]
-  %tMin.1108 = phi float [ %cond.i, %while.body.lr.ph ], [ %tMin.2, %if.end93 ]
-  %tMax.1107 = phi float [ %cond18.i, %while.body.lr.ph ], [ %tMax.2, %if.end93 ]
+  %tMin.0108 = phi float [ %cond.i, %while.body.lr.ph ], [ %tMin.1, %if.end93 ]
+  %tMax.0107 = phi float [ %cond18.i, %while.body.lr.ph ], [ %tMax.1, %if.end93 ]
   %inc = add nuw nsw i32 %nodesVisited.0110, 1
   %flags.i = getelementptr inbounds i8, ptr %node.0109, i64 4
   %3 = load i32, ptr %flags.i, align 4
@@ -9744,13 +9744,13 @@ if.else67:                                        ; preds = %_ZNK4pbrt6Tuple3INS
 if.end73:                                         ; preds = %if.else67, %if.then62
   %firstChild.0 = phi ptr [ %add.ptr, %if.then62 ], [ %arrayidx71, %if.else67 ]
   %secondChild.0 = phi ptr [ %arrayidx66, %if.then62 ], [ %add.ptr72, %if.else67 ]
-  %cmp74 = fcmp ogt float %mul102, %tMax.1107
+  %cmp74 = fcmp ogt float %mul102, %tMax.0107
   %cmp75 = fcmp ole float %mul102, 0.000000e+00
   %or.cond = or i1 %cmp74, %cmp75
   br i1 %or.cond, label %if.end93, label %if.else77
 
 if.else77:                                        ; preds = %if.end73
-  %cmp78 = fcmp olt float %mul102, %tMin.1108
+  %cmp78 = fcmp olt float %mul102, %tMin.0108
   br i1 %cmp78, label %if.end93, label %if.else80
 
 if.else80:                                        ; preds = %if.else77
@@ -9760,13 +9760,13 @@ if.else80:                                        ; preds = %if.else77
   %tMin86 = getelementptr inbounds i8, ptr %arrayidx82, i64 8
   store float %mul102, ptr %tMin86, align 8
   %tMax89 = getelementptr inbounds i8, ptr %arrayidx82, i64 12
-  store float %tMax.1107, ptr %tMax89, align 4
+  store float %tMax.0107, ptr %tMax89, align 4
   %inc90 = add nsw i32 %toVisitIndex.0111, 1
   br label %if.end93
 
 if.end93:                                         ; preds = %if.else77, %if.end73, %if.else80, %if.then32
-  %tMax.2 = phi float [ %12, %if.then32 ], [ %tMax.1107, %if.end73 ], [ %tMax.1107, %if.else77 ], [ %mul102, %if.else80 ]
-  %tMin.2 = phi float [ %11, %if.then32 ], [ %tMin.1108, %if.end73 ], [ %tMin.1108, %if.else77 ], [ %tMin.1108, %if.else80 ]
+  %tMax.1 = phi float [ %12, %if.then32 ], [ %tMax.0107, %if.end73 ], [ %tMax.0107, %if.else77 ], [ %mul102, %if.else80 ]
+  %tMin.1 = phi float [ %11, %if.then32 ], [ %tMin.0108, %if.end73 ], [ %tMin.0108, %if.else77 ], [ %tMin.0108, %if.else80 ]
   %node.1 = phi ptr [ %10, %if.then32 ], [ %firstChild.0, %if.end73 ], [ %secondChild.0, %if.else77 ], [ %firstChild.0, %if.else80 ]
   %toVisitIndex.1 = phi i32 [ %dec, %if.then32 ], [ %toVisitIndex.0111, %if.end73 ], [ %toVisitIndex.0111, %if.else77 ], [ %inc90, %if.else80 ]
   %tobool.not = icmp eq ptr %node.1, null

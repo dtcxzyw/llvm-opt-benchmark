@@ -400,8 +400,8 @@ for.body:                                         ; preds = %entry, %_ZL8enc_add
   %in.0190 = phi ptr [ %add.ptr, %_ZL8enc_add2P8huff_outhhPj.exit74 ], [ %cond17, %entry ]
   %i.0189 = phi i64 [ %inc, %_ZL8enc_add2P8huff_outhhPj.exit74 ], [ 0, %entry ]
   %out.sroa.0.0188 = phi i32 [ %or12.i62, %_ZL8enc_add2P8huff_outhhPj.exit74 ], [ 0, %entry ]
-  %out.sroa.17.0187 = phi i32 [ %out.sroa.17.2, %_ZL8enc_add2P8huff_outhhPj.exit74 ], [ 0, %entry ]
-  %out.sroa.39.0186 = phi ptr [ %out.sroa.39.4, %_ZL8enc_add2P8huff_outhhPj.exit74 ], [ %cond28, %entry ]
+  %out.sroa.17.0187 = phi i32 [ %out.sroa.17.3, %_ZL8enc_add2P8huff_outhhPj.exit74 ], [ 0, %entry ]
+  %out.sroa.39.0186 = phi ptr [ %out.sroa.39.6, %_ZL8enc_add2P8huff_outhhPj.exit74 ], [ %cond28, %entry ]
   %7 = load i8, ptr %in.0190, align 1
   %and = shl i8 %7, 4
   %shl = and i8 %and, 48
@@ -437,13 +437,13 @@ for.body:                                         ; preds = %entry, %_ZL8enc_add
   br i1 %cmp5.i.i, label %while.body.i.i, label %_ZL8enc_add2P8huff_outhhPj.exit
 
 while.body.i.i:                                   ; preds = %for.body, %while.body.i.i
-  %out.sroa.39.1 = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %out.sroa.39.0186, %for.body ]
+  %out.sroa.39.3 = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %out.sroa.39.0186, %for.body ]
   %12 = phi i32 [ %sub.i.i, %while.body.i.i ], [ %add19.i, %for.body ]
   %sub.i.i = add i32 %12, -8
   %shr.i.i = lshr i32 %or12.i, %sub.i.i
   %conv.i.i = trunc i32 %shr.i.i to i8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %out.sroa.39.1, i64 1
-  store i8 %conv.i.i, ptr %out.sroa.39.1, align 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %out.sroa.39.3, i64 1
+  store i8 %conv.i.i, ptr %out.sroa.39.3, align 1
   %cmp.i.i = icmp ugt i32 %sub.i.i, 8
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZL8enc_add2P8huff_outhhPj.exit.loopexit, !llvm.loop !9
 
@@ -453,8 +453,8 @@ _ZL8enc_add2P8huff_outhhPj.exit.loopexit:         ; preds = %while.body.i.i
 
 _ZL8enc_add2P8huff_outhhPj.exit:                  ; preds = %_ZL8enc_add2P8huff_outhhPj.exit.loopexit, %for.body
   %13 = phi i32 [ %add.i, %for.body ], [ %.pre, %_ZL8enc_add2P8huff_outhhPj.exit.loopexit ]
-  %out.sroa.39.2 = phi ptr [ %out.sroa.39.0186, %for.body ], [ %incdec.ptr.i.i, %_ZL8enc_add2P8huff_outhhPj.exit.loopexit ]
-  %out.sroa.17.1 = phi i32 [ %add19.i, %for.body ], [ %sub.i.i, %_ZL8enc_add2P8huff_outhhPj.exit.loopexit ]
+  %out.sroa.39.4 = phi ptr [ %out.sroa.39.0186, %for.body ], [ %incdec.ptr.i.i, %_ZL8enc_add2P8huff_outhhPj.exit.loopexit ]
+  %out.sroa.17.2 = phi i32 [ %add19.i, %for.body ], [ %sub.i.i, %_ZL8enc_add2P8huff_outhhPj.exit.loopexit ]
   %14 = load i8, ptr %arrayidx34, align 1
   %15 = shl i8 %14, 2
   %16 = and i8 %15, 60
@@ -484,32 +484,32 @@ _ZL8enc_add2P8huff_outhhPj.exit:                  ; preds = %_ZL8enc_add2P8huff_
   %conv11.i60 = zext i16 %sb.sroa.0.0.copyload.i51 to i32
   %or.i61 = or i32 %shl9.i59, %conv11.i60
   %or12.i62 = or i32 %or.i61, %shl.i57
-  %add19.i64 = add nuw nsw i32 %add5.i56, %out.sroa.17.1
+  %add19.i64 = add nuw nsw i32 %add5.i56, %out.sroa.17.2
   %cmp5.i.i65 = icmp ugt i32 %add19.i64, 8
   br i1 %cmp5.i.i65, label %while.body.i.i68, label %_ZL8enc_add2P8huff_outhhPj.exit74
 
 while.body.i.i68:                                 ; preds = %_ZL8enc_add2P8huff_outhhPj.exit, %while.body.i.i68
-  %out.sroa.39.3 = phi ptr [ %incdec.ptr.i.i72, %while.body.i.i68 ], [ %out.sroa.39.2, %_ZL8enc_add2P8huff_outhhPj.exit ]
+  %out.sroa.39.5 = phi ptr [ %incdec.ptr.i.i72, %while.body.i.i68 ], [ %out.sroa.39.4, %_ZL8enc_add2P8huff_outhhPj.exit ]
   %19 = phi i32 [ %sub.i.i69, %while.body.i.i68 ], [ %add19.i64, %_ZL8enc_add2P8huff_outhhPj.exit ]
   %sub.i.i69 = add i32 %19, -8
   %shr.i.i70 = lshr i32 %or12.i62, %sub.i.i69
   %conv.i.i71 = trunc i32 %shr.i.i70 to i8
-  %incdec.ptr.i.i72 = getelementptr inbounds i8, ptr %out.sroa.39.3, i64 1
-  store i8 %conv.i.i71, ptr %out.sroa.39.3, align 1
+  %incdec.ptr.i.i72 = getelementptr inbounds i8, ptr %out.sroa.39.5, i64 1
+  store i8 %conv.i.i71, ptr %out.sroa.39.5, align 1
   %cmp.i.i73 = icmp ugt i32 %sub.i.i69, 8
   br i1 %cmp.i.i73, label %while.body.i.i68, label %_ZL8enc_add2P8huff_outhhPj.exit74, !llvm.loop !9
 
 _ZL8enc_add2P8huff_outhhPj.exit74:                ; preds = %while.body.i.i68, %_ZL8enc_add2P8huff_outhhPj.exit
-  %out.sroa.39.4 = phi ptr [ %out.sroa.39.2, %_ZL8enc_add2P8huff_outhhPj.exit ], [ %incdec.ptr.i.i72, %while.body.i.i68 ]
-  %out.sroa.17.2 = phi i32 [ %add19.i64, %_ZL8enc_add2P8huff_outhhPj.exit ], [ %sub.i.i69, %while.body.i.i68 ]
+  %out.sroa.39.6 = phi ptr [ %out.sroa.39.4, %_ZL8enc_add2P8huff_outhhPj.exit ], [ %incdec.ptr.i.i72, %while.body.i.i68 ]
+  %out.sroa.17.3 = phi i32 [ %add19.i64, %_ZL8enc_add2P8huff_outhhPj.exit ], [ %sub.i.i69, %while.body.i.i68 ]
   %add.ptr = getelementptr inbounds i8, ptr %in.0190, i64 3
   %inc = add nuw nsw i64 %i.0189, 1
   %exitcond.not = icmp eq i64 %inc, %div
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %_ZL8enc_add2P8huff_outhhPj.exit74, %entry
-  %out.sroa.39.0.lcssa = phi ptr [ %cond28, %entry ], [ %out.sroa.39.4, %_ZL8enc_add2P8huff_outhhPj.exit74 ]
-  %out.sroa.17.0.lcssa = phi i32 [ 0, %entry ], [ %out.sroa.17.2, %_ZL8enc_add2P8huff_outhhPj.exit74 ]
+  %out.sroa.39.0.lcssa = phi ptr [ %cond28, %entry ], [ %out.sroa.39.6, %_ZL8enc_add2P8huff_outhhPj.exit74 ]
+  %out.sroa.17.0.lcssa = phi i32 [ 0, %entry ], [ %out.sroa.17.3, %_ZL8enc_add2P8huff_outhhPj.exit74 ]
   %out.sroa.0.0.lcssa = phi i32 [ 0, %entry ], [ %or12.i62, %_ZL8enc_add2P8huff_outhhPj.exit74 ]
   %in.0.lcssa = phi ptr [ %cond17, %entry ], [ %add.ptr, %_ZL8enc_add2P8huff_outhhPj.exit74 ]
   switch i64 %rem, label %sw.epilog [
@@ -549,19 +549,19 @@ sw.bb61:                                          ; preds = %for.end
   br i1 %cmp5.i.i97, label %while.body.i.i100, label %_ZL8enc_add2P8huff_outhhPj.exit106
 
 while.body.i.i100:                                ; preds = %sw.bb61, %while.body.i.i100
-  %out.sroa.39.5 = phi ptr [ %incdec.ptr.i.i104, %while.body.i.i100 ], [ %out.sroa.39.0.lcssa, %sw.bb61 ]
+  %out.sroa.39.7 = phi ptr [ %incdec.ptr.i.i104, %while.body.i.i100 ], [ %out.sroa.39.0.lcssa, %sw.bb61 ]
   %24 = phi i32 [ %sub.i.i101, %while.body.i.i100 ], [ %add19.i96, %sw.bb61 ]
   %sub.i.i101 = add i32 %24, -8
   %shr.i.i102 = lshr i32 %or12.i94, %sub.i.i101
   %conv.i.i103 = trunc i32 %shr.i.i102 to i8
-  %incdec.ptr.i.i104 = getelementptr inbounds i8, ptr %out.sroa.39.5, i64 1
-  store i8 %conv.i.i103, ptr %out.sroa.39.5, align 1
+  %incdec.ptr.i.i104 = getelementptr inbounds i8, ptr %out.sroa.39.7, i64 1
+  store i8 %conv.i.i103, ptr %out.sroa.39.7, align 1
   %cmp.i.i105 = icmp ugt i32 %sub.i.i101, 8
   br i1 %cmp.i.i105, label %while.body.i.i100, label %_ZL8enc_add2P8huff_outhhPj.exit106, !llvm.loop !9
 
 _ZL8enc_add2P8huff_outhhPj.exit106:               ; preds = %while.body.i.i100, %sw.bb61
-  %out.sroa.39.6 = phi ptr [ %out.sroa.39.0.lcssa, %sw.bb61 ], [ %incdec.ptr.i.i104, %while.body.i.i100 ]
-  %out.sroa.17.3 = phi i32 [ %add19.i96, %sw.bb61 ], [ %sub.i.i101, %while.body.i.i100 ]
+  %out.sroa.39.8 = phi ptr [ %out.sroa.39.0.lcssa, %sw.bb61 ], [ %incdec.ptr.i.i104, %while.body.i.i100 ]
+  %out.sroa.17.4 = phi i32 [ %add19.i96, %sw.bb61 ], [ %sub.i.i101, %while.body.i.i100 ]
   %add.ptr71 = getelementptr inbounds i8, ptr %in.0.lcssa, i64 1
   br label %sw.epilog
 
@@ -601,13 +601,13 @@ sw.bb72:                                          ; preds = %for.end
   br i1 %cmp5.i.i129, label %while.body.i.i132, label %_ZL8enc_add2P8huff_outhhPj.exit138
 
 while.body.i.i132:                                ; preds = %sw.bb72, %while.body.i.i132
-  %out.sroa.39.7 = phi ptr [ %incdec.ptr.i.i136, %while.body.i.i132 ], [ %out.sroa.39.0.lcssa, %sw.bb72 ]
+  %out.sroa.39.9 = phi ptr [ %incdec.ptr.i.i136, %while.body.i.i132 ], [ %out.sroa.39.0.lcssa, %sw.bb72 ]
   %30 = phi i32 [ %sub.i.i133, %while.body.i.i132 ], [ %add19.i128, %sw.bb72 ]
   %sub.i.i133 = add i32 %30, -8
   %shr.i.i134 = lshr i32 %or12.i126, %sub.i.i133
   %conv.i.i135 = trunc i32 %shr.i.i134 to i8
-  %incdec.ptr.i.i136 = getelementptr inbounds i8, ptr %out.sroa.39.7, i64 1
-  store i8 %conv.i.i135, ptr %out.sroa.39.7, align 1
+  %incdec.ptr.i.i136 = getelementptr inbounds i8, ptr %out.sroa.39.9, i64 1
+  store i8 %conv.i.i135, ptr %out.sroa.39.9, align 1
   %cmp.i.i137 = icmp ugt i32 %sub.i.i133, 8
   br i1 %cmp.i.i137, label %while.body.i.i132, label %_ZL8enc_add2P8huff_outhhPj.exit138.loopexit, !llvm.loop !9
 
@@ -617,8 +617,8 @@ _ZL8enc_add2P8huff_outhhPj.exit138.loopexit:      ; preds = %while.body.i.i132
 
 _ZL8enc_add2P8huff_outhhPj.exit138:               ; preds = %_ZL8enc_add2P8huff_outhhPj.exit138.loopexit, %sw.bb72
   %31 = phi i32 [ %add.i107, %sw.bb72 ], [ %.pre194, %_ZL8enc_add2P8huff_outhhPj.exit138.loopexit ]
-  %out.sroa.39.8 = phi ptr [ %out.sroa.39.0.lcssa, %sw.bb72 ], [ %incdec.ptr.i.i136, %_ZL8enc_add2P8huff_outhhPj.exit138.loopexit ]
-  %out.sroa.17.4 = phi i32 [ %add19.i128, %sw.bb72 ], [ %sub.i.i133, %_ZL8enc_add2P8huff_outhhPj.exit138.loopexit ]
+  %out.sroa.39.10 = phi ptr [ %out.sroa.39.0.lcssa, %sw.bb72 ], [ %incdec.ptr.i.i136, %_ZL8enc_add2P8huff_outhhPj.exit138.loopexit ]
+  %out.sroa.17.5 = phi i32 [ %add19.i128, %sw.bb72 ], [ %sub.i.i133, %_ZL8enc_add2P8huff_outhhPj.exit138.loopexit ]
   %32 = load i8, ptr %arrayidx80, align 1
   %33 = shl i8 %32, 2
   %34 = and i8 %33, 60
@@ -633,47 +633,47 @@ _ZL8enc_add2P8huff_outhhPj.exit138:               ; preds = %_ZL8enc_add2P8huff_
   %shl.i146 = shl i32 %or12.i126, %conv.i145
   %conv1.i = zext i16 %sa.sroa.0.0.copyload.i142 to i32
   %or.i147 = or i32 %shl.i146, %conv1.i
-  %add5.i149 = add nuw nsw i32 %out.sroa.17.4, %conv.i145
+  %add5.i149 = add nuw nsw i32 %out.sroa.17.5, %conv.i145
   %cmp5.i.i150 = icmp ugt i32 %add5.i149, 8
   br i1 %cmp5.i.i150, label %while.body.i.i153, label %_ZL8enc_add1P8huff_outhPj.exit
 
 while.body.i.i153:                                ; preds = %_ZL8enc_add2P8huff_outhhPj.exit138, %while.body.i.i153
-  %out.sroa.39.9 = phi ptr [ %incdec.ptr.i.i157, %while.body.i.i153 ], [ %out.sroa.39.8, %_ZL8enc_add2P8huff_outhhPj.exit138 ]
+  %out.sroa.39.11 = phi ptr [ %incdec.ptr.i.i157, %while.body.i.i153 ], [ %out.sroa.39.10, %_ZL8enc_add2P8huff_outhhPj.exit138 ]
   %35 = phi i32 [ %sub.i.i154, %while.body.i.i153 ], [ %add5.i149, %_ZL8enc_add2P8huff_outhhPj.exit138 ]
   %sub.i.i154 = add i32 %35, -8
   %shr.i.i155 = lshr i32 %or.i147, %sub.i.i154
   %conv.i.i156 = trunc i32 %shr.i.i155 to i8
-  %incdec.ptr.i.i157 = getelementptr inbounds i8, ptr %out.sroa.39.9, i64 1
-  store i8 %conv.i.i156, ptr %out.sroa.39.9, align 1
+  %incdec.ptr.i.i157 = getelementptr inbounds i8, ptr %out.sroa.39.11, i64 1
+  store i8 %conv.i.i156, ptr %out.sroa.39.11, align 1
   %cmp.i.i158 = icmp ugt i32 %sub.i.i154, 8
   br i1 %cmp.i.i158, label %while.body.i.i153, label %_ZL8enc_add1P8huff_outhPj.exit, !llvm.loop !9
 
 _ZL8enc_add1P8huff_outhPj.exit:                   ; preds = %while.body.i.i153, %_ZL8enc_add2P8huff_outhhPj.exit138
-  %out.sroa.39.10 = phi ptr [ %out.sroa.39.8, %_ZL8enc_add2P8huff_outhhPj.exit138 ], [ %incdec.ptr.i.i157, %while.body.i.i153 ]
-  %out.sroa.17.5 = phi i32 [ %add5.i149, %_ZL8enc_add2P8huff_outhhPj.exit138 ], [ %sub.i.i154, %while.body.i.i153 ]
+  %out.sroa.39.12 = phi ptr [ %out.sroa.39.10, %_ZL8enc_add2P8huff_outhhPj.exit138 ], [ %incdec.ptr.i.i157, %while.body.i.i153 ]
+  %out.sroa.17.6 = phi i32 [ %add5.i149, %_ZL8enc_add2P8huff_outhhPj.exit138 ], [ %sub.i.i154, %while.body.i.i153 ]
   %add.ptr97 = getelementptr inbounds i8, ptr %in.0.lcssa, i64 2
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZL8enc_add1P8huff_outhPj.exit, %_ZL8enc_add2P8huff_outhhPj.exit106, %for.end
-  %out.sroa.39.11 = phi ptr [ %out.sroa.39.0.lcssa, %for.end ], [ %out.sroa.39.6, %_ZL8enc_add2P8huff_outhhPj.exit106 ], [ %out.sroa.39.10, %_ZL8enc_add1P8huff_outhPj.exit ]
-  %out.sroa.17.6 = phi i32 [ %out.sroa.17.0.lcssa, %for.end ], [ %out.sroa.17.3, %_ZL8enc_add2P8huff_outhhPj.exit106 ], [ %out.sroa.17.5, %_ZL8enc_add1P8huff_outhPj.exit ]
+  %out.sroa.39.1 = phi ptr [ %out.sroa.39.0.lcssa, %for.end ], [ %out.sroa.39.8, %_ZL8enc_add2P8huff_outhhPj.exit106 ], [ %out.sroa.39.12, %_ZL8enc_add1P8huff_outhPj.exit ]
+  %out.sroa.17.1 = phi i32 [ %out.sroa.17.0.lcssa, %for.end ], [ %out.sroa.17.4, %_ZL8enc_add2P8huff_outhhPj.exit106 ], [ %out.sroa.17.6, %_ZL8enc_add1P8huff_outhPj.exit ]
   %out.sroa.0.1 = phi i32 [ %out.sroa.0.0.lcssa, %for.end ], [ %or12.i94, %_ZL8enc_add2P8huff_outhhPj.exit106 ], [ %or.i147, %_ZL8enc_add1P8huff_outhPj.exit ]
   %in.1 = phi ptr [ %in.0.lcssa, %for.end ], [ %add.ptr71, %_ZL8enc_add2P8huff_outhhPj.exit106 ], [ %add.ptr97, %_ZL8enc_add1P8huff_outhPj.exit ]
-  %tobool99.not = icmp eq i32 %out.sroa.17.6, 0
+  %tobool99.not = icmp eq i32 %out.sroa.17.1, 0
   br i1 %tobool99.not, label %do.body, label %if.then
 
 if.then:                                          ; preds = %sw.epilog
-  %sub = sub nuw nsw i32 8, %out.sroa.17.6
+  %sub = sub nuw nsw i32 8, %out.sroa.17.1
   %shl102 = shl i32 %out.sroa.0.1, %sub
-  %shr106 = lshr i32 255, %out.sroa.17.6
+  %shr106 = lshr i32 255, %out.sroa.17.1
   %or109 = or i32 %shl102, %shr106
   %conv110 = trunc i32 %or109 to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %out.sroa.39.11, i64 1
-  store i8 %conv110, ptr %out.sroa.39.11, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %out.sroa.39.1, i64 1
+  store i8 %conv110, ptr %out.sroa.39.1, align 1
   br label %do.body
 
 do.body:                                          ; preds = %sw.epilog, %if.then
-  %out.sroa.39.12 = phi ptr [ %out.sroa.39.11, %sw.epilog ], [ %incdec.ptr, %if.then ]
+  %out.sroa.39.2 = phi ptr [ %out.sroa.39.1, %sw.epilog ], [ %incdec.ptr, %if.then ]
   %36 = load ptr, ptr %agg.result, align 8
   %tobool114.not = icmp eq ptr %36, null
   %37 = load ptr, ptr %bytes22, align 8
@@ -682,7 +682,7 @@ do.body:                                          ; preds = %sw.epilog, %if.then
   %conv132 = and i64 %38, 255
   %cond134 = select i1 %tobool114.not, i64 %conv132, i64 %38
   %add.ptr135 = getelementptr inbounds i8, ptr %cond123, i64 %cond134
-  %cmp136.not = icmp ugt ptr %out.sroa.39.12, %add.ptr135
+  %cmp136.not = icmp ugt ptr %out.sroa.39.2, %add.ptr135
   br i1 %cmp136.not, label %if.then138, label %do.end
 
 if.then138:                                       ; preds = %do.body
@@ -690,7 +690,7 @@ if.then138:                                       ; preds = %do.body
   unreachable
 
 do.end:                                           ; preds = %do.body
-  %sub.ptr.lhs.cast148 = ptrtoint ptr %out.sroa.39.12 to i64
+  %sub.ptr.lhs.cast148 = ptrtoint ptr %out.sroa.39.2 to i64
   %sub.ptr.rhs.cast149 = ptrtoint ptr %cond28 to i64
   %sub.ptr.sub150 = sub i64 %sub.ptr.lhs.cast148, %sub.ptr.rhs.cast149
   br i1 %tobool114.not, label %cond.false146, label %cond.true142

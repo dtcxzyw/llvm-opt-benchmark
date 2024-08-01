@@ -719,8 +719,8 @@ define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone %1, ptr noca
   br label %112
 
 112:                                              ; preds = %.sink.split, %102, %92, %82
-  %.1 = phi i32 [ %91, %82 ], [ %91, %102 ], [ 0, %92 ], [ %111, %.sink.split ]
-  %113 = icmp sgt i32 %.1, %5
+  %.062 = phi i32 [ %91, %82 ], [ %91, %102 ], [ 0, %92 ], [ %111, %.sink.split ]
+  %113 = icmp sgt i32 %.062, %5
   br i1 %113, label %.critedge2, label %.critedge
 
 .critedge:                                        ; preds = %112
@@ -728,7 +728,7 @@ define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone %1, ptr noca
   store ptr %.06991, ptr %114, align 8
   %115 = getelementptr inbounds i8, ptr %42, i64 16
   %116 = load i32, ptr %115, align 8
-  %117 = and i32 %.1, 16383
+  %117 = and i32 %.062, 16383
   %118 = and i32 %116, -16384
   %119 = or disjoint i32 %118, %117
   store i32 %119, ptr %115, align 8

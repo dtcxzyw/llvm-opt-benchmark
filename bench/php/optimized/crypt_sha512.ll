@@ -1388,12 +1388,12 @@ define internal fastcc void @sha512_process_bytes(ptr noundef %0, i64 noundef %1
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
-  %.172 = phi ptr [ %.056, %.lr.ph ], [ %31, %30 ]
-  %.15871 = phi i64 [ %.057, %.lr.ph ], [ %32, %30 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %29, ptr noundef nonnull align 1 dereferenceable(128) %.172, i64 128, i1 false)
+  %.272 = phi ptr [ %.056, %.lr.ph ], [ %31, %30 ]
+  %.25971 = phi i64 [ %.057, %.lr.ph ], [ %32, %30 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %29, ptr noundef nonnull align 1 dereferenceable(128) %.272, i64 128, i1 false)
   tail call fastcc void @sha512_process_block(ptr noundef nonnull %29, i64 noundef 128, ptr noundef nonnull %2)
-  %31 = getelementptr inbounds i8, ptr %.172, i64 128
-  %32 = add i64 %.15871, -128
+  %31 = getelementptr inbounds i8, ptr %.272, i64 128
+  %32 = add i64 %.25971, -128
   %33 = icmp ugt i64 %32, 128
   br i1 %33, label %30, label %.thread
 
@@ -1405,19 +1405,19 @@ define internal fastcc void @sha512_process_bytes(ptr noundef %0, i64 noundef %1
   br label %38
 
 38:                                               ; preds = %34, %24
-  %.259 = phi i64 [ %37, %34 ], [ %.057, %24 ]
-  %.2 = phi ptr [ %36, %34 ], [ %.056, %24 ]
-  %.not65 = icmp eq i64 %.259, 0
+  %.158 = phi i64 [ %37, %34 ], [ %.057, %24 ]
+  %.1 = phi ptr [ %36, %34 ], [ %.056, %24 ]
+  %.not65 = icmp eq i64 %.158, 0
   br i1 %.not65, label %48, label %.thread
 
 .thread:                                          ; preds = %30, %.preheader, %38
-  %.270 = phi ptr [ %.2, %38 ], [ %.056, %.preheader ], [ %31, %30 ]
-  %.25969 = phi i64 [ %.259, %38 ], [ 128, %.preheader ], [ %32, %30 ]
+  %.170 = phi ptr [ %.1, %38 ], [ %.056, %.preheader ], [ %31, %30 ]
+  %.15869 = phi i64 [ %.158, %38 ], [ 128, %.preheader ], [ %32, %30 ]
   %39 = load i64, ptr %4, align 8
   %40 = getelementptr inbounds i8, ptr %2, i64 88
   %41 = getelementptr inbounds [256 x i8], ptr %40, i64 0, i64 %39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %.270, i64 %.25969, i1 false)
-  %42 = add i64 %39, %.25969
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %.170, i64 %.15869, i1 false)
+  %42 = add i64 %39, %.15869
   %43 = icmp ugt i64 %42, 127
   br i1 %43, label %44, label %47
 

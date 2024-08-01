@@ -2519,19 +2519,19 @@ open_file_in_directory.exit34:                    ; preds = %25, %29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %IsXLogFileName.exit.backedge, %IsXLogFileName.exit.preheader, %open_file_in_directory.exit34
-  %.024 = phi i32 [ %27, %open_file_in_directory.exit34 ], [ -1, %IsXLogFileName.exit.preheader ], [ -1, %IsXLogFileName.exit.backedge ]
-  %.023 = phi ptr [ %33, %open_file_in_directory.exit34 ], [ null, %IsXLogFileName.exit.preheader ], [ null, %IsXLogFileName.exit.backedge ]
+  %.125 = phi i32 [ %27, %open_file_in_directory.exit34 ], [ -1, %IsXLogFileName.exit.preheader ], [ -1, %IsXLogFileName.exit.backedge ]
+  %.1 = phi ptr [ %33, %open_file_in_directory.exit34 ], [ null, %IsXLogFileName.exit.preheader ], [ null, %IsXLogFileName.exit.backedge ]
   %34 = call i32 @closedir(ptr noundef nonnull %15)
   br label %35
 
 35:                                               ; preds = %.loopexit, %open_file_in_directory.exit
-  %.125 = phi i32 [ %8, %open_file_in_directory.exit ], [ %.024, %.loopexit ]
-  %.1 = phi ptr [ %1, %open_file_in_directory.exit ], [ %.023, %.loopexit ]
-  %36 = icmp sgt i32 %.125, -1
+  %.024 = phi i32 [ %8, %open_file_in_directory.exit ], [ %.125, %.loopexit ]
+  %.023 = phi ptr [ %1, %open_file_in_directory.exit ], [ %.1, %.loopexit ]
+  %36 = icmp sgt i32 %.024, -1
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %35
-  %38 = call i64 @read(i32 noundef %.125, ptr noundef nonnull %5, i64 noundef 8192) #15
+  %38 = call i64 @read(i32 noundef %.024, ptr noundef nonnull %5, i64 noundef 8192) #15
   %39 = trunc i64 %38 to i32
   %40 = icmp eq i32 %39, 8192
   br i1 %40, label %41, label %53
@@ -2554,7 +2554,7 @@ open_file_in_directory.exit34:                    ; preds = %25, %29
 50:                                               ; preds = %45, %41
   %51 = icmp eq i32 %43, 1
   %52 = select i1 %51, ptr @.str.100, ptr @.str.101
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %52, ptr noundef %.1, i32 noundef %43) #15
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %52, ptr noundef %.023, i32 noundef %43) #15
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.102) #15
   call void @exit(i32 noundef 1) #19
   unreachable
@@ -2564,17 +2564,17 @@ open_file_in_directory.exit34:                    ; preds = %25, %29
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %53
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.103, ptr noundef %.1) #15
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.103, ptr noundef %.023) #15
   call void @exit(i32 noundef 1) #19
   unreachable
 
 56:                                               ; preds = %53
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.104, ptr noundef %.1, i32 noundef %39, i32 noundef 8192) #15
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.104, ptr noundef %.023, i32 noundef %39, i32 noundef 8192) #15
   call void @exit(i32 noundef 1) #19
   unreachable
 
 57:                                               ; preds = %45
-  %58 = call i32 @close(i32 noundef %.125) #15
+  %58 = call i32 @close(i32 noundef %.024) #15
   br label %.thread
 
 .thread:                                          ; preds = %14, %35, %57

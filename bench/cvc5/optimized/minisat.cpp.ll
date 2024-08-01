@@ -1340,7 +1340,7 @@ entry:
   br i1 %cmp8.not.i, label %invoke.cont, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i
-  %minisat_clause.sroa.0.0 = phi ptr [ %minisat_clause.sroa.0.2, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i ], [ null, %entry ]
+  %minisat_clause.sroa.0.1 = phi ptr [ %minisat_clause.sroa.0.2, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i ], [ null, %entry ]
   %minisat_clause.sroa.9.0 = phi i32 [ %inc.i.i, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i ], [ 0, %entry ]
   %minisat_clause.sroa.17.0 = phi i32 [ %minisat_clause.sroa.17.1, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i ], [ 0, %entry ]
   %2 = phi ptr [ %7, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i ], [ %1, %entry ]
@@ -1367,7 +1367,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end.i.i.i
   %add11.i.i.i = add nuw nsw i32 %add.i.i.i.i, %minisat_clause.sroa.9.0
   %conv.i.i.i = zext nneg i32 %add11.i.i.i to i64
   %mul.i.i.i = shl nuw nsw i64 %conv.i.i.i, 2
-  %call12.i.i.i = tail call ptr @realloc(ptr noundef %minisat_clause.sroa.0.0, i64 noundef %mul.i.i.i) #29
+  %call12.i.i.i = tail call ptr @realloc(ptr noundef %minisat_clause.sroa.0.1, i64 noundef %mul.i.i.i) #29
   %cmp14.i.i.i = icmp eq ptr %call12.i.i.i, null
   br i1 %cmp14.i.i.i, label %land.lhs.true.i.i.i, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i
 
@@ -1379,7 +1379,7 @@ land.lhs.true.i.i.i:                              ; preds = %lor.lhs.false.i.i.i
   br label %if.then17.i.i.i
 
 if.then17.i.i.i:                                  ; preds = %if.end.i.i.i, %land.lhs.true.i.i.i
-  %minisat_clause.sroa.0.1 = phi ptr [ null, %land.lhs.true.i.i.i ], [ %minisat_clause.sroa.0.0, %if.end.i.i.i ]
+  %minisat_clause.sroa.0.3 = phi ptr [ null, %land.lhs.true.i.i.i ], [ %minisat_clause.sroa.0.1, %if.end.i.i.i ]
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #26
   invoke void @__cxa_throw(ptr %exception.i.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #31
           to label %.noexc unwind label %lpad
@@ -1388,7 +1388,7 @@ if.then17.i.i.i:                                  ; preds = %if.end.i.i.i, %land
   unreachable
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i: ; preds = %lor.lhs.false.i.i.i, %for.body.i
-  %minisat_clause.sroa.0.2 = phi ptr [ %minisat_clause.sroa.0.0, %for.body.i ], [ %call12.i.i.i, %lor.lhs.false.i.i.i ]
+  %minisat_clause.sroa.0.2 = phi ptr [ %minisat_clause.sroa.0.1, %for.body.i ], [ %call12.i.i.i, %lor.lhs.false.i.i.i ]
   %minisat_clause.sroa.17.1 = phi i32 [ %minisat_clause.sroa.17.0, %for.body.i ], [ %add11.i.i.i, %lor.lhs.false.i.i.i ]
   %inc.i.i = add nuw i32 %minisat_clause.sroa.9.0, 1
   %idxprom.i.i = zext nneg i32 %minisat_clause.sroa.9.0 to i64
@@ -1405,7 +1405,7 @@ _ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i: ; preds = %lor.lhs.f
   br i1 %cmp.i, label %for.body.i, label %invoke.cont, !llvm.loop !6
 
 invoke.cont:                                      ; preds = %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i, %entry
-  %minisat_clause.sroa.0.3 = phi ptr [ null, %entry ], [ %minisat_clause.sroa.0.2, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i ]
+  %minisat_clause.sroa.0.4 = phi ptr [ null, %entry ], [ %minisat_clause.sroa.0.2, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i ]
   %minisat_clause.sroa.9.1 = phi i32 [ 0, %entry ], [ %inc.i.i, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE4pushERKS3_.exit.i ]
   store i32 -3, ptr %clause_id, align 4
   %vtable = load ptr, ptr %this, align 8
@@ -1418,14 +1418,14 @@ invoke.cont2:                                     ; preds = %invoke.cont
   br i1 %call, label %if.end, label %cleanup
 
 lpad:                                             ; preds = %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit.i, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE5clearEb.exit.i.i, %if.then17.i.i.i, %invoke.cont
-  %minisat_clause.sroa.0.4 = phi ptr [ %minisat_clause.sroa.0.3, %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit.i ], [ %minisat_clause.sroa.0.3, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE5clearEb.exit.i.i ], [ %minisat_clause.sroa.0.3, %invoke.cont ], [ %minisat_clause.sroa.0.1, %if.then17.i.i.i ]
+  %minisat_clause.sroa.0.0 = phi ptr [ %minisat_clause.sroa.0.4, %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit.i ], [ %minisat_clause.sroa.0.4, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE5clearEb.exit.i.i ], [ %minisat_clause.sroa.0.4, %invoke.cont ], [ %minisat_clause.sroa.0.3, %if.then17.i.i.i ]
   %9 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i.i = icmp eq ptr %minisat_clause.sroa.0.4, null
+  %cmp.not.i.i = icmp eq ptr %minisat_clause.sroa.0.0, null
   br i1 %cmp.not.i.i, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %lpad
-  call void @free(ptr noundef nonnull %minisat_clause.sroa.0.4) #26
+  call void @free(ptr noundef nonnull %minisat_clause.sroa.0.0) #26
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %lpad, %for.cond.preheader.i.i
@@ -1458,7 +1458,7 @@ for.body.i.i.preheader:                           ; preds = %.noexc5
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %for.body.i.i.preheader ]
-  %arrayidx.i.i3 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %minisat_clause.sroa.0.3, i64 %indvars.iv.i.i
+  %arrayidx.i.i3 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %minisat_clause.sroa.0.4, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %add_tmp.i, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %13, i64 %indvars.iv.i.i
   %14 = load i32, ptr %arrayidx.i.i3, align 4
@@ -1477,11 +1477,11 @@ invoke.cont3:                                     ; preds = %_ZNK4cvc58internal7
 
 cleanup:                                          ; preds = %invoke.cont2, %invoke.cont3
   %retval.0 = phi i32 [ %15, %invoke.cont3 ], [ -2, %invoke.cont2 ]
-  %cmp.not.i.i7 = icmp eq ptr %minisat_clause.sroa.0.3, null
+  %cmp.not.i.i7 = icmp eq ptr %minisat_clause.sroa.0.4, null
   br i1 %cmp.not.i.i7, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit11, label %for.cond.preheader.i.i8
 
 for.cond.preheader.i.i8:                          ; preds = %cleanup
-  call void @free(ptr noundef nonnull %minisat_clause.sroa.0.3) #26
+  call void @free(ptr noundef nonnull %minisat_clause.sroa.0.4) #26
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit11
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit11: ; preds = %cleanup, %for.cond.preheader.i.i8
@@ -1633,7 +1633,7 @@ _ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFuncti
 
 invoke.cont:                                      ; preds = %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit, %invoke.cont11
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont11 ], [ 0, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ]
-  %assumps.sroa.0.040 = phi ptr [ %assumps.sroa.0.2, %invoke.cont11 ], [ null, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ]
+  %assumps.sroa.0.040 = phi ptr [ %assumps.sroa.0.3, %invoke.cont11 ], [ null, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ]
   %__begin2.sroa.0.038 = phi ptr [ %incdec.ptr.i, %invoke.cont11 ], [ %5, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ]
   %assumps.sroa.17.037 = phi i32 [ %assumps.sroa.17.1, %invoke.cont11 ], [ 0, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ]
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %__begin2.sroa.0.038, align 8
@@ -1671,7 +1671,7 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   br label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %if.end.i.i, %land.lhs.true.i.i
-  %assumps.sroa.0.1 = phi ptr [ null, %land.lhs.true.i.i ], [ %assumps.sroa.0.040, %if.end.i.i ]
+  %assumps.sroa.0.2 = phi ptr [ null, %land.lhs.true.i.i ], [ %assumps.sroa.0.040, %if.end.i.i ]
   %exception.i.i = tail call ptr @__cxa_allocate_exception(i64 1) #26
   invoke void @__cxa_throw(ptr %exception.i.i, ptr nonnull @_ZTIN4cvc58internal7Minisat20OutOfMemoryExceptionE, ptr null) #31
           to label %.noexc unwind label %lpad
@@ -1681,8 +1681,8 @@ if.then17.i.i:                                    ; preds = %if.end.i.i, %land.l
 
 invoke.cont9:                                     ; preds = %lor.lhs.false.i.i, %invoke.cont
   %assumps.sroa.17.1 = phi i32 [ %add11.i.i, %lor.lhs.false.i.i ], [ %assumps.sroa.17.037, %invoke.cont ]
-  %assumps.sroa.0.2 = phi ptr [ %call12.i.i, %lor.lhs.false.i.i ], [ %assumps.sroa.0.040, %invoke.cont ]
-  %arrayidx.i = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %assumps.sroa.0.2, i64 %indvars.iv
+  %assumps.sroa.0.3 = phi ptr [ %call12.i.i, %lor.lhs.false.i.i ], [ %assumps.sroa.0.040, %invoke.cont ]
+  %arrayidx.i = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %assumps.sroa.0.3, i64 %indvars.iv
   store i32 %retval.sroa.0.0.i, ptr %arrayidx.i, align 4
   %call.i.i5 = invoke { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal4prop10SatLiteralES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_22SatLiteralHashFunctionENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE10_M_emplaceIJRKS3_EEESt4pairINS5_14_Node_iteratorIS3_Lb1ELb1EEEbESt17integral_constantIbLb1EEDpOT_(ptr noundef nonnull align 8 dereferenceable(56) %d_assumptions, ptr noundef nonnull align 8 dereferenceable(8) %__begin2.sroa.0.038)
           to label %invoke.cont11 unwind label %lpad.thread
@@ -1699,16 +1699,16 @@ lpad.thread:                                      ; preds = %invoke.cont9
   br label %for.cond.preheader.i.i
 
 lpad:                                             ; preds = %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit.i, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE5clearEb.exit.i.i, %if.then17.i.i
-  %assumps.sroa.0.3.ph = phi ptr [ %assumps.sroa.0.0.lcssa, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE5clearEb.exit.i.i ], [ %assumps.sroa.0.0.lcssa, %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit.i ], [ %assumps.sroa.0.1, %if.then17.i.i ]
+  %assumps.sroa.0.1.ph = phi ptr [ %assumps.sroa.0.0.lcssa, %_ZN4cvc58internal7Minisat3vecINS1_3LitEE5clearEb.exit.i.i ], [ %assumps.sroa.0.0.lcssa, %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit.i ], [ %assumps.sroa.0.2, %if.then17.i.i ]
   %lpad.loopexit.split-lp29 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i.i = icmp eq ptr %assumps.sroa.0.3.ph, null
+  %cmp.not.i.i = icmp eq ptr %assumps.sroa.0.1.ph, null
   br i1 %cmp.not.i.i, label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %lpad.thread, %lpad
   %lpad.phi51 = phi { ptr, i32 } [ %lpad.loopexit28, %lpad.thread ], [ %lpad.loopexit.split-lp29, %lpad ]
-  %assumps.sroa.0.350 = phi ptr [ %assumps.sroa.0.2, %lpad.thread ], [ %assumps.sroa.0.3.ph, %lpad ]
-  tail call void @free(ptr noundef nonnull %assumps.sroa.0.350) #26
+  %assumps.sroa.0.150 = phi ptr [ %assumps.sroa.0.3, %lpad.thread ], [ %assumps.sroa.0.1.ph, %lpad ]
+  tail call void @free(ptr noundef nonnull %assumps.sroa.0.150) #26
   br label %_ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit
 
 _ZN4cvc58internal7Minisat3vecINS1_3LitEED2Ev.exit: ; preds = %lpad, %for.cond.preheader.i.i
@@ -1721,7 +1721,7 @@ for.end.loopexit:                                 ; preds = %invoke.cont11
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit
   %assumps.sroa.9.0.lcssa = phi i32 [ 0, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ], [ %12, %for.end.loopexit ]
-  %assumps.sroa.0.0.lcssa = phi ptr [ null, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ], [ %assumps.sroa.0.2, %for.end.loopexit ]
+  %assumps.sroa.0.0.lcssa = phi ptr [ null, %_ZNSt13unordered_setIN4cvc58internal4prop10SatLiteralENS2_22SatLiteralHashFunctionESt8equal_toIS3_ESaIS3_EE5clearEv.exit ], [ %assumps.sroa.0.3, %for.end.loopexit ]
   %13 = load ptr, ptr %d_minisat, align 8
   %conflict_budget.i.i = getelementptr inbounds i8, ptr %13, i64 832
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %conflict_budget.i.i, i8 -1, i64 16, i1 false)

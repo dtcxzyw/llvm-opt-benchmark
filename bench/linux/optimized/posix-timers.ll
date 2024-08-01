@@ -3716,14 +3716,14 @@ __lock_timer.exit:                                ; preds = %58
   %70 = phi ptr [ %130, %__lock_timer.exit9 ], [ %66, %__lock_timer.exit ]
   %71 = phi ptr [ %107, %__lock_timer.exit9 ], [ %43, %__lock_timer.exit ]
   %72 = phi ptr [ null, %__lock_timer.exit9 ], [ %3, %__lock_timer.exit ]
-  %.246 = phi i64 [ %125, %__lock_timer.exit9 ], [ %61, %__lock_timer.exit ]
+  %.046 = phi i64 [ %125, %__lock_timer.exit9 ], [ %61, %__lock_timer.exit ]
   %73 = getelementptr inbounds i8, ptr %69, i64 56
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.thread, label %76, !prof !11
 
 .thread:                                          ; preds = %.lr.ph, %__lock_timer.exit9, %__lock_timer.exit
-  %.2.lcssa = phi i64 [ %61, %__lock_timer.exit ], [ %125, %__lock_timer.exit9 ], [ %.246, %.lr.ph ]
+  %.0.lcssa = phi i64 [ %61, %__lock_timer.exit ], [ %125, %__lock_timer.exit9 ], [ %.046, %.lr.ph ]
   %.lcssa21 = phi ptr [ %43, %__lock_timer.exit ], [ %107, %__lock_timer.exit9 ], [ %71, %.lr.ph ]
   tail call void asm sideeffect "399: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 399b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 399) #8, !srcloc !33
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 922, i32 2307, i64 12) #8, !srcloc !34
@@ -3741,7 +3741,7 @@ __lock_timer.exit:                                ; preds = %58
   %82 = load volatile i32, ptr %81, align 4
   tail call void @__rcu_read_lock() #8
   %83 = getelementptr inbounds i8, ptr %71, i64 32
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %83, i64 noundef %.246) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %83, i64 noundef %.046) #8
   %84 = getelementptr inbounds i8, ptr %80, i64 120
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %85, null
@@ -3828,11 +3828,11 @@ __lock_timer.exit9:                               ; preds = %122
   br i1 %132, label %.thread, label %.lr.ph
 
 .loopexit:                                        ; preds = %76, %.thread
-  %.232 = phi i64 [ %.2.lcssa, %.thread ], [ %.246, %76 ]
+  %.032 = phi i64 [ %.0.lcssa, %.thread ], [ %.046, %76 ]
   %133 = phi ptr [ %.lcssa21, %.thread ], [ %71, %76 ]
   %134 = phi i32 [ -22, %.thread ], [ %77, %76 ]
   %135 = getelementptr inbounds i8, ptr %133, i64 32
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %135, i64 noundef %.232) #8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %135, i64 noundef %.032) #8
   br label %__lock_timer.exit.thread
 
 __lock_timer.exit.thread:                         ; preds = %89, %22, %__lock_timer.exit9.thread15, %__lock_timer.exit.thread12, %.loopexit, %15, %11, %7, %4

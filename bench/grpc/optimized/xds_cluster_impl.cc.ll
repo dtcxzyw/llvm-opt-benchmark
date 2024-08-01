@@ -4332,7 +4332,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128CircuitBreakerCallCounterMap11Ca
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128CircuitBreakerCallCounterMap11CallCounterEED2Ev.exit36.i, %if.end.i36
-  %ref.tmp65.sroa.0.3 = phi ptr [ %call.i20.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128CircuitBreakerCallCounterMap11CallCounterEED2Ev.exit36.i ], [ %59, %if.end.i36 ]
+  %ref.tmp65.sroa.0.2 = phi ptr [ %call.i20.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_128CircuitBreakerCallCounterMap11CallCounterEED2Ev.exit36.i ], [ %59, %if.end.i36 ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
           to label %invoke.cont76 unwind label %terminate.lpad.i.i, !noalias !61
 
@@ -4367,7 +4367,7 @@ invoke.cont76:                                    ; preds = %if.end32.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %ref.tmp12.i)
   %call_counter_ = getelementptr inbounds i8, ptr %this, i64 64
   %68 = load ptr, ptr %call_counter_, align 8
-  store ptr %ref.tmp65.sroa.0.3, ptr %call_counter_, align 8
+  store ptr %ref.tmp65.sroa.0.2, ptr %call_counter_, align 8
   %cmp.not.i.i44 = icmp eq ptr %68, null
   br i1 %cmp.not.i.i44, label %if.then137, label %if.then.i.i45
 

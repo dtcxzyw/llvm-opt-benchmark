@@ -372,8 +372,8 @@ for.cond1.preheader.us.preheader.i:               ; preds = %for.end
   br label %for.cond1.preheader.us.i
 
 for.cond1.preheader.us.i:                         ; preds = %for.inc18.us.i, %for.cond1.preheader.us.preheader.i
-  %edgeAxis.sroa.16.0 = phi i32 [ -1, %for.cond1.preheader.us.preheader.i ], [ %edgeAxis.sroa.16.1, %for.inc18.us.i ]
-  %edgeAxis.sroa.22.0 = phi float [ 0xC7EFFFFFE0000000, %for.cond1.preheader.us.preheader.i ], [ %edgeAxis.sroa.22.1, %for.inc18.us.i ]
+  %edgeAxis.sroa.16.2 = phi i32 [ -1, %for.cond1.preheader.us.preheader.i ], [ %edgeAxis.sroa.16.3, %for.inc18.us.i ]
+  %edgeAxis.sroa.22.2 = phi float [ 0xC7EFFFFFE0000000, %for.cond1.preheader.us.preheader.i ], [ %edgeAxis.sroa.22.3, %for.inc18.us.i ]
   %cmp.us.i = phi i1 [ true, %for.cond1.preheader.us.preheader.i ], [ false, %for.inc18.us.i ]
   %indvars.iv10.i.sroa.phi = phi ptr [ %axes.i.sroa.0, %for.cond1.preheader.us.preheader.i ], [ %axes.i.sroa.5, %for.inc18.us.i ]
   %indvars.iv10.i = phi i32 [ 0, %for.cond1.preheader.us.preheader.i ], [ 1, %for.inc18.us.i ]
@@ -388,8 +388,8 @@ if.then11.us.i:                                   ; preds = %for.cond1.for.end_c
   br label %for.inc18.us.i
 
 for.inc18.us.i:                                   ; preds = %for.cond1.for.end_crit_edge.us.i, %if.then11.us.i
-  %edgeAxis.sroa.16.1 = phi i32 [ %indvars.iv10.i, %if.then11.us.i ], [ %edgeAxis.sroa.16.0, %for.cond1.for.end_crit_edge.us.i ]
-  %edgeAxis.sroa.22.1 = phi float [ %sj.1.us.i, %if.then11.us.i ], [ %edgeAxis.sroa.22.0, %for.cond1.for.end_crit_edge.us.i ]
+  %edgeAxis.sroa.16.3 = phi i32 [ %indvars.iv10.i, %if.then11.us.i ], [ %edgeAxis.sroa.16.2, %for.cond1.for.end_crit_edge.us.i ]
+  %edgeAxis.sroa.22.3 = phi float [ %sj.1.us.i, %if.then11.us.i ], [ %edgeAxis.sroa.22.2, %for.cond1.for.end_crit_edge.us.i ]
   %75 = phi float [ %sj.1.us.i, %if.then11.us.i ], [ %70, %for.cond1.for.end_crit_edge.us.i ]
   %76 = phi <2 x float> [ %72, %if.then11.us.i ], [ %71, %for.cond1.for.end_crit_edge.us.i ]
   br i1 %cmp.us.i, label %for.cond1.preheader.us.i, label %_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit, !llvm.loop !9
@@ -416,8 +416,8 @@ for.cond1.for.end_crit_edge.us.i:                 ; preds = %for.body3.us.i
   br i1 %cmp10.us.i, label %if.then11.us.i, label %for.inc18.us.i
 
 for.cond1.preheader.i:                            ; preds = %for.end, %for.inc18.i
-  %edgeAxis.sroa.16.2 = phi i32 [ %edgeAxis.sroa.16.3, %for.inc18.i ], [ -1, %for.end ]
-  %edgeAxis.sroa.22.2 = phi float [ %edgeAxis.sroa.22.3, %for.inc18.i ], [ 0xC7EFFFFFE0000000, %for.end ]
+  %edgeAxis.sroa.16.0 = phi i32 [ %edgeAxis.sroa.16.1, %for.inc18.i ], [ -1, %for.end ]
+  %edgeAxis.sroa.22.0 = phi float [ %edgeAxis.sroa.22.1, %for.inc18.i ], [ 0xC7EFFFFFE0000000, %for.end ]
   %cmp.i94 = phi i1 [ false, %for.inc18.i ], [ true, %for.end ]
   %indvars.iv.i.sroa.phi = phi ptr [ %axes.i.sroa.5, %for.inc18.i ], [ %axes.i.sroa.0, %for.end ]
   %indvars.iv.i = phi i32 [ 1, %for.inc18.i ], [ 0, %for.end ]
@@ -431,15 +431,15 @@ if.then11.i:                                      ; preds = %for.cond1.preheader
   br label %for.inc18.i
 
 for.inc18.i:                                      ; preds = %if.then11.i, %for.cond1.preheader.i
-  %edgeAxis.sroa.16.3 = phi i32 [ %indvars.iv.i, %if.then11.i ], [ %edgeAxis.sroa.16.2, %for.cond1.preheader.i ]
-  %edgeAxis.sroa.22.3 = phi float [ 0x47EFFFFFE0000000, %if.then11.i ], [ %edgeAxis.sroa.22.2, %for.cond1.preheader.i ]
+  %edgeAxis.sroa.16.1 = phi i32 [ %indvars.iv.i, %if.then11.i ], [ %edgeAxis.sroa.16.0, %for.cond1.preheader.i ]
+  %edgeAxis.sroa.22.1 = phi float [ 0x47EFFFFFE0000000, %if.then11.i ], [ %edgeAxis.sroa.22.0, %for.cond1.preheader.i ]
   %83 = phi float [ 0x47EFFFFFE0000000, %if.then11.i ], [ %80, %for.cond1.preheader.i ]
   %84 = phi <2 x float> [ %82, %if.then11.i ], [ %81, %for.cond1.preheader.i ]
   br i1 %cmp.i94, label %for.cond1.preheader.i, label %_ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit, !llvm.loop !9
 
 _ZL23b2ComputeEdgeSeparationRK13b2TempPolygonRK6b2Vec2S4_.exit: ; preds = %for.inc18.i, %for.inc18.us.i
-  %edgeAxis.sroa.16.4 = phi i32 [ %edgeAxis.sroa.16.1, %for.inc18.us.i ], [ %edgeAxis.sroa.16.3, %for.inc18.i ]
-  %edgeAxis.sroa.22.4 = phi float [ %edgeAxis.sroa.22.1, %for.inc18.us.i ], [ %edgeAxis.sroa.22.3, %for.inc18.i ]
+  %edgeAxis.sroa.16.4 = phi i32 [ %edgeAxis.sroa.16.3, %for.inc18.us.i ], [ %edgeAxis.sroa.16.1, %for.inc18.i ]
+  %edgeAxis.sroa.22.4 = phi float [ %edgeAxis.sroa.22.3, %for.inc18.us.i ], [ %edgeAxis.sroa.22.1, %for.inc18.i ]
   %85 = phi <2 x float> [ %76, %for.inc18.us.i ], [ %84, %for.inc18.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %axes.i.sroa.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %axes.i.sroa.5)

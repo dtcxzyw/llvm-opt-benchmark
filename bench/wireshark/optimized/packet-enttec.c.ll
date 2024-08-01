@@ -331,11 +331,11 @@ define internal range(i32 0, 65545) i32 @dissect_enttec_udp(ptr noundef %0, ptr 
   br i1 %exitcond.not.i, label %._crit_edge177.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge177.i:                                 ; preds = %.lr.ph.i, %.loopexit.i, %.preheader165.i, %.preheader166.i
-  %.3.lcssa.sink205.i = phi i16 [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %.2.i, %.loopexit.i ], [ %spec.store.select.i, %.lr.ph.i ]
-  %.3.lcssa.sink.i = phi i16 [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %.1153.i, %.loopexit.i ], [ %spec.store.select.i, %.lr.ph.i ]
-  %103 = zext i16 %.3.lcssa.sink205.i to i64
+  %.4.lcssa.sink205.i = phi i16 [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %.2.i, %.loopexit.i ], [ %spec.store.select.i, %.lr.ph.i ]
+  %.4.lcssa.sink.i = phi i16 [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %.1153.i, %.loopexit.i ], [ %spec.store.select.i, %.lr.ph.i ]
+  %103 = zext i16 %.4.lcssa.sink205.i to i64
   %104 = getelementptr i16, ptr %44, i64 %103
-  store i16 %.3.lcssa.sink.i, ptr %104, align 2
+  store i16 %.4.lcssa.sink.i, ptr %104, align 2
   %105 = icmp eq i8 %49, 1
   %or.cond.i = or i1 %105, %55
   %106 = load i32, ptr @global_disp_col_count, align 4
@@ -349,7 +349,7 @@ define internal range(i32 0, 65545) i32 @dissect_enttec_udp(ptr noundef %0, ptr 
   %111 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %110, ptr noundef %0, i32 noundef 9, i32 noundef %108, i32 noundef 0) #4
   %112 = load i32, ptr @ett_enttec, align 4
   %113 = tail call ptr @proto_item_add_subtree(ptr noundef %111, i32 noundef %112) #4
-  %114 = zext i16 %.3.lcssa.sink205.i to i32
+  %114 = zext i16 %.4.lcssa.sink205.i to i32
   %115 = load i32, ptr @global_disp_col_count, align 4
   %116 = sdiv i32 %114, %115
   %117 = srem i32 %114, %115

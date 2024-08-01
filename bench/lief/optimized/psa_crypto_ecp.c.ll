@@ -100,13 +100,13 @@ define hidden i32 @mbedtls_psa_ecp_load_representation(i16 noundef zeroext %0, i
   br label %52
 
 51:                                               ; preds = %35, %39, %43, %46, %27
-  %.1.ph = phi i32 [ -134, %27 ], [ %49, %46 ], [ %45, %43 ], [ %42, %39 ], [ %37, %35 ]
+  %.042.ph = phi i32 [ -134, %27 ], [ %49, %46 ], [ %45, %43 ], [ %42, %39 ], [ %37, %35 ]
   tail call void @mbedtls_ecp_keypair_free(ptr noundef nonnull %25) #6
   tail call void @free(ptr noundef nonnull %25) #6
   br label %52
 
 52:                                               ; preds = %50, %51, %24, %19, %13
-  %.0 = phi i32 [ -135, %13 ], [ -135, %19 ], [ -141, %24 ], [ %.1.ph, %51 ], [ 0, %50 ]
+  %.0 = phi i32 [ -135, %13 ], [ -135, %19 ], [ -141, %24 ], [ %.042.ph, %51 ], [ 0, %50 ]
   ret i32 %.0
 }
 

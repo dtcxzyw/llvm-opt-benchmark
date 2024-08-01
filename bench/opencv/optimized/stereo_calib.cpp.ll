@@ -1477,8 +1477,8 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit467.i: ; preds = %3
 .preheader682.i:                                  ; preds = %647, %.preheader682.lr.ph.i
   %indvars.iv922.i = phi i64 [ 0, %.preheader682.lr.ph.i ], [ %indvars.iv.next923.i, %647 ]
   %.0302812.i = phi i32 [ 0, %.preheader682.lr.ph.i ], [ %.1303.i, %647 ]
-  %.sroa.13.0811.i = phi i32 [ 0, %.preheader682.lr.ph.i ], [ %.sroa.13.4968.i, %647 ]
-  %.sroa.0581.0810.i = phi i32 [ 0, %.preheader682.lr.ph.i ], [ %.sroa.0581.4966.i, %647 ]
+  %.sroa.13.0811.i = phi i32 [ 0, %.preheader682.lr.ph.i ], [ %.sroa.13.2968.i, %647 ]
+  %.sroa.0581.0810.i = phi i32 [ 0, %.preheader682.lr.ph.i ], [ %.sroa.0581.2966.i, %647 ]
   %521 = shl nuw nsw i64 %indvars.iv922.i, 1
   %522 = sext i32 %.0302812.i to i64
   br label %523
@@ -1487,8 +1487,8 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit467.i: ; preds = %3
   %524 = phi i1 [ true, %.preheader682.i ], [ false, %627 ]
   %indvars.iv.i.sroa.phi = phi ptr [ %4, %.preheader682.i ], [ %indvars.iv.i.sroa.gep93, %627 ]
   %indvars.iv.i = phi i64 [ 0, %.preheader682.i ], [ 1, %627 ]
-  %.sroa.13.1808.i = phi i32 [ %.sroa.13.0811.i, %.preheader682.i ], [ %.sroa.13.2.i, %627 ]
-  %.sroa.0581.1807.i = phi i32 [ %.sroa.0581.0810.i, %.preheader682.i ], [ %.sroa.0581.2.i, %627 ]
+  %.sroa.13.1808.i = phi i32 [ %.sroa.13.0811.i, %.preheader682.i ], [ %.sroa.13.4.i, %627 ]
+  %.sroa.0581.1807.i = phi i32 [ %.sroa.0581.0810.i, %.preheader682.i ], [ %.sroa.0581.4.i, %627 ]
   %525 = load ptr, ptr %170, align 8
   %526 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %525, i64 %indvars.iv.i
   %527 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %526, i64 %521
@@ -1563,8 +1563,8 @@ _ZNSt6vectorIS_IN2cv6Point_IfEESaIS2_EESaIS4_EE6resizeEm.exit467.i: ; preds = %3
           to label %.loopexit683.i unwind label %.loopexit.split-lp688.i
 
 550:                                              ; preds = %541, %533
-  %.sroa.0581.2.i = phi i32 [ %.sroa.0581.1807.i, %541 ], [ %539, %533 ]
-  %.sroa.13.2.i = phi i32 [ %.sroa.13.1808.i, %541 ], [ %540, %533 ]
+  %.sroa.0581.4.i = phi i32 [ %.sroa.0581.1807.i, %541 ], [ %539, %533 ]
+  %.sroa.13.4.i = phi i32 [ %.sroa.13.1808.i, %541 ], [ %540, %533 ]
   %551 = load ptr, ptr %indvars.iv.i.sroa.phi, align 8
   %552 = getelementptr inbounds %"class.std::vector.26", ptr %551, i64 %522
   %553 = getelementptr inbounds i8, ptr %552, i64 8
@@ -1795,8 +1795,8 @@ _ZN2cv3MatC2INS_6Point_IfEEEERKSt6vectorIT_SaIS5_EEb.exit.i: ; preds = %606, %59
   br label %.loopexit.split-lp672.i
 
 .loopexit683.i:                                   ; preds = %530, %617, %548
-  %.sroa.0581.3.ph.i = phi i32 [ %.sroa.0581.1807.i, %548 ], [ %.sroa.0581.2.i, %617 ], [ %.sroa.0581.1807.i, %530 ]
-  %.sroa.13.3.ph.i = phi i32 [ %.sroa.13.1808.i, %548 ], [ %.sroa.13.2.i, %617 ], [ %.sroa.13.1808.i, %530 ]
+  %.sroa.0581.3.ph.i = phi i32 [ %.sroa.0581.1807.i, %548 ], [ %.sroa.0581.4.i, %617 ], [ %.sroa.0581.1807.i, %530 ]
+  %.sroa.13.3.ph.i = phi i32 [ %.sroa.13.1808.i, %548 ], [ %.sroa.13.4.i, %617 ], [ %.sroa.13.1808.i, %530 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #21
   br label %647
 
@@ -1854,16 +1854,16 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %647
 
 647:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit479.i, %.loopexit683.i
-  %.sroa.13.4968.i = phi i32 [ %.sroa.13.2.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit479.i ], [ %.sroa.13.3.ph.i, %.loopexit683.i ]
-  %.sroa.0581.4966.i = phi i32 [ %.sroa.0581.2.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit479.i ], [ %.sroa.0581.3.ph.i, %.loopexit683.i ]
+  %.sroa.13.2968.i = phi i32 [ %.sroa.13.4.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit479.i ], [ %.sroa.13.3.ph.i, %.loopexit683.i ]
+  %.sroa.0581.2966.i = phi i32 [ %.sroa.0581.4.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit479.i ], [ %.sroa.0581.3.ph.i, %.loopexit683.i ]
   %.1303.i = phi i32 [ %646, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit479.i ], [ %.0302812.i, %.loopexit683.i ]
   %indvars.iv.next923.i = add nuw nsw i64 %indvars.iv922.i, 1
   %exitcond925.not.i = icmp eq i64 %indvars.iv.next923.i, %wide.trip.count.i
   br i1 %exitcond925.not.i, label %._crit_edge.i, label %.preheader682.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %647, %480
-  %.sroa.0581.0.lcssa.i = phi i32 [ 0, %480 ], [ %.sroa.0581.4966.i, %647 ]
-  %.sroa.13.0.lcssa.i = phi i32 [ 0, %480 ], [ %.sroa.13.4968.i, %647 ]
+  %.sroa.0581.0.lcssa.i = phi i32 [ 0, %480 ], [ %.sroa.0581.2966.i, %647 ]
+  %.sroa.13.0.lcssa.i = phi i32 [ 0, %480 ], [ %.sroa.13.2968.i, %647 ]
   %.0302.lcssa.i = phi i32 [ 0, %480 ], [ %.1303.i, %647 ]
   %648 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 noundef %.0302.lcssa.i)
           to label %649 unwind label %.loopexit.split-lp672.loopexit.split-lp.loopexit.split-lp.i
@@ -3963,10 +3963,10 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %1411
 
 1410:                                             ; preds = %178, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %.2 = phi i32 [ %.1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ 0, %178 ]
+  %.0 = phi i32 [ %.1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ 0, %178 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %142) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %141) #21
-  ret i32 %.2
+  ret i32 %.0
 
 1411:                                             ; preds = %1409, %242, %239, %234, %229, %224, %189, %188
   %.pn63 = phi { ptr, i32 } [ %190, %189 ], [ %.pn58.pn.pn.pn, %1409 ], [ %.pn46, %242 ], [ %.pn44, %239 ], [ %.pn42, %234 ], [ %.pn39.pn, %229 ], [ %.pn37, %224 ], [ %.pn35, %188 ]

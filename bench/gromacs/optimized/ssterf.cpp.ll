@@ -47,7 +47,7 @@ define void @ssterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .outer377:                                        ; preds = %277, %23
   %.0334.ph = phi i32 [ %53, %277 ], [ 1, %23 ]
-  %.0320.ph = phi i32 [ %.3, %277 ], [ 0, %23 ]
+  %.0320.ph = phi i32 [ %.2, %277 ], [ 0, %23 ]
   br label %25
 
 25:                                               ; preds = %.outer377, %.loopexit491
@@ -358,7 +358,7 @@ define void @ssterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.outer375
 
 179:                                              ; preds = %.outer, %._crit_edge428
-  %.2 = phi i32 [ %215, %._crit_edge428 ], [ %.2.ph, %.outer ]
+  %.3 = phi i32 [ %215, %._crit_edge428 ], [ %.3.ph, %.outer ]
   store i32 %79, ptr %5, align 4
   br label %180
 
@@ -416,7 +416,7 @@ define void @ssterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .outer:                                           ; preds = %.outer.backedge, %.preheader
   %.2329.ph = phi i32 [ %.0327, %.preheader ], [ %.2329.ph.be, %.outer.backedge ]
-  %.2.ph = phi i32 [ %.0320.ph, %.preheader ], [ %.2, %.outer.backedge ]
+  %.3.ph = phi i32 [ %.0320.ph, %.preheader ], [ %.3, %.outer.backedge ]
   %206 = sext i32 %.2329.ph to i64
   %207 = getelementptr inbounds float, ptr %17, i64 %206
   %208 = add nsw i32 %.2329.ph, -1
@@ -426,11 +426,11 @@ define void @ssterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %179
 
 212:                                              ; preds = %198
-  %213 = icmp eq i32 %.2, %24
+  %213 = icmp eq i32 %.3, %24
   br i1 %213, label %.loopexit371, label %214
 
 214:                                              ; preds = %212
-  %215 = add nsw i32 %.2, 1
+  %215 = add nsw i32 %.3, 1
   %216 = load float, ptr %210, align 4
   %217 = call noundef float @sqrtf(float noundef %216) #5
   store float %217, ptr %8, align 4
@@ -527,7 +527,7 @@ define void @ssterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.outer
 
 .loopexit371:                                     ; preds = %178, %104, %273, %200, %116, %212
-  %.3 = phi i32 [ %24, %212 ], [ %24, %116 ], [ %.2, %200 ], [ %.2, %273 ], [ %.1321, %104 ], [ %.1321, %178 ]
+  %.2 = phi i32 [ %24, %212 ], [ %24, %116 ], [ %.3, %200 ], [ %.3, %273 ], [ %.1321, %104 ], [ %.1321, %178 ]
   br i1 %62, label %275, label %274
 
 274:                                              ; preds = %.loopexit371
@@ -544,7 +544,7 @@ define void @ssterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %277
 
 277:                                              ; preds = %276, %275
-  %278 = icmp slt i32 %.3, %24
+  %278 = icmp slt i32 %.2, %24
   br i1 %278, label %.outer377, label %279
 
 279:                                              ; preds = %277

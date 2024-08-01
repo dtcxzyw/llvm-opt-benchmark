@@ -5743,8 +5743,8 @@ for.inc:                                          ; preds = %invoke.cont60
   br i1 %cmp.i.i116.not, label %return, label %for.body, !llvm.loop !61
 
 return:                                           ; preds = %invoke.cont60, %invoke.cont22, %for.inc, %invoke.cont22.thread, %_ZN4cvc58internal12NodeTemplateILb0EE3endENS0_4kind6Kind_tE.exit, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ true, %_ZN4cvc58internal12NodeTemplateILb0EE3endENS0_4kind6Kind_tE.exit ], [ false, %invoke.cont22.thread ], [ false, %invoke.cont60 ], [ false, %invoke.cont22 ], [ true, %for.inc ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ true, %_ZN4cvc58internal12NodeTemplateILb0EE3endENS0_4kind6Kind_tE.exit ], [ false, %invoke.cont22.thread ], [ false, %invoke.cont60 ], [ false, %invoke.cont22 ], [ true, %for.inc ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

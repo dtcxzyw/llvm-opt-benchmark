@@ -390,7 +390,7 @@ zend_type_permits_self.exit:                      ; preds = %67
   br label %96
 
 96:                                               ; preds = %get_class_from_type.exit.thread89, %92
-  %.057 = phi i1 [ false, %92 ], [ %.158, %get_class_from_type.exit.thread89 ]
+  %.158 = phi i1 [ false, %92 ], [ %.2, %get_class_from_type.exit.thread89 ]
   %.1 = phi ptr [ %.055, %92 ], [ %128, %get_class_from_type.exit.thread89 ]
   %97 = getelementptr inbounds i8, ptr %.1, i64 8
   %98 = load i32, ptr %97, align 8
@@ -470,13 +470,13 @@ get_class_from_type.exit.thread:                  ; preds = %117, %120, %114, %g
   br label %get_class_from_type.exit.thread89
 
 get_class_from_type.exit.thread89:                ; preds = %103, %126, %127, %get_class_from_type.exit
-  %.158 = phi i1 [ true, %127 ], [ %.057, %get_class_from_type.exit ], [ %.057, %126 ], [ %.057, %103 ]
+  %.2 = phi i1 [ true, %127 ], [ %.158, %get_class_from_type.exit ], [ %.158, %126 ], [ %.158, %103 ]
   %128 = getelementptr inbounds i8, ptr %.1, i64 16
   %129 = icmp ult ptr %128, %.054
   br i1 %129, label %96, label %.loopexit92
 
 .loopexit92:                                      ; preds = %get_class_from_type.exit.thread89
-  br i1 %.158, label %130, label %.loopexit
+  br i1 %.2, label %130, label %.loopexit
 
 130:                                              ; preds = %81, %.loopexit92
   %131 = load ptr, ptr %8, align 8
@@ -1865,20 +1865,20 @@ do_inherit_class_constant.exit:                   ; preds = %606, %538, %535, %5
   br label %709
 
 709:                                              ; preds = %708, %682, %680
-  %.01045 = phi ptr [ %.01044, %708 ], [ %655, %682 ], [ %655, %680 ]
-  %710 = getelementptr inbounds i8, ptr %.01045, i64 24
+  %.11046 = phi ptr [ %.01044, %708 ], [ %655, %682 ], [ %655, %680 ]
+  %710 = getelementptr inbounds i8, ptr %.11046, i64 24
   store ptr %., ptr %710, align 8
   br label %711
 
 711:                                              ; preds = %677, %685, %709
-  %.11046 = phi ptr [ %655, %685 ], [ %.01045, %709 ], [ %655, %677 ]
-  %712 = getelementptr inbounds i8, ptr %.11046, i64 16
+  %.01045 = phi ptr [ %655, %685 ], [ %.11046, %709 ], [ %655, %677 ]
+  %712 = getelementptr inbounds i8, ptr %.01045, i64 16
   %713 = load ptr, ptr %712, align 8
   %714 = icmp eq ptr %713, %0
   br i1 %714, label %715, label %818
 
 715:                                              ; preds = %711
-  %716 = getelementptr inbounds i8, ptr %.11046, i64 4
+  %716 = getelementptr inbounds i8, ptr %.01045, i64 4
   %717 = load i32, ptr %716, align 4
   %718 = and i32 %717, -268435457
   store i32 %718, ptr %716, align 4
@@ -3840,7 +3840,7 @@ define ptr @zend_do_link_class(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 58:                                               ; preds = %.lr.ph549, %90
   %indvars.iv673 = phi i64 [ 0, %.lr.ph549 ], [ %indvars.iv.next674, %90 ]
-  %.1334547 = phi i32 [ %.0333, %.lr.ph549 ], [ %.2335, %90 ]
+  %.2335547 = phi i32 [ %.0333, %.lr.ph549 ], [ %.3, %90 ]
   %59 = load ptr, ptr %57, align 8
   %60 = getelementptr inbounds %struct._zend_class_name, ptr %59, i64 %indvars.iv673
   %61 = load ptr, ptr %60, align 8
@@ -3904,11 +3904,11 @@ define ptr @zend_do_link_class(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 87:                                               ; preds = %._crit_edge
   %88 = load i32, ptr %69, align 4
-  %89 = and i32 %88, %.1334547
+  %89 = and i32 %88, %.2335547
   br label %90
 
 90:                                               ; preds = %.thread, %._crit_edge, %87
-  %.2335 = phi i32 [ %89, %87 ], [ %.1334547, %._crit_edge ], [ %.1334547, %.thread ]
+  %.3 = phi i32 [ %89, %87 ], [ %.2335547, %._crit_edge ], [ %.2335547, %.thread ]
   %indvars.iv.next674 = add nuw nsw i64 %indvars.iv673, 1
   %91 = load i32, ptr %42, align 4
   %92 = zext i32 %91 to i64
@@ -3917,7 +3917,7 @@ define ptr @zend_do_link_class(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 .loopexit412:                                     ; preds = %90, %41, %54
   %.0340 = phi i1 [ %49, %54 ], [ true, %41 ], [ %49, %90 ]
-  %.3 = phi i32 [ %.0333, %54 ], [ %.0333, %41 ], [ %.2335, %90 ]
+  %.1334 = phi i32 [ %.0333, %54 ], [ %.0333, %41 ], [ %.3, %90 ]
   %.0331 = phi ptr [ %55, %54 ], [ null, %41 ], [ %55, %90 ]
   %94 = getelementptr inbounds i8, ptr %0, i64 424
   %95 = load i32, ptr %94, align 8
@@ -3930,7 +3930,7 @@ define ptr @zend_do_link_class(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 97:                                               ; preds = %.lr.ph552, %127
   %indvars.iv676 = phi i64 [ 0, %.lr.ph552 ], [ %indvars.iv.next677, %127 ]
-  %.4551 = phi i32 [ %.3, %.lr.ph552 ], [ %.5, %127 ]
+  %.5551 = phi i32 [ %.1334, %.lr.ph552 ], [ %.6, %127 ]
   %98 = load ptr, ptr %96, align 8
   %99 = getelementptr inbounds %struct._zend_class_name, ptr %98, i64 %indvars.iv676
   %100 = load ptr, ptr %99, align 8
@@ -3979,11 +3979,11 @@ check_unrecoverable_load_failure.exit395:         ; preds = %104, %106
 123:                                              ; preds = %115
   %124 = getelementptr inbounds i8, ptr %103, i64 28
   %125 = load i32, ptr %124, align 4
-  %126 = and i32 %125, %.4551
+  %126 = and i32 %125, %.5551
   br label %127
 
 127:                                              ; preds = %115, %123
-  %.5 = phi i32 [ %126, %123 ], [ %.4551, %115 ]
+  %.6 = phi i32 [ %126, %123 ], [ %.5551, %115 ]
   %indvars.iv.next677 = add nuw nsw i64 %indvars.iv676, 1
   %128 = load i32, ptr %94, align 8
   %129 = zext i32 %128 to i64
@@ -3991,11 +3991,11 @@ check_unrecoverable_load_failure.exit395:         ; preds = %104, %106
   br i1 %130, label %97, label %.loopexit
 
 .loopexit:                                        ; preds = %127, %.loopexit412
-  %.6 = phi i32 [ %.3, %.loopexit412 ], [ %.5, %127 ]
+  %.4 = phi i32 [ %.1334, %.loopexit412 ], [ %.6, %127 ]
   %131 = load i32, ptr %16, align 4
   %132 = and i32 %131, 268435456
   %.not358 = icmp eq i32 %132, 0
-  %spec.select = select i1 %.not358, i32 %.6, i32 0
+  %spec.select = select i1 %.not358, i32 %.4, i32 0
   %133 = load i8, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1680), align 8
   %134 = trunc i8 %133 to i1
   %135 = and i8 %133, 1
@@ -4038,7 +4038,7 @@ check_unrecoverable_load_failure.exit395:         ; preds = %104, %106
   br label %152
 
 152:                                              ; preds = %151, %139, %.loopexit
-  %.9 = phi i32 [ %spec.select, %.loopexit ], [ %.6, %151 ], [ 0, %139 ]
+  %.8 = phi i32 [ %spec.select, %.loopexit ], [ %.4, %151 ], [ 0, %139 ]
   %.0332 = phi ptr [ null, %.loopexit ], [ %0, %151 ], [ %0, %139 ]
   %153 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   store ptr %15, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
@@ -4089,7 +4089,7 @@ check_unrecoverable_load_failure.exit395:         ; preds = %104, %106
 
 175:                                              ; preds = %172, %170
   %176 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 536), align 8
-  %.not363 = icmp eq i32 %.9, 0
+  %.not363 = icmp eq i32 %.8, 0
   %177 = select i1 %.not363, ptr null, ptr %.0329
   store ptr %177, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 536), align 8
   %178 = getelementptr inbounds i8, ptr %.0329, i64 28
@@ -6567,7 +6567,7 @@ load_delayed_classes.exit:                        ; preds = %load_delayed_classe
   br label %1404
 
 1404:                                             ; preds = %1401, %1396
-  %.1 = phi ptr [ %1400, %1401 ], [ %.0329, %1396 ]
+  %.2 = phi ptr [ %1400, %1401 ], [ %.0329, %1396 ]
   %.not383 = icmp eq ptr %1398, null
   br i1 %.not383, label %1406, label %1405
 
@@ -6577,7 +6577,7 @@ load_delayed_classes.exit:                        ; preds = %load_delayed_classe
   br label %1406
 
 1406:                                             ; preds = %1404, %1405, %1394
-  %.2 = phi ptr [ %.1, %1405 ], [ %.1, %1404 ], [ %.0329, %1394 ]
+  %.1 = phi ptr [ %.2, %1405 ], [ %.2, %1404 ], [ %.0329, %1394 ]
   br i1 %134, label %1408, label %1407
 
 1407:                                             ; preds = %1406
@@ -6594,7 +6594,7 @@ load_delayed_classes.exit:                        ; preds = %load_delayed_classe
   br label %1410
 
 1410:                                             ; preds = %1408, %1409
-  %1411 = getelementptr inbounds i8, ptr %.2, i64 8
+  %1411 = getelementptr inbounds i8, ptr %.1, i64 8
   %1412 = load ptr, ptr %1411, align 8
   %1413 = getelementptr inbounds i8, ptr %1412, i64 4
   %1414 = load i32, ptr %1413, align 4
@@ -6615,11 +6615,11 @@ load_delayed_classes.exit:                        ; preds = %load_delayed_classe
   %1424 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %1425 = zext i32 %1417 to i64
   %1426 = getelementptr inbounds i8, ptr %1424, i64 %1425
-  store ptr %.2, ptr %1426, align 8
+  store ptr %.1, ptr %1426, align 8
   br label %check_unrecoverable_load_failure.exit
 
 check_unrecoverable_load_failure.exit:            ; preds = %26, %24, %1410, %1416, %1423, %114, %check_unrecoverable_load_failure.exit395, %67, %66, %148
-  %.0 = phi ptr [ %145, %148 ], [ null, %66 ], [ null, %67 ], [ null, %check_unrecoverable_load_failure.exit395 ], [ null, %114 ], [ %.2, %1423 ], [ %.2, %1416 ], [ %.2, %1410 ], [ null, %24 ], [ null, %26 ]
+  %.0 = phi ptr [ %145, %148 ], [ null, %66 ], [ null, %67 ], [ null, %check_unrecoverable_load_failure.exit395 ], [ null, %114 ], [ %.1, %1423 ], [ %.1, %1416 ], [ %.1, %1410 ], [ null, %24 ], [ null, %26 ]
   ret ptr %.0
 }
 
@@ -8106,7 +8106,7 @@ zend_inheritance_check_override.exit:             ; preds = %307, %268, %271
   br label %320
 
 320:                                              ; preds = %317, %312
-  %.1175 = phi ptr [ %316, %317 ], [ %.0174, %312 ]
+  %.2176 = phi ptr [ %316, %317 ], [ %.0174, %312 ]
   %.not208 = icmp eq ptr %314, null
   br i1 %.not208, label %322, label %321
 
@@ -8116,8 +8116,8 @@ zend_inheritance_check_override.exit:             ; preds = %307, %268, %271
   br label %322
 
 322:                                              ; preds = %320, %321, %zend_inheritance_check_override.exit
-  %.2176 = phi ptr [ %.1175, %321 ], [ %.1175, %320 ], [ %.0174, %zend_inheritance_check_override.exit ]
-  %323 = getelementptr inbounds i8, ptr %.2176, i64 8
+  %.1175 = phi ptr [ %.2176, %321 ], [ %.2176, %320 ], [ %.0174, %zend_inheritance_check_override.exit ]
+  %323 = getelementptr inbounds i8, ptr %.1175, i64 8
   %324 = load ptr, ptr %323, align 8
   %325 = getelementptr inbounds i8, ptr %324, i64 4
   %326 = load i32, ptr %325, align 4
@@ -8138,7 +8138,7 @@ zend_inheritance_check_override.exit:             ; preds = %307, %268, %271
   %336 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 488), align 8
   %337 = zext i32 %329 to i64
   %338 = getelementptr inbounds i8, ptr %336, i64 %337
-  store ptr %.2176, ptr %338, align 8
+  store ptr %.1175, ptr %338, align 8
   br label %339
 
 339:                                              ; preds = %335, %328, %322
@@ -8147,12 +8147,12 @@ zend_inheritance_check_override.exit:             ; preds = %307, %268, %271
   br i1 %341, label %zend_observer_class_linked_notify.exit.sink.split, label %zend_observer_class_linked_notify.exit
 
 zend_observer_class_linked_notify.exit.sink.split: ; preds = %339, %.critedge225, %.critedge
-  %.2176.sink = phi ptr [ %0, %.critedge ], [ %54, %.critedge225 ], [ %.2176, %339 ]
-  call void @_zend_observer_class_linked_notify(ptr noundef nonnull %.2176.sink, ptr noundef %2) #16
+  %.1175.sink = phi ptr [ %0, %.critedge ], [ %54, %.critedge225 ], [ %.1175, %339 ]
+  call void @_zend_observer_class_linked_notify(ptr noundef nonnull %.1175.sink, ptr noundef %2) #16
   br label %zend_observer_class_linked_notify.exit
 
 zend_observer_class_linked_notify.exit:           ; preds = %zend_observer_class_linked_notify.exit.sink.split, %339, %.critedge225, %.critedge, %246, %72, %33, %zend_can_early_bind.exit
-  %.0177 = phi ptr [ null, %zend_can_early_bind.exit ], [ null, %33 ], [ null, %72 ], [ null, %246 ], [ %0, %.critedge ], [ %54, %.critedge225 ], [ %.2176, %339 ], [ %.2176.sink, %zend_observer_class_linked_notify.exit.sink.split ]
+  %.0177 = phi ptr [ null, %zend_can_early_bind.exit ], [ null, %33 ], [ null, %72 ], [ null, %246 ], [ %0, %.critedge ], [ %54, %.critedge225 ], [ %.1175, %339 ], [ %.1175.sink, %zend_observer_class_linked_notify.exit.sink.split ]
   ret ptr %.0177
 }
 
@@ -8197,7 +8197,7 @@ define internal fastcc range(i32 -1, 3) i32 @zend_is_intersection_subtype_of_typ
 
 26:                                               ; preds = %get_class_from_type.exit.thread88, %22
   %.146 = phi ptr [ %.045, %22 ], [ %53, %get_class_from_type.exit.thread88 ]
-  %.040 = phi i1 [ false, %22 ], [ %.1, %get_class_from_type.exit.thread88 ]
+  %.1 = phi i1 [ false, %22 ], [ %.2, %get_class_from_type.exit.thread88 ]
   %27 = load ptr, ptr %.146, align 8
   %28 = getelementptr inbounds i8, ptr %.146, i64 8
   %29 = load i32, ptr %28, align 8
@@ -8262,7 +8262,7 @@ get_class_from_type.exit.thread:                  ; preds = %43, %46, %40, %get_
   br label %.loopexit
 
 get_class_from_type.exit.thread88:                ; preds = %26, %get_class_from_type.exit.thread, %get_class_from_type.exit
-  %.1 = phi i1 [ %.040, %get_class_from_type.exit ], [ true, %get_class_from_type.exit.thread ], [ %.040, %26 ]
+  %.2 = phi i1 [ %.1, %get_class_from_type.exit ], [ true, %get_class_from_type.exit.thread ], [ %.1, %26 ]
   %53 = getelementptr inbounds i8, ptr %.146, i64 16
   %54 = icmp ult ptr %53, %.047
   br i1 %54, label %26, label %.loopexit99.loopexit
@@ -8273,7 +8273,7 @@ get_class_from_type.exit.thread88:                ; preds = %26, %get_class_from
 
 .loopexit99:                                      ; preds = %.loopexit99.loopexit, %6
   %55 = phi i32 [ %5, %6 ], [ %.pre, %.loopexit99.loopexit ]
-  %.2 = phi i1 [ false, %6 ], [ %.1, %.loopexit99.loopexit ]
+  %.040 = phi i1 [ false, %6 ], [ %.2, %.loopexit99.loopexit ]
   %56 = lshr i32 %55, 18
   %57 = and i32 %56, 2
   %58 = and i32 %55, 4194304
@@ -8308,7 +8308,7 @@ get_class_from_type.exit.thread88:                ; preds = %26, %get_class_from
 
 77:                                               ; preds = %get_class_from_type.exit71.thread94, %67
   %.144 = phi ptr [ %.043, %67 ], [ %227, %get_class_from_type.exit71.thread94 ]
-  %.3 = phi i1 [ %.2, %67 ], [ %.4, %get_class_from_type.exit71.thread94 ]
+  %.3 = phi i1 [ %.040, %67 ], [ %.4, %get_class_from_type.exit71.thread94 ]
   %78 = getelementptr inbounds i8, ptr %.144, i64 8
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %79, 524288
@@ -8694,7 +8694,7 @@ define internal fastcc range(i32 -1, 3) i32 @zend_is_class_subtype_of_type(ptr n
 28:                                               ; preds = %81, %22
   %.156 = phi ptr [ %.055, %22 ], [ %82, %81 ]
   %.152 = phi i1 [ %.not, %22 ], [ %.253, %81 ]
-  %.2 = phi ptr [ null, %22 ], [ %.4, %81 ]
+  %.2 = phi ptr [ null, %22 ], [ %.3, %81 ]
   %29 = getelementptr inbounds i8, ptr %.156, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 524288
@@ -8796,9 +8796,9 @@ resolve_class_name.exit:                          ; preds = %50, %53, %56, %.sin
   br label %72
 
 72:                                               ; preds = %70, %69
-  %.3 = phi ptr [ %.2, %69 ], [ %71, %70 ]
+  %.4 = phi ptr [ %.2, %69 ], [ %71, %70 ]
   %73 = call fastcc ptr @lookup_class_ex(ptr noundef nonnull %2, ptr noundef nonnull %.0.i, i1 noundef zeroext false)
-  %74 = icmp ne ptr %.3, null
+  %74 = icmp ne ptr %.4, null
   %75 = icmp ne ptr %73, null
   %or.cond = select i1 %74, i1 %75, i1 false
   br i1 %or.cond, label %77, label %81
@@ -8808,11 +8808,11 @@ resolve_class_name.exit:                          ; preds = %50, %53, %56, %.sin
   br label %81
 
 77:                                               ; preds = %72
-  %78 = call fastcc zeroext i1 @unlinked_instanceof(ptr noundef nonnull %.3, ptr noundef nonnull %73)
+  %78 = call fastcc zeroext i1 @unlinked_instanceof(ptr noundef nonnull %.4, ptr noundef nonnull %73)
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %77
-  call fastcc void @track_class_dependency(ptr noundef nonnull %.3, ptr noundef nonnull %1)
+  call fastcc void @track_class_dependency(ptr noundef nonnull %.4, ptr noundef nonnull %1)
   call fastcc void @track_class_dependency(ptr noundef nonnull %73, ptr noundef nonnull %.0.i)
   br i1 %.not62, label %.loopexit, label %81
 
@@ -8821,7 +8821,7 @@ resolve_class_name.exit:                          ; preds = %50, %53, %56, %.sin
 
 81:                                               ; preds = %72, %32, %79, %80, %68, %36, %35, %76
   %.253 = phi i1 [ %.152, %36 ], [ %.152, %35 ], [ %.152, %79 ], [ %.152, %80 ], [ %.152, %68 ], [ %.152, %76 ], [ true, %32 ], [ true, %72 ]
-  %.4 = phi ptr [ %.2, %36 ], [ %.2, %35 ], [ %.3, %79 ], [ %.3, %80 ], [ %.2, %68 ], [ %.2, %76 ], [ %.2, %32 ], [ %.3, %72 ]
+  %.3 = phi ptr [ %.2, %36 ], [ %.2, %35 ], [ %.4, %79 ], [ %.4, %80 ], [ %.2, %68 ], [ %.2, %76 ], [ %.2, %32 ], [ %.4, %72 ]
   %82 = getelementptr inbounds i8, ptr %.156, i64 16
   %83 = icmp ult ptr %82, %.054
   br i1 %83, label %28, label %84
@@ -9685,13 +9685,13 @@ define internal fastcc void @do_inheritance_check_on_method(ptr nocapture nounde
   br label %184
 
 184:                                              ; preds = %183, %156, %153
-  %.0196 = phi ptr [ %.0, %183 ], [ %0, %156 ], [ %0, %153 ]
-  %185 = getelementptr inbounds i8, ptr %.0196, i64 24
+  %.1 = phi ptr [ %.0, %183 ], [ %0, %156 ], [ %0, %153 ]
+  %185 = getelementptr inbounds i8, ptr %.1, i64 24
   store ptr %., ptr %185, align 8
   br label %186
 
 186:                                              ; preds = %148, %159, %184
-  %.1 = phi ptr [ %0, %159 ], [ %.0196, %184 ], [ %0, %148 ]
+  %.0196 = phi ptr [ %0, %159 ], [ %.1, %184 ], [ %0, %148 ]
   br i1 %6, label %187, label %224
 
 187:                                              ; preds = %186
@@ -9701,21 +9701,21 @@ define internal fastcc void @do_inheritance_check_on_method(ptr nocapture nounde
   br i1 %190, label %191, label %224
 
 191:                                              ; preds = %187
-  %192 = load i8, ptr %.1, align 8
+  %192 = load i8, ptr %.0196, align 8
   %193 = icmp eq i8 %192, 2
   br i1 %193, label %194, label %199
 
 194:                                              ; preds = %191
-  %195 = getelementptr inbounds i8, ptr %.1, i64 152
+  %195 = getelementptr inbounds i8, ptr %.0196, i64 152
   %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %.1, i64 160
+  %197 = getelementptr inbounds i8, ptr %.0196, i64 160
   %198 = load i32, ptr %197, align 8
   br label %199
 
 199:                                              ; preds = %191, %194
   %200 = phi ptr [ %196, %194 ], [ null, %191 ]
   %201 = phi i32 [ %198, %194 ], [ 0, %191 ]
-  %202 = getelementptr inbounds i8, ptr %.1, i64 16
+  %202 = getelementptr inbounds i8, ptr %.0196, i64 16
   %203 = load ptr, ptr %202, align 8
   %.not227 = icmp eq ptr %203, null
   br i1 %.not227, label %208, label %204
@@ -9728,7 +9728,7 @@ define internal fastcc void @do_inheritance_check_on_method(ptr nocapture nounde
 
 208:                                              ; preds = %204, %199
   %209 = phi ptr [ %207, %204 ], [ @.str.15, %199 ]
-  %210 = getelementptr inbounds i8, ptr %.1, i64 8
+  %210 = getelementptr inbounds i8, ptr %.0196, i64 8
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds i8, ptr %.0197, i64 16
   %213 = load ptr, ptr %212, align 8
@@ -9755,14 +9755,14 @@ define internal fastcc void @do_inheritance_check_on_method(ptr nocapture nounde
   unreachable
 
 224:                                              ; preds = %187, %186
-  tail call fastcc void @perform_delayable_implementation_check(ptr noundef %4, ptr noundef nonnull %.1, ptr noundef %1, ptr noundef nonnull %.0197, ptr noundef %3)
-  %225 = getelementptr inbounds i8, ptr %.1, i64 16
+  tail call fastcc void @perform_delayable_implementation_check(ptr noundef %4, ptr noundef nonnull %.0196, ptr noundef %1, ptr noundef nonnull %.0197, ptr noundef %3)
+  %225 = getelementptr inbounds i8, ptr %.0196, i64 16
   %226 = load ptr, ptr %225, align 8
   %227 = icmp eq ptr %226, %4
   br i1 %227, label %228, label %232
 
 228:                                              ; preds = %224
-  %229 = getelementptr inbounds i8, ptr %.1, i64 4
+  %229 = getelementptr inbounds i8, ptr %.0196, i64 4
   %230 = load i32, ptr %229, align 4
   %231 = and i32 %230, -268435457
   store i32 %231, ptr %229, align 4
@@ -9854,7 +9854,7 @@ define internal fastcc i32 @zend_do_perform_implementation_check(ptr nocapture n
 
 53:                                               ; preds = %.lr.ph, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
-  %.06495 = phi i32 [ 2, %.lr.ph ], [ %.2, %86 ]
+  %.06495 = phi i32 [ 2, %.lr.ph ], [ %.1, %86 ]
   %54 = icmp uge i64 %indvars.iv, %51
   %brmerge102.not = and i1 %54, %.not75
   br i1 %brmerge102.not, label %57, label %.sink.split
@@ -9920,7 +9920,7 @@ zend_do_perform_arg_type_hint_check.exit:         ; preds = %71
   br label %zend_do_perform_arg_type_hint_check.exit.thread
 
 zend_do_perform_arg_type_hint_check.exit.thread:  ; preds = %64, %zend_do_perform_arg_type_hint_check.exit, %79
-  %.1 = phi i32 [ -1, %79 ], [ %.06495, %zend_do_perform_arg_type_hint_check.exit ], [ %.06495, %64 ]
+  %.2 = phi i32 [ -1, %79 ], [ %.06495, %zend_do_perform_arg_type_hint_check.exit ], [ %.06495, %64 ]
   %81 = load i32, ptr %66, align 8
   %82 = getelementptr inbounds i8, ptr %58, i64 16
   %83 = load i32, ptr %82, align 8
@@ -9930,7 +9930,7 @@ zend_do_perform_arg_type_hint_check.exit.thread:  ; preds = %64, %zend_do_perfor
   br i1 %.not86, label %86, label %.thread88
 
 86:                                               ; preds = %.thread, %zend_do_perform_arg_type_hint_check.exit.thread, %60
-  %.2 = phi i32 [ %.1, %zend_do_perform_arg_type_hint_check.exit.thread ], [ %.06495, %60 ], [ %.06495, %.thread ]
+  %.1 = phi i32 [ %.2, %zend_do_perform_arg_type_hint_check.exit.thread ], [ %.06495, %60 ], [ %.06495, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %53
@@ -9941,7 +9941,7 @@ zend_do_perform_arg_type_hint_check.exit.thread:  ; preds = %64, %zend_do_perfor
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %37
   %87 = phi i32 [ %23, %37 ], [ %.pre, %._crit_edge.loopexit ]
-  %.064.lcssa = phi i32 [ 2, %37 ], [ %.2, %._crit_edge.loopexit ]
+  %.064.lcssa = phi i32 [ 2, %37 ], [ %.1, %._crit_edge.loopexit ]
   %88 = and i32 %87, 8192
   %.not78 = icmp eq i32 %88, 0
   br i1 %.not78, label %119, label %89

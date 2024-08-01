@@ -1025,7 +1025,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_sb_encode(ptr nocapture noundef
 
 58:                                               ; preds = %54, %.loopexit
   %indvars.iv81 = phi i64 [ 1, %54 ], [ %indvars.iv.next82, %.loopexit ]
-  %.273 = phi ptr [ %56, %54 ], [ %.4, %.loopexit ]
+  %.273 = phi ptr [ %56, %54 ], [ %.3, %.loopexit ]
   %59 = getelementptr inbounds [7 x i32], ptr %8, i64 0, i64 %indvars.iv81
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %60, 0
@@ -1061,7 +1061,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_sb_encode(ptr nocapture noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %67, %58
-  %.4 = phi ptr [ %.273, %58 ], [ %73, %67 ], [ %scevgep80, %.lr.ph.preheader ]
+  %.3 = phi ptr [ %.273, %58 ], [ %73, %67 ], [ %scevgep80, %.lr.ph.preheader ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, 7
   br i1 %exitcond84.not, label %.loopexit65, label %58
@@ -3197,7 +3197,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_lock(ptr nocapture noundef read
 
 36:                                               ; preds = %.lr.ph, %57
   %indvars.iv40 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next41, %57 ]
-  %.12135 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %57 ]
+  %.235 = phi i32 [ 1, %.lr.ph ], [ %spec.select, %57 ]
   %37 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %6) #16
   %38 = load i32, ptr %6, align 4
   %.not27 = icmp eq i32 %38, 0
@@ -3218,7 +3218,7 @@ define internal range(i32 -1, 1) i32 @H5FD_multi_lock(ptr nocapture noundef read
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 @H5FDunlock(ptr noundef %47) #16
   %49 = lshr i32 %48, 31
-  %spec.select = add i32 %49, %.12135
+  %spec.select = add i32 %49, %.235
   %50 = load i32, ptr %6, align 4
   %.not28 = icmp eq i32 %50, 0
   %51 = load ptr, ptr %7, align 8

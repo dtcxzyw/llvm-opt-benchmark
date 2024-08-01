@@ -850,14 +850,14 @@ if.then36:                                        ; preds = %if.end34
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end34, %if.then36
-  %msg.0 = phi ptr [ %call37, %if.then36 ], [ null, %if.end34 ]
+  %msg.1 = phi ptr [ %call37, %if.then36 ], [ null, %if.end34 ]
   br i1 %cmp72.not, label %for.end63, label %for.body42.lr.ph
 
 for.body42.lr.ph:                                 ; preds = %if.end38
   %len2.i = getelementptr inbounds i8, ptr %refname, i64 8
   %buf.i = getelementptr inbounds i8, ptr %refname, i64 16
-  %tobool53.not = icmp eq ptr %msg.0, null
-  %cond = select i1 %tobool53.not, ptr @.str.4, ptr %msg.0
+  %tobool53.not = icmp eq ptr %msg.1, null
+  %cond = select i1 %tobool53.not, ptr @.str.4, ptr %msg.1
   %smax93 = call i32 @llvm.smax.i32(i32 %targets, i32 1)
   %wide.trip.count94 = zext nneg i32 %smax93 to i64
   br label %for.body42
@@ -913,10 +913,10 @@ if.then66:                                        ; preds = %for.end63
 
 done:                                             ; preds = %loop.exit.thread, %loop.exit, %for.end63, %if.then66, %if.then56, %if.then15, %if.then4
   %transaction.1 = phi ptr [ %transaction.0, %if.then15 ], [ %transaction.0, %loop.exit ], [ %transaction.0, %if.then56 ], [ %transaction.0, %if.then66 ], [ null, %if.then4 ], [ %transaction.0, %for.end63 ], [ %transaction.0, %loop.exit.thread ]
-  %msg.1 = phi ptr [ null, %if.then15 ], [ null, %loop.exit ], [ %msg.0, %if.then56 ], [ %msg.0, %if.then66 ], [ null, %if.then4 ], [ %msg.0, %for.end63 ], [ null, %loop.exit.thread ]
+  %msg.0 = phi ptr [ null, %if.then15 ], [ null, %loop.exit ], [ %msg.1, %if.then56 ], [ %msg.1, %if.then66 ], [ null, %if.then4 ], [ %msg.1, %for.end63 ], [ null, %loop.exit.thread ]
   %ret.0 = phi i32 [ -1, %if.then15 ], [ 0, %loop.exit ], [ -1, %if.then56 ], [ -1, %if.then66 ], [ -1, %if.then4 ], [ 0, %for.end63 ], [ -1, %loop.exit.thread ]
   call void @ref_transaction_free(ptr noundef %transaction.1) #14
-  call void @free(ptr noundef %msg.1) #14
+  call void @free(ptr noundef %msg.0) #14
   call void @free(ptr noundef %call1) #14
   call void @strbuf_release(ptr noundef nonnull %err) #14
   call void @strbuf_release(ptr noundef nonnull %refname) #14

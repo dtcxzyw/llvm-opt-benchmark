@@ -163,8 +163,8 @@ entry:
   %tmp = alloca [9 x i8], align 1
   %c = alloca i32, align 4
   %bytes = alloca [4 x i8], align 1
-  %i27.0.sroa.gep = getelementptr inbounds i8, ptr %bytes, i64 1
-  %i27.0.sroa.gep38 = getelementptr inbounds i8, ptr %bytes, i64 2
+  %i27.1.sroa.gep = getelementptr inbounds i8, ptr %bytes, i64 1
+  %i27.1.sroa.gep38 = getelementptr inbounds i8, ptr %bytes, i64 2
   %cmp52.not = icmp eq i64 %chars, 0
   br i1 %cmp52.not, label %for.end, label %for.body
 
@@ -240,26 +240,26 @@ if.else46:                                        ; preds = %if.else38
   %8 = trunc i32 %shr52 to i8
   %9 = and i8 %8, 63
   %conv55 = or disjoint i8 %9, -128
-  store i8 %conv55, ptr %i27.0.sroa.gep, align 1
+  store i8 %conv55, ptr %i27.1.sroa.gep, align 1
   br label %if.end58
 
 if.end58:                                         ; preds = %if.else46, %if.then40
-  %i27.0.sroa.phi = phi ptr [ %i27.0.sroa.gep, %if.then40 ], [ %i27.0.sroa.gep38, %if.else46 ]
-  %i27.0 = phi i64 [ 2, %if.then40 ], [ 3, %if.else46 ]
+  %i27.1.sroa.phi = phi ptr [ %i27.1.sroa.gep, %if.then40 ], [ %i27.1.sroa.gep38, %if.else46 ]
+  %i27.1 = phi i64 [ 2, %if.then40 ], [ 3, %if.else46 ]
   %shr59 = lshr i32 %2, 6
   %10 = trunc i32 %shr59 to i8
   %11 = and i8 %10, 63
   %conv62 = or disjoint i8 %11, -128
-  store i8 %conv62, ptr %i27.0.sroa.phi, align 1
+  store i8 %conv62, ptr %i27.1.sroa.phi, align 1
   br label %if.end65
 
 if.end65:                                         ; preds = %if.end58, %if.then34
-  %i27.1 = phi i64 [ 1, %if.then34 ], [ %i27.0, %if.end58 ]
+  %i27.0 = phi i64 [ 1, %if.then34 ], [ %i27.1, %if.end58 ]
   %12 = trunc i32 %2 to i8
   %13 = and i8 %12, 63
   %conv68 = or disjoint i8 %13, -128
-  %inc69 = add nuw nsw i64 %i27.1, 1
-  %arrayidx70 = getelementptr inbounds i8, ptr %bytes, i64 %i27.1
+  %inc69 = add nuw nsw i64 %i27.0, 1
+  %arrayidx70 = getelementptr inbounds i8, ptr %bytes, i64 %i27.0
   store i8 %conv68, ptr %arrayidx70, align 1
   br label %do.end
 
@@ -597,13 +597,13 @@ land.lhs.true114:                                 ; preds = %land.lhs.true108
   br i1 %cmp121, label %land.lhs.true122, label %if.then150
 
 land.lhs.true122:                                 ; preds = %land.lhs.true92, %land.lhs.true114
-  %i.0 = phi i32 [ %inc71, %land.lhs.true92 ], [ %inc112, %land.lhs.true114 ]
+  %i.1 = phi i32 [ %inc71, %land.lhs.true92 ], [ %inc112, %land.lhs.true114 ]
   %c.0 = phi i32 [ %and83, %land.lhs.true92 ], [ %or, %land.lhs.true114 ]
   %__t.0 = phi i8 [ %and94, %land.lhs.true92 ], [ %sub118, %land.lhs.true114 ]
   %shl123 = shl nuw nsw i32 %c.0, 6
   %conv124 = zext nneg i8 %__t.0 to i32
   %or125 = or disjoint i32 %shl123, %conv124
-  %inc126 = add nsw i32 %i.0, 1
+  %inc126 = add nsw i32 %i.1, 1
   %cmp127.not = icmp eq i32 %inc126, %conv60
   br i1 %cmp127.not, label %if.then150, label %land.lhs.true132
 
@@ -616,9 +616,9 @@ land.lhs.true130:                                 ; preds = %cond.false128
   br label %land.lhs.true132
 
 land.lhs.true132:                                 ; preds = %land.lhs.true130, %land.lhs.true122
-  %i.1 = phi i32 [ %inc126, %land.lhs.true122 ], [ %inc71, %land.lhs.true130 ]
+  %i.2 = phi i32 [ %inc126, %land.lhs.true122 ], [ %inc71, %land.lhs.true130 ]
   %c.1 = phi i32 [ %or125, %land.lhs.true122 ], [ %and131, %land.lhs.true130 ]
-  %idxprom133 = sext i32 %i.1 to i64
+  %idxprom133 = sext i32 %i.2 to i64
   %arrayidx134 = getelementptr inbounds i8, ptr %call58, i64 %idxprom133
   %20 = load i8, ptr %arrayidx134, align 1
   %sub136 = xor i8 %20, -128
@@ -637,7 +637,7 @@ if.end155:                                        ; preds = %land.lhs.true132
   %conv138 = zext nneg i8 %sub136 to i32
   %shl141 = shl nuw nsw i32 %c.1, 6
   %or143 = or disjoint i32 %shl141, %conv138
-  %inc144 = add nsw i32 %i.1, 1
+  %inc144 = add nsw i32 %i.2, 1
   %conv156 = sext i32 %inc144 to i64
   %sub157 = sub i64 %conv156, %storemerge78
   %cmp158 = icmp ult i32 %c.1, 1024
@@ -982,12 +982,12 @@ if.else9.i23:                                     ; preds = %if.else.i20
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else9.i23, %if.else.i20, %if.then3.i25, %land.lhs.true.i15, %invoke.cont53, %invoke.cont49
-  %retval.0 = phi i32 [ 0, %invoke.cont49 ], [ 1, %invoke.cont53 ], [ 1, %land.lhs.true.i15 ], [ 1, %if.then3.i25 ], [ 1, %if.else.i20 ], [ 1, %if.else9.i23 ]
+  %retval.2 = phi i32 [ 0, %invoke.cont49 ], [ 1, %invoke.cont53 ], [ 1, %land.lhs.true.i15 ], [ 1, %if.then3.i25 ], [ 1, %if.else.i20 ], [ 1, %if.else9.i23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %linestr) #13
   br label %cleanup60
 
 cleanup60:                                        ; preds = %cleanup, %if.then18
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 1, %if.then18 ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup ], [ 1, %if.then18 ]
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %outf) #13
   br label %cleanup61
 
@@ -997,9 +997,9 @@ ehcleanup:                                        ; preds = %lpad32, %lpad14
   br label %ehcleanup62
 
 cleanup61:                                        ; preds = %if.else9.i, %if.else.i, %if.then3.i, %land.lhs.true.i, %if.then, %cleanup60
-  %retval.2 = phi i32 [ %retval.1, %cleanup60 ], [ 1, %if.then ], [ 1, %land.lhs.true.i ], [ 1, %if.then3.i ], [ 1, %if.else.i ], [ 1, %if.else9.i ]
+  %retval.0 = phi i32 [ %retval.1, %cleanup60 ], [ 1, %if.then ], [ 1, %land.lhs.true.i ], [ 1, %if.then3.i ], [ 1, %if.else.i ], [ 1, %if.else9.i ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %inf) #13
-  ret i32 %retval.2
+  ret i32 %retval.0
 
 ehcleanup62:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %5, %lpad ]

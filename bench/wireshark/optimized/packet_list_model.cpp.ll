@@ -4423,8 +4423,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i72:    ; preds = %101
 
 _ZN7QStringD2Ev.exit74:                           ; preds = %105, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i72, %101, %99
   %.pn49 = phi { ptr, i32 } [ %100, %99 ], [ %102, %101 ], [ %102, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i72 ], [ %102, %105 ]
-  %.0 = extractvalue { ptr, i32 } %.pn49, 0
-  %.028 = extractvalue { ptr, i32 } %.pn49, 1
+  %.1 = extractvalue { ptr, i32 } %.pn49, 0
+  %.129 = extractvalue { ptr, i32 } %.pn49, 1
   %107 = load ptr, ptr %12, align 8
   %.not.i.i.i75 = icmp eq ptr %107, null
   br i1 %.not.i.i.i75, label %_ZN7QStringD2Ev.exit78, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i76
@@ -4869,14 +4869,14 @@ _ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i.i127: ; preds = %26
 
 _ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit129: ; preds = %263, %_ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i.i127, %260, %258
   %.pn = phi { ptr, i32 } [ %259, %258 ], [ %261, %260 ], [ %261, %_ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i.i127 ], [ %261, %263 ]
-  %.1 = extractvalue { ptr, i32 } %.pn, 0
-  %.129 = extractvalue { ptr, i32 } %.pn, 1
+  %.3 = extractvalue { ptr, i32 } %.pn, 0
+  %.331 = extractvalue { ptr, i32 } %.pn, 1
   %264 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI9SortAbort) #27
-  %265 = icmp eq i32 %.129, %264
+  %265 = icmp eq i32 %.331, %264
   br i1 %265, label %266, label %361
 
 266:                                              ; preds = %_ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit129
-  %267 = call ptr @__cxa_begin_catch(ptr %.1) #27
+  %267 = call ptr @__cxa_begin_catch(ptr %.3) #27
   %268 = load ptr, ptr @mainApp, align 8
   %269 = load ptr, ptr %267, align 8
   %270 = getelementptr inbounds i8, ptr %269, i64 16
@@ -5092,8 +5092,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i153:   ; preds = %_ZN7QStringD2Ev.exi
 
 _ZN7QStringD2Ev.exit155:                          ; preds = %336, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i153, %_ZN7QStringD2Ev.exit151, %326
   %.pn45 = phi { ptr, i32 } [ %327, %326 ], [ %329, %_ZN7QStringD2Ev.exit151 ], [ %329, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i153 ], [ %329, %336 ]
-  %.2 = extractvalue { ptr, i32 } %.pn45, 0
-  %.230 = extractvalue { ptr, i32 } %.pn45, 1
+  %.5 = extractvalue { ptr, i32 } %.pn45, 0
+  %.533 = extractvalue { ptr, i32 } %.pn45, 1
   invoke void @__cxa_end_catch()
           to label %361 unwind label %376
 
@@ -5162,8 +5162,8 @@ _ZN7QStringD2Ev.exit165:                          ; preds = %359, %_ZN17QArrayDa
   ret void
 
 361:                                              ; preds = %_ZN7QStringD2Ev.exit155, %338, %_ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit129
-  %.331 = phi i32 [ %341, %338 ], [ %.230, %_ZN7QStringD2Ev.exit155 ], [ %.129, %_ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit129 ]
-  %.3 = phi ptr [ %340, %338 ], [ %.2, %_ZN7QStringD2Ev.exit155 ], [ %.1, %_ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit129 ]
+  %.432 = phi i32 [ %341, %338 ], [ %.533, %_ZN7QStringD2Ev.exit155 ], [ %.331, %_ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit129 ]
+  %.4 = phi ptr [ %340, %338 ], [ %.5, %_ZN7QStringD2Ev.exit155 ], [ %.3, %_ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit129 ]
   %362 = load ptr, ptr %21, align 8
   %.not.i.i.i166 = icmp eq ptr %362, null
   br i1 %.not.i.i.i166, label %_ZN7QStringD2Ev.exit99, label %_ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i167
@@ -5179,8 +5179,8 @@ _ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i167: ; preds = %361
   br label %_ZN7QStringD2Ev.exit99
 
 _ZN7QStringD2Ev.exit99:                           ; preds = %364, %_ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i167, %361, %201, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i111, %195, %156, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i97, %150, %146
-  %.432 = phi i32 [ %149, %146 ], [ %153, %150 ], [ %153, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i97 ], [ %153, %156 ], [ %198, %195 ], [ %198, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i111 ], [ %198, %201 ], [ %.331, %361 ], [ %.331, %_ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i167 ], [ %.331, %364 ]
-  %.4 = phi ptr [ %148, %146 ], [ %152, %150 ], [ %152, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i97 ], [ %152, %156 ], [ %197, %195 ], [ %197, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i111 ], [ %197, %201 ], [ %.3, %361 ], [ %.3, %_ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i167 ], [ %.3, %364 ]
+  %.230 = phi i32 [ %149, %146 ], [ %153, %150 ], [ %153, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i97 ], [ %153, %156 ], [ %198, %195 ], [ %198, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i111 ], [ %198, %201 ], [ %.432, %361 ], [ %.432, %_ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i167 ], [ %.432, %364 ]
+  %.2 = phi ptr [ %148, %146 ], [ %152, %150 ], [ %152, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i97 ], [ %152, %156 ], [ %197, %195 ], [ %197, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i111 ], [ %197, %201 ], [ %.4, %361 ], [ %.4, %_ZN17QArrayDataPointerIP16PacketListRecordE5derefEv.exit.i.i167 ], [ %.4, %364 ]
   %366 = load ptr, ptr %14, align 16
   %.not.i.i.i170 = icmp eq ptr %366, null
   br i1 %.not.i.i.i170, label %_ZN7QStringD2Ev.exit78, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i171
@@ -5196,8 +5196,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i171:   ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit78
 
 _ZN7QStringD2Ev.exit78:                           ; preds = %368, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i171, %_ZN7QStringD2Ev.exit99, %121, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i84, %_ZN7QStringD2Ev.exit82, %109, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i76, %_ZN7QStringD2Ev.exit74, %76
-  %.533 = phi i32 [ %79, %76 ], [ %.028, %_ZN7QStringD2Ev.exit74 ], [ %.028, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i76 ], [ %.028, %109 ], [ %114, %_ZN7QStringD2Ev.exit82 ], [ %114, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i84 ], [ %114, %121 ], [ %.432, %_ZN7QStringD2Ev.exit99 ], [ %.432, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i171 ], [ %.432, %368 ]
-  %.5 = phi ptr [ %78, %76 ], [ %.0, %_ZN7QStringD2Ev.exit74 ], [ %.0, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i76 ], [ %.0, %109 ], [ %113, %_ZN7QStringD2Ev.exit82 ], [ %113, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i84 ], [ %113, %121 ], [ %.4, %_ZN7QStringD2Ev.exit99 ], [ %.4, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i171 ], [ %.4, %368 ]
+  %.028 = phi i32 [ %79, %76 ], [ %.129, %_ZN7QStringD2Ev.exit74 ], [ %.129, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i76 ], [ %.129, %109 ], [ %114, %_ZN7QStringD2Ev.exit82 ], [ %114, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i84 ], [ %114, %121 ], [ %.230, %_ZN7QStringD2Ev.exit99 ], [ %.230, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i171 ], [ %.230, %368 ]
+  %.0 = phi ptr [ %78, %76 ], [ %.1, %_ZN7QStringD2Ev.exit74 ], [ %.1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i76 ], [ %.1, %109 ], [ %113, %_ZN7QStringD2Ev.exit82 ], [ %113, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i84 ], [ %113, %121 ], [ %.2, %_ZN7QStringD2Ev.exit99 ], [ %.2, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i171 ], [ %.2, %368 ]
   %370 = load ptr, ptr %8, align 16
   %.not.i.i.i174 = icmp eq ptr %370, null
   br i1 %.not.i.i.i174, label %_ZN7QStringD2Ev.exit177, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i175
@@ -5213,8 +5213,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i175:   ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit177
 
 _ZN7QStringD2Ev.exit177:                          ; preds = %_ZN7QStringD2Ev.exit78, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i175, %372
-  %374 = insertvalue { ptr, i32 } poison, ptr %.5, 0
-  %375 = insertvalue { ptr, i32 } %374, i32 %.533, 1
+  %374 = insertvalue { ptr, i32 } poison, ptr %.0, 0
+  %375 = insertvalue { ptr, i32 } %374, i32 %.028, 1
   resume { ptr, i32 } %375
 
 376:                                              ; preds = %_ZN7QStringD2Ev.exit155
@@ -5591,7 +5591,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %75
           to label %.thread46 unwind label %75
 
 .thread46:                                        ; preds = %72, %83, %81, %.thread48, %85
-  %.1 = phi i32 [ %59, %85 ], [ %93, %.thread48 ], [ %spec.select, %83 ], [ -1, %81 ], [ -1, %72 ]
+  %.2 = phi i32 [ %59, %85 ], [ %93, %.thread48 ], [ %spec.select, %83 ], [ -1, %81 ], [ -1, %72 ]
   %94 = load ptr, ptr %4, align 8
   %.not.i.i.i34 = icmp eq ptr %94, null
   br i1 %.not.i.i.i34, label %_ZN7QStringD2Ev.exit37, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i35
@@ -5638,11 +5638,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i43:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit45
 
 _ZN7QStringD2Ev.exit41:                           ; preds = %100, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i39, %_ZN7QStringD2Ev.exit37, %43, %31
-  %.2 = phi i32 [ %38, %31 ], [ %54, %43 ], [ %.1, %_ZN7QStringD2Ev.exit37 ], [ %.1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i39 ], [ %.1, %100 ]
+  %.019 = phi i32 [ %38, %31 ], [ %54, %43 ], [ %.2, %_ZN7QStringD2Ev.exit37 ], [ %.2, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i39 ], [ %.2, %100 ]
   %106 = load i32, ptr @_ZN15PacketListModel11sort_order_E, align 4
   %107 = icmp eq i32 %106, 0
-  %108 = icmp slt i32 %.2, 0
-  %109 = icmp sgt i32 %.2, 0
+  %108 = icmp slt i32 %.019, 0
+  %109 = icmp sgt i32 %.019, 0
   %.0 = select i1 %107, i1 %108, i1 %109
   ret i1 %.0
 
@@ -7194,10 +7194,10 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   br i1 %.not.i.i, label %83, label %_ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit, !llvm.loop !97
 
 _ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit: ; preds = %87, %83, %75
-  %.sroa.0.1 = phi ptr [ %1, %75 ], [ null, %83 ], [ %1, %87 ]
-  %.sroa.4.1 = phi i64 [ %2, %75 ], [ 0, %83 ], [ %85, %87 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.1, 1
+  %.sroa.0.0 = phi ptr [ %1, %75 ], [ null, %83 ], [ %1, %87 ]
+  %.sroa.4.0 = phi i64 [ %2, %75 ], [ 0, %83 ], [ %85, %87 ]
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
 
 94:                                               ; preds = %58

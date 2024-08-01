@@ -1564,9 +1564,9 @@ if.end100:                                        ; preds = %cleanup.thread, %_Z
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then33, %if.end23, %if.end, %if.end100
-  %retval.sroa.0.1 = phi i32 [ 1, %if.end100 ], [ 0, %cleanup ], [ 0, %if.end ], [ 0, %if.end23 ], [ 0, %if.then33 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.end100 ], [ 0, %cleanup ], [ 0, %if.end ], [ 0, %if.end23 ], [ 0, %if.then33 ]
   %retval.sroa.7.0 = phi i64 [ %retval.sroa.0.0.copyload.i39, %if.end100 ], [ undef, %cleanup ], [ undef, %if.end ], [ undef, %if.end23 ], [ undef, %if.then33 ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.7.0, 1
   ret { i32, i64 } %.fca.1.insert
 }

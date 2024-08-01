@@ -171,9 +171,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %"_ZN75_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h66f7459f4ac9173eE.exit"
 
 "_ZN75_$LT$tendril..tendril..Tendril$LT$F$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h66f7459f4ac9173eE.exit": ; preds = %48, %54
-  %.0.i = phi i1 [ true, %54 ], [ %53, %48 ]
+  %.1.i = phi i1 [ true, %54 ], [ %53, %48 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  ret i1 %.0.i
+  ret i1 %.1.i
 }
 
 ; Function Attrs: nonlazybind uwtable

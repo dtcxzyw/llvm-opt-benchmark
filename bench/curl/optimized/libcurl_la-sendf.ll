@@ -153,19 +153,19 @@ if.then5.i:                                       ; preds = %if.then2.i
 
 if.end7.i:                                        ; preds = %if.then5.i, %if.then2.i
   %bf.load10.i = phi i8 [ %bf.load10.pre.i, %if.then5.i ], [ %bf.load.i, %if.then2.i ]
-  %size.addr.0.i = phi i64 [ %sub.i, %if.then5.i ], [ %blen, %if.then2.i ]
+  %size.addr.1.i = phi i64 [ %sub.i, %if.then5.i ], [ %blen, %if.then2.i ]
   %bf.clear11.i = and i8 %bf.load10.i, -2
   store i8 %bf.clear11.i, ptr %prev_block_had_trailing_cr.i, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end7.i, %if.end.i
-  %size.addr.1.i = phi i64 [ %size.addr.0.i, %if.end7.i ], [ %blen, %if.end.i ]
-  %call.i = tail call ptr @memchr(ptr noundef nonnull %buf, i32 noundef 13, i64 noundef %size.addr.1.i) #10
+  %size.addr.0.i = phi i64 [ %size.addr.1.i, %if.end7.i ], [ %blen, %if.end.i ]
+  %call.i = tail call ptr @memchr(ptr noundef nonnull %buf, i32 noundef 13, i64 noundef %size.addr.0.i) #10
   %tobool13.not.i = icmp eq ptr %call.i, null
   br i1 %tobool13.not.i, label %do.end9, label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %if.end12.i
-  %add.ptr15.i = getelementptr inbounds i8, ptr %buf, i64 %size.addr.1.i
+  %add.ptr15.i = getelementptr inbounds i8, ptr %buf, i64 %size.addr.0.i
   %add.ptr16.i = getelementptr inbounds i8, ptr %add.ptr15.i, i64 -1
   %cmp1740.i = icmp ult ptr %call.i, %add.ptr16.i
   br i1 %cmp1740.i, label %while.body.lr.ph.i, label %while.end.i
@@ -252,7 +252,7 @@ if.end56.i:                                       ; preds = %if.then55.i, %if.en
   br label %do.end9
 
 do.end9:                                          ; preds = %if.end56.i, %if.end12.i, %if.then, %land.lhs.true3, %land.lhs.true, %entry
-  %blen.addr.0 = phi i64 [ %blen, %land.lhs.true3 ], [ %blen, %land.lhs.true ], [ %blen, %entry ], [ %sub.ptr.sub.i, %if.end56.i ], [ %blen, %if.then ], [ %size.addr.1.i, %if.end12.i ]
+  %blen.addr.0 = phi i64 [ %blen, %land.lhs.true3 ], [ %blen, %land.lhs.true ], [ %blen, %entry ], [ %sub.ptr.sub.i, %if.end56.i ], [ %blen, %if.then ], [ %size.addr.0.i, %if.end12.i ]
   %writer_stack = getelementptr inbounds i8, ptr %data, i64 336
   %10 = load ptr, ptr %writer_stack, align 8
   %tobool10.not = icmp eq ptr %10, null
@@ -500,8 +500,8 @@ for.end:                                          ; preds = %for.body
 
 for.body16:                                       ; preds = %for.end, %if.end
   %indvars.iv24 = phi i64 [ 0, %for.end ], [ %indvars.iv.next25, %if.end ]
-  %result.022 = phi i32 [ 0, %for.end ], [ %result.1, %if.end ]
-  %tobool17.not = icmp eq i32 %result.022, 0
+  %result.122 = phi i32 [ 0, %for.end ], [ %result.2, %if.end ]
+  %tobool17.not = icmp eq i32 %result.122, 0
   br i1 %tobool17.not, label %if.then18, label %if.end
 
 if.then18:                                        ; preds = %for.body16
@@ -518,7 +518,7 @@ if.then18:                                        ; preds = %for.body16
   br label %if.end
 
 if.end:                                           ; preds = %if.then18, %for.body16
-  %result.1 = phi i32 [ %result.022, %for.body16 ], [ %call31, %if.then18 ]
+  %result.2 = phi i32 [ %result.122, %for.body16 ], [ %call31, %if.then18 ]
   %arrayidx33 = getelementptr inbounds [3 x %struct.tempbuf], ptr %writebuf, i64 0, i64 %indvars.iv24
   call void @Curl_dyn_free(ptr noundef nonnull %arrayidx33) #9
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
@@ -526,8 +526,8 @@ if.end:                                           ; preds = %if.then18, %for.bod
   br i1 %exitcond.not, label %if.end38, label %for.body16, !llvm.loop !8
 
 if.end38:                                         ; preds = %if.end, %entry
-  %result.2 = phi i32 [ 0, %entry ], [ %result.1, %if.end ]
-  ret i32 %result.2
+  %result.0 = phi i32 [ 0, %entry ], [ %result.2, %if.end ]
+  ret i32 %result.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1390,8 +1390,8 @@ if.then38:                                        ; preds = %get_max_body_write_
 
 if.end45:                                         ; preds = %get_max_body_write_len.exit, %if.then38, %if.end27
   %bf.load61 = phi i16 [ %bf.set43, %if.then38 ], [ %bf.load16, %get_max_body_write_len.exit ], [ %bf.load16, %if.end27 ]
-  %excess_len.1 = phi i64 [ %spec.select, %if.then38 ], [ %spec.select, %get_max_body_write_len.exit ], [ 0, %if.end27 ]
-  %nwrite.1 = phi i64 [ %spec.select59, %if.then38 ], [ %spec.select59, %get_max_body_write_len.exit ], [ %nbytes, %if.end27 ]
+  %excess_len.0 = phi i64 [ %spec.select, %if.then38 ], [ %spec.select, %get_max_body_write_len.exit ], [ 0, %if.end27 ]
+  %nwrite.0 = phi i64 [ %spec.select59, %if.then38 ], [ %spec.select59, %get_max_body_write_len.exit ], [ %nbytes, %if.end27 ]
   %max_filesize = getelementptr inbounds i8, ptr %data, i64 1768
   %12 = load i64, ptr %max_filesize, align 8
   switch i64 %12, label %if.then.i63 [
@@ -1407,11 +1407,11 @@ if.then.i63:                                      ; preds = %if.end45
 
 get_max_body_write_len.exit68:                    ; preds = %if.end45, %if.then.i63
   %retval.0.i67 = phi i64 [ %.sub.i66, %if.then.i63 ], [ %12, %if.end45 ]
-  %spec.select60 = tail call i64 @llvm.umin.i64(i64 %nwrite.1, i64 %retval.0.i67)
+  %spec.select60 = tail call i64 @llvm.umin.i64(i64 %nwrite.0, i64 %retval.0.i67)
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end45, %get_max_body_write_len.exit68
-  %nwrite.2 = phi i64 [ %nwrite.1, %if.end45 ], [ %spec.select60, %get_max_body_write_len.exit68 ]
+  %nwrite.2 = phi i64 [ %nwrite.0, %if.end45 ], [ %spec.select60, %get_max_body_write_len.exit68 ]
   %14 = load i64, ptr %bytecount, align 8
   %add = add i64 %14, %nwrite.2
   store i64 %add, ptr %bytecount, align 8
@@ -1450,7 +1450,7 @@ if.end74:                                         ; preds = %Curl_cwriter_write.
   br i1 %tobool78.not, label %if.end80, label %return
 
 if.end80:                                         ; preds = %if.end74
-  %tobool81.not = icmp eq i64 %excess_len.1, 0
+  %tobool81.not = icmp eq i64 %excess_len.0, 0
   br i1 %tobool81.not, label %if.else, label %if.then82
 
 if.then82:                                        ; preds = %if.end80
@@ -1470,7 +1470,7 @@ if.then100:                                       ; preds = %land.lhs.true93
   %23 = load i64, ptr %req, align 8
   %24 = load i64, ptr %maxdownload, align 8
   %25 = load i64, ptr %bytecount, align 8
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.6, i64 noundef %excess_len.1, i64 noundef %23, i64 noundef %24, i64 noundef %25) #9
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.6, i64 noundef %excess_len.0, i64 noundef %23, i64 noundef %24, i64 noundef %25) #9
   br label %do.end107
 
 do.end107:                                        ; preds = %land.lhs.true93, %if.then100

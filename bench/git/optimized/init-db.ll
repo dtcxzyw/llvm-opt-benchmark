@@ -485,25 +485,25 @@ if.end215:                                        ; preds = %strbuf_strip_suffix
   br label %if.end217
 
 if.end217:                                        ; preds = %if.end215, %land.lhs.true204, %if.then201
-  %git_dir.0 = phi ptr [ %call216, %if.end215 ], [ %spec.store.select, %land.lhs.true204 ], [ %spec.store.select, %if.then201 ]
+  %git_dir.1 = phi ptr [ %call216, %if.end215 ], [ %spec.store.select, %land.lhs.true204 ], [ %spec.store.select, %if.then201 ]
   call void @strbuf_release(ptr noundef nonnull %sb) #13
   br label %if.end218
 
 if.end218:                                        ; preds = %if.end217, %if.end196
-  %git_dir.1 = phi ptr [ %git_dir.0, %if.end217 ], [ %spec.store.select, %if.end196 ]
+  %git_dir.0 = phi ptr [ %git_dir.1, %if.end217 ], [ %spec.store.select, %if.end196 ]
   %23 = load i32, ptr @is_bare_repository_cfg, align 4
   %cmp219 = icmp slt i32 %23, 0
   br i1 %cmp219, label %if.then221, label %if.end223
 
 if.then221:                                       ; preds = %if.end218
-  %24 = load i8, ptr %git_dir.1, align 1
+  %24 = load i8, ptr %git_dir.0, align 1
   %25 = zext i8 %24 to i32
   %26 = sub nsw i32 46, %25
   %.not.i = icmp eq i8 %24, 46
   br i1 %.not.i, label %sub_1.i, label %entry.tail.i
 
 sub_1.i:                                          ; preds = %if.then221
-  %27 = getelementptr inbounds i8, ptr %git_dir.1, i64 1
+  %27 = getelementptr inbounds i8, ptr %git_dir.0, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = sub nsw i32 0, %29
@@ -516,18 +516,18 @@ entry.tail.i:                                     ; preds = %sub_1.i, %if.then22
 
 if.end.i:                                         ; preds = %entry.tail.i
   %call1.i = call ptr @xgetcwd() #13
-  %call2.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %git_dir.1, ptr noundef nonnull dereferenceable(1) %call1.i) #16
+  %call2.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %git_dir.0, ptr noundef nonnull dereferenceable(1) %call1.i) #16
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   call void @free(ptr noundef %call1.i) #13
   br i1 %tobool3.not.i, label %guess_repository_type.exit, label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i
-  %call7.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %git_dir.1, ptr noundef nonnull dereferenceable(5) @.str.32) #16
+  %call7.i = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %git_dir.0, ptr noundef nonnull dereferenceable(5) @.str.32) #16
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %guess_repository_type.exit, label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end6.i
-  %call11.i = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %git_dir.1, i32 noundef 47) #16
+  %call11.i = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %git_dir.0, i32 noundef 47) #16
   %tobool12.not.i = icmp eq ptr %call11.i, null
   br i1 %tobool12.not.i, label %if.end16.i, label %land.lhs.true.i
 
@@ -550,15 +550,15 @@ if.end223:                                        ; preds = %guess_repository_ty
   br i1 %tobool224.not, label %if.then225, label %if.else247
 
 if.then225:                                       ; preds = %if.end223
-  %call226 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %git_dir.1, i32 noundef 47) #16
+  %call226 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %git_dir.0, i32 noundef 47) #16
   %tobool227.not = icmp eq ptr %call226, null
   br i1 %tobool227.not, label %if.end231, label %if.then228
 
 if.then228:                                       ; preds = %if.then225
   %sub.ptr.lhs.cast = ptrtoint ptr %call226 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %git_dir.1 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %git_dir.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call229 = call ptr @xstrndup(ptr noundef %git_dir.1, i64 noundef %sub.ptr.sub) #13
+  %call229 = call ptr @xstrndup(ptr noundef %git_dir.0, i64 noundef %sub.ptr.sub) #13
   %call230 = call ptr @real_pathdup(ptr noundef %call229, i32 noundef 1) #13
   store ptr %call230, ptr @git_work_tree_cfg, align 8
   call void @free(ptr noundef %call229) #13
@@ -623,7 +623,7 @@ do.end261:                                        ; preds = %if.end251, %if.then
   %38 = load ptr, ptr %template_dir, align 8
   %39 = load ptr, ptr %initial_branch, align 8
   %40 = load i32, ptr %init_shared_repository, align 4
-  %call262 = call i32 @init_db(ptr noundef %git_dir.1, ptr noundef %37, ptr noundef %38, i32 noundef %hash_algo.0, i32 noundef %ref_storage_format.0, ptr noundef %39, i32 noundef %40, i32 noundef %or) #13
+  %call262 = call i32 @init_db(ptr noundef %git_dir.0, ptr noundef %37, ptr noundef %38, i32 noundef %hash_algo.0, i32 noundef %ref_storage_format.0, ptr noundef %39, i32 noundef %40, i32 noundef %or) #13
   ret i32 %call262
 }
 

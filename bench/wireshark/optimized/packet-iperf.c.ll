@@ -560,10 +560,10 @@ define internal i32 @dissect_iperf2_tcp(ptr noundef %0, ptr nocapture noundef %1
 
 .split.us:                                        ; preds = %68, %.thread280
   %.0181.us = phi i32 [ %126, %.thread280 ], [ 1, %68 ]
-  %.0118180.us = phi i32 [ %.5175.us, %.thread280 ], [ 24, %68 ]
-  %.0119179.us = phi i32 [ %.1120.us205, %.thread280 ], [ 0, %68 ]
-  %.0122178.us = phi i32 [ %.1123.us202242, %.thread280 ], [ 0, %68 ]
-  %.0125177.us = phi i32 [ %.6169.us, %.thread280 ], [ 0, %68 ]
+  %.0118180.us = phi i32 [ %.2175.us, %.thread280 ], [ 24, %68 ]
+  %.0119179.us = phi i32 [ %.2121.us205, %.thread280 ], [ 0, %68 ]
+  %.0122178.us = phi i32 [ %.2124.us202242, %.thread280 ], [ 0, %68 ]
+  %.0125177.us = phi i32 [ %.2127169.us, %.thread280 ], [ 0, %68 ]
   %75 = icmp eq i32 %.0181.us, 2
   br i1 %75, label %.thread.us, label %76
 
@@ -580,22 +580,22 @@ define internal i32 @dissect_iperf2_tcp(ptr noundef %0, ptr nocapture noundef %1
   br i1 %.not133, label %.thread, label %.thread149.us
 
 .thread149.us:                                    ; preds = %.thread.us, %77
-  %.2127148151.us = phi i32 [ %.0125177.us, %77 ], [ %80, %.thread.us ]
-  %81 = add i32 %.2127148151.us, 8
+  %.3128148151.us = phi i32 [ %.0125177.us, %77 ], [ %80, %.thread.us ]
+  %81 = add i32 %.3128148151.us, 8
   %82 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %81, i32 noundef 0) #5
   %83 = zext i16 %82 to i32
-  %84 = add i32 %.2127148151.us, 10
+  %84 = add i32 %.3128148151.us, 10
   %85 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %84, i32 noundef 0) #5
   %86 = zext i16 %85 to i32
-  %87 = tail call fastcc i32 @dissect_iperf2_extended_header(ptr noundef %0, ptr noundef %28, i32 noundef %.2127148151.us)
-  %88 = add i32 %87, %.2127148151.us
+  %87 = tail call fastcc i32 @dissect_iperf2_extended_header(ptr noundef %0, ptr noundef %28, i32 noundef %.3128148151.us)
+  %88 = add i32 %87, %.3128148151.us
   br label %89
 
 89:                                               ; preds = %.thread149.us, %76
-  %.3128.us = phi i32 [ %88, %.thread149.us ], [ %.0125177.us, %76 ]
-  %.1123.us = phi i32 [ %83, %.thread149.us ], [ %.0122178.us, %76 ]
-  %.1120.us = phi i32 [ %86, %.thread149.us ], [ %.0119179.us, %76 ]
-  %90 = and i32 %.1123.us, 4688
+  %.4129.us = phi i32 [ %88, %.thread149.us ], [ %.0125177.us, %76 ]
+  %.2124.us = phi i32 [ %83, %.thread149.us ], [ %.0122178.us, %76 ]
+  %.2121.us = phi i32 [ %86, %.thread149.us ], [ %.0119179.us, %76 ]
+  %90 = and i32 %.2124.us, 4688
   %or.cond143.us = icmp eq i32 %90, 0
   br i1 %or.cond143.us, label %99, label %94
 
@@ -615,27 +615,27 @@ define internal i32 @dissect_iperf2_tcp(ptr noundef %0, ptr nocapture noundef %1
   br i1 %95, label %.thread222, label %.thread207
 
 .thread207:                                       ; preds = %.thread, %94
-  %.3128.us200215 = phi i32 [ %.3128.us, %94 ], [ %80, %.thread ]
-  %.1123.us201214 = phi i32 [ %.1123.us, %94 ], [ %.0122178.us, %.thread ]
-  %.1120.us203213 = phi i32 [ %.1120.us, %94 ], [ %.0119179.us, %.thread ]
-  %96 = tail call fastcc i32 @dissect_iperf2_fq_start_time_header(ptr noundef %0, ptr noundef %28, i32 noundef %.3128.us200215)
-  %97 = add i32 %96, %.3128.us200215
+  %.4129.us200215 = phi i32 [ %.4129.us, %94 ], [ %80, %.thread ]
+  %.2124.us201214 = phi i32 [ %.2124.us, %94 ], [ %.0122178.us, %.thread ]
+  %.2121.us203213 = phi i32 [ %.2121.us, %94 ], [ %.0119179.us, %.thread ]
+  %96 = tail call fastcc i32 @dissect_iperf2_fq_start_time_header(ptr noundef %0, ptr noundef %28, i32 noundef %.4129.us200215)
+  %97 = add i32 %96, %.4129.us200215
   br label %99
 
 .thread222:                                       ; preds = %.thread216, %94
-  %.3128.us200230 = phi i32 [ %.3128.us, %94 ], [ %.0125177.us, %.thread216 ]
-  %.1123.us201229 = phi i32 [ %.1123.us, %94 ], [ %.0122178.us, %.thread216 ]
-  %.1120.us203228 = phi i32 [ %.1120.us, %94 ], [ %.0119179.us, %.thread216 ]
-  %.2.us206227 = phi i32 [ %.0118180.us, %94 ], [ %91, %.thread216 ]
-  %98 = add i32 %.2.us206227, 20
+  %.4129.us200230 = phi i32 [ %.4129.us, %94 ], [ %.0125177.us, %.thread216 ]
+  %.2124.us201229 = phi i32 [ %.2124.us, %94 ], [ %.0122178.us, %.thread216 ]
+  %.2121.us203228 = phi i32 [ %.2121.us, %94 ], [ %.0119179.us, %.thread216 ]
+  %.3.us206227 = phi i32 [ %.0118180.us, %94 ], [ %91, %.thread216 ]
+  %98 = add i32 %.3.us206227, 20
   br label %99
 
 99:                                               ; preds = %.thread216, %.thread222, %.thread207, %89
-  %.1120.us204 = phi i32 [ %.1120.us203228, %.thread222 ], [ %.1120.us203213, %.thread207 ], [ %.1120.us, %89 ], [ %.0119179.us, %.thread216 ]
-  %.1123.us202 = phi i32 [ %.1123.us201229, %.thread222 ], [ %.1123.us201214, %.thread207 ], [ %.1123.us, %89 ], [ %.0122178.us, %.thread216 ]
-  %.4129.us = phi i32 [ %.3128.us200230, %.thread222 ], [ %97, %.thread207 ], [ %.3128.us, %89 ], [ %.0125177.us, %.thread216 ]
-  %.3.us = phi i32 [ %98, %.thread222 ], [ %.0118180.us, %.thread207 ], [ %.0118180.us, %89 ], [ %91, %.thread216 ]
-  %100 = and i32 %.1123.us202, 11264
+  %.2121.us204 = phi i32 [ %.2121.us203228, %.thread222 ], [ %.2121.us203213, %.thread207 ], [ %.2121.us, %89 ], [ %.0119179.us, %.thread216 ]
+  %.2124.us202 = phi i32 [ %.2124.us201229, %.thread222 ], [ %.2124.us201214, %.thread207 ], [ %.2124.us, %89 ], [ %.0122178.us, %.thread216 ]
+  %.5130.us = phi i32 [ %.4129.us200230, %.thread222 ], [ %97, %.thread207 ], [ %.4129.us, %89 ], [ %.0125177.us, %.thread216 ]
+  %.4.us = phi i32 [ %98, %.thread222 ], [ %.0118180.us, %.thread207 ], [ %.0118180.us, %89 ], [ %91, %.thread216 ]
+  %100 = and i32 %.2124.us202, 11264
   %or.cond145.us = icmp eq i32 %100, 0
   br i1 %or.cond145.us, label %108, label %102
 
@@ -649,26 +649,26 @@ define internal i32 @dissect_iperf2_tcp(ptr noundef %0, ptr nocapture noundef %1
   br i1 %103, label %.thread152.us, label %.thread249
 
 .thread249:                                       ; preds = %.thread231, %102
-  %.1120.us204237257 = phi i32 [ %.1120.us204, %102 ], [ %.0119179.us, %.thread231 ]
-  %.1123.us202244256 = phi i32 [ %.1123.us202, %102 ], [ %.0122178.us, %.thread231 ]
-  %.4129.us246255 = phi i32 [ %.4129.us, %102 ], [ %80, %.thread231 ]
-  %.3.us247254 = phi i32 [ %.3.us, %102 ], [ %.0118180.us, %.thread231 ]
-  %104 = tail call fastcc i32 @dissect_iperf2_isoch_header(ptr noundef %0, ptr noundef %28, i32 noundef %.4129.us246255)
-  %105 = add i32 %104, %.4129.us246255
+  %.2121.us204237257 = phi i32 [ %.2121.us204, %102 ], [ %.0119179.us, %.thread231 ]
+  %.2124.us202244256 = phi i32 [ %.2124.us202, %102 ], [ %.0122178.us, %.thread231 ]
+  %.5130.us246255 = phi i32 [ %.5130.us, %102 ], [ %80, %.thread231 ]
+  %.4.us247254 = phi i32 [ %.4.us, %102 ], [ %.0118180.us, %.thread231 ]
+  %104 = tail call fastcc i32 @dissect_iperf2_isoch_header(ptr noundef %0, ptr noundef %28, i32 noundef %.5130.us246255)
+  %105 = add i32 %104, %.5130.us246255
   br label %108
 
 .thread152.us:                                    ; preds = %102
-  %106 = add i32 %.3.us, 40
-  %107 = and i32 %.1120.us204, 32768
+  %106 = add i32 %.4.us, 40
+  %107 = and i32 %.2121.us204, 32768
   %.not141155.us = icmp eq i32 %107, 0
   br i1 %.not141155.us, label %.thread163.us, label %.thread158.us
 
 108:                                              ; preds = %.thread249, %99
-  %.3.us248 = phi i32 [ %.3.us247254, %.thread249 ], [ %.3.us, %99 ]
-  %.1123.us202245 = phi i32 [ %.1123.us202244256, %.thread249 ], [ %.1123.us202, %99 ]
-  %.1120.us204238 = phi i32 [ %.1120.us204237257, %.thread249 ], [ %.1120.us204, %99 ]
-  %.5130.us = phi i32 [ %105, %.thread249 ], [ %.4129.us, %99 ]
-  %109 = and i32 %.1120.us204238, 32768
+  %.4.us248 = phi i32 [ %.4.us247254, %.thread249 ], [ %.4.us, %99 ]
+  %.2124.us202245 = phi i32 [ %.2124.us202244256, %.thread249 ], [ %.2124.us202, %99 ]
+  %.2121.us204238 = phi i32 [ %.2121.us204237257, %.thread249 ], [ %.2121.us204, %99 ]
+  %.6.us = phi i32 [ %105, %.thread249 ], [ %.5130.us, %99 ]
+  %109 = and i32 %.2121.us204238, 32768
   %.not141.us = icmp eq i32 %109, 0
   %110 = icmp eq i32 %.0181.us, 1
   br i1 %.not141.us, label %122, label %112
@@ -682,46 +682,46 @@ define internal i32 @dissect_iperf2_tcp(ptr noundef %0, ptr nocapture noundef %1
   br i1 %110, label %.thread158.us, label %.thread271
 
 .thread271:                                       ; preds = %.thread258, %112
-  %.3.us248264279 = phi i32 [ %.3.us248, %112 ], [ %.0118180.us, %.thread258 ]
-  %.1123.us202245266278 = phi i32 [ %.1123.us202245, %112 ], [ %.0122178.us, %.thread258 ]
-  %.1120.us204238268277 = phi i32 [ %.1120.us204238, %112 ], [ %.0119179.us, %.thread258 ]
-  %.5130.us270276 = phi i32 [ %.5130.us, %112 ], [ %80, %.thread258 ]
+  %.4.us248264279 = phi i32 [ %.4.us248, %112 ], [ %.0118180.us, %.thread258 ]
+  %.2124.us202245266278 = phi i32 [ %.2124.us202245, %112 ], [ %.0122178.us, %.thread258 ]
+  %.2121.us204238268277 = phi i32 [ %.2121.us204238, %112 ], [ %.0119179.us, %.thread258 ]
+  %.6.us270276 = phi i32 [ %.6.us, %112 ], [ %80, %.thread258 ]
   %113 = load i32, ptr @ett_cca_hdr, align 4
-  %114 = tail call ptr @proto_tree_add_subtree(ptr noundef %28, ptr noundef %0, i32 noundef %.5130.us270276, i32 noundef 34, i32 noundef %113, ptr noundef null, ptr noundef nonnull @.str.242) #5
+  %114 = tail call ptr @proto_tree_add_subtree(ptr noundef %28, ptr noundef %0, i32 noundef %.6.us270276, i32 noundef 34, i32 noundef %113, ptr noundef null, ptr noundef nonnull @.str.242) #5
   %115 = load i32, ptr @hf_iperf2_cca_len, align 4
-  %116 = tail call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %115, ptr noundef %0, i32 noundef %.5130.us270276, i32 noundef 2, i32 noundef 0) #5
-  %117 = add i32 %.5130.us270276, 2
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %115, ptr noundef %0, i32 noundef %.6.us270276, i32 noundef 2, i32 noundef 0) #5
+  %117 = add i32 %.6.us270276, 2
   %118 = load i32, ptr @hf_iperf2_cca_value, align 4
   %119 = tail call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %118, ptr noundef %0, i32 noundef %117, i32 noundef 32, i32 noundef 0) #5
-  %120 = add i32 %.5130.us270276, 34
+  %120 = add i32 %.6.us270276, 34
   br label %.thread280
 
 .thread158.us:                                    ; preds = %112, %.thread152.us
-  %.1123.us202241 = phi i32 [ %.1123.us202245, %112 ], [ %.1123.us202, %.thread152.us ]
-  %.1120.us204240 = phi i32 [ %.1120.us204238, %112 ], [ %.1120.us204, %.thread152.us ]
-  %.5130156162.us = phi i32 [ %.5130.us, %112 ], [ %.4129.us, %.thread152.us ]
-  %.4157161.us = phi i32 [ %.3.us248, %112 ], [ %106, %.thread152.us ]
-  %121 = add i32 %.4157161.us, 34
+  %.2124.us202241 = phi i32 [ %.2124.us202245, %112 ], [ %.2124.us202, %.thread152.us ]
+  %.2121.us204240 = phi i32 [ %.2121.us204238, %112 ], [ %.2121.us204, %.thread152.us ]
+  %.6156162.us = phi i32 [ %.6.us, %112 ], [ %.5130.us, %.thread152.us ]
+  %.5157161.us = phi i32 [ %.4.us248, %112 ], [ %106, %.thread152.us ]
+  %121 = add i32 %.5157161.us, 34
   br label %.thread163.us
 
 122:                                              ; preds = %108
   br i1 %110, label %.thread163.us, label %.thread280
 
 .thread163.us:                                    ; preds = %122, %.thread158.us, %.thread152.us
-  %.1123.us202243 = phi i32 [ %.1123.us202245, %122 ], [ %.1123.us202, %.thread152.us ], [ %.1123.us202241, %.thread158.us ]
-  %.1120.us204239 = phi i32 [ %.1120.us204238, %122 ], [ %.1120.us204, %.thread152.us ], [ %.1120.us204240, %.thread158.us ]
-  %.5174.us = phi i32 [ %.3.us248, %122 ], [ %106, %.thread152.us ], [ %121, %.thread158.us ]
-  %.6168.us = phi i32 [ %.5130.us, %122 ], [ %.4129.us, %.thread152.us ], [ %.5130156162.us, %.thread158.us ]
+  %.2124.us202243 = phi i32 [ %.2124.us202245, %122 ], [ %.2124.us202, %.thread152.us ], [ %.2124.us202241, %.thread158.us ]
+  %.2121.us204239 = phi i32 [ %.2121.us204238, %122 ], [ %.2121.us204, %.thread152.us ], [ %.2121.us204240, %.thread158.us ]
+  %.2174.us = phi i32 [ %.4.us248, %122 ], [ %106, %.thread152.us ], [ %121, %.thread158.us ]
+  %.2127168.us = phi i32 [ %.6.us, %122 ], [ %.5130.us, %.thread152.us ], [ %.6156162.us, %.thread158.us ]
   %123 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %124 = sub i32 %123, %.6168.us
-  %125 = icmp ult i32 %124, %.5174.us
+  %124 = sub i32 %123, %.2127168.us
+  %125 = icmp ult i32 %124, %.2174.us
   br i1 %125, label %.split185.us, label %.thread280
 
 .thread280:                                       ; preds = %.thread271, %.thread163.us, %122
-  %.1123.us202242 = phi i32 [ %.1123.us202245, %122 ], [ %.1123.us202243, %.thread163.us ], [ %.1123.us202245266278, %.thread271 ]
-  %.1120.us205 = phi i32 [ %.1120.us204238, %122 ], [ %.1120.us204239, %.thread163.us ], [ %.1120.us204238268277, %.thread271 ]
-  %.5175.us = phi i32 [ %.3.us248, %122 ], [ %.5174.us, %.thread163.us ], [ %.3.us248264279, %.thread271 ]
-  %.6169.us = phi i32 [ %.5130.us, %122 ], [ %.6168.us, %.thread163.us ], [ %120, %.thread271 ]
+  %.2124.us202242 = phi i32 [ %.2124.us202245, %122 ], [ %.2124.us202243, %.thread163.us ], [ %.2124.us202245266278, %.thread271 ]
+  %.2121.us205 = phi i32 [ %.2121.us204238, %122 ], [ %.2121.us204239, %.thread163.us ], [ %.2121.us204238268277, %.thread271 ]
+  %.2175.us = phi i32 [ %.4.us248, %122 ], [ %.2174.us, %.thread163.us ], [ %.4.us248264279, %.thread271 ]
+  %.2127169.us = phi i32 [ %.6.us, %122 ], [ %.2127168.us, %.thread163.us ], [ %120, %.thread271 ]
   %126 = add nuw nsw i32 %.0181.us, 1
   %exitcond194.not = icmp eq i32 %126, 3
   br i1 %exitcond194.not, label %.split188.us, label %.split.us, !llvm.loop !6
@@ -930,8 +930,8 @@ proto_item_set_generated.exit105.i:               ; preds = %212, %209, %proto_i
   br i1 %251, label %.split185.us, label %259
 
 .split185.us:                                     ; preds = %.thread163, %.thread163.us
-  %.us-phi = phi i32 [ %.5174.us, %.thread163.us ], [ 64, %.thread163 ]
-  %.us-phi186 = phi i32 [ %.6168.us, %.thread163.us ], [ %.0125177, %.thread163 ]
+  %.us-phi = phi i32 [ %.2174.us, %.thread163.us ], [ 64, %.thread163 ]
+  %.us-phi186 = phi i32 [ %.2127168.us, %.thread163.us ], [ %.0125177, %.thread163 ]
   %252 = call i32 @tvb_reported_length(ptr noundef %0) #5
   %253 = add i32 %252, %.us-phi186
   %254 = getelementptr inbounds i8, ptr %1, i64 332
@@ -951,7 +951,7 @@ proto_item_set_generated.exit105.i:               ; preds = %212, %209, %proto_i
   br i1 %exitcond.not, label %.split188.us, label %.split, !llvm.loop !6
 
 .split188.us:                                     ; preds = %259, %.thread258, %.thread280
-  %.us-phi189 = phi i32 [ %80, %.thread258 ], [ %.6169.us, %.thread280 ], [ %.1126289, %259 ]
+  %.us-phi189 = phi i32 [ %80, %.thread258 ], [ %.2127169.us, %.thread280 ], [ %.1126289, %259 ]
   %261 = call i32 @tvb_reported_length(ptr noundef %0) #5
   %.not131 = icmp eq i32 %261, %.us-phi189
   br i1 %.not131, label %273, label %262

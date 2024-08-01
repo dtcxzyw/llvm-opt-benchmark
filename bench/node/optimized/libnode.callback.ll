@@ -1183,13 +1183,13 @@ if.end58:                                         ; preds = %if.end29
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end58, %if.then39
-  %retval.sroa.0.0 = phi ptr [ %call53, %if.then39 ], [ %call76, %if.end58 ]
+  %retval.sroa.0.1 = phi ptr [ %call53, %if.then39 ], [ %call76, %if.end58 ]
   tail call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #13
   br label %return
 
 return:                                           ; preds = %do.end22, %_ZNK4node11Environment16can_call_into_jsEv.exit, %cleanup
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ null, %_ZNK4node11Environment16can_call_into_jsEv.exit ], [ null, %do.end22 ]
-  ret ptr %retval.sroa.0.1
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.1, %cleanup ], [ null, %_ZNK4node11Environment16can_call_into_jsEv.exit ], [ null, %do.end22 ]
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

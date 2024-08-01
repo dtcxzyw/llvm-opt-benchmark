@@ -639,8 +639,8 @@ if.else:                                          ; preds = %if.end113
 
 if.end205:                                        ; preds = %for.cond118, %while.end137, %while.end196, %if.then176, %if.else
   %14 = phi i32 [ %hl.0.lcssa, %if.else ], [ %add171, %if.then176 ], [ %add171, %while.end196 ], [ %9, %while.end137 ], [ %9, %for.cond118 ]
-  %headerB.0 = phi ptr [ %call2, %if.else ], [ %call1, %if.then176 ], [ %call1, %while.end196 ], [ %call1, %while.end137 ], [ %call1, %for.cond118 ]
-  %dataB.0 = phi ptr [ %call1, %if.else ], [ %call2, %if.then176 ], [ %call2, %while.end196 ], [ %call2, %while.end137 ], [ %call2, %for.cond118 ]
+  %headerB.1 = phi ptr [ %call2, %if.else ], [ %call1, %if.then176 ], [ %call1, %while.end196 ], [ %call1, %while.end137 ], [ %call1, %for.cond118 ]
+  %dataB.1 = phi ptr [ %call1, %if.else ], [ %call2, %if.then176 ], [ %call2, %while.end196 ], [ %call2, %while.end137 ], [ %call2, %for.cond118 ]
   %bcmp87 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %buf, ptr noundef nonnull dereferenceable(9) @.str.13, i64 9)
   %cmp211.not = icmp eq i32 %bcmp87, 0
   br i1 %cmp211.not, label %lor.lhs.false213, label %if.then227
@@ -669,7 +669,7 @@ if.then227:                                       ; preds = %lor.lhs.false220, %
 
 if.end228:                                        ; preds = %lor.lhs.false220
   call void @EVP_DecodeInit(ptr noundef nonnull %ctx) #11
-  %data229 = getelementptr inbounds i8, ptr %dataB.0, i64 8
+  %data229 = getelementptr inbounds i8, ptr %dataB.1, i64 8
   %16 = load ptr, ptr %data229, align 8
   %conv231 = sext i32 %14 to i64
   %call232 = call i32 @EVP_DecodeUpdate(ptr noundef nonnull %ctx, ptr noundef %16, ptr noundef nonnull %bl, ptr noundef %16, i64 noundef %conv231) #11
@@ -704,7 +704,7 @@ if.end244:                                        ; preds = %if.end236
 if.end249:                                        ; preds = %if.end244
   %21 = load ptr, ptr %data39, align 8
   store ptr %21, ptr %name, align 8
-  %data251 = getelementptr inbounds i8, ptr %headerB.0, i64 8
+  %data251 = getelementptr inbounds i8, ptr %headerB.1, i64 8
   %22 = load ptr, ptr %data251, align 8
   store ptr %22, ptr %header, align 8
   %23 = load ptr, ptr %data229, align 8
@@ -712,16 +712,16 @@ if.end249:                                        ; preds = %if.end244
   %conv253 = sext i32 %add245 to i64
   store i64 %conv253, ptr %len, align 8
   call void @free(ptr noundef nonnull %call) #11
-  call void @free(ptr noundef %headerB.0) #11
-  call void @free(ptr noundef nonnull %dataB.0) #11
+  call void @free(ptr noundef %headerB.1) #11
+  call void @free(ptr noundef nonnull %dataB.1) #11
   br label %return
 
 err:                                              ; preds = %if.end244, %if.then243, %if.then235, %if.then227, %if.then163, %if.then112, %if.then91, %if.then50, %if.then37, %if.then8
-  %headerB.1 = phi ptr [ %call1, %if.then8 ], [ %headerB.0, %if.then227 ], [ %headerB.0, %if.then235 ], [ %headerB.0, %if.then243 ], [ %headerB.0, %if.end244 ], [ %call1, %if.then163 ], [ %call1, %if.then112 ], [ %call1, %if.then91 ], [ %call1, %if.then50 ], [ %call1, %if.then37 ]
-  %dataB.1 = phi ptr [ %call2, %if.then8 ], [ %dataB.0, %if.then227 ], [ %dataB.0, %if.then235 ], [ %dataB.0, %if.then243 ], [ %dataB.0, %if.end244 ], [ %call2, %if.then163 ], [ %call2, %if.then112 ], [ %call2, %if.then91 ], [ %call2, %if.then50 ], [ %call2, %if.then37 ]
+  %headerB.0 = phi ptr [ %call1, %if.then8 ], [ %headerB.1, %if.then227 ], [ %headerB.1, %if.then235 ], [ %headerB.1, %if.then243 ], [ %headerB.1, %if.end244 ], [ %call1, %if.then163 ], [ %call1, %if.then112 ], [ %call1, %if.then91 ], [ %call1, %if.then50 ], [ %call1, %if.then37 ]
+  %dataB.0 = phi ptr [ %call2, %if.then8 ], [ %dataB.1, %if.then227 ], [ %dataB.1, %if.then235 ], [ %dataB.1, %if.then243 ], [ %dataB.1, %if.end244 ], [ %call2, %if.then163 ], [ %call2, %if.then112 ], [ %call2, %if.then91 ], [ %call2, %if.then50 ], [ %call2, %if.then37 ]
   call void @BUF_MEM_free(ptr noundef %call) #11
-  call void @BUF_MEM_free(ptr noundef %headerB.1) #11
-  call void @BUF_MEM_free(ptr noundef %dataB.1) #11
+  call void @BUF_MEM_free(ptr noundef %headerB.0) #11
+  call void @BUF_MEM_free(ptr noundef %dataB.0) #11
   br label %return
 
 return:                                           ; preds = %err, %if.end249, %if.then
@@ -1096,7 +1096,7 @@ if.end74:                                         ; preds = %if.else, %if.else72
 
 err:                                              ; preds = %if.end74, %if.end66, %if.end36, %if.end30, %if.then27, %if.then12, %if.then7, %if.then3
   %dsize.0 = phi i32 [ 0, %if.then3 ], [ 0, %if.then7 ], [ %call5, %if.then12 ], [ %call5, %if.then27 ], [ %call5, %if.end66 ], [ %call5, %if.end36 ], [ %call5, %if.end30 ], [ %call5, %if.end74 ]
-  %ret.2 = phi i32 [ 0, %if.then3 ], [ 0, %if.then7 ], [ 0, %if.then12 ], [ 0, %if.then27 ], [ 0, %if.end66 ], [ 0, %if.end36 ], [ 0, %if.end30 ], [ %spec.select, %if.end74 ]
+  %ret.0 = phi i32 [ 0, %if.then3 ], [ 0, %if.then7 ], [ 0, %if.then12 ], [ 0, %if.then27 ], [ 0, %if.end66 ], [ 0, %if.end36 ], [ 0, %if.end30 ], [ %spec.select, %if.end74 ]
   %data.0 = phi ptr [ null, %if.then3 ], [ null, %if.then7 ], [ null, %if.then12 ], [ %call9, %if.then27 ], [ %call9, %if.end66 ], [ %call9, %if.end36 ], [ %call9, %if.end30 ], [ %call9, %if.end74 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %key, i64 noundef 64) #11
   call void @OPENSSL_cleanse(ptr noundef nonnull %iv, i64 noundef 16) #11
@@ -1112,7 +1112,7 @@ if.then87:                                        ; preds = %err
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then87, %err
-  ret i32 %ret.2
+  ret i32 %ret.0
 }
 
 declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1

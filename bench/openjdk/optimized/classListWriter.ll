@@ -1071,7 +1071,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
 
 107:                                              ; preds = %.lr.ph85, %119
   %indvars.iv95 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next96, %119 ]
-  %.284 = phi i1 [ %.049.lcssa, %.lr.ph85 ], [ %.3, %119 ]
+  %.484 = phi i1 [ %.049.lcssa, %.lr.ph85 ], [ %.5, %119 ]
   %108 = getelementptr inbounds %class.ResolvedFieldEntry, ptr %106, i64 %indvars.iv95
   %109 = getelementptr inbounds i8, ptr %108, i64 18
   %110 = load volatile i8, ptr %109, align 1
@@ -1095,7 +1095,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
   br label %119
 
 119:                                              ; preds = %111, %114
-  %.3 = phi i1 [ true, %114 ], [ %.284, %111 ]
+  %.5 = phi i1 [ true, %114 ], [ %.484, %111 ]
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %120 = load i32, ptr %103, align 8
   %121 = sext i32 %120 to i64
@@ -1108,7 +1108,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
 
 .loopexit79:                                      ; preds = %.loopexit79.loopexit, %.preheader78, %101
   %123 = phi ptr [ %100, %101 ], [ %100, %.preheader78 ], [ %.pre, %.loopexit79.loopexit ]
-  %.4 = phi i1 [ %.049.lcssa, %101 ], [ %.049.lcssa, %.preheader78 ], [ %.3, %.loopexit79.loopexit ]
+  %.3 = phi i1 [ %.049.lcssa, %101 ], [ %.049.lcssa, %.preheader78 ], [ %.5, %.loopexit79.loopexit ]
   %124 = getelementptr inbounds i8, ptr %123, i64 56
   %125 = load ptr, ptr %124, align 8
   %.not56 = icmp eq ptr %125, null
@@ -1125,7 +1125,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
 
 129:                                              ; preds = %.lr.ph89, %146
   %indvars.iv97 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next98, %146 ]
-  %.588 = phi i1 [ %.4, %.lr.ph89 ], [ %.6, %146 ]
+  %.688 = phi i1 [ %.3, %.lr.ph89 ], [ %.7, %146 ]
   %130 = getelementptr inbounds %class.ResolvedMethodEntry, ptr %128, i64 %indvars.iv97
   %131 = getelementptr inbounds i8, ptr %130, i64 23
   %132 = load volatile i8, ptr %131, align 1
@@ -1155,7 +1155,7 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
   br label %146
 
 146:                                              ; preds = %138, %141
-  %.6 = phi i1 [ true, %141 ], [ %.588, %138 ]
+  %.7 = phi i1 [ true, %141 ], [ %.688, %138 ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %147 = load i32, ptr %125, align 8
   %148 = sext i32 %147 to i64
@@ -1163,8 +1163,8 @@ _ZNK12ConstantPool17resolved_klass_atEi.exit:     ; preds = %74
   br i1 %149, label %129, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %146, %.preheader, %.loopexit79, %._crit_edge
-  %.7 = phi i1 [ %.4, %.loopexit79 ], [ %.049.lcssa, %._crit_edge ], [ %.4, %.preheader ], [ %.6, %146 ]
-  br i1 %.7, label %150, label %_ZN13GrowableArrayIbED2Ev.exit
+  %.2 = phi i1 [ %.3, %.loopexit79 ], [ %.049.lcssa, %._crit_edge ], [ %.3, %.preheader ], [ %.7, %146 ]
+  br i1 %.2, label %150, label %_ZN13GrowableArrayIbED2Ev.exit
 
 150:                                              ; preds = %.loopexit
   %151 = load ptr, ptr @_ZN15ClassListWriter15_classlist_fileE, align 8

@@ -540,11 +540,11 @@ cleanup147.critedge:                              ; preds = %if.end, %_ZN6hermes
 
 cleanup147:                                       ; preds = %if.end119, %if.end114, %if.end108, %if.end103, %if.then97, %if.else85, %if.end74, %if.end69, %if.then63, %if.end52, %if.end47, %if.then40, %cleanup147.critedge, %if.end146, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit128
   %retval.sroa.0.0 = phi i64 [ undef, %cleanup147.critedge ], [ %91, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit128 ], [ %92, %if.end146 ], [ undef, %if.then40 ], [ undef, %if.end47 ], [ undef, %if.end52 ], [ undef, %if.then63 ], [ undef, %if.end69 ], [ undef, %if.end74 ], [ undef, %if.else85 ], [ undef, %if.then97 ], [ undef, %if.end103 ], [ undef, %if.end108 ], [ undef, %if.end114 ], [ undef, %if.end119 ]
-  %retval.sroa.3.1 = phi i8 [ 0, %cleanup147.critedge ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit128 ], [ 1, %if.end146 ], [ 0, %if.then40 ], [ 0, %if.end47 ], [ 0, %if.end52 ], [ 0, %if.then63 ], [ 0, %if.end69 ], [ 0, %if.end74 ], [ 0, %if.else85 ], [ 0, %if.then97 ], [ 0, %if.end103 ], [ 0, %if.end108 ], [ 0, %if.end114 ], [ 0, %if.end119 ]
+  %retval.sroa.3.0 = phi i8 [ 0, %cleanup147.critedge ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit128 ], [ 1, %if.end146 ], [ 0, %if.then40 ], [ 0, %if.end47 ], [ 0, %if.end52 ], [ 0, %if.then63 ], [ 0, %if.end69 ], [ 0, %if.end74 ], [ 0, %if.else85 ], [ 0, %if.then97 ], [ 0, %if.end103 ], [ 0, %if.end108 ], [ 0, %if.end114 ], [ 0, %if.end119 ]
   %frombool.i = and i8 %0, 1
   store i8 %frombool.i, ptr %allowAnonFunctionType_, align 4
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.3.1, 1
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { i64, i8 } %.fca.1.insert
 }
 
@@ -995,7 +995,7 @@ if.then89:                                        ; preds = %lor.lhs.false87, %l
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then89, %lor.lhs.false87
-  %isFunction.0 = phi i8 [ 1, %if.then89 ], [ %frombool, %lor.lhs.false87 ]
+  %isFunction.1 = phi i8 [ 1, %if.then89 ], [ %frombool, %lor.lhs.false87 ]
   %51 = load ptr, ptr %params, align 8
   %Next2.i.i.i.i.i86 = getelementptr inbounds i8, ptr %45, i64 8
   store ptr %params, ptr %Next2.i.i.i.i.i86, align 8
@@ -1037,8 +1037,8 @@ lor.lhs.false101:                                 ; preds = %cond.end
 
 if.end112:                                        ; preds = %if.else91, %if.end66, %if.end90, %lor.lhs.false101
   %type.0 = phi ptr [ %42, %if.end66 ], [ %call98, %lor.lhs.false101 ], [ null, %if.end90 ], [ %45, %if.else91 ]
-  %isFunction.1 = phi i8 [ %frombool, %if.end66 ], [ %frombool, %lor.lhs.false101 ], [ %isFunction.0, %if.end90 ], [ %frombool, %if.else91 ]
-  %tobool113 = trunc nuw i8 %isFunction.1 to i1
+  %isFunction.0 = phi i8 [ %frombool, %if.end66 ], [ %frombool, %lor.lhs.false101 ], [ %isFunction.1, %if.end90 ], [ %frombool, %if.else91 ]
+  %tobool113 = trunc nuw i8 %isFunction.0 to i1
   br i1 %tobool113, label %land.lhs.true117, label %lor.lhs.false114
 
 lor.lhs.false114:                                 ; preds = %if.end112
@@ -1047,7 +1047,7 @@ lor.lhs.false114:                                 ; preds = %if.end112
   br i1 %tobool116, label %land.lhs.true117, label %if.end149
 
 land.lhs.true117:                                 ; preds = %if.else58, %lor.lhs.false101, %if.then95, %cond.end, %lor.lhs.false114, %if.end112
-  %isFunction.1219 = phi i8 [ %isFunction.1, %lor.lhs.false114 ], [ %isFunction.1, %if.end112 ], [ 1, %cond.end ], [ 1, %if.then95 ], [ 1, %lor.lhs.false101 ], [ 1, %if.else58 ]
+  %isFunction.0219 = phi i8 [ %isFunction.0, %lor.lhs.false114 ], [ %isFunction.0, %if.end112 ], [ 1, %cond.end ], [ 1, %if.then95 ], [ 1, %lor.lhs.false101 ], [ 1, %if.else58 ]
   %type.0217 = phi ptr [ %type.0, %lor.lhs.false114 ], [ %type.0, %if.end112 ], [ %call98, %cond.end ], [ %53, %if.then95 ], [ %call98, %lor.lhs.false101 ], [ null, %if.else58 ]
   %call118 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 61, i32 noundef 3) #4
   br i1 %call118, label %while.cond, label %if.end149
@@ -1197,7 +1197,7 @@ if.else143:                                       ; preds = %if.end129
 
 if.end149:                                        ; preds = %if.else143, %while.cond, %if.else143.us, %while.cond.us, %land.lhs.true117.thread, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117, %land.lhs.true117, %lor.lhs.false114
   %type.0216 = phi ptr [ %type.0217, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ %type.0217, %land.lhs.true117 ], [ %type.0, %lor.lhs.false114 ], [ null, %land.lhs.true117.thread ], [ null, %while.cond.us ], [ null, %if.else143.us ], [ %type.0217, %while.cond ], [ %type.0217, %if.else143 ]
-  %isFunction.2 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ %isFunction.1219, %land.lhs.true117 ], [ %isFunction.1, %lor.lhs.false114 ], [ 1, %land.lhs.true117.thread ], [ 1, %while.cond.us ], [ 1, %if.else143.us ], [ 1, %while.cond ], [ 1, %if.else143 ]
+  %isFunction.2 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit117 ], [ %isFunction.0219, %land.lhs.true117 ], [ %isFunction.0, %lor.lhs.false114 ], [ 1, %land.lhs.true117.thread ], [ 1, %while.cond.us ], [ 1, %if.else143.us ], [ 1, %while.cond ], [ 1, %if.else143 ]
   %call152 = call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 54, i32 noundef 3, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr %start.coerce) #4
   br i1 %call152, label %if.end154, label %return
 

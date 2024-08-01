@@ -911,22 +911,22 @@ _ZN7QStringD2Ev.exit50:                           ; preds = %_ZN7QStringD2Ev.exi
 
 62:                                               ; preds = %.body28, %55
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body28 ], [ %56, %55 ]
-  %.1 = phi i1 [ %61, %.body28 ], [ false, %55 ]
+  %.3 = phi i1 [ %61, %.body28 ], [ false, %55 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #18
   br label %63
 
 63:                                               ; preds = %62, %.body.i, %53
-  %.115 = phi ptr [ %16, %62 ], [ %16, %53 ], [ %3, %.body.i ]
+  %.317 = phi ptr [ %16, %62 ], [ %16, %53 ], [ %3, %.body.i ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %62 ], [ %54, %53 ], [ %15, %.body.i ]
-  %.2 = phi i1 [ %.1, %62 ], [ false, %53 ], [ false, %.body.i ]
+  %.2 = phi i1 [ %.3, %62 ], [ false, %53 ], [ false, %.body.i ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #18
-  %64 = icmp eq ptr %3, %.115
+  %64 = icmp eq ptr %3, %.317
   %or.cond = select i1 %.2, i1 true, i1 %64
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %63, %.preheader
-  %65 = phi ptr [ %66, %.preheader ], [ %.115, %63 ]
+  %65 = phi ptr [ %66, %.preheader ], [ %.317, %63 ]
   %66 = getelementptr inbounds i8, ptr %65, i64 -16
   call void @_ZN10FileFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %66) #18
   %67 = icmp eq ptr %66, %3
@@ -5656,36 +5656,36 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vc
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, %64, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %65, %64 ], [ %.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %44, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.418.i = phi ptr [ %34, %64 ], [ %42, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %42, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.2.i = phi i1 [ false, %64 ], [ %78, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.12.i = phi ptr [ %34, %64 ], [ %42, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %42, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.8.i = phi i1 [ false, %64 ], [ %78, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
   call void @_ZdlPv(ptr noundef nonnull %35) #17
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i, %62, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %63, %62 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %36, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.620.i = phi ptr [ %26, %62 ], [ %.418.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %34, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.4.i = phi i1 [ false, %62 ], [ %.2.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.1024.i = phi ptr [ %26, %62 ], [ %.12.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %34, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.6.i = phi i1 [ false, %62 ], [ %.8.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
   call void @_ZdlPv(ptr noundef nonnull %27) #17
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i, %60, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %28, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.822.i = phi ptr [ %18, %60 ], [ %.620.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %26, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.6.i = phi i1 [ false, %60 ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.822.i = phi ptr [ %18, %60 ], [ %.1024.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %26, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.4.i = phi i1 [ false, %60 ], [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
   call void @_ZdlPv(ptr noundef nonnull %19) #17
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %20, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.1024.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %18, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.8.i = phi i1 [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %18, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
   call void @_ZdlPv(ptr noundef nonnull %12) #17
-  %79 = icmp eq ptr %5, %.1024.i
-  %or.cond.i = select i1 %.8.i, i1 true, i1 %79
+  %79 = icmp eq ptr %5, %.620.i
+  %or.cond.i = select i1 %.2.i, i1 true, i1 %79
   br i1 %or.cond.i, label %common.resume, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i
-  %80 = phi ptr [ %81, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.1024.i, %.body.i ]
+  %80 = phi ptr [ %81, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.620.i, %.body.i ]
   %81 = getelementptr inbounds i8, ptr %80, i64 -32
   %82 = getelementptr inbounds i8, ptr %80, i64 -24
   %83 = load ptr, ptr %82, align 8
@@ -5760,13 +5760,13 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
   br label %97
 
 97:                                               ; preds = %95, %93
-  %.07.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN4gltf8internalL13GLTF_ATTR_STRB5cxx11E, i64 96), %95 ], [ getelementptr inbounds (i8, ptr @_ZN4gltf8internalL13GLTF_ATTR_STRB5cxx11E, i64 64), %93 ]
+  %.29.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN4gltf8internalL13GLTF_ATTR_STRB5cxx11E, i64 96), %95 ], [ getelementptr inbounds (i8, ptr @_ZN4gltf8internalL13GLTF_ATTR_STRB5cxx11E, i64 64), %93 ]
   %.pn.i1 = phi { ptr, i32 } [ %96, %95 ], [ %94, %93 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   br label %98
 
 98:                                               ; preds = %97, %91
-  %.18.i = phi ptr [ %.07.i, %97 ], [ getelementptr inbounds (i8, ptr @_ZN4gltf8internalL13GLTF_ATTR_STRB5cxx11E, i64 32), %91 ]
+  %.18.i = phi ptr [ %.29.i, %97 ], [ getelementptr inbounds (i8, ptr @_ZN4gltf8internalL13GLTF_ATTR_STRB5cxx11E, i64 32), %91 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i1, %97 ], [ %92, %91 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #18

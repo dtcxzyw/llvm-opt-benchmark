@@ -2475,9 +2475,9 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_ctr_(ptr noundef %
   br label %32
 
 32:                                               ; preds = %32, %28
-  %.025.i.i = phi i32 [ 0, %28 ], [ %34, %32 ]
+  %.125.i.i = phi i32 [ 0, %28 ], [ %34, %32 ]
   %33 = load i32, ptr @hf_CommPktChunk, align 4
-  %34 = call i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %23, i32 noundef %.025.i.i, ptr noundef %2, ptr noundef %31, ptr noundef %4, ptr noundef %5, i32 noundef %33, i32 poison)
+  %34 = call i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %23, i32 noundef %.125.i.i, ptr noundef %2, ptr noundef %31, ptr noundef %4, ptr noundef %5, i32 noundef %33, i32 poison)
   %35 = call i32 @tvb_reported_length_remaining(ptr noundef %23, i32 noundef %34) #5
   %.not24.i.i = icmp eq i32 %35, 0
   br i1 %.not24.i.i, label %36, label %32, !llvm.loop !8

@@ -401,14 +401,14 @@ define noalias noundef ptr @Faig_ManSimulateFrames(ptr nocapture noundef readonl
   br label %.preheader92
 
 .preheader92:                                     ; preds = %.preheader92.loopexit, %.preheader94
-  %.2.lcssa = phi i32 [ 1, %.preheader94 ], [ %59, %.preheader92.loopexit ]
+  %.3.lcssa = phi i32 [ 1, %.preheader94 ], [ %59, %.preheader92.loopexit ]
   %60 = load i32, ptr %13, align 4
-  %61 = icmp slt i32 %.2.lcssa, %60
+  %61 = icmp slt i32 %.3.lcssa, %60
   br i1 %61, label %.lr.ph107, label %.loopexit93
 
 .lr.ph107:                                        ; preds = %.preheader92
   %.not78 = icmp eq i32 %.077120, 0
-  %62 = zext nneg i32 %.2.lcssa to i64
+  %62 = zext nneg i32 %.3.lcssa to i64
   %wide.trip.count148 = zext i32 %60 to i64
   br label %68
 
@@ -447,18 +447,18 @@ define noalias noundef ptr @Faig_ManSimulateFrames(ptr nocapture noundef readonl
 
 .loopexit93:                                      ; preds = %48, %75, %.lr.ph101.split.us.preheader, %.preheader95, %.preheader92
   %.val.i = phi i32 [ %60, %.preheader92 ], [ %21, %.preheader95 ], [ %21, %.lr.ph101.split.us.preheader ], [ %60, %75 ], [ %21, %48 ]
-  %.4 = phi i32 [ %.2.lcssa, %.preheader92 ], [ %.0.lcssa, %.preheader95 ], [ %21, %.lr.ph101.split.us.preheader ], [ %60, %75 ], [ %21, %48 ]
+  %.2 = phi i32 [ %.3.lcssa, %.preheader92 ], [ %.0.lcssa, %.preheader95 ], [ %21, %.lr.ph101.split.us.preheader ], [ %60, %75 ], [ %21, %48 ]
   %78 = load i32, ptr %14, align 4
-  %79 = icmp slt i32 %.4, %78
+  %79 = icmp slt i32 %.2, %78
   br i1 %79, label %.lr.ph110, label %.preheader91
 
 .lr.ph110:                                        ; preds = %.loopexit93
-  %80 = sext i32 %.4 to i64
+  %80 = sext i32 %.2 to i64
   %wide.trip.count153 = sext i32 %78 to i64
   br label %86
 
 .preheader91:                                     ; preds = %Faig_SimulateNode.exit, %.loopexit93
-  %.5.lcssa = phi i32 [ %.4, %.loopexit93 ], [ %78, %Faig_SimulateNode.exit ]
+  %.5.lcssa = phi i32 [ %.2, %.loopexit93 ], [ %78, %Faig_SimulateNode.exit ]
   %81 = load i32, ptr %5, align 4
   %82 = icmp slt i32 %.5.lcssa, %81
   br i1 %82, label %.lr.ph114, label %._crit_edge

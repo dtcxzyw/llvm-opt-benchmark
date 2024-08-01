@@ -5911,25 +5911,25 @@ for.body39:                                       ; preds = %_ZNSt3mapImN6duckdb
   br i1 %cmp42.not, label %if.end44, label %cleanup58
 
 if.end44:                                         ; preds = %for.body39.lr.ph, %for.body39
-  %collections.sroa.0.0 = phi ptr [ %collections.sroa.0.1, %for.body39 ], [ null, %for.body39.lr.ph ]
-  %collections.sroa.10.0 = phi ptr [ %collections.sroa.10.1, %for.body39 ], [ null, %for.body39.lr.ph ]
+  %collections.sroa.0.1 = phi ptr [ %collections.sroa.0.3, %for.body39 ], [ null, %for.body39.lr.ph ]
+  %collections.sroa.10.1 = phi ptr [ %collections.sroa.10.3, %for.body39 ], [ null, %for.body39.lr.ph ]
   %collections.sroa.15.0 = phi ptr [ %collections.sroa.15.1, %for.body39 ], [ null, %for.body39.lr.ph ]
   %11 = phi i64 [ %10, %for.body39 ], [ %9, %for.body39.lr.ph ]
   %storemerge729801 = phi ptr [ %call.i.i.i, %for.body39 ], [ %8, %for.body39.lr.ph ]
   %second48 = getelementptr inbounds i8, ptr %storemerge729801, i64 40
-  %cmp.not.i.i = icmp eq ptr %collections.sroa.10.0, %collections.sroa.15.0
+  %cmp.not.i.i = icmp eq ptr %collections.sroa.10.1, %collections.sroa.15.0
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i327
 
 if.then.i.i327:                                   ; preds = %if.end44
   %12 = load i64, ptr %second48, align 8, !tbaa !13
-  store i64 %12, ptr %collections.sroa.10.0, align 8, !tbaa !13
+  store i64 %12, ptr %collections.sroa.10.1, align 8, !tbaa !13
   store ptr null, ptr %second48, align 8, !tbaa !13
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %collections.sroa.10.0, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %collections.sroa.10.1, i64 8
   br label %invoke.cont50
 
 if.else.i.i:                                      ; preds = %if.end44
-  %13 = ptrtoint ptr %collections.sroa.10.0 to i64
-  %14 = ptrtoint ptr %collections.sroa.0.0 to i64
+  %13 = ptrtoint ptr %collections.sroa.10.1 to i64
+  %14 = ptrtoint ptr %collections.sroa.0.1 to i64
   %sub.ptr.sub.i.i.i605 = sub i64 %13, %14
   %cmp.i.i606 = icmp eq i64 %sub.ptr.sub.i.i.i605, 9223372036854775800
   br i1 %cmp.i.i606, label %if.then.i.i615, label %_ZNKSt6vectorIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EE12_M_check_lenEmPKc.exit.i
@@ -5963,7 +5963,7 @@ _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_
   %16 = load i64, ptr %second48, align 8, !tbaa !13
   store i64 %16, ptr %add.ptr.i, align 8, !tbaa !13
   store ptr null, ptr %second48, align 8, !tbaa !13
-  %cmp.not6.i.i.i.i.i = icmp eq ptr %collections.sroa.0.0, %collections.sroa.10.0
+  %cmp.not6.i.i.i.i.i = icmp eq ptr %collections.sroa.0.1, %collections.sroa.10.1
   br i1 %cmp.not6.i.i.i.i.i, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i, label %for.body.i.i.i.i.i610.preheader
 
 for.body.i.i.i.i.i610.preheader:                  ; preds = %_ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EE11_M_allocateEm.exit.i
@@ -5975,17 +5975,17 @@ for.body.i.i.i.i.i610.preheader:                  ; preds = %_ZNSt12_Vector_base
 
 for.body.i.i.i.i.i610.preheader185:               ; preds = %middle.block, %vector.memcheck, %for.body.i.i.i.i.i610.preheader
   %__cur.08.i.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %cond.i31.i, %for.body.i.i.i.i.i610.preheader ], [ %cond.i31.i, %vector.memcheck ]
-  %__first.addr.07.i.i.i.i.i.ph = phi ptr [ %ind.end808, %middle.block ], [ %collections.sroa.0.0, %for.body.i.i.i.i.i610.preheader ], [ %collections.sroa.0.0, %vector.memcheck ]
+  %__first.addr.07.i.i.i.i.i.ph = phi ptr [ %ind.end808, %middle.block ], [ %collections.sroa.0.1, %for.body.i.i.i.i.i610.preheader ], [ %collections.sroa.0.1, %vector.memcheck ]
   br label %for.body.i.i.i.i.i610
 
 vector.memcheck:                                  ; preds = %for.body.i.i.i.i.i610.preheader
   %scevgep = getelementptr i8, ptr %cond.i31.i, i64 8
   %20 = and i64 %17, -8
   %scevgep805 = getelementptr i8, ptr %scevgep, i64 %20
-  %scevgep806 = getelementptr i8, ptr %collections.sroa.0.0, i64 8
+  %scevgep806 = getelementptr i8, ptr %collections.sroa.0.1, i64 8
   %scevgep807 = getelementptr i8, ptr %scevgep806, i64 %20
   %bound0 = icmp ult ptr %cond.i31.i, %scevgep807
-  %bound1 = icmp ult ptr %collections.sroa.0.0, %scevgep805
+  %bound1 = icmp ult ptr %collections.sroa.0.1, %scevgep805
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %for.body.i.i.i.i.i610.preheader185, label %vector.ph
 
@@ -5999,7 +5999,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %offset.idx = shl i64 %index, 3
   %next.gep = getelementptr i8, ptr %cond.i31.i, i64 %offset.idx
-  %next.gep812 = getelementptr i8, ptr %collections.sroa.0.0, i64 %offset.idx
+  %next.gep812 = getelementptr i8, ptr %collections.sroa.0.1, i64 %offset.idx
   tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
   %22 = getelementptr i8, ptr %next.gep812, i64 16
@@ -6014,7 +6014,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   br i1 %24, label %middle.block, label %vector.body, !llvm.loop !251
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end808 = getelementptr i8, ptr %collections.sroa.0.0, i64 %21
+  %ind.end808 = getelementptr i8, ptr %collections.sroa.0.1, i64 %21
   %cmp.n = icmp eq i64 %19, %n.vec
   br i1 %cmp.n, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.thread, label %for.body.i.i.i.i.i610.preheader185
 
@@ -6032,18 +6032,18 @@ for.body.i.i.i.i.i610:                            ; preds = %for.body.i.i.i.i.i6
   store ptr null, ptr %__first.addr.07.i.i.i.i.i, align 8, !tbaa !13, !alias.scope !244, !noalias !241
   %incdec.ptr.i.i.i.i.i611 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i612 = icmp eq ptr %incdec.ptr.i.i.i.i.i611, %collections.sroa.10.0
+  %cmp.not.i.i.i.i.i612 = icmp eq ptr %incdec.ptr.i.i.i.i.i611, %collections.sroa.10.1
   br i1 %cmp.not.i.i.i.i.i612, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i, label %for.body.i.i.i.i.i610, !llvm.loop !254
 
 _ZNSt6vectorIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i: ; preds = %for.body.i.i.i.i.i610, %_ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i31.i, %_ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i610 ]
   %incdec.ptr.i613 = getelementptr i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 8
-  %tobool.not.i.i614 = icmp eq ptr %collections.sroa.0.0, null
+  %tobool.not.i.i614 = icmp eq ptr %collections.sroa.0.1, null
   br i1 %tobool.not.i.i614, label %.noexc, label %if.then.i41.i
 
 if.then.i41.i:                                    ; preds = %_ZNSt6vectorIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.thread, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i
   %incdec.ptr.i61390 = phi ptr [ %incdec.ptr.i61388, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i.thread ], [ %incdec.ptr.i613, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %collections.sroa.0.0) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %collections.sroa.0.1) #28
   br label %.noexc
 
 .noexc:                                           ; preds = %if.then.i41.i, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit40.i
@@ -6052,8 +6052,8 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorIN6duck
   br label %invoke.cont50
 
 invoke.cont50:                                    ; preds = %.noexc, %if.then.i.i327
-  %collections.sroa.0.1 = phi ptr [ %cond.i31.i, %.noexc ], [ %collections.sroa.0.0, %if.then.i.i327 ]
-  %collections.sroa.10.1 = phi ptr [ %incdec.ptr.i61391, %.noexc ], [ %incdec.ptr.i.i, %if.then.i.i327 ]
+  %collections.sroa.0.3 = phi ptr [ %cond.i31.i, %.noexc ], [ %collections.sroa.0.1, %if.then.i.i327 ]
+  %collections.sroa.10.3 = phi ptr [ %incdec.ptr.i61391, %.noexc ], [ %incdec.ptr.i.i, %if.then.i.i327 ]
   %collections.sroa.15.1 = phi ptr [ %add.ptr19.i, %.noexc ], [ %collections.sroa.15.0, %if.then.i.i327 ]
   %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %storemerge729801) #31
   %call.i4.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %storemerge729801, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i322) #27
@@ -6087,8 +6087,8 @@ lpad49.loopexit.split-lp:                         ; preds = %if.then.i.i615
   br label %ehcleanup258
 
 cleanup58:                                        ; preds = %for.body39, %_ZNSt3mapImN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESt4lessImESaISt4pairIKmS5_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISA_E.exit, %for.body39.lr.ph, %if.end27
-  %collections.sroa.0.3 = phi ptr [ null, %if.end27 ], [ null, %for.body39.lr.ph ], [ %collections.sroa.0.1, %_ZNSt3mapImN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESt4lessImESaISt4pairIKmS5_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISA_E.exit ], [ %collections.sroa.0.1, %for.body39 ]
-  %collections.sroa.10.3 = phi ptr [ null, %if.end27 ], [ null, %for.body39.lr.ph ], [ %collections.sroa.10.1, %_ZNSt3mapImN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESt4lessImESaISt4pairIKmS5_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISA_E.exit ], [ %collections.sroa.10.1, %for.body39 ]
+  %collections.sroa.0.0 = phi ptr [ null, %if.end27 ], [ null, %for.body39.lr.ph ], [ %collections.sroa.0.3, %_ZNSt3mapImN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESt4lessImESaISt4pairIKmS5_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISA_E.exit ], [ %collections.sroa.0.3, %for.body39 ]
+  %collections.sroa.10.0 = phi ptr [ null, %if.end27 ], [ null, %for.body39.lr.ph ], [ %collections.sroa.10.3, %_ZNSt3mapImN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESt4lessImESaISt4pairIKmS5_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISA_E.exit ], [ %collections.sroa.10.3, %for.body39 ]
   %.lcssa = phi i64 [ 0, %if.end27 ], [ 0, %for.body39.lr.ph ], [ %11, %_ZNSt3mapImN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESt4lessImESaISt4pairIKmS5_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorISA_E.exit ], [ %11, %for.body39 ]
   store i64 %.lcssa, ptr %max_batch_index, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %current_collection) #27
@@ -6106,7 +6106,7 @@ cleanup58:                                        ; preds = %for.body39, %_ZNSt3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %_M_next_resize.i.i.i.i.i, i8 0, i64 17, i1 false)
   %vector_data.i = getelementptr inbounds i8, ptr %append_state, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %vector_data.i, i8 0, i64 24, i1 false)
-  %cmp.i328.not736 = icmp eq ptr %collections.sroa.0.3, %collections.sroa.10.3
+  %cmp.i328.not736 = icmp eq ptr %collections.sroa.0.0, %collections.sroa.10.0
   br i1 %cmp.i328.not736, label %if.end253, label %for.body67.lr.ph
 
 for.body67.lr.ph:                                 ; preds = %cleanup58
@@ -6129,7 +6129,7 @@ for.cond.cleanup66:                               ; preds = %cleanup204
   br i1 %cmp.i329.not, label %if.end253, label %land.lhs.true
 
 for.body67:                                       ; preds = %cleanup204, %for.body67.lr.ph
-  %__begin1.sroa.0.0737 = phi ptr [ %collections.sroa.0.3, %for.body67.lr.ph ], [ %incdec.ptr.i, %cleanup204 ]
+  %__begin1.sroa.0.0737 = phi ptr [ %collections.sroa.0.0, %for.body67.lr.ph ], [ %incdec.ptr.i, %cleanup204 ]
   %28 = load ptr, ptr %current_collection, align 8, !tbaa !13
   %cmp.i330.not = icmp eq ptr %28, null
   br i1 %cmp.i330.not, label %if.then70, label %if.end120
@@ -7022,7 +7022,7 @@ _ZN6duckdb30ColumnDataChunkIterationHelperD2Ev.exit525: ; preds = %if.then.i.i.i
 
 cleanup204:                                       ; preds = %_ZN6duckdb30ColumnDataChunkIterationHelperD2Ev.exit, %if.end120
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0737, i64 8
-  %cmp.i328.not = icmp eq ptr %incdec.ptr.i, %collections.sroa.10.3
+  %cmp.i328.not = icmp eq ptr %incdec.ptr.i, %collections.sroa.10.0
   br i1 %cmp.i328.not, label %for.cond.cleanup66, label %for.body67
 
 land.lhs.true:                                    ; preds = %for.cond.cleanup66
@@ -7279,7 +7279,7 @@ _ZNSt10unique_ptrIN6duckdb20ColumnDataCollectionESt14default_deleteIS1_EED2Ev.ex
   br i1 %cmp.i328.not736, label %invoke.cont.i595, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %_ZNSt10unique_ptrIN6duckdb20ColumnDataCollectionESt14default_deleteIS1_EED2Ev.exit591, %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i
-  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i593, %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i ], [ %collections.sroa.0.3, %_ZNSt10unique_ptrIN6duckdb20ColumnDataCollectionESt14default_deleteIS1_EED2Ev.exit591 ]
+  %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i593, %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i ], [ %collections.sroa.0.0, %_ZNSt10unique_ptrIN6duckdb20ColumnDataCollectionESt14default_deleteIS1_EED2Ev.exit591 ]
   %160 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8, !tbaa !13
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %160, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i, label %_ZNKSt14default_deleteIN6duckdb20ColumnDataCollectionEEclEPS1_.exit.i.i.i.i.i.i
@@ -7292,15 +7292,15 @@ _ZNKSt14default_deleteIN6duckdb20ColumnDataCollectionEEclEPS1_.exit.i.i.i.i.i.i:
 _ZSt8_DestroyIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN6duckdb20ColumnDataCollectionEEclEPS1_.exit.i.i.i.i.i.i, %for.body.i.i.i.i
   store ptr null, ptr %__first.addr.04.i.i.i.i, align 8, !tbaa !13
   %incdec.ptr.i.i.i.i593 = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i594 = icmp eq ptr %incdec.ptr.i.i.i.i593, %collections.sroa.10.3
+  %cmp.not.i.i.i.i594 = icmp eq ptr %incdec.ptr.i.i.i.i593, %collections.sroa.10.0
   br i1 %cmp.not.i.i.i.i594, label %invoke.cont.i595, label %for.body.i.i.i.i, !llvm.loop !296
 
 invoke.cont.i595:                                 ; preds = %_ZSt8_DestroyIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEEEvPT_.exit.i.i.i.i, %_ZNSt10unique_ptrIN6duckdb20ColumnDataCollectionESt14default_deleteIS1_EED2Ev.exit591
-  %tobool.not.i.i.i596 = icmp eq ptr %collections.sroa.0.3, null
+  %tobool.not.i.i.i596 = icmp eq ptr %collections.sroa.0.0, null
   br i1 %tobool.not.i.i.i596, label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit, label %if.then.i.i.i597
 
 if.then.i.i.i597:                                 ; preds = %invoke.cont.i595
-  call void @_ZdlPv(ptr noundef nonnull %collections.sroa.0.3) #28
+  call void @_ZdlPv(ptr noundef nonnull %collections.sroa.0.0) #28
   br label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorIN6duckdb10unique_ptrINS0_20ColumnDataCollectionESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit: ; preds = %if.then.i.i.i597, %invoke.cont.i595
@@ -7379,8 +7379,8 @@ _ZNSt10unique_ptrIN6duckdb20ColumnDataCollectionESt14default_deleteIS1_EED2Ev.ex
   br label %ehcleanup258
 
 ehcleanup258:                                     ; preds = %_ZNSt10unique_ptrIN6duckdb20ColumnDataCollectionESt14default_deleteIS1_EED2Ev.exit, %lpad49.loopexit.split-lp, %lpad49.loopexit
-  %collections.sroa.0.4 = phi ptr [ %collections.sroa.0.3, %_ZNSt10unique_ptrIN6duckdb20ColumnDataCollectionESt14default_deleteIS1_EED2Ev.exit ], [ %collections.sroa.0.0, %lpad49.loopexit.split-lp ], [ %collections.sroa.0.0, %lpad49.loopexit ]
-  %collections.sroa.10.4 = phi ptr [ %collections.sroa.10.3, %_ZNSt10unique_ptrIN6duckdb20ColumnDataCollectionESt14default_deleteIS1_EED2Ev.exit ], [ %collections.sroa.10.0, %lpad49.loopexit.split-lp ], [ %collections.sroa.10.0, %lpad49.loopexit ]
+  %collections.sroa.0.4 = phi ptr [ %collections.sroa.0.0, %_ZNSt10unique_ptrIN6duckdb20ColumnDataCollectionESt14default_deleteIS1_EED2Ev.exit ], [ %collections.sroa.0.1, %lpad49.loopexit.split-lp ], [ %collections.sroa.0.1, %lpad49.loopexit ]
+  %collections.sroa.10.4 = phi ptr [ %collections.sroa.10.0, %_ZNSt10unique_ptrIN6duckdb20ColumnDataCollectionESt14default_deleteIS1_EED2Ev.exit ], [ %collections.sroa.10.1, %lpad49.loopexit.split-lp ], [ %collections.sroa.10.1, %lpad49.loopexit ]
   %.pn311.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn311.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrIN6duckdb20ColumnDataCollectionESt14default_deleteIS1_EED2Ev.exit ], [ %lpad.loopexit.split-lp, %lpad49.loopexit.split-lp ], [ %lpad.loopexit, %lpad49.loopexit ]
   %cmp.not3.i.i.i.i71 = icmp eq ptr %collections.sroa.0.4, %collections.sroa.10.4
   br i1 %cmp.not3.i.i.i.i71, label %invoke.cont.i79, label %for.body.i.i.i.i72

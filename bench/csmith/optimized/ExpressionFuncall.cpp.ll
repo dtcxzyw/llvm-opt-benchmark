@@ -269,7 +269,7 @@ _ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit: ; preds = %78
 
 82:                                               ; preds = %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit, %72, %53
   %83 = phi ptr [ %50, %53 ], [ %.pre46, %72 ], [ %50, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ]
-  %.0 = phi ptr [ null, %53 ], [ %71, %72 ], [ %77, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ]
+  %.1 = phi ptr [ null, %53 ], [ %71, %72 ], [ %77, %_ZN17ExpressionFuncallC2ERK18FunctionInvocation.exit ]
   %.not.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, label %84
 
@@ -298,8 +298,8 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit45:          ; preds = %87, %85, %57
   br label %common.resume
 
 88:                                               ; preds = %_ZL29ExpressionFunctionProbabilityRK9CGContext.exit, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
-  %.1 = phi ptr [ %.0, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ null, %_ZL29ExpressionFunctionProbabilityRK9CGContext.exit ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ null, %_ZL29ExpressionFunctionProbabilityRK9CGContext.exit ]
+  ret ptr %.0
 }
 
 declare i32 @__gxx_personality_v0(...)

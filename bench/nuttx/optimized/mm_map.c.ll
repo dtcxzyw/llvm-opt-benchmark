@@ -174,13 +174,13 @@ define ptr @mm_map_next(ptr noundef %0, ptr noundef readonly %1) local_unnamed_a
 6:                                                ; preds = %2
   %7 = icmp eq ptr %1, null
   %. = select i1 %7, ptr %0, ptr %1
-  %.0 = load ptr, ptr %., align 8
+  %.1 = load ptr, ptr %., align 8
   %8 = tail call i32 @nxrmutex_unlock(ptr noundef nonnull %3) #6
   br label %9
 
 9:                                                ; preds = %6, %2
-  %.1 = phi ptr [ %.0, %6 ], [ null, %2 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %6 ], [ null, %2 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -195,15 +195,15 @@ define ptr @mm_map_find(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2)
   br label %8
 
 8:                                                ; preds = %.preheader, %9
-  %.0.in = phi ptr [ %.0, %9 ], [ %0, %.preheader ]
-  %.0 = load ptr, ptr %.0.in, align 8
-  %.not = icmp eq ptr %.0, null
+  %.1.in = phi ptr [ %.1, %9 ], [ %0, %.preheader ]
+  %.1 = load ptr, ptr %.1.in, align 8
+  %.not = icmp eq ptr %.1, null
   br i1 %.not, label %.critedge, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %.0, i64 8
+  %10 = getelementptr inbounds i8, ptr %.1, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %.0, i64 16
+  %12 = getelementptr inbounds i8, ptr %.1, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 %13
   %.not.i = icmp ule ptr %11, %1
@@ -220,8 +220,8 @@ define ptr @mm_map_find(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2)
   br label %18
 
 18:                                               ; preds = %.critedge, %3
-  %.1 = phi ptr [ %.0, %.critedge ], [ null, %3 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %.critedge ], [ null, %3 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

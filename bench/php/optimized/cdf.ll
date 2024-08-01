@@ -578,7 +578,7 @@ cdf_read_sector.exit:                             ; preds = %66
   br label %85
 
 85:                                               ; preds = %.lr.ph144, %._crit_edge
-  %.2142 = phi i64 [ %.1.lcssa, %.lr.ph144 ], [ %.3.lcssa, %._crit_edge ]
+  %.2142 = phi i64 [ %.1.lcssa, %.lr.ph144 ], [ %.4.lcssa, %._crit_edge ]
   %.075141 = phi i32 [ %80, %.lr.ph144 ], [ %148, %._crit_edge ]
   %.076140 = phi i64 [ 0, %.lr.ph144 ], [ %149, %._crit_edge ]
   %exitcond156 = icmp eq i64 %.076140, 10000
@@ -635,7 +635,7 @@ cdf_read_sector.exit95:                           ; preds = %103
 
 .lr.ph:                                           ; preds = %.preheader, %141
   %108 = phi i32 [ %142, %141 ], [ %.pre158, %.preheader ]
-  %.3138 = phi i64 [ %144, %141 ], [ %.2142, %.preheader ]
+  %.4138 = phi i64 [ %144, %141 ], [ %.2142, %.preheader ]
   %.077137 = phi i64 [ %143, %141 ], [ 0, %.preheader ]
   %109 = icmp eq i32 %108, 16909060
   %110 = getelementptr inbounds i32, ptr %76, i64 %.077137
@@ -647,7 +647,7 @@ cdf_read_sector.exit95:                           ; preds = %103
 
 114:                                              ; preds = %.lr.ph
   %115 = load i64, ptr %37, align 8
-  %.not86 = icmp ult i64 %.3138, %115
+  %.not86 = icmp ult i64 %.4138, %115
   br i1 %.not86, label %116, label %cdf_read_sector.exit95.thread.sink.split
 
 116:                                              ; preds = %114
@@ -661,7 +661,7 @@ cdf_read_sector.exit95:                           ; preds = %103
   br i1 %mul.ov.i97, label %cdf_read_sector.exit95.thread, label %122
 
 122:                                              ; preds = %116
-  %123 = mul i64 %.3138, %8
+  %123 = mul i64 %.4138, %8
   %124 = load ptr, ptr %2, align 8
   %125 = add nuw nsw i64 %121, 1
   %126 = mul nsw i64 %125, %120
@@ -702,13 +702,13 @@ cdf_read_sector.exit103:                          ; preds = %136
 141:                                              ; preds = %cdf_read_sector.exit103.thread114, %cdf_read_sector.exit103
   %142 = phi i32 [ %108, %cdf_read_sector.exit103.thread114 ], [ %.pre, %cdf_read_sector.exit103 ]
   %143 = add nuw i64 %.077137, 1
-  %144 = add nuw i64 %.3138, 1
+  %144 = add nuw i64 %.4138, 1
   %exitcond155.not = icmp eq i64 %143, %10
   br i1 %exitcond155.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %141, %.preheader
   %145 = phi i32 [ %.pre158, %.preheader ], [ %142, %141 ]
-  %.3.lcssa = phi i64 [ %.2142, %.preheader ], [ %144, %141 ]
+  %.4.lcssa = phi i64 [ %.2142, %.preheader ], [ %144, %141 ]
   %146 = icmp eq i32 %145, 16909060
   %147 = load i32, ptr %84, align 4
   %.sroa.0.0.insert.insert.i104 = tail call i32 @llvm.bswap.i32(i32 %147)
@@ -722,8 +722,8 @@ cdf_read_sector.exit103:                          ; preds = %136
   br i1 %or.cond, label %.loopexit, label %85
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %78
-  %.4 = phi i64 [ %.1.lcssa, %78 ], [ %.3138, %.lr.ph ], [ %.3.lcssa, %._crit_edge ]
-  store i64 %.4, ptr %37, align 8
+  %.3 = phi i64 [ %.1.lcssa, %78 ], [ %.4138, %.lr.ph ], [ %.4.lcssa, %._crit_edge ]
+  store i64 %.3, ptr %37, align 8
   tail call void @_efree(ptr noundef nonnull %76) #20
   br label %156
 

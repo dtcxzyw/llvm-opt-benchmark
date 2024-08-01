@@ -110,17 +110,17 @@ define internal range(i32 -6, 1) i32 @if_posix_open() #0 {
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.backedge
-  %.083126 = phi ptr [ %37, %.backedge ], [ %35, %.lr.ph.preheader ]
-  %.084125 = phi i32 [ %36, %.backedge ], [ %.080, %.lr.ph.preheader ]
-  %36 = add nsw i32 %.084125, -40
-  %37 = getelementptr inbounds i8, ptr %.083126, i64 40
-  %38 = getelementptr inbounds i8, ptr %.083126, i64 16
+  %.083127 = phi ptr [ %37, %.backedge ], [ %35, %.lr.ph.preheader ]
+  %.084126 = phi i32 [ %36, %.backedge ], [ %.080, %.lr.ph.preheader ]
+  %36 = add nsw i32 %.084126, -40
+  %37 = getelementptr inbounds i8, ptr %.083127, i64 40
+  %38 = getelementptr inbounds i8, ptr %.083127, i64 16
   %39 = load i16, ptr %38, align 8
   %.not = icmp eq i16 %39, 2
   br i1 %.not, label %40, label %.backedge
 
 40:                                               ; preds = %.lr.ph
-  %41 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35091, ptr noundef nonnull %.083126) #9
+  %41 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35091, ptr noundef nonnull %.083127) #9
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %43, label %47
 
@@ -131,7 +131,7 @@ define internal range(i32 -6, 1) i32 @if_posix_open() #0 {
   br label %.backedge
 
 .backedge:                                        ; preds = %opal_obj_run_destructors.exit114, %opal_thread_add_fetch_32.exit109, %opal_obj_run_destructors.exit107, %opal_thread_add_fetch_32.exit102, %opal_obj_run_destructors.exit, %opal_thread_add_fetch_32.exit, %43, %202, %.lr.ph, %47
-  %46 = icmp sgt i32 %.084125, 40
+  %46 = icmp sgt i32 %.084126, 40
   br i1 %46, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 47:                                               ; preds = %40
@@ -163,7 +163,7 @@ define internal range(i32 -6, 1) i32 @if_posix_open() #0 {
   %59 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_if_t_class, i64 40), align 8
   %60 = load ptr, ptr %59, align 8
   %.not6.i.i = icmp eq ptr %60, null
-  br i1 %.not6.i.i, label %opal_obj_new.exit.thread116, label %.lr.ph.i.i
+  br i1 %.not6.i.i, label %opal_obj_new.exit.thread117, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %57, %.lr.ph.i.i
   %61 = phi ptr [ %63, %.lr.ph.i.i ], [ %60, %57 ]
@@ -172,7 +172,7 @@ define internal range(i32 -6, 1) i32 @if_posix_open() #0 {
   %62 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not.i.i = icmp eq ptr %63, null
-  br i1 %.not.i.i, label %opal_obj_new.exit.thread116, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i.i, label %opal_obj_new.exit.thread117, label %.lr.ph.i.i, !llvm.loop !7
 
 opal_obj_new.exit.thread:                         ; preds = %56
   call void (i32, ptr, ...) @opal_output(i32 noundef 0, ptr noundef nonnull @.str.4, i64 noundef 240) #9
@@ -181,12 +181,12 @@ opal_obj_new.exit.thread:                         ; preds = %56
   %65 = call i32 @close(i32 noundef %2) #9
   br label %214
 
-opal_obj_new.exit.thread116:                      ; preds = %.lr.ph.i.i, %57
+opal_obj_new.exit.thread117:                      ; preds = %.lr.ph.i.i, %57
   %66 = getelementptr inbounds i8, ptr %52, i64 78
   store i16 2, ptr %66, align 2
   %67 = getelementptr inbounds i8, ptr %52, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 32, i1 false)
-  call void @opal_string_copy(ptr noundef nonnull %67, ptr noundef %.083126, i64 noundef 32) #9
+  call void @opal_string_copy(ptr noundef nonnull %67, ptr noundef %.083127, i64 noundef 32) #9
   %68 = load i16, ptr %38, align 8
   %69 = sext i16 %68 to i32
   %70 = getelementptr inbounds i8, ptr %52, i64 80
@@ -200,13 +200,13 @@ opal_obj_new.exit.thread116:                      ; preds = %.lr.ph.i.i, %57
   %76 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 1, i32 noundef %75) #9
   br i1 %76, label %77, label %79
 
-77:                                               ; preds = %opal_obj_new.exit.thread116
+77:                                               ; preds = %opal_obj_new.exit.thread117
   %78 = load i32, ptr getelementptr inbounds (i8, ptr @opal_if_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %78, ptr noundef nonnull @.str.5, ptr noundef nonnull %67) #9
   br label %79
 
-79:                                               ; preds = %opal_obj_new.exit.thread116, %77
-  %80 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35123, ptr noundef nonnull %.083126) #9
+79:                                               ; preds = %opal_obj_new.exit.thread117, %77
+  %80 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35123, ptr noundef nonnull %.083127) #9
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %82, label %103
 
@@ -261,7 +261,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %95
   %105 = trunc i32 %104 to i16
   %106 = getelementptr inbounds i8, ptr %52, i64 76
   store i16 %105, ptr %106, align 4
-  %107 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35093, ptr noundef nonnull %.083126) #9
+  %107 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35093, ptr noundef nonnull %.083127) #9
   %108 = icmp slt i32 %107, 0
   br i1 %108, label %109, label %130
 
@@ -362,7 +362,7 @@ opal_obj_run_destructors.exit107:                 ; preds = %.lr.ph.i104, %143
 151:                                              ; preds = %130
   %152 = getelementptr inbounds i8, ptr %52, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %152, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  %153 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35099, ptr noundef nonnull %.083126) #9
+  %153 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35099, ptr noundef nonnull %.083127) #9
   %154 = icmp slt i32 %153, 0
   br i1 %154, label %155, label %176
 
@@ -413,7 +413,7 @@ opal_obj_run_destructors.exit114:                 ; preds = %.lr.ph.i111, %168
   br label %.backedge
 
 176:                                              ; preds = %151
-  %177 = getelementptr inbounds i8, ptr %.083126, i64 20
+  %177 = getelementptr inbounds i8, ptr %.083127, i64 20
   %178 = load i32, ptr %177, align 4
   %179 = call i32 @ntohl(i32 noundef %178) #10
   %180 = icmp eq i32 %179, 0
@@ -422,26 +422,26 @@ opal_obj_run_destructors.exit114:                 ; preds = %.lr.ph.i111, %168
 .preheader.i:                                     ; preds = %176
   %181 = and i32 %179, 1
   %182 = icmp eq i32 %181, 0
-  br i1 %182, label %.lr.ph.i115, label %prefix.exit
+  br i1 %182, label %.lr.ph.i116, label %prefix.exit
 
-.lr.ph.i115:                                      ; preds = %.preheader.i, %.lr.ph.i115
-  %.09.i = phi i32 [ %183, %.lr.ph.i115 ], [ 0, %.preheader.i ]
-  %.068.i = phi i32 [ %184, %.lr.ph.i115 ], [ %179, %.preheader.i ]
-  %183 = add nuw nsw i32 %.09.i, 1
+.lr.ph.i116:                                      ; preds = %.preheader.i, %.lr.ph.i116
+  %.19.i = phi i32 [ %183, %.lr.ph.i116 ], [ 0, %.preheader.i ]
+  %.068.i = phi i32 [ %184, %.lr.ph.i116 ], [ %179, %.preheader.i ]
+  %183 = add nuw nsw i32 %.19.i, 1
   %184 = lshr exact i32 %.068.i, 1
   %185 = and i32 %.068.i, 2
   %186 = icmp eq i32 %185, 0
-  br i1 %186, label %.lr.ph.i115, label %.loopexit.loopexit.i, !llvm.loop !9
+  br i1 %186, label %.lr.ph.i116, label %.loopexit.loopexit.i, !llvm.loop !9
 
-.loopexit.loopexit.i:                             ; preds = %.lr.ph.i115
-  %187 = sub nsw i32 31, %.09.i
+.loopexit.loopexit.i:                             ; preds = %.lr.ph.i116
+  %187 = sub nsw i32 31, %.19.i
   br label %prefix.exit
 
 prefix.exit:                                      ; preds = %176, %.preheader.i, %.loopexit.loopexit.i
-  %.1.i = phi i32 [ 0, %176 ], [ 32, %.preheader.i ], [ %187, %.loopexit.loopexit.i ]
+  %.0.i115 = phi i32 [ 0, %176 ], [ 32, %.preheader.i ], [ %187, %.loopexit.loopexit.i ]
   %188 = getelementptr inbounds i8, ptr %52, i64 216
-  store i32 %.1.i, ptr %188, align 8
-  %189 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35111, ptr noundef %.083126) #9
+  store i32 %.0.i115, ptr %188, align 8
+  %189 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35111, ptr noundef %.083127) #9
   %190 = icmp slt i32 %189, 0
   br i1 %190, label %191, label %194
 
@@ -453,9 +453,9 @@ prefix.exit:                                      ; preds = %176, %.preheader.i,
 
 194:                                              ; preds = %prefix.exit
   %195 = getelementptr inbounds i8, ptr %52, i64 224
-  %196 = getelementptr inbounds i8, ptr %.083126, i64 18
+  %196 = getelementptr inbounds i8, ptr %.083127, i64 18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %195, ptr noundef nonnull align 2 dereferenceable(6) %196, i64 6, i1 false)
-  %197 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35105, ptr noundef %.083126) #9
+  %197 = call i32 (i32, i64, ...) @ioctl(i32 noundef %2, i64 noundef 35105, ptr noundef %.083127) #9
   %198 = icmp slt i32 %197, 0
   br i1 %198, label %199, label %202
 

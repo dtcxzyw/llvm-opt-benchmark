@@ -82,7 +82,7 @@ if.then2:                                         ; preds = %if.then
   br label %for.cond196.preheader
 
 if.end3:                                          ; preds = %entry, %if.then
-  %ret.0 = phi ptr [ %call, %if.then ], [ %sk, %entry ]
+  %ret.1 = phi ptr [ %call, %if.then ], [ %sk, %entry ]
   %call4 = tail call ptr @X509_INFO_new() #3
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %err, label %for.cond.preheader
@@ -94,7 +94,7 @@ for.cond.preheader:                               ; preds = %if.end3
   br i1 %cmp1087, label %if.then11, label %if.end20
 
 if.then11:                                        ; preds = %if.end170, %for.cond.preheader
-  %xi.0.lcssa = phi ptr [ %call4, %for.cond.preheader ], [ %xi.1, %if.end170 ]
+  %xi.1.lcssa = phi ptr [ %call4, %for.cond.preheader ], [ %xi.2, %if.end170 ]
   %call12 = call i64 @ERR_peek_last_error() #3
   %and.i = and i64 %call12, 2147483648
   %cmp.not.i = icmp eq i64 %and.i, 0
@@ -106,22 +106,22 @@ if.then11:                                        ; preds = %if.end170, %for.con
 
 if.then16:                                        ; preds = %if.then11
   %call17 = call i32 @ERR_pop_to_mark() #3
-  %1 = load ptr, ptr %xi.0.lcssa, align 8
+  %1 = load ptr, ptr %xi.1.lcssa, align 8
   %cmp172.not = icmp eq ptr %1, null
   br i1 %cmp172.not, label %lor.lhs.false174, label %if.then186
 
 if.end18:                                         ; preds = %if.then11
   %call19 = call i32 @ERR_clear_last_mark() #3
-  call void @X509_INFO_free(ptr noundef %xi.0.lcssa) #3
+  call void @X509_INFO_free(ptr noundef %xi.1.lcssa) #3
   br label %for.cond196.preheader
 
 if.end20:                                         ; preds = %for.cond.preheader, %if.end170
-  %xi.088 = phi ptr [ %xi.1, %if.end170 ], [ %call4, %for.cond.preheader ]
+  %xi.188 = phi ptr [ %xi.2, %if.end170 ], [ %call4, %for.cond.preheader ]
   %call21 = call i32 @ERR_clear_last_mark() #3
   br label %start
 
 start:                                            ; preds = %start.backedge, %if.end20
-  %xi.1 = phi ptr [ %xi.088, %if.end20 ], [ %xi.1.be, %start.backedge ]
+  %xi.2 = phi ptr [ %xi.188, %if.end20 ], [ %xi.2.be, %start.backedge ]
   %2 = load ptr, ptr %name, align 8
   %call22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(12) @.str.1) #4
   %cmp23 = icmp eq i32 %call22, 0
@@ -138,12 +138,12 @@ lor.lhs.false28:                                  ; preds = %lor.lhs.false
   br i1 %cmp30, label %if.then32, label %if.else61
 
 if.then32:                                        ; preds = %lor.lhs.false28, %lor.lhs.false, %start
-  %3 = load ptr, ptr %xi.1, align 8
+  %3 = load ptr, ptr %xi.2, align 8
   %cmp33.not = icmp eq ptr %3, null
   br i1 %cmp33.not, label %if.end46, label %if.then35
 
 if.then35:                                        ; preds = %if.then32
-  %call38 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %ret.0, ptr noundef nonnull %xi.1) #3
+  %call38 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %ret.1, ptr noundef nonnull %xi.2) #3
   %tobool.not = icmp eq i32 %call38, 0
   br i1 %tobool.not, label %err, label %if.end40
 
@@ -153,7 +153,7 @@ if.end40:                                         ; preds = %if.then35
   br i1 %cmp42, label %err, label %start.backedge
 
 start.backedge:                                   ; preds = %if.end40, %if.end74, %if.end95
-  %xi.1.be = phi ptr [ %call41, %if.end40 ], [ %call75, %if.end74 ], [ %call96, %if.end95 ]
+  %xi.2.be = phi ptr [ %call41, %if.end40 ], [ %call75, %if.end74 ], [ %call96, %if.end95 ]
   br label %start
 
 if.end46:                                         ; preds = %if.then32
@@ -161,7 +161,7 @@ if.end46:                                         ; preds = %if.then32
   %cmp48 = icmp eq i32 %call47, 0
   %d2i_X509_AUX.d2i_X509 = select i1 %cmp48, ptr @d2i_X509_AUX, ptr @d2i_X509
   %call53 = call ptr @X509_new_ex(ptr noundef %libctx, ptr noundef %propq) #3
-  store ptr %call53, ptr %xi.1, align 8
+  store ptr %call53, ptr %xi.2, align 8
   %cmp56 = icmp eq ptr %call53, null
   br i1 %cmp56, label %err, label %if.then138
 
@@ -171,13 +171,13 @@ if.else61:                                        ; preds = %lor.lhs.false28
   br i1 %cmp63, label %if.then65, label %if.else82
 
 if.then65:                                        ; preds = %if.else61
-  %crl = getelementptr inbounds i8, ptr %xi.1, i64 8
+  %crl = getelementptr inbounds i8, ptr %xi.2, i64 8
   %4 = load ptr, ptr %crl, align 8
   %cmp66.not = icmp eq ptr %4, null
   br i1 %cmp66.not, label %if.then138.loopexit, label %if.then68
 
 if.then68:                                        ; preds = %if.then65
-  %call71 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %ret.0, ptr noundef nonnull %xi.1) #3
+  %call71 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %ret.1, ptr noundef nonnull %xi.2) #3
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %err, label %if.end74
 
@@ -192,13 +192,13 @@ if.else82:                                        ; preds = %if.else61
   br i1 %cmp84.not, label %if.end170, label %if.then86
 
 if.then86:                                        ; preds = %if.else82
-  %x_pkey = getelementptr inbounds i8, ptr %xi.1, i64 16
+  %x_pkey = getelementptr inbounds i8, ptr %xi.2, i64 16
   %5 = load ptr, ptr %x_pkey, align 8
   %cmp87.not = icmp eq ptr %5, null
   br i1 %cmp87.not, label %if.end101, label %if.then89
 
 if.then89:                                        ; preds = %if.then86
-  %call92 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %ret.0, ptr noundef nonnull %xi.1) #3
+  %call92 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %ret.1, ptr noundef nonnull %xi.2) #3
   %tobool93.not = icmp eq i32 %call92, 0
   br i1 %tobool93.not, label %err, label %if.end95
 
@@ -208,7 +208,7 @@ if.end95:                                         ; preds = %if.then89
   br i1 %cmp97, label %err, label %start.backedge
 
 if.end101:                                        ; preds = %if.then86
-  %x_pkey.le = getelementptr inbounds i8, ptr %xi.1, i64 16
+  %x_pkey.le = getelementptr inbounds i8, ptr %xi.2, i64 16
   %cmp102 = icmp eq ptr %call83, %2
   br i1 %cmp102, label %if.end111, label %lor.lhs.false104
 
@@ -225,10 +225,10 @@ if.else109:                                       ; preds = %lor.lhs.false104
   br label %if.end111
 
 if.end111:                                        ; preds = %if.end101, %lor.lhs.false104, %if.else109
-  %ptype.0 = phi i32 [ %call110, %if.else109 ], [ 0, %lor.lhs.false104 ], [ 0, %if.end101 ]
-  %enc_data = getelementptr inbounds i8, ptr %xi.1, i64 56
+  %ptype.1 = phi i32 [ %call110, %if.else109 ], [ 0, %lor.lhs.false104 ], [ 0, %if.end101 ]
+  %enc_data = getelementptr inbounds i8, ptr %xi.2, i64 56
   store ptr null, ptr %enc_data, align 8
-  %enc_len = getelementptr inbounds i8, ptr %xi.1, i64 48
+  %enc_len = getelementptr inbounds i8, ptr %xi.2, i64 48
   store i32 0, ptr %enc_len, align 8
   %call112 = call ptr @X509_PKEY_new() #3
   store ptr %call112, ptr %x_pkey.le, align 8
@@ -250,12 +250,12 @@ lor.lhs.false124:                                 ; preds = %if.end118
   br i1 %cmp126, label %if.else161, label %if.then138
 
 if.then138.loopexit:                              ; preds = %if.then65
-  %crl.le = getelementptr inbounds i8, ptr %xi.1, i64 8
+  %crl.le = getelementptr inbounds i8, ptr %xi.2, i64 8
   br label %if.then138
 
 if.then138:                                       ; preds = %if.then138.loopexit, %if.end46, %lor.lhs.false124
-  %pp.0.ph.ph = phi ptr [ %dec_pkey, %lor.lhs.false124 ], [ %xi.1, %if.end46 ], [ %crl.le, %if.then138.loopexit ]
-  %ptype.1.ph.ph = phi i32 [ %ptype.0, %lor.lhs.false124 ], [ 0, %if.end46 ], [ 0, %if.then138.loopexit ]
+  %pp.0.ph.ph = phi ptr [ %dec_pkey, %lor.lhs.false124 ], [ %xi.2, %if.end46 ], [ %crl.le, %if.then138.loopexit ]
+  %ptype.0.ph.ph = phi i32 [ %ptype.1, %lor.lhs.false124 ], [ 0, %if.end46 ], [ 0, %if.then138.loopexit ]
   %d2i.1.ph.ph = phi ptr [ @d2i_AutoPrivateKey, %lor.lhs.false124 ], [ %d2i_X509_AUX.d2i_X509, %if.end46 ], [ @d2i_X509_CRL, %if.then138.loopexit ]
   %9 = load ptr, ptr %header, align 8
   %call139 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %9, ptr noundef nonnull %cipher) #3
@@ -271,12 +271,12 @@ if.end142:                                        ; preds = %if.then138
 if.end146:                                        ; preds = %if.end142
   %11 = load ptr, ptr %data, align 8
   store ptr %11, ptr %p, align 8
-  %tobool147.not = icmp eq i32 %ptype.1.ph.ph, 0
+  %tobool147.not = icmp eq i32 %ptype.0.ph.ph, 0
   %12 = load i64, ptr %len, align 8
   br i1 %tobool147.not, label %if.else154, label %if.then148
 
 if.then148:                                       ; preds = %if.end146
-  %call149 = call ptr @d2i_PrivateKey_ex(i32 noundef %ptype.1.ph.ph, ptr noundef nonnull %pp.0.ph.ph, ptr noundef nonnull %p, i64 noundef %12, ptr noundef %libctx, ptr noundef %propq) #3
+  %call149 = call ptr @d2i_PrivateKey_ex(i32 noundef %ptype.0.ph.ph, ptr noundef nonnull %pp.0.ph.ph, ptr noundef nonnull %p, i64 noundef %12, ptr noundef %libctx, ptr noundef %propq) #3
   %cmp150 = icmp eq ptr %call149, null
   br i1 %cmp150, label %if.then152, label %if.end170
 
@@ -284,7 +284,7 @@ if.then152:                                       ; preds = %if.then148
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 165, ptr noundef nonnull @__func__.PEM_X509_INFO_read_bio_ex) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 524301, ptr noundef null) #3
-  call void @X509_INFO_free(ptr noundef nonnull %xi.1) #3
+  call void @X509_INFO_free(ptr noundef nonnull %xi.2) #3
   br label %for.cond196.preheader
 
 if.else154:                                       ; preds = %if.end146
@@ -296,11 +296,11 @@ if.then158:                                       ; preds = %if.else154
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 169, ptr noundef nonnull @__func__.PEM_X509_INFO_read_bio_ex) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 524301, ptr noundef null) #3
-  call void @X509_INFO_free(ptr noundef nonnull %xi.1) #3
+  call void @X509_INFO_free(ptr noundef nonnull %xi.2) #3
   br label %for.cond196.preheader
 
 if.else161:                                       ; preds = %lor.lhs.false124, %if.end118
-  %enc_cipher = getelementptr inbounds i8, ptr %xi.1, i64 24
+  %enc_cipher = getelementptr inbounds i8, ptr %xi.2, i64 24
   %call162 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %7, ptr noundef nonnull %enc_cipher) #3
   %tobool163.not = icmp eq i32 %call162, 0
   br i1 %tobool163.not, label %err, label %if.end165
@@ -330,64 +330,64 @@ if.end170:                                        ; preds = %if.else82, %if.end1
   br i1 %cmp10, label %if.then11, label %if.end20
 
 lor.lhs.false174:                                 ; preds = %if.then16
-  %crl175 = getelementptr inbounds i8, ptr %xi.0.lcssa, i64 8
+  %crl175 = getelementptr inbounds i8, ptr %xi.1.lcssa, i64 8
   %18 = load ptr, ptr %crl175, align 8
   %cmp176.not = icmp eq ptr %18, null
   br i1 %cmp176.not, label %lor.lhs.false178, label %if.then186
 
 lor.lhs.false178:                                 ; preds = %lor.lhs.false174
-  %x_pkey179 = getelementptr inbounds i8, ptr %xi.0.lcssa, i64 16
+  %x_pkey179 = getelementptr inbounds i8, ptr %xi.1.lcssa, i64 16
   %19 = load ptr, ptr %x_pkey179, align 8
   %cmp180.not = icmp eq ptr %19, null
   br i1 %cmp180.not, label %lor.lhs.false182, label %if.then186
 
 lor.lhs.false182:                                 ; preds = %lor.lhs.false178
-  %enc_data183 = getelementptr inbounds i8, ptr %xi.0.lcssa, i64 56
+  %enc_data183 = getelementptr inbounds i8, ptr %xi.1.lcssa, i64 56
   %20 = load ptr, ptr %enc_data183, align 8
   %cmp184.not = icmp eq ptr %20, null
   br i1 %cmp184.not, label %err.thread, label %if.then186
 
 err.thread:                                       ; preds = %lor.lhs.false182
-  call void @X509_INFO_free(ptr noundef nonnull %xi.0.lcssa) #3
+  call void @X509_INFO_free(ptr noundef nonnull %xi.1.lcssa) #3
   br label %if.end209
 
 if.then186:                                       ; preds = %lor.lhs.false182, %lor.lhs.false178, %lor.lhs.false174, %if.then16
-  %call189 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %ret.0, ptr noundef nonnull %xi.0.lcssa) #3
+  %call189 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %ret.1, ptr noundef nonnull %xi.1.lcssa) #3
   %tobool190.not = icmp eq i32 %call189, 0
-  %spec.select = select i1 %tobool190.not, ptr %xi.0.lcssa, ptr null
+  %spec.select = select i1 %tobool190.not, ptr %xi.1.lcssa, ptr null
   call void @X509_INFO_free(ptr noundef %spec.select) #3
   br i1 %tobool190.not, label %for.cond196.preheader, label %if.end209
 
 err:                                              ; preds = %if.else161, %if.end142, %if.then138, %if.end111, %if.end46, %if.end95, %if.then89, %if.end74, %if.then68, %if.end40, %if.then35, %if.end3
-  %xi.3 = phi ptr [ null, %if.end3 ], [ %xi.1, %if.then89 ], [ null, %if.end95 ], [ %xi.1, %if.then68 ], [ null, %if.end74 ], [ %xi.1, %if.then35 ], [ null, %if.end40 ], [ %xi.1, %if.end46 ], [ %xi.1, %if.end111 ], [ %xi.1, %if.then138 ], [ %xi.1, %if.end142 ], [ %xi.1, %if.else161 ]
-  call void @X509_INFO_free(ptr noundef %xi.3) #3
+  %xi.0 = phi ptr [ null, %if.end3 ], [ %xi.2, %if.then89 ], [ null, %if.end95 ], [ %xi.2, %if.then68 ], [ null, %if.end74 ], [ %xi.2, %if.then35 ], [ null, %if.end40 ], [ %xi.2, %if.end46 ], [ %xi.2, %if.end111 ], [ %xi.2, %if.then138 ], [ %xi.2, %if.end142 ], [ %xi.2, %if.else161 ]
+  call void @X509_INFO_free(ptr noundef %xi.0) #3
   br label %for.cond196.preheader
 
 for.cond196.preheader:                            ; preds = %if.then186, %err, %if.then2, %if.end18, %if.then152, %if.then158
-  %ret.164.ph = phi ptr [ %ret.0, %if.then186 ], [ %ret.0, %if.then158 ], [ %ret.0, %if.then152 ], [ %ret.0, %if.end18 ], [ null, %if.then2 ], [ %ret.0, %err ]
-  %call19889 = call i32 @OPENSSL_sk_num(ptr noundef %ret.164.ph) #3
+  %ret.064.ph = phi ptr [ %ret.1, %if.then186 ], [ %ret.1, %if.then158 ], [ %ret.1, %if.then152 ], [ %ret.1, %if.end18 ], [ null, %if.then2 ], [ %ret.1, %err ]
+  %call19889 = call i32 @OPENSSL_sk_num(ptr noundef %ret.064.ph) #3
   %cmp19990 = icmp sgt i32 %call19889, 0
   br i1 %cmp19990, label %for.body, label %for.end203
 
 for.body:                                         ; preds = %for.cond196.preheader, %for.body
   %i.091 = phi i32 [ %inc, %for.body ], [ 0, %for.cond196.preheader ]
-  %call202 = call ptr @OPENSSL_sk_value(ptr noundef %ret.164.ph, i32 noundef %i.091) #3
+  %call202 = call ptr @OPENSSL_sk_value(ptr noundef %ret.064.ph, i32 noundef %i.091) #3
   call void @X509_INFO_free(ptr noundef %call202) #3
   %inc = add nuw nsw i32 %i.091, 1
-  %call198 = call i32 @OPENSSL_sk_num(ptr noundef %ret.164.ph) #3
+  %call198 = call i32 @OPENSSL_sk_num(ptr noundef %ret.064.ph) #3
   %cmp199 = icmp slt i32 %inc, %call198
   br i1 %cmp199, label %for.body, label %for.end203, !llvm.loop !5
 
 for.end203:                                       ; preds = %for.body, %for.cond196.preheader
-  %cmp204.not = icmp eq ptr %ret.164.ph, %sk
+  %cmp204.not = icmp eq ptr %ret.064.ph, %sk
   br i1 %cmp204.not, label %if.end209, label %if.then206
 
 if.then206:                                       ; preds = %for.end203
-  call void @OPENSSL_sk_free(ptr noundef %ret.164.ph) #3
+  call void @OPENSSL_sk_free(ptr noundef %ret.064.ph) #3
   br label %if.end209
 
 if.end209:                                        ; preds = %if.then186, %err.thread, %for.end203, %if.then206
-  %ret.2 = phi ptr [ null, %if.then206 ], [ null, %for.end203 ], [ %ret.0, %err.thread ], [ %ret.0, %if.then186 ]
+  %ret.2 = phi ptr [ null, %if.then206 ], [ null, %for.end203 ], [ %ret.1, %err.thread ], [ %ret.1, %if.then186 ]
   %21 = load ptr, ptr %name, align 8
   call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 211) #3
   %22 = load ptr, ptr %header, align 8

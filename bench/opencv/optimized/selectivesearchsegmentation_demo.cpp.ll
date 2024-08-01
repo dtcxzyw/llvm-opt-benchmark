@@ -338,7 +338,7 @@ define hidden noundef range(i32 -2, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit43
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %100, %._crit_edge55, %54
-  %.0 = phi i32 [ -2, %54 ], [ 0, %._crit_edge55 ], [ 0, %100 ]
+  %.1 = phi i32 [ -2, %54 ], [ 0, %._crit_edge55 ], [ 0, %100 ]
   %104 = getelementptr inbounds i8, ptr %6, i64 8
   %105 = load ptr, ptr %104, align 8
   %.not.i.i.i.i = icmp eq ptr %105, null
@@ -427,8 +427,8 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit43:   ; preds = %103, %101, %48, %46
   br label %142
 
 141:                                              ; preds = %_ZN2cv3PtrINS_8ximgproc12segmentation27SelectiveSearchSegmentationEED2Ev.exit, %16
-  %.1 = phi i32 [ -1, %16 ], [ %.0, %_ZN2cv3PtrINS_8ximgproc12segmentation27SelectiveSearchSegmentationEED2Ev.exit ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %16 ], [ %.1, %_ZN2cv3PtrINS_8ximgproc12segmentation27SelectiveSearchSegmentationEED2Ev.exit ]
+  ret i32 %.0
 
 142:                                              ; preds = %140, %43
   %.pn36.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn36.pn.pn.pn, %140 ], [ %.pn, %43 ]

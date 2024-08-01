@@ -230,7 +230,7 @@ define dso_local i64 @record_in(ptr nocapture noundef %0) local_unnamed_addr #0 
 96:                                               ; preds = %.lr.ph203, %169
   %indvars.iv = phi i64 [ 0, %.lr.ph203 ], [ %indvars.iv.next, %169 ]
   %.0161202 = phi i1 [ false, %.lr.ph203 ], [ %.1, %169 ]
-  %.1164200 = phi ptr [ %92, %.lr.ph203 ], [ %.6, %169 ]
+  %.1164200 = phi ptr [ %92, %.lr.ph203 ], [ %.2, %169 ]
   %97 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %94, i64 0, i64 %indvars.iv
   %98 = getelementptr [0 x %struct.ColumnIOData], ptr %95, i64 0, i64 %indvars.iv
   %99 = getelementptr inbounds i8, ptr %97, i64 68
@@ -271,8 +271,8 @@ define dso_local i64 @record_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %.loopexit
 
 119:                                              ; preds = %111, %107
-  %.2 = phi ptr [ %112, %111 ], [ %.1164200, %107 ]
-  %120 = load i8, ptr %.2, align 1
+  %.3 = phi ptr [ %112, %111 ], [ %.1164200, %107 ]
+  %120 = load i8, ptr %.3, align 1
   switch i8 %120, label %121 [
     i8 44, label %150
     i8 41, label %150
@@ -284,8 +284,8 @@ define dso_local i64 @record_in(ptr nocapture noundef %0) local_unnamed_addr #0 
 
 122:                                              ; preds = %.backedge, %121
   %.0165 = phi i1 [ false, %121 ], [ %.0165.be, %.backedge ]
-  %.3 = phi ptr [ %.2, %121 ], [ %.3.be, %.backedge ]
-  %.pr = load i8, ptr %.3, align 1
+  %.5 = phi ptr [ %.3, %121 ], [ %.5.be, %.backedge ]
+  %.pr = load i8, ptr %.5, align 1
   br i1 %.0165, label %.critedge7, label %123
 
 123:                                              ; preds = %122
@@ -295,7 +295,7 @@ define dso_local i64 @record_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   ]
 
 .critedge7:                                       ; preds = %122, %123
-  %124 = getelementptr i8, ptr %.3, i64 1
+  %124 = getelementptr i8, ptr %.5, i64 1
   switch i8 %.pr, label %.sink.split [
     i8 0, label %125
     i8 92, label %131
@@ -330,7 +330,7 @@ define dso_local i64 @record_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %.loopexit
 
 140:                                              ; preds = %131
-  %141 = getelementptr i8, ptr %.3, i64 2
+  %141 = getelementptr i8, ptr %.5, i64 2
   br label %.sink.split
 
 142:                                              ; preds = %.critedge7
@@ -342,19 +342,19 @@ define dso_local i64 @record_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %145, label %146, label %.backedge
 
 146:                                              ; preds = %143
-  %147 = getelementptr i8, ptr %.3, i64 2
+  %147 = getelementptr i8, ptr %.5, i64 2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge7, %140, %146
   %.sink = phi i8 [ 34, %146 ], [ %132, %140 ], [ %.pr, %.critedge7 ]
   %.1166.ph = phi i1 [ true, %146 ], [ %.0165, %140 ], [ %.0165, %.critedge7 ]
-  %.4.ph = phi ptr [ %147, %146 ], [ %141, %140 ], [ %124, %.critedge7 ]
+  %.6.ph = phi ptr [ %147, %146 ], [ %141, %140 ], [ %124, %.critedge7 ]
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext %.sink) #11
   br label %.backedge
 
 .backedge:                                        ; preds = %.sink.split, %143, %142
   %.0165.be = phi i1 [ true, %142 ], [ false, %143 ], [ %.1166.ph, %.sink.split ]
-  %.3.be = phi ptr [ %124, %142 ], [ %124, %143 ], [ %.4.ph, %.sink.split ]
+  %.5.be = phi ptr [ %124, %142 ], [ %124, %143 ], [ %.6.ph, %.sink.split ]
   br label %122, !llvm.loop !7
 
 148:                                              ; preds = %123, %123
@@ -364,7 +364,7 @@ define dso_local i64 @record_in(ptr nocapture noundef %0) local_unnamed_addr #0 
 150:                                              ; preds = %119, %119, %148
   %.sink215 = phi i8 [ 0, %148 ], [ 1, %119 ], [ 1, %119 ]
   %.0168 = phi ptr [ %149, %148 ], [ null, %119 ], [ null, %119 ]
-  %.5 = phi ptr [ %.3, %148 ], [ %.2, %119 ], [ %.2, %119 ]
+  %.4 = phi ptr [ %.5, %148 ], [ %.3, %119 ], [ %.3, %119 ]
   %151 = getelementptr i8, ptr %73, i64 %indvars.iv
   store i8 %.sink215, ptr %151, align 1
   %152 = load i32, ptr %98, align 8
@@ -395,14 +395,14 @@ define dso_local i64 @record_in(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %168, label %169, label %.loopexit
 
 169:                                              ; preds = %161, %104
-  %.6 = phi ptr [ %.1164200, %104 ], [ %.5, %161 ]
+  %.2 = phi ptr [ %.1164200, %104 ], [ %.4, %161 ]
   %.1 = phi i1 [ %.0161202, %104 ], [ true, %161 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %96, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %169, %91
-  %.1164.lcssa = phi ptr [ %92, %91 ], [ %.6, %169 ]
+  %.1164.lcssa = phi ptr [ %92, %91 ], [ %.2, %169 ]
   %170 = load i8, ptr %.1164.lcssa, align 1
   %.not180 = icmp eq i8 %170, 41
   br i1 %.not180, label %.preheader, label %171
@@ -3377,7 +3377,7 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr nocapture noun
   %.not211 = icmp eq i64 %198, %201
   %219 = select i1 %214, i32 -1, i32 1
   %spec.select = select i1 %.not211, i32 0, i32 %219
-  %.0188 = select i1 %218, i32 %spec.select, i32 %217
+  %.1 = select i1 %218, i32 %spec.select, i32 %217
   %220 = load i64, ptr %196, align 8
   %221 = inttoptr i64 %220 to ptr
   %.not212 = icmp eq ptr %204, %221
@@ -3408,12 +3408,12 @@ define internal fastcc range(i32 -1, 2) i32 @record_image_cmp(ptr nocapture noun
   unreachable
 
 233:                                              ; preds = %184, %223, %226
-  %.1 = phi i32 [ %192, %184 ], [ %.0188, %226 ], [ %.0188, %223 ]
-  %234 = icmp slt i32 %.1, 0
+  %.0188 = phi i32 [ %192, %184 ], [ %.1, %226 ], [ %.1, %223 ]
+  %234 = icmp slt i32 %.0188, 0
   br i1 %234, label %.thread230, label %.thread224
 
 .thread224:                                       ; preds = %233
-  %.not215 = icmp eq i32 %.1, 0
+  %.not215 = icmp eq i32 %.0188, 0
   br i1 %.not215, label %.thread224.thread, label %.thread230
 
 .thread224.thread:                                ; preds = %173, %.thread224, %167

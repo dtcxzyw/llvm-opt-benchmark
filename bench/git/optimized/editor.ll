@@ -480,14 +480,14 @@ _.exit29:                                         ; preds = %if.then25, %if.end3
   br label %if.end29
 
 if.end29:                                         ; preds = %_.exit29, %strbuf_setlen.exit
-  %res.0 = phi i32 [ -1, %_.exit29 ], [ 0, %strbuf_setlen.exit ]
+  %res.1 = phi i32 [ -1, %_.exit29 ], [ 0, %strbuf_setlen.exit ]
   %call30 = tail call i32 @unlink(ptr noundef %path.addr.0) #10
   br label %if.end33
 
 if.end33:                                         ; preds = %_.exit19, %if.end29, %_.exit24, %_.exit
-  %res.1 = phi i32 [ -1, %_.exit ], [ -1, %_.exit19 ], [ -1, %_.exit24 ], [ %res.0, %if.end29 ]
+  %res.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit19 ], [ -1, %_.exit24 ], [ %res.1, %if.end29 ]
   tail call void @free(ptr noundef %path2.0) #10
-  ret i32 %res.1
+  ret i32 %res.0
 }
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #4

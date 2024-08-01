@@ -25127,7 +25127,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %convertible.0436 = phi i1 [ true, %for.body.lr.ph ], [ %convertible.1, %for.inc ]
+  %convertible.0436 = phi i1 [ true, %for.body.lr.ph ], [ %convertible.2, %for.inc ]
   %__begin3.sroa.0.0435 = phi ptr [ %4, %for.body.lr.ph ], [ %call.i, %for.inc ]
   %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.0435, i64 32
   %second = getelementptr inbounds i8, ptr %__begin3.sroa.0.0435, i64 40
@@ -25404,7 +25404,7 @@ lpad41:                                           ; preds = %if.else.i.i66, %if.
 
 cleanup:                                          ; preds = %if.then13.i.i77, %if.then.i.i71, %invoke.cont42, %if.else.i.i, %if.then.i5.i, %invoke.cont23, %if.then13.i4.i, %_ZN4cvc58internal8RationalD2Ev.exit, %invoke.cont36, %invoke.cont33, %invoke.cont9, %invoke.cont14
   %cleanup.dest.slot.0 = phi i32 [ 2, %invoke.cont14 ], [ 0, %invoke.cont9 ], [ 0, %invoke.cont33 ], [ 0, %invoke.cont36 ], [ 0, %_ZN4cvc58internal8RationalD2Ev.exit ], [ 3, %if.then13.i4.i ], [ 3, %invoke.cont23 ], [ 3, %if.then.i5.i ], [ 3, %if.else.i.i ], [ 3, %invoke.cont42 ], [ 3, %if.then.i.i71 ], [ 3, %if.then13.i.i77 ]
-  %convertible.1 = phi i1 [ false, %invoke.cont14 ], [ %convertible.0436, %invoke.cont9 ], [ %convertible.0436, %invoke.cont33 ], [ %convertible.0436, %invoke.cont36 ], [ %convertible.0436, %_ZN4cvc58internal8RationalD2Ev.exit ], [ %convertible.0436, %if.then13.i4.i ], [ %convertible.0436, %invoke.cont23 ], [ %convertible.0436, %if.then.i5.i ], [ %convertible.0436, %if.else.i.i ], [ %convertible.0436, %invoke.cont42 ], [ %convertible.0436, %if.then.i.i71 ], [ %convertible.0436, %if.then13.i.i77 ]
+  %convertible.2 = phi i1 [ false, %invoke.cont14 ], [ %convertible.0436, %invoke.cont9 ], [ %convertible.0436, %invoke.cont33 ], [ %convertible.0436, %invoke.cont36 ], [ %convertible.0436, %_ZN4cvc58internal8RationalD2Ev.exit ], [ %convertible.0436, %if.then13.i4.i ], [ %convertible.0436, %invoke.cont23 ], [ %convertible.0436, %if.then.i5.i ], [ %convertible.0436, %if.else.i.i ], [ %convertible.0436, %invoke.cont42 ], [ %convertible.0436, %if.then.i.i71 ], [ %convertible.0436, %if.then13.i.i77 ]
   invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp)
           to label %_ZN4cvc58internal8RationalD2Ev.exit79 unwind label %terminate.lpad.i.i78
 
@@ -25440,7 +25440,7 @@ for.inc:                                          ; preds = %_ZN4cvc58internal8R
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %_ZN4cvc58internal8RationalD2Ev.exit79
-  br i1 %convertible.1, label %for.end.land.lhs.true48_crit_edge, label %if.end219
+  br i1 %convertible.2, label %for.end.land.lhs.true48_crit_edge, label %if.end219
 
 for.end.land.lhs.true48_crit_edge:                ; preds = %for.end
   %.pre = load ptr, ptr %bv2natTerm, align 8

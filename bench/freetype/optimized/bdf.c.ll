@@ -942,7 +942,7 @@ bdf_interpret_style.exit.thread:                  ; preds = %343
   br label %598
 
 .preheader.i:                                     ; preds = %343, %364
-  %.076142.i = phi ptr [ %.2.i, %364 ], [ %344, %343 ]
+  %.076142.i = phi ptr [ %.1.i, %364 ], [ %344, %343 ]
   %.181141.i = phi i64 [ %365, %364 ], [ 0, %343 ]
   %347 = getelementptr inbounds [4 x ptr], ptr %7, i64 0, i64 %.181141.i
   %348 = load ptr, ptr %347, align 8
@@ -962,8 +962,8 @@ bdf_interpret_style.exit.thread:                  ; preds = %343
   br label %355
 
 355:                                              ; preds = %353, %351
-  %.1.i = phi ptr [ %354, %353 ], [ %.076142.i, %351 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1.i, ptr nonnull align 1 %348, i64 %350, i1 false)
+  %.2.i = phi ptr [ %354, %353 ], [ %.076142.i, %351 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2.i, ptr nonnull align 1 %348, i64 %350, i1 false)
   switch i64 %.181141.i, label %.loopexit.i [
     i64 3, label %356
     i64 0, label %356
@@ -975,7 +975,7 @@ bdf_interpret_style.exit.thread:                  ; preds = %343
 
 .lr.ph.i:                                         ; preds = %356, %361
   %.0140.i = phi i64 [ %362, %361 ], [ 0, %356 ]
-  %357 = getelementptr inbounds i8, ptr %.1.i, i64 %.0140.i
+  %357 = getelementptr inbounds i8, ptr %.2.i, i64 %.0140.i
   %358 = load i8, ptr %357, align 1
   %359 = icmp eq i8 %358, 32
   br i1 %359, label %360, label %361
@@ -990,17 +990,17 @@ bdf_interpret_style.exit.thread:                  ; preds = %343
   br i1 %exitcond144.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %361, %356, %355
-  %363 = getelementptr inbounds i8, ptr %.1.i, i64 %350
+  %363 = getelementptr inbounds i8, ptr %.2.i, i64 %350
   br label %364
 
 364:                                              ; preds = %.loopexit.i, %.preheader.i
-  %.2.i = phi ptr [ %363, %.loopexit.i ], [ %.076142.i, %.preheader.i ]
+  %.1.i = phi ptr [ %363, %.loopexit.i ], [ %.076142.i, %.preheader.i ]
   %365 = add nuw nsw i64 %.181141.i, 1
   %exitcond145.not.i = icmp eq i64 %365, 4
   br i1 %exitcond145.not.i, label %bdf_interpret_style.exit, label %.preheader.i, !llvm.loop !8
 
 bdf_interpret_style.exit:                         ; preds = %364
-  store i8 0, ptr %.2.i, align 1
+  store i8 0, ptr %.1.i, align 1
   %366 = load i32, ptr %6, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
@@ -3014,8 +3014,8 @@ bdf_list_ensure_.exit104:                         ; preds = %118, %120
   br label %141
 
 141:                                              ; preds = %bdf_list_ensure_.exit104, %bdf_list_ensure_.exit, %26, %28, %21, %23, %137
-  %.3 = phi i32 [ 0, %21 ], [ 0, %23 ], [ %79, %bdf_list_ensure_.exit ], [ %132, %bdf_list_ensure_.exit104 ], [ 0, %137 ], [ 6, %28 ], [ 6, %26 ]
-  ret i32 %.3
+  %.0 = phi i32 [ 0, %21 ], [ 0, %23 ], [ %79, %bdf_list_ensure_.exit ], [ %132, %bdf_list_ensure_.exit104 ], [ 0, %137 ], [ 6, %28 ], [ 6, %26 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -3296,8 +3296,8 @@ bdf_get_property.exit.thread..loopexit58_crit_edge.i: ; preds = %bdf_get_propert
   br label %.loopexit58.i
 
 .critedge2.i:                                     ; preds = %bdf_get_property.exit.thread.i, %.critedge2.i.backedge
-  %.039.i = phi ptr [ %107, %.critedge2.i.backedge ], [ %.038.i, %bdf_get_property.exit.thread.i ]
-  %107 = getelementptr inbounds i8, ptr %.039.i, i64 1
+  %.140.i = phi ptr [ %107, %.critedge2.i.backedge ], [ %.038.i, %bdf_get_property.exit.thread.i ]
+  %107 = getelementptr inbounds i8, ptr %.140.i, i64 1
   %108 = load i8, ptr %107, align 1
   switch i8 %108, label %.loopexit58.i [
     i8 32, label %.critedge2.i.backedge
@@ -3309,17 +3309,17 @@ bdf_get_property.exit.thread..loopexit58_crit_edge.i: ; preds = %bdf_get_propert
 
 .loopexit58.i:                                    ; preds = %.critedge2.i, %bdf_get_property.exit.thread..loopexit58_crit_edge.i
   %109 = phi i8 [ %.pre.i, %bdf_get_property.exit.thread..loopexit58_crit_edge.i ], [ %108, %.critedge2.i ]
-  %.140.i = phi ptr [ %.038.i, %bdf_get_property.exit.thread..loopexit58_crit_edge.i ], [ %107, %.critedge2.i ]
+  %.039.i = phi ptr [ %.038.i, %bdf_get_property.exit.thread..loopexit58_crit_edge.i ], [ %107, %.critedge2.i ]
   %110 = icmp eq i8 %109, 34
   %spec.select.idx.i = zext i1 %110 to i64
-  %spec.select.i = getelementptr inbounds i8, ptr %.140.i, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds i8, ptr %.039.i, i64 %spec.select.idx.i
   %111 = icmp ult ptr %spec.select.i, %105
   br i1 %111, label %.critedge4.i, label %thread-pre-split.i
 
 .critedge4.i:                                     ; preds = %.loopexit58.i, %.critedge4.i.backedge
-  %.1.i = phi ptr [ %112, %.critedge4.i.backedge ], [ %105, %.loopexit58.i ]
-  %112 = getelementptr inbounds i8, ptr %.1.i, i64 -1
-  store i8 0, ptr %.1.i, align 1
+  %.2.i = phi ptr [ %112, %.critedge4.i.backedge ], [ %105, %.loopexit58.i ]
+  %112 = getelementptr inbounds i8, ptr %.2.i, i64 -1
+  store i8 0, ptr %.2.i, align 1
   %113 = load i8, ptr %112, align 1
   switch i8 %113, label %.loopexit.i [
     i8 32, label %.critedge4.i.backedge
@@ -3335,12 +3335,12 @@ thread-pre-split.i:                               ; preds = %.loopexit58.i
 
 .loopexit.i:                                      ; preds = %.critedge4.i, %thread-pre-split.i
   %114 = phi i8 [ %.pr.i, %thread-pre-split.i ], [ %113, %.critedge4.i ]
-  %.2.i = phi ptr [ %105, %thread-pre-split.i ], [ %112, %.critedge4.i ]
+  %.1.i = phi ptr [ %105, %thread-pre-split.i ], [ %112, %.critedge4.i ]
   %115 = icmp eq i8 %114, 34
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %.loopexit.i
-  store i8 0, ptr %.2.i, align 1
+  store i8 0, ptr %.1.i, align 1
   br label %117
 
 117:                                              ; preds = %116, %.loopexit.i
@@ -3362,10 +3362,10 @@ thread-pre-split.i:                               ; preds = %.loopexit58.i
   %127 = load i64, ptr %126, align 8
   switch i64 %127, label %.lr.ph.i [
     i64 0, label %bdf_list_join_.exit
-    i64 1, label %bdf_list_shift_.exit.thread98
+    i64 1, label %bdf_list_shift_.exit.thread99
   ]
 
-bdf_list_shift_.exit.thread98:                    ; preds = %123
+bdf_list_shift_.exit.thread99:                    ; preds = %123
   store i64 0, ptr %126, align 8
   br label %bdf_list_join_.exit
 
@@ -3450,15 +3450,15 @@ bdf_list_shift_.exit:                             ; preds = %.lr.ph.i
   store i8 0, ptr %160, align 1
   br label %bdf_list_join_.exit
 
-bdf_list_join_.exit:                              ; preds = %123, %._crit_edge38.i, %159, %bdf_list_shift_.exit.thread98, %bdf_list_shift_.exit
-  %.024.i = phi ptr [ null, %bdf_list_shift_.exit ], [ null, %bdf_list_shift_.exit.thread98 ], [ %139, %159 ], [ @empty, %._crit_edge38.i ], [ null, %123 ]
+bdf_list_join_.exit:                              ; preds = %123, %._crit_edge38.i, %159, %bdf_list_shift_.exit.thread99, %bdf_list_shift_.exit
+  %.024.i = phi ptr [ null, %bdf_list_shift_.exit ], [ null, %bdf_list_shift_.exit.thread99 ], [ %139, %159 ], [ @empty, %._crit_edge38.i ], [ null, %123 ]
   %161 = load ptr, ptr %80, align 8
   %162 = tail call fastcc i32 @bdf_add_property_(ptr noundef %161, ptr noundef %125, ptr noundef %.024.i)
   br label %switch.edge72
 
 switch.edge72:                                    ; preds = %67, %67, %67, %67, %67, %bdf_list_join_.exit, %117, %76, %120, %bdf_get_font_property.exit80.thread, %bdf_get_font_property.exit.thread, %63
-  %.2 = phi i32 [ %36, %bdf_get_font_property.exit.thread ], [ %62, %bdf_get_font_property.exit80.thread ], [ 0, %63 ], [ %79, %76 ], [ %119, %117 ], [ %122, %120 ], [ %162, %bdf_list_join_.exit ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ]
-  ret i32 %.2
+  %.1 = phi i32 [ %36, %bdf_get_font_property.exit.thread ], [ %62, %bdf_get_font_property.exit80.thread ], [ 0, %63 ], [ %79, %76 ], [ %119, %117 ], [ %122, %120 ], [ %162, %bdf_list_join_.exit ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ], [ 0, %67 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

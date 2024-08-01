@@ -2783,9 +2783,9 @@ if.end159:                                        ; preds = %sw.bb134
   br label %if.end161
 
 if.end161:                                        ; preds = %if.end129, %if.end159
-  %selectedIn.3 = phi ptr [ %23, %if.end159 ], [ %srcPtr.0575, %if.end129 ]
-  %srcPtr.3 = phi ptr [ %add.ptr150, %if.end159 ], [ %add.ptr126, %if.end129 ]
-  %24 = load i32, ptr %selectedIn.3, align 1
+  %selectedIn.7 = phi ptr [ %23, %if.end159 ], [ %srcPtr.0575, %if.end129 ]
+  %srcPtr.7 = phi ptr [ %add.ptr150, %if.end159 ], [ %add.ptr126, %if.end129 ]
+  %24 = load i32, ptr %selectedIn.7, align 1
   %and = and i32 %24, 2147483647
   %conv163 = zext nneg i32 %and to i64
   %25 = load i32, ptr %blockChecksumFlag386, align 4
@@ -2825,13 +2825,13 @@ if.end188:                                        ; preds = %if.end176
   store i64 %add189, ptr %tmpInTarget753, align 8
   store i32 7, ptr %dStage, align 4
   %cmp192 = icmp eq ptr %dstPtr.0571, %cond
-  %cmp194 = icmp eq ptr %srcPtr.3, %add.ptr
+  %cmp194 = icmp eq ptr %srcPtr.7, %add.ptr
   %or.cond444 = select i1 %cmp192, i1 true, i1 %cmp194
   br i1 %or.cond444, label %if.then196, label %while.body.backedge
 
 while.body.backedge:                              ; preds = %if.end188, %if.then271, %if.else274, %do.body59, %if.end745, %if.then613, %if.end479, %if.then349, %if.end340, %if.end186, %if.then168, %do.end, %while.body
-  %srcPtr.0575.be = phi ptr [ %srcPtr.0575, %while.body ], [ %srcPtr.13, %if.end745 ], [ %srcPtr.7, %if.then613 ], [ %srcPtr.6, %if.end479 ], [ %srcPtr.0575, %if.then349 ], [ %srcPtr.5, %if.end340 ], [ %srcPtr.4, %if.then271 ], [ %srcPtr.4, %if.else274 ], [ %srcPtr.3, %if.then168 ], [ %srcPtr.3, %if.end186 ], [ %add.ptr48, %do.body59 ], [ %add.ptr17, %do.end ], [ %srcPtr.3, %if.end188 ]
-  %dstPtr.0571.be = phi ptr [ %dstPtr.0571, %while.body ], [ %dstPtr.0571, %if.end745 ], [ %dstPtr.2, %if.then613 ], [ %add.ptr480, %if.end479 ], [ %dstPtr.0571, %if.then349 ], [ %dstPtr.0571, %if.end340 ], [ %dstPtr.1, %if.then271 ], [ %dstPtr.1, %if.else274 ], [ %dstPtr.0571, %if.then168 ], [ %dstPtr.0571, %if.end186 ], [ %dstPtr.0571, %do.body59 ], [ %dstPtr.0571, %do.end ], [ %dstPtr.0571, %if.end188 ]
+  %srcPtr.0575.be = phi ptr [ %srcPtr.0575, %while.body ], [ %srcPtr.14, %if.end745 ], [ %srcPtr.3, %if.then613 ], [ %srcPtr.10, %if.end479 ], [ %srcPtr.0575, %if.then349 ], [ %srcPtr.9, %if.end340 ], [ %srcPtr.8, %if.then271 ], [ %srcPtr.8, %if.else274 ], [ %srcPtr.7, %if.then168 ], [ %srcPtr.7, %if.end186 ], [ %add.ptr48, %do.body59 ], [ %add.ptr17, %do.end ], [ %srcPtr.7, %if.end188 ]
+  %dstPtr.0571.be = phi ptr [ %dstPtr.0571, %while.body ], [ %dstPtr.0571, %if.end745 ], [ %dstPtr.3, %if.then613 ], [ %add.ptr480, %if.end479 ], [ %dstPtr.0571, %if.then349 ], [ %dstPtr.0571, %if.end340 ], [ %dstPtr.2, %if.then271 ], [ %dstPtr.2, %if.else274 ], [ %dstPtr.0571, %if.then168 ], [ %dstPtr.0571, %if.end186 ], [ %dstPtr.0571, %do.body59 ], [ %dstPtr.0571, %do.end ], [ %dstPtr.0571, %if.end188 ]
   br label %while.body, !llvm.loop !7
 
 if.then196:                                       ; preds = %if.end188
@@ -2979,8 +2979,8 @@ if.end260:                                        ; preds = %LZ4F_updateDict.exi
 if.end263:                                        ; preds = %sw.bb200, %if.end260
   %43 = phi i64 [ %.pre587, %if.end260 ], [ %.pre588, %sw.bb200 ]
   %sizeToCopy201.0 = phi i64 [ %cond231, %if.end260 ], [ 0, %sw.bb200 ]
-  %dstPtr.1 = phi ptr [ %add.ptr262, %if.end260 ], [ null, %sw.bb200 ]
-  %srcPtr.4 = phi ptr [ %add.ptr261, %if.end260 ], [ %srcPtr.0575, %sw.bb200 ]
+  %dstPtr.2 = phi ptr [ %add.ptr262, %if.end260 ], [ null, %sw.bb200 ]
+  %srcPtr.8 = phi ptr [ %add.ptr261, %if.end260 ], [ %srcPtr.0575, %sw.bb200 ]
   %cmp265 = icmp eq i64 %sizeToCopy201.0, %43
   br i1 %cmp265, label %if.then267, label %if.end277
 
@@ -3035,7 +3035,7 @@ if.else298:                                       ; preds = %sw.bb287
 
 if.end328:                                        ; preds = %if.else298, %if.then296
   %crcSrc.0 = phi ptr [ %srcPtr.0575, %if.then296 ], [ %header726, %if.else298 ]
-  %srcPtr.5 = phi ptr [ %add.ptr297, %if.then296 ], [ %add.ptr320, %if.else298 ]
+  %srcPtr.9 = phi ptr [ %add.ptr297, %if.then296 ], [ %add.ptr320, %if.else298 ]
   %47 = load i32, ptr %skipChecksum, align 8
   %tobool330.not = icmp eq i32 %47, 0
   br i1 %tobool330.not, label %if.then331, label %if.end340
@@ -3099,8 +3099,8 @@ if.end391:                                        ; preds = %sw.bb356
 
 if.end393:                                        ; preds = %if.end352, %if.end391
   %57 = phi i64 [ %54, %if.end391 ], [ %49, %if.end352 ]
-  %selectedIn.4 = phi ptr [ %56, %if.end391 ], [ %srcPtr.0575, %if.end352 ]
-  %srcPtr.6 = phi ptr [ %add.ptr376, %if.end391 ], [ %add.ptr354, %if.end352 ]
+  %selectedIn.8 = phi ptr [ %56, %if.end391 ], [ %srcPtr.0575, %if.end352 ]
+  %srcPtr.10 = phi ptr [ %add.ptr376, %if.end391 ], [ %add.ptr354, %if.end352 ]
   %58 = load i32, ptr %blockChecksumFlag386, align 4
   %tobool396.not = icmp eq i32 %58, 0
   br i1 %tobool396.not, label %if.end412, label %if.then397
@@ -3108,9 +3108,9 @@ if.end393:                                        ; preds = %if.end352, %if.end3
 if.then397:                                       ; preds = %if.end393
   %sub399 = add i64 %57, -4
   store i64 %sub399, ptr %tmpInTarget753, align 8
-  %add.ptr401 = getelementptr inbounds i8, ptr %selectedIn.4, i64 %sub399
+  %add.ptr401 = getelementptr inbounds i8, ptr %selectedIn.8, i64 %sub399
   %59 = load i32, ptr %add.ptr401, align 1
-  %call404 = tail call i32 @LZ4_XXH32(ptr noundef %selectedIn.4, i64 noundef %sub399, i32 noundef 0) #12
+  %call404 = tail call i32 @LZ4_XXH32(ptr noundef %selectedIn.8, i64 noundef %sub399, i32 noundef 0) #12
   %cmp406.not = icmp eq i32 %59, %call404
   br i1 %cmp406.not, label %if.end412, label %return
 
@@ -3145,7 +3145,7 @@ if.then428:                                       ; preds = %land.lhs.true422, %
   %conv442 = trunc i64 %64 to i32
   %conv444 = trunc i64 %60 to i32
   %conv445 = select i1 %or.cond, i32 65536, i32 %63
-  %call446 = tail call i32 @LZ4_decompress_safe_usingDict(ptr noundef %selectedIn.4, ptr noundef %dstPtr.0571, i32 noundef %conv442, i32 noundef %conv444, ptr noundef %dict429.0, i32 noundef %conv445) #12
+  %call446 = tail call i32 @LZ4_decompress_safe_usingDict(ptr noundef %selectedIn.8, ptr noundef %dstPtr.0571, i32 noundef %conv442, i32 noundef %conv444, ptr noundef %dict429.0, i32 noundef %conv445) #12
   %cmp448 = icmp slt i32 %call446, 0
   br i1 %cmp448, label %return, label %do.end453
 
@@ -3329,7 +3329,7 @@ if.end521:                                        ; preds = %if.end482.if.end521
   %conv537 = trunc i64 %91 to i32
   %conv539 = trunc i64 %85 to i32
   %conv540 = select i1 %or.cond1, i32 65536, i32 %90
-  %call541 = tail call i32 @LZ4_decompress_safe_usingDict(ptr noundef %selectedIn.4, ptr noundef %86, i32 noundef %conv537, i32 noundef %conv539, ptr noundef %dict522.0, i32 noundef %conv540) #12
+  %call541 = tail call i32 @LZ4_decompress_safe_usingDict(ptr noundef %selectedIn.8, ptr noundef %86, i32 noundef %conv537, i32 noundef %conv539, ptr noundef %dict522.0, i32 noundef %conv540) #12
   %cmp543 = icmp slt i32 %call541, 0
   br i1 %cmp543, label %return, label %do.end548
 
@@ -3370,7 +3370,7 @@ if.end568:                                        ; preds = %if.end560, %if.then
 sw.bb573:                                         ; preds = %while.body.sw.bb573_crit_edge, %if.end568
   %.pre585 = phi i64 [ %.pre585.pre, %while.body.sw.bb573_crit_edge ], [ %.pre601, %if.end568 ]
   %.pre583 = phi i64 [ %.pre583.pre, %while.body.sw.bb573_crit_edge ], [ 0, %if.end568 ]
-  %srcPtr.7 = phi ptr [ %srcPtr.0575, %while.body.sw.bb573_crit_edge ], [ %srcPtr.6, %if.end568 ]
+  %srcPtr.3 = phi ptr [ %srcPtr.0575, %while.body.sw.bb573_crit_edge ], [ %srcPtr.10, %if.end568 ]
   %cmp574.not = icmp eq ptr %dstPtr.0571, null
   br i1 %cmp574.not, label %if.end608, label %if.then576
 
@@ -3467,7 +3467,7 @@ if.end604:                                        ; preds = %LZ4F_updateDict.exi
 if.end608:                                        ; preds = %if.end604, %sw.bb573
   %108 = phi i64 [ %.pre584, %if.end604 ], [ %.pre585, %sw.bb573 ]
   %109 = phi i64 [ %add606, %if.end604 ], [ %.pre583, %sw.bb573 ]
-  %dstPtr.2 = phi ptr [ %add.ptr607, %if.end604 ], [ null, %sw.bb573 ]
+  %dstPtr.3 = phi ptr [ %add.ptr607, %if.end604 ], [ null, %sw.bb573 ]
   %cmp611 = icmp eq i64 %109, %108
   br i1 %cmp611, label %if.then613, label %while.end
 
@@ -3531,14 +3531,14 @@ if.end671:                                        ; preds = %sw.bb644
   br label %if.end673
 
 if.end673:                                        ; preds = %if.end639, %if.end671
-  %selectedIn.8 = phi ptr [ %115, %if.end671 ], [ %srcPtr.0575, %if.end639 ]
-  %srcPtr.10 = phi ptr [ %add.ptr662, %if.end671 ], [ %add.ptr638, %if.end639 ]
+  %selectedIn.10 = phi ptr [ %115, %if.end671 ], [ %srcPtr.0575, %if.end639 ]
+  %srcPtr.12 = phi ptr [ %add.ptr662, %if.end671 ], [ %add.ptr638, %if.end639 ]
   %116 = load i32, ptr %skipChecksum, align 8
   %tobool675.not = icmp eq i32 %116, 0
   br i1 %tobool675.not, label %if.then676, label %if.end688
 
 if.then676:                                       ; preds = %if.end673
-  %117 = load i32, ptr %selectedIn.8, align 1
+  %117 = load i32, ptr %selectedIn.10, align 1
   %call680 = tail call i32 @LZ4_XXH32_digest(ptr noundef nonnull %xxh679) #12
   %cmp682.not = icmp eq i32 %117, %call680
   br i1 %cmp682.not, label %if.end688, label %return
@@ -3587,9 +3587,9 @@ if.then737:                                       ; preds = %sw.bb706
   br label %while.end
 
 if.end745:                                        ; preds = %if.end701, %sw.bb706
-  %selectedIn.11 = phi ptr [ %srcPtr.0575, %if.end701 ], [ %add.ptr744, %sw.bb706 ]
-  %srcPtr.13 = phi ptr [ %add.ptr696, %if.end701 ], [ %add.ptr730, %sw.bb706 ]
-  %122 = load i32, ptr %selectedIn.11, align 1
+  %selectedIn.12 = phi ptr [ %srcPtr.0575, %if.end701 ], [ %add.ptr744, %sw.bb706 ]
+  %srcPtr.14 = phi ptr [ %add.ptr696, %if.end701 ], [ %add.ptr730, %sw.bb706 ]
+  %122 = load i32, ptr %selectedIn.12, align 1
   %conv747 = zext i32 %122 to i64
   store i64 %conv747, ptr %contentSize749, align 8
   store i64 %conv747, ptr %tmpInTarget753, align 8
@@ -3616,8 +3616,8 @@ if.end773:                                        ; preds = %sw.bb752
 
 while.end:                                        ; preds = %if.else298, %if.end608, %sw.bb752, %if.end773, %if.then737, %if.then668, %if.end688, %if.then627, %if.then381, %if.end277, %if.then156, %if.then196, %if.then53
   %nextSrcSizeHint.1.ph = phi i64 [ %add57, %if.then53 ], [ %add198, %if.then196 ], [ %sub158, %if.then156 ], [ %add286, %if.end277 ], [ %add390, %if.then381 ], [ 0, %if.then627 ], [ 0, %if.end688 ], [ %sub670, %if.then668 ], [ %sub740, %if.then737 ], [ 0, %if.end773 ], [ %sub769, %sw.bb752 ], [ 1, %if.else298 ], [ 4, %if.end608 ]
-  %dstPtr.3.ph = phi ptr [ %dstPtr.0571, %if.then53 ], [ %dstPtr.0571, %if.then196 ], [ %dstPtr.0571, %if.then156 ], [ %dstPtr.1, %if.end277 ], [ %dstPtr.0571, %if.then381 ], [ %dstPtr.0571, %if.then627 ], [ %dstPtr.0571, %if.end688 ], [ %dstPtr.0571, %if.then668 ], [ %dstPtr.0571, %if.then737 ], [ %dstPtr.0571, %if.end773 ], [ %dstPtr.0571, %sw.bb752 ], [ %dstPtr.0571, %if.else298 ], [ %dstPtr.2, %if.end608 ]
-  %srcPtr.14.ph = phi ptr [ %add.ptr48, %if.then53 ], [ %srcPtr.3, %if.then196 ], [ %add.ptr150, %if.then156 ], [ %srcPtr.4, %if.end277 ], [ %add.ptr376, %if.then381 ], [ %srcPtr.0575, %if.then627 ], [ %srcPtr.10, %if.end688 ], [ %add.ptr662, %if.then668 ], [ %add.ptr730, %if.then737 ], [ %add.ptr767, %if.end773 ], [ %add.ptr767, %sw.bb752 ], [ %add.ptr320, %if.else298 ], [ %srcPtr.7, %if.end608 ]
+  %dstPtr.1.ph = phi ptr [ %dstPtr.0571, %if.then53 ], [ %dstPtr.0571, %if.then196 ], [ %dstPtr.0571, %if.then156 ], [ %dstPtr.2, %if.end277 ], [ %dstPtr.0571, %if.then381 ], [ %dstPtr.0571, %if.then627 ], [ %dstPtr.0571, %if.end688 ], [ %dstPtr.0571, %if.then668 ], [ %dstPtr.0571, %if.then737 ], [ %dstPtr.0571, %if.end773 ], [ %dstPtr.0571, %sw.bb752 ], [ %dstPtr.0571, %if.else298 ], [ %dstPtr.3, %if.end608 ]
+  %srcPtr.1.ph = phi ptr [ %add.ptr48, %if.then53 ], [ %srcPtr.7, %if.then196 ], [ %add.ptr150, %if.then156 ], [ %srcPtr.8, %if.end277 ], [ %add.ptr376, %if.then381 ], [ %srcPtr.0575, %if.then627 ], [ %srcPtr.12, %if.end688 ], [ %add.ptr662, %if.then668 ], [ %add.ptr730, %if.then737 ], [ %add.ptr767, %if.end773 ], [ %add.ptr767, %sw.bb752 ], [ %add.ptr320, %if.else298 ], [ %srcPtr.3, %if.end608 ]
   %124 = load i32, ptr %blockMode474, align 4
   %cmp776 = icmp eq i32 %124, 0
   br i1 %cmp776, label %land.lhs.true778, label %if.end854
@@ -3688,11 +3688,11 @@ if.else831:                                       ; preds = %if.then794
   br label %if.end854
 
 if.end854:                                        ; preds = %if.then798, %if.else831, %land.lhs.true789, %land.lhs.true787.cont, %land.lhs.true778, %while.end
-  %sub.ptr.lhs.cast855 = ptrtoint ptr %srcPtr.14.ph to i64
+  %sub.ptr.lhs.cast855 = ptrtoint ptr %srcPtr.1.ph to i64
   %sub.ptr.rhs.cast856 = ptrtoint ptr %srcBuffer to i64
   %sub.ptr.sub857 = sub i64 %sub.ptr.lhs.cast855, %sub.ptr.rhs.cast856
   store i64 %sub.ptr.sub857, ptr %srcSizePtr, align 8
-  %sub.ptr.lhs.cast858 = ptrtoint ptr %dstPtr.3.ph to i64
+  %sub.ptr.lhs.cast858 = ptrtoint ptr %dstPtr.1.ph to i64
   %sub.ptr.sub860 = sub i64 %sub.ptr.lhs.cast858, %sub.ptr.rhs.cast.i485
   store i64 %sub.ptr.sub860, ptr %dstSizePtr, align 8
   br label %return

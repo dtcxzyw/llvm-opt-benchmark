@@ -939,20 +939,20 @@ zonetab.exit:                                     ; preds = %gperf_case_strncmp.
   br label %280
 
 280:                                              ; preds = %272, %261
-  %.0107 = phi i64 [ %267, %261 ], [ %spec.select142, %272 ]
-  %281 = mul nsw i64 %.0107, 36
+  %.1108 = phi i64 [ %267, %261 ], [ %spec.select142, %272 ]
+  %281 = mul nsw i64 %.1108, 36
   %282 = sub nsw i64 0, %246
   %283 = sub nsw i64 0, %281
-  %.0111 = select i1 %244, i64 %282, i64 %246
-  %.1108 = select i1 %244, i64 %283, i64 %281
+  %.1112 = select i1 %244, i64 %282, i64 %246
+  %.2 = select i1 %244, i64 %283, i64 %281
   %284 = icmp ult i64 %268, 3
   br i1 %284, label %285, label %292
 
 285:                                              ; preds = %280
   %286 = icmp eq i64 %268, 1
-  %287 = mul nsw i64 %.1108, 10
-  %spec.select140 = select i1 %286, i64 %287, i64 %.1108
-  %288 = mul nsw i64 %.0111, 3600
+  %287 = mul nsw i64 %.2, 10
+  %spec.select140 = select i1 %286, i64 %287, i64 %.2
+  %288 = mul nsw i64 %.1112, 3600
   %289 = add nsw i64 %spec.select140, %288
   %290 = shl i64 %289, 1
   %291 = or disjoint i64 %290, 1
@@ -963,10 +963,10 @@ zonetab.exit:                                     ; preds = %gperf_case_strncmp.
   %sext = add i64 %293, -8589934592
   %294 = ashr exact i64 %sext, 32
   %295 = call i64 @rb_int_positive_pow(i64 noundef 10, i64 noundef %294) #13
-  %296 = shl i64 %.1108, 1
+  %296 = shl i64 %.2, 1
   %297 = or disjoint i64 %296, 1
   %298 = call i64 @rb_rational_new(i64 noundef %297, i64 noundef %295) #13
-  %299 = mul nsw i64 %.0111, 7200
+  %299 = mul nsw i64 %.1112, 7200
   %300 = or disjoint i64 %299, 1
   %301 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %298, i64 noundef 43, i32 noundef 1, i64 noundef %300) #13
   %302 = call i64 @rb_rational_den(i64 noundef %301) #12
@@ -998,13 +998,13 @@ zonetab.exit:                                     ; preds = %gperf_case_strncmp.
   br label %320
 
 320:                                              ; preds = %308, %316, %306, %253, %257
-  %.2113 = phi i64 [ %246, %257 ], [ %246, %253 ], [ %312, %316 ], [ %312, %308 ], [ %246, %306 ]
-  %.1110 = phi i64 [ %252, %257 ], [ %252, %253 ], [ %314, %316 ], [ %314, %308 ], [ 0, %306 ]
-  %.3 = phi i64 [ %259, %257 ], [ 0, %253 ], [ %319, %316 ], [ 0, %308 ], [ 0, %306 ]
-  %321 = mul nsw i64 %.1110, 60
-  %322 = mul nsw i64 %.2113, 3600
+  %.0111 = phi i64 [ %246, %257 ], [ %246, %253 ], [ %312, %316 ], [ %312, %308 ], [ %246, %306 ]
+  %.0109 = phi i64 [ %252, %257 ], [ %252, %253 ], [ %314, %316 ], [ %314, %308 ], [ 0, %306 ]
+  %.0107 = phi i64 [ %259, %257 ], [ 0, %253 ], [ %319, %316 ], [ 0, %308 ], [ 0, %306 ]
+  %321 = mul nsw i64 %.0109, 60
+  %322 = mul nsw i64 %.0111, 3600
   %323 = add nsw i64 %321, %322
-  %324 = add nsw i64 %323, %.3
+  %324 = add nsw i64 %323, %.0107
   %325 = sub nsw i64 0, %324
   %spec.select141 = select i1 %244, i64 %325, i64 %324
   %326 = shl i64 %spec.select141, 1
@@ -1012,7 +1012,7 @@ zonetab.exit:                                     ; preds = %gperf_case_strncmp.
   br label %328
 
 328:                                              ; preds = %.thread, %320
-  %.0104 = phi i64 [ %327, %320 ], [ 4, %.thread ]
+  %.1 = phi i64 [ %327, %320 ], [ 4, %.thread ]
   store ptr %2, ptr %9, align 8
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %9) #13, !srcloc !14
   %329 = load ptr, ptr %9, align 8
@@ -1020,7 +1020,7 @@ zonetab.exit:                                     ; preds = %gperf_case_strncmp.
   br label %331
 
 331:                                              ; preds = %zonetab.exit, %328, %292, %304, %285, %260, %257, %250, %249
-  %.0 = phi i64 [ 4, %249 ], [ 4, %250 ], [ 4, %257 ], [ 4, %260 ], [ %230, %zonetab.exit ], [ %.0104, %328 ], [ %291, %285 ], [ %305, %304 ], [ %301, %292 ]
+  %.0 = phi i64 [ 4, %249 ], [ 4, %250 ], [ 4, %257 ], [ 4, %260 ], [ %230, %zonetab.exit ], [ %.1, %328 ], [ %291, %285 ], [ %305, %304 ], [ %301, %292 ]
   ret i64 %.0
 }
 
@@ -7074,10 +7074,10 @@ RSTRING_PTR.exit:                                 ; preds = %32, %36
   br i1 %38, label %.thread357, label %.critedge
 
 .thread357:                                       ; preds = %.thread342, %RSTRING_PTR.exit, %22, %20
-  %.2364 = phi i64 [ %1, %22 ], [ %1, %20 ], [ %.0196.ph346, %RSTRING_PTR.exit ], [ %.0196.ph346, %.thread342 ]
-  %.2198363 = phi i64 [ %3, %22 ], [ %3, %20 ], [ 4, %RSTRING_PTR.exit ], [ 4, %.thread342 ]
+  %.1364 = phi i64 [ %1, %22 ], [ %1, %20 ], [ %.0196.ph346, %RSTRING_PTR.exit ], [ %.0196.ph346, %.thread342 ]
+  %.1197363 = phi i64 [ %3, %22 ], [ %3, %20 ], [ 4, %RSTRING_PTR.exit ], [ 4, %.thread342 ]
   %.1194339361 = phi i64 [ %.0193, %22 ], [ 4, %20 ], [ %.1194.ph347, %RSTRING_PTR.exit ], [ %.1194.ph347, %.thread342 ]
-  %39 = inttoptr i64 %.2364 to ptr
+  %39 = inttoptr i64 %.1364 to ptr
   %40 = load i64, ptr %39, align 8, !noalias !16
   %41 = and i64 %40, 8192
   %.not.i.i242 = icmp eq i64 %41, 0
@@ -7174,8 +7174,8 @@ digit_span.exit:                                  ; preds = %65, %72, %58
 
 .critedge:                                        ; preds = %54, %RSTRING_PTR.exit, %30, %RSTRING_END.exit, %24, %76, %digit_span.exit
   %.1194339362 = phi i64 [ %.1194339361, %76 ], [ %.1194339361, %digit_span.exit ], [ %.0193, %24 ], [ %.1194339361, %RSTRING_END.exit ], [ %.1194.ph347, %30 ], [ %.1194.ph347, %RSTRING_PTR.exit ], [ %.1194339361, %54 ]
-  %.3199 = phi i64 [ %80, %76 ], [ %.2198363, %digit_span.exit ], [ 4, %24 ], [ %.2198363, %RSTRING_END.exit ], [ %.0196.ph346, %30 ], [ %.0196.ph346, %RSTRING_PTR.exit ], [ %.2198363, %54 ]
-  %.3 = phi i64 [ %.2198363, %76 ], [ %.2364, %digit_span.exit ], [ 4, %24 ], [ %.2364, %RSTRING_END.exit ], [ 4, %30 ], [ 4, %RSTRING_PTR.exit ], [ %.2364, %54 ]
+  %.3199 = phi i64 [ %80, %76 ], [ %.1197363, %digit_span.exit ], [ 4, %24 ], [ %.1197363, %RSTRING_END.exit ], [ %.0196.ph346, %30 ], [ %.0196.ph346, %RSTRING_PTR.exit ], [ %.1197363, %54 ]
+  %.3 = phi i64 [ %.1197363, %76 ], [ %.1364, %digit_span.exit ], [ 4, %24 ], [ %.1364, %RSTRING_END.exit ], [ 4, %30 ], [ 4, %RSTRING_PTR.exit ], [ %.1364, %54 ]
   %81 = icmp eq i64 %.1194339362, 4
   br i1 %81, label %95, label %82
 
@@ -7384,7 +7384,7 @@ rbimpl_intern_const.exit278:                      ; preds = %.lr.ph.i276, %159
 
 .critedge2:                                       ; preds = %123, %RSTRING_END.exit266, %rbimpl_intern_const.exit278, %109
   %.5201371 = phi i64 [ %.4200, %109 ], [ %.5201370, %rbimpl_intern_const.exit278 ], [ %.5201370, %RSTRING_END.exit266 ], [ %.5201370, %123 ]
-  %.2204 = phi i64 [ 4, %109 ], [ %147, %rbimpl_intern_const.exit278 ], [ 4, %RSTRING_END.exit266 ], [ 4, %123 ]
+  %.0202 = phi i64 [ 4, %109 ], [ %147, %rbimpl_intern_const.exit278 ], [ 4, %RSTRING_END.exit266 ], [ 4, %123 ]
   %.not231 = icmp eq i32 %4, 0
   br i1 %.not231, label %170, label %166
 
@@ -7618,7 +7618,7 @@ rbimpl_intern_const.exit328:                      ; preds = %.lr.ph.i326, %258
   br label %.critedge6
 
 .critedge6:                                       ; preds = %235, %RSTRING_END.exit316, %rbimpl_intern_const.exit328, %.critedge4
-  %265 = icmp eq i64 %.2204, 4
+  %265 = icmp eq i64 %.0202, 4
   br i1 %265, label %270, label %266
 
 266:                                              ; preds = %.critedge6
@@ -7635,7 +7635,7 @@ rbimpl_intern_const.exit328:                      ; preds = %.lr.ph.i326, %258
 rbimpl_intern_const.exit334:                      ; preds = %.lr.ph.i332, %266
   %.lcssa.i331 = phi i64 [ %.pr.i329, %266 ], [ %267, %.lr.ph.i332 ]
   %268 = call i64 @rb_id2sym(i64 noundef %.lcssa.i331) #13
-  %269 = call i64 @rb_hash_aset(i64 noundef %0, i64 noundef %268, i64 noundef %.2204) #13
+  %269 = call i64 @rb_hash_aset(i64 noundef %0, i64 noundef %268, i64 noundef %.0202) #13
   br label %270
 
 270:                                              ; preds = %rbimpl_intern_const.exit334, %.critedge6

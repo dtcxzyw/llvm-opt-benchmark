@@ -86,16 +86,16 @@ get_home.exit:                                    ; preds = %18, %23
 
 41:                                               ; preds = %32, %28
   %.pn = phi { i64, ptr } [ %31, %28 ], [ %40, %32 ]
-  %.sroa.4.0 = extractvalue { i64, ptr } %.pn, 1
-  %.sroa.026.0 = extractvalue { i64, ptr } %.pn, 0
+  %.sroa.4.1 = extractvalue { i64, ptr } %.pn, 1
+  %.sroa.026.1 = extractvalue { i64, ptr } %.pn, 0
   tail call void @jv_free(i64 %0, ptr %1) #12
   br label %42
 
 42:                                               ; preds = %41, %12, %9, %2
-  %.sroa.026.1 = phi i64 [ %.sroa.026.0, %41 ], [ %0, %12 ], [ %0, %9 ], [ %0, %2 ]
-  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %41 ], [ %1, %12 ], [ %1, %9 ], [ %1, %2 ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.026.1, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.4.1, 1
+  %.sroa.026.0 = phi i64 [ %.sroa.026.1, %41 ], [ %0, %12 ], [ %0, %9 ], [ %0, %2 ]
+  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %41 ], [ %1, %12 ], [ %1, %9 ], [ %1, %2 ]
+  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.026.0, 0
+  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { i64, ptr } %.fca.1.insert
 }
 
@@ -401,10 +401,10 @@ define { i64, ptr } @jq_util_input_next_input(ptr noundef %0) local_unnamed_addr
   br label %10
 
 10:                                               ; preds = %105, %1
-  %.sroa.023.0 = phi i64 [ %3, %1 ], [ %.sroa.023.2, %105 ]
-  %.sroa.17.0 = phi ptr [ %4, %1 ], [ %.sroa.17.2, %105 ]
+  %.sroa.023.0 = phi i64 [ %3, %1 ], [ %.sroa.023.1, %105 ]
+  %.sroa.17.0 = phi ptr [ %4, %1 ], [ %.sroa.17.1, %105 ]
   %.080 = phi i32 [ 0, %1 ], [ %.181, %105 ]
-  %.0 = phi i32 [ 0, %1 ], [ %.2, %105 ]
+  %.0 = phi i32 [ 0, %1 ], [ %.1, %105 ]
   %11 = load ptr, ptr %5, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %63
@@ -449,8 +449,8 @@ define { i64, ptr } @jq_util_input_next_input(ptr noundef %0) local_unnamed_addr
   br label %38
 
 38:                                               ; preds = %34, %32
-  %.sroa.023.1 = phi i64 [ %.sroa.023.0, %32 ], [ %36, %34 ]
-  %.sroa.17.1 = phi ptr [ %.sroa.17.0, %32 ], [ %37, %34 ]
+  %.sroa.023.2 = phi i64 [ %.sroa.023.0, %32 ], [ %36, %34 ]
+  %.sroa.17.2 = phi ptr [ %.sroa.17.0, %32 ], [ %37, %34 ]
   %39 = load i64, ptr %7, align 8
   %40 = add i64 %39, -1
   %41 = getelementptr inbounds [4096 x i8], ptr %6, i64 0, i64 %40
@@ -467,7 +467,7 @@ define { i64, ptr } @jq_util_input_next_input(ptr noundef %0) local_unnamed_addr
   %49 = tail call { i64, ptr } @jv_string_sized(ptr noundef nonnull %6, i32 noundef %48) #12
   %50 = extractvalue { i64, ptr } %49, 0
   %51 = extractvalue { i64, ptr } %49, 1
-  %52 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.023.1, ptr %.sroa.17.1, i64 %50, ptr %51) #12
+  %52 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.023.2, ptr %.sroa.17.2, i64 %50, ptr %51) #12
   %53 = extractvalue { i64, ptr } %52, 0
   %54 = extractvalue { i64, ptr } %52, 1
   br label %.loopexit
@@ -477,7 +477,7 @@ define { i64, ptr } @jq_util_input_next_input(ptr noundef %0) local_unnamed_addr
   %57 = tail call { i64, ptr } @jv_string_sized(ptr noundef nonnull %6, i32 noundef %56) #12
   %58 = extractvalue { i64, ptr } %57, 0
   %59 = extractvalue { i64, ptr } %57, 1
-  %60 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.023.1, ptr %.sroa.17.1, i64 %58, ptr %59) #12
+  %60 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.023.2, ptr %.sroa.17.2, i64 %58, ptr %59) #12
   %61 = extractvalue { i64, ptr } %60, 0
   %62 = extractvalue { i64, ptr } %60, 1
   store i8 0, ptr %6, align 8
@@ -499,7 +499,7 @@ define { i64, ptr } @jq_util_input_next_input(ptr noundef %0) local_unnamed_addr
   br label %72
 
 72:                                               ; preds = %66, %63
-  %.1 = phi i32 [ %67, %66 ], [ %.0, %63 ]
+  %.2 = phi i32 [ %67, %66 ], [ %.0, %63 ]
   %73 = load ptr, ptr %5, align 8
   %74 = tail call { i64, ptr } @jv_parser_next(ptr noundef %73) #12
   %75 = extractvalue { i64, ptr } %74, 0
@@ -552,11 +552,11 @@ define { i64, ptr } @jq_util_input_next_input(ptr noundef %0) local_unnamed_addr
   br i1 %.not84, label %105, label %.loopexit
 
 105:                                              ; preds = %55, %21, %100, %84, %93, %13
-  %.sroa.023.2 = phi i64 [ %.sroa.023.0, %13 ], [ %.sroa.023.0, %21 ], [ %61, %55 ], [ %91, %84 ], [ %75, %93 ], [ %75, %100 ]
-  %.sroa.17.2 = phi ptr [ %.sroa.17.0, %13 ], [ %.sroa.17.0, %21 ], [ %62, %55 ], [ %92, %84 ], [ %76, %93 ], [ %76, %100 ]
+  %.sroa.023.1 = phi i64 [ %.sroa.023.0, %13 ], [ %.sroa.023.0, %21 ], [ %61, %55 ], [ %91, %84 ], [ %75, %93 ], [ %75, %100 ]
+  %.sroa.17.1 = phi ptr [ %.sroa.17.0, %13 ], [ %.sroa.17.0, %21 ], [ %62, %55 ], [ %92, %84 ], [ %76, %93 ], [ %76, %100 ]
   %.181 = phi i32 [ %.080, %13 ], [ %.080, %21 ], [ %.080, %55 ], [ %82, %84 ], [ %82, %93 ], [ %.080, %100 ]
-  %.2 = phi i32 [ %14, %13 ], [ %14, %21 ], [ %14, %55 ], [ %.1, %84 ], [ %.1, %93 ], [ %.1, %100 ]
-  %.not89 = icmp eq i32 %.2, 0
+  %.1 = phi i32 [ %14, %13 ], [ %14, %21 ], [ %14, %55 ], [ %.2, %84 ], [ %.2, %93 ], [ %.2, %100 ]
+  %.not89 = icmp eq i32 %.1, 0
   %106 = icmp ne i32 %.181, 0
   %107 = select i1 %.not89, i1 true, i1 %106
   br i1 %107, label %10, label %108, !llvm.loop !6
@@ -579,8 +579,8 @@ define { i64, ptr } @jq_util_input_next_input(ptr noundef %0) local_unnamed_addr
   br label %.loopexit
 
 .loopexit:                                        ; preds = %98, %100, %93, %108, %112, %44
-  %.sroa.079.0 = phi i64 [ %53, %44 ], [ %.sroa.023.0.copyload32, %112 ], [ %.sroa.023.2, %108 ], [ %75, %93 ], [ %75, %100 ], [ %75, %98 ]
-  %.sroa.5.0 = phi ptr [ %54, %44 ], [ %.sroa.17.0.copyload37, %112 ], [ %.sroa.17.2, %108 ], [ %76, %93 ], [ %76, %100 ], [ %76, %98 ]
+  %.sroa.079.0 = phi i64 [ %53, %44 ], [ %.sroa.023.0.copyload32, %112 ], [ %.sroa.023.1, %108 ], [ %75, %93 ], [ %75, %100 ], [ %75, %98 ]
+  %.sroa.5.0 = phi ptr [ %54, %44 ], [ %.sroa.17.0.copyload37, %112 ], [ %.sroa.17.1, %108 ], [ %76, %93 ], [ %76, %100 ], [ %76, %98 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.079.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.5.0, 1
   ret { i64, ptr } %.fca.1.insert

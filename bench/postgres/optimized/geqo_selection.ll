@@ -105,7 +105,7 @@ linear_rand.exit24:                               ; preds = %57
   br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %linear_rand.exit24, %linear_rand.exit22
-  %.1 = phi i32 [ %44, %linear_rand.exit22 ], [ %65, %linear_rand.exit24 ]
+  %.0 = phi i32 [ %44, %linear_rand.exit22 ], [ %65, %linear_rand.exit24 ]
   %67 = load ptr, ptr %3, align 8
   %68 = sext i32 %43 to i64
   %69 = getelementptr %struct.Chromosome, ptr %67, i64 %68
@@ -113,7 +113,7 @@ linear_rand.exit24:                               ; preds = %57
   %71 = load i32, ptr %70, align 4
   tail call void @geqo_copy(ptr noundef %0, ptr noundef %1, ptr noundef %69, i32 noundef %71) #4
   %72 = load ptr, ptr %3, align 8
-  %73 = sext i32 %.1 to i64
+  %73 = sext i32 %.0 to i64
   %74 = getelementptr %struct.Chromosome, ptr %72, i64 %73
   %75 = load i32, ptr %70, align 4
   tail call void @geqo_copy(ptr noundef %0, ptr noundef %2, ptr noundef %74, i32 noundef %75) #4

@@ -2646,7 +2646,7 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit: ; 
   br label %87
 
 85:                                               ; preds = %69, %97, %72
-  %.sroa.0.1 = phi ptr [ %71, %72 ], [ null, %97 ], [ null, %69 ]
+  %.sroa.0.2 = phi ptr [ %71, %72 ], [ null, %97 ], [ null, %69 ]
   %86 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -2654,16 +2654,16 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit: ; 
   br label %87
 
 87:                                               ; preds = %85, %84
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %85 ], [ null, %84 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.2, %85 ], [ null, %84 ]
   %.pn118 = phi { ptr, i32 } [ %86, %85 ], [ %.pn116, %84 ]
-  %.294 = extractvalue { ptr, i32 } %.pn118, 1
-  %.298 = extractvalue { ptr, i32 } %.pn118, 0
+  %.395 = extractvalue { ptr, i32 } %.pn118, 1
+  %.399 = extractvalue { ptr, i32 } %.pn118, 0
   %88 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
-  %89 = icmp eq i32 %.294, %88
+  %89 = icmp eq i32 %.395, %88
   br i1 %89, label %90, label %147
 
 90:                                               ; preds = %87
-  %91 = call ptr @__cxa_begin_catch(ptr %.298) #23
+  %91 = call ptr @__cxa_begin_catch(ptr %.399) #23
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8
@@ -2685,8 +2685,8 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit: ; 
   br label %101
 
 101:                                              ; preds = %99, %72, %67
-  %.sroa.0.3 = phi ptr [ null, %67 ], [ %71, %72 ], [ null, %99 ]
-  %.086 = phi ptr [ %2, %67 ], [ %2, %72 ], [ %100, %99 ]
+  %.sroa.0.1 = phi ptr [ null, %67 ], [ %71, %72 ], [ null, %99 ]
+  %.187 = phi ptr [ %2, %67 ], [ %2, %72 ], [ %100, %99 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   br label %110
 
@@ -2706,8 +2706,8 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit: ; 
   br label %147
 
 110:                                              ; preds = %63, %101, %96
-  %.sroa.0.4 = phi ptr [ %.sroa.0.3, %101 ], [ %.sroa.0.2, %96 ], [ null, %63 ]
-  %.2 = phi ptr [ %.086, %101 ], [ %2, %96 ], [ %2, %63 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.1, %101 ], [ %.sroa.0.4, %96 ], [ null, %63 ]
+  %.2 = phi ptr [ %.187, %101 ], [ %2, %96 ], [ %2, %63 ]
   %cond1 = phi i1 [ true, %101 ], [ false, %96 ], [ true, %63 ]
   %111 = getelementptr inbounds i8, ptr %11, i64 8
   %112 = load ptr, ptr %111, align 8
@@ -2786,8 +2786,8 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit: ; preds = %110, %
   br i1 %cond1, label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160, label %322
 
 147:                                              ; preds = %102, %106, %87
-  %.399 = phi ptr [ %108, %106 ], [ %104, %102 ], [ %.298, %87 ]
-  %.395 = phi i32 [ %109, %106 ], [ %105, %102 ], [ %.294, %87 ]
+  %.4100 = phi ptr [ %108, %106 ], [ %104, %102 ], [ %.399, %87 ]
+  %.4 = phi i32 [ %109, %106 ], [ %105, %102 ], [ %.395, %87 ]
   call void @_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #23
   br label %326
 
@@ -2971,7 +2971,7 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit153:
   br label %195
 
 193:                                              ; preds = %179, %182
-  %.sroa.0.5 = phi ptr [ %181, %182 ], [ null, %179 ]
+  %.sroa.0.9 = phi ptr [ %181, %182 ], [ null, %179 ]
   %194 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -2979,16 +2979,16 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit153:
   br label %195
 
 195:                                              ; preds = %193, %192
-  %.sroa.0.6 = phi ptr [ %.sroa.0.5, %193 ], [ null, %192 ]
+  %.sroa.0.10 = phi ptr [ %.sroa.0.9, %193 ], [ null, %192 ]
   %.pn114 = phi { ptr, i32 } [ %194, %193 ], [ %.pn112, %192 ]
-  %.6 = extractvalue { ptr, i32 } %.pn114, 1
-  %.6102 = extractvalue { ptr, i32 } %.pn114, 0
+  %.7 = extractvalue { ptr, i32 } %.pn114, 1
+  %.7103 = extractvalue { ptr, i32 } %.pn114, 0
   %196 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
-  %197 = icmp eq i32 %.6, %196
+  %197 = icmp eq i32 %.7, %196
   br i1 %197, label %198, label %251
 
 198:                                              ; preds = %195
-  %199 = call ptr @__cxa_begin_catch(ptr %.6102) #23
+  %199 = call ptr @__cxa_begin_catch(ptr %.7103) #23
   %200 = load ptr, ptr %199, align 8
   %201 = getelementptr inbounds i8, ptr %200, i64 16
   %202 = load ptr, ptr %201, align 8
@@ -3002,7 +3002,7 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit153:
           to label %.critedge132 unwind label %210
 
 205:                                              ; preds = %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit153, %182, %177
-  %.sroa.0.7 = phi ptr [ null, %177 ], [ %181, %182 ], [ null, %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit153 ]
+  %.sroa.0.8 = phi ptr [ null, %177 ], [ %181, %182 ], [ null, %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit153 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #23
   br label %214
 
@@ -3022,7 +3022,7 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EE5resetEPS2_.exit153:
   br label %251
 
 214:                                              ; preds = %173, %205
-  %.sroa.0.8 = phi ptr [ %.sroa.0.7, %205 ], [ null, %173 ]
+  %.sroa.0.11 = phi ptr [ %.sroa.0.8, %205 ], [ null, %173 ]
   %215 = getelementptr inbounds i8, ptr %19, i64 8
   %216 = load ptr, ptr %215, align 8
   %.not.i.i.i154 = icmp eq ptr %216, null
@@ -3097,15 +3097,15 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160
 
 251:                                              ; preds = %206, %210, %195
-  %.7103 = phi ptr [ %212, %210 ], [ %208, %206 ], [ %.6102, %195 ]
-  %.7 = phi i32 [ %213, %210 ], [ %209, %206 ], [ %.6, %195 ]
+  %.8104 = phi ptr [ %212, %210 ], [ %208, %206 ], [ %.7103, %195 ]
+  %.8 = phi i32 [ %213, %210 ], [ %209, %206 ], [ %.7, %195 ]
   call void @_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #23
   br label %326
 
 _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i159, %246, %233, %214, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit
-  %.sroa.0.9 = phi ptr [ %.sroa.0.4, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit ], [ %.sroa.0.8, %214 ], [ %.sroa.0.8, %233 ], [ %.sroa.0.8, %246 ], [ %.sroa.0.8, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i159 ]
+  %.sroa.0.7 = phi ptr [ %.sroa.0.5, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit ], [ %.sroa.0.11, %214 ], [ %.sroa.0.11, %233 ], [ %.sroa.0.11, %246 ], [ %.sroa.0.11, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i159 ]
   %.3 = phi ptr [ %.2, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit ], [ %2, %214 ], [ %2, %233 ], [ %2, %246 ], [ %2, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i159 ]
-  %.not.i161 = icmp eq ptr %.sroa.0.9, null
+  %.not.i161 = icmp eq ptr %.sroa.0.7, null
   br i1 %.not.i161, label %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160.thread, label %.thread261
 
 _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160.thread.critedge282: ; preds = %_ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit150
@@ -3288,7 +3288,7 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %.thread265
 
 302:                                              ; preds = %319, %317, %308, %306, %290
-  %.sroa.0.10 = phi ptr [ %310, %319 ], [ %310, %317 ], [ null, %308 ], [ null, %306 ], [ null, %290 ]
+  %.sroa.0.14 = phi ptr [ %310, %319 ], [ %310, %317 ], [ null, %308 ], [ null, %306 ], [ null, %290 ]
   %303 = landingpad { ptr, i32 }
           cleanup
   %304 = extractvalue { ptr, i32 } %303, 0
@@ -3333,7 +3333,7 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit: ; preds =
           to label %320 unwind label %302
 
 320:                                              ; preds = %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit, %319, %285
-  %.sroa.0.11 = phi ptr [ null, %285 ], [ %310, %319 ], [ null, %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit ]
+  %.sroa.0.13 = phi ptr [ null, %285 ], [ %310, %319 ], [ null, %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #23
   br label %.thread261
 
@@ -3350,7 +3350,7 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit: ; preds =
   br label %.thread261
 
 .thread261:                                       ; preds = %.thread261.critedge283, %.thread261.critedge, %_ZL27is_rel_or_absolute_filenamePKc.exit165, %_ZL27is_rel_or_absolute_filenamePKc.exit165, %255, %255, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160.thread, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160.thread, %_ZL14is_tilde_slashPKc.exit162, %_ZL14is_tilde_slashPKc.exit162, %33, %.critedge134.thread, %320, %258, %258, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160
-  %.sroa.0.12 = phi ptr [ %.sroa.0.11, %320 ], [ null, %.critedge134.thread ], [ null, %_ZL14is_tilde_slashPKc.exit162 ], [ null, %_ZL27is_rel_or_absolute_filenamePKc.exit165 ], [ %.sroa.0.9, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160 ], [ null, %258 ], [ null, %258 ], [ null, %255 ], [ null, %255 ], [ %34, %33 ], [ null, %_ZL14is_tilde_slashPKc.exit162 ], [ null, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160.thread ], [ null, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160.thread ], [ null, %_ZL27is_rel_or_absolute_filenamePKc.exit165 ], [ null, %.thread261.critedge ], [ null, %.thread261.critedge283 ]
+  %.sroa.0.12 = phi ptr [ %.sroa.0.13, %320 ], [ null, %.critedge134.thread ], [ null, %_ZL14is_tilde_slashPKc.exit162 ], [ null, %_ZL27is_rel_or_absolute_filenamePKc.exit165 ], [ %.sroa.0.7, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160 ], [ null, %258 ], [ null, %258 ], [ null, %255 ], [ null, %255 ], [ %34, %33 ], [ null, %_ZL14is_tilde_slashPKc.exit162 ], [ null, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160.thread ], [ null, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit160.thread ], [ null, %_ZL27is_rel_or_absolute_filenamePKc.exit165 ], [ null, %.thread261.critedge ], [ null, %.thread261.critedge283 ]
   %321 = ptrtoint ptr %.sroa.0.12 to i64
   store i64 %321, ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
@@ -3361,16 +3361,16 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit: ; preds =
   br label %322
 
 322:                                              ; preds = %.critedge132, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit
-  %.sroa.0.13 = phi ptr [ %.sroa.0.4, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit ], [ %.sroa.0.6, %.critedge132 ]
+  %.sroa.0.6 = phi ptr [ %.sroa.0.5, %_ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit ], [ %.sroa.0.10, %.critedge132 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
-  %.not.i176 = icmp eq ptr %.sroa.0.13, null
+  %.not.i176 = icmp eq ptr %.sroa.0.6, null
   br i1 %.not.i176, label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit178, label %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i177
 
 _ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i177: ; preds = %322
-  %323 = load ptr, ptr %.sroa.0.13, align 8
+  %323 = load ptr, ptr %.sroa.0.6, align 8
   %324 = getelementptr inbounds i8, ptr %323, i64 8
   %325 = load ptr, ptr %324, align 8
-  call void %325(ptr noundef nonnull align 8 dereferenceable(73) %.sroa.0.13) #23
+  call void %325(ptr noundef nonnull align 8 dereferenceable(73) %.sroa.0.6) #23
   br label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit178
 
 _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit178: ; preds = %.thread261, %322, %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i177
@@ -3378,31 +3378,31 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit178: ; pred
 
 .thread265:                                       ; preds = %300, %73, %299, %187, %79
   %.pn.pn = phi { ptr, i32 } [ %.pn, %79 ], [ %.pn110, %187 ], [ %.pn120.pn, %299 ], [ %74, %73 ], [ %301, %300 ]
-  %.10.ph = extractvalue { ptr, i32 } %.pn.pn, 1
-  %.10106.ph = extractvalue { ptr, i32 } %.pn.pn, 0
+  %.092.ph = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.096.ph = extractvalue { ptr, i32 } %.pn.pn, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
   br label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit181
 
 326:                                              ; preds = %302, %251, %147
-  %.sroa.0.14 = phi ptr [ %.sroa.0.10, %302 ], [ %.sroa.0.2, %147 ], [ %.sroa.0.6, %251 ]
-  %.10106 = phi ptr [ %304, %302 ], [ %.399, %147 ], [ %.7103, %251 ]
-  %.10 = phi i32 [ %305, %302 ], [ %.395, %147 ], [ %.7, %251 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.14, %302 ], [ %.sroa.0.4, %147 ], [ %.sroa.0.10, %251 ]
+  %.096 = phi ptr [ %304, %302 ], [ %.4100, %147 ], [ %.8104, %251 ]
+  %.092 = phi i32 [ %305, %302 ], [ %.4, %147 ], [ %.8, %251 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #23
-  %.not.i179 = icmp eq ptr %.sroa.0.14, null
+  %.not.i179 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i179, label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit181, label %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i180
 
 _ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i180: ; preds = %326
-  %327 = load ptr, ptr %.sroa.0.14, align 8
+  %327 = load ptr, ptr %.sroa.0.3, align 8
   %328 = getelementptr inbounds i8, ptr %327, i64 8
   %329 = load ptr, ptr %328, align 8
-  call void %329(ptr noundef nonnull align 8 dereferenceable(73) %.sroa.0.14) #23
+  call void %329(ptr noundef nonnull align 8 dereferenceable(73) %.sroa.0.3) #23
   br label %_ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit181
 
 _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit181: ; preds = %.thread265, %326, %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i180
-  %.10271 = phi i32 [ %.10.ph, %.thread265 ], [ %.10, %326 ], [ %.10, %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i180 ]
-  %.10106270 = phi ptr [ %.10106.ph, %.thread265 ], [ %.10106, %326 ], [ %.10106, %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i180 ]
-  %330 = insertvalue { ptr, i32 } poison, ptr %.10106270, 0
-  %331 = insertvalue { ptr, i32 } %330, i32 %.10271, 1
+  %.092271 = phi i32 [ %.092.ph, %.thread265 ], [ %.092, %326 ], [ %.092, %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i180 ]
+  %.096270 = phi ptr [ %.096.ph, %.thread265 ], [ %.096, %326 ], [ %.096, %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i180 ]
+  %330 = insertvalue { ptr, i32 } poison, ptr %.096270, 0
+  %331 = insertvalue { ptr, i32 } %330, i32 %.092271, 1
   resume { ptr, i32 } %331
 
 332:                                              ; preds = %206, %102
@@ -3630,8 +3630,8 @@ _ZN5osgeo4proj8internal11starts_withERKNSt7__cxx1112basic_stringIcSt11char_trait
 
 86:                                               ; preds = %84, %82
   %.pn = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ]
-  %.066 = extractvalue { ptr, i32 } %.pn, 0
-  %.075 = extractvalue { ptr, i32 } %.pn, 1
+  %.167 = extractvalue { ptr, i32 } %.pn, 0
+  %.176 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #23
   br label %.loopexit
 
@@ -3821,8 +3821,8 @@ _ZL29dontReadUserWritableDirectoryv.exit.thread:  ; preds = %124, %_ZL29dontRead
 
 156:                                              ; preds = %146, %155
   %.pn98.pn.pn = phi { ptr, i32 } [ %.pn98.pn, %155 ], [ %147, %146 ]
-  %.369 = extractvalue { ptr, i32 } %.pn98.pn.pn, 0
-  %.378 = extractvalue { ptr, i32 } %.pn98.pn.pn, 1
+  %.268 = extractvalue { ptr, i32 } %.pn98.pn.pn, 0
+  %.277 = extractvalue { ptr, i32 } %.pn98.pn.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #23
   br label %.loopexit
 
@@ -3933,8 +3933,8 @@ _ZL29dontReadUserWritableDirectoryv.exit.thread:  ; preds = %124, %_ZL29dontRead
 
 196:                                              ; preds = %186, %195
   %.pn102.pn.pn = phi { ptr, i32 } [ %.pn102.pn, %195 ], [ %187, %186 ]
-  %.672 = extractvalue { ptr, i32 } %.pn102.pn.pn, 0
-  %.681 = extractvalue { ptr, i32 } %.pn102.pn.pn, 1
+  %.571 = extractvalue { ptr, i32 } %.pn102.pn.pn, 0
+  %.580 = extractvalue { ptr, i32 } %.pn102.pn.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #23
   br label %.loopexit
 
@@ -4010,16 +4010,16 @@ _ZL29dontReadUserWritableDirectoryv.exit.thread:  ; preds = %124, %_ZL29dontRead
   br label %236
 
 .loopexit:                                        ; preds = %113, %196, %156, %86, %32
-  %.782 = phi i32 [ %34, %32 ], [ %.681, %196 ], [ %.378, %156 ], [ %.075, %86 ], [ %116, %113 ]
-  %.7 = phi ptr [ %33, %32 ], [ %.672, %196 ], [ %.369, %156 ], [ %.066, %86 ], [ %115, %113 ]
+  %.075 = phi i32 [ %34, %32 ], [ %.580, %196 ], [ %.277, %156 ], [ %.176, %86 ], [ %116, %113 ]
+  %.066 = phi ptr [ %33, %32 ], [ %.571, %196 ], [ %.268, %156 ], [ %.167, %86 ], [ %115, %113 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #23
   %225 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #23
-  %226 = icmp eq i32 %.782, %225
+  %226 = icmp eq i32 %.075, %225
   br i1 %226, label %227, label %237
 
 227:                                              ; preds = %.loopexit
-  %228 = call ptr @__cxa_begin_catch(ptr %.7) #23
+  %228 = call ptr @__cxa_begin_catch(ptr %.066) #23
   %229 = load ptr, ptr %9, align 8
   %230 = load ptr, ptr %10, align 8
   invoke void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %229, i32 noundef 2, ptr noundef nonnull @.str.59, ptr noundef %230)
@@ -4042,8 +4042,8 @@ _ZL29dontReadUserWritableDirectoryv.exit.thread:  ; preds = %124, %_ZL29dontRead
   ret ptr %.1
 
 237:                                              ; preds = %232, %.loopexit
-  %.883 = phi i32 [ %235, %232 ], [ %.782, %.loopexit ]
-  %.8 = phi ptr [ %234, %232 ], [ %.7, %.loopexit ]
+  %.883 = phi i32 [ %235, %232 ], [ %.075, %.loopexit ]
+  %.8 = phi ptr [ %234, %232 ], [ %.066, %.loopexit ]
   %238 = insertvalue { ptr, i32 } poison, ptr %.8, 0
   %239 = insertvalue { ptr, i32 } %238, i32 %.883, 1
   resume { ptr, i32 } %239

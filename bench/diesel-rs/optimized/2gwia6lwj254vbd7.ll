@@ -3613,7 +3613,7 @@ define void @"_ZN80_$LT$diesel..mysql..connection..bind..BindData$u20$as$u20$cor
   br label %11
 
 11:                                               ; preds = %2, %4
-  %.1 = phi ptr [ %9, %4 ], [ null, %2 ]
+  %.06 = phi ptr [ %9, %4 ], [ null, %2 ]
   %.05 = phi i64 [ %6, %4 ], [ 0, %2 ]
   %.0 = phi i64 [ %8, %4 ], [ 0, %2 ]
   %12 = getelementptr inbounds i8, ptr %1, i64 24
@@ -3623,7 +3623,7 @@ define void @"_ZN80_$LT$diesel..mysql..connection..bind..BindData$u20$as$u20$cor
   %16 = load i8, ptr %15, align 8, !range !532, !noundef !4
   %17 = getelementptr inbounds i8, ptr %1, i64 33
   %18 = load i8, ptr %17, align 1
-  store ptr %.1, ptr %0, align 8
+  store ptr %.06, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.05, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 16

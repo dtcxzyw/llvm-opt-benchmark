@@ -944,8 +944,8 @@ thread-pre-split:                                 ; preds = %22
   br label %84
 
 84:                                               ; preds = %69, %82, %83, %75, %68, %55
-  %.0122 = phi ptr [ %67, %68 ], [ %67, %55 ], [ %71, %69 ], [ %71, %82 ], [ %71, %83 ], [ %71, %75 ]
-  %85 = icmp eq ptr %.0122, null
+  %.1 = phi ptr [ %67, %68 ], [ %67, %55 ], [ %71, %69 ], [ %71, %82 ], [ %71, %83 ], [ %71, %75 ]
+  %85 = icmp eq ptr %.1, null
   br i1 %85, label %86, label %93
 
 86:                                               ; preds = %84
@@ -960,8 +960,8 @@ thread-pre-split:                                 ; preds = %22
 
 93:                                               ; preds = %84, %38
   %.not142173 = phi i1 [ false, %38 ], [ true, %84 ]
-  %.1132171 = phi ptr [ %39, %38 ], [ null, %84 ]
-  %.1 = phi ptr [ %40, %38 ], [ %.0122, %84 ]
+  %.0131171 = phi ptr [ %39, %38 ], [ null, %84 ]
+  %.0122 = phi ptr [ %40, %38 ], [ %.1, %84 ]
   %94 = getelementptr inbounds i8, ptr %5, i64 -24
   %95 = load ptr, ptr %94, align 8
   %.not145 = icmp eq ptr %95, null
@@ -989,7 +989,7 @@ thread-pre-split:                                 ; preds = %22
   %110 = icmp sgt i32 %109, 0
   call void @llvm.assume(i1 %110)
   %111 = getelementptr inbounds i8, ptr %105, i64 40
-  %112 = getelementptr inbounds i8, ptr %.1, i64 8
+  %112 = getelementptr inbounds i8, ptr %.0122, i64 8
   %113 = load ptr, ptr %112, align 8
   store ptr %113, ptr %111, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 4
@@ -1008,16 +1008,16 @@ thread-pre-split:                                 ; preds = %22
   %.sink = phi i32 [ 262, %117 ], [ 6, %104 ]
   %121 = getelementptr inbounds i8, ptr %105, i64 48
   store i32 %.sink, ptr %121, align 8
-  store ptr %.1, ptr %94, align 8
+  store ptr %.0122, ptr %94, align 8
   %122 = getelementptr inbounds i8, ptr %5, i64 -8
   store i32 1, ptr %122, align 8
   br i1 %.not142173, label %126, label %123
 
 123:                                              ; preds = %120
-  %124 = load i32, ptr %.1132171, align 4
+  %124 = load i32, ptr %.0131171, align 4
   %125 = add i32 %124, 1
-  store i32 %125, ptr %.1132171, align 4
-  store ptr %.1132171, ptr %6, align 8
+  store i32 %125, ptr %.0131171, align 4
+  store ptr %.0131171, ptr %6, align 8
   br label %126
 
 126:                                              ; preds = %120, %123
@@ -4100,7 +4100,7 @@ define hidden void @zim_ReflectionFunction_invoke(ptr noundef %0, ptr nocapture 
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %.090 = select i1 %.not, ptr null, ptr %8
+  %.1 = select i1 %.not, ptr null, ptr %8
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 134217728
@@ -4113,7 +4113,7 @@ define hidden void @zim_ReflectionFunction_invoke(ptr noundef %0, ptr nocapture 
   br label %15
 
 15:                                               ; preds = %2, %12
-  %.093 = phi ptr [ %14, %12 ], [ null, %2 ]
+  %.194 = phi ptr [ %14, %12 ], [ null, %2 ]
   %16 = load ptr, ptr %5, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -40
   %18 = getelementptr inbounds i8, ptr %16, i64 -24
@@ -4190,7 +4190,7 @@ define hidden void @zim_ReflectionFunction_invoke(ptr noundef %0, ptr nocapture 
   %.0 = phi ptr [ %50, %57 ], [ %45, %44 ], [ %50, %49 ]
   %61 = load ptr, ptr %33, align 8
   %62 = load ptr, ptr %32, align 8
-  call void @zend_call_known_function(ptr noundef nonnull %.0, ptr noundef %61, ptr noundef %62, ptr noundef nonnull %3, i32 noundef %7, ptr noundef %.090, ptr noundef %.093) #13
+  call void @zend_call_known_function(ptr noundef nonnull %.0, ptr noundef %61, ptr noundef %62, ptr noundef nonnull %3, i32 noundef %7, ptr noundef %.1, ptr noundef %.194) #13
   %63 = getelementptr inbounds i8, ptr %3, i64 8
   %64 = load i8, ptr %63, align 8
   %65 = icmp eq i8 %64, 0
@@ -6011,7 +6011,7 @@ define hidden void @zim_ReflectionParameter___construct(ptr noundef %0, ptr noca
   br label %119
 
 119:                                              ; preds = %106, %117, %118, %110, %71
-  %.0367 = phi ptr [ %74, %71 ], [ %85, %106 ], [ %85, %117 ], [ %85, %118 ], [ %85, %110 ]
+  %.1368 = phi ptr [ %74, %71 ], [ %85, %106 ], [ %85, %117 ], [ %85, %118 ], [ %85, %110 ]
   %120 = getelementptr inbounds i8, ptr %61, i64 8
   %121 = load i8, ptr %120, align 8
   %122 = icmp eq i8 %121, 6
@@ -6042,7 +6042,7 @@ define hidden void @zim_ReflectionParameter___construct(ptr noundef %0, ptr noca
   %134 = load i8, ptr %69, align 8
   %135 = icmp eq i8 %134, 8
   %136 = load ptr, ptr @zend_ce_closure, align 8
-  %137 = icmp eq ptr %136, %.0367
+  %137 = icmp eq ptr %136, %.1368
   %or.cond = select i1 %135, i1 %137, i1 false
   br i1 %or.cond, label %138, label %is_closure_invoke.exit.thread
 
@@ -6065,7 +6065,7 @@ is_closure_invoke.exit:                           ; preds = %138
   br i1 %.not414, label %is_closure_invoke.exit.thread, label %185
 
 is_closure_invoke.exit.thread:                    ; preds = %138, %143, %is_closure_invoke.exit, %.thread469
-  %146 = getelementptr inbounds i8, ptr %.0367, i64 64
+  %146 = getelementptr inbounds i8, ptr %.1368, i64 64
   %147 = call ptr @zend_hash_find(ptr noundef nonnull %146, ptr noundef %133) #13
   %.not415 = icmp eq ptr %147, null
   br i1 %.not415, label %150, label %148
@@ -6076,7 +6076,7 @@ is_closure_invoke.exit.thread:                    ; preds = %138, %143, %is_clos
 
 150:                                              ; preds = %is_closure_invoke.exit.thread
   %151 = load ptr, ptr @reflection_exception_ptr, align 8
-  %152 = getelementptr inbounds i8, ptr %.0367, i64 8
+  %152 = getelementptr inbounds i8, ptr %.1368, i64 8
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 24
   %155 = getelementptr inbounds i8, ptr %.0360472, i64 24
@@ -6145,7 +6145,7 @@ is_closure_invoke.exit.thread:                    ; preds = %138, %143, %is_clos
   br label %378
 
 185:                                              ; preds = %148, %143
-  %.0365 = phi ptr [ %145, %143 ], [ %149, %148 ]
+  %.1 = phi ptr [ %145, %143 ], [ %149, %148 ]
   %186 = getelementptr inbounds i8, ptr %.0360472, i64 4
   %187 = load i32, ptr %186, align 4
   %188 = and i32 %187, 64
@@ -6267,13 +6267,13 @@ is_closure_invoke.exit.thread:                    ; preds = %138, %143, %is_clos
 
 248:                                              ; preds = %233, %.critedge, %198, %209, %210, %202, %52
   %.0371 = phi i1 [ true, %.critedge ], [ false, %233 ], [ false, %198 ], [ false, %209 ], [ false, %210 ], [ false, %202 ], [ false, %52 ]
-  %.1368 = phi ptr [ %214, %.critedge ], [ %214, %233 ], [ %.0367, %198 ], [ %.0367, %209 ], [ %.0367, %210 ], [ %.0367, %202 ], [ %54, %52 ]
-  %.1 = phi ptr [ %220, %.critedge ], [ %234, %233 ], [ %.0365, %198 ], [ %.0365, %209 ], [ %.0365, %210 ], [ %.0365, %202 ], [ %.0361, %52 ]
-  %249 = getelementptr inbounds i8, ptr %.1, i64 40
+  %.0367 = phi ptr [ %214, %.critedge ], [ %214, %233 ], [ %.1368, %198 ], [ %.1368, %209 ], [ %.1368, %210 ], [ %.1368, %202 ], [ %54, %52 ]
+  %.0365 = phi ptr [ %220, %.critedge ], [ %234, %233 ], [ %.1, %198 ], [ %.1, %209 ], [ %.1, %210 ], [ %.1, %202 ], [ %.0361, %52 ]
+  %249 = getelementptr inbounds i8, ptr %.0365, i64 40
   %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds i8, ptr %.1, i64 32
+  %251 = getelementptr inbounds i8, ptr %.0365, i64 32
   %252 = load i32, ptr %251, align 8
-  %253 = getelementptr inbounds i8, ptr %.1, i64 4
+  %253 = getelementptr inbounds i8, ptr %.0365, i64 4
   %254 = load i32, ptr %253, align 4
   %255 = lshr i32 %254, 14
   %256 = and i32 %255, 1
@@ -6284,7 +6284,7 @@ is_closure_invoke.exit.thread:                    ; preds = %138, %143, %is_clos
 
 258:                                              ; preds = %248
   store i64 -1, ptr %4, align 8
-  %259 = load i8, ptr %.1, align 8
+  %259 = load i8, ptr %.0365, align 8
   %260 = icmp eq i8 %259, 1
   br i1 %260, label %261, label %has_internal_arg_info.exit.preheader
 
@@ -6402,20 +6402,20 @@ has_internal_arg_info.exit.preheader:             ; preds = %261, %258
   store ptr %300, ptr %301, align 8
   %302 = trunc i64 %299 to i32
   store i32 %302, ptr %298, align 8
-  %303 = getelementptr inbounds i8, ptr %.1, i64 36
+  %303 = getelementptr inbounds i8, ptr %.0365, i64 36
   %304 = load i32, ptr %303, align 4
   %305 = icmp ugt i32 %304, %302
   %306 = getelementptr inbounds i8, ptr %298, i64 4
   %307 = zext i1 %305 to i8
   store i8 %307, ptr %306, align 4
   %308 = getelementptr inbounds i8, ptr %298, i64 16
-  store ptr %.1, ptr %308, align 8
+  store ptr %.0365, ptr %308, align 8
   %309 = getelementptr inbounds i8, ptr %20, i64 -24
   store ptr %298, ptr %309, align 8
   %310 = getelementptr inbounds i8, ptr %20, i64 -8
   store i32 4, ptr %310, align 8
   %311 = getelementptr inbounds i8, ptr %20, i64 -16
-  store ptr %.1368, ptr %311, align 8
+  store ptr %.0367, ptr %311, align 8
   br i1 %.0371, label %312, label %316
 
 312:                                              ; preds = %.thread478
@@ -6435,7 +6435,7 @@ has_internal_arg_info.exit.preheader:             ; preds = %261, %258
   %322 = icmp sgt i32 %321, 0
   call void @llvm.assume(i1 %322)
   %323 = getelementptr inbounds i8, ptr %317, i64 40
-  %324 = load i8, ptr %.1, align 8
+  %324 = load i8, ptr %.0365, align 8
   %325 = icmp eq i8 %324, 1
   br i1 %325, label %has_internal_arg_info.exit441, label %has_internal_arg_info.exit441.thread
 
@@ -6500,7 +6500,7 @@ has_internal_arg_info.exit441.thread:             ; preds = %316, %has_internal_
   br i1 %.not435, label %373, label %357
 
 357:                                              ; preds = %354
-  %358 = getelementptr inbounds i8, ptr %.1, i64 8
+  %358 = getelementptr inbounds i8, ptr %.0365, i64 8
   %359 = load ptr, ptr %358, align 8
   %360 = getelementptr inbounds i8, ptr %359, i64 4
   %361 = load i32, ptr %360, align 4
@@ -6522,7 +6522,7 @@ has_internal_arg_info.exit441.thread:             ; preds = %316, %has_internal_
   br label %369
 
 369:                                              ; preds = %357, %368, %363
-  %370 = icmp eq ptr %.1, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
+  %370 = icmp eq ptr %.0365, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
   br i1 %370, label %371, label %372
 
 371:                                              ; preds = %369
@@ -6530,7 +6530,7 @@ has_internal_arg_info.exit441.thread:             ; preds = %316, %has_internal_
   br label %373
 
 372:                                              ; preds = %369
-  call void @_efree(ptr noundef %.1) #13
+  call void @_efree(ptr noundef %.0365) #13
   br label %373
 
 373:                                              ; preds = %372, %371, %354
@@ -10230,7 +10230,7 @@ thread-pre-split:                                 ; preds = %10
   br i1 %24, label %.thread, label %.thread380
 
 .thread:                                          ; preds = %21, %.critedge, %23
-  %.0325366 = phi ptr [ null, %23 ], [ null, %21 ], [ %20, %.critedge ]
+  %.1326366 = phi ptr [ null, %23 ], [ null, %21 ], [ %20, %.critedge ]
   %25 = icmp eq i32 %13, 1
   br i1 %25, label %.thread391thread-pre-split, label %26
 
@@ -10307,7 +10307,7 @@ thread-pre-split:                                 ; preds = %10
 
 .thread391:                                       ; preds = %.thread391thread-pre-split, %.thread455
   %.pre460 = phi ptr [ %.pre460.pr, %.thread391thread-pre-split ], [ %storemerge, %.thread455 ]
-  %.not343 = icmp eq ptr %.0325366, null
+  %.not343 = icmp eq ptr %.1326366, null
   br i1 %.not343, label %.thread422, label %44
 
 44:                                               ; preds = %.thread391
@@ -10390,7 +10390,7 @@ thread-pre-split:                                 ; preds = %10
   br label %93
 
 .thread440:                                       ; preds = %44
-  %88 = getelementptr inbounds i8, ptr %.0325366, i64 16
+  %88 = getelementptr inbounds i8, ptr %.1326366, i64 16
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds i8, ptr %.pre460, i64 24
   %91 = getelementptr inbounds i8, ptr %.pre460, i64 16
@@ -10487,7 +10487,7 @@ thread-pre-split:                                 ; preds = %10
   %.1452 = phi ptr [ %89, %.thread440 ], [ %94, %131 ]
   %.0313434450 = phi i64 [ %92, %.thread440 ], [ %.0313.ph, %131 ]
   %.0312436448 = phi ptr [ %90, %.thread440 ], [ %.0312.ph, %131 ]
-  %.0308439446 = phi ptr [ %.0325366, %.thread440 ], [ null, %131 ]
+  %.0308439446 = phi ptr [ %.1326366, %.thread440 ], [ null, %131 ]
   %133 = getelementptr inbounds i8, ptr %0, i64 32
   br label %140
 
@@ -11001,7 +11001,7 @@ define internal fastcc void @reflection_method_invoke(ptr noundef %0, ptr nocapt
   %49 = add i32 %41, -1
   %.not139 = icmp eq i32 %49, 0
   %50 = getelementptr inbounds i8, ptr %0, i64 96
-  %.0120 = select i1 %.not139, ptr null, ptr %50
+  %.1 = select i1 %.not139, ptr null, ptr %50
   %51 = getelementptr inbounds i8, ptr %0, i64 40
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 134217728
@@ -11044,7 +11044,7 @@ define internal fastcc void @reflection_method_invoke(ptr noundef %0, ptr nocapt
 65:                                               ; preds = %._crit_edge, %57
   %66 = phi i32 [ %24, %57 ], [ %.pre, %._crit_edge ]
   %.2123 = phi i32 [ %49, %57 ], [ 0, %._crit_edge ]
-  %.2 = phi ptr [ %.0120, %57 ], [ null, %._crit_edge ]
+  %.2 = phi ptr [ %.1, %57 ], [ null, %._crit_edge ]
   %67 = and i32 %66, 16
   %.not143 = icmp eq i32 %67, 0
   br i1 %.not143, label %69, label %68
@@ -12792,7 +12792,7 @@ define hidden void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr 
   br i1 %17, label %.thread, label %.thread200
 
 .thread:                                          ; preds = %14, %.critedge, %16
-  %.0159182 = phi ptr [ null, %16 ], [ null, %14 ], [ %13, %.critedge ]
+  %.1182 = phi ptr [ null, %16 ], [ null, %14 ], [ %13, %.critedge ]
   %18 = getelementptr inbounds i8, ptr %0, i64 96
   %19 = getelementptr inbounds i8, ptr %0, i64 104
   %20 = load i8, ptr %19, align 8
@@ -12818,11 +12818,11 @@ define hidden void @zim_ReflectionClassConstant___construct(ptr noundef %0, ptr 
   br label %114
 
 .thread213:                                       ; preds = %23, %.thread195
-  %.not170 = icmp eq ptr %.0159182, null
+  %.not170 = icmp eq ptr %.1182, null
   br i1 %.not170, label %28, label %25
 
 25:                                               ; preds = %.thread213
-  %26 = getelementptr inbounds i8, ptr %.0159182, i64 16
+  %26 = getelementptr inbounds i8, ptr %.1182, i64 16
   %27 = load ptr, ptr %26, align 8
   br label %39
 
@@ -15700,8 +15700,8 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not523590, label %.loopexit583.sink.split, label %.lr.ph594
 
 .lr.ph594:                                        ; preds = %178, %204
-  %.0458593 = phi i32 [ %.1459, %204 ], [ 0, %178 ]
-  %.0464592 = phi i32 [ %.1465, %204 ], [ 0, %178 ]
+  %.1459593 = phi i32 [ %.2460, %204 ], [ 0, %178 ]
+  %.1465592 = phi i32 [ %.2466, %204 ], [ 0, %178 ]
   %.0471591 = phi ptr [ %205, %204 ], [ %180, %178 ]
   %188 = getelementptr inbounds i8, ptr %.0471591, i64 8
   %189 = load i8, ptr %188, align 8
@@ -15723,25 +15723,25 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not566, label %201, label %199
 
 199:                                              ; preds = %196
-  %200 = add nsw i32 %.0464592, 1
+  %200 = add nsw i32 %.1465592, 1
   br label %204
 
 201:                                              ; preds = %196, %191
   %202 = lshr i32 %194, 4
   %203 = and i32 %202, 1
-  %spec.select571 = add i32 %203, %.0458593
+  %spec.select571 = add i32 %203, %.1459593
   br label %204
 
 204:                                              ; preds = %201, %199, %.lr.ph594
-  %.1465 = phi i32 [ %.0464592, %.lr.ph594 ], [ %200, %199 ], [ %.0464592, %201 ]
-  %.1459 = phi i32 [ %.0458593, %.lr.ph594 ], [ %.0458593, %199 ], [ %spec.select571, %201 ]
+  %.2466 = phi i32 [ %.1465592, %.lr.ph594 ], [ %200, %199 ], [ %.1465592, %201 ]
+  %.2460 = phi i32 [ %.1459593, %.lr.ph594 ], [ %.1459593, %199 ], [ %spec.select571, %201 ]
   %205 = getelementptr inbounds i8, ptr %.0471591, i64 32
   %.not523 = icmp eq ptr %205, %184
   br i1 %.not523, label %._crit_edge, label %.lr.ph594
 
 ._crit_edge:                                      ; preds = %204
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.180, ptr noundef %3, i32 noundef %.1459) #13
-  %206 = icmp sgt i32 %.1459, 0
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.180, ptr noundef %3, i32 noundef %.2460) #13
+  %206 = icmp sgt i32 %.2460, 0
   br i1 %206, label %207, label %.loopexit583
 
 207:                                              ; preds = %._crit_edge
@@ -15800,8 +15800,8 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br label %.loopexit583
 
 .loopexit583:                                     ; preds = %231, %.loopexit583.sink.split, %207, %._crit_edge
-  %.2460576 = phi i32 [ %.1459, %._crit_edge ], [ %.1459, %207 ], [ 0, %.loopexit583.sink.split ], [ %.1459, %231 ]
-  %.2466575 = phi i32 [ %.1465, %._crit_edge ], [ %.1465, %207 ], [ 0, %.loopexit583.sink.split ], [ %.1465, %231 ]
+  %.0458576 = phi i32 [ %.2460, %._crit_edge ], [ %.2460, %207 ], [ 0, %.loopexit583.sink.split ], [ %.2460, %231 ]
+  %.0464575 = phi i32 [ %.2466, %._crit_edge ], [ %.2466, %207 ], [ 0, %.loopexit583.sink.split ], [ %.2466, %231 ]
   tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
   %233 = getelementptr inbounds i8, ptr %1, i64 92
   %234 = load i32, ptr %233, align 4
@@ -15824,7 +15824,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not527600, label %.sink.split, label %.lr.ph604
 
 .lr.ph604:                                        ; preds = %236, %263
-  %.0461602 = phi i32 [ %.1462, %263 ], [ 0, %236 ]
+  %.1462602 = phi i32 [ %.2463, %263 ], [ 0, %236 ]
   %.0474601 = phi ptr [ %264, %263 ], [ %238, %236 ]
   %246 = getelementptr inbounds i8, ptr %.0474601, i64 8
   %247 = load i8, ptr %246, align 8
@@ -15851,18 +15851,18 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %260, label %261, label %263
 
 261:                                              ; preds = %257, %254
-  %262 = add nsw i32 %.0461602, 1
+  %262 = add nsw i32 %.1462602, 1
   br label %263
 
 263:                                              ; preds = %249, %257, %261, %.lr.ph604
-  %.1462 = phi i32 [ %.0461602, %.lr.ph604 ], [ %262, %261 ], [ %.0461602, %257 ], [ %.0461602, %249 ]
+  %.2463 = phi i32 [ %.1462602, %.lr.ph604 ], [ %262, %261 ], [ %.1462602, %257 ], [ %.1462602, %249 ]
   %264 = getelementptr inbounds i8, ptr %.0474601, i64 32
   %.not527 = icmp eq ptr %264, %242
   br i1 %.not527, label %._crit_edge605, label %.lr.ph604
 
 ._crit_edge605:                                   ; preds = %263
-  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.181, ptr noundef %3, i32 noundef %.1462) #13
-  %265 = icmp sgt i32 %.1462, 0
+  tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.181, ptr noundef %3, i32 noundef %.2463) #13
+  %265 = icmp sgt i32 %.2463, 0
   br i1 %265, label %266, label %293
 
 266:                                              ; preds = %._crit_edge605
@@ -15922,15 +15922,15 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br label %293
 
 293:                                              ; preds = %.sink.split, %._crit_edge605
-  %.2463580 = phi i32 [ %.1462, %._crit_edge605 ], [ 0, %.sink.split ]
+  %.0461580 = phi i32 [ %.2463, %._crit_edge605 ], [ 0, %.sink.split ]
   tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.135) #13
   br label %.loopexit582
 
 .loopexit582:                                     ; preds = %291, %266, %293
-  %.2463579 = phi i32 [ %.2463580, %293 ], [ %.1462, %266 ], [ %.1462, %291 ]
+  %.0461579 = phi i32 [ %.0461580, %293 ], [ %.2463, %266 ], [ %.2463, %291 ]
   tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.179, ptr noundef %3) #13
   %294 = load i32, ptr %175, align 4
-  %295 = add i32 %.2466575, %.2460576
+  %295 = add i32 %.0464575, %.0458576
   %296 = sub i32 %294, %295
   tail call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.182, ptr noundef %3, i32 noundef %296) #13
   %297 = icmp sgt i32 %296, 0
@@ -16039,7 +16039,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
 
 353:                                              ; preds = %.lr.ph619, %383
   %.0455617 = phi ptr [ %343, %.lr.ph619 ], [ %384, %383 ]
-  %.0456616 = phi i32 [ 0, %.lr.ph619 ], [ %.1457, %383 ]
+  %.1457616 = phi i32 [ 0, %.lr.ph619 ], [ %.2, %383 ]
   %354 = getelementptr inbounds i8, ptr %.0455617, i64 8
   %355 = load i8, ptr %354, align 8
   %356 = icmp eq i8 %355, 0
@@ -16069,7 +16069,7 @@ define internal fastcc void @_class_string(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not558, label %368, label %383
 
 368:                                              ; preds = %366
-  %369 = add nsw i32 %.0456616, 1
+  %369 = add nsw i32 %.1457616, 1
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.186, ptr noundef nonnull %351) #13
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.187, ptr noundef nonnull %364) #13
   %370 = load ptr, ptr %5, align 8
@@ -16105,14 +16105,14 @@ _property_string.exit:                            ; preds = %371, %376
   br label %383
 
 383:                                              ; preds = %357, %360, %363, %_property_string.exit, %366, %353
-  %.1457 = phi i32 [ %.0456616, %353 ], [ %.0456616, %366 ], [ %369, %_property_string.exit ], [ %.0456616, %363 ], [ %.0456616, %360 ], [ %.0456616, %357 ]
+  %.2 = phi i32 [ %.1457616, %353 ], [ %.1457616, %366 ], [ %369, %_property_string.exit ], [ %.1457616, %363 ], [ %.1457616, %360 ], [ %.1457616, %357 ]
   %384 = getelementptr inbounds i8, ptr %.0455617, i64 32
   %.not535 = icmp eq ptr %384, %347
   br i1 %.not535, label %.loopexit, label %353
 
 .loopexit:                                        ; preds = %383, %341, %338, %331
-  %.2 = phi i32 [ 0, %338 ], [ 0, %331 ], [ 0, %341 ], [ %.1457, %383 ]
-  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.183, ptr noundef %3, i32 noundef %.2) #13
+  %.0456 = phi i32 [ 0, %338 ], [ 0, %331 ], [ 0, %341 ], [ %.2, %383 ]
+  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef %0, ptr noundef nonnull @.str.183, ptr noundef %3, i32 noundef %.0456) #13
   %385 = load ptr, ptr %5, align 8
   %.not536 = icmp eq ptr %385, null
   br i1 %.not536, label %406, label %386
@@ -16195,7 +16195,7 @@ _property_string.exit:                            ; preds = %371, %376
 
 421:                                              ; preds = %419, %327, %.loopexit581
   %422 = load i32, ptr %233, align 4
-  %423 = sub i32 %422, %.2463579
+  %423 = sub i32 %422, %.0461579
   %424 = icmp sgt i32 %423, 0
   br i1 %424, label %425, label %543
 
@@ -20442,7 +20442,7 @@ define hidden void @zim_ReflectionClass_newInstance(ptr noundef %0, ptr noundef 
   %41 = load i32, ptr %40, align 4
   %.not59 = icmp eq i32 %41, 0
   %42 = getelementptr inbounds i8, ptr %0, i64 80
-  %.0 = select i1 %.not59, ptr null, ptr %42
+  %.1 = select i1 %.not59, ptr null, ptr %42
   %43 = getelementptr inbounds i8, ptr %0, i64 40
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 134217728
@@ -20455,11 +20455,11 @@ define hidden void @zim_ReflectionClass_newInstance(ptr noundef %0, ptr noundef 
   br label %49
 
 49:                                               ; preds = %39, %46
-  %.050 = phi ptr [ %48, %46 ], [ null, %39 ]
+  %.151 = phi ptr [ %48, %46 ], [ null, %39 ]
   %50 = load ptr, ptr %1, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
-  tail call void @zend_call_known_function(ptr noundef nonnull %27, ptr noundef %50, ptr noundef %52, ptr noundef null, i32 noundef %41, ptr noundef %.0, ptr noundef %.050) #13
+  tail call void @zend_call_known_function(ptr noundef nonnull %27, ptr noundef %50, ptr noundef %52, ptr noundef null, i32 noundef %41, ptr noundef %.1, ptr noundef %.151) #13
   %53 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not61 = icmp eq ptr %53, null
   br i1 %.not61, label %68, label %54
@@ -21276,7 +21276,7 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr nocapture noundef re
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %42, %58
-  %.0108 = phi ptr [ %60, %58 ], [ null, %42 ], [ null, %46 ]
+  %.1 = phi ptr [ %60, %58 ], [ null, %42 ], [ null, %46 ]
   %61 = getelementptr inbounds i8, ptr %44, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 64
@@ -21297,13 +21297,13 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr nocapture noundef re
   br label %70
 
 70:                                               ; preds = %64, %69, %.loopexit
-  %71 = icmp ne ptr %.0108, null
+  %71 = icmp ne ptr %.1, null
   tail call void @llvm.assume(i1 %71)
   br label %72
 
 72:                                               ; preds = %70, %39
-  %.1 = phi ptr [ %41, %39 ], [ %.0108, %70 ]
-  %73 = getelementptr inbounds i8, ptr %.1, i64 16
+  %.0108 = phi ptr [ %41, %39 ], [ %.1, %70 ]
+  %73 = getelementptr inbounds i8, ptr %.0108, i64 16
   %74 = load i64, ptr %73, align 8
   %75 = load ptr, ptr %35, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 16
@@ -21322,7 +21322,7 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr nocapture noundef re
   store i64 %79, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %82, i64 24
   %87 = add i64 %78, 3
-  %88 = getelementptr inbounds i8, ptr %.1, i64 24
+  %88 = getelementptr inbounds i8, ptr %.0108, i64 24
   %89 = load ptr, ptr %35, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 24
   %91 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %86, i64 noundef %87, ptr noundef nonnull @.str.54, ptr noundef nonnull %88, ptr noundef nonnull %90) #13
@@ -22322,7 +22322,7 @@ define hidden void @zim_ReflectionProperty___construct(ptr noundef %0, ptr nocap
   br i1 %17, label %.thread, label %.thread223
 
 .thread:                                          ; preds = %14, %.critedge, %16
-  %.0184209 = phi ptr [ null, %16 ], [ null, %14 ], [ %13, %.critedge ]
+  %.1185209 = phi ptr [ null, %16 ], [ null, %14 ], [ %13, %.critedge ]
   %18 = getelementptr inbounds i8, ptr %0, i64 96
   %19 = getelementptr inbounds i8, ptr %0, i64 104
   %20 = load i8, ptr %19, align 8
@@ -22349,7 +22349,7 @@ define hidden void @zim_ReflectionProperty___construct(ptr noundef %0, ptr nocap
 
 25:                                               ; preds = %23, %.thread242
   %26 = load ptr, ptr %5, align 8
-  %.not244 = icmp eq ptr %.0184209, null
+  %.not244 = icmp eq ptr %.1185209, null
   br i1 %.not244, label %27, label %.thread245
 
 27:                                               ; preds = %25
@@ -22376,7 +22376,7 @@ define hidden void @zim_ReflectionProperty___construct(ptr noundef %0, ptr nocap
   br i1 %.not193.not, label %.critedge206, label %47
 
 .thread245:                                       ; preds = %25
-  %42 = getelementptr inbounds i8, ptr %.0184209, i64 16
+  %42 = getelementptr inbounds i8, ptr %.1185209, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 120
   %45 = load ptr, ptr %4, align 8
@@ -22401,11 +22401,11 @@ define hidden void @zim_ReflectionProperty___construct(ptr noundef %0, ptr nocap
   br i1 %.not195, label %73, label %.critedge206
 
 56:                                               ; preds = %.thread245
-  %57 = getelementptr inbounds i8, ptr %.0184209, i64 24
+  %57 = getelementptr inbounds i8, ptr %.1185209, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 104
   %60 = load ptr, ptr %59, align 8
-  %61 = call ptr %60(ptr noundef nonnull %.0184209) #13
+  %61 = call ptr %60(ptr noundef nonnull %.1185209) #13
   %62 = load ptr, ptr %4, align 8
   %63 = call ptr @zend_hash_find(ptr noundef %61, ptr noundef %62) #13
   %.not196 = icmp eq ptr %63, null
@@ -25106,11 +25106,11 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef %.0452.i) #13
   %.pre.i = load ptr, ptr %6, align 8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 16
-  %.pre39.i = load i64, ptr %.phi.trans.insert.i, align 8
+  %.pre38.i = load i64, ptr %.phi.trans.insert.i, align 8
   br label %40
 
 40:                                               ; preds = %39, %33
-  %41 = phi i64 [ %.pre39.i, %39 ], [ %35, %33 ]
+  %41 = phi i64 [ %.pre38.i, %39 ], [ %35, %33 ]
   %42 = phi ptr [ %.pre.i, %39 ], [ %32, %33 ]
   %.1453.i = phi i64 [ %.0452.i, %39 ], [ %36, %33 ]
   %43 = getelementptr inbounds i8, ptr %42, i64 24
@@ -25144,14 +25144,14 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
 58:                                               ; preds = %52, %50
   %.0454.i = phi i64 [ 11, %50 ], [ %55, %52 ]
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef %.0454.i) #13
-  %.pre40.i = load ptr, ptr %6, align 8
-  %.phi.trans.insert41.i = getelementptr inbounds i8, ptr %.pre40.i, i64 16
-  %.pre42.i = load i64, ptr %.phi.trans.insert41.i, align 8
+  %.pre39.i = load ptr, ptr %6, align 8
+  %.phi.trans.insert40.i = getelementptr inbounds i8, ptr %.pre39.i, i64 16
+  %.pre41.i = load i64, ptr %.phi.trans.insert40.i, align 8
   br label %59
 
 59:                                               ; preds = %58, %52
-  %60 = phi i64 [ %.pre42.i, %58 ], [ %54, %52 ]
-  %61 = phi ptr [ %.pre40.i, %58 ], [ %51, %52 ]
+  %60 = phi i64 [ %.pre41.i, %58 ], [ %54, %52 ]
+  %61 = phi ptr [ %.pre39.i, %58 ], [ %51, %52 ]
   %.1455.i = phi i64 [ %.0454.i, %58 ], [ %55, %52 ]
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = getelementptr inbounds i8, ptr %62, i64 %60
@@ -25193,14 +25193,14 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
 84:                                               ; preds = %78, %76
   %.0456.i = phi i64 [ 20, %76 ], [ %81, %78 ]
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef %.0456.i) #13
-  %.pre43.i = load ptr, ptr %6, align 8
-  %.phi.trans.insert44.i = getelementptr inbounds i8, ptr %.pre43.i, i64 16
-  %.pre45.i = load i64, ptr %.phi.trans.insert44.i, align 8
+  %.pre42.i = load ptr, ptr %6, align 8
+  %.phi.trans.insert43.i = getelementptr inbounds i8, ptr %.pre42.i, i64 16
+  %.pre44.i = load i64, ptr %.phi.trans.insert43.i, align 8
   br label %85
 
 85:                                               ; preds = %84, %78
-  %86 = phi i64 [ %.pre45.i, %84 ], [ %80, %78 ]
-  %87 = phi ptr [ %.pre43.i, %84 ], [ %77, %78 ]
+  %86 = phi i64 [ %.pre44.i, %84 ], [ %80, %78 ]
+  %87 = phi ptr [ %.pre42.i, %84 ], [ %77, %78 ]
   %.1457.i = phi i64 [ %.0456.i, %84 ], [ %81, %78 ]
   %88 = getelementptr inbounds i8, ptr %87, i64 24
   %89 = getelementptr inbounds i8, ptr %88, i64 %86
@@ -25208,8 +25208,8 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
   %90 = getelementptr inbounds i8, ptr %87, i64 16
   store i64 %.1457.i, ptr %90, align 8
   %91 = load ptr, ptr %75, align 8
-  %.not52013.i = icmp eq ptr %91, null
-  br i1 %.not52013.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not52012.i = icmp eq ptr %91, null
+  br i1 %.not52012.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %85
   %92 = getelementptr inbounds i8, ptr %6, i64 8
@@ -25217,9 +25217,9 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
 
 93:                                               ; preds = %164, %.lr.ph.i
   %94 = phi ptr [ %91, %.lr.ph.i ], [ %172, %164 ]
-  %.047114.i = phi ptr [ %75, %.lr.ph.i ], [ %171, %164 ]
+  %.047113.i = phi ptr [ %75, %.lr.ph.i ], [ %171, %164 ]
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.194, ptr noundef nonnull @.str.10, ptr noundef nonnull %94) #13
-  %95 = getelementptr inbounds i8, ptr %.047114.i, i64 24
+  %95 = getelementptr inbounds i8, ptr %.047113.i, i64 24
   %96 = load i8, ptr %95, align 8
   %97 = load ptr, ptr %6, align 8
   %.not560.i = icmp eq ptr %97, null
@@ -25243,14 +25243,14 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
 104:                                              ; preds = %99, %98
   %.0458.i = phi i64 [ 8, %98 ], [ %102, %99 ]
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef %.0458.i) #13
-  %.pre52.i = load ptr, ptr %6, align 8
-  %.phi.trans.insert53.i = getelementptr inbounds i8, ptr %.pre52.i, i64 16
-  %.pre54.i = load i64, ptr %.phi.trans.insert53.i, align 8
+  %.pre51.i = load ptr, ptr %6, align 8
+  %.phi.trans.insert52.i = getelementptr inbounds i8, ptr %.pre51.i, i64 16
+  %.pre53.i = load i64, ptr %.phi.trans.insert52.i, align 8
   br label %105
 
 105:                                              ; preds = %104, %99
-  %106 = phi i64 [ %.pre54.i, %104 ], [ %101, %99 ]
-  %107 = phi ptr [ %.pre52.i, %104 ], [ %97, %99 ]
+  %106 = phi i64 [ %.pre53.i, %104 ], [ %101, %99 ]
+  %107 = phi ptr [ %.pre51.i, %104 ], [ %97, %99 ]
   %.1459.i = phi i64 [ %.0458.i, %104 ], [ %102, %99 ]
   %108 = getelementptr inbounds i8, ptr %107, i64 24
   %109 = getelementptr inbounds i8, ptr %108, i64 %106
@@ -25271,14 +25271,14 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
 116:                                              ; preds = %111, %110
   %.0460.i = phi i64 [ 9, %110 ], [ %114, %111 ]
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef %.0460.i) #13
-  %.pre49.i = load ptr, ptr %6, align 8
-  %.phi.trans.insert50.i = getelementptr inbounds i8, ptr %.pre49.i, i64 16
-  %.pre51.i = load i64, ptr %.phi.trans.insert50.i, align 8
+  %.pre48.i = load ptr, ptr %6, align 8
+  %.phi.trans.insert49.i = getelementptr inbounds i8, ptr %.pre48.i, i64 16
+  %.pre50.i = load i64, ptr %.phi.trans.insert49.i, align 8
   br label %117
 
 117:                                              ; preds = %116, %111
-  %118 = phi i64 [ %.pre51.i, %116 ], [ %113, %111 ]
-  %119 = phi ptr [ %.pre49.i, %116 ], [ %97, %111 ]
+  %118 = phi i64 [ %.pre50.i, %116 ], [ %113, %111 ]
+  %119 = phi ptr [ %.pre48.i, %116 ], [ %97, %111 ]
   %.1461.i = phi i64 [ %.0460.i, %116 ], [ %114, %111 ]
   %120 = getelementptr inbounds i8, ptr %119, i64 24
   %121 = getelementptr inbounds i8, ptr %120, i64 %118
@@ -25299,14 +25299,14 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
 128:                                              ; preds = %123, %122
   %.0463.i = phi i64 [ 8, %122 ], [ %126, %123 ]
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef %.0463.i) #13
-  %.pre46.i = load ptr, ptr %6, align 8
-  %.phi.trans.insert47.i = getelementptr inbounds i8, ptr %.pre46.i, i64 16
-  %.pre48.i = load i64, ptr %.phi.trans.insert47.i, align 8
+  %.pre45.i = load ptr, ptr %6, align 8
+  %.phi.trans.insert46.i = getelementptr inbounds i8, ptr %.pre45.i, i64 16
+  %.pre47.i = load i64, ptr %.phi.trans.insert46.i, align 8
   br label %129
 
 129:                                              ; preds = %128, %123
-  %130 = phi i64 [ %.pre48.i, %128 ], [ %125, %123 ]
-  %131 = phi ptr [ %.pre46.i, %128 ], [ %97, %123 ]
+  %130 = phi i64 [ %.pre47.i, %128 ], [ %125, %123 ]
+  %131 = phi ptr [ %.pre45.i, %128 ], [ %97, %123 ]
   %.1464.i = phi i64 [ %.0463.i, %128 ], [ %126, %123 ]
   %132 = getelementptr inbounds i8, ptr %131, i64 24
   %133 = getelementptr inbounds i8, ptr %132, i64 %130
@@ -25327,14 +25327,14 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
 140:                                              ; preds = %135, %134
   %.0467.i = phi i64 [ 5, %134 ], [ %138, %135 ]
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef %.0467.i) #13
-  %.pre55.i = load ptr, ptr %6, align 8
-  %.phi.trans.insert56.i = getelementptr inbounds i8, ptr %.pre55.i, i64 16
-  %.pre57.i = load i64, ptr %.phi.trans.insert56.i, align 8
+  %.pre54.i = load ptr, ptr %6, align 8
+  %.phi.trans.insert55.i = getelementptr inbounds i8, ptr %.pre54.i, i64 16
+  %.pre56.i = load i64, ptr %.phi.trans.insert55.i, align 8
   br label %141
 
 141:                                              ; preds = %140, %135
-  %142 = phi i64 [ %.pre57.i, %140 ], [ %137, %135 ]
-  %143 = phi ptr [ %.pre55.i, %140 ], [ %97, %135 ]
+  %142 = phi i64 [ %.pre56.i, %140 ], [ %137, %135 ]
+  %143 = phi ptr [ %.pre54.i, %140 ], [ %97, %135 ]
   %.1468.i = phi i64 [ %.0467.i, %140 ], [ %138, %135 ]
   %144 = getelementptr inbounds i8, ptr %143, i64 24
   %145 = getelementptr inbounds i8, ptr %144, i64 %142
@@ -25346,7 +25346,7 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
   %147 = load ptr, ptr %6, align 8
   %148 = getelementptr inbounds i8, ptr %147, i64 16
   store i64 %.1468.sink.i, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %.047114.i, i64 8
+  %149 = getelementptr inbounds i8, ptr %.047113.i, i64 8
   %150 = load ptr, ptr %149, align 8
   %.not562.i = icmp eq ptr %150, null
   br i1 %.not562.i, label %152, label %151
@@ -25356,7 +25356,7 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
   br label %152
 
 152:                                              ; preds = %151, %146
-  %153 = getelementptr inbounds i8, ptr %.047114.i, i64 16
+  %153 = getelementptr inbounds i8, ptr %.047113.i, i64 16
   %154 = load ptr, ptr %153, align 8
   %.not563.i = icmp eq ptr %154, null
   br i1 %.not563.i, label %156, label %155
@@ -25381,14 +25381,14 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
 163:                                              ; preds = %158, %156
   %.0469.i = phi i64 [ 4, %156 ], [ %161, %158 ]
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef %.0469.i) #13
-  %.pre58.i = load ptr, ptr %6, align 8
-  %.phi.trans.insert59.i = getelementptr inbounds i8, ptr %.pre58.i, i64 16
-  %.pre60.i = load i64, ptr %.phi.trans.insert59.i, align 8
+  %.pre57.i = load ptr, ptr %6, align 8
+  %.phi.trans.insert58.i = getelementptr inbounds i8, ptr %.pre57.i, i64 16
+  %.pre59.i = load i64, ptr %.phi.trans.insert58.i, align 8
   br label %164
 
 164:                                              ; preds = %163, %158
-  %165 = phi i64 [ %.pre60.i, %163 ], [ %160, %158 ]
-  %166 = phi ptr [ %.pre58.i, %163 ], [ %157, %158 ]
+  %165 = phi i64 [ %.pre59.i, %163 ], [ %160, %158 ]
+  %166 = phi ptr [ %.pre57.i, %163 ], [ %157, %158 ]
   %.1470.i = phi i64 [ %.0469.i, %163 ], [ %161, %158 ]
   %167 = getelementptr inbounds i8, ptr %166, i64 24
   %168 = getelementptr inbounds i8, ptr %167, i64 %165
@@ -25396,7 +25396,7 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
   %169 = load ptr, ptr %6, align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 16
   store i64 %.1470.i, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %.047114.i, i64 32
+  %171 = getelementptr inbounds i8, ptr %.047113.i, i64 32
   %172 = load ptr, ptr %171, align 8
   %.not520.i = icmp eq ptr %172, null
   br i1 %.not520.i, label %._crit_edge.i, label %93
@@ -25419,22 +25419,22 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
   %183 = and i32 %182, 4
   %.not521.i = icmp eq i32 %183, 0
   call void @llvm.assume(i1 %.not521.i)
-  %.not52215.i = icmp eq i32 %178, 0
-  br i1 %.not52215.i, label %.thread11.i, label %.lr.ph18.i
+  %.not52214.i = icmp eq i32 %178, 0
+  br i1 %.not52214.i, label %.thread10.i, label %.lr.ph17.i
 
-.lr.ph18.i:                                       ; preds = %173
+.lr.ph17.i:                                       ; preds = %173
   %184 = getelementptr inbounds i8, ptr %3, i64 8
   br label %185
 
-185:                                              ; preds = %_extension_ini_string.exit.i, %.lr.ph18.i
-  %.047316.i = phi ptr [ %176, %.lr.ph18.i ], [ %264, %_extension_ini_string.exit.i ]
-  %186 = getelementptr inbounds i8, ptr %.047316.i, i64 8
+185:                                              ; preds = %_extension_ini_string.exit.i, %.lr.ph17.i
+  %.047315.i = phi ptr [ %176, %.lr.ph17.i ], [ %264, %_extension_ini_string.exit.i ]
+  %186 = getelementptr inbounds i8, ptr %.047315.i, i64 8
   %187 = load i8, ptr %186, align 8
   %188 = icmp eq i8 %187, 0
   br i1 %188, label %_extension_ini_string.exit.i, label %189
 
 189:                                              ; preds = %185
-  %190 = load ptr, ptr %.047316.i, align 8
+  %190 = load ptr, ptr %.047315.i, align 8
   %191 = load i32, ptr %67, align 8
   %192 = getelementptr inbounds i8, ptr %190, i64 64
   %193 = load i32, ptr %192, align 8
@@ -25546,18 +25546,18 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
   br label %240
 
 240:                                              ; preds = %239, %236
-  %.pr5.i = load ptr, ptr %3, align 8
-  %.not116.i.i = icmp eq ptr %.pr5.i, null
-  br i1 %.not116.i.i, label %246, label %._crit_edge61.i
+  %.pr4.i = load ptr, ptr %3, align 8
+  %.not116.i.i = icmp eq ptr %.pr4.i, null
+  br i1 %.not116.i.i, label %246, label %._crit_edge60.i
 
-._crit_edge61.i:                                  ; preds = %240
-  %.phi.trans.insert62.i = getelementptr inbounds i8, ptr %.pr5.i, i64 16
-  %.pre63.i = load i64, ptr %.phi.trans.insert62.i, align 8
+._crit_edge60.i:                                  ; preds = %240
+  %.phi.trans.insert61.i = getelementptr inbounds i8, ptr %.pr4.i, i64 16
+  %.pre62.i = load i64, ptr %.phi.trans.insert61.i, align 8
   br label %241
 
-241:                                              ; preds = %._crit_edge61.i, %.thread.i
-  %242 = phi i64 [ %.196.i.i, %.thread.i ], [ %.pre63.i, %._crit_edge61.i ]
-  %243 = phi ptr [ %213, %.thread.i ], [ %.pr5.i, %._crit_edge61.i ]
+241:                                              ; preds = %._crit_edge60.i, %.thread.i
+  %242 = phi i64 [ %.196.i.i, %.thread.i ], [ %.pre62.i, %._crit_edge60.i ]
+  %243 = phi ptr [ %213, %.thread.i ], [ %.pr4.i, %._crit_edge60.i ]
   %244 = add i64 %242, 4
   %245 = load i64, ptr %184, align 8
   %.not117.i.i = icmp ult i64 %244, %245
@@ -25606,20 +25606,20 @@ define hidden void @zim_ReflectionExtension___toString(ptr nocapture noundef rea
   br label %_extension_ini_string.exit.i
 
 _extension_ini_string.exit.i:                     ; preds = %263, %189, %185
-  %264 = getelementptr inbounds i8, ptr %.047316.i, i64 32
+  %264 = getelementptr inbounds i8, ptr %.047315.i, i64 32
   %.not522.i = icmp eq ptr %264, %180
-  br i1 %.not522.i, label %._crit_edge19.i, label %185
+  br i1 %.not522.i, label %._crit_edge18.i, label %185
 
-._crit_edge19.i:                                  ; preds = %_extension_ini_string.exit.i
-  %.pre64.i = load ptr, ptr %3, align 8
-  %.not523.i = icmp eq ptr %.pre64.i, null
-  br i1 %.not523.i, label %.thread11.i, label %265
+._crit_edge18.i:                                  ; preds = %_extension_ini_string.exit.i
+  %.pre63.i = load ptr, ptr %3, align 8
+  %.not523.i = icmp eq ptr %.pre63.i, null
+  br i1 %.not523.i, label %.thread10.i, label %265
 
-265:                                              ; preds = %._crit_edge19.i
-  %266 = getelementptr inbounds i8, ptr %.pre64.i, i64 16
+265:                                              ; preds = %._crit_edge18.i
+  %266 = getelementptr inbounds i8, ptr %.pre63.i, i64 16
   %267 = load i64, ptr %266, align 8
   %.not524.i = icmp eq i64 %267, 0
-  br i1 %.not524.i, label %.thread76.i, label %268
+  br i1 %.not524.i, label %.thread75.i, label %268
 
 268:                                              ; preds = %265
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.197) #13
@@ -25651,14 +25651,14 @@ _extension_ini_string.exit.i:                     ; preds = %263, %189, %185
 282:                                              ; preds = %276, %273
   %.0.i = phi i64 [ %272, %273 ], [ %279, %276 ]
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef %.0.i) #13
-  %.pre65.i = load ptr, ptr %6, align 8
-  %.phi.trans.insert66.i = getelementptr inbounds i8, ptr %.pre65.i, i64 16
-  %.pre67.i = load i64, ptr %.phi.trans.insert66.i, align 8
+  %.pre64.i = load ptr, ptr %6, align 8
+  %.phi.trans.insert65.i = getelementptr inbounds i8, ptr %.pre64.i, i64 16
+  %.pre66.i = load i64, ptr %.phi.trans.insert65.i, align 8
   br label %283
 
 283:                                              ; preds = %282, %276
-  %284 = phi i64 [ %.pre67.i, %282 ], [ %278, %276 ]
-  %285 = phi ptr [ %.pre65.i, %282 ], [ %275, %276 ]
+  %284 = phi i64 [ %.pre66.i, %282 ], [ %278, %276 ]
+  %285 = phi ptr [ %.pre64.i, %282 ], [ %275, %276 ]
   %.1.i = phi i64 [ %.0.i, %282 ], [ %279, %276 ]
   %286 = getelementptr inbounds i8, ptr %285, i64 24
   %287 = getelementptr inbounds i8, ptr %286, i64 %284
@@ -25670,36 +25670,36 @@ _extension_ini_string.exit.i:                     ; preds = %263, %189, %185
 
 290:                                              ; preds = %283, %270, %268
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.10) #13
-  %.pr10.pre.i = load ptr, ptr %3, align 8
-  %.not529.i = icmp eq ptr %.pr10.pre.i, null
-  br i1 %.not529.i, label %.thread11.i, label %.thread76.i
+  %.pr9.pre.i = load ptr, ptr %3, align 8
+  %.not529.i = icmp eq ptr %.pr9.pre.i, null
+  br i1 %.not529.i, label %.thread10.i, label %.thread75.i
 
-.thread76.i:                                      ; preds = %290, %265
-  %.pr1079.i = phi ptr [ %.pr10.pre.i, %290 ], [ %.pre64.i, %265 ]
-  %291 = getelementptr inbounds i8, ptr %.pr1079.i, i64 4
+.thread75.i:                                      ; preds = %290, %265
+  %.pr978.i = phi ptr [ %.pr9.pre.i, %290 ], [ %.pre63.i, %265 ]
+  %291 = getelementptr inbounds i8, ptr %.pr978.i, i64 4
   %292 = load i32, ptr %291, align 4
   %293 = and i32 %292, 64
   %.not530.i = icmp eq i32 %293, 0
   br i1 %.not530.i, label %294, label %300
 
-294:                                              ; preds = %.thread76.i
-  %295 = load i32, ptr %.pr1079.i, align 4
+294:                                              ; preds = %.thread75.i
+  %295 = load i32, ptr %.pr978.i, align 4
   %296 = icmp ne i32 %295, 0
   call void @llvm.assume(i1 %296)
   %297 = add i32 %295, -1
-  store i32 %297, ptr %.pr1079.i, align 4
+  store i32 %297, ptr %.pr978.i, align 4
   %298 = icmp eq i32 %297, 0
   br i1 %298, label %299, label %300
 
 299:                                              ; preds = %294
-  call void @_efree(ptr noundef nonnull %.pr1079.i) #13
+  call void @_efree(ptr noundef nonnull %.pr978.i) #13
   br label %300
 
-300:                                              ; preds = %299, %294, %.thread76.i
+300:                                              ; preds = %299, %294, %.thread75.i
   store ptr null, ptr %3, align 8
-  br label %.thread11.i
+  br label %.thread10.i
 
-.thread11.i:                                      ; preds = %300, %290, %._crit_edge19.i, %173
+.thread10.i:                                      ; preds = %300, %290, %._crit_edge18.i, %173
   %301 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 0, ptr %301, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -25715,19 +25715,19 @@ _extension_ini_string.exit.i:                     ; preds = %263, %189, %185
   %311 = and i32 %310, 4
   %.not531.i = icmp eq i32 %311, 0
   call void @llvm.assume(i1 %.not531.i)
-  %.not53220.i = icmp eq i32 %306, 0
-  br i1 %.not53220.i, label %._crit_edge24.thread.i, label %.lr.ph23.i
+  %.not53219.i = icmp eq i32 %306, 0
+  br i1 %.not53219.i, label %._crit_edge23.thread.i, label %.lr.ph22.i
 
-.lr.ph23.i:                                       ; preds = %.thread11.i, %347
-  %.047222.i = phi ptr [ %348, %347 ], [ %304, %.thread11.i ]
-  %.047421.i = phi i32 [ %.1475.i, %347 ], [ 0, %.thread11.i ]
-  %312 = getelementptr inbounds i8, ptr %.047222.i, i64 8
+.lr.ph22.i:                                       ; preds = %.thread10.i, %347
+  %.047221.i = phi ptr [ %348, %347 ], [ %304, %.thread10.i ]
+  %.047420.i = phi i32 [ %.1475.i, %347 ], [ 0, %.thread10.i ]
+  %312 = getelementptr inbounds i8, ptr %.047221.i, i64 8
   %313 = load i8, ptr %312, align 8
   %314 = icmp eq i8 %313, 0
   br i1 %314, label %347, label %315
 
-315:                                              ; preds = %.lr.ph23.i
-  %316 = load ptr, ptr %.047222.i, align 8
+315:                                              ; preds = %.lr.ph22.i
+  %316 = load ptr, ptr %.047221.i, align 8
   %317 = getelementptr inbounds i8, ptr %316, i64 12
   %318 = load i32, ptr %317, align 4
   %319 = lshr i32 %318, 8
@@ -25785,20 +25785,20 @@ _extension_ini_string.exit.i:                     ; preds = %263, %189, %185
   br label %_const_string.exit.i
 
 _const_string.exit.i:                             ; preds = %345, %340, %336, %333, %330, %329
-  %346 = add nsw i32 %.047421.i, 1
+  %346 = add nsw i32 %.047420.i, 1
   br label %347
 
-347:                                              ; preds = %_const_string.exit.i, %315, %.lr.ph23.i
-  %.1475.i = phi i32 [ %.047421.i, %.lr.ph23.i ], [ %346, %_const_string.exit.i ], [ %.047421.i, %315 ]
-  %348 = getelementptr inbounds i8, ptr %.047222.i, i64 32
+347:                                              ; preds = %_const_string.exit.i, %315, %.lr.ph22.i
+  %.1475.i = phi i32 [ %.047420.i, %.lr.ph22.i ], [ %346, %_const_string.exit.i ], [ %.047420.i, %315 ]
+  %348 = getelementptr inbounds i8, ptr %.047221.i, i64 32
   %.not532.i = icmp eq ptr %348, %308
-  br i1 %.not532.i, label %._crit_edge24.i, label %.lr.ph23.i
+  br i1 %.not532.i, label %._crit_edge23.i, label %.lr.ph22.i
 
-._crit_edge24.i:                                  ; preds = %347
+._crit_edge23.i:                                  ; preds = %347
   %.not533.i = icmp eq i32 %.1475.i, 0
-  br i1 %.not533.i, label %._crit_edge24.thread.i, label %349
+  br i1 %.not533.i, label %._crit_edge23.thread.i, label %349
 
-349:                                              ; preds = %._crit_edge24.i
+349:                                              ; preds = %._crit_edge23.i
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.198, i32 noundef %.1475.i) #13
   %350 = load ptr, ptr %4, align 8
   %.not534.i = icmp eq ptr %350, null
@@ -25828,14 +25828,14 @@ _const_string.exit.i:                             ; preds = %345, %340, %336, %3
 363:                                              ; preds = %357, %354
   %.0447.i = phi i64 [ %353, %354 ], [ %360, %357 ]
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef %.0447.i) #13
-  %.pre69.i = load ptr, ptr %6, align 8
-  %.phi.trans.insert70.i = getelementptr inbounds i8, ptr %.pre69.i, i64 16
-  %.pre71.i = load i64, ptr %.phi.trans.insert70.i, align 8
+  %.pre68.i = load ptr, ptr %6, align 8
+  %.phi.trans.insert69.i = getelementptr inbounds i8, ptr %.pre68.i, i64 16
+  %.pre70.i = load i64, ptr %.phi.trans.insert69.i, align 8
   br label %364
 
 364:                                              ; preds = %363, %357
-  %365 = phi i64 [ %.pre71.i, %363 ], [ %359, %357 ]
-  %366 = phi ptr [ %.pre69.i, %363 ], [ %356, %357 ]
+  %365 = phi i64 [ %.pre70.i, %363 ], [ %359, %357 ]
+  %366 = phi ptr [ %.pre68.i, %363 ], [ %356, %357 ]
   %.1448.i = phi i64 [ %.0447.i, %363 ], [ %360, %357 ]
   %367 = getelementptr inbounds i8, ptr %366, i64 24
   %368 = getelementptr inbounds i8, ptr %367, i64 %365
@@ -25847,14 +25847,14 @@ _const_string.exit.i:                             ; preds = %345, %340, %336, %3
 
 371:                                              ; preds = %364, %351, %349
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.10) #13
-  br label %._crit_edge24.thread.i
+  br label %._crit_edge23.thread.i
 
-._crit_edge24.thread.i:                           ; preds = %371, %._crit_edge24.i, %.thread11.i
+._crit_edge23.thread.i:                           ; preds = %371, %._crit_edge23.i, %.thread10.i
   %372 = load ptr, ptr %4, align 8
   %.not538.i = icmp eq ptr %372, null
   br i1 %.not538.i, label %384, label %373
 
-373:                                              ; preds = %._crit_edge24.thread.i
+373:                                              ; preds = %._crit_edge23.thread.i
   %374 = getelementptr inbounds i8, ptr %372, i64 4
   %375 = load i32, ptr %374, align 4
   %376 = and i32 %375, 64
@@ -25878,7 +25878,7 @@ _const_string.exit.i:                             ; preds = %345, %340, %336, %3
   store ptr null, ptr %4, align 8
   br label %384
 
-384:                                              ; preds = %383, %._crit_edge24.thread.i
+384:                                              ; preds = %383, %._crit_edge23.thread.i
   %385 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 0, ptr %385, align 8
   %386 = load ptr, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 56), align 8
@@ -25893,23 +25893,23 @@ _const_string.exit.i:                             ; preds = %345, %340, %336, %3
   %395 = and i32 %394, 4
   %.not540.i = icmp eq i32 %395, 0
   call void @llvm.assume(i1 %.not540.i)
-  %.not54125.i = icmp eq i32 %390, 0
-  br i1 %.not54125.i, label %._crit_edge30.thread.i, label %.lr.ph29.outer.i
+  %.not54124.i = icmp eq i32 %390, 0
+  br i1 %.not54124.i, label %._crit_edge29.thread.i, label %.lr.ph28.outer.i
 
-.lr.ph29.outer.i:                                 ; preds = %384, %.thread83.i
-  %.046227.ph.i = phi ptr [ %411, %.thread83.i ], [ %388, %384 ]
-  %.not553.i = phi i1 [ true, %.thread83.i ], [ false, %384 ]
-  br label %.lr.ph29.i
+.lr.ph28.outer.i:                                 ; preds = %384, %.thread82.i
+  %.046226.ph.i = phi ptr [ %411, %.thread82.i ], [ %388, %384 ]
+  %.not553.i = phi i1 [ true, %.thread82.i ], [ false, %384 ]
+  br label %.lr.ph28.i
 
-.lr.ph29.i:                                       ; preds = %409, %.lr.ph29.outer.i
-  %.046227.i = phi ptr [ %410, %409 ], [ %.046227.ph.i, %.lr.ph29.outer.i ]
-  %396 = getelementptr inbounds i8, ptr %.046227.i, i64 8
+.lr.ph28.i:                                       ; preds = %409, %.lr.ph28.outer.i
+  %.046226.i = phi ptr [ %410, %409 ], [ %.046226.ph.i, %.lr.ph28.outer.i ]
+  %396 = getelementptr inbounds i8, ptr %.046226.i, i64 8
   %397 = load i8, ptr %396, align 8
   %398 = icmp eq i8 %397, 0
   br i1 %398, label %409, label %399
 
-399:                                              ; preds = %.lr.ph29.i
-  %400 = load ptr, ptr %.046227.i, align 8
+399:                                              ; preds = %.lr.ph28.i
+  %400 = load ptr, ptr %.046226.i, align 8
   %401 = load i8, ptr %400, align 8
   %402 = icmp eq i8 %401, 1
   br i1 %402, label %403, label %409
@@ -25921,31 +25921,31 @@ _const_string.exit.i:                             ; preds = %345, %340, %336, %3
   br i1 %406, label %407, label %409
 
 407:                                              ; preds = %403
-  br i1 %.not553.i, label %.thread83.i, label %408
+  br i1 %.not553.i, label %.thread82.i, label %408
 
 408:                                              ; preds = %407
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.199) #13
-  br label %.thread83.i
+  br label %.thread82.i
 
-409:                                              ; preds = %403, %399, %.lr.ph29.i
-  %410 = getelementptr inbounds i8, ptr %.046227.i, i64 32
+409:                                              ; preds = %403, %399, %.lr.ph28.i
+  %410 = getelementptr inbounds i8, ptr %.046226.i, i64 32
   %.not541.i = icmp eq ptr %410, %392
-  br i1 %.not541.i, label %._crit_edge30.i, label %.lr.ph29.i
+  br i1 %.not541.i, label %._crit_edge29.i, label %.lr.ph28.i
 
-.thread83.i:                                      ; preds = %408, %407
+.thread82.i:                                      ; preds = %408, %407
   call fastcc void @_function_string(ptr noundef nonnull %6, ptr noundef nonnull %400, ptr noundef null, ptr noundef nonnull @.str.200)
-  %411 = getelementptr inbounds i8, ptr %.046227.i, i64 32
-  %.not54185.i = icmp eq ptr %411, %392
-  br i1 %.not54185.i, label %._crit_edge30.thread87.i, label %.lr.ph29.outer.i
+  %411 = getelementptr inbounds i8, ptr %.046226.i, i64 32
+  %.not54184.i = icmp eq ptr %411, %392
+  br i1 %.not54184.i, label %._crit_edge29.thread86.i, label %.lr.ph28.outer.i
 
-._crit_edge30.i:                                  ; preds = %409
-  br i1 %.not553.i, label %._crit_edge30.thread87.i, label %._crit_edge30.thread.i
+._crit_edge29.i:                                  ; preds = %409
+  br i1 %.not553.i, label %._crit_edge29.thread86.i, label %._crit_edge29.thread.i
 
-._crit_edge30.thread87.i:                         ; preds = %.thread83.i, %._crit_edge30.i
+._crit_edge29.thread86.i:                         ; preds = %.thread82.i, %._crit_edge29.i
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.10) #13
-  br label %._crit_edge30.thread.i
+  br label %._crit_edge29.thread.i
 
-._crit_edge30.thread.i:                           ; preds = %._crit_edge30.thread87.i, %._crit_edge30.i, %384
+._crit_edge29.thread.i:                           ; preds = %._crit_edge29.thread86.i, %._crit_edge29.i, %384
   %412 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.160, ptr noundef nonnull @.str.10) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %413 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 440), align 8
@@ -25960,25 +25960,25 @@ _const_string.exit.i:                             ; preds = %345, %340, %336, %3
   %422 = and i32 %421, 4
   %.not543.i = icmp eq i32 %422, 0
   call void @llvm.assume(i1 %.not543.i)
-  %.not54432.i = icmp eq i32 %417, 0
-  br i1 %.not54432.i, label %._crit_edge37.thread.i, label %.lr.ph36.i
+  %.not54431.i = icmp eq i32 %417, 0
+  br i1 %.not54431.i, label %._crit_edge36.thread.i, label %.lr.ph35.i
 
-.lr.ph36.i:                                       ; preds = %._crit_edge30.thread.i
+.lr.ph35.i:                                       ; preds = %._crit_edge29.thread.i
   %423 = getelementptr inbounds i8, ptr %412, i64 24
   br label %424
 
-424:                                              ; preds = %_extension_class_string.exit.i, %.lr.ph36.i
-  %.044934.i = phi ptr [ %415, %.lr.ph36.i ], [ %456, %_extension_class_string.exit.i ]
-  %.0233.i = phi i32 [ 0, %.lr.ph36.i ], [ %.24.i, %_extension_class_string.exit.i ]
-  %425 = getelementptr inbounds i8, ptr %.044934.i, i64 8
+424:                                              ; preds = %_extension_class_string.exit.i, %.lr.ph35.i
+  %.044933.i = phi ptr [ %415, %.lr.ph35.i ], [ %456, %_extension_class_string.exit.i ]
+  %.0232.i = phi i32 [ 0, %.lr.ph35.i ], [ %.2.i, %_extension_class_string.exit.i ]
+  %425 = getelementptr inbounds i8, ptr %.044933.i, i64 8
   %426 = load i8, ptr %425, align 8
   %427 = icmp eq i8 %426, 0
   br i1 %427, label %_extension_class_string.exit.i, label %428
 
 428:                                              ; preds = %424
-  %429 = getelementptr inbounds i8, ptr %.044934.i, i64 24
+  %429 = getelementptr inbounds i8, ptr %.044933.i, i64 24
   %430 = load ptr, ptr %429, align 8
-  %431 = load ptr, ptr %.044934.i, align 8
+  %431 = load ptr, ptr %.044933.i, align 8
   %432 = load i8, ptr %431, align 8
   %433 = icmp eq i8 %432, 1
   br i1 %433, label %434, label %_extension_class_string.exit.i
@@ -26017,21 +26017,21 @@ _const_string.exit.i:                             ; preds = %345, %340, %336, %3
 454:                                              ; preds = %450
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %5, ptr noundef nonnull @.str.135) #13
   call fastcc void @_class_string(ptr noundef nonnull %5, ptr noundef nonnull %431, ptr noundef null, ptr noundef nonnull %423)
-  %455 = add nsw i32 %.0233.i, 1
+  %455 = add nsw i32 %.0232.i, 1
   br label %_extension_class_string.exit.i
 
 _extension_class_string.exit.i:                   ; preds = %454, %450, %442, %437, %434, %428, %424
-  %.24.i = phi i32 [ %.0233.i, %424 ], [ %.0233.i, %434 ], [ %455, %454 ], [ %.0233.i, %450 ], [ %.0233.i, %442 ], [ %.0233.i, %437 ], [ %.0233.i, %428 ]
-  %456 = getelementptr inbounds i8, ptr %.044934.i, i64 32
+  %.2.i = phi i32 [ %.0232.i, %424 ], [ %.0232.i, %434 ], [ %455, %454 ], [ %.0232.i, %450 ], [ %.0232.i, %442 ], [ %.0232.i, %437 ], [ %.0232.i, %428 ]
+  %456 = getelementptr inbounds i8, ptr %.044933.i, i64 32
   %.not544.i = icmp eq ptr %456, %419
-  br i1 %.not544.i, label %._crit_edge37.i, label %424
+  br i1 %.not544.i, label %._crit_edge36.i, label %424
 
-._crit_edge37.i:                                  ; preds = %_extension_class_string.exit.i
-  %.not545.i = icmp eq i32 %.24.i, 0
-  br i1 %.not545.i, label %._crit_edge37.thread.i, label %457
+._crit_edge36.i:                                  ; preds = %_extension_class_string.exit.i
+  %.not545.i = icmp eq i32 %.2.i, 0
+  br i1 %.not545.i, label %._crit_edge36.thread.i, label %457
 
-457:                                              ; preds = %._crit_edge37.i
-  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.201, i32 noundef %.24.i) #13
+457:                                              ; preds = %._crit_edge36.i
+  call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.201, i32 noundef %.2.i) #13
   %458 = load ptr, ptr %5, align 8
   %.not546.i = icmp eq ptr %458, null
   br i1 %.not546.i, label %479, label %459
@@ -26060,14 +26060,14 @@ _extension_class_string.exit.i:                   ; preds = %454, %450, %442, %4
 471:                                              ; preds = %465, %462
   %.0450.i = phi i64 [ %461, %462 ], [ %468, %465 ]
   call void @smart_str_erealloc(ptr noundef nonnull %6, i64 noundef %.0450.i) #13
-  %.pre72.i = load ptr, ptr %6, align 8
-  %.phi.trans.insert73.i = getelementptr inbounds i8, ptr %.pre72.i, i64 16
-  %.pre74.i = load i64, ptr %.phi.trans.insert73.i, align 8
+  %.pre71.i = load ptr, ptr %6, align 8
+  %.phi.trans.insert72.i = getelementptr inbounds i8, ptr %.pre71.i, i64 16
+  %.pre73.i = load i64, ptr %.phi.trans.insert72.i, align 8
   br label %472
 
 472:                                              ; preds = %471, %465
-  %473 = phi i64 [ %.pre74.i, %471 ], [ %467, %465 ]
-  %474 = phi ptr [ %.pre72.i, %471 ], [ %464, %465 ]
+  %473 = phi i64 [ %.pre73.i, %471 ], [ %467, %465 ]
+  %474 = phi ptr [ %.pre71.i, %471 ], [ %464, %465 ]
   %.1451.i = phi i64 [ %.0450.i, %471 ], [ %468, %465 ]
   %475 = getelementptr inbounds i8, ptr %474, i64 24
   %476 = getelementptr inbounds i8, ptr %475, i64 %473
@@ -26079,14 +26079,14 @@ _extension_class_string.exit.i:                   ; preds = %454, %450, %442, %4
 
 479:                                              ; preds = %472, %459, %457
   call void (ptr, ptr, ...) @smart_str_append_printf(ptr noundef nonnull %6, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.10) #13
-  br label %._crit_edge37.thread.i
+  br label %._crit_edge36.thread.i
 
-._crit_edge37.thread.i:                           ; preds = %479, %._crit_edge37.i, %._crit_edge30.thread.i
+._crit_edge36.thread.i:                           ; preds = %479, %._crit_edge36.i, %._crit_edge29.thread.i
   %480 = load ptr, ptr %5, align 8
   %.not550.i = icmp eq ptr %480, null
   br i1 %.not550.i, label %492, label %481
 
-481:                                              ; preds = %._crit_edge37.thread.i
+481:                                              ; preds = %._crit_edge36.thread.i
   %482 = getelementptr inbounds i8, ptr %480, i64 4
   %483 = load i32, ptr %482, align 4
   %484 = and i32 %483, 64
@@ -26110,7 +26110,7 @@ _extension_class_string.exit.i:                   ; preds = %454, %450, %442, %4
   store ptr null, ptr %5, align 8
   br label %492
 
-492:                                              ; preds = %491, %._crit_edge37.thread.i
+492:                                              ; preds = %491, %._crit_edge36.thread.i
   %493 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 0, ptr %493, align 8
   %494 = getelementptr inbounds i8, ptr %412, i64 4
@@ -30003,8 +30003,8 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
 134:                                              ; preds = %.lr.ph, %160
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %160 ]
   %135 = phi ptr [ %129, %.lr.ph ], [ %161, %160 ]
-  %.0130159 = phi ptr [ null, %.lr.ph ], [ %.2, %160 ]
-  %.0132158 = phi i32 [ 0, %.lr.ph ], [ %.1133, %160 ]
+  %.1159 = phi ptr [ null, %.lr.ph ], [ %.3, %160 ]
+  %.1133158 = phi i32 [ 0, %.lr.ph ], [ %.2134, %160 ]
   %136 = load ptr, ptr %132, align 8
   %137 = trunc nuw i64 %indvars.iv to i32
   %138 = call i32 @zend_get_attribute_value(ptr noundef nonnull %5, ptr noundef nonnull %135, i32 noundef %137, ptr noundef %136) #13
@@ -30012,7 +30012,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   br i1 %139, label %140, label %143
 
 140:                                              ; preds = %134
-  call fastcc void @attribute_ctor_cleanup(ptr noundef nonnull %3, ptr noundef %128, i32 noundef %.0132158, ptr noundef %.0130159)
+  call fastcc void @attribute_ctor_cleanup(ptr noundef nonnull %3, ptr noundef %128, i32 noundef %.1133158, ptr noundef %.1159)
   %141 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %142 = icmp ne ptr %141, null
   call void @llvm.assume(i1 %142)
@@ -30027,7 +30027,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   br i1 %.not152, label %154, label %148
 
 148:                                              ; preds = %143
-  %.not153 = icmp eq ptr %.0130159, null
+  %.not153 = icmp eq ptr %.1159, null
   br i1 %.not153, label %149, label %151
 
 149:                                              ; preds = %148
@@ -30040,8 +30040,8 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
 
 151:                                              ; preds = %149, %148
   %152 = phi ptr [ %147, %148 ], [ %.pre166, %149 ]
-  %.1 = phi ptr [ %.0130159, %148 ], [ %150, %149 ]
-  %153 = call ptr @zend_hash_add_new(ptr noundef %.1, ptr noundef %152, ptr noundef nonnull %5) #13
+  %.2 = phi ptr [ %.1159, %148 ], [ %150, %149 ]
+  %153 = call ptr @zend_hash_add_new(ptr noundef %.2, ptr noundef %152, ptr noundef nonnull %5) #13
   br label %160
 
 154:                                              ; preds = %143
@@ -30051,12 +30051,12 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   store ptr %156, ptr %155, align 8
   %158 = getelementptr inbounds i8, ptr %155, i64 8
   store i32 %157, ptr %158, align 8
-  %159 = add i32 %.0132158, 1
+  %159 = add i32 %.1133158, 1
   br label %160
 
 160:                                              ; preds = %151, %154
-  %.1133 = phi i32 [ %.0132158, %151 ], [ %159, %154 ]
-  %.2 = phi ptr [ %.1, %151 ], [ %.0130159, %154 ]
+  %.2134 = phi i32 [ %.1133158, %151 ], [ %159, %154 ]
+  %.3 = phi ptr [ %.2, %151 ], [ %.1159, %154 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %161 = load ptr, ptr %27, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 28
@@ -30067,8 +30067,8 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
 
 .loopexit:                                        ; preds = %160, %125, %121
   %166 = phi ptr [ %122, %121 ], [ %129, %125 ], [ %161, %160 ]
-  %.2134 = phi i32 [ 0, %121 ], [ 0, %125 ], [ %.1133, %160 ]
-  %.3 = phi ptr [ null, %121 ], [ null, %125 ], [ %.2, %160 ]
+  %.0132 = phi i32 [ 0, %121 ], [ 0, %125 ], [ %.2134, %160 ]
+  %.0130 = phi ptr [ null, %121 ], [ null, %125 ], [ %.3, %160 ]
   %.0 = phi ptr [ null, %121 ], [ %128, %125 ], [ %128, %160 ]
   %167 = getelementptr inbounds i8, ptr %30, i64 256
   %168 = load ptr, ptr %167, align 8
@@ -30079,25 +30079,25 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   %170 = load ptr, ptr %3, align 8
   %171 = getelementptr inbounds i8, ptr %14, i64 24
   %172 = load ptr, ptr %171, align 8
-  %173 = call fastcc i32 @call_attribute_constructor(ptr noundef nonnull %166, ptr noundef nonnull %30, ptr noundef %170, ptr noundef %.0, i32 noundef %.2134, ptr noundef %.3, ptr noundef %172)
+  %173 = call fastcc i32 @call_attribute_constructor(ptr noundef nonnull %166, ptr noundef nonnull %30, ptr noundef %170, ptr noundef %.0, i32 noundef %.0132, ptr noundef %.0130, ptr noundef %172)
   %174 = icmp eq i32 %173, -1
   br i1 %174, label %175, label %187
 
 175:                                              ; preds = %169
-  call fastcc void @attribute_ctor_cleanup(ptr noundef nonnull %3, ptr noundef %.0, i32 noundef %.2134, ptr noundef %.3)
+  call fastcc void @attribute_ctor_cleanup(ptr noundef nonnull %3, ptr noundef %.0, i32 noundef %.0132, ptr noundef %.0130)
   %176 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %177 = icmp ne ptr %176, null
   call void @llvm.assume(i1 %177)
   br label %192
 
 178:                                              ; preds = %.loopexit
-  %179 = icmp ne i32 %.2134, 0
-  %180 = icmp ne ptr %.3, null
+  %179 = icmp ne i32 %.0132, 0
+  %180 = icmp ne ptr %.0130, null
   %or.cond = select i1 %179, i1 true, i1 %180
   br i1 %or.cond, label %181, label %187
 
 181:                                              ; preds = %178
-  call fastcc void @attribute_ctor_cleanup(ptr noundef nonnull %3, ptr noundef %.0, i32 noundef %.2134, ptr noundef %.3)
+  call fastcc void @attribute_ctor_cleanup(ptr noundef nonnull %3, ptr noundef %.0, i32 noundef %.0132, ptr noundef %.0130)
   %182 = getelementptr inbounds i8, ptr %30, i64 8
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds i8, ptr %183, i64 24
@@ -30108,7 +30108,7 @@ define hidden void @zim_ReflectionAttribute_newInstance(ptr nocapture noundef re
   br label %192
 
 187:                                              ; preds = %178, %169
-  call fastcc void @attribute_ctor_cleanup(ptr noundef null, ptr noundef %.0, i32 noundef %.2134, ptr noundef %.3)
+  call fastcc void @attribute_ctor_cleanup(ptr noundef null, ptr noundef %.0, i32 noundef %.0132, ptr noundef %.0130)
   %188 = load ptr, ptr %3, align 8
   %189 = getelementptr inbounds i8, ptr %3, i64 8
   %190 = load i32, ptr %189, align 8

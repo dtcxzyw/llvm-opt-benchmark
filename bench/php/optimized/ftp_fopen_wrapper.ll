@@ -238,7 +238,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br label %158
 
 80:                                               ; preds = %59, %70, %67, %50, %52, %56, %58
-  %.0136 = phi i32 [ %44, %58 ], [ %44, %56 ], [ %44, %52 ], [ %44, %50 ], [ %76, %70 ], [ %44, %67 ], [ %44, %59 ]
+  %.1137 = phi i32 [ %44, %58 ], [ %44, %56 ], [ %44, %52 ], [ %44, %50 ], [ %76, %70 ], [ %44, %67 ], [ %44, %59 ]
   %.0135 = phi i64 [ %55, %58 ], [ %55, %56 ], [ %55, %52 ], [ 0, %50 ], [ 0, %70 ], [ 0, %67 ], [ 0, %59 ]
   %81 = call fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef nonnull %phi.call, ptr noundef nonnull %9, ptr noundef nonnull %10)
   %.not170 = icmp eq i16 %81, 0
@@ -279,7 +279,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br label %158
 
 99:                                               ; preds = %93, %90, %86, %84, %83
-  %.1137 = phi i32 [ %95, %93 ], [ %.0136, %90 ], [ %.0136, %86 ], [ %.0136, %84 ], [ %.0136, %83 ]
+  %.2 = phi i32 [ %95, %93 ], [ %.1137, %90 ], [ %.1137, %86 ], [ %.1137, %84 ], [ %.1137, %83 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %8, ptr noundef nonnull align 1 dereferenceable(5) @.str.15, i64 5, i1 false)
   br label %104
 
@@ -296,7 +296,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br label %104
 
 104:                                              ; preds = %102, %103, %99
-  %.2 = phi i32 [ %.1137, %99 ], [ %.0136, %102 ], [ %.0136, %103 ]
+  %.3 = phi i32 [ %.2, %99 ], [ %.1137, %102 ], [ %.1137, %103 ]
   %105 = load ptr, ptr %7, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 40
   %107 = load ptr, ptr %106, align 8
@@ -401,7 +401,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br label %188
 
 158:                                              ; preds = %80, %70, %34, %33, %153, %129, %126, %97, %78, %48
-  %.3 = phi i32 [ %36, %34 ], [ %44, %48 ], [ %95, %97 ], [ %.2, %126 ], [ %128, %129 ], [ %128, %153 ], [ %.0136, %80 ], [ %76, %70 ], [ %44, %78 ], [ 0, %33 ]
+  %.0136 = phi i32 [ %36, %34 ], [ %44, %48 ], [ %95, %97 ], [ %.3, %126 ], [ %128, %129 ], [ %128, %153 ], [ %.1137, %80 ], [ %76, %70 ], [ %44, %78 ], [ 0, %33 ]
   %159 = load ptr, ptr %7, align 8
   %.not176 = icmp eq ptr %159, null
   br i1 %.not176, label %161, label %160
@@ -422,7 +422,7 @@ define hidden ptr @php_stream_url_wrap_ftp(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not177, label %166, label %165
 
 165:                                              ; preds = %163
-  call void @php_stream_notification_notify(ptr noundef nonnull %5, i32 noundef 9, i32 noundef 2, ptr noundef nonnull %8, i32 noundef %.3, i64 noundef 0, i64 noundef 0, ptr noundef null) #15
+  call void @php_stream_notification_notify(ptr noundef nonnull %5, i32 noundef 9, i32 noundef 2, ptr noundef nonnull %8, i32 noundef %.0136, i64 noundef 0, i64 noundef 0, ptr noundef null) #15
   br label %166
 
 166:                                              ; preds = %162, %163, %165
@@ -1030,7 +1030,7 @@ define internal fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef %0, ptr nounde
   br label %51
 
 51:                                               ; preds = %56, %49
-  %.145 = phi i32 [ 0, %49 ], [ %.246, %56 ]
+  %.145 = phi i32 [ 0, %49 ], [ %.347, %56 ]
   %.3 = phi ptr [ %50, %49 ], [ %57, %56 ]
   %52 = load i8, ptr %.3, align 1
   switch i8 %52, label %56 [
@@ -1044,7 +1044,7 @@ define internal fastcc zeroext i16 @php_fopen_do_pasv(ptr noundef %0, ptr nounde
   br i1 %55, label %.thread, label %56
 
 56:                                               ; preds = %51, %53
-  %.246 = phi i32 [ %54, %53 ], [ %.145, %51 ]
+  %.347 = phi i32 [ %54, %53 ], [ %.145, %51 ]
   %57 = getelementptr inbounds i8, ptr %.3, i64 1
   br label %51
 
@@ -1399,15 +1399,15 @@ define internal range(i32 -1, 1) i32 @php_stream_ftp_stream_close(ptr nocapture 
   br label %12
 
 12:                                               ; preds = %9, %9, %11, %6
-  %.0 = phi i32 [ -1, %11 ], [ 0, %9 ], [ 0, %6 ], [ 0, %9 ]
+  %.1 = phi i32 [ -1, %11 ], [ 0, %9 ], [ 0, %6 ], [ 0, %9 ]
   %13 = call i64 @_php_stream_write(ptr noundef nonnull %5, ptr noundef nonnull @.str.41, i64 noundef 6) #15
   %14 = call i32 @_php_stream_free(ptr noundef nonnull %5, i32 noundef 3) #15
   store ptr null, ptr %4, align 8
   br label %15
 
 15:                                               ; preds = %12, %2
-  %.1 = phi i32 [ %.0, %12 ], [ 0, %2 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %12 ], [ 0, %2 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1953,7 +1953,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr no
 
 .lr.ph:                                           ; preds = %.loopexit77, %58
   %.185 = phi ptr [ %59, %58 ], [ %spec.select, %.loopexit77 ]
-  %.05684 = phi i32 [ %.157, %58 ], [ %44, %.loopexit77 ]
+  %.284 = phi i32 [ %.3, %58 ], [ %44, %.loopexit77 ]
   %46 = load i8, ptr %.185, align 1
   %47 = icmp eq i8 %46, 0
   br i1 %47, label %48, label %58
@@ -1982,22 +1982,22 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr no
   br label %.loopexit
 
 58:                                               ; preds = %51, %48, %.lr.ph
-  %.157 = phi i32 [ %53, %51 ], [ %.05684, %48 ], [ %.05684, %.lr.ph ]
+  %.3 = phi i32 [ %53, %51 ], [ %.284, %48 ], [ %.284, %.lr.ph ]
   %59 = getelementptr inbounds i8, ptr %.185, i64 1
   %.not72 = icmp eq ptr %59, %33
   br i1 %.not72, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %58, %57, %55, %.loopexit77
-  %.2 = phi i32 [ %53, %57 ], [ %53, %55 ], [ %44, %.loopexit77 ], [ %.157, %58 ]
+  %.157 = phi i32 [ %53, %57 ], [ %53, %55 ], [ %44, %.loopexit77 ], [ %.3, %58 ]
   call void @_efree(ptr noundef nonnull %27) #15
   br label %60
 
 60:                                               ; preds = %.loopexit, %21
-  %.3 = phi i32 [ %.2, %.loopexit ], [ %23, %21 ]
+  %.056 = phi i32 [ %.157, %.loopexit ], [ %23, %21 ]
   %61 = load ptr, ptr %6, align 8
   call void @php_url_free(ptr noundef %61) #15
   %62 = call i32 @_php_stream_free(ptr noundef nonnull %9, i32 noundef 3) #15
-  %63 = add i32 %.3, -200
+  %63 = add i32 %.056, -200
   %or.cond7 = icmp ult i32 %63, 100
   %. = zext i1 %or.cond7 to i32
   br label %70

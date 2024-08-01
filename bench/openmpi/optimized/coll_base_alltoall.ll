@@ -186,12 +186,12 @@ ompi_comm_peer_lookup.exit:                       ; preds = %33, %45, %59, %61
   br i1 %.not90, label %31, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %92, %88, %85, %82, %76, %72, %ompi_comm_peer_lookup.exit, %31, %.preheader
-  %.1 = phi i32 [ 0, %.preheader ], [ %94, %92 ], [ %91, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %76 ], [ %74, %72 ], [ %71, %ompi_comm_peer_lookup.exit ], [ 0, %31 ]
+  %.068 = phi i32 [ 0, %.preheader ], [ %94, %92 ], [ %91, %88 ], [ %87, %85 ], [ %84, %82 ], [ %81, %76 ], [ %74, %72 ], [ %71, %ompi_comm_peer_lookup.exit ], [ 0, %31 ]
   call void @free(ptr noundef nonnull %24) #7
   br label %.thread
 
 .thread:                                          ; preds = %18, %._crit_edge, %5
-  %.0 = phi i32 [ 0, %5 ], [ %.1, %._crit_edge ], [ -2, %18 ]
+  %.0 = phi i32 [ 0, %5 ], [ %.068, %._crit_edge ], [ -2, %18 ]
   ret i32 %.0
 }
 
@@ -665,10 +665,10 @@ define i32 @ompi_coll_base_alltoall_intra_linear_sync(ptr noundef %0, i32 nounde
 
 ._crit_edge:                                      ; preds = %71, %.preheader203
   %.0138.lcssa = phi i32 [ 0, %.preheader203 ], [ %57, %71 ]
-  %.1136.lcssa = phi i32 [ %.0141.lcssa, %.preheader203 ], [ %54, %71 ]
+  %.2.lcssa = phi i32 [ %.0141.lcssa, %.preheader203 ], [ %54, %71 ]
   %.0146.lcssa = phi i32 [ %.0146225, %.preheader203 ], [ %.0146, %71 ]
   %72 = shl nsw i32 %41, 1
-  %73 = icmp eq i32 %.1136.lcssa, %72
+  %73 = icmp eq i32 %.2.lcssa, %72
   br i1 %73, label %76, label %.preheader200
 
 .preheader200:                                    ; preds = %._crit_edge
@@ -682,7 +682,7 @@ define i32 @ompi_coll_base_alltoall_intra_linear_sync(ptr noundef %0, i32 nounde
 
 76:                                               ; preds = %._crit_edge
   %77 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
-  %78 = zext nneg i32 %.1136.lcssa to i64
+  %78 = zext nneg i32 %.2.lcssa to i64
   %79 = tail call i32 %77(i64 noundef %78, ptr noundef %.0134277, ptr noundef null) #7
   %.not177 = icmp eq i32 %79, 0
   br i1 %.not177, label %ompi_coll_base_free_reqs.exit, label %.loopexit202
@@ -764,16 +764,16 @@ define i32 @ompi_coll_base_alltoall_intra_linear_sync(ptr noundef %0, i32 nounde
 .loopexit202:                                     ; preds = %103, %91, %80, %.loopexit202.loopexit247, %.loopexit202.loopexit246, %76
   %.0134278 = phi ptr [ %.0134277, %76 ], [ %.0134277, %.loopexit202.loopexit246 ], [ %50, %.loopexit202.loopexit247 ], [ %.0134277, %80 ], [ %.0134277, %91 ], [ %.0134277, %103 ]
   %.0144 = phi i32 [ %79, %76 ], [ %70, %.loopexit202.loopexit246 ], [ %63, %.loopexit202.loopexit247 ], [ %108, %103 ], [ %96, %91 ], [ %82, %80 ]
-  %.2 = phi i32 [ %.1136.lcssa, %76 ], [ %114, %.loopexit202.loopexit246 ], [ %115, %.loopexit202.loopexit247 ], [ %.1136.lcssa, %80 ], [ %.1136.lcssa, %91 ], [ %.1136.lcssa, %103 ]
+  %.0135 = phi i32 [ %.2.lcssa, %76 ], [ %114, %.loopexit202.loopexit246 ], [ %115, %.loopexit202.loopexit247 ], [ %.2.lcssa, %80 ], [ %.2.lcssa, %91 ], [ %.2.lcssa, %103 ]
   %116 = icmp eq i32 %.0144, 18
   br i1 %116, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit202
-  %117 = icmp sgt i32 %.2, 0
+  %117 = icmp sgt i32 %.0135, 0
   br i1 %117, label %.lr.ph241.preheader, label %ompi_coll_base_free_reqs.exit
 
 .lr.ph241.preheader:                              ; preds = %.preheader
-  %wide.trip.count271 = zext nneg i32 %.2 to i64
+  %wide.trip.count271 = zext nneg i32 %.0135 to i64
   br label %.lr.ph241
 
 .lr.ph241:                                        ; preds = %.lr.ph241.preheader, %124
@@ -799,12 +799,12 @@ define i32 @ompi_coll_base_alltoall_intra_linear_sync(ptr noundef %0, i32 nounde
 .loopexit:                                        ; preds = %124, %121, %.loopexit202
   %.1145 = phi i32 [ %.0144, %.loopexit202 ], [ 18, %124 ], [ %123, %121 ]
   %125 = icmp ne ptr %.0134278, null
-  %126 = icmp sgt i32 %.2, 0
+  %126 = icmp sgt i32 %.0135, 0
   %or.cond.i = and i1 %125, %126
   br i1 %or.cond.i, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit
 
 .lr.ph.preheader.i:                               ; preds = %.loopexit
-  %wide.trip.count.i = zext nneg i32 %.2 to i64
+  %wide.trip.count.i = zext nneg i32 %.0135 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %143, %.lr.ph.preheader.i
@@ -973,7 +973,7 @@ define i32 @ompi_coll_base_alltoall_intra_basic_linear(ptr noundef %0, i32 nound
   br i1 %.not114147, label %.preheader135, label %.lr.ph
 
 .preheader135:                                    ; preds = %51, %.preheader137
-  %.098.lcssa = phi i32 [ 0, %.preheader137 ], [ %45, %51 ]
+  %.199.lcssa = phi i32 [ 0, %.preheader137 ], [ %45, %51 ]
   %.094.lcssa = phi ptr [ %43, %.preheader137 ], [ %52, %51 ]
   %.pn115.in = add i32 %.val.val, -1
   %.pn115152 = add i32 %.pn115.in, %.val122
@@ -984,8 +984,8 @@ define i32 @ompi_coll_base_alltoall_intra_basic_linear(ptr noundef %0, i32 nound
 .lr.ph:                                           ; preds = %.preheader137, %51
   %.093150 = phi i32 [ %.093, %51 ], [ %.093146, %.preheader137 ]
   %.094149 = phi ptr [ %52, %51 ], [ %43, %.preheader137 ]
-  %.098148 = phi i32 [ %45, %51 ], [ 0, %.preheader137 ]
-  %45 = add nuw nsw i32 %.098148, 1
+  %.199148 = phi i32 [ %45, %51 ], [ 0, %.preheader137 ]
+  %45 = add nuw nsw i32 %.199148, 1
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 56), align 8
   %47 = sext i32 %.093150 to i64
   %48 = mul nsw i64 %31, %47
@@ -1011,8 +1011,8 @@ define i32 @ompi_coll_base_alltoall_intra_basic_linear(ptr noundef %0, i32 nound
 .lr.ph158:                                        ; preds = %.preheader135, %53
   %.1157 = phi i32 [ %.1, %53 ], [ %.1153, %.preheader135 ]
   %.095156 = phi ptr [ %54, %53 ], [ %.094.lcssa, %.preheader135 ]
-  %.199155 = phi i32 [ %55, %53 ], [ %.098.lcssa, %.preheader135 ]
-  %55 = add nuw nsw i32 %.199155, 1
+  %.2100155 = phi i32 [ %55, %53 ], [ %.199.lcssa, %.preheader135 ]
+  %55 = add nuw nsw i32 %.2100155, 1
   %56 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 80), align 8
   %57 = sext i32 %.1157 to i64
   %58 = mul nsw i64 %24, %57
@@ -1022,26 +1022,26 @@ define i32 @ompi_coll_base_alltoall_intra_basic_linear(ptr noundef %0, i32 nound
   br i1 %.not118, label %53, label %.loopexit136
 
 ._crit_edge:                                      ; preds = %53, %.preheader135
-  %.199.lcssa = phi i32 [ %.098.lcssa, %.preheader135 ], [ %55, %53 ]
+  %.2100.lcssa = phi i32 [ %.199.lcssa, %.preheader135 ], [ %55, %53 ]
   %61 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 120), align 8
-  %62 = zext nneg i32 %.199.lcssa to i64
+  %62 = zext nneg i32 %.2100.lcssa to i64
   %63 = tail call i32 %61(i64 noundef %62, ptr noundef nonnull %43) #7
   %64 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
   %65 = tail call i32 %64(i64 noundef %62, ptr noundef nonnull %43, ptr noundef null) #7
   br label %.loopexit136
 
 .loopexit136:                                     ; preds = %.lr.ph, %.lr.ph158, %._crit_edge
-  %.2100 = phi i32 [ %.199.lcssa, %._crit_edge ], [ %55, %.lr.ph158 ], [ %45, %.lr.ph ]
+  %.098 = phi i32 [ %.2100.lcssa, %._crit_edge ], [ %55, %.lr.ph158 ], [ %45, %.lr.ph ]
   %.096 = phi i32 [ %65, %._crit_edge ], [ %60, %.lr.ph158 ], [ %50, %.lr.ph ]
   %66 = icmp eq i32 %.096, 18
   br i1 %66, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit136
-  %67 = icmp sgt i32 %.2100, 0
+  %67 = icmp sgt i32 %.098, 0
   br i1 %67, label %.lr.ph161.preheader, label %ompi_coll_base_free_reqs.exit
 
 .lr.ph161.preheader:                              ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %.2100 to i64
+  %wide.trip.count = zext nneg i32 %.098 to i64
   br label %.lr.ph161
 
 .lr.ph161:                                        ; preds = %.lr.ph161.preheader, %74
@@ -1066,11 +1066,11 @@ define i32 @ompi_coll_base_alltoall_intra_basic_linear(ptr noundef %0, i32 nound
 
 .loopexit:                                        ; preds = %74, %71, %.loopexit136
   %.197 = phi i32 [ %.096, %.loopexit136 ], [ 18, %74 ], [ %73, %71 ]
-  %75 = icmp sgt i32 %.2100, 0
+  %75 = icmp sgt i32 %.098, 0
   br i1 %75, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit
 
 .lr.ph.preheader.i:                               ; preds = %.loopexit
-  %wide.trip.count.i = zext nneg i32 %.2100 to i64
+  %wide.trip.count.i = zext nneg i32 %.098 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %92, %.lr.ph.preheader.i

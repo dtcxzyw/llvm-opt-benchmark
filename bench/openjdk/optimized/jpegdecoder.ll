@@ -830,7 +830,7 @@ RELEASE_ARRAYS.exit:                              ; preds = %44, %47
 ._crit_edge:                                      ; preds = %78, %76, %RELEASE_ARRAYS.exit
   %.0.lcssa = phi i64 [ %23, %RELEASE_ARRAYS.exit ], [ %.072, %76 ], [ %80, %78 ]
   %.lcssa = phi i1 [ false, %RELEASE_ARRAYS.exit ], [ %77, %76 ], [ %77, %78 ]
-  %.2 = phi i32 [ %16, %RELEASE_ARRAYS.exit ], [ %spec.select, %76 ], [ %spec.select, %78 ]
+  %.1 = phi i32 [ %16, %RELEASE_ARRAYS.exit ], [ %spec.select, %76 ], [ %spec.select, %78 ]
   %82 = getelementptr inbounds i8, ptr %4, i64 120
   %83 = load ptr, ptr %82, align 8
   %.not.i69 = icmp eq ptr %83, null
@@ -924,7 +924,7 @@ GET_ARRAYS.exit:                                  ; preds = %117, %112, %97, %11
   %133 = sub nsw i64 0, %.0.lcssa
   store i64 %133, ptr %14, align 8
   %134 = load ptr, ptr %30, align 8
-  %135 = sext i32 %.2 to i64
+  %135 = sext i32 %.1 to i64
   %136 = getelementptr inbounds i8, ptr %134, i64 %135
   %137 = getelementptr inbounds i8, ptr %136, i64 %.0.lcssa
   store ptr %137, ptr %4, align 8
@@ -1320,20 +1320,20 @@ GET_ARRAYS.exit103:                               ; preds = %161, %157, %142
   br label %179
 
 179:                                              ; preds = %178, %176
-  %.2 = phi i32 [ 1, %178 ], [ %.1, %176 ]
+  %.3 = phi i32 [ 1, %178 ], [ %.1, %176 ]
   %180 = load i32, ptr %170, align 4
   %181 = call i32 @jStrtOutput(ptr noundef nonnull %5, i32 noundef %180) #12
   br label %182
 
 182:                                              ; preds = %179, %173
-  %.3 = phi i32 [ %.2, %179 ], [ %.1, %173 ]
+  %.2 = phi i32 [ %.3, %179 ], [ %.1, %173 ]
   %183 = load i32, ptr %171, align 8
   %184 = load i32, ptr %172, align 4
   %185 = icmp ult i32 %183, %184
   br i1 %185, label %.lr.ph129, label %._crit_edge130
 
 .lr.ph129:                                        ; preds = %182
-  %.not89 = icmp eq i32 %.3, 0
+  %.not89 = icmp eq i32 %.2, 0
   br label %186
 
 186:                                              ; preds = %.lr.ph129, %GET_ARRAYS.exit116
@@ -1552,7 +1552,7 @@ GET_ARRAYS.exit116.thread:                        ; preds = %263, %RELEASE_ARRAY
   br label %301
 
 301:                                              ; preds = %._crit_edge130, %299
-  %.not91 = icmp eq i32 %.3, 0
+  %.not91 = icmp eq i32 %.2, 0
   br i1 %.not91, label %173, label %302, !llvm.loop !12
 
 302:                                              ; preds = %301

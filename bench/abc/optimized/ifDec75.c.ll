@@ -317,22 +317,22 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.preheader96.us
 
 .preheader96.us:                                  ; preds = %.preheader96.us.preheader, %.loopexit95.us
-  %.176122.us = phi i32 [ %.3.us, %.loopexit95.us ], [ %37, %.preheader96.us.preheader ]
+  %.2122.us = phi i32 [ %.4.us, %.loopexit95.us ], [ %37, %.preheader96.us.preheader ]
   %.077121.us = phi i32 [ %50, %.loopexit95.us ], [ 1, %.preheader96.us.preheader ]
   br label %55
 
 .loopexit95.us:                                   ; preds = %.preheader94.us, %._crit_edge117.us
-  %.3.us = phi i32 [ %.176122.us, %._crit_edge117.us ], [ %53, %.preheader94.us ]
+  %.4.us = phi i32 [ %.2122.us, %._crit_edge117.us ], [ %53, %.preheader94.us ]
   %50 = add nuw nsw i32 %.077121.us, 1
   %exitcond144.not = icmp eq i32 %50, %48
   br i1 %exitcond144.not, label %.preheader, label %.preheader96.us, !llvm.loop !12
 
 .preheader94.us:                                  ; preds = %._crit_edge117.us, %.preheader94.us
-  %.2120.us = phi i32 [ %53, %.preheader94.us ], [ %.176122.us, %._crit_edge117.us ]
+  %.3120.us = phi i32 [ %53, %.preheader94.us ], [ %.2122.us, %._crit_edge117.us ]
   %.181119.us = phi i32 [ %54, %.preheader94.us ], [ 0, %._crit_edge117.us ]
   %51 = add nuw nsw i32 %.181119.us, %.1.us
   %52 = shl nuw i32 1, %51
-  %53 = or i32 %52, %.2120.us
+  %53 = or i32 %52, %.3120.us
   %54 = add nuw nsw i32 %.181119.us, 1
   %exitcond143.not = icmp eq i32 %54, %41
   br i1 %exitcond143.not, label %.loopexit95.us, label %.preheader94.us, !llvm.loop !13
@@ -365,15 +365,15 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %65, label %.preheader94.us, label %.loopexit95.us
 
 .preheader:                                       ; preds = %.loopexit95.us, %46
-  %.176.lcssa = phi i32 [ %37, %46 ], [ %.3.us, %.loopexit95.us ]
+  %.2.lcssa = phi i32 [ %37, %46 ], [ %.4.us, %.loopexit95.us ]
   %66 = icmp ugt i32 %41, 2
   br i1 %66, label %.lr.ph126, label %.loopexit
 
 .lr.ph126:                                        ; preds = %.preheader, %.lr.ph126
-  %.4125 = phi i32 [ %68, %.lr.ph126 ], [ %.176.lcssa, %.preheader ]
+  %.5125 = phi i32 [ %68, %.lr.ph126 ], [ %.2.lcssa, %.preheader ]
   %.282124 = phi i32 [ %69, %.lr.ph126 ], [ 2, %.preheader ]
   %67 = shl nuw i32 1, %.282124
-  %68 = or i32 %.4125, %67
+  %68 = or i32 %.5125, %67
   %69 = add nuw nsw i32 %.282124, 1
   %exitcond145.not = icmp eq i32 %69, %41
   br i1 %exitcond145.not, label %.loopexit, label %.lr.ph126, !llvm.loop !15
@@ -407,7 +407,7 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %85, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph126, %26, %70, %.preheader, %25, %._crit_edge, %22
-  %.0 = phi i32 [ 0, %22 ], [ %37, %._crit_edge ], [ 0, %25 ], [ %.176.lcssa, %.preheader ], [ 0, %70 ], [ 0, %26 ], [ %68, %.lr.ph126 ], [ %80, %.lr.ph ]
+  %.0 = phi i32 [ 0, %22 ], [ %37, %._crit_edge ], [ 0, %25 ], [ %.2.lcssa, %.preheader ], [ 0, %70 ], [ 0, %26 ], [ %68, %.lr.ph126 ], [ %80, %.lr.ph ]
   ret i32 %.0
 }
 

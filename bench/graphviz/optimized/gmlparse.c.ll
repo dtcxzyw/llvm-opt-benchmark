@@ -108,30 +108,30 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   br label %5
 
 3:                                                ; preds = %._crit_edge, %359, %71
-  %.0185 = phi ptr [ %379, %._crit_edge ], [ %339, %359 ], [ %72, %71 ]
-  %.0172 = phi ptr [ %.3175.lcssa, %._crit_edge ], [ %338, %359 ], [ %.2174, %71 ]
-  %.0164 = phi i32 [ 3, %._crit_edge ], [ %.1165, %359 ], [ %spec.select, %71 ]
-  %.0 = phi i32 [ 1, %._crit_edge ], [ %360, %359 ], [ %67, %71 ]
-  %4 = getelementptr inbounds i8, ptr %.0172, i64 1
+  %.1186 = phi ptr [ %379, %._crit_edge ], [ %339, %359 ], [ %72, %71 ]
+  %.1173 = phi ptr [ %.4.lcssa, %._crit_edge ], [ %338, %359 ], [ %.2174, %71 ]
+  %.1165 = phi i32 [ 3, %._crit_edge ], [ %.0164, %359 ], [ %spec.select, %71 ]
+  %.1 = phi i32 [ 1, %._crit_edge ], [ %360, %359 ], [ %67, %71 ]
+  %4 = getelementptr inbounds i8, ptr %.1173, i64 1
   br label %5
 
 5:                                                ; preds = %3, %0
-  %.1186 = phi ptr [ %2, %0 ], [ %.0185, %3 ]
+  %.0185 = phi ptr [ %2, %0 ], [ %.1186, %3 ]
   %.0176 = phi ptr [ %2, %0 ], [ %.1177, %3 ]
-  %.1173 = phi ptr [ %1, %0 ], [ %4, %3 ]
+  %.0172 = phi ptr [ %1, %0 ], [ %4, %3 ]
   %.0169 = phi ptr [ %1, %0 ], [ %.1170, %3 ]
   %.0167 = phi i64 [ 200, %0 ], [ %.1168, %3 ]
-  %.1165 = phi i32 [ 0, %0 ], [ %.0164, %3 ]
-  %.1 = phi i32 [ 0, %0 ], [ %.0, %3 ]
-  %6 = trunc nsw i32 %.1 to i8
-  store i8 %6, ptr %.1173, align 1
+  %.0164 = phi i32 [ 0, %0 ], [ %.1165, %3 ]
+  %.0 = phi i32 [ 0, %0 ], [ %.1, %3 ]
+  %6 = trunc nsw i32 %.0 to i8
+  store i8 %6, ptr %.0172, align 1
   %7 = getelementptr inbounds i8, ptr %.0169, i64 %.0167
   %8 = getelementptr inbounds i8, ptr %7, i64 -1
-  %.not = icmp ugt ptr %8, %.1173
+  %.not = icmp ugt ptr %8, %.0172
   br i1 %.not, label %30, label %9
 
 9:                                                ; preds = %5
-  %10 = ptrtoint ptr %.1173 to i64
+  %10 = ptrtoint ptr %.0172 to i64
   %11 = ptrtoint ptr %.0169 to i64
   %12 = sub i64 %10, %11
   %13 = add nsw i64 %12, 1
@@ -169,16 +169,16 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   br i1 %.not210, label %30, label %.loopexit227.thread
 
 30:                                               ; preds = %26, %5
-  %.2187 = phi ptr [ %29, %26 ], [ %.1186, %5 ]
+  %.2187 = phi ptr [ %29, %26 ], [ %.0185, %5 ]
   %.1177 = phi ptr [ %23, %26 ], [ %.0176, %5 ]
-  %.2174 = phi ptr [ %27, %26 ], [ %.1173, %5 ]
+  %.2174 = phi ptr [ %27, %26 ], [ %.0172, %5 ]
   %.1170 = phi ptr [ %19, %26 ], [ %.0169, %5 ]
   %.1168 = phi i64 [ %spec.store.select, %26 ], [ %.0167, %5 ]
-  %31 = icmp eq i32 %.1, 55
+  %31 = icmp eq i32 %.0, 55
   br i1 %31, label %.loopexit227, label %32
 
 32:                                               ; preds = %30
-  %33 = sext i32 %.1 to i64
+  %33 = sext i32 %.0 to i64
   %34 = getelementptr inbounds [102 x i16], ptr @yypact, i64 0, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %35 to i32
@@ -249,7 +249,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   br label %79
 
 71:                                               ; preds = %64
-  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.1165, i32 1)
+  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.0164, i32 1)
   %72 = getelementptr inbounds i8, ptr %.2187, i64 8
   %73 = load i64, ptr @gmllval, align 8
   store i64 %73, ptr %72, align 8
@@ -813,7 +813,7 @@ setDir.exit.thread:                               ; preds = %143, %.preheader.i,
 
 361:                                              ; preds = %74
   %362 = load i32, ptr @gmlchar, align 4
-  switch i32 %.1165, label %371 [
+  switch i32 %.0164, label %371 [
     i32 0, label %363
     i32 3, label %366
   ]
@@ -838,26 +838,26 @@ setDir.exit.thread:                               ; preds = %143, %.preheader.i,
   br label %371
 
 371:                                              ; preds = %363, %361, %368, %370, %49
-  %372 = icmp eq i32 %.1, 0
+  %372 = icmp eq i32 %.0, 0
   br i1 %372, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %371, %374
-  %.3175371 = phi ptr [ %376, %374 ], [ %.2174, %371 ]
-  %.3188370 = phi ptr [ %375, %374 ], [ %.2187, %371 ]
-  %373 = icmp eq ptr %.3175371, %.1170
+  %.4371 = phi ptr [ %376, %374 ], [ %.2174, %371 ]
+  %.4189370 = phi ptr [ %375, %374 ], [ %.2187, %371 ]
+  %373 = icmp eq ptr %.4371, %.1170
   br i1 %373, label %.loopexit227, label %374
 
 374:                                              ; preds = %.lr.ph
-  %375 = getelementptr inbounds i8, ptr %.3188370, i64 -8
-  %376 = getelementptr inbounds i8, ptr %.3175371, i64 -1
+  %375 = getelementptr inbounds i8, ptr %.4189370, i64 -8
+  %376 = getelementptr inbounds i8, ptr %.4371, i64 -1
   %377 = load i8, ptr %376, align 1
   %378 = icmp eq i8 %377, 0
   br i1 %378, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %374, %371
-  %.3188.lcssa = phi ptr [ %.2187, %371 ], [ %375, %374 ]
-  %.3175.lcssa = phi ptr [ %.2174, %371 ], [ %376, %374 ]
-  %379 = getelementptr inbounds i8, ptr %.3188.lcssa, i64 8
+  %.4189.lcssa = phi ptr [ %.2187, %371 ], [ %375, %374 ]
+  %.4.lcssa = phi ptr [ %.2174, %371 ], [ %376, %374 ]
+  %379 = getelementptr inbounds i8, ptr %.4189.lcssa, i64 8
   %380 = load i64, ptr @gmllval, align 8
   store i64 %380, ptr %379, align 8
   br label %3

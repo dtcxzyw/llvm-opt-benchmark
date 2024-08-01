@@ -3088,7 +3088,7 @@ if.end.i:                                         ; preds = %do.end
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i, %do.end, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %if.then63, %if.then48, %if.then37, %if.then33
-  %retval.sroa.0.0 = phi ptr [ null, %if.then33 ], [ null, %if.then37 ], [ null, %if.then48 ], [ null, %if.then63 ], [ null, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %call.i, %if.end.i ], [ null, %do.end ]
+  %retval.sroa.0.1 = phi ptr [ null, %if.then33 ], [ null, %if.then37 ], [ null, %if.then48 ], [ null, %if.then63 ], [ null, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit ], [ %call.i, %if.end.i ], [ null, %do.end ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %specifier_std) #19
   %44 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i.i.i = icmp ne ptr %44, null
@@ -3102,8 +3102,8 @@ if.then.i.i40:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i40, %cleanup, %if.then
-  %retval.sroa.0.1 = phi ptr [ null, %if.then ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %if.then.i.i40 ]
-  ret ptr %retval.sroa.0.1
+  %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %retval.sroa.0.1, %cleanup ], [ %retval.sroa.0.1, %if.then.i.i40 ]
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4238,13 +4238,13 @@ do.end142:                                        ; preds = %do.body
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end89, %do.end142
-  %retval.sroa.0.0 = phi ptr [ %call4.i, %do.end142 ], [ null, %if.end89 ]
+  %retval.sroa.0.1 = phi ptr [ %call4.i, %do.end142 ], [ null, %if.end89 ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #19
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.sroa.0.1 = phi ptr [ null, %if.then ], [ %retval.sroa.0.0, %cleanup ]
-  ret ptr %retval.sroa.0.1
+  %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %retval.sroa.0.1, %cleanup ]
+  ret ptr %retval.sroa.0.0
 }
 
 ; Function Attrs: nounwind
@@ -7326,7 +7326,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIi
   %__bbegin_bkt.050 = phi i64 [ %__bbegin_bkt.1, %if.end43 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiPN4node6loader10ModuleWrapEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
   %__prev_bkt.049 = phi i64 [ %rem.i.i, %if.end43 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiPN4node6loader10ModuleWrapEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
   %__prev_p.048 = phi ptr [ %__p.051, %if.end43 ], [ null, %_ZNSt10_HashtableIiSt4pairIKiPN4node6loader10ModuleWrapEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
-  %__check_bucket.047 = phi i8 [ %__check_bucket.2, %if.end43 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiPN4node6loader10ModuleWrapEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
+  %__check_bucket.047 = phi i8 [ %__check_bucket.1, %if.end43 ], [ 0, %_ZNSt10_HashtableIiSt4pairIKiPN4node6loader10ModuleWrapEESaIS6_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.051, align 8
   %add.ptr = getelementptr inbounds i8, ptr %__p.051, i64 8
   %2 = load i32, ptr %add.ptr, align 4
@@ -7365,7 +7365,7 @@ if.then18:                                        ; preds = %if.then13
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then10, %if.then18, %if.then13, %if.else
-  %__check_bucket.1 = phi i8 [ %__check_bucket.047, %if.else ], [ 0, %if.then13 ], [ 0, %if.then18 ], [ 0, %if.then10 ]
+  %__check_bucket.2 = phi i8 [ %__check_bucket.047, %if.else ], [ 0, %if.then13 ], [ 0, %if.then18 ], [ 0, %if.then10 ]
   %arrayidx21 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
   %6 = load ptr, ptr %arrayidx21, align 8
   %tobool22.not = icmp eq ptr %6, null
@@ -7392,19 +7392,19 @@ if.else36:                                        ; preds = %if.end20
 
 if.end43.sink.split:                              ; preds = %if.then, %if.else36, %if.then33
   %arrayidx34.sink = phi ptr [ %arrayidx34, %if.then33 ], [ %10, %if.else36 ], [ %__prev_p.048, %if.then ]
-  %__check_bucket.2.ph = phi i8 [ %__check_bucket.1, %if.then33 ], [ %__check_bucket.1, %if.else36 ], [ 1, %if.then ]
+  %__check_bucket.1.ph = phi i8 [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.else36 ], [ 1, %if.then ]
   %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then33 ], [ %__bbegin_bkt.050, %if.else36 ], [ %__bbegin_bkt.050, %if.then ]
   store ptr %__p.051, ptr %arrayidx34.sink, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end43.sink.split, %if.then23
-  %__check_bucket.2 = phi i8 [ %__check_bucket.1, %if.then23 ], [ %__check_bucket.2.ph, %if.end43.sink.split ]
+  %__check_bucket.1 = phi i8 [ %__check_bucket.2, %if.then23 ], [ %__check_bucket.1.ph, %if.end43.sink.split ]
   %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then23 ], [ %__bbegin_bkt.1.ph, %if.end43.sink.split ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !32
 
 while.end:                                        ; preds = %if.end43
-  %11 = trunc nuw i8 %__check_bucket.2 to i1
+  %11 = trunc nuw i8 %__check_bucket.1 to i1
   br i1 %11, label %land.lhs.true45, label %if.end57
 
 land.lhs.true45:                                  ; preds = %while.end

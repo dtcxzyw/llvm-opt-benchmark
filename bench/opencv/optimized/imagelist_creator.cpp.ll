@@ -407,7 +407,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit63:            ; preds = %91
   br label %116
 
 _ZL4helpPPc.exit57:                               ; preds = %.noexc55, %115
-  %.022 = phi i32 [ 0, %115 ], [ 1, %.noexc55 ]
+  %.224 = phi i32 [ 0, %115 ], [ 1, %.noexc55 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #6
   br label %_ZL4helpPPc.exit50
 
@@ -417,7 +417,7 @@ _ZL4helpPPc.exit57:                               ; preds = %.noexc55, %115
   br label %117
 
 _ZL4helpPPc.exit50:                               ; preds = %.noexc48, %_ZL4helpPPc.exit57
-  %.123 = phi i32 [ %.022, %_ZL4helpPPc.exit57 ], [ 1, %.noexc48 ]
+  %.123 = phi i32 [ %.224, %_ZL4helpPPc.exit57 ], [ 1, %.noexc48 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #6
   br label %_ZL4helpPPc.exit
 
@@ -427,9 +427,9 @@ _ZL4helpPPc.exit50:                               ; preds = %.noexc48, %_ZL4help
   br label %118
 
 _ZL4helpPPc.exit:                                 ; preds = %.noexc42, %_ZL4helpPPc.exit50
-  %.224 = phi i32 [ %.123, %_ZL4helpPPc.exit50 ], [ 0, %.noexc42 ]
+  %.022 = phi i32 [ %.123, %_ZL4helpPPc.exit50 ], [ 0, %.noexc42 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #6
-  ret i32 %.224
+  ret i32 %.022
 
 118:                                              ; preds = %117, %61, %45, %44
   %.pn36 = phi { ptr, i32 } [ %46, %45 ], [ %.pn34, %117 ], [ %.pn28, %61 ], [ %.pn26, %44 ]

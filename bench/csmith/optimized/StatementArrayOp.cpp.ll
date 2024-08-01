@@ -1072,7 +1072,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit118thread-pre-split: ; preds = %345, %_
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit118:     ; preds = %13, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit118thread-pre-split
   %346 = phi ptr [ %.pr, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit118thread-pre-split ], [ null, %13 ]
-  %.0224 = phi ptr [ %292, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit118thread-pre-split ], [ null, %13 ]
+  %.1224 = phi ptr [ %292, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit118thread-pre-split ], [ null, %13 ]
   %.not.i.i.i119 = icmp eq ptr %346, null
   br i1 %.not.i.i.i119, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit120, label %347
 
@@ -1081,8 +1081,8 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit118:     ; preds = %13, %_ZNSt6vectorIP
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit120
 
 _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit120:     ; preds = %347, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit118, %1
-  %.1 = phi ptr [ null, %1 ], [ %.0224, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit118 ], [ %.0224, %347 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %1 ], [ %.1224, %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit118 ], [ %.1224, %347 ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZN12StatementFor22make_random_array_loopERK9CGContext(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #0
@@ -1837,8 +1837,8 @@ define dso_local void @_ZNK16StatementArrayOp13output_headerERSoRi(ptr nocapture
   br label %_ZNK13ArrayVariable9get_sizesEv.exit
 
 _ZNK13ArrayVariable9get_sizesEv.exit:             ; preds = %43, %55
-  %.sroa.0.1 = phi ptr [ %56, %55 ], [ null, %43 ]
-  %57 = getelementptr inbounds i32, ptr %.sroa.0.1, i64 %.055
+  %.sroa.0.3 = phi ptr [ %56, %55 ], [ null, %43 ]
+  %57 = getelementptr inbounds i32, ptr %.sroa.0.3, i64 %.055
   %58 = load i32, ptr %57, align 4
   %59 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %44, i32 noundef %58)
           to label %_ZNSt6vectorIjSaIjEED2Ev.exit unwind label %_ZNSt6vectorIjSaIjEED2Ev.exit38
@@ -1848,7 +1848,7 @@ _ZNK13ArrayVariable9get_sizesEv.exit:             ; preds = %43, %55
   br label %62
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNK13ArrayVariable9get_sizesEv.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3) #16
   br label %62
 
 62:                                               ; preds = %60, %_ZNSt6vectorIjSaIjEED2Ev.exit
@@ -1877,7 +1877,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNK13ArrayVariable
 _ZNSt6vectorIjSaIjEED2Ev.exit38:                  ; preds = %_ZNK13ArrayVariable9get_sizesEv.exit
   %79 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3) #16
   resume { ptr, i32 } %79
 
 80:                                               ; preds = %62, %71
@@ -2408,7 +2408,7 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
   br label %_ZNSt6vectorIPK7CFGEdgeSaIS2_EED2Ev.exit79
 
 _ZNSt6vectorIPK7CFGEdgeSaIS2_EED2Ev.exit79:       ; preds = %165, %163, %88
-  %.032 = phi i1 [ %87, %88 ], [ undef, %163 ], [ undef, %165 ]
+  %.133 = phi i1 [ %87, %88 ], [ undef, %163 ], [ undef, %165 ]
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %13) #18
   %166 = load ptr, ptr %12, align 8
   %.not.i.i.i80 = icmp eq ptr %166, null
@@ -2575,7 +2575,7 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
 .thread96:                                        ; preds = %196, %183
   %.sink107 = phi ptr [ %20, %183 ], [ %22, %196 ]
   %.sink = phi ptr [ %21, %183 ], [ %23, %196 ]
-  %.133.ph = phi i1 [ %184, %183 ], [ %197, %196 ]
+  %.2.ph = phi i1 [ %184, %183 ], [ %197, %196 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink107) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #18
   call void @_ZN3LhsD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %19) #18
@@ -2594,8 +2594,8 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
   br label %227
 
 227:                                              ; preds = %.thread96, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, %226, %48
-  %.2 = phi i1 [ %47, %48 ], [ %.032, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ true, %226 ], [ %.133.ph, %.thread96 ]
-  ret i1 %.2
+  %.032 = phi i1 [ %47, %48 ], [ %.133, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ true, %226 ], [ %.2.ph, %.thread96 ]
+  ret i1 %.032
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit82:          ; preds = %170, %168, %225, %53
   %.pn58.pn = phi { ptr, i32 } [ %.pn58, %53 ], [ %.pn51, %225 ], [ %.pn55.pn, %168 ], [ %.pn55.pn, %170 ]

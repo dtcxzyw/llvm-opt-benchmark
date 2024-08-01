@@ -2408,9 +2408,9 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %mindist.0181 = phi float [ %mindist.1, %for.inc ], [ -1.000000e+00, %entry ]
-  %subw.sroa.5.0179 = phi float [ %subw.sroa.5.2, %for.inc ], [ 0.000000e+00, %entry ]
-  %subw.sroa.0.0178 = phi float [ %subw.sroa.0.2, %for.inc ], [ 0.000000e+00, %entry ]
-  %subm.0177 = phi i32 [ %subm.2, %for.inc ], [ 0, %entry ]
+  %subw.sroa.5.0179 = phi float [ %subw.sroa.5.1, %for.inc ], [ 0.000000e+00, %entry ]
+  %subw.sroa.0.0178 = phi float [ %subw.sroa.0.1, %for.inc ], [ 0.000000e+00, %entry ]
+  %subm.0177 = phi i32 [ %subm.1, %for.inc ], [ 0, %entry ]
   %arrayidx18 = getelementptr inbounds [3 x ptr], ptr %vt, i64 0, i64 %indvars.iv
   %24 = load ptr, ptr %arrayidx18, align 8
   %arrayidx20 = getelementptr inbounds [3 x %class.b3Vector3], ptr %dl, i64 0, i64 %indvars.iv
@@ -2498,9 +2498,9 @@ if.else14.i:                                      ; preds = %if.else.i
   br label %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit
 
 _ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit: ; preds = %if.then26, %if.then6.i, %if.then10.i, %if.else14.i
-  %subm.1 = phi i32 [ 3, %if.else14.i ], [ 1, %if.then10.i ], [ 2, %if.then6.i ], [ %subm.0177, %if.then26 ]
-  %subw.sroa.0.1 = phi float [ %sub.i79, %if.else14.i ], [ 1.000000e+00, %if.then10.i ], [ 0.000000e+00, %if.then6.i ], [ %subw.sroa.0.0178, %if.then26 ]
-  %subw.sroa.5.1 = phi float [ %div.i, %if.else14.i ], [ 0.000000e+00, %if.then10.i ], [ 1.000000e+00, %if.then6.i ], [ %subw.sroa.5.0179, %if.then26 ]
+  %subm.2 = phi i32 [ 3, %if.else14.i ], [ 1, %if.then10.i ], [ 2, %if.then6.i ], [ %subm.0177, %if.then26 ]
+  %subw.sroa.0.2 = phi float [ %sub.i79, %if.else14.i ], [ 1.000000e+00, %if.then10.i ], [ 0.000000e+00, %if.then6.i ], [ %subw.sroa.0.0178, %if.then26 ]
+  %subw.sroa.5.2 = phi float [ %div.i, %if.else14.i ], [ 0.000000e+00, %if.then10.i ], [ 1.000000e+00, %if.then6.i ], [ %subw.sroa.5.0179, %if.then26 ]
   %retval.0.i = phi float [ %53, %if.else14.i ], [ %51, %if.then10.i ], [ %49, %if.then6.i ], [ -1.000000e+00, %if.then26 ]
   %cmp34 = fcmp olt float %mindist.0181, 0.000000e+00
   %cmp35 = fcmp olt float %retval.0.i, %mindist.0181
@@ -2508,21 +2508,21 @@ _ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit: ; preds = %if.
   br i1 %or.cond, label %if.then36, label %for.inc
 
 if.then36:                                        ; preds = %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit
-  %and = and i32 %subm.1, 1
+  %and = and i32 %subm.2, 1
   %tobool.not = icmp eq i32 %and, 0
   %54 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw nsw i32 1, %54
   %cond = select i1 %tobool.not, i32 0, i32 %shl
-  %and37 = and i32 %subm.1, 2
+  %and37 = and i32 %subm.2, 2
   %tobool38.not = icmp eq i32 %and37, 0
   %shl40 = shl nuw i32 1, %39
   %cond43 = select i1 %tobool38.not, i32 0, i32 %shl40
   %add = add nuw nsw i32 %cond, %cond43
   store i32 %add, ptr %m, align 4
   %arrayidx46 = getelementptr inbounds float, ptr %w, i64 %indvars.iv
-  store float %subw.sroa.0.1, ptr %arrayidx46, align 4
+  store float %subw.sroa.0.2, ptr %arrayidx46, align 4
   %arrayidx49 = getelementptr inbounds float, ptr %w, i64 %idxprom31
-  store float %subw.sroa.5.1, ptr %arrayidx49, align 4
+  store float %subw.sroa.5.2, ptr %arrayidx49, align 4
   %arrayidx51 = getelementptr inbounds [3 x i32], ptr @_ZZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_S3_PfRjE4imd3, i64 0, i64 %idxprom31
   %55 = load i32, ptr %arrayidx51, align 4
   %idxprom52 = zext i32 %55 to i64
@@ -2531,9 +2531,9 @@ if.then36:                                        ; preds = %_ZN13gjkepa2_impl25
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit, %for.body, %if.then36
-  %subm.2 = phi i32 [ %subm.1, %if.then36 ], [ %subm.1, %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit ], [ %subm.0177, %for.body ]
-  %subw.sroa.0.2 = phi float [ %subw.sroa.0.1, %if.then36 ], [ %subw.sroa.0.1, %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit ], [ %subw.sroa.0.0178, %for.body ]
-  %subw.sroa.5.2 = phi float [ %subw.sroa.5.1, %if.then36 ], [ %subw.sroa.5.1, %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit ], [ %subw.sroa.5.0179, %for.body ]
+  %subm.1 = phi i32 [ %subm.2, %if.then36 ], [ %subm.2, %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit ], [ %subm.0177, %for.body ]
+  %subw.sroa.0.1 = phi float [ %subw.sroa.0.2, %if.then36 ], [ %subw.sroa.0.2, %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit ], [ %subw.sroa.0.0178, %for.body ]
+  %subw.sroa.5.1 = phi float [ %subw.sroa.5.2, %if.then36 ], [ %subw.sroa.5.2, %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit ], [ %subw.sroa.5.0179, %for.body ]
   %mindist.1 = phi float [ %retval.0.i, %if.then36 ], [ %mindist.0181, %_ZN13gjkepa2_impl25b3GJK13projectoriginERK9b3Vector3S3_PfRj.exit ], [ %mindist.0181, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

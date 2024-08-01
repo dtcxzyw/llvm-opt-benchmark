@@ -181,13 +181,13 @@ for.cond7.preheader:                              ; preds = %for.body
 for.body10:                                       ; preds = %for.cond7.preheader, %for.body10
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body10 ], [ 0, %for.cond7.preheader ]
   %5 = phi ptr [ %8, %for.body10 ], [ %3, %for.cond7.preheader ]
-  %skip.126 = phi i8 [ %spec.select, %for.body10 ], [ %skip.034, %for.cond7.preheader ]
+  %skip.226 = phi i8 [ %spec.select, %for.body10 ], [ %skip.034, %for.cond7.preheader ]
   %6 = load ptr, ptr %5, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx, align 8
   %call11 = tail call i32 @g_str_has_prefix(ptr noundef %call3, ptr noundef %7) #5
   %tobool12.not = icmp eq i32 %call11, 0
-  %spec.select = select i1 %tobool12.not, i8 %skip.126, i8 0
+  %spec.select = select i1 %tobool12.not, i8 %skip.226, i8 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load ptr, ptr @imatches, align 8
   %len = getelementptr inbounds i8, ptr %8, i64 8
@@ -199,8 +199,8 @@ for.body10:                                       ; preds = %for.cond7.preheader
   br i1 %11, label %for.body10, label %if.end14, !llvm.loop !6
 
 if.end14:                                         ; preds = %for.body10, %for.cond7.preheader, %for.body
-  %skip.3 = phi i8 [ %skip.034, %for.body ], [ %skip.034, %for.cond7.preheader ], [ %spec.select, %for.body10 ]
-  %tobool15 = trunc nuw i8 %skip.3 to i1
+  %skip.1 = phi i8 [ %skip.034, %for.body ], [ %skip.034, %for.cond7.preheader ], [ %spec.select, %for.body10 ]
+  %tobool15 = trunc nuw i8 %skip.1 to i1
   %12 = load ptr, ptr @amatches, align 8
   %tobool17 = icmp ne ptr %12, null
   %or.cond1 = select i1 %tobool15, i1 %tobool17, i1 false
@@ -219,11 +219,11 @@ for.body26.lr.ph:                                 ; preds = %for.cond20.preheade
 
 for.body26:                                       ; preds = %for.body26.lr.ph, %for.body26
   %indvars.iv35 = phi i64 [ 0, %for.body26.lr.ph ], [ %indvars.iv.next36, %for.body26 ]
-  %skip.430 = phi i8 [ %skip.3, %for.body26.lr.ph ], [ %spec.select20, %for.body26 ]
+  %skip.530 = phi i8 [ %skip.1, %for.body26.lr.ph ], [ %spec.select20, %for.body26 ]
   %arrayidx28 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv35
   %16 = load i64, ptr %arrayidx28, align 8
   %cmp29 = icmp eq i64 %16, %call4
-  %spec.select20 = select i1 %cmp29, i8 0, i8 %skip.430
+  %spec.select20 = select i1 %cmp29, i8 0, i8 %skip.530
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %cmp22 = icmp ult i64 %indvars.iv.next36, %15
   %tobool24 = trunc nuw i8 %spec.select20 to i1
@@ -231,8 +231,8 @@ for.body26:                                       ; preds = %for.body26.lr.ph, %
   br i1 %17, label %for.body26, label %if.end35, !llvm.loop !7
 
 if.end35:                                         ; preds = %for.body26, %for.cond20.preheader, %if.end14
-  %skip.6 = phi i8 [ %skip.3, %if.end14 ], [ %skip.3, %for.cond20.preheader ], [ %spec.select20, %for.body26 ]
-  %tobool36 = trunc nuw i8 %skip.6 to i1
+  %skip.4 = phi i8 [ %skip.1, %if.end14 ], [ %skip.1, %for.cond20.preheader ], [ %spec.select20, %for.body26 ]
+  %tobool36 = trunc nuw i8 %skip.4 to i1
   br i1 %tobool36, label %if.then37, label %if.else
 
 if.then37:                                        ; preds = %if.end35
@@ -254,7 +254,7 @@ if.else:                                          ; preds = %if.end35
   br label %for.inc46
 
 for.inc46:                                        ; preds = %if.then37, %if.else
-  %skip.7 = phi i8 [ %skip.6, %if.then37 ], [ %frombool44, %if.else ]
+  %skip.7 = phi i8 [ %skip.4, %if.then37 ], [ %frombool44, %if.else ]
   %inc47 = add nuw i64 %i.033, 1
   %exitcond.not = icmp eq i64 %inc47, %call
   br i1 %exitcond.not, label %for.end48, label %for.body, !llvm.loop !8

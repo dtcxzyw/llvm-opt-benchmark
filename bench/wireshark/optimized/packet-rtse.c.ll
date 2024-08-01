@@ -410,7 +410,7 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %22
 
 22:                                               ; preds = %17, %19
-  %.071 = phi i32 [ %21, %19 ], [ 0, %17 ]
+  %.172 = phi i32 [ %21, %19 ], [ 0, %17 ]
   %23 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %23, align 4
   %.pr = load i32, ptr @rtse_reassemble, align 4
@@ -423,12 +423,12 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %25, label %26, label %.thread
 
 26:                                               ; preds = %24
-  %27 = call ptr @fragment_end_seq_next(ptr noundef nonnull @rtse_reassembly_table, ptr noundef nonnull %1, i32 noundef %.071, ptr noundef null) #3
+  %27 = call ptr @fragment_end_seq_next(ptr noundef nonnull @rtse_reassembly_table, ptr noundef nonnull %1, i32 noundef %.172, ptr noundef null) #3
   %28 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, ptr noundef nonnull @.str.124, ptr noundef %27, ptr noundef nonnull @rtse_frag_items, ptr noundef null, ptr noundef %2) #3
   br label %.thread
 
 .thread:                                          ; preds = %15, %9, %26, %24, %22
-  %.17296 = phi i32 [ %.071, %26 ], [ %.071, %24 ], [ %.071, %22 ], [ 0, %9 ], [ 0, %15 ]
+  %.07196 = phi i32 [ %.172, %26 ], [ %.172, %24 ], [ %.172, %22 ], [ 0, %9 ], [ 0, %15 ]
   %.074 = phi ptr [ %28, %26 ], [ null, %24 ], [ null, %22 ], [ null, %9 ], [ null, %15 ]
   %29 = load i32, ptr @proto_rtse, align 4
   %.not87 = icmp eq ptr %.074, null
@@ -463,7 +463,7 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %46 = select i1 %45, ptr @.str.126, ptr @.str.127
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.125, i32 noundef %42, ptr noundef nonnull %46) #3
   %47 = load ptr, ptr %6, align 8
-  %48 = call ptr @fragment_add_seq_next(ptr noundef nonnull @rtse_reassembly_table, ptr noundef %47, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %.17296, ptr noundef null, i32 noundef %42, i32 noundef 1) #3
+  %48 = call ptr @fragment_add_seq_next(ptr noundef nonnull @rtse_reassembly_table, ptr noundef %47, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %.07196, ptr noundef null, i32 noundef %42, i32 noundef 1) #3
   %.not91 = icmp eq ptr %48, null
   br i1 %.not91, label %58, label %49
 

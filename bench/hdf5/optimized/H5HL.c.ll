@@ -253,8 +253,8 @@ define range(i32 -1, 1) i32 @H5HL_create(ptr noundef %0, i64 noundef %1, ptr noc
   br label %122
 
 122:                                              ; preds = %102, %90, %98, %92, %115, %118
-  %.2 = phi i32 [ -1, %98 ], [ -1, %92 ], [ -1, %118 ], [ -1, %115 ], [ -1, %102 ], [ 0, %90 ]
-  ret i32 %.2
+  %.1 = phi i32 [ -1, %98 ], [ -1, %92 ], [ -1, %118 ], [ -1, %115 ], [ -1, %102 ], [ 0, %90 ]
+  ret i32 %.1
 }
 
 declare zeroext i8 @H5F_sizeof_size(ptr noundef) local_unnamed_addr #1
@@ -343,7 +343,7 @@ define ptr @H5HL_protect(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_u
   br label %56
 
 46:                                               ; preds = %37, %33
-  %.041 = phi ptr [ null, %33 ], [ %40, %37 ]
+  %.243 = phi ptr [ null, %33 ], [ %40, %37 ]
   %.0 = phi ptr [ %22, %33 ], [ %40, %37 ]
   %47 = call i32 @H5AC_pin_protected_entry(ptr noundef nonnull %.0) #6
   %48 = icmp slt i32 %47, 0
@@ -361,13 +361,13 @@ define ptr @H5HL_protect(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_u
 
 53:                                               ; preds = %._crit_edge, %27
   %54 = phi i64 [ %.pre, %._crit_edge ], [ %31, %27 ]
-  %.142 = phi ptr [ %.041, %._crit_edge ], [ null, %27 ]
+  %.142 = phi ptr [ %.243, %._crit_edge ], [ null, %27 ]
   %55 = add i64 %54, 1
   store i64 %55, ptr %30, align 8
   br label %56
 
 56:                                               ; preds = %42, %49, %53
-  %.243 = phi ptr [ %.041, %49 ], [ %.142, %53 ], [ null, %42 ]
+  %.041 = phi ptr [ %.243, %49 ], [ %.142, %53 ], [ null, %42 ]
   %.039 = phi ptr [ null, %49 ], [ %29, %53 ], [ null, %42 ]
   %57 = getelementptr inbounds i8, ptr %29, i64 56
   %58 = load i64, ptr %57, align 8
@@ -383,13 +383,13 @@ define ptr @H5HL_protect(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_u
 
 65:                                               ; preds = %61, %56
   %.1 = phi ptr [ null, %61 ], [ %.039, %56 ]
-  %.not = icmp eq ptr %.243, null
+  %.not = icmp eq ptr %.041, null
   br i1 %.not, label %75, label %66
 
 66:                                               ; preds = %65
   %67 = getelementptr inbounds i8, ptr %29, i64 88
   %68 = load i64, ptr %67, align 8
-  %69 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_LHEAP_DBLK, i64 noundef %68, ptr noundef nonnull %.243, i32 noundef 0) #6
+  %69 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_LHEAP_DBLK, i64 noundef %68, ptr noundef nonnull %.041, i32 noundef 0) #6
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %71, label %75
 
@@ -796,7 +796,7 @@ H5HL__remove_free.exit:                           ; preds = %63, %64
   br label %181
 
 181:                                              ; preds = %156, %180, %143, %155
-  %.1117 = phi i64 [ %138, %155 ], [ %138, %143 ], [ %96, %180 ], [ %96, %156 ]
+  %.2 = phi i64 [ %138, %155 ], [ %138, %143 ], [ %96, %180 ], [ %96, %156 ]
   %182 = getelementptr inbounds i8, ptr %1, i64 104
   %183 = load ptr, ptr %182, align 8
   %184 = load i64, ptr %95, align 8
@@ -812,20 +812,20 @@ H5HL__remove_free.exit:                           ; preds = %63, %64
   br label %199
 
 191:                                              ; preds = %181
-  %192 = getelementptr inbounds i8, ptr %185, i64 %.1117
+  %192 = getelementptr inbounds i8, ptr %185, i64 %.2
   %193 = getelementptr inbounds i8, ptr %192, i64 %2
-  %194 = add i64 %.1117, %2
+  %194 = add i64 %.2, %2
   %195 = sub i64 %97, %194
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %193, i8 0, i64 %195, i1 false)
   br label %.thread
 
 .thread:                                          ; preds = %48, %H5HL__remove_free.exit, %191
-  %.2 = phi i64 [ %.1117, %191 ], [ %56, %H5HL__remove_free.exit ], [ %49, %48 ]
+  %.1117 = phi i64 [ %.2, %191 ], [ %56, %H5HL__remove_free.exit ], [ %49, %48 ]
   %196 = getelementptr inbounds i8, ptr %1, i64 104
   %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 %.2
+  %198 = getelementptr inbounds i8, ptr %197, i64 %.1117
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %198, ptr align 1 %3, i64 %2, i1 false)
-  store i64 %.2, ptr %4, align 8
+  store i64 %.1117, ptr %4, align 8
   br label %199
 
 199:                                              ; preds = %.thread, %187, %168, %132, %124, %115, %101, %27
@@ -1263,7 +1263,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__minimize_heap_space(ptr nound
   br i1 %or.cond, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %15, %28
-  %.05169 = phi i64 [ %29, %28 ], [ %4, %15 ]
+  %.169 = phi i64 [ %29, %28 ], [ %4, %15 ]
   %19 = load i64, ptr %.04968, align 8
   %20 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
   %21 = zext i8 %20 to i64
@@ -1273,16 +1273,16 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__minimize_heap_space(ptr nound
   %25 = add nuw nsw i64 %24, %23
   %26 = and i64 %25, 1016
   %27 = add i64 %26, %19
-  %.not56 = icmp ult i64 %.05169, %27
+  %.not56 = icmp ult i64 %.169, %27
   br i1 %.not56, label %.critedge, label %28
 
 28:                                               ; preds = %.preheader
-  %29 = lshr i64 %.05169, 1
-  %30 = icmp ugt i64 %.05169, 257
+  %29 = lshr i64 %.169, 1
+  %30 = icmp ugt i64 %.169, 257
   br i1 %30, label %.preheader, label %.critedge
 
 .critedge:                                        ; preds = %28, %.preheader
-  %.051.lcssa = phi i64 [ %29, %28 ], [ %.05169, %.preheader ]
+  %.1.lcssa = phi i64 [ %29, %28 ], [ %.169, %.preheader ]
   %31 = load i64, ptr %.04968, align 8
   %32 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
   %33 = zext i8 %32 to i64
@@ -1292,7 +1292,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__minimize_heap_space(ptr nound
   %37 = add nuw nsw i64 %36, %35
   %38 = and i64 %37, 1016
   %39 = add i64 %38, %31
-  %40 = icmp ult i64 %.051.lcssa, %39
+  %40 = icmp ult i64 %.1.lcssa, %39
   br i1 %40, label %41, label %67
 
 41:                                               ; preds = %.critedge
@@ -1312,7 +1312,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__minimize_heap_space(ptr nound
   br label %59
 
 50:                                               ; preds = %45
-  %51 = shl i64 %.051.lcssa, 1
+  %51 = shl i64 %.1.lcssa, 1
   %52 = load i64, ptr %.04968, align 8
   %53 = add i64 %51, 7
   %54 = sub i64 %53, %52
@@ -1358,7 +1358,7 @@ H5HL__remove_free.exit:                           ; preds = %62, %64
 
 67:                                               ; preds = %.critedge
   %68 = load i64, ptr %.04968, align 8
-  %69 = add i64 %.051.lcssa, 7
+  %69 = add i64 %.1.lcssa, 7
   %70 = sub i64 %69, %68
   %71 = and i64 %70, 4294967288
   store i64 %71, ptr %16, align 8
@@ -1366,15 +1366,15 @@ H5HL__remove_free.exit:                           ; preds = %62, %64
   br label %.thread
 
 .thread:                                          ; preds = %12, %67, %H5HL__remove_free.exit, %50, %15, %2
-  %.1 = phi i64 [ %56, %50 ], [ %63, %H5HL__remove_free.exit ], [ %72, %67 ], [ %4, %15 ], [ %4, %2 ], [ %4, %12 ]
+  %.051 = phi i64 [ %56, %50 ], [ %63, %H5HL__remove_free.exit ], [ %72, %67 ], [ %4, %15 ], [ %4, %2 ], [ %4, %12 ]
   %73 = load i64, ptr %3, align 8
-  %.not57 = icmp eq i64 %.1, %73
+  %.not57 = icmp eq i64 %.051, %73
   br i1 %.not57, label %90, label %74
 
 74:                                               ; preds = %.thread
   %75 = getelementptr inbounds i8, ptr %1, i64 104
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call ptr @H5FL_blk_realloc(ptr noundef nonnull @H5_lheap_chunk_blk_free_list, ptr noundef %76, i64 noundef %.1) #6
+  %77 = tail call ptr @H5FL_blk_realloc(ptr noundef nonnull @H5_lheap_chunk_blk_free_list, ptr noundef %76, i64 noundef %.051) #6
   store ptr %77, ptr %75, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %83
@@ -1386,7 +1386,7 @@ H5HL__remove_free.exit:                           ; preds = %62, %64
   br label %90
 
 83:                                               ; preds = %74
-  %84 = tail call i32 @H5HL__dblk_realloc(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.1) #6
+  %84 = tail call i32 @H5HL__dblk_realloc(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %.051) #6
   %85 = icmp eq i32 %84, -1
   br i1 %85, label %86, label %90
 

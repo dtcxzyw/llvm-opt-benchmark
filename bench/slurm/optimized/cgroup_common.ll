@@ -159,26 +159,26 @@ define range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, ptr noundef 
 
 .thread53:                                        ; preds = %._crit_edge, %._crit_edge.thread, %.loopexit
   %.058 = phi ptr [ %31, %.loopexit ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
-  %.357 = phi i32 [ %40, %.loopexit ], [ 0, %._crit_edge.thread ], [ %15, %._crit_edge ]
+  %.23957 = phi i32 [ %40, %.loopexit ], [ 0, %._crit_edge.thread ], [ %15, %._crit_edge ]
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   %41 = icmp eq i32 %3, 64
   br i1 %41, label %.sink.split, label %42
 
 .sink.split.sink.split:                           ; preds = %.loopexit.loopexit, %._crit_edge.thread, %20, %29
   %.058102.sink.ph = phi ptr [ %31, %29 ], [ %22, %.loopexit.loopexit ], [ null, %._crit_edge.thread ], [ %22, %20 ]
-  %.350.ph.ph = phi i32 [ 0, %29 ], [ %39, %.loopexit.loopexit ], [ 0, %._crit_edge.thread ], [ 0, %20 ]
+  %.23950.ph.ph = phi i32 [ 0, %29 ], [ %39, %.loopexit.loopexit ], [ 0, %._crit_edge.thread ], [ 0, %20 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.thread53
   %.058102.sink = phi ptr [ %.058, %.thread53 ], [ %.058102.sink.ph, %.sink.split.sink.split ]
-  %.350.ph = phi i32 [ %.357, %.thread53 ], [ %.350.ph.ph, %.sink.split.sink.split ]
+  %.23950.ph = phi i32 [ %.23957, %.thread53 ], [ %.23950.ph.ph, %.sink.split.sink.split ]
   store ptr %.058102.sink, ptr %1, align 8
   br label %42
 
 42:                                               ; preds = %.sink.split, %.thread53
-  %.350 = phi i32 [ %.357, %.thread53 ], [ %.350.ph, %.sink.split ]
-  store i32 %.350, ptr %2, align 4
+  %.23950 = phi i32 [ %.23957, %.thread53 ], [ %.23950.ph, %.sink.split ]
+  store i32 %.23950, ptr %2, align 4
   br label %43
 
 43:                                               ; preds = %9, %4, %42

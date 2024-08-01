@@ -607,7 +607,7 @@ define internal void @dmodex_req(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 
 22:                                               ; preds = %.lr.ph, %39
   %.0212 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %.0141211 = phi i8 [ 0, %.lr.ph ], [ %.1, %39 ]
+  %.1211 = phi i8 [ 0, %.lr.ph ], [ %.2, %39 ]
   %23 = load ptr, ptr %17, align 8
   %24 = getelementptr inbounds %struct.pmix_info, ptr %23, i64 %.0212
   %25 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %24, ptr noundef nonnull @.str.7) #12
@@ -634,14 +634,14 @@ define internal void @dmodex_req(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br label %39
 
 39:                                               ; preds = %28, %34, %32
-  %.1 = phi i8 [ %31, %28 ], [ %.0141211, %34 ], [ %.0141211, %32 ]
+  %.2 = phi i8 [ %31, %28 ], [ %.1211, %34 ], [ %.1211, %32 ]
   %40 = add nuw i64 %.0212, 1
   %41 = load i64, ptr %19, align 8
   %42 = icmp ult i64 %40, %41
   br i1 %42, label %22, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %39, %.preheader, %16
-  %.2 = phi i8 [ 0, %16 ], [ 0, %.preheader ], [ %.1, %39 ]
+  %.0141 = phi i8 [ 0, %16 ], [ 0, %.preheader ], [ %.2, %39 ]
   %43 = load i32, ptr getelementptr inbounds (i8, ptr @prte_pmix_server_globals, i64 8), align 8
   %or.cond190 = icmp ult i32 %43, 64
   br i1 %or.cond190, label %44, label %56
@@ -655,7 +655,7 @@ define internal void @dmodex_req(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 
 49:                                               ; preds = %44
   %50 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #12
-  %51 = trunc nuw i8 %.2 to i1
+  %51 = trunc nuw i8 %.0141 to i1
   %52 = select i1 %51, ptr @.str.10, ptr @.str.11
   %53 = getelementptr inbounds i8, ptr %2, i64 408
   %54 = load ptr, ptr %53, align 8
@@ -665,7 +665,7 @@ define internal void @dmodex_req(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   br label %56
 
 56:                                               ; preds = %49, %44, %.loopexit
-  %57 = trunc nuw i8 %.2 to i1
+  %57 = trunc nuw i8 %.0141 to i1
   br i1 %57, label %103, label %58
 
 58:                                               ; preds = %56

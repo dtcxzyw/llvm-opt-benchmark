@@ -3669,7 +3669,7 @@ define internal fastcc void @_job_complete(ptr noundef %0, ptr nocapture readonl
   br label %87
 
 87:                                               ; preds = %83, %79
-  %.037 = phi i32 [ 0, %79 ], [ %spec.select, %83 ]
+  %.1 = phi i32 [ 0, %79 ], [ %spec.select, %83 ]
   %88 = getelementptr inbounds i8, ptr %3, i64 1088
   call void @slurm_xfree(ptr noundef nonnull %88) #10
   %89 = load ptr, ptr %0, align 8
@@ -3701,10 +3701,10 @@ define internal fastcc void @_job_complete(ptr noundef %0, ptr nocapture readonl
   br label %105
 
 105:                                              ; preds = %87, %96, %9
-  %.1 = phi i32 [ %.037, %87 ], [ %.037, %96 ], [ 2002, %9 ]
+  %.037 = phi i32 [ %.1, %87 ], [ %.1, %96 ], [ 2002, %9 ]
   %.0 = phi ptr [ null, %87 ], [ null, %96 ], [ @.str.79, %9 ]
   %106 = load ptr, ptr %0, align 8
-  %107 = call ptr @slurm_persist_make_rc_msg(ptr noundef %106, i32 noundef %.1, ptr noundef %.0, i16 noundef zeroext 1424) #10
+  %107 = call ptr @slurm_persist_make_rc_msg(ptr noundef %106, i32 noundef %.037, ptr noundef %.0, i16 noundef zeroext 1424) #10
   store ptr %107, ptr %1, align 8
   ret void
 }
@@ -3913,16 +3913,16 @@ define internal fastcc void @_job_suspend(ptr nocapture noundef readonly %0, ptr
   br label %54
 
 54:                                               ; preds = %50, %29
-  %.020 = phi i32 [ 0, %29 ], [ %spec.select, %50 ]
+  %.1 = phi i32 [ 0, %29 ], [ %spec.select, %50 ]
   %55 = getelementptr inbounds i8, ptr %3, i64 1088
   call void @slurm_xfree(ptr noundef nonnull %55) #10
   br label %56
 
 56:                                               ; preds = %54, %9
-  %.1 = phi i32 [ %.020, %54 ], [ 2002, %9 ]
+  %.020 = phi i32 [ %.1, %54 ], [ 2002, %9 ]
   %.0 = phi ptr [ null, %54 ], [ @.str.93, %9 ]
   %57 = load ptr, ptr %0, align 8
-  %58 = call ptr @slurm_persist_make_rc_msg(ptr noundef %57, i32 noundef %.1, ptr noundef %.0, i16 noundef zeroext 1427) #10
+  %58 = call ptr @slurm_persist_make_rc_msg(ptr noundef %57, i32 noundef %.020, ptr noundef %.0, i16 noundef zeroext 1427) #10
   store ptr %58, ptr %1, align 8
   ret void
 }
@@ -5342,15 +5342,15 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   br label %.thread
 
 .thread:                                          ; preds = %108, %98, %97, %83, %103
-  %.05 = phi i32 [ %111, %108 ], [ %spec.select77, %103 ], [ %94, %83 ], [ %94, %97 ], [ 0, %98 ]
-  %.1523 = phi ptr [ %110, %108 ], [ %spec.select, %103 ], [ %switch.select79, %83 ], [ %switch.select79, %97 ], [ null, %98 ]
+  %.15 = phi i32 [ %111, %108 ], [ %spec.select77, %103 ], [ %94, %83 ], [ %94, %97 ], [ 0, %98 ]
+  %.2533 = phi ptr [ %110, %108 ], [ %spec.select, %103 ], [ %switch.select79, %83 ], [ %switch.select79, %97 ], [ null, %98 ]
   call void @list_destroy(ptr noundef nonnull %76) #10
   br label %112
 
 112:                                              ; preds = %.thread32, %.thread
-  %.06 = phi i32 [ %.05, %.thread ], [ %79, %.thread32 ]
-  %.1524 = phi ptr [ %.1523, %.thread ], [ %78, %.thread32 ]
-  %.not72 = icmp eq i32 %.06, 0
+  %.16 = phi i32 [ %.15, %.thread ], [ %79, %.thread32 ]
+  %.2534 = phi ptr [ %.2533, %.thread ], [ %78, %.thread32 ]
+  %.not72 = icmp eq i32 %.16, 0
   br i1 %.not72, label %113, label %.thread16
 
 113:                                              ; preds = %112
@@ -5383,24 +5383,24 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   %127 = call i32 @list_count(ptr noundef nonnull %118) #10
   %.not74 = icmp eq i32 %127, 0
   %spec.select29 = sext i1 %.not74 to i32
-  %spec.select30 = select i1 %.not74, ptr @.str.47, ptr %.1524
+  %spec.select30 = select i1 %.not74, ptr @.str.47, ptr %.2534
   br label %.thread7
 
 128:                                              ; preds = %113, %122, %121
-  %.253 = phi ptr [ @.str.13, %121 ], [ %123, %122 ], [ @.str.124, %113 ]
-  %.1 = phi i32 [ 2002, %121 ], [ %124, %122 ], [ -1, %113 ]
+  %.3 = phi ptr [ @.str.13, %121 ], [ %123, %122 ], [ @.str.124, %113 ]
+  %.2 = phi i32 [ 2002, %121 ], [ %124, %122 ], [ -1, %113 ]
   %.not75 = icmp eq ptr %118, null
   br i1 %.not75, label %.thread21, label %.thread7
 
 .thread7:                                         ; preds = %126, %128
-  %.113 = phi i32 [ %.1, %128 ], [ %spec.select29, %126 ]
-  %.25311 = phi ptr [ %.253, %128 ], [ %spec.select30, %126 ]
+  %.213 = phi i32 [ %.2, %128 ], [ %spec.select29, %126 ]
+  %.311 = phi ptr [ %.3, %128 ], [ %spec.select30, %126 ]
   call void @list_destroy(ptr noundef nonnull %118) #10
   br label %.thread21
 
 .thread21:                                        ; preds = %125, %.thread7, %128
-  %.114 = phi i32 [ %.113, %.thread7 ], [ %.1, %128 ], [ -1, %125 ]
-  %.25312 = phi ptr [ %.25311, %.thread7 ], [ %.253, %128 ], [ @.str.47, %125 ]
+  %.214 = phi i32 [ %.213, %.thread7 ], [ %.2, %128 ], [ -1, %125 ]
+  %.312 = phi ptr [ %.311, %.thread7 ], [ %.3, %128 ], [ @.str.47, %125 ]
   %129 = load ptr, ptr %45, align 8
   %.not76 = icmp eq ptr %129, null
   br i1 %.not76, label %131, label %130
@@ -5411,7 +5411,7 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
 
 131:                                              ; preds = %.thread21, %130
   store ptr null, ptr %45, align 8
-  %132 = icmp eq i32 %.114, 0
+  %132 = icmp eq i32 %.214, 0
   br i1 %132, label %133, label %.thread16
 
 133:                                              ; preds = %131
@@ -5423,12 +5423,12 @@ define internal fastcc noundef i32 @_register_ctld(ptr noundef %0, ptr nocapture
   br label %.thread16
 
 .thread16:                                        ; preds = %9, %29, %112, %133, %131
-  %.220 = phi i32 [ 0, %133 ], [ %.114, %131 ], [ 2002, %9 ], [ 7004, %29 ], [ %.06, %112 ]
-  %.319 = phi ptr [ %.25312, %133 ], [ %.25312, %131 ], [ @.str.118, %9 ], [ @.str.120, %29 ], [ %.1524, %112 ]
+  %.020 = phi i32 [ 0, %133 ], [ %.214, %131 ], [ 2002, %9 ], [ 7004, %29 ], [ %.16, %112 ]
+  %.05119 = phi ptr [ %.312, %133 ], [ %.312, %131 ], [ @.str.118, %9 ], [ @.str.120, %29 ], [ %.2534, %112 ]
   %137 = load ptr, ptr %0, align 8
-  %138 = call ptr @slurm_persist_make_rc_msg(ptr noundef %137, i32 noundef %.220, ptr noundef %.319, i16 noundef zeroext 1434) #10
+  %138 = call ptr @slurm_persist_make_rc_msg(ptr noundef %137, i32 noundef %.020, ptr noundef %.05119, i16 noundef zeroext 1434) #10
   store ptr %138, ptr %1, align 8
-  ret i32 %.220
+  ret i32 %.020
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6640,7 +6640,7 @@ define internal fastcc noundef i32 @_step_complete(ptr noundef %0, ptr %.8.val, 
   br label %72
 
 72:                                               ; preds = %68, %26
-  %.032 = phi i32 [ 0, %26 ], [ %spec.select, %68 ]
+  %.1 = phi i32 [ 0, %26 ], [ %spec.select, %68 ]
   %73 = getelementptr inbounds i8, ptr %4, i64 1088
   call void @slurm_xfree(ptr noundef nonnull %73) #10
   %74 = load ptr, ptr %0, align 8
@@ -6672,12 +6672,12 @@ define internal fastcc noundef i32 @_step_complete(ptr noundef %0, ptr %.8.val, 
   br label %90
 
 90:                                               ; preds = %72, %81, %10
-  %.1 = phi i32 [ %.032, %72 ], [ %.032, %81 ], [ 2002, %10 ]
+  %.032 = phi i32 [ %.1, %72 ], [ %.1, %81 ], [ 2002, %10 ]
   %.0 = phi ptr [ null, %72 ], [ null, %81 ], [ @.str.140, %10 ]
   %91 = load ptr, ptr %0, align 8
-  %92 = call ptr @slurm_persist_make_rc_msg(ptr noundef %91, i32 noundef %.1, ptr noundef %.0, i16 noundef zeroext 1441) #10
+  %92 = call ptr @slurm_persist_make_rc_msg(ptr noundef %91, i32 noundef %.032, ptr noundef %.0, i16 noundef zeroext 1441) #10
   store ptr %92, ptr %1, align 8
-  ret i32 %.1
+  ret i32 %.032
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6838,7 +6838,7 @@ _replace_double_quotes.exit:                      ; preds = %.preheader.i, %29
   br label %92
 
 92:                                               ; preds = %88, %_replace_double_quotes.exit
-  %.038 = phi i32 [ 0, %_replace_double_quotes.exit ], [ %spec.select, %88 ]
+  %.1 = phi i32 [ 0, %_replace_double_quotes.exit ], [ %spec.select, %88 ]
   %93 = getelementptr inbounds i8, ptr %4, i64 1088
   call void @slurm_xfree(ptr noundef nonnull %93) #10
   %94 = load ptr, ptr %0, align 8
@@ -6870,12 +6870,12 @@ _replace_double_quotes.exit:                      ; preds = %.preheader.i, %29
   br label %110
 
 110:                                              ; preds = %92, %101, %11
-  %.1 = phi i32 [ %.038, %92 ], [ %.038, %101 ], [ 2002, %11 ]
+  %.038 = phi i32 [ %.1, %92 ], [ %.1, %101 ], [ 2002, %11 ]
   %.0 = phi ptr [ null, %92 ], [ null, %101 ], [ @.str.143, %11 ]
   %111 = load ptr, ptr %0, align 8
-  %112 = call ptr @slurm_persist_make_rc_msg(ptr noundef %111, i32 noundef %.1, ptr noundef %.0, i16 noundef zeroext 1442) #10
+  %112 = call ptr @slurm_persist_make_rc_msg(ptr noundef %111, i32 noundef %.038, ptr noundef %.0, i16 noundef zeroext 1442) #10
   store ptr %112, ptr %1, align 8
-  ret i32 %.1
+  ret i32 %.038
 }
 
 ; Function Attrs: nounwind uwtable

@@ -284,13 +284,13 @@ ps_call_handler.exit:                             ; preds = %20, %22, %26
   br label %36
 
 36:                                               ; preds = %ps_call_handler.exit, %35
-  %.0 = phi i32 [ 0, %35 ], [ -1, %ps_call_handler.exit ]
+  %.1 = phi i32 [ 0, %35 ], [ -1, %ps_call_handler.exit ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
   br label %37
 
 37:                                               ; preds = %ps_call_handler.exit.thread, %ps_call_handler.exit, %36
-  %.1 = phi i32 [ -1, %ps_call_handler.exit ], [ %.0, %36 ], [ -1, %ps_call_handler.exit.thread ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %ps_call_handler.exit ], [ %.1, %36 ], [ -1, %ps_call_handler.exit.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

@@ -634,12 +634,12 @@ select.unfold.i.i.i:                              ; preds = %88, %"_ZN4core3str4
   %.pre.i.i.i15.i.i.i = phi i64 [ %61, %88 ], [ %.pre.i.i.i16.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
   %90 = phi i8 [ %16, %88 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
   %.pn23.i.i.i = phi i64 [ %20, %88 ], [ %.pre5.i.i.i.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i" ]
-  %.sroa.4.1.i.i.i.i.i = sub i64 %.pn23.i.i.i, %.pre.i.i.i16.i.i.i
-  %.not.i.i.i.i = icmp eq i64 %.sroa.4.1.i.i.i.i.i, 0
+  %.sroa.4.0.i.i.i.i.i = sub i64 %.pn23.i.i.i, %.pre.i.i.i16.i.i.i
+  %.not.i.i.i.i = icmp eq i64 %.sroa.4.0.i.i.i.i.i, 0
   br i1 %.not.i.i.i.i, label %14, label %_ZN4core3ops8function6FnOnce9call_once17h9e02031e468d6186E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h9e02031e468d6186E.exit: ; preds = %select.unfold.i.i.i
-  %.sroa.0.1.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 %.pre.i.i.i16.i.i.i
+  %.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i, i64 %.pre.i.i.i16.i.i.i
   br label %92
 
 91:                                               ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i", %14
@@ -647,8 +647,8 @@ _ZN4core3ops8function6FnOnce9call_once17h9e02031e468d6186E.exit: ; preds = %sele
   br label %92
 
 92:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17h9e02031e468d6186E.exit, %91, %1
-  %.sroa.3.0 = phi i64 [ undef, %1 ], [ %.sroa.4.1.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h9e02031e468d6186E.exit ], [ undef, %91 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.1.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h9e02031e468d6186E.exit ], [ null, %91 ]
+  %.sroa.3.0 = phi i64 [ undef, %1 ], [ %.sroa.4.0.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h9e02031e468d6186E.exit ], [ undef, %91 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.0.i.i.i.i.i, %_ZN4core3ops8function6FnOnce9call_once17h9e02031e468d6186E.exit ], [ null, %91 ]
   %93 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %94 = insertvalue { ptr, i64 } %93, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %94
@@ -1131,10 +1131,10 @@ select.unfold.i.i.i.i:                            ; preds = %102, %"_ZN4core3str
   br i1 %.not.i.i.i.i.i, label %28, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E.exit.thread
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E.exit.thread: ; preds = %select.unfold.i.i.i.i
-  %.sroa.4.1.i.i.i.i.i.i = sub i64 %.pn23.i.i.i.i, %.pre.i.i.i16.i.i.i.i
-  %.sroa.0.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i, i64 %.pre.i.i.i16.i.i.i.i
-  %105 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i.i.i.i.i.i, 0
-  %106 = insertvalue { ptr, i64 } %105, i64 %.sroa.4.1.i.i.i.i.i.i, 1
+  %.sroa.4.0.i.i.i.i.i.i = sub i64 %.pn23.i.i.i.i, %.pre.i.i.i16.i.i.i.i
+  %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.val.i.i.i.i.i.i, i64 %.pre.i.i.i16.i.i.i.i
+  %105 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i.i.i.i.i, 0
+  %106 = insertvalue { ptr, i64 } %105, i64 %.sroa.4.0.i.i.i.i.i.i, 1
   br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd7071562d69ab561E.exit.thread.i"
 
 _ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E.exit: ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h2e24c918f23a269dE.exit.i.i.i.i.i.i", %28
@@ -1145,7 +1145,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E.exit: ; pr
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd7071562d69ab561E.exit.thread.i": ; preds = %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E.exit.thread, %14
   %.pn.i.i.ph.i = phi { ptr, i64 } [ %15, %14 ], [ %106, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E.exit.thread ]
-  %.sroa.0.0.i.i.ph.i = phi ptr [ %16, %14 ], [ %.sroa.0.1.i.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E.exit.thread ]
+  %.sroa.0.0.i.i.ph.i = phi ptr [ %16, %14 ], [ %.sroa.0.0.i.i.i.i.i.i, %_ZN4core4iter8adapters7flatten17and_then_or_clear17h3cfc48b55eabc739E.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 57, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.8.i.i.i)
   br label %112

@@ -566,7 +566,7 @@ tailrecurse:                                      ; preds = %16
   unreachable
 
 toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, %53, %51
-  %.162 = phi ptr [ %62, %61 ], [ %60, %59 ], [ %54, %53 ], [ %52, %51 ], [ %71, %70 ], [ %69, %68 ]
+  %.2 = phi ptr [ %62, %61 ], [ %60, %59 ], [ %54, %53 ], [ %52, %51 ], [ %71, %70 ], [ %69, %68 ]
   %.not = icmp eq ptr %.061, %.tr95
   br i1 %.not, label %76, label %75
 
@@ -575,8 +575,8 @@ toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, 
   br label %76
 
 76:                                               ; preds = %toast_decompress_datum_slice.exit, %75, %.loopexit
-  %.2 = phi ptr [ %.162, %75 ], [ %.162, %toast_decompress_datum_slice.exit ], [ %.061, %.loopexit ]
-  %77 = load i8, ptr %.2, align 1
+  %.162 = phi ptr [ %.2, %75 ], [ %.2, %toast_decompress_datum_slice.exit ], [ %.061, %.loopexit ]
+  %77 = load i8, ptr %.162, align 1
   %78 = zext i8 %77 to i32
   %79 = and i32 %78, 1
   %.not72 = icmp eq i32 %79, 0
@@ -588,7 +588,7 @@ toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, 
   br label %87
 
 83:                                               ; preds = %76
-  %84 = load i32, ptr %.2, align 4
+  %84 = load i32, ptr %.162, align 4
   %85 = lshr i32 %84, 2
   %86 = add nsw i32 %85, -4
   br label %87
@@ -611,7 +611,7 @@ toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, 
 94:                                               ; preds = %89, %87
   %.1 = phi i32 [ 0, %87 ], [ %spec.select, %89 ]
   %.058 = phi i64 [ 0, %87 ], [ %93, %89 ]
-  %95 = getelementptr inbounds i8, ptr %.2, i64 %88
+  %95 = getelementptr inbounds i8, ptr %.162, i64 %88
   %96 = add i32 %.1, 4
   %97 = sext i32 %96 to i64
   %98 = tail call ptr @palloc(i64 noundef %97) #6
@@ -621,11 +621,11 @@ toast_decompress_datum_slice.exit:                ; preds = %70, %68, %61, %59, 
   %101 = getelementptr i8, ptr %95, i64 %.058
   %102 = sext i32 %.1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %100, ptr align 1 %101, i64 %102, i1 false)
-  %.not74 = icmp eq ptr %.2, %.tr95
+  %.not74 = icmp eq ptr %.162, %.tr95
   br i1 %.not74, label %104, label %103
 
 103:                                              ; preds = %94
-  tail call void @pfree(ptr noundef nonnull %.2) #6
+  tail call void @pfree(ptr noundef nonnull %.162) #6
   br label %104
 
 104:                                              ; preds = %94, %103, %23

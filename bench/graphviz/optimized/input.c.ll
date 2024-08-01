@@ -707,7 +707,7 @@ sub_1189:                                         ; preds = %sub_0188
   br label %346
 
 getFlagOpt.exit:                                  ; preds = %144, %140
-  %.0169 = phi i32 [ %storemerge124231, %140 ], [ %145, %144 ]
+  %.1170 = phi i32 [ %storemerge124231, %140 ], [ %145, %144 ]
   %.0.i = phi ptr [ %116, %140 ], [ %148, %144 ]
   %154 = tail call zeroext i1 @gvjobs_output_langname(ptr noundef %0, ptr noundef nonnull %.0.i) #21
   br i1 %154, label %.thread186, label %155
@@ -765,7 +765,7 @@ getFlagOpt.exit:                                  ; preds = %144, %140
   br label %346
 
 getFlagOpt.exit152:                               ; preds = %173, %169
-  %.1170 = phi i32 [ %storemerge124231, %169 ], [ %174, %173 ]
+  %.2171 = phi i32 [ %storemerge124231, %169 ], [ %174, %173 ]
   %.0.i151 = phi ptr [ %116, %169 ], [ %177, %173 ]
   %183 = tail call i32 @gvlayout_select(ptr noundef %0, ptr noundef nonnull %.0.i151) #21
   %184 = icmp eq i32 %183, 999
@@ -839,7 +839,7 @@ getFlagOpt.exit152:                               ; preds = %173, %169
   br label %346
 
 getFlagOpt.exit155:                               ; preds = %211, %207
-  %.2171 = phi i32 [ %storemerge124231, %207 ], [ %212, %211 ]
+  %.3172 = phi i32 [ %storemerge124231, %207 ], [ %212, %211 ]
   %.0.i154 = phi ptr [ %116, %207 ], [ %215, %211 ]
   %221 = load i64, ptr @use_library.cnt, align 8
   %222 = icmp eq i64 %221, 0
@@ -886,7 +886,7 @@ getFlagOpt.exit155:                               ; preds = %211, %207
   br label %346
 
 getFlagOpt.exit158:                               ; preds = %236, %232
-  %.3172 = phi i32 [ %storemerge124231, %232 ], [ %237, %236 ]
+  %.4 = phi i32 [ %storemerge124231, %232 ], [ %237, %236 ]
   %.0.i157 = phi ptr [ %116, %232 ], [ %240, %236 ]
   %246 = load i8, ptr %72, align 1
   %247 = trunc i8 %246 to i1
@@ -979,14 +979,14 @@ getFlagOpt.exit158:                               ; preds = %236, %232
   br label %.thread186
 
 .thread186:                                       ; preds = %74, %277, %274, %276, %263, %259, %261, %254, %getFlagOpt.exit158, %248, %getFlagOpt.exit, %279, %278, %getFlagOpt.exit155, %205, %135, %128, %121, %285
-  %.4 = phi i32 [ %storemerge124231, %285 ], [ %storemerge124231, %279 ], [ %storemerge124231, %278 ], [ %storemerge124231, %277 ], [ %storemerge124231, %276 ], [ %storemerge124231, %274 ], [ %storemerge124231, %263 ], [ %storemerge124231, %254 ], [ %storemerge124231, %259 ], [ %storemerge124231, %261 ], [ %.3172, %getFlagOpt.exit158 ], [ %.3172, %248 ], [ %.2171, %getFlagOpt.exit155 ], [ %storemerge124231, %205 ], [ %.0169, %getFlagOpt.exit ], [ %storemerge124231, %135 ], [ %storemerge124231, %128 ], [ %storemerge124231, %121 ], [ %storemerge124231, %74 ]
+  %.0169 = phi i32 [ %storemerge124231, %285 ], [ %storemerge124231, %279 ], [ %storemerge124231, %278 ], [ %storemerge124231, %277 ], [ %storemerge124231, %276 ], [ %storemerge124231, %274 ], [ %storemerge124231, %263 ], [ %storemerge124231, %254 ], [ %storemerge124231, %259 ], [ %storemerge124231, %261 ], [ %.4, %getFlagOpt.exit158 ], [ %.4, %248 ], [ %.3172, %getFlagOpt.exit155 ], [ %storemerge124231, %205 ], [ %.1170, %getFlagOpt.exit ], [ %storemerge124231, %135 ], [ %storemerge124231, %128 ], [ %storemerge124231, %121 ], [ %storemerge124231, %74 ]
   %.3 = phi i64 [ %287, %285 ], [ %.2233.ph, %279 ], [ %.2233.ph, %278 ], [ %.2233.ph, %277 ], [ %.2233.ph, %276 ], [ %.2233.ph, %274 ], [ %.2233.ph, %263 ], [ %.2233.ph, %254 ], [ %.2233.ph, %259 ], [ %.2233.ph, %261 ], [ %.2233.ph, %getFlagOpt.exit158 ], [ %.2233.ph, %248 ], [ %.2233.ph, %getFlagOpt.exit155 ], [ %.2233.ph, %205 ], [ %.2233.ph, %getFlagOpt.exit ], [ %.2233.ph, %135 ], [ %.2233.ph, %128 ], [ %.2233.ph, %121 ], [ %.2233.ph, %74 ]
-  %289 = add nsw i32 %.4, 1
+  %289 = add nsw i32 %.0169, 1
   %290 = icmp slt i32 %289, %1
   br i1 %290, label %.outer, label %._crit_edge235
 
 .thread186.thread:                                ; preds = %getFlagOpt.exit152
-  %291 = add nsw i32 %.1170, 1
+  %291 = add nsw i32 %.2171, 1
   %292 = icmp slt i32 %291, %1
   br i1 %292, label %74, label %._crit_edge235.thread273
 

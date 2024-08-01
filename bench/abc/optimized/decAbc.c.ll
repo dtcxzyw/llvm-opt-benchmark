@@ -562,8 +562,8 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %74, %._crit_edge.i.
   br label %151
 
 151:                                              ; preds = %.sink.split, %143, %131, %121
-  %.1 = phi i32 [ %130, %121 ], [ %130, %143 ], [ 0, %131 ], [ %150, %.sink.split ]
-  %152 = icmp sgt i32 %.1, %3
+  %.059 = phi i32 [ %130, %121 ], [ %130, %143 ], [ 0, %131 ], [ %150, %.sink.split ]
+  %152 = icmp sgt i32 %.059, %3
   br i1 %152, label %.critedge2, label %.critedge
 
 .critedge:                                        ; preds = %151
@@ -571,7 +571,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %74, %._crit_edge.i.
   store ptr %.06684, ptr %153, align 8
   %154 = getelementptr inbounds i8, ptr %38, i64 16
   %155 = load i32, ptr %154, align 8
-  %156 = and i32 %.1, 16383
+  %156 = and i32 %.059, 16383
   %157 = and i32 %155, -16384
   %158 = or disjoint i32 %157, %156
   store i32 %158, ptr %154, align 8

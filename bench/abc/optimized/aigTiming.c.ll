@@ -570,7 +570,7 @@ Vec_VecClear.exit:                                ; preds = %Vec_VecClear.exit.l
 .lr.ph84:                                         ; preds = %.preheader77, %.critedge2
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge2 ], [ 0, %.preheader77 ]
   %84 = phi ptr [ %234, %.critedge2 ], [ %81, %.preheader77 ]
-  %.182 = phi i32 [ %.3, %.critedge2 ], [ %.04687, %.preheader77 ]
+  %.182 = phi i32 [ %.2, %.critedge2 ], [ %.04687, %.preheader77 ]
   %85 = getelementptr i8, ptr %84, i64 8
   %.val51 = load ptr, ptr %85, align 8
   %86 = getelementptr inbounds ptr, ptr %.val51, i64 %indvars.iv
@@ -643,14 +643,14 @@ Aig_ObjLevelNew.exit69:                           ; preds = %94, %115
 133:                                              ; preds = %.lr.ph, %225
   %134 = phi i64 [ %129, %.lr.ph ], [ %226, %225 ]
   %.079 = phi i32 [ 0, %.lr.ph ], [ %227, %225 ]
-  %.278 = phi i32 [ %.182, %.lr.ph ], [ %147, %225 ]
+  %.378 = phi i32 [ %.182, %.lr.ph ], [ %147, %225 ]
   %.not = icmp eq i32 %.079, 0
   br i1 %.not, label %141, label %135
 
 135:                                              ; preds = %133
-  %136 = ashr i32 %.278, 1
+  %136 = ashr i32 %.378, 1
   %137 = mul nsw i32 %136, 5
-  %138 = and i32 %.278, 1
+  %138 = and i32 %.378, 1
   %139 = add nuw nsw i32 %138, 3
   %140 = add i32 %139, %137
   br label %144
@@ -844,7 +844,7 @@ Vec_VecPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %230, label %133, label %.critedge2, !llvm.loop !11
 
 .critedge2:                                       ; preds = %225, %Aig_ObjLevelNew.exit69
-  %.3 = phi i32 [ %.182, %Aig_ObjLevelNew.exit69 ], [ %147, %225 ]
+  %.2 = phi i32 [ %.182, %Aig_ObjLevelNew.exit69 ], [ %147, %225 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %231 = load ptr, ptr %3, align 8
   %232 = getelementptr i8, ptr %231, i64 8
@@ -859,7 +859,7 @@ Vec_VecPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 .critedge:                                        ; preds = %.critedge2, %.preheader77
   %238 = phi ptr [ %78, %.preheader77 ], [ %231, %.critedge2 ]
-  %.1.lcssa = phi i32 [ %.04687, %.preheader77 ], [ %.3, %.critedge2 ]
+  %.1.lcssa = phi i32 [ %.04687, %.preheader77 ], [ %.2, %.critedge2 ]
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %239 = getelementptr i8, ptr %238, i64 4
   %.val57 = load i32, ptr %239, align 4

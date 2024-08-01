@@ -393,10 +393,10 @@ process_preamble.exit.thread:                     ; preds = %.thread.i, %101, %p
   br label %379
 
 119:                                              ; preds = %.preheader, %process_body_part.exit
-  %.1 = phi i32 [ %.2, %process_body_part.exit ], [ %storemerge21.i.i, %.preheader ]
+  %.062 = phi i32 [ %.2, %process_body_part.exit ], [ %storemerge21.i.i, %.preheader ]
   %.045 = phi i32 [ %368, %process_body_part.exit ], [ %.0.i5396, %.preheader ]
   %.0 = phi i32 [ %122, %process_body_part.exit ], [ 0, %.preheader ]
-  %120 = icmp eq i32 %.1, 0
+  %120 = icmp eq i32 %.062, 0
   br i1 %120, label %121, label %371
 
 121:                                              ; preds = %119
@@ -532,7 +532,7 @@ find_next_boundary.exit.i:                        ; preds = %177, %159
   br label %187
 
 187:                                              ; preds = %289, %.lr.ph.i
-  %.018828.i = phi i32 [ %.045, %.lr.ph.i ], [ %.1192.i, %289 ]
+  %.018828.i = phi i32 [ %.045, %.lr.ph.i ], [ %.2193.i, %289 ]
   %.019427.i = phi ptr [ null, %.lr.ph.i ], [ %.1195.i, %289 ]
   %.019726.i = phi ptr [ null, %.lr.ph.i ], [ %.1198.i, %289 ]
   %.019925.i = phi ptr [ null, %.lr.ph.i ], [ %.1200.i, %289 ]
@@ -563,9 +563,9 @@ find_next_boundary.exit.i:                        ; preds = %177, %159
   br label %198
 
 198:                                              ; preds = %197, %196, %187
-  %.1192.i = phi i32 [ %.0.i.i, %196 ], [ %spec.select.i, %197 ], [ %192, %187 ]
+  %.2193.i = phi i32 [ %.0.i.i, %196 ], [ %spec.select.i, %197 ], [ %192, %187 ]
   %199 = load ptr, ptr %23, align 8
-  %200 = sub i32 %.1192.i, %.018828.i
+  %200 = sub i32 %.2193.i, %.018828.i
   %201 = call ptr @tvb_get_string_enc(ptr noundef %199, ptr noundef %0, i32 noundef %.018828.i, i32 noundef %200, i32 noundef 0) #7
   store i32 0, ptr %9, align 4
   %202 = load ptr, ptr %23, align 8
@@ -764,9 +764,9 @@ is_known_multipart_header.exit.thread._crit_edge.i: ; preds = %289, %is_known_mu
   %.0199.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1200.i, %289 ], [ %.019925.i, %198 ], [ %.019925.i, %is_known_multipart_header.exit.thread.i ]
   %.0197.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1198.i, %289 ], [ %.019726.i, %198 ], [ %.019726.i, %is_known_multipart_header.exit.thread.i ]
   %.0194.lcssa.i = phi ptr [ null, %.preheader.i ], [ %.1195.i, %289 ], [ %.019427.i, %198 ], [ %.019427.i, %is_known_multipart_header.exit.thread.i ]
-  %.2193.i = phi i32 [ 0, %.preheader.i ], [ %.1192.i, %289 ], [ %.018828.i, %198 ], [ %.018828.i, %is_known_multipart_header.exit.thread.i ]
-  %291 = sub i32 %.0.i.i, %.2193.i
-  %292 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.2193.i, i32 noundef %291) #7
+  %.1192.i = phi i32 [ 0, %.preheader.i ], [ %.2193.i, %289 ], [ %.018828.i, %198 ], [ %.018828.i, %is_known_multipart_header.exit.thread.i ]
+  %291 = sub i32 %.0.i.i, %.1192.i
+  %292 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.1192.i, i32 noundef %291) #7
   %293 = load ptr, ptr %49, align 8
   %294 = icmp ne ptr %293, null
   %295 = icmp eq i32 %.0, 1
@@ -1097,10 +1097,10 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   ]
 
 .thread139.backedge:                              ; preds = %28, %39, %31, %36, %22, %27, %.thread146, %.thread
-  %.098.be = phi ptr [ %.4102128, %.thread ], [ %.2100, %.thread146 ], [ %.098, %27 ], [ %.098, %22 ], [ %.098, %36 ], [ %.098, %31 ], [ %.098, %39 ], [ %.098, %28 ]
+  %.098.be = phi ptr [ %.199128, %.thread ], [ %.4102, %.thread146 ], [ %.098, %27 ], [ %.098, %22 ], [ %.098, %36 ], [ %.098, %31 ], [ %.098, %39 ], [ %.098, %28 ]
   %.092.be = phi i8 [ %60, %.thread ], [ 0, %.thread146 ], [ 0, %27 ], [ %24, %22 ], [ 0, %36 ], [ %33, %31 ], [ 0, %39 ], [ %30, %28 ]
-  %.088.be = phi ptr [ %.5130, %.thread ], [ %42, %.thread146 ], [ %.088, %27 ], [ %.088, %22 ], [ %.088, %36 ], [ %.088, %31 ], [ %.088, %39 ], [ %.088, %28 ]
-  %.085.be = phi i8 [ %.287132, %.thread ], [ %.085, %.thread146 ], [ %.085, %27 ], [ %.085, %22 ], [ %.085, %36 ], [ %.085, %31 ], [ %.085, %39 ], [ %.085, %28 ]
+  %.088.be = phi ptr [ %.189130, %.thread ], [ %42, %.thread146 ], [ %.088, %27 ], [ %.088, %22 ], [ %.088, %36 ], [ %.088, %31 ], [ %.088, %39 ], [ %.088, %28 ]
+  %.085.be = phi i8 [ %.186132, %.thread ], [ %.085, %.thread146 ], [ %.085, %27 ], [ %.085, %22 ], [ %.085, %36 ], [ %.085, %31 ], [ %.085, %39 ], [ %.085, %28 ]
   %.083.be = phi i8 [ %.184134, %.thread ], [ 0, %.thread146 ], [ 0, %27 ], [ %24, %22 ], [ 0, %36 ], [ %33, %31 ], [ 0, %39 ], [ %30, %28 ]
   %.0.be = phi i32 [ %.2136, %.thread ], [ %.0, %.thread146 ], [ %.0, %27 ], [ %.0, %22 ], [ %.0, %36 ], [ %.0, %31 ], [ %.0, %39 ], [ %.0, %28 ]
   br label %.thread139, !llvm.loop !10
@@ -1136,33 +1136,33 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   br label %43
 
 .thread146:                                       ; preds = %51
-  %42 = getelementptr i8, ptr %.290, i64 -1
+  %42 = getelementptr i8, ptr %.4, i64 -1
   br label %.thread139.backedge
 
 43:                                               ; preds = %40, %51
-  %.189153 = phi ptr [ %41, %40 ], [ %.290, %51 ]
-  %.199152 = phi ptr [ %.098, %40 ], [ %.2100, %51 ]
-  %44 = getelementptr i8, ptr %.199152, i64 1
+  %.290153 = phi ptr [ %41, %40 ], [ %.4, %51 ]
+  %.2100152 = phi ptr [ %.098, %40 ], [ %.4102, %51 ]
+  %44 = getelementptr i8, ptr %.2100152, i64 1
   %45 = load i8, ptr %44, align 1
-  %46 = getelementptr i8, ptr %.189153, i64 1
-  store i8 %45, ptr %.189153, align 1
+  %46 = getelementptr i8, ptr %.290153, i64 1
+  store i8 %45, ptr %.290153, align 1
   switch i8 %45, label %51 [
     i8 92, label %47
     i8 34, label %58
   ]
 
 47:                                               ; preds = %43
-  %48 = getelementptr i8, ptr %.199152, i64 2
+  %48 = getelementptr i8, ptr %.2100152, i64 2
   %49 = load i8, ptr %48, align 1
-  %50 = getelementptr i8, ptr %.189153, i64 2
+  %50 = getelementptr i8, ptr %.290153, i64 2
   store i8 %49, ptr %46, align 1
   br label %51
 
 51:                                               ; preds = %43, %47
-  %.2100 = phi ptr [ %48, %47 ], [ %44, %43 ]
-  %.294 = phi i8 [ %49, %47 ], [ %45, %43 ]
-  %.290 = phi ptr [ %50, %47 ], [ %46, %43 ]
-  %.not116 = icmp eq i8 %.294, 0
+  %.4102 = phi ptr [ %48, %47 ], [ %44, %43 ]
+  %.496 = phi i8 [ %49, %47 ], [ %45, %43 ]
+  %.4 = phi ptr [ %50, %47 ], [ %46, %43 ]
+  %.not116 = icmp eq i8 %.496, 0
   br i1 %.not116, label %.thread146, label %43, !llvm.loop !11
 
 52:                                               ; preds = %.thread139
@@ -1177,23 +1177,23 @@ define internal fastcc ptr @unfold_and_compact_mime_header(ptr noundef %0, ptr n
   br label %55
 
 55:                                               ; preds = %52, %53
-  %.4 = phi ptr [ %54, %53 ], [ %.088, %52 ]
-  %56 = getelementptr i8, ptr %.4, i64 1
-  store i8 %.092, ptr %.4, align 1
+  %.5 = phi ptr [ %54, %53 ], [ %.088, %52 ]
+  %56 = getelementptr i8, ptr %.5, i64 1
+  store i8 %.092, ptr %.5, align 1
   %57 = getelementptr i8, ptr %.098, i64 1
   br label %.thread
 
 58:                                               ; preds = %43
-  %59 = getelementptr i8, ptr %.199152, i64 2
+  %59 = getelementptr i8, ptr %.2100152, i64 2
   br label %.thread
 
 .thread:                                          ; preds = %55, %37, %34, %25, %20, %17, %10, %58
   %.2136 = phi i32 [ %.0, %58 ], [ %.0, %55 ], [ %.0, %37 ], [ %.0, %34 ], [ %.0, %25 ], [ %.0, %20 ], [ %.0, %17 ], [ %.1, %10 ]
   %.184134 = phi i8 [ 0, %58 ], [ 0, %55 ], [ 1, %37 ], [ 1, %34 ], [ 1, %25 ], [ 1, %20 ], [ 0, %17 ], [ 0, %10 ]
-  %.287132 = phi i8 [ %.085, %58 ], [ 0, %55 ], [ %.085, %37 ], [ %.085, %34 ], [ %.085, %25 ], [ %.085, %20 ], [ %.092, %17 ], [ 58, %10 ]
-  %.5130 = phi ptr [ %46, %58 ], [ %56, %55 ], [ %.088, %37 ], [ %.088, %34 ], [ %.088, %25 ], [ %.088, %20 ], [ %18, %17 ], [ %15, %10 ]
-  %.4102128 = phi ptr [ %59, %58 ], [ %57, %55 ], [ %38, %37 ], [ %35, %34 ], [ %26, %25 ], [ %21, %20 ], [ %19, %17 ], [ %16, %10 ]
-  %60 = load i8, ptr %.4102128, align 1
+  %.186132 = phi i8 [ %.085, %58 ], [ 0, %55 ], [ %.085, %37 ], [ %.085, %34 ], [ %.085, %25 ], [ %.085, %20 ], [ %.092, %17 ], [ 58, %10 ]
+  %.189130 = phi ptr [ %46, %58 ], [ %56, %55 ], [ %.088, %37 ], [ %.088, %34 ], [ %.088, %25 ], [ %.088, %20 ], [ %18, %17 ], [ %15, %10 ]
+  %.199128 = phi ptr [ %59, %58 ], [ %57, %55 ], [ %38, %37 ], [ %35, %34 ], [ %26, %25 ], [ %21, %20 ], [ %19, %17 ], [ %16, %10 ]
+  %60 = load i8, ptr %.199128, align 1
   br label %.thread139.backedge
 
 61:                                               ; preds = %.thread139

@@ -611,7 +611,7 @@ if.end65.i:                                       ; preds = %lor.lhs.false.i
 
 nfaQueueCanMatch.exit:                            ; preds = %if.end65.i, %lor.lhs.false.i, %while.body.i, %land.rhs.i.preheader, %if.then25.i
   %.lcssa = phi i32 [ %end31.i.promoted, %if.then25.i ], [ %end31.i.promoted, %land.rhs.i.preheader ], [ %7, %while.body.i ], [ %10, %lor.lhs.false.i ], [ %13, %if.end65.i ]
-  %q_trimmed.2 = phi i8 [ %spec.select, %if.then25.i ], [ %spec.select, %land.rhs.i.preheader ], [ 1, %while.body.i ], [ 1, %lor.lhs.false.i ], [ 1, %if.end65.i ]
+  %q_trimmed.4 = phi i8 [ %spec.select, %if.then25.i ], [ %spec.select, %land.rhs.i.preheader ], [ 1, %while.body.i ], [ 1, %lor.lhs.false.i ], [ 1, %if.end65.i ]
   %sub69.i = sub i32 %.lcssa, %0
   %cmp70.i = icmp ult i32 %sub69.i, 2
   br i1 %cmp70.i, label %if.then5, label %if.end11
@@ -628,7 +628,7 @@ if.then7:                                         ; preds = %if.then5
   br label %return
 
 if.end11:                                         ; preds = %if.end.i, %if.end18.i, %nfaQueueCanMatch.exit
-  %q_trimmed.4112 = phi i8 [ %q_trimmed.2, %nfaQueueCanMatch.exit ], [ %spec.select, %if.end18.i ], [ %spec.select, %if.end.i ]
+  %q_trimmed.1112 = phi i8 [ %q_trimmed.4, %nfaQueueCanMatch.exit ], [ %spec.select, %if.end18.i ], [ %spec.select, %if.end.i ]
   %type.i = getelementptr inbounds i8, ptr %nfa, i64 8
   %16 = load i8, ptr %type.i, align 8
   switch i8 %16, label %nfaQueueExec_i.exit [
@@ -742,7 +742,7 @@ sw.bb39.i:                                        ; preds = %if.end11
 nfaQueueExec_i.exit:                              ; preds = %if.end11, %sw.bb39.i, %sw.bb37.i, %sw.bb35.i, %sw.bb33.i, %sw.bb31.i, %sw.bb29.i, %sw.bb27.i, %sw.bb25.i, %sw.bb23.i, %sw.bb21.i, %sw.bb19.i, %sw.bb17.i, %sw.bb15.i, %sw.bb13.i, %sw.bb11.i, %sw.bb9.i, %sw.bb7.i, %sw.bb5.i, %sw.bb3.i, %sw.bb1.i, %sw.bb.i
   %retval.i.0 = phi i8 [ %call40.i, %sw.bb39.i ], [ %call38.i, %sw.bb37.i ], [ %call36.i, %sw.bb35.i ], [ %call34.i, %sw.bb33.i ], [ %call32.i, %sw.bb31.i ], [ %call30.i, %sw.bb29.i ], [ %call28.i, %sw.bb27.i ], [ %call26.i, %sw.bb25.i ], [ %call24.i, %sw.bb23.i ], [ %call22.i, %sw.bb21.i ], [ %call20.i, %sw.bb19.i ], [ %call18.i, %sw.bb17.i ], [ %call16.i, %sw.bb15.i ], [ %call14.i, %sw.bb13.i ], [ %call12.i, %sw.bb11.i ], [ %call10.i, %sw.bb9.i ], [ %call8.i, %sw.bb7.i ], [ %call6.i, %sw.bb5.i ], [ %call4.i, %sw.bb3.i ], [ %call2.i, %sw.bb1.i ], [ %call.i, %sw.bb.i ], [ 0, %if.end11 ]
   %tobool15 = icmp ne i8 %retval.i.0, 0
-  %tobool16.not = icmp eq i8 %q_trimmed.4112, 0
+  %tobool16.not = icmp eq i8 %q_trimmed.1112, 0
   %17 = and i1 %tobool16.not, %tobool15
   %conv17 = zext i1 %17 to i8
   br label %return
@@ -973,7 +973,7 @@ if.end65.i:                                       ; preds = %lor.lhs.false.i
 
 nfaQueueCanMatch.exit:                            ; preds = %if.end65.i, %lor.lhs.false.i, %while.body.i, %land.rhs.i.preheader, %if.then25.i
   %.lcssa = phi i32 [ %end31.i.promoted, %if.then25.i ], [ %end31.i.promoted, %land.rhs.i.preheader ], [ %7, %while.body.i ], [ %10, %lor.lhs.false.i ], [ %13, %if.end65.i ]
-  %q_trimmed.1 = phi i8 [ 0, %if.then25.i ], [ 0, %land.rhs.i.preheader ], [ 1, %while.body.i ], [ 1, %lor.lhs.false.i ], [ 1, %if.end65.i ]
+  %q_trimmed.3 = phi i8 [ 0, %if.then25.i ], [ 0, %land.rhs.i.preheader ], [ 1, %while.body.i ], [ 1, %lor.lhs.false.i ], [ 1, %if.end65.i ]
   %sub69.i = sub i32 %.lcssa, %0
   %cmp70.i = icmp ult i32 %sub69.i, 2
   br i1 %cmp70.i, label %if.then5, label %if.end11
@@ -990,7 +990,7 @@ if.then7:                                         ; preds = %if.then5
   br label %return
 
 if.end11:                                         ; preds = %if.end.i, %if.end18.i, %nfaQueueCanMatch.exit
-  %q_trimmed.3114 = phi i8 [ %q_trimmed.1, %nfaQueueCanMatch.exit ], [ 0, %if.end18.i ], [ 0, %if.end.i ]
+  %q_trimmed.0114 = phi i8 [ %q_trimmed.3, %nfaQueueCanMatch.exit ], [ 0, %if.end18.i ], [ 0, %if.end.i ]
   %type.i = getelementptr inbounds i8, ptr %nfa, i64 8
   %16 = load i8, ptr %type.i, align 8
   switch i8 %16, label %if.end27 [
@@ -1102,7 +1102,7 @@ nfaQueueExec2_i.exit:                             ; preds = %sw.bb39.i, %sw.bb37
   br i1 %cmp15, label %if.then17, label %if.end27
 
 if.then17:                                        ; preds = %nfaQueueExec2_i.exit
-  %tobool18.not = icmp eq i8 %q_trimmed.3114, 0
+  %tobool18.not = icmp eq i8 %q_trimmed.0114, 0
   br i1 %tobool18.not, label %return, label %if.then19
 
 if.then19:                                        ; preds = %if.then17
@@ -1120,7 +1120,7 @@ if.then19:                                        ; preds = %if.then17
 if.end27:                                         ; preds = %if.end11, %nfaQueueExec2_i.exit
   %retval.i.0117 = phi i8 [ %retval.i.0, %nfaQueueExec2_i.exit ], [ 0, %if.end11 ]
   %tobool29 = icmp ne i8 %retval.i.0117, 0
-  %tobool30 = icmp eq i8 %q_trimmed.3114, 0
+  %tobool30 = icmp eq i8 %q_trimmed.0114, 0
   %or.cond.not = and i1 %tobool30, %tobool29
   %19 = and i1 %cmp1, %or.cond.not
   %conv32 = zext i1 %19 to i8

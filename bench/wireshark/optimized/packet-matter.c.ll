@@ -232,7 +232,7 @@ define internal i32 @dissect_matter(ptr noundef %0, ptr nocapture noundef readon
   br label %46
 
 46:                                               ; preds = %43, %39
-  %.075 = phi i32 [ 16, %43 ], [ 8, %39 ]
+  %.1 = phi i32 [ 16, %43 ], [ 8, %39 ]
   switch i8 %21, label %55 [
     i8 1, label %47
     i8 2, label %51
@@ -240,18 +240,18 @@ define internal i32 @dissect_matter(ptr noundef %0, ptr nocapture noundef readon
 
 47:                                               ; preds = %46
   %48 = load i32, ptr @hf_message_dest_id, align 4
-  %49 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %48, ptr noundef %0, i32 noundef %.075, i32 noundef 8, i32 noundef -2147483648) #3
-  %50 = add nuw nsw i32 %.075, 8
+  %49 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %48, ptr noundef %0, i32 noundef %.1, i32 noundef 8, i32 noundef -2147483648) #3
+  %50 = add nuw nsw i32 %.1, 8
   br label %55
 
 51:                                               ; preds = %46
   %52 = load i32, ptr @hf_message_dest_id, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %52, ptr noundef %0, i32 noundef %.075, i32 noundef 2, i32 noundef -2147483648) #3
-  %54 = or disjoint i32 %.075, 2
+  %53 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %52, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef -2147483648) #3
+  %54 = or disjoint i32 %.1, 2
   br label %55
 
 55:                                               ; preds = %46, %47, %51, %35
-  %.1 = phi i32 [ %38, %35 ], [ %50, %47 ], [ %54, %51 ], [ %.075, %46 ]
+  %.075 = phi i32 [ %38, %35 ], [ %50, %47 ], [ %54, %51 ], [ %.1, %46 ]
   %56 = icmp eq i8 %28, 0
   %57 = load i32, ptr %6, align 4
   %58 = icmp eq i32 %57, 0
@@ -260,10 +260,10 @@ define internal i32 @dissect_matter(ptr noundef %0, ptr nocapture noundef readon
 
 59:                                               ; preds = %55
   %60 = load i32, ptr @hf_payload, align 4
-  %61 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %60, ptr noundef %0, i32 noundef %.1, i32 noundef -1, ptr noundef nonnull @.str.92) #3
+  %61 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %60, ptr noundef %0, i32 noundef %.075, i32 noundef -1, ptr noundef nonnull @.str.92) #3
   %62 = load i32, ptr @ett_payload, align 4
   %63 = call ptr @proto_item_add_subtree(ptr noundef %61, i32 noundef %62) #3
-  %64 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1) #3
+  %64 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.075) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %65 = load i32, ptr @hf_payload_exchange_flags, align 4
   %66 = load i32, ptr @ett_exchange_flags, align 4
@@ -322,18 +322,18 @@ dissect_matter_payload.exit:                      ; preds = %87, %89
   %99 = load i32, ptr @hf_payload_application, align 4
   %100 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %63, i32 noundef %99, ptr noundef %64, i32 noundef %.2.i, i32 noundef %98, ptr noundef null, ptr noundef nonnull @.str.94, i32 noundef %98) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %101 = add i32 %.2.i, %.1
+  %101 = add i32 %.2.i, %.075
   %102 = add i32 %101, %98
   br label %107
 
 103:                                              ; preds = %55
-  %104 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #3
+  %104 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.075) #3
   %105 = load i32, ptr @hf_payload, align 4
-  %106 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %105, ptr noundef %0, i32 noundef %.1, i32 noundef %104, ptr noundef nonnull @.str.93, i32 noundef %104) #3
+  %106 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %15, i32 noundef %105, ptr noundef %0, i32 noundef %.075, i32 noundef %104, ptr noundef nonnull @.str.93, i32 noundef %104) #3
   br label %107
 
 107:                                              ; preds = %dissect_matter_payload.exit, %103, %4
-  %.0 = phi i32 [ 0, %4 ], [ %102, %dissect_matter_payload.exit ], [ %.1, %103 ]
+  %.0 = phi i32 [ 0, %4 ], [ %102, %dissect_matter_payload.exit ], [ %.075, %103 ]
   ret i32 %.0
 }
 

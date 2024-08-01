@@ -3605,8 +3605,8 @@ define dso_local range(i32 0, 81) i32 @Curl_ssl_cfilter_remove(ptr noundef %0, i
   br i1 %.not14, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %18, %2, %5, %12
-  %.1 = phi i32 [ %spec.select, %12 ], [ 0, %5 ], [ 0, %2 ], [ 0, %18 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %spec.select, %12 ], [ 0, %5 ], [ 0, %2 ], [ 0, %18 ]
+  ret i32 %.0
 }
 
 declare zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
@@ -3776,7 +3776,7 @@ define dso_local noundef i32 @Curl_alpn_set_negotiated(ptr nocapture noundef rea
 
 23:                                               ; preds = %20, %19
   %storemerge = phi i8 [ 2, %19 ], [ 3, %20 ]
-  %.0 = phi i32 [ 0, %19 ], [ 1, %20 ]
+  %.1 = phi i32 [ 0, %19 ], [ 1, %20 ]
   store i8 %storemerge, ptr %15, align 1
   %.not37 = icmp eq ptr %1, null
   br i1 %.not37, label %36, label %24
@@ -3810,13 +3810,13 @@ define dso_local noundef i32 @Curl_alpn_set_negotiated(ptr nocapture noundef rea
   br label %36
 
 36:                                               ; preds = %23, %24, %28, %30, %31, %35, %21
-  %.1 = phi i32 [ 0, %21 ], [ %.0, %28 ], [ %.0, %24 ], [ %.0, %23 ], [ 0, %35 ], [ 0, %31 ], [ 0, %30 ]
+  %.0 = phi i32 [ 0, %21 ], [ %.1, %28 ], [ %.1, %24 ], [ %.1, %23 ], [ 0, %35 ], [ 0, %31 ], [ 0, %30 ]
   %37 = load ptr, ptr %0, align 8
   %38 = icmp eq ptr %37, @Curl_cft_ssl_proxy
   br i1 %38, label %41, label %39
 
 39:                                               ; preds = %36
-  %.not39 = icmp eq i32 %.1, 0
+  %.not39 = icmp eq i32 %.0, 0
   %40 = select i1 %.not39, i32 -1, i32 2
   tail call void @Curl_multiuse_state(ptr noundef %1, i32 noundef %40) #18
   br label %41

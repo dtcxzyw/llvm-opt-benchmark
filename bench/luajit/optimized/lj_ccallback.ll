@@ -245,10 +245,10 @@ while.body.lr.ph.i:                               ; preds = %lj_state_checkstack
 while.body.i:                                     ; preds = %if.end79.i, %while.body.lr.ph.i
   %fid.0.in73.i = phi i16 [ %fid.0.in66.i, %while.body.lr.ph.i ], [ %fid.0.in.i, %if.end79.i ]
   %o.072.i = phi ptr [ %31, %while.body.lr.ph.i ], [ %o.1.i, %if.end79.i ]
-  %nfpr.071.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %nfpr.2.i, %if.end79.i ]
+  %nfpr.071.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %nfpr.1.i, %if.end79.i ]
   %gcsteps.070.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %gcsteps.1.i, %if.end79.i ]
-  %nsp.069.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %nsp.2.i, %if.end79.i ]
-  %ngpr.068.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %ngpr.2.i, %if.end79.i ]
+  %nsp.069.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %nsp.1.i, %if.end79.i ]
+  %ngpr.068.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %ngpr.1.i, %if.end79.i ]
   %32 = load ptr, ptr %cts, align 8
   %idxprom.i.i = zext i16 %fid.0.in73.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.CType, ptr %32, i64 %idxprom.i.i
@@ -303,9 +303,9 @@ if.end72.i:                                       ; preds = %if.else62.i, %if.th
   br label %done.i
 
 done.i:                                           ; preds = %if.end72.i, %if.then66.i, %if.then56.i
-  %ngpr.1.i = phi i32 [ %ngpr.068.i, %if.then56.i ], [ %ngpr.068.i, %if.end72.i ], [ %add63.i, %if.then66.i ]
-  %nsp.1.i = phi i32 [ %nsp.069.i, %if.then56.i ], [ %add75.i, %if.end72.i ], [ %nsp.069.i, %if.then66.i ]
-  %nfpr.1.i = phi i32 [ %add53.i, %if.then56.i ], [ %nfpr.071.i, %if.end72.i ], [ %nfpr.071.i, %if.then66.i ]
+  %ngpr.2.i = phi i32 [ %ngpr.068.i, %if.then56.i ], [ %ngpr.068.i, %if.end72.i ], [ %add63.i, %if.then66.i ]
+  %nsp.2.i = phi i32 [ %nsp.069.i, %if.then56.i ], [ %add75.i, %if.end72.i ], [ %nsp.069.i, %if.then66.i ]
+  %nfpr.2.i = phi i32 [ %add53.i, %if.then56.i ], [ %nfpr.071.i, %if.end72.i ], [ %nfpr.071.i, %if.then66.i ]
   %sp.0.i = phi ptr [ %arrayidx59.i, %if.then56.i ], [ %arrayidx74.i, %if.end72.i ], [ %arrayidx69.i, %if.then66.i ]
   %incdec.ptr76.i = getelementptr inbounds i8, ptr %o.072.i, i64 8
   %call77.i = tail call i32 @lj_cconv_tv_ct(ptr noundef nonnull %cts, ptr noundef nonnull %arrayidx.i.i.i, i32 noundef 0, ptr noundef %o.072.i, ptr noundef %sp.0.i) #7
@@ -313,10 +313,10 @@ done.i:                                           ; preds = %if.end72.i, %if.the
   br label %if.end79.i
 
 if.end79.i:                                       ; preds = %done.i, %while.body.i
-  %ngpr.2.i = phi i32 [ %ngpr.068.i, %while.body.i ], [ %ngpr.1.i, %done.i ]
-  %nsp.2.i = phi i32 [ %nsp.069.i, %while.body.i ], [ %nsp.1.i, %done.i ]
+  %ngpr.1.i = phi i32 [ %ngpr.068.i, %while.body.i ], [ %ngpr.2.i, %done.i ]
+  %nsp.1.i = phi i32 [ %nsp.069.i, %while.body.i ], [ %nsp.2.i, %done.i ]
   %gcsteps.1.i = phi i32 [ %gcsteps.070.i, %while.body.i ], [ %add78.i, %done.i ]
-  %nfpr.2.i = phi i32 [ %nfpr.071.i, %while.body.i ], [ %nfpr.1.i, %done.i ]
+  %nfpr.1.i = phi i32 [ %nfpr.071.i, %while.body.i ], [ %nfpr.2.i, %done.i ]
   %o.1.i = phi ptr [ %o.072.i, %while.body.i ], [ %incdec.ptr76.i, %done.i ]
   %fid.0.in.in.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
   %fid.0.in.i = load i16, ptr %fid.0.in.in.i, align 8

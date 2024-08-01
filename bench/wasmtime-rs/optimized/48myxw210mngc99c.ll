@@ -2306,10 +2306,10 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   br label %23
 
 23:                                               ; preds = %17, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17h8415b43a73932fc3E.exit", %1
-  %.sroa.4.1 = phi ptr [ undef, %1 ], [ %22, %17 ], [ undef, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17h8415b43a73932fc3E.exit" ]
-  %.sroa.0.1 = phi ptr [ null, %1 ], [ %21, %17 ], [ null, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17h8415b43a73932fc3E.exit" ]
-  %24 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %25 = insertvalue { ptr, ptr } %24, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ undef, %1 ], [ %22, %17 ], [ undef, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17h8415b43a73932fc3E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %21, %17 ], [ null, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17h8415b43a73932fc3E.exit" ]
+  %24 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %25 = insertvalue { ptr, ptr } %24, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %25
 }
 
@@ -2357,10 +2357,10 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   br label %23
 
 23:                                               ; preds = %17, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17hdece845abd0ddea1E.exit", %1
-  %.sroa.4.1 = phi ptr [ undef, %1 ], [ %22, %17 ], [ undef, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17hdece845abd0ddea1E.exit" ]
-  %.sroa.0.1 = phi ptr [ null, %1 ], [ %21, %17 ], [ null, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17hdece845abd0ddea1E.exit" ]
-  %24 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %25 = insertvalue { ptr, ptr } %24, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ undef, %1 ], [ %22, %17 ], [ undef, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17hdece845abd0ddea1E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %21, %17 ], [ null, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$14last_leaf_edge17hdece845abd0ddea1E.exit" ]
+  %24 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %25 = insertvalue { ptr, ptr } %24, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %25
 }
 
@@ -2398,10 +2398,10 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   br label %15
 
 15:                                               ; preds = %12, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hfbf9cd8facf1c6baE.exit", %1
-  %.sroa.4.1 = phi ptr [ undef, %1 ], [ %14, %12 ], [ undef, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hfbf9cd8facf1c6baE.exit" ]
-  %.sroa.0.1 = phi ptr [ null, %1 ], [ %13, %12 ], [ null, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hfbf9cd8facf1c6baE.exit" ]
-  %16 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ undef, %1 ], [ %14, %12 ], [ undef, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hfbf9cd8facf1c6baE.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %13, %12 ], [ null, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hfbf9cd8facf1c6baE.exit" ]
+  %16 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %17
 }
 
@@ -2439,10 +2439,10 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   br label %15
 
 15:                                               ; preds = %12, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h58e6fc8ff7be1f23E.exit", %1
-  %.sroa.4.1 = phi ptr [ undef, %1 ], [ %14, %12 ], [ undef, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h58e6fc8ff7be1f23E.exit" ]
-  %.sroa.0.1 = phi ptr [ null, %1 ], [ %13, %12 ], [ null, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h58e6fc8ff7be1f23E.exit" ]
-  %16 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ undef, %1 ], [ %14, %12 ], [ undef, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h58e6fc8ff7be1f23E.exit" ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %13, %12 ], [ null, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h58e6fc8ff7be1f23E.exit" ]
+  %16 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %17 = insertvalue { ptr, ptr } %16, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %17
 }
 
@@ -2562,8 +2562,8 @@ default.unreachable:                              ; preds = %17
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17he216d8c32f129fecE.llvm.2651468057167481930.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17he216d8c32f129fecE.llvm.2651468057167481930.exit": ; preds = %23, %29, %2
-  %.1 = phi ptr [ null, %2 ], [ %32, %29 ], [ null, %23 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %32, %29 ], [ null, %23 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -2633,8 +2633,8 @@ default.unreachable:                              ; preds = %16
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17he560ea7ff32d4713E.llvm.2651468057167481930.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17he560ea7ff32d4713E.llvm.2651468057167481930.exit": ; preds = %21, %27, %2
-  %.1 = phi ptr [ null, %2 ], [ %29, %27 ], [ null, %21 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %29, %27 ], [ null, %21 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -2705,8 +2705,8 @@ default.unreachable:                              ; preds = %16
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h500a7d2e2796759dE.llvm.2651468057167481930.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h500a7d2e2796759dE.llvm.2651468057167481930.exit": ; preds = %21, %27, %2
-  %.1 = phi ptr [ null, %2 ], [ %30, %27 ], [ null, %21 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %30, %27 ], [ null, %21 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -2791,8 +2791,8 @@ default.unreachable:                              ; preds = %19
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hd1eaffdd5d5e37aeE.llvm.2651468057167481930.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hd1eaffdd5d5e37aeE.llvm.2651468057167481930.exit": ; preds = %30, %36, %2
-  %.1 = phi ptr [ null, %2 ], [ %39, %36 ], [ null, %30 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %39, %36 ], [ null, %30 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -2867,8 +2867,8 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h1ec86671fd97ca6eE.llvm.2651468057167481930.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h1ec86671fd97ca6eE.llvm.2651468057167481930.exit": ; preds = %.loopexit.loopexit.i.i.i, %27, %2
-  %.1 = phi ptr [ null, %2 ], [ %30, %27 ], [ null, %.loopexit.loopexit.i.i.i ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %30, %27 ], [ null, %.loopexit.loopexit.i.i.i ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -2938,8 +2938,8 @@ default.unreachable:                              ; preds = %16
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h8ad02d68b5eed3f2E.llvm.2651468057167481930.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h8ad02d68b5eed3f2E.llvm.2651468057167481930.exit": ; preds = %21, %27, %2
-  %.1 = phi ptr [ null, %2 ], [ %29, %27 ], [ null, %21 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %29, %27 ], [ null, %21 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -3010,8 +3010,8 @@ default.unreachable:                              ; preds = %16
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h140b1622d73e1a3aE.llvm.2651468057167481930.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h140b1622d73e1a3aE.llvm.2651468057167481930.exit": ; preds = %21, %27, %2
-  %.1 = phi ptr [ null, %2 ], [ %30, %27 ], [ null, %21 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %2 ], [ %30, %27 ], [ null, %21 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

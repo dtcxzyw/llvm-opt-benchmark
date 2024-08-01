@@ -1046,7 +1046,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   br label %95
 
 95:                                               ; preds = %90, %85
-  %.01147 = phi i32 [ 11, %85 ], [ %94, %90 ]
+  %.11148 = phi i32 [ 11, %85 ], [ %94, %90 ]
   %96 = call fastcc ptr @conv_get_tag(ptr noundef nonnull %1, i16 noundef zeroext %33)
   %.not1170 = icmp eq ptr %96, null
   br i1 %.not1170, label %102, label %97
@@ -1122,7 +1122,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   br label %141
 
 141:                                              ; preds = %131, %137
-  %.11148 = phi i32 [ %140, %137 ], [ %135, %131 ]
+  %.21149 = phi i32 [ %140, %137 ], [ %135, %131 ]
   call fastcc void @conv_set_tag(ptr noundef nonnull %1, i16 noundef zeroext %33, i32 noundef 104, i32 noundef %108, ptr noundef null)
   br label %conv_free_tag.exit
 
@@ -1165,7 +1165,7 @@ conv_get_version.exit:                            ; preds = %4, %16
 
 165:                                              ; preds = %.lr.ph1185, %189
   %.011441183 = phi i32 [ 0, %.lr.ph1185 ], [ %190, %189 ]
-  %.211491182 = phi i32 [ 17, %.lr.ph1185 ], [ %.3, %189 ]
+  %.31182 = phi i32 [ 17, %.lr.ph1185 ], [ %.4, %189 ]
   %166 = load ptr, ptr %147, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 50
   %168 = load i16, ptr %167, align 2
@@ -1174,9 +1174,9 @@ conv_get_version.exit:                            ; preds = %4, %16
   br i1 %.not1168, label %170, label %176
 
 170:                                              ; preds = %165
-  %171 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.211491182) #6
+  %171 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.31182) #6
   %172 = load ptr, ptr %164, align 8
-  %173 = add i32 %.211491182, 2
+  %173 = add i32 %.31182, 2
   %174 = zext i16 %171 to i32
   %175 = call ptr @tvb_get_string_enc(ptr noundef %172, ptr noundef %0, i32 noundef %173, i32 noundef %174, i32 noundef 2) #6
   call void @wmem_strbuf_append_c(ptr noundef %.01145, i8 noundef signext 47) #6
@@ -1190,18 +1190,18 @@ conv_get_version.exit:                            ; preds = %4, %16
 178:                                              ; preds = %176
   %179 = load i32, ptr @hf_9P_wname, align 4
   %180 = load i32, ptr @ett_9P_wname, align 4
-  %181 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.211491182) #6
-  %182 = add i32 %.211491182, 2
+  %181 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.31182) #6
+  %182 = add i32 %.31182, 2
   %183 = zext i16 %181 to i32
   %184 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %179, ptr noundef %0, i32 noundef %182, i32 noundef %183, i32 noundef 2) #6
   %185 = call ptr @proto_item_add_subtree(ptr noundef %184, i32 noundef %180) #6
   %186 = load i32, ptr @hf_9P_parmsz, align 4
-  %187 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %186, ptr noundef %0, i32 noundef %.211491182, i32 noundef 2, i32 noundef -2147483648) #6
+  %187 = call ptr @proto_tree_add_item(ptr noundef %185, i32 noundef %186, ptr noundef %0, i32 noundef %.31182, i32 noundef 2, i32 noundef -2147483648) #6
   %188 = add i32 %182, %183
   br label %189
 
 189:                                              ; preds = %176, %178
-  %.3 = phi i32 [ %188, %178 ], [ %.211491182, %176 ]
+  %.4 = phi i32 [ %188, %178 ], [ %.31182, %176 ]
   %190 = add nuw nsw i32 %.011441183, 1
   %exitcond1191.not = icmp eq i32 %190, %163
   br i1 %exitcond1191.not, label %._crit_edge1186, label %165, !llvm.loop !4
@@ -1215,7 +1215,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   br label %._crit_edge1186.thread
 
 ._crit_edge1186.thread:                           ; preds = %156, %192, %._crit_edge1186
-  %.21149.lcssa1193 = phi i32 [ %.3, %192 ], [ %.3, %._crit_edge1186 ], [ 17, %156 ]
+  %.3.lcssa1193 = phi i32 [ %.4, %192 ], [ %.4, %._crit_edge1186 ], [ 17, %156 ]
   %194 = load ptr, ptr %147, align 8
   %195 = getelementptr inbounds i8, ptr %194, i64 50
   %196 = load i16, ptr %195, align 2
@@ -1245,9 +1245,9 @@ conv_get_version.exit:                            ; preds = %4, %16
 
 .lr.ph:                                           ; preds = %203, %.lr.ph
   %.11180 = phi i32 [ %209, %.lr.ph ], [ 0, %203 ]
-  %.41179 = phi i32 [ %208, %.lr.ph ], [ 9, %203 ]
-  call fastcc void @dissect_9P_qid(ptr noundef %0, ptr noundef %39, i32 noundef %.41179)
-  %208 = add nuw nsw i32 %.41179, 13
+  %.51179 = phi i32 [ %208, %.lr.ph ], [ 9, %203 ]
+  call fastcc void @dissect_9P_qid(ptr noundef %0, ptr noundef %39, i32 noundef %.51179)
+  %208 = add nuw nsw i32 %.51179, 13
   %209 = add nuw nsw i32 %.11180, 1
   %exitcond.not = icmp eq i32 %209, %207
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -1261,7 +1261,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %203, %211, %._crit_edge
-  %.4.lcssa1196 = phi i32 [ %208, %211 ], [ %208, %._crit_edge ], [ 9, %203 ]
+  %.5.lcssa1196 = phi i32 [ %208, %211 ], [ %208, %._crit_edge ], [ 9, %203 ]
   call fastcc void @conv_free_tag(ptr noundef %1, i16 noundef zeroext %33)
   br label %conv_free_tag.exit
 
@@ -1343,7 +1343,7 @@ conv_get_version.exit:                            ; preds = %4, %16
   br label %266
 
 266:                                              ; preds = %259, %246
-  %.5 = phi i32 [ %265, %259 ], [ %257, %246 ]
+  %.6 = phi i32 [ %265, %259 ], [ %257, %246 ]
   call fastcc void @conv_set_tag(ptr noundef nonnull %1, i16 noundef zeroext %33, i32 noundef 114, i32 noundef %229, ptr noundef %.11146)
   br label %conv_free_tag.exit
 
@@ -2025,14 +2025,14 @@ conv_get_fid.exit:                                ; preds = %686, %691, %699
   br label %conv_free_tag.exit
 
 conv_free_tag.exit:                               ; preds = %744, %736, %728, %720, %752, %717, %716, %conv_get_fid.exit, %681, %669, %651, %636, %623, %608, %605, %586, %571, %568, %556, %551, %546, %499, %483, %464, %445, %414, %407, %370, %337, %334, %318, %308, %299, %285, %266, %220, %213, %._crit_edge.thread, %202, %141, %103, %102, %71, %66
-  %.6 = phi i32 [ 7, %752 ], [ 24, %717 ], [ 24, %716 ], [ 11, %conv_get_fid.exit ], [ 11, %681 ], [ %680, %669 ], [ %668, %651 ], [ %650, %636 ], [ %635, %623 ], [ %622, %608 ], [ 8, %605 ], [ %604, %586 ], [ %585, %571 ], [ 15, %568 ], [ %567, %556 ], [ %555, %551 ], [ %550, %546 ], [ %519, %499 ], [ %498, %483 ], [ 67, %464 ], [ 67, %445 ], [ 160, %414 ], [ 19, %407 ], [ %406, %370 ], [ %369, %337 ], [ 11, %334 ], [ %333, %318 ], [ %317, %308 ], [ 23, %299 ], [ %298, %285 ], [ %.5, %266 ], [ 12, %220 ], [ 15, %213 ], [ %.4.lcssa1196, %._crit_edge.thread ], [ %.21149.lcssa1193, %202 ], [ %.11148, %141 ], [ 7, %103 ], [ %.01147, %102 ], [ %82, %71 ], [ %70, %66 ], [ 20, %720 ], [ 20, %728 ], [ 7, %736 ], [ 7, %744 ]
+  %.01147 = phi i32 [ 7, %752 ], [ 24, %717 ], [ 24, %716 ], [ 11, %conv_get_fid.exit ], [ 11, %681 ], [ %680, %669 ], [ %668, %651 ], [ %650, %636 ], [ %635, %623 ], [ %622, %608 ], [ 8, %605 ], [ %604, %586 ], [ %585, %571 ], [ 15, %568 ], [ %567, %556 ], [ %555, %551 ], [ %550, %546 ], [ %519, %499 ], [ %498, %483 ], [ 67, %464 ], [ 67, %445 ], [ 160, %414 ], [ 19, %407 ], [ %406, %370 ], [ %369, %337 ], [ 11, %334 ], [ %333, %318 ], [ %317, %308 ], [ 23, %299 ], [ %298, %285 ], [ %.6, %266 ], [ 12, %220 ], [ 15, %213 ], [ %.5.lcssa1196, %._crit_edge.thread ], [ %.3.lcssa1193, %202 ], [ %.21149, %141 ], [ 7, %103 ], [ %.11148, %102 ], [ %82, %71 ], [ %70, %66 ], [ 20, %720 ], [ 20, %728 ], [ 7, %736 ], [ 7, %744 ]
   %754 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  %.not1175 = icmp eq i32 %.6, %754
+  %.not1175 = icmp eq i32 %.01147, %754
   br i1 %.not1175, label %758, label %755
 
 755:                                              ; preds = %conv_free_tag.exit
   %756 = load i32, ptr @hf_9P_unknown_message, align 4
-  %757 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %756, ptr noundef %0, i32 noundef %.6, i32 noundef -1, i32 noundef 0) #6
+  %757 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %756, ptr noundef %0, i32 noundef %.01147, i32 noundef -1, i32 noundef 0) #6
   br label %758
 
 758:                                              ; preds = %755, %conv_free_tag.exit

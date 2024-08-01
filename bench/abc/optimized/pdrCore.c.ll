@@ -1947,16 +1947,16 @@ Pdr_ManSortByPriority.exit:                       ; preds = %._crit_edge.i231, %
 
 201:                                              ; preds = %.lr.ph334, %Hash_IntExists.exit
   %202 = phi ptr [ %163, %.lr.ph334 ], [ %361, %Hash_IntExists.exit ]
-  %.2333 = phi ptr [ %.0164, %.lr.ph334 ], [ %.3, %Hash_IntExists.exit ]
+  %.3333 = phi ptr [ %.0164, %.lr.ph334 ], [ %.4, %Hash_IntExists.exit ]
   %.0167332 = phi i32 [ 0, %.lr.ph334 ], [ %360, %Hash_IntExists.exit ]
-  %.0171331 = phi ptr [ %162, %.lr.ph334 ], [ %.2173, %Hash_IntExists.exit ]
+  %.0171331 = phi ptr [ %162, %.lr.ph334 ], [ %.1172, %Hash_IntExists.exit ]
   %203 = sext i32 %.0167332 to i64
   %204 = getelementptr inbounds i32, ptr %.0171331, i64 %203
   %205 = load i32, ptr %204, align 4
   br i1 %.not192, label %Hash_IntExists.exit.thread, label %206
 
 206:                                              ; preds = %201
-  %207 = getelementptr inbounds i8, ptr %.2333, i64 20
+  %207 = getelementptr inbounds i8, ptr %.3333, i64 20
   %208 = sext i32 %205 to i64
   %209 = getelementptr inbounds [0 x i32], ptr %207, i64 0, i64 %208
   %210 = load i32, ptr %209, align 4
@@ -1983,12 +1983,12 @@ Pdr_ManSortByPriority.exit:                       ; preds = %._crit_edge.i231, %
   br i1 %220, label %Hash_IntExists.exit, label %217
 
 Hash_IntExists.exit.thread:                       ; preds = %217, %206, %201
-  %221 = call i32 @Pdr_SetIsInit(ptr noundef %.2333, i32 noundef %205) #18
+  %221 = call i32 @Pdr_SetIsInit(ptr noundef %.3333, i32 noundef %205) #18
   %.not194 = icmp eq i32 %221, 0
   br i1 %.not194, label %222, label %Hash_IntExists.exit
 
 222:                                              ; preds = %Hash_IntExists.exit.thread
-  %223 = getelementptr inbounds i8, ptr %.2333, i64 20
+  %223 = getelementptr inbounds i8, ptr %.3333, i64 20
   %224 = sext i32 %205 to i64
   %225 = getelementptr inbounds [0 x i32], ptr %223, i64 0, i64 %224
   %226 = load i32, ptr %225, align 4
@@ -2006,11 +2006,11 @@ Hash_IntExists.exit.thread:                       ; preds = %217, %206, %201
   br i1 %.not195, label %237, label %235
 
 235:                                              ; preds = %222
-  %236 = call i32 @Pdr_ManCheckCube(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %.2333, ptr noundef null, i32 noundef %231, i32 noundef 1, i32 noundef %234) #18
+  %236 = call i32 @Pdr_ManCheckCube(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %.3333, ptr noundef null, i32 noundef %231, i32 noundef 1, i32 noundef %234) #18
   br label %239
 
 237:                                              ; preds = %222
-  %238 = call i32 @Pdr_ManCheckCube(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %.2333, ptr noundef nonnull %9, i32 noundef %231, i32 noundef 1, i32 noundef %234) #18
+  %238 = call i32 @Pdr_ManCheckCube(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %.3333, ptr noundef nonnull %9, i32 noundef %231, i32 noundef 1, i32 noundef %234) #18
   br label %239
 
 239:                                              ; preds = %237, %235
@@ -2019,7 +2019,7 @@ Hash_IntExists.exit.thread:                       ; preds = %217, %206, %201
   br i1 %240, label %241, label %242
 
 241:                                              ; preds = %239
-  call void @Pdr_SetDeref(ptr noundef nonnull %.2333) #18
+  call void @Pdr_SetDeref(ptr noundef nonnull %.3333) #18
   br label %478
 
 242:                                              ; preds = %239
@@ -2035,10 +2035,10 @@ Hash_IntExists.exit.thread:                       ; preds = %217, %206, %201
   br i1 %.not199, label %248, label %Hash_IntExists.exit
 
 248:                                              ; preds = %244
-  %249 = call ptr @Pdr_SetCreateFrom(ptr noundef nonnull %.2333, i32 noundef %205) #18
+  %249 = call ptr @Pdr_SetCreateFrom(ptr noundef nonnull %.3333, i32 noundef %205) #18
   store ptr %249, ptr %10, align 8
   %250 = load ptr, ptr %9, align 8
-  %251 = call i32 @ZPdr_ManDown(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %10, ptr noundef %250, ptr noundef %139, ptr noundef nonnull %.2333, ptr noundef nonnull %11)
+  %251 = call i32 @ZPdr_ManDown(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %10, ptr noundef %250, ptr noundef %139, ptr noundef nonnull %.3333, ptr noundef nonnull %11)
   %252 = load ptr, ptr %0, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 88
   %254 = load i32, ptr %253, align 8
@@ -2125,14 +2125,14 @@ Hash_IntExists.exit.thread:                       ; preds = %217, %206, %201
   br i1 %exitcond58.not.i260, label %Pdr_ManSortByPriority.exit261, label %.lr.ph42.preheader.i248, !llvm.loop !17
 
 Pdr_ManSortByPriority.exit261:                    ; preds = %._crit_edge.i258, %.preheader.i243, %255, %248
-  %.1172 = phi ptr [ %.0171331, %248 ], [ %258, %255 ], [ %258, %.preheader.i243 ], [ %258, %._crit_edge.i258 ]
+  %.2173 = phi ptr [ %.0171331, %248 ], [ %258, %255 ], [ %258, %.preheader.i243 ], [ %258, %._crit_edge.i258 ]
   switch i32 %251, label %300 [
     i32 -1, label %291
     i32 0, label %294
   ]
 
 291:                                              ; preds = %Pdr_ManSortByPriority.exit261
-  call void @Pdr_SetDeref(ptr noundef %.2333) #18
+  call void @Pdr_SetDeref(ptr noundef %.3333) #18
   %292 = load ptr, ptr %10, align 8
   call void @Pdr_SetDeref(ptr noundef %292) #18
   %293 = load ptr, ptr %9, align 8
@@ -2158,15 +2158,15 @@ Pdr_ManSortByPriority.exit261:                    ; preds = %._crit_edge.i258, %
 
 300:                                              ; preds = %Pdr_ManSortByPriority.exit261
   store i32 0, ptr %11, align 4
-  call void @Pdr_SetDeref(ptr noundef %.2333) #18
+  call void @Pdr_SetDeref(ptr noundef %.3333) #18
   %301 = load ptr, ptr %10, align 8
   %302 = call ptr @Pdr_ManSortByPriority(ptr noundef nonnull %0, ptr noundef %301)
   br label %Hash_IntExists.exit
 
 303:                                              ; preds = %242
   store i32 0, ptr %11, align 4
-  %304 = call ptr @Pdr_SetCreateFrom(ptr noundef nonnull %.2333, i32 noundef %205) #18
-  call void @Pdr_SetDeref(ptr noundef nonnull %.2333) #18
+  %304 = call ptr @Pdr_SetCreateFrom(ptr noundef nonnull %.3333, i32 noundef %205) #18
+  call void @Pdr_SetDeref(ptr noundef nonnull %.3333) #18
   %305 = load ptr, ptr %0, align 8
   %306 = getelementptr inbounds i8, ptr %305, i64 76
   %307 = load i32, ptr %306, align 4
@@ -2280,11 +2280,11 @@ Pdr_ManSortByPriority.exit289:                    ; preds = %._crit_edge.i286, %
   br label %Hash_IntExists.exit
 
 Hash_IntExists.exit:                              ; preds = %.lr.ph.i232, %297, %299, %244, %Hash_IntExists.exit.thread, %Pdr_ManSortByPriority.exit289, %300
-  %.2173 = phi ptr [ %.0171331, %Hash_IntExists.exit.thread ], [ %.0171331, %244 ], [ %.1172, %299 ], [ %.1172, %297 ], [ %302, %300 ], [ %324, %Pdr_ManSortByPriority.exit289 ], [ %.0171331, %.lr.ph.i232 ]
+  %.1172 = phi ptr [ %.0171331, %Hash_IntExists.exit.thread ], [ %.0171331, %244 ], [ %.2173, %299 ], [ %.2173, %297 ], [ %302, %300 ], [ %324, %Pdr_ManSortByPriority.exit289 ], [ %.0171331, %.lr.ph.i232 ]
   %.1168 = phi i32 [ %.0167332, %Hash_IntExists.exit.thread ], [ %.0167332, %244 ], [ %.0167332, %299 ], [ %.0167332, %297 ], [ -1, %300 ], [ %359, %Pdr_ManSortByPriority.exit289 ], [ %.0167332, %.lr.ph.i232 ]
-  %.3 = phi ptr [ %.2333, %Hash_IntExists.exit.thread ], [ %.2333, %244 ], [ %.2333, %299 ], [ %.2333, %297 ], [ %301, %300 ], [ %304, %Pdr_ManSortByPriority.exit289 ], [ %.2333, %.lr.ph.i232 ]
+  %.4 = phi ptr [ %.3333, %Hash_IntExists.exit.thread ], [ %.3333, %244 ], [ %.3333, %299 ], [ %.3333, %297 ], [ %301, %300 ], [ %304, %Pdr_ManSortByPriority.exit289 ], [ %.3333, %.lr.ph.i232 ]
   %360 = add nsw i32 %.1168, 1
-  %361 = getelementptr inbounds i8, ptr %.3, i64 16
+  %361 = getelementptr inbounds i8, ptr %.4, i64 16
   %362 = load i32, ptr %361, align 8
   %363 = icmp slt i32 %360, %362
   br i1 %363, label %201, label %._crit_edge335.loopexit, !llvm.loop !31
@@ -2295,8 +2295,8 @@ Hash_IntExists.exit:                              ; preds = %.lr.ph.i232, %297, 
 
 ._crit_edge335:                                   ; preds = %sat_solver_compress.exit, %._crit_edge335.loopexit, %Pdr_ManSortByPriority.exit
   %365 = phi i1 [ false, %Pdr_ManSortByPriority.exit ], [ %364, %._crit_edge335.loopexit ], [ false, %sat_solver_compress.exit ]
-  %.0171.lcssa = phi ptr [ %162, %Pdr_ManSortByPriority.exit ], [ %.2173, %._crit_edge335.loopexit ], [ %162, %sat_solver_compress.exit ]
-  %.2.lcssa = phi ptr [ %.0164, %Pdr_ManSortByPriority.exit ], [ %.3, %._crit_edge335.loopexit ], [ %.0164, %sat_solver_compress.exit ]
+  %.0171.lcssa = phi ptr [ %162, %Pdr_ManSortByPriority.exit ], [ %.1172, %._crit_edge335.loopexit ], [ %162, %sat_solver_compress.exit ]
+  %.3.lcssa = phi ptr [ %.0164, %Pdr_ManSortByPriority.exit ], [ %.4, %._crit_edge335.loopexit ], [ %.0164, %sat_solver_compress.exit ]
   %366 = load ptr, ptr %0, align 8
   %367 = getelementptr inbounds i8, ptr %366, i64 36
   %368 = load i32, ptr %367, align 4
@@ -2305,18 +2305,18 @@ Hash_IntExists.exit:                              ; preds = %.lr.ph.i232, %297, 
   br i1 %brmerge.not, label %.lr.ph340, label %.loopexit
 
 .lr.ph340:                                        ; preds = %._crit_edge335, %426
-  %.4339 = phi ptr [ %.5, %426 ], [ %.2.lcssa, %._crit_edge335 ]
+  %.5339 = phi ptr [ %.6, %426 ], [ %.3.lcssa, %._crit_edge335 ]
   %.2169338 = phi i32 [ %427, %426 ], [ 0, %._crit_edge335 ]
   %.3174337 = phi ptr [ %.4175, %426 ], [ %.0171.lcssa, %._crit_edge335 ]
   %369 = sext i32 %.2169338 to i64
   %370 = getelementptr inbounds i32, ptr %.3174337, i64 %369
   %371 = load i32, ptr %370, align 4
-  %372 = call i32 @Pdr_SetIsInit(ptr noundef nonnull %.4339, i32 noundef %371) #18
+  %372 = call i32 @Pdr_SetIsInit(ptr noundef nonnull %.5339, i32 noundef %371) #18
   %.not191 = icmp eq i32 %372, 0
   br i1 %.not191, label %373, label %426
 
 373:                                              ; preds = %.lr.ph340
-  %374 = getelementptr inbounds i8, ptr %.4339, i64 20
+  %374 = getelementptr inbounds i8, ptr %.5339, i64 20
   %375 = sext i32 %371 to i64
   %376 = getelementptr inbounds [0 x i32], ptr %374, i64 0, i64 %375
   %377 = load i32, ptr %376, align 4
@@ -2324,12 +2324,12 @@ Hash_IntExists.exit:                              ; preds = %.lr.ph.i232, %297, 
   %378 = load ptr, ptr %0, align 8
   %379 = getelementptr inbounds i8, ptr %378, i64 8
   %380 = load i32, ptr %379, align 8
-  %381 = call i32 @Pdr_ManCheckCube(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %.4339, ptr noundef null, i32 noundef %380, i32 noundef 0, i32 noundef 1) #18
+  %381 = call i32 @Pdr_ManCheckCube(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %.5339, ptr noundef null, i32 noundef %380, i32 noundef 0, i32 noundef 1) #18
   %382 = icmp eq i32 %381, -1
   br i1 %382, label %383, label %384
 
 383:                                              ; preds = %373
-  call void @Pdr_SetDeref(ptr noundef nonnull %.4339) #18
+  call void @Pdr_SetDeref(ptr noundef nonnull %.5339) #18
   br label %478
 
 384:                                              ; preds = %373
@@ -2338,8 +2338,8 @@ Hash_IntExists.exit:                              ; preds = %.lr.ph.i232, %297, 
   br i1 %385, label %426, label %386
 
 386:                                              ; preds = %384
-  %387 = call ptr @Pdr_SetCreateFrom(ptr noundef nonnull %.4339, i32 noundef %371) #18
-  call void @Pdr_SetDeref(ptr noundef nonnull %.4339) #18
+  %387 = call ptr @Pdr_SetCreateFrom(ptr noundef nonnull %.5339, i32 noundef %371) #18
+  call void @Pdr_SetDeref(ptr noundef nonnull %.5339) #18
   %388 = load ptr, ptr %158, align 8
   %389 = getelementptr i8, ptr %388, i64 8
   %.val.i290 = load ptr, ptr %389, align 8
@@ -2427,9 +2427,9 @@ Pdr_ManSortByPriority.exit315:                    ; preds = %._crit_edge.i312, %
 426:                                              ; preds = %384, %.lr.ph340, %Pdr_ManSortByPriority.exit315
   %.4175 = phi ptr [ %.3174337, %.lr.ph340 ], [ %.3174337, %384 ], [ %390, %Pdr_ManSortByPriority.exit315 ]
   %.3170 = phi i32 [ %.2169338, %.lr.ph340 ], [ %.2169338, %384 ], [ %425, %Pdr_ManSortByPriority.exit315 ]
-  %.5 = phi ptr [ %.4339, %.lr.ph340 ], [ %.4339, %384 ], [ %387, %Pdr_ManSortByPriority.exit315 ]
+  %.6 = phi ptr [ %.5339, %.lr.ph340 ], [ %.5339, %384 ], [ %387, %Pdr_ManSortByPriority.exit315 ]
   %427 = add nsw i32 %.3170, 1
-  %428 = getelementptr inbounds i8, ptr %.5, i64 16
+  %428 = getelementptr inbounds i8, ptr %.6, i64 16
   %429 = load i32, ptr %428, align 8
   %430 = icmp slt i32 %427, %429
   br i1 %430, label %.lr.ph340, label %.loopexit.loopexit, !llvm.loop !32
@@ -2440,7 +2440,7 @@ Pdr_ManSortByPriority.exit315:                    ; preds = %._crit_edge.i312, %
 
 .loopexit:                                        ; preds = %._crit_edge335, %.loopexit.loopexit, %138
   %431 = phi ptr [ %90, %138 ], [ %366, %._crit_edge335 ], [ %.pre356, %.loopexit.loopexit ]
-  %.6 = phi ptr [ %.0164, %138 ], [ %.2.lcssa, %._crit_edge335 ], [ %.5, %.loopexit.loopexit ]
+  %.2 = phi ptr [ %.0164, %138 ], [ %.3.lcssa, %._crit_edge335 ], [ %.6, %.loopexit.loopexit ]
   %432 = getelementptr inbounds i8, ptr %431, i64 104
   %433 = load i32, ptr %432, align 8
   %.not202 = icmp eq i32 %433, 0
@@ -2448,13 +2448,13 @@ Pdr_ManSortByPriority.exit315:                    ; preds = %._crit_edge.i312, %
 
 434:                                              ; preds = %.loopexit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  %435 = getelementptr inbounds i8, ptr %.6, i64 16
+  %435 = getelementptr inbounds i8, ptr %.2, i64 16
   %436 = load i32, ptr %435, align 8
   %437 = icmp sgt i32 %436, 0
   br i1 %437, label %.lr.ph344, label %._crit_edge345
 
 .lr.ph344:                                        ; preds = %434
-  %438 = getelementptr inbounds i8, ptr %.6, i64 20
+  %438 = getelementptr inbounds i8, ptr %.2, i64 20
   br label %439
 
 439:                                              ; preds = %.lr.ph344, %439
@@ -2473,7 +2473,7 @@ Pdr_ManSortByPriority.exit315:                    ; preds = %._crit_edge.i312, %
   br label %446
 
 446:                                              ; preds = %._crit_edge345, %.loopexit
-  store ptr %.6, ptr %4, align 8
+  store ptr %.2, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %447 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #18
   %448 = icmp slt i32 %447, 0
@@ -3386,14 +3386,14 @@ Abc_Clock.exit541:                                ; preds = %.critedge, %106
   br label %.outer
 
 .outer:                                           ; preds = %1013, %Abc_Clock.exit541
-  %.0383.ph = phi i64 [ %.4, %1013 ], [ 0, %Abc_Clock.exit541 ]
+  %.0383.ph = phi i64 [ %.2385, %1013 ], [ 0, %Abc_Clock.exit541 ]
   %.1.ph = phi i32 [ %836, %1013 ], [ 0, %Abc_Clock.exit541 ]
   %150 = call noundef i32 @llvm.smax.i32(i32 %.1.ph, i32 1)
   %151 = icmp eq i32 %.1.ph, 1
   br label %152
 
 152:                                              ; preds = %.outer, %831
-  %.0383 = phi i64 [ %.4, %831 ], [ %.0383.ph, %.outer ]
+  %.0383 = phi i64 [ %.2385, %831 ], [ %.0383.ph, %.outer ]
   %153 = load ptr, ptr %0, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 92
   %155 = load i32, ptr %154, align 4
@@ -3818,7 +3818,7 @@ Abc_Clock.exit556:                                ; preds = %Abc_Clock.exit554, 
   br label %365
 
 365:                                              ; preds = %Abc_Clock.exit556, %341
-  %.2385 = phi i64 [ %.0.i553, %Abc_Clock.exit556 ], [ %.1384718, %341 ]
+  %.4 = phi i64 [ %.0.i553, %Abc_Clock.exit556 ], [ %.1384718, %341 ]
   br label %366
 
 366:                                              ; preds = %.backedge, %365
@@ -4588,7 +4588,7 @@ Abc_Clock.exit584:                                ; preds = %724, %727
 Abc_Clock.exit586:                                ; preds = %735, %738
   %.0.i585 = phi i64 [ %743, %738 ], [ -1, %735 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %744 = sub nsw i64 %.0.i585, %.2385
+  %744 = sub nsw i64 %.0.i585, %.4
   %745 = load ptr, ptr %123, align 8
   %746 = load i32, ptr %118, align 8
   %747 = sext i32 %746 to i64
@@ -4654,7 +4654,7 @@ Abc_Clock.exit586:                                ; preds = %735, %738
   br label %784
 
 784:                                              ; preds = %.critedge493, %783, %209, %205, %199, %Abc_Clock.exit552
-  %.3386 = phi i64 [ %.1384718, %199 ], [ %.1384718, %205 ], [ %.1384718, %209 ], [ %.1384718, %Abc_Clock.exit552 ], [ %.2385, %783 ], [ %.2385, %.critedge493 ]
+  %.3386 = phi i64 [ %.1384718, %199 ], [ %.1384718, %205 ], [ %.1384718, %209 ], [ %.1384718, %Abc_Clock.exit552 ], [ %.4, %783 ], [ %.4, %.critedge493 ]
   %785 = load i32, ptr %118, align 8
   %786 = add nsw i32 %785, 1
   store i32 %786, ptr %118, align 8
@@ -4666,7 +4666,7 @@ Abc_Clock.exit586:                                ; preds = %735, %738
 
 .critedge3:                                       ; preds = %784, %187, %635
   %790 = phi i1 [ true, %635 ], [ false, %187 ], [ false, %784 ]
-  %.4 = phi i64 [ %.2385, %635 ], [ %.0383, %187 ], [ %.3386, %784 ]
+  %.2385 = phi i64 [ %.4, %635 ], [ %.0383, %187 ], [ %.3386, %784 ]
   %.not452 = xor i1 %790, true
   %791 = load ptr, ptr %0, align 8
   %792 = getelementptr inbounds i8, ptr %791, i64 92

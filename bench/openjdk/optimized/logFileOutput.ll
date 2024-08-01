@@ -804,7 +804,7 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
 71:                                               ; preds = %88, %.lr.ph.i
   %.031.i = phi i1 [ false, %.lr.ph.i ], [ true, %88 ]
   %.02630.i = phi i32 [ 0, %.lr.ph.i ], [ %89, %88 ]
-  %.02729.i = phi i32 [ 0, %.lr.ph.i ], [ %.128.i, %88 ]
+  %.02729.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %88 ]
   %72 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef %68, i64 noundef %67, ptr noundef nonnull @.str.20, ptr noundef %58, i32 noundef %62, i32 noundef %.02630.i) #13
   %73 = call noundef zeroext i1 @_ZN2os11file_existsEPKc(ptr noundef %68) #13
   br i1 %73, label %74, label %80
@@ -841,18 +841,18 @@ define hidden noundef zeroext i1 @_ZN13LogFileOutput10initializeEPKcP12outputStr
   br label %88
 
 88:                                               ; preds = %86, %83
-  %.128.i = phi i32 [ %.02630.i, %86 ], [ %.02729.i, %83 ]
+  %.2.i = phi i32 [ %.02630.i, %86 ], [ %.02729.i, %83 ]
   %89 = add nuw i32 %.02630.i, 1
   %exitcond.not.i = icmp eq i32 %89, %63
   br i1 %exitcond.not.i, label %_ZL16next_file_numberPKcjjP12outputStream.exit, label %71, !llvm.loop !8
 
 _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
-  %.2.i = phi i32 [ -1, %79 ], [ 0, %60 ], [ %.02630.i, %80 ], [ %.128.i, %88 ]
+  %.128.i = phi i32 [ -1, %79 ], [ 0, %60 ], [ %.02630.i, %80 ], [ %.2.i, %88 ]
   call void @_Z8FreeHeapPv(ptr noundef %69) #13
   call void @_Z8FreeHeapPv(ptr noundef %68) #13
   %90 = getelementptr inbounds i8, ptr %0, i64 288
-  store i32 %.2.i, ptr %90, align 8
-  %91 = icmp eq i32 %.2.i, -1
+  store i32 %.128.i, ptr %90, align 8
+  %91 = icmp eq i32 %.128.i, -1
   br i1 %91, label %129, label %92
 
 92:                                               ; preds = %_ZL16next_file_numberPKcjjP12outputStream.exit
@@ -863,7 +863,7 @@ _ZL16next_file_numberPKcjjP12outputStream.exit:   ; preds = %80, %88, %60, %79
 94:                                               ; preds = %92
   %95 = load ptr, ptr %10, align 8
   %96 = load i32, ptr %61, align 8
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.17, ptr noundef %95, i32 noundef %96, i32 noundef %.2.i)
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.17, ptr noundef %95, i32 noundef %96, i32 noundef %.128.i)
   br label %97
 
 97:                                               ; preds = %92, %94

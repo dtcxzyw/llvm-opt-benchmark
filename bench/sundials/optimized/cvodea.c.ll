@@ -547,8 +547,8 @@ define internal noundef i32 @CVAhermiteGetY(ptr nocapture noundef readonly %0, d
   br i1 %44, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %43, %50
-  %.0116 = phi i64 [ %51, %50 ], [ %33, %43 ]
-  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %.0116
+  %.1117 = phi i64 [ %51, %50 ], [ %33, %43 ]
+  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %.1117
   %45 = load ptr, ptr %gep.i, align 8
   %46 = load double, ptr %45, align 8
   %47 = fsub double %1, %46
@@ -557,12 +557,12 @@ define internal noundef i32 @CVAhermiteGetY(ptr nocapture noundef readonly %0, d
   br i1 %49, label %.thread131, label %50
 
 50:                                               ; preds = %.lr.ph.i
-  %51 = add nsw i64 %.0116, -1
+  %51 = add nsw i64 %.1117, -1
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %.loopexit, label %.lr.ph.i
 
 .thread131:                                       ; preds = %.lr.ph.i
-  %..i = tail call i64 @llvm.umax.i64(i64 %.0116, i64 1)
+  %..i = tail call i64 @llvm.umax.i64(i64 %.1117, i64 1)
   store i64 %..i, ptr %35, align 8
   br label %92
 
@@ -647,7 +647,7 @@ define internal noundef i32 @CVAhermiteGetY(ptr nocapture noundef readonly %0, d
 
 92:                                               ; preds = %.thread131, %75
   %.2.ph135 = phi i32 [ 1, %.thread131 ], [ %.2.ph, %75 ]
-  %.3.ph134 = phi i64 [ %.0116, %.thread131 ], [ %.3.ph, %75 ]
+  %.3.ph134 = phi i64 [ %.1117, %.thread131 ], [ %.3.ph, %75 ]
   %93 = getelementptr ptr, ptr %11, i64 %.3.ph134
   %94 = getelementptr i8, ptr %93, i64 -8
   %95 = load ptr, ptr %94, align 8
@@ -1214,8 +1214,8 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr nocapture noundef 
   br i1 %41, label %.loopexit213, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %47
-  %.0182 = phi i64 [ %48, %47 ], [ %30, %40 ]
-  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %.0182
+  %.1183 = phi i64 [ %48, %47 ], [ %30, %40 ]
+  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %.1183
   %42 = load ptr, ptr %gep.i, align 8
   %43 = load double, ptr %42, align 8
   %44 = fsub double %1, %43
@@ -1224,12 +1224,12 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr nocapture noundef 
   br i1 %46, label %.thread197, label %47
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = add nsw i64 %.0182, -1
+  %48 = add nsw i64 %.1183, -1
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %.loopexit213, label %.lr.ph.i
 
 .thread197:                                       ; preds = %.lr.ph.i
-  %..i = tail call i64 @llvm.umax.i64(i64 %.0182, i64 1)
+  %..i = tail call i64 @llvm.umax.i64(i64 %.1183, i64 1)
   store i64 %..i, ptr %32, align 8
   br label %89
 
@@ -1314,7 +1314,7 @@ define internal range(i32 -107, 1) i32 @CVApolynomialGetY(ptr nocapture noundef 
 
 89:                                               ; preds = %.thread197, %72
   %.2181.ph201 = phi i32 [ 1, %.thread197 ], [ %.2181.ph, %72 ]
-  %.3.ph200 = phi i64 [ %.0182, %.thread197 ], [ %.3.ph, %72 ]
+  %.3.ph200 = phi i64 [ %.1183, %.thread197 ], [ %.3.ph, %72 ]
   %90 = getelementptr inbounds ptr, ptr %8, i64 %.3.ph200
   %91 = load ptr, ptr %90, align 8
   %92 = load double, ptr %91, align 8
@@ -4930,7 +4930,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br label %185
 
 185:                                              ; preds = %173, %.thread
-  %.3 = phi i32 [ %180, %173 ], [ 0, %.thread ]
+  %.5 = phi i32 [ %180, %173 ], [ 0, %.thread ]
   %186 = getelementptr inbounds i8, ptr %.2137212, i64 120
   %187 = load ptr, ptr %186, align 8
   %.not155 = icmp eq ptr %187, null
@@ -4965,7 +4965,7 @@ define i32 @CVodeB(ptr noundef %0, double noundef %1, i32 noundef %2) local_unna
   br label %.split222
 
 .critedge163:                                     ; preds = %._crit_edge215, %156, %194, %154, %151, %152, %149, %.thread164, %94, %74, %70, %53, %47, %24, %18, %11, %6
-  %.0128 = phi i32 [ -21, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ %180, %.thread164 ], [ -22, %94 ], [ -22, %70 ], [ 0, %154 ], [ %150, %149 ], [ 0, %151 ], [ %153, %152 ], [ %.3, %194 ], [ %.3, %._crit_edge215 ], [ %157, %156 ]
+  %.0128 = phi i32 [ -21, %6 ], [ -101, %11 ], [ -103, %18 ], [ -102, %24 ], [ -104, %47 ], [ -22, %53 ], [ -22, %74 ], [ %180, %.thread164 ], [ -22, %94 ], [ -22, %70 ], [ 0, %154 ], [ %150, %149 ], [ 0, %151 ], [ %153, %152 ], [ %.5, %194 ], [ %.5, %._crit_edge215 ], [ %157, %156 ]
   ret i32 %.0128
 }
 

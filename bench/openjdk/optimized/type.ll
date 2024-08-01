@@ -1298,20 +1298,20 @@ _ZN5TypeD4makeEd.exit:                            ; preds = %215, %217
   br label %249
 
 249:                                              ; preds = %236, %247
-  %.013 = phi ptr [ %248, %247 ], [ %237, %236 ]
+  %.1 = phi ptr [ %248, %247 ], [ %237, %236 ]
   %250 = icmp sgt i32 %3, 0
   br i1 %250, label %251, label %253
 
 251:                                              ; preds = %249
-  %252 = tail call noundef ptr @_ZNK10TypeAryPtr14cast_to_stableEbi(ptr noundef nonnull align 8 dereferenceable(89) %.013, i1 noundef zeroext true, i32 noundef %3)
+  %252 = tail call noundef ptr @_ZNK10TypeAryPtr14cast_to_stableEbi(ptr noundef nonnull align 8 dereferenceable(89) %.1, i1 noundef zeroext true, i32 noundef %3)
   br label %253
 
 253:                                              ; preds = %249, %251, %229
-  %.1 = phi ptr [ %230, %229 ], [ %252, %251 ], [ %.013, %249 ]
+  %.013 = phi ptr [ %230, %229 ], [ %252, %251 ], [ %.1, %249 ]
   br i1 %4, label %254, label %_ZNK4Type14make_narrowoopEv.exit
 
 254:                                              ; preds = %253
-  %255 = getelementptr inbounds i8, ptr %.1, i64 16
+  %255 = getelementptr inbounds i8, ptr %.013, i64 16
   %256 = load i32, ptr %255, align 8
   %257 = icmp eq i32 %256, 6
   br i1 %257, label %_ZNK4Type14make_narrowoopEv.exit, label %258
@@ -1360,7 +1360,7 @@ _ZN13TypeNarrowOop4makeEPK7TypePtr.exit.i:        ; preds = %279, %277
   %283 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 16
   store i32 6, ptr %283, align 8
   %284 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 24
-  store ptr %.1, ptr %284, align 8
+  store ptr %.013, ptr %284, align 8
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV13TypeNarrowOop, i64 16), ptr %.0.i.i.i.i.i, align 8
   br label %_ZNK4Type14make_narrowoopEv.exit.sink.split
 
@@ -1370,7 +1370,7 @@ _ZNK4Type14make_narrowoopEv.exit.sink.split:      ; preds = %_ZN7TypeInt4makeEi.
   br label %_ZNK4Type14make_narrowoopEv.exit
 
 _ZNK4Type14make_narrowoopEv.exit:                 ; preds = %_ZNK4Type14make_narrowoopEv.exit.sink.split, %258, %254, %6, %253
-  %.0 = phi ptr [ %.1, %253 ], [ null, %6 ], [ null, %258 ], [ %.1, %254 ], [ %285, %_ZNK4Type14make_narrowoopEv.exit.sink.split ]
+  %.0 = phi ptr [ %.013, %253 ], [ null, %6 ], [ null, %258 ], [ %.013, %254 ], [ %285, %_ZNK4Type14make_narrowoopEv.exit.sink.split ]
   ret ptr %.0
 }
 
@@ -1604,16 +1604,16 @@ define hidden noundef ptr @_ZN10TypeOopPtr18make_from_constantEP8ciObjectb(ptr n
   %19 = getelementptr inbounds i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i.i59 = icmp eq ptr %20, null
-  br i1 %.not.i.i59, label %_ZNK10ciMetadata9is_loadedEv.exit.i63, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i60
+  br i1 %.not.i.i59, label %_ZNK10ciMetadata9is_loadedEv.exit.i64, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i60
 
-_ZNK10ciMetadata9is_loadedEv.exit.i63:            ; preds = %16
+_ZNK10ciMetadata9is_loadedEv.exit.i64:            ; preds = %16
   %21 = load ptr, ptr %18, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef zeroext i1 %23(ptr noundef nonnull align 8 dereferenceable(24) %18) #17
   br i1 %24, label %_ZNK10ciMetadata9is_loadedEv.exit.thread.i60, label %29
 
-_ZNK10ciMetadata9is_loadedEv.exit.thread.i60:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i63, %16
+_ZNK10ciMetadata9is_loadedEv.exit.thread.i60:     ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.i64, %16
   %25 = load ptr, ptr %18, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 184
   %27 = load ptr, ptr %26, align 8
@@ -1621,8 +1621,8 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i60:     ; preds = %_ZNK10ciMetadata9is
   %not. = xor i1 %28, true
   br label %29
 
-29:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i60, %_ZNK10ciMetadata9is_loadedEv.exit.i63
-  %.1.i = phi i1 [ true, %_ZNK10ciMetadata9is_loadedEv.exit.i63 ], [ %not., %_ZNK10ciMetadata9is_loadedEv.exit.thread.i60 ]
+29:                                               ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread.i60, %_ZNK10ciMetadata9is_loadedEv.exit.i64
+  %.0.i61 = phi i1 [ true, %_ZNK10ciMetadata9is_loadedEv.exit.i64 ], [ %not., %_ZNK10ciMetadata9is_loadedEv.exit.thread.i60 ]
   %30 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 1808
@@ -1640,8 +1640,8 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i60:     ; preds = %_ZNK10ciMetadata9is
   %43 = ptrtoint ptr %40 to i64
   %44 = ptrtoint ptr %42 to i64
   %45 = sub i64 %43, %44
-  %.not.i.i.i.i61 = icmp ult i64 %45, 80
-  br i1 %.not.i.i.i.i61, label %48, label %46
+  %.not.i.i.i.i62 = icmp ult i64 %45, 80
+  br i1 %.not.i.i.i.i62, label %48, label %46
 
 46:                                               ; preds = %29
   %47 = getelementptr inbounds i8, ptr %42, i64 80
@@ -1653,12 +1653,12 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i60:     ; preds = %_ZNK10ciMetadata9is
   br label %_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i.exit
 
 _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i.exit: ; preds = %46, %48
-  %.0.i.i.i.i62 = phi ptr [ %42, %46 ], [ %49, %48 ]
-  %50 = icmp ne ptr %.0.i.i.i.i62, null
+  %.0.i.i.i.i63 = phi ptr [ %42, %46 ], [ %49, %48 ]
+  %50 = icmp ne ptr %.0.i.i.i.i63, null
   tail call void @llvm.assume(i1 %50)
-  tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i62, i32 noundef 21, i32 noundef 4, ptr noundef nonnull %18, ptr noundef %17, i1 noundef zeroext %.1.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
-  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i62, align 8
-  %51 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i62)
+  tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i63, i32 noundef 21, i32 noundef 4, ptr noundef nonnull %18, ptr noundef %17, i1 noundef zeroext %.0.i61, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
+  store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i63, align 8
+  %51 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i63)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %291
 
@@ -5676,7 +5676,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i:       ; preds = %_ZNK10ciMetadata9is
   br label %1697
 
 1697:                                             ; preds = %.thread.i, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i, %_ZNK10ciMetadata9is_loadedEv.exit.i
-  %.1.i = phi i8 [ %1691, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i ], [ 0, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ %spec.select16.i, %.thread.i ]
+  %.0.i = phi i8 [ %1691, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i ], [ 0, %_ZNK10ciMetadata9is_loadedEv.exit.i ], [ %spec.select16.i, %.thread.i ]
   %1698 = load ptr, ptr %15, align 8
   %1699 = getelementptr inbounds i8, ptr %1698, i64 1808
   %1700 = load ptr, ptr %1699, align 8
@@ -5709,7 +5709,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   %.0.i.i.i.i320 = phi ptr [ %1709, %1713 ], [ %1716, %1715 ]
   %1717 = icmp ne ptr %.0.i.i.i.i320, null
   tail call void @llvm.assume(i1 %1717)
-  %1718 = trunc i8 %.1.i to i1
+  %1718 = trunc i8 %.0.i to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i320, i32 noundef 21, i32 noundef 4, ptr noundef nonnull %1682, ptr noundef %1681, i1 noundef zeroext %1718, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i320, align 8
   %1719 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i320)
@@ -5749,7 +5749,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i322:    ; preds = %_ZNK10ciMetadata9is
   br label %1737
 
 1737:                                             ; preds = %.thread.i329, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i322, %_ZNK10ciMetadata9is_loadedEv.exit.i331
-  %.1.i326 = phi i8 [ %1731, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i322 ], [ 0, %_ZNK10ciMetadata9is_loadedEv.exit.i331 ], [ %spec.select16.i330, %.thread.i329 ]
+  %.0.i326 = phi i8 [ %1731, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i322 ], [ 0, %_ZNK10ciMetadata9is_loadedEv.exit.i331 ], [ %spec.select16.i330, %.thread.i329 ]
   %1738 = load ptr, ptr %15, align 8
   %1739 = getelementptr inbounds i8, ptr %1738, i64 1808
   %1740 = load ptr, ptr %1739, align 8
@@ -5782,7 +5782,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   %.0.i.i.i.i328 = phi ptr [ %1749, %1753 ], [ %1756, %1755 ]
   %1757 = icmp ne ptr %.0.i.i.i.i328, null
   tail call void @llvm.assume(i1 %1757)
-  %1758 = trunc i8 %.1.i326 to i1
+  %1758 = trunc i8 %.0.i326 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i328, i32 noundef 21, i32 noundef 5, ptr noundef nonnull %1722, ptr noundef %1721, i1 noundef zeroext %1758, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i328, align 8
   %1759 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i328)
@@ -5822,7 +5822,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i334:    ; preds = %_ZNK10ciMetadata9is
   br label %1777
 
 1777:                                             ; preds = %.thread.i341, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i334, %_ZNK10ciMetadata9is_loadedEv.exit.i343
-  %.1.i338 = phi i8 [ %1771, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i334 ], [ 0, %_ZNK10ciMetadata9is_loadedEv.exit.i343 ], [ %spec.select16.i342, %.thread.i341 ]
+  %.0.i338 = phi i8 [ %1771, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i334 ], [ 0, %_ZNK10ciMetadata9is_loadedEv.exit.i343 ], [ %spec.select16.i342, %.thread.i341 ]
   %1778 = load ptr, ptr %15, align 8
   %1779 = getelementptr inbounds i8, ptr %1778, i64 1808
   %1780 = load ptr, ptr %1779, align 8
@@ -5855,7 +5855,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   %.0.i.i.i.i340 = phi ptr [ %1789, %1793 ], [ %1796, %1795 ]
   %1797 = icmp ne ptr %.0.i.i.i.i340, null
   tail call void @llvm.assume(i1 %1797)
-  %1798 = trunc i8 %.1.i338 to i1
+  %1798 = trunc i8 %.0.i338 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i340, i32 noundef 21, i32 noundef 4, ptr noundef nonnull %1762, ptr noundef %1761, i1 noundef zeroext %1798, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i340, align 8
   %1799 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i340)
@@ -5895,7 +5895,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i346:    ; preds = %_ZNK10ciMetadata9is
   br label %1817
 
 1817:                                             ; preds = %.thread.i353, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i346, %_ZNK10ciMetadata9is_loadedEv.exit.i355
-  %.1.i350 = phi i8 [ %1811, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i346 ], [ 0, %_ZNK10ciMetadata9is_loadedEv.exit.i355 ], [ %spec.select16.i354, %.thread.i353 ]
+  %.0.i350 = phi i8 [ %1811, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i346 ], [ 0, %_ZNK10ciMetadata9is_loadedEv.exit.i355 ], [ %spec.select16.i354, %.thread.i353 ]
   %1818 = load ptr, ptr %15, align 8
   %1819 = getelementptr inbounds i8, ptr %1818, i64 1808
   %1820 = load ptr, ptr %1819, align 8
@@ -5928,7 +5928,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   %.0.i.i.i.i352 = phi ptr [ %1829, %1833 ], [ %1836, %1835 ]
   %1837 = icmp ne ptr %.0.i.i.i.i352, null
   tail call void @llvm.assume(i1 %1837)
-  %1838 = trunc i8 %.1.i350 to i1
+  %1838 = trunc i8 %.0.i350 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i352, i32 noundef 21, i32 noundef 5, ptr noundef nonnull %1802, ptr noundef %1801, i1 noundef zeroext %1838, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i352, align 8
   %1839 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i352)
@@ -5968,7 +5968,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread.i358:    ; preds = %_ZNK10ciMetadata9is
   br label %1857
 
 1857:                                             ; preds = %.thread.i365, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i358, %_ZNK10ciMetadata9is_loadedEv.exit.i367
-  %.1.i362 = phi i8 [ %1851, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i358 ], [ 0, %_ZNK10ciMetadata9is_loadedEv.exit.i367 ], [ %spec.select16.i366, %.thread.i365 ]
+  %.0.i362 = phi i8 [ %1851, %_ZNK10ciMetadata9is_loadedEv.exit.thread.i358 ], [ 0, %_ZNK10ciMetadata9is_loadedEv.exit.i367 ], [ %spec.select16.i366, %.thread.i365 ]
   %1858 = load ptr, ptr %15, align 8
   %1859 = getelementptr inbounds i8, ptr %1858, i64 1808
   %1860 = load ptr, ptr %1859, align 8
@@ -6001,7 +6001,7 @@ _ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0
   %.0.i.i.i.i364 = phi ptr [ %1869, %1873 ], [ %1876, %1875 ]
   %1877 = icmp ne ptr %.0.i.i.i.i364, null
   tail call void @llvm.assume(i1 %1877)
-  %1878 = trunc i8 %.1.i362 to i1
+  %1878 = trunc i8 %.0.i362 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i.i364, i32 noundef 21, i32 noundef 5, ptr noundef nonnull %1842, ptr noundef %1841, i1 noundef zeroext %1878, ptr noundef null, i32 noundef 8, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i.i364, align 8
   %1879 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i364)
@@ -7212,7 +7212,7 @@ define hidden noundef ptr @_ZN7TypeInt4makeEiii(i32 noundef %0, i32 noundef %1, 
   br label %_ZL19normalize_int_wideniii.exit
 
 _ZL19normalize_int_wideniii.exit:                 ; preds = %4, %8
-  %.2.i = phi i32 [ %spec.select16.i, %4 ], [ %spec.select17.i, %8 ]
+  %.1.i = phi i32 [ %spec.select16.i, %4 ], [ %spec.select17.i, %8 ]
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 1808
@@ -7251,7 +7251,7 @@ _ZN4TypenwEm.exit:                                ; preds = %28, %30
   %34 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
   store i32 3, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 20
-  %36 = trunc i32 %.2.i to i16
+  %36 = trunc i32 %.1.i to i16
   store i16 %36, ptr %35, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i, align 8
   %37 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
@@ -7283,7 +7283,7 @@ define hidden noundef ptr @_ZN8TypeLong4makeElli(i64 noundef %0, i64 noundef %1,
   br label %_ZL20normalize_long_widenlli.exit
 
 _ZL20normalize_long_widenlli.exit:                ; preds = %4, %8
-  %.2.i = phi i32 [ %spec.select16.i, %4 ], [ %spec.select17.i, %8 ]
+  %.1.i = phi i32 [ %spec.select16.i, %4 ], [ %spec.select17.i, %8 ]
   %12 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 1808
@@ -7322,7 +7322,7 @@ _ZN4TypenwEm.exit:                                ; preds = %28, %30
   %34 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
   store i32 4, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 20
-  %36 = trunc i32 %.2.i to i16
+  %36 = trunc i32 %.1.i to i16
   store i16 %36, ptr %35, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i, align 8
   %37 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
@@ -8038,7 +8038,7 @@ _ZL19normalize_int_wideniii.exit.i.i:             ; preds = %_ZNK4Type14make_nar
   %42 = sub i32 %41, %39
   %43 = icmp eq i32 %42, -1
   %44 = select i1 %43, i16 3, i16 0
-  %.2.i.i.i = select i1 %.not.i.i.i, i16 0, i16 %44
+  %.1.i.i.i = select i1 %.not.i.i.i, i16 0, i16 %44
   %45 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 1808
@@ -8077,7 +8077,7 @@ _ZN7TypeInt4makeEiii.exit.i:                      ; preds = %63, %61
   %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i6, i64 16
   store i32 3, ptr %67, align 8
   %68 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i6, i64 20
-  store i16 %.2.i.i.i, ptr %68, align 4
+  store i16 %.1.i.i.i, ptr %68, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i.i6, align 8
   %69 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i6, i64 24
   store i32 %39, ptr %69, align 8
@@ -8948,7 +8948,7 @@ define hidden noundef ptr @_ZN11TypeInteger4makeElli9BasicType(i64 noundef %0, i
   br label %_ZL19normalize_int_wideniii.exit.i
 
 _ZL19normalize_int_wideniii.exit.i:               ; preds = %13, %9
-  %.2.i.i = phi i32 [ %spec.select16.i.i, %9 ], [ %spec.select17.i.i, %13 ]
+  %.1.i.i = phi i32 [ %spec.select16.i.i, %9 ], [ %spec.select17.i.i, %13 ]
   %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 1808
@@ -8987,7 +8987,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %33, %35
   %39 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
   store i32 3, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 20
-  %41 = trunc i32 %.2.i.i to i16
+  %41 = trunc i32 %.1.i.i to i16
   store i16 %41, ptr %40, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
   %42 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 24
@@ -9016,7 +9016,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %33, %35
   br label %_ZL20normalize_long_widenlli.exit.i
 
 _ZL20normalize_long_widenlli.exit.i:              ; preds = %49, %45
-  %.2.i.i10 = phi i32 [ %spec.select16.i.i9, %45 ], [ %spec.select17.i.i13, %49 ]
+  %.1.i.i10 = phi i32 [ %spec.select16.i.i9, %45 ], [ %spec.select17.i.i13, %49 ]
   %53 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 1808
@@ -9055,7 +9055,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %69, %71
   %75 = getelementptr inbounds i8, ptr %.0.i.i.i.i12, i64 16
   store i32 4, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %.0.i.i.i.i12, i64 20
-  %77 = trunc i32 %.2.i.i10 to i16
+  %77 = trunc i32 %.1.i.i10 to i16
   store i16 %77, ptr %76, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i12, align 8
   %78 = getelementptr inbounds i8, ptr %.0.i.i.i.i12, i64 24
@@ -9220,7 +9220,7 @@ define hidden noundef ptr @_ZNK7TypeInt5xmeetEPK4Type(ptr noundef nonnull readon
   br label %_ZL19normalize_int_wideniii.exit.i
 
 _ZL19normalize_int_wideniii.exit.i:               ; preds = %31, %27
-  %.2.i.i = phi i16 [ %spec.select16.i.i, %27 ], [ %spec.select17.i.i, %31 ]
+  %.1.i.i = phi i16 [ %spec.select16.i.i, %27 ], [ %spec.select17.i.i, %31 ]
   %35 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 1808
@@ -9259,7 +9259,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %51, %53
   %57 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
   store i32 3, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 20
-  store i16 %.2.i.i, ptr %58, align 4
+  store i16 %.1.i.i, ptr %58, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
   %59 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 24
   store i32 %16, ptr %59, align 8
@@ -9301,7 +9301,7 @@ define hidden noundef ptr @_ZNK7TypeInt5xdualEv(ptr nocapture noundef nonnull re
   br label %_ZL19normalize_int_wideniii.exit
 
 _ZL19normalize_int_wideniii.exit:                 ; preds = %9, %13
-  %.2.i = phi i16 [ %spec.select16.i, %9 ], [ %spec.select17.i, %13 ]
+  %.1.i = phi i16 [ %spec.select16.i, %9 ], [ %spec.select17.i, %13 ]
   %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 1808
@@ -9344,7 +9344,7 @@ _ZN4TypenwEm.exit:                                ; preds = %33, %35
   %43 = load <2 x i32>, ptr %4, align 8
   store ptr null, ptr %39, align 8
   store i32 3, ptr %40, align 8
-  store i16 %.2.i, ptr %41, align 4
+  store i16 %.1.i, ptr %41, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i, align 8
   %44 = shufflevector <2 x i32> %43, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %44, ptr %42, align 8
@@ -9469,7 +9469,7 @@ define hidden noundef ptr @_ZNK7TypeInt5widenEPK4TypeS2_(ptr noundef nonnull rea
   br label %_ZL19normalize_int_wideniii.exit.i
 
 _ZL19normalize_int_wideniii.exit.i:               ; preds = %62, %58
-  %.2.i.i = phi i16 [ %spec.select16.i.i, %58 ], [ %spec.select17.i.i, %62 ]
+  %.1.i.i = phi i16 [ %spec.select16.i.i, %58 ], [ %spec.select17.i.i, %62 ]
   %66 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 1808
@@ -9508,7 +9508,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %82, %84
   %88 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
   store i32 3, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 20
-  store i16 %.2.i.i, ptr %89, align 4
+  store i16 %.1.i.i, ptr %89, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
   %90 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 24
   store i32 %8, ptr %90, align 8
@@ -9654,7 +9654,7 @@ define hidden noundef ptr @_ZNK7TypeInt13filter_helperEPK4Typeb(ptr nocapture no
   br label %_ZL19normalize_int_wideniii.exit.i
 
 _ZL19normalize_int_wideniii.exit.i:               ; preds = %38, %34
-  %.2.i.i = phi i16 [ %spec.select16.i.i, %34 ], [ %spec.select17.i.i, %38 ]
+  %.1.i.i = phi i16 [ %spec.select16.i.i, %34 ], [ %spec.select17.i.i, %38 ]
   %42 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 1808
@@ -9693,7 +9693,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %58, %60
   %64 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
   store i32 3, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 20
-  store i16 %.2.i.i, ptr %65, align 4
+  store i16 %.1.i.i, ptr %65, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
   %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 24
   store i32 %31, ptr %66, align 8
@@ -9871,7 +9871,7 @@ define hidden noundef ptr @_ZNK8TypeLong5xmeetEPK4Type(ptr noundef nonnull reado
   br label %_ZL20normalize_long_widenlli.exit.i
 
 _ZL20normalize_long_widenlli.exit.i:              ; preds = %31, %27
-  %.2.i.i = phi i16 [ %spec.select16.i.i, %27 ], [ %spec.select17.i.i, %31 ]
+  %.1.i.i = phi i16 [ %spec.select16.i.i, %27 ], [ %spec.select17.i.i, %31 ]
   %35 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 1808
@@ -9910,7 +9910,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %51, %53
   %57 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
   store i32 4, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 20
-  store i16 %.2.i.i, ptr %58, align 4
+  store i16 %.1.i.i, ptr %58, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i, align 8
   %59 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 24
   store i64 %16, ptr %59, align 8
@@ -9952,7 +9952,7 @@ define hidden noundef ptr @_ZNK8TypeLong5xdualEv(ptr nocapture noundef nonnull r
   br label %_ZL20normalize_long_widenlli.exit
 
 _ZL20normalize_long_widenlli.exit:                ; preds = %9, %13
-  %.2.i = phi i16 [ %spec.select16.i, %9 ], [ %spec.select17.i, %13 ]
+  %.1.i = phi i16 [ %spec.select16.i, %9 ], [ %spec.select17.i, %13 ]
   %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 1808
@@ -9995,7 +9995,7 @@ _ZN4TypenwEm.exit:                                ; preds = %33, %35
   %43 = load <2 x i64>, ptr %4, align 8
   store ptr null, ptr %39, align 8
   store i32 4, ptr %40, align 8
-  store i16 %.2.i, ptr %41, align 4
+  store i16 %.1.i, ptr %41, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i, align 8
   %44 = shufflevector <2 x i64> %43, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i64> %44, ptr %42, align 8
@@ -10130,7 +10130,7 @@ define hidden noundef ptr @_ZNK8TypeLong5widenEPK4TypeS2_(ptr noundef nonnull re
   br label %_ZL20normalize_long_widenlli.exit.i
 
 _ZL20normalize_long_widenlli.exit.i:              ; preds = %67, %63
-  %.2.i.i = phi i16 [ %spec.select16.i.i, %63 ], [ %spec.select17.i.i, %67 ]
+  %.1.i.i = phi i16 [ %spec.select16.i.i, %63 ], [ %spec.select17.i.i, %67 ]
   %71 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 1808
@@ -10169,7 +10169,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %87, %89
   %93 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
   store i32 4, ptr %93, align 8
   %94 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 20
-  store i16 %.2.i.i, ptr %94, align 4
+  store i16 %.1.i.i, ptr %94, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i, align 8
   %95 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 24
   store i64 %8, ptr %95, align 8
@@ -10315,7 +10315,7 @@ define hidden noundef ptr @_ZNK8TypeLong13filter_helperEPK4Typeb(ptr nocapture n
   br label %_ZL20normalize_long_widenlli.exit.i
 
 _ZL20normalize_long_widenlli.exit.i:              ; preds = %38, %34
-  %.2.i.i = phi i16 [ %spec.select16.i.i, %34 ], [ %spec.select17.i.i, %38 ]
+  %.1.i.i = phi i16 [ %spec.select16.i.i, %34 ], [ %spec.select17.i.i, %38 ]
   %42 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 1808
@@ -10354,7 +10354,7 @@ _ZN8TypeLong4makeElli.exit:                       ; preds = %58, %60
   %64 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
   store i32 4, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 20
-  store i16 %.2.i.i, ptr %65, align 4
+  store i16 %.1.i.i, ptr %65, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV8TypeLong, i64 16), ptr %.0.i.i.i.i, align 8
   %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 24
   store i64 %31, ptr %66, align 8
@@ -11297,7 +11297,7 @@ _ZL19normalize_int_wideniii.exit.i.i:             ; preds = %1
   %12 = sub i32 %11, %9
   %13 = icmp eq i32 %12, -1
   %14 = select i1 %13, i16 3, i16 0
-  %.2.i.i.i = select i1 %.not.i.i.i, i16 0, i16 %14
+  %.1.i.i.i = select i1 %.not.i.i.i, i16 0, i16 %14
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 1808
@@ -11336,7 +11336,7 @@ _ZN7TypeInt4makeEiii.exit.i:                      ; preds = %33, %31
   %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 16
   store i32 3, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 20
-  store i16 %.2.i.i.i, ptr %38, align 4
+  store i16 %.1.i.i.i, ptr %38, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i.i, align 8
   %39 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 24
   store i32 %9, ptr %39, align 8
@@ -16425,9 +16425,9 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %10, %_ZNK10ciMetada
 
 38:                                               ; preds = %32, %34, %_ZNK10ciMetadata9is_loadedEv.exit.thread
   %.037 = phi ptr [ %0, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %33, %34 ], [ %0, %32 ]
-  %.036.in = phi i1 [ %29, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %37, %34 ], [ %29, %32 ]
-  %.036.in.not = xor i1 %.036.in, true
-  %39 = and i1 %.036.in.not, %2
+  %.1.in = phi i1 [ %29, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %37, %34 ], [ %29, %32 ]
+  %.1.in.not = xor i1 %.1.in, true
+  %39 = and i1 %.1.in.not, %2
   %or.cond43 = and i1 %30, %39
   br i1 %or.cond43, label %40, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
 
@@ -16460,10 +16460,10 @@ _ZN15ciInstanceKlass12has_subklassEv.exit.thread49: ; preds = %49, %_ZN15ciInsta
   br label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
 
 _ZN15ciInstanceKlass12has_subklassEv.exit.thread: ; preds = %45, %38, %40, %_ZN15ciInstanceKlass12has_subklassEv.exit, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread49, %_ZNK10ciMetadata9is_loadedEv.exit
-  %.1.shrunk = phi i1 [ %.036.in, %38 ], [ %.036.in, %40 ], [ %.036.in, %_ZN15ciInstanceKlass12has_subklassEv.exit ], [ true, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread49 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %.036.in, %45 ]
+  %.036.shrunk = phi i1 [ %.1.in, %38 ], [ %.1.in, %40 ], [ %.1.in, %_ZN15ciInstanceKlass12has_subklassEv.exit ], [ true, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread49 ], [ false, %_ZNK10ciMetadata9is_loadedEv.exit ], [ %.1.in, %45 ]
   %53 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %5, i1 zeroext poison, i1 zeroext poison, i1 zeroext poison, i32 noundef %3)
   %54 = load ptr, ptr %5, align 8
-  %55 = tail call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 5, ptr noundef %54, ptr noundef %53, i1 noundef zeroext %.1.shrunk, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
+  %55 = tail call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 5, ptr noundef %54, ptr noundef %53, i1 noundef zeroext %.036.shrunk, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 2147483647)
   br label %113
 
 56:                                               ; preds = %4
@@ -16825,16 +16825,16 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %12, %_ZNK10ciMetada
   br i1 %22, label %.thread, label %27
 
 .thread:                                          ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread, %19
-  %.018 = phi i8 [ %spec.select, %19 ], [ 1, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
+  %.118 = phi i8 [ %spec.select, %19 ], [ 1, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
   %23 = load ptr, ptr %1, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 184
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(144) %1) #17
-  %spec.select16 = select i1 %26, i8 0, i8 %.018
+  %spec.select16 = select i1 %26, i8 0, i8 %.118
   br label %27
 
 27:                                               ; preds = %.thread, %9, %_ZNK10ciMetadata9is_loadedEv.exit, %19
-  %.1 = phi i8 [ %spec.select, %19 ], [ %10, %_ZNK10ciMetadata9is_loadedEv.exit ], [ 1, %9 ], [ %spec.select16, %.thread ]
+  %.0 = phi i8 [ %spec.select, %19 ], [ %10, %_ZNK10ciMetadata9is_loadedEv.exit ], [ 1, %9 ], [ %spec.select16, %.thread ]
   %28 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 1808
@@ -16868,7 +16868,7 @@ _ZN4TypenwEm.exit:                                ; preds = %44, %46
   %.0.i.i.i = phi ptr [ %40, %44 ], [ %47, %46 ]
   %48 = icmp ne ptr %.0.i.i.i, null
   tail call void @llvm.assume(i1 %48)
-  %49 = trunc nuw i8 %.1 to i1
+  %49 = trunc nuw i8 %.0 to i1
   tail call void @_ZN10TypeOopPtrC2EN4Type5TYPESEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS2_i(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i, i32 noundef 21, i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %49, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8)
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV11TypeInstPtr, i64 16), ptr %.0.i.i.i, align 8
   %50 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i)
@@ -21246,12 +21246,12 @@ _ZNK4Type24array_element_basic_typeEv.exit:       ; preds = %2, %17, %20, %23, %
 
 38:                                               ; preds = %34, %_ZNK4Type24array_element_basic_typeEv.exit
   %.022 = phi i32 [ 0, %34 ], [ %6, %_ZNK4Type24array_element_basic_typeEv.exit ]
-  %.121 = phi i32 [ %spec.select, %34 ], [ %4, %_ZNK4Type24array_element_basic_typeEv.exit ]
-  %39 = icmp sgt i32 %.121, %32
+  %.020 = phi i32 [ %spec.select, %34 ], [ %4, %_ZNK4Type24array_element_basic_typeEv.exit ]
+  %39 = icmp sgt i32 %.020, %32
   br i1 %39, label %.thread, label %40
 
 40:                                               ; preds = %38
-  %41 = icmp sgt i32 %.022, %.121
+  %41 = icmp sgt i32 %.022, %.020
   br i1 %41, label %46, label %48
 
 .thread:                                          ; preds = %38
@@ -21270,9 +21270,9 @@ _ZNK4Type24array_element_basic_typeEv.exit:       ; preds = %2, %17, %20, %23, %
   br i1 %33, label %_ZL19normalize_int_wideniii.exit.i, label %79
 
 _ZL19normalize_int_wideniii.exit.i:               ; preds = %.thread, %48
-  %.2243139 = phi i32 [ %.022, %48 ], [ %spec.select27, %.thread ]
-  %.23238 = phi i32 [ %.121, %48 ], [ %32, %.thread ]
-  %49 = sub i32 %.23238, %.2243139
+  %.1233139 = phi i32 [ %.022, %48 ], [ %spec.select27, %.thread ]
+  %.23238 = phi i32 [ %.020, %48 ], [ %32, %.thread ]
+  %49 = sub i32 %.23238, %.1233139
   %50 = icmp eq i32 %49, -1
   %51 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %52 = load ptr, ptr %51, align 8
@@ -21316,7 +21316,7 @@ _ZN7TypeInt4makeEiii.exit:                        ; preds = %67, %69
   store i16 %75, ptr %74, align 4
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTV7TypeInt, i64 16), ptr %.0.i.i.i.i, align 8
   %76 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 24
-  store i32 %.2243139, ptr %76, align 8
+  store i32 %.1233139, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 28
   store i32 %.23238, ptr %77, align 4
   %78 = tail call noundef ptr @_ZN4Type8hashconsEv(ptr noundef nonnull align 8 dereferenceable(20) %.0.i.i.i.i)

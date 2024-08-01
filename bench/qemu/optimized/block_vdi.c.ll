@@ -331,19 +331,19 @@ if.end120:                                        ; preds = %if.end113
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 fail_free_bmap:                                   ; preds = %if.end113, %if.end103
-  %ret.0 = phi i32 [ %call109, %if.end103 ], [ %call116, %if.end113 ]
+  %ret.1 = phi i32 [ %call109, %if.end103 ], [ %call116, %if.end113 ]
   %41 = load ptr, ptr %0, align 8
   call void @qemu_vfree(ptr noundef %41) #13
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.then7, %if.then22, %if.then25, %if.then32, %if.then37, %if.then41, %if.then45, %if.then53, %if.then62, %if.then66, %if.then71, %fail_free_bmap, %if.end, %if.end82, %if.end120
-  %retval.0 = phi i32 [ 0, %if.end120 ], [ %call2, %if.end ], [ -95, %if.then7 ], [ -22, %if.then22 ], [ -95, %if.then25 ], [ -95, %if.then32 ], [ -95, %if.then37 ], [ -95, %if.then41 ], [ -95, %if.then45 ], [ -95, %if.then53 ], [ -95, %if.then71 ], [ %ret.0, %fail_free_bmap ], [ -95, %if.then66 ], [ -95, %if.then62 ], [ -12, %if.end82 ]
+  %retval.1 = phi i32 [ 0, %if.end120 ], [ %call2, %if.end ], [ -95, %if.then7 ], [ -22, %if.then22 ], [ -95, %if.then25 ], [ -95, %if.then32 ], [ -95, %if.then37 ], [ -95, %if.then41 ], [ -95, %if.then45 ], [ -95, %if.then53 ], [ -95, %if.then71 ], [ %ret.1, %fail_free_bmap ], [ -95, %if.then66 ], [ -95, %if.then62 ], [ -12, %if.end82 ]
   call void @bdrv_graph_rdunlock_main_loop() #13
   br label %return
 
 return:                                           ; preds = %entry, %glib_autoptr_cleanup_GraphLockableMainloop.exit
-  %retval.1 = phi i32 [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1241,7 +1241,7 @@ if.then57:                                        ; preds = %for.end
 
 if.end60:                                         ; preds = %for.end, %if.end34
   %offset.0 = phi i64 [ 512, %if.end34 ], [ %add22, %for.end ]
-  %bmap.0 = phi ptr [ null, %if.end34 ], [ %call39, %for.end ]
+  %bmap.1 = phi ptr [ null, %if.end34 ], [ %call39, %for.end ]
   br i1 %cmp26, label %if.then63, label %exit
 
 if.then63:                                        ; preds = %if.end60
@@ -1259,10 +1259,10 @@ exit:                                             ; preds = %if.end60, %if.then6
   %ret.0 = phi i32 [ -95, %if.then6 ], [ -95, %if.then9 ], [ %call30, %if.then33 ], [ -12, %if.then42 ], [ %call54, %if.then57 ], [ %call67, %if.then70 ], [ -5, %if.end10 ], [ -1, %if.end13 ], [ 0, %if.then63 ], [ 0, %if.end60 ]
   %bs_file.0 = phi ptr [ null, %if.then6 ], [ null, %if.then9 ], [ %call, %if.then33 ], [ %call, %if.then42 ], [ %call, %if.then57 ], [ %call, %if.then70 ], [ null, %if.end10 ], [ %call, %if.end13 ], [ %call, %if.then63 ], [ %call, %if.end60 ]
   %blk.0 = phi ptr [ null, %if.then6 ], [ null, %if.then9 ], [ %call14, %if.then33 ], [ %call14, %if.then42 ], [ %call14, %if.then57 ], [ %call14, %if.then70 ], [ null, %if.end10 ], [ null, %if.end13 ], [ %call14, %if.then63 ], [ %call14, %if.end60 ]
-  %bmap.1 = phi ptr [ null, %if.then6 ], [ null, %if.then9 ], [ null, %if.then33 ], [ null, %if.then42 ], [ %call39, %if.then57 ], [ %bmap.0, %if.then70 ], [ null, %if.end10 ], [ null, %if.end13 ], [ %bmap.0, %if.then63 ], [ %bmap.0, %if.end60 ]
+  %bmap.0 = phi ptr [ null, %if.then6 ], [ null, %if.then9 ], [ null, %if.then33 ], [ null, %if.then42 ], [ %call39, %if.then57 ], [ %bmap.1, %if.then70 ], [ null, %if.end10 ], [ null, %if.end13 ], [ %bmap.1, %if.then63 ], [ %bmap.1, %if.end60 ]
   call void @blk_co_unref(ptr noundef %blk.0) #13
   call void @bdrv_co_unref(ptr noundef %bs_file.0) #13
-  call void @g_free(ptr noundef %bmap.1) #13
+  call void @g_free(ptr noundef %bmap.0) #13
   br label %return
 
 return:                                           ; preds = %exit, %sw.default

@@ -992,7 +992,7 @@ dissect_nhrp_mand.exit:                           ; preds = %264, %265, %266, %2
   br label %318
 
 318:                                              ; preds = %dissect_nhrp_mand.exit, %183
-  %.1 = phi i32 [ %172, %183 ], [ %317, %dissect_nhrp_mand.exit ]
+  %.043 = phi i32 [ %172, %183 ], [ %317, %dissect_nhrp_mand.exit ]
   %.0 = phi i32 [ 0, %183 ], [ %190, %dissect_nhrp_mand.exit ]
   %.not23 = icmp eq i32 %.044, 0
   br i1 %.not23, label %450, label %319
@@ -1003,8 +1003,8 @@ dissect_nhrp_mand.exit:                           ; preds = %264, %265, %266, %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %320 = add i32 %.1, %.044
-  %321 = add i32 %.1, 4
+  %320 = add i32 %.043, %.044
+  %321 = add i32 %.043, 4
   %.not171.i = icmp sgt i32 %321, %320
   br i1 %.not171.i, label %dissect_nhrp_ext.exit, label %.lr.ph.i
 
@@ -1014,8 +1014,8 @@ dissect_nhrp_mand.exit:                           ; preds = %264, %265, %266, %2
 
 323:                                              ; preds = %448, %.lr.ph.i
   %324 = phi i32 [ %321, %.lr.ph.i ], [ %449, %448 ]
-  %.0173.i = phi i32 [ %.0, %.lr.ph.i ], [ %.3.i29, %448 ]
-  %.0156172.i = phi i32 [ %.1, %.lr.ph.i ], [ %.1157.i, %448 ]
+  %.0173.i = phi i32 [ %.0, %.lr.ph.i ], [ %.1.i29, %448 ]
+  %.0156172.i = phi i32 [ %.043, %.lr.ph.i ], [ %.1157.i, %448 ]
   %325 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0156172.i) #4
   %326 = and i16 %325, 16383
   %327 = add i32 %.0156172.i, 2
@@ -1104,8 +1104,8 @@ dissect_nhrp_mand.exit:                           ; preds = %264, %265, %266, %2
   br label %378
 
 378:                                              ; preds = %376, %373
-  %.1.i32 = phi i32 [ %.0173.i, %373 ], [ %spec.select.i, %376 ]
-  %379 = add nuw nsw i32 %.1.i32, 4
+  %.3.i32 = phi i32 [ %.0173.i, %373 ], [ %spec.select.i, %376 ]
+  %379 = add nuw nsw i32 %.3.i32, 4
   %380 = icmp ugt i32 %379, %329
   br i1 %380, label %381, label %383
 
@@ -1124,7 +1124,7 @@ dissect_nhrp_mand.exit:                           ; preds = %264, %265, %266, %2
   %391 = load ptr, ptr %7, align 8
   %392 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %391, ptr noundef nonnull @.str.226, i32 noundef %392) #4
-  switch i32 %.1.i32, label %393 [
+  switch i32 %.3.i32, label %393 [
     i32 4, label %.sink.split.i
     i32 0, label %397
   ]
@@ -1136,7 +1136,7 @@ dissect_nhrp_mand.exit:                           ; preds = %264, %265, %266, %2
   %hf_nhrp_auth_ext_src_addr_bytes.sink.i = phi ptr [ @hf_nhrp_auth_ext_src_addr_bytes, %393 ], [ @hf_nhrp_auth_ext_src_addr, %383 ]
   %394 = load i32, ptr %hf_nhrp_auth_ext_src_addr_bytes.sink.i, align 4
   %395 = add i32 %.0156172.i, 8
-  %396 = call ptr @proto_tree_add_item(ptr noundef %385, i32 noundef %394, ptr noundef %0, i32 noundef %395, i32 noundef %.1.i32, i32 noundef 0) #4
+  %396 = call ptr @proto_tree_add_item(ptr noundef %385, i32 noundef %394, ptr noundef %0, i32 noundef %395, i32 noundef %.3.i32, i32 noundef 0) #4
   br label %397
 
 397:                                              ; preds = %.sink.split.i, %383
@@ -1146,7 +1146,7 @@ dissect_nhrp_mand.exit:                           ; preds = %264, %265, %266, %2
 399:                                              ; preds = %397
   %400 = load i32, ptr @hf_nhrp_auth_data, align 4
   %401 = add i32 %.0156172.i, 8
-  %402 = add i32 %401, %.1.i32
+  %402 = add i32 %401, %.3.i32
   %403 = sub nuw nsw i32 %329, %379
   %404 = call ptr @proto_tree_add_item(ptr noundef %385, i32 noundef %400, ptr noundef %0, i32 noundef %402, i32 noundef %403, i32 noundef 0) #4
   %405 = load ptr, ptr %7, align 8
@@ -1213,13 +1213,13 @@ dissect_nhrp_mand.exit:                           ; preds = %264, %265, %266, %2
   br label %438
 
 438:                                              ; preds = %435, %433, %425, %412, %408, %381, %374, %351
-  %.2.i31 = phi i32 [ %.0173.i, %351 ], [ %.0173.i, %435 ], [ %.0173.i, %412 ], [ %.0173.i, %425 ], [ %.0173.i, %433 ], [ %.1.i32, %381 ], [ %.1.i32, %408 ], [ %.0173.i, %374 ]
+  %.2.i31 = phi i32 [ %.0173.i, %351 ], [ %.0173.i, %435 ], [ %.0173.i, %412 ], [ %.0173.i, %425 ], [ %.0173.i, %433 ], [ %.3.i32, %381 ], [ %.3.i32, %408 ], [ %.0173.i, %374 ]
   %439 = add i32 %324, %329
   br label %440
 
 440:                                              ; preds = %438, %340
   %.1157.i = phi i32 [ %439, %438 ], [ %324, %340 ]
-  %.3.i29 = phi i32 [ %.2.i31, %438 ], [ %.0173.i, %340 ]
+  %.1.i29 = phi i32 [ %.2.i31, %438 ], [ %.0173.i, %340 ]
   %441 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %441, ptr noundef %0, i32 noundef %.1157.i) #4
   br i1 %.not, label %442, label %448

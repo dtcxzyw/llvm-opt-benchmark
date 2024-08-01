@@ -85,8 +85,8 @@ if.then10:                                        ; preds = %if.then5
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then5, %if.then10, %land.lhs.true, %if.then
-  %len.0 = phi i64 [ %call7, %if.then10 ], [ 0, %if.then5 ], [ 0, %land.lhs.true ], [ 0, %if.then ]
-  %forever.0 = phi i1 [ false, %if.then10 ], [ true, %if.then5 ], [ true, %land.lhs.true ], [ true, %if.then ]
+  %len.1 = phi i64 [ %call7, %if.then10 ], [ 0, %if.then5 ], [ 0, %land.lhs.true ], [ 0, %if.then ]
+  %forever.1 = phi i1 [ false, %if.then10 ], [ true, %if.then5 ], [ true, %land.lhs.true ], [ true, %if.then ]
   %7 = getelementptr inbounds i8, ptr %args_map, i64 8
   store i32 0, ptr %7, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %args_map, i64 16
@@ -176,7 +176,7 @@ invoke.cont20:                                    ; preds = %_ZNKSt4lessINSt7__c
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then13, %invoke.cont20
-  %hex.0 = phi i1 [ %cmp.i.i25, %invoke.cont20 ], [ false, %if.then13 ]
+  %hex.1 = phi i1 [ %cmp.i.i25, %invoke.cont20 ], [ false, %if.then13 ]
   %14 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %args_map, ptr noundef %14)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -231,15 +231,15 @@ ehcleanup23:                                      ; preds = %lpad17, %lpad
   resume { ptr, i32 } %.pn.pn
 
 if.end26:                                         ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  %cmp2732 = icmp ne i64 %len.0, 0
-  %21 = select i1 %forever.0, i1 true, i1 %cmp2732
+  %cmp2732 = icmp ne i64 %len.1, 0
+  %21 = select i1 %forever.1, i1 true, i1 %cmp2732
   br i1 %21, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.end26
-  br i1 %hex.0, label %while.body.lr.ph.split.us, label %while.body.lr.ph.split
+  br i1 %hex.1, label %while.body.lr.ph.split.us, label %while.body.lr.ph.split
 
 while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
-  br i1 %forever.0, label %while.body.us.us, label %while.body.us
+  br i1 %forever.1, label %while.body.us.us, label %while.body.us
 
 while.body.us.us:                                 ; preds = %while.body.lr.ph.split.us, %for.cond.for.end_crit_edge.us.us
   %call34.us.us = call i32 @RAND_bytes(ptr noundef nonnull %buf, i64 noundef 4096)
@@ -275,10 +275,10 @@ for.cond.for.end_crit_edge.us.us:                 ; preds = %for.body.us.us
 
 while.body.us:                                    ; preds = %while.body.lr.ph.split.us, %if.end63.us
   %done.033.us = phi i64 [ %add64.us, %if.end63.us ], [ 0, %while.body.lr.ph.split.us ]
-  %sub.us = sub i64 %len.0, %done.033.us
+  %sub.us = sub i64 %len.1, %done.033.us
   %spec.select.us = call i64 @llvm.umin.i64(i64 %sub.us, i64 4096)
   %call34.us = call i32 @RAND_bytes(ptr noundef nonnull %buf, i64 noundef %spec.select.us)
-  %cmp3829.us.not = icmp eq i64 %len.0, %done.033.us
+  %cmp3829.us.not = icmp eq i64 %len.1, %done.033.us
   br i1 %cmp3829.us.not, label %for.end.us, label %for.body.us.preheader
 
 for.body.us.preheader:                            ; preds = %while.body.us
@@ -294,7 +294,7 @@ for.end.us:                                       ; preds = %for.body.us, %while
 
 if.end63.us:                                      ; preds = %for.end.us
   %add64.us = add i64 %spec.select.us, %done.033.us
-  %cmp27.us = icmp ult i64 %add64.us, %len.0
+  %cmp27.us = icmp ult i64 %add64.us, %len.1
   br i1 %cmp27.us, label %while.body.us, label %land.lhs.true66, !llvm.loop !11
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.body.us
@@ -320,7 +320,7 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   br i1 %exitcond.not, label %for.end.us, label %for.body.us, !llvm.loop !10
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
-  br i1 %forever.0, label %while.body.us34.preheader, label %while.body
+  br i1 %forever.1, label %while.body.us34.preheader, label %while.body
 
 while.body.us34.preheader:                        ; preds = %entry, %while.body.lr.ph.split
   br label %while.body.us34
@@ -334,7 +334,7 @@ while.body.us34:                                  ; preds = %while.body.us34.pre
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %if.end63
   %done.033 = phi i64 [ %add64, %if.end63 ], [ 0, %while.body.lr.ph.split ]
-  %sub = sub i64 %len.0, %done.033
+  %sub = sub i64 %len.1, %done.033
   %spec.select = call i64 @llvm.umin.i64(i64 %sub, i64 4096)
   %call34 = call i32 @RAND_bytes(ptr noundef nonnull %buf, i64 noundef %spec.select)
   %39 = load ptr, ptr @stdout, align 8
@@ -344,11 +344,11 @@ while.body:                                       ; preds = %while.body.lr.ph.sp
 
 if.end63:                                         ; preds = %while.body
   %add64 = add i64 %spec.select, %done.033
-  %cmp27 = icmp ult i64 %add64, %len.0
+  %cmp27 = icmp ult i64 %add64, %len.1
   br i1 %cmp27, label %while.body, label %if.end70, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end26
-  br i1 %hex.0, label %land.lhs.true66, label %if.end70
+  br i1 %hex.1, label %land.lhs.true66, label %if.end70
 
 land.lhs.true66:                                  ; preds = %if.end63.us, %while.end
   %40 = load ptr, ptr @stdout, align 8

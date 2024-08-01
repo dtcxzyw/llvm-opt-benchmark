@@ -7919,8 +7919,8 @@ terminate.lpad.i.i136:                            ; preds = %for.cond.preheader.
   unreachable
 
 return:                                           ; preds = %for.body.i.i.i.i, %for.body20.i.i.i.i, %for.inc36.i.i.i.i, %for.body.i.i.i.i17, %for.inc36.i.i.i.i28, %for.body20.i.i.i.i25, %for.cond.preheader.i.i.i.i, %_ZN10ptr_bufferI4exprLj16EED2Ev.exit, %for.cond18.preheader.i.i.i.i23, %for.cond18.preheader.i.i.i.i, %if.end8, %if.end4, %_ZNK10model_core15get_func_interpEP9func_decl.exit, %_ZNK5model8top_sort11occur_countEP9func_decl.exit
-  %retval.1 = phi i1 [ true, %_ZNK5model8top_sort11occur_countEP9func_decl.exit ], [ false, %_ZNK10model_core15get_func_interpEP9func_decl.exit ], [ false, %if.end4 ], [ true, %if.end8 ], [ true, %for.cond18.preheader.i.i.i.i ], [ false, %for.cond18.preheader.i.i.i.i23 ], [ %cmp.i.lcssa, %_ZN10ptr_bufferI4exprLj16EED2Ev.exit ], [ %cmp.i.lcssa, %for.cond.preheader.i.i.i.i ], [ false, %for.body20.i.i.i.i25 ], [ false, %for.inc36.i.i.i.i28 ], [ false, %for.body.i.i.i.i17 ], [ true, %for.inc36.i.i.i.i ], [ true, %for.body20.i.i.i.i ], [ true, %for.body.i.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZNK5model8top_sort11occur_countEP9func_decl.exit ], [ false, %_ZNK10model_core15get_func_interpEP9func_decl.exit ], [ false, %if.end4 ], [ true, %if.end8 ], [ true, %for.cond18.preheader.i.i.i.i ], [ false, %for.cond18.preheader.i.i.i.i23 ], [ %cmp.i.lcssa, %_ZN10ptr_bufferI4exprLj16EED2Ev.exit ], [ %cmp.i.lcssa, %for.cond.preheader.i.i.i.i ], [ false, %for.body20.i.i.i.i25 ], [ false, %for.inc36.i.i.i.i28 ], [ false, %for.body.i.i.i.i17 ], [ true, %for.inc36.i.i.i.i ], [ true, %for.body20.i.i.i.i ], [ true, %for.body.i.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

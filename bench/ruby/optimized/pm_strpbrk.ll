@@ -23,7 +23,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br i1 %4, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %36
-  %.03237.us.i = phi i64 [ %.2.us.i, %36 ], [ 0, %.lr.ph.i ]
+  %.03237.us.i = phi i64 [ %.1.us.i, %36 ], [ 0, %.lr.ph.i ]
   %12 = getelementptr i8, ptr %1, i64 %.03237.us.i
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
@@ -46,8 +46,8 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br label %36
 
 .preheader.us.i:                                  ; preds = %18, %25
-  %.1.us.i = phi i64 [ %23, %25 ], [ %.03237.us.i, %18 ]
-  %23 = add nuw i64 %.1.us.i, 1
+  %.2.us.i = phi i64 [ %23, %25 ], [ %.03237.us.i, %18 ]
+  %23 = add nuw i64 %.2.us.i, 1
   %24 = icmp ult i64 %23, %3
   br i1 %24, label %25, label %.critedge.us.i
 
@@ -70,12 +70,12 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br label %36
 
 36:                                               ; preds = %34, %.critedge.us.i, %21
-  %.2.us.i = phi i64 [ %35, %34 ], [ %22, %21 ], [ %23, %.critedge.us.i ]
-  %37 = icmp ult i64 %.2.us.i, %3
+  %.1.us.i = phi i64 [ %35, %34 ], [ %22, %21 ], [ %23, %.critedge.us.i ]
+  %37 = icmp ult i64 %.1.us.i, %3
   br i1 %37, label %.lr.ph.split.us.i, label %pm_strpbrk_utf8.exit, !llvm.loop !9
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %53
-  %.03237.i = phi i64 [ %.2.i, %53 ], [ 0, %.lr.ph.i ]
+  %.03237.i = phi i64 [ %.1.i, %53 ], [ 0, %.lr.ph.i ]
   %38 = getelementptr i8, ptr %1, i64 %.03237.i
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
@@ -106,8 +106,8 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br label %53
 
 53:                                               ; preds = %51, %49, %44
-  %.2.i = phi i64 [ %45, %44 ], [ %50, %49 ], [ %52, %51 ]
-  %54 = icmp ult i64 %.2.i, %3
+  %.1.i = phi i64 [ %45, %44 ], [ %50, %49 ], [ %52, %51 ]
+  %54 = icmp ult i64 %.1.i, %3
   br i1 %54, label %.lr.ph.split.i, label %pm_strpbrk_utf8.exit, !llvm.loop !9
 
 55:                                               ; preds = %7
@@ -141,7 +141,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br i1 %4, label %.lr.ph.split.us.i31, label %.lr.ph.split.i27
 
 .lr.ph.split.us.i31:                              ; preds = %.lr.ph.i26, %98
-  %.03439.us.i = phi i64 [ %.2.us.i33, %98 ], [ 0, %.lr.ph.i26 ]
+  %.03439.us.i = phi i64 [ %.1.us.i33, %98 ], [ 0, %.lr.ph.i26 ]
   %70 = getelementptr i8, ptr %1, i64 %.03439.us.i
   %71 = load i8, ptr %70, align 1
   %72 = zext i8 %71 to i32
@@ -166,8 +166,8 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br label %98
 
 .preheader.us.i34:                                ; preds = %76, %85
-  %.1.us.i35 = phi i64 [ %83, %85 ], [ %.03439.us.i, %76 ]
-  %83 = add nuw i64 %.1.us.i35, 1
+  %.2.us.i35 = phi i64 [ %83, %85 ], [ %.03439.us.i, %76 ]
+  %83 = add nuw i64 %.2.us.i35, 1
   %84 = icmp ult i64 %83, %3
   br i1 %84, label %85, label %.critedge.us.i36
 
@@ -192,12 +192,12 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br label %98
 
 98:                                               ; preds = %96, %.critedge.us.i36, %81
-  %.2.us.i33 = phi i64 [ %97, %96 ], [ %82, %81 ], [ %83, %.critedge.us.i36 ]
-  %99 = icmp ult i64 %.2.us.i33, %3
+  %.1.us.i33 = phi i64 [ %97, %96 ], [ %82, %81 ], [ %83, %.critedge.us.i36 ]
+  %99 = icmp ult i64 %.1.us.i33, %3
   br i1 %99, label %.lr.ph.split.us.i31, label %pm_strpbrk_utf8.exit, !llvm.loop !12
 
 .lr.ph.split.i27:                                 ; preds = %.lr.ph.i26, %117
-  %.03439.i = phi i64 [ %.2.i30, %117 ], [ 0, %.lr.ph.i26 ]
+  %.03439.i = phi i64 [ %.1.i30, %117 ], [ 0, %.lr.ph.i26 ]
   %100 = getelementptr i8, ptr %1, i64 %.03439.i
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i32
@@ -230,8 +230,8 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br label %117
 
 117:                                              ; preds = %115, %113, %106
-  %.2.i30 = phi i64 [ %107, %106 ], [ %114, %113 ], [ %116, %115 ]
-  %118 = icmp ult i64 %.2.i30, %3
+  %.1.i30 = phi i64 [ %107, %106 ], [ %114, %113 ], [ %116, %115 ]
+  %118 = icmp ult i64 %.1.i30, %3
   br i1 %118, label %.lr.ph.split.i27, label %pm_strpbrk_utf8.exit, !llvm.loop !12
 
 .lr.ph.i37:                                       ; preds = %65
@@ -252,7 +252,7 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br i1 %exitcond.not.i41, label %pm_strpbrk_utf8.exit, label %.lr.ph.split.us.i38, !llvm.loop !13
 
 .lr.ph.split.i42:                                 ; preds = %.lr.ph.i37, %153
-  %.03340.i = phi i64 [ %.2.i44, %153 ], [ 0, %.lr.ph.i37 ]
+  %.03340.i = phi i64 [ %.1.i44, %153 ], [ 0, %.lr.ph.i37 ]
   %125 = getelementptr i8, ptr %1, i64 %.03340.i
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
@@ -281,8 +281,8 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br label %153
 
 .preheader.i:                                     ; preds = %133, %142
-  %.1.i = phi i64 [ %140, %142 ], [ %.03340.i, %133 ]
-  %140 = add nuw i64 %.1.i, 1
+  %.2.i = phi i64 [ %140, %142 ], [ %.03340.i, %133 ]
+  %140 = add nuw i64 %.2.i, 1
   %141 = icmp ult i64 %140, %3
   br i1 %141, label %142, label %.critedge.i
 
@@ -303,8 +303,8 @@ define hidden ptr @pm_strpbrk(ptr noundef %0, ptr noundef %1, ptr noundef readon
   br label %153
 
 153:                                              ; preds = %.critedge.i, %138, %131
-  %.2.i44 = phi i64 [ %132, %131 ], [ %139, %138 ], [ %140, %.critedge.i ]
-  %154 = icmp ult i64 %.2.i44, %3
+  %.1.i44 = phi i64 [ %132, %131 ], [ %139, %138 ], [ %140, %.critedge.i ]
+  %154 = icmp ult i64 %.1.i44, %3
   br i1 %154, label %.lr.ph.split.i42, label %pm_strpbrk_utf8.exit, !llvm.loop !13
 
 pm_strpbrk_utf8.exit.loopexit.split.loop.exit:    ; preds = %.lr.ph.i24

@@ -2267,7 +2267,7 @@ if.then17.i:                                      ; preds = %land.lhs.true.i
 
 while.cond.i.outer:                               ; preds = %while.cond.i.outer.backedge, %if.then17.i
   %modestr.0.i.ph = phi ptr [ %add.ptr.i, %if.then17.i ], [ %incdec.ptr.i, %while.cond.i.outer.backedge ]
-  %weak.0.i.ph = phi i32 [ 0, %if.then17.i ], [ %weak.0.i.ph.be, %while.cond.i.outer.backedge ]
+  %weak.1.i.ph = phi i32 [ 0, %if.then17.i ], [ %weak.1.i.ph.be, %while.cond.i.outer.backedge ]
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.outer, %while.cond.i
@@ -2281,19 +2281,19 @@ while.cond.i:                                     ; preds = %while.cond.i.outer,
   ], !llvm.loop !22
 
 if.then24.i:                                      ; preds = %while.cond.i
-  %or.i = or i32 %weak.0.i.ph, 8
+  %or.i = or i32 %weak.1.i.ph, 8
   br label %while.cond.i.outer.backedge
 
 if.then27.i:                                      ; preds = %while.cond.i
-  %or28.i = or i32 %weak.0.i.ph, 16
+  %or28.i = or i32 %weak.1.i.ph, 16
   br label %while.cond.i.outer.backedge
 
 while.cond.i.outer.backedge:                      ; preds = %if.then27.i, %if.then24.i
-  %weak.0.i.ph.be = phi i32 [ %or.i, %if.then24.i ], [ %or28.i, %if.then27.i ]
+  %weak.1.i.ph.be = phi i32 [ %or.i, %if.then24.i ], [ %or28.i, %if.then27.i ]
   br label %while.cond.i.outer, !llvm.loop !22
 
 while.end.i:                                      ; preds = %while.cond.i
-  %tobool31.not.i = icmp eq i32 %weak.0.i.ph, 0
+  %tobool31.not.i = icmp eq i32 %weak.1.i.ph, 0
   br i1 %tobool31.not.i, label %if.then60.i, label %if.then32.i
 
 if.then32.i:                                      ; preds = %while.end.i
@@ -2312,23 +2312,23 @@ land.lhs.true34.i:                                ; preds = %if.then32.i
 if.end53.i:                                       ; preds = %land.lhs.true34.i, %if.then32.i
   %20 = load i8, ptr %marked, align 8
   %21 = and i8 %20, -25
-  %22 = trunc nuw nsw i32 %weak.0.i.ph to i8
+  %22 = trunc nuw nsw i32 %weak.1.i.ph to i8
   %conv43.i = or i8 %21, %22
   store i8 %conv43.i, ptr %marked, align 8
   %weak45.i = getelementptr inbounds i8, ptr %g, i64 72
   %23 = load i64, ptr %weak45.i, align 8
   store i64 %23, ptr %gclist, align 8
   store i64 %0, ptr %weak45.i, align 8
-  %cmp54.i = icmp eq i32 %weak.0.i.ph, 24
+  %cmp54.i = icmp eq i32 %weak.1.i.ph, 24
   br i1 %cmp54.i, label %if.then13, label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.end53.i
-  %and58.i = and i32 %weak.0.i.ph, 16
+  %and58.i = and i32 %weak.1.i.ph, 16
   %tobool59.not.i = icmp eq i32 %and58.i, 0
   br i1 %tobool59.not.i, label %if.then60.i, label %if.end89.i
 
 if.then60.i:                                      ; preds = %if.end57.i, %land.lhs.true34.i, %while.end.i, %land.lhs.true.i, %cond.end11.i, %cond.false.i, %if.then
-  %weak.25560.i = phi i32 [ %weak.0.i.ph, %if.end57.i ], [ 0, %if.then ], [ 0, %cond.false.i ], [ 0, %while.end.i ], [ 0, %land.lhs.true.i ], [ 0, %cond.end11.i ], [ -17, %land.lhs.true34.i ]
+  %weak.05560.i = phi i32 [ %weak.1.i.ph, %if.end57.i ], [ 0, %if.then ], [ 0, %cond.false.i ], [ 0, %while.end.i ], [ 0, %land.lhs.true.i ], [ 0, %cond.end11.i ], [ -17, %land.lhs.true34.i ]
   %asize61.i = getelementptr inbounds i8, ptr %1, i64 48
   %24 = load i32, ptr %asize61.i, align 8
   %cmp6263.not.i = icmp eq i32 %24, 0
@@ -2371,8 +2371,8 @@ for.inc.i:                                        ; preds = %if.then81.i, %land.
 
 if.end89.i:                                       ; preds = %for.inc.i, %if.then60.i, %if.end57.i
   %tobool59.not61.i = phi i1 [ false, %if.end57.i ], [ true, %if.then60.i ], [ true, %for.inc.i ]
-  %weak.25559.i = phi i32 [ %weak.0.i.ph, %if.end57.i ], [ %weak.25560.i, %if.then60.i ], [ %weak.25560.i, %for.inc.i ]
-  %weak.25559.fr.i = freeze i32 %weak.25559.i
+  %weak.05559.i = phi i32 [ %weak.1.i.ph, %if.end57.i ], [ %weak.05560.i, %if.then60.i ], [ %weak.05560.i, %for.inc.i ]
+  %weak.05559.fr.i = freeze i32 %weak.05559.i
   %hmask.i = getelementptr inbounds i8, ptr %1, i64 52
   %32 = load i32, ptr %hmask.i, align 4
   %cmp90.not.i = icmp eq i32 %32, 0
@@ -2382,7 +2382,7 @@ if.then92.i:                                      ; preds = %if.end89.i
   %node93.i = getelementptr inbounds i8, ptr %1, i64 40
   %33 = load i64, ptr %node93.i, align 8
   %34 = inttoptr i64 %33 to ptr
-  %and107.i = and i32 %weak.25559.fr.i, 8
+  %and107.i = and i32 %weak.05559.fr.i, 8
   %tobool108.not.i = icmp eq i32 %and107.i, 0
   br i1 %tobool108.not.i, label %if.then92.split.us.i, label %if.then92.split.i
 
@@ -2518,7 +2518,7 @@ for.inc153.us81.i:                                ; preds = %if.then146.us80.i, 
   br i1 %cmp99.not.us83.i, label %gc_traverse_tab.exit, label %for.body101.us66.i, !llvm.loop !24
 
 gc_traverse_tab.exit:                             ; preds = %for.inc153.us81.i, %for.inc153.us.i, %for.inc153.us.us.i, %if.end89.i, %if.then92.split.i
-  %cmp11 = icmp sgt i32 %weak.25559.fr.i, 0
+  %cmp11 = icmp sgt i32 %weak.05559.fr.i, 0
   br i1 %cmp11, label %if.then13, label %if.end
 
 if.then13:                                        ; preds = %if.end53.i, %gc_traverse_tab.exit

@@ -16643,8 +16643,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i124:   ; preds = %.body111
 
 .body118:                                         ; preds = %.loopexit, %.loopexit.split-lp, %240, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i124, %.body111, %184, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i106, %.body81, %178, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i102, %.body73, %172, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i98, %.body65, %166, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i94, %.body57, %160, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90, %.body, %216, %.body121, %186, %154, %152
   %.pn = phi { ptr, i32 } [ %eh.lpad-body122, %.body121 ], [ %187, %186 ], [ %155, %154 ], [ %153, %152 ], [ %217, %216 ], [ %eh.lpad-body, %.body ], [ %eh.lpad-body, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i90 ], [ %eh.lpad-body, %160 ], [ %eh.lpad-body58, %.body57 ], [ %eh.lpad-body58, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i94 ], [ %eh.lpad-body58, %166 ], [ %eh.lpad-body66, %.body65 ], [ %eh.lpad-body66, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i98 ], [ %eh.lpad-body66, %172 ], [ %eh.lpad-body74, %.body73 ], [ %eh.lpad-body74, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i102 ], [ %eh.lpad-body74, %178 ], [ %eh.lpad-body82, %.body81 ], [ %eh.lpad-body82, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i106 ], [ %eh.lpad-body82, %184 ], [ %eh.lpad-body112, %.body111 ], [ %eh.lpad-body112, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i124 ], [ %eh.lpad-body112, %240 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.045 = extractvalue { ptr, i32 } %.pn, 0
-  %244 = call ptr @__cxa_begin_catch(ptr %.045) #20
+  %.1 = extractvalue { ptr, i32 } %.pn, 0
+  %244 = call ptr @__cxa_begin_catch(ptr %.1) #20
   store i32 2, ptr %33, align 8
   %245 = getelementptr inbounds i8, ptr %33, i64 4
   %246 = getelementptr inbounds i8, ptr %33, i64 24
@@ -24342,7 +24342,7 @@ define noundef zeroext i1 @_ZN15RtpPlayerDialog24writeAudioStreamsSamplesEP5QFil
   br i1 %3, label %.split37.us, label %.split37
 
 .split37.us:                                      ; preds = %4, %_ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit14.us
-  %.08.us = phi i1 [ %.3.us, %_ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit14.us ], [ true, %4 ]
+  %.08.us = phi i1 [ %.210.us, %_ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit14.us ], [ true, %4 ]
   br i1 %.08.us, label %10, label %.split39.us
 
 10:                                               ; preds = %.split37.us
@@ -24364,7 +24364,7 @@ _ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachCo
 
 ._crit_edge28.split.us.us:                        ; preds = %31, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit.us
   %.not20.lcssa.us = phi i1 [ true, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit.us ], [ %.not.us.us, %31 ]
-  %.3.us = phi i1 [ false, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit.us ], [ %.210.us.us, %31 ]
+  %.210.us = phi i1 [ false, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit.us ], [ %.3.us.us, %31 ]
   br i1 %.not.i.i.i.i.i.us, label %_ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit14.us, label %_ZN17QArrayDataPointerIP14RtpAudioStreamE5derefEv.exit.i.i.i12.us
 
 _ZN17QArrayDataPointerIP14RtpAudioStreamE5derefEv.exit.i.i.i12.us: ; preds = %._crit_edge28.split.us.us
@@ -24380,7 +24380,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit14.us: ; pre
   br i1 %.not20.lcssa.us, label %.split37.us, label %.split39.us
 
 .lr.ph.us:                                        ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit.us, %31
-  %.1925.us.us = phi i1 [ %.210.us.us, %31 ], [ false, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit.us ]
+  %.1925.us.us = phi i1 [ %.3.us.us, %31 ], [ false, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit.us ]
   %.sroa.9.024.us.us = phi ptr [ %32, %31 ], [ %12, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit.us ]
   %19 = load ptr, ptr %.sroa.9.024.us.us, align 8
   %20 = invoke noundef i64 @_ZN14RtpAudioStream10readSampleEPs(ptr noundef nonnull align 8 dereferenceable(7680) %19, ptr noundef nonnull %5)
@@ -24404,7 +24404,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit14.us: ; pre
 
 29:                                               ; preds = %24, %23
   %storemerge = phi i8 [ 0, %23 ], [ %28, %24 ]
-  %.210.us.us = phi i1 [ %.1925.us.us, %23 ], [ true, %24 ]
+  %.3.us.us = phi i1 [ %.1925.us.us, %23 ], [ true, %24 ]
   store i8 %storemerge, ptr %9, align 1
   %30 = invoke noundef i64 @_ZN9QIODevice5writeEPKcx(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %6, i64 noundef 2)
           to label %31 unwind label %41
@@ -24417,7 +24417,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit14.us: ; pre
   br i1 %or.cond.not, label %.lr.ph.us, label %._crit_edge28.split.us.us, !llvm.loop !152
 
 .split37:                                         ; preds = %4, %_ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit14
-  %.08 = phi i1 [ %.3, %_ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit14 ], [ true, %4 ]
+  %.08 = phi i1 [ %.210, %_ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit14 ], [ true, %4 ]
   br i1 %.08, label %33, label %.split39.us
 
 33:                                               ; preds = %.split37
@@ -24463,7 +24463,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit: ; preds = 
   resume { ptr, i32 } %.us-phi3251
 
 .lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit, %57
-  %.1925 = phi i1 [ %.210, %57 ], [ false, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
+  %.1925 = phi i1 [ %.3, %57 ], [ false, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
   %.sroa.9.024 = phi ptr [ %58, %57 ], [ %35, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ]
   %45 = load ptr, ptr %.sroa.9.024, align 8
   %46 = invoke noundef i64 @_ZN14RtpAudioStream10readSampleEPs(ptr noundef nonnull align 8 dereferenceable(7680) %45, ptr noundef nonnull %5)
@@ -24487,7 +24487,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit: ; preds = 
 
 55:                                               ; preds = %49, %54
   %.sink = phi i8 [ %53, %49 ], [ 0, %54 ]
-  %.210 = phi i1 [ true, %49 ], [ %.1925, %54 ]
+  %.3 = phi i1 [ true, %49 ], [ %.1925, %54 ]
   store i8 %.sink, ptr %6, align 1
   %56 = invoke noundef i64 @_ZN9QIODevice5writeEPKcx(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %6, i64 noundef 2)
           to label %57 unwind label %.split
@@ -24501,7 +24501,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit: ; preds = 
 
 ._crit_edge.split:                                ; preds = %57, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
   %.not20.lcssa = phi i1 [ true, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ], [ %.not, %57 ]
-  %.3 = phi i1 [ false, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ], [ %.210, %57 ]
+  %.210 = phi i1 [ false, %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP14RtpAudioStreamEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit ], [ %.3, %57 ]
   br i1 %.not.i.i.i.i.i, label %_ZN9QtPrivate17QForeachContainerI5QListIP14RtpAudioStreamEED2Ev.exit14, label %_ZN17QArrayDataPointerIP14RtpAudioStreamE5derefEv.exit.i.i.i12
 
 _ZN17QArrayDataPointerIP14RtpAudioStreamE5derefEv.exit.i.i.i12: ; preds = %._crit_edge.split
@@ -39532,10 +39532,10 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP14RtpAudioStreamEEE12moveFromSpanERS5_mm.
   br i1 %.not.i.i45, label %134, label %_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP14RtpAudioStreamEEEppEv.exit, !llvm.loop !211
 
 _ZN12QHashPrivate8iteratorINS_9MultiNodeIjP14RtpAudioStreamEEEppEv.exit: ; preds = %138, %134, %126
-  %.sroa.0.1 = phi ptr [ %1, %126 ], [ null, %134 ], [ %1, %138 ]
-  %.sroa.4.1 = phi i64 [ %2, %126 ], [ 0, %134 ], [ %136, %138 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.1, 1
+  %.sroa.0.0 = phi ptr [ %1, %126 ], [ null, %134 ], [ %1, %138 ]
+  %.sroa.4.0 = phi i64 [ %2, %126 ], [ 0, %134 ], [ %136, %138 ]
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
 
 145:                                              ; preds = %79

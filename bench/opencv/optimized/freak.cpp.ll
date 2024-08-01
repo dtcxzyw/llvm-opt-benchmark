@@ -598,7 +598,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EE6resizeEm.exit:
 
 .preheader118:                                    ; preds = %198, %254
   %.079145 = phi i32 [ %255, %254 ], [ 1, %198 ]
-  %.sroa.0108.0144 = phi ptr [ %.sroa.0108.2, %254 ], [ null, %198 ]
+  %.sroa.0108.0144 = phi ptr [ %.sroa.0108.4, %254 ], [ null, %198 ]
   %.sroa.7.0143 = phi ptr [ %.sroa.7.2, %254 ], [ null, %198 ]
   %.sroa.11.0142 = phi ptr [ %.sroa.11.2, %254 ], [ null, %198 ]
   %.sroa.0.0.insert.ext100 = trunc nuw i32 %.079145 to i16
@@ -606,7 +606,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EE6resizeEm.exit:
 
 229:                                              ; preds = %.preheader118, %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE9push_backERKS3_.exit
   %.078141 = phi i32 [ 0, %.preheader118 ], [ %253, %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE9push_backERKS3_.exit ]
-  %.sroa.0108.1140 = phi ptr [ %.sroa.0108.0144, %.preheader118 ], [ %.sroa.0108.2, %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE9push_backERKS3_.exit ]
+  %.sroa.0108.1140 = phi ptr [ %.sroa.0108.0144, %.preheader118 ], [ %.sroa.0108.4, %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE9push_backERKS3_.exit ]
   %.sroa.7.1139 = phi ptr [ %.sroa.7.0143, %.preheader118 ], [ %.sroa.7.2, %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE9push_backERKS3_.exit ]
   %.sroa.11.1138 = phi ptr [ %.sroa.11.0142, %.preheader118 ], [ %.sroa.11.2, %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE9push_backERKS3_.exit ]
   %230 = trunc i32 %.078141 to i16
@@ -677,7 +677,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE17_M_realloc
 _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %231
   %.sroa.11.2 = phi ptr [ %252, %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.11.1138, %231 ]
   %.pn115 = phi ptr [ %250, %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.7.1139, %231 ]
-  %.sroa.0108.2 = phi ptr [ %246, %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.0108.1140, %231 ]
+  %.sroa.0108.4 = phi ptr [ %246, %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.0108.1140, %231 ]
   %.sroa.7.2 = getelementptr inbounds i8, ptr %.pn115, i64 2
   %253 = add nuw nsw i32 %.078141, 1
   %exitcond166.not = icmp eq i32 %253, %.079145
@@ -689,7 +689,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE9push_backER
   br label %295
 
 .loopexit.split-lp:                               ; preds = %237, %272
-  %.sroa.0108.3.ph = phi ptr [ %.sroa.0108.2, %272 ], [ %.sroa.0108.1140, %237 ]
+  %.sroa.0108.2.ph = phi ptr [ %.sroa.0108.4, %272 ], [ %.sroa.0108.1140, %237 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %295
@@ -740,7 +740,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE9push_backER
   %274 = getelementptr inbounds i32, ptr %258, i64 %indvars.iv168
   %275 = load i32, ptr %274, align 4
   %276 = sext i32 %275 to i64
-  %277 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %.sroa.0108.2, i64 %276
+  %277 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %.sroa.0108.4, i64 %276
   %278 = getelementptr inbounds [512 x %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair"], ptr %270, i64 0, i64 %indvars.iv168
   %279 = load i16, ptr %277, align 1
   store i16 %279, ptr %278, align 2
@@ -781,7 +781,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE9push_backER
   %289 = getelementptr inbounds [512 x i32], ptr @_ZN2cv11xfeatures2dL15FREAK_DEF_PAIRSE, i64 0, i64 %indvars.iv173
   %290 = load i32, ptr %289, align 4
   %291 = sext i32 %290 to i64
-  %292 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %.sroa.0108.2, i64 %291
+  %292 = getelementptr inbounds %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair", ptr %.sroa.0108.4, i64 %291
   %293 = getelementptr inbounds [512 x %"struct.cv::xfeatures2d::FREAK_Impl::DescriptionPair"], ptr %262, i64 0, i64 %indvars.iv173
   %294 = load i16, ptr %292, align 1
   store i16 %294, ptr %293, align 2
@@ -790,20 +790,20 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EE9push_backER
   br i1 %exitcond176.not, label %.loopexit, label %288, !llvm.loop !13
 
 .loopexit:                                        ; preds = %273, %288
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0108.2) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0108.4) #25
   br label %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EED2Ev.exit: ; preds = %.loopexit, %14
   ret void
 
 295:                                              ; preds = %.loopexit119, %.loopexit.split-lp, %287
-  %.sroa.0108.4 = phi ptr [ %.sroa.0108.2, %287 ], [ %.sroa.0108.1140, %.loopexit119 ], [ %.sroa.0108.3.ph, %.loopexit.split-lp ]
+  %.sroa.0108.3 = phi ptr [ %.sroa.0108.4, %287 ], [ %.sroa.0108.1140, %.loopexit119 ], [ %.sroa.0108.2.ph, %.loopexit.split-lp ]
   %.pn90 = phi { ptr, i32 } [ %.pn, %287 ], [ %lpad.loopexit, %.loopexit119 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i97 = icmp eq ptr %.sroa.0108.4, null
+  %.not.i.i.i97 = icmp eq ptr %.sroa.0108.3, null
   br i1 %.not.i.i.i97, label %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EED2Ev.exit98, label %296
 
 296:                                              ; preds = %295
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0108.4) #25
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0108.3) #25
   br label %_ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EED2Ev.exit98
 
 _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl15DescriptionPairESaIS3_EED2Ev.exit98: ; preds = %295, %296
@@ -1660,7 +1660,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %199, %202
   br label %300
 
 300:                                              ; preds = %278, %237
-  %.1179 = phi i32 [ 0, %237 ], [ %spec.select220, %278 ]
+  %.0178 = phi i32 [ 0, %237 ], [ %spec.select220, %278 ]
   %301 = getelementptr inbounds i32, ptr %.sroa.0267.0372, i64 %233
   br label %302
 
@@ -1681,7 +1681,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %199, %202
   %307 = load float, ptr %306, align 4
   %308 = load i32, ptr %301, align 4
   %309 = trunc nuw nsw i64 %indvars.iv345 to i32
-  %310 = invoke noundef zeroext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIhiEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, float noundef %305, float noundef %307, i32 noundef %308, i32 noundef %.1179, i32 noundef %309)
+  %310 = invoke noundef zeroext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIhiEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, float noundef %305, float noundef %307, i32 noundef %308, i32 noundef %.0178, i32 noundef %309)
           to label %311 unwind label %313
 
 311:                                              ; preds = %302
@@ -1963,7 +1963,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %352, %355
   br label %454
 
 454:                                              ; preds = %432, %389
-  %.3181 = phi i32 [ 0, %389 ], [ %spec.select221, %432 ]
+  %.2180 = phi i32 [ 0, %389 ], [ %spec.select221, %432 ]
   %455 = getelementptr inbounds i32, ptr %.sroa.0267.0372, i64 %385
   br label %456
 
@@ -1984,7 +1984,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %352, %355
   %461 = load float, ptr %460, align 4
   %462 = load i32, ptr %455, align 4
   %463 = trunc nuw nsw i64 %indvars.iv354 to i32
-  %464 = invoke noundef zeroext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIhiEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, float noundef %459, float noundef %461, i32 noundef %462, i32 noundef %.3181, i32 noundef %463)
+  %464 = invoke noundef zeroext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIhiEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, float noundef %459, float noundef %461, i32 noundef %462, i32 noundef %.2180, i32 noundef %463)
           to label %465 unwind label %467
 
 465:                                              ; preds = %456
@@ -2615,7 +2615,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %199, %202
   br label %300
 
 300:                                              ; preds = %278, %237
-  %.1179 = phi i32 [ 0, %237 ], [ %spec.select220, %278 ]
+  %.0178 = phi i32 [ 0, %237 ], [ %spec.select220, %278 ]
   %301 = getelementptr inbounds i32, ptr %.sroa.0267.0372, i64 %233
   br label %302
 
@@ -2636,7 +2636,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %199, %202
   %307 = load float, ptr %306, align 4
   %308 = load i32, ptr %301, align 4
   %309 = trunc nuw nsw i64 %indvars.iv345 to i32
-  %310 = invoke noundef signext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIciEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, float noundef %305, float noundef %307, i32 noundef %308, i32 noundef %.1179, i32 noundef %309)
+  %310 = invoke noundef signext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIciEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, float noundef %305, float noundef %307, i32 noundef %308, i32 noundef %.0178, i32 noundef %309)
           to label %311 unwind label %313
 
 311:                                              ; preds = %302
@@ -2918,7 +2918,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %352, %355
   br label %454
 
 454:                                              ; preds = %432, %389
-  %.3181 = phi i32 [ 0, %389 ], [ %spec.select221, %432 ]
+  %.2180 = phi i32 [ 0, %389 ], [ %spec.select221, %432 ]
   %455 = getelementptr inbounds i32, ptr %.sroa.0267.0372, i64 %385
   br label %456
 
@@ -2939,7 +2939,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %352, %355
   %461 = load float, ptr %460, align 4
   %462 = load i32, ptr %455, align 4
   %463 = trunc nuw nsw i64 %indvars.iv354 to i32
-  %464 = invoke noundef signext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIciEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, float noundef %459, float noundef %461, i32 noundef %462, i32 noundef %.3181, i32 noundef %463)
+  %464 = invoke noundef signext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIciEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, float noundef %459, float noundef %461, i32 noundef %462, i32 noundef %.2180, i32 noundef %463)
           to label %465 unwind label %467
 
 465:                                              ; preds = %456
@@ -3570,7 +3570,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %199, %202
   br label %300
 
 300:                                              ; preds = %278, %237
-  %.1179 = phi i32 [ 0, %237 ], [ %spec.select220, %278 ]
+  %.0178 = phi i32 [ 0, %237 ], [ %spec.select220, %278 ]
   %301 = getelementptr inbounds i32, ptr %.sroa.0267.0372, i64 %233
   br label %302
 
@@ -3591,7 +3591,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %199, %202
   %307 = load float, ptr %306, align 4
   %308 = load i32, ptr %301, align 4
   %309 = trunc nuw nsw i64 %indvars.iv345 to i32
-  %310 = invoke noundef zeroext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIhdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, float noundef %305, float noundef %307, i32 noundef %308, i32 noundef %.1179, i32 noundef %309)
+  %310 = invoke noundef zeroext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIhdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, float noundef %305, float noundef %307, i32 noundef %308, i32 noundef %.0178, i32 noundef %309)
           to label %311 unwind label %313
 
 311:                                              ; preds = %302
@@ -3873,7 +3873,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %352, %355
   br label %454
 
 454:                                              ; preds = %432, %389
-  %.3181 = phi i32 [ 0, %389 ], [ %spec.select221, %432 ]
+  %.2180 = phi i32 [ 0, %389 ], [ %spec.select221, %432 ]
   %455 = getelementptr inbounds i32, ptr %.sroa.0267.0372, i64 %385
   br label %456
 
@@ -3894,7 +3894,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %352, %355
   %461 = load float, ptr %460, align 4
   %462 = load i32, ptr %455, align 4
   %463 = trunc nuw nsw i64 %indvars.iv354 to i32
-  %464 = invoke noundef zeroext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIhdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, float noundef %459, float noundef %461, i32 noundef %462, i32 noundef %.3181, i32 noundef %463)
+  %464 = invoke noundef zeroext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIhdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, float noundef %459, float noundef %461, i32 noundef %462, i32 noundef %.2180, i32 noundef %463)
           to label %465 unwind label %467
 
 465:                                              ; preds = %456
@@ -4525,7 +4525,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %199, %202
   br label %300
 
 300:                                              ; preds = %278, %237
-  %.1179 = phi i32 [ 0, %237 ], [ %spec.select220, %278 ]
+  %.0178 = phi i32 [ 0, %237 ], [ %spec.select220, %278 ]
   %301 = getelementptr inbounds i32, ptr %.sroa.0267.0372, i64 %233
   br label %302
 
@@ -4546,7 +4546,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %199, %202
   %307 = load float, ptr %306, align 4
   %308 = load i32, ptr %301, align 4
   %309 = trunc nuw nsw i64 %indvars.iv345 to i32
-  %310 = invoke noundef signext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIcdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, float noundef %305, float noundef %307, i32 noundef %308, i32 noundef %.1179, i32 noundef %309)
+  %310 = invoke noundef signext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIcdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, float noundef %305, float noundef %307, i32 noundef %308, i32 noundef %.0178, i32 noundef %309)
           to label %311 unwind label %313
 
 311:                                              ; preds = %302
@@ -4828,7 +4828,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %352, %355
   br label %454
 
 454:                                              ; preds = %432, %389
-  %.3181 = phi i32 [ 0, %389 ], [ %spec.select221, %432 ]
+  %.2180 = phi i32 [ 0, %389 ], [ %spec.select221, %432 ]
   %455 = getelementptr inbounds i32, ptr %.sroa.0267.0372, i64 %385
   br label %456
 
@@ -4849,7 +4849,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %352, %355
   %461 = load float, ptr %460, align 4
   %462 = load i32, ptr %455, align 4
   %463 = trunc nuw nsw i64 %indvars.iv354 to i32
-  %464 = invoke noundef signext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIcdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, float noundef %459, float noundef %461, i32 noundef %462, i32 noundef %.3181, i32 noundef %463)
+  %464 = invoke noundef signext i8 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIcdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, float noundef %459, float noundef %461, i32 noundef %462, i32 noundef %.2180, i32 noundef %463)
           to label %465 unwind label %467
 
 465:                                              ; preds = %456
@@ -5480,7 +5480,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %199, %202
   br label %300
 
 300:                                              ; preds = %278, %237
-  %.1179 = phi i32 [ 0, %237 ], [ %spec.select220, %278 ]
+  %.0178 = phi i32 [ 0, %237 ], [ %spec.select220, %278 ]
   %301 = getelementptr inbounds i32, ptr %.sroa.0267.0372, i64 %233
   br label %302
 
@@ -5501,7 +5501,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %199, %202
   %307 = load float, ptr %306, align 4
   %308 = load i32, ptr %301, align 4
   %309 = trunc nuw nsw i64 %indvars.iv345 to i32
-  %310 = invoke noundef zeroext i16 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityItdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, float noundef %305, float noundef %307, i32 noundef %308, i32 noundef %.1179, i32 noundef %309)
+  %310 = invoke noundef zeroext i16 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityItdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, float noundef %305, float noundef %307, i32 noundef %308, i32 noundef %.0178, i32 noundef %309)
           to label %311 unwind label %313
 
 311:                                              ; preds = %302
@@ -5783,7 +5783,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %352, %355
   br label %454
 
 454:                                              ; preds = %432, %389
-  %.3181 = phi i32 [ 0, %389 ], [ %spec.select221, %432 ]
+  %.2180 = phi i32 [ 0, %389 ], [ %spec.select221, %432 ]
   %455 = getelementptr inbounds i32, ptr %.sroa.0267.0372, i64 %385
   br label %456
 
@@ -5804,7 +5804,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %352, %355
   %461 = load float, ptr %460, align 4
   %462 = load i32, ptr %455, align 4
   %463 = trunc nuw nsw i64 %indvars.iv354 to i32
-  %464 = invoke noundef zeroext i16 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityItdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, float noundef %459, float noundef %461, i32 noundef %462, i32 noundef %.3181, i32 noundef %463)
+  %464 = invoke noundef zeroext i16 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityItdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, float noundef %459, float noundef %461, i32 noundef %462, i32 noundef %.2180, i32 noundef %463)
           to label %465 unwind label %467
 
 465:                                              ; preds = %456
@@ -6435,7 +6435,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %199, %202
   br label %300
 
 300:                                              ; preds = %278, %237
-  %.1179 = phi i32 [ 0, %237 ], [ %spec.select220, %278 ]
+  %.0178 = phi i32 [ 0, %237 ], [ %spec.select220, %278 ]
   %301 = getelementptr inbounds i32, ptr %.sroa.0267.0372, i64 %233
   br label %302
 
@@ -6456,7 +6456,7 @@ _ZNK2cv11_InputArray6getMatEi.exit237:            ; preds = %199, %202
   %307 = load float, ptr %306, align 4
   %308 = load i32, ptr %301, align 4
   %309 = trunc nuw nsw i64 %indvars.iv345 to i32
-  %310 = invoke noundef signext i16 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIsdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, float noundef %305, float noundef %307, i32 noundef %308, i32 noundef %.1179, i32 noundef %309)
+  %310 = invoke noundef signext i16 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIsdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, float noundef %305, float noundef %307, i32 noundef %308, i32 noundef %.0178, i32 noundef %309)
           to label %311 unwind label %313
 
 311:                                              ; preds = %302
@@ -6738,7 +6738,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %352, %355
   br label %454
 
 454:                                              ; preds = %432, %389
-  %.3181 = phi i32 [ 0, %389 ], [ %spec.select221, %432 ]
+  %.2180 = phi i32 [ 0, %389 ], [ %spec.select221, %432 ]
   %455 = getelementptr inbounds i32, ptr %.sroa.0267.0372, i64 %385
   br label %456
 
@@ -6759,7 +6759,7 @@ _ZNK2cv11_InputArray6getMatEi.exit241:            ; preds = %352, %355
   %461 = load float, ptr %460, align 4
   %462 = load i32, ptr %455, align 4
   %463 = trunc nuw nsw i64 %indvars.iv354 to i32
-  %464 = invoke noundef signext i16 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIsdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, float noundef %459, float noundef %461, i32 noundef %462, i32 noundef %.3181, i32 noundef %463)
+  %464 = invoke noundef signext i16 @_ZN2cv11xfeatures2d10FREAK_Impl13meanIntensityIsdEET_RKNS_11_InputArrayES6_ffjjj(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 8 dereferenceable(24) %25, float noundef %459, float noundef %461, i32 noundef %462, i32 noundef %.2180, i32 noundef %463)
           to label %465 unwind label %467
 
 465:                                              ; preds = %456
@@ -7258,9 +7258,9 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d8PairStatESt6vectorIS
 
 178:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d8PairStatESt6vectorIS4_SaIS4_EEEENS3_8sortMeanEEvT_SB_T0_.exit, %248
   %indvars.iv290 = phi i64 [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d8PairStatESt6vectorIS4_SaIS4_EEEENS3_8sortMeanEEvT_SB_T0_.exit ], [ %indvars.iv.next291, %248 ]
-  %.sroa.19.0255 = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d8PairStatESt6vectorIS4_SaIS4_EEEENS3_8sortMeanEEvT_SB_T0_.exit ], [ %.sroa.19.2, %248 ]
+  %.sroa.19.0255 = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d8PairStatESt6vectorIS4_SaIS4_EEEENS3_8sortMeanEEvT_SB_T0_.exit ], [ %.sroa.19.1, %248 ]
   %.sroa.11.0254 = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d8PairStatESt6vectorIS4_SaIS4_EEEENS3_8sortMeanEEvT_SB_T0_.exit ], [ %.sroa.11.2, %248 ]
-  %.sroa.0.0253 = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d8PairStatESt6vectorIS4_SaIS4_EEEENS3_8sortMeanEEvT_SB_T0_.exit ], [ %.sroa.0.3, %248 ]
+  %.sroa.0.0253 = phi ptr [ null, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv11xfeatures2d8PairStatESt6vectorIS4_SaIS4_EEEENS3_8sortMeanEEvT_SB_T0_.exit ], [ %.sroa.0.4, %248 ]
   br i1 %5, label %179, label %._crit_edge298
 
 ._crit_edge298:                                   ; preds = %178
@@ -7306,7 +7306,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.thread307:          ; preds = %196
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 .loopexit.split-lp177.loopexit.split-lp:          ; preds = %223, %246, %243
-  %.sroa.0.1.ph.ph = phi ptr [ %.sroa.0.0253, %223 ], [ %.sroa.0.3, %246 ], [ %.sroa.0.3, %243 ]
+  %.sroa.0.2.ph.ph = phi ptr [ %.sroa.0.0253, %223 ], [ %.sroa.0.4, %246 ], [ %.sroa.0.4, %243 ]
   %lpad.loopexit.split-lp182 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
@@ -7325,7 +7325,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.thread307:          ; preds = %196
 
 196:                                              ; preds = %.lr.ph245, %214
   %.061243 = phi i64 [ 0, %.lr.ph245 ], [ %215, %214 ]
-  %.062242 = phi double [ 0.000000e+00, %.lr.ph245 ], [ %.163, %214 ]
+  %.062242 = phi double [ 0.000000e+00, %.lr.ph245 ], [ %.264, %214 ]
   %197 = getelementptr inbounds %"struct.cv::xfeatures2d::PairStat", ptr %.sroa.0.0253, i64 %.061243, i32 1
   %198 = load i32, ptr %197, align 8
   %199 = load i32, ptr %195, align 8
@@ -7392,14 +7392,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.thread:             ; preds = %212, %210
   br label %306
 
 214:                                              ; preds = %205, %208
-  %.163 = phi double [ %206, %208 ], [ %.062242, %205 ]
+  %.264 = phi double [ %206, %208 ], [ %.062242, %205 ]
   %215 = add nuw i64 %.061243, 1
   %exitcond.not = icmp eq i64 %215, %umax
   br i1 %exitcond.not, label %._crit_edge246, label %196, !llvm.loop !164
 
 ._crit_edge246:                                   ; preds = %214, %208, %194
-  %.264 = phi double [ 0.000000e+00, %194 ], [ %206, %208 ], [ %.163, %214 ]
-  %216 = fcmp olt double %.264, %4
+  %.163 = phi double [ 0.000000e+00, %194 ], [ %206, %208 ], [ %.264, %214 ]
+  %216 = fcmp olt double %.163, %4
   br i1 %216, label %217, label %_ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EE9push_backERKS2_.exit112
 
 217:                                              ; preds = %._crit_edge246
@@ -7465,9 +7465,9 @@ _ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9
 
 _ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EE9push_backERKS2_.exit112: ; preds = %_ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i109, %219, %._crit_edge246
   %.pre-phi = phi i64 [ %.pre, %_ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i109 ], [ %.pre-phi302, %219 ], [ %.pre-phi302, %._crit_edge246 ]
-  %.sroa.0.3 = phi ptr [ %231, %_ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i109 ], [ %.sroa.0.0253, %219 ], [ %.sroa.0.0253, %._crit_edge246 ]
+  %.sroa.0.4 = phi ptr [ %231, %_ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i109 ], [ %.sroa.0.0253, %219 ], [ %.sroa.0.0253, %._crit_edge246 ]
   %.sroa.11.2 = phi ptr [ %236, %_ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i109 ], [ %220, %219 ], [ %.sroa.11.0254, %._crit_edge246 ]
-  %.sroa.19.2 = phi ptr [ %238, %_ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i109 ], [ %.sroa.19.0255, %219 ], [ %.sroa.19.0255, %._crit_edge246 ]
+  %.sroa.19.1 = phi ptr [ %238, %_ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i109 ], [ %.sroa.19.0255, %219 ], [ %.sroa.19.0255, %._crit_edge246 ]
   %239 = ptrtoint ptr %.sroa.11.2 to i64
   %240 = sub i64 %239, %.pre-phi
   %241 = icmp ugt i64 %240, 8176
@@ -7518,7 +7518,7 @@ _ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EE9push_backERKS2_.exit112: ; pred
   %259 = phi ptr [ null, %.preheader ], [ %291, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %260 = phi ptr [ null, %.preheader ], [ %290, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %261 = phi ptr [ null, %.preheader ], [ %289, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %262 = getelementptr inbounds %"struct.cv::xfeatures2d::PairStat", ptr %.sroa.0.3, i64 %indvars.iv294, i32 1
+  %262 = getelementptr inbounds %"struct.cv::xfeatures2d::PairStat", ptr %.sroa.0.4, i64 %indvars.iv294, i32 1
   %.not.i113 = icmp eq ptr %259, %260
   br i1 %.not.i113, label %266, label %263
 
@@ -7643,7 +7643,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   store i8 0, ptr %28, align 4
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3) #25
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.4) #25
   %.not.i.i.i120 = icmp eq ptr %.sroa.0146.1, null
   br i1 %.not.i.i.i120, label %_ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EED2Ev.exit121, label %302
 
@@ -7667,15 +7667,15 @@ _ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EED2Ev.exit121: ; preds = %_ZNSt6v
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit.split-lp177.loopexit.split-lp, %.loopexit.split-lp177.loopexit, %305, %303
-  %.sroa.0.5 = phi ptr [ %.sroa.0.3, %303 ], [ %.sroa.0.3, %305 ], [ %.sroa.0.0253, %.loopexit.split-lp177.loopexit ], [ %.sroa.0.1.ph.ph, %.loopexit.split-lp177.loopexit.split-lp ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %303 ], [ %.sroa.0.4, %305 ], [ %.sroa.0.0253, %.loopexit.split-lp177.loopexit ], [ %.sroa.0.2.ph.ph, %.loopexit.split-lp177.loopexit.split-lp ]
   %.pn78.pn = phi { ptr, i32 } [ %.pn78, %303 ], [ %.pn78, %305 ], [ %lpad.loopexit181, %.loopexit.split-lp177.loopexit ], [ %lpad.loopexit.split-lp182, %.loopexit.split-lp177.loopexit.split-lp ]
-  %.not.i.i.i123 = icmp eq ptr %.sroa.0.5, null
+  %.not.i.i.i123 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i123, label %_ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EED2Ev.exit124, label %306
 
 306:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.thread307, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %.pn78.pn173 = phi { ptr, i32 } [ %.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread ], [ %.pn78.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %lpad.loopexit178, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread307 ]
-  %.sroa.0.5172 = phi ptr [ %.sroa.0.0253, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread ], [ %.sroa.0.5, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.sroa.0.0253, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread307 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.5172) #25
+  %.sroa.0.3172 = phi ptr [ %.sroa.0.0253, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread ], [ %.sroa.0.3, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %.sroa.0.0253, %_ZNSt6vectorIiSaIiEED2Ev.exit.thread307 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3172) #25
   br label %_ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EED2Ev.exit124
 
 _ZNSt6vectorIN2cv11xfeatures2d8PairStatESaIS2_EED2Ev.exit124: ; preds = %.loopexit185, %.loopexit.split-lp186, %306, %_ZNSt6vectorIiSaIiEED2Ev.exit, %159

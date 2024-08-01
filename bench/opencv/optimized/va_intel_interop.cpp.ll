@@ -173,7 +173,7 @@ _ZN2va9DirectoryC2EPKc.exit.i.i:                  ; preds = %26
   %34 = phi ptr [ %.pr62.i.i, %.lr.ph.splitthread-pre-split.i.i ], [ %31, %.lr.ph.i.i ]
   %.pr60.i.i = phi i32 [ %.pr.i.i, %.lr.ph.splitthread-pre-split.i.i ], [ %29, %.lr.ph.i.i ]
   %indvars.iv57.i.i = phi i64 [ %indvars.iv.next58.i.i, %.lr.ph.splitthread-pre-split.i.i ], [ 0, %.lr.ph.i.i ]
-  %.01546.i.i = phi i32 [ %.1.i.i, %.lr.ph.splitthread-pre-split.i.i ], [ -1, %.lr.ph.i.i ]
+  %.146.i.i = phi i32 [ %.2.i.i, %.lr.ph.splitthread-pre-split.i.i ], [ -1, %.lr.ph.i.i ]
   %.not38.i.i = icmp eq ptr %34, null
   br i1 %.not38.i.i, label %_ZNK2va9DirectoryixEi.exit22.thread.i.i, label %_ZNK2va9DirectoryixEi.exit22.i.i
 
@@ -216,7 +216,7 @@ _ZNK2va9DirectoryixEi.exit25.i.i:                 ; preds = %_ZNK2va9Directoryix
 
 45:                                               ; preds = %_ZNK2va9DirectoryixEi.exit25.i.i, %_ZNK2va9DirectoryixEi.exit22.thread.i.i, %_ZNK2va9DirectoryixEi.exit22.i.i
   %.pr.i.i = phi i32 [ %.pr60.i.i, %_ZNK2va9DirectoryixEi.exit22.i.i ], [ %.pr.pre.i.i, %_ZNK2va9DirectoryixEi.exit25.i.i ], [ %.pr60.i.i, %_ZNK2va9DirectoryixEi.exit22.thread.i.i ]
-  %.1.i.i = phi i32 [ %.01546.i.i, %_ZNK2va9DirectoryixEi.exit22.i.i ], [ %42, %_ZNK2va9DirectoryixEi.exit25.i.i ], [ %.01546.i.i, %_ZNK2va9DirectoryixEi.exit22.thread.i.i ]
+  %.2.i.i = phi i32 [ %.146.i.i, %_ZNK2va9DirectoryixEi.exit22.i.i ], [ %42, %_ZNK2va9DirectoryixEi.exit25.i.i ], [ %.146.i.i, %_ZNK2va9DirectoryixEi.exit22.thread.i.i ]
   %indvars.iv.next58.i.i = add nuw nsw i64 %indvars.iv57.i.i, 1
   %46 = sext i32 %.pr.i.i to i64
   %47 = icmp slt i64 %indvars.iv.next58.i.i, %46
@@ -224,7 +224,7 @@ _ZNK2va9DirectoryixEi.exit25.i.i:                 ; preds = %_ZNK2va9Directoryix
 
 ._crit_edge.i.i:                                  ; preds = %45, %_ZN2va9DirectoryC2EPKc.exit.i.i
   %.lcssa.i.i = phi i32 [ %29, %_ZN2va9DirectoryC2EPKc.exit.i.i ], [ %.pr.i.i, %45 ]
-  %.015.lcssa.i.i = phi i32 [ -1, %_ZN2va9DirectoryC2EPKc.exit.i.i ], [ %.1.i.i, %45 ]
+  %.1.lcssa.i.i = phi i32 [ -1, %_ZN2va9DirectoryC2EPKc.exit.i.i ], [ %.2.i.i, %45 ]
   %.not.i.i.i = icmp eq i32 %.lcssa.i.i, 0
   br i1 %.not.i.i.i, label %_ZN2va9DirectoryD2Ev.exit.i.i, label %48
 
@@ -259,7 +259,7 @@ _ZNK2va9DirectoryixEi.exit25.i.i:                 ; preds = %_ZNK2va9Directoryix
   br label %_ZN2va9DirectoryD2Ev.exit.i.i
 
 _ZN2va9DirectoryD2Ev.exit.i.i:                    ; preds = %._crit_edge.i.i.i, %48, %._crit_edge.i.i, %.thread.i
-  %.015.lcssa68.i.i = phi i32 [ %.015.lcssa.i.i, %._crit_edge.i.i ], [ %.015.lcssa.i.i, %48 ], [ %.015.lcssa.i.i, %._crit_edge.i.i.i ], [ -1, %.thread.i ]
+  %.1.lcssa68.i.i = phi i32 [ %.1.lcssa.i.i, %._crit_edge.i.i ], [ %.1.lcssa.i.i, %48 ], [ %.1.lcssa.i.i, %._crit_edge.i.i.i ], [ -1, %.thread.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   %.pr37.i.i = load i32, ptr %2, align 8
   br label %.loopexit.i.i
@@ -273,7 +273,7 @@ _ZN2va9DirectoryD2Ev.exit.i.i:                    ; preds = %._crit_edge.i.i.i, 
 
 .loopexit.i.i:                                    ; preds = %57, %_ZN2va9DirectoryD2Ev.exit.i.i, %10
   %61 = phi i32 [ %.pr37.i.i, %_ZN2va9DirectoryD2Ev.exit.i.i ], [ %12, %10 ], [ %58, %57 ]
-  %.2.i.i = phi i32 [ %.015.lcssa68.i.i, %_ZN2va9DirectoryD2Ev.exit.i.i ], [ -1, %10 ], [ -1, %57 ]
+  %.015.i.i = phi i32 [ %.1.lcssa68.i.i, %_ZN2va9DirectoryD2Ev.exit.i.i ], [ -1, %10 ], [ -1, %57 ]
   %.not.i26.i.i = icmp eq i32 %61, 0
   br i1 %.not.i26.i.i, label %_ZN2vaL11findAdapterEj.exit.i, label %62
 
@@ -320,7 +320,7 @@ _ZN2vaL11findAdapterEj.exit.i:                    ; preds = %._crit_edge.i29.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %73 = icmp sgt i32 %.2.i.i, -1
+  %73 = icmp sgt i32 %.015.i.i, -1
   br i1 %73, label %74, label %115
 
 74:                                               ; preds = %_ZN2vaL11findAdapterEj.exit.i
@@ -337,13 +337,13 @@ _ZN2vaL11findAdapterEj.exit.i:                    ; preds = %._crit_edge.i29.i.i
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds i8, ptr %5, i64 64
-  %79 = add nuw nsw i32 %.2.i.i, 128
+  %79 = add nuw nsw i32 %.015.i.i, 128
   br label %80
 
 80:                                               ; preds = %84, %77
   %81 = phi i1 [ true, %77 ], [ false, %84 ]
   %indvars.iv.i12.sroa.phi.i = phi ptr [ %5, %77 ], [ %indvars.iv.i.sroa.gep4, %84 ]
-  %indvars.iv.i12.sroa.phi15.sroa.speculated.i = phi i32 [ %79, %77 ], [ %.2.i.i, %84 ]
+  %indvars.iv.i12.sroa.phi15.sroa.speculated.i = phi i32 [ %79, %77 ], [ %.015.i.i, %84 ]
   %indvars.iv.i12.i = phi i64 [ 0, %77 ], [ 1, %84 ]
   %82 = getelementptr inbounds [2 x ptr], ptr @__const.NodeInfo.names, i64 0, i64 %indvars.iv.i12.i
   %83 = load ptr, ptr %82, align 8
@@ -942,10 +942,10 @@ _ZN13CmdlineParser3runEv.exit.thread:             ; preds = %2, %_ZN13CmdlinePar
 
 163:                                              ; preds = %161, %159
   %.pn13.i.i = phi { ptr, i32 } [ %162, %161 ], [ %160, %159 ]
-  %.1.i.i = phi i1 [ %.0.i.i, %161 ], [ true, %159 ]
+  %.2.i.i = phi i1 [ %.0.i.i, %161 ], [ true, %159 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19, !noalias !16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19, !noalias !16
-  br i1 %.1.i.i, label %164, label %166
+  br i1 %.2.i.i, label %164, label %166
 
 164:                                              ; preds = %163, %.thread.i.i
   %.pn13.pn20.i.i = phi { ptr, i32 } [ %158, %.thread.i.i ], [ %.pn13.i.i, %163 ]
@@ -1294,14 +1294,14 @@ define internal fastcc noundef i32 @_ZN2vaL6readIdEPKcS1_(ptr noundef %0, ptr no
   br label %12
 
 12:                                               ; preds = %9, %7
-  %.0 = phi i32 [ %11, %9 ], [ 0, %7 ]
+  %.1 = phi i32 [ %11, %9 ], [ 0, %7 ]
   %13 = call i32 @fclose(ptr noundef nonnull %6)
   br label %14
 
 14:                                               ; preds = %12, %2
-  %.1 = phi i32 [ %.0, %12 ], [ 0, %2 ]
+  %.0 = phi i32 [ %.1, %12 ], [ 0, %2 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
-  ret i32 %.1
+  ret i32 %.0
 }
 
 declare void @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #0

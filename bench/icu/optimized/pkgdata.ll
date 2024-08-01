@@ -594,9 +594,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -918,29 +918,29 @@ if.then96:                                        ; preds = %if.end81
   %spec.select48 = select i1 %tobool99.not, i8 95, i8 %50
   store i8 %spec.select48, ptr %call93, align 1
   %sp.0200 = getelementptr inbounds i8, ptr %49, i64 1
-  %cp.0201 = getelementptr inbounds i8, ptr %call93, i64 1
+  %cp.1201 = getelementptr inbounds i8, ptr %call93, i64 1
   %51 = load i8, ptr %sp.0200, align 1
   %tobool106.not202 = icmp eq i8 %51, 0
   br i1 %tobool106.not202, label %if.end119, label %for.body107
 
 for.body107:                                      ; preds = %if.then96, %for.body107
   %52 = phi i8 [ %53, %for.body107 ], [ %51, %if.then96 ]
-  %cp.0204 = phi ptr [ %cp.0, %for.body107 ], [ %cp.0201, %if.then96 ]
+  %cp.1204 = phi ptr [ %cp.1, %for.body107 ], [ %cp.1201, %if.then96 ]
   %sp.0203 = phi ptr [ %sp.0, %for.body107 ], [ %sp.0200, %if.then96 ]
   %conv108 = sext i8 %52 to i32
   %call109 = tail call i32 @isalnum(i32 noundef %conv108) #22
   %tobool110.not = icmp eq i32 %call109, 0
   %spec.select49 = select i1 %tobool110.not, i8 95, i8 %52
-  store i8 %spec.select49, ptr %cp.0204, align 1
+  store i8 %spec.select49, ptr %cp.1204, align 1
   %sp.0 = getelementptr inbounds i8, ptr %sp.0203, i64 1
-  %cp.0 = getelementptr inbounds i8, ptr %cp.0204, i64 1
+  %cp.1 = getelementptr inbounds i8, ptr %cp.1204, i64 1
   %53 = load i8, ptr %sp.0, align 1
   %tobool106.not = icmp eq i8 %53, 0
   br i1 %tobool106.not, label %if.end119, label %for.body107, !llvm.loop !9
 
 if.end119:                                        ; preds = %for.body107, %if.then96, %if.end81
-  %cp.1 = phi ptr [ %call93, %if.end81 ], [ %cp.0201, %if.then96 ], [ %cp.0, %for.body107 ]
-  store i8 0, ptr %cp.1, align 1
+  %cp.0 = phi ptr [ %call93, %if.end81 ], [ %cp.1201, %if.then96 ], [ %cp.1, %for.body107 ]
+  store i8 0, ptr %cp.0, align 1
   %54 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 674), align 2
   %tobool120.not = icmp eq i8 %54, 0
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL7options, i64 648), align 8
@@ -1041,8 +1041,8 @@ for.body.i50.preheader:                           ; preds = %for.end195
   br label %for.body.i50
 
 for.body.i50:                                     ; preds = %for.body.i50.preheader, %while.end119.i
-  %o.sroa.12.0 = phi ptr [ %o.sroa.12.4, %while.end119.i ], [ null, %for.body.i50.preheader ]
-  %o.sroa.8.0 = phi ptr [ %o.sroa.8.4, %while.end119.i ], [ null, %for.body.i50.preheader ]
+  %o.sroa.12.0 = phi ptr [ %o.sroa.12.3, %while.end119.i ], [ null, %for.body.i50.preheader ]
+  %o.sroa.8.0 = phi ptr [ %o.sroa.8.3, %while.end119.i ], [ null, %for.body.i50.preheader ]
   %l.088.i = phi ptr [ %l.0.i, %while.end119.i ], [ %call191, %for.body.i50.preheader ]
   %ln.087.i = phi i32 [ %ln.1.lcssa.i, %while.end119.i ], [ 0, %for.body.i50.preheader ]
   br i1 %tobool1.not.i, label %if.end.i, label %if.then.i51
@@ -1116,15 +1116,15 @@ while.end33.i:                                    ; preds = %while.cond22.i, %if
   ]
 
 while.cond.backedge.i:                            ; preds = %if.end104.i, %land.rhs.i, %while.end33.i, %while.end33.i
-  %o.sroa.12.2 = phi ptr [ %o.sroa.12.1, %while.end33.i ], [ %o.sroa.12.1, %while.end33.i ], [ %call84.i, %if.end104.i ], [ %o.sroa.12.3, %land.rhs.i ]
-  %o.sroa.8.2 = phi ptr [ %o.sroa.8.1, %while.end33.i ], [ %o.sroa.8.1, %while.end33.i ], [ %call116.i, %if.end104.i ], [ %o.sroa.8.3, %land.rhs.i ]
+  %o.sroa.12.2 = phi ptr [ %o.sroa.12.1, %while.end33.i ], [ %o.sroa.12.1, %while.end33.i ], [ %call84.i, %if.end104.i ], [ %o.sroa.12.4, %land.rhs.i ]
+  %o.sroa.8.2 = phi ptr [ %o.sroa.8.1, %while.end33.i ], [ %o.sroa.8.1, %while.end33.i ], [ %call116.i, %if.end104.i ], [ %o.sroa.8.4, %land.rhs.i ]
   %call9.i = call ptr @T_FileStream_readLine(ptr noundef nonnull %call3.i, ptr noundef nonnull %line.i, i32 noundef 16384)
   %cmp.not.i = icmp eq ptr %call9.i, null
   br i1 %cmp.not.i, label %while.end119.i, label %while.body.i, !llvm.loop !13
 
 land.rhs.i:                                       ; preds = %while.end33.i, %if.end104.i
-  %o.sroa.12.3 = phi ptr [ %call84.i, %if.end104.i ], [ %o.sroa.12.1, %while.end33.i ]
-  %o.sroa.8.3 = phi ptr [ %call116.i, %if.end104.i ], [ %o.sroa.8.1, %while.end33.i ]
+  %o.sroa.12.4 = phi ptr [ %call84.i, %if.end104.i ], [ %o.sroa.12.1, %while.end33.i ]
+  %o.sroa.8.4 = phi ptr [ %call116.i, %if.end104.i ], [ %o.sroa.8.1, %while.end33.i ]
   %linePtr.181.i = phi ptr [ %lineNext.0.i, %if.end104.i ], [ %linePtr.0.i, %while.end33.i ]
   %89 = load i8, ptr %linePtr.181.i, align 1
   %tobool43.not.i = icmp eq i8 %89, 0
@@ -1195,7 +1195,7 @@ if.end81.i:                                       ; preds = %if.then78.i, %if.el
   %lineNext.0.i = phi ptr [ %incdec.ptr72.i, %if.end71.i ], [ %incdec.ptr59.i, %if.else.i ], [ %incdec.ptr79.i, %if.then78.i ], [ null, %if.else75.i ]
   %call82.i = call ptr @getLongPathname(ptr noundef nonnull %linePtr.2.i)
   %call83.i = call ptr @uprv_strdup_75(ptr noundef nonnull %linePtr.2.i)
-  %call84.i = call ptr @pkg_appendToList(ptr noundef %o.sroa.12.3, ptr noundef nonnull %tail.i, ptr noundef %call83.i)
+  %call84.i = call ptr @pkg_appendToList(ptr noundef %o.sroa.12.4, ptr noundef nonnull %tail.i, ptr noundef %call83.i)
   %call86.i = call signext i8 @uprv_pathIsAbsolute_75(ptr noundef %call82.i)
   %tobool87.not.i = icmp eq i8 %call86.i, 0
   br i1 %tobool87.not.i, label %lor.lhs.false88.i, label %if.then92.i
@@ -1237,13 +1237,13 @@ if.end104.i:                                      ; preds = %if.end94.i
   %cond113.i = select i1 %cmp112.i, ptr @.str.11, ptr @.str.55
   %call114.i = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %call100.i, ptr noundef nonnull dereferenceable(1) %cond113.i) #18
   %call115.i = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %call100.i, ptr noundef nonnull dereferenceable(1) %call82.i) #18
-  %call116.i = call ptr @pkg_appendToList(ptr noundef %o.sroa.8.3, ptr noundef nonnull %tail2.i, ptr noundef nonnull %call100.i)
+  %call116.i = call ptr @pkg_appendToList(ptr noundef %o.sroa.8.4, ptr noundef nonnull %tail2.i, ptr noundef nonnull %call100.i)
   %tobool42.not.i = icmp eq ptr %lineNext.0.i, null
   br i1 %tobool42.not.i, label %while.cond.backedge.i, label %land.rhs.i, !llvm.loop !15
 
 while.end119.i:                                   ; preds = %while.cond.backedge.i, %while.cond.preheader.i
-  %o.sroa.12.4 = phi ptr [ %o.sroa.12.0, %while.cond.preheader.i ], [ %o.sroa.12.2, %while.cond.backedge.i ]
-  %o.sroa.8.4 = phi ptr [ %o.sroa.8.0, %while.cond.preheader.i ], [ %o.sroa.8.2, %while.cond.backedge.i ]
+  %o.sroa.12.3 = phi ptr [ %o.sroa.12.0, %while.cond.preheader.i ], [ %o.sroa.12.2, %while.cond.backedge.i ]
+  %o.sroa.8.3 = phi ptr [ %o.sroa.8.0, %while.cond.preheader.i ], [ %o.sroa.8.2, %while.cond.backedge.i ]
   %ln.1.lcssa.i = phi i32 [ %ln.087.i, %while.cond.preheader.i ], [ %inc.i, %while.cond.backedge.i ]
   call void @T_FileStream_close(ptr noundef nonnull %call3.i)
   %next.i = getelementptr inbounds i8, ptr %l.088.i, i64 8
@@ -1266,8 +1266,8 @@ if.then198:                                       ; preds = %if.end.i
 if.end201:                                        ; preds = %while.end119.i, %for.end195.thread, %for.end195
   %tobool.not86.i262 = phi i1 [ true, %for.end195 ], [ true, %for.end195.thread ], [ %tobool.not86.i, %while.end119.i ]
   %o.sroa.0.0.lcssa255 = phi ptr [ null, %for.end195 ], [ null, %for.end195.thread ], [ %call191, %while.end119.i ]
-  %o.sroa.12.5.ph = phi ptr [ null, %for.end195 ], [ null, %for.end195.thread ], [ %o.sroa.12.4, %while.end119.i ]
-  %o.sroa.8.5.ph = phi ptr [ null, %for.end195 ], [ null, %for.end195.thread ], [ %o.sroa.8.4, %while.end119.i ]
+  %o.sroa.12.5.ph = phi ptr [ null, %for.end195 ], [ null, %for.end195.thread ], [ %o.sroa.12.3, %while.end119.i ]
+  %o.sroa.8.5.ph = phi ptr [ null, %for.end195 ], [ null, %for.end195.thread ], [ %o.sroa.8.3, %while.end119.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tail.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tail2.i)
   call void @llvm.lifetime.end.p0(i64 16384, ptr nonnull %line.i)
@@ -2355,8 +2355,8 @@ _ZL23pkg_destroyOptMatchArchPc.exit.i:            ; preds = %if.then.i239.i, %la
   br label %if.end312.i
 
 if.end312.i:                                      ; preds = %_ZL23pkg_destroyOptMatchArchPc.exit.i, %_ZL29pkg_createWithoutAssemblyCodeP12UPKGOptions_PKcc.exit.i
-  %result.5.i = phi i32 [ %retval.0.i210.i, %_ZL29pkg_createWithoutAssemblyCodeP12UPKGOptions_PKcc.exit.i ], [ %call311.i, %_ZL23pkg_destroyOptMatchArchPc.exit.i ]
-  %cmp313.not.i = icmp eq i32 %result.5.i, 0
+  %result.6.i = phi i32 [ %retval.0.i210.i, %_ZL29pkg_createWithoutAssemblyCodeP12UPKGOptions_PKcc.exit.i ], [ %call311.i, %_ZL23pkg_destroyOptMatchArchPc.exit.i ]
+  %cmp313.not.i = icmp eq i32 %result.6.i, 0
   br i1 %cmp313.not.i, label %if.end317.i, label %if.then314.i
 
 if.then314.i:                                     ; preds = %if.end312.i
@@ -2500,7 +2500,7 @@ if.then356.i:                                     ; preds = %if.end351.i
   br label %_ZL18pkg_executeOptionsP12UPKGOptions_.exit
 
 _ZL18pkg_executeOptionsP12UPKGOptions_.exit:      ; preds = %if.then.i74, %_ZL19pkg_installFileModePKcS0_S0_.exit.i, %if.then53.i64, %if.then79.i, %if.then94.i, %if.end99.i, %_ZL21pkg_installCommonModePKcS0_.exit.i, %if.end188.i, %if.else192.i, %if.then195.i, %if.then258.i, %if.then263.i, %if.end272.i, %if.else279.i, %if.then314.i, %if.then330.i, %if.then338.i, %if.end342.i, %if.end351.i, %if.then356.i
-  %retval.0.i65 = phi i32 [ %call51.i, %if.then53.i64 ], [ %call77.i, %if.then79.i ], [ %call86.i72, %if.then94.i ], [ %result.5.i, %if.then314.i ], [ %call354.i, %if.then356.i ], [ 1, %if.then330.i ], [ 1, %if.then338.i ], [ %retval.0.i178.i, %if.then258.i ], [ -1, %if.else279.i ], [ %retval.0.i129.i, %_ZL19pkg_installFileModePKcS0_S0_.exit.i ], [ 0, %if.then.i74 ], [ %retval.0.i146.i, %_ZL21pkg_installCommonModePKcS0_.exit.i ], [ 0, %if.end99.i ], [ %call191.i, %if.end188.i ], [ 0, %if.then195.i ], [ 0, %if.else192.i ], [ %call275.i, %if.end272.i ], [ 0, %if.then263.i ], [ 0, %if.end351.i ], [ 0, %if.end342.i ]
+  %retval.0.i65 = phi i32 [ %call51.i, %if.then53.i64 ], [ %call77.i, %if.then79.i ], [ %call86.i72, %if.then94.i ], [ %result.6.i, %if.then314.i ], [ %call354.i, %if.then356.i ], [ 1, %if.then330.i ], [ 1, %if.then338.i ], [ %retval.0.i178.i, %if.then258.i ], [ -1, %if.else279.i ], [ %retval.0.i129.i, %_ZL19pkg_installFileModePKcS0_S0_.exit.i ], [ 0, %if.then.i74 ], [ %retval.0.i146.i, %_ZL21pkg_installCommonModePKcS0_.exit.i ], [ 0, %if.end99.i ], [ %call191.i, %if.end188.i ], [ 0, %if.then195.i ], [ 0, %if.else192.i ], [ %call275.i, %if.end272.i ], [ 0, %if.then263.i ], [ 0, %if.end351.i ], [ 0, %if.end342.i ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %targetDir.i)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %tmpDir.i)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %datFileName.i)
@@ -2796,8 +2796,8 @@ if.then70:                                        ; preds = %if.then36
   br label %return
 
 if.end73:                                         ; preds = %if.then36, %if.else
-  %cmd.2 = phi ptr [ %command, %if.else ], [ %call68, %if.then36 ]
-  %freeCmd.1 = phi i8 [ 0, %if.else ], [ 1, %if.then36 ]
+  %cmd.3 = phi ptr [ %command, %if.else ], [ %call68, %if.then36 ]
+  %freeCmd.2 = phi i8 [ 0, %if.else ], [ 1, %if.then36 ]
   %22 = load ptr, ptr @_ZL12pkgDataFlags, align 8
   %arrayidx74 = getelementptr inbounds i8, ptr %22, i64 64
   %23 = load ptr, ptr %arrayidx74, align 8
@@ -2812,37 +2812,37 @@ if.end73:                                         ; preds = %if.then36, %if.else
   %27 = load ptr, ptr %arrayidx82, align 8
   %arrayidx83 = getelementptr inbounds i8, ptr %22, i64 96
   %28 = load ptr, ptr %arrayidx83, align 8
-  %call84 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cmd.2, ptr noundef nonnull dereferenceable(1) @.str.140, ptr noundef %23, ptr noundef %24, ptr noundef %targetDir, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 768), ptr noundef %objectFile, ptr noundef nonnull %25, ptr noundef nonnull %cond81, ptr noundef %27, ptr noundef %28) #18
-  %call.i32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmd.2) #22
+  %call84 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %cmd.3, ptr noundef nonnull dereferenceable(1) @.str.140, ptr noundef %23, ptr noundef %24, ptr noundef %targetDir, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL12libFileNames, i64 768), ptr noundef %objectFile, ptr noundef nonnull %25, ptr noundef nonnull %cond81, ptr noundef %27, ptr noundef %28) #18
+  %call.i32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cmd.3) #22
   %29 = and i64 %call.i32, 4294967295
   %cmp.i33 = icmp eq i64 %29, 0
   br i1 %cmp.i33, label %if.end90, label %normal_command_mode.i34
 
 normal_command_mode.i34:                          ; preds = %if.end73
-  %call3.i35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, ptr noundef nonnull %cmd.2)
-  %call4.i36 = tail call i32 @system(ptr noundef nonnull %cmd.2)
+  %call3.i35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.109, ptr noundef nonnull %cmd.3)
+  %call4.i36 = tail call i32 @system(ptr noundef nonnull %cmd.3)
   %cmp5.not.i37 = icmp eq i32 %call4.i36, 0
   br i1 %cmp5.not.i37, label %if.end90, label %if.then88
 
 if.then88:                                        ; preds = %normal_command_mode.i34, %normal_command_mode.i24, %normal_command_mode.i
   %call4.i.sink = phi i32 [ %call4.i, %normal_command_mode.i ], [ %call4.i26, %normal_command_mode.i24 ], [ %call4.i36, %normal_command_mode.i34 ]
-  %cmd.3 = phi ptr [ %cmd.1, %normal_command_mode.i ], [ %cmd.1, %normal_command_mode.i24 ], [ %cmd.2, %normal_command_mode.i34 ]
-  %freeCmd.2 = phi i8 [ %freeCmd.0, %normal_command_mode.i ], [ %freeCmd.0, %normal_command_mode.i24 ], [ %freeCmd.1, %normal_command_mode.i34 ]
+  %cmd.2 = phi ptr [ %cmd.1, %normal_command_mode.i ], [ %cmd.1, %normal_command_mode.i24 ], [ %cmd.3, %normal_command_mode.i34 ]
+  %freeCmd.1 = phi i8 [ %freeCmd.0, %normal_command_mode.i ], [ %freeCmd.0, %normal_command_mode.i24 ], [ %freeCmd.2, %normal_command_mode.i34 ]
   %30 = load ptr, ptr @stderr, align 8
   %call7.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.110, i32 noundef %call4.i.sink) #21
   %31 = load ptr, ptr @stderr, align 8
-  %call89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.141, ptr noundef nonnull %cmd.3) #21
+  %call89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.141, ptr noundef nonnull %cmd.2) #21
   br label %if.end90
 
 if.end90:                                         ; preds = %normal_command_mode.i34, %if.end73, %normal_command_mode.i24, %if.then30, %if.then88
-  %freeCmd.250 = phi i8 [ %freeCmd.2, %if.then88 ], [ %freeCmd.1, %normal_command_mode.i34 ], [ %freeCmd.1, %if.end73 ], [ %freeCmd.0, %normal_command_mode.i24 ], [ %freeCmd.0, %if.then30 ]
-  %cmd.349 = phi ptr [ %cmd.3, %if.then88 ], [ %cmd.2, %normal_command_mode.i34 ], [ %cmd.2, %if.end73 ], [ %cmd.1, %normal_command_mode.i24 ], [ %cmd.1, %if.then30 ]
+  %freeCmd.150 = phi i8 [ %freeCmd.1, %if.then88 ], [ %freeCmd.2, %normal_command_mode.i34 ], [ %freeCmd.2, %if.end73 ], [ %freeCmd.0, %normal_command_mode.i24 ], [ %freeCmd.0, %if.then30 ]
+  %cmd.249 = phi ptr [ %cmd.2, %if.then88 ], [ %cmd.3, %normal_command_mode.i34 ], [ %cmd.3, %if.end73 ], [ %cmd.1, %normal_command_mode.i24 ], [ %cmd.1, %if.then30 ]
   %result.048 = phi i32 [ 1, %if.then88 ], [ 0, %normal_command_mode.i34 ], [ 0, %if.end73 ], [ 0, %normal_command_mode.i24 ], [ 0, %if.then30 ]
-  %tobool.not = icmp eq i8 %freeCmd.250, 0
+  %tobool.not = icmp eq i8 %freeCmd.150, 0
   br i1 %tobool.not, label %return, label %if.then91
 
 if.then91:                                        ; preds = %if.end90
-  tail call void @uprv_free_75(ptr noundef nonnull %cmd.349)
+  tail call void @uprv_free_75(ptr noundef nonnull %cmd.249)
   br label %return
 
 return:                                           ; preds = %if.end90, %if.then91, %if.then70, %if.then21

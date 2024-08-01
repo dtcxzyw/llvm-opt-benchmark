@@ -414,39 +414,39 @@ for.body14:                                       ; preds = %for.cond11.preheade
 
 for.body24:                                       ; preds = %for.cond21.preheader, %for.body24
   %add22186 = phi i64 [ %add22, %for.body24 ], [ 16, %for.cond21.preheader ]
-  %i.2185 = phi i64 [ %add22186, %for.body24 ], [ 0, %for.cond21.preheader ]
-  %state.sroa.0.3184 = phi <2 x i64> [ %xor.i.i.i57, %for.body24 ], [ %state.sroa.0.1, %for.cond21.preheader ]
-  %state.sroa.15.3183 = phi <2 x i64> [ %57, %for.body24 ], [ %state.sroa.15.1, %for.cond21.preheader ]
-  %state.sroa.34.3182 = phi <2 x i64> [ %56, %for.body24 ], [ %state.sroa.34.1, %for.cond21.preheader ]
-  %state.sroa.53.3181 = phi <2 x i64> [ %55, %for.body24 ], [ %state.sroa.53.1, %for.cond21.preheader ]
-  %state.sroa.73.3180 = phi <2 x i64> [ %54, %for.body24 ], [ %state.sroa.73.1, %for.cond21.preheader ]
-  %state.sroa.93.3179 = phi <2 x i64> [ %53, %for.body24 ], [ %state.sroa.93.1, %for.cond21.preheader ]
-  %add.ptr26 = getelementptr i8, ptr %c, i64 %i.2185
+  %i.3185 = phi i64 [ %add22186, %for.body24 ], [ 0, %for.cond21.preheader ]
+  %state.sroa.0.4184 = phi <2 x i64> [ %xor.i.i.i57, %for.body24 ], [ %state.sroa.0.1, %for.cond21.preheader ]
+  %state.sroa.15.4183 = phi <2 x i64> [ %57, %for.body24 ], [ %state.sroa.15.1, %for.cond21.preheader ]
+  %state.sroa.34.4182 = phi <2 x i64> [ %56, %for.body24 ], [ %state.sroa.34.1, %for.cond21.preheader ]
+  %state.sroa.53.4181 = phi <2 x i64> [ %55, %for.body24 ], [ %state.sroa.53.1, %for.cond21.preheader ]
+  %state.sroa.73.4180 = phi <2 x i64> [ %54, %for.body24 ], [ %state.sroa.73.1, %for.cond21.preheader ]
+  %state.sroa.93.4179 = phi <2 x i64> [ %53, %for.body24 ], [ %state.sroa.93.1, %for.cond21.preheader ]
+  %add.ptr26 = getelementptr i8, ptr %c, i64 %i.3185
   %add.ptr26.val = load <2 x i64>, ptr %add.ptr26, align 1
-  %and.i.i55 = and <2 x i64> %state.sroa.34.3182, %state.sroa.53.3181
-  %53 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.73.3180, <2 x i64> %state.sroa.93.3179)
-  %54 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.53.3181, <2 x i64> %state.sroa.73.3180)
-  %55 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.34.3182, <2 x i64> %state.sroa.53.3181)
-  %56 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.15.3183, <2 x i64> %state.sroa.34.3182)
-  %57 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.0.3184, <2 x i64> %state.sroa.15.3183)
-  %58 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.93.3179, <2 x i64> %state.sroa.0.3184)
+  %and.i.i55 = and <2 x i64> %state.sroa.34.4182, %state.sroa.53.4181
+  %53 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.73.4180, <2 x i64> %state.sroa.93.4179)
+  %54 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.53.4181, <2 x i64> %state.sroa.73.4180)
+  %55 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.34.4182, <2 x i64> %state.sroa.53.4181)
+  %56 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.15.4183, <2 x i64> %state.sroa.34.4182)
+  %57 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.0.4184, <2 x i64> %state.sroa.15.4183)
+  %58 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.93.4179, <2 x i64> %state.sroa.0.4184)
   %59 = xor <2 x i64> %and.i.i55, %add.ptr26.val
   %60 = xor <2 x i64> %59, %58
-  %61 = xor <2 x i64> %60, %state.sroa.93.3179
-  %62 = xor <2 x i64> %61, %state.sroa.73.3180
-  %xor.i.i.i57 = xor <2 x i64> %62, %state.sroa.15.3183
+  %61 = xor <2 x i64> %60, %state.sroa.93.4179
+  %62 = xor <2 x i64> %61, %state.sroa.73.4180
+  %xor.i.i.i57 = xor <2 x i64> %62, %state.sroa.15.4183
   %add22 = add nuw i64 %add22186, 16
   %cmp23.not = icmp ugt i64 %add22, %clen
   br i1 %cmp23.not, label %if.end31, label %for.body24, !llvm.loop !11
 
 if.end31:                                         ; preds = %for.body24, %for.body14
-  %state.sroa.93.4 = phi <2 x i64> [ %47, %for.body14 ], [ %53, %for.body24 ]
-  %state.sroa.73.4 = phi <2 x i64> [ %48, %for.body14 ], [ %54, %for.body24 ]
-  %state.sroa.53.4 = phi <2 x i64> [ %49, %for.body14 ], [ %55, %for.body24 ]
-  %state.sroa.34.4 = phi <2 x i64> [ %50, %for.body14 ], [ %56, %for.body24 ]
-  %state.sroa.15.4 = phi <2 x i64> [ %51, %for.body14 ], [ %57, %for.body24 ]
-  %state.sroa.0.4 = phi <2 x i64> [ %xor.i.i.i46, %for.body14 ], [ %xor.i.i.i57, %for.body24 ]
-  %i.3 = phi i64 [ %add12202, %for.body14 ], [ %add22186, %for.body24 ]
+  %state.sroa.93.3 = phi <2 x i64> [ %47, %for.body14 ], [ %53, %for.body24 ]
+  %state.sroa.73.3 = phi <2 x i64> [ %48, %for.body14 ], [ %54, %for.body24 ]
+  %state.sroa.53.3 = phi <2 x i64> [ %49, %for.body14 ], [ %55, %for.body24 ]
+  %state.sroa.34.3 = phi <2 x i64> [ %50, %for.body14 ], [ %56, %for.body24 ]
+  %state.sroa.15.3 = phi <2 x i64> [ %51, %for.body14 ], [ %57, %for.body24 ]
+  %state.sroa.0.3 = phi <2 x i64> [ %xor.i.i.i46, %for.body14 ], [ %xor.i.i.i57, %for.body24 ]
+  %i.2 = phi i64 [ %add12202, %for.body14 ], [ %add22186, %for.body24 ]
   %rem32 = and i64 %clen, 15
   %tobool33.not = icmp eq i64 %rem32, 0
   br i1 %tobool33.not, label %if.end47, label %if.then34
@@ -463,86 +463,86 @@ if.then34:                                        ; preds = %if.end31
   br i1 %cmp9, label %if.then36, label %if.else41
 
 if.then36:                                        ; preds = %if.end31.thread268, %if.then34
-  %state.sroa.93.4244294 = phi <2 x i64> [ %state.sroa.93.4, %if.then34 ], [ %state.sroa.93.1, %if.end31.thread268 ]
-  %state.sroa.73.4245293 = phi <2 x i64> [ %state.sroa.73.4, %if.then34 ], [ %state.sroa.73.1, %if.end31.thread268 ]
-  %state.sroa.53.4246292 = phi <2 x i64> [ %state.sroa.53.4, %if.then34 ], [ %state.sroa.53.1, %if.end31.thread268 ]
-  %state.sroa.34.4247291 = phi <2 x i64> [ %state.sroa.34.4, %if.then34 ], [ %state.sroa.34.1, %if.end31.thread268 ]
-  %state.sroa.15.4248290 = phi <2 x i64> [ %state.sroa.15.4, %if.then34 ], [ %state.sroa.15.1, %if.end31.thread268 ]
-  %state.sroa.0.4249289 = phi <2 x i64> [ %state.sroa.0.4, %if.then34 ], [ %state.sroa.0.1, %if.end31.thread268 ]
-  %i.3250288 = phi i64 [ %i.3, %if.then34 ], [ 0, %if.end31.thread268 ]
+  %state.sroa.93.3244294 = phi <2 x i64> [ %state.sroa.93.3, %if.then34 ], [ %state.sroa.93.1, %if.end31.thread268 ]
+  %state.sroa.73.3245293 = phi <2 x i64> [ %state.sroa.73.3, %if.then34 ], [ %state.sroa.73.1, %if.end31.thread268 ]
+  %state.sroa.53.3246292 = phi <2 x i64> [ %state.sroa.53.3, %if.then34 ], [ %state.sroa.53.1, %if.end31.thread268 ]
+  %state.sroa.34.3247291 = phi <2 x i64> [ %state.sroa.34.3, %if.then34 ], [ %state.sroa.34.1, %if.end31.thread268 ]
+  %state.sroa.15.3248290 = phi <2 x i64> [ %state.sroa.15.3, %if.then34 ], [ %state.sroa.15.1, %if.end31.thread268 ]
+  %state.sroa.0.3249289 = phi <2 x i64> [ %state.sroa.0.3, %if.then34 ], [ %state.sroa.0.1, %if.end31.thread268 ]
+  %i.2250288 = phi i64 [ %i.2, %if.then34 ], [ 0, %if.end31.thread268 ]
   %rem32251287 = phi i64 [ %rem32, %if.then34 ], [ %clen, %if.end31.thread268 ]
-  %add.ptr37 = getelementptr i8, ptr %m, i64 %i.3250288
-  %add.ptr38 = getelementptr i8, ptr %c, i64 %i.3250288
+  %add.ptr37 = getelementptr i8, ptr %m, i64 %i.2250288
+  %add.ptr38 = getelementptr i8, ptr %c, i64 %i.2250288
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pad.i)
   %63 = sub nuw nsw i64 16, %rem32251287
   %64 = getelementptr i8, ptr %pad.i, i64 %rem32251287
   call void @llvm.memset.p0.i64(ptr align 1 %64, i8 0, i64 %63, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i, ptr readonly align 1 %add.ptr38, i64 %rem32251287, i1 false)
   %65 = load <2 x i64>, ptr %pad.i, align 16
-  %and.i.i64 = and <2 x i64> %state.sroa.34.4247291, %state.sroa.53.4246292
+  %and.i.i64 = and <2 x i64> %state.sroa.34.3247291, %state.sroa.53.3246292
   %66 = xor <2 x i64> %and.i.i64, %65
-  %67 = xor <2 x i64> %66, %state.sroa.93.4244294
-  %68 = xor <2 x i64> %67, %state.sroa.73.4245293
-  %xor.i.i65 = xor <2 x i64> %68, %state.sroa.15.4248290
+  %67 = xor <2 x i64> %66, %state.sroa.93.3244294
+  %68 = xor <2 x i64> %67, %state.sroa.73.3245293
+  %xor.i.i65 = xor <2 x i64> %68, %state.sroa.15.3248290
   store <2 x i64> %xor.i.i65, ptr %pad.i, align 16
   %add.ptr.i = getelementptr i8, ptr %pad.i, i64 %rem32251287
   %sub.i = sub nuw nsw i64 16, %rem32251287
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, i8 0, i64 %sub.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr37, ptr nonnull align 16 %pad.i, i64 %rem32251287, i1 false)
   %69 = load <2 x i64>, ptr %pad.i, align 16
-  %70 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.73.4245293, <2 x i64> %state.sroa.93.4244294)
-  %71 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.53.4246292, <2 x i64> %state.sroa.73.4245293)
-  %72 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.34.4247291, <2 x i64> %state.sroa.53.4246292)
-  %73 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.15.4248290, <2 x i64> %state.sroa.34.4247291)
-  %74 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.0.4249289, <2 x i64> %state.sroa.15.4248290)
-  %75 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.93.4244294, <2 x i64> %state.sroa.0.4249289)
+  %70 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.73.3245293, <2 x i64> %state.sroa.93.3244294)
+  %71 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.53.3246292, <2 x i64> %state.sroa.73.3245293)
+  %72 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.34.3247291, <2 x i64> %state.sroa.53.3246292)
+  %73 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.15.3248290, <2 x i64> %state.sroa.34.3247291)
+  %74 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.0.3249289, <2 x i64> %state.sroa.15.3248290)
+  %75 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.93.3244294, <2 x i64> %state.sroa.0.3249289)
   %xor.i.i.i66 = xor <2 x i64> %75, %69
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pad.i)
   br label %if.end47
 
 if.else41:                                        ; preds = %if.end31.thread, %if.then34
-  %state.sroa.93.4244267 = phi <2 x i64> [ %state.sroa.93.4, %if.then34 ], [ %state.sroa.93.1, %if.end31.thread ]
-  %state.sroa.73.4245266 = phi <2 x i64> [ %state.sroa.73.4, %if.then34 ], [ %state.sroa.73.1, %if.end31.thread ]
-  %state.sroa.53.4246265 = phi <2 x i64> [ %state.sroa.53.4, %if.then34 ], [ %state.sroa.53.1, %if.end31.thread ]
-  %state.sroa.34.4247264 = phi <2 x i64> [ %state.sroa.34.4, %if.then34 ], [ %state.sroa.34.1, %if.end31.thread ]
-  %state.sroa.15.4248263 = phi <2 x i64> [ %state.sroa.15.4, %if.then34 ], [ %state.sroa.15.1, %if.end31.thread ]
-  %state.sroa.0.4249262 = phi <2 x i64> [ %state.sroa.0.4, %if.then34 ], [ %state.sroa.0.1, %if.end31.thread ]
-  %i.3250261 = phi i64 [ %i.3, %if.then34 ], [ 0, %if.end31.thread ]
+  %state.sroa.93.3244267 = phi <2 x i64> [ %state.sroa.93.3, %if.then34 ], [ %state.sroa.93.1, %if.end31.thread ]
+  %state.sroa.73.3245266 = phi <2 x i64> [ %state.sroa.73.3, %if.then34 ], [ %state.sroa.73.1, %if.end31.thread ]
+  %state.sroa.53.3246265 = phi <2 x i64> [ %state.sroa.53.3, %if.then34 ], [ %state.sroa.53.1, %if.end31.thread ]
+  %state.sroa.34.3247264 = phi <2 x i64> [ %state.sroa.34.3, %if.then34 ], [ %state.sroa.34.1, %if.end31.thread ]
+  %state.sroa.15.3248263 = phi <2 x i64> [ %state.sroa.15.3, %if.then34 ], [ %state.sroa.15.1, %if.end31.thread ]
+  %state.sroa.0.3249262 = phi <2 x i64> [ %state.sroa.0.3, %if.then34 ], [ %state.sroa.0.1, %if.end31.thread ]
+  %i.2250261 = phi i64 [ %i.2, %if.then34 ], [ 0, %if.end31.thread ]
   %rem32251260 = phi i64 [ %rem32, %if.then34 ], [ %clen, %if.end31.thread ]
-  %add.ptr43 = getelementptr i8, ptr %c, i64 %i.3250261
+  %add.ptr43 = getelementptr i8, ptr %c, i64 %i.2250261
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %pad.i67)
   %76 = sub nuw nsw i64 16, %rem32251260
   %77 = getelementptr i8, ptr %pad.i67, i64 %rem32251260
   call void @llvm.memset.p0.i64(ptr align 1 %77, i8 0, i64 %76, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %pad.i67, ptr readonly align 1 %add.ptr43, i64 %rem32251260, i1 false)
   %78 = load <2 x i64>, ptr %pad.i67, align 16
-  %and.i.i76 = and <2 x i64> %state.sroa.34.4247264, %state.sroa.53.4246265
+  %and.i.i76 = and <2 x i64> %state.sroa.34.3247264, %state.sroa.53.3246265
   %79 = xor <2 x i64> %and.i.i76, %78
-  %80 = xor <2 x i64> %79, %state.sroa.93.4244267
-  %81 = xor <2 x i64> %80, %state.sroa.73.4245266
-  %xor.i.i77 = xor <2 x i64> %81, %state.sroa.15.4248263
+  %80 = xor <2 x i64> %79, %state.sroa.93.3244267
+  %81 = xor <2 x i64> %80, %state.sroa.73.3245266
+  %xor.i.i77 = xor <2 x i64> %81, %state.sroa.15.3248263
   store <2 x i64> %xor.i.i77, ptr %pad.i67, align 16
   %add.ptr.i78 = getelementptr i8, ptr %pad.i67, i64 %rem32251260
   %sub.i79 = sub nuw nsw i64 16, %rem32251260
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i78, i8 0, i64 %sub.i79, i1 false)
   %82 = load <2 x i64>, ptr %pad.i67, align 16
-  %83 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.73.4245266, <2 x i64> %state.sroa.93.4244267)
-  %84 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.53.4246265, <2 x i64> %state.sroa.73.4245266)
-  %85 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.34.4247264, <2 x i64> %state.sroa.53.4246265)
-  %86 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.15.4248263, <2 x i64> %state.sroa.34.4247264)
-  %87 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.0.4249262, <2 x i64> %state.sroa.15.4248263)
-  %88 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.93.4244267, <2 x i64> %state.sroa.0.4249262)
+  %83 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.73.3245266, <2 x i64> %state.sroa.93.3244267)
+  %84 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.53.3246265, <2 x i64> %state.sroa.73.3245266)
+  %85 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.34.3247264, <2 x i64> %state.sroa.53.3246265)
+  %86 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.15.3248263, <2 x i64> %state.sroa.34.3247264)
+  %87 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.0.3249262, <2 x i64> %state.sroa.15.3248263)
+  %88 = tail call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %state.sroa.93.3244267, <2 x i64> %state.sroa.0.3249262)
   %xor.i.i.i80 = xor <2 x i64> %88, %82
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pad.i67)
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end31.thread268, %if.end31.thread, %if.then36, %if.else41, %if.end31
-  %state.sroa.93.5 = phi <2 x i64> [ %state.sroa.93.4, %if.end31 ], [ %70, %if.then36 ], [ %83, %if.else41 ], [ %state.sroa.93.1, %if.end31.thread ], [ %state.sroa.93.1, %if.end31.thread268 ]
-  %state.sroa.73.5 = phi <2 x i64> [ %state.sroa.73.4, %if.end31 ], [ %71, %if.then36 ], [ %84, %if.else41 ], [ %state.sroa.73.1, %if.end31.thread ], [ %state.sroa.73.1, %if.end31.thread268 ]
-  %state.sroa.53.5 = phi <2 x i64> [ %state.sroa.53.4, %if.end31 ], [ %72, %if.then36 ], [ %85, %if.else41 ], [ %state.sroa.53.1, %if.end31.thread ], [ %state.sroa.53.1, %if.end31.thread268 ]
-  %state.sroa.34.5 = phi <2 x i64> [ %state.sroa.34.4, %if.end31 ], [ %73, %if.then36 ], [ %86, %if.else41 ], [ %state.sroa.34.1, %if.end31.thread ], [ %state.sroa.34.1, %if.end31.thread268 ]
-  %state.sroa.15.5 = phi <2 x i64> [ %state.sroa.15.4, %if.end31 ], [ %74, %if.then36 ], [ %87, %if.else41 ], [ %state.sroa.15.1, %if.end31.thread ], [ %state.sroa.15.1, %if.end31.thread268 ]
-  %state.sroa.0.5 = phi <2 x i64> [ %state.sroa.0.4, %if.end31 ], [ %xor.i.i.i66, %if.then36 ], [ %xor.i.i.i80, %if.else41 ], [ %state.sroa.0.1, %if.end31.thread ], [ %state.sroa.0.1, %if.end31.thread268 ]
+  %state.sroa.93.5 = phi <2 x i64> [ %state.sroa.93.3, %if.end31 ], [ %70, %if.then36 ], [ %83, %if.else41 ], [ %state.sroa.93.1, %if.end31.thread ], [ %state.sroa.93.1, %if.end31.thread268 ]
+  %state.sroa.73.5 = phi <2 x i64> [ %state.sroa.73.3, %if.end31 ], [ %71, %if.then36 ], [ %84, %if.else41 ], [ %state.sroa.73.1, %if.end31.thread ], [ %state.sroa.73.1, %if.end31.thread268 ]
+  %state.sroa.53.5 = phi <2 x i64> [ %state.sroa.53.3, %if.end31 ], [ %72, %if.then36 ], [ %85, %if.else41 ], [ %state.sroa.53.1, %if.end31.thread ], [ %state.sroa.53.1, %if.end31.thread268 ]
+  %state.sroa.34.5 = phi <2 x i64> [ %state.sroa.34.3, %if.end31 ], [ %73, %if.then36 ], [ %86, %if.else41 ], [ %state.sroa.34.1, %if.end31.thread ], [ %state.sroa.34.1, %if.end31.thread268 ]
+  %state.sroa.15.5 = phi <2 x i64> [ %state.sroa.15.3, %if.end31 ], [ %74, %if.then36 ], [ %87, %if.else41 ], [ %state.sroa.15.1, %if.end31.thread ], [ %state.sroa.15.1, %if.end31.thread268 ]
+  %state.sroa.0.5 = phi <2 x i64> [ %state.sroa.0.3, %if.end31 ], [ %xor.i.i.i66, %if.then36 ], [ %xor.i.i.i80, %if.else41 ], [ %state.sroa.0.1, %if.end31.thread ], [ %state.sroa.0.1, %if.end31.thread268 ]
   %89 = insertelement <2 x i64> poison, i64 %adlen, i64 0
   %90 = insertelement <2 x i64> %89, i64 %clen, i64 1
   %91 = shl <2 x i64> %90, <i64 3, i64 3>

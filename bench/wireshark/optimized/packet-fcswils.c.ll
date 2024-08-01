@@ -830,14 +830,14 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %88
 
 .thread:                                          ; preds = %69, %56, %71
-  %.1.ph = phi i8 [ %10, %56 ], [ %10, %71 ], [ %70, %69 ]
-  %78 = icmp eq i8 %.1.ph, 1
+  %.095.ph = phi i8 [ %10, %56 ], [ %10, %71 ], [ %70, %69 ]
+  %78 = icmp eq i8 %.095.ph, 1
   br i1 %78, label %.thread122, label %84
 
 .thread122:                                       ; preds = %66, %.thread
-  %.198.ph137 = phi i32 [ 0, %.thread ], [ %68, %66 ]
+  %.097.ph137 = phi i32 [ 0, %.thread ], [ %68, %66 ]
   %79 = load ptr, ptr %8, align 8
-  %80 = and i32 %.198.ph137, 255
+  %80 = and i32 %.097.ph137, 255
   %81 = call ptr @val_to_str(i32 noundef %80, ptr noundef nonnull @fc_swils_opcode_key_val, ptr noundef nonnull @.str.391) #7
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.392, ptr noundef %81) #7
   %82 = load i32, ptr @hf_swils_opcode, align 4
@@ -845,7 +845,7 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %92
 
 84:                                               ; preds = %.thread
-  %85 = zext i8 %.1.ph to i32
+  %85 = zext i8 %.095.ph to i32
   %86 = load ptr, ptr %8, align 8
   %87 = call ptr @val_to_str(i32 noundef %85, ptr noundef nonnull @fc_swils_opcode_key_val, ptr noundef nonnull @.str.391) #7
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.393, ptr noundef %87) #7
@@ -853,16 +853,16 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
 
 88:                                               ; preds = %84, %75
   %.094120 = phi i8 [ 0, %84 ], [ 1, %75 ]
-  %.1118 = phi i8 [ %.1.ph, %84 ], [ %10, %75 ]
+  %.095118 = phi i8 [ %.095.ph, %84 ], [ %10, %75 ]
   %89 = load i32, ptr @hf_swils_opcode, align 4
   %90 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %89, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
-  %91 = icmp ult i8 %.1118, 53
+  %91 = icmp ult i8 %.095118, 53
   br i1 %91, label %92, label %97
 
 92:                                               ; preds = %.thread122, %88
-  %.1118126 = phi i8 [ 1, %.thread122 ], [ %.1118, %88 ]
+  %.095118126 = phi i8 [ 1, %.thread122 ], [ %.095118, %88 ]
   %.094120125 = phi i8 [ 0, %.thread122 ], [ %.094120, %88 ]
-  %93 = zext nneg i8 %.1118126 to i64
+  %93 = zext nneg i8 %.095118126 to i64
   %94 = getelementptr [53 x %struct._fcswils_func_table_t], ptr @fcswils_func_table, i64 0, i64 %93
   %95 = load ptr, ptr %94, align 8
   %.not113 = icmp eq ptr %95, null
@@ -873,7 +873,7 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %106
 
 97:                                               ; preds = %88
-  %98 = icmp eq i8 %.1118, 64
+  %98 = icmp eq i8 %.095118, 64
   br i1 %98, label %99, label %.thread128
 
 99:                                               ; preds = %97
@@ -1971,7 +1971,7 @@ dissect_swils_interconnect_element_info.exit:     ; preds = %.lr.ph.i, %5, %13
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i37, %dissect_swils_ess_capability.exit.us.i
   %.07085.us.i = phi i32 [ %84, %dissect_swils_ess_capability.exit.us.i ], [ %79, %.lr.ph.i37 ]
   %.17484.us.i = phi i32 [ %83, %dissect_swils_ess_capability.exit.us.i ], [ %.073.i, %.lr.ph.i37 ]
-  %.07583.us.i = phi i32 [ %85, %dissect_swils_ess_capability.exit.us.i ], [ 4, %.lr.ph.i37 ]
+  %.17683.us.i = phi i32 [ %85, %dissect_swils_ess_capability.exit.us.i ], [ 4, %.lr.ph.i37 ]
   %82 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.07085.us.i, i32 noundef 8) #7
   %.not81.us.i = icmp eq i32 %82, 0
   br i1 %.not81.us.i, label %dissect_swils_ess_capability_obj.exit, label %dissect_swils_ess_capability.exit.us.i
@@ -1979,7 +1979,7 @@ dissect_swils_interconnect_element_info.exit:     ; preds = %.lr.ph.i, %5, %13
 dissect_swils_ess_capability.exit.us.i:           ; preds = %.lr.ph.split.us.i
   %83 = add nsw i32 %.17484.us.i, -1
   %84 = add i32 %.07085.us.i, 8
-  %85 = add nuw nsw i32 %.07583.us.i, 8
+  %85 = add nuw nsw i32 %.17683.us.i, 8
   %86 = icmp sgt i32 %.17484.us.i, 1
   br i1 %86, label %.lr.ph.split.us.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !18
 
@@ -1994,7 +1994,7 @@ dissect_swils_ess_capability.exit.us.i:           ; preds = %.lr.ph.split.us.i
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %dissect_swils_ess_capability.exit.us93.i
   %.07085.us89.i = phi i32 [ %103, %dissect_swils_ess_capability.exit.us93.i ], [ %79, %.lr.ph.split.i ]
   %.17484.us90.i = phi i32 [ %102, %dissect_swils_ess_capability.exit.us93.i ], [ %.073.i, %.lr.ph.split.i ]
-  %.07583.us91.i = phi i32 [ %104, %dissect_swils_ess_capability.exit.us93.i ], [ 4, %.lr.ph.split.i ]
+  %.17683.us91.i = phi i32 [ %104, %dissect_swils_ess_capability.exit.us93.i ], [ 4, %.lr.ph.split.i ]
   %87 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.07085.us89.i, i32 noundef 8) #7
   %.not81.us92.i = icmp eq i32 %87, 0
   br i1 %.not81.us92.i, label %dissect_swils_ess_capability_obj.exit, label %dissect_swils_ess_capability.exit.us93.i
@@ -2016,14 +2016,14 @@ dissect_swils_ess_capability.exit.us93.i:         ; preds = %.lr.ph.split.split.
   %101 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0.i, i32 noundef %99, ptr noundef %0, i32 noundef %100, i32 noundef 4, i32 noundef 0) #7
   %102 = add nsw i32 %.17484.us90.i, -1
   %103 = add i32 %.07085.us89.i, 8
-  %104 = add nuw nsw i32 %.07583.us91.i, 8
+  %104 = add nuw nsw i32 %.17683.us91.i, 8
   %105 = icmp sgt i32 %.17484.us90.i, 1
   br i1 %105, label %.lr.ph.split.split.us.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !18
 
 .lr.ph.split.split.us98.i:                        ; preds = %.lr.ph.split.i, %dissect_swils_ess_capability.exit.us103.i
   %.07085.us99.i = phi i32 [ %114, %dissect_swils_ess_capability.exit.us103.i ], [ %79, %.lr.ph.split.i ]
   %.17484.us100.i = phi i32 [ %113, %dissect_swils_ess_capability.exit.us103.i ], [ %.073.i, %.lr.ph.split.i ]
-  %.07583.us101.i = phi i32 [ %115, %dissect_swils_ess_capability.exit.us103.i ], [ 4, %.lr.ph.split.i ]
+  %.17683.us101.i = phi i32 [ %115, %dissect_swils_ess_capability.exit.us103.i ], [ 4, %.lr.ph.split.i ]
   %106 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.07085.us99.i, i32 noundef 8) #7
   %.not81.us102.i = icmp eq i32 %106, 0
   br i1 %.not81.us102.i, label %dissect_swils_ess_capability_obj.exit, label %dissect_swils_ess_capability.exit.us103.i
@@ -2037,14 +2037,14 @@ dissect_swils_ess_capability.exit.us103.i:        ; preds = %.lr.ph.split.split.
   %112 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0.i, i32 noundef %110, ptr noundef %0, i32 noundef %111, i32 noundef 4, i32 noundef 0) #7
   %113 = add nsw i32 %.17484.us100.i, -1
   %114 = add i32 %.07085.us99.i, 8
-  %115 = add nuw nsw i32 %.07583.us101.i, 8
+  %115 = add nuw nsw i32 %.17683.us101.i, 8
   %116 = icmp sgt i32 %.17484.us100.i, 1
   br i1 %116, label %.lr.ph.split.split.us98.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !18
 
 .lr.ph.split.split.us108.i:                       ; preds = %.lr.ph.split.i, %dissect_swils_ess_capability.exit.us113.i
   %.07085.us109.i = phi i32 [ %128, %dissect_swils_ess_capability.exit.us113.i ], [ %79, %.lr.ph.split.i ]
   %.17484.us110.i = phi i32 [ %127, %dissect_swils_ess_capability.exit.us113.i ], [ %.073.i, %.lr.ph.split.i ]
-  %.07583.us111.i = phi i32 [ %129, %dissect_swils_ess_capability.exit.us113.i ], [ 4, %.lr.ph.split.i ]
+  %.17683.us111.i = phi i32 [ %129, %dissect_swils_ess_capability.exit.us113.i ], [ 4, %.lr.ph.split.i ]
   %117 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.07085.us109.i, i32 noundef 8) #7
   %.not81.us112.i = icmp eq i32 %117, 0
   br i1 %.not81.us112.i, label %dissect_swils_ess_capability_obj.exit, label %dissect_swils_ess_capability.exit.us113.i
@@ -2061,14 +2061,14 @@ dissect_swils_ess_capability.exit.us113.i:        ; preds = %.lr.ph.split.split.
   %126 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0.i, i32 noundef %125, ptr noundef %0, i32 noundef %119, i32 noundef 1, i32 noundef 0) #7
   %127 = add nsw i32 %.17484.us110.i, -1
   %128 = add i32 %.07085.us109.i, 8
-  %129 = add nuw nsw i32 %.07583.us111.i, 8
+  %129 = add nuw nsw i32 %.17683.us111.i, 8
   %130 = icmp sgt i32 %.17484.us110.i, 1
   br i1 %130, label %.lr.ph.split.split.us108.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !18
 
 .lr.ph.split.split.us118.i:                       ; preds = %.lr.ph.split.i, %dissect_swils_ess_capability.exit.us123.i
   %.07085.us119.i = phi i32 [ %150, %dissect_swils_ess_capability.exit.us123.i ], [ %79, %.lr.ph.split.i ]
   %.17484.us120.i = phi i32 [ %149, %dissect_swils_ess_capability.exit.us123.i ], [ %.073.i, %.lr.ph.split.i ]
-  %.07583.us121.i = phi i32 [ %151, %dissect_swils_ess_capability.exit.us123.i ], [ 4, %.lr.ph.split.i ]
+  %.17683.us121.i = phi i32 [ %151, %dissect_swils_ess_capability.exit.us123.i ], [ 4, %.lr.ph.split.i ]
   %131 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.07085.us119.i, i32 noundef 8) #7
   %.not81.us122.i = icmp eq i32 %131, 0
   br i1 %.not81.us122.i, label %dissect_swils_ess_capability_obj.exit, label %dissect_swils_ess_capability.exit.us123.i
@@ -2093,14 +2093,14 @@ dissect_swils_ess_capability.exit.us123.i:        ; preds = %.lr.ph.split.split.
   %148 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.0.i, i32 noundef %147, ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0) #7
   %149 = add nsw i32 %.17484.us120.i, -1
   %150 = add i32 %.07085.us119.i, 8
-  %151 = add nuw nsw i32 %.07583.us121.i, 8
+  %151 = add nuw nsw i32 %.17683.us121.i, 8
   %152 = icmp sgt i32 %.17484.us120.i, 1
   br i1 %152, label %.lr.ph.split.split.us118.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !18
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %dissect_swils_ess_capability.exit.i
   %.07085.i = phi i32 [ %155, %dissect_swils_ess_capability.exit.i ], [ %79, %.lr.ph.split.i ]
   %.17484.i = phi i32 [ %154, %dissect_swils_ess_capability.exit.i ], [ %.073.i, %.lr.ph.split.i ]
-  %.07583.i = phi i32 [ %156, %dissect_swils_ess_capability.exit.i ], [ 4, %.lr.ph.split.i ]
+  %.17683.i = phi i32 [ %156, %dissect_swils_ess_capability.exit.i ], [ 4, %.lr.ph.split.i ]
   %153 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.07085.i, i32 noundef 8) #7
   %.not81.i = icmp eq i32 %153, 0
   br i1 %.not81.i, label %dissect_swils_ess_capability_obj.exit, label %dissect_swils_ess_capability.exit.i
@@ -2108,7 +2108,7 @@ dissect_swils_ess_capability.exit.us123.i:        ; preds = %.lr.ph.split.split.
 dissect_swils_ess_capability.exit.i:              ; preds = %.lr.ph.split.split.i
   %154 = add nsw i32 %.17484.i, -1
   %155 = add i32 %.07085.i, 8
-  %156 = add nuw nsw i32 %.07583.i, 8
+  %156 = add nuw nsw i32 %.17683.i, 8
   %157 = icmp sgt i32 %.17484.i, 1
   br i1 %157, label %.lr.ph.split.split.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !18
 
@@ -2129,7 +2129,7 @@ dissect_swils_ess_capability.exit.i:              ; preds = %.lr.ph.split.split.
 .lr.ph131.i:                                      ; preds = %168, %.lr.ph131.preheader.i
   %.1130.i = phi i32 [ %172, %168 ], [ %166, %.lr.ph131.preheader.i ]
   %.172129.i = phi i32 [ %171, %168 ], [ %.071.i, %.lr.ph131.preheader.i ]
-  %.176128.i = phi i32 [ %173, %168 ], [ 12, %.lr.ph131.preheader.i ]
+  %.2128.i = phi i32 [ %173, %168 ], [ 12, %.lr.ph131.preheader.i ]
   %167 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %.1130.i, i32 noundef 8) #7
   %.not80.i = icmp eq i32 %167, 0
   br i1 %.not80.i, label %dissect_swils_ess_capability_obj.exit, label %168
@@ -2139,15 +2139,15 @@ dissect_swils_ess_capability.exit.i:              ; preds = %.lr.ph.split.split.
   %170 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %169, ptr noundef %0, i32 noundef %.1130.i, i32 noundef 8, i32 noundef 0) #7
   %171 = add nsw i32 %.172129.i, -8
   %172 = add i32 %.1130.i, 8
-  %173 = add nuw nsw i32 %.176128.i, 12
+  %173 = add nuw nsw i32 %.2128.i, 12
   %174 = icmp sgt i32 %.172129.i, 8
   br i1 %174, label %.lr.ph131.i, label %dissect_swils_ess_capability_obj.exit, !llvm.loop !19
 
 dissect_swils_ess_capability_obj.exit:            ; preds = %.lr.ph.split.split.us118.i, %dissect_swils_ess_capability.exit.us123.i, %.lr.ph.split.split.us108.i, %dissect_swils_ess_capability.exit.us113.i, %.lr.ph.split.split.us98.i, %dissect_swils_ess_capability.exit.us103.i, %.lr.ph.split.split.us.i, %dissect_swils_ess_capability.exit.us93.i, %.lr.ph.split.split.i, %dissect_swils_ess_capability.exit.i, %.lr.ph.split.us.i, %dissect_swils_ess_capability.exit.us.i, %.lr.ph131.i, %168, %71, %158
-  %.2.i = phi i32 [ 12, %158 ], [ 4, %71 ], [ %173, %168 ], [ %.176128.i, %.lr.ph131.i ], [ %81, %dissect_swils_ess_capability.exit.us.i ], [ %.07583.us.i, %.lr.ph.split.us.i ], [ %81, %dissect_swils_ess_capability.exit.i ], [ %.07583.i, %.lr.ph.split.split.i ], [ %81, %dissect_swils_ess_capability.exit.us93.i ], [ %.07583.us91.i, %.lr.ph.split.split.us.i ], [ %81, %dissect_swils_ess_capability.exit.us103.i ], [ %.07583.us101.i, %.lr.ph.split.split.us98.i ], [ %81, %dissect_swils_ess_capability.exit.us113.i ], [ %.07583.us111.i, %.lr.ph.split.split.us108.i ], [ %81, %dissect_swils_ess_capability.exit.us123.i ], [ %.07583.us121.i, %.lr.ph.split.split.us118.i ]
+  %.075.i = phi i32 [ 12, %158 ], [ 4, %71 ], [ %173, %168 ], [ %.2128.i, %.lr.ph131.i ], [ %81, %dissect_swils_ess_capability.exit.us.i ], [ %.17683.us.i, %.lr.ph.split.us.i ], [ %81, %dissect_swils_ess_capability.exit.i ], [ %.17683.i, %.lr.ph.split.split.i ], [ %81, %dissect_swils_ess_capability.exit.us93.i ], [ %.17683.us91.i, %.lr.ph.split.split.us.i ], [ %81, %dissect_swils_ess_capability.exit.us103.i ], [ %.17683.us101.i, %.lr.ph.split.split.us98.i ], [ %81, %dissect_swils_ess_capability.exit.us113.i ], [ %.17683.us111.i, %.lr.ph.split.split.us108.i ], [ %81, %dissect_swils_ess_capability.exit.us123.i ], [ %.17683.us121.i, %.lr.ph.split.split.us118.i ]
   %175 = add nsw i16 %.03454, -1
-  %176 = sub i32 %.03355, %.2.i
-  %177 = add i32 %.2.i, %.056
+  %176 = sub i32 %.03355, %.075.i
+  %177 = add i32 %.075.i, %.056
   %178 = icmp sgt i32 %176, 0
   %179 = icmp sgt i16 %.03454, 1
   %180 = select i1 %178, i1 %179, i1 false

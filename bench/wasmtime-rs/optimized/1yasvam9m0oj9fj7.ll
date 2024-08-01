@@ -203,7 +203,7 @@ default.unreachable96:                            ; preds = %3
           to label %76 unwind label %74
 
 73:                                               ; preds = %132, %130
-  br i1 %.2.ph, label %.thread72, label %133
+  br i1 %.1.ph, label %.thread72, label %133
 
 74:                                               ; preds = %106, %94, %80, %71, %59, %55
   %75 = landingpad { ptr, i32 }
@@ -390,14 +390,14 @@ default.unreachable96:                            ; preds = %3
 
 .loopexit.split-lp:                               ; preds = %65, %119, %128
   %.162.ph.ph = phi i1 [ false, %128 ], [ true, %119 ], [ true, %65 ]
-  %.2.ph.ph = phi i1 [ false, %128 ], [ false, %119 ], [ true, %65 ]
+  %.1.ph.ph = phi i1 [ false, %128 ], [ false, %119 ], [ true, %65 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %131
 
 131:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %.162.ph = phi i1 [ true, %.loopexit ], [ %.162.ph.ph, %.loopexit.split-lp ]
-  %.2.ph = phi i1 [ true, %.loopexit ], [ %.2.ph.ph, %.loopexit.split-lp ]
+  %.1.ph = phi i1 [ true, %.loopexit ], [ %.1.ph.ph, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hc8584cd5ad91e300E"(ptr nonnull align 8 %14) #9
           to label %130 unwind label %81

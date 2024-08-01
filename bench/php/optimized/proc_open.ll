@@ -616,7 +616,7 @@ define hidden void @zif_proc_open(ptr noundef %0, ptr nocapture noundef writeonl
 
 .thread:                                          ; preds = %25, %27
   %storemerge = phi ptr [ null, %27 ], [ %26, %25 ]
-  %.0428 = phi ptr [ %28, %27 ], [ null, %25 ]
+  %.1429 = phi ptr [ %28, %27 ], [ null, %25 ]
   store ptr %storemerge, ptr %10, align 8
   br label %31
 
@@ -625,7 +625,7 @@ define hidden void @zif_proc_open(ptr noundef %0, ptr nocapture noundef writeonl
   br i1 %30, label %31, label %60
 
 31:                                               ; preds = %.thread, %29
-  %.1429535 = phi ptr [ %.0428, %.thread ], [ null, %29 ]
+  %.2430535 = phi ptr [ %.1429, %.thread ], [ null, %29 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 96
   %33 = getelementptr inbounds i8, ptr %0, i64 104
   %34 = load i8, ptr %33, align 8
@@ -656,7 +656,7 @@ define hidden void @zif_proc_open(ptr noundef %0, ptr nocapture noundef writeonl
   store ptr %storemerge448, ptr %9, align 8
   %.not449541 = icmp eq ptr %storemerge448, null
   %45 = getelementptr inbounds i8, ptr %storemerge448, i64 24
-  %.0421542 = select i1 %.not449541, ptr null, ptr %45
+  %.2423542 = select i1 %.not449541, ptr null, ptr %45
   br label %50
 
 46:                                               ; preds = %39
@@ -664,11 +664,11 @@ define hidden void @zif_proc_open(ptr noundef %0, ptr nocapture noundef writeonl
   %48 = load ptr, ptr %9, align 8
   %.not449 = icmp eq ptr %48, null
   %49 = getelementptr inbounds i8, ptr %48, i64 24
-  %.0421 = select i1 %.not449, ptr null, ptr %49
+  %.2423 = select i1 %.not449, ptr null, ptr %49
   br i1 %47, label %50, label %60
 
 50:                                               ; preds = %46, %.thread539
-  %.ph = phi ptr [ %.0421542, %.thread539 ], [ %.0421, %46 ]
+  %.ph = phi ptr [ %.2423542, %.thread539 ], [ %.2423, %46 ]
   %51 = icmp ult i32 %18, 5
   br i1 %51, label %61, label %52
 
@@ -685,7 +685,7 @@ define hidden void @zif_proc_open(ptr noundef %0, ptr nocapture noundef writeonl
   br label %.thread548
 
 .thread548:                                       ; preds = %52, %.thread548.fold.split
-  %.1420550 = phi ptr [ %53, %52 ], [ null, %.thread548.fold.split ]
+  %.2550 = phi ptr [ %53, %52 ], [ null, %.thread548.fold.split ]
   %.not450 = icmp eq i32 %18, 6
   br i1 %.not450, label %56, label %61
 
@@ -707,13 +707,13 @@ define hidden void @zif_proc_open(ptr noundef %0, ptr nocapture noundef writeonl
   br label %772
 
 61:                                               ; preds = %56, %56, %35, %50, %.thread548
-  %.2423 = phi ptr [ null, %35 ], [ %.ph, %50 ], [ %.ph, %.thread548 ], [ %.ph, %56 ], [ %.ph, %56 ]
-  %.2 = phi ptr [ null, %35 ], [ null, %50 ], [ %.1420550, %.thread548 ], [ %.1420550, %56 ], [ %.1420550, %56 ]
-  %.not452 = icmp eq ptr %.1429535, null
+  %.0421 = phi ptr [ null, %35 ], [ %.ph, %50 ], [ %.ph, %.thread548 ], [ %.ph, %56 ], [ %.ph, %56 ]
+  %.0419 = phi ptr [ null, %35 ], [ null, %50 ], [ %.2550, %.thread548 ], [ %.2550, %56 ], [ %.2550, %56 ]
+  %.not452 = icmp eq ptr %.2430535, null
   br i1 %.not452, label %176, label %62
 
 62:                                               ; preds = %61
-  %63 = getelementptr inbounds i8, ptr %.1429535, i64 28
+  %63 = getelementptr inbounds i8, ptr %.2430535, i64 28
   %64 = load i32, ptr %63, align 4
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %69
@@ -729,9 +729,9 @@ define hidden void @zif_proc_open(ptr noundef %0, ptr nocapture noundef writeonl
   %70 = add nsw i32 %64, 1
   %71 = sext i32 %70 to i64
   %72 = call noalias ptr @_safe_emalloc(i64 noundef 8, i64 noundef %71, i64 noundef 0) #13
-  %73 = getelementptr inbounds i8, ptr %.1429535, i64 24
+  %73 = getelementptr inbounds i8, ptr %.2430535, i64 24
   %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %.1429535, i64 8
+  %75 = getelementptr inbounds i8, ptr %.2430535, i64 8
   %76 = load i32, ptr %75, align 8
   %77 = shl i32 %76, 2
   %78 = and i32 %77, 16
@@ -747,13 +747,13 @@ define hidden void @zif_proc_open(ptr noundef %0, ptr nocapture noundef writeonl
   br label %efree_argv.exit
 
 .lr.ph.preheader.i:                               ; preds = %69
-  %81 = getelementptr inbounds i8, ptr %.1429535, i64 16
+  %81 = getelementptr inbounds i8, ptr %.2430535, i64 16
   %82 = load ptr, ptr %81, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %167, %.lr.ph.preheader.i
   %.05181.i = phi ptr [ %168, %167 ], [ %82, %.lr.ph.preheader.i ]
-  %.05280.i = phi ptr [ %.2.i, %167 ], [ null, %.lr.ph.preheader.i ]
+  %.05280.i = phi ptr [ %.1.i, %167 ], [ null, %.lr.ph.preheader.i ]
   %.05379.i = phi i32 [ %169, %167 ], [ %74, %.lr.ph.preheader.i ]
   %.05478.i = phi i32 [ %.155.i, %167 ], [ 0, %.lr.ph.preheader.i ]
   %83 = getelementptr inbounds i8, ptr %.05181.i, i64 8
@@ -905,7 +905,7 @@ get_valid_arg_string.exit.i:                      ; preds = %.thread._crit_edge.
   br label %151
 
 151:                                              ; preds = %148, %144, %get_valid_arg_string.exit.i
-  %.1.i = phi ptr [ %.05280.i, %get_valid_arg_string.exit.i ], [ %99, %148 ], [ %99, %144 ]
+  %.2.i = phi ptr [ %.05280.i, %get_valid_arg_string.exit.i ], [ %99, %148 ], [ %99, %144 ]
   %152 = call noalias ptr @_estrdup(ptr noundef nonnull %117) #13
   %153 = sext i32 %.05478.i to i64
   %154 = getelementptr inbounds ptr, ptr %72, i64 %153
@@ -940,7 +940,7 @@ get_valid_arg_string.exit.i:                      ; preds = %.thread._crit_edge.
 
 167:                                              ; preds = %166, %165, %158, %151, %.lr.ph.i
   %.155.i = phi i32 [ %.05478.i, %.lr.ph.i ], [ %87, %151 ], [ %87, %165 ], [ %87, %166 ], [ %87, %158 ]
-  %.2.i = phi ptr [ %.05280.i, %.lr.ph.i ], [ %.1.i, %151 ], [ %.1.i, %165 ], [ %.1.i, %166 ], [ %.1.i, %158 ]
+  %.1.i = phi ptr [ %.05280.i, %.lr.ph.i ], [ %.2.i, %151 ], [ %.2.i, %165 ], [ %.2.i, %166 ], [ %.2.i, %158 ]
   %168 = getelementptr inbounds i8, ptr %.05181.i, i64 %80
   %169 = add i32 %.05379.i, -1
   %.not.i = icmp eq i32 %169, 0
@@ -954,8 +954,8 @@ get_command_from_array.exit:                      ; preds = %167
   %170 = sext i32 %.155.i to i64
   %171 = getelementptr inbounds ptr, ptr %72, i64 %170
   store ptr null, ptr %171, align 8
-  store ptr %.2.i, ptr %10, align 8
-  %.not454 = icmp eq ptr %.2.i, null
+  store ptr %.1.i, ptr %10, align 8
+  %.not454 = icmp eq ptr %.1.i, null
   br i1 %.not454, label %.preheader.i, label %184
 
 .preheader.i:                                     ; preds = %get_command_from_array.exit, %get_command_from_array.exit.thread
@@ -994,13 +994,13 @@ efree_argv.exit:                                  ; preds = %.lr.ph.i477, %.preh
 
 184:                                              ; preds = %176, %181, %get_command_from_array.exit
   %.0532 = phi ptr [ null, %181 ], [ null, %176 ], [ %72, %get_command_from_array.exit ]
-  %.not455 = icmp eq ptr %.2, null
+  %.not455 = icmp eq ptr %.0419, null
   br i1 %.not455, label %308, label %185
 
 185:                                              ; preds = %184
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %186 = load ptr, ptr %.2, align 8
+  %186 = load ptr, ptr %.0419, align 8
   %187 = getelementptr inbounds i8, ptr %186, i64 28
   %188 = load i32, ptr %187, align 4
   %189 = icmp eq i32 %188, 0
@@ -1014,7 +1014,7 @@ efree_argv.exit:                                  ; preds = %.lr.ph.i477, %.preh
 193:                                              ; preds = %185
   %194 = call noalias ptr @_emalloc_56() #13
   call void @_zend_hash_init(ptr noundef %194, i32 noundef %188, ptr noundef null, i1 noundef zeroext false) #13
-  %195 = load ptr, ptr %.2, align 8
+  %195 = load ptr, ptr %.0419, align 8
   %196 = getelementptr inbounds i8, ptr %195, i64 8
   %197 = getelementptr inbounds i8, ptr %195, i64 24
   %198 = load i32, ptr %197, align 8
@@ -1175,7 +1175,7 @@ efree_argv.exit:                                  ; preds = %.lr.ph.i477, %.preh
   %.0122169.i = phi ptr [ %.1.i483, %306 ], [ %269, %.lr.ph172.preheader.i ]
   %.0125167.i = phi ptr [ %.1126.i, %306 ], [ null, %.lr.ph172.preheader.i ]
   %.0130166.i = phi ptr [ %.1131.i, %306 ], [ %263, %.lr.ph172.preheader.i ]
-  %.0136165.i = phi ptr [ %.2.i484, %306 ], [ %264, %.lr.ph172.preheader.i ]
+  %.0136165.i = phi ptr [ %.1137.i, %306 ], [ %264, %.lr.ph172.preheader.i ]
   %270 = load i32, ptr %265, align 8
   %271 = and i32 %270, 4
   %.not148.i = icmp eq i32 %271, 0
@@ -1217,12 +1217,12 @@ efree_argv.exit:                                  ; preds = %.lr.ph.i477, %.preh
   br label %291
 
 291:                                              ; preds = %285, %282
-  %.1137.i = phi ptr [ %290, %285 ], [ %.0136165.i, %282 ]
+  %.2.i484 = phi ptr [ %290, %285 ], [ %.0136165.i, %282 ]
   %292 = getelementptr inbounds i8, ptr %283, i64 24
   %293 = getelementptr inbounds i8, ptr %283, i64 16
   %294 = load i64, ptr %293, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %.1137.i, ptr noundef nonnull align 1 %292, i64 noundef %294, i1 false) #13
-  %295 = getelementptr inbounds i8, ptr %.1137.i, i64 %294
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %.2.i484, ptr noundef nonnull align 1 %292, i64 noundef %294, i1 false) #13
+  %295 = getelementptr inbounds i8, ptr %.2.i484, i64 %294
   %296 = getelementptr inbounds i8, ptr %295, i64 1
   store i8 0, ptr %295, align 1
   %297 = getelementptr inbounds i8, ptr %283, i64 4
@@ -1245,7 +1245,7 @@ efree_argv.exit:                                  ; preds = %.lr.ph.i477, %.preh
   br label %306
 
 306:                                              ; preds = %305, %300, %291, %278
-  %.2.i484 = phi ptr [ %.0136165.i, %278 ], [ %296, %291 ], [ %296, %305 ], [ %296, %300 ]
+  %.1137.i = phi ptr [ %.0136165.i, %278 ], [ %296, %291 ], [ %296, %305 ], [ %296, %300 ]
   %.1131.i = phi ptr [ %.0130166.i, %278 ], [ %284, %291 ], [ %284, %305 ], [ %284, %300 ]
   %307 = add i32 %.0170.i, -1
   %.not147.i = icmp eq i32 %307, 0
@@ -1267,8 +1267,8 @@ _php_array_to_envp.exit:                          ; preds = %190, %._crit_edge17
   %.sroa.4.0 = phi ptr [ %.sroa.4.0.i, %_php_array_to_envp.exit ], [ null, %184 ]
   %.sroa.0219.0 = phi ptr [ %.sroa.0.0.i, %_php_array_to_envp.exit ], [ null, %184 ]
   %309 = getelementptr i8, ptr %36, i64 28
-  %.2427.val = load i32, ptr %309, align 4
-  %310 = zext i32 %.2427.val to i64
+  %.0425.val = load i32, ptr %309, align 4
+  %310 = zext i32 %.0425.val to i64
   %311 = call noalias ptr @_ecalloc(i64 noundef 20, i64 noundef %310) #16
   %312 = getelementptr inbounds i8, ptr %36, i64 8
   %313 = getelementptr inbounds i8, ptr %36, i64 24
@@ -2020,11 +2020,11 @@ set_proc_descriptor_from_array.exit:              ; preds = %set_proc_descriptor
 close_parentends_of_pipes.exit:                   ; preds = %617, %._crit_edge.thread, %._crit_edge
   %628 = phi i1 [ false, %._crit_edge.thread ], [ false, %._crit_edge ], [ %595, %617 ]
   %.0404.lcssa673 = phi i32 [ 0, %._crit_edge.thread ], [ %.1405, %._crit_edge ], [ %.1405, %617 ]
-  %.not457 = icmp eq ptr %.2423, null
+  %.not457 = icmp eq ptr %.0421, null
   br i1 %.not457, label %633, label %629
 
 629:                                              ; preds = %close_parentends_of_pipes.exit
-  %630 = call i32 @posix_spawn_file_actions_addchdir_np(ptr noundef nonnull %14, ptr noundef nonnull %.2423) #13
+  %630 = call i32 @posix_spawn_file_actions_addchdir_np(ptr noundef nonnull %14, ptr noundef nonnull %.0421) #13
   %.not458 = icmp eq i32 %630, 0
   br i1 %.not458, label %633, label %631
 

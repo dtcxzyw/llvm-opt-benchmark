@@ -1711,8 +1711,8 @@ _ZNSt6vectorIN5Yosys3MemESaIS1_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIPN5Yo
 115:                                              ; preds = %.lr.ph1350, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit
   %indvars.iv1528 = phi i64 [ 0, %.lr.ph1350 ], [ %indvars.iv.next1529, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit ]
   %116 = phi ptr [ %93, %.lr.ph1350 ], [ %969, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit ]
-  %.3671348 = phi i32 [ %.2661355, %.lr.ph1350 ], [ %.569, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit ]
-  %.1711347 = phi i1 [ %.0701354, %.lr.ph1350 ], [ %.373, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit ]
+  %.3671348 = phi i32 [ %.2661355, %.lr.ph1350 ], [ %.468, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit ]
+  %.1711347 = phi i1 [ %.0701354, %.lr.ph1350 ], [ %.272, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit ]
   %117 = getelementptr inbounds %"struct.Yosys::MemWr", ptr %116, i64 %indvars.iv1528
   %118 = load ptr, ptr %102, align 8
   %119 = lshr i64 %indvars.iv1528, 6
@@ -3942,8 +3942,8 @@ _ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEE6insertE
   br label %.loopexit617
 
 .loopexit617:                                     ; preds = %730, %._crit_edge
-  %.272 = phi i1 [ true, %._crit_edge ], [ %.1711347, %730 ]
-  %.468 = phi i32 [ %940, %._crit_edge ], [ %.3671348, %730 ]
+  %.373 = phi i1 [ true, %._crit_edge ], [ %.1711347, %730 ]
+  %.569 = phi i32 [ %940, %._crit_edge ], [ %.3671348, %730 ]
   %944 = load ptr, ptr %43, align 8
   %.not.i.i.i.i239 = icmp eq ptr %944, null
   br i1 %.not.i.i.i.i239, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i240, label %945
@@ -4050,8 +4050,8 @@ _ZNSt6vectorIN5Yosys7hashlib4poolISt4pairINS0_5RTLIL6SigBitES5_ENS1_8hash_opsIS6
   br label %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit
 
 _ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit: ; preds = %967, %_ZNSt6vectorIN5Yosys7hashlib4poolISt4pairINS0_5RTLIL6SigBitES5_ENS1_8hash_opsIS6_EEE7entry_tESaISA_EED2Ev.exit.i, %129, %115
-  %.373 = phi i1 [ %.1711347, %115 ], [ %.1711347, %129 ], [ %.272, %_ZNSt6vectorIN5Yosys7hashlib4poolISt4pairINS0_5RTLIL6SigBitES5_ENS1_8hash_opsIS6_EEE7entry_tESaISA_EED2Ev.exit.i ], [ %.272, %967 ]
-  %.569 = phi i32 [ %.3671348, %115 ], [ %.3671348, %129 ], [ %.468, %_ZNSt6vectorIN5Yosys7hashlib4poolISt4pairINS0_5RTLIL6SigBitES5_ENS1_8hash_opsIS6_EEE7entry_tESaISA_EED2Ev.exit.i ], [ %.468, %967 ]
+  %.272 = phi i1 [ %.1711347, %115 ], [ %.1711347, %129 ], [ %.373, %_ZNSt6vectorIN5Yosys7hashlib4poolISt4pairINS0_5RTLIL6SigBitES5_ENS1_8hash_opsIS6_EEE7entry_tESaISA_EED2Ev.exit.i ], [ %.373, %967 ]
+  %.468 = phi i32 [ %.3671348, %115 ], [ %.3671348, %129 ], [ %.569, %_ZNSt6vectorIN5Yosys7hashlib4poolISt4pairINS0_5RTLIL6SigBitES5_ENS1_8hash_opsIS6_EEE7entry_tESaISA_EED2Ev.exit.i ], [ %.569, %967 ]
   %indvars.iv.next1529 = add nuw nsw i64 %indvars.iv1528, 1
   %968 = load ptr, ptr %84, align 8
   %969 = load ptr, ptr %83, align 8
@@ -4177,8 +4177,8 @@ _ZNSt6vectorIN5Yosys7hashlib4poolISt4pairINS0_5RTLIL6SigBitES5_ENS1_8hash_opsIS6
   %.pre-phi1545 = phi i64 [ %.pre1544, %.lr.ph1356.._crit_edge1351_crit_edge ], [ %974, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit ]
   %1000 = phi ptr [ %93, %.lr.ph1356.._crit_edge1351_crit_edge ], [ %969, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit ]
   %1001 = phi ptr [ %94, %.lr.ph1356.._crit_edge1351_crit_edge ], [ %968, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit ]
-  %.171.lcssa = phi i1 [ %.0701354, %.lr.ph1356.._crit_edge1351_crit_edge ], [ %.373, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit ]
-  %.367.lcssa = phi i32 [ %.2661355, %.lr.ph1356.._crit_edge1351_crit_edge ], [ %.569, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit ]
+  %.171.lcssa = phi i1 [ %.0701354, %.lr.ph1356.._crit_edge1351_crit_edge ], [ %.272, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit ]
+  %.367.lcssa = phi i32 [ %.2661355, %.lr.ph1356.._crit_edge1351_crit_edge ], [ %.468, %_ZN5Yosys7hashlib4poolISt4pairINS_5RTLIL6SigBitES4_ENS0_8hash_opsIS5_EEED2Ev.exit ]
   %indvars.iv.next1531 = add nuw nsw i64 %indvars.iv1530, 1
   %1002 = icmp slt i64 %indvars.iv.next1531, %.pre-phi1545
   br i1 %1002, label %.lr.ph1356, label %._crit_edge1357, !llvm.loop !20

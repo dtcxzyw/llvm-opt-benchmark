@@ -615,7 +615,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %110
   br label %239
 
 239:                                              ; preds = %.preheader, %557
-  %.sroa.3182.0 = phi i64 [ %.sroa.3182.3.ph, %557 ], [ 0, %.preheader ]
+  %.sroa.3182.0 = phi i64 [ %.sroa.3182.2.ph, %557 ], [ 0, %.preheader ]
   %.025 = phi i32 [ %.227.ph, %557 ], [ 0, %.preheader ]
   %.024 = phi i32 [ %558, %557 ], [ 0, %.preheader ]
   %240 = load ptr, ptr %24, align 8
@@ -1005,7 +1005,7 @@ _ZN11MyTickMeter5startEv.exit:                    ; preds = %363
   %.not355 = icmp eq i64 %365, 0
   %371 = sub i64 %370, %365
   %372 = select i1 %.not355, i64 0, i64 %371
-  %.sroa.3182.1 = add nsw i64 %372, %.sroa.3182.0
+  %.sroa.3182.4 = add nsw i64 %372, %.sroa.3182.0
   %373 = invoke noundef i64 @_ZN2cv12getTickCountEv()
           to label %.noexc128 unwind label %410
 
@@ -1130,8 +1130,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %387
   br label %.body138
 
 416:                                              ; preds = %385, %_ZN2cv3MataSERKNS_7MatExprE.exit, %359
-  %.sroa.3182.2 = phi i64 [ %.sroa.3182.0, %359 ], [ %.sroa.3182.1, %385 ], [ %.sroa.3182.1, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
-  %.126 = phi i32 [ %.025, %359 ], [ %375, %385 ], [ %375, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
+  %.sroa.3182.3 = phi i64 [ %.sroa.3182.0, %359 ], [ %.sroa.3182.4, %385 ], [ %.sroa.3182.4, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
+  %.328 = phi i32 [ %.025, %359 ], [ %375, %385 ], [ %375, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
   %417 = load ptr, ptr %21, align 8
   %418 = load ptr, ptr %224, align 8
   %419 = icmp eq ptr %417, %418
@@ -1500,8 +1500,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIN2cv
   br label %.loopexit218
 
 557:                                              ; preds = %555, %254
-  %.sroa.3182.3.ph = phi i64 [ %.sroa.3182.2, %555 ], [ %.sroa.3182.0, %254 ]
-  %.227.ph = phi i32 [ %.126, %555 ], [ %.025, %254 ]
+  %.sroa.3182.2.ph = phi i64 [ %.sroa.3182.3, %555 ], [ %.sroa.3182.0, %254 ]
+  %.227.ph = phi i32 [ %.328, %555 ], [ %.025, %254 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #15
   %558 = add nuw nsw i32 %.024, 1
   br label %239, !llvm.loop !16
@@ -2092,7 +2092,7 @@ _ZN2cv3Mat2atIdEERT_i.exit47.i:                   ; preds = %785, %779, %772
   br label %930
 
 823:                                              ; preds = %188, %817
-  %.0 = phi i32 [ 0, %817 ], [ -1, %188 ]
+  %.2 = phi i32 [ 0, %817 ], [ -1, %188 ]
   %824 = getelementptr inbounds i8, ptr %32, i64 8
   %825 = load ptr, ptr %824, align 8
   %.not.i.i.i.i = icmp eq ptr %825, null
@@ -2343,7 +2343,7 @@ _ZN2cv3PtrINS_4rgbd13OdometryFrameEED2Ev.exit170: ; preds = %_ZN2cv3PtrINS_4rgbd
   br label %946
 
 933:                                              ; preds = %81, %_ZN2cv3PtrINS_4rgbd13OdometryFrameEED2Ev.exit170
-  %.1 = phi i32 [ %.0, %_ZN2cv3PtrINS_4rgbd13OdometryFrameEED2Ev.exit170 ], [ -1, %81 ]
+  %.1 = phi i32 [ %.2, %_ZN2cv3PtrINS_4rgbd13OdometryFrameEED2Ev.exit170 ], [ -1, %81 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %24) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #15
   %934 = load ptr, ptr %21, align 8
@@ -2416,8 +2416,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   resume { ptr, i32 } %.pn102.pn.pn.pn.pn.pn.pn.pn
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %945, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %71
-  %.2 = phi i32 [ -1, %71 ], [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.1, %945 ]
-  ret i32 %.2
+  %.0 = phi i32 [ -1, %71 ], [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.1, %945 ]
+  ret i32 %.0
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0

@@ -227,8 +227,8 @@ if.then94:                                        ; preds = %if.then19, %if.then
   br label %if.end97
 
 if.end97:                                         ; preds = %if.else51, %if.then43, %if.then89, %if.then83, %if.then77, %if.then94, %exit
-  %ret.225 = phi i32 [ 0, %if.then94 ], [ %call65, %exit ], [ %call86, %if.then89 ], [ %call80, %if.then83 ], [ %call74, %if.then77 ], [ %call46, %if.then43 ], [ %call54, %if.else51 ]
-  ret i32 %ret.225
+  %ret.125 = phi i32 [ 0, %if.then94 ], [ %call65, %exit ], [ %call86, %if.then89 ], [ %call80, %if.then83 ], [ %call74, %if.then77 ], [ %call46, %if.then43 ], [ %call54, %if.else51 ]
+  ret i32 %ret.125
 }
 
 ; Function Attrs: nofree nounwind

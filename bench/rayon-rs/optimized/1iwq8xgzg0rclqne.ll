@@ -1281,11 +1281,11 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i: ; preds = %195, %.
           to label %.critedge unwind label %227
 
 .thread160:                                       ; preds = %.thread149
-  br i1 %.036155, label %234, label %.thread203
+  br i1 %.137155, label %234, label %.thread203
 
 .thread149:                                       ; preds = %75, %55, %.thread169
   %.pn51.pn.pn159 = phi { ptr, i32 } [ %53, %.thread169 ], [ %.pn, %55 ], [ %76, %75 ]
-  %.036155 = phi i1 [ true, %.thread169 ], [ true, %55 ], [ false, %75 ]
+  %.137155 = phi i1 [ true, %.thread169 ], [ true, %55 ], [ false, %75 ]
   invoke void @"_ZN4core3ptr106drop_in_place$LT$alloc..vec..Vec$LT$crossbeam_deque..deque..Stealer$LT$rayon_core..job..JobRef$GT$$GT$$GT$17h1892be553737073aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %26) #19
           to label %.thread160 unwind label %227
 

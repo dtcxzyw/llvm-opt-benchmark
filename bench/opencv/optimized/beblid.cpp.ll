@@ -1940,8 +1940,8 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE17_S_check_init_lenEmR
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !37
 
 _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc84, %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %.sroa.0.0 = phi ptr [ %13, %.noexc84 ], [ null, %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %13, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.sroa.21.0 = phi ptr [ %14, %.noexc84 ], [ null, %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.0.1 = phi ptr [ %13, %.noexc84 ], [ null, %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %13, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.21.1 = phi ptr [ %14, %.noexc84 ], [ null, %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i = phi ptr [ %15, %.noexc84 ], [ null, %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %18 = load i32, ptr %1, align 4
   %19 = getelementptr inbounds i8, ptr %1, i64 4
@@ -1975,9 +1975,9 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit: ; pred
   %indvars.iv = phi i64 [ %29, %.lr.ph143 ], [ %indvars.iv.next, %.loopexit ]
   %.0142 = phi ptr [ %31, %.lr.ph143 ], [ %.5, %.loopexit ]
   %.070141 = phi i8 [ 0, %.lr.ph143 ], [ %.575, %.loopexit ]
-  %.sroa.21.1139 = phi ptr [ %.sroa.21.0, %.lr.ph143 ], [ %.sroa.21.3, %.loopexit ]
-  %.sroa.15.0138 = phi ptr [ %.0.i.i.i.i.i, %.lr.ph143 ], [ %.sroa.15.2, %.loopexit ]
-  %.sroa.0.1137 = phi ptr [ %.sroa.0.0, %.lr.ph143 ], [ %.sroa.0.3, %.loopexit ]
+  %.sroa.21.0139 = phi ptr [ %.sroa.21.1, %.lr.ph143 ], [ %.sroa.21.2, %.loopexit ]
+  %.sroa.15.0138 = phi ptr [ %.0.i.i.i.i.i, %.lr.ph143 ], [ %.sroa.15.1, %.loopexit ]
+  %.sroa.0.0137 = phi ptr [ %.sroa.0.1, %.lr.ph143 ], [ %.sroa.0.2, %.loopexit ]
   %42 = load ptr, ptr %32, align 8
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds %"class.cv::KeyPoint", ptr %43, i64 %indvars.iv
@@ -1996,7 +1996,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit: ; pred
   %57 = sub i64 %55, %56
   %58 = sdiv exact i64 %57, 24
   %59 = ptrtoint ptr %.sroa.15.0138 to i64
-  %60 = ptrtoint ptr %.sroa.0.1137 to i64
+  %60 = ptrtoint ptr %.sroa.0.0137 to i64
   %61 = sub i64 %59, %60
   %62 = sdiv exact i64 %61, 24
   %63 = icmp ult i64 %62, %58
@@ -2004,7 +2004,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit: ; pred
 
 64:                                               ; preds = %39
   %65 = sub nuw nsw i64 %58, %62
-  %66 = ptrtoint ptr %.sroa.21.1139 to i64
+  %66 = ptrtoint ptr %.sroa.21.0139 to i64
   %67 = sub i64 %66, %59
   %68 = sdiv exact i64 %67, 24
   %69 = icmp ult i64 %62, 384307168202282326
@@ -2074,15 +2074,15 @@ _ZSt27__uninitialized_default_n_aIPN2cv11xfeatures2d17ABWLParamsFloatThEmS2_ET_S
   br i1 %91, label %92, label %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
 
 92:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN2cv11xfeatures2d17ABWLParamsFloatThEmS2_ET_S4_T0_RSaIT1_E.exit34.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %84, ptr align 4 %.sroa.0.1137, i64 %61, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %84, ptr align 4 %.sroa.0.0137, i64 %61, i1 false)
   br label %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
 
 _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %92, %_ZSt27__uninitialized_default_n_aIPN2cv11xfeatures2d17ABWLParamsFloatThEmS2_ET_S4_T0_RSaIT1_E.exit34.i
-  %.not.i36.i = icmp eq ptr %.sroa.0.1137, null
+  %.not.i36.i = icmp eq ptr %.sroa.0.0137, null
   br i1 %.not.i36.i, label %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE13_M_deallocateEPS2_m.exit37.i, label %93
 
 93:                                               ; preds = %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1137) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0137) #21
   br label %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE13_M_deallocateEPS2_m.exit37.i
 
 _ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE13_M_deallocateEPS2_m.exit37.i: ; preds = %93, %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
@@ -2092,14 +2092,14 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE13_M_deallocate
 
 96:                                               ; preds = %39
   %97 = icmp ugt i64 %62, %58
-  %98 = getelementptr inbounds i8, ptr %.sroa.0.1137, i64 %57
+  %98 = getelementptr inbounds i8, ptr %.sroa.0.0137, i64 %57
   %spec.select = select i1 %97, ptr %98, ptr %.sroa.15.0138
   br label %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i
 
 _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %96, %72, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE13_M_deallocateEPS2_m.exit37.i
-  %.sroa.0.3 = phi ptr [ %84, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE13_M_deallocateEPS2_m.exit37.i ], [ %.sroa.0.1137, %72 ], [ %.sroa.0.1137, %96 ], [ %.sroa.0.1137, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.sroa.15.2 = phi ptr [ %94, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE13_M_deallocateEPS2_m.exit37.i ], [ %73, %72 ], [ %spec.select, %96 ], [ %76, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.sroa.21.3 = phi ptr [ %95, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE13_M_deallocateEPS2_m.exit37.i ], [ %.sroa.21.1139, %72 ], [ %.sroa.21.1139, %96 ], [ %.sroa.21.1139, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.0.2 = phi ptr [ %84, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE13_M_deallocateEPS2_m.exit37.i ], [ %.sroa.0.0137, %72 ], [ %.sroa.0.0137, %96 ], [ %.sroa.0.0137, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.15.1 = phi ptr [ %94, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE13_M_deallocateEPS2_m.exit37.i ], [ %73, %72 ], [ %spec.select, %96 ], [ %76, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.21.2 = phi ptr [ %95, %_ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE13_M_deallocateEPS2_m.exit37.i ], [ %.sroa.21.0139, %72 ], [ %.sroa.21.0139, %96 ], [ %.sroa.21.0139, %.lr.ph.i.i.i.i.i.i.i.i ]
   %99 = getelementptr inbounds i8, ptr %44, i64 12
   %100 = load float, ptr %99, align 4
   %101 = fcmp oeq float %100, -1.000000e+00
@@ -2193,7 +2193,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i: ; pr
   %163 = fadd float %152, %162
   %164 = fadd float %163, 5.000000e-01
   %165 = fptosi float %164 to i32
-  %166 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %.sroa.0.3, i64 %.090.i
+  %166 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %.sroa.0.2, i64 %.090.i
   store i32 %165, ptr %166, align 4
   %167 = load ptr, ptr %4, align 8
   %168 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %167, i64 %.090.i
@@ -2207,7 +2207,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i: ; pr
   %176 = fadd float %153, %175
   %177 = fadd float %176, 5.000000e-01
   %178 = fptosi float %177 to i32
-  %179 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %.sroa.0.3, i64 %.090.i, i32 1
+  %179 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %.sroa.0.2, i64 %.090.i, i32 1
   store i32 %178, ptr %179, align 4
   %180 = load ptr, ptr %4, align 8
   %181 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %180, i64 %.090.i
@@ -2222,7 +2222,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i: ; pr
   %190 = fadd float %152, %189
   %191 = fadd float %190, 5.000000e-01
   %192 = fptosi float %191 to i32
-  %193 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %.sroa.0.3, i64 %.090.i, i32 2
+  %193 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %.sroa.0.2, i64 %.090.i, i32 2
   store i32 %192, ptr %193, align 4
   %194 = load ptr, ptr %4, align 8
   %195 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %194, i64 %.090.i
@@ -2237,7 +2237,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i: ; pr
   %204 = fadd float %153, %203
   %205 = fadd float %204, 5.000000e-01
   %206 = fptosi float %205 to i32
-  %207 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %.sroa.0.3, i64 %.090.i, i32 3
+  %207 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %.sroa.0.2, i64 %.090.i, i32 3
   store i32 %206, ptr %207, align 4
   %208 = load ptr, ptr %4, align 8
   %209 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %208, i64 %.090.i, i32 4
@@ -2245,7 +2245,7 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i: ; pr
   %211 = sitofp i32 %210 to float
   %212 = tail call float @llvm.fmuladd.f32(float %54, float %211, float 5.000000e-01)
   %213 = fptosi float %212 to i32
-  %214 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %.sroa.0.3, i64 %.090.i, i32 4
+  %214 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %.sroa.0.2, i64 %.090.i, i32 4
   store i32 %213, ptr %214, align 4
   %215 = add nuw i64 %.090.i, 1
   %216 = load ptr, ptr %5, align 8
@@ -2322,7 +2322,7 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %.1133 = phi ptr [ %.2, %368 ], [ %.0142, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ]
   %.171132 = phi i8 [ %.272, %368 ], [ %.070141, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ]
   %.078131 = phi i64 [ %369, %368 ], [ 0, %_ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.exit ]
-  %258 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %.sroa.0.3, i64 %.078131
+  %258 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParamsFloatTh", ptr %.sroa.0.2, i64 %.078131
   %259 = load ptr, ptr %37, align 8
   %260 = getelementptr inbounds i8, ptr %259, i64 12
   %261 = load i32, ptr %260, align 4
@@ -2471,11 +2471,11 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
 
 366:                                              ; preds = %.loopexit.split-lp, %.loopexit122
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit122 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i88 = icmp eq ptr %.sroa.0.1137, null
+  %.not.i.i.i88 = icmp eq ptr %.sroa.0.0137, null
   br i1 %.not.i.i.i88, label %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EED2Ev.exit, label %367
 
 367:                                              ; preds = %366
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1137) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0137) #21
   br label %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EED2Ev.exit
 
 368:                                              ; preds = %.lr.ph134, %364
@@ -2496,7 +2496,7 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %378 = phi ptr [ %466, %464 ], [ %224, %.preheader ]
   %.3129 = phi ptr [ %.4, %464 ], [ %.0142, %.preheader ]
   %.373128 = phi i8 [ %.474, %464 ], [ %.070141, %.preheader ]
-  %.076127 = phi ptr [ %460, %464 ], [ %.sroa.0.3, %.preheader ]
+  %.076127 = phi ptr [ %460, %464 ], [ %.sroa.0.2, %.preheader ]
   %.179126 = phi i64 [ %467, %464 ], [ 0, %.preheader ]
   %379 = trunc i64 %.179126 to i32
   %380 = and i32 %379, 7
@@ -2616,12 +2616,12 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   br i1 %477, label %39, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit
-  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0, %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit ], [ %.sroa.0.3, %.loopexit ]
-  %.not.i.i.i89 = icmp eq ptr %.sroa.0.1.lcssa, null
+  %.sroa.0.0.lcssa = phi ptr [ %.sroa.0.1, %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit ], [ %.sroa.0.2, %.loopexit ]
+  %.not.i.i.i89 = icmp eq ptr %.sroa.0.0.lcssa, null
   br i1 %.not.i.i.i89, label %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EED2Ev.exit90, label %478
 
 478:                                              ; preds = %._crit_edge
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1.lcssa) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.lcssa) #21
   br label %_ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EED2Ev.exit90
 
 _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EED2Ev.exit90: ; preds = %._crit_edge, %478
@@ -3267,8 +3267,8 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE17_S_check_init_lenEmRKS3_.ex
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !49
 
 _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc84, %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %.sroa.0.0 = phi ptr [ %13, %.noexc84 ], [ null, %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %13, %.lr.ph.i.i.i.i.i.i.i.i.i ]
-  %.sroa.21.0 = phi ptr [ %14, %.noexc84 ], [ null, %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.0.1 = phi ptr [ %13, %.noexc84 ], [ null, %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %13, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.sroa.21.1 = phi ptr [ %14, %.noexc84 ], [ null, %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %.0.i.i.i.i.i = phi ptr [ %15, %.noexc84 ], [ null, %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i ], [ %14, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %18 = load i32, ptr %1, align 4
   %19 = getelementptr inbounds i8, ptr %1, i64 4
@@ -3302,9 +3302,9 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit: ; preds = %.l
   %indvars.iv = phi i64 [ %29, %.lr.ph143 ], [ %indvars.iv.next, %.loopexit ]
   %.0142 = phi ptr [ %31, %.lr.ph143 ], [ %.5, %.loopexit ]
   %.070141 = phi i8 [ 0, %.lr.ph143 ], [ %.575, %.loopexit ]
-  %.sroa.21.1139 = phi ptr [ %.sroa.21.0, %.lr.ph143 ], [ %.sroa.21.3, %.loopexit ]
-  %.sroa.15.0138 = phi ptr [ %.0.i.i.i.i.i, %.lr.ph143 ], [ %.sroa.15.2, %.loopexit ]
-  %.sroa.0.1137 = phi ptr [ %.sroa.0.0, %.lr.ph143 ], [ %.sroa.0.3, %.loopexit ]
+  %.sroa.21.0139 = phi ptr [ %.sroa.21.1, %.lr.ph143 ], [ %.sroa.21.2, %.loopexit ]
+  %.sroa.15.0138 = phi ptr [ %.0.i.i.i.i.i, %.lr.ph143 ], [ %.sroa.15.1, %.loopexit ]
+  %.sroa.0.0137 = phi ptr [ %.sroa.0.1, %.lr.ph143 ], [ %.sroa.0.2, %.loopexit ]
   %42 = load ptr, ptr %32, align 8
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds %"class.cv::KeyPoint", ptr %43, i64 %indvars.iv
@@ -3323,7 +3323,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit: ; preds = %.l
   %57 = sub i64 %55, %56
   %58 = sdiv exact i64 %57, 24
   %59 = ptrtoint ptr %.sroa.15.0138 to i64
-  %60 = ptrtoint ptr %.sroa.0.1137 to i64
+  %60 = ptrtoint ptr %.sroa.0.0137 to i64
   %61 = sub i64 %59, %60
   %62 = sdiv exact i64 %61, 24
   %63 = icmp ult i64 %62, %58
@@ -3331,7 +3331,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit: ; preds = %.l
 
 64:                                               ; preds = %39
   %65 = sub nuw nsw i64 %58, %62
-  %66 = ptrtoint ptr %.sroa.21.1139 to i64
+  %66 = ptrtoint ptr %.sroa.21.0139 to i64
   %67 = sub i64 %66, %59
   %68 = sdiv exact i64 %67, 24
   %69 = icmp ult i64 %62, 384307168202282326
@@ -3401,15 +3401,15 @@ _ZSt27__uninitialized_default_n_aIPN2cv11xfeatures2d10ABWLParamsEmS2_ET_S4_T0_RS
   br i1 %91, label %92, label %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
 
 92:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN2cv11xfeatures2d10ABWLParamsEmS2_ET_S4_T0_RSaIT1_E.exit34.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %84, ptr align 4 %.sroa.0.1137, i64 %61, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %84, ptr align 4 %.sroa.0.0137, i64 %61, i1 false)
   br label %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
 
 _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds = %92, %_ZSt27__uninitialized_default_n_aIPN2cv11xfeatures2d10ABWLParamsEmS2_ET_S4_T0_RSaIT1_E.exit34.i
-  %.not.i36.i = icmp eq ptr %.sroa.0.1137, null
+  %.not.i36.i = icmp eq ptr %.sroa.0.0137, null
   br i1 %.not.i36.i, label %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EE13_M_deallocateEPS2_m.exit37.i, label %93
 
 93:                                               ; preds = %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1137) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0137) #21
   br label %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EE13_M_deallocateEPS2_m.exit37.i
 
 _ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EE13_M_deallocateEPS2_m.exit37.i: ; preds = %93, %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
@@ -3419,14 +3419,14 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EE13_M_deallocateEPS2_m.
 
 96:                                               ; preds = %39
   %97 = icmp ugt i64 %62, %58
-  %98 = getelementptr inbounds i8, ptr %.sroa.0.1137, i64 %57
+  %98 = getelementptr inbounds i8, ptr %.sroa.0.0137, i64 %57
   %spec.select = select i1 %97, ptr %98, ptr %.sroa.15.0138
   br label %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i
 
 _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %96, %72, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EE13_M_deallocateEPS2_m.exit37.i
-  %.sroa.0.3 = phi ptr [ %84, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EE13_M_deallocateEPS2_m.exit37.i ], [ %.sroa.0.1137, %72 ], [ %.sroa.0.1137, %96 ], [ %.sroa.0.1137, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.sroa.15.2 = phi ptr [ %94, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EE13_M_deallocateEPS2_m.exit37.i ], [ %73, %72 ], [ %spec.select, %96 ], [ %76, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %.sroa.21.3 = phi ptr [ %95, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EE13_M_deallocateEPS2_m.exit37.i ], [ %.sroa.21.1139, %72 ], [ %.sroa.21.1139, %96 ], [ %.sroa.21.1139, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.0.2 = phi ptr [ %84, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EE13_M_deallocateEPS2_m.exit37.i ], [ %.sroa.0.0137, %72 ], [ %.sroa.0.0137, %96 ], [ %.sroa.0.0137, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.15.1 = phi ptr [ %94, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EE13_M_deallocateEPS2_m.exit37.i ], [ %73, %72 ], [ %spec.select, %96 ], [ %76, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %.sroa.21.2 = phi ptr [ %95, %_ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EE13_M_deallocateEPS2_m.exit37.i ], [ %.sroa.21.0139, %72 ], [ %.sroa.21.0139, %96 ], [ %.sroa.21.0139, %.lr.ph.i.i.i.i.i.i.i.i ]
   %99 = getelementptr inbounds i8, ptr %44, i64 12
   %100 = load float, ptr %99, align 4
   %101 = fcmp oeq float %100, -1.000000e+00
@@ -3520,7 +3520,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i: ; preds = %
   %163 = fadd float %152, %162
   %164 = fadd float %163, 5.000000e-01
   %165 = fptosi float %164 to i32
-  %166 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %.sroa.0.3, i64 %.090.i
+  %166 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %.sroa.0.2, i64 %.090.i
   store i32 %165, ptr %166, align 4
   %167 = load ptr, ptr %4, align 8
   %168 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %167, i64 %.090.i
@@ -3534,7 +3534,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i: ; preds = %
   %176 = fadd float %153, %175
   %177 = fadd float %176, 5.000000e-01
   %178 = fptosi float %177 to i32
-  %179 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %.sroa.0.3, i64 %.090.i, i32 1
+  %179 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %.sroa.0.2, i64 %.090.i, i32 1
   store i32 %178, ptr %179, align 4
   %180 = load ptr, ptr %4, align 8
   %181 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %180, i64 %.090.i
@@ -3549,7 +3549,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i: ; preds = %
   %190 = fadd float %152, %189
   %191 = fadd float %190, 5.000000e-01
   %192 = fptosi float %191 to i32
-  %193 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %.sroa.0.3, i64 %.090.i, i32 2
+  %193 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %.sroa.0.2, i64 %.090.i, i32 2
   store i32 %192, ptr %193, align 4
   %194 = load ptr, ptr %4, align 8
   %195 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %194, i64 %.090.i
@@ -3564,7 +3564,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i: ; preds = %
   %204 = fadd float %153, %203
   %205 = fadd float %204, 5.000000e-01
   %206 = fptosi float %205 to i32
-  %207 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %.sroa.0.3, i64 %.090.i, i32 3
+  %207 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %.sroa.0.2, i64 %.090.i, i32 3
   store i32 %206, ptr %207, align 4
   %208 = load ptr, ptr %4, align 8
   %209 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %208, i64 %.090.i, i32 4
@@ -3572,7 +3572,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i: ; preds = %
   %211 = sitofp i32 %210 to float
   %212 = tail call float @llvm.fmuladd.f32(float %54, float %211, float 5.000000e-01)
   %213 = fptosi float %212 to i32
-  %214 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %.sroa.0.3, i64 %.090.i, i32 4
+  %214 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %.sroa.0.2, i64 %.090.i, i32 4
   store i32 %213, ptr %214, align 4
   %215 = add nuw i64 %.090.i, 1
   %216 = load ptr, ptr %5, align 8
@@ -3652,7 +3652,7 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %258 = trunc i64 %.078131 to i32
   %259 = and i32 %258, 7
   %260 = xor i32 %259, 7
-  %261 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %.sroa.0.3, i64 %.078131
+  %261 = getelementptr inbounds %"struct.cv::xfeatures2d::ABWLParams", ptr %.sroa.0.2, i64 %.078131
   %262 = load ptr, ptr %37, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 12
   %264 = load i32, ptr %263, align 4
@@ -3799,11 +3799,11 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
 
 367:                                              ; preds = %.loopexit.split-lp, %.loopexit122
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit122 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i88 = icmp eq ptr %.sroa.0.1137, null
+  %.not.i.i.i88 = icmp eq ptr %.sroa.0.0137, null
   br i1 %.not.i.i.i88, label %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EED2Ev.exit, label %368
 
 368:                                              ; preds = %367
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1137) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0137) #21
   br label %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EED2Ev.exit
 
 369:                                              ; preds = %.lr.ph134, %365
@@ -3824,7 +3824,7 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   %379 = phi ptr [ %465, %463 ], [ %224, %.preheader ]
   %.3129 = phi ptr [ %.4, %463 ], [ %.0142, %.preheader ]
   %.373128 = phi i8 [ %.474, %463 ], [ %.070141, %.preheader ]
-  %.076127 = phi ptr [ %459, %463 ], [ %.sroa.0.3, %.preheader ]
+  %.076127 = phi ptr [ %459, %463 ], [ %.sroa.0.2, %.preheader ]
   %.179126 = phi i64 [ %466, %463 ], [ 0, %.preheader ]
   %380 = trunc i64 %.179126 to i32
   %381 = and i32 %380, 7
@@ -3942,12 +3942,12 @@ _ZN2cv11xfeatures2dL21isKeypointInTheBorderERKNS_8KeyPointERKNS_5Size_IiEES7_f.e
   br i1 %476, label %39, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.loopexit, %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit
-  %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0, %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit ], [ %.sroa.0.3, %.loopexit ]
-  %.not.i.i.i89 = icmp eq ptr %.sroa.0.1.lcssa, null
+  %.sroa.0.0.lcssa = phi ptr [ %.sroa.0.1, %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit ], [ %.sroa.0.2, %.loopexit ]
+  %.not.i.i.i89 = icmp eq ptr %.sroa.0.0.lcssa, null
   br i1 %.not.i.i.i89, label %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EED2Ev.exit90, label %477
 
 477:                                              ; preds = %._crit_edge
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1.lcssa) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.lcssa) #21
   br label %_ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EED2Ev.exit90
 
 _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EED2Ev.exit90: ; preds = %._crit_edge, %477

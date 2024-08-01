@@ -6311,11 +6311,11 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit16inline_arraycopyEv(ptr no
   br label %180
 
 180:                                              ; preds = %158, %173, %157
-  %.0170 = phi ptr [ %..i, %157 ], [ %169, %173 ], [ null, %158 ]
-  %.0167 = phi i1 [ true, %157 ], [ %179, %173 ], [ false, %158 ]
-  %.0164 = phi i8 [ 0, %157 ], [ 1, %173 ], [ 1, %158 ]
-  %.0146 = phi ptr [ %98, %157 ], [ %169, %173 ], [ %169, %158 ]
-  %.0141 = phi ptr [ %68, %157 ], [ %159, %173 ], [ %159, %158 ]
+  %.1171 = phi ptr [ %..i, %157 ], [ %169, %173 ], [ null, %158 ]
+  %.1168 = phi i1 [ true, %157 ], [ %179, %173 ], [ false, %158 ]
+  %.1165 = phi i8 [ 0, %157 ], [ 1, %173 ], [ 1, %158 ]
+  %.1147 = phi ptr [ %98, %157 ], [ %169, %173 ], [ %169, %158 ]
+  %.1 = phi ptr [ %68, %157 ], [ %159, %173 ], [ %159, %158 ]
   br i1 %127, label %203, label %181
 
 181:                                              ; preds = %180
@@ -6347,26 +6347,26 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit16inline_arraycopyEv(ptr no
   br label %203
 
 203:                                              ; preds = %196, %119, %155, %156, %180
-  %.1171 = phi ptr [ %.0170, %180 ], [ %..i, %156 ], [ %..i, %155 ], [ %..i, %119 ], [ %.0170, %196 ]
+  %.0170 = phi ptr [ %.1171, %180 ], [ %..i, %156 ], [ %..i, %155 ], [ %..i, %119 ], [ %.1171, %196 ]
   %.0169 = phi ptr [ %..i211, %180 ], [ %..i211, %156 ], [ %..i211, %155 ], [ %103, %119 ], [ %192, %196 ]
-  %.1168 = phi i1 [ %.0167, %180 ], [ %118, %156 ], [ %118, %155 ], [ true, %119 ], [ %.0167, %196 ]
+  %.0167 = phi i1 [ %.1168, %180 ], [ %118, %156 ], [ %118, %155 ], [ true, %119 ], [ %.1168, %196 ]
   %.0166.in = phi i1 [ true, %180 ], [ %127, %156 ], [ %127, %155 ], [ true, %119 ], [ %202, %196 ]
-  %.1165 = phi i8 [ %.0164, %180 ], [ 0, %156 ], [ 0, %155 ], [ 0, %119 ], [ %.0164, %196 ]
+  %.0164 = phi i8 [ %.1165, %180 ], [ 0, %156 ], [ 0, %155 ], [ 0, %119 ], [ %.1165, %196 ]
   %.0163 = phi i1 [ false, %180 ], [ false, %156 ], [ false, %155 ], [ false, %119 ], [ true, %196 ]
   %.0148 = phi ptr [ %103, %180 ], [ %103, %156 ], [ %103, %155 ], [ %103, %119 ], [ %192, %196 ]
-  %.1147 = phi ptr [ %.0146, %180 ], [ %98, %156 ], [ %98, %155 ], [ %98, %119 ], [ %.0146, %196 ]
+  %.0146 = phi ptr [ %.1147, %180 ], [ %98, %156 ], [ %98, %155 ], [ %98, %119 ], [ %.1147, %196 ]
   %.0142 = phi ptr [ %85, %180 ], [ %85, %156 ], [ %85, %155 ], [ %85, %119 ], [ %182, %196 ]
-  %.1 = phi ptr [ %.0141, %180 ], [ %68, %156 ], [ %68, %155 ], [ %68, %119 ], [ %.0141, %196 ]
-  %204 = select i1 %.1168, i1 %.0166.in, i1 false
+  %.0141 = phi ptr [ %.1, %180 ], [ %68, %156 ], [ %68, %155 ], [ %68, %119 ], [ %.1, %196 ]
+  %204 = select i1 %.0167, i1 %.0166.in, i1 false
   %brmerge201 = xor i1 %204, true
   %brmerge203 = or i1 %.not268, %brmerge201
   br i1 %brmerge203, label %.thread255, label %205
 
 205:                                              ; preds = %203
-  %206 = getelementptr inbounds i8, ptr %.1171, i64 16
+  %206 = getelementptr inbounds i8, ptr %.0170, i64 16
   %207 = load i32, ptr %206, align 8
   %208 = icmp eq i32 %207, 22
-  %..i214 = select i1 %208, ptr %.1171, ptr null
+  %..i214 = select i1 %208, ptr %.0170, ptr null
   %209 = getelementptr inbounds i8, ptr %..i214, i64 80
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 24
@@ -6393,14 +6393,14 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit16inline_arraycopyEv(ptr no
   br i1 %or.cond264, label %226, label %.thread255
 
 226:                                              ; preds = %205
-  %227 = trunc nuw i8 %.1165 to i1
+  %227 = trunc nuw i8 %.0164 to i1
   br i1 %227, label %238, label %228
 
 228:                                              ; preds = %226
-  %229 = load ptr, ptr %.1147, align 8
+  %229 = load ptr, ptr %.0146, align 8
   %230 = getelementptr inbounds i8, ptr %229, i64 104
   %231 = load ptr, ptr %230, align 8
-  %232 = call noundef ptr %231(ptr noundef nonnull align 8 dereferenceable(20) %.1147) #13
+  %232 = call noundef ptr %231(ptr noundef nonnull align 8 dereferenceable(20) %.0146) #13
   %.not193 = icmp eq ptr %232, null
   br i1 %.not193, label %238, label %233
 
@@ -6409,11 +6409,11 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit16inline_arraycopyEv(ptr no
   %235 = getelementptr inbounds i8, ptr %234, i64 88
   %236 = load ptr, ptr %235, align 8
   %237 = call noundef zeroext i1 %236(ptr noundef nonnull align 8 dereferenceable(24) %232) #13
-  %spec.select205 = select i1 %237, i8 1, i8 %.1165
+  %spec.select205 = select i1 %237, i8 1, i8 %.0164
   br label %238
 
 238:                                              ; preds = %233, %228, %226
-  %.0156 = phi i8 [ %.1165, %226 ], [ %.1165, %228 ], [ %spec.select205, %233 ]
+  %.0156 = phi i8 [ %.0164, %226 ], [ %.0164, %228 ], [ %spec.select205, %233 ]
   %.0154 = phi ptr [ null, %226 ], [ null, %228 ], [ %232, %233 ]
   br i1 %.0163, label %249, label %239
 
@@ -6443,11 +6443,11 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit16inline_arraycopyEv(ptr no
   br i1 %227, label %254, label %252
 
 252:                                              ; preds = %251
-  %253 = call noundef ptr @_ZN8GraphKit23maybe_cast_profiled_objEP4NodeP7ciKlassb(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.1, ptr noundef %.0154, i1 noundef zeroext true) #13
+  %253 = call noundef ptr @_ZN8GraphKit23maybe_cast_profiled_objEP4NodeP7ciKlassb(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.0141, ptr noundef %.0154, i1 noundef zeroext true) #13
   br label %254
 
 254:                                              ; preds = %251, %252
-  %.2 = phi ptr [ %.1, %251 ], [ %253, %252 ]
+  %.3 = phi ptr [ %.0141, %251 ], [ %253, %252 ]
   br i1 %.0163, label %.thread255, label %255
 
 255:                                              ; preds = %254
@@ -6456,7 +6456,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit16inline_arraycopyEv(ptr no
 
 .thread255:                                       ; preds = %145, %181, %205, %239, %249, %203, %254, %255
   %.1143 = phi ptr [ %.0142, %254 ], [ %256, %255 ], [ %.0142, %249 ], [ %.0142, %203 ], [ %.0142, %239 ], [ %.0142, %205 ], [ %182, %181 ], [ %85, %145 ]
-  %.3 = phi ptr [ %.2, %254 ], [ %.2, %255 ], [ %.1, %249 ], [ %.1, %203 ], [ %.1, %239 ], [ %.1, %205 ], [ %.0141, %181 ], [ %68, %145 ]
+  %.2 = phi ptr [ %.3, %254 ], [ %.3, %255 ], [ %.0141, %249 ], [ %.0141, %203 ], [ %.0141, %239 ], [ %.0141, %205 ], [ %.1, %181 ], [ %68, %145 ]
   %257 = getelementptr inbounds i8, ptr %0, i64 64
   %258 = load ptr, ptr %257, align 8
   %259 = load ptr, ptr %6, align 8
@@ -6478,7 +6478,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit16inline_arraycopyEv(ptr no
   br label %273
 
 273:                                              ; preds = %.thread255.thread, %262, %.thread255
-  %.3295 = phi ptr [ %.3, %262 ], [ %.3, %.thread255 ], [ %68, %.thread255.thread ]
+  %.2295 = phi ptr [ %.2, %262 ], [ %.2, %.thread255 ], [ %68, %.thread255.thread ]
   %.1143294 = phi ptr [ %.1143, %262 ], [ %.1143, %.thread255 ], [ %85, %.thread255.thread ]
   %.0152 = phi ptr [ %268, %262 ], [ %258, %.thread255 ], [ %129, %.thread255.thread ]
   %.pn = phi ptr [ %272, %262 ], [ %261, %.thread255 ], [ %132, %.thread255.thread ]
@@ -6490,7 +6490,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit16inline_arraycopyEv(ptr no
   br i1 %brmerge210, label %550, label %276
 
 276:                                              ; preds = %273
-  %277 = getelementptr inbounds i8, ptr %.3295, i64 16
+  %277 = getelementptr inbounds i8, ptr %.2295, i64 16
   %278 = load ptr, ptr %277, align 8
   %279 = icmp eq ptr %278, null
   br i1 %279, label %550, label %280
@@ -6628,13 +6628,13 @@ _ZN9Node_List4pushEP4Node.exit.i.i.i:             ; preds = %351, %345
   br label %_ZNK8GraphKit15record_for_igvnEP4Node.exit
 
 _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %_ZN9VectorSet8test_setEj.exit.i.i.i, %_ZN9Node_List4pushEP4Node.exit.i.i.i
-  %356 = call noundef ptr @_ZN8GraphKit17load_object_klassEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.3295) #13
+  %356 = call noundef ptr @_ZN8GraphKit17load_object_klassEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.2295) #13
   %357 = call noundef ptr @_ZN14LibraryCallKit27generate_array_guard_commonEP4NodeP10RegionNodebb(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %356, ptr noundef nonnull %.0.i.i.i, i1 noundef zeroext false, i1 noundef zeroext true)
   %358 = call noundef ptr @_ZN8GraphKit17load_object_klassEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.1143294) #13
   %359 = call noundef ptr @_ZN14LibraryCallKit27generate_array_guard_commonEP4NodeP10RegionNodebb(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %358, ptr noundef nonnull %.0.i.i.i, i1 noundef zeroext false, i1 noundef zeroext true)
   %360 = call noundef ptr @_ZN14LibraryCallKit23generate_negative_guardEP4NodeP10RegionNodePS1_(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %23, ptr noundef nonnull %.0.i.i.i, ptr noundef null)
   %361 = call noundef ptr @_ZN14LibraryCallKit23generate_negative_guardEP4NodeP10RegionNodePS1_(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %31, ptr noundef nonnull %.0.i.i.i, ptr noundef null)
-  %362 = call noundef ptr @_ZN8GraphKit17load_array_lengthEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.3295) #13
+  %362 = call noundef ptr @_ZN8GraphKit17load_array_lengthEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.2295) #13
   %363 = call noundef ptr @_ZN14LibraryCallKit20generate_limit_guardEP4NodeS1_S1_P10RegionNode(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %23, ptr noundef %35, ptr noundef %362, ptr noundef nonnull %.0.i.i.i)
   %364 = call noundef ptr @_ZN8GraphKit17load_array_lengthEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.1143294) #13
   %365 = call noundef ptr @_ZN14LibraryCallKit20generate_limit_guardEP4NodeS1_S1_P10RegionNode(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %31, ptr noundef %35, ptr noundef %364, ptr noundef nonnull %.0.i.i.i)
@@ -6648,11 +6648,11 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %_ZN9VectorSet8test_
 
 370:                                              ; preds = %368, %_ZNK8GraphKit15record_for_igvnEP4Node.exit
   %371 = call noundef ptr @_ZN8GraphKit17load_object_klassEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.1143294) #13
-  %.not195 = icmp eq ptr %.3295, %.1143294
+  %.not195 = icmp eq ptr %.2295, %.1143294
   br i1 %.not195, label %417, label %372
 
 372:                                              ; preds = %370
-  %373 = call noundef ptr @_ZN8GraphKit17gen_subtype_checkEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.3295, ptr noundef %371) #13
+  %373 = call noundef ptr @_ZN8GraphKit17gen_subtype_checkEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %.2295, ptr noundef %371) #13
   %374 = load ptr, ptr %36, align 8
   %375 = getelementptr inbounds i8, ptr %374, i64 744
   %376 = load ptr, ptr %375, align 8
@@ -6921,8 +6921,8 @@ _ZN4NodenwEm.exit231:                             ; preds = %494, %496
 _ZN4Node8init_reqEjPS_.exit.i.i:                  ; preds = %521, %510, %499
   %527 = load ptr, ptr %508, align 8
   %528 = getelementptr inbounds i8, ptr %527, i64 8
-  store ptr %.3295, ptr %528, align 8
-  %.not.i5.i.i = icmp eq ptr %.3295, null
+  store ptr %.2295, ptr %528, align 8
+  %.not.i5.i.i = icmp eq ptr %.2295, null
   br i1 %.not.i5.i.i, label %_ZN15CheckCastPPNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple.exit, label %529
 
 529:                                              ; preds = %_ZN4Node8init_reqEjPS_.exit.i.i
@@ -6931,15 +6931,15 @@ _ZN4Node8init_reqEjPS_.exit.i.i:                  ; preds = %521, %510, %499
   br i1 %531, label %_ZN15CheckCastPPNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple.exit, label %532
 
 532:                                              ; preds = %529
-  %533 = getelementptr inbounds i8, ptr %.3295, i64 32
+  %533 = getelementptr inbounds i8, ptr %.2295, i64 32
   %534 = load i32, ptr %533, align 8
-  %535 = getelementptr inbounds i8, ptr %.3295, i64 36
+  %535 = getelementptr inbounds i8, ptr %.2295, i64 36
   %536 = load i32, ptr %535, align 4
   %537 = icmp eq i32 %534, %536
   br i1 %537, label %538, label %539
 
 538:                                              ; preds = %532
-  call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %.3295, i32 noundef %534) #13
+  call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %.2295, i32 noundef %534) #13
   %.pre.i.i6.i.i = load ptr, ptr %277, align 8
   %.pre2.i.i7.i.i = load i32, ptr %533, align 8
   br label %539
@@ -6968,9 +6968,9 @@ _ZN15CheckCastPPNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9
   br label %550
 
 550:                                              ; preds = %273, %545, %280, %276
-  %.1150 = phi i1 [ false, %273 ], [ false, %276 ], [ false, %280 ], [ %367, %545 ]
+  %.0149 = phi i1 [ false, %273 ], [ false, %276 ], [ false, %280 ], [ %367, %545 ]
   %.0145 = phi i8 [ 0, %273 ], [ 0, %276 ], [ 0, %280 ], [ 1, %545 ]
-  %.4 = phi ptr [ %.3295, %273 ], [ %.3295, %276 ], [ %.3295, %280 ], [ %548, %545 ]
+  %.4 = phi ptr [ %.2295, %273 ], [ %.2295, %276 ], [ %.2295, %280 ], [ %548, %545 ]
   %551 = call noundef zeroext i1 @_ZN8GraphKit7stoppedEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #13
   br i1 %551, label %_ZN14LibraryCallKit15clear_upper_avxEv.exit, label %552
 
@@ -6980,7 +6980,7 @@ _ZN15CheckCastPPNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9
   %555 = call noundef ptr @_ZN8GraphKit17load_object_klassEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.1143294) #13
   %556 = call noundef ptr @_ZN8GraphKit17load_array_lengthEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.4) #13
   %557 = call noundef ptr @_ZN8GraphKit17load_array_lengthEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.1143294) #13
-  %558 = call noundef ptr @_ZN13ArrayCopyNode4makeEP8GraphKitbP4NodeS3_S3_S3_S3_bbS3_S3_S3_S3_(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef %.4, ptr noundef %23, ptr noundef %.1143294, ptr noundef %31, ptr noundef %35, i1 noundef zeroext %553, i1 noundef zeroext %.1150, ptr noundef %554, ptr noundef %555, ptr noundef %556, ptr noundef %557) #13
+  %558 = call noundef ptr @_ZN13ArrayCopyNode4makeEP8GraphKitbP4NodeS3_S3_S3_S3_bbS3_S3_S3_S3_(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef %.4, ptr noundef %23, ptr noundef %.1143294, ptr noundef %31, ptr noundef %35, i1 noundef zeroext %553, i1 noundef zeroext %.0149, ptr noundef %554, ptr noundef %555, ptr noundef %556, ptr noundef %557) #13
   %559 = getelementptr inbounds i8, ptr %558, i64 128
   store i32 1, ptr %559, align 8
   %560 = getelementptr inbounds i8, ptr %558, i64 134
@@ -10584,8 +10584,8 @@ _ZN9VectorSet8test_setEj.exit.i.i.i:              ; preds = %106, %_ZN10RegionNo
   %114 = or i32 %113, %108
   store i32 %114, ptr %112, align 4
   %115 = and i32 %113, %108
-  %.not.i.i.i41 = icmp eq i32 %115, 0
-  br i1 %.not.i.i.i41, label %116, label %_ZNK8GraphKit15record_for_igvnEP4Node.exit
+  %.not.i.i.i42 = icmp eq i32 %115, 0
+  br i1 %.not.i.i.i42, label %116, label %_ZNK8GraphKit15record_for_igvnEP4Node.exit
 
 116:                                              ; preds = %_ZN9VectorSet8test_setEj.exit.i.i.i
   %117 = getelementptr inbounds i8, ptr %100, i64 24
@@ -10634,8 +10634,8 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %_ZN9VectorSet8test_
   %145 = getelementptr inbounds i8, ptr %144, i64 8
   %146 = load ptr, ptr %145, align 8
   %147 = load ptr, ptr %146, align 8
-  %.not.i.i.i42 = icmp eq ptr %147, null
-  br i1 %.not.i.i.i42, label %_ZN4Node7del_outEPS_.exit.i.i.i, label %148
+  %.not.i.i.i43 = icmp eq ptr %147, null
+  br i1 %.not.i.i.i43, label %_ZN4Node7del_outEPS_.exit.i.i.i, label %148
 
 148:                                              ; preds = %139
   %149 = getelementptr inbounds i8, ptr %147, i64 16
@@ -10654,8 +10654,8 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %_ZN9VectorSet8test_
   %.0.i.i.i.i = phi ptr [ %156, %152 ], [ %158, %157 ]
   %158 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 -8
   %159 = load ptr, ptr %158, align 8
-  %.not.i.i.i.i43 = icmp eq ptr %159, %144
-  br i1 %.not.i.i.i.i43, label %160, label %157, !llvm.loop !8
+  %.not.i.i.i.i44 = icmp eq ptr %159, %144
+  br i1 %.not.i.i.i.i44, label %160, label %157, !llvm.loop !8
 
 160:                                              ; preds = %157
   %161 = add i32 %154, -1
@@ -10726,36 +10726,36 @@ _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %_ZN4Node7del_outEPS
   %198 = ptrtoint ptr %195 to i64
   %199 = ptrtoint ptr %197 to i64
   %200 = sub i64 %198, %199
-  %.not.i.i.i44 = icmp ult i64 %200, 56
-  br i1 %.not.i.i.i44, label %203, label %201
+  %.not.i.i.i45 = icmp ult i64 %200, 56
+  br i1 %.not.i.i.i45, label %203, label %201
 
 201:                                              ; preds = %185
   %202 = getelementptr inbounds i8, ptr %197, i64 56
   store ptr %202, ptr %196, align 8
-  br label %_ZN4NodenwEm.exit46
+  br label %_ZN4NodenwEm.exit47
 
 203:                                              ; preds = %185
   %204 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %193, i64 noundef 56, i32 noundef 0) #13
-  br label %_ZN4NodenwEm.exit46
+  br label %_ZN4NodenwEm.exit47
 
-_ZN4NodenwEm.exit46:                              ; preds = %201, %203
-  %.0.i.i.i45 = phi ptr [ %197, %201 ], [ %204, %203 ]
-  %205 = icmp eq ptr %.0.i.i.i45, null
+_ZN4NodenwEm.exit47:                              ; preds = %201, %203
+  %.0.i.i.i46 = phi ptr [ %197, %201 ], [ %204, %203 ]
+  %205 = icmp eq ptr %.0.i.i.i46, null
   br i1 %205, label %210, label %206
 
-206:                                              ; preds = %_ZN4NodenwEm.exit46
+206:                                              ; preds = %_ZN4NodenwEm.exit47
   %207 = load ptr, ptr %39, align 8
   %208 = call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %207, i32 noundef 1) #13
-  call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i45, ptr noundef null, ptr noundef %34, ptr noundef %208) #13
-  %209 = getelementptr inbounds i8, ptr %.0.i.i.i45, i64 44
+  call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i46, ptr noundef null, ptr noundef %34, ptr noundef %208) #13
+  %209 = getelementptr inbounds i8, ptr %.0.i.i.i46, i64 44
   store i32 1048576, ptr %209, align 4
-  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11LShiftINode, i64 16), ptr %.0.i.i.i45, align 8
+  store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11LShiftINode, i64 16), ptr %.0.i.i.i46, align 8
   br label %210
 
-210:                                              ; preds = %206, %_ZN4NodenwEm.exit46
+210:                                              ; preds = %206, %_ZN4NodenwEm.exit47
   %211 = load ptr, ptr %186, align 8
   %212 = load ptr, ptr %211, align 8
-  %213 = call noundef ptr %212(ptr noundef nonnull align 8 dereferenceable(2400) %186, ptr noundef %.0.i.i.i45) #13
+  %213 = call noundef ptr %212(ptr noundef nonnull align 8 dereferenceable(2400) %186, ptr noundef %.0.i.i.i46) #13
   %214 = call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext 8) #13
   %215 = call noundef ptr @_ZN12TypeKlassPtr4makeEP7ciKlassN4Type17InterfaceHandlingE(ptr noundef %214, i32 noundef 1) #13
   %216 = load ptr, ptr %39, align 8
@@ -10850,8 +10850,8 @@ _ZN4NodenwEm.exit46:                              ; preds = %201, %203
   br label %_ZN14LibraryCallKit15clear_upper_avxEv.exit
 
 _ZN14LibraryCallKit15clear_upper_avxEv.exit:      ; preds = %276, %273, %264, %1
-  %.1 = xor i1 %11, true
-  ret i1 %.1
+  %.0 = xor i1 %11, true
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12133,7 +12133,7 @@ default.unreachable:                              ; preds = %108
   br label %155
 
 155:                                              ; preds = %153, %139
-  %.173 = phi ptr [ %154, %153 ], [ %.072, %139 ]
+  %.2 = phi ptr [ %154, %153 ], [ %.072, %139 ]
   %.not79 = icmp eq ptr %.070, null
   br i1 %.not79, label %_Z17is_reference_type9BasicTypeb.exit82, label %156
 
@@ -12157,7 +12157,7 @@ default.unreachable:                              ; preds = %108
   br label %_Z17is_reference_type9BasicTypeb.exit82
 
 _Z17is_reference_type9BasicTypeb.exit82:          ; preds = %134, %155, %156, %169
-  %.2 = phi ptr [ %.173, %169 ], [ %.173, %156 ], [ %.173, %155 ], [ %.072, %134 ]
+  %.173 = phi ptr [ %.2, %169 ], [ %.2, %156 ], [ %.2, %155 ], [ %.072, %134 ]
   %.171 = phi ptr [ %170, %169 ], [ %.070, %156 ], [ null, %155 ], [ %.070, %134 ]
   %.066 = phi i64 [ %140, %169 ], [ %140, %156 ], [ %140, %155 ], [ %17, %134 ]
   switch i32 %2, label %default.unreachable83 [
@@ -12170,7 +12170,7 @@ _Z17is_reference_type9BasicTypeb.exit82:          ; preds = %134, %155, %156, %1
 
 171:                                              ; preds = %_Z17is_reference_type9BasicTypeb.exit82
   %172 = load ptr, ptr %5, align 8
-  %173 = tail call noundef ptr @_ZN8GraphKit28access_atomic_cmpxchg_val_atEP4NodeS1_PK7TypePtriS1_S1_PK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %172, ptr noundef nonnull %84, ptr noundef %99, i32 noundef %137, ptr noundef %.171, ptr noundef %.2, ptr noundef %.067, i8 noundef zeroext %1, i64 noundef %.066) #13
+  %173 = tail call noundef ptr @_ZN8GraphKit28access_atomic_cmpxchg_val_atEP4NodeS1_PK7TypePtriS1_S1_PK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %172, ptr noundef nonnull %84, ptr noundef %99, i32 noundef %137, ptr noundef %.171, ptr noundef %.173, ptr noundef %.067, i8 noundef zeroext %1, i64 noundef %.066) #13
   br label %185
 
 174:                                              ; preds = %_Z17is_reference_type9BasicTypeb.exit82
@@ -12180,17 +12180,17 @@ _Z17is_reference_type9BasicTypeb.exit82:          ; preds = %134, %155, %156, %1
 176:                                              ; preds = %174, %_Z17is_reference_type9BasicTypeb.exit82
   %.1 = phi i64 [ %.066, %_Z17is_reference_type9BasicTypeb.exit82 ], [ %175, %174 ]
   %177 = load ptr, ptr %5, align 8
-  %178 = tail call noundef ptr @_ZN8GraphKit29access_atomic_cmpxchg_bool_atEP4NodeS1_PK7TypePtriS1_S1_PK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %177, ptr noundef nonnull %84, ptr noundef %99, i32 noundef %137, ptr noundef %.171, ptr noundef %.2, ptr noundef %.067, i8 noundef zeroext %1, i64 noundef %.1) #13
+  %178 = tail call noundef ptr @_ZN8GraphKit29access_atomic_cmpxchg_bool_atEP4NodeS1_PK7TypePtriS1_S1_PK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %177, ptr noundef nonnull %84, ptr noundef %99, i32 noundef %137, ptr noundef %.171, ptr noundef %.173, ptr noundef %.067, i8 noundef zeroext %1, i64 noundef %.1) #13
   br label %185
 
 179:                                              ; preds = %_Z17is_reference_type9BasicTypeb.exit82
   %180 = load ptr, ptr %5, align 8
-  %181 = tail call noundef ptr @_ZN8GraphKit21access_atomic_xchg_atEP4NodeS1_PK7TypePtriS1_PK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %180, ptr noundef nonnull %84, ptr noundef %99, i32 noundef %137, ptr noundef %.2, ptr noundef %.067, i8 noundef zeroext %1, i64 noundef %.066) #13
+  %181 = tail call noundef ptr @_ZN8GraphKit21access_atomic_xchg_atEP4NodeS1_PK7TypePtriS1_PK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %180, ptr noundef nonnull %84, ptr noundef %99, i32 noundef %137, ptr noundef %.173, ptr noundef %.067, i8 noundef zeroext %1, i64 noundef %.066) #13
   br label %185
 
 182:                                              ; preds = %_Z17is_reference_type9BasicTypeb.exit82
   %183 = load ptr, ptr %5, align 8
-  %184 = tail call noundef ptr @_ZN8GraphKit20access_atomic_add_atEP4NodeS1_PK7TypePtriS1_PK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %183, ptr noundef nonnull %84, ptr noundef %99, i32 noundef %137, ptr noundef %.2, ptr noundef %.067, i8 noundef zeroext %1, i64 noundef %.066) #13
+  %184 = tail call noundef ptr @_ZN8GraphKit20access_atomic_add_atEP4NodeS1_PK7TypePtriS1_PK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %183, ptr noundef nonnull %84, ptr noundef %99, i32 noundef %137, ptr noundef %.173, ptr noundef %.067, i8 noundef zeroext %1, i64 noundef %.066) #13
   br label %185
 
 default.unreachable83:                            ; preds = %_Z17is_reference_type9BasicTypeb.exit82
@@ -22804,11 +22804,11 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_array_copyOfEb(ptr
   br label %63
 
 63:                                               ; preds = %44, %33
-  %.sink106 = phi i32 [ %62, %44 ], [ %43, %33 ]
-  %.sink104 = phi ptr [ %58, %44 ], [ %29, %33 ]
+  %.sink107 = phi i32 [ %62, %44 ], [ %43, %33 ]
+  %.sink105 = phi ptr [ %58, %44 ], [ %29, %33 ]
   %.sink.in = phi ptr [ %60, %44 ], [ %41, %33 ]
-  %64 = zext i32 %.sink106 to i64
-  %65 = getelementptr inbounds ptr, ptr %.sink104, i64 %64
+  %64 = zext i32 %.sink107 to i64
+  %65 = getelementptr inbounds ptr, ptr %.sink105, i64 %64
   %.sink = load ptr, ptr %.sink.in, align 8
   store ptr %.sink, ptr %5, align 8
   %66 = load ptr, ptr %65, align 8
@@ -22852,9 +22852,9 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit19inline_array_copyOfEb(ptr
   %102 = xor i1 %101, true
   %103 = call noundef ptr @_ZN8GraphKit17null_check_commonEP4Node9BasicTypebPS1_b(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %32, i8 noundef zeroext 12, i1 noundef zeroext false, ptr noundef null, i1 noundef zeroext %102) #13
   %104 = call noundef zeroext i1 @_ZN8GraphKit7stoppedEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #13
-  br i1 %104, label %.thread96, label %105
+  br i1 %104, label %.thread97, label %105
 
-.thread96:                                        ; preds = %63
+.thread97:                                        ; preds = %63
   call void @_ZN22PreserveReexecuteStateD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   br label %533
 
@@ -22997,8 +22997,8 @@ _ZN9VectorSet8test_setEj.exit.i.i.i:              ; preds = %191, %_ZN10RegionNo
   %199 = or i32 %198, %193
   store i32 %199, ptr %197, align 4
   %200 = and i32 %198, %193
-  %.not.i.i.i73 = icmp eq i32 %200, 0
-  br i1 %.not.i.i.i73, label %201, label %_ZNK8GraphKit15record_for_igvnEP4Node.exit
+  %.not.i.i.i74 = icmp eq i32 %200, 0
+  br i1 %.not.i.i.i74, label %201, label %_ZNK8GraphKit15record_for_igvnEP4Node.exit
 
 201:                                              ; preds = %_ZN9VectorSet8test_setEj.exit.i.i.i
   %202 = getelementptr inbounds i8, ptr %185, i64 24
@@ -23045,36 +23045,36 @@ _ZNK8GraphKit15record_for_igvnEP4Node.exit:       ; preds = %_ZN9VectorSet8test_
   %228 = ptrtoint ptr %225 to i64
   %229 = ptrtoint ptr %227 to i64
   %230 = sub i64 %228, %229
-  %.not.i.i.i74 = icmp ult i64 %230, 80
-  br i1 %.not.i.i.i74, label %233, label %231
+  %.not.i.i.i75 = icmp ult i64 %230, 80
+  br i1 %.not.i.i.i75, label %233, label %231
 
 231:                                              ; preds = %213
   %232 = getelementptr inbounds i8, ptr %227, i64 80
   store ptr %232, ptr %226, align 8
-  br label %_ZN4NodenwEm.exit76
+  br label %_ZN4NodenwEm.exit77
 
 233:                                              ; preds = %213
   %234 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %223, i64 noundef 80, i32 noundef 0) #13
-  br label %_ZN4NodenwEm.exit76
+  br label %_ZN4NodenwEm.exit77
 
-_ZN4NodenwEm.exit76:                              ; preds = %231, %233
-  %.0.i.i.i75 = phi ptr [ %227, %231 ], [ %234, %233 ]
-  %235 = icmp eq ptr %.0.i.i.i75, null
+_ZN4NodenwEm.exit77:                              ; preds = %231, %233
+  %.0.i.i.i76 = phi ptr [ %227, %231 ], [ %234, %233 ]
+  %235 = icmp eq ptr %.0.i.i.i76, null
   br i1 %235, label %241, label %236
 
-236:                                              ; preds = %_ZN4NodenwEm.exit76
+236:                                              ; preds = %_ZN4NodenwEm.exit77
   %237 = load ptr, ptr %19, align 8
   %238 = getelementptr inbounds i8, ptr %237, i64 8
   %239 = load ptr, ptr %238, align 8
   %240 = load ptr, ptr %239, align 8
-  call void @_ZN10CastPPNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i75, ptr noundef %240, ptr noundef %140, ptr noundef %216, i32 noundef 0, ptr noundef null)
+  call void @_ZN10CastPPNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i76, ptr noundef %240, ptr noundef %140, ptr noundef %216, i32 noundef 0, ptr noundef null)
   br label %241
 
-241:                                              ; preds = %236, %_ZN4NodenwEm.exit76
+241:                                              ; preds = %236, %_ZN4NodenwEm.exit77
   %242 = load ptr, ptr %71, align 8
   %243 = load ptr, ptr %242, align 8
   %244 = load ptr, ptr %243, align 8
-  %245 = call noundef ptr %244(ptr noundef nonnull align 8 dereferenceable(2400) %242, ptr noundef %.0.i.i.i75) #13
+  %245 = call noundef ptr %244(ptr noundef nonnull align 8 dereferenceable(2400) %242, ptr noundef %.0.i.i.i76) #13
   br label %246
 
 246:                                              ; preds = %241, %_ZNK8GraphKit15record_for_igvnEP4Node.exit
@@ -23097,8 +23097,8 @@ _ZN4NodenwEm.exit76:                              ; preds = %231, %233
   %261 = getelementptr inbounds ptr, ptr %259, i64 %260
   %262 = load ptr, ptr %261, align 8
   %263 = load ptr, ptr @_ZN7TypeInt4ZEROE, align 8
-  %.not70 = icmp eq ptr %262, %263
-  br i1 %.not70, label %292, label %264
+  %.not71 = icmp eq ptr %262, %263
+  br i1 %.not71, label %292, label %264
 
 264:                                              ; preds = %246
   %265 = load ptr, ptr %141, align 8
@@ -23115,36 +23115,36 @@ _ZN4NodenwEm.exit76:                              ; preds = %231, %233
   %276 = ptrtoint ptr %273 to i64
   %277 = ptrtoint ptr %275 to i64
   %278 = sub i64 %276, %277
-  %.not.i.i.i77 = icmp ult i64 %278, 56
-  br i1 %.not.i.i.i77, label %281, label %279
+  %.not.i.i.i78 = icmp ult i64 %278, 56
+  br i1 %.not.i.i.i78, label %281, label %279
 
 279:                                              ; preds = %264
   %280 = getelementptr inbounds i8, ptr %275, i64 56
   store ptr %280, ptr %274, align 8
-  br label %_ZN4NodenwEm.exit79
+  br label %_ZN4NodenwEm.exit80
 
 281:                                              ; preds = %264
   %282 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %271, i64 noundef 56, i32 noundef 0) #13
-  br label %_ZN4NodenwEm.exit79
+  br label %_ZN4NodenwEm.exit80
 
-_ZN4NodenwEm.exit79:                              ; preds = %279, %281
-  %.0.i.i.i78 = phi ptr [ %275, %279 ], [ %282, %281 ]
-  %283 = icmp eq ptr %.0.i.i.i78, null
+_ZN4NodenwEm.exit80:                              ; preds = %279, %281
+  %.0.i.i.i79 = phi ptr [ %275, %279 ], [ %282, %281 ]
+  %283 = icmp eq ptr %.0.i.i.i79, null
   br i1 %283, label %288, label %284
 
-284:                                              ; preds = %_ZN4NodenwEm.exit79
+284:                                              ; preds = %_ZN4NodenwEm.exit80
   %285 = load ptr, ptr %5, align 8
   %286 = load ptr, ptr %4, align 8
-  call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i78, ptr noundef null, ptr noundef %285, ptr noundef %286) #13
-  %287 = getelementptr inbounds i8, ptr %.0.i.i.i78, i64 44
+  call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i79, ptr noundef null, ptr noundef %285, ptr noundef %286) #13
+  %287 = getelementptr inbounds i8, ptr %.0.i.i.i79, i64 44
   store i32 64, ptr %287, align 4
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubINode, i64 16), ptr %.0.i.i.i78, align 8
+  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubINode, i64 16), ptr %.0.i.i.i79, align 8
   br label %288
 
-288:                                              ; preds = %284, %_ZN4NodenwEm.exit79
+288:                                              ; preds = %284, %_ZN4NodenwEm.exit80
   %289 = load ptr, ptr %252, align 8
   %290 = load ptr, ptr %289, align 8
-  %291 = call noundef ptr %290(ptr noundef nonnull align 8 dereferenceable(2400) %252, ptr noundef %.0.i.i.i78) #13
+  %291 = call noundef ptr %290(ptr noundef nonnull align 8 dereferenceable(2400) %252, ptr noundef %.0.i.i.i79) #13
   store ptr %291, ptr %7, align 8
   br label %292
 
@@ -23166,35 +23166,35 @@ _ZN4NodenwEm.exit79:                              ; preds = %279, %281
   %307 = ptrtoint ptr %304 to i64
   %308 = ptrtoint ptr %306 to i64
   %309 = sub i64 %307, %308
-  %.not.i.i.i80 = icmp ult i64 %309, 56
-  br i1 %.not.i.i.i80, label %312, label %310
+  %.not.i.i.i81 = icmp ult i64 %309, 56
+  br i1 %.not.i.i.i81, label %312, label %310
 
 310:                                              ; preds = %292
   %311 = getelementptr inbounds i8, ptr %306, i64 56
   store ptr %311, ptr %305, align 8
-  br label %_ZN4NodenwEm.exit82
+  br label %_ZN4NodenwEm.exit83
 
 312:                                              ; preds = %292
   %313 = call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %302, i64 noundef 56, i32 noundef 0) #13
-  br label %_ZN4NodenwEm.exit82
+  br label %_ZN4NodenwEm.exit83
 
-_ZN4NodenwEm.exit82:                              ; preds = %310, %312
-  %.0.i.i.i81 = phi ptr [ %306, %310 ], [ %313, %312 ]
-  %314 = icmp eq ptr %.0.i.i.i81, null
+_ZN4NodenwEm.exit83:                              ; preds = %310, %312
+  %.0.i.i.i82 = phi ptr [ %306, %310 ], [ %313, %312 ]
+  %314 = icmp eq ptr %.0.i.i.i82, null
   br i1 %314, label %318, label %315
 
-315:                                              ; preds = %_ZN4NodenwEm.exit82
+315:                                              ; preds = %_ZN4NodenwEm.exit83
   %316 = load ptr, ptr %4, align 8
-  call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i81, ptr noundef null, ptr noundef %106, ptr noundef %316) #13
-  %317 = getelementptr inbounds i8, ptr %.0.i.i.i81, i64 44
+  call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i82, ptr noundef null, ptr noundef %106, ptr noundef %316) #13
+  %317 = getelementptr inbounds i8, ptr %.0.i.i.i82, i64 44
   store i32 64, ptr %317, align 4
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubINode, i64 16), ptr %.0.i.i.i81, align 8
+  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubINode, i64 16), ptr %.0.i.i.i82, align 8
   br label %318
 
-318:                                              ; preds = %315, %_ZN4NodenwEm.exit82
+318:                                              ; preds = %315, %_ZN4NodenwEm.exit83
   %319 = load ptr, ptr %295, align 8
   %320 = load ptr, ptr %319, align 8
-  %321 = call noundef ptr %320(ptr noundef nonnull align 8 dereferenceable(2400) %295, ptr noundef %.0.i.i.i81) #13
+  %321 = call noundef ptr %320(ptr noundef nonnull align 8 dereferenceable(2400) %295, ptr noundef %.0.i.i.i82) #13
   store ptr %321, ptr %8, align 8
   %322 = call noundef ptr @_ZN14LibraryCallKit23generate_negative_guardEP4NodeP10RegionNodePS1_(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %321, ptr noundef nonnull %.0.i.i.i, ptr noundef nonnull %8)
   %323 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
@@ -23212,8 +23212,8 @@ _ZN4NodenwEm.exit82:                              ; preds = %310, %312
   %332 = getelementptr inbounds i8, ptr %331, i64 8
   %333 = load ptr, ptr %332, align 8
   %334 = load ptr, ptr %333, align 8
-  %.not.i.i.i83 = icmp eq ptr %334, null
-  br i1 %.not.i.i.i83, label %_ZN4Node7del_outEPS_.exit.i.i.i, label %335
+  %.not.i.i.i84 = icmp eq ptr %334, null
+  br i1 %.not.i.i.i84, label %_ZN4Node7del_outEPS_.exit.i.i.i, label %335
 
 335:                                              ; preds = %326
   %336 = getelementptr inbounds i8, ptr %334, i64 16
@@ -23232,8 +23232,8 @@ _ZN4NodenwEm.exit82:                              ; preds = %310, %312
   %.0.i.i.i.i = phi ptr [ %343, %339 ], [ %345, %344 ]
   %345 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 -8
   %346 = load ptr, ptr %345, align 8
-  %.not.i.i.i.i84 = icmp eq ptr %346, %331
-  br i1 %.not.i.i.i.i84, label %347, label %344, !llvm.loop !8
+  %.not.i.i.i.i85 = icmp eq ptr %346, %331
+  br i1 %.not.i.i.i.i85, label %347, label %344, !llvm.loop !8
 
 347:                                              ; preds = %344
   %348 = add i32 %341, -1
@@ -23306,8 +23306,8 @@ _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %_ZN4Node7del_outEPS
   %387 = ptrtoint ptr %384 to i64
   %388 = ptrtoint ptr %386 to i64
   %389 = sub i64 %387, %388
-  %.not.i.i.i.i85 = icmp ult i64 %389, 56
-  br i1 %.not.i.i.i.i85, label %392, label %390
+  %.not.i.i.i.i86 = icmp ult i64 %389, 56
+  br i1 %.not.i.i.i.i86, label %392, label %390
 
 390:                                              ; preds = %372
   %391 = getelementptr inbounds i8, ptr %386, i64 56
@@ -23319,21 +23319,21 @@ _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %_ZN4Node7del_outEPS
   br label %_ZN4NodenwEm.exit.i
 
 _ZN4NodenwEm.exit.i:                              ; preds = %392, %390
-  %.0.i.i.i.i86 = phi ptr [ %386, %390 ], [ %393, %392 ]
-  %394 = icmp eq ptr %.0.i.i.i.i86, null
+  %.0.i.i.i.i87 = phi ptr [ %386, %390 ], [ %393, %392 ]
+  %394 = icmp eq ptr %.0.i.i.i.i87, null
   br i1 %394, label %_ZN14LibraryCallKit16generate_min_maxE13vmIntrinsicIDP4NodeS2_.exit, label %395
 
 395:                                              ; preds = %_ZN4NodenwEm.exit.i
-  call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i86, ptr noundef null, ptr noundef %373, ptr noundef %374) #13
-  %396 = getelementptr inbounds i8, ptr %.0.i.i.i.i86, i64 44
+  call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i.i87, ptr noundef null, ptr noundef %373, ptr noundef %374) #13
+  %396 = getelementptr inbounds i8, ptr %.0.i.i.i.i87, i64 44
   store i32 2048, ptr %396, align 4
-  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8MinINode, i64 16), ptr %.0.i.i.i.i86, align 8
+  store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8MinINode, i64 16), ptr %.0.i.i.i.i87, align 8
   br label %_ZN14LibraryCallKit16generate_min_maxE13vmIntrinsicIDP4NodeS2_.exit
 
 _ZN14LibraryCallKit16generate_min_maxE13vmIntrinsicIDP4NodeS2_.exit: ; preds = %_ZN4NodenwEm.exit.i, %395
   %397 = load ptr, ptr %375, align 8
   %398 = load ptr, ptr %397, align 8
-  %399 = call noundef ptr %398(ptr noundef nonnull align 8 dereferenceable(2400) %375, ptr noundef %.0.i.i.i.i86) #13
+  %399 = call noundef ptr %398(ptr noundef nonnull align 8 dereferenceable(2400) %375, ptr noundef %.0.i.i.i.i87) #13
   %400 = load ptr, ptr %71, align 8
   %401 = getelementptr inbounds i8, ptr %400, i64 40
   %402 = load ptr, ptr %401, align 8
@@ -23391,8 +23391,8 @@ _ZN14LibraryCallKit16generate_min_maxE13vmIntrinsicIDP4NodeS2_.exit: ; preds = %
   %449 = getelementptr inbounds i8, ptr %448, i64 96
   %450 = load ptr, ptr %449, align 8
   %451 = call noundef ptr %450(ptr noundef nonnull align 8 dereferenceable(44) %447) #13
-  %.not71 = icmp eq ptr %451, null
-  br i1 %.not71, label %458, label %452
+  %.not72 = icmp eq ptr %451, null
+  br i1 %.not72, label %458, label %452
 
 452:                                              ; preds = %437
   %453 = load ptr, ptr %447, align 8
@@ -23415,8 +23415,8 @@ _ZN14LibraryCallKit16generate_min_maxE13vmIntrinsicIDP4NodeS2_.exit: ; preds = %
   %465 = load ptr, ptr %11, align 8
   %466 = getelementptr inbounds i8, ptr %465, i64 744
   %467 = load ptr, ptr %466, align 8
-  %.not72 = icmp eq ptr %464, %467
-  br i1 %.not72, label %508, label %468
+  %.not73 = icmp eq ptr %464, %467
+  br i1 %.not73, label %508, label %468
 
 468:                                              ; preds = %463
   call void @_ZN16PreserveJVMStateC1EP8GraphKitb(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull %0, i1 noundef zeroext true) #13
@@ -23424,14 +23424,14 @@ _ZN14LibraryCallKit16generate_min_maxE13vmIntrinsicIDP4NodeS2_.exit: ; preds = %
   %470 = getelementptr inbounds i8, ptr %469, i64 8
   %471 = load ptr, ptr %470, align 8
   %472 = load ptr, ptr %471, align 8
-  %.not.i.i.i87 = icmp eq ptr %472, null
-  br i1 %.not.i.i.i87, label %_ZN4Node7del_outEPS_.exit.i.i.i90, label %473
+  %.not.i.i.i88 = icmp eq ptr %472, null
+  br i1 %.not.i.i.i88, label %_ZN4Node7del_outEPS_.exit.i.i.i91, label %473
 
 473:                                              ; preds = %468
   %474 = getelementptr inbounds i8, ptr %472, i64 16
   %475 = load ptr, ptr %474, align 8
   %476 = icmp eq ptr %475, null
-  br i1 %476, label %_ZN4Node7del_outEPS_.exit.i.i.i90, label %477
+  br i1 %476, label %_ZN4Node7del_outEPS_.exit.i.i.i91, label %477
 
 477:                                              ; preds = %473
   %478 = getelementptr inbounds i8, ptr %472, i64 32
@@ -23441,11 +23441,11 @@ _ZN14LibraryCallKit16generate_min_maxE13vmIntrinsicIDP4NodeS2_.exit: ; preds = %
   br label %482
 
 482:                                              ; preds = %482, %477
-  %.0.i.i.i.i88 = phi ptr [ %481, %477 ], [ %483, %482 ]
-  %483 = getelementptr inbounds i8, ptr %.0.i.i.i.i88, i64 -8
+  %.0.i.i.i.i89 = phi ptr [ %481, %477 ], [ %483, %482 ]
+  %483 = getelementptr inbounds i8, ptr %.0.i.i.i.i89, i64 -8
   %484 = load ptr, ptr %483, align 8
-  %.not.i.i.i.i89 = icmp eq ptr %484, %469
-  br i1 %.not.i.i.i.i89, label %485, label %482, !llvm.loop !8
+  %.not.i.i.i.i90 = icmp eq ptr %484, %469
+  br i1 %.not.i.i.i.i90, label %485, label %482, !llvm.loop !8
 
 485:                                              ; preds = %482
   %486 = add i32 %479, -1
@@ -23454,18 +23454,18 @@ _ZN14LibraryCallKit16generate_min_maxE13vmIntrinsicIDP4NodeS2_.exit: ; preds = %
   %488 = getelementptr inbounds ptr, ptr %475, i64 %487
   %489 = load ptr, ptr %488, align 8
   store ptr %489, ptr %483, align 8
-  br label %_ZN4Node7del_outEPS_.exit.i.i.i90
+  br label %_ZN4Node7del_outEPS_.exit.i.i.i91
 
-_ZN4Node7del_outEPS_.exit.i.i.i90:                ; preds = %485, %473, %468
+_ZN4Node7del_outEPS_.exit.i.i.i91:                ; preds = %485, %473, %468
   store ptr %464, ptr %471, align 8
-  %.not8.i.i.i91 = icmp eq ptr %464, null
-  br i1 %.not8.i.i.i91, label %_ZN8GraphKit11set_controlEP4Node.exit94, label %490
+  %.not8.i.i.i92 = icmp eq ptr %464, null
+  br i1 %.not8.i.i.i92, label %_ZN8GraphKit11set_controlEP4Node.exit95, label %490
 
-490:                                              ; preds = %_ZN4Node7del_outEPS_.exit.i.i.i90
+490:                                              ; preds = %_ZN4Node7del_outEPS_.exit.i.i.i91
   %491 = getelementptr inbounds i8, ptr %464, i64 16
   %492 = load ptr, ptr %491, align 8
   %493 = icmp eq ptr %492, null
-  br i1 %493, label %_ZN8GraphKit11set_controlEP4Node.exit94, label %494
+  br i1 %493, label %_ZN8GraphKit11set_controlEP4Node.exit95, label %494
 
 494:                                              ; preds = %490
   %495 = getelementptr inbounds i8, ptr %464, i64 32
@@ -23477,26 +23477,26 @@ _ZN4Node7del_outEPS_.exit.i.i.i90:                ; preds = %485, %473, %468
 
 500:                                              ; preds = %494
   call void @_ZN4Node8out_growEj(ptr noundef nonnull align 8 dereferenceable(52) %464, i32 noundef %496) #13
-  %.pre.i.i.i.i92 = load ptr, ptr %491, align 8
-  %.pre2.i.i.i.i93 = load i32, ptr %495, align 8
+  %.pre.i.i.i.i93 = load ptr, ptr %491, align 8
+  %.pre2.i.i.i.i94 = load i32, ptr %495, align 8
   br label %501
 
 501:                                              ; preds = %500, %494
-  %502 = phi i32 [ %.pre2.i.i.i.i93, %500 ], [ %496, %494 ]
-  %503 = phi ptr [ %.pre.i.i.i.i92, %500 ], [ %492, %494 ]
+  %502 = phi i32 [ %.pre2.i.i.i.i94, %500 ], [ %496, %494 ]
+  %503 = phi ptr [ %.pre.i.i.i.i93, %500 ], [ %492, %494 ]
   %504 = add i32 %502, 1
   store i32 %504, ptr %495, align 8
   %505 = zext i32 %502 to i64
   %506 = getelementptr inbounds ptr, ptr %503, i64 %505
   store ptr %469, ptr %506, align 8
-  br label %_ZN8GraphKit11set_controlEP4Node.exit94
+  br label %_ZN8GraphKit11set_controlEP4Node.exit95
 
-_ZN8GraphKit11set_controlEP4Node.exit94:          ; preds = %_ZN4Node7del_outEPS_.exit.i.i.i90, %490, %501
+_ZN8GraphKit11set_controlEP4Node.exit95:          ; preds = %_ZN4Node7del_outEPS_.exit.i.i.i91, %490, %501
   %507 = call noundef ptr @_ZN8GraphKit13uncommon_trapEiP7ciKlassPKcbb(ptr noundef nonnull align 8 dereferenceable(84) %0, i32 noundef -36, ptr noundef null, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #13
   call void @_ZN16PreserveJVMStateD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %10) #13
   br label %508
 
-508:                                              ; preds = %463, %_ZN8GraphKit11set_controlEP4Node.exit94, %458
+508:                                              ; preds = %463, %_ZN8GraphKit11set_controlEP4Node.exit95, %458
   %509 = call noundef zeroext i1 @_ZN8GraphKit7stoppedEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #13
   br i1 %509, label %527, label %510
 
@@ -23510,11 +23510,11 @@ _ZN8GraphKit11set_controlEP4Node.exit94:          ; preds = %_ZN4Node7del_outEPS
   %516 = call noundef ptr @_ZN8GraphKit17load_object_klassEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %.058) #13
   %517 = call noundef ptr @_ZN13ArrayCopyNode4makeEP8GraphKitbP4NodeS3_S3_S3_S3_bbS3_S3_S3_S3_(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef %.058, ptr noundef %513, ptr noundef %512, ptr noundef %515, ptr noundef %399, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef %516, ptr noundef %.063, ptr noundef null, ptr noundef null) #13
   %spec.select = select i1 %1, i32 6, i32 5
-  %.sink101 = zext i1 %.059 to i8
+  %.sink102 = zext i1 %.059 to i8
   %518 = getelementptr inbounds i8, ptr %517, i64 128
   store i32 %spec.select, ptr %518, align 8
   %519 = getelementptr inbounds i8, ptr %517, i64 134
-  store i8 %.sink101, ptr %519, align 2
+  store i8 %.sink102, ptr %519, align 2
   %520 = load ptr, ptr %71, align 8
   %521 = load ptr, ptr %520, align 8
   %522 = load ptr, ptr %521, align 8
@@ -23531,7 +23531,7 @@ _ZN8GraphKit11set_controlEP4Node.exit94:          ; preds = %_ZN4Node7del_outEPS
   br label %527
 
 527:                                              ; preds = %508, %526, %525, %370
-  %.161 = phi ptr [ null, %370 ], [ null, %508 ], [ %512, %525 ], [ %512, %526 ]
+  %.060 = phi ptr [ null, %370 ], [ null, %508 ], [ %512, %525 ], [ %512, %526 ]
   call void @_ZN22PreserveReexecuteStateD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #13
   %528 = load ptr, ptr %11, align 8
   %529 = getelementptr inbounds i8, ptr %528, i64 124
@@ -23541,12 +23541,12 @@ _ZN8GraphKit11set_controlEP4Node.exit94:          ; preds = %_ZN4Node7del_outEPS
 
 531:                                              ; preds = %527
   %532 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr %.161, ptr %532, align 8
+  store ptr %.060, ptr %532, align 8
   br label %533
 
-533:                                              ; preds = %.thread96, %527, %531, %2
-  %.1 = xor i1 %17, true
-  ret i1 %.1
+533:                                              ; preds = %.thread97, %527, %531, %2
+  %.0 = xor i1 %17, true
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

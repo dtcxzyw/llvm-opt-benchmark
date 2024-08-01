@@ -464,11 +464,11 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.lr.ph.i.i4.i, %.pr
   br label %_ZN12OopMapStream7is_doneEv.exit.thread
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i, %_ZN20CompressedReadStream8read_intEv.exit.i, %_ZN12OopMapStream4nextEv.exit
-  %.sroa.30.348 = phi i16 [ %.sroa.30.0, %_ZN12OopMapStream4nextEv.exit ], [ %89, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %.sroa.30.0, %_ZN20CompressedReadStream8read_intEv.exit.i ]
-  %.sroa.5.347 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
+  %.sroa.30.248 = phi i16 [ %.sroa.30.0, %_ZN12OopMapStream4nextEv.exit ], [ %89, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %.sroa.30.0, %_ZN20CompressedReadStream8read_intEv.exit.i ]
+  %.sroa.5.247 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %.sroa.26.246 = phi i16 [ %.sroa.26.0, %_ZN12OopMapStream4nextEv.exit ], [ %55, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %55, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %.sroa.17.145 = phi i32 [ %.sroa.17.0, %_ZN12OopMapStream4nextEv.exit ], [ %25, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %25, %_ZN20CompressedReadStream8read_intEv.exit.i ]
-  %.sroa.30.26.insert.ext = zext i16 %.sroa.30.348 to i32
+  %.sroa.30.26.insert.ext = zext i16 %.sroa.30.248 to i32
   %.sroa.30.26.insert.shift = shl nuw i32 %.sroa.30.26.insert.ext, 16
   %.sroa.26.26.insert.ext = zext i16 %.sroa.26.246 to i32
   %.sroa.26.26.insert.insert = or disjoint i32 %.sroa.30.26.insert.shift, %.sroa.26.26.insert.ext
@@ -483,7 +483,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %94, label %95, label %_ZN12OopMapStream4nextEv.exit.backedge
 
 95:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
-  %96 = sext i32 %.sroa.5.347 to i64
+  %96 = sext i32 %.sroa.5.247 to i64
   %97 = getelementptr inbounds i8, ptr %22, i64 %96
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
@@ -492,7 +492,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %101, label %_ZN20CompressedReadStream8read_intEv.exit.i15, label %.preheader.i.i.i8
 
 .preheader.i.i.i8:                                ; preds = %95
-  %102 = add i32 %.sroa.5.347, 1
+  %102 = add i32 %.sroa.5.247, 1
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds i8, ptr %22, i64 %103
   %105 = load i8, ptr %104, align 1
@@ -524,7 +524,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %or.cond.i.i.i14, label %_ZN20CompressedReadStream8read_intEv.exit.i15, label %.lr.ph.i.i.i9, !llvm.loop !6
 
 _ZN20CompressedReadStream8read_intEv.exit.i15:    ; preds = %.lr.ph.i.i.i9, %.preheader.i.i.i8, %95
-  %storemerge.in.i.i.i16 = phi i32 [ %.sroa.5.347, %95 ], [ %102, %.preheader.i.i.i8 ], [ %.reass.i.i.i13, %.lr.ph.i.i.i9 ]
+  %storemerge.in.i.i.i16 = phi i32 [ %.sroa.5.247, %95 ], [ %102, %.preheader.i.i.i8 ], [ %.reass.i.i.i13, %.lr.ph.i.i.i9 ]
   %.0.i.i.i17 = phi i32 [ %100, %95 ], [ %109, %.preheader.i.i.i8 ], [ %120, %.lr.ph.i.i.i9 ]
   %storemerge.i.i.i18 = add nsw i32 %storemerge.in.i.i.i16, 1
   %123 = trunc i32 %.0.i.i.i17 to i16
@@ -586,8 +586,8 @@ _ZN20CompressedReadStream8read_intEv.exit13.i27:  ; preds = %.lr.ph.i.i4.i21, %.
 
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i27, %_ZN20CompressedReadStream8read_intEv.exit.i15, %_ZN12OopMapStream7is_doneEv.exit.thread
   %.sroa.26.0.be = phi i16 [ %123, %_ZN20CompressedReadStream8read_intEv.exit13.i27 ], [ %123, %_ZN20CompressedReadStream8read_intEv.exit.i15 ], [ %.sroa.26.246, %_ZN12OopMapStream7is_doneEv.exit.thread ]
-  %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i30, %_ZN20CompressedReadStream8read_intEv.exit13.i27 ], [ %storemerge.i.i.i18, %_ZN20CompressedReadStream8read_intEv.exit.i15 ], [ %.sroa.5.347, %_ZN12OopMapStream7is_doneEv.exit.thread ]
-  %.sroa.30.0.be = phi i16 [ %157, %_ZN20CompressedReadStream8read_intEv.exit13.i27 ], [ %.sroa.30.348, %_ZN20CompressedReadStream8read_intEv.exit.i15 ], [ %.sroa.30.348, %_ZN12OopMapStream7is_doneEv.exit.thread ]
+  %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i30, %_ZN20CompressedReadStream8read_intEv.exit13.i27 ], [ %storemerge.i.i.i18, %_ZN20CompressedReadStream8read_intEv.exit.i15 ], [ %.sroa.5.247, %_ZN12OopMapStream7is_doneEv.exit.thread ]
+  %.sroa.30.0.be = phi i16 [ %157, %_ZN20CompressedReadStream8read_intEv.exit13.i27 ], [ %.sroa.30.248, %_ZN20CompressedReadStream8read_intEv.exit.i15 ], [ %.sroa.30.248, %_ZN12OopMapStream7is_doneEv.exit.thread ]
   br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !8
 
 158:                                              ; preds = %24
@@ -931,17 +931,17 @@ _ZN20CompressedReadStream8read_intEv.exit13.i112: ; preds = %.lr.ph.i.i4.i106, %
   br label %_ZN12OopMapStream7is_doneEv.exit15.thread
 
 _ZN12OopMapStream7is_doneEv.exit15.thread:        ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i112, %_ZN20CompressedReadStream8read_intEv.exit.i100, %_ZN12OopMapStream4nextEv.exit22
-  %.sroa.31.3338 = phi i16 [ %.sroa.31.0, %_ZN12OopMapStream4nextEv.exit22 ], [ %74, %_ZN20CompressedReadStream8read_intEv.exit13.i112 ], [ %.sroa.31.0, %_ZN20CompressedReadStream8read_intEv.exit.i100 ]
+  %.sroa.31.2338 = phi i16 [ %.sroa.31.0, %_ZN12OopMapStream4nextEv.exit22 ], [ %74, %_ZN20CompressedReadStream8read_intEv.exit13.i112 ], [ %.sroa.31.0, %_ZN20CompressedReadStream8read_intEv.exit.i100 ]
   %.sroa.26292.2337 = phi i16 [ %.sroa.26292.0, %_ZN12OopMapStream4nextEv.exit22 ], [ %40, %_ZN20CompressedReadStream8read_intEv.exit13.i112 ], [ %40, %_ZN20CompressedReadStream8read_intEv.exit.i100 ]
   %.sroa.17289.1336 = phi i32 [ %.sroa.17289.0, %_ZN12OopMapStream4nextEv.exit22 ], [ %10, %_ZN20CompressedReadStream8read_intEv.exit13.i112 ], [ %10, %_ZN20CompressedReadStream8read_intEv.exit.i100 ]
-  %.sroa.5283.3335 = phi i32 [ %.sroa.5283.0, %_ZN12OopMapStream4nextEv.exit22 ], [ %storemerge.i.i12.i115, %_ZN20CompressedReadStream8read_intEv.exit13.i112 ], [ %storemerge.i.i.i103, %_ZN20CompressedReadStream8read_intEv.exit.i100 ]
+  %.sroa.5283.2335 = phi i32 [ %.sroa.5283.0, %_ZN12OopMapStream4nextEv.exit22 ], [ %storemerge.i.i12.i115, %_ZN20CompressedReadStream8read_intEv.exit13.i112 ], [ %storemerge.i.i.i103, %_ZN20CompressedReadStream8read_intEv.exit.i100 ]
   %75 = and i16 %.sroa.26292.2337, 3
   %76 = icmp eq i16 %75, 2
   br i1 %76, label %_ZN10OopMapSort6insertE11OopMapValuei.exit, label %82
 
 _ZN10OopMapSort6insertE11OopMapValuei.exit:       ; preds = %_ZN12OopMapStream7is_doneEv.exit15.thread
   %.sroa.26292.26.insert.ext = zext i16 %.sroa.26292.2337 to i32
-  %.sroa.31.26.insert.ext = zext i16 %.sroa.31.3338 to i32
+  %.sroa.31.26.insert.ext = zext i16 %.sroa.31.2338 to i32
   %.sroa.31.26.insert.shift = shl nuw i32 %.sroa.31.26.insert.ext, 16
   %.sroa.26292.26.insert.insert = or disjoint i32 %.sroa.31.26.insert.shift, %.sroa.26292.26.insert.ext
   %77 = load i32, ptr %7, align 8
@@ -960,7 +960,7 @@ _ZN10OopMapSort6insertE11OopMapValuei.exit:       ; preds = %_ZN12OopMapStream7i
   br i1 %84, label %85, label %_ZN12OopMapStream4nextEv.exit22.backedge
 
 85:                                               ; preds = %82
-  %86 = sext i32 %.sroa.5283.3335 to i64
+  %86 = sext i32 %.sroa.5283.2335 to i64
   %87 = getelementptr inbounds i8, ptr %4, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
@@ -969,7 +969,7 @@ _ZN10OopMapSort6insertE11OopMapValuei.exit:       ; preds = %_ZN12OopMapStream7i
   br i1 %91, label %_ZN20CompressedReadStream8read_intEv.exit.i124, label %.preheader.i.i.i117
 
 .preheader.i.i.i117:                              ; preds = %85
-  %92 = add i32 %.sroa.5283.3335, 1
+  %92 = add i32 %.sroa.5283.2335, 1
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds i8, ptr %4, i64 %93
   %95 = load i8, ptr %94, align 1
@@ -1001,7 +1001,7 @@ _ZN10OopMapSort6insertE11OopMapValuei.exit:       ; preds = %_ZN12OopMapStream7i
   br i1 %or.cond.i.i.i123, label %_ZN20CompressedReadStream8read_intEv.exit.i124, label %.lr.ph.i.i.i118, !llvm.loop !6
 
 _ZN20CompressedReadStream8read_intEv.exit.i124:   ; preds = %.lr.ph.i.i.i118, %.preheader.i.i.i117, %85
-  %storemerge.in.i.i.i125 = phi i32 [ %.sroa.5283.3335, %85 ], [ %92, %.preheader.i.i.i117 ], [ %.reass.i.i.i122, %.lr.ph.i.i.i118 ]
+  %storemerge.in.i.i.i125 = phi i32 [ %.sroa.5283.2335, %85 ], [ %92, %.preheader.i.i.i117 ], [ %.reass.i.i.i122, %.lr.ph.i.i.i118 ]
   %.0.i.i.i126 = phi i32 [ %90, %85 ], [ %99, %.preheader.i.i.i117 ], [ %110, %.lr.ph.i.i.i118 ]
   %storemerge.i.i.i127 = add nsw i32 %storemerge.in.i.i.i125, 1
   %113 = trunc i32 %.0.i.i.i126 to i16
@@ -1062,9 +1062,9 @@ _ZN20CompressedReadStream8read_intEv.exit13.i136: ; preds = %.lr.ph.i.i4.i130, %
   br label %_ZN12OopMapStream4nextEv.exit22.backedge
 
 _ZN12OopMapStream4nextEv.exit22.backedge:         ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i136, %_ZN20CompressedReadStream8read_intEv.exit.i124, %82
-  %.sroa.5283.0.be = phi i32 [ %.sroa.5283.3335, %82 ], [ %storemerge.i.i.i127, %_ZN20CompressedReadStream8read_intEv.exit.i124 ], [ %storemerge.i.i12.i139, %_ZN20CompressedReadStream8read_intEv.exit13.i136 ]
+  %.sroa.5283.0.be = phi i32 [ %.sroa.5283.2335, %82 ], [ %storemerge.i.i.i127, %_ZN20CompressedReadStream8read_intEv.exit.i124 ], [ %storemerge.i.i12.i139, %_ZN20CompressedReadStream8read_intEv.exit13.i136 ]
   %.sroa.26292.0.be = phi i16 [ %.sroa.26292.2337, %82 ], [ %113, %_ZN20CompressedReadStream8read_intEv.exit.i124 ], [ %113, %_ZN20CompressedReadStream8read_intEv.exit13.i136 ]
-  %.sroa.31.0.be = phi i16 [ %.sroa.31.3338, %82 ], [ %.sroa.31.3338, %_ZN20CompressedReadStream8read_intEv.exit.i124 ], [ %147, %_ZN20CompressedReadStream8read_intEv.exit13.i136 ]
+  %.sroa.31.0.be = phi i16 [ %.sroa.31.2338, %82 ], [ %.sroa.31.2338, %_ZN20CompressedReadStream8read_intEv.exit.i124 ], [ %147, %_ZN20CompressedReadStream8read_intEv.exit13.i136 ]
   br label %_ZN12OopMapStream4nextEv.exit22, !llvm.loop !11
 
 148:                                              ; preds = %9
@@ -1196,16 +1196,16 @@ _ZN20CompressedReadStream8read_intEv.exit13.i160: ; preds = %.lr.ph.i.i4.i154, %
   br label %_ZN12OopMapStream7is_doneEv.exit27.thread
 
 _ZN12OopMapStream7is_doneEv.exit27.thread:        ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i160, %_ZN20CompressedReadStream8read_intEv.exit.i148, %_ZN12OopMapStream4nextEv.exit43
-  %.sroa.5267.3353 = phi i32 [ %.sroa.5267.0, %_ZN12OopMapStream4nextEv.exit43 ], [ %storemerge.i.i12.i163, %_ZN20CompressedReadStream8read_intEv.exit13.i160 ], [ %storemerge.i.i.i151, %_ZN20CompressedReadStream8read_intEv.exit.i148 ]
+  %.sroa.5267.2353 = phi i32 [ %.sroa.5267.0, %_ZN12OopMapStream4nextEv.exit43 ], [ %storemerge.i.i12.i163, %_ZN20CompressedReadStream8read_intEv.exit13.i160 ], [ %storemerge.i.i.i151, %_ZN20CompressedReadStream8read_intEv.exit.i148 ]
   %.sroa.17273.1352 = phi i32 [ %.sroa.17273.0, %_ZN12OopMapStream4nextEv.exit43 ], [ %160, %_ZN20CompressedReadStream8read_intEv.exit13.i160 ], [ %160, %_ZN20CompressedReadStream8read_intEv.exit.i148 ]
   %.sroa.26276.2351 = phi i16 [ %.sroa.26276.0, %_ZN12OopMapStream4nextEv.exit43 ], [ %190, %_ZN20CompressedReadStream8read_intEv.exit13.i160 ], [ %190, %_ZN20CompressedReadStream8read_intEv.exit.i148 ]
-  %.sroa.30277.3350 = phi i16 [ %.sroa.30277.0, %_ZN12OopMapStream4nextEv.exit43 ], [ %224, %_ZN20CompressedReadStream8read_intEv.exit13.i160 ], [ %.sroa.30277.0, %_ZN20CompressedReadStream8read_intEv.exit.i148 ]
+  %.sroa.30277.2350 = phi i16 [ %.sroa.30277.0, %_ZN12OopMapStream4nextEv.exit43 ], [ %224, %_ZN20CompressedReadStream8read_intEv.exit13.i160 ], [ %.sroa.30277.0, %_ZN20CompressedReadStream8read_intEv.exit.i148 ]
   %225 = and i16 %.sroa.26276.2351, 2
   %switch.not.not = icmp eq i16 %225, 0
   br i1 %switch.not.not, label %226, label %270
 
 226:                                              ; preds = %_ZN12OopMapStream7is_doneEv.exit27.thread
-  %.sroa.5258.0.insert.ext259 = zext i16 %.sroa.30277.3350 to i32
+  %.sroa.5258.0.insert.ext259 = zext i16 %.sroa.30277.2350 to i32
   %.sroa.5258.0.insert.shift260 = shl nuw i32 %.sroa.5258.0.insert.ext259, 16
   %.sroa.0253.0.insert.ext255 = zext i16 %.sroa.26276.2351 to i32
   %.sroa.0253.0.insert.insert257 = or disjoint i32 %.sroa.5258.0.insert.shift260, %.sroa.0253.0.insert.ext255
@@ -1305,7 +1305,7 @@ _ZN10OopMapSort6insertE11OopMapValuei.exit40:     ; preds = %.lr.ph.i36, %..loop
   br i1 %273, label %274, label %_ZN12OopMapStream4nextEv.exit43.backedge
 
 274:                                              ; preds = %270
-  %275 = sext i32 %.sroa.5267.3353 to i64
+  %275 = sext i32 %.sroa.5267.2353 to i64
   %276 = getelementptr inbounds i8, ptr %153, i64 %275
   %277 = load i8, ptr %276, align 1
   %278 = zext i8 %277 to i32
@@ -1314,7 +1314,7 @@ _ZN10OopMapSort6insertE11OopMapValuei.exit40:     ; preds = %.lr.ph.i36, %..loop
   br i1 %280, label %_ZN20CompressedReadStream8read_intEv.exit.i172, label %.preheader.i.i.i165
 
 .preheader.i.i.i165:                              ; preds = %274
-  %281 = add i32 %.sroa.5267.3353, 1
+  %281 = add i32 %.sroa.5267.2353, 1
   %282 = sext i32 %281 to i64
   %283 = getelementptr inbounds i8, ptr %153, i64 %282
   %284 = load i8, ptr %283, align 1
@@ -1346,7 +1346,7 @@ _ZN10OopMapSort6insertE11OopMapValuei.exit40:     ; preds = %.lr.ph.i36, %..loop
   br i1 %or.cond.i.i.i171, label %_ZN20CompressedReadStream8read_intEv.exit.i172, label %.lr.ph.i.i.i166, !llvm.loop !6
 
 _ZN20CompressedReadStream8read_intEv.exit.i172:   ; preds = %.lr.ph.i.i.i166, %.preheader.i.i.i165, %274
-  %storemerge.in.i.i.i173 = phi i32 [ %.sroa.5267.3353, %274 ], [ %281, %.preheader.i.i.i165 ], [ %.reass.i.i.i170, %.lr.ph.i.i.i166 ]
+  %storemerge.in.i.i.i173 = phi i32 [ %.sroa.5267.2353, %274 ], [ %281, %.preheader.i.i.i165 ], [ %.reass.i.i.i170, %.lr.ph.i.i.i166 ]
   %.0.i.i.i174 = phi i32 [ %279, %274 ], [ %288, %.preheader.i.i.i165 ], [ %299, %.lr.ph.i.i.i166 ]
   %storemerge.i.i.i175 = add nsw i32 %storemerge.in.i.i.i173, 1
   %302 = trunc i32 %.0.i.i.i174 to i16
@@ -1407,9 +1407,9 @@ _ZN20CompressedReadStream8read_intEv.exit13.i184: ; preds = %.lr.ph.i.i4.i178, %
   br label %_ZN12OopMapStream4nextEv.exit43.backedge
 
 _ZN12OopMapStream4nextEv.exit43.backedge:         ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i184, %_ZN20CompressedReadStream8read_intEv.exit.i172, %270
-  %.sroa.30277.0.be = phi i16 [ %336, %_ZN20CompressedReadStream8read_intEv.exit13.i184 ], [ %.sroa.30277.3350, %_ZN20CompressedReadStream8read_intEv.exit.i172 ], [ %.sroa.30277.3350, %270 ]
+  %.sroa.30277.0.be = phi i16 [ %336, %_ZN20CompressedReadStream8read_intEv.exit13.i184 ], [ %.sroa.30277.2350, %_ZN20CompressedReadStream8read_intEv.exit.i172 ], [ %.sroa.30277.2350, %270 ]
   %.sroa.26276.0.be = phi i16 [ %302, %_ZN20CompressedReadStream8read_intEv.exit13.i184 ], [ %302, %_ZN20CompressedReadStream8read_intEv.exit.i172 ], [ %.sroa.26276.2351, %270 ]
-  %.sroa.5267.0.be = phi i32 [ %storemerge.i.i12.i187, %_ZN20CompressedReadStream8read_intEv.exit13.i184 ], [ %storemerge.i.i.i175, %_ZN20CompressedReadStream8read_intEv.exit.i172 ], [ %.sroa.5267.3353, %270 ]
+  %.sroa.5267.0.be = phi i32 [ %storemerge.i.i12.i187, %_ZN20CompressedReadStream8read_intEv.exit13.i184 ], [ %storemerge.i.i.i175, %_ZN20CompressedReadStream8read_intEv.exit.i172 ], [ %.sroa.5267.2353, %270 ]
   br label %_ZN12OopMapStream4nextEv.exit43, !llvm.loop !14
 
 337:                                              ; preds = %159
@@ -1538,16 +1538,16 @@ _ZN20CompressedReadStream8read_intEv.exit13.i208: ; preds = %.lr.ph.i.i4.i202, %
   br label %_ZN12OopMapStream7is_doneEv.exit48.thread
 
 _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i208, %_ZN20CompressedReadStream8read_intEv.exit.i196, %_ZN12OopMapStream4nextEv.exit66
-  %.sroa.5.3370 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit66 ], [ %storemerge.i.i12.i211, %_ZN20CompressedReadStream8read_intEv.exit13.i208 ], [ %storemerge.i.i.i199, %_ZN20CompressedReadStream8read_intEv.exit.i196 ]
+  %.sroa.5.2370 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit66 ], [ %storemerge.i.i12.i211, %_ZN20CompressedReadStream8read_intEv.exit13.i208 ], [ %storemerge.i.i.i199, %_ZN20CompressedReadStream8read_intEv.exit.i196 ]
   %.sroa.17.1369 = phi i32 [ %.sroa.17.0, %_ZN12OopMapStream4nextEv.exit66 ], [ %346, %_ZN20CompressedReadStream8read_intEv.exit13.i208 ], [ %346, %_ZN20CompressedReadStream8read_intEv.exit.i196 ]
   %.sroa.26.2368 = phi i16 [ %.sroa.26.0, %_ZN12OopMapStream4nextEv.exit66 ], [ %376, %_ZN20CompressedReadStream8read_intEv.exit13.i208 ], [ %376, %_ZN20CompressedReadStream8read_intEv.exit.i196 ]
-  %.sroa.30.3367 = phi i16 [ %.sroa.30.0, %_ZN12OopMapStream4nextEv.exit66 ], [ %410, %_ZN20CompressedReadStream8read_intEv.exit13.i208 ], [ %.sroa.30.0, %_ZN20CompressedReadStream8read_intEv.exit.i196 ]
+  %.sroa.30.2367 = phi i16 [ %.sroa.30.0, %_ZN12OopMapStream4nextEv.exit66 ], [ %410, %_ZN20CompressedReadStream8read_intEv.exit13.i208 ], [ %.sroa.30.0, %_ZN20CompressedReadStream8read_intEv.exit.i196 ]
   %411 = and i16 %.sroa.26.2368, 3
   %412 = icmp eq i16 %411, 3
   br i1 %412, label %413, label %467
 
 413:                                              ; preds = %_ZN12OopMapStream7is_doneEv.exit48.thread
-  %.sroa.4.0.insert.ext240 = zext i16 %.sroa.30.3367 to i32
+  %.sroa.4.0.insert.ext240 = zext i16 %.sroa.30.2367 to i32
   %.sroa.4.0.insert.shift241 = shl nuw i32 %.sroa.4.0.insert.ext240, 16
   %.sroa.0.0.insert.ext237 = zext i16 %.sroa.26.2368 to i32
   %.sroa.0.0.insert.insert239 = or disjoint i32 %.sroa.4.0.insert.shift241, %.sroa.0.0.insert.ext237
@@ -1564,7 +1564,7 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
   %418 = load i16, ptr %417, align 2
   %.fr30.i = freeze i16 %418
   %419 = lshr i16 %.fr30.i, 2
-  %420 = icmp eq i16 %419, %.sroa.30.3367
+  %420 = icmp eq i16 %419, %.sroa.30.2367
   br i1 %420, label %.preheader.i, label %451
 
 .preheader.i:                                     ; preds = %416
@@ -1595,7 +1595,7 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
 
 436:                                              ; preds = %.preheader.split.us.i
   %437 = load i16, ptr %424, align 2
-  %.not20.us.i = icmp eq i16 %437, %.sroa.30.3367
+  %.not20.us.i = icmp eq i16 %437, %.sroa.30.2367
   br i1 %.not20.us.i, label %438, label %_ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit
 
 438:                                              ; preds = %436
@@ -1674,7 +1674,7 @@ _ZN10OopMapSort6insertE11OopMapValuei.exit63:     ; preds = %.lr.ph.i59, %..loop
   br i1 %470, label %471, label %_ZN12OopMapStream4nextEv.exit66.backedge
 
 471:                                              ; preds = %467
-  %472 = sext i32 %.sroa.5.3370 to i64
+  %472 = sext i32 %.sroa.5.2370 to i64
   %473 = getelementptr inbounds i8, ptr %341, i64 %472
   %474 = load i8, ptr %473, align 1
   %475 = zext i8 %474 to i32
@@ -1683,7 +1683,7 @@ _ZN10OopMapSort6insertE11OopMapValuei.exit63:     ; preds = %.lr.ph.i59, %..loop
   br i1 %477, label %_ZN20CompressedReadStream8read_intEv.exit.i220, label %.preheader.i.i.i213
 
 .preheader.i.i.i213:                              ; preds = %471
-  %478 = add i32 %.sroa.5.3370, 1
+  %478 = add i32 %.sroa.5.2370, 1
   %479 = sext i32 %478 to i64
   %480 = getelementptr inbounds i8, ptr %341, i64 %479
   %481 = load i8, ptr %480, align 1
@@ -1715,7 +1715,7 @@ _ZN10OopMapSort6insertE11OopMapValuei.exit63:     ; preds = %.lr.ph.i59, %..loop
   br i1 %or.cond.i.i.i219, label %_ZN20CompressedReadStream8read_intEv.exit.i220, label %.lr.ph.i.i.i214, !llvm.loop !6
 
 _ZN20CompressedReadStream8read_intEv.exit.i220:   ; preds = %.lr.ph.i.i.i214, %.preheader.i.i.i213, %471
-  %storemerge.in.i.i.i221 = phi i32 [ %.sroa.5.3370, %471 ], [ %478, %.preheader.i.i.i213 ], [ %.reass.i.i.i218, %.lr.ph.i.i.i214 ]
+  %storemerge.in.i.i.i221 = phi i32 [ %.sroa.5.2370, %471 ], [ %478, %.preheader.i.i.i213 ], [ %.reass.i.i.i218, %.lr.ph.i.i.i214 ]
   %.0.i.i.i222 = phi i32 [ %476, %471 ], [ %485, %.preheader.i.i.i213 ], [ %496, %.lr.ph.i.i.i214 ]
   %storemerge.i.i.i223 = add nsw i32 %storemerge.in.i.i.i221, 1
   %499 = trunc i32 %.0.i.i.i222 to i16
@@ -1776,9 +1776,9 @@ _ZN20CompressedReadStream8read_intEv.exit13.i232: ; preds = %.lr.ph.i.i4.i226, %
   br label %_ZN12OopMapStream4nextEv.exit66.backedge
 
 _ZN12OopMapStream4nextEv.exit66.backedge:         ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i232, %_ZN20CompressedReadStream8read_intEv.exit.i220, %467
-  %.sroa.30.0.be = phi i16 [ %533, %_ZN20CompressedReadStream8read_intEv.exit13.i232 ], [ %.sroa.30.3367, %_ZN20CompressedReadStream8read_intEv.exit.i220 ], [ %.sroa.30.3367, %467 ]
+  %.sroa.30.0.be = phi i16 [ %533, %_ZN20CompressedReadStream8read_intEv.exit13.i232 ], [ %.sroa.30.2367, %_ZN20CompressedReadStream8read_intEv.exit.i220 ], [ %.sroa.30.2367, %467 ]
   %.sroa.26.0.be = phi i16 [ %499, %_ZN20CompressedReadStream8read_intEv.exit13.i232 ], [ %499, %_ZN20CompressedReadStream8read_intEv.exit.i220 ], [ %.sroa.26.2368, %467 ]
-  %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i235, %_ZN20CompressedReadStream8read_intEv.exit13.i232 ], [ %storemerge.i.i.i223, %_ZN20CompressedReadStream8read_intEv.exit.i220 ], [ %.sroa.5.3370, %467 ]
+  %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i235, %_ZN20CompressedReadStream8read_intEv.exit13.i232 ], [ %storemerge.i.i.i223, %_ZN20CompressedReadStream8read_intEv.exit.i220 ], [ %.sroa.5.2370, %467 ]
   br label %_ZN12OopMapStream4nextEv.exit66, !llvm.loop !17
 
 534:                                              ; preds = %345
@@ -2413,7 +2413,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.lr.ph.i.i4.i, %.pr
   br label %_ZN12OopMapStream7is_doneEv.exit.thread
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i, %_ZN20CompressedReadStream8read_intEv.exit.i, %_ZN12OopMapStream4nextEv.exit
-  %.sroa.5.349 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
+  %.sroa.5.249 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %.sroa.17.148 = phi i32 [ %.sroa.17.0, %_ZN12OopMapStream4nextEv.exit ], [ %7, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %7, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %.sroa.26.247 = phi i16 [ %.sroa.26.0, %_ZN12OopMapStream4nextEv.exit ], [ %37, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %37, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %57 = and i16 %.sroa.26.247, 3
@@ -2439,7 +2439,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %71, label %72, label %_ZN12OopMapStream4nextEv.exit.backedge
 
 72:                                               ; preds = %69
-  %73 = sext i32 %.sroa.5.349 to i64
+  %73 = sext i32 %.sroa.5.249 to i64
   %74 = getelementptr inbounds i8, ptr %4, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
@@ -2448,7 +2448,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %78, label %_ZN20CompressedReadStream8read_intEv.exit.i12, label %.preheader.i.i.i5
 
 .preheader.i.i.i5:                                ; preds = %72
-  %79 = add i32 %.sroa.5.349, 1
+  %79 = add i32 %.sroa.5.249, 1
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i8, ptr %4, i64 %80
   %82 = load i8, ptr %81, align 1
@@ -2480,7 +2480,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %or.cond.i.i.i11, label %_ZN20CompressedReadStream8read_intEv.exit.i12, label %.lr.ph.i.i.i6, !llvm.loop !6
 
 _ZN20CompressedReadStream8read_intEv.exit.i12:    ; preds = %.lr.ph.i.i.i6, %.preheader.i.i.i5, %72
-  %storemerge.in.i.i.i13 = phi i32 [ %.sroa.5.349, %72 ], [ %79, %.preheader.i.i.i5 ], [ %.reass.i.i.i10, %.lr.ph.i.i.i6 ]
+  %storemerge.in.i.i.i13 = phi i32 [ %.sroa.5.249, %72 ], [ %79, %.preheader.i.i.i5 ], [ %.reass.i.i.i10, %.lr.ph.i.i.i6 ]
   %.0.i.i.i14 = phi i32 [ %77, %72 ], [ %86, %.preheader.i.i.i5 ], [ %97, %.lr.ph.i.i.i6 ]
   %storemerge.i.i.i15 = add nsw i32 %storemerge.in.i.i.i13, 1
   %100 = trunc i32 %.0.i.i.i14 to i16
@@ -2525,7 +2525,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i24:  ; preds = %.lr.ph.i.i4.i18, %.
 
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i24, %_ZN20CompressedReadStream8read_intEv.exit.i12, %69
   %.sroa.26.0.be = phi i16 [ %.sroa.26.247, %69 ], [ %100, %_ZN20CompressedReadStream8read_intEv.exit.i12 ], [ %100, %_ZN20CompressedReadStream8read_intEv.exit13.i24 ]
-  %.sroa.5.0.be = phi i32 [ %.sroa.5.349, %69 ], [ %storemerge.i.i.i15, %_ZN20CompressedReadStream8read_intEv.exit.i12 ], [ %storemerge.i.i12.i27, %_ZN20CompressedReadStream8read_intEv.exit13.i24 ]
+  %.sroa.5.0.be = phi i32 [ %.sroa.5.249, %69 ], [ %storemerge.i.i.i15, %_ZN20CompressedReadStream8read_intEv.exit.i12 ], [ %storemerge.i.i12.i27, %_ZN20CompressedReadStream8read_intEv.exit13.i24 ]
   br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !20
 
 120:                                              ; preds = %6
@@ -2636,7 +2636,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.lr.ph.i.i4.i, %.pr
   br label %_ZN12OopMapStream7is_doneEv.exit.thread
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i, %_ZN20CompressedReadStream8read_intEv.exit.i, %_ZN12OopMapStream4nextEv.exit
-  %.sroa.5.348 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
+  %.sroa.5.248 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %.sroa.17.147 = phi i32 [ %.sroa.17.0, %_ZN12OopMapStream4nextEv.exit ], [ %8, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %8, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %.sroa.26.246 = phi i16 [ %.sroa.26.0, %_ZN12OopMapStream4nextEv.exit ], [ %38, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %38, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %58 = and i16 %.sroa.26.246, 3
@@ -2660,7 +2660,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %70, label %71, label %_ZN12OopMapStream4nextEv.exit.backedge
 
 71:                                               ; preds = %68
-  %72 = sext i32 %.sroa.5.348 to i64
+  %72 = sext i32 %.sroa.5.248 to i64
   %73 = getelementptr inbounds i8, ptr %5, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
@@ -2669,7 +2669,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %77, label %_ZN20CompressedReadStream8read_intEv.exit.i11, label %.preheader.i.i.i4
 
 .preheader.i.i.i4:                                ; preds = %71
-  %78 = add i32 %.sroa.5.348, 1
+  %78 = add i32 %.sroa.5.248, 1
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i8, ptr %5, i64 %79
   %81 = load i8, ptr %80, align 1
@@ -2701,7 +2701,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %or.cond.i.i.i10, label %_ZN20CompressedReadStream8read_intEv.exit.i11, label %.lr.ph.i.i.i5, !llvm.loop !6
 
 _ZN20CompressedReadStream8read_intEv.exit.i11:    ; preds = %.lr.ph.i.i.i5, %.preheader.i.i.i4, %71
-  %storemerge.in.i.i.i12 = phi i32 [ %.sroa.5.348, %71 ], [ %78, %.preheader.i.i.i4 ], [ %.reass.i.i.i9, %.lr.ph.i.i.i5 ]
+  %storemerge.in.i.i.i12 = phi i32 [ %.sroa.5.248, %71 ], [ %78, %.preheader.i.i.i4 ], [ %.reass.i.i.i9, %.lr.ph.i.i.i5 ]
   %.0.i.i.i13 = phi i32 [ %76, %71 ], [ %85, %.preheader.i.i.i4 ], [ %96, %.lr.ph.i.i.i5 ]
   %storemerge.i.i.i14 = add nsw i32 %storemerge.in.i.i.i12, 1
   %99 = trunc i32 %.0.i.i.i13 to i16
@@ -2746,7 +2746,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i23:  ; preds = %.lr.ph.i.i4.i17, %.
 
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i23, %_ZN20CompressedReadStream8read_intEv.exit.i11, %68
   %.sroa.26.0.be = phi i16 [ %.sroa.26.246, %68 ], [ %99, %_ZN20CompressedReadStream8read_intEv.exit.i11 ], [ %99, %_ZN20CompressedReadStream8read_intEv.exit13.i23 ]
-  %.sroa.5.0.be = phi i32 [ %.sroa.5.348, %68 ], [ %storemerge.i.i.i14, %_ZN20CompressedReadStream8read_intEv.exit.i11 ], [ %storemerge.i.i12.i26, %_ZN20CompressedReadStream8read_intEv.exit13.i23 ]
+  %.sroa.5.0.be = phi i32 [ %.sroa.5.248, %68 ], [ %storemerge.i.i.i14, %_ZN20CompressedReadStream8read_intEv.exit.i11 ], [ %storemerge.i.i12.i26, %_ZN20CompressedReadStream8read_intEv.exit13.i23 ]
   br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !21
 
 119:                                              ; preds = %7
@@ -2881,16 +2881,16 @@ _ZN20CompressedReadStream8read_intEv.exit13.i.i:  ; preds = %.lr.ph.i.i4.i.i, %.
   br label %_ZN12OopMapStream7is_doneEv.exit.thread.i
 
 _ZN12OopMapStream7is_doneEv.exit.thread.i:        ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i.i, %_ZN12OopMapStream4nextEv.exit.i
-  %.sroa.30.351.i = phi i16 [ %.sroa.30.0.i, %_ZN12OopMapStream4nextEv.exit.i ], [ %77, %_ZN20CompressedReadStream8read_intEv.exit13.i.i ], [ %.sroa.30.0.i, %_ZN20CompressedReadStream8read_intEv.exit.i.i ]
+  %.sroa.30.251.i = phi i16 [ %.sroa.30.0.i, %_ZN12OopMapStream4nextEv.exit.i ], [ %77, %_ZN20CompressedReadStream8read_intEv.exit13.i.i ], [ %.sroa.30.0.i, %_ZN20CompressedReadStream8read_intEv.exit.i.i ]
   %.sroa.26.250.i = phi i16 [ %.sroa.26.0.i, %_ZN12OopMapStream4nextEv.exit.i ], [ %43, %_ZN20CompressedReadStream8read_intEv.exit13.i.i ], [ %43, %_ZN20CompressedReadStream8read_intEv.exit.i.i ]
-  %.sroa.5.349.i = phi i32 [ %.sroa.5.0.i, %_ZN12OopMapStream4nextEv.exit.i ], [ %storemerge.i.i12.i.i, %_ZN20CompressedReadStream8read_intEv.exit13.i.i ], [ %storemerge.i.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i.i ]
+  %.sroa.5.249.i = phi i32 [ %.sroa.5.0.i, %_ZN12OopMapStream4nextEv.exit.i ], [ %storemerge.i.i12.i.i, %_ZN20CompressedReadStream8read_intEv.exit13.i.i ], [ %storemerge.i.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i.i ]
   %.sroa.17.148.i = phi i32 [ %.sroa.17.0.i, %_ZN12OopMapStream4nextEv.exit.i ], [ %13, %_ZN20CompressedReadStream8read_intEv.exit13.i.i ], [ %13, %_ZN20CompressedReadStream8read_intEv.exit.i.i ]
   %78 = and i16 %.sroa.26.250.i, 3
   %79 = icmp eq i16 %78, 2
   br i1 %79, label %80, label %148
 
 80:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread.i
-  %81 = sext i16 %.sroa.30.351.i to i64
+  %81 = sext i16 %.sroa.30.251.i to i64
   %82 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %81
   %83 = lshr i16 %.sroa.26.250.i, 2
   %84 = zext nneg i16 %83 to i64
@@ -3003,7 +3003,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit.i: ; pre
   br i1 %150, label %151, label %_ZN12OopMapStream4nextEv.exit.i.backedge
 
 151:                                              ; preds = %148
-  %152 = sext i32 %.sroa.5.349.i to i64
+  %152 = sext i32 %.sroa.5.249.i to i64
   %153 = getelementptr inbounds i8, ptr %5, i64 %152
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
@@ -3012,7 +3012,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit.i: ; pre
   br i1 %157, label %_ZN20CompressedReadStream8read_intEv.exit.i16.i, label %.preheader.i.i.i9.i
 
 .preheader.i.i.i9.i:                              ; preds = %151
-  %158 = add i32 %.sroa.5.349.i, 1
+  %158 = add i32 %.sroa.5.249.i, 1
   %159 = sext i32 %158 to i64
   %160 = getelementptr inbounds i8, ptr %5, i64 %159
   %161 = load i8, ptr %160, align 1
@@ -3044,7 +3044,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit.i: ; pre
   br i1 %or.cond.i.i.i15.i, label %_ZN20CompressedReadStream8read_intEv.exit.i16.i, label %.lr.ph.i.i.i10.i, !llvm.loop !6
 
 _ZN20CompressedReadStream8read_intEv.exit.i16.i:  ; preds = %.lr.ph.i.i.i10.i, %.preheader.i.i.i9.i, %151
-  %storemerge.in.i.i.i17.i = phi i32 [ %.sroa.5.349.i, %151 ], [ %158, %.preheader.i.i.i9.i ], [ %.reass.i.i.i14.i, %.lr.ph.i.i.i10.i ]
+  %storemerge.in.i.i.i17.i = phi i32 [ %.sroa.5.249.i, %151 ], [ %158, %.preheader.i.i.i9.i ], [ %.reass.i.i.i14.i, %.lr.ph.i.i.i10.i ]
   %.0.i.i.i18.i = phi i32 [ %156, %151 ], [ %165, %.preheader.i.i.i9.i ], [ %176, %.lr.ph.i.i.i10.i ]
   %storemerge.i.i.i19.i = add nsw i32 %storemerge.in.i.i.i17.i, 1
   %179 = trunc i32 %.0.i.i.i18.i to i16
@@ -3105,9 +3105,9 @@ _ZN20CompressedReadStream8read_intEv.exit13.i28.i: ; preds = %.lr.ph.i.i4.i22.i,
   br label %_ZN12OopMapStream4nextEv.exit.i.backedge
 
 _ZN12OopMapStream4nextEv.exit.i.backedge:         ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i28.i, %_ZN20CompressedReadStream8read_intEv.exit.i16.i, %148
-  %.sroa.5.0.i.be = phi i32 [ %storemerge.i.i12.i31.i, %_ZN20CompressedReadStream8read_intEv.exit13.i28.i ], [ %storemerge.i.i.i19.i, %_ZN20CompressedReadStream8read_intEv.exit.i16.i ], [ %.sroa.5.349.i, %148 ]
+  %.sroa.5.0.i.be = phi i32 [ %storemerge.i.i12.i31.i, %_ZN20CompressedReadStream8read_intEv.exit13.i28.i ], [ %storemerge.i.i.i19.i, %_ZN20CompressedReadStream8read_intEv.exit.i16.i ], [ %.sroa.5.249.i, %148 ]
   %.sroa.26.0.i.be = phi i16 [ %179, %_ZN20CompressedReadStream8read_intEv.exit13.i28.i ], [ %179, %_ZN20CompressedReadStream8read_intEv.exit.i16.i ], [ %.sroa.26.250.i, %148 ]
-  %.sroa.30.0.i.be = phi i16 [ %213, %_ZN20CompressedReadStream8read_intEv.exit13.i28.i ], [ %.sroa.30.351.i, %_ZN20CompressedReadStream8read_intEv.exit.i16.i ], [ %.sroa.30.351.i, %148 ]
+  %.sroa.30.0.i.be = phi i16 [ %213, %_ZN20CompressedReadStream8read_intEv.exit13.i28.i ], [ %.sroa.30.251.i, %_ZN20CompressedReadStream8read_intEv.exit.i16.i ], [ %.sroa.30.251.i, %148 ]
   br label %_ZN12OopMapStream4nextEv.exit.i, !llvm.loop !22
 
 _ZL20update_register_map1PK15ImmutableOopMapPK5frameP11RegisterMap.exit: ; preds = %12
@@ -3315,11 +3315,11 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.lr.ph.i.i4.i, %.pr
   br label %_ZN12OopMapStream7is_doneEv.exit.thread
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i, %_ZN20CompressedReadStream8read_intEv.exit.i, %_ZN12OopMapStream4nextEv.exit
-  %.sroa.30.346 = phi i16 [ %.sroa.30.0, %_ZN12OopMapStream4nextEv.exit ], [ %71, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %.sroa.30.0, %_ZN20CompressedReadStream8read_intEv.exit.i ]
-  %.sroa.5.345 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
+  %.sroa.30.246 = phi i16 [ %.sroa.30.0, %_ZN12OopMapStream4nextEv.exit ], [ %71, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %.sroa.30.0, %_ZN20CompressedReadStream8read_intEv.exit.i ]
+  %.sroa.5.245 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %.sroa.26.244 = phi i16 [ %.sroa.26.0, %_ZN12OopMapStream4nextEv.exit ], [ %37, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %37, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %.sroa.17.143 = phi i32 [ %.sroa.17.0, %_ZN12OopMapStream4nextEv.exit ], [ %7, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %7, %_ZN20CompressedReadStream8read_intEv.exit.i ]
-  %.sroa.30.26.insert.ext = zext i16 %.sroa.30.346 to i32
+  %.sroa.30.26.insert.ext = zext i16 %.sroa.30.246 to i32
   %.sroa.30.26.insert.shift = shl nuw i32 %.sroa.30.26.insert.ext, 16
   %.sroa.26.26.insert.ext = zext i16 %.sroa.26.244 to i32
   %.sroa.26.26.insert.insert = or disjoint i32 %.sroa.30.26.insert.shift, %.sroa.26.26.insert.ext
@@ -3330,7 +3330,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %73, label %74, label %_ZN12OopMapStream4nextEv.exit.backedge
 
 74:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
-  %75 = sext i32 %.sroa.5.345 to i64
+  %75 = sext i32 %.sroa.5.245 to i64
   %76 = getelementptr inbounds i8, ptr %4, i64 %75
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
@@ -3339,7 +3339,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %80, label %_ZN20CompressedReadStream8read_intEv.exit.i13, label %.preheader.i.i.i6
 
 .preheader.i.i.i6:                                ; preds = %74
-  %81 = add i32 %.sroa.5.345, 1
+  %81 = add i32 %.sroa.5.245, 1
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i8, ptr %4, i64 %82
   %84 = load i8, ptr %83, align 1
@@ -3371,7 +3371,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %or.cond.i.i.i12, label %_ZN20CompressedReadStream8read_intEv.exit.i13, label %.lr.ph.i.i.i7, !llvm.loop !6
 
 _ZN20CompressedReadStream8read_intEv.exit.i13:    ; preds = %.lr.ph.i.i.i7, %.preheader.i.i.i6, %74
-  %storemerge.in.i.i.i14 = phi i32 [ %.sroa.5.345, %74 ], [ %81, %.preheader.i.i.i6 ], [ %.reass.i.i.i11, %.lr.ph.i.i.i7 ]
+  %storemerge.in.i.i.i14 = phi i32 [ %.sroa.5.245, %74 ], [ %81, %.preheader.i.i.i6 ], [ %.reass.i.i.i11, %.lr.ph.i.i.i7 ]
   %.0.i.i.i15 = phi i32 [ %79, %74 ], [ %88, %.preheader.i.i.i6 ], [ %99, %.lr.ph.i.i.i7 ]
   %storemerge.i.i.i16 = add nsw i32 %storemerge.in.i.i.i14, 1
   %102 = trunc i32 %.0.i.i.i15 to i16
@@ -3433,8 +3433,8 @@ _ZN20CompressedReadStream8read_intEv.exit13.i25:  ; preds = %.lr.ph.i.i4.i19, %.
 
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i25, %_ZN20CompressedReadStream8read_intEv.exit.i13, %_ZN12OopMapStream7is_doneEv.exit.thread
   %.sroa.26.0.be = phi i16 [ %102, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %102, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.26.244, %_ZN12OopMapStream7is_doneEv.exit.thread ]
-  %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i28, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %storemerge.i.i.i16, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.5.345, %_ZN12OopMapStream7is_doneEv.exit.thread ]
-  %.sroa.30.0.be = phi i16 [ %136, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %.sroa.30.346, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.30.346, %_ZN12OopMapStream7is_doneEv.exit.thread ]
+  %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i28, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %storemerge.i.i.i16, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.5.245, %_ZN12OopMapStream7is_doneEv.exit.thread ]
+  %.sroa.30.0.be = phi i16 [ %136, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %.sroa.30.246, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.30.246, %_ZN12OopMapStream7is_doneEv.exit.thread ]
   br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !23
 
 137:                                              ; preds = %6
@@ -3576,11 +3576,11 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.lr.ph.i.i4.i, %.pr
   br label %_ZN12OopMapStream7is_doneEv.exit.thread
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i, %_ZN20CompressedReadStream8read_intEv.exit.i, %_ZN12OopMapStream4nextEv.exit
-  %.sroa.30.346 = phi i16 [ %.sroa.30.0, %_ZN12OopMapStream4nextEv.exit ], [ %74, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %.sroa.30.0, %_ZN20CompressedReadStream8read_intEv.exit.i ]
-  %.sroa.5.345 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
+  %.sroa.30.246 = phi i16 [ %.sroa.30.0, %_ZN12OopMapStream4nextEv.exit ], [ %74, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %.sroa.30.0, %_ZN20CompressedReadStream8read_intEv.exit.i ]
+  %.sroa.5.245 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %.sroa.26.244 = phi i16 [ %.sroa.26.0, %_ZN12OopMapStream4nextEv.exit ], [ %40, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %40, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %.sroa.17.143 = phi i32 [ %.sroa.17.0, %_ZN12OopMapStream4nextEv.exit ], [ %10, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %10, %_ZN20CompressedReadStream8read_intEv.exit.i ]
-  %.sroa.30.26.insert.ext = zext i16 %.sroa.30.346 to i32
+  %.sroa.30.26.insert.ext = zext i16 %.sroa.30.246 to i32
   %.sroa.30.26.insert.shift = shl nuw i32 %.sroa.30.26.insert.ext, 16
   %.sroa.26.26.insert.ext = zext i16 %.sroa.26.244 to i32
   %.sroa.26.26.insert.insert = or disjoint i32 %.sroa.30.26.insert.shift, %.sroa.26.26.insert.ext
@@ -3591,7 +3591,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %76, label %77, label %_ZN12OopMapStream4nextEv.exit.backedge
 
 77:                                               ; preds = %_ZN12OopMapStream7is_doneEv.exit.thread
-  %78 = sext i32 %.sroa.5.345 to i64
+  %78 = sext i32 %.sroa.5.245 to i64
   %79 = getelementptr inbounds i8, ptr %6, i64 %78
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
@@ -3600,7 +3600,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %83, label %_ZN20CompressedReadStream8read_intEv.exit.i13, label %.preheader.i.i.i6
 
 .preheader.i.i.i6:                                ; preds = %77
-  %84 = add i32 %.sroa.5.345, 1
+  %84 = add i32 %.sroa.5.245, 1
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr %6, i64 %85
   %87 = load i8, ptr %86, align 1
@@ -3632,7 +3632,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %or.cond.i.i.i12, label %_ZN20CompressedReadStream8read_intEv.exit.i13, label %.lr.ph.i.i.i7, !llvm.loop !6
 
 _ZN20CompressedReadStream8read_intEv.exit.i13:    ; preds = %.lr.ph.i.i.i7, %.preheader.i.i.i6, %77
-  %storemerge.in.i.i.i14 = phi i32 [ %.sroa.5.345, %77 ], [ %84, %.preheader.i.i.i6 ], [ %.reass.i.i.i11, %.lr.ph.i.i.i7 ]
+  %storemerge.in.i.i.i14 = phi i32 [ %.sroa.5.245, %77 ], [ %84, %.preheader.i.i.i6 ], [ %.reass.i.i.i11, %.lr.ph.i.i.i7 ]
   %.0.i.i.i15 = phi i32 [ %82, %77 ], [ %91, %.preheader.i.i.i6 ], [ %102, %.lr.ph.i.i.i7 ]
   %storemerge.i.i.i16 = add nsw i32 %storemerge.in.i.i.i14, 1
   %105 = trunc i32 %.0.i.i.i15 to i16
@@ -3694,8 +3694,8 @@ _ZN20CompressedReadStream8read_intEv.exit13.i25:  ; preds = %.lr.ph.i.i4.i19, %.
 
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i25, %_ZN20CompressedReadStream8read_intEv.exit.i13, %_ZN12OopMapStream7is_doneEv.exit.thread
   %.sroa.26.0.be = phi i16 [ %105, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %105, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.26.244, %_ZN12OopMapStream7is_doneEv.exit.thread ]
-  %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i28, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %storemerge.i.i.i16, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.5.345, %_ZN12OopMapStream7is_doneEv.exit.thread ]
-  %.sroa.30.0.be = phi i16 [ %139, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %.sroa.30.346, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.30.346, %_ZN12OopMapStream7is_doneEv.exit.thread ]
+  %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i28, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %storemerge.i.i.i16, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.5.245, %_ZN12OopMapStream7is_doneEv.exit.thread ]
+  %.sroa.30.0.be = phi i16 [ %139, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %.sroa.30.246, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.30.246, %_ZN12OopMapStream7is_doneEv.exit.thread ]
   br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !24
 
 140:                                              ; preds = %9
@@ -4095,7 +4095,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.lr.ph.i.i4.i, %.pr
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i, %_ZN20CompressedReadStream8read_intEv.exit.i, %_ZN12OopMapStream4nextEv.exit
   %.sroa.26.244 = phi i16 [ %.sroa.26.0, %_ZN12OopMapStream4nextEv.exit ], [ %33, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %33, %_ZN20CompressedReadStream8read_intEv.exit.i ]
-  %.sroa.5.343 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
+  %.sroa.5.243 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %.sroa.17.142 = phi i32 [ %.sroa.17.0, %_ZN12OopMapStream4nextEv.exit ], [ %6, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %6, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %53 = and i16 %.sroa.26.244, 3
   %54 = zext nneg i16 %53 to i32
@@ -4108,7 +4108,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %58, label %59, label %_ZN12OopMapStream4nextEv.exit.backedge
 
 59:                                               ; preds = %56
-  %60 = sext i32 %.sroa.5.343 to i64
+  %60 = sext i32 %.sroa.5.243 to i64
   %61 = getelementptr inbounds i8, ptr %3, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
@@ -4117,7 +4117,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %65, label %_ZN20CompressedReadStream8read_intEv.exit.i11, label %.preheader.i.i.i4
 
 .preheader.i.i.i4:                                ; preds = %59
-  %66 = add i32 %.sroa.5.343, 1
+  %66 = add i32 %.sroa.5.243, 1
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr %3, i64 %67
   %69 = load i8, ptr %68, align 1
@@ -4146,7 +4146,7 @@ _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedRead
   br i1 %or.cond.i.i.i10, label %_ZN20CompressedReadStream8read_intEv.exit.i11, label %.lr.ph.i.i.i5, !llvm.loop !6
 
 _ZN20CompressedReadStream8read_intEv.exit.i11:    ; preds = %.lr.ph.i.i.i5, %.preheader.i.i.i4, %59
-  %storemerge.in.i.i.i12 = phi i32 [ %.sroa.5.343, %59 ], [ %66, %.preheader.i.i.i4 ], [ %.reass.i.i.i9, %.lr.ph.i.i.i5 ]
+  %storemerge.in.i.i.i12 = phi i32 [ %.sroa.5.243, %59 ], [ %66, %.preheader.i.i.i4 ], [ %.reass.i.i.i9, %.lr.ph.i.i.i5 ]
   %.0.i.i.i13 = phi i32 [ %64, %59 ], [ %70, %.preheader.i.i.i4 ], [ %81, %.lr.ph.i.i.i5 ]
   %storemerge.i.i.i14 = add nsw i32 %storemerge.in.i.i.i12, 1
   %84 = trunc i32 %.0.i.i.i13 to i16
@@ -4190,7 +4190,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i23:  ; preds = %.lr.ph.i.i4.i17, %.
   br label %_ZN12OopMapStream4nextEv.exit.backedge
 
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i23, %_ZN20CompressedReadStream8read_intEv.exit.i11, %56
-  %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i26, %_ZN20CompressedReadStream8read_intEv.exit13.i23 ], [ %storemerge.i.i.i14, %_ZN20CompressedReadStream8read_intEv.exit.i11 ], [ %.sroa.5.343, %56 ]
+  %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i26, %_ZN20CompressedReadStream8read_intEv.exit13.i23 ], [ %storemerge.i.i.i14, %_ZN20CompressedReadStream8read_intEv.exit.i11 ], [ %.sroa.5.243, %56 ]
   %.sroa.26.0.be = phi i16 [ %84, %_ZN20CompressedReadStream8read_intEv.exit13.i23 ], [ %84, %_ZN20CompressedReadStream8read_intEv.exit.i11 ], [ %.sroa.26.244, %56 ]
   br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !29
 
@@ -5208,10 +5208,10 @@ _ZN20CompressedReadStream8read_intEv.exit13.i:    ; preds = %.lr.ph.i.i4.i, %.pr
   br label %_ZN12OopMapStream7is_doneEv.exit.thread
 
 _ZN12OopMapStream7is_doneEv.exit.thread:          ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i, %_ZN20CompressedReadStream8read_intEv.exit.i, %_ZN12OopMapStream4nextEv.exit
-  %.sroa.30178.3187 = phi i16 [ %.sroa.30178.0, %_ZN12OopMapStream4nextEv.exit ], [ %81, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %.sroa.30178.0, %_ZN20CompressedReadStream8read_intEv.exit.i ]
+  %.sroa.30178.2187 = phi i16 [ %.sroa.30178.0, %_ZN12OopMapStream4nextEv.exit ], [ %81, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %.sroa.30178.0, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %.sroa.26177.2186 = phi i16 [ %.sroa.26177.0, %_ZN12OopMapStream4nextEv.exit ], [ %47, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %47, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %.sroa.17174.1185 = phi i32 [ %.sroa.17174.0, %_ZN12OopMapStream4nextEv.exit ], [ %17, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %17, %_ZN20CompressedReadStream8read_intEv.exit.i ]
-  %.sroa.5168.3184 = phi i32 [ %.sroa.5168.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
+  %.sroa.5168.2184 = phi i32 [ %.sroa.5168.0, %_ZN12OopMapStream4nextEv.exit ], [ %storemerge.i.i12.i, %_ZN20CompressedReadStream8read_intEv.exit13.i ], [ %storemerge.i.i.i, %_ZN20CompressedReadStream8read_intEv.exit.i ]
   %82 = and i16 %.sroa.26177.2186, 3
   %.not31 = icmp eq i16 %82, 3
   br i1 %.not31, label %83, label %_ZN13SkipNullValue11should_skipEPv.exit.thread
@@ -5327,7 +5327,7 @@ _ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit: ; preds
   unreachable
 
 141:                                              ; preds = %_ZNK5frame21oopmapreg_to_locationI11RegisterMapEEPhP9VMRegImplPKT_.exit
-  %142 = sext i16 %.sroa.30178.3187 to i64
+  %142 = sext i16 %.sroa.30178.2187 to i64
   %143 = getelementptr inbounds %class.VMRegImpl, ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 1), i64 %142
   %144 = ptrtoint ptr %143 to i64
   %145 = trunc i64 %144 to i32
@@ -5448,7 +5448,7 @@ _ZN13SkipNullValue11should_skipEPv.exit.thread:   ; preds = %195, %192, %_ZNK5fr
   br i1 %205, label %206, label %_ZN12OopMapStream4nextEv.exit.backedge
 
 206:                                              ; preds = %_ZN13SkipNullValue11should_skipEPv.exit.thread
-  %207 = sext i32 %.sroa.5168.3184 to i64
+  %207 = sext i32 %.sroa.5168.2184 to i64
   %208 = getelementptr inbounds i8, ptr %8, i64 %207
   %209 = load i8, ptr %208, align 1
   %210 = zext i8 %209 to i32
@@ -5457,7 +5457,7 @@ _ZN13SkipNullValue11should_skipEPv.exit.thread:   ; preds = %195, %192, %_ZNK5fr
   br i1 %212, label %_ZN20CompressedReadStream8read_intEv.exit.i82, label %.preheader.i.i.i75
 
 .preheader.i.i.i75:                               ; preds = %206
-  %213 = add i32 %.sroa.5168.3184, 1
+  %213 = add i32 %.sroa.5168.2184, 1
   %214 = sext i32 %213 to i64
   %215 = getelementptr inbounds i8, ptr %8, i64 %214
   %216 = load i8, ptr %215, align 1
@@ -5489,7 +5489,7 @@ _ZN13SkipNullValue11should_skipEPv.exit.thread:   ; preds = %195, %192, %_ZNK5fr
   br i1 %or.cond.i.i.i81, label %_ZN20CompressedReadStream8read_intEv.exit.i82, label %.lr.ph.i.i.i76, !llvm.loop !6
 
 _ZN20CompressedReadStream8read_intEv.exit.i82:    ; preds = %.lr.ph.i.i.i76, %.preheader.i.i.i75, %206
-  %storemerge.in.i.i.i83 = phi i32 [ %.sroa.5168.3184, %206 ], [ %213, %.preheader.i.i.i75 ], [ %.reass.i.i.i80, %.lr.ph.i.i.i76 ]
+  %storemerge.in.i.i.i83 = phi i32 [ %.sroa.5168.2184, %206 ], [ %213, %.preheader.i.i.i75 ], [ %.reass.i.i.i80, %.lr.ph.i.i.i76 ]
   %.0.i.i.i84 = phi i32 [ %211, %206 ], [ %220, %.preheader.i.i.i75 ], [ %231, %.lr.ph.i.i.i76 ]
   %storemerge.i.i.i85 = add nsw i32 %storemerge.in.i.i.i83, 1
   %234 = trunc i32 %.0.i.i.i84 to i16
@@ -5550,9 +5550,9 @@ _ZN20CompressedReadStream8read_intEv.exit13.i94:  ; preds = %.lr.ph.i.i4.i88, %.
   br label %_ZN12OopMapStream4nextEv.exit.backedge
 
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i94, %_ZN20CompressedReadStream8read_intEv.exit.i82, %_ZN13SkipNullValue11should_skipEPv.exit.thread
-  %.sroa.5168.0.be = phi i32 [ %.sroa.5168.3184, %_ZN13SkipNullValue11should_skipEPv.exit.thread ], [ %storemerge.i.i.i85, %_ZN20CompressedReadStream8read_intEv.exit.i82 ], [ %storemerge.i.i12.i97, %_ZN20CompressedReadStream8read_intEv.exit13.i94 ]
+  %.sroa.5168.0.be = phi i32 [ %.sroa.5168.2184, %_ZN13SkipNullValue11should_skipEPv.exit.thread ], [ %storemerge.i.i.i85, %_ZN20CompressedReadStream8read_intEv.exit.i82 ], [ %storemerge.i.i12.i97, %_ZN20CompressedReadStream8read_intEv.exit13.i94 ]
   %.sroa.26177.0.be = phi i16 [ %.sroa.26177.2186, %_ZN13SkipNullValue11should_skipEPv.exit.thread ], [ %234, %_ZN20CompressedReadStream8read_intEv.exit.i82 ], [ %234, %_ZN20CompressedReadStream8read_intEv.exit13.i94 ]
-  %.sroa.30178.0.be = phi i16 [ %.sroa.30178.3187, %_ZN13SkipNullValue11should_skipEPv.exit.thread ], [ %.sroa.30178.3187, %_ZN20CompressedReadStream8read_intEv.exit.i82 ], [ %268, %_ZN20CompressedReadStream8read_intEv.exit13.i94 ]
+  %.sroa.30178.0.be = phi i16 [ %.sroa.30178.2187, %_ZN13SkipNullValue11should_skipEPv.exit.thread ], [ %.sroa.30178.2187, %_ZN20CompressedReadStream8read_intEv.exit.i82 ], [ %268, %_ZN20CompressedReadStream8read_intEv.exit13.i94 ]
   br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !38
 
 _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %16, %4
@@ -5669,7 +5669,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i118: ; preds = %.lr.ph.i.i4.i112, %
   br label %_ZN12OopMapStream7is_doneEv.exit55.thread
 
 _ZN12OopMapStream7is_doneEv.exit55.thread:        ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i118, %_ZN20CompressedReadStream8read_intEv.exit.i106, %_ZN12OopMapStream4nextEv.exit73
-  %.sroa.5.3203 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit73 ], [ %storemerge.i.i12.i121, %_ZN20CompressedReadStream8read_intEv.exit13.i118 ], [ %storemerge.i.i.i109, %_ZN20CompressedReadStream8read_intEv.exit.i106 ]
+  %.sroa.5.2203 = phi i32 [ %.sroa.5.0, %_ZN12OopMapStream4nextEv.exit73 ], [ %storemerge.i.i12.i121, %_ZN20CompressedReadStream8read_intEv.exit13.i118 ], [ %storemerge.i.i.i109, %_ZN20CompressedReadStream8read_intEv.exit.i106 ]
   %.sroa.17.1202 = phi i32 [ %.sroa.17.0, %_ZN12OopMapStream4nextEv.exit73 ], [ %280, %_ZN20CompressedReadStream8read_intEv.exit13.i118 ], [ %280, %_ZN20CompressedReadStream8read_intEv.exit.i106 ]
   %.sroa.26.2201 = phi i16 [ %.sroa.26.0, %_ZN12OopMapStream4nextEv.exit73 ], [ %310, %_ZN20CompressedReadStream8read_intEv.exit13.i118 ], [ %310, %_ZN20CompressedReadStream8read_intEv.exit.i106 ]
   %330 = and i16 %.sroa.26.2201, 3
@@ -5827,7 +5827,7 @@ _ZN13SkipNullValue11should_skipEPv.exit70.thread: ; preds = %_ZN13SkipNullValue1
   br i1 %406, label %407, label %_ZN12OopMapStream4nextEv.exit73.backedge
 
 407:                                              ; preds = %_ZN13SkipNullValue11should_skipEPv.exit70.thread
-  %408 = sext i32 %.sroa.5.3203 to i64
+  %408 = sext i32 %.sroa.5.2203 to i64
   %409 = getelementptr inbounds i8, ptr %271, i64 %408
   %410 = load i8, ptr %409, align 1
   %411 = zext i8 %410 to i32
@@ -5836,7 +5836,7 @@ _ZN13SkipNullValue11should_skipEPv.exit70.thread: ; preds = %_ZN13SkipNullValue1
   br i1 %413, label %_ZN20CompressedReadStream8read_intEv.exit.i130, label %.preheader.i.i.i123
 
 .preheader.i.i.i123:                              ; preds = %407
-  %414 = add i32 %.sroa.5.3203, 1
+  %414 = add i32 %.sroa.5.2203, 1
   %415 = sext i32 %414 to i64
   %416 = getelementptr inbounds i8, ptr %271, i64 %415
   %417 = load i8, ptr %416, align 1
@@ -5868,7 +5868,7 @@ _ZN13SkipNullValue11should_skipEPv.exit70.thread: ; preds = %_ZN13SkipNullValue1
   br i1 %or.cond.i.i.i129, label %_ZN20CompressedReadStream8read_intEv.exit.i130, label %.lr.ph.i.i.i124, !llvm.loop !6
 
 _ZN20CompressedReadStream8read_intEv.exit.i130:   ; preds = %.lr.ph.i.i.i124, %.preheader.i.i.i123, %407
-  %storemerge.in.i.i.i131 = phi i32 [ %.sroa.5.3203, %407 ], [ %414, %.preheader.i.i.i123 ], [ %.reass.i.i.i128, %.lr.ph.i.i.i124 ]
+  %storemerge.in.i.i.i131 = phi i32 [ %.sroa.5.2203, %407 ], [ %414, %.preheader.i.i.i123 ], [ %.reass.i.i.i128, %.lr.ph.i.i.i124 ]
   %.0.i.i.i132 = phi i32 [ %412, %407 ], [ %421, %.preheader.i.i.i123 ], [ %432, %.lr.ph.i.i.i124 ]
   %storemerge.i.i.i133 = add nsw i32 %storemerge.in.i.i.i131, 1
   %435 = trunc i32 %.0.i.i.i132 to i16
@@ -5913,7 +5913,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i142: ; preds = %.lr.ph.i.i4.i136, %
 
 _ZN12OopMapStream4nextEv.exit73.backedge:         ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i142, %_ZN20CompressedReadStream8read_intEv.exit.i130, %_ZN13SkipNullValue11should_skipEPv.exit70.thread
   %.sroa.26.0.be = phi i16 [ %.sroa.26.2201, %_ZN13SkipNullValue11should_skipEPv.exit70.thread ], [ %435, %_ZN20CompressedReadStream8read_intEv.exit.i130 ], [ %435, %_ZN20CompressedReadStream8read_intEv.exit13.i142 ]
-  %.sroa.5.0.be = phi i32 [ %.sroa.5.3203, %_ZN13SkipNullValue11should_skipEPv.exit70.thread ], [ %storemerge.i.i.i133, %_ZN20CompressedReadStream8read_intEv.exit.i130 ], [ %storemerge.i.i12.i145, %_ZN20CompressedReadStream8read_intEv.exit13.i142 ]
+  %.sroa.5.0.be = phi i32 [ %.sroa.5.2203, %_ZN13SkipNullValue11should_skipEPv.exit70.thread ], [ %storemerge.i.i.i133, %_ZN20CompressedReadStream8read_intEv.exit.i130 ], [ %storemerge.i.i12.i145, %_ZN20CompressedReadStream8read_intEv.exit13.i142 ]
   br label %_ZN12OopMapStream4nextEv.exit73, !llvm.loop !39
 
 _ZN12OopMapStream7is_doneEv.exit55:               ; preds = %279, %_ZN12OopMapStream7is_doneEv.exit

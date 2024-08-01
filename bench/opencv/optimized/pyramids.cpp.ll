@@ -6611,15 +6611,15 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %146, %142
   br label %.loopexit276
 
 .loopexit276:                                     ; preds = %.loopexit276.loopexit318, %.loopexit276.loopexit317, %.loopexit276.loopexit316, %.loopexit276.loopexit315, %.loopexit276.loopexit, %.preheader283, %.preheader281, %.preheader279, %.preheader277, %.preheader
-  %.6 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %330, %.loopexit276.loopexit ], [ %331, %.loopexit276.loopexit315 ], [ %332, %.loopexit276.loopexit316 ], [ %333, %.loopexit276.loopexit317 ], [ %334, %.loopexit276.loopexit318 ]
+  %.2 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %330, %.loopexit276.loopexit ], [ %331, %.loopexit276.loopexit315 ], [ %332, %.loopexit276.loopexit316 ], [ %333, %.loopexit276.loopexit317 ], [ %334, %.loopexit276.loopexit318 ]
   %335 = load ptr, ptr %57, align 8
   %336 = load ptr, ptr %335, align 8
-  %337 = icmp slt i32 %.6, %22
+  %337 = icmp slt i32 %.2, %22
   br i1 %337, label %.lr.ph303.preheader, label %.loopexit
 
 .lr.ph303.preheader:                              ; preds = %.loopexit276
-  %338 = zext nneg i32 %.6 to i64
-  %339 = sub i32 %22, %.6
+  %338 = zext nneg i32 %.2 to i64
+  %339 = sub i32 %22, %.2
   %wide.trip.count354 = zext i32 %339 to i64
   %invariant.gep377 = getelementptr inbounds i32, ptr %336, i64 %63
   %invariant.gep379 = getelementptr inbounds i32, ptr %336, i64 %64
@@ -7331,15 +7331,15 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %146, %142
   br label %.loopexit276
 
 .loopexit276:                                     ; preds = %.loopexit276.loopexit318, %.loopexit276.loopexit317, %.loopexit276.loopexit316, %.loopexit276.loopexit315, %.loopexit276.loopexit, %.preheader283, %.preheader281, %.preheader279, %.preheader277, %.preheader
-  %.6 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %411, %.loopexit276.loopexit ], [ %412, %.loopexit276.loopexit315 ], [ %413, %.loopexit276.loopexit316 ], [ %414, %.loopexit276.loopexit317 ], [ %415, %.loopexit276.loopexit318 ]
+  %.2 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %411, %.loopexit276.loopexit ], [ %412, %.loopexit276.loopexit315 ], [ %413, %.loopexit276.loopexit316 ], [ %414, %.loopexit276.loopexit317 ], [ %415, %.loopexit276.loopexit318 ]
   %416 = load ptr, ptr %57, align 8
   %417 = load ptr, ptr %416, align 8
-  %418 = icmp slt i32 %.6, %22
+  %418 = icmp slt i32 %.2, %22
   br i1 %418, label %.lr.ph303.preheader, label %.loopexit
 
 .lr.ph303.preheader:                              ; preds = %.loopexit276
-  %419 = zext nneg i32 %.6 to i64
-  %420 = sub i32 %22, %.6
+  %419 = zext nneg i32 %.2 to i64
+  %420 = sub i32 %22, %.2
   %wide.trip.count354 = zext i32 %420 to i64
   %invariant.gep379 = getelementptr inbounds i32, ptr %417, i64 %63
   %invariant.gep381 = getelementptr inbounds i32, ptr %417, i64 %64
@@ -7953,15 +7953,15 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %146, %142
   br label %.loopexit276
 
 .loopexit276:                                     ; preds = %.loopexit276.loopexit318, %.loopexit276.loopexit317, %.loopexit276.loopexit316, %.loopexit276.loopexit315, %.loopexit276.loopexit, %.preheader283, %.preheader281, %.preheader279, %.preheader277, %.preheader
-  %.6 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %323, %.loopexit276.loopexit ], [ %324, %.loopexit276.loopexit315 ], [ %325, %.loopexit276.loopexit316 ], [ %326, %.loopexit276.loopexit317 ], [ %327, %.loopexit276.loopexit318 ]
+  %.2 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %323, %.loopexit276.loopexit ], [ %324, %.loopexit276.loopexit315 ], [ %325, %.loopexit276.loopexit316 ], [ %326, %.loopexit276.loopexit317 ], [ %327, %.loopexit276.loopexit318 ]
   %328 = load ptr, ptr %57, align 8
   %329 = load ptr, ptr %328, align 8
-  %330 = icmp slt i32 %.6, %22
+  %330 = icmp slt i32 %.2, %22
   br i1 %330, label %.lr.ph303.preheader, label %.loopexit
 
 .lr.ph303.preheader:                              ; preds = %.loopexit276
-  %331 = zext nneg i32 %.6 to i64
-  %332 = sub i32 %22, %.6
+  %331 = zext nneg i32 %.2 to i64
+  %332 = sub i32 %22, %.2
   %wide.trip.count354 = zext i32 %332 to i64
   %invariant.gep379 = getelementptr inbounds i32, ptr %329, i64 %63
   %invariant.gep381 = getelementptr inbounds i32, ptr %329, i64 %64
@@ -8527,15 +8527,15 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %140, %136
   br label %.loopexit276
 
 .loopexit276:                                     ; preds = %.loopexit276.loopexit318, %.loopexit276.loopexit317, %.loopexit276.loopexit316, %.loopexit276.loopexit315, %.loopexit276.loopexit, %.preheader283, %.preheader281, %.preheader279, %.preheader277, %.preheader
-  %.6 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %275, %.loopexit276.loopexit ], [ %276, %.loopexit276.loopexit315 ], [ %277, %.loopexit276.loopexit316 ], [ %278, %.loopexit276.loopexit317 ], [ %279, %.loopexit276.loopexit318 ]
+  %.2 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %275, %.loopexit276.loopexit ], [ %276, %.loopexit276.loopexit315 ], [ %277, %.loopexit276.loopexit316 ], [ %278, %.loopexit276.loopexit317 ], [ %279, %.loopexit276.loopexit318 ]
   %280 = load ptr, ptr %57, align 8
   %281 = load ptr, ptr %280, align 8
-  %282 = icmp slt i32 %.6, %22
+  %282 = icmp slt i32 %.2, %22
   br i1 %282, label %.lr.ph303.preheader, label %.loopexit
 
 .lr.ph303.preheader:                              ; preds = %.loopexit276
-  %283 = zext nneg i32 %.6 to i64
-  %284 = sub i32 %22, %.6
+  %283 = zext nneg i32 %.2 to i64
+  %284 = sub i32 %22, %.2
   %wide.trip.count354 = zext i32 %284 to i64
   %invariant.gep379 = getelementptr inbounds i32, ptr %281, i64 %63
   %invariant.gep381 = getelementptr inbounds i32, ptr %281, i64 %64
@@ -9095,15 +9095,15 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %140, %136
   br label %.loopexit276
 
 .loopexit276:                                     ; preds = %.loopexit276.loopexit318, %.loopexit276.loopexit317, %.loopexit276.loopexit316, %.loopexit276.loopexit315, %.loopexit276.loopexit, %.preheader283, %.preheader281, %.preheader279, %.preheader277, %.preheader
-  %.6 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %275, %.loopexit276.loopexit ], [ %276, %.loopexit276.loopexit315 ], [ %277, %.loopexit276.loopexit316 ], [ %278, %.loopexit276.loopexit317 ], [ %279, %.loopexit276.loopexit318 ]
+  %.2 = phi i32 [ %21, %.preheader ], [ 1, %.preheader277 ], [ 2, %.preheader279 ], [ 3, %.preheader281 ], [ 4, %.preheader283 ], [ %275, %.loopexit276.loopexit ], [ %276, %.loopexit276.loopexit315 ], [ %277, %.loopexit276.loopexit316 ], [ %278, %.loopexit276.loopexit317 ], [ %279, %.loopexit276.loopexit318 ]
   %280 = load ptr, ptr %57, align 8
   %281 = load ptr, ptr %280, align 8
-  %282 = icmp slt i32 %.6, %22
+  %282 = icmp slt i32 %.2, %22
   br i1 %282, label %.lr.ph303.preheader, label %.loopexit
 
 .lr.ph303.preheader:                              ; preds = %.loopexit276
-  %283 = zext nneg i32 %.6 to i64
-  %284 = sub i32 %22, %.6
+  %283 = zext nneg i32 %.2 to i64
+  %284 = sub i32 %22, %.2
   %wide.trip.count354 = zext i32 %284 to i64
   %invariant.gep379 = getelementptr inbounds i32, ptr %281, i64 %63
   %invariant.gep381 = getelementptr inbounds i32, ptr %281, i64 %64

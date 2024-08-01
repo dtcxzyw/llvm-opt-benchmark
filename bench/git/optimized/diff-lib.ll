@@ -263,12 +263,12 @@ while.end.thread:                                 ; preds = %if.end48
 
 while.body:                                       ; preds = %if.end48, %if.end84
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end84 ], [ %idxprom, %if.end48 ]
-  %ce.0305 = phi ptr [ %spec.select, %if.end84 ], [ %6, %if.end48 ]
+  %ce.1305 = phi ptr [ %spec.select, %if.end84 ], [ %6, %if.end48 ]
   %num_compare_stages.0304 = phi i32 [ %num_compare_stages.1, %if.end84 ], [ 0, %if.end48 ]
   %22 = load ptr, ptr %2, align 8
   %arrayidx53 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
   %23 = load ptr, ptr %arrayidx53, align 8
-  %name54 = getelementptr inbounds i8, ptr %ce.0305, i64 108
+  %name54 = getelementptr inbounds i8, ptr %ce.1305, i64 108
   %name56 = getelementptr inbounds i8, ptr %23, i64 108
   %call58 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name54, ptr noundef nonnull dereferenceable(1) %name56) #15
   %tobool59.not = icmp eq i32 %call58, 0
@@ -363,7 +363,7 @@ ce_mode_from_stat.exit150:                        ; preds = %land.lhs.true13.i13
 if.end84:                                         ; preds = %ce_mode_from_stat.exit150, %if.end61
   %num_compare_stages.1 = phi i32 [ %inc, %ce_mode_from_stat.exit150 ], [ %num_compare_stages.0304, %if.end61 ]
   %cmp85 = icmp eq i32 %shr64, %spec.store.select
-  %spec.select = select i1 %cmp85, ptr %23, ptr %ce.0305
+  %spec.select = select i1 %cmp85, ptr %23, ptr %ce.1305
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !5
@@ -374,9 +374,9 @@ while.end.split.loop.exit332:                     ; preds = %while.body
 
 while.end:                                        ; preds = %if.end84, %while.end.split.loop.exit332
   %num_compare_stages.0.lcssa = phi i32 [ %num_compare_stages.0304, %while.end.split.loop.exit332 ], [ %num_compare_stages.1, %if.end84 ]
-  %ce.0.lcssa = phi ptr [ %ce.0305, %while.end.split.loop.exit332 ], [ %spec.select, %if.end84 ]
-  %i.1.lcssa = phi i32 [ %32, %while.end.split.loop.exit332 ], [ %3, %if.end84 ]
-  %dec = add nsw i32 %i.1.lcssa, -1
+  %ce.1.lcssa = phi ptr [ %ce.1305, %while.end.split.loop.exit332 ], [ %spec.select, %if.end84 ]
+  %i.3.lcssa = phi i32 [ %32, %while.end.split.loop.exit332 ], [ %3, %if.end84 ]
+  %dec = add nsw i32 %i.3.lcssa, -1
   %bf.load = load i64, ptr %combine_merges, align 8
   %33 = and i64 %bf.load, 36028797018963968
   %tobool90 = icmp ne i64 %33, 0
@@ -391,9 +391,9 @@ if.then94:                                        ; preds = %while.end
 
 do.body:                                          ; preds = %while.end.thread, %while.end
   %dec331 = phi i32 [ %dec325, %while.end.thread ], [ %dec, %while.end ]
-  %ce.0.lcssa330 = phi ptr [ %6, %while.end.thread ], [ %ce.0.lcssa, %while.end ]
+  %ce.1.lcssa330 = phi ptr [ %6, %while.end.thread ], [ %ce.1.lcssa, %while.end ]
   call void @free(ptr noundef %call29) #14
-  %name97 = getelementptr inbounds i8, ptr %ce.0.lcssa330, i64 108
+  %name97 = getelementptr inbounds i8, ptr %ce.1.lcssa330, i64 108
   %call99 = call ptr @diff_unmerge(ptr noundef nonnull %diffopt, ptr noundef nonnull %name97) #14
   %tobool100.not = icmp eq i32 %wt_mode.0, 0
   br i1 %tobool100.not, label %if.end104, label %if.then101
@@ -407,7 +407,7 @@ if.then101:                                       ; preds = %do.body
   br label %if.end104
 
 if.end104:                                        ; preds = %if.then101, %do.body
-  %ce_flags105 = getelementptr inbounds i8, ptr %ce.0.lcssa330, i64 56
+  %ce_flags105 = getelementptr inbounds i8, ptr %ce.1.lcssa330, i64 56
   %35 = load i32, ptr %ce_flags105, align 8
   %and106 = lshr i32 %35, 12
   %shr107 = and i32 %and106, 3
@@ -416,9 +416,9 @@ if.end104:                                        ; preds = %if.then101, %do.bod
 
 if.end112:                                        ; preds = %if.end104, %if.end20
   %36 = phi i32 [ %35, %if.end104 ], [ %11, %if.end20 ]
-  %ce.2 = phi ptr [ %ce.0.lcssa330, %if.end104 ], [ %6, %if.end20 ]
+  %ce.0 = phi ptr [ %ce.1.lcssa330, %if.end104 ], [ %6, %if.end20 ]
   %i.2 = phi i32 [ %dec331, %if.end104 ], [ %i.0313, %if.end20 ]
-  %ce_flags113 = getelementptr inbounds i8, ptr %ce.2, i64 56
+  %ce_flags113 = getelementptr inbounds i8, ptr %ce.0, i64 56
   %37 = and i32 %36, 1074003968
   %or.cond102 = icmp eq i32 %37, 0
   br i1 %or.cond102, label %if.end120, label %for.inc
@@ -429,12 +429,12 @@ if.end120:                                        ; preds = %if.end112
   br i1 %tobool123.not, label %if.else126, label %if.then124
 
 if.then124:                                       ; preds = %if.end120
-  %ce_mode125 = getelementptr inbounds i8, ptr %ce.2, i64 52
+  %ce_mode125 = getelementptr inbounds i8, ptr %ce.0, i64 52
   %38 = load i32, ptr %ce_mode125, align 4
   br label %if.end165
 
 if.else126:                                       ; preds = %if.end120
-  %call128 = call fastcc i32 @check_removed(ptr noundef nonnull %ce.2, ptr noundef nonnull %st127)
+  %call128 = call fastcc i32 @check_removed(ptr noundef nonnull %ce.0, ptr noundef nonnull %st127)
   %tobool129.not = icmp eq i32 %call128, 0
   br i1 %tobool129.not, label %if.else145, label %if.then130
 
@@ -443,16 +443,16 @@ if.then130:                                       ; preds = %if.else126
   br i1 %cmp131, label %if.then133, label %if.end136
 
 if.then133:                                       ; preds = %if.then130
-  %name134 = getelementptr inbounds i8, ptr %ce.2, i64 108
+  %name134 = getelementptr inbounds i8, ptr %ce.0, i64 108
   call void @perror(ptr noundef nonnull %name134) #16
   br label %for.inc
 
 if.end136:                                        ; preds = %if.then130
-  %ce_mode138 = getelementptr inbounds i8, ptr %ce.2, i64 52
+  %ce_mode138 = getelementptr inbounds i8, ptr %ce.0, i64 52
   %39 = load i32, ptr %ce_mode138, align 4
-  %oid139 = getelementptr inbounds i8, ptr %ce.2, i64 72
+  %oid139 = getelementptr inbounds i8, ptr %ce.0, i64 72
   %call.i151 = call ptr @null_oid() #14
-  %algo.i.i = getelementptr inbounds i8, ptr %ce.2, i64 104
+  %algo.i.i = getelementptr inbounds i8, ptr %ce.0, i64 104
   %40 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i152 = icmp eq i32 %40, 0
   br i1 %tobool.not.i.i152, label %if.then.i.i, label %if.else.i.i
@@ -487,7 +487,7 @@ is_null_oid.exit:                                 ; preds = %if.then.i.i.i, %if.
   %retval.0.in.in.i.i.i = phi i32 [ %bcmp3.i.i.i, %if.then.i.i.i ], [ %bcmp.i.i.i, %if.end.i.i.i ]
   %retval.0.in.i.i.i = icmp ne i32 %retval.0.in.in.i.i.i, 0
   %lnot.ext = zext i1 %retval.0.in.i.i.i to i32
-  %name143 = getelementptr inbounds i8, ptr %ce.2, i64 108
+  %name143 = getelementptr inbounds i8, ptr %ce.0, i64 108
   call void @diff_addremove(ptr noundef nonnull %diffopt, i32 noundef 45, i32 noundef %39, ptr noundef nonnull %oid139, i32 noundef %lnot.ext, ptr noundef nonnull %name143, i32 noundef 0) #14
   br label %for.inc
 
@@ -512,7 +512,7 @@ if.then152:                                       ; preds = %land.lhs.true148
   br i1 %or.cond298, label %land.lhs.true3.i182, label %if.end.i156
 
 land.lhs.true3.i182:                              ; preds = %if.then152
-  %ce_mode.i183 = getelementptr inbounds i8, ptr %ce.2, i64 52
+  %ce_mode.i183 = getelementptr inbounds i8, ptr %ce.0, i64 52
   %48 = load i32, ptr %ce_mode.i183, align 4
   %and4.i184 = and i32 %48, 61440
   %cmp5.i185 = icmp eq i32 %and4.i184, 40960
@@ -525,7 +525,7 @@ if.end.i156:                                      ; preds = %if.then152
   br i1 %or.cond8.i159, label %if.end.i156.land.lhs.true13.i173_crit_edge, label %if.end20.i160
 
 if.end.i156.land.lhs.true13.i173_crit_edge:       ; preds = %if.end.i156
-  %ce_mode14.i174.phi.trans.insert = getelementptr inbounds i8, ptr %ce.2, i64 52
+  %ce_mode14.i174.phi.trans.insert = getelementptr inbounds i8, ptr %ce.0, i64 52
   %.pre316 = load i32, ptr %ce_mode14.i174.phi.trans.insert, align 4
   %.pre319 = and i32 %.pre316, 61440
   br label %land.lhs.true13.i173
@@ -566,7 +566,7 @@ if.end9.i.i167:                                   ; preds = %if.end3.i.i164, %if
 ce_mode_from_stat.exit188:                        ; preds = %land.lhs.true13.i173, %land.lhs.true3.i182, %if.end20.i160, %if.end.i.i162, %if.end3.i.i164, %if.end3.i.i164, %if.end9.i.i167
   %retval.0.i166 = phi i32 [ %48, %land.lhs.true3.i182 ], [ %or.i.i170, %if.end9.i.i167 ], [ 40960, %if.end20.i160 ], [ 16384, %if.end.i.i162 ], [ 57344, %if.end3.i.i164 ], [ 57344, %if.end3.i.i164 ], [ %spec.select299, %land.lhs.true13.i173 ]
   %call156 = call ptr @null_oid() #14
-  %name157 = getelementptr inbounds i8, ptr %ce.2, i64 108
+  %name157 = getelementptr inbounds i8, ptr %ce.0, i64 108
   call void @diff_addremove(ptr noundef nonnull %diffopt, i32 noundef 43, i32 noundef %retval.0.i166, ptr noundef %call156, i32 noundef 0, ptr noundef nonnull %name157, i32 noundef 0) #14
   br label %for.inc
 
@@ -575,8 +575,8 @@ if.end160:                                        ; preds = %if.else145, %land.l
   %52 = load ptr, ptr %repo, align 8
   %index.i = getelementptr inbounds i8, ptr %52, i64 240
   %53 = load ptr, ptr %index.i, align 8
-  %call.i189 = call i32 @ie_match_stat(ptr noundef %53, ptr noundef nonnull %ce.2, ptr noundef nonnull %st127, i32 noundef %and) #14
-  %ce_mode.i190 = getelementptr inbounds i8, ptr %ce.2, i64 52
+  %call.i189 = call i32 @ie_match_stat(ptr noundef %53, ptr noundef nonnull %ce.0, ptr noundef nonnull %st127, i32 noundef %and) #14
+  %ce_mode.i190 = getelementptr inbounds i8, ptr %ce.0, i64 52
   %54 = load i32, ptr %ce_mode.i190, align 4
   %and.i191 = and i32 %54, 61440
   %cmp.i192 = icmp eq i32 %and.i191, 57344
@@ -589,7 +589,7 @@ if.then.i194:                                     ; preds = %if.end160
   br i1 %tobool.not.i195, label %if.then2.i, label %if.end.i196
 
 if.then2.i:                                       ; preds = %if.then.i194
-  %name.i200 = getelementptr inbounds i8, ptr %ce.2, i64 108
+  %name.i200 = getelementptr inbounds i8, ptr %ce.0, i64 108
   call void @set_diffopt_flags_from_submodule_config(ptr noundef nonnull %diffopt, ptr noundef nonnull %name.i200) #14
   br label %if.end.i196
 
@@ -613,20 +613,20 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i198
   br i1 %tobool10.not.i, label %if.end17.i, label %if.then11.i199
 
 if.then11.i199:                                   ; preds = %lor.lhs.false.i, %land.lhs.true.i198
-  %name12.i = getelementptr inbounds i8, ptr %ce.2, i64 108
+  %name12.i = getelementptr inbounds i8, ptr %ce.0, i64 108
   %59 = load i32, ptr %ignore_untracked_in_submodules.i, align 8
   %call15.i = call i32 @is_submodule_modified(ptr noundef nonnull %name12.i, i32 noundef %59) #14
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then11.i199, %lor.lhs.false.i, %if.else.i, %if.end.i196
-  %dirty_submodule.0 = phi i32 [ %call15.i, %if.then11.i199 ], [ 0, %lor.lhs.false.i ], [ 0, %if.else.i ], [ 0, %if.end.i196 ]
-  %changed.0.i = phi i32 [ %call.i189, %if.then11.i199 ], [ %call.i189, %lor.lhs.false.i ], [ %call.i189, %if.else.i ], [ 0, %if.end.i196 ]
+  %dirty_submodule.1 = phi i32 [ %call15.i, %if.then11.i199 ], [ 0, %lor.lhs.false.i ], [ 0, %if.else.i ], [ 0, %if.end.i196 ]
+  %changed.1.i = phi i32 [ %call.i189, %if.then11.i199 ], [ %call.i189, %lor.lhs.false.i ], [ %call.i189, %if.else.i ], [ 0, %if.end.i196 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %flags.i, ptr noundef nonnull align 4 dereferenceable(140) %orig_flags.i, i64 140, i1 false)
   br label %match_stat_with_submodule.exit
 
 match_stat_with_submodule.exit:                   ; preds = %if.end160, %if.end17.i
-  %dirty_submodule.1 = phi i32 [ %dirty_submodule.0, %if.end17.i ], [ 0, %if.end160 ]
-  %changed.1.i = phi i32 [ %changed.0.i, %if.end17.i ], [ %call.i189, %if.end160 ]
+  %dirty_submodule.2 = phi i32 [ %dirty_submodule.1, %if.end17.i ], [ 0, %if.end160 ]
+  %changed.0.i = phi i32 [ %changed.1.i, %if.end17.i ], [ %call.i189, %if.end160 ]
   call void @llvm.lifetime.end.p0(i64 140, ptr nonnull %orig_flags.i)
   %60 = load i32, ptr %st_mode153, align 8
   %61 = load i32, ptr @has_symlinks, align 4
@@ -687,11 +687,11 @@ if.end9.i.i214:                                   ; preds = %if.end3.i.i211, %if
   br label %if.end165
 
 if.end165:                                        ; preds = %land.lhs.true13.i220, %if.end9.i.i214, %if.end3.i.i211, %if.end3.i.i211, %if.end.i.i209, %if.end20.i207, %land.lhs.true3.i229, %if.then124
-  %dirty_submodule.2 = phi i32 [ 0, %if.then124 ], [ %dirty_submodule.1, %land.lhs.true3.i229 ], [ %dirty_submodule.1, %if.end20.i207 ], [ %dirty_submodule.1, %if.end.i.i209 ], [ %dirty_submodule.1, %if.end3.i.i211 ], [ %dirty_submodule.1, %if.end3.i.i211 ], [ %dirty_submodule.1, %if.end9.i.i214 ], [ %dirty_submodule.1, %land.lhs.true13.i220 ]
-  %changed.0 = phi i32 [ 0, %if.then124 ], [ %changed.1.i, %land.lhs.true3.i229 ], [ %changed.1.i, %if.end20.i207 ], [ %changed.1.i, %if.end.i.i209 ], [ %changed.1.i, %if.end3.i.i211 ], [ %changed.1.i, %if.end3.i.i211 ], [ %changed.1.i, %if.end9.i.i214 ], [ %changed.1.i, %land.lhs.true13.i220 ]
+  %dirty_submodule.0 = phi i32 [ 0, %if.then124 ], [ %dirty_submodule.2, %land.lhs.true3.i229 ], [ %dirty_submodule.2, %if.end20.i207 ], [ %dirty_submodule.2, %if.end.i.i209 ], [ %dirty_submodule.2, %if.end3.i.i211 ], [ %dirty_submodule.2, %if.end3.i.i211 ], [ %dirty_submodule.2, %if.end9.i.i214 ], [ %dirty_submodule.2, %land.lhs.true13.i220 ]
+  %changed.0 = phi i32 [ 0, %if.then124 ], [ %changed.0.i, %land.lhs.true3.i229 ], [ %changed.0.i, %if.end20.i207 ], [ %changed.0.i, %if.end.i.i209 ], [ %changed.0.i, %if.end3.i.i211 ], [ %changed.0.i, %if.end3.i.i211 ], [ %changed.0.i, %if.end9.i.i214 ], [ %changed.0.i, %land.lhs.true13.i220 ]
   %newmode.0 = phi i32 [ %38, %if.then124 ], [ %62, %land.lhs.true3.i229 ], [ 40960, %if.end20.i207 ], [ 16384, %if.end.i.i209 ], [ 57344, %if.end3.i.i211 ], [ 57344, %if.end3.i.i211 ], [ %or.i.i217, %if.end9.i.i214 ], [ %spec.select301, %land.lhs.true13.i220 ]
   %tobool166 = icmp ne i32 %changed.0, 0
-  %tobool168 = icmp ne i32 %dirty_submodule.2, 0
+  %tobool168 = icmp ne i32 %dirty_submodule.0, 0
   %or.cond1 = select i1 %tobool166, i1 true, i1 %tobool168
   br i1 %or.cond1, label %if.end175, label %if.then169
 
@@ -711,7 +711,7 @@ land.lhs.true.i239:                               ; preds = %if.then169
   br i1 %tobool.not.i241, label %if.then.i242, label %mark_fsmonitor_valid.exit
 
 if.then.i242:                                     ; preds = %land.lhs.true.i239
-  %ce_mode.i243 = getelementptr inbounds i8, ptr %ce.2, i64 52
+  %ce_mode.i243 = getelementptr inbounds i8, ptr %ce.0, i64 52
   %69 = load i32, ptr %ce_mode.i243, align 4
   %and1.i = and i32 %69, 61440
   %cmp2.i = icmp eq i32 %and1.i, 57344
@@ -733,7 +733,7 @@ if.end.i244:                                      ; preds = %if.then.i242
   br i1 %tobool7.not.i246, label %mark_fsmonitor_valid.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i244
-  %name.i247 = getelementptr inbounds i8, ptr %ce.2, i64 108
+  %name.i247 = getelementptr inbounds i8, ptr %ce.0, i64 108
   call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str.16, i32 noundef 49, ptr noundef nonnull @trace_fsmonitor, ptr noundef nonnull @.str.17, ptr noundef nonnull %name.i247) #14
   br label %mark_fsmonitor_valid.exit
 
@@ -743,15 +743,15 @@ mark_fsmonitor_valid.exit:                        ; preds = %if.then169, %land.l
   br i1 %tobool172.not, label %for.inc, label %if.end175.thread
 
 if.end175.thread:                                 ; preds = %mark_fsmonitor_valid.exit
-  %ce_mode176291 = getelementptr inbounds i8, ptr %ce.2, i64 52
+  %ce_mode176291 = getelementptr inbounds i8, ptr %ce.0, i64 52
   %73 = load i32, ptr %ce_mode176291, align 4
-  %oid177292 = getelementptr inbounds i8, ptr %ce.2, i64 72
+  %oid177292 = getelementptr inbounds i8, ptr %ce.0, i64 72
   br label %cond.end
 
 if.end175:                                        ; preds = %if.end165
-  %ce_mode176 = getelementptr inbounds i8, ptr %ce.2, i64 52
+  %ce_mode176 = getelementptr inbounds i8, ptr %ce.0, i64 52
   %74 = load i32, ptr %ce_mode176, align 4
-  %oid177 = getelementptr inbounds i8, ptr %ce.2, i64 72
+  %oid177 = getelementptr inbounds i8, ptr %ce.0, i64 72
   br i1 %tobool166, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end175
@@ -763,7 +763,7 @@ cond.end:                                         ; preds = %if.end175.thread, %
   %75 = phi i32 [ %74, %cond.true ], [ %74, %if.end175 ], [ %73, %if.end175.thread ]
   %cond181 = phi ptr [ %call179, %cond.true ], [ %oid177, %if.end175 ], [ %oid177292, %if.end175.thread ]
   %call.i248 = call ptr @null_oid() #14
-  %algo.i.i249 = getelementptr inbounds i8, ptr %ce.2, i64 104
+  %algo.i.i249 = getelementptr inbounds i8, ptr %ce.0, i64 104
   %76 = load i32, ptr %algo.i.i249, align 4
   %tobool.not.i.i250 = icmp eq i32 %76, 0
   br i1 %tobool.not.i.i250, label %if.then.i.i265, label %if.else.i.i251
@@ -834,13 +834,13 @@ is_null_oid.exit287:                              ; preds = %if.then.i.i.i283, %
   %retval.0.in.in.i.i.i280 = phi i32 [ %bcmp3.i.i.i284, %if.then.i.i.i283 ], [ %bcmp.i.i.i279, %if.end.i.i.i278 ]
   %retval.0.in.i.i.i281 = icmp ne i32 %retval.0.in.in.i.i.i280, 0
   %lnot.ext190 = zext i1 %retval.0.in.i.i.i281 to i32
-  %name191 = getelementptr inbounds i8, ptr %ce.2, i64 108
-  call void @diff_change(ptr noundef nonnull %diffopt, i32 noundef %75, i32 noundef %newmode.0, ptr noundef nonnull %oid177293, ptr noundef nonnull %cond181, i32 noundef %lnot.ext186, i32 noundef %lnot.ext190, ptr noundef nonnull %name191, i32 noundef 0, i32 noundef %dirty_submodule.2) #14
+  %name191 = getelementptr inbounds i8, ptr %ce.0, i64 108
+  call void @diff_change(ptr noundef nonnull %diffopt, i32 noundef %75, i32 noundef %newmode.0, ptr noundef nonnull %oid177293, ptr noundef nonnull %cond181, i32 noundef %lnot.ext186, i32 noundef %lnot.ext190, ptr noundef nonnull %name191, i32 noundef 0, i32 noundef %dirty_submodule.0) #14
   br label %for.inc
 
 for.inc:                                          ; preds = %mark_fsmonitor_valid.exit, %if.end112, %if.end104, %land.lhs.true, %if.end7, %is_null_oid.exit287, %ce_mode_from_stat.exit188, %is_null_oid.exit, %if.then133, %if.then94, %if.then44
-  %i.3 = phi i32 [ %i.0313, %land.lhs.true ], [ %i.0313, %if.then44 ], [ %dec, %if.then94 ], [ %dec331, %if.end104 ], [ %i.2, %if.end112 ], [ %i.2, %is_null_oid.exit287 ], [ %i.2, %mark_fsmonitor_valid.exit ], [ %i.2, %if.then133 ], [ %i.2, %is_null_oid.exit ], [ %i.2, %ce_mode_from_stat.exit188 ], [ %i.0313, %if.end7 ]
-  %inc193 = add nsw i32 %i.3, 1
+  %i.1 = phi i32 [ %i.0313, %land.lhs.true ], [ %i.0313, %if.then44 ], [ %dec, %if.then94 ], [ %dec331, %if.end104 ], [ %i.2, %if.end112 ], [ %i.2, %is_null_oid.exit287 ], [ %i.2, %mark_fsmonitor_valid.exit ], [ %i.2, %if.then133 ], [ %i.2, %is_null_oid.exit ], [ %i.2, %ce_mode_from_stat.exit188 ], [ %i.0313, %if.end7 ]
+  %inc193 = add nsw i32 %i.1, 1
   %cmp2 = icmp slt i32 %inc193, %3
   br i1 %cmp2, label %for.body, label %for.end, !llvm.loop !7
 
@@ -2173,14 +2173,14 @@ if.then11.i:                                      ; preds = %lor.lhs.false.i, %l
   br label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.then11.i, %lor.lhs.false.i, %if.else.i, %if.end.i
-  %changed.0.i = phi i32 [ %call.i, %if.else.i ], [ %call.i, %if.then11.i ], [ %call.i, %lor.lhs.false.i ], [ 0, %if.end.i ]
+  %changed.1.i = phi i32 [ %call.i, %if.else.i ], [ %call.i, %if.then11.i ], [ %call.i, %lor.lhs.false.i ], [ 0, %if.end.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(140) %flags.i, ptr noundef nonnull align 4 dereferenceable(140) %orig_flags.i, i64 140, i1 false)
   br label %match_stat_with_submodule.exit
 
 match_stat_with_submodule.exit:                   ; preds = %if.end9, %if.end17.i
-  %changed.1.i = phi i32 [ %changed.0.i, %if.end17.i ], [ %call.i, %if.end9 ]
+  %changed.0.i = phi i32 [ %changed.1.i, %if.end17.i ], [ %call.i, %if.end9 ]
   call void @llvm.lifetime.end.p0(i64 140, ptr nonnull %orig_flags.i)
-  %tobool11.not = icmp eq i32 %changed.1.i, 0
+  %tobool11.not = icmp eq i32 %changed.0.i, 0
   br i1 %tobool11.not, label %return.sink.split, label %if.then12
 
 if.then12:                                        ; preds = %match_stat_with_submodule.exit

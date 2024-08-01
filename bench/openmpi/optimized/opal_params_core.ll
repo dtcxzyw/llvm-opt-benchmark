@@ -407,10 +407,10 @@ define internal fastcc range(i32 -2, 1) i32 @parse_color_string(ptr noundef %0) 
 .loopexit1:                                       ; preds = %.critedge79, %23, %.lr.ph5, %42, %45, %2
   %.not77 = phi i1 [ false, %2 ], [ false, %42 ], [ true, %45 ], [ false, %.lr.ph5 ], [ false, %23 ], [ false, %.critedge79 ]
   %.065 = phi i32 [ -2, %2 ], [ -2, %42 ], [ 0, %45 ], [ -2, %.lr.ph5 ], [ -2, %23 ], [ -2, %.critedge79 ]
-  %.160 = phi ptr [ null, %2 ], [ null, %45 ], [ null, %42 ], [ %8, %.critedge79 ], [ %8, %23 ], [ null, %.lr.ph5 ]
+  %.059 = phi ptr [ null, %2 ], [ null, %45 ], [ null, %42 ], [ %8, %.critedge79 ], [ %8, %23 ], [ null, %.lr.ph5 ]
   %.1 = phi ptr [ null, %2 ], [ %.05827, %45 ], [ %.05827, %42 ], [ %3, %.lr.ph5 ], [ %3, %23 ], [ %3, %.critedge79 ]
   tail call void @opal_argv_free(ptr noundef %.1) #6
-  tail call void @opal_argv_free(ptr noundef %.160) #6
+  tail call void @opal_argv_free(ptr noundef %.059) #6
   br i1 %.not77, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit1, %.preheader

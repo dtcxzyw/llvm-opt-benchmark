@@ -347,7 +347,7 @@ threadState.exit:                                 ; preds = %46, %51
 .sink.split:                                      ; preds = %67, %44, %39, %.thread55
   %.sink60 = phi i16 [ 16, %.thread55 ], [ 4, %39 ], [ 8, %44 ], [ 8, %67 ]
   %.ph = phi i16 [ 32, %.thread55 ], [ 0, %39 ], [ 0, %44 ], [ 32, %67 ]
-  %.1.ph = phi ptr [ %spec.select, %.thread55 ], [ %1, %39 ], [ %1, %44 ], [ %spec.select, %67 ]
+  %.039.ph = phi ptr [ %spec.select, %.thread55 ], [ %1, %39 ], [ %1, %44 ], [ %spec.select, %67 ]
   %71 = getelementptr inbounds i8, ptr %9, i64 8
   %72 = load i16, ptr %71, align 8
   %73 = or i16 %72, %.sink60
@@ -356,7 +356,7 @@ threadState.exit:                                 ; preds = %46, %51
 
 74:                                               ; preds = %.sink.split, %70, %.loopexit
   %75 = phi i16 [ 32, %70 ], [ 0, %.loopexit ], [ %.ph, %.sink.split ]
-  %.1 = phi ptr [ %spec.select, %70 ], [ %1, %.loopexit ], [ %.1.ph, %.sink.split ]
+  %.039 = phi ptr [ %spec.select, %70 ], [ %1, %.loopexit ], [ %.039.ph, %.sink.split ]
   %76 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 0, ptr %76, align 4
   %77 = getelementptr inbounds i8, ptr %9, i64 8
@@ -372,21 +372,21 @@ threadState.exit:                                 ; preds = %46, %51
   %84 = getelementptr inbounds i8, ptr %9, i64 256
   store ptr null, ptr %84, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
-  %85 = load ptr, ptr %.1, align 8
+  %85 = load ptr, ptr %.039, align 8
   %86 = icmp eq ptr %85, null
   br i1 %86, label %90, label %87
 
 87:                                               ; preds = %74
   %88 = getelementptr inbounds i8, ptr %85, i64 240
   store ptr %9, ptr %88, align 8
-  %89 = load ptr, ptr %.1, align 8
+  %89 = load ptr, ptr %.039, align 8
   store ptr %89, ptr %83, align 8
   br label %90
 
 90:                                               ; preds = %87, %74
-  store ptr %9, ptr %.1, align 8
-  store ptr %.1, ptr %84, align 8
-  %91 = icmp eq ptr %.1, @runningVThreads
+  store ptr %9, ptr %.039, align 8
+  store ptr %.039, ptr %84, align 8
+  %91 = icmp eq ptr %.039, @runningVThreads
   br i1 %91, label %addNode.exit.thread, label %addNode.exit
 
 addNode.exit.thread:                              ; preds = %90
@@ -396,7 +396,7 @@ addNode.exit.thread:                              ; preds = %90
   br label %94
 
 addNode.exit:                                     ; preds = %90
-  %.not50 = icmp eq ptr %.1, @otherThreads
+  %.not50 = icmp eq ptr %.039, @otherThreads
   br i1 %.not50, label %96, label %94
 
 94:                                               ; preds = %addNode.exit.thread, %addNode.exit
@@ -792,7 +792,7 @@ getThreadLocalStorage.exit:                       ; preds = %9, %16
   br i1 %.not.i42, label %nonTlsSearch.exit, label %.lr.ph.i, !llvm.loop !10
 
 nonTlsSearch.exit:                                ; preds = %28, %.lr.ph.i, %24, %21
-  %.0 = phi ptr [ null, %21 ], [ null, %24 ], [ null, %28 ], [ %.010.i, %.lr.ph.i ]
+  %.1 = phi ptr [ null, %21 ], [ null, %24 ], [ null, %28 ], [ %.010.i, %.lr.ph.i ]
   %30 = load ptr, ptr @gdata, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 577
   %32 = load volatile i8, ptr %31, align 1
@@ -863,7 +863,7 @@ nonTlsSearch.exit60:                              ; preds = %.lr.ph.i54
   br label %nonTlsSearch.exit69
 
 52:                                               ; preds = %nonTlsSearch.exit
-  %53 = icmp eq ptr %.0, null
+  %53 = icmp eq ptr %.1, null
   br i1 %53, label %54, label %nonTlsSearch.exit69
 
 54:                                               ; preds = %52
@@ -901,21 +901,21 @@ nonTlsSearch.exit60:                              ; preds = %.lr.ph.i54
   br label %nonTlsSearch.exit69
 
 nonTlsSearch.exit69:                              ; preds = %.lr.ph.i63, %50, %46, %nonTlsSearch.exit51.thread, %43, %nonTlsSearch.exit60, %63, %52, %getThreadLocalStorage.exit
-  %.2 = phi ptr [ %65, %63 ], [ %.0, %52 ], [ %.0, %nonTlsSearch.exit60 ], [ %.0, %43 ], [ %.0, %nonTlsSearch.exit51.thread ], [ %19, %getThreadLocalStorage.exit ], [ %.0, %46 ], [ %.0, %50 ], [ %.010.i64, %.lr.ph.i63 ]
-  %66 = icmp ne ptr %.2, null
+  %.0 = phi ptr [ %65, %63 ], [ %.1, %52 ], [ %.1, %nonTlsSearch.exit60 ], [ %.1, %43 ], [ %.1, %nonTlsSearch.exit51.thread ], [ %19, %getThreadLocalStorage.exit ], [ %.1, %46 ], [ %.1, %50 ], [ %.010.i64, %.lr.ph.i63 ]
+  %66 = icmp ne ptr %.0, null
   %67 = icmp ne ptr %0, null
   %or.cond7 = and i1 %67, %66
   br i1 %or.cond7, label %68, label %nonTlsSearch.exit69.thread76
 
 68:                                               ; preds = %nonTlsSearch.exit69
-  %69 = getelementptr inbounds i8, ptr %.2, i64 256
+  %69 = getelementptr inbounds i8, ptr %.0, i64 256
   %70 = load ptr, ptr %69, align 8
   %.not40 = icmp eq ptr %70, %0
-  %spec.select = select i1 %.not40, ptr %.2, ptr null
+  %spec.select = select i1 %.not40, ptr %.0, ptr null
   br label %nonTlsSearch.exit69.thread76
 
 nonTlsSearch.exit69.thread76:                     ; preds = %68, %.loopexit, %nonTlsSearch.exit69
-  %.028 = phi ptr [ %.2, %nonTlsSearch.exit69 ], [ null, %.loopexit ], [ %spec.select, %68 ]
+  %.028 = phi ptr [ %.0, %nonTlsSearch.exit69 ], [ null, %.loopexit ], [ %spec.select, %68 ]
   ret ptr %.028
 }
 
@@ -1340,7 +1340,7 @@ define hidden i32 @threadControl_resumeAll() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %9, %excludeCountHelper.exit
   %10 = phi ptr [ %19, %excludeCountHelper.exit ], [ %3, %9 ]
-  %.052 = phi i32 [ %.153, %excludeCountHelper.exit ], [ 0, %9 ]
+  %.052 = phi i32 [ %.2, %excludeCountHelper.exit ], [ 0, %9 ]
   %.0814.i = phi ptr [ %.08.i, %excludeCountHelper.exit ], [ %.0812.i, %9 ]
   %.not.i46 = icmp eq ptr %10, null
   br i1 %.not.i46, label %excludeCountHelper.exit, label %11
@@ -1369,24 +1369,24 @@ excludeCountHelper.exit:                          ; preds = %18, %14, %11, %.lr.
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   %23 = zext i1 %22 to i32
-  %.153 = add nuw nsw i32 %.052, %23
+  %.2 = add nuw nsw i32 %.052, %23
   %24 = getelementptr inbounds i8, ptr %.0814.i, i64 232
   %.08.i = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %.08.i, null
   br i1 %.not.i, label %enumerateOverThreadList.exit, label %.lr.ph.i, !llvm.loop !11
 
 enumerateOverThreadList.exit:                     ; preds = %excludeCountHelper.exit
-  %.not56 = icmp eq i32 %.153, 0
+  %.not56 = icmp eq i32 %.2, 0
   br i1 %.not56, label %enumerateOverThreadList.exit29, label %25
 
 25:                                               ; preds = %enumerateOverThreadList.exit
-  %26 = shl nsw i32 %.153, 3
+  %26 = shl nsw i32 %.2, 3
   %27 = tail call ptr @jvmtiAllocate(i32 noundef %26) #6
   %.not.i20 = icmp eq ptr %27, null
   br i1 %.not.i20, label %30, label %newArray.exit
 
 newArray.exit:                                    ; preds = %25
-  %28 = zext nneg i32 %.153 to i64
+  %28 = zext nneg i32 %.2 to i64
   %29 = shl nuw nsw i64 %28, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %27, i8 0, i64 %29, i1 false)
   br label %33
@@ -1447,7 +1447,7 @@ excludeCopyHelper.exit:                           ; preds = %48, %44
   br label %excludeCopyHelper.exit
 
 enumerateOverThreadList.exit29:                   ; preds = %excludeCopyHelper.exit, %9, %33, %enumerateOverThreadList.exit
-  %.255 = phi i32 [ 0, %enumerateOverThreadList.exit ], [ %.153, %33 ], [ 0, %9 ], [ %.153, %excludeCopyHelper.exit ]
+  %.15355 = phi i32 [ 0, %enumerateOverThreadList.exit ], [ %.2, %33 ], [ 0, %9 ], [ %.2, %excludeCopyHelper.exit ]
   %.0 = phi ptr [ null, %enumerateOverThreadList.exit ], [ %27, %33 ], [ null, %9 ], [ %27, %excludeCopyHelper.exit ]
   %51 = load ptr, ptr @gdata, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 528
@@ -1468,7 +1468,7 @@ enumerateOverThreadList.exit29:                   ; preds = %excludeCopyHelper.e
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 944
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call i32 %61(ptr noundef nonnull %58, i32 noundef %.255, ptr noundef %.0) #6
+  %62 = tail call i32 %61(ptr noundef nonnull %58, i32 noundef %.15355, ptr noundef %.0) #6
   %.not19 = icmp eq i32 %62, 0
   br i1 %.not19, label %66, label %63
 
@@ -2585,14 +2585,14 @@ threadSetEventNotificationMode.exit:              ; preds = %42, %47
   br label %addDeferredEventMode.exit
 
 addDeferredEventMode.exit:                        ; preds = %32, %28, %threadSetEventNotificationMode.exit
-  %.0 = phi i32 [ %54, %threadSetEventNotificationMode.exit ], [ 0, %32 ], [ 188, %28 ]
+  %.1 = phi i32 [ %54, %threadSetEventNotificationMode.exit ], [ 0, %32 ], [ 188, %28 ]
   %55 = load ptr, ptr @threadLock, align 8
   tail call void @debugMonitorExit(ptr noundef %55) #6
   br label %56
 
 56:                                               ; preds = %addDeferredEventMode.exit, %11
-  %.1 = phi i32 [ %18, %11 ], [ %.0, %addDeferredEventMode.exit ]
-  ret i32 %.1
+  %.0 = phi i32 [ %18, %11 ], [ %.1, %addDeferredEventMode.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

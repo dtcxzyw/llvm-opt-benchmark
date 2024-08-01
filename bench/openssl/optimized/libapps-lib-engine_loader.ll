@@ -185,12 +185,12 @@ land.lhs.true:                                    ; preds = %if.end, %if.then1
 
 lor.lhs.false11:                                  ; preds = %land.lhs.true, %if.end
   %6 = phi i32 [ %5, %land.lhs.true ], [ %.pre, %if.end ]
-  %pkey.024 = phi ptr [ null, %land.lhs.true ], [ %call7, %if.end ]
+  %pkey.124 = phi ptr [ null, %land.lhs.true ], [ %call7, %if.end ]
   %cmp13 = icmp eq i32 %6, 3
   br i1 %cmp13, label %if.then14, label %if.end22
 
 if.then14:                                        ; preds = %lor.lhs.false11, %land.lhs.true
-  %pkey.023 = phi ptr [ %pkey.024, %lor.lhs.false11 ], [ null, %land.lhs.true ]
+  %pkey.123 = phi ptr [ %pkey.124, %lor.lhs.false11 ], [ null, %land.lhs.true ]
   %7 = load ptr, ptr %ctx, align 8
   %keyid16 = getelementptr inbounds i8, ptr %ctx, i64 8
   %8 = load ptr, ptr %keyid16, align 8
@@ -202,24 +202,24 @@ if.else.thread:                                   ; preds = %entry, %if.then
   br label %if.then33
 
 if.end22:                                         ; preds = %lor.lhs.false11, %if.then14
-  %pkey.022 = phi ptr [ %pkey.023, %if.then14 ], [ %pkey.024, %lor.lhs.false11 ]
-  %pubkey.0 = phi ptr [ %call17, %if.then14 ], [ null, %lor.lhs.false11 ]
+  %pkey.122 = phi ptr [ %pkey.123, %if.then14 ], [ %pkey.124, %lor.lhs.false11 ]
+  %pubkey.1 = phi ptr [ %call17, %if.then14 ], [ null, %lor.lhs.false11 ]
   %9 = load ptr, ptr %ctx, align 8
   %call20 = tail call i32 @ENGINE_finish(ptr noundef %9) #7
   store i32 1, ptr %loaded, align 4
-  %cmp24.not = icmp eq ptr %pubkey.0, null
+  %cmp24.not = icmp eq ptr %pubkey.1, null
   br i1 %cmp24.not, label %if.else, label %if.then25
 
 if.then25:                                        ; preds = %if.end22
-  %call26 = tail call ptr @OSSL_STORE_INFO_new_PUBKEY(ptr noundef nonnull %pubkey.0) #7
+  %call26 = tail call ptr @OSSL_STORE_INFO_new_PUBKEY(ptr noundef nonnull %pubkey.1) #7
   br label %if.end31
 
 if.else:                                          ; preds = %if.end22
-  %cmp27.not = icmp eq ptr %pkey.022, null
+  %cmp27.not = icmp eq ptr %pkey.122, null
   br i1 %cmp27.not, label %if.then33, label %if.then28
 
 if.then28:                                        ; preds = %if.else
-  %call29 = tail call ptr @OSSL_STORE_INFO_new_PKEY(ptr noundef nonnull %pkey.022) #7
+  %call29 = tail call ptr @OSSL_STORE_INFO_new_PKEY(ptr noundef nonnull %pkey.122) #7
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then28, %if.then25
@@ -228,10 +228,10 @@ if.end31:                                         ; preds = %if.then28, %if.then
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %if.else.thread, %if.else, %if.end31
-  %pkey.12941 = phi ptr [ %pkey.022, %if.end31 ], [ null, %if.else.thread ], [ null, %if.else ]
-  %pubkey.13140 = phi ptr [ %pubkey.0, %if.end31 ], [ null, %if.else.thread ], [ null, %if.else ]
-  tail call void @EVP_PKEY_free(ptr noundef %pkey.12941) #7
-  tail call void @EVP_PKEY_free(ptr noundef %pubkey.13140) #7
+  %pkey.02941 = phi ptr [ %pkey.122, %if.end31 ], [ null, %if.else.thread ], [ null, %if.else ]
+  %pubkey.03140 = phi ptr [ %pubkey.1, %if.end31 ], [ null, %if.else.thread ], [ null, %if.else ]
+  tail call void @EVP_PKEY_free(ptr noundef %pkey.02941) #7
+  tail call void @EVP_PKEY_free(ptr noundef %pubkey.03140) #7
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then33, %if.end31

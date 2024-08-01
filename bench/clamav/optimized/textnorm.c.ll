@@ -57,7 +57,7 @@ define i64 @text_normalize_buffer(ptr nocapture noundef %0, ptr noundef readonly
   br label %17
 
 17:                                               ; preds = %.lr.ph, %32
-  %.02429 = phi ptr [ %12, %.lr.ph ], [ %.2, %32 ]
+  %.02429 = phi ptr [ %12, %.lr.ph ], [ %.1, %32 ]
   %.02628 = phi i64 [ 0, %.lr.ph ], [ %33, %32 ]
   %18 = getelementptr inbounds i8, ptr %1, i64 %.02628
   %19 = load i8, ptr %18, align 1
@@ -81,7 +81,7 @@ define i64 @text_normalize_buffer(ptr nocapture noundef %0, ptr noundef readonly
   br label %27
 
 27:                                               ; preds = %25, %23
-  %.1 = phi ptr [ %.02429, %23 ], [ %26, %25 ]
+  %.2 = phi ptr [ %.02429, %23 ], [ %26, %25 ]
   store i32 1, ptr %16, align 8
   br label %32
 
@@ -97,10 +97,10 @@ define i64 @text_normalize_buffer(ptr nocapture noundef %0, ptr noundef readonly
   br label %32
 
 32:                                               ; preds = %17, %30, %27
-  %.2 = phi ptr [ %.02429, %17 ], [ %31, %30 ], [ %.1, %27 ]
+  %.1 = phi ptr [ %.02429, %17 ], [ %31, %30 ], [ %.2, %27 ]
   %33 = add nuw i64 %.02628, 1
   %34 = icmp ult i64 %33, %2
-  %35 = icmp ult ptr %.2, %7
+  %35 = icmp ult ptr %.1, %7
   %36 = select i1 %34, i1 %35, i1 false
   br i1 %36, label %17, label %._crit_edge.loopexit
 
@@ -111,7 +111,7 @@ define i64 @text_normalize_buffer(ptr nocapture noundef %0, ptr noundef readonly
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
   %37 = phi ptr [ %4, %10 ], [ %.pre, %._crit_edge.loopexit ]
   %.026.lcssa = phi i64 [ 0, %10 ], [ %33, %._crit_edge.loopexit ]
-  %.024.lcssa = phi ptr [ %12, %10 ], [ %.2, %._crit_edge.loopexit ]
+  %.024.lcssa = phi ptr [ %12, %10 ], [ %.1, %._crit_edge.loopexit ]
   %38 = ptrtoint ptr %.024.lcssa to i64
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
@@ -163,7 +163,7 @@ define i64 @text_normalize_map(ptr nocapture noundef %0, ptr noundef %1, i64 nou
   br label %24
 
 24:                                               ; preds = %39, %.lr.ph.i
-  %.02429.i = phi ptr [ %23, %.lr.ph.i ], [ %.2.i, %39 ]
+  %.02429.i = phi ptr [ %23, %.lr.ph.i ], [ %.1.i, %39 ]
   %.02628.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %39 ]
   %25 = getelementptr inbounds i8, ptr %16, i64 %.02628.i
   %26 = load i8, ptr %25, align 1
@@ -187,7 +187,7 @@ define i64 @text_normalize_map(ptr nocapture noundef %0, ptr noundef %1, i64 nou
   br label %34
 
 34:                                               ; preds = %32, %30
-  %.1.i = phi ptr [ %.02429.i, %30 ], [ %33, %32 ]
+  %.2.i = phi ptr [ %.02429.i, %30 ], [ %33, %32 ]
   store i32 1, ptr %13, align 8
   br label %39
 
@@ -203,16 +203,16 @@ define i64 @text_normalize_map(ptr nocapture noundef %0, ptr noundef %1, i64 nou
   br label %39
 
 39:                                               ; preds = %37, %34, %24
-  %.2.i = phi ptr [ %.02429.i, %24 ], [ %38, %37 ], [ %.1.i, %34 ]
+  %.1.i = phi ptr [ %.02429.i, %24 ], [ %38, %37 ], [ %.2.i, %34 ]
   %40 = add nuw i64 %.02628.i, 1
   %41 = icmp ult i64 %40, %.57
-  %42 = icmp ult ptr %.2.i, %20
+  %42 = icmp ult ptr %.1.i, %20
   %43 = select i1 %41, i1 %42, i1 false
   br i1 %43, label %24, label %44
 
 44:                                               ; preds = %39
   %.pre.i = load ptr, ptr %0, align 8
-  %45 = ptrtoint ptr %.2.i to i64
+  %45 = ptrtoint ptr %.1.i to i64
   %46 = ptrtoint ptr %.pre.i to i64
   %47 = sub i64 %45, %46
   store i64 %47, ptr %12, align 8

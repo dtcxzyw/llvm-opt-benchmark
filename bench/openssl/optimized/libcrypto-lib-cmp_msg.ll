@@ -665,7 +665,7 @@ land.lhs.true82:                                  ; preds = %land.lhs.true78
   br i1 %tobool84.not, label %err, label %if.end86
 
 if.end86:                                         ; preds = %land.lhs.true82, %land.lhs.true78, %lor.lhs.false73, %land.lhs.true69, %if.end67
-  %default_sans.0 = phi ptr [ null, %if.end67 ], [ null, %land.lhs.true69 ], [ %call80, %land.lhs.true82 ], [ null, %land.lhs.true78 ], [ null, %lor.lhs.false73 ]
+  %default_sans.1 = phi ptr [ null, %if.end67 ], [ null, %land.lhs.true69 ], [ %call80, %land.lhs.true82 ], [ null, %land.lhs.true78 ], [ null, %lor.lhs.false73 ]
   %reqExtensions = getelementptr inbounds i8, ptr %ctx, i64 400
   %16 = load ptr, ptr %reqExtensions, align 8
   %cmp87.not = icmp eq ptr %16, null
@@ -763,12 +763,12 @@ if.end124:                                        ; preds = %if.then118
   br i1 %cmp126, label %err, label %end
 
 err:                                              ; preds = %if.end13.i, %land.lhs.true98, %if.end124, %if.then118, %if.end110, %land.lhs.true105, %add1_extension.exit, %land.lhs.true82, %land.lhs.true62, %if.end36, %lor.lhs.false39, %if.then57
-  %default_sans.1 = phi ptr [ null, %if.then57 ], [ null, %land.lhs.true62 ], [ %default_sans.0, %if.then118 ], [ %default_sans.0, %if.end124 ], [ %default_sans.0, %if.end110 ], [ %default_sans.0, %land.lhs.true105 ], [ %default_sans.0, %add1_extension.exit ], [ %call80, %land.lhs.true82 ], [ null, %lor.lhs.false39 ], [ null, %if.end36 ], [ %default_sans.0, %land.lhs.true98 ], [ %default_sans.0, %if.end13.i ]
+  %default_sans.0 = phi ptr [ null, %if.then57 ], [ null, %land.lhs.true62 ], [ %default_sans.1, %if.then118 ], [ %default_sans.1, %if.end124 ], [ %default_sans.1, %if.end110 ], [ %default_sans.1, %land.lhs.true105 ], [ %default_sans.1, %add1_extension.exit ], [ %call80, %land.lhs.true82 ], [ null, %lor.lhs.false39 ], [ null, %if.end36 ], [ %default_sans.1, %land.lhs.true98 ], [ %default_sans.1, %if.end13.i ]
   call void @OSSL_CRMF_MSG_free(ptr noundef nonnull %call33) #6
   br label %end
 
 end:                                              ; preds = %if.end114, %if.end124, %err
-  %default_sans.2 = phi ptr [ %default_sans.1, %err ], [ %default_sans.0, %if.end124 ], [ %default_sans.0, %if.end114 ]
+  %default_sans.2 = phi ptr [ %default_sans.0, %err ], [ %default_sans.1, %if.end124 ], [ %default_sans.1, %if.end114 ]
   %crm.0 = phi ptr [ null, %err ], [ %call33, %if.end124 ], [ %call33, %if.end114 ]
   %25 = load ptr, ptr %exts, align 8
   call void @OPENSSL_sk_pop_free(ptr noundef %25, ptr noundef nonnull @X509_EXTENSION_free) #6
@@ -951,12 +951,12 @@ if.else:                                          ; preds = %if.end44
   br i1 %cmp59, label %err, label %if.end63
 
 if.end63:                                         ; preds = %if.else, %lor.lhs.false
-  %local_crm.0 = phi ptr [ %call50, %lor.lhs.false ], [ %call58, %if.else ]
+  %local_crm.2 = phi ptr [ %call50, %lor.lhs.false ], [ %call58, %if.else ]
   %body = getelementptr inbounds i8, ptr %call, i64 8
   %7 = load ptr, ptr %body, align 8
   %value = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %value, align 8
-  %call66 = tail call i32 @OPENSSL_sk_push(ptr noundef %8, ptr noundef nonnull %local_crm.0) #6
+  %call66 = tail call i32 @OPENSSL_sk_push(ptr noundef %8, ptr noundef nonnull %local_crm.2) #6
   %tobool67.not = icmp eq i32 %call66, 0
   br i1 %tobool67.not, label %err, label %if.end70
 
@@ -966,11 +966,11 @@ if.end70:                                         ; preds = %if.end63, %if.end33
   br i1 %tobool72.not, label %err, label %return
 
 err:                                              ; preds = %if.end70, %if.end63, %if.else, %if.then47, %lor.lhs.false, %land.lhs.true29, %if.end23, %if.then43
-  %local_crm.2 = phi ptr [ null, %if.end23 ], [ null, %if.then43 ], [ null, %if.then47 ], [ null, %if.end70 ], [ %local_crm.0, %if.end63 ], [ %call50, %lor.lhs.false ], [ null, %if.else ], [ null, %land.lhs.true29 ]
+  %local_crm.0 = phi ptr [ null, %if.end23 ], [ null, %if.then43 ], [ null, %if.then47 ], [ null, %if.end70 ], [ %local_crm.2, %if.end63 ], [ %call50, %lor.lhs.false ], [ null, %if.else ], [ null, %land.lhs.true29 ]
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 438, ptr noundef nonnull @__func__.ossl_cmp_certreq_new) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 163, ptr noundef null) #6
-  tail call void @OSSL_CRMF_MSG_free(ptr noundef %local_crm.2) #6
+  tail call void @OSSL_CRMF_MSG_free(ptr noundef %local_crm.0) #6
   %call.i = tail call ptr @OSSL_CMP_MSG_it() #6
   tail call void @ASN1_item_free(ptr noundef %call, ptr noundef %call.i) #6
   br label %return

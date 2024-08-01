@@ -188,7 +188,7 @@ if.end25.fold.split:                              ; preds = %qed_count_contiguou
   br label %if.end25
 
 if.end25:                                         ; preds = %qed_check_cluster_offset.exit, %qed_count_contiguous_clusters.exit, %if.end25.fold.split, %if.end.i58, %if.else19
-  %ret.0 = phi i32 [ 2, %qed_count_contiguous_clusters.exit ], [ -22, %if.else19 ], [ -22, %if.end.i58 ], [ 1, %if.end25.fold.split ], [ %spec.select, %qed_check_cluster_offset.exit ]
+  %ret.1 = phi i32 [ 2, %qed_count_contiguous_clusters.exit ], [ -22, %if.else19 ], [ -22, %if.end.i58 ], [ 1, %if.end25.fold.split ], [ %spec.select, %qed_check_cluster_offset.exit ]
   %mul = mul i32 %sub.i49, %s.val36
   %conv26 = zext i32 %mul to i64
   %sub28 = sub nsw i64 %conv26, %and.i
@@ -198,7 +198,7 @@ if.end25:                                         ; preds = %qed_check_cluster_o
 return.sink.split:                                ; preds = %qed_check_table_offset.exit, %if.end, %if.end.i, %if.end.i.i, %if.end25
   %cond35.sink = phi i64 [ %cond35, %if.end25 ], [ 0, %if.end.i.i ], [ 0, %if.end.i ], [ 0, %if.end ], [ 0, %qed_check_table_offset.exit ]
   %offset.0.sink.ph = phi i64 [ %15, %if.end25 ], [ 0, %if.end.i.i ], [ 0, %if.end.i ], [ 0, %if.end ], [ 0, %qed_check_table_offset.exit ]
-  %retval.0.ph = phi i32 [ %ret.0, %if.end25 ], [ -22, %if.end.i.i ], [ -22, %if.end.i ], [ -22, %if.end ], [ -22, %qed_check_table_offset.exit ]
+  %retval.0.ph = phi i32 [ %ret.1, %if.end25 ], [ -22, %if.end.i.i ], [ -22, %if.end.i ], [ -22, %if.end ], [ -22, %qed_check_table_offset.exit ]
   store i64 %cond35.sink, ptr %len, align 8
   br label %return
 

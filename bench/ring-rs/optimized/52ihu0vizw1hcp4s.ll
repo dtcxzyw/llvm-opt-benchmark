@@ -1860,8 +1860,8 @@ define hidden { ptr, i64 } @_ZN4ring3rsa10public_key5Inner12exponentiate17hcd4c5
   br label %66
 
 66:                                               ; preds = %71, %65
-  %.sroa.02.1 = phi ptr [ null, %71 ], [ %52, %65 ]
-  %67 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.1, 0
+  %.sroa.02.2 = phi ptr [ null, %71 ], [ %52, %65 ]
+  %67 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.2, 0
   %68 = insertvalue { ptr, i64 } %67, i64 %2, 1
   ret { ptr, i64 } %68
 

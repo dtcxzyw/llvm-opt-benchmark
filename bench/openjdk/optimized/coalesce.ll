@@ -1962,7 +1962,7 @@ _ZN4NodenwEm.exit240:                             ; preds = %764, %766
 
 789:                                              ; preds = %785, %_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_R12LiveRangeMap.exit237
   %.0187 = phi ptr [ %.0.i.i.i239, %785 ], [ %723, %_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_R12LiveRangeMap.exit237 ]
-  %.1 = phi i32 [ %786, %785 ], [ %734, %_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_R12LiveRangeMap.exit237 ]
+  %.3 = phi i32 [ %786, %785 ], [ %734, %_ZN12PhaseChaitin11clone_projsEP5BlockjP4NodeS3_R12LiveRangeMap.exit237 ]
   %790 = load ptr, ptr %685, align 8
   %791 = getelementptr inbounds ptr, ptr %790, i64 %687
   %792 = load ptr, ptr %791, align 8
@@ -2116,7 +2116,7 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit261: ; preds = %_ZN12LiveRang
   br label %869
 
 869:                                              ; preds = %_ZN12LiveRangeMap4findEPK4Node.exit236, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit261, %654, %651
-  %.2 = phi i32 [ %.1, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit261 ], [ %.0181309, %_ZN12LiveRangeMap4findEPK4Node.exit236 ], [ %.0181309, %654 ], [ %.0181309, %651 ]
+  %.2 = phi i32 [ %.3, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit261 ], [ %.0181309, %_ZN12LiveRangeMap4findEPK4Node.exit236 ], [ %.0181309, %654 ], [ %.0181309, %651 ]
   %870 = load double, ptr %190, align 8
   %871 = fcmp olt double %870, 1.500000e+00
   br i1 %871, label %877, label %872
@@ -2150,7 +2150,7 @@ tailrecurse.i.preheader.lr.ph:                    ; preds = %.thread
 
 tailrecurse.i.preheader:                          ; preds = %tailrecurse.i.preheader.lr.ph, %_ZNK8JVMState14is_monitor_useEj.exit.thread
   %indvars.iv340 = phi i64 [ %886, %tailrecurse.i.preheader.lr.ph ], [ %indvars.iv.next341, %_ZNK8JVMState14is_monitor_useEj.exit.thread ]
-  %.3306 = phi i32 [ %.2, %tailrecurse.i.preheader.lr.ph ], [ %.4, %_ZNK8JVMState14is_monitor_useEj.exit.thread ]
+  %.4306 = phi i32 [ %.2, %tailrecurse.i.preheader.lr.ph ], [ %.5, %_ZNK8JVMState14is_monitor_useEj.exit.thread ]
   %887 = trunc nuw i64 %indvars.iv340 to i32
   br label %tailrecurse.i
 
@@ -2407,8 +2407,8 @@ _ZN4Node7del_outEPS_.exit.i270:                   ; preds = %1019, %1007, %1003
   br label %_ZN4Node7set_reqEjPS_.exit274
 
 _ZN4Node7set_reqEjPS_.exit274:                    ; preds = %_ZN4Node7del_outEPS_.exit.i270, %1024, %1035
-  %1041 = add i32 %.3306, 1
-  call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %189, i32 noundef %.3306, ptr noundef %.0.i.i.i265) #9
+  %1041 = add i32 %.4306, 1
+  call void @_ZN10Node_Array6insertEjP4Node(ptr noundef nonnull align 8 dereferenceable(24) %189, i32 noundef %.4306, ptr noundef %.0.i.i.i265) #9
   %1042 = load i32, ptr %182, align 8
   %1043 = add i32 %1042, 1
   store i32 %1043, ptr %182, align 8
@@ -2443,14 +2443,14 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit276: ; preds = %_ZN4Node7set_
   br label %_ZNK8JVMState14is_monitor_useEj.exit.thread
 
 _ZNK8JVMState14is_monitor_useEj.exit.thread:      ; preds = %896, %938, %_ZNK8JVMState14is_monitor_useEj.exit, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit276
-  %.4 = phi i32 [ %1041, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit276 ], [ %.3306, %_ZNK8JVMState14is_monitor_useEj.exit ], [ %.3306, %938 ], [ %.3306, %896 ]
+  %.5 = phi i32 [ %1041, %_ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit276 ], [ %.4306, %_ZNK8JVMState14is_monitor_useEj.exit ], [ %.4306, %938 ], [ %.4306, %896 ]
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %exitcond344.not = icmp eq i64 %indvars.iv.next341, %wide.trip.count343
   br i1 %exitcond344.not, label %.loopexit, label %tailrecurse.i.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %_ZNK8JVMState14is_monitor_useEj.exit.thread, %650, %877, %_ZN12LiveRangeMap4findEPK4Node.exit221, %.thread, %872, %_ZN4Node7set_reqEjPS_.exit220
-  %.5 = phi i32 [ %377, %_ZN4Node7set_reqEjPS_.exit220 ], [ %.0181309, %_ZN12LiveRangeMap4findEPK4Node.exit221 ], [ %.2, %872 ], [ %.2, %.thread ], [ %.2, %877 ], [ %.0181309, %650 ], [ %.4, %_ZNK8JVMState14is_monitor_useEj.exit.thread ]
-  %1062 = add i32 %.5, 1
+  %.1 = phi i32 [ %377, %_ZN4Node7set_reqEjPS_.exit220 ], [ %.0181309, %_ZN12LiveRangeMap4findEPK4Node.exit221 ], [ %.2, %872 ], [ %.2, %.thread ], [ %.2, %877 ], [ %.0181309, %650 ], [ %.5, %_ZNK8JVMState14is_monitor_useEj.exit.thread ]
+  %1062 = add i32 %.1, 1
   %1063 = load i32, ptr %182, align 8
   %1064 = icmp ult i32 %1062, %1063
   br i1 %1064, label %194, label %._crit_edge312.loopexit, !llvm.loop !20
@@ -3071,7 +3071,7 @@ _ZNK7RegMask7overlapERKS_.exit.thread.outer:      ; preds = %192, %10
   %.041.ph = phi ptr [ %.041.ph77, %192 ], [ %18, %10 ]
   %.039.ph = phi ptr [ %.140.lcssa, %192 ], [ %3, %10 ]
   %.037.ph = phi i32 [ %.138.lcssa, %192 ], [ %4, %10 ]
-  %.036.ph = phi i32 [ %.1, %192 ], [ %6, %10 ]
+  %.036.ph = phi i32 [ %.2, %192 ], [ %6, %10 ]
   br label %_ZNK7RegMask7overlapERKS_.exit.thread.outer76
 
 _ZNK7RegMask7overlapERKS_.exit.thread.outer76:    ; preds = %_ZNK7RegMask7overlapERKS_.exit.thread.outer, %78
@@ -3084,7 +3084,7 @@ _ZNK7RegMask7overlapERKS_.exit.thread.outer76:    ; preds = %_ZNK7RegMask7overla
 _ZNK7RegMask7overlapERKS_.exit.thread:            ; preds = %_ZNK7RegMask7overlapERKS_.exit.thread.backedge, %_ZNK7RegMask7overlapERKS_.exit.thread.outer76
   %.039 = phi ptr [ %.039.ph78, %_ZNK7RegMask7overlapERKS_.exit.thread.outer76 ], [ %.140.lcssa, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
   %.037 = phi i32 [ %.037.ph79, %_ZNK7RegMask7overlapERKS_.exit.thread.outer76 ], [ %.138.lcssa, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
-  %.036 = phi i32 [ %.036.ph80, %_ZNK7RegMask7overlapERKS_.exit.thread.outer76 ], [ %.1, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
+  %.036 = phi i32 [ %.036.ph80, %_ZNK7RegMask7overlapERKS_.exit.thread.outer76 ], [ %.2, %_ZNK7RegMask7overlapERKS_.exit.thread.backedge ]
   %.13859 = add i32 %.037, -1
   %24 = icmp eq i32 %.13859, 0
   br i1 %24, label %.lr.ph, label %._crit_edge
@@ -3267,7 +3267,7 @@ _ZN7RegMask8SUBTRACTERKS_.exit._crit_edge:        ; preds = %_ZN7RegMask8SUBTRAC
   %141 = phi i32 [ %.pre70, %_ZN7RegMask8SUBTRACTERKS_.exit._crit_edge ], [ %.pre71, %112 ]
   %142 = phi i32 [ %.pre68, %_ZN7RegMask8SUBTRACTERKS_.exit._crit_edge ], [ %.pre69, %112 ]
   %143 = phi ptr [ %.pre67, %_ZN7RegMask8SUBTRACTERKS_.exit._crit_edge ], [ %117, %112 ]
-  %.1 = phi i32 [ %139, %_ZN7RegMask8SUBTRACTERKS_.exit._crit_edge ], [ %.036, %112 ]
+  %.2 = phi i32 [ %139, %_ZN7RegMask8SUBTRACTERKS_.exit._crit_edge ], [ %.036, %112 ]
   %144 = getelementptr inbounds %class.LRG, ptr %143, i64 %118, i32 10
   %145 = getelementptr inbounds i8, ptr %144, i64 92
   %146 = load i32, ptr %145, align 4
@@ -3356,7 +3356,7 @@ _ZNK7RegMask7overlapERKS_.exit.thread.backedge:   ; preds = %169, %140, %_ZNK7Re
   %200 = sub nsw i32 %196, %199
   %201 = icmp ne i32 %194, %200
   %202 = add i32 %.043.ph, 1
-  %.not49 = icmp ult i32 %202, %.1
+  %.not49 = icmp ult i32 %202, %.2
   %or.cond51 = select i1 %201, i1 %.not49, i1 false
   br i1 %or.cond51, label %_ZNK7RegMask7overlapERKS_.exit.thread.outer, label %.loopexit, !llvm.loop !28
 

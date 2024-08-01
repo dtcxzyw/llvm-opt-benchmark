@@ -4412,7 +4412,7 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3n
           to label %35 unwind label %33
 
 .body:                                            ; preds = %45, %33
-  %.1 = phi i1 [ true, %33 ], [ false, %45 ]
+  %.2 = phi i1 [ true, %33 ], [ false, %45 ]
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %46, %45 ]
   %30 = atomicrmw sub ptr %21, i64 1 release, align 8, !noalias !403
   %31 = icmp eq i64 %30, 1
@@ -4507,7 +4507,7 @@ define hidden void @_ZN5tokio7runtime9scheduler14current_thread13CurrentThread3n
           to label %.noexc28 unwind label %51
 
 .critedge:                                        ; preds = %32, %.body
-  br i1 %.1, label %.critedge.thread, label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit"
+  br i1 %.2, label %.critedge.thread, label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit"
 
 .noexc28:                                         ; preds = %57, %.thread
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Handle$GT$17h558090c734fe91abE"(ptr noalias noundef nonnull align 8 dereferenceable(224) %2) #36
@@ -5268,8 +5268,8 @@ define noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7
           to label %16 unwind label %35
 
 16:                                               ; preds = %14, %9
-  %.1 = phi ptr [ %1, %9 ], [ %15, %14 ]
-  %17 = getelementptr inbounds i8, ptr %.1, i64 88
+  %.0 = phi ptr [ %1, %9 ], [ %15, %14 ]
+  %17 = getelementptr inbounds i8, ptr %.0, i64 88
   %18 = load i64, ptr %17, align 8, !noundef !5
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %21, label %26
@@ -5287,7 +5287,7 @@ define noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7
   store ptr %2, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %0, ptr %23, align 8
-  %24 = invoke noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7Context5enter17hf7c6572c03feb2cbE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 %.1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
+  %24 = invoke noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7Context5enter17hf7c6572c03feb2cbE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 %.0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
           to label %25 unwind label %35
 
 25:                                               ; preds = %21
@@ -5295,7 +5295,7 @@ define noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7
   br label %26
 
 26:                                               ; preds = %16, %25
-  %.4 = phi ptr [ %24, %25 ], [ %.1, %16 ]
+  %.4 = phi ptr [ %24, %25 ], [ %.0, %16 ]
   %27 = getelementptr inbounds i8, ptr %2, i64 32
   %28 = load ptr, ptr %27, align 8, !noundef !5
   %.not21 = icmp eq ptr %28, null
@@ -5337,18 +5337,18 @@ define noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7
 
 39:                                               ; preds = %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit.thread", %.thread
   %.pn2346 = phi { ptr, i32 } [ %12, %.thread ], [ %20, %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit.thread" ]
-  %.03742 = phi ptr [ %1, %.thread ], [ %.5, %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit.thread" ]
-  %40 = getelementptr inbounds i8, ptr %.03742, i64 64
+  %.13742 = phi ptr [ %1, %.thread ], [ %.5, %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit.thread" ]
+  %40 = getelementptr inbounds i8, ptr %.13742, i64 64
   invoke void @"_ZN4core3ptr179drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$$GT$17h06315cd888518bbbE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %40) #36
           to label %.thread55 unwind label %37
 
 .thread55:                                        ; preds = %39
-  %41 = load i64, ptr %.03742, align 8, !range !483, !alias.scope !530, !noundef !5
+  %41 = load i64, ptr %.13742, align 8, !range !483, !alias.scope !530, !noundef !5
   %42 = icmp eq i64 %41, 2
   br i1 %42, label %.thread61, label %43
 
 43:                                               ; preds = %.thread55
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..driver..TimeDriver$GT$17hca22e64e71c86c3dE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.03742)
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$tokio..runtime..driver..TimeDriver$GT$17hca22e64e71c86c3dE.llvm.700930863383756518"(ptr noalias noundef nonnull align 8 dereferenceable(64) %.13742)
           to label %.thread61 unwind label %37
 
 "_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit": ; preds = %35, %.thread61
@@ -5356,7 +5356,7 @@ define noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7
   resume { ptr, i32 } %.pn23455864
 
 .thread61:                                        ; preds = %43, %.thread55
-  call void @__rust_dealloc(ptr noundef nonnull %.03742, i64 noundef 112, i64 noundef 8) #24
+  call void @__rust_dealloc(ptr noundef nonnull %.13742, i64 noundef 112, i64 noundef 8) #24
   br label %"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..driver..Driver$GT$17h658a2a4ffb4cf16fE.exit"
 }
 
@@ -9018,8 +9018,8 @@ define hidden noundef range(i8 0, 3) i8 @_ZN5tokio4sync5watch13maybe_changed17h8
   br label %10
 
 10:                                               ; preds = %7, %9
-  %.0 = phi i8 [ 0, %9 ], [ %spec.select, %7 ]
-  ret i8 %.0
+  %.1 = phi i8 [ 0, %9 ], [ %spec.select, %7 ]
+  ret i8 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -9266,8 +9266,8 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN5tokio4sync5watch17Receiver$LT$T$GT
   br label %_ZN5tokio4sync5watch13maybe_changed17h828f6a72ac1e66d1E.exit
 
 _ZN5tokio4sync5watch13maybe_changed17h828f6a72ac1e66d1E.exit: ; preds = %8, %10
-  %.0.i = phi i8 [ 0, %10 ], [ %spec.select.i, %8 ]
-  ret i8 %.0.i
+  %.1.i = phi i8 [ 0, %10 ], [ %spec.select.i, %8 ]
+  ret i8 %.1.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

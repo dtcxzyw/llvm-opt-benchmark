@@ -432,8 +432,8 @@ define dso_local noundef zeroext i1 @ExecIndexAdvanceArrayKeys(ptr nocapture nou
   br i1 %or.cond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.2 = phi i1 [ false, %2 ], [ %.not, %.lr.ph ]
-  ret i1 %.2
+  %.1 = phi i1 [ false, %2 ], [ %.not, %.lr.ph ]
+  ret i1 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1017,10 +1017,10 @@ thread-pre-split383:                              ; preds = %list_length.exit.i
   br label %114
 
 114:                                              ; preds = %107, %109, %104
-  %.1288 = phi i32 [ 8, %107 ], [ %110, %109 ], [ %.0287464637, %104 ]
-  %.1 = phi ptr [ %108, %107 ], [ %113, %109 ], [ %.0278466635, %104 ]
+  %.2289 = phi i32 [ 8, %107 ], [ %110, %109 ], [ %.0287464637, %104 ]
+  %.2 = phi ptr [ %108, %107 ], [ %113, %109 ], [ %.0278466635, %104 ]
   %115 = sext i32 %.0281465636 to i64
-  %116 = getelementptr %struct.IndexRuntimeKeyInfo, ptr %.1, i64 %115
+  %116 = getelementptr %struct.IndexRuntimeKeyInfo, ptr %.2, i64 %115
   store ptr %45, ptr %116, align 8
   %117 = call ptr @ExecInitExpr(ptr noundef nonnull %.0306, ptr noundef %0) #8
   %118 = getelementptr inbounds i8, ptr %116, i64 8
@@ -1037,9 +1037,9 @@ thread-pre-split383:                              ; preds = %list_length.exit.i
 125:                                              ; preds = %97, %114
   %.0311 = phi i64 [ 0, %114 ], [ %99, %97 ]
   %.1310 = phi i32 [ %spec.select, %114 ], [ %spec.select364, %97 ]
-  %.2289 = phi i32 [ %.1288, %114 ], [ %.0287464637, %97 ]
+  %.1288 = phi i32 [ %.2289, %114 ], [ %.0287464637, %97 ]
   %.1282 = phi i32 [ %124, %114 ], [ %.0281465636, %97 ]
-  %.2 = phi ptr [ %.1, %114 ], [ %.0278466635, %97 ]
+  %.1 = phi ptr [ %.2, %114 ], [ %.0278466635, %97 ]
   %126 = load i32, ptr %11, align 4
   %127 = trunc i32 %126 to i16
   %128 = load i32, ptr %13, align 4
@@ -1088,9 +1088,9 @@ list_length.exit376:                              ; preds = %131, %134
 
 157:                                              ; preds = %289, %list_length.exit376
   %.0312 = phi i32 [ 0, %list_length.exit376 ], [ %293, %289 ]
-  %.3290 = phi i32 [ %.0287464637, %list_length.exit376 ], [ %.5292, %289 ]
+  %.3290 = phi i32 [ %.0287464637, %list_length.exit376 ], [ %.4291, %289 ]
   %.2283 = phi i32 [ %.0281465636, %list_length.exit376 ], [ %.3284, %289 ]
-  %.3 = phi ptr [ %.0278466635, %list_length.exit376 ], [ %.5, %289 ]
+  %.3 = phi ptr [ %.0278466635, %list_length.exit376 ], [ %.4, %289 ]
   br i1 %.not349, label %165, label %158
 
 158:                                              ; preds = %157
@@ -1300,10 +1300,10 @@ thread-pre-split387:                              ; preds = %254
   br label %278
 
 278:                                              ; preds = %271, %273, %268
-  %.4291 = phi i32 [ 8, %271 ], [ %274, %273 ], [ %.3290, %268 ]
-  %.4 = phi ptr [ %272, %271 ], [ %277, %273 ], [ %.3, %268 ]
+  %.5292 = phi i32 [ 8, %271 ], [ %274, %273 ], [ %.3290, %268 ]
+  %.5 = phi ptr [ %272, %271 ], [ %277, %273 ], [ %.3, %268 ]
   %279 = sext i32 %.2283 to i64
-  %280 = getelementptr %struct.IndexRuntimeKeyInfo, ptr %.4, i64 %279
+  %280 = getelementptr %struct.IndexRuntimeKeyInfo, ptr %.5, i64 %279
   store ptr %203, ptr %280, align 8
   %281 = call ptr @ExecInitExpr(ptr noundef nonnull %.1307, ptr noundef %0) #8
   %282 = getelementptr inbounds i8, ptr %280, i64 8
@@ -1320,9 +1320,9 @@ thread-pre-split387:                              ; preds = %254
 289:                                              ; preds = %262, %278
   %.0301 = phi i32 [ 8, %278 ], [ %spec.select366, %262 ]
   %.0300 = phi i64 [ 0, %278 ], [ %264, %262 ]
-  %.5292 = phi i32 [ %.4291, %278 ], [ %.3290, %262 ]
+  %.4291 = phi i32 [ %.5292, %278 ], [ %.3290, %262 ]
   %.3284 = phi i32 [ %288, %278 ], [ %.2283, %262 ]
-  %.5 = phi ptr [ %.4, %278 ], [ %.3, %262 ]
+  %.4 = phi ptr [ %.5, %278 ], [ %.3, %262 ]
   %290 = load i32, ptr %11, align 4
   %291 = trunc i32 %290 to i16
   %292 = load i32, ptr %13, align 4
@@ -1596,9 +1596,9 @@ thread-pre-split391:                              ; preds = %402
 
 435:                                              ; preds = %125, %396, %430, %.loopexit
   %.2298 = phi i32 [ %.0296463638, %125 ], [ %.0296463638, %.loopexit ], [ %.1297, %396 ], [ %.0296463638, %430 ]
-  %.8295 = phi i32 [ %.2289, %125 ], [ %.3290, %.loopexit ], [ %.7294, %396 ], [ %.0287464637, %430 ]
+  %.8295 = phi i32 [ %.1288, %125 ], [ %.3290, %.loopexit ], [ %.7294, %396 ], [ %.0287464637, %430 ]
   %.5286 = phi i32 [ %.1282, %125 ], [ %.2283, %.loopexit ], [ %.4285, %396 ], [ %.0281465636, %430 ]
-  %.8 = phi ptr [ %.2, %125 ], [ %.3, %.loopexit ], [ %.7, %396 ], [ %.0278466635, %430 ]
+  %.8 = phi ptr [ %.1, %125 ], [ %.3, %.loopexit ], [ %.7, %396 ], [ %.0278466635, %430 ]
   %436 = mul nuw nsw i64 %indvar.next, 72
   %scevgep = getelementptr i8, ptr %20, i64 %436
   %437 = add i64 %32, %436

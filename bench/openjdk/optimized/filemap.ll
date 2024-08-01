@@ -2712,7 +2712,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit23:         ; preds = %74, %80
   br label %38, !llvm.loop !19
 
 88:                                               ; preds = %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit20, %86
-  %.0 = phi i32 [ %.pre-phi, %86 ], [ -1, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit20 ]
+  %.1 = phi i32 [ %.pre-phi, %86 ], [ -1, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit20 ]
   %89 = load ptr, ptr %27, align 8
   %.not.i.i.i.i = icmp eq ptr %89, null
   br i1 %.not.i.i.i.i, label %91, label %90
@@ -2734,8 +2734,8 @@ _ZNK20SharedClassPathEntry4nameEv.exit23:         ; preds = %74, %80
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %93, %91, %_ZNK6Symbol11starts_withEPKci.exit19, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit16, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit
-  %.1 = phi i32 [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ -1, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit16 ], [ -1, %_ZNK6Symbol11starts_withEPKci.exit19 ], [ %.0, %91 ], [ %.0, %93 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 0, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit ], [ -1, %_ZN11FileMapInfo26get_number_of_shared_pathsEv.exit16 ], [ -1, %_ZNK6Symbol11starts_withEPKci.exit19 ], [ %.1, %91 ], [ %.1, %93 ]
+  ret i32 %.0
 }
 
 declare noundef ptr @_ZN11ClassLoader17skip_uri_protocolEPc(ptr noundef) local_unnamed_addr #2
@@ -3632,8 +3632,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %157, %159
   br label %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit
 
 _ZN11FileMapInfo17classpath_failureEPKcS1_.exit:  ; preds = %17, %14, %_ZN12ResourceMarkD2Ev.exit, %160
-  %.1 = phi i1 [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %160 ], [ false, %14 ], [ false, %17 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %160 ], [ false, %14 ], [ false, %17 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5677,9 +5677,9 @@ define hidden noundef i64 @_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHea
   br label %22
 
 22:                                               ; preds = %20, %9
-  %.1.ph.i.i.i = phi i64 [ %7, %9 ], [ %19, %20 ]
+  %.027.ph.i.i.i = phi i64 [ %7, %9 ], [ %19, %20 ]
   %.026.ph.i.i.i = phi i64 [ 0, %9 ], [ %21, %20 ]
-  %23 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %23 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %24 = or disjoint i64 %.026.ph.i.i.i, %23
   %25 = icmp ult i64 %24, %4
   br i1 %25, label %_ZNK6BitMap18find_first_set_bitEm.exit, label %.loopexit.i.i.i
@@ -5737,9 +5737,9 @@ define hidden noundef ptr @_ZN11FileMapInfo19write_bitmap_regionEP11CHeapBitMapS
   br label %25
 
 25:                                               ; preds = %23, %12
-  %.1.ph.i.i.i.i = phi i64 [ %10, %12 ], [ %22, %23 ]
+  %.027.ph.i.i.i.i = phi i64 [ %10, %12 ], [ %22, %23 ]
   %.026.ph.i.i.i.i = phi i64 [ 0, %12 ], [ %24, %23 ]
-  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %27 = or disjoint i64 %.026.ph.i.i.i.i, %26
   %28 = icmp ult i64 %27, %7
   br i1 %28, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit, label %.loopexit.i.i.i.i
@@ -5790,9 +5790,9 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit: ; preds = %8,
   br label %48
 
 48:                                               ; preds = %46, %35
-  %.1.ph.i.i.i.i45 = phi i64 [ %33, %35 ], [ %45, %46 ]
+  %.027.ph.i.i.i.i45 = phi i64 [ %33, %35 ], [ %45, %46 ]
   %.026.ph.i.i.i.i46 = phi i64 [ 0, %35 ], [ %47, %46 ]
-  %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i45, i1 true)
+  %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i45, i1 true)
   %50 = or disjoint i64 %.026.ph.i.i.i.i46, %49
   %51 = icmp ult i64 %50, %30
   br i1 %51, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit52, label %.loopexit.i.i.i.i47
@@ -5867,9 +5867,9 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit52: ; preds = %
   br label %89
 
 89:                                               ; preds = %87, %76
-  %.1.ph.i.i.i.i56 = phi i64 [ %74, %76 ], [ %86, %87 ]
+  %.027.ph.i.i.i.i56 = phi i64 [ %74, %76 ], [ %86, %87 ]
   %.026.ph.i.i.i.i57 = phi i64 [ 0, %76 ], [ %88, %87 ]
-  %90 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i56, i1 true)
+  %90 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i56, i1 true)
   %91 = or disjoint i64 %.026.ph.i.i.i.i57, %90
   %92 = icmp ult i64 %91, %71
   br i1 %92, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit63, label %.loopexit.i.i.i.i58
@@ -5921,9 +5921,9 @@ _ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit63: ; preds = %
   br label %113
 
 113:                                              ; preds = %111, %100
-  %.1.ph.i.i.i.i67 = phi i64 [ %98, %100 ], [ %110, %111 ]
+  %.027.ph.i.i.i.i67 = phi i64 [ %98, %100 ], [ %110, %111 ]
   %.026.ph.i.i.i.i68 = phi i64 [ 0, %100 ], [ %112, %111 ]
-  %114 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i67, i1 true)
+  %114 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i67, i1 true)
   %115 = or disjoint i64 %.026.ph.i.i.i.i68, %114
   %116 = icmp ult i64 %115, %95
   br i1 %116, label %_ZN11FileMapInfo27remove_bitmap_leading_zerosEP11CHeapBitMap.exit74, label %.loopexit.i.i.i.i69
@@ -6698,9 +6698,9 @@ _ZN11FileMapInfo11ptrmap_viewEi.exit27:           ; preds = %_ZN11FileMapInfo11p
   br label %106
 
 106:                                              ; preds = %104, %97
-  %.1.ph.i.i.i.i.i = phi i64 [ %95, %97 ], [ %103, %104 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %95, %97 ], [ %103, %104 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %97 ], [ %105, %104 ]
-  %107 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %107 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %108 = add i64 %.026.ph.i.i.i.i.i, %107
   %109 = icmp ult i64 %108, %17
   br i1 %109, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit
@@ -6760,9 +6760,9 @@ _ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit: ; preds = %106, %_ZNK6BitM
   br label %134
 
 134:                                              ; preds = %132, %125
-  %.1.ph.i.i.i.i.i36 = phi i64 [ %123, %125 ], [ %131, %132 ]
+  %.027.ph.i.i.i.i.i36 = phi i64 [ %123, %125 ], [ %131, %132 ]
   %.026.ph.i.i.i.i.i37 = phi i64 [ %.0917.i.i.i30, %125 ], [ %133, %132 ]
-  %135 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i36, i1 true)
+  %135 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i36, i1 true)
   %136 = add i64 %.026.ph.i.i.i.i.i37, %135
   %137 = icmp ult i64 %136, %27
   br i1 %137, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i32, label %_ZNK6BitMap7iterateI19SharedDataRelocatorEEbPT_.exit41
@@ -8413,7 +8413,7 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %51,
   br label %66
 
 66:                                               ; preds = %59, %58
-  %.030 = phi ptr [ %41, %58 ], [ %65, %59 ]
+  %.1 = phi ptr [ %41, %58 ], [ %65, %59 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %67
 
 67:                                               ; preds = %66
@@ -8421,7 +8421,7 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %51,
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %67, %66, %7, %43, %32, %5
-  %.0 = phi ptr [ %6, %5 ], [ null, %32 ], [ null, %43 ], [ %11, %7 ], [ %.030, %66 ], [ %.030, %67 ]
+  %.0 = phi ptr [ %6, %5 ], [ null, %32 ], [ null, %43 ], [ %11, %7 ], [ %.1, %66 ], [ %.1, %67 ]
   ret ptr %.0
 }
 

@@ -522,13 +522,13 @@ default.unreachable:                              ; preds = %3
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %63
   %.01304.us = phi i32 [ %64, %63 ], [ 0, %.lr.ph ]
-  %.01313.us = phi i32 [ %.1.us, %63 ], [ 0, %.lr.ph ]
+  %.13.us = phi i32 [ %.2.us, %63 ], [ 0, %.lr.ph ]
   %61 = call fastcc i32 @dissect_secs_variable(ptr noundef %0, ptr noundef %42, ptr noundef nonnull %2)
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %.loopexit1, label %63
 
 63:                                               ; preds = %.lr.ph.split.us
-  %.1.us = add i32 %61, %.01313.us
+  %.2.us = add i32 %61, %.13.us
   %64 = add nuw i32 %.01304.us, 1
   %exitcond8.not = icmp eq i32 %64, %.1133
   br i1 %exitcond8.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !4
@@ -538,7 +538,7 @@ default.unreachable:                              ; preds = %3
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %80
   %.01304 = phi i32 [ %86, %80 ], [ 0, %.lr.ph ]
-  %.01313 = phi i32 [ %.1, %80 ], [ 0, %.lr.ph ]
+  %.13 = phi i32 [ %.2, %80 ], [ 0, %.lr.ph ]
   %66 = load ptr, ptr @value_lengths, align 8
   %67 = call ptr @wmem_map_lookup(ptr noundef %66, ptr noundef %60) #3
   %68 = ptrtoint ptr %67 to i64
@@ -595,7 +595,7 @@ default.unreachable:                              ; preds = %3
   %84 = load i32, ptr %2, align 4
   %85 = add i32 %84, %69
   store i32 %85, ptr %2, align 4
-  %.1 = add i32 %.01313, %69
+  %.2 = add i32 %.13, %69
   %86 = add nuw i32 %.01304, 1
   %exitcond.not = icmp eq i32 %86, %.1133
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !4
@@ -617,9 +617,9 @@ default.unreachable:                              ; preds = %3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %80, %63, %.loopexit.sink.split, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ %91, %.loopexit.sink.split ], [ %.1.us, %63 ], [ %.1, %80 ]
+  %.0131 = phi i32 [ 0, %.preheader ], [ %91, %.loopexit.sink.split ], [ %.2.us, %63 ], [ %.2, %80 ]
   %97 = add nuw nsw i32 %13, 1
-  %98 = add i32 %97, %.2
+  %98 = add i32 %97, %.0131
   call void @proto_item_set_len(ptr noundef %42, i32 noundef %98) #3
   br label %.loopexit1
 

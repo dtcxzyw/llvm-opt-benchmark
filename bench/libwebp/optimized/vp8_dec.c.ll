@@ -1406,9 +1406,9 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
   br label %83
 
 83:                                               ; preds = %20, %43, %46, %49, %52, %63, %66, %76, %82
-  %.1 = phi i32 [ 0, %20 ], [ 1, %82 ], [ 0, %76 ], [ 0, %43 ], [ 0, %46 ], [ 0, %49 ], [ 0, %52 ], [ 0, %63 ], [ 0, %66 ]
+  %.2 = phi i32 [ 0, %20 ], [ 1, %82 ], [ 0, %76 ], [ 0, %43 ], [ 0, %46 ], [ 0, %49 ], [ 0, %52 ], [ 0, %63 ], [ 0, %66 ]
   %84 = tail call i32 @VP8ExitCritical(ptr noundef nonnull %0, ptr noundef nonnull %1) #13
-  %85 = and i32 %84, %.1
+  %85 = and i32 %84, %.2
   %.not28 = icmp eq i32 %85, 0
   br i1 %.not28, label %VP8Clear.exit, label %93
 
@@ -2831,7 +2831,7 @@ VP8GetBit.exit80:                                 ; preds = %369, %375
   %394 = phi i32 [ %382, %.lr.ph ], [ %430, %VP8GetBit.exit85 ]
   %395 = phi i32 [ %383, %.lr.ph ], [ %431, %VP8GetBit.exit85 ]
   %396 = phi i8 [ %389, %.lr.ph ], [ %434, %VP8GetBit.exit85 ]
-  %.091 = phi i32 [ 0, %.lr.ph ], [ %432, %VP8GetBit.exit85 ]
+  %.191 = phi i32 [ 0, %.lr.ph ], [ %432, %VP8GetBit.exit85 ]
   %.03090 = phi ptr [ %388, %.lr.ph ], [ %433, %VP8GetBit.exit85 ]
   %397 = zext i8 %396 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
@@ -2896,7 +2896,7 @@ VP8GetBit.exit85:                                 ; preds = %417, %423
   store i32 %430, ptr %8, align 4, !alias.scope !149
   %431 = add i32 %429, -1
   store i32 %431, ptr %6, align 8, !alias.scope !149
-  %reass.add = shl i32 %.091, 1
+  %reass.add = shl i32 %.191, 1
   %432 = or disjoint i32 %reass.add, %426
   %433 = getelementptr inbounds i8, ptr %.03090, i64 1
   %434 = load i8, ptr %433, align 1
@@ -2904,15 +2904,15 @@ VP8GetBit.exit85:                                 ; preds = %417, %423
   br i1 %.not35, label %._crit_edge, label %392, !llvm.loop !156
 
 ._crit_edge:                                      ; preds = %VP8GetBit.exit85, %VP8GetBit.exit80
-  %.0.lcssa = phi i32 [ 0, %VP8GetBit.exit80 ], [ %432, %VP8GetBit.exit85 ]
+  %.1.lcssa = phi i32 [ 0, %VP8GetBit.exit80 ], [ %432, %VP8GetBit.exit85 ]
   %435 = shl nuw nsw i32 8, %385
   %436 = or disjoint i32 %435, 3
-  %437 = add nsw i32 %436, %.0.lcssa
+  %437 = add nsw i32 %436, %.1.lcssa
   br label %438
 
 438:                                              ; preds = %VP8GetBit.exit40, %._crit_edge, %VP8GetBit.exit70, %VP8GetBit.exit60, %VP8GetBit.exit45
-  %.1 = phi i32 [ %437, %._crit_edge ], [ %304, %VP8GetBit.exit70 ], [ %227, %VP8GetBit.exit60 ], [ %116, %VP8GetBit.exit45 ], [ 2, %VP8GetBit.exit40 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %437, %._crit_edge ], [ %304, %VP8GetBit.exit70 ], [ %227, %VP8GetBit.exit60 ], [ %116, %VP8GetBit.exit45 ], [ 2, %VP8GetBit.exit40 ]
+  ret i32 %.0
 }
 
 declare void @VP8LoadFinalBytes(ptr noundef) local_unnamed_addr #4

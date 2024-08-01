@@ -473,13 +473,13 @@ define hidden void @"_ZN15influxdb3_write9persister33TrackedMemoryArrowWriter$LT
           to label %23 unwind label %21
 
 20:                                               ; preds = %45, %21
-  %.0 = phi i1 [ %.1, %21 ], [ false, %45 ]
+  %.1 = phi i1 [ %.0, %21 ], [ false, %45 ]
   %.pn = phi { ptr, i32 } [ %22, %21 ], [ %46, %45 ]
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion_execution..memory_pool..MemoryPool$GT$$GT$17h3c584832b8cd8849E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %17) #21
           to label %70 unwind label %71
 
 21:                                               ; preds = %44, %25, %23, %5
-  %.1 = phi i1 [ false, %44 ], [ false, %25 ], [ true, %23 ], [ true, %5 ]
+  %.0 = phi i1 [ false, %44 ], [ false, %25 ], [ true, %23 ], [ true, %5 ]
   %22 = landingpad { ptr, i32 }
           cleanup
   br label %20
@@ -625,7 +625,7 @@ define hidden void @"_ZN15influxdb3_write9persister33TrackedMemoryArrowWriter$LT
   br label %"_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion_execution..memory_pool..MemoryPool$GT$$GT$17h3c584832b8cd8849E.exit"
 
 70:                                               ; preds = %20
-  br i1 %.0, label %89, label %90
+  br i1 %.1, label %89, label %90
 
 "_ZN4core3ptr98drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$datafusion_execution..memory_pool..MemoryPool$GT$$GT$17h3c584832b8cd8849E.exit": ; preds = %.noexc33, %73, %.noexc, %53
   ret void

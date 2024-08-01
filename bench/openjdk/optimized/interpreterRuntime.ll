@@ -7542,7 +7542,7 @@ _ZN26GrowableArrayWithAllocatorIPh13GrowableArrayIS0_EE6appendERKS0_.exit: ; pre
   br label %_ZN23SignatureHandlerLibrary11set_handlerEP10CodeBuffer.exit.thread
 
 _ZN23SignatureHandlerLibrary11set_handlerEP10CodeBuffer.exit.thread: ; preds = %108, %_ZN23SignatureHandlerLibrary16set_handler_blobEv.exit.i, %_ZN26GrowableArrayWithAllocatorIPh13GrowableArrayIS0_EE6appendERKS0_.exit
-  %.0 = phi i32 [ %195, %_ZN26GrowableArrayWithAllocatorIPh13GrowableArrayIS0_EE6appendERKS0_.exit ], [ -1, %_ZN23SignatureHandlerLibrary16set_handler_blobEv.exit.i ], [ -1, %108 ]
+  %.1 = phi i32 [ %195, %_ZN26GrowableArrayWithAllocatorIPh13GrowableArrayIS0_EE6appendERKS0_.exit ], [ -1, %_ZN23SignatureHandlerLibrary16set_handler_blobEv.exit.i ], [ -1, %108 ]
   call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %3) #13
   %196 = load ptr, ptr %49, align 8
   %.not.i.i.i.i = icmp eq ptr %196, null
@@ -7565,15 +7565,15 @@ _ZN23SignatureHandlerLibrary11set_handlerEP10CodeBuffer.exit.thread: ; preds = %
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %200, %198
-  %201 = icmp slt i32 %.0, 0
+  %201 = icmp slt i32 %.1, 0
   br i1 %201, label %207, label %_ZN12ResourceMarkD2Ev.exit.thread
 
 _ZN12ResourceMarkD2Ev.exit.thread:                ; preds = %_ZNK17GrowableArrayViewImE4findERKm.exit, %_ZN12ResourceMarkD2Ev.exit
-  %.133 = phi i32 [ %.0, %_ZN12ResourceMarkD2Ev.exit ], [ %43, %_ZNK17GrowableArrayViewImE4findERKm.exit ]
+  %.033 = phi i32 [ %.1, %_ZN12ResourceMarkD2Ev.exit ], [ %43, %_ZNK17GrowableArrayViewImE4findERKm.exit ]
   %202 = load ptr, ptr @_ZN23SignatureHandlerLibrary9_handlersE, align 8
   %203 = getelementptr inbounds i8, ptr %202, i64 8
   %204 = load ptr, ptr %203, align 8
-  %205 = zext nneg i32 %.133 to i64
+  %205 = zext nneg i32 %.033 to i64
   %206 = getelementptr inbounds ptr, ptr %204, i64 %205
   br label %207
 

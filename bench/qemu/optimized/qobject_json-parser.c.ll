@@ -1245,13 +1245,13 @@ if.then58.i.i:                                    ; preds = %cvt4hex.exit157.i.i
 
 if.end63.i.i:                                     ; preds = %if.else35.i144.i.i, %for.body.i132.i.i, %if.then58.i.i, %cvt4hex.exit157.i.i, %land.lhs.true45.i.i, %land.lhs.true41.i.i, %cvt4hex.exit.i.i, %cvt4hex.exit.thread.i.i
   %cp.0.i.i = phi i32 [ %or.i.i, %if.then58.i.i ], [ %cp.1.i.i.i, %land.lhs.true45.i.i ], [ %cp.1.i.i.i, %land.lhs.true41.i.i ], [ %cp.1.i.i.i, %cvt4hex.exit.i.i ], [ -1, %cvt4hex.exit157.i.i ], [ -1, %cvt4hex.exit.thread.i.i ], [ -1, %for.body.i132.i.i ], [ -1, %if.else35.i144.i.i ]
-  %ptr.1.i.i = phi ptr [ %add.ptr60.i.i, %if.then58.i.i ], [ %add.ptr.i.i, %land.lhs.true45.i.i ], [ %add.ptr.i.i, %land.lhs.true41.i.i ], [ %add.ptr.i.i, %cvt4hex.exit.i.i ], [ %add.ptr.i.i, %cvt4hex.exit157.i.i ], [ %add.ptr159.i.i, %cvt4hex.exit.thread.i.i ], [ %add.ptr.i.i, %for.body.i132.i.i ], [ %add.ptr.i.i, %if.else35.i144.i.i ]
+  %ptr.2.i.i = phi ptr [ %add.ptr60.i.i, %if.then58.i.i ], [ %add.ptr.i.i, %land.lhs.true45.i.i ], [ %add.ptr.i.i, %land.lhs.true41.i.i ], [ %add.ptr.i.i, %cvt4hex.exit.i.i ], [ %add.ptr.i.i, %cvt4hex.exit157.i.i ], [ %add.ptr159.i.i, %cvt4hex.exit.thread.i.i ], [ %add.ptr.i.i, %for.body.i132.i.i ], [ %add.ptr.i.i, %if.else35.i144.i.i ]
   %call65.i.i = call i64 @mod_utf8_encode(ptr noundef nonnull %utf8_buf.i.i, i64 noundef 5, i32 noundef %cp.0.i.i) #14
   %cmp66.i.i = icmp slt i64 %call65.i.i, 0
   br i1 %cmp66.i.i, label %if.then68.i.i, label %if.end70.i.i
 
 if.then68.i.i:                                    ; preds = %if.end63.i.i
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %ptr.1.i.i to i64
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %ptr.2.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %ptr.0172.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %conv69.i.i = trunc i64 %sub.ptr.sub.i.i to i32
@@ -1282,8 +1282,8 @@ if.then80.i.i:                                    ; preds = %if.then75.i.i
   br label %out.i.i
 
 sw.default84.i.i:                                 ; preds = %if.then75.i.i, %sw.bb73.i.i, %while.body.i.i
-  %ptr.2.i.i = phi ptr [ %ptr.0172.i.i, %sw.bb73.i.i ], [ %ptr.0172.i.i, %while.body.i.i ], [ %arrayidx76.i.i, %if.then75.i.i ]
-  %call85.i.i = call i32 @mod_utf8_codepoint(ptr noundef nonnull %ptr.2.i.i, i64 noundef 6, ptr noundef nonnull %end.i.i) #14
+  %ptr.1.i.i = phi ptr [ %ptr.0172.i.i, %sw.bb73.i.i ], [ %ptr.0172.i.i, %while.body.i.i ], [ %arrayidx76.i.i, %if.then75.i.i ]
+  %call85.i.i = call i32 @mod_utf8_codepoint(ptr noundef nonnull %ptr.1.i.i, i64 noundef 6, ptr noundef nonnull %end.i.i) #14
   %cmp86.i.i = icmp slt i32 %call85.i.i, 0
   br i1 %cmp86.i.i, label %if.then88.i.i, label %if.end89.i.i
 
@@ -1306,7 +1306,7 @@ if.end96.i.i:                                     ; preds = %if.end89.i.i
   br label %sw.epilog99.i.i
 
 sw.epilog99.i.i:                                  ; preds = %if.end96.i.i, %if.end70.i.i, %if.else.i122.i.i, %if.then.i124.i.i, %if.else.i112.i.i, %if.then.i114.i.i, %if.else.i102.i.i, %if.then.i104.i.i, %if.else.i92.i.i, %if.then.i94.i.i, %if.else.i82.i.i, %if.then.i84.i.i, %if.else.i72.i.i, %if.then.i74.i.i, %if.else.i62.i.i, %if.then.i64.i.i, %if.else.i52.i.i, %if.then.i54.i.i, %if.else.i.i.i, %if.then.i.i.i
-  %ptr.3.i.i = phi ptr [ %190, %if.end96.i.i ], [ %ptr.1.i.i, %if.end70.i.i ], [ %incdec.ptr15.i.i, %if.then.i.i.i ], [ %incdec.ptr15.i.i, %if.else.i.i.i ], [ %incdec.ptr15.i.i, %if.then.i54.i.i ], [ %incdec.ptr15.i.i, %if.else.i52.i.i ], [ %incdec.ptr15.i.i, %if.then.i64.i.i ], [ %incdec.ptr15.i.i, %if.else.i62.i.i ], [ %incdec.ptr15.i.i, %if.then.i74.i.i ], [ %incdec.ptr15.i.i, %if.else.i72.i.i ], [ %incdec.ptr15.i.i, %if.then.i84.i.i ], [ %incdec.ptr15.i.i, %if.else.i82.i.i ], [ %incdec.ptr15.i.i, %if.then.i94.i.i ], [ %incdec.ptr15.i.i, %if.else.i92.i.i ], [ %incdec.ptr15.i.i, %if.then.i104.i.i ], [ %incdec.ptr15.i.i, %if.else.i102.i.i ], [ %incdec.ptr15.i.i, %if.then.i114.i.i ], [ %incdec.ptr15.i.i, %if.else.i112.i.i ], [ %incdec.ptr15.i.i, %if.then.i124.i.i ], [ %incdec.ptr15.i.i, %if.else.i122.i.i ]
+  %ptr.3.i.i = phi ptr [ %190, %if.end96.i.i ], [ %ptr.2.i.i, %if.end70.i.i ], [ %incdec.ptr15.i.i, %if.then.i.i.i ], [ %incdec.ptr15.i.i, %if.else.i.i.i ], [ %incdec.ptr15.i.i, %if.then.i54.i.i ], [ %incdec.ptr15.i.i, %if.else.i52.i.i ], [ %incdec.ptr15.i.i, %if.then.i64.i.i ], [ %incdec.ptr15.i.i, %if.else.i62.i.i ], [ %incdec.ptr15.i.i, %if.then.i74.i.i ], [ %incdec.ptr15.i.i, %if.else.i72.i.i ], [ %incdec.ptr15.i.i, %if.then.i84.i.i ], [ %incdec.ptr15.i.i, %if.else.i82.i.i ], [ %incdec.ptr15.i.i, %if.then.i94.i.i ], [ %incdec.ptr15.i.i, %if.else.i92.i.i ], [ %incdec.ptr15.i.i, %if.then.i104.i.i ], [ %incdec.ptr15.i.i, %if.else.i102.i.i ], [ %incdec.ptr15.i.i, %if.then.i114.i.i ], [ %incdec.ptr15.i.i, %if.else.i112.i.i ], [ %incdec.ptr15.i.i, %if.then.i124.i.i ], [ %incdec.ptr15.i.i, %if.else.i122.i.i ]
   %191 = load i8, ptr %ptr.3.i.i, align 1
   %cmp8.not.i.i = icmp eq i8 %191, %122
   br i1 %cmp8.not.i.i, label %while.end.i.i, label %while.body.i.i, !llvm.loop !10

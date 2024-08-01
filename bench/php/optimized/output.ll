@@ -1850,7 +1850,7 @@ php_output_handler_init.exit:                     ; preds = %36, %28
   br label %59
 
 59:                                               ; preds = %58, %56
-  %.0 = phi ptr [ %32, %56 ], [ null, %58 ]
+  %.1 = phi ptr [ %32, %56 ], [ null, %58 ]
   %60 = load ptr, ptr %5, align 8
   %.not45 = icmp eq ptr %60, null
   br i1 %.not45, label %63, label %61
@@ -1887,8 +1887,8 @@ php_output_handler_init.exit:                     ; preds = %36, %28
   br label %75
 
 75:                                               ; preds = %63, %69, %74, %65, %17, %8
-  %.1 = phi ptr [ %.0, %65 ], [ %.0, %74 ], [ %.0, %69 ], [ %.0, %63 ], [ %23, %17 ], [ %9, %8 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %65 ], [ %.1, %74 ], [ %.1, %69 ], [ %.1, %63 ], [ %23, %17 ], [ %9, %8 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

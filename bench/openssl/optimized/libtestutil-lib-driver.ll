@@ -479,9 +479,9 @@ if.end36:                                         ; preds = %if.end17, %if.end36
 
 for.body39:                                       ; preds = %if.end36, %for.inc229
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %for.inc229 ], [ 0, %if.end36 ]
-  %subtest_case_count.0113 = phi i32 [ %subtest_case_count.3, %for.inc229 ], [ 0, %if.end36 ]
+  %subtest_case_count.0113 = phi i32 [ %subtest_case_count.1, %for.inc229 ], [ 0, %if.end36 ]
   %test_case_count.0112 = phi i32 [ %test_case_count.1, %for.inc229 ], [ 0, %if.end36 ]
-  %num_failed.0110 = phi i32 [ %num_failed.3, %for.inc229 ], [ 0, %if.end36 ]
+  %num_failed.0110 = phi i32 [ %num_failed.1, %for.inc229 ], [ 0, %if.end36 ]
   %arrayidx41 = getelementptr inbounds [1024 x i32], ptr %permute, i64 0, i64 %indvars.iv127
   %24 = load i32, ptr %arrayidx41, align 4
   %25 = load i32, ptr @single_test, align 4
@@ -632,10 +632,10 @@ for.body138.lr.ph:                                ; preds = %if.end131
 
 for.body138:                                      ; preds = %for.body138.lr.ph, %for.inc186
   %40 = phi i32 [ %39, %for.body138.lr.ph ], [ %45, %for.inc186 ]
-  %subtest_case_count.1106 = phi i32 [ %subtest_case_count.0113, %for.body138.lr.ph ], [ %subtest_case_count.2, %for.inc186 ]
+  %subtest_case_count.2106 = phi i32 [ %subtest_case_count.0113, %for.body138.lr.ph ], [ %subtest_case_count.3, %for.inc186 ]
   %j.0105 = phi i32 [ -1, %for.body138.lr.ph ], [ %rem143, %for.inc186 ]
   %jj.0104 = phi i32 [ 0, %for.body138.lr.ph ], [ %add147, %for.inc186 ]
-  %verdict.0103 = phi i32 [ 123, %for.body138.lr.ph ], [ %verdict.2, %for.inc186 ]
+  %verdict.0103 = phi i32 [ 123, %for.body138.lr.ph ], [ %verdict.1, %for.inc186 ]
   %add139 = add nsw i32 %j.0105, %jstep.0
   %rem143 = srem i32 %add139, %40
   %41 = load i32, ptr @single_iter, align 4
@@ -654,7 +654,7 @@ if.end151:                                        ; preds = %for.body138
   %cmp162 = icmp ne i32 %verdict.0103, 0
   %or.cond1 = select i1 %cmp159, i1 %cmp162, i1 false
   %spec.store.select = select i1 %or.cond1, i32 1, i32 %verdict.0103
-  %verdict.1 = select i1 %cmp155, i32 0, i32 %spec.store.select
+  %verdict.2 = select i1 %cmp155, i32 0, i32 %spec.store.select
   br i1 %cmp155, label %if.else.i85, label %if.then.i84
 
 if.then.i84:                                      ; preds = %if.end151
@@ -672,17 +672,17 @@ finalize.exit86:                                  ; preds = %if.then.i84, %if.el
   br i1 %tobool176.not, label %if.else180, label %if.then177
 
 if.then177:                                       ; preds = %finalize.exit86
-  %add178 = add nsw i32 %subtest_case_count.1106, 1
+  %add178 = add nsw i32 %subtest_case_count.2106, 1
   %add179 = add nsw i32 %rem143, 1
   call void (i32, ptr, ...) @test_verdict(i32 noundef %call154, ptr noundef nonnull @.str.10, i32 noundef %add178, i32 noundef %add179)
   br label %if.end184
 
 if.else180:                                       ; preds = %finalize.exit86
-  %add182 = add i32 %add181, %subtest_case_count.1106
+  %add182 = add i32 %add181, %subtest_case_count.2106
   %44 = load ptr, ptr @test_title, align 8
   %add183 = add nsw i32 %rem143, 1
   call void (i32, ptr, ...) @test_verdict(i32 noundef %call154, ptr noundef nonnull @.str.11, i32 noundef %add182, ptr noundef %44, i32 noundef %add183)
-  %.pre135 = add nsw i32 %subtest_case_count.1106, 1
+  %.pre135 = add nsw i32 %subtest_case_count.2106, 1
   br label %if.end184
 
 if.end184:                                        ; preds = %if.else180, %if.then177
@@ -692,15 +692,15 @@ if.end184:                                        ; preds = %if.else180, %if.the
 
 for.inc186:                                       ; preds = %for.body138, %if.end184
   %45 = phi i32 [ %.pre133, %if.end184 ], [ %40, %for.body138 ]
-  %verdict.2 = phi i32 [ %verdict.1, %if.end184 ], [ %verdict.0103, %for.body138 ]
-  %subtest_case_count.2 = phi i32 [ %inc185.pre-phi, %if.end184 ], [ %subtest_case_count.1106, %for.body138 ]
+  %verdict.1 = phi i32 [ %verdict.2, %if.end184 ], [ %verdict.0103, %for.body138 ]
+  %subtest_case_count.3 = phi i32 [ %inc185.pre-phi, %if.end184 ], [ %subtest_case_count.2106, %for.body138 ]
   %cmp136 = icmp slt i32 %add147, %45
   br i1 %cmp136, label %for.body138, label %for.end188, !llvm.loop !11
 
 for.end188:                                       ; preds = %for.inc186, %if.end131
   %46 = phi i32 [ %39, %if.end131 ], [ %45, %for.inc186 ]
-  %verdict.0.lcssa = phi i32 [ 123, %if.end131 ], [ %verdict.2, %for.inc186 ]
-  %subtest_case_count.1.lcssa = phi i32 [ %subtest_case_count.0113, %if.end131 ], [ %subtest_case_count.2, %for.inc186 ]
+  %verdict.0.lcssa = phi i32 [ 123, %if.end131 ], [ %verdict.1, %for.inc186 ]
+  %subtest_case_count.2.lcssa = phi i32 [ %subtest_case_count.0113, %if.end131 ], [ %subtest_case_count.3, %for.inc186 ]
   %bf.load192 = load i8, ptr %subtest, align 4
   %47 = and i8 %bf.load192, 1
   %tobool196.not = icmp eq i8 %47, 0
@@ -739,9 +739,9 @@ if.then219:                                       ; preds = %lor.lhs.false210, %
   br label %for.inc229
 
 for.inc229:                                       ; preds = %if.then219, %lor.lhs.false210.if.end224_crit_edge, %for.body39, %finalize.exit, %if.end66
-  %num_failed.3 = phi i32 [ %num_failed.0110, %if.end66 ], [ %spec.select, %finalize.exit ], [ %num_failed.0110, %for.body39 ], [ %spec.select74, %lor.lhs.false210.if.end224_crit_edge ], [ %spec.select74, %if.then219 ]
+  %num_failed.1 = phi i32 [ %num_failed.0110, %if.end66 ], [ %spec.select, %finalize.exit ], [ %num_failed.0110, %for.body39 ], [ %spec.select74, %lor.lhs.false210.if.end224_crit_edge ], [ %spec.select74, %if.then219 ]
   %test_case_count.1 = phi i32 [ %test_case_count.0112, %if.end66 ], [ %add81, %finalize.exit ], [ %test_case_count.0112, %for.body39 ], [ %.pre136, %lor.lhs.false210.if.end224_crit_edge ], [ %add220, %if.then219 ]
-  %subtest_case_count.3 = phi i32 [ %subtest_case_count.0113, %if.end66 ], [ %subtest_case_count.0113, %finalize.exit ], [ %subtest_case_count.0113, %for.body39 ], [ %subtest_case_count.1.lcssa, %lor.lhs.false210.if.end224_crit_edge ], [ %subtest_case_count.1.lcssa, %if.then219 ]
+  %subtest_case_count.1 = phi i32 [ %subtest_case_count.0113, %if.end66 ], [ %subtest_case_count.0113, %finalize.exit ], [ %subtest_case_count.0113, %for.body39 ], [ %subtest_case_count.2.lcssa, %lor.lhs.false210.if.end224_crit_edge ], [ %subtest_case_count.2.lcssa, %if.then219 ]
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %52 = load i32, ptr @num_tests, align 4
   %53 = zext i32 %52 to i64
@@ -749,7 +749,7 @@ for.inc229:                                       ; preds = %if.then219, %lor.lh
   br i1 %cmp38.not, label %for.end231.loopexit, label %for.body39, !llvm.loop !12
 
 for.end231.loopexit:                              ; preds = %for.inc229
-  %54 = icmp ne i32 %num_failed.3, 0
+  %54 = icmp ne i32 %num_failed.1, 0
   %55 = zext i1 %54 to i32
   br label %return
 

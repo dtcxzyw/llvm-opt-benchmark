@@ -1775,21 +1775,21 @@ if.then30:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then30
   %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
-  %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %nReturnValue.2 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %13 = and i1 %cmp20, %cmp21
   br i1 %13, label %for.body, label %if.end38, !llvm.loop !9
 
 if.end38:                                         ; preds = %for.inc, %if.then
-  %nReturnValue.2 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.254 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.254 to i64
+  %nReturnValue.054 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.054 to i64
   %add43 = add i64 %cond.i, %conv42
   %14 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i49 = icmp slt i8 %14, 0

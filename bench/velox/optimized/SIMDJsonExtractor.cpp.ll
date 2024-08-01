@@ -677,12 +677,12 @@ _ZN5folly8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbED2Ev.ex
   br i1 %cmp.i.i, label %while.cond, label %return.loopexit
 
 return.loopexit:                                  ; preds = %_ZN5folly8ExpectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbED2Ev.exit9, %while.cond
-  %retval.2.ph = xor i1 %call5, true
+  %retval.0.ph = xor i1 %call5, true
   br label %return
 
 return:                                           ; preds = %return.loopexit, %if.end, %init.end
-  %retval.2 = phi i1 [ false, %init.end ], [ false, %if.end ], [ %retval.2.ph, %return.loopexit ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ false, %init.end ], [ false, %if.end ], [ %retval.0.ph, %return.loopexit ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind

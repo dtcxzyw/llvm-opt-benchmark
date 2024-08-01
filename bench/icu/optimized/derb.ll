@@ -499,9 +499,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -729,7 +729,7 @@ for.cond:                                         ; preds = %cleanup285
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %retval.0141 = phi i32 [ 0, %for.body.lr.ph ], [ %retval.4, %for.cond ]
+  %retval.1141 = phi i32 [ 0, %for.body.lr.ph ], [ %retval.3, %for.cond ]
   %arrayidx62 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   %32 = load ptr, ptr %arrayidx62, align 8
   %call63 = call ptr @getLongPathname(ptr noundef %32)
@@ -994,7 +994,7 @@ invoke.cont206:                                   ; preds = %if.then203
           to label %cleanup.thread unwind label %lpad170
 
 cleanup.thread:                                   ; preds = %invoke.cont206, %invoke.cont191
-  %retval.1.ph = phi i32 [ %70, %invoke.cont191 ], [ 4, %invoke.cont206 ]
+  %retval.5.ph = phi i32 [ %70, %invoke.cont191 ], [ 4, %invoke.cont206 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %thefile) #13
   br label %cleanup285
 
@@ -1005,8 +1005,8 @@ cleanup:                                          ; preds = %invoke.cont200
 if.end210:                                        ; preds = %cleanup, %if.then162
   %ext.0129 = phi ptr [ %ext.0, %cleanup ], [ %ext.0130, %if.then162 ]
   %filename.0127 = phi ptr [ %call154, %cleanup ], [ %filename.0128, %if.then162 ]
-  %out.1 = phi ptr [ %call201, %cleanup ], [ %call164, %if.then162 ]
-  %call212 = invoke ptr @u_fgetConverter_75(ptr noundef %out.1)
+  %out.0 = phi ptr [ %call201, %cleanup ], [ %call164, %if.then162 ]
+  %call212 = invoke ptr @u_fgetConverter_75(ptr noundef %out.0)
           to label %invoke.cont211 unwind label %lpad102
 
 invoke.cont211:                                   ; preds = %if.end210
@@ -1032,14 +1032,14 @@ invoke.cont220:                                   ; preds = %invoke.cont218
   br i1 %tobool24.not, label %cleanup285, label %if.then222
 
 if.then222:                                       ; preds = %invoke.cont220
-  invoke void @u_fclose_75(ptr noundef %out.1)
+  invoke void @u_fclose_75(ptr noundef %out.0)
           to label %cleanup285 unwind label %lpad102
 
 if.end225:                                        ; preds = %invoke.cont213
   br i1 %tobool49.not, label %if.end230, label %if.then227
 
 if.then227:                                       ; preds = %if.end225
-  %call229 = invoke i32 @u_fputc_75(i32 noundef 65279, ptr noundef %out.1)
+  %call229 = invoke i32 @u_fputc_75(i32 noundef 65279, ptr noundef %out.0)
           to label %if.end230 unwind label %lpad102
 
 if.end230:                                        ; preds = %if.then227, %if.end225
@@ -1071,18 +1071,18 @@ _ZL15getEncodingNamePKc.exit:                     ; preds = %if.then.i, %call.i.
 
 cond.end238:                                      ; preds = %_ZL15getEncodingNamePKc.exit, %if.end230
   %cond239 = phi ptr [ %enc.0.i, %_ZL15getEncodingNamePKc.exit ], [ %10, %if.end230 ]
-  %call241 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.1, ptr noundef nonnull @.str.15, ptr noundef %cond239)
+  %call241 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.0, ptr noundef nonnull @.str.15, ptr noundef %cond239)
           to label %invoke.cont240 unwind label %lpad102
 
 invoke.cont240:                                   ; preds = %cond.end238
-  %call243 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.1, ptr noundef nonnull @.str.16)
+  %call243 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.0, ptr noundef nonnull @.str.16)
           to label %invoke.cont242 unwind label %lpad102
 
 invoke.cont242:                                   ; preds = %invoke.cont240
   br i1 %tobool126.not118, label %if.else248, label %if.then245
 
 if.then245:                                       ; preds = %invoke.cont242
-  %call247 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.1, ptr noundef nonnull @.str.17, ptr noundef nonnull %thename.0116)
+  %call247 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.0, ptr noundef nonnull @.str.17, ptr noundef nonnull %thename.0116)
           to label %if.end256 unwind label %lpad102
 
 if.else248:                                       ; preds = %invoke.cont242
@@ -1090,11 +1090,11 @@ if.else248:                                       ; preds = %invoke.cont242
 
 if.then250:                                       ; preds = %if.else248
   %78 = load ptr, ptr %locale, align 8
-  %call254 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.1, ptr noundef nonnull @.str.18, ptr noundef %78)
+  %call254 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.0, ptr noundef nonnull @.str.18, ptr noundef %78)
           to label %if.end256 unwind label %lpad102
 
 if.end256:                                        ; preds = %if.else248, %if.then250, %if.then245
-  %call258 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.1, ptr noundef nonnull @.str.19)
+  %call258 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.0, ptr noundef nonnull @.str.19)
           to label %invoke.cont257 unwind label %lpad102
 
 invoke.cont257:                                   ; preds = %if.end256
@@ -1104,7 +1104,7 @@ invoke.cont257:                                   ; preds = %if.end256
 
 if.then262:                                       ; preds = %invoke.cont257
   %80 = load ptr, ptr %locale, align 8
-  %call266 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.1, ptr noundef nonnull @.str.17, ptr noundef %80)
+  %call266 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.0, ptr noundef nonnull @.str.17, ptr noundef %80)
           to label %if.end274 unwind label %lpad102
 
 if.else267:                                       ; preds = %invoke.cont257
@@ -1112,18 +1112,18 @@ if.else267:                                       ; preds = %invoke.cont257
   %sub.ptr.rhs.cast269 = ptrtoint ptr %filename.0127 to i64
   %sub.ptr.sub270 = sub i64 %sub.ptr.lhs.cast268, %sub.ptr.rhs.cast269
   %conv271 = trunc i64 %sub.ptr.sub270 to i32
-  %call273 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.1, ptr noundef nonnull @.str.20, i32 noundef %conv271, ptr noundef %filename.0127, i32 noundef 1, ptr noundef nonnull @_ZZ4mainE2sp)
+  %call273 = invoke i32 (ptr, ptr, ...) @u_fprintf_75(ptr noundef %out.0, ptr noundef nonnull @.str.20, i32 noundef %conv271, ptr noundef %filename.0127, i32 noundef 1, ptr noundef nonnull @_ZZ4mainE2sp)
           to label %if.end274 unwind label %lpad102
 
 if.end274:                                        ; preds = %if.else267, %if.then262
-  invoke fastcc void @_ZL14printOutBundleP5UFILEP15UResourceBundleiPKcP10UErrorCode(ptr noundef %out.1, ptr noundef %bundle.0, i32 noundef 0, ptr noundef %pname.0, ptr noundef nonnull %status)
+  invoke fastcc void @_ZL14printOutBundleP5UFILEP15UResourceBundleiPKcP10UErrorCode(ptr noundef %out.0, ptr noundef %bundle.0, i32 noundef 0, ptr noundef %pname.0, ptr noundef nonnull %status)
           to label %invoke.cont275 unwind label %lpad102
 
 invoke.cont275:                                   ; preds = %if.end274
   br i1 %tobool24.not, label %if.end282, label %if.then277
 
 if.then277:                                       ; preds = %invoke.cont275
-  invoke void @u_fclose_75(ptr noundef %out.1)
+  invoke void @u_fclose_75(ptr noundef %out.0)
           to label %if.end282 unwind label %lpad102
 
 if.else280:                                       ; preds = %if.end142
@@ -1141,7 +1141,7 @@ if.end282:                                        ; preds = %call.i.noexc106, %i
 
 cleanup285:                                       ; preds = %if.then222, %invoke.cont220, %if.end282, %if.end116, %cleanup.thread
   %switch = phi i1 [ false, %if.then222 ], [ false, %invoke.cont220 ], [ true, %if.end282 ], [ false, %if.end116 ], [ false, %cleanup.thread ]
-  %retval.4 = phi i32 [ 3, %if.then222 ], [ 3, %invoke.cont220 ], [ %retval.0141, %if.end282 ], [ %54, %if.end116 ], [ %retval.1.ph, %cleanup.thread ]
+  %retval.3 = phi i32 [ 3, %if.then222 ], [ 3, %invoke.cont220 ], [ %retval.1141, %if.end282 ], [ %54, %if.end116 ], [ %retval.5.ph, %cleanup.thread ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %infile) #13
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %locale) #13
   br i1 %switch, label %for.cond, label %return
@@ -1157,8 +1157,8 @@ ehcleanup288:                                     ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %cleanup285, %for.cond, %if.end57, %cleanup285.thread, %if.then27, %if.then18, %if.then9
-  %retval.6 = phi i32 [ %call1.lobit, %if.then9 ], [ 0, %if.then18 ], [ 3, %if.then27 ], [ %42, %cleanup285.thread ], [ 0, %if.end57 ], [ %retval.4, %cleanup285 ], [ 0, %for.cond ]
-  ret i32 %retval.6
+  %retval.0 = phi i32 [ %call1.lobit, %if.then9 ], [ 0, %if.then18 ], [ 3, %if.then27 ], [ %42, %cleanup285.thread ], [ 0, %if.end57 ], [ %retval.3, %cleanup285 ], [ 0, %for.cond ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1935,7 +1935,7 @@ for.body135.lr.ph:                                ; preds = %if.else128
 
 for.body135:                                      ; preds = %for.body135.lr.ph, %for.inc158
   %i.2334 = phi i32 [ 0, %for.body135.lr.ph ], [ %inc159, %for.inc158 ]
-  %t.1333 = phi ptr [ null, %for.body135.lr.ph ], [ %t.2, %for.inc158 ]
+  %t.2333 = phi ptr [ null, %for.body135.lr.ph ], [ %t.3, %for.inc158 ]
   %58 = load ptr, ptr %fData.i295, align 8
   %fData2.i = getelementptr inbounds i8, ptr %58, i64 40
   %59 = load i32, ptr %fRes142, align 4
@@ -2141,7 +2141,7 @@ _ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit: ; preds =
   br label %for.inc158
 
 if.else152:                                       ; preds = %if.then147
-  %call153 = call ptr @ures_getByIndex_75(ptr noundef nonnull %resource, i32 noundef %i.2334, ptr noundef %t.1333, ptr noundef nonnull %status)
+  %call153 = call ptr @ures_getByIndex_75(ptr noundef nonnull %resource, i32 noundef %i.2334, ptr noundef %t.2333, ptr noundef nonnull %status)
   call fastcc void @_ZL14printOutBundleP5UFILEP15UResourceBundleiPKcP10UErrorCode(ptr noundef %out, ptr noundef %call153, i32 noundef %add154, ptr noundef %pname, ptr noundef nonnull %status)
   br label %for.inc158
 
@@ -2153,13 +2153,13 @@ if.else156:                                       ; preds = %if.end144
   br label %for.inc158
 
 for.inc158:                                       ; preds = %if.else156, %if.else152, %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit
-  %t.2 = phi ptr [ %t.1333, %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit ], [ %call153, %if.else152 ], [ %t.1333, %if.else156 ]
+  %t.3 = phi ptr [ %t.2333, %_ZL13printOutAliasP5UFILEP15UResourceBundlejPKciS4_P10UErrorCode.exit ], [ %call153, %if.else152 ], [ %t.2333, %if.else156 ]
   %inc159 = add nuw nsw i32 %i.2334, 1
   %exitcond.not = icmp eq i32 %inc159, %call129
   br i1 %exitcond.not, label %if.end161, label %for.body135, !llvm.loop !12
 
 if.end161:                                        ; preds = %if.end127, %land.rhs, %for.inc158, %while.cond.preheader, %if.else128
-  %t.3 = phi ptr [ null, %if.else128 ], [ null, %while.cond.preheader ], [ %t.2, %for.inc158 ], [ %call122, %if.end127 ], [ %t.0330, %land.rhs ]
+  %t.1 = phi ptr [ null, %if.else128 ], [ null, %while.cond.preheader ], [ %t.3, %for.inc158 ], [ %call122, %if.end127 ], [ %t.0330, %land.rhs ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %inchar.i308)
   call void @_ZN6icu_7513UnicodeStringC1Eiii(ptr noundef nonnull align 8 dereferenceable(64) %inchar.i308, i32 noundef %indent, i32 noundef 32, i32 noundef %indent)
   %fUnion.i.i309 = getelementptr inbounds i8, ptr %inchar.i308, i64 8
@@ -2197,7 +2197,7 @@ _ZL11printIndentP5UFILEi.exit324:                 ; preds = %_ZNK6icu_7513Unicod
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %inchar.i308) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %inchar.i308)
   %call.i325 = call i32 @u_file_write_75(ptr noundef nonnull @_ZZL14printOutBundleP5UFILEP15UResourceBundleiPKcP10UErrorCodeE8closeStr_4, i32 noundef 2, ptr noundef %out)
-  call void @ures_close_75(ptr noundef %t.3)
+  call void @ures_close_75(ptr noundef %t.1)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %if.end100, %if.else101, %if.end54, %if.else55, %_ZL11printIndentP5UFILEi.exit324, %if.end29, %if.end16

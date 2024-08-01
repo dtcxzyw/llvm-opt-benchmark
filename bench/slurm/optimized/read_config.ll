@@ -4158,8 +4158,8 @@ define ptr @slurm_conf_get_aliased_nodename() local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %14, %12
-  %.1 = phi ptr [ %13, %12 ], [ %20, %14 ]
-  %.not25 = icmp eq ptr %.1, null
+  %.2 = phi ptr [ %13, %12 ], [ %20, %14 ]
+  %.not25 = icmp eq ptr %.2, null
   br i1 %.not25, label %22, label %._crit_edge
 
 22:                                               ; preds = %21
@@ -4176,7 +4176,7 @@ define ptr @slurm_conf_get_aliased_nodename() local_unnamed_addr #0 {
   br label %26
 
 26:                                               ; preds = %25, %._crit_edge
-  %.not27 = icmp eq ptr %.1, null
+  %.not27 = icmp eq ptr %.2, null
   br i1 %.not27, label %.thread, label %37
 
 .thread:                                          ; preds = %8, %26
@@ -4215,7 +4215,7 @@ _get_aliased_nodename_fallback.exit:              ; preds = %31, %.lr.ph.i, %.th
   br label %37
 
 37:                                               ; preds = %26, %_get_aliased_nodename_fallback.exit, %6, %0
-  %.017 = phi ptr [ null, %0 ], [ %7, %6 ], [ %.1, %26 ], [ %.09.i, %_get_aliased_nodename_fallback.exit ]
+  %.017 = phi ptr [ null, %0 ], [ %7, %6 ], [ %.2, %26 ], [ %.09.i, %_get_aliased_nodename_fallback.exit ]
   ret ptr %.017
 }
 
@@ -7400,12 +7400,12 @@ define zeroext i16 @prolog_str2flags(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .loopexit:                                        ; preds = %29, %4, %27
-  %.2 = phi i16 [ -2, %27 ], [ 0, %4 ], [ %30, %29 ]
+  %.1 = phi i16 [ -2, %27 ], [ 0, %4 ], [ %30, %29 ]
   call void @slurm_xfree(ptr noundef nonnull %2) #18
   br label %32
 
 32:                                               ; preds = %1, %.loopexit
-  %.021 = phi i16 [ %.2, %.loopexit ], [ 0, %1 ]
+  %.021 = phi i16 [ %.1, %.loopexit ], [ 0, %1 ]
   ret i16 %.021
 }
 
@@ -9531,12 +9531,12 @@ define zeroext range(i16 -2, 8) i16 @reconfig_str2flags(ptr noundef %0) local_un
   br i1 %.not15, label %.loopexit, label %.lr.ph, !llvm.loop !41
 
 .loopexit:                                        ; preds = %17, %4, %15
-  %.2 = phi i16 [ -2, %15 ], [ 0, %4 ], [ %18, %17 ]
+  %.1 = phi i16 [ -2, %15 ], [ 0, %4 ], [ %18, %17 ]
   call void @slurm_xfree(ptr noundef nonnull %2) #18
   br label %20
 
 20:                                               ; preds = %1, %.loopexit
-  %.013 = phi i16 [ %.2, %.loopexit ], [ 0, %1 ]
+  %.013 = phi i16 [ %.1, %.loopexit ], [ 0, %1 ]
   ret i16 %.013
 }
 

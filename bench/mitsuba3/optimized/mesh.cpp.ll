@@ -9071,7 +9071,7 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   br label %215
 
 215:                                              ; preds = %174, %138
-  %.sroa.01610.0 = phi <4 x float> [ %.sroa.01610.0.vec.insert, %174 ], [ zeroinitializer, %138 ]
+  %.sroa.01610.1 = phi <4 x float> [ %.sroa.01610.0.vec.insert, %174 ], [ zeroinitializer, %138 ]
   %216 = getelementptr inbounds i8, ptr %1, i64 104
   %217 = load i32, ptr %216, align 8
   %218 = and i32 %217, 4
@@ -9225,9 +9225,9 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %349 = fsub contract float 1.000000e+00, %308
   %350 = fmul contract float %349, 5.000000e-01
   %351 = select i1 %30, i1 %219, i1 false
-  %.sroa.01610.4.vec.insert1613 = insertelement <4 x float> %.sroa.01610.0, float %348, i64 1
+  %.sroa.01610.4.vec.insert1613 = insertelement <4 x float> %.sroa.01610.1, float %348, i64 1
   %.sroa.01610.8.vec.insert1615 = insertelement <4 x float> %.sroa.01610.4.vec.insert1613, float %350, i64 2
-  %.sroa.01610.2 = select i1 %351, <4 x float> %.sroa.01610.8.vec.insert1615, <4 x float> %.sroa.01610.0
+  %.sroa.01610.3 = select i1 %351, <4 x float> %.sroa.01610.8.vec.insert1615, <4 x float> %.sroa.01610.1
   %352 = and i32 %217, 8
   %353 = icmp eq i32 %352, 0
   %.not1633 = and i1 %30, %353
@@ -9271,13 +9271,13 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %387 = fcmp contract olt float %386, 0.000000e+00
   %388 = fadd contract float %386, 1.000000e+00
   %389 = select contract i1 %387, float %388, float %386
-  %.sroa.01610.4.vec.insert = insertelement <4 x float> %.sroa.01610.2, float %389, i64 1
+  %.sroa.01610.4.vec.insert = insertelement <4 x float> %.sroa.01610.3, float %389, i64 1
   %.sroa.01610.8.vec.insert = insertelement <4 x float> %.sroa.01610.4.vec.insert, float %359, i64 2
   br label %390
 
 390:                                              ; preds = %215, %3, %354
-  %.sroa.01610.4 = phi <4 x float> [ %.sroa.01610.8.vec.insert, %354 ], [ zeroinitializer, %3 ], [ %.sroa.01610.2, %215 ]
-  ret <4 x float> %.sroa.01610.4
+  %.sroa.01610.0 = phi <4 x float> [ %.sroa.01610.8.vec.insert, %354 ], [ zeroinitializer, %3 ], [ %.sroa.01610.3, %215 ]
+  ret <4 x float> %.sroa.01610.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11939,9 +11939,9 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit115:           ; preds = %121, %_ZN5drjit12Dy
   br label %_ZN5drjit12DynamicArrayIfE5zero_Em.exit119
 
 _ZN5drjit12DynamicArrayIfE5zero_Em.exit119:       ; preds = %147, %.lr.ph.split.preheader.i117, %.lr.ph.split.us.i118
-  %.sroa.0.1 = phi ptr [ null, %147 ], [ %152, %.lr.ph.split.us.i118 ], [ %152, %.lr.ph.split.preheader.i117 ]
+  %.sroa.0.2 = phi ptr [ null, %147 ], [ %152, %.lr.ph.split.us.i118 ], [ %152, %.lr.ph.split.preheader.i117 ]
   %154 = load ptr, ptr %132, align 8
-  store ptr %.sroa.0.1, ptr %132, align 8
+  store ptr %.sroa.0.2, ptr %132, align 8
   %155 = getelementptr inbounds i8, ptr %.sroa.0126.0161, i64 72
   %156 = load i8, ptr %155, align 1
   store i8 1, ptr %155, align 1
@@ -12439,7 +12439,7 @@ _ZNSt3__16vectorIbNS_9allocatorIbEEEC2EmRKb.exit: ; preds = %85, %.noexc150
 
 .lr.ph:                                           ; preds = %112, %134
   %.0100237 = phi i32 [ %.0100, %134 ], [ %.0100234, %112 ]
-  %.099236 = phi i32 [ %.1, %134 ], [ -1, %112 ]
+  %.099236 = phi i32 [ %.2, %134 ], [ -1, %112 ]
   %115 = zext i32 %.0100237 to i64
   %116 = getelementptr inbounds %"struct.std::__1::pair.248", ptr %48, i64 %115
   %117 = load i32, ptr %116, align 4
@@ -12469,23 +12469,23 @@ _ZNSt3__16vectorIbNS_9allocatorIbEEEC2EmRKb.exit: ; preds = %85, %.noexc150
   br label %._crit_edge.thread
 
 134:                                              ; preds = %119, %.lr.ph
-  %.1 = phi i32 [ %.099236, %.lr.ph ], [ %.0100237, %119 ]
+  %.2 = phi i32 [ %.099236, %.lr.ph ], [ %.0100237, %119 ]
   %135 = getelementptr inbounds i8, ptr %116, i64 4
   %.0100 = load i32, ptr %135, align 4
   %.not127 = icmp eq i32 %.0100, -1
   br i1 %.not127, label %._crit_edge, label %.lr.ph, !llvm.loop !316
 
 ._crit_edge:                                      ; preds = %134
-  %.not128 = icmp ne i32 %.1, -1
-  %136 = icmp ult i32 %108, %.1
+  %.not128 = icmp ne i32 %.2, -1
+  %136 = icmp ult i32 %108, %.2
   %or.cond = and i1 %.not128, %136
   br i1 %or.cond, label %137, label %._crit_edge.thread
 
 137:                                              ; preds = %._crit_edge
   %138 = zext i32 %108 to i64
   %139 = getelementptr inbounds i32, ptr %46, i64 %138
-  store i32 %.1, ptr %139, align 4
-  %140 = zext i32 %.1 to i64
+  store i32 %.2, ptr %139, align 4
+  %140 = zext i32 %.2 to i64
   %141 = getelementptr inbounds i32, ptr %46, i64 %140
   store i32 %108, ptr %141, align 4
   br label %._crit_edge.thread
@@ -15353,8 +15353,8 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %49
 
 49:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %43, %20, %6, %48
-  %.sroa.034.1 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
-  ret ptr %.sroa.034.1
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
+  ret ptr %.sroa.034.0
 }
 
 ; Function Attrs: nounwind
@@ -16046,7 +16046,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
 
 136:                                              ; preds = %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit, %119
   %137 = phi i8 [ %.pr, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit ], [ %49, %119 ]
-  %.1113 = phi ptr [ %130, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit ], [ %storemerge, %119 ]
+  %.0 = phi ptr [ %130, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit ], [ %storemerge, %119 ]
   %138 = icmp eq i8 %137, 42
   br i1 %138, label %139, label %184
 
@@ -16125,25 +16125,25 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %181 = zext nneg i32 %.1 to i64
   %182 = getelementptr inbounds i8, ptr %180, i64 24
   store i64 %181, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %.1113, i64 1
+  %183 = getelementptr inbounds i8, ptr %.0, i64 1
   %.pre = load i8, ptr %183, align 1
   br label %184
 
 184:                                              ; preds = %.thread, %136
   %185 = phi i8 [ %.pre, %.thread ], [ %137, %136 ]
-  %.2 = phi ptr [ %183, %.thread ], [ %.1113, %136 ]
+  %.1113 = phi ptr [ %183, %.thread ], [ %.0, %136 ]
   %.164 = phi i1 [ true, %.thread ], [ %or.cond, %136 ]
   %186 = icmp ne i8 %185, 46
   br i1 %186, label %.preheader, label %187
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %.2, i64 1
+  %188 = getelementptr inbounds i8, ptr %.1113, i64 1
   %189 = load i8, ptr %188, align 1
   %190 = icmp eq i8 %189, 42
   br i1 %190, label %191, label %203
 
 191:                                              ; preds = %187
-  %192 = getelementptr inbounds i8, ptr %.2, i64 2
+  %192 = getelementptr inbounds i8, ptr %.1113, i64 2
   %193 = load i32, ptr %5, align 4
   %194 = icmp slt i32 %193, %6
   br i1 %194, label %195, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94
@@ -16183,7 +16183,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   br i1 %214, label %215, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94
 
 215:                                              ; preds = %213
-  %216 = getelementptr inbounds i8, ptr %.2, i64 2
+  %216 = getelementptr inbounds i8, ptr %.1113, i64 2
   %217 = load i8, ptr %216, align 1
   %218 = add i8 %217, -48
   %or.cond6.i96 = icmp ult i8 %218, 10
@@ -16198,7 +16198,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   br i1 %or.cond.i101, label %.lr.ph.i98, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94, !llvm.loop !344
 
 _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %.lr.ph.i90, %215, %213, %195, %191
-  %.5 = phi ptr [ %192, %195 ], [ %192, %191 ], [ %188, %213 ], [ %216, %215 ], [ %210, %.lr.ph.i90 ], [ %220, %.lr.ph.i98 ]
+  %.3 = phi ptr [ %192, %195 ], [ %192, %191 ], [ %188, %213 ], [ %216, %215 ], [ %210, %.lr.ph.i90 ], [ %220, %.lr.ph.i98 ]
   %.059 = phi i32 [ %202, %195 ], [ 0, %191 ], [ 0, %213 ], [ 0, %215 ], [ %209, %.lr.ph.i90 ], [ 0, %.lr.ph.i98 ]
   %223 = load ptr, ptr %0, align 8
   %224 = getelementptr i8, ptr %223, i64 -24
@@ -16210,12 +16210,12 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94, %184
-  %.7.ph = phi ptr [ %.2, %184 ], [ %.5, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94 ]
+  %.4.ph = phi ptr [ %.1113, %184 ], [ %.3, %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94 ]
   br label %229
 
 229:                                              ; preds = %.preheader, %.critedge
-  %.7 = phi ptr [ %231, %.critedge ], [ %.7.ph, %.preheader ]
-  %230 = load i8, ptr %.7, align 1
+  %.4 = phi ptr [ %231, %.critedge ], [ %.4.ph, %.preheader ]
+  %230 = load i8, ptr %.4, align 1
   switch i8 %230, label %.critedge76 [
     i8 108, label %.critedge
     i8 104, label %.critedge
@@ -16241,7 +16241,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit94: ; preds = %.lr.ph.i98, %
   ]
 
 .critedge:                                        ; preds = %229, %229, %229, %229, %229, %229
-  %231 = getelementptr inbounds i8, ptr %.7, i64 1
+  %231 = getelementptr inbounds i8, ptr %.4, i64 1
   br label %229, !llvm.loop !345
 
 232:                                              ; preds = %229
@@ -16445,11 +16445,11 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105: ; preds = %
   br label %.critedge76
 
 .critedge76:                                      ; preds = %229, %311, %.loopexit117, %.loopexit116, %.loopexit115, %.loopexit, %_ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit105
-  %360 = getelementptr inbounds i8, ptr %.7, i64 1
+  %360 = getelementptr inbounds i8, ptr %.4, i64 1
   br label %.loopexit118
 
 .loopexit118:                                     ; preds = %229, %7, %.critedge76
-  %.066 = phi ptr [ %360, %.critedge76 ], [ %3, %7 ], [ %.7, %229 ]
+  %.066 = phi ptr [ %360, %.critedge76 ], [ %3, %7 ], [ %.4, %229 ]
   ret ptr %.066
 }
 

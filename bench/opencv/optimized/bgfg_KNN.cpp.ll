@@ -1804,7 +1804,7 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
 
 87:                                               ; preds = %87, %.preheader112.us.i.us
   %indvars.iv181.i.us = phi i64 [ 0, %.preheader112.us.i.us ], [ %indvars.iv.next182.i.us, %87 ]
-  %.098116.us.i.us = phi float [ 0.000000e+00, %.preheader112.us.i.us ], [ %95, %87 ]
+  %.199116.us.i.us = phi float [ 0.000000e+00, %.preheader112.us.i.us ], [ %95, %87 ]
   %88 = getelementptr inbounds i8, ptr %86, i64 %indvars.iv181.i.us
   %89 = load i8, ptr %88, align 1
   %90 = uitofp i8 %89 to float
@@ -1812,7 +1812,7 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
   %92 = load i8, ptr %91, align 1
   %93 = uitofp i8 %92 to float
   %94 = fsub float %90, %93
-  %95 = tail call float @llvm.fmuladd.f32(float %94, float %94, float %.098116.us.i.us)
+  %95 = tail call float @llvm.fmuladd.f32(float %94, float %94, float %.199116.us.i.us)
   %indvars.iv.next182.i.us = add nuw nsw i64 %indvars.iv181.i.us, 1
   %exitcond185.not.i.us = icmp eq i64 %indvars.iv.next182.i.us, %31
   br i1 %exitcond185.not.i.us, label %..loopexit113_crit_edge.us.i.us, label %87, !llvm.loop !31

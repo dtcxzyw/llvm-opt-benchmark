@@ -224,21 +224,21 @@ for.cond.preheader:                               ; preds = %if.end
   br i1 %cmp448.not, label %if.end6, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %list1_sz.050 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
+  %list1_sz.150 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
   %p.049 = phi ptr [ %incdec.ptr, %for.body ], [ %p1, %for.cond.preheader ]
-  %inc = add nuw nsw i64 %list1_sz.050, 1
-  %arrayidx = getelementptr inbounds [129 x ptr], ptr %list1, i64 0, i64 %list1_sz.050
+  %inc = add nuw nsw i64 %list1_sz.150, 1
+  %arrayidx = getelementptr inbounds [129 x ptr], ptr %list1, i64 0, i64 %list1_sz.150
   store ptr %p.049, ptr %arrayidx, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %p.049, i64 40
   %1 = load ptr, ptr %incdec.ptr, align 8
   %cmp4 = icmp ne ptr %1, null
-  %cmp5 = icmp ult i64 %list1_sz.050, 127
+  %cmp5 = icmp ult i64 %list1_sz.150, 127
   %2 = and i1 %cmp4, %cmp5
   br i1 %2, label %for.body, label %if.end6, !llvm.loop !6
 
 if.end6:                                          ; preds = %for.body, %for.cond.preheader, %if.end
-  %list1_sz.1 = phi i64 [ 0, %if.end ], [ 0, %for.cond.preheader ], [ %inc, %for.body ]
-  %arrayidx7 = getelementptr inbounds [129 x ptr], ptr %list1, i64 0, i64 %list1_sz.1
+  %list1_sz.0 = phi i64 [ 0, %if.end ], [ 0, %for.cond.preheader ], [ %inc, %for.body ]
+  %arrayidx7 = getelementptr inbounds [129 x ptr], ptr %list1, i64 0, i64 %list1_sz.0
   store ptr null, ptr %arrayidx7, align 8
   br i1 %cmp1, label %if.end22, label %for.cond10.preheader
 
@@ -248,30 +248,30 @@ for.cond10.preheader:                             ; preds = %if.end6
   br i1 %cmp1251.not, label %if.end22, label %for.body16
 
 for.body16:                                       ; preds = %for.cond10.preheader, %for.body16
-  %list2_sz.053 = phi i64 [ %inc17, %for.body16 ], [ 0, %for.cond10.preheader ]
+  %list2_sz.153 = phi i64 [ %inc17, %for.body16 ], [ 0, %for.cond10.preheader ]
   %p.152 = phi ptr [ %incdec.ptr20, %for.body16 ], [ %p2, %for.cond10.preheader ]
-  %inc17 = add nuw nsw i64 %list2_sz.053, 1
-  %arrayidx18 = getelementptr inbounds [129 x ptr], ptr %list2, i64 0, i64 %list2_sz.053
+  %inc17 = add nuw nsw i64 %list2_sz.153, 1
+  %arrayidx18 = getelementptr inbounds [129 x ptr], ptr %list2, i64 0, i64 %list2_sz.153
   store ptr %p.152, ptr %arrayidx18, align 8
   %incdec.ptr20 = getelementptr inbounds i8, ptr %p.152, i64 40
   %4 = load ptr, ptr %incdec.ptr20, align 8
   %cmp12 = icmp ne ptr %4, null
-  %cmp14 = icmp ult i64 %list2_sz.053, 127
+  %cmp14 = icmp ult i64 %list2_sz.153, 127
   %5 = and i1 %cmp12, %cmp14
   br i1 %5, label %for.body16, label %if.end22, !llvm.loop !7
 
 if.end22:                                         ; preds = %for.body16, %for.cond10.preheader, %if.end6
-  %list2_sz.1 = phi i64 [ 0, %if.end6 ], [ 0, %for.cond10.preheader ], [ %inc17, %for.body16 ]
-  %arrayidx23 = getelementptr inbounds [129 x ptr], ptr %list2, i64 0, i64 %list2_sz.1
+  %list2_sz.0 = phi i64 [ 0, %if.end6 ], [ 0, %for.cond10.preheader ], [ %inc17, %for.body16 ]
+  %arrayidx23 = getelementptr inbounds [129 x ptr], ptr %list2, i64 0, i64 %list2_sz.0
   store ptr null, ptr %arrayidx23, align 8
-  %6 = or i64 %list2_sz.1, %list1_sz.1
+  %6 = or i64 %list2_sz.0, %list1_sz.0
   %or.cond1 = icmp eq i64 %6, 0
   br i1 %or.cond1, label %return.sink.split, label %if.end28
 
 if.end28:                                         ; preds = %if.end22
-  call void @qsort(ptr noundef nonnull %list1, i64 noundef %list1_sz.1, i64 noundef 8, ptr noundef nonnull @compare_params) #7
-  call void @qsort(ptr noundef nonnull %list2, i64 noundef %list2_sz.1, i64 noundef 8, ptr noundef nonnull @compare_params) #7
-  %add = add nuw nsw i64 %list2_sz.1, %list1_sz.1
+  call void @qsort(ptr noundef nonnull %list1, i64 noundef %list1_sz.0, i64 noundef 8, ptr noundef nonnull @compare_params) #7
+  call void @qsort(ptr noundef nonnull %list2, i64 noundef %list2_sz.0, i64 noundef 8, ptr noundef nonnull @compare_params) #7
+  %add = add nuw nsw i64 %list2_sz.0, %list1_sz.0
   %7 = mul nuw nsw i64 %add, 40
   %mul = add nuw nsw i64 %7, 40
   %call = call noalias ptr @CRYPTO_zalloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 184) #7

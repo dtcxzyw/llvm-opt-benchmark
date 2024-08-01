@@ -1680,8 +1680,8 @@ mbedtls_ecp_point_free.exit.i:                    ; preds = %mbedtls_ecp_point_f
   br label %ecp_mul_comb.exit
 
 ecp_mul_comb.exit:                                ; preds = %21, %81, %mbedtls_ecp_get_type.exit.thread, %286, %.thread16.i, %284, %ecp_mul_mxz.exit.thread, %ecp_mul_mxz.exit, %19, %6
-  %.1 = phi i32 [ %18, %6 ], [ %20, %19 ], [ %.034.i, %ecp_mul_mxz.exit ], [ -20352, %ecp_mul_mxz.exit.thread ], [ 0, %284 ], [ %.0541519.i, %.thread16.i ], [ %.0541519.i, %286 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ 0, %81 ], [ -20352, %21 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %18, %6 ], [ %20, %19 ], [ %.034.i, %ecp_mul_mxz.exit ], [ -20352, %ecp_mul_mxz.exit.thread ], [ 0, %284 ], [ %.0541519.i, %.thread16.i ], [ %.0541519.i, %286 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ 0, %81 ], [ -20352, %21 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2943,11 +2943,11 @@ define internal fastcc i32 @self_test_point(i32 noundef %0, ptr noundef %1, ptr 
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %20
-  %.02658 = phi i64 [ %21, %20 ], [ 1, %.preheader.preheader ]
+  %.12758 = phi i64 [ %21, %20 ], [ 1, %.preheader.preheader ]
   store i64 0, ptr @add_count, align 8
   store i64 0, ptr @dbl_count, align 8
   store i64 0, ptr @mul_count, align 8
-  %11 = getelementptr inbounds ptr, ptr %5, i64 %.02658
+  %11 = getelementptr inbounds ptr, ptr %5, i64 %.12758
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @mbedtls_mpi_read_string(ptr noundef %3, i32 noundef 16, ptr noundef %12) #19
   %.not37 = icmp eq i32 %13, 0
@@ -2970,13 +2970,13 @@ define internal fastcc i32 @self_test_point(i32 noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond44, label %20, label %.thread
 
 20:                                               ; preds = %16
-  %21 = add nuw nsw i64 %.02658, 1
+  %21 = add nuw nsw i64 %.12758, 1
   %exitcond.not = icmp eq i64 %21, 6
   br i1 %exitcond.not, label %.loopexit.thread, label %.preheader, !llvm.loop !29
 
 .loopexit:                                        ; preds = %14, %.preheader, %9, %6
-  %.127 = phi i64 [ 0, %6 ], [ 0, %9 ], [ %.02658, %.preheader ], [ %.02658, %14 ]
-  %.1 = phi i32 [ %8, %6 ], [ %10, %9 ], [ %15, %14 ], [ %13, %.preheader ]
+  %.026 = phi i64 [ 0, %6 ], [ 0, %9 ], [ %.12758, %.preheader ], [ %.12758, %14 ]
+  %.0 = phi i32 [ %8, %6 ], [ %10, %9 ], [ %15, %14 ], [ %13, %.preheader ]
   %.not42 = icmp eq i32 %0, 0
   br i1 %.not42, label %25, label %.thread51
 
@@ -2989,9 +2989,9 @@ define internal fastcc i32 @self_test_point(i32 noundef %0, ptr noundef %1, ptr 
   br i1 %.not4247, label %25, label %.thread51
 
 .thread51:                                        ; preds = %.loopexit, %.thread
-  %.1274856 = phi i64 [ %.02658, %.thread ], [ %.127, %.loopexit ]
-  %.14955 = phi i32 [ 1, %.thread ], [ %.1, %.loopexit ]
-  %22 = trunc i64 %.1274856 to i32
+  %.0264856 = phi i64 [ %.12758, %.thread ], [ %.026, %.loopexit ]
+  %.04955 = phi i32 [ 1, %.thread ], [ %.0, %.loopexit ]
+  %22 = trunc i64 %.0264856 to i32
   %23 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i32 noundef %22)
   br label %25
 
@@ -3000,8 +3000,8 @@ define internal fastcc i32 @self_test_point(i32 noundef %0, ptr noundef %1, ptr 
   br label %25
 
 25:                                               ; preds = %.loopexit.thread, %.thread, %.thread51, %24, %.loopexit
-  %.150 = phi i32 [ 1, %.thread ], [ %.14955, %.thread51 ], [ 0, %24 ], [ %.1, %.loopexit ], [ 0, %.loopexit.thread ]
-  ret i32 %.150
+  %.050 = phi i32 [ 1, %.thread ], [ %.04955, %.thread51 ], [ 0, %24 ], [ %.0, %.loopexit ], [ 0, %.loopexit.thread ]
+  ret i32 %.050
 }
 
 declare i32 @mbedtls_mpi_sub_abs(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
@@ -3328,8 +3328,8 @@ define internal fastcc i32 @mbedtls_mpi_add_mod(ptr noundef %0, ptr noundef %1, 
   br i1 %.not12, label %7, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %7, %10, %4
-  %.1 = phi i32 [ %5, %4 ], [ 0, %7 ], [ %11, %10 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %5, %4 ], [ 0, %7 ], [ %11, %10 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3358,8 +3358,8 @@ define internal fastcc i32 @mbedtls_mpi_sub_mod(ptr noundef %0, ptr noundef %1, 
   br i1 %.not13, label %7, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %7, %10, %12, %4
-  %.1 = phi i32 [ %5, %4 ], [ 0, %7 ], [ 0, %10 ], [ %13, %12 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %5, %4 ], [ 0, %7 ], [ 0, %10 ], [ %13, %12 ]
+  ret i32 %.0
 }
 
 declare i32 @mbedtls_mpi_sub_mpi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
@@ -3771,8 +3771,8 @@ define internal fastcc i32 @mbedtls_mpi_mul_int_mod(ptr noundef %0, ptr noundef 
   br i1 %.not12, label %6, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %6, %9, %3
-  %.1 = phi i32 [ %4, %3 ], [ 0, %6 ], [ %10, %9 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %4, %3 ], [ 0, %6 ], [ %10, %9 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3796,8 +3796,8 @@ define internal fastcc i32 @mbedtls_mpi_shift_l_mod(ptr noundef %0, ptr noundef 
   br i1 %.not11, label %5, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %5, %8, %2
-  %.1 = phi i32 [ %3, %2 ], [ 0, %5 ], [ %9, %8 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %3, %2 ], [ 0, %5 ], [ %9, %8 ]
+  ret i32 %.0
 }
 
 declare i32 @mbedtls_mpi_mul_int(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
@@ -3948,8 +3948,8 @@ define internal fastcc i32 @mbedtls_mpi_sub_int_mod(ptr noundef %0, ptr noundef 
   br i1 %.not13, label %6, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %6, %9, %11, %3
-  %.1 = phi i32 [ %4, %3 ], [ 0, %6 ], [ 0, %9 ], [ %12, %11 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %4, %3 ], [ 0, %6 ], [ 0, %9 ], [ %12, %11 ]
+  ret i32 %.0
 }
 
 declare i32 @mbedtls_mpi_sub_int(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7

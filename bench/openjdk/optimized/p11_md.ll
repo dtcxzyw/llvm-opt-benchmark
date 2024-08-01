@@ -71,9 +71,9 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_connect(ptr noundef %0, ptr 
   br i1 %40, label %82, label %41
 
 41:                                               ; preds = %28, %30, %35
-  %.076 = phi ptr [ %39, %35 ], [ @.str.1, %30 ], [ @.str.1, %28 ]
+  %.2 = phi ptr [ %39, %35 ], [ @.str.1, %30 ], [ @.str.1, %28 ]
   %42 = call ptr @dlerror() #7
-  %43 = call ptr @dlsym(ptr noundef nonnull %12, ptr noundef nonnull %.076) #7
+  %43 = call ptr @dlsym(ptr noundef nonnull %12, ptr noundef nonnull %.2) #7
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %49
 
@@ -92,7 +92,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_connect(ptr noundef %0, ptr 
 
 49:                                               ; preds = %41, %30
   %.077 = phi ptr [ null, %30 ], [ %43, %41 ]
-  %.1 = phi ptr [ null, %30 ], [ %.076, %41 ]
+  %.1 = phi ptr [ null, %30 ], [ %.2, %41 ]
   %50 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #9
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %54
@@ -164,7 +164,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_connect(ptr noundef %0, ptr 
 
 82:                                               ; preds = %56, %47, %48, %35, %76, %66, %52, %23, %22
   %.078 = phi ptr [ null, %22 ], [ null, %23 ], [ null, %52 ], [ %50, %56 ], [ %50, %76 ], [ %50, %66 ], [ null, %47 ], [ null, %48 ], [ null, %35 ]
-  %.2 = phi ptr [ null, %22 ], [ null, %23 ], [ %.1, %52 ], [ %.1, %56 ], [ %.1, %76 ], [ %.1, %66 ], [ %.076, %47 ], [ %.076, %48 ], [ null, %35 ]
+  %.076 = phi ptr [ null, %22 ], [ null, %23 ], [ %.1, %52 ], [ %.1, %56 ], [ %.1, %76 ], [ %.1, %66 ], [ %.2, %47 ], [ %.2, %48 ], [ null, %35 ]
   %.not98 = icmp eq ptr %2, null
   br i1 %.not98, label %87, label %83
 
@@ -177,7 +177,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_connect(ptr noundef %0, ptr 
 
 87:                                               ; preds = %83, %82
   %88 = icmp ne ptr %3, null
-  %89 = icmp ne ptr %.2, null
+  %89 = icmp ne ptr %.076, null
   %or.cond7 = and i1 %88, %89
   br i1 %or.cond7, label %90, label %94
 
@@ -185,7 +185,7 @@ define ptr @Java_sun_security_pkcs11_wrapper_PKCS11_connect(ptr noundef %0, ptr 
   %91 = load ptr, ptr %0, align 8
   %92 = getelementptr inbounds i8, ptr %91, i64 1360
   %93 = load ptr, ptr %92, align 8
-  call void %93(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %.2) #7
+  call void %93(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %.076) #7
   br label %94
 
 94:                                               ; preds = %90, %87

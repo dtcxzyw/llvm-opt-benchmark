@@ -134,11 +134,11 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br i1 %.not57.i, label %extract_conv_spec.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %62, %96
-  %.0150 = phi i32 [ %.1151, %96 ], [ -1, %62 ]
+  %.2152 = phi i32 [ %.4154, %96 ], [ -1, %62 ]
   %.0144 = phi i32 [ %.1145, %96 ], [ 0, %62 ]
   %.0142 = phi i32 [ %.1143, %96 ], [ 0, %62 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %96 ], [ 1, %62 ]
-  %.04260.i = phi i32 [ %.2.i, %96 ], [ 0, %62 ]
+  %.04260.i = phi i32 [ %.1.i, %96 ], [ 0, %62 ]
   %.04359.i = phi i32 [ %.144.i, %96 ], [ 0, %62 ]
   %.04558.i = phi i32 [ %.146.i, %96 ], [ 0, %62 ]
   %64 = load i64, ptr %12, align 16
@@ -220,7 +220,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 83:                                               ; preds = %74
   %.not51.i = icmp eq i32 %.04260.i, 0
-  %spec.select165 = select i1 %.not51.i, i32 %.0150, i32 %.04558.i
+  %spec.select165 = select i1 %.not51.i, i32 %.2152, i32 %.04558.i
   br label %89
 
 84:                                               ; preds = %74, %74
@@ -239,12 +239,12 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %89
 
 89:                                               ; preds = %83, %88, %87, %86, %85, %84, %78, %76, %74
-  %.1151 = phi i32 [ %.0150, %88 ], [ %.0150, %87 ], [ %.0150, %86 ], [ %.0150, %85 ], [ %.0150, %84 ], [ %.0150, %78 ], [ %.0150, %76 ], [ %.0150, %74 ], [ %spec.select165, %83 ]
+  %.4154 = phi i32 [ %.2152, %88 ], [ %.2152, %87 ], [ %.2152, %86 ], [ %.2152, %85 ], [ %.2152, %84 ], [ %.2152, %78 ], [ %.2152, %76 ], [ %.2152, %74 ], [ %spec.select165, %83 ]
   %.1145 = phi i32 [ 1, %88 ], [ %.0144, %87 ], [ %.0144, %86 ], [ %.0144, %85 ], [ %.0144, %84 ], [ %.0144, %78 ], [ %.0144, %76 ], [ %.0144, %74 ], [ %.0144, %83 ]
   %.1143 = phi i32 [ %.0142, %88 ], [ %.0142, %87 ], [ -1, %86 ], [ 2, %85 ], [ 1, %84 ], [ %.0142, %78 ], [ %.0142, %76 ], [ %.0142, %74 ], [ %.0142, %83 ]
   %.146.i = phi i32 [ 0, %88 ], [ 0, %87 ], [ 0, %86 ], [ 0, %85 ], [ 0, %84 ], [ %82, %78 ], [ %spec.select.i, %76 ], [ -2, %74 ], [ 0, %83 ]
   %.144.i = phi i32 [ %.04359.i, %88 ], [ %.04359.i, %87 ], [ %.04359.i, %86 ], [ %.04359.i, %85 ], [ %.04359.i, %84 ], [ %.04359.i, %78 ], [ %.04359.i, %76 ], [ %.04359.i, %74 ], [ 1, %83 ]
-  %.2.i = phi i32 [ %.04260.i, %88 ], [ %.04260.i, %87 ], [ %.04260.i, %86 ], [ %.04260.i, %85 ], [ %.04260.i, %84 ], [ 1, %78 ], [ %spec.select53.i, %76 ], [ 1, %74 ], [ 0, %83 ]
+  %.1.i = phi i32 [ %.04260.i, %88 ], [ %.04260.i, %87 ], [ %.04260.i, %86 ], [ %.04260.i, %85 ], [ %.04260.i, %84 ], [ 1, %78 ], [ %spec.select53.i, %76 ], [ 1, %74 ], [ 0, %83 ]
   %90 = load i64, ptr %5, align 16
   %91 = add i64 %90, 1
   %92 = load i64, ptr %12, align 16
@@ -269,10 +269,10 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 99:                                               ; preds = %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74, %74
   %.not49.i = icmp eq i32 %.04260.i, 0
   %.not50.i = icmp eq i32 %.04359.i, 0
-  %spec.select166 = select i1 %.not50.i, i32 %.04558.i, i32 %.0150
-  %.2152 = select i1 %.not49.i, i32 %.0150, i32 %spec.select166
+  %spec.select166 = select i1 %.not50.i, i32 %.04558.i, i32 %.2152
+  %.3153 = select i1 %.not49.i, i32 %.2152, i32 %spec.select166
   %100 = select i1 %.not49.i, i1 true, i1 %.not50.i
-  %.1148 = select i1 %100, i32 -1, i32 %.04558.i
+  %.4 = select i1 %100, i32 -1, i32 %.04558.i
   %101 = and i64 %indvars.iv.next.i, 4294967295
   %102 = getelementptr inbounds i8, ptr %6, i64 %101
   store i8 0, ptr %102, align 1
@@ -437,7 +437,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %.loopexit
 
 197:                                              ; preds = %113
-  %198 = icmp eq i32 %.2152, -2
+  %198 = icmp eq i32 %.3153, -2
   %.pre201.pre = load i32, ptr %2, align 8
   br i1 %198, label %199, label %212
 
@@ -467,8 +467,8 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 212:                                              ; preds = %209, %197
   %.pre201 = phi i32 [ %.pre201206, %209 ], [ %.pre201.pre, %197 ]
-  %.4154 = phi i32 [ %211, %209 ], [ %.2152, %197 ]
-  %213 = icmp eq i32 %.1148, -2
+  %.0150 = phi i32 [ %211, %209 ], [ %.3153, %197 ]
+  %213 = icmp eq i32 %.4, -2
   br i1 %213, label %214, label %228
 
 214:                                              ; preds = %212
@@ -497,7 +497,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 228:                                              ; preds = %224, %212
   %229 = phi i32 [ %225, %224 ], [ %.pre201, %212 ]
-  %.3 = phi i32 [ %227, %224 ], [ %.1148, %212 ]
+  %.1148 = phi i32 [ %227, %224 ], [ %.4, %212 ]
   %230 = icmp ult i32 %229, 41
   br i1 %230, label %231, label %236
 
@@ -519,16 +519,16 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   %240 = phi ptr [ %234, %231 ], [ %237, %236 ]
   %241 = load ptr, ptr %240, align 8
   %242 = call i64 @CORD_len(ptr noundef %241) #10
-  %.not118 = icmp eq i32 %.3, -1
+  %.not118 = icmp eq i32 %.1148, -1
   br i1 %.not118, label %250, label %243
 
 243:                                              ; preds = %239
-  %244 = zext i32 %.3 to i64
+  %244 = zext i32 %.1148 to i64
   %245 = icmp ugt i64 %242, %244
   br i1 %245, label %246, label %250
 
 246:                                              ; preds = %243
-  %247 = icmp slt i32 %.3, 0
+  %247 = icmp slt i32 %.1148, 0
   br i1 %247, label %extract_conv_spec.exit.thread, label %248
 
 248:                                              ; preds = %246
@@ -538,11 +538,11 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 250:                                              ; preds = %248, %243, %239
   %.078 = phi i64 [ %244, %248 ], [ %242, %243 ], [ %242, %239 ]
   %.076 = phi ptr [ %249, %248 ], [ %241, %243 ], [ %241, %239 ]
-  %.not119 = icmp eq i32 %.4154, -1
+  %.not119 = icmp eq i32 %.0150, -1
   br i1 %.not119, label %268, label %251
 
 251:                                              ; preds = %250
-  %252 = zext i32 %.4154 to i64
+  %252 = zext i32 %.0150 to i64
   %253 = icmp ult i64 %.078, %252
   br i1 %253, label %254, label %268
 
@@ -581,8 +581,8 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %.loopexit
 
 269:                                              ; preds = %113
-  %270 = icmp eq i32 %.2152, -1
-  %271 = icmp eq i32 %.1148, -1
+  %270 = icmp eq i32 %.3153, -1
+  %271 = icmp eq i32 %.4, -1
   %or.cond = select i1 %270, i1 %271, i1 false
   br i1 %or.cond, label %272, label %320
 
@@ -626,8 +626,8 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %.loopexit
 
 293:                                              ; preds = %113
-  %294 = icmp eq i32 %.2152, -1
-  %295 = icmp eq i32 %.1148, -1
+  %294 = icmp eq i32 %.3153, -1
+  %295 = icmp eq i32 %.4, -1
   %or.cond3 = select i1 %294, i1 %295, i1 false
   br i1 %or.cond3, label %296, label %320
 
@@ -681,7 +681,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 320:                                              ; preds = %113, %293, %269
   call void @llvm.va_copy.p0(ptr nonnull %7, ptr %2)
-  %321 = icmp eq i32 %.2152, -2
+  %321 = icmp eq i32 %.3153, -2
   br i1 %321, label %322, label %336
 
 322:                                              ; preds = %320
@@ -709,8 +709,8 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %336
 
 336:                                              ; preds = %333, %320
-  %.5155 = phi i32 [ %335, %333 ], [ %.2152, %320 ]
-  %337 = icmp eq i32 %.1148, -2
+  %.1151 = phi i32 [ %335, %333 ], [ %.3153, %320 ]
+  %337 = icmp eq i32 %.4, -2
   br i1 %337, label %338, label %352
 
 338:                                              ; preds = %336
@@ -738,11 +738,11 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %352
 
 352:                                              ; preds = %349, %336
-  %.4 = phi i32 [ %351, %349 ], [ %.1148, %336 ]
-  %.not121 = icmp eq i32 %.5155, -1
-  %spec.select = select i1 %.not121, i32 0, i32 %.5155
-  %.not122.not = icmp eq i32 %.4, -1
-  %353 = call i32 @llvm.smax.i32(i32 %.4, i32 %spec.select)
+  %.2149 = phi i32 [ %351, %349 ], [ %.4, %336 ]
+  %.not121 = icmp eq i32 %.1151, -1
+  %spec.select = select i1 %.not121, i32 0, i32 %.1151
+  %.not122.not = icmp eq i32 %.2149, -1
+  %353 = call i32 @llvm.smax.i32(i32 %.2149, i32 %spec.select)
   %.172 = select i1 %.not122.not, i32 %spec.select, i32 %353
   %354 = icmp sgt i32 %.172, 77
   br i1 %354, label %355, label %363

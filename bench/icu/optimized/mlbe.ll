@@ -482,9 +482,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1254,13 +1254,13 @@ _ZN6icu_759UVector324popiEv.exit:                 ; preds = %if.then109, %if.the
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont96, %invoke.cont102, %_ZN6icu_759UVector324popiEv.exit, %invoke.cont106, %invoke.cont45, %invoke.cont19, %if.end3, %if.then15
-  %retval.0 = phi i32 [ 0, %if.then15 ], [ 0, %if.end3 ], [ 0, %invoke.cont19 ], [ 0, %invoke.cont45 ], [ %correctedNumBreaks.0.lcssa, %invoke.cont96 ], [ %correctedNumBreaks.0.lcssa, %invoke.cont106 ], [ %dec112, %_ZN6icu_759UVector324popiEv.exit ], [ %correctedNumBreaks.0.lcssa, %invoke.cont102 ]
+  %retval.1 = phi i32 [ 0, %if.then15 ], [ 0, %if.end3 ], [ 0, %invoke.cont19 ], [ 0, %invoke.cont45 ], [ %correctedNumBreaks.0.lcssa, %invoke.cont96 ], [ %correctedNumBreaks.0.lcssa, %invoke.cont106 ], [ %dec112, %_ZN6icu_759UVector324popiEv.exit ], [ %correctedNumBreaks.0.lcssa, %invoke.cont102 ]
   call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %boundary) #10
   br label %return
 
 return:                                           ; preds = %entry, %cleanup, %if.then2
-  %retval.1 = phi i32 [ 0, %if.then2 ], [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then2 ], [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 declare noundef i32 @_ZNK6icu_7513UnicodeString11countChar32Eii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef) local_unnamed_addr #5

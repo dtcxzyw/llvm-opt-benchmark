@@ -7644,7 +7644,7 @@ for.cond657.preheader:                            ; preds = %invoke.cont653
 
 for.body659:                                      ; preds = %for.cond657.preheader, %for.inc687
   %indvars.iv1731 = phi i64 [ 0, %for.cond657.preheader ], [ %indvars.iv.next1732, %for.inc687 ]
-  %maxNumBatches.01719 = phi i32 [ 0, %for.cond657.preheader ], [ %maxNumBatches.1, %for.inc687 ]
+  %maxNumBatches.31719 = phi i32 [ 0, %for.cond657.preheader ], [ %maxNumBatches.4, %for.inc687 ]
   %636 = load ptr, ptr %m_data.i.i962, align 8
   %arrayidx.i1008 = getelementptr inbounds i32, ptr %636, i64 %indvars.iv1731
   %637 = load i32, ptr %arrayidx.i1008, align 4
@@ -7668,7 +7668,7 @@ if.then666:                                       ; preds = %for.body659
           to label %invoke.cont678 unwind label %lpad660
 
 invoke.cont678:                                   ; preds = %if.then666
-  %.sroa.speculated1674 = call i32 @llvm.smax.i32(i32 %call679, i32 %maxNumBatches.01719)
+  %.sroa.speculated1674 = call i32 @llvm.smax.i32(i32 %call679, i32 %maxNumBatches.31719)
   %644 = load i32, ptr @_ZZN21b3GpuPgsContactSolver13solveContactsEiP7_cl_memS1_iS1_RK8b3ConfigiE14globalMaxBatch_0, align 4
   %cmp682 = icmp sgt i32 %.sroa.speculated1674, %644
   br i1 %cmp682, label %if.then683, label %for.inc687
@@ -7692,7 +7692,7 @@ terminate.lpad.i1018:                             ; preds = %lpad660
   unreachable
 
 for.inc687:                                       ; preds = %for.body659, %if.then683, %invoke.cont678
-  %maxNumBatches.1 = phi i32 [ %maxNumBatches.01719, %for.body659 ], [ %.sroa.speculated1674, %if.then683 ], [ %.sroa.speculated1674, %invoke.cont678 ]
+  %maxNumBatches.4 = phi i32 [ %maxNumBatches.31719, %for.body659 ], [ %.sroa.speculated1674, %if.then683 ], [ %.sroa.speculated1674, %invoke.cont678 ]
   %indvars.iv.next1732 = add nuw nsw i64 %indvars.iv1731, 1
   %exitcond1735.not = icmp eq i64 %indvars.iv.next1732, 256
   br i1 %exitcond1735.not, label %for.end689, label %for.body659, !llvm.loop !29
@@ -7709,7 +7709,7 @@ terminate.lpad.i1020:                             ; preds = %for.end689
   unreachable
 
 if.end691:                                        ; preds = %for.end689, %invoke.cont641, %if.then646
-  %maxNumBatches.2 = phi i32 [ %.sroa.speculated1677, %if.then646 ], [ %.sroa.speculated1677, %invoke.cont641 ], [ %maxNumBatches.1, %for.end689 ]
+  %maxNumBatches.2 = phi i32 [ %.sroa.speculated1677, %if.then646 ], [ %.sroa.speculated1677, %invoke.cont641 ], [ %maxNumBatches.4, %for.end689 ]
   invoke void @b3EnterProfileZone(ptr noundef nonnull @.str.54)
           to label %invoke.cont693 unwind label %lpad620
 
@@ -7826,7 +7826,7 @@ terminate.lpad.i1052:                             ; preds = %ehcleanup702
   unreachable
 
 if.end704:                                        ; preds = %if.end421, %_ZN20b3AlignedObjectArrayIjED2Ev.exit1047, %invoke.cont589
-  %maxNumBatches.3 = phi i32 [ 250, %invoke.cont589 ], [ %maxNumBatches.2, %_ZN20b3AlignedObjectArrayIjED2Ev.exit1047 ], [ 0, %if.end421 ]
+  %maxNumBatches.1 = phi i32 [ 250, %invoke.cont589 ], [ %maxNumBatches.2, %_ZN20b3AlignedObjectArrayIjED2Ev.exit1047 ], [ 0, %if.end421 ]
   invoke void @b3LeaveProfileZone()
           to label %if.end704.if.end706_crit_edge unwind label %terminate.lpad.i1054
 
@@ -7855,7 +7855,7 @@ terminate.lpad.i1056:                             ; preds = %ehcleanup705
 
 if.end706:                                        ; preds = %if.end704.if.end706_crit_edge, %if.end192
   %674 = phi i8 [ %250, %if.end192 ], [ %.pre1754, %if.end704.if.end706_crit_edge ]
-  %maxNumBatches.4 = phi i32 [ 0, %if.end192 ], [ %maxNumBatches.3, %if.end704.if.end706_crit_edge ]
+  %maxNumBatches.0 = phi i32 [ 0, %if.end192 ], [ %maxNumBatches.1, %if.end704.if.end706_crit_edge ]
   %tobool707 = trunc i8 %674 to i1
   %tobool709 = icmp ne i32 %conv197, 0
   %or.cond = and i1 %tobool709, %tobool707
@@ -8011,7 +8011,7 @@ invoke.cont732:                                   ; preds = %for.body9.i1069, %_
           to label %invoke.cont745 unwind label %lpad722
 
 invoke.cont745:                                   ; preds = %invoke.cont732
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %call746, i32 %maxNumBatches.4)
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %call746, i32 %maxNumBatches.0)
   %697 = load i32, ptr @_ZZN21b3GpuPgsContactSolver13solveContactsEiP7_cl_memS1_iS1_RK8b3ConfigiE14globalMaxBatch_1, align 4
   %cmp749 = icmp sgt i32 %.sroa.speculated, %697
   br i1 %cmp749, label %if.then750, label %if.end752
@@ -8100,7 +8100,7 @@ terminate.lpad.i1091:                             ; preds = %ehcleanup761
   unreachable
 
 if.end763:                                        ; preds = %_ZN13b3ProfileZoneD2Ev.exit1086, %if.end706
-  %maxNumBatches.5 = phi i32 [ %maxNumBatches.4, %if.end706 ], [ %.sroa.speculated, %_ZN13b3ProfileZoneD2Ev.exit1086 ]
+  %maxNumBatches.5 = phi i32 [ %maxNumBatches.0, %if.end706 ], [ %.sroa.speculated, %_ZN13b3ProfileZoneD2Ev.exit1086 ]
   br i1 %tobool709, label %if.then765, label %if.end780
 
 if.then765:                                       ; preds = %if.end763
@@ -9434,7 +9434,7 @@ while.body.preheader:                             ; preds = %while.cond.preheade
 
 while.body:                                       ; preds = %while.body.preheader, %if.end130
   %indvars.iv207 = phi i64 [ 0, %while.body.preheader ], [ %indvars.iv.next208, %if.end130 ]
-  %numSwaps.0186 = phi i32 [ 0, %while.body.preheader ], [ %numSwaps.1.lcssa, %if.end130 ]
+  %numSwaps.0186 = phi i32 [ 0, %while.body.preheader ], [ %numSwaps.2.lcssa, %if.end130 ]
   %curBodyUsed.0185 = phi i32 [ 0, %while.body.preheader ], [ %curBodyUsed.1.lcssa, %if.end130 ]
   %numValidConstraints.0184 = phi i32 [ 0, %while.body.preheader ], [ %numValidConstraints.1.lcssa, %if.end130 ]
   %arrayidx = getelementptr inbounds i32, ptr %batchSizes, i64 %indvars.iv207
@@ -9484,7 +9484,7 @@ terminate.lpad.i:                                 ; preds = %lpad21
 
 for.body33:                                       ; preds = %for.body33.preheader, %for.inc123
   %indvars.iv202 = phi i64 [ %30, %for.body33.preheader ], [ %indvars.iv.next203, %for.inc123 ]
-  %numSwaps.1178 = phi i32 [ %numSwaps.0186, %for.body33.preheader ], [ %numSwaps.3, %for.inc123 ]
+  %numSwaps.2178 = phi i32 [ %numSwaps.0186, %for.body33.preheader ], [ %numSwaps.4, %for.inc123 ]
   %curBodyUsed.1177 = phi i32 [ 0, %for.body33.preheader ], [ %curBodyUsed.4, %for.inc123 ]
   %numValidConstraints.1176 = phi i32 [ %numValidConstraints.0184, %for.body33.preheader ], [ %numValidConstraints.2, %for.inc123 ]
   %nCurrentBatch.0174 = phi i32 [ 0, %for.body33.preheader ], [ %nCurrentBatch.1, %for.inc123 ]
@@ -9594,11 +9594,11 @@ if.then94:                                        ; preds = %if.end88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %arrayidx35, ptr noundef nonnull align 16 dereferenceable(112) %arrayidx98, i64 112, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %arrayidx98, ptr noundef nonnull align 16 dereferenceable(112) %tmp.sroa.0.i, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %tmp.sroa.0.i)
-  %inc100 = add nsw i32 %numSwaps.1178, 1
+  %inc100 = add nsw i32 %numSwaps.2178, 1
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then94, %if.end88
-  %numSwaps.2 = phi i32 [ %inc100, %if.then94 ], [ %numSwaps.1178, %if.end88 ]
+  %numSwaps.3 = phi i32 [ %inc100, %if.then94 ], [ %numSwaps.2178, %if.end88 ]
   %inc102 = add nsw i32 %numValidConstraints.1176, 1
   %inc103 = add nsw i32 %nCurrentBatch.0174, 1
   %cmp104 = icmp eq i32 %inc103, %simdWidth
@@ -9633,7 +9633,7 @@ for.inc123:                                       ; preds = %for.body112, %if.th
   %nCurrentBatch.1 = phi i32 [ %inc103, %if.end101 ], [ %nCurrentBatch.0174, %if.end62 ], [ 0, %if.then105 ], [ 0, %for.body112 ]
   %numValidConstraints.2 = phi i32 [ %inc102, %if.end101 ], [ %numValidConstraints.1176, %if.end62 ], [ %inc102, %if.then105 ], [ %inc102, %for.body112 ]
   %curBodyUsed.4 = phi i32 [ %curBodyUsed.3, %if.end101 ], [ %curBodyUsed.1177, %if.end62 ], [ 0, %if.then105 ], [ 0, %for.body112 ]
-  %numSwaps.3 = phi i32 [ %numSwaps.2, %if.end101 ], [ %numSwaps.1178, %if.end62 ], [ %numSwaps.2, %if.then105 ], [ %numSwaps.2, %for.body112 ]
+  %numSwaps.4 = phi i32 [ %numSwaps.3, %if.end101 ], [ %numSwaps.2178, %if.end62 ], [ %numSwaps.3, %if.then105 ], [ %numSwaps.3, %for.body112 ]
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, 1
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
   br i1 %exitcond206.not, label %for.end125, label %for.body33, !llvm.loop !35
@@ -9642,7 +9642,7 @@ for.end125:                                       ; preds = %for.inc123, %for.co
   %nCurrentBatch.0.lcssa = phi i32 [ 0, %for.cond31.preheader ], [ %nCurrentBatch.1, %for.inc123 ]
   %numValidConstraints.1.lcssa = phi i32 [ %numValidConstraints.0184, %for.cond31.preheader ], [ %numValidConstraints.2, %for.inc123 ]
   %curBodyUsed.1.lcssa = phi i32 [ 0, %for.cond31.preheader ], [ %curBodyUsed.4, %for.inc123 ]
-  %numSwaps.1.lcssa = phi i32 [ %numSwaps.0186, %for.cond31.preheader ], [ %numSwaps.3, %for.inc123 ]
+  %numSwaps.2.lcssa = phi i32 [ %numSwaps.0186, %for.cond31.preheader ], [ %numSwaps.4, %for.inc123 ]
   %exitcond210 = icmp eq i64 %indvars.iv207, 128
   br i1 %exitcond210, label %do.body, label %if.end130
 
@@ -9668,7 +9668,7 @@ while.end.loopexit:                               ; preds = %if.end130
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader, %invoke.cont128
   %batchIdx.0166 = phi i32 [ 128, %invoke.cont128 ], [ 0, %while.cond.preheader ], [ %59, %while.end.loopexit ]
-  %numSwaps.4 = phi i32 [ %numSwaps.1.lcssa, %invoke.cont128 ], [ 0, %while.cond.preheader ], [ %numSwaps.1.lcssa, %while.end.loopexit ]
+  %numSwaps.1 = phi i32 [ %numSwaps.2.lcssa, %invoke.cont128 ], [ 0, %while.cond.preheader ], [ %numSwaps.2.lcssa, %while.end.loopexit ]
   invoke void @b3LeaveProfileZone()
           to label %_ZN13b3ProfileZoneD2Ev.exit127 unwind label %terminate.lpad.i126
 
@@ -9684,11 +9684,11 @@ _ZN13b3ProfileZoneD2Ev.exit127:                   ; preds = %while.end
   %arrayidx136 = getelementptr inbounds i32, ptr %batchSizes, i64 %idxprom135
   store i32 0, ptr %arrayidx136, align 4
   %62 = load i32, ptr @_ZZN21b3GpuPgsContactSolver22sortConstraintByBatch3EP10b3Contact4iiiiPiE8maxSwaps, align 4
-  %cmp137 = icmp slt i32 %62, %numSwaps.4
+  %cmp137 = icmp slt i32 %62, %numSwaps.1
   br i1 %cmp137, label %if.then138, label %if.end139
 
 if.then138:                                       ; preds = %_ZN13b3ProfileZoneD2Ev.exit127
-  store i32 %numSwaps.4, ptr @_ZZN21b3GpuPgsContactSolver22sortConstraintByBatch3EP10b3Contact4iiiiPiE8maxSwaps, align 4
+  store i32 %numSwaps.1, ptr @_ZZN21b3GpuPgsContactSolver22sortConstraintByBatch3EP10b3Contact4iiiiPiE8maxSwaps, align 4
   br label %if.end139
 
 if.end139:                                        ; preds = %if.then138, %_ZN13b3ProfileZoneD2Ev.exit127
@@ -10149,8 +10149,8 @@ _ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18: ; preds = %if.else, %land
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI10b3Contact4E10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10312,8 +10312,8 @@ _ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit18: ; preds = %if.else, %land
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit, %_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10475,8 +10475,8 @@ _ZN13b3OpenCLArrayIjE10deallocateEv.exit18:       ; preds = %if.else, %land.lhs.
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayIjE10deallocateEv.exit, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIjE10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10638,8 +10638,8 @@ _ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit18: ; preds = %if.else,
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI16b3GpuConstraint4E10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

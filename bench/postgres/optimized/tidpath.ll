@@ -137,7 +137,7 @@ define internal fastcc ptr @TidQualFromRestrictInfoList(ptr noundef %0, ptr noun
   br i1 %21, label %.lr.ph90, label %TidQualFromRestrictInfo.exit58
 
 .lr.ph90:                                         ; preds = %.lr.ph, %100
-  %.17089 = phi ptr [ %101, %100 ], [ null, %.lr.ph ]
+  %.27089 = phi ptr [ %101, %100 ], [ null, %.lr.ph ]
   %indvars.iv88 = phi i64 [ %indvars.iv.next, %100 ], [ 0, %.lr.ph ]
   %22 = load ptr, ptr %19, align 8
   %23 = getelementptr %union.ListCell, ptr %22, i64 %indvars.iv88
@@ -293,7 +293,7 @@ TidQualFromRestrictInfo.exit:                     ; preds = %97, %31
   br i1 %99, label %TidQualFromRestrictInfo.exit58.thread, label %100
 
 100:                                              ; preds = %TidQualFromRestrictInfo.exit
-  %101 = tail call ptr @list_concat(ptr noundef %.17089, ptr noundef nonnull %.033) #3
+  %101 = tail call ptr @list_concat(ptr noundef %.27089, ptr noundef nonnull %.033) #3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv88, 1
   %102 = load i32, ptr %18, align 4
   %103 = sext i32 %102 to i64
@@ -426,8 +426,8 @@ IsCurrentOfClause.exit.i46:                       ; preds = %IsTidEqualAnyClause
   br label %TidQualFromRestrictInfo.exit58
 
 TidQualFromRestrictInfo.exit58:                   ; preds = %100, %.lr.ph, %168
-  %.2 = phi ptr [ %169, %168 ], [ null, %.lr.ph ], [ %101, %100 ]
-  %.not40 = icmp eq ptr %.2, null
+  %.3 = phi ptr [ %169, %168 ], [ null, %.lr.ph ], [ %101, %100 ]
+  %.not40 = icmp eq ptr %.3, null
   br i1 %.not40, label %TidQualFromRestrictInfo.exit58.thread, label %.thread
 
 TidQualFromRestrictInfo.exit58.thread:            ; preds = %IsTidEqualClause.exit.thread.i, %IsTidEqualAnyClause.exit.thread.i, %IsTidEqualAnyClause.exit.thread.thread21.i, %IsCurrentOfClause.exit.i, %38, %is_andclause.exit.thread, %TidQualFromRestrictInfo.exit, %13, %IsTidEqualClause.exit.thread.i42, %IsTidEqualAnyClause.exit.thread.i48, %IsTidEqualAnyClause.exit.thread.thread21.i44, %IsCurrentOfClause.exit.i46, %109, %105, %TidQualFromRestrictInfo.exit58
@@ -438,8 +438,8 @@ TidQualFromRestrictInfo.exit58.thread:            ; preds = %IsTidEqualClause.ex
   br i1 %172, label %.lr.ph92, label %.thread
 
 .thread:                                          ; preds = %TidQualFromRestrictInfo.exit58.thread, %TidQualFromRestrictInfo.exit58, %.lr.ph74, %3
-  %.3 = phi ptr [ null, %3 ], [ null, %.lr.ph74 ], [ %.2, %TidQualFromRestrictInfo.exit58 ], [ null, %TidQualFromRestrictInfo.exit58.thread ]
-  ret ptr %.3
+  %.1 = phi ptr [ null, %3 ], [ null, %.lr.ph74 ], [ %.3, %TidQualFromRestrictInfo.exit58 ], [ null, %TidQualFromRestrictInfo.exit58.thread ]
+  ret ptr %.1
 }
 
 declare void @add_path(ptr noundef, ptr noundef) local_unnamed_addr #1

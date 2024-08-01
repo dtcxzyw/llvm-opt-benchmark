@@ -66,7 +66,7 @@ define hidden i32 @mbedtls_psa_aead_encrypt(ptr nocapture noundef readonly %0, p
   br label %42
 
 42:                                               ; preds = %16, %35, %38, %13
-  %.1.ph = phi i32 [ -138, %16 ], [ %36, %35 ], [ 0, %38 ], [ %15, %13 ]
+  %.036.ph = phi i32 [ -138, %16 ], [ %36, %35 ], [ 0, %38 ], [ %15, %13 ]
   %.pr = load i32, ptr %14, align 8
   switch i32 %.pr, label %mbedtls_psa_aead_abort.exit [
     i32 89129216, label %43
@@ -85,13 +85,13 @@ define hidden i32 @mbedtls_psa_aead_encrypt(ptr nocapture noundef readonly %0, p
   br label %mbedtls_psa_aead_abort.exit
 
 .thread:                                          ; preds = %31, %42
-  %.141 = phi i32 [ %.1.ph, %42 ], [ -134, %31 ]
+  %.03641 = phi i32 [ %.036.ph, %42 ], [ -134, %31 ]
   %47 = getelementptr inbounds i8, ptr %14, i64 8
   call void @mbedtls_chachapoly_free(ptr noundef nonnull %47) #3
   br label %mbedtls_psa_aead_abort.exit
 
 mbedtls_psa_aead_abort.exit:                      ; preds = %.thread, %45, %43, %42, %22
-  %.0 = phi i32 [ -134, %22 ], [ %.1.ph, %42 ], [ %.1.ph, %43 ], [ %.1.ph, %45 ], [ %.141, %.thread ]
+  %.0 = phi i32 [ -134, %22 ], [ %.036.ph, %42 ], [ %.036.ph, %43 ], [ %.036.ph, %45 ], [ %.03641, %.thread ]
   ret i32 %.0
 }
 
@@ -333,7 +333,7 @@ define hidden i32 @mbedtls_psa_aead_decrypt(ptr nocapture noundef readonly %0, p
   br label %psa_aead_unpadded_locate_tag.exit.thread
 
 psa_aead_unpadded_locate_tag.exit.thread:         ; preds = %21, %16, %37, %40, %13
-  %.1.ph = phi i32 [ %38, %37 ], [ 0, %40 ], [ %15, %13 ], [ -138, %21 ], [ -135, %16 ]
+  %.0.ph = phi i32 [ %38, %37 ], [ 0, %40 ], [ %15, %13 ], [ -138, %21 ], [ -135, %16 ]
   %.pr = load i32, ptr %14, align 8
   switch i32 %.pr, label %mbedtls_psa_aead_abort.exit [
     i32 89129216, label %44
@@ -352,14 +352,14 @@ psa_aead_unpadded_locate_tag.exit.thread:         ; preds = %21, %16, %37, %40, 
   br label %mbedtls_psa_aead_abort.exit
 
 .thread:                                          ; preds = %33, %psa_aead_unpadded_locate_tag.exit.thread
-  %.149 = phi i32 [ %.1.ph, %psa_aead_unpadded_locate_tag.exit.thread ], [ -134, %33 ]
+  %.049 = phi i32 [ %.0.ph, %psa_aead_unpadded_locate_tag.exit.thread ], [ -134, %33 ]
   %48 = getelementptr inbounds i8, ptr %14, i64 8
   call void @mbedtls_chachapoly_free(ptr noundef nonnull %48) #3
   br label %mbedtls_psa_aead_abort.exit
 
 mbedtls_psa_aead_abort.exit:                      ; preds = %psa_aead_unpadded_locate_tag.exit.thread, %44, %46, %.thread
-  %.150 = phi i32 [ %.1.ph, %psa_aead_unpadded_locate_tag.exit.thread ], [ %.1.ph, %44 ], [ %.1.ph, %46 ], [ %.149, %.thread ]
-  %49 = icmp eq i32 %.150, 0
+  %.050 = phi i32 [ %.0.ph, %psa_aead_unpadded_locate_tag.exit.thread ], [ %.0.ph, %44 ], [ %.0.ph, %46 ], [ %.049, %.thread ]
+  %49 = icmp eq i32 %.050, 0
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %mbedtls_psa_aead_abort.exit
@@ -371,7 +371,7 @@ mbedtls_psa_aead_abort.exit:                      ; preds = %psa_aead_unpadded_l
   br label %55
 
 55:                                               ; preds = %mbedtls_psa_aead_abort.exit, %50, %24
-  %.036 = phi i32 [ -134, %24 ], [ 0, %50 ], [ %.150, %mbedtls_psa_aead_abort.exit ]
+  %.036 = phi i32 [ -134, %24 ], [ 0, %50 ], [ %.050, %mbedtls_psa_aead_abort.exit ]
   ret i32 %.036
 }
 

@@ -113,7 +113,7 @@ define noundef ptr @timer_gethandle(ptr noundef readnone %0) local_unnamed_addr 
   br i1 %.not9, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph, %3
-  %.0 = phi ptr [ null, %3 ], [ %0, %.lr.ph ], [ null, %7 ]
+  %.1 = phi ptr [ null, %3 ], [ %0, %.lr.ph ], [ null, %7 ]
   %9 = and i64 %4, 512
   %.not.i = icmp eq i64 %9, 0
   br i1 %.not.i, label %up_irq_restore.exit, label %10
@@ -123,8 +123,8 @@ define noundef ptr @timer_gethandle(ptr noundef readnone %0) local_unnamed_addr 
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %10, %._crit_edge, %1
-  %.1 = phi ptr [ null, %1 ], [ %.0, %._crit_edge ], [ %.0, %10 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %1 ], [ %.1, %._crit_edge ], [ %.1, %10 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

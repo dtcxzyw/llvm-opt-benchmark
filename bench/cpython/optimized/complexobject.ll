@@ -1542,20 +1542,20 @@ if.then18:                                        ; preds = %if.end13
   br label %done
 
 if.end21:                                         ; preds = %if.end13, %if.then
-  %pre.0 = phi ptr [ null, %if.then ], [ %call9, %if.end13 ]
-  %im.0 = phi ptr [ %call, %if.then ], [ %call16, %if.end13 ]
+  %pre.1 = phi ptr [ null, %if.then ], [ %call9, %if.end13 ]
+  %im.1 = phi ptr [ %call, %if.then ], [ %call16, %if.end13 ]
   %re.0 = phi ptr [ @.str.3, %if.then ], [ %call9, %if.end13 ]
   %lead.0 = phi ptr [ @.str.3, %if.then ], [ @.str.4, %if.end13 ]
   %tail.0 = phi ptr [ @.str.3, %if.then ], [ @.str.5, %if.end13 ]
-  %call22 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.6, ptr noundef nonnull %lead.0, ptr noundef nonnull %re.0, ptr noundef nonnull %im.0, ptr noundef nonnull %tail.0) #14
+  %call22 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.6, ptr noundef nonnull %lead.0, ptr noundef nonnull %re.0, ptr noundef nonnull %im.1, ptr noundef nonnull %tail.0) #14
   br label %done
 
 done:                                             ; preds = %if.end21, %if.then18, %if.then11, %if.then5
   %result.0 = phi ptr [ %call22, %if.end21 ], [ null, %if.then5 ], [ null, %if.then18 ], [ null, %if.then11 ]
-  %pre.1 = phi ptr [ %pre.0, %if.end21 ], [ null, %if.then5 ], [ %call9, %if.then18 ], [ null, %if.then11 ]
-  %im.1 = phi ptr [ %im.0, %if.end21 ], [ null, %if.then5 ], [ null, %if.then18 ], [ null, %if.then11 ]
-  tail call void @PyMem_Free(ptr noundef %im.1) #14
-  tail call void @PyMem_Free(ptr noundef %pre.1) #14
+  %pre.0 = phi ptr [ %pre.1, %if.end21 ], [ null, %if.then5 ], [ %call9, %if.then18 ], [ null, %if.then11 ]
+  %im.0 = phi ptr [ %im.1, %if.end21 ], [ null, %if.then5 ], [ null, %if.then18 ], [ null, %if.then11 ]
+  tail call void @PyMem_Free(ptr noundef %im.0) #14
+  tail call void @PyMem_Free(ptr noundef %pre.0) #14
   ret ptr %result.0
 }
 
@@ -1658,7 +1658,7 @@ if.end.i.i.i:                                     ; preds = %if.end14.i
   br label %return
 
 if.end7:                                          ; preds = %if.then11.i, %land.lhs.true.i, %if.then.i, %if.then2
-  %i.sroa.0.1 = phi double [ %i.sroa.0.0.copyload, %if.then2 ], [ %call12.i, %if.then11.i ], [ -1.000000e+00, %land.lhs.true.i ], [ %call2.i14, %if.then.i ]
+  %i.sroa.0.0 = phi double [ %i.sroa.0.0.copyload, %if.then2 ], [ %call12.i, %if.then11.i ], [ -1.000000e+00, %land.lhs.true.i ], [ %call2.i14, %if.then.i ]
   %i.sroa.7.0 = phi double [ %i.sroa.7.0.copyload, %if.then2 ], [ 0.000000e+00, %if.then11.i ], [ 0.000000e+00, %land.lhs.true.i ], [ 0.000000e+00, %if.then.i ]
   %5 = getelementptr i8, ptr %w, i64 8
   %.val = load ptr, ptr %5, align 8
@@ -1677,7 +1677,7 @@ if.then11.if.end57_crit_edge:                     ; preds = %if.then11
   br i1 %.not, label %if.else62.split, label %if.then61.split
 
 if.then13:                                        ; preds = %if.then11
-  %call14 = tail call ptr @PyFloat_FromDouble(double noundef %i.sroa.0.1) #14
+  %call14 = tail call ptr @PyFloat_FromDouble(double noundef %i.sroa.0.0) #14
   %cmp15 = icmp eq ptr %call14, null
   br i1 %cmp15, label %return, label %if.end17
 
@@ -1754,7 +1754,7 @@ if.end44:                                         ; preds = %if.else39, %if.then
 if.end57:                                         ; preds = %if.then24, %if.end44
   %.sink = phi double [ 0.000000e+00, %if.then24 ], [ %12, %if.end44 ]
   %call26.pn = phi double [ %call26, %if.then24 ], [ %11, %if.end44 ]
-  %cmp27.sink = fcmp oeq double %i.sroa.0.1, %call26.pn
+  %cmp27.sink = fcmp oeq double %i.sroa.0.0, %call26.pn
   %cmp29 = fcmp oeq double %i.sroa.7.0, %.sink
   %13 = select i1 %cmp27.sink, i1 %cmp29, i1 false
   %14 = icmp ne i32 %op, 2
@@ -1836,10 +1836,10 @@ if.end27:                                         ; preds = %if.end20
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end20, %if.end, %if.end27
-  %r.1 = phi ptr [ %3, %if.end27 ], [ null, %if.end ], [ %3, %if.end20 ]
+  %r.0 = phi ptr [ %3, %if.end27 ], [ null, %if.end ], [ %3, %if.end20 ]
   %i.0 = phi ptr [ %4, %if.end27 ], [ null, %if.end ], [ null, %if.end20 ]
-  %cmp.i = icmp eq ptr %r.1, null
-  %spec.select.i = select i1 %cmp.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), ptr %r.1
+  %cmp.i = icmp eq ptr %r.0, null
+  %spec.select.i = select i1 %cmp.i, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3816), ptr %r.0
   %5 = getelementptr i8, ptr %spec.select.i, i64 8
   %r.addr.0.val65.i = load ptr, ptr %5, align 8
   %cmp.i70.i = icmp eq ptr %r.addr.0.val65.i, @PyComplex_Type
@@ -2605,7 +2605,7 @@ if.end.i.i.i:                                     ; preds = %if.end14.i
   br label %return
 
 if.end3:                                          ; preds = %if.then11.i, %land.lhs.true.i, %if.then.i, %if.then
-  %a.sroa.0.1 = phi double [ %a.sroa.0.0.copyload, %if.then ], [ %call12.i, %if.then11.i ], [ -1.000000e+00, %land.lhs.true.i ], [ %call2.i1, %if.then.i ]
+  %a.sroa.0.0 = phi double [ %a.sroa.0.0.copyload, %if.then ], [ %call12.i, %if.then11.i ], [ -1.000000e+00, %land.lhs.true.i ], [ %call2.i1, %if.then.i ]
   %a.sroa.5.0 = phi double [ %a.sroa.5.0.copyload, %if.then ], [ 0.000000e+00, %if.then11.i ], [ 0.000000e+00, %land.lhs.true.i ], [ 0.000000e+00, %if.then.i ]
   %4 = getelementptr i8, ptr %w, i64 8
   %.val = load ptr, ptr %4, align 8
@@ -2672,7 +2672,7 @@ if.end13:                                         ; preds = %if.then11.i24, %lan
   %14 = insertelement <2 x double> %13, double %12, i64 1
   %15 = fmul <2 x double> %11, %14
   %16 = shufflevector <2 x double> %15, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %17 = insertelement <2 x double> poison, double %a.sroa.0.1, i64 0
+  %17 = insertelement <2 x double> poison, double %a.sroa.0.0, i64 0
   %18 = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> zeroinitializer
   %19 = tail call <2 x double> @llvm.fmuladd.v2f64(<2 x double> %18, <2 x double> %11, <2 x double> %16)
   %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
@@ -2834,7 +2834,7 @@ if.end.i.i.i33:                                   ; preds = %if.end14.i30
   br label %return
 
 if.end13:                                         ; preds = %if.then11.i28, %land.lhs.true.i19, %if.then.i15, %if.then6
-  %b.sroa.0.1 = phi double [ %b.sroa.0.0.copyload, %if.then6 ], [ %call12.i29, %if.then11.i28 ], [ -1.000000e+00, %land.lhs.true.i19 ], [ %call2.i16, %if.then.i15 ]
+  %b.sroa.0.0 = phi double [ %b.sroa.0.0.copyload, %if.then6 ], [ %call12.i29, %if.then11.i28 ], [ -1.000000e+00, %land.lhs.true.i19 ], [ %call2.i16, %if.then.i15 ]
   %b.sroa.6.0 = phi double [ %b.sroa.6.0.copyload, %if.then6 ], [ 0.000000e+00, %if.then11.i28 ], [ 0.000000e+00, %land.lhs.true.i19 ], [ 0.000000e+00, %if.then.i15 ]
   %cmp14.not = icmp eq ptr %z, @_Py_NoneStruct
   br i1 %cmp14.not, label %if.end16, label %if.then15
@@ -2851,15 +2851,15 @@ if.end16:                                         ; preds = %if.end13
   br i1 %cmp18, label %land.lhs.true, label %if.else27
 
 land.lhs.true:                                    ; preds = %if.end16
-  %13 = tail call double @llvm.floor.f64(double %b.sroa.0.1)
-  %cmp20 = fcmp une double %b.sroa.0.1, %13
-  %14 = tail call double @llvm.fabs.f64(double %b.sroa.0.1)
+  %13 = tail call double @llvm.floor.f64(double %b.sroa.0.0)
+  %cmp20 = fcmp une double %b.sroa.0.0, %13
+  %14 = tail call double @llvm.fabs.f64(double %b.sroa.0.0)
   %cmp23 = fcmp ugt double %14, 1.000000e+02
   %or.cond = or i1 %cmp20, %cmp23
   br i1 %or.cond, label %if.else27, label %if.then24
 
 if.then24:                                        ; preds = %land.lhs.true
-  %conv = fptosi double %b.sroa.0.1 to i64
+  %conv = fptosi double %b.sroa.0.0 to i64
   %cmp.i36 = icmp sgt i64 %conv, 0
   br i1 %cmp.i36, label %while.body.i.i, label %if.else.i
 
@@ -3000,7 +3000,7 @@ c_powi.exit:                                      ; preds = %if.end.i.i, %if.the
 if.else27:                                        ; preds = %land.lhs.true, %if.end16
   %82 = extractelement <2 x double> %7, i64 0
   %83 = extractelement <2 x double> %7, i64 1
-  %call29 = tail call { double, double } @_Py_c_pow(double %82, double %83, double %b.sroa.0.1, double %b.sroa.6.0)
+  %call29 = tail call { double, double } @_Py_c_pow(double %82, double %83, double %b.sroa.0.0, double %b.sroa.6.0)
   %.pre = load i32, ptr %call17, align 4
   br label %if.end30
 
@@ -3394,13 +3394,13 @@ if.end.i.i.i29:                                   ; preds = %if.end14.i26
   br label %return
 
 if.end13:                                         ; preds = %if.then11.i24, %land.lhs.true.i15, %if.then.i11, %if.then6
-  %b.sroa.0.1 = phi double [ %b.sroa.0.0.copyload, %if.then6 ], [ %call12.i25, %if.then11.i24 ], [ -1.000000e+00, %land.lhs.true.i15 ], [ %call2.i12, %if.then.i11 ]
+  %b.sroa.0.0 = phi double [ %b.sroa.0.0.copyload, %if.then6 ], [ %call12.i25, %if.then11.i24 ], [ -1.000000e+00, %land.lhs.true.i15 ], [ %call2.i12, %if.then.i11 ]
   %b.sroa.5.0 = phi double [ %b.sroa.5.0.copyload, %if.then6 ], [ 0.000000e+00, %if.then11.i24 ], [ 0.000000e+00, %land.lhs.true.i15 ], [ 0.000000e+00, %if.then.i11 ]
   %call14 = tail call ptr @__errno_location() #13
   store i32 0, ptr %call14, align 4
-  %cmp.i32 = fcmp olt double %b.sroa.0.1, 0.000000e+00
-  %fneg.i = fneg double %b.sroa.0.1
-  %cond.i = select i1 %cmp.i32, double %fneg.i, double %b.sroa.0.1
+  %cmp.i32 = fcmp olt double %b.sroa.0.0, 0.000000e+00
+  %fneg.i = fneg double %b.sroa.0.0
+  %cond.i = select i1 %cmp.i32, double %fneg.i, double %b.sroa.0.0
   %cmp3.i = fcmp olt double %b.sroa.5.0, 0.000000e+00
   %fneg6.i = fneg double %b.sroa.5.0
   %cond10.i = select i1 %cmp3.i, double %fneg6.i, double %b.sroa.5.0
@@ -3408,12 +3408,12 @@ if.end13:                                         ; preds = %if.then11.i24, %lan
   br i1 %cmp11.i, label %if.else28.i, label %if.then.i33
 
 if.then.i33:                                      ; preds = %if.end13
-  %cmp12.i = fcmp oeq double %b.sroa.0.1, 0.000000e+00
+  %cmp12.i = fcmp oeq double %b.sroa.0.0, 0.000000e+00
   br i1 %cmp12.i, label %if.then18, label %if.else.i
 
 if.else.i:                                        ; preds = %if.then.i33
-  %div.i = fdiv double %b.sroa.5.0, %b.sroa.0.1
-  %12 = tail call double @llvm.fmuladd.f64(double %b.sroa.5.0, double %div.i, double %b.sroa.0.1)
+  %div.i = fdiv double %b.sroa.5.0, %b.sroa.0.0
+  %12 = tail call double @llvm.fmuladd.f64(double %b.sroa.5.0, double %div.i, double %b.sroa.0.0)
   %13 = extractelement <2 x double> %7, i64 0
   %neg.i = fneg double %13
   %14 = shufflevector <2 x double> %7, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -3431,8 +3431,8 @@ if.else28.i:                                      ; preds = %if.end13
   br i1 %cmp29.i, label %if.end19, label %if.then30.i
 
 if.then30.i:                                      ; preds = %if.else28.i
-  %div34.i = fdiv double %b.sroa.0.1, %b.sroa.5.0
-  %22 = tail call double @llvm.fmuladd.f64(double %b.sroa.0.1, double %div34.i, double %b.sroa.5.0)
+  %div34.i = fdiv double %b.sroa.0.0, %b.sroa.5.0
+  %22 = tail call double @llvm.fmuladd.f64(double %b.sroa.0.0, double %div34.i, double %b.sroa.5.0)
   %23 = extractelement <2 x double> %7, i64 0
   %neg44.i = fneg double %23
   %24 = insertelement <2 x double> poison, double %div34.i, i64 0
@@ -3767,9 +3767,9 @@ while.end:                                        ; preds = %while.cond
   br i1 %cmp.not, label %while.cond6, label %if.end
 
 while.cond6:                                      ; preds = %while.end, %while.cond6
-  %s.addr.0.pn = phi ptr [ %s.addr.1, %while.cond6 ], [ %s.addr.0, %while.end ]
-  %s.addr.1 = getelementptr i8, ptr %s.addr.0.pn, i64 1
-  %2 = load i8, ptr %s.addr.1, align 1
+  %s.addr.0.pn = phi ptr [ %s.addr.2, %while.cond6 ], [ %s.addr.0, %while.end ]
+  %s.addr.2 = getelementptr i8, ptr %s.addr.0.pn, i64 1
+  %2 = load i8, ptr %s.addr.2, align 1
   %idxprom10 = zext i8 %2 to i64
   %arrayidx11 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %idxprom10
   %3 = load i32, ptr %arrayidx11, align 4
@@ -3778,8 +3778,8 @@ while.cond6:                                      ; preds = %while.end, %while.c
   br i1 %tobool13.not, label %if.end, label %while.cond6, !llvm.loop !8
 
 if.end:                                           ; preds = %while.cond6, %while.end
-  %s.addr.2 = phi ptr [ %s.addr.0, %while.end ], [ %s.addr.1, %while.cond6 ]
-  %call = call double @PyOS_string_to_double(ptr noundef nonnull %s.addr.2, ptr noundef nonnull %end, ptr noundef null) #14
+  %s.addr.1 = phi ptr [ %s.addr.0, %while.end ], [ %s.addr.2, %while.cond6 ]
+  %call = call double @PyOS_string_to_double(ptr noundef nonnull %s.addr.1, ptr noundef nonnull %end, ptr noundef null) #14
   %cmp17 = fcmp oeq double %call, -1.000000e+00
   br i1 %cmp17, label %land.lhs.true, label %if.end26
 
@@ -3800,7 +3800,7 @@ if.then24:                                        ; preds = %if.then21
 
 if.end26:                                         ; preds = %if.then24, %land.lhs.true, %if.end
   %5 = load ptr, ptr %end, align 8
-  %cmp27.not = icmp eq ptr %5, %s.addr.2
+  %cmp27.not = icmp eq ptr %5, %s.addr.1
   br i1 %cmp27.not, label %if.else82, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
@@ -3862,7 +3862,7 @@ if.then77:                                        ; preds = %if.then29, %if.then
   br label %if.end108
 
 if.else82:                                        ; preds = %if.end26
-  %11 = load i8, ptr %s.addr.2, align 1
+  %11 = load i8, ptr %s.addr.1, align 1
   switch i8 %11, label %if.end97 [
     i8 43, label %if.then90
     i8 45, label %if.then90
@@ -3871,31 +3871,31 @@ if.else82:                                        ; preds = %if.end26
 if.then90:                                        ; preds = %if.else82, %if.else82
   %cmp92 = icmp eq i8 %11, 43
   %cond94 = select i1 %cmp92, double 1.000000e+00, double -1.000000e+00
-  %incdec.ptr95 = getelementptr i8, ptr %s.addr.2, i64 1
+  %incdec.ptr95 = getelementptr i8, ptr %s.addr.1, i64 1
   %.pr = load i8, ptr %incdec.ptr95, align 1
   br label %if.end97
 
 if.end97:                                         ; preds = %if.else82, %if.then90
   %12 = phi i8 [ %11, %if.else82 ], [ %.pr, %if.then90 ]
-  %y.1 = phi double [ 1.000000e+00, %if.else82 ], [ %cond94, %if.then90 ]
-  %s.addr.4 = phi ptr [ %s.addr.2, %if.else82 ], [ %incdec.ptr95, %if.then90 ]
+  %y.2 = phi double [ 1.000000e+00, %if.else82 ], [ %cond94, %if.then90 ]
+  %s.addr.5 = phi ptr [ %s.addr.1, %if.else82 ], [ %incdec.ptr95, %if.then90 ]
   switch i8 %12, label %parse_error [
     i8 106, label %if.end106
     i8 74, label %if.end106
   ]
 
 if.end106:                                        ; preds = %if.end97, %if.end97
-  %incdec.ptr107 = getelementptr i8, ptr %s.addr.4, i64 1
+  %incdec.ptr107 = getelementptr i8, ptr %s.addr.5, i64 1
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then29, %if.end67, %if.then77, %if.end106
   %x.0 = phi double [ %call, %if.end67 ], [ 0.000000e+00, %if.then77 ], [ 0.000000e+00, %if.end106 ], [ %call, %if.then29 ]
-  %y.2 = phi double [ %y.0, %if.end67 ], [ %call, %if.then77 ], [ %y.1, %if.end106 ], [ 0.000000e+00, %if.then29 ]
-  %s.addr.5 = phi ptr [ %incdec.ptr68, %if.end67 ], [ %incdec.ptr78, %if.then77 ], [ %incdec.ptr107, %if.end106 ], [ %5, %if.then29 ]
+  %y.1 = phi double [ %y.0, %if.end67 ], [ %call, %if.then77 ], [ %y.2, %if.end106 ], [ 0.000000e+00, %if.then29 ]
+  %s.addr.4 = phi ptr [ %incdec.ptr68, %if.end67 ], [ %incdec.ptr78, %if.then77 ], [ %incdec.ptr107, %if.end106 ], [ %5, %if.then29 ]
   br label %while.cond109
 
 while.cond109:                                    ; preds = %while.cond109, %if.end108
-  %s.addr.6 = phi ptr [ %s.addr.5, %if.end108 ], [ %incdec.ptr118, %while.cond109 ]
+  %s.addr.6 = phi ptr [ %s.addr.4, %if.end108 ], [ %incdec.ptr118, %while.cond109 ]
   %13 = load i8, ptr %s.addr.6, align 1
   %idxprom113 = zext i8 %13 to i64
   %arrayidx114 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %idxprom113
@@ -3913,9 +3913,9 @@ if.then121:                                       ; preds = %while.end119
   br i1 %cmp123.not, label %while.cond128, label %parse_error
 
 while.cond128:                                    ; preds = %if.then121, %while.cond128
-  %s.addr.6.pn = phi ptr [ %s.addr.7, %while.cond128 ], [ %s.addr.6, %if.then121 ]
-  %s.addr.7 = getelementptr i8, ptr %s.addr.6.pn, i64 1
-  %15 = load i8, ptr %s.addr.7, align 1
+  %s.addr.6.pn = phi ptr [ %s.addr.8, %while.cond128 ], [ %s.addr.6, %if.then121 ]
+  %s.addr.8 = getelementptr i8, ptr %s.addr.6.pn, i64 1
+  %15 = load i8, ptr %s.addr.8, align 1
   %idxprom132 = zext i8 %15 to i64
   %arrayidx133 = getelementptr [256 x i32], ptr @_Py_ctype_table, i64 0, i64 %idxprom132
   %16 = load i32, ptr %arrayidx133, align 4
@@ -3924,8 +3924,8 @@ while.cond128:                                    ; preds = %if.then121, %while.
   br i1 %tobool135.not, label %if.end139, label %while.cond128, !llvm.loop !10
 
 if.end139:                                        ; preds = %while.cond128, %while.end119
-  %s.addr.8 = phi ptr [ %s.addr.6, %while.end119 ], [ %s.addr.7, %while.cond128 ]
-  %sub.ptr.lhs.cast = ptrtoint ptr %s.addr.8 to i64
+  %s.addr.7 = phi ptr [ %s.addr.6, %while.end119 ], [ %s.addr.8, %while.cond128 ]
+  %sub.ptr.lhs.cast = ptrtoint ptr %s.addr.7 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %s to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp140.not = icmp eq i64 %sub.ptr.sub, %len
@@ -3942,7 +3942,7 @@ if.then.i.i:                                      ; preds = %if.end143
   %cval1.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store double %x.0, ptr %cval1.i.i, align 8
   %cval.sroa.2.0.cval1.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  store double %y.2, ptr %cval.sroa.2.0.cval1.sroa_idx.i.i, align 8
+  store double %y.1, ptr %cval.sroa.2.0.cval1.sroa_idx.i.i, align 8
   br label %return
 
 parse_error:                                      ; preds = %if.end97, %if.end58, %if.end139, %if.then121

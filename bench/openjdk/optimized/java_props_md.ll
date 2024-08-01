@@ -514,17 +514,17 @@ mapLookup.exit.thread:                            ; preds = %40, %mapLookup.exit
   br label %76
 
 76:                                               ; preds = %70, %68
-  %.2 = phi ptr [ %.082, %68 ], [ %71, %70 ]
-  %77 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.2, i32 noundef 64) #14
+  %.1 = phi ptr [ %.082, %68 ], [ %71, %70 ]
+  %77 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 64) #14
   %.not113 = icmp eq ptr %77, null
   br i1 %.not113, label %84, label %78
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds i8, ptr %77, i64 1
   %80 = ptrtoint ptr %77 to i64
-  %81 = ptrtoint ptr %.2 to i64
+  %81 = ptrtoint ptr %.1 to i64
   %82 = sub i64 %80, %81
-  %83 = getelementptr inbounds i8, ptr %.2, i64 %82
+  %83 = getelementptr inbounds i8, ptr %.1, i64 %82
   store i8 0, ptr %83, align 1
   br label %84
 
@@ -672,7 +672,7 @@ mapLookup.exit160:                                ; preds = %.lr.ph.i153, %133, 
   br i1 %.not118, label %146, label %134
 
 134:                                              ; preds = %mapLookup.exit160
-  %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(11) @.str.18) #14
+  %135 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(11) @.str.18) #14
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %139, label %137
 

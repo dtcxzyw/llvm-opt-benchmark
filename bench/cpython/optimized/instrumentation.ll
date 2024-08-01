@@ -5826,7 +5826,7 @@ for.cond.preheader.i:                             ; preds = %if.end5.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %event_set.03.i = phi i32 [ 0, %for.cond.preheader.i ], [ %event_set.1.i, %for.body.i ]
+  %event_set.13.i = phi i32 [ 0, %for.cond.preheader.i ], [ %event_set.2.i, %for.body.i ]
   %arrayidx.i = getelementptr [10 x i8], ptr %5, i64 0, i64 %indvars.iv.i
   %7 = load i8, ptr %arrayidx.i, align 1
   %conv.i = zext i8 %7 to i32
@@ -5835,7 +5835,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
   %9 = trunc nuw nsw i64 %indvars.iv.i to i32
   %shl.i = shl nuw nsw i32 1, %9
   %or.i = select i1 %tobool8.not.i, i32 0, i32 %shl.i
-  %event_set.1.i = or i32 %or.i, %event_set.03.i
+  %event_set.2.i = or i32 %or.i, %event_set.13.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
   br i1 %exitcond.not.i, label %if.end8, label %for.body.i, !llvm.loop !35
@@ -5864,7 +5864,7 @@ if.end.i15:                                       ; preds = %land.lhs.true4.spli
   br label %land.lhs.true12
 
 if.end8:                                          ; preds = %for.body.i
-  %cmp11 = icmp eq i32 %event_set.1.i, -1
+  %cmp11 = icmp eq i32 %event_set.2.i, -1
   br i1 %cmp11, label %land.lhs.true12, label %if.end16
 
 land.lhs.true12:                                  ; preds = %if.end.i15, %if.then.i12, %check_valid_tool.exit.i, %if.then.i, %if.end8
@@ -5873,7 +5873,7 @@ land.lhs.true12:                                  ; preds = %if.end.i15, %if.the
   br i1 %tobool14.not, label %if.end16, label %exit
 
 if.end16:                                         ; preds = %if.end5.i, %land.lhs.true12, %if.end8
-  %phi.call21 = phi i32 [ -1, %land.lhs.true12 ], [ %event_set.1.i, %if.end8 ], [ 0, %if.end5.i ]
+  %phi.call21 = phi i32 [ -1, %land.lhs.true12 ], [ %event_set.2.i, %if.end8 ], [ 0, %if.end5.i ]
   %conv = sext i32 %phi.call21 to i64
   %call17 = tail call ptr @PyLong_FromLong(i64 noundef %conv) #9
   br label %exit

@@ -297,13 +297,13 @@ lpad88:                                           ; preds = %invoke.cont89, %inv
 
 ehcleanup:                                        ; preds = %lpad88, %lpad86
   %.pn = phi { ptr, i32 } [ %3, %lpad88 ], [ %2, %lpad86 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad88 ], [ true, %lpad86 ]
+  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.0, %lpad88 ], [ true, %lpad86 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #13
   br label %ehcleanup91
 
 ehcleanup91:                                      ; preds = %lpad84, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %1, %lpad84 ]
-  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.1, %ehcleanup ], [ true, %lpad84 ]
+  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.3, %ehcleanup ], [ true, %lpad84 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp83) #13
   br i1 %cleanup.isactive.2, label %cleanup.action, label %eh.resume

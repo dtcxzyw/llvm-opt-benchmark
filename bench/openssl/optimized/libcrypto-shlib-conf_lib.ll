@@ -510,10 +510,10 @@ if.then5:                                         ; preds = %if.end3
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then5, %if.end3
-  %is_number.1 = phi ptr [ @default_is_number, %if.end3 ], [ %spec.select, %if.then5 ]
+  %is_number.0 = phi ptr [ @default_is_number, %if.end3 ], [ %spec.select, %if.then5 ]
   %to_int.0 = phi ptr [ @default_to_int, %if.end3 ], [ %spec.select16, %if.then5 ]
   %3 = load i8, ptr %call.i, align 1
-  %call2018 = tail call i32 %is_number.1(ptr noundef %conf, i8 noundef signext %3) #14
+  %call2018 = tail call i32 %is_number.0(ptr noundef %conf, i8 noundef signext %3) #14
   %tobool.not19 = icmp eq i32 %call2018, 0
   br i1 %tobool.not19, label %for.end, label %for.body
 
@@ -539,7 +539,7 @@ if.end25:                                         ; preds = %for.body
   %add = add nsw i64 %mul, %conv
   %incdec.ptr = getelementptr inbounds i8, ptr %str.020, i64 1
   %5 = load i8, ptr %incdec.ptr, align 1
-  %call20 = tail call i32 %is_number.1(ptr noundef %conf, i8 noundef signext %5) #14
+  %call20 = tail call i32 %is_number.0(ptr noundef %conf, i8 noundef signext %5) #14
   %tobool.not = icmp eq i32 %call20, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !4
 

@@ -618,7 +618,7 @@ if.then64:                                        ; preds = %invoke.cont62
           to label %while.cond67 unwind label %lpad47
 
 while.cond67:                                     ; preds = %.noexc52, %invoke.cont74
-  %expBits.1 = phi i32 [ %inc76, %invoke.cont74 ], [ 2, %.noexc52 ]
+  %expBits.2 = phi i32 [ %inc76, %invoke.cont74 ], [ 2, %.noexc52 ]
   invoke void @_ZNK4cvc58internal7IntegerplERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %representable65, ptr noundef nonnull align 8 dereferenceable(16) %doubleInt)
           to label %invoke.cont69 unwind label %lpad68
 
@@ -645,7 +645,7 @@ while.body73:                                     ; preds = %_ZN4cvc58internal7I
           to label %invoke.cont74 unwind label %lpad68
 
 invoke.cont74:                                    ; preds = %while.body73
-  %inc76 = add i32 %expBits.1, 1
+  %inc76 = add i32 %expBits.2, 1
   br label %while.cond67, !llvm.loop !6
 
 lpad68:                                           ; preds = %while.body73, %while.cond67
@@ -690,8 +690,8 @@ terminate.lpad.i.i61:                             ; preds = %ehcleanup
   unreachable
 
 if.end79:                                         ; preds = %while.end77, %while.end60, %invoke.cont62
-  %expBits.2 = phi i32 [ 2, %invoke.cont62 ], [ %expBits.0, %while.end60 ], [ %expBits.1, %while.end77 ]
-  %inc80 = add i32 %expBits.2, 1
+  %expBits.1 = phi i32 [ 2, %invoke.cont62 ], [ %expBits.0, %while.end60 ], [ %expBits.2, %while.end77 ]
+  %inc80 = add i32 %expBits.1, 1
   store i32 %inc80, ptr %exactExp, align 8
   %d_value.i = getelementptr inbounds i8, ptr %exactExp, i64 8
   invoke void @_ZNK4cvc58internal7Integer9modByPow2Ej(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %d_value.i, ptr noundef nonnull align 8 dereferenceable(16) %exp, i32 noundef %inc80)

@@ -514,13 +514,13 @@ define hidden i32 @mbedtls_pkcs5_pbkdf2_hmac(ptr noundef %0, ptr noundef %1, i64
   br i1 %.not57, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph.split, %74, %76, %78, %91, %.lr.ph.split.us.split.us, %19, %21, %23, %31, %36, %34, %32, %.lr.ph.split.us.split, %49, %51, %53, %61, %62, %64, %66, %.preheader67
-  %.2 = phi i32 [ 0, %.preheader67 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %48, %.lr.ph.split.us.split ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ 0, %61 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %18, %.lr.ph.split.us.split.us ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ 0, %31 ], [ %73, %.lr.ph.split ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ 0, %91 ]
+  %.145 = phi i32 [ 0, %.preheader67 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %48, %.lr.ph.split.us.split ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ 0, %61 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %18, %.lr.ph.split.us.split.us ], [ %20, %19 ], [ %22, %21 ], [ %24, %23 ], [ 0, %31 ], [ %73, %.lr.ph.split ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ 0, %91 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 64) #8
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 64) #8
   br label %92
 
 92:                                               ; preds = %8, %.loopexit
-  %.040 = phi i32 [ %.2, %.loopexit ], [ %14, %8 ]
+  %.040 = phi i32 [ %.145, %.loopexit ], [ %14, %8 ]
   ret i32 %.040
 }
 
@@ -635,9 +635,9 @@ define hidden range(i32 0, 2) i32 @mbedtls_pkcs5_self_test(i32 noundef %0) local
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %.preheader.split.us, %.split.us, %6, %1, %.split29.us, %40
-  %.1 = phi i32 [ 0, %40 ], [ 0, %.split29.us ], [ 1, %1 ], [ 1, %6 ], [ 1, %.split.us ], [ 1, %.preheader.split.us ], [ 1, %19 ]
+  %.018 = phi i32 [ 0, %40 ], [ 0, %.split29.us ], [ 1, %1 ], [ 1, %6 ], [ 1, %.split.us ], [ 1, %.preheader.split.us ], [ 1, %19 ]
   call void @mbedtls_md_free(ptr noundef nonnull %2) #8
-  ret i32 %.1
+  ret i32 %.018
 }
 
 ; Function Attrs: nofree nounwind

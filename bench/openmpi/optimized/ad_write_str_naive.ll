@@ -279,8 +279,8 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
 
 .loopexit381:                                     ; preds = %162, %137, %153
   %.0325 = phi i64 [ %161, %153 ], [ 0, %137 ], [ 0, %162 ]
-  %.2305 = phi i64 [ %155, %153 ], [ 0, %137 ], [ 0, %162 ]
-  %.2295 = phi i32 [ %154, %153 ], [ 0, %137 ], [ 0, %162 ]
+  %.3306 = phi i64 [ %155, %153 ], [ 0, %137 ], [ 0, %162 ]
+  %.3 = phi i32 [ %154, %153 ], [ 0, %137 ], [ 0, %162 ]
   %163 = load i64, ptr %12, align 8
   %164 = mul nsw i64 %163, %140
   %165 = add i64 %.0325, %115
@@ -296,10 +296,10 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   %169 = phi i64 [ %163, %.loopexit381 ], [ %123, %.loopexit380.loopexit ]
   %170 = phi i64 [ %144, %.loopexit381 ], [ %121, %.loopexit380.loopexit ]
   %.1330 = phi i64 [ %140, %.loopexit381 ], [ %128, %.loopexit380.loopexit ]
-  %.3306 = phi i64 [ %.2305, %.loopexit381 ], [ %168, %.loopexit380.loopexit ]
+  %.2305 = phi i64 [ %.3306, %.loopexit381 ], [ %168, %.loopexit380.loopexit ]
   %.0301 = phi i64 [ %166, %.loopexit381 ], [ %119, %.loopexit380.loopexit ]
-  %.3 = phi i32 [ %.2295, %.loopexit381 ], [ %167, %.loopexit380.loopexit ]
-  %171 = call i64 @llvm.smin.i64(i64 %.3306, i64 %33)
+  %.2295 = phi i32 [ %.3, %.loopexit381 ], [ %167, %.loopexit380.loopexit ]
+  %171 = call i64 @llvm.smin.i64(i64 %.2305, i64 %33)
   %172 = icmp sgt i64 %33, 0
   br i1 %172, label %.lr.ph407, label %198
 
@@ -312,7 +312,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br label %178
 
 178:                                              ; preds = %.lr.ph407, %178
-  %.2298406 = phi i32 [ %.3, %.lr.ph407 ], [ %.3299, %178 ]
+  %.2298406 = phi i32 [ %.2295, %.lr.ph407 ], [ %.3299, %178 ]
   %.4307405 = phi i64 [ %171, %.lr.ph407 ], [ %194, %178 ]
   %.2313404 = phi i64 [ %.0301, %.lr.ph407 ], [ %189, %178 ]
   %.0320403 = phi i64 [ 0, %.lr.ph407 ], [ %179, %178 ]
@@ -387,11 +387,11 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br label %222
 
 222:                                              ; preds = %.lr.ph413, %263
-  %.4412 = phi i32 [ %.3, %.lr.ph413 ], [ %.6, %263 ]
+  %.4412 = phi i32 [ %.2295, %.lr.ph413 ], [ %.5, %263 ]
   %.5308411 = phi i64 [ %171, %.lr.ph413 ], [ %.6309, %263 ]
   %.3314410 = phi i64 [ %.0301, %.lr.ph413 ], [ %.4315, %263 ]
   %.1321409 = phi i64 [ 0, %.lr.ph413 ], [ %231, %263 ]
-  %.4333408 = phi i64 [ %.1330, %.lr.ph413 ], [ %.6335, %263 ]
+  %.4333408 = phi i64 [ %.1330, %.lr.ph413 ], [ %.5334, %263 ]
   %.not360 = icmp eq i64 %.5308411, 0
   br i1 %.not360, label %230, label %223
 
@@ -430,13 +430,13 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   %249 = icmp sle i64 %248, %234
   %250 = add nsw i32 %.4412, 1
   %251 = zext i1 %249 to i64
-  %.5334 = add nsw i64 %.4333408, %251
-  %.5 = select i1 %249, i32 0, i32 %250
-  %252 = sext i32 %.5 to i64
+  %.6335 = add nsw i64 %.4333408, %251
+  %.6 = select i1 %249, i32 0, i32 %250
+  %252 = sext i32 %.6 to i64
   %253 = getelementptr inbounds i64, ptr %233, i64 %252
   %254 = load i64, ptr %253, align 8
   %255 = add nsw i64 %254, %115
-  %256 = mul nsw i64 %.5334, %242
+  %256 = mul nsw i64 %.6335, %242
   %257 = add nsw i64 %255, %256
   %258 = getelementptr inbounds i64, ptr %238, i64 %252
   %259 = load i64, ptr %258, align 8
@@ -446,10 +446,10 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br label %263
 
 263:                                              ; preds = %230, %246
-  %.6335 = phi i64 [ %.5334, %246 ], [ %.4333408, %230 ]
+  %.5334 = phi i64 [ %.6335, %246 ], [ %.4333408, %230 ]
   %.4315 = phi i64 [ %257, %246 ], [ %232, %230 ]
   %.6309 = phi i64 [ %262, %246 ], [ %.5308411, %230 ]
-  %.6 = phi i32 [ %.5, %246 ], [ %.4412, %230 ]
+  %.5 = phi i32 [ %.6, %246 ], [ %.4412, %230 ]
   %264 = icmp slt i64 %231, %33
   br i1 %264, label %222, label %.loopexit374, !llvm.loop !11
 
@@ -475,12 +475,12 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   %.0287422 = phi i64 [ 0, %.lr.ph424 ], [ %335, %334 ]
   %.0288421 = phi i64 [ %272, %.lr.ph424 ], [ %.2, %334 ]
   %.0292420 = phi i64 [ %270, %.lr.ph424 ], [ %.1286, %334 ]
-  %.7419 = phi i32 [ %.3, %.lr.ph424 ], [ %.9, %334 ]
-  %.7310418 = phi i64 [ %.3306, %.lr.ph424 ], [ %.1, %334 ]
-  %.5316417 = phi i64 [ %.0301, %.lr.ph424 ], [ %.7318, %334 ]
+  %.7419 = phi i32 [ %.2295, %.lr.ph424 ], [ %.8, %334 ]
+  %.7310418 = phi i64 [ %.2305, %.lr.ph424 ], [ %.1, %334 ]
+  %.6317417 = phi i64 [ %.0301, %.lr.ph424 ], [ %.8319, %334 ]
   %.0322416 = phi i32 [ 0, %.lr.ph424 ], [ %.1323, %334 ]
   %.1327415 = phi i32 [ 0, %.lr.ph424 ], [ %.2328, %334 ]
-  %.7336414 = phi i64 [ %.1330, %.lr.ph424 ], [ %.9338, %334 ]
+  %.7336414 = phi i64 [ %.1330, %.lr.ph424 ], [ %.8337, %334 ]
   %279 = call i64 @llvm.smin.i64(i64 %.7310418, i64 %.0292420)
   %280 = call i64 @llvm.smin.i64(i64 %279, i64 2147483647)
   %.not364 = icmp eq i64 %279, 0
@@ -492,7 +492,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   %284 = load ptr, ptr %283, align 8
   %285 = getelementptr inbounds i8, ptr %1, i64 %.0288421
   %286 = trunc i64 %280 to i32
-  call void %284(ptr noundef %0, ptr noundef %285, i32 noundef %286, ptr noundef nonnull @ompi_mpi_byte, i32 noundef 100, i64 noundef %.5316417, ptr noundef nonnull %16, ptr noundef nonnull %7) #3
+  call void %284(ptr noundef %0, ptr noundef %285, i32 noundef %286, ptr noundef nonnull @ompi_mpi_byte, i32 noundef 100, i64 noundef %.6317417, ptr noundef nonnull %16, ptr noundef nonnull %7) #3
   %287 = load i32, ptr %7, align 4
   %.not365 = icmp eq i32 %287, 0
   br i1 %.not365, label %288, label %.loopexit
@@ -508,15 +508,15 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   %294 = icmp sle i64 %293, %291
   %295 = add nsw i32 %.7419, 1
   %296 = zext i1 %294 to i64
-  %.8337 = add nsw i64 %.7336414, %296
-  %.8 = select i1 %294, i32 0, i32 %295
+  %.9338 = add nsw i64 %.7336414, %296
+  %.9 = select i1 %294, i32 0, i32 %295
   %297 = load ptr, ptr %275, align 8
-  %298 = sext i32 %.8 to i64
+  %298 = sext i32 %.9 to i64
   %299 = getelementptr inbounds i64, ptr %297, i64 %298
   %300 = load i64, ptr %299, align 8
   %301 = add nsw i64 %300, %115
   %302 = load i64, ptr %12, align 8
-  %303 = mul nsw i64 %.8337, %302
+  %303 = mul nsw i64 %.9338, %302
   %304 = add nsw i64 %301, %303
   %305 = load ptr, ptr %276, align 8
   %306 = getelementptr inbounds i64, ptr %305, i64 %298
@@ -530,9 +530,9 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br label %311
 
 311:                                              ; preds = %290, %308, %288
-  %.9338 = phi i64 [ %.8337, %308 ], [ %.8337, %290 ], [ %.7336414, %288 ]
-  %.6317 = phi i64 [ %304, %308 ], [ %304, %290 ], [ %.5316417, %288 ]
-  %.9 = phi i32 [ %.8, %308 ], [ %.8, %290 ], [ %.7419, %288 ]
+  %.8337 = phi i64 [ %.9338, %308 ], [ %.9338, %290 ], [ %.7336414, %288 ]
+  %.7318 = phi i64 [ %304, %308 ], [ %304, %290 ], [ %.6317417, %288 ]
+  %.8 = phi i32 [ %.9, %308 ], [ %.9, %290 ], [ %.7419, %288 ]
   %.1289 = phi i64 [ %309, %308 ], [ %.0288421, %290 ], [ %.0288421, %288 ]
   %.0285 = phi i64 [ %310, %308 ], [ %.0292420, %290 ], [ %.0292420, %288 ]
   %.0 = phi i64 [ %307, %308 ], [ %307, %290 ], [ %.7310418, %288 ]
@@ -560,14 +560,14 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %289, label %334, label %331
 
 331:                                              ; preds = %313
-  %332 = add nsw i64 %.6317, %.0292420
+  %332 = add nsw i64 %.7318, %.0292420
   %333 = sub nsw i64 %.0, %.0292420
   br label %334
 
 334:                                              ; preds = %313, %331, %311
   %.2328 = phi i32 [ %318, %331 ], [ %318, %313 ], [ %.1327415, %311 ]
   %.1323 = phi i32 [ %319, %331 ], [ %319, %313 ], [ %.0322416, %311 ]
-  %.7318 = phi i64 [ %332, %331 ], [ %.6317, %313 ], [ %.6317, %311 ]
+  %.8319 = phi i64 [ %332, %331 ], [ %.7318, %313 ], [ %.7318, %311 ]
   %.2 = phi i64 [ %327, %331 ], [ %327, %313 ], [ %.1289, %311 ]
   %.1286 = phi i64 [ %330, %331 ], [ %330, %313 ], [ %.0285, %311 ]
   %.1 = phi i64 [ %333, %331 ], [ %.0, %313 ], [ %.0, %311 ]
@@ -576,7 +576,7 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %336, label %278, label %.loopexit374, !llvm.loop !12
 
 .loopexit374:                                     ; preds = %263, %334, %.preheader376, %265
-  %.8319 = phi i64 [ %.0301, %265 ], [ %.0301, %.preheader376 ], [ %.7318, %334 ], [ %.4315, %263 ]
+  %.5316 = phi i64 [ %.0301, %265 ], [ %.0301, %.preheader376 ], [ %.8319, %334 ], [ %.4315, %263 ]
   %337 = load i32, ptr %199, align 8
   %.not362 = icmp eq i32 %337, 0
   br i1 %.not362, label %350, label %338
@@ -603,9 +603,9 @@ define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %116, label %.sink.split, label %352
 
 .sink.split:                                      ; preds = %350, %110
-  %.8319.sink = phi i64 [ %.0311.lcssa, %110 ], [ %.8319, %350 ]
+  %.5316.sink = phi i64 [ %.0311.lcssa, %110 ], [ %.5316, %350 ]
   %351 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.8319.sink, ptr %351, align 8
+  store i64 %.5316.sink, ptr %351, align 8
   br label %352
 
 352:                                              ; preds = %.sink.split, %350, %110

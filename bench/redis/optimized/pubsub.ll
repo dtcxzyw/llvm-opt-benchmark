@@ -1009,23 +1009,23 @@ if.then:                                          ; preds = %entry
 
 while.body:                                       ; preds = %if.then, %while.body
   %call814 = phi ptr [ %call8, %while.body ], [ %call811, %if.then ]
-  %count.013 = phi i32 [ %add12, %while.body ], [ 0, %if.then ]
+  %count.113 = phi i32 [ %add12, %while.body ], [ 0, %if.then ]
   %call10 = tail call ptr @dictGetKey(ptr noundef nonnull %call814) #10
   %call11 = tail call i32 @pubsubUnsubscribeChannel(ptr noundef %c, ptr noundef %call10, i32 noundef %notify, ptr noundef nonnull byval(%struct.pubsubtype) align 8 %type)
-  %add12 = add nuw nsw i32 %call11, %count.013
+  %add12 = add nuw nsw i32 %call11, %count.113
   %call8 = tail call ptr @dictNext(ptr noundef %call7) #10
   %cmp9.not = icmp eq ptr %call8, null
   br i1 %cmp9.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %if.then
-  %count.0.lcssa = phi i32 [ 0, %if.then ], [ %add12, %while.body ]
+  %count.1.lcssa = phi i32 [ 0, %if.then ], [ %add12, %while.body ]
   tail call void @dictReleaseIterator(ptr noundef %call7) #10
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %entry
-  %count.1 = phi i32 [ %count.0.lcssa, %while.end ], [ 0, %entry ]
+  %count.0 = phi i32 [ %count.1.lcssa, %while.end ], [ 0, %entry ]
   %tobool = icmp ne i32 %notify, 0
-  %cmp13 = icmp eq i32 %count.1, 0
+  %cmp13 = icmp eq i32 %count.0, 0
   %or.cond = select i1 %tobool, i1 %cmp13, i1 false
   br i1 %or.cond, label %if.then14, label %if.end15
 
@@ -1070,7 +1070,7 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then6.i, %if.end.i, %if.end
-  ret i32 %count.1
+  ret i32 %count.0
 }
 
 declare ptr @dictGetSafeIterator(ptr noundef) local_unnamed_addr #3
@@ -1139,23 +1139,23 @@ if.then:                                          ; preds = %entry
 
 while.body:                                       ; preds = %if.then, %while.body
   %call512 = phi ptr [ %call5, %while.body ], [ %call59, %if.then ]
-  %count.011 = phi i32 [ %add9, %while.body ], [ 0, %if.then ]
+  %count.111 = phi i32 [ %add9, %while.body ], [ 0, %if.then ]
   %call7 = tail call ptr @dictGetKey(ptr noundef nonnull %call512) #10
   %call8 = tail call i32 @pubsubUnsubscribePattern(ptr noundef %c, ptr noundef %call7, i32 noundef %notify)
-  %add9 = add nuw nsw i32 %call8, %count.011
+  %add9 = add nuw nsw i32 %call8, %count.111
   %call5 = tail call ptr @dictNext(ptr noundef %call) #10
   %cmp6.not = icmp eq ptr %call5, null
   br i1 %cmp6.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body, %if.then
-  %count.0.lcssa = phi i32 [ 0, %if.then ], [ %add9, %while.body ]
+  %count.1.lcssa = phi i32 [ 0, %if.then ], [ %add9, %while.body ]
   tail call void @dictReleaseIterator(ptr noundef %call) #10
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %entry
-  %count.1 = phi i32 [ %count.0.lcssa, %while.end ], [ 0, %entry ]
+  %count.0 = phi i32 [ %count.1.lcssa, %while.end ], [ 0, %entry ]
   %tobool = icmp ne i32 %notify, 0
-  %cmp10 = icmp eq i32 %count.1, 0
+  %cmp10 = icmp eq i32 %count.0, 0
   %or.cond = select i1 %tobool, i1 %cmp10, i1 false
   br i1 %or.cond, label %if.then11, label %if.end12
 
@@ -1164,7 +1164,7 @@ if.then11:                                        ; preds = %if.end
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then11, %if.end
-  ret i32 %count.1
+  ret i32 %count.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1194,7 +1194,7 @@ while.body.lr.ph:                                 ; preds = %if.then
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %addReplyPubsubMessage.exit.us
   %call453.us = phi ptr [ %call4.us, %addReplyPubsubMessage.exit.us ], [ %call450, %while.body.lr.ph ]
-  %receivers.052.us = phi i32 [ %inc.us, %addReplyPubsubMessage.exit.us ], [ 0, %while.body.lr.ph ]
+  %receivers.152.us = phi i32 [ %inc.us, %addReplyPubsubMessage.exit.us ], [ 0, %while.body.lr.ph ]
   %value.us = getelementptr inbounds i8, ptr %call453.us, i64 16
   %3 = load ptr, ptr %value.us, align 8
   %4 = load ptr, ptr %2, align 8
@@ -1231,14 +1231,14 @@ if.then5.i.us:                                    ; preds = %if.end.i.us
 
 addReplyPubsubMessage.exit.us:                    ; preds = %if.then5.i.us, %if.end.i.us
   %call5.us = call i32 @updateClientMemUsageAndBucket(ptr noundef nonnull %3) #10
-  %inc.us = add nuw nsw i32 %receivers.052.us, 1
+  %inc.us = add nuw nsw i32 %receivers.152.us, 1
   %call4.us = call ptr @listNext(ptr noundef nonnull %li3) #10
   %cmp.not.us = icmp eq ptr %call4.us, null
   br i1 %cmp.not.us, label %if.end, label %while.body.us, !llvm.loop !10
 
 while.body:                                       ; preds = %while.body.lr.ph, %addReplyPubsubMessage.exit
   %call453 = phi ptr [ %call4, %addReplyPubsubMessage.exit ], [ %call450, %while.body.lr.ph ]
-  %receivers.052 = phi i32 [ %inc, %addReplyPubsubMessage.exit ], [ 0, %while.body.lr.ph ]
+  %receivers.152 = phi i32 [ %inc, %addReplyPubsubMessage.exit ], [ 0, %while.body.lr.ph ]
   %value = getelementptr inbounds i8, ptr %call453, i64 16
   %9 = load ptr, ptr %value, align 8
   %10 = load ptr, ptr %2, align 8
@@ -1276,13 +1276,13 @@ if.then5.i:                                       ; preds = %if.end.i
 
 addReplyPubsubMessage.exit:                       ; preds = %if.end.i, %if.then5.i
   %call5 = call i32 @updateClientMemUsageAndBucket(ptr noundef nonnull %9) #10
-  %inc = add nuw nsw i32 %receivers.052, 1
+  %inc = add nuw nsw i32 %receivers.152, 1
   %call4 = call ptr @listNext(ptr noundef nonnull %li3) #10
   %cmp.not = icmp eq ptr %call4, null
   br i1 %cmp.not, label %if.end, label %while.body, !llvm.loop !10
 
 if.end:                                           ; preds = %addReplyPubsubMessage.exit, %addReplyPubsubMessage.exit.us, %if.then, %entry
-  %receivers.1 = phi i32 [ 0, %entry ], [ 0, %if.then ], [ %inc.us, %addReplyPubsubMessage.exit.us ], [ %inc, %addReplyPubsubMessage.exit ]
+  %receivers.0 = phi i32 [ 0, %entry ], [ 0, %if.then ], [ %inc.us, %addReplyPubsubMessage.exit.us ], [ %inc, %addReplyPubsubMessage.exit ]
   %15 = load i32, ptr %type, align 8
   %tobool6.not = icmp eq i32 %15, 0
   br i1 %tobool6.not, label %if.end8, label %return
@@ -1299,7 +1299,7 @@ if.then11:                                        ; preds = %if.end8
   br label %while.cond13.outer.outer
 
 while.cond13.outer.outer:                         ; preds = %addReplyPubsubPatMessage.exit, %if.then11
-  %receivers.2.ph.ph = phi i32 [ %receivers.1, %if.then11 ], [ %inc37, %addReplyPubsubPatMessage.exit ]
+  %receivers.3.ph.ph = phi i32 [ %receivers.0, %if.then11 ], [ %inc37, %addReplyPubsubPatMessage.exit ]
   br label %while.cond13.outer
 
 while.cond13.outer:                               ; preds = %while.cond13.outer.outer, %if.end28
@@ -1414,7 +1414,7 @@ if.end28:                                         ; preds = %sdslen.exit39
 
 while.body33:                                     ; preds = %if.end28, %addReplyPubsubPatMessage.exit
   %call3057 = phi ptr [ %call30, %addReplyPubsubPatMessage.exit ], [ %call3054, %if.end28 ]
-  %receivers.356 = phi i32 [ %inc37, %addReplyPubsubPatMessage.exit ], [ %receivers.2.ph.ph, %if.end28 ]
+  %receivers.456 = phi i32 [ %inc37, %addReplyPubsubPatMessage.exit ], [ %receivers.3.ph.ph, %if.end28 ]
   %value35 = getelementptr inbounds i8, ptr %call3057, i64 16
   %29 = load ptr, ptr %value35, align 8
   %flags.i40 = getelementptr inbounds i8, ptr %29, i64 8
@@ -1453,7 +1453,7 @@ if.then2.i48:                                     ; preds = %if.end.i45
 
 addReplyPubsubPatMessage.exit:                    ; preds = %if.end.i45, %if.then2.i48
   %call36 = call i32 @updateClientMemUsageAndBucket(ptr noundef nonnull %29) #10
-  %inc37 = add nsw i32 %receivers.356, 1
+  %inc37 = add nsw i32 %receivers.456, 1
   %call30 = call ptr @listNext(ptr noundef nonnull %li) #10
   %cmp31.not = icmp eq ptr %call30, null
   br i1 %cmp31.not, label %while.cond13.outer.outer, label %while.body33, !llvm.loop !12
@@ -1464,7 +1464,7 @@ while.end39:                                      ; preds = %while.cond13
   br label %return
 
 return:                                           ; preds = %if.end8, %while.end39, %if.end
-  %retval.0 = phi i32 [ %receivers.1, %if.end ], [ %receivers.2.ph.ph, %while.end39 ], [ %receivers.1, %if.end8 ]
+  %retval.0 = phi i32 [ %receivers.0, %if.end ], [ %receivers.3.ph.ph, %while.end39 ], [ %receivers.0, %if.end8 ]
   ret i32 %retval.0
 }
 

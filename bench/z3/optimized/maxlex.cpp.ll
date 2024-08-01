@@ -3988,7 +3988,7 @@ _ZN6vectorIN3opt4softELb1EjE3endEv.exit.i:        ; preds = %.noexc5
 
 for.body.i:                                       ; preds = %_ZN6vectorIN3opt4softELb1EjE3endEv.exit.i, %for.inc.i
   %first_undef.020.i = phi i1 [ %first_undef.1.i, %for.inc.i ], [ true, %_ZN6vectorIN3opt4softELb1EjE3endEv.exit.i ]
-  %second_undef.019.i = phi i1 [ %second_undef.2.i, %for.inc.i ], [ false, %_ZN6vectorIN3opt4softELb1EjE3endEv.exit.i ]
+  %second_undef.019.i = phi i1 [ %second_undef.1.i, %for.inc.i ], [ false, %_ZN6vectorIN3opt4softELb1EjE3endEv.exit.i ]
   %__begin2.018.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %13, %_ZN6vectorIN3opt4softELb1EjE3endEv.exit.i ]
   %value.i = getelementptr inbounds i8, ptr %__begin2.018.i, i64 48
   %16 = load i32, ptr %value.i, align 8
@@ -4020,12 +4020,12 @@ call13.i.noexc:                                   ; preds = %if.then10.i
   br i1 %spec.select.i, label %for.inc.i, label %for.inc.sink.split.i
 
 for.inc.sink.split.i:                             ; preds = %call13.i.noexc, %if.then6.i
-  %second_undef.2.ph.i = phi i1 [ %second_undef.019.i, %if.then6.i ], [ false, %call13.i.noexc ]
+  %second_undef.1.ph.i = phi i1 [ %second_undef.019.i, %if.then6.i ], [ false, %call13.i.noexc ]
   invoke void @_ZN3opt6maxlex12assert_valueERNS_4softE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(52) %__begin2.018.i)
           to label %for.inc.i unwind label %lpad.loopexit
 
 for.inc.i:                                        ; preds = %for.inc.sink.split.i, %call13.i.noexc, %if.else7.i, %land.lhs.true.i4
-  %second_undef.2.i = phi i1 [ %second_undef.019.i, %land.lhs.true.i4 ], [ %second_undef.019.i, %if.else7.i ], [ true, %call13.i.noexc ], [ %second_undef.2.ph.i, %for.inc.sink.split.i ]
+  %second_undef.1.i = phi i1 [ %second_undef.019.i, %land.lhs.true.i4 ], [ %second_undef.019.i, %if.else7.i ], [ true, %call13.i.noexc ], [ %second_undef.1.ph.i, %for.inc.sink.split.i ]
   %first_undef.1.i = phi i1 [ true, %land.lhs.true.i4 ], [ false, %if.else7.i ], [ false, %call13.i.noexc ], [ false, %for.inc.sink.split.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.018.i, i64 56
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i

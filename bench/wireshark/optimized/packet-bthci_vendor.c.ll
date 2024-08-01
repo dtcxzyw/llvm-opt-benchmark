@@ -1872,20 +1872,20 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0684 = phi i32 [ %137, %.lr.ph ], [ 3, %.preheader ]
-  %.0652683 = phi i8 [ %138, %.lr.ph ], [ %58, %.preheader ]
+  %.1684 = phi i32 [ %137, %.lr.ph ], [ 3, %.preheader ]
+  %.1653683 = phi i8 [ %138, %.lr.ph ], [ %58, %.preheader ]
   %127 = load i32, ptr @hf_intel_ddc_config_length, align 4
-  %128 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %127, ptr noundef %0, i32 noundef %.0684, i32 noundef 1, i32 noundef 0) #3
-  %129 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0684) #3
-  %130 = add i32 %.0684, 1
+  %128 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %127, ptr noundef %0, i32 noundef %.1684, i32 noundef 1, i32 noundef 0) #3
+  %129 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1684) #3
+  %130 = add i32 %.1684, 1
   %131 = load i32, ptr @hf_intel_identifier, align 4
   %132 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef 2, i32 noundef -2147483648) #3
-  %133 = add i32 %.0684, 3
+  %133 = add i32 %.1684, 3
   %134 = load i32, ptr @hf_intel_data, align 4
   %135 = zext i8 %129 to i32
   %136 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %134, ptr noundef %0, i32 noundef %133, i32 noundef %135, i32 noundef 0) #3
   %137 = add i32 %133, %135
-  %.neg681 = add i8 %.0652683, -4
+  %.neg681 = add i8 %.1653683, -4
   %138 = sub i8 %.neg681, %129
   %.not679 = icmp eq i8 %138, 0
   br i1 %.not679, label %.loopexit, label %.lr.ph, !llvm.loop !4
@@ -1919,19 +1919,19 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %153, %154, %87, %103, %72, %76, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %55, %139, %123, %120, %113, %110, %82, %59
-  %.1653 = phi i8 [ %58, %154 ], [ 0, %153 ], [ %58, %139 ], [ %58, %123 ], [ %58, %120 ], [ %58, %113 ], [ %58, %110 ], [ %58, %103 ], [ %58, %87 ], [ %58, %82 ], [ %58, %76 ], [ %58, %72 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %59 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
-  %.1 = phi i32 [ %159, %154 ], [ 3, %153 ], [ %152, %139 ], [ 11, %123 ], [ 4, %120 ], [ 6, %113 ], [ %112, %110 ], [ %109, %103 ], [ %101, %87 ], [ 5, %82 ], [ %81, %76 ], [ 4, %72 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 12, %59 ], [ 3, %.preheader ], [ %137, %.lr.ph ]
-  %160 = add i32 %.1, -3
-  %161 = zext i8 %.1653 to i32
+  %.0652 = phi i8 [ %58, %154 ], [ 0, %153 ], [ %58, %139 ], [ %58, %123 ], [ %58, %120 ], [ %58, %113 ], [ %58, %110 ], [ %58, %103 ], [ %58, %87 ], [ %58, %82 ], [ %58, %76 ], [ %58, %72 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %55 ], [ %58, %59 ], [ 0, %.preheader ], [ 0, %.lr.ph ]
+  %.0 = phi i32 [ %159, %154 ], [ 3, %153 ], [ %152, %139 ], [ 11, %123 ], [ 4, %120 ], [ 6, %113 ], [ %112, %110 ], [ %109, %103 ], [ %101, %87 ], [ 5, %82 ], [ %81, %76 ], [ 4, %72 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 3, %55 ], [ 12, %59 ], [ 3, %.preheader ], [ %137, %.lr.ph ]
+  %160 = add i32 %.0, -3
+  %161 = zext i8 %.0652 to i32
   %162 = icmp slt i32 %160, %161
   br i1 %162, label %163, label %452
 
 163:                                              ; preds = %.loopexit
   %164 = load i32, ptr @hf_intel_data, align 4
   %165 = sub i32 %161, %160
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %164, ptr noundef %0, i32 noundef %.1, i32 noundef %165, i32 noundef 0) #3
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %164, ptr noundef %0, i32 noundef %.0, i32 noundef %165, i32 noundef 0) #3
   %167 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %166, ptr noundef nonnull @ei_intel_unexpected_parameter) #3
-  %168 = add i32 %165, %.1
+  %168 = add i32 %165, %.0
   br label %452
 
 169:                                              ; preds = %9
@@ -2368,8 +2368,8 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   br label %433
 
 433:                                              ; preds = %426, %427, %338, %344, %357, %373, %378, %392, %247, %267, %270, %235, %235, %235, %235, %235, %235, %235, %235, %240, %239, %274, %273, %420, %411, %406, %400, %397, %335, %331, %317, %304, %301, %288, %281
-  %.2 = phi i32 [ %432, %427 ], [ 2, %426 ], [ %425, %420 ], [ %419, %411 ], [ 5, %406 ], [ %405, %400 ], [ 3, %397 ], [ 5, %338 ], [ 8, %392 ], [ %391, %378 ], [ 10, %373 ], [ %372, %357 ], [ %356, %344 ], [ 3, %335 ], [ 3, %331 ], [ %330, %317 ], [ 6, %304 ], [ 3, %301 ], [ 8, %288 ], [ 6, %281 ], [ %280, %274 ], [ 6, %273 ], [ 8, %270 ], [ %269, %267 ], [ 15, %247 ], [ %246, %240 ], [ 6, %239 ], [ 6, %235 ], [ 6, %235 ], [ 6, %235 ], [ 6, %235 ], [ 6, %235 ], [ 6, %235 ], [ 6, %235 ], [ 6, %235 ]
-  %434 = add i32 %.2, -2
+  %.3 = phi i32 [ %432, %427 ], [ 2, %426 ], [ %425, %420 ], [ %419, %411 ], [ 5, %406 ], [ %405, %400 ], [ 3, %397 ], [ 5, %338 ], [ 8, %392 ], [ %391, %378 ], [ 10, %373 ], [ %372, %357 ], [ %356, %344 ], [ 3, %335 ], [ 3, %331 ], [ %330, %317 ], [ 6, %304 ], [ 3, %301 ], [ 8, %288 ], [ 6, %281 ], [ %280, %274 ], [ 6, %273 ], [ 8, %270 ], [ %269, %267 ], [ 15, %247 ], [ %246, %240 ], [ 6, %239 ], [ 6, %235 ], [ 6, %235 ], [ 6, %235 ], [ 6, %235 ], [ 6, %235 ], [ 6, %235 ], [ 6, %235 ], [ 6, %235 ]
+  %434 = add i32 %.3, -2
   %435 = zext i8 %197 to i32
   %436 = icmp slt i32 %434, %435
   br i1 %436, label %437, label %452
@@ -2377,9 +2377,9 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
 437:                                              ; preds = %433
   %438 = load i32, ptr @hf_intel_data, align 4
   %439 = sub i32 %435, %434
-  %440 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %438, ptr noundef %0, i32 noundef %.2, i32 noundef %439, i32 noundef 0) #3
+  %440 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %438, ptr noundef %0, i32 noundef %.3, i32 noundef %439, i32 noundef 0) #3
   %441 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %440, ptr noundef nonnull @ei_intel_unexpected_parameter) #3
-  %442 = add i32 %439, %.2
+  %442 = add i32 %439, %.3
   br label %452
 
 443:                                              ; preds = %9
@@ -2398,22 +2398,22 @@ define internal i32 @dissect_bthci_vendor_intel(ptr noundef %0, ptr noundef %1, 
   br label %452
 
 452:                                              ; preds = %443, %447, %433, %437, %.loopexit, %163
-  %.3 = phi i32 [ %451, %447 ], [ 0, %443 ], [ %442, %437 ], [ %.2, %433 ], [ %168, %163 ], [ %.1, %.loopexit ]
-  %453 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3) #3
+  %.2 = phi i32 [ %451, %447 ], [ 0, %443 ], [ %442, %437 ], [ %.3, %433 ], [ %168, %163 ], [ %.0, %.loopexit ]
+  %453 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2) #3
   %454 = icmp sgt i32 %453, 0
   br i1 %454, label %455, label %462
 
 455:                                              ; preds = %452
   %456 = load i32, ptr @hf_intel_data, align 4
-  %457 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3) #3
-  %458 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %456, ptr noundef %0, i32 noundef %.3, i32 noundef %457, i32 noundef 0) #3
+  %457 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2) #3
+  %458 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %456, ptr noundef %0, i32 noundef %.2, i32 noundef %457, i32 noundef 0) #3
   %459 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %458, ptr noundef nonnull @ei_intel_unexpected_data) #3
-  %460 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3) #3
-  %461 = add i32 %460, %.3
+  %460 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.2) #3
+  %461 = add i32 %460, %.2
   br label %462
 
 462:                                              ; preds = %455, %452
-  %.4 = phi i32 [ %461, %455 ], [ %.3, %452 ]
+  %.4 = phi i32 [ %461, %455 ], [ %.2, %452 ]
   ret i32 %.4
 }
 

@@ -766,7 +766,7 @@ _ZN5ciEnv12get_metadataEP8Metadata.exit.i:        ; preds = %28
   br label %_ZN5ciEnv9get_klassEP5Klass.exit
 
 _ZN5ciEnv9get_klassEP5Klass.exit:                 ; preds = %_ZN5ciEnv12get_metadataEP8Metadata.exit.i, %28, %26, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %.0 = phi ptr [ %1, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %0, %26 ], [ %34, %_ZN5ciEnv12get_metadataEP8Metadata.exit.i ], [ null, %28 ]
+  %.1 = phi ptr [ %1, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %0, %26 ], [ %34, %_ZN5ciEnv12get_metadataEP8Metadata.exit.i ], [ null, %28 ]
   %35 = getelementptr inbounds i8, ptr %6, i64 408
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 16
@@ -803,8 +803,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN5ciEnv9get_klass
   br label %54
 
 54:                                               ; preds = %2, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.1 = phi ptr [ %.0, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %0, %2 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %0, %2 ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZN5Klass3LCAEPS_(ptr noundef nonnull align 8 dereferenceable(196), ptr noundef) local_unnamed_addr #1
@@ -963,7 +963,7 @@ _ZN5ciEnv10get_objectEP7oopDesc.exit.i10:         ; preds = %_ZNK5Klass11java_mi
   br label %_ZN5ciEnv12get_instanceEP7oopDesc.exit12
 
 _ZN5ciEnv12get_instanceEP7oopDesc.exit12:         ; preds = %_ZNK10ciMetadata9is_loadedEv.exit8.thread, %_ZN5ciEnv10get_objectEP7oopDesc.exit.i10, %_ZNK5Klass11java_mirrorEv.exit9, %54
-  %.0 = phi ptr [ %60, %54 ], [ %73, %_ZN5ciEnv10get_objectEP7oopDesc.exit.i10 ], [ null, %_ZNK5Klass11java_mirrorEv.exit9 ], [ null, %_ZNK10ciMetadata9is_loadedEv.exit8.thread ]
+  %.1 = phi ptr [ %60, %54 ], [ %73, %_ZN5ciEnv10get_objectEP7oopDesc.exit.i10 ], [ null, %_ZNK5Klass11java_mirrorEv.exit9 ], [ null, %_ZNK10ciMetadata9is_loadedEv.exit8.thread ]
   %74 = getelementptr inbounds i8, ptr %34, i64 408
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %75, i64 16
@@ -1000,8 +1000,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN5ciEnv12get_inst
   br label %_ZN5ciEnv12get_instanceEP7oopDesc.exit
 
 _ZN5ciEnv12get_instanceEP7oopDesc.exit:           ; preds = %_ZNK10ciMetadata9is_loadedEv.exit.thread, %_ZN5ciEnv10get_objectEP7oopDesc.exit.i, %_ZNK5Klass11java_mirrorEv.exit, %_ZN17HandleMarkCleanerD2Ev.exit, %10
-  %.1 = phi ptr [ %17, %10 ], [ %.0, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %31, %_ZN5ciEnv10get_objectEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
-  ret ptr %.1
+  %.0 = phi ptr [ %17, %10 ], [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %31, %_ZN5ciEnv10get_objectEP7oopDesc.exit.i ], [ null, %_ZNK5Klass11java_mirrorEv.exit ], [ null, %_ZNK10ciMetadata9is_loadedEv.exit.thread ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

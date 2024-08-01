@@ -376,21 +376,21 @@ define dso_local noundef zeroext i1 @RS_execute(ptr nocapture noundef readonly %
 
 .lr.ph55:                                         ; preds = %15, %.lr.ph55
   %.153 = phi i32 [ %19, %.lr.ph55 ], [ %17, %15 ]
-  %.12652 = phi ptr [ %22, %.lr.ph55 ], [ %1, %15 ]
+  %.252 = phi ptr [ %22, %.lr.ph55 ], [ %1, %15 ]
   %19 = add nsw i32 %.153, -1
-  %20 = tail call i32 @pg_mblen(ptr noundef %.12652) #7
+  %20 = tail call i32 @pg_mblen(ptr noundef %.252) #7
   %21 = sext i32 %20 to i64
-  %22 = getelementptr i8, ptr %.12652, i64 %21
+  %22 = getelementptr i8, ptr %.252, i64 %21
   %23 = icmp ugt i32 %.153, 1
   br i1 %23, label %.lr.ph55, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph55, %15
-  %.2 = phi ptr [ %1, %15 ], [ %22, %.lr.ph55 ]
+  %.126 = phi ptr [ %1, %15 ], [ %22, %.lr.ph55 ]
   %.not3157 = icmp eq ptr %3, null
   br i1 %.not3157, label %mb_strchr.exit40, label %.lr.ph61
 
 .lr.ph61:                                         ; preds = %.loopexit, %mb_strchr.exit
-  %.359 = phi ptr [ %71, %mb_strchr.exit ], [ %.2, %.loopexit ]
+  %.359 = phi ptr [ %71, %mb_strchr.exit ], [ %.126, %.loopexit ]
   %.02758 = phi ptr [ %68, %mb_strchr.exit ], [ %3, %.loopexit ]
   %24 = load i32, ptr %.02758, align 8
   %25 = and i32 %24, 3

@@ -405,18 +405,18 @@ update_ueid_rnti_counts.exit:                     ; preds = %109, %104, %93, %al
   br i1 %.not24.i, label %update_ueid_rnti_counts.exit.thread155, label %update_ueid_rnti_counts.exit.thread
 
 update_ueid_rnti_counts.exit.thread:              ; preds = %120, %168, %163, %152, %146, %update_ueid_rnti_counts.exit
-  %.1115154 = phi ptr [ %69, %update_ueid_rnti_counts.exit ], [ %128, %168 ], [ %128, %163 ], [ %128, %152 ], [ %128, %146 ], [ %.0116162, %120 ]
+  %.0114154 = phi ptr [ %69, %update_ueid_rnti_counts.exit ], [ %128, %168 ], [ %128, %163 ], [ %128, %152 ], [ %128, %146 ], [ %.0116162, %120 ]
   %170 = load i8, ptr %3, align 8
-  %171 = getelementptr inbounds i8, ptr %.1115154, i64 8
+  %171 = getelementptr inbounds i8, ptr %.0114154, i64 8
   store i8 %170, ptr %171, align 8
   %172 = getelementptr inbounds i8, ptr %3, i64 2
   %173 = load i16, ptr %172, align 2
-  %174 = getelementptr inbounds i8, ptr %.1115154, i64 10
+  %174 = getelementptr inbounds i8, ptr %.0114154, i64 10
   store i16 %173, ptr %174, align 2
   %175 = getelementptr inbounds i8, ptr %3, i64 7
   %176 = load i8, ptr %175, align 1
   %177 = zext i8 %176 to i32
-  %178 = getelementptr inbounds i8, ptr %.1115154, i64 16
+  %178 = getelementptr inbounds i8, ptr %.0114154, i64 16
   store i32 %177, ptr %178, align 8
   %179 = load i8, ptr %50, align 8
   %180 = icmp eq i8 %179, 0
@@ -429,7 +429,7 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %120, %168, %163, %1
   br i1 %.not136, label %188, label %184
 
 184:                                              ; preds = %183
-  %185 = getelementptr inbounds i8, ptr %.1115154, i64 72
+  %185 = getelementptr inbounds i8, ptr %.0114154, i64 72
   %186 = load i32, ptr %185, align 8
   %187 = add i32 %186, 1
   store i32 %187, ptr %185, align 8
@@ -448,26 +448,26 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %120, %168, %163, %1
   br i1 %.not138, label %198, label %194
 
 194:                                              ; preds = %191
-  %195 = getelementptr inbounds i8, ptr %.1115154, i64 68
+  %195 = getelementptr inbounds i8, ptr %.0114154, i64 68
   %196 = load i32, ptr %195, align 4
   %197 = add i32 %196, 1
   store i32 %197, ptr %195, align 4
   br label %update_ueid_rnti_counts.exit.thread155
 
 198:                                              ; preds = %191, %188
-  %199 = getelementptr inbounds i8, ptr %.1115154, i64 20
+  %199 = getelementptr inbounds i8, ptr %.0114154, i64 20
   %200 = load i32, ptr %199, align 4
   %201 = icmp eq i32 %200, 0
   br i1 %201, label %202, label %205
 
 202:                                              ; preds = %198
-  %203 = getelementptr inbounds i8, ptr %.1115154, i64 32
+  %203 = getelementptr inbounds i8, ptr %.0114154, i64 32
   %204 = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %203, ptr noundef nonnull align 8 dereferenceable(16) %204, i64 16, i1 false)
   br label %205
 
 205:                                              ; preds = %202, %198
-  %206 = getelementptr inbounds i8, ptr %.1115154, i64 48
+  %206 = getelementptr inbounds i8, ptr %.0114154, i64 48
   %207 = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %206, ptr noundef nonnull align 8 dereferenceable(16) %207, i64 16, i1 false)
   %208 = add i32 %200, 1
@@ -475,14 +475,14 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %120, %168, %163, %1
   %209 = getelementptr inbounds i8, ptr %3, i64 312
   %210 = load i16, ptr %209, align 8
   %211 = zext i16 %210 to i32
-  %212 = getelementptr inbounds i8, ptr %.1115154, i64 24
+  %212 = getelementptr inbounds i8, ptr %.0114154, i64 24
   %213 = load i32, ptr %212, align 8
   %214 = add i32 %213, %211
   store i32 %214, ptr %212, align 8
   %215 = getelementptr inbounds i8, ptr %3, i64 310
   %216 = load i16, ptr %215, align 2
   %217 = zext i16 %216 to i32
-  %218 = getelementptr inbounds i8, ptr %.1115154, i64 64
+  %218 = getelementptr inbounds i8, ptr %.0114154, i64 64
   %219 = load i32, ptr %218, align 8
   %220 = add i32 %219, %217
   store i32 %220, ptr %218, align 8
@@ -492,14 +492,14 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %120, %168, %163, %1
 
 .preheader:                                       ; preds = %205
   %222 = getelementptr inbounds i8, ptr %3, i64 44
-  %223 = getelementptr inbounds i8, ptr %.1115154, i64 28
+  %223 = getelementptr inbounds i8, ptr %.0114154, i64 28
   %.promoted164 = load i32, ptr %223, align 4
   br label %230
 
 224:                                              ; preds = %205
   %225 = getelementptr inbounds i8, ptr %3, i64 40
   %226 = load i32, ptr %225, align 8
-  %227 = getelementptr inbounds i8, ptr %.1115154, i64 28
+  %227 = getelementptr inbounds i8, ptr %.0114154, i64 28
   %228 = load i32, ptr %227, align 4
   %229 = add i32 %228, %226
   store i32 %229, ptr %227, align 4
@@ -520,7 +520,7 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %120, %168, %163, %1
   br i1 %.not136, label %240, label %236
 
 236:                                              ; preds = %235
-  %237 = getelementptr inbounds i8, ptr %.1115154, i64 128
+  %237 = getelementptr inbounds i8, ptr %.0114154, i64 128
   %238 = load i32, ptr %237, align 8
   %239 = add i32 %238, 1
   store i32 %239, ptr %237, align 8
@@ -539,26 +539,26 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %120, %168, %163, %1
   br i1 %.not134, label %250, label %246
 
 246:                                              ; preds = %243
-  %247 = getelementptr inbounds i8, ptr %.1115154, i64 124
+  %247 = getelementptr inbounds i8, ptr %.0114154, i64 124
   %248 = load i32, ptr %247, align 4
   %249 = add i32 %248, 1
   store i32 %249, ptr %247, align 4
   br label %update_ueid_rnti_counts.exit.thread155
 
 250:                                              ; preds = %243, %240
-  %251 = getelementptr inbounds i8, ptr %.1115154, i64 76
+  %251 = getelementptr inbounds i8, ptr %.0114154, i64 76
   %252 = load i32, ptr %251, align 4
   %253 = icmp eq i32 %252, 0
   br i1 %253, label %254, label %257
 
 254:                                              ; preds = %250
-  %255 = getelementptr inbounds i8, ptr %.1115154, i64 88
+  %255 = getelementptr inbounds i8, ptr %.0114154, i64 88
   %256 = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %255, ptr noundef nonnull align 8 dereferenceable(16) %256, i64 16, i1 false)
   br label %257
 
 257:                                              ; preds = %254, %250
-  %258 = getelementptr inbounds i8, ptr %.1115154, i64 104
+  %258 = getelementptr inbounds i8, ptr %.0114154, i64 104
   %259 = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %258, ptr noundef nonnull align 8 dereferenceable(16) %259, i64 16, i1 false)
   %260 = add i32 %252, 1
@@ -566,14 +566,14 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %120, %168, %163, %1
   %261 = getelementptr inbounds i8, ptr %3, i64 312
   %262 = load i16, ptr %261, align 8
   %263 = zext i16 %262 to i32
-  %264 = getelementptr inbounds i8, ptr %.1115154, i64 80
+  %264 = getelementptr inbounds i8, ptr %.0114154, i64 80
   %265 = load i32, ptr %264, align 8
   %266 = add i32 %265, %263
   store i32 %266, ptr %264, align 8
   %267 = getelementptr inbounds i8, ptr %3, i64 310
   %268 = load i16, ptr %267, align 2
   %269 = zext i16 %268 to i32
-  %270 = getelementptr inbounds i8, ptr %.1115154, i64 120
+  %270 = getelementptr inbounds i8, ptr %.0114154, i64 120
   %271 = load i32, ptr %270, align 8
   %272 = add i32 %271, %269
   store i32 %272, ptr %270, align 8
@@ -583,14 +583,14 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %120, %168, %163, %1
 
 .preheader158:                                    ; preds = %257
   %274 = getelementptr inbounds i8, ptr %3, i64 44
-  %275 = getelementptr inbounds i8, ptr %.1115154, i64 84
+  %275 = getelementptr inbounds i8, ptr %.0114154, i64 84
   %.promoted = load i32, ptr %275, align 4
   br label %282
 
 276:                                              ; preds = %257
   %277 = getelementptr inbounds i8, ptr %3, i64 40
   %278 = load i32, ptr %277, align 8
-  %279 = getelementptr inbounds i8, ptr %.1115154, i64 84
+  %279 = getelementptr inbounds i8, ptr %.0114154, i64 84
   %280 = load i32, ptr %279, align 4
   %281 = add i32 %280, %278
   store i32 %281, ptr %279, align 4

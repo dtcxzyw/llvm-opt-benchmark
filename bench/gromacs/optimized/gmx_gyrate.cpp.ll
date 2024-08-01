@@ -448,7 +448,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit159: ;
   br label %.body132
 
 .body132:                                         ; preds = %119, %66, %.body137
-  %.087 = phi ptr [ %68, %.body137 ], [ %64, %66 ], [ %64, %119 ]
+  %.289 = phi ptr [ %68, %.body137 ], [ %64, %66 ], [ %64, %119 ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body138, %.body137 ], [ %67, %66 ], [ %120, %119 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #18
   br label %.body
@@ -459,7 +459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit159: ;
   br label %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm4EED2Ev.exit223
 
 .body:                                            ; preds = %.body132, %62, %117
-  %.188 = phi ptr [ %.087, %.body132 ], [ %60, %62 ], [ %60, %117 ]
+  %.188 = phi ptr [ %.289, %.body132 ], [ %60, %62 ], [ %60, %117 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body132 ], [ %63, %62 ], [ %118, %117 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #18
@@ -499,7 +499,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit159: ;
 
 .body152:                                         ; preds = %131, %81, %.body157
   %.pn104 = phi { ptr, i32 } [ %eh.lpad-body158, %.body157 ], [ %132, %131 ], [ %82, %81 ]
-  %.066 = phi ptr [ %83, %.body157 ], [ %79, %131 ], [ %79, %81 ]
+  %.268 = phi ptr [ %83, %.body157 ], [ %79, %131 ], [ %79, %81 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #18
   br label %.body142
 
@@ -510,7 +510,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit159: ;
 
 .body142:                                         ; preds = %.body152, %77, %129
   %.pn104.pn = phi { ptr, i32 } [ %.pn104, %.body152 ], [ %130, %129 ], [ %78, %77 ]
-  %.167 = phi ptr [ %.066, %.body152 ], [ %75, %129 ], [ %75, %77 ]
+  %.167 = phi ptr [ %.268, %.body152 ], [ %75, %129 ], [ %75, %77 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #18
   br label %135
@@ -1080,7 +1080,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit176:       ; preds = %272, %269, %250, %2
 
 309:                                              ; preds = %639, %298
   %indvars.iv317 = phi i64 [ %indvars.iv.next318, %639 ], [ 0, %298 ]
-  %.065 = phi i32 [ %.2, %639 ], [ 0, %298 ]
+  %.065 = phi i32 [ %.1, %639 ], [ 0, %298 ]
   %310 = load i32, ptr @_ZZ10gmx_gyrateiPPcE2nz, align 4
   %311 = icmp eq i32 %310, 0
   br i1 %311, label %312, label %314
@@ -1632,7 +1632,7 @@ _ZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILE.exit: ; preds = %532, %._crit_e
   br i1 %exitcond.not, label %.loopexit, label %608, !llvm.loop !17
 
 .loopexit:                                        ; preds = %612, %602
-  %.1 = phi i32 [ %.065, %602 ], [ %605, %612 ]
+  %.2 = phi i32 [ %.065, %602 ], [ %605, %612 ]
   %.idx = mul i64 %indvars.iv317, 12
   br label %613
 
@@ -1658,7 +1658,7 @@ _ZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILE.exit: ; preds = %532, %._crit_e
 
 .sink.split:                                      ; preds = %613, %599
   %.sroa.0230.1.sink = phi float [ %.sroa.0239.1, %599 ], [ %.sroa.0230.1, %613 ]
-  %.2.ph = phi i32 [ %.065, %599 ], [ %.1, %613 ]
+  %.1.ph = phi i32 [ %.065, %599 ], [ %.2, %613 ]
   %625 = phi <2 x float> [ %596, %599 ], [ %595, %613 ]
   %.sink345 = load float, ptr %16, align 4
   %626 = fpext float %.sink345 to double
@@ -1672,7 +1672,7 @@ _ZL11calc_gyro_zPA3_fS0_iPKiP6t_atomifP8_IO_FILE.exit: ; preds = %532, %._crit_e
   br label %634
 
 634:                                              ; preds = %.sink.split, %._crit_edge.thread
-  %.2 = phi i32 [ %.065, %._crit_edge.thread ], [ %.2.ph, %.sink.split ]
+  %.1 = phi i32 [ %.065, %._crit_edge.thread ], [ %.1.ph, %.sink.split ]
   %635 = load ptr, ptr %20, align 8
   %636 = load ptr, ptr %7, align 8
   %637 = load ptr, ptr %10, align 8

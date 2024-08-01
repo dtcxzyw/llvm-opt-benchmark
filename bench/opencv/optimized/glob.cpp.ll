@@ -555,8 +555,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 98:                                               ; preds = %97, %50, %32
   %.pn35.pn = phi { ptr, i32 } [ %.pn35, %97 ], [ %.pn, %50 ], [ %33, %32 ]
-  %.3 = extractvalue { ptr, i32 } %.pn35.pn, 0
-  %99 = call ptr @__cxa_begin_catch(ptr %.3) #12
+  %.0 = extractvalue { ptr, i32 } %.pn35.pn, 0
+  %99 = call ptr @__cxa_begin_catch(ptr %.0) #12
   %100 = call i32 @closedir(ptr noundef nonnull %16)
   invoke void @__cxa_rethrow() #14
           to label %114 unwind label %101

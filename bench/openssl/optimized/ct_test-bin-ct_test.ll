@@ -524,19 +524,19 @@ if.then3.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i, %if.then.i
-  %len.0.i = phi i32 [ %call4.i, %if.then3.i ], [ -1, %if.then.i ]
+  %len.1.i = phi i32 [ %call4.i, %if.then3.i ], [ -1, %if.then.i ]
   %call5.i = call i32 @BIO_free(ptr noundef %call1.i) #8
   br label %read_text_file.exit
 
 read_text_file.exit:                              ; preds = %if.then, %if.end.i
-  %len.1.i = phi i32 [ %len.0.i, %if.end.i ], [ -1, %if.then ]
+  %len.0.i = phi i32 [ %len.1.i, %if.end.i ], [ -1, %if.then ]
   call void @CRYPTO_free(ptr noundef %call.i, ptr noundef nonnull @.str.16, i32 noundef 122) #8
-  %call3 = call i32 @test_int_ge(ptr noundef nonnull @.str.16, i32 noundef 241, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef %len.1.i, i32 noundef 0) #8
+  %call3 = call i32 @test_int_ge(ptr noundef nonnull @.str.16, i32 noundef 241, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef %len.0.i, i32 noundef 0) #8
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %end, label %if.end
 
 if.end:                                           ; preds = %read_text_file.exit
-  %idxprom = sext i32 %len.1.i to i64
+  %idxprom = sext i32 %len.0.i to i64
   %arrayidx = getelementptr inbounds [8096 x i8], ptr %expected_sct_text, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   br label %if.end5
@@ -570,19 +570,19 @@ if.then3.i48:                                     ; preds = %if.then.i45
   br label %if.end.i50
 
 if.end.i50:                                       ; preds = %if.then3.i48, %if.then.i45
-  %cert.0.i = phi ptr [ %call4.i49, %if.then3.i48 ], [ null, %if.then.i45 ]
+  %cert.1.i = phi ptr [ %call4.i49, %if.then3.i48 ], [ null, %if.then.i45 ]
   %call5.i51 = call i32 @BIO_free(ptr noundef %call1.i46) #8
   br label %load_pem_cert.exit
 
 load_pem_cert.exit:                               ; preds = %if.then7, %if.end.i50
-  %cert.1.i = phi ptr [ %cert.0.i, %if.end.i50 ], [ null, %if.then7 ]
+  %cert.0.i = phi ptr [ %cert.1.i, %if.end.i50 ], [ null, %if.then7 ]
   call void @CRYPTO_free(ptr noundef %call.i43, ptr noundef nonnull @.str.16, i32 noundef 104) #8
-  %call10 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 257, ptr noundef nonnull @.str.24, ptr noundef %cert.1.i) #8
+  %call10 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 257, ptr noundef nonnull @.str.24, ptr noundef %cert.0.i) #8
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %end, label %if.end13
 
 if.end13:                                         ; preds = %load_pem_cert.exit
-  %call14 = call i32 @CT_POLICY_EVAL_CTX_set1_cert(ptr noundef %call, ptr noundef %cert.1.i) #8
+  %call14 = call i32 @CT_POLICY_EVAL_CTX_set1_cert(ptr noundef %call, ptr noundef %cert.0.i) #8
   %issuer_file = getelementptr inbounds i8, ptr %fixture, i64 40
   %6 = load ptr, ptr %issuer_file, align 8
   %cmp15.not = icmp eq ptr %6, null
@@ -604,25 +604,25 @@ if.then3.i57:                                     ; preds = %if.then.i54
   br label %if.end.i59
 
 if.end.i59:                                       ; preds = %if.then3.i57, %if.then.i54
-  %cert.0.i60 = phi ptr [ %call4.i58, %if.then3.i57 ], [ null, %if.then.i54 ]
+  %cert.1.i60 = phi ptr [ %call4.i58, %if.then3.i57 ], [ null, %if.then.i54 ]
   %call5.i61 = call i32 @BIO_free(ptr noundef %call1.i55) #8
   br label %load_pem_cert.exit63
 
 load_pem_cert.exit63:                             ; preds = %if.then16, %if.end.i59
-  %cert.1.i62 = phi ptr [ %cert.0.i60, %if.end.i59 ], [ null, %if.then16 ]
+  %cert.0.i62 = phi ptr [ %cert.1.i60, %if.end.i59 ], [ null, %if.then16 ]
   call void @CRYPTO_free(ptr noundef %call.i52, ptr noundef nonnull @.str.16, i32 noundef 104) #8
-  %call20 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 264, ptr noundef nonnull @.str.25, ptr noundef %cert.1.i62) #8
+  %call20 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 264, ptr noundef nonnull @.str.25, ptr noundef %cert.0.i62) #8
   %tobool21.not = icmp eq i32 %call20, 0
   br i1 %tobool21.not, label %end, label %if.end23
 
 if.end23:                                         ; preds = %load_pem_cert.exit63
-  %call24 = call i32 @CT_POLICY_EVAL_CTX_set1_issuer(ptr noundef %call, ptr noundef %cert.1.i62) #8
+  %call24 = call i32 @CT_POLICY_EVAL_CTX_set1_issuer(ptr noundef %call, ptr noundef %cert.0.i62) #8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end23, %if.end13
-  %issuer.0 = phi ptr [ %cert.1.i62, %if.end23 ], [ null, %if.end13 ]
-  %call26 = call i32 @X509_get_ext_by_NID(ptr noundef %cert.1.i, i32 noundef 951, i32 noundef -1) #8
-  %call27 = call ptr @X509_get_ext(ptr noundef %cert.1.i, i32 noundef %call26) #8
+  %issuer.2 = phi ptr [ %cert.0.i62, %if.end23 ], [ null, %if.end13 ]
+  %call26 = call i32 @X509_get_ext_by_NID(ptr noundef %cert.0.i, i32 noundef 951, i32 noundef -1) #8
+  %call27 = call ptr @X509_get_ext(ptr noundef %cert.0.i, i32 noundef %call26) #8
   %expected_sct_count = getelementptr inbounds i8, ptr %fixture, i64 48
   %8 = load i32, ptr %expected_sct_count, align 8
   %cmp28 = icmp sgt i32 %8, 0
@@ -723,8 +723,8 @@ if.else:                                          ; preds = %if.end25
   br i1 %tobool60.not, label %end, label %if.end64
 
 if.end64:                                         ; preds = %if.then53, %for.end, %if.else, %if.end5
-  %issuer.1 = phi ptr [ %issuer.0, %if.then53 ], [ %issuer.0, %for.end ], [ %issuer.0, %if.else ], [ null, %if.end5 ]
-  %cert.0 = phi ptr [ %cert.1.i, %if.then53 ], [ %cert.1.i, %for.end ], [ %cert.1.i, %if.else ], [ null, %if.end5 ]
+  %issuer.1 = phi ptr [ %issuer.2, %if.then53 ], [ %issuer.2, %for.end ], [ %issuer.2, %if.else ], [ null, %if.end5 ]
+  %cert.1 = phi ptr [ %cert.0.i, %if.then53 ], [ %cert.0.i, %for.end ], [ %cert.0.i, %if.else ], [ null, %if.end5 ]
   %tls_sct_list65 = getelementptr inbounds i8, ptr %fixture, i64 56
   %12 = load ptr, ptr %tls_sct_list65, align 8
   %cmp66.not = icmp eq ptr %12, null
@@ -743,7 +743,7 @@ if.end74:                                         ; preds = %if.then67
   %test_validity75 = getelementptr inbounds i8, ptr %fixture, i64 96
   %14 = load i32, ptr %test_validity75, align 8
   %tobool76 = icmp ne i32 %14, 0
-  %cmp78 = icmp ne ptr %cert.0, null
+  %cmp78 = icmp ne ptr %cert.1, null
   %or.cond = and i1 %cmp78, %tobool76
   br i1 %or.cond, label %if.then79, label %if.end84
 
@@ -806,11 +806,11 @@ if.end100:                                        ; preds = %if.end92, %if.end64
   br label %end
 
 end:                                              ; preds = %for.body, %compare_sct_list_printout.exit.thread, %compare_extension_printout.exit.thread, %if.end92, %compare_sct_list_printout.exit, %if.then79, %if.then67, %if.else, %if.then53, %compare_extension_printout.exit, %if.then29, %load_pem_cert.exit63, %load_pem_cert.exit, %read_text_file.exit, %if.end100
-  %issuer.2 = phi ptr [ %issuer.1, %if.end100 ], [ %issuer.1, %if.end92 ], [ %issuer.1, %compare_sct_list_printout.exit ], [ %issuer.1, %if.then79 ], [ %issuer.1, %if.then67 ], [ %issuer.0, %if.then53 ], [ %issuer.0, %compare_extension_printout.exit ], [ %issuer.0, %if.then29 ], [ %issuer.0, %if.else ], [ %cert.1.i62, %load_pem_cert.exit63 ], [ null, %load_pem_cert.exit ], [ null, %read_text_file.exit ], [ %issuer.0, %compare_extension_printout.exit.thread ], [ %issuer.1, %compare_sct_list_printout.exit.thread ], [ %issuer.0, %for.body ]
-  %cert.1 = phi ptr [ %cert.0, %if.end100 ], [ %cert.0, %if.end92 ], [ %cert.0, %compare_sct_list_printout.exit ], [ %cert.0, %if.then79 ], [ %cert.0, %if.then67 ], [ %cert.1.i, %if.then53 ], [ %cert.1.i, %compare_extension_printout.exit ], [ %cert.1.i, %if.then29 ], [ %cert.1.i, %if.else ], [ %cert.1.i, %load_pem_cert.exit63 ], [ %cert.1.i, %load_pem_cert.exit ], [ null, %read_text_file.exit ], [ %cert.1.i, %compare_extension_printout.exit.thread ], [ %cert.0, %compare_sct_list_printout.exit.thread ], [ %cert.1.i, %for.body ]
+  %issuer.0 = phi ptr [ %issuer.1, %if.end100 ], [ %issuer.1, %if.end92 ], [ %issuer.1, %compare_sct_list_printout.exit ], [ %issuer.1, %if.then79 ], [ %issuer.1, %if.then67 ], [ %issuer.2, %if.then53 ], [ %issuer.2, %compare_extension_printout.exit ], [ %issuer.2, %if.then29 ], [ %issuer.2, %if.else ], [ %cert.0.i62, %load_pem_cert.exit63 ], [ null, %load_pem_cert.exit ], [ null, %read_text_file.exit ], [ %issuer.2, %compare_extension_printout.exit.thread ], [ %issuer.1, %compare_sct_list_printout.exit.thread ], [ %issuer.2, %for.body ]
+  %cert.0 = phi ptr [ %cert.1, %if.end100 ], [ %cert.1, %if.end92 ], [ %cert.1, %compare_sct_list_printout.exit ], [ %cert.1, %if.then79 ], [ %cert.1, %if.then67 ], [ %cert.0.i, %if.then53 ], [ %cert.0.i, %compare_extension_printout.exit ], [ %cert.0.i, %if.then29 ], [ %cert.0.i, %if.else ], [ %cert.0.i, %load_pem_cert.exit63 ], [ %cert.0.i, %load_pem_cert.exit ], [ null, %read_text_file.exit ], [ %cert.0.i, %compare_extension_printout.exit.thread ], [ %cert.1, %compare_sct_list_printout.exit.thread ], [ %cert.0.i, %for.body ]
   %success.0 = phi i32 [ 1, %if.end100 ], [ 0, %if.end92 ], [ 0, %compare_sct_list_printout.exit ], [ 0, %if.then79 ], [ 0, %if.then67 ], [ 0, %if.then53 ], [ 0, %compare_extension_printout.exit ], [ 0, %if.then29 ], [ 0, %if.else ], [ 0, %load_pem_cert.exit63 ], [ 0, %load_pem_cert.exit ], [ 0, %read_text_file.exit ], [ 0, %compare_extension_printout.exit.thread ], [ 0, %compare_sct_list_printout.exit.thread ], [ 0, %for.body ]
-  call void @X509_free(ptr noundef %cert.1) #8
-  call void @X509_free(ptr noundef %issuer.2) #8
+  call void @X509_free(ptr noundef %cert.0) #8
+  call void @X509_free(ptr noundef %issuer.0) #8
   %23 = load ptr, ptr %scts, align 8
   call void @SCT_LIST_free(ptr noundef %23) #8
   call void @SCT_free(ptr noundef null) #8

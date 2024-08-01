@@ -1035,18 +1035,18 @@ define ptr @__cli_strnstr(ptr noundef readonly %0, ptr nocapture noundef readonl
 
 8:                                                ; preds = %.backedge, %6
   %.115 = phi i64 [ %2, %6 ], [ %9, %.backedge ]
-  %.1 = phi ptr [ %0, %6 ], [ %15, %.backedge ]
+  %.2 = phi ptr [ %0, %6 ], [ %15, %.backedge ]
   %9 = add i64 %.115, -1
   %10 = icmp eq i64 %.115, 0
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %8
-  %12 = load i8, ptr %.1, align 1
+  %12 = load i8, ptr %.2, align 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.1, i64 1
+  %15 = getelementptr inbounds i8, ptr %.2, i64 1
   %.not20 = icmp eq i8 %12, %5
   br i1 %.not20, label %16, label %.backedge
 
@@ -1063,7 +1063,7 @@ define ptr @__cli_strnstr(ptr noundef readonly %0, ptr nocapture noundef readonl
   br i1 %.not21, label %.loopexit, label %.backedge
 
 .loopexit:                                        ; preds = %18, %16, %8, %11, %3
-  %.0 = phi ptr [ %0, %3 ], [ %.1, %18 ], [ null, %16 ], [ null, %8 ], [ null, %11 ]
+  %.0 = phi ptr [ %0, %3 ], [ %.2, %18 ], [ null, %16 ], [ null, %8 ], [ null, %11 ]
   ret ptr %.0
 }
 
@@ -1127,8 +1127,8 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br label %9
 
 9:                                                ; preds = %.preheader, %15
-  %.084 = phi ptr [ %16, %15 ], [ %0, %.preheader ]
-  %10 = load i8, ptr %.084, align 1
+  %.185 = phi ptr [ %16, %15 ], [ %0, %.preheader ]
+  %10 = load i8, ptr %.185, align 1
   %11 = sext i8 %10 to i64
   %12 = getelementptr inbounds i16, ptr %7, i64 %11
   %13 = load i16, ptr %12, align 2
@@ -1137,13 +1137,13 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br i1 %.not, label %.critedge, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %.084, i64 1
+  %16 = getelementptr inbounds i8, ptr %.185, i64 1
   %17 = icmp ult ptr %16, %8
   br i1 %17, label %9, label %.critedge
 
 .critedge:                                        ; preds = %9, %15
-  %.185 = phi ptr [ %16, %15 ], [ %.084, %9 ]
-  %.not100 = icmp ult ptr %.185, %8
+  %.286 = phi ptr [ %16, %15 ], [ %.185, %9 ]
+  %.not100 = icmp ult ptr %.286, %8
   br i1 %.not100, label %18, label %.thread152
 
 18:                                               ; preds = %.critedge
@@ -1151,8 +1151,8 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br i1 %.not105, label %19, label %22
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %.185, i64 1
-  %21 = load i8, ptr %.185, align 1
+  %20 = getelementptr inbounds i8, ptr %.286, i64 1
+  %21 = load i8, ptr %.286, align 1
   %.not102 = icmp ult ptr %20, %8
   br i1 %.not102, label %27, label %.thread152
 
@@ -1161,13 +1161,13 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %.185, i64 1
-  %26 = load i8, ptr %.185, align 1
+  %25 = getelementptr inbounds i8, ptr %.286, i64 1
+  %26 = load i8, ptr %.286, align 1
   %.not101 = icmp ult ptr %25, %8
   br i1 %.not101, label %27, label %.thread152
 
 27:                                               ; preds = %22, %24, %19
-  %.286 = phi ptr [ %20, %19 ], [ %25, %24 ], [ %.185, %22 ]
+  %.3 = phi ptr [ %20, %19 ], [ %25, %24 ], [ %.286, %22 ]
   %.078.in = phi i8 [ %21, %19 ], [ %26, %24 ], [ %10, %22 ]
   %.078.in.fr = freeze i8 %.078.in
   %28 = and i32 %3, -17
@@ -1177,7 +1177,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br i1 %or.cond3, label %30, label %38
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.286, i64 1
+  %31 = getelementptr inbounds i8, ptr %.3, i64 1
   %32 = icmp ult ptr %31, %8
   br i1 %32, label %33, label %.thread
 
@@ -1189,7 +1189,7 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   ]
 
 35:                                               ; preds = %33, %33
-  %36 = getelementptr inbounds i8, ptr %.286, i64 2
+  %36 = getelementptr inbounds i8, ptr %.3, i64 2
   %.not103 = icmp ult ptr %36, %8
   br i1 %.not103, label %.thread127, label %.thread152
 
@@ -1207,21 +1207,21 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br label %.thread127
 
 .thread127:                                       ; preds = %38, %35, %.thread, %40
-  %.3118130 = phi ptr [ %.286, %40 ], [ %.286, %.thread ], [ %36, %35 ], [ %.286, %38 ]
+  %.4118130 = phi ptr [ %.3, %40 ], [ %.3, %.thread ], [ %36, %35 ], [ %.3, %38 ]
   %42 = phi i32 [ %41, %40 ], [ %3, %.thread ], [ 16, %35 ], [ %3, %38 ]
   %43 = select i1 %.not105, i64 -9223372036854775808, i64 9223372036854775807
   %44 = sext i32 %42 to i64
   %45 = urem i64 %43, %44
   %46 = trunc i64 %45 to i32
   %47 = udiv i64 %43, %44
-  %48 = icmp ult ptr %.3118130, %8
+  %48 = icmp ult ptr %.4118130, %8
   br i1 %48, label %.lr.ph, label %.thread152
 
 .lr.ph:                                           ; preds = %.thread127, %74
-  %.075135 = phi i32 [ %.176, %74 ], [ 0, %.thread127 ]
-  %.081134 = phi i64 [ %.182, %74 ], [ 0, %.thread127 ]
-  %.4133 = phi ptr [ %75, %74 ], [ %.3118130, %.thread127 ]
-  %49 = load i8, ptr %.4133, align 1
+  %.176135 = phi i32 [ %.2, %74 ], [ 0, %.thread127 ]
+  %.182134 = phi i64 [ %.283, %74 ], [ 0, %.thread127 ]
+  %.5133 = phi ptr [ %75, %74 ], [ %.4118130, %.thread127 ]
+  %49 = load i8, ptr %.5133, align 1
   %50 = sext i8 %49 to i32
   %51 = sext i8 %49 to i64
   %52 = getelementptr inbounds i16, ptr %7, i64 %51
@@ -1253,35 +1253,35 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br i1 %.not109, label %64, label %._crit_edge
 
 64:                                               ; preds = %63
-  %65 = icmp slt i32 %.075135, 0
-  %66 = icmp ugt i64 %.081134, %47
+  %65 = icmp slt i32 %.176135, 0
+  %66 = icmp ugt i64 %.182134, %47
   %or.cond112 = select i1 %65, i1 true, i1 %66
   br i1 %or.cond112, label %74, label %67
 
 67:                                               ; preds = %64
-  %68 = icmp eq i64 %.081134, %47
+  %68 = icmp eq i64 %.182134, %47
   %69 = icmp sgt i32 %.280, %46
   %or.cond113 = and i1 %68, %69
   br i1 %or.cond113, label %74, label %70
 
 70:                                               ; preds = %67
-  %71 = mul i64 %.081134, %44
+  %71 = mul i64 %.182134, %44
   %72 = sext i32 %.280 to i64
   %73 = add i64 %71, %72
   br label %74
 
 74:                                               ; preds = %64, %67, %70
-  %.182 = phi i64 [ %73, %70 ], [ %47, %67 ], [ %.081134, %64 ]
-  %.176 = phi i32 [ 1, %70 ], [ -1, %67 ], [ -1, %64 ]
-  %75 = getelementptr inbounds i8, ptr %.4133, i64 1
+  %.283 = phi i64 [ %73, %70 ], [ %47, %67 ], [ %.182134, %64 ]
+  %.2 = phi i32 [ 1, %70 ], [ -1, %67 ], [ -1, %64 ]
+  %75 = getelementptr inbounds i8, ptr %.5133, i64 1
   %76 = icmp ult ptr %75, %8
   br i1 %76, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %74, %58, %63
-  %.4.lcssa = phi ptr [ %75, %74 ], [ %.4133, %58 ], [ %.4133, %63 ]
-  %.081.lcssa = phi i64 [ %.182, %74 ], [ %.081134, %58 ], [ %.081134, %63 ]
-  %.075.lcssa = phi i32 [ %.176, %74 ], [ %.075135, %58 ], [ %.075135, %63 ]
-  %77 = icmp slt i32 %.075.lcssa, 0
+  %.5.lcssa = phi ptr [ %75, %74 ], [ %.5133, %58 ], [ %.5133, %63 ]
+  %.182.lcssa = phi i64 [ %.283, %74 ], [ %.182134, %58 ], [ %.182134, %63 ]
+  %.176.lcssa = phi i32 [ %.2, %74 ], [ %.176135, %58 ], [ %.176135, %63 ]
+  %77 = icmp slt i32 %.176.lcssa, 0
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %._crit_edge
@@ -1290,24 +1290,24 @@ define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2
   br label %.thread152
 
 80:                                               ; preds = %._crit_edge
-  %81 = sub i64 0, %.081.lcssa
-  %spec.select = select i1 %.not105, i64 %81, i64 %.081.lcssa
-  %82 = icmp eq i32 %.075.lcssa, 0
-  %spec.select159 = select i1 %82, ptr %0, ptr %.4.lcssa
+  %81 = sub i64 0, %.182.lcssa
+  %spec.select = select i1 %.not105, i64 %81, i64 %.182.lcssa
+  %82 = icmp eq i32 %.176.lcssa, 0
+  %spec.select159 = select i1 %82, ptr %0, ptr %.5.lcssa
   br label %.thread152
 
 .thread152:                                       ; preds = %80, %.thread127, %78, %35, %24, %19, %.critedge, %4
-  %.283 = phi i64 [ 0, %4 ], [ 0, %.critedge ], [ 0, %19 ], [ 0, %35 ], [ %43, %78 ], [ 0, %24 ], [ 0, %.thread127 ], [ %spec.select, %80 ]
-  %.2 = phi ptr [ %0, %4 ], [ %0, %.critedge ], [ %0, %19 ], [ %0, %35 ], [ %.4.lcssa, %78 ], [ %0, %24 ], [ %0, %.thread127 ], [ %spec.select159, %80 ]
+  %.081 = phi i64 [ 0, %4 ], [ 0, %.critedge ], [ 0, %19 ], [ 0, %35 ], [ %43, %78 ], [ 0, %24 ], [ 0, %.thread127 ], [ %spec.select, %80 ]
+  %.075 = phi ptr [ %0, %4 ], [ %0, %.critedge ], [ %0, %19 ], [ %0, %35 ], [ %.5.lcssa, %78 ], [ %0, %24 ], [ %0, %.thread127 ], [ %spec.select159, %80 ]
   %.not110 = icmp eq ptr %2, null
   br i1 %.not110, label %84, label %83
 
 83:                                               ; preds = %.thread152
-  store ptr %.2, ptr %2, align 8
+  store ptr %.075, ptr %2, align 8
   br label %84
 
 84:                                               ; preds = %83, %.thread152
-  ret i64 %.283
+  ret i64 %.081
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -1365,7 +1365,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %
 
 26:                                               ; preds = %21, %23, %18
   %.076.in = phi i8 [ %20, %18 ], [ %25, %23 ], [ %9, %21 ]
-  %.275 = phi ptr [ %19, %18 ], [ %24, %23 ], [ %.174, %21 ]
+  %.3 = phi ptr [ %19, %18 ], [ %24, %23 ], [ %.174, %21 ]
   %.076.in.fr = freeze i8 %.076.in
   %27 = and i32 %3, -17
   %or.cond = icmp eq i32 %27, 0
@@ -1374,7 +1374,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %
   br i1 %or.cond3, label %29, label %37
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.275, i64 1
+  %30 = getelementptr inbounds i8, ptr %.3, i64 1
   %31 = icmp ult ptr %30, %7
   br i1 %31, label %32, label %.thread
 
@@ -1386,7 +1386,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %
   ]
 
 34:                                               ; preds = %32, %32
-  %35 = getelementptr inbounds i8, ptr %.275, i64 2
+  %35 = getelementptr inbounds i8, ptr %.3, i64 2
   %.not98 = icmp ult ptr %35, %7
   br i1 %.not98, label %.thread122, label %.thread147
 
@@ -1404,20 +1404,20 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %
   br label %.thread122
 
 .thread122:                                       ; preds = %37, %34, %.thread, %39
-  %.3113125 = phi ptr [ %.275, %39 ], [ %.275, %.thread ], [ %35, %34 ], [ %.275, %37 ]
+  %.4113125 = phi ptr [ %.3, %39 ], [ %.3, %.thread ], [ %35, %34 ], [ %.3, %37 ]
   %41 = phi i32 [ %40, %39 ], [ %3, %.thread ], [ 16, %34 ], [ %3, %37 ]
   %42 = sext i32 %41 to i64
   %43 = udiv i64 -1, %42
   %44 = urem i64 -1, %42
   %45 = trunc i64 %44 to i32
-  %46 = icmp ult ptr %.3113125, %7
+  %46 = icmp ult ptr %.4113125, %7
   br i1 %46, label %.lr.ph, label %.thread147
 
 .lr.ph:                                           ; preds = %.thread122, %72
-  %.070130 = phi i32 [ %.171, %72 ], [ 0, %.thread122 ]
-  %.4129 = phi ptr [ %73, %72 ], [ %.3113125, %.thread122 ]
-  %.079128 = phi i64 [ %.180, %72 ], [ 0, %.thread122 ]
-  %47 = load i8, ptr %.4129, align 1
+  %.171130 = phi i32 [ %.2, %72 ], [ 0, %.thread122 ]
+  %.5129 = phi ptr [ %73, %72 ], [ %.4113125, %.thread122 ]
+  %.180128 = phi i64 [ %.281, %72 ], [ 0, %.thread122 ]
+  %47 = load i8, ptr %.5129, align 1
   %48 = sext i8 %47 to i32
   %49 = sext i8 %47 to i64
   %50 = getelementptr inbounds i16, ptr %6, i64 %49
@@ -1449,35 +1449,35 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %
   br i1 %.not102, label %62, label %._crit_edge
 
 62:                                               ; preds = %61
-  %63 = icmp slt i32 %.070130, 0
-  %64 = icmp ugt i64 %.079128, %43
+  %63 = icmp slt i32 %.171130, 0
+  %64 = icmp ugt i64 %.180128, %43
   %or.cond107 = select i1 %63, i1 true, i1 %64
   br i1 %or.cond107, label %72, label %65
 
 65:                                               ; preds = %62
-  %66 = icmp eq i64 %.079128, %43
+  %66 = icmp eq i64 %.180128, %43
   %67 = icmp sgt i32 %.278, %45
   %or.cond108 = and i1 %66, %67
   br i1 %or.cond108, label %72, label %68
 
 68:                                               ; preds = %65
-  %69 = mul i64 %.079128, %42
+  %69 = mul i64 %.180128, %42
   %70 = sext i32 %.278 to i64
   %71 = add i64 %69, %70
   br label %72
 
 72:                                               ; preds = %62, %65, %68
-  %.180 = phi i64 [ %71, %68 ], [ %43, %65 ], [ %.079128, %62 ]
-  %.171 = phi i32 [ 1, %68 ], [ -1, %65 ], [ -1, %62 ]
-  %73 = getelementptr inbounds i8, ptr %.4129, i64 1
+  %.281 = phi i64 [ %71, %68 ], [ %43, %65 ], [ %.180128, %62 ]
+  %.2 = phi i32 [ 1, %68 ], [ -1, %65 ], [ -1, %62 ]
+  %73 = getelementptr inbounds i8, ptr %.5129, i64 1
   %74 = icmp ult ptr %73, %7
   br i1 %74, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %72, %56, %61
-  %.079.lcssa = phi i64 [ %.180, %72 ], [ %.079128, %56 ], [ %.079128, %61 ]
-  %.4.lcssa = phi ptr [ %73, %72 ], [ %.4129, %56 ], [ %.4129, %61 ]
-  %.070.lcssa = phi i32 [ %.171, %72 ], [ %.070130, %56 ], [ %.070130, %61 ]
-  %75 = icmp slt i32 %.070.lcssa, 0
+  %.180.lcssa = phi i64 [ %.281, %72 ], [ %.180128, %56 ], [ %.180128, %61 ]
+  %.5.lcssa = phi ptr [ %73, %72 ], [ %.5129, %56 ], [ %.5129, %61 ]
+  %.171.lcssa = phi i32 [ %.2, %72 ], [ %.171130, %56 ], [ %.171130, %61 ]
+  %75 = icmp slt i32 %.171.lcssa, 0
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %._crit_edge
@@ -1486,24 +1486,24 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %
   br label %.thread147
 
 78:                                               ; preds = %._crit_edge
-  %79 = sub i64 0, %.079.lcssa
-  %spec.select = select i1 %.not104, i64 %79, i64 %.079.lcssa
-  %80 = icmp eq i32 %.070.lcssa, 0
-  %spec.select154 = select i1 %80, ptr %0, ptr %.4.lcssa
+  %79 = sub i64 0, %.180.lcssa
+  %spec.select = select i1 %.not104, i64 %79, i64 %.180.lcssa
+  %80 = icmp eq i32 %.171.lcssa, 0
+  %spec.select154 = select i1 %80, ptr %0, ptr %.5.lcssa
   br label %.thread147
 
 .thread147:                                       ; preds = %78, %.thread122, %76, %34, %23, %18, %.critedge
-  %.281 = phi i64 [ 0, %.critedge ], [ 0, %18 ], [ 0, %34 ], [ -1, %76 ], [ 0, %23 ], [ 0, %.thread122 ], [ %spec.select, %78 ]
-  %.2 = phi ptr [ %0, %.critedge ], [ %0, %18 ], [ %0, %34 ], [ %.4.lcssa, %76 ], [ %0, %23 ], [ %0, %.thread122 ], [ %spec.select154, %78 ]
+  %.079 = phi i64 [ 0, %.critedge ], [ 0, %18 ], [ 0, %34 ], [ -1, %76 ], [ 0, %23 ], [ 0, %.thread122 ], [ %spec.select, %78 ]
+  %.070 = phi ptr [ %0, %.critedge ], [ %0, %18 ], [ %0, %34 ], [ %.5.lcssa, %76 ], [ %0, %23 ], [ %0, %.thread122 ], [ %spec.select154, %78 ]
   %.not105 = icmp eq ptr %2, null
   br i1 %.not105, label %82, label %81
 
 81:                                               ; preds = %.thread147
-  store ptr %.2, ptr %2, align 8
+  store ptr %.070, ptr %2, align 8
   br label %82
 
 82:                                               ; preds = %81, %.thread147
-  ret i64 %.281
+  ret i64 %.079
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -2151,8 +2151,8 @@ output_utf8.exit:                                 ; preds = %85, %88, %93, %100
 
 115:                                              ; preds = %22, %25, %13, %16, %17, %18, %19, %20, %21, %114, %39, %10, %6
   %.149 = phi i64 [ %11, %114 ], [ %11, %39 ], [ %11, %21 ], [ %11, %20 ], [ %11, %19 ], [ %11, %18 ], [ %11, %17 ], [ %11, %16 ], [ %.04860, %10 ], [ %.04860, %6 ], [ %11, %13 ], [ %23, %25 ], [ %23, %22 ]
-  %.1 = phi i8 [ %15, %114 ], [ 92, %39 ], [ 13, %21 ], [ 12, %20 ], [ 11, %19 ], [ 10, %18 ], [ 9, %17 ], [ 8, %16 ], [ 92, %10 ], [ %8, %6 ], [ 0, %13 ], [ %38, %25 ], [ 92, %22 ]
-  %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.1, i8 1)
+  %.047 = phi i8 [ %15, %114 ], [ 92, %39 ], [ 13, %21 ], [ 12, %20 ], [ 11, %19 ], [ 10, %18 ], [ 9, %17 ], [ 8, %16 ], [ 92, %10 ], [ %8, %6 ], [ 0, %13 ], [ %38, %25 ], [ 92, %22 ]
+  %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.047, i8 1)
   %116 = load i64, ptr %4, align 8
   %117 = add i64 %116, 1
   %118 = load i64, ptr %5, align 8

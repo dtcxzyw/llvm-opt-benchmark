@@ -138,7 +138,7 @@ Abc_Clock.exit:                                   ; preds = %33, %36
 62:                                               ; preds = %.lr.ph195, %234
   %indvars.iv = phi i64 [ 0, %.lr.ph195 ], [ %indvars.iv.next, %234 ]
   %63 = phi ptr [ %45, %.lr.ph195 ], [ %235, %234 ]
-  %.0119194 = phi i32 [ 0, %.lr.ph195 ], [ %.2, %234 ]
+  %.0119194 = phi i32 [ 0, %.lr.ph195 ], [ %.1, %234 ]
   %64 = getelementptr i8, ptr %63, i64 8
   %.val154 = load ptr, ptr %64, align 8
   %65 = getelementptr inbounds ptr, ptr %.val154, i64 %indvars.iv
@@ -213,7 +213,7 @@ Abc_Clock.exit162:                                ; preds = %71, %74
   br label %102
 
 102:                                              ; preds = %101, %95, %91, %89
-  %.1 = phi i32 [ %92, %101 ], [ %92, %95 ], [ %92, %91 ], [ %.0119194, %89 ]
+  %.2 = phi i32 [ %92, %101 ], [ %92, %95 ], [ %92, %91 ], [ %.0119194, %89 ]
   %103 = load i32, ptr %52, align 8
   %104 = add nsw i32 %103, 1
   store i32 %104, ptr %52, align 8
@@ -476,7 +476,7 @@ Aig_ObjPhaseReal.exit:                            ; preds = %203, %205
   br label %234
 
 234:                                              ; preds = %Aig_ObjPhaseReal.exit, %62, %._crit_edge191, %82, %Aig_ManObj.exit169
-  %.2 = phi i32 [ %.0119194, %62 ], [ %.1, %Aig_ManObj.exit169 ], [ %.1, %._crit_edge191 ], [ %.1, %Aig_ObjPhaseReal.exit ], [ %.0119194, %82 ]
+  %.1 = phi i32 [ %.0119194, %62 ], [ %.2, %Aig_ManObj.exit169 ], [ %.2, %._crit_edge191 ], [ %.2, %Aig_ObjPhaseReal.exit ], [ %.0119194, %82 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %235 = load ptr, ptr %44, align 8
   %236 = getelementptr i8, ptr %235, i64 4

@@ -151,14 +151,14 @@ lexbor_avl_node_make.exit:                        ; preds = %9, %11
   br i1 %15, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %27, %13
-  %.041.lcssa = phi ptr [ %5, %13 ], [ %.1, %27 ]
+  %.041.lcssa = phi ptr [ %5, %13 ], [ %.2, %27 ]
   %16 = getelementptr inbounds i8, ptr %.041.lcssa, i64 16
   store ptr %3, ptr %16, align 8
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %13, %27
   %17 = phi i64 [ %28, %27 ], [ %14, %13 ]
-  %.04152 = phi ptr [ %.1, %27 ], [ %5, %13 ]
+  %.04152 = phi ptr [ %.2, %27 ], [ %5, %13 ]
   %18 = icmp ugt i64 %17, %2
   br i1 %18, label %19, label %23
 
@@ -175,8 +175,8 @@ lexbor_avl_node_make.exit:                        ; preds = %9, %11
   br i1 %26, label %.lr.ph56.preheader, label %27
 
 27:                                               ; preds = %23, %19
-  %.1 = phi ptr [ %21, %19 ], [ %25, %23 ]
-  %28 = load i64, ptr %.1, align 8
+  %.2 = phi ptr [ %21, %19 ], [ %25, %23 ]
+  %28 = load i64, ptr %.2, align 8
   %29 = icmp eq i64 %28, %2
   br i1 %29, label %._crit_edge, label %.lr.ph
 
@@ -1278,8 +1278,8 @@ define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nocapt
   br i1 %.not79, label %.thread86, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit97, %.preheader
-  %.3 = phi ptr [ %44, %.preheader ], [ %42, %.loopexit97 ]
-  %43 = getelementptr inbounds i8, ptr %.3, i64 24
+  %.4 = phi ptr [ %44, %.preheader ], [ %42, %.loopexit97 ]
+  %43 = getelementptr inbounds i8, ptr %.4, i64 24
   %44 = load ptr, ptr %43, align 8
   %.not80 = icmp eq ptr %44, null
   br i1 %.not80, label %.loopexit.outer.backedge, label %.preheader
@@ -1300,7 +1300,7 @@ define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nocapt
 
 .loopexit.outer.backedge:                         ; preds = %.preheader, %48, %25
   %.056.ph.be = phi i1 [ false, %25 ], [ %51, %48 ], [ false, %.preheader ]
-  %.154.ph.be = phi ptr [ %22, %25 ], [ %13, %48 ], [ %.3, %.preheader ]
+  %.154.ph.be = phi ptr [ %22, %25 ], [ %13, %48 ], [ %.4, %.preheader ]
   %.0.ph.be = phi ptr [ %22, %25 ], [ %.192, %48 ], [ %.1, %.preheader ]
   br label %.loopexit.outer
 

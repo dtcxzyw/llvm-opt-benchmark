@@ -819,7 +819,7 @@ for.inc:                                          ; preds = %for.body, %if.end92
 
 for.end:                                          ; preds = %for.body, %for.body.us, %if.then99
   %dsg.0132 = phi ptr [ %.us-phi141, %if.then99 ], [ %dsg.0135.us, %for.body.us ], [ %dsg.0135, %for.body ]
-  %encoded.2.ph = phi i16 [ %.us-phi140, %if.then99 ], [ %call76.us, %for.body.us ], [ %call76, %for.body ]
+  %encoded.1.ph = phi i16 [ %.us-phi140, %if.then99 ], [ %call76.us, %for.body.us ], [ %call76, %for.body ]
   %insize.0.ph = phi i64 [ %36, %if.then99 ], [ 1, %for.body.us ], [ 1, %for.body ]
   %.pr = load i8, ptr %dsg.0132, align 8
   %tobool109.not = icmp eq i8 %.pr, 0
@@ -999,14 +999,14 @@ if.end336.sink.split:                             ; preds = %do.body309, %do.bod
   br label %if.end336
 
 if.end336:                                        ; preds = %if.end336.sink.split, %sw.bb257
-  %outleft.addr.4 = phi i64 [ %outleft.addr.0144, %sw.bb257 ], [ %sub299, %if.end336.sink.split ]
+  %outleft.addr.5 = phi i64 [ %outleft.addr.0144, %sw.bb257 ], [ %sub299, %if.end336.sink.split ]
   %81 = load i8, ptr %arrayidx338, align 1
   %82 = and i8 %81, 1
   %tobool341.not = icmp eq i8 %82, 0
   br i1 %tobool341.not, label %do.body344, label %sw.epilog
 
 do.body344:                                       ; preds = %if.end336
-  %cmp345 = icmp slt i64 %outleft.addr.4, 1
+  %cmp345 = icmp slt i64 %outleft.addr.5, 1
   br i1 %cmp345, label %return, label %do.body350
 
 do.body350:                                       ; preds = %do.body344
@@ -1018,36 +1018,36 @@ do.body350:                                       ; preds = %do.body344
   %86 = load ptr, ptr %outbuf, align 8
   %add.ptr361 = getelementptr i8, ptr %86, i64 1
   store ptr %add.ptr361, ptr %outbuf, align 8
-  %sub362 = add nsw i64 %outleft.addr.4, -1
+  %sub362 = add nsw i64 %outleft.addr.5, -1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end336, %do.body350, %if.end141, %do.body197, %do.body228, %do.body161
-  %outleft.addr.5 = phi i64 [ %outleft.addr.4, %if.end336 ], [ %sub362, %do.body350 ], [ %sub182, %do.body161 ], [ %sub218, %do.body197 ], [ %sub252, %do.body228 ], [ %outleft.addr.3, %if.end141 ]
+  %outleft.addr.4 = phi i64 [ %outleft.addr.5, %if.end336 ], [ %sub362, %do.body350 ], [ %sub182, %do.body161 ], [ %sub218, %do.body197 ], [ %sub252, %do.body228 ], [ %outleft.addr.3, %if.end141 ]
   %width365 = getelementptr inbounds i8, ptr %dsg.0132, i64 2
   %87 = load i8, ptr %width365, align 2
   %cmp367 = icmp eq i8 %87, 1
   br i1 %cmp367, label %do.body371, label %do.body388
 
 do.body371:                                       ; preds = %sw.epilog
-  %cmp372 = icmp slt i64 %outleft.addr.5, 1
+  %cmp372 = icmp slt i64 %outleft.addr.4, 1
   br i1 %cmp372, label %return, label %do.body377
 
 do.body377:                                       ; preds = %do.body371
-  %conv378 = trunc i16 %encoded.2.ph to i8
+  %conv378 = trunc i16 %encoded.1.ph to i8
   %88 = load ptr, ptr %outbuf, align 8
   store i8 %conv378, ptr %88, align 1
   br label %do.body411
 
 do.body388:                                       ; preds = %sw.epilog
-  %cmp389 = icmp slt i64 %outleft.addr.5, 2
+  %cmp389 = icmp slt i64 %outleft.addr.4, 2
   br i1 %cmp389, label %return, label %do.body394
 
 do.body394:                                       ; preds = %do.body388
-  %shr = lshr i16 %encoded.2.ph, 8
+  %shr = lshr i16 %encoded.1.ph, 8
   %conv396 = trunc nuw i16 %shr to i8
   %89 = load ptr, ptr %outbuf, align 8
   store i8 %conv396, ptr %89, align 1
-  %conv402 = trunc i16 %encoded.2.ph to i8
+  %conv402 = trunc i16 %encoded.1.ph to i8
   %90 = load ptr, ptr %outbuf, align 8
   %arrayidx403 = getelementptr i8, ptr %90, i64 1
   store i8 %conv402, ptr %arrayidx403, align 1
@@ -1059,7 +1059,7 @@ do.body411:                                       ; preds = %do.body377, %do.bod
   %91 = load ptr, ptr %outbuf, align 8
   %add.ptr383 = getelementptr i8, ptr %91, i64 %.sink198
   store ptr %add.ptr383, ptr %outbuf, align 8
-  %sub384 = add nsw i64 %outleft.addr.5, %.sink196
+  %sub384 = add nsw i64 %outleft.addr.4, %.sink196
   %92 = load i64, ptr %inpos, align 8
   %add412 = add i64 %92, %insize.0.ph
   store i64 %add412, ptr %inpos, align 8
@@ -1154,8 +1154,8 @@ while.body.lr.ph.lr.ph:                           ; preds = %entry
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %sw.epilog
-  %dsgcache.0.ph141 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %dsgcache.2, %sw.epilog ]
-  %inleft.addr.0.ph140 = phi i64 [ %inleft, %while.body.lr.ph.lr.ph ], [ %inleft.addr.3, %sw.epilog ]
+  %dsgcache.0.ph141 = phi ptr [ null, %while.body.lr.ph.lr.ph ], [ %dsgcache.1, %sw.epilog ]
+  %inleft.addr.0.ph140 = phi i64 [ %inleft, %while.body.lr.ph.lr.ph ], [ %inleft.addr.1, %sw.epilog ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end26
@@ -1617,15 +1617,15 @@ for.cond:                                         ; preds = %for.cond, %if.else2
   br i1 %cmp211.not, label %do.body214, label %for.cond, !llvm.loop !14
 
 do.body214:                                       ; preds = %for.cond, %land.lhs.true200
-  %dsgcache.1 = phi ptr [ %dsgcache.0.ph141, %land.lhs.true200 ], [ %dsg.0, %for.cond ]
-  %width = getelementptr inbounds i8, ptr %dsgcache.1, i64 2
+  %dsgcache.2 = phi ptr [ %dsgcache.0.ph141, %land.lhs.true200 ], [ %dsg.0, %for.cond ]
+  %width = getelementptr inbounds i8, ptr %dsgcache.2, i64 2
   %54 = load i8, ptr %width, align 2
   %conv215 = zext i8 %54 to i64
   %cmp216 = icmp slt i64 %inleft.addr.0136, %conv215
   br i1 %cmp216, label %return, label %do.end220
 
 do.end220:                                        ; preds = %do.body214
-  %decoder = getelementptr inbounds i8, ptr %dsgcache.1, i64 16
+  %decoder = getelementptr inbounds i8, ptr %dsgcache.2, i64 16
   %55 = load ptr, ptr %decoder, align 8
   %call221 = tail call i32 %55(ptr noundef %codec, ptr noundef nonnull %1) #15
   %cmp222 = icmp eq i32 %call221, 65535
@@ -1749,9 +1749,9 @@ do.body288:                                       ; preds = %do.body231, %do.bod
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %iso2022processg2.exit, %iso2022processesc.exit.thread118, %iso2022processesc.exit, %do.body92, %do.body288, %do.body193, %do.body155, %do.body129, %do.body111
-  %inleft.addr.3 = phi i64 [ %sub195, %do.body193 ], [ %sub294, %do.body288 ], [ %sub157, %do.body155 ], [ %sub138, %do.body129 ], [ %sub120, %do.body111 ], [ %sub169.i, %iso2022processg2.exit ], [ %sub100, %do.body92 ], [ %inleft.addr.0136, %iso2022processesc.exit ], [ %sub.i, %iso2022processesc.exit.thread118 ]
-  %dsgcache.2 = phi ptr [ %dsgcache.0.ph141, %do.body193 ], [ %dsgcache.1, %do.body288 ], [ %dsgcache.0.ph141, %do.body155 ], [ %dsgcache.0.ph141, %do.body129 ], [ %dsgcache.0.ph141, %do.body111 ], [ %dsgcache.0.ph141, %iso2022processg2.exit ], [ %dsgcache.0.ph141, %do.body92 ], [ %dsgcache.0.ph141, %iso2022processesc.exit ], [ %dsgcache.0.ph141, %iso2022processesc.exit.thread118 ]
-  %cmp135 = icmp sgt i64 %inleft.addr.3, 0
+  %inleft.addr.1 = phi i64 [ %sub195, %do.body193 ], [ %sub294, %do.body288 ], [ %sub157, %do.body155 ], [ %sub138, %do.body129 ], [ %sub120, %do.body111 ], [ %sub169.i, %iso2022processg2.exit ], [ %sub100, %do.body92 ], [ %inleft.addr.0136, %iso2022processesc.exit ], [ %sub.i, %iso2022processesc.exit.thread118 ]
+  %dsgcache.1 = phi ptr [ %dsgcache.0.ph141, %do.body193 ], [ %dsgcache.2, %do.body288 ], [ %dsgcache.0.ph141, %do.body155 ], [ %dsgcache.0.ph141, %do.body129 ], [ %dsgcache.0.ph141, %do.body111 ], [ %dsgcache.0.ph141, %iso2022processg2.exit ], [ %dsgcache.0.ph141, %do.body92 ], [ %dsgcache.0.ph141, %iso2022processesc.exit ], [ %dsgcache.0.ph141, %iso2022processesc.exit.thread118 ]
+  %cmp135 = icmp sgt i64 %inleft.addr.1, 0
   br i1 %cmp135, label %while.body.lr.ph, label %return, !llvm.loop !11
 
 return:                                           ; preds = %sw.epilog, %do.end78, %do.body155.i, %if.then148.i, %if.else93.i, %do.body128.i, %do.body114.i, %do.body100.i, %do.body82.i, %do.body45.i, %do.body25.i, %if.then.i, %do.body.i91, %sw.bb95.i, %land.lhs.true100.i, %land.lhs.true105.i, %land.lhs.true110.i, %if.end76.i, %sw.bb70.i, %if.else54.i, %for.end.i, %cond.end273, %do.body242, %do.body231, %do.body214, %do.body185, %if.else163, %do.body141, %do.body85, %do.body73, %iso2022processesc.exit, %do.body29, %do.body, %if.end26, %for.body.i, %for.inc.i, %entry, %if.then224

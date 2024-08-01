@@ -367,8 +367,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %48, %50
   br label %52
 
 52:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %1, %51
-  %.1 = phi i1 [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %51 ], [ false, %1 ]
-  ret i1 %.1
+  %.07 = phi i1 [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %51 ], [ false, %1 ]
+  ret i1 %.07
 }
 
 declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
@@ -511,7 +511,7 @@ _ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit.loopexit: ; preds = 
   br label %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit
 
 _ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit: ; preds = %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit.loopexit, %.lr.ph.i, %24, %_ZNK11ModuleEntry14has_reads_listEv.exit, %17, %22
-  %.0 = phi i1 [ true, %22 ], [ true, %17 ], [ false, %_ZNK11ModuleEntry14has_reads_listEv.exit ], [ false, %24 ], [ true, %.lr.ph.i ], [ %38, %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit.loopexit ]
+  %.1 = phi i1 [ true, %22 ], [ true, %17 ], [ false, %_ZNK11ModuleEntry14has_reads_listEv.exit ], [ false, %24 ], [ true, %.lr.ph.i ], [ %38, %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit.loopexit ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %39
 
 39:                                               ; preds = %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit
@@ -519,8 +519,8 @@ _ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit: ; preds = %_ZNK17Gr
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %39, %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit, %2
-  %.1 = phi i1 [ true, %2 ], [ %.0, %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit ], [ %.0, %39 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %2 ], [ %.1, %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit ], [ %.1, %39 ]
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_ZNK15ClassLoaderData27is_system_class_loader_dataEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #1

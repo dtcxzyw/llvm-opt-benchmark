@@ -1746,8 +1746,8 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   br label %260
 
 260:                                              ; preds = %258, %259, %254, %248, %249, %241, %243, %238, %239, %234, %235, %230, %231, %226, %227, %156, %158, %._crit_edge, %162, %167, %110, %120, %122, %78, %76, %74, %75, %46, %70, %66, %139
-  %.1.ph = phi ptr [ @.str.18, %139 ], [ @.str.4, %66 ], [ @.str.4, %70 ], [ @.str.3, %46 ], [ @.str.7, %75 ], [ @.str.6, %74 ], [ @.str.8, %76 ], [ %spec.select566, %78 ], [ @.str.12, %122 ], [ @.str.12, %120 ], [ @.str.11, %110 ], [ @.str.14, %167 ], [ @.str.14, %162 ], [ @.str.14, %._crit_edge ], [ @.str.14, %158 ], [ @.str.14, %156 ], [ @.str.20, %227 ], [ @.str.19, %226 ], [ @.str.22, %231 ], [ @.str.21, %230 ], [ @.str.24, %235 ], [ @.str.23, %234 ], [ @.str.26, %239 ], [ @.str.25, %238 ], [ @.str.28, %243 ], [ @.str.27, %241 ], [ @.str.30, %249 ], [ @.str.29, %248 ], [ @.str.31, %254 ], [ @.str.33, %259 ], [ @.str.32, %258 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.34, ptr noundef nonnull %.1.ph, i32 noundef %9) #5
+  %.0530.ph = phi ptr [ @.str.18, %139 ], [ @.str.4, %66 ], [ @.str.4, %70 ], [ @.str.3, %46 ], [ @.str.7, %75 ], [ @.str.6, %74 ], [ @.str.8, %76 ], [ %spec.select566, %78 ], [ @.str.12, %122 ], [ @.str.12, %120 ], [ @.str.11, %110 ], [ @.str.14, %167 ], [ @.str.14, %162 ], [ @.str.14, %._crit_edge ], [ @.str.14, %158 ], [ @.str.14, %156 ], [ @.str.20, %227 ], [ @.str.19, %226 ], [ @.str.22, %231 ], [ @.str.21, %230 ], [ @.str.24, %235 ], [ @.str.23, %234 ], [ @.str.26, %239 ], [ @.str.25, %238 ], [ @.str.28, %243 ], [ @.str.27, %241 ], [ @.str.30, %249 ], [ @.str.29, %248 ], [ @.str.31, %254 ], [ @.str.33, %259 ], [ @.str.32, %258 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.34, ptr noundef nonnull %.0530.ph, i32 noundef %9) #5
   br label %322
 
 261:                                              ; preds = %28, %44, %250
@@ -6108,7 +6108,7 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_datavalue(i32 noundef %0
   br i1 %.not16.i.i, label %dissect_destination_list.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %92, %101
-  %.0.i = phi i32 [ %103, %101 ], [ 0, %92 ]
+  %.1.i = phi i32 [ %103, %101 ], [ 0, %92 ]
   %.017.i.i = phi i32 [ %102, %101 ], [ 0, %92 ]
   %96 = trunc i32 %.017.i.i to i16
   %97 = add i16 %96, %95
@@ -6119,14 +6119,14 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_datavalue(i32 noundef %0
 
 101:                                              ; preds = %.lr.ph.i.i
   %102 = add i32 %99, %.017.i.i
-  %103 = add i32 %.0.i, 1
+  %103 = add i32 %.1.i, 1
   %104 = add i32 %102, 2
   %.not.i.i = icmp sgt i32 %104, %91
   br i1 %.not.i.i, label %dissect_destination_list.exit.i, label %.lr.ph.i.i, !llvm.loop !29
 
 dissect_destination_list.exit.i:                  ; preds = %101, %.lr.ph.i.i, %92, %76
-  %.2.i = phi i32 [ 0, %76 ], [ 0, %92 ], [ %.0.i, %.lr.ph.i.i ], [ %103, %101 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef nonnull @.str.698, i32 noundef %91, i32 noundef %.2.i) #5
+  %.0.i = phi i32 [ 0, %76 ], [ 0, %92 ], [ %.1.i, %.lr.ph.i.i ], [ %103, %101 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %86, ptr noundef nonnull @.str.698, i32 noundef %91, i32 noundef %.0.i) #5
   br label %dissect_sipregistration.exit
 
 105:                                              ; preds = %22, %22

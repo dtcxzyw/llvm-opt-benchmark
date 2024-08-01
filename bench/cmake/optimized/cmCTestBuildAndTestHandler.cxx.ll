@@ -1846,7 +1846,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %509
 
 509:                                              ; preds = %464, %465, %416, %426, %507
-  %.1 = phi i32 [ %508, %507 ], [ 1, %426 ], [ 1, %416 ], [ 1, %465 ], [ 1, %464 ]
+  %.4 = phi i32 [ %508, %507 ], [ 1, %426 ], [ 1, %416 ], [ 1, %465 ], [ 1, %464 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #16
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %45) #16
   br label %512
@@ -1862,7 +1862,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %525
 
 512:                                              ; preds = %361, %371, %509
-  %.2 = phi i32 [ %.1, %509 ], [ 1, %371 ], [ 1, %361 ]
+  %.3 = phi i32 [ %.4, %509 ], [ 1, %371 ], [ 1, %361 ]
   %513 = load ptr, ptr %39, align 8
   %514 = getelementptr inbounds i8, ptr %39, i64 8
   %515 = load ptr, ptr %514, align 8
@@ -1934,12 +1934,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 .sink.split:                                      ; preds = %174, %155, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit194, %309
   %.sink = phi ptr [ %32, %309 ], [ %34, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit194 ], [ %17, %155 ], [ %17, %174 ]
-  %.3.ph = phi i32 [ 1, %309 ], [ %.2, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit194 ], [ 1, %155 ], [ 1, %174 ]
+  %.1.ph = phi i32 [ 1, %309 ], [ %.3, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit194 ], [ 1, %155 ], [ 1, %174 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #16
   br label %527
 
 527:                                              ; preds = %.sink.split, %320, %307, %258, %259, %217, %212
-  %.3 = phi i32 [ 1, %212 ], [ 1, %217 ], [ 1, %259 ], [ 1, %258 ], [ 1, %307 ], [ 0, %320 ], [ %.3.ph, %.sink.split ]
+  %.1 = phi i32 [ 1, %212 ], [ 1, %217 ], [ 1, %259 ], [ 1, %258 ], [ 1, %307 ], [ 0, %320 ], [ %.1.ph, %.sink.split ]
   call void @_ZN18cmWorkingDirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %16) #16
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %10) #16
   call void @_ZN30cmCTestBuildAndTestCaptureRAIID2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #16
@@ -1973,8 +1973,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   resume { ptr, i32 } %.pn109.pn.pn.pn.pn.pn
 
 532:                                              ; preds = %58, %59, %527
-  %.4 = phi i32 [ %.3, %527 ], [ 1, %59 ], [ 1, %58 ]
-  ret i32 %.4
+  %.0 = phi i32 [ %.1, %527 ], [ 1, %59 ], [ 1, %58 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

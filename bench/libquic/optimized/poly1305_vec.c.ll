@@ -190,14 +190,14 @@ if.end:                                           ; preds = %poly1305_block_copy
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %if.then2
-  %bytes.addr.0 = phi i64 [ %sub, %if.then2 ], [ %sub8, %if.end ]
-  %m.addr.0 = phi ptr [ %add.ptr, %if.then2 ], [ %add.ptr9, %if.end ]
+  %bytes.addr.1 = phi i64 [ %sub, %if.then2 ], [ %sub8, %if.end ]
+  %m.addr.1 = phi ptr [ %add.ptr, %if.then2 ], [ %add.ptr9, %if.end ]
   store i64 1, ptr %started, align 16
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end18, %entry
-  %bytes.addr.1 = phi i64 [ %bytes, %entry ], [ %bytes.addr.0, %if.end18 ]
-  %m.addr.1 = phi ptr [ %m, %entry ], [ %m.addr.0, %if.end18 ]
+  %bytes.addr.0 = phi i64 [ %bytes, %entry ], [ %bytes.addr.1, %if.end18 ]
+  %m.addr.0 = phi ptr [ %m, %entry ], [ %m.addr.1, %if.end18 ]
   %leftover21 = getelementptr inbounds i8, ptr %1, i64 376
   %12 = load i64, ptr %leftover21, align 8
   %tobool22.not = icmp eq i64 %12, 0
@@ -205,10 +205,10 @@ if.end20:                                         ; preds = %if.end18, %entry
 
 if.then23:                                        ; preds = %if.end20
   %sub25 = sub i64 64, %12
-  %cond.i57 = tail call noundef i64 @llvm.umin.i64(i64 %sub25, i64 %bytes.addr.1)
+  %cond.i57 = tail call noundef i64 @llvm.umin.i64(i64 %sub25, i64 %bytes.addr.0)
   %buffer27 = getelementptr inbounds i8, ptr %1, i64 384
   %add.ptr30 = getelementptr inbounds i8, ptr %buffer27, i64 %12
-  %sub.ptr.lhs.cast.i58 = ptrtoint ptr %m.addr.1 to i64
+  %sub.ptr.lhs.cast.i58 = ptrtoint ptr %m.addr.0 to i64
   %sub.ptr.rhs.cast.i59 = ptrtoint ptr %add.ptr30 to i64
   %sub.ptr.sub.i60 = sub i64 %sub.ptr.lhs.cast.i58, %sub.ptr.rhs.cast.i59
   %and.i61 = and i64 %cond.i57, 32
@@ -298,15 +298,15 @@ poly1305_block_copy.exit102:                      ; preds = %if.end32.i96, %if.t
   br i1 %cmp36, label %if.end56, label %if.end38
 
 if.end38:                                         ; preds = %poly1305_block_copy.exit102
-  %add.ptr32 = getelementptr inbounds i8, ptr %m.addr.1, i64 %cond.i57
-  %sub31 = sub i64 %bytes.addr.1, %cond.i57
+  %add.ptr32 = getelementptr inbounds i8, ptr %m.addr.0, i64 %cond.i57
+  %sub31 = sub i64 %bytes.addr.0, %cond.i57
   tail call fastcc void @poly1305_blocks(ptr noundef nonnull %1, ptr noundef nonnull %buffer27, i64 noundef 64)
   store i64 0, ptr %leftover21, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.end38, %if.end20
-  %bytes.addr.2 = phi i64 [ %sub31, %if.end38 ], [ %bytes.addr.1, %if.end20 ]
-  %m.addr.2 = phi ptr [ %add.ptr32, %if.end38 ], [ %m.addr.1, %if.end20 ]
+  %bytes.addr.2 = phi i64 [ %sub31, %if.end38 ], [ %bytes.addr.0, %if.end20 ]
+  %m.addr.2 = phi ptr [ %add.ptr32, %if.end38 ], [ %m.addr.0, %if.end20 ]
   %cmp43 = icmp ugt i64 %bytes.addr.2, 63
   br i1 %cmp43, label %if.then44, label %if.end47
 
@@ -1330,16 +1330,16 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   br i1 %cmp, label %poly1305_donna_atmost15bytes, label %poly1305_donna_atleast16bytes
 
 poly1305_donna_atleast16bytes:                    ; preds = %poly1305_donna_mul, %if.end
-  %h2.0 = phi i64 [ %and106, %poly1305_donna_mul ], [ %141, %if.end ]
-  %h1.0 = phi i64 [ %and94, %poly1305_donna_mul ], [ %142, %if.end ]
-  %h0.0 = phi i64 [ %add111, %poly1305_donna_mul ], [ %143, %if.end ]
-  %m.1 = phi ptr [ %add.ptr112, %poly1305_donna_mul ], [ %m.0, %if.end ]
-  %leftover.1 = phi i64 [ %sub113, %poly1305_donna_mul ], [ %leftover.0, %if.end ]
-  %150 = load i64, ptr %m.1, align 8
-  %add.ptr29 = getelementptr inbounds i8, ptr %m.1, i64 8
+  %h2.1 = phi i64 [ %and106, %poly1305_donna_mul ], [ %141, %if.end ]
+  %h1.1 = phi i64 [ %and94, %poly1305_donna_mul ], [ %142, %if.end ]
+  %h0.1 = phi i64 [ %add111, %poly1305_donna_mul ], [ %143, %if.end ]
+  %m.2 = phi ptr [ %add.ptr112, %poly1305_donna_mul ], [ %m.0, %if.end ]
+  %leftover.2 = phi i64 [ %sub113, %poly1305_donna_mul ], [ %leftover.0, %if.end ]
+  %150 = load i64, ptr %m.2, align 8
+  %add.ptr29 = getelementptr inbounds i8, ptr %m.2, i64 8
   %151 = load i64, ptr %add.ptr29, align 8
   %and = and i64 %150, 17592186044415
-  %add = add i64 %and, %h0.0
+  %add = add i64 %and, %h0.1
   %conv.i121 = zext i64 %151 to i128
   %shl.i122 = shl nuw i128 %conv.i121, 64
   %conv1.i = zext i64 %150 to i128
@@ -1347,22 +1347,22 @@ poly1305_donna_atleast16bytes:                    ; preds = %poly1305_donna_mul,
   %shr.i124 = lshr i128 %or.i123, 44
   %conv2.i = trunc i128 %shr.i124 to i64
   %and31 = and i64 %conv2.i, 17592186044415
-  %add32 = add i64 %and31, %h1.0
+  %add32 = add i64 %and31, %h1.1
   %shr = lshr i64 %151, 24
-  %or33 = add i64 %h2.0, 1099511627776
+  %or33 = add i64 %h2.1, 1099511627776
   %add34 = add i64 %or33, %shr
   br label %poly1305_donna_mul
 
 poly1305_donna_mul:                               ; preds = %poly1305_block_zero.exit, %poly1305_donna_atleast16bytes
-  %h2.1 = phi i64 [ %add132, %poly1305_block_zero.exit ], [ %add34, %poly1305_donna_atleast16bytes ]
-  %h1.1 = phi i64 [ %add130, %poly1305_block_zero.exit ], [ %add32, %poly1305_donna_atleast16bytes ]
-  %h0.1 = phi i64 [ %add127, %poly1305_block_zero.exit ], [ %add, %poly1305_donna_atleast16bytes ]
-  %m.2 = phi ptr [ %m.3, %poly1305_block_zero.exit ], [ %m.1, %poly1305_donna_atleast16bytes ]
-  %leftover.2 = phi i64 [ 16, %poly1305_block_zero.exit ], [ %leftover.1, %poly1305_donna_atleast16bytes ]
-  %conv.i125 = zext i64 %h0.1 to i128
+  %h2.2 = phi i64 [ %add132, %poly1305_block_zero.exit ], [ %add34, %poly1305_donna_atleast16bytes ]
+  %h1.2 = phi i64 [ %add130, %poly1305_block_zero.exit ], [ %add32, %poly1305_donna_atleast16bytes ]
+  %h0.2 = phi i64 [ %add127, %poly1305_block_zero.exit ], [ %add, %poly1305_donna_atleast16bytes ]
+  %m.3 = phi ptr [ %m.1, %poly1305_block_zero.exit ], [ %m.2, %poly1305_donna_atleast16bytes ]
+  %leftover.3 = phi i64 [ 16, %poly1305_block_zero.exit ], [ %leftover.2, %poly1305_donna_atleast16bytes ]
+  %conv.i125 = zext i64 %h0.2 to i128
   %conv1.i126 = zext i64 %or to i128
   %mul.i127 = mul nuw i128 %conv.i125, %conv1.i126
-  %conv.i128 = zext i64 %h1.1 to i128
+  %conv.i128 = zext i64 %h1.2 to i128
   %conv1.i129 = zext i64 %mul24 to i128
   %mul.i130 = mul nuw i128 %conv.i128, %conv1.i129
   %retval.sroa.2.0.extract.shift.i132 = lshr i128 %mul.i130, 64
@@ -1372,7 +1372,7 @@ poly1305_donna_mul:                               ; preds = %poly1305_block_zero
   %152 = lshr i128 %a.sroa.0.0.insert.insert.i, 64
   %.tr.i = trunc nuw i128 %152 to i64
   %.narrow.i = add i64 %.tr.i, %retval.sroa.2.0.extract.trunc.i133
-  %conv.i139 = zext i64 %h2.1 to i128
+  %conv.i139 = zext i64 %h2.2 to i128
   %conv1.i140 = zext i64 %mul to i128
   %mul.i141 = mul nuw i128 %conv.i139, %conv1.i140
   %retval.sroa.2.0.extract.shift.i143 = lshr i128 %mul.i141, 64
@@ -1452,26 +1452,26 @@ poly1305_donna_mul:                               ; preds = %poly1305_block_zero
   %conv.i285 = trunc i128 %shr.i284 to i64
   %mul110 = mul i64 %conv.i285, 5
   %add111 = add i64 %mul110, %and82
-  %add.ptr112 = getelementptr inbounds i8, ptr %m.2, i64 16
-  %sub113 = add i64 %leftover.2, -16
+  %add.ptr112 = getelementptr inbounds i8, ptr %m.3, i64 16
+  %sub113 = add i64 %leftover.3, -16
   %cmp114 = icmp ugt i64 %sub113, 15
   br i1 %cmp114, label %poly1305_donna_atleast16bytes, label %poly1305_donna_atmost15bytes
 
 poly1305_donna_atmost15bytes:                     ; preds = %poly1305_donna_mul, %if.end
-  %h2.2 = phi i64 [ %141, %if.end ], [ %and106, %poly1305_donna_mul ]
-  %h1.2 = phi i64 [ %142, %if.end ], [ %and94, %poly1305_donna_mul ]
-  %h0.2 = phi i64 [ %143, %if.end ], [ %add111, %poly1305_donna_mul ]
-  %m.3 = phi ptr [ %m.0, %if.end ], [ %add.ptr112, %poly1305_donna_mul ]
-  %leftover.3 = phi i64 [ %leftover.0, %if.end ], [ %sub113, %poly1305_donna_mul ]
-  %tobool118.not = icmp eq i64 %leftover.3, 0
+  %h2.0 = phi i64 [ %141, %if.end ], [ %and106, %poly1305_donna_mul ]
+  %h1.0 = phi i64 [ %142, %if.end ], [ %and94, %poly1305_donna_mul ]
+  %h0.0 = phi i64 [ %143, %if.end ], [ %add111, %poly1305_donna_mul ]
+  %m.1 = phi ptr [ %m.0, %if.end ], [ %add.ptr112, %poly1305_donna_mul ]
+  %leftover.1 = phi i64 [ %leftover.0, %if.end ], [ %sub113, %poly1305_donna_mul ]
+  %tobool118.not = icmp eq i64 %leftover.1, 0
   br i1 %tobool118.not, label %poly1305_donna_finish, label %if.end120
 
 if.end120:                                        ; preds = %poly1305_donna_atmost15bytes
-  %inc = add nuw nsw i64 %leftover.3, 1
-  %arrayidx121 = getelementptr inbounds i8, ptr %m.3, i64 %leftover.3
+  %inc = add nuw nsw i64 %leftover.1, 1
+  %arrayidx121 = getelementptr inbounds i8, ptr %m.1, i64 %leftover.1
   store i8 1, ptr %arrayidx121, align 1
-  %add.ptr122 = getelementptr inbounds i8, ptr %m.3, i64 %inc
-  %sub123 = xor i64 %leftover.3, 15
+  %add.ptr122 = getelementptr inbounds i8, ptr %m.1, i64 %inc
+  %sub123 = xor i64 %leftover.1, 15
   %tobool.not.i = icmp ult i64 %sub123, 8
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i287
 
@@ -1513,11 +1513,11 @@ if.then13.i:                                      ; preds = %if.end10.i
   br label %poly1305_block_zero.exit
 
 poly1305_block_zero.exit:                         ; preds = %if.end10.i, %if.then13.i
-  %158 = load i64, ptr %m.3, align 8
-  %add.ptr125 = getelementptr inbounds i8, ptr %m.3, i64 8
+  %158 = load i64, ptr %m.1, align 8
+  %add.ptr125 = getelementptr inbounds i8, ptr %m.1, i64 8
   %159 = load i64, ptr %add.ptr125, align 8
   %and126 = and i64 %158, 17592186044415
-  %add127 = add i64 %and126, %h0.2
+  %add127 = add i64 %and126, %h0.0
   %conv.i288 = zext i64 %159 to i128
   %shl.i289 = shl nuw i128 %conv.i288, 64
   %conv1.i290 = zext i64 %158 to i128
@@ -1525,18 +1525,18 @@ poly1305_block_zero.exit:                         ; preds = %if.end10.i, %if.the
   %shr.i292 = lshr i128 %or.i291, 44
   %conv2.i293 = trunc i128 %shr.i292 to i64
   %and129 = and i64 %conv2.i293, 17592186044415
-  %add130 = add i64 %and129, %h1.2
+  %add130 = add i64 %and129, %h1.0
   %shr131 = lshr i64 %159, 24
-  %add132 = add i64 %shr131, %h2.2
+  %add132 = add i64 %shr131, %h2.0
   br label %poly1305_donna_mul
 
 poly1305_donna_finish:                            ; preds = %poly1305_donna_atmost15bytes
-  %shr133 = lshr i64 %h0.2, 44
-  %and134 = and i64 %h0.2, 17592186044415
-  %add135 = add i64 %shr133, %h1.2
+  %shr133 = lshr i64 %h0.0, 44
+  %and134 = and i64 %h0.0, 17592186044415
+  %add135 = add i64 %shr133, %h1.0
   %shr136 = lshr i64 %add135, 44
   %and137 = and i64 %add135, 17592186044415
-  %add138 = add i64 %shr136, %h2.2
+  %add138 = add i64 %shr136, %h2.0
   %shr139 = lshr i64 %add138, 42
   %and140 = and i64 %add138, 4398046511103
   %mul141 = mul nuw nsw i64 %shr139, 5

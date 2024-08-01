@@ -141,8 +141,8 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
   br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %20
-  %.02835.us = phi ptr [ %15, %20 ], [ %1, %.lr.ph ]
-  %15 = getelementptr inbounds i8, ptr %.02835.us, i64 -1
+  %.135.us = phi ptr [ %15, %20 ], [ %1, %.lr.ph ]
+  %15 = getelementptr inbounds i8, ptr %.135.us, i64 -1
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i64
   %18 = add nsw i64 %17, -135
@@ -154,8 +154,8 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
   br i1 %21, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %27
-  %.02835 = phi ptr [ %22, %27 ], [ %1, %.lr.ph ]
-  %22 = getelementptr inbounds i8, ptr %.02835, i64 -1
+  %.135 = phi ptr [ %22, %27 ], [ %1, %.lr.ph ]
+  %22 = getelementptr inbounds i8, ptr %.135, i64 -1
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
   %25 = add nsw i64 %24, -161
@@ -167,7 +167,7 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
   br i1 %28, label %.lr.ph.split, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %27, %.lr.ph.split, %20, %.lr.ph.split.us, %7
-  %.3 = phi ptr [ %1, %7 ], [ %scevgep43, %20 ], [ %.02835.us, %.lr.ph.split.us ], [ %scevgep43, %27 ], [ %.02835, %.lr.ph.split ]
+  %.028 = phi ptr [ %1, %7 ], [ %scevgep43, %20 ], [ %.135.us, %.lr.ph.split.us ], [ %scevgep43, %27 ], [ %.135, %.lr.ph.split ]
   %29 = getelementptr inbounds i8, ptr %3, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %3, i64 20
@@ -176,18 +176,18 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.loopexit
-  %35 = icmp ult ptr %.3, %2
+  %35 = icmp ult ptr %.028, %2
   %spec.select = select i1 %35, i32 %30, i32 0
   br label %38
 
 36:                                               ; preds = %.loopexit
-  %37 = tail call i32 @onigenc_mbclen(ptr noundef nonnull %.3, ptr noundef %2, ptr noundef nonnull %3) #3
+  %37 = tail call i32 @onigenc_mbclen(ptr noundef nonnull %.028, ptr noundef %2, ptr noundef nonnull %3) #3
   br label %38
 
 38:                                               ; preds = %34, %36
   %39 = phi i32 [ %37, %36 ], [ %spec.select, %34 ]
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %.3, i64 %40
+  %41 = getelementptr inbounds i8, ptr %.028, i64 %40
   %42 = icmp ugt ptr %41, %1
   br i1 %42, label %48, label %43
 
@@ -199,7 +199,7 @@ define internal ptr @big5_left_adjust_char_head(ptr noundef readnone %0, ptr nou
   br label %48
 
 48:                                               ; preds = %38, %4, %43
-  %.0 = phi ptr [ %47, %43 ], [ %1, %4 ], [ %.3, %38 ]
+  %.0 = phi ptr [ %47, %43 ], [ %1, %4 ], [ %.028, %38 ]
   ret ptr %.0
 }
 

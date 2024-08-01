@@ -2466,8 +2466,8 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   unreachable
 
 return:                                           ; preds = %if.then2.i.i.i, %if.then.i.i.i, %cleanup, %entry
-  %retval.1 = phi i1 [ true, %entry ], [ %call2, %cleanup ], [ %call2, %if.then.i.i.i ], [ %call2, %if.then2.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %entry ], [ %call2, %cleanup ], [ %call2, %if.then.i.i.i ], [ %call2, %if.then2.i.i.i ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN10bit_vector6resizeEjb(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
@@ -2903,8 +2903,8 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then.i.i.i.i.i, %invoke.cont.i.i, %cleanup40, %if.then
-  %retval.2 = phi i1 [ true, %if.then ], [ %retval.1, %cleanup40 ], [ %retval.1, %invoke.cont.i.i ], [ %retval.1, %if.then.i.i.i.i.i ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ true, %if.then ], [ %retval.1, %cleanup40 ], [ %retval.1, %invoke.cont.i.i ], [ %retval.1, %if.then.i.i.i.i.i ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
@@ -4528,9 +4528,9 @@ if.then:                                          ; preds = %for.body.i.i.i, %fo
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK7obj_mapI9func_declP11func_interpE4findEPS0_RS2_.exit, %if.then
-  %fi.1 = phi ptr [ %9, %_ZNK7obj_mapI9func_declP11func_interpE4findEPS0_RS2_.exit ], [ %call4, %if.then ]
+  %fi.0 = phi ptr [ %9, %_ZNK7obj_mapI9func_declP11func_interpE4findEPS0_RS2_.exit ], [ %call4, %if.then ]
   %m_args.i = getelementptr inbounds i8, ptr %term, i64 32
-  call void @_ZN11func_interp16insert_new_entryEPKP4exprS1_(ptr noundef nonnull align 8 dereferenceable(56) %fi.1, ptr noundef nonnull %m_args.i, ptr noundef %value)
+  call void @_ZN11func_interp16insert_new_entryEPKP4exprS1_(ptr noundef nonnull align 8 dereferenceable(56) %fi.0, ptr noundef nonnull %m_args.i, ptr noundef %value)
   ret void
 }
 

@@ -1620,18 +1620,18 @@ default.unreachable567:                           ; preds = %312, %310, %231, %6
 
 383:                                              ; preds = %.thread.i, %372
   %indvars.iv.i = phi i64 [ 0, %372 ], [ %indvars.iv.next.i, %.thread.i ]
-  %.02743.i = phi i16 [ %382, %372 ], [ %.4.i, %.thread.i ]
+  %.02743.i = phi i16 [ %382, %372 ], [ %.229.i, %.thread.i ]
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   %384 = load i8, ptr %gep.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.backedge, %383
-  %.229.i = phi i16 [ %.02743.i, %383 ], [ %.229.i.be, %.preheader.i.backedge ]
+  %.3.i = phi i16 [ %.02743.i, %383 ], [ %.3.i.be, %.preheader.i.backedge ]
   %.125.i = phi i8 [ %384, %383 ], [ %388, %.preheader.i.backedge ]
   %.1.i = phi i32 [ 0, %383 ], [ %389, %.preheader.i.backedge ]
-  %.not.i = icmp sgt i16 %.229.i, -1
-  %385 = shl i16 %.229.i, 1
+  %.not.i = icmp sgt i16 %.3.i, -1
+  %385 = shl i16 %.3.i, 1
   %.125.lobit.i = lshr i8 %.125.i, 7
   %386 = zext nneg i8 %.125.lobit.i to i16
   %387 = or disjoint i16 %385, %386
@@ -1644,7 +1644,7 @@ default.unreachable567:                           ; preds = %312, %310, %231, %6
   br i1 %exitcond.i, label %.thread.i, label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %390, %391
-  %.229.i.be = phi i16 [ %387, %390 ], [ %392, %391 ]
+  %.3.i.be = phi i16 [ %387, %390 ], [ %392, %391 ]
   br label %.preheader.i, !llvm.loop !4
 
 391:                                              ; preds = %.preheader.i
@@ -1653,12 +1653,12 @@ default.unreachable567:                           ; preds = %312, %310, %231, %6
   br i1 %393, label %.preheader.i.backedge, label %.thread.i
 
 .thread.i:                                        ; preds = %391, %390
-  %.4.i = phi i16 [ %387, %390 ], [ %392, %391 ]
+  %.229.i = phi i16 [ %387, %390 ], [ %392, %391 ]
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond50.not.i, label %calc_rcrc.exit, label %383, !llvm.loop !6
 
 calc_rcrc.exit:                                   ; preds = %.thread.i
-  %394 = xor i16 %.4.i, 1
+  %394 = xor i16 %.229.i, 1
   %395 = zext i16 %394 to i32
   %396 = zext i16 %17 to i32
   %.not556 = icmp eq i16 %394, %17
@@ -1871,7 +1871,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr nocapture
 
 96:                                               ; preds = %.thread.i, %94
   %indvars.iv.i = phi i64 [ 0, %94 ], [ %indvars.iv.next.pre-phi.i, %.thread.i ]
-  %.03455.i = phi i8 [ %95, %94 ], [ %.4.i, %.thread.i ]
+  %.03455.i = phi i8 [ %95, %94 ], [ %.236.i, %.thread.i ]
   %.not.i = icmp eq i64 %indvars.iv.i, 9
   br i1 %.not.i, label %._crit_edge.i, label %97
 
@@ -1887,11 +1887,11 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr nocapture
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.backedge, %._crit_edge.i
-  %.236.i = phi i8 [ %.03455.i, %._crit_edge.i ], [ %.236.i.be, %.preheader.i.backedge ]
+  %.337.i = phi i8 [ %.03455.i, %._crit_edge.i ], [ %.337.i.be, %.preheader.i.backedge ]
   %.233.i = phi i8 [ %.031.i, %._crit_edge.i ], [ %102, %.preheader.i.backedge ]
   %.1.i = phi i32 [ 0, %._crit_edge.i ], [ %103, %.preheader.i.backedge ]
-  %.not40.i = icmp sgt i8 %.236.i, -1
-  %101 = call i8 @llvm.fshl.i8(i8 %.236.i, i8 %.233.i, i8 1)
+  %.not40.i = icmp sgt i8 %.337.i, -1
+  %101 = call i8 @llvm.fshl.i8(i8 %.337.i, i8 %.233.i, i8 1)
   %102 = shl i8 %.233.i, 1
   %103 = add i32 %.1.i, 1
   br i1 %.not40.i, label %104, label %105
@@ -1901,7 +1901,7 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr nocapture
   br i1 %exitcond62.i, label %.thread.i, label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %104, %105
-  %.236.i.be = phi i8 [ %101, %104 ], [ %106, %105 ]
+  %.337.i.be = phi i8 [ %101, %104 ], [ %106, %105 ]
   br label %.preheader.i, !llvm.loop !11
 
 105:                                              ; preds = %.preheader.i
@@ -1910,13 +1910,13 @@ define internal fastcc void @dissect_bfield(i8 noundef zeroext %0, ptr nocapture
   br i1 %107, label %.preheader.i.backedge, label %.thread.i
 
 .thread.i:                                        ; preds = %105, %104
-  %.4.i = phi i8 [ %101, %104 ], [ %106, %105 ]
+  %.236.i = phi i8 [ %101, %104 ], [ %106, %105 ]
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, 10
   br i1 %exitcond63.not.i, label %calc_xcrc.exit, label %96, !llvm.loop !12
 
 calc_xcrc.exit:                                   ; preds = %.thread.i
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %6)
-  %108 = zext i8 %.4.i to i32
+  %108 = zext i8 %.236.i to i32
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader.split, %70, %.loopexit, %calc_xcrc.exit

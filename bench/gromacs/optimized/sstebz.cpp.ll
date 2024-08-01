@@ -541,7 +541,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 298:                                              ; preds = %.lr.ph793, %471
   %indvars.iv880 = phi i64 [ 1, %.lr.ph793 ], [ %indvars.iv.next881, %471 ]
-  %.0594791 = phi i32 [ 0, %.lr.ph793 ], [ %.3, %471 ]
+  %.0594791 = phi i32 [ 0, %.lr.ph793 ], [ %.1, %471 ]
   %.0611790 = phi i32 [ 0, %.lr.ph793 ], [ %301, %471 ]
   %.1617789 = phi i32 [ 0, %.lr.ph793 ], [ %.4620, %471 ]
   %.1626788 = phi i32 [ 0, %.lr.ph793 ], [ %.4629, %471 ]
@@ -765,7 +765,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 445:                                              ; preds = %.lr.ph770, %._crit_edge765
   %indvars.iv875 = phi i64 [ 1, %.lr.ph770 ], [ %indvars.iv.next876, %._crit_edge765 ]
-  %.1768 = phi i32 [ %.0594791, %.lr.ph770 ], [ %.2, %._crit_edge765 ]
+  %.2768 = phi i32 [ %.0594791, %.lr.ph770 ], [ %.3, %._crit_edge765 ]
   %446 = load i32, ptr %2, align 4
   %447 = sext i32 %446 to i64
   %448 = getelementptr float, ptr %34, i64 %indvars.iv875
@@ -779,7 +779,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %456 = fmul float %455, 5.000000e-01
   %457 = icmp sgt i64 %indvars.iv875, %443
   %.0651 = select i1 %457, i32 %438, i32 %indvars882
-  %.2 = select i1 %457, i32 1, i32 %.1768
+  %.3 = select i1 %457, i32 1, i32 %.2768
   %458 = getelementptr inbounds i32, ptr %33, i64 %451
   %459 = load i32, ptr %458, align 4
   %460 = add nsw i32 %459, %411
@@ -811,7 +811,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %exitcond879.not, label %._crit_edge771, label %445, !llvm.loop !10
 
 ._crit_edge771:                                   ; preds = %._crit_edge765, %386
-  %.1.lcssa = phi i32 [ %.0594791, %386 ], [ %.2, %._crit_edge765 ]
+  %.2.lcssa = phi i32 [ %.0594791, %386 ], [ %.3, %._crit_edge765 ]
   %468 = load i32, ptr %24, align 4
   %469 = load i32, ptr %10, align 4
   %470 = add nsw i32 %469, %468
@@ -821,14 +821,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
 471:                                              ; preds = %._crit_edge771, %318, %.thread710, %383
   %.4629 = phi i32 [ %.2627713720, %318 ], [ %.2627714, %.thread710 ], [ %.3628, %383 ], [ %405, %._crit_edge771 ]
   %.4620 = phi i32 [ %.2618722, %318 ], [ %.2618721, %.thread710 ], [ %.3619, %383 ], [ %409, %._crit_edge771 ]
-  %.3 = phi i32 [ %.0594791, %318 ], [ %.0594791, %.thread710 ], [ %.0594791, %383 ], [ %.1.lcssa, %._crit_edge771 ]
+  %.1 = phi i32 [ %.0594791, %318 ], [ %.0594791, %.thread710 ], [ %.0594791, %383 ], [ %.2.lcssa, %._crit_edge771 ]
   %indvars.iv.next881 = add nuw nsw i64 %indvars.iv880, 1
   %exitcond884.not = icmp eq i64 %indvars.iv.next881, %wide.trip.count883
   br i1 %exitcond884.not, label %._crit_edge794.loopexit, label %298, !llvm.loop !11
 
 ._crit_edge794.loopexit:                          ; preds = %471
   %472 = xor i32 %.4629, -1
-  %473 = icmp ne i32 %.3, 0
+  %473 = icmp ne i32 %.1, 0
   br label %._crit_edge794
 
 ._crit_edge794:                                   ; preds = %._crit_edge794.loopexit, %293
@@ -859,28 +859,28 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .lr.ph804:                                        ; preds = %.lr.ph804.preheader, %503
   %indvars.iv885 = phi i64 [ 1, %.lr.ph804.preheader ], [ %indvars.iv.next886, %503 ]
-  %.0596802 = phi i32 [ %478, %.lr.ph804.preheader ], [ %.1597, %503 ]
-  %.0599801 = phi i32 [ %476, %.lr.ph804.preheader ], [ %.1600, %503 ]
+  %.1597802 = phi i32 [ %478, %.lr.ph804.preheader ], [ %.2598, %503 ]
+  %.1600801 = phi i32 [ %476, %.lr.ph804.preheader ], [ %.2601, %503 ]
   %484 = phi i32 [ 0, %.lr.ph804.preheader ], [ %504, %503 ]
   %485 = getelementptr inbounds float, ptr %37, i64 %indvars.iv885
   %486 = load float, ptr %485, align 4
   %487 = fcmp ole float %486, %.1624
-  %488 = icmp sgt i32 %.0599801, 0
+  %488 = icmp sgt i32 %.1600801, 0
   %or.cond5 = select i1 %487, i1 %488, i1 false
   br i1 %or.cond5, label %489, label %491
 
 489:                                              ; preds = %.lr.ph804
-  %490 = add nsw i32 %.0599801, -1
+  %490 = add nsw i32 %.1600801, -1
   br label %503
 
 491:                                              ; preds = %.lr.ph804
   %492 = fcmp oge float %486, %.1622
-  %493 = icmp sgt i32 %.0596802, 0
+  %493 = icmp sgt i32 %.1597802, 0
   %or.cond7 = select i1 %492, i1 %493, i1 false
   br i1 %or.cond7, label %494, label %496
 
 494:                                              ; preds = %491
-  %495 = add nsw i32 %.0596802, -1
+  %495 = add nsw i32 %.1597802, -1
   br label %503
 
 496:                                              ; preds = %491
@@ -896,24 +896,24 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 503:                                              ; preds = %489, %496, %494
   %504 = phi i32 [ %484, %489 ], [ %484, %494 ], [ %497, %496 ]
-  %.1600 = phi i32 [ %490, %489 ], [ %.0599801, %494 ], [ %.0599801, %496 ]
-  %.1597 = phi i32 [ %.0596802, %489 ], [ %495, %494 ], [ %.0596802, %496 ]
+  %.2601 = phi i32 [ %490, %489 ], [ %.1600801, %494 ], [ %.1600801, %496 ]
+  %.2598 = phi i32 [ %.1597802, %489 ], [ %495, %494 ], [ %.1597802, %496 ]
   %indvars.iv.next886 = add nuw nsw i64 %indvars.iv885, 1
   %exitcond889.not = icmp eq i64 %indvars.iv.next886, %wide.trip.count888
   br i1 %exitcond889.not, label %._crit_edge805, label %.lr.ph804, !llvm.loop !12
 
 ._crit_edge805:                                   ; preds = %503, %481
   %505 = phi i32 [ 0, %481 ], [ %504, %503 ]
-  %.0599.lcssa = phi i32 [ %476, %481 ], [ %.1600, %503 ]
-  %.0596.lcssa = phi i32 [ %478, %481 ], [ %.1597, %503 ]
+  %.1600.lcssa = phi i32 [ %476, %481 ], [ %.2601, %503 ]
+  %.1597.lcssa = phi i32 [ %478, %481 ], [ %.2598, %503 ]
   store i32 %505, ptr %10, align 4
   br label %506
 
 506:                                              ; preds = %474, %._crit_edge805
-  %.2601 = phi i32 [ %.0599.lcssa, %._crit_edge805 ], [ %476, %474 ]
-  %.2598 = phi i32 [ %.0596.lcssa, %._crit_edge805 ], [ %478, %474 ]
-  %507 = icmp sgt i32 %.2601, 0
-  %508 = icmp sgt i32 %.2598, 0
+  %.0599 = phi i32 [ %.1600.lcssa, %._crit_edge805 ], [ %476, %474 ]
+  %.0596 = phi i32 [ %.1597.lcssa, %._crit_edge805 ], [ %478, %474 ]
+  %507 = icmp sgt i32 %.0599, 0
+  %508 = icmp sgt i32 %.0596, 0
   %or.cond9 = select i1 %507, i1 true, i1 %508
   br i1 %or.cond9, label %509, label %556
 
@@ -967,7 +967,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %523 = getelementptr inbounds i32, ptr %36, i64 %522
   store i32 0, ptr %523, align 4
   %524 = add nuw i32 %.0609817, 1
-  %exitcond895.not = icmp eq i32 %.0609817, %.2601
+  %exitcond895.not = icmp eq i32 %.0609817, %.0599
   br i1 %exitcond895.not, label %.loopexit730, label %.preheader729, !llvm.loop !14
 
 .loopexit730:                                     ; preds = %._crit_edge814, %509
@@ -1020,7 +1020,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %538 = getelementptr inbounds i32, ptr %36, i64 %537
   store i32 0, ptr %538, align 4
   %539 = add nuw i32 %.1610828, 1
-  %exitcond901.not = icmp eq i32 %.1610828, %.2598
+  %exitcond901.not = icmp eq i32 %.1610828, %.0596
   br i1 %exitcond901.not, label %.loopexit728, label %.preheader, !llvm.loop !16
 
 .loopexit728:                                     ; preds = %._crit_edge825, %.loopexit730
@@ -1065,8 +1065,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %556
 
 556:                                              ; preds = %506, %._crit_edge835
-  %557 = icmp sgt i32 %.2601, -1
-  %558 = icmp sgt i32 %.2598, -1
+  %557 = icmp sgt i32 %.0599, -1
+  %558 = icmp sgt i32 %.0596, -1
   %or.cond15.not = select i1 %557, i1 %558, i1 false
   br label %559
 

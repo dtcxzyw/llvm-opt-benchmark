@@ -404,11 +404,11 @@ recompose_code.exit:                              ; preds = %Recomp_hash_func.ex
   br label %203
 
 200:                                              ; preds = %198, %153, %141
-  %.1116.ph = phi i32 [ %145, %141 ], [ %154, %153 ], [ %199, %198 ]
+  %.3.ph = phi i32 [ %145, %141 ], [ %154, %153 ], [ %199, %198 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %201 = sext i32 %.072151 to i64
   %202 = getelementptr i32, ptr %103, i64 %201
-  store i32 %.1116.ph, ptr %202, align 4
+  store i32 %.3.ph, ptr %202, align 4
   br label %208
 
 203:                                              ; preds = %recompose_code.exit, %get_canonical_class.exit111
@@ -423,7 +423,7 @@ recompose_code.exit:                              ; preds = %Recomp_hash_func.ex
   br label %208
 
 208:                                              ; preds = %203, %200
-  %.177 = phi i32 [ %.1116.ph, %200 ], [ %..076148, %203 ]
+  %.177 = phi i32 [ %.3.ph, %200 ], [ %..076148, %203 ]
   %.175 = phi i32 [ %.074150, %200 ], [ %205, %203 ]
   %.173 = phi i32 [ %.072151, %200 ], [ %.074150..072151, %203 ]
   %.171 = phi i32 [ %.070152, %200 ], [ %., %203 ]

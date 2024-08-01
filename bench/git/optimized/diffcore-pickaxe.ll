@@ -168,9 +168,9 @@ if.else44:                                        ; preds = %if.else40
   unreachable
 
 if.end47:                                         ; preds = %if.else40, %regcomp_or_die.exit35, %if.else31, %if.else, %if.end10
-  %kws.1 = phi ptr [ null, %if.end10 ], [ null, %if.else ], [ null, %regcomp_or_die.exit35 ], [ %call35, %if.else31 ], [ null, %if.else40 ]
+  %kws.0 = phi ptr [ null, %if.end10 ], [ null, %if.else ], [ null, %regcomp_or_die.exit35 ], [ %call35, %if.else31 ], [ null, %if.else40 ]
   %fn.0 = phi ptr [ @diff_grep, %if.end10 ], [ @has_changes, %if.else ], [ @has_changes, %regcomp_or_die.exit35 ], [ @has_changes, %if.else31 ], [ null, %if.else40 ]
-  %regexp.1 = phi ptr [ %regex, %if.end10 ], [ %regex, %if.else ], [ %regex, %regcomp_or_die.exit35 ], [ null, %if.else31 ], [ null, %if.else40 ]
+  %regexp.0 = phi ptr [ %regex, %if.end10 ], [ %regex, %if.else ], [ %regex, %regcomp_or_die.exit35 ], [ null, %if.else31 ], [ null, %if.else40 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %outq.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outq.i, i8 0, i64 16, i1 false)
   %6 = load i32, ptr %pickaxe_opts, align 8
@@ -202,7 +202,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %11 = load ptr, ptr @diff_queued_diff, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
   %12 = load ptr, ptr %arrayidx.i, align 8
-  %call.i37 = call fastcc i32 @pickaxe_match(ptr noundef %12, ptr noundef %o, ptr noundef %regexp.1, ptr noundef %kws.1, ptr noundef readonly %fn.0)
+  %call.i37 = call fastcc i32 @pickaxe_match(ptr noundef %12, ptr noundef %o, ptr noundef %regexp.0, ptr noundef %kws.0, ptr noundef readonly %fn.0)
   %tobool3.not.i = icmp eq i32 %call.i37, 0
   br i1 %tobool3.not.i, label %for.cond.i, label %pickaxe.exit
 
@@ -223,7 +223,7 @@ for.body18.i:                                     ; preds = %for.cond15.preheade
   %17 = load ptr, ptr @diff_queued_diff, align 8
   %arrayidx22.i = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv13.i
   %18 = load ptr, ptr %arrayidx22.i, align 8
-  %call23.i = call fastcc i32 @pickaxe_match(ptr noundef %18, ptr noundef %o, ptr noundef %regexp.1, ptr noundef %kws.1, ptr noundef readonly %fn.0)
+  %call23.i = call fastcc i32 @pickaxe_match(ptr noundef %18, ptr noundef %o, ptr noundef %regexp.0, ptr noundef %kws.0, ptr noundef readonly %fn.0)
   %tobool24.not.i = icmp eq i32 %call23.i, 0
   br i1 %tobool24.not.i, label %if.else26.i, label %if.then25.i
 
@@ -250,19 +250,19 @@ if.end31.i:                                       ; preds = %for.body8.i, %for.i
 
 pickaxe.exit:                                     ; preds = %for.body.i, %if.end31.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %outq.i)
-  %tobool48.not = icmp eq ptr %regexp.1, null
+  %tobool48.not = icmp eq ptr %regexp.0, null
   br i1 %tobool48.not, label %if.end50, label %if.then49
 
 if.then49:                                        ; preds = %pickaxe.exit
-  call void @regfree(ptr noundef nonnull %regexp.1) #9
+  call void @regfree(ptr noundef nonnull %regexp.0) #9
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then49, %pickaxe.exit
-  %tobool51.not = icmp eq ptr %kws.1, null
+  %tobool51.not = icmp eq ptr %kws.0, null
   br i1 %tobool51.not, label %if.end53, label %if.then52
 
 if.then52:                                        ; preds = %if.end50
-  call void @kwsfree(ptr noundef nonnull %kws.1) #9
+  call void @kwsfree(ptr noundef nonnull %kws.0) #9
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then52, %if.end50
@@ -368,7 +368,7 @@ while.cond14.preheader.i:                         ; preds = %cond.true
 while.body16.us.i:                                ; preds = %while.cond14.preheader.i, %if.end21.us.i
   %data.2.us13.i = phi ptr [ %add.ptr27.us.i, %if.end21.us.i ], [ %one.val, %while.cond14.preheader.i ]
   %sz.2.us12.i = phi i64 [ %sub23.us.i, %if.end21.us.i ], [ %one.val6, %while.cond14.preheader.i ]
-  %cnt.1.us11.i = phi i32 [ %inc28.us.i, %if.end21.us.i ], [ 0, %while.cond14.preheader.i ]
+  %cnt.2.us11.i = phi i32 [ %inc28.us.i, %if.end21.us.i ], [ 0, %while.cond14.preheader.i ]
   %call17.us.i = call i64 @kwsexec(ptr noundef %kws, ptr noundef %data.2.us13.i, i64 noundef %sz.2.us12.i, ptr noundef nonnull %kwsm.i) #9
   %cmp18.us.i = icmp eq i64 %call17.us.i, -1
   br i1 %cmp18.us.i, label %contains.exit, label %if.end21.us.i
@@ -378,12 +378,12 @@ if.end21.us.i:                                    ; preds = %while.body16.us.i
   %add.us.i = add i64 %3, %call17.us.i
   %sub23.us.i = sub i64 %sz.2.us12.i, %add.us.i
   %add.ptr27.us.i = getelementptr inbounds i8, ptr %data.2.us13.i, i64 %add.us.i
-  %inc28.us.i = add i32 %cnt.1.us11.i, 1
+  %inc28.us.i = add i32 %cnt.2.us11.i, 1
   %tobool15.not.us.i = icmp eq i64 %sub23.us.i, 0
   br i1 %tobool15.not.us.i, label %contains.exit, label %while.body16.us.i
 
 contains.exit:                                    ; preds = %land.rhs.us.i, %land.lhs.true.us.i, %while.body16.us.i, %if.end21.us.i, %while.cond.preheader.i, %if.end.us.thread.i, %while.cond14.preheader.i
-  %retval.0.i = phi i32 [ 0, %while.cond14.preheader.i ], [ 0, %while.cond.preheader.i ], [ %inc.us26.i, %if.end.us.thread.i ], [ %inc28.us.i, %if.end21.us.i ], [ %cnt.1.us11.i, %while.body16.us.i ], [ %inc.us.i, %land.lhs.true.us.i ], [ %cnt.0.us4.i, %land.rhs.us.i ]
+  %retval.0.i = phi i32 [ 0, %while.cond14.preheader.i ], [ 0, %while.cond.preheader.i ], [ %inc.us26.i, %if.end.us.thread.i ], [ %inc28.us.i, %if.end21.us.i ], [ %cnt.2.us11.i, %while.body16.us.i ], [ %inc.us.i, %land.lhs.true.us.i ], [ %cnt.0.us4.i, %land.rhs.us.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %regmatch.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %kwsm.i)
   br label %cond.end
@@ -458,7 +458,7 @@ while.cond14.preheader.split.us.i:                ; preds = %while.cond14.prehea
 while.body16.us.i41:                              ; preds = %while.cond14.preheader.split.us.i, %if.end21.us.i47
   %data.2.us13.i42 = phi ptr [ %add.ptr27.us.i50, %if.end21.us.i47 ], [ %two.val, %while.cond14.preheader.split.us.i ]
   %sz.2.us12.i43 = phi i64 [ %sub23.us.i49, %if.end21.us.i47 ], [ %two.val7, %while.cond14.preheader.split.us.i ]
-  %cnt.1.us11.i44 = phi i32 [ %inc28.us.i51, %if.end21.us.i47 ], [ 0, %while.cond14.preheader.split.us.i ]
+  %cnt.2.us11.i44 = phi i32 [ %inc28.us.i51, %if.end21.us.i47 ], [ 0, %while.cond14.preheader.split.us.i ]
   %call17.us.i45 = call i64 @kwsexec(ptr noundef %kws, ptr noundef %data.2.us13.i42, i64 noundef %sz.2.us12.i43, ptr noundef nonnull %kwsm.i9) #9
   %cmp18.us.i46 = icmp eq i64 %call17.us.i45, -1
   br i1 %cmp18.us.i46, label %contains.exit53, label %if.end21.us.i47
@@ -468,7 +468,7 @@ if.end21.us.i47:                                  ; preds = %while.body16.us.i41
   %add.us.i48 = add i64 %7, %call17.us.i45
   %sub23.us.i49 = sub i64 %sz.2.us12.i43, %add.us.i48
   %add.ptr27.us.i50 = getelementptr inbounds i8, ptr %data.2.us13.i42, i64 %add.us.i48
-  %inc28.us.i51 = add i32 %cnt.1.us11.i44, 1
+  %inc28.us.i51 = add i32 %cnt.2.us11.i44, 1
   %tobool15.not.us.i52 = icmp eq i64 %sub23.us.i49, 0
   br i1 %tobool15.not.us.i52, label %contains.exit53, label %while.body16.us.i41
 
@@ -514,7 +514,7 @@ if.end.i:                                         ; preds = %if.then7.i, %land.l
   br i1 %cmp10.i, label %contains.exit53, label %while.cond.i, !llvm.loop !9
 
 while.cond14.i:                                   ; preds = %while.cond14.preheader.i38, %if.end21.i
-  %cnt.1.i = phi i32 [ %inc28.i, %if.end21.i ], [ 0, %while.cond14.preheader.i38 ]
+  %cnt.2.i = phi i32 [ %inc28.i, %if.end21.i ], [ 0, %while.cond14.preheader.i38 ]
   %sz.2.i = phi i64 [ %sub23.i, %if.end21.i ], [ %two.val7, %while.cond14.preheader.i38 ]
   %data.2.i = phi ptr [ %add.ptr27.i, %if.end21.i ], [ %two.val, %while.cond14.preheader.i38 ]
   %tobool15.not.i = icmp eq i64 %sz.2.i, 0
@@ -530,12 +530,12 @@ if.end21.i:                                       ; preds = %while.body16.i
   %add.i = add i64 %10, %call17.i
   %sub23.i = sub i64 %sz.2.i, %add.i
   %add.ptr27.i = getelementptr inbounds i8, ptr %data.2.i, i64 %add.i
-  %inc28.i = add nuw i32 %cnt.1.i, 1
-  %cmp31.i = icmp eq i32 %cnt.1.i, %cond
+  %inc28.i = add nuw i32 %cnt.2.i, 1
+  %cmp31.i = icmp eq i32 %cnt.2.i, %cond
   br i1 %cmp31.i, label %contains.exit53, label %while.cond14.i, !llvm.loop !10
 
 contains.exit53:                                  ; preds = %while.cond.i, %land.rhs.i, %if.end.i, %land.rhs.us.i15, %land.lhs.true.us.i26, %while.cond14.i, %while.body16.i, %if.end21.i, %while.body16.us.i41, %if.end21.us.i47, %while.cond.preheader.split.us.i, %if.end.us.thread.i36, %while.cond14.preheader.split.us.i
-  %retval.0.i13 = phi i32 [ 0, %while.cond14.preheader.split.us.i ], [ 0, %while.cond.preheader.split.us.i ], [ %inc.us26.i37, %if.end.us.thread.i36 ], [ %inc28.us.i51, %if.end21.us.i47 ], [ %cnt.1.us11.i44, %while.body16.us.i41 ], [ %add, %if.end21.i ], [ %cnt.1.i, %while.body16.i ], [ %cnt.1.i, %while.cond14.i ], [ %inc.us.i34, %land.lhs.true.us.i26 ], [ %cnt.0.us4.i19, %land.rhs.us.i15 ], [ %add, %if.end.i ], [ %cnt.0.i, %land.rhs.i ], [ %cnt.0.i, %while.cond.i ]
+  %retval.0.i13 = phi i32 [ 0, %while.cond14.preheader.split.us.i ], [ 0, %while.cond.preheader.split.us.i ], [ %inc.us26.i37, %if.end.us.thread.i36 ], [ %inc28.us.i51, %if.end21.us.i47 ], [ %cnt.2.us11.i44, %while.body16.us.i41 ], [ %add, %if.end21.i ], [ %cnt.2.i, %while.body16.i ], [ %cnt.2.i, %while.cond14.i ], [ %inc.us.i34, %land.lhs.true.us.i26 ], [ %cnt.0.us4.i19, %land.rhs.us.i15 ], [ %add, %if.end.i ], [ %cnt.0.i, %land.rhs.i ], [ %cnt.0.i, %while.cond.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %regmatch.i8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %kwsm.i9)
   br label %cond.end5

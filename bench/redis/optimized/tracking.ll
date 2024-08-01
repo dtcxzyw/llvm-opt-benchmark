@@ -1560,11 +1560,11 @@ while.body.lr.ph:                                 ; preds = %if.else
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %count.021 = phi i64 [ 0, %while.body.lr.ph ], [ %spec.select, %while.body ]
+  %count.121 = phi i64 [ 0, %while.body.lr.ph ], [ %spec.select, %while.body ]
   %0 = load ptr, ptr %data, align 8
   %cmp3.not = icmp ne ptr %0, %c
   %inc = zext i1 %cmp3.not to i64
-  %spec.select = add i64 %count.021, %inc
+  %spec.select = add i64 %count.121, %inc
   %call2 = call i32 @raxNext(ptr noundef nonnull %ri) #8
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !17
@@ -1575,11 +1575,11 @@ while.end:                                        ; preds = %while.body
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %while.end, %if.then
-  %count.2 = phi i64 [ %call, %if.then ], [ %spec.select, %while.end ]
-  %call9 = call i32 @ll2string(ptr noundef nonnull %buf, i64 noundef 32, i64 noundef %count.2) #8
+  %count.0 = phi i64 [ %call, %if.then ], [ %spec.select, %while.end ]
+  %call9 = call i32 @ll2string(ptr noundef nonnull %buf, i64 noundef 32, i64 noundef %count.0) #8
   %conv = sext i32 %call9 to i64
   %call10 = call ptr @sdsempty() #8
-  %mul = mul i64 %count.2, 15
+  %mul = mul i64 %count.0, 15
   %call11 = call ptr @sdsMakeRoomFor(ptr noundef %call10, i64 noundef %mul) #8
   %call12 = call ptr @sdscatlen(ptr noundef %call11, ptr noundef nonnull @.str.10, i64 noundef 1) #8
   %call14 = call ptr @sdscatlen(ptr noundef %call12, ptr noundef nonnull %buf, i64 noundef %conv) #8

@@ -79,8 +79,8 @@ define i64 @mbrtowc(ptr noundef writeonly %0, ptr noundef readonly %1, i64 nound
   %37 = phi i8 [ %49, %48 ], [ %30, %.thread ]
   %.138 = phi i64 [ %43, %48 ], [ %.03757, %.thread ]
   %.136 = phi ptr [ %39, %48 ], [ %.03558, %.thread ]
-  %.1 = phi i32 [ %42, %48 ], [ %.059, %.thread ]
-  %38 = shl i32 %.1, 6
+  %.2 = phi i32 [ %42, %48 ], [ %.059, %.thread ]
+  %38 = shl i32 %.2, 6
   %39 = getelementptr inbounds i8, ptr %.136, i64 1
   %40 = zext i8 %37 to i32
   %41 = add nsw i32 %40, -128
@@ -112,8 +112,8 @@ define i64 @mbrtowc(ptr noundef writeonly %0, ptr noundef readonly %1, i64 nound
   br i1 %.not48, label %.preheader, label %.loopexit60
 
 .loopexit:                                        ; preds = %47, %24
-  %.2 = phi i32 [ %28, %24 ], [ %42, %47 ]
-  store i32 %.2, ptr %spec.store.select, align 4
+  %.1 = phi i32 [ %28, %24 ], [ %42, %47 ]
+  store i32 %.1, ptr %spec.store.select, align 4
   br label %52
 
 .loopexit60:                                      ; preds = %48, %.thread, %21, %8

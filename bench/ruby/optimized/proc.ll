@@ -4799,8 +4799,8 @@ RB_FL_TEST.exit.thread:                           ; preds = %60, %55
   br label %.critedge273
 
 .critedge273:                                     ; preds = %.critedge273.preheader, %107
-  %.2 = phi i64 [ %102, %107 ], [ %78, %.critedge273.preheader ]
-  %100 = inttoptr i64 %.2 to ptr
+  %.3 = phi i64 [ %102, %107 ], [ %78, %.critedge273.preheader ]
+  %100 = inttoptr i64 %.3 to ptr
   %101 = getelementptr inbounds i8, ptr %100, i64 16
   %102 = load i64, ptr %101, align 8
   %103 = and i64 %102, 7
@@ -4817,10 +4817,10 @@ RB_FL_TEST.exit.thread:                           ; preds = %60, %55
   br i1 %111, label %.critedge273, label %.critedge276, !llvm.loop !14
 
 .critedge276:                                     ; preds = %.critedge273, %107, %96, %83, %RB_FL_TEST.exit.thread
-  %.3 = phi i64 [ %78, %RB_FL_TEST.exit.thread ], [ %78, %83 ], [ %78, %96 ], [ %102, %107 ], [ %102, %.critedge273 ]
-  %112 = tail call i64 @rb_inspect(i64 noundef %.3) #20
+  %.2 = phi i64 [ %78, %RB_FL_TEST.exit.thread ], [ %78, %83 ], [ %78, %96 ], [ %102, %107 ], [ %102, %.critedge273 ]
+  %112 = tail call i64 @rb_inspect(i64 noundef %.2) #20
   %113 = tail call i64 @rb_str_buf_append(i64 noundef %4, i64 noundef %112) #20
-  %.not260 = icmp eq i64 %.1248, %.3
+  %.not260 = icmp eq i64 %.1248, %.2
   br i1 %.not260, label %116, label %114
 
 114:                                              ; preds = %.critedge276
@@ -7961,7 +7961,7 @@ RB_FL_TEST.exit.thread:                           ; preds = %54, %.critedge101
 
 81:                                               ; preds = %79, %78
   %82 = phi i64 [ %68, %78 ], [ %.pre, %79 ]
-  %.1 = phi ptr [ %.089, %78 ], [ %80, %79 ]
+  %.2 = phi ptr [ %.089, %78 ], [ %80, %79 ]
   %83 = tail call i64 @rb_class_search_ancestor(i64 noundef %.0.i, i64 noundef %82) #20
   %.not98 = icmp eq i64 %83, 0
   br i1 %.not98, label %84, label %86
@@ -7971,21 +7971,21 @@ RB_FL_TEST.exit.thread:                           ; preds = %54, %.critedge101
   br label %86
 
 86:                                               ; preds = %81, %84
-  %.093 = phi i64 [ %13, %84 ], [ %83, %81 ]
-  %.091 = phi i64 [ %85, %84 ], [ %83, %81 ]
-  %87 = getelementptr inbounds i8, ptr %.1, i64 24
+  %.194 = phi i64 [ %13, %84 ], [ %83, %81 ]
+  %.192 = phi i64 [ %85, %84 ], [ %83, %81 ]
+  %87 = getelementptr inbounds i8, ptr %.2, i64 24
   %88 = load i64, ptr %87, align 8
-  %89 = tail call ptr @rb_method_entry_complement_defined_class(ptr noundef nonnull %.1, i64 noundef %88, i64 noundef %.091) #20
+  %89 = tail call ptr @rb_method_entry_complement_defined_class(ptr noundef nonnull %.2, i64 noundef %88, i64 noundef %.192) #20
   br label %.critedge104
 
 .critedge104:                                     ; preds = %66, %86, %73
-  %.194 = phi i64 [ %.093, %86 ], [ %13, %73 ], [ %13, %66 ]
-  %.192 = phi i64 [ %.091, %86 ], [ %.0.i, %73 ], [ %.0.i, %66 ]
-  %.2 = phi ptr [ %89, %86 ], [ %.089, %73 ], [ %.089, %66 ]
+  %.093 = phi i64 [ %.194, %86 ], [ %13, %73 ], [ %13, %66 ]
+  %.091 = phi i64 [ %.192, %86 ], [ %.0.i, %73 ], [ %.0.i, %66 ]
+  %.1 = phi ptr [ %89, %86 ], [ %.089, %73 ], [ %.089, %66 ]
   store i64 %.095, ptr %2, align 8
-  store i64 %.192, ptr %3, align 8
-  store i64 %.194, ptr %4, align 8
-  store ptr %.2, ptr %5, align 8
+  store i64 %.091, ptr %3, align 8
+  store i64 %.093, ptr %4, align 8
+  store ptr %.1, ptr %5, align 8
   ret void
 }
 

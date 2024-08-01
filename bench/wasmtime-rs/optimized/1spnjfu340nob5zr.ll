@@ -5418,15 +5418,15 @@ _ZN16wasmtime_runtime2gc7GcStore21expose_gc_ref_to_wasm17ha3a13f01acae7eb1E.exit
   br label %176
 
 176:                                              ; preds = %134, %_ZN16wasmtime_runtime2gc7GcStore21expose_gc_ref_to_wasm17ha3a13f01acae7eb1E.exit19
-  %.sroa.4.0 = phi ptr [ %175, %_ZN16wasmtime_runtime2gc7GcStore21expose_gc_ref_to_wasm17ha3a13f01acae7eb1E.exit19 ], [ null, %134 ]
+  %.sroa.4.1 = phi ptr [ %175, %_ZN16wasmtime_runtime2gc7GcStore21expose_gc_ref_to_wasm17ha3a13f01acae7eb1E.exit19 ], [ null, %134 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %177
 
 177:                                              ; preds = %176, %136
-  %.sroa.4.1 = phi ptr [ %131, %136 ], [ %.sroa.4.0, %176 ]
-  %.sroa.0.1 = phi i64 [ 1, %136 ], [ 0, %176 ]
-  %178 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %179 = insertvalue { i64, ptr } %178, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %131, %136 ], [ %.sroa.4.1, %176 ]
+  %.sroa.0.0 = phi i64 [ 1, %136 ], [ 0, %176 ]
+  %178 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %179 = insertvalue { i64, ptr } %178, ptr %.sroa.4.0, 1
   ret { i64, ptr } %179
 }
 
@@ -5561,10 +5561,10 @@ _ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit: ; preds
   br label %_ZN16wasmtime_runtime2gc7GcStore21expose_gc_ref_to_wasm17ha3a13f01acae7eb1E.exit
 
 _ZN16wasmtime_runtime2gc7GcStore21expose_gc_ref_to_wasm17ha3a13f01acae7eb1E.exit: ; preds = %89, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit, %_ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.13870219068130913800.exit11, %73
-  %.sroa.4.1 = phi ptr [ %72, %_ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.13870219068130913800.exit11 ], [ null, %73 ], [ %86, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit ], [ %86, %89 ]
-  %.sroa.0.1 = phi i64 [ 1, %_ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.13870219068130913800.exit11 ], [ 0, %73 ], [ 0, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit ], [ 0, %89 ]
-  %94 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %95 = insertvalue { i64, ptr } %94, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %72, %_ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.13870219068130913800.exit11 ], [ null, %73 ], [ %86, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit ], [ %86, %89 ]
+  %.sroa.0.0 = phi i64 [ 1, %_ZN16wasmtime_runtime8instance8Instance5store17ha09c795bc3115f7bE.llvm.13870219068130913800.exit11 ], [ 0, %73 ], [ 0, %_ZN16wasmtime_runtime2gc7GcStore12clone_gc_ref17hd9ec7f5460c3a298E.exit ], [ 0, %89 ]
+  %94 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %95 = insertvalue { i64, ptr } %94, ptr %.sroa.4.0, 1
   ret { i64, ptr } %95
 }
 

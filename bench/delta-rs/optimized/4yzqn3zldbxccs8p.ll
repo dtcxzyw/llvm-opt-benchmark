@@ -3789,16 +3789,16 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
   ]
 
 .body:                                            ; preds = %53, %83, %113, %128, %133, %98, %68, %304, %299, %294, %288, %284, %268, %253, %238, %224, %209, %194, %179, %164, %148
-  %.020 = phi i1 [ true, %304 ], [ true, %299 ], [ true, %294 ], [ true, %288 ], [ true, %284 ], [ true, %268 ], [ true, %253 ], [ true, %238 ], [ true, %224 ], [ true, %209 ], [ true, %194 ], [ true, %179 ], [ true, %164 ], [ true, %148 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ true, %98 ], [ true, %113 ], [ %.121, %133 ], [ true, %128 ]
-  %.0 = phi i1 [ true, %304 ], [ true, %299 ], [ true, %294 ], [ true, %288 ], [ true, %284 ], [ true, %268 ], [ true, %253 ], [ true, %238 ], [ true, %224 ], [ true, %209 ], [ true, %194 ], [ true, %179 ], [ true, %164 ], [ true, %148 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ true, %98 ], [ true, %113 ], [ %.1, %133 ], [ true, %128 ]
+  %.121 = phi i1 [ true, %304 ], [ true, %299 ], [ true, %294 ], [ true, %288 ], [ true, %284 ], [ true, %268 ], [ true, %253 ], [ true, %238 ], [ true, %224 ], [ true, %209 ], [ true, %194 ], [ true, %179 ], [ true, %164 ], [ true, %148 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ true, %98 ], [ true, %113 ], [ %.020, %133 ], [ true, %128 ]
+  %.1 = phi i1 [ true, %304 ], [ true, %299 ], [ true, %294 ], [ true, %288 ], [ true, %284 ], [ true, %268 ], [ true, %253 ], [ true, %238 ], [ true, %224 ], [ true, %209 ], [ true, %194 ], [ true, %179 ], [ true, %164 ], [ true, %148 ], [ true, %53 ], [ true, %68 ], [ true, %83 ], [ true, %98 ], [ true, %113 ], [ %.0, %133 ], [ true, %128 ]
   %.pn = phi { ptr, i32 } [ %305, %304 ], [ %300, %299 ], [ %295, %294 ], [ %289, %288 ], [ %285, %284 ], [ %269, %268 ], [ %254, %253 ], [ %239, %238 ], [ %225, %224 ], [ %210, %209 ], [ %195, %194 ], [ %180, %179 ], [ %165, %164 ], [ %149, %148 ], [ %54, %53 ], [ %69, %68 ], [ %84, %83 ], [ %99, %98 ], [ %114, %113 ], [ %134, %133 ], [ %129, %128 ]
   %132 = getelementptr inbounds i8, ptr %1, i64 544
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75ea50d87461703dE.llvm.8209374114036670355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %132) #37
           to label %309 unwind label %307
 
 133:                                              ; preds = %.noexc.i, %130
-  %.121 = phi i1 [ false, %130 ], [ true, %.noexc.i ]
-  %.1 = phi i1 [ true, %130 ], [ false, %.noexc.i ]
+  %.020 = phi i1 [ false, %130 ], [ true, %.noexc.i ]
+  %.0 = phi i1 [ true, %130 ], [ false, %.noexc.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4338,7 +4338,7 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
           to label %311 unwind label %307
 
 311:                                              ; preds = %309
-  br i1 %.0, label %314, label %312
+  br i1 %.1, label %314, label %312
 
 312:                                              ; preds = %314, %311
   %313 = getelementptr inbounds i8, ptr %1, i64 616
@@ -4401,7 +4401,7 @@ define hidden void @_ZN12object_store3aws7builder15AmazonS3Builder11with_config1
           to label %336 unwind label %307
 
 336:                                              ; preds = %334
-  br i1 %.020, label %339, label %337
+  br i1 %.121, label %339, label %337
 
 337:                                              ; preds = %339, %336
   %338 = getelementptr inbounds i8, ptr %1, i64 1208
@@ -4538,7 +4538,7 @@ default.unreachable:                              ; preds = %4
 
 13:                                               ; preds = %76, %61, %46, %30, %15
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %77, %76 ], [ %62, %61 ], [ %47, %46 ], [ %31, %30 ]
-  %.0 = phi i1 [ false, %15 ], [ true, %76 ], [ true, %61 ], [ true, %46 ], [ true, %30 ]
+  %.1 = phi i1 [ false, %15 ], [ true, %76 ], [ true, %61 ], [ true, %46 ], [ true, %30 ]
   %14 = getelementptr inbounds i8, ptr %1, i64 544
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75ea50d87461703dE.llvm.8209374114036670355"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #37
           to label %81 unwind label %79
@@ -4757,7 +4757,7 @@ default.unreachable:                              ; preds = %4
           to label %89 unwind label %79
 
 89:                                               ; preds = %87
-  br i1 %.0, label %92, label %90
+  br i1 %.1, label %92, label %90
 
 90:                                               ; preds = %92, %89
   %91 = getelementptr inbounds i8, ptr %1, i64 728
@@ -8215,7 +8215,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %47,
   unreachable
 
 74:                                               ; preds = %.thread114.i, %86
-  %.1.i = phi i8 [ %.2117.i, %.thread114.i ], [ %.3.i, %86 ]
+  %.2.i = phi i8 [ %.3117.i, %.thread114.i ], [ %.4.i, %86 ]
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn118.i, %.thread114.i ], [ %.pn.pn.pn.i, %86 ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h220dde16014838c9E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %21) #37
           to label %.thread98.i unwind label %166, !noalias !1315
@@ -8257,7 +8257,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %47,
   unreachable
 
 86:                                               ; preds = %.body.thread.i
-  %87 = trunc nuw i8 %.3.i to i1
+  %87 = trunc nuw i8 %.4.i to i1
   br i1 %87, label %.thread114.i, label %74
 
 88:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0bcdae7cdff5f7f3E.exit.i"
@@ -8274,7 +8274,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %47,
   unreachable
 
 .body.thread.i:                                   ; preds = %.thread150.i, %168, %.body.i, %135
-  %.3.i = phi i8 [ 1, %.thread150.i ], [ 0, %168 ], [ 0, %.body.i ], [ 0, %135 ]
+  %.4.i = phi i8 [ 1, %.thread150.i ], [ 0, %168 ], [ 0, %.body.i ], [ 0, %135 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn123.i, %.thread150.i ], [ %169, %168 ], [ %139, %.body.i ], [ %136, %135 ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$std..thread..Packet$LT$$LP$$RP$$GT$$GT$$GT$17h757f2d2359b2a256E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %19) #37
           to label %86 unwind label %166, !noalias !1315
@@ -8534,7 +8534,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %47,
 
 .thread114.i:                                     ; preds = %86, %82
   %.pn.pn.pn.pn118.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %86 ], [ %83, %82 ]
-  %.2117.i = phi i8 [ %.3.i, %86 ], [ 1, %82 ]
+  %.3117.i = phi i8 [ %.4.i, %86 ], [ 1, %82 ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h220dde16014838c9E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20) #37
           to label %74 unwind label %166, !noalias !1315
 
@@ -8545,7 +8545,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %47,
           to label %.thread98.thread.i unwind label %166, !noalias !1315
 
 .thread98.i:                                      ; preds = %74
-  %173 = trunc nuw i8 %.1.i to i1
+  %173 = trunc nuw i8 %.2.i to i1
   br i1 %173, label %.thread98.thread153.i, label %.critedge
 
 .thread98.thread.i:                               ; preds = %172, %61, %54, %.thread104.i
@@ -11333,10 +11333,10 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           to label %13 unwind label %.thread.i
 
 11:                                               ; preds = %86
-  br i1 %.2.ph.i, label %90, label %"_ZN4core3ptr257drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$deltalake_aws..storage..execute_sdk_future$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9a50d5f2a43c61e8E.exit.i"
+  br i1 %.119.ph.i, label %90, label %"_ZN4core3ptr257drop_in_place$LT$std..thread..Builder..spawn_unchecked_..MaybeDangling$LT$deltalake_aws..storage..execute_sdk_future$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h9a50d5f2a43c61e8E.exit.i"
 
 .thread.i:                                        ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf7f975fe9db4a305E.exit.i.i.i.i", %26, %17, %15, %1
-  %.1.i = phi i1 [ false, %17 ], [ true, %15 ], [ true, %1 ], [ false, %26 ], [ false, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf7f975fe9db4a305E.exit.i.i.i.i" ]
+  %.0.i = phi i1 [ false, %17 ], [ true, %15 ], [ true, %1 ], [ false, %26 ], [ false, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf7f975fe9db4a305E.exit.i.i.i.i" ]
   %12 = landingpad { ptr, i32 }
           cleanup
   br label %90
@@ -11537,7 +11537,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %"_ZN3std6thread7Builder16spawn_unchecked_28_$u7b$$u7b$closure$u7d$$u7d$17h8fa6b637fdef2905E.exit"
 
 86:                                               ; preds = %40, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h0b5150cffc507dbcE.exit.i"
-  %.2.ph.i = phi i1 [ true, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h0b5150cffc507dbcE.exit.i" ], [ false, %40 ]
+  %.119.ph.i = phi i1 [ true, %"_ZN4core3ptr129drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$std..sync..mutex..Mutex$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$$GT$$GT$17h0b5150cffc507dbcE.exit.i" ], [ false, %40 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr196drop_in_place$LT$deltalake_aws..storage..execute_sdk_future$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h16b8ab4409935889E"(ptr noundef nonnull align 8 %8) #37
@@ -11550,11 +11550,11 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   unreachable
 
 89:                                               ; preds = %90
-  br i1 %.041.i, label %92, label %91
+  br i1 %.141.i, label %92, label %91
 
 90:                                               ; preds = %.thread.i, %11
   %.pn.pn43.i = phi { ptr, i32 } [ %12, %.thread.i ], [ %lpad.thr_comm.i, %11 ]
-  %.041.i = phi i1 [ %.1.i, %.thread.i ], [ false, %11 ]
+  %.141.i = phi i1 [ %.0.i, %.thread.i ], [ false, %11 ]
   %.01739.i = phi i1 [ true, %.thread.i ], [ false, %11 ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$std..thread..Thread$GT$17h220dde16014838c9E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0) #37
           to label %89 unwind label %87

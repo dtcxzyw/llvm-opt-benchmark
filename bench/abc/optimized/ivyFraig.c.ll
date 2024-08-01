@@ -468,9 +468,9 @@ Ivy_FraigMiterPrint.exit153:                      ; preds = %Ivy_FraigMiterStatu
 
 221:                                              ; preds = %.lr.ph, %217
   %.0243 = phi i32 [ 0, %.lr.ph ], [ %218, %217 ]
-  %.1103242 = phi ptr [ %.0102, %.lr.ph ], [ %.2104260, %217 ]
-  %.0207241 = phi i64 [ 0, %.lr.ph ], [ %.2209259, %217 ]
-  %.0210240 = phi i64 [ 0, %.lr.ph ], [ %.2212258, %217 ]
+  %.1103242 = phi ptr [ %.0102, %.lr.ph ], [ %.3260, %217 ]
+  %.0207241 = phi i64 [ 0, %.lr.ph ], [ %.1208259, %217 ]
+  %.0210240 = phi i64 [ 0, %.lr.ph ], [ %.1211258, %217 ]
   %222 = load i32, ptr %19, align 4
   %.not115 = icmp eq i32 %222, 0
   br i1 %.not115, label %243, label %223
@@ -695,8 +695,8 @@ Abc_Clock.exit32.i:                               ; preds = %327, %Abc_Clock.exi
   br label %Ivy_FraigPerform_int.exit
 
 Ivy_FraigPerform_int.exit:                        ; preds = %313, %.thread
-  %.1211 = phi i64 [ %.0210240, %313 ], [ %342, %.thread ]
-  %.1208 = phi i64 [ %.0207241, %313 ], [ %343, %.thread ]
+  %.2212 = phi i64 [ %.0210240, %313 ], [ %342, %.thread ]
+  %.2209 = phi i64 [ %.0207241, %313 ], [ %343, %.thread ]
   %.0.i180 = phi ptr [ %314, %313 ], [ %324, %.thread ]
   call void @Ivy_ManStop(ptr noundef nonnull %.1103242) #25
   %344 = getelementptr inbounds i8, ptr %.0.i180, i64 200
@@ -819,14 +819,14 @@ Ivy_FraigMiterPrint.exit205:                      ; preds = %Abc_Clock.exit.i203
   br i1 %401, label %Ivy_FraigMiterStatus.exit172.thread, label %Ivy_FraigMiterPrint.exit205.thread
 
 Ivy_FraigMiterPrint.exit205.thread:               ; preds = %282, %Ivy_FraigMiterPrint.exit205
-  %.2104260 = phi ptr [ %.0.i180, %Ivy_FraigMiterPrint.exit205 ], [ %.1103242, %282 ]
-  %.2209259 = phi i64 [ %.1208, %Ivy_FraigMiterPrint.exit205 ], [ %.0207241, %282 ]
-  %.2212258 = phi i64 [ %.1211, %Ivy_FraigMiterPrint.exit205 ], [ %.0210240, %282 ]
+  %.3260 = phi ptr [ %.0.i180, %Ivy_FraigMiterPrint.exit205 ], [ %.1103242, %282 ]
+  %.1208259 = phi i64 [ %.2209, %Ivy_FraigMiterPrint.exit205 ], [ %.0207241, %282 ]
+  %.1211258 = phi i64 [ %.2212, %Ivy_FraigMiterPrint.exit205 ], [ %.0210240, %282 ]
   %402 = load i64, ptr %215, align 8
-  %403 = add nsw i64 %402, %.2212258
+  %403 = add nsw i64 %402, %.1211258
   store i64 %403, ptr %215, align 8
   %404 = load i64, ptr %216, align 8
-  %405 = add nsw i64 %404, %.2209259
+  %405 = add nsw i64 %404, %.1208259
   store i64 %405, ptr %216, align 8
   %406 = load i64, ptr %210, align 8
   %.not117 = icmp eq i64 %406, 0
@@ -856,15 +856,15 @@ Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_c
 
 Ivy_FraigMiterStatus.exit172.thread.thread:       ; preds = %.critedge.i170, %Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge
   %411 = phi ptr [ %.pre, %Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge ], [ %245, %.critedge.i170 ]
-  %.3221 = phi ptr [ %.0.i180, %Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge ], [ %.1103242, %.critedge.i170 ]
+  %.2104221 = phi ptr [ %.0.i180, %Ivy_FraigMiterStatus.exit172.thread.Ivy_FraigMiterStatus.exit172.thread.thread_crit_edge ], [ %.1103242, %.critedge.i170 ]
   %412 = icmp eq ptr %411, null
   br i1 %412, label %413, label %Ivy_FraigMiterPrint.exit
 
 413:                                              ; preds = %Ivy_FraigMiterStatus.exit172.thread.thread
-  %414 = getelementptr inbounds i8, ptr %.3221, i64 200
-  %415 = getelementptr i8, ptr %.3221, i64 124
-  %.3.val = load i32, ptr %415, align 4
-  %416 = sext i32 %.3.val to i64
+  %414 = getelementptr inbounds i8, ptr %.2104221, i64 200
+  %415 = getelementptr i8, ptr %.2104221, i64 124
+  %.2104.val = load i32, ptr %415, align 4
+  %416 = sext i32 %.2104.val to i64
   %417 = shl nsw i64 %416, 2
   %418 = call noalias ptr @malloc(i64 noundef %417) #26
   store ptr %418, ptr %414, align 8
@@ -872,9 +872,9 @@ Ivy_FraigMiterStatus.exit172.thread.thread:       ; preds = %.critedge.i170, %Iv
   br label %Ivy_FraigMiterPrint.exit
 
 Ivy_FraigMiterPrint.exit:                         ; preds = %.preheader.i156, %217, %Ivy_FraigMiterStatus.exit172, %243, %Ivy_FraigMiterStatus.exit172.thread, %Ivy_FraigMiterStatus.exit172.thread.thread, %413, %201, %Ivy_FraigMiterPrint.exit153, %Abc_Clock.exit.i, %Ivy_FraigMiterStatus.exit, %409
-  %.3217.sink = phi ptr [ %.2104260, %409 ], [ %66, %Ivy_FraigMiterStatus.exit ], [ %66, %Abc_Clock.exit.i ], [ %141, %Ivy_FraigMiterPrint.exit153 ], [ %.3221, %413 ], [ %.3221, %Ivy_FraigMiterStatus.exit172.thread.thread ], [ %.0.i180, %Ivy_FraigMiterStatus.exit172.thread ], [ %.0102, %201 ], [ %.1103242, %243 ], [ %.1103242, %Ivy_FraigMiterStatus.exit172 ], [ %.2104260, %217 ], [ %.1103242, %.preheader.i156 ]
+  %.2104217.sink = phi ptr [ %.3260, %409 ], [ %66, %Ivy_FraigMiterStatus.exit ], [ %66, %Abc_Clock.exit.i ], [ %141, %Ivy_FraigMiterPrint.exit153 ], [ %.2104221, %413 ], [ %.2104221, %Ivy_FraigMiterStatus.exit172.thread.thread ], [ %.0.i180, %Ivy_FraigMiterStatus.exit172.thread ], [ %.0102, %201 ], [ %.1103242, %243 ], [ %.1103242, %Ivy_FraigMiterStatus.exit172 ], [ %.3260, %217 ], [ %.1103242, %.preheader.i156 ]
   %.0105 = phi i32 [ -1, %409 ], [ %.024.i, %Ivy_FraigMiterStatus.exit ], [ %.024.i, %Abc_Clock.exit.i ], [ %.024.i130, %Ivy_FraigMiterPrint.exit153 ], [ 0, %413 ], [ 0, %Ivy_FraigMiterStatus.exit172.thread.thread ], [ 1, %Ivy_FraigMiterStatus.exit172.thread ], [ -1, %201 ], [ 0, %243 ], [ 1, %Ivy_FraigMiterStatus.exit172 ], [ -1, %217 ], [ 1, %.preheader.i156 ]
-  store ptr %.3217.sink, ptr %0, align 8
+  store ptr %.2104217.sink, ptr %0, align 8
   ret i32 %.0105
 }
 

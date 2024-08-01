@@ -612,7 +612,7 @@ _ZN15RequireResolver22shouldSearchPathsArrayEv.exit: ; preds = %11
   br i1 %41, label %42, label %_ZN15RequireResolver22shouldSearchPathsArrayEv.exit.thread, !llvm.loop !9
 
 42:                                               ; preds = %.lr.ph, %33
-  %.01935 = phi i32 [ undef, %.lr.ph ], [ %.120, %33 ]
+  %.12035 = phi i32 [ undef, %.lr.ph ], [ %.221, %33 ]
   %.02234 = phi i64 [ 0, %.lr.ph ], [ %34, %33 ]
   %43 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #12
   %44 = extractvalue { i64, ptr } %43, 0
@@ -751,7 +751,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %92 unwind label %.loopexit
 
 92:                                               ; preds = %79, %88, %91, %78
-  %.120 = phi i32 [ %77, %78 ], [ %.01935, %91 ], [ %.01935, %88 ], [ %.01935, %79 ]
+  %.221 = phi i32 [ %77, %78 ], [ %.12035, %91 ], [ %.12035, %88 ], [ %.12035, %79 ]
   %93 = load i8, ptr %31, align 8
   %94 = trunc i8 %93 to i1
   br i1 %94, label %95, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit32
@@ -765,8 +765,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit32:
   br i1 %.not28.not, label %33, label %_ZN15RequireResolver22shouldSearchPathsArrayEv.exit.thread
 
 _ZN15RequireResolver22shouldSearchPathsArrayEv.exit.thread: ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit32, %33, %26, %11, %_ZN15RequireResolver22shouldSearchPathsArrayEv.exit, %1
-  %.221 = phi i32 [ %10, %1 ], [ 2, %_ZN15RequireResolver22shouldSearchPathsArrayEv.exit ], [ 2, %11 ], [ 2, %26 ], [ %.120, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit32 ], [ 2, %33 ]
-  ret i32 %.221
+  %.019 = phi i32 [ %10, %1 ], [ 2, %_ZN15RequireResolver22shouldSearchPathsArrayEv.exit ], [ 2, %11 ], [ 2, %26 ], [ %.221, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit32 ], [ 2, %33 ]
+  ret i32 %.019
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %71, %68, %.body
   %.pn29 = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %lpad.phi, %68 ], [ %lpad.phi, %71 ]
@@ -1156,8 +1156,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit16:
   resume { ptr, i32 } %.pn
 
 43:                                               ; preds = %10, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %11
-  %.2 = phi i32 [ 1, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ 0, %11 ], [ 2, %10 ]
-  ret i32 %.2
+  %.1 = phi i32 [ 1, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ 0, %11 ], [ 2, %10 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: mustprogress uwtable

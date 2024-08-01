@@ -612,7 +612,7 @@ php_get_gid_by_name.exit:                         ; preds = %55
   br label %66
 
 66:                                               ; preds = %php_get_gid_by_name.exit.thread, %63
-  %.1159 = phi i32 [ %65, %63 ], [ %59, %php_get_gid_by_name.exit.thread ]
+  %.0158 = phi i32 [ %65, %63 ], [ %59, %php_get_gid_by_name.exit.thread ]
   %67 = call i32 @php_check_open_basedir(ptr noundef nonnull %26) #16
   %.not149 = icmp eq i32 %67, 0
   br i1 %.not149, label %70, label %68
@@ -627,11 +627,11 @@ php_get_gid_by_name.exit:                         ; preds = %55
   br i1 %.not150, label %73, label %71
 
 71:                                               ; preds = %70
-  %72 = call i32 @lchown(ptr noundef nonnull %26, i32 noundef -1, i32 noundef %.1159) #16
+  %72 = call i32 @lchown(ptr noundef nonnull %26, i32 noundef -1, i32 noundef %.0158) #16
   br label %75
 
 73:                                               ; preds = %70
-  %74 = call i32 @chown(ptr noundef nonnull %26, i32 noundef -1, i32 noundef %.1159) #16
+  %74 = call i32 @chown(ptr noundef nonnull %26, i32 noundef -1, i32 noundef %.0158) #16
   br label %75
 
 75:                                               ; preds = %73, %71
@@ -846,7 +846,7 @@ php_get_uid_by_name.exit:                         ; preds = %55
   br label %66
 
 66:                                               ; preds = %php_get_uid_by_name.exit.thread, %63
-  %.1159 = phi i32 [ %65, %63 ], [ %59, %php_get_uid_by_name.exit.thread ]
+  %.0158 = phi i32 [ %65, %63 ], [ %59, %php_get_uid_by_name.exit.thread ]
   %67 = call i32 @php_check_open_basedir(ptr noundef nonnull %26) #16
   %.not149 = icmp eq i32 %67, 0
   br i1 %.not149, label %70, label %68
@@ -861,11 +861,11 @@ php_get_uid_by_name.exit:                         ; preds = %55
   br i1 %.not150, label %73, label %71
 
 71:                                               ; preds = %70
-  %72 = call i32 @lchown(ptr noundef nonnull %26, i32 noundef %.1159, i32 noundef -1) #16
+  %72 = call i32 @lchown(ptr noundef nonnull %26, i32 noundef %.0158, i32 noundef -1) #16
   br label %75
 
 73:                                               ; preds = %70
-  %74 = call i32 @chown(ptr noundef nonnull %26, i32 noundef %.1159, i32 noundef -1) #16
+  %74 = call i32 @chown(ptr noundef nonnull %26, i32 noundef %.0158, i32 noundef -1) #16
   br label %75
 
 75:                                               ; preds = %73, %71
@@ -1139,7 +1139,7 @@ thread-pre-split:                                 ; preds = %17
 
 .thread242:                                       ; preds = %34, %30
   %storemerge = phi i64 [ %35, %34 ], [ 0, %30 ]
-  %.1 = phi i1 [ false, %34 ], [ true, %30 ]
+  %.2 = phi i1 [ false, %34 ], [ true, %30 ]
   store i64 %storemerge, ptr %4, align 8
   br label %38
 
@@ -1148,7 +1148,7 @@ thread-pre-split:                                 ; preds = %17
   br i1 %37, label %38, label %.thread265
 
 38:                                               ; preds = %.thread242, %36
-  %.2245 = phi i1 [ %.1, %.thread242 ], [ false, %36 ]
+  %.3245 = phi i1 [ %.2, %.thread242 ], [ false, %36 ]
   %.not217 = icmp eq i32 %8, 3
   br i1 %.not217, label %39, label %.thread284
 
@@ -1167,7 +1167,7 @@ thread-pre-split:                                 ; preds = %17
 
 .thread300:                                       ; preds = %43, %39
   %storemerge218 = phi i64 [ %44, %43 ], [ 0, %39 ]
-  %.1198 = phi i8 [ 0, %43 ], [ %42, %39 ]
+  %.2199 = phi i8 [ 0, %43 ], [ %42, %39 ]
   store i64 %storemerge218, ptr %5, align 8
   br label %.thread284
 
@@ -1185,7 +1185,7 @@ thread-pre-split:                                 ; preds = %17
   br label %110
 
 .thread284:                                       ; preds = %45, %38, %.thread300
-  %.3200296 = phi i8 [ %.1198, %.thread300 ], [ 1, %38 ], [ 0, %45 ]
+  %.0197296 = phi i8 [ %.2199, %.thread300 ], [ 1, %38 ], [ 0, %45 ]
   %.not220 = icmp eq i64 %27, 0
   br i1 %.not220, label %47, label %49
 
@@ -1199,8 +1199,8 @@ thread-pre-split:                                 ; preds = %17
   br label %110
 
 49:                                               ; preds = %.thread284
-  %50 = trunc nuw i8 %.3200296 to i1
-  br i1 %.2245, label %51, label %.critedge231
+  %50 = trunc nuw i8 %.0197296 to i1
+  br i1 %.3245, label %51, label %.critedge231
 
 51:                                               ; preds = %49
   br i1 %50, label %.thread316, label %.critedge233
@@ -1230,8 +1230,8 @@ thread-pre-split:                                 ; preds = %17
   br label %.thread316
 
 .thread316:                                       ; preds = %.thread284.thread, %51, %52, %56
-  %.3297308314 = phi i1 [ false, %56 ], [ false, %52 ], [ true, %51 ], [ true, %.thread284.thread ]
-  %.3200296309313 = phi i8 [ %.3200296, %56 ], [ %.3200296, %52 ], [ %.3200296, %51 ], [ 1, %.thread284.thread ]
+  %.0196297308314 = phi i1 [ false, %56 ], [ false, %52 ], [ true, %51 ], [ true, %.thread284.thread ]
+  %.0197296309313 = phi i8 [ %.0197296, %56 ], [ %.0197296, %52 ], [ %.0197296, %51 ], [ 1, %.thread284.thread ]
   %.0179 = phi ptr [ %6, %56 ], [ %6, %52 ], [ null, %51 ], [ null, %.thread284.thread ]
   %59 = call ptr @php_stream_locate_url_wrapper(ptr noundef nonnull %28, ptr noundef null, i32 noundef 0) #16
   %.not221 = icmp eq ptr %59, @php_plain_files_wrapper
@@ -1268,10 +1268,10 @@ thread-pre-split:                                 ; preds = %17
   br label %110
 
 72:                                               ; preds = %.thread298, %63
-  br i1 %.3297308314, label %73, label %75
+  br i1 %.0196297308314, label %73, label %75
 
 73:                                               ; preds = %72
-  %74 = trunc nuw i8 %.3200296309313 to i1
+  %74 = trunc nuw i8 %.0197296309313 to i1
   br i1 %74, label %77, label %75
 
 75:                                               ; preds = %73, %72
@@ -1564,11 +1564,11 @@ thread-pre-split:                                 ; preds = %25
   br label %40
 
 37:                                               ; preds = %9, %18, %34
-  %.2119.ph = phi i64 [ %35, %34 ], [ 0, %18 ], [ 0, %9 ]
-  %.2.ph = phi ptr [ %36, %34 ], [ null, %18 ], [ null, %9 ]
+  %.0117.ph = phi i64 [ %35, %34 ], [ 0, %18 ], [ 0, %9 ]
+  %.0116.ph = phi ptr [ %36, %34 ], [ null, %18 ], [ null, %9 ]
   %38 = load i8, ptr %4, align 1
   %39 = trunc i8 %38 to i1
-  call void @php_clear_stat_cache(i1 noundef zeroext %39, ptr noundef %.2.ph, i64 noundef %.2119.ph)
+  call void @php_clear_stat_cache(i1 noundef zeroext %39, ptr noundef %.0116.ph, i64 noundef %.0117.ph)
   br label %40
 
 40:                                               ; preds = %37, %.thread144
@@ -1817,8 +1817,8 @@ switch.early.test:                                ; preds = %99
   br i1 %.not811, label %118, label %.thread919
 
 .thread919:                                       ; preds = %107, %.critedge, %110
-  %.1774922 = phi ptr [ %105, %110 ], [ @php_plain_files_wrapper, %107 ], [ %.0773, %.critedge ]
-  %111 = load ptr, ptr %.1774922, align 8
+  %.2775922 = phi ptr [ %105, %110 ], [ @php_plain_files_wrapper, %107 ], [ %.0773, %.critedge ]
+  %111 = load ptr, ptr %.2775922, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 24
   %113 = load ptr, ptr %112, align 8
   %.not812 = icmp eq ptr %113, null
@@ -1827,7 +1827,7 @@ switch.early.test:                                ; preds = %99
 114:                                              ; preds = %.thread919
   %115 = load ptr, ptr %5, align 8
   %116 = or i32 %.1, 4
-  %117 = call i32 %113(ptr noundef nonnull %.1774922, ptr noundef %115, i32 noundef %116, ptr noundef nonnull %4, ptr noundef null) #16
+  %117 = call i32 %113(ptr noundef nonnull %.2775922, ptr noundef %115, i32 noundef %116, ptr noundef nonnull %4, ptr noundef null) #16
   %.not813 = icmp eq i32 %117, 0
   br i1 %.not813, label %123, label %118
 
@@ -1965,7 +1965,7 @@ switch.early.test:                                ; preds = %99
   br label %172
 
 172:                                              ; preds = %84, %94, %72, %82, %146, %171
-  %.2775 = phi ptr [ %.1774922, %146 ], [ %.1774922, %171 ], [ %.0773, %82 ], [ %.0773, %72 ], [ %.0773, %94 ], [ %.0773, %84 ]
+  %.1774 = phi ptr [ %.2775922, %146 ], [ %.2775922, %171 ], [ %.0773, %82 ], [ %.0773, %72 ], [ %.0773, %94 ], [ %.0773, %84 ]
   %.0.sroa.phi = phi ptr [ %.0.sroa.gep, %146 ], [ %.0.sroa.gep, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 724), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 724), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 580), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 580), %84 ]
   %.0.sroa.phi833 = phi ptr [ %.0.sroa.gep834, %146 ], [ %.0.sroa.gep834, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 728), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 728), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 584), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 584), %84 ]
   %.0.sroa.phi836 = phi ptr [ %.0.sroa.gep837, %146 ], [ %.0.sroa.gep837, %171 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 704), %82 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 704), %72 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 560), %94 ], [ getelementptr inbounds (i8, ptr @basic_globals, i64 560), %84 ]
@@ -2023,28 +2023,28 @@ switch.early.test:                                ; preds = %99
   br i1 %194, label %._crit_edge, label %190
 
 ._crit_edge:                                      ; preds = %191, %190, %184
-  %.0771 = phi i32 [ 1, %184 ], [ 1, %190 ], [ 8, %191 ]
-  %.0769 = phi i32 [ 2, %184 ], [ 2, %190 ], [ 16, %191 ]
-  %.0767 = phi i32 [ 4, %184 ], [ 4, %190 ], [ 32, %191 ]
+  %.1772 = phi i32 [ 1, %184 ], [ 1, %190 ], [ 8, %191 ]
+  %.1770 = phi i32 [ 2, %184 ], [ 2, %190 ], [ 16, %191 ]
+  %.1768 = phi i32 [ 4, %184 ], [ 4, %190 ], [ 32, %191 ]
   call void @_efree(ptr noundef %186) #16
   br label %.thread924
 
 .thread924:                                       ; preds = %._crit_edge, %181, %173, %177
-  %.1768932 = phi i32 [ %.0767, %._crit_edge ], [ 32, %177 ], [ 256, %173 ], [ 4, %181 ]
-  %.1770930 = phi i32 [ %.0769, %._crit_edge ], [ 16, %177 ], [ 128, %173 ], [ 2, %181 ]
-  %.1772928 = phi i32 [ %.0771, %._crit_edge ], [ 8, %177 ], [ 64, %173 ], [ 1, %181 ]
+  %.0767932 = phi i32 [ %.1768, %._crit_edge ], [ 32, %177 ], [ 256, %173 ], [ 4, %181 ]
+  %.0769930 = phi i32 [ %.1770, %._crit_edge ], [ 16, %177 ], [ 128, %173 ], [ 2, %181 ]
+  %.0771928 = phi i32 [ %.1772, %._crit_edge ], [ 8, %177 ], [ 64, %173 ], [ 1, %181 ]
   %195 = call i32 @getuid() #16
   %196 = icmp ne i32 %195, 0
-  %197 = icmp ne ptr %.2775, @php_plain_files_wrapper
+  %197 = icmp ne ptr %.1774, @php_plain_files_wrapper
   %or.cond85.not939 = or i1 %197, %196
   %brmerge = or i1 %21, %or.cond85.not939
-  %.1772.mux = select i1 %or.cond85.not939, i32 %.1772928, i32 73
+  %.0771.mux = select i1 %or.cond85.not939, i32 %.0771928, i32 73
   br i1 %brmerge, label %.thread933, label %.loopexit.sink.split
 
 .thread933:                                       ; preds = %172, %.thread924
-  %.1768931 = phi i32 [ %.1768932, %.thread924 ], [ 4, %172 ]
-  %.1770929 = phi i32 [ %.1770930, %.thread924 ], [ 2, %172 ]
-  %.2 = phi i32 [ %.1772.mux, %.thread924 ], [ 1, %172 ]
+  %.0767931 = phi i32 [ %.0767932, %.thread924 ], [ 4, %172 ]
+  %.0769929 = phi i32 [ %.0769930, %.thread924 ], [ 2, %172 ]
+  %.2 = phi i32 [ %.0771.mux, %.thread924 ], [ 1, %172 ]
   switch i32 %1, label %365 [
     i32 0, label %198
     i32 18, label %198
@@ -2254,14 +2254,14 @@ switch.early.test:                                ; preds = %99
 
 280:                                              ; preds = %.thread933
   %281 = load i32, ptr %.0.sroa.phi839, align 8
-  %282 = and i32 %281, %.1770929
+  %282 = and i32 %281, %.0769929
   %.not824 = icmp eq i32 %282, 0
   %283 = select i1 %.not824, i32 2, i32 3
   br label %.loopexit.sink.split
 
 284:                                              ; preds = %.thread933
   %285 = load i32, ptr %.0.sroa.phi839, align 8
-  %286 = and i32 %285, %.1768931
+  %286 = and i32 %285, %.0767931
   %.not823 = icmp eq i32 %286, 0
   %287 = select i1 %.not823, i32 2, i32 3
   br label %.loopexit.sink.split

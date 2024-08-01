@@ -368,87 +368,87 @@ ehcleanup:                                        ; preds = %arraydestroy.body55
   br label %ehcleanup60
 
 ehcleanup60:                                      ; preds = %ehcleanup, %lpad44
-  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element46, %ehcleanup ], [ %arrayinit.element42, %lpad44 ]
+  %arrayinit.endOfInit.11 = phi ptr [ %arrayinit.element46, %ehcleanup ], [ %arrayinit.element42, %lpad44 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %16, %lpad44 ]
-  %cleanup.isactive.1 = phi i1 [ %20, %ehcleanup ], [ false, %lpad44 ]
+  %cleanup.isactive.11 = phi i1 [ %20, %ehcleanup ], [ false, %lpad44 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp43) #11
   br label %ehcleanup61
 
 ehcleanup61:                                      ; preds = %ehcleanup60, %lpad40
-  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.endOfInit.0, %ehcleanup60 ], [ %arrayinit.element38, %lpad40 ]
+  %arrayinit.endOfInit.10 = phi ptr [ %arrayinit.endOfInit.11, %ehcleanup60 ], [ %arrayinit.element38, %lpad40 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup60 ], [ %15, %lpad40 ]
-  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.1, %ehcleanup60 ], [ false, %lpad40 ]
+  %cleanup.isactive.10 = phi i1 [ %cleanup.isactive.11, %ehcleanup60 ], [ false, %lpad40 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp39) #11
   br label %ehcleanup62
 
 ehcleanup62:                                      ; preds = %ehcleanup61, %lpad36
-  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.endOfInit.1, %ehcleanup61 ], [ %arrayinit.element34, %lpad36 ]
+  %arrayinit.endOfInit.9 = phi ptr [ %arrayinit.endOfInit.10, %ehcleanup61 ], [ %arrayinit.element34, %lpad36 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup61 ], [ %14, %lpad36 ]
-  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.2, %ehcleanup61 ], [ false, %lpad36 ]
+  %cleanup.isactive.9 = phi i1 [ %cleanup.isactive.10, %ehcleanup61 ], [ false, %lpad36 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp35) #11
   br label %ehcleanup63
 
 ehcleanup63:                                      ; preds = %ehcleanup62, %lpad32
-  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.2, %ehcleanup62 ], [ %arrayinit.element30, %lpad32 ]
+  %arrayinit.endOfInit.8 = phi ptr [ %arrayinit.endOfInit.9, %ehcleanup62 ], [ %arrayinit.element30, %lpad32 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup62 ], [ %13, %lpad32 ]
-  %cleanup.isactive.4 = phi i1 [ %cleanup.isactive.3, %ehcleanup62 ], [ false, %lpad32 ]
+  %cleanup.isactive.8 = phi i1 [ %cleanup.isactive.9, %ehcleanup62 ], [ false, %lpad32 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31) #11
   br label %ehcleanup64
 
 ehcleanup64:                                      ; preds = %ehcleanup63, %lpad28
-  %arrayinit.endOfInit.4 = phi ptr [ %arrayinit.endOfInit.3, %ehcleanup63 ], [ %arrayinit.element26, %lpad28 ]
+  %arrayinit.endOfInit.7 = phi ptr [ %arrayinit.endOfInit.8, %ehcleanup63 ], [ %arrayinit.element26, %lpad28 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup63 ], [ %12, %lpad28 ]
-  %cleanup.isactive.5 = phi i1 [ %cleanup.isactive.4, %ehcleanup63 ], [ false, %lpad28 ]
+  %cleanup.isactive.7 = phi i1 [ %cleanup.isactive.8, %ehcleanup63 ], [ false, %lpad28 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp27) #11
   br label %ehcleanup65
 
 ehcleanup65:                                      ; preds = %ehcleanup64, %lpad24
-  %arrayinit.endOfInit.5 = phi ptr [ %arrayinit.endOfInit.4, %ehcleanup64 ], [ %arrayinit.element22, %lpad24 ]
+  %arrayinit.endOfInit.6 = phi ptr [ %arrayinit.endOfInit.7, %ehcleanup64 ], [ %arrayinit.element22, %lpad24 ]
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup64 ], [ %11, %lpad24 ]
-  %cleanup.isactive.6 = phi i1 [ %cleanup.isactive.5, %ehcleanup64 ], [ false, %lpad24 ]
+  %cleanup.isactive.6 = phi i1 [ %cleanup.isactive.7, %ehcleanup64 ], [ false, %lpad24 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23) #11
   br label %ehcleanup66
 
 ehcleanup66:                                      ; preds = %ehcleanup65, %lpad20
-  %arrayinit.endOfInit.6 = phi ptr [ %arrayinit.endOfInit.5, %ehcleanup65 ], [ %arrayinit.element18, %lpad20 ]
+  %arrayinit.endOfInit.5 = phi ptr [ %arrayinit.endOfInit.6, %ehcleanup65 ], [ %arrayinit.element18, %lpad20 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup65 ], [ %10, %lpad20 ]
-  %cleanup.isactive.7 = phi i1 [ %cleanup.isactive.6, %ehcleanup65 ], [ false, %lpad20 ]
+  %cleanup.isactive.5 = phi i1 [ %cleanup.isactive.6, %ehcleanup65 ], [ false, %lpad20 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19) #11
   br label %ehcleanup67
 
 ehcleanup67:                                      ; preds = %ehcleanup66, %lpad16
-  %arrayinit.endOfInit.7 = phi ptr [ %arrayinit.endOfInit.6, %ehcleanup66 ], [ %arrayinit.element14, %lpad16 ]
+  %arrayinit.endOfInit.4 = phi ptr [ %arrayinit.endOfInit.5, %ehcleanup66 ], [ %arrayinit.element14, %lpad16 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup66 ], [ %9, %lpad16 ]
-  %cleanup.isactive.8 = phi i1 [ %cleanup.isactive.7, %ehcleanup66 ], [ false, %lpad16 ]
+  %cleanup.isactive.4 = phi i1 [ %cleanup.isactive.5, %ehcleanup66 ], [ false, %lpad16 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp15) #11
   br label %ehcleanup68
 
 ehcleanup68:                                      ; preds = %ehcleanup67, %lpad12
-  %arrayinit.endOfInit.8 = phi ptr [ %arrayinit.endOfInit.7, %ehcleanup67 ], [ %arrayinit.element10, %lpad12 ]
+  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.4, %ehcleanup67 ], [ %arrayinit.element10, %lpad12 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup67 ], [ %8, %lpad12 ]
-  %cleanup.isactive.9 = phi i1 [ %cleanup.isactive.8, %ehcleanup67 ], [ false, %lpad12 ]
+  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.4, %ehcleanup67 ], [ false, %lpad12 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp11) #11
   br label %ehcleanup69
 
 ehcleanup69:                                      ; preds = %ehcleanup68, %lpad8
-  %arrayinit.endOfInit.9 = phi ptr [ %arrayinit.endOfInit.8, %ehcleanup68 ], [ %arrayinit.element6, %lpad8 ]
+  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.endOfInit.3, %ehcleanup68 ], [ %arrayinit.element6, %lpad8 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup68 ], [ %7, %lpad8 ]
-  %cleanup.isactive.10 = phi i1 [ %cleanup.isactive.9, %ehcleanup68 ], [ false, %lpad8 ]
+  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.3, %ehcleanup68 ], [ false, %lpad8 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #11
   br label %ehcleanup71
 
 ehcleanup71:                                      ; preds = %lpad4, %ehcleanup69
-  %arrayinit.endOfInit.10 = phi ptr [ %arrayinit.endOfInit.9, %ehcleanup69 ], [ %arrayinit.element, %lpad4 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.endOfInit.2, %ehcleanup69 ], [ %arrayinit.element, %lpad4 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup69 ], [ %6, %lpad4 ]
-  %cleanup.isactive.11 = phi i1 [ %cleanup.isactive.10, %ehcleanup69 ], [ false, %lpad4 ]
+  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.2, %ehcleanup69 ], [ false, %lpad4 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #11
-  %arraydestroy.isempty = icmp eq ptr %ref.tmp1, %arrayinit.endOfInit.10
-  %or.cond = select i1 %cleanup.isactive.11, i1 true, i1 %arraydestroy.isempty
+  %arraydestroy.isempty = icmp eq ptr %ref.tmp1, %arrayinit.endOfInit.1
+  %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond, label %cleanup.done, label %arraydestroy.body73
 
 arraydestroy.body73:                              ; preds = %ehcleanup71, %arraydestroy.body73
-  %arraydestroy.elementPast74 = phi ptr [ %arraydestroy.element75, %arraydestroy.body73 ], [ %arrayinit.endOfInit.10, %ehcleanup71 ]
+  %arraydestroy.elementPast74 = phi ptr [ %arraydestroy.element75, %arraydestroy.body73 ], [ %arrayinit.endOfInit.1, %ehcleanup71 ]
   %arraydestroy.element75 = getelementptr inbounds i8, ptr %arraydestroy.elementPast74, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element75) #11
   %arraydestroy.done76 = icmp eq ptr %arraydestroy.element75, %ref.tmp1

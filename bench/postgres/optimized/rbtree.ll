@@ -268,7 +268,7 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
   br i1 %39, label %.lr.ph52, label %rbt_insert_fixup.exit
 
 .lr.ph.i:                                         ; preds = %rbt_rotate_right.exit.i
-  %40 = getelementptr inbounds i8, ptr %.3.i, i64 24
+  %40 = getelementptr inbounds i8, ptr %.2.i, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = load i8, ptr %41, align 8
   %43 = icmp eq i8 %42, 1
@@ -277,7 +277,7 @@ define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %
 .lr.ph52:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %44 = phi ptr [ %41, %.lr.ph.i ], [ %37, %.lr.ph.i.preheader ]
   %45 = phi ptr [ %40, %.lr.ph.i ], [ %25, %.lr.ph.i.preheader ]
-  %.069.i51 = phi ptr [ %.3.i, %.lr.ph.i ], [ %22, %.lr.ph.i.preheader ]
+  %.069.i51 = phi ptr [ %.2.i, %.lr.ph.i ], [ %22, %.lr.ph.i.preheader ]
   %46 = getelementptr inbounds i8, ptr %44, i64 24
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
@@ -494,8 +494,8 @@ rbt_rotate_left.exit.i:                           ; preds = %81, %.rbt_rotate_le
 
 rbt_rotate_right.exit57.i:                        ; preds = %134, %.rbt_rotate_right.exit57_crit_edge.i, %116
   %135 = phi ptr [ %44, %116 ], [ %.pre.i, %.rbt_rotate_right.exit57_crit_edge.i ], [ %118, %134 ]
-  %.2.i = phi ptr [ %.069.i51, %116 ], [ @sentinel, %.rbt_rotate_right.exit57_crit_edge.i ], [ %44, %134 ]
-  %136 = getelementptr inbounds i8, ptr %.2.i, i64 24
+  %.3.i = phi ptr [ %.069.i51, %116 ], [ @sentinel, %.rbt_rotate_right.exit57_crit_edge.i ], [ %44, %134 ]
+  %136 = getelementptr inbounds i8, ptr %.3.i, i64 24
   store i8 0, ptr %135, align 8
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds i8, ptr %137, i64 24
@@ -552,9 +552,9 @@ rbt_rotate_right.exit57.i:                        ; preds = %134, %.rbt_rotate_r
   br label %rbt_rotate_right.exit.i
 
 rbt_rotate_right.exit.i:                          ; preds = %158, %157, %109, %105, %104, %56
-  %.3.i = phi ptr [ %62, %56 ], [ %115, %109 ], [ %.1.i, %104 ], [ %.1.i, %105 ], [ %.2.i, %157 ], [ %.2.i, %158 ]
+  %.2.i = phi ptr [ %62, %56 ], [ %115, %109 ], [ %.1.i, %104 ], [ %.1.i, %105 ], [ %.3.i, %157 ], [ %.3.i, %158 ]
   %159 = load ptr, ptr %0, align 8
-  %.not.i = icmp eq ptr %.3.i, %159
+  %.not.i = icmp eq ptr %.2.i, %159
   br i1 %.not.i, label %rbt_insert_fixup.exit, label %.lr.ph.i, !llvm.loop !11
 
 rbt_insert_fixup.exit:                            ; preds = %rbt_rotate_right.exit.i, %.lr.ph.i, %.lr.ph.i.preheader, %35
@@ -587,22 +587,22 @@ define dso_local void @rbt_delete(ptr nocapture noundef %0, ptr noundef %1) loca
   br i1 %12, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %9, %.preheader.i
-  %.0.i = phi ptr [ %14, %.preheader.i ], [ %11, %9 ]
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %.1.i = phi ptr [ %14, %.preheader.i ], [ %11, %9 ]
+  %13 = getelementptr inbounds i8, ptr %.1.i, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, @sentinel
   br i1 %.not.i, label %.loopexit50.i, label %.preheader.i, !llvm.loop !12
 
 .loopexit50.i:                                    ; preds = %.preheader.i, %5
-  %.1.ph.i = phi ptr [ %1, %5 ], [ %.0.i, %.preheader.i ]
-  %15 = getelementptr inbounds i8, ptr %.1.ph.i, i64 16
+  %.0.ph.i = phi ptr [ %1, %5 ], [ %.1.i, %.preheader.i ]
+  %15 = getelementptr inbounds i8, ptr %.0.ph.i, i64 16
   %16 = load ptr, ptr %15, align 8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit50.i, %9
-  %.148.i = phi ptr [ %.1.ph.i, %.loopexit50.i ], [ %1, %9 ]
+  %.048.i = phi ptr [ %.0.ph.i, %.loopexit50.i ], [ %1, %9 ]
   %.035.i = phi ptr [ %16, %.loopexit50.i ], [ %7, %9 ]
-  %17 = getelementptr inbounds i8, ptr %.148.i, i64 24
+  %17 = getelementptr inbounds i8, ptr %.048.i, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %.035.i, i64 24
   store ptr %18, ptr %19, align 8
@@ -612,7 +612,7 @@ define dso_local void @rbt_delete(ptr nocapture noundef %0, ptr noundef %1) loca
 20:                                               ; preds = %.loopexit.i
   %21 = getelementptr inbounds i8, ptr %18, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = icmp eq ptr %.148.i, %22
+  %23 = icmp eq ptr %.048.i, %22
   %24 = getelementptr inbounds i8, ptr %18, i64 16
   %spec.select.i = select i1 %23, ptr %21, ptr %24
   br label %25
@@ -620,20 +620,20 @@ define dso_local void @rbt_delete(ptr nocapture noundef %0, ptr noundef %1) loca
 25:                                               ; preds = %20, %.loopexit.i
   %.sink.i = phi ptr [ %0, %.loopexit.i ], [ %spec.select.i, %20 ]
   store ptr %.035.i, ptr %.sink.i, align 8
-  %.not44.i = icmp eq ptr %.148.i, %1
+  %.not44.i = icmp eq ptr %.048.i, %1
   br i1 %.not44.i, label %31, label %26
 
 26:                                               ; preds = %25
   %27 = getelementptr i8, ptr %0, i64 8
   %.val.i = load i64, ptr %27, align 8
   %28 = getelementptr i8, ptr %1, i64 32
-  %29 = getelementptr i8, ptr %.148.i, i64 32
+  %29 = getelementptr i8, ptr %.048.i, i64 32
   %30 = add i64 %.val.i, -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr readonly align 8 %29, i64 %30, i1 false)
   br label %31
 
 31:                                               ; preds = %26, %25
-  %32 = load i8, ptr %.148.i, align 8
+  %32 = load i8, ptr %.048.i, align 8
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %205
 
@@ -1077,7 +1077,7 @@ rbt_delete_fixup.exit.i:                          ; preds = %rbt_rotate_left.exi
 208:                                              ; preds = %205
   %209 = getelementptr inbounds i8, ptr %0, i64 48
   %210 = load ptr, ptr %209, align 8
-  tail call void %207(ptr noundef nonnull %.148.i, ptr noundef %210) #7
+  tail call void %207(ptr noundef nonnull %.048.i, ptr noundef %210) #7
   br label %rbt_delete_node.exit
 
 rbt_delete_node.exit:                             ; preds = %2, %205, %208

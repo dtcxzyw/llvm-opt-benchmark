@@ -597,13 +597,13 @@ _ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread: ; 
   br label %_ZN13MonitorLockerD2Ev.exit
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread, %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit27, %.split57.us, %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit24, %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit20, %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit
-  %.0 = phi i1 [ true, %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit ], [ true, %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit20 ], [ false, %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit24 ], [ true, %.split57.us ], [ false, %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread ], [ false, %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit27 ]
+  %.1 = phi i1 [ true, %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit ], [ true, %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit20 ], [ false, %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit24 ], [ true, %.split57.us ], [ false, %_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator.exit30.thread ], [ false, %_ZN14TaskTerminator18prepare_for_returnEP6Threadm.exit27 ]
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #8
   br label %151
 
 151:                                              ; preds = %_ZN13MonitorLockerD2Ev.exit, %5
-  %.1 = phi i1 [ true, %5 ], [ %.0, %_ZN13MonitorLockerD2Ev.exit ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %5 ], [ %.1, %_ZN13MonitorLockerD2Ev.exit ]
+  ret i1 %.0
 }
 
 declare void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, ptr noundef, i1 noundef zeroext) unnamed_addr #3

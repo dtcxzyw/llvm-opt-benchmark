@@ -1174,7 +1174,7 @@ define hidden noundef ptr @_ZN10SerialHeap17mem_allocate_workEmb(ptr noundef non
   %.039 = phi i32 [ 0, %3 ], [ %.140, %127 ]
   %.038 = phi i32 [ 1, %3 ], [ %128, %127 ]
   %.036 = phi i32 [ undef, %3 ], [ %.137, %127 ]
-  %.0 = phi ptr [ undef, %3 ], [ %.1, %127 ]
+  %.0 = phi ptr [ undef, %3 ], [ %.2, %127 ]
   %19 = load ptr, ptr %5, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 432
   %21 = load i64, ptr %20, align 8
@@ -1353,7 +1353,7 @@ _ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57: ; preds = %77, %104,
   %.140 = phi i32 [ %103, %_ZN13MutexUnlockerD2Ev.exit ], [ %.039, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.039, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %.039, %70 ], [ %.039, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ %.039, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ %.039, %104 ], [ %.039, %77 ]
   %.137 = phi i32 [ %.036, %_ZN13MutexUnlockerD2Ev.exit ], [ %109, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.036, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ %.036, %70 ], [ %.036, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ %.036, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ %.036, %104 ], [ %.036, %77 ]
   %.034 = phi i32 [ 4, %_ZN13MutexUnlockerD2Ev.exit ], [ 0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ 1, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ 1, %70 ], [ 1, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ 1, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ 1, %104 ], [ 1, %77 ]
-  %.1 = phi ptr [ %.0, %_ZN13MutexUnlockerD2Ev.exit ], [ %.0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.013.i, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ null, %70 ], [ %93, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ null, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ null, %104 ], [ %82, %77 ]
+  %.2 = phi ptr [ %.0, %_ZN13MutexUnlockerD2Ev.exit ], [ %.0, %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread ], [ %.013.i, %_ZN10SerialHeap18attempt_allocationEmbb.exit ], [ null, %70 ], [ %93, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit ], [ null, %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread ], [ null, %104 ], [ %82, %77 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %110
 
 110:                                              ; preds = %_ZN10SerialHeap24expand_heap_and_allocateEmb.exit.thread57
@@ -1412,8 +1412,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN10SerialHeap24ex
   br label %18, !llvm.loop !15
 
 129:                                              ; preds = %123, %25, %_ZN11MutexLockerD2Ev.exit
-  %.4 = phi ptr [ %.1, %_ZN11MutexLockerD2Ev.exit ], [ %124, %123 ], [ %29, %25 ]
-  ret ptr %.4
+  %.1 = phi ptr [ %.2, %_ZN11MutexLockerD2Ev.exit ], [ %124, %123 ], [ %29, %25 ]
+  ret ptr %.1
 
 130:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
   unreachable
@@ -7464,9 +7464,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br label %25
 
 25:                                               ; preds = %23, %16
-  %.1.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
+  %.027.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
   %.026.ph.i.i = phi i64 [ %.0917, %16 ], [ %24, %23 ]
-  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %27 = add i64 %.026.ph.i.i, %26
   %28 = icmp ult i64 %27, %3
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
@@ -7738,9 +7738,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %47
 
 47:                                               ; preds = %45, %38
-  %.1.ph.i.i.i.i = phi i64 [ %36, %38 ], [ %44, %45 ]
+  %.027.ph.i.i.i.i = phi i64 [ %36, %38 ], [ %44, %45 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %38 ], [ %46, %45 ]
-  %48 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %48 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %49 = add i64 %.026.ph.i.i.i.i, %48
   %50 = icmp ult i64 %49, %25
   br i1 %50, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc19YoungGenScanClosureEEEbPT_mm.exit
@@ -10184,9 +10184,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br label %25
 
 25:                                               ; preds = %23, %16
-  %.1.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
+  %.027.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
   %.026.ph.i.i = phi i64 [ %.0917, %16 ], [ %24, %23 ]
-  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %27 = add i64 %.026.ph.i.i, %26
   %28 = icmp ult i64 %27, %3
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
@@ -10589,9 +10589,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br label %25
 
 25:                                               ; preds = %23, %16
-  %.1.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
+  %.027.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
   %.026.ph.i.i = phi i64 [ %.0917, %16 ], [ %24, %23 ]
-  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %27 = add i64 %.026.ph.i.i, %26
   %28 = icmp ult i64 %27, %3
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread

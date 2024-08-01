@@ -1745,8 +1745,8 @@ if.end135:                                        ; preds = %if.then105, %if.the
   br label %return
 
 return:                                           ; preds = %_ZN7rocksdbeqERKNS_5SliceES2_.exit77, %if.else126, %if.else24, %if.then4, %if.then11, %if.end42, %if.end135, %if.end53, %if.then23, %if.end30, %_ZNK7rocksdb5Slice11starts_withERKS0_.exit86, %if.then7, %cleanup.thread, %cleanup, %_ZN7rocksdbeqERKNS_5SliceES2_.exit210, %if.else111, %if.end95, %lor.lhs.false, %if.end91, %if.then81, %if.then46, %if.then36, %if.then27
-  %retval.1 = phi i1 [ false, %cleanup ], [ false, %if.then27 ], [ false, %if.then36 ], [ false, %if.then46 ], [ false, %if.then81 ], [ false, %if.end91 ], [ false, %lor.lhs.false ], [ false, %if.end95 ], [ false, %if.else111 ], [ false, %_ZN7rocksdbeqERKNS_5SliceES2_.exit210 ], [ true, %cleanup.thread ], [ true, %if.then7 ], [ true, %_ZNK7rocksdb5Slice11starts_withERKS0_.exit86 ], [ true, %if.end30 ], [ true, %if.then23 ], [ true, %if.end53 ], [ true, %if.end135 ], [ true, %if.end42 ], [ true, %if.then11 ], [ true, %if.then4 ], [ true, %if.else24 ], [ false, %if.else126 ], [ true, %_ZN7rocksdbeqERKNS_5SliceES2_.exit77 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %cleanup ], [ false, %if.then27 ], [ false, %if.then36 ], [ false, %if.then46 ], [ false, %if.then81 ], [ false, %if.end91 ], [ false, %lor.lhs.false ], [ false, %if.end95 ], [ false, %if.else111 ], [ false, %_ZN7rocksdbeqERKNS_5SliceES2_.exit210 ], [ true, %cleanup.thread ], [ true, %if.then7 ], [ true, %_ZNK7rocksdb5Slice11starts_withERKS0_.exit86 ], [ true, %if.end30 ], [ true, %if.then23 ], [ true, %if.end53 ], [ true, %if.end135 ], [ true, %if.end42 ], [ true, %if.then11 ], [ true, %if.then4 ], [ true, %if.else24 ], [ false, %if.else126 ], [ true, %_ZN7rocksdbeqERKNS_5SliceES2_.exit77 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad65, %ehcleanup
   %.pn29 = phi { ptr, i32 } [ %16, %lpad65 ], [ %.pn, %ehcleanup ]

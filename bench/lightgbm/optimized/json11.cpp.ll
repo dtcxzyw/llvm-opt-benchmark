@@ -6764,7 +6764,7 @@ _ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIPKcEET_ONSt7__cxx11
   br label %191
 
 162:                                              ; preds = %157, %161
-  %.1 = phi i64 [ -1, %157 ], [ %152, %161 ]
+  %.2 = phi i64 [ -1, %157 ], [ %152, %161 ]
   %163 = load i64, ptr %23, align 8
   %164 = add i64 %163, 4
   store i64 %164, ptr %23, align 8
@@ -6844,7 +6844,7 @@ _ZN24json11_internal_lightgbm12_GLOBAL__N_110JsonParser4failIPKcEET_ONSt7__cxx11
   br label %192
 
 .backedge:                                        ; preds = %.invoke, %162
-  %.0.be = phi i64 [ %.1, %162 ], [ -1, %.invoke ]
+  %.0.be = phi i64 [ %.2, %162 ], [ -1, %.invoke ]
   %188 = load i64, ptr %23, align 8
   %189 = load i64, ptr %24, align 8
   %190 = icmp eq i64 %188, %189

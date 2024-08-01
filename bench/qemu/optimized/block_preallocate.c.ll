@@ -222,13 +222,13 @@ if.end9:                                          ; preds = %if.end4
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end4, %if.end9
-  %retval.0 = phi i32 [ 0, %if.end9 ], [ -22, %if.end4 ]
+  %retval.1 = phi i32 [ 0, %if.end9 ], [ -22, %if.end4 ]
   tail call void @bdrv_graph_rdunlock_main_loop() #6
   br label %return
 
 return:                                           ; preds = %do.end, %glib_autoptr_cleanup_GraphLockableMainloop.exit
-  %retval.1 = phi i32 [ %retval.0, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call2, %do.end ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %glib_autoptr_cleanup_GraphLockableMainloop.exit ], [ %call2, %do.end ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

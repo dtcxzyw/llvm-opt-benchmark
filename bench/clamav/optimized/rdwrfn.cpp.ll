@@ -316,7 +316,7 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
 18:                                               ; preds = %83, %3
   %.046 = phi ptr [ %1, %3 ], [ %70, %83 ]
   %.044 = phi i32 [ 0, %3 ], [ %69, %83 ]
-  %.042 = phi i32 [ 0, %3 ], [ %.143, %83 ]
+  %.042 = phi i32 [ 0, %3 ], [ %.2, %83 ]
   %.1 = phi i64 [ %spec.select, %3 ], [ %71, %83 ]
   %.not = icmp eq i64 %.1, 0
   br i1 %.not, label %88, label %19
@@ -396,12 +396,12 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   br label %65
 
 65:                                               ; preds = %28, %63, %56, %48, %23
-  %.143 = phi i32 [ %27, %23 ], [ %53, %48 ], [ %53, %63 ], [ %53, %56 ], [ %.042, %28 ]
-  %66 = sext i32 %.143 to i64
+  %.2 = phi i32 [ %27, %23 ], [ %53, %48 ], [ %53, %63 ], [ %53, %56 ], [ %.042, %28 ]
+  %66 = sext i32 %.2 to i64
   %67 = load i64, ptr %16, align 8
   %68 = add nsw i64 %67, %66
   store i64 %68, ptr %16, align 8
-  %69 = add nsw i32 %.143, %.044
+  %69 = add nsw i32 %.2, %.044
   %70 = getelementptr inbounds i8, ptr %.046, i64 %66
   %71 = sub i64 %.1, %66
   %72 = load i64, ptr %9, align 8
@@ -414,7 +414,7 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   br i1 %or.cond59, label %77, label %88
 
 77:                                               ; preds = %65
-  %78 = icmp eq i32 %.143, 0
+  %78 = icmp eq i32 %.2, 0
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %77
@@ -437,7 +437,7 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
 
 88:                                               ; preds = %65, %79, %18
   %.145 = phi i32 [ %69, %79 ], [ %69, %65 ], [ %.044, %18 ]
-  %.2 = phi i32 [ %.143, %79 ], [ %.143, %65 ], [ %.042, %18 ]
+  %.143 = phi i32 [ %.2, %79 ], [ %.2, %65 ], [ %.042, %18 ]
   %89 = load ptr, ptr %8, align 8
   %.not55 = icmp eq ptr %89, null
   br i1 %.not55, label %_ZN11ComprDataIO11ShowUnpReadEll.exit, label %90
@@ -485,7 +485,7 @@ define noundef i32 @_ZN11ComprDataIO7UnpReadEPhm(ptr noundef nonnull align 8 der
   br label %_ZN11ComprDataIO11ShowUnpReadEll.exit
 
 _ZN11ComprDataIO11ShowUnpReadEll.exit:            ; preds = %116, %113, %96, %90, %88
-  %.not56 = icmp eq i32 %.2, -1
+  %.not56 = icmp eq i32 %.143, -1
   br i1 %.not56, label %128, label %121
 
 121:                                              ; preds = %_ZN11ComprDataIO11ShowUnpReadEll.exit

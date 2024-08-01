@@ -237,16 +237,16 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   br i1 %.not, label %.preheader.i.preheader.i87, label %.preheader.i.preheader.i
 
 .preheader.i.preheader.i:                         ; preds = %2, %13
-  %.sroa.12.1.i = phi i8 [ %.sroa.12.2.i, %13 ], [ -1, %2 ]
-  %.sroa.7.1.i = phi i8 [ %.sroa.7.2.i, %13 ], [ -1, %2 ]
-  %.sroa.4.1.i = phi i8 [ %.sroa.4.2.i, %13 ], [ -1, %2 ]
-  %.sroa.0.1.i = phi i32 [ %.sroa.0.2.i, %13 ], [ 0, %2 ]
+  %.sroa.12.2.i = phi i8 [ %.sroa.12.3.i, %13 ], [ -1, %2 ]
+  %.sroa.7.2.i = phi i8 [ %.sroa.7.3.i, %13 ], [ -1, %2 ]
+  %.sroa.4.2.i = phi i8 [ %.sroa.4.3.i, %13 ], [ -1, %2 ]
+  %.sroa.0.2.i = phi i32 [ %.sroa.0.3.i, %13 ], [ 0, %2 ]
   %.021.idx23.i.i = phi i64 [ %.021.add.i.i, %13 ], [ 0, %2 ]
   %.021.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCodeL22FindBestFormatInfoRMQRERKSt6vectorIjSaIjEES5_.MASKED_PATTERNS, i64 %.021.idx23.i.i
   %3 = load i32, ptr %.021.ptr.i.i, align 4
   %4 = xor i32 %3, %0
   %5 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %4)
-  %6 = zext i8 %.sroa.7.1.i to i32
+  %6 = zext i8 %.sroa.7.2.i to i32
   %7 = icmp ult i32 %5, %6
   br i1 %7, label %8, label %13
 
@@ -258,25 +258,25 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   br label %13
 
 13:                                               ; preds = %8, %.preheader.i.preheader.i
-  %.sroa.12.2.i = phi i8 [ 0, %8 ], [ %.sroa.12.1.i, %.preheader.i.preheader.i ]
-  %.sroa.7.2.i = phi i8 [ %12, %8 ], [ %.sroa.7.1.i, %.preheader.i.preheader.i ]
-  %.sroa.4.2.i = phi i8 [ %11, %8 ], [ %.sroa.4.1.i, %.preheader.i.preheader.i ]
-  %.sroa.0.2.i = phi i32 [ 129714, %8 ], [ %.sroa.0.1.i, %.preheader.i.preheader.i ]
+  %.sroa.12.3.i = phi i8 [ 0, %8 ], [ %.sroa.12.2.i, %.preheader.i.preheader.i ]
+  %.sroa.7.3.i = phi i8 [ %12, %8 ], [ %.sroa.7.2.i, %.preheader.i.preheader.i ]
+  %.sroa.4.3.i = phi i8 [ %11, %8 ], [ %.sroa.4.2.i, %.preheader.i.preheader.i ]
+  %.sroa.0.3.i = phi i32 [ 129714, %8 ], [ %.sroa.0.2.i, %.preheader.i.preheader.i ]
   %.021.add.i.i = add nuw nsw i64 %.021.idx23.i.i, 4
   %.not.i.i = icmp eq i64 %.021.add.i.i, 256
   br i1 %.not.i.i, label %.preheader.i3.i.preheader, label %.preheader.i.preheader.i
 
 .preheader.i3.i.preheader:                        ; preds = %13, %24
-  %.sroa.12.5.i = phi i8 [ %.sroa.12.6.i, %24 ], [ %.sroa.12.2.i, %13 ]
-  %.sroa.7.5.i = phi i8 [ %.sroa.7.6.i, %24 ], [ %.sroa.7.2.i, %13 ]
-  %.sroa.4.5.i = phi i8 [ %.sroa.4.6.i, %24 ], [ %.sroa.4.2.i, %13 ]
-  %.sroa.0.5.i = phi i32 [ %.sroa.0.6.i, %24 ], [ %.sroa.0.2.i, %13 ]
+  %.sroa.12.6.i = phi i8 [ %.sroa.12.7.i, %24 ], [ %.sroa.12.3.i, %13 ]
+  %.sroa.7.6.i = phi i8 [ %.sroa.7.7.i, %24 ], [ %.sroa.7.3.i, %13 ]
+  %.sroa.4.6.i = phi i8 [ %.sroa.4.7.i, %24 ], [ %.sroa.4.3.i, %13 ]
+  %.sroa.0.6.i = phi i32 [ %.sroa.0.7.i, %24 ], [ %.sroa.0.3.i, %13 ]
   %.021.idx23.i5.i = phi i64 [ %.021.add.i7.i, %24 ], [ 0, %13 ]
   %.021.ptr.i6.i = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCodeL22FindBestFormatInfoRMQRERKSt6vectorIjSaIjEES5_.MASKED_PATTERNS_SUB, i64 %.021.idx23.i5.i
   %14 = load i32, ptr %.021.ptr.i6.i, align 4
   %15 = xor i32 %14, %1
   %16 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
-  %17 = zext i8 %.sroa.7.5.i to i32
+  %17 = zext i8 %.sroa.7.6.i to i32
   %18 = icmp ult i32 %16, %17
   br i1 %18, label %19, label %24
 
@@ -288,25 +288,25 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   br label %24
 
 24:                                               ; preds = %19, %.preheader.i3.i.preheader
-  %.sroa.12.6.i = phi i8 [ 0, %19 ], [ %.sroa.12.5.i, %.preheader.i3.i.preheader ]
-  %.sroa.7.6.i = phi i8 [ %23, %19 ], [ %.sroa.7.5.i, %.preheader.i3.i.preheader ]
-  %.sroa.4.6.i = phi i8 [ %22, %19 ], [ %.sroa.4.5.i, %.preheader.i3.i.preheader ]
-  %.sroa.0.6.i = phi i32 [ 133755, %19 ], [ %.sroa.0.5.i, %.preheader.i3.i.preheader ]
+  %.sroa.12.7.i = phi i8 [ 0, %19 ], [ %.sroa.12.6.i, %.preheader.i3.i.preheader ]
+  %.sroa.7.7.i = phi i8 [ %23, %19 ], [ %.sroa.7.6.i, %.preheader.i3.i.preheader ]
+  %.sroa.4.7.i = phi i8 [ %22, %19 ], [ %.sroa.4.6.i, %.preheader.i3.i.preheader ]
+  %.sroa.0.7.i = phi i32 [ 133755, %19 ], [ %.sroa.0.6.i, %.preheader.i3.i.preheader ]
   %.021.add.i7.i = add nuw nsw i64 %.021.idx23.i5.i, 4
   %.not.i8.i = icmp eq i64 %.021.add.i7.i, 256
   br i1 %.not.i8.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit31, label %.preheader.i3.i.preheader
 
 .preheader.i.preheader.i87:                       ; preds = %2, %35
-  %.sroa.12.1.i96 = phi i8 [ %.sroa.12.2.i102, %35 ], [ -1, %2 ]
-  %.sroa.7.1.i97 = phi i8 [ %.sroa.7.2.i103, %35 ], [ -1, %2 ]
-  %.sroa.4.1.i98 = phi i8 [ %.sroa.4.2.i104, %35 ], [ -1, %2 ]
-  %.sroa.0.1.i99 = phi i32 [ %.sroa.0.2.i105, %35 ], [ 0, %2 ]
+  %.sroa.12.2.i96 = phi i8 [ %.sroa.12.3.i102, %35 ], [ -1, %2 ]
+  %.sroa.7.2.i97 = phi i8 [ %.sroa.7.3.i103, %35 ], [ -1, %2 ]
+  %.sroa.4.2.i98 = phi i8 [ %.sroa.4.3.i104, %35 ], [ -1, %2 ]
+  %.sroa.0.2.i99 = phi i32 [ %.sroa.0.3.i105, %35 ], [ 0, %2 ]
   %.021.idx23.i.i100 = phi i64 [ %.021.add.i.i106, %35 ], [ 0, %2 ]
   %.021.ptr.i.i101 = getelementptr inbounds i8, ptr @__const._ZN5ZXing6QRCodeL22FindBestFormatInfoRMQRERKSt6vectorIjSaIjEES5_.MASKED_PATTERNS, i64 %.021.idx23.i.i100
   %25 = load i32, ptr %.021.ptr.i.i101, align 4
   %26 = xor i32 %25, %0
   %27 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %26)
-  %28 = zext i8 %.sroa.7.1.i97 to i32
+  %28 = zext i8 %.sroa.7.2.i97 to i32
   %29 = icmp ult i32 %27, %28
   br i1 %29, label %30, label %35
 
@@ -318,19 +318,19 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   br label %35
 
 35:                                               ; preds = %30, %.preheader.i.preheader.i87
-  %.sroa.12.2.i102 = phi i8 [ 0, %30 ], [ %.sroa.12.1.i96, %.preheader.i.preheader.i87 ]
-  %.sroa.7.2.i103 = phi i8 [ %34, %30 ], [ %.sroa.7.1.i97, %.preheader.i.preheader.i87 ]
-  %.sroa.4.2.i104 = phi i8 [ %33, %30 ], [ %.sroa.4.1.i98, %.preheader.i.preheader.i87 ]
-  %.sroa.0.2.i105 = phi i32 [ 129714, %30 ], [ %.sroa.0.1.i99, %.preheader.i.preheader.i87 ]
+  %.sroa.12.3.i102 = phi i8 [ 0, %30 ], [ %.sroa.12.2.i96, %.preheader.i.preheader.i87 ]
+  %.sroa.7.3.i103 = phi i8 [ %34, %30 ], [ %.sroa.7.2.i97, %.preheader.i.preheader.i87 ]
+  %.sroa.4.3.i104 = phi i8 [ %33, %30 ], [ %.sroa.4.2.i98, %.preheader.i.preheader.i87 ]
+  %.sroa.0.3.i105 = phi i32 [ 129714, %30 ], [ %.sroa.0.2.i99, %.preheader.i.preheader.i87 ]
   %.021.add.i.i106 = add nuw nsw i64 %.021.idx23.i.i100, 4
   %.not.i.i107 = icmp eq i64 %.021.add.i.i106, 256
   br i1 %.not.i.i107, label %_ZNSt6vectorIjSaIjEED2Ev.exit31, label %.preheader.i.preheader.i87
 
 _ZNSt6vectorIjSaIjEED2Ev.exit31:                  ; preds = %24, %35
-  %.sroa.8155.0 = phi i8 [ %.sroa.12.2.i102, %35 ], [ %.sroa.12.6.i, %24 ]
-  %.sroa.7.0 = phi i8 [ %.sroa.7.2.i103, %35 ], [ %.sroa.7.6.i, %24 ]
-  %.sroa.4.0 = phi i8 [ %.sroa.4.2.i104, %35 ], [ %.sroa.4.6.i, %24 ]
-  %.sroa.0148.0 = phi i32 [ %.sroa.0.2.i105, %35 ], [ %.sroa.0.6.i, %24 ]
+  %.sroa.8155.0 = phi i8 [ %.sroa.12.3.i102, %35 ], [ %.sroa.12.7.i, %24 ]
+  %.sroa.7.0 = phi i8 [ %.sroa.7.3.i103, %35 ], [ %.sroa.7.7.i, %24 ]
+  %.sroa.4.0 = phi i8 [ %.sroa.4.3.i104, %35 ], [ %.sroa.4.7.i, %24 ]
+  %.sroa.0148.0 = phi i32 [ %.sroa.0.3.i105, %35 ], [ %.sroa.0.7.i, %24 ]
   %36 = lshr i8 %.sroa.4.0, 4
   %37 = and i8 %36, 2
   %38 = zext nneg i8 %37 to i32

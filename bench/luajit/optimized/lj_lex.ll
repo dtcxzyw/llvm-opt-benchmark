@@ -1835,7 +1835,7 @@ if.end.i414:                                      ; preds = %if.then.i413
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.end.i414, %lex_next.exit312.i
-  %c5.0.i = phi i32 [ %shl.i, %lex_next.exit312.i ], [ %add.i, %if.end.i414 ]
+  %c5.1.i = phi i32 [ %shl.i, %lex_next.exit312.i ], [ %add.i, %if.end.i414 ]
   %196 = load ptr, ptr %p.i320, align 8
   %197 = load ptr, ptr %pe.i321, align 8
   %cmp.i290.i = icmp ult ptr %196, %197
@@ -1900,7 +1900,7 @@ lex_next.exit299.i:                               ; preds = %lex_more.exit297.i,
   %cond.i293.i = phi i32 [ %conv.i298.i, %cond.true.i295.i ], [ %retval.0.i290.i, %lex_more.exit297.i ]
   store i32 %cond.i293.i, ptr %c, align 8
   %and27.i = and i32 %cond.i293.i, 15
-  %add28.i = add nuw nsw i32 %and27.i, %c5.0.i
+  %add28.i = add nuw nsw i32 %and27.i, %c5.1.i
   %idxprom30.i = sext i32 %cond.i293.i to i64
   %arrayidx31.i = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @lj_char_bits, i64 1), i64 %idxprom30.i
   %208 = load i8, ptr %arrayidx31.i, align 1
@@ -2053,8 +2053,8 @@ lex_next.exit273.i:                               ; preds = %lex_more.exit346.i,
 
 do.body.i:                                        ; preds = %lex_next.exit260.i, %lex_next.exit273.i
   %233 = phi i32 [ %cond.i267.i, %lex_next.exit273.i ], [ %cond.i254.i, %lex_next.exit260.i ]
-  %c5.1.i = phi i32 [ 0, %lex_next.exit273.i ], [ %c5.2.i, %lex_next.exit260.i ]
-  %shl53.i = shl i32 %c5.1.i, 4
+  %c5.2.i = phi i32 [ 0, %lex_next.exit273.i ], [ %c5.3.i, %lex_next.exit260.i ]
+  %shl53.i = shl i32 %c5.2.i, 4
   %and55.i = and i32 %233, 15
   %or.i410 = or disjoint i32 %shl53.i, %and55.i
   %idxprom57.i = sext i32 %233 to i64
@@ -2075,8 +2075,8 @@ if.end70.i:                                       ; preds = %if.then62.i
   br label %if.end72.i
 
 if.end72.i:                                       ; preds = %if.end70.i, %do.body.i
-  %c5.2.i = phi i32 [ %or.i410, %do.body.i ], [ %add71.i, %if.end70.i ]
-  %cmp73.i = icmp sgt i32 %c5.2.i, 1114111
+  %c5.3.i = phi i32 [ %or.i410, %do.body.i ], [ %add71.i, %if.end70.i ]
+  %cmp73.i = icmp sgt i32 %c5.3.i, 1114111
   br i1 %cmp73.i, label %err_xesc.i, label %do.cond.i
 
 do.cond.i:                                        ; preds = %if.end72.i
@@ -2147,15 +2147,15 @@ lex_next.exit260.i:                               ; preds = %lex_more.exit370.i,
   br i1 %cmp78.not.i, label %do.end.i, label %do.body.i, !llvm.loop !7
 
 do.end.i:                                         ; preds = %lex_next.exit260.i
-  %cmp80.i = icmp slt i32 %c5.2.i, 2048
+  %cmp80.i = icmp slt i32 %c5.3.i, 2048
   br i1 %cmp80.i, label %if.then82.i, label %if.else.i
 
 if.then82.i:                                      ; preds = %do.end.i
-  %cmp83.i = icmp slt i32 %c5.2.i, 128
+  %cmp83.i = icmp slt i32 %c5.3.i, 128
   br i1 %cmp83.i, label %sw.epilog.i, label %if.end86.i
 
 if.end86.i:                                       ; preds = %if.then82.i
-  %shr.i = lshr i32 %c5.2.i, 6
+  %shr.i = lshr i32 %c5.3.i, 6
   %247 = load ptr, ptr %e.i609.i, align 8
   %248 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i562.i = ptrtoint ptr %247 to i64
@@ -2177,11 +2177,11 @@ lj_buf_more.exit573.i:                            ; preds = %if.then.i571.i, %if
   br label %if.end109.i
 
 if.else.i:                                        ; preds = %do.end.i
-  %cmp88.i = icmp ugt i32 %c5.2.i, 65535
+  %cmp88.i = icmp ugt i32 %c5.3.i, 65535
   br i1 %cmp88.i, label %if.then90.i, label %if.else96.i
 
 if.then90.i:                                      ; preds = %if.else.i
-  %shr91.i = lshr i32 %c5.2.i, 18
+  %shr91.i = lshr i32 %c5.3.i, 18
   %251 = load ptr, ptr %e.i609.i, align 8
   %252 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i546.i = ptrtoint ptr %251 to i64
@@ -2202,7 +2202,7 @@ lj_buf_more.exit557.i:                            ; preds = %if.then.i555.i, %if
   %incdec.ptr.i421.i = getelementptr inbounds i8, ptr %retval.i542.0.i, i64 1
   store i8 %conv.i420.i, ptr %retval.i542.0.i, align 1
   store ptr %incdec.ptr.i421.i, ptr %sb, align 8
-  %shr93.i = lshr i32 %c5.2.i, 12
+  %shr93.i = lshr i32 %c5.3.i, 12
   %255 = load ptr, ptr %e.i609.i, align 8
   %sub.ptr.lhs.cast.i530.i = ptrtoint ptr %255 to i64
   %sub.ptr.rhs.cast.i531.i = ptrtoint ptr %incdec.ptr.i421.i to i64
@@ -2224,12 +2224,12 @@ lj_buf_more.exit541.i:                            ; preds = %if.then.i539.i, %lj
   br label %if.end105.i
 
 if.else96.i:                                      ; preds = %if.else.i
-  %259 = and i32 %c5.2.i, 63488
+  %259 = and i32 %c5.3.i, 63488
   %or.cond.i411 = icmp eq i32 %259, 55296
   br i1 %or.cond.i411, label %err_xesc.i, label %if.end102.i
 
 if.end102.i:                                      ; preds = %if.else96.i
-  %shr103.i = lshr i32 %c5.2.i, 12
+  %shr103.i = lshr i32 %c5.3.i, 12
   %260 = load ptr, ptr %e.i609.i, align 8
   %261 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i514.i = ptrtoint ptr %260 to i64
@@ -2254,7 +2254,7 @@ if.end105.i:                                      ; preds = %lj_buf_more.exit525
   %retval.i510.0.pn.i = phi ptr [ %retval.i510.0.i, %lj_buf_more.exit525.i ], [ %retval.i526.0.i, %lj_buf_more.exit541.i ]
   %storemerge.i = getelementptr inbounds i8, ptr %retval.i510.0.pn.i, i64 1
   store ptr %storemerge.i, ptr %sb, align 8
-  %shr106.i = lshr i32 %c5.2.i, 6
+  %shr106.i = lshr i32 %c5.3.i, 6
   %264 = load ptr, ptr %e.i609.i, align 8
   %sub.ptr.lhs.cast.i498.i = ptrtoint ptr %264 to i64
   %sub.ptr.rhs.cast.i499.i = ptrtoint ptr %storemerge.i to i64
@@ -2279,7 +2279,7 @@ if.end109.i:                                      ; preds = %lj_buf_more.exit509
   %retval.i494.0.pn.i = phi ptr [ %retval.i494.0.i, %lj_buf_more.exit509.i ], [ %retval.i558.0.i, %lj_buf_more.exit573.i ]
   %storemerge221.i = getelementptr inbounds i8, ptr %retval.i494.0.pn.i, i64 1
   store ptr %storemerge221.i, ptr %sb, align 8
-  %and110.i = and i32 %c5.2.i, 63
+  %and110.i = and i32 %c5.3.i, 63
   %or111.i = or disjoint i32 %and110.i, 128
   br label %sw.epilog.i
 
@@ -2695,7 +2695,7 @@ lex_next.exit195.i:                               ; preds = %lex_more.exit490.i,
   br label %if.end169.i
 
 if.end169.i:                                      ; preds = %lex_next.exit195.i, %lex_next.exit208.i, %lex_next.exit221.i
-  %c5.3.i = phi i32 [ %add162.i, %lex_next.exit195.i ], [ %add151.i, %lex_next.exit208.i ], [ %sub.i, %lex_next.exit221.i ]
+  %c5.4.i = phi i32 [ %add162.i, %lex_next.exit195.i ], [ %add151.i, %lex_next.exit208.i ], [ %sub.i, %lex_next.exit221.i ]
   %342 = load ptr, ptr %e.i609.i, align 8
   %343 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i466.i = ptrtoint ptr %342 to i64
@@ -2711,14 +2711,14 @@ if.then.i475.i:                                   ; preds = %if.end169.i
 
 lj_buf_more.exit477.i:                            ; preds = %if.then.i475.i, %if.end169.i
   %retval.i462.0.i = phi ptr [ %call.i476.i, %if.then.i475.i ], [ %343, %if.end169.i ]
-  %conv.i450.i = trunc i32 %c5.3.i to i8
+  %conv.i450.i = trunc i32 %c5.4.i to i8
   %incdec.ptr.i451.i = getelementptr inbounds i8, ptr %retval.i462.0.i, i64 1
   store i8 %conv.i450.i, ptr %retval.i462.0.i, align 1
   store ptr %incdec.ptr.i451.i, ptr %sb, align 8
   br label %while.condthread-pre-split.i, !llvm.loop !8
 
 sw.epilog.i:                                      ; preds = %if.end109.i, %if.then82.i, %if.end43.i, %lex_next.exit299.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %lex_next.exit325.i, %lex_next.exit325.i, %lex_next.exit325.i
-  %c5.4.i = phi i32 [ %cond.i319.i, %lex_next.exit325.i ], [ %cond.i319.i, %lex_next.exit325.i ], [ %cond.i319.i, %lex_next.exit325.i ], [ %c5.2.i, %if.then82.i ], [ %or111.i, %if.end109.i ], [ %add28.i, %lex_next.exit299.i ], [ %add44.i, %if.end43.i ], [ 11, %sw.bb13.i ], [ 9, %sw.bb12.i ], [ 13, %sw.bb11.i ], [ 10, %sw.bb10.i ], [ 12, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 7, %sw.bb7.i ]
+  %c5.0.i = phi i32 [ %cond.i319.i, %lex_next.exit325.i ], [ %cond.i319.i, %lex_next.exit325.i ], [ %cond.i319.i, %lex_next.exit325.i ], [ %c5.3.i, %if.then82.i ], [ %or111.i, %if.end109.i ], [ %add28.i, %lex_next.exit299.i ], [ %add44.i, %if.end43.i ], [ 11, %sw.bb13.i ], [ 9, %sw.bb12.i ], [ 13, %sw.bb11.i ], [ 10, %sw.bb10.i ], [ 12, %sw.bb9.i ], [ 8, %sw.bb8.i ], [ 7, %sw.bb7.i ]
   %345 = load ptr, ptr %e.i609.i, align 8
   %346 = load ptr, ptr %sb, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %345 to i64
@@ -2734,7 +2734,7 @@ if.then.i.i:                                      ; preds = %sw.epilog.i
 
 lj_buf_more.exit.i:                               ; preds = %if.then.i.i, %sw.epilog.i
   %retval.i.0.i = phi ptr [ %call.i461.i, %if.then.i.i ], [ %346, %sw.epilog.i ]
-  %conv.i456.i = trunc i32 %c5.4.i to i8
+  %conv.i456.i = trunc i32 %c5.0.i to i8
   %incdec.ptr.i457.i = getelementptr inbounds i8, ptr %retval.i.0.i, i64 1
   store i8 %conv.i456.i, ptr %retval.i.0.i, align 1
   store ptr %incdec.ptr.i457.i, ptr %sb, align 8

@@ -161,7 +161,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef re
 45:                                               ; preds = %.lr.ph105, %68
   %46 = phi i16 [ %43, %.lr.ph105 ], [ %70, %68 ]
   %.1103 = phi ptr [ %42, %.lr.ph105 ], [ %69, %68 ]
-  %.068102 = phi i16 [ -1, %.lr.ph105 ], [ %.169, %68 ]
+  %.068102 = phi i16 [ -1, %.lr.ph105 ], [ %.270, %68 ]
   %.3101 = phi i32 [ -1, %.lr.ph105 ], [ %.4, %68 ]
   %47 = sext i16 %46 to i32
   %48 = icmp eq i16 %46, %44
@@ -204,19 +204,19 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef re
 
 68:                                               ; preds = %66, %63, %45, %49
   %.4 = phi i32 [ %.3101, %45 ], [ %.3101, %49 ], [ %65, %63 ], [ -1, %66 ]
-  %.169 = phi i16 [ %.068102, %45 ], [ %.068102, %49 ], [ %46, %63 ], [ %46, %66 ]
+  %.270 = phi i16 [ %.068102, %45 ], [ %.068102, %49 ], [ %46, %63 ], [ %46, %66 ]
   %69 = getelementptr i8, ptr %.1103, i64 8
   %70 = load i16, ptr %69, align 4
   %.not81 = icmp eq i16 %70, -1
   br i1 %.not81, label %._crit_edge106, label %45, !llvm.loop !7
 
 ._crit_edge106:                                   ; preds = %68
-  %71 = icmp eq i16 %.169, -1
+  %71 = icmp eq i16 %.270, -1
   br i1 %71, label %.thread.loopexit120, label %72
 
 72:                                               ; preds = %._crit_edge106
   %73 = load ptr, ptr %36, align 8
-  %74 = sext i16 %.169 to i64
+  %74 = sext i16 %.270 to i64
   %75 = getelementptr %struct.colordesc, ptr %73, i64 %74
   %76 = load i32, ptr %75, align 8
   %.not83 = icmp eq i32 %76, 1
@@ -247,7 +247,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef re
 
 91:                                               ; preds = %89, %84
   %.in = phi i16 [ %88, %84 ], [ %90, %89 ]
-  %.not85 = icmp eq i16 %.in, %.169
+  %.not85 = icmp eq i16 %.in, %.270
   br i1 %.not85, label %92, label %.thread.loopexit120
 
 92:                                               ; preds = %91
@@ -279,7 +279,7 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef re
 99:                                               ; preds = %.lr.ph112, %110
   %100 = phi i16 [ %96, %.lr.ph112 ], [ %112, %110 ]
   %.2111 = phi ptr [ %97, %.lr.ph112 ], [ %111, %110 ]
-  %.5110 = phi i32 [ -1, %.lr.ph112 ], [ %.6, %110 ]
+  %.5110 = phi i32 [ -1, %.lr.ph112 ], [ %.7, %110 ]
   %101 = icmp eq i16 %100, %98
   br i1 %101, label %105, label %102
 
@@ -299,17 +299,17 @@ define internal fastcc range(i32 -2, 2) i32 @findprefix(ptr nocapture noundef re
   br i1 %.not88, label %110, label %._crit_edge113
 
 110:                                              ; preds = %105, %109
-  %.6 = phi i32 [ %.5110, %109 ], [ %108, %105 ]
+  %.7 = phi i32 [ %.5110, %109 ], [ %108, %105 ]
   %111 = getelementptr i8, ptr %.2111, i64 8
   %112 = load i16, ptr %111, align 4
   %.not87 = icmp eq i16 %112, -1
   br i1 %.not87, label %._crit_edge113, label %99, !llvm.loop !9
 
 ._crit_edge113:                                   ; preds = %110, %109, %102, %.thread
-  %.7 = phi i32 [ -1, %.thread ], [ -1, %102 ], [ -1, %109 ], [ %.6, %110 ]
+  %.6 = phi i32 [ -1, %.thread ], [ -1, %102 ], [ -1, %109 ], [ %.7, %110 ]
   %113 = getelementptr inbounds i8, ptr %0, i64 16
   %114 = load i32, ptr %113, align 8
-  %115 = icmp eq i32 %.7, %114
+  %115 = icmp eq i32 %.6, %114
   br i1 %115, label %.loopexit, label %116
 
 116:                                              ; preds = %._crit_edge113

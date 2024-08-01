@@ -56,7 +56,7 @@ entry:
   br i1 %cmp, label %cond.true, label %if.end32
 
 cond.true:                                        ; preds = %entry
-  %path_data_n.0.sroa.gep35 = getelementptr inbounds i8, ptr %path_data, i64 16
+  %path_data_n.1.sroa.gep35 = getelementptr inbounds i8, ptr %path_data, i64 16
   %add.ptr = getelementptr inbounds i8, ptr %uri, i64 5
   %call4 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %add.ptr, ptr noundef nonnull @.str.1, i64 noundef 2) #8
   %cmp5 = icmp eq i32 %call4, 0
@@ -87,18 +87,18 @@ if.else:                                          ; preds = %lor.lhs.false
   br label %return
 
 if.end23:                                         ; preds = %cond.true, %if.then20
-  %path_data_n.0.sroa.phi = phi ptr [ %path_data, %if.then20 ], [ %path_data_n.0.sroa.gep35, %cond.true ]
-  %path_data_n.0 = phi i64 [ 1, %if.then20 ], [ 2, %cond.true ]
+  %path_data_n.1.sroa.phi = phi ptr [ %path_data, %if.then20 ], [ %path_data_n.1.sroa.gep35, %cond.true ]
+  %path_data_n.1 = phi i64 [ 1, %if.then20 ], [ 2, %cond.true ]
   %p.0 = phi ptr [ %add.ptr21, %if.then20 ], [ %add.ptr, %cond.true ]
-  %check_absolute25 = getelementptr inbounds i8, ptr %path_data_n.0.sroa.phi, i64 8
+  %check_absolute25 = getelementptr inbounds i8, ptr %path_data_n.1.sroa.phi, i64 8
   %bf.load26 = load i8, ptr %check_absolute25, align 8
   %bf.set28 = or i8 %bf.load26, 1
   store i8 %bf.set28, ptr %check_absolute25, align 8
-  store ptr %p.0, ptr %path_data_n.0.sroa.phi, align 16
+  store ptr %p.0, ptr %path_data_n.1.sroa.phi, align 16
   br label %if.end32
 
 if.end32:                                         ; preds = %entry, %if.end23
-  %path_data_n.1 = phi i64 [ %path_data_n.0, %if.end23 ], [ 1, %entry ]
+  %path_data_n.0 = phi i64 [ %path_data_n.1, %if.end23 ], [ 1, %entry ]
   br label %for.body
 
 for.body:                                         ; preds = %if.end32, %for.inc
@@ -140,7 +140,7 @@ for.inc:                                          ; preds = %if.end48, %if.then5
   %path.1 = phi ptr [ null, %if.then54 ], [ %.pre, %if.end48 ]
   %inc62 = add nuw nsw i64 %i.038, 1
   %cmp33 = icmp eq ptr %path.1, null
-  %cmp34 = icmp ult i64 %inc62, %path_data_n.1
+  %cmp34 = icmp ult i64 %inc62, %path_data_n.0
   %4 = select i1 %cmp33, i1 %cmp34, i1 false
   br i1 %4, label %for.body, label %for.end, !llvm.loop !4
 

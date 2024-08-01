@@ -113,12 +113,12 @@ define range(i32 -2147483648, 1) i32 @file_dup3(ptr noundef %0, ptr noundef %1, 
   br label %60
 
 60:                                               ; preds = %58, %37
-  %.1 = phi i32 [ %38, %37 ], [ %59, %58 ]
-  %61 = icmp slt i32 %.1, 0
+  %.0 = phi i32 [ %38, %37 ], [ %59, %58 ]
+  %61 = icmp slt i32 %.0, 0
   br i1 %61, label %.thread57, label %.thread54
 
 .thread57:                                        ; preds = %45, %54, %60
-  %.159 = phi i32 [ %.1, %60 ], [ %46, %45 ], [ %52, %54 ]
+  %.059 = phi i32 [ %.0, %60 ], [ %46, %45 ], [ %52, %54 ]
   call void @inode_release(ptr noundef nonnull %8) #3
   br label %63
 
@@ -128,7 +128,7 @@ define range(i32 -2147483648, 1) i32 @file_dup3(ptr noundef %0, ptr noundef %1, 
   br label %63
 
 63:                                               ; preds = %15, %13, %11, %3, %6, %.thread54, %.thread57
-  %.037 = phi i32 [ %.159, %.thread57 ], [ 0, %.thread54 ], [ -9, %6 ], [ -9, %3 ], [ -22, %11 ], [ 0, %13 ], [ %16, %15 ]
+  %.037 = phi i32 [ %.059, %.thread57 ], [ 0, %.thread54 ], [ -9, %6 ], [ -9, %3 ], [ -22, %11 ], [ 0, %13 ], [ %16, %15 ]
   ret i32 %.037
 }
 

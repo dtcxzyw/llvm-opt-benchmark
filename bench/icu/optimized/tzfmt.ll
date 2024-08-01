@@ -494,9 +494,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1043,10 +1043,10 @@ invoke.cont88:                                    ; preds = %invoke.cont83
           to label %if.end90 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp
 
 if.end90:                                         ; preds = %invoke.cont88, %invoke.cont61
-  %gmtPattern.1 = phi ptr [ %spec.select, %invoke.cont88 ], [ null, %invoke.cont61 ]
-  %hourFormats.1 = phi ptr [ %spec.select45, %invoke.cont88 ], [ null, %invoke.cont61 ]
-  %cmp91 = icmp eq ptr %gmtPattern.1, null
-  %spec.store.select = select i1 %cmp91, ptr @_ZN6icu_75L19DEFAULT_GMT_PATTERNE, ptr %gmtPattern.1
+  %gmtPattern.0 = phi ptr [ %spec.select, %invoke.cont88 ], [ null, %invoke.cont61 ]
+  %hourFormats.0 = phi ptr [ %spec.select45, %invoke.cont88 ], [ null, %invoke.cont61 ]
+  %cmp91 = icmp eq ptr %gmtPattern.0, null
+  %spec.store.select = select i1 %cmp91, ptr @_ZN6icu_75L19DEFAULT_GMT_PATTERNE, ptr %gmtPattern.0
   store ptr %spec.store.select, ptr %agg.tmp94, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i8 noundef signext 1, ptr noundef nonnull %agg.tmp94, i32 noundef -1)
           to label %invoke.cont97 unwind label %lpad96
@@ -1059,11 +1059,11 @@ invoke.cont99:                                    ; preds = %invoke.cont97
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #19
   %16 = load ptr, ptr %agg.tmp94, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %16) #19, !srcloc !4
-  %tobool102.not = icmp eq ptr %hourFormats.1, null
+  %tobool102.not = icmp eq ptr %hourFormats.0, null
   br i1 %tobool102.not, label %if.then157, label %if.then103
 
 if.then103:                                       ; preds = %invoke.cont99
-  %call105 = invoke ptr @u_strchr_75(ptr noundef nonnull %hourFormats.1, i16 noundef zeroext 59)
+  %call105 = invoke ptr @u_strchr_75(ptr noundef nonnull %hourFormats.0, i16 noundef zeroext 59)
           to label %invoke.cont104 unwind label %lpad14.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont104:                                   ; preds = %if.then103
@@ -1072,9 +1072,9 @@ invoke.cont104:                                   ; preds = %if.then103
 
 if.then107:                                       ; preds = %invoke.cont104
   store i32 0, ptr %tmpStatus, align 4
-  store ptr %hourFormats.1, ptr %agg.tmp110, align 8
+  store ptr %hourFormats.0, ptr %agg.tmp110, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %call105 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %hourFormats.1 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %hourFormats.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 1
   %conv112 = trunc i64 %sub.ptr.div to i32
@@ -3354,13 +3354,13 @@ delete.notnull:                                   ; preds = %invoke.cont93, %inv
   br label %cleanup
 
 cleanup:                                          ; preds = %sw.epilog, %delete.notnull
-  %retval.0 = phi ptr [ null, %delete.notnull ], [ %call1, %sw.epilog ]
+  %retval.1 = phi ptr [ null, %delete.notnull ], [ %call1, %sw.epilog ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %text) #19
   br label %return
 
 return:                                           ; preds = %entry, %cleanup, %if.then2
-  %retval.1 = phi ptr [ null, %if.then2 ], [ %retval.0, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then2 ], [ %retval.1, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad, %lpad4.body
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad4.body ], [ %1, %lpad ]
@@ -4479,8 +4479,8 @@ if.end37:                                         ; preds = %if.then18, %invoke.
   %errorIndex.i537 = phi ptr [ %errorIndex.i, %switch.early.test ], [ %errorIndex.i536, %invoke.cont ], [ %errorIndex.i536, %if.then18 ]
   %index.i216535 = phi ptr [ %index.i216, %switch.early.test ], [ %index.i216534, %invoke.cont ], [ %index.i216534, %if.then18 ]
   %cmp5532 = phi i1 [ %cmp5, %switch.early.test ], [ %cmp5533, %invoke.cont ], [ %cmp5533, %if.then18 ]
-  %parsedPos.1 = phi i32 [ -1, %switch.early.test ], [ -1, %invoke.cont ], [ %7, %if.then18 ]
-  %parsedOffset.1 = phi i32 [ 2147483647, %switch.early.test ], [ 2147483647, %invoke.cont ], [ %call14, %if.then18 ]
+  %parsedPos.0 = phi i32 [ -1, %switch.early.test ], [ -1, %invoke.cont ], [ %7, %if.then18 ]
+  %parsedOffset.0 = phi i32 [ 2147483647, %switch.early.test ], [ 2147483647, %invoke.cont ], [ %call14, %if.then18 ]
   %evaluated.0 = phi i32 [ 0, %switch.early.test ], [ 96, %invoke.cont ], [ 96, %if.then18 ]
   store i32 0, ptr %status, align 4
   invoke void @_ZN6icu_7513UnicodeStringC1EPDsii(ptr noundef nonnull align 8 dereferenceable(64) %tzID, ptr noundef nonnull %tzIDBuf, i32 noundef 0, i32 noundef 32)
@@ -4712,7 +4712,7 @@ if.end120:                                        ; preds = %invoke.cont113
   br i1 %cmp.i285.not, label %if.end156, label %for.cond
 
 for.cond:                                         ; preds = %if.end120, %invoke.cont132
-  %parsedPos.2 = phi i32 [ %spec.select, %invoke.cont132 ], [ %parsedPos.1, %if.end120 ]
+  %parsedPos.5 = phi i32 [ %spec.select, %invoke.cont132 ], [ %parsedPos.0, %if.end120 ]
   %matchIdx.0 = phi i32 [ %spec.select206, %invoke.cont132 ], [ -1, %if.end120 ]
   %matchPos.0 = phi i32 [ %add, %invoke.cont132 ], [ -1, %if.end120 ]
   %i.0 = phi i32 [ %inc, %invoke.cont132 ], [ 0, %if.end120 ]
@@ -4729,8 +4729,8 @@ for.body:                                         ; preds = %invoke.cont127
 
 invoke.cont132:                                   ; preds = %for.body
   %add = add nsw i32 %call133, %0
-  %cmp134 = icmp sgt i32 %add, %parsedPos.2
-  %spec.select = call i32 @llvm.smax.i32(i32 %add, i32 %parsedPos.2)
+  %cmp134 = icmp sgt i32 %add, %parsedPos.5
+  %spec.select = call i32 @llvm.smax.i32(i32 %add, i32 %parsedPos.5)
   %spec.select206 = select i1 %cmp134, i32 %i.0, i32 %matchIdx.0
   %inc = add nuw nsw i32 %i.0, 1
   br label %for.cond, !llvm.loop !16
@@ -4761,7 +4761,7 @@ invoke.cont151:                                   ; preds = %if.end147
           to label %cleanup226 unwind label %lpad114.loopexit.split-lp
 
 if.end156:                                        ; preds = %for.end, %if.end120
-  %parsedPos.4 = phi i32 [ %parsedPos.1, %if.end120 ], [ %parsedPos.2, %for.end ]
+  %parsedPos.4 = phi i32 [ %parsedPos.0, %if.end120 ], [ %parsedPos.5, %for.end ]
   %or.cond7 = and i1 %cmp39, %cmp5532
   br i1 %or.cond7, label %if.then160, label %cleanup226
 
@@ -4814,7 +4814,7 @@ if.end178:                                        ; preds = %invoke.cont171
   br i1 %cmp.i293.not, label %cleanup226, label %for.cond186
 
 for.cond186:                                      ; preds = %if.end178, %invoke.cont195
-  %parsedPos.5 = phi i32 [ %spec.select207, %invoke.cont195 ], [ %parsedPos.4, %if.end178 ]
+  %parsedPos.10 = phi i32 [ %spec.select207, %invoke.cont195 ], [ %parsedPos.4, %if.end178 ]
   %matchIdx183.0 = phi i32 [ %spec.select208, %invoke.cont195 ], [ -1, %if.end178 ]
   %matchPos184.0 = phi i32 [ %add197, %invoke.cont195 ], [ -1, %if.end178 ]
   %i185.0 = phi i32 [ %inc202, %invoke.cont195 ], [ 0, %if.end178 ]
@@ -4831,8 +4831,8 @@ for.body192:                                      ; preds = %invoke.cont189
 
 invoke.cont195:                                   ; preds = %for.body192
   %add197 = add nsw i32 %call196, %0
-  %cmp198 = icmp sgt i32 %add197, %parsedPos.5
-  %spec.select207 = call i32 @llvm.smax.i32(i32 %add197, i32 %parsedPos.5)
+  %cmp198 = icmp sgt i32 %add197, %parsedPos.10
+  %spec.select207 = call i32 @llvm.smax.i32(i32 %add197, i32 %parsedPos.10)
   %spec.select208 = select i1 %cmp198, i32 %i185.0, i32 %matchIdx183.0
   %inc202 = add nuw nsw i32 %i185.0, 1
   br label %for.cond186, !llvm.loop !17
@@ -4864,8 +4864,8 @@ invoke.cont218:                                   ; preds = %if.end214
 
 cleanup:                                          ; preds = %for.end203, %invoke.cont218, %if.then176
   %cond1 = phi i1 [ false, %if.then176 ], [ false, %invoke.cont218 ], [ true, %for.end203 ]
-  %parsedPos.8 = phi i32 [ %parsedPos.4, %if.then176 ], [ %parsedPos.5, %invoke.cont218 ], [ %parsedPos.5, %for.end203 ]
-  %retval.0 = phi ptr [ null, %if.then176 ], [ %call221, %invoke.cont218 ], [ undef, %for.end203 ]
+  %parsedPos.8 = phi i32 [ %parsedPos.4, %if.then176 ], [ %parsedPos.10, %invoke.cont218 ], [ %parsedPos.10, %for.end203 ]
+  %retval.5 = phi ptr [ null, %if.then176 ], [ %call221, %invoke.cont218 ], [ undef, %for.end203 ]
   %isnull.i296 = icmp eq ptr %call170, null
   br i1 %isnull.i296, label %cleanup226, label %delete.notnull.i297
 
@@ -4878,8 +4878,8 @@ delete.notnull.i297:                              ; preds = %cleanup
 
 cleanup226:                                       ; preds = %if.end178, %delete.notnull.i297, %cleanup, %if.end156, %invoke.cont161, %invoke.cont151, %if.then118
   %cond = phi i1 [ false, %if.then118 ], [ false, %invoke.cont151 ], [ true, %invoke.cont161 ], [ true, %if.end156 ], [ %cond1, %cleanup ], [ %cond1, %delete.notnull.i297 ], [ true, %if.end178 ]
-  %parsedPos.10 = phi i32 [ %parsedPos.1, %if.then118 ], [ %parsedPos.2, %invoke.cont151 ], [ %parsedPos.4, %invoke.cont161 ], [ %parsedPos.4, %if.end156 ], [ %parsedPos.8, %cleanup ], [ %parsedPos.8, %delete.notnull.i297 ], [ %parsedPos.4, %if.end178 ]
-  %retval.2 = phi ptr [ null, %if.then118 ], [ %call154, %invoke.cont151 ], [ undef, %invoke.cont161 ], [ undef, %if.end156 ], [ %retval.0, %cleanup ], [ %retval.0, %delete.notnull.i297 ], [ undef, %if.end178 ]
+  %parsedPos.3 = phi i32 [ %parsedPos.0, %if.then118 ], [ %parsedPos.5, %invoke.cont151 ], [ %parsedPos.4, %invoke.cont161 ], [ %parsedPos.4, %if.end156 ], [ %parsedPos.8, %cleanup ], [ %parsedPos.8, %delete.notnull.i297 ], [ %parsedPos.4, %if.end178 ]
+  %retval.3 = phi ptr [ null, %if.then118 ], [ %call154, %invoke.cont151 ], [ undef, %invoke.cont161 ], [ undef, %if.end156 ], [ %retval.5, %cleanup ], [ %retval.5, %delete.notnull.i297 ], [ undef, %if.end178 ]
   %isnull.i301 = icmp eq ptr %call112, null
   br i1 %isnull.i301, label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit305, label %delete.notnull.i302
 
@@ -5028,22 +5028,22 @@ if.then295.invoke:                                ; preds = %if.end251, %if.then
           to label %cleanup669 unwind label %lpad41
 
 sw.epilog302:                                     ; preds = %invoke.cont38, %invoke.cont290, %invoke.cont275, %invoke.cont260, %if.end246, %sw.bb90, %invoke.cont78, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit305, %if.end72, %if.end55
-  %parsedPos.11 = phi i32 [ %parsedPos.1, %invoke.cont38 ], [ %parsedPos.1, %invoke.cont290 ], [ %parsedPos.1, %invoke.cont275 ], [ %parsedPos.1, %invoke.cont260 ], [ %parsedPos.1, %if.end246 ], [ %parsedPos.10, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit305 ], [ %parsedPos.1, %sw.bb90 ], [ %parsedPos.1, %invoke.cont78 ], [ %parsedPos.1, %if.end72 ], [ %parsedPos.1, %if.end55 ]
+  %parsedPos.2 = phi i32 [ %parsedPos.0, %invoke.cont38 ], [ %parsedPos.0, %invoke.cont290 ], [ %parsedPos.0, %invoke.cont275 ], [ %parsedPos.0, %invoke.cont260 ], [ %parsedPos.0, %if.end246 ], [ %parsedPos.3, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit305 ], [ %parsedPos.0, %sw.bb90 ], [ %parsedPos.0, %invoke.cont78 ], [ %parsedPos.0, %if.end72 ], [ %parsedPos.0, %if.end55 ]
   %evaluated.1 = phi i32 [ %evaluated.0, %invoke.cont38 ], [ %evaluated.0, %invoke.cont290 ], [ %evaluated.0, %invoke.cont275 ], [ %evaluated.0, %invoke.cont260 ], [ %evaluated.0, %if.end246 ], [ %evaluated.0, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit305 ], [ %evaluated.0, %sw.bb90 ], [ %evaluated.0, %invoke.cont78 ], [ %or74, %if.end72 ], [ %or57, %if.end55 ]
-  %retval.3 = phi ptr [ undef, %invoke.cont38 ], [ undef, %invoke.cont290 ], [ undef, %invoke.cont275 ], [ undef, %invoke.cont260 ], [ undef, %if.end246 ], [ %retval.2, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit305 ], [ undef, %sw.bb90 ], [ undef, %invoke.cont78 ], [ undef, %if.end72 ], [ undef, %if.end55 ]
+  %retval.1 = phi ptr [ undef, %invoke.cont38 ], [ undef, %invoke.cont290 ], [ undef, %invoke.cont275 ], [ undef, %invoke.cont260 ], [ undef, %if.end246 ], [ %retval.3, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit305 ], [ undef, %sw.bb90 ], [ undef, %invoke.cont78 ], [ undef, %if.end72 ], [ undef, %if.end55 ]
   %idxprom = zext i32 %style to i64
   %arrayidx = getelementptr inbounds [20 x i16], ptr @_ZN6icu_75L17STYLE_PARSE_FLAGSE, i64 0, i64 %idxprom
   %55 = load i16, ptr %arrayidx, align 2
   %conv303583 = zext i16 %55 to i32
   %or304 = or i32 %evaluated.1, %conv303583
-  %cmp305 = icmp sgt i32 %parsedPos.11, %0
+  %cmp305 = icmp sgt i32 %parsedPos.2, %0
   br i1 %cmp305, label %if.then306, label %if.end310
 
 if.then306:                                       ; preds = %sw.epilog302
-  store i32 %parsedPos.11, ptr %index.i, align 8
+  store i32 %parsedPos.2, ptr %index.i, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i339)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i340)
-  %cmp.i341 = icmp eq i32 %parsedOffset.1, 0
+  %cmp.i341 = icmp eq i32 %parsedOffset.0, 0
   br i1 %cmp.i341, label %if.then.i344, label %if.end.i342
 
 if.then.i344:                                     ; preds = %if.then306
@@ -5079,7 +5079,7 @@ ehcleanup.i346:                                   ; preds = %lpad2.i350, %lpad.i
   br label %ehcleanup670
 
 if.end.i342:                                      ; preds = %if.then306
-  %call4.i355 = invoke noundef ptr @_ZN6icu_758ZoneMeta20createCustomTimeZoneEi(i32 noundef %parsedOffset.1)
+  %call4.i355 = invoke noundef ptr @_ZN6icu_758ZoneMeta20createCustomTimeZoneEi(i32 noundef %parsedOffset.0)
           to label %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit356 unwind label %lpad41
 
 _ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit356: ; preds = %if.end.i342, %invoke.cont3.i351
@@ -5093,7 +5093,7 @@ if.end310:                                        ; preds = %sw.epilog302
           to label %invoke.cont312 unwind label %lpad41
 
 invoke.cont312:                                   ; preds = %if.end310
-  %cmp313 = icmp sge i32 %parsedPos.11, %cond.i
+  %cmp313 = icmp sge i32 %parsedPos.2, %cond.i
   %60 = and i32 %conv303583, 384
   %or.cond.not = icmp eq i32 %60, 384
   %or.cond = select i1 %cmp313, i1 true, i1 %or.cond.not
@@ -5122,7 +5122,7 @@ lpad321:                                          ; preds = %if.then410.invoke, 
   br label %ehcleanup668
 
 if.end342:                                        ; preds = %if.then330
-  %cmp345 = icmp slt i32 %parsedPos.11, %62
+  %cmp345 = icmp slt i32 %parsedPos.2, %62
   br i1 %cmp345, label %if.then346, label %if.end352
 
 if.then346:                                       ; preds = %if.end342
@@ -5134,8 +5134,8 @@ invoke.cont347:                                   ; preds = %if.then346
   br label %if.end352
 
 if.end352:                                        ; preds = %if.then320, %invoke.cont347, %if.end342, %invoke.cont312
-  %parsedPos.12 = phi i32 [ %65, %invoke.cont347 ], [ %parsedPos.11, %if.end342 ], [ %parsedPos.11, %if.then320 ], [ %parsedPos.11, %invoke.cont312 ]
-  %parsedOffset.2 = phi i32 [ %call326, %invoke.cont347 ], [ %parsedOffset.1, %if.end342 ], [ %parsedOffset.1, %if.then320 ], [ %parsedOffset.1, %invoke.cont312 ]
+  %parsedPos.12 = phi i32 [ %65, %invoke.cont347 ], [ %parsedPos.2, %if.end342 ], [ %parsedPos.2, %if.then320 ], [ %parsedPos.2, %invoke.cont312 ]
+  %parsedOffset.2 = phi i32 [ %call326, %invoke.cont347 ], [ %parsedOffset.0, %if.end342 ], [ %parsedOffset.0, %if.then320 ], [ %parsedOffset.0, %invoke.cont312 ]
   %cmp353 = icmp slt i32 %parsedPos.12, %cond.i
   %and356 = and i32 %or304, 32
   %cmp357 = icmp eq i32 %and356, 0
@@ -5327,8 +5327,8 @@ if.end445:                                        ; preds = %invoke.cont438
   br i1 %cmp.i406.not, label %if.end475, label %for.cond452
 
 for.cond452:                                      ; preds = %if.end445, %for.inc472
-  %specificMatchIdx.0 = phi i32 [ %specificMatchIdx.1, %for.inc472 ], [ -1, %if.end445 ]
-  %matchPos446.0 = phi i32 [ %matchPos446.1, %for.inc472 ], [ -1, %if.end445 ]
+  %specificMatchIdx.1 = phi i32 [ %specificMatchIdx.2, %for.inc472 ], [ -1, %if.end445 ]
+  %matchPos446.1 = phi i32 [ %matchPos446.2, %for.inc472 ], [ -1, %if.end445 ]
   %i451.0 = phi i32 [ %inc473, %for.inc472 ], [ 0, %if.end445 ]
   %call456 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %call437)
           to label %invoke.cont455 unwind label %lpad439.loopexit
@@ -5343,7 +5343,7 @@ for.body458:                                      ; preds = %invoke.cont455
 
 invoke.cont461:                                   ; preds = %for.body458
   %add463 = add nsw i32 %call462, %0
-  %cmp464 = icmp sgt i32 %add463, %matchPos446.0
+  %cmp464 = icmp sgt i32 %add463, %matchPos446.1
   br i1 %cmp464, label %if.then465, label %for.inc472
 
 if.then465:                                       ; preds = %invoke.cont461
@@ -5355,23 +5355,23 @@ invoke.cont468:                                   ; preds = %if.then465
   br label %for.inc472
 
 for.inc472:                                       ; preds = %invoke.cont461, %invoke.cont468
-  %specificMatchIdx.1 = phi i32 [ %i451.0, %invoke.cont468 ], [ %specificMatchIdx.0, %invoke.cont461 ]
-  %matchPos446.1 = phi i32 [ %add470, %invoke.cont468 ], [ %matchPos446.0, %invoke.cont461 ]
+  %specificMatchIdx.2 = phi i32 [ %i451.0, %invoke.cont468 ], [ %specificMatchIdx.1, %invoke.cont461 ]
+  %matchPos446.2 = phi i32 [ %add470, %invoke.cont468 ], [ %matchPos446.1, %invoke.cont461 ]
   %inc473 = add nuw nsw i32 %i451.0, 1
   br label %for.cond452, !llvm.loop !18
 
 if.end475:                                        ; preds = %invoke.cont455, %if.end445
-  %specificMatchIdx.2 = phi i32 [ -1, %if.end445 ], [ %specificMatchIdx.0, %invoke.cont455 ]
-  %matchPos446.2 = phi i32 [ -1, %if.end445 ], [ %matchPos446.0, %invoke.cont455 ]
-  %cmp476 = icmp slt i32 %parsedPos.14, %matchPos446.2
+  %specificMatchIdx.0 = phi i32 [ -1, %if.end445 ], [ %specificMatchIdx.1, %invoke.cont455 ]
+  %matchPos446.0 = phi i32 [ -1, %if.end445 ], [ %matchPos446.1, %invoke.cont455 ]
+  %cmp476 = icmp slt i32 %parsedPos.14, %matchPos446.0
   br i1 %cmp476, label %if.then477, label %cleanup489
 
 if.then477:                                       ; preds = %if.end475
-  %call481 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat13getTimeZoneIDEPKNS_13TimeZoneNames19MatchInfoCollectionEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef %call437, i32 noundef %specificMatchIdx.2, ptr noundef nonnull align 8 dereferenceable(64) %parsedID)
+  %call481 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat13getTimeZoneIDEPKNS_13TimeZoneNames19MatchInfoCollectionEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef %call437, i32 noundef %specificMatchIdx.0, ptr noundef nonnull align 8 dereferenceable(64) %parsedID)
           to label %invoke.cont480 unwind label %lpad439.loopexit.split-lp
 
 invoke.cont480:                                   ; preds = %if.then477
-  %call485 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection13getNameTypeAtEi(ptr noundef nonnull align 8 dereferenceable(16) %call437, i32 noundef %specificMatchIdx.2)
+  %call485 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection13getNameTypeAtEi(ptr noundef nonnull align 8 dereferenceable(16) %call437, i32 noundef %specificMatchIdx.0)
           to label %invoke.cont484 unwind label %lpad439.loopexit.split-lp
 
 invoke.cont484:                                   ; preds = %invoke.cont480
@@ -5379,10 +5379,10 @@ invoke.cont484:                                   ; preds = %invoke.cont480
   br label %cleanup489
 
 cleanup489:                                       ; preds = %if.end475, %invoke.cont484, %if.then443
-  %parsedPos.16 = phi i32 [ %parsedPos.14, %if.then443 ], [ %matchPos446.2, %invoke.cont484 ], [ %parsedPos.14, %if.end475 ]
-  %parsedOffset.6 = phi i32 [ %parsedOffset.4, %if.then443 ], [ 2147483647, %invoke.cont484 ], [ %parsedOffset.4, %if.end475 ]
-  %parsedTimeType.4 = phi i32 [ 0, %if.then443 ], [ %call487, %invoke.cont484 ], [ 0, %if.end475 ]
-  %retval.4 = phi ptr [ null, %if.then443 ], [ %retval.3, %invoke.cont484 ], [ %retval.3, %if.end475 ]
+  %parsedPos.17 = phi i32 [ %parsedPos.14, %if.then443 ], [ %matchPos446.0, %invoke.cont484 ], [ %parsedPos.14, %if.end475 ]
+  %parsedOffset.7 = phi i32 [ %parsedOffset.4, %if.then443 ], [ 2147483647, %invoke.cont484 ], [ %parsedOffset.4, %if.end475 ]
+  %parsedTimeType.5 = phi i32 [ 0, %if.then443 ], [ %call487, %invoke.cont484 ], [ 0, %if.end475 ]
+  %retval.8 = phi ptr [ null, %if.then443 ], [ %retval.1, %invoke.cont484 ], [ %retval.1, %if.end475 ]
   %isnull.i408 = icmp eq ptr %call437, null
   br i1 %isnull.i408, label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412, label %delete.notnull.i409
 
@@ -5397,11 +5397,11 @@ _ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412: 
   br i1 %cmp.i398, label %if.end493, label %cleanup667
 
 if.end493:                                        ; preds = %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412, %if.then429
-  %parsedPos.17 = phi i32 [ %parsedPos.16, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412 ], [ %parsedPos.14, %if.then429 ]
-  %parsedOffset.7 = phi i32 [ %parsedOffset.6, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412 ], [ %parsedOffset.4, %if.then429 ]
-  %parsedTimeType.5 = phi i32 [ %parsedTimeType.4, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412 ], [ 0, %if.then429 ]
-  %retval.5 = phi ptr [ %retval.4, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412 ], [ %retval.3, %if.then429 ]
-  %cmp496 = icmp slt i32 %parsedPos.17, %cond.i
+  %parsedPos.16 = phi i32 [ %parsedPos.17, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412 ], [ %parsedPos.14, %if.then429 ]
+  %parsedOffset.6 = phi i32 [ %parsedOffset.7, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412 ], [ %parsedOffset.4, %if.then429 ]
+  %parsedTimeType.4 = phi i32 [ %parsedTimeType.5, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412 ], [ 0, %if.then429 ]
+  %retval.7 = phi ptr [ %retval.8, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412 ], [ %retval.1, %if.then429 ]
+  %cmp496 = icmp slt i32 %parsedPos.16, %cond.i
   %or.cond211 = and i1 %cmp39, %cmp496
   %and499 = and i32 %conv303583, 16
   %cmp500 = icmp eq i32 %and499, 0
@@ -5498,8 +5498,8 @@ if.end521:                                        ; preds = %invoke.cont514
   br i1 %cmp.i434.not, label %if.end551, label %for.cond528
 
 for.cond528:                                      ; preds = %if.end521, %for.inc548
-  %tzdbNameMatchIdx.0 = phi i32 [ %tzdbNameMatchIdx.1, %for.inc548 ], [ -1, %if.end521 ]
-  %matchPos522.0 = phi i32 [ %matchPos522.1, %for.inc548 ], [ -1, %if.end521 ]
+  %tzdbNameMatchIdx.1 = phi i32 [ %tzdbNameMatchIdx.2, %for.inc548 ], [ -1, %if.end521 ]
+  %matchPos522.1 = phi i32 [ %matchPos522.2, %for.inc548 ], [ -1, %if.end521 ]
   %i527.0 = phi i32 [ %inc549, %for.inc548 ], [ 0, %if.end521 ]
   %call532 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %call513)
           to label %invoke.cont531 unwind label %lpad515.loopexit
@@ -5514,7 +5514,7 @@ for.body534:                                      ; preds = %invoke.cont531
 
 invoke.cont537:                                   ; preds = %for.body534
   %add539 = add nsw i32 %call538, %0
-  %cmp540 = icmp sgt i32 %add539, %matchPos522.0
+  %cmp540 = icmp sgt i32 %add539, %matchPos522.1
   br i1 %cmp540, label %if.then541, label %for.inc548
 
 if.then541:                                       ; preds = %invoke.cont537
@@ -5526,23 +5526,23 @@ invoke.cont544:                                   ; preds = %if.then541
   br label %for.inc548
 
 for.inc548:                                       ; preds = %invoke.cont537, %invoke.cont544
-  %tzdbNameMatchIdx.1 = phi i32 [ %i527.0, %invoke.cont544 ], [ %tzdbNameMatchIdx.0, %invoke.cont537 ]
-  %matchPos522.1 = phi i32 [ %add546, %invoke.cont544 ], [ %matchPos522.0, %invoke.cont537 ]
+  %tzdbNameMatchIdx.2 = phi i32 [ %i527.0, %invoke.cont544 ], [ %tzdbNameMatchIdx.1, %invoke.cont537 ]
+  %matchPos522.2 = phi i32 [ %add546, %invoke.cont544 ], [ %matchPos522.1, %invoke.cont537 ]
   %inc549 = add nuw nsw i32 %i527.0, 1
   br label %for.cond528, !llvm.loop !19
 
 if.end551:                                        ; preds = %invoke.cont531, %if.end521
-  %tzdbNameMatchIdx.2 = phi i32 [ -1, %if.end521 ], [ %tzdbNameMatchIdx.0, %invoke.cont531 ]
-  %matchPos522.2 = phi i32 [ -1, %if.end521 ], [ %matchPos522.0, %invoke.cont531 ]
-  %cmp552 = icmp slt i32 %parsedPos.17, %matchPos522.2
+  %tzdbNameMatchIdx.0 = phi i32 [ -1, %if.end521 ], [ %tzdbNameMatchIdx.1, %invoke.cont531 ]
+  %matchPos522.0 = phi i32 [ -1, %if.end521 ], [ %matchPos522.1, %invoke.cont531 ]
+  %cmp552 = icmp slt i32 %parsedPos.16, %matchPos522.0
   br i1 %cmp552, label %if.then553, label %cleanup565
 
 if.then553:                                       ; preds = %if.end551
-  %call557 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat13getTimeZoneIDEPKNS_13TimeZoneNames19MatchInfoCollectionEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef %call513, i32 noundef %tzdbNameMatchIdx.2, ptr noundef nonnull align 8 dereferenceable(64) %parsedID)
+  %call557 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat13getTimeZoneIDEPKNS_13TimeZoneNames19MatchInfoCollectionEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef %call513, i32 noundef %tzdbNameMatchIdx.0, ptr noundef nonnull align 8 dereferenceable(64) %parsedID)
           to label %invoke.cont556 unwind label %lpad515.loopexit.split-lp
 
 invoke.cont556:                                   ; preds = %if.then553
-  %call561 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection13getNameTypeAtEi(ptr noundef nonnull align 8 dereferenceable(16) %call513, i32 noundef %tzdbNameMatchIdx.2)
+  %call561 = invoke noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection13getNameTypeAtEi(ptr noundef nonnull align 8 dereferenceable(16) %call513, i32 noundef %tzdbNameMatchIdx.0)
           to label %invoke.cont560 unwind label %lpad515.loopexit.split-lp
 
 invoke.cont560:                                   ; preds = %invoke.cont556
@@ -5550,10 +5550,10 @@ invoke.cont560:                                   ; preds = %invoke.cont556
   br label %cleanup565
 
 cleanup565:                                       ; preds = %if.end551, %invoke.cont560, %if.then519
-  %parsedPos.19 = phi i32 [ %parsedPos.17, %if.then519 ], [ %matchPos522.2, %invoke.cont560 ], [ %parsedPos.17, %if.end551 ]
-  %parsedOffset.9 = phi i32 [ %parsedOffset.7, %if.then519 ], [ 2147483647, %invoke.cont560 ], [ %parsedOffset.7, %if.end551 ]
-  %parsedTimeType.7 = phi i32 [ %parsedTimeType.5, %if.then519 ], [ %call563, %invoke.cont560 ], [ %parsedTimeType.5, %if.end551 ]
-  %retval.6 = phi ptr [ null, %if.then519 ], [ %retval.5, %invoke.cont560 ], [ %retval.5, %if.end551 ]
+  %parsedPos.20 = phi i32 [ %parsedPos.16, %if.then519 ], [ %matchPos522.0, %invoke.cont560 ], [ %parsedPos.16, %if.end551 ]
+  %parsedOffset.10 = phi i32 [ %parsedOffset.6, %if.then519 ], [ 2147483647, %invoke.cont560 ], [ %parsedOffset.6, %if.end551 ]
+  %parsedTimeType.8 = phi i32 [ %parsedTimeType.4, %if.then519 ], [ %call563, %invoke.cont560 ], [ %parsedTimeType.4, %if.end551 ]
+  %retval.9 = phi ptr [ null, %if.then519 ], [ %retval.7, %invoke.cont560 ], [ %retval.7, %if.end551 ]
   %isnull.i436 = icmp eq ptr %call513, null
   br i1 %isnull.i436, label %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit440, label %delete.notnull.i437
 
@@ -5568,10 +5568,10 @@ _ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit440: 
   br i1 %cmp.i426, label %if.end570, label %cleanup667
 
 if.end570:                                        ; preds = %invoke.cont503, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit440, %if.end493
-  %parsedPos.20 = phi i32 [ %parsedPos.19, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit440 ], [ %parsedPos.17, %invoke.cont503 ], [ %parsedPos.17, %if.end493 ]
-  %parsedOffset.10 = phi i32 [ %parsedOffset.9, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit440 ], [ %parsedOffset.7, %invoke.cont503 ], [ %parsedOffset.7, %if.end493 ]
-  %parsedTimeType.8 = phi i32 [ %parsedTimeType.7, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit440 ], [ %parsedTimeType.5, %invoke.cont503 ], [ %parsedTimeType.5, %if.end493 ]
-  %cmp571 = icmp slt i32 %parsedPos.20, %cond.i
+  %parsedPos.19 = phi i32 [ %parsedPos.20, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit440 ], [ %parsedPos.16, %invoke.cont503 ], [ %parsedPos.16, %if.end493 ]
+  %parsedOffset.9 = phi i32 [ %parsedOffset.10, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit440 ], [ %parsedOffset.6, %invoke.cont503 ], [ %parsedOffset.6, %if.end493 ]
+  %parsedTimeType.7 = phi i32 [ %parsedTimeType.8, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit440 ], [ %parsedTimeType.4, %invoke.cont503 ], [ %parsedTimeType.4, %if.end493 ]
+  %cmp571 = icmp slt i32 %parsedPos.19, %cond.i
   br i1 %cmp571, label %if.then572, label %if.end599
 
 if.then572:                                       ; preds = %if.end570
@@ -5629,7 +5629,7 @@ if.end589:                                        ; preds = %if.end583
 
 land.lhs.true591:                                 ; preds = %if.end589
   %add592 = add nsw i32 %call582, %0
-  %cmp593 = icmp slt i32 %parsedPos.20, %add592
+  %cmp593 = icmp slt i32 %parsedPos.19, %add592
   br i1 %cmp593, label %if.then594, label %if.end599
 
 if.then594:                                       ; preds = %land.lhs.true591
@@ -5641,10 +5641,10 @@ invoke.cont596:                                   ; preds = %if.then594
   br label %if.end599
 
 if.end599:                                        ; preds = %if.end589, %land.lhs.true591, %invoke.cont596, %if.end570
-  %parsedPos.21 = phi i32 [ %add592, %invoke.cont596 ], [ %parsedPos.20, %land.lhs.true591 ], [ %parsedPos.20, %if.end589 ], [ %parsedPos.20, %if.end570 ]
-  %parsedOffset.11 = phi i32 [ 2147483647, %invoke.cont596 ], [ %parsedOffset.10, %land.lhs.true591 ], [ %parsedOffset.10, %if.end589 ], [ %parsedOffset.10, %if.end570 ]
-  %parsedTimeType.9 = phi i32 [ %97, %invoke.cont596 ], [ %parsedTimeType.8, %land.lhs.true591 ], [ %parsedTimeType.8, %if.end589 ], [ %parsedTimeType.8, %if.end570 ]
-  %cmp600 = icmp slt i32 %parsedPos.21, %cond.i
+  %parsedPos.22 = phi i32 [ %add592, %invoke.cont596 ], [ %parsedPos.19, %land.lhs.true591 ], [ %parsedPos.19, %if.end589 ], [ %parsedPos.19, %if.end570 ]
+  %parsedOffset.12 = phi i32 [ 2147483647, %invoke.cont596 ], [ %parsedOffset.9, %land.lhs.true591 ], [ %parsedOffset.9, %if.end589 ], [ %parsedOffset.9, %if.end570 ]
+  %parsedTimeType.10 = phi i32 [ %97, %invoke.cont596 ], [ %parsedTimeType.7, %land.lhs.true591 ], [ %parsedTimeType.7, %if.end589 ], [ %parsedTimeType.7, %if.end570 ]
+  %cmp600 = icmp slt i32 %parsedPos.22, %cond.i
   %and603 = and i32 %conv303583, 512
   %cmp604 = icmp eq i32 %and603, 0
   %or.cond213 = select i1 %cmp600, i1 %cmp604, i1 false
@@ -5663,7 +5663,7 @@ invoke.cont608:                                   ; preds = %if.then605
 
 land.lhs.true613:                                 ; preds = %invoke.cont608
   %99 = load i32, ptr %index.i216535, align 8
-  %cmp616 = icmp slt i32 %parsedPos.21, %99
+  %cmp616 = icmp slt i32 %parsedPos.22, %99
   br i1 %cmp616, label %if.then617, label %if.end623
 
 if.then617:                                       ; preds = %land.lhs.true613
@@ -5671,10 +5671,10 @@ if.then617:                                       ; preds = %land.lhs.true613
           to label %if.end623 unwind label %lpad321
 
 if.end623:                                        ; preds = %if.then617, %invoke.cont608, %land.lhs.true613, %if.end599
-  %parsedPos.22 = phi i32 [ %parsedPos.21, %land.lhs.true613 ], [ %parsedPos.21, %invoke.cont608 ], [ %parsedPos.21, %if.end599 ], [ %99, %if.then617 ]
-  %parsedOffset.12 = phi i32 [ %parsedOffset.11, %land.lhs.true613 ], [ %parsedOffset.11, %invoke.cont608 ], [ %parsedOffset.11, %if.end599 ], [ 2147483647, %if.then617 ]
-  %parsedTimeType.10 = phi i32 [ %parsedTimeType.9, %land.lhs.true613 ], [ %parsedTimeType.9, %invoke.cont608 ], [ %parsedTimeType.9, %if.end599 ], [ 0, %if.then617 ]
-  %cmp624 = icmp slt i32 %parsedPos.22, %cond.i
+  %parsedPos.23 = phi i32 [ %parsedPos.22, %land.lhs.true613 ], [ %parsedPos.22, %invoke.cont608 ], [ %parsedPos.22, %if.end599 ], [ %99, %if.then617 ]
+  %parsedOffset.13 = phi i32 [ %parsedOffset.12, %land.lhs.true613 ], [ %parsedOffset.12, %invoke.cont608 ], [ %parsedOffset.12, %if.end599 ], [ 2147483647, %if.then617 ]
+  %parsedTimeType.11 = phi i32 [ %parsedTimeType.10, %land.lhs.true613 ], [ %parsedTimeType.10, %invoke.cont608 ], [ %parsedTimeType.10, %if.end599 ], [ 0, %if.then617 ]
+  %cmp624 = icmp slt i32 %parsedPos.23, %cond.i
   %or.cond214 = select i1 %cmp624, i1 %cmp604, i1 false
   br i1 %or.cond214, label %if.then629, label %if.end648
 
@@ -5691,7 +5691,7 @@ invoke.cont632:                                   ; preds = %if.then629
 
 land.lhs.true637:                                 ; preds = %invoke.cont632
   %101 = load i32, ptr %index.i216535, align 8
-  %cmp640 = icmp slt i32 %parsedPos.22, %101
+  %cmp640 = icmp slt i32 %parsedPos.23, %101
   br i1 %cmp640, label %if.then641, label %if.end648
 
 if.then641:                                       ; preds = %land.lhs.true637
@@ -5699,10 +5699,10 @@ if.then641:                                       ; preds = %land.lhs.true637
           to label %if.end648 unwind label %lpad321
 
 if.end648:                                        ; preds = %if.then641, %if.end623, %land.lhs.true637, %invoke.cont632, %if.end426
-  %parsedPos.23 = phi i32 [ %parsedPos.22, %land.lhs.true637 ], [ %parsedPos.22, %invoke.cont632 ], [ %parsedPos.22, %if.end623 ], [ %parsedPos.14, %if.end426 ], [ %101, %if.then641 ]
-  %parsedOffset.13 = phi i32 [ %parsedOffset.12, %land.lhs.true637 ], [ %parsedOffset.12, %invoke.cont632 ], [ %parsedOffset.12, %if.end623 ], [ %parsedOffset.4, %if.end426 ], [ 2147483647, %if.then641 ]
-  %parsedTimeType.11 = phi i32 [ %parsedTimeType.10, %land.lhs.true637 ], [ %parsedTimeType.10, %invoke.cont632 ], [ %parsedTimeType.10, %if.end623 ], [ 0, %if.end426 ], [ 0, %if.then641 ]
-  %cmp649 = icmp sgt i32 %parsedPos.23, %0
+  %parsedPos.15 = phi i32 [ %parsedPos.23, %land.lhs.true637 ], [ %parsedPos.23, %invoke.cont632 ], [ %parsedPos.23, %if.end623 ], [ %parsedPos.14, %if.end426 ], [ %101, %if.then641 ]
+  %parsedOffset.5 = phi i32 [ %parsedOffset.13, %land.lhs.true637 ], [ %parsedOffset.13, %invoke.cont632 ], [ %parsedOffset.13, %if.end623 ], [ %parsedOffset.4, %if.end426 ], [ 2147483647, %if.then641 ]
+  %parsedTimeType.3 = phi i32 [ %parsedTimeType.11, %land.lhs.true637 ], [ %parsedTimeType.11, %invoke.cont632 ], [ %parsedTimeType.11, %if.end623 ], [ 0, %if.end426 ], [ 0, %if.then641 ]
+  %cmp649 = icmp sgt i32 %parsedPos.15, %0
   br i1 %cmp649, label %invoke.cont651, label %if.end665
 
 invoke.cont651:                                   ; preds = %if.end648
@@ -5724,7 +5724,7 @@ if.then654:                                       ; preds = %invoke.cont651
 if.else657:                                       ; preds = %invoke.cont651
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp.i482)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i483)
-  %cmp.i484 = icmp eq i32 %parsedOffset.13, 0
+  %cmp.i484 = icmp eq i32 %parsedOffset.5, 0
   br i1 %cmp.i484, label %if.then.i487, label %if.end.i485
 
 if.then.i487:                                     ; preds = %if.else657
@@ -5760,7 +5760,7 @@ ehcleanup.i489:                                   ; preds = %lpad2.i493, %lpad.i
   br label %ehcleanup668
 
 if.end.i485:                                      ; preds = %if.else657
-  %call4.i498 = invoke noundef ptr @_ZN6icu_758ZoneMeta20createCustomTimeZoneEi(i32 noundef %parsedOffset.13)
+  %call4.i498 = invoke noundef ptr @_ZN6icu_758ZoneMeta20createCustomTimeZoneEi(i32 noundef %parsedOffset.5)
           to label %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit499 unwind label %lpad321
 
 _ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit499: ; preds = %if.end.i485, %invoke.cont3.i494
@@ -5774,11 +5774,11 @@ if.end660:                                        ; preds = %_ZNK6icu_7514TimeZo
   br i1 %tobool.not, label %if.end663, label %if.then662
 
 if.then662:                                       ; preds = %if.end660
-  store i32 %parsedTimeType.11, ptr %timeType, align 4
+  store i32 %parsedTimeType.3, ptr %timeType, align 4
   br label %if.end663
 
 if.end663:                                        ; preds = %if.then662, %if.end660
-  store i32 %parsedPos.23, ptr %index.i, align 8
+  store i32 %parsedPos.15, ptr %index.i, align 8
   br label %cleanup667
 
 if.end665:                                        ; preds = %if.end648
@@ -5787,7 +5787,7 @@ if.end665:                                        ; preds = %if.end648
   br label %cleanup667
 
 cleanup667:                                       ; preds = %if.then410.invoke, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit387, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit440, %if.end665, %if.end663, %if.then587
-  %retval.7 = phi ptr [ null, %if.then587 ], [ %parsedTZ.0, %if.end663 ], [ null, %if.end665 ], [ %retval.6, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit440 ], [ %retval.4, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412 ], [ %retval.0.i375, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit387 ], [ %78, %if.then410.invoke ]
+  %retval.6 = phi ptr [ null, %if.then587 ], [ %parsedTZ.0, %if.end663 ], [ null, %if.end665 ], [ %retval.9, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit440 ], [ %retval.8, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit412 ], [ %retval.0.i375, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit387 ], [ %78, %if.then410.invoke ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %parsedID) #19
   br label %cleanup669
 
@@ -5797,7 +5797,7 @@ ehcleanup668:                                     ; preds = %delete.notnull.i430
   br label %ehcleanup670
 
 cleanup669:                                       ; preds = %if.then66.invoke, %if.then295.invoke, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit356, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit282, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit259, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit305, %cleanup667, %if.then244
-  %retval.8 = phi ptr [ %retval.7, %cleanup667 ], [ null, %if.then244 ], [ %retval.2, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit305 ], [ %retval.0.i247, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit259 ], [ %retval.0.i269, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit282 ], [ %retval.0.i343, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit356 ], [ %54, %if.then295.invoke ], [ %19, %if.then66.invoke ]
+  %retval.2 = phi ptr [ %retval.6, %cleanup667 ], [ null, %if.then244 ], [ %retval.3, %_ZN6icu_7512LocalPointerINS_13TimeZoneNames19MatchInfoCollectionEED2Ev.exit305 ], [ %retval.0.i247, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit259 ], [ %retval.0.i269, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit282 ], [ %retval.0.i343, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit356 ], [ %54, %if.then295.invoke ], [ %19, %if.then66.invoke ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %tzID) #19
   br label %cleanup671
 
@@ -5807,9 +5807,9 @@ ehcleanup670:                                     ; preds = %delete.notnull.i307
   br label %ehcleanup672
 
 cleanup671:                                       ; preds = %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit, %cleanup669
-  %retval.9 = phi ptr [ %retval.8, %cleanup669 ], [ %retval.0.i, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit ]
+  %retval.0 = phi ptr [ %retval.2, %cleanup669 ], [ %retval.0.i, %_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi.exit ]
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %tmpPos) #19
-  ret ptr %retval.9
+  ret ptr %retval.0
 
 ehcleanup672:                                     ; preds = %lpad, %ehcleanup.i, %ehcleanup670
   %.pn204 = phi { ptr, i32 } [ %.pn202, %ehcleanup670 ], [ %13, %lpad ], [ %.pn.i, %ehcleanup.i ]
@@ -6135,7 +6135,7 @@ if.then45:                                        ; preds = %land.lhs.true39
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then45, %land.lhs.true39, %if.then30
-  %offset.0 = phi i32 [ %call35, %if.then45 ], [ %call21, %land.lhs.true39 ], [ %call21, %if.then30 ]
+  %offset.1 = phi i32 [ %call35, %if.then45 ], [ %call21, %land.lhs.true39 ], [ %call21, %if.then30 ]
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %posBasic) #19
   br label %if.end56
 
@@ -6149,7 +6149,7 @@ if.then54:                                        ; preds = %if.end50
   br label %cleanup
 
 if.end56:                                         ; preds = %land.lhs.true26, %if.end49, %if.end50
-  %offset.149 = phi i32 [ %call21, %if.end50 ], [ %offset.0, %if.end49 ], [ %call21, %land.lhs.true26 ]
+  %offset.049 = phi i32 [ %call21, %if.end50 ], [ %offset.1, %if.end49 ], [ %call21, %land.lhs.true26 ]
   %12 = load i32, ptr %index.i28, align 8
   store i32 %12, ptr %index.i, align 8
   br i1 %tobool.not, label %if.end62, label %if.then61
@@ -6159,17 +6159,17 @@ if.then61:                                        ; preds = %if.end56
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then61, %if.end56
-  %mul = mul nsw i32 %offset.149, %sign.0
+  %mul = mul nsw i32 %offset.049, %sign.0
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end62, %if.then54
-  %retval.0 = phi i32 [ 0, %if.then54 ], [ %mul, %if.end62 ]
+  %retval.1 = phi i32 [ 0, %if.then54 ], [ %mul, %if.end62 ]
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %posOffset) #19
   br label %return
 
 return:                                           ; preds = %cleanup, %if.else17, %if.then9, %if.then3
-  %retval.1 = phi i32 [ 0, %if.then3 ], [ 0, %if.then9 ], [ %retval.0, %cleanup ], [ 0, %if.else17 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then3 ], [ 0, %if.then9 ], [ %retval.1, %cleanup ], [ 0, %if.else17 ]
+  ret i32 %retval.0
 }
 
 declare noundef i32 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
@@ -7690,13 +7690,13 @@ sw.bb56:                                          ; preds = %while.body24
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb56, %sw.bb46, %sw.bb37, %sw.bb31, %sw.bb26, %sw.bb, %while.body24
-  %hour.1 = phi i32 [ 0, %while.body24 ], [ %add60, %sw.bb56 ], [ %13, %sw.bb46 ], [ %add60, %sw.bb37 ], [ %13, %sw.bb31 ], [ %add60, %sw.bb26 ], [ %13, %sw.bb ]
-  %min.1 = phi i32 [ 0, %while.body24 ], [ %add64, %sw.bb56 ], [ %add51, %sw.bb46 ], [ %add64, %sw.bb37 ], [ %add51, %sw.bb31 ], [ 0, %sw.bb26 ], [ 0, %sw.bb ]
-  %sec.1 = phi i32 [ 0, %while.body24 ], [ %add68, %sw.bb56 ], [ %add55, %sw.bb46 ], [ 0, %sw.bb37 ], [ 0, %sw.bb31 ], [ 0, %sw.bb26 ], [ 0, %sw.bb ]
-  %cmp69 = icmp slt i32 %hour.1, 24
-  %cmp71 = icmp slt i32 %min.1, 60
+  %hour.2 = phi i32 [ 0, %while.body24 ], [ %add60, %sw.bb56 ], [ %13, %sw.bb46 ], [ %add60, %sw.bb37 ], [ %13, %sw.bb31 ], [ %add60, %sw.bb26 ], [ %13, %sw.bb ]
+  %min.2 = phi i32 [ 0, %while.body24 ], [ %add64, %sw.bb56 ], [ %add51, %sw.bb46 ], [ %add64, %sw.bb37 ], [ %add51, %sw.bb31 ], [ 0, %sw.bb26 ], [ 0, %sw.bb ]
+  %sec.2 = phi i32 [ 0, %while.body24 ], [ %add68, %sw.bb56 ], [ %add55, %sw.bb46 ], [ 0, %sw.bb37 ], [ 0, %sw.bb31 ], [ 0, %sw.bb26 ], [ 0, %sw.bb ]
+  %cmp69 = icmp slt i32 %hour.2, 24
+  %cmp71 = icmp slt i32 %min.2, 60
   %or.cond1 = select i1 %cmp69, i1 %cmp71, i1 false
-  %cmp73 = icmp slt i32 %sec.1, 60
+  %cmp73 = icmp slt i32 %sec.2, 60
   %or.cond2 = select i1 %or.cond1, i1 %cmp73, i1 false
   br i1 %or.cond2, label %if.end82, label %if.end75
 
@@ -7711,12 +7711,12 @@ if.then81:                                        ; preds = %if.end75
   br label %return
 
 if.end82:                                         ; preds = %sw.epilog
-  %19 = mul nsw i32 %hour.1, 60
+  %19 = mul nsw i32 %hour.2, 60
   %add83 = add nsw i32 %numDigits.250, %0
   store i32 %add83, ptr %index.i, align 8
-  %add85 = add nsw i32 %19, %min.1
+  %add85 = add nsw i32 %19, %min.2
   %mul86 = mul nsw i32 %add85, 60
-  %add87 = add nsw i32 %mul86, %sec.1
+  %add87 = add nsw i32 %mul86, %sec.2
   %mul88 = mul nsw i32 %add87, 1000
   br label %return
 
@@ -7915,16 +7915,16 @@ if.else32:                                        ; preds = %if.end25
 if.end42:                                         ; preds = %if.end25, %if.else32
   %call27.pn = phi i32 [ %call27.call33, %if.else32 ], [ %call27, %if.end25 ]
   %.pn = phi i32 [ %., %if.else32 ], [ %6, %if.end25 ]
-  %offset.0 = mul nsw i32 %call27.pn, %sign.0
+  %offset.1 = mul nsw i32 %call27.pn, %sign.0
   %idx.0 = add i32 %call, 1
   %sub43 = add i32 %idx.0, %.pn
   br label %do.end
 
 do.end:                                           ; preds = %for.cond, %_ZNK6icu_7513UnicodeString6charAtEi.exit, %if.end10, %for.end, %if.end42
   %parsed.0 = phi i32 [ 0, %for.end ], [ 0, %if.end10 ], [ %sub43, %if.end42 ], [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 0, %for.cond ]
-  %offset.1 = phi i32 [ 0, %for.end ], [ 0, %if.end10 ], [ %offset.0, %if.end42 ], [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 0, %for.cond ]
+  %offset.0 = phi i32 [ 0, %for.end ], [ 0, %if.end10 ], [ %offset.1, %if.end42 ], [ 0, %_ZNK6icu_7513UnicodeString6charAtEi.exit ], [ 0, %for.cond ]
   store i32 %parsed.0, ptr %parsedLen, align 4
-  ret i32 %offset.1
+  ret i32 %offset.0
 }
 
 declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #5
@@ -8070,9 +8070,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %offsetH.0213 = phi i32 [ 0, %for.body.lr.ph ], [ %offsetH.2, %for.inc ]
-  %offsetM.0211 = phi i32 [ 0, %for.body.lr.ph ], [ %offsetM.2, %for.inc ]
-  %offsetS.0209 = phi i32 [ 0, %for.body.lr.ph ], [ %offsetS.2, %for.inc ]
+  %offsetH.0213 = phi i32 [ 0, %for.body.lr.ph ], [ %offsetH.3, %for.inc ]
+  %offsetM.0211 = phi i32 [ 0, %for.body.lr.ph ], [ %offsetM.3, %for.inc ]
+  %offsetS.0209 = phi i32 [ 0, %for.body.lr.ph ], [ %offsetS.3, %for.inc ]
   %i.0208 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %idx.0205 = phi i32 [ %start, %for.body.lr.ph ], [ %idx.1, %for.inc ]
   %call2 = tail call noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %patternItems, i32 noundef %i.0208)
@@ -8111,9 +8111,9 @@ land.lhs.true:                                    ; preds = %if.then8
   br i1 %or.cond, label %do.body, label %if.end38
 
 do.body:                                          ; preds = %land.lhs.true, %if.then32
-  %len.0 = phi i32 [ %sub34, %if.then32 ], [ %call6, %land.lhs.true ]
-  %patStr.0 = phi ptr [ %add.ptr, %if.then32 ], [ %2, %land.lhs.true ]
-  %6 = load i16, ptr %patStr.0, align 2
+  %len.1 = phi i32 [ %sub34, %if.then32 ], [ %call6, %land.lhs.true ]
+  %patStr.1 = phi ptr [ %add.ptr, %if.then32 ], [ %2, %land.lhs.true ]
+  %6 = load i16, ptr %patStr.1, align 2
   %conv = zext i16 %6 to i32
   %and = and i32 %conv, 63488
   %cmp15 = icmp eq i32 %and, 55296
@@ -8122,12 +8122,12 @@ do.body:                                          ; preds = %land.lhs.true, %if.
 if.then16:                                        ; preds = %do.body
   %and17 = and i32 %conv, 1024
   %cmp18 = icmp eq i32 %and17, 0
-  %cmp20 = icmp ne i32 %len.0, 1
+  %cmp20 = icmp ne i32 %len.1, 1
   %or.cond2 = select i1 %cmp18, i1 %cmp20, i1 false
   br i1 %or.cond2, label %land.lhs.true21, label %do.end
 
 land.lhs.true21:                                  ; preds = %if.then16
-  %arrayidx22 = getelementptr inbounds i8, ptr %patStr.0, i64 2
+  %arrayidx22 = getelementptr inbounds i8, ptr %patStr.1, i64 2
   %7 = load i16, ptr %arrayidx22, align 2
   %conv23 = zext i16 %7 to i32
   %and24 = and i32 %conv23, 64512
@@ -8149,16 +8149,16 @@ do.end:                                           ; preds = %do.body, %if.then16
 if.then32:                                        ; preds = %do.end
   %cmp33 = icmp ult i32 %ch.0, 65536
   %cond = select i1 %cmp33, i32 1, i32 2
-  %sub34 = sub nsw i32 %len.0, %cond
+  %sub34 = sub nsw i32 %len.1, %cond
   %idx.ext = zext nneg i32 %cond to i64
-  %add.ptr = getelementptr inbounds i16, ptr %patStr.0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %patStr.1, i64 %idx.ext
   %cmp14.old = icmp sgt i32 %sub34, 0
   br i1 %cmp14.old, label %do.body, label %if.end38
 
 if.end38:                                         ; preds = %do.end, %if.then32, %if.then8, %land.lhs.true, %if.then
-  %len.1 = phi i32 [ %call6, %land.lhs.true ], [ %call6, %if.then8 ], [ %call6, %if.then ], [ %sub34, %if.then32 ], [ %len.0, %do.end ]
-  %patStr.1 = phi ptr [ %2, %land.lhs.true ], [ %2, %if.then8 ], [ %2, %if.then ], [ %add.ptr, %if.then32 ], [ %patStr.0, %do.end ]
-  %call.i = tail call noundef signext i8 @_ZNK6icu_7513UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.0205, i32 noundef %len.1, ptr noundef %patStr.1, i32 noundef 0, i32 noundef %len.1, i32 noundef 0)
+  %len.0 = phi i32 [ %call6, %land.lhs.true ], [ %call6, %if.then8 ], [ %call6, %if.then ], [ %sub34, %if.then32 ], [ %len.1, %do.end ]
+  %patStr.0 = phi ptr [ %2, %land.lhs.true ], [ %2, %if.then8 ], [ %2, %if.then ], [ %add.ptr, %if.then32 ], [ %patStr.1, %do.end ]
+  %call.i = tail call noundef signext i8 @_ZNK6icu_7513UnicodeString13doCaseCompareEiiPKDsiij(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.0205, i32 noundef %len.0, ptr noundef %patStr.0, i32 noundef 0, i32 noundef %len.0, i32 noundef 0)
   %cmp41.not = icmp eq i8 %call.i, 0
   br i1 %cmp41.not, label %for.inc, label %if.then69
 
@@ -8235,10 +8235,10 @@ _ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i, %if.then7.i.i
-  %digit.1.ph.i21.i = phi i32 [ %14, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i ], [ %call8.i.i, %if.then7.i.i ]
+  %digit.2.ph.i21.i = phi i32 [ %14, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i ], [ %call8.i.i, %if.then7.i.i ]
   %call14.i.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029.i, i32 noundef 1)
   %mul.i = mul nuw nsw i32 %decVal.031.i, 10
-  %add.i = add nuw nsw i32 %digit.1.ph.i21.i, %mul.i
+  %add.i = add nuw nsw i32 %digit.2.ph.i21.i, %mul.i
   %cmp6.i = icmp ugt i32 %add.i, 23
   br i1 %cmp6.i, label %while.end.i, label %if.end8.i
 
@@ -8295,10 +8295,10 @@ _ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br label %if.end.i68
 
 if.end.i68:                                       ; preds = %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i81, %if.then7.i.i65
-  %digit.1.ph.i21.i69 = phi i32 [ %23, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i81 ], [ %call8.i.i66, %if.then7.i.i65 ]
+  %digit.2.ph.i21.i69 = phi i32 [ %23, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i81 ], [ %call8.i.i66, %if.then7.i.i65 ]
   %call14.i.i70 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029.i56, i32 noundef 1)
   %mul.i71 = mul nuw nsw i32 %decVal.031.i54, 10
-  %add.i72 = add nuw nsw i32 %digit.1.ph.i21.i69, %mul.i71
+  %add.i72 = add nuw nsw i32 %digit.2.ph.i21.i69, %mul.i71
   %cmp6.i73 = icmp ugt i32 %add.i72, 59
   br i1 %cmp6.i73, label %if.then69, label %if.end8.i74
 
@@ -8355,10 +8355,10 @@ _ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br label %if.end.i114
 
 if.end.i114:                                      ; preds = %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i127, %if.then7.i.i111
-  %digit.1.ph.i21.i115 = phi i32 [ %32, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i127 ], [ %call8.i.i112, %if.then7.i.i111 ]
+  %digit.2.ph.i21.i115 = phi i32 [ %32, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i127 ], [ %call8.i.i112, %if.then7.i.i111 ]
   %call14.i.i116 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029.i102, i32 noundef 1)
   %mul.i117 = mul nuw nsw i32 %decVal.031.i100, 10
-  %add.i118 = add nuw nsw i32 %digit.1.ph.i21.i115, %mul.i117
+  %add.i118 = add nuw nsw i32 %digit.2.ph.i21.i115, %mul.i117
   %cmp6.i119 = icmp ugt i32 %add.i118, 59
   br i1 %cmp6.i119, label %if.then69, label %if.end8.i120
 
@@ -8378,18 +8378,18 @@ while.end.i89:                                    ; preds = %if.end8.i120
 
 if.end62:                                         ; preds = %if.end8.i, %if.end.i.us.thread, %if.end.i.us, %while.end.i89, %while.end.i43, %while.end.i
   %idx.0.lcssa.i143.pn = phi i32 [ %idx.029.i, %while.end.i ], [ %call14.i.i70, %while.end.i43 ], [ %call14.i.i116, %while.end.i89 ], [ %call14.i.i.us, %if.end.i.us ], [ %call14.i.i.us231, %if.end.i.us.thread ], [ %call14.i.i, %if.end8.i ]
-  %offsetS.1 = phi i32 [ %offsetS.0209, %while.end.i ], [ %offsetS.0209, %while.end.i43 ], [ %add.i118, %while.end.i89 ], [ %offsetS.0209, %if.end.i.us ], [ %offsetS.0209, %if.end.i.us.thread ], [ %offsetS.0209, %if.end8.i ]
-  %offsetM.1 = phi i32 [ %offsetM.0211, %while.end.i ], [ %add.i72, %while.end.i43 ], [ %offsetM.0211, %while.end.i89 ], [ %offsetM.0211, %if.end.i.us ], [ %offsetM.0211, %if.end.i.us.thread ], [ %offsetM.0211, %if.end8.i ]
-  %offsetH.1 = phi i32 [ %decVal.031.i, %while.end.i ], [ %offsetH.0213, %while.end.i43 ], [ %offsetH.0213, %while.end.i89 ], [ %12, %if.end.i.us ], [ %call8.i.i.us, %if.end.i.us.thread ], [ %add.i, %if.end8.i ]
-  %len.5 = sub nsw i32 %idx.0.lcssa.i143.pn, %idx.0205
-  %cmp63 = icmp eq i32 %len.5, 0
+  %offsetS.2 = phi i32 [ %offsetS.0209, %while.end.i ], [ %offsetS.0209, %while.end.i43 ], [ %add.i118, %while.end.i89 ], [ %offsetS.0209, %if.end.i.us ], [ %offsetS.0209, %if.end.i.us.thread ], [ %offsetS.0209, %if.end8.i ]
+  %offsetM.2 = phi i32 [ %offsetM.0211, %while.end.i ], [ %add.i72, %while.end.i43 ], [ %offsetM.0211, %while.end.i89 ], [ %offsetM.0211, %if.end.i.us ], [ %offsetM.0211, %if.end.i.us.thread ], [ %offsetM.0211, %if.end8.i ]
+  %offsetH.2 = phi i32 [ %decVal.031.i, %while.end.i ], [ %offsetH.0213, %while.end.i43 ], [ %offsetH.0213, %while.end.i89 ], [ %12, %if.end.i.us ], [ %call8.i.i.us, %if.end.i.us.thread ], [ %add.i, %if.end8.i ]
+  %len.2 = sub nsw i32 %idx.0.lcssa.i143.pn, %idx.0205
+  %cmp63 = icmp eq i32 %len.2, 0
   br i1 %cmp63, label %if.then69, label %for.inc
 
 for.inc:                                          ; preds = %if.end38, %if.end62
-  %.pn = phi i32 [ %len.5, %if.end62 ], [ %len.1, %if.end38 ]
-  %offsetS.2 = phi i32 [ %offsetS.1, %if.end62 ], [ %offsetS.0209, %if.end38 ]
-  %offsetM.2 = phi i32 [ %offsetM.1, %if.end62 ], [ %offsetM.0211, %if.end38 ]
-  %offsetH.2 = phi i32 [ %offsetH.1, %if.end62 ], [ %offsetH.0213, %if.end38 ]
+  %.pn = phi i32 [ %len.2, %if.end62 ], [ %len.0, %if.end38 ]
+  %offsetS.3 = phi i32 [ %offsetS.2, %if.end62 ], [ %offsetS.0209, %if.end38 ]
+  %offsetM.3 = phi i32 [ %offsetM.2, %if.end62 ], [ %offsetM.0211, %if.end38 ]
+  %offsetH.3 = phi i32 [ %offsetH.2, %if.end62 ], [ %offsetH.0213, %if.end38 ]
   %idx.1 = add nsw i32 %.pn, %idx.0205
   %inc = add nuw nsw i32 %i.0208, 1
   %37 = load i32, ptr %count.i, align 8
@@ -8404,9 +8404,9 @@ if.then69:                                        ; preds = %if.then7.i.i.us, %i
 
 if.end70:                                         ; preds = %for.inc, %entry
   %idx.0.lcssa = phi i32 [ %start, %entry ], [ %idx.1, %for.inc ]
-  %offsetS.0.lcssa = phi i32 [ 0, %entry ], [ %offsetS.2, %for.inc ]
-  %offsetM.0.lcssa = phi i32 [ 0, %entry ], [ %offsetM.2, %for.inc ]
-  %offsetH.0.lcssa = phi i32 [ 0, %entry ], [ %offsetH.2, %for.inc ]
+  %offsetS.0.lcssa = phi i32 [ 0, %entry ], [ %offsetS.3, %for.inc ]
+  %offsetM.0.lcssa = phi i32 [ 0, %entry ], [ %offsetM.3, %for.inc ]
+  %offsetH.0.lcssa = phi i32 [ 0, %entry ], [ %offsetH.3, %for.inc ]
   store i32 %offsetH.0.lcssa, ptr %hour, align 4
   store i32 %offsetM.0.lcssa, ptr %min, align 4
   store i32 %offsetS.0.lcssa, ptr %sec, align 4
@@ -8474,10 +8474,10 @@ _ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br label %if.end
 
 if.end:                                           ; preds = %if.then7.i, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit
-  %digit.1.ph.i21 = phi i32 [ %5, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit ], [ %call8.i, %if.then7.i ]
+  %digit.2.ph.i21 = phi i32 [ %5, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit ], [ %call8.i, %if.then7.i ]
   %call14.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029, i32 noundef 1)
   %mul = mul nuw nsw i32 %decVal.031, 10
-  %add = add nuw nsw i32 %digit.1.ph.i21, %mul
+  %add = add nuw nsw i32 %digit.2.ph.i21, %mul
   %cmp6 = icmp ugt i32 %add, %conv5
   br i1 %cmp6, label %while.end, label %if.end8
 
@@ -8721,15 +8721,15 @@ if.then13.loopexit:                               ; preds = %for.body
   br label %if.then13
 
 if.then13:                                        ; preds = %if.then13.loopexit, %if.then7
-  %digit.1.ph = phi i32 [ %call8, %if.then7 ], [ %4, %if.then13.loopexit ]
+  %digit.2.ph = phi i32 [ %call8, %if.then7 ], [ %4, %if.then13.loopexit ]
   %call14 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i32 noundef 1)
   %sub = sub nsw i32 %call14, %start
   store i32 %sub, ptr %len, align 4
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then7, %if.then13, %entry
-  %digit.2 = phi i32 [ %digit.1.ph, %if.then13 ], [ -1, %entry ], [ -1, %if.then7 ]
-  ret i32 %digit.2
+  %digit.0 = phi i32 [ %digit.2.ph, %if.then13 ], [ -1, %entry ], [ -1, %if.then7 ]
+  ret i32 %digit.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8786,10 +8786,10 @@ _ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br label %if.end.i
 
 if.end.i:                                         ; preds = %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i, %if.then7.i.i
-  %digit.1.ph.i21.i = phi i32 [ %7, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i ], [ %call8.i.i, %if.then7.i.i ]
+  %digit.2.ph.i21.i = phi i32 [ %7, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i ], [ %call8.i.i, %if.then7.i.i ]
   %call14.i.i = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029.i, i32 noundef 1)
   %mul.i = mul nuw nsw i32 %decVal.031.i, 10
-  %add.i = add nuw nsw i32 %digit.1.ph.i21.i, %mul.i
+  %add.i = add nuw nsw i32 %digit.2.ph.i21.i, %mul.i
   %cmp6.i = icmp ugt i32 %add.i, 23
   br i1 %cmp6.i, label %while.end.i, label %if.end8.i
 
@@ -8878,10 +8878,10 @@ _ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br label %if.end.i58
 
 if.end.i58:                                       ; preds = %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i71, %if.then7.i.i55
-  %digit.1.ph.i21.i59 = phi i32 [ %19, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i71 ], [ %call8.i.i56, %if.then7.i.i55 ]
+  %digit.2.ph.i21.i59 = phi i32 [ %19, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i71 ], [ %call8.i.i56, %if.then7.i.i55 ]
   %call14.i.i60 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029.i46, i32 noundef 1)
   %mul.i61 = mul nuw nsw i32 %decVal.031.i44, 10
-  %add.i62 = add nuw nsw i32 %digit.1.ph.i21.i59, %mul.i61
+  %add.i62 = add nuw nsw i32 %digit.2.ph.i21.i59, %mul.i61
   %cmp6.i63 = icmp ugt i32 %add.i62, 59
   br i1 %cmp6.i63, label %do.end, label %if.end8.i64
 
@@ -8968,10 +8968,10 @@ _ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.
   br label %if.end.i119
 
 if.end.i119:                                      ; preds = %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i132, %if.then7.i.i116
-  %digit.1.ph.i21.i120 = phi i32 [ %31, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i132 ], [ %call8.i.i117, %if.then7.i.i116 ]
+  %digit.2.ph.i21.i120 = phi i32 [ %31, %_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi.exit.i132 ], [ %call8.i.i117, %if.then7.i.i116 ]
   %call14.i.i121 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %idx.029.i107, i32 noundef 1)
   %mul.i122 = mul nuw nsw i32 %decVal.031.i105, 10
-  %add.i123 = add nuw nsw i32 %digit.1.ph.i21.i120, %mul.i122
+  %add.i123 = add nuw nsw i32 %digit.2.ph.i21.i120, %mul.i122
   %cmp6.i124 = icmp ugt i32 %add.i123, 59
   br i1 %cmp6.i124, label %do.end, label %if.end8.i125
 

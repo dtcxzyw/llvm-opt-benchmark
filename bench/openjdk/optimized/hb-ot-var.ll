@@ -1602,9 +1602,9 @@ _ZNK2OT14VariationStore12create_cacheEv.exit:     ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not.i43.not, label %_ZN11hb_vector_tIiLb0EED2Ev.exit53.sink.split, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZNK2OT14VariationStore12create_cacheEv.exit, %.preheader.i
-  %.01542.i = phi i32 [ %127, %.preheader.i ], [ 0, %_ZNK2OT14VariationStore12create_cacheEv.exit ]
-  %125 = lshr i32 %.01542.i, 1
-  %126 = add i32 %.01542.i, 8
+  %.142.i = phi i32 [ %127, %.preheader.i ], [ 0, %_ZNK2OT14VariationStore12create_cacheEv.exit ]
+  %125 = lshr i32 %.142.i, 1
+  %126 = add i32 %.142.i, 8
   %127 = add i32 %126, %125
   %128 = icmp ult i32 %127, %2
   br i1 %128, label %.preheader.i, label %.thread.i, !llvm.loop !15
@@ -1622,8 +1622,8 @@ _ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_triviall
   br label %.lr.ph110
 
 .lr.ph110:                                        ; preds = %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i, %.thread.i
-  %.sroa.18.1.ph = phi ptr [ %malloc, %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i ], [ null, %.thread.i ]
-  %.sroa.0.0.ph = phi i32 [ %spec.select92, %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i ], [ -1, %.thread.i ]
+  %.sroa.18.2.ph = phi ptr [ %malloc, %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i ], [ null, %.thread.i ]
+  %.sroa.0.1.ph = phi i32 [ %spec.select92, %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i ], [ -1, %.thread.i ]
   %132 = getelementptr inbounds i8, ptr %.0.i.i42, i64 6
   %133 = getelementptr inbounds i8, ptr %.0.i.i42, i64 7
   %134 = getelementptr inbounds i8, ptr %.0.i.i42, i64 8
@@ -1642,9 +1642,9 @@ _ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_triviall
 
 138:                                              ; preds = %.lr.ph110, %_ZN11hb_vector_tIiLb0EE4pushIJRiEEEPiDpOT_.exit
   %indvars.iv126 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next127, %_ZN11hb_vector_tIiLb0EE4pushIJRiEEEPiDpOT_.exit ]
-  %.sroa.0.1108 = phi i32 [ %.sroa.0.0.ph, %.lr.ph110 ], [ %.sroa.0.4, %_ZN11hb_vector_tIiLb0EE4pushIJRiEEEPiDpOT_.exit ]
+  %.sroa.0.0108 = phi i32 [ %.sroa.0.1.ph, %.lr.ph110 ], [ %.sroa.0.4, %_ZN11hb_vector_tIiLb0EE4pushIJRiEEEPiDpOT_.exit ]
   %.sroa.12.0107 = phi i32 [ 0, %.lr.ph110 ], [ %.sroa.12.1, %_ZN11hb_vector_tIiLb0EE4pushIJRiEEEPiDpOT_.exit ]
-  %.sroa.18.2105 = phi ptr [ %.sroa.18.1.ph, %.lr.ph110 ], [ %.sroa.18.4, %_ZN11hb_vector_tIiLb0EE4pushIJRiEEEPiDpOT_.exit ]
+  %.sroa.18.0105 = phi ptr [ %.sroa.18.2.ph, %.lr.ph110 ], [ %.sroa.18.4, %_ZN11hb_vector_tIiLb0EE4pushIJRiEEEPiDpOT_.exit ]
   %139 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv126
   %140 = load i32, ptr %139, align 4
   %141 = trunc nuw i64 %indvars.iv126 to i32
@@ -1718,22 +1718,22 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
   %197 = fptosi float %196 to i32
   %.sroa.speculate.load.false.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %197, i32 -16384)
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %.sroa.speculate.load.false.sroa.speculated, i32 16384)
-  %.not.i46 = icmp slt i32 %.sroa.12.0107, %.sroa.0.1108
+  %.not.i46 = icmp slt i32 %.sroa.12.0107, %.sroa.0.0108
   %.pre136 = add i32 %.sroa.12.0107, 1
   br i1 %.not.i46, label %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread.i, label %198
 
 198:                                              ; preds = %192
-  %199 = icmp slt i32 %.sroa.0.1108, 0
+  %199 = icmp slt i32 %.sroa.0.0108, 0
   br i1 %199, label %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread6.i, label %200
 
 200:                                              ; preds = %198
-  %.not.i.i47 = icmp ult i32 %.sroa.0.1108, %.pre136
+  %.not.i.i47 = icmp ult i32 %.sroa.0.0108, %.pre136
   br i1 %.not.i.i47, label %.preheader.i.i, label %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %200, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %203, %.preheader.i.i ], [ %.sroa.0.1108, %200 ]
-  %201 = lshr i32 %.01542.i.i, 1
-  %202 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %203, %.preheader.i.i ], [ %.sroa.0.0108, %200 ]
+  %201 = lshr i32 %.142.i.i, 1
+  %202 = add i32 %.142.i.i, 8
   %203 = add i32 %202, %201
   %204 = icmp ult i32 %203, %.pre136
   br i1 %204, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !15
@@ -1745,31 +1745,31 @@ _ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEi
 _ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i.i: ; preds = %.thread.i.i
   %206 = shl nuw i32 %203, 2
   %207 = zext i32 %206 to i64
-  %208 = tail call ptr @realloc(ptr noundef %.sroa.18.2105, i64 noundef %207) #13
+  %208 = tail call ptr @realloc(ptr noundef %.sroa.18.0105, i64 noundef %207) #13
   %.not43.i.i = icmp eq ptr %208, null
   br i1 %.not43.i.i, label %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread9.i:  ; preds = %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i.i, %.thread.i.i
-  %.138.sink.i.ph.i = xor i32 %.sroa.0.1108, -1
+  %.01538.sink.i.ph.i = xor i32 %.sroa.0.0108, -1
   br label %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread6.i:  ; preds = %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread9.i, %198
-  %.sroa.0.2 = phi i32 [ %.sroa.0.1108, %198 ], [ %.138.sink.i.ph.i, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread9.i ]
+  %.sroa.0.3 = phi i32 [ %.sroa.0.0108, %198 ], [ %.01538.sink.i.ph.i, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread9.i ]
   store i32 %135, ptr @_hb_CrapPool, align 16
   br label %_ZN11hb_vector_tIiLb0EE4pushIJRiEEEPiDpOT_.exit
 
 _ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread.i:   ; preds = %192, %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i.i, %200
-  %.sroa.18.3 = phi ptr [ %208, %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i.i ], [ %.sroa.18.2105, %200 ], [ %.sroa.18.2105, %192 ]
-  %.sroa.0.3 = phi i32 [ %203, %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i.i ], [ %.sroa.0.1108, %200 ], [ %.sroa.0.1108, %192 ]
+  %.sroa.18.3 = phi ptr [ %208, %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i.i ], [ %.sroa.18.0105, %200 ], [ %.sroa.18.0105, %192 ]
+  %.sroa.0.2 = phi i32 [ %203, %_ZN11hb_vector_tIiLb0EE14realloc_vectorIiTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPij11hb_priorityILj0EE.exit.i.i ], [ %.sroa.0.0108, %200 ], [ %.sroa.0.0108, %192 ]
   %209 = zext i32 %.sroa.12.0107 to i64
   %210 = getelementptr inbounds i32, ptr %.sroa.18.3, i64 %209
   store i32 %.sroa.speculated, ptr %210, align 4
   br label %_ZN11hb_vector_tIiLb0EE4pushIJRiEEEPiDpOT_.exit
 
 _ZN11hb_vector_tIiLb0EE4pushIJRiEEEPiDpOT_.exit:  ; preds = %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread.i, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread6.i
-  %.sroa.18.4 = phi ptr [ %.sroa.18.3, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread.i ], [ %.sroa.18.2105, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread6.i ]
+  %.sroa.18.4 = phi ptr [ %.sroa.18.3, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread.i ], [ %.sroa.18.0105, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread6.i ]
   %.sroa.12.1 = phi i32 [ %.pre136, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread.i ], [ %.sroa.12.0107, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread6.i ]
-  %.sroa.0.4 = phi i32 [ %.sroa.0.3, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread.i ], [ %.sroa.0.2, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread6.i ]
+  %.sroa.0.4 = phi i32 [ %.sroa.0.2, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread.i ], [ %.sroa.0.3, %_ZN11hb_vector_tIiLb0EE5allocEjb.exit.thread6.i ]
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
   br i1 %exitcond130.not, label %.preheader, label %138, !llvm.loop !17
@@ -1777,11 +1777,11 @@ _ZN11hb_vector_tIiLb0EE4pushIJRiEEEPiDpOT_.exit:  ; preds = %_ZN11hb_vector_tIiL
 211:                                              ; preds = %_ZNK2OT7ArrayOfINS_8OffsetToINS_7VarDataENS_7IntTypeIjLj4EEELb1EEENS3_ItLj2EEEEixEi.exit.i.i, %138
   %212 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i49 = icmp eq i32 %.sroa.0.1108, 0
+  %.not.i.i49 = icmp eq i32 %.sroa.0.0108, 0
   br i1 %.not.i.i49, label %_ZN11hb_vector_tIiLb0EED2Ev.exit, label %213
 
 213:                                              ; preds = %211
-  tail call void @free(ptr noundef %.sroa.18.2105) #12
+  tail call void @free(ptr noundef %.sroa.18.0105) #12
   br label %_ZN11hb_vector_tIiLb0EED2Ev.exit
 
 _ZN11hb_vector_tIiLb0EED2Ev.exit:                 ; preds = %211, %213
@@ -2620,23 +2620,23 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_
   br label %26
 
 26:                                               ; preds = %24, %_ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4fvarELj18ELb1EEEEPT_v.exit
-  %.0 = phi ptr [ %16, %_ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4fvarELj18ELb1EEEEPT_v.exit ], [ %25, %24 ]
-  %27 = ptrtoint ptr %.0 to i64
+  %.1 = phi ptr [ %16, %_ZNK17hb_data_wrapper_tI9hb_face_tLj18EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4fvarELj18ELb1EEEEPT_v.exit ], [ %25, %24 ]
+  %27 = ptrtoint ptr %.1 to i64
   %28 = cmpxchg weak ptr %0, i64 0, i64 %27 acq_rel monotonic, align 8
   %29 = extractvalue { i64, i1 } %28, 1
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %26
-  %.not.i11 = icmp eq ptr %.0, null
+  %.not.i11 = icmp eq ptr %.1, null
   br i1 %.not.i11, label %_ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit, label %31
 
 31:                                               ; preds = %30
   %32 = call noundef ptr @hb_blob_get_empty()
-  %.not3.i = icmp eq ptr %32, %.0
+  %.not3.i = icmp eq ptr %32, %.1
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit, label %33
 
 33:                                               ; preds = %31
-  call void @hb_blob_destroy(ptr noundef nonnull %.0)
+  call void @hb_blob_destroy(ptr noundef nonnull %.1)
   br label %_ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %30, %31, %33
@@ -2650,7 +2650,7 @@ _ZN16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_t
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.loopexit.split.loop.exit12, %12
-  %.07 = phi ptr [ %13, %12 ], [ %35, %.loopexit.split.loop.exit12 ], [ %.0, %26 ]
+  %.07 = phi ptr [ %13, %12 ], [ %35, %.loopexit.split.loop.exit12 ], [ %.1, %26 ]
   ret ptr %.07
 }
 
@@ -3041,23 +3041,23 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_
   br label %26
 
 26:                                               ; preds = %24, %_ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4avarELj19ELb1EEEEPT_v.exit
-  %.0 = phi ptr [ %16, %_ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4avarELj19ELb1EEEEPT_v.exit ], [ %25, %24 ]
-  %27 = ptrtoint ptr %.0 to i64
+  %.1 = phi ptr [ %16, %_ZNK17hb_data_wrapper_tI9hb_face_tLj19EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4avarELj19ELb1EEEEPT_v.exit ], [ %25, %24 ]
+  %27 = ptrtoint ptr %.1 to i64
   %28 = cmpxchg weak ptr %0, i64 0, i64 %27 acq_rel monotonic, align 8
   %29 = extractvalue { i64, i1 } %28, 1
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %26
-  %.not.i11 = icmp eq ptr %.0, null
+  %.not.i11 = icmp eq ptr %.1, null
   br i1 %.not.i11, label %_ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit, label %31
 
 31:                                               ; preds = %30
   %32 = call noundef ptr @hb_blob_get_empty()
-  %.not3.i = icmp eq ptr %32, %.0
+  %.not3.i = icmp eq ptr %32, %.1
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit, label %33
 
 33:                                               ; preds = %31
-  call void @hb_blob_destroy(ptr noundef nonnull %.0)
+  call void @hb_blob_destroy(ptr noundef nonnull %.1)
   br label %_ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %30, %31, %33
@@ -3071,7 +3071,7 @@ _ZN16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_t
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.loopexit.split.loop.exit12, %12
-  %.07 = phi ptr [ %13, %12 ], [ %35, %.loopexit.split.loop.exit12 ], [ %.0, %26 ]
+  %.07 = phi ptr [ %13, %12 ], [ %35, %.loopexit.split.loop.exit12 ], [ %.1, %26 ]
   ret ptr %.07
 }
 

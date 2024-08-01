@@ -445,8 +445,8 @@ define i64 @H5EA__iblock_create(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %.thread
 
 .thread:                                          ; preds = %7, %87, %121, %118
-  %.3 = phi i64 [ -1, %121 ], [ -1, %118 ], [ %33, %87 ], [ -1, %7 ]
-  ret i64 %.3
+  %.1 = phi i64 [ -1, %121 ], [ -1, %118 ], [ %33, %87 ], [ -1, %7 ]
+  ret i64 %.1
 }
 
 declare i64 @H5MF_alloc(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1

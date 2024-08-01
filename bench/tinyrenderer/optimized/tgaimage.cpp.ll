@@ -883,7 +883,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %20
   %indvars.iv78 = phi i64 [ 1, %.preheader.us.preheader ], [ %indvars.iv.next79, %20 ]
-  %.03856.us = phi i8 [ 1, %.preheader.us.preheader ], [ %.1.us, %20 ]
+  %.03856.us = phi i8 [ 1, %.preheader.us.preheader ], [ %.2.us, %20 ]
   %.04154.us = phi i64 [ %14, %.preheader.us.preheader ], [ %32, %20 ]
   br label %25
 
@@ -918,22 +918,22 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %33 = icmp eq i64 %indvars.iv78, 1
   %34 = xor i1 %30, true
   %35 = zext i1 %34 to i8
-  %.1.us = select i1 %33, i8 %35, i8 %.03856.us
-  %36 = trunc nuw i8 %.1.us to i1
+  %.2.us = select i1 %33, i8 %35, i8 %.03856.us
+  %36 = trunc nuw i8 %.2.us to i1
   %brmerge.not.us = and i1 %30, %36
   br i1 %brmerge.not.us, label %.split.us, label %19
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %40
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %40 ], [ 1, %.preheader.lr.ph ]
-  %.03856 = phi i8 [ %.1, %40 ], [ 1, %.preheader.lr.ph ]
+  %.03856 = phi i8 [ %.2, %40 ], [ 1, %.preheader.lr.ph ]
   %37 = icmp eq i64 %indvars.iv81, 1
-  %.1 = select i1 %37, i8 0, i8 %.03856
-  %38 = trunc nuw i8 %.1 to i1
+  %.2 = select i1 %37, i8 0, i8 %.03856
+  %38 = trunc nuw i8 %.2 to i1
   br i1 %38, label %.split.us, label %40
 
 .split.us:                                        ; preds = %..critedge_crit_edge.us, %.preheader
   %.us-phi.in = phi i64 [ %indvars.iv81, %.preheader ], [ %indvars.iv78, %..critedge_crit_edge.us ]
-  %.us-phi62 = phi i8 [ %.1, %.preheader ], [ %.1.us, %..critedge_crit_edge.us ]
+  %.us-phi62 = phi i8 [ %.2, %.preheader ], [ %.2.us, %..critedge_crit_edge.us ]
   %.us-phi = trunc i64 %.us-phi.in to i8
   %39 = add nsw i8 %.us-phi, -1
   br label %.loopexit
@@ -953,8 +953,8 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
 
 .loopexit:                                        ; preds = %20, %40, %.loopexit.loopexit87.split.loop.exit96, %11, %.split.us
   %.140 = phi i8 [ %39, %.split.us ], [ 1, %11 ], [ %46, %.loopexit.loopexit87.split.loop.exit96 ], [ %43, %40 ], [ %indvars, %20 ]
-  %.2 = phi i8 [ %.us-phi62, %.split.us ], [ 1, %11 ], [ %.1.us, %.loopexit.loopexit87.split.loop.exit96 ], [ %.1, %40 ], [ %.1.us, %20 ]
-  %47 = trunc nuw i8 %.2 to i1
+  %.1 = phi i8 [ %.us-phi62, %.split.us ], [ 1, %11 ], [ %.2.us, %.loopexit.loopexit87.split.loop.exit96 ], [ %.2, %40 ], [ %.2.us, %20 ]
+  %47 = trunc nuw i8 %.1 to i1
   %.v = select i1 %47, i8 -1, i8 127
   %48 = add i8 %.v, %.140
   %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext %48)

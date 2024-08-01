@@ -217,16 +217,16 @@ land.lhs.true:                                    ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %land.lhs.true, %if.then3
-  %buf_size.0 = phi i64 [ %2, %if.then3 ], [ %spec.select, %land.lhs.true ]
-  %buf.0 = phi ptr [ %1, %if.then3 ], [ %spec.select32, %land.lhs.true ]
-  %cmp15.not = icmp eq ptr %buf.0, null
+  %buf_size.1 = phi i64 [ %2, %if.then3 ], [ %spec.select, %land.lhs.true ]
+  %buf.1 = phi ptr [ %1, %if.then3 ], [ %spec.select32, %land.lhs.true ]
+  %cmp15.not = icmp eq ptr %buf.1, null
   br i1 %cmp15.not, label %if.end28, label %if.then26
 
 if.then26:                                        ; preds = %if.end14
-  %call18 = tail call i32 @BIO_vsnprintf(ptr noundef nonnull %buf.0, i64 noundef %buf_size.0, ptr noundef nonnull %fmt, ptr noundef %args) #6
+  %call18 = tail call i32 @BIO_vsnprintf(ptr noundef nonnull %buf.1, i64 noundef %buf_size.1, ptr noundef nonnull %fmt, ptr noundef %args) #6
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %call18, i32 0)
   %idxprom = zext nneg i32 %spec.store.select to i64
-  %arrayidx27 = getelementptr inbounds i8, ptr %buf.0, i64 %idxprom
+  %arrayidx27 = getelementptr inbounds i8, ptr %buf.1, i64 %idxprom
   store i8 0, ptr %arrayidx27, align 1
   br label %if.end28
 
@@ -234,7 +234,7 @@ if.end28:                                         ; preds = %if.end14, %if.then2
   %spec.store.select42 = phi i32 [ %spec.store.select, %if.then26 ], [ 0, %if.end14 ]
   %add = add nuw nsw i32 %spec.store.select42, 1
   %conv29 = zext nneg i32 %add to i64
-  %call30 = tail call ptr @CRYPTO_realloc(ptr noundef %buf.0, i64 noundef %conv29, ptr noundef nonnull @.str, i32 noundef 103) #6
+  %call30 = tail call ptr @CRYPTO_realloc(ptr noundef %buf.1, i64 noundef %conv29, ptr noundef nonnull @.str, i32 noundef 103) #6
   %cmp31.not = icmp eq ptr %call30, null
   br i1 %cmp31.not, label %if.end38, label %if.then33
 
@@ -245,16 +245,16 @@ if.then33:                                        ; preds = %if.end28
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then33, %if.end28
-  %buf_size.1 = phi i64 [ %conv29, %if.then33 ], [ %buf_size.0, %if.end28 ]
-  %buf.1 = phi ptr [ %call30, %if.then33 ], [ %buf.0, %if.end28 ]
-  %cmp39.not = icmp eq ptr %buf.1, null
+  %buf_size.2 = phi i64 [ %conv29, %if.then33 ], [ %buf_size.1, %if.end28 ]
+  %buf.2 = phi ptr [ %call30, %if.then33 ], [ %buf.1, %if.end28 ]
+  %cmp39.not = icmp eq ptr %buf.2, null
   %spec.select33 = select i1 %cmp39.not, i32 0, i32 3
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end38, %if.end
-  %buf_size.2 = phi i64 [ 0, %if.end ], [ %buf_size.1, %if.end38 ]
+  %buf_size.0 = phi i64 [ 0, %if.end ], [ %buf_size.2, %if.end38 ]
   %flags.0 = phi i32 [ 0, %if.end ], [ %spec.select33, %if.end38 ]
-  %buf.2 = phi ptr [ null, %if.end ], [ %buf.1, %if.end38 ]
+  %buf.0 = phi ptr [ null, %if.end ], [ %buf.2, %if.end38 ]
   %3 = load i32, ptr %top, align 8
   %conv45 = sext i32 %3 to i64
   %err_data_flags.i = getelementptr inbounds i8, ptr %call, i64 512
@@ -330,10 +330,10 @@ if.then.i:                                        ; preds = %if.then50
 
 err_set_data.exit:                                ; preds = %if.then50, %if.then.i
   %arrayidx3.i = getelementptr inbounds [16 x ptr], ptr %err_data19.i, i64 0, i64 %conv52
-  store ptr %buf.2, ptr %arrayidx3.i, align 8
+  store ptr %buf.0, ptr %arrayidx3.i, align 8
   %err_data_size.i = getelementptr inbounds i8, ptr %call, i64 384
   %arrayidx4.i = getelementptr inbounds [16 x i64], ptr %err_data_size.i, i64 0, i64 %conv52
-  store i64 %buf_size.2, ptr %arrayidx4.i, align 8
+  store i64 %buf_size.0, ptr %arrayidx4.i, align 8
   store i32 %flags.0, ptr %arrayidx.i37, align 4
   br label %if.end54
 

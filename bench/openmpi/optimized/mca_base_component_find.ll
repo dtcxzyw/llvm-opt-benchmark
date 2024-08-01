@@ -59,8 +59,8 @@ mca_base_component_parse_requested.exit:          ; preds = %14
   br label %88
 
 mca_base_component_parse_requested.exit.thread:   ; preds = %8, %12, %18, %4
-  %.144 = phi ptr [ null, %4 ], [ %21, %18 ], [ null, %12 ], [ null, %8 ]
-  %.1 = phi i1 [ true, %4 ], [ %20, %18 ], [ true, %12 ], [ true, %8 ]
+  %.043 = phi ptr [ null, %4 ], [ %21, %18 ], [ null, %12 ], [ null, %8 ]
+  %.042 = phi i1 [ true, %4 ], [ %20, %18 ], [ true, %12 ], [ true, %8 ]
   %.not31 = icmp eq ptr %7, null
   br i1 %.not31, label %.loopexit, label %.preheader
 
@@ -80,7 +80,7 @@ mca_base_component_parse_requested.exit.thread:   ; preds = %8, %12, %18, %4
   %29 = phi ptr [ %24, %.lr.ph ], [ %58, %56 ]
   %30 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
   %31 = getelementptr inbounds i8, ptr %29, i64 84
-  %32 = tail call fastcc zeroext i1 @use_component(ptr noundef %1, i1 noundef zeroext %.1, ptr noundef %.144, ptr noundef nonnull %31)
+  %32 = tail call fastcc zeroext i1 @use_component(ptr noundef %1, i1 noundef zeroext %.042, ptr noundef %.043, ptr noundef nonnull %31)
   br i1 %32, label %33, label %56
 
 33:                                               ; preds = %28
@@ -176,7 +176,7 @@ opal_obj_new.exit.thread49:                       ; preds = %.lr.ph.i.i, %40
 .lr.ph.i:                                         ; preds = %67, %75
   %.018.i = phi ptr [ %.0.i36, %75 ], [ %.016.i, %67 ]
   %71 = getelementptr inbounds i8, ptr %.018.i, i64 72
-  %72 = call fastcc zeroext i1 @use_component(ptr noundef %1, i1 noundef zeroext %.1, ptr noundef %.144, ptr noundef nonnull %71)
+  %72 = call fastcc zeroext i1 @use_component(ptr noundef %1, i1 noundef zeroext %.042, ptr noundef %.043, ptr noundef nonnull %71)
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %.lr.ph.i
@@ -206,19 +206,19 @@ find_dyn_components.exit:                         ; preds = %75, %63, %65, %67
   br label %84
 
 84:                                               ; preds = %81, %79, %find_dyn_components.exit
-  br i1 %.1, label %85, label %opal_obj_new.exit.thread
+  br i1 %.042, label %85, label %opal_obj_new.exit.thread
 
 85:                                               ; preds = %84
-  %86 = call fastcc i32 @component_find_check(ptr noundef %1, ptr noundef %.144)
+  %86 = call fastcc i32 @component_find_check(ptr noundef %1, ptr noundef %.043)
   br label %opal_obj_new.exit.thread
 
 opal_obj_new.exit.thread:                         ; preds = %39, %84, %85
   %.024 = phi i32 [ %86, %85 ], [ 0, %84 ], [ -2, %39 ]
-  %.not33 = icmp eq ptr %.144, null
+  %.not33 = icmp eq ptr %.043, null
   br i1 %.not33, label %88, label %87
 
 87:                                               ; preds = %opal_obj_new.exit.thread
-  call void @opal_argv_free(ptr noundef nonnull %.144) #8
+  call void @opal_argv_free(ptr noundef nonnull %.043) #8
   br label %88
 
 88:                                               ; preds = %mca_base_component_parse_requested.exit, %opal_obj_new.exit.thread, %87
@@ -345,8 +345,8 @@ component_in_list.exit:                           ; preds = %.lr.ph.i, %.lr.ph.i
   br i1 %1, label %34, label %component_in_list.exit.thread
 
 component_in_list.exit.thread:                    ; preds = %.loopexit, %.lr.ph.split.us, %18, %.loopexit36, %component_in_list.exit
-  %.145 = phi i1 [ true, %component_in_list.exit ], [ false, %.loopexit36 ], [ false, %18 ], [ false, %.lr.ph.split.us ], [ false, %.loopexit ]
-  %32 = or i1 %.145, %1
+  %.02045 = phi i1 [ true, %component_in_list.exit ], [ false, %.loopexit36 ], [ false, %18 ], [ false, %.lr.ph.split.us ], [ false, %.loopexit ]
+  %32 = or i1 %.02045, %1
   %33 = xor i1 %32, true
   br label %34
 

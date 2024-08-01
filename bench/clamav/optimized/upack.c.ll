@@ -522,30 +522,30 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 .preheader1182:                                   ; preds = %272, %.preheader1182
   %.18711200 = phi i32 [ %278, %.preheader1182 ], [ 0, %272 ]
-  %.38981199 = phi ptr [ %280, %.preheader1182 ], [ %.0895, %272 ]
-  %.39071198 = phi ptr [ %279, %.preheader1182 ], [ %.1905, %272 ]
-  %277 = load i32, ptr %.39071198, align 1
-  store i32 %277, ptr %.38981199, align 1
+  %.48991199 = phi ptr [ %280, %.preheader1182 ], [ %.0895, %272 ]
+  %.49081198 = phi ptr [ %279, %.preheader1182 ], [ %.1905, %272 ]
+  %277 = load i32, ptr %.49081198, align 1
+  store i32 %277, ptr %.48991199, align 1
   %278 = add nuw nsw i32 %.18711200, 1
-  %279 = getelementptr inbounds i8, ptr %.39071198, i64 4
-  %280 = getelementptr inbounds i8, ptr %.38981199, i64 4
+  %279 = getelementptr inbounds i8, ptr %.49081198, i64 4
+  %280 = getelementptr inbounds i8, ptr %.48991199, i64 4
   %exitcond.not = icmp eq i32 %278, 39
   br i1 %exitcond.not, label %.loopexit, label %.preheader1182
 
 .loopexit:                                        ; preds = %.preheader1182, %.preheader1181
-  %.4908 = phi ptr [ %255, %.preheader1181 ], [ %279, %.preheader1182 ]
-  %.4899 = phi ptr [ %256, %.preheader1181 ], [ %280, %.preheader1182 ]
-  %281 = getelementptr inbounds i8, ptr %.4908, i64 4
+  %.3907 = phi ptr [ %255, %.preheader1181 ], [ %279, %.preheader1182 ]
+  %.3898 = phi ptr [ %256, %.preheader1181 ], [ %280, %.preheader1182 ]
+  %281 = getelementptr inbounds i8, ptr %.3907, i64 4
   %282 = load i32, ptr %281, align 1
-  %283 = getelementptr inbounds i8, ptr %.4899, i64 -4
+  %283 = getelementptr inbounds i8, ptr %.3898, i64 -4
   %284 = load i32, ptr %283, align 1
   %285 = zext i32 %284 to i64
   %286 = zext i32 %4 to i64
   %287 = sub nsw i64 0, %286
-  store i32 -1, ptr %.4899, align 1
-  %288 = getelementptr inbounds i8, ptr %.4899, i64 4
+  store i32 -1, ptr %.3898, align 1
+  %288 = getelementptr inbounds i8, ptr %.3898, i64 4
   store i32 0, ptr %288, align 1
-  %289 = getelementptr inbounds i8, ptr %.4899, i64 8
+  %289 = getelementptr inbounds i8, ptr %.3898, i64 8
   br label %292
 
 .preheader1180:                                   ; preds = %292
@@ -573,7 +573,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   br i1 %exitcond1274.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader1180
-  %297 = getelementptr inbounds i8, ptr %.4908, i64 12
+  %297 = getelementptr inbounds i8, ptr %.3907, i64 12
   %298 = load i32, ptr %297, align 1
   %299 = sext i32 %298 to i64
   %300 = getelementptr inbounds i8, ptr %1, i64 %299
@@ -586,13 +586,13 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   br i1 %185, label %306, label %310
 
 306:                                              ; preds = %._crit_edge
-  %307 = getelementptr inbounds i8, ptr %.4908, i64 100
-  %308 = getelementptr inbounds i8, ptr %.4908, i64 64
+  %307 = getelementptr inbounds i8, ptr %.3907, i64 100
+  %308 = getelementptr inbounds i8, ptr %.3907, i64 64
   %309 = load i32, ptr %308, align 1
   br label %312
 
 310:                                              ; preds = %._crit_edge
-  %311 = getelementptr inbounds i8, ptr %.4908, i64 52
+  %311 = getelementptr inbounds i8, ptr %.3907, i64 52
   br label %312
 
 312:                                              ; preds = %310, %306
@@ -611,7 +611,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 315:                                              ; preds = %312
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #3
-  %316 = tail call i32 @unupack399(ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %.4899, i32 noundef 0, ptr noundef %.7902, ptr noundef %.0891, i32 noundef %200, ptr noundef %291)
+  %316 = tail call i32 @unupack399(ptr noundef %1, i32 noundef %2, i32 noundef 0, ptr noundef nonnull %.3898, i32 noundef 0, ptr noundef %.7902, ptr noundef %.0891, i32 noundef %200, ptr noundef %291)
   %317 = icmp eq i32 %316, -1
   br i1 %317, label %632, label %555
 
@@ -818,12 +818,12 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 .lr.ph1218:                                       ; preds = %426, %.lr.ph1218
   %.41217 = phi i32 [ %430, %.lr.ph1218 ], [ %407, %426 ]
-  %.89031216 = phi ptr [ %432, %.lr.ph1218 ], [ %404, %426 ]
+  %.91216 = phi ptr [ %432, %.lr.ph1218 ], [ %404, %426 ]
   %.59091215 = phi ptr [ %433, %.lr.ph1218 ], [ %411, %426 ]
   %430 = add nsw i32 %.41217, -1
   %431 = load i32, ptr %.59091215, align 1
-  store i32 %431, ptr %.89031216, align 1
-  %432 = getelementptr inbounds i8, ptr %.89031216, i64 4
+  store i32 %431, ptr %.91216, align 1
+  %432 = getelementptr inbounds i8, ptr %.91216, i64 4
   %433 = getelementptr inbounds i8, ptr %.59091215, i64 4
   %.not1015 = icmp eq i32 %430, 0
   br i1 %.not1015, label %._crit_edge1219, label %.lr.ph1218
@@ -869,10 +869,10 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 .lr.ph1224:                                       ; preds = %454, %.lr.ph1224
   %.51222 = phi i32 [ %456, %.lr.ph1224 ], [ 0, %454 ]
-  %.91221 = phi ptr [ %457, %.lr.ph1224 ], [ %432, %454 ]
-  store i32 %455, ptr %.91221, align 1
+  %.101221 = phi ptr [ %457, %.lr.ph1224 ], [ %432, %454 ]
+  store i32 %455, ptr %.101221, align 1
   %456 = add nuw nsw i32 %.51222, 1
-  %457 = getelementptr inbounds i8, ptr %.91221, i64 4
+  %457 = getelementptr inbounds i8, ptr %.101221, i64 4
   %exitcond1277.not = icmp eq i32 %456, %373
   br i1 %exitcond1277.not, label %._crit_edge1225, label %.lr.ph1224
 
@@ -1000,19 +1000,19 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 526:                                              ; preds = %523, %526
   %.71209 = phi i32 [ 0, %523 ], [ %527, %526 ]
-  %.101208 = phi ptr [ %525, %523 ], [ %528, %526 ]
-  store i32 1, ptr %.101208, align 1
+  %.121208 = phi ptr [ %525, %523 ], [ %528, %526 ]
+  store i32 1, ptr %.121208, align 1
   %527 = add nuw nsw i32 %.71209, 1
-  %528 = getelementptr inbounds i8, ptr %.101208, i64 4
+  %528 = getelementptr inbounds i8, ptr %.121208, i64 4
   %exitcond1275.not = icmp eq i32 %527, 4
   br i1 %exitcond1275.not, label %.preheader1179, label %526
 
 .lr.ph1212:                                       ; preds = %.preheader1179, %.lr.ph1212
   %.81211 = phi i32 [ %529, %.lr.ph1212 ], [ 0, %.preheader1179 ]
-  %.111210 = phi ptr [ %530, %.lr.ph1212 ], [ %528, %.preheader1179 ]
-  store i32 1024, ptr %.111210, align 1
+  %.131210 = phi ptr [ %530, %.lr.ph1212 ], [ %528, %.preheader1179 ]
+  store i32 1024, ptr %.131210, align 1
   %529 = add nuw nsw i32 %.81211, 1
-  %530 = getelementptr inbounds i8, ptr %.111210, i64 4
+  %530 = getelementptr inbounds i8, ptr %.131210, i64 4
   %exitcond1276.not = icmp eq i32 %529, %373
   br i1 %exitcond1276.not, label %._crit_edge1213, label %.lr.ph1212
 
@@ -1031,11 +1031,11 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 540:                                              ; preds = %._crit_edge1213, %.preheader.preheader
   %.7911 = phi ptr [ %471, %.preheader.preheader ], [ %507, %._crit_edge1213 ]
   %.0894 = phi ptr [ %466, %.preheader.preheader ], [ %514, %._crit_edge1213 ]
-  %.1892 = phi ptr [ %495, %.preheader.preheader ], [ %539, %._crit_edge1213 ]
+  %.2893 = phi ptr [ %495, %.preheader.preheader ], [ %539, %._crit_edge1213 ]
   %.0885 = phi ptr [ %491, %.preheader.preheader ], [ %512, %._crit_edge1213 ]
-  %.0883 = phi ptr [ %470, %.preheader.preheader ], [ %534, %._crit_edge1213 ]
+  %.1884 = phi ptr [ %470, %.preheader.preheader ], [ %534, %._crit_edge1213 ]
   %.0862 = phi i32 [ %496, %.preheader.preheader ], [ %4, %._crit_edge1213 ]
-  %541 = icmp ugt ptr %.0883, %.1892
+  %541 = icmp ugt ptr %.1884, %.2893
   br i1 %541, label %542, label %.thread1158
 
 542:                                              ; preds = %540
@@ -1044,13 +1044,13 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 .thread1158:                                      ; preds = %499, %540
   %.08621170 = phi i32 [ %.0862, %540 ], [ %4, %499 ]
-  %.08831169 = phi ptr [ %.0883, %540 ], [ null, %499 ]
+  %.18841169 = phi ptr [ %.1884, %540 ], [ null, %499 ]
   %.08851168 = phi ptr [ %.0885, %540 ], [ null, %499 ]
-  %.18921167 = phi ptr [ %.1892, %540 ], [ null, %499 ]
+  %.28931167 = phi ptr [ %.2893, %540 ], [ null, %499 ]
   %.08941166 = phi ptr [ %.0894, %540 ], [ null, %499 ]
   %.79111165 = phi ptr [ %.7911, %540 ], [ %322, %499 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #3
-  %543 = tail call i32 @unupack399(ptr noundef nonnull %1, i32 noundef %2, i32 noundef 0, ptr noundef %.08941166, i32 noundef 0, ptr noundef %.08831169, ptr noundef %.18921167, i32 noundef %365, ptr noundef %.08851168)
+  %543 = tail call i32 @unupack399(ptr noundef nonnull %1, i32 noundef %2, i32 noundef 0, ptr noundef %.08941166, i32 noundef 0, ptr noundef %.18841169, ptr noundef %.28931167, i32 noundef %365, ptr noundef %.08851168)
   %544 = icmp eq i32 %543, -1
   br i1 %544, label %632, label %545
 
@@ -1078,9 +1078,9 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 555:                                              ; preds = %.sink.split, %548, %315
   %.pre-phi = phi i64 [ %341, %548 ], [ %29, %315 ], [ %341, %.sink.split ]
-  %.2893 = phi ptr [ %.18921167, %548 ], [ %.0891, %315 ], [ %.18921167, %.sink.split ]
-  %.4890 = phi ptr [ %340, %548 ], [ %spec.select, %315 ], [ %340, %.sink.split ]
-  %.1884 = phi ptr [ %.08831169, %548 ], [ %.7902, %315 ], [ %.08831169, %.sink.split ]
+  %.1892 = phi ptr [ %.28931167, %548 ], [ %.0891, %315 ], [ %.28931167, %.sink.split ]
+  %.3889 = phi ptr [ %340, %548 ], [ %spec.select, %315 ], [ %340, %.sink.split ]
+  %.0883 = phi ptr [ %.18841169, %548 ], [ %.7902, %315 ], [ %.18841169, %.sink.split ]
   %.1880 = phi i32 [ undef, %548 ], [ %.0879, %315 ], [ %554, %.sink.split ]
   %.0873 = phi i32 [ %361, %548 ], [ %38, %315 ], [ %361, %.sink.split ]
   %.not1080 = icmp eq i32 %2, 0
@@ -1088,11 +1088,11 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 
 556:                                              ; preds = %555
   %557 = ptrtoint ptr %1 to i64
-  %.not1081 = icmp ult ptr %.4890, %1
+  %.not1081 = icmp ult ptr %.3889, %1
   br i1 %.not1081, label %564, label %558
 
 558:                                              ; preds = %556
-  %559 = ptrtoint ptr %.4890 to i64
+  %559 = ptrtoint ptr %.3889 to i64
   %560 = add i64 %559, 1
   %561 = add i64 %.pre-phi, %557
   %.not1082 = icmp ule i64 %560, %561
@@ -1107,7 +1107,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   br label %632
 
 565:                                              ; preds = %558
-  %566 = load i8, ptr %.4890, align 1
+  %566 = load i8, ptr %.3889, align 1
   %567 = zext i8 %566 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, i32 noundef %.1880, i32 noundef %567) #3
   %.not10831234 = icmp eq i32 %.1880, 0
@@ -1118,11 +1118,11 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   br i1 %568, label %.outer.split.lr.ph.split.us.split, label %.outer.split
 
 .outer.split.lr.ph.split.us.split:                ; preds = %.outer.split.lr.ph
-  %.not1085.us.us1242 = icmp ult ptr %.1884, %1
+  %.not1085.us.us1242 = icmp ult ptr %.0883, %1
   br i1 %.not1085.us.us1242, label %.split.us, label %.lr.ph1244
 
 .lr.ph1244:                                       ; preds = %.outer.split.lr.ph.split.us.split, %.split1227.us.us
-  %569 = phi ptr [ %579, %.split1227.us.us ], [ %.1884, %.outer.split.lr.ph.split.us.split ]
+  %569 = phi ptr [ %579, %.split1227.us.us ], [ %.0883, %.outer.split.lr.ph.split.us.split ]
   %.2877.ph1236.us1243 = phi i32 [ %577, %.split1227.us.us ], [ 0, %.outer.split.lr.ph.split.us.split ]
   %570 = ptrtoint ptr %569 to i64
   %571 = add i64 %570, 1
@@ -1142,7 +1142,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 .split1227.us.us:                                 ; preds = %574
   %577 = add i32 %.2877.ph1236.us1243, 1
   %578 = zext i32 %577 to i64
-  %579 = getelementptr inbounds i8, ptr %.1884, i64 %578
+  %579 = getelementptr inbounds i8, ptr %.0883, i64 %578
   %.not1085.us.us = icmp ult ptr %579, %1
   br i1 %.not1085.us.us, label %.split.us, label %.lr.ph1244
 
@@ -1154,7 +1154,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
 580:                                              ; preds = %.outer.split, %598
   %.2877 = phi i32 [ %599, %598 ], [ %.2877.ph1236, %.outer.split ]
   %581 = zext i32 %.2877 to i64
-  %582 = getelementptr inbounds i8, ptr %.1884, i64 %581
+  %582 = getelementptr inbounds i8, ptr %.0883, i64 %581
   %.not1085 = icmp ult ptr %582, %1
   br i1 %.not1085, label %.split.us, label %583
 
@@ -1169,7 +1169,7 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   br i1 %or.cond1148, label %589, label %.split.us
 
 .split.us:                                        ; preds = %580, %583, %.split1227.us.us, %.lr.ph1244, %.outer.split.lr.ph.split.us.split
-  %.us-phi = phi ptr [ %.1884, %.outer.split.lr.ph.split.us.split ], [ %569, %.lr.ph1244 ], [ %579, %.split1227.us.us ], [ %582, %583 ], [ %582, %580 ]
+  %.us-phi = phi ptr [ %.0883, %.outer.split.lr.ph.split.us.split ], [ %569, %.lr.ph1244 ], [ %579, %.split1227.us.us ], [ %582, %583 ], [ %582, %580 ]
   %588 = getelementptr inbounds i8, ptr %1, i64 %.pre-phi
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %588, ptr noundef %.us-phi) #3
   br label %632
@@ -1231,8 +1231,8 @@ define range(i32 -1, 2) i32 @unupack(i32 noundef %0, ptr noundef %1, i32 noundef
   %614 = getelementptr inbounds i8, ptr %10, i64 8
   store i32 0, ptr %614, align 4
   store i32 %7, ptr %10, align 4
-  %615 = ptrtoint ptr %.2893 to i64
-  %616 = ptrtoint ptr %.1884 to i64
+  %615 = ptrtoint ptr %.1892 to i64
+  %616 = ptrtoint ptr %.0883 to i64
   %617 = sub i64 %615, %616
   %618 = trunc i64 %617 to i32
   %619 = getelementptr inbounds i8, ptr %10, i64 12
@@ -1327,8 +1327,8 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %exitcond.not, label %.preheader354, label %33
 
 39:                                               ; preds = %.preheader354, %308
-  %.0245 = phi i32 [ %.3248, %308 ], [ %2, %.preheader354 ]
-  %.0240 = phi ptr [ %.3, %308 ], [ %5, %.preheader354 ]
+  %.0245 = phi i32 [ %.2247, %308 ], [ %2, %.preheader354 ]
+  %.0240 = phi ptr [ %.1, %308 ], [ %5, %.preheader354 ]
   store i32 %.0245, ptr %11, align 4
   %40 = shl i32 %.0245, 2
   %41 = zext i32 %40 to i64
@@ -1491,7 +1491,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
 125:                                              ; preds = %122, %74
   %126 = phi ptr [ %31, %122 ], [ %gep378, %74 ]
   %127 = phi i32 [ 4, %122 ], [ %78, %74 ]
-  %.0249 = phi i32 [ %124, %122 ], [ %80, %74 ]
+  %.1250 = phi i32 [ %124, %122 ], [ %80, %74 ]
   %128 = and i32 %127, 255
   %129 = shl nuw i32 1, %128
   store i32 %129, ptr %12, align 4
@@ -1519,13 +1519,13 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
 
 143:                                              ; preds = %135
   store i32 %141, ptr %11, align 4
-  %144 = add i32 %140, %.0249
+  %144 = add i32 %140, %.1250
   br label %145
 
 145:                                              ; preds = %143, %71
   %146 = phi i32 [ %141, %143 ], [ %72, %71 ]
-  %.1250 = phi i32 [ %144, %143 ], [ %72, %71 ]
-  %147 = add i32 %.1250, 1
+  %.0249 = phi i32 [ %144, %143 ], [ %72, %71 ]
+  %147 = add i32 %.0249, 1
   br label %204
 
 148:                                              ; preds = %43
@@ -1623,7 +1623,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   br label %308
 
 197:                                              ; preds = %170, %168, %166, %158
-  %.2251 = phi i32 [ %167, %166 ], [ %164, %158 ], [ %169, %168 ], [ %49, %170 ]
+  %.3252 = phi i32 [ %167, %166 ], [ %164, %158 ], [ %169, %168 ], [ %49, %170 ]
   %198 = load i32, ptr %11, align 4
   store ptr %25, ptr %15, align 8
   %199 = call i32 @lzma_upack_esi_54(ptr noundef nonnull %10, i32 noundef %198, ptr noundef nonnull %12, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef %0, i32 noundef %1) #3
@@ -1641,7 +1641,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   %.pre-phi = phi i32 [ %.pre399, %201 ], [ %65, %145 ]
   %205 = phi i32 [ %202, %201 ], [ %146, %145 ]
   %206 = phi i32 [ %203, %201 ], [ %64, %145 ]
-  %.3252 = phi i32 [ %.2251, %201 ], [ %147, %145 ]
+  %.2251 = phi i32 [ %.3252, %201 ], [ %147, %145 ]
   %.1246 = phi i32 [ %198, %201 ], [ %59, %145 ]
   store i32 %206, ptr %12, align 4
   %207 = icmp uge i32 %.pre-phi, %1
@@ -1668,7 +1668,7 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %or.cond336.not, label %217, label %.loopexit353.split
 
 217:                                              ; preds = %214
-  %218 = zext i32 %.3252 to i64
+  %218 = zext i32 %.2251 to i64
   %219 = sub nsw i64 0, %218
   %220 = getelementptr inbounds i8, ptr %.0240, i64 %219
   %.not323 = icmp ult ptr %220, %0
@@ -1685,18 +1685,18 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %or.cond338, label %226, label %.loopexit353.split
 
 226:                                              ; preds = %221
-  store i32 %.3252, ptr %21, align 8
+  store i32 %.2251, ptr %21, align 8
   %.not387 = icmp eq i32 %206, 0
   br i1 %.not387, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %226, %.lr.ph
-  %.1372 = phi ptr [ %230, %.lr.ph ], [ %.0240, %226 ]
+  %.2372 = phi ptr [ %230, %.lr.ph ], [ %.0240, %226 ]
   %.1244371 = phi i32 [ %229, %.lr.ph ], [ 0, %226 ]
-  %227 = getelementptr inbounds i8, ptr %.1372, i64 %219
+  %227 = getelementptr inbounds i8, ptr %.2372, i64 %219
   %228 = load i8, ptr %227, align 1
-  store i8 %228, ptr %.1372, align 1
+  store i8 %228, ptr %.2372, align 1
   %229 = add nuw i32 %.1244371, 1
-  %230 = getelementptr inbounds i8, ptr %.1372, i64 1
+  %230 = getelementptr inbounds i8, ptr %.2372, i64 1
   %231 = load i32, ptr %12, align 4
   %232 = icmp ult i32 %229, %231
   br i1 %232, label %.lr.ph, label %._crit_edge.loopexit
@@ -1707,9 +1707,9 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %226
   %233 = phi i32 [ %205, %226 ], [ %.pre, %._crit_edge.loopexit ]
-  %.1.lcssa = phi ptr [ %.0240, %226 ], [ %230, %._crit_edge.loopexit ]
+  %.2.lcssa = phi ptr [ %.0240, %226 ], [ %230, %._crit_edge.loopexit ]
   %234 = and i32 %233, -256
-  %235 = getelementptr inbounds i8, ptr %.1.lcssa, i64 %219
+  %235 = getelementptr inbounds i8, ptr %.2.lcssa, i64 %219
   %236 = load i8, ptr %235, align 1
   %237 = zext i8 %236 to i32
   %238 = or disjoint i32 %234, %237
@@ -1822,15 +1822,15 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
 
 .loopexit:                                        ; preds = %.preheader, %292, %297, %._crit_edge
   %storemerge = phi i32 [ 128, %._crit_edge ], [ 0, %297 ], [ 0, %292 ], [ 0, %.preheader ]
-  %.2247 = phi i32 [ %.1246, %._crit_edge ], [ %244, %297 ], [ %244, %292 ], [ %244, %.preheader ]
-  %.2 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %.0240, %297 ], [ %.0240, %292 ], [ %.0240, %.preheader ]
+  %.3248 = phi i32 [ %.1246, %._crit_edge ], [ %244, %297 ], [ %244, %292 ], [ %244, %.preheader ]
+  %.3 = phi ptr [ %.2.lcssa, %._crit_edge ], [ %.0240, %297 ], [ %.0240, %292 ], [ %.0240, %.preheader ]
   store i32 %storemerge, ptr %12, align 4
-  %.not326 = icmp ult ptr %.2, %0
+  %.not326 = icmp ult ptr %.3, %0
   %or.cond351 = or i1 %.not311, %.not326
   br i1 %or.cond351, label %.loopexit353.split, label %300
 
 300:                                              ; preds = %.loopexit
-  %301 = ptrtoint ptr %.2 to i64
+  %301 = ptrtoint ptr %.3 to i64
   %302 = add i64 %301, 1
   %.not327 = icmp ule i64 %302, %28
   %303 = icmp ugt i64 %302, %27
@@ -1842,14 +1842,14 @@ define range(i32 -1, 2) i32 @unupack399(ptr noundef %0, i32 noundef %1, i32 noun
 305:                                              ; preds = %300
   %306 = load i32, ptr %11, align 4
   %307 = trunc i32 %306 to i8
-  store i8 %307, ptr %.2, align 1
+  store i8 %307, ptr %.3, align 1
   br label %308
 
 308:                                              ; preds = %305, %195
-  %.3248 = phi i32 [ %.2247, %305 ], [ %178, %195 ]
-  %.2.pn = phi ptr [ %.2, %305 ], [ %.0240, %195 ]
-  %.3 = getelementptr inbounds i8, ptr %.2.pn, i64 1
-  %309 = icmp ult ptr %.3, %6
+  %.2247 = phi i32 [ %.3248, %305 ], [ %178, %195 ]
+  %.3.pn = phi ptr [ %.3, %305 ], [ %.0240, %195 ]
+  %.1 = getelementptr inbounds i8, ptr %.3.pn, i64 1
+  %309 = icmp ult ptr %.1, %6
   br i1 %309, label %39, label %.loopexit353.split
 
 .loopexit353.split:                               ; preds = %308, %.loopexit, %300, %297, %292, %259, %264, %204, %208, %214, %217, %221, %197, %176, %185, %190, %125, %63, %57, %85, %95, %.split

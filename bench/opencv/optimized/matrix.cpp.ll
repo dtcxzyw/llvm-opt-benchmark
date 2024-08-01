@@ -4099,8 +4099,8 @@ _ZNK2cv3MatclEPKNS_5RangeE.exit:                  ; preds = %._crit_edge
   %.sink = phi ptr [ %10, %79 ], [ %10, %77 ], [ %12, %109 ], [ %12, %107 ]
   %.pn49.pn = phi { ptr, i32 } [ %80, %79 ], [ %78, %77 ], [ %110, %109 ], [ %108, %107 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #21
-  %.4 = extractvalue { ptr, i32 } %.pn49.pn, 0
-  %112 = call ptr @__cxa_begin_catch(ptr %.4) #21
+  %.3 = extractvalue { ptr, i32 } %.pn49.pn, 0
+  %112 = call ptr @__cxa_begin_catch(ptr %.3) #21
   invoke void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
           to label %113 unwind label %132
 

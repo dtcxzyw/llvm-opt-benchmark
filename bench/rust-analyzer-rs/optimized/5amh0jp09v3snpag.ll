@@ -1186,7 +1186,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.critedge
 
 63:                                               ; preds = %.body
-  br i1 %.3, label %189, label %188
+  br i1 %.2, label %189, label %188
 
 64:                                               ; preds = %"_ZN4core4cell16RefCell$LT$T$GT$7replace17h63dfd0a4f709fd24E.llvm.7895469578230281792.exit.i"
   store i64 %.sroa.0.0.copyload1.i, ptr %24, align 8, !alias.scope !123
@@ -1567,7 +1567,7 @@ _ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.ex
           to label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" unwind label %181
 
 .body:                                            ; preds = %107, %103, %186, %183, %181
-  %.3 = phi i1 [ %.2.ph, %183 ], [ false, %107 ], [ false, %181 ], [ true, %186 ], [ true, %103 ]
+  %.2 = phi i1 [ %.3.ph, %183 ], [ false, %107 ], [ false, %181 ], [ true, %186 ], [ true, %103 ]
   %.pn = phi { ptr, i32 } [ %lpad.phi, %183 ], [ %lpad.thr_comm.split-lp, %107 ], [ %182, %181 ], [ %187, %186 ], [ %104, %103 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$salsa..runtime..ActiveQuery$GT$17h9abad5b3d97325efE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %23) #25
           to label %63 unwind label %184
@@ -1590,13 +1590,13 @@ _ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.ex
   br label %183
 
 .loopexit.split-lp:                               ; preds = %113, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit119.thread, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit127", %144, %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit, %163, %165, %139
-  %.2.ph.ph = phi i1 [ true, %139 ], [ false, %165 ], [ true, %163 ], [ true, %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit ], [ true, %144 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit127" ], [ true, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit119.thread ], [ true, %113 ]
+  %.3.ph.ph = phi i1 [ true, %139 ], [ false, %165 ], [ true, %163 ], [ true, %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit ], [ true, %144 ], [ true, %"_ZN84_$LT$tracing_core..field..Iter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1640ece4bfcb2b29E.exit127" ], [ true, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit119.thread ], [ true, %113 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %183
 
 183:                                              ; preds = %.loopexit.split-lp, %.loopexit
-  %.2.ph = phi i1 [ true, %.loopexit ], [ %.2.ph.ph, %.loopexit.split-lp ]
+  %.3.ph = phi i1 [ true, %.loopexit ], [ %.3.ph.ph, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %22) #25
           to label %.body unwind label %184

@@ -1148,7 +1148,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %.loopexit
 
 _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %.noexc7, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i
   %.sroa.10.0 = phi ptr [ %105, %.noexc7 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %.sroa.037.0 = phi ptr [ %104, %.noexc7 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %.sroa.037.1 = phi ptr [ %104, %.noexc7 ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %106 = load i32, ptr %16, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
@@ -1187,7 +1187,7 @@ _ZN5ZXing9ByteArrayC2Ei.exit:                     ; preds = %.noexc7, %_ZNSt6vec
   br label %129
 
 129:                                              ; preds = %444, %.noexc13
-  %.sroa.021.0 = phi ptr [ %.sroa.037.0, %.noexc13 ], [ %.sroa.021.5, %444 ]
+  %.sroa.021.0 = phi ptr [ %.sroa.037.1, %.noexc13 ], [ %.sroa.021.5, %444 ]
   %.046.i = phi i32 [ 0, %.noexc13 ], [ %446, %444 ]
   %.0.i = phi i32 [ 4, %.noexc13 ], [ %445, %444 ]
   %130 = icmp eq i32 %.0.i, %86
@@ -1835,15 +1835,15 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %450, %452
 
 .body:                                            ; preds = %172, %175, %455
   %eh.lpad-body = phi { ptr, i32 } [ %456, %455 ], [ %173, %175 ], [ %173, %172 ]
-  %.not.i.i.i.i14 = icmp eq ptr %.sroa.037.0, null
+  %.not.i.i.i.i14 = icmp eq ptr %.sroa.037.1, null
   br i1 %.not.i.i.i.i14, label %_ZN5ZXing9ByteArrayD2Ev.exit, label %457
 
 457:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.037.0) #10
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.037.1) #10
   br label %_ZN5ZXing9ByteArrayD2Ev.exit
 
 .thread:                                          ; preds = %_ZN5ZXing9BitMatrixD2Ev.exit
-  store ptr %.sroa.037.0, ptr %0, align 8
+  store ptr %.sroa.037.1, ptr %0, align 8
   %458 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.10.0, ptr %458, align 8
   %459 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1851,12 +1851,12 @@ _ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %450, %452
   br label %_ZN5ZXing9ByteArrayD2Ev.exit16
 
 460:                                              ; preds = %_ZN5ZXing9BitMatrixD2Ev.exit
-  %.not.i.i.i.i15 = icmp eq ptr %.sroa.037.0, null
+  %.not.i.i.i.i15 = icmp eq ptr %.sroa.037.1, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i15, label %_ZN5ZXing9ByteArrayD2Ev.exit16, label %461
 
 461:                                              ; preds = %460
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.037.0) #10
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.037.1) #10
   br label %_ZN5ZXing9ByteArrayD2Ev.exit16
 
 _ZN5ZXing9ByteArrayD2Ev.exit16:                   ; preds = %.thread, %460, %461

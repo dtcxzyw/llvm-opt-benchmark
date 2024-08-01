@@ -91,12 +91,12 @@ define hidden void @mlib_ImageAffine_bit_1ch_nn(ptr nocapture noundef readonly %
 
 .lr.ph:                                           ; preds = %46, %.lr.ph
   %.0171195 = phi i32 [ %75, %.lr.ph ], [ %51, %46 ]
-  %.0172194 = phi i32 [ %76, %.lr.ph ], [ %39, %46 ]
-  %.0173193 = phi i32 [ %78, %.lr.ph ], [ %34, %46 ]
-  %.0177192 = phi i32 [ %77, %.lr.ph ], [ %41, %46 ]
-  %54 = and i32 %.0173193, 7
+  %.1194 = phi i32 [ %76, %.lr.ph ], [ %39, %46 ]
+  %.1174193 = phi i32 [ %78, %.lr.ph ], [ %34, %46 ]
+  %.1178192 = phi i32 [ %77, %.lr.ph ], [ %41, %46 ]
+  %54 = and i32 %.1174193, 7
   %55 = xor i32 %54, 7
-  %56 = ashr i32 %.0177192, 13
+  %56 = ashr i32 %.1178192, 13
   %57 = and i32 %56, -8
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr %13, i64 %58
@@ -104,45 +104,45 @@ define hidden void @mlib_ImageAffine_bit_1ch_nn(ptr nocapture noundef readonly %
   %61 = shl nuw nsw i32 1, %55
   %62 = xor i32 %61, -1
   %63 = and i32 %.0171195, %62
-  %64 = ashr i32 %.0172194, 19
+  %64 = ashr i32 %.1194, 19
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i8, ptr %60, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = zext i8 %67 to i32
-  %69 = lshr i32 %.0172194, 16
+  %69 = lshr i32 %.1194, 16
   %70 = and i32 %69, 7
   %71 = xor i32 %70, 7
   %72 = lshr i32 %68, %71
   %73 = and i32 %72, 1
   %74 = shl nuw nsw i32 %73, %55
   %75 = or i32 %74, %63
-  %76 = add nsw i32 %.0172194, %19
-  %77 = add nsw i32 %.0177192, %21
-  %78 = add nsw i32 %.0173193, 1
+  %76 = add nsw i32 %.1194, %19
+  %77 = add nsw i32 %.1178192, %21
+  %78 = add nsw i32 %.1174193, 1
   %79 = icmp slt i32 %78, %spec.select
   br i1 %79, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %46
-  %.0177.lcssa = phi i32 [ %41, %46 ], [ %77, %.lr.ph ]
-  %.0173.lcssa = phi i32 [ %34, %46 ], [ %spec.select, %.lr.ph ]
-  %.0172.lcssa = phi i32 [ %39, %46 ], [ %76, %.lr.ph ]
+  %.1178.lcssa = phi i32 [ %41, %46 ], [ %77, %.lr.ph ]
+  %.1174.lcssa = phi i32 [ %34, %46 ], [ %spec.select, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %39, %46 ], [ %76, %.lr.ph ]
   %.0171.lcssa = phi i32 [ %51, %46 ], [ %75, %.lr.ph ]
   %80 = trunc nuw i32 %.0171.lcssa to i8
   store i8 %80, ptr %49, align 1
   br label %81
 
 81:                                               ; preds = %._crit_edge, %43
-  %.1178 = phi i32 [ %.0177.lcssa, %._crit_edge ], [ %41, %43 ]
-  %.1174 = phi i32 [ %.0173.lcssa, %._crit_edge ], [ %34, %43 ]
-  %.1 = phi i32 [ %.0172.lcssa, %._crit_edge ], [ %39, %43 ]
+  %.0177 = phi i32 [ %.1178.lcssa, %._crit_edge ], [ %41, %43 ]
+  %.0173 = phi i32 [ %.1174.lcssa, %._crit_edge ], [ %34, %43 ]
+  %.0172 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %39, %43 ]
   %.reass242 = add i32 %36, %invariant.op241
-  %.not189225 = icmp sgt i32 %.1174, %.reass242
+  %.not189225 = icmp sgt i32 %.0173, %.reass242
   br i1 %.not189225, label %._crit_edge231, label %.lr.ph230
 
 .lr.ph230:                                        ; preds = %81, %.lr.ph230
-  %.2228 = phi i32 [ %.reass224, %.lr.ph230 ], [ %.1, %81 ]
-  %.2175227 = phi i32 [ %216, %.lr.ph230 ], [ %.1174, %81 ]
-  %.2179226 = phi i32 [ %.reass222, %.lr.ph230 ], [ %.1178, %81 ]
+  %.2228 = phi i32 [ %.reass224, %.lr.ph230 ], [ %.0172, %81 ]
+  %.2175227 = phi i32 [ %216, %.lr.ph230 ], [ %.0173, %81 ]
+  %.2179226 = phi i32 [ %.reass222, %.lr.ph230 ], [ %.0177, %81 ]
   %82 = ashr i32 %.2179226, 13
   %83 = and i32 %82, -8
   %84 = sext i32 %83 to i64
@@ -297,9 +297,9 @@ define hidden void @mlib_ImageAffine_bit_1ch_nn(ptr nocapture noundef readonly %
   br i1 %.not189, label %._crit_edge231, label %.lr.ph230, !llvm.loop !8
 
 ._crit_edge231:                                   ; preds = %.lr.ph230, %81
-  %.2179.lcssa = phi i32 [ %.1178, %81 ], [ %.reass222, %.lr.ph230 ]
-  %.2175.lcssa = phi i32 [ %.1174, %81 ], [ %216, %.lr.ph230 ]
-  %.2.lcssa = phi i32 [ %.1, %81 ], [ %.reass224, %.lr.ph230 ]
+  %.2179.lcssa = phi i32 [ %.0177, %81 ], [ %.reass222, %.lr.ph230 ]
+  %.2175.lcssa = phi i32 [ %.0173, %81 ], [ %216, %.lr.ph230 ]
+  %.2.lcssa = phi i32 [ %.0172, %81 ], [ %.reass224, %.lr.ph230 ]
   %.not190 = icmp sgt i32 %.2175.lcssa, %44
   br i1 %.not190, label %252, label %217
 

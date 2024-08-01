@@ -300,7 +300,7 @@ check_system_link_file.exit.i:                    ; preds = %69
 
 100:                                              ; preds = %95, %91
   %101 = phi i32 [ %.pre.i, %95 ], [ %89, %91 ]
-  %.1.i = phi i32 [ %99, %95 ], [ %.051.i, %91 ]
+  %.3.i = phi i32 [ %99, %95 ], [ %.051.i, %91 ]
   %102 = icmp sgt i32 %101, 0
   %103 = load i8, ptr %11, align 16
   %104 = icmp eq i8 %103, 0
@@ -323,7 +323,7 @@ check_system_link_file.exit.i:                    ; preds = %69
   br i1 %or.cond11.i, label %.thread40.i, label %113
 
 113:                                              ; preds = %108, %87, %.lr.ph53.i
-  %.2.i = phi i32 [ %.051.i, %87 ], [ %.1.i, %108 ], [ %.051.i, %.lr.ph53.i ]
+  %.2.i = phi i32 [ %.051.i, %87 ], [ %.3.i, %108 ], [ %.051.i, %.lr.ph53.i ]
   %114 = load i64, ptr %6, align 8
   %115 = add i64 %114, 2678400
   store i64 %115, ptr %6, align 8
@@ -343,8 +343,8 @@ check_system_link_file.exit.i:                    ; preds = %69
   br i1 %.not32.i, label %125, label %.thread40.i
 
 .thread40.i:                                      ; preds = %108, %119
-  %.33743.i = phi i32 [ %.2.i, %119 ], [ %.1.i, %108 ]
-  %120 = sub i32 0, %.33743.i
+  %.13743.i = phi i32 [ %.2.i, %119 ], [ %.3.i, %108 ]
+  %120 = sub i32 0, %.13743.i
   %121 = sdiv i32 %120, 3600
   %122 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @identify_system_timezone.resultbuf, i64 noundef 256, ptr noundef nonnull @.str.7, ptr noundef nonnull %10, i32 noundef %121, ptr noundef nonnull %11) #13
   %123 = call fastcc i32 @score_timezone(ptr noundef nonnull @identify_system_timezone.resultbuf, ptr noundef nonnull %7)
@@ -352,14 +352,14 @@ check_system_link_file.exit.i:                    ; preds = %69
   br i1 %124, label %139, label %125
 
 125:                                              ; preds = %.thread40.i, %119
-  %.33744.i = phi i32 [ %.33743.i, %.thread40.i ], [ %.2.i, %119 ]
+  %.13744.i = phi i32 [ %.13743.i, %.thread40.i ], [ %.2.i, %119 ]
   %126 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @identify_system_timezone.resultbuf, ptr noundef nonnull dereferenceable(1) %10) #13
   %127 = call fastcc i32 @score_timezone(ptr noundef nonnull @identify_system_timezone.resultbuf, ptr noundef nonnull %7)
   %128 = icmp sgt i32 %127, 0
   br i1 %128, label %139, label %129
 
 129:                                              ; preds = %125
-  %130 = sub i32 0, %.33744.i
+  %130 = sub i32 0, %.13744.i
   %131 = sdiv i32 %130, 3600
   %132 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull @identify_system_timezone.resultbuf, i64 noundef 256, ptr noundef nonnull @.str.8, ptr noundef nonnull %10, i32 noundef %131) #13
   %133 = call fastcc i32 @score_timezone(ptr noundef nonnull @identify_system_timezone.resultbuf, ptr noundef nonnull %7)

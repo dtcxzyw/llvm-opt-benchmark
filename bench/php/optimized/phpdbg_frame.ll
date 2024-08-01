@@ -190,12 +190,12 @@ define hidden ptr @phpdbg_compile_stackframe(ptr noundef %0) local_unnamed_addr 
   br i1 %.not343, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0337 = phi ptr [ %74, %.lr.ph ], [ %10, %.preheader ]
-  %.0270336 = phi i32 [ %75, %.lr.ph ], [ 0, %.preheader ]
+  %.1337 = phi ptr [ %74, %.lr.ph ], [ %10, %.preheader ]
+  %.1271336 = phi i32 [ %75, %.lr.ph ], [ 0, %.preheader ]
   %73 = load ptr, ptr %4, align 8
-  call fastcc void @phpdbg_append_individual_arg(ptr noundef nonnull %3, i32 noundef %.0270336, ptr noundef %73, ptr noundef nonnull %.0337)
-  %74 = getelementptr inbounds i8, ptr %.0337, i64 16
-  %75 = add nuw i32 %.0270336, 1
+  call fastcc void @phpdbg_append_individual_arg(ptr noundef nonnull %3, i32 noundef %.1271336, ptr noundef %73, ptr noundef nonnull %.1337)
+  %74 = getelementptr inbounds i8, ptr %.1337, i64 16
+  %75 = add nuw i32 %.1271336, 1
   %exitcond.not = icmp eq i32 %75, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
@@ -211,14 +211,14 @@ define hidden ptr @phpdbg_compile_stackframe(ptr noundef %0) local_unnamed_addr 
   br label %84
 
 84:                                               ; preds = %._crit_edge, %65
-  %.1271 = phi i32 [ %7, %._crit_edge ], [ 0, %65 ]
-  %.1 = phi ptr [ %83, %._crit_edge ], [ %10, %65 ]
-  %85 = icmp ult i32 %.1271, %9
+  %.0270 = phi i32 [ %7, %._crit_edge ], [ 0, %65 ]
+  %.0 = phi ptr [ %83, %._crit_edge ], [ %10, %65 ]
+  %85 = icmp ult i32 %.0270, %9
   br i1 %85, label %.lr.ph341, label %._crit_edge342
 
 .lr.ph341:                                        ; preds = %84, %.lr.ph341
-  %.2339 = phi ptr [ %87, %.lr.ph341 ], [ %.1, %84 ]
-  %.2272338 = phi i32 [ %88, %.lr.ph341 ], [ %.1271, %84 ]
+  %.2339 = phi ptr [ %87, %.lr.ph341 ], [ %.0, %84 ]
+  %.2272338 = phi i32 [ %88, %.lr.ph341 ], [ %.0270, %84 ]
   %86 = load ptr, ptr %4, align 8
   call fastcc void @phpdbg_append_individual_arg(ptr noundef nonnull %3, i32 noundef %.2272338, ptr noundef %86, ptr noundef %.2339)
   %87 = getelementptr inbounds i8, ptr %.2339, i64 16
@@ -1261,7 +1261,7 @@ define internal fastcc void @phpdbg_dump_prototype(ptr nocapture noundef readonl
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %144
   %.055101 = phi ptr [ %145, %144 ], [ %81, %.lr.ph.split ]
   %.057100 = phi i32 [ %146, %144 ], [ %73, %.lr.ph.split ]
-  %.05999 = phi i8 [ %.3, %144 ], [ 0, %.lr.ph.split ]
+  %.05999 = phi i8 [ %.1, %144 ], [ 0, %.lr.ph.split ]
   %.06096 = phi i32 [ %.161, %144 ], [ 0, %.lr.ph.split ]
   %114 = getelementptr inbounds i8, ptr %.055101, i64 8
   %115 = load i8, ptr %114, align 8
@@ -1303,7 +1303,7 @@ define internal fastcc void @phpdbg_dump_prototype(ptr nocapture noundef readonl
 
 135:                                              ; preds = %.thread92, %123
   %.pre-phi = phi i1 [ %.pre, %.thread92 ], [ true, %123 ]
-  %.1 = phi i8 [ %134, %.thread92 ], [ %.05999, %123 ]
+  %.3 = phi i8 [ %134, %.thread92 ], [ %.05999, %123 ]
   %136 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %.not75 = icmp eq ptr %128, null
   %137 = select i1 %.not75, ptr @.str.17, ptr %.054
@@ -1312,7 +1312,7 @@ define internal fastcc void @phpdbg_dump_prototype(ptr nocapture noundef readonl
   br label %140
 
 140:                                              ; preds = %135, %121
-  %.2 = phi i8 [ %.1, %135 ], [ %.05999, %121 ]
+  %.2 = phi i8 [ %.3, %135 ], [ %.05999, %121 ]
   %141 = add nsw i32 %.06096, 1
   %142 = call ptr @phpdbg_short_zval_print(ptr noundef nonnull %.055101, i32 noundef 40) #9
   %143 = call i64 (ptr, ...) @php_printf(ptr noundef nonnull @.str.23, ptr noundef %142) #9
@@ -1321,14 +1321,14 @@ define internal fastcc void @phpdbg_dump_prototype(ptr nocapture noundef readonl
 
 144:                                              ; preds = %.lr.ph.split.split, %140
   %.161 = phi i32 [ %.06096, %.lr.ph.split.split ], [ %141, %140 ]
-  %.3 = phi i8 [ %.05999, %.lr.ph.split.split ], [ %.2, %140 ]
+  %.1 = phi i8 [ %.05999, %.lr.ph.split.split ], [ %.2, %140 ]
   %145 = getelementptr inbounds i8, ptr %.055101, i64 %79
   %146 = add i32 %.057100, -1
   %.not71 = icmp eq i32 %146, 0
   br i1 %.not71, label %._crit_edge, label %.lr.ph.split.split
 
 ._crit_edge:                                      ; preds = %144
-  %147 = trunc i8 %.3 to i1
+  %147 = trunc i8 %.1 to i1
   br i1 %147, label %148, label %._crit_edge.thread
 
 148:                                              ; preds = %._crit_edge

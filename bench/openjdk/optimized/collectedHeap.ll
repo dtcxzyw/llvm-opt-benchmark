@@ -1063,7 +1063,7 @@ define hidden noundef ptr @_ZN13CollectedHeap34satisfy_failed_metadata_allocatio
   br label %11
 
 11:                                               ; preds = %.lr.ph, %62
-  %.02238 = phi i32 [ 0, %.lr.ph ], [ %.224, %62 ]
+  %.02238 = phi i32 [ 0, %.lr.ph ], [ %.123, %62 ]
   %12 = load volatile i8, ptr @_ZN8GCLocker9_needs_gcE, align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit, label %_ZN8GCLocker22is_active_and_needs_gcEv.exit.thread
@@ -1160,7 +1160,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   br label %.thread
 
 .thread:                                          ; preds = %_ZN11MutexLockerD2Ev.exit, %58, %56, %52, %49
-  %.123.ph = phi i32 [ %50, %49 ], [ %50, %52 ], [ %50, %56 ], [ %50, %58 ], [ %.02238, %_ZN11MutexLockerD2Ev.exit ]
+  %.224.ph = phi i32 [ %50, %49 ], [ %50, %52 ], [ %50, %56 ], [ %50, %58 ], [ %.02238, %_ZN11MutexLockerD2Ev.exit ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #18
   br label %62
 
@@ -1171,15 +1171,15 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   br label %.loopexit
 
 62:                                               ; preds = %.thread, %24
-  %.224 = phi i32 [ %.02238, %24 ], [ %.123.ph, %.thread ]
+  %.123 = phi i32 [ %.02238, %24 ], [ %.224.ph, %.thread ]
   %63 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
   %64 = call noundef ptr @_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE(ptr noundef nonnull align 8 dereferenceable(32) %63, i64 noundef %2, i32 noundef %3) #18
   %.not = icmp eq ptr %64, null
   br i1 %.not, label %11, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %62, %16, %4, %59, %25
-  %.3 = phi ptr [ %61, %59 ], [ null, %25 ], [ %7, %4 ], [ %64, %62 ], [ %18, %16 ]
-  ret ptr %.3
+  %.1 = phi ptr [ %61, %59 ], [ null, %25 ], [ %7, %4 ], [ %64, %62 ], [ %18, %16 ]
+  ret ptr %.1
 }
 
 declare noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #1
@@ -2609,7 +2609,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41.us ], [ %58, %.lr.ph ]
-  %.145.us = phi i32 [ %73, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41.us ], [ 0, %.lr.ph ]
+  %.245.us = phi i32 [ %73, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41.us ], [ 0, %.lr.ph ]
   %59 = load ptr, ptr %57, align 8
   %60 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %59, i64 %indvars.iv
   %61 = load double, ptr %60, align 8
@@ -2634,7 +2634,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   %71 = load ptr, ptr %66, align 8
   %72 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #19
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %71, i64 noundef %72) #18
-  %73 = add nuw nsw i32 %.145.us, 1
+  %73 = add nuw nsw i32 %.245.us, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %11, align 8
   %75 = sext i32 %74 to i64
@@ -2643,8 +2643,8 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41 ], [ %58, %.lr.ph ]
-  %.145 = phi i32 [ %93, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41 ], [ 0, %.lr.ph ]
-  %77 = icmp eq i32 %.145, %2
+  %.245 = phi i32 [ %93, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41 ], [ 0, %.lr.ph ]
+  %77 = icmp eq i32 %.245, %2
   br i1 %77, label %._crit_edgethread-pre-split, label %78
 
 78:                                               ; preds = %.lr.ph.split
@@ -2672,7 +2672,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   %91 = load ptr, ptr %86, align 8
   %92 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %91) #19
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %91, i64 noundef %92) #18
-  %93 = add nuw nsw i32 %.145, 1
+  %93 = add nuw nsw i32 %.245, 1
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
   %94 = load i32, ptr %11, align 8
   %95 = sext i32 %94 to i64
@@ -2680,13 +2680,13 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   br i1 %96, label %.lr.ph.split, label %._crit_edgethread-pre-split, !llvm.loop !18
 
 ._crit_edgethread-pre-split:                      ; preds = %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41.us, %.lr.ph.split, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41
-  %.1.lcssa.ph = phi i32 [ %93, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41 ], [ %2, %.lr.ph.split ], [ %73, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41.us ]
+  %.2.lcssa.ph = phi i32 [ %93, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41 ], [ %2, %.lr.ph.split ], [ %73, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41.us ]
   %.pr = load i32, ptr %53, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edgethread-pre-split, %52
   %97 = phi i32 [ %.pr, %._crit_edgethread-pre-split ], [ %54, %52 ]
-  %.1.lcssa = phi i32 [ %.1.lcssa.ph, %._crit_edgethread-pre-split ], [ 0, %52 ]
+  %.2.lcssa = phi i32 [ %.2.lcssa.ph, %._crit_edgethread-pre-split ], [ 0, %52 ]
   %98 = icmp sgt i32 %97, 0
   br i1 %98, label %.lr.ph52, label %.loopexit
 
@@ -2697,7 +2697,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
 
 .lr.ph52.split.us:                                ; preds = %.lr.ph52, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us ], [ 0, %.lr.ph52 ]
-  %.249.us = phi i32 [ %115, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us ], [ %.1.lcssa, %.lr.ph52 ]
+  %.349.us = phi i32 [ %115, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us ], [ %.2.lcssa, %.lr.ph52 ]
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %101, i64 %indvars.iv75
   %103 = load double, ptr %102, align 8
@@ -2722,7 +2722,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   %113 = load ptr, ptr %108, align 8
   %114 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %113) #19
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %113, i64 noundef %114) #18
-  %115 = add nuw nsw i32 %.249.us, 1
+  %115 = add nuw nsw i32 %.349.us, 1
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %116 = load i32, ptr %53, align 4
   %117 = sext i32 %116 to i64
@@ -2731,8 +2731,8 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
 
 .lr.ph52.split:                                   ; preds = %.lr.ph52, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43 ], [ 0, %.lr.ph52 ]
-  %.249 = phi i32 [ %135, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43 ], [ %.1.lcssa, %.lr.ph52 ]
-  %119 = icmp eq i32 %.249, %2
+  %.349 = phi i32 [ %135, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43 ], [ %.2.lcssa, %.lr.ph52 ]
+  %119 = icmp eq i32 %.349, %2
   br i1 %119, label %.sink.split, label %120
 
 120:                                              ; preds = %.lr.ph52.split
@@ -2760,7 +2760,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   %133 = load ptr, ptr %128, align 8
   %134 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %133) #19
   tail call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %133, i64 noundef %134) #18
-  %135 = add nuw nsw i32 %.249, 1
+  %135 = add nuw nsw i32 %.349, 1
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %136 = load i32, ptr %53, align 4
   %137 = sext i32 %136 to i64
@@ -2776,8 +2776,8 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43, %.loopexit.loopexit, %.loopexit.loopexit64, %._crit_edge, %.preheader
-  %.3 = phi i32 [ 0, %.preheader ], [ %.1.lcssa, %._crit_edge ], [ %indvars84, %.loopexit.loopexit64 ], [ %indvars89.le, %.loopexit.loopexit ], [ %135, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43 ], [ %115, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us ]
-  %139 = icmp eq i32 %.3, %2
+  %.1 = phi i32 [ 0, %.preheader ], [ %.2.lcssa, %._crit_edge ], [ %indvars84, %.loopexit.loopexit64 ], [ %indvars89.le, %.loopexit.loopexit ], [ %135, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43 ], [ %115, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us ]
+  %139 = icmp eq i32 %.1, %2
   br i1 %139, label %.sink.split, label %140
 
 .sink.split:                                      ; preds = %.lr.ph52.split, %.lr.ph59.split, %.loopexit, %3

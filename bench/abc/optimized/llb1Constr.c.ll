@@ -817,7 +817,7 @@ Llb_ManCountEntries.exit21.thread.thread.thread:  ; preds = %Llb_ManCountEntries
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %.thread.i, %Llb_ManCountEntries.exit21.thread, %Llb_ManCountEntries.exit21
-  %.1 = phi ptr [ %7, %Llb_ManCountEntries.exit21 ], [ null, %Llb_ManCountEntries.exit21.thread ], [ null, %.thread.i ]
+  %.031 = phi ptr [ %7, %Llb_ManCountEntries.exit21 ], [ null, %Llb_ManCountEntries.exit21.thread ], [ null, %.thread.i ]
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr i8, ptr %26, i64 4
@@ -856,7 +856,7 @@ Llb_ManDerefenceBdds.exit:                        ; preds = %37, %Vec_IntFreeP.e
   br label %42
 
 42:                                               ; preds = %Llb_ManDerefenceBdds.exit, %3
-  %.0 = phi ptr [ null, %3 ], [ %.1, %Llb_ManDerefenceBdds.exit ]
+  %.0 = phi ptr [ null, %3 ], [ %.031, %Llb_ManDerefenceBdds.exit ]
   ret ptr %.0
 }
 

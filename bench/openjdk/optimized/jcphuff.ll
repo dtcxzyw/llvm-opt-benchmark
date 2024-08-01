@@ -535,12 +535,12 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr nocapture n
   br i1 %58, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %emit_symbol.exit, %57
-  %.166.lcssa = phi i32 [ %.06585, %57 ], [ %147, %emit_symbol.exit ]
+  %.2.lcssa = phi i32 [ %.06585, %57 ], [ %147, %emit_symbol.exit ]
   %.not7379 = icmp eq i32 %.0, 1
   br i1 %.not7379, label %._crit_edge.thread, label %.lr.ph82
 
 .lr.ph:                                           ; preds = %57, %emit_symbol.exit
-  %.16678 = phi i32 [ %147, %emit_symbol.exit ], [ %.06585, %57 ]
+  %.278 = phi i32 [ %147, %emit_symbol.exit ], [ %.06585, %57 ]
   %59 = load i32, ptr %31, align 8
   %60 = load i32, ptr %32, align 8
   %.not.i = icmp eq i32 %60, 0
@@ -696,8 +696,8 @@ dump_buffer.exit32.i:                             ; preds = %133, %126
   br label %emit_symbol.exit
 
 emit_symbol.exit:                                 ; preds = %._crit_edge.i, %78, %62
-  %147 = add nsw i32 %.16678, -16
-  %148 = icmp sgt i32 %.16678, 31
+  %147 = add nsw i32 %.278, -16
+  %148 = icmp sgt i32 %.278, 31
   br i1 %148, label %.lr.ph, label %.preheader, !llvm.loop !11
 
 .lr.ph82:                                         ; preds = %.preheader, %.lr.ph82
@@ -724,7 +724,7 @@ emit_symbol.exit:                                 ; preds = %._crit_edge.i, %78,
 ._crit_edge.thread:                               ; preds = %.preheader, %152, %._crit_edge
   %.063.lcssa97 = phi i32 [ %150, %152 ], [ %150, %._crit_edge ], [ 1, %.preheader ]
   %157 = load i32, ptr %31, align 8
-  %158 = shl i32 %.166.lcssa, 4
+  %158 = shl i32 %.2.lcssa, 4
   %159 = add nsw i32 %.063.lcssa97, %158
   %160 = load i32, ptr %32, align 8
   %.not.i74 = icmp eq i32 %160, 0
@@ -1011,9 +1011,9 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr nocapture noundef readonly
 
 61:                                               ; preds = %.lr.ph204, %581
   %indvars.iv224 = phi i64 [ %58, %.lr.ph204 ], [ %indvars.iv.next225, %581 ]
-  %.080202 = phi i32 [ 0, %.lr.ph204 ], [ %.2, %581 ]
-  %.083200 = phi i32 [ 0, %.lr.ph204 ], [ %.285, %581 ]
-  %.086199 = phi ptr [ %49, %.lr.ph204 ], [ %.288, %581 ]
+  %.080202 = phi i32 [ 0, %.lr.ph204 ], [ %.1, %581 ]
+  %.083200 = phi i32 [ 0, %.lr.ph204 ], [ %.184, %581 ]
+  %.086199 = phi ptr [ %49, %.lr.ph204 ], [ %.187, %581 ]
   %62 = getelementptr inbounds [64 x i32], ptr %3, i64 0, i64 %indvars.iv224
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, 0
@@ -1030,9 +1030,9 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr nocapture noundef readonly
   br label %581
 
 .lr.ph193:                                        ; preds = %.preheader, %emit_buffered_bits.exit
-  %.1192 = phi i32 [ %399, %emit_buffered_bits.exit ], [ %.080202, %.preheader ]
-  %.184191 = phi i32 [ 0, %emit_buffered_bits.exit ], [ %.083200, %.preheader ]
-  %.187190 = phi ptr [ %471, %emit_buffered_bits.exit ], [ %.086199, %.preheader ]
+  %.2192 = phi i32 [ %399, %emit_buffered_bits.exit ], [ %.080202, %.preheader ]
+  %.285191 = phi i32 [ 0, %emit_buffered_bits.exit ], [ %.083200, %.preheader ]
+  %.288190 = phi ptr [ %471, %emit_buffered_bits.exit ], [ %.086199, %.preheader ]
   %70 = load i32, ptr %50, align 4
   switch i32 %70, label %.lr.ph.i [
     i32 0, label %emit_eobrun.exit
@@ -1660,10 +1660,10 @@ dump_buffer.exit32.i146:                          ; preds = %385, %378
   br label %emit_symbol.exit
 
 emit_symbol.exit:                                 ; preds = %._crit_edge.i139, %330, %314
-  %399 = add nsw i32 %.1192, -16
+  %399 = add nsw i32 %.2192, -16
   %400 = load i32, ptr %53, align 8
   %401 = icmp eq i32 %400, 0
-  %402 = icmp ne i32 %.184191, 0
+  %402 = icmp ne i32 %.285191, 0
   %or.cond.i = and i1 %402, %401
   br i1 %or.cond.i, label %.preheader.i, label %emit_buffered_bits.exit
 
@@ -1674,8 +1674,8 @@ emit_symbol.exit:                                 ; preds = %._crit_edge.i139, %
 
 .preheader.i:                                     ; preds = %emit_symbol.exit, %.preheader.ithread-pre-split
   %404 = phi i32 [ %.pr, %.preheader.ithread-pre-split ], [ 0, %emit_symbol.exit ]
-  %.07.i = phi ptr [ %403, %.preheader.ithread-pre-split ], [ %.187190, %emit_symbol.exit ]
-  %.0.i = phi i32 [ %470, %.preheader.ithread-pre-split ], [ %.184191, %emit_symbol.exit ]
+  %.07.i = phi ptr [ %403, %.preheader.ithread-pre-split ], [ %.288190, %emit_symbol.exit ]
+  %.0.i = phi i32 [ %470, %.preheader.ithread-pre-split ], [ %.285191, %emit_symbol.exit ]
   %.not.i150 = icmp eq i32 %404, 0
   br i1 %.not.i150, label %405, label %emit_bits.exit161
 
@@ -1801,29 +1801,29 @@ emit_bits.exit161:                                ; preds = %.preheader.i, %._cr
 
 emit_buffered_bits.exit:                          ; preds = %emit_bits.exit161, %emit_symbol.exit
   %471 = load ptr, ptr %44, align 8
-  %472 = icmp sgt i32 %.1192, 31
+  %472 = icmp sgt i32 %.2192, 31
   br i1 %472, label %.lr.ph193, label %._crit_edge194, !llvm.loop !19
 
 ._crit_edge194:                                   ; preds = %emit_buffered_bits.exit, %.preheader
-  %.187.lcssa = phi ptr [ %.086199, %.preheader ], [ %471, %emit_buffered_bits.exit ]
-  %.184.lcssa = phi i32 [ %.083200, %.preheader ], [ 0, %emit_buffered_bits.exit ]
-  %.1.lcssa = phi i32 [ %.080202, %.preheader ], [ %399, %emit_buffered_bits.exit ]
+  %.288.lcssa = phi ptr [ %.086199, %.preheader ], [ %471, %emit_buffered_bits.exit ]
+  %.285.lcssa = phi i32 [ %.083200, %.preheader ], [ 0, %emit_buffered_bits.exit ]
+  %.2.lcssa = phi i32 [ %.080202, %.preheader ], [ %399, %emit_buffered_bits.exit ]
   %473 = icmp sgt i32 %63, 1
   br i1 %473, label %474, label %480
 
 474:                                              ; preds = %._crit_edge194
   %475 = trunc i32 %63 to i8
   %476 = and i8 %475, 1
-  %477 = add i32 %.184.lcssa, 1
-  %478 = zext i32 %.184.lcssa to i64
-  %479 = getelementptr inbounds i8, ptr %.187.lcssa, i64 %478
+  %477 = add i32 %.285.lcssa, 1
+  %478 = zext i32 %.285.lcssa to i64
+  %479 = getelementptr inbounds i8, ptr %.288.lcssa, i64 %478
   store i8 %476, ptr %479, align 1
   br label %581
 
 480:                                              ; preds = %._crit_edge194
   tail call fastcc void @emit_eobrun(ptr noundef %5)
   %481 = load i32, ptr %52, align 8
-  %482 = shl i32 %.1.lcssa, 4
+  %482 = shl i32 %.2.lcssa, 4
   %483 = or disjoint i32 %482, 1
   %484 = load i32, ptr %53, align 8
   %.not.i100 = icmp eq i32 %484, 0
@@ -1863,7 +1863,7 @@ emit_symbol.exit101:                              ; preds = %487, %493
   tail call fastcc void @emit_bits(ptr noundef nonnull %5, i32 noundef %508, i32 noundef 1)
   %509 = load i32, ptr %53, align 8
   %510 = icmp eq i32 %509, 0
-  %511 = icmp ne i32 %.184.lcssa, 0
+  %511 = icmp ne i32 %.285.lcssa, 0
   %or.cond.i102 = and i1 %511, %510
   br i1 %or.cond.i102, label %.preheader.i103, label %emit_buffered_bits.exit107
 
@@ -1874,8 +1874,8 @@ emit_symbol.exit101:                              ; preds = %487, %493
 
 .preheader.i103:                                  ; preds = %emit_symbol.exit101, %.preheader.i103thread-pre-split
   %513 = phi i32 [ %.pr174, %.preheader.i103thread-pre-split ], [ 0, %emit_symbol.exit101 ]
-  %.07.i104 = phi ptr [ %512, %.preheader.i103thread-pre-split ], [ %.187.lcssa, %emit_symbol.exit101 ]
-  %.0.i105 = phi i32 [ %579, %.preheader.i103thread-pre-split ], [ %.184.lcssa, %emit_symbol.exit101 ]
+  %.07.i104 = phi ptr [ %512, %.preheader.i103thread-pre-split ], [ %.288.lcssa, %emit_symbol.exit101 ]
+  %.0.i105 = phi i32 [ %579, %.preheader.i103thread-pre-split ], [ %.285.lcssa, %emit_symbol.exit101 ]
   %.not.i162 = icmp eq i32 %513, 0
   br i1 %.not.i162, label %514, label %emit_bits.exit173
 
@@ -2004,21 +2004,21 @@ emit_buffered_bits.exit107:                       ; preds = %emit_bits.exit173, 
   br label %581
 
 581:                                              ; preds = %emit_buffered_bits.exit107, %474, %68
-  %.288 = phi ptr [ %.086199, %68 ], [ %.187.lcssa, %474 ], [ %580, %emit_buffered_bits.exit107 ]
-  %.285 = phi i32 [ %.083200, %68 ], [ %477, %474 ], [ 0, %emit_buffered_bits.exit107 ]
-  %.2 = phi i32 [ %69, %68 ], [ %.1.lcssa, %474 ], [ 0, %emit_buffered_bits.exit107 ]
+  %.187 = phi ptr [ %.086199, %68 ], [ %.288.lcssa, %474 ], [ %580, %emit_buffered_bits.exit107 ]
+  %.184 = phi i32 [ %.083200, %68 ], [ %477, %474 ], [ 0, %emit_buffered_bits.exit107 ]
+  %.1 = phi i32 [ %69, %68 ], [ %.2.lcssa, %474 ], [ 0, %emit_buffered_bits.exit107 ]
   %indvars.iv.next225 = add nsw i64 %indvars.iv224, 1
   %lftr.wideiv227 = trunc i64 %indvars.iv.next225 to i32
   %exitcond228.not = icmp eq i32 %60, %lftr.wideiv227
   br i1 %exitcond228.not, label %._crit_edge205.loopexit, label %61, !llvm.loop !20
 
 ._crit_edge205.loopexit:                          ; preds = %581
-  %582 = icmp sgt i32 %.2, 0
+  %582 = icmp sgt i32 %.1, 0
   br label %._crit_edge205
 
 ._crit_edge205:                                   ; preds = %._crit_edge.thread, %._crit_edge205.loopexit, %._crit_edge
   %583 = phi ptr [ %45, %._crit_edge ], [ %45, %._crit_edge205.loopexit ], [ %31, %._crit_edge.thread ]
-  %.083.lcssa = phi i32 [ 0, %._crit_edge ], [ %.285, %._crit_edge205.loopexit ], [ 0, %._crit_edge.thread ]
+  %.083.lcssa = phi i32 [ 0, %._crit_edge ], [ %.184, %._crit_edge205.loopexit ], [ 0, %._crit_edge.thread ]
   %.080.lcssa = phi i1 [ false, %._crit_edge ], [ %582, %._crit_edge205.loopexit ], [ false, %._crit_edge.thread ]
   %584 = icmp ne i32 %.083.lcssa, 0
   %or.cond = select i1 %.080.lcssa, i1 true, i1 %584

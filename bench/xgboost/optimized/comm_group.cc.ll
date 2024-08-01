@@ -2110,7 +2110,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc104, %_ZN4dml
           to label %278 unwind label %282
 
 277:                                              ; preds = %274, %260, %_ZNSt10shared_ptrIN7xgboost10collective9RabitCommEED2Ev.exit
-  %.07 = phi ptr [ %91, %_ZNSt10shared_ptrIN7xgboost10collective9RabitCommEED2Ev.exit ], [ null, %260 ], [ null, %274 ]
+  %.18 = phi ptr [ %91, %_ZNSt10shared_ptrIN7xgboost10collective9RabitCommEED2Ev.exit ], [ null, %260 ], [ null, %274 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #9
   br label %280
@@ -2126,8 +2126,8 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc104, %_ZN4dml
   br label %281
 
 280:                                              ; preds = %38, %277
-  %.18 = phi ptr [ %.07, %277 ], [ %39, %38 ]
-  ret ptr %.18
+  %.07 = phi ptr [ %.18, %277 ], [ %39, %38 ]
+  ret ptr %.07
 
 281:                                              ; preds = %279, %.body, %40
   %.pn52 = phi { ptr, i32 } [ %41, %40 ], [ %.pn43.pn.pn.pn.pn.pn.pn.pn, %279 ], [ %.pn, %.body ]

@@ -1185,8 +1185,8 @@ if.then117:                                       ; preds = %if.end102
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end82, %for.cond, %if.end53, %if.then117, %if.then77
-  %retval.sroa.0.0 = phi i32 [ %call121, %if.then117 ], [ 1, %if.then77 ], [ 0, %if.end53 ], [ 0, %for.cond ], [ 0, %if.end82 ]
-  %retval.sroa.11.0 = phi i64 [ undef, %if.then117 ], [ %retval.sroa.0.0.copyload.i80, %if.then77 ], [ undef, %if.end53 ], [ undef, %for.cond ], [ undef, %if.end82 ]
+  %retval.sroa.0.1 = phi i32 [ %call121, %if.then117 ], [ 1, %if.then77 ], [ 0, %if.end53 ], [ 0, %for.cond ], [ 0, %if.end82 ]
+  %retval.sroa.11.1 = phi i64 [ undef, %if.then117 ], [ %retval.sroa.0.0.copyload.i80, %if.then77 ], [ undef, %if.end53 ], [ undef, %for.cond ], [ undef, %if.end82 ]
   %49 = load i8, ptr %hasVal.i.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %49 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i89, label %cleanup123
@@ -1196,11 +1196,11 @@ if.then.i.i.i.i89:                                ; preds = %cleanup
   br label %cleanup123
 
 cleanup123:                                       ; preds = %if.then.i.i.i.i89, %cleanup, %if.end27, %if.then50, %if.then22, %if.then6, %if.then
-  %retval.sroa.0.1 = phi i32 [ 1, %if.then22 ], [ %call52, %if.then50 ], [ %call8, %if.then6 ], [ %call1, %if.then ], [ 0, %if.end27 ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %if.then.i.i.i.i89 ]
-  %retval.sroa.11.1 = phi i64 [ %retval.sroa.0.0.copyload.i35, %if.then22 ], [ undef, %if.then50 ], [ undef, %if.then6 ], [ undef, %if.then ], [ undef, %if.end27 ], [ %retval.sroa.11.0, %cleanup ], [ %retval.sroa.11.0, %if.then.i.i.i.i89 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.then22 ], [ %call52, %if.then50 ], [ %call8, %if.then6 ], [ %call1, %if.then ], [ 0, %if.end27 ], [ %retval.sroa.0.1, %cleanup ], [ %retval.sroa.0.1, %if.then.i.i.i.i89 ]
+  %retval.sroa.11.0 = phi i64 [ %retval.sroa.0.0.copyload.i35, %if.then22 ], [ undef, %if.then50 ], [ undef, %if.then6 ], [ undef, %if.then ], [ undef, %if.end27 ], [ %retval.sroa.11.1, %cleanup ], [ %retval.sroa.11.1, %if.then.i.i.i.i89 ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #5
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.11.1, 1
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.11.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 

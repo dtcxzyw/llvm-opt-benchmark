@@ -1921,7 +1921,7 @@ define internal void @dissect_lsp_ip_reachability_clv(ptr noundef %0, ptr nounde
   br i1 %.not112, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %37
-  %.095 = phi i32 [ %.183, %37 ], [ 0, %.lr.ph ]
+  %.095 = phi i32 [ %.283, %37 ], [ 0, %.lr.ph ]
   %.07692 = phi i32 [ %67, %37 ], [ %3, %.lr.ph ]
   %.07791 = phi i32 [ %68, %37 ], [ %5, %.lr.ph ]
   %13 = icmp ult i32 %.07791, 12
@@ -1958,7 +1958,7 @@ define internal void @dissect_lsp_ip_reachability_clv(ptr noundef %0, ptr nounde
 
 .thread:                                          ; preds = %20, %25
   %.07486 = phi i32 [ -1, %25 ], [ %.07490, %20 ]
-  %.184 = phi i32 [ %.095, %25 ], [ 1, %20 ]
+  %.284 = phi i32 [ %.095, %25 ], [ 1, %20 ]
   %26 = load i32, ptr @hf_isis_lsp_ip_reachability_ipv4_prefix, align 4
   %27 = load ptr, ptr %8, align 8
   %28 = tail call ptr @tvb_address_to_str(ptr noundef %27, ptr noundef %0, i32 noundef 2, i32 noundef %16) #3
@@ -1975,7 +1975,7 @@ define internal void @dissect_lsp_ip_reachability_clv(ptr noundef %0, ptr nounde
   br label %37
 
 37:                                               ; preds = %30, %.thread
-  %.183 = phi i32 [ %.184, %.thread ], [ 0, %30 ]
+  %.283 = phi i32 [ %.284, %.thread ], [ 0, %30 ]
   %.078 = phi ptr [ %29, %.thread ], [ %36, %30 ]
   %38 = load i32, ptr @ett_isis_lsp_clv_ip_reachability, align 4
   %39 = tail call ptr @proto_item_add_subtree(ptr noundef %.078, i32 noundef %38) #3
@@ -2930,8 +2930,8 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
   br i1 %7, label %.lr.ph287, label %._crit_edge
 
 .lr.ph287:                                        ; preds = %6, %.loopexit242
-  %.0214286 = phi i32 [ %.7, %.loopexit242 ], [ %3, %6 ]
-  %.0223285 = phi i32 [ %.7230, %.loopexit242 ], [ %5, %6 ]
+  %.0214286 = phi i32 [ %.1215, %.loopexit242 ], [ %3, %6 ]
+  %.0223285 = phi i32 [ %.1224, %.loopexit242 ], [ %5, %6 ]
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0214286) #3
   %9 = add i32 %.0214286, 1
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %9) #3
@@ -2979,24 +2979,24 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
   br label %.lr.ph282
 
 .loopexit:                                        ; preds = %.lr.ph275, %.lr.ph282
-  %.2225.lcssa = phi i32 [ %45, %.lr.ph282 ], [ %54, %.lr.ph275 ]
-  %.2216.lcssa = phi i32 [ %46, %.lr.ph282 ], [ %55, %.lr.ph275 ]
+  %.3226.lcssa = phi i32 [ %45, %.lr.ph282 ], [ %54, %.lr.ph275 ]
+  %.3217.lcssa = phi i32 [ %46, %.lr.ph282 ], [ %55, %.lr.ph275 ]
   %.1.lcssa = phi i32 [ %47, %.lr.ph282 ], [ %56, %.lr.ph275 ]
   %38 = icmp sgt i32 %.1.lcssa, 0
   br i1 %38, label %.lr.ph282, label %.loopexit242, !llvm.loop !18
 
 .lr.ph282:                                        ; preds = %.lr.ph282.preheader, %.loopexit
   %.0281 = phi i32 [ %.1.lcssa, %.loopexit ], [ %37, %.lr.ph282.preheader ]
-  %.1215280 = phi i32 [ %.2216.lcssa, %.loopexit ], [ %36, %.lr.ph282.preheader ]
-  %.1224279 = phi i32 [ %.2225.lcssa, %.loopexit ], [ %35, %.lr.ph282.preheader ]
-  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1215280) #3
+  %.2216280 = phi i32 [ %.3217.lcssa, %.loopexit ], [ %36, %.lr.ph282.preheader ]
+  %.2225279 = phi i32 [ %.3226.lcssa, %.loopexit ], [ %35, %.lr.ph282.preheader ]
+  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2216280) #3
   %40 = load i32, ptr @hf_isis_lsp_grp_macaddr_number_of_sources, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %40, ptr noundef %0, i32 noundef %.1215280, i32 noundef 1, i32 noundef 0) #3
-  %42 = add i32 %.1215280, 1
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %40, ptr noundef %0, i32 noundef %.2216280, i32 noundef 1, i32 noundef 0) #3
+  %42 = add i32 %.2216280, 1
   %43 = load i32, ptr @hf_isis_lsp_grp_macaddr_group_address, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef 6, i32 noundef 0) #3
-  %45 = add i32 %.1224279, -7
-  %46 = add i32 %.1215280, 7
+  %45 = add i32 %.2225279, -7
+  %46 = add i32 %.2216280, 7
   %47 = add nsw i32 %.0281, -7
   %48 = icmp sgt i32 %.0281, 7
   %49 = icmp ne i8 %39, 0
@@ -3009,13 +3009,13 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
 
 .lr.ph275:                                        ; preds = %.lr.ph275.preheader, %.lr.ph275
   %.1274 = phi i32 [ %56, %.lr.ph275 ], [ %47, %.lr.ph275.preheader ]
-  %.2216273 = phi i32 [ %55, %.lr.ph275 ], [ %46, %.lr.ph275.preheader ]
+  %.3217273 = phi i32 [ %55, %.lr.ph275 ], [ %46, %.lr.ph275.preheader ]
   %.0220272 = phi i32 [ %57, %.lr.ph275 ], [ %51, %.lr.ph275.preheader ]
-  %.2225271 = phi i32 [ %54, %.lr.ph275 ], [ %45, %.lr.ph275.preheader ]
+  %.3226271 = phi i32 [ %54, %.lr.ph275 ], [ %45, %.lr.ph275.preheader ]
   %52 = load i32, ptr @hf_isis_lsp_grp_macaddr_source_address, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %52, ptr noundef %0, i32 noundef %.2216273, i32 noundef 6, i32 noundef 0) #3
-  %54 = add i32 %.2225271, -6
-  %55 = add i32 %.2216273, 6
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %52, ptr noundef %0, i32 noundef %.3217273, i32 noundef 6, i32 noundef 0) #3
+  %54 = add i32 %.3226271, -6
+  %55 = add i32 %.3217273, 6
   %56 = add nsw i32 %.1274, -6
   %57 = add nsw i32 %.0220272, -1
   %58 = icmp ugt i32 %.1274, 6
@@ -3060,24 +3060,24 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
   br label %.lr.ph268
 
 .loopexit240:                                     ; preds = %.lr.ph261, %.lr.ph268
-  %.4227.lcssa = phi i32 [ %94, %.lr.ph268 ], [ %103, %.lr.ph261 ]
-  %.4218.lcssa = phi i32 [ %95, %.lr.ph268 ], [ %104, %.lr.ph261 ]
+  %.5228.lcssa = phi i32 [ %94, %.lr.ph268 ], [ %103, %.lr.ph261 ]
+  %.5219.lcssa = phi i32 [ %95, %.lr.ph268 ], [ %104, %.lr.ph261 ]
   %.3.lcssa = phi i32 [ %96, %.lr.ph268 ], [ %105, %.lr.ph261 ]
   %87 = icmp sgt i32 %.3.lcssa, 0
   br i1 %87, label %.lr.ph268, label %.loopexit242, !llvm.loop !20
 
 .lr.ph268:                                        ; preds = %.lr.ph268.preheader, %.loopexit240
   %.2267 = phi i32 [ %.3.lcssa, %.loopexit240 ], [ %86, %.lr.ph268.preheader ]
-  %.3217266 = phi i32 [ %.4218.lcssa, %.loopexit240 ], [ %85, %.lr.ph268.preheader ]
-  %.3226265 = phi i32 [ %.4227.lcssa, %.loopexit240 ], [ %84, %.lr.ph268.preheader ]
-  %88 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3217266) #3
+  %.4218266 = phi i32 [ %.5219.lcssa, %.loopexit240 ], [ %85, %.lr.ph268.preheader ]
+  %.4227265 = phi i32 [ %.5228.lcssa, %.loopexit240 ], [ %84, %.lr.ph268.preheader ]
+  %88 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4218266) #3
   %89 = load i32, ptr @hf_isis_lsp_grp_ipv4addr_number_of_sources, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %89, ptr noundef %0, i32 noundef %.3217266, i32 noundef 1, i32 noundef 0) #3
-  %91 = add i32 %.3217266, 1
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %89, ptr noundef %0, i32 noundef %.4218266, i32 noundef 1, i32 noundef 0) #3
+  %91 = add i32 %.4218266, 1
   %92 = load i32, ptr @hf_isis_lsp_grp_ipv4addr_group_address, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %92, ptr noundef %0, i32 noundef %91, i32 noundef 4, i32 noundef 0) #3
-  %94 = add i32 %.3226265, -5
-  %95 = add i32 %.3217266, 5
+  %94 = add i32 %.4227265, -5
+  %95 = add i32 %.4218266, 5
   %96 = add nsw i32 %.2267, -5
   %97 = icmp sgt i32 %.2267, 5
   %98 = icmp ne i8 %88, 0
@@ -3090,13 +3090,13 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
 
 .lr.ph261:                                        ; preds = %.lr.ph261.preheader, %.lr.ph261
   %.3260 = phi i32 [ %105, %.lr.ph261 ], [ %96, %.lr.ph261.preheader ]
-  %.4218259 = phi i32 [ %104, %.lr.ph261 ], [ %95, %.lr.ph261.preheader ]
+  %.5219259 = phi i32 [ %104, %.lr.ph261 ], [ %95, %.lr.ph261.preheader ]
   %.1221258 = phi i32 [ %106, %.lr.ph261 ], [ %100, %.lr.ph261.preheader ]
-  %.4227257 = phi i32 [ %103, %.lr.ph261 ], [ %94, %.lr.ph261.preheader ]
+  %.5228257 = phi i32 [ %103, %.lr.ph261 ], [ %94, %.lr.ph261.preheader ]
   %101 = load i32, ptr @hf_isis_lsp_grp_ipv4addr_source_address, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %101, ptr noundef %0, i32 noundef %.4218259, i32 noundef 4, i32 noundef 0) #3
-  %103 = add i32 %.4227257, -4
-  %104 = add i32 %.4218259, 4
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %64, i32 noundef %101, ptr noundef %0, i32 noundef %.5219259, i32 noundef 4, i32 noundef 0) #3
+  %103 = add i32 %.5228257, -4
+  %104 = add i32 %.5219259, 4
   %105 = add nsw i32 %.3260, -4
   %106 = add nsw i32 %.1221258, -1
   %107 = icmp ugt i32 %.3260, 4
@@ -3141,24 +3141,24 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
   br label %.lr.ph254
 
 .loopexit241:                                     ; preds = %.lr.ph, %.lr.ph254
-  %.6229.lcssa = phi i32 [ %143, %.lr.ph254 ], [ %152, %.lr.ph ]
-  %.6.lcssa = phi i32 [ %144, %.lr.ph254 ], [ %153, %.lr.ph ]
+  %.7230.lcssa = phi i32 [ %143, %.lr.ph254 ], [ %152, %.lr.ph ]
+  %.7.lcssa = phi i32 [ %144, %.lr.ph254 ], [ %153, %.lr.ph ]
   %.5.lcssa = phi i32 [ %145, %.lr.ph254 ], [ %154, %.lr.ph ]
   %136 = icmp sgt i32 %.5.lcssa, 0
   br i1 %136, label %.lr.ph254, label %.loopexit242, !llvm.loop !22
 
 .lr.ph254:                                        ; preds = %.lr.ph254.preheader, %.loopexit241
   %.4253 = phi i32 [ %.5.lcssa, %.loopexit241 ], [ %135, %.lr.ph254.preheader ]
-  %.5219252 = phi i32 [ %.6.lcssa, %.loopexit241 ], [ %134, %.lr.ph254.preheader ]
-  %.5228251 = phi i32 [ %.6229.lcssa, %.loopexit241 ], [ %133, %.lr.ph254.preheader ]
-  %137 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.5219252) #3
+  %.6252 = phi i32 [ %.7.lcssa, %.loopexit241 ], [ %134, %.lr.ph254.preheader ]
+  %.6229251 = phi i32 [ %.7230.lcssa, %.loopexit241 ], [ %133, %.lr.ph254.preheader ]
+  %137 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6252) #3
   %138 = load i32, ptr @hf_isis_lsp_grp_ipv6addr_number_of_sources, align 4
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %138, ptr noundef %0, i32 noundef %.5219252, i32 noundef 1, i32 noundef 0) #3
-  %140 = add i32 %.5219252, 1
+  %139 = tail call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %138, ptr noundef %0, i32 noundef %.6252, i32 noundef 1, i32 noundef 0) #3
+  %140 = add i32 %.6252, 1
   %141 = load i32, ptr @hf_isis_lsp_grp_ipv6addr_group_address, align 4
   %142 = tail call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef 16, i32 noundef 0) #3
-  %143 = add i32 %.5228251, -17
-  %144 = add i32 %.5219252, 17
+  %143 = add i32 %.6229251, -17
+  %144 = add i32 %.6252, 17
   %145 = add nsw i32 %.4253, -17
   %146 = icmp sgt i32 %.4253, 17
   %147 = icmp ne i8 %137, 0
@@ -3171,13 +3171,13 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.5248 = phi i32 [ %154, %.lr.ph ], [ %145, %.lr.ph.preheader ]
-  %.6247 = phi i32 [ %153, %.lr.ph ], [ %144, %.lr.ph.preheader ]
+  %.7247 = phi i32 [ %153, %.lr.ph ], [ %144, %.lr.ph.preheader ]
   %.2222246 = phi i32 [ %155, %.lr.ph ], [ %149, %.lr.ph.preheader ]
-  %.6229245 = phi i32 [ %152, %.lr.ph ], [ %143, %.lr.ph.preheader ]
+  %.7230245 = phi i32 [ %152, %.lr.ph ], [ %143, %.lr.ph.preheader ]
   %150 = load i32, ptr @hf_isis_lsp_grp_ipv6addr_source_address, align 4
-  %151 = tail call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %150, ptr noundef %0, i32 noundef %.6247, i32 noundef 16, i32 noundef 0) #3
-  %152 = add i32 %.6229245, -16
-  %153 = add i32 %.6247, 16
+  %151 = tail call ptr @proto_tree_add_item(ptr noundef %113, i32 noundef %150, ptr noundef %0, i32 noundef %.7247, i32 noundef 16, i32 noundef 0) #3
+  %152 = add i32 %.7230245, -16
+  %153 = add i32 %.7247, 16
   %154 = add nsw i32 %.5248, -16
   %155 = add nsw i32 %.2222246, -1
   %156 = icmp ugt i32 %.5248, 16
@@ -3201,9 +3201,9 @@ define internal void @dissect_isis_grp_address_clv(ptr noundef %0, ptr nocapture
   br label %.loopexit242
 
 .loopexit242:                                     ; preds = %.loopexit241, %.loopexit240, %.loopexit, %123, %74, %25, %159, %119, %70, %21
-  %.7230 = phi i32 [ %170, %159 ], [ %121, %119 ], [ %72, %70 ], [ %23, %21 ], [ %35, %25 ], [ %84, %74 ], [ %133, %123 ], [ %.2225.lcssa, %.loopexit ], [ %.4227.lcssa, %.loopexit240 ], [ %.6229.lcssa, %.loopexit241 ]
-  %.7 = phi i32 [ %171, %159 ], [ %122, %119 ], [ %73, %70 ], [ %24, %21 ], [ %36, %25 ], [ %85, %74 ], [ %134, %123 ], [ %.2216.lcssa, %.loopexit ], [ %.4218.lcssa, %.loopexit240 ], [ %.6.lcssa, %.loopexit241 ]
-  %172 = icmp sgt i32 %.7230, 0
+  %.1224 = phi i32 [ %170, %159 ], [ %121, %119 ], [ %72, %70 ], [ %23, %21 ], [ %35, %25 ], [ %84, %74 ], [ %133, %123 ], [ %.3226.lcssa, %.loopexit ], [ %.5228.lcssa, %.loopexit240 ], [ %.7230.lcssa, %.loopexit241 ]
+  %.1215 = phi i32 [ %171, %159 ], [ %122, %119 ], [ %73, %70 ], [ %24, %21 ], [ %36, %25 ], [ %85, %74 ], [ %134, %123 ], [ %.3217.lcssa, %.loopexit ], [ %.5219.lcssa, %.loopexit240 ], [ %.7.lcssa, %.loopexit241 ]
+  %172 = icmp sgt i32 %.1224, 0
   br i1 %172, label %.lr.ph287, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.loopexit242, %6

@@ -3981,11 +3981,11 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %ll_i.0484 = phi i32 [ -1, %for.body.lr.ph ], [ %ll_i.3, %for.inc ]
+  %ll_i.0484 = phi i32 [ -1, %for.body.lr.ph ], [ %ll_i.2, %for.inc ]
   %uu_i.0483 = phi i32 [ -1, %for.body.lr.ph ], [ %uu_i.1, %for.inc ]
-  %ll_failed.0482 = phi i8 [ 0, %for.body.lr.ph ], [ %ll_failed.3, %for.inc ]
+  %ll_failed.0482 = phi i8 [ 0, %for.body.lr.ph ], [ %ll_failed.2, %for.inc ]
   %uu_failed.0481 = phi i8 [ 0, %for.body.lr.ph ], [ %uu_failed.1, %for.inc ]
-  %ll.0480 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %ll.3, %for.inc ]
+  %ll.0480 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %ll.2, %for.inc ]
   %uu.0479 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %uu.1, %for.inc ]
   %arrayidx.i111 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
   %8 = load i32, ptr %arrayidx.i111, align 4
@@ -4068,9 +4068,9 @@ if.else38:                                        ; preds = %if.then31
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then33, %if.else38, %if.else29
-  %ll.2 = phi double [ %ll.0480, %if.else29 ], [ %20, %if.else38 ], [ %ll.0480, %if.then33 ]
-  %ll_failed.2 = phi i8 [ %ll_failed.0482, %if.else29 ], [ %ll_failed.0482, %if.else38 ], [ %ll_failed.0.99, %if.then33 ]
-  %ll_i.2 = phi i32 [ %ll_i.0484, %if.else29 ], [ %ll_i.0484, %if.else38 ], [ %i.0.ll_i.0100, %if.then33 ]
+  %ll.3 = phi double [ %ll.0480, %if.else29 ], [ %20, %if.else38 ], [ %ll.0480, %if.then33 ]
+  %ll_failed.3 = phi i8 [ %ll_failed.0482, %if.else29 ], [ %ll_failed.0482, %if.else38 ], [ %ll_failed.0.99, %if.then33 ]
+  %ll_i.3 = phi i32 [ %ll_i.0484, %if.else29 ], [ %ll_i.0484, %if.else38 ], [ %i.0.ll_i.0100, %if.then33 ]
   %tobool43 = trunc nuw i8 %uu_failed.0481 to i1
   br i1 %tobool43, label %if.end56, label %if.then44
 
@@ -4094,12 +4094,12 @@ if.else51:                                        ; preds = %if.then44
 
 if.end56:                                         ; preds = %if.then46, %if.then19, %if.end42, %if.else51, %if.end15, %if.else24
   %uu.1 = phi double [ %uu.0479, %if.end15 ], [ %17, %if.else24 ], [ %uu.0479, %if.end42 ], [ %23, %if.else51 ], [ %uu.0479, %if.then19 ], [ %uu.0479, %if.then46 ]
-  %ll.3 = phi double [ %ll.1, %if.end15 ], [ %ll.1, %if.else24 ], [ %ll.2, %if.end42 ], [ %ll.2, %if.else51 ], [ %ll.1, %if.then19 ], [ %ll.2, %if.then46 ]
+  %ll.2 = phi double [ %ll.1, %if.end15 ], [ %ll.1, %if.else24 ], [ %ll.3, %if.end42 ], [ %ll.3, %if.else51 ], [ %ll.1, %if.then19 ], [ %ll.3, %if.then46 ]
   %uu_failed.1 = phi i8 [ %uu_failed.0481, %if.end15 ], [ %uu_failed.0481, %if.else24 ], [ %uu_failed.0481, %if.end42 ], [ %uu_failed.0481, %if.else51 ], [ %uu_failed.0., %if.then19 ], [ %uu_failed.0.101, %if.then46 ]
-  %ll_failed.3 = phi i8 [ %ll_failed.1, %if.end15 ], [ %ll_failed.1, %if.else24 ], [ %ll_failed.2, %if.end42 ], [ %ll_failed.2, %if.else51 ], [ %ll_failed.1, %if.then19 ], [ %ll_failed.2, %if.then46 ]
+  %ll_failed.2 = phi i8 [ %ll_failed.1, %if.end15 ], [ %ll_failed.1, %if.else24 ], [ %ll_failed.3, %if.end42 ], [ %ll_failed.3, %if.else51 ], [ %ll_failed.1, %if.then19 ], [ %ll_failed.3, %if.then46 ]
   %uu_i.1 = phi i32 [ %uu_i.0483, %if.end15 ], [ %uu_i.0483, %if.else24 ], [ %uu_i.0483, %if.end42 ], [ %uu_i.0483, %if.else51 ], [ %i.0.uu_i.0, %if.then19 ], [ %i.0.uu_i.0102, %if.then46 ]
-  %ll_i.3 = phi i32 [ %ll_i.1, %if.end15 ], [ %ll_i.1, %if.else24 ], [ %ll_i.2, %if.end42 ], [ %ll_i.2, %if.else51 ], [ %ll_i.1, %if.then19 ], [ %ll_i.2, %if.then46 ]
-  %tobool57 = trunc nuw i8 %ll_failed.3 to i1
+  %ll_i.2 = phi i32 [ %ll_i.1, %if.end15 ], [ %ll_i.1, %if.else24 ], [ %ll_i.3, %if.end42 ], [ %ll_i.3, %if.else51 ], [ %ll_i.1, %if.then19 ], [ %ll_i.3, %if.then46 ]
+  %tobool57 = trunc nuw i8 %ll_failed.2 to i1
   br i1 %tobool57, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %if.end56
@@ -4112,7 +4112,7 @@ for.inc:                                          ; preds = %if.end56, %land.lhs
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
 
 for.end:                                          ; preds = %for.inc
-  %cmp61 = icmp eq i32 %ll_i.3, -1
+  %cmp61 = icmp eq i32 %ll_i.2, -1
   %cmp62 = icmp eq i32 %uu_i.1, -1
   %or.cond = select i1 %cmp61, i1 true, i1 %cmp62
   br i1 %or.cond, label %for.body67.lr.ph, label %if.end125
@@ -4133,7 +4133,7 @@ for.body67.lr.ph:                                 ; preds = %for.end
 
 for.body67:                                       ; preds = %for.body67.lr.ph, %for.inc122
   %indvars.iv501 = phi i64 [ 0, %for.body67.lr.ph ], [ %indvars.iv.next502, %for.inc122 ]
-  %propagated.0492 = phi i1 [ false, %for.body67.lr.ph ], [ %propagated.2, %for.inc122 ]
+  %propagated.1492 = phi i1 [ false, %for.body67.lr.ph ], [ %propagated.3, %for.inc122 ]
   %24 = load ptr, ptr %m_xs.i118, align 8
   %arrayidx.i120 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv501
   %25 = load i32, ptr %arrayidx.i120, align 4
@@ -4156,7 +4156,7 @@ if.then79:                                        ; preds = %for.body67
 if.then81:                                        ; preds = %if.then79
   %m_approx_k82 = getelementptr inbounds i8, ptr %31, i64 32
   %32 = load double, ptr %m_approx_k82, align 8
-  %33 = tail call double @llvm.fmuladd.f64(double %27, double %32, double %ll.3)
+  %33 = tail call double @llvm.fmuladd.f64(double %27, double %32, double %ll.2)
   %div = fdiv double %33, %27
   %cmp.i.i = icmp eq ptr %29, null
   br i1 %cmp.i.i, label %land.lhs.true84, label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i
@@ -4206,13 +4206,13 @@ _ZNK16bound_propagator14relevant_lowerEjd.exit:   ; preds = %if.end26.i.i
 land.lhs.true84:                                  ; preds = %if.end26.i.i, %if.then81, %_ZNK16bound_propagator14relevant_lowerEjd.exit
   %42 = trunc nuw i64 %indvars.iv501 to i32
   %call85 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_lowerEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %42)
-  %spec.select = select i1 %call85, i1 true, i1 %propagated.0492
+  %spec.select = select i1 %call85, i1 true, i1 %propagated.1492
   br label %if.end98
 
 if.else88:                                        ; preds = %if.then79
   %m_approx_k90 = getelementptr inbounds i8, ptr %29, i64 32
   %43 = load double, ptr %m_approx_k90, align 8
-  %44 = tail call double @llvm.fmuladd.f64(double %27, double %43, double %ll.3)
+  %44 = tail call double @llvm.fmuladd.f64(double %27, double %43, double %ll.2)
   %div91 = fdiv double %44, %27
   %cmp.i.i130 = icmp eq ptr %31, null
   br i1 %cmp.i.i130, label %land.lhs.true93, label %_ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i137
@@ -4262,11 +4262,11 @@ _ZNK16bound_propagator14relevant_upperEjd.exit:   ; preds = %if.end27.i.i
 land.lhs.true93:                                  ; preds = %if.end27.i.i, %if.else88, %_ZNK16bound_propagator14relevant_upperEjd.exit
   %52 = trunc nuw i64 %indvars.iv501 to i32
   %call94 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_upperEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %52)
-  %spec.select103 = select i1 %call94, i1 true, i1 %propagated.0492
+  %spec.select103 = select i1 %call94, i1 true, i1 %propagated.1492
   br label %if.end98
 
 if.end98:                                         ; preds = %if.else21.i.i, %if.then4.i.i147, %if.else20.i.i, %if.then4.i.i, %land.lhs.true93, %land.lhs.true84, %_ZNK16bound_propagator14relevant_lowerEjd.exit, %_ZNK16bound_propagator14relevant_upperEjd.exit, %for.body67
-  %propagated.1 = phi i1 [ %propagated.0492, %_ZNK16bound_propagator14relevant_lowerEjd.exit ], [ %propagated.0492, %_ZNK16bound_propagator14relevant_upperEjd.exit ], [ %propagated.0492, %for.body67 ], [ %spec.select, %land.lhs.true84 ], [ %spec.select103, %land.lhs.true93 ], [ %propagated.0492, %if.then4.i.i ], [ %propagated.0492, %if.else20.i.i ], [ %propagated.0492, %if.then4.i.i147 ], [ %propagated.0492, %if.else21.i.i ]
+  %propagated.2 = phi i1 [ %propagated.1492, %_ZNK16bound_propagator14relevant_lowerEjd.exit ], [ %propagated.1492, %_ZNK16bound_propagator14relevant_upperEjd.exit ], [ %propagated.1492, %for.body67 ], [ %spec.select, %land.lhs.true84 ], [ %spec.select103, %land.lhs.true93 ], [ %propagated.1492, %if.then4.i.i ], [ %propagated.1492, %if.else20.i.i ], [ %propagated.1492, %if.then4.i.i147 ], [ %propagated.1492, %if.else21.i.i ]
   br i1 %cmp62, label %if.then100, label %for.inc122
 
 if.then100:                                       ; preds = %if.end98
@@ -4344,7 +4344,7 @@ _ZNK16bound_propagator14relevant_upperEjd.exit200: ; preds = %if.end27.i.i178
 land.lhs.true107:                                 ; preds = %if.end27.i.i178, %if.then102, %_ZNK16bound_propagator14relevant_upperEjd.exit200
   %68 = trunc nuw i64 %indvars.iv501 to i32
   %call108 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_upperEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %68)
-  %spec.select104 = select i1 %call108, i1 true, i1 %propagated.1
+  %spec.select104 = select i1 %call108, i1 true, i1 %propagated.2
   br label %for.inc122
 
 if.else111:                                       ; preds = %if.then100
@@ -4424,32 +4424,32 @@ _ZNK16bound_propagator14relevant_lowerEjd.exit246: ; preds = %if.end26.i.i221
 land.lhs.true116:                                 ; preds = %if.end26.i.i221, %if.else111, %_ZNK16bound_propagator14relevant_lowerEjd.exit246
   %86 = trunc nuw i64 %indvars.iv501 to i32
   %call117 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_lowerEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %86)
-  %spec.select105 = select i1 %call117, i1 true, i1 %propagated.1
+  %spec.select105 = select i1 %call117, i1 true, i1 %propagated.2
   br label %for.inc122
 
 for.inc122:                                       ; preds = %if.else20.i.i218, %if.then4.i.i231, %if.else21.i.i175, %if.then4.i.i188, %land.lhs.true116, %land.lhs.true107, %if.end98, %_ZNK16bound_propagator14relevant_lowerEjd.exit246, %_ZNK16bound_propagator14relevant_upperEjd.exit200
-  %propagated.2 = phi i1 [ %propagated.1, %_ZNK16bound_propagator14relevant_upperEjd.exit200 ], [ %propagated.1, %_ZNK16bound_propagator14relevant_lowerEjd.exit246 ], [ %propagated.1, %if.end98 ], [ %spec.select104, %land.lhs.true107 ], [ %spec.select105, %land.lhs.true116 ], [ %propagated.1, %if.then4.i.i188 ], [ %propagated.1, %if.else21.i.i175 ], [ %propagated.1, %if.then4.i.i231 ], [ %propagated.1, %if.else20.i.i218 ]
+  %propagated.3 = phi i1 [ %propagated.2, %_ZNK16bound_propagator14relevant_upperEjd.exit200 ], [ %propagated.2, %_ZNK16bound_propagator14relevant_lowerEjd.exit246 ], [ %propagated.2, %if.end98 ], [ %spec.select104, %land.lhs.true107 ], [ %spec.select105, %land.lhs.true116 ], [ %propagated.2, %if.then4.i.i188 ], [ %propagated.2, %if.else21.i.i175 ], [ %propagated.2, %if.then4.i.i231 ], [ %propagated.2, %if.else20.i.i218 ]
   %indvars.iv.next502 = add nuw nsw i64 %indvars.iv501, 1
   %exitcond504.not = icmp eq i64 %indvars.iv.next502, %wide.trip.count503
   br i1 %exitcond504.not, label %if.end125, label %for.body67, !llvm.loop !16
 
 if.end125:                                        ; preds = %for.inc122, %for.end
-  %propagated.3 = phi i1 [ false, %for.end ], [ %propagated.2, %for.inc122 ]
-  %tobool126 = trunc nuw i8 %ll_failed.3 to i1
+  %propagated.0 = phi i1 [ false, %for.end ], [ %propagated.3, %for.inc122 ]
+  %tobool126 = trunc nuw i8 %ll_failed.2 to i1
   %or.cond1.not = or i1 %cmp61, %tobool126
   br i1 %or.cond1.not, label %if.end150, label %if.then129
 
 if.then129:                                       ; preds = %if.end125
   %m_xs.i247 = getelementptr inbounds i8, ptr %2, i64 24
   %87 = load ptr, ptr %m_xs.i247, align 8
-  %idxprom.i248 = zext i32 %ll_i.3 to i64
+  %idxprom.i248 = zext i32 %ll_i.2 to i64
   %arrayidx.i249 = getelementptr inbounds i32, ptr %87, i64 %idxprom.i248
   %88 = load i32, ptr %arrayidx.i249, align 4
   %m_approx_as.i250 = getelementptr inbounds i8, ptr %2, i64 16
   %89 = load ptr, ptr %m_approx_as.i250, align 8
   %arrayidx.i252 = getelementptr inbounds double, ptr %89, i64 %idxprom.i248
   %90 = load double, ptr %arrayidx.i252, align 8
-  %div135 = fdiv double %ll.3, %90
+  %div135 = fdiv double %ll.2, %90
   %cmp136 = fcmp ogt double %90, 0.000000e+00
   %idxprom.i.i.i254 = zext i32 %88 to i64
   br i1 %cmp136, label %if.then137, label %if.else143
@@ -4532,8 +4532,8 @@ _ZNK16bound_propagator14relevant_lowerEjd.exit298: ; preds = %if.end26.i.i273
   br i1 %cmp32.i.i282, label %land.lhs.true139, label %if.end150
 
 land.lhs.true139:                                 ; preds = %if.end26.i.i273, %if.then137, %_ZNK16bound_propagator14relevant_lowerEjd.exit298
-  %call140 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_lowerEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %ll_i.3)
-  %spec.select106 = select i1 %call140, i1 true, i1 %propagated.3
+  %call140 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_lowerEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %ll_i.2)
+  %spec.select106 = select i1 %call140, i1 true, i1 %propagated.0
   br label %if.end150
 
 if.else143:                                       ; preds = %if.then129
@@ -4608,12 +4608,12 @@ _ZNK16bound_propagator14relevant_upperEjd.exit342: ; preds = %if.end27.i.i320
   br i1 %cmp33.i.i329, label %land.lhs.true145, label %if.end150
 
 land.lhs.true145:                                 ; preds = %if.end27.i.i320, %if.else143, %_ZNK16bound_propagator14relevant_upperEjd.exit342
-  %call146 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_upperEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %ll_i.3)
-  %spec.select107 = select i1 %call146, i1 true, i1 %propagated.3
+  %call146 = tail call noundef zeroext i1 @_ZN16bound_propagator15propagate_upperEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %c_idx, i32 noundef %ll_i.2)
+  %spec.select107 = select i1 %call146, i1 true, i1 %propagated.0
   br label %if.end150
 
 if.end150:                                        ; preds = %if.else21.i.i317, %if.then4.i.i330, %if.else20.i.i270, %if.then4.i.i283, %land.lhs.true145, %land.lhs.true139, %_ZNK16bound_propagator14relevant_lowerEjd.exit298, %_ZNK16bound_propagator14relevant_upperEjd.exit342, %if.end125
-  %propagated.4 = phi i1 [ %propagated.3, %_ZNK16bound_propagator14relevant_lowerEjd.exit298 ], [ %propagated.3, %_ZNK16bound_propagator14relevant_upperEjd.exit342 ], [ %propagated.3, %if.end125 ], [ %spec.select106, %land.lhs.true139 ], [ %spec.select107, %land.lhs.true145 ], [ %propagated.3, %if.then4.i.i283 ], [ %propagated.3, %if.else20.i.i270 ], [ %propagated.3, %if.then4.i.i330 ], [ %propagated.3, %if.else21.i.i317 ]
+  %propagated.4 = phi i1 [ %propagated.0, %_ZNK16bound_propagator14relevant_lowerEjd.exit298 ], [ %propagated.0, %_ZNK16bound_propagator14relevant_upperEjd.exit342 ], [ %propagated.0, %if.end125 ], [ %spec.select106, %land.lhs.true139 ], [ %spec.select107, %land.lhs.true145 ], [ %propagated.0, %if.then4.i.i283 ], [ %propagated.0, %if.else20.i.i270 ], [ %propagated.0, %if.then4.i.i330 ], [ %propagated.0, %if.else21.i.i317 ]
   %tobool151 = trunc nuw i8 %uu_failed.1 to i1
   %or.cond2.not = select i1 %tobool151, i1 true, i1 %cmp62
   br i1 %or.cond2.not, label %return, label %if.then154
@@ -4837,7 +4837,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %strict.034 = phi i1 [ false, %for.body.lr.ph ], [ %strict.2, %for.inc ]
+  %strict.034 = phi i1 [ false, %for.body.lr.ph ], [ %strict.1, %for.inc ]
   %cmp6 = icmp eq i64 %indvars.iv, %idxprom.i16
   br i1 %cmp6, label %for.inc, label %if.end
 
@@ -4866,13 +4866,13 @@ if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end
-  %strict.2 = phi i1 [ %strict.034, %for.body ], [ %spec.select, %if.end ]
+  %strict.1 = phi i1 [ %strict.034, %for.body ], [ %spec.select, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc, %entry
-  %strict.0.lcssa = phi i1 [ false, %entry ], [ %strict.2, %for.inc ]
+  %strict.0.lcssa = phi i1 [ false, %entry ], [ %strict.1, %for.inc ]
   %18 = load ptr, ptr %this, align 8
   call void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %18, ptr noundef nonnull align 8 dereferenceable(16) %k)
   %19 = load ptr, ptr %this, align 8
@@ -4925,7 +4925,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %strict.034 = phi i1 [ false, %for.body.lr.ph ], [ %strict.2, %for.inc ]
+  %strict.034 = phi i1 [ false, %for.body.lr.ph ], [ %strict.1, %for.inc ]
   %cmp6 = icmp eq i64 %indvars.iv, %idxprom.i16
   br i1 %cmp6, label %for.inc, label %if.end
 
@@ -4954,13 +4954,13 @@ if.end:                                           ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end
-  %strict.2 = phi i1 [ %strict.034, %for.body ], [ %spec.select, %if.end ]
+  %strict.1 = phi i1 [ %strict.034, %for.body ], [ %spec.select, %if.end ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %entry
-  %strict.0.lcssa = phi i1 [ false, %entry ], [ %strict.2, %for.inc ]
+  %strict.0.lcssa = phi i1 [ false, %entry ], [ %strict.1, %for.inc ]
   %18 = load ptr, ptr %this, align 8
   call void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %18, ptr noundef nonnull align 8 dereferenceable(16) %k)
   %19 = load ptr, ptr %this, align 8

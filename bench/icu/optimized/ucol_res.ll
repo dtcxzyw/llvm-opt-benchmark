@@ -499,9 +499,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1374,7 +1374,7 @@ if.else:                                          ; preds = %invoke.cont28
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.else, %if.then30, %invoke.cont
-  %retval.0 = phi ptr [ null, %invoke.cont ], [ %call32, %if.then30 ], [ %call34, %if.else ]
+  %retval.1 = phi ptr [ null, %invoke.cont ], [ %call32, %if.then30 ], [ %call34, %if.else ]
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %requestedLocale) #13
   br label %return
 
@@ -1384,8 +1384,8 @@ ehcleanup:                                        ; preds = %lpad18, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup, %if.then4
-  %retval.1 = phi ptr [ %3, %if.then4 ], [ %retval.0, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %3, %if.then4 ], [ %retval.1, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1776,7 +1776,7 @@ if.else125:                                       ; preds = %invoke.cont110
           to label %return unwind label %lpad
 
 cleanup:                                          ; preds = %if.else37, %.noexc, %if.end47, %invoke.cont44
-  %retval.0 = phi ptr [ %call46, %invoke.cont44 ], [ null, %if.end47 ], [ null, %if.else37 ], [ %call3.i25, %.noexc ]
+  %retval.1 = phi ptr [ %call46, %invoke.cont44 ], [ null, %if.end47 ], [ null, %if.else37 ], [ %call3.i25, %.noexc ]
   %cmp.not.i = icmp eq ptr %call2, null
   br i1 %cmp.not.i, label %return, label %if.then.i
 
@@ -1797,8 +1797,8 @@ ehcleanup128:                                     ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn23
 
 return:                                           ; preds = %if.else125, %invoke.cont120, %if.end104, %invoke.cont84, %invoke.cont56, %if.then.i, %cleanup, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i ], [ %call127, %if.else125 ], [ %call124, %invoke.cont120 ], [ %call107, %if.end104 ], [ null, %invoke.cont84 ], [ null, %invoke.cont56 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i ], [ %call127, %if.else125 ], [ %call124, %invoke.cont120 ], [ %call107, %if.end104 ], [ null, %invoke.cont84 ], [ null, %invoke.cont56 ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2091,8 +2091,8 @@ cleanup162.critedge:                              ; preds = %invoke.cont61
   br label %cleanup162
 
 cleanup162:                                       ; preds = %if.else157, %if.end126, %cleanup162.critedge, %invoke.cont26, %if.then156
-  %t.sroa.0.1 = phi ptr [ %call2, %if.then156 ], [ null, %if.else157 ], [ %call2, %if.end126 ], [ %call2, %cleanup162.critedge ], [ %call2, %invoke.cont26 ]
-  %retval.1 = phi ptr [ null, %if.then156 ], [ %call140, %if.else157 ], [ null, %if.end126 ], [ null, %cleanup162.critedge ], [ null, %invoke.cont26 ]
+  %t.sroa.0.3 = phi ptr [ %call2, %if.then156 ], [ null, %if.else157 ], [ %call2, %if.end126 ], [ %call2, %cleanup162.critedge ], [ %call2, %invoke.cont26 ]
+  %retval.2 = phi ptr [ null, %if.then156 ], [ %call140, %if.else157 ], [ null, %if.end126 ], [ null, %cleanup162.critedge ], [ null, %invoke.cont26 ]
   %30 = load ptr, ptr %binary, align 8
   %cmp.not.i = icmp eq ptr %30, null
   br i1 %cmp.not.i, label %cleanup164, label %if.then.i
@@ -2109,16 +2109,16 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 cleanup164:                                       ; preds = %if.then.i, %cleanup162, %if.then12
-  %t.sroa.0.3 = phi ptr [ %call2, %if.then12 ], [ %t.sroa.0.1, %cleanup162 ], [ %t.sroa.0.1, %if.then.i ]
-  %retval.2 = phi ptr [ null, %if.then12 ], [ %retval.1, %cleanup162 ], [ %retval.1, %if.then.i ]
-  %isnull.i = icmp eq ptr %t.sroa.0.3, null
+  %t.sroa.0.0 = phi ptr [ %call2, %if.then12 ], [ %t.sroa.0.3, %cleanup162 ], [ %t.sroa.0.3, %if.then.i ]
+  %retval.1 = phi ptr [ null, %if.then12 ], [ %retval.2, %cleanup162 ], [ %retval.2, %if.then.i ]
+  %isnull.i = icmp eq ptr %t.sroa.0.0, null
   br i1 %isnull.i, label %return, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %cleanup164
-  %vtable.i = load ptr, ptr %t.sroa.0.3, align 8
+  %vtable.i = load ptr, ptr %t.sroa.0.0, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %33 = load ptr, ptr %vfn.i, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(400) %t.sroa.0.3) #13
+  call void %33(ptr noundef nonnull align 8 dereferenceable(400) %t.sroa.0.0) #13
   br label %return
 
 ehcleanup165.thread65:                            ; preds = %lpad146, %ehcleanup91, %ehcleanup, %lpad42
@@ -2147,8 +2147,8 @@ delete.notnull.i40:                               ; preds = %ehcleanup165.thread
   br label %eh.resume
 
 return:                                           ; preds = %delete.notnull.i, %cleanup164, %entry
-  %retval.3 = phi ptr [ null, %entry ], [ %retval.2, %cleanup164 ], [ %retval.2, %delete.notnull.i ]
-  ret ptr %retval.3
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.1, %cleanup164 ], [ %retval.1, %delete.notnull.i ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %delete.notnull.i40, %ehcleanup165, %lpad
   %.pn20.pn.pn = phi { ptr, i32 } [ %5, %lpad ], [ %lpad.thr_comm.split-lp, %ehcleanup165 ], [ %.pn20.pn63, %delete.notnull.i40 ]

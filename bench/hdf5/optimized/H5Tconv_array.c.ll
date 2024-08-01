@@ -297,19 +297,19 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly %0, ptr nounde
   br label %184
 
 155:                                              ; preds = %149, %140
-  %.0136 = phi i64 [ %143, %149 ], [ -1, %140 ]
-  %.0133 = phi i64 [ %150, %149 ], [ -1, %140 ]
+  %.2138 = phi i64 [ %143, %149 ], [ -1, %140 ]
+  %.2135 = phi i64 [ %150, %149 ], [ -1, %140 ]
   %156 = getelementptr inbounds i8, ptr %10, i64 24
-  store i64 %.0136, ptr %156, align 8
+  store i64 %.2138, ptr %156, align 8
   %157 = getelementptr inbounds i8, ptr %10, i64 32
-  store i64 %.0133, ptr %157, align 8
+  store i64 %.2135, ptr %157, align 8
   br label %158
 
 158:                                              ; preds = %155, %.thread200
-  %.1137 = phi i64 [ -1, %.thread200 ], [ %.0136, %155 ]
-  %.1134 = phi i64 [ -1, %.thread200 ], [ %.0133, %155 ]
-  %.0124 = phi ptr [ null, %.thread200 ], [ %129, %155 ]
-  %.0122 = phi ptr [ null, %.thread200 ], [ %119, %155 ]
+  %.1137 = phi i64 [ -1, %.thread200 ], [ %.2138, %155 ]
+  %.1134 = phi i64 [ -1, %.thread200 ], [ %.2135, %155 ]
+  %.1125 = phi ptr [ null, %.thread200 ], [ %129, %155 ]
+  %.1123 = phi ptr [ null, %.thread200 ], [ %119, %155 ]
   %159 = getelementptr inbounds i8, ptr %10, i64 40
   store i8 1, ptr %159, align 8
   %.not266 = icmp eq i64 %4, 0
@@ -328,7 +328,7 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly %0, ptr nounde
   %164 = load ptr, ptr %89, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 48
   %166 = load i64, ptr %165, align 8
-  %167 = call i32 @H5T_convert_with_ctx(ptr noundef %163, ptr noundef %.0122, ptr noundef %.0124, ptr noundef nonnull %10, i64 noundef %166, i64 noundef 0, i64 noundef 0, ptr noundef %.1130260, ptr noundef %.1127261) #5
+  %167 = call i32 @H5T_convert_with_ctx(ptr noundef %163, ptr noundef %.1123, ptr noundef %.1125, ptr noundef nonnull %10, i64 noundef %166, i64 noundef 0, i64 noundef 0, ptr noundef %.1130260, ptr noundef %.1127261) #5
   %168 = icmp slt i32 %167, 0
   br i1 %168, label %169, label %173
 
@@ -365,10 +365,10 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly %0, ptr nounde
 
 184:                                              ; preds = %.thread219, %182
   %.0120228 = phi i32 [ -1, %.thread219 ], [ %.0120, %182 ]
-  %.1125227 = phi ptr [ %129, %.thread219 ], [ %.0124, %182 ]
-  %.2135226 = phi i64 [ %150, %.thread219 ], [ %.1134, %182 ]
-  %.2138225 = phi i64 [ %143, %.thread219 ], [ %.1137, %182 ]
-  %185 = call i32 @H5I_dec_ref(i64 noundef %.2138225) #5
+  %.0124227 = phi ptr [ %129, %.thread219 ], [ %.1125, %182 ]
+  %.0133226 = phi i64 [ %150, %.thread219 ], [ %.1134, %182 ]
+  %.0136225 = phi i64 [ %143, %.thread219 ], [ %.1137, %182 ]
+  %185 = call i32 @H5I_dec_ref(i64 noundef %.0136225) #5
   %186 = icmp slt i32 %185, 0
   br i1 %186, label %187, label %197
 
@@ -379,15 +379,15 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly %0, ptr nounde
   br label %197
 
 .thread207:                                       ; preds = %182
-  %.not169 = icmp eq ptr %.0122, null
+  %.not169 = icmp eq ptr %.1123, null
   br i1 %.not169, label %197, label %.thread207.thread235
 
 .thread207.thread235:                             ; preds = %131, %145, %.thread207
-  %.2135214244 = phi i64 [ %.1134, %.thread207 ], [ -1, %145 ], [ -1, %131 ]
-  %.1125216243 = phi ptr [ %.0124, %.thread207 ], [ %129, %145 ], [ null, %131 ]
-  %.1123217242 = phi ptr [ %.0122, %.thread207 ], [ %119, %145 ], [ %119, %131 ]
+  %.0133214244 = phi i64 [ %.1134, %.thread207 ], [ -1, %145 ], [ -1, %131 ]
+  %.0124216243 = phi ptr [ %.1125, %.thread207 ], [ %129, %145 ], [ null, %131 ]
+  %.0122217242 = phi ptr [ %.1123, %.thread207 ], [ %119, %145 ], [ %119, %131 ]
   %.0120218241 = phi i32 [ %.0120, %.thread207 ], [ -1, %145 ], [ -1, %131 ]
-  %191 = call i32 @H5T_close(ptr noundef nonnull %.1123217242) #5
+  %191 = call i32 @H5T_close(ptr noundef nonnull %.0122217242) #5
   %192 = icmp slt i32 %191, 0
   br i1 %192, label %193, label %197
 
@@ -398,14 +398,14 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly %0, ptr nounde
   br label %197
 
 197:                                              ; preds = %.thread207, %193, %.thread207.thread235, %184, %187
-  %.1125215 = phi ptr [ %.1125227, %187 ], [ %.1125227, %184 ], [ %.1125216243, %193 ], [ %.1125216243, %.thread207.thread235 ], [ %.0124, %.thread207 ]
-  %.2135213 = phi i64 [ %.2135226, %187 ], [ %.2135226, %184 ], [ %.2135214244, %193 ], [ %.2135214244, %.thread207.thread235 ], [ %.1134, %.thread207 ]
+  %.0124215 = phi ptr [ %.0124227, %187 ], [ %.0124227, %184 ], [ %.0124216243, %193 ], [ %.0124216243, %.thread207.thread235 ], [ %.1125, %.thread207 ]
+  %.0133213 = phi i64 [ %.0133226, %187 ], [ %.0133226, %184 ], [ %.0133214244, %193 ], [ %.0133214244, %.thread207.thread235 ], [ %.1134, %.thread207 ]
   %.1 = phi i32 [ -1, %187 ], [ %.0120228, %184 ], [ -1, %193 ], [ %.0120218241, %.thread207.thread235 ], [ %.0120, %.thread207 ]
-  %198 = icmp sgt i64 %.2135213, -1
+  %198 = icmp sgt i64 %.0133213, -1
   br i1 %198, label %199, label %206
 
 199:                                              ; preds = %197
-  %200 = call i32 @H5I_dec_ref(i64 noundef %.2135213) #5
+  %200 = call i32 @H5I_dec_ref(i64 noundef %.0133213) #5
   %201 = icmp slt i32 %200, 0
   br i1 %201, label %202, label %.thread251
 
@@ -416,11 +416,11 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly %0, ptr nounde
   br label %.thread251
 
 206:                                              ; preds = %197
-  %.not170 = icmp eq ptr %.1125215, null
+  %.not170 = icmp eq ptr %.0124215, null
   br i1 %.not170, label %.thread251, label %207
 
 207:                                              ; preds = %206
-  %208 = call i32 @H5T_close(ptr noundef nonnull %.1125215) #5
+  %208 = call i32 @H5T_close(ptr noundef nonnull %.0124215) #5
   %209 = icmp slt i32 %208, 0
   br i1 %209, label %210, label %.thread251
 

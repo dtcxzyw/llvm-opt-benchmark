@@ -1106,19 +1106,19 @@ define range(i32 0, 2) i32 @onig_st_foreach(ptr nocapture noundef %0, ptr nocapt
 23:                                               ; preds = %19
   %24 = load ptr, ptr %7, align 8
   %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
-  %.03342 = load ptr, ptr %25, align 8
-  %.not3843 = icmp eq ptr %.03342, null
+  %.142 = load ptr, ptr %25, align 8
+  %.not3843 = icmp eq ptr %.142, null
   br i1 %.not3843, label %.loopexit, label %.lr.ph
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds i8, ptr %.03344, i64 24
-  %.033 = load ptr, ptr %27, align 8
-  %.not38 = icmp eq ptr %.033, null
+  %27 = getelementptr inbounds i8, ptr %.144, i64 24
+  %.1 = load ptr, ptr %27, align 8
+  %.not38 = icmp eq ptr %.1, null
   br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .lr.ph:                                           ; preds = %23, %26
-  %.03344 = phi ptr [ %.033, %26 ], [ %.03342, %23 ]
-  %28 = icmp eq ptr %.03344, %.03647
+  %.144 = phi ptr [ %.1, %26 ], [ %.142, %23 ]
+  %28 = icmp eq ptr %.144, %.03647
   br i1 %28, label %.critedge, label %26
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph49

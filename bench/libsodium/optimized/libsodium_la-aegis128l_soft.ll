@@ -943,7 +943,7 @@ for.body14:                                       ; preds = %for.cond11.preheade
 
 for.body24:                                       ; preds = %for.cond21.preheader, %for.body24
   %add22388 = phi i64 [ %add22, %for.body24 ], [ 32, %for.cond21.preheader ]
-  %i.2387 = phi i64 [ %add22388, %for.body24 ], [ 0, %for.cond21.preheader ]
+  %i.3387 = phi i64 [ %add22388, %for.body24 ], [ 0, %for.cond21.preheader ]
   %129 = phi i64 [ %144, %for.body24 ], [ %arrayidx16.i.promoted418, %for.cond21.preheader ]
   %130 = phi i64 [ %145, %for.body24 ], [ %tmp17.sroa.2.0.arrayidx16.sroa_idx.i.promoted419, %for.cond21.preheader ]
   %131 = phi i64 [ %154, %for.body24 ], [ %arrayidx7.i.promoted420, %for.cond21.preheader ]
@@ -960,7 +960,7 @@ for.body24:                                       ; preds = %for.cond21.preheade
   %xor84.i29.i251379385 = phi i64 [ %xor84.i29.i251, %for.body24 ], [ %tmp11.sroa.2.0.arrayidx10.sroa_idx.i.promoted432, %for.cond21.preheader ]
   %xor1.i.i248381384 = phi i64 [ %xor1.i.i248, %for.body24 ], [ %state.promoted434, %for.cond21.preheader ]
   %141 = phi i64 [ %xor84.i.i249, %for.body24 ], [ %tmp5.sroa.2.0.arrayidx.sroa_idx.i.promoted436, %for.cond21.preheader ]
-  %add.ptr26 = getelementptr i8, ptr %c, i64 %i.2387
+  %add.ptr26 = getelementptr i8, ptr %c, i64 %i.3387
   %in.val.i.i51 = load i64, ptr %add.ptr26, align 1
   %add.ptr3.i.i52 = getelementptr i8, ptr %add.ptr26, i64 8
   %add.ptr3.val.i.i53 = load i64, ptr %add.ptr3.i.i52, align 1
@@ -1033,7 +1033,7 @@ if.end31:                                         ; preds = %for.body24, %for.bo
   %storemerge602 = phi i64 [ %126, %for.body14 ], [ %155, %for.body24 ]
   %storemerge = phi i64 [ %xor1.i.i226, %for.body14 ], [ %xor1.i.i248, %for.body24 ]
   %xor84.i.i249.lcssa.sink = phi i64 [ %xor84.i.i227, %for.body14 ], [ %xor84.i.i249, %for.body24 ]
-  %i.3 = phi i64 [ %add12442, %for.body14 ], [ %add22388, %for.body24 ]
+  %i.2 = phi i64 [ %add12442, %for.body14 ], [ %add22388, %for.body24 ]
   store i64 %storemerge615, ptr %arrayidx19.i, align 16
   store i64 %storemerge614, ptr %tmp20.sroa.2.0.arrayidx19.sroa_idx.i, align 8
   store i64 %storemerge613, ptr %arrayidx16.i, align 16
@@ -1082,10 +1082,10 @@ if.then36:                                        ; preds = %if.end31.thread546,
   %183 = phi i64 [ %storemerge603, %if.then34 ], [ %arrayidx7.i.promoted420, %if.end31.thread546 ]
   %184 = phi i64 [ %storemerge612, %if.then34 ], [ %tmp17.sroa.2.0.arrayidx16.sroa_idx.i.promoted419, %if.end31.thread546 ]
   %185 = phi i64 [ %storemerge613, %if.then34 ], [ %arrayidx16.i.promoted418, %if.end31.thread546 ]
-  %i.3540554 = phi i64 [ %i.3, %if.then34 ], [ 0, %if.end31.thread546 ]
+  %i.2540554 = phi i64 [ %i.2, %if.then34 ], [ 0, %if.end31.thread546 ]
   %rem32541553 = phi i64 [ %rem32, %if.then34 ], [ %clen, %if.end31.thread546 ]
-  %add.ptr37 = getelementptr i8, ptr %m, i64 %i.3540554
-  %add.ptr38 = getelementptr i8, ptr %c, i64 %i.3540554
+  %add.ptr37 = getelementptr i8, ptr %m, i64 %i.2540554
+  %add.ptr38 = getelementptr i8, ptr %c, i64 %i.2540554
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pad.i)
   %186 = sub nuw nsw i64 32, %rem32541553
   %187 = getelementptr i8, ptr %pad.i, i64 %rem32541553
@@ -1210,9 +1210,9 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   %225 = phi i64 [ %storemerge603, %if.then34 ], [ %arrayidx7.i.promoted420, %if.end31.thread ]
   %226 = phi i64 [ %storemerge612, %if.then34 ], [ %tmp17.sroa.2.0.arrayidx16.sroa_idx.i.promoted419, %if.end31.thread ]
   %227 = phi i64 [ %storemerge613, %if.then34 ], [ %arrayidx16.i.promoted418, %if.end31.thread ]
-  %i.3540545 = phi i64 [ %i.3, %if.then34 ], [ 0, %if.end31.thread ]
+  %i.2540545 = phi i64 [ %i.2, %if.then34 ], [ 0, %if.end31.thread ]
   %rem32541544 = phi i64 [ %rem32, %if.then34 ], [ %clen, %if.end31.thread ]
-  %add.ptr43 = getelementptr i8, ptr %c, i64 %i.3540545
+  %add.ptr43 = getelementptr i8, ptr %c, i64 %i.2540545
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %pad.i112)
   %228 = sub nuw nsw i64 32, %rem32541544
   %229 = getelementptr i8, ptr %pad.i112, i64 %rem32541544

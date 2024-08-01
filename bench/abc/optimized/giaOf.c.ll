@@ -1236,9 +1236,9 @@ Of_ManPrepareCuts.exit234:                        ; preds = %Of_CutGetSign.exit.
   br label %246
 
 246:                                              ; preds = %.lr.ph554, %Of_CutParams.exit
-  %.0147553 = phi i32 [ 0, %.lr.ph554 ], [ %288, %Of_CutParams.exit ]
+  %.1148553 = phi i32 [ 0, %.lr.ph554 ], [ %288, %Of_CutParams.exit ]
   %.0149552 = phi ptr [ %9, %.lr.ph554 ], [ %289, %Of_CutParams.exit ]
-  %247 = sext i32 %.0147553 to i64
+  %247 = sext i32 %.1148553 to i64
   %248 = getelementptr inbounds [32 x ptr], ptr %8, i64 0, i64 %247
   %249 = load ptr, ptr %248, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %249, ptr noundef nonnull align 8 dereferenceable(48) %.0149552, i64 48, i1 false)
@@ -1316,7 +1316,7 @@ Of_CutParams.exit:                                ; preds = %._crit_edge675, %._
   %286 = add nsw i32 %.0.i.i, %285
   %287 = sdiv i32 %286, %245
   store i32 %287, ptr %261, align 4
-  %288 = call fastcc i32 @Of_SetAddCut(ptr noundef nonnull %8, i32 noundef %.0147553, i32 noundef %23)
+  %288 = call fastcc i32 @Of_SetAddCut(ptr noundef nonnull %8, i32 noundef %.1148553, i32 noundef %23)
   %289 = getelementptr inbounds i8, ptr %.0149552, i64 48
   %290 = icmp ult ptr %289, %241
   br i1 %290, label %246, label %.loopexit501.loopexit, !llvm.loop !15
@@ -1327,7 +1327,7 @@ Of_CutParams.exit:                                ; preds = %._crit_edge675, %._
 
 .loopexit501:                                     ; preds = %189, %.loopexit501.loopexit, %Of_ManPrepareCuts.exit234, %._crit_edge
   %291 = phi ptr [ %166, %._crit_edge ], [ %166, %Of_ManPrepareCuts.exit234 ], [ %.pre678, %.loopexit501.loopexit ], [ %166, %189 ]
-  %.1148 = phi i32 [ 0, %._crit_edge ], [ 0, %Of_ManPrepareCuts.exit234 ], [ %288, %.loopexit501.loopexit ], [ 0, %189 ]
+  %.0147 = phi i32 [ 0, %._crit_edge ], [ 0, %Of_ManPrepareCuts.exit234 ], [ %288, %.loopexit501.loopexit ], [ 0, %189 ]
   %292 = getelementptr i8, ptr %291, i64 40
   %.val173 = load ptr, ptr %292, align 8
   %.not.i239 = icmp eq ptr %.val173, null
@@ -1513,7 +1513,7 @@ Gia_ObjFaninC2.exit:                              ; preds = %Of_ManPrepareCuts.e
 
 .preheader499.us.us:                              ; preds = %.preheader499.lr.ph, %._crit_edge562.split.us.us.us
   %.0565.us.us = phi ptr [ %872, %._crit_edge562.split.us.us.us ], [ %5, %.preheader499.lr.ph ]
-  %.2564.us.us = phi i32 [ %.5.us.us.us, %._crit_edge562.split.us.us.us ], [ %.1148, %.preheader499.lr.ph ]
+  %.2564.us.us = phi i32 [ %.5.us.us.us, %._crit_edge562.split.us.us.us ], [ %.0147, %.preheader499.lr.ph ]
   %389 = getelementptr inbounds i8, ptr %.0565.us.us, i64 16
   %390 = getelementptr inbounds i8, ptr %.0565.us.us, i64 20
   br label %.preheader498.us.us.us
@@ -1828,7 +1828,7 @@ Of_SetLastCutIsContained.exit.us.us.us:           ; preds = %Of_SetCutIsContaine
 .lr.ph.i.i290.us.us.us:                           ; preds = %601, %.lr.ph.preheader.i.i289.us.us.us
   %indvars.iv.i.i291.us.us.us = phi i64 [ %572, %.lr.ph.preheader.i.i289.us.us.us ], [ %indvars.iv.next.i.i292.us.us.us, %601 ]
   %.020.i.i.us.us.us = phi i32 [ %571, %.lr.ph.preheader.i.i289.us.us.us ], [ %.1.i.i293.us.us.us, %601 ]
-  %.01619.i.i.us.us.us = phi i64 [ %spec.select.i285.us.us.us, %.lr.ph.preheader.i.i289.us.us.us ], [ %.2.i.i.us.us.us, %601 ]
+  %.01619.i.i.us.us.us = phi i64 [ %spec.select.i285.us.us.us, %.lr.ph.preheader.i.i289.us.us.us ], [ %.117.i.i.us.us.us, %601 ]
   %indvars.iv.next.i.i292.us.us.us = add nsw i64 %indvars.iv.i.i291.us.us.us, -1
   %573 = getelementptr inbounds i32, ptr %416, i64 %indvars.iv.next.i.i292.us.us.us
   %574 = load i32, ptr %573, align 4
@@ -1864,12 +1864,12 @@ Of_SetLastCutIsContained.exit.us.us.us:           ; preds = %Of_SetCutIsContaine
   br label %599
 
 599:                                              ; preds = %581, %579
-  %.117.i.i.us.us.us = phi i64 [ %598, %581 ], [ %.01619.i.i.us.us.us, %579 ]
+  %.2.i.i.us.us.us = phi i64 [ %598, %581 ], [ %.01619.i.i.us.us.us, %579 ]
   %600 = add nsw i32 %.020.i.i.us.us.us, -1
   br label %601
 
 601:                                              ; preds = %599, %.lr.ph.i.i290.us.us.us
-  %.2.i.i.us.us.us = phi i64 [ %.01619.i.i.us.us.us, %.lr.ph.i.i290.us.us.us ], [ %.117.i.i.us.us.us, %599 ]
+  %.117.i.i.us.us.us = phi i64 [ %.01619.i.i.us.us.us, %.lr.ph.i.i290.us.us.us ], [ %.2.i.i.us.us.us, %599 ]
   %.1.i.i293.us.us.us = phi i32 [ %.020.i.i.us.us.us, %.lr.ph.i.i290.us.us.us ], [ %600, %599 ]
   %602 = icmp ugt i64 %indvars.iv.i.i291.us.us.us, 1
   %603 = icmp sgt i32 %.1.i.i293.us.us.us, -1
@@ -1877,7 +1877,7 @@ Of_SetLastCutIsContained.exit.us.us.us:           ; preds = %Of_SetCutIsContaine
   br i1 %604, label %.lr.ph.i.i290.us.us.us, label %Abc_Tt6Expand.exit.i.us.us.us, !llvm.loop !19
 
 Abc_Tt6Expand.exit.i.us.us.us:                    ; preds = %601, %515
-  %.016.lcssa.i.i.us.us.us = phi i64 [ %spec.select.i285.us.us.us, %515 ], [ %.2.i.i.us.us.us, %601 ]
+  %.016.lcssa.i.i.us.us.us = phi i64 [ %spec.select.i285.us.us.us, %515 ], [ %.117.i.i.us.us.us, %601 ]
   %605 = icmp ugt i32 %536, 134217727
   %606 = and i1 %567, %605
   br i1 %606, label %.lr.ph.preheader.i49.i.us.us.us, label %Abc_Tt6Expand.exit59.i.us.us.us
@@ -1891,7 +1891,7 @@ Abc_Tt6Expand.exit.i.us.us.us:                    ; preds = %601, %515
 .lr.ph.i50.i.us.us.us:                            ; preds = %638, %.lr.ph.preheader.i49.i.us.us.us
   %indvars.iv.i51.i.us.us.us = phi i64 [ %609, %.lr.ph.preheader.i49.i.us.us.us ], [ %indvars.iv.next.i54.i.us.us.us, %638 ]
   %.020.i52.i.us.us.us = phi i32 [ %608, %.lr.ph.preheader.i49.i.us.us.us ], [ %.1.i57.i.us.us.us, %638 ]
-  %.01619.i53.i.us.us.us = phi i64 [ %.043.i.us.us.us, %.lr.ph.preheader.i49.i.us.us.us ], [ %.2.i56.i.us.us.us, %638 ]
+  %.01619.i53.i.us.us.us = phi i64 [ %.043.i.us.us.us, %.lr.ph.preheader.i49.i.us.us.us ], [ %.117.i56.i.us.us.us, %638 ]
   %indvars.iv.next.i54.i.us.us.us = add nsw i64 %indvars.iv.i51.i.us.us.us, -1
   %610 = getelementptr inbounds i32, ptr %416, i64 %indvars.iv.next.i54.i.us.us.us
   %611 = load i32, ptr %610, align 4
@@ -1927,12 +1927,12 @@ Abc_Tt6Expand.exit.i.us.us.us:                    ; preds = %601, %515
   br label %636
 
 636:                                              ; preds = %618, %616
-  %.117.i55.i.us.us.us = phi i64 [ %635, %618 ], [ %.01619.i53.i.us.us.us, %616 ]
+  %.2.i55.i.us.us.us = phi i64 [ %635, %618 ], [ %.01619.i53.i.us.us.us, %616 ]
   %637 = add nsw i32 %.020.i52.i.us.us.us, -1
   br label %638
 
 638:                                              ; preds = %636, %.lr.ph.i50.i.us.us.us
-  %.2.i56.i.us.us.us = phi i64 [ %.01619.i53.i.us.us.us, %.lr.ph.i50.i.us.us.us ], [ %.117.i55.i.us.us.us, %636 ]
+  %.117.i56.i.us.us.us = phi i64 [ %.01619.i53.i.us.us.us, %.lr.ph.i50.i.us.us.us ], [ %.2.i55.i.us.us.us, %636 ]
   %.1.i57.i.us.us.us = phi i32 [ %.020.i52.i.us.us.us, %.lr.ph.i50.i.us.us.us ], [ %637, %636 ]
   %639 = icmp ugt i64 %indvars.iv.i51.i.us.us.us, 1
   %640 = icmp sgt i32 %.1.i57.i.us.us.us, -1
@@ -1940,7 +1940,7 @@ Abc_Tt6Expand.exit.i.us.us.us:                    ; preds = %601, %515
   br i1 %641, label %.lr.ph.i50.i.us.us.us, label %Abc_Tt6Expand.exit59.i.us.us.us, !llvm.loop !19
 
 Abc_Tt6Expand.exit59.i.us.us.us:                  ; preds = %638, %Abc_Tt6Expand.exit.i.us.us.us
-  %.016.lcssa.i48.i.us.us.us = phi i64 [ %.043.i.us.us.us, %Abc_Tt6Expand.exit.i.us.us.us ], [ %.2.i56.i.us.us.us, %638 ]
+  %.016.lcssa.i48.i.us.us.us = phi i64 [ %.043.i.us.us.us, %Abc_Tt6Expand.exit.i.us.us.us ], [ %.117.i56.i.us.us.us, %638 ]
   %642 = icmp ugt i32 %548, 134217727
   %643 = and i1 %567, %642
   br i1 %643, label %.lr.ph.preheader.i61.i.us.us.us, label %Abc_Tt6Expand.exit71.i.us.us.us
@@ -1954,7 +1954,7 @@ Abc_Tt6Expand.exit59.i.us.us.us:                  ; preds = %638, %Abc_Tt6Expand
 .lr.ph.i62.i.us.us.us:                            ; preds = %675, %.lr.ph.preheader.i61.i.us.us.us
   %indvars.iv.i63.i.us.us.us = phi i64 [ %646, %.lr.ph.preheader.i61.i.us.us.us ], [ %indvars.iv.next.i66.i.us.us.us, %675 ]
   %.020.i64.i.us.us.us = phi i32 [ %645, %.lr.ph.preheader.i61.i.us.us.us ], [ %.1.i69.i.us.us.us, %675 ]
-  %.01619.i65.i.us.us.us = phi i64 [ %.0.i286.us.us.us, %.lr.ph.preheader.i61.i.us.us.us ], [ %.2.i68.i.us.us.us, %675 ]
+  %.01619.i65.i.us.us.us = phi i64 [ %.0.i286.us.us.us, %.lr.ph.preheader.i61.i.us.us.us ], [ %.117.i68.i.us.us.us, %675 ]
   %indvars.iv.next.i66.i.us.us.us = add nsw i64 %indvars.iv.i63.i.us.us.us, -1
   %647 = getelementptr inbounds i32, ptr %416, i64 %indvars.iv.next.i66.i.us.us.us
   %648 = load i32, ptr %647, align 4
@@ -1990,12 +1990,12 @@ Abc_Tt6Expand.exit59.i.us.us.us:                  ; preds = %638, %Abc_Tt6Expand
   br label %673
 
 673:                                              ; preds = %655, %653
-  %.117.i67.i.us.us.us = phi i64 [ %672, %655 ], [ %.01619.i65.i.us.us.us, %653 ]
+  %.2.i67.i.us.us.us = phi i64 [ %672, %655 ], [ %.01619.i65.i.us.us.us, %653 ]
   %674 = add nsw i32 %.020.i64.i.us.us.us, -1
   br label %675
 
 675:                                              ; preds = %673, %.lr.ph.i62.i.us.us.us
-  %.2.i68.i.us.us.us = phi i64 [ %.01619.i65.i.us.us.us, %.lr.ph.i62.i.us.us.us ], [ %.117.i67.i.us.us.us, %673 ]
+  %.117.i68.i.us.us.us = phi i64 [ %.01619.i65.i.us.us.us, %.lr.ph.i62.i.us.us.us ], [ %.2.i67.i.us.us.us, %673 ]
   %.1.i69.i.us.us.us = phi i32 [ %.020.i64.i.us.us.us, %.lr.ph.i62.i.us.us.us ], [ %674, %673 ]
   %676 = icmp ugt i64 %indvars.iv.i63.i.us.us.us, 1
   %677 = icmp sgt i32 %.1.i69.i.us.us.us, -1
@@ -2003,7 +2003,7 @@ Abc_Tt6Expand.exit59.i.us.us.us:                  ; preds = %638, %Abc_Tt6Expand
   br i1 %678, label %.lr.ph.i62.i.us.us.us, label %Abc_Tt6Expand.exit71.i.us.us.us, !llvm.loop !19
 
 Abc_Tt6Expand.exit71.i.us.us.us:                  ; preds = %675, %Abc_Tt6Expand.exit59.i.us.us.us
-  %.016.lcssa.i60.i.us.us.us = phi i64 [ %.0.i286.us.us.us, %Abc_Tt6Expand.exit59.i.us.us.us ], [ %.2.i68.i.us.us.us, %675 ]
+  %.016.lcssa.i60.i.us.us.us = phi i64 [ %.0.i286.us.us.us, %Abc_Tt6Expand.exit59.i.us.us.us ], [ %.117.i68.i.us.us.us, %675 ]
   %679 = and i64 %.016.lcssa.i60.i.us.us.us, %.016.lcssa.i48.i.us.us.us
   %680 = xor i64 %.016.lcssa.i60.i.us.us.us, -1
   %681 = and i64 %.016.lcssa.i.i.us.us.us, %680
@@ -2021,7 +2021,7 @@ Abc_Tt6Expand.exit71.i.us.us.us:                  ; preds = %675, %Abc_Tt6Expand
 .lr.ph.split.i.i.us.us.us:                        ; preds = %716, %.lr.ph.i72.i.us.us.us
   %indvars.iv.i73.i.us.us.us = phi i64 [ %indvars.iv.next.i76.i.us.us.us, %716 ], [ 0, %.lr.ph.i72.i.us.us.us ]
   %.035.i.i.us.us.us = phi i32 [ %.1.i75.i.us.us.us, %716 ], [ 0, %.lr.ph.i72.i.us.us.us ]
-  %.02431.i.i.us.us.us = phi i64 [ %.2.i74.i.us.us.us, %716 ], [ %storemerge.i.us.us.us, %.lr.ph.i72.i.us.us.us ]
+  %.02431.i.i.us.us.us = phi i64 [ %.125.i.i.us.us.us, %716 ], [ %storemerge.i.us.us.us, %.lr.ph.i72.i.us.us.us ]
   %684 = trunc nuw nsw i64 %indvars.iv.i73.i.us.us.us to i32
   %685 = shl nuw nsw i32 1, %684
   %686 = zext nneg i32 %685 to i64
@@ -2062,19 +2062,19 @@ Abc_Tt6Expand.exit71.i.us.us.us:                  ; preds = %675, %Abc_Tt6Expand
   br label %714
 
 714:                                              ; preds = %695, %692
-  %.125.i.i.us.us.us = phi i64 [ %713, %695 ], [ %.02431.i.i.us.us.us, %692 ]
+  %.2.i74.i.us.us.us = phi i64 [ %713, %695 ], [ %.02431.i.i.us.us.us, %692 ]
   %715 = add nsw i32 %.035.i.i.us.us.us, 1
   br label %716
 
 716:                                              ; preds = %714, %.lr.ph.split.i.i.us.us.us
-  %.2.i74.i.us.us.us = phi i64 [ %.125.i.i.us.us.us, %714 ], [ %.02431.i.i.us.us.us, %.lr.ph.split.i.i.us.us.us ]
+  %.125.i.i.us.us.us = phi i64 [ %.2.i74.i.us.us.us, %714 ], [ %.02431.i.i.us.us.us, %.lr.ph.split.i.i.us.us.us ]
   %.1.i75.i.us.us.us = phi i32 [ %715, %714 ], [ %.035.i.i.us.us.us, %.lr.ph.split.i.i.us.us.us ]
   %indvars.iv.next.i76.i.us.us.us = add nuw nsw i64 %indvars.iv.i73.i.us.us.us, 1
   %exitcond.not.i.i288.us.us.us = icmp eq i64 %indvars.iv.next.i76.i.us.us.us, %wide.trip.count43.i.i.us.us.us
   br i1 %exitcond.not.i.i288.us.us.us, label %._crit_edge.i.i.us.us.us, label %.lr.ph.split.i.i.us.us.us, !llvm.loop !20
 
 ._crit_edge.i.i.us.us.us:                         ; preds = %716, %Abc_Tt6Expand.exit71.i.us.us.us
-  %.024.lcssa.i.i.us.us.us = phi i64 [ %storemerge.i.us.us.us, %Abc_Tt6Expand.exit71.i.us.us.us ], [ %.2.i74.i.us.us.us, %716 ]
+  %.024.lcssa.i.i.us.us.us = phi i64 [ %storemerge.i.us.us.us, %Abc_Tt6Expand.exit71.i.us.us.us ], [ %.125.i.i.us.us.us, %716 ]
   %.0.lcssa.i.i.us.us.us = phi i32 [ 0, %Abc_Tt6Expand.exit71.i.us.us.us ], [ %.1.i75.i.us.us.us, %716 ]
   %717 = icmp eq i32 %.0.lcssa.i.i.us.us.us, %566
   br i1 %717, label %Of_CutComputeTruthMux6.exit.us.us.us, label %718
@@ -2466,14 +2466,14 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge579.us
   %.1582.us = phi ptr [ %1340, %._crit_edge579.us ], [ %5, %.preheader.lr.ph ]
-  %.6581.us = phi i32 [ %.8.us, %._crit_edge579.us ], [ %.1148, %.preheader.lr.ph ]
+  %.7581.us = phi i32 [ %.9.us, %._crit_edge579.us ], [ %.0147, %.preheader.lr.ph ]
   %899 = getelementptr inbounds i8, ptr %.1582.us, i64 16
   %900 = getelementptr inbounds i8, ptr %.1582.us, i64 20
   br label %901
 
 901:                                              ; preds = %.preheader.us, %Of_SetAddCut.exit457.us
   %.1144577.us = phi ptr [ %6, %.preheader.us ], [ %1338, %Of_SetAddCut.exit457.us ]
-  %.7573.us = phi i32 [ %.6581.us, %.preheader.us ], [ %.8.us, %Of_SetAddCut.exit457.us ]
+  %.8573.us = phi i32 [ %.7581.us, %.preheader.us ], [ %.9.us, %Of_SetAddCut.exit457.us ]
   %902 = load i32, ptr %899, align 8
   %903 = lshr i32 %902, 27
   %904 = getelementptr inbounds i8, ptr %.1144577.us, i64 16
@@ -2496,7 +2496,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %917 = load double, ptr %891, align 8
   %918 = fadd double %917, 1.000000e+00
   store double %918, ptr %891, align 8
-  %919 = sext i32 %.7573.us to i64
+  %919 = sext i32 %.8573.us to i64
   %920 = getelementptr inbounds [32 x ptr], ptr %8, i64 0, i64 %919
   %921 = load ptr, ptr %920, align 8
   %922 = getelementptr inbounds i8, ptr %.1144577.us, i64 20
@@ -2519,12 +2519,12 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
 
 .lr.ph.i322.us:                                   ; preds = %.preheader118.i.us, %947
   %indvars.iv660 = phi i64 [ %indvars.iv.next661, %947 ], [ 0, %.preheader118.i.us ]
-  %.193123.i.us = phi i32 [ %.294.i.us, %947 ], [ 0, %.preheader118.i.us ]
-  %.097122.i.us = phi i32 [ %.198.i.us, %947 ], [ 0, %.preheader118.i.us ]
-  %929 = sext i32 %.193123.i.us to i64
+  %.294123.i.us = phi i32 [ %.395.i.us, %947 ], [ 0, %.preheader118.i.us ]
+  %.198122.i.us = phi i32 [ %.299.i.us, %947 ], [ 0, %.preheader118.i.us ]
+  %929 = sext i32 %.294123.i.us to i64
   %930 = getelementptr inbounds i32, ptr %900, i64 %929
   %931 = load i32, ptr %930, align 4
-  %932 = sext i32 %.097122.i.us to i64
+  %932 = sext i32 %.198122.i.us to i64
   %933 = getelementptr inbounds i32, ptr %922, i64 %932
   %934 = load i32, ptr %933, align 4
   %935 = icmp slt i32 %931, %934
@@ -2537,9 +2537,9 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   br i1 %938, label %943, label %939
 
 939:                                              ; preds = %937
-  %940 = add nsw i32 %.193123.i.us, 1
+  %940 = add nsw i32 %.294123.i.us, 1
   store i32 %931, ptr %936, align 4
-  %941 = add nsw i32 %.097122.i.us, 1
+  %941 = add nsw i32 %.198122.i.us, 1
   %.not.i323.us = icmp slt i32 %940, %903
   br i1 %.not.i323.us, label %942, label %.loopexit120.i.us.loopexit
 
@@ -2548,43 +2548,43 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   br i1 %.not112.i.us, label %947, label %.loopexit121.i.us.loopexit
 
 943:                                              ; preds = %937
-  %944 = add nsw i32 %.097122.i.us, 1
+  %944 = add nsw i32 %.198122.i.us, 1
   store i32 %934, ptr %936, align 4
   %.not113.i.us = icmp slt i32 %944, %906
   br i1 %.not113.i.us, label %947, label %.loopexit121.i.us.loopexit
 
 945:                                              ; preds = %.lr.ph.i322.us
-  %946 = add nsw i32 %.193123.i.us, 1
+  %946 = add nsw i32 %.294123.i.us, 1
   store i32 %931, ptr %936, align 4
   %.not114.i.us = icmp slt i32 %946, %903
   br i1 %.not114.i.us, label %947, label %.loopexit120.i.us.loopexit
 
 947:                                              ; preds = %945, %943, %942
-  %.198.i.us = phi i32 [ %.097122.i.us, %945 ], [ %944, %943 ], [ %941, %942 ]
-  %.294.i.us = phi i32 [ %946, %945 ], [ %.193123.i.us, %943 ], [ %940, %942 ]
+  %.299.i.us = phi i32 [ %.198122.i.us, %945 ], [ %944, %943 ], [ %941, %942 ]
+  %.395.i.us = phi i32 [ %946, %945 ], [ %.294123.i.us, %943 ], [ %940, %942 ]
   %948 = icmp eq i64 %indvars.iv.next661, %wide.trip.count158.i
   br i1 %948, label %Of_SetAddCut.exit457.us, label %.lr.ph.i322.us
 
 .loopexit121.i.us.loopexit:                       ; preds = %943, %942
-  %.395.i.us.ph = phi i32 [ %.193123.i.us, %943 ], [ %940, %942 ]
+  %.193.i.us.ph = phi i32 [ %.294123.i.us, %943 ], [ %940, %942 ]
   %949 = trunc nuw i64 %indvars.iv.next661 to i32
   br label %.loopexit121.i.us
 
 .loopexit121.i.us:                                ; preds = %.loopexit121.i.us.loopexit, %927
-  %.395.i.us = phi i32 [ 0, %927 ], [ %.395.i.us.ph, %.loopexit121.i.us.loopexit ]
-  %.2.i.us = phi i32 [ 0, %927 ], [ %949, %.loopexit121.i.us.loopexit ]
-  %950 = add nsw i32 %.2.i.us, %903
-  %951 = add nsw i32 %.395.i.us, %21
+  %.193.i.us = phi i32 [ 0, %927 ], [ %.193.i.us.ph, %.loopexit121.i.us.loopexit ]
+  %.1.i.us = phi i32 [ 0, %927 ], [ %949, %.loopexit121.i.us.loopexit ]
+  %950 = add nsw i32 %.1.i.us, %903
+  %951 = add nsw i32 %.193.i.us, %21
   %952 = icmp sgt i32 %950, %951
   br i1 %952, label %Of_SetAddCut.exit457.us, label %.preheader117.i.us
 
 .preheader117.i.us:                               ; preds = %.loopexit121.i.us
-  %953 = icmp slt i32 %.395.i.us, %903
+  %953 = icmp slt i32 %.193.i.us, %903
   br i1 %953, label %.lr.ph127.preheader.i.us, label %.loopexit.us
 
 .lr.ph127.preheader.i.us:                         ; preds = %.preheader117.i.us
-  %954 = sext i32 %.2.i.us to i64
-  %955 = sext i32 %.395.i.us to i64
+  %954 = sext i32 %.1.i.us to i64
+  %955 = sext i32 %.193.i.us to i64
   %wide.trip.count.i325.us = zext nneg i32 %903 to i64
   br label %.lr.ph127.i.us
 
@@ -2605,25 +2605,25 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   br label %.loopexit.us
 
 .loopexit120.i.us.loopexit:                       ; preds = %945, %939
-  %.299.i.us.ph = phi i32 [ %.097122.i.us, %945 ], [ %941, %939 ]
+  %.097.i.us.ph = phi i32 [ %.198122.i.us, %945 ], [ %941, %939 ]
   %960 = trunc nuw i64 %indvars.iv.next661 to i32
   br label %.loopexit120.i.us
 
 .loopexit120.i.us:                                ; preds = %.loopexit120.i.us.loopexit, %926
-  %.299.i.us = phi i32 [ 0, %926 ], [ %.299.i.us.ph, %.loopexit120.i.us.loopexit ]
-  %.4.i.us = phi i32 [ 0, %926 ], [ %960, %.loopexit120.i.us.loopexit ]
-  %961 = add nsw i32 %.4.i.us, %906
-  %962 = add nsw i32 %.299.i.us, %21
+  %.097.i.us = phi i32 [ 0, %926 ], [ %.097.i.us.ph, %.loopexit120.i.us.loopexit ]
+  %.091.i.us = phi i32 [ 0, %926 ], [ %960, %.loopexit120.i.us.loopexit ]
+  %961 = add nsw i32 %.091.i.us, %906
+  %962 = add nsw i32 %.097.i.us, %21
   %963 = icmp sgt i32 %961, %962
   br i1 %963, label %Of_SetAddCut.exit457.us, label %.preheader116.i.us
 
 .preheader116.i.us:                               ; preds = %.loopexit120.i.us
-  %964 = icmp slt i32 %.299.i.us, %906
+  %964 = icmp slt i32 %.097.i.us, %906
   br i1 %964, label %.lr.ph130.preheader.i.us, label %.loopexit.us
 
 .lr.ph130.preheader.i.us:                         ; preds = %.preheader116.i.us
-  %965 = sext i32 %.4.i.us to i64
-  %966 = sext i32 %.299.i.us to i64
+  %965 = sext i32 %.091.i.us to i64
+  %966 = sext i32 %.097.i.us to i64
   %wide.trip.count153.i.us = zext nneg i32 %906 to i64
   br label %.lr.ph130.i.us
 
@@ -2663,7 +2663,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   br i1 %exitcond159.not.i.us, label %.loopexit.us, label %.lr.ph134.i.us, !llvm.loop !29
 
 .loopexit.us:                                     ; preds = %975, %.preheader.i.us, %._crit_edge131.loopexit.i.us, %.preheader116.i.us, %._crit_edge.loopexit.i.us, %.preheader117.i.us
-  %.5.lcssa.sink.i.us = phi i32 [ %21, %.preheader.i.us ], [ %.2.i.us, %.preheader117.i.us ], [ %959, %._crit_edge.loopexit.i.us ], [ %.4.i.us, %.preheader116.i.us ], [ %970, %._crit_edge131.loopexit.i.us ], [ %21, %975 ]
+  %.5.lcssa.sink.i.us = phi i32 [ %21, %.preheader.i.us ], [ %.1.i.us, %.preheader117.i.us ], [ %959, %._crit_edge.loopexit.i.us ], [ %.091.i.us, %.preheader116.i.us ], [ %970, %._crit_edge131.loopexit.i.us ], [ %21, %975 ]
   %977 = getelementptr inbounds i8, ptr %921, i64 16
   %.5.lcssa.sink.i.us.fr = freeze i32 %.5.lcssa.sink.i.us
   %978 = shl i32 %.5.lcssa.sink.i.us.fr, 27
@@ -2673,11 +2673,11 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsMuxId.exit
   %981 = load i64, ptr %.1144577.us, align 8
   %982 = or i64 %981, %980
   store i64 %982, ptr %921, align 8
-  %983 = icmp sgt i32 %.7573.us, 0
+  %983 = icmp sgt i32 %.8573.us, 0
   br i1 %983, label %.lr.ph.i330.us, label %Of_SetLastCutIsContained.exit358.us
 
 .lr.ph.i330.us:                                   ; preds = %.loopexit.us
-  %984 = zext nneg i32 %.7573.us to i64
+  %984 = zext nneg i32 %.8573.us to i64
   %985 = and i32 %.5.lcssa.sink.i.us.fr, 31
   %.not48.i.i332.us = icmp eq i32 %978, 0
   %wide.trip.count.i.i333.us = zext nneg i32 %985 to i64
@@ -2855,7 +2855,7 @@ Of_SetLastCutIsContained.exit358.us:              ; preds = %Of_SetCutIsContaine
 .lr.ph.i.i381.us:                                 ; preds = %1109, %.lr.ph.preheader.i.i380.us
   %indvars.iv.i.i382.us = phi i64 [ %1080, %.lr.ph.preheader.i.i380.us ], [ %indvars.iv.next.i.i385.us, %1109 ]
   %.020.i.i383.us = phi i32 [ %1079, %.lr.ph.preheader.i.i380.us ], [ %.1.i.i388.us, %1109 ]
-  %.01619.i.i384.us = phi i64 [ %spec.select.i360.us, %.lr.ph.preheader.i.i380.us ], [ %.2.i.i387.us, %1109 ]
+  %.01619.i.i384.us = phi i64 [ %spec.select.i360.us, %.lr.ph.preheader.i.i380.us ], [ %.117.i.i387.us, %1109 ]
   %indvars.iv.next.i.i385.us = add nsw i64 %indvars.iv.i.i382.us, -1
   %1081 = getelementptr inbounds i32, ptr %923, i64 %indvars.iv.next.i.i385.us
   %1082 = load i32, ptr %1081, align 4
@@ -2891,12 +2891,12 @@ Of_SetLastCutIsContained.exit358.us:              ; preds = %Of_SetCutIsContaine
   br label %1107
 
 1107:                                             ; preds = %1089, %1087
-  %.117.i.i386.us = phi i64 [ %1106, %1089 ], [ %.01619.i.i384.us, %1087 ]
+  %.2.i.i386.us = phi i64 [ %1106, %1089 ], [ %.01619.i.i384.us, %1087 ]
   %1108 = add nsw i32 %.020.i.i383.us, -1
   br label %1109
 
 1109:                                             ; preds = %1107, %.lr.ph.i.i381.us
-  %.2.i.i387.us = phi i64 [ %.01619.i.i384.us, %.lr.ph.i.i381.us ], [ %.117.i.i386.us, %1107 ]
+  %.117.i.i387.us = phi i64 [ %.01619.i.i384.us, %.lr.ph.i.i381.us ], [ %.2.i.i386.us, %1107 ]
   %.1.i.i388.us = phi i32 [ %.020.i.i383.us, %.lr.ph.i.i381.us ], [ %1108, %1107 ]
   %1110 = icmp ugt i64 %indvars.iv.i.i382.us, 1
   %1111 = icmp sgt i32 %.1.i.i388.us, -1
@@ -2904,7 +2904,7 @@ Of_SetLastCutIsContained.exit358.us:              ; preds = %Of_SetCutIsContaine
   br i1 %1112, label %.lr.ph.i.i381.us, label %Abc_Tt6Expand.exit.i362.us, !llvm.loop !19
 
 Abc_Tt6Expand.exit.i362.us:                       ; preds = %1109, %1037
-  %.016.lcssa.i.i363.us = phi i64 [ %spec.select.i360.us, %1037 ], [ %.2.i.i387.us, %1109 ]
+  %.016.lcssa.i.i363.us = phi i64 [ %spec.select.i360.us, %1037 ], [ %.117.i.i387.us, %1109 ]
   %1113 = icmp ugt i32 %1058, 134217727
   %1114 = and i1 %1075, %1113
   br i1 %1114, label %.lr.ph.preheader.i39.i.us, label %Abc_Tt6Expand.exit49.i.us
@@ -2918,7 +2918,7 @@ Abc_Tt6Expand.exit.i362.us:                       ; preds = %1109, %1037
 .lr.ph.i40.i.us:                                  ; preds = %1146, %.lr.ph.preheader.i39.i.us
   %indvars.iv.i41.i.us = phi i64 [ %1117, %.lr.ph.preheader.i39.i.us ], [ %indvars.iv.next.i44.i.us, %1146 ]
   %.020.i42.i.us = phi i32 [ %1116, %.lr.ph.preheader.i39.i.us ], [ %.1.i47.i.us, %1146 ]
-  %.01619.i43.i.us = phi i64 [ %.0.i361.us, %.lr.ph.preheader.i39.i.us ], [ %.2.i46.i.us, %1146 ]
+  %.01619.i43.i.us = phi i64 [ %.0.i361.us, %.lr.ph.preheader.i39.i.us ], [ %.117.i46.i.us, %1146 ]
   %indvars.iv.next.i44.i.us = add nsw i64 %indvars.iv.i41.i.us, -1
   %1118 = getelementptr inbounds i32, ptr %923, i64 %indvars.iv.next.i44.i.us
   %1119 = load i32, ptr %1118, align 4
@@ -2954,12 +2954,12 @@ Abc_Tt6Expand.exit.i362.us:                       ; preds = %1109, %1037
   br label %1144
 
 1144:                                             ; preds = %1126, %1124
-  %.117.i45.i.us = phi i64 [ %1143, %1126 ], [ %.01619.i43.i.us, %1124 ]
+  %.2.i45.i.us = phi i64 [ %1143, %1126 ], [ %.01619.i43.i.us, %1124 ]
   %1145 = add nsw i32 %.020.i42.i.us, -1
   br label %1146
 
 1146:                                             ; preds = %1144, %.lr.ph.i40.i.us
-  %.2.i46.i.us = phi i64 [ %.01619.i43.i.us, %.lr.ph.i40.i.us ], [ %.117.i45.i.us, %1144 ]
+  %.117.i46.i.us = phi i64 [ %.01619.i43.i.us, %.lr.ph.i40.i.us ], [ %.2.i45.i.us, %1144 ]
   %.1.i47.i.us = phi i32 [ %.020.i42.i.us, %.lr.ph.i40.i.us ], [ %1145, %1144 ]
   %1147 = icmp ugt i64 %indvars.iv.i41.i.us, 1
   %1148 = icmp sgt i32 %.1.i47.i.us, -1
@@ -2967,7 +2967,7 @@ Abc_Tt6Expand.exit.i362.us:                       ; preds = %1109, %1037
   br i1 %1149, label %.lr.ph.i40.i.us, label %Abc_Tt6Expand.exit49.i.us, !llvm.loop !19
 
 Abc_Tt6Expand.exit49.i.us:                        ; preds = %1146, %Abc_Tt6Expand.exit.i362.us
-  %.016.lcssa.i38.i.us = phi i64 [ %.0.i361.us, %Abc_Tt6Expand.exit.i362.us ], [ %.2.i46.i.us, %1146 ]
+  %.016.lcssa.i38.i.us = phi i64 [ %.0.i361.us, %Abc_Tt6Expand.exit.i362.us ], [ %.117.i46.i.us, %1146 ]
   %1150 = xor i64 %.016.lcssa.i38.i.us, %.016.lcssa.i.i363.us
   %1151 = and i64 %.016.lcssa.i38.i.us, %.016.lcssa.i.i363.us
   %1152 = select i1 %.not36.i, i64 %1151, i64 %1150
@@ -2984,7 +2984,7 @@ Abc_Tt6Expand.exit49.i.us:                        ; preds = %1146, %Abc_Tt6Expan
 .lr.ph.split.i.i372.us:                           ; preds = %1186, %.lr.ph.i50.i370.us
   %indvars.iv.i51.i373.us = phi i64 [ %indvars.iv.next.i54.i378.us, %1186 ], [ 0, %.lr.ph.i50.i370.us ]
   %.035.i.i374.us = phi i32 [ %.1.i53.i.us, %1186 ], [ 0, %.lr.ph.i50.i370.us ]
-  %.02431.i.i375.us = phi i64 [ %.2.i52.i.us, %1186 ], [ %storemerge.i365.us, %.lr.ph.i50.i370.us ]
+  %.02431.i.i375.us = phi i64 [ %.125.i.i377.us, %1186 ], [ %storemerge.i365.us, %.lr.ph.i50.i370.us ]
   %1154 = trunc nuw nsw i64 %indvars.iv.i51.i373.us to i32
   %1155 = shl nuw nsw i32 1, %1154
   %1156 = zext nneg i32 %1155 to i64
@@ -3025,19 +3025,19 @@ Abc_Tt6Expand.exit49.i.us:                        ; preds = %1146, %Abc_Tt6Expan
   br label %1184
 
 1184:                                             ; preds = %1165, %1162
-  %.125.i.i377.us = phi i64 [ %1183, %1165 ], [ %.02431.i.i375.us, %1162 ]
+  %.2.i52.i.us = phi i64 [ %1183, %1165 ], [ %.02431.i.i375.us, %1162 ]
   %1185 = add nsw i32 %.035.i.i374.us, 1
   br label %1186
 
 1186:                                             ; preds = %1184, %.lr.ph.split.i.i372.us
-  %.2.i52.i.us = phi i64 [ %.125.i.i377.us, %1184 ], [ %.02431.i.i375.us, %.lr.ph.split.i.i372.us ]
+  %.125.i.i377.us = phi i64 [ %.2.i52.i.us, %1184 ], [ %.02431.i.i375.us, %.lr.ph.split.i.i372.us ]
   %.1.i53.i.us = phi i32 [ %1185, %1184 ], [ %.035.i.i374.us, %.lr.ph.split.i.i372.us ]
   %indvars.iv.next.i54.i378.us = add nuw nsw i64 %indvars.iv.i51.i373.us, 1
   %exitcond.not.i.i379.us = icmp eq i64 %indvars.iv.next.i54.i378.us, %wide.trip.count43.i.i371.us
   br i1 %exitcond.not.i.i379.us, label %._crit_edge.i.i366.us, label %.lr.ph.split.i.i372.us, !llvm.loop !20
 
 ._crit_edge.i.i366.us:                            ; preds = %1186, %Abc_Tt6Expand.exit49.i.us
-  %.024.lcssa.i.i367.us = phi i64 [ %storemerge.i365.us, %Abc_Tt6Expand.exit49.i.us ], [ %.2.i52.i.us, %1186 ]
+  %.024.lcssa.i.i367.us = phi i64 [ %storemerge.i365.us, %Abc_Tt6Expand.exit49.i.us ], [ %.125.i.i377.us, %1186 ]
   %.0.lcssa.i.i368.us = phi i32 [ 0, %Abc_Tt6Expand.exit49.i.us ], [ %.1.i53.i.us, %1186 ]
   %1187 = icmp eq i32 %.0.lcssa.i.i368.us, %1074
   br i1 %1187, label %Of_CutComputeTruth6.exit.us, label %1188
@@ -3151,14 +3151,14 @@ Of_CutParams.exit410.us:                          ; preds = %1231, %._crit_edge.
   %1238 = add nsw i32 %.0.i.i409.us, %1237
   %1239 = sdiv i32 %1238, %897
   store i32 %1239, ptr %1214, align 4
-  %1240 = icmp eq i32 %.7573.us, 0
+  %1240 = icmp eq i32 %.8573.us, 0
   br i1 %1240, label %Of_SetAddCut.exit457.us, label %1241
 
 1241:                                             ; preds = %Of_CutParams.exit410.us
   br i1 %983, label %.lr.ph.i.i414.us, label %Of_SetSortByArea.exit.i411.us
 
 .lr.ph.i.i414.us:                                 ; preds = %1241
-  %1242 = zext nneg i32 %.7573.us to i64
+  %1242 = zext nneg i32 %.8573.us to i64
   %1243 = getelementptr inbounds ptr, ptr %8, i64 %1242
   br label %.outer.i.i415.us
 
@@ -3268,7 +3268,7 @@ Of_SetCutIsContainedOrder.exit.thread.thread.i.i447.us: ; preds = %1282, %1272
   br i1 %exitcond.not67.i.i451.us, label %.preheader.i.i424.us, label %.outer.i.i415.us, !llvm.loop !21
 
 .preheader.i.i424.us:                             ; preds = %Of_SetCutIsContainedOrder.exit.thread.thread.i.i447.us, %._crit_edge.i.i423.us
-  %1290 = add nuw i32 %.7573.us, 1
+  %1290 = add nuw i32 %.8573.us, 1
   %wide.trip.count62.i.i425.us = zext i32 %1290 to i64
   br label %.lr.ph55.i.i426.us
 
@@ -3309,7 +3309,7 @@ Of_SetCutIsContainedOrder.exit.thread.thread.i.i447.us: ; preds = %1282, %1272
   br label %Of_SetLastCutContainsArea.exit.i433.us
 
 Of_SetLastCutContainsArea.exit.i433.us:           ; preds = %._crit_edge56.loopexit.i.i432.us, %._crit_edge.i.i423.us
-  %.0.i.i434.us = phi i32 [ %.7573.us, %._crit_edge.i.i423.us ], [ %1305, %._crit_edge56.loopexit.i.i432.us ]
+  %.0.i.i434.us = phi i32 [ %.8573.us, %._crit_edge.i.i423.us ], [ %1305, %._crit_edge56.loopexit.i.i432.us ]
   %1306 = icmp sgt i32 %.0.i.i434.us, 0
   br i1 %1306, label %.lr.ph.i8.i435.us.preheader, label %Of_SetSortByArea.exit.i411.us
 
@@ -3364,13 +3364,13 @@ Of_CutCompareArea.exit.i.i437.us:                 ; preds = %1327, %1325, %1317
   br i1 %1335, label %.lr.ph.i8.i435.us, label %Of_SetSortByArea.exit.i411.us, !llvm.loop !23
 
 Of_SetSortByArea.exit.i411.us:                    ; preds = %.lr.ph.i8.i435.us, %1319, %1327, %Of_CutCompareArea.exit.i.i437.us, %Of_SetLastCutContainsArea.exit.i433.us, %1241
-  %.0.i10.i412.us = phi i32 [ %.0.i.i434.us, %Of_SetLastCutContainsArea.exit.i433.us ], [ %.7573.us, %1241 ], [ %.0.i.i434.us, %Of_CutCompareArea.exit.i.i437.us ], [ %.0.i.i434.us, %1327 ], [ %.0.i.i434.us, %1319 ], [ %.0.i.i434.us, %.lr.ph.i8.i435.us ]
+  %.0.i10.i412.us = phi i32 [ %.0.i.i434.us, %Of_SetLastCutContainsArea.exit.i433.us ], [ %.8573.us, %1241 ], [ %.0.i.i434.us, %Of_CutCompareArea.exit.i.i437.us ], [ %.0.i.i434.us, %1327 ], [ %.0.i.i434.us, %1319 ], [ %.0.i.i434.us, %.lr.ph.i8.i435.us ]
   %1336 = add nsw i32 %.0.i10.i412.us, 1
   %1337 = call noundef i32 @llvm.smin.i32(i32 %1336, i32 %898)
   br label %Of_SetAddCut.exit457.us
 
 Of_SetAddCut.exit457.us:                          ; preds = %947, %.lr.ph134.i.us, %997, %1029, %1009, %1019, %Of_SetSortByArea.exit.i411.us, %Of_CutParams.exit410.us, %.loopexit120.i.us, %.loopexit121.i.us, %.preheader118.i.us, %909
-  %.8.us = phi i32 [ %.7573.us, %909 ], [ %1337, %Of_SetSortByArea.exit.i411.us ], [ 1, %Of_CutParams.exit410.us ], [ %.7573.us, %.loopexit121.i.us ], [ %.7573.us, %.loopexit120.i.us ], [ %.7573.us, %.preheader118.i.us ], [ %.7573.us, %1019 ], [ %.7573.us, %1009 ], [ %.7573.us, %1029 ], [ %.7573.us, %997 ], [ %.7573.us, %.lr.ph134.i.us ], [ %.7573.us, %947 ]
+  %.9.us = phi i32 [ %.8573.us, %909 ], [ %1337, %Of_SetSortByArea.exit.i411.us ], [ 1, %Of_CutParams.exit410.us ], [ %.8573.us, %.loopexit121.i.us ], [ %.8573.us, %.loopexit120.i.us ], [ %.8573.us, %.preheader118.i.us ], [ %.8573.us, %1019 ], [ %.8573.us, %1009 ], [ %.8573.us, %1029 ], [ %.8573.us, %997 ], [ %.8573.us, %.lr.ph134.i.us ], [ %.8573.us, %947 ]
   %1338 = getelementptr inbounds i8, ptr %.1144577.us, i64 48
   %1339 = icmp ult ptr %1338, %175
   br i1 %1339, label %901, label %._crit_edge579.us, !llvm.loop !30
@@ -3381,7 +3381,7 @@ Of_SetAddCut.exit457.us:                          ; preds = %947, %.lr.ph134.i.u
   br i1 %1341, label %.preheader.us, label %.loopexit489, !llvm.loop !31
 
 .loopexit489:                                     ; preds = %._crit_edge562.split.us.us.us, %._crit_edge579.us, %.preheader.lr.ph, %.preheader499.lr.ph, %Gia_ObjFaninC2.exit, %Gia_ObjIsXor.exit
-  %.9 = phi i32 [ %.1148, %Gia_ObjIsXor.exit ], [ %.1148, %Gia_ObjFaninC2.exit ], [ %.1148, %.preheader499.lr.ph ], [ %.1148, %.preheader.lr.ph ], [ %.8.us, %._crit_edge579.us ], [ %.5.us.us.us, %._crit_edge562.split.us.us.us ]
+  %.6 = phi i32 [ %.0147, %Gia_ObjIsXor.exit ], [ %.0147, %Gia_ObjFaninC2.exit ], [ %.0147, %.preheader499.lr.ph ], [ %.0147, %.preheader.lr.ph ], [ %.9.us, %._crit_edge579.us ], [ %.5.us.us.us, %._crit_edge562.split.us.us.us ]
   %1342 = load ptr, ptr %8, align 16
   %1343 = getelementptr inbounds i8, ptr %1342, i64 12
   %1344 = load i32, ptr %1343, align 4
@@ -3395,11 +3395,11 @@ Of_SetAddCut.exit457.us:                          ; preds = %947, %.lr.ph134.i.u
   %.val177 = load ptr, ptr %1349, align 8
   %1350 = getelementptr inbounds i32, ptr %.val177, i64 %13
   store i32 %1348, ptr %1350, align 4
-  %1351 = icmp sgt i32 %.9, 0
+  %1351 = icmp sgt i32 %.6, 0
   br i1 %1351, label %.lr.ph.preheader.i460, label %._crit_edge.i458
 
 .lr.ph.preheader.i460:                            ; preds = %.loopexit489
-  %wide.trip.count.i461 = zext nneg i32 %.9 to i64
+  %wide.trip.count.i461 = zext nneg i32 %.6 to i64
   br label %.lr.ph.i462
 
 .lr.ph.i462:                                      ; preds = %.lr.ph.i462, %.lr.ph.preheader.i460
@@ -3418,7 +3418,7 @@ Of_SetAddCut.exit457.us:                          ; preds = %947, %.lr.ph134.i.u
 
 ._crit_edge.i458:                                 ; preds = %.lr.ph.i462, %.loopexit489
   %.039.lcssa.i = phi i32 [ 1, %.loopexit489 ], [ %1358, %.lr.ph.i462 ]
-  %.0.lcssa.i = phi i32 [ 0, %.loopexit489 ], [ %.9, %.lr.ph.i462 ]
+  %.0.lcssa.i = phi i32 [ 0, %.loopexit489 ], [ %.6, %.lr.ph.i462 ]
   %1359 = getelementptr inbounds i8, ptr %0, i64 104
   %1360 = load i32, ptr %1359, align 8
   %1361 = and i32 %1360, 65535
@@ -3529,7 +3529,7 @@ Vec_PtrPush.exit.i:                               ; preds = %1397, %Vec_PtrGrow.
 
 .lr.ph51.preheader.i:                             ; preds = %1404
   %1414 = getelementptr inbounds i8, ptr %1413, i64 4
-  %wide.trip.count60.i = zext nneg i32 %.9 to i64
+  %wide.trip.count60.i = zext nneg i32 %.6 to i64
   br label %.lr.ph51.i
 
 .lr.ph51.i:                                       ; preds = %.lr.ph51.i, %.lr.ph51.preheader.i
@@ -3562,7 +3562,7 @@ Of_ManSaveCuts.exit:                              ; preds = %.lr.ph51.i, %1404
   %.val165 = load ptr, ptr %27, align 8
   %1431 = getelementptr inbounds i32, ptr %.val165, i64 %13
   store i32 %1405, ptr %1431, align 4
-  %1432 = sitofp i32 %.9 to double
+  %1432 = sitofp i32 %.6 to double
   %1433 = getelementptr inbounds i8, ptr %0, i64 152
   %1434 = load double, ptr %1433, align 8
   %1435 = fadd double %1434, %1432
@@ -4117,12 +4117,12 @@ define void @Of_ManPrintInit(ptr nocapture noundef readonly %0) local_unnamed_ad
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.078.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %43, %.lr.ph.i ]
+  %.18.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %43, %.lr.ph.i ]
   %39 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv.i
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, 0
   %42 = zext i1 %41 to i32
-  %43 = add nuw nsw i32 %.078.i, %42
+  %43 = add nuw nsw i32 %.18.i, %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Gia_ManChoiceNum.exit, label %.lr.ph.i, !llvm.loop !38

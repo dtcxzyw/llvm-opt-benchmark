@@ -1438,7 +1438,7 @@ arraydestroy.body57:                              ; preds = %arraydestroy.body57
   br i1 %arraydestroy.done60, label %ehcleanup, label %arraydestroy.body57
 
 ehcleanup:                                        ; preds = %arraydestroy.body57, %lpad44
-  %cleanup.isactive.0 = phi i1 [ true, %lpad44 ], [ false, %arraydestroy.body57 ]
+  %cleanup.isactive.2 = phi i1 [ true, %lpad44 ], [ false, %arraydestroy.body57 ]
   %.pn = phi { ptr, i32 } [ %36, %lpad44 ], [ %37, %arraydestroy.body57 ]
   %39 = getelementptr inbounds i8, ptr %ref.tmp27, i64 48
   br label %arraydestroy.body69
@@ -1451,8 +1451,8 @@ arraydestroy.body69:                              ; preds = %arraydestroy.body69
   br i1 %arraydestroy.done72, label %ehcleanup80, label %arraydestroy.body69
 
 ehcleanup80:                                      ; preds = %arraydestroy.body69, %lpad.i.i285, %lpad23
-  %cleanup.isactive.1 = phi i1 [ true, %lpad23 ], [ true, %lpad.i.i285 ], [ %cleanup.isactive.0, %arraydestroy.body69 ]
-  %arrayinit.endOfInit.0 = phi ptr [ %ref.tmp13, %lpad23 ], [ %arrayinit.element25, %lpad.i.i285 ], [ %arrayinit.element25, %arraydestroy.body69 ]
+  %cleanup.isactive.1 = phi i1 [ true, %lpad23 ], [ true, %lpad.i.i285 ], [ %cleanup.isactive.2, %arraydestroy.body69 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %ref.tmp13, %lpad23 ], [ %arrayinit.element25, %lpad.i.i285 ], [ %arrayinit.element25, %arraydestroy.body69 ]
   %.pn.pn = phi { ptr, i32 } [ %35, %lpad23 ], [ %1, %lpad.i.i285 ], [ %.pn, %arraydestroy.body69 ]
   %40 = getelementptr inbounds i8, ptr %ref.tmp15, i64 48
   br label %arraydestroy.body82
@@ -1465,12 +1465,12 @@ arraydestroy.body82:                              ; preds = %arraydestroy.body82
   br i1 %arraydestroy.done85, label %ehcleanup87, label %arraydestroy.body82
 
 ehcleanup87:                                      ; preds = %arraydestroy.body82
-  %arraydestroy.isempty88 = icmp ne ptr %ref.tmp13, %arrayinit.endOfInit.0
+  %arraydestroy.isempty88 = icmp ne ptr %ref.tmp13, %arrayinit.endOfInit.1
   %or.cond.not = select i1 %cleanup.isactive.1, i1 %arraydestroy.isempty88, i1 false
   br i1 %or.cond.not, label %arraydestroy.body89, label %ehcleanup183
 
 arraydestroy.body89:                              ; preds = %ehcleanup87, %arraydestroy.body89
-  %arraydestroy.elementPast90 = phi ptr [ %arraydestroy.element91, %arraydestroy.body89 ], [ %arrayinit.endOfInit.0, %ehcleanup87 ]
+  %arraydestroy.elementPast90 = phi ptr [ %arraydestroy.element91, %arraydestroy.body89 ], [ %arrayinit.endOfInit.1, %ehcleanup87 ]
   %arraydestroy.element91 = getelementptr inbounds i8, ptr %arraydestroy.elementPast90, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element91) #18
   %arraydestroy.done92 = icmp eq ptr %arraydestroy.element91, %ref.tmp13
@@ -2141,7 +2141,7 @@ arraydestroy.body256:                             ; preds = %arraydestroy.body25
   br i1 %arraydestroy.done259, label %ehcleanup267, label %arraydestroy.body256
 
 ehcleanup267:                                     ; preds = %arraydestroy.body256, %lpad240
-  %cleanup.isactive242.0 = phi i1 [ true, %lpad240 ], [ false, %arraydestroy.body256 ]
+  %cleanup.isactive242.2 = phi i1 [ true, %lpad240 ], [ false, %arraydestroy.body256 ]
   %.pn73 = phi { ptr, i32 } [ %120, %lpad240 ], [ %121, %arraydestroy.body256 ]
   %123 = getelementptr inbounds i8, ptr %ref.tmp222, i64 48
   br label %arraydestroy.body269
@@ -2154,8 +2154,8 @@ arraydestroy.body269:                             ; preds = %arraydestroy.body26
   br i1 %arraydestroy.done272, label %ehcleanup280, label %arraydestroy.body269
 
 ehcleanup280:                                     ; preds = %arraydestroy.body269, %lpad.i.i401, %lpad218
-  %cleanup.isactive242.1 = phi i1 [ true, %lpad218 ], [ true, %lpad.i.i401 ], [ %cleanup.isactive242.0, %arraydestroy.body269 ]
-  %arrayinit.endOfInit198.0 = phi ptr [ %ref.tmp196, %lpad218 ], [ %arrayinit.element220, %lpad.i.i401 ], [ %arrayinit.element220, %arraydestroy.body269 ]
+  %cleanup.isactive242.1 = phi i1 [ true, %lpad218 ], [ true, %lpad.i.i401 ], [ %cleanup.isactive242.2, %arraydestroy.body269 ]
+  %arrayinit.endOfInit198.1 = phi ptr [ %ref.tmp196, %lpad218 ], [ %arrayinit.element220, %lpad.i.i401 ], [ %arrayinit.element220, %arraydestroy.body269 ]
   %.pn73.pn = phi { ptr, i32 } [ %119, %lpad218 ], [ %85, %lpad.i.i401 ], [ %.pn73, %arraydestroy.body269 ]
   %124 = getelementptr inbounds i8, ptr %ref.tmp200, i64 48
   br label %arraydestroy.body282
@@ -2168,12 +2168,12 @@ arraydestroy.body282:                             ; preds = %arraydestroy.body28
   br i1 %arraydestroy.done285, label %ehcleanup287, label %arraydestroy.body282
 
 ehcleanup287:                                     ; preds = %arraydestroy.body282
-  %arraydestroy.isempty290 = icmp ne ptr %ref.tmp196, %arrayinit.endOfInit198.0
+  %arraydestroy.isempty290 = icmp ne ptr %ref.tmp196, %arrayinit.endOfInit198.1
   %or.cond1.not = select i1 %cleanup.isactive242.1, i1 %arraydestroy.isempty290, i1 false
   br i1 %or.cond1.not, label %arraydestroy.body291, label %ehcleanup563
 
 arraydestroy.body291:                             ; preds = %ehcleanup287, %arraydestroy.body291
-  %arraydestroy.elementPast292 = phi ptr [ %arraydestroy.element293, %arraydestroy.body291 ], [ %arrayinit.endOfInit198.0, %ehcleanup287 ]
+  %arraydestroy.elementPast292 = phi ptr [ %arraydestroy.element293, %arraydestroy.body291 ], [ %arrayinit.endOfInit198.1, %ehcleanup287 ]
   %arraydestroy.element293 = getelementptr inbounds i8, ptr %arraydestroy.elementPast292, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element293) #18
   %arraydestroy.done294 = icmp eq ptr %arraydestroy.element293, %ref.tmp196
@@ -2851,7 +2851,7 @@ arraydestroy.body520:                             ; preds = %arraydestroy.body52
   br i1 %arraydestroy.done523, label %ehcleanup531, label %arraydestroy.body520
 
 ehcleanup531:                                     ; preds = %arraydestroy.body520, %lpad497
-  %cleanup.isactive499.0 = phi i1 [ true, %lpad497 ], [ false, %arraydestroy.body520 ]
+  %cleanup.isactive499.2 = phi i1 [ true, %lpad497 ], [ false, %arraydestroy.body520 ]
   %.pn77.pn.pn = phi { ptr, i32 } [ %209, %lpad497 ], [ %.pn77.pn, %arraydestroy.body520 ]
   %214 = getelementptr inbounds i8, ptr %ref.tmp479, i64 48
   br label %arraydestroy.body533
@@ -2864,8 +2864,8 @@ arraydestroy.body533:                             ; preds = %arraydestroy.body53
   br i1 %arraydestroy.done536, label %ehcleanup544, label %arraydestroy.body533
 
 ehcleanup544:                                     ; preds = %arraydestroy.body533, %lpad.i.i621, %lpad475
-  %cleanup.isactive499.1 = phi i1 [ true, %lpad475 ], [ true, %lpad.i.i621 ], [ %cleanup.isactive499.0, %arraydestroy.body533 ]
-  %arrayinit.endOfInit455.0 = phi ptr [ %ref.tmp453, %lpad475 ], [ %arrayinit.element477, %lpad.i.i621 ], [ %arrayinit.element477, %arraydestroy.body533 ]
+  %cleanup.isactive499.1 = phi i1 [ true, %lpad475 ], [ true, %lpad.i.i621 ], [ %cleanup.isactive499.2, %arraydestroy.body533 ]
+  %arrayinit.endOfInit455.1 = phi ptr [ %ref.tmp453, %lpad475 ], [ %arrayinit.element477, %lpad.i.i621 ], [ %arrayinit.element477, %arraydestroy.body533 ]
   %.pn77.pn.pn.pn = phi { ptr, i32 } [ %208, %lpad475 ], [ %187, %lpad.i.i621 ], [ %.pn77.pn.pn, %arraydestroy.body533 ]
   %215 = getelementptr inbounds i8, ptr %ref.tmp457, i64 48
   br label %arraydestroy.body546
@@ -2878,12 +2878,12 @@ arraydestroy.body546:                             ; preds = %arraydestroy.body54
   br i1 %arraydestroy.done549, label %ehcleanup551, label %arraydestroy.body546
 
 ehcleanup551:                                     ; preds = %arraydestroy.body546
-  %arraydestroy.isempty554 = icmp ne ptr %ref.tmp453, %arrayinit.endOfInit455.0
+  %arraydestroy.isempty554 = icmp ne ptr %ref.tmp453, %arrayinit.endOfInit455.1
   %or.cond2.not = select i1 %cleanup.isactive499.1, i1 %arraydestroy.isempty554, i1 false
   br i1 %or.cond2.not, label %arraydestroy.body555, label %ehcleanup561
 
 arraydestroy.body555:                             ; preds = %ehcleanup551, %arraydestroy.body555
-  %arraydestroy.elementPast556 = phi ptr [ %arraydestroy.element557, %arraydestroy.body555 ], [ %arrayinit.endOfInit455.0, %ehcleanup551 ]
+  %arraydestroy.elementPast556 = phi ptr [ %arraydestroy.element557, %arraydestroy.body555 ], [ %arrayinit.endOfInit455.1, %ehcleanup551 ]
   %arraydestroy.element557 = getelementptr inbounds i8, ptr %arraydestroy.elementPast556, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element557) #18
   %arraydestroy.done558 = icmp eq ptr %arraydestroy.element557, %ref.tmp453
@@ -3215,7 +3215,7 @@ arraydestroy.body636:                             ; preds = %arraydestroy.body63
   br i1 %arraydestroy.done639, label %ehcleanup647, label %arraydestroy.body636
 
 ehcleanup647:                                     ; preds = %arraydestroy.body636, %lpad620
-  %cleanup.isactive622.0 = phi i1 [ true, %lpad620 ], [ false, %arraydestroy.body636 ]
+  %cleanup.isactive622.2 = phi i1 [ true, %lpad620 ], [ false, %arraydestroy.body636 ]
   %.pn83 = phi { ptr, i32 } [ %250, %lpad620 ], [ %251, %arraydestroy.body636 ]
   %253 = getelementptr inbounds i8, ptr %ref.tmp602, i64 48
   br label %arraydestroy.body649
@@ -3228,8 +3228,8 @@ arraydestroy.body649:                             ; preds = %arraydestroy.body64
   br i1 %arraydestroy.done652, label %ehcleanup660, label %arraydestroy.body649
 
 ehcleanup660:                                     ; preds = %arraydestroy.body649, %lpad.i.i659, %lpad598
-  %cleanup.isactive622.1 = phi i1 [ true, %lpad598 ], [ true, %lpad.i.i659 ], [ %cleanup.isactive622.0, %arraydestroy.body649 ]
-  %arrayinit.endOfInit578.0 = phi ptr [ %ref.tmp576, %lpad598 ], [ %arrayinit.element600, %lpad.i.i659 ], [ %arrayinit.element600, %arraydestroy.body649 ]
+  %cleanup.isactive622.1 = phi i1 [ true, %lpad598 ], [ true, %lpad.i.i659 ], [ %cleanup.isactive622.2, %arraydestroy.body649 ]
+  %arrayinit.endOfInit578.1 = phi ptr [ %ref.tmp576, %lpad598 ], [ %arrayinit.element600, %lpad.i.i659 ], [ %arrayinit.element600, %arraydestroy.body649 ]
   %.pn83.pn = phi { ptr, i32 } [ %249, %lpad598 ], [ %217, %lpad.i.i659 ], [ %.pn83, %arraydestroy.body649 ]
   %254 = getelementptr inbounds i8, ptr %ref.tmp580, i64 48
   br label %arraydestroy.body662
@@ -3242,12 +3242,12 @@ arraydestroy.body662:                             ; preds = %arraydestroy.body66
   br i1 %arraydestroy.done665, label %ehcleanup667, label %arraydestroy.body662
 
 ehcleanup667:                                     ; preds = %arraydestroy.body662
-  %arraydestroy.isempty670 = icmp ne ptr %ref.tmp576, %arrayinit.endOfInit578.0
+  %arraydestroy.isempty670 = icmp ne ptr %ref.tmp576, %arrayinit.endOfInit578.1
   %or.cond3.not = select i1 %cleanup.isactive622.1, i1 %arraydestroy.isempty670, i1 false
   br i1 %or.cond3.not, label %arraydestroy.body671, label %ehcleanup782
 
 arraydestroy.body671:                             ; preds = %ehcleanup667, %arraydestroy.body671
-  %arraydestroy.elementPast672 = phi ptr [ %arraydestroy.element673, %arraydestroy.body671 ], [ %arrayinit.endOfInit578.0, %ehcleanup667 ]
+  %arraydestroy.elementPast672 = phi ptr [ %arraydestroy.element673, %arraydestroy.body671 ], [ %arrayinit.endOfInit578.1, %ehcleanup667 ]
   %arraydestroy.element673 = getelementptr inbounds i8, ptr %arraydestroy.elementPast672, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element673) #18
   %arraydestroy.done674 = icmp eq ptr %arraydestroy.element673, %ref.tmp576
@@ -3910,7 +3910,7 @@ arraydestroy.body855:                             ; preds = %arraydestroy.body85
   br i1 %arraydestroy.done858, label %ehcleanup866, label %arraydestroy.body855
 
 ehcleanup866:                                     ; preds = %arraydestroy.body855, %lpad839
-  %cleanup.isactive841.0 = phi i1 [ true, %lpad839 ], [ false, %arraydestroy.body855 ]
+  %cleanup.isactive841.2 = phi i1 [ true, %lpad839 ], [ false, %arraydestroy.body855 ]
   %.pn87 = phi { ptr, i32 } [ %332, %lpad839 ], [ %333, %arraydestroy.body855 ]
   %335 = getelementptr inbounds i8, ptr %ref.tmp821, i64 48
   br label %arraydestroy.body868
@@ -3923,8 +3923,8 @@ arraydestroy.body868:                             ; preds = %arraydestroy.body86
   br i1 %arraydestroy.done871, label %ehcleanup879, label %arraydestroy.body868
 
 ehcleanup879:                                     ; preds = %arraydestroy.body868, %lpad.i.i846, %lpad817
-  %cleanup.isactive841.1 = phi i1 [ true, %lpad817 ], [ true, %lpad.i.i846 ], [ %cleanup.isactive841.0, %arraydestroy.body868 ]
-  %arrayinit.endOfInit797.0 = phi ptr [ %ref.tmp795, %lpad817 ], [ %arrayinit.element819, %lpad.i.i846 ], [ %arrayinit.element819, %arraydestroy.body868 ]
+  %cleanup.isactive841.1 = phi i1 [ true, %lpad817 ], [ true, %lpad.i.i846 ], [ %cleanup.isactive841.2, %arraydestroy.body868 ]
+  %arrayinit.endOfInit797.1 = phi ptr [ %ref.tmp795, %lpad817 ], [ %arrayinit.element819, %lpad.i.i846 ], [ %arrayinit.element819, %arraydestroy.body868 ]
   %.pn87.pn = phi { ptr, i32 } [ %331, %lpad817 ], [ %299, %lpad.i.i846 ], [ %.pn87, %arraydestroy.body868 ]
   %336 = getelementptr inbounds i8, ptr %ref.tmp799, i64 48
   br label %arraydestroy.body881
@@ -3937,12 +3937,12 @@ arraydestroy.body881:                             ; preds = %arraydestroy.body88
   br i1 %arraydestroy.done884, label %ehcleanup886, label %arraydestroy.body881
 
 ehcleanup886:                                     ; preds = %arraydestroy.body881
-  %arraydestroy.isempty889 = icmp ne ptr %ref.tmp795, %arrayinit.endOfInit797.0
+  %arraydestroy.isempty889 = icmp ne ptr %ref.tmp795, %arrayinit.endOfInit797.1
   %or.cond4.not = select i1 %cleanup.isactive841.1, i1 %arraydestroy.isempty889, i1 false
   br i1 %or.cond4.not, label %arraydestroy.body890, label %ehcleanup998
 
 arraydestroy.body890:                             ; preds = %ehcleanup886, %arraydestroy.body890
-  %arraydestroy.elementPast891 = phi ptr [ %arraydestroy.element892, %arraydestroy.body890 ], [ %arrayinit.endOfInit797.0, %ehcleanup886 ]
+  %arraydestroy.elementPast891 = phi ptr [ %arraydestroy.element892, %arraydestroy.body890 ], [ %arrayinit.endOfInit797.1, %ehcleanup886 ]
   %arraydestroy.element892 = getelementptr inbounds i8, ptr %arraydestroy.elementPast891, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element892) #18
   %arraydestroy.done893 = icmp eq ptr %arraydestroy.element892, %ref.tmp795
@@ -4611,7 +4611,7 @@ arraydestroy.body1082:                            ; preds = %arraydestroy.body10
   br i1 %arraydestroy.done1085, label %ehcleanup1093, label %arraydestroy.body1082
 
 ehcleanup1093:                                    ; preds = %arraydestroy.body1082, %lpad1066
-  %cleanup.isactive1068.0 = phi i1 [ true, %lpad1066 ], [ false, %arraydestroy.body1082 ]
+  %cleanup.isactive1068.2 = phi i1 [ true, %lpad1066 ], [ false, %arraydestroy.body1082 ]
   %.pn91 = phi { ptr, i32 } [ %413, %lpad1066 ], [ %414, %arraydestroy.body1082 ]
   %416 = getelementptr inbounds i8, ptr %ref.tmp1048, i64 48
   br label %arraydestroy.body1095
@@ -4624,8 +4624,8 @@ arraydestroy.body1095:                            ; preds = %arraydestroy.body10
   br i1 %arraydestroy.done1098, label %ehcleanup1106, label %arraydestroy.body1095
 
 ehcleanup1106:                                    ; preds = %arraydestroy.body1095, %lpad.i.i1017, %lpad1044
-  %cleanup.isactive1068.1 = phi i1 [ true, %lpad1044 ], [ true, %lpad.i.i1017 ], [ %cleanup.isactive1068.0, %arraydestroy.body1095 ]
-  %arrayinit.endOfInit1024.0 = phi ptr [ %ref.tmp1022, %lpad1044 ], [ %arrayinit.element1046, %lpad.i.i1017 ], [ %arrayinit.element1046, %arraydestroy.body1095 ]
+  %cleanup.isactive1068.1 = phi i1 [ true, %lpad1044 ], [ true, %lpad.i.i1017 ], [ %cleanup.isactive1068.2, %arraydestroy.body1095 ]
+  %arrayinit.endOfInit1024.1 = phi ptr [ %ref.tmp1022, %lpad1044 ], [ %arrayinit.element1046, %lpad.i.i1017 ], [ %arrayinit.element1046, %arraydestroy.body1095 ]
   %.pn91.pn = phi { ptr, i32 } [ %412, %lpad1044 ], [ %378, %lpad.i.i1017 ], [ %.pn91, %arraydestroy.body1095 ]
   %417 = getelementptr inbounds i8, ptr %ref.tmp1026, i64 48
   br label %arraydestroy.body1108
@@ -4638,12 +4638,12 @@ arraydestroy.body1108:                            ; preds = %arraydestroy.body11
   br i1 %arraydestroy.done1111, label %ehcleanup1113, label %arraydestroy.body1108
 
 ehcleanup1113:                                    ; preds = %arraydestroy.body1108
-  %arraydestroy.isempty1116 = icmp ne ptr %ref.tmp1022, %arrayinit.endOfInit1024.0
+  %arraydestroy.isempty1116 = icmp ne ptr %ref.tmp1022, %arrayinit.endOfInit1024.1
   %or.cond5.not = select i1 %cleanup.isactive1068.1, i1 %arraydestroy.isempty1116, i1 false
   br i1 %or.cond5.not, label %arraydestroy.body1117, label %ehcleanup1228
 
 arraydestroy.body1117:                            ; preds = %ehcleanup1113, %arraydestroy.body1117
-  %arraydestroy.elementPast1118 = phi ptr [ %arraydestroy.element1119, %arraydestroy.body1117 ], [ %arrayinit.endOfInit1024.0, %ehcleanup1113 ]
+  %arraydestroy.elementPast1118 = phi ptr [ %arraydestroy.element1119, %arraydestroy.body1117 ], [ %arrayinit.endOfInit1024.1, %ehcleanup1113 ]
   %arraydestroy.element1119 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1118, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element1119) #18
   %arraydestroy.done1120 = icmp eq ptr %arraydestroy.element1119, %ref.tmp1022
@@ -5306,7 +5306,7 @@ arraydestroy.body1301:                            ; preds = %arraydestroy.body13
   br i1 %arraydestroy.done1304, label %ehcleanup1312, label %arraydestroy.body1301
 
 ehcleanup1312:                                    ; preds = %arraydestroy.body1301, %lpad1285
-  %cleanup.isactive1287.0 = phi i1 [ true, %lpad1285 ], [ false, %arraydestroy.body1301 ]
+  %cleanup.isactive1287.2 = phi i1 [ true, %lpad1285 ], [ false, %arraydestroy.body1301 ]
   %.pn95 = phi { ptr, i32 } [ %495, %lpad1285 ], [ %496, %arraydestroy.body1301 ]
   %498 = getelementptr inbounds i8, ptr %ref.tmp1267, i64 48
   br label %arraydestroy.body1314
@@ -5319,8 +5319,8 @@ arraydestroy.body1314:                            ; preds = %arraydestroy.body13
   br i1 %arraydestroy.done1317, label %ehcleanup1325, label %arraydestroy.body1314
 
 ehcleanup1325:                                    ; preds = %arraydestroy.body1314, %lpad.i.i1187, %lpad1263
-  %cleanup.isactive1287.1 = phi i1 [ true, %lpad1263 ], [ true, %lpad.i.i1187 ], [ %cleanup.isactive1287.0, %arraydestroy.body1314 ]
-  %arrayinit.endOfInit1243.0 = phi ptr [ %ref.tmp1241, %lpad1263 ], [ %arrayinit.element1265, %lpad.i.i1187 ], [ %arrayinit.element1265, %arraydestroy.body1314 ]
+  %cleanup.isactive1287.1 = phi i1 [ true, %lpad1263 ], [ true, %lpad.i.i1187 ], [ %cleanup.isactive1287.2, %arraydestroy.body1314 ]
+  %arrayinit.endOfInit1243.1 = phi ptr [ %ref.tmp1241, %lpad1263 ], [ %arrayinit.element1265, %lpad.i.i1187 ], [ %arrayinit.element1265, %arraydestroy.body1314 ]
   %.pn95.pn = phi { ptr, i32 } [ %494, %lpad1263 ], [ %462, %lpad.i.i1187 ], [ %.pn95, %arraydestroy.body1314 ]
   %499 = getelementptr inbounds i8, ptr %ref.tmp1245, i64 48
   br label %arraydestroy.body1327
@@ -5333,12 +5333,12 @@ arraydestroy.body1327:                            ; preds = %arraydestroy.body13
   br i1 %arraydestroy.done1330, label %ehcleanup1332, label %arraydestroy.body1327
 
 ehcleanup1332:                                    ; preds = %arraydestroy.body1327
-  %arraydestroy.isempty1335 = icmp ne ptr %ref.tmp1241, %arrayinit.endOfInit1243.0
+  %arraydestroy.isempty1335 = icmp ne ptr %ref.tmp1241, %arrayinit.endOfInit1243.1
   %or.cond6.not = select i1 %cleanup.isactive1287.1, i1 %arraydestroy.isempty1335, i1 false
   br i1 %or.cond6.not, label %arraydestroy.body1336, label %ehcleanup1444
 
 arraydestroy.body1336:                            ; preds = %ehcleanup1332, %arraydestroy.body1336
-  %arraydestroy.elementPast1337 = phi ptr [ %arraydestroy.element1338, %arraydestroy.body1336 ], [ %arrayinit.endOfInit1243.0, %ehcleanup1332 ]
+  %arraydestroy.elementPast1337 = phi ptr [ %arraydestroy.element1338, %arraydestroy.body1336 ], [ %arrayinit.endOfInit1243.1, %ehcleanup1332 ]
   %arraydestroy.element1338 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1337, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element1338) #18
   %arraydestroy.done1339 = icmp eq ptr %arraydestroy.element1338, %ref.tmp1241
@@ -5974,7 +5974,7 @@ arraydestroy.body1517:                            ; preds = %arraydestroy.body15
   br i1 %arraydestroy.done1520, label %ehcleanup1528, label %arraydestroy.body1517
 
 ehcleanup1528:                                    ; preds = %arraydestroy.body1517, %lpad1501
-  %cleanup.isactive1503.0 = phi i1 [ true, %lpad1501 ], [ false, %arraydestroy.body1517 ]
+  %cleanup.isactive1503.2 = phi i1 [ true, %lpad1501 ], [ false, %arraydestroy.body1517 ]
   %.pn99 = phi { ptr, i32 } [ %574, %lpad1501 ], [ %575, %arraydestroy.body1517 ]
   %577 = getelementptr inbounds i8, ptr %ref.tmp1483, i64 48
   br label %arraydestroy.body1530
@@ -5987,8 +5987,8 @@ arraydestroy.body1530:                            ; preds = %arraydestroy.body15
   br i1 %arraydestroy.done1533, label %ehcleanup1541, label %arraydestroy.body1530
 
 ehcleanup1541:                                    ; preds = %arraydestroy.body1530, %lpad.i.i1358, %lpad1479
-  %cleanup.isactive1503.1 = phi i1 [ true, %lpad1479 ], [ true, %lpad.i.i1358 ], [ %cleanup.isactive1503.0, %arraydestroy.body1530 ]
-  %arrayinit.endOfInit1459.0 = phi ptr [ %ref.tmp1457, %lpad1479 ], [ %arrayinit.element1481, %lpad.i.i1358 ], [ %arrayinit.element1481, %arraydestroy.body1530 ]
+  %cleanup.isactive1503.1 = phi i1 [ true, %lpad1479 ], [ true, %lpad.i.i1358 ], [ %cleanup.isactive1503.2, %arraydestroy.body1530 ]
+  %arrayinit.endOfInit1459.1 = phi ptr [ %ref.tmp1457, %lpad1479 ], [ %arrayinit.element1481, %lpad.i.i1358 ], [ %arrayinit.element1481, %arraydestroy.body1530 ]
   %.pn99.pn = phi { ptr, i32 } [ %573, %lpad1479 ], [ %541, %lpad.i.i1358 ], [ %.pn99, %arraydestroy.body1530 ]
   %578 = getelementptr inbounds i8, ptr %ref.tmp1461, i64 48
   br label %arraydestroy.body1543
@@ -6001,12 +6001,12 @@ arraydestroy.body1543:                            ; preds = %arraydestroy.body15
   br i1 %arraydestroy.done1546, label %ehcleanup1548, label %arraydestroy.body1543
 
 ehcleanup1548:                                    ; preds = %arraydestroy.body1543
-  %arraydestroy.isempty1551 = icmp ne ptr %ref.tmp1457, %arrayinit.endOfInit1459.0
+  %arraydestroy.isempty1551 = icmp ne ptr %ref.tmp1457, %arrayinit.endOfInit1459.1
   %or.cond7.not = select i1 %cleanup.isactive1503.1, i1 %arraydestroy.isempty1551, i1 false
   br i1 %or.cond7.not, label %arraydestroy.body1552, label %ehcleanup1663
 
 arraydestroy.body1552:                            ; preds = %ehcleanup1548, %arraydestroy.body1552
-  %arraydestroy.elementPast1553 = phi ptr [ %arraydestroy.element1554, %arraydestroy.body1552 ], [ %arrayinit.endOfInit1459.0, %ehcleanup1548 ]
+  %arraydestroy.elementPast1553 = phi ptr [ %arraydestroy.element1554, %arraydestroy.body1552 ], [ %arrayinit.endOfInit1459.1, %ehcleanup1548 ]
   %arraydestroy.element1554 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1553, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element1554) #18
   %arraydestroy.done1555 = icmp eq ptr %arraydestroy.element1554, %ref.tmp1457
@@ -6669,7 +6669,7 @@ arraydestroy.body1736:                            ; preds = %arraydestroy.body17
   br i1 %arraydestroy.done1739, label %ehcleanup1747, label %arraydestroy.body1736
 
 ehcleanup1747:                                    ; preds = %arraydestroy.body1736, %lpad1720
-  %cleanup.isactive1722.0 = phi i1 [ true, %lpad1720 ], [ false, %arraydestroy.body1736 ]
+  %cleanup.isactive1722.2 = phi i1 [ true, %lpad1720 ], [ false, %arraydestroy.body1736 ]
   %.pn103 = phi { ptr, i32 } [ %656, %lpad1720 ], [ %657, %arraydestroy.body1736 ]
   %659 = getelementptr inbounds i8, ptr %ref.tmp1702, i64 48
   br label %arraydestroy.body1749
@@ -6682,8 +6682,8 @@ arraydestroy.body1749:                            ; preds = %arraydestroy.body17
   br i1 %arraydestroy.done1752, label %ehcleanup1760, label %arraydestroy.body1749
 
 ehcleanup1760:                                    ; preds = %arraydestroy.body1749, %lpad.i.i1545, %lpad1698
-  %cleanup.isactive1722.1 = phi i1 [ true, %lpad1698 ], [ true, %lpad.i.i1545 ], [ %cleanup.isactive1722.0, %arraydestroy.body1749 ]
-  %arrayinit.endOfInit1678.0 = phi ptr [ %ref.tmp1676, %lpad1698 ], [ %arrayinit.element1700, %lpad.i.i1545 ], [ %arrayinit.element1700, %arraydestroy.body1749 ]
+  %cleanup.isactive1722.1 = phi i1 [ true, %lpad1698 ], [ true, %lpad.i.i1545 ], [ %cleanup.isactive1722.2, %arraydestroy.body1749 ]
+  %arrayinit.endOfInit1678.1 = phi ptr [ %ref.tmp1676, %lpad1698 ], [ %arrayinit.element1700, %lpad.i.i1545 ], [ %arrayinit.element1700, %arraydestroy.body1749 ]
   %.pn103.pn = phi { ptr, i32 } [ %655, %lpad1698 ], [ %623, %lpad.i.i1545 ], [ %.pn103, %arraydestroy.body1749 ]
   %660 = getelementptr inbounds i8, ptr %ref.tmp1680, i64 48
   br label %arraydestroy.body1762
@@ -6696,12 +6696,12 @@ arraydestroy.body1762:                            ; preds = %arraydestroy.body17
   br i1 %arraydestroy.done1765, label %ehcleanup1767, label %arraydestroy.body1762
 
 ehcleanup1767:                                    ; preds = %arraydestroy.body1762
-  %arraydestroy.isempty1770 = icmp ne ptr %ref.tmp1676, %arrayinit.endOfInit1678.0
+  %arraydestroy.isempty1770 = icmp ne ptr %ref.tmp1676, %arrayinit.endOfInit1678.1
   %or.cond8.not = select i1 %cleanup.isactive1722.1, i1 %arraydestroy.isempty1770, i1 false
   br i1 %or.cond8.not, label %arraydestroy.body1771, label %ehcleanup1879
 
 arraydestroy.body1771:                            ; preds = %ehcleanup1767, %arraydestroy.body1771
-  %arraydestroy.elementPast1772 = phi ptr [ %arraydestroy.element1773, %arraydestroy.body1771 ], [ %arrayinit.endOfInit1678.0, %ehcleanup1767 ]
+  %arraydestroy.elementPast1772 = phi ptr [ %arraydestroy.element1773, %arraydestroy.body1771 ], [ %arrayinit.endOfInit1678.1, %ehcleanup1767 ]
   %arraydestroy.element1773 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1772, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element1773) #18
   %arraydestroy.done1774 = icmp eq ptr %arraydestroy.element1773, %ref.tmp1676
@@ -15476,7 +15476,7 @@ arraydestroy.body57:                              ; preds = %arraydestroy.body57
   br i1 %arraydestroy.done60, label %ehcleanup, label %arraydestroy.body57
 
 ehcleanup:                                        ; preds = %arraydestroy.body57, %lpad44
-  %cleanup.isactive.0 = phi i1 [ true, %lpad44 ], [ false, %arraydestroy.body57 ]
+  %cleanup.isactive.2 = phi i1 [ true, %lpad44 ], [ false, %arraydestroy.body57 ]
   %.pn = phi { ptr, i32 } [ %36, %lpad44 ], [ %37, %arraydestroy.body57 ]
   %39 = getelementptr inbounds i8, ptr %ref.tmp27, i64 48
   br label %arraydestroy.body69
@@ -15489,8 +15489,8 @@ arraydestroy.body69:                              ; preds = %arraydestroy.body69
   br i1 %arraydestroy.done72, label %ehcleanup80, label %arraydestroy.body69
 
 ehcleanup80:                                      ; preds = %arraydestroy.body69, %lpad.i.i285, %lpad23
-  %cleanup.isactive.1 = phi i1 [ true, %lpad23 ], [ true, %lpad.i.i285 ], [ %cleanup.isactive.0, %arraydestroy.body69 ]
-  %arrayinit.endOfInit.0 = phi ptr [ %ref.tmp13, %lpad23 ], [ %arrayinit.element25, %lpad.i.i285 ], [ %arrayinit.element25, %arraydestroy.body69 ]
+  %cleanup.isactive.1 = phi i1 [ true, %lpad23 ], [ true, %lpad.i.i285 ], [ %cleanup.isactive.2, %arraydestroy.body69 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %ref.tmp13, %lpad23 ], [ %arrayinit.element25, %lpad.i.i285 ], [ %arrayinit.element25, %arraydestroy.body69 ]
   %.pn.pn = phi { ptr, i32 } [ %35, %lpad23 ], [ %1, %lpad.i.i285 ], [ %.pn, %arraydestroy.body69 ]
   %40 = getelementptr inbounds i8, ptr %ref.tmp15, i64 48
   br label %arraydestroy.body82
@@ -15503,12 +15503,12 @@ arraydestroy.body82:                              ; preds = %arraydestroy.body82
   br i1 %arraydestroy.done85, label %ehcleanup87, label %arraydestroy.body82
 
 ehcleanup87:                                      ; preds = %arraydestroy.body82
-  %arraydestroy.isempty88 = icmp ne ptr %ref.tmp13, %arrayinit.endOfInit.0
+  %arraydestroy.isempty88 = icmp ne ptr %ref.tmp13, %arrayinit.endOfInit.1
   %or.cond.not = select i1 %cleanup.isactive.1, i1 %arraydestroy.isempty88, i1 false
   br i1 %or.cond.not, label %arraydestroy.body89, label %ehcleanup182
 
 arraydestroy.body89:                              ; preds = %ehcleanup87, %arraydestroy.body89
-  %arraydestroy.elementPast90 = phi ptr [ %arraydestroy.element91, %arraydestroy.body89 ], [ %arrayinit.endOfInit.0, %ehcleanup87 ]
+  %arraydestroy.elementPast90 = phi ptr [ %arraydestroy.element91, %arraydestroy.body89 ], [ %arrayinit.endOfInit.1, %ehcleanup87 ]
   %arraydestroy.element91 = getelementptr inbounds i8, ptr %arraydestroy.elementPast90, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element91) #18
   %arraydestroy.done92 = icmp eq ptr %arraydestroy.element91, %ref.tmp13
@@ -16179,7 +16179,7 @@ arraydestroy.body255:                             ; preds = %arraydestroy.body25
   br i1 %arraydestroy.done258, label %ehcleanup266, label %arraydestroy.body255
 
 ehcleanup266:                                     ; preds = %arraydestroy.body255, %lpad239
-  %cleanup.isactive241.0 = phi i1 [ true, %lpad239 ], [ false, %arraydestroy.body255 ]
+  %cleanup.isactive241.2 = phi i1 [ true, %lpad239 ], [ false, %arraydestroy.body255 ]
   %.pn73 = phi { ptr, i32 } [ %120, %lpad239 ], [ %121, %arraydestroy.body255 ]
   %123 = getelementptr inbounds i8, ptr %ref.tmp221, i64 48
   br label %arraydestroy.body268
@@ -16192,8 +16192,8 @@ arraydestroy.body268:                             ; preds = %arraydestroy.body26
   br i1 %arraydestroy.done271, label %ehcleanup279, label %arraydestroy.body268
 
 ehcleanup279:                                     ; preds = %arraydestroy.body268, %lpad.i.i401, %lpad217
-  %cleanup.isactive241.1 = phi i1 [ true, %lpad217 ], [ true, %lpad.i.i401 ], [ %cleanup.isactive241.0, %arraydestroy.body268 ]
-  %arrayinit.endOfInit197.0 = phi ptr [ %ref.tmp195, %lpad217 ], [ %arrayinit.element219, %lpad.i.i401 ], [ %arrayinit.element219, %arraydestroy.body268 ]
+  %cleanup.isactive241.1 = phi i1 [ true, %lpad217 ], [ true, %lpad.i.i401 ], [ %cleanup.isactive241.2, %arraydestroy.body268 ]
+  %arrayinit.endOfInit197.1 = phi ptr [ %ref.tmp195, %lpad217 ], [ %arrayinit.element219, %lpad.i.i401 ], [ %arrayinit.element219, %arraydestroy.body268 ]
   %.pn73.pn = phi { ptr, i32 } [ %119, %lpad217 ], [ %85, %lpad.i.i401 ], [ %.pn73, %arraydestroy.body268 ]
   %124 = getelementptr inbounds i8, ptr %ref.tmp199, i64 48
   br label %arraydestroy.body281
@@ -16206,12 +16206,12 @@ arraydestroy.body281:                             ; preds = %arraydestroy.body28
   br i1 %arraydestroy.done284, label %ehcleanup286, label %arraydestroy.body281
 
 ehcleanup286:                                     ; preds = %arraydestroy.body281
-  %arraydestroy.isempty289 = icmp ne ptr %ref.tmp195, %arrayinit.endOfInit197.0
+  %arraydestroy.isempty289 = icmp ne ptr %ref.tmp195, %arrayinit.endOfInit197.1
   %or.cond1.not = select i1 %cleanup.isactive241.1, i1 %arraydestroy.isempty289, i1 false
   br i1 %or.cond1.not, label %arraydestroy.body290, label %ehcleanup561
 
 arraydestroy.body290:                             ; preds = %ehcleanup286, %arraydestroy.body290
-  %arraydestroy.elementPast291 = phi ptr [ %arraydestroy.element292, %arraydestroy.body290 ], [ %arrayinit.endOfInit197.0, %ehcleanup286 ]
+  %arraydestroy.elementPast291 = phi ptr [ %arraydestroy.element292, %arraydestroy.body290 ], [ %arrayinit.endOfInit197.1, %ehcleanup286 ]
   %arraydestroy.element292 = getelementptr inbounds i8, ptr %arraydestroy.elementPast291, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element292) #18
   %arraydestroy.done293 = icmp eq ptr %arraydestroy.element292, %ref.tmp195
@@ -16889,7 +16889,7 @@ arraydestroy.body518:                             ; preds = %arraydestroy.body51
   br i1 %arraydestroy.done521, label %ehcleanup529, label %arraydestroy.body518
 
 ehcleanup529:                                     ; preds = %arraydestroy.body518, %lpad495
-  %cleanup.isactive497.0 = phi i1 [ true, %lpad495 ], [ false, %arraydestroy.body518 ]
+  %cleanup.isactive497.2 = phi i1 [ true, %lpad495 ], [ false, %arraydestroy.body518 ]
   %.pn77.pn.pn = phi { ptr, i32 } [ %209, %lpad495 ], [ %.pn77.pn, %arraydestroy.body518 ]
   %214 = getelementptr inbounds i8, ptr %ref.tmp477, i64 48
   br label %arraydestroy.body531
@@ -16902,8 +16902,8 @@ arraydestroy.body531:                             ; preds = %arraydestroy.body53
   br i1 %arraydestroy.done534, label %ehcleanup542, label %arraydestroy.body531
 
 ehcleanup542:                                     ; preds = %arraydestroy.body531, %lpad.i.i621, %lpad473
-  %cleanup.isactive497.1 = phi i1 [ true, %lpad473 ], [ true, %lpad.i.i621 ], [ %cleanup.isactive497.0, %arraydestroy.body531 ]
-  %arrayinit.endOfInit453.0 = phi ptr [ %ref.tmp451, %lpad473 ], [ %arrayinit.element475, %lpad.i.i621 ], [ %arrayinit.element475, %arraydestroy.body531 ]
+  %cleanup.isactive497.1 = phi i1 [ true, %lpad473 ], [ true, %lpad.i.i621 ], [ %cleanup.isactive497.2, %arraydestroy.body531 ]
+  %arrayinit.endOfInit453.1 = phi ptr [ %ref.tmp451, %lpad473 ], [ %arrayinit.element475, %lpad.i.i621 ], [ %arrayinit.element475, %arraydestroy.body531 ]
   %.pn77.pn.pn.pn = phi { ptr, i32 } [ %208, %lpad473 ], [ %187, %lpad.i.i621 ], [ %.pn77.pn.pn, %arraydestroy.body531 ]
   %215 = getelementptr inbounds i8, ptr %ref.tmp455, i64 48
   br label %arraydestroy.body544
@@ -16916,12 +16916,12 @@ arraydestroy.body544:                             ; preds = %arraydestroy.body54
   br i1 %arraydestroy.done547, label %ehcleanup549, label %arraydestroy.body544
 
 ehcleanup549:                                     ; preds = %arraydestroy.body544
-  %arraydestroy.isempty552 = icmp ne ptr %ref.tmp451, %arrayinit.endOfInit453.0
+  %arraydestroy.isempty552 = icmp ne ptr %ref.tmp451, %arrayinit.endOfInit453.1
   %or.cond2.not = select i1 %cleanup.isactive497.1, i1 %arraydestroy.isempty552, i1 false
   br i1 %or.cond2.not, label %arraydestroy.body553, label %ehcleanup559
 
 arraydestroy.body553:                             ; preds = %ehcleanup549, %arraydestroy.body553
-  %arraydestroy.elementPast554 = phi ptr [ %arraydestroy.element555, %arraydestroy.body553 ], [ %arrayinit.endOfInit453.0, %ehcleanup549 ]
+  %arraydestroy.elementPast554 = phi ptr [ %arraydestroy.element555, %arraydestroy.body553 ], [ %arrayinit.endOfInit453.1, %ehcleanup549 ]
   %arraydestroy.element555 = getelementptr inbounds i8, ptr %arraydestroy.elementPast554, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element555) #18
   %arraydestroy.done556 = icmp eq ptr %arraydestroy.element555, %ref.tmp451
@@ -17253,7 +17253,7 @@ arraydestroy.body634:                             ; preds = %arraydestroy.body63
   br i1 %arraydestroy.done637, label %ehcleanup645, label %arraydestroy.body634
 
 ehcleanup645:                                     ; preds = %arraydestroy.body634, %lpad618
-  %cleanup.isactive620.0 = phi i1 [ true, %lpad618 ], [ false, %arraydestroy.body634 ]
+  %cleanup.isactive620.2 = phi i1 [ true, %lpad618 ], [ false, %arraydestroy.body634 ]
   %.pn83 = phi { ptr, i32 } [ %250, %lpad618 ], [ %251, %arraydestroy.body634 ]
   %253 = getelementptr inbounds i8, ptr %ref.tmp600, i64 48
   br label %arraydestroy.body647
@@ -17266,8 +17266,8 @@ arraydestroy.body647:                             ; preds = %arraydestroy.body64
   br i1 %arraydestroy.done650, label %ehcleanup658, label %arraydestroy.body647
 
 ehcleanup658:                                     ; preds = %arraydestroy.body647, %lpad.i.i659, %lpad596
-  %cleanup.isactive620.1 = phi i1 [ true, %lpad596 ], [ true, %lpad.i.i659 ], [ %cleanup.isactive620.0, %arraydestroy.body647 ]
-  %arrayinit.endOfInit576.0 = phi ptr [ %ref.tmp574, %lpad596 ], [ %arrayinit.element598, %lpad.i.i659 ], [ %arrayinit.element598, %arraydestroy.body647 ]
+  %cleanup.isactive620.1 = phi i1 [ true, %lpad596 ], [ true, %lpad.i.i659 ], [ %cleanup.isactive620.2, %arraydestroy.body647 ]
+  %arrayinit.endOfInit576.1 = phi ptr [ %ref.tmp574, %lpad596 ], [ %arrayinit.element598, %lpad.i.i659 ], [ %arrayinit.element598, %arraydestroy.body647 ]
   %.pn83.pn = phi { ptr, i32 } [ %249, %lpad596 ], [ %217, %lpad.i.i659 ], [ %.pn83, %arraydestroy.body647 ]
   %254 = getelementptr inbounds i8, ptr %ref.tmp578, i64 48
   br label %arraydestroy.body660
@@ -17280,12 +17280,12 @@ arraydestroy.body660:                             ; preds = %arraydestroy.body66
   br i1 %arraydestroy.done663, label %ehcleanup665, label %arraydestroy.body660
 
 ehcleanup665:                                     ; preds = %arraydestroy.body660
-  %arraydestroy.isempty668 = icmp ne ptr %ref.tmp574, %arrayinit.endOfInit576.0
+  %arraydestroy.isempty668 = icmp ne ptr %ref.tmp574, %arrayinit.endOfInit576.1
   %or.cond3.not = select i1 %cleanup.isactive620.1, i1 %arraydestroy.isempty668, i1 false
   br i1 %or.cond3.not, label %arraydestroy.body669, label %ehcleanup779
 
 arraydestroy.body669:                             ; preds = %ehcleanup665, %arraydestroy.body669
-  %arraydestroy.elementPast670 = phi ptr [ %arraydestroy.element671, %arraydestroy.body669 ], [ %arrayinit.endOfInit576.0, %ehcleanup665 ]
+  %arraydestroy.elementPast670 = phi ptr [ %arraydestroy.element671, %arraydestroy.body669 ], [ %arrayinit.endOfInit576.1, %ehcleanup665 ]
   %arraydestroy.element671 = getelementptr inbounds i8, ptr %arraydestroy.elementPast670, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element671) #18
   %arraydestroy.done672 = icmp eq ptr %arraydestroy.element671, %ref.tmp574
@@ -17948,7 +17948,7 @@ arraydestroy.body852:                             ; preds = %arraydestroy.body85
   br i1 %arraydestroy.done855, label %ehcleanup863, label %arraydestroy.body852
 
 ehcleanup863:                                     ; preds = %arraydestroy.body852, %lpad836
-  %cleanup.isactive838.0 = phi i1 [ true, %lpad836 ], [ false, %arraydestroy.body852 ]
+  %cleanup.isactive838.2 = phi i1 [ true, %lpad836 ], [ false, %arraydestroy.body852 ]
   %.pn87 = phi { ptr, i32 } [ %332, %lpad836 ], [ %333, %arraydestroy.body852 ]
   %335 = getelementptr inbounds i8, ptr %ref.tmp818, i64 48
   br label %arraydestroy.body865
@@ -17961,8 +17961,8 @@ arraydestroy.body865:                             ; preds = %arraydestroy.body86
   br i1 %arraydestroy.done868, label %ehcleanup876, label %arraydestroy.body865
 
 ehcleanup876:                                     ; preds = %arraydestroy.body865, %lpad.i.i846, %lpad814
-  %cleanup.isactive838.1 = phi i1 [ true, %lpad814 ], [ true, %lpad.i.i846 ], [ %cleanup.isactive838.0, %arraydestroy.body865 ]
-  %arrayinit.endOfInit794.0 = phi ptr [ %ref.tmp792, %lpad814 ], [ %arrayinit.element816, %lpad.i.i846 ], [ %arrayinit.element816, %arraydestroy.body865 ]
+  %cleanup.isactive838.1 = phi i1 [ true, %lpad814 ], [ true, %lpad.i.i846 ], [ %cleanup.isactive838.2, %arraydestroy.body865 ]
+  %arrayinit.endOfInit794.1 = phi ptr [ %ref.tmp792, %lpad814 ], [ %arrayinit.element816, %lpad.i.i846 ], [ %arrayinit.element816, %arraydestroy.body865 ]
   %.pn87.pn = phi { ptr, i32 } [ %331, %lpad814 ], [ %299, %lpad.i.i846 ], [ %.pn87, %arraydestroy.body865 ]
   %336 = getelementptr inbounds i8, ptr %ref.tmp796, i64 48
   br label %arraydestroy.body878
@@ -17975,12 +17975,12 @@ arraydestroy.body878:                             ; preds = %arraydestroy.body87
   br i1 %arraydestroy.done881, label %ehcleanup883, label %arraydestroy.body878
 
 ehcleanup883:                                     ; preds = %arraydestroy.body878
-  %arraydestroy.isempty886 = icmp ne ptr %ref.tmp792, %arrayinit.endOfInit794.0
+  %arraydestroy.isempty886 = icmp ne ptr %ref.tmp792, %arrayinit.endOfInit794.1
   %or.cond4.not = select i1 %cleanup.isactive838.1, i1 %arraydestroy.isempty886, i1 false
   br i1 %or.cond4.not, label %arraydestroy.body887, label %ehcleanup994
 
 arraydestroy.body887:                             ; preds = %ehcleanup883, %arraydestroy.body887
-  %arraydestroy.elementPast888 = phi ptr [ %arraydestroy.element889, %arraydestroy.body887 ], [ %arrayinit.endOfInit794.0, %ehcleanup883 ]
+  %arraydestroy.elementPast888 = phi ptr [ %arraydestroy.element889, %arraydestroy.body887 ], [ %arrayinit.endOfInit794.1, %ehcleanup883 ]
   %arraydestroy.element889 = getelementptr inbounds i8, ptr %arraydestroy.elementPast888, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element889) #18
   %arraydestroy.done890 = icmp eq ptr %arraydestroy.element889, %ref.tmp792
@@ -18649,7 +18649,7 @@ arraydestroy.body1078:                            ; preds = %arraydestroy.body10
   br i1 %arraydestroy.done1081, label %ehcleanup1089, label %arraydestroy.body1078
 
 ehcleanup1089:                                    ; preds = %arraydestroy.body1078, %lpad1062
-  %cleanup.isactive1064.0 = phi i1 [ true, %lpad1062 ], [ false, %arraydestroy.body1078 ]
+  %cleanup.isactive1064.2 = phi i1 [ true, %lpad1062 ], [ false, %arraydestroy.body1078 ]
   %.pn91 = phi { ptr, i32 } [ %413, %lpad1062 ], [ %414, %arraydestroy.body1078 ]
   %416 = getelementptr inbounds i8, ptr %ref.tmp1044, i64 48
   br label %arraydestroy.body1091
@@ -18662,8 +18662,8 @@ arraydestroy.body1091:                            ; preds = %arraydestroy.body10
   br i1 %arraydestroy.done1094, label %ehcleanup1102, label %arraydestroy.body1091
 
 ehcleanup1102:                                    ; preds = %arraydestroy.body1091, %lpad.i.i1017, %lpad1040
-  %cleanup.isactive1064.1 = phi i1 [ true, %lpad1040 ], [ true, %lpad.i.i1017 ], [ %cleanup.isactive1064.0, %arraydestroy.body1091 ]
-  %arrayinit.endOfInit1020.0 = phi ptr [ %ref.tmp1018, %lpad1040 ], [ %arrayinit.element1042, %lpad.i.i1017 ], [ %arrayinit.element1042, %arraydestroy.body1091 ]
+  %cleanup.isactive1064.1 = phi i1 [ true, %lpad1040 ], [ true, %lpad.i.i1017 ], [ %cleanup.isactive1064.2, %arraydestroy.body1091 ]
+  %arrayinit.endOfInit1020.1 = phi ptr [ %ref.tmp1018, %lpad1040 ], [ %arrayinit.element1042, %lpad.i.i1017 ], [ %arrayinit.element1042, %arraydestroy.body1091 ]
   %.pn91.pn = phi { ptr, i32 } [ %412, %lpad1040 ], [ %378, %lpad.i.i1017 ], [ %.pn91, %arraydestroy.body1091 ]
   %417 = getelementptr inbounds i8, ptr %ref.tmp1022, i64 48
   br label %arraydestroy.body1104
@@ -18676,12 +18676,12 @@ arraydestroy.body1104:                            ; preds = %arraydestroy.body11
   br i1 %arraydestroy.done1107, label %ehcleanup1109, label %arraydestroy.body1104
 
 ehcleanup1109:                                    ; preds = %arraydestroy.body1104
-  %arraydestroy.isempty1112 = icmp ne ptr %ref.tmp1018, %arrayinit.endOfInit1020.0
+  %arraydestroy.isempty1112 = icmp ne ptr %ref.tmp1018, %arrayinit.endOfInit1020.1
   %or.cond5.not = select i1 %cleanup.isactive1064.1, i1 %arraydestroy.isempty1112, i1 false
   br i1 %or.cond5.not, label %arraydestroy.body1113, label %ehcleanup1223
 
 arraydestroy.body1113:                            ; preds = %ehcleanup1109, %arraydestroy.body1113
-  %arraydestroy.elementPast1114 = phi ptr [ %arraydestroy.element1115, %arraydestroy.body1113 ], [ %arrayinit.endOfInit1020.0, %ehcleanup1109 ]
+  %arraydestroy.elementPast1114 = phi ptr [ %arraydestroy.element1115, %arraydestroy.body1113 ], [ %arrayinit.endOfInit1020.1, %ehcleanup1109 ]
   %arraydestroy.element1115 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1114, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element1115) #18
   %arraydestroy.done1116 = icmp eq ptr %arraydestroy.element1115, %ref.tmp1018
@@ -19344,7 +19344,7 @@ arraydestroy.body1296:                            ; preds = %arraydestroy.body12
   br i1 %arraydestroy.done1299, label %ehcleanup1307, label %arraydestroy.body1296
 
 ehcleanup1307:                                    ; preds = %arraydestroy.body1296, %lpad1280
-  %cleanup.isactive1282.0 = phi i1 [ true, %lpad1280 ], [ false, %arraydestroy.body1296 ]
+  %cleanup.isactive1282.2 = phi i1 [ true, %lpad1280 ], [ false, %arraydestroy.body1296 ]
   %.pn95 = phi { ptr, i32 } [ %495, %lpad1280 ], [ %496, %arraydestroy.body1296 ]
   %498 = getelementptr inbounds i8, ptr %ref.tmp1262, i64 48
   br label %arraydestroy.body1309
@@ -19357,8 +19357,8 @@ arraydestroy.body1309:                            ; preds = %arraydestroy.body13
   br i1 %arraydestroy.done1312, label %ehcleanup1320, label %arraydestroy.body1309
 
 ehcleanup1320:                                    ; preds = %arraydestroy.body1309, %lpad.i.i1187, %lpad1258
-  %cleanup.isactive1282.1 = phi i1 [ true, %lpad1258 ], [ true, %lpad.i.i1187 ], [ %cleanup.isactive1282.0, %arraydestroy.body1309 ]
-  %arrayinit.endOfInit1238.0 = phi ptr [ %ref.tmp1236, %lpad1258 ], [ %arrayinit.element1260, %lpad.i.i1187 ], [ %arrayinit.element1260, %arraydestroy.body1309 ]
+  %cleanup.isactive1282.1 = phi i1 [ true, %lpad1258 ], [ true, %lpad.i.i1187 ], [ %cleanup.isactive1282.2, %arraydestroy.body1309 ]
+  %arrayinit.endOfInit1238.1 = phi ptr [ %ref.tmp1236, %lpad1258 ], [ %arrayinit.element1260, %lpad.i.i1187 ], [ %arrayinit.element1260, %arraydestroy.body1309 ]
   %.pn95.pn = phi { ptr, i32 } [ %494, %lpad1258 ], [ %462, %lpad.i.i1187 ], [ %.pn95, %arraydestroy.body1309 ]
   %499 = getelementptr inbounds i8, ptr %ref.tmp1240, i64 48
   br label %arraydestroy.body1322
@@ -19371,12 +19371,12 @@ arraydestroy.body1322:                            ; preds = %arraydestroy.body13
   br i1 %arraydestroy.done1325, label %ehcleanup1327, label %arraydestroy.body1322
 
 ehcleanup1327:                                    ; preds = %arraydestroy.body1322
-  %arraydestroy.isempty1330 = icmp ne ptr %ref.tmp1236, %arrayinit.endOfInit1238.0
+  %arraydestroy.isempty1330 = icmp ne ptr %ref.tmp1236, %arrayinit.endOfInit1238.1
   %or.cond6.not = select i1 %cleanup.isactive1282.1, i1 %arraydestroy.isempty1330, i1 false
   br i1 %or.cond6.not, label %arraydestroy.body1331, label %ehcleanup1438
 
 arraydestroy.body1331:                            ; preds = %ehcleanup1327, %arraydestroy.body1331
-  %arraydestroy.elementPast1332 = phi ptr [ %arraydestroy.element1333, %arraydestroy.body1331 ], [ %arrayinit.endOfInit1238.0, %ehcleanup1327 ]
+  %arraydestroy.elementPast1332 = phi ptr [ %arraydestroy.element1333, %arraydestroy.body1331 ], [ %arrayinit.endOfInit1238.1, %ehcleanup1327 ]
   %arraydestroy.element1333 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1332, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element1333) #18
   %arraydestroy.done1334 = icmp eq ptr %arraydestroy.element1333, %ref.tmp1236
@@ -20012,7 +20012,7 @@ arraydestroy.body1511:                            ; preds = %arraydestroy.body15
   br i1 %arraydestroy.done1514, label %ehcleanup1522, label %arraydestroy.body1511
 
 ehcleanup1522:                                    ; preds = %arraydestroy.body1511, %lpad1495
-  %cleanup.isactive1497.0 = phi i1 [ true, %lpad1495 ], [ false, %arraydestroy.body1511 ]
+  %cleanup.isactive1497.2 = phi i1 [ true, %lpad1495 ], [ false, %arraydestroy.body1511 ]
   %.pn99 = phi { ptr, i32 } [ %574, %lpad1495 ], [ %575, %arraydestroy.body1511 ]
   %577 = getelementptr inbounds i8, ptr %ref.tmp1477, i64 48
   br label %arraydestroy.body1524
@@ -20025,8 +20025,8 @@ arraydestroy.body1524:                            ; preds = %arraydestroy.body15
   br i1 %arraydestroy.done1527, label %ehcleanup1535, label %arraydestroy.body1524
 
 ehcleanup1535:                                    ; preds = %arraydestroy.body1524, %lpad.i.i1358, %lpad1473
-  %cleanup.isactive1497.1 = phi i1 [ true, %lpad1473 ], [ true, %lpad.i.i1358 ], [ %cleanup.isactive1497.0, %arraydestroy.body1524 ]
-  %arrayinit.endOfInit1453.0 = phi ptr [ %ref.tmp1451, %lpad1473 ], [ %arrayinit.element1475, %lpad.i.i1358 ], [ %arrayinit.element1475, %arraydestroy.body1524 ]
+  %cleanup.isactive1497.1 = phi i1 [ true, %lpad1473 ], [ true, %lpad.i.i1358 ], [ %cleanup.isactive1497.2, %arraydestroy.body1524 ]
+  %arrayinit.endOfInit1453.1 = phi ptr [ %ref.tmp1451, %lpad1473 ], [ %arrayinit.element1475, %lpad.i.i1358 ], [ %arrayinit.element1475, %arraydestroy.body1524 ]
   %.pn99.pn = phi { ptr, i32 } [ %573, %lpad1473 ], [ %541, %lpad.i.i1358 ], [ %.pn99, %arraydestroy.body1524 ]
   %578 = getelementptr inbounds i8, ptr %ref.tmp1455, i64 48
   br label %arraydestroy.body1537
@@ -20039,12 +20039,12 @@ arraydestroy.body1537:                            ; preds = %arraydestroy.body15
   br i1 %arraydestroy.done1540, label %ehcleanup1542, label %arraydestroy.body1537
 
 ehcleanup1542:                                    ; preds = %arraydestroy.body1537
-  %arraydestroy.isempty1545 = icmp ne ptr %ref.tmp1451, %arrayinit.endOfInit1453.0
+  %arraydestroy.isempty1545 = icmp ne ptr %ref.tmp1451, %arrayinit.endOfInit1453.1
   %or.cond7.not = select i1 %cleanup.isactive1497.1, i1 %arraydestroy.isempty1545, i1 false
   br i1 %or.cond7.not, label %arraydestroy.body1546, label %ehcleanup1656
 
 arraydestroy.body1546:                            ; preds = %ehcleanup1542, %arraydestroy.body1546
-  %arraydestroy.elementPast1547 = phi ptr [ %arraydestroy.element1548, %arraydestroy.body1546 ], [ %arrayinit.endOfInit1453.0, %ehcleanup1542 ]
+  %arraydestroy.elementPast1547 = phi ptr [ %arraydestroy.element1548, %arraydestroy.body1546 ], [ %arrayinit.endOfInit1453.1, %ehcleanup1542 ]
   %arraydestroy.element1548 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1547, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element1548) #18
   %arraydestroy.done1549 = icmp eq ptr %arraydestroy.element1548, %ref.tmp1451
@@ -20707,7 +20707,7 @@ arraydestroy.body1729:                            ; preds = %arraydestroy.body17
   br i1 %arraydestroy.done1732, label %ehcleanup1740, label %arraydestroy.body1729
 
 ehcleanup1740:                                    ; preds = %arraydestroy.body1729, %lpad1713
-  %cleanup.isactive1715.0 = phi i1 [ true, %lpad1713 ], [ false, %arraydestroy.body1729 ]
+  %cleanup.isactive1715.2 = phi i1 [ true, %lpad1713 ], [ false, %arraydestroy.body1729 ]
   %.pn103 = phi { ptr, i32 } [ %656, %lpad1713 ], [ %657, %arraydestroy.body1729 ]
   %659 = getelementptr inbounds i8, ptr %ref.tmp1695, i64 48
   br label %arraydestroy.body1742
@@ -20720,8 +20720,8 @@ arraydestroy.body1742:                            ; preds = %arraydestroy.body17
   br i1 %arraydestroy.done1745, label %ehcleanup1753, label %arraydestroy.body1742
 
 ehcleanup1753:                                    ; preds = %arraydestroy.body1742, %lpad.i.i1545, %lpad1691
-  %cleanup.isactive1715.1 = phi i1 [ true, %lpad1691 ], [ true, %lpad.i.i1545 ], [ %cleanup.isactive1715.0, %arraydestroy.body1742 ]
-  %arrayinit.endOfInit1671.0 = phi ptr [ %ref.tmp1669, %lpad1691 ], [ %arrayinit.element1693, %lpad.i.i1545 ], [ %arrayinit.element1693, %arraydestroy.body1742 ]
+  %cleanup.isactive1715.1 = phi i1 [ true, %lpad1691 ], [ true, %lpad.i.i1545 ], [ %cleanup.isactive1715.2, %arraydestroy.body1742 ]
+  %arrayinit.endOfInit1671.1 = phi ptr [ %ref.tmp1669, %lpad1691 ], [ %arrayinit.element1693, %lpad.i.i1545 ], [ %arrayinit.element1693, %arraydestroy.body1742 ]
   %.pn103.pn = phi { ptr, i32 } [ %655, %lpad1691 ], [ %623, %lpad.i.i1545 ], [ %.pn103, %arraydestroy.body1742 ]
   %660 = getelementptr inbounds i8, ptr %ref.tmp1673, i64 48
   br label %arraydestroy.body1755
@@ -20734,12 +20734,12 @@ arraydestroy.body1755:                            ; preds = %arraydestroy.body17
   br i1 %arraydestroy.done1758, label %ehcleanup1760, label %arraydestroy.body1755
 
 ehcleanup1760:                                    ; preds = %arraydestroy.body1755
-  %arraydestroy.isempty1763 = icmp ne ptr %ref.tmp1669, %arrayinit.endOfInit1671.0
+  %arraydestroy.isempty1763 = icmp ne ptr %ref.tmp1669, %arrayinit.endOfInit1671.1
   %or.cond8.not = select i1 %cleanup.isactive1715.1, i1 %arraydestroy.isempty1763, i1 false
   br i1 %or.cond8.not, label %arraydestroy.body1764, label %ehcleanup1871
 
 arraydestroy.body1764:                            ; preds = %ehcleanup1760, %arraydestroy.body1764
-  %arraydestroy.elementPast1765 = phi ptr [ %arraydestroy.element1766, %arraydestroy.body1764 ], [ %arrayinit.endOfInit1671.0, %ehcleanup1760 ]
+  %arraydestroy.elementPast1765 = phi ptr [ %arraydestroy.element1766, %arraydestroy.body1764 ], [ %arrayinit.endOfInit1671.1, %ehcleanup1760 ]
   %arraydestroy.element1766 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1765, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element1766) #18
   %arraydestroy.done1767 = icmp eq ptr %arraydestroy.element1766, %ref.tmp1669
@@ -28557,8 +28557,8 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
   br label %ehcleanup54
 
 if.end18:                                         ; preds = %if.then, %invoke.cont
-  %is_an_object.1 = phi i1 [ %cmp.i, %invoke.cont ], [ %spec.select, %if.then ]
-  br i1 %is_an_object.1, label %if.then20, label %if.else
+  %is_an_object.0 = phi i1 [ %cmp.i, %invoke.cont ], [ %spec.select, %if.then ]
+  br i1 %is_an_object.0, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end18
   store i8 1, ptr %this, align 8
@@ -35022,10 +35022,10 @@ lpad95:                                           ; preds = %invoke.cont96, %inv
 
 ehcleanup98:                                      ; preds = %lpad93, %lpad95
   %.pn57 = phi { ptr, i32 } [ %13, %lpad95 ], [ %12, %lpad93 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad95 ], [ true, %lpad93 ]
+  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.0, %lpad95 ], [ true, %lpad93 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87) #18
-  br i1 %cleanup.isactive.1, label %eh.resume.sink.split, label %eh.resume
+  br i1 %cleanup.isactive.3, label %eh.resume.sink.split, label %eh.resume
 
 sw.bb99:                                          ; preds = %sw.bb85, %sw.bb85
   %cmp100.not = icmp ne i64 %undumped_chars.0112, 0
@@ -35061,8 +35061,8 @@ if.else126:                                       ; preds = %if.then105
   br label %if.end139
 
 if.end139:                                        ; preds = %if.else126, %if.then107
-  %bytes.3 = phi i64 [ %inc124, %if.then107 ], [ %inc115, %if.else126 ]
-  %14 = add i64 %bytes.3, -500
+  %bytes.4 = phi i64 [ %inc124, %if.then107 ], [ %inc115, %if.else126 ]
+  %14 = add i64 %bytes.4, -500
   %cmp143 = icmp ult i64 %14, 13
   br i1 %cmp143, label %if.then144, label %for.inc
 
@@ -35071,7 +35071,7 @@ if.then144:                                       ; preds = %if.end139
   %vtable149 = load ptr, ptr %15, align 8
   %vfn150 = getelementptr inbounds i8, ptr %vtable149, i64 8
   %16 = load ptr, ptr %vfn150, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %string_buffer128, i64 noundef %bytes.3)
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %string_buffer128, i64 noundef %bytes.4)
   br label %for.inc
 
 sw.default155:                                    ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail10serializerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEE6decodeERhRjh.exit
@@ -35092,10 +35092,10 @@ if.end162:                                        ; preds = %if.then157, %sw.def
 
 for.inc:                                          ; preds = %sw.bb99, %if.then144, %if.end139, %sw.epilog, %if.then80, %if.end162, %sw.bb85
   %state.1 = phi i8 [ %3, %if.end162 ], [ 1, %sw.bb85 ], [ 0, %if.then80 ], [ 0, %sw.epilog ], [ 0, %if.end139 ], [ 0, %if.then144 ], [ 0, %sw.bb99 ]
-  %bytes_after_last_accept.2 = phi i64 [ %bytes_after_last_accept.0111, %if.end162 ], [ %bytes_after_last_accept.0111, %sw.bb85 ], [ 0, %if.then80 ], [ %bytes.1, %sw.epilog ], [ %bytes.3, %if.end139 ], [ 0, %if.then144 ], [ %bytes_after_last_accept.0111, %sw.bb99 ]
+  %bytes_after_last_accept.2 = phi i64 [ %bytes_after_last_accept.0111, %if.end162 ], [ %bytes_after_last_accept.0111, %sw.bb85 ], [ 0, %if.then80 ], [ %bytes.1, %sw.epilog ], [ %bytes.4, %if.end139 ], [ 0, %if.then144 ], [ %bytes_after_last_accept.0111, %sw.bb99 ]
   %undumped_chars.1 = phi i64 [ %inc163, %if.end162 ], [ %undumped_chars.0112, %sw.bb85 ], [ 0, %if.then80 ], [ 0, %sw.epilog ], [ 0, %if.end139 ], [ 0, %if.then144 ], [ 0, %sw.bb99 ]
   %i.2 = phi i64 [ %i.0113, %if.end162 ], [ %i.0113, %sw.bb85 ], [ %i.0113, %if.then80 ], [ %i.0113, %sw.epilog ], [ %spec.select, %if.end139 ], [ %spec.select, %if.then144 ], [ %spec.select, %sw.bb99 ]
-  %bytes.7 = phi i64 [ %bytes.6, %if.end162 ], [ %bytes.0114, %sw.bb85 ], [ 0, %if.then80 ], [ %bytes.1, %sw.epilog ], [ %bytes.3, %if.end139 ], [ 0, %if.then144 ], [ %bytes_after_last_accept.0111, %sw.bb99 ]
+  %bytes.7 = phi i64 [ %bytes.6, %if.end162 ], [ %bytes.0114, %sw.bb85 ], [ 0, %if.then80 ], [ %bytes.1, %sw.epilog ], [ %bytes.4, %if.end139 ], [ 0, %if.then144 ], [ %bytes_after_last_accept.0111, %sw.bb99 ]
   %inc165 = add i64 %i.2, 1
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #18
   %cmp = icmp ult i64 %inc165, %call

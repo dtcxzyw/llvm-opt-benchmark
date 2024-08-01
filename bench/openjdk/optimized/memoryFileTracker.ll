@@ -831,8 +831,8 @@ define linkonce_odr hidden void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18Posi
 
 .outer:                                           ; preds = %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit49, %.lr.ph18.preheader.i.i.i
   %.sroa.0.0.ph = phi i32 [ %45, %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit49 ], [ 1, %.lr.ph18.preheader.i.i.i ]
-  %.sroa.20.1.ph = phi i32 [ %.sroa.20.3, %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit49 ], [ 1, %.lr.ph18.preheader.i.i.i ]
-  %.sroa.34.1.ph = phi ptr [ %.sroa.34.3, %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit49 ], [ %2, %.lr.ph18.preheader.i.i.i ]
+  %.sroa.20.0.ph = phi i32 [ %.sroa.20.3, %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit49 ], [ 1, %.lr.ph18.preheader.i.i.i ]
+  %.sroa.34.0.ph = phi ptr [ %.sroa.34.3, %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit49 ], [ %2, %.lr.ph18.preheader.i.i.i ]
   %5 = sext i32 %.sroa.0.0.ph to i64
   %6 = zext i32 %.sroa.0.0.ph to i64
   br label %7
@@ -845,7 +845,7 @@ define linkonce_odr hidden void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18Posi
 
 9:                                                ; preds = %7
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %10 = getelementptr inbounds ptr, ptr %.sroa.34.1.ph, i64 %indvars.iv.next
+  %10 = getelementptr inbounds ptr, ptr %.sroa.34.0.ph, i64 %indvars.iv.next
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   %indvars.iv.next108 = add nsw i64 %indvars.iv107, -1
@@ -855,7 +855,7 @@ define linkonce_odr hidden void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18Posi
   %14 = trunc nsw i64 %indvars.iv to i32
   %15 = trunc nsw i64 %indvars.iv.next to i32
   %16 = getelementptr inbounds i8, ptr %11, i64 32
-  %17 = icmp eq i32 %.sroa.20.1.ph, %15
+  %17 = icmp eq i32 %.sroa.20.0.ph, %15
   br i1 %17, label %_ZN18GrowableArrayCHeapIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeEL8MEMFLAGS12EE8allocateEv.exit.i.i.i11, label %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit27
 
 _ZN18GrowableArrayCHeapIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeEL8MEMFLAGS12EE8allocateEv.exit.i.i.i11: ; preds = %13
@@ -896,7 +896,7 @@ _ZN18GrowableArrayCHeapIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionCompar
 .lr.ph.i.i.i23:                                   ; preds = %_ZN18GrowableArrayCHeapIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeEL8MEMFLAGS12EE8allocateEv.exit.i.i.i11, %.lr.ph.i.i.i23
   %indvars.iv.i.i.i24 = phi i64 [ %indvars.iv.next.i.i.i25, %.lr.ph.i.i.i23 ], [ 0, %_ZN18GrowableArrayCHeapIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeEL8MEMFLAGS12EE8allocateEv.exit.i.i.i11 ]
   %37 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv.i.i.i24
-  %38 = getelementptr inbounds ptr, ptr %.sroa.34.1.ph, i64 %indvars.iv.i.i.i24
+  %38 = getelementptr inbounds ptr, ptr %.sroa.34.0.ph, i64 %indvars.iv.i.i.i24
   %39 = load ptr, ptr %38, align 8
   store ptr %39, ptr %37, align 8
   %indvars.iv.next.i.i.i25 = add nuw nsw i64 %indvars.iv.i.i.i24, 1
@@ -904,12 +904,12 @@ _ZN18GrowableArrayCHeapIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionCompar
   br i1 %40, label %.lr.ph.i.i.i23, label %.preheader15.loopexit.i.i.i26, !llvm.loop !9
 
 .preheader.i.i.i15.thread:                        ; preds = %.lr.ph18.preheader.i.i.i19, %.preheader15.i.i.i13
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.34.1.ph) #10
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.34.0.ph) #10
   br label %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit27
 
 _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit27: ; preds = %.preheader.i.i.i15.thread, %13
-  %.sroa.20.2 = phi i32 [ %.sroa.20.1.ph, %13 ], [ %.0.i.i.i.i9, %.preheader.i.i.i15.thread ]
-  %.sroa.34.2 = phi ptr [ %.sroa.34.1.ph, %13 ], [ %26, %.preheader.i.i.i15.thread ]
+  %.sroa.20.2 = phi i32 [ %.sroa.20.0.ph, %13 ], [ %.0.i.i.i.i9, %.preheader.i.i.i15.thread ]
+  %.sroa.34.2 = phi ptr [ %.sroa.34.0.ph, %13 ], [ %26, %.preheader.i.i.i15.thread ]
   %41 = load ptr, ptr %16, align 8
   %42 = getelementptr inbounds ptr, ptr %.sroa.34.2, i64 %indvars.iv.next
   store ptr %41, ptr %42, align 8
@@ -992,13 +992,13 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
 
 74:                                               ; preds = %7
   store ptr null, ptr %3, align 8
-  %75 = icmp eq i32 %.sroa.20.1.ph, 0
-  %.not.i.i.i = icmp eq ptr %.sroa.34.1.ph, null
+  %75 = icmp eq i32 %.sroa.20.0.ph, 0
+  %.not.i.i.i = icmp eq ptr %.sroa.34.0.ph, null
   %or.cond = or i1 %75, %.not.i.i.i
   br i1 %or.cond, label %_ZN18GrowableArrayCHeapIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeEL8MEMFLAGS12EED2Ev.exit, label %.loopexit.thread.i.i.i
 
 .loopexit.thread.i.i.i:                           ; preds = %74
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.34.1.ph) #10
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.34.0.ph) #10
   br label %_ZN18GrowableArrayCHeapIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeEL8MEMFLAGS12EED2Ev.exit
 
 _ZN18GrowableArrayCHeapIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeEL8MEMFLAGS12EED2Ev.exit: ; preds = %.loopexit.thread.i.i.i, %74

@@ -784,9 +784,9 @@ if.then35:                                        ; preds = %if.else
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then35, %if.then26
-  %qdict.1 = phi ptr [ %call27, %if.then26 ], [ %call36, %if.then35 ]
-  %count.1 = add i32 %count.0.ph64, 1
-  %cmp40.not = icmp eq ptr %qdict.1, %qdict.0.ph66
+  %qdict.2 = phi ptr [ %call27, %if.then26 ], [ %call36, %if.then35 ]
+  %count.2 = add i32 %count.0.ph64, 1
+  %cmp40.not = icmp eq ptr %qdict.2, %qdict.0.ph66
   br i1 %cmp40.not, label %if.end56, label %if.then42
 
 if.then42:                                        ; preds = %if.end39
@@ -824,15 +824,15 @@ if.end51:                                         ; preds = %qobject_unref_impl.
   br label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %if.end51, %if.end74
-  %count.0.ph.be = phi i32 [ %count.2, %if.end74 ], [ %count.1, %if.end51 ]
-  %qdict.0.ph.be = phi ptr [ %qdict.2, %if.end74 ], [ %qdict.1, %if.end51 ]
+  %count.0.ph.be = phi i32 [ %count.1, %if.end74 ], [ %count.2, %if.end51 ]
+  %qdict.0.ph.be = phi ptr [ %qdict.1, %if.end74 ], [ %qdict.2, %if.end51 ]
   %call356 = call ptr @fgets(ptr noundef nonnull %line, i32 noundef 1024, ptr noundef %fp)
   %cmp4.not57 = icmp eq ptr %call356, null
   br i1 %cmp4.not57, label %while.end, label %while.body.lr.ph, !llvm.loop !19
 
 if.end56:                                         ; preds = %while.body, %if.else, %if.end39
-  %count.2 = phi i32 [ %count.1, %if.end39 ], [ %count.0.ph64, %if.else ], [ %count.0.ph64, %while.body ]
-  %qdict.2 = phi ptr [ %qdict.1, %if.end39 ], [ %qdict.0.ph66, %if.else ], [ %qdict.0.ph66, %while.body ]
+  %count.1 = phi i32 [ %count.2, %if.end39 ], [ %count.0.ph64, %if.else ], [ %count.0.ph64, %while.body ]
+  %qdict.1 = phi ptr [ %qdict.2, %if.end39 ], [ %qdict.0.ph66, %if.else ], [ %qdict.0.ph66, %while.body ]
   call void @loc_set_file(ptr noundef %fname, i32 noundef %inc) #13
   store i8 0, ptr %value, align 16
   %call61 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %line, ptr noundef nonnull @.str.19, ptr noundef nonnull %arg, ptr noundef nonnull %value) #13
@@ -845,7 +845,7 @@ lor.lhs.false64:                                  ; preds = %if.end56
   br i1 %cmp68, label %if.then70, label %if.end77
 
 if.then70:                                        ; preds = %lor.lhs.false64, %if.end56
-  %cmp71 = icmp eq ptr %qdict.2, null
+  %cmp71 = icmp eq ptr %qdict.1, null
   br i1 %cmp71, label %if.then73, label %if.end74
 
 if.then73:                                        ; preds = %if.then70
@@ -853,7 +853,7 @@ if.then73:                                        ; preds = %if.then70
   br label %out
 
 if.end74:                                         ; preds = %if.then70
-  call void @qdict_put_str(ptr noundef nonnull %qdict.2, ptr noundef nonnull %arg, ptr noundef nonnull %value) #13
+  call void @qdict_put_str(ptr noundef nonnull %qdict.1, ptr noundef nonnull %arg, ptr noundef nonnull %value) #13
   br label %while.cond.outer.backedge
 
 if.end77:                                         ; preds = %lor.lhs.false64
@@ -890,7 +890,7 @@ if.then85:                                        ; preds = %if.end83
 
 out:                                              ; preds = %qobject_unref_impl.exit, %while.end.thread, %if.end83, %if.then85, %if.end77, %if.then73
   %res.0 = phi i32 [ -22, %if.then73 ], [ -22, %if.end77 ], [ %count.0.ph.lcssa55, %if.then85 ], [ %count.0.ph.lcssa55, %if.end83 ], [ 0, %while.end.thread ], [ -22, %qobject_unref_impl.exit ]
-  %qdict.3 = phi ptr [ null, %if.then73 ], [ %qdict.2, %if.end77 ], [ %qdict.0.ph.lcssa51, %if.then85 ], [ null, %if.end83 ], [ null, %while.end.thread ], [ %qdict.1, %qobject_unref_impl.exit ]
+  %qdict.3 = phi ptr [ null, %if.then73 ], [ %qdict.1, %if.end77 ], [ %qdict.0.ph.lcssa51, %if.then85 ], [ null, %if.end83 ], [ null, %while.end.thread ], [ %qdict.2, %qobject_unref_impl.exit ]
   %call88 = call ptr @loc_pop(ptr noundef nonnull %loc) #13
   br label %out_no_loc
 

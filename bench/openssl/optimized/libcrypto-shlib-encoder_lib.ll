@@ -438,7 +438,7 @@ if.then112:                                       ; preds = %if.end56, %if.end56
   %retval.0.i718892127130 = phi ptr [ %.us-phi153, %if.end77 ], [ %.us-phi150, %if.end104 ], [ %retval.0.i718892.us.us, %if.end56.us ], [ %retval.0.i718892, %if.end56 ]
   %call.i121124 = phi ptr [ %.us-phi154, %if.end77 ], [ %.us-phi151, %if.end104 ], [ %call.i.us.us, %if.end56.us ], [ %call.i, %if.end56 ]
   %current_abstract.0.ph = phi ptr [ null, %if.end77 ], [ %abstract, %if.end104 ], [ null, %if.end56.us ], [ null, %if.end56 ]
-  %original_data.0.ph = phi ptr [ %call80, %if.end77 ], [ null, %if.end104 ], [ null, %if.end56.us ], [ null, %if.end56 ]
+  %original_data.1.ph = phi ptr [ %call80, %if.end77 ], [ null, %if.end104 ], [ null, %if.end56.us ], [ null, %if.end56 ]
   br i1 %cmp.not.not, label %if.then114, label %if.else115
 
 if.then114:                                       ; preds = %if.then112
@@ -453,7 +453,7 @@ if.else115:                                       ; preds = %if.then112
   br i1 %cmp118, label %if.end137, label %if.end128
 
 if.end128:                                        ; preds = %if.else115, %if.then114
-  %allocated_out.0.ph = phi ptr [ %call117, %if.else115 ], [ null, %if.then114 ]
+  %allocated_out.1.ph = phi ptr [ %call117, %if.else115 ], [ null, %if.then114 ]
   %current_out.0.ph = phi ptr [ %call117, %if.else115 ], [ %50, %if.then114 ]
   %call125 = call ptr @ossl_core_bio_new_from_bio(ptr noundef %current_out.0.ph) #7
   %cmp126.not = icmp eq ptr %call125, null
@@ -465,16 +465,16 @@ if.then130:                                       ; preds = %if.end128
   %52 = load ptr, ptr %data, align 8
   %53 = load i32, ptr %52, align 8
   %pwdata = getelementptr inbounds i8, ptr %52, i64 56
-  %call133 = call i32 %51(ptr noundef %retval.0.i718892127130, ptr noundef nonnull %call125, ptr noundef %original_data.0.ph, ptr noundef %current_abstract.0.ph, i32 noundef %53, ptr noundef nonnull @ossl_pw_passphrase_callback_enc, ptr noundef nonnull %pwdata) #7
+  %call133 = call i32 %51(ptr noundef %retval.0.i718892127130, ptr noundef nonnull %call125, ptr noundef %original_data.1.ph, ptr noundef %current_abstract.0.ph, i32 noundef %53, ptr noundef nonnull @ossl_pw_passphrase_callback_enc, ptr noundef nonnull %pwdata) #7
   br label %if.end137
 
 if.end137:                                        ; preds = %if.else115, %if.then130, %if.end128
   %cbio.0116 = phi ptr [ %call125, %if.then130 ], [ null, %if.end128 ], [ null, %if.else115 ]
-  %allocated_out.0110115 = phi ptr [ %allocated_out.0.ph, %if.then130 ], [ %allocated_out.0.ph, %if.end128 ], [ null, %if.else115 ]
-  %ok.5 = phi i32 [ %call133, %if.then130 ], [ 0, %if.end128 ], [ 0, %if.else115 ]
+  %allocated_out.1110115 = phi ptr [ %allocated_out.1.ph, %if.then130 ], [ %allocated_out.1.ph, %if.end128 ], [ null, %if.else115 ]
+  %ok.6 = phi i32 [ %call133, %if.then130 ], [ 0, %if.end128 ], [ 0, %if.else115 ]
   %call138 = call i32 @ossl_core_bio_free(ptr noundef %cbio.0116) #7
   store ptr %call.i121124, ptr %prev_encoder_inst58219, align 8
-  %54 = icmp eq ptr %original_data.0.ph, null
+  %54 = icmp eq ptr %original_data.1.ph, null
   br label %if.end141
 
 if.end141.loopexit:                               ; preds = %for.cond.backedge.us.us
@@ -488,17 +488,17 @@ if.end141.loopexit235:                            ; preds = %for.cond.backedge
 if.end141:                                        ; preds = %for.cond.outer, %for.cond.outer.us, %if.end141.loopexit235, %if.end141.loopexit, %if.end77, %if.then94, %if.end137
   %running_output_length60231 = phi ptr [ %running_output_length60232, %if.end137 ], [ %running_output_length60230, %if.then94 ], [ %running_output_length60233, %if.end77 ], [ %running_output_length60209, %if.end141.loopexit ], [ %running_output_length60, %if.end141.loopexit235 ], [ %running_output_length60209, %for.cond.outer.us ], [ %running_output_length60, %for.cond.outer ]
   %running_output59225 = phi ptr [ %running_output59226, %if.end137 ], [ %running_output59224, %if.then94 ], [ %running_output59227, %if.end77 ], [ %running_output59207, %if.end141.loopexit ], [ %running_output59, %if.end141.loopexit235 ], [ %running_output59207, %for.cond.outer.us ], [ %running_output59, %for.cond.outer ]
-  %ok.6 = phi i32 [ %ok.5, %if.end137 ], [ 0, %if.then94 ], [ 0, %if.end77 ], [ -1, %if.end141.loopexit ], [ -1, %if.end141.loopexit235 ], [ -1, %for.cond.outer.us ], [ -1, %for.cond.outer ]
-  %original_data.1 = phi i1 [ %54, %if.end137 ], [ true, %if.then94 ], [ true, %if.end77 ], [ true, %if.end141.loopexit ], [ true, %if.end141.loopexit235 ], [ true, %for.cond.outer.us ], [ true, %for.cond.outer ]
-  %allocated_out.1 = phi ptr [ %allocated_out.0110115, %if.end137 ], [ null, %if.then94 ], [ null, %if.end77 ], [ null, %if.end141.loopexit ], [ null, %if.end141.loopexit235 ], [ null, %for.cond.outer.us ], [ null, %for.cond.outer ]
+  %ok.2 = phi i32 [ %ok.6, %if.end137 ], [ 0, %if.then94 ], [ 0, %if.end77 ], [ -1, %if.end141.loopexit ], [ -1, %if.end141.loopexit235 ], [ -1, %for.cond.outer.us ], [ -1, %for.cond.outer ]
+  %original_data.0 = phi i1 [ %54, %if.end137 ], [ true, %if.then94 ], [ true, %if.end77 ], [ true, %if.end141.loopexit ], [ true, %if.end141.loopexit235 ], [ true, %for.cond.outer.us ], [ true, %for.cond.outer ]
+  %allocated_out.0 = phi ptr [ %allocated_out.1110115, %if.end137 ], [ null, %if.then94 ], [ null, %if.end77 ], [ null, %if.end141.loopexit ], [ null, %if.end141.loopexit235 ], [ null, %for.cond.outer.us ], [ null, %for.cond.outer ]
   %55 = load ptr, ptr %running_output59225, align 8
   call void @CRYPTO_free(ptr noundef %55, ptr noundef nonnull @.str, i32 noundef 652) #7
   store ptr null, ptr %running_output59225, align 8
-  %cmp144.not = icmp eq ptr %allocated_out.1, null
+  %cmp144.not = icmp eq ptr %allocated_out.0, null
   br i1 %cmp144.not, label %if.end151, label %if.then146
 
 if.then146:                                       ; preds = %if.end141
-  %call147 = call i64 @BIO_ctrl(ptr noundef nonnull %allocated_out.1, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %buf) #7
+  %call147 = call i64 @BIO_ctrl(ptr noundef nonnull %allocated_out.0, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %buf) #7
   %56 = load ptr, ptr %buf, align 8
   %data148 = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load ptr, ptr %data148, align 8
@@ -509,8 +509,8 @@ if.then146:                                       ; preds = %if.end141
   br label %if.end151
 
 if.end151:                                        ; preds = %if.then146, %if.end141
-  %call152 = call i32 @BIO_free(ptr noundef %allocated_out.1) #7
-  br i1 %original_data.1, label %return, label %if.then155
+  %call152 = call i32 @BIO_free(ptr noundef %allocated_out.0) #7
+  br i1 %original_data.0, label %return, label %if.then155
 
 if.then155:                                       ; preds = %if.end151
   %59 = load ptr, ptr %data, align 8
@@ -522,7 +522,7 @@ if.then155:                                       ; preds = %if.end151
   br label %return
 
 return:                                           ; preds = %if.end151, %if.then155, %sw.bb73
-  %retval.0 = phi i32 [ 0, %sw.bb73 ], [ %ok.6, %if.then155 ], [ %ok.6, %if.end151 ]
+  %retval.0 = phi i32 [ 0, %sw.bb73 ], [ %ok.2, %if.then155 ], [ %ok.2, %if.end151 ]
   ret i32 %retval.0
 }
 
@@ -707,12 +707,12 @@ if.else27:                                        ; preds = %if.then22
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end18.thread22, %if.then11, %OSSL_ENCODER_to_bio.exit.thread, %if.then24, %if.else27, %land.lhs.true4, %OSSL_ENCODER_to_bio.exit, %if.end
-  %ret.1 = phi i32 [ 1, %if.then24 ], [ 1, %if.else27 ], [ 0, %land.lhs.true4 ], [ 0, %OSSL_ENCODER_to_bio.exit ], [ 0, %if.end ], [ 0, %OSSL_ENCODER_to_bio.exit.thread ], [ 0, %if.then11 ], [ 1, %if.end18.thread22 ]
+  %ret.0 = phi i32 [ 1, %if.then24 ], [ 1, %if.else27 ], [ 0, %land.lhs.true4 ], [ 0, %OSSL_ENCODER_to_bio.exit ], [ 0, %if.end ], [ 0, %OSSL_ENCODER_to_bio.exit.thread ], [ 0, %if.then11 ], [ 1, %if.end18.thread22 ]
   %call34 = call i32 @BIO_free(ptr noundef %call1) #7
   br label %return
 
 return:                                           ; preds = %if.end33, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %ret.1, %if.end33 ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ %ret.0, %if.end33 ]
   ret i32 %retval.0
 }
 

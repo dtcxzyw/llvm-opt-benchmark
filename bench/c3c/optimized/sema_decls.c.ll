@@ -5561,7 +5561,7 @@ type_flatten.exit:                                ; preds = %34
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %167
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %167 ]
-  %.0135211 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %167 ]
+  %.0135211 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1136, %167 ]
   %.0138209 = phi i8 [ 0, %.lr.ph.preheader ], [ %.1139, %167 ]
   %62 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
@@ -5757,7 +5757,7 @@ type_flatten.exit:                                ; preds = %34
   br label %sema_analyse_enum_param.exit.thread
 
 162:                                              ; preds = %153, %156, %149
-  %.1136 = phi i32 [ %.0135211, %149 ], [ %154, %156 ], [ %154, %153 ]
+  %.2 = phi i32 [ %.0135211, %149 ], [ %154, %156 ], [ %154, %153 ]
   %163 = or i8 %.0152, %.0138209
   %164 = load i64, ptr %64, align 8
   %165 = and i64 %164, -897
@@ -5767,7 +5767,7 @@ type_flatten.exit:                                ; preds = %34
 
 167:                                              ; preds = %.lr.ph, %162
   %.1139 = phi i8 [ %163, %162 ], [ %.0138209, %.lr.ph ]
-  %.2 = phi i32 [ %.1136, %162 ], [ %.0135211, %.lr.ph ]
+  %.1136 = phi i32 [ %.2, %162 ], [ %.0135211, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
@@ -5776,7 +5776,7 @@ type_flatten.exit:                                ; preds = %34
   %.not220277 = phi i1 [ true, %58 ], [ true, %.thread273 ], [ %.not220, %167 ]
   %168 = phi ptr [ %61, %58 ], [ %57, %.thread273 ], [ %61, %167 ]
   %.0128276 = phi i32 [ 0, %58 ], [ 0, %.thread273 ], [ %60, %167 ]
-  %.0135.lcssa = phi i32 [ 0, %58 ], [ 0, %.thread273 ], [ %.2, %167 ]
+  %.0135.lcssa = phi i32 [ 0, %58 ], [ 0, %.thread273 ], [ %.1136, %167 ]
   tail call void @sema_decl_stack_restore(ptr noundef %168) #10
   %169 = load ptr, ptr %26, align 8
   %.not144 = icmp eq ptr %169, null
@@ -8257,8 +8257,8 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct_member(ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %182, %187, %195
-  %.1142 = phi i32 [ %190, %187 ], [ %198, %195 ], [ %149, %182 ]
-  %.0139 = phi i32 [ %149, %187 ], [ %196, %195 ], [ %149, %182 ]
+  %.2 = phi i32 [ %190, %187 ], [ %198, %195 ], [ %149, %182 ]
+  %.1140 = phi i32 [ %149, %187 ], [ %196, %195 ], [ %149, %182 ]
   %199 = load ptr, ptr @type_bool, align 8
   %200 = icmp eq ptr %.1, %199
   br i1 %200, label %204, label %201
@@ -8270,8 +8270,8 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct_member(ptr nou
 
 204:                                              ; preds = %.thread, %201
   %205 = phi i32 [ %203, %201 ], [ 1, %.thread ]
-  %206 = add i32 %.1142, 1
-  %207 = sub i32 %206, %.0139
+  %206 = add i32 %.2, 1
+  %207 = sub i32 %206, %.1140
   %208 = icmp ult i32 %205, %207
   br i1 %208, label %209, label %214
 
@@ -8285,24 +8285,24 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct_member(ptr nou
 
 214:                                              ; preds = %204
   %215 = getelementptr inbounds i8, ptr %2, i64 96
-  store i32 %.0139, ptr %215, align 8
+  store i32 %.1140, ptr %215, align 8
   %216 = getelementptr inbounds i8, ptr %2, i64 100
-  store i32 %.1142, ptr %216, align 4
+  store i32 %.2, ptr %216, align 4
   %217 = load i32, ptr %17, align 8
   %218 = and i32 %217, -1048577
   store i32 %218, ptr %17, align 8
   br label %219
 
 219:                                              ; preds = %104, %214
-  %.2 = phi i32 [ %106, %104 ], [ %.1142, %214 ]
-  %.1140 = phi i32 [ %106, %104 ], [ %.0139, %214 ]
+  %.0141 = phi i32 [ %106, %104 ], [ %.2, %214 ]
+  %.0139 = phi i32 [ %106, %104 ], [ %.1140, %214 ]
   br i1 %4, label %.loopexit, label %220
 
 220:                                              ; preds = %219
   %221 = getelementptr inbounds i8, ptr %1, i64 104
   %222 = load ptr, ptr %221, align 8
-  %.2.fr = freeze i32 %.2
-  %invariant.umax = tail call i32 @llvm.umax.i32(i32 %.1140, i32 %.2.fr)
+  %.0141.fr = freeze i32 %.0141
+  %invariant.umax = tail call i32 @llvm.umax.i32(i32 %.0139, i32 %.0141.fr)
   %.not180 = icmp eq i32 %3, 0
   br i1 %.not180, label %.loopexit, label %.lr.ph.preheader
 
@@ -8322,7 +8322,7 @@ define internal fastcc noundef zeroext i1 @sema_analyse_bitstruct_member(ptr nou
 227:                                              ; preds = %.lr.ph
   %228 = getelementptr inbounds i8, ptr %224, i64 100
   %229 = load i32, ptr %228, align 4
-  %.not165 = icmp ugt i32 %.1140, %229
+  %.not165 = icmp ugt i32 %.0139, %229
   br i1 %.not165, label %235, label %230
 
 230:                                              ; preds = %227

@@ -116,21 +116,21 @@ define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr nocapture 
   br label %43
 
 43:                                               ; preds = %41, %33
-  %.1.i.i = phi ptr [ %34, %33 ], [ %42, %41 ]
-  %44 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.1.i.i, i32 noundef 47) #10
+  %.0.i.i = phi ptr [ %34, %33 ], [ %42, %41 ]
+  %44 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0.i.i, i32 noundef 47) #10
   %.not21.i.i = icmp eq ptr %44, null
   br i1 %.not21.i.i, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = call i32 @ADIOI_Strncpy(ptr noundef %.1.i.i, ptr noundef nonnull @.str.5, i64 noundef 2) #9
+  %46 = call i32 @ADIOI_Strncpy(ptr noundef %.0.i.i, ptr noundef nonnull @.str.5, i64 noundef 2) #9
   br label %ADIO_FileSysType_parentdir.exit.i
 
 47:                                               ; preds = %43
-  %48 = icmp eq ptr %44, %.1.i.i
+  %48 = icmp eq ptr %44, %.0.i.i
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
+  %50 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
   store i8 0, ptr %50, align 1
   br label %ADIO_FileSysType_parentdir.exit.i
 
@@ -140,8 +140,8 @@ define void @ADIO_ResolveFileType(ptr noundef %0, ptr noundef %1, ptr nocapture 
 
 ADIO_FileSysType_parentdir.exit.i:                ; preds = %51, %49, %45
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %6)
-  %52 = call i32 @statfs(ptr noundef %.1.i.i, ptr noundef nonnull %7) #9
-  call void @ADIOI_Free_fn(ptr noundef %.1.i.i, i32 noundef 386, ptr noundef nonnull @.str.2) #9
+  %52 = call i32 @statfs(ptr noundef %.0.i.i, ptr noundef nonnull %7) #9
+  call void @ADIOI_Free_fn(ptr noundef %.0.i.i, i32 noundef 386, ptr noundef nonnull @.str.2) #9
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %.critedge24.i, label %.critedge23.i
 

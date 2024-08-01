@@ -1907,9 +1907,9 @@ sw.bb6.i:                                         ; preds = %if.then37.i
   br i1 %cmp.i867, label %if.else.i, label %if.then45.i
 
 if.then45.i:                                      ; preds = %sw.bb6.i, %sw.bb4.i235, %nvermicelliExec.exit, %vermicelliExec.exit
-  %eloc.i.4 = phi i64 [ %sub.ptr.sub.i871, %sw.bb6.i ], [ %sub.ptr.sub.i853, %sw.bb4.i235 ], [ %sub.ptr.sub.i835, %nvermicelliExec.exit ], [ %sub.ptr.sub.i, %vermicelliExec.exit ]
+  %eloc.i.0 = phi i64 [ %sub.ptr.sub.i871, %sw.bb6.i ], [ %sub.ptr.sub.i853, %sw.bb4.i235 ], [ %sub.ptr.sub.i835, %nvermicelliExec.exit ], [ %sub.ptr.sub.i, %vermicelliExec.exit ]
   %216 = load i64, ptr %offset.i37, align 8
-  %add47.i = add i64 %216, %eloc.i.4
+  %add47.i = add i64 %216, %eloc.i.0
   br label %if.else.i
 
 if.else.i:                                        ; preds = %vermicelliExec.exit, %nvermicelliExec.exit, %sw.bb4.i235, %sw.bb6.i, %if.then37.i, %if.then45.i
@@ -1930,12 +1930,12 @@ while.body.i297.lr.ph:                            ; preds = %if.else.i
 
 while.cond.i294.loopexit:                         ; preds = %if.end19.i3025, %for.end.i4485, %mmbit_get_flat_block.exit.i4519, %if.else.i4600, %if.then4.i4646, %if.end.i.i2161, %if.end.i2157, %mmbit_iterate.exit.i2160, %if.end19.i3082, %for.end.i4368, %mmbit_get_flat_block.exit.i, %if.end.i4410, %mmbit_iterate.exit27.i
   %221 = phi i32 [ %455, %mmbit_iterate.exit27.i ], [ %455, %if.end.i4410 ], [ %455, %mmbit_get_flat_block.exit.i ], [ %455, %for.end.i4368 ], [ %485, %if.end19.i3082 ], [ %485, %for.end.i4485 ], [ %485, %mmbit_get_flat_block.exit.i4519 ], [ %485, %if.else.i4600 ], [ %485, %if.then4.i4646 ], [ %485, %if.end.i.i2161 ], [ 0, %if.end.i2157 ], [ %485, %mmbit_iterate.exit.i2160 ], [ %455, %if.end19.i3025 ]
-  %cmp.i295 = icmp ult i64 %offset.i288.53210, %ep.i.0
+  %cmp.i295 = icmp ult i64 %offset.i288.33210, %ep.i.0
   br i1 %cmp.i295, label %while.body.i297, label %if.end77.i, !llvm.loop !14
 
 while.body.i297:                                  ; preds = %while.body.i297.lr.ph, %while.cond.i294.loopexit
   %222 = phi i32 [ %.pre, %while.body.i297.lr.ph ], [ %221, %while.cond.i294.loopexit ]
-  %loc.i.02912 = phi i64 [ %sp.i.02925, %while.body.i297.lr.ph ], [ %offset.i288.53210, %while.cond.i294.loopexit ]
+  %loc.i.02912 = phi i64 [ %sp.i.02925, %while.body.i297.lr.ph ], [ %offset.i288.33210, %while.cond.i294.loopexit ]
   %tobool.i57.i.not = icmp eq i32 %222, 0
   br i1 %tobool.i57.i.not, label %mmbit_clear.exit.i, label %if.end.i59.i
 
@@ -2191,7 +2191,7 @@ for.body.i310.lr.ph:                              ; preds = %if.then94.i5278, %i
 for.body.i310:                                    ; preds = %for.body.i310.lr.ph, %mmbit_iterate.exit.i324
   %246 = phi i32 [ %225, %for.body.i310.lr.ph ], [ %314, %mmbit_iterate.exit.i324 ]
   %i.i292.02849 = phi i32 [ %retval.i32.i.03173, %for.body.i310.lr.ph ], [ %retval.i.i277.0, %mmbit_iterate.exit.i324 ]
-  %offset.i288.02848 = phi i64 [ %ep.i.0, %for.body.i310.lr.ph ], [ %offset.i288.1, %mmbit_iterate.exit.i324 ]
+  %offset.i288.12848 = phi i64 [ %ep.i.0, %for.body.i310.lr.ph ], [ %offset.i288.2, %mmbit_iterate.exit.i324 ]
   %247 = load i8, ptr %activeIdxSize.i311, align 2
   %conv.i312 = zext i8 %247 to i32
   %mul.i313 = mul i32 %i.i292.02849, %conv.i312
@@ -2400,7 +2400,7 @@ if.else.i2046:                                    ; preds = %sw.bb1.i.i2028, %su
   br i1 %cmp1.i2047, label %set_matching.exit, label %if.else3.i
 
 if.else3.i:                                       ; preds = %if.else.i2046
-  %cmp4.i2048 = icmp eq i64 %retval.i.i1999.02649, %offset.i288.02848
+  %cmp4.i2048 = icmp eq i64 %retval.i.i1999.02649, %offset.i288.12848
   br i1 %cmp4.i2048, label %if.then5.i2064, label %if.else6.i
 
 if.then5.i2064:                                   ; preds = %if.else3.i
@@ -2491,7 +2491,7 @@ if.end.i2545:                                     ; preds = %do.body.i2532
   br i1 %cmp17.i2547.not, label %set_matching.exit, label %do.body.i2532, !llvm.loop !16
 
 if.else6.i:                                       ; preds = %if.else3.i
-  %cmp7.i2049 = icmp ult i64 %retval.i.i1999.02649, %offset.i288.02848
+  %cmp7.i2049 = icmp ult i64 %retval.i.i1999.02649, %offset.i288.12848
   br i1 %cmp7.i2049, label %if.then8.i2053, label %set_matching.exit
 
 if.then8.i2053:                                   ; preds = %if.else6.i
@@ -2602,7 +2602,7 @@ if.end.i2634:                                     ; preds = %do.body.i2621
   br i1 %cmp17.i2636.not, label %set_matching.exit, label %do.body.i2621, !llvm.loop !16
 
 set_matching.exit:                                ; preds = %if.end.i2634, %while.body.i2647, %if.end.i2545, %while.body.i2558, %do.body.i.i, %if.then.i2638, %if.then.i2549, %if.else.i.i2069, %if.end6.i35.i.thread, %if.then.i2217, %if.then.i2227, %if.else.i2046, %if.else6.i, %if.then.i21.i
-  %offset.i288.1 = phi i64 [ %offset.i288.02848, %if.then.i21.i ], [ %offset.i288.02848, %if.else.i2046 ], [ %offset.i288.02848, %if.else6.i ], [ %offset.i288.02848, %if.then.i2227 ], [ %retval.i.i1999.02649, %if.then.i2217 ], [ %offset.i288.02848, %if.end6.i35.i.thread ], [ %offset.i288.02848, %if.else.i.i2069 ], [ %offset.i288.02848, %if.then.i2549 ], [ %retval.i.i1999.02649, %if.then.i2638 ], [ %offset.i288.02848, %do.body.i.i ], [ %offset.i288.02848, %while.body.i2558 ], [ %offset.i288.02848, %if.end.i2545 ], [ %retval.i.i1999.02649, %while.body.i2647 ], [ %retval.i.i1999.02649, %if.end.i2634 ]
+  %offset.i288.2 = phi i64 [ %offset.i288.12848, %if.then.i21.i ], [ %offset.i288.12848, %if.else.i2046 ], [ %offset.i288.12848, %if.else6.i ], [ %offset.i288.12848, %if.then.i2227 ], [ %retval.i.i1999.02649, %if.then.i2217 ], [ %offset.i288.12848, %if.end6.i35.i.thread ], [ %offset.i288.12848, %if.else.i.i2069 ], [ %offset.i288.12848, %if.then.i2549 ], [ %retval.i.i1999.02649, %if.then.i2638 ], [ %offset.i288.12848, %do.body.i.i ], [ %offset.i288.12848, %while.body.i2558 ], [ %offset.i288.12848, %if.end.i2545 ], [ %retval.i.i1999.02649, %while.body.i2647 ], [ %retval.i.i1999.02649, %if.end.i2634 ]
   %314 = load i32, ptr %numGroups.i, align 4
   %tobool.i.i322.not = icmp eq i32 %314, 0
   br i1 %tobool.i.i322.not, label %if.end.i300.loopexit, label %if.end.i.i325
@@ -2920,12 +2920,12 @@ if.end.i300.loopexit:                             ; preds = %for.end.i5493, %mmb
 
 if.end.i300:                                      ; preds = %if.end19.i3292, %for.end.i5241, %mmbit_get_flat_block.exit.i5275, %if.end.i5397, %if.then.i303, %if.end.i300.loopexit, %mmbit_iterate.exit51.i
   %.pr2653 = phi i8 [ %223, %mmbit_iterate.exit51.i ], [ %.pr2653.pre, %if.end.i300.loopexit ], [ %223, %if.then.i303 ], [ %223, %if.end.i5397 ], [ %223, %mmbit_get_flat_block.exit.i5275 ], [ %223, %for.end.i5241 ], [ %223, %if.end19.i3292 ]
-  %offset.i288.0.lcssa = phi i64 [ %ep.i.0, %mmbit_iterate.exit51.i ], [ %offset.i288.1, %if.end.i300.loopexit ], [ %ep.i.0, %if.then.i303 ], [ %ep.i.0, %if.end.i5397 ], [ %ep.i.0, %mmbit_get_flat_block.exit.i5275 ], [ %ep.i.0, %for.end.i5241 ], [ %ep.i.0, %if.end19.i3292 ]
+  %offset.i288.1.lcssa = phi i64 [ %ep.i.0, %mmbit_iterate.exit51.i ], [ %offset.i288.2, %if.end.i300.loopexit ], [ %ep.i.0, %if.then.i303 ], [ %ep.i.0, %if.end.i5397 ], [ %ep.i.0, %mmbit_get_flat_block.exit.i5275 ], [ %ep.i.0, %for.end.i5241 ], [ %ep.i.0, %if.end19.i3292 ]
   %cmp13.i.not = icmp eq i8 %.pr2653, 2
   br i1 %cmp13.i.not, label %if.end16.i301, label %if.then15.i
 
 if.then15.i:                                      ; preds = %mmbit_clear.exit.i, %if.end.i300
-  %offset.i288.22656 = phi i64 [ %offset.i288.0.lcssa, %if.end.i300 ], [ %ep.i.0, %mmbit_clear.exit.i ]
+  %offset.i288.02656 = phi i64 [ %offset.i288.1.lcssa, %if.end.i300 ], [ %ep.i.0, %mmbit_clear.exit.i ]
   %343 = load i32, ptr %activeOffset.i, align 4
   %idx.ext.i2100 = zext i32 %343 to i64
   %add.ptr.i2101 = getelementptr inbounds i8, ptr %218, i64 %idx.ext.i2100
@@ -3157,7 +3157,7 @@ for.body.i2105.lr.ph:                             ; preds = %if.then94.i4774, %i
 for.body.i2105:                                   ; preds = %for.body.i2105.lr.ph, %mmbit_iterate.exit.i2113
   %365 = phi i32 [ %344, %for.body.i2105.lr.ph ], [ %428, %mmbit_iterate.exit.i2113 ]
   %i.i2097.02884 = phi i32 [ %retval.i5.i.03188, %for.body.i2105.lr.ph ], [ %retval.i.i2084.0, %mmbit_iterate.exit.i2113 ]
-  %offset.i288.32882 = phi i64 [ %offset.i288.22656, %for.body.i2105.lr.ph ], [ %offset.i288.4, %mmbit_iterate.exit.i2113 ]
+  %offset.i288.42882 = phi i64 [ %offset.i288.02656, %for.body.i2105.lr.ph ], [ %offset.i288.5, %mmbit_iterate.exit.i2113 ]
   %idxprom.i.i.i = zext i32 %i.i2097.02884 to i64
   %arrayidx.i.i.i = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i.i
   %repeatInfoOffset.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i, i64 12
@@ -3325,7 +3325,7 @@ if.else.i33.i:                                    ; preds = %sw.bb1.i.i.i, %subC
   br i1 %cmp1.i.i, label %set_matching.exit.i, label %if.else3.i.i
 
 if.else3.i.i:                                     ; preds = %if.else.i33.i
-  %cmp4.i.i = icmp eq i64 %retval.i.i.i.02663, %offset.i288.32882
+  %cmp4.i.i = icmp eq i64 %retval.i.i.i.02663, %offset.i288.42882
   br i1 %cmp4.i.i, label %if.then5.i.i2125, label %if.else6.i.i
 
 if.then5.i.i2125:                                 ; preds = %if.else3.i.i
@@ -3415,7 +3415,7 @@ if.end.i2384:                                     ; preds = %do.body.i2373
   br i1 %cmp17.i2385.not, label %set_matching.exit.i, label %do.body.i2373, !llvm.loop !16
 
 if.else6.i.i:                                     ; preds = %if.else3.i.i
-  %cmp7.i.i2109 = icmp ult i64 %retval.i.i.i.02663, %offset.i288.32882
+  %cmp7.i.i2109 = icmp ult i64 %retval.i.i.i.02663, %offset.i288.42882
   br i1 %cmp7.i.i2109, label %if.then8.i.i2124, label %set_matching.exit.i
 
 if.then8.i.i2124:                                 ; preds = %if.else6.i.i
@@ -3525,7 +3525,7 @@ if.end.i2456:                                     ; preds = %do.body.i2443
   br i1 %cmp17.i2458.not, label %set_matching.exit.i, label %do.body.i2443, !llvm.loop !16
 
 set_matching.exit.i:                              ; preds = %if.end.i2456, %while.body.i2469, %if.end.i2384, %while.body.i2394, %do.body.i.i.i, %if.then.i2460, %if.then.i2386, %if.else.i.i.i, %if.end6.i35.i.i.thread, %if.then.i2239, %if.then.i2251, %if.else.i33.i, %if.else6.i.i, %if.then.i21.i.i
-  %offset.i288.4 = phi i64 [ %offset.i288.32882, %if.then.i21.i.i ], [ %offset.i288.32882, %if.else.i33.i ], [ %offset.i288.32882, %if.else6.i.i ], [ %offset.i288.32882, %if.then.i2251 ], [ %retval.i.i.i.02663, %if.then.i2239 ], [ %offset.i288.32882, %if.end6.i35.i.i.thread ], [ %offset.i288.32882, %if.else.i.i.i ], [ %offset.i288.32882, %if.then.i2386 ], [ %retval.i.i.i.02663, %if.then.i2460 ], [ %offset.i288.32882, %do.body.i.i.i ], [ %offset.i288.32882, %while.body.i2394 ], [ %offset.i288.32882, %if.end.i2384 ], [ %retval.i.i.i.02663, %while.body.i2469 ], [ %retval.i.i.i.02663, %if.end.i2456 ]
+  %offset.i288.5 = phi i64 [ %offset.i288.42882, %if.then.i21.i.i ], [ %offset.i288.42882, %if.else.i33.i ], [ %offset.i288.42882, %if.else6.i.i ], [ %offset.i288.42882, %if.then.i2251 ], [ %retval.i.i.i.02663, %if.then.i2239 ], [ %offset.i288.42882, %if.end6.i35.i.i.thread ], [ %offset.i288.42882, %if.else.i.i.i ], [ %offset.i288.42882, %if.then.i2386 ], [ %retval.i.i.i.02663, %if.then.i2460 ], [ %offset.i288.42882, %do.body.i.i.i ], [ %offset.i288.42882, %while.body.i2394 ], [ %offset.i288.42882, %if.end.i2384 ], [ %retval.i.i.i.02663, %while.body.i2469 ], [ %retval.i.i.i.02663, %if.end.i2456 ]
   %428 = load i32, ptr %add.ptr.i, align 32
   %tobool.i.i2111.not = icmp eq i32 %428, 0
   br i1 %tobool.i.i2111.not, label %if.end77.i, label %if.end.i.i2114
@@ -3837,13 +3837,13 @@ mmbit_iterate.exit.i2113:                         ; preds = %if.then11.i3246, %i
   br i1 %cmp.i2103.not, label %if.end16.i301, label %for.body.i2105, !llvm.loop !18
 
 if.end16.i301:                                    ; preds = %if.end19.i3152, %for.end.i4989, %mmbit_get_flat_block.exit.i5023, %if.else.i5104, %if.then4.i5150, %mmbit_iterate.exit.i2113, %if.end19.i3222, %for.end.i4737, %mmbit_get_flat_block.exit.i4771, %if.end.i4893, %mmbit_iterate.exit24.i, %if.end.i300
-  %offset.i288.5.ph = phi i64 [ %offset.i288.22656, %for.end.i4737 ], [ %offset.i288.22656, %mmbit_get_flat_block.exit.i4771 ], [ %offset.i288.22656, %if.end.i4893 ], [ %offset.i288.22656, %mmbit_iterate.exit24.i ], [ %offset.i288.0.lcssa, %if.end.i300 ], [ %offset.i288.4, %if.end19.i3222 ], [ %offset.i288.4, %mmbit_iterate.exit.i2113 ], [ %offset.i288.4, %if.then4.i5150 ], [ %offset.i288.4, %if.else.i5104 ], [ %offset.i288.4, %mmbit_get_flat_block.exit.i5023 ], [ %offset.i288.4, %for.end.i4989 ], [ %offset.i288.22656, %if.end19.i3152 ]
+  %offset.i288.3.ph = phi i64 [ %offset.i288.02656, %for.end.i4737 ], [ %offset.i288.02656, %mmbit_get_flat_block.exit.i4771 ], [ %offset.i288.02656, %if.end.i4893 ], [ %offset.i288.02656, %mmbit_iterate.exit24.i ], [ %offset.i288.1.lcssa, %if.end.i300 ], [ %offset.i288.5, %if.end19.i3222 ], [ %offset.i288.5, %mmbit_iterate.exit.i2113 ], [ %offset.i288.5, %if.then4.i5150 ], [ %offset.i288.5, %if.else.i5104 ], [ %offset.i288.5, %mmbit_get_flat_block.exit.i5023 ], [ %offset.i288.5, %for.end.i4989 ], [ %offset.i288.02656, %if.end19.i3152 ]
   %.pr3202 = load i32, ptr %add.ptr.i, align 32
   %tobool.i68.i.not = icmp eq i32 %.pr3202, 0
   br i1 %tobool.i68.i.not, label %if.end77.i, label %if.end.i70.i
 
 if.end.i70.i:                                     ; preds = %if.end.i.i2114, %if.end16.i301
-  %offset.i288.53210 = phi i64 [ %offset.i288.5.ph, %if.end16.i301 ], [ %offset.i288.4, %if.end.i.i2114 ]
+  %offset.i288.33210 = phi i64 [ %offset.i288.3.ph, %if.end16.i301 ], [ %offset.i288.5, %if.end.i.i2114 ]
   %455 = phi i32 [ %.pr3202, %if.end16.i301 ], [ %428, %if.end.i.i2114 ]
   %cmp.i360 = icmp ult i32 %455, 257
   br i1 %cmp.i360, label %if.then2.i.i, label %if.end4.i.i
@@ -4135,7 +4135,7 @@ for.body.i2150:                                   ; preds = %for.body.i2150.preh
   %idxprom.i.i2152 = zext i32 %i.i2145.02900 to i64
   %arrayidx.i.i2153 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i2013, i64 %idxprom.i.i2152
   %484 = load i32, ptr %arrayidx.i.i2153, align 4
-  %call2.i2155 = tail call i32 %219(i64 noundef 0, i64 noundef %offset.i288.53210, i32 noundef %484, ptr noundef %220) #9
+  %call2.i2155 = tail call i32 %219(i64 noundef 0, i64 noundef %offset.i288.33210, i32 noundef %484, ptr noundef %220) #9
   %cmp3.i2156 = icmp eq i32 %call2.i2155, 0
   br i1 %cmp3.i2156, label %nfaExecCastle_Q_i.exit, label %if.end.i2157
 
@@ -7128,9 +7128,9 @@ sw.bb6.i:                                         ; preds = %if.then37.i
   br i1 %cmp.i867, label %if.then52.i, label %if.then45.i
 
 if.then45.i:                                      ; preds = %sw.bb6.i, %sw.bb4.i235, %nvermicelliExec.exit, %vermicelliExec.exit
-  %eloc.i.4 = phi i64 [ %sub.ptr.sub.i871, %sw.bb6.i ], [ %sub.ptr.sub.i853, %sw.bb4.i235 ], [ %sub.ptr.sub.i835, %nvermicelliExec.exit ], [ %sub.ptr.sub.i, %vermicelliExec.exit ]
+  %eloc.i.0 = phi i64 [ %sub.ptr.sub.i871, %sw.bb6.i ], [ %sub.ptr.sub.i853, %sw.bb4.i235 ], [ %sub.ptr.sub.i835, %nvermicelliExec.exit ], [ %sub.ptr.sub.i, %vermicelliExec.exit ]
   %216 = load i64, ptr %offset.i37, align 8
-  %add47.i = add i64 %216, %eloc.i.4
+  %add47.i = add i64 %216, %eloc.i.0
   br label %if.then52.i
 
 if.then52.i:                                      ; preds = %vermicelliExec.exit, %nvermicelliExec.exit, %sw.bb4.i235, %sw.bb6.i, %if.then37.i, %if.then45.i
@@ -7376,8 +7376,8 @@ for.body.i268.lr.ph:                              ; preds = %if.then94.i5782, %i
 
 for.body.i268:                                    ; preds = %for.body.i268.lr.ph, %mmbit_iterate.exit75.i
   %i.i250.02825 = phi i32 [ %retval.i76.i.03091, %for.body.i268.lr.ph ], [ %retval.i56.i.0, %mmbit_iterate.exit75.i ]
-  %found.i247.02824 = phi i8 [ 0, %for.body.i268.lr.ph ], [ %found.i247.1, %mmbit_iterate.exit75.i ]
-  %mloc.i.12823 = phi i64 [ 0, %for.body.i268.lr.ph ], [ %mloc.i.3, %mmbit_iterate.exit75.i ]
+  %found.i247.12824 = phi i8 [ 0, %for.body.i268.lr.ph ], [ %found.i247.2, %mmbit_iterate.exit75.i ]
+  %mloc.i.42823 = phi i64 [ 0, %for.body.i268.lr.ph ], [ %mloc.i.5, %mmbit_iterate.exit75.i ]
   %242 = load i8, ptr %activeIdxSize.i269, align 2
   %conv.i270 = zext i8 %242 to i32
   %mul.i271 = mul i32 %i.i250.02825, %conv.i270
@@ -7682,14 +7682,14 @@ if.else14.i:                                      ; preds = %sw.bb1.i1507, %repe
 
 if.end19.i1392:                                   ; preds = %if.else14.i
   %sub23.i = sub i64 %retval.i1491.02632, %sp.i.02888
-  %tobool.i1394.not = icmp eq i8 %found.i247.02824, 0
-  %301 = tail call i64 @llvm.umin.i64(i64 %sub23.i, i64 %mloc.i.12823)
-  %mloc.i.2 = select i1 %tobool.i1394.not, i64 %sub23.i, i64 %301
+  %tobool.i1394.not = icmp eq i8 %found.i247.12824, 0
+  %301 = tail call i64 @llvm.umin.i64(i64 %sub23.i, i64 %mloc.i.42823)
+  %mloc.i.6 = select i1 %tobool.i1394.not, i64 %sub23.i, i64 %301
   br label %subCastleFindMatch.exit
 
 subCastleFindMatch.exit:                          ; preds = %do.body.i, %do.body.i1656, %if.else.i1547, %if.else.i1537, %if.end6.i1642.thread, %if.end6.i1664.thread, %if.else14.i, %if.then.i1539, %if.then.i1549, %if.end19.i1392
-  %mloc.i.3 = phi i64 [ %mloc.i.12823, %if.then.i1539 ], [ %mloc.i.12823, %if.then.i1549 ], [ %mloc.i.12823, %if.else14.i ], [ %mloc.i.2, %if.end19.i1392 ], [ %mloc.i.12823, %if.end6.i1664.thread ], [ %mloc.i.12823, %if.end6.i1642.thread ], [ %mloc.i.12823, %if.else.i1537 ], [ %mloc.i.12823, %if.else.i1547 ], [ %mloc.i.12823, %do.body.i1656 ], [ %mloc.i.12823, %do.body.i ]
-  %found.i247.1 = phi i8 [ %found.i247.02824, %if.then.i1539 ], [ %found.i247.02824, %if.then.i1549 ], [ %found.i247.02824, %if.else14.i ], [ 1, %if.end19.i1392 ], [ %found.i247.02824, %if.end6.i1664.thread ], [ %found.i247.02824, %if.end6.i1642.thread ], [ %found.i247.02824, %if.else.i1537 ], [ %found.i247.02824, %if.else.i1547 ], [ %found.i247.02824, %do.body.i1656 ], [ %found.i247.02824, %do.body.i ]
+  %mloc.i.5 = phi i64 [ %mloc.i.42823, %if.then.i1539 ], [ %mloc.i.42823, %if.then.i1549 ], [ %mloc.i.42823, %if.else14.i ], [ %mloc.i.6, %if.end19.i1392 ], [ %mloc.i.42823, %if.end6.i1664.thread ], [ %mloc.i.42823, %if.end6.i1642.thread ], [ %mloc.i.42823, %if.else.i1537 ], [ %mloc.i.42823, %if.else.i1547 ], [ %mloc.i.42823, %do.body.i1656 ], [ %mloc.i.42823, %do.body.i ]
+  %found.i247.2 = phi i8 [ %found.i247.12824, %if.then.i1539 ], [ %found.i247.12824, %if.then.i1549 ], [ %found.i247.12824, %if.else14.i ], [ 1, %if.end19.i1392 ], [ %found.i247.12824, %if.end6.i1664.thread ], [ %found.i247.12824, %if.end6.i1642.thread ], [ %found.i247.12824, %if.else.i1537 ], [ %found.i247.12824, %if.else.i1547 ], [ %found.i247.12824, %do.body.i1656 ], [ %found.i247.12824, %do.body.i ]
   %302 = load i32, ptr %numGroups.i, align 4
   %tobool.i61.i.not = icmp eq i32 %302, 0
   br i1 %tobool.i61.i.not, label %if.end14.i.loopexit, label %if.end.i63.i
@@ -8007,14 +8007,14 @@ if.end14.i.loopexit:                              ; preds = %for.end.i5997, %mmb
 
 if.end14.i:                                       ; preds = %if.end19.i3432, %for.end.i5745, %mmbit_get_flat_block.exit.i5779, %if.end.i5901, %if.then3.i261, %if.end14.i.loopexit, %mmbit_iterate.exit95.i
   %.pr2635 = phi i8 [ %219, %mmbit_iterate.exit95.i ], [ %.pr2635.pre, %if.end14.i.loopexit ], [ %219, %if.then3.i261 ], [ %219, %if.end.i5901 ], [ %219, %mmbit_get_flat_block.exit.i5779 ], [ %219, %for.end.i5745 ], [ %219, %if.end19.i3432 ]
-  %mloc.i.1.lcssa = phi i64 [ 0, %mmbit_iterate.exit95.i ], [ %mloc.i.3, %if.end14.i.loopexit ], [ 0, %if.then3.i261 ], [ 0, %if.end.i5901 ], [ 0, %mmbit_get_flat_block.exit.i5779 ], [ 0, %for.end.i5745 ], [ 0, %if.end19.i3432 ]
-  %found.i247.0.lcssa = phi i8 [ 0, %mmbit_iterate.exit95.i ], [ %found.i247.1, %if.end14.i.loopexit ], [ 0, %if.then3.i261 ], [ 0, %if.end.i5901 ], [ 0, %mmbit_get_flat_block.exit.i5779 ], [ 0, %for.end.i5745 ], [ 0, %if.end19.i3432 ]
+  %mloc.i.4.lcssa = phi i64 [ 0, %mmbit_iterate.exit95.i ], [ %mloc.i.5, %if.end14.i.loopexit ], [ 0, %if.then3.i261 ], [ 0, %if.end.i5901 ], [ 0, %mmbit_get_flat_block.exit.i5779 ], [ 0, %for.end.i5745 ], [ 0, %if.end19.i3432 ]
+  %found.i247.1.lcssa = phi i8 [ 0, %mmbit_iterate.exit95.i ], [ %found.i247.2, %if.end14.i.loopexit ], [ 0, %if.then3.i261 ], [ 0, %if.end.i5901 ], [ 0, %mmbit_get_flat_block.exit.i5779 ], [ 0, %for.end.i5745 ], [ 0, %if.end19.i3432 ]
   %cmp17.i.not = icmp eq i8 %.pr2635, 2
   br i1 %cmp17.i.not, label %castleFindMatch.exit, label %if.then19.i257
 
 if.then19.i257:                                   ; preds = %if.end.i254, %if.end14.i
-  %found.i247.22640 = phi i8 [ %found.i247.0.lcssa, %if.end14.i ], [ 0, %if.end.i254 ]
-  %mloc.i.42639 = phi i64 [ %mloc.i.1.lcssa, %if.end14.i ], [ 0, %if.end.i254 ]
+  %found.i247.02640 = phi i8 [ %found.i247.1.lcssa, %if.end14.i ], [ 0, %if.end.i254 ]
+  %mloc.i.32639 = phi i64 [ %mloc.i.4.lcssa, %if.end14.i ], [ 0, %if.end.i254 ]
   %331 = load i32, ptr %activeOffset.i, align 4
   %idx.ext21.i259 = zext i32 %331 to i64
   %add.ptr22.i260 = getelementptr inbounds i8, ptr %218, i64 %idx.ext21.i259
@@ -8245,8 +8245,8 @@ for.body28.i.lr.ph:                               ; preds = %if.then94.i6286, %i
 for.body28.i:                                     ; preds = %for.body28.i.lr.ph, %mmbit_iterate.exit.i
   %353 = phi i32 [ %332, %for.body28.i.lr.ph ], [ %408, %mmbit_iterate.exit.i ]
   %i23.i.02871 = phi i32 [ %retval.i36.i.03106, %for.body28.i.lr.ph ], [ %retval.i.i.0, %mmbit_iterate.exit.i ]
-  %found.i247.32870 = phi i8 [ %found.i247.22640, %for.body28.i.lr.ph ], [ %found.i247.4, %mmbit_iterate.exit.i ]
-  %mloc.i.52869 = phi i64 [ %mloc.i.42639, %for.body28.i.lr.ph ], [ %mloc.i.7, %mmbit_iterate.exit.i ]
+  %found.i247.42870 = phi i8 [ %found.i247.02640, %for.body28.i.lr.ph ], [ %found.i247.5, %mmbit_iterate.exit.i ]
+  %mloc.i.82869 = phi i64 [ %mloc.i.32639, %for.body28.i.lr.ph ], [ %mloc.i.9, %mmbit_iterate.exit.i ]
   %idxprom.i.i1426 = zext i32 %i23.i.02871 to i64
   %arrayidx.i.i1427 = getelementptr inbounds %struct.SubCastle, ptr %add.ptr.i.i1383, i64 %idxprom.i.i1426
   %repeatInfoOffset.i = getelementptr inbounds i8, ptr %arrayidx.i.i1427, i64 12
@@ -8517,14 +8517,14 @@ if.else14.i1438:                                  ; preds = %sw.bb1.i1488, %repe
 
 if.end19.i1440:                                   ; preds = %if.else14.i1438
   %sub23.i1442 = sub i64 %retval.i1482.02647, %sp.i.02888
-  %tobool.i1443.not = icmp eq i8 %found.i247.32870, 0
-  %407 = tail call i64 @llvm.umin.i64(i64 %sub23.i1442, i64 %mloc.i.52869)
-  %mloc.i.6 = select i1 %tobool.i1443.not, i64 %sub23.i1442, i64 %407
+  %tobool.i1443.not = icmp eq i8 %found.i247.42870, 0
+  %407 = tail call i64 @llvm.umin.i64(i64 %sub23.i1442, i64 %mloc.i.82869)
+  %mloc.i.10 = select i1 %tobool.i1443.not, i64 %sub23.i1442, i64 %407
   br label %subCastleFindMatch.exit1463
 
 subCastleFindMatch.exit1463:                      ; preds = %do.body.i1681, %do.body.i1706, %if.else.i1527, %if.else.i1518, %if.end6.i1689.thread, %if.end6.i1714.thread, %if.else14.i1438, %if.then.i1520, %if.then.i1529, %if.end19.i1440
-  %mloc.i.7 = phi i64 [ %mloc.i.52869, %if.then.i1520 ], [ %mloc.i.52869, %if.then.i1529 ], [ %mloc.i.52869, %if.else14.i1438 ], [ %mloc.i.6, %if.end19.i1440 ], [ %mloc.i.52869, %if.end6.i1714.thread ], [ %mloc.i.52869, %if.end6.i1689.thread ], [ %mloc.i.52869, %if.else.i1518 ], [ %mloc.i.52869, %if.else.i1527 ], [ %mloc.i.52869, %do.body.i1706 ], [ %mloc.i.52869, %do.body.i1681 ]
-  %found.i247.4 = phi i8 [ %found.i247.32870, %if.then.i1520 ], [ %found.i247.32870, %if.then.i1529 ], [ %found.i247.32870, %if.else14.i1438 ], [ 1, %if.end19.i1440 ], [ %found.i247.32870, %if.end6.i1714.thread ], [ %found.i247.32870, %if.end6.i1689.thread ], [ %found.i247.32870, %if.else.i1518 ], [ %found.i247.32870, %if.else.i1527 ], [ %found.i247.32870, %do.body.i1706 ], [ %found.i247.32870, %do.body.i1681 ]
+  %mloc.i.9 = phi i64 [ %mloc.i.82869, %if.then.i1520 ], [ %mloc.i.82869, %if.then.i1529 ], [ %mloc.i.82869, %if.else14.i1438 ], [ %mloc.i.10, %if.end19.i1440 ], [ %mloc.i.82869, %if.end6.i1714.thread ], [ %mloc.i.82869, %if.end6.i1689.thread ], [ %mloc.i.82869, %if.else.i1518 ], [ %mloc.i.82869, %if.else.i1527 ], [ %mloc.i.82869, %do.body.i1706 ], [ %mloc.i.82869, %do.body.i1681 ]
+  %found.i247.5 = phi i8 [ %found.i247.42870, %if.then.i1520 ], [ %found.i247.42870, %if.then.i1529 ], [ %found.i247.42870, %if.else14.i1438 ], [ 1, %if.end19.i1440 ], [ %found.i247.42870, %if.end6.i1714.thread ], [ %found.i247.42870, %if.end6.i1689.thread ], [ %found.i247.42870, %if.else.i1518 ], [ %found.i247.42870, %if.else.i1527 ], [ %found.i247.42870, %do.body.i1706 ], [ %found.i247.42870, %do.body.i1681 ]
   %408 = load i32, ptr %add.ptr.i, align 32
   %tobool.i.i.not = icmp eq i32 %408, 0
   br i1 %tobool.i.i.not, label %castleFindMatch.exit, label %if.end.i.i
@@ -8836,8 +8836,8 @@ mmbit_iterate.exit.i:                             ; preds = %if.then11.i3666, %i
   br i1 %cmp26.i.not, label %castleFindMatch.exit, label %for.body28.i, !llvm.loop !22
 
 castleFindMatch.exit:                             ; preds = %if.end19.i3572, %for.end.i6501, %mmbit_get_flat_block.exit.i6535, %if.else.i6616, %if.then4.i6662, %if.end.i.i, %subCastleFindMatch.exit1463, %mmbit_iterate.exit.i, %if.end19.i3642, %for.end.i6249, %mmbit_get_flat_block.exit.i6283, %if.end.i6405, %if.then19.i257, %mmbit_iterate.exit55.i, %if.end14.i
-  %mloc.i.9 = phi i64 [ %mloc.i.1.lcssa, %if.end14.i ], [ %mloc.i.42639, %mmbit_iterate.exit55.i ], [ %mloc.i.42639, %if.then19.i257 ], [ %mloc.i.42639, %if.end.i6405 ], [ %mloc.i.42639, %mmbit_get_flat_block.exit.i6283 ], [ %mloc.i.42639, %for.end.i6249 ], [ %mloc.i.7, %if.end19.i3642 ], [ %mloc.i.7, %mmbit_iterate.exit.i ], [ %mloc.i.7, %subCastleFindMatch.exit1463 ], [ %mloc.i.7, %if.end.i.i ], [ %mloc.i.7, %if.then4.i6662 ], [ %mloc.i.7, %if.else.i6616 ], [ %mloc.i.7, %mmbit_get_flat_block.exit.i6535 ], [ %mloc.i.7, %for.end.i6501 ], [ %mloc.i.42639, %if.end19.i3572 ]
-  %retval.i243.0 = phi i8 [ %found.i247.0.lcssa, %if.end14.i ], [ %found.i247.22640, %mmbit_iterate.exit55.i ], [ %found.i247.22640, %if.then19.i257 ], [ %found.i247.22640, %if.end.i6405 ], [ %found.i247.22640, %mmbit_get_flat_block.exit.i6283 ], [ %found.i247.22640, %for.end.i6249 ], [ %found.i247.4, %if.end19.i3642 ], [ %found.i247.4, %mmbit_iterate.exit.i ], [ %found.i247.4, %subCastleFindMatch.exit1463 ], [ %found.i247.4, %if.end.i.i ], [ %found.i247.4, %if.then4.i6662 ], [ %found.i247.4, %if.else.i6616 ], [ %found.i247.4, %mmbit_get_flat_block.exit.i6535 ], [ %found.i247.4, %for.end.i6501 ], [ %found.i247.22640, %if.end19.i3572 ]
+  %mloc.i.2 = phi i64 [ %mloc.i.4.lcssa, %if.end14.i ], [ %mloc.i.32639, %mmbit_iterate.exit55.i ], [ %mloc.i.32639, %if.then19.i257 ], [ %mloc.i.32639, %if.end.i6405 ], [ %mloc.i.32639, %mmbit_get_flat_block.exit.i6283 ], [ %mloc.i.32639, %for.end.i6249 ], [ %mloc.i.9, %if.end19.i3642 ], [ %mloc.i.9, %mmbit_iterate.exit.i ], [ %mloc.i.9, %subCastleFindMatch.exit1463 ], [ %mloc.i.9, %if.end.i.i ], [ %mloc.i.9, %if.then4.i6662 ], [ %mloc.i.9, %if.else.i6616 ], [ %mloc.i.9, %mmbit_get_flat_block.exit.i6535 ], [ %mloc.i.9, %for.end.i6501 ], [ %mloc.i.32639, %if.end19.i3572 ]
+  %retval.i243.0 = phi i8 [ %found.i247.1.lcssa, %if.end14.i ], [ %found.i247.02640, %mmbit_iterate.exit55.i ], [ %found.i247.02640, %if.then19.i257 ], [ %found.i247.02640, %if.end.i6405 ], [ %found.i247.02640, %mmbit_get_flat_block.exit.i6283 ], [ %found.i247.02640, %for.end.i6249 ], [ %found.i247.5, %if.end19.i3642 ], [ %found.i247.5, %mmbit_iterate.exit.i ], [ %found.i247.5, %subCastleFindMatch.exit1463 ], [ %found.i247.5, %if.end.i.i ], [ %found.i247.5, %if.then4.i6662 ], [ %found.i247.5, %if.else.i6616 ], [ %found.i247.5, %mmbit_get_flat_block.exit.i6535 ], [ %found.i247.5, %for.end.i6501 ], [ %found.i247.02640, %if.end19.i3572 ]
   %tobool55.i.not = icmp eq i8 %retval.i243.0, 0
   br i1 %tobool55.i.not, label %if.end77.i, label %if.then56.i
 
@@ -8849,7 +8849,7 @@ if.then56.i:                                      ; preds = %castleFindMatch.exi
   %arrayidx.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom.i
   store i32 0, ptr %arrayidx.i, align 8
   %436 = load i64, ptr %offset.i37, align 8
-  %sub62.i = add i64 %mloc.i.9, %sp.i.02888
+  %sub62.i = add i64 %mloc.i.2, %sp.i.02888
   %add63.i = sub i64 %sub62.i, %436
   %location.i = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i38, i64 0, i64 %idxprom.i, i32 1
   store i64 %add63.i, ptr %location.i, align 8
@@ -10186,8 +10186,8 @@ sw.bb6.i.i:                                       ; preds = %if.end.i.i1343
   br i1 %cmp.i185.i, label %if.end13.i1340, label %if.then11.i1345
 
 if.then11.i1345:                                  ; preds = %sw.bb6.i.i, %sw.bb4.i.i1344, %rnvermicelliExec.exit.i, %rvermicelliExec.exit.i
-  %loc.10.i = phi i64 [ %sub.ptr.sub.i189.i, %sw.bb6.i.i ], [ %sub.ptr.sub.i148.i, %sw.bb4.i.i1344 ], [ %sub.ptr.sub.i107.i, %rnvermicelliExec.exit.i ], [ %sub.ptr.sub.i69.i, %rvermicelliExec.exit.i ]
-  %sub.i1346 = sub nsw i64 %loc.10.i, %41
+  %loc.6.i = phi i64 [ %sub.ptr.sub.i189.i, %sw.bb6.i.i ], [ %sub.ptr.sub.i148.i, %sw.bb4.i.i1344 ], [ %sub.ptr.sub.i107.i, %rnvermicelliExec.exit.i ], [ %sub.ptr.sub.i69.i, %rvermicelliExec.exit.i ]
+  %sub.i1346 = sub nsw i64 %loc.6.i, %41
   br label %castleLastKillLoc.exit
 
 if.end13.i1340:                                   ; preds = %sw.bb6.i.i, %sw.bb4.i.i1344, %rnvermicelliExec.exit.i, %rvermicelliExec.exit.i, %if.end.i.i1343, %if.then7.i1341, %if.end5.i, %if.then.i1351

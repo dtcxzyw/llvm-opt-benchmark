@@ -279,7 +279,7 @@ pack_xcast.exit:                                  ; preds = %37, %46, %51, %56, 
 
 84:                                               ; preds = %.lr.ph, %92
   %.044 = phi ptr [ %.041, %.lr.ph ], [ %.0, %92 ]
-  %.02243 = phi i32 [ 0, %.lr.ph ], [ %.1, %92 ]
+  %.02243 = phi i32 [ 0, %.lr.ph ], [ %.2, %92 ]
   %85 = getelementptr inbounds i8, ptr %.044, i64 152
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 16
@@ -293,14 +293,14 @@ pack_xcast.exit:                                  ; preds = %37, %46, %51, %56, 
   br i1 %91, label %.loopexit, label %92
 
 92:                                               ; preds = %84, %89
-  %.1 = phi i32 [ %90, %89 ], [ %.02243, %84 ]
+  %.2 = phi i32 [ %90, %89 ], [ %.02243, %84 ]
   %93 = getelementptr inbounds i8, ptr %.044, i64 120
   %.0 = load ptr, ptr %93, align 8
   %.not35 = icmp eq ptr %.0, getelementptr inbounds (i8, ptr @prte_grpcomm_base, i64 120)
   br i1 %.not35, label %.loopexit, label %84, !llvm.loop !4
 
 .loopexit:                                        ; preds = %89, %92, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %89 ], [ %.1, %92 ]
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %89 ], [ %.2, %92 ]
   %.not37 = icmp eq ptr %.pr.pre, null
   br i1 %.not37, label %95, label %94
 
@@ -309,7 +309,7 @@ pack_xcast.exit:                                  ; preds = %37, %46, %51, %56, 
   br label %95
 
 95:                                               ; preds = %.loopexit, %94, %81, %83, %30
-  %.023 = phi i32 [ %29, %30 ], [ %.0.i, %83 ], [ %.0.i, %81 ], [ %.2, %94 ], [ %.2, %.loopexit ]
+  %.023 = phi i32 [ %29, %30 ], [ %.0.i, %83 ], [ %.0.i, %81 ], [ %.1, %94 ], [ %.1, %.loopexit ]
   ret i32 %.023
 }
 

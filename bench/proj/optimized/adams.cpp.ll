@@ -839,8 +839,8 @@ _ZL9ell_int_5d.exit201:                           ; preds = %155
   %204 = fmul double %203, 0x3FE6A09E667F3BCD
   %205 = fadd double %201, %202
   %206 = fmul double %205, 0x3FE6A09E667F3BCD
-  %.sroa.0.3 = select i1 %174, double %204, double %201
-  %.sroa.26.3 = select i1 %174, double %206, double %202
+  %.sroa.0.4 = select i1 %174, double %204, double %201
+  %.sroa.26.4 = select i1 %174, double %206, double %202
   %.not = icmp eq i32 %173, 4
   br i1 %.not, label %.thread210, label %207
 
@@ -851,8 +851,8 @@ _ZL9ell_int_5d.exit201:                           ; preds = %155
 .thread210:                                       ; preds = %199
   %209 = fcmp olt double %1, 0.000000e+00
   %210 = fsub double 0x400DAA4A35759E4B, %201
-  %.sroa.0.4 = select i1 %209, double %210, double %201
-  %211 = fadd double %.sroa.0.4, 0xBFFDAA4A35759E4B
+  %.sroa.0.6 = select i1 %209, double %210, double %201
+  %211 = fadd double %.sroa.0.6, 0xBFFDAA4A35759E4B
   %212 = getelementptr inbounds i8, ptr %9, i64 8
   %213 = load double, ptr %212, align 8
   %214 = fcmp oeq double %213, 0.000000e+00
@@ -878,8 +878,8 @@ _ZL9ell_int_5d.exit201:                           ; preds = %155
 223:                                              ; preds = %207
   %224 = fcmp olt double %1, 0.000000e+00
   %225 = fsub double 0x400DAA4A35759E4B, %202
-  %.sroa.26.4 = select i1 %224, double %225, double %202
-  %226 = fadd double %.sroa.26.4, 0xBFFDAA4A35759E4B
+  %.sroa.26.6 = select i1 %224, double %225, double %202
+  %226 = fadd double %.sroa.26.6, 0xBFFDAA4A35759E4B
   %227 = getelementptr inbounds i8, ptr %9, i64 16
   %228 = load double, ptr %227, align 8
   %229 = fcmp une double %228, 0.000000e+00
@@ -911,8 +911,8 @@ _ZL9ell_int_5d.exit201:                           ; preds = %155
   br label %.thread221
 
 .thread221:                                       ; preds = %207, %.thread210, %219, %221, %217, %_ZL9ell_int_5d.exit201, %223, %233, %237, %235, %239, %73, %50, %45, %22, %15
-  %.sroa.0172.0 = phi double [ %.sroa.0172.0.copyload175, %73 ], [ %.sroa.0172.0.copyload173, %45 ], [ %.sroa.0172.0.copyload174, %50 ], [ %.sroa.0172.0.copyload, %15 ], [ 0.000000e+00, %22 ], [ %241, %239 ], [ %.sroa.0.3, %223 ], [ %.sroa.0.3, %235 ], [ %.sroa.0.3, %237 ], [ %.sroa.0.3, %233 ], [ %169, %_ZL9ell_int_5d.exit201 ], [ %.sroa.0.3, %207 ], [ %211, %.thread210 ], [ %215, %219 ], [ %222, %221 ], [ %218, %217 ]
-  %.sroa.7.0 = phi double [ %.sroa.7.0.copyload181, %73 ], [ %.sroa.7.0.copyload177, %45 ], [ %.sroa.7.0.copyload179, %50 ], [ %.sroa.7.0.copyload, %15 ], [ %24, %22 ], [ %243, %239 ], [ %226, %223 ], [ %231, %235 ], [ %238, %237 ], [ %234, %233 ], [ %170, %_ZL9ell_int_5d.exit201 ], [ %.sroa.26.3, %207 ], [ %.sroa.26.3, %.thread210 ], [ %.sroa.26.3, %219 ], [ %.sroa.26.3, %221 ], [ %.sroa.26.3, %217 ]
+  %.sroa.0172.0 = phi double [ %.sroa.0172.0.copyload175, %73 ], [ %.sroa.0172.0.copyload173, %45 ], [ %.sroa.0172.0.copyload174, %50 ], [ %.sroa.0172.0.copyload, %15 ], [ 0.000000e+00, %22 ], [ %241, %239 ], [ %.sroa.0.4, %223 ], [ %.sroa.0.4, %235 ], [ %.sroa.0.4, %237 ], [ %.sroa.0.4, %233 ], [ %169, %_ZL9ell_int_5d.exit201 ], [ %.sroa.0.4, %207 ], [ %211, %.thread210 ], [ %215, %219 ], [ %222, %221 ], [ %218, %217 ]
+  %.sroa.7.0 = phi double [ %.sroa.7.0.copyload181, %73 ], [ %.sroa.7.0.copyload177, %45 ], [ %.sroa.7.0.copyload179, %50 ], [ %.sroa.7.0.copyload, %15 ], [ %24, %22 ], [ %243, %239 ], [ %226, %223 ], [ %231, %235 ], [ %238, %237 ], [ %234, %233 ], [ %170, %_ZL9ell_int_5d.exit201 ], [ %.sroa.26.4, %207 ], [ %.sroa.26.4, %.thread210 ], [ %.sroa.26.4, %219 ], [ %.sroa.26.4, %221 ], [ %.sroa.26.4, %217 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0172.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.0, 1
   ret { double, double } %.fca.1.insert

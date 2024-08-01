@@ -184,8 +184,8 @@ while.body27.i.i.i.i:                             ; preds = %if.else.i.i.i19.i, 
   br i1 %cmp.i.not.i.i.i.i24.i, label %while.body27.i.i.i.i, label %while.end33.i.i.i.i, !llvm.loop !6
 
 while.end33.i.i.i.i:                              ; preds = %while.body27.i.i.i.i, %if.else.i.i.i19.i
-  %__x.i.sroa.0.1 = phi ptr [ %storemerge10.i.i.i.i, %if.else.i.i.i19.i ], [ %storemerge.i.i.i23.i, %while.body27.i.i.i.i ]
-  %arrayidx.i8.i.i.i.i = getelementptr i8, ptr %__x.i.sroa.0.1, i64 10
+  %__x.i.sroa.0.3 = phi ptr [ %storemerge10.i.i.i.i, %if.else.i.i.i19.i ], [ %storemerge.i.i.i23.i, %while.body27.i.i.i.i ]
+  %arrayidx.i8.i.i.i.i = getelementptr i8, ptr %__x.i.sroa.0.3, i64 10
   %14 = load i8, ptr %arrayidx.i8.i.i.i.i, align 1
   %conv36.i.i.i.i = zext i8 %14 to i32
   br label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i
@@ -195,12 +195,12 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i
 
 _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i: ; preds = %land.rhs.i.i.i12.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i.loopexit.split.loop.exit12, %while.end33.i.i.i.i, %land.lhs.true.i.i7.i
-  %__x.i.sroa.0.3 = phi ptr [ %tree_it.coerce0, %land.lhs.true.i.i7.i ], [ %__x.i.sroa.0.1, %while.end33.i.i.i.i ], [ %7, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i.loopexit.split.loop.exit12 ], [ %tree_it.coerce0, %land.rhs.i.i.i12.i ]
+  %__x.i.sroa.0.2 = phi ptr [ %tree_it.coerce0, %land.lhs.true.i.i7.i ], [ %__x.i.sroa.0.3, %while.end33.i.i.i.i ], [ %7, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i.loopexit.split.loop.exit12 ], [ %tree_it.coerce0, %land.rhs.i.i.i12.i ]
   %__x.i.sroa.10.2.in = phi i32 [ %tree_it.coerce1, %land.lhs.true.i.i7.i ], [ %conv36.i.i.i.i, %while.end33.i.i.i.i ], [ %conv8.i.i.i18.i.le, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i.loopexit.split.loop.exit12 ], [ %tree_it.coerce1, %land.rhs.i.i.i12.i ]
   %__x.i.sroa.10.2 = add i32 %__x.i.sroa.10.2.in, 255
   %15 = and i32 %__x.i.sroa.10.2, 255
   %conv6.i.i = zext nneg i32 %15 to i64
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.i.sroa.0.3, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.i.sroa.0.2, i64 16
   %second = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i.i, i64 %conv6.i.i, i32 0, i32 1
   %16 = load ptr, ptr %second, align 8
   %17 = load ptr, ptr %16, align 8
@@ -380,8 +380,8 @@ while.body27.i.i.i.i:                             ; preds = %if.else.i.i.i19.i, 
   br i1 %cmp.i.not.i.i.i.i24.i, label %while.body27.i.i.i.i, label %while.end33.i.i.i.i, !llvm.loop !6
 
 while.end33.i.i.i.i:                              ; preds = %while.body27.i.i.i.i, %if.else.i.i.i19.i
-  %__x.i.sroa.0.1 = phi ptr [ %storemerge10.i.i.i.i, %if.else.i.i.i19.i ], [ %storemerge.i.i.i23.i, %while.body27.i.i.i.i ]
-  %arrayidx.i8.i.i.i.i = getelementptr i8, ptr %__x.i.sroa.0.1, i64 10
+  %__x.i.sroa.0.3 = phi ptr [ %storemerge10.i.i.i.i, %if.else.i.i.i19.i ], [ %storemerge.i.i.i23.i, %while.body27.i.i.i.i ]
+  %arrayidx.i8.i.i.i.i = getelementptr i8, ptr %__x.i.sroa.0.3, i64 10
   %21 = load i8, ptr %arrayidx.i8.i.i.i.i, align 1
   %conv36.i.i.i.i = zext i8 %21 to i32
   br label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i
@@ -391,12 +391,12 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i
 
 _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i: ; preds = %land.rhs.i.i.i12.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i.loopexit.split.loop.exit39, %while.end33.i.i.i.i, %land.lhs.true.i.i7.i
-  %__x.i.sroa.0.3 = phi ptr [ %it.sroa.0.0.copyload, %land.lhs.true.i.i7.i ], [ %__x.i.sroa.0.1, %while.end33.i.i.i.i ], [ %14, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i.loopexit.split.loop.exit39 ], [ %it.sroa.0.0.copyload, %land.rhs.i.i.i12.i ]
+  %__x.i.sroa.0.2 = phi ptr [ %it.sroa.0.0.copyload, %land.lhs.true.i.i7.i ], [ %__x.i.sroa.0.3, %while.end33.i.i.i.i ], [ %14, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i.loopexit.split.loop.exit39 ], [ %it.sroa.0.0.copyload, %land.rhs.i.i.i12.i ]
   %__x.i.sroa.10.2.in = phi i32 [ %it.sroa.4.0.copyload, %land.lhs.true.i.i7.i ], [ %conv36.i.i.i.i, %while.end33.i.i.i.i ], [ %conv8.i.i.i18.i.le, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.i.loopexit.split.loop.exit39 ], [ %it.sroa.4.0.copyload, %land.rhs.i.i.i12.i ]
   %__x.i.sroa.10.2 = add i32 %__x.i.sroa.10.2.in, 255
   %22 = and i32 %__x.i.sroa.10.2, 255
   %conv6.i.i = zext nneg i32 %22 to i64
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.i.sroa.0.3, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.i.sroa.0.2, i64 16
   %second = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i.i.i, i64 %conv6.i.i, i32 0, i32 1
   %23 = load ptr, ptr %second, align 8
   %24 = load ptr, ptr %node.addr, align 8
@@ -604,8 +604,8 @@ while.body27.i.i.i:                               ; preds = %if.else.i.i.i, %whi
   br i1 %cmp.i.not.i.i.i.i, label %while.body27.i.i.i, label %while.end33.i.i.i, !llvm.loop !6
 
 while.end33.i.i.i:                                ; preds = %while.body27.i.i.i, %if.else.i.i.i
-  %it.sroa.0.1 = phi ptr [ %storemerge10.i.i.i, %if.else.i.i.i ], [ %storemerge.i.i.i, %while.body27.i.i.i ]
-  %arrayidx.i8.i.i.i = getelementptr i8, ptr %it.sroa.0.1, i64 10
+  %it.sroa.0.2 = phi ptr [ %storemerge10.i.i.i, %if.else.i.i.i ], [ %storemerge.i.i.i, %while.body27.i.i.i ]
+  %arrayidx.i8.i.i.i = getelementptr i8, ptr %it.sroa.0.2, i64 10
   %20 = load i8, ptr %arrayidx.i8.i.i.i, align 1
   %conv36.i.i.i = zext i8 %20 to i32
   br label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit
@@ -615,7 +615,7 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit
 
 _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit: ; preds = %land.rhs.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.loopexit.split.loop.exit20, %while.end33.i.i.i, %land.lhs.true.i.i
-  %it.sroa.0.3 = phi ptr [ %it.sroa.0.0, %land.lhs.true.i.i ], [ %it.sroa.0.1, %while.end33.i.i.i ], [ %13, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.loopexit.split.loop.exit20 ], [ %it.sroa.0.0, %land.rhs.i.i.i ]
+  %it.sroa.0.3 = phi ptr [ %it.sroa.0.0, %land.lhs.true.i.i ], [ %it.sroa.0.2, %while.end33.i.i.i ], [ %13, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.loopexit.split.loop.exit20 ], [ %it.sroa.0.0, %land.rhs.i.i.i ]
   %it.sroa.9.2.in = phi i32 [ %it.sroa.9.0, %land.lhs.true.i.i ], [ %conv36.i.i.i, %while.end33.i.i.i ], [ %conv8.i.i.i.le, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit.loopexit.split.loop.exit20 ], [ %it.sroa.9.0, %land.rhs.i.i.i ]
   %it.sroa.9.2 = add nsw i32 %it.sroa.9.2.in, -1
   %21 = and i32 %it.sroa.9.2, 255
@@ -1693,8 +1693,8 @@ do.body:                                          ; preds = %do.body.backedge, %
   br i1 %cmp.i.not.i53, label %while.body22, label %if.end28
 
 while.body22:                                     ; preds = %do.body, %while.body22
-  %node.addr.183 = phi ptr [ %11, %while.body22 ], [ %9, %do.body ]
-  %add.ptr.i.i.i.i56 = getelementptr inbounds i8, ptr %node.addr.183, i64 256
+  %node.addr.283 = phi ptr [ %11, %while.body22 ], [ %9, %do.body ]
+  %add.ptr.i.i.i.i56 = getelementptr inbounds i8, ptr %node.addr.283, i64 256
   %11 = load ptr, ptr %add.ptr.i.i.i.i56, align 8
   %arrayidx.i.i54 = getelementptr i8, ptr %11, i64 11
   %12 = load i8, ptr %arrayidx.i.i54, align 1
@@ -1709,7 +1709,7 @@ while.end24:                                      ; preds = %while.body22
   br label %if.end28
 
 if.end28:                                         ; preds = %while.end24, %do.body
-  %node.addr.2 = phi ptr [ %11, %while.end24 ], [ %9, %do.body ]
+  %node.addr.1 = phi ptr [ %11, %while.end24 ], [ %9, %do.body ]
   %pos.2 = phi i64 [ %conv26, %while.end24 ], [ %pos.1, %do.body ]
   %parent.2 = phi ptr [ %14, %while.end24 ], [ %parent.1, %do.body ]
   %15 = load ptr, ptr %alloc, align 8
@@ -1717,7 +1717,7 @@ if.end28:                                         ; preds = %while.end24, %do.bo
   br i1 %cmp.i.i.i.i65, label %if.then.i.i.i.i66, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10deallocateEmPSI_PSG_.exit67
 
 if.then.i.i.i.i66:                                ; preds = %if.end28
-  tail call void @_ZdlPv(ptr noundef nonnull %node.addr.2) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %node.addr.1) #20
   br label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10deallocateEmPSI_PSG_.exit67
 
 _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10deallocateEmPSI_PSG_.exit67: ; preds = %if.end28, %if.then.i.i.i.i66
@@ -1942,8 +1942,8 @@ while.body27.i.i.i:                               ; preds = %if.else.i.i.i, %whi
   br i1 %cmp.i.not.i.i.i.i, label %while.body27.i.i.i, label %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit, !llvm.loop !6
 
 _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit: ; preds = %while.body27.i.i.i, %if.else.i.i.i
-  %iter.sroa.0.0 = phi ptr [ %storemerge10.i.i.i, %if.else.i.i.i ], [ %storemerge.i.i.i, %while.body27.i.i.i ]
-  %arrayidx.i8.i.i.i = getelementptr i8, ptr %iter.sroa.0.0, i64 10
+  %iter.sroa.0.2 = phi ptr [ %storemerge10.i.i.i, %if.else.i.i.i ], [ %storemerge.i.i.i, %while.body27.i.i.i ]
+  %arrayidx.i8.i.i.i = getelementptr i8, ptr %iter.sroa.0.2, i64 10
   %5 = load i8, ptr %arrayidx.i8.i.i.i, align 1
   %conv36.i.i.i = zext i8 %5 to i32
   %sub37.i.i.i = add nsw i32 %conv36.i.i.i, -1
@@ -1951,7 +1951,7 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   %conv9 = sext i32 %sub37.i.i.i to i64
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %iter.coerce0, i64 16
   %arrayidx.i.i4 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i, i64 %conv7
-  %add.ptr.i.i.i1.i = getelementptr inbounds i8, ptr %iter.sroa.0.0, i64 16
+  %add.ptr.i.i.i1.i = getelementptr inbounds i8, ptr %iter.sroa.0.2, i64 16
   %arrayidx.i2.i = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i1.i, i64 %conv9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %arrayidx.i.i4, ptr noundef nonnull align 1 dereferenceable(24) %arrayidx.i2.i, i64 24, i1 false)
   br label %if.end
@@ -1985,9 +1985,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   br i1 %cmp.not.i, label %if.end, label %for.body.i, !llvm.loop !58
 
 if.end:                                           ; preds = %for.body.i, %if.else, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit
-  %iter.sroa.14.2 = phi i32 [ %sub37.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit ], [ %iter.coerce1, %if.else ], [ %iter.coerce1, %for.body.i ]
-  %iter.sroa.0.3 = phi ptr [ %iter.sroa.0.0, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit ], [ %iter.coerce0, %if.else ], [ %iter.coerce0, %for.body.i ]
-  %arrayidx.i8 = getelementptr i8, ptr %iter.sroa.0.3, i64 10
+  %iter.sroa.14.0 = phi i32 [ %sub37.i.i.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit ], [ %iter.coerce1, %if.else ], [ %iter.coerce1, %for.body.i ]
+  %iter.sroa.0.0 = phi ptr [ %iter.sroa.0.2, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS7_8NodeBaseESt4lessIS8_ENS7_12MapAllocatorISt4pairIKS8_SA_EEELi256ELb0EEEEERSG_PSG_EmmEv.exit ], [ %iter.coerce0, %if.else ], [ %iter.coerce0, %for.body.i ]
+  %arrayidx.i8 = getelementptr i8, ptr %iter.sroa.0.0, i64 10
   %8 = load i8, ptr %arrayidx.i8, align 1
   %sub30 = add i8 %8, -1
   store i8 %sub30, ptr %arrayidx.i8, align 1
@@ -1995,7 +1995,7 @@ if.end:                                           ; preds = %for.body.i, %if.els
   %9 = load i64, ptr %size_, align 8
   %dec = add i64 %9, -1
   store i64 %dec, ptr %size_, align 8
-  %call32 = tail call { ptr, i32 } @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE22rebalance_after_deleteENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %iter.sroa.0.3, i32 %iter.sroa.14.2)
+  %call32 = tail call { ptr, i32 } @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE22rebalance_after_deleteENS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr %iter.sroa.0.0, i32 %iter.sroa.14.0)
   %10 = extractvalue { ptr, i32 } %call32, 0
   %11 = extractvalue { ptr, i32 } %call32, 1
   br i1 %cmp.i.not.i, label %if.then34, label %if.end36
@@ -2052,10 +2052,10 @@ if.end36.loopexit48.split.loop.exit:              ; preds = %while.body.i.i.i22
   br label %if.end36
 
 if.end36:                                         ; preds = %land.rhs.i.i.i18, %while.cond24.i.i.i, %if.end36.loopexit48.split.loop.exit, %land.lhs.true.i.i13, %if.end
-  %retval.sroa.0.2 = phi ptr [ %10, %if.end ], [ %10, %land.lhs.true.i.i13 ], [ %15, %if.end36.loopexit48.split.loop.exit ], [ %storemerge.i.i.i28, %while.cond24.i.i.i ], [ %10, %land.rhs.i.i.i18 ]
-  %retval.sroa.7.2 = phi i32 [ %11, %if.end ], [ %inc.i.i, %land.lhs.true.i.i13 ], [ %conv8.i.i.i24.le, %if.end36.loopexit48.split.loop.exit ], [ 0, %while.cond24.i.i.i ], [ %inc.i.i, %land.rhs.i.i.i18 ]
-  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.2, 0
-  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.7.2, 1
+  %retval.sroa.0.0 = phi ptr [ %10, %if.end ], [ %10, %land.lhs.true.i.i13 ], [ %15, %if.end36.loopexit48.split.loop.exit ], [ %storemerge.i.i.i28, %while.cond24.i.i.i ], [ %10, %land.rhs.i.i.i18 ]
+  %retval.sroa.7.0 = phi i32 [ %11, %if.end ], [ %inc.i.i, %land.lhs.true.i.i13 ], [ %conv8.i.i.i24.le, %if.end36.loopexit48.split.loop.exit ], [ 0, %while.cond24.i.i.i ], [ %inc.i.i, %land.rhs.i.i.i18 ]
+  %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.7.0, 1
   ret { ptr, i32 } %.fca.1.insert
 }
 
@@ -2071,8 +2071,8 @@ entry:
   br i1 %cmp23, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %if.end16, %entry
-  %res.sroa.10.0.lcssa = phi i32 [ %iter.coerce1, %entry ], [ %res.sroa.10.1, %if.end16 ]
-  %res.sroa.0.0.lcssa = phi ptr [ %iter.coerce0, %entry ], [ %res.sroa.0.1, %if.end16 ]
+  %res.sroa.10.0.lcssa = phi i32 [ %iter.coerce1, %entry ], [ %res.sroa.10.2, %if.end16 ]
+  %res.sroa.0.0.lcssa = phi ptr [ %iter.coerce0, %entry ], [ %res.sroa.0.2, %if.end16 ]
   %.lcssa = phi ptr [ %1, %entry ], [ %14, %if.end16 ]
   %arrayidx.i.i.i = getelementptr i8, ptr %.lcssa, i64 10
   %2 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -2122,8 +2122,8 @@ if.then3:                                         ; preds = %_ZN4absl12lts_20230
 if.end5:                                          ; preds = %entry, %if.end16
   %10 = phi ptr [ %13, %if.end16 ], [ %iter.coerce0, %entry ]
   %first_iteration.026 = phi i1 [ false, %if.end16 ], [ true, %entry ]
-  %res.sroa.0.025 = phi ptr [ %res.sroa.0.1, %if.end16 ], [ %iter.coerce0, %entry ]
-  %res.sroa.10.024 = phi i32 [ %res.sroa.10.1, %if.end16 ], [ %iter.coerce1, %entry ]
+  %res.sroa.0.025 = phi ptr [ %res.sroa.0.2, %if.end16 ], [ %iter.coerce0, %entry ]
+  %res.sroa.10.024 = phi i32 [ %res.sroa.10.2, %if.end16 ], [ %iter.coerce1, %entry ]
   %arrayidx.i.i3 = getelementptr i8, ptr %10, i64 10
   %11 = load i8, ptr %arrayidx.i.i3, align 1
   %cmp8 = icmp ugt i8 %11, 4
@@ -2133,8 +2133,8 @@ if.end10:                                         ; preds = %if.end5
   %call11 = call noundef zeroext i1 @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE22try_merge_or_rebalanceEPNS1_14btree_iteratorINS1_10btree_nodeISH_EERSF_PSF_EE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %iter)
   %res.sroa.0.0.copyload10 = load ptr, ptr %iter, align 8
   %res.sroa.10.0.copyload14 = load i32, ptr %0, align 8
-  %res.sroa.10.1 = select i1 %first_iteration.026, i32 %res.sroa.10.0.copyload14, i32 %res.sroa.10.024
-  %res.sroa.0.1 = select i1 %first_iteration.026, ptr %res.sroa.0.0.copyload10, ptr %res.sroa.0.025
+  %res.sroa.10.2 = select i1 %first_iteration.026, i32 %res.sroa.10.0.copyload14, i32 %res.sroa.10.024
+  %res.sroa.0.2 = select i1 %first_iteration.026, ptr %res.sroa.0.0.copyload10, ptr %res.sroa.0.025
   br i1 %call11, label %if.end16, label %for.end
 
 if.end16:                                         ; preds = %if.end10
@@ -2149,22 +2149,22 @@ if.end16:                                         ; preds = %if.end10
   br i1 %cmp, label %if.then, label %if.end5, !llvm.loop !59
 
 for.end:                                          ; preds = %if.end10, %if.end5, %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10try_shrinkEv.exit
-  %res.sroa.10.2 = phi i32 [ %res.sroa.10.0.lcssa, %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10try_shrinkEv.exit ], [ %res.sroa.10.1, %if.end10 ], [ %res.sroa.10.024, %if.end5 ]
-  %res.sroa.0.2 = phi ptr [ %res.sroa.0.0.lcssa, %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10try_shrinkEv.exit ], [ %res.sroa.0.1, %if.end10 ], [ %res.sroa.0.025, %if.end5 ]
-  %arrayidx.i = getelementptr i8, ptr %res.sroa.0.2, i64 10
+  %res.sroa.10.1 = phi i32 [ %res.sroa.10.0.lcssa, %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10try_shrinkEv.exit ], [ %res.sroa.10.2, %if.end10 ], [ %res.sroa.10.024, %if.end5 ]
+  %res.sroa.0.1 = phi ptr [ %res.sroa.0.0.lcssa, %_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIN6google8protobuf8internal10VariantKeyEPNS6_8NodeBaseESt4lessIS7_ENS6_12MapAllocatorISt4pairIKS7_S9_EEELi256ELb0EEEE10try_shrinkEv.exit ], [ %res.sroa.0.2, %if.end10 ], [ %res.sroa.0.025, %if.end5 ]
+  %arrayidx.i = getelementptr i8, ptr %res.sroa.0.1, i64 10
   %15 = load i8, ptr %arrayidx.i, align 1
   %conv26 = zext i8 %15 to i32
-  %cmp27 = icmp eq i32 %res.sroa.10.2, %conv26
+  %cmp27 = icmp eq i32 %res.sroa.10.1, %conv26
   br i1 %cmp27, label %if.then28, label %return
 
 if.then28:                                        ; preds = %for.end
-  %arrayidx.i.i.i6 = getelementptr i8, ptr %res.sroa.0.2, i64 11
+  %arrayidx.i.i.i6 = getelementptr i8, ptr %res.sroa.0.1, i64 11
   %16 = load i8, ptr %arrayidx.i.i.i6, align 1
   %cmp.i.not.i.i = icmp eq i8 %16, 0
   br i1 %cmp.i.not.i.i, label %if.else.i.i.i, label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %if.then28, %while.body.i.i.i
-  %17 = phi ptr [ %18, %while.body.i.i.i ], [ %res.sroa.0.2, %if.then28 ]
+  %17 = phi ptr [ %18, %while.body.i.i.i ], [ %res.sroa.0.1, %if.then28 ]
   %18 = load ptr, ptr %17, align 8
   %arrayidx.i.i.i.i.i = getelementptr i8, ptr %18, i64 11
   %19 = load i8, ptr %arrayidx.i.i.i.i.i, align 1
@@ -2180,7 +2180,7 @@ while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   br i1 %cmp.i2.i.i, label %land.rhs.i.i.i, label %return.loopexit19.split.loop.exit29, !llvm.loop !19
 
 if.else.i.i.i:                                    ; preds = %if.then28
-  %add.ptr.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %res.sroa.0.2, i64 256
+  %add.ptr.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %res.sroa.0.1, i64 256
   %idxprom.i.i.i.i = zext i8 %15 to i64
   %arrayidx.i4.i.i.i = getelementptr inbounds ptr, ptr %add.ptr.i.i.i3.i.i.i, i64 %idxprom.i.i.i.i
   br label %while.cond24.i.i.i
@@ -2199,8 +2199,8 @@ return.loopexit19.split.loop.exit29:              ; preds = %while.body.i.i.i
   br label %return
 
 return:                                           ; preds = %land.rhs.i.i.i, %while.cond24.i.i.i, %return.loopexit19.split.loop.exit29, %for.end, %if.then3
-  %retval.sroa.0.0 = phi ptr [ %8, %if.then3 ], [ %res.sroa.0.2, %for.end ], [ %18, %return.loopexit19.split.loop.exit29 ], [ %storemerge.i.i.i, %while.cond24.i.i.i ], [ %res.sroa.0.2, %land.rhs.i.i.i ]
-  %retval.sroa.3.0 = phi i32 [ %conv.i, %if.then3 ], [ %res.sroa.10.2, %for.end ], [ %conv8.i.i.i.le, %return.loopexit19.split.loop.exit29 ], [ 0, %while.cond24.i.i.i ], [ %res.sroa.10.2, %land.rhs.i.i.i ]
+  %retval.sroa.0.0 = phi ptr [ %8, %if.then3 ], [ %res.sroa.0.1, %for.end ], [ %18, %return.loopexit19.split.loop.exit29 ], [ %storemerge.i.i.i, %while.cond24.i.i.i ], [ %res.sroa.0.1, %land.rhs.i.i.i ]
+  %retval.sroa.3.0 = phi i32 [ %conv.i, %if.then3 ], [ %res.sroa.10.1, %for.end ], [ %conv8.i.i.i.le, %return.loopexit19.split.loop.exit29 ], [ 0, %while.cond24.i.i.i ], [ %res.sroa.10.1, %land.rhs.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %retval.sroa.3.0, 1
   ret { ptr, i32 } %.fca.1.insert

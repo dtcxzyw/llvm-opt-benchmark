@@ -714,7 +714,7 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef %0) unnamed_addr 
   br i1 %15, label %.lr.ph36, label %._crit_edge
 
 .lr.ph36:                                         ; preds = %.lr.ph, %55
-  %.0172835 = phi i64 [ %53, %55 ], [ 0, %.lr.ph ]
+  %.12835 = phi i64 [ %53, %55 ], [ 0, %.lr.ph ]
   %indvars.iv34 = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %12, align 8
   %17 = getelementptr %union.ListCell, ptr %16, i64 %indvars.iv34
@@ -727,7 +727,7 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef %0) unnamed_addr 
 
 23:                                               ; preds = %.lr.ph36, %calculate_relation_size.exit
   %.026 = phi i32 [ 0, %.lr.ph36 ], [ %54, %calculate_relation_size.exit ]
-  %.125 = phi i64 [ %.0172835, %.lr.ph36 ], [ %53, %calculate_relation_size.exit ]
+  %.225 = phi i64 [ %.12835, %.lr.ph36 ], [ %53, %calculate_relation_size.exit ]
   %24 = load i32, ptr %20, align 4
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
@@ -788,7 +788,7 @@ define internal fastcc i64 @calculate_indexes_size(ptr noundef %0) unnamed_addr 
 calculate_relation_size.exit:                     ; preds = %41
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
-  %53 = add i64 %.011.i, %.125
+  %53 = add i64 %.011.i, %.225
   %54 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %54, 4
   br i1 %exitcond.not, label %55, label %23, !llvm.loop !11
@@ -802,13 +802,13 @@ calculate_relation_size.exit:                     ; preds = %41
   br i1 %58, label %.lr.ph36, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55, %.lr.ph, %9
-  %.017.lcssa = phi i64 [ 0, %9 ], [ 0, %.lr.ph ], [ %53, %55 ]
+  %.1.lcssa = phi i64 [ 0, %9 ], [ 0, %.lr.ph ], [ %53, %55 ]
   call void @list_free(ptr noundef %10) #9
   br label %59
 
 59:                                               ; preds = %._crit_edge, %1
-  %.2 = phi i64 [ %.017.lcssa, %._crit_edge ], [ 0, %1 ]
-  ret i64 %.2
+  %.017 = phi i64 [ %.1.lcssa, %._crit_edge ], [ 0, %1 ]
+  ret i64 %.017
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1054,8 +1054,8 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
   br i1 %.not79.not, label %.loopexit, label %.preheader98
 
 .preheader98:                                     ; preds = %19, %.preheader98
-  %.167 = phi ptr [ %23, %.preheader98 ], [ %.066, %19 ]
-  %23 = getelementptr i8, ptr %.167, i64 1
+  %.2 = phi ptr [ %23, %.preheader98 ], [ %.066, %19 ]
+  %23 = getelementptr i8, ptr %.2, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
   %26 = getelementptr i16, ptr %9, i64 %25
@@ -1066,12 +1066,12 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
 
 .loopexit:                                        ; preds = %.preheader98, %19
   %29 = phi i8 [ %21, %19 ], [ %24, %.preheader98 ]
-  %.2 = phi ptr [ %.066, %19 ], [ %23, %.preheader98 ]
+  %.167 = phi ptr [ %.066, %19 ], [ %23, %.preheader98 ]
   %30 = icmp eq i8 %29, 46
   br i1 %30, label %31, label %44
 
 31:                                               ; preds = %.loopexit
-  %32 = getelementptr i8, ptr %.2, i64 1
+  %32 = getelementptr i8, ptr %.167, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i64
   %35 = getelementptr i16, ptr %9, i64 %34
@@ -1081,8 +1081,8 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
   br i1 %.not81, label %44, label %.preheader97
 
 .preheader97:                                     ; preds = %31, %.preheader97
-  %.3 = phi ptr [ %38, %.preheader97 ], [ %32, %31 ]
-  %38 = getelementptr i8, ptr %.3, i64 1
+  %.4 = phi ptr [ %38, %.preheader97 ], [ %32, %31 ]
+  %38 = getelementptr i8, ptr %.4, i64 1
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i64
   %41 = getelementptr i16, ptr %9, i64 %40
@@ -1093,7 +1093,7 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
 
 44:                                               ; preds = %31, %.loopexit
   %45 = phi i8 [ %33, %31 ], [ %29, %.loopexit ]
-  %.4 = phi ptr [ %32, %31 ], [ %.2, %.loopexit ]
+  %.3 = phi ptr [ %32, %31 ], [ %.167, %.loopexit ]
   br i1 %.not79.not, label %46, label %.thread
 
 46:                                               ; preds = %44
@@ -1106,24 +1106,24 @@ define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unn
 
 .thread:                                          ; preds = %.preheader97, %44
   %50 = phi i8 [ %45, %44 ], [ %39, %.preheader97 ]
-  %.492 = phi ptr [ %.4, %44 ], [ %38, %.preheader97 ]
+  %.392 = phi ptr [ %.3, %44 ], [ %38, %.preheader97 ]
   switch i8 %50, label %56 [
     i8 101, label %51
     i8 69, label %51
   ]
 
 51:                                               ; preds = %.thread, %.thread
-  %52 = getelementptr i8, ptr %.492, i64 1
+  %52 = getelementptr i8, ptr %.392, i64 1
   %53 = call i64 @strtol(ptr noundef %52, ptr noundef nonnull %2, i32 noundef 10) #9
   %54 = load ptr, ptr %2, align 8
   %55 = icmp ugt ptr %54, %52
-  %spec.select = select i1 %55, ptr %54, ptr %.492
+  %spec.select = select i1 %55, ptr %54, ptr %.392
   %.pre121 = load i8, ptr %spec.select, align 1
   br label %56
 
 56:                                               ; preds = %51, %.thread
   %57 = phi i8 [ %50, %.thread ], [ %.pre121, %51 ]
-  %.5 = phi ptr [ %.492, %.thread ], [ %spec.select, %51 ]
+  %.5 = phi ptr [ %.392, %.thread ], [ %spec.select, %51 ]
   store i8 0, ptr %.5, align 1
   %58 = ptrtoint ptr %.0 to i64
   %59 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef %58, i64 noundef 0, i64 noundef -1) #9

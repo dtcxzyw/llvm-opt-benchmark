@@ -5199,7 +5199,7 @@ _ZN6vectorIP4sortLb0EjE6resizeEj.exit:            ; preds = %_ZNK6vectorIP4sortL
 
 for.cond116:                                      ; preds = %_ZN6vectorIP4sortLb0EjE6resizeEj.exit, %for.inc141
   %indvars.iv558 = phi i64 [ 0, %_ZN6vectorIP4sortLb0EjE6resizeEj.exit ], [ %indvars.iv.next559, %for.inc141 ]
-  %q_idx.0 = phi i32 [ 0, %_ZN6vectorIP4sortLb0EjE6resizeEj.exit ], [ %q_idx.2, %for.inc141 ]
+  %q_idx.0 = phi i32 [ 0, %_ZN6vectorIP4sortLb0EjE6resizeEj.exit ], [ %q_idx.1, %for.inc141 ]
   %102 = load ptr, ptr %m_sorts.i170, align 8
   %cmp.i.i171 = icmp eq ptr %102, null
   br i1 %cmp.i.i171, label %invoke.cont118, label %if.end.i.i172
@@ -5314,7 +5314,7 @@ if.else134:                                       ; preds = %if.end127, %_ZNK6ve
   br label %if.end135
 
 if.end135:                                        ; preds = %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit, %if.else134
-  %q_idx.1 = phi i32 [ %inc131, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ], [ %q_idx.0, %if.else134 ]
+  %q_idx.2 = phi i32 [ %inc131, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ], [ %q_idx.0, %if.else134 ]
   %new_idx.0 = phi i32 [ %q_idx.0, %_ZN6vectorIP4sortLb0EjE9push_backERKS1_.exit ], [ %add, %if.else134 ]
   %117 = load ptr, ptr %this, align 8
   %call138 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %117, i32 noundef %new_idx.0, ptr noundef nonnull %105)
@@ -5368,7 +5368,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %for.inc141
 
 for.inc141:                                       ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit222, %invoke.cont123
-  %q_idx.2 = phi i32 [ %q_idx.1, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit222 ], [ %q_idx.0, %invoke.cont123 ]
+  %q_idx.1 = phi i32 [ %q_idx.2, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit222 ], [ %q_idx.0, %invoke.cont123 ]
   %indvars.iv.next559 = add nuw nsw i64 %indvars.iv558, 1
   br label %for.cond116, !llvm.loop !42
 

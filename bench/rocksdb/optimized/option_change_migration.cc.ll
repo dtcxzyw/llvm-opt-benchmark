@@ -293,7 +293,7 @@ lpad12.i:                                         ; preds = %call.i.noexc.i, %in
   br label %ehcleanup.i
 
 nrvo.unused.i:                                    ; preds = %land.lhs.true.i, %invoke.cont13.i
-  %need_compact.0.i = phi i1 [ false, %invoke.cont13.i ], [ %cmp19.not.i, %land.lhs.true.i ]
+  %need_compact.1.i = phi i1 [ false, %invoke.cont13.i ], [ %cmp19.not.i, %land.lhs.true.i ]
   call void @_ZN7rocksdb20ColumnFamilyMetaDataD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %metadata.i) #12
   %state_.i.i12 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %18 = load ptr, ptr %state_.i.i12, align 8, !alias.scope !7
@@ -309,25 +309,25 @@ _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_del
   br label %nrvo.skipdtor.i
 
 nrvo.skipdtor.i:                                  ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i, %cleanup.thread.i
-  %need_compact.142.i = phi i1 [ false, %cleanup.thread.i ], [ %need_compact.0.i, %_ZN7rocksdb6StatusD2Ev.exit.i ]
-  %db.sroa.0.03241.i = phi ptr [ null, %cleanup.thread.i ], [ %10, %_ZN7rocksdb6StatusD2Ev.exit.i ]
+  %need_compact.042.i = phi i1 [ false, %cleanup.thread.i ], [ %need_compact.1.i, %_ZN7rocksdb6StatusD2Ev.exit.i ]
+  %db.sroa.0.23241.i = phi ptr [ null, %cleanup.thread.i ], [ %10, %_ZN7rocksdb6StatusD2Ev.exit.i ]
   call void @_ZN7rocksdb19ColumnFamilyOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(820) %5) #12
   call void @_ZN7rocksdb9DBOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %opts.i) #12
-  %cmp.not.i.i = icmp eq ptr %db.sroa.0.03241.i, null
+  %cmp.not.i.i = icmp eq ptr %db.sroa.0.23241.i, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i.i: ; preds = %nrvo.skipdtor.i
-  %vtable.i.i.i = load ptr, ptr %db.sroa.0.03241.i, align 8
+  %vtable.i.i.i = load ptr, ptr %db.sroa.0.23241.i, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
   %19 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %db.sroa.0.03241.i) #12
+  call void %19(ptr noundef nonnull align 8 dereferenceable(8) %db.sroa.0.23241.i) #12
   br label %_ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i.i, %nrvo.skipdtor.i
   br i1 %cmp.i.i.i, label %cleanup.cont.i, label %invoke.cont
 
 cleanup.cont.i:                                   ; preds = %_ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EED2Ev.exit.i
-  br i1 %need_compact.142.i, label %if.then26.i, label %invoke.cont.sink.split
+  br i1 %need_compact.042.i, label %if.then26.i, label %invoke.cont.sink.split
 
 if.then26.i:                                      ; preds = %cleanup.cont.i
   %20 = load i32, ptr %num_levels2.i, align 8, !noalias !7
@@ -808,18 +808,18 @@ _ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EED2Ev.exit: ; preds = %nrv
   ret void
 
 ehcleanup26:                                      ; preds = %lpad5, %_ZN7rocksdb6StatusD2Ev.exit
-  %db.sroa.0.4 = phi ptr [ %db.sroa.0.1, %_ZN7rocksdb6StatusD2Ev.exit ], [ null, %lpad5 ]
+  %db.sroa.0.2 = phi ptr [ %db.sroa.0.1, %_ZN7rocksdb6StatusD2Ev.exit ], [ null, %lpad5 ]
   %.pn = phi { ptr, i32 } [ %4, %_ZN7rocksdb6StatusD2Ev.exit ], [ %3, %lpad5 ]
   call void @_ZN7rocksdb19ColumnFamilyOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(820) %0) #12
   call void @_ZN7rocksdb9DBOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(688) %no_compact_opts) #12
-  %cmp.not.i54 = icmp eq ptr %db.sroa.0.4, null
+  %cmp.not.i54 = icmp eq ptr %db.sroa.0.2, null
   br i1 %cmp.not.i54, label %_ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EED2Ev.exit58, label %_ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i55
 
 _ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i55: ; preds = %ehcleanup26
-  %vtable.i.i56 = load ptr, ptr %db.sroa.0.4, align 8
+  %vtable.i.i56 = load ptr, ptr %db.sroa.0.2, align 8
   %vfn.i.i57 = getelementptr inbounds i8, ptr %vtable.i.i56, i64 24
   %30 = load ptr, ptr %vfn.i.i57, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(8) %db.sroa.0.4) #12
+  call void %30(ptr noundef nonnull align 8 dereferenceable(8) %db.sroa.0.2) #12
   br label %_ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EED2Ev.exit58
 
 _ZNSt10unique_ptrIN7rocksdb2DBESt14default_deleteIS1_EED2Ev.exit58: ; preds = %lpad.i.i, %ehcleanup26, %_ZNKSt14default_deleteIN7rocksdb2DBEEclEPS1_.exit.i55

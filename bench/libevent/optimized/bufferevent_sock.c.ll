@@ -359,9 +359,9 @@ if.then.i:                                        ; preds = %if.end57
   br label %done
 
 error:                                            ; preds = %if.end23, %if.then30, %entry, %if.end53
-  %what.1 = phi i16 [ 1, %if.end53 ], [ 65, %entry ], [ 33, %if.then30 ], [ 17, %if.end23 ]
+  %what.0 = phi i16 [ 1, %if.end53 ], [ 65, %entry ], [ 33, %if.then30 ], [ 17, %if.end23 ]
   %call60 = tail call i32 @bufferevent_disable(ptr noundef %arg, i16 noundef signext 2) #10
-  tail call void @bufferevent_run_eventcb_(ptr noundef %arg, i16 noundef signext %what.1, i32 noundef 0) #10
+  tail call void @bufferevent_run_eventcb_(ptr noundef %arg, i16 noundef signext %what.0, i32 noundef 0) #10
   br label %done
 
 done:                                             ; preds = %if.then.i, %if.end57, %if.then30, %if.then30, %if.end14, %error, %if.then41, %if.then12
@@ -528,9 +528,9 @@ if.then99:                                        ; preds = %reschedule
   br label %done
 
 error:                                            ; preds = %if.then45, %if.then54, %entry, %if.end74
-  %what.1 = phi i16 [ 2, %if.end74 ], [ 66, %entry ], [ 34, %if.then54 ], [ 18, %if.then45 ]
+  %what.0 = phi i16 [ 2, %if.end74 ], [ 66, %entry ], [ 34, %if.then54 ], [ 18, %if.then45 ]
   %call103 = call i32 @bufferevent_disable(ptr noundef %arg, i16 noundef signext 4) #10
-  call void @bufferevent_run_eventcb_(ptr noundef %arg, i16 noundef signext %what.1, i32 noundef 0) #10
+  call void @bufferevent_run_eventcb_(ptr noundef %arg, i16 noundef signext %what.0, i32 noundef 0) #10
   br label %done
 
 done:                                             ; preds = %if.then15.i, %if.then93, %reschedule, %if.then99, %if.end89, %if.end37, %if.end14, %error, %if.then32, %if.then25

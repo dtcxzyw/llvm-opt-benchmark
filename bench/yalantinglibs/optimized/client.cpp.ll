@@ -7040,7 +7040,7 @@ entry:
   br i1 %cmp.i.i.i.i3.i.i, label %while.cond, label %while.cond.us
 
 while.cond.us:                                    ; preds = %entry, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us
-  %__beg.sroa.0.0.us = phi ptr [ %__beg.sroa.0.1.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %__beg.coerce0, %entry ]
+  %__beg.sroa.0.0.us = phi ptr [ %__beg.sroa.0.2.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %__beg.coerce0, %entry ]
   %__beg.sroa.11.0.us = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %__beg.coerce1, %entry ]
   %__len.0.us = phi i64 [ %inc.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ 0, %entry ]
   %tobool.not.i.i.i.i.us = icmp ne ptr %__beg.sroa.0.0.us, null
@@ -7055,7 +7055,7 @@ land.lhs.true2.i.i.i.i.us:                        ; preds = %while.cond.us
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; preds = %land.lhs.true2.i.i.i.i.us, %while.cond.us
-  %__beg.sroa.0.1.us = phi ptr [ %__beg.sroa.0.0.us, %while.cond.us ], [ %spec.select.us, %land.lhs.true2.i.i.i.i.us ]
+  %__beg.sroa.0.2.us = phi ptr [ %__beg.sroa.0.0.us, %while.cond.us ], [ %spec.select.us, %land.lhs.true2.i.i.i.i.us ]
   %__ret.0.i.i.i.i.us = phi i32 [ %__beg.sroa.11.0.us, %while.cond.us ], [ %call4.i.i.i.i.us, %land.lhs.true2.i.i.i.i.us ]
   %cmp.i.i.i.i.i.us = icmp eq i32 %__ret.0.i.i.i.i.us, -1
   %cmp.us = icmp ult i64 %__len.0.us, 15
@@ -7063,12 +7063,12 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; pred
   br i1 %or.cond.us, label %while.body.us, label %while.cond5.preheader
 
 while.body.us:                                    ; preds = %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us
-  %tobool.not.i.i.us = icmp ne ptr %__beg.sroa.0.1.us, null
+  %tobool.not.i.i.us = icmp ne ptr %__beg.sroa.0.2.us, null
   %or.cond.i.i.us = select i1 %tobool.not.i.i.us, i1 %cmp.i.i.i.i.i.i.us, i1 false
   br i1 %or.cond.i.i.us, label %land.lhs.true2.i.i.us, label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us
 
 land.lhs.true2.i.i.us:                            ; preds = %while.body.us
-  %call4.i.i.us = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.1.us)
+  %call4.i.i.us = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.2.us)
   %cmp.i.i2.i.i.us = icmp ne i32 %call4.i.i.us, -1
   tail call void @llvm.assume(i1 %cmp.i.i2.i.i.us)
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us
@@ -7079,12 +7079,12 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us: ; preds = %land.lh
   %inc.us = add nuw nsw i64 %__len.0.us, 1
   %arrayidx.us = getelementptr inbounds i8, ptr %0, i64 %__len.0.us
   store i8 %conv.i.i.us, ptr %arrayidx.us, align 1
-  %call.i.us = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.1.us)
+  %call.i.us = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.2.us)
   br label %while.cond.us, !llvm.loop !78
 
 while.cond:                                       ; preds = %entry, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
-  %__beg.sroa.0.0 = phi ptr [ %__beg.sroa.0.1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %__beg.coerce0, %entry ]
-  %__end.sroa.0.0 = phi ptr [ %__end.sroa.0.1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %__end.coerce0, %entry ]
+  %__beg.sroa.0.0 = phi ptr [ %__beg.sroa.0.2, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %__beg.coerce0, %entry ]
+  %__end.sroa.0.0 = phi ptr [ %__end.sroa.0.2, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %__end.coerce0, %entry ]
   %__beg.sroa.11.0 = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %__beg.coerce1, %entry ]
   %__len.0 = phi i64 [ %inc, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ 0, %entry ]
   %tobool.not.i.i.i.i = icmp ne ptr %__beg.sroa.0.0, null
@@ -7099,7 +7099,7 @@ land.lhs.true2.i.i.i.i:                           ; preds = %while.cond
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i: ; preds = %land.lhs.true2.i.i.i.i, %while.cond
-  %__beg.sroa.0.1 = phi ptr [ %__beg.sroa.0.0, %while.cond ], [ %spec.select, %land.lhs.true2.i.i.i.i ]
+  %__beg.sroa.0.2 = phi ptr [ %__beg.sroa.0.0, %while.cond ], [ %spec.select, %land.lhs.true2.i.i.i.i ]
   %__ret.0.i.i.i.i = phi i32 [ %__beg.sroa.11.0, %while.cond ], [ %call4.i.i.i.i, %land.lhs.true2.i.i.i.i ]
   %tobool.not.i.i2.i.i.not = icmp eq ptr %__end.sroa.0.0, null
   br i1 %tobool.not.i.i2.i.i.not, label %_ZSteqIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit, label %land.lhs.true2.i.i7.i.i
@@ -7111,7 +7111,7 @@ land.lhs.true2.i.i7.i.i:                          ; preds = %_ZNKSt19istreambuf_
   br label %_ZSteqIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
 
 _ZSteqIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = %land.lhs.true2.i.i7.i.i, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i
-  %__end.sroa.0.1 = phi ptr [ null, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %spec.select88, %land.lhs.true2.i.i7.i.i ]
+  %__end.sroa.0.2 = phi ptr [ null, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %spec.select88, %land.lhs.true2.i.i7.i.i ]
   %__ret.0.i.i5.i.i = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %call4.i.i8.i.i, %land.lhs.true2.i.i7.i.i ]
   %cmp.i.i.i.i.i = icmp eq i32 %__ret.0.i.i.i.i, -1
   %1 = icmp eq i32 %__ret.0.i.i5.i.i, -1
@@ -7121,8 +7121,8 @@ _ZSteqIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   br i1 %or.cond, label %while.body, label %while.cond5.preheader
 
 while.cond5.preheader:                            ; preds = %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us, %_ZSteqIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
-  %.us-phi = phi ptr [ %__end.sroa.0.1, %_ZSteqIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %__end.coerce0, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
-  %.us-phi95 = phi ptr [ %__beg.sroa.0.1, %_ZSteqIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %__beg.sroa.0.1.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
+  %.us-phi = phi ptr [ %__end.sroa.0.2, %_ZSteqIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %__end.coerce0, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
+  %.us-phi95 = phi ptr [ %__beg.sroa.0.2, %_ZSteqIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %__beg.sroa.0.2.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
   %.us-phi97 = phi i32 [ %__beg.sroa.11.0, %_ZSteqIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %__beg.sroa.11.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
   %.us-phi98 = phi i64 [ %__len.0, %_ZSteqIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %__len.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
   %2 = icmp ne i32 %__end.coerce1.fr, -1
@@ -7130,12 +7130,12 @@ while.cond5.preheader:                            ; preds = %_ZNKSt19istreambuf_
   br label %while.cond5
 
 while.body:                                       ; preds = %_ZSteqIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
-  %tobool.not.i.i = icmp ne ptr %__beg.sroa.0.1, null
+  %tobool.not.i.i = icmp ne ptr %__beg.sroa.0.2, null
   %or.cond.i.i = select i1 %tobool.not.i.i, i1 %cmp.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i, label %land.lhs.true2.i.i, label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
 
 land.lhs.true2.i.i:                               ; preds = %while.body
-  %call4.i.i = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.1)
+  %call4.i.i = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.2)
   %cmp.i.i2.i.i = icmp ne i32 %call4.i.i, -1
   tail call void @llvm.assume(i1 %cmp.i.i2.i.i)
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
@@ -7146,38 +7146,38 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit: ; preds = %land.lhs.t
   %inc = add nuw nsw i64 %__len.0, 1
   %arrayidx = getelementptr inbounds i8, ptr %0, i64 %__len.0
   store i8 %conv.i.i, ptr %arrayidx, align 1
-  %call.i = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.1)
+  %call.i = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.2)
   br label %while.cond, !llvm.loop !78
 
 while.cond5:                                      ; preds = %while.cond5.preheader, %invoke.cont18
-  %__beg.sroa.0.3 = phi ptr [ %__beg.sroa.0.4, %invoke.cont18 ], [ %.us-phi95, %while.cond5.preheader ]
-  %__end.sroa.0.2 = phi ptr [ %__end.sroa.0.384, %invoke.cont18 ], [ %.us-phi, %while.cond5.preheader ]
-  %__capacity.0 = phi i64 [ %__capacity.2, %invoke.cont18 ], [ 15, %while.cond5.preheader ]
+  %__beg.sroa.0.1 = phi ptr [ %__beg.sroa.0.4, %invoke.cont18 ], [ %.us-phi95, %while.cond5.preheader ]
+  %__end.sroa.0.1 = phi ptr [ %__end.sroa.0.384, %invoke.cont18 ], [ %.us-phi, %while.cond5.preheader ]
+  %__capacity.0 = phi i64 [ %__capacity.1, %invoke.cont18 ], [ 15, %while.cond5.preheader ]
   %__beg.sroa.11.1 = phi i32 [ -1, %invoke.cont18 ], [ %.us-phi97, %while.cond5.preheader ]
   %__len.1 = phi i64 [ %inc16, %invoke.cont18 ], [ %.us-phi98, %while.cond5.preheader ]
-  %tobool.not.i.i.i.i10 = icmp ne ptr %__beg.sroa.0.3, null
+  %tobool.not.i.i.i.i10 = icmp ne ptr %__beg.sroa.0.1, null
   %cmp.i.i.i.i.i.i11 = icmp eq i32 %__beg.sroa.11.1, -1
   %or.cond.i.i.i.i12 = select i1 %tobool.not.i.i.i.i10, i1 %cmp.i.i.i.i.i.i11, i1 false
   br i1 %or.cond.i.i.i.i12, label %land.lhs.true2.i.i.i.i26, label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i13
 
 land.lhs.true2.i.i.i.i26:                         ; preds = %while.cond5
-  %call4.i.i.i.i2730 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.3)
+  %call4.i.i.i.i2730 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %__beg.sroa.0.1)
           to label %call4.i.i.i.i27.noexc unwind label %if.then.i40.loopexit
 
 call4.i.i.i.i27.noexc:                            ; preds = %land.lhs.true2.i.i.i.i26
   %cmp.i.i2.i.i.i.i28 = icmp eq i32 %call4.i.i.i.i2730, -1
-  %spec.select90 = select i1 %cmp.i.i2.i.i.i.i28, ptr null, ptr %__beg.sroa.0.3
+  %spec.select90 = select i1 %cmp.i.i2.i.i.i.i28, ptr null, ptr %__beg.sroa.0.1
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i13
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i13: ; preds = %call4.i.i.i.i27.noexc, %while.cond5
-  %__beg.sroa.0.4 = phi ptr [ %__beg.sroa.0.3, %while.cond5 ], [ %spec.select90, %call4.i.i.i.i27.noexc ]
+  %__beg.sroa.0.4 = phi ptr [ %__beg.sroa.0.1, %while.cond5 ], [ %spec.select90, %call4.i.i.i.i27.noexc ]
   %__ret.0.i.i.i.i14 = phi i32 [ %__beg.sroa.11.1, %while.cond5 ], [ %call4.i.i.i.i2730, %call4.i.i.i.i27.noexc ]
-  %tobool.not.i.i2.i.i16 = icmp ne ptr %__end.sroa.0.2, null
+  %tobool.not.i.i2.i.i16 = icmp ne ptr %__end.sroa.0.1, null
   %or.cond.i.i4.i.i18 = and i1 %tobool.not.i.i2.i.i16, %cmp.i.i.i.i3.i.i
   br i1 %or.cond.i.i4.i.i18, label %land.lhs.true2.i.i7.i.i22, label %invoke.cont
 
 land.lhs.true2.i.i7.i.i22:                        ; preds = %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i13
-  %call4.i.i8.i.i2331 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %__end.sroa.0.2)
+  %call4.i.i8.i.i2331 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %__end.sroa.0.1)
           to label %call4.i.i8.i.i23.noexc unwind label %if.then.i40.loopexit
 
 call4.i.i8.i.i23.noexc:                           ; preds = %land.lhs.true2.i.i7.i.i22
@@ -7197,7 +7197,7 @@ invoke.cont:                                      ; preds = %_ZNKSt19istreambuf_
   br i1 %cmp.i.i21, label %_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructISt19istreambuf_iteratorIcS2_EEEvT_S8_St18input_iterator_tagEN6_GuardD2Ev.exit68, label %while.body8
 
 while.body8:                                      ; preds = %call4.i.i8.i.i23.noexc.invoke.cont_crit_edge, %if.then.i.i10.i.i25, %invoke.cont
-  %__end.sroa.0.384 = phi ptr [ null, %if.then.i.i10.i.i25 ], [ %__end.sroa.0.2, %invoke.cont ], [ %__end.sroa.0.2, %call4.i.i8.i.i23.noexc.invoke.cont_crit_edge ]
+  %__end.sroa.0.384 = phi ptr [ null, %if.then.i.i10.i.i25 ], [ %__end.sroa.0.1, %invoke.cont ], [ %__end.sroa.0.1, %call4.i.i8.i.i23.noexc.invoke.cont_crit_edge ]
   %cmp9 = icmp eq i64 %__len.1, %__capacity.0
   br i1 %cmp9, label %if.then, label %while.body8.if.end_crit_edge
 
@@ -7225,8 +7225,8 @@ land.lhs.true.i:                                  ; preds = %if.end.i
   %mul.i = shl nuw i64 %__capacity.0, 1
   %cmp3.i = icmp ult i64 %add, %mul.i
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %mul.i, i64 9223372036854775807)
-  %__capacity.1 = select i1 %cmp3.i, i64 %spec.store.select.i, i64 %add
-  %add.i = add nuw i64 %__capacity.1, 1
+  %__capacity.2 = select i1 %cmp3.i, i64 %spec.store.select.i, i64 %add
+  %add.i = add nuw i64 %__capacity.2, 1
   %cmp.i.i.i = icmp slt i64 %add.i, 0
   br i1 %cmp.i.i.i, label %if.end.i.i.i, label %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i
 
@@ -7239,7 +7239,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i
 
 _ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i: ; preds = %if.end.i, %land.lhs.true.i
   %add.i107 = phi i64 [ %add.i, %land.lhs.true.i ], [ 1, %if.end.i ]
-  %__capacity.1106 = phi i64 [ %__capacity.1, %land.lhs.true.i ], [ 0, %if.end.i ]
+  %__capacity.2106 = phi i64 [ %__capacity.2, %land.lhs.true.i ], [ 0, %if.end.i ]
   %call5.i.i.i34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i107) #34
           to label %invoke.cont10 unwind label %if.then.i40.loopexit
 
@@ -7275,7 +7275,7 @@ if.then.i38:                                      ; preds = %invoke.cont13
 
 invoke.cont14:                                    ; preds = %if.then.i38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i
   store ptr %call5.i.i.i34, ptr %this, align 8
-  store i64 %__capacity.1106, ptr %0, align 8
+  store i64 %__capacity.2106, ptr %0, align 8
   br label %if.end
 
 if.then.i40.loopexit:                             ; preds = %invoke.cont18, %land.lhs.true2.i.i50, %_ZNSt16allocator_traitsISaIcEE8allocateERS0_m.exit.i, %land.lhs.true2.i.i7.i.i22, %land.lhs.true2.i.i.i.i26
@@ -7309,7 +7309,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructISt19istream
 
 if.end:                                           ; preds = %while.body8.if.end_crit_edge, %invoke.cont14
   %8 = phi ptr [ %call5.i.i.i34, %invoke.cont14 ], [ %.pre, %while.body8.if.end_crit_edge ]
-  %__capacity.2 = phi i64 [ %__capacity.1106, %invoke.cont14 ], [ %__capacity.0, %while.body8.if.end_crit_edge ]
+  %__capacity.1 = phi i64 [ %__capacity.2106, %invoke.cont14 ], [ %__capacity.0, %while.body8.if.end_crit_edge ]
   %tobool.not.i.i45 = icmp ne ptr %__beg.sroa.0.4, null
   %or.cond.i.i47 = select i1 %tobool.not.i.i45, i1 %cmp.i.i.i.i.i.i11, i1 false
   br i1 %or.cond.i.i47, label %land.lhs.true2.i.i50, label %invoke.cont18
@@ -10432,9 +10432,9 @@ delete.notnull.i.i:                               ; preds = %cleanup
   br label %_ZN4asio6detail11scoped_lockINS0_11posix_mutexEED2Ev.exit48
 
 _ZN4asio6detail11scoped_lockINS0_11posix_mutexEED2Ev.exit48: ; preds = %_ZNKSt9type_infoeqERKS_.exit.i, %land.lhs.true8.i, %while.body, %while.body.us, %delete.notnull.i.i, %cleanup, %cleanup.thread
-  %retval.1 = phi ptr [ %call3, %cleanup.thread ], [ %.us-phi70, %cleanup ], [ %.us-phi70, %delete.notnull.i.i ], [ %service.066.us, %while.body.us ], [ %service.066, %while.body ], [ %service.066, %land.lhs.true8.i ], [ %service.066, %_ZNKSt9type_infoeqERKS_.exit.i ]
+  %retval.0 = phi ptr [ %call3, %cleanup.thread ], [ %.us-phi70, %cleanup ], [ %.us-phi70, %delete.notnull.i.i ], [ %service.066.us, %while.body.us ], [ %service.066, %while.body ], [ %service.066, %land.lhs.true8.i ], [ %service.066, %_ZNKSt9type_infoeqERKS_.exit.i ]
   %call.i.i47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #30
-  ret ptr %retval.1
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12375,12 +12375,12 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %error.0 = phi i32 [ %call6, %if.then4 ], [ %call2, %if.then ]
+  %error.1 = phi i32 [ %call6, %if.then4 ], [ %call2, %if.then ]
   %call7 = call i32 @pthread_condattr_destroy(ptr noundef nonnull %attr) #30
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end, %entry
-  %error.1 = phi i32 [ %error.0, %if.end ], [ %call, %entry ]
+  %error.0 = phi i32 [ %error.1, %if.end ], [ %call, %entry ]
   %0 = load atomic i8, ptr @_ZGVZN4asio15system_categoryEvE8instance acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont, !prof !5
@@ -12396,12 +12396,12 @@ init.i.i:                                         ; preds = %init.check.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %init.i.i, %init.check.i.i, %if.end8
-  %cmp.i.not.i = icmp eq i32 %error.1, 0
+  %cmp.i.not.i = icmp eq i32 %error.0, 0
   br i1 %cmp.i.not.i, label %invoke.cont10, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i.i)
-  call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %e.i.i, i32 %error.1, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.62)
+  call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %e.i.i, i32 %error.0, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.62)
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 32) #30
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %e.i.i) #30
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
@@ -14191,7 +14191,7 @@ _ZN4asio6detail27conditionally_enabled_mutex6unlockEv.exit.i.i.i.i: ; preds = %i
   br label %_ZN4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneERNS0_27conditionally_enabled_mutex11scoped_lockE.exit.i
 
 _ZN4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneERNS0_27conditionally_enabled_mutex11scoped_lockE.exit.i: ; preds = %_ZN4asio6detail27conditionally_enabled_mutex6unlockEv.exit.i.i.i.i, %if.then.i.i.i
-  %lock.sroa.6.0 = phi i8 [ 0, %_ZN4asio6detail27conditionally_enabled_mutex6unlockEv.exit.i.i.i.i ], [ %.sink.i, %if.then.i.i.i ]
+  %lock.sroa.6.1 = phi i8 [ 0, %_ZN4asio6detail27conditionally_enabled_mutex6unlockEv.exit.i.i.i.i ], [ %.sink.i, %if.then.i.i.i ]
   %call.i.i.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull %event_.i.i) #30
   br label %if.end
 
@@ -14238,8 +14238,8 @@ _ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; preds = %l
   resume { ptr, i32 } %12
 
 if.end:                                           ; preds = %if.end.i, %_ZN4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneERNS0_27conditionally_enabled_mutex11scoped_lockE.exit.i, %land.lhs.true, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit
-  %lock.sroa.6.2 = phi i8 [ %.sink.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit ], [ %.sink.i, %land.lhs.true ], [ %lock.sroa.6.0, %_ZN4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneERNS0_27conditionally_enabled_mutex11scoped_lockE.exit.i ], [ %.sink.i, %if.end.i ]
-  %tobool.i8 = trunc nuw i8 %lock.sroa.6.2 to i1
+  %lock.sroa.6.0 = phi i8 [ %.sink.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit ], [ %.sink.i, %land.lhs.true ], [ %lock.sroa.6.1, %_ZN4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneERNS0_27conditionally_enabled_mutex11scoped_lockE.exit.i ], [ %.sink.i, %if.end.i ]
+  %tobool.i8 = trunc nuw i8 %lock.sroa.6.0 to i1
   br i1 %tobool.i8, label %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit13.sink.split, label %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit13
 
 _ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit13.sink.split: ; preds = %if.end, %if.then.i3.i
@@ -18029,7 +18029,7 @@ lpad10:                                           ; preds = %invoke.cont20
   %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4asio6detail8op_queueINS0_19scheduler_operationEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ops) #30
-  %tobool.i17 = trunc nuw i8 %descriptor_lock.sroa.4.0 to i1
+  %tobool.i17 = trunc nuw i8 %descriptor_lock.sroa.4.1 to i1
   br i1 %tobool.i17, label %if.then.i19, label %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
 
 if.then.i19:                                      ; preds = %lpad10
@@ -18066,7 +18066,7 @@ if.then.i.i:                                      ; preds = %if.then.i24
   br label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %for.end, %if.then.i.i, %if.then.i24
-  %descriptor_lock.sroa.4.0 = phi i8 [ %.sink.i, %for.end ], [ 0, %if.then.i.i ], [ 0, %if.then.i24 ]
+  %descriptor_lock.sroa.4.1 = phi i8 [ %.sink.i, %for.end ], [ 0, %if.then.i.i ], [ 0, %if.then.i24 ]
   %scheduler_ = getelementptr inbounds i8, ptr %this, i64 48
   %22 = load ptr, ptr %scheduler_, align 8
   invoke void @_ZN4asio6detail9scheduler25post_deferred_completionsERNS0_8op_queueINS0_19scheduler_operationEEE(ptr noundef nonnull align 8 dereferenceable(256) %22, ptr noundef nonnull align 8 dereferenceable(16) %ops)
@@ -18121,8 +18121,8 @@ if.else22:                                        ; preds = %_ZN4asio6detail27co
   br label %if.end23
 
 if.end23:                                         ; preds = %_ZN4asio6detail15op_queue_access7destroyINS0_19scheduler_operationEEEvPT_.exit.i, %invoke.cont21, %if.else22
-  %descriptor_lock.sroa.4.1 = phi i8 [ %.sink.i, %if.else22 ], [ %descriptor_lock.sroa.4.0, %invoke.cont21 ], [ %descriptor_lock.sroa.4.0, %_ZN4asio6detail15op_queue_access7destroyINS0_19scheduler_operationEEEvPT_.exit.i ]
-  %tobool.i28 = trunc nuw i8 %descriptor_lock.sroa.4.1 to i1
+  %descriptor_lock.sroa.4.0 = phi i8 [ %.sink.i, %if.else22 ], [ %descriptor_lock.sroa.4.1, %invoke.cont21 ], [ %descriptor_lock.sroa.4.1, %_ZN4asio6detail15op_queue_access7destroyINS0_19scheduler_operationEEEvPT_.exit.i ]
+  %tobool.i28 = trunc nuw i8 %descriptor_lock.sroa.4.0 to i1
   br i1 %tobool.i28, label %if.then.i30, label %return
 
 if.then.i30:                                      ; preds = %if.end23
@@ -18658,7 +18658,7 @@ if.then.i.i:                                      ; preds = %if.then.i2
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %invoke.cont3, %if.then.i.i, %if.then.i2
-  %lock.sroa.4.0 = phi i8 [ %.sink.i, %invoke.cont3 ], [ 0, %if.then.i.i ], [ 0, %if.then.i2 ]
+  %lock.sroa.4.1 = phi i8 [ %.sink.i, %invoke.cont3 ], [ 0, %if.then.i.i ], [ 0, %if.then.i2 ]
   %scheduler_ = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %scheduler_, align 8
   invoke void @_ZN4asio6detail9scheduler25post_deferred_completionsERNS0_8op_queueINS0_19scheduler_operationEEE(ptr noundef nonnull align 8 dereferenceable(256) %2, ptr noundef nonnull align 8 dereferenceable(16) %ops)
@@ -18710,7 +18710,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont.i
   unreachable
 
 _ZN4asio6detail8op_queueINS0_19scheduler_operationEED2Ev.exit: ; preds = %_ZN4asio6detail15op_queue_access7destroyINS0_19scheduler_operationEEEvPT_.exit.i, %invoke.cont5
-  %tobool.i5 = trunc nuw i8 %lock.sroa.4.0 to i1
+  %tobool.i5 = trunc nuw i8 %lock.sroa.4.1 to i1
   br i1 %tobool.i5, label %if.then.i6, label %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
 
 if.then.i6:                                       ; preds = %_ZN4asio6detail8op_queueINS0_19scheduler_operationEED2Ev.exit
@@ -18722,11 +18722,11 @@ _ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; preds = %_
   ret i64 %call
 
 lpad2:                                            ; preds = %invoke.cont4, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit
-  %lock.sroa.4.1 = phi i8 [ %lock.sroa.4.0, %invoke.cont4 ], [ %.sink.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit ]
+  %lock.sroa.4.0 = phi i8 [ %lock.sroa.4.1, %invoke.cont4 ], [ %.sink.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit ]
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4asio6detail8op_queueINS0_19scheduler_operationEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ops) #30
-  %tobool.i9 = trunc nuw i8 %lock.sroa.4.1 to i1
+  %tobool.i9 = trunc nuw i8 %lock.sroa.4.0 to i1
   br i1 %tobool.i9, label %if.then.i10, label %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit13
 
 if.then.i10:                                      ; preds = %lpad2
@@ -18760,7 +18760,7 @@ cond.end.lr.ph:                                   ; preds = %while.cond.preheade
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.end.lr.ph, %_ZN4asio6detail8op_queueINS0_7wait_opEE3popEv.exit
-  %num_cancelled.019 = phi i64 [ 0, %cond.end.lr.ph ], [ %inc, %_ZN4asio6detail8op_queueINS0_7wait_opEE3popEv.exit ]
+  %num_cancelled.119 = phi i64 [ 0, %cond.end.lr.ph ], [ %inc, %_ZN4asio6detail8op_queueINS0_7wait_opEE3popEv.exit ]
   %2 = load ptr, ptr %timer, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.then8, label %while.body
@@ -18810,7 +18810,7 @@ _ZN4asio6detail8op_queueINS0_7wait_opEE3popEv.exit: ; preds = %_ZNSt10error_code
   %this..i = select i1 %tobool.not.i11, ptr %ops, ptr %8
   store ptr %2, ptr %this..i, align 8
   store ptr %2, ptr %back_.i10, align 8
-  %inc = add nuw i64 %num_cancelled.019, 1
+  %inc = add nuw i64 %num_cancelled.119, 1
   %cmp3.not = icmp eq i64 %inc, %max_cancelled
   br i1 %cmp3.not, label %while.end, label %cond.end, !llvm.loop !363
 
@@ -18820,13 +18820,13 @@ while.end:                                        ; preds = %_ZN4asio6detail8op_
   br i1 %cmp.i12, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %cond.end, %while.end
-  %num_cancelled.017 = phi i64 [ %max_cancelled, %while.end ], [ %num_cancelled.019, %cond.end ]
+  %num_cancelled.117 = phi i64 [ %max_cancelled, %while.end ], [ %num_cancelled.119, %cond.end ]
   tail call void @_ZN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEE12remove_timerERNS9_14per_timer_dataE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %timer)
   br label %if.end9
 
 if.end9:                                          ; preds = %entry, %while.end, %if.then8
-  %num_cancelled.1 = phi i64 [ %num_cancelled.017, %if.then8 ], [ %max_cancelled, %while.end ], [ 0, %entry ]
-  ret i64 %num_cancelled.1
+  %num_cancelled.0 = phi i64 [ %num_cancelled.117, %if.then8 ], [ %max_cancelled, %while.end ], [ 0, %entry ]
+  ret i64 %num_cancelled.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -23896,7 +23896,7 @@ _ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEC2ERKS3_.exit12: ; preds = %_ZN4a
   br i1 %or.cond.i.i9.i, label %if.end.i.i.i, label %invoke.cont4
 
 if.end.i.i.i:                                     ; preds = %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEC2ERKS3_.exit12, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i
-  %agg.tmp.sroa.4.0 = phi ptr [ %agg.tmp.sroa.4.1, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i ], [ %1, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEC2ERKS3_.exit12 ]
+  %agg.tmp.sroa.4.1 = phi ptr [ %agg.tmp.sroa.4.2, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i ], [ %1, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEC2ERKS3_.exit12 ]
   %.pre.i = phi i64 [ %.pre14.i, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i ], [ %5, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEC2ERKS3_.exit12 ]
   %12 = phi ptr [ %25, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i ], [ %0, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEC2ERKS3_.exit12 ]
   %__n.010.i = phi i64 [ %inc.i, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i ], [ 0, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEC2ERKS3_.exit12 ]
@@ -23918,11 +23918,11 @@ while.body.i:                                     ; preds = %if.end.i.i.i
   br i1 %cmp.i.i3.i, label %if.then.i.i.i, label %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %while.body.i
-  %cmp.not.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.4.0, null
+  %cmp.not.i.i.i.i.i.i = icmp eq ptr %agg.tmp.sroa.4.1, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i, label %if.then.i.i.i.i.i.i13
 
 if.then.i.i.i.i.i.i13:                            ; preds = %if.then.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.0, i64 8
+  %_M_use_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.1, i64 8
   %15 = load atomic i64, ptr %_M_use_count.i.i.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %15, 4294967297
   %16 = trunc i64 %15 to i32
@@ -23930,12 +23930,12 @@ if.then.i.i.i.i.i.i13:                            ; preds = %if.then.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then.i.i.i.i.i.i13
   store i32 0, ptr %_M_use_count.i.i.i.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.0, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.1, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4
-  %vtable.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.4.0, align 8
+  %vtable.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.4.1, align 8
   %vfn.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i, i64 16
   %17 = load ptr, ptr %vfn.i.i.i.i.i.i.i, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.4.0) #30
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.4.1) #30
   br label %if.end8.sink.split.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i13
@@ -23958,11 +23958,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i: ; preds = %if
   br i1 %cmp6.i.i.i.i.i.i.i, label %if.then7.i.i.i.i.i.i.i, label %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i
 
 if.then7.i.i.i.i.i.i.i:                           ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i
-  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.4.0, align 8
+  %vtable.i.i.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.4.1, align 8
   %vfn.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i.i.i, i64 16
   %20 = load ptr, ptr %vfn.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.4.0) #30
-  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.0, i64 12
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.4.1) #30
+  %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.1, i64 12
   %21 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
@@ -23983,14 +23983,14 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.end8.sink.split.i.i.i.i.i.i.i, label %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i
 
 if.end8.sink.split.i.i.i.i.i.i.i:                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i
-  %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.4.0, align 8
+  %vtable2.i.i.i.i.i.i.i.i.i = load ptr, ptr %agg.tmp.sroa.4.1, align 8
   %vfn3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i, i64 24
   %24 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i, align 8
-  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.4.0) #30
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.4.1) #30
   br label %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i
 
 _ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i: ; preds = %if.then.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i, %while.body.i
-  %agg.tmp.sroa.4.1 = phi ptr [ %agg.tmp.sroa.4.0, %while.body.i ], [ null, %if.end8.sink.split.i.i.i.i.i.i.i ], [ null, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i ], [ null, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ null, %if.then.i.i.i ]
+  %agg.tmp.sroa.4.2 = phi ptr [ %agg.tmp.sroa.4.1, %while.body.i ], [ null, %if.end8.sink.split.i.i.i.i.i.i.i ], [ null, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i ], [ null, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ null, %if.then.i.i.i ]
   %.pre14.i = phi i64 [ %inc.i.i.i, %while.body.i ], [ 0, %if.end8.sink.split.i.i.i.i.i.i.i ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i ], [ 0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ 0, %if.then.i.i.i ]
   %25 = phi ptr [ %12, %while.body.i ], [ null, %if.end8.sink.split.i.i.i.i.i.i.i ], [ null, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i ], [ null, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ null, %if.then.i.i.i ]
   %inc.i = add nuw nsw i64 %__n.010.i, 1
@@ -23999,7 +23999,7 @@ _ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i: ; preds = %if.then.i
   br i1 %or.cond.i.i.i, label %if.end.i.i.i, label %invoke.cont4, !llvm.loop !396
 
 invoke.cont4:                                     ; preds = %if.end.i.i.i, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEC2ERKS3_.exit12
-  %agg.tmp.sroa.4.3 = phi ptr [ %1, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEC2ERKS3_.exit12 ], [ %agg.tmp.sroa.4.1, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i ], [ %agg.tmp.sroa.4.0, %if.end.i.i.i ]
+  %agg.tmp.sroa.4.0 = phi ptr [ %1, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEC2ERKS3_.exit12 ], [ %agg.tmp.sroa.4.2, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i ], [ %agg.tmp.sroa.4.1, %if.end.i.i.i ]
   %__n.0.lcssa.i = phi i64 [ 0, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEC2ERKS3_.exit12 ], [ %inc.i, %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEEppEv.exit.i ], [ %__n.010.i, %if.end.i.i.i ]
   br i1 %cmp.not.i.i.i.i3, label %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEED2Ev.exit, label %if.then.i.i.i.i16
 
@@ -24072,11 +24072,11 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEED2Ev.exit
 
 _ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEED2Ev.exit: ; preds = %invoke.cont4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i26, %if.end8.sink.split.i.i.i.i.i
-  %cmp.not.i.i.i.i32 = icmp eq ptr %agg.tmp.sroa.4.3, null
+  %cmp.not.i.i.i.i32 = icmp eq ptr %agg.tmp.sroa.4.0, null
   br i1 %cmp.not.i.i.i.i32, label %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEED2Ev.exit62, label %if.then.i.i.i.i33
 
 if.then.i.i.i.i33:                                ; preds = %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEED2Ev.exit
-  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.3, i64 8
+  %_M_use_count.i.i.i.i.i34 = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.0, i64 8
   %36 = load atomic i64, ptr %_M_use_count.i.i.i.i.i34 acquire, align 8
   %cmp.i.i.i.i.i35 = icmp eq i64 %36, 4294967297
   %37 = trunc i64 %36 to i32
@@ -24084,12 +24084,12 @@ if.then.i.i.i.i33:                                ; preds = %_ZN4asio2ip23basic_
 
 if.then.i.i.i.i.i58:                              ; preds = %if.then.i.i.i.i33
   store i32 0, ptr %_M_use_count.i.i.i.i.i34, align 8
-  %_M_weak_count.i.i.i.i.i59 = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.3, i64 12
+  %_M_weak_count.i.i.i.i.i59 = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i59, align 4
-  %vtable.i.i.i.i.i60 = load ptr, ptr %agg.tmp.sroa.4.3, align 8
+  %vtable.i.i.i.i.i60 = load ptr, ptr %agg.tmp.sroa.4.0, align 8
   %vfn.i.i.i.i.i61 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i60, i64 16
   %38 = load ptr, ptr %vfn.i.i.i.i.i61, align 8
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.4.3) #30
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.4.0) #30
   br label %if.end8.sink.split.i.i.i.i.i53
 
 if.end.i.i.i.i.i36:                               ; preds = %if.then.i.i.i.i33
@@ -24112,11 +24112,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i40: ; preds = %if.e
   br i1 %cmp6.i.i.i.i.i42, label %if.then7.i.i.i.i.i43, label %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEED2Ev.exit62
 
 if.then7.i.i.i.i.i43:                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i40
-  %vtable.i.i.i.i.i.i.i44 = load ptr, ptr %agg.tmp.sroa.4.3, align 8
+  %vtable.i.i.i.i.i.i.i44 = load ptr, ptr %agg.tmp.sroa.4.0, align 8
   %vfn.i.i.i.i.i.i.i45 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i44, i64 16
   %41 = load ptr, ptr %vfn.i.i.i.i.i.i.i45, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.4.3) #30
-  %_M_weak_count.i.i.i.i.i.i.i46 = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.3, i64 12
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.4.0) #30
+  %_M_weak_count.i.i.i.i.i.i.i46 = getelementptr inbounds i8, ptr %agg.tmp.sroa.4.0, i64 12
   %42 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i.i47 = icmp eq i8 %42, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i.i47, label %if.else.i.i.i.i.i.i.i.i56, label %if.then.i.i.i.i.i.i.i.i48
@@ -24137,10 +24137,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i50: ; preds = %
   br i1 %cmp.i.i.i.i.i.i.i52, label %if.end8.sink.split.i.i.i.i.i53, label %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEED2Ev.exit62
 
 if.end8.sink.split.i.i.i.i.i53:                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i50, %if.then.i.i.i.i.i58
-  %vtable2.i.i.i.i.i.i.i54 = load ptr, ptr %agg.tmp.sroa.4.3, align 8
+  %vtable2.i.i.i.i.i.i.i54 = load ptr, ptr %agg.tmp.sroa.4.0, align 8
   %vfn3.i.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i54, i64 24
   %45 = load ptr, ptr %vfn3.i.i.i.i.i.i.i55, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.4.3) #30
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.sroa.4.0) #30
   br label %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEED2Ev.exit62
 
 _ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEED2Ev.exit62: ; preds = %_ZN4asio2ip23basic_resolver_iteratorINS0_3tcpEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i40, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i50, %if.end8.sink.split.i.i.i.i.i53
@@ -24718,17 +24718,17 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN4asio6detail13socket_holderD2Ev.exit:          ; preds = %if.end14, %cleanup.thread, %cleanup, %if.then.i
-  %retval.sroa.0.038 = phi i32 [ %4, %cleanup.thread ], [ %call10, %cleanup ], [ %call10, %if.then.i ], [ 0, %if.end14 ]
-  %retval.sroa.521.037 = phi ptr [ @_ZZN4asio15system_categoryEvE8instance, %cleanup.thread ], [ @_ZZN4asio15system_categoryEvE8instance, %cleanup ], [ @_ZZN4asio15system_categoryEvE8instance, %if.then.i ], [ %call.i27, %if.end14 ]
+  %retval.sroa.0.138 = phi i32 [ %4, %cleanup.thread ], [ %call10, %cleanup ], [ %call10, %if.then.i ], [ 0, %if.end14 ]
+  %retval.sroa.521.137 = phi ptr [ @_ZZN4asio15system_categoryEvE8instance, %cleanup.thread ], [ @_ZZN4asio15system_categoryEvE8instance, %cleanup ], [ @_ZZN4asio15system_categoryEvE8instance, %if.then.i ], [ %call.i27, %if.end14 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ec.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %state.i)
   br label %return
 
 return:                                           ; preds = %_ZN4asio6detail13socket_holderD2Ev.exit, %_ZNSt10error_codeaSIN4asio5error11misc_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit
-  %retval.sroa.0.1 = phi i32 [ 1, %_ZNSt10error_codeaSIN4asio5error11misc_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit ], [ %retval.sroa.0.038, %_ZN4asio6detail13socket_holderD2Ev.exit ]
-  %retval.sroa.521.1 = phi ptr [ @_ZZN4asio5error17get_misc_categoryEvE8instance, %_ZNSt10error_codeaSIN4asio5error11misc_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit ], [ %retval.sroa.521.037, %_ZN4asio6detail13socket_holderD2Ev.exit ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.521.1, 1
+  %retval.sroa.0.0 = phi i32 [ 1, %_ZNSt10error_codeaSIN4asio5error11misc_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit ], [ %retval.sroa.0.138, %_ZN4asio6detail13socket_holderD2Ev.exit ]
+  %retval.sroa.521.0 = phi ptr [ @_ZZN4asio5error17get_misc_categoryEvE8instance, %_ZNSt10error_codeaSIN4asio5error11misc_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit ], [ %retval.sroa.521.137, %_ZN4asio6detail13socket_holderD2Ev.exit ]
+  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.521.0, 1
   ret { i32, ptr } %.fca.1.insert
 }
 
@@ -27468,7 +27468,7 @@ if.then5.invoke:                                  ; preds = %_ZN4asio6detail27co
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke, %if.then5.invoke, %if.then20, %if.else, %invoke.cont34
-  %descriptor_lock.sroa.4.0 = phi i8 [ %descriptor_lock.sroa.4.1, %invoke.cont34 ], [ %.sink.i, %if.else ], [ %.sink.i, %if.then20 ], [ %.sink.i, %if.then5.invoke ], [ %.sink.i, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke ]
+  %descriptor_lock.sroa.4.0 = phi i8 [ %descriptor_lock.sroa.4.2, %invoke.cont34 ], [ %.sink.i, %if.else ], [ %.sink.i, %if.then20 ], [ %.sink.i, %if.then5.invoke ], [ %.sink.i, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke ]
   %9 = landingpad { ptr, i32 }
           cleanup
   %tobool.i45 = trunc nuw i8 %descriptor_lock.sroa.4.0 to i1
@@ -27554,7 +27554,7 @@ if.then.i.i:                                      ; preds = %if.then.i52
   br label %invoke.cont34
 
 invoke.cont34:                                    ; preds = %if.end33, %if.then.i.i, %if.then.i52
-  %descriptor_lock.sroa.4.1 = phi i8 [ %.sink.i, %if.end33 ], [ 0, %if.then.i.i ], [ 0, %if.then.i52 ]
+  %descriptor_lock.sroa.4.2 = phi i8 [ %.sink.i, %if.end33 ], [ 0, %if.then.i.i ], [ 0, %if.then.i52 ]
   %scheduler_ = getelementptr inbounds i8, ptr %this, i64 48
   %17 = load ptr, ptr %scheduler_, align 8
   invoke void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(256) %17, ptr noundef nonnull %op, i1 noundef zeroext %is_continuation)
@@ -27692,8 +27692,8 @@ if.end93:                                         ; preds = %if.end84, %if.then5
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke, %if.then5.invoke, %invoke.cont34, %if.end93
-  %descriptor_lock.sroa.4.2 = phi i8 [ %descriptor_lock.sroa.4.1, %invoke.cont34 ], [ %.sink.i, %if.end93 ], [ %.sink.i, %if.then5.invoke ], [ %.sink.i, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke ]
-  %tobool.i60 = trunc nuw i8 %descriptor_lock.sroa.4.2 to i1
+  %descriptor_lock.sroa.4.1 = phi i8 [ %descriptor_lock.sroa.4.2, %invoke.cont34 ], [ %.sink.i, %if.end93 ], [ %.sink.i, %if.then5.invoke ], [ %.sink.i, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke ]
+  %tobool.i60 = trunc nuw i8 %descriptor_lock.sroa.4.1 to i1
   br i1 %tobool.i60, label %if.then.i61, label %cleanup.cont
 
 if.then.i61:                                      ; preds = %cleanup

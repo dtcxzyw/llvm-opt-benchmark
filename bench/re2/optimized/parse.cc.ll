@@ -1732,8 +1732,8 @@ if.end43:                                         ; preds = %_ZN3re216Repetition
   br label %return
 
 return:                                           ; preds = %_ZN3re216RepetitionWalkerD2Ev.exit, %if.end43, %if.then11, %if.then
-  %retval.1 = phi i1 [ false, %if.then ], [ false, %if.then11 ], [ false, %_ZN3re216RepetitionWalkerD2Ev.exit ], [ true, %if.end43 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then11 ], [ false, %_ZN3re216RepetitionWalkerD2Ev.exit ], [ true, %if.end43 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad32, %lpad
   %.pn = phi { ptr, i32 } [ %25, %lpad32 ], [ %24, %lpad ]
@@ -2696,8 +2696,8 @@ if.else.i73:                                      ; preds = %if.then15
           to label %for.cond.backedge unwind label %lpad.loopexit.split-lp.loopexit
 
 while.cond.preheader:                             ; preds = %for.cond26.preheader, %if.end
-  %i.0167 = phi i32 [ %i.4, %if.end ], [ 0, %for.cond26.preheader ]
-  %out.0166 = phi i32 [ %out.4, %if.end ], [ 0, %for.cond26.preheader ]
+  %i.0167 = phi i32 [ %i.3, %if.end ], [ 0, %for.cond26.preheader ]
+  %out.0166 = phi i32 [ %out.3, %if.end ], [ 0, %for.cond26.preheader ]
   %iter.sroa.0.0165 = phi ptr [ %incdec.ptr.i81, %if.end ], [ %1, %for.cond26.preheader ]
   %sub29 = getelementptr inbounds i8, ptr %iter.sroa.0.0165, i64 8
   %9 = load ptr, ptr %add.ptr.i.i, align 8
@@ -2894,9 +2894,9 @@ if.end.loopexit:                                  ; preds = %while.body75
 
 if.end:                                           ; preds = %if.end.loopexit, %sw.epilog
   %41 = phi i32 [ %.pre, %sw.epilog ], [ %37, %if.end.loopexit ]
-  %out.4 = phi i32 [ %out.2, %sw.epilog ], [ %39, %if.end.loopexit ]
-  %i.4 = phi i32 [ %i.2, %sw.epilog ], [ %40, %if.end.loopexit ]
-  %cmp27 = icmp slt i32 %i.4, %41
+  %out.3 = phi i32 [ %out.2, %sw.epilog ], [ %39, %if.end.loopexit ]
+  %i.3 = phi i32 [ %i.2, %sw.epilog ], [ %40, %if.end.loopexit ]
+  %cmp27 = icmp slt i32 %i.3, %41
   br i1 %cmp27, label %while.cond.preheader, label %for.end.loopexit, !llvm.loop !20
 
 for.end.loopexit:                                 ; preds = %if.end
@@ -2907,7 +2907,7 @@ for.end.loopexit:                                 ; preds = %if.end
 for.end:                                          ; preds = %for.end.loopexit, %for.cond26.preheader
   %42 = phi ptr [ %2, %for.cond26.preheader ], [ %.pre193, %for.end.loopexit ]
   %43 = phi ptr [ %1, %for.cond26.preheader ], [ %.pre192, %for.end.loopexit ]
-  %out.0.lcssa = phi i32 [ 0, %for.cond26.preheader ], [ %out.4, %for.end.loopexit ]
+  %out.0.lcssa = phi i32 [ 0, %for.cond26.preheader ], [ %out.3, %for.end.loopexit ]
   %tobool.not.i.i = icmp eq ptr %42, %43
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIN3re26SpliceESaIS1_EE5clearEv.exit, label %invoke.cont.i.i
 
@@ -3176,16 +3176,16 @@ if.then8.i:                                       ; preds = %while.end.i
 
 _ZN3re26Regexp13LeadingStringEPS0_PiPNS0_10ParseFlagsE.exit: ; preds = %while.end.i.thread, %while.end.i, %if.then.i, %if.then8.i
   %and.i73.in.in = phi i16 [ %11, %if.then8.i ], [ %11, %if.then.i ], [ %11, %while.end.i ], [ %5, %while.end.i.thread ]
-  %nrune_i.0 = phi i32 [ %14, %if.then8.i ], [ 1, %if.then.i ], [ 0, %while.end.i ], [ 0, %while.end.i.thread ]
+  %nrune_i.1 = phi i32 [ %14, %if.then8.i ], [ 1, %if.then.i ], [ 0, %while.end.i ], [ 0, %while.end.i.thread ]
   %retval.0.i = phi ptr [ %15, %if.then8.i ], [ %12, %if.then.i ], [ null, %while.end.i ], [ null, %while.end.i.thread ]
   %and.i73.in = and i16 %and.i73.in.in, 1
   %and.i73 = zext nneg i16 %and.i73.in to i32
-  %nrune_i.0.fr = freeze i32 %nrune_i.0
+  %nrune_i.1.fr = freeze i32 %nrune_i.1
   %cmp2 = icmp eq i32 %runeflags.056, %and.i73
   br i1 %cmp2, label %while.cond.preheader, label %if.end14
 
 while.cond.preheader:                             ; preds = %_ZN3re26Regexp13LeadingStringEPS0_PiPNS0_10ParseFlagsE.exit
-  %invariant.smin = tail call i32 @llvm.smin.i32(i32 %nrune.055, i32 %nrune_i.0.fr)
+  %invariant.smin = tail call i32 @llvm.smin.i32(i32 %nrune.055, i32 %nrune_i.1.fr)
   %or.cond46 = icmp sgt i32 %invariant.smin, 0
   br i1 %or.cond46, label %land.rhs.preheader, label %if.end14
 
@@ -3218,7 +3218,7 @@ while.end:                                        ; preds = %while.body, %while.
 
 if.end14:                                         ; preds = %while.cond.preheader, %_ZN3re26Regexp13LeadingStringEPS0_PiPNS0_10ParseFlagsE.exit, %while.end, %for.body
   %runeflags_i.0 = phi i32 [ %runeflags.056, %while.end ], [ %and.i73, %_ZN3re26Regexp13LeadingStringEPS0_PiPNS0_10ParseFlagsE.exit ], [ 0, %for.body ], [ %runeflags.056, %while.cond.preheader ]
-  %nrune_i.1 = phi i32 [ %nrune_i.0.fr, %while.end ], [ %nrune_i.0.fr, %_ZN3re26Regexp13LeadingStringEPS0_PiPNS0_10ParseFlagsE.exit ], [ 0, %for.body ], [ %nrune_i.0.fr, %while.cond.preheader ]
+  %nrune_i.0 = phi i32 [ %nrune_i.1.fr, %while.end ], [ %nrune_i.1.fr, %_ZN3re26Regexp13LeadingStringEPS0_PiPNS0_10ParseFlagsE.exit ], [ 0, %for.body ], [ %nrune_i.1.fr, %while.cond.preheader ]
   %rune_i.0 = phi ptr [ %retval.0.i, %while.end ], [ %retval.0.i, %_ZN3re26Regexp13LeadingStringEPS0_PiPNS0_10ParseFlagsE.exit ], [ null, %for.body ], [ %retval.0.i, %while.cond.preheader ]
   %20 = zext i32 %start.052 to i64
   %cmp15 = icmp eq i64 %indvars.iv65, %20
@@ -3342,7 +3342,7 @@ if.then33:                                        ; preds = %if.end31
 for.inc35:                                        ; preds = %while.end, %if.end31, %if.then33
   %start.1 = phi i32 [ %31, %if.then33 ], [ %start.052, %if.end31 ], [ %start.052, %while.end ]
   %rune.1 = phi ptr [ %rune_i.0, %if.then33 ], [ %rune.054, %if.end31 ], [ %rune.054, %while.end ]
-  %nrune.1 = phi i32 [ %nrune_i.1, %if.then33 ], [ %nrune.055, %if.end31 ], [ %same.0.lcssa, %while.end ]
+  %nrune.1 = phi i32 [ %nrune_i.0, %if.then33 ], [ %nrune.055, %if.end31 ], [ %same.0.lcssa, %while.end ]
   %runeflags.1 = phi i32 [ %runeflags_i.0, %if.then33 ], [ %runeflags.056, %if.end31 ], [ %runeflags.056, %while.end ]
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
@@ -4560,8 +4560,8 @@ sw.bb27:                                          ; preds = %if.end14
 sw.epilog:                                        ; preds = %sw.bb27, %sw.bb, %sw.default
   %.pn = phi i32 [ %7, %sw.default ], [ %dec, %sw.bb ], [ %sext, %sw.bb27 ]
   %hi1.0 = phi i32 [ %add19, %sw.default ], [ %spec.select25, %sw.bb ], [ %spec.select26, %sw.bb27 ]
-  %lo1.2 = add nsw i32 %.pn, %lo.addr.047
-  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef nonnull %cc, i32 noundef %lo1.2, i32 noundef %hi1.0, i32 noundef %add38)
+  %lo1.0 = add nsw i32 %.pn, %lo.addr.047
+  tail call fastcc void @_ZN3re2L14AddFoldedRangeEPNS_16CharClassBuilderEiii(ptr noundef nonnull %cc, i32 noundef %lo1.0, i32 noundef %hi1.0, i32 noundef %add38)
   %11 = load i32, ptr %hi15, align 4
   %add40 = add nsw i32 %11, 1
   br label %while.cond.backedge
@@ -7396,7 +7396,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit134: ; preds = %invoke.cont12
 
 if.end135:                                        ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit134, %invoke.cont129, %if.then126
   %40 = phi ptr [ %add.ptr.i117, %if.then126 ], [ %add.ptr.i131, %_ZN4absl7debian211string_view13remove_prefixEm.exit134 ], [ %add.ptr.i117, %invoke.cont129 ]
-  %nongreedy.0 = phi i1 [ false, %if.then126 ], [ true, %_ZN4absl7debian211string_view13remove_prefixEm.exit134 ], [ false, %invoke.cont129 ]
+  %nongreedy.1 = phi i1 [ false, %if.then126 ], [ true, %_ZN4absl7debian211string_view13remove_prefixEm.exit134 ], [ false, %invoke.cont129 ]
   %cmp.i136 = icmp eq i64 %lastunary.sroa.6.0487, 0
   br i1 %cmp.i136, label %if.end146, label %if.then137
 
@@ -7423,7 +7423,7 @@ invoke.cont143:                                   ; preds = %if.then137
 
 if.end146:                                        ; preds = %if.end135, %invoke.cont120
   %41 = phi ptr [ %40, %if.end135 ], [ %add.ptr.i117, %invoke.cont120 ]
-  %nongreedy.1 = phi i1 [ %nongreedy.0, %if.end135 ], [ false, %invoke.cont120 ]
+  %nongreedy.0 = phi i1 [ %nongreedy.1, %if.end135 ], [ false, %invoke.cont120 ]
   %sub.ptr.lhs.cast151 = ptrtoint ptr %41 to i64
   %sub.ptr.rhs.cast152 = ptrtoint ptr %12 to i64
   %sub.ptr.sub153 = sub i64 %sub.ptr.lhs.cast151, %sub.ptr.rhs.cast152
@@ -7435,7 +7435,7 @@ cond.false.i.i141:                                ; preds = %if.end146
   unreachable
 
 invoke.cont154:                                   ; preds = %if.end146
-  %call158 = invoke noundef zeroext i1 @_ZN3re26Regexp10ParseState12PushRepeatOpENS_8RegexpOpEN4absl7debian211string_viewEb(ptr noundef nonnull align 8 dereferenceable(48) %ps, i32 noundef %op.0, ptr nonnull %12, i64 %sub.ptr.sub153, i1 noundef zeroext %nongreedy.1)
+  %call158 = invoke noundef zeroext i1 @_ZN3re26Regexp10ParseState12PushRepeatOpENS_8RegexpOpEN4absl7debian211string_viewEb(ptr noundef nonnull align 8 dereferenceable(48) %ps, i32 noundef %op.0, ptr nonnull %12, i64 %sub.ptr.sub153, i1 noundef zeroext %nongreedy.0)
           to label %invoke.cont157 unwind label %lpad1.loopexit.split-lp.loopexit
 
 invoke.cont157:                                   ; preds = %invoke.cont154
@@ -7606,7 +7606,7 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit173: ; preds = %invoke.cont18
 
 if.end187:                                        ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit173, %invoke.cont181, %if.then178
   %.pre568 = phi ptr [ %.pre568.pre, %if.then178 ], [ %add.ptr.i170, %_ZN4absl7debian211string_view13remove_prefixEm.exit173 ], [ %.pre568.pre, %invoke.cont181 ]
-  %nongreedy172.0 = phi i1 [ false, %if.then178 ], [ true, %_ZN4absl7debian211string_view13remove_prefixEm.exit173 ], [ false, %invoke.cont181 ]
+  %nongreedy172.1 = phi i1 [ false, %if.then178 ], [ true, %_ZN4absl7debian211string_view13remove_prefixEm.exit173 ], [ false, %invoke.cont181 ]
   %cmp.i175 = icmp eq i64 %lastunary.sroa.6.0487, 0
   br i1 %cmp.i175, label %if.end201, label %if.then189
 
@@ -7633,7 +7633,7 @@ invoke.cont198:                                   ; preds = %if.then189
 
 if.end201:                                        ; preds = %if.end171.if.end201_crit_edge, %if.end187
   %66 = phi ptr [ %.pre568, %if.end187 ], [ %.pre567, %if.end171.if.end201_crit_edge ]
-  %nongreedy172.1 = phi i1 [ %nongreedy172.0, %if.end187 ], [ false, %if.end171.if.end201_crit_edge ]
+  %nongreedy172.0 = phi i1 [ %nongreedy172.1, %if.end187 ], [ false, %if.end171.if.end201_crit_edge ]
   %sub.ptr.lhs.cast206 = ptrtoint ptr %66 to i64
   %sub.ptr.rhs.cast207 = ptrtoint ptr %12 to i64
   %sub.ptr.sub208 = sub i64 %sub.ptr.lhs.cast206, %sub.ptr.rhs.cast207
@@ -7646,7 +7646,7 @@ cond.false.i.i183:                                ; preds = %if.end201
 
 invoke.cont209:                                   ; preds = %if.end201
   %67 = load i32, ptr %hi, align 4
-  %call213 = invoke noundef zeroext i1 @_ZN3re26Regexp10ParseState14PushRepetitionEiiN4absl7debian211string_viewEb(ptr noundef nonnull align 8 dereferenceable(48) %ps, i32 noundef %52, i32 noundef %67, ptr nonnull %12, i64 %sub.ptr.sub208, i1 noundef zeroext %nongreedy172.1)
+  %call213 = invoke noundef zeroext i1 @_ZN3re26Regexp10ParseState14PushRepetitionEiiN4absl7debian211string_viewEb(ptr noundef nonnull align 8 dereferenceable(48) %ps, i32 noundef %52, i32 noundef %67, ptr nonnull %12, i64 %sub.ptr.sub208, i1 noundef zeroext %nongreedy172.0)
           to label %invoke.cont212 unwind label %lpad1.loopexit.split-lp.loopexit
 
 invoke.cont212:                                   ; preds = %invoke.cont209

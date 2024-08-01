@@ -933,7 +933,7 @@ if.end10.loopexit69:                              ; preds = %do.body.i
 if.end10:                                         ; preds = %do.body.i15, %do.body.i25, %if.end10.loopexit69
   %tobool.not.i86 = phi i1 [ %tobool.not.i.le87, %if.end10.loopexit69 ], [ %tobool.not.i.le, %do.body.i25 ], [ %tobool.not.i.le, %do.body.i15 ]
   %.pr = phi i64 [ %.pr.pre, %if.end10.loopexit69 ], [ %3, %do.body.i25 ], [ %3, %do.body.i15 ]
-  %path_to_match.3.ph = phi ptr [ %scevgep, %if.end10.loopexit69 ], [ %scevgep78, %do.body.i25 ], [ %scevgep76, %do.body.i15 ]
+  %path_to_match.0.ph = phi ptr [ %scevgep, %if.end10.loopexit69 ], [ %scevgep78, %do.body.i25 ], [ %scevgep76, %do.body.i15 ]
   %tobool11.not = icmp eq i64 %.pr, 0
   %9 = load ptr, ptr @exclude_patterns, align 8
   %tobool13.not61 = icmp eq ptr %9, null
@@ -958,7 +958,7 @@ land.rhs:                                         ; preds = %for.body
 for.body:                                         ; preds = %land.rhs.preheader, %land.rhs
   %item.06295 = phi ptr [ %incdec.ptr, %land.rhs ], [ %9, %land.rhs.preheader ]
   %14 = load ptr, ptr %item.06295, align 8
-  %call14 = tail call i32 @wildmatch(ptr noundef %14, ptr noundef %path_to_match.3.ph, i32 noundef 0) #15
+  %call14 = tail call i32 @wildmatch(ptr noundef %14, ptr noundef %path_to_match.0.ph, i32 noundef 0) #15
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %land.rhs
 
@@ -990,7 +990,7 @@ land.rhs24:                                       ; preds = %for.body28
 for.body28:                                       ; preds = %land.rhs24.preheader, %land.rhs24
   %item21.06498 = phi ptr [ %incdec.ptr35, %land.rhs24 ], [ %15, %land.rhs24.preheader ]
   %20 = load ptr, ptr %item21.06498, align 8
-  %call30 = tail call i32 @wildmatch(ptr noundef %20, ptr noundef %path_to_match.3.ph, i32 noundef 0) #15
+  %call30 = tail call i32 @wildmatch(ptr noundef %20, ptr noundef %path_to_match.0.ph, i32 noundef 0) #15
   %tobool31.not = icmp eq i32 %call30, 0
   br i1 %tobool31.not, label %if.end40, label %land.rhs24
 
@@ -1558,10 +1558,10 @@ if.end45:                                         ; preds = %for.end, %if.end31
   br i1 %tobool50.not162, label %if.then190.thread, label %while.body
 
 while.body:                                       ; preds = %if.end45, %while.end
-  %match_cnt.0166 = phi i32 [ %match_cnt.1209, %while.end ], [ 0, %if.end45 ]
+  %match_cnt.0166 = phi i32 [ %match_cnt.2209, %while.end ], [ 0, %if.end45 ]
   %annotated_cnt.0165 = phi i32 [ %annotated_cnt.1207, %while.end ], [ 0, %if.end45 ]
   %seen_commits.0164 = phi i64 [ %inc, %while.end ], [ 0, %if.end45 ]
-  %unannotated_cnt.0163 = phi i32 [ %unannotated_cnt.1205, %while.end ], [ 0, %if.end45 ]
+  %unannotated_cnt.0163 = phi i32 [ %unannotated_cnt.2205, %while.end ], [ 0, %if.end45 ]
   %call52 = call ptr @pop_commit(ptr noundef nonnull %list) #15
   %parents53 = getelementptr inbounds i8, ptr %call52, i64 48
   %24 = load ptr, ptr %parents53, align 8
@@ -1641,15 +1641,15 @@ if.end95.thread:                                  ; preds = %if.else
   br label %for.body99.preheader
 
 if.end95:                                         ; preds = %if.end12.i.i103, %while.body, %if.then71, %cond.end58
-  %unannotated_cnt.1 = phi i32 [ %inc72, %if.then71 ], [ %unannotated_cnt.0163, %cond.end58 ], [ %unannotated_cnt.0163, %while.body ], [ %unannotated_cnt.0163, %if.end12.i.i103 ]
+  %unannotated_cnt.2 = phi i32 [ %inc72, %if.then71 ], [ %unannotated_cnt.0163, %cond.end58 ], [ %unannotated_cnt.0163, %while.body ], [ %unannotated_cnt.0163, %if.end12.i.i103 ]
   %cmp97156.not = icmp eq i32 %match_cnt.0166, 0
   br i1 %cmp97156.not, label %for.end114, label %for.body99.preheader
 
 for.body99.preheader:                             ; preds = %if.end95.thread, %if.end95
-  %match_cnt.1208 = phi i32 [ %inc75, %if.end95.thread ], [ %match_cnt.0166, %if.end95 ]
+  %match_cnt.2208 = phi i32 [ %inc75, %if.end95.thread ], [ %match_cnt.0166, %if.end95 ]
   %annotated_cnt.1206 = phi i32 [ %spec.select, %if.end95.thread ], [ %annotated_cnt.0165, %if.end95 ]
-  %unannotated_cnt.1204 = phi i32 [ %unannotated_cnt.0163, %if.end95.thread ], [ %unannotated_cnt.1, %if.end95 ]
-  %wide.trip.count = zext i32 %match_cnt.1208 to i64
+  %unannotated_cnt.2204 = phi i32 [ %unannotated_cnt.0163, %if.end95.thread ], [ %unannotated_cnt.2, %if.end95 ]
+  %wide.trip.count = zext i32 %match_cnt.2208 to i64
   br label %for.body99
 
 for.body99:                                       ; preds = %for.body99.preheader, %for.inc112
@@ -1677,9 +1677,9 @@ for.inc112:                                       ; preds = %for.body99, %if.the
 
 for.end114:                                       ; preds = %for.inc112, %if.end95
   %cmp97156.not211 = phi i1 [ true, %if.end95 ], [ false, %for.inc112 ]
-  %match_cnt.1209 = phi i32 [ 0, %if.end95 ], [ %match_cnt.1208, %for.inc112 ]
+  %match_cnt.2209 = phi i32 [ 0, %if.end95 ], [ %match_cnt.2208, %for.inc112 ]
   %annotated_cnt.1207 = phi i32 [ %annotated_cnt.0165, %if.end95 ], [ %annotated_cnt.1206, %for.inc112 ]
-  %unannotated_cnt.1205 = phi i32 [ %unannotated_cnt.1, %if.end95 ], [ %unannotated_cnt.1204, %for.inc112 ]
+  %unannotated_cnt.2205 = phi i32 [ %unannotated_cnt.2, %if.end95 ], [ %unannotated_cnt.2204, %for.inc112 ]
   %tobool115 = icmp eq i32 %annotated_cnt.1207, 0
   %36 = load ptr, ptr %list, align 8
   %tobool117 = icmp ne ptr %36, null
@@ -1690,7 +1690,7 @@ for.cond119.preheader:                            ; preds = %for.end114
   br i1 %cmp97156.not211, label %for.end143, label %for.body122.preheader
 
 for.body122.preheader:                            ; preds = %for.cond119.preheader
-  %wide.trip.count186 = zext i32 %match_cnt.1209 to i64
+  %wide.trip.count186 = zext i32 %match_cnt.2209 to i64
   br label %for.body122
 
 for.body122:                                      ; preds = %for.body122.preheader, %for.inc141
@@ -1798,10 +1798,10 @@ while.end:                                        ; preds = %while.end.loopexit,
   br i1 %tobool50.not, label %while.end188, label %while.body, !llvm.loop !13
 
 while.end188:                                     ; preds = %while.end, %if.else, %if.then150, %_.exit114
-  %unannotated_cnt.2 = phi i32 [ %unannotated_cnt.1205, %_.exit114 ], [ %unannotated_cnt.1205, %if.then150 ], [ %unannotated_cnt.1205, %while.end ], [ %unannotated_cnt.0163, %if.else ]
-  %match_cnt.2 = phi i32 [ %match_cnt.1209, %_.exit114 ], [ %match_cnt.1209, %if.then150 ], [ %match_cnt.1209, %while.end ], [ %match_cnt.0166, %if.else ]
+  %unannotated_cnt.1 = phi i32 [ %unannotated_cnt.2205, %_.exit114 ], [ %unannotated_cnt.2205, %if.then150 ], [ %unannotated_cnt.2205, %while.end ], [ %unannotated_cnt.0163, %if.else ]
+  %match_cnt.1 = phi i32 [ %match_cnt.2209, %_.exit114 ], [ %match_cnt.2209, %if.then150 ], [ %match_cnt.2209, %while.end ], [ %match_cnt.0166, %if.else ]
   %gave_up_on.0 = phi ptr [ null, %_.exit114 ], [ null, %if.then150 ], [ null, %while.end ], [ %call52, %if.else ]
-  switch i32 %match_cnt.2, label %if.then.i [
+  switch i32 %match_cnt.1, label %if.then.i [
     i32 0, label %if.then190
     i32 1, label %sane_qsort.exit
   ]
@@ -1824,7 +1824,7 @@ if.then194:                                       ; preds = %if.then190.thread, 
   br i1 %tobool195.not, label %if.end289, label %if.end289.sink.split
 
 if.end198:                                        ; preds = %if.then190
-  %tobool199.not = icmp eq i32 %unannotated_cnt.2, 0
+  %tobool199.not = icmp eq i32 %unannotated_cnt.1, 0
   br i1 %tobool199.not, label %if.else203, label %if.then200
 
 if.then200:                                       ; preds = %if.end198
@@ -1840,7 +1840,7 @@ if.else203:                                       ; preds = %if.then190.thread, 
   unreachable
 
 if.then.i:                                        ; preds = %while.end188
-  %conv207 = zext i32 %match_cnt.2 to i64
+  %conv207 = zext i32 %match_cnt.1 to i64
   call void @qsort(ptr noundef nonnull %all_matches, i64 noundef %conv207, i64 noundef 24, ptr noundef nonnull @compare_pt) #15
   br label %sane_qsort.exit
 
@@ -1989,11 +1989,11 @@ for.inc233:                                       ; preds = %_.exit124, %if.then
   br i1 %exitcond191.not, label %if.end236, label %for.body223, !llvm.loop !17
 
 if.end236:                                        ; preds = %for.inc233, %if.then215
-  %cmp238176.not = icmp eq i32 %match_cnt.2, 0
+  %cmp238176.not = icmp eq i32 %match_cnt.1, 0
   br i1 %cmp238176.not, label %for.end257, label %for.body240.preheader
 
 for.body240.preheader:                            ; preds = %if.end236
-  %wide.trip.count195 = zext i32 %match_cnt.2 to i64
+  %wide.trip.count195 = zext i32 %match_cnt.1 to i64
   br label %for.body240
 
 for.body240:                                      ; preds = %for.body240.preheader, %_.exit131

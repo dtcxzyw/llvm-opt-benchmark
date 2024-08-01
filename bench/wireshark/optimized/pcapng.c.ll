@@ -2029,12 +2029,12 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocap
   br label %78
 
 78:                                               ; preds = %50, %54, %56, %58, %60, %62, %64, %66, %68, %._crit_edge, %38
-  %.172 = phi i32 [ 6, %38 ], [ 9, %50 ], [ 8, %54 ], [ 7, %56 ], [ 6, %58 ], [ 5, %60 ], [ 4, %62 ], [ 3, %64 ], [ 2, %66 ], [ %., %68 ], [ %.89, %._crit_edge ]
-  %.1 = phi i64 [ 1000000, %38 ], [ %52, %50 ], [ %52, %54 ], [ %52, %56 ], [ %52, %58 ], [ %52, %60 ], [ %52, %62 ], [ %52, %64 ], [ %52, %66 ], [ %52, %68 ], [ %.067.lcssa, %._crit_edge ]
+  %.071 = phi i32 [ 6, %38 ], [ 9, %50 ], [ 8, %54 ], [ 7, %56 ], [ 6, %58 ], [ 5, %60 ], [ 4, %62 ], [ 3, %64 ], [ 2, %66 ], [ %., %68 ], [ %.89, %._crit_edge ]
+  %.070 = phi i64 [ 1000000, %38 ], [ %52, %50 ], [ %52, %54 ], [ %52, %56 ], [ %52, %58 ], [ %52, %60 ], [ %52, %62 ], [ %52, %64 ], [ %52, %66 ], [ %52, %68 ], [ %.067.lcssa, %._crit_edge ]
   %79 = getelementptr inbounds i8, ptr %21, i64 8
-  store i64 %.1, ptr %79, align 8
+  store i64 %.070, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %21, i64 16
-  store i32 %.172, ptr %80, align 8
+  store i32 %.071, ptr %80, align 8
   %81 = getelementptr inbounds i8, ptr %0, i64 144
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, -2
@@ -2623,7 +2623,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_name_resolution_block(pt
   br label %29
 
 29:                                               ; preds = %.lr.ph, %185
-  %.097179 = phi i32 [ 0, %.lr.ph ], [ %.1, %185 ]
+  %.097179 = phi i32 [ 0, %.lr.ph ], [ %.2, %185 ]
   %30 = sub i32 %16, %.097179
   %31 = icmp ult i32 %30, 4
   br i1 %31, label %32, label %34
@@ -2962,13 +2962,13 @@ name_resolution_block_find_name_end.exit125:      ; preds = %.lr.ph.i119
   br label %185
 
 185:                                              ; preds = %179, %168, %104
-  %.1 = phi i32 [ %184, %179 ], [ %175, %168 ], [ %111, %104 ]
-  %186 = icmp slt i32 %.1, %16
+  %.2 = phi i32 [ %184, %179 ], [ %175, %168 ], [ %111, %104 ]
+  %186 = icmp slt i32 %.2, %16
   br i1 %186, label %29, label %._crit_edge181, !llvm.loop !10
 
 ._crit_edge181:                                   ; preds = %55, %185, %22
-  %.2 = phi i32 [ 0, %22 ], [ %.1, %185 ], [ %38, %55 ]
-  %187 = sub i32 %16, %.2
+  %.1 = phi i32 [ 0, %22 ], [ %.2, %185 ], [ %38, %55 ]
+  %187 = sub i32 %16, %.1
   %188 = call i32 @pcapng_process_options(ptr noundef %0, ptr noundef %3, ptr noundef %2, i32 noundef %187, ptr noundef nonnull @pcapng_process_name_resolution_block_option, i32 noundef 0, ptr noundef %4, ptr noundef %5)
   %.not117 = icmp eq i32 %188, 0
   br i1 %.not117, label %191, label %189
@@ -5938,8 +5938,8 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer178
   %.0.ph200 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %74, %.outer178 ]
   %.0159.ph199 = phi ptr [ %21, %.lr.ph.lr.ph ], [ %76, %.outer178 ]
-  %.0160.ph198 = phi i32 [ 8, %.lr.ph.lr.ph ], [ %73, %.outer178 ]
-  %.sroa.6.0.ph197 = phi i32 [ 12, %.lr.ph.lr.ph ], [ %55, %.outer178 ]
+  %.1161.ph198 = phi i32 [ 8, %.lr.ph.lr.ph ], [ %73, %.outer178 ]
+  %.sroa.6.1.ph197 = phi i32 [ 12, %.lr.ph.lr.ph ], [ %55, %.outer178 ]
   br label %22
 
 22:                                               ; preds = %.lr.ph, %26
@@ -5966,15 +5966,15 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   %36 = add nuw nsw i32 %35, 8
   %37 = and i32 %36, 131068
   %38 = add nuw nsw i32 %37, 4
-  %39 = add i32 %38, %.0160.ph198
+  %39 = add i32 %38, %.1161.ph198
   %40 = icmp ugt i32 %39, %18
   br i1 %40, label %41, label %.outer178
 
 41:                                               ; preds = %30
-  %42 = zext i32 %.0160.ph198 to i64
+  %42 = zext i32 %.1161.ph198 to i64
   %43 = getelementptr i8, ptr %17, i64 %42
   store i32 0, ptr %43, align 1
-  %44 = add i32 %.0160.ph198, 4
+  %44 = add i32 %.1161.ph198, 4
   %45 = zext i32 %44 to i64
   %46 = getelementptr i8, ptr %17, i64 %45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -5985,8 +5985,8 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %48, i64 2
   store i16 0, ptr %.sroa.2.0..sroa_idx.i, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %.reass = add i32 %.0160.ph198, %invariant.op
-  %49 = add i32 %invariant.op, %.sroa.6.0.ph197
+  %.reass = add i32 %.1161.ph198, %invariant.op
+  %49 = add i32 %invariant.op, %.sroa.6.1.ph197
   store i32 4, ptr %17, align 1
   store i32 %49, ptr %.sroa.6.0..0.74.sroa_idx, align 1
   %50 = zext i32 %.reass to i64
@@ -6002,20 +6002,20 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   br label %148
 
 .outer178:                                        ; preds = %41, %30
-  %.sroa.6.1 = phi i32 [ %.sroa.6.0.ph197, %30 ], [ 12, %41 ]
-  %.1161 = phi i32 [ %.0160.ph198, %30 ], [ 8, %41 ]
-  %55 = add i32 %.sroa.6.1, %38
-  %56 = zext i32 %.1161 to i64
+  %.sroa.6.2 = phi i32 [ %.sroa.6.1.ph197, %30 ], [ 12, %41 ]
+  %.2 = phi i32 [ %.1161.ph198, %30 ], [ 8, %41 ]
+  %55 = add i32 %.sroa.6.2, %38
+  %56 = zext i32 %.2 to i64
   %57 = getelementptr i8, ptr %17, i64 %56
   store i16 1, ptr %57, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %57, i64 2
   store i16 %34, ptr %.sroa.4.0..sroa_idx, align 1
-  %58 = add i32 %.1161, 4
+  %58 = add i32 %.2, 4
   %59 = zext i32 %58 to i64
   %60 = getelementptr i8, ptr %17, i64 %59
   %61 = load i32, ptr %.0159191, align 4
   store i32 %61, ptr %60, align 1
-  %62 = add i32 %.1161, 8
+  %62 = add i32 %.2, 8
   %63 = zext i32 %62 to i64
   %64 = getelementptr i8, ptr %17, i64 %63
   %65 = zext i16 %32 to i64
@@ -6036,8 +6036,8 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   br i1 %.not169190, label %.loopexit177, label %.lr.ph, !llvm.loop !21
 
 .loopexit177:                                     ; preds = %.outer178, %26, %20, %16
-  %.sroa.6.2 = phi i32 [ 12, %16 ], [ 12, %20 ], [ %.sroa.6.0.ph197, %26 ], [ %55, %.outer178 ]
-  %.2 = phi i32 [ 8, %16 ], [ 8, %20 ], [ %.0160.ph198, %26 ], [ %73, %.outer178 ]
+  %.sroa.6.0 = phi i32 [ 12, %16 ], [ 12, %20 ], [ %.sroa.6.1.ph197, %26 ], [ %55, %.outer178 ]
+  %.0160 = phi i32 [ 8, %16 ], [ 8, %20 ], [ %.1161.ph198, %26 ], [ %73, %.outer178 ]
   %77 = getelementptr inbounds i8, ptr %8, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not170 = icmp eq ptr %78, null
@@ -6060,8 +6060,8 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
 .lr.ph206:                                        ; preds = %.lr.ph206.lr.ph, %.outer
   %.1.ph217 = phi i32 [ 0, %.lr.ph206.lr.ph ], [ %132, %.outer ]
   %.0158.ph216 = phi ptr [ %80, %.lr.ph206.lr.ph ], [ %134, %.outer ]
-  %.3.ph215 = phi i32 [ %.2, %.lr.ph206.lr.ph ], [ %131, %.outer ]
-  %.sroa.6.3.ph214 = phi i32 [ %.sroa.6.2, %.lr.ph206.lr.ph ], [ %114, %.outer ]
+  %.4.ph215 = phi i32 [ %.0160, %.lr.ph206.lr.ph ], [ %131, %.outer ]
+  %.sroa.6.4.ph214 = phi i32 [ %.sroa.6.0, %.lr.ph206.lr.ph ], [ %114, %.outer ]
   br label %81
 
 81:                                               ; preds = %.lr.ph206, %85
@@ -6088,15 +6088,15 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   %95 = add nuw nsw i32 %94, 20
   %96 = and i32 %95, 131068
   %97 = add nuw nsw i32 %96, 4
-  %98 = add i32 %97, %.3.ph215
+  %98 = add i32 %97, %.4.ph215
   %99 = icmp ugt i32 %98, %18
   br i1 %99, label %100, label %.outer
 
 100:                                              ; preds = %89
-  %101 = zext i32 %.3.ph215 to i64
+  %101 = zext i32 %.4.ph215 to i64
   %102 = getelementptr i8, ptr %17, i64 %101
   store i32 0, ptr %102, align 1
-  %103 = add i32 %.3.ph215, 4
+  %103 = add i32 %.4.ph215, 4
   %104 = zext i32 %103 to i64
   %105 = getelementptr i8, ptr %17, i64 %104
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -6107,8 +6107,8 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   %.sroa.2.0..sroa_idx.i175 = getelementptr inbounds i8, ptr %107, i64 2
   store i16 0, ptr %.sroa.2.0..sroa_idx.i175, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %.reass212 = add i32 %.3.ph215, %invariant.op211
-  %108 = add i32 %invariant.op211, %.sroa.6.3.ph214
+  %.reass212 = add i32 %.4.ph215, %invariant.op211
+  %108 = add i32 %invariant.op211, %.sroa.6.4.ph214
   store i32 4, ptr %17, align 1
   store i32 %108, ptr %.sroa.6.0..0.84.sroa_idx, align 1
   %109 = zext i32 %.reass212 to i64
@@ -6124,19 +6124,19 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   br label %148
 
 .outer:                                           ; preds = %100, %89
-  %.sroa.6.4 = phi i32 [ %.sroa.6.3.ph214, %89 ], [ 12, %100 ]
-  %.4 = phi i32 [ %.3.ph215, %89 ], [ 8, %100 ]
-  %114 = add i32 %.sroa.6.4, %97
-  %115 = zext i32 %.4 to i64
+  %.sroa.6.5 = phi i32 [ %.sroa.6.4.ph214, %89 ], [ 12, %100 ]
+  %.5 = phi i32 [ %.4.ph215, %89 ], [ 8, %100 ]
+  %114 = add i32 %.sroa.6.5, %97
+  %115 = zext i32 %.5 to i64
   %116 = getelementptr i8, ptr %17, i64 %115
   store i16 2, ptr %116, align 1
   %.sroa.4.0..sroa_idx119 = getelementptr inbounds i8, ptr %116, i64 2
   store i16 %93, ptr %.sroa.4.0..sroa_idx119, align 1
-  %117 = add i32 %.4, 4
+  %117 = add i32 %.5, 4
   %118 = zext i32 %117 to i64
   %119 = getelementptr i8, ptr %17, i64 %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %119, ptr noundef nonnull align 1 dereferenceable(16) %.0158204, i64 16, i1 false)
-  %120 = add i32 %.4, 20
+  %120 = add i32 %.5, 20
   %121 = zext i32 %120 to i64
   %122 = getelementptr i8, ptr %17, i64 %121
   %123 = zext i16 %91 to i64
@@ -6158,12 +6158,12 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
 
 .loopexit:                                        ; preds = %.outer, %85, %.loopexit177..loopexit_crit_edge, %79
   %.pre-phi = phi i32 [ %.pre, %.loopexit177..loopexit_crit_edge ], [ %invariant.op211, %79 ], [ %invariant.op211, %85 ], [ %invariant.op211, %.outer ]
-  %.sroa.6.5 = phi i32 [ %.sroa.6.2, %.loopexit177..loopexit_crit_edge ], [ %.sroa.6.2, %79 ], [ %.sroa.6.3.ph214, %85 ], [ %114, %.outer ]
-  %.5 = phi i32 [ %.2, %.loopexit177..loopexit_crit_edge ], [ %.2, %79 ], [ %.3.ph215, %85 ], [ %131, %.outer ]
-  %135 = zext i32 %.5 to i64
+  %.sroa.6.3 = phi i32 [ %.sroa.6.0, %.loopexit177..loopexit_crit_edge ], [ %.sroa.6.0, %79 ], [ %.sroa.6.4.ph214, %85 ], [ %114, %.outer ]
+  %.3 = phi i32 [ %.0160, %.loopexit177..loopexit_crit_edge ], [ %.0160, %79 ], [ %.4.ph215, %85 ], [ %131, %.outer ]
+  %135 = zext i32 %.3 to i64
   %136 = getelementptr i8, ptr %17, i64 %135
   store i32 0, ptr %136, align 1
-  %137 = add i32 %.5, 4
+  %137 = add i32 %.3, 4
   %138 = zext i32 %137 to i64
   %139 = getelementptr i8, ptr %17, i64 %138
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -6175,7 +6175,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_write_name_resolution_block(p
   store i16 0, ptr %.sroa.2.0..sroa_idx.i176, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %142 = add i32 %137, %spec.select.i
-  %143 = add i32 %.pre-phi, %.sroa.6.5
+  %143 = add i32 %.pre-phi, %.sroa.6.3
   store i32 4, ptr %17, align 1
   %.sroa.6.0..0.94.sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
   store i32 %143, ptr %.sroa.6.0..0.94.sroa_idx, align 1

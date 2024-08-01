@@ -59,17 +59,17 @@ define i64 @H5PTcreate(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 nound
   br label %31
 
 31:                                               ; preds = %29, %25
-  %.0 = phi i64 [ %28, %25 ], [ %30, %29 ]
+  %.1 = phi i64 [ %28, %25 ], [ %30, %29 ]
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %35, label %32
 
 32:                                               ; preds = %31
-  %33 = call i32 @H5Pset_chunk(i64 noundef %.0, i32 noundef 1, ptr noundef nonnull %7) #6
+  %33 = call i32 @H5Pset_chunk(i64 noundef %.1, i32 noundef 1, ptr noundef nonnull %7) #6
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %58, label %35
 
 35:                                               ; preds = %32, %31
-  %36 = call i64 @H5Dcreate2(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %21, i64 noundef 0, i64 noundef %.0, i64 noundef 0) #6
+  %36 = call i64 @H5Dcreate2(i64 noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %21, i64 noundef 0, i64 noundef %.1, i64 noundef 0) #6
   %37 = icmp slt i64 %36, 0
   br i1 %37, label %58, label %38
 
@@ -80,7 +80,7 @@ define i64 @H5PTcreate(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 nound
   br i1 %40, label %58, label %41
 
 41:                                               ; preds = %38
-  %42 = call i32 @H5Pclose(i64 noundef %.0) #6
+  %42 = call i32 @H5Pclose(i64 noundef %.1) #6
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %58, label %44
 
@@ -120,11 +120,11 @@ define i64 @H5PTcreate(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 nound
   %59 = phi i64 [ %45, %44 ], [ -1, %41 ], [ -1, %38 ], [ -1, %35 ], [ -1, %32 ]
   %.038.ph = phi i64 [ %36, %44 ], [ %36, %41 ], [ %36, %38 ], [ %36, %35 ], [ -1, %32 ]
   %60 = call i32 @H5Sclose(i64 noundef %21) #6
-  %.not52 = icmp eq i64 %.0, -1
+  %.not52 = icmp eq i64 %.1, -1
   br i1 %.not52, label %63, label %61
 
 61:                                               ; preds = %58
-  %62 = call i32 @H5Pclose(i64 noundef %.0) #6
+  %62 = call i32 @H5Pclose(i64 noundef %.1) #6
   br label %63
 
 63:                                               ; preds = %61, %58

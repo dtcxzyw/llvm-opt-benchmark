@@ -1221,12 +1221,12 @@ define internal fastcc ptr @find_nonnullable_rels_walker(ptr noundef %0, i1 noun
 
 16:                                               ; preds = %.lr.ph162, %16
   %indvars.iv177 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next178, %16 ]
-  %.098161 = phi ptr [ null, %.lr.ph162 ], [ %21, %16 ]
+  %.1161 = phi ptr [ null, %.lr.ph162 ], [ %21, %16 ]
   %17 = load ptr, ptr %7, align 8
   %18 = getelementptr %union.ListCell, ptr %17, i64 %indvars.iv177
   %19 = load ptr, ptr %18, align 8
   %20 = tail call fastcc ptr @find_nonnullable_rels_walker(ptr noundef %19, i1 noundef zeroext %.tr115130)
-  %21 = tail call ptr @bms_join(ptr noundef %.098161, ptr noundef %20) #9
+  %21 = tail call ptr @bms_join(ptr noundef %.1161, ptr noundef %20) #9
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %22 = load i32, ptr %5, align 4
   %23 = sext i32 %22 to i64
@@ -1349,21 +1349,21 @@ tailrecurse.backedge:                             ; preds = %24, %113, %110, %11
 
 .lr.ph157:                                        ; preds = %.lr.ph148, %82
   %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 0, %.lr.ph148 ]
-  %.1147155 = phi ptr [ %.2, %82 ], [ null, %.lr.ph148 ]
+  %.2147155 = phi ptr [ %.3, %82 ], [ null, %.lr.ph148 ]
   %86 = load ptr, ptr %79, align 8
   %87 = getelementptr %union.ListCell, ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
   %89 = tail call fastcc ptr @find_nonnullable_rels_walker(ptr noundef %88, i1 noundef zeroext %.tr115130.lcssa175)
-  %90 = icmp eq ptr %.1147155, null
+  %90 = icmp eq ptr %.2147155, null
   br i1 %90, label %93, label %91
 
 91:                                               ; preds = %.lr.ph157
-  %92 = tail call ptr @bms_int_members(ptr noundef nonnull %.1147155, ptr noundef %89) #9
+  %92 = tail call ptr @bms_int_members(ptr noundef nonnull %.2147155, ptr noundef %89) #9
   br label %93
 
 93:                                               ; preds = %.lr.ph157, %91
-  %.2 = phi ptr [ %92, %91 ], [ %89, %.lr.ph157 ]
-  %94 = icmp eq ptr %.2, null
+  %.3 = phi ptr [ %92, %91 ], [ %89, %.lr.ph157 ]
+  %94 = icmp eq ptr %.3, null
   br i1 %94, label %is_strict_saop.exit, label %82
 
 95:                                               ; preds = %71
@@ -1433,7 +1433,7 @@ tailrecurse.backedge:                             ; preds = %24, %113, %110, %11
   br label %is_strict_saop.exit
 
 is_strict_saop.exit:                              ; preds = %tailrecurse.backedge, %.lr.ph, %110, %30, %105, %101, %100, %109, %24, %34, %50, %67, %64, %54, %48, %42, %113, %93, %82, %16, %2, %75, %.lr.ph148, %.preheader, %12, %8, %130, %125, %118
-  %.0 = phi ptr [ %15, %12 ], [ null, %8 ], [ %132, %130 ], [ %121, %125 ], [ %121, %118 ], [ null, %.preheader ], [ null, %75 ], [ null, %.lr.ph148 ], [ null, %2 ], [ %21, %16 ], [ null, %93 ], [ %.2, %82 ], [ null, %113 ], [ null, %42 ], [ null, %48 ], [ null, %54 ], [ null, %64 ], [ null, %67 ], [ null, %50 ], [ null, %34 ], [ null, %24 ], [ null, %109 ], [ null, %100 ], [ null, %101 ], [ null, %105 ], [ null, %30 ], [ null, %110 ], [ null, %.lr.ph ], [ null, %tailrecurse.backedge ]
+  %.0 = phi ptr [ %15, %12 ], [ null, %8 ], [ %132, %130 ], [ %121, %125 ], [ %121, %118 ], [ null, %.preheader ], [ null, %75 ], [ null, %.lr.ph148 ], [ null, %2 ], [ %21, %16 ], [ null, %93 ], [ %.3, %82 ], [ null, %113 ], [ null, %42 ], [ null, %48 ], [ null, %54 ], [ null, %64 ], [ null, %67 ], [ null, %50 ], [ null, %34 ], [ null, %24 ], [ null, %109 ], [ null, %100 ], [ null, %101 ], [ null, %105 ], [ null, %30 ], [ null, %110 ], [ null, %.lr.ph ], [ null, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -1498,12 +1498,12 @@ define internal fastcc ptr @find_nonnullable_vars_walker(ptr noundef %0, i1 noun
 
 20:                                               ; preds = %.lr.ph157, %20
   %indvars.iv170 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next171, %20 ]
-  %.095156 = phi ptr [ null, %.lr.ph157 ], [ %25, %20 ]
+  %.1156 = phi ptr [ null, %.lr.ph157 ], [ %25, %20 ]
   %21 = load ptr, ptr %7, align 8
   %22 = getelementptr %union.ListCell, ptr %21, i64 %indvars.iv170
   %23 = load ptr, ptr %22, align 8
   %24 = tail call fastcc ptr @find_nonnullable_vars_walker(ptr noundef %23, i1 noundef zeroext %.tr112125)
-  %25 = tail call ptr @mbms_add_members(ptr noundef %.095156, ptr noundef %24) #9
+  %25 = tail call ptr @mbms_add_members(ptr noundef %.1156, ptr noundef %24) #9
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %26 = load i32, ptr %5, align 4
   %27 = sext i32 %26 to i64
@@ -1626,21 +1626,21 @@ tailrecurse.backedge:                             ; preds = %28, %.lr.ph, %118, 
 
 .lr.ph152:                                        ; preds = %.lr.ph143, %86
   %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ 0, %.lr.ph143 ]
-  %.1142150 = phi ptr [ %.2, %86 ], [ null, %.lr.ph143 ]
+  %.2142150 = phi ptr [ %.3, %86 ], [ null, %.lr.ph143 ]
   %90 = load ptr, ptr %83, align 8
   %91 = getelementptr %union.ListCell, ptr %90, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8
   %93 = tail call fastcc ptr @find_nonnullable_vars_walker(ptr noundef %92, i1 noundef zeroext %.tr112125.lcssa168)
-  %94 = icmp eq ptr %.1142150, null
+  %94 = icmp eq ptr %.2142150, null
   br i1 %94, label %97, label %95
 
 95:                                               ; preds = %.lr.ph152
-  %96 = tail call ptr @mbms_int_members(ptr noundef nonnull %.1142150, ptr noundef %93) #9
+  %96 = tail call ptr @mbms_int_members(ptr noundef nonnull %.2142150, ptr noundef %93) #9
   br label %97
 
 97:                                               ; preds = %.lr.ph152, %95
-  %.2 = phi ptr [ %96, %95 ], [ %93, %.lr.ph152 ]
-  %98 = icmp eq ptr %.2, null
+  %.3 = phi ptr [ %96, %95 ], [ %93, %.lr.ph152 ]
+  %98 = icmp eq ptr %.3, null
   br i1 %98, label %is_strict_saop.exit, label %86
 
 99:                                               ; preds = %75
@@ -1692,7 +1692,7 @@ tailrecurse.backedge:                             ; preds = %28, %.lr.ph, %118, 
   br i1 %or.cond185, label %tailrecurse.backedge, label %is_strict_saop.exit
 
 is_strict_saop.exit:                              ; preds = %tailrecurse.backedge, %.lr.ph, %115, %34, %110, %106, %105, %114, %28, %38, %54, %71, %68, %58, %52, %46, %118, %97, %86, %20, %2, %79, %.lr.ph143, %.preheader, %12, %8
-  %.0 = phi ptr [ %19, %12 ], [ null, %8 ], [ null, %.preheader ], [ null, %79 ], [ null, %.lr.ph143 ], [ null, %2 ], [ %25, %20 ], [ null, %97 ], [ %.2, %86 ], [ null, %118 ], [ null, %46 ], [ null, %52 ], [ null, %58 ], [ null, %68 ], [ null, %71 ], [ null, %54 ], [ null, %38 ], [ null, %28 ], [ null, %114 ], [ null, %105 ], [ null, %106 ], [ null, %110 ], [ null, %34 ], [ null, %115 ], [ null, %.lr.ph ], [ null, %tailrecurse.backedge ]
+  %.0 = phi ptr [ %19, %12 ], [ null, %8 ], [ null, %.preheader ], [ null, %79 ], [ null, %.lr.ph143 ], [ null, %2 ], [ %25, %20 ], [ null, %97 ], [ %.3, %86 ], [ null, %118 ], [ null, %46 ], [ null, %52 ], [ null, %58 ], [ null, %68 ], [ null, %71 ], [ null, %54 ], [ null, %38 ], [ null, %28 ], [ null, %114 ], [ null, %105 ], [ null, %106 ], [ null, %110 ], [ null, %34 ], [ null, %115 ], [ null, %.lr.ph ], [ null, %tailrecurse.backedge ]
   ret ptr %.0
 }
 
@@ -1786,12 +1786,12 @@ define dso_local ptr @find_forced_null_vars(ptr noundef readonly %0) local_unnam
 
 47:                                               ; preds = %.lr.ph43, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %47 ]
-  %.02042 = phi ptr [ null, %.lr.ph43 ], [ %52, %47 ]
+  %.142 = phi ptr [ null, %.lr.ph43 ], [ %52, %47 ]
   %48 = load ptr, ptr %46, align 8
   %49 = getelementptr %union.ListCell, ptr %48, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr @find_forced_null_vars(ptr noundef %50)
-  %52 = tail call ptr @mbms_add_members(ptr noundef %.02042, ptr noundef %51) #9
+  %52 = tail call ptr @mbms_add_members(ptr noundef %.142, ptr noundef %51) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load i32, ptr %44, align 4
   %54 = sext i32 %53 to i64
@@ -3095,7 +3095,7 @@ list_length.exit711:                              ; preds = %370
 
 .lr.ph816:                                        ; preds = %.lr.ph804, %595
   %indvars.iv909 = phi i64 [ %indvars.iv.next910, %595 ], [ 0, %.lr.ph804 ]
-  %.0629802814 = phi ptr [ %.1630, %595 ], [ null, %.lr.ph804 ]
+  %.0629802814 = phi ptr [ %.2631, %595 ], [ null, %.lr.ph804 ]
   %580 = load ptr, ptr %577, align 8
   %581 = getelementptr %union.ListCell, ptr %580, i64 %indvars.iv909
   %582 = load ptr, ptr %581, align 8
@@ -3123,7 +3123,7 @@ list_length.exit711:                              ; preds = %370
   br label %595
 
 595:                                              ; preds = %586, %593
-  %.1630 = phi ptr [ %.0629802814, %586 ], [ %594, %593 ]
+  %.2631 = phi ptr [ %.0629802814, %586 ], [ %594, %593 ]
   %indvars.iv.next910 = add nuw nsw i64 %indvars.iv909, 1
   %596 = load i32, ptr %576, align 4
   %597 = sext i32 %596 to i64
@@ -3131,8 +3131,8 @@ list_length.exit711:                              ; preds = %370
   br i1 %598, label %.lr.ph816, label %.thread734
 
 .thread734:                                       ; preds = %595, %591
-  %.2631 = phi ptr [ %592, %591 ], [ %.1630, %595 ]
-  %599 = icmp eq ptr %.2631, null
+  %.1630 = phi ptr [ %592, %591 ], [ %.2631, %595 ]
+  %599 = icmp eq ptr %.1630, null
   br i1 %599, label %.thread734.thread, label %605
 
 .thread734.thread:                                ; preds = %.lr.ph804, %573, %.thread734
@@ -3155,7 +3155,7 @@ list_length.exit711:                              ; preds = %370
   %612 = getelementptr inbounds i8, ptr %606, i64 8
   store i32 %611, ptr %612, align 8
   %613 = getelementptr inbounds i8, ptr %606, i64 16
-  store ptr %.2631, ptr %613, align 8
+  store ptr %.1630, ptr %613, align 8
   %614 = getelementptr inbounds i8, ptr %.tr786, i64 24
   %615 = load i32, ptr %614, align 8
   %616 = getelementptr inbounds i8, ptr %606, i64 24

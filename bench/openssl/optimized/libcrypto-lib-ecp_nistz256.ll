@@ -677,8 +677,8 @@ if.then208:                                       ; preds = %if.end206
 
 61:                                               ; preds = %if.then208, %if.then208.thread
   %tobool209.not168176223 = phi i1 [ false, %if.then208.thread ], [ %tobool.not, %if.then208 ]
-  %new_scalars.0177221 = phi ptr [ %call189, %if.then208.thread ], [ null, %if.then208 ]
-  %new_points.0179219 = phi ptr [ %call196, %if.then208.thread ], [ null, %if.then208 ]
+  %new_scalars.1177221 = phi ptr [ %call189, %if.then208.thread ], [ null, %if.then208 ]
+  %new_points.1179219 = phi ptr [ %call196, %if.then208.thread ], [ null, %if.then208 ]
   %scalars.addr.0181218 = phi ptr [ %call189, %if.then208.thread ], [ %scalars, %if.then208 ]
   %points.addr.0182217 = phi ptr [ %call196, %if.then208.thread ], [ %points, %if.then208 ]
   %num.addr.0183216 = phi i64 [ %add, %if.then208.thread ], [ %num, %if.then208 ]
@@ -1043,8 +1043,8 @@ if.then217:                                       ; preds = %ecp_nistz256_window
   br label %if.end219
 
 if.end219:                                        ; preds = %ecp_nistz256_windowed_mul.exit, %if.then217, %if.end206
-  %new_points.0180 = phi ptr [ %new_points.0179219, %ecp_nistz256_windowed_mul.exit ], [ %new_points.0179219, %if.then217 ], [ null, %if.end206 ]
-  %new_scalars.0178 = phi ptr [ %new_scalars.0177221, %ecp_nistz256_windowed_mul.exit ], [ %new_scalars.0177221, %if.then217 ], [ null, %if.end206 ]
+  %new_points.1180 = phi ptr [ %new_points.1179219, %ecp_nistz256_windowed_mul.exit ], [ %new_points.1179219, %if.then217 ], [ null, %if.end206 ]
+  %new_scalars.1178 = phi ptr [ %new_scalars.1177221, %ecp_nistz256_windowed_mul.exit ], [ %new_scalars.1177221, %if.then217 ], [ null, %if.end206 ]
   %X220 = getelementptr inbounds i8, ptr %r, i64 16
   %124 = load ptr, ptr %X220, align 8
   %call223 = call i32 @bn_set_words(ptr noundef %124, ptr noundef nonnull %p, i32 noundef 4) #8
@@ -1101,12 +1101,12 @@ err.critedge:                                     ; preds = %if.then24.i, %err.s
   br label %err
 
 err:                                              ; preds = %err.critedge, %if.end219, %lor.lhs.false225, %lor.lhs.false231, %if.end193, %if.then186, %if.then36, %if.then9, %is_one.exit, %if.then43, %if.then16, %if.then5
-  %new_scalars.1 = phi ptr [ null, %if.then5 ], [ null, %if.then9 ], [ null, %if.then36 ], [ null, %if.then186 ], [ %call189, %if.end193 ], [ %new_scalars.0178, %is_one.exit ], [ %new_scalars.0178, %lor.lhs.false231 ], [ %new_scalars.0178, %lor.lhs.false225 ], [ %new_scalars.0178, %if.end219 ], [ null, %if.then43 ], [ null, %if.then16 ], [ %new_scalars.0177221, %err.critedge ]
-  %new_points.1 = phi ptr [ null, %if.then5 ], [ null, %if.then9 ], [ null, %if.then36 ], [ null, %if.then186 ], [ null, %if.end193 ], [ %new_points.0180, %is_one.exit ], [ %new_points.0180, %lor.lhs.false231 ], [ %new_points.0180, %lor.lhs.false225 ], [ %new_points.0180, %if.end219 ], [ null, %if.then43 ], [ null, %if.then16 ], [ %new_points.0179219, %err.critedge ]
+  %new_scalars.0 = phi ptr [ null, %if.then5 ], [ null, %if.then9 ], [ null, %if.then36 ], [ null, %if.then186 ], [ %call189, %if.end193 ], [ %new_scalars.1178, %is_one.exit ], [ %new_scalars.1178, %lor.lhs.false231 ], [ %new_scalars.1178, %lor.lhs.false225 ], [ %new_scalars.1178, %if.end219 ], [ null, %if.then43 ], [ null, %if.then16 ], [ %new_scalars.1177221, %err.critedge ]
+  %new_points.0 = phi ptr [ null, %if.then5 ], [ null, %if.then9 ], [ null, %if.then36 ], [ null, %if.then186 ], [ null, %if.end193 ], [ %new_points.1180, %is_one.exit ], [ %new_points.1180, %lor.lhs.false231 ], [ %new_points.1180, %lor.lhs.false225 ], [ %new_points.1180, %if.end219 ], [ null, %if.then43 ], [ null, %if.then16 ], [ %new_points.1179219, %err.critedge ]
   %ret.0 = phi i32 [ 0, %if.then5 ], [ 0, %if.then9 ], [ 0, %if.then36 ], [ 0, %if.then186 ], [ 0, %if.end193 ], [ 1, %is_one.exit ], [ 0, %lor.lhs.false231 ], [ 0, %lor.lhs.false225 ], [ 0, %if.end219 ], [ 0, %if.then43 ], [ 0, %if.then16 ], [ 0, %err.critedge ]
   call void @BN_CTX_end(ptr noundef %ctx) #8
-  call void @CRYPTO_free(ptr noundef %new_points.1, ptr noundef nonnull @.str, i32 noundef 1154) #8
-  call void @CRYPTO_free(ptr noundef %new_scalars.1, ptr noundef nonnull @.str, i32 noundef 1155) #8
+  call void @CRYPTO_free(ptr noundef %new_points.0, ptr noundef nonnull @.str, i32 noundef 1154) #8
+  call void @CRYPTO_free(ptr noundef %new_scalars.0, ptr noundef nonnull @.str, i32 noundef 1155) #8
   br label %return
 
 return:                                           ; preds = %err, %if.then

@@ -943,7 +943,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i116
   unreachable
 
 if.end49:                                         ; preds = %if.then.i.i.i116, %if.end, %invoke.cont14
-  %new_fn.1 = phi ptr [ %30, %invoke.cont14 ], [ %call.i40, %if.end ], [ %call.i40, %if.then.i.i.i116 ]
+  %new_fn.0 = phi ptr [ %30, %invoke.cont14 ], [ %call.i40, %if.end ], [ %call.i40, %if.then.i.i.i116 ]
   %79 = load ptr, ptr %m, align 8
   %80 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i118 = icmp eq ptr %80, null
@@ -956,7 +956,7 @@ if.end.i.i:                                       ; preds = %if.end49
 
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: ; preds = %if.end49, %if.end.i.i
   %retval.0.i.i = phi i32 [ %81, %if.end.i.i ], [ 0, %if.end49 ]
-  %call56 = invoke noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %79, ptr noundef %new_fn.1, i32 noundef %retval.0.i.i, ptr noundef %80)
+  %call56 = invoke noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %79, ptr noundef %new_fn.0, i32 noundef %retval.0.i.i, ptr noundef %80)
           to label %invoke.cont55 unwind label %lpad.loopexit.split-lp151
 
 invoke.cont55:                                    ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit

@@ -177,16 +177,16 @@ ParseAlias.exit.i:                                ; preds = %if.then.i.i, %entry
 
 for.body.i:                                       ; preds = %ParseAlias.exit.i, %for.inc557.i
   %i.0808.i = phi i32 [ %inc558.i, %for.inc557.i ], [ 1, %ParseAlias.exit.i ]
-  %next_option_index.0807.i = phi i32 [ %next_option_index.3.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
-  %command.0806.i = phi i32 [ %command.3.i, %for.inc557.i ], [ %retval.0.i.i, %ParseAlias.exit.i ]
+  %next_option_index.0807.i = phi i32 [ %next_option_index.1.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
+  %command.0806.i = phi i32 [ %command.1.i, %for.inc557.i ], [ %retval.0.i.i, %ParseAlias.exit.i ]
   %after_dash_dash.0805.i = phi i32 [ %after_dash_dash.1.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
-  %suffix_set.0804.i = phi i32 [ %suffix_set.3.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
-  %lgwin_set.0803.i = phi i32 [ %lgwin_set.3.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
-  %squash_set.0802.i = phi i32 [ %squash_set.3.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
-  %keep_set.0801.i = phi i32 [ %keep_set.3.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
-  %output_set.0800.i = phi i32 [ %output_set.3.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
-  %quality_set.0799.i = phi i32 [ %quality_set.3.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
-  %command_set.0798.i = phi i32 [ %command_set.3.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
+  %suffix_set.0804.i = phi i32 [ %suffix_set.1.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
+  %lgwin_set.0803.i = phi i32 [ %lgwin_set.1.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
+  %squash_set.0802.i = phi i32 [ %squash_set.1.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
+  %keep_set.0801.i = phi i32 [ %keep_set.1.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
+  %output_set.0800.i = phi i32 [ %output_set.1.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
+  %quality_set.0799.i = phi i32 [ %quality_set.1.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
+  %command_set.0798.i = phi i32 [ %command_set.1.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
   %longest_path_len.0797.i = phi i64 [ %longest_path_len.1.i, %for.inc557.i ], [ 1, %ParseAlias.exit.i ]
   %input_count.0796.i = phi i64 [ %input_count.1.i, %for.inc557.i ], [ 0, %ParseAlias.exit.i ]
   %idxprom.i = sext i32 %i.0808.i to i64
@@ -253,17 +253,17 @@ for.body46.i.preheader:                           ; preds = %if.end37.i, %land.l
   br label %for.body46.i
 
 for.body46.i:                                     ; preds = %for.body46.i.preheader, %for.inc.i
-  %i.1785.i = phi i32 [ %i.2.i, %for.inc.i ], [ %i.0808.i, %for.body46.i.preheader ]
+  %i.2785.i = phi i32 [ %i.3.i, %for.inc.i ], [ %i.0808.i, %for.body46.i.preheader ]
   %j.0784.i = phi i64 [ %inc314.i, %for.inc.i ], [ 1, %for.body46.i.preheader ]
-  %next_option_index.1783.i = phi i32 [ %next_option_index.2.i, %for.inc.i ], [ %inc27.i, %for.body46.i.preheader ]
-  %command.1782.i = phi i32 [ %command.2.i, %for.inc.i ], [ %command.0806.i, %for.body46.i.preheader ]
-  %suffix_set.1781.i = phi i32 [ %suffix_set.2.i, %for.inc.i ], [ %suffix_set.0804.i, %for.body46.i.preheader ]
-  %lgwin_set.1780.i = phi i32 [ %lgwin_set.2.i, %for.inc.i ], [ %lgwin_set.0803.i, %for.body46.i.preheader ]
-  %squash_set.1779.i = phi i32 [ %squash_set.2.i, %for.inc.i ], [ %squash_set.0802.i, %for.body46.i.preheader ]
-  %keep_set.1778.i = phi i32 [ %keep_set.2.i, %for.inc.i ], [ %keep_set.0801.i, %for.body46.i.preheader ]
-  %output_set.1777.i = phi i32 [ %output_set.2.i, %for.inc.i ], [ %output_set.0800.i, %for.body46.i.preheader ]
-  %quality_set.1776.i = phi i32 [ %quality_set.2.i, %for.inc.i ], [ %quality_set.0799.i, %for.body46.i.preheader ]
-  %command_set.1775.i = phi i32 [ %command_set.2.i, %for.inc.i ], [ %command_set.0798.i, %for.body46.i.preheader ]
+  %next_option_index.2783.i = phi i32 [ %next_option_index.3.i, %for.inc.i ], [ %inc27.i, %for.body46.i.preheader ]
+  %command.2782.i = phi i32 [ %command.3.i, %for.inc.i ], [ %command.0806.i, %for.body46.i.preheader ]
+  %suffix_set.2781.i = phi i32 [ %suffix_set.3.i, %for.inc.i ], [ %suffix_set.0804.i, %for.body46.i.preheader ]
+  %lgwin_set.2780.i = phi i32 [ %lgwin_set.3.i, %for.inc.i ], [ %lgwin_set.0803.i, %for.body46.i.preheader ]
+  %squash_set.2779.i = phi i32 [ %squash_set.3.i, %for.inc.i ], [ %squash_set.0802.i, %for.body46.i.preheader ]
+  %keep_set.2778.i = phi i32 [ %keep_set.3.i, %for.inc.i ], [ %keep_set.0801.i, %for.body46.i.preheader ]
+  %output_set.2777.i = phi i32 [ %output_set.3.i, %for.inc.i ], [ %output_set.0800.i, %for.body46.i.preheader ]
+  %quality_set.2776.i = phi i32 [ %quality_set.3.i, %for.inc.i ], [ %quality_set.0799.i, %for.body46.i.preheader ]
+  %command_set.2775.i = phi i32 [ %command_set.3.i, %for.inc.i ], [ %command_set.0798.i, %for.body46.i.preheader ]
   %arrayidx47.i = getelementptr inbounds i8, ptr %3, i64 %j.0784.i
   %8 = load i8, ptr %arrayidx47.i, align 1
   %conv48.i = sext i8 %8 to i32
@@ -272,7 +272,7 @@ for.body46.i:                                     ; preds = %for.body46.i.prehea
   br i1 %or.cond1.i, label %if.then55.i, label %if.else.i
 
 if.then55.i:                                      ; preds = %for.body46.i
-  %tobool56.not.i = icmp eq i32 %quality_set.1776.i, 0
+  %tobool56.not.i = icmp eq i32 %quality_set.2776.i, 0
   br i1 %tobool56.not.i, label %if.end59.i, label %if.then57.i
 
 if.then57.i:                                      ; preds = %if.then55.i
@@ -294,7 +294,7 @@ if.else.i:                                        ; preds = %for.body46.i
   ]
 
 if.then64.i:                                      ; preds = %if.else.i
-  %tobool65.not.i = icmp eq i32 %output_set.1777.i, 0
+  %tobool65.not.i = icmp eq i32 %output_set.2777.i, 0
   br i1 %tobool65.not.i, label %if.end68.i, label %if.then66.i
 
 if.then66.i:                                      ; preds = %if.then64.i
@@ -307,7 +307,7 @@ if.end68.i:                                       ; preds = %if.then64.i
   br label %for.inc.i
 
 if.then73.i:                                      ; preds = %if.else.i
-  %tobool74.not.i = icmp eq i32 %command_set.1775.i, 0
+  %tobool74.not.i = icmp eq i32 %command_set.2775.i, 0
   br i1 %tobool74.not.i, label %for.inc.i, label %if.then75.i
 
 if.then75.i:                                      ; preds = %if.then73.i
@@ -336,7 +336,7 @@ if.else93.i:                                      ; preds = %if.else.i
   br i1 %or.cond2.i, label %if.then101.i, label %if.else111.i
 
 if.then101.i:                                     ; preds = %if.else93.i
-  %tobool102.not.i = icmp eq i32 %keep_set.1778.i, 0
+  %tobool102.not.i = icmp eq i32 %keep_set.2778.i, 0
   br i1 %tobool102.not.i, label %if.end105.i, label %if.then103.i
 
 if.then103.i:                                     ; preds = %if.then101.i
@@ -379,7 +379,7 @@ if.end119.i:                                      ; preds = %if.then115.i
   br label %for.inc.i
 
 if.then125.i:                                     ; preds = %if.else111.i
-  %tobool126.not.i = icmp eq i32 %squash_set.1779.i, 0
+  %tobool126.not.i = icmp eq i32 %squash_set.2779.i, 0
   br i1 %tobool126.not.i, label %if.end129.i, label %if.then127.i
 
 if.then127.i:                                     ; preds = %if.then125.i
@@ -392,7 +392,7 @@ if.end129.i:                                      ; preds = %if.then125.i
   br label %for.inc.i
 
 if.then134.i:                                     ; preds = %if.else111.i
-  %tobool135.not.i = icmp eq i32 %command_set.1775.i, 0
+  %tobool135.not.i = icmp eq i32 %command_set.2775.i, 0
   br i1 %tobool135.not.i, label %for.inc.i, label %if.then136.i
 
 if.then136.i:                                     ; preds = %if.then134.i
@@ -415,7 +415,7 @@ if.end148.i:                                      ; preds = %if.then143.i
   br label %for.inc.i
 
 if.then159.i:                                     ; preds = %if.else111.i
-  %tobool160.not.i = icmp eq i32 %quality_set.1776.i, 0
+  %tobool160.not.i = icmp eq i32 %quality_set.2776.i, 0
   br i1 %tobool160.not.i, label %if.end163.i, label %if.then161.i
 
 if.then161.i:                                     ; preds = %if.then159.i
@@ -443,7 +443,7 @@ if.then202.i:                                     ; preds = %if.end199.i
   br label %sw.default
 
 if.end205.i:                                      ; preds = %if.end199.i
-  %inc206.i = add nsw i32 %i.1785.i, 1
+  %inc206.i = add nsw i32 %i.2785.i, 1
   %cmp207.i = icmp eq i32 %inc206.i, %argc
   br i1 %cmp207.i, label %if.then220.i, label %lor.lhs.false209.i
 
@@ -465,8 +465,8 @@ if.then220.i:                                     ; preds = %lor.lhs.false213.i,
   br label %sw.default
 
 if.end223.i:                                      ; preds = %lor.lhs.false213.i
-  %inc225.i = add nsw i32 %next_option_index.1783.i, 1
-  %idxprom226.i = sext i32 %next_option_index.1783.i to i64
+  %inc225.i = add nsw i32 %next_option_index.2783.i, 1
+  %idxprom226.i = sext i32 %next_option_index.2783.i to i64
   %arrayidx227.i = getelementptr inbounds [20 x i32], ptr %not_input_indices, i64 0, i64 %idxprom226.i
   store i32 %inc206.i, ptr %arrayidx227.i, align 4
   switch i8 %8, label %for.inc.i [
@@ -478,7 +478,7 @@ if.end223.i:                                      ; preds = %lor.lhs.false213.i
   ]
 
 if.then231.i:                                     ; preds = %if.end223.i
-  %tobool232.not.i = icmp eq i32 %output_set.1777.i, 0
+  %tobool232.not.i = icmp eq i32 %output_set.2777.i, 0
   br i1 %tobool232.not.i, label %if.end235.i, label %if.then233.i
 
 if.then233.i:                                     ; preds = %if.then231.i
@@ -491,7 +491,7 @@ if.end235.i:                                      ; preds = %if.then231.i
   br label %for.inc.i
 
 if.then242.i:                                     ; preds = %if.end223.i
-  %tobool243.not.i = icmp eq i32 %quality_set.1776.i, 0
+  %tobool243.not.i = icmp eq i32 %quality_set.2776.i, 0
   br i1 %tobool243.not.i, label %for.body.i.i, label %if.then244.i
 
 if.then244.i:                                     ; preds = %if.then242.i
@@ -556,7 +556,7 @@ if.then252.i:                                     ; preds = %if.end27.i.i, %land
   br label %sw.default
 
 if.then261.i:                                     ; preds = %if.end223.i
-  %tobool262.not.i = icmp eq i32 %lgwin_set.1780.i, 0
+  %tobool262.not.i = icmp eq i32 %lgwin_set.2780.i, 0
   br i1 %tobool262.not.i, label %for.body.i217.i, label %if.then263.i
 
 if.then263.i:                                     ; preds = %if.then261.i
@@ -642,7 +642,7 @@ if.end294.i:                                      ; preds = %if.then290.i
   br label %for.inc.i
 
 if.then302.i:                                     ; preds = %if.end223.i
-  %tobool303.not.i = icmp eq i32 %suffix_set.1781.i, 0
+  %tobool303.not.i = icmp eq i32 %suffix_set.2781.i, 0
   br i1 %tobool303.not.i, label %if.end306.i, label %if.then304.i
 
 if.then304.i:                                     ; preds = %if.then302.i
@@ -655,16 +655,16 @@ if.end306.i:                                      ; preds = %if.then302.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end306.i, %if.end294.i, %if.end274.i, %ParseInt.exit.i, %if.end235.i, %if.end223.i, %if.end163.i, %if.end148.i, %if.then134.i, %if.end129.i, %if.end119.i, %if.end105.i, %if.end86.i, %if.then73.i, %if.end68.i, %if.end59.i
-  %command_set.2.i = phi i32 [ %command_set.1775.i, %if.end59.i ], [ %command_set.1775.i, %if.end68.i ], [ %command_set.1775.i, %if.end86.i ], [ %command_set.1775.i, %if.end105.i ], [ %command_set.1775.i, %if.end119.i ], [ %command_set.1775.i, %if.end129.i ], [ %command_set.1775.i, %if.end148.i ], [ %command_set.1775.i, %if.end163.i ], [ %command_set.1775.i, %if.end235.i ], [ %command_set.1775.i, %ParseInt.exit.i ], [ %command_set.1775.i, %if.end274.i ], [ %command_set.1775.i, %if.end294.i ], [ %command_set.1775.i, %if.end306.i ], [ 1, %if.then73.i ], [ 1, %if.then134.i ], [ %command_set.1775.i, %if.end223.i ]
-  %quality_set.2.i = phi i32 [ 1, %if.end59.i ], [ %quality_set.1776.i, %if.end68.i ], [ %quality_set.1776.i, %if.end86.i ], [ %quality_set.1776.i, %if.end105.i ], [ %quality_set.1776.i, %if.end119.i ], [ %quality_set.1776.i, %if.end129.i ], [ %quality_set.1776.i, %if.end148.i ], [ 1, %if.end163.i ], [ %quality_set.1776.i, %if.end235.i ], [ 1, %ParseInt.exit.i ], [ %quality_set.1776.i, %if.end274.i ], [ %quality_set.1776.i, %if.end294.i ], [ %quality_set.1776.i, %if.end306.i ], [ %quality_set.1776.i, %if.then73.i ], [ %quality_set.1776.i, %if.then134.i ], [ %quality_set.1776.i, %if.end223.i ]
-  %output_set.2.i = phi i32 [ %output_set.1777.i, %if.end59.i ], [ 1, %if.end68.i ], [ %output_set.1777.i, %if.end86.i ], [ %output_set.1777.i, %if.end105.i ], [ %output_set.1777.i, %if.end119.i ], [ %output_set.1777.i, %if.end129.i ], [ %output_set.1777.i, %if.end148.i ], [ %output_set.1777.i, %if.end163.i ], [ 0, %if.end235.i ], [ %output_set.1777.i, %ParseInt.exit.i ], [ %output_set.1777.i, %if.end274.i ], [ %output_set.1777.i, %if.end294.i ], [ %output_set.1777.i, %if.end306.i ], [ %output_set.1777.i, %if.then73.i ], [ %output_set.1777.i, %if.then134.i ], [ %output_set.1777.i, %if.end223.i ]
-  %keep_set.2.i = phi i32 [ %keep_set.1778.i, %if.end59.i ], [ %keep_set.1778.i, %if.end68.i ], [ %keep_set.1778.i, %if.end86.i ], [ 1, %if.end105.i ], [ %keep_set.1778.i, %if.end119.i ], [ %keep_set.1778.i, %if.end129.i ], [ %keep_set.1778.i, %if.end148.i ], [ %keep_set.1778.i, %if.end163.i ], [ %keep_set.1778.i, %if.end235.i ], [ %keep_set.1778.i, %ParseInt.exit.i ], [ %keep_set.1778.i, %if.end274.i ], [ %keep_set.1778.i, %if.end294.i ], [ %keep_set.1778.i, %if.end306.i ], [ %keep_set.1778.i, %if.then73.i ], [ %keep_set.1778.i, %if.then134.i ], [ %keep_set.1778.i, %if.end223.i ]
-  %squash_set.2.i = phi i32 [ %squash_set.1779.i, %if.end59.i ], [ %squash_set.1779.i, %if.end68.i ], [ %squash_set.1779.i, %if.end86.i ], [ %squash_set.1779.i, %if.end105.i ], [ %squash_set.1779.i, %if.end119.i ], [ 1, %if.end129.i ], [ %squash_set.1779.i, %if.end148.i ], [ %squash_set.1779.i, %if.end163.i ], [ %squash_set.1779.i, %if.end235.i ], [ %squash_set.1779.i, %ParseInt.exit.i ], [ %squash_set.1779.i, %if.end274.i ], [ %squash_set.1779.i, %if.end294.i ], [ %squash_set.1779.i, %if.end306.i ], [ %squash_set.1779.i, %if.then73.i ], [ %squash_set.1779.i, %if.then134.i ], [ %squash_set.1779.i, %if.end223.i ]
-  %lgwin_set.2.i = phi i32 [ %lgwin_set.1780.i, %if.end59.i ], [ %lgwin_set.1780.i, %if.end68.i ], [ %lgwin_set.1780.i, %if.end86.i ], [ %lgwin_set.1780.i, %if.end105.i ], [ %lgwin_set.1780.i, %if.end119.i ], [ %lgwin_set.1780.i, %if.end129.i ], [ %lgwin_set.1780.i, %if.end148.i ], [ %lgwin_set.1780.i, %if.end163.i ], [ %lgwin_set.1780.i, %if.end235.i ], [ %lgwin_set.1780.i, %ParseInt.exit.i ], [ 1, %if.end274.i ], [ %lgwin_set.1780.i, %if.end294.i ], [ %lgwin_set.1780.i, %if.end306.i ], [ %lgwin_set.1780.i, %if.then73.i ], [ %lgwin_set.1780.i, %if.then134.i ], [ %lgwin_set.1780.i, %if.end223.i ]
-  %suffix_set.2.i = phi i32 [ %suffix_set.1781.i, %if.end59.i ], [ %suffix_set.1781.i, %if.end68.i ], [ %suffix_set.1781.i, %if.end86.i ], [ %suffix_set.1781.i, %if.end105.i ], [ %suffix_set.1781.i, %if.end119.i ], [ %suffix_set.1781.i, %if.end129.i ], [ %suffix_set.1781.i, %if.end148.i ], [ %suffix_set.1781.i, %if.end163.i ], [ %suffix_set.1781.i, %if.end235.i ], [ %suffix_set.1781.i, %ParseInt.exit.i ], [ %suffix_set.1781.i, %if.end274.i ], [ %suffix_set.1781.i, %if.end294.i ], [ 1, %if.end306.i ], [ %suffix_set.1781.i, %if.then73.i ], [ %suffix_set.1781.i, %if.then134.i ], [ %suffix_set.1781.i, %if.end223.i ]
-  %command.2.i = phi i32 [ %command.1782.i, %if.end59.i ], [ %command.1782.i, %if.end68.i ], [ %command.1782.i, %if.end86.i ], [ %command.1782.i, %if.end105.i ], [ %command.1782.i, %if.end119.i ], [ %command.1782.i, %if.end129.i ], [ %command.1782.i, %if.end148.i ], [ %command.1782.i, %if.end163.i ], [ %command.1782.i, %if.end235.i ], [ %command.1782.i, %ParseInt.exit.i ], [ %command.1782.i, %if.end274.i ], [ %command.1782.i, %if.end294.i ], [ %command.1782.i, %if.end306.i ], [ 1, %if.then73.i ], [ 4, %if.then134.i ], [ %command.1782.i, %if.end223.i ]
-  %next_option_index.2.i = phi i32 [ %next_option_index.1783.i, %if.end59.i ], [ %next_option_index.1783.i, %if.end68.i ], [ %next_option_index.1783.i, %if.end86.i ], [ %next_option_index.1783.i, %if.end105.i ], [ %next_option_index.1783.i, %if.end119.i ], [ %next_option_index.1783.i, %if.end129.i ], [ %next_option_index.1783.i, %if.end148.i ], [ %next_option_index.1783.i, %if.end163.i ], [ %inc225.i, %if.end235.i ], [ %inc225.i, %ParseInt.exit.i ], [ %inc225.i, %if.end274.i ], [ %inc225.i, %if.end294.i ], [ %inc225.i, %if.end306.i ], [ %next_option_index.1783.i, %if.then73.i ], [ %next_option_index.1783.i, %if.then134.i ], [ %inc225.i, %if.end223.i ]
-  %i.2.i = phi i32 [ %i.1785.i, %if.end59.i ], [ %i.1785.i, %if.end68.i ], [ %i.1785.i, %if.end86.i ], [ %i.1785.i, %if.end105.i ], [ %i.1785.i, %if.end119.i ], [ %i.1785.i, %if.end129.i ], [ %i.1785.i, %if.end148.i ], [ %i.1785.i, %if.end163.i ], [ %inc206.i, %if.end235.i ], [ %inc206.i, %ParseInt.exit.i ], [ %inc206.i, %if.end274.i ], [ %inc206.i, %if.end294.i ], [ %inc206.i, %if.end306.i ], [ %i.1785.i, %if.then73.i ], [ %i.1785.i, %if.then134.i ], [ %inc206.i, %if.end223.i ]
+  %command_set.3.i = phi i32 [ %command_set.2775.i, %if.end59.i ], [ %command_set.2775.i, %if.end68.i ], [ %command_set.2775.i, %if.end86.i ], [ %command_set.2775.i, %if.end105.i ], [ %command_set.2775.i, %if.end119.i ], [ %command_set.2775.i, %if.end129.i ], [ %command_set.2775.i, %if.end148.i ], [ %command_set.2775.i, %if.end163.i ], [ %command_set.2775.i, %if.end235.i ], [ %command_set.2775.i, %ParseInt.exit.i ], [ %command_set.2775.i, %if.end274.i ], [ %command_set.2775.i, %if.end294.i ], [ %command_set.2775.i, %if.end306.i ], [ 1, %if.then73.i ], [ 1, %if.then134.i ], [ %command_set.2775.i, %if.end223.i ]
+  %quality_set.3.i = phi i32 [ 1, %if.end59.i ], [ %quality_set.2776.i, %if.end68.i ], [ %quality_set.2776.i, %if.end86.i ], [ %quality_set.2776.i, %if.end105.i ], [ %quality_set.2776.i, %if.end119.i ], [ %quality_set.2776.i, %if.end129.i ], [ %quality_set.2776.i, %if.end148.i ], [ 1, %if.end163.i ], [ %quality_set.2776.i, %if.end235.i ], [ 1, %ParseInt.exit.i ], [ %quality_set.2776.i, %if.end274.i ], [ %quality_set.2776.i, %if.end294.i ], [ %quality_set.2776.i, %if.end306.i ], [ %quality_set.2776.i, %if.then73.i ], [ %quality_set.2776.i, %if.then134.i ], [ %quality_set.2776.i, %if.end223.i ]
+  %output_set.3.i = phi i32 [ %output_set.2777.i, %if.end59.i ], [ 1, %if.end68.i ], [ %output_set.2777.i, %if.end86.i ], [ %output_set.2777.i, %if.end105.i ], [ %output_set.2777.i, %if.end119.i ], [ %output_set.2777.i, %if.end129.i ], [ %output_set.2777.i, %if.end148.i ], [ %output_set.2777.i, %if.end163.i ], [ 0, %if.end235.i ], [ %output_set.2777.i, %ParseInt.exit.i ], [ %output_set.2777.i, %if.end274.i ], [ %output_set.2777.i, %if.end294.i ], [ %output_set.2777.i, %if.end306.i ], [ %output_set.2777.i, %if.then73.i ], [ %output_set.2777.i, %if.then134.i ], [ %output_set.2777.i, %if.end223.i ]
+  %keep_set.3.i = phi i32 [ %keep_set.2778.i, %if.end59.i ], [ %keep_set.2778.i, %if.end68.i ], [ %keep_set.2778.i, %if.end86.i ], [ 1, %if.end105.i ], [ %keep_set.2778.i, %if.end119.i ], [ %keep_set.2778.i, %if.end129.i ], [ %keep_set.2778.i, %if.end148.i ], [ %keep_set.2778.i, %if.end163.i ], [ %keep_set.2778.i, %if.end235.i ], [ %keep_set.2778.i, %ParseInt.exit.i ], [ %keep_set.2778.i, %if.end274.i ], [ %keep_set.2778.i, %if.end294.i ], [ %keep_set.2778.i, %if.end306.i ], [ %keep_set.2778.i, %if.then73.i ], [ %keep_set.2778.i, %if.then134.i ], [ %keep_set.2778.i, %if.end223.i ]
+  %squash_set.3.i = phi i32 [ %squash_set.2779.i, %if.end59.i ], [ %squash_set.2779.i, %if.end68.i ], [ %squash_set.2779.i, %if.end86.i ], [ %squash_set.2779.i, %if.end105.i ], [ %squash_set.2779.i, %if.end119.i ], [ 1, %if.end129.i ], [ %squash_set.2779.i, %if.end148.i ], [ %squash_set.2779.i, %if.end163.i ], [ %squash_set.2779.i, %if.end235.i ], [ %squash_set.2779.i, %ParseInt.exit.i ], [ %squash_set.2779.i, %if.end274.i ], [ %squash_set.2779.i, %if.end294.i ], [ %squash_set.2779.i, %if.end306.i ], [ %squash_set.2779.i, %if.then73.i ], [ %squash_set.2779.i, %if.then134.i ], [ %squash_set.2779.i, %if.end223.i ]
+  %lgwin_set.3.i = phi i32 [ %lgwin_set.2780.i, %if.end59.i ], [ %lgwin_set.2780.i, %if.end68.i ], [ %lgwin_set.2780.i, %if.end86.i ], [ %lgwin_set.2780.i, %if.end105.i ], [ %lgwin_set.2780.i, %if.end119.i ], [ %lgwin_set.2780.i, %if.end129.i ], [ %lgwin_set.2780.i, %if.end148.i ], [ %lgwin_set.2780.i, %if.end163.i ], [ %lgwin_set.2780.i, %if.end235.i ], [ %lgwin_set.2780.i, %ParseInt.exit.i ], [ 1, %if.end274.i ], [ %lgwin_set.2780.i, %if.end294.i ], [ %lgwin_set.2780.i, %if.end306.i ], [ %lgwin_set.2780.i, %if.then73.i ], [ %lgwin_set.2780.i, %if.then134.i ], [ %lgwin_set.2780.i, %if.end223.i ]
+  %suffix_set.3.i = phi i32 [ %suffix_set.2781.i, %if.end59.i ], [ %suffix_set.2781.i, %if.end68.i ], [ %suffix_set.2781.i, %if.end86.i ], [ %suffix_set.2781.i, %if.end105.i ], [ %suffix_set.2781.i, %if.end119.i ], [ %suffix_set.2781.i, %if.end129.i ], [ %suffix_set.2781.i, %if.end148.i ], [ %suffix_set.2781.i, %if.end163.i ], [ %suffix_set.2781.i, %if.end235.i ], [ %suffix_set.2781.i, %ParseInt.exit.i ], [ %suffix_set.2781.i, %if.end274.i ], [ %suffix_set.2781.i, %if.end294.i ], [ 1, %if.end306.i ], [ %suffix_set.2781.i, %if.then73.i ], [ %suffix_set.2781.i, %if.then134.i ], [ %suffix_set.2781.i, %if.end223.i ]
+  %command.3.i = phi i32 [ %command.2782.i, %if.end59.i ], [ %command.2782.i, %if.end68.i ], [ %command.2782.i, %if.end86.i ], [ %command.2782.i, %if.end105.i ], [ %command.2782.i, %if.end119.i ], [ %command.2782.i, %if.end129.i ], [ %command.2782.i, %if.end148.i ], [ %command.2782.i, %if.end163.i ], [ %command.2782.i, %if.end235.i ], [ %command.2782.i, %ParseInt.exit.i ], [ %command.2782.i, %if.end274.i ], [ %command.2782.i, %if.end294.i ], [ %command.2782.i, %if.end306.i ], [ 1, %if.then73.i ], [ 4, %if.then134.i ], [ %command.2782.i, %if.end223.i ]
+  %next_option_index.3.i = phi i32 [ %next_option_index.2783.i, %if.end59.i ], [ %next_option_index.2783.i, %if.end68.i ], [ %next_option_index.2783.i, %if.end86.i ], [ %next_option_index.2783.i, %if.end105.i ], [ %next_option_index.2783.i, %if.end119.i ], [ %next_option_index.2783.i, %if.end129.i ], [ %next_option_index.2783.i, %if.end148.i ], [ %next_option_index.2783.i, %if.end163.i ], [ %inc225.i, %if.end235.i ], [ %inc225.i, %ParseInt.exit.i ], [ %inc225.i, %if.end274.i ], [ %inc225.i, %if.end294.i ], [ %inc225.i, %if.end306.i ], [ %next_option_index.2783.i, %if.then73.i ], [ %next_option_index.2783.i, %if.then134.i ], [ %inc225.i, %if.end223.i ]
+  %i.3.i = phi i32 [ %i.2785.i, %if.end59.i ], [ %i.2785.i, %if.end68.i ], [ %i.2785.i, %if.end86.i ], [ %i.2785.i, %if.end105.i ], [ %i.2785.i, %if.end119.i ], [ %i.2785.i, %if.end129.i ], [ %i.2785.i, %if.end148.i ], [ %i.2785.i, %if.end163.i ], [ %inc206.i, %if.end235.i ], [ %inc206.i, %ParseInt.exit.i ], [ %inc206.i, %if.end274.i ], [ %inc206.i, %if.end294.i ], [ %inc206.i, %if.end306.i ], [ %i.2785.i, %if.then73.i ], [ %i.2785.i, %if.then134.i ], [ %inc206.i, %if.end223.i ]
   %inc314.i = add nuw i64 %j.0784.i, 1
   %exitcond.not.i = icmp eq i64 %inc314.i, %call4.i
   br i1 %exitcond.not.i, label %for.inc557.i, label %for.body46.i, !llvm.loop !7
@@ -1055,30 +1055,30 @@ if.else536.i:                                     ; preds = %if.else526.i
 for.inc557.i:                                     ; preds = %for.inc.i, %if.end534.i, %if.end519.i, %if.end509.i, %if.end489.i, %if.end463.i, %if.end447.i, %if.end421.i, %if.then406.i, %if.end400.i, %if.end390.i, %if.end380.i, %if.end370.i, %if.end359.i, %if.end344.i, %if.then330.i, %if.end324.i, %land.lhs.true.i, %if.then19.i, %if.then.i
   %input_count.1.i = phi i64 [ %input_count.0796.i, %if.then.i ], [ %input_count.0796.i, %if.end324.i ], [ %input_count.0796.i, %if.end344.i ], [ %input_count.0796.i, %if.end359.i ], [ %input_count.0796.i, %if.end370.i ], [ %input_count.0796.i, %if.end380.i ], [ %input_count.0796.i, %if.end390.i ], [ %input_count.0796.i, %if.end400.i ], [ %input_count.0796.i, %if.end421.i ], [ %input_count.0796.i, %if.end447.i ], [ %input_count.0796.i, %if.end463.i ], [ %input_count.0796.i, %if.end489.i ], [ %input_count.0796.i, %if.end509.i ], [ %input_count.0796.i, %if.end519.i ], [ %input_count.0796.i, %if.end534.i ], [ %inc20.i, %if.then19.i ], [ %input_count.0796.i, %land.lhs.true.i ], [ %input_count.0796.i, %if.then330.i ], [ %input_count.0796.i, %if.then406.i ], [ %input_count.0796.i, %for.inc.i ]
   %longest_path_len.1.i = phi i64 [ %longest_path_len.0797.i, %if.then.i ], [ %longest_path_len.0797.i, %if.end324.i ], [ %longest_path_len.0797.i, %if.end344.i ], [ %longest_path_len.0797.i, %if.end359.i ], [ %longest_path_len.0797.i, %if.end370.i ], [ %longest_path_len.0797.i, %if.end380.i ], [ %longest_path_len.0797.i, %if.end390.i ], [ %longest_path_len.0797.i, %if.end400.i ], [ %longest_path_len.0797.i, %if.end421.i ], [ %longest_path_len.0797.i, %if.end447.i ], [ %longest_path_len.0797.i, %if.end463.i ], [ %longest_path_len.0797.i, %if.end489.i ], [ %longest_path_len.0797.i, %if.end509.i ], [ %longest_path_len.0797.i, %if.end519.i ], [ %longest_path_len.0797.i, %if.end534.i ], [ %spec.select.i, %if.then19.i ], [ %longest_path_len.0797.i, %land.lhs.true.i ], [ %longest_path_len.0797.i, %if.then330.i ], [ %longest_path_len.0797.i, %if.then406.i ], [ %longest_path_len.0797.i, %for.inc.i ]
-  %command_set.3.i = phi i32 [ %command_set.0798.i, %if.then.i ], [ %command_set.0798.i, %if.end324.i ], [ %command_set.0798.i, %if.end344.i ], [ %command_set.0798.i, %if.end359.i ], [ %command_set.0798.i, %if.end370.i ], [ %command_set.0798.i, %if.end380.i ], [ %command_set.0798.i, %if.end390.i ], [ %command_set.0798.i, %if.end400.i ], [ %command_set.0798.i, %if.end421.i ], [ %command_set.0798.i, %if.end447.i ], [ %command_set.0798.i, %if.end463.i ], [ %command_set.0798.i, %if.end489.i ], [ %command_set.0798.i, %if.end509.i ], [ %command_set.0798.i, %if.end519.i ], [ %command_set.0798.i, %if.end534.i ], [ %command_set.0798.i, %if.then19.i ], [ %command_set.0798.i, %land.lhs.true.i ], [ 1, %if.then330.i ], [ 1, %if.then406.i ], [ %command_set.2.i, %for.inc.i ]
-  %quality_set.3.i = phi i32 [ %quality_set.0799.i, %if.then.i ], [ 1, %if.end324.i ], [ %quality_set.0799.i, %if.end344.i ], [ %quality_set.0799.i, %if.end359.i ], [ %quality_set.0799.i, %if.end370.i ], [ %quality_set.0799.i, %if.end380.i ], [ %quality_set.0799.i, %if.end390.i ], [ %quality_set.0799.i, %if.end400.i ], [ %quality_set.0799.i, %if.end421.i ], [ %quality_set.0799.i, %if.end447.i ], [ %quality_set.0799.i, %if.end463.i ], [ %quality_set.0799.i, %if.end489.i ], [ %quality_set.0799.i, %if.end509.i ], [ 1, %if.end519.i ], [ %quality_set.0799.i, %if.end534.i ], [ %quality_set.0799.i, %if.then19.i ], [ %quality_set.0799.i, %land.lhs.true.i ], [ %quality_set.0799.i, %if.then330.i ], [ %quality_set.0799.i, %if.then406.i ], [ %quality_set.2.i, %for.inc.i ]
-  %output_set.3.i = phi i32 [ %output_set.0800.i, %if.then.i ], [ %output_set.0800.i, %if.end324.i ], [ %output_set.0800.i, %if.end344.i ], [ %output_set.0800.i, %if.end359.i ], [ %output_set.0800.i, %if.end370.i ], [ %output_set.0800.i, %if.end380.i ], [ %output_set.0800.i, %if.end390.i ], [ 1, %if.end400.i ], [ %output_set.0800.i, %if.end421.i ], [ %output_set.0800.i, %if.end447.i ], [ %output_set.0800.i, %if.end463.i ], [ %output_set.0800.i, %if.end489.i ], [ 0, %if.end509.i ], [ %output_set.0800.i, %if.end519.i ], [ %output_set.0800.i, %if.end534.i ], [ %output_set.0800.i, %if.then19.i ], [ %output_set.0800.i, %land.lhs.true.i ], [ %output_set.0800.i, %if.then330.i ], [ %output_set.0800.i, %if.then406.i ], [ %output_set.2.i, %for.inc.i ]
-  %keep_set.3.i = phi i32 [ %keep_set.0801.i, %if.then.i ], [ %keep_set.0801.i, %if.end324.i ], [ %keep_set.0801.i, %if.end344.i ], [ 1, %if.end359.i ], [ %keep_set.0801.i, %if.end370.i ], [ 1, %if.end380.i ], [ %keep_set.0801.i, %if.end390.i ], [ %keep_set.0801.i, %if.end400.i ], [ %keep_set.0801.i, %if.end421.i ], [ %keep_set.0801.i, %if.end447.i ], [ %keep_set.0801.i, %if.end463.i ], [ %keep_set.0801.i, %if.end489.i ], [ %keep_set.0801.i, %if.end509.i ], [ %keep_set.0801.i, %if.end519.i ], [ %keep_set.0801.i, %if.end534.i ], [ %keep_set.0801.i, %if.then19.i ], [ %keep_set.0801.i, %land.lhs.true.i ], [ %keep_set.0801.i, %if.then330.i ], [ %keep_set.0801.i, %if.then406.i ], [ %keep_set.2.i, %for.inc.i ]
-  %squash_set.3.i = phi i32 [ %squash_set.0802.i, %if.then.i ], [ %squash_set.0802.i, %if.end324.i ], [ %squash_set.0802.i, %if.end344.i ], [ %squash_set.0802.i, %if.end359.i ], [ %squash_set.0802.i, %if.end370.i ], [ %squash_set.0802.i, %if.end380.i ], [ 1, %if.end390.i ], [ %squash_set.0802.i, %if.end400.i ], [ %squash_set.0802.i, %if.end421.i ], [ %squash_set.0802.i, %if.end447.i ], [ %squash_set.0802.i, %if.end463.i ], [ %squash_set.0802.i, %if.end489.i ], [ %squash_set.0802.i, %if.end509.i ], [ %squash_set.0802.i, %if.end519.i ], [ %squash_set.0802.i, %if.end534.i ], [ %squash_set.0802.i, %if.then19.i ], [ %squash_set.0802.i, %land.lhs.true.i ], [ %squash_set.0802.i, %if.then330.i ], [ %squash_set.0802.i, %if.then406.i ], [ %squash_set.2.i, %for.inc.i ]
-  %lgwin_set.3.i = phi i32 [ %lgwin_set.0803.i, %if.then.i ], [ %lgwin_set.0803.i, %if.end324.i ], [ %lgwin_set.0803.i, %if.end344.i ], [ %lgwin_set.0803.i, %if.end359.i ], [ %lgwin_set.0803.i, %if.end370.i ], [ %lgwin_set.0803.i, %if.end380.i ], [ %lgwin_set.0803.i, %if.end390.i ], [ %lgwin_set.0803.i, %if.end400.i ], [ %lgwin_set.0803.i, %if.end421.i ], [ %lgwin_set.0803.i, %if.end447.i ], [ 1, %if.end463.i ], [ 1, %if.end489.i ], [ %lgwin_set.0803.i, %if.end509.i ], [ %lgwin_set.0803.i, %if.end519.i ], [ %lgwin_set.0803.i, %if.end534.i ], [ %lgwin_set.0803.i, %if.then19.i ], [ %lgwin_set.0803.i, %land.lhs.true.i ], [ %lgwin_set.0803.i, %if.then330.i ], [ %lgwin_set.0803.i, %if.then406.i ], [ %lgwin_set.2.i, %for.inc.i ]
-  %suffix_set.3.i = phi i32 [ %suffix_set.0804.i, %if.then.i ], [ %suffix_set.0804.i, %if.end324.i ], [ %suffix_set.0804.i, %if.end344.i ], [ %suffix_set.0804.i, %if.end359.i ], [ %suffix_set.0804.i, %if.end370.i ], [ %suffix_set.0804.i, %if.end380.i ], [ %suffix_set.0804.i, %if.end390.i ], [ %suffix_set.0804.i, %if.end400.i ], [ %suffix_set.0804.i, %if.end421.i ], [ %suffix_set.0804.i, %if.end447.i ], [ %suffix_set.0804.i, %if.end463.i ], [ %suffix_set.0804.i, %if.end489.i ], [ %suffix_set.0804.i, %if.end509.i ], [ %suffix_set.0804.i, %if.end519.i ], [ 1, %if.end534.i ], [ %suffix_set.0804.i, %if.then19.i ], [ %suffix_set.0804.i, %land.lhs.true.i ], [ %suffix_set.0804.i, %if.then330.i ], [ %suffix_set.0804.i, %if.then406.i ], [ %suffix_set.2.i, %for.inc.i ]
+  %command_set.1.i = phi i32 [ %command_set.0798.i, %if.then.i ], [ %command_set.0798.i, %if.end324.i ], [ %command_set.0798.i, %if.end344.i ], [ %command_set.0798.i, %if.end359.i ], [ %command_set.0798.i, %if.end370.i ], [ %command_set.0798.i, %if.end380.i ], [ %command_set.0798.i, %if.end390.i ], [ %command_set.0798.i, %if.end400.i ], [ %command_set.0798.i, %if.end421.i ], [ %command_set.0798.i, %if.end447.i ], [ %command_set.0798.i, %if.end463.i ], [ %command_set.0798.i, %if.end489.i ], [ %command_set.0798.i, %if.end509.i ], [ %command_set.0798.i, %if.end519.i ], [ %command_set.0798.i, %if.end534.i ], [ %command_set.0798.i, %if.then19.i ], [ %command_set.0798.i, %land.lhs.true.i ], [ 1, %if.then330.i ], [ 1, %if.then406.i ], [ %command_set.3.i, %for.inc.i ]
+  %quality_set.1.i = phi i32 [ %quality_set.0799.i, %if.then.i ], [ 1, %if.end324.i ], [ %quality_set.0799.i, %if.end344.i ], [ %quality_set.0799.i, %if.end359.i ], [ %quality_set.0799.i, %if.end370.i ], [ %quality_set.0799.i, %if.end380.i ], [ %quality_set.0799.i, %if.end390.i ], [ %quality_set.0799.i, %if.end400.i ], [ %quality_set.0799.i, %if.end421.i ], [ %quality_set.0799.i, %if.end447.i ], [ %quality_set.0799.i, %if.end463.i ], [ %quality_set.0799.i, %if.end489.i ], [ %quality_set.0799.i, %if.end509.i ], [ 1, %if.end519.i ], [ %quality_set.0799.i, %if.end534.i ], [ %quality_set.0799.i, %if.then19.i ], [ %quality_set.0799.i, %land.lhs.true.i ], [ %quality_set.0799.i, %if.then330.i ], [ %quality_set.0799.i, %if.then406.i ], [ %quality_set.3.i, %for.inc.i ]
+  %output_set.1.i = phi i32 [ %output_set.0800.i, %if.then.i ], [ %output_set.0800.i, %if.end324.i ], [ %output_set.0800.i, %if.end344.i ], [ %output_set.0800.i, %if.end359.i ], [ %output_set.0800.i, %if.end370.i ], [ %output_set.0800.i, %if.end380.i ], [ %output_set.0800.i, %if.end390.i ], [ 1, %if.end400.i ], [ %output_set.0800.i, %if.end421.i ], [ %output_set.0800.i, %if.end447.i ], [ %output_set.0800.i, %if.end463.i ], [ %output_set.0800.i, %if.end489.i ], [ 0, %if.end509.i ], [ %output_set.0800.i, %if.end519.i ], [ %output_set.0800.i, %if.end534.i ], [ %output_set.0800.i, %if.then19.i ], [ %output_set.0800.i, %land.lhs.true.i ], [ %output_set.0800.i, %if.then330.i ], [ %output_set.0800.i, %if.then406.i ], [ %output_set.3.i, %for.inc.i ]
+  %keep_set.1.i = phi i32 [ %keep_set.0801.i, %if.then.i ], [ %keep_set.0801.i, %if.end324.i ], [ %keep_set.0801.i, %if.end344.i ], [ 1, %if.end359.i ], [ %keep_set.0801.i, %if.end370.i ], [ 1, %if.end380.i ], [ %keep_set.0801.i, %if.end390.i ], [ %keep_set.0801.i, %if.end400.i ], [ %keep_set.0801.i, %if.end421.i ], [ %keep_set.0801.i, %if.end447.i ], [ %keep_set.0801.i, %if.end463.i ], [ %keep_set.0801.i, %if.end489.i ], [ %keep_set.0801.i, %if.end509.i ], [ %keep_set.0801.i, %if.end519.i ], [ %keep_set.0801.i, %if.end534.i ], [ %keep_set.0801.i, %if.then19.i ], [ %keep_set.0801.i, %land.lhs.true.i ], [ %keep_set.0801.i, %if.then330.i ], [ %keep_set.0801.i, %if.then406.i ], [ %keep_set.3.i, %for.inc.i ]
+  %squash_set.1.i = phi i32 [ %squash_set.0802.i, %if.then.i ], [ %squash_set.0802.i, %if.end324.i ], [ %squash_set.0802.i, %if.end344.i ], [ %squash_set.0802.i, %if.end359.i ], [ %squash_set.0802.i, %if.end370.i ], [ %squash_set.0802.i, %if.end380.i ], [ 1, %if.end390.i ], [ %squash_set.0802.i, %if.end400.i ], [ %squash_set.0802.i, %if.end421.i ], [ %squash_set.0802.i, %if.end447.i ], [ %squash_set.0802.i, %if.end463.i ], [ %squash_set.0802.i, %if.end489.i ], [ %squash_set.0802.i, %if.end509.i ], [ %squash_set.0802.i, %if.end519.i ], [ %squash_set.0802.i, %if.end534.i ], [ %squash_set.0802.i, %if.then19.i ], [ %squash_set.0802.i, %land.lhs.true.i ], [ %squash_set.0802.i, %if.then330.i ], [ %squash_set.0802.i, %if.then406.i ], [ %squash_set.3.i, %for.inc.i ]
+  %lgwin_set.1.i = phi i32 [ %lgwin_set.0803.i, %if.then.i ], [ %lgwin_set.0803.i, %if.end324.i ], [ %lgwin_set.0803.i, %if.end344.i ], [ %lgwin_set.0803.i, %if.end359.i ], [ %lgwin_set.0803.i, %if.end370.i ], [ %lgwin_set.0803.i, %if.end380.i ], [ %lgwin_set.0803.i, %if.end390.i ], [ %lgwin_set.0803.i, %if.end400.i ], [ %lgwin_set.0803.i, %if.end421.i ], [ %lgwin_set.0803.i, %if.end447.i ], [ 1, %if.end463.i ], [ 1, %if.end489.i ], [ %lgwin_set.0803.i, %if.end509.i ], [ %lgwin_set.0803.i, %if.end519.i ], [ %lgwin_set.0803.i, %if.end534.i ], [ %lgwin_set.0803.i, %if.then19.i ], [ %lgwin_set.0803.i, %land.lhs.true.i ], [ %lgwin_set.0803.i, %if.then330.i ], [ %lgwin_set.0803.i, %if.then406.i ], [ %lgwin_set.3.i, %for.inc.i ]
+  %suffix_set.1.i = phi i32 [ %suffix_set.0804.i, %if.then.i ], [ %suffix_set.0804.i, %if.end324.i ], [ %suffix_set.0804.i, %if.end344.i ], [ %suffix_set.0804.i, %if.end359.i ], [ %suffix_set.0804.i, %if.end370.i ], [ %suffix_set.0804.i, %if.end380.i ], [ %suffix_set.0804.i, %if.end390.i ], [ %suffix_set.0804.i, %if.end400.i ], [ %suffix_set.0804.i, %if.end421.i ], [ %suffix_set.0804.i, %if.end447.i ], [ %suffix_set.0804.i, %if.end463.i ], [ %suffix_set.0804.i, %if.end489.i ], [ %suffix_set.0804.i, %if.end509.i ], [ %suffix_set.0804.i, %if.end519.i ], [ 1, %if.end534.i ], [ %suffix_set.0804.i, %if.then19.i ], [ %suffix_set.0804.i, %land.lhs.true.i ], [ %suffix_set.0804.i, %if.then330.i ], [ %suffix_set.0804.i, %if.then406.i ], [ %suffix_set.3.i, %for.inc.i ]
   %after_dash_dash.1.i = phi i32 [ %after_dash_dash.0805.i, %if.then.i ], [ 0, %if.end324.i ], [ 0, %if.end344.i ], [ 0, %if.end359.i ], [ 0, %if.end370.i ], [ 0, %if.end380.i ], [ 0, %if.end390.i ], [ 0, %if.end400.i ], [ 0, %if.end421.i ], [ 0, %if.end447.i ], [ 0, %if.end463.i ], [ 0, %if.end489.i ], [ 0, %if.end509.i ], [ 0, %if.end519.i ], [ 0, %if.end534.i ], [ %after_dash_dash.0805.i, %if.then19.i ], [ 1, %land.lhs.true.i ], [ 0, %if.then330.i ], [ 0, %if.then406.i ], [ 0, %for.inc.i ]
-  %command.3.i = phi i32 [ %command.0806.i, %if.then.i ], [ %command.0806.i, %if.end324.i ], [ %command.0806.i, %if.end344.i ], [ %command.0806.i, %if.end359.i ], [ %command.0806.i, %if.end370.i ], [ %command.0806.i, %if.end380.i ], [ %command.0806.i, %if.end390.i ], [ %command.0806.i, %if.end400.i ], [ %command.0806.i, %if.end421.i ], [ %command.0806.i, %if.end447.i ], [ %command.0806.i, %if.end463.i ], [ %command.0806.i, %if.end489.i ], [ %command.0806.i, %if.end509.i ], [ %command.0806.i, %if.end519.i ], [ %command.0806.i, %if.end534.i ], [ %command.0806.i, %if.then19.i ], [ %command.0806.i, %land.lhs.true.i ], [ 1, %if.then330.i ], [ 4, %if.then406.i ], [ %command.2.i, %for.inc.i ]
-  %next_option_index.3.i = phi i32 [ %inc.i, %if.then.i ], [ %inc27.i, %if.end324.i ], [ %inc27.i, %if.end344.i ], [ %inc27.i, %if.end359.i ], [ %inc27.i, %if.end370.i ], [ %inc27.i, %if.end380.i ], [ %inc27.i, %if.end390.i ], [ %inc27.i, %if.end400.i ], [ %inc27.i, %if.end421.i ], [ %inc27.i, %if.end447.i ], [ %inc27.i, %if.end463.i ], [ %inc27.i, %if.end489.i ], [ %inc27.i, %if.end509.i ], [ %inc27.i, %if.end519.i ], [ %inc27.i, %if.end534.i ], [ %next_option_index.0807.i, %if.then19.i ], [ %inc27.i, %land.lhs.true.i ], [ %inc27.i, %if.then330.i ], [ %inc27.i, %if.then406.i ], [ %next_option_index.2.i, %for.inc.i ]
-  %i.3.i = phi i32 [ %i.0808.i, %if.then.i ], [ %i.0808.i, %if.end324.i ], [ %i.0808.i, %if.end344.i ], [ %i.0808.i, %if.end359.i ], [ %i.0808.i, %if.end370.i ], [ %i.0808.i, %if.end380.i ], [ %i.0808.i, %if.end390.i ], [ %i.0808.i, %if.end400.i ], [ %i.0808.i, %if.end421.i ], [ %i.0808.i, %if.end447.i ], [ %i.0808.i, %if.end463.i ], [ %i.0808.i, %if.end489.i ], [ %i.0808.i, %if.end509.i ], [ %i.0808.i, %if.end519.i ], [ %i.0808.i, %if.end534.i ], [ %i.0808.i, %if.then19.i ], [ %i.0808.i, %land.lhs.true.i ], [ %i.0808.i, %if.then330.i ], [ %i.0808.i, %if.then406.i ], [ %i.2.i, %for.inc.i ]
-  %inc558.i = add nsw i32 %i.3.i, 1
+  %command.1.i = phi i32 [ %command.0806.i, %if.then.i ], [ %command.0806.i, %if.end324.i ], [ %command.0806.i, %if.end344.i ], [ %command.0806.i, %if.end359.i ], [ %command.0806.i, %if.end370.i ], [ %command.0806.i, %if.end380.i ], [ %command.0806.i, %if.end390.i ], [ %command.0806.i, %if.end400.i ], [ %command.0806.i, %if.end421.i ], [ %command.0806.i, %if.end447.i ], [ %command.0806.i, %if.end463.i ], [ %command.0806.i, %if.end489.i ], [ %command.0806.i, %if.end509.i ], [ %command.0806.i, %if.end519.i ], [ %command.0806.i, %if.end534.i ], [ %command.0806.i, %if.then19.i ], [ %command.0806.i, %land.lhs.true.i ], [ 1, %if.then330.i ], [ 4, %if.then406.i ], [ %command.3.i, %for.inc.i ]
+  %next_option_index.1.i = phi i32 [ %inc.i, %if.then.i ], [ %inc27.i, %if.end324.i ], [ %inc27.i, %if.end344.i ], [ %inc27.i, %if.end359.i ], [ %inc27.i, %if.end370.i ], [ %inc27.i, %if.end380.i ], [ %inc27.i, %if.end390.i ], [ %inc27.i, %if.end400.i ], [ %inc27.i, %if.end421.i ], [ %inc27.i, %if.end447.i ], [ %inc27.i, %if.end463.i ], [ %inc27.i, %if.end489.i ], [ %inc27.i, %if.end509.i ], [ %inc27.i, %if.end519.i ], [ %inc27.i, %if.end534.i ], [ %next_option_index.0807.i, %if.then19.i ], [ %inc27.i, %land.lhs.true.i ], [ %inc27.i, %if.then330.i ], [ %inc27.i, %if.then406.i ], [ %next_option_index.3.i, %for.inc.i ]
+  %i.1.i = phi i32 [ %i.0808.i, %if.then.i ], [ %i.0808.i, %if.end324.i ], [ %i.0808.i, %if.end344.i ], [ %i.0808.i, %if.end359.i ], [ %i.0808.i, %if.end370.i ], [ %i.0808.i, %if.end380.i ], [ %i.0808.i, %if.end390.i ], [ %i.0808.i, %if.end400.i ], [ %i.0808.i, %if.end421.i ], [ %i.0808.i, %if.end447.i ], [ %i.0808.i, %if.end463.i ], [ %i.0808.i, %if.end489.i ], [ %i.0808.i, %if.end509.i ], [ %i.0808.i, %if.end519.i ], [ %i.0808.i, %if.end534.i ], [ %i.0808.i, %if.then19.i ], [ %i.0808.i, %land.lhs.true.i ], [ %i.0808.i, %if.then330.i ], [ %i.0808.i, %if.then406.i ], [ %i.3.i, %for.inc.i ]
+  %inc558.i = add nsw i32 %i.1.i, 1
   %cmp.i = icmp slt i32 %inc558.i, %argc
   br i1 %cmp.i, label %for.body.i, label %for.end559.loopexit.i, !llvm.loop !8
 
 for.end559.loopexit.i:                            ; preds = %for.inc557.i
-  %122 = icmp ne i32 %output_set.3.i, 0
+  %122 = icmp ne i32 %output_set.1.i, 0
   br label %for.end559.i
 
 for.end559.i:                                     ; preds = %for.end559.loopexit.i, %ParseAlias.exit.i
   %input_count.0.lcssa.i = phi i64 [ 0, %ParseAlias.exit.i ], [ %input_count.1.i, %for.end559.loopexit.i ]
   %123 = phi i64 [ 1, %ParseAlias.exit.i ], [ %longest_path_len.1.i, %for.end559.loopexit.i ]
   %output_set.0.lcssa.i = phi i1 [ false, %ParseAlias.exit.i ], [ %122, %for.end559.loopexit.i ]
-  %command.0.lcssa.i = phi i32 [ %retval.0.i.i, %ParseAlias.exit.i ], [ %command.3.i, %for.end559.loopexit.i ]
+  %command.0.lcssa.i = phi i32 [ %retval.0.i.i, %ParseAlias.exit.i ], [ %command.1.i, %for.end559.loopexit.i ]
   store i64 %input_count.0.lcssa.i, ptr %input_count, align 8
   store i64 %123, ptr %longest_path_len, align 8
   %124 = insertelement <2 x i32> poison, i32 %command.0.lcssa.i, i64 0
@@ -1326,8 +1326,8 @@ if.end25.i39.loopexit.split.loop.exit:            ; preds = %while.cond16.i
   br label %if.end25.i39
 
 if.end25.i39:                                     ; preds = %while.body19.i, %if.end25.i39.loopexit.split.loop.exit, %if.else.i37, %if.then8.i, %if.then5.i
-  %lgwin13.1.sink.i = phi i32 [ %.pre.i, %if.then8.i ], [ %148, %if.then5.i ], [ 24, %if.else.i37 ], [ %150, %if.end25.i39.loopexit.split.loop.exit ], [ 24, %while.body19.i ]
-  %call24.i40 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %call1.i, i32 noundef 2, i32 noundef %lgwin13.1.sink.i) #21
+  %lgwin13.0.sink.i = phi i32 [ %.pre.i, %if.then8.i ], [ %148, %if.then5.i ], [ 24, %if.else.i37 ], [ %150, %if.end25.i39.loopexit.split.loop.exit ], [ 24, %while.body19.i ]
+  %call24.i40 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %call1.i, i32 noundef 2, i32 noundef %lgwin13.0.sink.i) #21
   %151 = load i64, ptr %input_file_length.i, align 8
   %cmp27.i = icmp sgt i64 %151, 0
   br i1 %cmp27.i, label %if.then28.i61, label %if.end33.i
@@ -2375,7 +2375,7 @@ if.then5:                                         ; preds = %if.then
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then5, %if.then
-  %is_ok.0 = phi i32 [ 0, %if.then5 ], [ 1, %if.then ]
+  %is_ok.1 = phi i32 [ 0, %if.then5 ], [ 1, %if.then ]
   %tobool11.not = icmp eq i32 %rm_output, 0
   br i1 %tobool11.not, label %if.end18, label %land.lhs.true12
 
@@ -2477,7 +2477,7 @@ CopyStat.exit:                                    ; preds = %if.then24, %if.end.
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end18, %land.lhs.true22, %CopyStat.exit, %land.lhs.true, %entry
-  %is_ok.1 = phi i32 [ 1, %entry ], [ 1, %CopyStat.exit ], [ 1, %land.lhs.true22 ], [ %is_ok.0, %if.end18 ], [ 1, %land.lhs.true ]
+  %is_ok.0 = phi i32 [ 1, %entry ], [ 1, %CopyStat.exit ], [ 1, %land.lhs.true22 ], [ %is_ok.1, %if.end18 ], [ 1, %land.lhs.true ]
   %fin = getelementptr inbounds i8, ptr %context, i64 280
   %21 = load ptr, ptr %fin, align 8
   %tobool28.not = icmp eq ptr %21, null
@@ -2489,7 +2489,7 @@ if.then29:                                        ; preds = %if.end27
   br i1 %cmp32.not, label %if.end43, label %if.then33
 
 if.then33:                                        ; preds = %if.then29
-  %tobool34.not = icmp eq i32 %is_ok.1, 0
+  %tobool34.not = icmp eq i32 %is_ok.0, 0
   br i1 %tobool34.not, label %if.end43, label %if.then35
 
 if.then35:                                        ; preds = %if.then33
@@ -2505,7 +2505,7 @@ if.then35:                                        ; preds = %if.then33
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then33, %if.then35, %if.then29, %if.end27
-  %is_ok.2 = phi i32 [ %is_ok.1, %if.then29 ], [ %is_ok.1, %if.end27 ], [ 0, %if.then35 ], [ 0, %if.then33 ]
+  %is_ok.2 = phi i32 [ %is_ok.0, %if.then29 ], [ %is_ok.0, %if.end27 ], [ 0, %if.then35 ], [ 0, %if.then33 ]
   %tobool44.not = icmp eq i32 %rm_input, 0
   br i1 %tobool44.not, label %if.end51, label %land.lhs.true45
 

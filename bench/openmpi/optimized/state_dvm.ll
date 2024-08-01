@@ -4031,7 +4031,7 @@ pmix_obj_run_destructors.exit288:                 ; preds = %.lr.ph.i285, %311
   br label %336
 
 336:                                              ; preds = %41, %334, %46
-  %.2297 = phi i1 [ false, %41 ], [ true, %334 ], [ false, %46 ]
+  %.1297 = phi i1 [ false, %41 ], [ true, %334 ], [ false, %46 ]
   %337 = load i8, ptr @prte_persistent, align 1
   %338 = trunc i8 %337 to i1
   br i1 %338, label %339, label %358
@@ -4089,7 +4089,7 @@ pmix_obj_run_destructors.exit288:                 ; preds = %.lr.ph.i285, %311
   br label %358
 
 358:                                              ; preds = %351, %336
-  br i1 %.2297, label %359, label %388
+  br i1 %.1297, label %359, label %388
 
 359:                                              ; preds = %358
   %360 = load i32, ptr getelementptr inbounds (i8, ptr @prte_state_base_framework, i64 72), align 8

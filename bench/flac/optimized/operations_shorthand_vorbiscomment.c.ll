@@ -414,7 +414,7 @@ if.else40.i:                                      ; preds = %if.else31.i
   br label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.else40.i, %if.then36.i
-  %ret.1.i = phi i32 [ %call41.i, %if.else40.i ], [ 0, %if.then36.i ]
+  %ret.2.i = phi i32 [ %call41.i, %if.else40.i ], [ 0, %if.then36.i ]
   %43 = load ptr, ptr %field.i, align 8
   %cmp44.not.i = icmp eq ptr %43, null
   br i1 %cmp44.not.i, label %if.end47.i, label %if.then45.i
@@ -442,8 +442,8 @@ if.then55.i:                                      ; preds = %if.end52.i73
   br label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.then55.i, %if.end52.i73, %while.body.i
-  %ret.2.i = phi i32 [ 1, %while.body.i ], [ %ret.1.i, %if.then55.i ], [ %ret.1.i, %if.end52.i73 ]
-  %tobool.not.i72 = icmp eq i32 %ret.2.i, 0
+  %ret.1.i = phi i32 [ 1, %while.body.i ], [ %ret.2.i, %if.then55.i ], [ %ret.2.i, %if.end52.i73 ]
+  %tobool.not.i72 = icmp eq i32 %ret.1.i, 0
   br i1 %tobool.not.i72, label %while.end.i, label %land.lhs.true.i, !llvm.loop !11
 
 while.end.i:                                      ; preds = %if.end59.i, %land.rhs.i, %land.lhs.true.i, %if.end59.thread.i

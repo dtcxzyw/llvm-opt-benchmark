@@ -55,9 +55,9 @@ define noundef ptr @mktemp(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph42:                                         ; preds = %.preheader, %.lr.ph42
   %.041 = phi i32 [ %16, %.lr.ph42 ], [ 1, %.preheader ]
-  %.02940 = phi i32 [ %17, %.lr.ph42 ], [ 62, %.preheader ]
+  %.13040 = phi i32 [ %17, %.lr.ph42 ], [ 62, %.preheader ]
   %16 = add nuw nsw i32 %.041, 1
-  %17 = mul i32 %.02940, 62
+  %17 = mul i32 %.13040, 62
   %exitcond.not = icmp eq i32 %16, %.026.lcssa58
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph42, !llvm.loop !8
 
@@ -66,14 +66,14 @@ define noundef ptr @mktemp(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not44, label %.critedge.thread.sink.split, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %.preheader, %.critedge.thread54, %.loopexit
-  %.13061 = phi i32 [ %17, %.loopexit ], [ 62, %.preheader ], [ -1, %.critedge.thread54 ]
+  %.02961 = phi i32 [ %17, %.loopexit ], [ 62, %.preheader ], [ -1, %.critedge.thread54 ]
   %narrow.i = tail call i32 @llvm.usub.sat.i32(i32 6, i32 %.026.lcssa58)
   %.07.idx.i = zext nneg i32 %narrow.i to i64
   %.07.i = getelementptr inbounds i8, ptr %2, i64 %.07.idx.i
   br label %18
 
 18:                                               ; preds = %.lr.ph46, %50
-  %.245 = phi i32 [ %.13061, %.lr.ph46 ], [ %51, %50 ]
+  %.245 = phi i32 [ %.02961, %.lr.ph46 ], [ %51, %50 ]
   %19 = tail call i32 @nxmutex_lock(ptr noundef nonnull @g_b62lock) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, ptr noundef nonnull align 1 dereferenceable(6) @g_base62, i64 6, i1 false)
   br label %20

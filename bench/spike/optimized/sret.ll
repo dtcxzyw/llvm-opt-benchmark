@@ -213,7 +213,7 @@ define noundef i64 @_Z15fast_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %81
 
 81:                                               ; preds = %75, %71
-  %.0 = phi i8 [ %78, %75 ], [ %69, %71 ]
+  %.1 = phi i8 [ %78, %75 ], [ %69, %71 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 984
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 56
@@ -223,10 +223,10 @@ define noundef i64 @_Z15fast_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.1 = phi i8 [ %69, %46 ], [ %.0, %81 ]
+  %.0 = phi i8 [ %69, %46 ], [ %.1, %81 ]
   %88 = lshr i64 %62, 8
   %89 = and i64 %88, 1
-  %90 = trunc i8 %.1 to i1
+  %90 = trunc i8 %.0 to i1
   tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(659880) %0, i64 noundef %89, i1 noundef zeroext %90)
   ret i64 5
 }
@@ -383,7 +383,7 @@ define noundef i64 @_Z15fast_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %81
 
 81:                                               ; preds = %75, %71
-  %.0 = phi i8 [ %78, %75 ], [ %69, %71 ]
+  %.1 = phi i8 [ %78, %75 ], [ %69, %71 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 984
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 56
@@ -393,10 +393,10 @@ define noundef i64 @_Z15fast_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.1 = phi i8 [ %69, %46 ], [ %.0, %81 ]
+  %.0 = phi i8 [ %69, %46 ], [ %.1, %81 ]
   %88 = lshr i64 %62, 8
   %89 = and i64 %88, 1
-  %90 = trunc i8 %.1 to i1
+  %90 = trunc i8 %.0 to i1
   tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(659880) %0, i64 noundef %89, i1 noundef zeroext %90)
   ret i64 5
 }
@@ -529,7 +529,7 @@ define noundef i64 @_Z17logged_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %81
 
 81:                                               ; preds = %75, %71
-  %.0 = phi i8 [ %78, %75 ], [ %69, %71 ]
+  %.1 = phi i8 [ %78, %75 ], [ %69, %71 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 984
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 56
@@ -539,10 +539,10 @@ define noundef i64 @_Z17logged_rv32i_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.1 = phi i8 [ %69, %46 ], [ %.0, %81 ]
+  %.0 = phi i8 [ %69, %46 ], [ %.1, %81 ]
   %88 = lshr i64 %62, 8
   %89 = and i64 %88, 1
-  %90 = trunc i8 %.1 to i1
+  %90 = trunc i8 %.0 to i1
   tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(659880) %0, i64 noundef %89, i1 noundef zeroext %90)
   ret i64 5
 }
@@ -675,7 +675,7 @@ define noundef i64 @_Z17logged_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %81
 
 81:                                               ; preds = %75, %71
-  %.0 = phi i8 [ %78, %75 ], [ %69, %71 ]
+  %.1 = phi i8 [ %78, %75 ], [ %69, %71 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 984
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 56
@@ -685,10 +685,10 @@ define noundef i64 @_Z17logged_rv64i_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.1 = phi i8 [ %69, %46 ], [ %.0, %81 ]
+  %.0 = phi i8 [ %69, %46 ], [ %.1, %81 ]
   %88 = lshr i64 %62, 8
   %89 = and i64 %88, 1
-  %90 = trunc i8 %.1 to i1
+  %90 = trunc i8 %.0 to i1
   tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(659880) %0, i64 noundef %89, i1 noundef zeroext %90)
   ret i64 5
 }
@@ -821,7 +821,7 @@ define noundef i64 @_Z15fast_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %81
 
 81:                                               ; preds = %75, %71
-  %.0 = phi i8 [ %78, %75 ], [ %69, %71 ]
+  %.1 = phi i8 [ %78, %75 ], [ %69, %71 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 984
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 56
@@ -831,10 +831,10 @@ define noundef i64 @_Z15fast_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.1 = phi i8 [ %69, %46 ], [ %.0, %81 ]
+  %.0 = phi i8 [ %69, %46 ], [ %.1, %81 ]
   %88 = lshr i64 %62, 8
   %89 = and i64 %88, 1
-  %90 = trunc i8 %.1 to i1
+  %90 = trunc i8 %.0 to i1
   tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(659880) %0, i64 noundef %89, i1 noundef zeroext %90)
   ret i64 5
 }
@@ -967,7 +967,7 @@ define noundef i64 @_Z15fast_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %81
 
 81:                                               ; preds = %75, %71
-  %.0 = phi i8 [ %78, %75 ], [ %69, %71 ]
+  %.1 = phi i8 [ %78, %75 ], [ %69, %71 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 984
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 56
@@ -977,10 +977,10 @@ define noundef i64 @_Z15fast_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, i6
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.1 = phi i8 [ %69, %46 ], [ %.0, %81 ]
+  %.0 = phi i8 [ %69, %46 ], [ %.1, %81 ]
   %88 = lshr i64 %62, 8
   %89 = and i64 %88, 1
-  %90 = trunc i8 %.1 to i1
+  %90 = trunc i8 %.0 to i1
   tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(659880) %0, i64 noundef %89, i1 noundef zeroext %90)
   ret i64 5
 }
@@ -1113,7 +1113,7 @@ define noundef i64 @_Z17logged_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %81
 
 81:                                               ; preds = %75, %71
-  %.0 = phi i8 [ %78, %75 ], [ %69, %71 ]
+  %.1 = phi i8 [ %78, %75 ], [ %69, %71 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 984
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 56
@@ -1123,10 +1123,10 @@ define noundef i64 @_Z17logged_rv32e_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.1 = phi i8 [ %69, %46 ], [ %.0, %81 ]
+  %.0 = phi i8 [ %69, %46 ], [ %.1, %81 ]
   %88 = lshr i64 %62, 8
   %89 = and i64 %88, 1
-  %90 = trunc i8 %.1 to i1
+  %90 = trunc i8 %.0 to i1
   tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(659880) %0, i64 noundef %89, i1 noundef zeroext %90)
   ret i64 5
 }
@@ -1259,7 +1259,7 @@ define noundef i64 @_Z17logged_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %81
 
 81:                                               ; preds = %75, %71
-  %.0 = phi i8 [ %78, %75 ], [ %69, %71 ]
+  %.1 = phi i8 [ %78, %75 ], [ %69, %71 ]
   %82 = getelementptr inbounds i8, ptr %0, i64 984
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %83, i64 56
@@ -1269,10 +1269,10 @@ define noundef i64 @_Z17logged_rv64e_sretP11processor_t6insn_tm(ptr noundef %0, 
   br label %87
 
 87:                                               ; preds = %81, %46
-  %.1 = phi i8 [ %69, %46 ], [ %.0, %81 ]
+  %.0 = phi i8 [ %69, %46 ], [ %.1, %81 ]
   %88 = lshr i64 %62, 8
   %89 = and i64 %88, 1
-  %90 = trunc i8 %.1 to i1
+  %90 = trunc i8 %.0 to i1
   tail call void @_ZN11processor_t13set_privilegeEmb(ptr noundef nonnull align 8 dereferenceable(659880) %0, i64 noundef %89, i1 noundef zeroext %90)
   ret i64 5
 }

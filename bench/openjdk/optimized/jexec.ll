@@ -341,20 +341,20 @@ define hidden noundef ptr @isJar(ptr nocapture noundef readonly %0) local_unname
   br i1 %31, label %.loopexit33, label %22, !llvm.loop !8
 
 .loopexit:                                        ; preds = %22, %11, %8, %3
-  %.0.ph = phi ptr [ @.str.10, %3 ], [ @.str.11, %8 ], [ @.str.11, %11 ], [ @.str.11, %22 ]
+  %.1.ph = phi ptr [ @.str.10, %3 ], [ @.str.11, %8 ], [ @.str.11, %11 ], [ @.str.11, %22 ]
   %32 = tail call ptr @__errno_location() #15
   store i32 8, ptr %32, align 4
   br label %.loopexit33
 
 .loopexit33:                                      ; preds = %23, %.loopexit
-  %.032 = phi ptr [ %.0.ph, %.loopexit ], [ null, %23 ]
+  %.132 = phi ptr [ %.1.ph, %.loopexit ], [ null, %23 ]
   %33 = tail call i32 @close(i32 noundef %2) #18
   tail call void @llvm.stackrestore.p0(ptr %4)
   br label %34
 
 34:                                               ; preds = %.loopexit33, %1
-  %.1 = phi ptr [ %.032, %.loopexit33 ], [ @.str.10, %1 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.132, %.loopexit33 ], [ @.str.10, %1 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nofree nounwind

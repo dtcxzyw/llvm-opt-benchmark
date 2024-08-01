@@ -1944,8 +1944,8 @@ for.body.lr.ph.i:                                 ; preds = %if.end
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body.i ], [ 0, %for.body.lr.ph.i ]
-  %Max0.i.0 = phi float [ %Max0.i.1, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
-  %Min0.i.0 = phi float [ %Min0.i.1, %for.body.i ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i ]
+  %Max0.i.1 = phi float [ %Max0.i.2, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
+  %Min0.i.1 = phi float [ %Min0.i.2, %for.body.i ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i ]
   %111 = phi float [ %118, %for.body.i ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i ]
   %gep = getelementptr %class.b3Vector3, ptr %invariant.gep, i64 %indvars.iv
   %112 = load float, ptr %gep, align 16
@@ -1956,26 +1956,26 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %arrayidx6.i.i25.i = getelementptr inbounds i8, ptr %gep, i64 8
   %115 = load float, ptr %arrayidx6.i.i25.i, align 8
   %116 = call noundef float @llvm.fmuladd.f32(float %115, float %106, float %114)
-  %cmp9.i = fcmp olt float %116, %Min0.i.0
-  %Min0.i.1 = select i1 %cmp9.i, float %116, float %Min0.i.0
-  %117 = select i1 %cmp9.i, float %Max0.i.0, float %111
+  %cmp9.i = fcmp olt float %116, %Min0.i.1
+  %Min0.i.2 = select i1 %cmp9.i, float %116, float %Min0.i.1
+  %117 = select i1 %cmp9.i, float %Max0.i.1, float %111
   %cmp10.i = fcmp ogt float %116, %117
-  %Max0.i.1 = select i1 %cmp10.i, float %116, float %Max0.i.0
+  %Max0.i.2 = select i1 %cmp10.i, float %116, float %Max0.i.1
   %118 = select i1 %cmp10.i, float %116, float %117
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %110
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !21
 
 for.end.i:                                        ; preds = %for.body.i
-  %cmp13.i = fcmp ogt float %Min0.i.1, %118
+  %cmp13.i = fcmp ogt float %Min0.i.2, %118
   br i1 %cmp13.i, label %if.then14.i, label %.noexc
 
 if.then14.i:                                      ; preds = %for.end.i
   br label %.noexc
 
 .noexc:                                           ; preds = %if.end, %if.then14.i, %for.end.i
-  %Max0.i.3 = phi float [ %Max0.i.1, %for.end.i ], [ %Min0.i.1, %if.then14.i ], [ 0x47EFFFFFE0000000, %if.end ]
-  %119 = phi float [ %Min0.i.1, %for.end.i ], [ %118, %if.then14.i ], [ 0xC7EFFFFFE0000000, %if.end ]
+  %Max0.i.3 = phi float [ %Max0.i.2, %for.end.i ], [ %Min0.i.2, %if.then14.i ], [ 0x47EFFFFFE0000000, %if.end ]
+  %119 = phi float [ %Min0.i.2, %for.end.i ], [ %118, %if.then14.i ], [ 0xC7EFFFFFE0000000, %if.end ]
   %mul5.i.i.i = fmul float %posA.sroa.5.0.copyload, %84
   %120 = call float @llvm.fmuladd.f32(float %posA.sroa.0.0.copyload, float %88, float %mul5.i.i.i)
   %121 = call noundef float @llvm.fmuladd.f32(float %posA.sroa.9.0.copyload, float %87, float %120)
@@ -2188,8 +2188,8 @@ for.body.lr.ph.i283:                              ; preds = %if.end53
 
 for.body.i286:                                    ; preds = %for.body.i286, %for.body.lr.ph.i283
   %indvars.iv452 = phi i64 [ %indvars.iv.next453, %for.body.i286 ], [ 0, %for.body.lr.ph.i283 ]
-  %Max0.i131.0 = phi float [ %Max0.i131.1, %for.body.i286 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i283 ]
-  %Min0.i130.0 = phi float [ %Min0.i130.1, %for.body.i286 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i283 ]
+  %Max0.i131.1 = phi float [ %Max0.i131.2, %for.body.i286 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i283 ]
+  %Min0.i130.1 = phi float [ %Min0.i130.2, %for.body.i286 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i283 ]
   %211 = phi float [ %218, %for.body.i286 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i283 ]
   %gep470 = getelementptr %class.b3Vector3, ptr %invariant.gep469, i64 %indvars.iv452
   %212 = load float, ptr %gep470, align 16
@@ -2200,26 +2200,26 @@ for.body.i286:                                    ; preds = %for.body.i286, %for
   %arrayidx6.i.i25.i293 = getelementptr inbounds i8, ptr %gep470, i64 8
   %215 = load float, ptr %arrayidx6.i.i25.i293, align 8
   %216 = call noundef float @llvm.fmuladd.f32(float %215, float %206, float %214)
-  %cmp9.i294 = fcmp olt float %216, %Min0.i130.0
-  %Min0.i130.1 = select i1 %cmp9.i294, float %216, float %Min0.i130.0
-  %217 = select i1 %cmp9.i294, float %Max0.i131.0, float %211
+  %cmp9.i294 = fcmp olt float %216, %Min0.i130.1
+  %Min0.i130.2 = select i1 %cmp9.i294, float %216, float %Min0.i130.1
+  %217 = select i1 %cmp9.i294, float %Max0.i131.1, float %211
   %cmp10.i296 = fcmp ogt float %216, %217
-  %Max0.i131.1 = select i1 %cmp10.i296, float %216, float %Max0.i131.0
+  %Max0.i131.2 = select i1 %cmp10.i296, float %216, float %Max0.i131.1
   %218 = select i1 %cmp10.i296, float %216, float %217
   %indvars.iv.next453 = add nuw nsw i64 %indvars.iv452, 1
   %exitcond.not.i299 = icmp eq i64 %indvars.iv.next453, %210
   br i1 %exitcond.not.i299, label %for.end.i276, label %for.body.i286, !llvm.loop !21
 
 for.end.i276:                                     ; preds = %for.body.i286
-  %cmp13.i277 = fcmp ogt float %Min0.i130.1, %218
+  %cmp13.i277 = fcmp ogt float %Min0.i130.2, %218
   br i1 %cmp13.i277, label %if.then14.i281, label %.noexc143
 
 if.then14.i281:                                   ; preds = %for.end.i276
   br label %.noexc143
 
 .noexc143:                                        ; preds = %if.end53, %if.then14.i281, %for.end.i276
-  %Max0.i131.3 = phi float [ %Max0.i131.1, %for.end.i276 ], [ %Min0.i130.1, %if.then14.i281 ], [ 0x47EFFFFFE0000000, %if.end53 ]
-  %219 = phi float [ %Min0.i130.1, %for.end.i276 ], [ %218, %if.then14.i281 ], [ 0xC7EFFFFFE0000000, %if.end53 ]
+  %Max0.i131.3 = phi float [ %Max0.i131.2, %for.end.i276 ], [ %Min0.i130.2, %if.then14.i281 ], [ 0x47EFFFFFE0000000, %if.end53 ]
+  %219 = phi float [ %Min0.i130.2, %for.end.i276 ], [ %218, %if.then14.i281 ], [ 0xC7EFFFFFE0000000, %if.end53 ]
   %mul5.i.i.i278 = fmul float %posA.sroa.5.0.copyload, %181
   %220 = call float @llvm.fmuladd.f32(float %posA.sroa.0.0.copyload, float %189, float %mul5.i.i.i278)
   %221 = call noundef float @llvm.fmuladd.f32(float %posA.sroa.9.0.copyload, float %188, float %220)
@@ -2504,8 +2504,8 @@ for.body.lr.ph.i330:                              ; preds = %if.end108
 
 for.body.i333:                                    ; preds = %for.body.i333, %for.body.lr.ph.i330
   %indvars.iv457 = phi i64 [ %indvars.iv.next458, %for.body.i333 ], [ 0, %for.body.lr.ph.i330 ]
-  %Max0.i212.0 = phi float [ %Max0.i212.1, %for.body.i333 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i330 ]
-  %Min0.i211.0 = phi float [ %Min0.i211.1, %for.body.i333 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i330 ]
+  %Max0.i212.1 = phi float [ %Max0.i212.2, %for.body.i333 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i330 ]
+  %Min0.i211.1 = phi float [ %Min0.i211.2, %for.body.i333 ], [ 0x47EFFFFFE0000000, %for.body.lr.ph.i330 ]
   %378 = phi float [ %385, %for.body.i333 ], [ 0xC7EFFFFFE0000000, %for.body.lr.ph.i330 ]
   %gep472 = getelementptr %class.b3Vector3, ptr %invariant.gep471, i64 %indvars.iv457
   %379 = load float, ptr %gep472, align 16
@@ -2516,26 +2516,26 @@ for.body.i333:                                    ; preds = %for.body.i333, %for
   %arrayidx6.i.i25.i340 = getelementptr inbounds i8, ptr %gep472, i64 8
   %382 = load float, ptr %arrayidx6.i.i25.i340, align 8
   %383 = call noundef float @llvm.fmuladd.f32(float %382, float %373, float %381)
-  %cmp9.i341 = fcmp olt float %383, %Min0.i211.0
-  %Min0.i211.1 = select i1 %cmp9.i341, float %383, float %Min0.i211.0
-  %384 = select i1 %cmp9.i341, float %Max0.i212.0, float %378
+  %cmp9.i341 = fcmp olt float %383, %Min0.i211.1
+  %Min0.i211.2 = select i1 %cmp9.i341, float %383, float %Min0.i211.1
+  %384 = select i1 %cmp9.i341, float %Max0.i212.1, float %378
   %cmp10.i343 = fcmp ogt float %383, %384
-  %Max0.i212.1 = select i1 %cmp10.i343, float %383, float %Max0.i212.0
+  %Max0.i212.2 = select i1 %cmp10.i343, float %383, float %Max0.i212.1
   %385 = select i1 %cmp10.i343, float %383, float %384
   %indvars.iv.next458 = add nuw nsw i64 %indvars.iv457, 1
   %exitcond.not.i346 = icmp eq i64 %indvars.iv.next458, %377
   br i1 %exitcond.not.i346, label %for.end.i323, label %for.body.i333, !llvm.loop !21
 
 for.end.i323:                                     ; preds = %for.body.i333
-  %cmp13.i324 = fcmp ogt float %Min0.i211.1, %385
+  %cmp13.i324 = fcmp ogt float %Min0.i211.2, %385
   br i1 %cmp13.i324, label %if.then14.i328, label %.noexc224
 
 if.then14.i328:                                   ; preds = %for.end.i323
   br label %.noexc224
 
 .noexc224:                                        ; preds = %if.end108, %if.then14.i328, %for.end.i323
-  %Max0.i212.3 = phi float [ %Max0.i212.1, %for.end.i323 ], [ %Min0.i211.1, %if.then14.i328 ], [ 0x47EFFFFFE0000000, %if.end108 ]
-  %386 = phi float [ %Min0.i211.1, %for.end.i323 ], [ %385, %if.then14.i328 ], [ 0xC7EFFFFFE0000000, %if.end108 ]
+  %Max0.i212.3 = phi float [ %Max0.i212.2, %for.end.i323 ], [ %Min0.i211.2, %if.then14.i328 ], [ 0x47EFFFFFE0000000, %if.end108 ]
+  %386 = phi float [ %Min0.i211.2, %for.end.i323 ], [ %385, %if.then14.i328 ], [ 0xC7EFFFFFE0000000, %if.end108 ]
   %mul5.i.i.i325 = fmul float %posA.sroa.5.0.copyload, %348
   %387 = call float @llvm.fmuladd.f32(float %posA.sroa.0.0.copyload, float %356, float %mul5.i.i.i325)
   %388 = call noundef float @llvm.fmuladd.f32(float %posA.sroa.9.0.copyload, float %355, float %387)
@@ -2969,7 +2969,7 @@ invoke.cont81:                                    ; preds = %do.body
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %invoke.cont81, %for.end
-  %contactIndex.0 = phi i32 [ %31, %for.end ], [ -1, %invoke.cont81 ]
+  %contactIndex.1 = phi i32 [ %31, %for.end ], [ -1, %invoke.cont81 ]
   invoke void @b3LeaveProfileZone()
           to label %if.end83 unwind label %terminate.lpad.i143
 
@@ -2996,8 +2996,8 @@ _ZN13b3ProfileZoneD2Ev.exit146:                   ; preds = %ehcleanup
   resume { ptr, i32 } %.pn
 
 if.end83:                                         ; preds = %if.end, %entry
-  %contactIndex.1 = phi i32 [ -1, %entry ], [ %contactIndex.0, %if.end ]
-  ret i32 %contactIndex.1
+  %contactIndex.0 = phi i32 [ -1, %entry ], [ %contactIndex.1, %if.end ]
+  ret i32 %contactIndex.0
 }
 
 declare void @b3EnterProfileZone(ptr noundef) local_unnamed_addr #9

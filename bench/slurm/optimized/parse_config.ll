@@ -405,12 +405,12 @@ _strip_cr_nl.exit:                                ; preds = %.lr.ph.i22, %52, %_
   br label %61
 
 61:                                               ; preds = %53, %56, %58
-  %.115 = phi i32 [ %.014.ph38, %56 ], [ %.014.ph38, %53 ], [ -1, %58 ]
+  %.3 = phi i32 [ %.014.ph38, %56 ], [ %.014.ph38, %53 ], [ -1, %58 ]
   call void @slurm_xfree(ptr noundef nonnull %8) #14
   br label %_line_is_space.exit.thread
 
 _line_is_space.exit.thread:                       ; preds = %39, %33, %30, %61
-  %.2 = phi i32 [ %.115, %61 ], [ %.014.ph38, %30 ], [ %.014.ph38, %33 ], [ %.014.ph38, %39 ]
+  %.2 = phi i32 [ %.3, %61 ], [ %.014.ph38, %30 ], [ %.014.ph38, %33 ], [ %.014.ph38, %39 ]
   call void @slurm_xfree(ptr noundef nonnull %7) #14
   %62 = icmp eq i32 %.2, 0
   br i1 %62, label %.outer.backedge, label %.loopexit26
@@ -423,7 +423,7 @@ _line_is_space.exit.thread:                       ; preds = %39, %33, %30, %61
   br i1 %.not1934, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit26:                                      ; preds = %_line_is_space.exit.thread, %15
-  %.3 = phi i32 [ %.014.ph38, %15 ], [ -1, %_line_is_space.exit.thread ]
+  %.4 = phi i32 [ %.014.ph38, %15 ], [ -1, %_line_is_space.exit.thread ]
   %.1 = phi i32 [ %.035, %15 ], [ %21, %_line_is_space.exit.thread ]
   %65 = call i32 @get_log_level() #14
   %66 = icmp sgt i32 %65, 6
@@ -434,7 +434,7 @@ _line_is_space.exit.thread:                       ; preds = %39, %33, %30, %61
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer.backedge, %24, %.preheader, %67, %.loopexit26, %13
-  %.016 = phi i32 [ -1, %13 ], [ %.3, %67 ], [ %.3, %.loopexit26 ], [ 0, %.preheader ], [ %.014.ph38, %24 ], [ %.014.ph.be, %.outer.backedge ]
+  %.016 = phi i32 [ -1, %13 ], [ %.4, %67 ], [ %.4, %.loopexit26 ], [ 0, %.preheader ], [ %.014.ph38, %24 ], [ %.014.ph.be, %.outer.backedge ]
   ret i32 %.016
 }
 
@@ -945,7 +945,7 @@ _parse_include_directive.exit:                    ; preds = %141, %144
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %236, %258, %.thread68, %230, %223, %226
-  %.042.ph.be = phi i32 [ -1, %226 ], [ -1, %223 ], [ %.1, %258 ], [ %.042.ph, %.thread68 ], [ %.042.ph, %230 ], [ %.042.ph, %236 ]
+  %.042.ph.be = phi i32 [ -1, %226 ], [ -1, %223 ], [ %.2, %258 ], [ %.042.ph, %.thread68 ], [ %.042.ph, %230 ], [ %.042.ph, %236 ]
   %.043.ph.be = add nuw nsw i32 %.1.i, %.043
   %.pre.pre = load ptr, ptr %14, align 8
   br label %.outer, !llvm.loop !20
@@ -1027,7 +1027,7 @@ _strip_cr_nl.exit:                                ; preds = %.lr.ph.i57, %249, %
   br label %258
 
 258:                                              ; preds = %250, %253, %255
-  %.1 = phi i32 [ %.042.ph, %253 ], [ %.042.ph, %250 ], [ -1, %255 ]
+  %.2 = phi i32 [ %.042.ph, %253 ], [ %.042.ph, %250 ], [ -1, %255 ]
   call void @slurm_xfree(ptr noundef nonnull %15) #14
   br label %.outer.backedge
 
@@ -3810,15 +3810,15 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
   br i1 %exitcond.not, label %.preheader65, label %.lr.ph, !llvm.loop !40
 
 .preheader65:                                     ; preds = %56, %52
-  %.044.lcssa = phi ptr [ null, %52 ], [ %57, %56 ]
+  %.1.lcssa = phi ptr [ null, %52 ], [ %57, %56 ]
   %wide.trip.count124 = zext nneg i32 %47 to i64
   %wide.trip.count129 = zext nneg i32 %47 to i64
   br label %64
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %56 ]
-  %.04481 = phi ptr [ null, %.lr.ph.preheader ], [ %57, %56 ]
-  tail call void @free(ptr noundef %.04481) #14
+  %.181 = phi ptr [ null, %.lr.ph.preheader ], [ %57, %56 ]
+  tail call void @free(ptr noundef %.181) #14
   %57 = tail call ptr @hostlist_shift(ptr noundef %46) #14
   %58 = tail call ptr @_hashtbl_copy_keys(ptr noundef %0)
   %59 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv
@@ -4023,12 +4023,12 @@ _parse_expline_doexpand.exit:                     ; preds = %78, %90, %130
 .loopexit66:                                      ; preds = %._crit_edge98, %_parse_expline_doexpand.exit, %62
   %135 = phi i1 [ true, %62 ], [ true, %_parse_expline_doexpand.exit ], [ false, %._crit_edge98 ]
   %.045 = phi i32 [ -1, %62 ], [ -1, %_parse_expline_doexpand.exit ], [ 0, %._crit_edge98 ]
-  %.1 = phi ptr [ %57, %62 ], [ %.044.lcssa, %_parse_expline_doexpand.exit ], [ %.044.lcssa, %._crit_edge98 ]
-  %.not54 = icmp eq ptr %.1, null
+  %.044 = phi ptr [ %57, %62 ], [ %.1.lcssa, %_parse_expline_doexpand.exit ], [ %.1.lcssa, %._crit_edge98 ]
+  %.not54 = icmp eq ptr %.044, null
   br i1 %.not54, label %137, label %136
 
 136:                                              ; preds = %.loopexit66
-  call void @free(ptr noundef nonnull %.1) #14
+  call void @free(ptr noundef nonnull %.044) #14
   br label %137
 
 137:                                              ; preds = %.thread, %.loopexit66, %136

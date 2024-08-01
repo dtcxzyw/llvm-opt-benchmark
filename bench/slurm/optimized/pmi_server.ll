@@ -958,7 +958,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 .lr.ph:                                           ; preds = %33, %66
   %40 = phi i32 [ %67, %66 ], [ %37, %33 ]
   %indvars.iv227 = phi i64 [ %indvars.iv.next228, %66 ], [ %indvars.iv, %33 ]
-  %.094171 = phi i32 [ %.195, %66 ], [ 0, %33 ]
+  %.094171 = phi i32 [ %.296, %66 ], [ 0, %33 ]
   %41 = load ptr, ptr %27, align 8
   %42 = getelementptr inbounds %struct.barrier_resp, ptr %41, i64 %indvars.iv227
   %43 = load i16, ptr %42, align 8
@@ -1004,16 +1004,16 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
 
 66:                                               ; preds = %._crit_edge246, %46, %.lr.ph
   %67 = phi i32 [ %40, %.lr.ph ], [ %40, %46 ], [ %.pre, %._crit_edge246 ]
-  %.195 = phi i32 [ %.094171, %.lr.ph ], [ %.094171, %46 ], [ %65, %._crit_edge246 ]
+  %.296 = phi i32 [ %.094171, %.lr.ph ], [ %.094171, %46 ], [ %65, %._crit_edge246 ]
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %68 = trunc nuw i64 %indvars.iv.next228 to i32
   %69 = icmp sgt i32 %67, %68
   br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %66, %52, %33
-  %.296 = phi i32 [ 0, %33 ], [ %65, %52 ], [ %.195, %66 ]
+  %.195 = phi i32 [ 0, %33 ], [ %65, %52 ], [ %.296, %66 ]
   %70 = add nsw i32 %.098180, 1
-  %71 = call i32 @llvm.smax.i32(i32 %.296, i32 %.0100179)
+  %71 = call i32 @llvm.smax.i32(i32 %.195, i32 %.0100179)
   %72 = call i32 @pthread_mutex_lock(ptr noundef nonnull @agent_mutex) #12
   %.not123 = icmp eq i32 %72, 0
   br i1 %.not123, label %.preheader135, label %75
@@ -1070,7 +1070,7 @@ define internal noalias noundef ptr @_agent(ptr noundef %0) #0 {
   %93 = getelementptr inbounds %struct.kvs_comm_set, ptr %28, i64 %92
   %94 = getelementptr inbounds i8, ptr %89, i64 8
   store ptr %93, ptr %94, align 8
-  %95 = trunc i32 %.296 to i16
+  %95 = trunc i32 %.195 to i16
   store i16 %95, ptr %93, align 8
   %96 = load ptr, ptr %3, align 8
   %97 = getelementptr inbounds %struct.kvs_comm_set, ptr %96, i64 %92, i32 1

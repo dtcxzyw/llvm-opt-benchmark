@@ -7780,7 +7780,7 @@ ehcleanup:                                        ; preds = %lpad53.loopexit, %l
   br label %ehcleanup77
 
 cleanup:                                          ; preds = %.noexc.i131, %if.then35
-  %retval.0 = phi i1 [ false, %if.then35 ], [ true, %.noexc.i131 ]
+  %retval.1 = phi i1 [ false, %if.then35 ], [ true, %.noexc.i131 ]
   %51 = load ptr, ptr %coeffs, align 8
   %tobool.not.i.i = icmp eq ptr %51, null
   br i1 %tobool.not.i.i, label %_ZN6vectorISt4pairIi8rationalELb1EjED2Ev.exit, label %_ZNK6vectorISt4pairIi8rationalELb1EjE4sizeEv.exit.i.i.i
@@ -7861,8 +7861,8 @@ return.sink.split:                                ; preds = %lor.end, %_ZNK17ari
   br label %return
 
 return:                                           ; preds = %return.sink.split, %.noexc.i136, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.0, %.noexc.i136 ], [ false, %return.sink.split ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %.noexc.i136 ], [ false, %return.sink.split ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10100,7 +10100,7 @@ lpad72:                                           ; preds = %invoke.cont73, %inv
   br label %ehcleanup82
 
 cleanup:                                          ; preds = %_ZN8rationalD2Ev.exit130, %if.then29, %if.then9, %if.then22
-  %retval.0 = phi i32 [ %10, %if.then22 ], [ %call11, %if.then9 ], [ -1, %if.then29 ], [ %call48, %_ZN8rationalD2Ev.exit130 ]
+  %retval.1 = phi i32 [ %10, %if.then22 ], [ %call11, %if.then9 ], [ -1, %if.then29 ], [ %call48, %_ZN8rationalD2Ev.exit130 ]
   %64 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %64, ptr noundef nonnull align 8 dereferenceable(16) %w)
           to label %.noexc.i132 unwind label %terminate.lpad.i131
@@ -10177,8 +10177,8 @@ ehcleanup82:                                      ; preds = %lpad3.loopexit, %lp
   resume { ptr, i32 } %.pn12
 
 return:                                           ; preds = %_ZN6vectorISt4pairIi8rationalELb1EjE16destroy_elementsEv.exit.i.i, %_ZN8rationalD2Ev.exit134, %if.then
-  %retval.1 = phi i32 [ -1, %if.then ], [ %retval.0, %_ZN8rationalD2Ev.exit134 ], [ %retval.0, %_ZN6vectorISt4pairIi8rationalELb1EjE16destroy_elementsEv.exit.i.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then ], [ %retval.1, %_ZN8rationalD2Ev.exit134 ], [ %retval.1, %_ZN6vectorISt4pairIi8rationalELb1EjE16destroy_elementsEv.exit.i.i ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14707,12 +14707,12 @@ _ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i23
   br label %if.then
 
 if.then:                                          ; preds = %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit
-  %e1.2.in = phi ptr [ %m_args.i.i, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i28, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit ]
-  %e2.2.in = phi ptr [ %arrayidx.i.i, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit ], [ %m_args.i.i27, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit ]
-  %e2.2 = load ptr, ptr %e2.2.in, align 8
-  %e1.2 = load ptr, ptr %e1.2.in, align 8
-  call void @_ZN3smt12theory_utvpiINS_7idl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1696) %this, ptr noundef %e1.2)
-  invoke void @_ZN3smt12theory_utvpiINS_7idl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(1696) %this, ptr noundef %e2.2)
+  %e1.0.in = phi ptr [ %m_args.i.i, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i28, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit ]
+  %e2.0.in = phi ptr [ %arrayidx.i.i, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit ], [ %m_args.i.i27, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit ]
+  %e2.0 = load ptr, ptr %e2.0.in, align 8
+  %e1.0 = load ptr, ptr %e1.0.in, align 8
+  call void @_ZN3smt12theory_utvpiINS_7idl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1696) %this, ptr noundef %e1.0)
+  invoke void @_ZN3smt12theory_utvpiINS_7idl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(1696) %this, ptr noundef %e2.0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -14857,12 +14857,12 @@ _ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i66
   br label %if.then13
 
 if.then13:                                        ; preds = %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit
-  %e1.5.in = phi ptr [ %m_args.i.i52, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i71, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ]
-  %e2.5.in = phi ptr [ %arrayidx.i.i53, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ %m_args.i.i70, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ]
-  %e2.5 = load ptr, ptr %e2.5.in, align 8
-  %e1.5 = load ptr, ptr %e1.5.in, align 8
-  call void @_ZN3smt12theory_utvpiINS_7idl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(1696) %this, ptr noundef %e1.5)
-  invoke void @_ZN3smt12theory_utvpiINS_7idl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(1696) %this, ptr noundef %e2.5)
+  %e1.1.in = phi ptr [ %m_args.i.i52, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i71, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ]
+  %e2.1.in = phi ptr [ %arrayidx.i.i53, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ %m_args.i.i70, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ]
+  %e2.1 = load ptr, ptr %e2.1.in, align 8
+  %e1.1 = load ptr, ptr %e1.1.in, align 8
+  call void @_ZN3smt12theory_utvpiINS_7idl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(1696) %this, ptr noundef %e1.1)
+  invoke void @_ZN3smt12theory_utvpiINS_7idl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(1696) %this, ptr noundef %e2.1)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %if.then13
@@ -16588,7 +16588,7 @@ if.then5.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then5.i, %if.then.i
-  %r.0.i = phi i1 [ true, %if.then.i ], [ %call6.i, %if.then5.i ]
+  %r.1.i = phi i1 [ true, %if.then.i ], [ %call6.i, %if.then5.i ]
   %m_enabled_edges.i = getelementptr inbounds i8, ptr %this, i64 1136
   %4 = load ptr, ptr %m_enabled_edges.i, align 8
   %cmp.i.i = icmp eq ptr %4, null
@@ -16620,7 +16620,7 @@ _ZN8dl_graphIN3smt12theory_utvpiINS0_7idl_extEE4GExtEE11enable_edgeEi.exit: ; pr
   %10 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %10, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
-  br i1 %r.0.i, label %_ZN8dl_graphIN3smt12theory_utvpiINS0_7idl_extEE4GExtEE11enable_edgeEi.exit.land.rhs_crit_edge, label %lor.end
+  br i1 %r.1.i, label %_ZN8dl_graphIN3smt12theory_utvpiINS0_7idl_extEE4GExtEE11enable_edgeEi.exit.land.rhs_crit_edge, label %lor.end
 
 _ZN8dl_graphIN3smt12theory_utvpiINS0_7idl_extEE4GExtEE11enable_edgeEi.exit.land.rhs_crit_edge: ; preds = %_ZN8dl_graphIN3smt12theory_utvpiINS0_7idl_extEE4GExtEE11enable_edgeEi.exit
   %.pre = load ptr, ptr %m_edges.i, align 8
@@ -16655,7 +16655,7 @@ if.then5.i14:                                     ; preds = %if.then.i8
   br label %if.end.i16
 
 if.end.i16:                                       ; preds = %if.then5.i14, %if.then.i8
-  %r.0.i17 = phi i1 [ true, %if.then.i8 ], [ %call6.i15, %if.then5.i14 ]
+  %r.1.i17 = phi i1 [ true, %if.then.i8 ], [ %call6.i15, %if.then5.i14 ]
   %m_enabled_edges.i18 = getelementptr inbounds i8, ptr %this, i64 1136
   %15 = load ptr, ptr %m_enabled_edges.i18, align 8
   %cmp.i.i19 = icmp eq ptr %15, null
@@ -16690,7 +16690,7 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i24:        ; preds = %if.then.i.i30, %lor
   br label %lor.end
 
 lor.end:                                          ; preds = %_ZN6vectorIiLb0EjE9push_backERKi.exit.i24, %land.rhs, %_ZN8dl_graphIN3smt12theory_utvpiINS0_7idl_extEE4GExtEE11enable_edgeEi.exit, %entry
-  %22 = phi i1 [ true, %entry ], [ false, %_ZN8dl_graphIN3smt12theory_utvpiINS0_7idl_extEE4GExtEE11enable_edgeEi.exit ], [ true, %land.rhs ], [ %r.0.i17, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i24 ]
+  %22 = phi i1 [ true, %entry ], [ false, %_ZN8dl_graphIN3smt12theory_utvpiINS0_7idl_extEE4GExtEE11enable_edgeEi.exit ], [ true, %land.rhs ], [ %r.1.i17, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i24 ]
   ret i1 %22
 }
 
@@ -24599,7 +24599,7 @@ ehcleanup:                                        ; preds = %lpad53.loopexit, %l
   br label %ehcleanup77
 
 cleanup:                                          ; preds = %.noexc.i.i130, %if.then35
-  %retval.0 = phi i1 [ false, %if.then35 ], [ true, %.noexc.i.i130 ]
+  %retval.1 = phi i1 [ false, %if.then35 ], [ true, %.noexc.i.i130 ]
   %51 = load ptr, ptr %coeffs, align 8
   %tobool.not.i.i = icmp eq ptr %51, null
   br i1 %tobool.not.i.i, label %_ZN6vectorISt4pairIi8rationalELb1EjED2Ev.exit, label %_ZNK6vectorISt4pairIi8rationalELb1EjE4sizeEv.exit.i.i.i
@@ -24680,8 +24680,8 @@ return.sink.split:                                ; preds = %lor.end, %_ZNK17ari
   br label %return
 
 return:                                           ; preds = %return.sink.split, %.noexc.i, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %retval.0, %.noexc.i ], [ false, %return.sink.split ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %.noexc.i ], [ false, %return.sink.split ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -26468,7 +26468,7 @@ lpad72:                                           ; preds = %invoke.cont73, %inv
   br label %ehcleanup82
 
 cleanup:                                          ; preds = %_ZN16inf_int_rationalD2Ev.exit118, %if.then29, %if.then9, %if.then22
-  %retval.0 = phi i32 [ %10, %if.then22 ], [ %call11, %if.then9 ], [ -1, %if.then29 ], [ %call48, %_ZN16inf_int_rationalD2Ev.exit118 ]
+  %retval.1 = phi i32 [ %10, %if.then22 ], [ %call11, %if.then9 ], [ -1, %if.then29 ], [ %call48, %_ZN16inf_int_rationalD2Ev.exit118 ]
   %64 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %64, ptr noundef nonnull align 8 dereferenceable(16) %w)
           to label %.noexc.i120 unwind label %terminate.lpad.i119
@@ -26545,8 +26545,8 @@ ehcleanup82:                                      ; preds = %lpad3.loopexit, %lp
   resume { ptr, i32 } %.pn12
 
 return:                                           ; preds = %_ZN6vectorISt4pairIi8rationalELb1EjE16destroy_elementsEv.exit.i.i, %_ZN8rationalD2Ev.exit122, %if.then
-  %retval.1 = phi i32 [ -1, %if.then ], [ %retval.0, %_ZN8rationalD2Ev.exit122 ], [ %retval.0, %_ZN6vectorISt4pairIi8rationalELb1EjE16destroy_elementsEv.exit.i.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then ], [ %retval.1, %_ZN8rationalD2Ev.exit122 ], [ %retval.1, %_ZN6vectorISt4pairIi8rationalELb1EjE16destroy_elementsEv.exit.i.i ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -30777,12 +30777,12 @@ _ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i23
   br label %if.then
 
 if.then:                                          ; preds = %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit
-  %e1.2.in = phi ptr [ %m_args.i.i, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i28, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit ]
-  %e2.2.in = phi ptr [ %arrayidx.i.i, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit ], [ %m_args.i.i27, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit ]
-  %e2.2 = load ptr, ptr %e2.2.in, align 8
-  %e1.2 = load ptr, ptr %e1.2.in, align 8
-  call void @_ZN3smt12theory_utvpiINS_7rdl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1704) %this, ptr noundef %e1.2)
-  invoke void @_ZN3smt12theory_utvpiINS_7rdl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(1704) %this, ptr noundef %e2.2)
+  %e1.0.in = phi ptr [ %m_args.i.i, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i28, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit ]
+  %e2.0.in = phi ptr [ %arrayidx.i.i, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit ], [ %m_args.i.i27, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit ]
+  %e2.0 = load ptr, ptr %e2.0.in, align 8
+  %e1.0 = load ptr, ptr %e1.0.in, align 8
+  call void @_ZN3smt12theory_utvpiINS_7rdl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(1704) %this, ptr noundef %e1.0)
+  invoke void @_ZN3smt12theory_utvpiINS_7rdl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp4, ptr noundef nonnull align 8 dereferenceable(1704) %this, ptr noundef %e2.0)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
@@ -30927,12 +30927,12 @@ _ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i66
   br label %if.then13
 
 if.then13:                                        ; preds = %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit
-  %e1.5.in = phi ptr [ %m_args.i.i52, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i71, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ]
-  %e2.5.in = phi ptr [ %arrayidx.i.i53, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ %m_args.i.i70, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ]
-  %e2.5 = load ptr, ptr %e2.5.in, align 8
-  %e1.5 = load ptr, ptr %e1.5.in, align 8
-  call void @_ZN3smt12theory_utvpiINS_7rdl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(1704) %this, ptr noundef %e1.5)
-  invoke void @_ZN3smt12theory_utvpiINS_7rdl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(1704) %this, ptr noundef %e2.5)
+  %e1.1.in = phi ptr [ %m_args.i.i52, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i71, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ]
+  %e2.1.in = phi ptr [ %arrayidx.i.i53, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ %m_args.i.i70, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ]
+  %e2.1 = load ptr, ptr %e2.1.in, align 8
+  %e1.1 = load ptr, ptr %e1.1.in, align 8
+  call void @_ZN3smt12theory_utvpiINS_7rdl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp14, ptr noundef nonnull align 8 dereferenceable(1704) %this, ptr noundef %e1.1)
+  invoke void @_ZN3smt12theory_utvpiINS_7rdl_extEE8eval_numEP4expr(ptr nonnull sret(%class.rational) align 8 %ref.tmp15, ptr noundef nonnull align 8 dereferenceable(1704) %this, ptr noundef %e2.1)
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %if.then13
@@ -32777,7 +32777,7 @@ if.then5.i:                                       ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then5.i, %if.then.i
-  %r.0.i = phi i1 [ true, %if.then.i ], [ %call6.i, %if.then5.i ]
+  %r.1.i = phi i1 [ true, %if.then.i ], [ %call6.i, %if.then5.i ]
   %m_enabled_edges.i = getelementptr inbounds i8, ptr %this, i64 1144
   %4 = load ptr, ptr %m_enabled_edges.i, align 8
   %cmp.i.i = icmp eq ptr %4, null
@@ -32809,7 +32809,7 @@ _ZN8dl_graphIN3smt12theory_utvpiINS0_7rdl_extEE4GExtEE11enable_edgeEi.exit: ; pr
   %10 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %10, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
-  br i1 %r.0.i, label %_ZN8dl_graphIN3smt12theory_utvpiINS0_7rdl_extEE4GExtEE11enable_edgeEi.exit.land.rhs_crit_edge, label %lor.end
+  br i1 %r.1.i, label %_ZN8dl_graphIN3smt12theory_utvpiINS0_7rdl_extEE4GExtEE11enable_edgeEi.exit.land.rhs_crit_edge, label %lor.end
 
 _ZN8dl_graphIN3smt12theory_utvpiINS0_7rdl_extEE4GExtEE11enable_edgeEi.exit.land.rhs_crit_edge: ; preds = %_ZN8dl_graphIN3smt12theory_utvpiINS0_7rdl_extEE4GExtEE11enable_edgeEi.exit
   %.pre = load ptr, ptr %m_edges.i, align 8
@@ -32844,7 +32844,7 @@ if.then5.i14:                                     ; preds = %if.then.i8
   br label %if.end.i16
 
 if.end.i16:                                       ; preds = %if.then5.i14, %if.then.i8
-  %r.0.i17 = phi i1 [ true, %if.then.i8 ], [ %call6.i15, %if.then5.i14 ]
+  %r.1.i17 = phi i1 [ true, %if.then.i8 ], [ %call6.i15, %if.then5.i14 ]
   %m_enabled_edges.i18 = getelementptr inbounds i8, ptr %this, i64 1144
   %15 = load ptr, ptr %m_enabled_edges.i18, align 8
   %cmp.i.i19 = icmp eq ptr %15, null
@@ -32879,7 +32879,7 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i24:        ; preds = %if.then.i.i30, %lor
   br label %lor.end
 
 lor.end:                                          ; preds = %_ZN6vectorIiLb0EjE9push_backERKi.exit.i24, %land.rhs, %_ZN8dl_graphIN3smt12theory_utvpiINS0_7rdl_extEE4GExtEE11enable_edgeEi.exit, %entry
-  %22 = phi i1 [ true, %entry ], [ false, %_ZN8dl_graphIN3smt12theory_utvpiINS0_7rdl_extEE4GExtEE11enable_edgeEi.exit ], [ true, %land.rhs ], [ %r.0.i17, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i24 ]
+  %22 = phi i1 [ true, %entry ], [ false, %_ZN8dl_graphIN3smt12theory_utvpiINS0_7rdl_extEE4GExtEE11enable_edgeEi.exit ], [ true, %land.rhs ], [ %r.1.i17, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i24 ]
   ret i1 %22
 }
 
@@ -35526,11 +35526,11 @@ _ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit: ; preds = %land.lhs.true.i91
   br label %if.then37
 
 if.then37:                                        ; preds = %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit
-  %e1.6.in = phi ptr [ %m_args.i.i41, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i60, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit ], [ %m_args.i.i77, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i96, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ]
-  %e2.6.in = phi ptr [ %arrayidx.i.i42, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit ], [ %m_args.i.i59, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i78, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ %m_args.i.i95, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ]
-  %e2.6 = load ptr, ptr %e2.6.in, align 8
-  %e1.6 = load ptr, ptr %e1.6.in, align 8
-  %call38 = tail call noundef zeroext i1 @_ZN3smt12utvpi_tester9linearizeEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %e1.6, ptr noundef %e2.6)
+  %e1.2.in = phi ptr [ %m_args.i.i41, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i60, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit ], [ %m_args.i.i77, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i96, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ]
+  %e2.2.in = phi ptr [ %arrayidx.i.i42, %_ZNK17arith_recognizers5is_leEPK4exprRPS0_S4_.exit ], [ %m_args.i.i59, %_ZNK17arith_recognizers5is_geEPK4exprRPS0_S4_.exit ], [ %arrayidx.i.i78, %_ZNK17arith_recognizers5is_ltEPK4exprRPS0_S4_.exit ], [ %m_args.i.i95, %_ZNK17arith_recognizers5is_gtEPK4exprRPS0_S4_.exit ]
+  %e2.2 = load ptr, ptr %e2.2.in, align 8
+  %e1.2 = load ptr, ptr %e1.2.in, align 8
+  %call38 = tail call noundef zeroext i1 @_ZN3smt12utvpi_tester9linearizeEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %e1.2, ptr noundef %e2.2)
   br i1 %call38, label %if.end48, label %return
 
 land.lhs.true.i101:                               ; preds = %_ZNK17arith_recognizers5is_gtEPK4expr.exit.i, %land.lhs.true.i73, %land.lhs.true.i55, %land.lhs.true.i37
@@ -37369,12 +37369,12 @@ _ZN14core_hashtableIN7obj_mapI4expr8rationalE13obj_map_entryE8obj_hashINS3_8key_
   br i1 %cmp.i543.not, label %return.loopexit, label %for.body142
 
 return.loopexit:                                  ; preds = %_ZN14core_hashtableIN7obj_mapI4expr8rationalE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE8iteratorppEv.exit, %_ZN8rationalD2Ev.exit673
-  %retval.4.ph = xor i1 %switch28, true
+  %retval.2.ph = xor i1 %switch28, true
   br label %return
 
 return:                                           ; preds = %_ZN8rationalD2Ev.exit536, %while.body.i.i.i.i, %return.loopexit, %_ZNK7obj_mapI4expr8rationalE5beginEv.exit
-  %retval.4 = phi i1 [ true, %_ZNK7obj_mapI4expr8rationalE5beginEv.exit ], [ %retval.4.ph, %return.loopexit ], [ true, %while.body.i.i.i.i ], [ false, %_ZN8rationalD2Ev.exit536 ]
-  ret i1 %retval.4
+  %retval.2 = phi i1 [ true, %_ZNK7obj_mapI4expr8rationalE5beginEv.exit ], [ %retval.2.ph, %return.loopexit ], [ true, %while.body.i.i.i.i ], [ false, %_ZN8rationalD2Ev.exit536 ]
+  ret i1 %retval.2
 
 eh.resume:                                        ; preds = %lpad144, %lpad152, %lpad, %ehcleanup134
   %r.sink = phi ptr [ %num, %ehcleanup134 ], [ %num, %lpad ], [ %r, %lpad152 ], [ %r, %lpad144 ]
@@ -43263,8 +43263,8 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !201
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.142 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %2, %for.cond17.preheader ]
-  %m_state.i24 = getelementptr inbounds i8, ptr %curr.142, i64 4
+  %curr.242 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %2, %for.cond17.preheader ]
+  %m_state.i24 = getelementptr inbounds i8, ptr %curr.242, i64 4
   %6 = load i32, ptr %m_state.i24, align 4
   switch i32 %6, label %for.inc34 [
     i32 2, label %if.then21
@@ -43272,30 +43272,30 @@ for.body19:                                       ; preds = %for.cond17.preheade
   ]
 
 if.then21:                                        ; preds = %for.body19
-  %7 = load i32, ptr %curr.142, align 4
+  %7 = load i32, ptr %curr.242, align 4
   %cmp23 = icmp eq i32 %7, %0
   br i1 %cmp23, label %land.lhs.true24, label %for.inc34
 
 land.lhs.true24:                                  ; preds = %if.then21
-  %m_data.i26 = getelementptr inbounds i8, ptr %curr.142, i64 8
+  %m_data.i26 = getelementptr inbounds i8, ptr %curr.242, i64 8
   %8 = load i32, ptr %m_data.i26, align 4
   %cmp.i.i.i27 = icmp eq i32 %8, %0
   br i1 %cmp.i.i.i27, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %land.lhs.true24, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.142, i64 16
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.242, i64 16
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !202
 
 end_remove:                                       ; preds = %land.lhs.true, %land.lhs.true24
-  %curr.2 = phi ptr [ %curr.142, %land.lhs.true24 ], [ %curr.040, %land.lhs.true ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 16
+  %curr.1 = phi ptr [ %curr.242, %land.lhs.true24 ], [ %curr.040, %land.lhs.true ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 16
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %2, ptr %add.ptr37
   %m_state.i30 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %9 = load i32, ptr %m_state.i30, align 4
   %cmp.i31 = icmp eq i32 %9, 0
-  %m_state.i32 = getelementptr inbounds i8, ptr %curr.2, i64 4
+  %m_state.i32 = getelementptr inbounds i8, ptr %curr.1, i64 4
   br i1 %cmp.i31, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove

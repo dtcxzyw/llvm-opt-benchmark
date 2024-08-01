@@ -1818,7 +1818,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %583
 
 _ZN2cv3dnn14dnn4_v2024052121TextDetectionModel_DBD2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i, %569, %556, %_ZN2cv3dnn14dnn4_v2024052120TextRecognitionModelD2Ev.exit, %131
-  %.0 = phi i32 [ 1, %131 ], [ 0, %_ZN2cv3dnn14dnn4_v2024052120TextRecognitionModelD2Ev.exit ], [ 0, %556 ], [ 0, %569 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i ]
+  %.1 = phi i32 [ 1, %131 ], [ 0, %_ZN2cv3dnn14dnn4_v2024052120TextRecognitionModelD2Ev.exit ], [ 0, %556 ], [ 0, %569 ], [ 0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #17
@@ -1840,9 +1840,9 @@ _ZN2cv3dnn14dnn4_v2024052121TextDetectionModel_DBD2Ev.exit: ; preds = %_ZNSt16_S
   br label %587
 
 586:                                              ; preds = %.critedge.thread, %_ZN2cv3dnn14dnn4_v2024052121TextDetectionModel_DBD2Ev.exit
-  %.1 = phi i32 [ %.0, %_ZN2cv3dnn14dnn4_v2024052121TextDetectionModel_DBD2Ev.exit ], [ 0, %.critedge.thread ]
+  %.0 = phi i32 [ %.1, %_ZN2cv3dnn14dnn4_v2024052121TextDetectionModel_DBD2Ev.exit ], [ 0, %.critedge.thread ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
-  ret i32 %.1
+  ret i32 %.0
 
 587:                                              ; preds = %98, %585, %149, %146, %141, %136, %99, %93
   %.pn143 = phi { ptr, i32 } [ %100, %99 ], [ %.pn138.pn.pn.pn, %585 ], [ %.pn86, %149 ], [ %.pn84, %146 ], [ %.pn82, %141 ], [ %.pn80, %136 ], [ %.pn78, %98 ], [ %.pn, %93 ]

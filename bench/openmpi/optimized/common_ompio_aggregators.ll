@@ -849,13 +849,13 @@ select.unfold.thread:                             ; preds = %71, %select.unfold
 
 .loopexit.sink.split:                             ; preds = %45, %select.unfold.thread, %33, %30, %26, %22, %16
   %.str.4.sink = phi ptr [ @.str.2, %16 ], [ @.str.2, %22 ], [ @.str.2, %26 ], [ @.str.2, %30 ], [ @.str.3, %33 ], [ @.str.4, %select.unfold.thread ], [ @.str.4, %45 ]
-  %.250.ph = phi i32 [ -2, %16 ], [ -2, %22 ], [ -2, %26 ], [ -2, %30 ], [ %39, %33 ], [ %86, %select.unfold.thread ], [ %61, %45 ]
+  %.048.ph = phi i32 [ -2, %16 ], [ -2, %22 ], [ -2, %26 ], [ -2, %30 ], [ %39, %33 ], [ %86, %select.unfold.thread ], [ %61, %45 ]
   %.047.ph = phi ptr [ null, %16 ], [ null, %22 ], [ null, %26 ], [ null, %30 ], [ %31, %33 ], [ %31, %select.unfold.thread ], [ %31, %45 ]
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull %.str.4.sink) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %.loopexit.sink.split, %40, %13, %3
-  %.250 = phi i32 [ %12, %3 ], [ 17, %13 ], [ 0, %40 ], [ %.250.ph, %.loopexit.sink.split ], [ 0, %._crit_edge ]
+  %.048 = phi i32 [ %12, %3 ], [ 17, %13 ], [ 0, %40 ], [ %.048.ph, %.loopexit.sink.split ], [ 0, %._crit_edge ]
   %.047 = phi ptr [ null, %3 ], [ null, %13 ], [ %31, %40 ], [ %.047.ph, %.loopexit.sink.split ], [ %31, %._crit_edge ]
   %98 = getelementptr inbounds i8, ptr %5, i64 8
   %99 = load ptr, ptr %98, align 8
@@ -897,7 +897,7 @@ select.unfold.thread:                             ; preds = %71, %select.unfold
   br label %111
 
 111:                                              ; preds = %110, %109
-  ret i32 %.250
+  ret i32 %.048
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1234,8 +1234,8 @@ mca_common_ompio_retain_initial_groups.exit.thread69: ; preds = %25
   br i1 %44, label %36, label %mca_common_ompio_retain_initial_groups.exit.thread, !llvm.loop !18
 
 mca_common_ompio_retain_initial_groups.exit:      ; preds = %20, %15
-  %.042 = phi i32 [ %24, %20 ], [ %19, %15 ]
-  %.not57 = icmp eq i32 %.042, 0
+  %.143 = phi i32 [ %24, %20 ], [ %19, %15 ]
+  %.not57 = icmp eq i32 %.143, 0
   br i1 %.not57, label %mca_common_ompio_retain_initial_groups.exit.thread, label %.loopexit.sink.split
 
 mca_common_ompio_retain_initial_groups.exit.thread: ; preds = %36, %.preheader.i, %13, %mca_common_ompio_retain_initial_groups.exit
@@ -1341,13 +1341,13 @@ mca_common_ompio_retain_initial_groups.exit.thread: ; preds = %36, %.preheader.i
 
 .loopexit.sink.split:                             ; preds = %77, %69, %62, %52, %mca_common_ompio_retain_initial_groups.exit, %mca_common_ompio_retain_initial_groups.exit.thread69, %2
   %.str.9.sink = phi ptr [ @.str.6, %2 ], [ @.str.7, %mca_common_ompio_retain_initial_groups.exit.thread69 ], [ @.str.7, %mca_common_ompio_retain_initial_groups.exit ], [ @.str.8, %52 ], [ @.str.9, %62 ], [ @.str.8, %69 ], [ @.str.9, %77 ]
-  %.143.ph = phi i32 [ %12, %2 ], [ -2, %mca_common_ompio_retain_initial_groups.exit.thread69 ], [ %.042, %mca_common_ompio_retain_initial_groups.exit ], [ %61, %52 ], [ 0, %62 ], [ %76, %69 ], [ 0, %77 ]
+  %.042.ph = phi i32 [ %12, %2 ], [ -2, %mca_common_ompio_retain_initial_groups.exit.thread69 ], [ %.143, %mca_common_ompio_retain_initial_groups.exit ], [ %61, %52 ], [ 0, %62 ], [ %76, %69 ], [ 0, %77 ]
   %.041.ph = phi ptr [ null, %2 ], [ null, %mca_common_ompio_retain_initial_groups.exit.thread69 ], [ null, %mca_common_ompio_retain_initial_groups.exit ], [ null, %52 ], [ null, %62 ], [ %67, %69 ], [ %67, %77 ]
   call void (i32, ptr, ...) @opal_output(i32 noundef 1, ptr noundef nonnull %.str.9.sink) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit.sink.split, %.preheader73
-  %.143 = phi i32 [ 0, %.preheader73 ], [ %.143.ph, %.loopexit.sink.split ], [ 0, %.critedge ]
+  %.042 = phi i32 [ 0, %.preheader73 ], [ %.042.ph, %.loopexit.sink.split ], [ 0, %.critedge ]
   %.041 = phi ptr [ %67, %.preheader73 ], [ %.041.ph, %.loopexit.sink.split ], [ %67, %.critedge ]
   %103 = load ptr, ptr %8, align 8
   %.not62 = icmp eq ptr %103, null
@@ -1393,7 +1393,7 @@ mca_common_ompio_retain_initial_groups.exit.thread: ; preds = %36, %.preheader.i
   br label %116
 
 116:                                              ; preds = %115, %114
-  ret i32 %.143
+  ret i32 %.042
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1815,15 +1815,15 @@ define range(i32 -2, 1) i32 @mca_common_ompio_split_initial_groups(ptr nocapture
   br label %71
 
 .preheader:                                       ; preds = %22, %42
-  %.050 = phi i32 [ %44, %42 ], [ %17, %22 ]
+  %.1 = phi i32 [ %44, %42 ], [ %17, %22 ]
   %39 = load i64, ptr %7, align 8
   %40 = icmp slt i64 %39, 1048576
-  %41 = icmp slt i32 %.050, %19
+  %41 = icmp slt i32 %.1, %19
   %or.cond = select i1 %40, i1 %41, i1 false
   br i1 %or.cond, label %42, label %47
 
 42:                                               ; preds = %.preheader
-  %43 = add nsw i32 %.050, %19
+  %43 = add nsw i32 %.1, %19
   %44 = sdiv i32 %43, 2
   %45 = call i32 @mca_common_ompio_split_a_group(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %44, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %.not59 = icmp eq i32 %45, 0
@@ -1838,15 +1838,15 @@ define range(i32 -2, 1) i32 @mca_common_ompio_split_initial_groups(ptr nocapture
   br label %71
 
 .preheader61:                                     ; preds = %22, %52
-  %.1 = phi i32 [ %56, %52 ], [ %17, %22 ]
+  %.2 = phi i32 [ %56, %52 ], [ %17, %22 ]
   %49 = load i64, ptr %7, align 8
   %50 = icmp slt i64 %49, 1048576
-  %51 = icmp slt i32 %.1, %19
+  %51 = icmp slt i32 %.2, %19
   %or.cond60 = select i1 %50, i1 %51, i1 false
   br i1 %or.cond60, label %52, label %59
 
 52:                                               ; preds = %.preheader61
-  %53 = add nsw i32 %.1, %19
+  %53 = add nsw i32 %.2, %19
   %54 = sdiv i32 %53, 2
   %55 = and i32 %53, 1
   %56 = add nsw i32 %54, %55
@@ -1861,7 +1861,7 @@ define range(i32 -2, 1) i32 @mca_common_ompio_split_initial_groups(ptr nocapture
 59:                                               ; preds = %.preheader61
   %60 = load i32, ptr %5, align 4
   %61 = sitofp i32 %60 to double
-  %62 = sitofp i32 %.1 to double
+  %62 = sitofp i32 %.2 to double
   %63 = fmul double %62, 5.000000e-01
   %64 = fcmp ult double %63, %61
   br i1 %64, label %71, label %65
@@ -1871,15 +1871,15 @@ define range(i32 -2, 1) i32 @mca_common_ompio_split_initial_groups(ptr nocapture
   %67 = srem i32 %19, %66
   %68 = sdiv i32 %19, %66
   %69 = icmp eq i32 %67, 0
-  %70 = add nsw i32 %60, %.1
-  %spec.select81 = select i1 %69, i32 %68, i32 %.1
+  %70 = add nsw i32 %60, %.2
+  %spec.select81 = select i1 %69, i32 %68, i32 %.2
   %spec.select82 = select i1 %69, i32 %68, i32 %70
   br label %71
 
 71:                                               ; preds = %65, %33, %59, %27, %47, %25, %22
-  %.2 = phi i32 [ %17, %22 ], [ %.050, %47 ], [ %17, %25 ], [ %17, %27 ], [ %.1, %59 ], [ %spec.select, %33 ], [ %spec.select81, %65 ]
+  %.050 = phi i32 [ %17, %22 ], [ %.1, %47 ], [ %17, %25 ], [ %17, %27 ], [ %.2, %59 ], [ %spec.select, %33 ], [ %spec.select81, %65 ]
   %.049 = phi i32 [ 0, %22 ], [ %48, %47 ], [ %26, %25 ], [ %28, %27 ], [ %60, %59 ], [ %spec.select80, %33 ], [ %spec.select82, %65 ]
-  %72 = tail call i32 @mca_common_ompio_finalize_split(ptr noundef %0, i32 noundef %.2, i32 noundef %.049)
+  %72 = tail call i32 @mca_common_ompio_finalize_split(ptr noundef %0, i32 noundef %.050, i32 noundef %.049)
   br label %73
 
 73:                                               ; preds = %71, %58, %46, %21
@@ -1904,9 +1904,9 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
 
 .preheader203:                                    ; preds = %.preheader203.lr.ph, %.loopexit
   %9 = phi i32 [ %6, %.preheader203.lr.ph ], [ %51, %.loopexit ]
-  %.0132226 = phi i32 [ 4, %.preheader203.lr.ph ], [ %.4136, %.loopexit ]
-  %.0143225 = phi i32 [ 0, %.preheader203.lr.ph ], [ %.3146, %.loopexit ]
-  %.0155224 = phi i64 [ 0, %.preheader203.lr.ph ], [ %.3158, %.loopexit ]
+  %.0132226 = phi i32 [ 4, %.preheader203.lr.ph ], [ %.2134, %.loopexit ]
+  %.0143225 = phi i32 [ 0, %.preheader203.lr.ph ], [ %.2145, %.loopexit ]
+  %.0155224 = phi i64 [ 0, %.preheader203.lr.ph ], [ %.2157, %.loopexit ]
   %.not182218 = icmp slt i32 %.0143225, %9
   br i1 %.not182218, label %.lr.ph, label %.loopexit
 
@@ -1920,9 +1920,9 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
   br label %53
 
 .lr.ph:                                           ; preds = %.preheader203, %49
-  %.1133221 = phi i32 [ %.3135, %49 ], [ %.0132226, %.preheader203 ]
-  %.1144220 = phi i32 [ %.2145, %49 ], [ %.0143225, %.preheader203 ]
-  %.1156219 = phi i64 [ %.2157, %49 ], [ %.0155224, %.preheader203 ]
+  %.1133221 = phi i32 [ %.4136, %49 ], [ %.0132226, %.preheader203 ]
+  %.1144220 = phi i32 [ %.3146, %49 ], [ %.0143225, %.preheader203 ]
+  %.1156219 = phi i64 [ %.3158, %49 ], [ %.0155224, %.preheader203 ]
   %13 = sext i32 %.1144220 to i64
   %14 = getelementptr inbounds i32, ptr %2, i64 %13
   %15 = load i32, ptr %14, align 4
@@ -1987,27 +1987,27 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
   br label %.loopexit
 
 49:                                               ; preds = %21, %38, %42
-  %.2157 = phi i64 [ %24, %21 ], [ %41, %38 ], [ %.1156219, %42 ]
-  %.2145 = phi i32 [ %25, %21 ], [ %33, %38 ], [ %33, %42 ]
-  %.3135 = phi i32 [ %.1133221, %21 ], [ %39, %38 ], [ %.1133221, %42 ]
+  %.3158 = phi i64 [ %24, %21 ], [ %41, %38 ], [ %.1156219, %42 ]
+  %.3146 = phi i32 [ %25, %21 ], [ %33, %38 ], [ %33, %42 ]
+  %.4136 = phi i32 [ %.1133221, %21 ], [ %39, %38 ], [ %.1133221, %42 ]
   %50 = load i32, ptr %5, align 8
-  %.not182 = icmp slt i32 %.2145, %50
+  %.not182 = icmp slt i32 %.3146, %50
   br i1 %.not182, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %49, %.preheader203, %.thread
   %51 = phi i32 [ %.pre, %.thread ], [ %9, %.preheader203 ], [ %50, %49 ]
-  %.3158 = phi i64 [ 0, %.thread ], [ %.0155224, %.preheader203 ], [ %.2157, %49 ]
-  %.3146 = phi i32 [ %43, %.thread ], [ %.0143225, %.preheader203 ], [ %.2145, %49 ]
-  %.4136 = phi i32 [ %spec.select, %.thread ], [ %.0132226, %.preheader203 ], [ %.3135, %49 ]
-  %52 = icmp slt i32 %.3146, %51
+  %.2157 = phi i64 [ 0, %.thread ], [ %.0155224, %.preheader203 ], [ %.3158, %49 ]
+  %.2145 = phi i32 [ %43, %.thread ], [ %.0143225, %.preheader203 ], [ %.3146, %49 ]
+  %.2134 = phi i32 [ %spec.select, %.thread ], [ %.0132226, %.preheader203 ], [ %.4136, %49 ]
+  %52 = icmp slt i32 %.2145, %51
   br i1 %52, label %.preheader203, label %.preheader202, !llvm.loop !27
 
 53:                                               ; preds = %.lr.ph248, %95
   %.pre279282 = phi i32 [ %51, %.lr.ph248 ], [ %.pre279283, %95 ]
   %54 = phi i32 [ %51, %.lr.ph248 ], [ %96, %95 ]
-  %.0127247 = phi i32 [ 0, %.lr.ph248 ], [ %.2129, %95 ]
+  %.1128247 = phi i32 [ 0, %.lr.ph248 ], [ %.2129, %95 ]
   %.4147246 = phi i32 [ 0, %.lr.ph248 ], [ %97, %95 ]
-  %.0150245 = phi i32 [ 0, %.lr.ph248 ], [ %.2152, %95 ]
+  %.0150245 = phi i32 [ 0, %.lr.ph248 ], [ %.1151, %95 ]
   %55 = sext i32 %.4147246 to i64
   %56 = getelementptr inbounds i32, ptr %2, i64 %55
   %57 = load i32, ptr %56, align 4
@@ -2045,7 +2045,7 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
 
 .critedge.loopexit.split.loop.exit297:            ; preds = %.critedge.loopexit.split.loop.exit297.loopexit, %.lr.ph231.preheader
   %indvars.iv.lcssa = phi i64 [ %55, %.lr.ph231.preheader ], [ %indvars.iv.next312, %.critedge.loopexit.split.loop.exit297.loopexit ]
-  %.1151229.lcssa = phi i32 [ %.0150245, %.lr.ph231.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit297.loopexit ]
+  %.2152229.lcssa = phi i32 [ %.0150245, %.lr.ph231.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit297.loopexit ]
   %69 = trunc nsw i64 %indvars.iv.lcssa to i32
   br label %.critedge
 
@@ -2054,9 +2054,9 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.critedge.loopexit.split.loop.exit297, %.preheader201
-  %.1151.lcssa = phi i32 [ %.0150245, %.preheader201 ], [ %.1151229.lcssa, %.critedge.loopexit.split.loop.exit297 ], [ %indvars.le337, %.critedge.loopexit ]
-  %.5148.lcssa = phi i32 [ %.4147246, %.preheader201 ], [ %69, %.critedge.loopexit.split.loop.exit297 ], [ %indvars.le337, %.critedge.loopexit ]
-  %70 = sub nsw i32 %.1151.lcssa, %.4147246
+  %.2152.lcssa = phi i32 [ %.0150245, %.preheader201 ], [ %.2152229.lcssa, %.critedge.loopexit.split.loop.exit297 ], [ %indvars.le337, %.critedge.loopexit ]
+  %.6149.lcssa = phi i32 [ %.4147246, %.preheader201 ], [ %69, %.critedge.loopexit.split.loop.exit297 ], [ %indvars.le337, %.critedge.loopexit ]
+  %70 = sub nsw i32 %.2152.lcssa, %.4147246
   %71 = add nsw i32 %70, 1
   %72 = sext i32 %71 to i64
   %73 = shl nsw i64 %72, 2
@@ -2070,7 +2070,7 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
 
 .lr.ph239:                                        ; preds = %.preheader200
   %76 = load ptr, ptr %11, align 8
-  %77 = add i32 %.1151.lcssa, 1
+  %77 = add i32 %.2152.lcssa, 1
   %78 = sub i32 %77, %.4147246
   %wide.trip.count = zext i32 %78 to i64
   %invariant.gep = getelementptr i32, ptr %76, i64 %55
@@ -2094,11 +2094,11 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
   %.pre278 = load i32, ptr %74, align 4
   %83 = load i32, ptr %12, align 4
   %84 = icmp eq i32 %83, %.pre278
-  %spec.select185 = select i1 %84, i32 1, i32 %.0127247
+  %spec.select185 = select i1 %84, i32 1, i32 %.1128247
   br i1 %.not179237, label %._crit_edge244, label %.lr.ph243.preheader
 
 .lr.ph243.preheader:                              ; preds = %._crit_edge
-  %85 = add i32 %.1151.lcssa, 1
+  %85 = add i32 %.2152.lcssa, 1
   %86 = sub i32 %85, %.4147246
   %wide.trip.count272 = zext i32 %86 to i64
   br label %.lr.ph243
@@ -2139,10 +2139,10 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
 95:                                               ; preds = %._crit_edge244, %53
   %.pre279283 = phi i32 [ %.pre279, %._crit_edge244 ], [ %.pre279282, %53 ]
   %96 = phi i32 [ %.pre279, %._crit_edge244 ], [ %54, %53 ]
-  %.2152 = phi i32 [ %.1151.lcssa, %._crit_edge244 ], [ %.0150245, %53 ]
-  %.6149 = phi i32 [ %.5148.lcssa, %._crit_edge244 ], [ %.4147246, %53 ]
-  %.2129 = phi i32 [ %spec.select185286, %._crit_edge244 ], [ %.0127247, %53 ]
-  %97 = add nsw i32 %.6149, 1
+  %.1151 = phi i32 [ %.2152.lcssa, %._crit_edge244 ], [ %.0150245, %53 ]
+  %.5148 = phi i32 [ %.6149.lcssa, %._crit_edge244 ], [ %.4147246, %53 ]
+  %.2129 = phi i32 [ %spec.select185286, %._crit_edge244 ], [ %.1128247, %53 ]
+  %97 = add nsw i32 %.5148, 1
   %98 = icmp slt i32 %97, %96
   br i1 %98, label %53, label %._crit_edge249, !llvm.loop !31
 
@@ -2273,12 +2273,12 @@ define i32 @mca_common_ompio_merge_initial_groups(ptr noundef %0, ptr nocapture 
   br label %164
 
 164:                                              ; preds = %125, %137, %._crit_edge254
-  %.8 = phi i32 [ %124, %125 ], [ %135, %137 ], [ %163, %._crit_edge254 ]
+  %.7 = phi i32 [ %124, %125 ], [ %135, %137 ], [ %163, %._crit_edge254 ]
   tail call void @free(ptr noundef nonnull %106) #10
   br label %.thread195
 
 .thread195:                                       ; preds = %156, %164, %100, %160, %155, %147, %93, %79
-  %.0131 = phi i32 [ -2, %79 ], [ %92, %93 ], [ %146, %147 ], [ -2, %155 ], [ %159, %160 ], [ -2, %100 ], [ %.8, %164 ], [ 0, %156 ]
+  %.0131 = phi i32 [ -2, %79 ], [ %92, %93 ], [ %146, %147 ], [ -2, %155 ], [ %159, %160 ], [ -2, %100 ], [ %.7, %164 ], [ 0, %156 ]
   ret i32 %.0131
 }
 

@@ -1530,7 +1530,7 @@ hwloc_get_obj_by_type.exit.thread.i:              ; preds = %hwloc_get_obj_by_ty
 .lr.ph111.i:                                      ; preds = %hwloc_get_obj_by_type.exit.thread.i, %prte_hwloc_base_get_obj_by_type.exit90.thread.i
   %indvars.iv114.i = phi i64 [ %indvars.iv.next115.i, %prte_hwloc_base_get_obj_by_type.exit90.thread.i ], [ 1, %hwloc_get_obj_by_type.exit.thread.i ]
   %100 = phi ptr [ %158, %prte_hwloc_base_get_obj_by_type.exit90.thread.i ], [ %99, %hwloc_get_obj_by_type.exit.thread.i ]
-  %.070110.i = phi i32 [ %.2.i, %prte_hwloc_base_get_obj_by_type.exit90.thread.i ], [ 0, %hwloc_get_obj_by_type.exit.thread.i ]
+  %.070110.i = phi i32 [ %.3.i, %prte_hwloc_base_get_obj_by_type.exit90.thread.i ], [ 0, %hwloc_get_obj_by_type.exit.thread.i ]
   %101 = load i8, ptr %100, align 1
   switch i8 %101, label %104 [
     i8 67, label %102
@@ -1594,7 +1594,7 @@ prte_hwloc_base_get_obj_by_type.exit87.i:         ; preds = %.lr.ph103.i
   br i1 %.not83.i, label %prte_hwloc_base_get_obj_by_type.exit87.thread.i, label %.lr.ph103.i, !llvm.loop !16
 
 prte_hwloc_base_get_obj_by_type.exit87.thread.i:  ; preds = %124, %prte_hwloc_base_get_obj_by_type.exit87.i, %.lr.ph103.i, %114
-  %.1.i = phi i32 [ %.070110.i, %114 ], [ %.070110.i, %124 ], [ -13, %prte_hwloc_base_get_obj_by_type.exit87.i ], [ -13, %.lr.ph103.i ]
+  %.2.i = phi i32 [ %.070110.i, %114 ], [ %.070110.i, %124 ], [ -13, %prte_hwloc_base_get_obj_by_type.exit87.i ], [ -13, %.lr.ph103.i ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %116) #16
   br label %prte_hwloc_base_get_obj_by_type.exit90.thread.i
 
@@ -1651,7 +1651,7 @@ prte_hwloc_base_get_obj_by_type.exit90.i:         ; preds = %.lr.ph.i
   br label %.sink.split212.sink.split
 
 prte_hwloc_base_get_obj_by_type.exit90.thread.i:  ; preds = %151, %prte_hwloc_base_get_obj_by_type.exit90.i, %.lr.ph.i, %141, %prte_hwloc_base_get_obj_by_type.exit87.thread.i
-  %.2.i = phi i32 [ %.1.i, %prte_hwloc_base_get_obj_by_type.exit87.thread.i ], [ %.070110.i, %141 ], [ -13, %.lr.ph.i ], [ -13, %prte_hwloc_base_get_obj_by_type.exit90.i ], [ %.070110.i, %151 ]
+  %.3.i = phi i32 [ %.2.i, %prte_hwloc_base_get_obj_by_type.exit87.thread.i ], [ %.070110.i, %141 ], [ -13, %.lr.ph.i ], [ -13, %prte_hwloc_base_get_obj_by_type.exit90.i ], [ %.070110.i, %151 ]
   tail call void @PMIx_Argv_free(ptr noundef %112) #16
   %indvars.iv.next115.i = add nuw nsw i64 %indvars.iv114.i, 1
   %157 = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv.next115.i
@@ -1661,7 +1661,7 @@ prte_hwloc_base_get_obj_by_type.exit90.thread.i:  ; preds = %151, %prte_hwloc_ba
 
 package_core_to_cpu_set.exit:                     ; preds = %prte_hwloc_base_get_obj_by_type.exit90.thread.i
   tail call void @PMIx_Argv_free(ptr noundef nonnull %84) #16
-  %.not124 = icmp eq i32 %.2.i, 0
+  %.not124 = icmp eq i32 %.3.i, 0
   br i1 %.not124, label %197, label %.sink.split212
 
 159:                                              ; preds = %37
@@ -1774,7 +1774,7 @@ package_core_to_cpu_set.exit:                     ; preds = %prte_hwloc_base_get
 
 .sink.split212:                                   ; preds = %197, %package_core_to_cpu_set.exit, %.sink.split212.sink.split, %19
   %.sink213 = phi ptr [ %20, %19 ], [ %.sink213.ph, %.sink.split212.sink.split ], [ %20, %package_core_to_cpu_set.exit ], [ %20, %197 ]
-  %.0.ph = phi i32 [ 0, %19 ], [ %.0.ph.ph, %.sink.split212.sink.split ], [ 0, %197 ], [ %.2.i, %package_core_to_cpu_set.exit ]
+  %.0.ph = phi i32 [ 0, %19 ], [ %.0.ph.ph, %.sink.split212.sink.split ], [ 0, %197 ], [ %.3.i, %package_core_to_cpu_set.exit ]
   tail call void @PMIx_Argv_free(ptr noundef nonnull %.sink213) #16
   br label %200
 
@@ -2391,20 +2391,20 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_list_snprintf_exp(ptr noalia
 
 18:                                               ; preds = %.lr.ph, %18
   %.068 = phi i32 [ %9, %.lr.ph ], [ %20, %18 ]
-  %.15667 = phi ptr [ %.05570, %.lr.ph ], [ %.257, %18 ]
-  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.15667, i64 noundef %.05371, ptr noundef nonnull @.str.48, i32 noundef 20, i32 noundef 32, ptr noundef %3, i32 noundef %.068, ptr noundef %3) #16
+  %.25767 = phi ptr [ %.05570, %.lr.ph ], [ %.358, %18 ]
+  %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.25767, i64 noundef %.05371, ptr noundef nonnull @.str.48, i32 noundef 20, i32 noundef 32, ptr noundef %3, i32 noundef %.068, ptr noundef %3) #16
   %.not64 = icmp eq i32 %.068, %17
   %narrow = select i1 %.not64, i32 0, i32 %19
-  %.257.idx = sext i32 %narrow to i64
-  %.257 = getelementptr inbounds i8, ptr %.15667, i64 %.257.idx
+  %.358.idx = sext i32 %narrow to i64
+  %.358 = getelementptr inbounds i8, ptr %.25767, i64 %.358.idx
   %20 = add i32 %.068, 1
   %exitcond.not = icmp eq i32 %20, %10
   br i1 %exitcond.not, label %.loopexit, label %18, !llvm.loop !31
 
 .loopexit:                                        ; preds = %18, %.preheader, %13
-  %.358 = phi ptr [ %.05570, %13 ], [ %.05570, %.preheader ], [ %.257, %18 ]
-  %.2 = phi i32 [ %14, %13 ], [ %.05172, %.preheader ], [ %19, %18 ]
-  %21 = icmp slt i32 %.2, 0
+  %.156 = phi ptr [ %.05570, %13 ], [ %.05570, %.preheader ], [ %.358, %18 ]
+  %.152 = phi i32 [ %14, %13 ], [ %.05172, %.preheader ], [ %19, %18 ]
+  %21 = icmp slt i32 %.152, 0
   br i1 %21, label %._crit_edge, label %24
 
 .loopexit.thread:                                 ; preds = %15
@@ -2415,21 +2415,21 @@ define range(i32 -1, -2147483648) i32 @hwloc_bitmap_list_snprintf_exp(ptr noalia
   br label %._crit_edge
 
 24:                                               ; preds = %.loopexit
-  %25 = add nuw nsw i32 %.2, %.05073
+  %25 = add nuw nsw i32 %.152, %.05073
   %26 = icmp eq i32 %10, -1
   br i1 %26, label %._crit_edge, label %27
 
 27:                                               ; preds = %24
-  %28 = zext nneg i32 %.2 to i64
+  %28 = zext nneg i32 %.152 to i64
   %.not65 = icmp sgt i64 %.05371, %28
   %29 = icmp sgt i64 %.05371, 0
   %30 = trunc i64 %.05371 to i32
   %31 = add nsw i32 %30, -1
   %32 = select i1 %29, i32 %31, i32 0
-  %.3 = select i1 %.not65, i32 %.2, i32 %32
+  %.3 = select i1 %.not65, i32 %.152, i32 %32
   %33 = sext i32 %.3 to i64
   %34 = sub nsw i64 %.05371, %33
-  %35 = getelementptr inbounds i8, ptr %.358, i64 %33
+  %35 = getelementptr inbounds i8, ptr %.156, i64 %33
   %36 = add nsw i32 %10, -1
   %37 = tail call i32 @hwloc_bitmap_next(ptr noundef %2, i32 noundef %36) #17
   %38 = icmp eq i32 %37, -1
@@ -3197,7 +3197,7 @@ define ptr @prte_hwloc_base_get_locality_string(ptr noundef %0, ptr noundef %1) 
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11, %prte_hwloc_base_get_locality_string_by_depth.exit.thread
-  %.081104 = phi ptr [ %.3, %prte_hwloc_base_get_locality_string_by_depth.exit.thread ], [ null, %11 ]
+  %.081104 = phi ptr [ %.1, %prte_hwloc_base_get_locality_string_by_depth.exit.thread ], [ null, %11 ]
   %.082103 = phi i32 [ %89, %prte_hwloc_base_get_locality_string_by_depth.exit.thread ], [ 1, %11 ]
   %15 = call i32 @hwloc_get_depth_type(ptr noundef %0, i32 noundef %.082103) #17
   switch i32 %15, label %prte_hwloc_base_get_locality_string_by_depth.exit.thread [
@@ -3356,24 +3356,24 @@ prte_hwloc_base_get_locality_string_by_depth.exit: ; preds = %25
   br label %86
 
 86:                                               ; preds = %28, %84, %76, %68, %60, %52, %44, %36
-  %.1 = phi ptr [ %.081104, %28 ], [ %85, %84 ], [ %77, %76 ], [ %69, %68 ], [ %61, %60 ], [ %53, %52 ], [ %45, %44 ], [ %37, %36 ]
+  %.3 = phi ptr [ %.081104, %28 ], [ %85, %84 ], [ %77, %76 ], [ %69, %68 ], [ %61, %60 ], [ %53, %52 ], [ %45, %44 ], [ %37, %36 ]
   %87 = load ptr, ptr %3, align 8
   call void @free(ptr noundef %87) #16
   br label %88
 
 88:                                               ; preds = %86, %prte_hwloc_base_get_locality_string_by_depth.exit
-  %.2 = phi ptr [ %.081104, %prte_hwloc_base_get_locality_string_by_depth.exit ], [ %.1, %86 ]
+  %.2 = phi ptr [ %.081104, %prte_hwloc_base_get_locality_string_by_depth.exit ], [ %.3, %86 ]
   call void @hwloc_bitmap_zero(ptr noundef %12) #16
   br label %prte_hwloc_base_get_locality_string_by_depth.exit.thread
 
 prte_hwloc_base_get_locality_string_by_depth.exit.thread: ; preds = %16, %.lr.ph, %88
-  %.3 = phi ptr [ %.081104, %.lr.ph ], [ %.2, %88 ], [ %.081104, %16 ]
+  %.1 = phi ptr [ %.081104, %.lr.ph ], [ %.2, %88 ], [ %.081104, %16 ]
   %89 = add nuw i32 %.082103, 1
   %exitcond.not = icmp eq i32 %89, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %prte_hwloc_base_get_locality_string_by_depth.exit.thread, %11
-  %.081.lcssa = phi ptr [ null, %11 ], [ %.3, %prte_hwloc_base_get_locality_string_by_depth.exit.thread ]
+  %.081.lcssa = phi ptr [ null, %11 ], [ %.1, %prte_hwloc_base_get_locality_string_by_depth.exit.thread ]
   %90 = call i32 @hwloc_get_nbobjs_by_depth(ptr noundef readonly %0, i32 noundef -3) #17
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %prte_hwloc_base_get_locality_string_by_depth.exit100, label %.preheader.i95
@@ -3420,26 +3420,26 @@ prte_hwloc_base_get_locality_string_by_depth.exit.thread: ; preds = %16, %.lr.ph
   br label %112
 
 112:                                              ; preds = %109, %100
-  %.4 = phi ptr [ %.081.lcssa, %100 ], [ %110, %109 ]
+  %.5 = phi ptr [ %.081.lcssa, %100 ], [ %110, %109 ]
   call void @hwloc_bitmap_zero(ptr noundef %12) #16
   br label %prte_hwloc_base_get_locality_string_by_depth.exit100
 
 prte_hwloc_base_get_locality_string_by_depth.exit100: ; preds = %._crit_edge, %112
-  %.5 = phi ptr [ %.4, %112 ], [ %.081.lcssa, %._crit_edge ]
+  %.4 = phi ptr [ %.5, %112 ], [ %.081.lcssa, %._crit_edge ]
   call void @hwloc_bitmap_free(ptr noundef %12) #16
   call void @hwloc_bitmap_free(ptr noundef %7) #16
-  %.not86 = icmp eq ptr %.5, null
+  %.not86 = icmp eq ptr %.4, null
   br i1 %.not86, label %117, label %113
 
 113:                                              ; preds = %prte_hwloc_base_get_locality_string_by_depth.exit100
-  %114 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.5) #17
+  %114 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.4) #17
   %115 = add i64 %114, -1
-  %116 = getelementptr inbounds i8, ptr %.5, i64 %115
+  %116 = getelementptr inbounds i8, ptr %.4, i64 %115
   store i8 0, ptr %116, align 1
   br label %117
 
 117:                                              ; preds = %prte_hwloc_base_get_locality_string_by_depth.exit100, %113, %2, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %2 ], [ %.5, %113 ], [ null, %prte_hwloc_base_get_locality_string_by_depth.exit100 ]
+  %.0 = phi ptr [ null, %10 ], [ null, %2 ], [ %.4, %113 ], [ null, %prte_hwloc_base_get_locality_string_by_depth.exit100 ]
   ret ptr %.0
 }
 

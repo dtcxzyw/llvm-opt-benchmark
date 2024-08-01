@@ -2746,7 +2746,7 @@ pcf_find_property.exit128.thread:                 ; preds = %pcf_find_property.e
   br i1 %.not98, label %.preheader, label %116
 
 .preheader:                                       ; preds = %91, %112
-  %.071137 = phi ptr [ %.2, %112 ], [ %92, %91 ]
+  %.071137 = phi ptr [ %.1, %112 ], [ %92, %91 ]
   %.176136 = phi i64 [ %113, %112 ], [ 0, %91 ]
   %95 = getelementptr inbounds [4 x ptr], ptr %3, i64 0, i64 %.176136
   %96 = load ptr, ptr %95, align 8
@@ -2766,8 +2766,8 @@ pcf_find_property.exit128.thread:                 ; preds = %pcf_find_property.e
   br label %103
 
 103:                                              ; preds = %101, %99
-  %.1 = phi ptr [ %102, %101 ], [ %.071137, %99 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1, ptr nonnull align 1 %96, i64 %98, i1 false)
+  %.2 = phi ptr [ %102, %101 ], [ %.071137, %99 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2, ptr nonnull align 1 %96, i64 %98, i1 false)
   switch i64 %.176136, label %.loopexit [
     i64 3, label %104
     i64 0, label %104
@@ -2779,7 +2779,7 @@ pcf_find_property.exit128.thread:                 ; preds = %pcf_find_property.e
 
 .lr.ph:                                           ; preds = %104, %109
   %.0135 = phi i64 [ %110, %109 ], [ 0, %104 ]
-  %105 = getelementptr inbounds i8, ptr %.1, i64 %.0135
+  %105 = getelementptr inbounds i8, ptr %.2, i64 %.0135
   %106 = load i8, ptr %105, align 1
   %107 = icmp eq i8 %106, 32
   br i1 %107, label %108, label %109
@@ -2794,17 +2794,17 @@ pcf_find_property.exit128.thread:                 ; preds = %pcf_find_property.e
   br i1 %exitcond138.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %109, %104, %103
-  %111 = getelementptr inbounds i8, ptr %.1, i64 %98
+  %111 = getelementptr inbounds i8, ptr %.2, i64 %98
   br label %112
 
 112:                                              ; preds = %.preheader, %.loopexit
-  %.2 = phi ptr [ %111, %.loopexit ], [ %.071137, %.preheader ]
+  %.1 = phi ptr [ %111, %.loopexit ], [ %.071137, %.preheader ]
   %113 = add nuw nsw i64 %.176136, 1
   %exitcond139.not = icmp eq i64 %113, 4
   br i1 %exitcond139.not, label %114, label %.preheader, !llvm.loop !26
 
 114:                                              ; preds = %112
-  store i8 0, ptr %.2, align 1
+  store i8 0, ptr %.1, align 1
   %115 = load i32, ptr %2, align 4
   br label %116
 

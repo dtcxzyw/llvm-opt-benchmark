@@ -140,8 +140,8 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_oceaP8PJconsts(ptr n
   %79 = tail call double @atan2(double noundef %67, double noundef %78) #7
   %80 = fcmp oeq double %52, 0xBFF921FB54442D18
   %81 = fneg double %79
-  %.066 = select i1 %80, double %81, double %79
-  %82 = fsub double %.066, %52
+  %.1 = select i1 %80, double %81, double %79
+  %82 = fsub double %.1, %52
   %83 = tail call double @cos(double noundef %82) #7
   %84 = tail call double @tan(double noundef %44) #7
   %85 = fcmp oeq double %84, 0.000000e+00
@@ -160,8 +160,8 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_oceaP8PJconsts(ptr n
 
 93:                                               ; preds = %86, %89, %19
   %.067 = phi double [ %41, %19 ], [ %88, %86 ], [ %92, %89 ]
-  %.1 = phi double [ %36, %19 ], [ %.066, %86 ], [ %.066, %89 ]
-  %94 = fadd double %.1, 0x3FF921FB54442D18
+  %.066 = phi double [ %36, %19 ], [ %.1, %86 ], [ %.1, %89 ]
+  %94 = fadd double %.066, 0x3FF921FB54442D18
   %95 = getelementptr inbounds i8, ptr %0, i64 440
   store double %94, ptr %95, align 8
   %96 = tail call double @cos(double noundef %.067) #7

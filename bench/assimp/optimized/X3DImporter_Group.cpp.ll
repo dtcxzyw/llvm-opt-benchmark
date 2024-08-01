@@ -1740,16 +1740,16 @@ lpad10.body:                                      ; preds = %lpad.i, %lpad10
 
 ehcleanup:                                        ; preds = %lpad10.body, %lpad8
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad10.body ], [ %4, %lpad8 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0.lpad-body, %lpad10.body ], [ true, %lpad8 ]
+  %cleanup.isactive.4 = phi i1 [ %cleanup.isactive.0.lpad-body, %lpad10.body ], [ true, %lpad8 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #20
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %lpad6, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad6 ]
-  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.1, %ehcleanup ], [ true, %lpad6 ]
+  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.4, %ehcleanup ], [ true, %lpad6 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #20
-  br i1 %cleanup.isactive.2, label %cleanup.action, label %eh.resume
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup14.thread13, %ehcleanup14.thread, %ehcleanup14
   %.pn.pn.pn.pn12 = phi { ptr, i32 } [ %1, %ehcleanup14.thread ], [ %.pn.pn, %ehcleanup14 ], [ %2, %ehcleanup14.thread13 ]
@@ -2160,9 +2160,9 @@ for.cond49.preheader:                             ; preds = %while.cond42
 
 if.then53:                                        ; preds = %for.cond49.preheader, %if.then53
   %sub5145 = phi i32 [ %sub51, %if.then53 ], [ %sub5141, %for.cond49.preheader ]
-  %result.244 = phi i32 [ %add57, %if.then53 ], [ 0, %for.cond49.preheader ]
+  %result.344 = phi i32 [ %add57, %if.then53 ], [ 0, %for.cond49.preheader ]
   %s.443 = phi ptr [ %incdec.ptr60, %if.then53 ], [ %s.3, %for.cond49.preheader ]
-  %mul54 = mul i32 %result.244, 10
+  %mul54 = mul i32 %result.344, 10
   %add57 = add i32 %sub5145, %mul54
   %incdec.ptr60 = getelementptr inbounds i8, ptr %s.443, i64 1
   %9 = load i8, ptr %incdec.ptr60, align 1
@@ -2173,7 +2173,7 @@ if.then53:                                        ; preds = %for.cond49.preheade
 
 for.end61:                                        ; preds = %if.then53, %for.cond49.preheader
   %s.4.lcssa = phi ptr [ %s.3, %for.cond49.preheader ], [ %incdec.ptr60, %if.then53 ]
-  %result.2.lcssa = phi i32 [ 0, %for.cond49.preheader ], [ %add57, %if.then53 ]
+  %result.3.lcssa = phi i32 [ 0, %for.cond49.preheader ], [ %add57, %if.then53 ]
   %sub.ptr.lhs.cast63 = ptrtoint ptr %s.4.lcssa to i64
   %sub.ptr.rhs.cast64 = ptrtoint ptr %s.3 to i64
   %sub.ptr.sub65 = sub i64 %sub.ptr.lhs.cast63, %sub.ptr.rhs.cast64
@@ -2190,25 +2190,25 @@ land.rhs68:                                       ; preds = %land.rhs
 
 lor.rhs71:                                        ; preds = %land.rhs68
   %cmp73 = icmp ne i8 %8, 52
-  %tobool75 = icmp sgt i32 %result.2.lcssa, -1
+  %tobool75 = icmp sgt i32 %result.3.lcssa, -1
   %.not = select i1 %cmp73, i1 true, i1 %tobool75
   br label %if.end80
 
 if.end80:                                         ; preds = %for.end61, %land.rhs68, %lor.rhs71, %land.rhs, %for.end
   %overflow.0 = phi i1 [ %cmp39, %for.end ], [ false, %for.end61 ], [ true, %land.rhs ], [ false, %land.rhs68 ], [ %.not, %lor.rhs71 ]
-  %result.3 = phi i32 [ %result.0, %for.end ], [ %result.2.lcssa, %for.end61 ], [ %result.2.lcssa, %land.rhs ], [ %result.2.lcssa, %land.rhs68 ], [ %result.2.lcssa, %lor.rhs71 ]
+  %result.2 = phi i32 [ %result.0, %for.end ], [ %result.3.lcssa, %for.end61 ], [ %result.3.lcssa, %land.rhs ], [ %result.3.lcssa, %land.rhs68 ], [ %result.3.lcssa, %lor.rhs71 ]
   br i1 %cmp, label %if.then82, label %if.else87
 
 if.then82:                                        ; preds = %if.end80
   %sub84 = sub i32 0, %minv
-  %cmp85 = icmp ugt i32 %result.3, %sub84
+  %cmp85 = icmp ugt i32 %result.2, %sub84
   %or.cond = select i1 %overflow.0, i1 true, i1 %cmp85
-  %sub86 = sub i32 0, %result.3
+  %sub86 = sub i32 0, %result.2
   %cond = select i1 %or.cond, i32 %minv, i32 %sub86
   br label %return
 
 if.else87:                                        ; preds = %if.end80
-  %10 = tail call i32 @llvm.umin.i32(i32 %result.3, i32 %maxv)
+  %10 = tail call i32 @llvm.umin.i32(i32 %result.2, i32 %maxv)
   %cond94 = select i1 %overflow.0, i32 %maxv, i32 %10
   br label %return
 

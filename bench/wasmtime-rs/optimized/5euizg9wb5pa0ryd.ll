@@ -4151,9 +4151,9 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit330: ; preds = %331
   br label %.body344
 
 407:                                              ; preds = %381, %.thread621, %.thread631
-  %.sroa.7539.1627 = phi ptr [ %376, %.thread621 ], [ %.sroa.4559.0.copyload, %381 ], [ %380, %.thread631 ]
+  %.sroa.7539.0627 = phi ptr [ %376, %.thread621 ], [ %.sroa.4559.0.copyload, %381 ], [ %380, %.thread631 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50)
-  store ptr %.sroa.7539.1627, ptr %50, align 8
+  store ptr %.sroa.7539.0627, ptr %50, align 8
   %408 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
   %409 = icmp ult i64 %408, 6
   call void @llvm.assume(i1 %409)
@@ -7490,8 +7490,8 @@ define internal fastcc noundef zeroext i1 @_ZN14wasmtime_cache6worker18is_fs_loc
   br label %67
 
 83:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h05d631ddd5430c10E.exit", %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit"
-  %.3 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h05d631ddd5430c10E.exit" ], [ %.1, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit" ]
-  ret i1 %.3
+  %.2 = phi i1 [ true, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h05d631ddd5430c10E.exit" ], [ %.1, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit" ]
+  ret i1 %.2
 
 84:                                               ; preds = %91, %105
   %85 = phi ptr [ %92, %91 ], [ %.pre59, %105 ]

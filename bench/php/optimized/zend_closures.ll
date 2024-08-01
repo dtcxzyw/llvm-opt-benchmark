@@ -101,7 +101,7 @@ define hidden void @zim_Closure___invoke(ptr noundef %0, ptr noundef %1) #0 {
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
   %8 = getelementptr inbounds i8, ptr %0, i64 80
-  %.0 = select i1 %.not, ptr null, ptr %8
+  %.1 = select i1 %.not, ptr null, ptr %8
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 134217728
@@ -114,8 +114,8 @@ define hidden void @zim_Closure___invoke(ptr noundef %0, ptr noundef %1) #0 {
   br label %15
 
 15:                                               ; preds = %2, %12
-  %.044 = phi ptr [ %14, %12 ], [ null, %2 ]
-  %16 = tail call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull %5, ptr noundef %1, i32 noundef %7, ptr noundef %.0, ptr noundef %.044) #13
+  %.145 = phi ptr [ %14, %12 ], [ null, %2 ]
+  %16 = tail call i32 @_call_user_function_impl(ptr noundef null, ptr noundef nonnull %5, ptr noundef %1, i32 noundef %7, ptr noundef %.1, ptr noundef %.145) #13
   %17 = icmp eq i32 %16, -1
   br i1 %17, label %18, label %20
 
@@ -649,7 +649,7 @@ thread-pre-split:                                 ; preds = %23
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %.critedge, %.critedge2.thread.fold.split
-  %.1145162 = phi ptr [ %25, %.critedge ], [ null, %.critedge2.thread.fold.split ]
+  %.2146162 = phi ptr [ %25, %.critedge ], [ null, %.critedge2.thread.fold.split ]
   %34 = icmp eq i32 %8, 2
   br i1 %34, label %.thread205, label %35
 
@@ -697,9 +697,9 @@ thread-pre-split:                                 ; preds = %23
 
 .thread205:                                       ; preds = %..thread205_crit_edge, %42, %.critedge4, %.critedge2.thread
   %45 = phi ptr [ %6, %.critedge2.thread ], [ %storemerge, %42 ], [ null, %.critedge4 ], [ %.pre, %..thread205_crit_edge ]
-  %.1.ph = phi ptr [ null, %.critedge2.thread ], [ null, %42 ], [ %39, %.critedge4 ], [ null, %..thread205_crit_edge ]
-  %.2.val = load ptr, ptr %12, align 8
-  call fastcc void @do_closure_bind(ptr noundef %1, ptr %.2.val, ptr noundef %.1145162, ptr noundef %.1.ph, ptr noundef %45)
+  %.0141.ph = phi ptr [ null, %.critedge2.thread ], [ null, %42 ], [ %39, %.critedge4 ], [ null, %..thread205_crit_edge ]
+  %.0142.val = load ptr, ptr %12, align 8
+  call fastcc void @do_closure_bind(ptr noundef %1, ptr %.0142.val, ptr noundef %.2146162, ptr noundef %.0141.ph, ptr noundef %45)
   br label %46
 
 46:                                               ; preds = %.thread205, %.thread187
@@ -824,7 +824,7 @@ define hidden void @zim_Closure_bindTo(ptr noundef %0, ptr noundef %1) #0 {
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %12, %.critedge.thread.fold.split
-  %.1112121 = phi ptr [ %13, %12 ], [ null, %.critedge.thread.fold.split ]
+  %.2121 = phi ptr [ %13, %12 ], [ null, %.critedge.thread.fold.split ]
   %16 = icmp eq i32 %9, 1
   br i1 %16, label %.thread146, label %17
 
@@ -871,9 +871,9 @@ define hidden void @zim_Closure_bindTo(ptr noundef %0, ptr noundef %1) #0 {
 
 .thread146:                                       ; preds = %..thread146_crit_edge, %24, %.critedge2, %.critedge.thread
   %27 = phi ptr [ %6, %.critedge.thread ], [ %storemerge, %24 ], [ null, %.critedge2 ], [ %.pre, %..thread146_crit_edge ]
-  %.1.ph = phi ptr [ null, %.critedge.thread ], [ null, %24 ], [ %21, %.critedge2 ], [ null, %..thread146_crit_edge ]
+  %.0110.ph = phi ptr [ null, %.critedge.thread ], [ null, %24 ], [ %21, %.critedge2 ], [ null, %..thread146_crit_edge ]
   %.val = load ptr, ptr %7, align 8
-  call fastcc void @do_closure_bind(ptr noundef %1, ptr %.val, ptr noundef %.1112121, ptr noundef %.1.ph, ptr noundef %27)
+  call fastcc void @do_closure_bind(ptr noundef %1, ptr %.val, ptr noundef %.2121, ptr noundef %.0110.ph, ptr noundef %27)
   br label %28
 
 28:                                               ; preds = %.thread146, %.thread158

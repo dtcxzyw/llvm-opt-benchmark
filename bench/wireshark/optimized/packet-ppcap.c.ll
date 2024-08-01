@@ -174,7 +174,7 @@ define internal i32 @dissect_ppcap(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 29:                                               ; preds = %.lr.ph, %263
   %.069 = phi i32 [ 0, %.lr.ph ], [ %.1, %263 ]
-  %.06668 = phi i32 [ 0, %.lr.ph ], [ %.2, %263 ]
+  %.06668 = phi i32 [ 0, %.lr.ph ], [ %.167, %263 ]
   %30 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.069) #4
   %31 = load i32, ptr @ett_ppcap1, align 4
   %32 = zext i16 %30 to i32
@@ -247,7 +247,7 @@ define internal i32 @dissect_ppcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_ppcap_payload_type.exit
 
 dissect_ppcap_payload_type.exit:                  ; preds = %67, %36, %46, %49, %52, %55, %58, %61, %64
-  %.167 = phi i32 [ 1, %36 ], [ 2, %46 ], [ 3, %49 ], [ 4, %52 ], [ 5, %55 ], [ 6, %58 ], [ 7, %61 ], [ 8, %64 ], [ %spec.select, %67 ]
+  %.2 = phi i32 [ 1, %36 ], [ 2, %46 ], [ 3, %49 ], [ 4, %52 ], [ 5, %55 ], [ 6, %58 ], [ 7, %61 ], [ 8, %64 ], [ %spec.select, %67 ]
   %70 = load i32, ptr @hf_ppcap_payload_type, align 4
   %71 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %70, ptr noundef %0, i32 noundef %40, i32 noundef %42, i32 noundef 2) #4
   %72 = and i32 %42, 3
@@ -639,7 +639,7 @@ dissect_ppcap_destination_address.exit:           ; preds = %174, %.sink.split.i
   br label %263
 
 263:                                              ; preds = %251, %242, %235, %231, %227, %dissect_ppcap_destination_address.exit, %dissect_ppcap_source_address.exit, %dissect_ppcap_payload_data.exit, %dissect_ppcap_payload_type.exit, %29
-  %.2 = phi i32 [ %.06668, %29 ], [ %.06668, %251 ], [ %.06668, %242 ], [ %.06668, %235 ], [ %.06668, %231 ], [ %.06668, %227 ], [ %.06668, %dissect_ppcap_destination_address.exit ], [ %.06668, %dissect_ppcap_source_address.exit ], [ %.06668, %dissect_ppcap_payload_data.exit ], [ %.167, %dissect_ppcap_payload_type.exit ]
+  %.167 = phi i32 [ %.06668, %29 ], [ %.06668, %251 ], [ %.06668, %242 ], [ %.06668, %235 ], [ %.06668, %231 ], [ %.06668, %227 ], [ %.06668, %dissect_ppcap_destination_address.exit ], [ %.06668, %dissect_ppcap_source_address.exit ], [ %.06668, %dissect_ppcap_payload_data.exit ], [ %.2, %dissect_ppcap_payload_type.exit ]
   %.1 = phi i32 [ %35, %29 ], [ %262, %251 ], [ %250, %242 ], [ %241, %235 ], [ %234, %231 ], [ %230, %227 ], [ %.079.i, %dissect_ppcap_destination_address.exit ], [ %.078.i, %dissect_ppcap_source_address.exit ], [ %.054.i, %dissect_ppcap_payload_data.exit ], [ %75, %dissect_ppcap_payload_type.exit ]
   %264 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #4
   %265 = icmp sgt i32 %264, 0

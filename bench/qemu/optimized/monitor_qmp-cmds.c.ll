@@ -303,9 +303,9 @@ qemu_lockable_auto_unlock.exit.us:                ; preds = %entry, %if.then
   br label %out
 
 out:                                              ; preds = %qemu_lockable_auto_unlock.exit.us, %if.then3
-  %output.1 = phi ptr [ null, %if.then3 ], [ %call9.us, %qemu_lockable_auto_unlock.exit.us ]
+  %output.0 = phi ptr [ null, %if.then3 ], [ %call9.us, %qemu_lockable_auto_unlock.exit.us ]
   call void @monitor_data_destroy(ptr noundef nonnull %hmp) #6
-  ret ptr %output.1
+  ret ptr %output.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -4255,8 +4255,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   br label %29
 
 29:                                               ; preds = %58, %28
-  %.0 = phi i1 [ true, %58 ], [ false, %28 ]
-  ret i1 %.0
+  %.1 = phi i1 [ true, %58 ], [ false, %28 ]
+  ret i1 %.1
 
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
@@ -4481,8 +4481,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   br label %34
 
 34:                                               ; preds = %63, %33
-  %.0 = phi i1 [ true, %63 ], [ false, %33 ]
-  ret i1 %.0
+  %.1 = phi i1 [ true, %63 ], [ false, %33 ]
+  ret i1 %.1
 
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
@@ -4654,8 +4654,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   br label %29
 
 29:                                               ; preds = %58, %28
-  %.0 = phi i1 [ true, %58 ], [ false, %28 ]
-  ret i1 %.0
+  %.1 = phi i1 [ true, %58 ], [ false, %28 ]
+  ret i1 %.1
 
 30:                                               ; preds = %23
   %31 = landingpad { ptr, i32 }
@@ -4828,8 +4828,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   br label %30
 
 30:                                               ; preds = %59, %29
-  %.0 = phi i1 [ true, %59 ], [ false, %29 ]
-  ret i1 %.0
+  %.1 = phi i1 [ true, %59 ], [ false, %29 ]
+  ret i1 %.1
 
 31:                                               ; preds = %24
   %32 = landingpad { ptr, i32 }
@@ -5007,8 +5007,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   br label %34
 
 34:                                               ; preds = %63, %33
-  %.0 = phi i1 [ true, %63 ], [ false, %33 ]
-  ret i1 %.0
+  %.1 = phi i1 [ true, %63 ], [ false, %33 ]
+  ret i1 %.1
 
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
@@ -5186,8 +5186,8 @@ define internal noundef zeroext i1 @"_ZN97_$LT$diesel..query_builder..debug_quer
   br label %34
 
 34:                                               ; preds = %63, %33
-  %.0 = phi i1 [ true, %63 ], [ false, %33 ]
-  ret i1 %.0
+  %.1 = phi i1 [ true, %63 ], [ false, %33 ]
+  ret i1 %.1
 
 35:                                               ; preds = %28
   %36 = landingpad { ptr, i32 }
@@ -6353,10 +6353,10 @@ define { i32, i32 } @"_ZN111_$LT$diesel..pg..connection..result..PgErrorInformat
   br label %_ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit.thread
 
 _ZN6diesel2pg10connection6result16get_result_field17h1b03f44227472a8eE.exit.thread: ; preds = %6, %1, %14
-  %.sroa.4.1 = phi i32 [ %.sroa.510.0.extract.trunc, %14 ], [ undef, %1 ], [ undef, %6 ]
-  %.sroa.0.1 = phi i32 [ %., %14 ], [ 0, %1 ], [ 0, %6 ]
-  %16 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
-  %17 = insertvalue { i32, i32 } %16, i32 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i32 [ %.sroa.510.0.extract.trunc, %14 ], [ undef, %1 ], [ undef, %6 ]
+  %.sroa.0.0 = phi i32 [ %., %14 ], [ 0, %1 ], [ 0, %6 ]
+  %16 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
+  %17 = insertvalue { i32, i32 } %16, i32 %.sroa.4.0, 1
   ret { i32, i32 } %17
 }
 

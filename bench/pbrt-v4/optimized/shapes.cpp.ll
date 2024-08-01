@@ -5863,7 +5863,7 @@ if.then.i.i.i205:                                 ; preds = %invoke.cont138
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i205, %invoke.cont138, %_ZN4pbrt5ErrorIJRiiEEEvPKNS_7FileLocEPKcDpOT_.exit
-  %retval.0 = phi ptr [ null, %_ZN4pbrt5ErrorIJRiiEEEvPKNS_7FileLocEPKcDpOT_.exit ], [ %call.i.i.i.i202, %invoke.cont138 ], [ %call.i.i.i.i202, %if.then.i.i.i205 ]
+  %retval.1 = phi ptr [ null, %_ZN4pbrt5ErrorIJRiiEEEvPKNS_7FileLocEPKcDpOT_.exit ], [ %call.i.i.i.i202, %invoke.cont138 ], [ %call.i.i.i.i202, %if.then.i.i.i205 ]
   %67 = load ptr, ptr %N, align 8
   %tobool.not.i.i.i207 = icmp eq ptr %67, null
   br i1 %tobool.not.i.i.i207, label %_ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EED2Ev.exit, label %if.then.i.i.i208
@@ -5902,7 +5902,7 @@ if.then.i.i.i215:                                 ; preds = %ehcleanup143
   br label %ehcleanup145
 
 cleanup144:                                       ; preds = %if.then45.invoke, %if.then.i.i.i210, %_ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EED2Ev.exit
-  %retval.1 = phi ptr [ %retval.0, %_ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EED2Ev.exit ], [ %retval.0, %if.then.i.i.i210 ], [ null, %if.then45.invoke ]
+  %retval.0 = phi ptr [ %retval.1, %_ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EED2Ev.exit ], [ %retval.1, %if.then.i.i.i210 ], [ null, %if.then45.invoke ]
   %71 = load ptr, ptr %uvs, align 8
   %tobool.not.i.i.i217 = icmp eq ptr %71, null
   br i1 %tobool.not.i.i.i217, label %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EED2Ev.exit, label %if.then.i.i.i218
@@ -5930,7 +5930,7 @@ if.then.i.i.i222:                                 ; preds = %_ZNSt6vectorIN4pbrt
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit223
 
 _ZNSt6vectorIiSaIiEED2Ev.exit223:                 ; preds = %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EED2Ev.exit, %if.then.i.i.i222
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup145:                                     ; preds = %if.then.i.i.i215, %ehcleanup143, %lpad24, %common.resume.i, %ehcleanup65
   %.pn30 = phi { ptr, i32 } [ %.pn21, %ehcleanup65 ], [ %14, %lpad24 ], [ %common.resume.op.i, %common.resume.i ], [ %.pn27.pn, %ehcleanup143 ], [ %.pn27.pn, %if.then.i.i.i215 ]
@@ -7665,14 +7665,14 @@ if.end178:                                        ; preds = %if.else144, %if.the
   %v.sroa.0.4.vec.extract.i.i210.pre-phi = phi float [ %.pre383, %if.else144 ], [ %v.sroa.0.4.vec.extract.i.i, %if.then141 ]
   %v.sroa.0.0.vec.extract.i.i209.pre-phi = phi float [ %.pre, %if.else144 ], [ %v.sroa.0.0.vec.extract.i.i, %if.then141 ]
   %agg.tmp180.sroa.2.0.copyload = phi float [ %agg.tmp180.sroa.2.0.copyload.pre, %if.else144 ], [ %agg.tmp.sroa.2.0.copyload, %if.then141 ]
-  %nHit.sroa.0.0 = phi <2 x float> [ %77, %if.else144 ], [ %nHit.sroa.0.0.copyload, %if.then141 ]
-  %nHit.sroa.6.0 = phi float [ %add6.i, %if.else144 ], [ %nHit.sroa.6.0.copyload, %if.then141 ]
-  %n.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %nHit.sroa.0.0, i64 0
-  %n.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %nHit.sroa.0.0, i64 1
-  %mul.i.i.i211 = fmul float %nHit.sroa.6.0, %agg.tmp180.sroa.2.0.copyload
+  %nHit.sroa.0.1 = phi <2 x float> [ %77, %if.else144 ], [ %nHit.sroa.0.0.copyload, %if.then141 ]
+  %nHit.sroa.6.1 = phi float [ %add6.i, %if.else144 ], [ %nHit.sroa.6.0.copyload, %if.then141 ]
+  %n.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %nHit.sroa.0.1, i64 0
+  %n.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %nHit.sroa.0.1, i64 1
+  %mul.i.i.i211 = fmul float %nHit.sroa.6.1, %agg.tmp180.sroa.2.0.copyload
   %78 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.4.vec.extract.i.i, float %v.sroa.0.4.vec.extract.i.i210.pre-phi, float %mul.i.i.i211)
   %fneg.i.i.i = fneg float %mul.i.i.i211
-  %79 = tail call noundef float @llvm.fma.f32(float %nHit.sroa.6.0, float %agg.tmp180.sroa.2.0.copyload, float %fneg.i.i.i)
+  %79 = tail call noundef float @llvm.fma.f32(float %nHit.sroa.6.1, float %agg.tmp180.sroa.2.0.copyload, float %fneg.i.i.i)
   %add.i.i.i = fadd float %78, %79
   %80 = tail call noundef float @llvm.fma.f32(float %n.sroa.0.0.vec.extract.i.i, float %v.sroa.0.0.vec.extract.i.i209.pre-phi, float %add.i.i.i)
   %81 = tail call noundef float @llvm.fabs.f32(float %80)
@@ -7681,8 +7681,8 @@ if.end178:                                        ; preds = %if.else144, %if.the
   br label %if.end185
 
 if.end185:                                        ; preds = %if.end178, %if.end112
-  %nHit.sroa.0.1 = phi <2 x float> [ %nHit.sroa.0.0, %if.end178 ], [ zeroinitializer, %if.end112 ]
-  %nHit.sroa.6.1 = phi float [ %nHit.sroa.6.0, %if.end178 ], [ 0.000000e+00, %if.end112 ]
+  %nHit.sroa.0.0 = phi <2 x float> [ %nHit.sroa.0.1, %if.end178 ], [ zeroinitializer, %if.end112 ]
+  %nHit.sroa.6.0 = phi float [ %nHit.sroa.6.1, %if.end178 ], [ 0.000000e+00, %if.end112 ]
   %hitWidth.0 = phi float [ %mul184, %if.end178 ], [ %add.i187, %if.end112 ]
   %cmp.i214 = fcmp olt float %div125, 0.000000e+00
   %cmp3.i = fcmp ogt float %div125, 1.000000e+00
@@ -7834,7 +7834,7 @@ do.end:                                           ; preds = %if.end217
   br i1 %cmp248, label %if.then249, label %if.else264
 
 if.then249:                                       ; preds = %do.end
-  %call255 = call { <2 x float>, float } @_ZN4pbrt5CrossIfEENS_7Vector3IT_EENS_7Normal3IS2_EES3_(<2 x float> %nHit.sroa.0.1, float %nHit.sroa.6.1, <2 x float> %agg.tmp254.sroa.0.0.copyload, float %agg.tmp254.sroa.2.0.copyload)
+  %call255 = call { <2 x float>, float } @_ZN4pbrt5CrossIfEENS_7Vector3IT_EENS_7Normal3IS2_EES3_(<2 x float> %nHit.sroa.0.0, float %nHit.sroa.6.0, <2 x float> %agg.tmp254.sroa.0.0.copyload, float %agg.tmp254.sroa.2.0.copyload)
   %call255.fca.0.extract = extractvalue { <2 x float>, float } %call255, 0
   %call255.fca.1.extract = extractvalue { <2 x float>, float } %call255, 1
   %123 = fmul <2 x float> %call255.fca.0.extract, %call255.fca.0.extract
@@ -10589,7 +10589,7 @@ if.then.i.i.i228:                                 ; preds = %ehcleanup176
   br label %ehcleanup177
 
 cleanup:                                          ; preds = %if.then.i.i.i, %invoke.cont173, %_ZN4pbrt5ErrorIJRiiEEEvPKNS_7FileLocEPKcDpOT_.exit
-  %retval.0 = phi ptr [ null, %_ZN4pbrt5ErrorIJRiiEEEvPKNS_7FileLocEPKcDpOT_.exit ], [ %call.i.i.i.i225, %invoke.cont173 ], [ %call.i.i.i.i225, %if.then.i.i.i ]
+  %retval.1 = phi ptr [ null, %_ZN4pbrt5ErrorIJRiiEEEvPKNS_7FileLocEPKcDpOT_.exit ], [ %call.i.i.i.i225, %invoke.cont173 ], [ %call.i.i.i.i225, %if.then.i.i.i ]
   %82 = load ptr, ptr %N, align 8
   %tobool.not.i.i.i230 = icmp eq ptr %82, null
   br i1 %tobool.not.i.i.i230, label %cleanup178, label %if.then.i.i.i231
@@ -10609,7 +10609,7 @@ if.then.i.i.i233:                                 ; preds = %ehcleanup177
   br label %ehcleanup179
 
 cleanup178:                                       ; preds = %if.then46.invoke, %if.then.i.i.i231, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i231 ], [ null, %if.then46.invoke ]
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i231 ], [ null, %if.then46.invoke ]
   %84 = load ptr, ptr %uv, align 8
   %tobool.not.i.i.i235 = icmp eq ptr %84, null
   br i1 %tobool.not.i.i.i235, label %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EED2Ev.exit, label %if.then.i.i.i236
@@ -10637,7 +10637,7 @@ if.then.i.i.i240:                                 ; preds = %_ZNSt6vectorIN4pbrt
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit241
 
 _ZNSt6vectorIiSaIiEED2Ev.exit241:                 ; preds = %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EED2Ev.exit, %if.then.i.i.i240
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup179:                                     ; preds = %if.then.i.i.i233, %ehcleanup177, %lpad25, %common.resume.i, %ehcleanup66
   %.pn38 = phi { ptr, i32 } [ %.pn21, %ehcleanup66 ], [ %14, %lpad25 ], [ %common.resume.op.i, %common.resume.i ], [ %.pn36, %ehcleanup177 ], [ %.pn36, %if.then.i.i.i233 ]

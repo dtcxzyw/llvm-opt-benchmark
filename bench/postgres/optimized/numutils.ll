@@ -187,24 +187,24 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   br label %.outer292
 
 .outer292:                                        ; preds = %81, %74
-  %.3102.ph = phi i16 [ %85, %81 ], [ 0, %74 ]
-  %.6.ph = phi ptr [ %83, %81 ], [ %75, %74 ]
+  %.4103.ph = phi i16 [ %85, %81 ], [ 0, %74 ]
+  %.7.ph = phi ptr [ %83, %81 ], [ %75, %74 ]
   br label %76
 
 76:                                               ; preds = %.outer292, %88
-  %.6 = phi ptr [ %89, %88 ], [ %.6.ph, %.outer292 ]
-  %77 = load i8, ptr %.6, align 1
+  %.7 = phi ptr [ %89, %88 ], [ %.7.ph, %.outer292 ]
+  %77 = load i8, ptr %.7, align 1
   %78 = and i8 %77, -8
   %or.cond = icmp eq i8 %78, 48
   br i1 %or.cond, label %79, label %86
 
 79:                                               ; preds = %76
-  %80 = icmp ugt i16 %.3102.ph, 4096
+  %80 = icmp ugt i16 %.4103.ph, 4096
   br i1 %80, label %.loopexit144, label %81
 
 81:                                               ; preds = %79
-  %82 = shl nuw i16 %.3102.ph, 3
-  %83 = getelementptr i8, ptr %.6, i64 1
+  %82 = shl nuw i16 %.4103.ph, 3
+  %83 = getelementptr i8, ptr %.7, i64 1
   %narrow130 = add nsw i8 %77, -48
   %84 = zext nneg i8 %narrow130 to i16
   %85 = or disjoint i16 %82, %84
@@ -215,7 +215,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   br i1 %87, label %88, label %.loopexit
 
 88:                                               ; preds = %86
-  %89 = getelementptr i8, ptr %.6, i64 1
+  %89 = getelementptr i8, ptr %.7, i64 1
   %90 = load i8, ptr %89, align 1
   %91 = add i8 %90, -56
   %or.cond137 = icmp ult i8 %91, -8
@@ -226,24 +226,24 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   br label %.outer303
 
 .outer303:                                        ; preds = %99, %92
-  %.5104.ph = phi i16 [ %103, %99 ], [ 0, %92 ]
-  %.8.ph = phi ptr [ %101, %99 ], [ %93, %92 ]
+  %.6105.ph = phi i16 [ %103, %99 ], [ 0, %92 ]
+  %.9.ph = phi ptr [ %101, %99 ], [ %93, %92 ]
   br label %94
 
 94:                                               ; preds = %.outer303, %106
-  %.8 = phi ptr [ %107, %106 ], [ %.8.ph, %.outer303 ]
-  %95 = load i8, ptr %.8, align 1
+  %.9 = phi ptr [ %107, %106 ], [ %.9.ph, %.outer303 ]
+  %95 = load i8, ptr %.9, align 1
   %96 = and i8 %95, -2
   %or.cond138 = icmp eq i8 %96, 48
   br i1 %or.cond138, label %97, label %104
 
 97:                                               ; preds = %94
-  %98 = icmp ugt i16 %.5104.ph, 16384
+  %98 = icmp ugt i16 %.6105.ph, 16384
   br i1 %98, label %.loopexit144, label %99
 
 99:                                               ; preds = %97
-  %100 = shl nuw i16 %.5104.ph, 1
-  %101 = getelementptr i8, ptr %.8, i64 1
+  %100 = shl nuw i16 %.6105.ph, 1
+  %101 = getelementptr i8, ptr %.9, i64 1
   %narrow129 = add nsw i8 %95, -48
   %102 = zext nneg i8 %narrow129 to i16
   %103 = or disjoint i16 %100, %102
@@ -254,7 +254,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   br i1 %105, label %106, label %.loopexit
 
 106:                                              ; preds = %104
-  %107 = getelementptr i8, ptr %.8, i64 1
+  %107 = getelementptr i8, ptr %.9, i64 1
   %108 = load i8, ptr %107, align 1
   %109 = add i8 %108, -50
   %or.cond140 = icmp ult i8 %109, -2
@@ -262,18 +262,18 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
 
 110:                                              ; preds = %.outer, %127
   %111 = phi i8 [ %125, %127 ], [ %.ph, %.outer ]
-  %.10 = phi ptr [ %124, %127 ], [ %.10.ph, %.outer ]
+  %.11 = phi ptr [ %124, %127 ], [ %.11.ph, %.outer ]
   %112 = add i8 %111, -48
   %or.cond141 = icmp ult i8 %112, 10
   br i1 %or.cond141, label %113, label %119
 
 113:                                              ; preds = %110
-  %114 = icmp ugt i16 %.7106.ph, 3276
+  %114 = icmp ugt i16 %.8107.ph, 3276
   br i1 %114, label %.loopexit144, label %115
 
 115:                                              ; preds = %113
-  %narrow127 = mul nuw nsw i16 %.7106.ph, 10
-  %116 = getelementptr i8, ptr %.10, i64 1
+  %narrow127 = mul nuw nsw i16 %.8107.ph, 10
+  %116 = getelementptr i8, ptr %.11, i64 1
   %117 = zext nneg i8 %112 to i16
   %118 = add nuw i16 %narrow127, %117
   %.pre.pre = load i8, ptr %116, align 1
@@ -281,8 +281,8 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
 
 .outer:                                           ; preds = %.preheader270, %115
   %.ph = phi i8 [ %41, %.preheader270 ], [ %.pre.pre, %115 ]
-  %.7106.ph = phi i16 [ 0, %.preheader270 ], [ %118, %115 ]
-  %.10.ph = phi ptr [ %.3, %.preheader270 ], [ %116, %115 ]
+  %.8107.ph = phi i16 [ 0, %.preheader270 ], [ %118, %115 ]
+  %.11.ph = phi ptr [ %.3, %.preheader270 ], [ %116, %115 ]
   br label %110
 
 119:                                              ; preds = %110
@@ -290,11 +290,11 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   br i1 %120, label %121, label %.loopexit
 
 121:                                              ; preds = %119
-  %122 = icmp eq ptr %.10, %.3
+  %122 = icmp eq ptr %.11, %.3
   br i1 %122, label %.loopexit143, label %123
 
 123:                                              ; preds = %121
-  %124 = getelementptr i8, ptr %.10, i64 1
+  %124 = getelementptr i8, ptr %.11, i64 1
   %125 = load i8, ptr %124, align 1
   %126 = icmp eq i8 %125, 0
   br i1 %126, label %.loopexit143, label %127
@@ -309,13 +309,13 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
 
 .loopexit:                                        ; preds = %104, %86, %63, %119
   %.0109 = phi ptr [ %.3, %119 ], [ %47, %63 ], [ %75, %86 ], [ %93, %104 ]
-  %.9108 = phi i16 [ %.7106.ph, %119 ], [ %.1100.ph, %63 ], [ %.3102.ph, %86 ], [ %.5104.ph, %104 ]
-  %.12 = phi ptr [ %.10, %119 ], [ %.4, %63 ], [ %.6, %86 ], [ %.8, %104 ]
-  %132 = icmp eq ptr %.12, %.0109
+  %.3102 = phi i16 [ %.8107.ph, %119 ], [ %.1100.ph, %63 ], [ %.4103.ph, %86 ], [ %.6105.ph, %104 ]
+  %.6 = phi ptr [ %.11, %119 ], [ %.4, %63 ], [ %.7, %86 ], [ %.9, %104 ]
+  %132 = icmp eq ptr %.6, %.0109
   br i1 %132, label %.loopexit143, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
-  %.13 = phi ptr [ %138, %.preheader ], [ %.12, %.loopexit ]
+  %.13 = phi ptr [ %138, %.preheader ], [ %.6, %.loopexit ]
   %133 = load i8, ptr %.13, align 1
   %134 = zext i8 %133 to i64
   %135 = getelementptr i16, ptr %29, i64 %134
@@ -333,15 +333,15 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   br i1 %.198, label %141, label %145
 
 141:                                              ; preds = %140
-  %142 = icmp ugt i16 %.9108, -32768
+  %142 = icmp ugt i16 %.3102, -32768
   br i1 %142, label %.loopexit144, label %143
 
 143:                                              ; preds = %141
-  %144 = sub i16 0, %.9108
+  %144 = sub i16 0, %.3102
   br label %155
 
 145:                                              ; preds = %140
-  %146 = icmp slt i16 %.9108, 0
+  %146 = icmp slt i16 %.3102, 0
   br i1 %146, label %.loopexit144, label %155
 
 .loopexit144:                                     ; preds = %.lr.ph, %97, %79, %54, %113, %145, %141, %25, %21
@@ -365,7 +365,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   br label %155
 
 155:                                              ; preds = %152, %.loopexit143, %148, %.loopexit144, %145, %25, %143, %23
-  %.0 = phi i16 [ %144, %143 ], [ %24, %23 ], [ %.099.lcssa, %25 ], [ %.9108, %145 ], [ 0, %.loopexit144 ], [ 0, %148 ], [ 0, %.loopexit143 ], [ 0, %152 ]
+  %.0 = phi i16 [ %144, %143 ], [ %24, %23 ], [ %.099.lcssa, %25 ], [ %.3102, %145 ], [ 0, %.loopexit144 ], [ 0, %148 ], [ 0, %.loopexit143 ], [ 0, %152 ]
   ret i16 %.0
 }
 
@@ -548,24 +548,24 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   br label %.outer286
 
 .outer286:                                        ; preds = %82, %75
-  %.3102.ph = phi i32 [ %86, %82 ], [ 0, %75 ]
-  %.6.ph = phi ptr [ %84, %82 ], [ %76, %75 ]
+  %.4103.ph = phi i32 [ %86, %82 ], [ 0, %75 ]
+  %.7.ph = phi ptr [ %84, %82 ], [ %76, %75 ]
   br label %77
 
 77:                                               ; preds = %.outer286, %89
-  %.6 = phi ptr [ %90, %89 ], [ %.6.ph, %.outer286 ]
-  %78 = load i8, ptr %.6, align 1
+  %.7 = phi ptr [ %90, %89 ], [ %.7.ph, %.outer286 ]
+  %78 = load i8, ptr %.7, align 1
   %79 = and i8 %78, -8
   %or.cond = icmp eq i8 %79, 48
   br i1 %or.cond, label %80, label %87
 
 80:                                               ; preds = %77
-  %81 = icmp ugt i32 %.3102.ph, 268435456
+  %81 = icmp ugt i32 %.4103.ph, 268435456
   br i1 %81, label %.loopexit138, label %82
 
 82:                                               ; preds = %80
-  %83 = shl nuw i32 %.3102.ph, 3
-  %84 = getelementptr i8, ptr %.6, i64 1
+  %83 = shl nuw i32 %.4103.ph, 3
+  %84 = getelementptr i8, ptr %.7, i64 1
   %narrow124 = add nsw i8 %78, -48
   %85 = zext nneg i8 %narrow124 to i32
   %86 = or disjoint i32 %83, %85
@@ -576,7 +576,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %88, label %89, label %.loopexit
 
 89:                                               ; preds = %87
-  %90 = getelementptr i8, ptr %.6, i64 1
+  %90 = getelementptr i8, ptr %.7, i64 1
   %91 = load i8, ptr %90, align 1
   %92 = add i8 %91, -56
   %or.cond131 = icmp ult i8 %92, -8
@@ -587,24 +587,24 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   br label %.outer297
 
 .outer297:                                        ; preds = %100, %93
-  %.5104.ph = phi i32 [ %104, %100 ], [ 0, %93 ]
-  %.8.ph = phi ptr [ %102, %100 ], [ %94, %93 ]
+  %.6105.ph = phi i32 [ %104, %100 ], [ 0, %93 ]
+  %.9.ph = phi ptr [ %102, %100 ], [ %94, %93 ]
   br label %95
 
 95:                                               ; preds = %.outer297, %107
-  %.8 = phi ptr [ %108, %107 ], [ %.8.ph, %.outer297 ]
-  %96 = load i8, ptr %.8, align 1
+  %.9 = phi ptr [ %108, %107 ], [ %.9.ph, %.outer297 ]
+  %96 = load i8, ptr %.9, align 1
   %97 = and i8 %96, -2
   %or.cond132 = icmp eq i8 %97, 48
   br i1 %or.cond132, label %98, label %105
 
 98:                                               ; preds = %95
-  %99 = icmp ugt i32 %.5104.ph, 1073741824
+  %99 = icmp ugt i32 %.6105.ph, 1073741824
   br i1 %99, label %.loopexit138, label %100
 
 100:                                              ; preds = %98
-  %101 = shl nuw i32 %.5104.ph, 1
-  %102 = getelementptr i8, ptr %.8, i64 1
+  %101 = shl nuw i32 %.6105.ph, 1
+  %102 = getelementptr i8, ptr %.9, i64 1
   %narrow123 = add nsw i8 %96, -48
   %103 = zext nneg i8 %narrow123 to i32
   %104 = or disjoint i32 %101, %103
@@ -615,7 +615,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %106, label %107, label %.loopexit
 
 107:                                              ; preds = %105
-  %108 = getelementptr i8, ptr %.8, i64 1
+  %108 = getelementptr i8, ptr %.9, i64 1
   %109 = load i8, ptr %108, align 1
   %110 = add i8 %109, -50
   %or.cond134 = icmp ult i8 %110, -2
@@ -623,18 +623,18 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
 
 111:                                              ; preds = %.outer, %129
   %112 = phi i8 [ %127, %129 ], [ %.ph, %.outer ]
-  %.10 = phi ptr [ %126, %129 ], [ %.10.ph, %.outer ]
+  %.11 = phi ptr [ %126, %129 ], [ %.11.ph, %.outer ]
   %113 = add i8 %112, -48
   %or.cond135 = icmp ult i8 %113, 10
   br i1 %or.cond135, label %114, label %121
 
 114:                                              ; preds = %111
-  %115 = icmp ugt i32 %.7106.ph, 214748364
+  %115 = icmp ugt i32 %.8107.ph, 214748364
   br i1 %115, label %.loopexit138, label %116
 
 116:                                              ; preds = %114
-  %117 = mul nuw nsw i32 %.7106.ph, 10
-  %118 = getelementptr i8, ptr %.10, i64 1
+  %117 = mul nuw nsw i32 %.8107.ph, 10
+  %118 = getelementptr i8, ptr %.11, i64 1
   %119 = zext nneg i8 %113 to i32
   %120 = add nuw i32 %117, %119
   %.pre.pre = load i8, ptr %118, align 1
@@ -642,8 +642,8 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
 
 .outer:                                           ; preds = %.preheader264, %116
   %.ph = phi i8 [ %42, %.preheader264 ], [ %.pre.pre, %116 ]
-  %.7106.ph = phi i32 [ 0, %.preheader264 ], [ %120, %116 ]
-  %.10.ph = phi ptr [ %.3, %.preheader264 ], [ %118, %116 ]
+  %.8107.ph = phi i32 [ 0, %.preheader264 ], [ %120, %116 ]
+  %.11.ph = phi ptr [ %.3, %.preheader264 ], [ %118, %116 ]
   br label %111
 
 121:                                              ; preds = %111
@@ -651,11 +651,11 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %122, label %123, label %.loopexit
 
 123:                                              ; preds = %121
-  %124 = icmp eq ptr %.10, %.3
+  %124 = icmp eq ptr %.11, %.3
   br i1 %124, label %.loopexit137, label %125
 
 125:                                              ; preds = %123
-  %126 = getelementptr i8, ptr %.10, i64 1
+  %126 = getelementptr i8, ptr %.11, i64 1
   %127 = load i8, ptr %126, align 1
   %128 = icmp eq i8 %127, 0
   br i1 %128, label %.loopexit137, label %129
@@ -670,13 +670,13 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
 
 .loopexit:                                        ; preds = %105, %87, %64, %121
   %.0109 = phi ptr [ %.3, %121 ], [ %48, %64 ], [ %76, %87 ], [ %94, %105 ]
-  %.9108 = phi i32 [ %.7106.ph, %121 ], [ %.1100.ph, %64 ], [ %.3102.ph, %87 ], [ %.5104.ph, %105 ]
-  %.12 = phi ptr [ %.10, %121 ], [ %.4, %64 ], [ %.6, %87 ], [ %.8, %105 ]
-  %134 = icmp eq ptr %.12, %.0109
+  %.3102 = phi i32 [ %.8107.ph, %121 ], [ %.1100.ph, %64 ], [ %.4103.ph, %87 ], [ %.6105.ph, %105 ]
+  %.6 = phi ptr [ %.11, %121 ], [ %.4, %64 ], [ %.7, %87 ], [ %.9, %105 ]
+  %134 = icmp eq ptr %.6, %.0109
   br i1 %134, label %.loopexit137, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
-  %.13 = phi ptr [ %140, %.preheader ], [ %.12, %.loopexit ]
+  %.13 = phi ptr [ %140, %.preheader ], [ %.6, %.loopexit ]
   %135 = load i8, ptr %.13, align 1
   %136 = zext i8 %135 to i64
   %137 = getelementptr i16, ptr %30, i64 %136
@@ -694,15 +694,15 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.198, label %143, label %147
 
 143:                                              ; preds = %142
-  %144 = icmp ugt i32 %.9108, -2147483648
+  %144 = icmp ugt i32 %.3102, -2147483648
   br i1 %144, label %.loopexit138, label %145
 
 145:                                              ; preds = %143
-  %146 = sub i32 0, %.9108
+  %146 = sub i32 0, %.3102
   br label %157
 
 147:                                              ; preds = %142
-  %148 = icmp slt i32 %.9108, 0
+  %148 = icmp slt i32 %.3102, 0
   br i1 %148, label %.loopexit138, label %157
 
 .loopexit138:                                     ; preds = %.lr.ph, %98, %80, %55, %114, %147, %143, %26, %22
@@ -726,7 +726,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   br label %157
 
 157:                                              ; preds = %154, %.loopexit137, %150, %.loopexit138, %147, %26, %145, %24
-  %.0 = phi i32 [ %146, %145 ], [ %25, %24 ], [ %.099.lcssa, %26 ], [ %.9108, %147 ], [ 0, %.loopexit138 ], [ 0, %150 ], [ 0, %.loopexit137 ], [ 0, %154 ]
+  %.0 = phi i32 [ %146, %145 ], [ %25, %24 ], [ %.099.lcssa, %26 ], [ %.3102, %147 ], [ 0, %.loopexit138 ], [ 0, %150 ], [ 0, %.loopexit137 ], [ 0, %154 ]
   ret i32 %.0
 }
 
@@ -898,24 +898,24 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   br label %.outer284
 
 .outer284:                                        ; preds = %83, %76
-  %.3102.ph = phi i64 [ %87, %83 ], [ 0, %76 ]
-  %.6.ph = phi ptr [ %85, %83 ], [ %77, %76 ]
+  %.4103.ph = phi i64 [ %87, %83 ], [ 0, %76 ]
+  %.7.ph = phi ptr [ %85, %83 ], [ %77, %76 ]
   br label %78
 
 78:                                               ; preds = %.outer284, %90
-  %.6 = phi ptr [ %91, %90 ], [ %.6.ph, %.outer284 ]
-  %79 = load i8, ptr %.6, align 1
+  %.7 = phi ptr [ %91, %90 ], [ %.7.ph, %.outer284 ]
+  %79 = load i8, ptr %.7, align 1
   %80 = and i8 %79, -8
   %or.cond = icmp eq i8 %80, 48
   br i1 %or.cond, label %81, label %88
 
 81:                                               ; preds = %78
-  %82 = icmp ugt i64 %.3102.ph, 1152921504606846976
+  %82 = icmp ugt i64 %.4103.ph, 1152921504606846976
   br i1 %82, label %.loopexit136, label %83
 
 83:                                               ; preds = %81
-  %84 = shl nuw i64 %.3102.ph, 3
-  %85 = getelementptr i8, ptr %.6, i64 1
+  %84 = shl nuw i64 %.4103.ph, 3
+  %85 = getelementptr i8, ptr %.7, i64 1
   %narrow122 = add nsw i8 %79, -48
   %86 = zext nneg i8 %narrow122 to i64
   %87 = or disjoint i64 %84, %86
@@ -926,7 +926,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %89, label %90, label %.loopexit
 
 90:                                               ; preds = %88
-  %91 = getelementptr i8, ptr %.6, i64 1
+  %91 = getelementptr i8, ptr %.7, i64 1
   %92 = load i8, ptr %91, align 1
   %93 = add i8 %92, -56
   %or.cond129 = icmp ult i8 %93, -8
@@ -937,24 +937,24 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   br label %.outer295
 
 .outer295:                                        ; preds = %101, %94
-  %.5104.ph = phi i64 [ %105, %101 ], [ 0, %94 ]
-  %.8.ph = phi ptr [ %103, %101 ], [ %95, %94 ]
+  %.6105.ph = phi i64 [ %105, %101 ], [ 0, %94 ]
+  %.9.ph = phi ptr [ %103, %101 ], [ %95, %94 ]
   br label %96
 
 96:                                               ; preds = %.outer295, %108
-  %.8 = phi ptr [ %109, %108 ], [ %.8.ph, %.outer295 ]
-  %97 = load i8, ptr %.8, align 1
+  %.9 = phi ptr [ %109, %108 ], [ %.9.ph, %.outer295 ]
+  %97 = load i8, ptr %.9, align 1
   %98 = and i8 %97, -2
   %or.cond130 = icmp eq i8 %98, 48
   br i1 %or.cond130, label %99, label %106
 
 99:                                               ; preds = %96
-  %100 = icmp ugt i64 %.5104.ph, 4611686018427387904
+  %100 = icmp ugt i64 %.6105.ph, 4611686018427387904
   br i1 %100, label %.loopexit136, label %101
 
 101:                                              ; preds = %99
-  %102 = shl nuw i64 %.5104.ph, 1
-  %103 = getelementptr i8, ptr %.8, i64 1
+  %102 = shl nuw i64 %.6105.ph, 1
+  %103 = getelementptr i8, ptr %.9, i64 1
   %narrow121 = add nsw i8 %97, -48
   %104 = zext nneg i8 %narrow121 to i64
   %105 = or disjoint i64 %102, %104
@@ -965,7 +965,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %107, label %108, label %.loopexit
 
 108:                                              ; preds = %106
-  %109 = getelementptr i8, ptr %.8, i64 1
+  %109 = getelementptr i8, ptr %.9, i64 1
   %110 = load i8, ptr %109, align 1
   %111 = add i8 %110, -50
   %or.cond132 = icmp ult i8 %111, -2
@@ -973,18 +973,18 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
 
 112:                                              ; preds = %.outer, %130
   %113 = phi i8 [ %128, %130 ], [ %.ph, %.outer ]
-  %.10 = phi ptr [ %127, %130 ], [ %.10.ph, %.outer ]
+  %.11 = phi ptr [ %127, %130 ], [ %.11.ph, %.outer ]
   %114 = add i8 %113, -48
   %or.cond133 = icmp ult i8 %114, 10
   br i1 %or.cond133, label %115, label %122
 
 115:                                              ; preds = %112
-  %116 = icmp ugt i64 %.7106.ph, 922337203685477580
+  %116 = icmp ugt i64 %.8107.ph, 922337203685477580
   br i1 %116, label %.loopexit136, label %117
 
 117:                                              ; preds = %115
-  %118 = mul nuw nsw i64 %.7106.ph, 10
-  %119 = getelementptr i8, ptr %.10, i64 1
+  %118 = mul nuw nsw i64 %.8107.ph, 10
+  %119 = getelementptr i8, ptr %.11, i64 1
   %120 = zext nneg i8 %114 to i64
   %121 = add nuw i64 %118, %120
   %.pre.pre = load i8, ptr %119, align 1
@@ -992,8 +992,8 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
 
 .outer:                                           ; preds = %.preheader262, %117
   %.ph = phi i8 [ %43, %.preheader262 ], [ %.pre.pre, %117 ]
-  %.7106.ph = phi i64 [ 0, %.preheader262 ], [ %121, %117 ]
-  %.10.ph = phi ptr [ %.3, %.preheader262 ], [ %119, %117 ]
+  %.8107.ph = phi i64 [ 0, %.preheader262 ], [ %121, %117 ]
+  %.11.ph = phi ptr [ %.3, %.preheader262 ], [ %119, %117 ]
   br label %112
 
 122:                                              ; preds = %112
@@ -1001,11 +1001,11 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %123, label %124, label %.loopexit
 
 124:                                              ; preds = %122
-  %125 = icmp eq ptr %.10, %.3
+  %125 = icmp eq ptr %.11, %.3
   br i1 %125, label %.loopexit135, label %126
 
 126:                                              ; preds = %124
-  %127 = getelementptr i8, ptr %.10, i64 1
+  %127 = getelementptr i8, ptr %.11, i64 1
   %128 = load i8, ptr %127, align 1
   %129 = icmp eq i8 %128, 0
   br i1 %129, label %.loopexit135, label %130
@@ -1020,13 +1020,13 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
 
 .loopexit:                                        ; preds = %106, %88, %65, %122
   %.0109 = phi ptr [ %.3, %122 ], [ %49, %65 ], [ %77, %88 ], [ %95, %106 ]
-  %.9108 = phi i64 [ %.7106.ph, %122 ], [ %.1100.ph, %65 ], [ %.3102.ph, %88 ], [ %.5104.ph, %106 ]
-  %.12 = phi ptr [ %.10, %122 ], [ %.4, %65 ], [ %.6, %88 ], [ %.8, %106 ]
-  %135 = icmp eq ptr %.12, %.0109
+  %.3102 = phi i64 [ %.8107.ph, %122 ], [ %.1100.ph, %65 ], [ %.4103.ph, %88 ], [ %.6105.ph, %106 ]
+  %.6 = phi ptr [ %.11, %122 ], [ %.4, %65 ], [ %.7, %88 ], [ %.9, %106 ]
+  %135 = icmp eq ptr %.6, %.0109
   br i1 %135, label %.loopexit135, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
-  %.13 = phi ptr [ %141, %.preheader ], [ %.12, %.loopexit ]
+  %.13 = phi ptr [ %141, %.preheader ], [ %.6, %.loopexit ]
   %136 = load i8, ptr %.13, align 1
   %137 = zext i8 %136 to i64
   %138 = getelementptr i16, ptr %31, i64 %137
@@ -1044,15 +1044,15 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.198, label %144, label %148
 
 144:                                              ; preds = %143
-  %145 = icmp ugt i64 %.9108, -9223372036854775808
+  %145 = icmp ugt i64 %.3102, -9223372036854775808
   br i1 %145, label %.loopexit136, label %146
 
 146:                                              ; preds = %144
-  %147 = sub i64 0, %.9108
+  %147 = sub i64 0, %.3102
   br label %158
 
 148:                                              ; preds = %143
-  %149 = icmp slt i64 %.9108, 0
+  %149 = icmp slt i64 %.3102, 0
   br i1 %149, label %.loopexit136, label %158
 
 .loopexit136:                                     ; preds = %.lr.ph, %99, %81, %56, %115, %148, %144, %27, %23
@@ -1076,7 +1076,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   br label %158
 
 158:                                              ; preds = %155, %.loopexit135, %151, %.loopexit136, %148, %27, %146, %25
-  %.0 = phi i64 [ %147, %146 ], [ %26, %25 ], [ %.099.lcssa, %27 ], [ %.9108, %148 ], [ 0, %.loopexit136 ], [ 0, %151 ], [ 0, %.loopexit135 ], [ 0, %155 ]
+  %.0 = phi i64 [ %147, %146 ], [ %26, %25 ], [ %.099.lcssa, %27 ], [ %.3102, %148 ], [ 0, %.loopexit136 ], [ 0, %151 ], [ 0, %.loopexit135 ], [ 0, %155 ]
   ret i64 %.0
 }
 

@@ -1031,7 +1031,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
 
 39:                                               ; preds = %.lr.ph, %66
   %40 = phi ptr [ %9, %.lr.ph ], [ %50, %66 ]
-  %.045103 = phi i32 [ -1, %.lr.ph ], [ %.1, %66 ]
+  %.045103 = phi i32 [ -1, %.lr.ph ], [ %.2, %66 ]
   %.046102 = phi i32 [ %.088, %.lr.ph ], [ %68, %66 ]
   %41 = getelementptr inbounds i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
@@ -1094,7 +1094,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
 
 66:                                               ; preds = %._crit_edge, %47
   %67 = phi i32 [ %.pre113, %._crit_edge ], [ %51, %47 ]
-  %.1 = phi i32 [ %57, %._crit_edge ], [ %.045103, %47 ]
+  %.2 = phi i32 [ %57, %._crit_edge ], [ %.045103, %47 ]
   %68 = add i32 %.046102, 1
   %69 = add i32 %67, -1
   %.not51 = icmp ugt i32 %68, %69
@@ -1102,7 +1102,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3acd21ac_decomposition_impl18find_dec
 
 .critedge:                                        ; preds = %39, %66
   %70 = phi ptr [ %40, %39 ], [ %50, %66 ]
-  %.045.lcssa.ph = phi i32 [ %.045103, %39 ], [ %.1, %66 ]
+  %.045.lcssa.ph = phi i32 [ %.045103, %39 ], [ %.2, %66 ]
   %.pr.pre = load i32, ptr %0, align 8
   %71 = icmp eq i32 %.pr.pre, -1
   br i1 %71, label %.critedge.thread, label %.critedge3.thread

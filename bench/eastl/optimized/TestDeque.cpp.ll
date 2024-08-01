@@ -40693,9 +40693,9 @@ if.else.i.i.i:                                    ; preds = %invoke.cont107
   br label %invoke.cont110
 
 invoke.cont110:                                   ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %itNearBegin.sroa.35.0 = phi ptr [ %89, %if.then.i.i.i ], [ %92, %if.else.i.i.i ]
-  %itNearBegin.sroa.55.0 = phi ptr [ %91, %if.then.i.i.i ], [ %add.ptr.i.i.i.i, %if.else.i.i.i ]
-  %itNearBegin.sroa.75.0 = phi ptr [ %90, %if.then.i.i.i ], [ %add.ptr4.i.i.i, %if.else.i.i.i ]
+  %itNearBegin.sroa.35.7 = phi ptr [ %89, %if.then.i.i.i ], [ %92, %if.else.i.i.i ]
+  %itNearBegin.sroa.55.7 = phi ptr [ %91, %if.then.i.i.i ], [ %add.ptr.i.i.i.i, %if.else.i.i.i ]
+  %itNearBegin.sroa.75.7 = phi ptr [ %90, %if.then.i.i.i ], [ %add.ptr4.i.i.i, %if.else.i.i.i ]
   %storemerge.i.i.i = phi ptr [ %add.ptr.i.i.i319, %if.then.i.i.i ], [ %add.ptr7.i.i.i, %if.else.i.i.i ]
   %add.i327 = add nsw i64 %sub.ptr.div.i.i.i, 3
   %add2.i328 = add nsw i64 %sub.ptr.div.i.i.i, 16777219
@@ -40711,11 +40711,11 @@ invoke.cont110:                                   ; preds = %if.then.i.i.i, %if.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp113341)
   store ptr %storemerge.i.i.i, ptr %agg.tmp113341, align 8
   %agg.tmp113.sroa.2.0.agg.tmp113341.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp113341, i64 8
-  store ptr %itNearBegin.sroa.35.0, ptr %agg.tmp113.sroa.2.0.agg.tmp113341.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.7, ptr %agg.tmp113.sroa.2.0.agg.tmp113341.sroa_idx, align 8
   %agg.tmp113.sroa.3.0.agg.tmp113341.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp113341, i64 16
-  store ptr %itNearBegin.sroa.55.0, ptr %agg.tmp113.sroa.3.0.agg.tmp113341.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.7, ptr %agg.tmp113.sroa.3.0.agg.tmp113341.sroa_idx, align 8
   %agg.tmp113.sroa.4.0.agg.tmp113341.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp113341, i64 24
-  store ptr %itNearBegin.sroa.75.0, ptr %agg.tmp113.sroa.4.0.agg.tmp113341.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.7, ptr %agg.tmp113.sroa.4.0.agg.tmp113341.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj64EE7emplaceIJRKiEEENS_13DequeIteratorIiPiRiLj64EEENS6_IiPS4_S5_Lj64EEEDpOT_(ptr nonnull sret(%"struct.eastl::DequeIterator") align 8 %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.0") align 8 %agg.tmp113341, ptr noundef nonnull align 4 dereferenceable(4) %value)
           to label %invoke.cont115 unwind label %lpad51.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -41173,18 +41173,18 @@ if.else.i.i.i801:                                 ; preds = %for.end207
   br label %invoke.cont209
 
 invoke.cont209:                                   ; preds = %if.else.i.i.i801, %if.then.i.i.i813
-  %itNearBegin.sroa.35.1 = phi ptr [ %171, %if.then.i.i.i813 ], [ %172, %if.else.i.i.i801 ]
-  %itNearBegin.sroa.55.1 = phi ptr [ %165, %if.then.i.i.i813 ], [ %add.ptr.i.i.i.i807, %if.else.i.i.i801 ]
-  %itNearBegin.sroa.75.1 = phi ptr [ %162, %if.then.i.i.i813 ], [ %add.ptr4.i.i.i806, %if.else.i.i.i801 ]
+  %itNearBegin.sroa.35.8 = phi ptr [ %171, %if.then.i.i.i813 ], [ %172, %if.else.i.i.i801 ]
+  %itNearBegin.sroa.55.8 = phi ptr [ %165, %if.then.i.i.i813 ], [ %add.ptr.i.i.i.i807, %if.else.i.i.i801 ]
+  %itNearBegin.sroa.75.8 = phi ptr [ %162, %if.then.i.i.i813 ], [ %add.ptr4.i.i.i806, %if.else.i.i.i801 ]
   %storemerge.i.i.i812 = phi ptr [ %add.ptr.i.i.i814, %if.then.i.i.i813 ], [ %add.ptr7.i.i.i811, %if.else.i.i.i801 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp211822)
   store ptr %storemerge.i.i.i812, ptr %agg.tmp211822, align 8
   %agg.tmp211.sroa.2.0.agg.tmp211822.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp211822, i64 8
-  store ptr %itNearBegin.sroa.35.1, ptr %agg.tmp211.sroa.2.0.agg.tmp211822.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.8, ptr %agg.tmp211.sroa.2.0.agg.tmp211822.sroa_idx, align 8
   %agg.tmp211.sroa.3.0.agg.tmp211822.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp211822, i64 16
-  store ptr %itNearBegin.sroa.55.1, ptr %agg.tmp211.sroa.3.0.agg.tmp211822.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.8, ptr %agg.tmp211.sroa.3.0.agg.tmp211822.sroa_idx, align 8
   %agg.tmp211.sroa.4.0.agg.tmp211822.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp211822, i64 24
-  store ptr %itNearBegin.sroa.75.1, ptr %agg.tmp211.sroa.4.0.agg.tmp211822.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.8, ptr %agg.tmp211.sroa.4.0.agg.tmp211822.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i823), !noalias !1302
   store i32 4, ptr %ref.tmp.i.i823, align 4, !noalias !1305
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj64EE14DoInsertValuesENS_13DequeIteratorIiPKiRS4_Lj64EEEmS6_(ptr nonnull sret(%"struct.eastl::DequeIterator") align 8 %ref.tmp210, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.0") align 8 %agg.tmp211822, i64 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i.i823)
@@ -41480,9 +41480,9 @@ if.else.i.i.i1138:                                ; preds = %invoke.cont269
   br label %invoke.cont272
 
 invoke.cont272:                                   ; preds = %if.else.i.i.i1138, %if.then.i.i.i1150
-  %itNearBegin.sroa.35.2 = phi ptr [ %201, %if.then.i.i.i1150 ], [ %204, %if.else.i.i.i1138 ]
-  %itNearBegin.sroa.55.2 = phi ptr [ %203, %if.then.i.i.i1150 ], [ %add.ptr.i.i.i.i1144, %if.else.i.i.i1138 ]
-  %itNearBegin.sroa.75.2 = phi ptr [ %202, %if.then.i.i.i1150 ], [ %add.ptr4.i.i.i1143, %if.else.i.i.i1138 ]
+  %itNearBegin.sroa.35.9 = phi ptr [ %201, %if.then.i.i.i1150 ], [ %204, %if.else.i.i.i1138 ]
+  %itNearBegin.sroa.55.9 = phi ptr [ %203, %if.then.i.i.i1150 ], [ %add.ptr.i.i.i.i1144, %if.else.i.i.i1138 ]
+  %itNearBegin.sroa.75.9 = phi ptr [ %202, %if.then.i.i.i1150 ], [ %add.ptr4.i.i.i1143, %if.else.i.i.i1138 ]
   %storemerge.i.i.i1149 = phi ptr [ %add.ptr.i.i.i1151, %if.then.i.i.i1150 ], [ %add.ptr7.i.i.i1148, %if.else.i.i.i1138 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1347)
   %205 = load ptr, ptr %valueList, align 8, !noalias !1347
@@ -41491,11 +41491,11 @@ invoke.cont272:                                   ; preds = %if.else.i.i.i1138, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2741159)
   store ptr %storemerge.i.i.i1149, ptr %agg.tmp2741159, align 8
   %agg.tmp274.sroa.2.0.agg.tmp2741159.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2741159, i64 8
-  store ptr %itNearBegin.sroa.35.2, ptr %agg.tmp274.sroa.2.0.agg.tmp2741159.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.9, ptr %agg.tmp274.sroa.2.0.agg.tmp2741159.sroa_idx, align 8
   %agg.tmp274.sroa.3.0.agg.tmp2741159.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2741159, i64 16
-  store ptr %itNearBegin.sroa.55.2, ptr %agg.tmp274.sroa.3.0.agg.tmp2741159.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.9, ptr %agg.tmp274.sroa.3.0.agg.tmp2741159.sroa_idx, align 8
   %agg.tmp274.sroa.4.0.agg.tmp2741159.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2741159, i64 24
-  store ptr %itNearBegin.sroa.75.2, ptr %agg.tmp274.sroa.4.0.agg.tmp2741159.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.9, ptr %agg.tmp274.sroa.4.0.agg.tmp2741159.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj64EE20DoInsertFromIteratorINS_12ListIteratorIiPiRiEEEENS_13DequeIteratorIiS5_S6_Lj64EEENS8_IiPKiRSA_Lj64EEERKT_SG_NS_20forward_iterator_tagE(ptr nonnull sret(%"struct.eastl::DequeIterator") align 8 %ref.tmp273, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.0") align 8 %agg.tmp2741159, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp276, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp277)
           to label %invoke.cont278 unwind label %lpad51.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -41725,36 +41725,36 @@ for.cond343.preheader.lr.ph:                      ; preds = %invoke.cont336
 
 for.cond343.preheader:                            ; preds = %for.cond343.preheader.lr.ph, %if.end
   %241 = phi ptr [ %238, %for.cond343.preheader.lr.ph ], [ %243, %if.end ]
-  %itNearBegin.sroa.75.32239 = phi ptr [ %236, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.75.6, %if.end ]
-  %itNearBegin.sroa.55.32238 = phi ptr [ %235, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.55.6, %if.end ]
-  %itNearBegin.sroa.35.32237 = phi ptr [ %240, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.35.6, %if.end ]
-  %itNearBegin.sroa.0.02236 = phi ptr [ %234, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.0.3, %if.end ]
+  %itNearBegin.sroa.75.02239 = phi ptr [ %236, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.75.2, %if.end ]
+  %itNearBegin.sroa.55.02238 = phi ptr [ %235, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.55.2, %if.end ]
+  %itNearBegin.sroa.35.02237 = phi ptr [ %240, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.35.2, %if.end ]
+  %itNearBegin.sroa.0.02236 = phi ptr [ %234, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.0.2, %if.end ]
   br label %for.body347
 
 for.body347:                                      ; preds = %for.cond343.preheader, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351
   %i342.02234 = phi i32 [ 0, %for.cond343.preheader ], [ %inc350, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351 ]
-  %itNearBegin.sroa.75.42233 = phi ptr [ %itNearBegin.sroa.75.32239, %for.cond343.preheader ], [ %itNearBegin.sroa.75.5, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351 ]
-  %itNearBegin.sroa.55.42232 = phi ptr [ %itNearBegin.sroa.55.32238, %for.cond343.preheader ], [ %itNearBegin.sroa.55.5, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351 ]
-  %itNearBegin.sroa.35.42231 = phi ptr [ %itNearBegin.sroa.35.32237, %for.cond343.preheader ], [ %itNearBegin.sroa.35.5, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351 ]
-  %itNearBegin.sroa.0.12230 = phi ptr [ %itNearBegin.sroa.0.02236, %for.cond343.preheader ], [ %itNearBegin.sroa.0.2, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351 ]
+  %itNearBegin.sroa.75.12233 = phi ptr [ %itNearBegin.sroa.75.02239, %for.cond343.preheader ], [ %itNearBegin.sroa.75.10, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351 ]
+  %itNearBegin.sroa.55.12232 = phi ptr [ %itNearBegin.sroa.55.02238, %for.cond343.preheader ], [ %itNearBegin.sroa.55.10, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351 ]
+  %itNearBegin.sroa.35.12231 = phi ptr [ %itNearBegin.sroa.35.02237, %for.cond343.preheader ], [ %itNearBegin.sroa.35.10, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351 ]
+  %itNearBegin.sroa.0.12230 = phi ptr [ %itNearBegin.sroa.0.02236, %for.cond343.preheader ], [ %itNearBegin.sroa.0.7, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351 ]
   %incdec.ptr.i1343 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.12230, i64 4
-  %cmp.i1345 = icmp eq ptr %incdec.ptr.i1343, %itNearBegin.sroa.55.42232
+  %cmp.i1345 = icmp eq ptr %incdec.ptr.i1343, %itNearBegin.sroa.55.12232
   br i1 %cmp.i1345, label %if.then.i1346, label %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351
 
 if.then.i1346:                                    ; preds = %for.body347
-  %incdec.ptr3.i1348 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.42233, i64 8
+  %incdec.ptr3.i1348 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.12233, i64 8
   %242 = load ptr, ptr %incdec.ptr3.i1348, align 8
   %add.ptr.i1350 = getelementptr inbounds i8, ptr %242, i64 256
   br label %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351
 
 _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1351: ; preds = %for.body347, %if.then.i1346
-  %itNearBegin.sroa.0.2 = phi ptr [ %242, %if.then.i1346 ], [ %incdec.ptr.i1343, %for.body347 ]
-  %itNearBegin.sroa.35.5 = phi ptr [ %242, %if.then.i1346 ], [ %itNearBegin.sroa.35.42231, %for.body347 ]
-  %itNearBegin.sroa.55.5 = phi ptr [ %add.ptr.i1350, %if.then.i1346 ], [ %itNearBegin.sroa.55.42232, %for.body347 ]
-  %itNearBegin.sroa.75.5 = phi ptr [ %incdec.ptr3.i1348, %if.then.i1346 ], [ %itNearBegin.sroa.75.42233, %for.body347 ]
+  %itNearBegin.sroa.0.7 = phi ptr [ %242, %if.then.i1346 ], [ %incdec.ptr.i1343, %for.body347 ]
+  %itNearBegin.sroa.35.10 = phi ptr [ %242, %if.then.i1346 ], [ %itNearBegin.sroa.35.12231, %for.body347 ]
+  %itNearBegin.sroa.55.10 = phi ptr [ %add.ptr.i1350, %if.then.i1346 ], [ %itNearBegin.sroa.55.12232, %for.body347 ]
+  %itNearBegin.sroa.75.10 = phi ptr [ %incdec.ptr3.i1348, %if.then.i1346 ], [ %itNearBegin.sroa.75.12233, %for.body347 ]
   %inc350 = add nuw nsw i32 %i342.02234, 1
   %cmp344 = icmp ugt i32 %i342.02234, 1
-  %cmp.i1342.not = icmp eq ptr %itNearBegin.sroa.0.2, %241
+  %cmp.i1342.not = icmp eq ptr %itNearBegin.sroa.0.7, %241
   %or.cond = select i1 %cmp344, i1 true, i1 %cmp.i1342.not
   br i1 %or.cond, label %for.end351, label %for.body347, !llvm.loop !1381
 
@@ -41762,10 +41762,10 @@ for.end351:                                       ; preds = %_ZN5eastl13DequeIte
   br i1 %cmp.i1342.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end351
-  store ptr %itNearBegin.sroa.0.2, ptr %agg.tmp355, align 8
-  store ptr %itNearBegin.sroa.35.5, ptr %mpBegin.i1360, align 8
-  store ptr %itNearBegin.sroa.55.5, ptr %mpEnd.i1362, align 8
-  store ptr %itNearBegin.sroa.75.5, ptr %mpCurrentArrayPtr.i1364, align 8
+  store ptr %itNearBegin.sroa.0.7, ptr %agg.tmp355, align 8
+  store ptr %itNearBegin.sroa.35.10, ptr %mpBegin.i1360, align 8
+  store ptr %itNearBegin.sroa.55.10, ptr %mpEnd.i1362, align 8
+  store ptr %itNearBegin.sroa.75.10, ptr %mpCurrentArrayPtr.i1364, align 8
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj64EE5eraseENS_13DequeIteratorIiPKiRS4_Lj64EEE(ptr nonnull sret(%"struct.eastl::DequeIterator") align 8 %ref.tmp354, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.0") align 8 %agg.tmp355)
           to label %invoke.cont357 unwind label %lpad51.loopexit.split-lp.loopexit
 
@@ -41779,11 +41779,11 @@ invoke.cont357:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont357, %for.end351
   %243 = phi ptr [ %.pre2288, %invoke.cont357 ], [ %241, %for.end351 ]
-  %itNearBegin.sroa.0.3 = phi ptr [ %itNearBegin.sroa.0.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.0.2, %for.end351 ]
-  %itNearBegin.sroa.35.6 = phi ptr [ %itNearBegin.sroa.35.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.35.5, %for.end351 ]
-  %itNearBegin.sroa.55.6 = phi ptr [ %itNearBegin.sroa.55.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.55.5, %for.end351 ]
-  %itNearBegin.sroa.75.6 = phi ptr [ %itNearBegin.sroa.75.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.75.5, %for.end351 ]
-  %cmp.i1334.not = icmp eq ptr %itNearBegin.sroa.0.3, %243
+  %itNearBegin.sroa.0.2 = phi ptr [ %itNearBegin.sroa.0.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.0.7, %for.end351 ]
+  %itNearBegin.sroa.35.2 = phi ptr [ %itNearBegin.sroa.35.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.35.10, %for.end351 ]
+  %itNearBegin.sroa.55.2 = phi ptr [ %itNearBegin.sroa.55.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.55.10, %for.end351 ]
+  %itNearBegin.sroa.75.2 = phi ptr [ %itNearBegin.sroa.75.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.75.10, %for.end351 ]
+  %cmp.i1334.not = icmp eq ptr %itNearBegin.sroa.0.2, %243
   br i1 %cmp.i1334.not, label %while.end.loopexit, label %for.cond343.preheader, !llvm.loop !1382
 
 while.end.loopexit:                               ; preds = %if.end
@@ -41842,45 +41842,45 @@ for.cond370.preheader.lr.ph:                      ; preds = %invoke.cont362
   br label %for.cond370.preheader
 
 while.cond365.loopexit:                           ; preds = %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503, %if.end396
-  %itNearBegin.sroa.0.8.lcssa = phi ptr [ %itNearBegin.sroa.0.7, %if.end396 ], [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ]
-  %itNearBegin.sroa.35.11.lcssa = phi ptr [ %itNearBegin.sroa.35.10, %if.end396 ], [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ]
-  %itNearBegin.sroa.55.11.lcssa = phi ptr [ %itNearBegin.sroa.55.10, %if.end396 ], [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ]
-  %itNearBegin.sroa.75.11.lcssa = phi ptr [ %itNearBegin.sroa.75.10, %if.end396 ], [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ]
-  %cmp.i1401.not = icmp eq ptr %itNearBegin.sroa.0.8.lcssa, %262
+  %itNearBegin.sroa.0.6.lcssa = phi ptr [ %itNearBegin.sroa.0.5, %if.end396 ], [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ]
+  %itNearBegin.sroa.35.6.lcssa = phi ptr [ %itNearBegin.sroa.35.5, %if.end396 ], [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ]
+  %itNearBegin.sroa.55.6.lcssa = phi ptr [ %itNearBegin.sroa.55.5, %if.end396 ], [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ]
+  %itNearBegin.sroa.75.6.lcssa = phi ptr [ %itNearBegin.sroa.75.5, %if.end396 ], [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ]
+  %cmp.i1401.not = icmp eq ptr %itNearBegin.sroa.0.6.lcssa, %262
   br i1 %cmp.i1401.not, label %while.end409, label %for.cond370.preheader, !llvm.loop !1386
 
 for.cond370.preheader:                            ; preds = %for.cond370.preheader.lr.ph, %while.cond365.loopexit
   %249 = phi ptr [ %245, %for.cond370.preheader.lr.ph ], [ %262, %while.cond365.loopexit ]
-  %itNearBegin.sroa.75.72259 = phi ptr [ %246, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.75.11.lcssa, %while.cond365.loopexit ]
-  %itNearBegin.sroa.55.72258 = phi ptr [ %247, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.55.11.lcssa, %while.cond365.loopexit ]
-  %itNearBegin.sroa.35.72257 = phi ptr [ %248, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.35.11.lcssa, %while.cond365.loopexit ]
-  %itNearBegin.sroa.0.42256 = phi ptr [ %244, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.0.8.lcssa, %while.cond365.loopexit ]
+  %itNearBegin.sroa.75.32259 = phi ptr [ %246, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.75.6.lcssa, %while.cond365.loopexit ]
+  %itNearBegin.sroa.55.32258 = phi ptr [ %247, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.55.6.lcssa, %while.cond365.loopexit ]
+  %itNearBegin.sroa.35.32257 = phi ptr [ %248, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.35.6.lcssa, %while.cond365.loopexit ]
+  %itNearBegin.sroa.0.32256 = phi ptr [ %244, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.0.6.lcssa, %while.cond365.loopexit ]
   br label %for.body376
 
 for.body376:                                      ; preds = %for.cond370.preheader, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424
   %numElementsToErase.02244 = phi i64 [ 0, %for.cond370.preheader ], [ %inc379, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424 ]
-  %itNearBegin.sroa.75.82243 = phi ptr [ %itNearBegin.sroa.75.72259, %for.cond370.preheader ], [ %itNearBegin.sroa.75.9, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424 ]
-  %itNearBegin.sroa.55.82242 = phi ptr [ %itNearBegin.sroa.55.72258, %for.cond370.preheader ], [ %itNearBegin.sroa.55.9, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424 ]
-  %itNearBegin.sroa.35.82241 = phi ptr [ %itNearBegin.sroa.35.72257, %for.cond370.preheader ], [ %itNearBegin.sroa.35.9, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424 ]
-  %itNearBegin.sroa.0.52240 = phi ptr [ %itNearBegin.sroa.0.42256, %for.cond370.preheader ], [ %itNearBegin.sroa.0.6, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424 ]
-  %incdec.ptr.i1416 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.52240, i64 4
-  %cmp.i1418 = icmp eq ptr %incdec.ptr.i1416, %itNearBegin.sroa.55.82242
+  %itNearBegin.sroa.75.42243 = phi ptr [ %itNearBegin.sroa.75.32259, %for.cond370.preheader ], [ %itNearBegin.sroa.75.11, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424 ]
+  %itNearBegin.sroa.55.42242 = phi ptr [ %itNearBegin.sroa.55.32258, %for.cond370.preheader ], [ %itNearBegin.sroa.55.11, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424 ]
+  %itNearBegin.sroa.35.42241 = phi ptr [ %itNearBegin.sroa.35.32257, %for.cond370.preheader ], [ %itNearBegin.sroa.35.11, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424 ]
+  %itNearBegin.sroa.0.42240 = phi ptr [ %itNearBegin.sroa.0.32256, %for.cond370.preheader ], [ %itNearBegin.sroa.0.8, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424 ]
+  %incdec.ptr.i1416 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.42240, i64 4
+  %cmp.i1418 = icmp eq ptr %incdec.ptr.i1416, %itNearBegin.sroa.55.42242
   br i1 %cmp.i1418, label %if.then.i1419, label %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424
 
 if.then.i1419:                                    ; preds = %for.body376
-  %incdec.ptr3.i1421 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.82243, i64 8
+  %incdec.ptr3.i1421 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.42243, i64 8
   %250 = load ptr, ptr %incdec.ptr3.i1421, align 8
   %add.ptr.i1423 = getelementptr inbounds i8, ptr %250, i64 256
   br label %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424
 
 _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1424: ; preds = %for.body376, %if.then.i1419
-  %itNearBegin.sroa.0.6 = phi ptr [ %250, %if.then.i1419 ], [ %incdec.ptr.i1416, %for.body376 ]
-  %itNearBegin.sroa.35.9 = phi ptr [ %250, %if.then.i1419 ], [ %itNearBegin.sroa.35.82241, %for.body376 ]
-  %itNearBegin.sroa.55.9 = phi ptr [ %add.ptr.i1423, %if.then.i1419 ], [ %itNearBegin.sroa.55.82242, %for.body376 ]
-  %itNearBegin.sroa.75.9 = phi ptr [ %incdec.ptr3.i1421, %if.then.i1419 ], [ %itNearBegin.sroa.75.82243, %for.body376 ]
+  %itNearBegin.sroa.0.8 = phi ptr [ %250, %if.then.i1419 ], [ %incdec.ptr.i1416, %for.body376 ]
+  %itNearBegin.sroa.35.11 = phi ptr [ %250, %if.then.i1419 ], [ %itNearBegin.sroa.35.42241, %for.body376 ]
+  %itNearBegin.sroa.55.11 = phi ptr [ %add.ptr.i1423, %if.then.i1419 ], [ %itNearBegin.sroa.55.42242, %for.body376 ]
+  %itNearBegin.sroa.75.11 = phi ptr [ %incdec.ptr3.i1421, %if.then.i1419 ], [ %itNearBegin.sroa.75.42243, %for.body376 ]
   %inc379 = add nuw nsw i64 %numElementsToErase.02244, 1
   %cmp371 = icmp ugt i64 %numElementsToErase.02244, 20
-  %cmp.i1415.not = icmp eq ptr %itNearBegin.sroa.0.6, %249
+  %cmp.i1415.not = icmp eq ptr %itNearBegin.sroa.0.8, %249
   %or.cond2166 = select i1 %cmp371, i1 true, i1 %cmp.i1415.not
   br i1 %or.cond2166, label %for.end380, label %for.body376, !llvm.loop !1387
 
@@ -41893,14 +41893,14 @@ if.then383:                                       ; preds = %for.end380
   %253 = load ptr, ptr %mpBegin.i.i, align 8
   %254 = load ptr, ptr %mpEnd.i.i, align 8
   %255 = load ptr, ptr %mItBegin.i, align 8
-  store ptr %itNearBegin.sroa.0.42256, ptr %agg.tmp386, align 8
-  store ptr %itNearBegin.sroa.35.72257, ptr %mpBegin.i1454, align 8
-  store ptr %itNearBegin.sroa.55.72258, ptr %mpEnd.i1456, align 8
-  store ptr %itNearBegin.sroa.75.72259, ptr %mpCurrentArrayPtr.i1458, align 8
-  store ptr %itNearBegin.sroa.0.6, ptr %agg.tmp388, align 8
-  store ptr %itNearBegin.sroa.35.9, ptr %mpBegin.i1460, align 8
-  store ptr %itNearBegin.sroa.55.9, ptr %mpEnd.i1462, align 8
-  store ptr %itNearBegin.sroa.75.9, ptr %mpCurrentArrayPtr.i1464, align 8
+  store ptr %itNearBegin.sroa.0.32256, ptr %agg.tmp386, align 8
+  store ptr %itNearBegin.sroa.35.32257, ptr %mpBegin.i1454, align 8
+  store ptr %itNearBegin.sroa.55.32258, ptr %mpEnd.i1456, align 8
+  store ptr %itNearBegin.sroa.75.32259, ptr %mpCurrentArrayPtr.i1458, align 8
+  store ptr %itNearBegin.sroa.0.8, ptr %agg.tmp388, align 8
+  store ptr %itNearBegin.sroa.35.11, ptr %mpBegin.i1460, align 8
+  store ptr %itNearBegin.sroa.55.11, ptr %mpEnd.i1462, align 8
+  store ptr %itNearBegin.sroa.75.11, ptr %mpCurrentArrayPtr.i1464, align 8
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj64EE5eraseENS_13DequeIteratorIiPKiRS4_Lj64EEES7_(ptr nonnull sret(%"struct.eastl::DequeIterator") align 8 %ref.tmp385, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.0") align 8 %agg.tmp386, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.0") align 8 %agg.tmp388)
           to label %invoke.cont390 unwind label %lpad51.loopexit
 
@@ -41956,34 +41956,34 @@ invoke.cont390.if.end396_crit_edge:               ; preds = %invoke.cont390
 
 if.end396:                                        ; preds = %invoke.cont390.if.end396_crit_edge, %for.end380
   %262 = phi ptr [ %.pre2294, %invoke.cont390.if.end396_crit_edge ], [ %249, %for.end380 ]
-  %itNearBegin.sroa.0.7 = phi ptr [ %itNearBegin.sroa.0.0.copyload2129, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.0.6, %for.end380 ]
-  %itNearBegin.sroa.35.10 = phi ptr [ %itNearBegin.sroa.35.0.copyload2130, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.35.9, %for.end380 ]
-  %itNearBegin.sroa.55.10 = phi ptr [ %itNearBegin.sroa.55.0.copyload2139, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.55.9, %for.end380 ]
-  %itNearBegin.sroa.75.10 = phi ptr [ %itNearBegin.sroa.75.0.copyload2148, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.75.9, %for.end380 ]
-  %cmp.i1494.not2245 = icmp eq ptr %itNearBegin.sroa.0.7, %262
+  %itNearBegin.sroa.0.5 = phi ptr [ %itNearBegin.sroa.0.0.copyload2129, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.0.8, %for.end380 ]
+  %itNearBegin.sroa.35.5 = phi ptr [ %itNearBegin.sroa.35.0.copyload2130, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.35.11, %for.end380 ]
+  %itNearBegin.sroa.55.5 = phi ptr [ %itNearBegin.sroa.55.0.copyload2139, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.55.11, %for.end380 ]
+  %itNearBegin.sroa.75.5 = phi ptr [ %itNearBegin.sroa.75.0.copyload2148, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.75.11, %for.end380 ]
+  %cmp.i1494.not2245 = icmp eq ptr %itNearBegin.sroa.0.5, %262
   br i1 %cmp.i1494.not2245, label %while.cond365.loopexit, label %for.body404
 
 for.body404:                                      ; preds = %if.end396, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503
   %i397.02250 = phi i32 [ %inc407, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ], [ 0, %if.end396 ]
-  %itNearBegin.sroa.75.112249 = phi ptr [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ], [ %itNearBegin.sroa.75.10, %if.end396 ]
-  %itNearBegin.sroa.55.112248 = phi ptr [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ], [ %itNearBegin.sroa.55.10, %if.end396 ]
-  %itNearBegin.sroa.35.112247 = phi ptr [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ], [ %itNearBegin.sroa.35.10, %if.end396 ]
-  %itNearBegin.sroa.0.82246 = phi ptr [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ], [ %itNearBegin.sroa.0.7, %if.end396 ]
-  %incdec.ptr.i1495 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.82246, i64 4
-  %cmp.i1497 = icmp eq ptr %incdec.ptr.i1495, %itNearBegin.sroa.55.112248
+  %itNearBegin.sroa.75.62249 = phi ptr [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ], [ %itNearBegin.sroa.75.5, %if.end396 ]
+  %itNearBegin.sroa.55.62248 = phi ptr [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ], [ %itNearBegin.sroa.55.5, %if.end396 ]
+  %itNearBegin.sroa.35.62247 = phi ptr [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ], [ %itNearBegin.sroa.35.5, %if.end396 ]
+  %itNearBegin.sroa.0.62246 = phi ptr [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503 ], [ %itNearBegin.sroa.0.5, %if.end396 ]
+  %incdec.ptr.i1495 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.62246, i64 4
+  %cmp.i1497 = icmp eq ptr %incdec.ptr.i1495, %itNearBegin.sroa.55.62248
   br i1 %cmp.i1497, label %if.then.i1498, label %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503
 
 if.then.i1498:                                    ; preds = %for.body404
-  %incdec.ptr3.i1500 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.112249, i64 8
+  %incdec.ptr3.i1500 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.62249, i64 8
   %263 = load ptr, ptr %incdec.ptr3.i1500, align 8
   %add.ptr.i1502 = getelementptr inbounds i8, ptr %263, i64 256
   br label %_ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503
 
 _ZN5eastl13DequeIteratorIiPiRiLj64EEppEv.exit1503: ; preds = %for.body404, %if.then.i1498
   %itNearBegin.sroa.0.9 = phi ptr [ %263, %if.then.i1498 ], [ %incdec.ptr.i1495, %for.body404 ]
-  %itNearBegin.sroa.35.12 = phi ptr [ %263, %if.then.i1498 ], [ %itNearBegin.sroa.35.112247, %for.body404 ]
-  %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i1502, %if.then.i1498 ], [ %itNearBegin.sroa.55.112248, %for.body404 ]
-  %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i1500, %if.then.i1498 ], [ %itNearBegin.sroa.75.112249, %for.body404 ]
+  %itNearBegin.sroa.35.12 = phi ptr [ %263, %if.then.i1498 ], [ %itNearBegin.sroa.35.62247, %for.body404 ]
+  %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i1502, %if.then.i1498 ], [ %itNearBegin.sroa.55.62248, %for.body404 ]
+  %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i1500, %if.then.i1498 ], [ %itNearBegin.sroa.75.62249, %for.body404 ]
   %inc407 = add nuw nsw i32 %i397.02250, 1
   %cmp399 = icmp ugt i32 %i397.02250, 15
   %cmp.i1494.not = icmp eq ptr %itNearBegin.sroa.0.9, %262
@@ -43412,9 +43412,9 @@ if.else.i.i.i:                                    ; preds = %invoke.cont107
   br label %invoke.cont110
 
 invoke.cont110:                                   ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %itNearBegin.sroa.35.0 = phi ptr [ %100, %if.then.i.i.i ], [ %103, %if.else.i.i.i ]
-  %itNearBegin.sroa.55.0 = phi ptr [ %102, %if.then.i.i.i ], [ %add.ptr.i.i.i.i292, %if.else.i.i.i ]
-  %itNearBegin.sroa.75.0 = phi ptr [ %101, %if.then.i.i.i ], [ %add.ptr4.i.i.i, %if.else.i.i.i ]
+  %itNearBegin.sroa.35.7 = phi ptr [ %100, %if.then.i.i.i ], [ %103, %if.else.i.i.i ]
+  %itNearBegin.sroa.55.7 = phi ptr [ %102, %if.then.i.i.i ], [ %add.ptr.i.i.i.i292, %if.else.i.i.i ]
+  %itNearBegin.sroa.75.7 = phi ptr [ %101, %if.then.i.i.i ], [ %add.ptr4.i.i.i, %if.else.i.i.i ]
   %storemerge.i.i.i = phi ptr [ %add.ptr.i.i.i294, %if.then.i.i.i ], [ %103, %if.else.i.i.i ]
   %104 = getelementptr ptr, ptr %101, i64 %sub.ptr.div.i.i.i
   %add.ptr.i302 = getelementptr i8, ptr %104, i64 24
@@ -43424,11 +43424,11 @@ invoke.cont110:                                   ; preds = %if.then.i.i.i, %if.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp113309)
   store ptr %storemerge.i.i.i, ptr %agg.tmp113309, align 8
   %agg.tmp113.sroa.2.0.agg.tmp113309.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp113309, i64 8
-  store ptr %itNearBegin.sroa.35.0, ptr %agg.tmp113.sroa.2.0.agg.tmp113309.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.7, ptr %agg.tmp113.sroa.2.0.agg.tmp113309.sroa_idx, align 8
   %agg.tmp113.sroa.3.0.agg.tmp113309.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp113309, i64 16
-  store ptr %itNearBegin.sroa.55.0, ptr %agg.tmp113.sroa.3.0.agg.tmp113309.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.7, ptr %agg.tmp113.sroa.3.0.agg.tmp113309.sroa_idx, align 8
   %agg.tmp113.sroa.4.0.agg.tmp113309.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp113309, i64 24
-  store ptr %itNearBegin.sroa.75.0, ptr %agg.tmp113.sroa.4.0.agg.tmp113309.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.7, ptr %agg.tmp113.sroa.4.0.agg.tmp113309.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj1EE7emplaceIJRKiEEENS_13DequeIteratorIiPiRiLj1EEENS6_IiPS4_S5_Lj1EEEDpOT_(ptr nonnull sret(%"struct.eastl::DequeIterator.83") align 8 %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.90") align 8 %agg.tmp113309, ptr noundef nonnull align 4 dereferenceable(4) %value)
           to label %invoke.cont115 unwind label %lpad51.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -43826,18 +43826,18 @@ if.else.i.i.i710:                                 ; preds = %for.end207
   br label %invoke.cont209
 
 invoke.cont209:                                   ; preds = %if.else.i.i.i710, %if.then.i.i.i716
-  %itNearBegin.sroa.35.1 = phi ptr [ %193, %if.then.i.i.i716 ], [ %194, %if.else.i.i.i710 ]
-  %itNearBegin.sroa.55.1 = phi ptr [ %185, %if.then.i.i.i716 ], [ %add.ptr.i.i.i.i713, %if.else.i.i.i710 ]
-  %itNearBegin.sroa.75.1 = phi ptr [ %182, %if.then.i.i.i716 ], [ %add.ptr4.i.i.i712, %if.else.i.i.i710 ]
+  %itNearBegin.sroa.35.8 = phi ptr [ %193, %if.then.i.i.i716 ], [ %194, %if.else.i.i.i710 ]
+  %itNearBegin.sroa.55.8 = phi ptr [ %185, %if.then.i.i.i716 ], [ %add.ptr.i.i.i.i713, %if.else.i.i.i710 ]
+  %itNearBegin.sroa.75.8 = phi ptr [ %182, %if.then.i.i.i716 ], [ %add.ptr4.i.i.i712, %if.else.i.i.i710 ]
   %storemerge.i.i.i715 = phi ptr [ %add.ptr.i.i.i717, %if.then.i.i.i716 ], [ %194, %if.else.i.i.i710 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp211725)
   store ptr %storemerge.i.i.i715, ptr %agg.tmp211725, align 8
   %agg.tmp211.sroa.2.0.agg.tmp211725.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp211725, i64 8
-  store ptr %itNearBegin.sroa.35.1, ptr %agg.tmp211.sroa.2.0.agg.tmp211725.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.8, ptr %agg.tmp211.sroa.2.0.agg.tmp211725.sroa_idx, align 8
   %agg.tmp211.sroa.3.0.agg.tmp211725.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp211725, i64 16
-  store ptr %itNearBegin.sroa.55.1, ptr %agg.tmp211.sroa.3.0.agg.tmp211725.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.8, ptr %agg.tmp211.sroa.3.0.agg.tmp211725.sroa_idx, align 8
   %agg.tmp211.sroa.4.0.agg.tmp211725.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp211725, i64 24
-  store ptr %itNearBegin.sroa.75.1, ptr %agg.tmp211.sroa.4.0.agg.tmp211725.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.8, ptr %agg.tmp211.sroa.4.0.agg.tmp211725.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i726), !noalias !1520
   store i32 4, ptr %ref.tmp.i.i726, align 4, !noalias !1523
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj1EE14DoInsertValuesENS_13DequeIteratorIiPKiRS4_Lj1EEEmS6_(ptr nonnull sret(%"struct.eastl::DequeIterator.83") align 8 %ref.tmp210, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.90") align 8 %agg.tmp211725, i64 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i.i726)
@@ -44099,9 +44099,9 @@ if.else.i.i.i1005:                                ; preds = %invoke.cont269
   br label %invoke.cont272
 
 invoke.cont272:                                   ; preds = %if.else.i.i.i1005, %if.then.i.i.i1011
-  %itNearBegin.sroa.35.2 = phi ptr [ %225, %if.then.i.i.i1011 ], [ %228, %if.else.i.i.i1005 ]
-  %itNearBegin.sroa.55.2 = phi ptr [ %227, %if.then.i.i.i1011 ], [ %add.ptr.i.i.i.i1008, %if.else.i.i.i1005 ]
-  %itNearBegin.sroa.75.2 = phi ptr [ %226, %if.then.i.i.i1011 ], [ %add.ptr4.i.i.i1007, %if.else.i.i.i1005 ]
+  %itNearBegin.sroa.35.9 = phi ptr [ %225, %if.then.i.i.i1011 ], [ %228, %if.else.i.i.i1005 ]
+  %itNearBegin.sroa.55.9 = phi ptr [ %227, %if.then.i.i.i1011 ], [ %add.ptr.i.i.i.i1008, %if.else.i.i.i1005 ]
+  %itNearBegin.sroa.75.9 = phi ptr [ %226, %if.then.i.i.i1011 ], [ %add.ptr4.i.i.i1007, %if.else.i.i.i1005 ]
   %storemerge.i.i.i1010 = phi ptr [ %add.ptr.i.i.i1012, %if.then.i.i.i1011 ], [ %228, %if.else.i.i.i1005 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1565)
   %229 = load ptr, ptr %valueList, align 8, !noalias !1565
@@ -44110,11 +44110,11 @@ invoke.cont272:                                   ; preds = %if.else.i.i.i1005, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2741020)
   store ptr %storemerge.i.i.i1010, ptr %agg.tmp2741020, align 8
   %agg.tmp274.sroa.2.0.agg.tmp2741020.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2741020, i64 8
-  store ptr %itNearBegin.sroa.35.2, ptr %agg.tmp274.sroa.2.0.agg.tmp2741020.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.9, ptr %agg.tmp274.sroa.2.0.agg.tmp2741020.sroa_idx, align 8
   %agg.tmp274.sroa.3.0.agg.tmp2741020.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2741020, i64 16
-  store ptr %itNearBegin.sroa.55.2, ptr %agg.tmp274.sroa.3.0.agg.tmp2741020.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.9, ptr %agg.tmp274.sroa.3.0.agg.tmp2741020.sroa_idx, align 8
   %agg.tmp274.sroa.4.0.agg.tmp2741020.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2741020, i64 24
-  store ptr %itNearBegin.sroa.75.2, ptr %agg.tmp274.sroa.4.0.agg.tmp2741020.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.9, ptr %agg.tmp274.sroa.4.0.agg.tmp2741020.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj1EE20DoInsertFromIteratorINS_12ListIteratorIiPiRiEEEENS_13DequeIteratorIiS5_S6_Lj1EEENS8_IiPKiRSA_Lj1EEERKT_SG_NS_20forward_iterator_tagE(ptr nonnull sret(%"struct.eastl::DequeIterator.83") align 8 %ref.tmp273, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.90") align 8 %agg.tmp2741020, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp276, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp277)
           to label %invoke.cont278 unwind label %lpad51.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -44338,36 +44338,36 @@ for.cond343.preheader.lr.ph:                      ; preds = %invoke.cont336
 
 for.cond343.preheader:                            ; preds = %for.cond343.preheader.lr.ph, %if.end
   %265 = phi ptr [ %262, %for.cond343.preheader.lr.ph ], [ %267, %if.end ]
-  %itNearBegin.sroa.75.32066 = phi ptr [ %260, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.75.6, %if.end ]
-  %itNearBegin.sroa.55.32065 = phi ptr [ %259, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.55.6, %if.end ]
-  %itNearBegin.sroa.35.32064 = phi ptr [ %264, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.35.6, %if.end ]
-  %itNearBegin.sroa.0.02063 = phi ptr [ %258, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.0.3, %if.end ]
+  %itNearBegin.sroa.75.02066 = phi ptr [ %260, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.75.2, %if.end ]
+  %itNearBegin.sroa.55.02065 = phi ptr [ %259, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.55.2, %if.end ]
+  %itNearBegin.sroa.35.02064 = phi ptr [ %264, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.35.2, %if.end ]
+  %itNearBegin.sroa.0.02063 = phi ptr [ %258, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.0.2, %if.end ]
   br label %for.body347
 
 for.body347:                                      ; preds = %for.cond343.preheader, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206
   %i342.02061 = phi i32 [ 0, %for.cond343.preheader ], [ %inc350, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206 ]
-  %itNearBegin.sroa.75.42060 = phi ptr [ %itNearBegin.sroa.75.32066, %for.cond343.preheader ], [ %itNearBegin.sroa.75.5, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206 ]
-  %itNearBegin.sroa.55.42059 = phi ptr [ %itNearBegin.sroa.55.32065, %for.cond343.preheader ], [ %itNearBegin.sroa.55.5, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206 ]
-  %itNearBegin.sroa.35.42058 = phi ptr [ %itNearBegin.sroa.35.32064, %for.cond343.preheader ], [ %itNearBegin.sroa.35.5, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206 ]
-  %itNearBegin.sroa.0.12057 = phi ptr [ %itNearBegin.sroa.0.02063, %for.cond343.preheader ], [ %itNearBegin.sroa.0.2, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206 ]
+  %itNearBegin.sroa.75.12060 = phi ptr [ %itNearBegin.sroa.75.02066, %for.cond343.preheader ], [ %itNearBegin.sroa.75.10, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206 ]
+  %itNearBegin.sroa.55.12059 = phi ptr [ %itNearBegin.sroa.55.02065, %for.cond343.preheader ], [ %itNearBegin.sroa.55.10, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206 ]
+  %itNearBegin.sroa.35.12058 = phi ptr [ %itNearBegin.sroa.35.02064, %for.cond343.preheader ], [ %itNearBegin.sroa.35.10, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206 ]
+  %itNearBegin.sroa.0.12057 = phi ptr [ %itNearBegin.sroa.0.02063, %for.cond343.preheader ], [ %itNearBegin.sroa.0.7, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206 ]
   %incdec.ptr.i1198 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.12057, i64 4
-  %cmp.i1200 = icmp eq ptr %incdec.ptr.i1198, %itNearBegin.sroa.55.42059
+  %cmp.i1200 = icmp eq ptr %incdec.ptr.i1198, %itNearBegin.sroa.55.12059
   br i1 %cmp.i1200, label %if.then.i1201, label %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206
 
 if.then.i1201:                                    ; preds = %for.body347
-  %incdec.ptr3.i1203 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.42060, i64 8
+  %incdec.ptr3.i1203 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.12060, i64 8
   %266 = load ptr, ptr %incdec.ptr3.i1203, align 8
   %add.ptr.i1205 = getelementptr inbounds i8, ptr %266, i64 4
   br label %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206
 
 _ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1206: ; preds = %for.body347, %if.then.i1201
-  %itNearBegin.sroa.0.2 = phi ptr [ %266, %if.then.i1201 ], [ %incdec.ptr.i1198, %for.body347 ]
-  %itNearBegin.sroa.35.5 = phi ptr [ %266, %if.then.i1201 ], [ %itNearBegin.sroa.35.42058, %for.body347 ]
-  %itNearBegin.sroa.55.5 = phi ptr [ %add.ptr.i1205, %if.then.i1201 ], [ %itNearBegin.sroa.55.42059, %for.body347 ]
-  %itNearBegin.sroa.75.5 = phi ptr [ %incdec.ptr3.i1203, %if.then.i1201 ], [ %itNearBegin.sroa.75.42060, %for.body347 ]
+  %itNearBegin.sroa.0.7 = phi ptr [ %266, %if.then.i1201 ], [ %incdec.ptr.i1198, %for.body347 ]
+  %itNearBegin.sroa.35.10 = phi ptr [ %266, %if.then.i1201 ], [ %itNearBegin.sroa.35.12058, %for.body347 ]
+  %itNearBegin.sroa.55.10 = phi ptr [ %add.ptr.i1205, %if.then.i1201 ], [ %itNearBegin.sroa.55.12059, %for.body347 ]
+  %itNearBegin.sroa.75.10 = phi ptr [ %incdec.ptr3.i1203, %if.then.i1201 ], [ %itNearBegin.sroa.75.12060, %for.body347 ]
   %inc350 = add nuw nsw i32 %i342.02061, 1
   %cmp344 = icmp ugt i32 %i342.02061, 1
-  %cmp.i1197.not = icmp eq ptr %itNearBegin.sroa.0.2, %265
+  %cmp.i1197.not = icmp eq ptr %itNearBegin.sroa.0.7, %265
   %or.cond = select i1 %cmp344, i1 true, i1 %cmp.i1197.not
   br i1 %or.cond, label %for.end351, label %for.body347, !llvm.loop !1599
 
@@ -44375,10 +44375,10 @@ for.end351:                                       ; preds = %_ZN5eastl13DequeIte
   br i1 %cmp.i1197.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end351
-  store ptr %itNearBegin.sroa.0.2, ptr %agg.tmp355, align 8
-  store ptr %itNearBegin.sroa.35.5, ptr %mpBegin.i1215, align 8
-  store ptr %itNearBegin.sroa.55.5, ptr %mpEnd.i1217, align 8
-  store ptr %itNearBegin.sroa.75.5, ptr %mpCurrentArrayPtr.i1219, align 8
+  store ptr %itNearBegin.sroa.0.7, ptr %agg.tmp355, align 8
+  store ptr %itNearBegin.sroa.35.10, ptr %mpBegin.i1215, align 8
+  store ptr %itNearBegin.sroa.55.10, ptr %mpEnd.i1217, align 8
+  store ptr %itNearBegin.sroa.75.10, ptr %mpCurrentArrayPtr.i1219, align 8
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj1EE5eraseENS_13DequeIteratorIiPKiRS4_Lj1EEE(ptr nonnull sret(%"struct.eastl::DequeIterator.83") align 8 %ref.tmp354, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.90") align 8 %agg.tmp355)
           to label %invoke.cont357 unwind label %lpad51.loopexit.split-lp.loopexit
 
@@ -44392,11 +44392,11 @@ invoke.cont357:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont357, %for.end351
   %267 = phi ptr [ %.pre2107, %invoke.cont357 ], [ %265, %for.end351 ]
-  %itNearBegin.sroa.0.3 = phi ptr [ %itNearBegin.sroa.0.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.0.2, %for.end351 ]
-  %itNearBegin.sroa.35.6 = phi ptr [ %itNearBegin.sroa.35.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.35.5, %for.end351 ]
-  %itNearBegin.sroa.55.6 = phi ptr [ %itNearBegin.sroa.55.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.55.5, %for.end351 ]
-  %itNearBegin.sroa.75.6 = phi ptr [ %itNearBegin.sroa.75.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.75.5, %for.end351 ]
-  %cmp.i1189.not = icmp eq ptr %itNearBegin.sroa.0.3, %267
+  %itNearBegin.sroa.0.2 = phi ptr [ %itNearBegin.sroa.0.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.0.7, %for.end351 ]
+  %itNearBegin.sroa.35.2 = phi ptr [ %itNearBegin.sroa.35.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.35.10, %for.end351 ]
+  %itNearBegin.sroa.55.2 = phi ptr [ %itNearBegin.sroa.55.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.55.10, %for.end351 ]
+  %itNearBegin.sroa.75.2 = phi ptr [ %itNearBegin.sroa.75.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.75.10, %for.end351 ]
+  %cmp.i1189.not = icmp eq ptr %itNearBegin.sroa.0.2, %267
   br i1 %cmp.i1189.not, label %while.end.loopexit, label %for.cond343.preheader, !llvm.loop !1600
 
 while.end.loopexit:                               ; preds = %if.end
@@ -44455,45 +44455,45 @@ for.cond370.preheader.lr.ph:                      ; preds = %invoke.cont362
   br label %for.cond370.preheader
 
 while.cond365.loopexit:                           ; preds = %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358, %if.end396
-  %itNearBegin.sroa.0.8.lcssa = phi ptr [ %itNearBegin.sroa.0.7, %if.end396 ], [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ]
-  %itNearBegin.sroa.35.11.lcssa = phi ptr [ %itNearBegin.sroa.35.10, %if.end396 ], [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ]
-  %itNearBegin.sroa.55.11.lcssa = phi ptr [ %itNearBegin.sroa.55.10, %if.end396 ], [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ]
-  %itNearBegin.sroa.75.11.lcssa = phi ptr [ %itNearBegin.sroa.75.10, %if.end396 ], [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ]
-  %cmp.i1256.not = icmp eq ptr %itNearBegin.sroa.0.8.lcssa, %286
+  %itNearBegin.sroa.0.6.lcssa = phi ptr [ %itNearBegin.sroa.0.5, %if.end396 ], [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ]
+  %itNearBegin.sroa.35.6.lcssa = phi ptr [ %itNearBegin.sroa.35.5, %if.end396 ], [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ]
+  %itNearBegin.sroa.55.6.lcssa = phi ptr [ %itNearBegin.sroa.55.5, %if.end396 ], [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ]
+  %itNearBegin.sroa.75.6.lcssa = phi ptr [ %itNearBegin.sroa.75.5, %if.end396 ], [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ]
+  %cmp.i1256.not = icmp eq ptr %itNearBegin.sroa.0.6.lcssa, %286
   br i1 %cmp.i1256.not, label %while.end409, label %for.cond370.preheader, !llvm.loop !1604
 
 for.cond370.preheader:                            ; preds = %for.cond370.preheader.lr.ph, %while.cond365.loopexit
   %273 = phi ptr [ %269, %for.cond370.preheader.lr.ph ], [ %286, %while.cond365.loopexit ]
-  %itNearBegin.sroa.75.72086 = phi ptr [ %270, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.75.11.lcssa, %while.cond365.loopexit ]
-  %itNearBegin.sroa.55.72085 = phi ptr [ %271, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.55.11.lcssa, %while.cond365.loopexit ]
-  %itNearBegin.sroa.35.72084 = phi ptr [ %272, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.35.11.lcssa, %while.cond365.loopexit ]
-  %itNearBegin.sroa.0.42083 = phi ptr [ %268, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.0.8.lcssa, %while.cond365.loopexit ]
+  %itNearBegin.sroa.75.32086 = phi ptr [ %270, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.75.6.lcssa, %while.cond365.loopexit ]
+  %itNearBegin.sroa.55.32085 = phi ptr [ %271, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.55.6.lcssa, %while.cond365.loopexit ]
+  %itNearBegin.sroa.35.32084 = phi ptr [ %272, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.35.6.lcssa, %while.cond365.loopexit ]
+  %itNearBegin.sroa.0.32083 = phi ptr [ %268, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.0.6.lcssa, %while.cond365.loopexit ]
   br label %for.body376
 
 for.body376:                                      ; preds = %for.cond370.preheader, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279
   %numElementsToErase.02071 = phi i64 [ 0, %for.cond370.preheader ], [ %inc379, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279 ]
-  %itNearBegin.sroa.75.82070 = phi ptr [ %itNearBegin.sroa.75.72086, %for.cond370.preheader ], [ %itNearBegin.sroa.75.9, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279 ]
-  %itNearBegin.sroa.55.82069 = phi ptr [ %itNearBegin.sroa.55.72085, %for.cond370.preheader ], [ %itNearBegin.sroa.55.9, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279 ]
-  %itNearBegin.sroa.35.82068 = phi ptr [ %itNearBegin.sroa.35.72084, %for.cond370.preheader ], [ %itNearBegin.sroa.35.9, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279 ]
-  %itNearBegin.sroa.0.52067 = phi ptr [ %itNearBegin.sroa.0.42083, %for.cond370.preheader ], [ %itNearBegin.sroa.0.6, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279 ]
-  %incdec.ptr.i1271 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.52067, i64 4
-  %cmp.i1273 = icmp eq ptr %incdec.ptr.i1271, %itNearBegin.sroa.55.82069
+  %itNearBegin.sroa.75.42070 = phi ptr [ %itNearBegin.sroa.75.32086, %for.cond370.preheader ], [ %itNearBegin.sroa.75.11, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279 ]
+  %itNearBegin.sroa.55.42069 = phi ptr [ %itNearBegin.sroa.55.32085, %for.cond370.preheader ], [ %itNearBegin.sroa.55.11, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279 ]
+  %itNearBegin.sroa.35.42068 = phi ptr [ %itNearBegin.sroa.35.32084, %for.cond370.preheader ], [ %itNearBegin.sroa.35.11, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279 ]
+  %itNearBegin.sroa.0.42067 = phi ptr [ %itNearBegin.sroa.0.32083, %for.cond370.preheader ], [ %itNearBegin.sroa.0.8, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279 ]
+  %incdec.ptr.i1271 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.42067, i64 4
+  %cmp.i1273 = icmp eq ptr %incdec.ptr.i1271, %itNearBegin.sroa.55.42069
   br i1 %cmp.i1273, label %if.then.i1274, label %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279
 
 if.then.i1274:                                    ; preds = %for.body376
-  %incdec.ptr3.i1276 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.82070, i64 8
+  %incdec.ptr3.i1276 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.42070, i64 8
   %274 = load ptr, ptr %incdec.ptr3.i1276, align 8
   %add.ptr.i1278 = getelementptr inbounds i8, ptr %274, i64 4
   br label %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279
 
 _ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1279: ; preds = %for.body376, %if.then.i1274
-  %itNearBegin.sroa.0.6 = phi ptr [ %274, %if.then.i1274 ], [ %incdec.ptr.i1271, %for.body376 ]
-  %itNearBegin.sroa.35.9 = phi ptr [ %274, %if.then.i1274 ], [ %itNearBegin.sroa.35.82068, %for.body376 ]
-  %itNearBegin.sroa.55.9 = phi ptr [ %add.ptr.i1278, %if.then.i1274 ], [ %itNearBegin.sroa.55.82069, %for.body376 ]
-  %itNearBegin.sroa.75.9 = phi ptr [ %incdec.ptr3.i1276, %if.then.i1274 ], [ %itNearBegin.sroa.75.82070, %for.body376 ]
+  %itNearBegin.sroa.0.8 = phi ptr [ %274, %if.then.i1274 ], [ %incdec.ptr.i1271, %for.body376 ]
+  %itNearBegin.sroa.35.11 = phi ptr [ %274, %if.then.i1274 ], [ %itNearBegin.sroa.35.42068, %for.body376 ]
+  %itNearBegin.sroa.55.11 = phi ptr [ %add.ptr.i1278, %if.then.i1274 ], [ %itNearBegin.sroa.55.42069, %for.body376 ]
+  %itNearBegin.sroa.75.11 = phi ptr [ %incdec.ptr3.i1276, %if.then.i1274 ], [ %itNearBegin.sroa.75.42070, %for.body376 ]
   %inc379 = add nuw nsw i64 %numElementsToErase.02071, 1
   %cmp371 = icmp ugt i64 %numElementsToErase.02071, 20
-  %cmp.i1270.not = icmp eq ptr %itNearBegin.sroa.0.6, %273
+  %cmp.i1270.not = icmp eq ptr %itNearBegin.sroa.0.8, %273
   %or.cond1993 = select i1 %cmp371, i1 true, i1 %cmp.i1270.not
   br i1 %or.cond1993, label %for.end380, label %for.body376, !llvm.loop !1605
 
@@ -44506,14 +44506,14 @@ if.then383:                                       ; preds = %for.end380
   %277 = load ptr, ptr %mpBegin.i11.i.i.i, align 8
   %278 = load ptr, ptr %mpEnd.i.i.i.i, align 8
   %279 = load ptr, ptr %mItBegin.i.i, align 8
-  store ptr %itNearBegin.sroa.0.42083, ptr %agg.tmp386, align 8
-  store ptr %itNearBegin.sroa.35.72084, ptr %mpBegin.i1309, align 8
-  store ptr %itNearBegin.sroa.55.72085, ptr %mpEnd.i1311, align 8
-  store ptr %itNearBegin.sroa.75.72086, ptr %mpCurrentArrayPtr.i1313, align 8
-  store ptr %itNearBegin.sroa.0.6, ptr %agg.tmp388, align 8
-  store ptr %itNearBegin.sroa.35.9, ptr %mpBegin.i1315, align 8
-  store ptr %itNearBegin.sroa.55.9, ptr %mpEnd.i1317, align 8
-  store ptr %itNearBegin.sroa.75.9, ptr %mpCurrentArrayPtr.i1319, align 8
+  store ptr %itNearBegin.sroa.0.32083, ptr %agg.tmp386, align 8
+  store ptr %itNearBegin.sroa.35.32084, ptr %mpBegin.i1309, align 8
+  store ptr %itNearBegin.sroa.55.32085, ptr %mpEnd.i1311, align 8
+  store ptr %itNearBegin.sroa.75.32086, ptr %mpCurrentArrayPtr.i1313, align 8
+  store ptr %itNearBegin.sroa.0.8, ptr %agg.tmp388, align 8
+  store ptr %itNearBegin.sroa.35.11, ptr %mpBegin.i1315, align 8
+  store ptr %itNearBegin.sroa.55.11, ptr %mpEnd.i1317, align 8
+  store ptr %itNearBegin.sroa.75.11, ptr %mpCurrentArrayPtr.i1319, align 8
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj1EE5eraseENS_13DequeIteratorIiPKiRS4_Lj1EEES7_(ptr nonnull sret(%"struct.eastl::DequeIterator.83") align 8 %ref.tmp385, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.90") align 8 %agg.tmp386, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.90") align 8 %agg.tmp388)
           to label %invoke.cont390 unwind label %lpad51.loopexit
 
@@ -44569,34 +44569,34 @@ invoke.cont390.if.end396_crit_edge:               ; preds = %invoke.cont390
 
 if.end396:                                        ; preds = %invoke.cont390.if.end396_crit_edge, %for.end380
   %286 = phi ptr [ %.pre2113, %invoke.cont390.if.end396_crit_edge ], [ %273, %for.end380 ]
-  %itNearBegin.sroa.0.7 = phi ptr [ %itNearBegin.sroa.0.0.copyload1935, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.0.6, %for.end380 ]
-  %itNearBegin.sroa.35.10 = phi ptr [ %itNearBegin.sroa.35.0.copyload1936, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.35.9, %for.end380 ]
-  %itNearBegin.sroa.55.10 = phi ptr [ %itNearBegin.sroa.55.0.copyload1945, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.55.9, %for.end380 ]
-  %itNearBegin.sroa.75.10 = phi ptr [ %itNearBegin.sroa.75.0.copyload1954, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.75.9, %for.end380 ]
-  %cmp.i1349.not2072 = icmp eq ptr %itNearBegin.sroa.0.7, %286
+  %itNearBegin.sroa.0.5 = phi ptr [ %itNearBegin.sroa.0.0.copyload1935, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.0.8, %for.end380 ]
+  %itNearBegin.sroa.35.5 = phi ptr [ %itNearBegin.sroa.35.0.copyload1936, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.35.11, %for.end380 ]
+  %itNearBegin.sroa.55.5 = phi ptr [ %itNearBegin.sroa.55.0.copyload1945, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.55.11, %for.end380 ]
+  %itNearBegin.sroa.75.5 = phi ptr [ %itNearBegin.sroa.75.0.copyload1954, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.75.11, %for.end380 ]
+  %cmp.i1349.not2072 = icmp eq ptr %itNearBegin.sroa.0.5, %286
   br i1 %cmp.i1349.not2072, label %while.cond365.loopexit, label %for.body404
 
 for.body404:                                      ; preds = %if.end396, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358
   %i397.02077 = phi i32 [ %inc407, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ], [ 0, %if.end396 ]
-  %itNearBegin.sroa.75.112076 = phi ptr [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ], [ %itNearBegin.sroa.75.10, %if.end396 ]
-  %itNearBegin.sroa.55.112075 = phi ptr [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ], [ %itNearBegin.sroa.55.10, %if.end396 ]
-  %itNearBegin.sroa.35.112074 = phi ptr [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ], [ %itNearBegin.sroa.35.10, %if.end396 ]
-  %itNearBegin.sroa.0.82073 = phi ptr [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ], [ %itNearBegin.sroa.0.7, %if.end396 ]
-  %incdec.ptr.i1350 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.82073, i64 4
-  %cmp.i1352 = icmp eq ptr %incdec.ptr.i1350, %itNearBegin.sroa.55.112075
+  %itNearBegin.sroa.75.62076 = phi ptr [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ], [ %itNearBegin.sroa.75.5, %if.end396 ]
+  %itNearBegin.sroa.55.62075 = phi ptr [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ], [ %itNearBegin.sroa.55.5, %if.end396 ]
+  %itNearBegin.sroa.35.62074 = phi ptr [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ], [ %itNearBegin.sroa.35.5, %if.end396 ]
+  %itNearBegin.sroa.0.62073 = phi ptr [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358 ], [ %itNearBegin.sroa.0.5, %if.end396 ]
+  %incdec.ptr.i1350 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.62073, i64 4
+  %cmp.i1352 = icmp eq ptr %incdec.ptr.i1350, %itNearBegin.sroa.55.62075
   br i1 %cmp.i1352, label %if.then.i1353, label %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358
 
 if.then.i1353:                                    ; preds = %for.body404
-  %incdec.ptr3.i1355 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.112076, i64 8
+  %incdec.ptr3.i1355 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.62076, i64 8
   %287 = load ptr, ptr %incdec.ptr3.i1355, align 8
   %add.ptr.i1357 = getelementptr inbounds i8, ptr %287, i64 4
   br label %_ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358
 
 _ZN5eastl13DequeIteratorIiPiRiLj1EEppEv.exit1358: ; preds = %for.body404, %if.then.i1353
   %itNearBegin.sroa.0.9 = phi ptr [ %287, %if.then.i1353 ], [ %incdec.ptr.i1350, %for.body404 ]
-  %itNearBegin.sroa.35.12 = phi ptr [ %287, %if.then.i1353 ], [ %itNearBegin.sroa.35.112074, %for.body404 ]
-  %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i1357, %if.then.i1353 ], [ %itNearBegin.sroa.55.112075, %for.body404 ]
-  %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i1355, %if.then.i1353 ], [ %itNearBegin.sroa.75.112076, %for.body404 ]
+  %itNearBegin.sroa.35.12 = phi ptr [ %287, %if.then.i1353 ], [ %itNearBegin.sroa.35.62074, %for.body404 ]
+  %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i1357, %if.then.i1353 ], [ %itNearBegin.sroa.55.62075, %for.body404 ]
+  %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i1355, %if.then.i1353 ], [ %itNearBegin.sroa.75.62076, %for.body404 ]
   %inc407 = add nuw nsw i32 %i397.02077, 1
   %cmp399 = icmp ugt i32 %i397.02077, 15
   %cmp.i1349.not = icmp eq ptr %itNearBegin.sroa.0.9, %286
@@ -46083,9 +46083,9 @@ if.else.i.i.i:                                    ; preds = %invoke.cont107
   br label %invoke.cont110
 
 invoke.cont110:                                   ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %itNearBegin.sroa.35.0 = phi ptr [ %91, %if.then.i.i.i ], [ %94, %if.else.i.i.i ]
-  %itNearBegin.sroa.55.0 = phi ptr [ %93, %if.then.i.i.i ], [ %add.ptr.i.i.i.i321, %if.else.i.i.i ]
-  %itNearBegin.sroa.75.0 = phi ptr [ %92, %if.then.i.i.i ], [ %add.ptr4.i.i.i, %if.else.i.i.i ]
+  %itNearBegin.sroa.35.7 = phi ptr [ %91, %if.then.i.i.i ], [ %94, %if.else.i.i.i ]
+  %itNearBegin.sroa.55.7 = phi ptr [ %93, %if.then.i.i.i ], [ %add.ptr.i.i.i.i321, %if.else.i.i.i ]
+  %itNearBegin.sroa.75.7 = phi ptr [ %92, %if.then.i.i.i ], [ %add.ptr4.i.i.i, %if.else.i.i.i ]
   %storemerge.i.i.i = phi ptr [ %add.ptr.i.i.i323, %if.then.i.i.i ], [ %add.ptr7.i.i.i, %if.else.i.i.i ]
   %add.i331 = add nsw i64 %sub.ptr.div.i.i.i, 3
   %add2.i332 = add nsw i64 %sub.ptr.div.i.i.i, 16777219
@@ -46101,11 +46101,11 @@ invoke.cont110:                                   ; preds = %if.then.i.i.i, %if.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp113345)
   store ptr %storemerge.i.i.i, ptr %agg.tmp113345, align 8
   %agg.tmp113.sroa.2.0.agg.tmp113345.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp113345, i64 8
-  store ptr %itNearBegin.sroa.35.0, ptr %agg.tmp113.sroa.2.0.agg.tmp113345.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.7, ptr %agg.tmp113.sroa.2.0.agg.tmp113345.sroa_idx, align 8
   %agg.tmp113.sroa.3.0.agg.tmp113345.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp113345, i64 16
-  store ptr %itNearBegin.sroa.55.0, ptr %agg.tmp113.sroa.3.0.agg.tmp113345.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.7, ptr %agg.tmp113.sroa.3.0.agg.tmp113345.sroa_idx, align 8
   %agg.tmp113.sroa.4.0.agg.tmp113345.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp113345, i64 24
-  store ptr %itNearBegin.sroa.75.0, ptr %agg.tmp113.sroa.4.0.agg.tmp113345.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.7, ptr %agg.tmp113.sroa.4.0.agg.tmp113345.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj32768EE7emplaceIJRKiEEENS_13DequeIteratorIiPiRiLj32768EEENS6_IiPS4_S5_Lj32768EEEDpOT_(ptr nonnull sret(%"struct.eastl::DequeIterator.96") align 8 %ref.tmp112, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.101") align 8 %agg.tmp113345, ptr noundef nonnull align 4 dereferenceable(4) %value)
           to label %invoke.cont115 unwind label %lpad51.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -46563,18 +46563,18 @@ if.else.i.i.i805:                                 ; preds = %for.end207
   br label %invoke.cont209
 
 invoke.cont209:                                   ; preds = %if.else.i.i.i805, %if.then.i.i.i817
-  %itNearBegin.sroa.35.1 = phi ptr [ %173, %if.then.i.i.i817 ], [ %174, %if.else.i.i.i805 ]
-  %itNearBegin.sroa.55.1 = phi ptr [ %167, %if.then.i.i.i817 ], [ %add.ptr.i.i.i.i811, %if.else.i.i.i805 ]
-  %itNearBegin.sroa.75.1 = phi ptr [ %164, %if.then.i.i.i817 ], [ %add.ptr4.i.i.i810, %if.else.i.i.i805 ]
+  %itNearBegin.sroa.35.8 = phi ptr [ %173, %if.then.i.i.i817 ], [ %174, %if.else.i.i.i805 ]
+  %itNearBegin.sroa.55.8 = phi ptr [ %167, %if.then.i.i.i817 ], [ %add.ptr.i.i.i.i811, %if.else.i.i.i805 ]
+  %itNearBegin.sroa.75.8 = phi ptr [ %164, %if.then.i.i.i817 ], [ %add.ptr4.i.i.i810, %if.else.i.i.i805 ]
   %storemerge.i.i.i816 = phi ptr [ %add.ptr.i.i.i818, %if.then.i.i.i817 ], [ %add.ptr7.i.i.i815, %if.else.i.i.i805 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp211826)
   store ptr %storemerge.i.i.i816, ptr %agg.tmp211826, align 8
   %agg.tmp211.sroa.2.0.agg.tmp211826.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp211826, i64 8
-  store ptr %itNearBegin.sroa.35.1, ptr %agg.tmp211.sroa.2.0.agg.tmp211826.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.8, ptr %agg.tmp211.sroa.2.0.agg.tmp211826.sroa_idx, align 8
   %agg.tmp211.sroa.3.0.agg.tmp211826.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp211826, i64 16
-  store ptr %itNearBegin.sroa.55.1, ptr %agg.tmp211.sroa.3.0.agg.tmp211826.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.8, ptr %agg.tmp211.sroa.3.0.agg.tmp211826.sroa_idx, align 8
   %agg.tmp211.sroa.4.0.agg.tmp211826.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp211826, i64 24
-  store ptr %itNearBegin.sroa.75.1, ptr %agg.tmp211.sroa.4.0.agg.tmp211826.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.8, ptr %agg.tmp211.sroa.4.0.agg.tmp211826.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i.i827), !noalias !1733
   store i32 4, ptr %ref.tmp.i.i827, align 4, !noalias !1736
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj32768EE14DoInsertValuesENS_13DequeIteratorIiPKiRS4_Lj32768EEEmS6_(ptr nonnull sret(%"struct.eastl::DequeIterator.96") align 8 %ref.tmp210, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.101") align 8 %agg.tmp211826, i64 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp.i.i827)
@@ -46870,9 +46870,9 @@ if.else.i.i.i1142:                                ; preds = %invoke.cont269
   br label %invoke.cont272
 
 invoke.cont272:                                   ; preds = %if.else.i.i.i1142, %if.then.i.i.i1154
-  %itNearBegin.sroa.35.2 = phi ptr [ %203, %if.then.i.i.i1154 ], [ %206, %if.else.i.i.i1142 ]
-  %itNearBegin.sroa.55.2 = phi ptr [ %205, %if.then.i.i.i1154 ], [ %add.ptr.i.i.i.i1148, %if.else.i.i.i1142 ]
-  %itNearBegin.sroa.75.2 = phi ptr [ %204, %if.then.i.i.i1154 ], [ %add.ptr4.i.i.i1147, %if.else.i.i.i1142 ]
+  %itNearBegin.sroa.35.9 = phi ptr [ %203, %if.then.i.i.i1154 ], [ %206, %if.else.i.i.i1142 ]
+  %itNearBegin.sroa.55.9 = phi ptr [ %205, %if.then.i.i.i1154 ], [ %add.ptr.i.i.i.i1148, %if.else.i.i.i1142 ]
+  %itNearBegin.sroa.75.9 = phi ptr [ %204, %if.then.i.i.i1154 ], [ %add.ptr4.i.i.i1147, %if.else.i.i.i1142 ]
   %storemerge.i.i.i1153 = phi ptr [ %add.ptr.i.i.i1155, %if.then.i.i.i1154 ], [ %add.ptr7.i.i.i1152, %if.else.i.i.i1142 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1778)
   %207 = load ptr, ptr %valueList, align 8, !noalias !1778
@@ -46881,11 +46881,11 @@ invoke.cont272:                                   ; preds = %if.else.i.i.i1142, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2741163)
   store ptr %storemerge.i.i.i1153, ptr %agg.tmp2741163, align 8
   %agg.tmp274.sroa.2.0.agg.tmp2741163.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2741163, i64 8
-  store ptr %itNearBegin.sroa.35.2, ptr %agg.tmp274.sroa.2.0.agg.tmp2741163.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.9, ptr %agg.tmp274.sroa.2.0.agg.tmp2741163.sroa_idx, align 8
   %agg.tmp274.sroa.3.0.agg.tmp2741163.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2741163, i64 16
-  store ptr %itNearBegin.sroa.55.2, ptr %agg.tmp274.sroa.3.0.agg.tmp2741163.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.9, ptr %agg.tmp274.sroa.3.0.agg.tmp2741163.sroa_idx, align 8
   %agg.tmp274.sroa.4.0.agg.tmp2741163.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2741163, i64 24
-  store ptr %itNearBegin.sroa.75.2, ptr %agg.tmp274.sroa.4.0.agg.tmp2741163.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.9, ptr %agg.tmp274.sroa.4.0.agg.tmp2741163.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj32768EE20DoInsertFromIteratorINS_12ListIteratorIiPiRiEEEENS_13DequeIteratorIiS5_S6_Lj32768EEENS8_IiPKiRSA_Lj32768EEERKT_SG_NS_20forward_iterator_tagE(ptr nonnull sret(%"struct.eastl::DequeIterator.96") align 8 %ref.tmp273, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.101") align 8 %agg.tmp2741163, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp276, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp277)
           to label %invoke.cont278 unwind label %lpad51.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -47115,36 +47115,36 @@ for.cond343.preheader.lr.ph:                      ; preds = %invoke.cont336
 
 for.cond343.preheader:                            ; preds = %for.cond343.preheader.lr.ph, %if.end
   %243 = phi ptr [ %240, %for.cond343.preheader.lr.ph ], [ %245, %if.end ]
-  %itNearBegin.sroa.75.32285 = phi ptr [ %238, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.75.6, %if.end ]
-  %itNearBegin.sroa.55.32284 = phi ptr [ %237, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.55.6, %if.end ]
-  %itNearBegin.sroa.35.32283 = phi ptr [ %242, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.35.6, %if.end ]
-  %itNearBegin.sroa.0.02282 = phi ptr [ %236, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.0.3, %if.end ]
+  %itNearBegin.sroa.75.02285 = phi ptr [ %238, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.75.2, %if.end ]
+  %itNearBegin.sroa.55.02284 = phi ptr [ %237, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.55.2, %if.end ]
+  %itNearBegin.sroa.35.02283 = phi ptr [ %242, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.35.2, %if.end ]
+  %itNearBegin.sroa.0.02282 = phi ptr [ %236, %for.cond343.preheader.lr.ph ], [ %itNearBegin.sroa.0.2, %if.end ]
   br label %for.body347
 
 for.body347:                                      ; preds = %for.cond343.preheader, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355
   %i342.02280 = phi i32 [ 0, %for.cond343.preheader ], [ %inc350, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355 ]
-  %itNearBegin.sroa.75.42279 = phi ptr [ %itNearBegin.sroa.75.32285, %for.cond343.preheader ], [ %itNearBegin.sroa.75.5, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355 ]
-  %itNearBegin.sroa.55.42278 = phi ptr [ %itNearBegin.sroa.55.32284, %for.cond343.preheader ], [ %itNearBegin.sroa.55.5, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355 ]
-  %itNearBegin.sroa.35.42277 = phi ptr [ %itNearBegin.sroa.35.32283, %for.cond343.preheader ], [ %itNearBegin.sroa.35.5, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355 ]
-  %itNearBegin.sroa.0.12276 = phi ptr [ %itNearBegin.sroa.0.02282, %for.cond343.preheader ], [ %itNearBegin.sroa.0.2, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355 ]
+  %itNearBegin.sroa.75.12279 = phi ptr [ %itNearBegin.sroa.75.02285, %for.cond343.preheader ], [ %itNearBegin.sroa.75.10, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355 ]
+  %itNearBegin.sroa.55.12278 = phi ptr [ %itNearBegin.sroa.55.02284, %for.cond343.preheader ], [ %itNearBegin.sroa.55.10, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355 ]
+  %itNearBegin.sroa.35.12277 = phi ptr [ %itNearBegin.sroa.35.02283, %for.cond343.preheader ], [ %itNearBegin.sroa.35.10, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355 ]
+  %itNearBegin.sroa.0.12276 = phi ptr [ %itNearBegin.sroa.0.02282, %for.cond343.preheader ], [ %itNearBegin.sroa.0.7, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355 ]
   %incdec.ptr.i1347 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.12276, i64 4
-  %cmp.i1349 = icmp eq ptr %incdec.ptr.i1347, %itNearBegin.sroa.55.42278
+  %cmp.i1349 = icmp eq ptr %incdec.ptr.i1347, %itNearBegin.sroa.55.12278
   br i1 %cmp.i1349, label %if.then.i1350, label %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355
 
 if.then.i1350:                                    ; preds = %for.body347
-  %incdec.ptr3.i1352 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.42279, i64 8
+  %incdec.ptr3.i1352 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.12279, i64 8
   %244 = load ptr, ptr %incdec.ptr3.i1352, align 8
   %add.ptr.i1354 = getelementptr inbounds i8, ptr %244, i64 131072
   br label %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355
 
 _ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1355: ; preds = %for.body347, %if.then.i1350
-  %itNearBegin.sroa.0.2 = phi ptr [ %244, %if.then.i1350 ], [ %incdec.ptr.i1347, %for.body347 ]
-  %itNearBegin.sroa.35.5 = phi ptr [ %244, %if.then.i1350 ], [ %itNearBegin.sroa.35.42277, %for.body347 ]
-  %itNearBegin.sroa.55.5 = phi ptr [ %add.ptr.i1354, %if.then.i1350 ], [ %itNearBegin.sroa.55.42278, %for.body347 ]
-  %itNearBegin.sroa.75.5 = phi ptr [ %incdec.ptr3.i1352, %if.then.i1350 ], [ %itNearBegin.sroa.75.42279, %for.body347 ]
+  %itNearBegin.sroa.0.7 = phi ptr [ %244, %if.then.i1350 ], [ %incdec.ptr.i1347, %for.body347 ]
+  %itNearBegin.sroa.35.10 = phi ptr [ %244, %if.then.i1350 ], [ %itNearBegin.sroa.35.12277, %for.body347 ]
+  %itNearBegin.sroa.55.10 = phi ptr [ %add.ptr.i1354, %if.then.i1350 ], [ %itNearBegin.sroa.55.12278, %for.body347 ]
+  %itNearBegin.sroa.75.10 = phi ptr [ %incdec.ptr3.i1352, %if.then.i1350 ], [ %itNearBegin.sroa.75.12279, %for.body347 ]
   %inc350 = add nuw nsw i32 %i342.02280, 1
   %cmp344 = icmp ugt i32 %i342.02280, 1
-  %cmp.i1346.not = icmp eq ptr %itNearBegin.sroa.0.2, %243
+  %cmp.i1346.not = icmp eq ptr %itNearBegin.sroa.0.7, %243
   %or.cond = select i1 %cmp344, i1 true, i1 %cmp.i1346.not
   br i1 %or.cond, label %for.end351, label %for.body347, !llvm.loop !1812
 
@@ -47152,10 +47152,10 @@ for.end351:                                       ; preds = %_ZN5eastl13DequeIte
   br i1 %cmp.i1346.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end351
-  store ptr %itNearBegin.sroa.0.2, ptr %agg.tmp355, align 8
-  store ptr %itNearBegin.sroa.35.5, ptr %mpBegin.i1364, align 8
-  store ptr %itNearBegin.sroa.55.5, ptr %mpEnd.i1366, align 8
-  store ptr %itNearBegin.sroa.75.5, ptr %mpCurrentArrayPtr.i1368, align 8
+  store ptr %itNearBegin.sroa.0.7, ptr %agg.tmp355, align 8
+  store ptr %itNearBegin.sroa.35.10, ptr %mpBegin.i1364, align 8
+  store ptr %itNearBegin.sroa.55.10, ptr %mpEnd.i1366, align 8
+  store ptr %itNearBegin.sroa.75.10, ptr %mpCurrentArrayPtr.i1368, align 8
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj32768EE5eraseENS_13DequeIteratorIiPKiRS4_Lj32768EEE(ptr nonnull sret(%"struct.eastl::DequeIterator.96") align 8 %ref.tmp354, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.101") align 8 %agg.tmp355)
           to label %invoke.cont357 unwind label %lpad51.loopexit.split-lp.loopexit
 
@@ -47169,11 +47169,11 @@ invoke.cont357:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont357, %for.end351
   %245 = phi ptr [ %.pre2334, %invoke.cont357 ], [ %243, %for.end351 ]
-  %itNearBegin.sroa.0.3 = phi ptr [ %itNearBegin.sroa.0.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.0.2, %for.end351 ]
-  %itNearBegin.sroa.35.6 = phi ptr [ %itNearBegin.sroa.35.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.35.5, %for.end351 ]
-  %itNearBegin.sroa.55.6 = phi ptr [ %itNearBegin.sroa.55.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.55.5, %for.end351 ]
-  %itNearBegin.sroa.75.6 = phi ptr [ %itNearBegin.sroa.75.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.75.5, %for.end351 ]
-  %cmp.i1338.not = icmp eq ptr %itNearBegin.sroa.0.3, %245
+  %itNearBegin.sroa.0.2 = phi ptr [ %itNearBegin.sroa.0.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.0.7, %for.end351 ]
+  %itNearBegin.sroa.35.2 = phi ptr [ %itNearBegin.sroa.35.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.35.10, %for.end351 ]
+  %itNearBegin.sroa.55.2 = phi ptr [ %itNearBegin.sroa.55.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.55.10, %for.end351 ]
+  %itNearBegin.sroa.75.2 = phi ptr [ %itNearBegin.sroa.75.0.copyload, %invoke.cont357 ], [ %itNearBegin.sroa.75.10, %for.end351 ]
+  %cmp.i1338.not = icmp eq ptr %itNearBegin.sroa.0.2, %245
   br i1 %cmp.i1338.not, label %while.end.loopexit, label %for.cond343.preheader, !llvm.loop !1813
 
 while.end.loopexit:                               ; preds = %if.end
@@ -47232,45 +47232,45 @@ for.cond370.preheader.lr.ph:                      ; preds = %invoke.cont362
   br label %for.cond370.preheader
 
 while.cond365.loopexit:                           ; preds = %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507, %if.end396
-  %itNearBegin.sroa.0.8.lcssa = phi ptr [ %itNearBegin.sroa.0.7, %if.end396 ], [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ]
-  %itNearBegin.sroa.35.11.lcssa = phi ptr [ %itNearBegin.sroa.35.10, %if.end396 ], [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ]
-  %itNearBegin.sroa.55.11.lcssa = phi ptr [ %itNearBegin.sroa.55.10, %if.end396 ], [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ]
-  %itNearBegin.sroa.75.11.lcssa = phi ptr [ %itNearBegin.sroa.75.10, %if.end396 ], [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ]
-  %cmp.i1405.not = icmp eq ptr %itNearBegin.sroa.0.8.lcssa, %264
+  %itNearBegin.sroa.0.6.lcssa = phi ptr [ %itNearBegin.sroa.0.5, %if.end396 ], [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ]
+  %itNearBegin.sroa.35.6.lcssa = phi ptr [ %itNearBegin.sroa.35.5, %if.end396 ], [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ]
+  %itNearBegin.sroa.55.6.lcssa = phi ptr [ %itNearBegin.sroa.55.5, %if.end396 ], [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ]
+  %itNearBegin.sroa.75.6.lcssa = phi ptr [ %itNearBegin.sroa.75.5, %if.end396 ], [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ]
+  %cmp.i1405.not = icmp eq ptr %itNearBegin.sroa.0.6.lcssa, %264
   br i1 %cmp.i1405.not, label %while.end409, label %for.cond370.preheader, !llvm.loop !1817
 
 for.cond370.preheader:                            ; preds = %for.cond370.preheader.lr.ph, %while.cond365.loopexit
   %251 = phi ptr [ %247, %for.cond370.preheader.lr.ph ], [ %264, %while.cond365.loopexit ]
-  %itNearBegin.sroa.75.72305 = phi ptr [ %248, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.75.11.lcssa, %while.cond365.loopexit ]
-  %itNearBegin.sroa.55.72304 = phi ptr [ %249, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.55.11.lcssa, %while.cond365.loopexit ]
-  %itNearBegin.sroa.35.72303 = phi ptr [ %250, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.35.11.lcssa, %while.cond365.loopexit ]
-  %itNearBegin.sroa.0.42302 = phi ptr [ %246, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.0.8.lcssa, %while.cond365.loopexit ]
+  %itNearBegin.sroa.75.32305 = phi ptr [ %248, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.75.6.lcssa, %while.cond365.loopexit ]
+  %itNearBegin.sroa.55.32304 = phi ptr [ %249, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.55.6.lcssa, %while.cond365.loopexit ]
+  %itNearBegin.sroa.35.32303 = phi ptr [ %250, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.35.6.lcssa, %while.cond365.loopexit ]
+  %itNearBegin.sroa.0.32302 = phi ptr [ %246, %for.cond370.preheader.lr.ph ], [ %itNearBegin.sroa.0.6.lcssa, %while.cond365.loopexit ]
   br label %for.body376
 
 for.body376:                                      ; preds = %for.cond370.preheader, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428
   %numElementsToErase.02290 = phi i64 [ 0, %for.cond370.preheader ], [ %inc379, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428 ]
-  %itNearBegin.sroa.75.82289 = phi ptr [ %itNearBegin.sroa.75.72305, %for.cond370.preheader ], [ %itNearBegin.sroa.75.9, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428 ]
-  %itNearBegin.sroa.55.82288 = phi ptr [ %itNearBegin.sroa.55.72304, %for.cond370.preheader ], [ %itNearBegin.sroa.55.9, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428 ]
-  %itNearBegin.sroa.35.82287 = phi ptr [ %itNearBegin.sroa.35.72303, %for.cond370.preheader ], [ %itNearBegin.sroa.35.9, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428 ]
-  %itNearBegin.sroa.0.52286 = phi ptr [ %itNearBegin.sroa.0.42302, %for.cond370.preheader ], [ %itNearBegin.sroa.0.6, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428 ]
-  %incdec.ptr.i1420 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.52286, i64 4
-  %cmp.i1422 = icmp eq ptr %incdec.ptr.i1420, %itNearBegin.sroa.55.82288
+  %itNearBegin.sroa.75.42289 = phi ptr [ %itNearBegin.sroa.75.32305, %for.cond370.preheader ], [ %itNearBegin.sroa.75.11, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428 ]
+  %itNearBegin.sroa.55.42288 = phi ptr [ %itNearBegin.sroa.55.32304, %for.cond370.preheader ], [ %itNearBegin.sroa.55.11, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428 ]
+  %itNearBegin.sroa.35.42287 = phi ptr [ %itNearBegin.sroa.35.32303, %for.cond370.preheader ], [ %itNearBegin.sroa.35.11, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428 ]
+  %itNearBegin.sroa.0.42286 = phi ptr [ %itNearBegin.sroa.0.32302, %for.cond370.preheader ], [ %itNearBegin.sroa.0.8, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428 ]
+  %incdec.ptr.i1420 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.42286, i64 4
+  %cmp.i1422 = icmp eq ptr %incdec.ptr.i1420, %itNearBegin.sroa.55.42288
   br i1 %cmp.i1422, label %if.then.i1423, label %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428
 
 if.then.i1423:                                    ; preds = %for.body376
-  %incdec.ptr3.i1425 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.82289, i64 8
+  %incdec.ptr3.i1425 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.42289, i64 8
   %252 = load ptr, ptr %incdec.ptr3.i1425, align 8
   %add.ptr.i1427 = getelementptr inbounds i8, ptr %252, i64 131072
   br label %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428
 
 _ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1428: ; preds = %for.body376, %if.then.i1423
-  %itNearBegin.sroa.0.6 = phi ptr [ %252, %if.then.i1423 ], [ %incdec.ptr.i1420, %for.body376 ]
-  %itNearBegin.sroa.35.9 = phi ptr [ %252, %if.then.i1423 ], [ %itNearBegin.sroa.35.82287, %for.body376 ]
-  %itNearBegin.sroa.55.9 = phi ptr [ %add.ptr.i1427, %if.then.i1423 ], [ %itNearBegin.sroa.55.82288, %for.body376 ]
-  %itNearBegin.sroa.75.9 = phi ptr [ %incdec.ptr3.i1425, %if.then.i1423 ], [ %itNearBegin.sroa.75.82289, %for.body376 ]
+  %itNearBegin.sroa.0.8 = phi ptr [ %252, %if.then.i1423 ], [ %incdec.ptr.i1420, %for.body376 ]
+  %itNearBegin.sroa.35.11 = phi ptr [ %252, %if.then.i1423 ], [ %itNearBegin.sroa.35.42287, %for.body376 ]
+  %itNearBegin.sroa.55.11 = phi ptr [ %add.ptr.i1427, %if.then.i1423 ], [ %itNearBegin.sroa.55.42288, %for.body376 ]
+  %itNearBegin.sroa.75.11 = phi ptr [ %incdec.ptr3.i1425, %if.then.i1423 ], [ %itNearBegin.sroa.75.42289, %for.body376 ]
   %inc379 = add nuw nsw i64 %numElementsToErase.02290, 1
   %cmp371 = icmp ugt i64 %numElementsToErase.02290, 20
-  %cmp.i1419.not = icmp eq ptr %itNearBegin.sroa.0.6, %251
+  %cmp.i1419.not = icmp eq ptr %itNearBegin.sroa.0.8, %251
   %or.cond2212 = select i1 %cmp371, i1 true, i1 %cmp.i1419.not
   br i1 %or.cond2212, label %for.end380, label %for.body376, !llvm.loop !1818
 
@@ -47283,14 +47283,14 @@ if.then383:                                       ; preds = %for.end380
   %255 = load ptr, ptr %mpBegin.i12.i.i.i, align 8
   %256 = load ptr, ptr %mpEnd.i.i.i.i, align 8
   %257 = load ptr, ptr %mItBegin.i.i, align 8
-  store ptr %itNearBegin.sroa.0.42302, ptr %agg.tmp386, align 8
-  store ptr %itNearBegin.sroa.35.72303, ptr %mpBegin.i1458, align 8
-  store ptr %itNearBegin.sroa.55.72304, ptr %mpEnd.i1460, align 8
-  store ptr %itNearBegin.sroa.75.72305, ptr %mpCurrentArrayPtr.i1462, align 8
-  store ptr %itNearBegin.sroa.0.6, ptr %agg.tmp388, align 8
-  store ptr %itNearBegin.sroa.35.9, ptr %mpBegin.i1464, align 8
-  store ptr %itNearBegin.sroa.55.9, ptr %mpEnd.i1466, align 8
-  store ptr %itNearBegin.sroa.75.9, ptr %mpCurrentArrayPtr.i1468, align 8
+  store ptr %itNearBegin.sroa.0.32302, ptr %agg.tmp386, align 8
+  store ptr %itNearBegin.sroa.35.32303, ptr %mpBegin.i1458, align 8
+  store ptr %itNearBegin.sroa.55.32304, ptr %mpEnd.i1460, align 8
+  store ptr %itNearBegin.sroa.75.32305, ptr %mpCurrentArrayPtr.i1462, align 8
+  store ptr %itNearBegin.sroa.0.8, ptr %agg.tmp388, align 8
+  store ptr %itNearBegin.sroa.35.11, ptr %mpBegin.i1464, align 8
+  store ptr %itNearBegin.sroa.55.11, ptr %mpEnd.i1466, align 8
+  store ptr %itNearBegin.sroa.75.11, ptr %mpCurrentArrayPtr.i1468, align 8
   invoke void @_ZN5eastl5dequeIiNS_9allocatorELj32768EE5eraseENS_13DequeIteratorIiPKiRS4_Lj32768EEES7_(ptr nonnull sret(%"struct.eastl::DequeIterator.96") align 8 %ref.tmp385, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.101") align 8 %agg.tmp386, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.101") align 8 %agg.tmp388)
           to label %invoke.cont390 unwind label %lpad51.loopexit
 
@@ -47346,34 +47346,34 @@ invoke.cont390.if.end396_crit_edge:               ; preds = %invoke.cont390
 
 if.end396:                                        ; preds = %invoke.cont390.if.end396_crit_edge, %for.end380
   %264 = phi ptr [ %.pre2340, %invoke.cont390.if.end396_crit_edge ], [ %251, %for.end380 ]
-  %itNearBegin.sroa.0.7 = phi ptr [ %itNearBegin.sroa.0.0.copyload2175, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.0.6, %for.end380 ]
-  %itNearBegin.sroa.35.10 = phi ptr [ %itNearBegin.sroa.35.0.copyload2176, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.35.9, %for.end380 ]
-  %itNearBegin.sroa.55.10 = phi ptr [ %itNearBegin.sroa.55.0.copyload2185, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.55.9, %for.end380 ]
-  %itNearBegin.sroa.75.10 = phi ptr [ %itNearBegin.sroa.75.0.copyload2194, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.75.9, %for.end380 ]
-  %cmp.i1498.not2291 = icmp eq ptr %itNearBegin.sroa.0.7, %264
+  %itNearBegin.sroa.0.5 = phi ptr [ %itNearBegin.sroa.0.0.copyload2175, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.0.8, %for.end380 ]
+  %itNearBegin.sroa.35.5 = phi ptr [ %itNearBegin.sroa.35.0.copyload2176, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.35.11, %for.end380 ]
+  %itNearBegin.sroa.55.5 = phi ptr [ %itNearBegin.sroa.55.0.copyload2185, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.55.11, %for.end380 ]
+  %itNearBegin.sroa.75.5 = phi ptr [ %itNearBegin.sroa.75.0.copyload2194, %invoke.cont390.if.end396_crit_edge ], [ %itNearBegin.sroa.75.11, %for.end380 ]
+  %cmp.i1498.not2291 = icmp eq ptr %itNearBegin.sroa.0.5, %264
   br i1 %cmp.i1498.not2291, label %while.cond365.loopexit, label %for.body404
 
 for.body404:                                      ; preds = %if.end396, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507
   %i397.02296 = phi i32 [ %inc407, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ], [ 0, %if.end396 ]
-  %itNearBegin.sroa.75.112295 = phi ptr [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ], [ %itNearBegin.sroa.75.10, %if.end396 ]
-  %itNearBegin.sroa.55.112294 = phi ptr [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ], [ %itNearBegin.sroa.55.10, %if.end396 ]
-  %itNearBegin.sroa.35.112293 = phi ptr [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ], [ %itNearBegin.sroa.35.10, %if.end396 ]
-  %itNearBegin.sroa.0.82292 = phi ptr [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ], [ %itNearBegin.sroa.0.7, %if.end396 ]
-  %incdec.ptr.i1499 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.82292, i64 4
-  %cmp.i1501 = icmp eq ptr %incdec.ptr.i1499, %itNearBegin.sroa.55.112294
+  %itNearBegin.sroa.75.62295 = phi ptr [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ], [ %itNearBegin.sroa.75.5, %if.end396 ]
+  %itNearBegin.sroa.55.62294 = phi ptr [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ], [ %itNearBegin.sroa.55.5, %if.end396 ]
+  %itNearBegin.sroa.35.62293 = phi ptr [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ], [ %itNearBegin.sroa.35.5, %if.end396 ]
+  %itNearBegin.sroa.0.62292 = phi ptr [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507 ], [ %itNearBegin.sroa.0.5, %if.end396 ]
+  %incdec.ptr.i1499 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.62292, i64 4
+  %cmp.i1501 = icmp eq ptr %incdec.ptr.i1499, %itNearBegin.sroa.55.62294
   br i1 %cmp.i1501, label %if.then.i1502, label %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507
 
 if.then.i1502:                                    ; preds = %for.body404
-  %incdec.ptr3.i1504 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.112295, i64 8
+  %incdec.ptr3.i1504 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.62295, i64 8
   %265 = load ptr, ptr %incdec.ptr3.i1504, align 8
   %add.ptr.i1506 = getelementptr inbounds i8, ptr %265, i64 131072
   br label %_ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507
 
 _ZN5eastl13DequeIteratorIiPiRiLj32768EEppEv.exit1507: ; preds = %for.body404, %if.then.i1502
   %itNearBegin.sroa.0.9 = phi ptr [ %265, %if.then.i1502 ], [ %incdec.ptr.i1499, %for.body404 ]
-  %itNearBegin.sroa.35.12 = phi ptr [ %265, %if.then.i1502 ], [ %itNearBegin.sroa.35.112293, %for.body404 ]
-  %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i1506, %if.then.i1502 ], [ %itNearBegin.sroa.55.112294, %for.body404 ]
-  %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i1504, %if.then.i1502 ], [ %itNearBegin.sroa.75.112295, %for.body404 ]
+  %itNearBegin.sroa.35.12 = phi ptr [ %265, %if.then.i1502 ], [ %itNearBegin.sroa.35.62293, %for.body404 ]
+  %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i1506, %if.then.i1502 ], [ %itNearBegin.sroa.55.62294, %for.body404 ]
+  %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i1504, %if.then.i1502 ], [ %itNearBegin.sroa.75.62295, %for.body404 ]
   %inc407 = add nuw nsw i32 %i397.02296, 1
   %cmp399 = icmp ugt i32 %i397.02296, 15
   %cmp.i1498.not = icmp eq ptr %itNearBegin.sroa.0.9, %264
@@ -49208,9 +49208,9 @@ if.else.i.i.i:                                    ; preds = %invoke.cont126
   br label %invoke.cont129
 
 invoke.cont129:                                   ; preds = %if.then.i.i.i484, %if.else.i.i.i
-  %itNearBegin.sroa.35.0 = phi ptr [ %177, %if.then.i.i.i484 ], [ %180, %if.else.i.i.i ]
-  %itNearBegin.sroa.55.0 = phi ptr [ %179, %if.then.i.i.i484 ], [ %add.ptr.i.i.i.i, %if.else.i.i.i ]
-  %itNearBegin.sroa.75.0 = phi ptr [ %178, %if.then.i.i.i484 ], [ %add.ptr4.i.i.i, %if.else.i.i.i ]
+  %itNearBegin.sroa.35.7 = phi ptr [ %177, %if.then.i.i.i484 ], [ %180, %if.else.i.i.i ]
+  %itNearBegin.sroa.55.7 = phi ptr [ %179, %if.then.i.i.i484 ], [ %add.ptr.i.i.i.i, %if.else.i.i.i ]
+  %itNearBegin.sroa.75.7 = phi ptr [ %178, %if.then.i.i.i484 ], [ %add.ptr4.i.i.i, %if.else.i.i.i ]
   %storemerge.i.i.i = phi ptr [ %add.ptr.i.i.i485, %if.then.i.i.i484 ], [ %add.ptr7.i.i.i, %if.else.i.i.i ]
   %add.i493 = add nsw i64 %sub.ptr.div.i.i.i, 3
   %add2.i494 = add nsw i64 %sub.ptr.div.i.i.i, 16777219
@@ -49243,11 +49243,11 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %invoke.cont129, %if
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp133513)
   store ptr %storemerge.i.i.i, ptr %agg.tmp133513, align 8
   %agg.tmp133.sroa.2.0.agg.tmp133513.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp133513, i64 8
-  store ptr %itNearBegin.sroa.35.0, ptr %agg.tmp133.sroa.2.0.agg.tmp133513.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.7, ptr %agg.tmp133.sroa.2.0.agg.tmp133513.sroa_idx, align 8
   %agg.tmp133.sroa.3.0.agg.tmp133513.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp133513, i64 16
-  store ptr %itNearBegin.sroa.55.0, ptr %agg.tmp133.sroa.3.0.agg.tmp133513.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.7, ptr %agg.tmp133.sroa.3.0.agg.tmp133513.sroa_idx, align 8
   %agg.tmp133.sroa.4.0.agg.tmp133513.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp133513, i64 24
-  store ptr %itNearBegin.sroa.75.0, ptr %agg.tmp133.sroa.4.0.agg.tmp133513.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.7, ptr %agg.tmp133.sroa.4.0.agg.tmp133513.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj8EE7emplaceIJRKS1_EEENS_13DequeIteratorIS1_PS1_RS1_Lj8EEENS7_IS1_PS5_S6_Lj8EEEDpOT_(ptr nonnull sret(%"struct.eastl::DequeIterator.5") align 8 %ref.tmp132, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.9") align 8 %agg.tmp133513, ptr noundef nonnull align 8 dereferenceable(20) %value)
           to label %invoke.cont135 unwind label %lpad112
 
@@ -49896,9 +49896,9 @@ if.else.i.i.i1064:                                ; preds = %for.end238
   br label %invoke.cont240
 
 invoke.cont240:                                   ; preds = %if.else.i.i.i1064, %if.then.i.i.i1076
-  %itNearBegin.sroa.35.1 = phi ptr [ %309, %if.then.i.i.i1076 ], [ %310, %if.else.i.i.i1064 ]
-  %itNearBegin.sroa.55.1 = phi ptr [ %290, %if.then.i.i.i1076 ], [ %add.ptr.i.i.i.i1070, %if.else.i.i.i1064 ]
-  %itNearBegin.sroa.75.1 = phi ptr [ %287, %if.then.i.i.i1076 ], [ %add.ptr4.i.i.i1069, %if.else.i.i.i1064 ]
+  %itNearBegin.sroa.35.8 = phi ptr [ %309, %if.then.i.i.i1076 ], [ %310, %if.else.i.i.i1064 ]
+  %itNearBegin.sroa.55.8 = phi ptr [ %290, %if.then.i.i.i1076 ], [ %add.ptr.i.i.i.i1070, %if.else.i.i.i1064 ]
+  %itNearBegin.sroa.75.8 = phi ptr [ %287, %if.then.i.i.i1076 ], [ %add.ptr4.i.i.i1069, %if.else.i.i.i1064 ]
   %storemerge.i.i.i1075 = phi ptr [ %add.ptr.i.i.i1077, %if.then.i.i.i1076 ], [ %add.ptr7.i.i.i1074, %if.else.i.i.i1064 ]
   store i32 4, ptr %ref.tmp244, align 8
   %mbThrowOnCopy.i1085 = getelementptr inbounds i8, ptr %ref.tmp244, i64 4
@@ -49919,11 +49919,11 @@ invoke.cont240:                                   ; preds = %if.else.i.i.i1064, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2421091)
   store ptr %storemerge.i.i.i1075, ptr %agg.tmp2421091, align 8
   %agg.tmp242.sroa.2.0.agg.tmp2421091.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2421091, i64 8
-  store ptr %itNearBegin.sroa.35.1, ptr %agg.tmp242.sroa.2.0.agg.tmp2421091.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.8, ptr %agg.tmp242.sroa.2.0.agg.tmp2421091.sroa_idx, align 8
   %agg.tmp242.sroa.3.0.agg.tmp2421091.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2421091, i64 16
-  store ptr %itNearBegin.sroa.55.1, ptr %agg.tmp242.sroa.3.0.agg.tmp2421091.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.8, ptr %agg.tmp242.sroa.3.0.agg.tmp2421091.sroa_idx, align 8
   %agg.tmp242.sroa.4.0.agg.tmp2421091.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2421091, i64 24
-  store ptr %itNearBegin.sroa.75.1, ptr %agg.tmp242.sroa.4.0.agg.tmp2421091.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.8, ptr %agg.tmp242.sroa.4.0.agg.tmp2421091.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj8EE14DoInsertValuesENS_13DequeIteratorIS1_PKS1_RS5_Lj8EEEmS7_(ptr nonnull sret(%"struct.eastl::DequeIterator.5") align 8 %ref.tmp241, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.9") align 8 %agg.tmp2421091, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp244)
           to label %invoke.cont247 unwind label %lpad246
 
@@ -50430,9 +50430,9 @@ if.else.i.i.i1499:                                ; preds = %_ZN10TestObjectD2Ev
   br label %invoke.cont359
 
 invoke.cont359:                                   ; preds = %if.else.i.i.i1499, %if.then.i.i.i1511
-  %itNearBegin.sroa.35.2 = phi ptr [ %370, %if.then.i.i.i1511 ], [ %373, %if.else.i.i.i1499 ]
-  %itNearBegin.sroa.55.2 = phi ptr [ %372, %if.then.i.i.i1511 ], [ %add.ptr.i.i.i.i1505, %if.else.i.i.i1499 ]
-  %itNearBegin.sroa.75.2 = phi ptr [ %371, %if.then.i.i.i1511 ], [ %add.ptr4.i.i.i1504, %if.else.i.i.i1499 ]
+  %itNearBegin.sroa.35.9 = phi ptr [ %370, %if.then.i.i.i1511 ], [ %373, %if.else.i.i.i1499 ]
+  %itNearBegin.sroa.55.9 = phi ptr [ %372, %if.then.i.i.i1511 ], [ %add.ptr.i.i.i.i1505, %if.else.i.i.i1499 ]
+  %itNearBegin.sroa.75.9 = phi ptr [ %371, %if.then.i.i.i1511 ], [ %add.ptr4.i.i.i1504, %if.else.i.i.i1499 ]
   %storemerge.i.i.i1510 = phi ptr [ %add.ptr.i.i.i1512, %if.then.i.i.i1511 ], [ %add.ptr7.i.i.i1509, %if.else.i.i.i1499 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1978)
   %374 = load ptr, ptr %valueList, align 8, !noalias !1978
@@ -50441,11 +50441,11 @@ invoke.cont359:                                   ; preds = %if.else.i.i.i1499, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp3611520)
   store ptr %storemerge.i.i.i1510, ptr %agg.tmp3611520, align 8
   %agg.tmp361.sroa.2.0.agg.tmp3611520.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3611520, i64 8
-  store ptr %itNearBegin.sroa.35.2, ptr %agg.tmp361.sroa.2.0.agg.tmp3611520.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.9, ptr %agg.tmp361.sroa.2.0.agg.tmp3611520.sroa_idx, align 8
   %agg.tmp361.sroa.3.0.agg.tmp3611520.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3611520, i64 16
-  store ptr %itNearBegin.sroa.55.2, ptr %agg.tmp361.sroa.3.0.agg.tmp3611520.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.9, ptr %agg.tmp361.sroa.3.0.agg.tmp3611520.sroa_idx, align 8
   %agg.tmp361.sroa.4.0.agg.tmp3611520.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3611520, i64 24
-  store ptr %itNearBegin.sroa.75.2, ptr %agg.tmp361.sroa.4.0.agg.tmp3611520.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.9, ptr %agg.tmp361.sroa.4.0.agg.tmp3611520.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj8EE20DoInsertFromIteratorINS_12ListIteratorIS1_PS1_RS1_EEEENS_13DequeIteratorIS1_S6_S7_Lj8EEENS9_IS1_PKS1_RSB_Lj8EEERKT_SH_NS_20forward_iterator_tagE(ptr nonnull sret(%"struct.eastl::DequeIterator.5") align 8 %ref.tmp360, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.9") align 8 %agg.tmp3611520, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp363, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp364)
           to label %invoke.cont365 unwind label %lpad112
 
@@ -51022,36 +51022,36 @@ for.cond480.preheader.lr.ph:                      ; preds = %invoke.cont473
 
 for.cond480.preheader:                            ; preds = %for.cond480.preheader.lr.ph, %if.end
   %457 = phi ptr [ %454, %for.cond480.preheader.lr.ph ], [ %477, %if.end ]
-  %itNearBegin.sroa.75.33097 = phi ptr [ %452, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.75.6, %if.end ]
-  %itNearBegin.sroa.55.33096 = phi ptr [ %451, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.55.6, %if.end ]
-  %itNearBegin.sroa.35.33095 = phi ptr [ %456, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.35.6, %if.end ]
-  %itNearBegin.sroa.0.03094 = phi ptr [ %450, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.0.3, %if.end ]
+  %itNearBegin.sroa.75.03097 = phi ptr [ %452, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.75.2, %if.end ]
+  %itNearBegin.sroa.55.03096 = phi ptr [ %451, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.55.2, %if.end ]
+  %itNearBegin.sroa.35.03095 = phi ptr [ %456, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.35.2, %if.end ]
+  %itNearBegin.sroa.0.03094 = phi ptr [ %450, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.0.2, %if.end ]
   br label %for.body484
 
 for.body484:                                      ; preds = %for.cond480.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893
   %i479.03092 = phi i32 [ 0, %for.cond480.preheader ], [ %inc487, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893 ]
-  %itNearBegin.sroa.75.43091 = phi ptr [ %itNearBegin.sroa.75.33097, %for.cond480.preheader ], [ %itNearBegin.sroa.75.5, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893 ]
-  %itNearBegin.sroa.55.43090 = phi ptr [ %itNearBegin.sroa.55.33096, %for.cond480.preheader ], [ %itNearBegin.sroa.55.5, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893 ]
-  %itNearBegin.sroa.35.43089 = phi ptr [ %itNearBegin.sroa.35.33095, %for.cond480.preheader ], [ %itNearBegin.sroa.35.5, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893 ]
-  %itNearBegin.sroa.0.13088 = phi ptr [ %itNearBegin.sroa.0.03094, %for.cond480.preheader ], [ %itNearBegin.sroa.0.2, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893 ]
+  %itNearBegin.sroa.75.13091 = phi ptr [ %itNearBegin.sroa.75.03097, %for.cond480.preheader ], [ %itNearBegin.sroa.75.10, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893 ]
+  %itNearBegin.sroa.55.13090 = phi ptr [ %itNearBegin.sroa.55.03096, %for.cond480.preheader ], [ %itNearBegin.sroa.55.10, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893 ]
+  %itNearBegin.sroa.35.13089 = phi ptr [ %itNearBegin.sroa.35.03095, %for.cond480.preheader ], [ %itNearBegin.sroa.35.10, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893 ]
+  %itNearBegin.sroa.0.13088 = phi ptr [ %itNearBegin.sroa.0.03094, %for.cond480.preheader ], [ %itNearBegin.sroa.0.7, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893 ]
   %incdec.ptr.i1885 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.13088, i64 24
-  %cmp.i1887 = icmp eq ptr %incdec.ptr.i1885, %itNearBegin.sroa.55.43090
+  %cmp.i1887 = icmp eq ptr %incdec.ptr.i1885, %itNearBegin.sroa.55.13090
   br i1 %cmp.i1887, label %if.then.i1888, label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893
 
 if.then.i1888:                                    ; preds = %for.body484
-  %incdec.ptr3.i1890 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.43091, i64 8
+  %incdec.ptr3.i1890 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.13091, i64 8
   %458 = load ptr, ptr %incdec.ptr3.i1890, align 8
   %add.ptr.i1892 = getelementptr inbounds i8, ptr %458, i64 192
   br label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893
 
 _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit1893: ; preds = %for.body484, %if.then.i1888
-  %itNearBegin.sroa.0.2 = phi ptr [ %458, %if.then.i1888 ], [ %incdec.ptr.i1885, %for.body484 ]
-  %itNearBegin.sroa.35.5 = phi ptr [ %458, %if.then.i1888 ], [ %itNearBegin.sroa.35.43089, %for.body484 ]
-  %itNearBegin.sroa.55.5 = phi ptr [ %add.ptr.i1892, %if.then.i1888 ], [ %itNearBegin.sroa.55.43090, %for.body484 ]
-  %itNearBegin.sroa.75.5 = phi ptr [ %incdec.ptr3.i1890, %if.then.i1888 ], [ %itNearBegin.sroa.75.43091, %for.body484 ]
+  %itNearBegin.sroa.0.7 = phi ptr [ %458, %if.then.i1888 ], [ %incdec.ptr.i1885, %for.body484 ]
+  %itNearBegin.sroa.35.10 = phi ptr [ %458, %if.then.i1888 ], [ %itNearBegin.sroa.35.13089, %for.body484 ]
+  %itNearBegin.sroa.55.10 = phi ptr [ %add.ptr.i1892, %if.then.i1888 ], [ %itNearBegin.sroa.55.13090, %for.body484 ]
+  %itNearBegin.sroa.75.10 = phi ptr [ %incdec.ptr3.i1890, %if.then.i1888 ], [ %itNearBegin.sroa.75.13091, %for.body484 ]
   %inc487 = add nuw nsw i32 %i479.03092, 1
   %cmp481 = icmp ugt i32 %i479.03092, 1
-  %cmp.i1884.not = icmp eq ptr %itNearBegin.sroa.0.2, %457
+  %cmp.i1884.not = icmp eq ptr %itNearBegin.sroa.0.7, %457
   %or.cond = select i1 %cmp481, i1 true, i1 %cmp.i1884.not
   br i1 %or.cond, label %for.end488, label %for.body484, !llvm.loop !2006
 
@@ -51186,10 +51186,10 @@ for.end488:                                       ; preds = %_ZN5eastl13DequeIte
   br i1 %cmp.i1884.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end488
-  store ptr %itNearBegin.sroa.0.2, ptr %agg.tmp492, align 8
-  store ptr %itNearBegin.sroa.35.5, ptr %mpBegin.i1944, align 8
-  store ptr %itNearBegin.sroa.55.5, ptr %mpEnd.i1946, align 8
-  store ptr %itNearBegin.sroa.75.5, ptr %mpCurrentArrayPtr.i1948, align 8
+  store ptr %itNearBegin.sroa.0.7, ptr %agg.tmp492, align 8
+  store ptr %itNearBegin.sroa.35.10, ptr %mpBegin.i1944, align 8
+  store ptr %itNearBegin.sroa.55.10, ptr %mpEnd.i1946, align 8
+  store ptr %itNearBegin.sroa.75.10, ptr %mpCurrentArrayPtr.i1948, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj8EE5eraseENS_13DequeIteratorIS1_PKS1_RS5_Lj8EEE(ptr nonnull sret(%"struct.eastl::DequeIterator.5") align 8 %ref.tmp491, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.9") align 8 %agg.tmp492)
           to label %invoke.cont494 unwind label %lpad452.loopexit.split-lp.loopexit
 
@@ -51203,11 +51203,11 @@ invoke.cont494:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont494, %for.end488
   %477 = phi ptr [ %.pre3156, %invoke.cont494 ], [ %457, %for.end488 ]
-  %itNearBegin.sroa.0.3 = phi ptr [ %itNearBegin.sroa.0.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.0.2, %for.end488 ]
-  %itNearBegin.sroa.35.6 = phi ptr [ %itNearBegin.sroa.35.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.35.5, %for.end488 ]
-  %itNearBegin.sroa.55.6 = phi ptr [ %itNearBegin.sroa.55.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.55.5, %for.end488 ]
-  %itNearBegin.sroa.75.6 = phi ptr [ %itNearBegin.sroa.75.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.75.5, %for.end488 ]
-  %cmp.i1876.not = icmp eq ptr %itNearBegin.sroa.0.3, %477
+  %itNearBegin.sroa.0.2 = phi ptr [ %itNearBegin.sroa.0.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.0.7, %for.end488 ]
+  %itNearBegin.sroa.35.2 = phi ptr [ %itNearBegin.sroa.35.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.35.10, %for.end488 ]
+  %itNearBegin.sroa.55.2 = phi ptr [ %itNearBegin.sroa.55.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.55.10, %for.end488 ]
+  %itNearBegin.sroa.75.2 = phi ptr [ %itNearBegin.sroa.75.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.75.10, %for.end488 ]
+  %cmp.i1876.not = icmp eq ptr %itNearBegin.sroa.0.2, %477
   br i1 %cmp.i1876.not, label %while.end.loopexit, label %for.cond480.preheader, !llvm.loop !2007
 
 while.end.loopexit:                               ; preds = %if.end
@@ -51266,45 +51266,45 @@ for.cond507.preheader.lr.ph:                      ; preds = %invoke.cont499
   br label %for.cond507.preheader
 
 while.cond502.loopexit:                           ; preds = %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084, %if.end533
-  %itNearBegin.sroa.0.8.lcssa = phi ptr [ %itNearBegin.sroa.0.7, %if.end533 ], [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ]
-  %itNearBegin.sroa.35.11.lcssa = phi ptr [ %itNearBegin.sroa.35.10, %if.end533 ], [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ]
-  %itNearBegin.sroa.55.11.lcssa = phi ptr [ %itNearBegin.sroa.55.10, %if.end533 ], [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ]
-  %itNearBegin.sroa.75.11.lcssa = phi ptr [ %itNearBegin.sroa.75.10, %if.end533 ], [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ]
-  %cmp.i1984.not = icmp eq ptr %itNearBegin.sroa.0.8.lcssa, %498
+  %itNearBegin.sroa.0.6.lcssa = phi ptr [ %itNearBegin.sroa.0.5, %if.end533 ], [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ]
+  %itNearBegin.sroa.35.6.lcssa = phi ptr [ %itNearBegin.sroa.35.5, %if.end533 ], [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ]
+  %itNearBegin.sroa.55.6.lcssa = phi ptr [ %itNearBegin.sroa.55.5, %if.end533 ], [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ]
+  %itNearBegin.sroa.75.6.lcssa = phi ptr [ %itNearBegin.sroa.75.5, %if.end533 ], [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ]
+  %cmp.i1984.not = icmp eq ptr %itNearBegin.sroa.0.6.lcssa, %498
   br i1 %cmp.i1984.not, label %_ZN13InputIteratorI10TestObjectED2Ev.exit2091, label %for.cond507.preheader, !llvm.loop !2011
 
 for.cond507.preheader:                            ; preds = %for.cond507.preheader.lr.ph, %while.cond502.loopexit
   %483 = phi ptr [ %479, %for.cond507.preheader.lr.ph ], [ %498, %while.cond502.loopexit ]
-  %itNearBegin.sroa.75.73117 = phi ptr [ %480, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.75.11.lcssa, %while.cond502.loopexit ]
-  %itNearBegin.sroa.55.73116 = phi ptr [ %481, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.55.11.lcssa, %while.cond502.loopexit ]
-  %itNearBegin.sroa.35.73115 = phi ptr [ %482, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.35.11.lcssa, %while.cond502.loopexit ]
-  %itNearBegin.sroa.0.43114 = phi ptr [ %478, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.0.8.lcssa, %while.cond502.loopexit ]
+  %itNearBegin.sroa.75.33117 = phi ptr [ %480, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.75.6.lcssa, %while.cond502.loopexit ]
+  %itNearBegin.sroa.55.33116 = phi ptr [ %481, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.55.6.lcssa, %while.cond502.loopexit ]
+  %itNearBegin.sroa.35.33115 = phi ptr [ %482, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.35.6.lcssa, %while.cond502.loopexit ]
+  %itNearBegin.sroa.0.33114 = phi ptr [ %478, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.0.6.lcssa, %while.cond502.loopexit ]
   br label %for.body513
 
 for.body513:                                      ; preds = %for.cond507.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007
   %numElementsToErase.03102 = phi i64 [ 0, %for.cond507.preheader ], [ %inc516, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007 ]
-  %itNearBegin.sroa.75.83101 = phi ptr [ %itNearBegin.sroa.75.73117, %for.cond507.preheader ], [ %itNearBegin.sroa.75.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007 ]
-  %itNearBegin.sroa.55.83100 = phi ptr [ %itNearBegin.sroa.55.73116, %for.cond507.preheader ], [ %itNearBegin.sroa.55.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007 ]
-  %itNearBegin.sroa.35.83099 = phi ptr [ %itNearBegin.sroa.35.73115, %for.cond507.preheader ], [ %itNearBegin.sroa.35.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007 ]
-  %itNearBegin.sroa.0.53098 = phi ptr [ %itNearBegin.sroa.0.43114, %for.cond507.preheader ], [ %itNearBegin.sroa.0.6, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007 ]
-  %incdec.ptr.i1999 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.53098, i64 24
-  %cmp.i2001 = icmp eq ptr %incdec.ptr.i1999, %itNearBegin.sroa.55.83100
+  %itNearBegin.sroa.75.43101 = phi ptr [ %itNearBegin.sroa.75.33117, %for.cond507.preheader ], [ %itNearBegin.sroa.75.11, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007 ]
+  %itNearBegin.sroa.55.43100 = phi ptr [ %itNearBegin.sroa.55.33116, %for.cond507.preheader ], [ %itNearBegin.sroa.55.11, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007 ]
+  %itNearBegin.sroa.35.43099 = phi ptr [ %itNearBegin.sroa.35.33115, %for.cond507.preheader ], [ %itNearBegin.sroa.35.11, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007 ]
+  %itNearBegin.sroa.0.43098 = phi ptr [ %itNearBegin.sroa.0.33114, %for.cond507.preheader ], [ %itNearBegin.sroa.0.8, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007 ]
+  %incdec.ptr.i1999 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.43098, i64 24
+  %cmp.i2001 = icmp eq ptr %incdec.ptr.i1999, %itNearBegin.sroa.55.43100
   br i1 %cmp.i2001, label %if.then.i2002, label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007
 
 if.then.i2002:                                    ; preds = %for.body513
-  %incdec.ptr3.i2004 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.83101, i64 8
+  %incdec.ptr3.i2004 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.43101, i64 8
   %484 = load ptr, ptr %incdec.ptr3.i2004, align 8
   %add.ptr.i2006 = getelementptr inbounds i8, ptr %484, i64 192
   br label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007
 
 _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2007: ; preds = %for.body513, %if.then.i2002
-  %itNearBegin.sroa.0.6 = phi ptr [ %484, %if.then.i2002 ], [ %incdec.ptr.i1999, %for.body513 ]
-  %itNearBegin.sroa.35.9 = phi ptr [ %484, %if.then.i2002 ], [ %itNearBegin.sroa.35.83099, %for.body513 ]
-  %itNearBegin.sroa.55.9 = phi ptr [ %add.ptr.i2006, %if.then.i2002 ], [ %itNearBegin.sroa.55.83100, %for.body513 ]
-  %itNearBegin.sroa.75.9 = phi ptr [ %incdec.ptr3.i2004, %if.then.i2002 ], [ %itNearBegin.sroa.75.83101, %for.body513 ]
+  %itNearBegin.sroa.0.8 = phi ptr [ %484, %if.then.i2002 ], [ %incdec.ptr.i1999, %for.body513 ]
+  %itNearBegin.sroa.35.11 = phi ptr [ %484, %if.then.i2002 ], [ %itNearBegin.sroa.35.43099, %for.body513 ]
+  %itNearBegin.sroa.55.11 = phi ptr [ %add.ptr.i2006, %if.then.i2002 ], [ %itNearBegin.sroa.55.43100, %for.body513 ]
+  %itNearBegin.sroa.75.11 = phi ptr [ %incdec.ptr3.i2004, %if.then.i2002 ], [ %itNearBegin.sroa.75.43101, %for.body513 ]
   %inc516 = add nuw nsw i64 %numElementsToErase.03102, 1
   %cmp508 = icmp ugt i64 %numElementsToErase.03102, 20
-  %cmp.i1998.not = icmp eq ptr %itNearBegin.sroa.0.6, %483
+  %cmp.i1998.not = icmp eq ptr %itNearBegin.sroa.0.8, %483
   %or.cond3009 = select i1 %cmp508, i1 true, i1 %cmp.i1998.not
   br i1 %or.cond3009, label %for.end517, label %for.body513, !llvm.loop !2012
 
@@ -51317,14 +51317,14 @@ if.then520:                                       ; preds = %for.end517
   %487 = load ptr, ptr %mpBegin.i.i, align 8
   %488 = load ptr, ptr %mpEnd.i.i, align 8
   %489 = load ptr, ptr %mItBegin.i, align 8
-  store ptr %itNearBegin.sroa.0.43114, ptr %agg.tmp523, align 8
-  store ptr %itNearBegin.sroa.35.73115, ptr %mpBegin.i2036, align 8
-  store ptr %itNearBegin.sroa.55.73116, ptr %mpEnd.i2038, align 8
-  store ptr %itNearBegin.sroa.75.73117, ptr %mpCurrentArrayPtr.i2040, align 8
-  store ptr %itNearBegin.sroa.0.6, ptr %agg.tmp525, align 8
-  store ptr %itNearBegin.sroa.35.9, ptr %mpBegin.i2042, align 8
-  store ptr %itNearBegin.sroa.55.9, ptr %mpEnd.i2044, align 8
-  store ptr %itNearBegin.sroa.75.9, ptr %mpCurrentArrayPtr.i2046, align 8
+  store ptr %itNearBegin.sroa.0.33114, ptr %agg.tmp523, align 8
+  store ptr %itNearBegin.sroa.35.33115, ptr %mpBegin.i2036, align 8
+  store ptr %itNearBegin.sroa.55.33116, ptr %mpEnd.i2038, align 8
+  store ptr %itNearBegin.sroa.75.33117, ptr %mpCurrentArrayPtr.i2040, align 8
+  store ptr %itNearBegin.sroa.0.8, ptr %agg.tmp525, align 8
+  store ptr %itNearBegin.sroa.35.11, ptr %mpBegin.i2042, align 8
+  store ptr %itNearBegin.sroa.55.11, ptr %mpEnd.i2044, align 8
+  store ptr %itNearBegin.sroa.75.11, ptr %mpCurrentArrayPtr.i2046, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj8EE5eraseENS_13DequeIteratorIS1_PKS1_RS5_Lj8EEES8_(ptr nonnull sret(%"struct.eastl::DequeIterator.5") align 8 %ref.tmp522, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.9") align 8 %agg.tmp523, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.9") align 8 %agg.tmp525)
           to label %invoke.cont527 unwind label %lpad452.loopexit
 
@@ -51378,34 +51378,34 @@ invoke.cont527.if.end533_crit_edge:               ; preds = %invoke.cont527
 
 if.end533:                                        ; preds = %invoke.cont527.if.end533_crit_edge, %for.end517
   %498 = phi ptr [ %.pre3162, %invoke.cont527.if.end533_crit_edge ], [ %483, %for.end517 ]
-  %itNearBegin.sroa.0.7 = phi ptr [ %itNearBegin.sroa.0.0.copyload2962, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.0.6, %for.end517 ]
-  %itNearBegin.sroa.35.10 = phi ptr [ %itNearBegin.sroa.35.0.copyload2963, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.35.9, %for.end517 ]
-  %itNearBegin.sroa.55.10 = phi ptr [ %itNearBegin.sroa.55.0.copyload2972, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.55.9, %for.end517 ]
-  %itNearBegin.sroa.75.10 = phi ptr [ %itNearBegin.sroa.75.0.copyload2981, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.75.9, %for.end517 ]
-  %cmp.i2075.not3103 = icmp eq ptr %itNearBegin.sroa.0.7, %498
+  %itNearBegin.sroa.0.5 = phi ptr [ %itNearBegin.sroa.0.0.copyload2962, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.0.8, %for.end517 ]
+  %itNearBegin.sroa.35.5 = phi ptr [ %itNearBegin.sroa.35.0.copyload2963, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.35.11, %for.end517 ]
+  %itNearBegin.sroa.55.5 = phi ptr [ %itNearBegin.sroa.55.0.copyload2972, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.55.11, %for.end517 ]
+  %itNearBegin.sroa.75.5 = phi ptr [ %itNearBegin.sroa.75.0.copyload2981, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.75.11, %for.end517 ]
+  %cmp.i2075.not3103 = icmp eq ptr %itNearBegin.sroa.0.5, %498
   br i1 %cmp.i2075.not3103, label %while.cond502.loopexit, label %for.body541
 
 for.body541:                                      ; preds = %if.end533, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084
   %i534.03108 = phi i32 [ %inc544, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ], [ 0, %if.end533 ]
-  %itNearBegin.sroa.75.113107 = phi ptr [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ], [ %itNearBegin.sroa.75.10, %if.end533 ]
-  %itNearBegin.sroa.55.113106 = phi ptr [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ], [ %itNearBegin.sroa.55.10, %if.end533 ]
-  %itNearBegin.sroa.35.113105 = phi ptr [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ], [ %itNearBegin.sroa.35.10, %if.end533 ]
-  %itNearBegin.sroa.0.83104 = phi ptr [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ], [ %itNearBegin.sroa.0.7, %if.end533 ]
-  %incdec.ptr.i2076 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.83104, i64 24
-  %cmp.i2078 = icmp eq ptr %incdec.ptr.i2076, %itNearBegin.sroa.55.113106
+  %itNearBegin.sroa.75.63107 = phi ptr [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ], [ %itNearBegin.sroa.75.5, %if.end533 ]
+  %itNearBegin.sroa.55.63106 = phi ptr [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ], [ %itNearBegin.sroa.55.5, %if.end533 ]
+  %itNearBegin.sroa.35.63105 = phi ptr [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ], [ %itNearBegin.sroa.35.5, %if.end533 ]
+  %itNearBegin.sroa.0.63104 = phi ptr [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084 ], [ %itNearBegin.sroa.0.5, %if.end533 ]
+  %incdec.ptr.i2076 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.63104, i64 24
+  %cmp.i2078 = icmp eq ptr %incdec.ptr.i2076, %itNearBegin.sroa.55.63106
   br i1 %cmp.i2078, label %if.then.i2079, label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084
 
 if.then.i2079:                                    ; preds = %for.body541
-  %incdec.ptr3.i2081 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.113107, i64 8
+  %incdec.ptr3.i2081 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.63107, i64 8
   %499 = load ptr, ptr %incdec.ptr3.i2081, align 8
   %add.ptr.i2083 = getelementptr inbounds i8, ptr %499, i64 192
   br label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084
 
 _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj8EEppEv.exit2084: ; preds = %for.body541, %if.then.i2079
   %itNearBegin.sroa.0.9 = phi ptr [ %499, %if.then.i2079 ], [ %incdec.ptr.i2076, %for.body541 ]
-  %itNearBegin.sroa.35.12 = phi ptr [ %499, %if.then.i2079 ], [ %itNearBegin.sroa.35.113105, %for.body541 ]
-  %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i2083, %if.then.i2079 ], [ %itNearBegin.sroa.55.113106, %for.body541 ]
-  %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i2081, %if.then.i2079 ], [ %itNearBegin.sroa.75.113107, %for.body541 ]
+  %itNearBegin.sroa.35.12 = phi ptr [ %499, %if.then.i2079 ], [ %itNearBegin.sroa.35.63105, %for.body541 ]
+  %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i2083, %if.then.i2079 ], [ %itNearBegin.sroa.55.63106, %for.body541 ]
+  %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i2081, %if.then.i2079 ], [ %itNearBegin.sroa.75.63107, %for.body541 ]
   %inc544 = add nuw nsw i32 %i534.03108, 1
   %cmp536 = icmp ugt i32 %i534.03108, 15
   %cmp.i2075.not = icmp eq ptr %itNearBegin.sroa.0.9, %498
@@ -53460,9 +53460,9 @@ if.else.i.i.i:                                    ; preds = %invoke.cont126
   br label %invoke.cont129
 
 invoke.cont129:                                   ; preds = %if.then.i.i.i461, %if.else.i.i.i
-  %itNearBegin.sroa.35.0 = phi ptr [ %196, %if.then.i.i.i461 ], [ %199, %if.else.i.i.i ]
-  %itNearBegin.sroa.55.0 = phi ptr [ %198, %if.then.i.i.i461 ], [ %add.ptr.i.i.i.i459, %if.else.i.i.i ]
-  %itNearBegin.sroa.75.0 = phi ptr [ %197, %if.then.i.i.i461 ], [ %add.ptr4.i.i.i, %if.else.i.i.i ]
+  %itNearBegin.sroa.35.7 = phi ptr [ %196, %if.then.i.i.i461 ], [ %199, %if.else.i.i.i ]
+  %itNearBegin.sroa.55.7 = phi ptr [ %198, %if.then.i.i.i461 ], [ %add.ptr.i.i.i.i459, %if.else.i.i.i ]
+  %itNearBegin.sroa.75.7 = phi ptr [ %197, %if.then.i.i.i461 ], [ %add.ptr4.i.i.i, %if.else.i.i.i ]
   %storemerge.i.i.i = phi ptr [ %add.ptr.i.i.i462, %if.then.i.i.i461 ], [ %199, %if.else.i.i.i ]
   %200 = sdiv exact i64 %sub.ptr.sub.i.i.i, 3
   %201 = getelementptr i8, ptr %197, i64 %200
@@ -53490,11 +53490,11 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %invoke.cont129, %if
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp133482)
   store ptr %storemerge.i.i.i, ptr %agg.tmp133482, align 8
   %agg.tmp133.sroa.2.0.agg.tmp133482.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp133482, i64 8
-  store ptr %itNearBegin.sroa.35.0, ptr %agg.tmp133.sroa.2.0.agg.tmp133482.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.7, ptr %agg.tmp133.sroa.2.0.agg.tmp133482.sroa_idx, align 8
   %agg.tmp133.sroa.3.0.agg.tmp133482.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp133482, i64 16
-  store ptr %itNearBegin.sroa.55.0, ptr %agg.tmp133.sroa.3.0.agg.tmp133482.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.7, ptr %agg.tmp133.sroa.3.0.agg.tmp133482.sroa_idx, align 8
   %agg.tmp133.sroa.4.0.agg.tmp133482.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp133482, i64 24
-  store ptr %itNearBegin.sroa.75.0, ptr %agg.tmp133.sroa.4.0.agg.tmp133482.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.7, ptr %agg.tmp133.sroa.4.0.agg.tmp133482.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EE7emplaceIJRKS1_EEENS_13DequeIteratorIS1_PS1_RS1_Lj1EEENS7_IS1_PS5_S6_Lj1EEEDpOT_(ptr nonnull sret(%"struct.eastl::DequeIterator.109") align 8 %ref.tmp132, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.114") align 8 %agg.tmp133482, ptr noundef nonnull align 8 dereferenceable(20) %value)
           to label %invoke.cont135 unwind label %lpad112
 
@@ -54090,9 +54090,9 @@ if.else.i.i.i978:                                 ; preds = %for.end238
   br label %invoke.cont240
 
 invoke.cont240:                                   ; preds = %if.else.i.i.i978, %if.then.i.i.i984
-  %itNearBegin.sroa.35.1 = phi ptr [ %348, %if.then.i.i.i984 ], [ %349, %if.else.i.i.i978 ]
-  %itNearBegin.sroa.55.1 = phi ptr [ %326, %if.then.i.i.i984 ], [ %add.ptr.i.i.i.i981, %if.else.i.i.i978 ]
-  %itNearBegin.sroa.75.1 = phi ptr [ %323, %if.then.i.i.i984 ], [ %add.ptr4.i.i.i980, %if.else.i.i.i978 ]
+  %itNearBegin.sroa.35.8 = phi ptr [ %348, %if.then.i.i.i984 ], [ %349, %if.else.i.i.i978 ]
+  %itNearBegin.sroa.55.8 = phi ptr [ %326, %if.then.i.i.i984 ], [ %add.ptr.i.i.i.i981, %if.else.i.i.i978 ]
+  %itNearBegin.sroa.75.8 = phi ptr [ %323, %if.then.i.i.i984 ], [ %add.ptr4.i.i.i980, %if.else.i.i.i978 ]
   %storemerge.i.i.i983 = phi ptr [ %add.ptr.i.i.i985, %if.then.i.i.i984 ], [ %349, %if.else.i.i.i978 ]
   store i32 4, ptr %ref.tmp244, align 8
   %mbThrowOnCopy.i993 = getelementptr inbounds i8, ptr %ref.tmp244, i64 4
@@ -54113,11 +54113,11 @@ invoke.cont240:                                   ; preds = %if.else.i.i.i978, %
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp242999)
   store ptr %storemerge.i.i.i983, ptr %agg.tmp242999, align 8
   %agg.tmp242.sroa.2.0.agg.tmp242999.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp242999, i64 8
-  store ptr %itNearBegin.sroa.35.1, ptr %agg.tmp242.sroa.2.0.agg.tmp242999.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.8, ptr %agg.tmp242.sroa.2.0.agg.tmp242999.sroa_idx, align 8
   %agg.tmp242.sroa.3.0.agg.tmp242999.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp242999, i64 16
-  store ptr %itNearBegin.sroa.55.1, ptr %agg.tmp242.sroa.3.0.agg.tmp242999.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.8, ptr %agg.tmp242.sroa.3.0.agg.tmp242999.sroa_idx, align 8
   %agg.tmp242.sroa.4.0.agg.tmp242999.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp242999, i64 24
-  store ptr %itNearBegin.sroa.75.1, ptr %agg.tmp242.sroa.4.0.agg.tmp242999.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.8, ptr %agg.tmp242.sroa.4.0.agg.tmp242999.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EE14DoInsertValuesENS_13DequeIteratorIS1_PKS1_RS5_Lj1EEEmS7_(ptr nonnull sret(%"struct.eastl::DequeIterator.109") align 8 %ref.tmp241, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.114") align 8 %agg.tmp242999, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp244)
           to label %invoke.cont247 unwind label %lpad246
 
@@ -54590,9 +54590,9 @@ if.else.i.i.i1372:                                ; preds = %_ZN10TestObjectD2Ev
   br label %invoke.cont359
 
 invoke.cont359:                                   ; preds = %if.else.i.i.i1372, %if.then.i.i.i1378
-  %itNearBegin.sroa.35.2 = phi ptr [ %413, %if.then.i.i.i1378 ], [ %416, %if.else.i.i.i1372 ]
-  %itNearBegin.sroa.55.2 = phi ptr [ %415, %if.then.i.i.i1378 ], [ %add.ptr.i.i.i.i1375, %if.else.i.i.i1372 ]
-  %itNearBegin.sroa.75.2 = phi ptr [ %414, %if.then.i.i.i1378 ], [ %add.ptr4.i.i.i1374, %if.else.i.i.i1372 ]
+  %itNearBegin.sroa.35.9 = phi ptr [ %413, %if.then.i.i.i1378 ], [ %416, %if.else.i.i.i1372 ]
+  %itNearBegin.sroa.55.9 = phi ptr [ %415, %if.then.i.i.i1378 ], [ %add.ptr.i.i.i.i1375, %if.else.i.i.i1372 ]
+  %itNearBegin.sroa.75.9 = phi ptr [ %414, %if.then.i.i.i1378 ], [ %add.ptr4.i.i.i1374, %if.else.i.i.i1372 ]
   %storemerge.i.i.i1377 = phi ptr [ %add.ptr.i.i.i1379, %if.then.i.i.i1378 ], [ %416, %if.else.i.i.i1372 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2173)
   %417 = load ptr, ptr %valueList, align 8, !noalias !2173
@@ -54601,11 +54601,11 @@ invoke.cont359:                                   ; preds = %if.else.i.i.i1372, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp3611387)
   store ptr %storemerge.i.i.i1377, ptr %agg.tmp3611387, align 8
   %agg.tmp361.sroa.2.0.agg.tmp3611387.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3611387, i64 8
-  store ptr %itNearBegin.sroa.35.2, ptr %agg.tmp361.sroa.2.0.agg.tmp3611387.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.9, ptr %agg.tmp361.sroa.2.0.agg.tmp3611387.sroa_idx, align 8
   %agg.tmp361.sroa.3.0.agg.tmp3611387.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3611387, i64 16
-  store ptr %itNearBegin.sroa.55.2, ptr %agg.tmp361.sroa.3.0.agg.tmp3611387.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.9, ptr %agg.tmp361.sroa.3.0.agg.tmp3611387.sroa_idx, align 8
   %agg.tmp361.sroa.4.0.agg.tmp3611387.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3611387, i64 24
-  store ptr %itNearBegin.sroa.75.2, ptr %agg.tmp361.sroa.4.0.agg.tmp3611387.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.9, ptr %agg.tmp361.sroa.4.0.agg.tmp3611387.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EE20DoInsertFromIteratorINS_12ListIteratorIS1_PS1_RS1_EEEENS_13DequeIteratorIS1_S6_S7_Lj1EEENS9_IS1_PKS1_RSB_Lj1EEERKT_SH_NS_20forward_iterator_tagE(ptr nonnull sret(%"struct.eastl::DequeIterator.109") align 8 %ref.tmp360, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.114") align 8 %agg.tmp3611387, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp363, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp364)
           to label %invoke.cont365 unwind label %lpad112
 
@@ -55177,36 +55177,36 @@ for.cond480.preheader.lr.ph:                      ; preds = %invoke.cont473
 
 for.cond480.preheader:                            ; preds = %for.cond480.preheader.lr.ph, %if.end
   %500 = phi ptr [ %497, %for.cond480.preheader.lr.ph ], [ %520, %if.end ]
-  %itNearBegin.sroa.75.32978 = phi ptr [ %495, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.75.6, %if.end ]
-  %itNearBegin.sroa.55.32977 = phi ptr [ %494, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.55.6, %if.end ]
-  %itNearBegin.sroa.35.32976 = phi ptr [ %499, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.35.6, %if.end ]
-  %itNearBegin.sroa.0.02975 = phi ptr [ %493, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.0.3, %if.end ]
+  %itNearBegin.sroa.75.02978 = phi ptr [ %495, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.75.2, %if.end ]
+  %itNearBegin.sroa.55.02977 = phi ptr [ %494, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.55.2, %if.end ]
+  %itNearBegin.sroa.35.02976 = phi ptr [ %499, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.35.2, %if.end ]
+  %itNearBegin.sroa.0.02975 = phi ptr [ %493, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.0.2, %if.end ]
   br label %for.body484
 
 for.body484:                                      ; preds = %for.cond480.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755
   %i479.02973 = phi i32 [ 0, %for.cond480.preheader ], [ %inc487, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755 ]
-  %itNearBegin.sroa.75.42972 = phi ptr [ %itNearBegin.sroa.75.32978, %for.cond480.preheader ], [ %itNearBegin.sroa.75.5, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755 ]
-  %itNearBegin.sroa.55.42971 = phi ptr [ %itNearBegin.sroa.55.32977, %for.cond480.preheader ], [ %itNearBegin.sroa.55.5, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755 ]
-  %itNearBegin.sroa.35.42970 = phi ptr [ %itNearBegin.sroa.35.32976, %for.cond480.preheader ], [ %itNearBegin.sroa.35.5, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755 ]
-  %itNearBegin.sroa.0.12969 = phi ptr [ %itNearBegin.sroa.0.02975, %for.cond480.preheader ], [ %itNearBegin.sroa.0.2, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755 ]
+  %itNearBegin.sroa.75.12972 = phi ptr [ %itNearBegin.sroa.75.02978, %for.cond480.preheader ], [ %itNearBegin.sroa.75.10, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755 ]
+  %itNearBegin.sroa.55.12971 = phi ptr [ %itNearBegin.sroa.55.02977, %for.cond480.preheader ], [ %itNearBegin.sroa.55.10, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755 ]
+  %itNearBegin.sroa.35.12970 = phi ptr [ %itNearBegin.sroa.35.02976, %for.cond480.preheader ], [ %itNearBegin.sroa.35.10, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755 ]
+  %itNearBegin.sroa.0.12969 = phi ptr [ %itNearBegin.sroa.0.02975, %for.cond480.preheader ], [ %itNearBegin.sroa.0.7, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755 ]
   %incdec.ptr.i1747 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.12969, i64 24
-  %cmp.i1749 = icmp eq ptr %incdec.ptr.i1747, %itNearBegin.sroa.55.42971
+  %cmp.i1749 = icmp eq ptr %incdec.ptr.i1747, %itNearBegin.sroa.55.12971
   br i1 %cmp.i1749, label %if.then.i1750, label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755
 
 if.then.i1750:                                    ; preds = %for.body484
-  %incdec.ptr3.i1752 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.42972, i64 8
+  %incdec.ptr3.i1752 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.12972, i64 8
   %501 = load ptr, ptr %incdec.ptr3.i1752, align 8
   %add.ptr.i1754 = getelementptr inbounds i8, ptr %501, i64 24
   br label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755
 
 _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1755: ; preds = %for.body484, %if.then.i1750
-  %itNearBegin.sroa.0.2 = phi ptr [ %501, %if.then.i1750 ], [ %incdec.ptr.i1747, %for.body484 ]
-  %itNearBegin.sroa.35.5 = phi ptr [ %501, %if.then.i1750 ], [ %itNearBegin.sroa.35.42970, %for.body484 ]
-  %itNearBegin.sroa.55.5 = phi ptr [ %add.ptr.i1754, %if.then.i1750 ], [ %itNearBegin.sroa.55.42971, %for.body484 ]
-  %itNearBegin.sroa.75.5 = phi ptr [ %incdec.ptr3.i1752, %if.then.i1750 ], [ %itNearBegin.sroa.75.42972, %for.body484 ]
+  %itNearBegin.sroa.0.7 = phi ptr [ %501, %if.then.i1750 ], [ %incdec.ptr.i1747, %for.body484 ]
+  %itNearBegin.sroa.35.10 = phi ptr [ %501, %if.then.i1750 ], [ %itNearBegin.sroa.35.12970, %for.body484 ]
+  %itNearBegin.sroa.55.10 = phi ptr [ %add.ptr.i1754, %if.then.i1750 ], [ %itNearBegin.sroa.55.12971, %for.body484 ]
+  %itNearBegin.sroa.75.10 = phi ptr [ %incdec.ptr3.i1752, %if.then.i1750 ], [ %itNearBegin.sroa.75.12972, %for.body484 ]
   %inc487 = add nuw nsw i32 %i479.02973, 1
   %cmp481 = icmp ugt i32 %i479.02973, 1
-  %cmp.i1746.not = icmp eq ptr %itNearBegin.sroa.0.2, %500
+  %cmp.i1746.not = icmp eq ptr %itNearBegin.sroa.0.7, %500
   %or.cond = select i1 %cmp481, i1 true, i1 %cmp.i1746.not
   br i1 %or.cond, label %for.end488, label %for.body484, !llvm.loop !2201
 
@@ -55341,10 +55341,10 @@ for.end488:                                       ; preds = %_ZN5eastl13DequeIte
   br i1 %cmp.i1746.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end488
-  store ptr %itNearBegin.sroa.0.2, ptr %agg.tmp492, align 8
-  store ptr %itNearBegin.sroa.35.5, ptr %mpBegin.i1806, align 8
-  store ptr %itNearBegin.sroa.55.5, ptr %mpEnd.i1808, align 8
-  store ptr %itNearBegin.sroa.75.5, ptr %mpCurrentArrayPtr.i1810, align 8
+  store ptr %itNearBegin.sroa.0.7, ptr %agg.tmp492, align 8
+  store ptr %itNearBegin.sroa.35.10, ptr %mpBegin.i1806, align 8
+  store ptr %itNearBegin.sroa.55.10, ptr %mpEnd.i1808, align 8
+  store ptr %itNearBegin.sroa.75.10, ptr %mpCurrentArrayPtr.i1810, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EE5eraseENS_13DequeIteratorIS1_PKS1_RS5_Lj1EEE(ptr nonnull sret(%"struct.eastl::DequeIterator.109") align 8 %ref.tmp491, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.114") align 8 %agg.tmp492)
           to label %invoke.cont494 unwind label %lpad452.loopexit.split-lp.loopexit
 
@@ -55358,11 +55358,11 @@ invoke.cont494:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont494, %for.end488
   %520 = phi ptr [ %.pre3025, %invoke.cont494 ], [ %500, %for.end488 ]
-  %itNearBegin.sroa.0.3 = phi ptr [ %itNearBegin.sroa.0.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.0.2, %for.end488 ]
-  %itNearBegin.sroa.35.6 = phi ptr [ %itNearBegin.sroa.35.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.35.5, %for.end488 ]
-  %itNearBegin.sroa.55.6 = phi ptr [ %itNearBegin.sroa.55.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.55.5, %for.end488 ]
-  %itNearBegin.sroa.75.6 = phi ptr [ %itNearBegin.sroa.75.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.75.5, %for.end488 ]
-  %cmp.i1738.not = icmp eq ptr %itNearBegin.sroa.0.3, %520
+  %itNearBegin.sroa.0.2 = phi ptr [ %itNearBegin.sroa.0.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.0.7, %for.end488 ]
+  %itNearBegin.sroa.35.2 = phi ptr [ %itNearBegin.sroa.35.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.35.10, %for.end488 ]
+  %itNearBegin.sroa.55.2 = phi ptr [ %itNearBegin.sroa.55.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.55.10, %for.end488 ]
+  %itNearBegin.sroa.75.2 = phi ptr [ %itNearBegin.sroa.75.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.75.10, %for.end488 ]
+  %cmp.i1738.not = icmp eq ptr %itNearBegin.sroa.0.2, %520
   br i1 %cmp.i1738.not, label %while.end.loopexit, label %for.cond480.preheader, !llvm.loop !2202
 
 while.end.loopexit:                               ; preds = %if.end
@@ -55421,45 +55421,45 @@ for.cond507.preheader.lr.ph:                      ; preds = %invoke.cont499
   br label %for.cond507.preheader
 
 while.cond502.loopexit:                           ; preds = %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949, %if.end533
-  %itNearBegin.sroa.0.8.lcssa = phi ptr [ %itNearBegin.sroa.0.7, %if.end533 ], [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ]
-  %itNearBegin.sroa.35.11.lcssa = phi ptr [ %itNearBegin.sroa.35.10, %if.end533 ], [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ]
-  %itNearBegin.sroa.55.11.lcssa = phi ptr [ %itNearBegin.sroa.55.10, %if.end533 ], [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ]
-  %itNearBegin.sroa.75.11.lcssa = phi ptr [ %itNearBegin.sroa.75.10, %if.end533 ], [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ]
-  %cmp.i1847.not = icmp eq ptr %itNearBegin.sroa.0.8.lcssa, %539
+  %itNearBegin.sroa.0.6.lcssa = phi ptr [ %itNearBegin.sroa.0.5, %if.end533 ], [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ]
+  %itNearBegin.sroa.35.6.lcssa = phi ptr [ %itNearBegin.sroa.35.5, %if.end533 ], [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ]
+  %itNearBegin.sroa.55.6.lcssa = phi ptr [ %itNearBegin.sroa.55.5, %if.end533 ], [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ]
+  %itNearBegin.sroa.75.6.lcssa = phi ptr [ %itNearBegin.sroa.75.5, %if.end533 ], [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ]
+  %cmp.i1847.not = icmp eq ptr %itNearBegin.sroa.0.6.lcssa, %539
   br i1 %cmp.i1847.not, label %_ZN13InputIteratorI10TestObjectED2Ev.exit1956, label %for.cond507.preheader, !llvm.loop !2206
 
 for.cond507.preheader:                            ; preds = %for.cond507.preheader.lr.ph, %while.cond502.loopexit
   %526 = phi ptr [ %522, %for.cond507.preheader.lr.ph ], [ %539, %while.cond502.loopexit ]
-  %itNearBegin.sroa.75.72998 = phi ptr [ %523, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.75.11.lcssa, %while.cond502.loopexit ]
-  %itNearBegin.sroa.55.72997 = phi ptr [ %524, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.55.11.lcssa, %while.cond502.loopexit ]
-  %itNearBegin.sroa.35.72996 = phi ptr [ %525, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.35.11.lcssa, %while.cond502.loopexit ]
-  %itNearBegin.sroa.0.42995 = phi ptr [ %521, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.0.8.lcssa, %while.cond502.loopexit ]
+  %itNearBegin.sroa.75.32998 = phi ptr [ %523, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.75.6.lcssa, %while.cond502.loopexit ]
+  %itNearBegin.sroa.55.32997 = phi ptr [ %524, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.55.6.lcssa, %while.cond502.loopexit ]
+  %itNearBegin.sroa.35.32996 = phi ptr [ %525, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.35.6.lcssa, %while.cond502.loopexit ]
+  %itNearBegin.sroa.0.32995 = phi ptr [ %521, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.0.6.lcssa, %while.cond502.loopexit ]
   br label %for.body513
 
 for.body513:                                      ; preds = %for.cond507.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870
   %numElementsToErase.02983 = phi i64 [ 0, %for.cond507.preheader ], [ %inc516, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870 ]
-  %itNearBegin.sroa.75.82982 = phi ptr [ %itNearBegin.sroa.75.72998, %for.cond507.preheader ], [ %itNearBegin.sroa.75.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870 ]
-  %itNearBegin.sroa.55.82981 = phi ptr [ %itNearBegin.sroa.55.72997, %for.cond507.preheader ], [ %itNearBegin.sroa.55.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870 ]
-  %itNearBegin.sroa.35.82980 = phi ptr [ %itNearBegin.sroa.35.72996, %for.cond507.preheader ], [ %itNearBegin.sroa.35.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870 ]
-  %itNearBegin.sroa.0.52979 = phi ptr [ %itNearBegin.sroa.0.42995, %for.cond507.preheader ], [ %itNearBegin.sroa.0.6, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870 ]
-  %incdec.ptr.i1862 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.52979, i64 24
-  %cmp.i1864 = icmp eq ptr %incdec.ptr.i1862, %itNearBegin.sroa.55.82981
+  %itNearBegin.sroa.75.42982 = phi ptr [ %itNearBegin.sroa.75.32998, %for.cond507.preheader ], [ %itNearBegin.sroa.75.11, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870 ]
+  %itNearBegin.sroa.55.42981 = phi ptr [ %itNearBegin.sroa.55.32997, %for.cond507.preheader ], [ %itNearBegin.sroa.55.11, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870 ]
+  %itNearBegin.sroa.35.42980 = phi ptr [ %itNearBegin.sroa.35.32996, %for.cond507.preheader ], [ %itNearBegin.sroa.35.11, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870 ]
+  %itNearBegin.sroa.0.42979 = phi ptr [ %itNearBegin.sroa.0.32995, %for.cond507.preheader ], [ %itNearBegin.sroa.0.8, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870 ]
+  %incdec.ptr.i1862 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.42979, i64 24
+  %cmp.i1864 = icmp eq ptr %incdec.ptr.i1862, %itNearBegin.sroa.55.42981
   br i1 %cmp.i1864, label %if.then.i1865, label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870
 
 if.then.i1865:                                    ; preds = %for.body513
-  %incdec.ptr3.i1867 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.82982, i64 8
+  %incdec.ptr3.i1867 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.42982, i64 8
   %527 = load ptr, ptr %incdec.ptr3.i1867, align 8
   %add.ptr.i1869 = getelementptr inbounds i8, ptr %527, i64 24
   br label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870
 
 _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1870: ; preds = %for.body513, %if.then.i1865
-  %itNearBegin.sroa.0.6 = phi ptr [ %527, %if.then.i1865 ], [ %incdec.ptr.i1862, %for.body513 ]
-  %itNearBegin.sroa.35.9 = phi ptr [ %527, %if.then.i1865 ], [ %itNearBegin.sroa.35.82980, %for.body513 ]
-  %itNearBegin.sroa.55.9 = phi ptr [ %add.ptr.i1869, %if.then.i1865 ], [ %itNearBegin.sroa.55.82981, %for.body513 ]
-  %itNearBegin.sroa.75.9 = phi ptr [ %incdec.ptr3.i1867, %if.then.i1865 ], [ %itNearBegin.sroa.75.82982, %for.body513 ]
+  %itNearBegin.sroa.0.8 = phi ptr [ %527, %if.then.i1865 ], [ %incdec.ptr.i1862, %for.body513 ]
+  %itNearBegin.sroa.35.11 = phi ptr [ %527, %if.then.i1865 ], [ %itNearBegin.sroa.35.42980, %for.body513 ]
+  %itNearBegin.sroa.55.11 = phi ptr [ %add.ptr.i1869, %if.then.i1865 ], [ %itNearBegin.sroa.55.42981, %for.body513 ]
+  %itNearBegin.sroa.75.11 = phi ptr [ %incdec.ptr3.i1867, %if.then.i1865 ], [ %itNearBegin.sroa.75.42982, %for.body513 ]
   %inc516 = add nuw nsw i64 %numElementsToErase.02983, 1
   %cmp508 = icmp ugt i64 %numElementsToErase.02983, 20
-  %cmp.i1861.not = icmp eq ptr %itNearBegin.sroa.0.6, %526
+  %cmp.i1861.not = icmp eq ptr %itNearBegin.sroa.0.8, %526
   %or.cond2890 = select i1 %cmp508, i1 true, i1 %cmp.i1861.not
   br i1 %or.cond2890, label %for.end517, label %for.body513, !llvm.loop !2207
 
@@ -55472,14 +55472,14 @@ if.then520:                                       ; preds = %for.end517
   %530 = load ptr, ptr %mpBegin.i11.i.i.i, align 8
   %531 = load ptr, ptr %mpEnd.i.i.i.i, align 8
   %532 = load ptr, ptr %mItBegin.i.i, align 8
-  store ptr %itNearBegin.sroa.0.42995, ptr %agg.tmp523, align 8
-  store ptr %itNearBegin.sroa.35.72996, ptr %mpBegin.i1900, align 8
-  store ptr %itNearBegin.sroa.55.72997, ptr %mpEnd.i1902, align 8
-  store ptr %itNearBegin.sroa.75.72998, ptr %mpCurrentArrayPtr.i1904, align 8
-  store ptr %itNearBegin.sroa.0.6, ptr %agg.tmp525, align 8
-  store ptr %itNearBegin.sroa.35.9, ptr %mpBegin.i1906, align 8
-  store ptr %itNearBegin.sroa.55.9, ptr %mpEnd.i1908, align 8
-  store ptr %itNearBegin.sroa.75.9, ptr %mpCurrentArrayPtr.i1910, align 8
+  store ptr %itNearBegin.sroa.0.32995, ptr %agg.tmp523, align 8
+  store ptr %itNearBegin.sroa.35.32996, ptr %mpBegin.i1900, align 8
+  store ptr %itNearBegin.sroa.55.32997, ptr %mpEnd.i1902, align 8
+  store ptr %itNearBegin.sroa.75.32998, ptr %mpCurrentArrayPtr.i1904, align 8
+  store ptr %itNearBegin.sroa.0.8, ptr %agg.tmp525, align 8
+  store ptr %itNearBegin.sroa.35.11, ptr %mpBegin.i1906, align 8
+  store ptr %itNearBegin.sroa.55.11, ptr %mpEnd.i1908, align 8
+  store ptr %itNearBegin.sroa.75.11, ptr %mpCurrentArrayPtr.i1910, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj1EE5eraseENS_13DequeIteratorIS1_PKS1_RS5_Lj1EEES8_(ptr nonnull sret(%"struct.eastl::DequeIterator.109") align 8 %ref.tmp522, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.114") align 8 %agg.tmp523, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.114") align 8 %agg.tmp525)
           to label %invoke.cont527 unwind label %lpad452.loopexit
 
@@ -55535,34 +55535,34 @@ invoke.cont527.if.end533_crit_edge:               ; preds = %invoke.cont527
 
 if.end533:                                        ; preds = %invoke.cont527.if.end533_crit_edge, %for.end517
   %539 = phi ptr [ %.pre3031, %invoke.cont527.if.end533_crit_edge ], [ %526, %for.end517 ]
-  %itNearBegin.sroa.0.7 = phi ptr [ %itNearBegin.sroa.0.0.copyload2822, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.0.6, %for.end517 ]
-  %itNearBegin.sroa.35.10 = phi ptr [ %itNearBegin.sroa.35.0.copyload2823, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.35.9, %for.end517 ]
-  %itNearBegin.sroa.55.10 = phi ptr [ %itNearBegin.sroa.55.0.copyload2832, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.55.9, %for.end517 ]
-  %itNearBegin.sroa.75.10 = phi ptr [ %itNearBegin.sroa.75.0.copyload2841, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.75.9, %for.end517 ]
-  %cmp.i1940.not2984 = icmp eq ptr %itNearBegin.sroa.0.7, %539
+  %itNearBegin.sroa.0.5 = phi ptr [ %itNearBegin.sroa.0.0.copyload2822, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.0.8, %for.end517 ]
+  %itNearBegin.sroa.35.5 = phi ptr [ %itNearBegin.sroa.35.0.copyload2823, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.35.11, %for.end517 ]
+  %itNearBegin.sroa.55.5 = phi ptr [ %itNearBegin.sroa.55.0.copyload2832, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.55.11, %for.end517 ]
+  %itNearBegin.sroa.75.5 = phi ptr [ %itNearBegin.sroa.75.0.copyload2841, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.75.11, %for.end517 ]
+  %cmp.i1940.not2984 = icmp eq ptr %itNearBegin.sroa.0.5, %539
   br i1 %cmp.i1940.not2984, label %while.cond502.loopexit, label %for.body541
 
 for.body541:                                      ; preds = %if.end533, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949
   %i534.02989 = phi i32 [ %inc544, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ], [ 0, %if.end533 ]
-  %itNearBegin.sroa.75.112988 = phi ptr [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ], [ %itNearBegin.sroa.75.10, %if.end533 ]
-  %itNearBegin.sroa.55.112987 = phi ptr [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ], [ %itNearBegin.sroa.55.10, %if.end533 ]
-  %itNearBegin.sroa.35.112986 = phi ptr [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ], [ %itNearBegin.sroa.35.10, %if.end533 ]
-  %itNearBegin.sroa.0.82985 = phi ptr [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ], [ %itNearBegin.sroa.0.7, %if.end533 ]
-  %incdec.ptr.i1941 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.82985, i64 24
-  %cmp.i1943 = icmp eq ptr %incdec.ptr.i1941, %itNearBegin.sroa.55.112987
+  %itNearBegin.sroa.75.62988 = phi ptr [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ], [ %itNearBegin.sroa.75.5, %if.end533 ]
+  %itNearBegin.sroa.55.62987 = phi ptr [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ], [ %itNearBegin.sroa.55.5, %if.end533 ]
+  %itNearBegin.sroa.35.62986 = phi ptr [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ], [ %itNearBegin.sroa.35.5, %if.end533 ]
+  %itNearBegin.sroa.0.62985 = phi ptr [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949 ], [ %itNearBegin.sroa.0.5, %if.end533 ]
+  %incdec.ptr.i1941 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.62985, i64 24
+  %cmp.i1943 = icmp eq ptr %incdec.ptr.i1941, %itNearBegin.sroa.55.62987
   br i1 %cmp.i1943, label %if.then.i1944, label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949
 
 if.then.i1944:                                    ; preds = %for.body541
-  %incdec.ptr3.i1946 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.112988, i64 8
+  %incdec.ptr3.i1946 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.62988, i64 8
   %540 = load ptr, ptr %incdec.ptr3.i1946, align 8
   %add.ptr.i1948 = getelementptr inbounds i8, ptr %540, i64 24
   br label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949
 
 _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj1EEppEv.exit1949: ; preds = %for.body541, %if.then.i1944
   %itNearBegin.sroa.0.9 = phi ptr [ %540, %if.then.i1944 ], [ %incdec.ptr.i1941, %for.body541 ]
-  %itNearBegin.sroa.35.12 = phi ptr [ %540, %if.then.i1944 ], [ %itNearBegin.sroa.35.112986, %for.body541 ]
-  %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i1948, %if.then.i1944 ], [ %itNearBegin.sroa.55.112987, %for.body541 ]
-  %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i1946, %if.then.i1944 ], [ %itNearBegin.sroa.75.112988, %for.body541 ]
+  %itNearBegin.sroa.35.12 = phi ptr [ %540, %if.then.i1944 ], [ %itNearBegin.sroa.35.62986, %for.body541 ]
+  %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i1948, %if.then.i1944 ], [ %itNearBegin.sroa.55.62987, %for.body541 ]
+  %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i1946, %if.then.i1944 ], [ %itNearBegin.sroa.75.62988, %for.body541 ]
   %inc544 = add nuw nsw i32 %i534.02989, 1
   %cmp536 = icmp ugt i32 %i534.02989, 15
   %cmp.i1940.not = icmp eq ptr %itNearBegin.sroa.0.9, %539
@@ -57804,9 +57804,9 @@ if.else.i.i.i:                                    ; preds = %invoke.cont126
   br label %invoke.cont129
 
 invoke.cont129:                                   ; preds = %if.then.i.i.i493, %if.else.i.i.i
-  %itNearBegin.sroa.35.0 = phi ptr [ %179, %if.then.i.i.i493 ], [ %182, %if.else.i.i.i ]
-  %itNearBegin.sroa.55.0 = phi ptr [ %181, %if.then.i.i.i493 ], [ %add.ptr.i.i.i.i491, %if.else.i.i.i ]
-  %itNearBegin.sroa.75.0 = phi ptr [ %180, %if.then.i.i.i493 ], [ %add.ptr4.i.i.i, %if.else.i.i.i ]
+  %itNearBegin.sroa.35.7 = phi ptr [ %179, %if.then.i.i.i493 ], [ %182, %if.else.i.i.i ]
+  %itNearBegin.sroa.55.7 = phi ptr [ %181, %if.then.i.i.i493 ], [ %add.ptr.i.i.i.i491, %if.else.i.i.i ]
+  %itNearBegin.sroa.75.7 = phi ptr [ %180, %if.then.i.i.i493 ], [ %add.ptr4.i.i.i, %if.else.i.i.i ]
   %storemerge.i.i.i = phi ptr [ %add.ptr.i.i.i494, %if.then.i.i.i493 ], [ %add.ptr7.i.i.i, %if.else.i.i.i ]
   %add.i502 = add nsw i64 %sub.ptr.div.i.i.i, 3
   %add2.i503 = add nsw i64 %sub.ptr.div.i.i.i, 16777219
@@ -57839,11 +57839,11 @@ _ZN10TestObjectaSERKS_.exit:                      ; preds = %invoke.cont129, %if
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp133522)
   store ptr %storemerge.i.i.i, ptr %agg.tmp133522, align 8
   %agg.tmp133.sroa.2.0.agg.tmp133522.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp133522, i64 8
-  store ptr %itNearBegin.sroa.35.0, ptr %agg.tmp133.sroa.2.0.agg.tmp133522.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.7, ptr %agg.tmp133.sroa.2.0.agg.tmp133522.sroa_idx, align 8
   %agg.tmp133.sroa.3.0.agg.tmp133522.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp133522, i64 16
-  store ptr %itNearBegin.sroa.55.0, ptr %agg.tmp133.sroa.3.0.agg.tmp133522.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.7, ptr %agg.tmp133.sroa.3.0.agg.tmp133522.sroa_idx, align 8
   %agg.tmp133.sroa.4.0.agg.tmp133522.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp133522, i64 24
-  store ptr %itNearBegin.sroa.75.0, ptr %agg.tmp133.sroa.4.0.agg.tmp133522.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.7, ptr %agg.tmp133.sroa.4.0.agg.tmp133522.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EE7emplaceIJRKS1_EEENS_13DequeIteratorIS1_PS1_RS1_Lj32768EEENS7_IS1_PS5_S6_Lj32768EEEDpOT_(ptr nonnull sret(%"struct.eastl::DequeIterator.120") align 8 %ref.tmp132, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.125") align 8 %agg.tmp133522, ptr noundef nonnull align 8 dereferenceable(20) %value)
           to label %invoke.cont135 unwind label %lpad112
 
@@ -58498,9 +58498,9 @@ if.else.i.i.i1082:                                ; preds = %for.end238
   br label %invoke.cont240
 
 invoke.cont240:                                   ; preds = %if.else.i.i.i1082, %if.then.i.i.i1094
-  %itNearBegin.sroa.35.1 = phi ptr [ %311, %if.then.i.i.i1094 ], [ %312, %if.else.i.i.i1082 ]
-  %itNearBegin.sroa.55.1 = phi ptr [ %292, %if.then.i.i.i1094 ], [ %add.ptr.i.i.i.i1088, %if.else.i.i.i1082 ]
-  %itNearBegin.sroa.75.1 = phi ptr [ %289, %if.then.i.i.i1094 ], [ %add.ptr4.i.i.i1087, %if.else.i.i.i1082 ]
+  %itNearBegin.sroa.35.8 = phi ptr [ %311, %if.then.i.i.i1094 ], [ %312, %if.else.i.i.i1082 ]
+  %itNearBegin.sroa.55.8 = phi ptr [ %292, %if.then.i.i.i1094 ], [ %add.ptr.i.i.i.i1088, %if.else.i.i.i1082 ]
+  %itNearBegin.sroa.75.8 = phi ptr [ %289, %if.then.i.i.i1094 ], [ %add.ptr4.i.i.i1087, %if.else.i.i.i1082 ]
   %storemerge.i.i.i1093 = phi ptr [ %add.ptr.i.i.i1095, %if.then.i.i.i1094 ], [ %add.ptr7.i.i.i1092, %if.else.i.i.i1082 ]
   store i32 4, ptr %ref.tmp244, align 8
   %mbThrowOnCopy.i1103 = getelementptr inbounds i8, ptr %ref.tmp244, i64 4
@@ -58521,11 +58521,11 @@ invoke.cont240:                                   ; preds = %if.else.i.i.i1082, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2421109)
   store ptr %storemerge.i.i.i1093, ptr %agg.tmp2421109, align 8
   %agg.tmp242.sroa.2.0.agg.tmp2421109.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2421109, i64 8
-  store ptr %itNearBegin.sroa.35.1, ptr %agg.tmp242.sroa.2.0.agg.tmp2421109.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.8, ptr %agg.tmp242.sroa.2.0.agg.tmp2421109.sroa_idx, align 8
   %agg.tmp242.sroa.3.0.agg.tmp2421109.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2421109, i64 16
-  store ptr %itNearBegin.sroa.55.1, ptr %agg.tmp242.sroa.3.0.agg.tmp2421109.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.8, ptr %agg.tmp242.sroa.3.0.agg.tmp2421109.sroa_idx, align 8
   %agg.tmp242.sroa.4.0.agg.tmp2421109.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2421109, i64 24
-  store ptr %itNearBegin.sroa.75.1, ptr %agg.tmp242.sroa.4.0.agg.tmp2421109.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.8, ptr %agg.tmp242.sroa.4.0.agg.tmp2421109.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EE14DoInsertValuesENS_13DequeIteratorIS1_PKS1_RS5_Lj32768EEEmS7_(ptr nonnull sret(%"struct.eastl::DequeIterator.120") align 8 %ref.tmp241, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.125") align 8 %agg.tmp2421109, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(20) %ref.tmp244)
           to label %invoke.cont247 unwind label %lpad246
 
@@ -59032,9 +59032,9 @@ if.else.i.i.i1518:                                ; preds = %_ZN10TestObjectD2Ev
   br label %invoke.cont359
 
 invoke.cont359:                                   ; preds = %if.else.i.i.i1518, %if.then.i.i.i1530
-  %itNearBegin.sroa.35.2 = phi ptr [ %372, %if.then.i.i.i1530 ], [ %375, %if.else.i.i.i1518 ]
-  %itNearBegin.sroa.55.2 = phi ptr [ %374, %if.then.i.i.i1530 ], [ %add.ptr.i.i.i.i1524, %if.else.i.i.i1518 ]
-  %itNearBegin.sroa.75.2 = phi ptr [ %373, %if.then.i.i.i1530 ], [ %add.ptr4.i.i.i1523, %if.else.i.i.i1518 ]
+  %itNearBegin.sroa.35.9 = phi ptr [ %372, %if.then.i.i.i1530 ], [ %375, %if.else.i.i.i1518 ]
+  %itNearBegin.sroa.55.9 = phi ptr [ %374, %if.then.i.i.i1530 ], [ %add.ptr.i.i.i.i1524, %if.else.i.i.i1518 ]
+  %itNearBegin.sroa.75.9 = phi ptr [ %373, %if.then.i.i.i1530 ], [ %add.ptr4.i.i.i1523, %if.else.i.i.i1518 ]
   %storemerge.i.i.i1529 = phi ptr [ %add.ptr.i.i.i1531, %if.then.i.i.i1530 ], [ %add.ptr7.i.i.i1528, %if.else.i.i.i1518 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2362)
   %376 = load ptr, ptr %valueList, align 8, !noalias !2362
@@ -59043,11 +59043,11 @@ invoke.cont359:                                   ; preds = %if.else.i.i.i1518, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp3611539)
   store ptr %storemerge.i.i.i1529, ptr %agg.tmp3611539, align 8
   %agg.tmp361.sroa.2.0.agg.tmp3611539.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3611539, i64 8
-  store ptr %itNearBegin.sroa.35.2, ptr %agg.tmp361.sroa.2.0.agg.tmp3611539.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.35.9, ptr %agg.tmp361.sroa.2.0.agg.tmp3611539.sroa_idx, align 8
   %agg.tmp361.sroa.3.0.agg.tmp3611539.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3611539, i64 16
-  store ptr %itNearBegin.sroa.55.2, ptr %agg.tmp361.sroa.3.0.agg.tmp3611539.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.55.9, ptr %agg.tmp361.sroa.3.0.agg.tmp3611539.sroa_idx, align 8
   %agg.tmp361.sroa.4.0.agg.tmp3611539.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp3611539, i64 24
-  store ptr %itNearBegin.sroa.75.2, ptr %agg.tmp361.sroa.4.0.agg.tmp3611539.sroa_idx, align 8
+  store ptr %itNearBegin.sroa.75.9, ptr %agg.tmp361.sroa.4.0.agg.tmp3611539.sroa_idx, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EE20DoInsertFromIteratorINS_12ListIteratorIS1_PS1_RS1_EEEENS_13DequeIteratorIS1_S6_S7_Lj32768EEENS9_IS1_PKS1_RSB_Lj32768EEERKT_SH_NS_20forward_iterator_tagE(ptr nonnull sret(%"struct.eastl::DequeIterator.120") align 8 %ref.tmp360, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.125") align 8 %agg.tmp3611539, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp363, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp364)
           to label %invoke.cont365 unwind label %lpad112
 
@@ -59625,36 +59625,36 @@ for.cond480.preheader.lr.ph:                      ; preds = %invoke.cont473
 
 for.cond480.preheader:                            ; preds = %for.cond480.preheader.lr.ph, %if.end
   %459 = phi ptr [ %456, %for.cond480.preheader.lr.ph ], [ %479, %if.end ]
-  %itNearBegin.sroa.75.33213 = phi ptr [ %454, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.75.6, %if.end ]
-  %itNearBegin.sroa.55.33212 = phi ptr [ %453, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.55.6, %if.end ]
-  %itNearBegin.sroa.35.33211 = phi ptr [ %458, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.35.6, %if.end ]
-  %itNearBegin.sroa.0.03210 = phi ptr [ %452, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.0.3, %if.end ]
+  %itNearBegin.sroa.75.03213 = phi ptr [ %454, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.75.2, %if.end ]
+  %itNearBegin.sroa.55.03212 = phi ptr [ %453, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.55.2, %if.end ]
+  %itNearBegin.sroa.35.03211 = phi ptr [ %458, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.35.2, %if.end ]
+  %itNearBegin.sroa.0.03210 = phi ptr [ %452, %for.cond480.preheader.lr.ph ], [ %itNearBegin.sroa.0.2, %if.end ]
   br label %for.body484
 
 for.body484:                                      ; preds = %for.cond480.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913
   %i479.03208 = phi i32 [ 0, %for.cond480.preheader ], [ %inc487, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913 ]
-  %itNearBegin.sroa.75.43207 = phi ptr [ %itNearBegin.sroa.75.33213, %for.cond480.preheader ], [ %itNearBegin.sroa.75.5, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913 ]
-  %itNearBegin.sroa.55.43206 = phi ptr [ %itNearBegin.sroa.55.33212, %for.cond480.preheader ], [ %itNearBegin.sroa.55.5, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913 ]
-  %itNearBegin.sroa.35.43205 = phi ptr [ %itNearBegin.sroa.35.33211, %for.cond480.preheader ], [ %itNearBegin.sroa.35.5, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913 ]
-  %itNearBegin.sroa.0.13204 = phi ptr [ %itNearBegin.sroa.0.03210, %for.cond480.preheader ], [ %itNearBegin.sroa.0.2, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913 ]
+  %itNearBegin.sroa.75.13207 = phi ptr [ %itNearBegin.sroa.75.03213, %for.cond480.preheader ], [ %itNearBegin.sroa.75.10, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913 ]
+  %itNearBegin.sroa.55.13206 = phi ptr [ %itNearBegin.sroa.55.03212, %for.cond480.preheader ], [ %itNearBegin.sroa.55.10, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913 ]
+  %itNearBegin.sroa.35.13205 = phi ptr [ %itNearBegin.sroa.35.03211, %for.cond480.preheader ], [ %itNearBegin.sroa.35.10, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913 ]
+  %itNearBegin.sroa.0.13204 = phi ptr [ %itNearBegin.sroa.0.03210, %for.cond480.preheader ], [ %itNearBegin.sroa.0.7, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913 ]
   %incdec.ptr.i1905 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.13204, i64 24
-  %cmp.i1907 = icmp eq ptr %incdec.ptr.i1905, %itNearBegin.sroa.55.43206
+  %cmp.i1907 = icmp eq ptr %incdec.ptr.i1905, %itNearBegin.sroa.55.13206
   br i1 %cmp.i1907, label %if.then.i1908, label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913
 
 if.then.i1908:                                    ; preds = %for.body484
-  %incdec.ptr3.i1910 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.43207, i64 8
+  %incdec.ptr3.i1910 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.13207, i64 8
   %460 = load ptr, ptr %incdec.ptr3.i1910, align 8
   %add.ptr.i1912 = getelementptr inbounds i8, ptr %460, i64 786432
   br label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913
 
 _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit1913: ; preds = %for.body484, %if.then.i1908
-  %itNearBegin.sroa.0.2 = phi ptr [ %460, %if.then.i1908 ], [ %incdec.ptr.i1905, %for.body484 ]
-  %itNearBegin.sroa.35.5 = phi ptr [ %460, %if.then.i1908 ], [ %itNearBegin.sroa.35.43205, %for.body484 ]
-  %itNearBegin.sroa.55.5 = phi ptr [ %add.ptr.i1912, %if.then.i1908 ], [ %itNearBegin.sroa.55.43206, %for.body484 ]
-  %itNearBegin.sroa.75.5 = phi ptr [ %incdec.ptr3.i1910, %if.then.i1908 ], [ %itNearBegin.sroa.75.43207, %for.body484 ]
+  %itNearBegin.sroa.0.7 = phi ptr [ %460, %if.then.i1908 ], [ %incdec.ptr.i1905, %for.body484 ]
+  %itNearBegin.sroa.35.10 = phi ptr [ %460, %if.then.i1908 ], [ %itNearBegin.sroa.35.13205, %for.body484 ]
+  %itNearBegin.sroa.55.10 = phi ptr [ %add.ptr.i1912, %if.then.i1908 ], [ %itNearBegin.sroa.55.13206, %for.body484 ]
+  %itNearBegin.sroa.75.10 = phi ptr [ %incdec.ptr3.i1910, %if.then.i1908 ], [ %itNearBegin.sroa.75.13207, %for.body484 ]
   %inc487 = add nuw nsw i32 %i479.03208, 1
   %cmp481 = icmp ugt i32 %i479.03208, 1
-  %cmp.i1904.not = icmp eq ptr %itNearBegin.sroa.0.2, %459
+  %cmp.i1904.not = icmp eq ptr %itNearBegin.sroa.0.7, %459
   %or.cond = select i1 %cmp481, i1 true, i1 %cmp.i1904.not
   br i1 %or.cond, label %for.end488, label %for.body484, !llvm.loop !2390
 
@@ -59789,10 +59789,10 @@ for.end488:                                       ; preds = %_ZN5eastl13DequeIte
   br i1 %cmp.i1904.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.end488
-  store ptr %itNearBegin.sroa.0.2, ptr %agg.tmp492, align 8
-  store ptr %itNearBegin.sroa.35.5, ptr %mpBegin.i1964, align 8
-  store ptr %itNearBegin.sroa.55.5, ptr %mpEnd.i1966, align 8
-  store ptr %itNearBegin.sroa.75.5, ptr %mpCurrentArrayPtr.i1968, align 8
+  store ptr %itNearBegin.sroa.0.7, ptr %agg.tmp492, align 8
+  store ptr %itNearBegin.sroa.35.10, ptr %mpBegin.i1964, align 8
+  store ptr %itNearBegin.sroa.55.10, ptr %mpEnd.i1966, align 8
+  store ptr %itNearBegin.sroa.75.10, ptr %mpCurrentArrayPtr.i1968, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EE5eraseENS_13DequeIteratorIS1_PKS1_RS5_Lj32768EEE(ptr nonnull sret(%"struct.eastl::DequeIterator.120") align 8 %ref.tmp491, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.125") align 8 %agg.tmp492)
           to label %invoke.cont494 unwind label %lpad452.loopexit.split-lp.loopexit
 
@@ -59806,11 +59806,11 @@ invoke.cont494:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %invoke.cont494, %for.end488
   %479 = phi ptr [ %.pre3268, %invoke.cont494 ], [ %459, %for.end488 ]
-  %itNearBegin.sroa.0.3 = phi ptr [ %itNearBegin.sroa.0.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.0.2, %for.end488 ]
-  %itNearBegin.sroa.35.6 = phi ptr [ %itNearBegin.sroa.35.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.35.5, %for.end488 ]
-  %itNearBegin.sroa.55.6 = phi ptr [ %itNearBegin.sroa.55.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.55.5, %for.end488 ]
-  %itNearBegin.sroa.75.6 = phi ptr [ %itNearBegin.sroa.75.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.75.5, %for.end488 ]
-  %cmp.i1896.not = icmp eq ptr %itNearBegin.sroa.0.3, %479
+  %itNearBegin.sroa.0.2 = phi ptr [ %itNearBegin.sroa.0.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.0.7, %for.end488 ]
+  %itNearBegin.sroa.35.2 = phi ptr [ %itNearBegin.sroa.35.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.35.10, %for.end488 ]
+  %itNearBegin.sroa.55.2 = phi ptr [ %itNearBegin.sroa.55.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.55.10, %for.end488 ]
+  %itNearBegin.sroa.75.2 = phi ptr [ %itNearBegin.sroa.75.0.copyload, %invoke.cont494 ], [ %itNearBegin.sroa.75.10, %for.end488 ]
+  %cmp.i1896.not = icmp eq ptr %itNearBegin.sroa.0.2, %479
   br i1 %cmp.i1896.not, label %while.end.loopexit, label %for.cond480.preheader, !llvm.loop !2391
 
 while.end.loopexit:                               ; preds = %if.end
@@ -59869,45 +59869,45 @@ for.cond507.preheader.lr.ph:                      ; preds = %invoke.cont499
   br label %for.cond507.preheader
 
 while.cond502.loopexit:                           ; preds = %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107, %if.end533
-  %itNearBegin.sroa.0.8.lcssa = phi ptr [ %itNearBegin.sroa.0.7, %if.end533 ], [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ]
-  %itNearBegin.sroa.35.11.lcssa = phi ptr [ %itNearBegin.sroa.35.10, %if.end533 ], [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ]
-  %itNearBegin.sroa.55.11.lcssa = phi ptr [ %itNearBegin.sroa.55.10, %if.end533 ], [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ]
-  %itNearBegin.sroa.75.11.lcssa = phi ptr [ %itNearBegin.sroa.75.10, %if.end533 ], [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ]
-  %cmp.i2005.not = icmp eq ptr %itNearBegin.sroa.0.8.lcssa, %498
+  %itNearBegin.sroa.0.6.lcssa = phi ptr [ %itNearBegin.sroa.0.5, %if.end533 ], [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ]
+  %itNearBegin.sroa.35.6.lcssa = phi ptr [ %itNearBegin.sroa.35.5, %if.end533 ], [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ]
+  %itNearBegin.sroa.55.6.lcssa = phi ptr [ %itNearBegin.sroa.55.5, %if.end533 ], [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ]
+  %itNearBegin.sroa.75.6.lcssa = phi ptr [ %itNearBegin.sroa.75.5, %if.end533 ], [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ]
+  %cmp.i2005.not = icmp eq ptr %itNearBegin.sroa.0.6.lcssa, %498
   br i1 %cmp.i2005.not, label %_ZN13InputIteratorI10TestObjectED2Ev.exit2114, label %for.cond507.preheader, !llvm.loop !2395
 
 for.cond507.preheader:                            ; preds = %for.cond507.preheader.lr.ph, %while.cond502.loopexit
   %485 = phi ptr [ %481, %for.cond507.preheader.lr.ph ], [ %498, %while.cond502.loopexit ]
-  %itNearBegin.sroa.75.73233 = phi ptr [ %482, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.75.11.lcssa, %while.cond502.loopexit ]
-  %itNearBegin.sroa.55.73232 = phi ptr [ %483, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.55.11.lcssa, %while.cond502.loopexit ]
-  %itNearBegin.sroa.35.73231 = phi ptr [ %484, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.35.11.lcssa, %while.cond502.loopexit ]
-  %itNearBegin.sroa.0.43230 = phi ptr [ %480, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.0.8.lcssa, %while.cond502.loopexit ]
+  %itNearBegin.sroa.75.33233 = phi ptr [ %482, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.75.6.lcssa, %while.cond502.loopexit ]
+  %itNearBegin.sroa.55.33232 = phi ptr [ %483, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.55.6.lcssa, %while.cond502.loopexit ]
+  %itNearBegin.sroa.35.33231 = phi ptr [ %484, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.35.6.lcssa, %while.cond502.loopexit ]
+  %itNearBegin.sroa.0.33230 = phi ptr [ %480, %for.cond507.preheader.lr.ph ], [ %itNearBegin.sroa.0.6.lcssa, %while.cond502.loopexit ]
   br label %for.body513
 
 for.body513:                                      ; preds = %for.cond507.preheader, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028
   %numElementsToErase.03218 = phi i64 [ 0, %for.cond507.preheader ], [ %inc516, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028 ]
-  %itNearBegin.sroa.75.83217 = phi ptr [ %itNearBegin.sroa.75.73233, %for.cond507.preheader ], [ %itNearBegin.sroa.75.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028 ]
-  %itNearBegin.sroa.55.83216 = phi ptr [ %itNearBegin.sroa.55.73232, %for.cond507.preheader ], [ %itNearBegin.sroa.55.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028 ]
-  %itNearBegin.sroa.35.83215 = phi ptr [ %itNearBegin.sroa.35.73231, %for.cond507.preheader ], [ %itNearBegin.sroa.35.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028 ]
-  %itNearBegin.sroa.0.53214 = phi ptr [ %itNearBegin.sroa.0.43230, %for.cond507.preheader ], [ %itNearBegin.sroa.0.6, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028 ]
-  %incdec.ptr.i2020 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.53214, i64 24
-  %cmp.i2022 = icmp eq ptr %incdec.ptr.i2020, %itNearBegin.sroa.55.83216
+  %itNearBegin.sroa.75.43217 = phi ptr [ %itNearBegin.sroa.75.33233, %for.cond507.preheader ], [ %itNearBegin.sroa.75.11, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028 ]
+  %itNearBegin.sroa.55.43216 = phi ptr [ %itNearBegin.sroa.55.33232, %for.cond507.preheader ], [ %itNearBegin.sroa.55.11, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028 ]
+  %itNearBegin.sroa.35.43215 = phi ptr [ %itNearBegin.sroa.35.33231, %for.cond507.preheader ], [ %itNearBegin.sroa.35.11, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028 ]
+  %itNearBegin.sroa.0.43214 = phi ptr [ %itNearBegin.sroa.0.33230, %for.cond507.preheader ], [ %itNearBegin.sroa.0.8, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028 ]
+  %incdec.ptr.i2020 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.43214, i64 24
+  %cmp.i2022 = icmp eq ptr %incdec.ptr.i2020, %itNearBegin.sroa.55.43216
   br i1 %cmp.i2022, label %if.then.i2023, label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028
 
 if.then.i2023:                                    ; preds = %for.body513
-  %incdec.ptr3.i2025 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.83217, i64 8
+  %incdec.ptr3.i2025 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.43217, i64 8
   %486 = load ptr, ptr %incdec.ptr3.i2025, align 8
   %add.ptr.i2027 = getelementptr inbounds i8, ptr %486, i64 786432
   br label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028
 
 _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2028: ; preds = %for.body513, %if.then.i2023
-  %itNearBegin.sroa.0.6 = phi ptr [ %486, %if.then.i2023 ], [ %incdec.ptr.i2020, %for.body513 ]
-  %itNearBegin.sroa.35.9 = phi ptr [ %486, %if.then.i2023 ], [ %itNearBegin.sroa.35.83215, %for.body513 ]
-  %itNearBegin.sroa.55.9 = phi ptr [ %add.ptr.i2027, %if.then.i2023 ], [ %itNearBegin.sroa.55.83216, %for.body513 ]
-  %itNearBegin.sroa.75.9 = phi ptr [ %incdec.ptr3.i2025, %if.then.i2023 ], [ %itNearBegin.sroa.75.83217, %for.body513 ]
+  %itNearBegin.sroa.0.8 = phi ptr [ %486, %if.then.i2023 ], [ %incdec.ptr.i2020, %for.body513 ]
+  %itNearBegin.sroa.35.11 = phi ptr [ %486, %if.then.i2023 ], [ %itNearBegin.sroa.35.43215, %for.body513 ]
+  %itNearBegin.sroa.55.11 = phi ptr [ %add.ptr.i2027, %if.then.i2023 ], [ %itNearBegin.sroa.55.43216, %for.body513 ]
+  %itNearBegin.sroa.75.11 = phi ptr [ %incdec.ptr3.i2025, %if.then.i2023 ], [ %itNearBegin.sroa.75.43217, %for.body513 ]
   %inc516 = add nuw nsw i64 %numElementsToErase.03218, 1
   %cmp508 = icmp ugt i64 %numElementsToErase.03218, 20
-  %cmp.i2019.not = icmp eq ptr %itNearBegin.sroa.0.6, %485
+  %cmp.i2019.not = icmp eq ptr %itNearBegin.sroa.0.8, %485
   %or.cond3125 = select i1 %cmp508, i1 true, i1 %cmp.i2019.not
   br i1 %or.cond3125, label %for.end517, label %for.body513, !llvm.loop !2396
 
@@ -59920,14 +59920,14 @@ if.then520:                                       ; preds = %for.end517
   %489 = load ptr, ptr %mpBegin.i12.i.i.i, align 8
   %490 = load ptr, ptr %mpEnd.i.i.i.i, align 8
   %491 = load ptr, ptr %mItBegin.i.i, align 8
-  store ptr %itNearBegin.sroa.0.43230, ptr %agg.tmp523, align 8
-  store ptr %itNearBegin.sroa.35.73231, ptr %mpBegin.i2058, align 8
-  store ptr %itNearBegin.sroa.55.73232, ptr %mpEnd.i2060, align 8
-  store ptr %itNearBegin.sroa.75.73233, ptr %mpCurrentArrayPtr.i2062, align 8
-  store ptr %itNearBegin.sroa.0.6, ptr %agg.tmp525, align 8
-  store ptr %itNearBegin.sroa.35.9, ptr %mpBegin.i2064, align 8
-  store ptr %itNearBegin.sroa.55.9, ptr %mpEnd.i2066, align 8
-  store ptr %itNearBegin.sroa.75.9, ptr %mpCurrentArrayPtr.i2068, align 8
+  store ptr %itNearBegin.sroa.0.33230, ptr %agg.tmp523, align 8
+  store ptr %itNearBegin.sroa.35.33231, ptr %mpBegin.i2058, align 8
+  store ptr %itNearBegin.sroa.55.33232, ptr %mpEnd.i2060, align 8
+  store ptr %itNearBegin.sroa.75.33233, ptr %mpCurrentArrayPtr.i2062, align 8
+  store ptr %itNearBegin.sroa.0.8, ptr %agg.tmp525, align 8
+  store ptr %itNearBegin.sroa.35.11, ptr %mpBegin.i2064, align 8
+  store ptr %itNearBegin.sroa.55.11, ptr %mpEnd.i2066, align 8
+  store ptr %itNearBegin.sroa.75.11, ptr %mpCurrentArrayPtr.i2068, align 8
   invoke void @_ZN5eastl5dequeI10TestObjectNS_9allocatorELj32768EE5eraseENS_13DequeIteratorIS1_PKS1_RS5_Lj32768EEES8_(ptr nonnull sret(%"struct.eastl::DequeIterator.120") align 8 %ref.tmp522, ptr noundef nonnull align 8 dereferenceable(81) %d, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.125") align 8 %agg.tmp523, ptr noundef nonnull byval(%"struct.eastl::DequeIterator.125") align 8 %agg.tmp525)
           to label %invoke.cont527 unwind label %lpad452.loopexit
 
@@ -59983,34 +59983,34 @@ invoke.cont527.if.end533_crit_edge:               ; preds = %invoke.cont527
 
 if.end533:                                        ; preds = %invoke.cont527.if.end533_crit_edge, %for.end517
   %498 = phi ptr [ %.pre3274, %invoke.cont527.if.end533_crit_edge ], [ %485, %for.end517 ]
-  %itNearBegin.sroa.0.7 = phi ptr [ %itNearBegin.sroa.0.0.copyload3078, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.0.6, %for.end517 ]
-  %itNearBegin.sroa.35.10 = phi ptr [ %itNearBegin.sroa.35.0.copyload3079, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.35.9, %for.end517 ]
-  %itNearBegin.sroa.55.10 = phi ptr [ %itNearBegin.sroa.55.0.copyload3088, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.55.9, %for.end517 ]
-  %itNearBegin.sroa.75.10 = phi ptr [ %itNearBegin.sroa.75.0.copyload3097, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.75.9, %for.end517 ]
-  %cmp.i2098.not3219 = icmp eq ptr %itNearBegin.sroa.0.7, %498
+  %itNearBegin.sroa.0.5 = phi ptr [ %itNearBegin.sroa.0.0.copyload3078, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.0.8, %for.end517 ]
+  %itNearBegin.sroa.35.5 = phi ptr [ %itNearBegin.sroa.35.0.copyload3079, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.35.11, %for.end517 ]
+  %itNearBegin.sroa.55.5 = phi ptr [ %itNearBegin.sroa.55.0.copyload3088, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.55.11, %for.end517 ]
+  %itNearBegin.sroa.75.5 = phi ptr [ %itNearBegin.sroa.75.0.copyload3097, %invoke.cont527.if.end533_crit_edge ], [ %itNearBegin.sroa.75.11, %for.end517 ]
+  %cmp.i2098.not3219 = icmp eq ptr %itNearBegin.sroa.0.5, %498
   br i1 %cmp.i2098.not3219, label %while.cond502.loopexit, label %for.body541
 
 for.body541:                                      ; preds = %if.end533, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107
   %i534.03224 = phi i32 [ %inc544, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ], [ 0, %if.end533 ]
-  %itNearBegin.sroa.75.113223 = phi ptr [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ], [ %itNearBegin.sroa.75.10, %if.end533 ]
-  %itNearBegin.sroa.55.113222 = phi ptr [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ], [ %itNearBegin.sroa.55.10, %if.end533 ]
-  %itNearBegin.sroa.35.113221 = phi ptr [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ], [ %itNearBegin.sroa.35.10, %if.end533 ]
-  %itNearBegin.sroa.0.83220 = phi ptr [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ], [ %itNearBegin.sroa.0.7, %if.end533 ]
-  %incdec.ptr.i2099 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.83220, i64 24
-  %cmp.i2101 = icmp eq ptr %incdec.ptr.i2099, %itNearBegin.sroa.55.113222
+  %itNearBegin.sroa.75.63223 = phi ptr [ %itNearBegin.sroa.75.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ], [ %itNearBegin.sroa.75.5, %if.end533 ]
+  %itNearBegin.sroa.55.63222 = phi ptr [ %itNearBegin.sroa.55.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ], [ %itNearBegin.sroa.55.5, %if.end533 ]
+  %itNearBegin.sroa.35.63221 = phi ptr [ %itNearBegin.sroa.35.12, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ], [ %itNearBegin.sroa.35.5, %if.end533 ]
+  %itNearBegin.sroa.0.63220 = phi ptr [ %itNearBegin.sroa.0.9, %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107 ], [ %itNearBegin.sroa.0.5, %if.end533 ]
+  %incdec.ptr.i2099 = getelementptr inbounds i8, ptr %itNearBegin.sroa.0.63220, i64 24
+  %cmp.i2101 = icmp eq ptr %incdec.ptr.i2099, %itNearBegin.sroa.55.63222
   br i1 %cmp.i2101, label %if.then.i2102, label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107
 
 if.then.i2102:                                    ; preds = %for.body541
-  %incdec.ptr3.i2104 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.113223, i64 8
+  %incdec.ptr3.i2104 = getelementptr inbounds i8, ptr %itNearBegin.sroa.75.63223, i64 8
   %499 = load ptr, ptr %incdec.ptr3.i2104, align 8
   %add.ptr.i2106 = getelementptr inbounds i8, ptr %499, i64 786432
   br label %_ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107
 
 _ZN5eastl13DequeIteratorI10TestObjectPS1_RS1_Lj32768EEppEv.exit2107: ; preds = %for.body541, %if.then.i2102
   %itNearBegin.sroa.0.9 = phi ptr [ %499, %if.then.i2102 ], [ %incdec.ptr.i2099, %for.body541 ]
-  %itNearBegin.sroa.35.12 = phi ptr [ %499, %if.then.i2102 ], [ %itNearBegin.sroa.35.113221, %for.body541 ]
-  %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i2106, %if.then.i2102 ], [ %itNearBegin.sroa.55.113222, %for.body541 ]
-  %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i2104, %if.then.i2102 ], [ %itNearBegin.sroa.75.113223, %for.body541 ]
+  %itNearBegin.sroa.35.12 = phi ptr [ %499, %if.then.i2102 ], [ %itNearBegin.sroa.35.63221, %for.body541 ]
+  %itNearBegin.sroa.55.12 = phi ptr [ %add.ptr.i2106, %if.then.i2102 ], [ %itNearBegin.sroa.55.63222, %for.body541 ]
+  %itNearBegin.sroa.75.12 = phi ptr [ %incdec.ptr3.i2104, %if.then.i2102 ], [ %itNearBegin.sroa.75.63223, %for.body541 ]
   %inc544 = add nuw nsw i32 %i534.03224, 1
   %cmp536 = icmp ugt i32 %i534.03224, 15
   %cmp.i2098.not = icmp eq ptr %itNearBegin.sroa.0.9, %498

@@ -45393,7 +45393,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit.i:                 ; preds = %149, %146
   br label %163
 
 163:                                              ; preds = %162, %154
-  %.0.i = phi i32 [ 0, %162 ], [ 4, %154 ]
+  %.1.i = phi i32 [ 0, %162 ], [ 4, %154 ]
   %164 = load ptr, ptr %41, align 8
   %.not.i.i.i.i24.i = icmp eq ptr %164, null
   br i1 %.not.i.i.i.i24.i, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit25.i, label %165
@@ -45403,7 +45403,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit.i:                 ; preds = %149, %146
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit25.i
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit25.i:               ; preds = %165, %163, %69, %_ZN5Yosys5RTLIL8SigChunkC2ERKS1_.exit.i
-  %.1.i = phi i32 [ 4, %_ZN5Yosys5RTLIL8SigChunkC2ERKS1_.exit.i ], [ 4, %69 ], [ %.0.i, %163 ], [ %.0.i, %165 ]
+  %.0.i = phi i32 [ 4, %_ZN5Yosys5RTLIL8SigChunkC2ERKS1_.exit.i ], [ 4, %69 ], [ %.1.i, %163 ], [ %.1.i, %165 ]
   %.not.i.i.i.i26.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i.i26.i, label %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit.i, label %166
 
@@ -45412,7 +45412,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit25.i:               ; preds = %165, %163, %69, %_Z
   br label %_ZN5Yosys5RTLIL8SigChunkD2Ev.exit.i
 
 _ZN5Yosys5RTLIL8SigChunkD2Ev.exit.i:              ; preds = %166, %_ZN5Yosys5RTLIL5ConstD2Ev.exit25.i
-  %switch.i = icmp eq i32 %.1.i, 0
+  %switch.i = icmp eq i32 %.0.i, 0
   br i1 %switch.i, label %45, label %_ZN12_GLOBAL__N_112ice40_dsp_pm8block_15Ei.exit
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit21.i:               ; preds = %161, %158, %157, %155, %70

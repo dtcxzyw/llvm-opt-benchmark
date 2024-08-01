@@ -235,11 +235,11 @@ sw.default:                                       ; preds = %entry
   br i1 %tobool72.not, label %if.end93, label %do.body74
 
 do.body74:                                        ; preds = %sw.default, %do.body74
-  %i.0 = phi i32 [ %i.1, %do.body74 ], [ 0, %sw.default ]
+  %i.1 = phi i32 [ %i.2, %do.body74 ], [ 0, %sw.default ]
   %length.0 = phi i32 [ %dec90, %do.body74 ], [ %srcLength, %sw.default ]
-  %src.addr.0 = phi ptr [ %incdec.ptr75, %do.body74 ], [ %src, %sw.default ]
-  %incdec.ptr75 = getelementptr inbounds i8, ptr %src.addr.0, i64 2
-  %13 = load i16, ptr %src.addr.0, align 2
+  %src.addr.1 = phi ptr [ %incdec.ptr75, %do.body74 ], [ %src, %sw.default ]
+  %incdec.ptr75 = getelementptr inbounds i8, ptr %src.addr.1, i64 2
+  %13 = load i16, ptr %src.addr.1, align 2
   %conv76 = zext i16 %13 to i32
   %and77 = and i32 %conv76, 65532
   %cmp78 = icmp ne i32 %and77, 8204
@@ -250,7 +250,7 @@ do.body74:                                        ; preds = %sw.default, %do.bod
   %cmp85 = icmp ult i32 %15, -4
   %or.cond103.not = select i1 %or.cond102.not114, i1 %cmp85, i1 false
   %inc87 = zext i1 %or.cond103.not to i32
-  %i.1 = add nuw nsw i32 %i.0, %inc87
+  %i.2 = add nuw nsw i32 %i.1, %inc87
   %dec90 = add nsw i32 %length.0, -1
   %cmp91 = icmp sgt i32 %length.0, 1
   br i1 %cmp91, label %do.body74, label %do.end92, !llvm.loop !10
@@ -262,9 +262,9 @@ do.end92:                                         ; preds = %do.body74
   br label %if.end93
 
 if.end93:                                         ; preds = %sw.default, %do.end92
-  %i.2 = phi i32 [ %i.1, %do.end92 ], [ %srcLength, %sw.default ]
-  %src.addr.1 = phi ptr [ %add.ptr, %do.end92 ], [ %src, %sw.default ]
-  %cmp94 = icmp sgt i32 %i.2, %destSize
+  %i.0 = phi i32 [ %i.2, %do.end92 ], [ %srcLength, %sw.default ]
+  %src.addr.0 = phi ptr [ %add.ptr, %do.end92 ], [ %src, %sw.default ]
+  %cmp94 = icmp sgt i32 %i.0, %destSize
   br i1 %cmp94, label %return.sink.split, label %do.body97.preheader
 
 do.body97.preheader:                              ; preds = %if.end93
@@ -275,11 +275,11 @@ do.body97.preheader:                              ; preds = %if.end93
   br label %do.body97
 
 do.body97:                                        ; preds = %do.body97.preheader, %do.cond218
-  %dest.addr.4 = phi ptr [ %dest.addr.7, %do.cond218 ], [ %dest, %do.body97.preheader ]
-  %srcLength.addr.5 = phi i32 [ %srcLength.addr.9, %do.cond218 ], [ %srcLength, %do.body97.preheader ]
+  %dest.addr.4 = phi ptr [ %dest.addr.5, %do.cond218 ], [ %dest, %do.body97.preheader ]
+  %srcLength.addr.5 = phi i32 [ %srcLength.addr.7, %do.cond218 ], [ %srcLength, %do.body97.preheader ]
   %dec99 = add nsw i32 %srcLength.addr.5, -1
   %idxprom100 = sext i32 %dec99 to i64
-  %arrayidx101 = getelementptr inbounds i16, ptr %src.addr.1, i64 %idxprom100
+  %arrayidx101 = getelementptr inbounds i16, ptr %src.addr.0, i64 %idxprom100
   %16 = load i16, ptr %arrayidx101, align 2
   %conv102 = zext i16 %16 to i32
   %and103 = and i32 %conv102, 64512
@@ -291,7 +291,7 @@ do.body97:                                        ; preds = %do.body97.preheader
 land.lhs.true108:                                 ; preds = %do.body97
   %sub109 = add nsw i32 %srcLength.addr.5, -2
   %idxprom110 = zext nneg i32 %sub109 to i64
-  %arrayidx111 = getelementptr inbounds i16, ptr %src.addr.1, i64 %idxprom110
+  %arrayidx111 = getelementptr inbounds i16, ptr %src.addr.0, i64 %idxprom110
   %17 = load i16, ptr %arrayidx111, align 2
   %conv112 = zext i16 %17 to i32
   %and113 = and i32 %conv112, 64512
@@ -312,9 +312,9 @@ do.end124:                                        ; preds = %do.body97, %if.then
   br i1 %or.cond3, label %land.rhs130, label %if.end165
 
 land.rhs130:                                      ; preds = %do.end124, %do.end164
-  %c.2 = phi i32 [ %c.3, %do.end164 ], [ %c.1, %do.end124 ]
-  %srcLength.addr.7 = phi i32 [ %srcLength.addr.8, %do.end164 ], [ %srcLength.addr.6, %do.end124 ]
-  %call131 = tail call signext i8 @u_charType_75(i32 noundef %c.2)
+  %c.3 = phi i32 [ %c.4, %do.end164 ], [ %c.1, %do.end124 ]
+  %srcLength.addr.8 = phi i32 [ %srcLength.addr.9, %do.end164 ], [ %srcLength.addr.6, %do.end124 ]
+  %call131 = tail call signext i8 @u_charType_75(i32 noundef %c.3)
   %conv132 = sext i8 %call131 to i64
   %sh_prom133 = and i64 %conv132, 4294967295
   %shl134 = shl nuw i64 1, %sh_prom133
@@ -323,21 +323,21 @@ land.rhs130:                                      ; preds = %do.end124, %do.end1
   br i1 %tobool136.not, label %if.end165, label %do.body138
 
 do.body138:                                       ; preds = %land.rhs130
-  %dec139 = add nsw i32 %srcLength.addr.7, -1
+  %dec139 = add nsw i32 %srcLength.addr.8, -1
   %idxprom140 = zext nneg i32 %dec139 to i64
-  %arrayidx141 = getelementptr inbounds i16, ptr %src.addr.1, i64 %idxprom140
+  %arrayidx141 = getelementptr inbounds i16, ptr %src.addr.0, i64 %idxprom140
   %18 = load i16, ptr %arrayidx141, align 2
   %conv142 = zext i16 %18 to i32
   %and143 = and i32 %conv142, 64512
   %cmp144 = icmp eq i32 %and143, 56320
-  %cmp147 = icmp sgt i32 %srcLength.addr.7, 1
+  %cmp147 = icmp sgt i32 %srcLength.addr.8, 1
   %or.cond5 = and i1 %cmp147, %cmp144
   br i1 %or.cond5, label %land.lhs.true148, label %do.end164
 
 land.lhs.true148:                                 ; preds = %do.body138
-  %sub149 = add nsw i32 %srcLength.addr.7, -2
+  %sub149 = add nsw i32 %srcLength.addr.8, -2
   %idxprom150 = zext nneg i32 %sub149 to i64
-  %arrayidx151 = getelementptr inbounds i16, ptr %src.addr.1, i64 %idxprom150
+  %arrayidx151 = getelementptr inbounds i16, ptr %src.addr.0, i64 %idxprom150
   %19 = load i16, ptr %arrayidx151, align 2
   %conv152 = zext i16 %19 to i32
   %and153 = and i32 %conv152, 64512
@@ -351,23 +351,23 @@ if.then155:                                       ; preds = %land.lhs.true148
   br label %do.end164
 
 do.end164:                                        ; preds = %do.body138, %if.then155, %land.lhs.true148
-  %c.3 = phi i32 [ %sub160, %if.then155 ], [ %conv142, %land.lhs.true148 ], [ %conv142, %do.body138 ]
-  %srcLength.addr.8 = phi i32 [ %sub149, %if.then155 ], [ %dec139, %land.lhs.true148 ], [ %dec139, %do.body138 ]
-  %cmp129.old = icmp sgt i32 %srcLength.addr.8, 0
+  %c.4 = phi i32 [ %sub160, %if.then155 ], [ %conv142, %land.lhs.true148 ], [ %conv142, %do.body138 ]
+  %srcLength.addr.9 = phi i32 [ %sub149, %if.then155 ], [ %dec139, %land.lhs.true148 ], [ %dec139, %do.body138 ]
+  %cmp129.old = icmp sgt i32 %srcLength.addr.9, 0
   br i1 %cmp129.old, label %land.rhs130, label %if.end165
 
 if.end165:                                        ; preds = %land.rhs130, %do.end164, %do.end124
-  %c.4 = phi i32 [ %c.1, %do.end124 ], [ %c.2, %land.rhs130 ], [ %c.3, %do.end164 ]
-  %srcLength.addr.9 = phi i32 [ %srcLength.addr.6, %do.end124 ], [ %srcLength.addr.7, %land.rhs130 ], [ 0, %do.end164 ]
+  %c.2 = phi i32 [ %c.1, %do.end124 ], [ %c.3, %land.rhs130 ], [ %c.4, %do.end164 ]
+  %srcLength.addr.7 = phi i32 [ %srcLength.addr.6, %do.end124 ], [ %srcLength.addr.8, %land.rhs130 ], [ 0, %do.end164 ]
   br i1 %tobool72.not, label %if.end179, label %land.lhs.true169
 
 land.lhs.true169:                                 ; preds = %if.end165
-  %and170 = and i32 %c.4, -4
+  %and170 = and i32 %c.2, -4
   %cmp171 = icmp eq i32 %and170, 8204
-  %sub173 = add nsw i32 %c.4, -8234
+  %sub173 = add nsw i32 %c.2, -8234
   %cmp174 = icmp ult i32 %sub173, 5
   %or.cond104 = select i1 %cmp171, i1 true, i1 %cmp174
-  %sub176 = add nsw i32 %c.4, -8294
+  %sub176 = add nsw i32 %c.2, -8294
   %cmp177 = icmp ult i32 %sub176, 4
   %or.cond105 = select i1 %or.cond104, i1 true, i1 %cmp177
   br i1 %or.cond105, label %do.cond218, label %if.end179
@@ -376,7 +376,7 @@ if.end179:                                        ; preds = %land.lhs.true169, %
   br i1 %tobool182.not, label %if.end209, label %if.then183
 
 if.then183:                                       ; preds = %if.end179
-  %call184 = tail call i32 @u_charMirror_75(i32 noundef %c.4)
+  %call184 = tail call i32 @u_charMirror_75(i32 noundef %c.2)
   %cmp186 = icmp ult i32 %call184, 65536
   br i1 %cmp186, label %if.then187, label %if.else192
 
@@ -401,12 +401,12 @@ do.end205:                                        ; preds = %if.then187, %if.els
   store i16 %conv194.sink, ptr %dest.addr.4, align 2
   %idx.ext206 = zext nneg i32 %k.0 to i64
   %add.ptr207 = getelementptr inbounds i16, ptr %dest.addr.4, i64 %idx.ext206
-  %add208 = add nsw i32 %k.0, %srcLength.addr.9
+  %add208 = add nsw i32 %k.0, %srcLength.addr.7
   br label %if.end209
 
 if.end209:                                        ; preds = %do.end205, %if.end179
-  %j.2 = phi i32 [ %add208, %do.end205 ], [ %srcLength.addr.9, %if.end179 ]
-  %dest.addr.5 = phi ptr [ %add.ptr207, %do.end205 ], [ %dest.addr.4, %if.end179 ]
+  %j.2 = phi i32 [ %add208, %do.end205 ], [ %srcLength.addr.7, %if.end179 ]
+  %dest.addr.6 = phi ptr [ %add.ptr207, %do.end205 ], [ %dest.addr.4, %if.end179 ]
   %cmp211119 = icmp slt i32 %j.2, %srcLength.addr.5
   br i1 %cmp211119, label %while.body212.preheader, label %do.cond218
 
@@ -417,27 +417,27 @@ while.body212.preheader:                          ; preds = %if.end209
 
 while.body212:                                    ; preds = %while.body212.preheader, %while.body212
   %indvars.iv128 = phi i64 [ %23, %while.body212.preheader ], [ %indvars.iv.next129, %while.body212 ]
-  %dest.addr.6121 = phi ptr [ %dest.addr.5, %while.body212.preheader ], [ %incdec.ptr216, %while.body212 ]
+  %dest.addr.7121 = phi ptr [ %dest.addr.6, %while.body212.preheader ], [ %incdec.ptr216, %while.body212 ]
   %indvars.iv.next129 = add nsw i64 %indvars.iv128, 1
-  %arrayidx215 = getelementptr inbounds i16, ptr %src.addr.1, i64 %indvars.iv128
+  %arrayidx215 = getelementptr inbounds i16, ptr %src.addr.0, i64 %indvars.iv128
   %24 = load i16, ptr %arrayidx215, align 2
-  %incdec.ptr216 = getelementptr inbounds i8, ptr %dest.addr.6121, i64 2
-  store i16 %24, ptr %dest.addr.6121, align 2
+  %incdec.ptr216 = getelementptr inbounds i8, ptr %dest.addr.7121, i64 2
+  store i16 %24, ptr %dest.addr.7121, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count
   br i1 %exitcond.not, label %do.cond218, label %while.body212, !llvm.loop !11
 
 do.cond218:                                       ; preds = %while.body212, %if.end209, %land.lhs.true169
-  %dest.addr.7 = phi ptr [ %dest.addr.4, %land.lhs.true169 ], [ %dest.addr.5, %if.end209 ], [ %incdec.ptr216, %while.body212 ]
-  %cmp219 = icmp sgt i32 %srcLength.addr.9, 0
+  %dest.addr.5 = phi ptr [ %dest.addr.4, %land.lhs.true169 ], [ %dest.addr.6, %if.end209 ], [ %incdec.ptr216, %while.body212 ]
+  %cmp219 = icmp sgt i32 %srcLength.addr.7, 0
   br i1 %cmp219, label %do.body97, label %return, !llvm.loop !12
 
 return.sink.split:                                ; preds = %if.end93, %sw.bb23, %sw.bb
-  %retval.0.ph = phi i32 [ %srcLength, %sw.bb ], [ %srcLength, %sw.bb23 ], [ %i.2, %if.end93 ]
+  %retval.0.ph = phi i32 [ %srcLength, %sw.bb ], [ %srcLength, %sw.bb23 ], [ %i.0, %if.end93 ]
   store i32 15, ptr %pErrorCode, align 4
   br label %return
 
 return:                                           ; preds = %do.cond67, %do.cond20, %do.cond218, %return.sink.split
-  %retval.0 = phi i32 [ %retval.0.ph, %return.sink.split ], [ %i.2, %do.cond218 ], [ %srcLength, %do.cond20 ], [ %srcLength, %do.cond67 ]
+  %retval.0 = phi i32 [ %retval.0.ph, %return.sink.split ], [ %i.0, %do.cond218 ], [ %srcLength, %do.cond20 ], [ %srcLength, %do.cond67 ]
   ret i32 %retval.0
 }
 
@@ -657,19 +657,19 @@ if.then132:                                       ; preds = %if.then130
   br label %if.end133
 
 if.end133:                                        ; preds = %if.then132, %if.then130
-  %dest.addr.3 = phi ptr [ %incdec.ptr, %if.then132 ], [ %dest.addr.2224, %if.then130 ]
+  %dest.addr.4 = phi ptr [ %incdec.ptr, %if.then132 ], [ %dest.addr.2224, %if.then130 ]
   %dec = add nsw i32 %destSize.addr.1223, -1
   br label %if.end134
 
 if.end134:                                        ; preds = %if.end133, %if.end128
   %destSize.addr.2 = phi i32 [ %dec, %if.end133 ], [ %destSize.addr.1223, %if.end128 ]
-  %dest.addr.4 = phi ptr [ %dest.addr.3, %if.end133 ], [ %dest.addr.2224, %if.end128 ]
+  %dest.addr.3 = phi ptr [ %dest.addr.4, %if.end133 ], [ %dest.addr.2224, %if.end128 ]
   %21 = load i32, ptr %runLength, align 4
-  %call138 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr104, i32 noundef %21, ptr noundef %dest.addr.4, i32 noundef %destSize.addr.2, i16 noundef zeroext %and136, ptr noundef nonnull %pErrorCode)
+  %call138 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr104, i32 noundef %21, ptr noundef %dest.addr.3, i32 noundef %destSize.addr.2, i16 noundef zeroext %and136, ptr noundef nonnull %pErrorCode)
   store i32 %call138, ptr %runLength, align 4
-  %cmp139.not = icmp eq ptr %dest.addr.4, null
+  %cmp139.not = icmp eq ptr %dest.addr.3, null
   %idx.ext141 = sext i32 %call138 to i64
-  %add.ptr142 = getelementptr inbounds i16, ptr %dest.addr.4, i64 %idx.ext141
+  %add.ptr142 = getelementptr inbounds i16, ptr %dest.addr.3, i64 %idx.ext141
   %dest.addr.5 = select i1 %cmp139.not, ptr null, ptr %add.ptr142
   %sub144 = sub nsw i32 %destSize.addr.2, %call138
   %22 = load i8, ptr %isInverse175, align 8
@@ -752,19 +752,19 @@ if.then201:                                       ; preds = %if.then199
   br label %if.end203
 
 if.end203:                                        ; preds = %if.then201, %if.then199
-  %dest.addr.7 = phi ptr [ %incdec.ptr202, %if.then201 ], [ %dest.addr.2224, %if.then199 ]
+  %dest.addr.8 = phi ptr [ %incdec.ptr202, %if.then201 ], [ %dest.addr.2224, %if.then199 ]
   %dec204 = add nsw i32 %destSize.addr.1223, -1
   br label %if.end205
 
 if.end205:                                        ; preds = %if.end203, %if.end197
   %destSize.addr.3 = phi i32 [ %dec204, %if.end203 ], [ %destSize.addr.1223, %if.end197 ]
-  %dest.addr.8 = phi ptr [ %dest.addr.7, %if.end203 ], [ %dest.addr.2224, %if.end197 ]
+  %dest.addr.7 = phi ptr [ %dest.addr.8, %if.end203 ], [ %dest.addr.2224, %if.end197 ]
   %29 = load i32, ptr %runLength, align 4
-  %call206 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr104, i32 noundef %29, ptr noundef %dest.addr.8, i32 noundef %destSize.addr.3, i16 noundef zeroext %spec.select186, ptr noundef nonnull %pErrorCode)
+  %call206 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr104, i32 noundef %29, ptr noundef %dest.addr.7, i32 noundef %destSize.addr.3, i16 noundef zeroext %spec.select186, ptr noundef nonnull %pErrorCode)
   store i32 %call206, ptr %runLength, align 4
-  %cmp207.not = icmp eq ptr %dest.addr.8, null
+  %cmp207.not = icmp eq ptr %dest.addr.7, null
   %idx.ext209 = sext i32 %call206 to i64
-  %add.ptr210 = getelementptr inbounds i16, ptr %dest.addr.8, i64 %idx.ext209
+  %add.ptr210 = getelementptr inbounds i16, ptr %dest.addr.7, i64 %idx.ext209
   %dest.addr.9 = select i1 %cmp207.not, ptr null, ptr %add.ptr210
   %sub212 = sub nsw i32 %destSize.addr.3, %call206
   %30 = load i8, ptr %isInverse175, align 8
@@ -831,7 +831,7 @@ for.body257.lr.ph:                                ; preds = %for.cond254.prehead
 for.body257:                                      ; preds = %for.body257.lr.ph, %if.end271
   %dec255215.in = phi i32 [ %call32, %for.body257.lr.ph ], [ %dec255215, %if.end271 ]
   %dest.addr.12214 = phi ptr [ %dest, %for.body257.lr.ph ], [ %dest.addr.13, %if.end271 ]
-  %destSize.addr.5213 = phi i32 [ %destSize, %for.body257.lr.ph ], [ %sub277, %if.end271 ]
+  %destSize.addr.6213 = phi i32 [ %destSize, %for.body257.lr.ph ], [ %sub277, %if.end271 ]
   %dec255215 = add nsw i32 %dec255215.in, -1
   %call258 = call i32 @ubidi_getVisualRun_75(ptr noundef nonnull %pBiDi, i32 noundef %dec255215, ptr noundef nonnull %logicalStart, ptr noundef nonnull %runLength)
   %cmp259 = icmp eq i32 %call258, 0
@@ -842,11 +842,11 @@ for.body257:                                      ; preds = %for.body257.lr.ph, 
   br i1 %cmp259, label %if.then260, label %if.else267
 
 if.then260:                                       ; preds = %for.body257
-  %call266 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr262, i32 noundef %34, ptr noundef %dest.addr.12214, i32 noundef %destSize.addr.5213, i16 noundef zeroext %and264, ptr noundef nonnull %pErrorCode)
+  %call266 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr262, i32 noundef %34, ptr noundef %dest.addr.12214, i32 noundef %destSize.addr.6213, i16 noundef zeroext %and264, ptr noundef nonnull %pErrorCode)
   br label %if.end271
 
 if.else267:                                       ; preds = %for.body257
-  %call270 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr262, i32 noundef %34, ptr noundef %dest.addr.12214, i32 noundef %destSize.addr.5213, i16 noundef zeroext %spec.select186, ptr noundef nonnull %pErrorCode)
+  %call270 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr262, i32 noundef %34, ptr noundef %dest.addr.12214, i32 noundef %destSize.addr.6213, i16 noundef zeroext %spec.select186, ptr noundef nonnull %pErrorCode)
   br label %if.end271
 
 if.end271:                                        ; preds = %if.else267, %if.then260
@@ -856,7 +856,7 @@ if.end271:                                        ; preds = %if.else267, %if.the
   %idx.ext274 = sext i32 %storemerge175 to i64
   %add.ptr275 = getelementptr inbounds i16, ptr %dest.addr.12214, i64 %idx.ext274
   %dest.addr.13 = select i1 %cmp272.not, ptr null, ptr %add.ptr275
-  %sub277 = sub nsw i32 %destSize.addr.5213, %storemerge175
+  %sub277 = sub nsw i32 %destSize.addr.6213, %storemerge175
   %cmp256 = icmp ugt i32 %dec255215.in, 1
   br i1 %cmp256, label %for.body257, label %if.end368, !llvm.loop !15
 
@@ -873,8 +873,8 @@ for.body287.lr.ph:                                ; preds = %if.else279
 
 for.body287:                                      ; preds = %for.body287.lr.ph, %if.end365
   %dec285210.in = phi i32 [ %call32, %for.body287.lr.ph ], [ %dec285210, %if.end365 ]
-  %dest.addr.14209 = phi ptr [ %dest, %for.body287.lr.ph ], [ %dest.addr.23, %if.end365 ]
-  %destSize.addr.6208 = phi i32 [ %destSize, %for.body287.lr.ph ], [ %destSize.addr.9, %if.end365 ]
+  %dest.addr.14209 = phi ptr [ %dest, %for.body287.lr.ph ], [ %dest.addr.19, %if.end365 ]
+  %destSize.addr.7208 = phi i32 [ %destSize, %for.body287.lr.ph ], [ %destSize.addr.9, %if.end365 ]
   %dec285210 = add nsw i32 %dec285210.in, -1
   %call288 = call i32 @ubidi_getVisualRun_75(ptr noundef nonnull %pBiDi, i32 noundef %dec285210, ptr noundef nonnull %logicalStart, ptr noundef nonnull %runLength)
   %36 = load i32, ptr %logicalStart, align 4
@@ -893,7 +893,7 @@ if.then292:                                       ; preds = %for.body287
   br i1 %cmp298.not, label %if.end305, label %if.then299
 
 if.then299:                                       ; preds = %if.then292
-  %cmp300 = icmp sgt i32 %destSize.addr.6208, 0
+  %cmp300 = icmp sgt i32 %destSize.addr.7208, 0
   br i1 %cmp300, label %if.then301, label %if.end303
 
 if.then301:                                       ; preds = %if.then299
@@ -904,21 +904,21 @@ if.then301:                                       ; preds = %if.then299
 
 if.end303:                                        ; preds = %if.then301, %if.then299
   %.pre = phi i32 [ %.pre.pre, %if.then301 ], [ %37, %if.then299 ]
-  %dest.addr.15 = phi ptr [ %incdec.ptr302, %if.then301 ], [ %dest.addr.14209, %if.then299 ]
-  %dec304 = add nsw i32 %destSize.addr.6208, -1
+  %dest.addr.16 = phi ptr [ %incdec.ptr302, %if.then301 ], [ %dest.addr.14209, %if.then299 ]
+  %dec304 = add nsw i32 %destSize.addr.7208, -1
   br label %if.end305
 
 if.end305:                                        ; preds = %if.end303, %if.then292
   %40 = phi i32 [ %.pre, %if.end303 ], [ %37, %if.then292 ]
-  %destSize.addr.7 = phi i32 [ %dec304, %if.end303 ], [ %destSize.addr.6208, %if.then292 ]
-  %dest.addr.16 = phi ptr [ %dest.addr.15, %if.end303 ], [ %dest.addr.14209, %if.then292 ]
-  %call309 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr290, i32 noundef %40, ptr noundef %dest.addr.16, i32 noundef %destSize.addr.7, i16 noundef zeroext %and307, ptr noundef nonnull %pErrorCode)
+  %destSize.addr.8 = phi i32 [ %dec304, %if.end303 ], [ %destSize.addr.7208, %if.then292 ]
+  %dest.addr.15 = phi ptr [ %dest.addr.16, %if.end303 ], [ %dest.addr.14209, %if.then292 ]
+  %call309 = call fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr290, i32 noundef %40, ptr noundef %dest.addr.15, i32 noundef %destSize.addr.8, i16 noundef zeroext %and307, ptr noundef nonnull %pErrorCode)
   store i32 %call309, ptr %runLength, align 4
-  %cmp310.not = icmp eq ptr %dest.addr.16, null
+  %cmp310.not = icmp eq ptr %dest.addr.15, null
   %idx.ext312 = sext i32 %call309 to i64
-  %add.ptr313 = getelementptr inbounds i16, ptr %dest.addr.16, i64 %idx.ext312
+  %add.ptr313 = getelementptr inbounds i16, ptr %dest.addr.15, i64 %idx.ext312
   %dest.addr.17 = select i1 %cmp310.not, ptr null, ptr %add.ptr313
-  %sub315 = sub nsw i32 %destSize.addr.7, %call309
+  %sub315 = sub nsw i32 %destSize.addr.8, %call309
   %41 = load i32, ptr %logicalStart, align 4
   %idxprom316 = sext i32 %41 to i64
   %arrayidx317 = getelementptr inbounds i8, ptr %35, i64 %idxprom316
@@ -950,7 +950,7 @@ if.else327:                                       ; preds = %for.body287
   br i1 %tobool334.not, label %if.then335, label %if.end341
 
 if.then335:                                       ; preds = %if.else327
-  %cmp336 = icmp sgt i32 %destSize.addr.6208, 0
+  %cmp336 = icmp sgt i32 %destSize.addr.7208, 0
   br i1 %cmp336, label %if.then337, label %if.end339
 
 if.then337:                                       ; preds = %if.then335
@@ -959,21 +959,21 @@ if.then337:                                       ; preds = %if.then335
   br label %if.end339
 
 if.end339:                                        ; preds = %if.then337, %if.then335
-  %dest.addr.19 = phi ptr [ %incdec.ptr338, %if.then337 ], [ %dest.addr.14209, %if.then335 ]
-  %dec340 = add nsw i32 %destSize.addr.6208, -1
+  %dest.addr.21 = phi ptr [ %incdec.ptr338, %if.then337 ], [ %dest.addr.14209, %if.then335 ]
+  %dec340 = add nsw i32 %destSize.addr.7208, -1
   br label %if.end341
 
 if.end341:                                        ; preds = %if.end339, %if.else327
-  %destSize.addr.8 = phi i32 [ %destSize.addr.6208, %if.else327 ], [ %dec340, %if.end339 ]
-  %dest.addr.20 = phi ptr [ %dest.addr.14209, %if.else327 ], [ %dest.addr.19, %if.end339 ]
+  %destSize.addr.10 = phi i32 [ %destSize.addr.7208, %if.else327 ], [ %dec340, %if.end339 ]
+  %dest.addr.20 = phi ptr [ %dest.addr.14209, %if.else327 ], [ %dest.addr.21, %if.end339 ]
   %44 = load i32, ptr %runLength, align 4
-  %call342 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr290, i32 noundef %44, ptr noundef %dest.addr.20, i32 noundef %destSize.addr.8, i16 noundef zeroext %spec.select186, ptr noundef nonnull %pErrorCode)
+  %call342 = call fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull %add.ptr290, i32 noundef %44, ptr noundef %dest.addr.20, i32 noundef %destSize.addr.10, i16 noundef zeroext %spec.select186, ptr noundef nonnull %pErrorCode)
   store i32 %call342, ptr %runLength, align 4
   %cmp343.not = icmp eq ptr %dest.addr.20, null
   %idx.ext345 = sext i32 %call342 to i64
   %add.ptr346 = getelementptr inbounds i16, ptr %dest.addr.20, i64 %idx.ext345
-  %dest.addr.21 = select i1 %cmp343.not, ptr null, ptr %add.ptr346
-  %sub348 = sub nsw i32 %destSize.addr.8, %call342
+  %dest.addr.22 = select i1 %cmp343.not, ptr null, ptr %add.ptr346
+  %sub348 = sub nsw i32 %destSize.addr.10, %call342
   %45 = load i32, ptr %logicalStart, align 4
   %add349 = add nsw i32 %45, %call342
   %46 = sext i32 %add349 to i64
@@ -990,24 +990,24 @@ if.then358:                                       ; preds = %if.end341
   br i1 %cmp359, label %if.then360, label %if.end362
 
 if.then360:                                       ; preds = %if.then358
-  %incdec.ptr361 = getelementptr inbounds i8, ptr %dest.addr.21, i64 2
-  store i16 8207, ptr %dest.addr.21, align 2
+  %incdec.ptr361 = getelementptr inbounds i8, ptr %dest.addr.22, i64 2
+  store i16 8207, ptr %dest.addr.22, align 2
   br label %if.end362
 
 if.end362:                                        ; preds = %if.then360, %if.then358
-  %dest.addr.22 = phi ptr [ %incdec.ptr361, %if.then360 ], [ %dest.addr.21, %if.then358 ]
+  %dest.addr.23 = phi ptr [ %incdec.ptr361, %if.then360 ], [ %dest.addr.22, %if.then358 ]
   %dec363 = add nsw i32 %sub348, -1
   br label %if.end365
 
 if.end365:                                        ; preds = %if.end341, %if.end362, %if.end305, %if.end324
   %destSize.addr.9 = phi i32 [ %dec325, %if.end324 ], [ %sub315, %if.end305 ], [ %sub348, %if.end341 ], [ %dec363, %if.end362 ]
-  %dest.addr.23 = phi ptr [ %dest.addr.18, %if.end324 ], [ %dest.addr.17, %if.end305 ], [ %dest.addr.21, %if.end341 ], [ %dest.addr.22, %if.end362 ]
+  %dest.addr.19 = phi ptr [ %dest.addr.18, %if.end324 ], [ %dest.addr.17, %if.end305 ], [ %dest.addr.22, %if.end341 ], [ %dest.addr.23, %if.end362 ]
   %cmp286 = icmp ugt i32 %dec285210.in, 1
   br i1 %cmp286, label %for.body287, label %if.end368, !llvm.loop !16
 
 if.end368:                                        ; preds = %if.end365, %if.end271, %for.inc245, %if.end91, %if.else279, %for.cond254.preheader, %if.else97, %for.cond.preheader
-  %destSize.addr.10 = phi i32 [ %destSize, %for.cond.preheader ], [ %destSize, %if.else97 ], [ %destSize, %for.cond254.preheader ], [ %destSize, %if.else279 ], [ %sub, %if.end91 ], [ %destSize.addr.4, %for.inc245 ], [ %sub277, %if.end271 ], [ %destSize.addr.9, %if.end365 ]
-  %sub369 = sub nsw i32 %destSize, %destSize.addr.10
+  %destSize.addr.5 = phi i32 [ %destSize, %for.cond.preheader ], [ %destSize, %if.else97 ], [ %destSize, %for.cond254.preheader ], [ %destSize, %if.else279 ], [ %sub, %if.end91 ], [ %destSize.addr.4, %for.inc245 ], [ %sub277, %if.end271 ], [ %destSize.addr.9, %if.end365 ]
+  %sub369 = sub nsw i32 %destSize, %destSize.addr.5
   %call370 = call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef %destSize, i32 noundef %sub369, ptr noundef nonnull %pErrorCode)
   br label %return
 

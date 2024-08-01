@@ -474,11 +474,11 @@ get_http2_stream_count.exit.thread23:             ; preds = %8
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
   %.017.i = phi ptr [ %15, %.lr.ph.i ], [ %9, %8 ]
-  %.01216.i = phi i32 [ %13, %.lr.ph.i ], [ 0, %8 ]
+  %.116.i = phi i32 [ %13, %.lr.ph.i ], [ 0, %8 ]
   %10 = load ptr, ptr %.017.i, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i32
-  %13 = tail call i32 @llvm.umax.i32(i32 %.01216.i, i32 %12)
+  %13 = tail call i32 @llvm.umax.i32(i32 %.116.i, i32 %12)
   %14 = getelementptr inbounds i8, ptr %.017.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not14.i = icmp eq ptr %15, null
@@ -490,9 +490,9 @@ get_http2_stream_count.exit:                      ; preds = %.lr.ph.i
   br i1 %16, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %3, %get_http2_stream_count.exit.thread23, %get_http2_stream_count.exit
-  %.1.i22 = phi i32 [ %13, %get_http2_stream_count.exit ], [ 0, %get_http2_stream_count.exit.thread23 ], [ 0, %3 ]
+  %.012.i22 = phi i32 [ %13, %get_http2_stream_count.exit ], [ 0, %get_http2_stream_count.exit.thread23 ], [ 0, %3 ]
   %17 = and i32 %1, 2147483647
-  %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 %.1.i22)
+  %18 = tail call i32 @llvm.umin.i32(i32 %17, i32 %.012.i22)
   %19 = zext nneg i32 %18 to i64
   br label %.lr.ph
 
@@ -541,25 +541,25 @@ define range(i32 0, 2) i32 @http2_get_stream_id_ge(i32 noundef %0, i32 noundef %
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
   %.017.i = phi ptr [ %15, %.lr.ph.i ], [ %9, %8 ]
-  %.01216.i = phi i32 [ %13, %.lr.ph.i ], [ 0, %8 ]
+  %.116.i = phi i32 [ %13, %.lr.ph.i ], [ 0, %8 ]
   %10 = load ptr, ptr %.017.i, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i32
-  %13 = tail call i32 @llvm.umax.i32(i32 %.01216.i, i32 %12)
+  %13 = tail call i32 @llvm.umax.i32(i32 %.116.i, i32 %12)
   %14 = getelementptr inbounds i8, ptr %.017.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not14.i = icmp eq ptr %15, null
   br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %8
-  %.012.lcssa.i = phi i32 [ 0, %8 ], [ %13, %.lr.ph.i ]
+  %.1.lcssa.i = phi i32 [ 0, %8 ], [ %13, %.lr.ph.i ]
   tail call void @g_list_free(ptr noundef %9) #6
   br label %get_http2_stream_count.exit
 
 get_http2_stream_count.exit:                      ; preds = %3, %._crit_edge.i
-  %.1.i = phi i32 [ %.012.lcssa.i, %._crit_edge.i ], [ 0, %3 ]
+  %.012.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %3 ]
   %16 = and i32 %1, 2147483647
-  %.not15 = icmp sgt i32 %16, %.1.i
+  %.not15 = icmp sgt i32 %16, %.012.i
   br i1 %.not15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %get_http2_stream_count.exit, %is_http2_stream_contains.exit.thread
@@ -582,7 +582,7 @@ is_http2_stream_contains.exit:                    ; preds = %.lr.ph
 
 is_http2_stream_contains.exit.thread:             ; preds = %.lr.ph, %is_http2_stream_contains.exit
   %24 = add i32 %.016, 1
-  %.not = icmp sgt i32 %24, %.1.i
+  %.not = icmp sgt i32 %24, %.012.i
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %is_http2_stream_contains.exit.thread, %get_http2_stream_count.exit, %23

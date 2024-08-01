@@ -590,8 +590,8 @@ define range(i32 -1, 1) i32 @H5T__commit_named(ptr noundef %0, ptr noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %5, %22, %27, %73, %17
-  %.6 = phi i32 [ -1, %73 ], [ -1, %27 ], [ -1, %22 ], [ -1, %17 ], [ 0, %5 ]
-  ret i32 %.6
+  %.1 = phi i32 [ -1, %73 ], [ -1, %27 ], [ -1, %22 ], [ -1, %17 ], [ 0, %5 ]
+  ret i32 %.1
 }
 
 declare i32 @H5L_link_object(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -1158,8 +1158,8 @@ define range(i32 -1, 1) i32 @H5T__commit(ptr noundef %0, ptr noundef %1, i64 nou
   br label %.thread113
 
 .thread113:                                       ; preds = %.thread, %.thread101.thread, %195, %198
-  %.5 = phi i32 [ -1, %198 ], [ -1, %195 ], [ -1, %.thread101.thread ], [ 0, %.thread ]
-  ret i32 %.5
+  %.2 = phi i32 [ -1, %198 ], [ -1, %195 ], [ -1, %.thread101.thread ], [ 0, %.thread ]
+  ret i32 %.2
 }
 
 declare ptr @H5T_oloc(ptr noundef) local_unnamed_addr #1
@@ -2298,12 +2298,12 @@ define ptr @H5T_open(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br label %.thread70
 
 .thread70:                                        ; preds = %106, %116, %131, %145, %154, %169
-  %.150.ph.ph72 = phi ptr [ %23, %169 ], [ %95, %154 ], [ %95, %145 ], [ %95, %131 ], [ %95, %116 ], [ %95, %106 ]
-  %172 = getelementptr inbounds i8, ptr %.150.ph.ph72, i64 48
+  %.049.ph.ph72 = phi ptr [ %23, %169 ], [ %95, %154 ], [ %95, %145 ], [ %95, %131 ], [ %95, %116 ], [ %95, %106 ]
+  %172 = getelementptr inbounds i8, ptr %.049.ph.ph72, i64 48
   %173 = call i32 @H5O_loc_free(ptr noundef nonnull %172) #7
-  %174 = getelementptr inbounds i8, ptr %.150.ph.ph72, i64 72
+  %174 = getelementptr inbounds i8, ptr %.049.ph.ph72, i64 72
   %175 = call i32 @H5G_name_free(ptr noundef nonnull %174) #7
-  %176 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5T_t_reg_free_list, ptr noundef nonnull %.150.ph.ph72) #7
+  %176 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5T_t_reg_free_list, ptr noundef nonnull %.049.ph.ph72) #7
   br i1 %8, label %180, label %177
 
 177:                                              ; preds = %.thread74, %.thread70
@@ -2313,8 +2313,8 @@ define ptr @H5T_open(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br label %180
 
 180:                                              ; preds = %.thread73, %149, %92, %.thread70, %177
-  %.4 = phi ptr [ null, %177 ], [ null, %.thread70 ], [ %23, %92 ], [ %95, %149 ], [ null, %.thread73 ]
-  ret ptr %.4
+  %.1 = phi ptr [ null, %177 ], [ null, %.thread70 ], [ %23, %92 ], [ %95, %149 ], [ null, %.thread73 ]
+  ret ptr %.1
 }
 
 declare i32 @H5G_loc_free(ptr noundef) local_unnamed_addr #1

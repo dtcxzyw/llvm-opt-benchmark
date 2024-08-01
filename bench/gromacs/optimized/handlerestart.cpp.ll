@@ -499,11 +499,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit95.i:      ; preds = %118, %115
   br label %137
 
 137:                                              ; preds = %135, %133
-  %.165.i = phi i1 [ %.064.i, %135 ], [ true, %133 ]
+  %.367.i = phi i1 [ %.064.i, %135 ], [ true, %133 ]
   %.pn84.i = phi { ptr, i32 } [ %136, %135 ], [ %134, %133 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %63) #19, !noalias !5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #19, !noalias !5
-  br i1 %.165.i, label %138, label %.body
+  br i1 %.367.i, label %138, label %.body
 
 138:                                              ; preds = %137, %.thread207.i, %.thread203.i
   %.pn84.pn.pn206.i = phi { ptr, i32 } [ %131, %.thread203.i ], [ %.pn84.i, %137 ], [ %132, %.thread207.i ]
@@ -872,10 +872,10 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit95.i:      ; preds = %118, %115
 
 234:                                              ; preds = %232, %230
   %.pn75.i = phi { ptr, i32 } [ %233, %232 ], [ %231, %230 ]
-  %.136.i = phi i1 [ %.035.i, %232 ], [ true, %230 ]
+  %.3.i = phi i1 [ %.035.i, %232 ], [ true, %230 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %74) #19, !noalias !5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #19, !noalias !5
-  br i1 %.136.i, label %235, label %.body.i
+  br i1 %.3.i, label %235, label %.body.i
 
 235:                                              ; preds = %234, %.thread224.i, %.thread220.i
   %.pn75.pn.pn223.i = phi { ptr, i32 } [ %228, %.thread220.i ], [ %.pn75.i, %234 ], [ %229, %.thread224.i ]
@@ -1098,7 +1098,7 @@ _ZN3gmx12_GLOBAL__N_123StartingBehaviorHandleraSEOS1_.exit: ; preds = %.noexc, %
   br label %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandlerD2Ev.exit
 
 _ZN3gmx12_GLOBAL__N_123StartingBehaviorHandlerD2Ev.exit: ; preds = %281, %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandleraSEOS1_.exit
-  %.sroa.26.0174 = phi i8 [ 0, %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandleraSEOS1_.exit ], [ 1, %281 ]
+  %.sroa.26.6174 = phi i8 [ 0, %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandleraSEOS1_.exit ], [ 1, %281 ]
   %.sroa.0101.0136171 = phi i32 [ 2, %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandleraSEOS1_.exit ], [ %.sink253.i, %281 ]
   %.sroa.14.0144169 = phi ptr [ undef, %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandleraSEOS1_.exit ], [ %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i121.sink.i, %281 ]
   %.sroa.8102.0146166 = phi ptr [ undef, %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandleraSEOS1_.exit ], [ %.sink251.i, %281 ]
@@ -1303,14 +1303,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit73.i: 
   br label %_ZN3gmx16EnumerationArrayINS_16StartingBehaviorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_3EED2Ev.exit90.i
 
 .body.i35:                                        ; preds = %.body71.i, %331, %297
-  %.041.i = phi ptr [ %299, %.body71.i ], [ %295, %297 ], [ %295, %331 ]
+  %.142.i = phi ptr [ %299, %.body71.i ], [ %295, %297 ], [ %295, %331 ]
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body72.i, %.body71.i ], [ %298, %297 ], [ %332, %331 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #19
   br label %335
 
 335:                                              ; preds = %335, %.body.i35
-  %336 = phi ptr [ %337, %335 ], [ %.041.i, %.body.i35 ]
+  %336 = phi ptr [ %337, %335 ], [ %.142.i, %.body.i35 ]
   %337 = getelementptr inbounds i8, ptr %336, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %337) #19
   %338 = icmp eq ptr %337, %39
@@ -1646,7 +1646,7 @@ _ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17Append
 
 .loopexit.split-lp:                               ; preds = %425, %440, %442, %89, %91, %.noexc29, %113, %282, %455, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i53, %.noexc62, %531, %562
   %.sroa.14119.1.ph = phi ptr [ undef, %89 ], [ undef, %91 ], [ undef, %.noexc29 ], [ undef, %113 ], [ %.sroa.8102.0146166, %282 ], [ %.sroa.8102.0146166, %425 ], [ %.sroa.8102.0146166, %440 ], [ %.sroa.8102.0146166, %442 ], [ %.sroa.8102.0146166, %455 ], [ %.sroa.8102.0146166, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i53 ], [ %.sroa.8102.0146166, %.noexc62 ], [ %.sroa.8102.0146166, %531 ], [ %.sroa.8102.0146166, %562 ]
-  %.sroa.26.1.ph = phi i8 [ 0, %89 ], [ 0, %91 ], [ 0, %.noexc29 ], [ 0, %113 ], [ %.sroa.26.0174, %282 ], [ %.sroa.26.0174, %425 ], [ %.sroa.26.0174, %440 ], [ %.sroa.26.0174, %442 ], [ %.sroa.26.0174, %455 ], [ %.sroa.26.0174, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i53 ], [ %.sroa.26.0174, %.noexc62 ], [ %.sroa.26.0174, %531 ], [ %.sroa.26.0174, %562 ]
+  %.sroa.26.1.ph = phi i8 [ 0, %89 ], [ 0, %91 ], [ 0, %.noexc29 ], [ 0, %113 ], [ %.sroa.26.6174, %282 ], [ %.sroa.26.6174, %425 ], [ %.sroa.26.6174, %440 ], [ %.sroa.26.6174, %442 ], [ %.sroa.26.6174, %455 ], [ %.sroa.26.6174, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i53 ], [ %.sroa.26.6174, %.noexc62 ], [ %.sroa.26.6174, %531 ], [ %.sroa.26.6174, %562 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
@@ -1660,8 +1660,8 @@ _ZNK3gmx12_GLOBAL__N_123StartingBehaviorHandler19makeIndexOfNextPartENS_17Append
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %.body.i50, %548, %569, %571, %578, %279, %.body.i, %138, %137, %129, %112, %110, %106, %_ZN3gmx16EnumerationArrayINS_16StartingBehaviorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_3EED2Ev.exit90.i, %420, %431
-  %.sroa.14119.5 = phi ptr [ %.sroa.8102.0146166, %431 ], [ undef, %279 ], [ undef, %.body.i ], [ undef, %138 ], [ undef, %137 ], [ undef, %129 ], [ undef, %112 ], [ undef, %110 ], [ undef, %106 ], [ %.sroa.8102.0146166, %420 ], [ %.sroa.8102.0146166, %_ZN3gmx16EnumerationArrayINS_16StartingBehaviorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_3EED2Ev.exit90.i ], [ %.sroa.8102.0146166, %578 ], [ %.sroa.8102.0146166, %571 ], [ %.sroa.8102.0146166, %569 ], [ %.sroa.8102.0146166, %548 ], [ %.sroa.8102.0146166, %.body.i50 ], [ %.sroa.8102.0146166, %.loopexit ], [ %.sroa.14119.1.ph, %.loopexit.split-lp ]
-  %.sroa.26.5 = phi i8 [ %.sroa.26.0174, %431 ], [ 0, %279 ], [ 0, %.body.i ], [ 0, %138 ], [ 0, %137 ], [ 0, %129 ], [ 0, %112 ], [ 0, %110 ], [ 0, %106 ], [ %.sroa.26.0174, %420 ], [ %.sroa.26.0174, %_ZN3gmx16EnumerationArrayINS_16StartingBehaviorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_3EED2Ev.exit90.i ], [ %.sroa.26.0174, %578 ], [ %.sroa.26.0174, %571 ], [ %.sroa.26.0174, %569 ], [ %.sroa.26.0174, %548 ], [ %.sroa.26.0174, %.body.i50 ], [ %.sroa.26.0174, %.loopexit ], [ %.sroa.26.1.ph, %.loopexit.split-lp ]
+  %.sroa.14119.2 = phi ptr [ %.sroa.8102.0146166, %431 ], [ undef, %279 ], [ undef, %.body.i ], [ undef, %138 ], [ undef, %137 ], [ undef, %129 ], [ undef, %112 ], [ undef, %110 ], [ undef, %106 ], [ %.sroa.8102.0146166, %420 ], [ %.sroa.8102.0146166, %_ZN3gmx16EnumerationArrayINS_16StartingBehaviorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_3EED2Ev.exit90.i ], [ %.sroa.8102.0146166, %578 ], [ %.sroa.8102.0146166, %571 ], [ %.sroa.8102.0146166, %569 ], [ %.sroa.8102.0146166, %548 ], [ %.sroa.8102.0146166, %.body.i50 ], [ %.sroa.8102.0146166, %.loopexit ], [ %.sroa.14119.1.ph, %.loopexit.split-lp ]
+  %.sroa.26.2 = phi i8 [ %.sroa.26.6174, %431 ], [ 0, %279 ], [ 0, %.body.i ], [ 0, %138 ], [ 0, %137 ], [ 0, %129 ], [ 0, %112 ], [ 0, %110 ], [ 0, %106 ], [ %.sroa.26.6174, %420 ], [ %.sroa.26.6174, %_ZN3gmx16EnumerationArrayINS_16StartingBehaviorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_3EED2Ev.exit90.i ], [ %.sroa.26.6174, %578 ], [ %.sroa.26.6174, %571 ], [ %.sroa.26.6174, %569 ], [ %.sroa.26.6174, %548 ], [ %.sroa.26.6174, %.body.i50 ], [ %.sroa.26.6174, %.loopexit ], [ %.sroa.26.1.ph, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %432, %431 ], [ %.pn82.i, %279 ], [ %.pn82.i, %.body.i ], [ %.pn84.pn.pn206.i, %138 ], [ %.pn84.i, %137 ], [ %130, %129 ], [ %.pn88.pn199.i, %112 ], [ %111, %110 ], [ %107, %106 ], [ %.pn58.pn.pn.pn.i, %420 ], [ %.pn58.pn.pn.pn.i, %_ZN3gmx16EnumerationArrayINS_16StartingBehaviorENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELS1_3EED2Ev.exit90.i ], [ %.pn.pn74.i, %578 ], [ %572, %571 ], [ %570, %569 ], [ %.pn34.pn66.i, %548 ], [ %eh.lpad-body.i, %.body.i50 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.017 = extractvalue { ptr, i32 } %.pn, 1
   %433 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #19
@@ -2321,16 +2321,16 @@ _ZN3gmx12_GLOBAL__N_119prepareForAppendingENS_8ArrayRefIK19gmx_file_position_tEE
   br label %582
 
 580:                                              ; preds = %585, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit
-  %.sroa.14119.6 = phi ptr [ %.sroa.14119.7225, %585 ], [ %.sroa.14119.5, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ]
-  %.sroa.26.6 = phi i8 [ %.sroa.26.7227, %585 ], [ %.sroa.26.5, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ]
+  %.sroa.14119.4 = phi ptr [ %.sroa.14119.0225, %585 ], [ %.sroa.14119.2, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ]
+  %.sroa.26.4 = phi i8 [ %.sroa.26.0227, %585 ], [ %.sroa.26.2, %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit ]
   %581 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit75
 
 582:                                              ; preds = %_ZN3gmx12_GLOBAL__N_119prepareForAppendingENS_8ArrayRefIK19gmx_file_position_tEEP8t_fileio.exit, %_ZNSt10unique_ptrI8t_fileioN3gmx15functor_wrapperIS0_XadL_ZNS1_12closeLogFileEPS0_EEEEED2Ev.exit, %7
-  %.sroa.0111.5 = phi i32 [ 0, %_ZN3gmx12_GLOBAL__N_119prepareForAppendingENS_8ArrayRefIK19gmx_file_position_tEEP8t_fileio.exit ], [ %.sroa.0101.0136171, %_ZNSt10unique_ptrI8t_fileioN3gmx15functor_wrapperIS0_XadL_ZNS1_12closeLogFileEPS0_EEEEED2Ev.exit ], [ 2, %7 ]
-  %.sroa.14119.7 = phi ptr [ %.sroa.8102.0146166, %_ZN3gmx12_GLOBAL__N_119prepareForAppendingENS_8ArrayRefIK19gmx_file_position_tEEP8t_fileio.exit ], [ %.sroa.8102.0146166, %_ZNSt10unique_ptrI8t_fileioN3gmx15functor_wrapperIS0_XadL_ZNS1_12closeLogFileEPS0_EEEEED2Ev.exit ], [ undef, %7 ]
-  %.sroa.26.7 = phi i8 [ %.sroa.26.0174, %_ZN3gmx12_GLOBAL__N_119prepareForAppendingENS_8ArrayRefIK19gmx_file_position_tEEP8t_fileio.exit ], [ %.sroa.26.0174, %_ZNSt10unique_ptrI8t_fileioN3gmx15functor_wrapperIS0_XadL_ZNS1_12closeLogFileEPS0_EEEEED2Ev.exit ], [ 0, %7 ]
+  %.sroa.0111.0 = phi i32 [ 0, %_ZN3gmx12_GLOBAL__N_119prepareForAppendingENS_8ArrayRefIK19gmx_file_position_tEEP8t_fileio.exit ], [ %.sroa.0101.0136171, %_ZNSt10unique_ptrI8t_fileioN3gmx15functor_wrapperIS0_XadL_ZNS1_12closeLogFileEPS0_EEEEED2Ev.exit ], [ 2, %7 ]
+  %.sroa.14119.0 = phi ptr [ %.sroa.8102.0146166, %_ZN3gmx12_GLOBAL__N_119prepareForAppendingENS_8ArrayRefIK19gmx_file_position_tEEP8t_fileio.exit ], [ %.sroa.8102.0146166, %_ZNSt10unique_ptrI8t_fileioN3gmx15functor_wrapperIS0_XadL_ZNS1_12closeLogFileEPS0_EEEEED2Ev.exit ], [ undef, %7 ]
+  %.sroa.26.0 = phi i8 [ %.sroa.26.6174, %_ZN3gmx12_GLOBAL__N_119prepareForAppendingENS_8ArrayRefIK19gmx_file_position_tEEP8t_fileio.exit ], [ %.sroa.26.6174, %_ZNSt10unique_ptrI8t_fileioN3gmx15functor_wrapperIS0_XadL_ZNS1_12closeLogFileEPS0_EEEEED2Ev.exit ], [ 0, %7 ]
   %583 = icmp eq ptr %2, null
   br i1 %583, label %604, label %585
 
@@ -2339,8 +2339,8 @@ _ZN3gmx12_GLOBAL__N_119prepareForAppendingENS_8ArrayRefIK19gmx_file_position_tEE
   br i1 %584, label %586, label %585
 
 585:                                              ; preds = %.thread219, %582
-  %.sroa.26.7227 = phi i8 [ %.sroa.26.5, %.thread219 ], [ %.sroa.26.7, %582 ]
-  %.sroa.14119.7225 = phi ptr [ %.sroa.14119.5, %.thread219 ], [ %.sroa.14119.7, %582 ]
+  %.sroa.26.0227 = phi i8 [ %.sroa.26.2, %.thread219 ], [ %.sroa.26.0, %582 ]
+  %.sroa.14119.0225 = phi ptr [ %.sroa.14119.2, %.thread219 ], [ %.sroa.14119.0, %582 ]
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmx13handleRestartEbP10tmpi_comm_PK14gmx_multisim_tNS_17AppendingBehaviorEiP8t_filenmENK3$_0clEv", ptr noundef nonnull @.str.2, i32 noundef 705) #20
           to label %.noexc72 unwind label %580
 
@@ -2427,7 +2427,7 @@ _ZNSt15__exception_ptr13exception_ptrC2ERKS0_.exit: ; preds = %586
   %605 = load i64, ptr %80, align 8, !noalias !15
   store i64 %605, ptr %0, align 8, !alias.scope !15
   %606 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.0111.5, ptr %606, align 8, !alias.scope !15
+  store i32 %.sroa.0111.0, ptr %606, align 8, !alias.scope !15
   %607 = load ptr, ptr %81, align 8
   %.not.i77 = icmp eq ptr %607, null
   br i1 %.not.i77, label %_ZNSt10unique_ptrI8t_fileioN3gmx15functor_wrapperIS0_XadL_ZNS1_12closeLogFileEPS0_EEEEED2Ev.exit80, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit78
@@ -2438,21 +2438,21 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit78: ; preds = %604
 
 _ZNSt10unique_ptrI8t_fileioN3gmx15functor_wrapperIS0_XadL_ZNS1_12closeLogFileEPS0_EEEEED2Ev.exit80: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit78, %604
   store ptr null, ptr %80, align 8
-  %608 = trunc nuw i8 %.sroa.26.7 to i1
-  %.not.i.i.i.i.i.i.i.i.i81 = icmp ne ptr %.sroa.14119.7, null
+  %608 = trunc nuw i8 %.sroa.26.0 to i1
+  %.not.i.i.i.i.i.i.i.i.i81 = icmp ne ptr %.sroa.14119.0, null
   %or.cond.not = and i1 %.not.i.i.i.i.i.i.i.i.i81, %608
   br i1 %or.cond.not, label %609, label %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandlerD2Ev.exit82
 
 609:                                              ; preds = %_ZNSt10unique_ptrI8t_fileioN3gmx15functor_wrapperIS0_XadL_ZNS1_12closeLogFileEPS0_EEEEED2Ev.exit80
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.14119.7) #22
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.14119.0) #22
   br label %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandlerD2Ev.exit82
 
 _ZN3gmx12_GLOBAL__N_123StartingBehaviorHandlerD2Ev.exit82: ; preds = %_ZNSt10unique_ptrI8t_fileioN3gmx15functor_wrapperIS0_XadL_ZNS1_12closeLogFileEPS0_EEEEED2Ev.exit80, %609
   ret void
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit75: ; preds = %592, %589, %601, %603, %580, %.body
-  %.sroa.14119.8 = phi ptr [ %.sroa.14119.5, %603 ], [ %.sroa.14119.5, %601 ], [ %.sroa.14119.6, %580 ], [ %.sroa.14119.5, %.body ], [ %.sroa.14119.5, %589 ], [ %.sroa.14119.5, %592 ]
-  %.sroa.26.8 = phi i8 [ %.sroa.26.5, %603 ], [ %.sroa.26.5, %601 ], [ %.sroa.26.6, %580 ], [ %.sroa.26.5, %.body ], [ %.sroa.26.5, %589 ], [ %.sroa.26.5, %592 ]
+  %.sroa.14119.3 = phi ptr [ %.sroa.14119.2, %603 ], [ %.sroa.14119.2, %601 ], [ %.sroa.14119.4, %580 ], [ %.sroa.14119.2, %.body ], [ %.sroa.14119.2, %589 ], [ %.sroa.14119.2, %592 ]
+  %.sroa.26.3 = phi i8 [ %.sroa.26.2, %603 ], [ %.sroa.26.2, %601 ], [ %.sroa.26.4, %580 ], [ %.sroa.26.2, %.body ], [ %.sroa.26.2, %589 ], [ %.sroa.26.2, %592 ]
   %.merged = phi { ptr, i32 } [ %.pn25.pn187, %603 ], [ %602, %601 ], [ %581, %580 ], [ %.pn, %.body ], [ %590, %589 ], [ %590, %592 ]
   %610 = load ptr, ptr %81, align 8
   %.not.i83 = icmp eq ptr %610, null
@@ -2464,13 +2464,13 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit75: ; preds = %592, %589, %601, %6
 
 _ZNSt15__exception_ptr13exception_ptrD2Ev.exit84: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit75, %611
   call void @_ZNSt10unique_ptrI8t_fileioN3gmx15functor_wrapperIS0_XadL_ZNS1_12closeLogFileEPS0_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %80) #19
-  %612 = trunc nuw i8 %.sroa.26.8 to i1
-  %.not.i.i.i.i.i.i.i.i.i85 = icmp ne ptr %.sroa.14119.8, null
+  %612 = trunc nuw i8 %.sroa.26.3 to i1
+  %.not.i.i.i.i.i.i.i.i.i85 = icmp ne ptr %.sroa.14119.3, null
   %or.cond194.not = select i1 %612, i1 %.not.i.i.i.i.i.i.i.i.i85, i1 false
   br i1 %or.cond194.not, label %613, label %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandlerD2Ev.exit86
 
 613:                                              ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit84
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.14119.8) #22
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.14119.3) #22
   br label %_ZN3gmx12_GLOBAL__N_123StartingBehaviorHandlerD2Ev.exit86
 
 _ZN3gmx12_GLOBAL__N_123StartingBehaviorHandlerD2Ev.exit86: ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit84, %613

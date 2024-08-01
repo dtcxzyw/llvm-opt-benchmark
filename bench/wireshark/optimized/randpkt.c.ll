@@ -231,10 +231,10 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %70
   %.in = phi i32 [ %71, %70 ], [ %.051.ph205, %.preheader ]
-  %.047109 = phi ptr [ %69, %70 ], [ %62, %.preheader ]
-  call void @randpkt_loop(ptr noundef nonnull %.047109, i64 noundef 1, i64 noundef 0) #5
+  %.148109 = phi ptr [ %69, %70 ], [ %62, %.preheader ]
+  call void @randpkt_loop(ptr noundef nonnull %.148109, i64 noundef 1, i64 noundef 0) #5
   %66 = call i32 @randpkt_parse_type(ptr noundef null) #5
-  %67 = getelementptr inbounds i8, ptr %.047109, i64 56
+  %67 = getelementptr inbounds i8, ptr %.148109, i64 56
   %68 = load ptr, ptr %67, align 8
   %69 = call ptr @randpkt_find_example(i32 noundef %66) #5
   %.not75 = icmp eq ptr %69, null
@@ -250,19 +250,19 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %70, %.preheader, %54
-  %.148 = phi ptr [ %51, %54 ], [ %62, %.preheader ], [ %69, %70 ]
-  %75 = call i32 @randpkt_example_close(ptr noundef nonnull %.148) #5
+  %.047 = phi ptr [ %51, %54 ], [ %62, %.preheader ], [ %69, %70 ]
+  %75 = call i32 @randpkt_example_close(ptr noundef nonnull %.047) #5
   %.not74 = icmp eq i32 %75, 0
   %spec.select = select i1 %.not74, i32 2, i32 0
   br label %.loopexit76
 
 .loopexit76:                                      ; preds = %.lr.ph, %.loopexit, %60, %49, %63, %52, %57, %45, %.loopexit77, %32, %31, %18
-  %.1 = phi i32 [ 1, %.loopexit77 ], [ 0, %32 ], [ 0, %31 ], [ 1, %18 ], [ 2, %57 ], [ %64, %63 ], [ %53, %52 ], [ 1, %45 ], [ 1, %49 ], [ 1, %60 ], [ %spec.select, %.loopexit ], [ 1, %.lr.ph ]
+  %.0 = phi i32 [ 1, %.loopexit77 ], [ 0, %32 ], [ 0, %31 ], [ 1, %18 ], [ 2, %57 ], [ %64, %63 ], [ %53, %52 ], [ 1, %45 ], [ 1, %49 ], [ 1, %60 ], [ %spec.select, %.loopexit ], [ 1, %.lr.ph ]
   call void @wtap_cleanup() #5
   br label %76
 
 76:                                               ; preds = %.loopexit76, %35, %26
-  %.042 = phi i32 [ %.1, %.loopexit76 ], [ 1, %35 ], [ 1, %26 ]
+  %.042 = phi i32 [ %.0, %.loopexit76 ], [ 1, %35 ], [ 1, %26 ]
   ret i32 %.042
 }
 

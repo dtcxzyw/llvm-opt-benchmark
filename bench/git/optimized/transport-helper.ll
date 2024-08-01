@@ -3771,65 +3771,65 @@ if.else109.i:                                     ; preds = %if.then103.i
   br label %if.end111.i
 
 if.end111.i:                                      ; preds = %if.else109.i, %if.then107.i
-  %msg.0.i = phi ptr [ %call110.i, %if.else109.i ], [ %call108.i, %if.then107.i ]
+  %msg.1.i = phi ptr [ %call110.i, %if.else109.i ], [ %call108.i, %if.then107.i ]
   call void @strbuf_release(ptr noundef nonnull %msg_buf.i) #18
-  %call112.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.0.i, ptr noundef nonnull dereferenceable(9) @.str.125) #20
+  %call112.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.1.i, ptr noundef nonnull dereferenceable(9) @.str.125) #20
   %tobool113.not.i = icmp eq i32 %call112.i, 0
   br i1 %tobool113.not.i, label %if.end179.sink.split.i, label %if.else115.i
 
 if.else115.i:                                     ; preds = %if.end111.i
-  %call116.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.0.i, ptr noundef nonnull dereferenceable(11) @.str.126) #20
+  %call116.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.1.i, ptr noundef nonnull dereferenceable(11) @.str.126) #20
   %tobool117.not.i = icmp eq i32 %call116.i, 0
   br i1 %tobool117.not.i, label %if.end179.sink.split.i, label %if.else121.i
 
 if.else121.i:                                     ; preds = %if.else115.i
-  %call122.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.0.i, ptr noundef nonnull dereferenceable(17) @.str.127) #20
+  %call122.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.1.i, ptr noundef nonnull dereferenceable(17) @.str.127) #20
   %tobool123.not.i = icmp eq i32 %call122.i, 0
   br i1 %tobool123.not.i, label %if.end179.sink.split.i, label %if.else127.i
 
 if.else127.i:                                     ; preds = %if.else121.i
-  %call128.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.0.i, ptr noundef nonnull dereferenceable(15) @.str.128) #20
+  %call128.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.1.i, ptr noundef nonnull dereferenceable(15) @.str.128) #20
   %tobool129.not.i = icmp eq i32 %call128.i, 0
   br i1 %tobool129.not.i, label %if.end179.sink.split.i, label %if.else133.i
 
 if.else133.i:                                     ; preds = %if.else127.i
-  %call134.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.0.i, ptr noundef nonnull dereferenceable(12) @.str.129) #20
+  %call134.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.1.i, ptr noundef nonnull dereferenceable(12) @.str.129) #20
   %tobool135.not.i = icmp eq i32 %call134.i, 0
   br i1 %tobool135.not.i, label %if.end179.sink.split.i, label %if.else139.i
 
 if.else139.i:                                     ; preds = %if.else133.i
-  %call140.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.0.i, ptr noundef nonnull dereferenceable(12) @.str.130) #20
+  %call140.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.1.i, ptr noundef nonnull dereferenceable(12) @.str.130) #20
   %tobool141.not.i = icmp eq i32 %call140.i, 0
   br i1 %tobool141.not.i, label %if.end179.sink.split.i, label %if.else145.i
 
 if.else145.i:                                     ; preds = %if.else139.i
-  %call146.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.0.i, ptr noundef nonnull dereferenceable(11) @.str.131) #20
+  %call146.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.1.i, ptr noundef nonnull dereferenceable(11) @.str.131) #20
   %tobool147.not.i = icmp eq i32 %call146.i, 0
   br i1 %tobool147.not.i, label %if.end179.sink.split.i, label %if.else151.i
 
 if.else151.i:                                     ; preds = %if.else145.i
-  %call152.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.0.i, ptr noundef nonnull dereferenceable(34) @.str.132) #20
+  %call152.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.1.i, ptr noundef nonnull dereferenceable(34) @.str.132) #20
   %tobool153.not.i = icmp eq i32 %call152.i, 0
   br i1 %tobool153.not.i, label %if.end179.sink.split.i, label %if.else157.i
 
 if.else157.i:                                     ; preds = %if.else151.i
-  %call158.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.0.i, ptr noundef nonnull dereferenceable(14) @.str.133) #20
+  %call158.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.1.i, ptr noundef nonnull dereferenceable(14) @.str.133) #20
   %tobool159.not.i = icmp eq i32 %call158.i, 0
   br i1 %tobool159.not.i, label %if.end179.sink.split.i, label %if.else163.i
 
 if.else163.i:                                     ; preds = %if.else157.i
-  %call164.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.0.i, ptr noundef nonnull dereferenceable(17) @.str.134) #20
+  %call164.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %msg.1.i, ptr noundef nonnull dereferenceable(17) @.str.134) #20
   %tobool165.not.i = icmp eq i32 %call164.i, 0
   br i1 %tobool165.not.i, label %if.end179.sink.split.i, label %if.end179.i
 
 if.end179.sink.split.i:                           ; preds = %if.else163.i, %if.else157.i, %if.else151.i, %if.else145.i, %if.else139.i, %if.else133.i, %if.else127.i, %if.else121.i, %if.else115.i, %if.end111.i
   %status.1.ph.i = phi i32 [ 0, %if.end111.i ], [ 10, %if.else115.i ], [ 2, %if.else121.i ], [ 3, %if.else127.i ], [ 5, %if.else133.i ], [ 6, %if.else139.i ], [ 7, %if.else145.i ], [ 9, %if.else151.i ], [ %status.0.i, %if.else157.i ], [ 12, %if.else163.i ]
   %forced.0.ph.i = phi i8 [ 0, %if.end111.i ], [ 0, %if.else115.i ], [ 0, %if.else121.i ], [ 0, %if.else127.i ], [ 0, %if.else133.i ], [ 0, %if.else139.i ], [ 0, %if.else145.i ], [ 0, %if.else151.i ], [ 2, %if.else157.i ], [ 0, %if.else163.i ]
-  call void @free(ptr noundef %msg.0.i) #18
+  call void @free(ptr noundef %msg.1.i) #18
   br label %if.end179.i
 
 if.end179.i:                                      ; preds = %if.end179.sink.split.i, %if.else163.i, %if.end100.i
-  %msg.1.i = phi ptr [ %msg.0.i, %if.else163.i ], [ null, %if.end100.i ], [ null, %if.end179.sink.split.i ]
+  %msg.0.i = phi ptr [ %msg.1.i, %if.else163.i ], [ null, %if.end100.i ], [ null, %if.end179.sink.split.i ]
   %status.1.i = phi i32 [ %status.0.i, %if.else163.i ], [ %status.0.i, %if.end100.i ], [ %status.1.ph.i, %if.end179.sink.split.i ]
   %forced.0.i = phi i8 [ 0, %if.else163.i ], [ 0, %if.end100.i ], [ %forced.0.ph.i, %if.end179.sink.split.i ]
   %state.sroa.0.0.state.sroa.0.0.state.sroa.0.0.state.sroa.0.0.28 = load ptr, ptr %state.sroa.0, align 8
@@ -3880,7 +3880,7 @@ if.end204.i:                                      ; preds = %if.end197.i
   %bf.set217.i = or i8 %bf.load213.i, %forced.0.i
   store i8 %bf.set217.i, ptr %forced_update212.i, align 8
   %remote_status.i = getelementptr inbounds i8, ptr %state.sroa.0.0.state.sroa.0.0.state.sroa.0.0.29, i64 152
-  store ptr %msg.1.i, ptr %remote_status.i, align 8
+  store ptr %msg.0.i, ptr %remote_status.i, align 8
   br label %push_update_ref_status.exit
 
 push_update_ref_status.exit:                      ; preds = %xstrdup_or_null.exit.i, %if.then55.i, %if.then67.i, %if.else71.i, %if.then74.i, %_.exit.i, %if.end197.i, %if.end204.i

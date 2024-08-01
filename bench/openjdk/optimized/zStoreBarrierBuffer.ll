@@ -1017,17 +1017,17 @@ define hidden noundef zeroext i1 @_ZN19ZStoreBarrierBuffer5is_inEPV8zpointer(ptr
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
-  %.not.i28.not = icmp eq i32 %14, 0
-  br i1 %.not.i28.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
+  %.not.i29.not = icmp eq i32 %14, 0
+  br i1 %.not.i29.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
 
-.loopexit.loopexit30:                             ; preds = %45
+.loopexit.loopexit31:                             ; preds = %45
   %.pre = load i32, ptr %10, align 8
-  %.pre37 = load ptr, ptr %11, align 8
+  %.pre38 = load ptr, ptr %11, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %44, %.loopexit.loopexit30, %27
-  %15 = phi ptr [ %.pre37, %.loopexit.loopexit30 ], [ %19, %27 ], [ %19, %44 ]
-  %16 = phi i32 [ %.pre, %.loopexit.loopexit30 ], [ %21, %27 ], [ %21, %44 ]
+.loopexit:                                        ; preds = %44, %.loopexit.loopexit31, %27
+  %15 = phi ptr [ %.pre38, %.loopexit.loopexit31 ], [ %19, %27 ], [ %19, %44 ]
+  %16 = phi i32 [ %.pre, %.loopexit.loopexit31 ], [ %21, %27 ], [ %21, %44 ]
   %17 = getelementptr inbounds i8, ptr %15, i64 4
   %18 = load i32, ptr %17, align 4
   %.not.i = icmp ult i32 %16, %18
@@ -1061,28 +1061,28 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %6, %.loopexit
   %36 = load i64, ptr %30, align 8
   %37 = and i64 %36, 61440
   %38 = load i64, ptr @ZPointerRemapped, align 8
-  %.not23 = icmp eq i64 %37, %38
+  %.not24 = icmp eq i64 %37, %38
   %39 = getelementptr inbounds i8, ptr %29, i64 568
-  %sext38 = shl i64 %33, 32
-  %40 = ashr exact i64 %sext38, 32
-  br i1 %.not23, label %.lr.ph.split.us, label %.lr.ph.split
+  %sext39 = shl i64 %33, 32
+  %40 = ashr exact i64 %sext39, 32
+  br i1 %.not24, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %44
-  %indvars.iv33 = phi i64 [ %indvars.iv.next34, %44 ], [ %40, %.lr.ph ]
-  %41 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %29, i64 0, i64 %indvars.iv33
+  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %44 ], [ %40, %.lr.ph ]
+  %41 = getelementptr inbounds [32 x %struct.ZStoreBarrierEntry], ptr %29, i64 0, i64 %indvars.iv34
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, %0
   br i1 %43, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %44
 
 44:                                               ; preds = %.lr.ph.split.us
-  %indvars.iv.next34 = add nsw i64 %indvars.iv33, 1
-  %exitcond36.not = icmp eq i64 %indvars.iv.next34, 32
-  br i1 %exitcond36.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !14
+  %indvars.iv.next35 = add nsw i64 %indvars.iv34, 1
+  %exitcond37.not = icmp eq i64 %indvars.iv.next35, 32
+  br i1 %exitcond37.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !14
 
 45:                                               ; preds = %96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.loopexit.loopexit30, label %.lr.ph.split, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit.loopexit31, label %.lr.ph.split, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ %40, %.lr.ph ]
@@ -1184,8 +1184,8 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   br label %98
 
 98:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, %1
-  %.1 = phi i1 [ false, %1 ], [ %not.switch, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %1 ], [ %not.switch, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1515,22 +1515,22 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32: ; preds = %20
   br label %36
 
 36:                                               ; preds = %38, %34
-  %.027.i.i.i = phi i64 [ %22, %34 ], [ %39, %38 ]
-  %37 = icmp ugt i64 %.027.i.i.i, %35
+  %.1.i.i.i = phi i64 [ %22, %34 ], [ %39, %38 ]
+  %37 = icmp ugt i64 %.1.i.i.i, %35
   br i1 %37, label %38, label %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread
 
 38:                                               ; preds = %36
-  %39 = add nsw i64 %.027.i.i.i, -1
+  %39 = add nsw i64 %.1.i.i.i, -1
   %40 = getelementptr inbounds i64, ptr %23, i64 %39
   %41 = load i64, ptr %40, align 8
   %.not37.i.i.i = icmp eq i64 %41, 0
   br i1 %.not37.i.i.i, label %36, label %.loopexit45.i.i.i, !llvm.loop !16
 
 .loopexit45.i.i.i:                                ; preds = %38, %30
-  %.129.ph.i.i.i = phi i64 [ %32, %30 ], [ %41, %38 ]
-  %.1.ph.i.i.i = phi i64 [ %22, %30 ], [ %39, %38 ]
-  %42 = shl i64 %.1.ph.i.i.i, 6
-  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.129.ph.i.i.i, i1 true)
+  %.028.ph.i.i.i = phi i64 [ %32, %30 ], [ %41, %38 ]
+  %.027.ph.i.i.i = phi i64 [ %22, %30 ], [ %39, %38 ]
+  %42 = shl i64 %.027.ph.i.i.i, 6
+  %43 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.ph.i.i.i, i1 true)
   %44 = or disjoint i64 %42, %43
   %45 = xor i64 %44, 63
   %.not39.i.i.i = icmp ult i64 %45, %17
@@ -1596,22 +1596,22 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37: ; preds = %64
   br label %80
 
 80:                                               ; preds = %82, %78
-  %.027.i.i.i27 = phi i64 [ %66, %78 ], [ %83, %82 ]
-  %81 = icmp ugt i64 %.027.i.i.i27, %79
+  %.1.i.i.i27 = phi i64 [ %66, %78 ], [ %83, %82 ]
+  %81 = icmp ugt i64 %.1.i.i.i27, %79
   br i1 %81, label %82, label %_ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread
 
 82:                                               ; preds = %80
-  %83 = add nsw i64 %.027.i.i.i27, -1
+  %83 = add nsw i64 %.1.i.i.i27, -1
   %84 = getelementptr inbounds i64, ptr %67, i64 %83
   %85 = load i64, ptr %84, align 8
   %.not37.i.i.i28 = icmp eq i64 %85, 0
   br i1 %.not37.i.i.i28, label %80, label %.loopexit45.i.i.i23, !llvm.loop !16
 
 .loopexit45.i.i.i23:                              ; preds = %82, %74
-  %.129.ph.i.i.i24 = phi i64 [ %76, %74 ], [ %85, %82 ]
-  %.1.ph.i.i.i25 = phi i64 [ %66, %74 ], [ %83, %82 ]
-  %86 = shl i64 %.1.ph.i.i.i25, 6
-  %87 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.129.ph.i.i.i24, i1 true)
+  %.028.ph.i.i.i24 = phi i64 [ %76, %74 ], [ %85, %82 ]
+  %.027.ph.i.i.i25 = phi i64 [ %66, %74 ], [ %83, %82 ]
+  %86 = shl i64 %.027.ph.i.i.i25, 6
+  %87 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.028.ph.i.i.i24, i1 true)
   %88 = or disjoint i64 %86, %87
   %89 = xor i64 %88, 63
   %.not39.i.i.i26 = icmp ult i64 %89, %61

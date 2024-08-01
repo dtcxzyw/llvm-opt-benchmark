@@ -2037,9 +2037,9 @@ _ZNK3euf13enode_parents3endEv.exit:               ; preds = %if.end
 
 for.body:                                         ; preds = %_ZNK3euf13enode_parents3endEv.exit, %if.end39
   %__begin1.0111 = phi ptr [ %incdec.ptr, %if.end39 ], [ %10, %_ZNK3euf13enode_parents3endEv.exit ]
-  %is_array.0110 = phi i8 [ %is_array.3, %if.end39 ], [ 0, %_ZNK3euf13enode_parents3endEv.exit ]
-  %is_index.0109 = phi i8 [ %is_index.5, %if.end39 ], [ 0, %_ZNK3euf13enode_parents3endEv.exit ]
-  %is_value.0108 = phi i8 [ %is_value.3, %if.end39 ], [ 0, %_ZNK3euf13enode_parents3endEv.exit ]
+  %is_array.0110 = phi i8 [ %is_array.1, %if.end39 ], [ 0, %_ZNK3euf13enode_parents3endEv.exit ]
+  %is_index.0109 = phi i8 [ %is_index.2, %if.end39 ], [ 0, %_ZNK3euf13enode_parents3endEv.exit ]
+  %is_value.0108 = phi i8 [ %is_value.1, %if.end39 ], [ 0, %_ZNK3euf13enode_parents3endEv.exit ]
   %13 = load ptr, ptr %__begin1.0111, align 8
   %14 = load ptr, ptr %13, align 8
   %m_num_args.i = getelementptr inbounds i8, ptr %13, i64 152
@@ -2149,8 +2149,8 @@ if.then35:                                        ; preds = %_ZNK17array_recogni
 
 if.end39.sink.split:                              ; preds = %for.end, %if.then35
   %m_args.i86.sink = phi ptr [ %m_args.i86, %if.then35 ], [ %arrayidx.i48, %for.end ]
-  %is_index.5.ph = phi i8 [ %is_index.0109, %if.then35 ], [ %is_index.1.lcssa, %for.end ]
-  %is_array.3.ph = phi i8 [ %is_array.0110, %if.then35 ], [ %spec.select, %for.end ]
+  %is_index.2.ph = phi i8 [ %is_index.0109, %if.then35 ], [ %is_index.1.lcssa, %for.end ]
+  %is_array.1.ph = phi i8 [ %is_array.0110, %if.then35 ], [ %spec.select, %for.end ]
   %35 = load ptr, ptr %m_args.i86.sink, align 8
   %36 = getelementptr i8, ptr %35, i64 64
   %call36.val = load ptr, ptr %36, align 8
@@ -2159,12 +2159,12 @@ if.end39.sink.split:                              ; preds = %for.end, %if.then35
   br label %if.end39
 
 if.end39:                                         ; preds = %for.body27, %if.end39.sink.split, %land.rhs.i.i35, %if.then21, %for.body, %_ZNK17array_recognizers8is_constEP4expr.exit
-  %is_value.3 = phi i8 [ %is_value.0108, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %is_value.0108, %for.body ], [ %is_value.0108, %if.then21 ], [ %is_value.0108, %land.rhs.i.i35 ], [ %spec.select98, %if.end39.sink.split ], [ %is_value.0108, %for.body27 ]
-  %is_index.5 = phi i8 [ %is_index.0109, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %is_index.0109, %for.body ], [ %is_index.0109, %if.then21 ], [ %is_index.0109, %land.rhs.i.i35 ], [ %is_index.5.ph, %if.end39.sink.split ], [ %spec.select97, %for.body27 ]
-  %is_array.3 = phi i8 [ %is_array.0110, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %is_array.0110, %for.body ], [ %spec.select96, %if.then21 ], [ %is_array.0110, %land.rhs.i.i35 ], [ %is_array.3.ph, %if.end39.sink.split ], [ %spec.select96, %for.body27 ]
-  %37 = and i8 %is_array.3, 1
-  %38 = and i8 %is_index.5, 1
-  %39 = and i8 %is_value.3, 1
+  %is_value.1 = phi i8 [ %is_value.0108, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %is_value.0108, %for.body ], [ %is_value.0108, %if.then21 ], [ %is_value.0108, %land.rhs.i.i35 ], [ %spec.select98, %if.end39.sink.split ], [ %is_value.0108, %for.body27 ]
+  %is_index.2 = phi i8 [ %is_index.0109, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %is_index.0109, %for.body ], [ %is_index.0109, %if.then21 ], [ %is_index.0109, %land.rhs.i.i35 ], [ %is_index.2.ph, %if.end39.sink.split ], [ %spec.select97, %for.body27 ]
+  %is_array.1 = phi i8 [ %is_array.0110, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ %is_array.0110, %for.body ], [ %spec.select96, %if.then21 ], [ %is_array.0110, %land.rhs.i.i35 ], [ %is_array.1.ph, %if.end39.sink.split ], [ %spec.select96, %for.body27 ]
+  %37 = and i8 %is_array.1, 1
+  %38 = and i8 %is_index.2, 1
+  %39 = and i8 %is_value.1, 1
   %narrow = add nuw nsw i8 %38, %39
   %narrow20 = add nuw nsw i8 %narrow, %37
   %cmp45 = icmp ugt i8 %narrow20, 1
@@ -2482,8 +2482,8 @@ invoke.cont11:                                    ; preds = %if.then.i.i.i25, %l
   br label %return
 
 return:                                           ; preds = %_ZNK7obj_mapI4sortP10ref_vectorI9func_decl11ast_managerEE4findEPS0_RS5_.exit, %invoke.cont11
-  %result.1 = phi ptr [ %7, %_ZNK7obj_mapI4sortP10ref_vectorI9func_decl11ast_managerEE4findEPS0_RS5_.exit ], [ %call3, %invoke.cont11 ]
-  ret ptr %result.1
+  %result.0 = phi ptr [ %7, %_ZNK7obj_mapI4sortP10ref_vectorI9func_decl11ast_managerEE4findEPS0_RS5_.exit ], [ %call3, %invoke.cont11 ]
+  ret ptr %result.0
 }
 
 declare noundef ptr @_ZN10array_util12mk_array_extEP4sortj(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -4000,8 +4000,8 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !26
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.141 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %3, %for.cond17.preheader ]
-  %6 = load ptr, ptr %curr.141, align 8
+  %curr.241 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %3, %for.cond17.preheader ]
+  %6 = load ptr, ptr %curr.241, align 8
   %magicptr32 = ptrtoint ptr %6 to i64
   switch i64 %magicptr32, label %if.then21 [
     i64 0, label %if.end55
@@ -4017,13 +4017,13 @@ if.then21:                                        ; preds = %for.body19
   br i1 %or.cond31, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.141, i64 16
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.241, i64 16
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !27
 
 end_remove:                                       ; preds = %if.then, %if.then21
-  %curr.2 = phi ptr [ %curr.141, %if.then21 ], [ %curr.039, %if.then ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 16
+  %curr.1 = phi ptr [ %curr.241, %if.then21 ], [ %curr.039, %if.then ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 16
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %3, ptr %add.ptr37
   %8 = load ptr, ptr %spec.select, align 8
@@ -4031,7 +4031,7 @@ end_remove:                                       ; preds = %if.then, %if.then21
   br i1 %cmp.i28, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove
-  store ptr null, ptr %curr.2, align 8
+  store ptr null, ptr %curr.1, align 8
   %m_size = getelementptr inbounds i8, ptr %this, i64 12
   %9 = load i32, ptr %m_size, align 4
   %dec = add i32 %9, -1
@@ -4039,7 +4039,7 @@ if.then43:                                        ; preds = %end_remove
   br label %if.end55
 
 if.else44:                                        ; preds = %end_remove
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.2, align 8
+  store ptr inttoptr (i64 1 to ptr), ptr %curr.1, align 8
   %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %10, 1

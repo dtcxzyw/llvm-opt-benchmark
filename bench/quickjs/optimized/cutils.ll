@@ -735,23 +735,23 @@ define dso_local i32 @unicode_to_utf8(ptr noundef %0, i32 noundef %1) local_unna
   br label %45
 
 45:                                               ; preds = %35, %28
-  %.0 = phi ptr [ %32, %28 ], [ %44, %35 ]
+  %.4 = phi ptr [ %32, %28 ], [ %44, %35 ]
   %46 = lshr i32 %1, 18
   %47 = trunc i32 %46 to i8
   %48 = and i8 %47, 63
   %49 = or disjoint i8 %48, -128
-  store i8 %49, ptr %.0, align 1
+  store i8 %49, ptr %.4, align 1
   br label %50
 
 50:                                               ; preds = %45, %22
-  %.pn = phi ptr [ %0, %22 ], [ %.0, %45 ]
-  %.1 = getelementptr i8, ptr %.pn, i64 1
+  %.pn = phi ptr [ %0, %22 ], [ %.4, %45 ]
+  %.3 = getelementptr i8, ptr %.pn, i64 1
   %51 = lshr i32 %1, 12
   %52 = trunc i32 %51 to i8
   %53 = and i8 %52, 63
   %54 = or disjoint i8 %53, -128
   %55 = getelementptr i8, ptr %.pn, i64 2
-  store i8 %54, ptr %.1, align 1
+  store i8 %54, ptr %.3, align 1
   br label %56
 
 56:                                               ; preds = %50, %15
@@ -765,17 +765,17 @@ define dso_local i32 @unicode_to_utf8(ptr noundef %0, i32 noundef %1) local_unna
 
 61:                                               ; preds = %56, %9
   %.pn34 = phi ptr [ %0, %9 ], [ %.2, %56 ]
-  %.3 = getelementptr i8, ptr %.pn34, i64 1
+  %.1 = getelementptr i8, ptr %.pn34, i64 1
   %62 = trunc i32 %1 to i8
   %63 = and i8 %62, 63
   %64 = or disjoint i8 %63, -128
   %65 = getelementptr i8, ptr %.pn34, i64 2
-  store i8 %64, ptr %.3, align 1
+  store i8 %64, ptr %.1, align 1
   br label %66
 
 66:                                               ; preds = %61, %4
-  %.4 = phi ptr [ %6, %4 ], [ %65, %61 ]
-  %67 = ptrtoint ptr %.4 to i64
+  %.0 = phi ptr [ %6, %4 ], [ %65, %61 ]
+  %67 = ptrtoint ptr %.0 to i64
   %68 = ptrtoint ptr %0 to i64
   %69 = sub i64 %67, %68
   %70 = trunc i64 %69 to i32
@@ -970,7 +970,7 @@ exchange_func.exit215:                            ; preds = %exchange_func.exit.
   br label %.lr.ph257
 
 .lr.ph257:                                        ; preds = %.lr.ph257.preheader, %172
-  %.0256 = phi i64 [ %.1, %172 ], [ %39, %.lr.ph257.preheader ]
+  %.0256 = phi i64 [ %.2, %172 ], [ %39, %.lr.ph257.preheader ]
   %.1167255 = phi ptr [ %.2168, %172 ], [ %36, %.lr.ph257.preheader ]
   %.0169254 = phi i32 [ %43, %172 ], [ %42, %.lr.ph257.preheader ]
   %.0180253 = phi ptr [ %.1181, %172 ], [ %37, %.lr.ph257.preheader ]
@@ -1255,21 +1255,21 @@ med3.exit:                                        ; preds = %108, %110, %114, %1
   %.sink285 = phi ptr [ %166, %171 ], [ %.0180253, %.critedge3 ]
   %.sink = phi i64 [ %167, %171 ], [ %158, %.critedge3 ]
   %.1181 = phi ptr [ %.0180253, %171 ], [ %166, %.critedge3 ]
-  %.1 = phi i64 [ %158, %171 ], [ %167, %.critedge3 ]
+  %.2 = phi i64 [ %158, %171 ], [ %167, %.critedge3 ]
   store ptr %.sink285, ptr %.1167255, align 8
   %173 = getelementptr inbounds i8, ptr %.1167255, i64 8
   store i64 %.sink, ptr %173, align 8
   %174 = getelementptr inbounds i8, ptr %.1167255, i64 16
   store i32 %43, ptr %174, align 8
   %.2168 = getelementptr i8, ptr %.1167255, i64 24
-  %175 = icmp ugt i64 %.1, 6
+  %175 = icmp ugt i64 %.2, 6
   br i1 %175, label %.lr.ph257, label %heapsortx.exit, !llvm.loop !17
 
 heapsortx.exit:                                   ; preds = %172, %._crit_edge95.i, %35, %.preheader.i
   %.0180225 = phi ptr [ %.0180253, %.preheader.i ], [ %37, %35 ], [ %.0180253, %._crit_edge95.i ], [ %.1181, %172 ]
   %.1167223 = phi ptr [ %.1167255, %.preheader.i ], [ %36, %35 ], [ %.1167255, %._crit_edge95.i ], [ %.2168, %172 ]
-  %.2 = phi i64 [ 0, %.preheader.i ], [ %39, %35 ], [ 0, %._crit_edge95.i ], [ %.1, %172 ]
-  %176 = mul i64 %.2, %2
+  %.1 = phi i64 [ 0, %.preheader.i ], [ %39, %35 ], [ 0, %._crit_edge95.i ], [ %.2, %172 ]
+  %176 = mul i64 %.1, %2
   %177 = getelementptr i8, ptr %.0180225, i64 %176
   %.2184264 = getelementptr i8, ptr %.0180225, i64 %2
   %178 = icmp ult ptr %.2184264, %177

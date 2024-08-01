@@ -87,7 +87,7 @@ define void @Abc_NtkGenFaultList(ptr nocapture noundef readonly %0, ptr noundef 
 .lr.ph62.split.us:                                ; preds = %.lr.ph62, %.loopexit.us
   %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.loopexit.us ], [ 0, %.lr.ph62 ]
   %12 = phi ptr [ %44, %.loopexit.us ], [ %9, %.lr.ph62 ]
-  %.04460.us = phi i32 [ %.3.us, %.loopexit.us ], [ 1, %.lr.ph62 ]
+  %.04460.us = phi i32 [ %.1.us, %.loopexit.us ], [ 1, %.lr.ph62 ]
   %13 = getelementptr i8, ptr %12, i64 8
   %.val51.val.us = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds ptr, ptr %.val51.val.us, i64 %indvars.iv66
@@ -121,7 +121,7 @@ define void @Abc_NtkGenFaultList(ptr nocapture noundef readonly %0, ptr noundef 
 
 .lr.ph.us:                                        ; preds = %20, %42
   %.058.us = phi ptr [ %43, %42 ], [ %33, %20 ]
-  %.157.us = phi i32 [ %.2.us, %42 ], [ %32, %20 ]
+  %.257.us = phi i32 [ %.3.us, %42 ], [ %32, %20 ]
   %.not50.us = icmp eq ptr %.058.us, %22
   br i1 %.not50.us, label %42, label %34
 
@@ -133,18 +133,18 @@ define void @Abc_NtkGenFaultList(ptr nocapture noundef readonly %0, ptr noundef 
 37:                                               ; preds = %34
   %38 = tail call ptr @Abc_ObjName(ptr noundef nonnull %15) #31
   %39 = tail call ptr @Mio_GateReadName(ptr noundef nonnull %.058.us) #31
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.2, i32 noundef %.157.us, ptr noundef %38, ptr noundef %39) #31
-  %41 = add nsw i32 %.157.us, 1
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.2, i32 noundef %.257.us, ptr noundef %38, ptr noundef %39) #31
+  %41 = add nsw i32 %.257.us, 1
   br label %42
 
 42:                                               ; preds = %37, %34, %.lr.ph.us
-  %.2.us = phi i32 [ %41, %37 ], [ %.157.us, %34 ], [ %.157.us, %.lr.ph.us ]
+  %.3.us = phi i32 [ %41, %37 ], [ %.257.us, %34 ], [ %.257.us, %.lr.ph.us ]
   %43 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.058.us) #31
   %.not49.us = icmp eq ptr %43, null
   br i1 %.not49.us, label %.loopexit.us, label %.lr.ph.us, !llvm.loop !4
 
 .loopexit.us:                                     ; preds = %42, %20, %17, %.lr.ph62.split.us
-  %.3.us = phi i32 [ %.04460.us, %.lr.ph62.split.us ], [ %.04460.us, %17 ], [ %32, %20 ], [ %.2.us, %42 ]
+  %.1.us = phi i32 [ %.04460.us, %.lr.ph62.split.us ], [ %.04460.us, %17 ], [ %32, %20 ], [ %.3.us, %42 ]
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %44 = load ptr, ptr %8, align 8
   %45 = getelementptr i8, ptr %44, i64 4
@@ -160,7 +160,7 @@ define void @Abc_NtkGenFaultList(ptr nocapture noundef readonly %0, ptr noundef 
 .lr.ph62.split:                                   ; preds = %.lr.ph62, %71
   %50 = phi ptr [ %72, %71 ], [ %9, %.lr.ph62 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %.lr.ph62 ]
-  %.04460 = phi i32 [ %.3, %71 ], [ 1, %.lr.ph62 ]
+  %.04460 = phi i32 [ %.1, %71 ], [ 1, %.lr.ph62 ]
   %51 = getelementptr i8, ptr %50, i64 8
   %.val51.val = load ptr, ptr %51, align 8
   %52 = getelementptr inbounds ptr, ptr %.val51.val, i64 %indvars.iv
@@ -193,7 +193,7 @@ define void @Abc_NtkGenFaultList(ptr nocapture noundef readonly %0, ptr noundef 
 
 71:                                               ; preds = %58, %55, %.lr.ph62.split
   %72 = phi ptr [ %50, %.lr.ph62.split ], [ %.pre, %58 ], [ %50, %55 ]
-  %.3 = phi i32 [ %.04460, %.lr.ph62.split ], [ %70, %58 ], [ %.04460, %55 ]
+  %.1 = phi i32 [ %.04460, %.lr.ph62.split ], [ %70, %58 ], [ %.04460, %55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = getelementptr i8, ptr %72, i64 4
   %.val = load i32, ptr %73, align 4
@@ -202,7 +202,7 @@ define void @Abc_NtkGenFaultList(ptr nocapture noundef readonly %0, ptr noundef 
   br i1 %75, label %.lr.ph62.split, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %71, %.loopexit.us, %.preheader
-  %.044.lcssa = phi i32 [ 1, %.preheader ], [ %.3.us, %.loopexit.us ], [ %.3, %71 ]
+  %.044.lcssa = phi i32 [ 1, %.preheader ], [ %.1.us, %.loopexit.us ], [ %.1, %71 ]
   %76 = getelementptr i8, ptr %0, i64 8
   %.val53 = load ptr, ptr %76, align 8
   %77 = getelementptr i8, ptr %0, i64 124
@@ -670,7 +670,7 @@ Io_WriteFinType.exit:                             ; preds = %126, %switch.lookup
   br i1 %143, label %126, label %.critedge2, !llvm.loop !9
 
 .critedge2:                                       ; preds = %Io_WriteFinType.exit, %.preheader, %._crit_edge, %Vec_IntFreeP.exit, %33
-  %.1102 = phi ptr [ null, %33 ], [ %70, %._crit_edge ], [ null, %Vec_IntFreeP.exit ], [ %70, %.preheader ], [ %70, %Io_WriteFinType.exit ]
+  %.0101 = phi ptr [ null, %33 ], [ %70, %._crit_edge ], [ null, %Vec_IntFreeP.exit ], [ %70, %.preheader ], [ %70, %Io_WriteFinType.exit ]
   %144 = load ptr, ptr %16, align 8
   %.not.i94 = icmp eq ptr %144, null
   br i1 %.not.i94, label %Vec_IntFree.exit, label %145
@@ -686,7 +686,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %145
   br label %147
 
 147:                                              ; preds = %Vec_IntFree.exit, %10
-  %.0 = phi ptr [ null, %10 ], [ %.1102, %Vec_IntFree.exit ]
+  %.0 = phi ptr [ null, %10 ], [ %.0101, %Vec_IntFree.exit ]
   ret ptr %.0
 }
 

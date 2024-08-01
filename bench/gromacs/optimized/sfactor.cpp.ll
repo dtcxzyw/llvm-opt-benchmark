@@ -2431,7 +2431,7 @@ _Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_.exit: ; preds = 
 
 42:                                               ; preds = %_Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_.exit, %42
   %indvars.iv = phi i64 [ 0, %_Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_.exit ], [ %indvars.iv.next, %42 ]
-  %.02026 = phi double [ %41, %_Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_.exit ], [ %52, %42 ]
+  %.126 = phi double [ %41, %_Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_.exit ], [ %52, %42 ]
   %43 = getelementptr inbounds float, ptr %6, i64 %indvars.iv
   %44 = load float, ptr %43, align 4
   %45 = fpext float %44 to double
@@ -2441,7 +2441,7 @@ _Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_.exit: ; preds = 
   %49 = fpext float %48 to double
   %50 = fmul double %36, %49
   %51 = tail call double @exp(double noundef %50) #15
-  %52 = tail call double @llvm.fmuladd.f64(double %45, double %51, double %.02026)
+  %52 = tail call double @llvm.fmuladd.f64(double %45, double %51, double %.126)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %common.ret29, label %42, !llvm.loop !35
@@ -2560,7 +2560,7 @@ _Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_.exit.i.us.us: ; 
 
 62:                                               ; preds = %62, %_Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_.exit.i.us.us
   %indvars.iv.i.us.us = phi i64 [ 0, %_Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_.exit.i.us.us ], [ %indvars.iv.next.i.us.us, %62 ]
-  %.02026.i.us.us = phi double [ %61, %_Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_.exit.i.us.us ], [ %72, %62 ]
+  %.126.i.us.us = phi double [ %61, %_Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_.exit.i.us.us ], [ %72, %62 ]
   %63 = getelementptr inbounds float, ptr %40, i64 %indvars.iv.i.us.us
   %64 = load float, ptr %63, align 4
   %65 = fpext float %64 to double
@@ -2570,7 +2570,7 @@ _Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_.exit.i.us.us: ; 
   %69 = fpext float %68 to double
   %70 = fmul double %57, %69
   %71 = tail call double @exp(double noundef %70) #15
-  %72 = tail call double @llvm.fmuladd.f64(double %65, double %71, double %.02026.i.us.us)
+  %72 = tail call double @llvm.fmuladd.f64(double %65, double %71, double %.126.i.us.us)
   %indvars.iv.next.i.us.us = add nuw nsw i64 %indvars.iv.i.us.us, 1
   %exitcond.not.i.us.us = icmp eq i64 %indvars.iv.next.i.us.us, 4
   br i1 %exitcond.not.i.us.us, label %_Z4CMSFP20gmx_structurefactorsiidd.exit.us.us, label %62, !llvm.loop !35

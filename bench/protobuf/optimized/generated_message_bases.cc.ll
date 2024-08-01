@@ -149,11 +149,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %if.end.i.i
   br i1 %tobool.i.i, label %message_done, label %while.body
 
 while.body:                                       ; preds = %while.cond, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %ptr.addr.116 = phi ptr [ %5, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
-  %7 = load i8, ptr %ptr.addr.116, align 1
+  %ptr.addr.216 = phi ptr [ %5, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %ptr.addr.0, %while.cond ]
+  %7 = load i8, ptr %ptr.addr.216, align 1
   %conv.i = zext i8 %7 to i32
   %cmp.i = icmp sgt i8 %7, -1
-  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.116, i64 1
+  %add.ptr.i = getelementptr inbounds i8, ptr %ptr.addr.216, i64 1
   br i1 %cmp.i, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %while.body
@@ -166,11 +166,11 @@ if.end.i:                                         ; preds = %while.body
   br i1 %cmp3.i, label %if.then4.i, label %if.end6.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.116, i64 2
+  %add.ptr5.i = getelementptr inbounds i8, ptr %ptr.addr.216, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 if.end6.i:                                        ; preds = %if.end.i
-  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.116, i32 noundef %add.i)
+  %call.i = tail call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %ptr.addr.216, i32 noundef %add.i)
   %9 = extractvalue { ptr, i32 } %call.i, 0
   %10 = extractvalue { ptr, i32 } %call.i, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -218,8 +218,8 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
   br i1 %tobool9.not, label %message_done, label %while.cond, !llvm.loop !4
 
 message_done:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %if.then3.i.i, %if.then, %if.end
-  %ptr.addr.2 = phi ptr [ %retval.0.i, %if.end ], [ null, %if.then ], [ %spec.select, %if.then3.i.i ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %5, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %ptr.addr.2
+  %ptr.addr.1 = phi ptr [ %retval.0.i, %if.end ], [ null, %if.then ], [ %spec.select, %if.then3.i.i ], [ null, %_ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15UnknownFieldSetEEEPT_v.exit ], [ %5, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %ptr.addr.1
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEmPNS0_15UnknownFieldSetEPKcPNS1_12ParseContextE(i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0

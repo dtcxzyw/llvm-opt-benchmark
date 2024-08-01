@@ -248,7 +248,7 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
   br label %97
 
 85:                                               ; preds = %80, %72
-  %.058.i = phi ptr [ %74, %80 ], [ null, %72 ]
+  %.1.i = phi ptr [ %74, %80 ], [ null, %72 ]
   %86 = tail call noalias ptr @malloc(i64 noundef %53) #9
   %87 = getelementptr inbounds i8, ptr %20, i64 64
   store ptr %86, ptr %87, align 8
@@ -273,13 +273,13 @@ define internal ptr @H5O__fill_shared_decode(ptr noundef %0, ptr noundef %1, i32
 
 96:                                               ; preds = %93, %89
   %.0.i = phi ptr [ null, %89 ], [ %20, %93 ]
-  %.not72.i = icmp eq ptr %.058.i, null
+  %.not72.i = icmp eq ptr %.1.i, null
   br i1 %.not72.i, label %.thread.i, label %97
 
 97:                                               ; preds = %96, %.thread5.i
   %.010.i = phi ptr [ null, %.thread5.i ], [ %.0.i, %96 ]
-  %.29.i = phi ptr [ %74, %.thread5.i ], [ %.058.i, %96 ]
-  %98 = tail call ptr @H5O_msg_free(i32 noundef 3, ptr noundef nonnull %.29.i) #8
+  %.0589.i = phi ptr [ %74, %.thread5.i ], [ %.1.i, %96 ]
+  %98 = tail call ptr @H5O_msg_free(i32 noundef 3, ptr noundef nonnull %.0589.i) #8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %97, %96
@@ -471,7 +471,7 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
   br label %.thread.thread96
 
 65:                                               ; preds = %58, %55
-  %.064 = phi ptr [ null, %55 ], [ %59, %58 ]
+  %.165 = phi ptr [ null, %55 ], [ %59, %58 ]
   %.061 = phi ptr [ %52, %55 ], [ %59, %58 ]
   %66 = load ptr, ptr %42, align 8
   %67 = tail call i64 @H5T_get_size(ptr noundef %66) #8
@@ -532,11 +532,11 @@ define internal noundef ptr @H5O__fill_copy(ptr nocapture noundef readonly %0, p
 
 98:                                               ; preds = %94, %93, %89, %77
   %.062 = phi ptr [ null, %77 ], [ null, %89 ], [ %.0, %93 ], [ %.0, %94 ]
-  %.not84 = icmp eq ptr %.064, null
+  %.not84 = icmp eq ptr %.165, null
   br i1 %.not84, label %.thread, label %99
 
 99:                                               ; preds = %98
-  %100 = tail call i32 @H5T_close(ptr noundef nonnull %.064) #8
+  %100 = tail call i32 @H5T_close(ptr noundef nonnull %.165) #8
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %102, label %.thread
 
@@ -1594,9 +1594,9 @@ define range(i32 -1, 1) i32 @H5O_fill_convert(ptr nocapture noundef %0, ptr noun
   br label %.thread
 
 54:                                               ; preds = %46, %43
-  %.042 = phi ptr [ %48, %46 ], [ null, %43 ]
+  %.1 = phi ptr [ %48, %46 ], [ null, %43 ]
   %55 = load ptr, ptr %7, align 8
-  %56 = tail call i32 @H5T_convert(ptr noundef nonnull %20, ptr noundef %55, ptr noundef %1, i64 noundef 1, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %37, ptr noundef %.042) #8
+  %56 = tail call i32 @H5T_convert(ptr noundef nonnull %20, ptr noundef %55, ptr noundef %1, i64 noundef 1, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %37, ptr noundef %.1) #8
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %58, label %62
 
@@ -1624,11 +1624,11 @@ define range(i32 -1, 1) i32 @H5O_fill_convert(ptr nocapture noundef %0, ptr noun
 
 72:                                               ; preds = %62, %58
   %.0 = phi i32 [ -1, %58 ], [ 0, %62 ]
-  %.not53 = icmp eq ptr %.042, null
+  %.not53 = icmp eq ptr %.1, null
   br i1 %.not53, label %.thread, label %73
 
 73:                                               ; preds = %72
-  %74 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.042) #8
+  %74 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.1) #8
   br label %.thread
 
 .thread:                                          ; preds = %50, %39, %26, %22, %17, %73, %72

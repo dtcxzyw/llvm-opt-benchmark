@@ -255,12 +255,12 @@ define hidden noundef zeroext i1 @_ZN13EscapeBarrier18deoptimize_objectsEii(ptr 
   br i1 %72, label %.loopexit, label %.lr.ph48
 
 .lr.ph48:                                         ; preds = %.critedge4, %.lr.ph48
-  %.247 = phi ptr [ %76, %.lr.ph48 ], [ %.13153, %.critedge4 ]
-  %.23446 = phi i32 [ %73, %.lr.ph48 ], [ %.13352, %.critedge4 ]
-  %73 = add nsw i32 %.23446, 1
-  %74 = load ptr, ptr %.247, align 8
+  %.347 = phi ptr [ %76, %.lr.ph48 ], [ %.13153, %.critedge4 ]
+  %.33546 = phi i32 [ %73, %.lr.ph48 ], [ %.13352, %.critedge4 ]
+  %73 = add nsw i32 %.33546, 1
+  %74 = load ptr, ptr %.347, align 8
   %75 = load ptr, ptr %74, align 8
-  %76 = call noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(5064) %.247) #9
+  %76 = call noundef ptr %75(ptr noundef nonnull align 8 dereferenceable(5064) %.347) #9
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
@@ -268,12 +268,12 @@ define hidden noundef zeroext i1 @_ZN13EscapeBarrier18deoptimize_objectsEii(ptr 
   br i1 %80, label %.loopexit, label %.lr.ph48, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph48, %.critedge4, %.critedge2.thread, %.critedge2
-  %.335 = phi i32 [ %.13352, %.critedge2 ], [ %.13352, %.critedge2.thread ], [ %.13352, %.critedge4 ], [ %73, %.lr.ph48 ]
-  %.3 = phi ptr [ %.13153, %.critedge2 ], [ %.13153, %.critedge2.thread ], [ %.13153, %.critedge4 ], [ %76, %.lr.ph48 ]
-  %81 = add nsw i32 %.335, 1
-  %82 = load ptr, ptr %.3, align 8
+  %.234 = phi i32 [ %.13352, %.critedge2 ], [ %.13352, %.critedge2.thread ], [ %.13352, %.critedge4 ], [ %73, %.lr.ph48 ]
+  %.2 = phi ptr [ %.13153, %.critedge2 ], [ %.13153, %.critedge2.thread ], [ %.13153, %.critedge4 ], [ %76, %.lr.ph48 ]
+  %81 = add nsw i32 %.234, 1
+  %82 = load ptr, ptr %.2, align 8
   %83 = load ptr, ptr %82, align 8
-  %84 = call noundef ptr %83(ptr noundef nonnull align 8 dereferenceable(5064) %.3) #9
+  %84 = call noundef ptr %83(ptr noundef nonnull align 8 dereferenceable(5064) %.2) #9
   %.not = icmp eq ptr %84, null
   br i1 %.not, label %.critedge, label %.lr.ph54, !llvm.loop !13
 
@@ -308,8 +308,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %87, %89
   br label %91
 
 91:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %11, %3, %90
-  %.1 = phi i1 [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %90 ], [ true, %3 ], [ false, %11 ]
-  ret i1 %.1
+  %.029 = phi i1 [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %90 ], [ true, %3 ], [ false, %11 ]
+  ret i1 %.029
 }
 
 declare void @_ZN24KeepStackGCProcessedMarkC1EP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #2
@@ -434,10 +434,10 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %9, %.backedge
   br i1 %62, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge, %.lr.ph
-  %.12243 = phi ptr [ %65, %.lr.ph ], [ %.02145, %.critedge ]
-  %63 = load ptr, ptr %.12243, align 8
+  %.22343 = phi ptr [ %65, %.lr.ph ], [ %.02145, %.critedge ]
+  %63 = load ptr, ptr %.22343, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(5064) %.12243) #9
+  %65 = call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(5064) %.22343) #9
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
@@ -445,10 +445,10 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %9, %.backedge
   br i1 %69, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge, %.lr.ph46
-  %.223 = phi ptr [ %.02145, %.lr.ph46 ], [ %.02145, %.critedge ], [ %65, %.lr.ph ]
-  %70 = load ptr, ptr %.223, align 8
+  %.122 = phi ptr [ %.02145, %.lr.ph46 ], [ %.02145, %.critedge ], [ %65, %.lr.ph ]
+  %70 = load ptr, ptr %.122, align 8
   %71 = load ptr, ptr %70, align 8
-  %72 = call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(5064) %.223) #9
+  %72 = call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(5064) %.122) #9
   %.not28 = icmp eq ptr %72, null
   br i1 %.not28, label %.critedge30, label %.lr.ph46, !llvm.loop !18
 
@@ -494,8 +494,8 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %9, %.backedge
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %82, %80, %1
-  %.5 = phi i1 [ true, %1 ], [ %.not39, %80 ], [ %.not39, %82 ]
-  ret i1 %.5
+  %.0 = phi i1 [ true, %1 ], [ %.not39, %80 ], [ %.not39, %82 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

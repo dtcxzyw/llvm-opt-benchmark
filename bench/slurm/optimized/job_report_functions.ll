@@ -226,7 +226,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br i1 %4, label %86, label %.thread340.thread
 
 86:                                               ; preds = %.thread366, %84
-  %.0243369 = phi ptr [ null, %.thread366 ], [ %85, %84 ]
+  %.1244369 = phi ptr [ null, %.thread366 ], [ %85, %84 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
   %87 = getelementptr inbounds i8, ptr %.0, i64 184
   %88 = load ptr, ptr %87, align 8
@@ -236,8 +236,8 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   %91 = load ptr, ptr %90, align 8
   store ptr %91, ptr %10, align 8
   %92 = call ptr @acct_storage_g_get_wckeys(ptr noundef %0, i32 noundef %13, ptr noundef nonnull %10) #9
-  %.not290 = icmp eq ptr %.0243369, null
-  %spec.select = select i1 %.not290, ptr %92, ptr %.0243369
+  %.not290 = icmp eq ptr %.1244369, null
+  %spec.select = select i1 %.not290, ptr %92, ptr %.1244369
   %spec.select327 = select i1 %.not290, ptr null, ptr %92
   %.not291 = icmp eq ptr %spec.select, null
   br i1 %.not291, label %.thread340.thread, label %97
@@ -251,7 +251,7 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br label %101
 
 .thread340.thread:                                ; preds = %.thread366, %.thread340, %86
-  %.0241346 = phi ptr [ null, %.thread340 ], [ %spec.select327, %86 ], [ null, %.thread366 ]
+  %.1242346 = phi ptr [ null, %.thread340 ], [ %spec.select327, %86 ], [ null, %.thread366 ]
   %94 = call i32 @get_log_level() #9
   %95 = icmp sgt i32 %94, 5
   br i1 %95, label %96, label %147
@@ -271,8 +271,8 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 101:                                              ; preds = %.thread347, %99, %97
   %102 = phi ptr [ %98, %99 ], [ %98, %97 ], [ %93, %.thread347 ]
-  %.1244344352 = phi ptr [ %spec.select, %99 ], [ %spec.select, %97 ], [ %85, %.thread347 ]
-  %.0241345351 = phi ptr [ %92, %99 ], [ null, %97 ], [ null, %.thread347 ]
+  %.2245344352 = phi ptr [ %spec.select, %99 ], [ %spec.select, %97 ], [ %85, %.thread347 ]
+  %.1242345351 = phi ptr [ %92, %99 ], [ null, %97 ], [ null, %.thread347 ]
   %.0236 = phi ptr [ %100, %99 ], [ null, %97 ], [ null, %.thread347 ]
   %103 = call ptr @list_next(ptr noundef %102) #9
   %.not293386 = icmp eq ptr %103, null
@@ -398,8 +398,8 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
   br label %147
 
 147:                                              ; preds = %._crit_edge389, %146, %.thread340.thread, %96, %57
-  %.2245 = phi ptr [ null, %57 ], [ %.1244344352, %146 ], [ %.1244344352, %._crit_edge389 ], [ null, %96 ], [ null, %.thread340.thread ]
-  %.1242 = phi ptr [ null, %57 ], [ %.0241345351, %146 ], [ %.0241345351, %._crit_edge389 ], [ %.0241346, %96 ], [ %.0241346, %.thread340.thread ]
+  %.0243 = phi ptr [ null, %57 ], [ %.2245344352, %146 ], [ %.2245344352, %._crit_edge389 ], [ null, %96 ], [ null, %.thread340.thread ]
+  %.0241 = phi ptr [ null, %57 ], [ %.1242345351, %146 ], [ %.1242345351, %._crit_edge389 ], [ %.1242346, %96 ], [ %.1242346, %.thread340.thread ]
   %148 = call ptr @list_iterator_create(ptr noundef nonnull %28) #9
   %149 = call ptr @list_next(ptr noundef %148) #9
   %.not299406 = icmp eq ptr %149, null
@@ -774,19 +774,19 @@ define internal fastcc noundef ptr @_process_grouped_report(ptr noundef %0, ptr 
 
 ._crit_edge417:                                   ; preds = %.backedge373, %._crit_edge409
   call void @list_iterator_destroy(ptr noundef %59) #9
-  %.not301 = icmp eq ptr %.2245, null
+  %.not301 = icmp eq ptr %.0243, null
   br i1 %.not301, label %311, label %310
 
 310:                                              ; preds = %._crit_edge417
-  call void @list_destroy(ptr noundef nonnull %.2245) #9
+  call void @list_destroy(ptr noundef nonnull %.0243) #9
   br label %311
 
 311:                                              ; preds = %310, %._crit_edge417
-  %.not302 = icmp eq ptr %.1242, null
+  %.not302 = icmp eq ptr %.0241, null
   br i1 %.not302, label %313, label %312
 
 312:                                              ; preds = %311
-  call void @list_destroy(ptr noundef nonnull %.1242) #9
+  call void @list_destroy(ptr noundef nonnull %.0241) #9
   br label %313
 
 313:                                              ; preds = %.thread361, %312, %311

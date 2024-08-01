@@ -98,8 +98,8 @@ define hidden noundef i32 @_Z20luaD_rawrunprotectedP9lua_StatePFvS0_PvES1_(ptr n
   br label %34
 
 34:                                               ; preds = %30, %23
-  %.017 = phi i32 [ %33, %30 ], [ %26, %23 ]
-  %.015 = phi ptr [ %32, %30 ], [ %25, %23 ]
+  %.118 = phi i32 [ %33, %30 ], [ %26, %23 ]
+  %.116 = phi ptr [ %32, %30 ], [ %25, %23 ]
   invoke void @__cxa_end_catch()
           to label %36 unwind label %39
 
@@ -113,10 +113,10 @@ define hidden noundef i32 @_Z20luaD_rawrunprotectedP9lua_StatePFvS0_PvES1_(ptr n
   ret i32 %.0
 
 36:                                               ; preds = %34, %14
-  %.118 = phi i32 [ %.017, %34 ], [ %7, %14 ]
-  %.116 = phi ptr [ %.015, %34 ], [ %6, %14 ]
-  %37 = insertvalue { ptr, i32 } poison, ptr %.116, 0
-  %38 = insertvalue { ptr, i32 } %37, i32 %.118, 1
+  %.017 = phi i32 [ %.118, %34 ], [ %7, %14 ]
+  %.015 = phi ptr [ %.116, %34 ], [ %6, %14 ]
+  %37 = insertvalue { ptr, i32 } poison, ptr %.015, 0
+  %38 = insertvalue { ptr, i32 } %37, i32 %.017, 1
   resume { ptr, i32 } %38
 
 39:                                               ; preds = %34
@@ -1394,7 +1394,7 @@ _ZL11seterrorobjP9lua_StateiP10lua_TValue.exit:   ; preds = %21, %24, %27, %30
 
 42:                                               ; preds = %39, %33, %19
   %.047 = phi i32 [ %18, %19 ], [ 2, %33 ], [ %., %39 ]
-  %.046 = phi i32 [ %18, %19 ], [ %18, %33 ], [ %., %39 ]
+  %.1 = phi i32 [ %18, %19 ], [ %18, %33 ], [ %., %39 ]
   br i1 %17, label %44, label %43
 
 43:                                               ; preds = %42
@@ -1496,7 +1496,7 @@ _ZL11seterrorobjP9lua_StateiP10lua_TValue.exit57: ; preds = %57, %61, %64, %67
   br label %_ZL19restore_stack_limitP9lua_State.exit
 
 _ZL19restore_stack_limitP9lua_State.exit:         ; preds = %83, %_ZL11seterrorobjP9lua_StateiP10lua_TValue.exit57, %5, %53
-  %.0 = phi i32 [ 0, %53 ], [ 0, %5 ], [ %.046, %_ZL11seterrorobjP9lua_StateiP10lua_TValue.exit57 ], [ %.046, %83 ]
+  %.0 = phi i32 [ 0, %53 ], [ 0, %5 ], [ %.1, %_ZL11seterrorobjP9lua_StateiP10lua_TValue.exit57 ], [ %.1, %83 ]
   ret i32 %.0
 }
 

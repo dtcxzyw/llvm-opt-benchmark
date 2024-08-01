@@ -2404,7 +2404,7 @@ heap_getattr.exit.i:                              ; preds = %207, %206, %200, %1
   br label %221
 
 221:                                              ; preds = %213, %211
-  %.178.i = phi ptr [ %220, %213 ], [ %.077.i, %211 ]
+  %.3.i = phi ptr [ %220, %213 ], [ %.077.i, %211 ]
   %222 = getelementptr inbounds i8, ptr %114, i64 72
   %223 = load i16, ptr %222, align 4
   %224 = sext i16 %223 to i32
@@ -2419,7 +2419,7 @@ heap_getattr.exit.i:                              ; preds = %207, %206, %200, %1
   br i1 %232, label %233, label %235
 
 233:                                              ; preds = %221
-  %234 = getelementptr %struct.AttrMissing, ptr %.178.i, i64 %134, i32 1
+  %234 = getelementptr %struct.AttrMissing, ptr %.3.i, i64 %134, i32 1
   store i64 %230, ptr %234, align 8
   br label %244
 
@@ -2432,25 +2432,25 @@ heap_getattr.exit.i:                              ; preds = %207, %206, %200, %1
   %240 = load i16, ptr %222, align 4
   %241 = sext i16 %240 to i32
   %242 = call i64 @datumCopy(i64 noundef %230, i1 noundef zeroext %239, i32 noundef %241) #12
-  %243 = getelementptr %struct.AttrMissing, ptr %.178.i, i64 %134, i32 1
+  %243 = getelementptr %struct.AttrMissing, ptr %.3.i, i64 %134, i32 1
   store i64 %242, ptr %243, align 8
   store ptr %237, ptr @CurrentMemoryContext, align 8
   br label %244
 
 244:                                              ; preds = %235, %233
-  %245 = getelementptr %struct.AttrMissing, ptr %.178.i, i64 %134
+  %245 = getelementptr %struct.AttrMissing, ptr %.3.i, i64 %134
   store i8 1, ptr %245, align 8
   br label %246
 
 246:                                              ; preds = %244, %heap_getattr.exit.i, %145
-  %.2.i = phi ptr [ %.077.i, %heap_getattr.exit.i ], [ %.178.i, %244 ], [ %.077.i, %145 ]
+  %.2.i = phi ptr [ %.077.i, %heap_getattr.exit.i ], [ %.3.i, %244 ], [ %.077.i, %145 ]
   %247 = add i32 %.0.i, -1
   %248 = icmp eq i32 %247, 0
   br i1 %248, label %249, label %106, !llvm.loop !16
 
 249:                                              ; preds = %246, %106
-  %.281.i = phi i32 [ %spec.select89.i, %246 ], [ %.079.i, %106 ]
-  %.3.i = phi ptr [ %.2.i, %246 ], [ %.077.i, %106 ]
+  %.180.i = phi i32 [ %spec.select89.i, %246 ], [ %.079.i, %106 ]
+  %.178.i = phi ptr [ %.2.i, %246 ], [ %.077.i, %106 ]
   %.1.i = phi i32 [ 0, %246 ], [ %.0.i, %106 ]
   call void @systable_endscan(ptr noundef %100) #12
   call void @table_close(ptr noundef %97, i32 noundef 1) #12
@@ -2486,9 +2486,9 @@ heap_getattr.exit.i:                              ; preds = %207, %206, %200, %1
 265:                                              ; preds = %262
   %266 = load i8, ptr %94, align 1
   %267 = trunc i8 %266 to i1
-  %268 = icmp sgt i32 %.281.i, 0
+  %268 = icmp sgt i32 %.180.i, 0
   %or.cond.i = select i1 %267, i1 true, i1 %268
-  %269 = icmp ne ptr %.3.i, null
+  %269 = icmp ne ptr %.178.i, null
   %or.cond3.i = select i1 %or.cond.i, i1 true, i1 %269
   br i1 %or.cond3.i, label %277, label %270
 
@@ -2509,13 +2509,13 @@ heap_getattr.exit.i:                              ; preds = %207, %206, %200, %1
   %278 = load ptr, ptr %48, align 8
   %279 = getelementptr inbounds i8, ptr %278, i64 16
   store ptr %92, ptr %279, align 8
-  %280 = icmp sgt i32 %.281.i, 0
+  %280 = icmp sgt i32 %.180.i, 0
   br i1 %280, label %281, label %392
 
 281:                                              ; preds = %277
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   %282 = load ptr, ptr @CacheMemoryContext, align 8
-  %283 = zext nneg i32 %.281.i to i64
+  %283 = zext nneg i32 %.180.i to i64
   %284 = shl nuw nsw i64 %283, 4
   %285 = call ptr @MemoryContextAllocZero(ptr noundef %282, i64 noundef %284) #12
   %286 = load i32, ptr %50, align 8
@@ -2540,7 +2540,7 @@ heap_getattr.exit.i:                              ; preds = %207, %206, %200, %1
   %297 = load i8, ptr %296, align 2
   %298 = zext i8 %297 to i64
   %299 = getelementptr i8, ptr %295, i64 %298
-  %.not38.i.i = icmp slt i32 %.043.i.i, %.281.i
+  %.not38.i.i = icmp slt i32 %.043.i.i, %.180.i
   br i1 %.not38.i.i, label %309, label %300
 
 300:                                              ; preds = %292
@@ -2676,7 +2676,7 @@ fastgetattr.exit:                                 ; preds = %346
   %.041.i.i = phi i32 [ %.043.i.i, %302 ], [ %.043.i.i, %300 ], [ 0, %281 ], [ %.1.i.i, %371 ]
   call void @systable_endscan(ptr noundef %289) #12
   call void @table_close(ptr noundef %288, i32 noundef 1) #12
-  %.not39.i.i = icmp eq i32 %.041.i.i, %.281.i
+  %.not39.i.i = icmp eq i32 %.041.i.i, %.180.i
   br i1 %.not39.i.i, label %380, label %373
 
 373:                                              ; preds = %.loopexit.i.i
@@ -2684,7 +2684,7 @@ fastgetattr.exit:                                 ; preds = %346
   br i1 %374, label %375, label %380
 
 375:                                              ; preds = %373
-  %376 = sub i32 %.281.i, %.041.i.i
+  %376 = sub i32 %.180.i, %.041.i.i
   %377 = load ptr, ptr %43, align 8
   %378 = getelementptr inbounds i8, ptr %377, i64 4
   %379 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.53, i32 noundef %376, ptr noundef nonnull %378) #12
@@ -2721,7 +2721,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %382, %380
 
 394:                                              ; preds = %392, %AttrDefaultFetch.exit.i
   %395 = getelementptr inbounds i8, ptr %92, i64 16
-  store ptr %.3.i, ptr %395, align 8
+  store ptr %.178.i, ptr %395, align 8
   %396 = load ptr, ptr %43, align 8
   %397 = getelementptr inbounds i8, ptr %396, i64 118
   %398 = load i16, ptr %397, align 2
@@ -5022,10 +5022,10 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
 
 .preheader:                                       ; preds = %14, %205
   %.0212 = phi i32 [ %.2214, %205 ], [ 0, %14 ]
-  %.0209 = phi i32 [ %.2211, %205 ], [ 0, %14 ]
+  %.0209 = phi i32 [ %.1210, %205 ], [ 0, %14 ]
   %.0207 = phi i32 [ %.1208, %205 ], [ 100, %14 ]
   %.0206 = phi i32 [ %32, %205 ], [ 0, %14 ]
-  %.0203 = phi ptr [ %.1, %205 ], [ %15, %14 ]
+  %.1 = phi ptr [ %.2, %205 ], [ %15, %14 ]
   %20 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %12)
   switch i64 %20, label %.loopexit [
     i64 8, label %21
@@ -5045,18 +5045,18 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %25 = shl i32 %.0207, 1
   %26 = sext i32 %25 to i64
   %27 = shl nsw i64 %26, 3
-  %28 = call ptr @repalloc(ptr noundef %.0203, i64 noundef %27) #12
+  %28 = call ptr @repalloc(ptr noundef %.1, i64 noundef %27) #12
   %.pre = load i64, ptr %4, align 8
   br label %29
 
 29:                                               ; preds = %24, %23
   %30 = phi i64 [ %.pre, %24 ], [ 480, %23 ]
   %.1208 = phi i32 [ %25, %24 ], [ %.0207, %23 ]
-  %.1 = phi ptr [ %28, %24 ], [ %.0203, %23 ]
+  %.2 = phi ptr [ %28, %24 ], [ %.1, %23 ]
   %31 = call ptr @palloc(i64 noundef %30) #12
   %32 = add i32 %.0206, 1
   %33 = sext i32 %.0206 to i64
-  %34 = getelementptr ptr, ptr %.1, i64 %33
+  %34 = getelementptr ptr, ptr %.2, i64 %33
   store ptr %31, ptr %34, align 8
   %35 = load i64, ptr %4, align 8
   %36 = call i64 @fread(ptr noundef %31, i64 noundef 1, i64 noundef %35, ptr noundef %12)
@@ -5371,7 +5371,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
 
 205:                                              ; preds = %203, %204, %._crit_edge277
   %.2214 = phi i32 [ %spec.select253, %._crit_edge277 ], [ %.0212, %204 ], [ %.0212, %203 ]
-  %.2211 = phi i32 [ %.0209, %._crit_edge277 ], [ %spec.select254, %204 ], [ %spec.select254, %203 ]
+  %.1210 = phi i32 [ %.0209, %._crit_edge277 ], [ %spec.select254, %204 ], [ %spec.select254, %203 ]
   %206 = getelementptr inbounds i8, ptr %31, i64 88
   %207 = getelementptr inbounds i8, ptr %31, i64 136
   %208 = getelementptr inbounds i8, ptr %31, i64 192
@@ -5460,7 +5460,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
 .lr.ph281:                                        ; preds = %.lr.ph281.preheader, %273
   %indvars.iv303 = phi i64 [ 0, %.lr.ph281.preheader ], [ %indvars.iv.next304, %273 ]
   %245 = load ptr, ptr @RelationIdCache, align 8
-  %246 = getelementptr ptr, ptr %.0203, i64 %indvars.iv303
+  %246 = getelementptr ptr, ptr %.1, i64 %indvars.iv303
   %247 = load ptr, ptr %246, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 72
   %249 = call ptr @hash_search(ptr noundef %245, ptr noundef nonnull %248, i32 noundef 1, ptr noundef nonnull %5) #12
@@ -5511,7 +5511,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   br i1 %exitcond.not, label %._crit_edge282, label %.lr.ph281, !llvm.loop !31
 
 ._crit_edge282:                                   ; preds = %273, %243
-  call void @pfree(ptr noundef %.0203) #12
+  call void @pfree(ptr noundef %.1) #12
   %274 = call i32 @FreeFile(ptr noundef %12) #12
   br i1 %0, label %275, label %276
 
@@ -5529,8 +5529,8 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %167, %164, %160, %157, %153, %150, %146, %143, %139, %114, %109, %107, %85, %81, %._crit_edge, %39, %37, %29, %21, %66, %.lr.ph, %183, %.lr.ph276, %.loopexit.sink.split, %239, %232, %14
-  %.2 = phi ptr [ %15, %14 ], [ %.0203, %232 ], [ %.0203, %239 ], [ %.0203, %.loopexit.sink.split ], [ %.1, %.lr.ph276 ], [ %.1, %183 ], [ %.1, %.lr.ph ], [ %.1, %66 ], [ %.0203, %.preheader ], [ %.1, %167 ], [ %.1, %164 ], [ %.1, %160 ], [ %.1, %157 ], [ %.1, %153 ], [ %.1, %150 ], [ %.1, %146 ], [ %.1, %143 ], [ %.1, %139 ], [ %.1, %114 ], [ %.1, %109 ], [ %.1, %107 ], [ %.1, %85 ], [ %.1, %81 ], [ %.1, %._crit_edge ], [ %.1, %39 ], [ %.1, %37 ], [ %.1, %29 ], [ %.0203, %21 ]
-  call void @pfree(ptr noundef %.2) #12
+  %.0203 = phi ptr [ %15, %14 ], [ %.1, %232 ], [ %.1, %239 ], [ %.1, %.loopexit.sink.split ], [ %.2, %.lr.ph276 ], [ %.2, %183 ], [ %.2, %.lr.ph ], [ %.2, %66 ], [ %.1, %.preheader ], [ %.2, %167 ], [ %.2, %164 ], [ %.2, %160 ], [ %.2, %157 ], [ %.2, %153 ], [ %.2, %150 ], [ %.2, %146 ], [ %.2, %143 ], [ %.2, %139 ], [ %.2, %114 ], [ %.2, %109 ], [ %.2, %107 ], [ %.2, %85 ], [ %.2, %81 ], [ %.2, %._crit_edge ], [ %.2, %39 ], [ %.2, %37 ], [ %.2, %29 ], [ %.1, %21 ]
+  call void @pfree(ptr noundef %.0203) #12
   %277 = call i32 @FreeFile(ptr noundef %12) #12
   br label %278
 
@@ -8476,12 +8476,12 @@ define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr nocaptur
 
 .lr.ph128:                                        ; preds = %.lr.ph, %.lr.ph128
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph128 ], [ 0, %.lr.ph ]
-  %.0118126 = phi ptr [ %42, %.lr.ph128 ], [ %24, %.lr.ph ]
+  %.1118126 = phi ptr [ %42, %.lr.ph128 ], [ %24, %.lr.ph ]
   %35 = load ptr, ptr %32, align 8
   %36 = getelementptr %union.ListCell, ptr %35, i64 %indvars.iv
   %37 = load i32, ptr %36, align 8
   %38 = tail call ptr @GetRelationPublications(i32 noundef %37) #12
-  %39 = tail call ptr @list_concat_unique_oid(ptr noundef %.0118126, ptr noundef %38) #12
+  %39 = tail call ptr @list_concat_unique_oid(ptr noundef %.1118126, ptr noundef %38) #12
   %40 = tail call i32 @get_rel_namespace(i32 noundef %37) #12
   %41 = tail call ptr @GetSchemaPublications(i32 noundef %40) #12
   %42 = tail call ptr @list_concat_unique_oid(ptr noundef %39, ptr noundef %41) #12
@@ -8493,9 +8493,9 @@ define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr nocaptur
 
 .thread:                                          ; preds = %.lr.ph128, %29, %.lr.ph, %13
   %.097 = phi ptr [ null, %13 ], [ null, %29 ], [ %30, %.lr.ph ], [ %30, %.lr.ph128 ]
-  %.1 = phi ptr [ %24, %13 ], [ %24, %29 ], [ %24, %.lr.ph ], [ %42, %.lr.ph128 ]
+  %.0 = phi ptr [ %24, %13 ], [ %24, %29 ], [ %24, %.lr.ph ], [ %42, %.lr.ph128 ]
   %46 = tail call ptr @GetAllTablesPublications() #12
-  %47 = tail call ptr @list_concat_unique_oid(ptr noundef %.1, ptr noundef %46) #12
+  %47 = tail call ptr @list_concat_unique_oid(ptr noundef %.0, ptr noundef %46) #12
   %.not105 = icmp eq ptr %47, null
   br i1 %.not105, label %.thread112, label %.lr.ph132
 

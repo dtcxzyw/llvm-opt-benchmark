@@ -1283,11 +1283,11 @@ X11SD_ClipToRoot.exit.thread.i:                   ; preds = %191, %168, %161, %1
   br i1 %.not141.i, label %X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %211, %206
-  %.121.i = phi ptr [ %215, %211 ], [ %209, %206 ]
+  %.012121.i = phi ptr [ %215, %211 ], [ %209, %206 ]
   %220 = mul nsw i32 %207, %15
-  %221 = getelementptr inbounds i8, ptr %.121.i, i64 16
+  %221 = getelementptr inbounds i8, ptr %.012121.i, i64 16
   %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %.121.i, i64 44
+  %223 = getelementptr inbounds i8, ptr %.012121.i, i64 44
   %224 = load i32, ptr %223, align 4
   %225 = load ptr, ptr %150, align 8
   %226 = sub nsw i32 %204, %40
@@ -1314,9 +1314,9 @@ X11SD_ClipToRoot.exit.thread.i:                   ; preds = %191, %168, %161, %1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %236, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %236
-  %240 = getelementptr inbounds i8, ptr %.121.i, i64 96
+  %240 = getelementptr inbounds i8, ptr %.012121.i, i64 96
   %241 = load ptr, ptr %240, align 8
-  %242 = call i32 %241(ptr noundef nonnull %.121.i) #18
+  %242 = call i32 %241(ptr noundef nonnull %.012121.i) #18
   br label %X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i
 
 X11SD_DisposeOrCacheXImage.exit.thread11.sink.split.i: ; preds = %._crit_edge.i, %211, %X11SD_ClipToRoot.exit.thread.i, %152, %134
@@ -2357,7 +2357,7 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
   br label %56
 
 56:                                               ; preds = %37, %49
-  %.0133 = phi i64 [ %52, %49 ], [ 0, %37 ]
+  %.1 = phi i64 [ %52, %49 ], [ 0, %37 ]
   tail call void (...) @awt_output_flush() #18
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 120
@@ -2414,7 +2414,7 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
 
 90:                                               ; preds = %85
   %91 = zext nneg i32 %4 to i64
-  %92 = mul nsw i64 %.0133, %91
+  %92 = mul nsw i64 %.1, %91
   %93 = icmp sgt i64 %92, 2147483647
   br i1 %93, label %.thread, label %94
 

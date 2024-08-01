@@ -742,8 +742,8 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refIP7oopDesc
   br label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit
 
 _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit: ; preds = %39, %66
-  %.1 = phi i64 [ %69, %66 ], [ 0, %39 ]
-  %spec.select.i.i = or i64 %.1, %8
+  %.0 = phi i64 [ %69, %66 ], [ 0, %39 ]
+  %spec.select.i.i = or i64 %.0, %8
   %70 = or i64 %spec.select.i.i, 2
   %.1.i.i = select i1 %3, i64 %70, i64 %spec.select.i.i
   %71 = getelementptr inbounds i8, ptr %1, i64 712
@@ -959,8 +959,8 @@ define linkonce_odr hidden void @_ZN14ShenandoahMark16mark_through_refI9narrowOo
   br label %_ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit
 
 _ZN24ShenandoahMarkingContext9mark_weakEP7oopDesc.exit: ; preds = %46, %73
-  %.1 = phi i64 [ %76, %73 ], [ 0, %46 ]
-  %spec.select.i.i = or i64 %.1, %14
+  %.0 = phi i64 [ %76, %73 ], [ 0, %46 ]
+  %spec.select.i.i = or i64 %.0, %14
   %77 = or i64 %spec.select.i.i, 2
   %.1.i.i = select i1 %3, i64 %77, i64 %spec.select.i.i
   %78 = getelementptr inbounds i8, ptr %1, i64 712

@@ -609,7 +609,7 @@ if.then34.i:                                      ; preds = %lor.lhs.false29.i, 
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.then34.i, %lor.lhs.false29.i, %if.then24.i, %if.then17.i
-  %ret.0.i = phi i64 [ -1, %if.then24.i ], [ -1, %if.then34.i ], [ %conv1425.i, %lor.lhs.false29.i ], [ -1, %if.then17.i ]
+  %ret.1.i = phi i64 [ -1, %if.then24.i ], [ -1, %if.then34.i ], [ %conv1425.i, %lor.lhs.false29.i ], [ -1, %if.then17.i ]
   br i1 %call.i6, label %if.then42.i, label %err_exit.i
 
 if.then42.i:                                      ; preds = %if.end37.i
@@ -621,8 +621,8 @@ if.then42.i:                                      ; preds = %if.end37.i
   br label %err_exit.i
 
 err_exit.i:                                       ; preds = %if.then.i, %if.then42.i, %if.end37.i, %if.then8.i
-  %ret.1.i = phi i64 [ %call1.i, %if.then8.i ], [ %ret.0.i, %if.then42.i ], [ %ret.0.i, %if.end37.i ], [ %call1.i, %if.then.i ]
-  %cmp48.i = icmp slt i64 %ret.1.i, 0
+  %ret.0.i = phi i64 [ %call1.i, %if.then8.i ], [ %ret.1.i, %if.then42.i ], [ %ret.1.i, %if.end37.i ], [ %call1.i, %if.then.i ]
+  %cmp48.i = icmp slt i64 %ret.0.i, 0
   br i1 %cmp48.i, label %if.then50.i, label %tpm_passthrough_unix_tx_bufs.exit
 
 if.then50.i:                                      ; preds = %err_exit.i

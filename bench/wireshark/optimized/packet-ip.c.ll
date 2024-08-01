@@ -2929,8 +2929,8 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
 
 .preheader246:                                    ; preds = %.preheader246.preheader, %73
   %indvars.iv = phi i64 [ 0, %.preheader246.preheader ], [ %indvars.iv.next, %73 ]
-  %.0218278 = phi ptr [ %43, %.preheader246.preheader ], [ %.3221, %73 ]
-  %.0222277 = phi i64 [ 256, %.preheader246.preheader ], [ %.4226, %73 ]
+  %.0218278 = phi ptr [ %43, %.preheader246.preheader ], [ %.2220, %73 ]
+  %.0222277 = phi i64 [ 256, %.preheader246.preheader ], [ %.2224, %73 ]
   %44 = getelementptr i8, ptr %41, i64 %indvars.iv
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %45 = shl i32 %indvars.iv.tr, 3
@@ -2939,8 +2939,8 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
 46:                                               ; preds = %.preheader246, %70
   %.0214276 = phi i32 [ 0, %.preheader246 ], [ %71, %70 ]
   %.0217275 = phi i32 [ 128, %.preheader246 ], [ %72, %70 ]
-  %.1219274 = phi ptr [ %.0218278, %.preheader246 ], [ %.3221, %70 ]
-  %.1223273 = phi i64 [ %.0222277, %.preheader246 ], [ %.4226, %70 ]
+  %.1219274 = phi ptr [ %.0218278, %.preheader246 ], [ %.2220, %70 ]
+  %.1223273 = phi i64 [ %.0222277, %.preheader246 ], [ %.2224, %70 ]
   %47 = load i8, ptr %44, align 1
   %48 = zext i8 %47 to i32
   %49 = and i32 %.0217275, %48
@@ -2956,38 +2956,38 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %55, label %.preheader, label %64
 
 .preheader:                                       ; preds = %50, %.preheader
-  %.2224 = phi i64 [ %57, %.preheader ], [ %.1223273, %50 ]
-  %56 = icmp ult i64 %.2224, %54
-  %57 = shl i64 %.2224, 1
+  %.4226 = phi i64 [ %57, %.preheader ], [ %.1223273, %50 ]
+  %56 = icmp ult i64 %.4226, %54
+  %57 = shl i64 %.4226, 1
   br i1 %56, label %.preheader, label %58, !llvm.loop !9
 
 58:                                               ; preds = %.preheader
   %59 = load ptr, ptr %13, align 8
-  %60 = tail call noalias ptr @wmem_alloc(ptr noundef %59, i64 noundef %.2224) #8
-  %61 = tail call i64 @g_strlcpy(ptr noundef %60, ptr noundef %.1219274, i64 noundef %.2224) #8
-  %62 = getelementptr i8, ptr %60, i64 %.2224
+  %60 = tail call noalias ptr @wmem_alloc(ptr noundef %59, i64 noundef %.4226) #8
+  %61 = tail call i64 @g_strlcpy(ptr noundef %60, ptr noundef %.1219274, i64 noundef %.4226) #8
+  %62 = getelementptr i8, ptr %60, i64 %.4226
   %63 = getelementptr i8, ptr %62, i64 -1
   store i8 0, ptr %63, align 1
   br label %64
 
 64:                                               ; preds = %58, %50
-  %.3225 = phi i64 [ %.2224, %58 ], [ %.1223273, %50 ]
-  %.2220 = phi ptr [ %60, %58 ], [ %.1219274, %50 ]
-  %65 = load i8, ptr %.2220, align 1
+  %.3225 = phi i64 [ %.4226, %58 ], [ %.1223273, %50 ]
+  %.3221 = phi ptr [ %60, %58 ], [ %.1219274, %50 ]
+  %65 = load i8, ptr %.3221, align 1
   %.not244 = icmp eq i8 %65, 0
   br i1 %.not244, label %68, label %66
 
 66:                                               ; preds = %64
-  %67 = tail call i64 @g_strlcat(ptr noundef nonnull %.2220, ptr noundef nonnull @.str.587, i64 noundef %.3225) #8
+  %67 = tail call i64 @g_strlcat(ptr noundef nonnull %.3221, ptr noundef nonnull @.str.587, i64 noundef %.3225) #8
   br label %68
 
 68:                                               ; preds = %66, %64
-  %69 = tail call i64 @g_strlcat(ptr noundef nonnull %.2220, ptr noundef %39, i64 noundef %.3225) #8
+  %69 = tail call i64 @g_strlcat(ptr noundef nonnull %.3221, ptr noundef %39, i64 noundef %.3225) #8
   br label %70
 
 70:                                               ; preds = %68, %46
-  %.4226 = phi i64 [ %.3225, %68 ], [ %.1223273, %46 ]
-  %.3221 = phi ptr [ %.2220, %68 ], [ %.1219274, %46 ]
+  %.2224 = phi i64 [ %.3225, %68 ], [ %.1223273, %46 ]
+  %.2220 = phi ptr [ %.3221, %68 ], [ %.1219274, %46 ]
   %71 = add nuw nsw i32 %.0214276, 1
   %72 = lshr i32 %.0217275, 1
   %exitcond.not = icmp eq i32 %71, 8
@@ -2999,12 +2999,12 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %exitcond311.not, label %._crit_edge280, label %.preheader246, !llvm.loop !11
 
 ._crit_edge280:                                   ; preds = %73
-  %.not242 = icmp eq ptr %.3221, null
+  %.not242 = icmp eq ptr %.2220, null
   %74 = load i32, ptr @hf_ip_cipso_categories, align 4
   br i1 %.not242, label %77, label %75
 
 75:                                               ; preds = %._crit_edge280
-  %76 = tail call ptr @proto_tree_add_string(ptr noundef %9, i32 noundef %74, ptr noundef %0, i32 noundef %36, i32 noundef %40, ptr noundef nonnull %.3221) #8
+  %76 = tail call ptr @proto_tree_add_string(ptr noundef %9, i32 noundef %74, ptr noundef %0, i32 noundef %36, i32 noundef %40, ptr noundef nonnull %.2220) #8
   br label %.backedge
 
 77:                                               ; preds = %._crit_edge280
@@ -3045,8 +3045,8 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph270:                                        ; preds = %93, %105
   %98 = phi i32 [ %107, %105 ], [ %.reass283, %93 ]
-  %.1268 = phi i32 [ %98, %105 ], [ %91, %93 ]
-  %99 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1268) #8
+  %.2268 = phi i32 [ %98, %105 ], [ %91, %93 ]
+  %99 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2268) #8
   %100 = zext i16 %99 to i32
   %101 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %97, i64 noundef 6, ptr noundef nonnull @.str.540, i32 noundef %100) #8
   %102 = load i8, ptr %95, align 1
@@ -3064,9 +3064,9 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not240, label %._crit_edge271, label %.lr.ph270, !llvm.loop !12
 
 ._crit_edge271:                                   ; preds = %105, %93
-  %.1.lcssa = phi i32 [ %91, %93 ], [ %98, %105 ]
+  %.2.lcssa = phi i32 [ %91, %93 ], [ %98, %105 ]
   %108 = load i32, ptr @hf_ip_cipso_categories, align 4
-  %reass.sub288 = sub i32 %.1.lcssa, %.0212
+  %reass.sub288 = sub i32 %.2.lcssa, %.0212
   %109 = add i32 %reass.sub288, 4
   %110 = add nsw i32 %.0212, -4
   %111 = tail call ptr @proto_tree_add_string(ptr noundef %9, i32 noundef %108, ptr noundef %0, i32 noundef %109, i32 noundef %110, ptr noundef %95) #8
@@ -3106,9 +3106,9 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph:                                           ; preds = %126, %147
   %131 = phi i32 [ %149, %147 ], [ %.reass, %126 ]
-  %.2266 = phi i32 [ %.3, %147 ], [ %124, %126 ]
-  %132 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2266) #8
-  %133 = add i32 %.2266, 4
+  %.3266 = phi i32 [ %.4, %147 ], [ %124, %126 ]
+  %132 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.3266) #8
+  %133 = add i32 %.3266, 4
   %.not237 = icmp sgt i32 %133, %115
   br i1 %.not237, label %136, label %134
 
@@ -3118,7 +3118,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
 
 136:                                              ; preds = %.lr.ph, %134
   %.0215 = phi i16 [ %135, %134 ], [ 0, %.lr.ph ]
-  %.3 = phi i32 [ %133, %134 ], [ %131, %.lr.ph ]
+  %.4 = phi i32 [ %133, %134 ], [ %131, %.lr.ph ]
   %137 = zext i16 %132 to i32
   %.not238 = icmp eq i16 %.0215, %132
   br i1 %.not238, label %141, label %138
@@ -3143,14 +3143,14 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
 
 147:                                              ; preds = %145, %143
   %148 = tail call i64 @g_strlcat(ptr noundef nonnull %128, ptr noundef %130, i64 noundef 96) #8
-  %149 = add i32 %.3, 2
+  %149 = add i32 %.4, 2
   %.not = icmp sgt i32 %149, %115
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %147, %126
-  %.2.lcssa = phi i32 [ %124, %126 ], [ %.3, %147 ]
+  %.3.lcssa = phi i32 [ %124, %126 ], [ %.4, %147 ]
   %150 = load i32, ptr @hf_ip_cipso_categories, align 4
-  %reass.sub = sub i32 %.2.lcssa, %.0212
+  %reass.sub = sub i32 %.3.lcssa, %.0212
   %151 = add i32 %reass.sub, 4
   %152 = add nsw i32 %.0212, -4
   %153 = tail call ptr @proto_tree_add_string(ptr noundef %9, i32 noundef %150, ptr noundef %0, i32 noundef %151, i32 noundef %152, ptr noundef %128) #8
@@ -3207,7 +3207,7 @@ define internal i32 @dissect_ipopt_cipso(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 .backedge:                                        ; preds = %162, %175, %32, %._crit_edge271, %87, %._crit_edge, %120, %77, %75, %23
-  %.0213.be = phi i32 [ %18, %23 ], [ %170, %175 ], [ %157, %162 ], [ %.2.lcssa, %._crit_edge ], [ %124, %120 ], [ %.1.lcssa, %._crit_edge271 ], [ %91, %87 ], [ %36, %32 ], [ %27, %77 ], [ %27, %75 ]
+  %.0213.be = phi i32 [ %18, %23 ], [ %170, %175 ], [ %157, %162 ], [ %.3.lcssa, %._crit_edge ], [ %124, %120 ], [ %.2.lcssa, %._crit_edge271 ], [ %91, %87 ], [ %36, %32 ], [ %27, %77 ], [ %27, %75 ]
   %183 = icmp slt i32 %.0213.be, %6
   br i1 %183, label %14, label %.loopexit, !llvm.loop !14
 

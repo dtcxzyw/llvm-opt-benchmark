@@ -804,7 +804,7 @@ if.else75.i:                                      ; preds = %do.cond.i62.i
 
 sub_0.i:                                          ; preds = %if.else75.i, %if.then71.i, %if.then65.i, %if.then59.i, %if.end53.i
   %.sink88.i = phi i32 [ 2, %if.then65.i ], [ 2, %if.else75.i ], [ 2, %if.then71.i ], [ 2, %if.then59.i ], [ 1, %if.end53.i ]
-  %origin.2.i = phi ptr [ %add.ptr41.i, %if.then65.i ], [ %src.0.i, %if.else75.i ], [ %scevgep86.i, %if.then71.i ], [ %scevgep.i, %if.then59.i ], [ %src.0.i, %if.end53.i ]
+  %origin.0.i = phi ptr [ %add.ptr41.i, %if.then65.i ], [ %src.0.i, %if.else75.i ], [ %scevgep86.i, %if.then71.i ], [ %scevgep.i, %if.then59.i ], [ %src.0.i, %if.end53.i ]
   %head_status.i = getelementptr inbounds i8, ptr %40, i64 160
   %47 = load i32, ptr %head_status.i, align 8
   %or.i = or i32 %47, %.sink88.i
@@ -828,38 +828,38 @@ if.end82.tail.i:                                  ; preds = %sub_1.i, %sub_0.i
   br i1 %tobool84.not.i, label %if.then88.i, label %lor.lhs.false85.i
 
 lor.lhs.false85.i:                                ; preds = %if.end82.tail.i
-  %call86.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %src.0.i, ptr noundef nonnull dereferenceable(1) %origin.2.i) #13
+  %call86.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %src.0.i, ptr noundef nonnull dereferenceable(1) %origin.0.i) #13
   %tobool87.not.i = icmp eq i32 %call86.i, 0
   br i1 %tobool87.not.i, label %if.then88.i, label %if.else108.i
 
 if.then88.i:                                      ; preds = %lor.lhs.false85.i, %if.end82.tail.i
-  %56 = load i8, ptr %origin.2.i, align 1
+  %56 = load i8, ptr %origin.0.i, align 1
   %cmp94.i = icmp eq i8 %56, 39
   br i1 %cmp94.i, label %land.lhs.true.i, label %sub_074.i
 
 land.lhs.true.i:                                  ; preds = %if.then88.i
-  %call90.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %origin.2.i) #13
+  %call90.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %origin.0.i) #13
   %sub96.i = shl i64 %call90.i, 32
   %sext46.i = add i64 %sub96.i, -4294967296
   %idxprom97.i = ashr exact i64 %sext46.i, 32
-  %arrayidx98.i = getelementptr inbounds i8, ptr %origin.2.i, i64 %idxprom97.i
+  %arrayidx98.i = getelementptr inbounds i8, ptr %origin.0.i, i64 %idxprom97.i
   %57 = load i8, ptr %arrayidx98.i, align 1
   %cmp100.i = icmp eq i8 %57, 39
   br i1 %cmp100.i, label %if.then102.i, label %sub_074.i
 
 if.then102.i:                                     ; preds = %land.lhs.true.i
-  %add.ptr103.i = getelementptr inbounds i8, ptr %origin.2.i, i64 1
+  %add.ptr103.i = getelementptr inbounds i8, ptr %origin.0.i, i64 1
   %sext47.i = add i64 %sub96.i, -8589934592
   %conv105.i = ashr exact i64 %sext47.i, 32
   %call106.i = call ptr @xmemdupz(ptr noundef nonnull %add.ptr103.i, i64 noundef %conv105.i) #14
   br label %sub_074.i
 
 if.else108.i:                                     ; preds = %lor.lhs.false85.i
-  %call109.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.18, ptr noundef %origin.2.i, ptr noundef nonnull %src.0.i) #14
+  %call109.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.18, ptr noundef %origin.0.i, ptr noundef nonnull %src.0.i) #14
   br label %sub_074.i
 
 sub_074.i:                                        ; preds = %if.else108.i, %if.then102.i, %land.lhs.true.i, %if.then88.i
-  %origin.3.i = phi ptr [ %call106.i, %if.then102.i ], [ %origin.2.i, %land.lhs.true.i ], [ %origin.2.i, %if.then88.i ], [ %call109.i, %if.else108.i ]
+  %origin.1.i = phi ptr [ %call106.i, %if.then102.i ], [ %origin.0.i, %land.lhs.true.i ], [ %origin.0.i, %if.then88.i ], [ %call109.i, %if.else108.i ]
   %to_free.0.i = phi ptr [ %call106.i, %if.then102.i ], [ null, %land.lhs.true.i ], [ null, %if.then88.i ], [ %call109.i, %if.else108.i ]
   %58 = load i8, ptr %src.0.i, align 1
   %59 = zext i8 %58 to i32
@@ -887,7 +887,7 @@ if.then113.i:                                     ; preds = %if.end110.tail.i
   br label %if.end118.i
 
 if.end118.i:                                      ; preds = %if.then113.i, %if.end110.tail.i
-  %call119.i = call ptr @string_list_append(ptr noundef nonnull @origins, ptr noundef %origin.3.i) #14
+  %call119.i = call ptr @string_list_append(ptr noundef nonnull @origins, ptr noundef %origin.1.i) #14
   %util120.i = getelementptr inbounds i8, ptr %call119.i, i64 8
   store ptr %call27.i, ptr %util120.i, align 8
   call void @free(ptr noundef %to_free.0.i) #14
@@ -1125,7 +1125,7 @@ for.body.lr.ph.i70:                               ; preds = %if.end31
 for.body.i73:                                     ; preds = %next.i, %for.body.lr.ph.i70
   %indvars.iv.i74 = phi i64 [ 0, %for.body.lr.ph.i70 ], [ %indvars.iv.next.i82, %next.i ]
   %tag_number.048.i = phi i32 [ 0, %for.body.lr.ph.i70 ], [ %tag_number.1.i, %next.i ]
-  %first_tag.047.i = phi i32 [ 0, %for.body.lr.ph.i70 ], [ %first_tag.2.i, %next.i ]
+  %first_tag.047.i = phi i32 [ 0, %for.body.lr.ph.i70 ], [ %first_tag.1.i, %next.i ]
   %101 = load ptr, ptr @origins, align 8
   %util.i75 = getelementptr inbounds %struct.string_list_item, ptr %101, i64 %indvars.iv.i74, i32 1
   %102 = load ptr, ptr %util.i75, align 8
@@ -1250,14 +1250,14 @@ strbuf_addch.exit30.i:                            ; preds = %if.then.i26.i, %str
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %strbuf_addch.exit30.i, %if.then22.i
-  %first_tag.1.i = phi i32 [ %first_tag.047.i, %strbuf_addch.exit30.i ], [ %111, %if.then22.i ]
+  %first_tag.2.i = phi i32 [ %first_tag.047.i, %strbuf_addch.exit30.i ], [ %111, %if.then22.i ]
   call void @strbuf_release(ptr noundef nonnull %payload.i) #14
   call void @strbuf_release(ptr noundef nonnull %sig.i) #14
   call void @signature_check_clear(ptr noundef nonnull %sigc.i) #14
   br label %next.i
 
 next.i:                                           ; preds = %if.end43.i, %for.body.i73
-  %first_tag.2.i = phi i32 [ %first_tag.047.i, %for.body.i73 ], [ %first_tag.1.i, %if.end43.i ]
+  %first_tag.1.i = phi i32 [ %first_tag.047.i, %for.body.i73 ], [ %first_tag.2.i, %if.end43.i ]
   %tag_number.1.i = phi i32 [ %tag_number.048.i, %for.body.i73 ], [ %inc.i, %if.end43.i ]
   call void @free(ptr noundef %call.i76) #14
   %indvars.iv.next.i82 = add nuw nsw i64 %indvars.iv.i74, 1

@@ -256,16 +256,16 @@ define internal i32 @dissect_uavcan(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %46
 
 46:                                               ; preds = %30, %21
-  %.0239 = phi i32 [ %29, %21 ], [ %45, %30 ]
+  %.1240 = phi i32 [ %29, %21 ], [ %45, %30 ]
   %47 = load ptr, ptr @fragment_info_table, align 8
-  %48 = tail call ptr @wmem_tree_lookup32(ptr noundef %47, i32 noundef %.0239) #6
+  %48 = tail call ptr @wmem_tree_lookup32(ptr noundef %47, i32 noundef %.1240) #6
   %49 = icmp sgt i8 %10, -1
   %50 = icmp eq ptr %48, null
   %or.cond = select i1 %49, i1 %50, i1 false
   br i1 %or.cond, label %376, label %51
 
 51:                                               ; preds = %46, %16
-  %.1240 = phi i32 [ %.0239, %46 ], [ 0, %16 ]
+  %.0239 = phi i32 [ %.1240, %46 ], [ 0, %16 ]
   %.0238 = phi ptr [ %48, %46 ], [ null, %16 ]
   %52 = getelementptr inbounds i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
@@ -697,7 +697,7 @@ proto_item_set_generated.exit295:                 ; preds = %proto_item_set_gene
   %279 = and i32 %13, 32
   store i32 %279, ptr %277, align 4
   %280 = load ptr, ptr @fragment_info_table, align 8
-  call void @wmem_tree_insert32(ptr noundef %280, i32 noundef %.1240, ptr noundef nonnull %277) #6
+  call void @wmem_tree_insert32(ptr noundef %280, i32 noundef %.0239, ptr noundef nonnull %277) #6
   br label %281
 
 281:                                              ; preds = %275, %273

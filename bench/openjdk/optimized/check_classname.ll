@@ -104,8 +104,8 @@ define internal fastcc ptr @skip_over_fieldname(ptr noundef readonly %0, i32 nou
   br i1 %.not87, label %next_utf2unicode.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %isJvmIdentifier.exit.thread51
-  %.03089 = phi i16 [ %.1, %isJvmIdentifier.exit.thread51 ], [ 0, %2 ]
-  %.03288 = phi ptr [ %.2, %isJvmIdentifier.exit.thread51 ], [ %0, %2 ]
+  %.03089 = phi i16 [ %.031, %isJvmIdentifier.exit.thread51 ], [ 0, %2 ]
+  %.03288 = phi ptr [ %.133, %isJvmIdentifier.exit.thread51 ], [ %0, %2 ]
   %5 = load i8, ptr %.03288, align 1
   %6 = icmp sgt i8 %5, -1
   br i1 %6, label %7, label %15
@@ -217,9 +217,9 @@ isJvmIdentifier.exit46:                           ; preds = %50
   br label %.loopexit
 
 isJvmIdentifier.exit.thread:                      ; preds = %50, %12
-  %.133 = phi ptr [ %9, %12 ], [ %47, %50 ]
-  %.031 = phi i16 [ %8, %12 ], [ %46, %50 ]
-  %54 = icmp eq i16 %.031, 47
+  %.2 = phi ptr [ %9, %12 ], [ %47, %50 ]
+  %.1 = phi i16 [ %8, %12 ], [ %46, %50 ]
+  %54 = icmp eq i16 %.1, 47
   %55 = icmp ne i16 %.03089, 0
   %or.cond5 = and i1 %55, %54
   br i1 %or.cond5, label %56, label %.loopexit
@@ -234,13 +234,13 @@ isJvmIdentifier.exit.thread:                      ; preds = %50, %12
   br label %next_utf2unicode.exit
 
 isJvmIdentifier.exit.thread51:                    ; preds = %.thread, %44, %7, %56, %isJvmIdentifier.exit46, %isJvmIdentifier.exit
-  %.2 = phi ptr [ %9, %isJvmIdentifier.exit ], [ %.133, %56 ], [ %47, %isJvmIdentifier.exit46 ], [ %9, %7 ], [ %43, %.thread ], [ %47, %44 ]
-  %.1 = phi i16 [ %8, %isJvmIdentifier.exit ], [ 47, %56 ], [ %46, %isJvmIdentifier.exit46 ], [ %8, %7 ], [ 128, %.thread ], [ %46, %44 ]
-  %.not = icmp eq ptr %.2, %4
+  %.133 = phi ptr [ %9, %isJvmIdentifier.exit ], [ %.2, %56 ], [ %47, %isJvmIdentifier.exit46 ], [ %9, %7 ], [ %43, %.thread ], [ %47, %44 ]
+  %.031 = phi i16 [ %8, %isJvmIdentifier.exit ], [ 47, %56 ], [ %46, %isJvmIdentifier.exit46 ], [ %8, %7 ], [ 128, %.thread ], [ %46, %44 ]
+  %.not = icmp eq ptr %.133, %4
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %isJvmIdentifier.exit.thread51
-  %60 = icmp eq i16 %.1, 0
+  %60 = icmp eq i16 %.031, 0
   %61 = select i1 %60, ptr null, ptr %4
   br label %next_utf2unicode.exit
 
@@ -255,7 +255,7 @@ define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr nocapture nounde
 
 2:                                                ; preds = %1, %27
   %.012 = phi i8 [ 0, %1 ], [ %.1, %27 ]
-  %.0511 = phi i32 [ 1, %1 ], [ %.2, %27 ]
+  %.0511 = phi i32 [ 1, %1 ], [ %.16, %27 ]
   %.0710 = phi ptr [ %0, %1 ], [ %.18, %27 ]
   %3 = load i8, ptr %.0710, align 1
   switch i8 %3, label %8 [
@@ -313,16 +313,16 @@ define hidden zeroext range(i8 0, 2) i8 @verifyFixClassname(ptr nocapture nounde
   br label %next_utf2unicode.exit
 
 next_utf2unicode.exit:                            ; preds = %21, %11, %8, %8, %8, %8, %8, %10, %16
-  %.16 = phi i32 [ 1, %10 ], [ 1, %16 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 1, %11 ], [ 1, %21 ]
+  %.2 = phi i32 [ 1, %10 ], [ 1, %16 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 0, %8 ], [ 1, %11 ], [ 1, %21 ]
   %.0.i = phi i64 [ 1, %10 ], [ 1, %16 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ 1, %8 ], [ %spec.select, %11 ], [ %spec.select9, %21 ]
   %26 = getelementptr inbounds i8, ptr %.0710, i64 %.0.i
   br label %27
 
 27:                                               ; preds = %6, %next_utf2unicode.exit, %4
   %.18 = phi ptr [ %26, %next_utf2unicode.exit ], [ %7, %6 ], [ %5, %4 ]
-  %.2 = phi i32 [ %.16, %next_utf2unicode.exit ], [ %.0511, %6 ], [ %.0511, %4 ]
+  %.16 = phi i32 [ %.2, %next_utf2unicode.exit ], [ %.0511, %6 ], [ %.0511, %4 ]
   %.1 = phi i8 [ %.012, %next_utf2unicode.exit ], [ %.012, %6 ], [ 1, %4 ]
-  %.not = icmp eq i32 %.2, 0
+  %.not = icmp eq i32 %.16, 0
   br i1 %.not, label %.critedge, label %2, !llvm.loop !9
 
 .critedge:                                        ; preds = %2, %27
@@ -339,7 +339,7 @@ define hidden void @fixClassname(ptr nocapture noundef %0) local_unnamed_addr #3
   br label %2
 
 2:                                                ; preds = %1, %25
-  %.07 = phi i32 [ 1, %1 ], [ %.2, %25 ]
+  %.07 = phi i32 [ 1, %1 ], [ %.1, %25 ]
   %.036 = phi ptr [ %0, %1 ], [ %.14, %25 ]
   %3 = load i8, ptr %.036, align 1
   switch i8 %3, label %6 [
@@ -392,15 +392,15 @@ define hidden void @fixClassname(ptr nocapture noundef %0) local_unnamed_addr #3
   br label %next_utf2unicode.exit
 
 next_utf2unicode.exit:                            ; preds = %19, %9, %6, %6, %6, %6, %6, %8, %14
-  %.1 = phi i32 [ 1, %8 ], [ 1, %14 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 1, %9 ], [ 1, %19 ]
+  %.2 = phi i32 [ 1, %8 ], [ 1, %14 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 0, %6 ], [ 1, %9 ], [ 1, %19 ]
   %.0.i = phi i64 [ 1, %8 ], [ 1, %14 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ 1, %6 ], [ %spec.select, %9 ], [ %spec.select5, %19 ]
   %24 = getelementptr inbounds i8, ptr %.036, i64 %.0.i
   br label %25
 
 25:                                               ; preds = %next_utf2unicode.exit, %4
   %.14 = phi ptr [ %24, %next_utf2unicode.exit ], [ %5, %4 ]
-  %.2 = phi i32 [ %.1, %next_utf2unicode.exit ], [ %.07, %4 ]
-  %.not = icmp eq i32 %.2, 0
+  %.1 = phi i32 [ %.2, %next_utf2unicode.exit ], [ %.07, %4 ]
+  %.not = icmp eq i32 %.1, 0
   br i1 %.not, label %.critedge, label %2, !llvm.loop !10
 
 .critedge:                                        ; preds = %2, %25

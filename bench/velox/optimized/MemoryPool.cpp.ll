@@ -6787,8 +6787,8 @@ if.end28:                                         ; preds = %if.end19
   unreachable
 
 return:                                           ; preds = %cleanup, %if.then5, %_ZN8facebook5velox6memory14MemoryPoolImpl25maybeIncrementReservationEm.exit
-  %retval.1 = phi i1 [ true, %cleanup ], [ %call.i, %_ZN8facebook5velox6memory14MemoryPoolImpl25maybeIncrementReservationEm.exit ], [ false, %if.then5 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %cleanup ], [ %call.i, %_ZN8facebook5velox6memory14MemoryPoolImpl25maybeIncrementReservationEm.exit ], [ false, %if.then5 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7939,13 +7939,13 @@ if.end10:                                         ; preds = %if.end6
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %if.end10
-  %retval.0 = phi i64 [ %sub, %if.end10 ], [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %retval.1 = phi i64 [ %sub, %if.end10 ], [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %call1.i.i.i1 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #26
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.1 = phi i64 [ %call4, %if.then ], [ %retval.0, %cleanup ]
-  ret i64 %retval.1
+  %retval.0 = phi i64 [ %call4, %if.then ], [ %retval.1, %cleanup ]
+  ret i64 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

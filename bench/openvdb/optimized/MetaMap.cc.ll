@@ -1032,8 +1032,8 @@ ehcleanup75:                                      ; preds = %lpad68, %lpad66
 
 catch76:                                          ; preds = %ehcleanup75, %lpad63
   %.pn8.pn = phi { ptr, i32 } [ %.pn8, %ehcleanup75 ], [ %47, %lpad63 ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn8.pn, 0
-  %50 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #15
+  %exn.slot.4 = extractvalue { ptr, i32 } %.pn8.pn, 0
+  %50 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #15
   invoke void @__cxa_end_catch()
           to label %try.cont80 unwind label %lpad78
 

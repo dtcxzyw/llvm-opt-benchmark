@@ -2177,19 +2177,19 @@ if.end233:                                        ; preds = %while.cond.i.i319, 
   br label %while.cond235
 
 while.cond235:                                    ; preds = %while.body242, %if.end233
-  %sz223.1 = phi ptr [ %in.addr.0.i.i320, %if.end233 ], [ %incdec.ptr243, %while.body242 ]
-  %75 = load i8, ptr %sz223.1, align 1
+  %sz223.0 = phi ptr [ %in.addr.0.i.i320, %if.end233 ], [ %incdec.ptr243, %while.body242 ]
+  %75 = load i8, ptr %sz223.0, align 1
   switch i8 %75, label %while.body242 [
     i8 0, label %if.end278
     i8 34, label %if.then247
   ]
 
 while.body242:                                    ; preds = %while.cond235
-  %incdec.ptr243 = getelementptr inbounds i8, ptr %sz223.1, i64 1
+  %incdec.ptr243 = getelementptr inbounds i8, ptr %sz223.0, i64 1
   br label %while.cond235, !llvm.loop !24
 
 if.then247:                                       ; preds = %while.cond235
-  %incdec.ptr249 = getelementptr inbounds i8, ptr %sz223.1, i64 1
+  %incdec.ptr249 = getelementptr inbounds i8, ptr %sz223.0, i64 1
   br label %while.cond250
 
 while.cond250:                                    ; preds = %while.body257, %if.then247
@@ -3084,11 +3084,11 @@ invoke.cont438:                                   ; preds = %if.end434
 
 while.cond.i.i692.preheader:                      ; preds = %invoke.cont438, %_ZN6Assimp9strtoul10EPKcPS1_.exit720
   %indvars.iv = phi i64 [ 0, %invoke.cont438 ], [ %indvars.iv.next, %_ZN6Assimp9strtoul10EPKcPS1_.exit720 ]
-  %sz223.71142 = phi ptr [ %in.addr.0.lcssa.i657, %invoke.cont438 ], [ %in.addr.0.lcssa.i716, %_ZN6Assimp9strtoul10EPKcPS1_.exit720 ]
+  %sz223.11142 = phi ptr [ %in.addr.0.lcssa.i657, %invoke.cont438 ], [ %in.addr.0.lcssa.i716, %_ZN6Assimp9strtoul10EPKcPS1_.exit720 ]
   br label %while.cond.i.i692
 
 while.cond.i.i692:                                ; preds = %while.cond.i.i692.preheader, %while.body.i.i694
-  %in.addr.0.i.i693 = phi ptr [ %incdec.ptr.i.i695, %while.body.i.i694 ], [ %sz223.71142, %while.cond.i.i692.preheader ]
+  %in.addr.0.i.i693 = phi ptr [ %incdec.ptr.i.i695, %while.body.i.i694 ], [ %sz223.11142, %while.cond.i.i692.preheader ]
   %167 = load i8, ptr %in.addr.0.i.i693, align 1
   switch i8 %167, label %if.end448 [
     i8 32, label %while.body.i.i694

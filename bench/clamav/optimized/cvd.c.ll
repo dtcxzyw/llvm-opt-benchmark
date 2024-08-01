@@ -2170,13 +2170,13 @@ cvdgetfileage.exit124:                            ; preds = %145
   br i1 %.not76150, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.outer, %.backedge, %.tail.thread, %148
-  %.1 = phi i32 [ %.0.i121130, %148 ], [ 0, %.tail.thread ], [ 0, %.backedge ], [ 0, %.outer ]
+  %.0 = phi i32 [ %.0.i121130, %148 ], [ 0, %.tail.thread ], [ 0, %.backedge ], [ 0, %.outer ]
   %160 = call i32 @closedir(ptr noundef nonnull %33)
   br label %.thread
 
 .thread:                                          ; preds = %cvdgetfileage.exit, %35, %11, %.loopexit
-  %.1138 = phi i32 [ %.1, %.loopexit ], [ %.0.i, %cvdgetfileage.exit ], [ 8, %35 ], [ 11, %11 ]
-  ret i32 %.1138
+  %.0138 = phi i32 [ %.0, %.loopexit ], [ %.0.i, %cvdgetfileage.exit ], [ 8, %35 ], [ 11, %11 ]
+  ret i32 %.0138
 }
 
 ; Function Attrs: nofree nounwind

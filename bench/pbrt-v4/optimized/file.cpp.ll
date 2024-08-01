@@ -1427,10 +1427,10 @@ lpad10:                                           ; preds = %invoke.cont11, %inv
 
 ehcleanup12:                                      ; preds = %lpad8, %lpad10
   %.pn = phi { ptr, i32 } [ %3, %lpad10 ], [ %2, %lpad8 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad10 ], [ true, %lpad8 ]
+  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.0, %lpad10 ], [ true, %lpad8 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #21
-  br i1 %cleanup.isactive.1, label %cleanup.action, label %eh.resume
+  br i1 %cleanup.isactive.2, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup12.thread, %ehcleanup12
   %.pn.pn7 = phi { ptr, i32 } [ %1, %ehcleanup12.thread ], [ %.pn, %ehcleanup12 ]
@@ -3031,8 +3031,8 @@ while.body42.preheader:                           ; preds = %_ZNKSt8functionIFP2
 
 while.body42:                                     ; preds = %while.body42.preheader, %if.end54
   %step.1 = phi i32 [ %inc43, %if.end54 ], [ %indvars92, %while.body42.preheader ]
-  %hash.1 = phi i32 [ %hash.2, %if.end54 ], [ %hash.080, %while.body42.preheader ]
-  %add = add i32 %hash.1, %step.1
+  %hash.2 = phi i32 [ %hash.3, %if.end54 ], [ %hash.080, %while.body42.preheader ]
+  %add = add i32 %hash.2, %step.1
   %inc43 = add nuw nsw i32 %step.1, 1
   %conv44 = zext i32 %add to i64
   %cmp47.not = icmp ugt i64 %sub.ptr.div.i42, %conv44
@@ -3045,14 +3045,14 @@ if.then48:                                        ; preds = %while.body42
 
 if.end54:                                         ; preds = %if.then48, %while.body42
   %conv56.pre-phi = phi i64 [ %.pre, %if.then48 ], [ %conv44, %while.body42 ]
-  %hash.2 = phi i32 [ %rem5271, %if.then48 ], [ %add, %while.body42 ]
+  %hash.3 = phi i32 [ %rem5271, %if.then48 ], [ %add, %while.body42 ]
   %set.i49 = getelementptr inbounds %"class.pstd::optional", ptr %9, i64 %conv56.pre-phi, i32 1
   %12 = load i8, ptr %set.i49, align 8
   %tobool.i50 = trunc i8 %12 to i1
   br i1 %tobool.i50, label %while.body42, label %if.end61.loopexit, !llvm.loop !16
 
 if.end61.loopexit:                                ; preds = %if.end54
-  %.pre93 = zext i32 %hash.2 to i64
+  %.pre93 = zext i32 %hash.3 to i64
   br label %if.end61
 
 if.end61:                                         ; preds = %if.end61.loopexit, %_ZNKSt8functionIFP23libdeflate_decompressorvEEclEv.exit

@@ -362,7 +362,7 @@ define internal fastcc ptr @_job_create_structure(ptr nocapture noundef readonly
 
 28:                                               ; preds = %28, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %28 ]
-  %.02124.i = phi i32 [ 0, %.lr.ph.i ], [ %36, %28 ]
+  %.124.i = phi i32 [ 0, %.lr.ph.i ], [ %36, %28 ]
   %29 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds i16, ptr %25, i64 %indvars.iv.i
@@ -370,23 +370,23 @@ define internal fastcc ptr @_job_create_structure(ptr nocapture noundef readonly
   %33 = zext i16 %32 to i32
   %34 = sdiv i32 %33, %27
   %35 = mul i32 %34, %30
-  %36 = add i32 %35, %.02124.i
+  %36 = add i32 %35, %.124.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.sink.split.i, label %28, !llvm.loop !7
 
 .sink.split.i:                                    ; preds = %28, %.preheader.i, %.thread.i
-  %.1.ph.i = phi i32 [ %15, %.thread.i ], [ 0, %.preheader.i ], [ %36, %28 ]
+  %.021.ph.i = phi i32 [ %15, %.thread.i ], [ 0, %.preheader.i ], [ %36, %28 ]
   store i8 1, ptr %5, align 4
   br label %37
 
 37:                                               ; preds = %.sink.split.i, %16
-  %.1.i = phi i32 [ 0, %16 ], [ %.1.ph.i, %.sink.split.i ]
+  %.021.i = phi i32 [ 0, %16 ], [ %.021.ph.i, %.sink.split.i ]
   %38 = getelementptr inbounds i8, ptr %0, i64 24
   %39 = load i32, ptr %38, align 8
-  %..1.i = tail call i32 @llvm.umax.i32(i32 %.1.i, i32 %39)
+  %..021.i = tail call i32 @llvm.umax.i32(i32 %.021.i, i32 %39)
   %40 = getelementptr inbounds i8, ptr %1, i64 120
-  store i32 %..1.i, ptr %40, align 8
+  store i32 %..021.i, ptr %40, align 8
   br label %_set_ntasks.exit
 
 _set_ntasks.exit:                                 ; preds = %11, %37
@@ -1740,8 +1740,8 @@ _copy_args.exit.i.i:                              ; preds = %._crit_edge.i.i.i, 
   br i1 %.02559.i.i, label %157, label %_het_grp_test.exit.i
 
 157:                                              ; preds = %156, %151, %137
-  %.364.i.i = phi i8 [ %155, %151 ], [ %.024.lcssa75.i.i, %156 ], [ %.024.lcssa75.i.i, %137 ]
-  %158 = trunc i8 %.364.i.i to i1
+  %.264.i.i = phi i8 [ %155, %151 ], [ %.024.lcssa75.i.i, %156 ], [ %.024.lcssa75.i.i, %137 ]
+  %158 = trunc i8 %.264.i.i to i1
   br i1 %158, label %159, label %_het_grp_test.exit.i
 
 159:                                              ; preds = %157
@@ -2273,7 +2273,7 @@ _copy_job_resp.exit:                              ; preds = %.lr.ph.i, %69
   br label %74
 
 74:                                               ; preds = %_copy_job_resp.exit, %._crit_edge
-  %.0192 = phi i32 [ %.0194.lcssa, %_copy_job_resp.exit ], [ %49, %._crit_edge ]
+  %.1193 = phi i32 [ %.0194.lcssa, %_copy_job_resp.exit ], [ %49, %._crit_edge ]
   %75 = load ptr, ptr @opt_list, align 8
   %76 = tail call i32 @list_count(ptr noundef %75) #16
   %77 = icmp slt i32 %76, 2
@@ -2281,11 +2281,11 @@ _copy_job_resp.exit:                              ; preds = %.lr.ph.i, %69
   br label %78
 
 78:                                               ; preds = %74, %47
-  %.1193 = phi i32 [ %49, %47 ], [ %.0192, %74 ]
+  %.0192 = phi i32 [ %49, %47 ], [ %.1193, %74 ]
   %.0186 = phi i32 [ -1, %47 ], [ %spec.select, %74 ]
   %79 = tail call ptr @list_create(ptr noundef null) #16
   %80 = tail call ptr @list_create(ptr noundef null) #16
-  %81 = icmp slt i32 %.1193, 1
+  %81 = icmp slt i32 %.0192, 1
   %82 = tail call ptr @list_iterator_create(ptr noundef nonnull %46) #16
   %83 = tail call ptr @list_next(ptr noundef %82) #16
   %.not242360 = icmp eq ptr %83, null
@@ -2338,7 +2338,7 @@ _copy_job_resp.exit:                              ; preds = %.lr.ph.i, %69
   %.0160349 = phi i1 [ true, %.lr.ph351 ], [ false, %187 ]
   %.1164348 = phi i1 [ %.0163369, %.lr.ph351 ], [ %.2165, %187 ]
   %.1167347 = phi i1 [ %.0166368, %.lr.ph351 ], [ %.2168, %187 ]
-  %.1170346 = phi i1 [ %.0169367, %.lr.ph351 ], [ %.3, %187 ]
+  %.1170346 = phi i1 [ %.0169367, %.lr.ph351 ], [ %.2171, %187 ]
   %.1173345 = phi i1 [ %.0172366, %.lr.ph351 ], [ %.2174, %187 ]
   %.1176344 = phi i1 [ %.0175365, %.lr.ph351 ], [ %.2177, %187 ]
   %.2188343 = phi i32 [ %.1187363, %.lr.ph351 ], [ %188, %187 ]
@@ -2350,7 +2350,7 @@ _copy_job_resp.exit:                              ; preds = %.lr.ph.i, %69
 
 102:                                              ; preds = %96
   %103 = getelementptr inbounds i8, ptr %97, i64 684
-  store i32 %.1193, ptr %103, align 4
+  store i32 %.0192, ptr %103, align 4
   br label %104
 
 104:                                              ; preds = %102, %96
@@ -2396,7 +2396,7 @@ _copy_job_resp.exit:                              ; preds = %.lr.ph.i, %69
   br label %125
 
 125:                                              ; preds = %116, %122, %108, %106
-  %.3 = phi i1 [ true, %116 ], [ true, %122 ], [ %.1170346, %108 ], [ %.1170346, %106 ]
+  %.2171 = phi i1 [ true, %116 ], [ true, %122 ], [ %.1170346, %108 ], [ %.1170346, %106 ]
   %126 = getelementptr inbounds i8, ptr %97, i64 408
   %127 = load ptr, ptr %126, align 8
   %.not.i = icmp eq ptr %127, null
@@ -2543,7 +2543,7 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %128, %129, %1
   %.2188.lcssa = phi i32 [ %.1187363, %92 ], [ %188, %187 ]
   %.1176.lcssa = phi i1 [ %.0175365, %92 ], [ %.2177, %187 ]
   %.1173.lcssa = phi i1 [ %.0172366, %92 ], [ %.2174, %187 ]
-  %.1170.lcssa = phi i1 [ %.0169367, %92 ], [ %.3, %187 ]
+  %.1170.lcssa = phi i1 [ %.0169367, %92 ], [ %.2171, %187 ]
   %.1167.lcssa = phi i1 [ %.0166368, %92 ], [ %.2168, %187 ]
   %.1164.lcssa = phi i1 [ %.0163369, %92 ], [ %.2165, %187 ]
   %190 = add nsw i32 %.1190362, 1
@@ -2685,7 +2685,7 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %128, %129, %1
 
 .lr.ph383:                                        ; preds = %241, %_set_step_opts.exit
   %247 = phi ptr [ %402, %_set_step_opts.exit ], [ %246, %241 ]
-  %.2184381 = phi i32 [ %.3185, %_set_step_opts.exit ], [ 0, %241 ]
+  %.2184381 = phi i32 [ %.4, %_set_step_opts.exit ], [ 0, %241 ]
   %.2191380 = phi i32 [ %255, %_set_step_opts.exit ], [ -1, %241 ]
   %.2198379 = phi ptr [ %384, %_set_step_opts.exit ], [ null, %241 ]
   %248 = icmp eq i32 %.2184381, 0
@@ -2698,7 +2698,7 @@ _check_gpus_per_socket.exit:                      ; preds = %125, %128, %129, %1
   br label %252
 
 252:                                              ; preds = %249, %.lr.ph383
-  %.3185 = phi i32 [ %251, %249 ], [ %.2184381, %.lr.ph383 ]
+  %.4 = phi i32 [ %251, %249 ], [ %.2184381, %.lr.ph383 ]
   %253 = call ptr @list_next(ptr noundef %244) #16
   %.not233 = icmp eq ptr %253, null
   br i1 %.not233, label %._crit_edge384, label %254
@@ -2988,7 +2988,7 @@ _set_env_vars2.exit:                              ; preds = %342, %360
   %379 = load i32, ptr %375, align 8
   %.str.125..str.126.i268 = select i1 %376, ptr @.str.125, ptr @.str.126
   %380 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.125..str.126.i268, i32 noundef %377, i32 noundef %378, i32 noundef %379) #16
-  %381 = call i32 @slurm_complete_job(i32 noundef %.3185, i32 noundef 1) #16
+  %381 = call i32 @slurm_complete_job(i32 noundef %.4, i32 noundef 1) #16
   %382 = load i32, ptr @error_exit, align 4
   call void @exit(i32 noundef %382) #18
   unreachable
@@ -3035,7 +3035,7 @@ _set_step_opts.exit:                              ; preds = %396, %400
   %.2198.lcssa = phi ptr [ null, %241 ], [ %.2198379, %252 ], [ %384, %_set_step_opts.exit ]
   %.2191.lcssa = phi i32 [ -1, %241 ], [ %.2191380, %252 ], [ %255, %_set_step_opts.exit ]
   %.lcssa = phi ptr [ null, %241 ], [ %247, %252 ], [ null, %_set_step_opts.exit ]
-  %.4 = phi i32 [ 0, %241 ], [ %.3185, %252 ], [ %.3185, %_set_step_opts.exit ]
+  %.3185 = phi i32 [ 0, %241 ], [ %.4, %252 ], [ %.4, %_set_step_opts.exit ]
   call void @list_iterator_destroy(ptr noundef %244) #16
   call void @list_iterator_destroy(ptr noundef %245) #16
   %403 = load i8, ptr @local_het_step, align 1
@@ -3136,14 +3136,14 @@ _set_step_opts.exit:                              ; preds = %396, %400
 455:                                              ; preds = %450
   %456 = call i32 @list_count(ptr noundef nonnull %453) #16
   %457 = icmp sgt i32 %456, 1
-  %458 = icmp ne i32 %.4, 0
+  %458 = icmp ne i32 %.3185, 0
   %or.cond5 = select i1 %457, i1 %458, i1 false
   br i1 %or.cond5, label %459, label %463
 
 459:                                              ; preds = %455
   %460 = load i8, ptr @local_het_step, align 1
   %461 = trunc i8 %460 to i1
-  %spec.select262 = select i1 %461, i32 0, i32 %.4
+  %spec.select262 = select i1 %461, i32 0, i32 %.3185
   %462 = call fastcc ptr @_compress_het_job_nodelist(ptr noundef nonnull %238)
   store ptr %462, ptr %12, align 8
   br label %463
@@ -3152,10 +3152,10 @@ _set_step_opts.exit:                              ; preds = %396, %400
   %.0300 = phi ptr [ %.lcssa, %459 ], [ %.lcssa, %455 ], [ %.lcssa, %450 ], [ %.lcssa, %449 ], [ %410, %.thread ]
   %.0159299 = phi ptr [ %238, %459 ], [ %238, %455 ], [ %238, %450 ], [ %238, %449 ], [ null, %.thread ]
   %.1162298 = phi ptr [ %242, %459 ], [ %242, %455 ], [ %242, %450 ], [ null, %449 ], [ null, %.thread ]
-  %.5297 = phi i32 [ %.4, %459 ], [ %.4, %455 ], [ %.4, %450 ], [ %.4, %449 ], [ %415, %.thread ]
+  %.5297 = phi i32 [ %.3185, %459 ], [ %.3185, %455 ], [ %.3185, %450 ], [ %.3185, %449 ], [ %415, %.thread ]
   %.3199296 = phi ptr [ %.2198.lcssa, %459 ], [ %.2198.lcssa, %455 ], [ %.2198.lcssa, %450 ], [ %.2198.lcssa, %449 ], [ %435, %.thread ]
-  %.3181 = phi i32 [ %spec.select262, %459 ], [ 0, %455 ], [ 0, %450 ], [ 0, %449 ], [ 0, %.thread ]
-  %464 = call fastcc i32 @_create_job_step(ptr noundef %.3199296, i1 noundef zeroext true, ptr noundef %.1162298, i32 noundef %.3181)
+  %.2180 = phi i32 [ %spec.select262, %459 ], [ 0, %455 ], [ 0, %450 ], [ 0, %449 ], [ 0, %.thread ]
+  %464 = call fastcc i32 @_create_job_step(ptr noundef %.3199296, i1 noundef zeroext true, ptr noundef %.1162298, i32 noundef %.2180)
   %465 = icmp slt i32 %464, 0
   br i1 %465, label %466, label %469
 
@@ -3819,7 +3819,7 @@ define internal fastcc ptr @_compress_het_job_nodelist(ptr noundef %0) unnamed_a
   br i1 %88, label %.lr.ph151, label %._crit_edge152
 
 .lr.ph151:                                        ; preds = %79, %.loopexit
-  %.086149 = phi i32 [ %.2, %.loopexit ], [ 0, %79 ]
+  %.086149 = phi i32 [ %.187, %.loopexit ], [ 0, %79 ]
   %.294148 = phi i32 [ %131, %.loopexit ], [ 0, %79 ]
   %89 = call ptr @hostset_nth(ptr noundef %10, i32 noundef %.294148) #16
   %90 = call ptr @list_iterator_create(ptr noundef %9) #16
@@ -3901,7 +3901,7 @@ define internal fastcc ptr @_compress_het_job_nodelist(ptr noundef %0) unnamed_a
 
 .loopexit.sink.split:                             ; preds = %115, %124
   %.sink187 = phi i64 [ %126, %124 ], [ %116, %115 ]
-  %.2.ph = phi i32 [ %spec.select, %124 ], [ %.086149, %115 ]
+  %.187.ph = phi i32 [ %spec.select, %124 ], [ %.086149, %115 ]
   %128 = getelementptr inbounds i32, ptr %87, i64 %.sink187
   %129 = load i32, ptr %128, align 4
   %130 = add i32 %129, 1
@@ -3909,7 +3909,7 @@ define internal fastcc ptr @_compress_het_job_nodelist(ptr noundef %0) unnamed_a
   br label %.loopexit
 
 .loopexit:                                        ; preds = %100, %.loopexit.sink.split, %.lr.ph151
-  %.2 = phi i32 [ %.086149, %.lr.ph151 ], [ %.2.ph, %.loopexit.sink.split ], [ %.086149, %100 ]
+  %.187 = phi i32 [ %.086149, %.lr.ph151 ], [ %.187.ph, %.loopexit.sink.split ], [ %.086149, %100 ]
   call void @list_iterator_destroy(ptr noundef %90) #16
   call void @free(ptr noundef %89) #16
   %131 = add nuw nsw i32 %.294148, 1
@@ -3917,7 +3917,7 @@ define internal fastcc ptr @_compress_het_job_nodelist(ptr noundef %0) unnamed_a
   br i1 %exitcond.not, label %._crit_edge152.loopexit, label %.lr.ph151, !llvm.loop !37
 
 ._crit_edge152.loopexit:                          ; preds = %.loopexit
-  %132 = add i32 %.2, 1
+  %132 = add i32 %.187, 1
   br label %._crit_edge152
 
 ._crit_edge152:                                   ; preds = %._crit_edge152.loopexit, %79

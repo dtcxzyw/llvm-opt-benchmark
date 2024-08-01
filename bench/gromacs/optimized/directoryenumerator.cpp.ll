@@ -2121,18 +2121,18 @@ define linkonce_odr noundef ptr @_ZN3gmx19DirectoryEnumerator4Impl4initERKNSt10f
 
 55:                                               ; preds = %53, %51
   %.pn = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
-  %.1 = phi i1 [ %.0, %53 ], [ true, %51 ]
+  %.4 = phi i1 [ %.0, %53 ], [ true, %51 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #17
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
   br label %56
 
 56:                                               ; preds = %49, %55
   %.pn.pn = phi { ptr, i32 } [ %.pn, %55 ], [ %50, %49 ]
-  %.2 = phi i1 [ %.1, %55 ], [ true, %49 ]
+  %.3 = phi i1 [ %.4, %55 ], [ true, %49 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #17
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #17
-  br i1 %.2, label %57, label %58
+  br i1 %.3, label %57, label %58
 
 57:                                               ; preds = %.thread35, %.thread30, %56
   %.pn.pn.pn.pn34 = phi { ptr, i32 } [ %47, %.thread30 ], [ %.pn.pn, %56 ], [ %48, %.thread35 ]

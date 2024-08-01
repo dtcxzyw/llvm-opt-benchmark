@@ -172,8 +172,8 @@ up_irq_restore.exit:                              ; preds = %81, %msgsnd_wait.ex
   br i1 %82, label %up_irq_restore.exit.thread, label %85
 
 up_irq_restore.exit.thread:                       ; preds = %4, %up_irq_restore.exit
-  %.260 = phi i32 [ %.1, %up_irq_restore.exit ], [ -14, %4 ]
-  %83 = sub nsw i32 0, %.260
+  %.04360 = phi i32 [ %.1, %up_irq_restore.exit ], [ -14, %4 ]
+  %83 = sub nsw i32 0, %.04360
   %84 = call ptr @__errno() #5
   store i32 %83, ptr %84, align 4
   br label %85

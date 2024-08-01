@@ -321,8 +321,8 @@ if.else115:                                       ; preds = %if.end84
   br label %if.end117
 
 if.end117:                                        ; preds = %if.else115, %if.end113
-  %params.0 = phi ptr [ %call114, %if.end113 ], [ %call116, %if.else115 ]
-  %cmp118 = icmp eq ptr %params.0, null
+  %params.1 = phi ptr [ %call114, %if.end113 ], [ %call116, %if.else115 ]
+  %cmp118 = icmp eq ptr %params.1, null
   br i1 %cmp118, label %if.then168, label %if.end120
 
 if.end120:                                        ; preds = %if.end117
@@ -330,7 +330,7 @@ if.end120:                                        ; preds = %if.end117
   br i1 %tobool121.not, label %if.end124, label %if.then122
 
 if.then122:                                       ; preds = %if.end120
-  %call123 = call i32 @EVP_PKEY_print_params(ptr noundef nonnull %call74, ptr noundef nonnull %params.0, i32 noundef 0, ptr noundef null) #2
+  %call123 = call i32 @EVP_PKEY_print_params(ptr noundef nonnull %call74, ptr noundef nonnull %params.1, i32 noundef 0, ptr noundef null) #2
   br label %if.end124
 
 if.end124:                                        ; preds = %if.then122, %if.end120
@@ -345,11 +345,11 @@ if.then130:                                       ; preds = %if.end124
   br i1 %cmp125, label %if.then132, label %if.else134
 
 if.then132:                                       ; preds = %if.then130
-  %call133 = call i32 @i2d_KeyParams_bio(ptr noundef nonnull %call74, ptr noundef nonnull %params.0) #2
+  %call133 = call i32 @i2d_KeyParams_bio(ptr noundef nonnull %call74, ptr noundef nonnull %params.1) #2
   br label %if.end136
 
 if.else134:                                       ; preds = %if.then130
-  %call135 = call i32 @PEM_write_bio_Parameters(ptr noundef nonnull %call74, ptr noundef nonnull %params.0) #2
+  %call135 = call i32 @PEM_write_bio_Parameters(ptr noundef nonnull %call74, ptr noundef nonnull %params.1) #2
   br label %if.end136
 
 if.end136:                                        ; preds = %if.else134, %if.then132
@@ -369,7 +369,7 @@ if.then143:                                       ; preds = %if.end141
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %call80) #2
   %call144 = call ptr @app_get0_libctx() #2
   %call145 = call ptr @app_get0_propq() #2
-  %call146 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %call144, ptr noundef nonnull %params.0, ptr noundef %call145) #2
+  %call146 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %call144, ptr noundef nonnull %params.1, ptr noundef %call145) #2
   %cmp147 = icmp eq ptr %call146, null
   br i1 %cmp147, label %if.then148, label %if.end150
 
@@ -410,22 +410,22 @@ if.else163:                                       ; preds = %if.end159
 
 if.then168:                                       ; preds = %sw.bb29, %sw.bb23, %opthelp, %if.end72, %if.then82, %if.then98, %if.then103, %if.then110, %if.end117, %if.then148, %if.then153, %if.end155, %if.then138, %if.end68
   %out.0.ph = phi ptr [ null, %if.end68 ], [ %call74, %if.then138 ], [ %call74, %if.end155 ], [ %call74, %if.then153 ], [ %call74, %if.then148 ], [ %call74, %if.end117 ], [ %call74, %if.then110 ], [ %call74, %if.then103 ], [ %call74, %if.then98 ], [ %call74, %if.then82 ], [ null, %if.end72 ], [ null, %opthelp ], [ null, %sw.bb23 ], [ null, %sw.bb29 ]
-  %params.1.ph = phi ptr [ null, %if.end68 ], [ %params.0, %if.then138 ], [ %params.0, %if.end155 ], [ %params.0, %if.then153 ], [ %params.0, %if.then148 ], [ null, %if.end117 ], [ null, %if.then110 ], [ null, %if.then103 ], [ null, %if.then98 ], [ null, %if.then82 ], [ null, %if.end72 ], [ null, %opthelp ], [ null, %sw.bb23 ], [ null, %sw.bb29 ]
-  %ctx.1.ph = phi ptr [ null, %if.end68 ], [ %call80, %if.then138 ], [ %call146, %if.end155 ], [ %call146, %if.then153 ], [ null, %if.then148 ], [ %call80, %if.end117 ], [ %call80, %if.then110 ], [ %call80, %if.then103 ], [ %call80, %if.then98 ], [ null, %if.then82 ], [ null, %if.end72 ], [ null, %opthelp ], [ null, %sw.bb23 ], [ null, %sw.bb29 ]
+  %params.0.ph = phi ptr [ null, %if.end68 ], [ %params.1, %if.then138 ], [ %params.1, %if.end155 ], [ %params.1, %if.then153 ], [ %params.1, %if.then148 ], [ null, %if.end117 ], [ null, %if.then110 ], [ null, %if.then103 ], [ null, %if.then98 ], [ null, %if.then82 ], [ null, %if.end72 ], [ null, %opthelp ], [ null, %sw.bb23 ], [ null, %sw.bb29 ]
+  %ctx.0.ph = phi ptr [ null, %if.end68 ], [ %call80, %if.then138 ], [ %call146, %if.end155 ], [ %call146, %if.then153 ], [ null, %if.then148 ], [ %call80, %if.end117 ], [ %call80, %if.then110 ], [ %call80, %if.then103 ], [ %call80, %if.then98 ], [ null, %if.then82 ], [ null, %if.end72 ], [ null, %opthelp ], [ null, %sw.bb23 ], [ null, %sw.bb29 ]
   %27 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %27) #2
   br label %if.end169
 
 if.end169:                                        ; preds = %sw.bb3, %if.then161, %if.else163, %if.end141, %if.then168
   %ret.059 = phi i32 [ 1, %if.then168 ], [ 0, %sw.bb3 ], [ 0, %if.then161 ], [ 0, %if.else163 ], [ 0, %if.end141 ]
-  %ctx.157 = phi ptr [ %ctx.1.ph, %if.then168 ], [ null, %sw.bb3 ], [ %call146, %if.then161 ], [ %call146, %if.else163 ], [ %call80, %if.end141 ]
-  %pkey.155 = phi ptr [ null, %if.then168 ], [ null, %sw.bb3 ], [ %call156, %if.then161 ], [ %call156, %if.else163 ], [ null, %if.end141 ]
-  %params.153 = phi ptr [ %params.1.ph, %if.then168 ], [ null, %sw.bb3 ], [ %params.0, %if.then161 ], [ %params.0, %if.else163 ], [ %params.0, %if.end141 ]
+  %ctx.057 = phi ptr [ %ctx.0.ph, %if.then168 ], [ null, %sw.bb3 ], [ %call146, %if.then161 ], [ %call146, %if.else163 ], [ %call80, %if.end141 ]
+  %pkey.055 = phi ptr [ null, %if.then168 ], [ null, %sw.bb3 ], [ %call156, %if.then161 ], [ %call156, %if.else163 ], [ null, %if.end141 ]
+  %params.053 = phi ptr [ %params.0.ph, %if.then168 ], [ null, %sw.bb3 ], [ %params.1, %if.then161 ], [ %params.1, %if.else163 ], [ %params.1, %if.end141 ]
   %out.051 = phi ptr [ %out.0.ph, %if.then168 ], [ null, %sw.bb3 ], [ %call74, %if.then161 ], [ %call74, %if.else163 ], [ %call74, %if.end141 ]
   call void @BIO_free_all(ptr noundef %out.051) #2
-  call void @EVP_PKEY_CTX_free(ptr noundef %ctx.157) #2
-  call void @EVP_PKEY_free(ptr noundef %pkey.155) #2
-  call void @EVP_PKEY_free(ptr noundef %params.153) #2
+  call void @EVP_PKEY_CTX_free(ptr noundef %ctx.057) #2
+  call void @EVP_PKEY_free(ptr noundef %pkey.055) #2
+  call void @EVP_PKEY_free(ptr noundef %params.053) #2
   call void @release_engine(ptr noundef %e.0) #2
   ret i32 %ret.059
 }

@@ -727,25 +727,25 @@ qcrypto_tls_creds_check_cert_pair.exit.i:         ; preds = %if.end.i62.i
   br label %if.then39.i
 
 cleanup.i:                                        ; preds = %for.body.i, %if.end21.i, %qcrypto_tls_creds_load_ca_cert_list.exit.thread.i
-  %ncacerts.2.i = phi i64 [ 0, %qcrypto_tls_creds_load_ca_cert_list.exit.thread.i ], [ 0, %if.end21.i ], [ %ncacerts.1.i, %for.body.i ]
+  %ncacerts.0.i = phi i64 [ 0, %qcrypto_tls_creds_load_ca_cert_list.exit.thread.i ], [ 0, %if.end21.i ], [ %ncacerts.1.i, %for.body.i ]
   %ret.0.i = phi i32 [ -1, %qcrypto_tls_creds_load_ca_cert_list.exit.thread.i ], [ 0, %if.end21.i ], [ -1, %for.body.i ]
   %tobool38.not.i = icmp eq ptr %cert.0.i, null
   br i1 %tobool38.not.i, label %if.end40.i, label %if.then39.i
 
 if.then39.i:                                      ; preds = %cleanup.i, %qcrypto_tls_creds_check_cert_pair.exit.i, %qcrypto_tls_creds_check_cert_pair.exit.thread.i, %land.lhs.true16.i
   %ret.083.i = phi i32 [ %ret.0.i, %cleanup.i ], [ 0, %qcrypto_tls_creds_check_cert_pair.exit.i ], [ -1, %qcrypto_tls_creds_check_cert_pair.exit.thread.i ], [ -1, %land.lhs.true16.i ]
-  %ncacerts.280.i = phi i64 [ %ncacerts.2.i, %cleanup.i ], [ %ncacerts.1.i, %qcrypto_tls_creds_check_cert_pair.exit.i ], [ %ncacerts.1.i, %qcrypto_tls_creds_check_cert_pair.exit.thread.i ], [ %ncacerts.1.i, %land.lhs.true16.i ]
+  %ncacerts.080.i = phi i64 [ %ncacerts.0.i, %cleanup.i ], [ %ncacerts.1.i, %qcrypto_tls_creds_check_cert_pair.exit.i ], [ %ncacerts.1.i, %qcrypto_tls_creds_check_cert_pair.exit.thread.i ], [ %ncacerts.1.i, %land.lhs.true16.i ]
   call void @gnutls_x509_crt_deinit(ptr noundef nonnull %cert.0.i) #9
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then39.i, %cleanup.i
   %ret.084.i = phi i32 [ %ret.083.i, %if.then39.i ], [ %ret.0.i, %cleanup.i ]
-  %ncacerts.281.i = phi i64 [ %ncacerts.280.i, %if.then39.i ], [ %ncacerts.2.i, %cleanup.i ]
-  %cmp4293.not.i = icmp eq i64 %ncacerts.281.i, 0
+  %ncacerts.081.i = phi i64 [ %ncacerts.080.i, %if.then39.i ], [ %ncacerts.0.i, %cleanup.i ]
+  %cmp4293.not.i = icmp eq i64 %ncacerts.081.i, 0
   br i1 %cmp4293.not.i, label %qcrypto_tls_creds_x509_sanity_check.exit, label %for.body43.i.preheader
 
 for.body43.i.preheader:                           ; preds = %for.end.i, %if.end40.i
-  %ncacerts.281.i64 = phi i64 [ %ncacerts.281.i, %if.end40.i ], [ %ncacerts.1.i, %for.end.i ]
+  %ncacerts.081.i64 = phi i64 [ %ncacerts.081.i, %if.end40.i ], [ %ncacerts.1.i, %for.end.i ]
   %ret.084.i62 = phi i32 [ %ret.084.i, %if.end40.i ], [ 0, %for.end.i ]
   br label %for.body43.i
 
@@ -755,7 +755,7 @@ for.body43.i:                                     ; preds = %for.body43.i.prehea
   %45 = load ptr, ptr %arrayidx44.i, align 8
   call void @gnutls_x509_crt_deinit(ptr noundef %45) #9
   %inc46.i = add nuw nsw i64 %i.194.i, 1
-  %exitcond95.not.i = icmp eq i64 %inc46.i, %ncacerts.281.i64
+  %exitcond95.not.i = icmp eq i64 %inc46.i, %ncacerts.081.i64
   br i1 %exitcond95.not.i, label %qcrypto_tls_creds_x509_sanity_check.exit, label %for.body43.i, !llvm.loop !7
 
 qcrypto_tls_creds_x509_sanity_check.exit.thread:  ; preds = %qcrypto_tls_creds_load_cert.exit.i, %qcrypto_tls_creds_load_cert.exit.thread.i
@@ -1153,8 +1153,8 @@ land.lhs.true:                                    ; preds = %if.end20.i
 for.cond.i:                                       ; preds = %if.end33.i, %land.lhs.true
   %i.0.i = phi i64 [ 0, %land.lhs.true ], [ %inc.i, %if.end33.i ]
   %critical.0.i = phi i32 [ 0, %land.lhs.true ], [ %spec.select30.i, %if.end33.i ]
-  %allowClient.0.i = phi i1 [ false, %land.lhs.true ], [ %allowClient.1.i, %if.end33.i ]
-  %allowServer.0.i = phi i1 [ false, %land.lhs.true ], [ %allowServer.1.i, %if.end33.i ]
+  %allowClient.0.i = phi i1 [ false, %land.lhs.true ], [ %allowClient.2.i, %if.end33.i ]
+  %allowServer.0.i = phi i1 [ false, %land.lhs.true ], [ %allowServer.2.i, %if.end33.i ]
   store i64 0, ptr %size.i, align 8
   %conv.i = trunc i64 %i.0.i to i32
   %call.i47 = call i32 @gnutls_x509_crt_get_key_purpose_oid(ptr noundef %cert, i32 noundef %conv.i, ptr noundef null, ptr noundef nonnull %size.i, ptr noundef null) #9
@@ -1275,8 +1275,8 @@ if.else27.i:                                      ; preds = %if.else.i48
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.else27.i, %if.else.i48, %trace_qcrypto_tls_creds_x509_check_key_purpose.exit47.i
-  %allowClient.1.i = phi i1 [ %allowClient.0.i, %trace_qcrypto_tls_creds_x509_check_key_purpose.exit47.i ], [ true, %if.else.i48 ], [ %spec.select31.i, %if.else27.i ]
-  %allowServer.1.i = phi i1 [ true, %trace_qcrypto_tls_creds_x509_check_key_purpose.exit47.i ], [ %allowServer.0.i, %if.else.i48 ], [ %spec.select32.i, %if.else27.i ]
+  %allowClient.2.i = phi i1 [ %allowClient.0.i, %trace_qcrypto_tls_creds_x509_check_key_purpose.exit47.i ], [ true, %if.else.i48 ], [ %spec.select31.i, %if.else27.i ]
+  %allowServer.2.i = phi i1 [ true, %trace_qcrypto_tls_creds_x509_check_key_purpose.exit47.i ], [ %allowServer.0.i, %if.else.i48 ], [ %spec.select32.i, %if.else27.i ]
   call void @g_free(ptr noundef %call11.i) #9
   %inc.i = add i64 %i.0.i, 1
   br label %for.cond.i

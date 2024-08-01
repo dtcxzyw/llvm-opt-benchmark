@@ -1160,7 +1160,7 @@ tailrecurse:                                      ; preds = %76
   br label %88
 
 88:                                               ; preds = %85, %.split60.us
-  %.1 = phi i32 [ %87, %85 ], [ %20, %.split60.us ]
+  %.2 = phi i32 [ %87, %85 ], [ %20, %.split60.us ]
   %.not42 = icmp eq i64 %17, 0
   br i1 %.not42, label %.loopexit, label %89
 
@@ -1173,12 +1173,12 @@ tailrecurse:                                      ; preds = %76
   br i1 %93, label %94, label %.loopexit
 
 94:                                               ; preds = %89
-  %accumulator.ret.tr = add i32 %.1, %accumulator.tr
+  %accumulator.ret.tr = add i32 %.2, %accumulator.tr
   br label %tailrecurse113
 
 .loopexit:                                        ; preds = %tailrecurse, %75, %76, %46, %45, %tailrecurse.us66, %8, %.split.split, %.split.split.us, %89, %88
   %accumulator.tr57 = phi i32 [ 0, %89 ], [ 0, %88 ], [ 0, %8 ], [ 0, %.split.split.us ], [ 0, %.split.split ], [ %accumulator.tr.us6791, %46 ], [ %accumulator.tr.us6791, %45 ], [ %51, %tailrecurse.us66 ], [ %81, %tailrecurse ], [ %accumulator.tr81, %75 ], [ %accumulator.tr81, %76 ]
-  %.035 = phi i32 [ %.1, %89 ], [ %.1, %88 ], [ 0, %8 ], [ 0, %.split.split.us ], [ 0, %.split.split ], [ %.0.us, %46 ], [ %.0.us, %45 ], [ 0, %tailrecurse.us66 ], [ 0, %tailrecurse ], [ %.0, %75 ], [ %.0, %76 ]
+  %.035 = phi i32 [ %.2, %89 ], [ %.2, %88 ], [ 0, %8 ], [ 0, %.split.split.us ], [ 0, %.split.split ], [ %.0.us, %46 ], [ %.0.us, %45 ], [ 0, %tailrecurse.us66 ], [ 0, %tailrecurse ], [ %.0, %75 ], [ %.0, %76 ]
   %accumulator.ret.tr52 = add nsw i32 %.035, %accumulator.tr57
   %accumulator.ret.tr117 = add i32 %accumulator.ret.tr52, %accumulator.tr
   ret i32 %accumulator.ret.tr117

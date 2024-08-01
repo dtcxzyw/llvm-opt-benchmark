@@ -248,7 +248,7 @@ define i32 @Region_CountIterationRects(ptr nocapture noundef readonly %0) local_
 
 .lr.ph:                                           ; preds = %14, %.loopexit
   %.03346 = phi i32 [ %42, %.loopexit ], [ 0, %14 ]
-  %.03545 = phi i32 [ %.3, %.loopexit ], [ 0, %14 ]
+  %.13645 = phi i32 [ %.237, %.loopexit ], [ 0, %14 ]
   %18 = sext i32 %.03346 to i64
   %19 = getelementptr inbounds i32, ptr %16, i64 %18
   %20 = load i32, ptr %19, align 4
@@ -274,12 +274,12 @@ define i32 @Region_CountIterationRects(ptr nocapture noundef readonly %0) local_
 
 .preheader:                                       ; preds = %.preheader.preheader, %35
   %indvars.iv = phi i64 [ %29, %.preheader.preheader ], [ %indvars.iv.next, %35 ]
-  %.136 = phi i32 [ %.03545, %.preheader.preheader ], [ %spec.select, %35 ]
-  %.0 = phi i32 [ %23, %.preheader.preheader ], [ %34, %35 ]
+  %.3 = phi i32 [ %.13645, %.preheader.preheader ], [ %spec.select, %35 ]
+  %.1 = phi i32 [ %23, %.preheader.preheader ], [ %34, %35 ]
   %32 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 2
-  %34 = add nsw i32 %.0, -1
+  %34 = add nsw i32 %.1, -1
   %.not43 = icmp slt i32 %33, %4
   br i1 %.not43, label %35, label %.loopexit.loopexit.split.loop.exit
 
@@ -288,8 +288,8 @@ define i32 @Region_CountIterationRects(ptr nocapture noundef readonly %0) local_
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, %2
   %39 = zext i1 %38 to i32
-  %spec.select = add nsw i32 %.136, %39
-  %.old1 = icmp ugt i32 %.0, 1
+  %spec.select = add nsw i32 %.3, %39
+  %.old1 = icmp ugt i32 %.1, 1
   br i1 %.old1, label %.preheader, label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.preheader
@@ -297,17 +297,17 @@ define i32 @Region_CountIterationRects(ptr nocapture noundef readonly %0) local_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %35, %.loopexit.loopexit.split.loop.exit, %21
-  %.3 = phi i32 [ %.03545, %21 ], [ %.136, %.loopexit.loopexit.split.loop.exit ], [ %spec.select, %35 ]
-  %.2 = phi i32 [ %24, %21 ], [ %40, %.loopexit.loopexit.split.loop.exit ], [ %31, %35 ]
-  %.1 = phi i32 [ %23, %21 ], [ %34, %.loopexit.loopexit.split.loop.exit ], [ 0, %35 ]
-  %41 = shl nsw i32 %.1, 1
-  %42 = add nsw i32 %41, %.2
+  %.237 = phi i32 [ %.13645, %21 ], [ %.3, %.loopexit.loopexit.split.loop.exit ], [ %spec.select, %35 ]
+  %.134 = phi i32 [ %24, %21 ], [ %40, %.loopexit.loopexit.split.loop.exit ], [ %31, %35 ]
+  %.0 = phi i32 [ %23, %21 ], [ %34, %.loopexit.loopexit.split.loop.exit ], [ 0, %35 ]
+  %41 = shl nsw i32 %.0, 1
+  %42 = add nsw i32 %41, %.134
   %43 = icmp slt i32 %42, %12
   br i1 %43, label %.lr.ph, label %.loopexit44, !llvm.loop !6
 
 .loopexit44:                                      ; preds = %.loopexit, %.lr.ph, %14, %10, %1, %5
-  %.4 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 1, %10 ], [ 0, %14 ], [ %.3, %.loopexit ], [ %.03545, %.lr.ph ]
-  ret i32 %.4
+  %.035 = phi i32 [ 0, %5 ], [ 0, %1 ], [ 1, %10 ], [ 0, %14 ], [ %.237, %.loopexit ], [ %.13645, %.lr.ph ]
+  ret i32 %.035
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -364,18 +364,18 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr nocapture noundef %0, ptr n
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %26
-  %.072 = phi i32 [ %4, %26 ], [ %.072.be, %.backedge.backedge ]
+  %.173 = phi i32 [ %4, %26 ], [ %.173.be, %.backedge.backedge ]
   %.0 = phi i32 [ %30, %26 ], [ %.0.be, %.backedge.backedge ]
   %36 = icmp slt i32 %.0, 1
   br i1 %36, label %37, label %55
 
 37:                                               ; preds = %.backedge
   %38 = load i32, ptr %5, align 8
-  %.not = icmp slt i32 %.072, %38
+  %.not = icmp slt i32 %.173, %38
   br i1 %.not, label %39, label %.loopexit
 
 39:                                               ; preds = %37
-  %40 = sext i32 %.072 to i64
+  %40 = sext i32 %.173 to i64
   %41 = getelementptr inbounds i32, ptr %28, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = load i32, ptr %31, align 4
@@ -387,7 +387,7 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr nocapture noundef %0, ptr n
   %spec.select = tail call i32 @llvm.smax.i32(i32 %42, i32 %45)
   %46 = getelementptr i8, ptr %41, i64 4
   %47 = load i32, ptr %46, align 4
-  %48 = add nsw i32 %.072, 3
+  %48 = add nsw i32 %.173, 3
   %49 = getelementptr i8, ptr %41, i64 8
   %50 = load i32, ptr %49, align 4
   %.067 = tail call i32 @llvm.smin.i32(i32 %47, i32 %43)
@@ -400,7 +400,7 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr nocapture noundef %0, ptr n
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %51, %62, %65
-  %.072.be = phi i32 [ %53, %51 ], [ %64, %62 ], [ %59, %65 ]
+  %.173.be = phi i32 [ %53, %51 ], [ %64, %62 ], [ %59, %65 ]
   %.0.be = phi i32 [ 0, %51 ], [ 0, %62 ], [ %60, %65 ]
   br label %.backedge
 
@@ -410,12 +410,12 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr nocapture noundef %0, ptr n
   br label %55
 
 55:                                               ; preds = %54, %.backedge
-  %.173 = phi i32 [ %48, %54 ], [ %.072, %.backedge ]
+  %.2 = phi i32 [ %48, %54 ], [ %.173, %.backedge ]
   %.1 = phi i32 [ %50, %54 ], [ %.0, %.backedge ]
-  %56 = sext i32 %.173 to i64
+  %56 = sext i32 %.2 to i64
   %57 = getelementptr inbounds i32, ptr %28, i64 %56
   %58 = load i32, ptr %57, align 4
-  %59 = add nsw i32 %.173, 2
+  %59 = add nsw i32 %.2, 2
   %60 = add nsw i32 %.1, -1
   %61 = load i32, ptr %35, align 8
   %.not85 = icmp slt i32 %58, %61
@@ -443,8 +443,8 @@ define range(i32 0, 2) i32 @Region_NextIteration(ptr nocapture noundef %0, ptr n
   br label %72
 
 72:                                               ; preds = %70, %19
-  %.2 = phi i32 [ 1, %19 ], [ %59, %70 ]
-  store i32 %.2, ptr %3, align 8
+  %.072 = phi i32 [ 1, %19 ], [ %59, %70 ]
+  store i32 %.072, ptr %3, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %37, %8, %10, %14, %72
@@ -483,7 +483,7 @@ define i32 @RegionToYXBandedRectangles(ptr noundef %0, i32 noundef %1, i32 nound
   %.not54 = icmp sgt i32 %3, %1
   %.not55 = icmp sgt i32 %4, %2
   %or.cond = and i1 %.not54, %.not55
-  br i1 %or.cond, label %11, label %Region_EndIteration.exit64
+  br i1 %or.cond, label %11, label %Region_EndIteration.exit63
 
 11:                                               ; preds = %10
   %12 = trunc i32 %1 to i16
@@ -503,7 +503,7 @@ define i32 @RegionToYXBandedRectangles(ptr noundef %0, i32 noundef %1, i32 nound
   %23 = load ptr, ptr %6, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 6
   store i16 %22, ptr %24, align 2
-  br label %Region_EndIteration.exit64
+  br label %Region_EndIteration.exit63
 
 25:                                               ; preds = %8
   %26 = load ptr, ptr %0, align 8
@@ -554,15 +554,15 @@ Region_StartIteration.exit:                       ; preds = %25, %52
   %66 = load ptr, ptr %65, align 8
   %67 = tail call zeroext i8 %66(ptr noundef nonnull %0) #6
   %.not = icmp eq i8 %67, 0
-  br i1 %.not, label %68, label %Region_EndIteration.exit64
+  br i1 %.not, label %68, label %Region_EndIteration.exit63
 
 68:                                               ; preds = %Region_StartIteration.exit
   %.not.i = icmp sge i32 %30, %40
   %.not41.i = icmp sge i32 %35, %45
-  %or.cond99.not103 = select i1 %.not.i, i1 true, i1 %.not41.i
-  %brmerge = or i1 %or.cond99.not103, %51
-  %not.or.cond99.not103 = xor i1 %or.cond99.not103, true
-  %.mux = zext i1 %not.or.cond99.not103 to i32
+  %or.cond98.not102 = select i1 %.not.i, i1 true, i1 %.not41.i
+  %brmerge = or i1 %or.cond98.not102, %51
+  %not.or.cond98.not102 = xor i1 %or.cond98.not102, true
+  %.mux = zext i1 %not.or.cond98.not102 to i32
   br i1 %brmerge, label %Region_CountIterationRects.exit, label %69
 
 69:                                               ; preds = %68
@@ -571,7 +571,7 @@ Region_StartIteration.exit:                       ; preds = %25, %52
 
 .lr.ph.i:                                         ; preds = %69, %.loopexit.i
   %.03346.i = phi i32 [ %95, %.loopexit.i ], [ 0, %69 ]
-  %.03545.i = phi i32 [ %.3.i, %.loopexit.i ], [ 0, %69 ]
+  %.13645.i = phi i32 [ %.237.i, %.loopexit.i ], [ 0, %69 ]
   %71 = sext i32 %.03346.i to i64
   %72 = getelementptr inbounds i32, ptr %63, i64 %71
   %73 = load i32, ptr %72, align 4
@@ -597,12 +597,12 @@ Region_StartIteration.exit:                       ; preds = %25, %52
 
 .preheader.i:                                     ; preds = %88, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ %82, %.preheader.preheader.i ], [ %indvars.iv.next.i, %88 ]
-  %.136.i = phi i32 [ %.03545.i, %.preheader.preheader.i ], [ %spec.select.i, %88 ]
-  %.0.i = phi i32 [ %76, %.preheader.preheader.i ], [ %87, %88 ]
+  %.3.i = phi i32 [ %.13645.i, %.preheader.preheader.i ], [ %spec.select.i, %88 ]
+  %.1.i = phi i32 [ %76, %.preheader.preheader.i ], [ %87, %88 ]
   %85 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv.i
   %86 = load i32, ptr %85, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 2
-  %87 = add nsw i32 %.0.i, -1
+  %87 = add nsw i32 %.1.i, -1
   %.not43.i = icmp slt i32 %86, %40
   br i1 %.not43.i, label %88, label %.loopexit.loopexit.split.loop.exit.i
 
@@ -611,8 +611,8 @@ Region_StartIteration.exit:                       ; preds = %25, %52
   %90 = load i32, ptr %89, align 4
   %91 = icmp sgt i32 %90, %30
   %92 = zext i1 %91 to i32
-  %spec.select.i = add nsw i32 %.136.i, %92
-  %.old1.i = icmp ugt i32 %.0.i, 1
+  %spec.select.i = add nsw i32 %.3.i, %92
+  %.old1.i = icmp ugt i32 %.1.i, 1
   br i1 %.old1.i, label %.preheader.i, label %.loopexit.i
 
 .loopexit.loopexit.split.loop.exit.i:             ; preds = %.preheader.i
@@ -620,23 +620,23 @@ Region_StartIteration.exit:                       ; preds = %25, %52
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %88, %.loopexit.loopexit.split.loop.exit.i, %74
-  %.3.i = phi i32 [ %.03545.i, %74 ], [ %.136.i, %.loopexit.loopexit.split.loop.exit.i ], [ %spec.select.i, %88 ]
-  %.2.i = phi i32 [ %77, %74 ], [ %93, %.loopexit.loopexit.split.loop.exit.i ], [ %84, %88 ]
-  %.1.i = phi i32 [ %76, %74 ], [ %87, %.loopexit.loopexit.split.loop.exit.i ], [ 0, %88 ]
-  %94 = shl nsw i32 %.1.i, 1
-  %95 = add nsw i32 %94, %.2.i
+  %.237.i = phi i32 [ %.13645.i, %74 ], [ %.3.i, %.loopexit.loopexit.split.loop.exit.i ], [ %spec.select.i, %88 ]
+  %.134.i = phi i32 [ %77, %74 ], [ %93, %.loopexit.loopexit.split.loop.exit.i ], [ %84, %88 ]
+  %.0.i = phi i32 [ %76, %74 ], [ %87, %.loopexit.loopexit.split.loop.exit.i ], [ 0, %88 ]
+  %94 = shl nsw i32 %.0.i, 1
+  %95 = add nsw i32 %94, %.134.i
   %96 = icmp slt i32 %95, %50
   br i1 %96, label %.lr.ph.i, label %Region_CountIterationRects.exit, !llvm.loop !6
 
 Region_CountIterationRects.exit:                  ; preds = %.lr.ph.i, %.loopexit.i, %68
-  %.4.i = phi i32 [ %.mux, %68 ], [ %.03545.i, %.lr.ph.i ], [ %.3.i, %.loopexit.i ]
-  %97 = sext i32 %.4.i to i64
+  %.035.i = phi i32 [ %.mux, %68 ], [ %.13645.i, %.lr.ph.i ], [ %.237.i, %.loopexit.i ]
+  %97 = sext i32 %.035.i to i64
   %98 = zext i32 %7 to i64
   %99 = icmp ugt i64 %97, %98
   br i1 %99, label %100, label %111
 
 100:                                              ; preds = %Region_CountIterationRects.exit
-  %101 = icmp sgt i32 %.4.i, -1
+  %101 = icmp sgt i32 %.035.i, -1
   br i1 %101, label %102, label %.thread
 
 .thread:                                          ; preds = %100
@@ -662,17 +662,17 @@ Region_CountIterationRects.exit:                  ; preds = %.lr.ph.i, %.loopexi
 
 Region_EndIteration.exit:                         ; preds = %106, %107
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #6
-  br label %Region_EndIteration.exit64
+  br label %Region_EndIteration.exit63
 
 111:                                              ; preds = %102, %Region_CountIterationRects.exit
   br i1 %51, label %.split.us, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %69, %111
-  %.4.i119125 = phi i32 [ %.4.i, %111 ], [ 0, %69 ]
+  %.035.i118124 = phi i32 [ %.035.i, %111 ], [ 0, %69 ]
   br label %.preheader
 
 .split.us:                                        ; preds = %111
-  br i1 %or.cond99.not103, label %Region_EndIteration.exit64, label %Region_NextIteration.exit.us.us
+  br i1 %or.cond98.not102, label %Region_EndIteration.exit63, label %Region_NextIteration.exit.us.us
 
 Region_NextIteration.exit.us.us:                  ; preds = %.split.us
   %112 = trunc i32 %30 to i16
@@ -692,49 +692,49 @@ Region_NextIteration.exit.us.us:                  ; preds = %.split.us
   %123 = load ptr, ptr %6, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 6
   store i16 %117, ptr %124, align 2
-  br label %Region_EndIteration.exit64
+  br label %Region_EndIteration.exit63
 
 .preheader:                                       ; preds = %.preheader.preheader, %Region_NextIteration.exit.loopexit
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %Region_NextIteration.exit.loopexit ]
   %.sroa.35.0 = phi i32 [ 0, %.preheader.preheader ], [ %144, %Region_NextIteration.exit.loopexit ]
   %.sroa.38.0 = phi i32 [ 0, %.preheader.preheader ], [ %145, %Region_NextIteration.exit.loopexit ]
-  %.sroa.11.0 = phi i32 [ undef, %.preheader.preheader ], [ %.sroa.11.3, %Region_NextIteration.exit.loopexit ]
-  %.sroa.4.0 = phi i32 [ undef, %.preheader.preheader ], [ %.sroa.4.3, %Region_NextIteration.exit.loopexit ]
+  %.sroa.11.0 = phi i32 [ undef, %.preheader.preheader ], [ %.sroa.11.2, %Region_NextIteration.exit.loopexit ]
+  %.sroa.4.0 = phi i32 [ undef, %.preheader.preheader ], [ %.sroa.4.2, %Region_NextIteration.exit.loopexit ]
   br label %.backedge.i.outer
 
 .backedge.i.outer:                                ; preds = %.backedge.i.outer.backedge, %.preheader
-  %.sroa.11.1.ph = phi i32 [ %.sroa.11.0, %.preheader ], [ %.sroa.11.3, %.backedge.i.outer.backedge ]
-  %.sroa.4.1.ph = phi i32 [ %.sroa.4.0, %.preheader ], [ %.sroa.4.3, %.backedge.i.outer.backedge ]
-  %.072.i.ph = phi i32 [ %.sroa.35.0, %.preheader ], [ %.072.i.ph.be, %.backedge.i.outer.backedge ]
+  %.sroa.11.1.ph = phi i32 [ %.sroa.11.0, %.preheader ], [ %.sroa.11.2, %.backedge.i.outer.backedge ]
+  %.sroa.4.1.ph = phi i32 [ %.sroa.4.0, %.preheader ], [ %.sroa.4.2, %.backedge.i.outer.backedge ]
+  %.173.i.ph = phi i32 [ %.sroa.35.0, %.preheader ], [ %.173.i.ph.be, %.backedge.i.outer.backedge ]
   %.0.i57.ph = phi i32 [ %.sroa.38.0, %.preheader ], [ %.0.i57.ph.be, %.backedge.i.outer.backedge ]
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.outer, %137
-  %.072.i = phi i32 [ %139, %137 ], [ %.072.i.ph, %.backedge.i.outer ]
+  %.173.i = phi i32 [ %139, %137 ], [ %.173.i.ph, %.backedge.i.outer ]
   %.0.i57 = phi i32 [ 0, %137 ], [ %.0.i57.ph, %.backedge.i.outer ]
   %125 = icmp slt i32 %.0.i57, 1
   br i1 %125, label %126, label %140
 
 126:                                              ; preds = %.backedge.i
-  %.not.i61 = icmp slt i32 %.072.i, %50
-  br i1 %.not.i61, label %127, label %167
+  %.not.i60 = icmp slt i32 %.173.i, %50
+  br i1 %.not.i60, label %127, label %167
 
 127:                                              ; preds = %126
-  %128 = sext i32 %.072.i to i64
+  %128 = sext i32 %.173.i to i64
   %129 = getelementptr inbounds i32, ptr %63, i64 %128
   %130 = load i32, ptr %129, align 4
   %.not83.i = icmp slt i32 %130, %45
   br i1 %.not83.i, label %131, label %167
 
 131:                                              ; preds = %127
-  %spec.select.i62 = tail call i32 @llvm.smax.i32(i32 %130, i32 %35)
+  %spec.select.i61 = tail call i32 @llvm.smax.i32(i32 %130, i32 %35)
   %132 = getelementptr i8, ptr %129, i64 4
   %133 = load i32, ptr %132, align 4
-  %134 = add nsw i32 %.072.i, 3
+  %134 = add nsw i32 %.173.i, 3
   %135 = getelementptr i8, ptr %129, i64 8
   %136 = load i32, ptr %135, align 4
   %.067.i = tail call i32 @llvm.smin.i32(i32 %133, i32 %45)
-  %.not84.i = icmp sgt i32 %.067.i, %spec.select.i62
+  %.not84.i = icmp sgt i32 %.067.i, %spec.select.i61
   br i1 %.not84.i, label %140, label %137
 
 137:                                              ; preds = %131
@@ -743,14 +743,14 @@ Region_NextIteration.exit.us.us:                  ; preds = %.split.us
   br label %.backedge.i
 
 140:                                              ; preds = %131, %.backedge.i
-  %.sroa.11.3 = phi i32 [ %.sroa.11.1.ph, %.backedge.i ], [ %.067.i, %131 ]
-  %.sroa.4.3 = phi i32 [ %.sroa.4.1.ph, %.backedge.i ], [ %spec.select.i62, %131 ]
-  %.173.i = phi i32 [ %.072.i, %.backedge.i ], [ %134, %131 ]
+  %.sroa.11.2 = phi i32 [ %.sroa.11.1.ph, %.backedge.i ], [ %.067.i, %131 ]
+  %.sroa.4.2 = phi i32 [ %.sroa.4.1.ph, %.backedge.i ], [ %spec.select.i61, %131 ]
+  %.2.i = phi i32 [ %.173.i, %.backedge.i ], [ %134, %131 ]
   %.1.i58 = phi i32 [ %.0.i57, %.backedge.i ], [ %136, %131 ]
-  %141 = sext i32 %.173.i to i64
+  %141 = sext i32 %.2.i to i64
   %142 = getelementptr inbounds i32, ptr %63, i64 %141
   %143 = load i32, ptr %142, align 4
-  %144 = add nsw i32 %.173.i, 2
+  %144 = add nsw i32 %.2.i, 2
   %145 = add nsw i32 %.1.i58, -1
   %.not85.i = icmp slt i32 %143, %40
   br i1 %.not85.i, label %149, label %146
@@ -769,7 +769,7 @@ Region_NextIteration.exit.us.us:                  ; preds = %.split.us
   br i1 %152, label %Region_NextIteration.exit.loopexit, label %.backedge.i.outer.backedge
 
 .backedge.i.outer.backedge:                       ; preds = %149, %146
-  %.072.i.ph.be = phi i32 [ %148, %146 ], [ %144, %149 ]
+  %.173.i.ph.be = phi i32 [ %148, %146 ], [ %144, %149 ]
   %.0.i57.ph.be = phi i32 [ 0, %146 ], [ %145, %149 ]
   br label %.backedge.i.outer
 
@@ -778,7 +778,7 @@ Region_NextIteration.exit.loopexit:               ; preds = %149
   %154 = load ptr, ptr %6, align 8
   %155 = getelementptr inbounds %struct.XRectangle, ptr %154, i64 %indvars.iv
   store i16 %153, ptr %155, align 2
-  %156 = trunc i32 %.sroa.4.3 to i16
+  %156 = trunc i32 %.sroa.4.2 to i16
   %157 = load ptr, ptr %6, align 8
   %158 = getelementptr inbounds %struct.XRectangle, ptr %157, i64 %indvars.iv, i32 1
   store i16 %156, ptr %158, align 2
@@ -787,7 +787,7 @@ Region_NextIteration.exit.loopexit:               ; preds = %149
   %161 = load ptr, ptr %6, align 8
   %162 = getelementptr inbounds %struct.XRectangle, ptr %161, i64 %indvars.iv, i32 2
   store i16 %160, ptr %162, align 2
-  %163 = sub nsw i32 %.sroa.11.3, %.sroa.4.3
+  %163 = sub nsw i32 %.sroa.11.2, %.sroa.4.2
   %164 = trunc i32 %163 to i16
   %165 = load ptr, ptr %6, align 8
   %166 = getelementptr inbounds %struct.XRectangle, ptr %165, i64 %indvars.iv, i32 3
@@ -800,10 +800,10 @@ Region_NextIteration.exit.loopexit:               ; preds = %149
   %169 = getelementptr inbounds i8, ptr %168, i64 1784
   %170 = load ptr, ptr %169, align 8
   tail call void %170(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %63, i32 noundef 2) #6
-  br label %Region_EndIteration.exit64
+  br label %Region_EndIteration.exit63
 
-Region_EndIteration.exit64:                       ; preds = %Region_NextIteration.exit.us.us, %.split.us, %167, %11, %10, %Region_StartIteration.exit, %Region_EndIteration.exit
-  %.045 = phi i32 [ 0, %Region_EndIteration.exit ], [ 0, %Region_StartIteration.exit ], [ 1, %11 ], [ 0, %10 ], [ %.4.i119125, %167 ], [ %.4.i, %.split.us ], [ %.4.i, %Region_NextIteration.exit.us.us ]
+Region_EndIteration.exit63:                       ; preds = %Region_NextIteration.exit.us.us, %.split.us, %167, %11, %10, %Region_StartIteration.exit, %Region_EndIteration.exit
+  %.045 = phi i32 [ 0, %Region_EndIteration.exit ], [ 0, %Region_StartIteration.exit ], [ 1, %11 ], [ 0, %10 ], [ %.035.i118124, %167 ], [ %.035.i, %.split.us ], [ %.035.i, %Region_NextIteration.exit.us.us ]
   ret i32 %.045
 }
 

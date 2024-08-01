@@ -156,9 +156,9 @@ if.else11:                                        ; preds = %if.else
   br label %for.body
 
 for.body:                                         ; preds = %if.else11, %if.end29
-  %prot.036 = phi i32 [ 0, %if.else11 ], [ %prot.1, %if.end29 ]
+  %prot.136 = phi i32 [ 0, %if.else11 ], [ %prot.2, %if.end29 ]
   %i.035 = phi i64 [ 0, %if.else11 ], [ %add36, %if.end29 ]
-  %current_tb_invalidated.034 = phi i1 [ false, %if.else11 ], [ %4, %if.end29 ]
+  %current_tb_invalidated.234 = phi i1 [ false, %if.else11 ], [ %4, %if.end29 ]
   %add14 = add i64 %i.035, %and12
   %call.i28 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef %add14, i64 noundef %add14) #16
   %tobool.not.i29 = icmp eq ptr %call.i28, null
@@ -170,7 +170,7 @@ for.body:                                         ; preds = %if.else11, %if.end2
 if.then17:                                        ; preds = %for.body
   %flags18 = getelementptr i8, ptr %call.i28, i64 48
   %3 = load i32, ptr %flags18, align 8
-  %or19 = or i32 %3, %prot.036
+  %or19 = or i32 %3, %prot.136
   %and21 = and i32 %3, 16
   %tobool22.not = icmp eq i32 %and21, 0
   br i1 %tobool22.not, label %if.end29, label %if.then23
@@ -182,9 +182,9 @@ if.then23:                                        ; preds = %if.then17
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then17, %if.then23, %for.body
-  %prot.1 = phi i32 [ %or24, %if.then23 ], [ %or19, %if.then17 ], [ %prot.036, %for.body ]
+  %prot.2 = phi i32 [ %or24, %if.then23 ], [ %or19, %if.then17 ], [ %prot.136, %for.body ]
   %call30 = tail call zeroext i1 @tb_invalidate_phys_page_unwind(i64 noundef %add14, i64 noundef %pc) #16
-  %4 = or i1 %current_tb_invalidated.034, %call30
+  %4 = or i1 %current_tb_invalidated.234, %call30
   %add36 = add i64 %i.035, 4096
   %cmp13 = icmp ult i64 %add36, %1
   br i1 %cmp13, label %for.body, label %if.end37, !llvm.loop !5
@@ -193,12 +193,12 @@ if.end37:                                         ; preds = %if.end29, %if.then6
   %current_tb_invalidated.1 = phi i1 [ %call10, %if.then6 ], [ %4, %if.end29 ]
   %start.0 = phi i64 [ %and7, %if.then6 ], [ %and12, %if.end29 ]
   %len.0 = phi i64 [ 4096, %if.then6 ], [ %1, %if.end29 ]
-  %prot.2 = phi i32 [ %or, %if.then6 ], [ %prot.1, %if.end29 ]
-  %and38 = and i32 %prot.2, 4
+  %prot.0 = phi i32 [ %or, %if.then6 ], [ %prot.2, %if.end29 ]
+  %and38 = and i32 %prot.0, 4
   %tobool39.not = icmp eq i32 %and38, 0
-  %and41 = and i32 %prot.2, 2
+  %and41 = and i32 %prot.0, 2
   %or42 = or disjoint i32 %and41, 1
-  %prot.3 = select i1 %tobool39.not, i32 %prot.2, i32 %or42
+  %prot.3 = select i1 %tobool39.not, i32 %prot.0, i32 %or42
   %5 = load i64, ptr @guest_base, align 8
   %add.i = add i64 %5, %start.0
   %6 = inttoptr i64 %add.i to ptr
@@ -470,11 +470,11 @@ while.end.sink.split.i:                           ; preds = %if.else18.i, %if.th
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end24.i, %while.end.sink.split.i, %if.then30
-  %inval_tb.2.i = phi i1 [ false, %if.then30 ], [ %spec.select.i, %while.end.sink.split.i ], [ %spec.select.i, %if.end24.i ]
+  %inval_tb.1.i = phi i1 [ false, %if.then30 ], [ %spec.select.i, %while.end.sink.split.i ], [ %spec.select.i, %if.end24.i ]
   br i1 %tobool15.not, label %if.end50, label %if.then39
 
 if.then39:                                        ; preds = %if.else17, %if.end37
-  %inval_tb.047 = phi i1 [ %inval_tb.2.i, %if.end37 ], [ false, %if.else17 ]
+  %inval_tb.047 = phi i1 [ %inval_tb.1.i, %if.end37 ], [ false, %if.else17 ]
   %flags.addr.02846 = phi i32 [ %flags.addr.029, %if.end37 ], [ %spec.select, %if.else17 ]
   %reset.03045 = phi i8 [ %reset.031, %if.end37 ], [ %3, %if.else17 ]
   %tobool40 = trunc i8 %reset.03045 to i1
@@ -484,7 +484,7 @@ if.then39:                                        ; preds = %if.else17, %if.end3
   br i1 %9, label %if.then52, label %if.end53
 
 if.end50:                                         ; preds = %if.end37
-  br i1 %inval_tb.2.i, label %if.then52, label %if.end53
+  br i1 %inval_tb.1.i, label %if.then52, label %if.end53
 
 if.then52:                                        ; preds = %if.then39, %if.end50
   tail call void @tb_invalidate_phys_range(i64 noundef %and13, i64 noundef %or) #16
@@ -523,13 +523,13 @@ if.end3.lr.ph:                                    ; preds = %if.end3.lr.ph.lr.ph
   %add.ptr.i205222 = phi ptr [ %add.ptr.i205216, %if.end3.lr.ph.lr.ph ], [ %add.ptr.i205, %restart.outer.backedge ]
   %call.i203221 = phi ptr [ %call.i203214, %if.end3.lr.ph.lr.ph ], [ %call.i203, %restart.outer.backedge ]
   %start.addr.0.ph220 = phi i64 [ %start, %if.end3.lr.ph.lr.ph ], [ %start.addr.0.ph.be, %restart.outer.backedge ]
-  %inval_tb.0.ph219 = phi i1 [ false, %if.end3.lr.ph.lr.ph ], [ %inval_tb.1, %restart.outer.backedge ]
+  %inval_tb.0.ph219 = phi i1 [ false, %if.end3.lr.ph.lr.ph ], [ %inval_tb.2, %restart.outer.backedge ]
   %sub99 = add i64 %start.addr.0.ph220, -1
   br label %if.end3
 
 if.then:                                          ; preds = %restart.outer.backedge, %restart.backedge, %entry
   %start.addr.0.ph.lcssa194 = phi i64 [ %start, %entry ], [ %start.addr.0.ph220, %restart.backedge ], [ %start.addr.0.ph.be, %restart.outer.backedge ]
-  %inval_tb.0.lcssa = phi i1 [ false, %entry ], [ %inval_tb.1, %restart.backedge ], [ %inval_tb.1, %restart.outer.backedge ]
+  %inval_tb.0.lcssa = phi i1 [ false, %entry ], [ %inval_tb.2, %restart.backedge ], [ %inval_tb.2, %restart.outer.backedge ]
   %tobool1.not = icmp eq i32 %set_flags, 0
   br i1 %tobool1.not, label %done, label %if.then2
 
@@ -634,7 +634,7 @@ pageflags_create_merge.exit:                      ; preds = %if.end34.i, %if.the
 if.end3:                                          ; preds = %if.end3.lr.ph, %restart.backedge
   %add.ptr.i210 = phi ptr [ %add.ptr.i205222, %if.end3.lr.ph ], [ %add.ptr.i, %restart.backedge ]
   %call.i209 = phi ptr [ %call.i203221, %if.end3.lr.ph ], [ %call.i, %restart.backedge ]
-  %inval_tb.0208 = phi i1 [ %inval_tb.0.ph219, %if.end3.lr.ph ], [ %inval_tb.1, %restart.backedge ]
+  %inval_tb.0208 = phi i1 [ %inval_tb.0.ph219, %if.end3.lr.ph ], [ %inval_tb.2, %restart.backedge ]
   %start4 = getelementptr i8, ptr %call.i209, i64 24
   %3 = load i64, ptr %start4, align 8
   %last6 = getelementptr i8, ptr %call.i209, i64 32
@@ -662,7 +662,7 @@ if.then15:                                        ; preds = %lor.lhs.false, %lan
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %lor.lhs.false, %if.end3
-  %inval_tb.1 = phi i1 [ true, %if.then15 ], [ %inval_tb.0208, %lor.lhs.false ], [ %inval_tb.0208, %if.end3 ]
+  %inval_tb.2 = phi i1 [ true, %if.then15 ], [ %inval_tb.0208, %lor.lhs.false ], [ %inval_tb.0208, %if.end3 ]
   %cmp = icmp eq i64 %start.addr.0.ph220, %3
   %cmp18 = icmp eq i64 %4, %last
   %or.cond102 = select i1 %cmp, i1 %cmp18, i1 false
@@ -894,8 +894,8 @@ if.then124:                                       ; preds = %if.end122
   br label %done
 
 done:                                             ; preds = %if.end90, %if.end42, %if.end74, %if.end122, %if.then124, %if.end38, %if.then56, %if.then63, %if.then21, %if.else, %if.then, %pageflags_create_merge.exit
-  %inval_tb.2 = phi i1 [ %inval_tb.1, %if.then21 ], [ %inval_tb.1, %if.else ], [ %inval_tb.1, %if.end38 ], [ %inval_tb.1, %if.then63 ], [ %inval_tb.1, %if.then56 ], [ %inval_tb.1, %if.then124 ], [ %inval_tb.1, %if.end122 ], [ %inval_tb.0.lcssa, %pageflags_create_merge.exit ], [ %inval_tb.0.lcssa, %if.then ], [ %inval_tb.1, %if.end74 ], [ %inval_tb.1, %if.end42 ], [ %inval_tb.1, %if.end90 ]
-  ret i1 %inval_tb.2
+  %inval_tb.1 = phi i1 [ %inval_tb.2, %if.then21 ], [ %inval_tb.2, %if.else ], [ %inval_tb.2, %if.end38 ], [ %inval_tb.2, %if.then63 ], [ %inval_tb.2, %if.then56 ], [ %inval_tb.2, %if.then124 ], [ %inval_tb.2, %if.end122 ], [ %inval_tb.0.lcssa, %pageflags_create_merge.exit ], [ %inval_tb.0.lcssa, %if.then ], [ %inval_tb.2, %if.end74 ], [ %inval_tb.2, %if.end42 ], [ %inval_tb.2, %if.end90 ]
+  ret i1 %inval_tb.1
 }
 
 declare void @tb_invalidate_phys_range(i64 noundef, i64 noundef) local_unnamed_addr #5
@@ -919,7 +919,7 @@ if.end3:                                          ; preds = %if.end
 
 while.body:                                       ; preds = %while.body.backedge, %if.end3
   %start.addr.0 = phi i64 [ %start, %if.end3 ], [ %start.addr.0.be, %while.body.backedge ]
-  %locked.0 = phi i32 [ %conv, %if.end3 ], [ %locked.2, %while.body.backedge ]
+  %locked.0 = phi i32 [ %conv, %if.end3 ], [ %locked.1, %while.body.backedge ]
   %call.i = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef %start.addr.0, i64 noundef %sub) #16
   %tobool.not.i = icmp eq ptr %call.i, null
   %add.ptr.i = getelementptr i8, ptr %call.i, i64 -16
@@ -941,15 +941,15 @@ if.then7:                                         ; preds = %if.then5
   br i1 %or.cond, label %if.then54, label %if.end13
 
 if.end13:                                         ; preds = %if.then7, %while.body
-  %locked.2 = phi i32 [ %locked.0, %while.body ], [ -1, %if.then7 ]
-  %p.1 = phi ptr [ %add.ptr.i, %while.body ], [ %add.ptr.i23, %if.then7 ]
-  %start14 = getelementptr inbounds i8, ptr %p.1, i64 40
+  %locked.1 = phi i32 [ %locked.0, %while.body ], [ -1, %if.then7 ]
+  %p.0 = phi ptr [ %add.ptr.i, %while.body ], [ %add.ptr.i23, %if.then7 ]
+  %start14 = getelementptr inbounds i8, ptr %p.0, i64 40
   %0 = load i64, ptr %start14, align 8
   %cmp15 = icmp ult i64 %start.addr.0, %0
   br i1 %cmp15, label %while.end, label %if.end18
 
 if.end18:                                         ; preds = %if.end13
-  %flags19 = getelementptr inbounds i8, ptr %p.1, i64 64
+  %flags19 = getelementptr inbounds i8, ptr %p.0, i64 64
   %1 = load i32, ptr %flags19, align 8
   %not = xor i32 %1, -1
   %and = and i32 %not, %flags
@@ -985,7 +985,7 @@ while.body.backedge:                              ; preds = %if.end40, %if.end48
   br label %while.body
 
 if.end42:                                         ; preds = %if.end23
-  %last44 = getelementptr inbounds i8, ptr %p.1, i64 48
+  %last44 = getelementptr inbounds i8, ptr %p.0, i64 48
   %2 = load i64, ptr %last44, align 8
   %cmp45.not = icmp ugt i64 %sub, %2
   br i1 %cmp45.not, label %if.end48, label %while.end
@@ -995,7 +995,7 @@ if.end48:                                         ; preds = %if.end42
   br label %while.body.backedge
 
 while.end:                                        ; preds = %if.then5, %if.end42, %if.end35, %if.end31, %if.then26, %if.end18, %if.end13
-  %locked.3 = phi i32 [ %locked.2, %if.end13 ], [ %locked.2, %if.end18 ], [ %locked.2, %if.then26 ], [ %locked.2, %if.end31 ], [ %locked.2, %if.end35 ], [ %locked.2, %if.end42 ], [ %locked.0, %if.then5 ]
+  %locked.3 = phi i32 [ %locked.1, %if.end13 ], [ %locked.1, %if.end18 ], [ %locked.1, %if.then26 ], [ %locked.1, %if.end31 ], [ %locked.1, %if.end35 ], [ %locked.1, %if.end42 ], [ %locked.0, %if.then5 ]
   %ret.0 = phi i1 [ false, %if.end13 ], [ false, %if.end18 ], [ false, %if.then26 ], [ false, %if.end31 ], [ true, %if.end35 ], [ true, %if.end42 ], [ false, %if.then5 ]
   %cmp52 = icmp slt i32 %locked.3, 0
   br i1 %cmp52, label %if.then54, label %return
@@ -1171,10 +1171,10 @@ if.else17:                                        ; preds = %if.then13
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %call.i1628 = phi ptr [ %call.i16, %while.body ], [ %call.i1622, %while.cond.preheader ]
-  %prot.027 = phi i32 [ %or, %while.body ], [ %2, %while.cond.preheader ]
+  %prot.127 = phi i32 [ %or, %while.body ], [ %2, %while.cond.preheader ]
   %flags22 = getelementptr i8, ptr %call.i1628, i64 48
   %5 = load i32, ptr %flags22, align 8
-  %or = or i32 %5, %prot.027
+  %or = or i32 %5, %prot.127
   %call.i16 = tail call ptr @interval_tree_iter_next(ptr noundef nonnull %call.i1628, i64 noundef %start.0, i64 noundef %last.0) #16
   %tobool.not.i17 = icmp eq ptr %call.i16, null
   %add.ptr.i18 = getelementptr i8, ptr %call.i16, i64 -16
@@ -1183,8 +1183,8 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %cmp20.not, label %if.end23, label %while.body, !llvm.loop !8
 
 if.end23:                                         ; preds = %while.body, %while.cond.preheader, %if.end8
-  %prot.1 = phi i32 [ %2, %if.end8 ], [ %2, %while.cond.preheader ], [ %or, %while.body ]
-  %and24 = and i32 %prot.1, 2
+  %prot.0 = phi i32 [ %2, %if.end8 ], [ %2, %while.cond.preheader ], [ %or, %while.body ]
+  %and24 = and i32 %prot.0, 2
   %tobool25.not = icmp eq i32 %and24, 0
   br i1 %tobool25.not, label %if.end32, label %if.then26
 
@@ -1194,7 +1194,7 @@ if.then26:                                        ; preds = %if.end23
   %add.i = add i64 %6, %start.0
   %7 = inttoptr i64 %add.i to ptr
   %8 = load i64, ptr @qemu_host_page_size, align 8
-  %and29 = and i32 %prot.1, 5
+  %and29 = and i32 %prot.0, 5
   %tobool30.not = icmp ne i32 %and29, 0
   %cond = zext i1 %tobool30.not to i32
   %call31 = tail call i32 @mprotect(ptr noundef %7, i64 noundef %8, i32 noundef %cond) #16
@@ -1953,17 +1953,17 @@ if.else.i.i.i.i:                                  ; preds = %if.end13.i.i.i
   br label %cleanup.i.i.i
 
 cleanup.i.i.i:                                    ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.then12.i.i.i
-  %retval.sroa.0.0.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
-  %retval.sroa.4.0.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
+  %retval.sroa.4.1.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
   tail call void @mmap_unlock() #16
   br label %load_atom_extract_al16_or_exit.exit.i
 
 load_atom_extract_al16_or_exit.exit.i:            ; preds = %cleanup.i.i.i, %if.then.i.i.i
-  %retval.sroa.0.1.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.0.0.i.i.i, %cleanup.i.i.i ]
-  %retval.sroa.4.1.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.4.0.i.i.i, %cleanup.i.i.i ]
-  %a.sroa.2.0.insert.ext.i.i23.i = zext i64 %retval.sroa.4.1.i.i.i to i128
+  %retval.sroa.0.0.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.0.1.i.i.i, %cleanup.i.i.i ]
+  %retval.sroa.4.0.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.4.1.i.i.i, %cleanup.i.i.i ]
+  %a.sroa.2.0.insert.ext.i.i23.i = zext i64 %retval.sroa.4.0.i.i.i to i128
   %a.sroa.2.0.insert.shift.i.i24.i = shl nuw i128 %a.sroa.2.0.insert.ext.i.i23.i, 64
-  %a.sroa.0.0.insert.ext.i.i25.i = zext i64 %retval.sroa.0.1.i.i.i to i128
+  %a.sroa.0.0.insert.ext.i.i25.i = zext i64 %retval.sroa.0.0.i.i.i to i128
   %a.sroa.0.0.insert.insert.i.i26.i = or disjoint i128 %a.sroa.2.0.insert.shift.i.i24.i, %a.sroa.0.0.insert.ext.i.i25.i
   %shr.i.i28.i = lshr i128 %a.sroa.0.0.insert.insert.i.i26.i, 56
   %conv36.i = trunc i128 %shr.i.i28.i to i16
@@ -2266,20 +2266,20 @@ if.else.i.i.i.i:                                  ; preds = %if.end13.i.i.i
   br label %cleanup.i.i.i
 
 cleanup.i.i.i:                                    ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.then12.i.i.i
-  %retval.sroa.0.0.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
-  %retval.sroa.4.0.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
+  %retval.sroa.4.1.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
   tail call void @mmap_unlock() #16
   br label %load_atom_extract_al16_or_exit.exit.i
 
 load_atom_extract_al16_or_exit.exit.i:            ; preds = %cleanup.i.i.i, %if.then.i.i.i
-  %retval.sroa.0.1.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.0.0.i.i.i, %cleanup.i.i.i ]
-  %retval.sroa.4.1.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.4.0.i.i.i, %cleanup.i.i.i ]
+  %retval.sroa.0.0.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.0.1.i.i.i, %cleanup.i.i.i ]
+  %retval.sroa.4.0.i.i.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i.i.i, %if.then.i.i.i ], [ %retval.sroa.4.1.i.i.i, %cleanup.i.i.i ]
   %30 = trunc i64 %add.i.i.i to i32
   %conv.i24.i = shl i32 %30, 3
   %mul.i25.i = and i32 %conv.i24.i, 56
-  %a.sroa.2.0.insert.ext.i.i26.i = zext i64 %retval.sroa.4.1.i.i.i to i128
+  %a.sroa.2.0.insert.ext.i.i26.i = zext i64 %retval.sroa.4.0.i.i.i to i128
   %a.sroa.2.0.insert.shift.i.i27.i = shl nuw i128 %a.sroa.2.0.insert.ext.i.i26.i, 64
-  %a.sroa.0.0.insert.ext.i.i28.i = zext i64 %retval.sroa.0.1.i.i.i to i128
+  %a.sroa.0.0.insert.ext.i.i28.i = zext i64 %retval.sroa.0.0.i.i.i to i128
   %a.sroa.0.0.insert.insert.i.i29.i = or disjoint i128 %a.sroa.2.0.insert.shift.i.i27.i, %a.sroa.0.0.insert.ext.i.i28.i
   %sh_prom.i.i30.i = zext nneg i32 %mul.i25.i to i128
   %shr.i.i31.i = lshr i128 %a.sroa.0.0.insert.insert.i.i29.i, %sh_prom.i.i30.i
@@ -2529,15 +2529,15 @@ if.else.i.i.i.i:                                  ; preds = %if.end13.i.i.i
   br label %load_atom_extract_al16_or_exit.exit.i
 
 load_atom_extract_al16_or_exit.exit.i:            ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i, %if.then12.i.i.i
-  %retval.sroa.0.0.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
-  %retval.sroa.4.0.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
+  %retval.sroa.0.1.i.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i.i, %if.then12.i.i.i ], [ %extract.t.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t2.i.i.i.i, %if.else.i.i.i.i ]
+  %retval.sroa.4.1.i.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i.i, %if.then12.i.i.i ], [ %extract.t3.i.i.i.i, %if.then.i.i.i.i ], [ %extract.t5.i.i.i.i, %if.else.i.i.i.i ]
   tail call void @mmap_unlock() #16
   %23 = trunc i64 %add.i.i.i to i32
   %conv.i13.i = shl i32 %23, 3
   %mul.i.i = and i32 %conv.i13.i, 56
-  %a.sroa.2.0.insert.ext.i.i14.i = zext i64 %retval.sroa.4.0.i.i.i to i128
+  %a.sroa.2.0.insert.ext.i.i14.i = zext i64 %retval.sroa.4.1.i.i.i to i128
   %a.sroa.2.0.insert.shift.i.i15.i = shl nuw i128 %a.sroa.2.0.insert.ext.i.i14.i, 64
-  %a.sroa.0.0.insert.ext.i.i16.i = zext i64 %retval.sroa.0.0.i.i.i to i128
+  %a.sroa.0.0.insert.ext.i.i16.i = zext i64 %retval.sroa.0.1.i.i.i to i128
   %a.sroa.0.0.insert.insert.i.i17.i = or disjoint i128 %a.sroa.2.0.insert.shift.i.i15.i, %a.sroa.0.0.insert.ext.i.i16.i
   %sh_prom.i.i18.i = zext nneg i32 %mul.i.i to i128
   %shr.i.i19.i = lshr i128 %a.sroa.0.0.insert.insert.i.i17.i, %sh_prom.i.i18.i
@@ -2963,8 +2963,8 @@ if.else.i.i.i:                                    ; preds = %if.end13.i.i
   br label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %if.else.i.i.i, %if.then.i.i.i, %if.then12.i.i
-  %retval.sroa.0.0.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i, %if.then12.i.i ], [ %extract.t.i.i.i, %if.then.i.i.i ], [ %extract.t2.i.i.i, %if.else.i.i.i ]
-  %retval.sroa.4.0.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i, %if.then12.i.i ], [ %extract.t3.i.i.i, %if.then.i.i.i ], [ %extract.t5.i.i.i, %if.else.i.i.i ]
+  %retval.sroa.0.1.i.i = phi i64 [ %retval.sroa.0.0.extract.trunc5.i.i, %if.then12.i.i ], [ %extract.t.i.i.i, %if.then.i.i.i ], [ %extract.t2.i.i.i, %if.else.i.i.i ]
+  %retval.sroa.4.1.i.i = phi i64 [ %retval.sroa.4.0.extract.trunc8.i.i, %if.then12.i.i ], [ %extract.t3.i.i.i, %if.then.i.i.i ], [ %extract.t5.i.i.i, %if.else.i.i.i ]
   tail call void @mmap_unlock() #16
   br label %load_atom_16.exit
 
@@ -2973,8 +2973,8 @@ do.body.i:                                        ; preds = %required_atomicity.
   unreachable
 
 load_atom_16.exit:                                ; preds = %if.then.i15, %sw.bb.i, %sw.bb12.i, %sw.bb15.i, %sw.bb19.i, %sw.bb23.i, %if.then.i.i, %cleanup.i.i
-  %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i, %if.then.i15 ], [ %retval.sroa.0.0.extract.trunc14.i, %sw.bb.i ], [ %retval.sroa.0.0.extract.trunc.i.i.i, %if.then.i.i ], [ %retval.sroa.0.0.i.i, %cleanup.i.i ], [ %or.i48.i, %sw.bb23.i ], [ %26, %sw.bb19.i ], [ %or.i38.i, %sw.bb15.i ], [ %or.i.i, %sw.bb12.i ]
-  %retval.sroa.5.0.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i, %if.then.i15 ], [ %retval.sroa.5.0.extract.trunc18.i, %sw.bb.i ], [ %retval.sroa.2.0.extract.trunc.i.i.i, %if.then.i.i ], [ %retval.sroa.4.0.i.i, %cleanup.i.i ], [ %or.i59.i, %sw.bb23.i ], [ %27, %sw.bb19.i ], [ %or.i43.i, %sw.bb15.i ], [ %or.i34.i, %sw.bb12.i ]
+  %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.0.extract.trunc.i.i, %if.then.i15 ], [ %retval.sroa.0.0.extract.trunc14.i, %sw.bb.i ], [ %retval.sroa.0.0.extract.trunc.i.i.i, %if.then.i.i ], [ %retval.sroa.0.1.i.i, %cleanup.i.i ], [ %or.i48.i, %sw.bb23.i ], [ %26, %sw.bb19.i ], [ %or.i38.i, %sw.bb15.i ], [ %or.i.i, %sw.bb12.i ]
+  %retval.sroa.5.0.i = phi i64 [ %retval.sroa.2.0.extract.trunc.i.i, %if.then.i15 ], [ %retval.sroa.5.0.extract.trunc18.i, %sw.bb.i ], [ %retval.sroa.2.0.extract.trunc.i.i.i, %if.then.i.i ], [ %retval.sroa.4.1.i.i, %cleanup.i.i ], [ %or.i59.i, %sw.bb23.i ], [ %27, %sw.bb19.i ], [ %or.i43.i, %sw.bb15.i ], [ %or.i34.i, %sw.bb12.i ]
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %2, align 8
   %45 = and i32 %oi, 256

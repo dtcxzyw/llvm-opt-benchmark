@@ -435,8 +435,8 @@ userdiff_find_by_namelen_cb.exit.i:               ; preds = %land.lhs.true.i.i, 
   br i1 %exitcond.not.i15.i.i, label %if.end9, label %for.body.i7.i.i, !llvm.loop !5
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i6.i, %land.lhs.true.i.i
-  %udcbdata.sroa.6.5.i.ph = phi ptr [ %add.ptr.i9.i.i, %land.lhs.true.i.i ], [ %add.ptr.i.i.i, %land.lhs.true.i6.i ]
-  %word_regex_multi_byte = getelementptr inbounds i8, ptr %udcbdata.sroa.6.5.i.ph, i64 56
+  %udcbdata.sroa.6.3.i.ph = phi ptr [ %add.ptr.i9.i.i, %land.lhs.true.i.i ], [ %add.ptr.i.i.i, %land.lhs.true.i6.i ]
+  %word_regex_multi_byte = getelementptr inbounds i8, ptr %udcbdata.sroa.6.3.i.ph, i64 56
   %6 = load ptr, ptr %word_regex_multi_byte, align 8
   %tobool3.not = icmp eq ptr %6, null
   br i1 %tobool3.not, label %if.end9, label %if.then
@@ -482,7 +482,7 @@ regexec_supports_multi_byte_chars.exit:           ; preds = %if.then, %if.end2.i
 
 if.then6:                                         ; preds = %regexec_supports_multi_byte_chars.exit
   %11 = load ptr, ptr %word_regex_multi_byte, align 8
-  %word_regex = getelementptr inbounds i8, ptr %udcbdata.sroa.6.5.i.ph, i64 48
+  %word_regex = getelementptr inbounds i8, ptr %udcbdata.sroa.6.3.i.ph, i64 48
   store ptr %11, ptr %word_regex, align 8
   br label %if.end
 
@@ -491,8 +491,8 @@ if.end:                                           ; preds = %if.then6, %regexec_
   br label %if.end9
 
 if.end9:                                          ; preds = %userdiff_find_by_namelen_cb.exit.i, %if.end, %land.lhs.true
-  %udcbdata.sroa.6.5.i10 = phi ptr [ %udcbdata.sroa.6.5.i.ph, %if.end ], [ %udcbdata.sroa.6.5.i.ph, %land.lhs.true ], [ null, %userdiff_find_by_namelen_cb.exit.i ]
-  ret ptr %udcbdata.sroa.6.5.i10
+  %udcbdata.sroa.6.3.i10 = phi ptr [ %udcbdata.sroa.6.3.i.ph, %if.end ], [ %udcbdata.sroa.6.3.i.ph, %land.lhs.true ], [ null, %userdiff_find_by_namelen_cb.exit.i ]
+  ret ptr %udcbdata.sroa.6.3.i10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

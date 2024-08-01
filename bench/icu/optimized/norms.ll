@@ -990,18 +990,18 @@ if.end54.loopexit.split.loop.exit37:              ; preds = %if.end47
   br label %if.end54.loopexit
 
 if.end54.loopexit:                                ; preds = %for.inc, %if.end54.loopexit.split.loop.exit37
-  %i.1.ph = phi i32 [ %22, %if.end54.loopexit.split.loop.exit37 ], [ %div.i, %for.inc ]
-  %23 = shl nuw nsw i32 %i.1.ph, 1
+  %i.0.ph = phi i32 [ %22, %if.end54.loopexit.split.loop.exit37 ], [ %div.i, %for.inc ]
+  %23 = shl nuw nsw i32 %i.0.ph, 1
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end54.loopexit, %_ZNK6icu_754Norm19getCompositionPairsERi.exit, %new.cont
   %compositions.0 = phi ptr [ %call30, %new.cont ], [ %15, %_ZNK6icu_754Norm19getCompositionPairsERi.exit ], [ %15, %if.end54.loopexit ]
-  %i.1 = phi i32 [ 0, %new.cont ], [ 0, %_ZNK6icu_754Norm19getCompositionPairsERi.exit ], [ %23, %if.end54.loopexit ]
-  invoke void @_ZN6icu_759UVector3215insertElementAtEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %compositions.0, i32 noundef %call14, i32 noundef %i.1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i.i)
+  %i.0 = phi i32 [ 0, %new.cont ], [ 0, %_ZNK6icu_754Norm19getCompositionPairsERi.exit ], [ %23, %if.end54.loopexit ]
+  invoke void @_ZN6icu_759UVector3215insertElementAtEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %compositions.0, i32 noundef %call14, i32 noundef %i.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i.i)
           to label %invoke.cont57 unwind label %lpad
 
 invoke.cont57:                                    ; preds = %if.end54
-  %add = or disjoint i32 %i.1, 1
+  %add = or disjoint i32 %i.0, 1
   invoke void @_ZN6icu_759UVector3215insertElementAtEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %compositions.0, i32 noundef %start, i32 noundef %add, ptr noundef nonnull align 4 dereferenceable(4) %errorCode.i.i)
           to label %invoke.cont61 unwind label %lpad
 
@@ -1088,7 +1088,7 @@ while.body.lr.ph:                                 ; preds = %_ZNK6icu_7513Unicod
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end112
-  %decomposed.0100 = phi ptr [ null, %while.body.lr.ph ], [ %decomposed.3, %if.end112 ]
+  %decomposed.0100 = phi ptr [ null, %while.body.lr.ph ], [ %decomposed.2, %if.end112 ]
   %i.099 = phi i32 [ 0, %while.body.lr.ph ], [ %i.1, %if.end112 ]
   %inc = add nsw i32 %i.099, 1
   %idxprom = sext i32 %i.099 to i64
@@ -1309,8 +1309,8 @@ lpad94:                                           ; preds = %if.then88
   br label %eh.resume
 
 if.end100:                                        ; preds = %if.then88, %if.end86
-  %decomposed.2 = phi ptr [ %decomposed.0100, %if.end86 ], [ %call89, %if.then88 ]
-  %call2.i7778 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %decomposed.2, ptr noundef nonnull %buffer, i32 noundef 0, i32 noundef %retval.0.i76)
+  %decomposed.3 = phi ptr [ %decomposed.0100, %if.end86 ], [ %call89, %if.then88 ]
+  %call2.i7778 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %decomposed.3, ptr noundef nonnull %buffer, i32 noundef 0, i32 noundef %retval.0.i76)
           to label %invoke.cont103 unwind label %lpad102
 
 invoke.cont103:                                   ; preds = %if.end100
@@ -1333,12 +1333,12 @@ if.then107:                                       ; preds = %if.else105
   br label %if.end112
 
 if.end112:                                        ; preds = %invoke.cont103, %if.then107, %if.else105, %if.end70
-  %decomposed.3 = phi ptr [ %decomposed.1, %if.end70 ], [ %decomposed.2, %invoke.cont103 ], [ %decomposed.0100, %if.then107 ], [ null, %if.else105 ]
+  %decomposed.2 = phi ptr [ %decomposed.1, %if.end70 ], [ %decomposed.3, %invoke.cont103 ], [ %decomposed.0100, %if.then107 ], [ null, %if.else105 ]
   %cmp = icmp slt i32 %i.1, %cond.i
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !17
 
 while.end:                                        ; preds = %if.end112
-  %cmp113.not = icmp eq ptr %decomposed.3, null
+  %cmp113.not = icmp eq ptr %decomposed.2, null
   br i1 %cmp113.not, label %if.end125, label %if.then114
 
 if.then114:                                       ; preds = %while.end
@@ -1364,7 +1364,7 @@ delete.notnull:                                   ; preds = %if.else119
   br label %if.end121
 
 if.end121:                                        ; preds = %if.else119, %delete.notnull, %if.then116
-  store ptr %decomposed.3, ptr %norm, align 8
+  store ptr %decomposed.2, ptr %norm, align 8
   %didDecompose = getelementptr inbounds i8, ptr %this, i64 16
   %44 = load i8, ptr %didDecompose, align 8
   %45 = or i8 %44, 1

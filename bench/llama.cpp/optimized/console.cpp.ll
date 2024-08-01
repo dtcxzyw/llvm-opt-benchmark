@@ -283,9 +283,9 @@ if.end.i8:                                        ; preds = %if.then.i6, %if.end
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.backedge, %if.end.i8
-  %widths.sroa.7.0.i = phi ptr [ null, %if.end.i8 ], [ %widths.sroa.7.3.i, %while.cond.i.backedge ]
-  %widths.sroa.16.0.i = phi ptr [ null, %if.end.i8 ], [ %widths.sroa.16.2.i, %while.cond.i.backedge ]
-  %widths.sroa.0.0.i = phi ptr [ null, %if.end.i8 ], [ %widths.sroa.0.2.i, %while.cond.i.backedge ]
+  %widths.sroa.7.0.i = phi ptr [ null, %if.end.i8 ], [ %widths.sroa.7.1.i, %while.cond.i.backedge ]
+  %widths.sroa.16.0.i = phi ptr [ null, %if.end.i8 ], [ %widths.sroa.16.1.i, %while.cond.i.backedge ]
+  %widths.sroa.0.0.i = phi ptr [ null, %if.end.i8 ], [ %widths.sroa.0.1.i, %while.cond.i.backedge ]
   %is_special_char.0.i = phi i8 [ 0, %if.end.i8 ], [ %is_special_char.0.i.be, %while.cond.i.backedge ]
   %10 = load ptr, ptr @_ZN7consoleL3outE, align 8
   %call1.i9 = call i32 @fflush(ptr noundef %10)
@@ -407,8 +407,8 @@ if.then45.i:                                      ; preds = %if.end17.i, %if.end
   br i1 %cmp.i.i.i, label %if.end71.i, label %do.body.i
 
 do.body.i:                                        ; preds = %if.then45.i, %do.cond.i
-  %widths.sroa.7.1.i = phi ptr [ %add.ptr.i.i.i, %do.cond.i ], [ %widths.sroa.7.0.i, %if.then45.i ]
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %widths.sroa.7.1.i, i64 -4
+  %widths.sroa.7.2.i = phi ptr [ %add.ptr.i.i.i, %do.cond.i ], [ %widths.sroa.7.0.i, %if.then45.i ]
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %widths.sroa.7.2.i, i64 -4
   %22 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp49149.i = icmp sgt i32 %22, 0
   br i1 %cmp49149.i, label %for.inc.i, label %for.end.i
@@ -685,9 +685,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %do.cond.i, %lor.lhs.false33.i, %invoke.cont27.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i80.i, %if.then45.i, %invoke.cont20.i
-  %widths.sroa.7.3.i = phi ptr [ %widths.sroa.7.0.i, %if.then45.i ], [ %widths.sroa.7.0.i, %invoke.cont20.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i81.i, %if.then.i80.i ], [ %widths.sroa.7.0.i, %invoke.cont27.i ], [ %widths.sroa.7.0.i, %lor.lhs.false33.i ], [ %add.ptr.i.i.i, %do.cond.i ]
-  %widths.sroa.16.2.i = phi ptr [ %widths.sroa.16.0.i, %if.then45.i ], [ %widths.sroa.16.0.i, %invoke.cont20.i ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %widths.sroa.16.0.i, %if.then.i80.i ], [ %widths.sroa.16.0.i, %invoke.cont27.i ], [ %widths.sroa.16.0.i, %lor.lhs.false33.i ], [ %widths.sroa.16.0.i, %do.cond.i ]
-  %widths.sroa.0.2.i = phi ptr [ %widths.sroa.0.0.i, %if.then45.i ], [ %widths.sroa.0.0.i, %invoke.cont20.i ], [ %cond.i10.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %widths.sroa.0.0.i, %if.then.i80.i ], [ %widths.sroa.0.0.i, %invoke.cont27.i ], [ %widths.sroa.0.0.i, %lor.lhs.false33.i ], [ %widths.sroa.0.0.i, %do.cond.i ]
+  %widths.sroa.7.1.i = phi ptr [ %widths.sroa.7.0.i, %if.then45.i ], [ %widths.sroa.7.0.i, %invoke.cont20.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %incdec.ptr.i81.i, %if.then.i80.i ], [ %widths.sroa.7.0.i, %invoke.cont27.i ], [ %widths.sroa.7.0.i, %lor.lhs.false33.i ], [ %add.ptr.i.i.i, %do.cond.i ]
+  %widths.sroa.16.1.i = phi ptr [ %widths.sroa.16.0.i, %if.then45.i ], [ %widths.sroa.16.0.i, %invoke.cont20.i ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %widths.sroa.16.0.i, %if.then.i80.i ], [ %widths.sroa.16.0.i, %invoke.cont27.i ], [ %widths.sroa.16.0.i, %lor.lhs.false33.i ], [ %widths.sroa.16.0.i, %do.cond.i ]
+  %widths.sroa.0.1.i = phi ptr [ %widths.sroa.0.0.i, %if.then45.i ], [ %widths.sroa.0.0.i, %invoke.cont20.i ], [ %cond.i10.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %widths.sroa.0.0.i, %if.then.i80.i ], [ %widths.sroa.0.0.i, %invoke.cont27.i ], [ %widths.sroa.0.0.i, %lor.lhs.false33.i ], [ %widths.sroa.0.0.i, %do.cond.i ]
   %call72.i = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %line) #14
   br i1 %call72.i, label %while.cond.i.backedge, label %land.lhs.true73.i
 

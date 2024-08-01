@@ -1689,8 +1689,8 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   br i1 %.not197.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %LimitAdditionalPins.exit.i, %LimitAdditionalPins.exit.thread.i
-  %.0229.i = phi i32 [ %spec.select168.i, %LimitAdditionalPins.exit.thread.i ], [ 1, %LimitAdditionalPins.exit.i ]
-  %wide.trip.count.i = zext nneg i32 %.0229.i to i64
+  %.3229.i = phi i32 [ %spec.select168.i, %LimitAdditionalPins.exit.thread.i ], [ 1, %LimitAdditionalPins.exit.i ]
+  %wide.trip.count.i = zext nneg i32 %.3229.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -1713,7 +1713,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %LimitAdditionalPins.exit.i
-  %.0230.i = phi i32 [ 0, %LimitAdditionalPins.exit.i ], [ %.0229.i, %.lr.ph.i ]
+  %.3230.i = phi i32 [ 0, %LimitAdditionalPins.exit.i ], [ %.3229.i, %.lr.ph.i ]
   %42 = and i32 %3, 1
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %43, label %44
@@ -1746,14 +1746,14 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
 51:                                               ; preds = %._crit_edge223.i
   %52 = icmp ugt i32 %50, %5
   %53 = zext i32 %50 to i64
-  %54 = zext nneg i32 %.0230.i to i64
+  %54 = zext nneg i32 %.3230.i to i64
   %55 = add nuw nsw i64 %53, %54
   %56 = zext i32 %5 to i64
   %57 = icmp ugt i64 %55, %56
   %58 = sub i32 %5, %50
-  %spec.select169.i = select i1 %57, i32 %58, i32 %.0230.i
+  %spec.select169.i = select i1 %57, i32 %58, i32 %.3230.i
   %.1.i = select i1 %52, i32 0, i32 %spec.select169.i
-  %59 = icmp ult i32 %.1.i, %.0230.i
+  %59 = icmp ult i32 %.1.i, %.3230.i
   br i1 %59, label %.lr.ph184.preheader.i, label %._crit_edge185.i
 
 .lr.ph184.preheader.i:                            ; preds = %51
@@ -1778,7 +1778,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   tail call fastcc void @UnpinBufferNoOwner(ptr noundef %66)
   %indvars.iv.next210.i = add nuw nsw i64 %indvars.iv209.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next210.i to i32
-  %exitcond212.not.i = icmp eq i32 %.0230.i, %lftr.wideiv.i
+  %exitcond212.not.i = icmp eq i32 %.3230.i, %lftr.wideiv.i
   br i1 %exitcond212.not.i, label %._crit_edge185.i, label %.lr.ph184.i, !llvm.loop !12
 
 ._crit_edge185.i:                                 ; preds = %.lr.ph184.i, %51
@@ -1794,14 +1794,14 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
 
 74:                                               ; preds = %._crit_edge185.i, %._crit_edge225.i
   %.pre-phi.i = phi i64 [ %.pre226.i, %._crit_edge225.i ], [ %53, %._crit_edge185.i ]
-  %.2.i = phi i32 [ %.0230.i, %._crit_edge225.i ], [ %spec.select169.i, %._crit_edge185.i ]
-  %75 = zext i32 %.2.i to i64
+  %.0.i = phi i32 [ %.3230.i, %._crit_edge225.i ], [ %spec.select169.i, %._crit_edge185.i ]
+  %75 = zext i32 %.0.i to i64
   %76 = add nuw nsw i64 %.pre-phi.i, %75
   %77 = icmp ugt i64 %76, 4294967293
   br i1 %77, label %104, label %.preheader.i
 
 .preheader.i:                                     ; preds = %74
-  %.not198.i = icmp eq i32 %.2.i, 0
+  %.not198.i = icmp eq i32 %.0.i, 0
   br i1 %.not198.i, label %._crit_edge190.i, label %.lr.ph189.i
 
 .lr.ph189.i:                                      ; preds = %.preheader.i
@@ -2153,7 +2153,7 @@ LockBufHdr.exit141.i:                             ; preds = %.lr.ph.i138.i, %228
   %237 = load i8, ptr @track_io_timing, align 1
   %238 = trunc i8 %237 to i1
   %239 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %238) #14
-  call void @smgrzeroextend(ptr noundef %.sroa.6.0.copyload, i32 noundef %1, i32 noundef %50, i32 noundef %.2.i, i1 noundef zeroext false) #14
+  call void @smgrzeroextend(ptr noundef %.sroa.6.0.copyload, i32 noundef %1, i32 noundef %50, i32 noundef %.0.i, i1 noundef zeroext false) #14
   br i1 %.not.i, label %240, label %241
 
 240:                                              ; preds = %._crit_edge190.i
@@ -2161,7 +2161,7 @@ LockBufHdr.exit141.i:                             ; preds = %.lr.ph.i138.i, %228
   br label %241
 
 241:                                              ; preds = %240, %._crit_edge190.i
-  call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %23, i32 noundef 1, i64 %239, i32 noundef %.2.i) #14
+  call void @pgstat_count_io_op_time(i32 noundef 0, i32 noundef %23, i32 noundef 1, i64 %239, i32 noundef %.0.i) #14
   br i1 %.not198.i, label %._crit_edge195.i, label %.lr.ph194.i
 
 .lr.ph194.i:                                      ; preds = %241
@@ -2252,12 +2252,12 @@ TerminateBufferIO.exit.i:                         ; preds = %.lr.ph.i.i143.i, %.
   br label %ExtendBufferedRelShared.exit
 
 ExtendBufferedRelShared.exit:                     ; preds = %72, %73, %._crit_edge195.i
-  %.3.i = phi i32 [ %.2.i, %._crit_edge195.i ], [ 0, %73 ], [ 0, %72 ]
+  %.2.i = phi i32 [ %.0.i, %._crit_edge195.i ], [ 0, %73 ], [ 0, %72 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %15)
   br label %279
 
 279:                                              ; preds = %ExtendBufferedRelShared.exit, %20
-  %280 = phi i32 [ %.pre, %20 ], [ %.3.i, %ExtendBufferedRelShared.exit ]
+  %280 = phi i32 [ %.pre, %20 ], [ %.2.i, %ExtendBufferedRelShared.exit ]
   %.0 = phi i32 [ %21, %20 ], [ %50, %ExtendBufferedRelShared.exit ]
   store i32 %280, ptr %7, align 4
   ret i32 %.0
@@ -2918,8 +2918,8 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
 
 .lr.ph:                                           ; preds = %54, %103
   %83 = phi i32 [ %92, %103 ], [ %42, %54 ]
-  %.05285 = phi i32 [ %.1, %103 ], [ %78, %54 ]
-  %.05384 = phi i32 [ %.154, %103 ], [ 0, %54 ]
+  %.05285 = phi i32 [ %.2, %103 ], [ %78, %54 ]
+  %.05384 = phi i32 [ %.255, %103 ], [ 0, %54 ]
   %.05683 = phi i32 [ %93, %103 ], [ %.051, %54 ]
   %84 = call fastcc i32 @SyncOneBuffer(i32 noundef %83, i1 noundef zeroext true, ptr noundef %0)
   %85 = load i32, ptr @BgBufferSync.next_to_clean, align 4
@@ -2962,29 +2962,29 @@ define dso_local zeroext i1 @BgBufferSync(ptr noundef %0) local_unnamed_addr #0 
   br label %103
 
 103:                                              ; preds = %102, %95
-  %.154 = phi i32 [ %97, %95 ], [ %.05384, %102 ]
-  %.1 = phi i32 [ %96, %95 ], [ %spec.select76, %102 ]
+  %.255 = phi i32 [ %97, %95 ], [ %.05384, %102 ]
+  %.2 = phi i32 [ %96, %95 ], [ %spec.select76, %102 ]
   %104 = icmp ugt i32 %.05683, 1
-  %105 = icmp slt i32 %.1, %spec.select
+  %105 = icmp slt i32 %.2, %spec.select
   %106 = select i1 %104, i1 %105, i1 false
   br i1 %106, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %103, %54, %99
   %.157 = phi i32 [ %93, %99 ], [ %.051, %54 ], [ %93, %103 ]
-  %.255 = phi i32 [ %97, %99 ], [ 0, %54 ], [ %.154, %103 ]
-  %.2 = phi i32 [ %96, %99 ], [ %78, %54 ], [ %.1, %103 ]
-  %107 = sext i32 %.255 to i64
+  %.154 = phi i32 [ %97, %99 ], [ 0, %54 ], [ %.255, %103 ]
+  %.1 = phi i32 [ %96, %99 ], [ %78, %54 ], [ %.2, %103 ]
+  %107 = sext i32 %.154 to i64
   %108 = load i64, ptr @PendingBgWriterStats, align 8
   %109 = add i64 %108, %107
   store i64 %109, ptr @PendingBgWriterStats, align 8
   %110 = sub i32 %.051, %.157
   %111 = icmp sgt i32 %110, 0
-  %112 = icmp ne i32 %.2, %78
+  %112 = icmp ne i32 %.1, %78
   %or.cond3 = select i1 %111, i1 %112, i1 false
   br i1 %or.cond3, label %113, label %122
 
 113:                                              ; preds = %.loopexit
-  %114 = sub i32 %.2, %78
+  %114 = sub i32 %.1, %78
   %115 = uitofp nneg i32 %110 to float
   %116 = uitofp i32 %114 to float
   %117 = fdiv float %115, %116
@@ -7412,18 +7412,18 @@ buffertag_comparator.exit168.thread212:           ; preds = %62, %48, %52, %60, 
 
 90:                                               ; preds = %76, %72
   %.1131 = phi ptr [ %81, %76 ], [ %.0127.ph, %72 ]
-  %.2 = phi ptr [ %85, %76 ], [ %71, %72 ]
+  %.3 = phi ptr [ %85, %76 ], [ %71, %72 ]
   %.0128 = phi ptr [ %89, %76 ], [ %74, %72 ]
-  %91 = tail call fastcc ptr @sort_pending_writebacks_med3(ptr noundef %.1131, ptr noundef %.2, ptr noundef %.0128)
+  %91 = tail call fastcc ptr @sort_pending_writebacks_med3(ptr noundef %.1131, ptr noundef %.3, ptr noundef %.0128)
   br label %buffertag_comparator.exit168.thread212._crit_edge
 
 buffertag_comparator.exit168.thread212._crit_edge: ; preds = %buffertag_comparator.exit168.thread212, %90
   %.pre-phi = phi i64 [ %73, %90 ], [ 6, %buffertag_comparator.exit168.thread212 ]
-  %.3 = phi ptr [ %91, %90 ], [ %71, %buffertag_comparator.exit168.thread212 ]
+  %.2 = phi ptr [ %91, %90 ], [ %71, %buffertag_comparator.exit168.thread212 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %.sroa.0.i169)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i169, ptr noundef nonnull align 4 dereferenceable(20) %.0127.ph, i64 20, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.0127.ph, ptr noundef nonnull align 4 dereferenceable(20) %.3, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.3, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i169, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.0127.ph, ptr noundef nonnull align 4 dereferenceable(20) %.2, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.2, ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0.i169, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.0.i169)
   %92 = getelementptr %struct.PendingWriteback, ptr %.0127.ph, i64 %.pre-phi
   br label %93
@@ -8539,18 +8539,18 @@ ckpt_buforder_comparator.exit158.thread176:       ; preds = %73, %71, %63, %55
 
 101:                                              ; preds = %87, %83
   %.1131 = phi ptr [ %92, %87 ], [ %.0127.ph, %83 ]
-  %.2 = phi ptr [ %96, %87 ], [ %82, %83 ]
+  %.3 = phi ptr [ %96, %87 ], [ %82, %83 ]
   %.0128 = phi ptr [ %100, %87 ], [ %85, %83 ]
-  %102 = tail call fastcc ptr @sort_checkpoint_bufferids_med3(ptr noundef %.1131, ptr noundef %.2, ptr noundef %.0128)
+  %102 = tail call fastcc ptr @sort_checkpoint_bufferids_med3(ptr noundef %.1131, ptr noundef %.3, ptr noundef %.0128)
   br label %ckpt_buforder_comparator.exit158.thread176._crit_edge
 
 ckpt_buforder_comparator.exit158.thread176._crit_edge: ; preds = %ckpt_buforder_comparator.exit158.thread176, %101
   %.pre-phi = phi i64 [ %84, %101 ], [ 6, %ckpt_buforder_comparator.exit158.thread176 ]
-  %.3 = phi ptr [ %102, %101 ], [ %82, %ckpt_buforder_comparator.exit158.thread176 ]
+  %.2 = phi ptr [ %102, %101 ], [ %82, %ckpt_buforder_comparator.exit158.thread176 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %8, ptr noundef nonnull align 4 dereferenceable(20) %.0127.ph, i64 20, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.0127.ph, ptr noundef nonnull align 4 dereferenceable(20) %.3, i64 20, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.3, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.0127.ph, ptr noundef nonnull align 4 dereferenceable(20) %.2, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.2, ptr noundef nonnull align 4 dereferenceable(20) %8, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8)
   %103 = getelementptr %struct.CkptSortItem, ptr %.0127.ph, i64 %.pre-phi
   br label %104

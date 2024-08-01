@@ -5319,57 +5319,57 @@ _ZNSt10shared_ptrIN5osgeo4proj3crs3CRSEED2Ev.exit: ; preds = %169, %188, %201, %
 
 .loopexit79:                                      ; preds = %233, %225
   %.pn.pn = phi { ptr, i32 } [ %226, %225 ], [ %.pn, %233 ]
-  %.734 = phi ptr [ %.633, %225 ], [ %119, %233 ]
+  %.14 = phi ptr [ %.633, %225 ], [ %119, %233 ]
   %237 = phi i1 [ false, %225 ], [ true, %233 ]
   call void @_ZN5osgeo4proj6common5ScaleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %33) #21
   br label %238
 
 238:                                              ; preds = %.loopexit79, %223
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit79 ], [ %224, %223 ]
-  %.8 = phi ptr [ %.734, %.loopexit79 ], [ %.532, %223 ]
-  %.1 = phi i1 [ %237, %.loopexit79 ], [ false, %223 ]
+  %.13 = phi ptr [ %.14, %.loopexit79 ], [ %.532, %223 ]
+  %.6 = phi i1 [ %237, %.loopexit79 ], [ false, %223 ]
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #21
   br label %239
 
 239:                                              ; preds = %238, %221
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %238 ], [ %222, %221 ]
-  %.9 = phi ptr [ %.8, %238 ], [ %.431, %221 ]
-  %.2 = phi i1 [ %.1, %238 ], [ false, %221 ]
+  %.12 = phi ptr [ %.13, %238 ], [ %.431, %221 ]
+  %.5 = phi i1 [ %.6, %238 ], [ false, %221 ]
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %31) #21
   br label %240
 
 240:                                              ; preds = %239, %219
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %239 ], [ %220, %219 ]
-  %.10 = phi ptr [ %.9, %239 ], [ %.330, %219 ]
-  %.3 = phi i1 [ %.2, %239 ], [ false, %219 ]
+  %.11 = phi ptr [ %.12, %239 ], [ %.330, %219 ]
+  %.4 = phi i1 [ %.5, %239 ], [ false, %219 ]
   call void @_ZN5osgeo4proj6common5AngleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #21
   br label %241
 
 241:                                              ; preds = %240, %217
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %240 ], [ %218, %217 ]
-  %.11 = phi ptr [ %.10, %240 ], [ %.229, %217 ]
-  %.4 = phi i1 [ %.3, %240 ], [ false, %217 ]
+  %.10 = phi ptr [ %.11, %240 ], [ %.229, %217 ]
+  %.3 = phi i1 [ %.4, %240 ], [ false, %217 ]
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #21
   br label %242
 
 242:                                              ; preds = %241, %215
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %241 ], [ %216, %215 ]
-  %.12 = phi ptr [ %.11, %241 ], [ %.128, %215 ]
-  %.5 = phi i1 [ %.4, %241 ], [ false, %215 ]
+  %.9 = phi ptr [ %.10, %241 ], [ %.128, %215 ]
+  %.2 = phi i1 [ %.3, %241 ], [ false, %215 ]
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #21
   br label %243
 
 243:                                              ; preds = %213, %242
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %242 ], [ %214, %213 ]
-  %.13 = phi ptr [ %.12, %242 ], [ %.027, %213 ]
-  %.6 = phi i1 [ %.5, %242 ], [ false, %213 ]
+  %.8 = phi ptr [ %.9, %242 ], [ %.027, %213 ]
+  %.1 = phi i1 [ %.2, %242 ], [ false, %213 ]
   call void @_ZN5osgeo4proj6common6LengthD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #21
-  %244 = icmp eq ptr %26, %.13
-  %or.cond = select i1 %.6, i1 true, i1 %244
+  %244 = icmp eq ptr %26, %.8
+  %or.cond = select i1 %.1, i1 true, i1 %244
   br i1 %or.cond, label %.loopexit78, label %.preheader
 
 .preheader:                                       ; preds = %243, %.preheader
-  %245 = phi ptr [ %246, %.preheader ], [ %.13, %243 ]
+  %245 = phi ptr [ %246, %.preheader ], [ %.8, %243 ]
   %246 = getelementptr inbounds i8, ptr %245, i64 -24
   call void @_ZN5osgeo4proj6common7MeasureD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %246) #21
   %247 = icmp eq ptr %246, %26

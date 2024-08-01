@@ -8312,12 +8312,12 @@ for.cond71.preheader.loopexit:                    ; preds = %_ZN7obj_refI4expr11
 
 for.cond71.preheader:                             ; preds = %invoke.cont52, %for.cond71.preheader.loopexit, %_ZNK6vectorIP3appLb0EjE3endEv.exit
   %.pre185 = phi ptr [ %40, %_ZNK6vectorIP3appLb0EjE3endEv.exit ], [ %.pre185.pre, %for.cond71.preheader.loopexit ], [ null, %invoke.cont52 ]
-  %values.sroa.3.0.lcssa = phi ptr [ null, %_ZNK6vectorIP3appLb0EjE3endEv.exit ], [ %values.sroa.3.2, %for.cond71.preheader.loopexit ], [ null, %invoke.cont52 ]
+  %values.sroa.3.0.lcssa = phi ptr [ null, %_ZNK6vectorIP3appLb0EjE3endEv.exit ], [ %values.sroa.3.1, %for.cond71.preheader.loopexit ], [ null, %invoke.cont52 ]
   br label %for.cond71
 
 for.body61:                                       ; preds = %_ZNK6vectorIP3appLb0EjE3endEv.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %__begin2.0162 = phi ptr [ %incdec.ptr, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %40, %_ZNK6vectorIP3appLb0EjE3endEv.exit ]
-  %values.sroa.3.0161 = phi ptr [ %values.sroa.3.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ null, %_ZNK6vectorIP3appLb0EjE3endEv.exit ]
+  %values.sroa.3.0161 = phi ptr [ %values.sroa.3.1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ null, %_ZNK6vectorIP3appLb0EjE3endEv.exit ]
   %43 = load ptr, ptr %__begin2.0162, align 8
   invoke void @_ZN5modelclEP4expr(ptr nonnull sret(%class.obj_ref) align 8 %ref.tmp63, ptr noundef nonnull align 8 dereferenceable(160) %mdl, ptr noundef %43)
           to label %invoke.cont64 unwind label %lpad54.loopexit.split-lp
@@ -8408,7 +8408,7 @@ unreachable.i:                                    ; preds = %invoke.cont.i
 .noexc57:                                         ; preds = %call25.i.noexc, %call.i.noexc133
   %.pre1.i.i = phi i32 [ 0, %call.i.noexc133 ], [ %.pre1.i.i.pre, %call25.i.noexc ]
   %call.i134.pn = phi ptr [ %call.i134, %call.i.noexc133 ], [ %call25.i135, %call25.i.noexc ]
-  %values.sroa.3.1 = getelementptr inbounds i8, ptr %call.i134.pn, i64 8
+  %values.sroa.3.2 = getelementptr inbounds i8, ptr %call.i134.pn, i64 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i)
   %arrayidx10.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i134.pn, i64 4
@@ -8417,12 +8417,12 @@ unreachable.i:                                    ; preds = %invoke.cont.i
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %lor.lhs.false.i.i, %.noexc57
   %49 = phi i32 [ %.pre, %.noexc57 ], [ %45, %lor.lhs.false.i.i ]
-  %values.sroa.3.2 = phi ptr [ %values.sroa.3.1, %.noexc57 ], [ %values.sroa.3.0161, %lor.lhs.false.i.i ]
+  %values.sroa.3.1 = phi ptr [ %values.sroa.3.2, %.noexc57 ], [ %values.sroa.3.0161, %lor.lhs.false.i.i ]
   %50 = phi i32 [ %.pre1.i.i, %.noexc57 ], [ %45, %lor.lhs.false.i.i ]
   %idx.ext.i.i55 = zext i32 %50 to i64
-  %add.ptr.i.i56 = getelementptr inbounds ptr, ptr %values.sroa.3.2, i64 %idx.ext.i.i55
+  %add.ptr.i.i56 = getelementptr inbounds ptr, ptr %values.sroa.3.1, i64 %idx.ext.i.i55
   store ptr %44, ptr %add.ptr.i.i56, align 8
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %values.sroa.3.2, i64 -4
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %values.sroa.3.1, i64 -4
   %inc.i.i = add i32 %49, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   store ptr null, ptr %ref.tmp63, align 8

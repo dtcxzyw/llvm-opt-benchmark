@@ -128,12 +128,12 @@ while.cond.sink.split:                            ; preds = %if.then25, %cond.tr
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %if.then25, %while.cond.sink.split
-  %above_base.0.ph = phi ptr [ %3, %while.cond.sink.split ], [ null, %if.then25 ]
+  %above_base.1.ph = phi ptr [ %3, %while.cond.sink.split ], [ null, %if.then25 ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
-  %above_base.0 = phi ptr [ null, %while.body ], [ %above_base.0.ph, %while.cond.preheader ]
-  %call.i87 = tail call ptr @bdrv_filter_child(ptr noundef %above_base.0) #5
+  %above_base.1 = phi ptr [ null, %while.body ], [ %above_base.1.ph, %while.cond.preheader ]
+  %call.i87 = tail call ptr @bdrv_filter_child(ptr noundef %above_base.1) #5
   %tobool.not.i.i88 = icmp eq ptr %call.i87, null
   br i1 %tobool.not.i.i88, label %bdrv_filter_bs.exit, label %cond.true.i.i89
 
@@ -147,7 +147,7 @@ bdrv_filter_bs.exit:                              ; preds = %while.cond, %cond.t
   br i1 %cmp28.not, label %if.end31, label %while.body
 
 while.body:                                       ; preds = %bdrv_filter_bs.exit
-  %call.i91 = tail call ptr @bdrv_filter_child(ptr noundef %above_base.0) #5
+  %call.i91 = tail call ptr @bdrv_filter_child(ptr noundef %above_base.1) #5
   %tobool.not.i.i92 = icmp eq ptr %call.i91, null
   br i1 %tobool.not.i.i92, label %while.cond, label %cond.true.i.i93, !llvm.loop !5
 
@@ -156,19 +156,19 @@ cond.true.i.i93:                                  ; preds = %while.body
 
 if.end31:                                         ; preds = %bdrv_filter_bs.exit, %if.then12, %bdrv_cow_bs.exit
   %base_overlay.0 = phi ptr [ %call18, %bdrv_cow_bs.exit ], [ %bottom, %if.then12 ], [ %call18, %bdrv_filter_bs.exit ]
-  %above_base.1 = phi ptr [ %call18, %bdrv_cow_bs.exit ], [ %bottom, %if.then12 ], [ %above_base.0, %bdrv_filter_bs.exit ]
+  %above_base.0 = phi ptr [ %call18, %bdrv_cow_bs.exit ], [ %bottom, %if.then12 ], [ %above_base.1, %bdrv_filter_bs.exit ]
   %call32 = tail call zeroext i1 @bdrv_is_read_only(ptr noundef %bs) #5
   %frombool = zext i1 %call32 to i8
   br i1 %call32, label %if.then34, label %if.end43
 
 if.then34:                                        ; preds = %if.end31
-  %call35 = tail call i32 @bdrv_freeze_backing_chain(ptr noundef %bs, ptr noundef %above_base.1, ptr noundef %errp) #5
+  %call35 = tail call i32 @bdrv_freeze_backing_chain(ptr noundef %bs, ptr noundef %above_base.0, ptr noundef %errp) #5
   %cmp36 = icmp slt i32 %call35, 0
   br i1 %cmp36, label %out_rdlock, label %if.end38
 
 if.end38:                                         ; preds = %if.then34
   %call39 = tail call i32 @bdrv_reopen_set_read_only(ptr noundef %bs, i1 noundef zeroext false, ptr noundef %errp) #5
-  tail call void @bdrv_unfreeze_backing_chain(ptr noundef %bs, ptr noundef %above_base.1) #5
+  tail call void @bdrv_unfreeze_backing_chain(ptr noundef %bs, ptr noundef %above_base.0) #5
   %cmp40 = icmp slt i32 %call39, 0
   br i1 %cmp40, label %out_rdlock, label %if.end43
 
@@ -222,7 +222,7 @@ if.end66:                                         ; preds = %if.end61
   br i1 %tobool72.not, label %if.end74, label %if.then103.sink.split.sink.split
 
 if.end74:                                         ; preds = %if.end66
-  %call.i96 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %above_base.1) #5
+  %call.i96 = tail call ptr @bdrv_filter_or_cow_child(ptr noundef %above_base.0) #5
   %tobool.not.i.i97 = icmp eq ptr %call.i96, null
   br i1 %tobool.not.i.i97, label %bdrv_filter_or_cow_bs.exit, label %cond.true.i.i98
 
@@ -270,7 +270,7 @@ for.end:                                          ; preds = %bdrv_filter_or_cow_
   %base_overlay87 = getelementptr inbounds i8, ptr %call58, i64 528
   store ptr %base_overlay.0, ptr %base_overlay87, align 8
   %above_base88 = getelementptr inbounds i8, ptr %call58, i64 536
-  store ptr %above_base.1, ptr %above_base88, align 8
+  store ptr %above_base.0, ptr %above_base88, align 8
   %call89 = tail call noalias ptr @g_strdup(ptr noundef %backing_file_str) #5
   %backing_file_str90 = getelementptr inbounds i8, ptr %call58, i64 568
   store ptr %call89, ptr %backing_file_str90, align 8

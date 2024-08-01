@@ -1471,13 +1471,13 @@ _ZNK6hermes2vm10StringView3endEv.exit:            ; preds = %_ZNK6hermes2vm10Str
 
 for.cond:                                         ; preds = %for.cond.backedge, %_ZNK6hermes2vm10StringView3endEv.exit
   %13 = phi double [ %result.promoted, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %.be, %for.cond.backedge ]
-  %itr.sroa.5.0 = phi ptr [ %retval.sroa.3.0.i104, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %itr.sroa.5.2, %for.cond.backedge ]
-  %itr.sroa.0.0 = phi ptr [ %retval.sroa.0.0.i106, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %itr.sroa.0.2, %for.cond.backedge ]
+  %itr.sroa.5.0 = phi ptr [ %retval.sroa.3.0.i104, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %itr.sroa.5.1, %for.cond.backedge ]
+  %itr.sroa.0.0 = phi ptr [ %retval.sroa.0.0.i106, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %itr.sroa.0.1, %for.cond.backedge ]
   %lastMantissaBit.0 = phi i8 [ 0, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %lastMantissaBit.0.be, %for.cond.backedge ]
   %lowestExponentBit.0 = phi i8 [ 0, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %lowestExponentBit.0.be, %for.cond.backedge ]
   %curMode.0 = phi i32 [ 0, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %curMode.0.be, %for.cond.backedge ]
   %bitMask.0 = phi i64 [ 0, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %shr30, %for.cond.backedge ]
-  %curDigit.0 = phi i64 [ 0, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %curDigit.2, %for.cond.backedge ]
+  %curDigit.0 = phi i64 [ 0, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %curDigit.1, %for.cond.backedge ]
   %expFactor.0 = phi double [ 0.000000e+00, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %expFactor.0.be, %for.cond.backedge ]
   %remainingMantissa.0 = phi i64 [ 53, %_ZNK6hermes2vm10StringView3endEv.exit ], [ %remainingMantissa.0.be, %for.cond.backedge ]
   %cmp6 = icmp eq i64 %bitMask.0, 0
@@ -1523,19 +1523,19 @@ if.else:                                          ; preds = %_ZNK6hermes2vm10Str
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else, %if.then18
-  %curDigit.1 = phi i64 [ %conv20, %if.then18 ], [ %add, %if.else ]
+  %curDigit.2 = phi i64 [ %conv20, %if.then18 ], [ %add, %if.else ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %itr.sroa.0.0, i64 1
-  %itr.sroa.5.1.idx = select i1 %tobool.not.i83, i64 2, i64 0
-  %itr.sroa.5.1 = getelementptr inbounds i8, ptr %itr.sroa.5.0, i64 %itr.sroa.5.1.idx
-  %itr.sroa.0.1 = select i1 %tobool.not.i83, ptr null, ptr %incdec.ptr.i
+  %itr.sroa.5.2.idx = select i1 %tobool.not.i83, i64 2, i64 0
+  %itr.sroa.5.2 = getelementptr inbounds i8, ptr %itr.sroa.5.0, i64 %itr.sroa.5.2.idx
+  %itr.sroa.0.2 = select i1 %tobool.not.i83, ptr null, ptr %incdec.ptr.i
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end24, %for.cond
-  %itr.sroa.5.2 = phi ptr [ %itr.sroa.5.1, %if.end24 ], [ %itr.sroa.5.0, %for.cond ]
-  %itr.sroa.0.2 = phi ptr [ %itr.sroa.0.1, %if.end24 ], [ %itr.sroa.0.0, %for.cond ]
+  %itr.sroa.5.1 = phi ptr [ %itr.sroa.5.2, %if.end24 ], [ %itr.sroa.5.0, %for.cond ]
+  %itr.sroa.0.1 = phi ptr [ %itr.sroa.0.2, %if.end24 ], [ %itr.sroa.0.0, %for.cond ]
   %bitMask.1 = phi i64 [ %conv26, %if.end24 ], [ %bitMask.0, %for.cond ]
-  %curDigit.2 = phi i64 [ %curDigit.1, %if.end24 ], [ %curDigit.0, %for.cond ]
-  %and = and i64 %curDigit.2, %bitMask.1
+  %curDigit.1 = phi i64 [ %curDigit.2, %if.end24 ], [ %curDigit.0, %for.cond ]
+  %and = and i64 %curDigit.1, %bitMask.1
   %cmp28 = icmp ne i64 %and, 0
   %frombool29 = zext i1 %cmp28 to i8
   %shr30 = lshr i64 %bitMask.1, 1
@@ -2535,7 +2535,7 @@ cleanup.loopexit:                                 ; preds = %lor.lhs.false160
 
 cleanup:                                          ; preds = %cleanup.loopexit, %for.end, %if.end183
   %86 = phi ptr [ %85, %if.end183 ], [ %85, %for.end ], [ %.pre, %cleanup.loopexit ]
-  %retval.0 = phi double [ 0x7FF8000000000000, %if.end183 ], [ %call179, %for.end ], [ 0x7FF8000000000000, %cleanup.loopexit ]
+  %retval.1 = phi double [ 0x7FF8000000000000, %if.end183 ], [ %call179, %for.end ], [ 0x7FF8000000000000, %cleanup.loopexit ]
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %str8, i64 16
   %cmp.i.i.i = icmp eq ptr %86, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.i, label %return, label %if.then.i.i
@@ -2545,8 +2545,8 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %while.body, %while.body59, %while.body59.us, %if.then.i.i, %cleanup, %if.end97, %if.end87, %if.end77, %_ZNK6hermes2vm10StringView5beginEv.exit294, %if.end16, %if.end, %entry, %while.end61, %if.then142, %if.then129, %if.then116
-  %retval.1 = phi double [ %cond.i172, %if.then116 ], [ %cond.i191, %if.then129 ], [ %cond.i210, %if.then142 ], [ 0.000000e+00, %while.end61 ], [ 0x7FF0000000000000, %entry ], [ 0x7FF0000000000000, %if.end ], [ 0x7FF8000000000000, %if.end16 ], [ 0x7FF0000000000000, %_ZNK6hermes2vm10StringView5beginEv.exit294 ], [ 0x7FF0000000000000, %if.end77 ], [ 0xFFF0000000000000, %if.end87 ], [ 0x7FF8000000000000, %if.end97 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i ], [ 0.000000e+00, %while.body59.us ], [ 0.000000e+00, %while.body59 ], [ 0.000000e+00, %while.body ]
-  ret double %retval.1
+  %retval.0 = phi double [ %cond.i172, %if.then116 ], [ %cond.i191, %if.then129 ], [ %cond.i210, %if.then142 ], [ 0.000000e+00, %while.end61 ], [ 0x7FF0000000000000, %entry ], [ 0x7FF0000000000000, %if.end ], [ 0x7FF8000000000000, %if.end16 ], [ 0x7FF0000000000000, %_ZNK6hermes2vm10StringView5beginEv.exit294 ], [ 0x7FF0000000000000, %if.end77 ], [ 0xFFF0000000000000, %if.end87 ], [ 0x7FF8000000000000, %if.end97 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i ], [ 0.000000e+00, %while.body59.us ], [ 0.000000e+00, %while.body59 ], [ 0.000000e+00, %while.body ]
+  ret double %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7288,7 +7288,7 @@ _ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11P
 
 cleanup:                                          ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %if.end21, %if.end.cleanup_crit_edge, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit
   %conv.i.i.i.pre-phi = phi i64 [ %.pre, %if.end.cleanup_crit_edge ], [ %conv.i.i, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit ], [ %conv.i.i, %if.end21 ], [ %conv.i.i, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
-  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %if.end.cleanup_crit_edge ], [ %spec.select, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit ], [ inttoptr (i64 -1 to ptr), %if.end21 ], [ inttoptr (i64 -1 to ptr), %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
+  %retval.sroa.0.1 = phi ptr [ inttoptr (i64 -1 to ptr), %if.end.cleanup_crit_edge ], [ %spec.select, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit ], [ inttoptr (i64 -1 to ptr), %if.end21 ], [ inttoptr (i64 -1 to ptr), %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
   %chunks_.i.i.i = getelementptr inbounds i8, ptr %2, i64 144
   %18 = load ptr, ptr %chunks_.i.i.i, align 8
   %arrayidx.i20.i.i.i = getelementptr inbounds ptr, ptr %18, i64 %conv.i.i.i.pre-phi
@@ -7301,8 +7301,8 @@ cleanup:                                          ; preds = %_ZN6hermes2vm15Hand
   br label %cleanup54
 
 cleanup54:                                        ; preds = %entry, %cleanup
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ inttoptr (i64 -1 to ptr), %entry ]
-  ret ptr %retval.sroa.0.1
+  %retval.sroa.0.0 = phi ptr [ %retval.sroa.0.1, %cleanup ], [ inttoptr (i64 -1 to ptr), %entry ]
+  ret ptr %retval.sroa.0.0
 }
 
 declare ptr @_ZN6hermes2vm7JSArray6createERNS0_7RuntimeEjj(ptr noundef nonnull align 8 dereferenceable(9832), i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -7781,7 +7781,7 @@ cleanup.loopexit:                                 ; preds = %while.cond52
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end68, %while.cond52, %cleanup.loopexit, %if.then78
-  %retval.sroa.0.0 = phi i32 [ %bf.value.i71, %if.then78 ], [ 1, %while.cond52 ], [ 257, %if.end68 ], [ 0, %cleanup.loopexit ]
+  %retval.sroa.0.1 = phi i32 [ %bf.value.i71, %if.then78 ], [ 1, %while.cond52 ], [ 257, %if.end68 ], [ 0, %cleanup.loopexit ]
   %36 = load ptr, ptr %chunks_.i.i, align 8
   %arrayidx.i20.i.i.i = getelementptr inbounds ptr, ptr %36, i64 %conv.i.i
   %37 = load ptr, ptr %arrayidx.i20.i.i.i, align 8
@@ -7792,8 +7792,8 @@ cleanup:                                          ; preds = %if.end68, %while.co
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8CallableEEENS0_6HandleIT_EEPS5_.exit, %while.end, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit, %cleanup, %if.then43
-  %retval.sroa.0.1 = phi i32 [ %retval.sroa.0.0, %cleanup ], [ %bf.value.i, %if.then43 ], [ 1, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit ], [ 1, %while.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8CallableEEENS0_6HandleIT_EEPS5_.exit ], [ 1, %entry ]
-  ret i32 %retval.sroa.0.1
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.1, %cleanup ], [ %bf.value.i, %if.then43 ], [ 1, %_ZN6hermes2vm5vmisaINS0_8CallableEEEbNS0_11HermesValueE.exit ], [ 1, %while.end ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8CallableEEENS0_6HandleIT_EEPS5_.exit ], [ 1, %entry ]
+  ret i32 %retval.sroa.0.0
 }
 
 declare ptr @_ZN6hermes2vm8JSObject14getPrototypeOfENS0_12PseudoHandleIS1_EERNS0_7RuntimeE(ptr, ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #1

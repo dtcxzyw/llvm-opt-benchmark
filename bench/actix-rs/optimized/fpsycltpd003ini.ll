@@ -177,12 +177,12 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
   br label %55
 
 55:                                               ; preds = %.preheader, %90
-  %.sroa.6.1.in = phi i64 [ %59, %90 ], [ %16, %.preheader ]
+  %.sroa.6.0.in = phi i64 [ %59, %90 ], [ %16, %.preheader ]
   %.pn = phi ptr [ %58, %90 ], [ %15, %.preheader ]
-  %.sroa.0.1 = getelementptr inbounds i8, ptr %.pn, i64 3
-  %.sroa.6.1 = add i64 %.sroa.6.1.in, -3
+  %.sroa.0.034 = getelementptr inbounds i8, ptr %.pn, i64 3
+  %.sroa.6.0 = add i64 %.sroa.6.0.in, -3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
-  %.not.i74.not = icmp eq i64 %.sroa.6.1, 0
+  %.not.i74.not = icmp eq i64 %.sroa.6.0, 0
   br i1 %.not.i74.not, label %._crit_edge78, label %.lr.ph77
 
 .lr.ph77:                                         ; preds = %55, %.backedge
@@ -191,7 +191,7 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
           to label %57 unwind label %.loopexit
 
 57:                                               ; preds = %.lr.ph77
-  invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h5a5857dd9afe3f25E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 1 %.sroa.0.1, i64 %.sroa.6.1, i64 %.sroa.01.0.i75, ptr nonnull align 8 @anon.4f8d80af8df40338868d006e3e6bb169.2)
+  invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h5a5857dd9afe3f25E"(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 %6, ptr nonnull align 1 %.sroa.0.034, i64 %.sroa.6.0, i64 %.sroa.01.0.i75, ptr nonnull align 8 @anon.4f8d80af8df40338868d006e3e6bb169.2)
           to label %.noexc7 unwind label %.loopexit
 
 .noexc7:                                          ; preds = %57
@@ -201,7 +201,7 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
   br i1 %60, label %61, label %.backedge
 
 .backedge:                                        ; preds = %.noexc7, %61, %.noexc9
-  %.not.i = icmp ult i64 %56, %.sroa.6.1
+  %.not.i = icmp ult i64 %56, %.sroa.6.0
   br i1 %.not.i, label %.lr.ph77, label %._crit_edge78
 
 61:                                               ; preds = %.noexc7
@@ -262,7 +262,7 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
 
 ._crit_edge78:                                    ; preds = %55, %.backedge
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h291d18f3299bf193E"(ptr nonnull align 8 %7, ptr nonnull align 1 %.sroa.0.1, i64 %.sroa.6.1)
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h291d18f3299bf193E"(ptr nonnull align 8 %7, ptr nonnull align 1 %.sroa.0.034, i64 %.sroa.6.0)
           to label %92 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 90:                                               ; preds = %91, %87

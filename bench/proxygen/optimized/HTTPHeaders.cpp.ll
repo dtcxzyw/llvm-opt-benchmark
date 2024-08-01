@@ -720,7 +720,7 @@ if.end.us.preheader.i:                            ; preds = %while.body.lr.ph.sp
   br label %if.end.us.i
 
 if.end.us.i:                                      ; preds = %if.end26.us.i, %if.end.us.preheader.i
-  %count.1 = phi i64 [ 0, %if.end.us.preheader.i ], [ %count.2, %if.end26.us.i ]
+  %count.3 = phi i64 [ 0, %if.end.us.preheader.i ], [ %count.4, %if.end26.us.i ]
   %call8.us63.i = phi ptr [ %call8.us60.i, %if.end.us.preheader.i ], [ %call8.us.i, %if.end26.us.i ]
   %sub.ptr.rhs.cast.us62.i = phi i64 [ %sub.ptr.lhs.cast.us55.i, %if.end.us.preheader.i ], [ %sub.ptr.rhs.cast.us.i, %if.end26.us.i ]
   %9 = phi i64 [ %7, %if.end.us.preheader.i ], [ %15, %if.end26.us.i ]
@@ -741,11 +741,11 @@ if.end.i21.us.i:                                  ; preds = %if.end.us.i
   %arrayidx22.us.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %12, i64 %sub.ptr.sub14.us.i
   %call.i22.us.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx22.us.i) #20
   %call3.i24.us.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx22.us.i) #20
-  %inc.i.us.i = add i64 %count.1, 1
+  %inc.i.us.i = add i64 %count.3, 1
   br label %if.end26.us.i
 
 if.end26.us.i:                                    ; preds = %if.end.i21.us.i, %if.end.us.i
-  %count.2 = phi i64 [ %inc.i.us.i, %if.end.i21.us.i ], [ %count.1, %if.end.us.i ]
+  %count.4 = phi i64 [ %inc.i.us.i, %if.end.i21.us.i ], [ %count.3, %if.end.us.i ]
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %call8.us63.i, i64 1
   %13 = load i64, ptr %length_.i, align 8
   %14 = load ptr, ptr %this, align 8
@@ -768,7 +768,7 @@ if.end.preheader.i:                               ; preds = %while.body.lr.ph.sp
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end26.i, %if.end.preheader.i
-  %count.3 = phi i64 [ 0, %if.end.preheader.i ], [ %count.4, %if.end26.i ]
+  %count.1 = phi i64 [ 0, %if.end.preheader.i ], [ %count.2, %if.end26.i ]
   %call852.i = phi ptr [ %call8.us60.i, %if.end.preheader.i ], [ %call8.i, %if.end26.i ]
   %sub.ptr.rhs.cast51.i = phi i64 [ %sub.ptr.lhs.cast44.i, %if.end.preheader.i ], [ %sub.ptr.rhs.cast.i, %if.end26.i ]
   %16 = phi i64 [ %7, %if.end.preheader.i ], [ %26, %if.end26.i ]
@@ -814,11 +814,11 @@ if.then19.loopexit.i:                             ; preds = %for.inc.i.i.i
   %arrayidx22.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %23, i64 %sub.ptr.sub14.i
   %call.i22.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx22.i) #20
   %call3.i24.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx22.i) #20
-  %inc.i.i = add i64 %count.3, 1
+  %inc.i.i = add i64 %count.1, 1
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i.i, %if.end.i.i.i.i, %if.then19.loopexit.i, %if.end.i
-  %count.4 = phi i64 [ %inc.i.i, %if.then19.loopexit.i ], [ %count.3, %if.end.i ], [ %count.3, %if.end.i.i.i.i ], [ %count.3, %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i.i ]
+  %count.2 = phi i64 [ %inc.i.i, %if.then19.loopexit.i ], [ %count.1, %if.end.i ], [ %count.1, %if.end.i.i.i.i ], [ %count.1, %_ZNK5folly20AsciiCaseInsensitiveclEcc.exit.i.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %call852.i, i64 1
   %24 = load i64, ptr %length_.i, align 8
   %25 = load ptr, ptr %this, align 8
@@ -834,7 +834,7 @@ if.end26.i:                                       ; preds = %_ZNK5folly20AsciiCa
   br i1 %cmp9.i, label %"_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_17getNumberOfValuesEN5folly5RangeIPKcEEE3$_0EEbS6_T_.exit", label %if.end.i
 
 "_ZNK8proxygen11HTTPHeaders20forEachValueOfHeaderIZNKS0_17getNumberOfValuesEN5folly5RangeIPKcEEE3$_0EEbS6_T_.exit": ; preds = %if.end.i.i, %if.end26.i, %if.end26.us.i, %if.then.i, %while.body.preheader.i.i, %if.else.i, %while.body.lr.ph.split.us.split.i, %while.body.lr.ph.split.split.i
-  %count.5 = phi i64 [ 0, %if.else.i ], [ 0, %while.body.lr.ph.split.us.split.i ], [ 0, %while.body.lr.ph.split.split.i ], [ 0, %if.then.i ], [ 0, %while.body.preheader.i.i ], [ %count.2, %if.end26.us.i ], [ %count.4, %if.end26.i ], [ %inc.i.i.i, %if.end.i.i ]
+  %count.5 = phi i64 [ 0, %if.else.i ], [ 0, %while.body.lr.ph.split.us.split.i ], [ 0, %while.body.lr.ph.split.split.i ], [ 0, %if.then.i ], [ 0, %while.body.preheader.i.i ], [ %count.4, %if.end26.us.i ], [ %count.2, %if.end26.i ], [ %inc.i.i.i, %if.end.i.i ]
   ret i64 %count.5
 }
 
@@ -2212,8 +2212,8 @@ if.end39:                                         ; preds = %while.body28.lr.ph,
   br i1 %cmp37, label %if.end55, label %if.end39
 
 if.end55:                                         ; preds = %if.end39, %if.end23, %if.end23.us, %while.body28.lr.ph, %if.else, %if.then, %while.body.lr.ph.split.split, %while.body.lr.ph.split.us.split
-  %transferred.3 = phi i1 [ false, %if.then ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.lr.ph.split.split ], [ false, %if.else ], [ %cmp37102, %while.body28.lr.ph ], [ %transferred.1.us, %if.end23.us ], [ %transferred.1, %if.end23 ], [ %cmp37102, %if.end39 ]
-  ret i1 %transferred.3
+  %transferred.2 = phi i1 [ false, %if.then ], [ false, %while.body.lr.ph.split.us.split ], [ false, %while.body.lr.ph.split.split ], [ false, %if.else ], [ %cmp37102, %while.body28.lr.ph ], [ %transferred.1.us, %if.end23.us ], [ %transferred.1, %if.end23 ], [ %cmp37102, %if.end39 ]
+  ret i1 %transferred.2
 }
 
 ; Function Attrs: mustprogress uwtable

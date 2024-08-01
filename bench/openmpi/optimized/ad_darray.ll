@@ -494,18 +494,18 @@ define internal fastcc void @MPIOI_Type_cyclic(ptr nocapture noundef readonly %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %43, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.1102 = phi i64 [ %40, %.lr.ph.preheader ], [ %52, %.lr.ph ]
+  %.2102 = phi i64 [ %40, %.lr.ph.preheader ], [ %52, %.lr.ph ]
   %49 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
   %51 = sext i32 %50 to i64
-  %52 = mul nsw i64 %.1102, %51
+  %52 = mul nsw i64 %.2102, %51
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %53 = icmp sgt i64 %indvars.iv.next, %23
   br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph106, %.preheader99, %.preheader
-  %.2 = phi i64 [ %40, %.preheader ], [ %40, %.preheader99 ], [ %48, %.lr.ph106 ], [ %52, %.lr.ph ]
-  %54 = tail call i32 @PMPI_Type_create_hvector(i32 noundef %35, i32 noundef %., i64 noundef %.2, ptr noundef %8, ptr noundef %9) #3
+  %.1 = phi i64 [ %40, %.preheader ], [ %40, %.preheader99 ], [ %48, %.lr.ph106 ], [ %52, %.lr.ph ]
+  %54 = tail call i32 @PMPI_Type_create_hvector(i32 noundef %35, i32 noundef %., i64 noundef %.1, ptr noundef %8, ptr noundef %9) #3
   %.not95 = icmp eq i32 %36, 0
   br i1 %.not95, label %65, label %55
 
@@ -516,7 +516,7 @@ define internal fastcc void @MPIOI_Type_cyclic(ptr nocapture noundef readonly %0
   store ptr %8, ptr %57, align 8
   store i64 0, ptr %13, align 16
   %58 = sext i32 %35 to i64
-  %59 = mul nsw i64 %.2, %58
+  %59 = mul nsw i64 %.1, %58
   %60 = getelementptr inbounds i8, ptr %13, i64 8
   store i64 %59, ptr %60, align 8
   store i32 1, ptr %12, align 4

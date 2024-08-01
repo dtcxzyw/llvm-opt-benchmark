@@ -1187,7 +1187,7 @@ _get_pbs_option_value.exit210.i:                  ; preds = %309, %.critedge.i20
   %318 = phi i64 [ %392, %_get_next_pbs_node_part.exit.i.i ], [ 0, %314 ]
   %.067.i.i = phi i32 [ %.1.i.i, %_get_next_pbs_node_part.exit.i.i ], [ 0, %314 ]
   %.02366.i.i = phi i32 [ %.124.i.i, %_get_next_pbs_node_part.exit.i.i ], [ 0, %314 ]
-  %.05565.i.i = phi i32 [ %.9.i.i, %_get_next_pbs_node_part.exit.i.i ], [ 0, %314 ]
+  %.05565.i.i = phi i32 [ %.156.i.i, %_get_next_pbs_node_part.exit.i.i ], [ 0, %314 ]
   %319 = call i32 @xstrncmp(ptr noundef nonnull %317, ptr noundef nonnull @.str.84, i64 noundef 5) #12
   %.not27.i.i = icmp eq i32 %319, 0
   br i1 %.not27.i.i, label %320, label %337
@@ -1285,7 +1285,7 @@ _get_pbs_option_value.exit210.i:                  ; preds = %309, %.critedge.i20
   br label %365
 
 365:                                              ; preds = %368, %361
-  %.5.i.i = phi i32 [ %.05565.i.i, %361 ], [ %369, %368 ]
+  %.6.i.i = phi i32 [ %.05565.i.i, %361 ], [ %369, %368 ]
   %indvars.iv.i34.i.i = phi i64 [ %318, %361 ], [ %indvars.iv.next.i35.i.i, %368 ]
   %366 = getelementptr inbounds i8, ptr %301, i64 %indvars.iv.i34.i.i
   %367 = load i8, ptr %366, align 1
@@ -1311,7 +1311,7 @@ _get_pbs_option_value.exit210.i:                  ; preds = %309, %.critedge.i20
   br i1 %.not30.i.i, label %390, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %373, %377
-  %.7.i.i = phi i32 [ %378, %377 ], [ %.05565.i.i, %373 ]
+  %.8.i.i = phi i32 [ %378, %377 ], [ %.05565.i.i, %373 ]
   %indvars.iv.i37.i.i = phi i64 [ %indvars.iv.next.i41.i.i, %377 ], [ %318, %373 ]
   %375 = getelementptr inbounds i8, ptr %301, i64 %indvars.iv.i37.i.i
   %376 = load i8, ptr %375, align 1
@@ -1332,15 +1332,15 @@ _get_pbs_option_value.exit210.i:                  ; preds = %309, %.critedge.i20
   %380 = add i32 %reass.sub62, 1
   %381 = sext i32 %380 to i64
   %382 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %381, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 432, ptr noundef nonnull @__func__._get_pbs_node_name) #12
-  %383 = sub nsw i32 %.7.i.i, %.05565.i.i
+  %383 = sub nsw i32 %.8.i.i, %.05565.i.i
   %384 = sext i32 %383 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %382, ptr nonnull readonly align 1 %317, i64 %384, i1 false)
-  %385 = sext i32 %.7.i.i to i64
+  %385 = sext i32 %.8.i.i to i64
   %386 = getelementptr inbounds i8, ptr %301, i64 %385
   %387 = load i8, ptr %386, align 1
   %.not20.i40.i.i = icmp ne i8 %387, 0
   %388 = zext i1 %.not20.i40.i.i to i32
-  %spec.select58.i.i = add nsw i32 %.7.i.i, %388
+  %spec.select58.i.i = add nsw i32 %.8.i.i, %388
   store ptr %382, ptr %4, align 8
   %389 = call i32 @hostlist_push_host(ptr noundef %315, ptr noundef %382) #12
   call void @slurm_xfree(ptr noundef nonnull %4) #12
@@ -1355,10 +1355,10 @@ _get_next_pbs_node_part.exit.loopexit.i.i:        ; preds = %346
   br label %_get_next_pbs_node_part.exit.i.i
 
 _get_next_pbs_node_part.exit.i.i:                 ; preds = %365, %_get_next_pbs_node_part.exit.loopexit.i.i, %390, %.critedge.i38.i.i, %370, %350, %.critedge.i.i.i
-  %.9.i.i = phi i32 [ %spec.select.i.i, %.critedge.i.i.i ], [ %391, %390 ], [ %spec.select58.i.i, %.critedge.i38.i.i ], [ %351, %350 ], [ %372, %370 ], [ %indvars75.le88.i.i, %_get_next_pbs_node_part.exit.loopexit.i.i ], [ %.5.i.i, %365 ]
+  %.156.i.i = phi i32 [ %spec.select.i.i, %.critedge.i.i.i ], [ %391, %390 ], [ %spec.select58.i.i, %.critedge.i38.i.i ], [ %351, %350 ], [ %372, %370 ], [ %indvars75.le88.i.i, %_get_next_pbs_node_part.exit.loopexit.i.i ], [ %.6.i.i, %365 ]
   %.124.i.i = phi i32 [ %.02366.i.i, %.critedge.i.i.i ], [ %.02366.i.i, %390 ], [ %.02366.i.i, %.critedge.i38.i.i ], [ %.02366.i.i, %350 ], [ %364, %370 ], [ %.02366.i.i, %_get_next_pbs_node_part.exit.loopexit.i.i ], [ %364, %365 ]
   %.1.i.i = phi i32 [ %.067.i.i, %.critedge.i.i.i ], [ %.067.i.i, %390 ], [ %.067.i.i, %.critedge.i38.i.i ], [ %345, %350 ], [ %.067.i.i, %370 ], [ %345, %_get_next_pbs_node_part.exit.loopexit.i.i ], [ %.067.i.i, %365 ]
-  %392 = sext i32 %.9.i.i to i64
+  %392 = sext i32 %.156.i.i to i64
   %393 = getelementptr inbounds i8, ptr %301, i64 %392
   %394 = load i8, ptr %393, align 1
   %.not.i212.i = icmp eq i8 %394, 0

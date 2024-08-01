@@ -1000,20 +1000,20 @@ do.end.i.i90:                                     ; preds = %land.rhs.i.i91, %do
   unreachable
 
 if.end62:                                         ; preds = %if.then51, %if.else57
-  %fd.2151 = phi i32 [ %call58, %if.else57 ], [ %fd.1174, %if.then51 ]
+  %fd.3151 = phi i32 [ %call58, %if.else57 ], [ %fd.1174, %if.then51 ]
   %close_fd.0140 = phi i32 [ %close_fd.0142, %if.else57 ], [ -1, %if.then51 ]
-  %cmp63 = icmp slt i32 %fd.2151, 3
+  %cmp63 = icmp slt i32 %fd.3151, 3
   %cmp64 = icmp eq i32 %close_fd.0140, -1
   %or.cond1 = and i1 %cmp63, %cmp64
   br i1 %or.cond1, label %if.then65, label %if.end67
 
 if.then65:                                        ; preds = %if.end62
-  %call66 = tail call i32 @uv__nonblock_fcntl(i32 noundef %fd.2151, i32 noundef 0) #12
+  %call66 = tail call i32 @uv__nonblock_fcntl(i32 noundef %fd.3151, i32 noundef 0) #12
   br label %if.end67
 
 if.end67:                                         ; preds = %if.end47, %if.then65, %if.end62
   %close_fd.0140158 = phi i32 [ -1, %if.then65 ], [ %close_fd.0140, %if.end62 ], [ %fd.1174, %if.end47 ]
-  %fd.2151157 = phi i32 [ %fd.2151, %if.then65 ], [ %fd.2151, %if.end62 ], [ %fd.1174, %if.end47 ]
+  %fd.3151157 = phi i32 [ %fd.3151, %if.then65 ], [ %fd.3151, %if.end62 ], [ %fd.1174, %if.end47 ]
   %cmp68.not = icmp slt i32 %close_fd.0140158, %stdio_count
   br i1 %cmp68.not, label %for.inc72, label %if.then69
 
@@ -1022,8 +1022,8 @@ if.then69:                                        ; preds = %if.end67
   br label %for.inc72
 
 for.inc72:                                        ; preds = %if.end67, %if.then69, %if.then37
-  %fd.3 = phi i32 [ %fd.1174, %if.then37 ], [ %fd.2151157, %if.then69 ], [ %fd.2151157, %if.end67 ]
-  %inc73 = add nsw i32 %fd.3, 1
+  %fd.2 = phi i32 [ %fd.1174, %if.then37 ], [ %fd.3151157, %if.then69 ], [ %fd.3151157, %if.end67 ]
+  %inc73 = add nsw i32 %fd.2, 1
   %cmp31 = icmp slt i32 %inc73, %stdio_count
   br i1 %cmp31, label %for.body32, label %for.end74
 

@@ -1555,10 +1555,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
 
 209:                                              ; preds = %206, %209
   %.0327 = phi i64 [ 0, %206 ], [ %216, %209 ]
-  %.2326 = phi ptr [ %208, %206 ], [ %212, %209 ]
+  %.3326 = phi ptr [ %208, %206 ], [ %212, %209 ]
   %210 = phi i64 [ 0, %206 ], [ %215, %209 ]
   %211 = shl i64 %210, 8
-  %212 = getelementptr inbounds i8, ptr %.2326, i64 -1
+  %212 = getelementptr inbounds i8, ptr %.3326, i64 -1
   %213 = load i8, ptr %212, align 1
   %214 = zext i8 %213 to i64
   %215 = or disjoint i64 %211, %214
@@ -1568,7 +1568,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
   br i1 %exitcond.not, label %217, label %209
 
 217:                                              ; preds = %209
-  %218 = getelementptr inbounds i8, ptr %.2326, i64 7
+  %218 = getelementptr inbounds i8, ptr %.3326, i64 7
   br label %219
 
 default.unreachable333:                           ; preds = %130
@@ -1576,7 +1576,7 @@ default.unreachable333:                           ; preds = %130
 
 219:                                              ; preds = %217, %176, %156, %141
   %220 = phi i64 [ %215, %217 ], [ %194, %176 ], [ %164, %156 ], [ %144, %141 ]
-  %.3 = phi ptr [ %218, %217 ], [ %195, %176 ], [ %165, %156 ], [ %142, %141 ]
+  %.2 = phi ptr [ %218, %217 ], [ %195, %176 ], [ %165, %156 ], [ %142, %141 ]
   %.not291 = icmp eq i64 %220, 0
   br i1 %.not291, label %346, label %221
 
@@ -1768,7 +1768,7 @@ default.unreachable333:                           ; preds = %130
   br label %369
 
 346:                                              ; preds = %219, %221
-  %347 = ptrtoint ptr %.3 to i64
+  %347 = ptrtoint ptr %.2 to i64
   %348 = sub i64 %347, %24
   br i1 %.not.not, label %349, label %362
 
@@ -2088,7 +2088,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   %.1461 = phi ptr [ %.0, %.lr.ph ], [ %.4, %491 ]
   %.0301460 = phi i32 [ 0, %.lr.ph ], [ %.1302, %491 ]
   %.0303459 = phi i32 [ 0, %.lr.ph ], [ %spec.select376, %491 ]
-  %.0305458 = phi i1 [ false, %.lr.ph ], [ %.2307, %491 ]
+  %.0305458 = phi i1 [ false, %.lr.ph ], [ %.1306, %491 ]
   %173 = load i8, ptr %151, align 8
   %174 = icmp ne i8 %173, 1
   %175 = icmp ugt ptr %.1461, %96
@@ -2447,7 +2447,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__chunk_deserialize(ptr noundef 
   br label %378
 
 378:                                              ; preds = %363, %364, %377
-  %.1306 = phi i1 [ true, %364 ], [ %.0305458, %363 ], [ %.0305458, %377 ]
+  %.2307 = phi i1 [ true, %364 ], [ %.0305458, %363 ], [ %.0305458, %377 ]
   %379 = add nsw i32 %.0310, -6
   %380 = call i32 @llvm.fshl.i32(i32 %379, i32 %379, i32 31)
   switch i32 %380, label %453 [
@@ -2597,7 +2597,7 @@ H5O__add_cont_msg.exit:                           ; preds = %._crit_edge.i, %408
   br label %460
 
 460:                                              ; preds = %453, %456, %459, %313
-  %.2307 = phi i1 [ %.0305458, %313 ], [ true, %459 ], [ %.1306, %456 ], [ %.1306, %453 ]
+  %.1306 = phi i1 [ %.0305458, %313 ], [ true, %459 ], [ %.2307, %456 ], [ %.2307, %453 ]
   %.1302 = phi i32 [ %321, %313 ], [ %.0301460, %459 ], [ %.0301460, %456 ], [ %.0301460, %453 ]
   %461 = ptrtoint ptr %283 to i64
   %462 = sub i64 %171, %461
@@ -2659,7 +2659,7 @@ H5O__add_cont_msg.exit:                           ; preds = %._crit_edge.i, %408
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %150
   %493 = phi i8 [ %98, %150 ], [ %.pre474, %._crit_edge.loopexit ]
-  %.0305.lcssa = phi i1 [ false, %150 ], [ %.2307, %._crit_edge.loopexit ]
+  %.0305.lcssa = phi i1 [ false, %150 ], [ %.1306, %._crit_edge.loopexit ]
   %.0301.lcssa = phi i32 [ 0, %150 ], [ %.1302, %._crit_edge.loopexit ]
   %.1.lcssa = phi ptr [ %.0, %150 ], [ %.4, %._crit_edge.loopexit ]
   %494 = icmp ugt i8 %493, 1

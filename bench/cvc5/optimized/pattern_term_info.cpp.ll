@@ -934,7 +934,7 @@ if.then.i.i.i481:                                 ; preds = %ehcleanup144
   br label %ehcleanup145
 
 cleanup:                                          ; preds = %if.then.i.i.i479, %cond.true120, %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i180, %if.then.i1.i.i183, %cond.true61
-  %retval.0 = phi i1 [ false, %cond.true61 ], [ true, %if.then.i1.i.i183 ], [ true, %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i180 ], [ true, %cond.true120 ], [ true, %if.then.i.i.i479 ]
+  %retval.1 = phi i1 [ false, %cond.true61 ], [ true, %if.then.i1.i.i183 ], [ true, %_ZN4cvc57context10ContextObj11makeCurrentEv.exit.i.i180 ], [ true, %cond.true120 ], [ true, %if.then.i.i.i479 ]
   %65 = load ptr, ptr %exp, align 8
   %bf.load.i.i483 = load i64, ptr %65, align 8
   %66 = and i64 %bf.load.i.i483, 1152920405095219200
@@ -967,8 +967,8 @@ ehcleanup145:                                     ; preds = %if.then.i.i.i481, %
   br label %common.resume
 
 return:                                           ; preds = %if.then13.i.i, %if.then.i.i, %cleanup, %_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv.exit
-  %retval.1 = phi i1 [ false, %_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv.exit ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i ], [ %retval.0, %if.then13.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZNK4cvc58internal12NodeTemplateILb0EE6isNullEv.exit ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i ], [ %retval.1, %if.then13.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

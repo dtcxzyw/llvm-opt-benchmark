@@ -2924,7 +2924,7 @@ Wlc_NtkCollectStats.exit:                         ; preds = %.critedge.i.thread,
 
 53:                                               ; preds = %.lr.ph, %1294
   %indvars.iv846 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next847, %1294 ]
-  %.0327833 = phi ptr [ null, %.lr.ph ], [ %.2, %1294 ]
+  %.0327833 = phi ptr [ null, %.lr.ph ], [ %.1, %1294 ]
   %.0328832 = phi i32 [ 0, %.lr.ph ], [ %.1329, %1294 ]
   %.0334829 = phi i64 [ 0, %.lr.ph ], [ %.1335, %1294 ]
   %.val359 = load ptr, ptr %44, align 8
@@ -2962,7 +2962,7 @@ Wlc_NtkCollectStats.exit:                         ; preds = %.critedge.i.thread,
   %74 = zext i1 %.not349 to i32
   %.1329 = add nuw nsw i32 %.0328832, %74
   %75 = select i1 %.not349, i1 %73, i1 false
-  %.2 = select i1 %75, ptr %54, ptr %.0327833
+  %.1 = select i1 %75, ptr %54, ptr %.0327833
   %76 = and i16 %.val360, 61
   %narrow.i.not = icmp eq i16 %76, 1
   br i1 %narrow.i.not, label %79, label %77
@@ -5141,7 +5141,7 @@ Wlc_ObjFanin1.exit769:                            ; preds = %Wlc_ObjFanin0.exit7
   %1301 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.1329)
   %1302 = getelementptr i8, ptr %0, i64 640
   %.val357 = load ptr, ptr %1302, align 8
-  %1303 = ptrtoint ptr %.2 to i64
+  %1303 = ptrtoint ptr %.1 to i64
   %1304 = ptrtoint ptr %.val357 to i64
   %1305 = sub i64 %1303, %1304
   %1306 = sdiv exact i64 %1305, 24
@@ -5155,9 +5155,9 @@ Wlc_ObjFanin1.exit769:                            ; preds = %Wlc_ObjFanin0.exit7
   %1312 = getelementptr inbounds i8, ptr %.val361, i64 %1311
   %1313 = load i32, ptr %1312, align 4
   %1314 = tail call ptr @Abc_NamStr(ptr noundef %1309, i32 noundef %1313) #25
-  %1315 = getelementptr i8, ptr %.2, i64 8
+  %1315 = getelementptr i8, ptr %.1, i64 8
   %.0327.val = load i32, ptr %1315, align 8
-  %1316 = getelementptr i8, ptr %.2, i64 12
+  %1316 = getelementptr i8, ptr %.1, i64 12
   %.0327.val553 = load i32, ptr %1316, align 4
   %1317 = sub nsw i32 %.0327.val, %.0327.val553
   %1318 = tail call i32 @llvm.abs.i32(i32 %1317, i1 true)
@@ -6659,7 +6659,7 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %3
 
 13:                                               ; preds = %.lr.ph, %41
   %indvars.iv48 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next49, %41 ]
-  %.042 = phi i32 [ 0, %.lr.ph ], [ %.2, %41 ]
+  %.042 = phi i32 [ 0, %.lr.ph ], [ %.1, %41 ]
   %.02141 = phi i32 [ 0, %.lr.ph ], [ %.122, %41 ]
   %14 = getelementptr inbounds i32, ptr %.val27, i64 %indvars.iv48
   %15 = load i32, ptr %14, align 4
@@ -6706,7 +6706,7 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %3
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %13
   %.pre-phi = phi i16 [ %.pre, %.loopexit.loopexit ], [ %18, %13 ]
-  %.2 = phi i32 [ %33, %.loopexit.loopexit ], [ %.042, %13 ]
+  %.1 = phi i32 [ %33, %.loopexit.loopexit ], [ %.042, %13 ]
   %.not35 = icmp eq i16 %.pre-phi, 1
   br i1 %.not35, label %41, label %34
 
@@ -6728,7 +6728,7 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %3
   br i1 %exitcond.not, label %.critedge.loopexit, label %13, !llvm.loop !50
 
 .critedge.loopexit:                               ; preds = %41
-  %42 = sext i32 %.2 to i64
+  %42 = sext i32 %.1 to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Abc_UtilStrsav.exit

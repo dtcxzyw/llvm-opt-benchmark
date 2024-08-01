@@ -1686,7 +1686,7 @@ terminate.lpad.i.i215:                            ; preds = %if.then.i.i213
 
 cleanup:                                          ; preds = %invoke.cont168, %if.then170, %_ZN7rocksdb6StatusD2Ev.exit175
   %cmp99.not286 = phi i1 [ %cmp99.not.le425, %invoke.cont168 ], [ %cmp99.not.le425, %if.then170 ], [ %cmp99.not304.lcssa, %_ZN7rocksdb6StatusD2Ev.exit175 ]
-  %nrvo.0 = xor i1 %cmp99.not286, true
+  %nrvo.1 = xor i1 %cmp99.not286, true
   %tobool.not.i.i.i = icmp eq ptr %cond.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %cleanup176, label %if.then.i.i.i218
 
@@ -1702,14 +1702,14 @@ if.then.i.i.i218.sink.split:                      ; preds = %if.then.i.i.i218.si
   br label %if.then.i.i.i218
 
 if.then.i.i.i218:                                 ; preds = %if.then.i.i.i218.sink.split, %cleanup
-  %nrvo.0257 = phi i1 [ %nrvo.0, %cleanup ], [ true, %if.then.i.i.i218.sink.split ]
+  %nrvo.1257 = phi i1 [ %nrvo.1, %cleanup ], [ true, %if.then.i.i.i218.sink.split ]
   %135 = phi i1 [ %cmp99.not286, %cleanup ], [ false, %if.then.i.i.i218.sink.split ]
   call void @_ZdlPv(ptr noundef nonnull %cond.i.i.i.i) #18
   br label %cleanup176
 
 cleanup176:                                       ; preds = %if.then.i.i.i218, %cleanup, %_ZN7rocksdb6StatusD2Ev.exit
-  %cleanup.dest.slot.1 = phi i1 [ false, %_ZN7rocksdb6StatusD2Ev.exit ], [ %cmp99.not286, %cleanup ], [ %135, %if.then.i.i.i218 ]
-  %nrvo.1 = phi i1 [ true, %_ZN7rocksdb6StatusD2Ev.exit ], [ %nrvo.0, %cleanup ], [ %nrvo.0257, %if.then.i.i.i218 ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %_ZN7rocksdb6StatusD2Ev.exit ], [ %cmp99.not286, %cleanup ], [ %135, %if.then.i.i.i218 ]
+  %nrvo.0 = phi i1 [ true, %_ZN7rocksdb6StatusD2Ev.exit ], [ %nrvo.1, %cleanup ], [ %nrvo.1257, %if.then.i.i.i218 ]
   invoke void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %mutex_)
           to label %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit unwind label %terminate.lpad.i
 
@@ -1721,7 +1721,7 @@ terminate.lpad.i:                                 ; preds = %cleanup176
   unreachable
 
 _ZN7rocksdb21InstrumentedMutexLockD2Ev.exit:      ; preds = %cleanup176
-  br i1 %cleanup.dest.slot.1, label %cleanup.cont, label %cleanup182
+  br i1 %cleanup.dest.slot.0, label %cleanup.cont, label %cleanup182
 
 cleanup.cont:                                     ; preds = %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit
   %info_log179 = getelementptr inbounds i8, ptr %this, i64 896
@@ -1757,7 +1757,7 @@ terminate.lpad.i224:                              ; preds = %ehcleanup177
 cleanup182:                                       ; preds = %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit
   call void @_ZN7rocksdb10JobContextD2Ev(ptr noundef nonnull align 8 dereferenceable(608) %job_context) #19
   call void @_ZN7rocksdb11VersionEditD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %edit) #19
-  br i1 %nrvo.1, label %nrvo.skipdtor, label %nrvo.unused
+  br i1 %nrvo.0, label %nrvo.skipdtor, label %nrvo.unused
 
 ehcleanup183:                                     ; preds = %ehcleanup177, %lpad8
   %.pn53 = phi { ptr, i32 } [ %15, %lpad8 ], [ %.pn51, %ehcleanup177 ]

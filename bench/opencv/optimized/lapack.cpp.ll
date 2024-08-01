@@ -1874,13 +1874,13 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc155, %117
 
 142:                                              ; preds = %.lr.ph172, %142
   %indvars.iv178 = phi i64 [ 0, %.lr.ph172 ], [ %indvars.iv.next179, %142 ]
-  %.0129170 = phi double [ %137, %.lr.ph172 ], [ %148, %142 ]
+  %.1130170 = phi double [ %137, %.lr.ph172 ], [ %148, %142 ]
   %143 = mul i64 %141, %indvars.iv178
   %144 = getelementptr inbounds i8, ptr %139, i64 %143
   %145 = getelementptr inbounds float, ptr %144, i64 %indvars.iv178
   %146 = load float, ptr %145, align 4
   %147 = fpext float %146 to double
-  %148 = fmul double %.0129170, %147
+  %148 = fmul double %.1130170, %147
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
   br i1 %exitcond182.not, label %.loopexit, label %142, !llvm.loop !58
@@ -1901,7 +1901,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc155, %117
   br label %160
 
 .loopexit:                                        ; preds = %142, %136
-  %.1130 = phi double [ %137, %136 ], [ %148, %142 ]
+  %.0129 = phi double [ %137, %136 ], [ %148, %142 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #15
   %155 = load ptr, ptr %8, align 8
   %.not.i.i156 = icmp eq ptr %155, %121
@@ -2059,12 +2059,12 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit161:         ; preds = %.noexc160, %212
 
 237:                                              ; preds = %.lr.ph, %237
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %237 ]
-  %.2131168 = phi double [ %232, %.lr.ph ], [ %242, %237 ]
+  %.4133168 = phi double [ %232, %.lr.ph ], [ %242, %237 ]
   %238 = mul i64 %236, %indvars.iv
   %239 = getelementptr inbounds i8, ptr %234, i64 %238
   %240 = getelementptr inbounds double, ptr %239, i64 %indvars.iv
   %241 = load double, ptr %240, align 8
-  %242 = fmul double %.2131168, %241
+  %242 = fmul double %.4133168, %241
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit167, label %237, !llvm.loop !59
@@ -2129,7 +2129,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit161:         ; preds = %.noexc160, %212
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit158
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %253, %.loopexit167, %159, %.loopexit, %168, %210, %179, %59, %114, %74
-  %.4133 = phi double [ %73, %59 ], [ %113, %74 ], [ %116, %114 ], [ %178, %168 ], [ %209, %179 ], [ %211, %210 ], [ %.1130, %.loopexit ], [ %.1130, %159 ], [ %.3132, %.loopexit167 ], [ %.3132, %253 ]
+  %.2131 = phi double [ %73, %59 ], [ %113, %74 ], [ %116, %114 ], [ %178, %168 ], [ %209, %179 ], [ %211, %210 ], [ %.0129, %.loopexit ], [ %.0129, %159 ], [ %.3132, %.loopexit167 ], [ %.3132, %253 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #15
   %261 = getelementptr inbounds i8, ptr %2, i64 8
   %262 = load i32, ptr %261, align 8
@@ -2148,7 +2148,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %253, %.loopexit167,
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, %263
-  ret double %.4133
+  ret double %.2131
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit158:         ; preds = %260, %255, %166, %161, %55, %41, %32
   %.pn148.pn = phi { ptr, i32 } [ %.pn148, %41 ], [ %33, %32 ], [ %.pn, %55 ], [ %.pn144.pn, %161 ], [ %.pn144.pn, %166 ], [ %.pn141.pn, %255 ], [ %.pn141.pn, %260 ]
@@ -3424,8 +3424,8 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit522:         ; preds = %.noexc521, %593
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit526
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit524:         ; preds = %589, %584, %529, %454, %390, %357, %662, %657, %591
-  %.0.in = phi i1 [ false, %591 ], [ %.1420.in580, %657 ], [ %.1420.in580, %662 ], [ true, %357 ], [ true, %390 ], [ true, %454 ], [ true, %529 ], [ true, %584 ], [ true, %589 ]
-  %.0 = uitofp i1 %.0.in to double
+  %.1.in = phi i1 [ false, %591 ], [ %.1420.in580, %657 ], [ %.1420.in580, %662 ], [ true, %357 ], [ true, %390 ], [ true, %454 ], [ true, %529 ], [ true, %584 ], [ true, %589 ]
+  %.1 = uitofp i1 %.1.in to double
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #15
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit
 
@@ -3435,7 +3435,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit526:         ; preds = %669, %664, %579, %3
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit508
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %289, %283, %174, %168, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit524
-  %.1 = phi double [ %.0, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit524 ], [ %169, %168 ], [ %169, %174 ], [ %284, %283 ], [ %284, %289 ]
+  %.0 = phi double [ %.1, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit524 ], [ %169, %168 ], [ %169, %174 ], [ %284, %283 ], [ %284, %289 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #15
   %670 = getelementptr inbounds i8, ptr %5, i64 8
   %671 = load i32, ptr %670, align 8
@@ -3454,7 +3454,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %289, %283, %174, %1
   unreachable
 
 _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit, %672
-  ret double %.1
+  ret double %.0
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit508:         ; preds = %310, %305, %192, %187, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit526, %321, %202, %72, %63
   %.pn491.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %64, %63 ], [ %.pn472, %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit526 ], [ %.pn465, %321 ], [ %.pn463, %202 ], [ %.pn, %72 ], [ %.pn491.pn.pn.pn.pn.pn.pn, %187 ], [ %.pn491.pn.pn.pn.pn.pn.pn, %192 ], [ %.pn479.pn.pn.pn.pn.pn.pn, %305 ], [ %.pn479.pn.pn.pn.pn.pn.pn, %310 ]
@@ -5536,8 +5536,8 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %.noexc625, %_ZN2cv1
           to label %625 unwind label %592
 
 625:                                              ; preds = %623, %621
-  %.1.in.in = phi i32 [ %622, %621 ], [ %624, %623 ]
-  %.1.in.not = icmp eq i32 %.1.in.in, 0
+  %.2.in.in = phi i32 [ %622, %621 ], [ %624, %623 ]
+  %.2.in.not = icmp eq i32 %.2.in.in, 0
   %626 = getelementptr inbounds i8, ptr %41, i64 8
   %627 = load i32, ptr %626, align 8
   %628 = getelementptr inbounds i8, ptr %19, i64 8
@@ -5578,7 +5578,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit:     ; preds = %.noexc625, %_ZN2cv1
 
 638:                                              ; preds = %635, %625
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %41) #15
-  br i1 %.1.in.not, label %700, label %702
+  br i1 %.2.in.not, label %700, label %702
 
 639:                                              ; preds = %636, %604, %602, %594, %592
   %.pn592.pn = phi { ptr, i32 } [ %637, %636 ], [ %593, %592 ], [ %595, %594 ], [ %605, %604 ], [ %603, %602 ]
@@ -5712,8 +5712,8 @@ _ZN2cvL9JacobiSVDEPfmS0_S0_miii.exit.invoke:      ; preds = %.split30.i.i, %.spl
   br label %708
 
 699:                                              ; preds = %584, %582
-  %.2.shrunk = phi i1 [ %583, %582 ], [ %585, %584 ]
-  br i1 %.2.shrunk, label %702, label %700
+  %.1.shrunk = phi i1 [ %583, %582 ], [ %585, %584 ]
+  br i1 %.1.shrunk, label %702, label %700
 
 700:                                              ; preds = %699, %569, %572, %638
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 32, i1 false)
@@ -5721,7 +5721,7 @@ _ZN2cvL9JacobiSVDEPfmS0_S0_miii.exit.invoke:      ; preds = %.split30.i.i, %.spl
           to label %702 unwind label %486
 
 702:                                              ; preds = %638, %572, %569, %.thread645, %700, %699
-  %.2.shrunk647 = phi i1 [ true, %.thread645 ], [ false, %700 ], [ true, %699 ], [ true, %569 ], [ true, %572 ], [ true, %638 ]
+  %.1.shrunk647 = phi i1 [ true, %.thread645 ], [ false, %700 ], [ true, %699 ], [ true, %569 ], [ true, %572 ], [ true, %638 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %19) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #15
@@ -5777,7 +5777,7 @@ _ZN2cvL9JacobiSVDEPfmS0_S0_miii.exit.invoke:      ; preds = %.split30.i.i, %.spl
   br label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit639
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %707, %702, %379
-  %.0523 = phi i1 [ %.0525, %379 ], [ %.2.shrunk647, %702 ], [ %.2.shrunk647, %707 ]
+  %.0523 = phi i1 [ %.0525, %379 ], [ %.1.shrunk647, %702 ], [ %.1.shrunk647, %707 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   %717 = getelementptr inbounds i8, ptr %7, i64 8

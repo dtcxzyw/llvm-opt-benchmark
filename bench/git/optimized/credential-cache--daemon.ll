@@ -229,7 +229,7 @@ while.body.i.i.i:                                 ; preds = %if.end22.i.i.i, %wh
   %10 = phi i64 [ %8, %while.body.lr.ph.i.i.i ], [ %15, %if.end22.i.i.i ]
   %11 = phi i32 [ %9, %while.body.lr.ph.i.i.i ], [ %16, %if.end22.i.i.i ]
   %12 = phi ptr [ %.pre21.i.i.i, %while.body.lr.ph.i.i.i ], [ %17, %if.end22.i.i.i ]
-  %next.018.i.i.i = phi i64 [ -1, %while.body.lr.ph.i.i.i ], [ %next.2.i.i.i, %if.end22.i.i.i ]
+  %next.018.i.i.i = phi i64 [ -1, %while.body.lr.ph.i.i.i ], [ %next.1.i.i.i, %if.end22.i.i.i ]
   %i.017.i.i.i = phi i32 [ 0, %while.body.lr.ph.i.i.i ], [ %i.1.i.i.i, %if.end22.i.i.i ]
   %idxprom.i.i.i = sext i32 %i.017.i.i.i to i64
   %expiration.i.i.i = getelementptr inbounds %struct.credential_cache_entry, ptr %12, i64 %idxprom.i.i.i, i32 1
@@ -268,13 +268,13 @@ if.end22.i.i.i:                                   ; preds = %if.else.i.i.i, %if.
   %16 = phi i32 [ %14, %if.end11.i.i.i ], [ %11, %if.else.i.i.i ]
   %17 = phi ptr [ %.pre.i.i.i, %if.end11.i.i.i ], [ %12, %if.else.i.i.i ]
   %i.1.i.i.i = phi i32 [ %i.017.i.i.i, %if.end11.i.i.i ], [ %inc.i.i.i, %if.else.i.i.i ]
-  %next.2.i.i.i = phi i64 [ %next.018.i.i.i, %if.end11.i.i.i ], [ %spec.select.i.i.i, %if.else.i.i.i ]
+  %next.1.i.i.i = phi i64 [ %next.018.i.i.i, %if.end11.i.i.i ], [ %spec.select.i.i.i, %if.else.i.i.i ]
   %cmp.i.i.i = icmp slt i32 %i.1.i.i.i, %16
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !5
 
 while.end.i.i.i:                                  ; preds = %if.end22.i.i.i, %if.end.i.i.i
   %18 = phi i64 [ %8, %if.end.i.i.i ], [ %15, %if.end22.i.i.i ]
-  %next.0.lcssa.i.i.i = phi i64 [ -1, %if.end.i.i.i ], [ %next.2.i.i.i, %if.end22.i.i.i ]
+  %next.0.lcssa.i.i.i = phi i64 [ -1, %if.end.i.i.i ], [ %next.1.i.i.i, %if.end22.i.i.i ]
   %.lcssa.i.i.i = phi i32 [ %9, %if.end.i.i.i ], [ %16, %if.end22.i.i.i ]
   %tobool23.not.i.i.i = icmp eq i32 %.lcssa.i.i.i, 0
   br i1 %tobool23.not.i.i.i, label %if.then24.i.i.i, label %check_expirations.exit.i.i

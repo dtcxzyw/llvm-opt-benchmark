@@ -2745,7 +2745,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %87 = phi i32 [ 0, %.lr.ph856 ], [ %136, %134 ]
   %.0700854 = phi i32 [ 5, %.lr.ph856 ], [ %.1701, %134 ]
   %.0704853 = phi i32 [ %81, %.lr.ph856 ], [ %.1705, %134 ]
-  %.0727852 = phi i32 [ 0, %.lr.ph856 ], [ %.3730, %134 ]
+  %.0727852 = phi i32 [ 0, %.lr.ph856 ], [ %.1728, %134 ]
   %88 = phi i32 [ 0, %.lr.ph856 ], [ %137, %134 ]
   %89 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %.0700854) #9
   %90 = zext i8 %89 to i32
@@ -2826,7 +2826,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br label %124
 
 124:                                              ; preds = %106, %121
-  %.1728 = phi i32 [ %123, %121 ], [ %.0727852, %106 ]
+  %.3730 = phi i32 [ %123, %121 ], [ %.0727852, %106 ]
   %125 = icmp ult i8 %92, 9
   %hf_ua3g_ip_device_routing_start_rtp_parameter_uint.hf_ua3g_ip_device_routing_start_rtp_parameter_value = select i1 %125, ptr @hf_ua3g_ip_device_routing_start_rtp_parameter_uint, ptr @hf_ua3g_ip_device_routing_start_rtp_parameter_value
   br label %.sink.split
@@ -2837,7 +2837,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %.ph = phi ptr [ %86, %106 ], [ %86, %106 ], [ %108, %107 ], [ %86, %109 ], [ %86, %111 ], [ %86, %113 ], [ %86, %115 ], [ %86, %117 ], [ %86, %119 ], [ %86, %124 ]
   %.ph907 = phi i32 [ %87, %106 ], [ %87, %106 ], [ 4, %107 ], [ %87, %109 ], [ %87, %111 ], [ %87, %113 ], [ %87, %115 ], [ %87, %117 ], [ %87, %119 ], [ %87, %124 ]
   %.ph908 = phi i32 [ %88, %106 ], [ %88, %106 ], [ 2, %107 ], [ %88, %109 ], [ %88, %111 ], [ %88, %113 ], [ %88, %115 ], [ %88, %117 ], [ %88, %119 ], [ %88, %124 ]
-  %.2729.ph = phi i32 [ %.0727852, %106 ], [ %.0727852, %106 ], [ %.0727852, %107 ], [ %.0727852, %109 ], [ %.0727852, %111 ], [ %.0727852, %113 ], [ %.0727852, %115 ], [ %.0727852, %117 ], [ %.0727852, %119 ], [ %.1728, %124 ]
+  %.2729.ph = phi i32 [ %.0727852, %106 ], [ %.0727852, %106 ], [ %.0727852, %107 ], [ %.0727852, %109 ], [ %.0727852, %111 ], [ %.0727852, %113 ], [ %.0727852, %115 ], [ %.0727852, %117 ], [ %.0727852, %119 ], [ %.3730, %124 ]
   %126 = load i32, ptr %hf_ua3g_ip_device_routing_start_rtp_parameter_uint.sink, align 4
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %126, ptr noundef %1, i32 noundef %104, i32 noundef %.sink909, i32 noundef 0) #9
   br label %128
@@ -2855,7 +2855,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %135 = phi ptr [ %129, %128 ], [ %86, %85 ]
   %136 = phi i32 [ %130, %128 ], [ %87, %85 ]
   %137 = phi i32 [ %131, %128 ], [ %88, %85 ]
-  %.3730 = phi i32 [ %.2729, %128 ], [ %.0727852, %85 ]
+  %.1728 = phi i32 [ %.2729, %128 ], [ %.0727852, %85 ]
   %.1705 = phi i32 [ %133, %128 ], [ %105, %85 ]
   %.1701 = phi i32 [ %132, %128 ], [ %104, %85 ]
   %.not767 = icmp eq i32 %.1705, 0
@@ -2871,7 +2871,7 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 139:                                              ; preds = %._crit_edge857, %78
   %140 = phi i1 [ %138, %._crit_edge857 ], [ false, %78 ]
   %.lcssa850 = phi i32 [ %137, %._crit_edge857 ], [ 0, %78 ]
-  %.0727.lcssa = phi i32 [ %.3730, %._crit_edge857 ], [ 0, %78 ]
+  %.0727.lcssa = phi i32 [ %.1728, %._crit_edge857 ], [ 0, %78 ]
   store i32 %.lcssa850, ptr %5, align 8
   %141 = load i32, ptr @setup_conversations_enabled, align 4
   %.not768 = icmp ne i32 %141, 0
@@ -3288,8 +3288,8 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
 
 360:                                              ; preds = %.lr.ph805, %398
   %361 = phi ptr [ null, %.lr.ph805 ], [ %399, %398 ]
-  %.0695804 = phi i32 [ 0, %.lr.ph805 ], [ %.3, %398 ]
-  %.0696803 = phi i32 [ 0, %.lr.ph805 ], [ %.3699, %398 ]
+  %.0695804 = phi i32 [ 0, %.lr.ph805 ], [ %.1, %398 ]
+  %.0696803 = phi i32 [ 0, %.lr.ph805 ], [ %.1697, %398 ]
   %.16802 = phi i32 [ 4, %.lr.ph805 ], [ %.17, %398 ]
   %.16720801 = phi i32 [ %16, %.lr.ph805 ], [ %.17721, %398 ]
   %362 = phi <2 x i32> [ zeroinitializer, %.lr.ph805 ], [ %400, %398 ]
@@ -3360,8 +3360,8 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   %399 = phi ptr [ %392, %391 ], [ %361, %360 ]
   %.17721 = phi i32 [ %397, %391 ], [ %379, %360 ]
   %.17 = phi i32 [ %396, %391 ], [ %378, %360 ]
-  %.3699 = phi i32 [ %.2698, %391 ], [ %.0696803, %360 ]
-  %.3 = phi i32 [ %.2, %391 ], [ %.0695804, %360 ]
+  %.1697 = phi i32 [ %.2698, %391 ], [ %.0696803, %360 ]
+  %.1 = phi i32 [ %.2, %391 ], [ %.0695804, %360 ]
   %400 = phi <2 x i32> [ %393, %391 ], [ %362, %360 ]
   %.not751 = icmp eq i32 %.17721, 0
   br i1 %.not751, label %401, label %360, !llvm.loop !16
@@ -3377,27 +3377,27 @@ define internal fastcc void @decode_ip_device_routing(ptr noundef %0, ptr nounde
   br i1 %or.cond6, label %405, label %.loopexit
 
 405:                                              ; preds = %401
-  %.not752 = icmp eq i32 %.3699, 0
+  %.not752 = icmp eq i32 %.1697, 0
   br i1 %.not752, label %411, label %406
 
 406:                                              ; preds = %405
   %407 = getelementptr inbounds i8, ptr %2, i64 20
   %408 = load i32, ptr %407, align 4
-  call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %.3699, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %408, i32 noundef 0, ptr noundef null) #9
-  %409 = add nuw nsw i32 %.3699, 1
+  call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %.1697, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %408, i32 noundef 0, ptr noundef null) #9
+  %409 = add nuw nsw i32 %.1697, 1
   %410 = load i32, ptr %407, align 4
   call void @rtcp_add_address(ptr noundef %2, ptr noundef nonnull %7, i32 noundef %409, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %410) #9
   br label %411
 
 411:                                              ; preds = %406, %405
-  %.not753 = icmp eq i32 %.3, 0
+  %.not753 = icmp eq i32 %.1, 0
   br i1 %.not753, label %.loopexit, label %412
 
 412:                                              ; preds = %411
   %413 = getelementptr inbounds i8, ptr %2, i64 20
   %414 = load i32, ptr %413, align 4
-  call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %.3, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %414, i32 noundef 0, ptr noundef null) #9
-  %415 = add nuw nsw i32 %.3, 1
+  call void @rtp_add_address(ptr noundef %2, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %.1, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %414, i32 noundef 0, ptr noundef null) #9
+  %415 = add nuw nsw i32 %.1, 1
   %416 = load i32, ptr %413, align 4
   call void @rtcp_add_address(ptr noundef %2, ptr noundef nonnull %7, i32 noundef %415, i32 noundef 0, ptr noundef nonnull @.str.652, i32 noundef %416) #9
   br label %.loopexit

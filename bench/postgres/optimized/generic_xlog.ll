@@ -224,7 +224,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
 
 49:                                               ; preds = %95, %.lr.ph.i.i
   %50 = phi i32 [ 0, %.lr.ph.i.i ], [ %96, %95 ]
-  %.16188.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.464.i.i, %95 ]
+  %.16188.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.5.i.i, %95 ]
   %.06687.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.369.lcssa.i.i, %95 ]
   %51 = zext i32 %.06687.i.i to i64
   %52 = getelementptr i8, ptr %.0.i.i, i64 %51
@@ -260,9 +260,9 @@ BufferGetPage.exit:                               ; preds = %15, %21
 
 .critedge.thread.i.i:                             ; preds = %.critedge.thread.loopexit.i.i, %49
   %.pre-phi.i.i = phi i64 [ %.pre.i.i, %.critedge.thread.loopexit.i.i ], [ %51, %49 ]
-  %.268.i.i = phi i32 [ %59, %.critedge.thread.loopexit.i.i ], [ %.06687.i.i, %49 ]
+  %.167.i.i = phi i32 [ %59, %.critedge.thread.loopexit.i.i ], [ %.06687.i.i, %49 ]
   %.363.i.i = phi i32 [ %spec.select79.i.i, %.critedge.thread.loopexit.i.i ], [ %.16188.i.i, %49 ]
-  %66 = add nuw nsw i32 %.268.i.i, 1
+  %66 = add nuw nsw i32 %.167.i.i, 1
   %smax.i.i = tail call i32 @llvm.smax.i32(i32 %46, i32 %66)
   br label %67
 
@@ -287,13 +287,13 @@ BufferGetPage.exit:                               ; preds = %15, %21
   br i1 %76, label %77, label %95
 
 77:                                               ; preds = %.critedge2.i.i
-  %78 = sub nsw i32 %.369.lcssa.i.i, %.268.i.i
+  %78 = sub nsw i32 %.369.lcssa.i.i, %.167.i.i
   %79 = icmp ugt i32 %78, 4
   br i1 %79, label %80, label %95
 
 80:                                               ; preds = %77
   %81 = trunc nuw i32 %.363.i.i to i16
-  %82 = sub nsw i32 %.268.i.i, %.363.i.i
+  %82 = sub nsw i32 %.167.i.i, %.363.i.i
   %83 = trunc i32 %82 to i16
   %84 = zext nneg i32 %.363.i.i to i64
   %85 = getelementptr i8, ptr %28, i64 %84
@@ -315,30 +315,30 @@ BufferGetPage.exit:                               ; preds = %15, %21
 
 95:                                               ; preds = %80, %77, %.critedge2.i.i
   %96 = phi i32 [ %94, %80 ], [ %50, %77 ], [ %50, %.critedge2.i.i ]
-  %.464.i.i = phi i32 [ -1, %80 ], [ %.363.i.i, %77 ], [ -1, %.critedge2.i.i ]
-  %.1.i.i = phi i32 [ -1, %80 ], [ %.268.i.i, %77 ], [ %.268.i.i, %.critedge2.i.i ]
+  %.5.i.i = phi i32 [ -1, %80 ], [ %.363.i.i, %77 ], [ -1, %.critedge2.i.i ]
+  %.2.i.i = phi i32 [ -1, %80 ], [ %.167.i.i, %77 ], [ %.167.i.i, %.critedge2.i.i ]
   %97 = icmp slt i32 %.369.lcssa.i.i, %46
   br i1 %97, label %49, label %.critedge.i.i, !llvm.loop !10
 
 .critedge.i.i:                                    ; preds = %95, %58, %32
   %98 = phi i32 [ 0, %32 ], [ %50, %58 ], [ %96, %95 ]
-  %.5.i.i = phi i32 [ -1, %32 ], [ %spec.select79.i.i, %58 ], [ %.464.i.i, %95 ]
-  %.2.i.i = phi i32 [ -1, %32 ], [ -1, %58 ], [ %.1.i.i, %95 ]
+  %.262.i.i = phi i32 [ -1, %32 ], [ %spec.select79.i.i, %58 ], [ %.5.i.i, %95 ]
+  %.1.i.i = phi i32 [ -1, %32 ], [ -1, %58 ], [ %.2.i.i, %95 ]
   %99 = icmp ult i16 %40, %34
-  %100 = icmp slt i32 %.5.i.i, 0
+  %100 = icmp slt i32 %.262.i.i, 0
   %101 = select i1 %99, i1 %100, i1 false
-  %.7.i.i = select i1 %101, i32 %46, i32 %.5.i.i
-  %102 = icmp sgt i32 %.7.i.i, -1
+  %.6.i.i = select i1 %101, i32 %46, i32 %.262.i.i
+  %102 = icmp sgt i32 %.6.i.i, -1
   br i1 %102, label %103, label %computeRegionDelta.exit.i
 
 103:                                              ; preds = %.critedge.i.i
-  %.3.i.i = select i1 %99, i32 %35, i32 %.2.i.i
+  %.3.i.i = select i1 %99, i32 %35, i32 %.1.i.i
   %104 = icmp slt i32 %.3.i.i, 0
   %spec.select81.i.i = select i1 %104, i32 %35, i32 %.3.i.i
-  %105 = trunc nuw i32 %.7.i.i to i16
-  %106 = sub nsw i32 %spec.select81.i.i, %.7.i.i
+  %105 = trunc nuw i32 %.6.i.i to i16
+  %106 = sub nsw i32 %spec.select81.i.i, %.6.i.i
   %107 = trunc i32 %106 to i16
-  %108 = zext nneg i32 %.7.i.i to i64
+  %108 = zext nneg i32 %.6.i.i to i64
   %109 = getelementptr i8, ptr %28, i64 %108
   %110 = getelementptr inbounds i8, ptr %10, i64 24
   %111 = sext i32 %98 to i64
@@ -373,7 +373,7 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
 
 126:                                              ; preds = %171, %.lr.ph.i21.i
   %127 = phi i32 [ %121, %.lr.ph.i21.i ], [ %172, %171 ]
-  %.16188.i22.i = phi i32 [ %spec.select78.i.i, %.lr.ph.i21.i ], [ %.464.i40.i, %171 ]
+  %.16188.i22.i = phi i32 [ %spec.select78.i.i, %.lr.ph.i21.i ], [ %.5.i40.i, %171 ]
   %.06687.i23.i = phi i32 [ %spec.select.i.i, %.lr.ph.i21.i ], [ %.369.lcssa.i39.i, %171 ]
   %128 = zext i32 %.06687.i23.i to i64
   %129 = getelementptr i8, ptr %.0.i.i, i64 %128
@@ -409,7 +409,7 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
 
 .critedge.thread.i31.i:                           ; preds = %.critedge.thread.loopexit.i29.i, %126
   %.pre-phi.i32.i = phi i64 [ %.pre.i30.i, %.critedge.thread.loopexit.i29.i ], [ %128, %126 ]
-  %.268.i33.i = phi i32 [ %136, %.critedge.thread.loopexit.i29.i ], [ %.06687.i23.i, %126 ]
+  %.167.i33.i = phi i32 [ %136, %.critedge.thread.loopexit.i29.i ], [ %.06687.i23.i, %126 ]
   %.363.i34.i = phi i32 [ %spec.select79.i25.i, %.critedge.thread.loopexit.i29.i ], [ %.16188.i22.i, %126 ]
   br label %143
 
@@ -434,13 +434,13 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
   br i1 %152, label %153, label %171
 
 153:                                              ; preds = %.critedge2.i38.i
-  %154 = sub nsw i32 %.369.lcssa.i39.i, %.268.i33.i
+  %154 = sub nsw i32 %.369.lcssa.i39.i, %.167.i33.i
   %155 = icmp ugt i32 %154, 4
   br i1 %155, label %156, label %171
 
 156:                                              ; preds = %153
   %157 = trunc nuw i32 %.363.i34.i to i16
-  %158 = sub nsw i32 %.268.i33.i, %.363.i34.i
+  %158 = sub nsw i32 %.167.i33.i, %.363.i34.i
   %159 = trunc i32 %158 to i16
   %160 = zext nneg i32 %.363.i34.i to i64
   %161 = getelementptr i8, ptr %28, i64 %160
@@ -462,25 +462,25 @@ computeRegionDelta.exit.i:                        ; preds = %103, %.critedge.i.i
 
 171:                                              ; preds = %156, %153, %.critedge2.i38.i
   %172 = phi i32 [ %170, %156 ], [ %127, %153 ], [ %127, %.critedge2.i38.i ]
-  %.464.i40.i = phi i32 [ -1, %156 ], [ %.363.i34.i, %153 ], [ -1, %.critedge2.i38.i ]
-  %.1.i41.i = phi i32 [ -1, %156 ], [ %.268.i33.i, %153 ], [ %.268.i33.i, %.critedge2.i38.i ]
+  %.5.i40.i = phi i32 [ -1, %156 ], [ %.363.i34.i, %153 ], [ -1, %.critedge2.i38.i ]
+  %.2.i41.i = phi i32 [ -1, %156 ], [ %.167.i33.i, %153 ], [ %.167.i33.i, %.critedge2.i38.i ]
   %173 = icmp slt i32 %.369.lcssa.i39.i, 8192
   br i1 %173, label %126, label %.critedge.i14.i, !llvm.loop !10
 
 .critedge.i14.i:                                  ; preds = %171, %135, %computeRegionDelta.exit.i
   %174 = phi i32 [ %121, %computeRegionDelta.exit.i ], [ %127, %135 ], [ %172, %171 ]
-  %.5.i15.i = phi i32 [ %spec.select78.i.i, %computeRegionDelta.exit.i ], [ %spec.select79.i25.i, %135 ], [ %.464.i40.i, %171 ]
-  %.2.i16.i = phi i32 [ -1, %computeRegionDelta.exit.i ], [ -1, %135 ], [ %.1.i41.i, %171 ]
-  %175 = icmp sgt i32 %.5.i15.i, -1
+  %.262.i15.i = phi i32 [ %spec.select78.i.i, %computeRegionDelta.exit.i ], [ %spec.select79.i25.i, %135 ], [ %.5.i40.i, %171 ]
+  %.1.i16.i = phi i32 [ -1, %computeRegionDelta.exit.i ], [ -1, %135 ], [ %.2.i41.i, %171 ]
+  %175 = icmp sgt i32 %.262.i15.i, -1
   br i1 %175, label %176, label %computeDelta.exit
 
 176:                                              ; preds = %.critedge.i14.i
-  %177 = icmp slt i32 %.2.i16.i, 0
-  %spec.select81.i19.i = select i1 %177, i32 8192, i32 %.2.i16.i
-  %178 = trunc nuw i32 %.5.i15.i to i16
-  %179 = sub nsw i32 %spec.select81.i19.i, %.5.i15.i
+  %177 = icmp slt i32 %.1.i16.i, 0
+  %spec.select81.i19.i = select i1 %177, i32 8192, i32 %.1.i16.i
+  %178 = trunc nuw i32 %.262.i15.i to i16
+  %179 = sub nsw i32 %spec.select81.i19.i, %.262.i15.i
   %180 = trunc i32 %179 to i16
-  %181 = zext nneg i32 %.5.i15.i to i64
+  %181 = zext nneg i32 %.262.i15.i to i64
   %182 = getelementptr i8, ptr %28, i64 %181
   %183 = getelementptr inbounds i8, ptr %10, i64 24
   %184 = sext i32 %174 to i64

@@ -851,15 +851,15 @@ opal_thread_add_fetch_32.exit81:                  ; preds = %105, %103, %opal_th
   br label %opal_thread_add_fetch_32.exit83
 
 opal_thread_add_fetch_32.exit83:                  ; preds = %124, %122, %112, %116
-  %.759 = phi i8 [ %.658, %116 ], [ 0, %112 ], [ %.658, %122 ], [ %.658, %124 ]
-  %.7 = phi ptr [ %.6, %116 ], [ @.str.8, %112 ], [ %.6, %122 ], [ %.6, %124 ]
+  %.860 = phi i8 [ %.658, %116 ], [ 0, %112 ], [ %.658, %122 ], [ %.658, %124 ]
+  %.8 = phi ptr [ %.6, %116 ], [ @.str.8, %112 ], [ %.6, %122 ], [ %.6, %124 ]
   %128 = getelementptr inbounds i8, ptr %0, i64 824
   %129 = load ptr, ptr %128, align 8
   %130 = icmp eq ptr %129, null
   br i1 %130, label %opal_thread_add_fetch_32.exit85.thread, label %131
 
 131:                                              ; preds = %opal_thread_add_fetch_32.exit83
-  %132 = trunc nuw i8 %.759 to i1
+  %132 = trunc nuw i8 %.860 to i1
   br i1 %132, label %133, label %opal_thread_add_fetch_32.exit85.thread
 
 133:                                              ; preds = %131
@@ -884,11 +884,11 @@ opal_thread_add_fetch_32.exit85:                  ; preds = %opal_thread_add_fet
   br i1 %.pre, label %opal_thread_add_fetch_32.exit85.thread89, label %opal_thread_add_fetch_32.exit85.thread
 
 opal_thread_add_fetch_32.exit85.thread:           ; preds = %131, %opal_thread_add_fetch_32.exit83, %opal_thread_add_fetch_32.exit85
-  %.888 = phi ptr [ %.6, %opal_thread_add_fetch_32.exit85 ], [ @.str.9, %opal_thread_add_fetch_32.exit83 ], [ %.7, %131 ]
+  %.788 = phi ptr [ %.6, %opal_thread_add_fetch_32.exit85 ], [ @.str.9, %opal_thread_add_fetch_32.exit83 ], [ %.8, %131 ]
   %143 = load ptr, ptr @opal_show_help, align 8
   %144 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
   %145 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_sync_component, i64 280), align 8
-  %146 = tail call i32 (ptr, ptr, i32, ...) %143(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 1, ptr noundef %144, i32 noundef %145, ptr noundef %.888) #8
+  %146 = tail call i32 (ptr, ptr, i32, ...) %143(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 1, ptr noundef %144, i32 noundef %145, ptr noundef %.788) #8
   br label %opal_thread_add_fetch_32.exit85.thread89
 
 opal_thread_add_fetch_32.exit85.thread89:         ; preds = %137, %139, %opal_thread_add_fetch_32.exit85, %opal_thread_add_fetch_32.exit85.thread

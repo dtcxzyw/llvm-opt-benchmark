@@ -1907,10 +1907,10 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit271
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit271: ; preds = %238, %_ZN4Json6ReaderD2Ev.exit, %92, %652, %.critedge182, %_ZN4Json6ReaderD2Ev.exit.thread274, %163, %177, %152
-  %.16 = phi i1 [ false, %152 ], [ false, %177 ], [ false, %_ZN4Json6ReaderD2Ev.exit ], [ true, %163 ], [ false, %_ZN4Json6ReaderD2Ev.exit.thread274 ], [ false, %.critedge182 ], [ false, %652 ], [ false, %92 ], [ true, %238 ]
+  %.1 = phi i1 [ false, %152 ], [ false, %177 ], [ false, %_ZN4Json6ReaderD2Ev.exit ], [ true, %163 ], [ false, %_ZN4Json6ReaderD2Ev.exit.thread274 ], [ false, %.critedge182 ], [ false, %652 ], [ false, %92 ], [ true, %238 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %24) #17
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %23) #17
-  ret i1 %.16
+  ret i1 %.1
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit270: ; preds = %.loopexit308, %.loopexit.split-lp309, %649, %.loopexit.split-lp, %178, %158, %153
   %.pn171.pn = phi { ptr, i32 } [ %.pn171, %158 ], [ %179, %178 ], [ %.pn.pn, %153 ], [ %.pn169, %.loopexit.split-lp ], [ %.pn169, %649 ], [ %lpad.loopexit310, %.loopexit308 ], [ %lpad.loopexit.split-lp311, %.loopexit.split-lp309 ]

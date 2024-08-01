@@ -1526,7 +1526,7 @@ _ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit:      ; preds = %467
   br i1 %.not67112, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %485, %683
-  %.2117 = phi i32 [ %.4, %683 ], [ %.1118, %485 ]
+  %.2117 = phi i32 [ %.3, %683 ], [ %.1118, %485 ]
   %.0119116 = phi i32 [ %.2121, %683 ], [ 0, %485 ]
   %.1123115 = phi i32 [ %.2124, %683 ], [ %.0122122, %485 ]
   %.sroa.017.0113 = phi ptr [ %684, %683 ], [ %502, %485 ]
@@ -1651,7 +1651,7 @@ _ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit236:   ; preds = %553
   br label %558
 
 558:                                              ; preds = %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit236, %508
-  %.3 = phi i32 [ %512, %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit236 ], [ %.2117, %508 ]
+  %.4 = phi i32 [ %512, %_ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit236 ], [ %.2117, %508 ]
   %559 = load ptr, ptr %295, align 8
   %560 = getelementptr inbounds %struct.t_atom, ptr %559, i64 %413, i32 7
   %561 = load i32, ptr %560, align 4
@@ -1665,7 +1665,7 @@ _ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit236:   ; preds = %553
 
 567:                                              ; preds = %558, %506
   %.2124 = phi i32 [ %509, %558 ], [ %.1123115, %506 ]
-  %.4 = phi i32 [ %.3, %558 ], [ %.2117, %506 ]
+  %.3 = phi i32 [ %.4, %558 ], [ %.2117, %506 ]
   %568 = getelementptr inbounds i8, ptr %.sroa.017.0113, i64 40
   %569 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %568) #18
   br i1 %569, label %683, label %570
@@ -1851,7 +1851,7 @@ _ZL15gmx_srenew_implIPPcEvPKcS3_iRPT_m.exit236:   ; preds = %553
 ._crit_edge:                                      ; preds = %683, %485
   %.1123.lcssa = phi i32 [ %.0122122, %485 ], [ %.2124, %683 ]
   %.0119.lcssa = phi i32 [ 0, %485 ], [ %.2121, %683 ]
-  %.2.lcssa = phi i32 [ %.1118, %485 ], [ %.4, %683 ]
+  %.2.lcssa = phi i32 [ %.1118, %485 ], [ %.3, %683 ]
   %688 = add nsw i32 %.1123.lcssa, 1
   %689 = add nsw i32 %.0119.lcssa, %.0114124
   br label %690
@@ -2612,10 +2612,10 @@ define internal fastcc void @_ZL21expand_hackblocks_oneRK21MoleculePatchDatabase
 
 17:                                               ; preds = %.preheader96, %22
   %indvars.iv = phi i64 [ 0, %.preheader96 ], [ %indvars.iv.next, %22 ]
-  %.087120 = phi i8 [ 0, %.preheader96 ], [ %26, %22 ]
+  %.1120 = phi i8 [ 0, %.preheader96 ], [ %26, %22 ]
   %18 = getelementptr inbounds [4 x %"class.std::__cxx11::basic_string"], ptr %16, i64 0, i64 %indvars.iv
   %19 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #18
-  %20 = trunc nuw i8 %.087120 to i1
+  %20 = trunc nuw i8 %.1120 to i1
   %21 = select i1 %19, i1 true, i1 %20
   br i1 %21, label %.critedge, label %22
 
@@ -2629,7 +2629,7 @@ define internal fastcc void @_ZL21expand_hackblocks_oneRK21MoleculePatchDatabase
   br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !53
 
 .critedge:                                        ; preds = %22, %17, %15
-  %.1 = phi i8 [ 0, %15 ], [ %.087120, %17 ], [ %26, %22 ]
+  %.087 = phi i8 [ 0, %15 ], [ %.1120, %17 ], [ %26, %22 ]
   br i1 %4, label %.preheader, label %.critedge2
 
 .preheader:                                       ; preds = %.critedge
@@ -2638,10 +2638,10 @@ define internal fastcc void @_ZL21expand_hackblocks_oneRK21MoleculePatchDatabase
 
 28:                                               ; preds = %.preheader, %33
   %indvars.iv161 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next162, %33 ]
-  %.2122 = phi i8 [ %.1, %.preheader ], [ %37, %33 ]
+  %.3122 = phi i8 [ %.087, %.preheader ], [ %37, %33 ]
   %29 = getelementptr inbounds [4 x %"class.std::__cxx11::basic_string"], ptr %27, i64 0, i64 %indvars.iv161
   %30 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %29) #18
-  %31 = trunc nuw i8 %.2122 to i1
+  %31 = trunc nuw i8 %.3122 to i1
   %32 = select i1 %30, i1 true, i1 %31
   br i1 %32, label %.critedge2, label %33
 
@@ -2655,8 +2655,8 @@ define internal fastcc void @_ZL21expand_hackblocks_oneRK21MoleculePatchDatabase
   br i1 %exitcond163.not, label %.critedge2, label %28, !llvm.loop !54
 
 .critedge2:                                       ; preds = %33, %28, %.critedge
-  %.3 = phi i8 [ %.1, %.critedge ], [ %.2122, %28 ], [ %37, %33 ]
-  %38 = trunc nuw i8 %.3 to i1
+  %.2 = phi i8 [ %.087, %.critedge ], [ %.3122, %28 ], [ %37, %33 ]
+  %38 = trunc nuw i8 %.2 to i1
   br i1 %38, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit90.thread95, label %39
 
 39:                                               ; preds = %.critedge2

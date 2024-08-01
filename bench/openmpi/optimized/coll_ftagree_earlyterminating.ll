@@ -236,7 +236,7 @@ define i32 @mca_coll_ftagree_eta_intra(ptr nocapture noundef %0, i32 noundef %1,
   %indvars.iv377 = phi i64 [ 0, %.lr.ph328 ], [ %indvars.iv.next378, %160 ]
   %.0234324 = phi i32 [ 0, %.lr.ph328 ], [ %.2236, %160 ]
   %.4242323 = phi i32 [ 0, %.lr.ph328 ], [ %.8, %160 ]
-  %.0246322 = phi i32 [ 0, %.lr.ph328 ], [ %.2248, %160 ]
+  %.0246322 = phi i32 [ 0, %.lr.ph328 ], [ %.1247, %160 ]
   %90 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv377
   %91 = load i32, ptr %90, align 4
   %92 = and i32 %91, 32
@@ -307,15 +307,15 @@ define i32 @mca_coll_ftagree_eta_intra(ptr nocapture noundef %0, i32 noundef %1,
 
 126:                                              ; preds = %124, %114, %110, %98
   %127 = phi i32 [ %108, %98 ], [ %111, %114 ], [ %111, %110 ], [ %91, %124 ]
-  %.1247 = phi i32 [ %109, %98 ], [ %.0246322, %114 ], [ %.0246322, %110 ], [ %.0246322, %124 ]
-  %.5243 = phi i32 [ %.4242323, %98 ], [ %.4242323, %114 ], [ %.4242323, %110 ], [ %125, %124 ]
+  %.2248 = phi i32 [ %109, %98 ], [ %.0246322, %114 ], [ %.0246322, %110 ], [ %.0246322, %124 ]
+  %.6244 = phi i32 [ %.4242323, %98 ], [ %.4242323, %114 ], [ %.4242323, %110 ], [ %125, %124 ]
   %128 = add nsw i32 %.0234324, 1
   br label %129
 
 129:                                              ; preds = %126, %89
   %130 = phi i32 [ %91, %89 ], [ %127, %126 ]
-  %.2248 = phi i32 [ %.0246322, %89 ], [ %.1247, %126 ]
-  %.6244 = phi i32 [ %.4242323, %89 ], [ %.5243, %126 ]
+  %.1247 = phi i32 [ %.0246322, %89 ], [ %.2248, %126 ]
+  %.5243 = phi i32 [ %.4242323, %89 ], [ %.6244, %126 ]
   %.1235 = phi i32 [ %.0234324, %89 ], [ %128, %126 ]
   %131 = and i32 %130, 16
   %.not273 = icmp eq i32 %131, 0
@@ -360,10 +360,10 @@ define i32 @mca_coll_ftagree_eta_intra(ptr nocapture noundef %0, i32 noundef %1,
 150:                                              ; preds = %133
   %151 = getelementptr inbounds ptr, ptr %20, i64 %134
   %152 = load ptr, ptr %151, align 8
-  %153 = sext i32 %.6244 to i64
+  %153 = sext i32 %.5243 to i64
   %154 = getelementptr inbounds ptr, ptr %20, i64 %153
   store ptr %152, ptr %154, align 8
-  %.not274 = icmp eq i32 %.1235, %.6244
+  %.not274 = icmp eq i32 %.1235, %.5243
   br i1 %.not274, label %156, label %155
 
 155:                                              ; preds = %150
@@ -371,16 +371,16 @@ define i32 @mca_coll_ftagree_eta_intra(ptr nocapture noundef %0, i32 noundef %1,
   br label %156
 
 156:                                              ; preds = %155, %150
-  %157 = add nsw i32 %.6244, 1
+  %157 = add nsw i32 %.5243, 1
   br label %158
 
 158:                                              ; preds = %156, %146, %142, %137
-  %.7245 = phi i32 [ %.6244, %137 ], [ %.6244, %146 ], [ %.6244, %142 ], [ %157, %156 ]
+  %.7245 = phi i32 [ %.5243, %137 ], [ %.5243, %146 ], [ %.5243, %142 ], [ %157, %156 ]
   %159 = add nsw i32 %.1235, 1
   br label %160
 
 160:                                              ; preds = %129, %158
-  %.8 = phi i32 [ %.6244, %129 ], [ %.7245, %158 ]
+  %.8 = phi i32 [ %.5243, %129 ], [ %.7245, %158 ]
   %.2236 = phi i32 [ %.1235, %129 ], [ %159, %158 ]
   %indvars.iv.next378 = add nuw nsw i64 %indvars.iv377, 1
   %exitcond381.not = icmp eq i64 %indvars.iv.next378, %wide.trip.count380
@@ -422,7 +422,7 @@ define i32 @mca_coll_ftagree_eta_intra(ptr nocapture noundef %0, i32 noundef %1,
 
 ._crit_edge339:                                   ; preds = %87, %.lr.ph338, %.preheader302, %.preheader301
   %.0250.lcssa413 = phi i32 [ %spec.select, %.preheader301 ], [ 0, %.preheader302 ], [ %spec.select, %.lr.ph338 ], [ 0, %87 ]
-  %.0246.lcssa407409412 = phi i32 [ %.2248, %.preheader301 ], [ %.2248, %.preheader302 ], [ %.2248, %.lr.ph338 ], [ 0, %87 ]
+  %.0246.lcssa407409412 = phi i32 [ %.1247, %.preheader301 ], [ %.1247, %.preheader302 ], [ %.1247, %.lr.ph338 ], [ 0, %87 ]
   %.0252.lcssa = phi i32 [ 0, %.preheader301 ], [ 0, %.preheader302 ], [ %.1253, %.lr.ph338 ], [ 0, %87 ]
   %168 = add nsw i32 %.0252.lcssa, %.0250.lcssa413
   %.not266 = icmp slt i32 %168, %45

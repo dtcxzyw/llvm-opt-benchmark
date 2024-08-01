@@ -203,7 +203,7 @@ if.end:                                           ; preds = %invoke.cont15
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont15, %if.end
-  %retval.0 = phi ptr [ %v2, %if.end ], [ null, %invoke.cont15 ]
+  %retval.1 = phi ptr [ %v2, %if.end ], [ null, %invoke.cont15 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %temp) #10
   br label %return
 
@@ -223,8 +223,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.bb, %entry, %sw.epilog, %sw.bb20, %sw.bb18, %cleanup, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %invoke.cont4
-  %retval.1 = phi ptr [ null, %sw.epilog ], [ inttoptr (i64 80 to ptr), %sw.bb20 ], [ null, %sw.bb18 ], [ %retval.0, %cleanup ], [ @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, %sw.bb11 ], [ @_ZN4absl13base_internal11FastTypeTagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9dummy_varE, %sw.bb9 ], [ null, %sw.bb7 ], [ null, %sw.bb5 ], [ null, %invoke.cont4 ], [ inttoptr (i64 32 to ptr), %entry ], [ %call5.i.i14, %sw.bb ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ inttoptr (i64 80 to ptr), %sw.bb20 ], [ null, %sw.bb18 ], [ %retval.1, %cleanup ], [ @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, %sw.bb11 ], [ @_ZN4absl13base_internal11FastTypeTagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9dummy_varE, %sw.bb9 ], [ null, %sw.bb7 ], [ null, %sw.bb5 ], [ null, %invoke.cont4 ], [ inttoptr (i64 32 to ptr), %entry ], [ %call5.i.i14, %sw.bb ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

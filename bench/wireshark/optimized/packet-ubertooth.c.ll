@@ -1926,8 +1926,8 @@ proto_item_set_generated.exit:                    ; preds = %280, %293, %296
   br i1 %305, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.4596 = phi i32 [ %306, %.lr.ph ], [ 0, %.preheader ]
-  %306 = call fastcc i32 @dissect_usb_rx_packet(ptr noundef %2, ptr noundef %14, ptr noundef %1, ptr noundef %0, i32 noundef %.4596, i16 noundef signext %283, ptr noundef nonnull %3)
+  %.5596 = phi i32 [ %306, %.lr.ph ], [ 0, %.preheader ]
+  %306 = call fastcc i32 @dissect_usb_rx_packet(ptr noundef %2, ptr noundef %14, ptr noundef %1, ptr noundef %0, i32 noundef %.5596, i16 noundef signext %283, ptr noundef nonnull %3)
   %307 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %306) #2
   %308 = icmp sgt i32 %307, 0
   br i1 %308, label %.lr.ph, label %.loopexit, !llvm.loop !4
@@ -2233,18 +2233,18 @@ proto_item_set_generated.exit588:                 ; preds = %476, %479, %482
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %370, %350, %309, %313, %499, %489, %474, %471, %461, %458, %453, %447, %441, %434, %420, %409, %400, %393, %386, %379, %374, %354, %344, %337, %330, %323, %316, %proto_item_set_generated.exit
-  %.5 = phi i32 [ 0, %proto_item_set_generated.exit ], [ %510, %499 ], [ 2, %489 ], [ 1, %471 ], [ %475, %474 ], [ 1, %461 ], [ 2, %458 ], [ 4, %453 ], [ 1, %447 ], [ 1, %441 ], [ 1, %434 ], [ %433, %420 ], [ 5, %409 ], [ 1, %400 ], [ 1, %393 ], [ 1, %386 ], [ 1, %379 ], [ 1, %370 ], [ 5, %374 ], [ 1, %350 ], [ 17, %354 ], [ 2, %344 ], [ 1, %337 ], [ 1, %330 ], [ 1, %323 ], [ 1, %316 ], [ %315, %313 ], [ 0, %309 ], [ 0, %.preheader ], [ %306, %.lr.ph ]
-  %511 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5) #2
+  %.4 = phi i32 [ 0, %proto_item_set_generated.exit ], [ %510, %499 ], [ 2, %489 ], [ 1, %471 ], [ %475, %474 ], [ 1, %461 ], [ 2, %458 ], [ 4, %453 ], [ 1, %447 ], [ 1, %441 ], [ 1, %434 ], [ %433, %420 ], [ 5, %409 ], [ 1, %400 ], [ 1, %393 ], [ 1, %386 ], [ 1, %379 ], [ 1, %370 ], [ 5, %374 ], [ 1, %350 ], [ 17, %354 ], [ 2, %344 ], [ 1, %337 ], [ 1, %330 ], [ 1, %323 ], [ 1, %316 ], [ %315, %313 ], [ 0, %309 ], [ 0, %.preheader ], [ %306, %.lr.ph ]
+  %511 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4) #2
   %512 = icmp sgt i32 %511, 0
   br i1 %512, label %513, label %516
 
 513:                                              ; preds = %.loopexit
-  %514 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_unknown_data, ptr noundef %0, i32 noundef %.5, i32 noundef -1) #2
+  %514 = call ptr @proto_tree_add_expert(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_unknown_data, ptr noundef %0, i32 noundef %.4, i32 noundef -1) #2
   %515 = call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %516
 
 516:                                              ; preds = %513, %.loopexit
-  %.6 = phi i32 [ %515, %513 ], [ %.5, %.loopexit ]
+  %.6 = phi i32 [ %515, %513 ], [ %.4, %.loopexit ]
   store i32 %19, ptr %18, align 4
   br label %517
 
@@ -3085,16 +3085,16 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
   br label %147
 
 147:                                              ; preds = %124, %127, %145, %143, %125
-  %.2 = phi i32 [ %126, %125 ], [ %142, %127 ], [ %144, %143 ], [ %146, %145 ], [ %99, %124 ]
-  %148 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.2) #2
+  %.3 = phi i32 [ %126, %125 ], [ %142, %127 ], [ %144, %143 ], [ %146, %145 ], [ %99, %124 ]
+  %148 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.3) #2
   %149 = icmp sgt i32 %148, 0
   br i1 %149, label %150, label %157
 
 150:                                              ; preds = %147
   %151 = load i32, ptr @hf_reserved, align 4
-  %152 = tail call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %151, ptr noundef %3, i32 noundef %.2, i32 noundef -1, i32 noundef 0) #2
-  %153 = tail call i32 @tvb_captured_length_remaining(ptr noundef %3, i32 noundef %.2) #2
-  %154 = add i32 %153, %.2
+  %152 = tail call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %151, ptr noundef %3, i32 noundef %.3, i32 noundef -1, i32 noundef 0) #2
+  %153 = tail call i32 @tvb_captured_length_remaining(ptr noundef %3, i32 noundef %.3) #2
+  %154 = add i32 %153, %.3
   br label %157
 
 155:                                              ; preds = %60
@@ -3102,7 +3102,7 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
   br label %157
 
 157:                                              ; preds = %120, %155, %150, %147, %56
-  %.0 = phi i32 [ %.neg, %56 ], [ %156, %155 ], [ %154, %150 ], [ %.2, %147 ], [ %123, %120 ]
+  %.0 = phi i32 [ %.neg, %56 ], [ %156, %155 ], [ %154, %150 ], [ %.3, %147 ], [ %123, %120 ]
   ret i32 %.0
 }
 

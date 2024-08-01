@@ -264,15 +264,15 @@ define internal i32 @ft_raster1_render(ptr nocapture noundef readonly %0, ptr no
   br label %62
 
 62:                                               ; preds = %56, %42
-  %.050 = phi i64 [ %58, %56 ], [ %49, %42 ]
-  %.0 = phi i64 [ %61, %56 ], [ %55, %42 ]
-  %63 = icmp ne i64 %.050, 0
-  %64 = icmp ne i64 %.0, 0
+  %.151 = phi i64 [ %58, %56 ], [ %49, %42 ]
+  %.1 = phi i64 [ %61, %56 ], [ %55, %42 ]
+  %63 = icmp ne i64 %.151, 0
+  %64 = icmp ne i64 %.1, 0
   %or.cond = select i1 %63, i1 true, i1 %64
   br i1 %or.cond, label %65, label %66
 
 65:                                               ; preds = %62
-  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %.050, i64 noundef %.0) #10
+  call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %.151, i64 noundef %.1) #10
   br label %66
 
 66:                                               ; preds = %65, %62
@@ -295,8 +295,8 @@ define internal i32 @ft_raster1_render(ptr nocapture noundef readonly %0, ptr no
   br label %87
 
 .thread:                                          ; preds = %15, %32, %33, %66
-  %.168 = phi i64 [ %.0, %66 ], [ 0, %33 ], [ 0, %32 ], [ 0, %15 ]
-  %.15166 = phi i64 [ %.050, %66 ], [ 0, %33 ], [ 0, %32 ], [ 0, %15 ]
+  %.068 = phi i64 [ %.1, %66 ], [ 0, %33 ], [ 0, %32 ], [ 0, %15 ]
+  %.05066 = phi i64 [ %.151, %66 ], [ 0, %33 ], [ 0, %32 ], [ 0, %15 ]
   %75 = getelementptr inbounds i8, ptr %1, i64 296
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 8
@@ -318,16 +318,16 @@ define internal i32 @ft_raster1_render(ptr nocapture noundef readonly %0, ptr no
   br label %87
 
 87:                                               ; preds = %.thread, %80, %74
-  %.167 = phi i64 [ %.168, %.thread ], [ %.168, %80 ], [ %.0, %74 ]
-  %.15165 = phi i64 [ %.15166, %.thread ], [ %.15166, %80 ], [ %.050, %74 ]
-  %88 = icmp ne i64 %.15165, 0
-  %89 = icmp ne i64 %.167, 0
+  %.067 = phi i64 [ %.068, %.thread ], [ %.068, %80 ], [ %.1, %74 ]
+  %.05065 = phi i64 [ %.05066, %.thread ], [ %.05066, %80 ], [ %.151, %74 ]
+  %88 = icmp ne i64 %.05065, 0
+  %89 = icmp ne i64 %.067, 0
   %or.cond3 = select i1 %88, i1 true, i1 %89
   br i1 %or.cond3, label %90, label %93
 
 90:                                               ; preds = %87
-  %91 = sub nsw i64 0, %.15165
-  %92 = sub nsw i64 0, %.167
+  %91 = sub nsw i64 0, %.05065
+  %92 = sub nsw i64 0, %.067
   call void @FT_Outline_Translate(ptr noundef nonnull %7, i64 noundef %91, i64 noundef %92) #10
   br label %93
 
@@ -819,22 +819,22 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signex
   br label %96
 
 96:                                               ; preds = %91, %89
-  %.0181.i.i = phi ptr [ %90, %89 ], [ %52, %91 ]
-  %.sroa.081.1.i.i = phi i64 [ %.sroa.0104.0.i.i, %89 ], [ %93, %91 ]
-  %.sroa.11.1.i.i = phi i64 [ %.sroa.5.0.i.i, %89 ], [ %95, %91 ]
+  %.1182.i.i = phi ptr [ %90, %89 ], [ %52, %91 ]
+  %.sroa.081.2.i.i = phi i64 [ %.sroa.0104.0.i.i, %89 ], [ %93, %91 ]
+  %.sroa.11.2.i.i = phi i64 [ %.sroa.5.0.i.i, %89 ], [ %95, %91 ]
   %97 = getelementptr inbounds i8, ptr %54, i64 -16
   %98 = getelementptr inbounds i8, ptr %76, i64 -1
   br label %99
 
 99:                                               ; preds = %96, %81
   %.0183.i.i = phi ptr [ %98, %96 ], [ %76, %81 ]
-  %.1182.i.i = phi ptr [ %.0181.i.i, %96 ], [ %52, %81 ]
+  %.0181.i.i = phi ptr [ %.1182.i.i, %96 ], [ %52, %81 ]
   %.0178.i.i = phi ptr [ %97, %96 ], [ %54, %81 ]
-  %.sroa.081.2.i.i = phi i64 [ %.sroa.081.1.i.i, %96 ], [ %.sroa.081.0.i.i, %81 ]
-  %.sroa.11.2.i.i = phi i64 [ %.sroa.11.1.i.i, %96 ], [ %.sroa.11.0.i.i, %81 ]
-  store i64 %.sroa.081.2.i.i, ptr %29, align 8
-  store i64 %.sroa.11.2.i.i, ptr %30, align 8
-  %100 = icmp ult ptr %.0178.i.i, %.1182.i.i
+  %.sroa.081.1.i.i = phi i64 [ %.sroa.081.2.i.i, %96 ], [ %.sroa.081.0.i.i, %81 ]
+  %.sroa.11.1.i.i = phi i64 [ %.sroa.11.2.i.i, %96 ], [ %.sroa.11.0.i.i, %81 ]
+  store i64 %.sroa.081.1.i.i, ptr %29, align 8
+  store i64 %.sroa.11.1.i.i, ptr %30, align 8
+  %100 = icmp ult ptr %.0178.i.i, %.0181.i.i
   br i1 %100, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %99, %.backedge.i.i
@@ -870,7 +870,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signex
 .backedge.i.i:                                    ; preds = %209, %.split229.us.i.i, %105
   %.1184.be.i.i = phi ptr [ %188, %209 ], [ %.us-phi231.i.i, %.split229.us.i.i ], [ %102, %105 ]
   %.1.be.i.i = phi ptr [ %187, %209 ], [ %.us-phi230.i.i, %.split229.us.i.i ], [ %101, %105 ]
-  %118 = icmp ult ptr %.1.be.i.i, %.1182.i.i
+  %118 = icmp ult ptr %.1.be.i.i, %.0181.i.i
   br i1 %118, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
 
 119:                                              ; preds = %.lr.ph.i.i
@@ -892,7 +892,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signex
   %.2.us.i.i = phi ptr [ %133, %148 ], [ %101, %119 ]
   %.sroa.095.1.us.i.i = phi i64 [ %143, %148 ], [ %126, %119 ]
   %.sroa.9.1.us.i.i = phi i64 [ %147, %148 ], [ %130, %119 ]
-  %131 = icmp ult ptr %.2.us.i.i, %.1182.i.i
+  %131 = icmp ult ptr %.2.us.i.i, %.0181.i.i
   br i1 %131, label %132, label %.split226.us.i.i
 
 132:                                              ; preds = %.split.us.i.i
@@ -930,7 +930,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signex
   %.2.i.i = phi ptr [ %156, %172 ], [ %101, %119 ]
   %.sroa.095.1.i.i = phi i64 [ %170, %172 ], [ %130, %119 ]
   %.sroa.9.1.i.i = phi i64 [ %166, %172 ], [ %126, %119 ]
-  %154 = icmp ult ptr %.2.i.i, %.1182.i.i
+  %154 = icmp ult ptr %.2.i.i, %.0181.i.i
   br i1 %154, label %155, label %.split226.us.i.i
 
 155:                                              ; preds = %.split.i.i
@@ -977,13 +977,13 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signex
 .split226.us.i.i:                                 ; preds = %.split.i.i, %.split.us.i.i
   %.us-phi.i.i = phi i64 [ %.sroa.095.1.us.i.i, %.split.us.i.i ], [ %.sroa.095.1.i.i, %.split.i.i ]
   %.us-phi227.i.i = phi i64 [ %.sroa.9.1.us.i.i, %.split.us.i.i ], [ %.sroa.9.1.i.i, %.split.i.i ]
-  %178 = tail call fastcc signext i8 @Conic_To(ptr noundef %0, i64 noundef %.us-phi.i.i, i64 noundef %.us-phi227.i.i, i64 noundef %.sroa.081.2.i.i, i64 noundef %.sroa.11.2.i.i)
+  %178 = tail call fastcc signext i8 @Conic_To(ptr noundef %0, i64 noundef %.us-phi.i.i, i64 noundef %.us-phi227.i.i, i64 noundef %.sroa.081.1.i.i, i64 noundef %.sroa.11.1.i.i)
   %.not191.i.i = icmp eq i8 %178, 0
   br i1 %.not191.i.i, label %221, label %.loopexit
 
 179:                                              ; preds = %.lr.ph.i.i
   %180 = getelementptr inbounds i8, ptr %.1237.i.i, i64 32
-  %181 = icmp ugt ptr %180, %.1182.i.i
+  %181 = icmp ugt ptr %180, %.0181.i.i
   br i1 %181, label %.thread, label %182
 
 182:                                              ; preds = %179
@@ -1024,7 +1024,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signex
   %.0174.i.i = phi i64 [ %195, %207 ], [ %199, %186 ]
   %.0173.i.i = phi i64 [ %206, %207 ], [ %202, %186 ]
   %.0172.i.i = phi i64 [ %202, %207 ], [ %206, %186 ]
-  %.not197.i.i = icmp ugt ptr %187, %.1182.i.i
+  %.not197.i.i = icmp ugt ptr %187, %.0181.i.i
   br i1 %.not197.i.i, label %218, label %209
 
 209:                                              ; preds = %208
@@ -1042,12 +1042,12 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef %0, i8 noundef signex
   br i1 %.not199.i.i, label %.backedge.i.i, label %.loopexit
 
 218:                                              ; preds = %208
-  %219 = tail call fastcc signext i8 @Cubic_To(ptr noundef nonnull %0, i64 noundef %.0175.i.i, i64 noundef %.0174.i.i, i64 noundef %.0173.i.i, i64 noundef %.0172.i.i, i64 noundef %.sroa.081.2.i.i, i64 noundef %.sroa.11.2.i.i)
+  %219 = tail call fastcc signext i8 @Cubic_To(ptr noundef nonnull %0, i64 noundef %.0175.i.i, i64 noundef %.0174.i.i, i64 noundef %.0173.i.i, i64 noundef %.0172.i.i, i64 noundef %.sroa.081.1.i.i, i64 noundef %.sroa.11.1.i.i)
   %.not198.i.i = icmp eq i8 %219, 0
   br i1 %.not198.i.i, label %221, label %.loopexit
 
 ._crit_edge.i.i:                                  ; preds = %.backedge.i.i, %99
-  %220 = tail call fastcc signext i8 @Line_To(ptr noundef nonnull %0, i64 noundef %.sroa.081.2.i.i, i64 noundef %.sroa.11.2.i.i)
+  %220 = tail call fastcc signext i8 @Line_To(ptr noundef nonnull %0, i64 noundef %.sroa.081.1.i.i, i64 noundef %.sroa.11.1.i.i)
   %.not190.i.i = icmp eq i8 %220, 0
   br i1 %.not190.i.i, label %221, label %.loopexit
 
@@ -3029,7 +3029,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_Up(ptr nocapture noundef 
   %.086 = phi i64 [ %64, %66 ], [ %.187, %79 ]
   %.181 = phi i64 [ %.080, %66 ], [ %.282, %79 ]
   %.179 = phi i32 [ %45, %66 ], [ %85, %79 ]
-  %.1 = phi ptr [ %65, %66 ], [ %84, %79 ]
+  %.2 = phi ptr [ %65, %66 ], [ %84, %79 ]
   %80 = add nsw i64 %.086, %74
   %81 = add nsw i64 %.181, %.083
   %.not103 = icmp slt i64 %81, %57
@@ -3037,15 +3037,15 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_Up(ptr nocapture noundef 
   %.187 = add nsw i64 %80, %82
   %83 = select i1 %.not103, i64 0, i64 %57
   %.282 = sub nsw i64 %81, %83
-  %84 = getelementptr inbounds i8, ptr %.1, i64 8
-  store i64 %.187, ptr %.1, align 8
+  %84 = getelementptr inbounds i8, ptr %.2, i64 8
+  store i64 %.187, ptr %.2, align 8
   %85 = add nsw i32 %.179, -1
   %.not104 = icmp eq i32 %85, 0
   br i1 %.not104, label %.loopexit, label %79, !llvm.loop !22
 
 .loopexit:                                        ; preds = %79, %.preheader, %61
-  %.2 = phi ptr [ %65, %61 ], [ %59, %.preheader ], [ %84, %79 ]
-  store ptr %.2, ptr %47, align 8
+  %.1 = phi ptr [ %65, %61 ], [ %59, %.preheader ], [ %84, %79 ]
+  store ptr %.1, ptr %47, align 8
   br label %86
 
 86:                                               ; preds = %38, %7, %.loopexit, %53

@@ -194,7 +194,7 @@ ompi_coll_base_nbc_reserve_tags.exit:             ; preds = %52, %.split14.i
 76:                                               ; preds = %68, %71
   %.0203 = phi i64 [ %75, %71 ], [ %26, %68 ]
   %.0202 = phi i64 [ %.val149, %71 ], [ %.val148, %68 ]
-  %.1 = phi i64 [ 0, %71 ], [ %34, %68 ]
+  %.0201 = phi i64 [ 0, %71 ], [ %34, %68 ]
   %.0125 = phi ptr [ %2, %71 ], [ %6, %68 ]
   %.0124 = phi ptr [ %1, %71 ], [ %5, %68 ]
   %.0121 = phi ptr [ null, %71 ], [ %69, %68 ]
@@ -318,7 +318,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
 .lr.ph.i159:                                      ; preds = %.critedge
   %134 = add nsw i32 %.val147.val, %.val
   %135 = icmp eq i64 %.val148, 0
-  %136 = sub nsw i64 0, %.1
+  %136 = sub nsw i64 0, %.0201
   %137 = inttoptr i64 %136 to ptr
   br i1 %135, label %a2av_sched_inplace.exit, label %.lr.ph.split.preheader.i
 
@@ -427,7 +427,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %123
 
 200:                                              ; preds = %187
   %201 = zext nneg i32 %198 to i64
-  %202 = sub nsw i64 0, %.1
+  %202 = sub nsw i64 0, %.0201
   %203 = inttoptr i64 %202 to ptr
   %204 = tail call i32 @NBC_Sched_copy(ptr noundef %196, i8 noundef signext 0, i64 noundef %201, ptr noundef %7, ptr noundef %203, i8 noundef signext 1, i64 noundef %201, ptr noundef %7, ptr noundef %78, i1 noundef zeroext true) #5
   %.not.i158 = icmp eq i32 %204, 0

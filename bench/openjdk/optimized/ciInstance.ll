@@ -444,10 +444,10 @@ _ZN5ciEnv10get_objectEP7oopDesc.exit:             ; preds = %76
   unreachable
 
 94:                                               ; preds = %81, %_ZN5ciEnv10get_objectEP7oopDesc.exit, %70, %64, %58, %52, %45, %38, %31, %24
-  %.sroa.24.sroa.0.0 = phi i32 [ %.sroa.24.sroa.0.0.extract.trunc82, %81 ], [ %.sroa.24.sroa.0.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.sroa.243.sroa.0.0.extract.trunc, %70 ], [ %.sroa.24.sroa.0.0.extract.trunc83, %64 ], [ %63, %58 ], [ %57, %52 ], [ %51, %45 ], [ %44, %38 ], [ %37, %31 ], [ %30, %24 ]
-  %.sroa.24.sroa.13.0 = phi i64 [ %.sroa.24.sroa.13.0.extract.shift88, %81 ], [ %.sroa.24.sroa.13.0.extract.shift, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.sroa.243.sroa.2.0.extract.shift, %70 ], [ %.sroa.24.sroa.13.0.extract.shift90, %64 ], [ 0, %58 ], [ 0, %52 ], [ 0, %45 ], [ 0, %38 ], [ 0, %31 ], [ 0, %24 ]
-  %.sroa.24.sroa.0.0.insert.ext = zext i32 %.sroa.24.sroa.0.0 to i64
-  %.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %.sroa.24.sroa.13.0, %.sroa.24.sroa.0.0.insert.ext
+  %.sroa.24.sroa.0.1 = phi i32 [ %.sroa.24.sroa.0.0.extract.trunc82, %81 ], [ %.sroa.24.sroa.0.0.extract.trunc, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.sroa.243.sroa.0.0.extract.trunc, %70 ], [ %.sroa.24.sroa.0.0.extract.trunc83, %64 ], [ %63, %58 ], [ %57, %52 ], [ %51, %45 ], [ %44, %38 ], [ %37, %31 ], [ %30, %24 ]
+  %.sroa.24.sroa.13.1 = phi i64 [ %.sroa.24.sroa.13.0.extract.shift88, %81 ], [ %.sroa.24.sroa.13.0.extract.shift, %_ZN5ciEnv10get_objectEP7oopDesc.exit ], [ %.sroa.243.sroa.2.0.extract.shift, %70 ], [ %.sroa.24.sroa.13.0.extract.shift90, %64 ], [ 0, %58 ], [ 0, %52 ], [ 0, %45 ], [ 0, %38 ], [ 0, %31 ], [ 0, %24 ]
+  %.sroa.24.sroa.0.0.insert.ext = zext i32 %.sroa.24.sroa.0.1 to i64
+  %.sroa.24.sroa.0.0.insert.insert = or disjoint i64 %.sroa.24.sroa.13.1, %.sroa.24.sroa.0.0.insert.ext
   tail call void @_ZN8ciObject27add_to_constant_value_cacheEi10ciConstant(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %2, i8 %1, i64 %.sroa.24.sroa.0.0.insert.insert) #5
   %95 = getelementptr inbounds i8, ptr %9, i64 408
   %96 = load ptr, ptr %95, align 8
@@ -486,8 +486,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %94, %100
 
 114:                                              ; preds = %._crit_edge, %_ZN17HandleMarkCleanerD2Ev.exit
   %.sroa.24.sroa.0.0.insert.insert86.pre-phi = phi i64 [ %6, %._crit_edge ], [ %.sroa.24.sroa.0.0.insert.insert, %_ZN17HandleMarkCleanerD2Ev.exit ]
-  %.sroa.072.1 = phi i8 [ %5, %._crit_edge ], [ %1, %_ZN17HandleMarkCleanerD2Ev.exit ]
-  %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.072.1, 0
+  %.sroa.072.0 = phi i8 [ %5, %._crit_edge ], [ %1, %_ZN17HandleMarkCleanerD2Ev.exit ]
+  %.fca.0.insert = insertvalue { i8, i64 } poison, i8 %.sroa.072.0, 0
   %.fca.1.insert = insertvalue { i8, i64 } %.fca.0.insert, i64 %.sroa.24.sroa.0.0.insert.insert86.pre-phi, 1
   ret { i8, i64 } %.fca.1.insert
 }

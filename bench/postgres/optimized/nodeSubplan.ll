@@ -794,7 +794,7 @@ ExecProcNode.exit.i:                              ; preds = %430, %.thread.i
 
 442:                                              ; preds = %ExecProcNode.exit159.i, %.lr.ph222.i
   %.0221.i = phi ptr [ %433, %.lr.ph222.i ], [ %639, %ExecProcNode.exit159.i ]
-  %.0125220.i = phi i64 [ %428, %.lr.ph222.i ], [ %.1.i, %ExecProcNode.exit159.i ]
+  %.0125220.i = phi i64 [ %428, %.lr.ph222.i ], [ %.2.i, %ExecProcNode.exit159.i ]
   %.0126219.i = phi i1 [ false, %.lr.ph222.i ], [ true, %ExecProcNode.exit159.i ]
   %.1131218.i = phi ptr [ %.0130.i, %.lr.ph222.i ], [ %.2132.i, %ExecProcNode.exit159.i ]
   %443 = getelementptr inbounds i8, ptr %.0221.i, i64 4
@@ -1158,7 +1158,7 @@ slot_getattr.exit157.i:                           ; preds = %slot_getsomeattrs.e
 
 .thread161.i:                                     ; preds = %heap_getattr.exit.i, %.lr.ph209.i, %634, %633, %632, %628, %627, %slot_getattr.exit.i, %472, %457
   %.2132.i = phi ptr [ %.1131218.i, %457 ], [ %580, %slot_getattr.exit.i ], [ %.1131218.i, %627 ], [ %.1131218.i, %628 ], [ %.1131218.i, %632 ], [ %.1131218.i, %633 ], [ %.1131218.i, %634 ], [ %.1131218.i, %472 ], [ %.1131218.i, %.lr.ph209.i ], [ %.1131218.i, %heap_getattr.exit.i ]
-  %.1.i = phi i64 [ %463, %457 ], [ %.0125220.i, %slot_getattr.exit.i ], [ %.0125220.i, %627 ], [ %.0125220.i, %628 ], [ %.0125220.i, %632 ], [ %.0125220.i, %633 ], [ %623, %634 ], [ %.0125220.i, %472 ], [ %.0125220.i, %.lr.ph209.i ], [ %.0125220.i, %heap_getattr.exit.i ]
+  %.2.i = phi i64 [ %463, %457 ], [ %.0125220.i, %slot_getattr.exit.i ], [ %.0125220.i, %627 ], [ %.0125220.i, %628 ], [ %.0125220.i, %632 ], [ %.0125220.i, %633 ], [ %623, %634 ], [ %.0125220.i, %472 ], [ %.0125220.i, %.lr.ph209.i ], [ %.0125220.i, %heap_getattr.exit.i ]
   %636 = load ptr, ptr %394, align 8
   %.not.i158.i = icmp eq ptr %636, null
   br i1 %.not.i158.i, label %ExecProcNode.exit159.i, label %637
@@ -1174,12 +1174,12 @@ ExecProcNode.exit159.i:                           ; preds = %637, %.thread161.i
   br i1 %640, label %.critedge.i.thread, label %442, !llvm.loop !10
 
 .thread172.sink.split.i:                          ; preds = %633, %628
-  %.2.ph.ph.i = phi i64 [ 1, %628 ], [ 0, %633 ]
+  %.1.ph.ph.i = phi i64 [ 1, %628 ], [ 0, %633 ]
   store i8 0, ptr %2, align 1
   br label %.thread172.i
 
 .thread172.i:                                     ; preds = %446, %.thread172.sink.split.i
-  %.2.ph.i = phi i64 [ %.2.ph.ph.i, %.thread172.sink.split.i ], [ 1, %446 ]
+  %.1.ph.i = phi i64 [ %.1.ph.ph.i, %.thread172.sink.split.i ], [ 1, %446 ]
   store ptr %383, ptr @CurrentMemoryContext, align 8
   br label %ExecScanSubPlan.exit
 
@@ -1249,7 +1249,7 @@ ExecProcNode.exit159.i:                           ; preds = %637, %.thread161.i
   br i1 %665, label %.lr.ph234.i, label %ExecScanSubPlan.exit
 
 ExecScanSubPlan.exit:                             ; preds = %.lr.ph234.i, %.critedge.i.thread, %.thread172.i, %641, %643, %645, %646, %648, %.lr.ph231.i
-  %.3.i = phi i64 [ %642, %641 ], [ %.0125220.i, %643 ], [ 0, %645 ], [ %.0125.lcssa259263.i, %646 ], [ %.2.ph.i, %.thread172.i ], [ %.0125.lcssa259263.i, %.lr.ph231.i ], [ %.0125.lcssa259263.i, %648 ], [ %.1.i, %.critedge.i.thread ], [ %.0125.lcssa259263.i, %.lr.ph234.i ]
+  %.3.i = phi i64 [ %642, %641 ], [ %.0125220.i, %643 ], [ 0, %645 ], [ %.0125.lcssa259263.i, %646 ], [ %.1.ph.i, %.thread172.i ], [ %.0125.lcssa259263.i, %.lr.ph231.i ], [ %.0125.lcssa259263.i, %648 ], [ %.2.i, %.critedge.i.thread ], [ %.0125.lcssa259263.i, %.lr.ph234.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %ExecHashSubPlan.exit
 

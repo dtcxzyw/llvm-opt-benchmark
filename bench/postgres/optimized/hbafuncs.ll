@@ -286,7 +286,7 @@ switch.lookup:                                    ; preds = %64
   br label %125
 
 125:                                              ; preds = %123, %112
-  %.074.i.i = phi ptr [ %124, %123 ], [ null, %112 ]
+  %.175.i.i = phi ptr [ %124, %123 ], [ null, %112 ]
   %126 = getelementptr inbounds i8, ptr %.0.i, i64 312
   %127 = load i32, ptr %126, align 8
   %128 = icmp sgt i32 %127, 0
@@ -316,13 +316,13 @@ switch.lookup:                                    ; preds = %64
 
 140:                                              ; preds = %136, %125
   %.077.i.i = phi ptr [ %137, %136 ], [ null, %125 ]
-  %.not95.i.i = icmp eq ptr %.074.i.i, null
+  %.not95.i.i = icmp eq ptr %.175.i.i, null
   br i1 %.not95.i.i, label %.thread115.i.i, label %.thread108.i.i
 
 .thread108.i.i:                                   ; preds = %140, %139, %138, %109, %106
-  %.175114.i.i = phi ptr [ %.074.i.i, %140 ], [ %111, %109 ], [ @.str.8, %138 ], [ @.str.9, %139 ], [ @.str.7, %106 ]
+  %.074114.i.i = phi ptr [ %.175.i.i, %140 ], [ %111, %109 ], [ @.str.8, %138 ], [ @.str.9, %139 ], [ @.str.7, %106 ]
   %.077113.i.i = phi ptr [ %.077.i.i, %140 ], [ null, %109 ], [ null, %138 ], [ null, %139 ], [ null, %106 ]
-  %141 = call ptr @cstring_to_text(ptr noundef nonnull %.175114.i.i) #4
+  %141 = call ptr @cstring_to_text(ptr noundef nonnull %.074114.i.i) #4
   %142 = ptrtoint ptr %141 to i64
   store i64 %142, ptr %30, align 16
   br label %143
@@ -373,7 +373,7 @@ switch.lookup:                                    ; preds = %64
   br label %162
 
 162:                                              ; preds = %159, %155
-  %.0.i.i.i = phi i32 [ 1, %159 ], [ 0, %155 ]
+  %.1.i.i.i = phi i32 [ 1, %159 ], [ 0, %155 ]
   %163 = getelementptr inbounds i8, ptr %.0.i, i64 456
   %164 = load ptr, ptr %163, align 8
   %.not.i.i.i = icmp eq ptr %164, null
@@ -383,14 +383,14 @@ switch.lookup:                                    ; preds = %64
   %166 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.11, ptr noundef nonnull %164) #4
   %167 = call ptr @cstring_to_text(ptr noundef %166) #4
   %168 = ptrtoint ptr %167 to i64
-  %169 = add nuw nsw i32 %.0.i.i.i, 1
-  %170 = zext nneg i32 %.0.i.i.i to i64
+  %169 = add nuw nsw i32 %.1.i.i.i, 1
+  %170 = zext nneg i32 %.1.i.i.i to i64
   %171 = getelementptr [14 x i64], ptr %2, i64 0, i64 %170
   store i64 %168, ptr %171, align 8
   br label %172
 
 172:                                              ; preds = %165, %162, %148
-  %.1.i.i.i = phi i32 [ %169, %165 ], [ %.0.i.i.i, %162 ], [ 0, %148 ]
+  %.0.i.i.i = phi i32 [ %169, %165 ], [ %.1.i.i.i, %162 ], [ 0, %148 ]
   %173 = getelementptr inbounds i8, ptr %.0.i, i64 336
   %174 = load ptr, ptr %173, align 8
   %.not84.i.i.i = icmp eq ptr %174, null
@@ -400,14 +400,14 @@ switch.lookup:                                    ; preds = %64
   %176 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.12, ptr noundef nonnull %174) #4
   %177 = call ptr @cstring_to_text(ptr noundef %176) #4
   %178 = ptrtoint ptr %177 to i64
-  %179 = add nuw nsw i32 %.1.i.i.i, 1
-  %180 = zext nneg i32 %.1.i.i.i to i64
+  %179 = add nuw nsw i32 %.0.i.i.i, 1
+  %180 = zext nneg i32 %.0.i.i.i to i64
   %181 = getelementptr [14 x i64], ptr %2, i64 0, i64 %180
   store i64 %178, ptr %181, align 8
   br label %182
 
 182:                                              ; preds = %175, %172
-  %.2.i.i.i = phi i32 [ %179, %175 ], [ %.1.i.i.i, %172 ]
+  %.2.i.i.i = phi i32 [ %179, %175 ], [ %.0.i.i.i, %172 ]
   %183 = getelementptr inbounds i8, ptr %.0.i, i64 448
   %184 = load i32, ptr %183, align 8
   %.not85.i.i.i = icmp eq i32 %184, 0
@@ -465,7 +465,7 @@ switch.lookup:                                    ; preds = %64
   br label %217
 
 217:                                              ; preds = %210, %207
-  %.5.i.i.i = phi i32 [ %214, %210 ], [ %.4.i.i.i, %207 ]
+  %.6.i.i.i = phi i32 [ %214, %210 ], [ %.4.i.i.i, %207 ]
   %218 = getelementptr inbounds i8, ptr %.0.i, i64 376
   %219 = load i32, ptr %218, align 8
   %.not88.i.i.i = icmp eq i32 %219, 0
@@ -475,14 +475,14 @@ switch.lookup:                                    ; preds = %64
   %221 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.18, i32 noundef %219) #4
   %222 = call ptr @cstring_to_text(ptr noundef %221) #4
   %223 = ptrtoint ptr %222 to i64
-  %224 = add nuw nsw i32 %.5.i.i.i, 1
-  %225 = zext nneg i32 %.5.i.i.i to i64
+  %224 = add nuw nsw i32 %.6.i.i.i, 1
+  %225 = zext nneg i32 %.6.i.i.i to i64
   %226 = getelementptr [14 x i64], ptr %2, i64 0, i64 %225
   store i64 %223, ptr %226, align 8
   br label %227
 
 227:                                              ; preds = %220, %217
-  %.6.i.i.i = phi i32 [ %224, %220 ], [ %.5.i.i.i, %217 ]
+  %.7.i.i.i = phi i32 [ %224, %220 ], [ %.6.i.i.i, %217 ]
   %228 = getelementptr inbounds i8, ptr %.0.i, i64 353
   %229 = load i8, ptr %228, align 1
   %230 = trunc i8 %229 to i1
@@ -491,14 +491,14 @@ switch.lookup:                                    ; preds = %64
 231:                                              ; preds = %227
   %232 = call ptr @cstring_to_text(ptr noundef nonnull @.str.19) #4
   %233 = ptrtoint ptr %232 to i64
-  %234 = add nuw nsw i32 %.6.i.i.i, 1
-  %235 = zext nneg i32 %.6.i.i.i to i64
+  %234 = add nuw nsw i32 %.7.i.i.i, 1
+  %235 = zext nneg i32 %.7.i.i.i to i64
   %236 = getelementptr [14 x i64], ptr %2, i64 0, i64 %235
   store i64 %233, ptr %236, align 8
   br label %237
 
 237:                                              ; preds = %231, %227
-  %.7.i.i.i = phi i32 [ %234, %231 ], [ %.6.i.i.i, %227 ]
+  %.8.i.i.i = phi i32 [ %234, %231 ], [ %.7.i.i.i, %227 ]
   %238 = getelementptr inbounds i8, ptr %.0.i, i64 432
   %239 = load ptr, ptr %238, align 8
   %.not89.i.i.i = icmp eq ptr %239, null
@@ -508,14 +508,14 @@ switch.lookup:                                    ; preds = %64
   %241 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.20, ptr noundef nonnull %239) #4
   %242 = call ptr @cstring_to_text(ptr noundef %241) #4
   %243 = ptrtoint ptr %242 to i64
-  %244 = add nuw nsw i32 %.7.i.i.i, 1
-  %245 = zext nneg i32 %.7.i.i.i to i64
+  %244 = add nuw nsw i32 %.8.i.i.i, 1
+  %245 = zext nneg i32 %.8.i.i.i to i64
   %246 = getelementptr [14 x i64], ptr %2, i64 0, i64 %245
   store i64 %243, ptr %246, align 8
   br label %247
 
 247:                                              ; preds = %240, %237
-  %.8.i.i.i = phi i32 [ %244, %240 ], [ %.7.i.i.i, %237 ]
+  %.9.i.i.i = phi i32 [ %244, %240 ], [ %.8.i.i.i, %237 ]
   %248 = getelementptr inbounds i8, ptr %.0.i, i64 440
   %249 = load ptr, ptr %248, align 8
   %.not90.i.i.i = icmp eq ptr %249, null
@@ -525,14 +525,14 @@ switch.lookup:                                    ; preds = %64
   %251 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.21, ptr noundef nonnull %249) #4
   %252 = call ptr @cstring_to_text(ptr noundef %251) #4
   %253 = ptrtoint ptr %252 to i64
-  %254 = add nuw nsw i32 %.8.i.i.i, 1
-  %255 = zext nneg i32 %.8.i.i.i to i64
+  %254 = add nuw nsw i32 %.9.i.i.i, 1
+  %255 = zext nneg i32 %.9.i.i.i to i64
   %256 = getelementptr [14 x i64], ptr %2, i64 0, i64 %255
   store i64 %253, ptr %256, align 8
   br label %257
 
 257:                                              ; preds = %250, %247
-  %.9.i.i.i = phi i32 [ %254, %250 ], [ %.8.i.i.i, %247 ]
+  %.10.i.i.i = phi i32 [ %254, %250 ], [ %.9.i.i.i, %247 ]
   %258 = getelementptr inbounds i8, ptr %.0.i, i64 416
   %259 = load ptr, ptr %258, align 8
   %.not91.i.i.i = icmp eq ptr %259, null
@@ -542,14 +542,14 @@ switch.lookup:                                    ; preds = %64
   %261 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.22, ptr noundef nonnull %259) #4
   %262 = call ptr @cstring_to_text(ptr noundef %261) #4
   %263 = ptrtoint ptr %262 to i64
-  %264 = add nuw nsw i32 %.9.i.i.i, 1
-  %265 = zext nneg i32 %.9.i.i.i to i64
+  %264 = add nuw nsw i32 %.10.i.i.i, 1
+  %265 = zext nneg i32 %.10.i.i.i to i64
   %266 = getelementptr [14 x i64], ptr %2, i64 0, i64 %265
   store i64 %263, ptr %266, align 8
   br label %267
 
 267:                                              ; preds = %260, %257
-  %.10.i.i.i = phi i32 [ %264, %260 ], [ %.9.i.i.i, %257 ]
+  %.11.i.i.i = phi i32 [ %264, %260 ], [ %.10.i.i.i, %257 ]
   %268 = getelementptr inbounds i8, ptr %.0.i, i64 384
   %269 = load ptr, ptr %268, align 8
   %.not92.i.i.i = icmp eq ptr %269, null
@@ -559,14 +559,14 @@ switch.lookup:                                    ; preds = %64
   %271 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.23, ptr noundef nonnull %269) #4
   %272 = call ptr @cstring_to_text(ptr noundef %271) #4
   %273 = ptrtoint ptr %272 to i64
-  %274 = add nuw nsw i32 %.10.i.i.i, 1
-  %275 = zext nneg i32 %.10.i.i.i to i64
+  %274 = add nuw nsw i32 %.11.i.i.i, 1
+  %275 = zext nneg i32 %.11.i.i.i to i64
   %276 = getelementptr [14 x i64], ptr %2, i64 0, i64 %275
   store i64 %273, ptr %276, align 8
   br label %277
 
 277:                                              ; preds = %270, %267
-  %.11.i.i.i = phi i32 [ %274, %270 ], [ %.10.i.i.i, %267 ]
+  %.12.i.i.i = phi i32 [ %274, %270 ], [ %.11.i.i.i, %267 ]
   %278 = getelementptr inbounds i8, ptr %.0.i, i64 392
   %279 = load ptr, ptr %278, align 8
   %.not93.i.i.i = icmp eq ptr %279, null
@@ -576,14 +576,14 @@ switch.lookup:                                    ; preds = %64
   %281 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.24, ptr noundef nonnull %279) #4
   %282 = call ptr @cstring_to_text(ptr noundef %281) #4
   %283 = ptrtoint ptr %282 to i64
-  %284 = add nuw nsw i32 %.11.i.i.i, 1
-  %285 = zext nneg i32 %.11.i.i.i to i64
+  %284 = add nuw nsw i32 %.12.i.i.i, 1
+  %285 = zext nneg i32 %.12.i.i.i to i64
   %286 = getelementptr [14 x i64], ptr %2, i64 0, i64 %285
   store i64 %283, ptr %286, align 8
   br label %287
 
 287:                                              ; preds = %280, %277
-  %.12.i.i.i = phi i32 [ %284, %280 ], [ %.11.i.i.i, %277 ]
+  %.13.i.i.i = phi i32 [ %284, %280 ], [ %.12.i.i.i, %277 ]
   %288 = getelementptr inbounds i8, ptr %.0.i, i64 400
   %289 = load ptr, ptr %288, align 8
   %.not94.i.i.i = icmp eq ptr %289, null
@@ -593,14 +593,14 @@ switch.lookup:                                    ; preds = %64
   %291 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.25, ptr noundef nonnull %289) #4
   %292 = call ptr @cstring_to_text(ptr noundef %291) #4
   %293 = ptrtoint ptr %292 to i64
-  %294 = add nuw nsw i32 %.12.i.i.i, 1
-  %295 = zext nneg i32 %.12.i.i.i to i64
+  %294 = add nuw nsw i32 %.13.i.i.i, 1
+  %295 = zext nneg i32 %.13.i.i.i to i64
   %296 = getelementptr [14 x i64], ptr %2, i64 0, i64 %295
   store i64 %293, ptr %296, align 8
   br label %297
 
 297:                                              ; preds = %290, %287
-  %.13.i.i.i = phi i32 [ %294, %290 ], [ %.12.i.i.i, %287 ]
+  %.14.i.i.i = phi i32 [ %294, %290 ], [ %.13.i.i.i, %287 ]
   %298 = getelementptr inbounds i8, ptr %.0.i, i64 408
   %299 = load ptr, ptr %298, align 8
   %.not95.i.i.i = icmp eq ptr %299, null
@@ -610,14 +610,14 @@ switch.lookup:                                    ; preds = %64
   %301 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.26, ptr noundef nonnull %299) #4
   %302 = call ptr @cstring_to_text(ptr noundef %301) #4
   %303 = ptrtoint ptr %302 to i64
-  %304 = add nuw nsw i32 %.13.i.i.i, 1
-  %305 = zext nneg i32 %.13.i.i.i to i64
+  %304 = add nuw nsw i32 %.14.i.i.i, 1
+  %305 = zext nneg i32 %.14.i.i.i to i64
   %306 = getelementptr [14 x i64], ptr %2, i64 0, i64 %305
   store i64 %303, ptr %306, align 8
   br label %307
 
 307:                                              ; preds = %300, %297
-  %.14.i.i.i = phi i32 [ %304, %300 ], [ %.13.i.i.i, %297 ]
+  %.15.i.i.i = phi i32 [ %304, %300 ], [ %.14.i.i.i, %297 ]
   %308 = getelementptr inbounds i8, ptr %.0.i, i64 424
   %309 = load i32, ptr %308, align 8
   %.not96.i.i.i = icmp eq i32 %309, 0
@@ -627,20 +627,20 @@ switch.lookup:                                    ; preds = %64
   %311 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.27, i32 noundef %309) #4
   %312 = call ptr @cstring_to_text(ptr noundef %311) #4
   %313 = ptrtoint ptr %312 to i64
-  %314 = add nuw nsw i32 %.14.i.i.i, 1
-  %315 = zext nneg i32 %.14.i.i.i to i64
+  %314 = add nuw nsw i32 %.15.i.i.i, 1
+  %315 = zext nneg i32 %.15.i.i.i to i64
   %316 = getelementptr [14 x i64], ptr %2, i64 0, i64 %315
   store i64 %313, ptr %316, align 8
   br label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %310, %307
-  %.15.ph.i.i.i = phi i32 [ %.14.i.i.i, %307 ], [ %314, %310 ]
+  %.5.ph.i.i.i = phi i32 [ %.15.i.i.i, %307 ], [ %314, %310 ]
   %.pr.i.i.i = load i32, ptr %149, align 8
   br label %317
 
 317:                                              ; preds = %thread-pre-split.i.i.i, %204
   %318 = phi i32 [ %.pr.i.i.i, %thread-pre-split.i.i.i ], [ %205, %204 ]
-  %.15.i.i.i = phi i32 [ %.15.ph.i.i.i, %thread-pre-split.i.i.i ], [ %.4.i.i.i, %204 ]
+  %.5.i.i.i = phi i32 [ %.5.ph.i.i.i, %thread-pre-split.i.i.i ], [ %.4.i.i.i, %204 ]
   %319 = icmp eq i32 %318, 13
   br i1 %319, label %320, label %359
 
@@ -654,14 +654,14 @@ thread-pre-split.i.i.i:                           ; preds = %310, %307
   %324 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.28, ptr noundef nonnull %322) #4
   %325 = call ptr @cstring_to_text(ptr noundef %324) #4
   %326 = ptrtoint ptr %325 to i64
-  %327 = add nuw nsw i32 %.15.i.i.i, 1
-  %328 = zext nneg i32 %.15.i.i.i to i64
+  %327 = add nuw nsw i32 %.5.i.i.i, 1
+  %328 = zext nneg i32 %.5.i.i.i to i64
   %329 = getelementptr [14 x i64], ptr %2, i64 0, i64 %328
   store i64 %326, ptr %329, align 8
   br label %330
 
 330:                                              ; preds = %323, %320
-  %.16.i.i.i = phi i32 [ %327, %323 ], [ %.15.i.i.i, %320 ]
+  %.17.i.i.i = phi i32 [ %327, %323 ], [ %.5.i.i.i, %320 ]
   %331 = getelementptr inbounds i8, ptr %.0.i, i64 496
   %332 = load ptr, ptr %331, align 8
   %.not98.i.i.i = icmp eq ptr %332, null
@@ -671,14 +671,14 @@ thread-pre-split.i.i.i:                           ; preds = %310, %307
   %334 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.29, ptr noundef nonnull %332) #4
   %335 = call ptr @cstring_to_text(ptr noundef %334) #4
   %336 = ptrtoint ptr %335 to i64
-  %337 = add nuw nsw i32 %.16.i.i.i, 1
-  %338 = zext nneg i32 %.16.i.i.i to i64
+  %337 = add nuw nsw i32 %.17.i.i.i, 1
+  %338 = zext nneg i32 %.17.i.i.i to i64
   %339 = getelementptr [14 x i64], ptr %2, i64 0, i64 %338
   store i64 %336, ptr %339, align 8
   br label %340
 
 340:                                              ; preds = %333, %330
-  %.17.i.i.i = phi i32 [ %337, %333 ], [ %.16.i.i.i, %330 ]
+  %.18.i.i.i = phi i32 [ %337, %333 ], [ %.17.i.i.i, %330 ]
   %341 = getelementptr inbounds i8, ptr %.0.i, i64 512
   %342 = load ptr, ptr %341, align 8
   %.not99.i.i.i = icmp eq ptr %342, null
@@ -688,14 +688,14 @@ thread-pre-split.i.i.i:                           ; preds = %310, %307
   %344 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.30, ptr noundef nonnull %342) #4
   %345 = call ptr @cstring_to_text(ptr noundef %344) #4
   %346 = ptrtoint ptr %345 to i64
-  %347 = add nuw nsw i32 %.17.i.i.i, 1
-  %348 = zext nneg i32 %.17.i.i.i to i64
+  %347 = add nuw nsw i32 %.18.i.i.i, 1
+  %348 = zext nneg i32 %.18.i.i.i to i64
   %349 = getelementptr [14 x i64], ptr %2, i64 0, i64 %348
   store i64 %346, ptr %349, align 8
   br label %350
 
 350:                                              ; preds = %343, %340
-  %.18.i.i.i = phi i32 [ %347, %343 ], [ %.17.i.i.i, %340 ]
+  %.19.i.i.i = phi i32 [ %347, %343 ], [ %.18.i.i.i, %340 ]
   %351 = getelementptr inbounds i8, ptr %.0.i, i64 528
   %352 = load ptr, ptr %351, align 8
   %.not100.i.i.i = icmp eq ptr %352, null
@@ -705,15 +705,15 @@ thread-pre-split.i.i.i:                           ; preds = %310, %307
   %353 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.31, ptr noundef nonnull %352) #4
   %354 = call ptr @cstring_to_text(ptr noundef %353) #4
   %355 = ptrtoint ptr %354 to i64
-  %356 = add nuw nsw i32 %.18.i.i.i, 1
-  %357 = zext nneg i32 %.18.i.i.i to i64
+  %356 = add nuw nsw i32 %.19.i.i.i, 1
+  %357 = zext nneg i32 %.19.i.i.i to i64
   %358 = getelementptr [14 x i64], ptr %2, i64 0, i64 %357
   store i64 %355, ptr %358, align 8
   br label %get_hba_options.exit.i.i
 
 359:                                              ; preds = %350, %317
-  %.19.i.i.i = phi i32 [ %.18.i.i.i, %350 ], [ %.15.i.i.i, %317 ]
-  %.not103.i.i.i = icmp eq i32 %.19.i.i.i, 0
+  %.16.i.i.i = phi i32 [ %.19.i.i.i, %350 ], [ %.5.i.i.i, %317 ]
+  %.not103.i.i.i = icmp eq i32 %.16.i.i.i, 0
   br i1 %.not103.i.i.i, label %get_hba_options.exit.thread.i.i, label %get_hba_options.exit.i.i
 
 get_hba_options.exit.thread.i.i:                  ; preds = %359
@@ -721,8 +721,8 @@ get_hba_options.exit.thread.i.i:                  ; preds = %359
   br label %363
 
 get_hba_options.exit.i.i:                         ; preds = %359, %.thread.i.i.i
-  %.19102.i.i.i = phi i32 [ %356, %.thread.i.i.i ], [ %.19.i.i.i, %359 ]
-  %360 = call ptr @construct_array_builtin(ptr noundef nonnull %2, i32 noundef %.19102.i.i.i, i32 noundef 25) #4
+  %.16102.i.i.i = phi i32 [ %356, %.thread.i.i.i ], [ %.16.i.i.i, %359 ]
+  %360 = call ptr @construct_array_builtin(ptr noundef nonnull %2, i32 noundef %.16102.i.i.i, i32 noundef 25) #4
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %2)
   %.not97.i.i = icmp eq ptr %360, null
   br i1 %.not97.i.i, label %363, label %361

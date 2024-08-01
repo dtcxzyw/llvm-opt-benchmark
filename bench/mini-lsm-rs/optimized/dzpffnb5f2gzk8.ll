@@ -5764,9 +5764,9 @@ _ZN17crossbeam_channel7context7Context4with7CONTEXT7__getit17h799346beabb6d62aE.
   br label %.body.i
 
 .body.i:                                          ; preds = %125, %121, %116, %115, %111, %93, %89
-  %.sroa.8.1.i = phi i8 [ 2, %93 ], [ 2, %89 ], [ %.sroa.8.0.i, %116 ], [ 2, %115 ], [ 2, %111 ], [ 2, %125 ], [ 2, %121 ]
+  %.sroa.8.2.i = phi i8 [ 2, %93 ], [ 2, %89 ], [ %.sroa.8.0.i, %116 ], [ 2, %115 ], [ 2, %111 ], [ 2, %125 ], [ 2, %121 ]
   %eh.lpad-body.i = phi { ptr, i32 } [ %90, %93 ], [ %90, %89 ], [ %117, %116 ], [ %112, %115 ], [ %112, %111 ], [ %122, %125 ], [ %122, %121 ]
-  invoke fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$crossbeam_channel..flavors..zero..Channel$LT$$LP$$RP$$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he29fd9ac12fbe243E"(ptr nonnull %0, i8 %.sroa.8.1.i) #28
+  invoke fastcc void @"_ZN4core3ptr141drop_in_place$LT$core..option..Option$LT$crossbeam_channel..flavors..zero..Channel$LT$$LP$$RP$$GT$..send..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he29fd9ac12fbe243E"(ptr nonnull %0, i8 %.sroa.8.2.i) #28
           to label %common.resume unwind label %132, !noalias !1168
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0df3d850dc9f2819E.exit.i": ; preds = %.noexc.i
@@ -9036,7 +9036,7 @@ default.unreachable:                              ; preds = %24
   br i1 %38, label %.thread, label %39
 
 39:                                               ; preds = %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit, %33, %29, %27, %21
-  %.0 = phi ptr [ @anon.b10b026f254355b4a243989b93340f03.48, %21 ], [ %.val, %27 ], [ %.val, %29 ], [ %.val, %33 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ]
+  %.1 = phi ptr [ @anon.b10b026f254355b4a243989b93340f03.48, %21 ], [ %.val, %27 ], [ %.val, %29 ], [ %.val, %33 ], [ %.val, %_ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @"_ZN111_$LT$std..io..buffered..bufwriter..BufWriter$LT$W$GT$..flush_buf..BufGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h71361215f744deacE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -9056,8 +9056,8 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %24
   br i1 %switch.i, label %.thread, label %39
 
 44:                                               ; preds = %39, %._crit_edge
-  %.1 = phi ptr [ null, %._crit_edge ], [ %.0, %39 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %._crit_edge ], [ %.1, %39 ]
+  ret ptr %.0
 
 45:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5c75edb4921e888fE.exit", %40
   %46 = phi i64 [ %.pre, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5c75edb4921e888fE.exit" ], [ %43, %40 ]

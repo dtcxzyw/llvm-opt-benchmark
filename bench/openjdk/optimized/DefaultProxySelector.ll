@@ -392,7 +392,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
   br i1 %.not95.i, label %.loopexit.i, label %.lr.ph108.i, !llvm.loop !8
 
 .loopexit.i:                                      ; preds = %115, %106, %101, %93, %84, %79, %74, %67, %61, %.preheader.i, %52, %._crit_edge.i, %41
-  %.079.i = phi ptr [ null, %41 ], [ %51, %52 ], [ null, %._crit_edge.i ], [ %51, %.preheader.i ], [ null, %106 ], [ null, %93 ], [ null, %101 ], [ null, %61 ], [ null, %67 ], [ null, %84 ], [ null, %74 ], [ null, %79 ], [ %51, %115 ]
+  %.1.i = phi ptr [ null, %41 ], [ %51, %52 ], [ null, %._crit_edge.i ], [ %51, %.preheader.i ], [ null, %106 ], [ null, %93 ], [ null, %101 ], [ null, %61 ], [ null, %67 ], [ null, %84 ], [ null, %74 ], [ null, %79 ], [ %51, %115 ]
   %118 = load ptr, ptr @g_strfreev, align 8
   call void %118(ptr noundef nonnull %40) #10
   %119 = load ptr, ptr @g_clear_error, align 8
@@ -400,7 +400,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
   br label %getProxyByGProxyResolver.exit
 
 getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loopexit.i
-  %.0.i = phi ptr [ null, %25 ], [ null, %29 ], [ %.079.i, %.loopexit.i ], [ null, %35 ]
+  %.0.i = phi ptr [ null, %25 ], [ null, %29 ], [ %.1.i, %.loopexit.i ], [ null, %35 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %241
 
@@ -443,8 +443,8 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
   br i1 %.not76.i, label %.thread.i, label %.thread98.i
 
 .thread.i:                                        ; preds = %133, %129
-  %.05391.i = phi i32 [ %139, %133 ], [ 0, %129 ]
-  %.05890.i = phi ptr [ %136, %133 ], [ null, %129 ]
+  %.15491.i = phi i32 [ %139, %133 ], [ 0, %129 ]
+  %.15990.i = phi ptr [ %136, %133 ], [ null, %129 ]
   %142 = call i32 @strcasecmp(ptr noundef nonnull readonly %12, ptr noundef nonnull @.str.24) #11
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %155
@@ -463,9 +463,9 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
   br label %155
 
 155:                                              ; preds = %144, %.thread.i
-  %.159.i = phi ptr [ %147, %144 ], [ %.05890.i, %.thread.i ]
-  %.154.i = phi i32 [ %150, %144 ], [ %.05391.i, %.thread.i ]
-  %.1.i = phi i32 [ %154, %144 ], [ 0, %.thread.i ]
+  %.260.i = phi ptr [ %147, %144 ], [ %.15990.i, %.thread.i ]
+  %.255.i = phi i32 [ %150, %144 ], [ %.15491.i, %.thread.i ]
+  %.2.i = phi i32 [ %154, %144 ], [ 0, %.thread.i ]
   %156 = call i32 @strcasecmp(ptr noundef nonnull readonly %12, ptr noundef nonnull @.str.25) #11
   %157 = icmp eq i32 %156, 0
   br i1 %157, label %158, label %169
@@ -484,9 +484,9 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
   br label %169
 
 169:                                              ; preds = %158, %155
-  %.260.i = phi ptr [ %161, %158 ], [ %.159.i, %155 ]
-  %.255.i = phi i32 [ %164, %158 ], [ %.154.i, %155 ]
-  %.2.i = phi i32 [ %168, %158 ], [ %.1.i, %155 ]
+  %.361.i = phi ptr [ %161, %158 ], [ %.260.i, %155 ]
+  %.356.i = phi i32 [ %164, %158 ], [ %.255.i, %155 ]
+  %.3.i = phi i32 [ %168, %158 ], [ %.2.i, %155 ]
   %170 = call i32 @strcasecmp(ptr noundef nonnull readonly %12, ptr noundef nonnull @.str.28) #11
   %171 = icmp eq i32 %170, 0
   br i1 %171, label %172, label %183
@@ -505,9 +505,9 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
   br label %183
 
 183:                                              ; preds = %172, %169
-  %.361.i = phi ptr [ %175, %172 ], [ %.260.i, %169 ]
-  %.356.i = phi i32 [ %178, %172 ], [ %.255.i, %169 ]
-  %.3.i = phi i32 [ %182, %172 ], [ %.2.i, %169 ]
+  %.462.i = phi ptr [ %175, %172 ], [ %.361.i, %169 ]
+  %.457.i = phi i32 [ %178, %172 ], [ %.356.i, %169 ]
+  %.4.i = phi i32 [ %182, %172 ], [ %.3.i, %169 ]
   %184 = call i32 @strcasecmp(ptr noundef nonnull readonly %12, ptr noundef nonnull @.str.18) #11
   %185 = icmp eq i32 %184, 0
   br i1 %185, label %186, label %198
@@ -528,17 +528,17 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
   br label %198
 
 198:                                              ; preds = %186, %183
-  %.462.i = phi ptr [ %.361.i, %183 ], [ %189, %186 ]
-  %.457.i = phi i32 [ %.356.i, %183 ], [ %192, %186 ]
-  %.4.i = phi i32 [ %.3.i, %183 ], [ %196, %186 ]
+  %.058.i = phi ptr [ %.462.i, %183 ], [ %189, %186 ]
+  %.053.i = phi i32 [ %.457.i, %183 ], [ %192, %186 ]
+  %.052.i = phi i32 [ %.4.i, %183 ], [ %196, %186 ]
   %.050.i = phi ptr [ %123, %183 ], [ %spec.select.i, %186 ]
-  %.not77.i = icmp eq i32 %.4.i, 0
+  %.not77.i = icmp eq i32 %.052.i, 0
   br i1 %.not77.i, label %getProxyByGConf.exit, label %.thread98.i
 
 .thread98.i:                                      ; preds = %198, %133
   %.050106.i = phi ptr [ %.050.i, %198 ], [ %123, %133 ]
-  %.457105.i = phi i32 [ %.457.i, %198 ], [ %139, %133 ]
-  %.462104.i = phi ptr [ %.462.i, %198 ], [ %136, %133 ]
+  %.053105.i = phi i32 [ %.053.i, %198 ], [ %139, %133 ]
+  %.058104.i = phi ptr [ %.058.i, %198 ], [ %136, %133 ]
   %199 = load ptr, ptr @my_get_string_func, align 8
   %200 = load ptr, ptr @gconf_client, align 8
   %201 = call ptr %199(ptr noundef %200, ptr noundef nonnull @.str.33, ptr noundef null) #10
@@ -587,8 +587,8 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
   br i1 %.not82.i, label %224, label %getProxyByGConf.exit
 
 224:                                              ; preds = %219
-  %225 = trunc i32 %.457105.i to i16
-  %226 = call ptr @createProxy(ptr noundef nonnull %0, ptr noundef %.050106.i, ptr noundef %.462104.i, i16 noundef zeroext %225) #10
+  %225 = trunc i32 %.053105.i to i16
+  %226 = call ptr @createProxy(ptr noundef nonnull %0, ptr noundef %.050106.i, ptr noundef %.058104.i, i16 noundef zeroext %225) #10
   %227 = icmp eq ptr %226, null
   br i1 %227, label %getProxyByGConf.exit, label %228
 
@@ -619,7 +619,7 @@ getProxyByGConf.exit:                             ; preds = %206, %122, %127, %1
   br label %241
 
 241:                                              ; preds = %120, %getProxyByGConf.exit, %getProxyByGProxyResolver.exit
-  %.0 = phi ptr [ %.0.i, %getProxyByGProxyResolver.exit ], [ %.049.i, %getProxyByGConf.exit ], [ null, %120 ]
+  %.2 = phi ptr [ %.0.i, %getProxyByGProxyResolver.exit ], [ %.049.i, %getProxyByGConf.exit ], [ null, %120 ]
   %242 = load i8, ptr %8, align 1
   %243 = icmp eq i8 %242, 1
   br i1 %243, label %244, label %248
@@ -632,7 +632,7 @@ getProxyByGConf.exit:                             ; preds = %206, %122, %127, %1
   br label %248
 
 248:                                              ; preds = %241, %244, %18
-  %.1 = phi ptr [ %.0, %244 ], [ %.0, %241 ], [ null, %18 ]
+  %.1 = phi ptr [ %.2, %244 ], [ %.2, %241 ], [ null, %18 ]
   %249 = load i8, ptr %7, align 1
   %250 = icmp eq i8 %249, 1
   br i1 %250, label %251, label %255
@@ -645,8 +645,8 @@ getProxyByGConf.exit:                             ; preds = %206, %122, %127, %1
   br label %255
 
 255:                                              ; preds = %248, %251, %13, %4
-  %.2 = phi ptr [ %.1, %251 ], [ %.1, %248 ], [ null, %13 ], [ null, %4 ]
-  ret ptr %.2
+  %.0 = phi ptr [ %.1, %251 ], [ %.1, %248 ], [ null, %13 ], [ null, %4 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind

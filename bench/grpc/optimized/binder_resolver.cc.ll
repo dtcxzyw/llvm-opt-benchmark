@@ -711,8 +711,8 @@ lpad13:                                           ; preds = %if.else.i, %if.then
   br label %common.resume
 
 return:                                           ; preds = %if.then.i.i, %cleanup, %cleanup.cont, %invoke.cont14, %if.then
-  %retval.1 = phi i1 [ false, %if.then ], [ true, %invoke.cont14 ], [ true, %cleanup.cont ], [ false, %cleanup ], [ false, %if.then.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %invoke.cont14 ], [ true, %cleanup.cont ], [ false, %cleanup ], [ false, %if.then.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind

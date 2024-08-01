@@ -172,9 +172,9 @@ define hidden noundef ptr @_ZN14DowncallLinker18make_downcall_stubEP9BasicTypeiS
   br label %57
 
 57:                                               ; preds = %9, %34
-  %.1 = phi ptr [ %56, %34 ], [ null, %9 ]
+  %.0 = phi ptr [ %56, %34 ], [ null, %9 ]
   call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %10) #9
-  ret ptr %.1
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

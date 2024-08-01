@@ -593,9 +593,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2935,7 +2935,7 @@ delete.notnull.i169:                              ; preds = %lpad116, %lpad138, 
   br label %ehcleanup372
 
 cleanup:                                          ; preds = %invoke.cont12, %_ZN6icu_7512LocalPointerINS_8numparse4impl16NumberParserImplEED2Ev.exit
-  %retval.0 = phi ptr [ %call57, %_ZN6icu_7512LocalPointerINS_8numparse4impl16NumberParserImplEED2Ev.exit ], [ null, %invoke.cont12 ]
+  %retval.1 = phi ptr [ %call57, %_ZN6icu_7512LocalPointerINS_8numparse4impl16NumberParserImplEED2Ev.exit ], [ null, %invoke.cont12 ]
   %fIntlCurrencySymbol.i = getelementptr inbounds i8, ptr %currencySymbols, i64 168
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fIntlCurrencySymbol.i) #16
   %fCurrencySymbol.i = getelementptr inbounds i8, ptr %currencySymbols, i64 104
@@ -2958,10 +2958,10 @@ ehcleanup374:                                     ; preds = %ehcleanup372, %lpad
   br label %ehcleanup376
 
 cleanup375:                                       ; preds = %invoke.cont, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %invoke.cont ]
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %invoke.cont ]
   call void @_ZN6icu_756number4impl24AutoAffixPatternProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(2464) %affixProvider) #16
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %locale) #16
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup376:                                     ; preds = %ehcleanup374, %lpad1
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup374 ], [ %2, %lpad1 ]

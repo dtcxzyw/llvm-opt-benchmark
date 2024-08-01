@@ -1069,11 +1069,11 @@ if.end14:                                         ; preds = %if.else, %if.then5
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %if.end147, %if.end14
-  %prevValue.0.ph = phi i32 [ %prevValue.7, %if.end147 ], [ 0, %if.end14 ]
-  %c.0.ph = phi i32 [ %c.4, %if.end147 ], [ %start, %if.end14 ]
-  %prev.0.ph = phi i32 [ %prev.7, %if.end147 ], [ %start, %if.end14 ]
-  %prevI2Block.0.ph = phi i32 [ %i2Block.1, %if.end147 ], [ -1, %if.end14 ]
-  %prevBlock.0.ph = phi i32 [ %prevBlock.4, %if.end147 ], [ -1, %if.end14 ]
+  %prevValue.0.ph = phi i32 [ %prevValue.2, %if.end147 ], [ 0, %if.end14 ]
+  %c.0.ph = phi i32 [ %c.1, %if.end147 ], [ %start, %if.end14 ]
+  %prev.0.ph = phi i32 [ %prev.2, %if.end147 ], [ %start, %if.end14 ]
+  %prevI2Block.0.ph = phi i32 [ %i2Block.0, %if.end147 ], [ -1, %if.end14 ]
+  %prevBlock.0.ph = phi i32 [ %prevBlock.2, %if.end147 ], [ -1, %if.end14 ]
   %cmp22.us = icmp slt i32 %c.0.ph, 65536
   br i1 %cmp40.not, label %for.cond.us, label %for.cond
 
@@ -1153,9 +1153,9 @@ if.end56.loopexit:                                ; preds = %if.else39, %if.else
 if.end56:                                         ; preds = %if.else26, %if.end56.loopexit, %if.then25
   %add134 = phi i32 [ %.us-phi160, %if.then25 ], [ %.us-phi163, %if.end56.loopexit ], [ %.us-phi160, %if.else26 ]
   %c.0131 = phi i32 [ %.us-phi162, %if.then25 ], [ %.us-phi166, %if.end56.loopexit ], [ %.us-phi162, %if.else26 ]
-  %i2Block.1 = phi i32 [ %shr, %if.then25 ], [ %.us-phi164, %if.end56.loopexit ], [ %., %if.else26 ]
+  %i2Block.0 = phi i32 [ %shr, %if.then25 ], [ %.us-phi164, %if.end56.loopexit ], [ %., %if.else26 ]
   %tempLimit.1 = phi i32 [ %spec.select.le155, %if.then25 ], [ %spec.select.le, %if.end56.loopexit ], [ %cond.cond36, %if.else26 ]
-  %cmp57 = icmp eq i32 %i2Block.1, %index2NullOffset.0
+  %cmp57 = icmp eq i32 %i2Block.0, %index2NullOffset.0
   br i1 %cmp57, label %if.then58, label %if.else69
 
 if.then58:                                        ; preds = %if.end56
@@ -1186,17 +1186,17 @@ if.else69:                                        ; preds = %if.end56
 for.body82.preheader:                             ; preds = %if.else69
   %15 = and i32 %shr70, 63
   %16 = zext nneg i32 %15 to i64
-  %17 = sext i32 %i2Block.1 to i64
+  %17 = sext i32 %i2Block.0 to i64
   %wide.trip.count = zext nneg i32 %i2Limit.0 to i64
   %invariant.gep258 = getelementptr i16, ptr %idx.0, i64 %17
   br label %for.body82
 
 for.body82:                                       ; preds = %for.body82.preheader, %for.inc144
   %indvars.iv219 = phi i64 [ %16, %for.body82.preheader ], [ %indvars.iv.next220, %for.inc144 ]
-  %prevBlock.2178 = phi i32 [ %prevBlock.0.ph, %for.body82.preheader ], [ %prevBlock.3, %for.inc144 ]
-  %prev.2177 = phi i32 [ %prev.0.ph, %for.body82.preheader ], [ %prev.6, %for.inc144 ]
-  %c.1176 = phi i32 [ %c.0131, %for.body82.preheader ], [ %c.3, %for.inc144 ]
-  %prevValue.2175 = phi i32 [ %prevValue.0.ph, %for.body82.preheader ], [ %prevValue.6, %for.inc144 ]
+  %prevBlock.3178 = phi i32 [ %prevBlock.0.ph, %for.body82.preheader ], [ %prevBlock.4, %for.inc144 ]
+  %prev.3177 = phi i32 [ %prev.0.ph, %for.body82.preheader ], [ %prev.4, %for.inc144 ]
+  %c.2176 = phi i32 [ %c.0131, %for.body82.preheader ], [ %c.3, %for.inc144 ]
+  %prevValue.3175 = phi i32 [ %prevValue.0.ph, %for.body82.preheader ], [ %prevValue.4, %for.inc144 ]
   br i1 %cmp40.not, label %if.else89, label %if.then84
 
 if.then84:                                        ; preds = %for.body82
@@ -1216,14 +1216,14 @@ if.else89:                                        ; preds = %for.body82
 
 if.end94:                                         ; preds = %if.else89, %if.then84
   %block.0 = phi i32 [ %shl, %if.then84 ], [ %21, %if.else89 ]
-  %cmp95 = icmp eq i32 %block.0, %prevBlock.2178
-  %sub97 = sub nsw i32 %c.1176, %prev.2177
+  %cmp95 = icmp eq i32 %block.0, %prevBlock.3178
+  %sub97 = sub nsw i32 %c.2176, %prev.3177
   %cmp98 = icmp sgt i32 %sub97, 31
   %or.cond124 = select i1 %cmp95, i1 %cmp98, i1 false
   br i1 %or.cond124, label %if.then99, label %if.end101
 
 if.then99:                                        ; preds = %if.end94
-  %add100 = add nsw i32 %c.1176, 32
+  %add100 = add nsw i32 %c.2176, 32
   br label %for.inc144
 
 if.end101:                                        ; preds = %if.end94
@@ -1244,96 +1244,96 @@ for.body118.us.preheader:                         ; preds = %for.cond116.prehead
 
 for.body118.us:                                   ; preds = %for.body118.us.preheader, %if.end141.us
   %indvars.iv214 = phi i64 [ 0, %for.body118.us.preheader ], [ %indvars.iv.next215, %if.end141.us ]
-  %prev.4169.us = phi i32 [ %prev.2177, %for.body118.us.preheader ], [ %prev.5.us, %if.end141.us ]
-  %c.2168.us = phi i32 [ %c.1176, %for.body118.us.preheader ], [ %inc.us, %if.end141.us ]
-  %prevValue.4167.us = phi i32 [ %prevValue.2175, %for.body118.us.preheader ], [ %prevValue.5.us, %if.end141.us ]
+  %prev.6169.us = phi i32 [ %prev.3177, %for.body118.us.preheader ], [ %prev.7.us, %if.end141.us ]
+  %c.4168.us = phi i32 [ %c.2176, %for.body118.us.preheader ], [ %inc.us, %if.end141.us ]
+  %prevValue.6167.us = phi i32 [ %prevValue.3175, %for.body118.us.preheader ], [ %prevValue.7.us, %if.end141.us ]
   %gep257 = getelementptr i16, ptr %invariant.gep256, i64 %indvars.iv214
   %23 = load i16, ptr %gep257, align 2
   %conv128.us = zext i16 %23 to i32
   %call131.us = tail call noundef i32 %spec.store.select(ptr noundef %context, i32 noundef %conv128.us)
-  %cmp132.not.us = icmp eq i32 %call131.us, %prevValue.4167.us
+  %cmp132.not.us = icmp eq i32 %call131.us, %prevValue.6167.us
   br i1 %cmp132.not.us, label %if.end141.us, label %if.then133.us
 
 if.then133.us:                                    ; preds = %for.body118.us
-  %cmp134.us = icmp slt i32 %prev.4169.us, %c.2168.us
+  %cmp134.us = icmp slt i32 %prev.6169.us, %c.4168.us
   br i1 %cmp134.us, label %land.lhs.true135.us, label %if.end141.us
 
 land.lhs.true135.us:                              ; preds = %if.then133.us
-  %sub136.us = add nsw i32 %c.2168.us, -1
-  %call137.us = tail call noundef signext i8 %enumRange(ptr noundef %context, i32 noundef %prev.4169.us, i32 noundef %sub136.us, i32 noundef %prevValue.4167.us)
+  %sub136.us = add nsw i32 %c.4168.us, -1
+  %call137.us = tail call noundef signext i8 %enumRange(ptr noundef %context, i32 noundef %prev.6169.us, i32 noundef %sub136.us, i32 noundef %prevValue.6167.us)
   %tobool138.not.us = icmp eq i8 %call137.us, 0
   br i1 %tobool138.not.us, label %return, label %if.end141.us
 
 if.end141.us:                                     ; preds = %land.lhs.true135.us, %if.then133.us, %for.body118.us
-  %prevValue.5.us = phi i32 [ %prevValue.4167.us, %for.body118.us ], [ %call131.us, %land.lhs.true135.us ], [ %call131.us, %if.then133.us ]
-  %prev.5.us = phi i32 [ %prev.4169.us, %for.body118.us ], [ %c.2168.us, %land.lhs.true135.us ], [ %c.2168.us, %if.then133.us ]
-  %inc.us = add nsw i32 %c.2168.us, 1
+  %prevValue.7.us = phi i32 [ %prevValue.6167.us, %for.body118.us ], [ %call131.us, %land.lhs.true135.us ], [ %call131.us, %if.then133.us ]
+  %prev.7.us = phi i32 [ %prev.6169.us, %for.body118.us ], [ %c.4168.us, %land.lhs.true135.us ], [ %c.4168.us, %if.then133.us ]
+  %inc.us = add nsw i32 %c.4168.us, 1
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, 32
   br i1 %exitcond218.not, label %for.inc144, label %for.body118.us, !llvm.loop !15
 
 if.then103:                                       ; preds = %if.end101
-  %cmp104.not = icmp eq i32 %prevValue.2175, %call
+  %cmp104.not = icmp eq i32 %prevValue.3175, %call
   br i1 %cmp104.not, label %if.end113, label %if.then105
 
 if.then105:                                       ; preds = %if.then103
-  %cmp106 = icmp slt i32 %prev.2177, %c.1176
+  %cmp106 = icmp slt i32 %prev.3177, %c.2176
   br i1 %cmp106, label %land.lhs.true107, label %if.end113
 
 land.lhs.true107:                                 ; preds = %if.then105
-  %sub108 = add nsw i32 %c.1176, -1
-  %call109 = tail call noundef signext i8 %enumRange(ptr noundef %context, i32 noundef %prev.2177, i32 noundef %sub108, i32 noundef %prevValue.2175)
+  %sub108 = add nsw i32 %c.2176, -1
+  %call109 = tail call noundef signext i8 %enumRange(ptr noundef %context, i32 noundef %prev.3177, i32 noundef %sub108, i32 noundef %prevValue.3175)
   %tobool110.not = icmp eq i8 %call109, 0
   br i1 %tobool110.not, label %return, label %if.end113
 
 if.end113:                                        ; preds = %if.then105, %land.lhs.true107, %if.then103
-  %prev.3 = phi i32 [ %prev.2177, %if.then103 ], [ %c.1176, %land.lhs.true107 ], [ %c.1176, %if.then105 ]
-  %add114 = add nsw i32 %c.1176, 32
+  %prev.5 = phi i32 [ %prev.3177, %if.then103 ], [ %c.2176, %land.lhs.true107 ], [ %c.2176, %if.then105 ]
+  %add114 = add nsw i32 %c.2176, 32
   br label %for.inc144
 
 for.body118:                                      ; preds = %for.body118.preheader, %if.end141
   %indvars.iv = phi i64 [ 0, %for.body118.preheader ], [ %indvars.iv.next, %if.end141 ]
-  %prev.4169 = phi i32 [ %prev.2177, %for.body118.preheader ], [ %prev.5, %if.end141 ]
-  %c.2168 = phi i32 [ %c.1176, %for.body118.preheader ], [ %inc, %if.end141 ]
-  %prevValue.4167 = phi i32 [ %prevValue.2175, %for.body118.preheader ], [ %prevValue.5, %if.end141 ]
+  %prev.6169 = phi i32 [ %prev.3177, %for.body118.preheader ], [ %prev.7, %if.end141 ]
+  %c.4168 = phi i32 [ %c.2176, %for.body118.preheader ], [ %inc, %if.end141 ]
+  %prevValue.6167 = phi i32 [ %prevValue.3175, %for.body118.preheader ], [ %prevValue.7, %if.end141 ]
   %gep255 = getelementptr i32, ptr %invariant.gep254, i64 %indvars.iv
   %24 = load i32, ptr %gep255, align 4
   %call131 = tail call noundef i32 %spec.store.select(ptr noundef %context, i32 noundef %24)
-  %cmp132.not = icmp eq i32 %call131, %prevValue.4167
+  %cmp132.not = icmp eq i32 %call131, %prevValue.6167
   br i1 %cmp132.not, label %if.end141, label %if.then133
 
 if.then133:                                       ; preds = %for.body118
-  %cmp134 = icmp slt i32 %prev.4169, %c.2168
+  %cmp134 = icmp slt i32 %prev.6169, %c.4168
   br i1 %cmp134, label %land.lhs.true135, label %if.end141
 
 land.lhs.true135:                                 ; preds = %if.then133
-  %sub136 = add nsw i32 %c.2168, -1
-  %call137 = tail call noundef signext i8 %enumRange(ptr noundef %context, i32 noundef %prev.4169, i32 noundef %sub136, i32 noundef %prevValue.4167)
+  %sub136 = add nsw i32 %c.4168, -1
+  %call137 = tail call noundef signext i8 %enumRange(ptr noundef %context, i32 noundef %prev.6169, i32 noundef %sub136, i32 noundef %prevValue.6167)
   %tobool138.not = icmp eq i8 %call137, 0
   br i1 %tobool138.not, label %return, label %if.end141
 
 if.end141:                                        ; preds = %if.then133, %land.lhs.true135, %for.body118
-  %prevValue.5 = phi i32 [ %prevValue.4167, %for.body118 ], [ %call131, %land.lhs.true135 ], [ %call131, %if.then133 ]
-  %prev.5 = phi i32 [ %prev.4169, %for.body118 ], [ %c.2168, %land.lhs.true135 ], [ %c.2168, %if.then133 ]
-  %inc = add nsw i32 %c.2168, 1
+  %prevValue.7 = phi i32 [ %prevValue.6167, %for.body118 ], [ %call131, %land.lhs.true135 ], [ %call131, %if.then133 ]
+  %prev.7 = phi i32 [ %prev.6169, %for.body118 ], [ %c.4168, %land.lhs.true135 ], [ %c.4168, %if.then133 ]
+  %inc = add nsw i32 %c.4168, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %for.inc144, label %for.body118, !llvm.loop !15
 
 for.inc144:                                       ; preds = %if.end141, %if.end141.us, %if.end113, %if.then99
-  %prevValue.6 = phi i32 [ %prevValue.2175, %if.then99 ], [ %call, %if.end113 ], [ %prevValue.5.us, %if.end141.us ], [ %prevValue.5, %if.end141 ]
+  %prevValue.4 = phi i32 [ %prevValue.3175, %if.then99 ], [ %call, %if.end113 ], [ %prevValue.7.us, %if.end141.us ], [ %prevValue.7, %if.end141 ]
   %c.3 = phi i32 [ %add100, %if.then99 ], [ %add114, %if.end113 ], [ %inc.us, %if.end141.us ], [ %inc, %if.end141 ]
-  %prev.6 = phi i32 [ %prev.2177, %if.then99 ], [ %prev.3, %if.end113 ], [ %prev.5.us, %if.end141.us ], [ %prev.5, %if.end141 ]
-  %prevBlock.3 = phi i32 [ %prevBlock.2178, %if.then99 ], [ %nullBlock.0, %if.end113 ], [ %block.0, %if.end141.us ], [ %block.0, %if.end141 ]
+  %prev.4 = phi i32 [ %prev.3177, %if.then99 ], [ %prev.5, %if.end113 ], [ %prev.7.us, %if.end141.us ], [ %prev.7, %if.end141 ]
+  %prevBlock.4 = phi i32 [ %prevBlock.3178, %if.then99 ], [ %nullBlock.0, %if.end113 ], [ %block.0, %if.end141.us ], [ %block.0, %if.end141 ]
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count
   br i1 %exitcond224.not, label %if.end147, label %for.body82, !llvm.loop !16
 
 if.end147:                                        ; preds = %for.inc144, %if.else69, %if.then58, %land.lhs.true62, %if.then60
-  %prevValue.7 = phi i32 [ %call, %if.then58 ], [ %call, %land.lhs.true62 ], [ %call, %if.then60 ], [ %prevValue.0.ph, %if.else69 ], [ %prevValue.6, %for.inc144 ]
-  %c.4 = phi i32 [ %add134, %if.then58 ], [ %add134, %land.lhs.true62 ], [ %add134, %if.then60 ], [ %c.0131, %if.else69 ], [ %c.3, %for.inc144 ]
-  %prev.7 = phi i32 [ %prev.0.ph, %if.then58 ], [ %c.0131, %land.lhs.true62 ], [ %c.0131, %if.then60 ], [ %prev.0.ph, %if.else69 ], [ %prev.6, %for.inc144 ]
-  %prevBlock.4 = phi i32 [ %prevBlock.0.ph, %if.then58 ], [ %nullBlock.0, %land.lhs.true62 ], [ %nullBlock.0, %if.then60 ], [ %prevBlock.0.ph, %if.else69 ], [ %prevBlock.3, %for.inc144 ]
+  %prevValue.2 = phi i32 [ %call, %if.then58 ], [ %call, %land.lhs.true62 ], [ %call, %if.then60 ], [ %prevValue.0.ph, %if.else69 ], [ %prevValue.4, %for.inc144 ]
+  %c.1 = phi i32 [ %add134, %if.then58 ], [ %add134, %land.lhs.true62 ], [ %add134, %if.then60 ], [ %c.0131, %if.else69 ], [ %c.3, %for.inc144 ]
+  %prev.2 = phi i32 [ %prev.0.ph, %if.then58 ], [ %c.0131, %land.lhs.true62 ], [ %c.0131, %if.then60 ], [ %prev.0.ph, %if.else69 ], [ %prev.4, %for.inc144 ]
+  %prevBlock.2 = phi i32 [ %prevBlock.0.ph, %if.then58 ], [ %nullBlock.0, %land.lhs.true62 ], [ %nullBlock.0, %if.then60 ], [ %prevBlock.0.ph, %if.else69 ], [ %prevBlock.4, %for.inc144 ]
   br label %for.cond.outer, !llvm.loop !14
 
 for.end148:                                       ; preds = %for.cond, %for.cond.us
@@ -1391,11 +1391,11 @@ land.lhs.true179:                                 ; preds = %if.then177
   br i1 %tobool182.not, label %return, label %if.end187
 
 if.end187:                                        ; preds = %if.end174, %land.lhs.true179, %if.then177, %for.end148
-  %prevValue.9 = phi i32 [ %prevValue.0.ph, %for.end148 ], [ %prevValue.0.ph, %if.end174 ], [ %call175, %land.lhs.true179 ], [ %call175, %if.then177 ]
+  %prevValue.8 = phi i32 [ %prevValue.0.ph, %for.end148 ], [ %prevValue.0.ph, %if.end174 ], [ %call175, %land.lhs.true179 ], [ %call175, %if.then177 ]
   %c.5 = phi i32 [ %limit.mux, %for.end148 ], [ %limit, %if.end174 ], [ %limit, %land.lhs.true179 ], [ %limit, %if.then177 ]
-  %prev.9 = phi i32 [ %prev.0.ph, %for.end148 ], [ %prev.0.ph, %if.end174 ], [ %.us-phi158, %land.lhs.true179 ], [ %.us-phi158, %if.then177 ]
+  %prev.8 = phi i32 [ %prev.0.ph, %for.end148 ], [ %prev.0.ph, %if.end174 ], [ %.us-phi158, %land.lhs.true179 ], [ %.us-phi158, %if.then177 ]
   %sub188 = add nsw i32 %c.5, -1
-  %call189 = tail call noundef signext i8 %enumRange(ptr noundef %context, i32 noundef %prev.9, i32 noundef %sub188, i32 noundef %prevValue.9)
+  %call189 = tail call noundef signext i8 %enumRange(ptr noundef %context, i32 noundef %prev.8, i32 noundef %sub188, i32 noundef %prevValue.8)
   br label %return
 
 return:                                           ; preds = %land.lhs.true62, %land.lhs.true107, %land.lhs.true135, %land.lhs.true135.us, %land.lhs.true179, %entry, %if.end187

@@ -270,7 +270,7 @@ define hidden zeroext range(i8 0, 2) i8 @stepControl_handleStep(ptr noundef %0, 
   br label %105
 
 105:                                              ; preds = %95, %95, %102, %73, %68
-  %.062 = phi i8 [ 0, %102 ], [ 1, %73 ], [ 1, %68 ], [ 0, %95 ], [ 0, %95 ]
+  %.163 = phi i8 [ 0, %102 ], [ 1, %73 ], [ 1, %68 ], [ 0, %95 ], [ 0, %95 ]
   %.1 = phi ptr [ %.061, %102 ], [ %64, %73 ], [ %64, %68 ], [ %.061, %95 ], [ %.061, %95 ]
   tail call void @jvmtiDeallocate(ptr noundef %.1) #4
   br label %186
@@ -414,7 +414,7 @@ findLineNumber.exit:                              ; preds = %._crit_edge.i, %139
 
 163:                                              ; preds = %162, %158, %findLineNumber.exit
   %164 = phi ptr [ %.pre100, %162 ], [ %.pre101, %158 ], [ %.pre101, %findLineNumber.exit ]
-  %.163 = phi i8 [ 1, %162 ], [ 1, %158 ], [ 0, %findLineNumber.exit ]
+  %.3 = phi i8 [ 1, %162 ], [ 1, %158 ], [ 0, %findLineNumber.exit ]
   %165 = getelementptr inbounds i8, ptr %164, i64 528
   %166 = load i32, ptr %165, align 8
   %167 = and i32 %166, 2
@@ -447,7 +447,7 @@ findLineNumber.exit:                              ; preds = %._crit_edge.i, %139
   br label %180
 
 180:                                              ; preds = %169, %174, %179, %114, %109
-  %.2 = phi i8 [ 1, %114 ], [ 1, %109 ], [ %.163, %169 ], [ 1, %179 ], [ 1, %174 ]
+  %.2 = phi i8 [ 1, %114 ], [ 1, %109 ], [ %.3, %169 ], [ 1, %179 ], [ 1, %174 ]
   %181 = load ptr, ptr @gdata, align 8
   %182 = getelementptr inbounds i8, ptr %181, i64 528
   %183 = load i32, ptr %182, align 8
@@ -461,8 +461,8 @@ findLineNumber.exit:                              ; preds = %._crit_edge.i, %139
   br label %186
 
 186:                                              ; preds = %185, %180, %105
-  %.3 = phi i8 [ %.062, %105 ], [ %.2, %185 ], [ %.2, %180 ]
-  %.not89 = icmp eq i8 %.3, 0
+  %.062 = phi i8 [ %.163, %105 ], [ %.2, %185 ], [ %.2, %180 ]
+  %.not89 = icmp eq i8 %.062, 0
   br i1 %.not89, label %completeStep.exit, label %.thread
 
 .thread:                                          ; preds = %50, %55, %39, %44, %30, %35, %186
@@ -502,10 +502,10 @@ findLineNumber.exit:                              ; preds = %._crit_edge.i, %139
   br label %completeStep.exit
 
 completeStep.exit:                                ; preds = %14, %199, %197, %186
-  %.393 = phi i8 [ 0, %186 ], [ 1, %197 ], [ 1, %199 ], [ 0, %14 ]
+  %.06293 = phi i8 [ 0, %186 ], [ 1, %197 ], [ 1, %199 ], [ 0, %14 ]
   %202 = load ptr, ptr @stepLock, align 8
   call void @debugMonitorExit(ptr noundef %202) #4
-  ret i8 %.393
+  ret i8 %.06293
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1315,11 +1315,11 @@ initEvents.exit:                                  ; preds = %74, %71, %69, %68, 
   br label %83
 
 83:                                               ; preds = %11, %80, %78, %initEvents.exit
-  %.1 = phi i32 [ 0, %78 ], [ %spec.select, %initEvents.exit ], [ %16, %80 ], [ 203, %11 ]
+  %.0 = phi i32 [ 0, %78 ], [ %spec.select, %initEvents.exit ], [ %16, %80 ], [ 203, %11 ]
   %84 = load ptr, ptr @stepLock, align 8
   tail call void @debugMonitorExit(ptr noundef %84) #4
   tail call void @eventHandler_unlock() #4
-  ret i32 %.1
+  ret i32 %.0
 }
 
 declare void @eventHandler_lock() local_unnamed_addr #1

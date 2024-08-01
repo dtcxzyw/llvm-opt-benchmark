@@ -1756,7 +1756,7 @@ lpad8:                                            ; preds = %_ZNSt10shared_ptrIK
   br label %ehcleanup
 
 if.end16:                                         ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %invoke.cont, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit89, %56, %cleanup.done, %if.end8.sink.split.i.i.i.i123
-  %foundContextVars.0 = phi i1 [ true, %56 ], [ false, %cleanup.done ], [ false, %if.end8.sink.split.i.i.i.i123 ], [ false, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit89 ], [ %call1, %invoke.cont ], [ %call1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %call1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %call1, %if.end8.sink.split.i.i.i.i ]
+  %foundContextVars.1 = phi i1 [ true, %56 ], [ false, %cleanup.done ], [ false, %if.end8.sink.split.i.i.i.i123 ], [ false, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit89 ], [ %call1, %invoke.cont ], [ %call1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %call1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %call1, %if.end8.sink.split.i.i.i.i ]
   %58 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i134 = icmp eq ptr %58, null
   br i1 %cmp.not.i.i.i134, label %sw.epilog, label %if.then.i.i.i135
@@ -2182,7 +2182,7 @@ lpad37:                                           ; preds = %_ZNSt10shared_ptrIK
   br label %ehcleanup51
 
 if.end50:                                         ; preds = %if.end8.sink.split.i.i.i.i209, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i206, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i196, %invoke.cont23, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit294, %123, %cleanup.done43, %if.end8.sink.split.i.i.i.i328
-  %foundContextVars.1 = phi i1 [ true, %123 ], [ false, %cleanup.done43 ], [ false, %if.end8.sink.split.i.i.i.i328 ], [ false, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit294 ], [ %call24, %invoke.cont23 ], [ %call24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i196 ], [ %call24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i206 ], [ %call24, %if.end8.sink.split.i.i.i.i209 ]
+  %foundContextVars.2 = phi i1 [ true, %123 ], [ false, %cleanup.done43 ], [ false, %if.end8.sink.split.i.i.i.i328 ], [ false, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit294 ], [ %call24, %invoke.cont23 ], [ %call24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i196 ], [ %call24, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i206 ], [ %call24, %if.end8.sink.split.i.i.i.i209 ]
   %125 = load ptr, ptr %_M_refcount.i.i.i166, align 8
   %cmp.not.i.i.i339 = icmp eq ptr %125, null
   br i1 %cmp.not.i.i.i339, label %sw.epilog, label %if.then.i.i.i340
@@ -2248,7 +2248,7 @@ ehcleanup51:                                      ; preds = %lpad37, %lpad22
 sw.epilog.sink.split.sink.split:                  ; preds = %if.then.i.i.i340, %if.then.i.i.i135
   %_M_use_count.i.i.i.i341.sink = phi ptr [ %_M_use_count.i.i.i.i136, %if.then.i.i.i135 ], [ %_M_use_count.i.i.i.i341, %if.then.i.i.i340 ]
   %.sink560 = phi ptr [ %58, %if.then.i.i.i135 ], [ %125, %if.then.i.i.i340 ]
-  %foundContextVars.2.ph.ph = phi i1 [ %foundContextVars.0, %if.then.i.i.i135 ], [ %foundContextVars.1, %if.then.i.i.i340 ]
+  %foundContextVars.0.ph.ph = phi i1 [ %foundContextVars.1, %if.then.i.i.i135 ], [ %foundContextVars.2, %if.then.i.i.i340 ]
   store i32 0, ptr %_M_use_count.i.i.i.i341.sink, align 8
   %_M_weak_count.i.i.i.i366 = getelementptr inbounds i8, ptr %.sink560, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i366, align 4
@@ -2260,7 +2260,7 @@ sw.epilog.sink.split.sink.split:                  ; preds = %if.then.i.i.i340, %
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i357, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i152
   %.sink557 = phi ptr [ %58, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i152 ], [ %125, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i357 ], [ %.sink560, %sw.epilog.sink.split.sink.split ]
-  %foundContextVars.2.ph = phi i1 [ %foundContextVars.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i152 ], [ %foundContextVars.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i357 ], [ %foundContextVars.2.ph.ph, %sw.epilog.sink.split.sink.split ]
+  %foundContextVars.0.ph = phi i1 [ %foundContextVars.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i152 ], [ %foundContextVars.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i357 ], [ %foundContextVars.0.ph.ph, %sw.epilog.sink.split.sink.split ]
   %vtable2.i.i.i.i.i.i361 = load ptr, ptr %.sink557, align 8
   %vfn3.i.i.i.i.i.i362 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i361, i64 24
   %135 = load ptr, ptr %vfn3.i.i.i.i.i.i362, align 8
@@ -2268,7 +2268,7 @@ sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.spli
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i357, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i347, %if.end50, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i152, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i142, %if.end16, %entry
-  %foundContextVars.2 = phi i1 [ false, %entry ], [ %foundContextVars.0, %if.end16 ], [ %foundContextVars.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i142 ], [ %foundContextVars.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i152 ], [ %foundContextVars.1, %if.end50 ], [ %foundContextVars.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i347 ], [ %foundContextVars.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i357 ], [ %foundContextVars.2.ph, %sw.epilog.sink.split ]
+  %foundContextVars.0 = phi i1 [ false, %entry ], [ %foundContextVars.1, %if.end16 ], [ %foundContextVars.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i142 ], [ %foundContextVars.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i152 ], [ %foundContextVars.2, %if.end50 ], [ %foundContextVars.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i347 ], [ %foundContextVars.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i357 ], [ %foundContextVars.0.ph, %sw.epilog.sink.split ]
   %136 = load ptr, ptr %look, align 8
   %m_processSpace.i = getelementptr inbounds i8, ptr %136, i64 32
   %call2.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_processSpace.i) #12
@@ -2396,7 +2396,7 @@ cleanup.done67:                                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %cleanup.done67.thread
 
 cleanup.done67.thread:                            ; preds = %if.then55, %if.end8.sink.split.i.i.i.i404, %cleanup.done67, %154
-  %155 = phi i1 [ true, %154 ], [ %foundContextVars.2, %cleanup.done67 ], [ %foundContextVars.2, %if.end8.sink.split.i.i.i.i404 ], [ %foundContextVars.2, %if.then55 ]
+  %155 = phi i1 [ true, %154 ], [ %foundContextVars.0, %cleanup.done67 ], [ %foundContextVars.0, %if.end8.sink.split.i.i.i.i404 ], [ %foundContextVars.0, %if.then55 ]
   %156 = load ptr, ptr %cs, align 8
   call void @_ZNK19OpenColorIO_v2_4dev10ColorSpace12getTransformENS_19ColorSpaceDirectionE(ptr nonnull sret(%"class.std::shared_ptr.3") align 8 %from, ptr noundef nonnull align 8 dereferenceable(8) %156, i32 noundef 1) #12
   %157 = load ptr, ptr %from, align 8
@@ -2680,7 +2680,7 @@ ehcleanup93:                                      ; preds = %lpad61, %lpad79
   br label %eh.resume
 
 if.end94:                                         ; preds = %if.end8.sink.split.i.i.i.i511, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i508, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i498, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit488, %if.then53
-  %foundContextVars.5 = phi i1 [ %foundContextVars.2, %if.then53 ], [ %175, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit488 ], [ %175, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i498 ], [ %175, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i508 ], [ %175, %if.end8.sink.split.i.i.i.i511 ]
+  %foundContextVars.4 = phi i1 [ %foundContextVars.0, %if.then53 ], [ %175, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit488 ], [ %175, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i498 ], [ %175, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i508 ], [ %175, %if.end8.sink.split.i.i.i.i511 ]
   %_M_refcount.i.i521 = getelementptr inbounds i8, ptr %cs, i64 8
   %199 = load ptr, ptr %_M_refcount.i.i521, align 8
   %cmp.not.i.i.i522 = icmp eq ptr %199, null
@@ -2755,8 +2755,8 @@ if.end8.sink.split.i.i.i.i543:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %if.end96
 
 if.end96:                                         ; preds = %if.end8.sink.split.i.i.i.i543, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i540, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i530, %if.end94, %sw.epilog
-  %foundContextVars.6 = phi i1 [ %foundContextVars.2, %sw.epilog ], [ %foundContextVars.5, %if.end94 ], [ %foundContextVars.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i530 ], [ %foundContextVars.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i540 ], [ %foundContextVars.5, %if.end8.sink.split.i.i.i.i543 ]
-  ret i1 %foundContextVars.6
+  %foundContextVars.3 = phi i1 [ %foundContextVars.0, %sw.epilog ], [ %foundContextVars.4, %if.end94 ], [ %foundContextVars.4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i530 ], [ %foundContextVars.4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i540 ], [ %foundContextVars.4, %if.end8.sink.split.i.i.i.i543 ]
+  ret i1 %foundContextVars.3
 
 eh.resume:                                        ; preds = %ehcleanup93, %ehcleanup51, %ehcleanup
   %.pn25.pn = phi { ptr, i32 } [ %.pn25, %ehcleanup93 ], [ %.pn, %ehcleanup51 ], [ %.pn23, %ehcleanup ]

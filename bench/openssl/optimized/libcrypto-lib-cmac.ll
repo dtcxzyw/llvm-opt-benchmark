@@ -419,23 +419,23 @@ if.end52:                                         ; preds = %while.body
 
 while.body60:                                     ; preds = %while.body60.lr.ph, %if.end69
   %cipher_blocks.075 = phi i64 [ %div38, %while.body60.lr.ph ], [ %sub76, %if.end69 ]
-  %dlen.addr.274 = phi i64 [ %dlen.addr.0, %while.body60.lr.ph ], [ %sub72, %if.end69 ]
-  %data.273 = phi ptr [ %data.0, %while.body60.lr.ph ], [ %add.ptr75, %if.end69 ]
+  %dlen.addr.374 = phi i64 [ %dlen.addr.0, %while.body60.lr.ph ], [ %sub72, %if.end69 ]
+  %data.373 = phi ptr [ %data.0, %while.body60.lr.ph ], [ %add.ptr75, %if.end69 ]
   %7 = load ptr, ptr %ctx, align 8
-  %call65 = call i32 @EVP_Cipher(ptr noundef %7, ptr noundef nonnull %buf, ptr noundef %data.273, i32 noundef %conv64) #6
+  %call65 = call i32 @EVP_Cipher(ptr noundef %7, ptr noundef nonnull %buf, ptr noundef %data.373, i32 noundef %conv64) #6
   %cmp66 = icmp slt i32 %call65, 1
   br i1 %cmp66, label %return, label %if.end69
 
 if.end69:                                         ; preds = %while.body60
-  %sub72 = sub i64 %dlen.addr.274, %mul
-  %add.ptr75 = getelementptr inbounds i8, ptr %data.273, i64 %mul
+  %sub72 = sub i64 %dlen.addr.374, %mul
+  %add.ptr75 = getelementptr inbounds i8, ptr %data.373, i64 %mul
   %sub76 = sub i64 %cipher_blocks.075, %conv35
   %cmp58 = icmp ugt i64 %sub76, %conv35
   br i1 %cmp58, label %while.body60, label %while.end77, !llvm.loop !7
 
 while.end77:                                      ; preds = %if.end69, %while.cond57.preheader
-  %data.2.lcssa = phi ptr [ %data.0, %while.cond57.preheader ], [ %add.ptr75, %if.end69 ]
-  %dlen.addr.2.lcssa = phi i64 [ %dlen.addr.0, %while.cond57.preheader ], [ %sub72, %if.end69 ]
+  %data.3.lcssa = phi ptr [ %data.0, %while.cond57.preheader ], [ %add.ptr75, %if.end69 ]
+  %dlen.addr.3.lcssa = phi i64 [ %dlen.addr.0, %while.cond57.preheader ], [ %sub72, %if.end69 ]
   %cipher_blocks.0.lcssa = phi i64 [ %div38, %while.cond57.preheader ], [ %sub76, %if.end69 ]
   %cmp78.not = icmp eq i64 %cipher_blocks.0.lcssa, 0
   br i1 %cmp78.not, label %if.end104, label %if.then80
@@ -444,13 +444,13 @@ if.then80:                                        ; preds = %while.end77
   %8 = load ptr, ptr %ctx, align 8
   %mul84 = mul i64 %cipher_blocks.0.lcssa, %conv37
   %conv85 = trunc i64 %mul84 to i32
-  %call86 = call i32 @EVP_Cipher(ptr noundef %8, ptr noundef nonnull %buf, ptr noundef %data.2.lcssa, i32 noundef %conv85) #6
+  %call86 = call i32 @EVP_Cipher(ptr noundef %8, ptr noundef nonnull %buf, ptr noundef %data.3.lcssa, i32 noundef %conv85) #6
   %cmp87 = icmp slt i32 %call86, 1
   br i1 %cmp87, label %return, label %if.end90
 
 if.end90:                                         ; preds = %if.then80
-  %sub93 = sub i64 %dlen.addr.2.lcssa, %mul84
-  %add.ptr96 = getelementptr inbounds i8, ptr %data.2.lcssa, i64 %mul84
+  %sub93 = sub i64 %dlen.addr.3.lcssa, %mul84
+  %add.ptr96 = getelementptr inbounds i8, ptr %data.3.lcssa, i64 %mul84
   %tbl97 = getelementptr inbounds i8, ptr %ctx, i64 72
   %sub99 = add nsw i64 %cipher_blocks.0.lcssa, -1
   %mul101 = mul i64 %sub99, %conv37
@@ -459,11 +459,11 @@ if.end90:                                         ; preds = %if.then80
   br label %if.end104
 
 if.end104:                                        ; preds = %if.end52, %while.cond.preheader, %while.end77, %if.end90
-  %data.3 = phi ptr [ %add.ptr96, %if.end90 ], [ %data.2.lcssa, %while.end77 ], [ %data.0, %while.cond.preheader ], [ %add.ptr56, %if.end52 ]
-  %dlen.addr.3 = phi i64 [ %sub93, %if.end90 ], [ %dlen.addr.2.lcssa, %while.end77 ], [ %dlen.addr.0, %while.cond.preheader ], [ %sub54, %if.end52 ]
+  %data.2 = phi ptr [ %add.ptr96, %if.end90 ], [ %data.3.lcssa, %while.end77 ], [ %data.0, %while.cond.preheader ], [ %add.ptr56, %if.end52 ]
+  %dlen.addr.2 = phi i64 [ %sub93, %if.end90 ], [ %dlen.addr.3.lcssa, %while.end77 ], [ %dlen.addr.0, %while.cond.preheader ], [ %sub54, %if.end52 ]
   %last_block105 = getelementptr inbounds i8, ptr %ctx, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %last_block105, ptr align 1 %data.3, i64 %dlen.addr.3, i1 false)
-  %conv107 = trunc i64 %dlen.addr.3 to i32
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %last_block105, ptr align 1 %data.2, i64 %dlen.addr.2, i1 false)
+  %conv107 = trunc i64 %dlen.addr.2 to i32
   store i32 %conv107, ptr %nlast_block, align 8
   br label %return
 

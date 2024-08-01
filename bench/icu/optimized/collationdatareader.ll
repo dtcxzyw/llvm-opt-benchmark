@@ -421,9 +421,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -690,14 +690,14 @@ while.end:                                        ; preds = %land.rhs
   br i1 %cmp74.not, label %if.end80, label %if.then75
 
 if.then75:                                        ; preds = %while.body, %while.end
-  %reorderRangesLength.0480 = phi i32 [ %13, %while.end ], [ %div332, %while.body ]
-  %sub76 = sub nsw i32 %div332, %reorderRangesLength.0480
+  %reorderRangesLength.1480 = phi i32 [ %13, %while.end ], [ %div332, %while.body ]
+  %sub76 = sub nsw i32 %div332, %reorderRangesLength.1480
   %idx.ext77 = sext i32 %sub76 to i64
   %add.ptr78 = getelementptr inbounds i32, ptr %add.ptr67, i64 %idx.ext77
   br label %if.end80
 
 if.end80:                                         ; preds = %while.end, %if.then75, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349
-  %reorderRangesLength.1 = phi i32 [ %reorderRangesLength.0480, %if.then75 ], [ 0, %while.end ], [ 0, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349 ]
+  %reorderRangesLength.0 = phi i32 [ %reorderRangesLength.1480, %if.then75 ], [ 0, %while.end ], [ 0, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349 ]
   %reorderRanges.0 = phi ptr [ %add.ptr78, %if.then75 ], [ null, %while.end ], [ null, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349 ]
   %reorderCodesLength.0 = phi i32 [ %sub76, %if.then75 ], [ %div332, %while.end ], [ 0, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349 ]
   %reorderCodes.0 = phi ptr [ %add.ptr67, %if.then75 ], [ %add.ptr67, %while.end ], [ null, %_ZN6icu_7512_GLOBAL__N_18getIndexEPKiii.exit349 ]
@@ -1512,7 +1512,7 @@ if.end468:                                        ; preds = %if.end458
   br i1 %cmp469.not, label %if.end471, label %if.then470
 
 if.then470:                                       ; preds = %if.end468
-  call void @_ZN6icu_7517CollationSettings15aliasReorderingERKNS_13CollationDataEPKiiPKjiPKhR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %call455, ptr noundef nonnull align 8 dereferenceable(140) %cond, ptr noundef %reorderCodes.0, i32 noundef %reorderCodesLength.0, ptr noundef %reorderRanges.0, i32 noundef %reorderRangesLength.1, ptr noundef %reorderTable.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  call void @_ZN6icu_7517CollationSettings15aliasReorderingERKNS_13CollationDataEPKiiPKjiPKhR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %call455, ptr noundef nonnull align 8 dereferenceable(140) %cond, ptr noundef %reorderCodes.0, i32 noundef %reorderCodesLength.0, ptr noundef %reorderRanges.0, i32 noundef %reorderRangesLength.0, ptr noundef %reorderTable.0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %if.end471
 
 if.end471:                                        ; preds = %if.then470, %if.end468

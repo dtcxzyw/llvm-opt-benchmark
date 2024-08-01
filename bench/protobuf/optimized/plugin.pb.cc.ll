@@ -691,7 +691,7 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %total_size.0 = phi i64 [ %add, %if.then4 ], [ 0, %if.then ]
+  %total_size.1 = phi i64 [ %add, %if.then4 ], [ 0, %if.then ]
   %and8 = and i32 %1, 2
   %tobool9.not = icmp eq i32 %and8, 0
   br i1 %tobool9.not, label %if.end14, label %if.then10
@@ -706,11 +706,11 @@ if.then10:                                        ; preds = %if.end
   %mul.i.i.i11 = mul nuw nsw i64 %sub.i.i.i10, 9
   %add1.i.i.i = add nuw nsw i64 %mul.i.i.i11, 137
   %div1.i.i.i12 = lshr i64 %add1.i.i.i, 6
-  %add13 = add i64 %div1.i.i.i12, %total_size.0
+  %add13 = add i64 %div1.i.i.i12, %total_size.1
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then10, %if.end
-  %total_size.1 = phi i64 [ %add13, %if.then10 ], [ %total_size.0, %if.end ]
+  %total_size.2 = phi i64 [ %add13, %if.then10 ], [ %total_size.1, %if.end ]
   %and15 = and i32 %1, 4
   %tobool16.not = icmp eq i32 %and15, 0
   br i1 %tobool16.not, label %if.end21, label %if.then17
@@ -725,11 +725,11 @@ if.then17:                                        ; preds = %if.end14
   %mul.i.i.i15 = mul nuw nsw i64 %sub.i.i.i14, 9
   %add1.i.i.i16 = add nuw nsw i64 %mul.i.i.i15, 137
   %div1.i.i.i17 = lshr i64 %add1.i.i.i16, 6
-  %add20 = add i64 %div1.i.i.i17, %total_size.1
+  %add20 = add i64 %div1.i.i.i17, %total_size.2
   br label %if.end21
 
 if.end21:                                         ; preds = %if.then17, %if.end14
-  %total_size.2 = phi i64 [ %add20, %if.then17 ], [ %total_size.1, %if.end14 ]
+  %total_size.3 = phi i64 [ %add20, %if.then17 ], [ %total_size.2, %if.end14 ]
   %and22 = and i32 %1, 8
   %tobool23.not = icmp eq i32 %and22, 0
   br i1 %tobool23.not, label %if.end29, label %if.then24
@@ -744,13 +744,13 @@ if.then24:                                        ; preds = %if.end21
   %mul.i.i.i20 = mul nuw nsw i64 %sub.i.i.i19, 9
   %add1.i.i.i21 = add nuw nsw i64 %mul.i.i.i20, 137
   %div1.i.i.i22 = lshr i64 %add1.i.i.i21, 6
-  %add27 = add i64 %div1.i.i.i22, %total_size.2
+  %add27 = add i64 %div1.i.i.i22, %total_size.3
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end21, %if.then24, %entry
-  %total_size.3 = phi i64 [ %add27, %if.then24 ], [ %total_size.2, %if.end21 ], [ 0, %entry ]
+  %total_size.0 = phi i64 [ %add27, %if.then24 ], [ %total_size.3, %if.end21 ], [ 0, %entry ]
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 20
-  %call30 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %total_size.3, ptr noundef nonnull %_cached_size_)
+  %call30 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %total_size.0, ptr noundef nonnull %_cached_size_)
   ret i64 %call30
 }
 
@@ -1886,7 +1886,7 @@ if.then51:                                        ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then51, %if.then
-  %total_size.3 = phi i64 [ %add55, %if.then51 ], [ %total_size.2.lcssa, %if.then ]
+  %total_size.4 = phi i64 [ %add55, %if.then51 ], [ %total_size.2.lcssa, %if.then ]
   %and56 = and i32 %19, 2
   %tobool57.not = icmp eq i32 %and56, 0
   br i1 %tobool57.not, label %if.end63, label %if.then58
@@ -1903,15 +1903,15 @@ if.then58:                                        ; preds = %if.end
   %add.i.i.i73 = add nuw nsw i32 %mul.i.i.i72, 73
   %div1.i.i.i74 = lshr i32 %add.i.i.i73, 6
   %conv.i.i.i75 = zext nneg i32 %div1.i.i.i74 to i64
-  %add.i.i76 = add i64 %total_size.3, 1
+  %add.i.i76 = add i64 %total_size.4, 1
   %add60 = add i64 %add.i.i76, %call.i68
   %add61 = add i64 %add60, %conv.i.i.i75
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end, %if.then58, %for.end47
-  %total_size.4 = phi i64 [ %add61, %if.then58 ], [ %total_size.3, %if.end ], [ %total_size.2.lcssa, %for.end47 ]
+  %total_size.3 = phi i64 [ %add61, %if.then58 ], [ %total_size.4, %if.end ], [ %total_size.2.lcssa, %for.end47 ]
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 20
-  %call64 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %total_size.4, ptr noundef nonnull %_cached_size_)
+  %call64 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %total_size.3, ptr noundef nonnull %_cached_size_)
   ret i64 %call64
 }
 
@@ -2721,7 +2721,7 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %total_size.0 = phi i64 [ %add, %if.then4 ], [ 0, %if.then ]
+  %total_size.1 = phi i64 [ %add, %if.then4 ], [ 0, %if.then ]
   %and8 = and i32 %1, 2
   %tobool9.not = icmp eq i32 %and8, 0
   br i1 %tobool9.not, label %if.end15, label %if.then10
@@ -2741,13 +2741,13 @@ if.then10:                                        ; preds = %if.end
   %add.i.i.i15 = add nuw nsw i32 %mul.i.i.i14, 73
   %div1.i.i.i16 = lshr i32 %add.i.i.i15, 6
   %conv.i.i.i17 = zext nneg i32 %div1.i.i.i16 to i64
-  %add.i.i18 = add i64 %total_size.0, 1
+  %add.i.i18 = add i64 %total_size.1, 1
   %add13 = add i64 %add.i.i18, %call.i10
   %add14 = add i64 %add13, %conv.i.i.i17
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then10, %if.end
-  %total_size.1 = phi i64 [ %add14, %if.then10 ], [ %total_size.0, %if.end ]
+  %total_size.2 = phi i64 [ %add14, %if.then10 ], [ %total_size.1, %if.end ]
   %and16 = and i32 %1, 4
   %tobool17.not = icmp eq i32 %and16, 0
   br i1 %tobool17.not, label %if.end23, label %if.then18
@@ -2767,13 +2767,13 @@ if.then18:                                        ; preds = %if.end15
   %add.i.i.i25 = add nuw nsw i32 %mul.i.i.i24, 73
   %div1.i.i.i26 = lshr i32 %add.i.i.i25, 6
   %conv.i.i.i27 = zext nneg i32 %div1.i.i.i26 to i64
-  %add.i.i28 = add i64 %total_size.1, 1
+  %add.i.i28 = add i64 %total_size.2, 1
   %add21 = add i64 %add.i.i28, %call.i20
   %add22 = add i64 %add21, %conv.i.i.i27
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then18, %if.end15
-  %total_size.2 = phi i64 [ %add22, %if.then18 ], [ %total_size.1, %if.end15 ]
+  %total_size.3 = phi i64 [ %add22, %if.then18 ], [ %total_size.2, %if.end15 ]
   %and24 = and i32 %1, 8
   %tobool25.not = icmp eq i32 %and24, 0
   br i1 %tobool25.not, label %if.end31, label %if.then26
@@ -2790,15 +2790,15 @@ if.then26:                                        ; preds = %if.end23
   %add.i.i.i34 = add nuw nsw i32 %mul.i.i.i33, 73
   %div1.i.i.i35 = lshr i32 %add.i.i.i34, 6
   %conv.i.i.i36 = zext nneg i32 %div1.i.i.i35 to i64
-  %add.i.i37 = add i64 %total_size.2, 2
+  %add.i.i37 = add i64 %total_size.3, 2
   %add28 = add i64 %add.i.i37, %call.i29
   %add29 = add i64 %add28, %conv.i.i.i36
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end23, %if.then26, %entry
-  %total_size.3 = phi i64 [ %add29, %if.then26 ], [ %total_size.2, %if.end23 ], [ 0, %entry ]
+  %total_size.0 = phi i64 [ %add29, %if.then26 ], [ %total_size.3, %if.end23 ], [ 0, %entry ]
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 20
-  %call32 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %total_size.3, ptr noundef nonnull %_cached_size_)
+  %call32 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %total_size.0, ptr noundef nonnull %_cached_size_)
   ret i64 %call32
 }
 
@@ -3515,7 +3515,7 @@ if.then14:                                        ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then14, %if.then
-  %total_size.1 = phi i64 [ %add18, %if.then14 ], [ %total_size.0.lcssa, %if.then ]
+  %total_size.2 = phi i64 [ %add18, %if.then14 ], [ %total_size.0.lcssa, %if.then ]
   %and19 = and i32 %7, 2
   %tobool20.not = icmp eq i32 %and19, 0
   br i1 %tobool20.not, label %if.end25, label %if.then21
@@ -3529,11 +3529,11 @@ if.then21:                                        ; preds = %if.end
   %mul.i.i = mul nuw nsw i64 %sub.i.i, 9
   %add1.i.i = add nuw nsw i64 %mul.i.i, 137
   %div1.i.i = lshr i64 %add1.i.i, 6
-  %add24 = add i64 %div1.i.i, %total_size.1
+  %add24 = add i64 %div1.i.i, %total_size.2
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then21, %if.end
-  %total_size.2 = phi i64 [ %add24, %if.then21 ], [ %total_size.1, %if.end ]
+  %total_size.3 = phi i64 [ %add24, %if.then21 ], [ %total_size.2, %if.end ]
   %and26 = and i32 %7, 4
   %tobool27.not = icmp eq i32 %and26, 0
   br i1 %tobool27.not, label %if.end32, label %if.then28
@@ -3548,11 +3548,11 @@ if.then28:                                        ; preds = %if.end25
   %mul.i.i.i29 = mul nuw nsw i64 %sub.i.i.i28, 9
   %add1.i.i.i = add nuw nsw i64 %mul.i.i.i29, 137
   %div1.i.i.i30 = lshr i64 %add1.i.i.i, 6
-  %add31 = add i64 %div1.i.i.i30, %total_size.2
+  %add31 = add i64 %div1.i.i.i30, %total_size.3
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then28, %if.end25
-  %total_size.3 = phi i64 [ %add31, %if.then28 ], [ %total_size.2, %if.end25 ]
+  %total_size.4 = phi i64 [ %add31, %if.then28 ], [ %total_size.3, %if.end25 ]
   %and33 = and i32 %7, 8
   %tobool34.not = icmp eq i32 %and33, 0
   br i1 %tobool34.not, label %if.end40, label %if.then35
@@ -3567,13 +3567,13 @@ if.then35:                                        ; preds = %if.end32
   %mul.i.i.i33 = mul nuw nsw i64 %sub.i.i.i32, 9
   %add1.i.i.i34 = add nuw nsw i64 %mul.i.i.i33, 137
   %div1.i.i.i35 = lshr i64 %add1.i.i.i34, 6
-  %add38 = add i64 %div1.i.i.i35, %total_size.3
+  %add38 = add i64 %div1.i.i.i35, %total_size.4
   br label %if.end40
 
 if.end40:                                         ; preds = %if.end32, %if.then35, %for.end
-  %total_size.4 = phi i64 [ %add38, %if.then35 ], [ %total_size.3, %if.end32 ], [ %total_size.0.lcssa, %for.end ]
+  %total_size.1 = phi i64 [ %add38, %if.then35 ], [ %total_size.4, %if.end32 ], [ %total_size.0.lcssa, %for.end ]
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 20
-  %call41 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %total_size.4, ptr noundef nonnull %_cached_size_)
+  %call41 = tail call noundef i64 @_ZNK6google8protobuf7Message29MaybeComputeUnknownFieldsSizeEmPNS0_8internal10CachedSizeE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %total_size.1, ptr noundef nonnull %_cached_size_)
   ret i64 %call41
 }
 

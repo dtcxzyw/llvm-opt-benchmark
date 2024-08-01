@@ -1493,7 +1493,7 @@ default.unreachable:                              ; preds = %4
 
 .body:                                            ; preds = %39, %69, %103, %99, %84, %54, %299, %284, %269, %254, %239, %224, %209, %194, %179, %164, %149, %134, %118
   %.pn = phi { ptr, i32 } [ %300, %299 ], [ %285, %284 ], [ %270, %269 ], [ %255, %254 ], [ %240, %239 ], [ %225, %224 ], [ %210, %209 ], [ %195, %194 ], [ %180, %179 ], [ %165, %164 ], [ %150, %149 ], [ %135, %134 ], [ %119, %118 ], [ %40, %39 ], [ %55, %54 ], [ %70, %69 ], [ %85, %84 ], [ %104, %103 ], [ %100, %99 ]
-  %.0 = phi i1 [ true, %299 ], [ true, %284 ], [ true, %269 ], [ true, %254 ], [ true, %239 ], [ true, %224 ], [ true, %209 ], [ true, %194 ], [ true, %179 ], [ true, %164 ], [ true, %149 ], [ true, %134 ], [ true, %118 ], [ true, %39 ], [ true, %54 ], [ true, %69 ], [ true, %84 ], [ false, %103 ], [ true, %99 ]
+  %.1 = phi i1 [ true, %299 ], [ true, %284 ], [ true, %269 ], [ true, %254 ], [ true, %239 ], [ true, %224 ], [ true, %209 ], [ true, %194 ], [ true, %179 ], [ true, %164 ], [ true, %149 ], [ true, %134 ], [ true, %118 ], [ true, %39 ], [ true, %54 ], [ true, %69 ], [ true, %84 ], [ false, %103 ], [ true, %99 ]
   %102 = getelementptr inbounds i8, ptr %1, i64 544
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h75ea50d87461703dE.llvm.800285880109910518"(ptr noalias noundef nonnull align 8 dereferenceable(24) %102) #38
           to label %304 unwind label %302
@@ -2169,7 +2169,7 @@ default.unreachable:                              ; preds = %4
           to label %340 unwind label %302
 
 340:                                              ; preds = %338
-  br i1 %.0, label %349, label %341
+  br i1 %.1, label %349, label %341
 
 341:                                              ; preds = %349, %340
   %342 = getelementptr inbounds i8, ptr %1, i64 1112
@@ -23301,7 +23301,7 @@ common.resume:                                    ; preds = %.body105, %46, %.bo
           to label %311 unwind label %207
 
 .thread158:                                       ; preds = %235, %234, %229, %226
-  %.1.ph = phi i1 [ true, %226 ], [ true, %229 ], [ true, %234 ], [ false, %235 ]
+  %.078.ph = phi i1 [ true, %226 ], [ true, %229 ], [ true, %234 ], [ false, %235 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread148
@@ -23493,7 +23493,7 @@ common.resume:                                    ; preds = %.body105, %46, %.bo
   br label %289
 
 287:                                              ; preds = %.thread148
-  br i1 %.078156, label %310, label %.body105
+  br i1 %.1156, label %310, label %.body105
 
 .thread170:                                       ; preds = %278
   %288 = landingpad { ptr, i32 }
@@ -23554,7 +23554,7 @@ common.resume:                                    ; preds = %.body105, %46, %.bo
 
 .thread148:                                       ; preds = %.body, %.thread158
   %.pn88157 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread158 ], [ %.pn, %.body ]
-  %.078156 = phi i1 [ %.1.ph, %.thread158 ], [ false, %.body ]
+  %.1156 = phi i1 [ %.078.ph, %.thread158 ], [ false, %.body ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$object_store..path..Path$GT$17ha1e4e72be02114afE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %37) #38
           to label %287 unwind label %272
 
@@ -23782,7 +23782,7 @@ define void @_ZN13deltalake_aws7storage16S3StorageOptions8from_map17h268e628a50f
           to label %42 unwind label %.body.thread105
 
 41:                                               ; preds = %130
-  br i1 %.2, label %.body.thread, label %216
+  br i1 %.3, label %.body.thread, label %216
 
 .body.thread105:                                  ; preds = %161, %128, %125, %98, %72, %55, %53, %51, %49, %48, %47, %46, %45, %44, %43, %42, %2, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2eq17hbf10c5827acb7f69E.exit.i", %87, %113
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -24031,13 +24031,13 @@ define void @_ZN13deltalake_aws7storage16S3StorageOptions8from_map17h268e628a50f
           to label %133 unwind label %131
 
 130:                                              ; preds = %151, %214, %.thread113, %163, %131
-  %.2 = phi i1 [ %.3, %131 ], [ true, %.thread113 ], [ true, %163 ], [ true, %214 ], [ true, %151 ]
+  %.3 = phi i1 [ %.2, %131 ], [ true, %.thread113 ], [ true, %163 ], [ true, %214 ], [ true, %151 ]
   %.pn75 = phi { ptr, i32 } [ %132, %131 ], [ %.pn.pn116, %.thread113 ], [ %203, %163 ], [ %215, %214 ], [ %152, %151 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$aws_config..provider_config..ProviderConfig$GT$17h2a89c50617611915E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %23) #38
           to label %41 unwind label %199
 
 131:                                              ; preds = %206, %154, %133, %129
-  %.3 = phi i1 [ false, %206 ], [ true, %154 ], [ true, %133 ], [ true, %129 ]
+  %.2 = phi i1 [ false, %206 ], [ true, %154 ], [ true, %133 ], [ true, %129 ]
   %132 = landingpad { ptr, i32 }
           cleanup
   br label %130

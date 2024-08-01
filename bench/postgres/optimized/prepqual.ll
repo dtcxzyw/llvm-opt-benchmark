@@ -443,7 +443,7 @@ list_length.exit.i:                               ; preds = %._crit_edge111
 
 53:                                               ; preds = %list_length.exit105.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %list_length.exit105.i ]
-  %.077140.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %list_length.exit105.i ]
+  %.077140.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %list_length.exit105.i ]
   %.078139.i = phi i32 [ 0, %.lr.ph.i ], [ %.179.i, %list_length.exit105.i ]
   %54 = getelementptr %union.ListCell, ptr %49, i64 %indvars.iv.i
   %55 = load ptr, ptr %54, align 8
@@ -478,7 +478,7 @@ list_length.exit105.i:                            ; preds = %65, %62
   %70 = icmp slt i32 %68, %.078139.i
   %or.cond.i = select i1 %69, i1 true, i1 %70
   %.179.i = select i1 %or.cond.i, i32 %68, i32 %.078139.i
-  %.1.i = select i1 %or.cond.i, ptr %64, ptr %.077140.i
+  %.2.i = select i1 %or.cond.i, ptr %64, ptr %.077140.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit132.i, label %53, !llvm.loop !5
@@ -488,8 +488,8 @@ is_andclause.exit.thread.i:                       ; preds = %is_andclause.exit.i
   br label %.loopexit132.i
 
 .loopexit132.i:                                   ; preds = %list_length.exit105.i, %is_andclause.exit.thread.i, %.preheader131.i
-  %.2.i = phi ptr [ %71, %is_andclause.exit.thread.i ], [ null, %.preheader131.i ], [ %.1.i, %list_length.exit105.i ]
-  %72 = tail call ptr @list_union(ptr noundef null, ptr noundef %.2.i) #5
+  %.1.i = phi ptr [ %71, %is_andclause.exit.thread.i ], [ null, %.preheader131.i ], [ %.2.i, %list_length.exit105.i ]
+  %72 = tail call ptr @list_union(ptr noundef null, ptr noundef %.1.i) #5
   %73 = getelementptr inbounds i8, ptr %72, i64 4
   %.not94.i = icmp eq ptr %72, null
   br i1 %.not94.i, label %._crit_edge.thread.i, label %.lr.ph146.i
@@ -640,8 +640,8 @@ list_length.exit113.i:                            ; preds = %._crit_edge159.i
 
 135:                                              ; preds = %list_length.exit113.i
   %136 = getelementptr i8, ptr %129, i64 16
-  %.287.val.i = load ptr, ptr %136, align 8
-  %137 = load ptr, ptr %.287.val.i, align 8
+  %.186.val.i = load ptr, ptr %136, align 8
+  %137 = load ptr, ptr %.186.val.i, align 8
   br label %.thread128.sink.split.i
 
 138:                                              ; preds = %list_length.exit113.i

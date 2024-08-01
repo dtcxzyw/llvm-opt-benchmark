@@ -3056,7 +3056,7 @@ delete.notnull.i.i.i22:                           ; preds = %if.then.i18
   br label %ehcleanup132
 
 cleanup131:                                       ; preds = %invoke.cont26, %delete.notnull.i.i.i, %if.then.i, %cleanup129, %cleanup.action, %invoke.cont5
-  %retval.2 = phi ptr [ null, %invoke.cont5 ], [ null, %cleanup.action ], [ %retval.1.ph, %cleanup129 ], [ %retval.1.ph, %if.then.i ], [ %retval.1.ph, %delete.notnull.i.i.i ], [ null, %invoke.cont26 ]
+  %retval.0 = phi ptr [ null, %invoke.cont5 ], [ null, %cleanup.action ], [ %retval.1.ph, %cleanup129 ], [ %retval.1.ph, %if.then.i ], [ %retval.1.ph, %delete.notnull.i.i.i ], [ null, %invoke.cont26 ]
   %36 = load ptr, ptr %msg, align 8
   %cmp.not.i = icmp eq ptr %36, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN3net22CryptoHandshakeMessageEEclEPS1_.exit.i
@@ -3067,7 +3067,7 @@ _ZNKSt14default_deleteIN3net22CryptoHandshakeMessageEEclEPS1_.exit.i: ; preds = 
   br label %_ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EED2Ev.exit: ; preds = %cleanup131, %_ZNKSt14default_deleteIN3net22CryptoHandshakeMessageEEclEPS1_.exit.i
-  ret ptr %retval.2
+  ret ptr %retval.0
 
 ehcleanup132:                                     ; preds = %ehcleanup130.thread, %delete.notnull.i.i.i22, %if.then.i18, %ehcleanup130, %lpad11, %lpad4
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %4, %lpad4 ], [ %5, %lpad11 ], [ %.pn.pn.pn, %ehcleanup130 ], [ %.pn.pn.pn, %if.then.i18 ], [ %.pn.pn.pn, %delete.notnull.i.i.i22 ], [ %8, %ehcleanup130.thread ]
@@ -4060,7 +4060,7 @@ lpad494:                                          ; preds = %invoke.cont497, %in
   br label %ehcleanup565
 
 sw.epilog:                                        ; preds = %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EE5resetEPS1_.exit105, %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EE5resetEPS1_.exit
-  %ka.sroa.0.1 = phi ptr [ %call456, %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EE5resetEPS1_.exit105 ], [ %call424, %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EE5resetEPS1_.exit ]
+  %ka.sroa.0.3 = phi ptr [ %call456, %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EE5resetEPS1_.exit105 ], [ %call424, %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EE5resetEPS1_.exit ]
   %68 = load ptr, ptr %key_exchanges.i, align 8
   %69 = load ptr, ptr %_M_finish.i108, align 8
   %cmp.i109.not226 = icmp eq ptr %68, %69
@@ -4115,16 +4115,16 @@ ehcleanup563.thread188:                           ; preds = %invoke.cont534, %in
   br label %_ZNKSt14default_deleteIN3net11KeyExchangeEEclEPS1_.exit.i114
 
 for.end556:                                       ; preds = %for.cond517, %sw.epilog
-  store ptr %ka.sroa.0.1, ptr %ref.tmp560, align 8
+  store ptr %ka.sroa.0.3, ptr %ref.tmp560, align 8
   invoke void @_ZNSt6vectorIPN3net11KeyExchangeESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %key_exchanges.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp560)
           to label %for.inc566 unwind label %ehcleanup563.thread195.loopexit
 
 _ZNKSt14default_deleteIN3net11KeyExchangeEEclEPS1_.exit.i: ; preds = %invoke.cont527, %cleanup.action546
   store ptr null, ptr %agg.result, align 8
-  %vtable.i.i = load ptr, ptr %ka.sroa.0.1, align 8
+  %vtable.i.i = load ptr, ptr %ka.sroa.0.3, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
   %73 = load ptr, ptr %vfn.i.i, align 8
-  call void %73(ptr noundef nonnull align 8 dereferenceable(8) %ka.sroa.0.1) #20
+  call void %73(ptr noundef nonnull align 8 dereferenceable(8) %ka.sroa.0.3) #20
   br label %cleanup564.thread
 
 cleanup564.thread:                                ; preds = %cleanup.done413, %_ZNKSt14default_deleteIN3net11KeyExchangeEEclEPS1_.exit.i
@@ -4170,10 +4170,10 @@ ehcleanup563.loopexit.split-lp:                   ; preds = %cond.false530, %if.
 
 _ZNKSt14default_deleteIN3net11KeyExchangeEEclEPS1_.exit.i114: ; preds = %ehcleanup563.loopexit, %ehcleanup563.loopexit.split-lp, %ehcleanup563.thread188
   %.pn193 = phi { ptr, i32 } [ %72, %ehcleanup563.thread188 ], [ %lpad.loopexit, %ehcleanup563.loopexit ], [ %lpad.loopexit.split-lp, %ehcleanup563.loopexit.split-lp ]
-  %vtable.i.i115 = load ptr, ptr %ka.sroa.0.1, align 8
+  %vtable.i.i115 = load ptr, ptr %ka.sroa.0.3, align 8
   %vfn.i.i116 = getelementptr inbounds i8, ptr %vtable.i.i115, i64 8
   %75 = load ptr, ptr %vfn.i.i116, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(8) %ka.sroa.0.1) #20
+  call void %75(ptr noundef nonnull align 8 dereferenceable(8) %ka.sroa.0.3) #20
   br label %ehcleanup565
 
 ehcleanup565:                                     ; preds = %ehcleanup563.thread195.loopexit, %ehcleanup563.thread195.loopexit.split-lp, %lpad368.loopexit, %lpad368.loopexit.split-lp, %lpad436, %lpad469, %lpad494, %_ZNKSt14default_deleteIN3net11KeyExchangeEEclEPS1_.exit.i114, %lpad402
@@ -7480,16 +7480,16 @@ ehcleanup115:                                     ; preds = %_ZNSt10unique_ptrIN
   br label %ehcleanup117
 
 ehcleanup117:                                     ; preds = %lpad106, %ehcleanup115
-  %cb.sroa.0.3 = phi ptr [ %cb.sroa.0.2, %ehcleanup115 ], [ %cb.sroa.0.0, %lpad106 ]
+  %cb.sroa.0.1 = phi ptr [ %cb.sroa.0.2, %ehcleanup115 ], [ %cb.sroa.0.0, %lpad106 ]
   %.pn44 = phi { ptr, i32 } [ %.pn42, %ehcleanup115 ], [ %66, %lpad106 ]
-  %cmp.not.i262 = icmp eq ptr %cb.sroa.0.3, null
+  %cmp.not.i262 = icmp eq ptr %cb.sroa.0.1, null
   br i1 %cmp.not.i262, label %ehcleanup162, label %_ZNKSt14default_deleteIN3net27EvaluateClientHelloCallbackEEclEPS1_.exit.i263
 
 _ZNKSt14default_deleteIN3net27EvaluateClientHelloCallbackEEclEPS1_.exit.i263: ; preds = %ehcleanup117
-  %vtable.i.i264 = load ptr, ptr %cb.sroa.0.3, align 8
+  %vtable.i.i264 = load ptr, ptr %cb.sroa.0.1, align 8
   %vfn.i.i265 = getelementptr inbounds i8, ptr %vtable.i.i264, i64 8
   %71 = load ptr, ptr %vfn.i.i265, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(88) %cb.sroa.0.3) #20
+  call void %71(ptr noundef nonnull align 8 dereferenceable(88) %cb.sroa.0.1) #20
   br label %ehcleanup162
 
 if.end119:                                        ; preds = %invoke.cont81
@@ -8575,18 +8575,18 @@ invoke.cont348:                                   ; preds = %if.end346
   br label %cleanup351
 
 cleanup351:                                       ; preds = %if.then343.invoke, %invoke.cont330, %invoke.cont334, %invoke.cont348
-  %cleanup.dest.slot.1 = phi i32 [ 0, %invoke.cont348 ], [ 0, %invoke.cont334 ], [ 0, %invoke.cont330 ], [ 1, %if.then343.invoke ]
-  %retval.1 = phi i32 [ 38, %invoke.cont348 ], [ 38, %invoke.cont334 ], [ 38, %invoke.cont330 ], [ 34, %if.then343.invoke ]
+  %cleanup.dest.slot.2 = phi i32 [ 0, %invoke.cont348 ], [ 0, %invoke.cont334 ], [ 0, %invoke.cont330 ], [ 1, %if.then343.invoke ]
+  %retval.7 = phi i32 [ 38, %invoke.cont348 ], [ 38, %invoke.cont334 ], [ 38, %invoke.cont330 ], [ 34, %if.then343.invoke ]
   call void @_ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %cetv) #20
   br label %cleanup353
 
 cleanup353:                                       ; preds = %if.then310, %if.then296, %cleanup351
-  %cleanup.dest.slot.2 = phi i32 [ %cleanup.dest.slot.1, %cleanup351 ], [ 1, %if.then296 ], [ 1, %if.then310 ]
-  %retval.2 = phi i32 [ %retval.1, %cleanup351 ], [ 53, %if.then296 ], [ 34, %if.then310 ]
+  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.2, %cleanup351 ], [ 1, %if.then296 ], [ 1, %if.then310 ]
+  %retval.6 = phi i32 [ %retval.7, %cleanup351 ], [ 53, %if.then296 ], [ 34, %if.then310 ]
   call void @_ZN3net11CrypterPairD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %crypters) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %hkdf_input) #20
   call void @_ZN3net22CryptoHandshakeMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %client_hello_copy) #20
-  %cond2 = icmp eq i32 %cleanup.dest.slot.2, 0
+  %cond2 = icmp eq i32 %cleanup.dest.slot.1, 0
   br i1 %cond2, label %if.end361, label %cleanup539
 
 ehcleanup354:                                     ; preds = %lpad322, %lpad286
@@ -8995,7 +8995,7 @@ if.then.i.i.i179:                                 ; preds = %ehcleanup530
   br label %ehcleanup532
 
 cleanup531:                                       ; preds = %if.then.i.i.i, %invoke.cont526, %if.then487
-  %retval.5 = phi i32 [ 53, %if.then487 ], [ 0, %invoke.cont526 ], [ 0, %if.then.i.i.i ]
+  %retval.11 = phi i32 [ 53, %if.then487 ], [ 0, %invoke.cont526 ], [ 0, %if.then.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %shlo_nonce) #20
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %forward_secure_hkdf_input) #20
   br label %cleanup535
@@ -9011,7 +9011,7 @@ ehcleanup534:                                     ; preds = %ehcleanup532, %lpad
   br label %ehcleanup536
 
 cleanup535:                                       ; preds = %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EED2Ev.exit176, %cleanup531
-  %retval.6 = phi i32 [ %retval.5, %cleanup531 ], [ 34, %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EED2Ev.exit176 ]
+  %retval.10 = phi i32 [ %retval.11, %cleanup531 ], [ 34, %_ZNSt10unique_ptrIN3net11KeyExchangeESt14default_deleteIS1_EED2Ev.exit176 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %forward_secure_public_value) #20
   br label %cleanup537
 
@@ -9021,7 +9021,7 @@ ehcleanup536:                                     ; preds = %ehcleanup534, %_ZNS
   br label %ehcleanup538
 
 cleanup537:                                       ; preds = %if.then397, %cleanup535
-  %retval.7 = phi i32 [ %retval.6, %cleanup535 ], [ 53, %if.then397 ]
+  %retval.8 = phi i32 [ %retval.10, %cleanup535 ], [ 53, %if.then397 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %hkdf_input362) #20
   br label %cleanup539
 
@@ -9031,7 +9031,7 @@ ehcleanup538:                                     ; preds = %ehcleanup536, %lpad
   br label %ehcleanup540
 
 cleanup539:                                       ; preds = %if.then239, %cleanup353, %cleanup537
-  %retval.8 = phi i32 [ %retval.7, %cleanup537 ], [ %retval.2, %cleanup353 ], [ 38, %if.then239 ]
+  %retval.4 = phi i32 [ %retval.8, %cleanup537 ], [ %retval.6, %cleanup353 ], [ 38, %if.then239 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %hkdf_suffix) #20
   br label %cleanup541
 
@@ -9041,7 +9041,7 @@ ehcleanup540:                                     ; preds = %ehcleanup538, %ehcl
   br label %ehcleanup542
 
 cleanup541:                                       ; preds = %if.then177.invoke, %if.then138, %if.end108, %invoke.cont100, %cleanup.done, %cleanup539
-  %retval.9 = phi i32 [ %retval.8, %cleanup539 ], [ 28, %cleanup.done ], [ 0, %invoke.cont100 ], [ 0, %if.end108 ], [ 40, %if.then138 ], [ 34, %if.then177.invoke ]
+  %retval.3 = phi i32 [ %retval.4, %cleanup539 ], [ 28, %cleanup.done ], [ 0, %invoke.cont100 ], [ 0, %if.end108 ], [ 40, %if.then138 ], [ 34, %if.then177.invoke ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %chlo_hash) #20
   br label %cleanup543
 
@@ -9051,7 +9051,7 @@ ehcleanup542:                                     ; preds = %lpad67, %ehcleanup5
   br label %ehcleanup544
 
 cleanup543:                                       ; preds = %if.then56, %_ZN4base8AutoLockD2Ev.exit, %cleanup541, %invoke.cont49
-  %retval.10 = phi i32 [ %10, %invoke.cont49 ], [ %retval.9, %cleanup541 ], [ 38, %_ZN4base8AutoLockD2Ev.exit ], [ 94, %if.then56 ]
+  %retval.2 = phi i32 [ %10, %invoke.cont49 ], [ %retval.3, %cleanup541 ], [ 38, %_ZN4base8AutoLockD2Ev.exit ], [ 94, %if.then56 ]
   %tobool.not.i181 = icmp eq ptr %primary_config.sroa.0.2, null
   br i1 %tobool.not.i181, label %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit189, label %if.then.i182
 
@@ -9134,8 +9134,8 @@ _ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit216: ; preds =
   resume { ptr, i32 } %.pn134
 
 return:                                           ; preds = %delete.notnull.i.i.i195, %if.then.i191, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit189, %entry
-  %retval.11 = phi i32 [ %call, %entry ], [ %retval.10, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit189 ], [ %retval.10, %if.then.i191 ], [ %retval.10, %delete.notnull.i.i.i195 ]
-  ret i32 %retval.11
+  %retval.0 = phi i32 [ %call, %entry ], [ %retval.2, %_ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit189 ], [ %retval.2, %if.then.i191 ], [ %retval.2, %delete.notnull.i.i.i195 ]
+  ret i32 %retval.0
 }
 
 declare noundef i32 @_ZN3net11CryptoUtils19ValidateClientHelloERKNS_22CryptoHandshakeMessageENS_11QuicVersionERKSt6vectorIS4_SaIS4_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #1
@@ -10323,14 +10323,14 @@ invoke.cont21:                                    ; preds = %if.end20
           to label %cleanup26.sink.split unwind label %lpad11
 
 cleanup26.sink.split:                             ; preds = %invoke.cont17, %invoke.cont21
-  %retval.1.ph = phi i32 [ 0, %invoke.cont21 ], [ 16, %invoke.cont17 ]
+  %retval.0.ph = phi i32 [ 0, %invoke.cont21 ], [ 16, %invoke.cont17 ]
   call void @_ZN3net18SourceAddressTokenD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %source_address_token) #20
   br label %cleanup26
 
 cleanup26:                                        ; preds = %cleanup26.sink.split, %invoke.cont7, %invoke.cont2
-  %retval.1 = phi i32 [ 15, %invoke.cont2 ], [ 0, %invoke.cont7 ], [ %retval.1.ph, %cleanup26.sink.split ]
+  %retval.0 = phi i32 [ 15, %invoke.cont2 ], [ 0, %invoke.cont7 ], [ %retval.0.ph, %cleanup26.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %storage) #20
-  ret i32 %retval.1
+  ret i32 %retval.0
 
 ehcleanup:                                        ; preds = %lpad11, %lpad
   %.pn = phi { ptr, i32 } [ %2, %lpad11 ], [ %1, %lpad ]

@@ -538,18 +538,18 @@ if.then.i.i55:                                    ; preds = %invoke.cont54
   br label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %if.then.i.i55, %invoke.cont54
-  %c.sroa.24.1 = phi ptr [ null, %invoke.cont54 ], [ %add.ptr.i.i.i, %if.then.i.i55 ]
-  %c.sroa.43.1 = phi ptr [ null, %invoke.cont54 ], [ %54, %if.then.i.i55 ]
-  %56 = ptrtoint ptr %c.sroa.43.1 to i64
+  %c.sroa.24.4 = phi ptr [ null, %invoke.cont54 ], [ %add.ptr.i.i.i, %if.then.i.i55 ]
+  %c.sroa.43.4 = phi ptr [ null, %invoke.cont54 ], [ %54, %if.then.i.i55 ]
+  %56 = ptrtoint ptr %c.sroa.43.4 to i64
   %add.i56 = add i64 %56, 2
-  %57 = ptrtoint ptr %c.sroa.24.1 to i64
+  %57 = ptrtoint ptr %c.sroa.24.4 to i64
   %cmp2.not.i = icmp ugt i64 %add.i56, %57
   br i1 %cmp2.not.i, label %if.else.i57, label %if.then3.i
 
 if.then3.i:                                       ; preds = %invoke.cont56
-  %58 = load i16, ptr %c.sroa.43.1, align 1
+  %58 = load i16, ptr %c.sroa.43.4, align 1
   store i16 %58, ptr %firstTwo, align 2
-  %add.ptr.i = getelementptr inbounds i8, ptr %c.sroa.43.1, i64 2
+  %add.ptr.i = getelementptr inbounds i8, ptr %c.sroa.43.4, i64 2
   br label %invoke.cont57
 
 if.else.i57:                                      ; preds = %invoke.cont56
@@ -558,24 +558,24 @@ if.else.i57:                                      ; preds = %invoke.cont56
   br i1 %cmp37.i, label %for.body.i, label %if.then8.i
 
 for.body.i:                                       ; preds = %if.else.i57, %if.end6.i
-  %c.sroa.24.2 = phi ptr [ %add.ptr.i.i.i244, %if.end6.i ], [ %c.sroa.24.1, %if.else.i57 ]
-  %c.sroa.14.2 = phi ptr [ %60, %if.end6.i ], [ %c.sroa.43.1, %if.else.i57 ]
-  %c.sroa.0.0 = phi ptr [ %59, %if.end6.i ], [ %53, %if.else.i57 ]
+  %c.sroa.24.10 = phi ptr [ %add.ptr.i.i.i244, %if.end6.i ], [ %c.sroa.24.4, %if.else.i57 ]
+  %c.sroa.14.9 = phi ptr [ %60, %if.end6.i ], [ %c.sroa.43.4, %if.else.i57 ]
+  %c.sroa.0.5 = phi ptr [ %59, %if.end6.i ], [ %53, %if.else.i57 ]
   %sub.ptr.sub.i41.i = phi i64 [ %61, %if.end6.i ], [ %sub.ptr.sub.i36.i, %if.else.i57 ]
   %copied.040.i = phi i64 [ %copied.1.i, %if.end6.i ], [ 0, %if.else.i57 ]
   %p.039.i = phi ptr [ %add.ptr.i245, %if.end6.i ], [ %firstTwo, %if.else.i57 ]
   %len.addr.038.i = phi i64 [ %sub.i, %if.end6.i ], [ 2, %if.else.i57 ]
-  %cmp2.not.i239 = icmp eq ptr %c.sroa.24.2, %c.sroa.14.2
+  %cmp2.not.i239 = icmp eq ptr %c.sroa.24.10, %c.sroa.14.9
   br i1 %cmp2.not.i239, label %if.end.i, label %if.then.i240
 
 if.then.i240:                                     ; preds = %for.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.039.i, ptr align 1 %c.sroa.14.2, i64 %sub.ptr.sub.i41.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.039.i, ptr align 1 %c.sroa.14.9, i64 %sub.ptr.sub.i41.i, i1 false)
   %add.i241 = add i64 %copied.040.i, %sub.ptr.sub.i41.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i240, %for.body.i
   %copied.1.i = phi i64 [ %add.i241, %if.then.i240 ], [ %copied.040.i, %for.body.i ]
-  %next_.i.i.i = getelementptr inbounds i8, ptr %c.sroa.0.0, i64 32
+  %next_.i.i.i = getelementptr inbounds i8, ptr %c.sroa.0.5, i64 32
   %59 = load ptr, ptr %next_.i.i.i, align 8
   %cmp.i.i = icmp eq ptr %59, %53
   br i1 %cmp.i.i, label %call.i.i.noexc, label %if.end6.i
@@ -595,12 +595,12 @@ for.end.i:                                        ; preds = %if.end6.i
   br i1 %cmp7.not.i, label %if.end11.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.else.i57, %for.end.i
-  %.lcssa.i399 = phi ptr [ %60, %for.end.i ], [ %c.sroa.43.1, %if.else.i57 ]
+  %.lcssa.i399 = phi ptr [ %60, %for.end.i ], [ %c.sroa.43.4, %if.else.i57 ]
   %copied.0.lcssa.i397 = phi i64 [ %copied.1.i, %for.end.i ], [ 0, %if.else.i57 ]
   %p.0.lcssa.i396 = phi ptr [ %add.ptr.i245, %for.end.i ], [ %firstTwo, %if.else.i57 ]
   %len.addr.0.lcssa.i394 = phi i64 [ %sub.i, %for.end.i ], [ 2, %if.else.i57 ]
-  %c.sroa.0.1392 = phi ptr [ %59, %for.end.i ], [ %53, %if.else.i57 ]
-  %c.sroa.24.5383 = phi ptr [ %add.ptr.i.i.i244, %for.end.i ], [ %c.sroa.24.1, %if.else.i57 ]
+  %c.sroa.0.3392 = phi ptr [ %59, %for.end.i ], [ %53, %if.else.i57 ]
+  %c.sroa.24.7383 = phi ptr [ %add.ptr.i.i.i244, %for.end.i ], [ %c.sroa.24.4, %if.else.i57 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %p.0.lcssa.i396, ptr noundef nonnull align 1 dereferenceable(1) %.lcssa.i399, i64 %len.addr.0.lcssa.i394, i1 false)
   %add.ptr10.i = getelementptr inbounds i8, ptr %.lcssa.i399, i64 %len.addr.0.lcssa.i394
   br label %if.end11.i
@@ -608,14 +608,14 @@ if.then8.i:                                       ; preds = %if.else.i57, %for.e
 if.end11.i:                                       ; preds = %if.then8.i, %for.end.i
   %copied.0.lcssa.i398 = phi i64 [ %copied.1.i, %for.end.i ], [ %copied.0.lcssa.i397, %if.then8.i ]
   %len.addr.0.lcssa.i395 = phi i64 [ 0, %for.end.i ], [ %len.addr.0.lcssa.i394, %if.then8.i ]
-  %c.sroa.0.1393 = phi ptr [ %59, %for.end.i ], [ %c.sroa.0.1392, %if.then8.i ]
-  %c.sroa.24.5384 = phi ptr [ %add.ptr.i.i.i244, %for.end.i ], [ %c.sroa.24.5383, %if.then8.i ]
-  %c.sroa.43.3 = phi ptr [ %60, %for.end.i ], [ %add.ptr10.i, %if.then8.i ]
-  %cmp.i23.i = icmp eq ptr %c.sroa.43.3, %c.sroa.24.5384
+  %c.sroa.0.3393 = phi ptr [ %59, %for.end.i ], [ %c.sroa.0.3392, %if.then8.i ]
+  %c.sroa.24.7384 = phi ptr [ %add.ptr.i.i.i244, %for.end.i ], [ %c.sroa.24.7383, %if.then8.i ]
+  %c.sroa.43.8 = phi ptr [ %60, %for.end.i ], [ %add.ptr10.i, %if.then8.i ]
+  %cmp.i23.i = icmp eq ptr %c.sroa.43.8, %c.sroa.24.7384
   br i1 %cmp.i23.i, label %if.then.i25.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i
 
 if.then.i25.i:                                    ; preds = %if.end11.i
-  %next_.i.i.i.i = getelementptr inbounds i8, ptr %c.sroa.0.1393, i64 32
+  %next_.i.i.i.i = getelementptr inbounds i8, ptr %c.sroa.0.3393, i64 32
   %62 = load ptr, ptr %next_.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %62, %53
   br i1 %cmp.i.i.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i, label %if.end.i.i.i
@@ -628,24 +628,24 @@ if.end.i.i.i:                                     ; preds = %if.then.i25.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i: ; preds = %if.end.i.i.i, %if.then.i25.i, %if.end11.i
-  %c.sroa.24.7 = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i.i ], [ %c.sroa.24.5384, %if.end11.i ], [ %c.sroa.24.5384, %if.then.i25.i ]
-  %c.sroa.43.4 = phi ptr [ %63, %if.end.i.i.i ], [ %c.sroa.43.3, %if.end11.i ], [ %c.sroa.24.5384, %if.then.i25.i ]
-  %c.sroa.0.2 = phi ptr [ %62, %if.end.i.i.i ], [ %c.sroa.0.1393, %if.end11.i ], [ %c.sroa.0.1393, %if.then.i25.i ]
+  %c.sroa.24.8 = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i.i ], [ %c.sroa.24.7384, %if.end11.i ], [ %c.sroa.24.7384, %if.then.i25.i ]
+  %c.sroa.43.9 = phi ptr [ %63, %if.end.i.i.i ], [ %c.sroa.43.8, %if.end11.i ], [ %c.sroa.24.7384, %if.then.i25.i ]
+  %c.sroa.0.4 = phi ptr [ %62, %if.end.i.i.i ], [ %c.sroa.0.3393, %if.end11.i ], [ %c.sroa.0.3393, %if.then.i25.i ]
   %add12.i = add i64 %len.addr.0.lcssa.i395, %copied.0.lcssa.i398
   br label %call.i.i.noexc
 
 call.i.i.noexc:                                   ; preds = %if.end.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i
-  %c.sroa.24.8 = phi ptr [ %c.sroa.24.7, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %c.sroa.24.2, %if.end.i ]
-  %c.sroa.43.5 = phi ptr [ %c.sroa.43.4, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %c.sroa.24.2, %if.end.i ]
-  %c.sroa.0.3 = phi ptr [ %c.sroa.0.2, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %c.sroa.0.0, %if.end.i ]
+  %c.sroa.24.13 = phi ptr [ %c.sroa.24.8, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %c.sroa.24.10, %if.end.i ]
+  %c.sroa.43.10 = phi ptr [ %c.sroa.43.9, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %c.sroa.24.10, %if.end.i ]
+  %c.sroa.0.6 = phi ptr [ %c.sroa.0.4, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %c.sroa.0.5, %if.end.i ]
   %retval.0.i230 = phi i64 [ %add12.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %copied.1.i, %if.end.i ]
   %cmp.not.i.i58 = icmp eq i64 %retval.0.i230, 2
   br i1 %cmp.not.i.i58, label %invoke.cont57, label %if.then.i.i.i70.invoke
 
 invoke.cont57:                                    ; preds = %call.i.i.noexc, %if.then3.i
-  %c.sroa.24.9 = phi ptr [ %c.sroa.24.8, %call.i.i.noexc ], [ %c.sroa.24.1, %if.then3.i ]
-  %c.sroa.43.6 = phi ptr [ %c.sroa.43.5, %call.i.i.noexc ], [ %add.ptr.i, %if.then3.i ]
-  %c.sroa.0.4 = phi ptr [ %c.sroa.0.3, %call.i.i.noexc ], [ %53, %if.then3.i ]
+  %c.sroa.24.5 = phi ptr [ %c.sroa.24.13, %call.i.i.noexc ], [ %c.sroa.24.4, %if.then3.i ]
+  %c.sroa.43.5 = phi ptr [ %c.sroa.43.10, %call.i.i.noexc ], [ %add.ptr.i, %if.then3.i ]
+  %c.sroa.0.1 = phi ptr [ %c.sroa.0.6, %call.i.i.noexc ], [ %53, %if.then3.i ]
   %lhsv = load i16, ptr %firstTwo, align 2
   %.not = icmp eq i16 %lhsv, 11565
   br i1 %.not, label %do.body.preheader, label %if.end89
@@ -655,35 +655,35 @@ do.body.preheader:                                ; preds = %invoke.cont57
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond
-  %c.sroa.24.10 = phi ptr [ %c.sroa.24.18, %do.cond ], [ %c.sroa.24.9, %do.body.preheader ]
-  %c.sroa.43.7 = phi ptr [ %c.sroa.43.12, %do.cond ], [ %c.sroa.43.6, %do.body.preheader ]
-  %c.sroa.0.5 = phi ptr [ %c.sroa.0.10, %do.cond ], [ %c.sroa.0.4, %do.body.preheader ]
+  %c.sroa.24.3 = phi ptr [ %c.sroa.24.6, %do.cond ], [ %c.sroa.24.5, %do.body.preheader ]
+  %c.sroa.43.3 = phi ptr [ %c.sroa.43.6, %do.cond ], [ %c.sroa.43.5, %do.body.preheader ]
+  %c.sroa.0.0 = phi ptr [ %c.sroa.0.2, %do.cond ], [ %c.sroa.0.1, %do.body.preheader ]
   %toTrim.0 = phi i8 [ %inc, %do.cond ], [ 3, %do.body.preheader ]
-  %65 = ptrtoint ptr %c.sroa.43.7 to i64
+  %65 = ptrtoint ptr %c.sroa.43.3 to i64
   %add.i63 = add i64 %65, 1
-  %66 = ptrtoint ptr %c.sroa.24.10 to i64
+  %66 = ptrtoint ptr %c.sroa.24.3 to i64
   %cmp.not.i = icmp ugt i64 %add.i63, %66
   br i1 %cmp.not.i, label %if.else.i68, label %if.then.i65
 
 if.then.i65:                                      ; preds = %do.body
-  %67 = load i8, ptr %c.sroa.43.7, align 1
-  %add.ptr.i66 = getelementptr inbounds i8, ptr %c.sroa.43.7, i64 1
+  %67 = load i8, ptr %c.sroa.43.3, align 1
+  %add.ptr.i66 = getelementptr inbounds i8, ptr %c.sroa.43.3, i64 1
   br label %invoke.cont62
 
 if.else.i68:                                      ; preds = %do.body
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i)
-  %cmp37.i254 = icmp eq ptr %c.sroa.24.10, %c.sroa.43.7
+  %cmp37.i254 = icmp eq ptr %c.sroa.24.3, %c.sroa.43.3
   br i1 %cmp37.i254, label %for.body.i301, label %if.then8.i261
 
 for.body.i301:                                    ; preds = %if.else.i68, %if.end6.i331
-  %c.sroa.24.11 = phi ptr [ %add.ptr.i.i.i322, %if.end6.i331 ], [ %c.sroa.24.10, %if.else.i68 ]
-  %c.sroa.0.6 = phi ptr [ %69, %if.end6.i331 ], [ %c.sroa.0.5, %if.else.i68 ]
+  %c.sroa.24.17 = phi ptr [ %add.ptr.i.i.i322, %if.end6.i331 ], [ %c.sroa.24.3, %if.else.i68 ]
+  %c.sroa.0.9 = phi ptr [ %69, %if.end6.i331 ], [ %c.sroa.0.0, %if.else.i68 ]
   %sub.ptr.sub.i41.i302 = phi i64 [ %71, %if.end6.i331 ], [ 0, %if.else.i68 ]
-  %68 = phi ptr [ %70, %if.end6.i331 ], [ %c.sroa.43.7, %if.else.i68 ]
+  %68 = phi ptr [ %70, %if.end6.i331 ], [ %c.sroa.43.3, %if.else.i68 ]
   %copied.040.i303 = phi i64 [ %copied.1.i310, %if.end6.i331 ], [ 0, %if.else.i68 ]
   %p.039.i304 = phi ptr [ %add.ptr.i332, %if.end6.i331 ], [ %val.i.i, %if.else.i68 ]
   %len.addr.038.i305 = phi i64 [ %sub.i333, %if.end6.i331 ], [ 1, %if.else.i68 ]
-  %cmp2.not.i306 = icmp eq ptr %c.sroa.24.11, %68
+  %cmp2.not.i306 = icmp eq ptr %c.sroa.24.17, %68
   br i1 %cmp2.not.i306, label %if.end.i309, label %if.then.i307
 
 if.then.i307:                                     ; preds = %for.body.i301
@@ -693,7 +693,7 @@ if.then.i307:                                     ; preds = %for.body.i301
 
 if.end.i309:                                      ; preds = %if.then.i307, %for.body.i301
   %copied.1.i310 = phi i64 [ %add.i308, %if.then.i307 ], [ %copied.040.i303, %for.body.i301 ]
-  %next_.i.i.i311 = getelementptr inbounds i8, ptr %c.sroa.0.6, i64 32
+  %next_.i.i.i311 = getelementptr inbounds i8, ptr %c.sroa.0.9, i64 32
   %69 = load ptr, ptr %next_.i.i.i311, align 8
   %cmp.i.i312 = icmp eq ptr %69, %53
   br i1 %cmp.i.i312, label %call.i.i.i.noexc, label %if.end6.i331
@@ -713,12 +713,12 @@ for.end.i255:                                     ; preds = %if.end6.i331
   br i1 %cmp7.not.i260, label %if.end11.i264, label %if.then8.i261
 
 if.then8.i261:                                    ; preds = %if.else.i68, %for.end.i255
-  %.lcssa.i259427 = phi ptr [ %70, %for.end.i255 ], [ %c.sroa.43.7, %if.else.i68 ]
+  %.lcssa.i259427 = phi ptr [ %70, %for.end.i255 ], [ %c.sroa.43.3, %if.else.i68 ]
   %copied.0.lcssa.i258425 = phi i64 [ %copied.1.i310, %for.end.i255 ], [ 0, %if.else.i68 ]
   %p.0.lcssa.i257424 = phi ptr [ %add.ptr.i332, %for.end.i255 ], [ %val.i.i, %if.else.i68 ]
   %len.addr.0.lcssa.i256422 = phi i64 [ %sub.i333, %for.end.i255 ], [ 1, %if.else.i68 ]
-  %c.sroa.0.7420 = phi ptr [ %69, %for.end.i255 ], [ %c.sroa.0.5, %if.else.i68 ]
-  %c.sroa.24.14411 = phi ptr [ %add.ptr.i.i.i322, %for.end.i255 ], [ %c.sroa.24.10, %if.else.i68 ]
+  %c.sroa.0.7420 = phi ptr [ %69, %for.end.i255 ], [ %c.sroa.0.0, %if.else.i68 ]
+  %c.sroa.24.14411 = phi ptr [ %add.ptr.i.i.i322, %for.end.i255 ], [ %c.sroa.24.3, %if.else.i68 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %p.0.lcssa.i257424, ptr noundef nonnull align 1 dereferenceable(1) %.lcssa.i259427, i64 %len.addr.0.lcssa.i256422, i1 false)
   %add.ptr10.i262 = getelementptr inbounds i8, ptr %.lcssa.i259427, i64 %len.addr.0.lcssa.i256422
   br label %if.end11.i264
@@ -728,8 +728,8 @@ if.end11.i264:                                    ; preds = %if.then8.i261, %for
   %len.addr.0.lcssa.i256423 = phi i64 [ 0, %for.end.i255 ], [ %len.addr.0.lcssa.i256422, %if.then8.i261 ]
   %c.sroa.0.7421 = phi ptr [ %69, %for.end.i255 ], [ %c.sroa.0.7420, %if.then8.i261 ]
   %c.sroa.24.14412 = phi ptr [ %add.ptr.i.i.i322, %for.end.i255 ], [ %c.sroa.24.14411, %if.then8.i261 ]
-  %c.sroa.43.9 = phi ptr [ %70, %for.end.i255 ], [ %add.ptr10.i262, %if.then8.i261 ]
-  %cmp.i23.i265 = icmp eq ptr %c.sroa.43.9, %c.sroa.24.14412
+  %c.sroa.43.12 = phi ptr [ %70, %for.end.i255 ], [ %add.ptr10.i262, %if.then8.i261 ]
+  %cmp.i23.i265 = icmp eq ptr %c.sroa.43.12, %c.sroa.24.14412
   br i1 %cmp.i23.i265, label %if.then.i25.i269, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i266
 
 if.then.i25.i269:                                 ; preds = %if.end11.i264
@@ -746,16 +746,16 @@ if.end.i.i.i276:                                  ; preds = %if.then.i25.i269
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i266
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i266: ; preds = %if.end.i.i.i276, %if.then.i25.i269, %if.end11.i264
-  %c.sroa.24.16 = phi ptr [ %add.ptr.i.i.i.i284, %if.end.i.i.i276 ], [ %c.sroa.24.14412, %if.end11.i264 ], [ %c.sroa.24.14412, %if.then.i25.i269 ]
-  %c.sroa.43.10 = phi ptr [ %73, %if.end.i.i.i276 ], [ %c.sroa.43.9, %if.end11.i264 ], [ %c.sroa.24.14412, %if.then.i25.i269 ]
+  %c.sroa.24.15 = phi ptr [ %add.ptr.i.i.i.i284, %if.end.i.i.i276 ], [ %c.sroa.24.14412, %if.end11.i264 ], [ %c.sroa.24.14412, %if.then.i25.i269 ]
+  %c.sroa.43.13 = phi ptr [ %73, %if.end.i.i.i276 ], [ %c.sroa.43.12, %if.end11.i264 ], [ %c.sroa.24.14412, %if.then.i25.i269 ]
   %c.sroa.0.8 = phi ptr [ %72, %if.end.i.i.i276 ], [ %c.sroa.0.7421, %if.end11.i264 ], [ %c.sroa.0.7421, %if.then.i25.i269 ]
   %add12.i267 = add i64 %len.addr.0.lcssa.i256423, %copied.0.lcssa.i258426
   br label %call.i.i.i.noexc
 
 call.i.i.i.noexc:                                 ; preds = %if.end.i309, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i266
-  %c.sroa.24.17 = phi ptr [ %c.sroa.24.16, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i266 ], [ %c.sroa.24.11, %if.end.i309 ]
-  %c.sroa.43.11 = phi ptr [ %c.sroa.43.10, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i266 ], [ %c.sroa.24.11, %if.end.i309 ]
-  %c.sroa.0.9 = phi ptr [ %c.sroa.0.8, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i266 ], [ %c.sroa.0.6, %if.end.i309 ]
+  %c.sroa.24.20 = phi ptr [ %c.sroa.24.15, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i266 ], [ %c.sroa.24.17, %if.end.i309 ]
+  %c.sroa.43.14 = phi ptr [ %c.sroa.43.13, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i266 ], [ %c.sroa.24.17, %if.end.i309 ]
+  %c.sroa.0.10 = phi ptr [ %c.sroa.0.8, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i266 ], [ %c.sroa.0.9, %if.end.i309 ]
   %retval.0.i268 = phi i64 [ %add12.i267, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i266 ], [ %copied.1.i310, %if.end.i309 ]
   %cmp.not.i.i.i69 = icmp eq i64 %retval.0.i268, 1
   br i1 %cmp.not.i.i.i69, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIcEET_v.exit.i, label %if.then.i.i.i70.invoke
@@ -773,9 +773,9 @@ _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIcEET_v.exit.i:
   br label %invoke.cont62
 
 invoke.cont62:                                    ; preds = %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIcEET_v.exit.i, %if.then.i65
-  %c.sroa.24.18 = phi ptr [ %c.sroa.24.17, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIcEET_v.exit.i ], [ %c.sroa.24.10, %if.then.i65 ]
-  %c.sroa.43.12 = phi ptr [ %c.sroa.43.11, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIcEET_v.exit.i ], [ %add.ptr.i66, %if.then.i65 ]
-  %c.sroa.0.10 = phi ptr [ %c.sroa.0.9, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIcEET_v.exit.i ], [ %c.sroa.0.5, %if.then.i65 ]
+  %c.sroa.24.6 = phi ptr [ %c.sroa.24.20, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIcEET_v.exit.i ], [ %c.sroa.24.3, %if.then.i65 ]
+  %c.sroa.43.6 = phi ptr [ %c.sroa.43.14, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIcEET_v.exit.i ], [ %add.ptr.i66, %if.then.i65 ]
+  %c.sroa.0.2 = phi ptr [ %c.sroa.0.10, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIcEET_v.exit.i ], [ %c.sroa.0.0, %if.then.i65 ]
   %retval.0.i67 = phi i8 [ %75, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE8readSlowIcEET_v.exit.i ], [ %67, %if.then.i65 ]
   switch i8 %retval.0.i67, label %sw.epilog.sink.split [
     i8 10, label %if.then65
@@ -1781,13 +1781,13 @@ for.end.i.loopexit:                               ; preds = %if.end.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.i.loopexit, %if.else.i44
-  %c.sroa.24.4 = phi ptr [ %add.ptr.i.i.i, %if.else.i44 ], [ %add.ptr.i.i.i93.le352, %for.end.i.loopexit ]
+  %c.sroa.24.2 = phi ptr [ %add.ptr.i.i.i, %if.else.i44 ], [ %add.ptr.i.i.i93.le352, %for.end.i.loopexit ]
   %c.sroa.14.2 = phi ptr [ %27, %if.else.i44 ], [ %34, %for.end.i.loopexit ]
   %c.sroa.0.1 = phi ptr [ %14, %if.else.i44 ], [ %32, %for.end.i.loopexit ]
   %len.addr.0.lcssa.i = phi i64 [ %sub54, %if.else.i44 ], [ %sub.i94, %for.end.i.loopexit ]
   %skipped.0.lcssa.i = phi i64 [ 0, %if.else.i44 ], [ %add.i90280, %for.end.i.loopexit ]
   %add.ptr.i83 = getelementptr inbounds i8, ptr %c.sroa.14.2, i64 %len.addr.0.lcssa.i
-  %cmp.i14.i = icmp eq ptr %add.ptr.i83, %c.sroa.24.4
+  %cmp.i14.i = icmp eq ptr %add.ptr.i83, %c.sroa.24.2
   br i1 %cmp.i14.i, label %if.then.i16.i, label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i
 
 if.then.i16.i:                                    ; preds = %for.end.i
@@ -1804,8 +1804,8 @@ if.end.i.i.i:                                     ; preds = %if.then.i16.i
   br label %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i
 
 _ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i: ; preds = %if.end.i.i.i, %if.then.i16.i, %for.end.i
-  %c.sroa.24.6 = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i.i ], [ %c.sroa.24.4, %for.end.i ], [ %c.sroa.24.4, %if.then.i16.i ]
-  %c.sroa.40.1 = phi ptr [ %36, %if.end.i.i.i ], [ %add.ptr.i83, %for.end.i ], [ %c.sroa.24.4, %if.then.i16.i ]
+  %c.sroa.24.3 = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i.i ], [ %c.sroa.24.2, %for.end.i ], [ %c.sroa.24.2, %if.then.i16.i ]
+  %c.sroa.40.2 = phi ptr [ %36, %if.end.i.i.i ], [ %add.ptr.i83, %for.end.i ], [ %c.sroa.24.2, %if.then.i16.i ]
   %c.sroa.0.2 = phi ptr [ %35, %if.end.i.i.i ], [ %c.sroa.0.1, %for.end.i ], [ %c.sroa.0.1, %if.then.i16.i ]
   %add3.i = add i64 %skipped.0.lcssa.i, %len.addr.0.lcssa.i
   br label %call.i.i.noexc
@@ -1817,41 +1817,41 @@ call.i.i.noexc.loopexit:                          ; preds = %for.body.i
   br label %call.i.i.noexc
 
 call.i.i.noexc:                                   ; preds = %call.i.i.noexc.loopexit, %for.body.i.preheader, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i
-  %c.sroa.24.7 = phi ptr [ %c.sroa.24.6, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %add.ptr.i.i.i, %for.body.i.preheader ], [ %add.ptr.i.i.i93.le, %call.i.i.noexc.loopexit ]
-  %c.sroa.40.2 = phi ptr [ %c.sroa.40.1, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %add.ptr.i.i.i, %for.body.i.preheader ], [ %add.ptr.i.i.i93.le, %call.i.i.noexc.loopexit ]
-  %c.sroa.0.3 = phi ptr [ %c.sroa.0.2, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %14, %for.body.i.preheader ], [ %32, %call.i.i.noexc.loopexit ]
+  %c.sroa.24.8 = phi ptr [ %c.sroa.24.3, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %add.ptr.i.i.i, %for.body.i.preheader ], [ %add.ptr.i.i.i93.le, %call.i.i.noexc.loopexit ]
+  %c.sroa.40.3 = phi ptr [ %c.sroa.40.2, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %add.ptr.i.i.i, %for.body.i.preheader ], [ %add.ptr.i.i.i93.le, %call.i.i.noexc.loopexit ]
+  %c.sroa.0.4 = phi ptr [ %c.sroa.0.2, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %14, %for.body.i.preheader ], [ %32, %call.i.i.noexc.loopexit ]
   %retval.0.i84 = phi i64 [ %add3.i, %_ZN5folly2io6detail10CursorBaseINS0_6CursorEKNS_5IOBufEE20advanceBufferIfEmptyEv.exit.i ], [ %24, %for.body.i.preheader ], [ %add.i90, %call.i.i.noexc.loopexit ]
   %cmp.not.i.i45 = icmp eq i64 %retval.0.i84, %sub54
   br i1 %cmp.not.i.i45, label %call.i.i.noexc.invoke.cont55_crit_edge, label %if.then.i.i.i.invoke
 
 call.i.i.noexc.invoke.cont55_crit_edge:           ; preds = %call.i.i.noexc
-  %.pre = ptrtoint ptr %c.sroa.24.7 to i64
+  %.pre = ptrtoint ptr %c.sroa.24.8 to i64
   br label %invoke.cont55
 
 invoke.cont55:                                    ; preds = %call.i.i.noexc.invoke.cont55_crit_edge, %if.then.i47
   %.pre-phi = phi i64 [ %.pre, %call.i.i.noexc.invoke.cont55_crit_edge ], [ %29, %if.then.i47 ]
-  %c.sroa.24.8 = phi ptr [ %c.sroa.24.7, %call.i.i.noexc.invoke.cont55_crit_edge ], [ %add.ptr.i.i.i, %if.then.i47 ]
-  %c.sroa.40.3 = phi ptr [ %c.sroa.40.2, %call.i.i.noexc.invoke.cont55_crit_edge ], [ %add.ptr.i48, %if.then.i47 ]
-  %c.sroa.0.4 = phi ptr [ %c.sroa.0.3, %call.i.i.noexc.invoke.cont55_crit_edge ], [ %14, %if.then.i47 ]
-  %39 = ptrtoint ptr %c.sroa.40.3 to i64
+  %c.sroa.24.1 = phi ptr [ %c.sroa.24.8, %call.i.i.noexc.invoke.cont55_crit_edge ], [ %add.ptr.i.i.i, %if.then.i47 ]
+  %c.sroa.40.1 = phi ptr [ %c.sroa.40.3, %call.i.i.noexc.invoke.cont55_crit_edge ], [ %add.ptr.i48, %if.then.i47 ]
+  %c.sroa.0.0 = phi ptr [ %c.sroa.0.4, %call.i.i.noexc.invoke.cont55_crit_edge ], [ %14, %if.then.i47 ]
+  %39 = ptrtoint ptr %c.sroa.40.1 to i64
   %add.i51 = add i64 %39, 1
   %cmp.not.i = icmp ugt i64 %add.i51, %.pre-phi
   br i1 %cmp.not.i, label %if.else.i56, label %if.then.i53
 
 if.then.i53:                                      ; preds = %invoke.cont55
-  %40 = load i8, ptr %c.sroa.40.3, align 1
+  %40 = load i8, ptr %c.sroa.40.1, align 1
   br label %invoke.cont56
 
 if.else.i56:                                      ; preds = %invoke.cont55
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %val.i.i)
-  %cmp37.i = icmp eq ptr %c.sroa.24.8, %c.sroa.40.3
+  %cmp37.i = icmp eq ptr %c.sroa.24.1, %c.sroa.40.1
   br i1 %cmp37.i, label %for.body.i136, label %if.then8.i
 
 for.body.i136:                                    ; preds = %if.else.i56, %if.end6.i
-  %c.sroa.0.5 = phi ptr [ %43, %if.end6.i ], [ %c.sroa.0.4, %if.else.i56 ]
+  %c.sroa.0.6 = phi ptr [ %43, %if.end6.i ], [ %c.sroa.0.0, %if.else.i56 ]
   %sub.ptr.sub.i41.i = phi i64 [ %45, %if.end6.i ], [ 0, %if.else.i56 ]
-  %41 = phi ptr [ %44, %if.end6.i ], [ %c.sroa.40.3, %if.else.i56 ]
-  %42 = phi ptr [ %add.ptr.i.i.i146, %if.end6.i ], [ %c.sroa.24.8, %if.else.i56 ]
+  %41 = phi ptr [ %44, %if.end6.i ], [ %c.sroa.40.1, %if.else.i56 ]
+  %42 = phi ptr [ %add.ptr.i.i.i146, %if.end6.i ], [ %c.sroa.24.1, %if.else.i56 ]
   %copied.040.i = phi i64 [ %copied.1.i, %if.end6.i ], [ 0, %if.else.i56 ]
   %p.039.i = phi ptr [ %add.ptr.i154, %if.end6.i ], [ %val.i.i, %if.else.i56 ]
   %len.addr.038.i = phi i64 [ %sub.i155, %if.end6.i ], [ 1, %if.else.i56 ]
@@ -1865,7 +1865,7 @@ if.then.i137:                                     ; preds = %for.body.i136
 
 if.end.i139:                                      ; preds = %if.then.i137, %for.body.i136
   %copied.1.i = phi i64 [ %add.i138, %if.then.i137 ], [ %copied.040.i, %for.body.i136 ]
-  %next_.i.i.i140 = getelementptr inbounds i8, ptr %c.sroa.0.5, i64 32
+  %next_.i.i.i140 = getelementptr inbounds i8, ptr %c.sroa.0.6, i64 32
   %43 = load ptr, ptr %next_.i.i.i140, align 8
   %cmp.i.i141 = icmp eq ptr %43, %14
   br i1 %cmp.i.i141, label %call.i.i.i.noexc, label %if.end6.i
@@ -1885,7 +1885,7 @@ for.end.i100:                                     ; preds = %if.end6.i
   br i1 %cmp7.not.i, label %if.end11.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.else.i56, %for.end.i100
-  %.lcssa.i102211 = phi ptr [ %44, %for.end.i100 ], [ %c.sroa.40.3, %if.else.i56 ]
+  %.lcssa.i102211 = phi ptr [ %44, %for.end.i100 ], [ %c.sroa.40.1, %if.else.i56 ]
   %copied.0.lcssa.i209 = phi i64 [ %copied.1.i, %for.end.i100 ], [ 0, %if.else.i56 ]
   %p.0.lcssa.i208 = phi ptr [ %add.ptr.i154, %for.end.i100 ], [ %val.i.i, %if.else.i56 ]
   %len.addr.0.lcssa.i101206 = phi i64 [ %sub.i155, %for.end.i100 ], [ 1, %if.else.i56 ]

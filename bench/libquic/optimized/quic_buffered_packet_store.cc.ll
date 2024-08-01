@@ -1333,22 +1333,22 @@ lpad78:                                           ; preds = %invoke.cont76
   br label %ehcleanup83
 
 ehcleanup83:                                      ; preds = %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit.i, %lpad78
-  %agg.tmp.sroa.0.0 = phi ptr [ null, %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit.i ], [ %call73, %lpad78 ]
+  %agg.tmp.sroa.0.1 = phi ptr [ null, %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit.i ], [ %call73, %lpad78 ]
   %.pn10 = phi { ptr, i32 } [ %.pn.i, %_ZNSt10unique_ptrIN3net18QuicReceivedPacketESt14default_deleteIS1_EED2Ev.exit.i ], [ %87, %lpad78 ]
   call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %agg.tmp74) #17
   br label %ehcleanup84
 
 ehcleanup84:                                      ; preds = %ehcleanup83, %lpad75
-  %agg.tmp.sroa.0.1 = phi ptr [ %agg.tmp.sroa.0.0, %ehcleanup83 ], [ %call73, %lpad75 ]
+  %agg.tmp.sroa.0.0 = phi ptr [ %agg.tmp.sroa.0.1, %ehcleanup83 ], [ %call73, %lpad75 ]
   %.pn10.pn = phi { ptr, i32 } [ %.pn10, %ehcleanup83 ], [ %86, %lpad75 ]
-  %cmp.not.i173 = icmp eq ptr %agg.tmp.sroa.0.1, null
+  %cmp.not.i173 = icmp eq ptr %agg.tmp.sroa.0.0, null
   br i1 %cmp.not.i173, label %eh.resume, label %_ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i174
 
 _ZNKSt14default_deleteIN3net18QuicReceivedPacketEEclEPS1_.exit.i174: ; preds = %ehcleanup84
-  %vtable.i.i175 = load ptr, ptr %agg.tmp.sroa.0.1, align 8
+  %vtable.i.i175 = load ptr, ptr %agg.tmp.sroa.0.0, align 8
   %vfn.i.i176 = getelementptr inbounds i8, ptr %vtable.i.i175, i64 8
   %88 = load ptr, ptr %vfn.i.i176, align 8
-  call void %88(ptr noundef nonnull align 8 dereferenceable(45) %agg.tmp.sroa.0.1) #17
+  call void %88(ptr noundef nonnull align 8 dereferenceable(45) %agg.tmp.sroa.0.0) #17
   br label %eh.resume
 
 lpad88:                                           ; preds = %call6.i.noexc, %if.then.i179, %if.end96, %if.else93, %invoke.cont89, %if.then86

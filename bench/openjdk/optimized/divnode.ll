@@ -310,8 +310,8 @@ _ZN4NodenwEm.exit:                                ; preds = %24, %26
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load i32, ptr %47, align 8
   %49 = icmp ne i32 %48, 3
-  %.not105173 = icmp eq ptr %46, null
-  %.not105 = or i1 %.not105173, %49
+  %.not105174 = icmp eq ptr %46, null
+  %.not105 = or i1 %.not105174, %49
   br i1 %.not105, label %54, label %50
 
 50:                                               ; preds = %37
@@ -343,8 +343,8 @@ _ZN4NodenwEm.exit:                                ; preds = %24, %26
   %72 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = icmp ne i32 %73, 3
-  %.not106174 = icmp eq ptr %71, null
-  %.not106 = or i1 %.not106174, %74
+  %.not106175 = icmp eq ptr %71, null
+  %.not106 = or i1 %.not106175, %74
   br i1 %.not106, label %92, label %75
 
 75:                                               ; preds = %59
@@ -354,8 +354,8 @@ _ZN4NodenwEm.exit:                                ; preds = %24, %26
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %77, %79
   %81 = icmp slt i32 %77, 0
-  %or.cond171 = and i1 %81, %80
-  br i1 %or.cond171, label %82, label %92
+  %or.cond172 = and i1 %81, %80
+  br i1 %or.cond172, label %82, label %92
 
 82:                                               ; preds = %75
   %83 = sub nsw i32 0, %77
@@ -377,7 +377,7 @@ _ZN4NodenwEm.exit:                                ; preds = %24, %26
 
 92:                                               ; preds = %87, %89, %50, %54, %82, %75, %59
   %.083 = phi i1 [ true, %82 ], [ true, %75 ], [ true, %59 ], [ true, %54 ], [ false, %50 ], [ false, %89 ], [ false, %87 ]
-  %.1 = phi ptr [ %1, %82 ], [ %1, %75 ], [ %1, %59 ], [ %1, %54 ], [ %1, %50 ], [ %91, %89 ], [ %1, %87 ]
+  %.0 = phi ptr [ %1, %82 ], [ %1, %75 ], [ %1, %59 ], [ %1, %54 ], [ %1, %50 ], [ %91, %89 ], [ %1, %87 ]
   %93 = add nsw i32 %5, -1
   %94 = icmp eq i32 %93, 0
   %95 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %93, i1 true)
@@ -421,7 +421,7 @@ _ZN4NodenwEm.exit113:                             ; preds = %114, %116
 
 119:                                              ; preds = %_ZN4NodenwEm.exit113
   %120 = tail call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %0, i32 noundef 31) #8
-  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i112, ptr noundef null, ptr noundef %.1, ptr noundef %120) #8
+  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i112, ptr noundef null, ptr noundef %.0, ptr noundef %120) #8
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11RShiftINode, i64 16), ptr %.0.i.i.i112, align 8
   br label %121
 
@@ -503,7 +503,7 @@ _ZN4NodenwEm.exit119:                             ; preds = %165, %167
   br i1 %169, label %172, label %170
 
 170:                                              ; preds = %_ZN4NodenwEm.exit119
-  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i118, ptr noundef null, ptr noundef %.1, ptr noundef %150) #8
+  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i118, ptr noundef null, ptr noundef %.0, ptr noundef %150) #8
   %171 = getelementptr inbounds i8, ptr %.0.i.i.i118, i64 44
   store i32 2048, ptr %171, align 4
   store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8AddINode, i64 16), ptr %.0.i.i.i118, align 8
@@ -516,7 +516,7 @@ _ZN4NodenwEm.exit119:                             ; preds = %165, %167
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %92, %172
-  %.2 = phi ptr [ %175, %172 ], [ %.1, %92 ]
+  %.2 = phi ptr [ %175, %172 ], [ %.0, %92 ]
   %176 = load ptr, ptr %98, align 8
   %177 = getelementptr inbounds i8, ptr %176, i64 1808
   %178 = load ptr, ptr %177, align 8
@@ -598,15 +598,15 @@ _ZN4NodenwEm.exit125:                             ; preds = %213, %215
   br label %_ZL26magic_int_divide_constantsiRiS_.exit.thread.sink.split
 
 223:                                              ; preds = %31
-  %.not172 = icmp eq i32 %2, 0
-  br i1 %.not172, label %_ZL26magic_int_divide_constantsiRiS_.exit.thread, label %224
+  %.not173 = icmp eq i32 %2, 0
+  br i1 %.not173, label %_ZL26magic_int_divide_constantsiRiS_.exit.thread, label %224
 
 224:                                              ; preds = %223
   %225 = urem i32 -2147483648, %5
   %226 = xor i32 %225, 2147483647
   %227 = udiv i32 -2147483648, %226
   %228 = mul i32 %227, %226
-  %.recomposed177 = urem i32 -2147483648, %226
+  %.recomposed178 = urem i32 -2147483648, %226
   %229 = udiv i32 -2147483648, %5
   %230 = mul i32 %229, %5
   %.recomposed = urem i32 -2147483648, %5
@@ -614,7 +614,7 @@ _ZN4NodenwEm.exit125:                             ; preds = %213, %215
 
 .critedge.i:                                      ; preds = %.critedge.i.backedge, %224
   %.049.i = phi i32 [ %227, %224 ], [ %.150.i, %.critedge.i.backedge ]
-  %.047.i = phi i32 [ %.recomposed177, %224 ], [ %.047.i.be, %.critedge.i.backedge ]
+  %.047.i = phi i32 [ %.recomposed178, %224 ], [ %.047.i.be, %.critedge.i.backedge ]
   %.045.i = phi i32 [ %229, %224 ], [ %.146.i, %.critedge.i.backedge ]
   %.044.i = phi i32 [ %.recomposed, %224 ], [ %.1.i, %.critedge.i.backedge ]
   %.043.i = phi i32 [ 31, %224 ], [ %231, %.critedge.i.backedge ]
@@ -1186,14 +1186,14 @@ _ZN4NodenwEm.exit163:                             ; preds = %542, %544
   br label %_ZL26magic_int_divide_constantsiRiS_.exit.thread.sink.split
 
 _ZL26magic_int_divide_constantsiRiS_.exit.thread.sink.split: ; preds = %29, %218, %547
-  %.0.i.i.i162.sink176 = phi ptr [ %.0.i.i.i162, %547 ], [ %.0.i.i.i124, %218 ], [ %.0.i.i.i, %29 ]
-  %548 = getelementptr inbounds i8, ptr %.0.i.i.i162.sink176, i64 44
+  %.0.i.i.i162.sink177 = phi ptr [ %.0.i.i.i162, %547 ], [ %.0.i.i.i124, %218 ], [ %.0.i.i.i, %29 ]
+  %548 = getelementptr inbounds i8, ptr %.0.i.i.i162.sink177, i64 44
   store i32 64, ptr %548, align 4
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubINode, i64 16), ptr %.0.i.i.i162.sink176, align 8
+  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubINode, i64 16), ptr %.0.i.i.i162.sink177, align 8
   br label %_ZL26magic_int_divide_constantsiRiS_.exit.thread
 
 _ZL26magic_int_divide_constantsiRiS_.exit.thread: ; preds = %_ZL26magic_int_divide_constantsiRiS_.exit.thread.sink.split, %223, %_ZN4NodenwEm.exit163, %_ZN4NodenwEm.exit125, %_ZN4NodenwEm.exit, %197, %7
-  %.082 = phi ptr [ null, %7 ], [ %.0.i.i.i121, %197 ], [ null, %_ZN4NodenwEm.exit ], [ null, %_ZN4NodenwEm.exit125 ], [ null, %_ZN4NodenwEm.exit163 ], [ null, %223 ], [ %.0.i.i.i162.sink176, %_ZL26magic_int_divide_constantsiRiS_.exit.thread.sink.split ]
+  %.082 = phi ptr [ null, %7 ], [ %.0.i.i.i121, %197 ], [ null, %_ZN4NodenwEm.exit ], [ null, %_ZN4NodenwEm.exit125 ], [ null, %_ZN4NodenwEm.exit163 ], [ null, %223 ], [ %.0.i.i.i162.sink177, %_ZL26magic_int_divide_constantsiRiS_.exit.thread.sink.split ]
   ret ptr %.082
 }
 
@@ -1579,8 +1579,8 @@ _ZN4NodenwEm.exit:                                ; preds = %24, %26
   %47 = getelementptr inbounds i8, ptr %46, i64 16
   %48 = load i32, ptr %47, align 8
   %49 = icmp ne i32 %48, 4
-  %.not88130 = icmp eq ptr %46, null
-  %.not88 = or i1 %.not88130, %49
+  %.not88131 = icmp eq ptr %46, null
+  %.not88 = or i1 %.not88131, %49
   br i1 %.not88, label %54, label %50
 
 50:                                               ; preds = %37
@@ -1612,8 +1612,8 @@ _ZN4NodenwEm.exit:                                ; preds = %24, %26
   %72 = getelementptr inbounds i8, ptr %71, i64 16
   %73 = load i32, ptr %72, align 8
   %74 = icmp ne i32 %73, 4
-  %.not89131 = icmp eq ptr %71, null
-  %.not89 = or i1 %.not89131, %74
+  %.not89132 = icmp eq ptr %71, null
+  %.not89 = or i1 %.not89132, %74
   br i1 %.not89, label %92, label %75
 
 75:                                               ; preds = %59
@@ -1623,8 +1623,8 @@ _ZN4NodenwEm.exit:                                ; preds = %24, %26
   %79 = load i64, ptr %78, align 8
   %80 = icmp eq i64 %77, %79
   %81 = icmp slt i64 %77, 0
-  %or.cond128 = and i1 %81, %80
-  br i1 %or.cond128, label %82, label %92
+  %or.cond129 = and i1 %81, %80
+  br i1 %or.cond129, label %82, label %92
 
 82:                                               ; preds = %75
   %83 = sub nsw i64 0, %77
@@ -1646,7 +1646,7 @@ _ZN4NodenwEm.exit:                                ; preds = %24, %26
 
 92:                                               ; preds = %87, %89, %50, %54, %82, %75, %59
   %.072 = phi i1 [ true, %82 ], [ true, %75 ], [ true, %59 ], [ true, %54 ], [ false, %50 ], [ false, %89 ], [ false, %87 ]
-  %.1 = phi ptr [ %1, %82 ], [ %1, %75 ], [ %1, %59 ], [ %1, %54 ], [ %1, %50 ], [ %91, %89 ], [ %1, %87 ]
+  %.0 = phi ptr [ %1, %82 ], [ %1, %75 ], [ %1, %59 ], [ %1, %54 ], [ %1, %50 ], [ %91, %89 ], [ %1, %87 ]
   %93 = add nsw i64 %5, -1
   %94 = icmp eq i64 %93, 0
   %95 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %93, i1 true)
@@ -1655,7 +1655,7 @@ _ZN4NodenwEm.exit:                                ; preds = %24, %26
   %.0.i = select i1 %94, i32 -1, i32 %97
   %98 = add nsw i32 %.0.i, 1
   %99 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  br i1 %.072, label %100, label %._crit_edge133
+  br i1 %.072, label %100, label %._crit_edge134
 
 100:                                              ; preds = %92
   %101 = load ptr, ptr %99, align 8
@@ -1691,7 +1691,7 @@ _ZN4NodenwEm.exit96:                              ; preds = %115, %117
 
 120:                                              ; preds = %_ZN4NodenwEm.exit96
   %121 = tail call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %0, i32 noundef 63) #8
-  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i95, ptr noundef null, ptr noundef %.1, ptr noundef %121) #8
+  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i95, ptr noundef null, ptr noundef %.0, ptr noundef %121) #8
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTV11RShiftLNode, i64 16), ptr %.0.i.i.i95, align 8
   br label %122
 
@@ -1773,7 +1773,7 @@ _ZN4NodenwEm.exit102:                             ; preds = %166, %168
   br i1 %170, label %173, label %171
 
 171:                                              ; preds = %_ZN4NodenwEm.exit102
-  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i101, ptr noundef null, ptr noundef %.1, ptr noundef %151) #8
+  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %.0.i.i.i101, ptr noundef null, ptr noundef %.0, ptr noundef %151) #8
   %172 = getelementptr inbounds i8, ptr %.0.i.i.i101, i64 44
   store i32 2048, ptr %172, align 4
   store ptr getelementptr inbounds inrange(-16, 232) (i8, ptr @_ZTV8AddLNode, i64 16), ptr %.0.i.i.i101, align 8
@@ -1783,10 +1783,10 @@ _ZN4NodenwEm.exit102:                             ; preds = %166, %168
   %174 = load ptr, ptr %0, align 8
   %175 = load ptr, ptr %174, align 8
   %176 = tail call noundef ptr %175(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %.0.i.i.i101) #8
-  br label %._crit_edge133
+  br label %._crit_edge134
 
-._crit_edge133:                                   ; preds = %92, %173
-  %.2 = phi ptr [ %176, %173 ], [ %.1, %92 ]
+._crit_edge134:                                   ; preds = %92, %173
+  %.2 = phi ptr [ %176, %173 ], [ %.0, %92 ]
   %177 = load ptr, ptr %99, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 1808
   %179 = load ptr, ptr %178, align 8
@@ -1804,12 +1804,12 @@ _ZN4NodenwEm.exit102:                             ; preds = %166, %168
   %.not.i.i.i103 = icmp ult i64 %190, 56
   br i1 %.not.i.i.i103, label %193, label %191
 
-191:                                              ; preds = %._crit_edge133
+191:                                              ; preds = %._crit_edge134
   %192 = getelementptr inbounds i8, ptr %187, i64 56
   store ptr %192, ptr %186, align 8
   br label %_ZN4NodenwEm.exit105
 
-193:                                              ; preds = %._crit_edge133
+193:                                              ; preds = %._crit_edge134
   %194 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %183, i64 noundef 56, i32 noundef 0) #8
   br label %_ZN4NodenwEm.exit105
 
@@ -1869,16 +1869,16 @@ _ZN4NodenwEm.exit108:                             ; preds = %214, %216
 
 224:                                              ; preds = %31
   %225 = tail call noundef zeroext i1 @_ZN7Matcher23use_asm_for_ldiv_by_conEl(i64 noundef %5) #8
-  %.not129 = icmp eq i64 %2, 0
-  %or.cond132 = or i1 %225, %.not129
-  br i1 %or.cond132, label %_ZL27magic_long_divide_constantslRlRi.exit.thread, label %226
+  %.not130 = icmp eq i64 %2, 0
+  %or.cond133 = or i1 %225, %.not130
+  br i1 %or.cond133, label %_ZL27magic_long_divide_constantslRlRi.exit.thread, label %226
 
 226:                                              ; preds = %224
   %227 = urem i64 -9223372036854775808, %5
   %228 = xor i64 %227, 9223372036854775807
   %229 = udiv i64 -9223372036854775808, %228
   %230 = mul i64 %229, %228
-  %.recomposed137 = urem i64 -9223372036854775808, %228
+  %.recomposed138 = urem i64 -9223372036854775808, %228
   %231 = udiv i64 -9223372036854775808, %5
   %232 = mul i64 %231, %5
   %.recomposed = urem i64 -9223372036854775808, %5
@@ -1886,7 +1886,7 @@ _ZN4NodenwEm.exit108:                             ; preds = %214, %216
 
 .critedge.i:                                      ; preds = %.critedge.i.backedge, %226
   %.049.i = phi i64 [ %229, %226 ], [ %.150.i, %.critedge.i.backedge ]
-  %.047.i = phi i64 [ %.recomposed137, %226 ], [ %.047.i.be, %.critedge.i.backedge ]
+  %.047.i = phi i64 [ %.recomposed138, %226 ], [ %.047.i.be, %.critedge.i.backedge ]
   %.045.i = phi i64 [ %231, %226 ], [ %.146.i, %.critedge.i.backedge ]
   %.044.i = phi i64 [ %.recomposed, %226 ], [ %.1.i, %.critedge.i.backedge ]
   %.043.i = phi i32 [ 63, %226 ], [ %233, %.critedge.i.backedge ]
@@ -2794,11 +2794,11 @@ _ZN4NodenwEm.exit112:                             ; preds = %745, %747
 756:                                              ; preds = %752, %_ZL18long_by_long_mulhiP8PhaseGVNP4Nodel.exit
   %.069 = phi ptr [ %755, %752 ], [ %727, %_ZL18long_by_long_mulhiP8PhaseGVNP4Nodel.exit ]
   %.not = icmp eq i32 %249, 0
-  %.pre134 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %.pre135 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   br i1 %.not, label %._crit_edge, label %757
 
 757:                                              ; preds = %756
-  %758 = load ptr, ptr %.pre134, align 8
+  %758 = load ptr, ptr %.pre135, align 8
   %759 = getelementptr inbounds i8, ptr %758, i64 1808
   %760 = load ptr, ptr %759, align 8
   %761 = getelementptr inbounds i8, ptr %760, i64 128
@@ -2843,7 +2843,7 @@ _ZN4NodenwEm.exit115:                             ; preds = %772, %774
 
 ._crit_edge:                                      ; preds = %756, %779
   %.170 = phi ptr [ %782, %779 ], [ %.069, %756 ]
-  %783 = load ptr, ptr %.pre134, align 8
+  %783 = load ptr, ptr %.pre135, align 8
   %784 = getelementptr inbounds i8, ptr %783, i64 1808
   %785 = load ptr, ptr %784, align 8
   %786 = getelementptr inbounds i8, ptr %785, i64 128
@@ -2886,7 +2886,7 @@ _ZN4NodenwEm.exit118:                             ; preds = %797, %799
   %807 = tail call noundef ptr %806(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef %.0.i.i.i117) #8
   %spec.select = select i1 %4, ptr %.170, ptr %807
   %spec.select92 = select i1 %4, ptr %807, ptr %.170
-  %808 = load ptr, ptr %.pre134, align 8
+  %808 = load ptr, ptr %.pre135, align 8
   %809 = getelementptr inbounds i8, ptr %808, i64 1808
   %810 = load ptr, ptr %809, align 8
   %811 = getelementptr inbounds i8, ptr %810, i64 128
@@ -2922,14 +2922,14 @@ _ZN4NodenwEm.exit121:                             ; preds = %822, %824
   br label %_ZL27magic_long_divide_constantslRlRi.exit.thread.sink.split
 
 _ZL27magic_long_divide_constantslRlRi.exit.thread.sink.split: ; preds = %29, %219, %827
-  %.0.i.i.i120.sink136 = phi ptr [ %.0.i.i.i120, %827 ], [ %.0.i.i.i107, %219 ], [ %.0.i.i.i, %29 ]
-  %828 = getelementptr inbounds i8, ptr %.0.i.i.i120.sink136, i64 44
+  %.0.i.i.i120.sink137 = phi ptr [ %.0.i.i.i120, %827 ], [ %.0.i.i.i107, %219 ], [ %.0.i.i.i, %29 ]
+  %828 = getelementptr inbounds i8, ptr %.0.i.i.i120.sink137, i64 44
   store i32 64, ptr %828, align 4
-  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubLNode, i64 16), ptr %.0.i.i.i120.sink136, align 8
+  store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTV8SubLNode, i64 16), ptr %.0.i.i.i120.sink137, align 8
   br label %_ZL27magic_long_divide_constantslRlRi.exit.thread
 
 _ZL27magic_long_divide_constantslRlRi.exit.thread: ; preds = %_ZL27magic_long_divide_constantslRlRi.exit.thread.sink.split, %_ZN4NodenwEm.exit121, %_ZN4NodenwEm.exit108, %_ZN4NodenwEm.exit, %198, %224, %7
-  %.071 = phi ptr [ null, %7 ], [ %.0.i.i.i104, %198 ], [ null, %224 ], [ null, %_ZN4NodenwEm.exit ], [ null, %_ZN4NodenwEm.exit108 ], [ null, %_ZN4NodenwEm.exit121 ], [ %.0.i.i.i120.sink136, %_ZL27magic_long_divide_constantslRlRi.exit.thread.sink.split ]
+  %.071 = phi ptr [ null, %7 ], [ %.0.i.i.i104, %198 ], [ null, %224 ], [ null, %_ZN4NodenwEm.exit ], [ null, %_ZN4NodenwEm.exit108 ], [ null, %_ZN4NodenwEm.exit121 ], [ %.0.i.i.i120.sink137, %_ZL27magic_long_divide_constantslRlRi.exit.thread.sink.split ]
   ret ptr %.071
 }
 

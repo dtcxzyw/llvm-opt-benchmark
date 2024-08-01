@@ -534,7 +534,7 @@ _ZN20cmConditionEvaluator14cmArgumentListCI2NSt7__cxx114listI25cmExpandedCommand
           to label %.critedge34 unwind label %.loopexit.split-lp
 
 .critedge34:                                      ; preds = %46, %37, %55, %54
-  %.025 = phi i1 [ false, %54 ], [ %58, %55 ], [ false, %37 ], [ false, %46 ]
+  %.1 = phi i1 [ false, %54 ], [ %58, %55 ], [ false, %37 ], [ false, %46 ]
   %59 = load ptr, ptr %5, align 8
   %.not8.i.i.i.i = icmp eq ptr %59, %5
   br i1 %.not8.i.i.i.i, label %_ZN20cmConditionEvaluator14cmArgumentListD2Ev.exit, label %.lr.ph.i.i.i.i
@@ -549,8 +549,8 @@ _ZN20cmConditionEvaluator14cmArgumentListCI2NSt7__cxx114listI25cmExpandedCommand
   br i1 %.not.i.i.i.i, label %_ZN20cmConditionEvaluator14cmArgumentListD2Ev.exit, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 _ZN20cmConditionEvaluator14cmArgumentListD2Ev.exit: ; preds = %.lr.ph.i.i.i.i, %.critedge34, %4
-  %.1 = phi i1 [ false, %4 ], [ %.025, %.critedge34 ], [ %.025, %.lr.ph.i.i.i.i ]
-  ret i1 %.1
+  %.025 = phi i1 [ false, %4 ], [ %.1, %.critedge34 ], [ %.1, %.lr.ph.i.i.i.i ]
+  ret i1 %.025
 
 .body:                                            ; preds = %.body.i.i, %.loopexit
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit ], [ %eh.lpad-body.i.i, %.body.i.i ]

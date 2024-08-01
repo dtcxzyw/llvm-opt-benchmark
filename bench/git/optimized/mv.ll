@@ -633,10 +633,10 @@ st_mult.exit:                                     ; preds = %if.then254
   br label %do.end
 
 do.end:                                           ; preds = %if.end248, %st_mult.exit
-  %src_dir_alloc.2 = phi i32 [ %div.add, %st_mult.exit ], [ %src_dir_alloc.0528, %if.end248 ]
-  %src_dir.1 = phi ptr [ %call268, %st_mult.exit ], [ %src_dir.0530, %if.end248 ]
+  %src_dir_alloc.3 = phi i32 [ %div.add, %st_mult.exit ], [ %src_dir_alloc.0528, %if.end248 ]
+  %src_dir.2 = phi ptr [ %call268, %st_mult.exit ], [ %src_dir.0530, %if.end248 ]
   %idxprom270 = sext i32 %src_dir_nr.0529 to i64
-  %arrayidx271 = getelementptr inbounds ptr, ptr %src_dir.1, i64 %idxprom270
+  %arrayidx271 = getelementptr inbounds ptr, ptr %src_dir.2, i64 %idxprom270
   store ptr %13, ptr %arrayidx271, align 8
   %43 = load i32, ptr %last, align 4
   %add272 = add nsw i32 %43, %argc.addr.0536
@@ -941,19 +941,19 @@ act_on_entry.sink.split:                          ; preds = %if.then379, %if.the
   br label %act_on_entry
 
 act_on_entry:                                     ; preds = %act_on_entry.sink.split, %_.exit354, %_.exit323
-  %bad.1 = phi ptr [ %retval.0.i322, %_.exit323 ], [ %retval.0.i353, %_.exit354 ], [ %call.i346, %act_on_entry.sink.split ]
-  %tobool420.not = icmp eq ptr %bad.1, null
+  %bad.0 = phi ptr [ %retval.0.i322, %_.exit323 ], [ %retval.0.i353, %_.exit354 ], [ %call.i346, %act_on_entry.sink.split ]
+  %tobool420.not = icmp eq ptr %bad.0, null
   br i1 %tobool420.not, label %for.inc459, label %if.end422
 
 if.end422:                                        ; preds = %if.then379, %if.then370, %if.else363, %if.then334, %if.then328, %if.then245, %if.then227, %if.then216, %if.then195, %if.then177, %if.then169, %act_on_entry
-  %bad.1414 = phi ptr [ %bad.1, %act_on_entry ], [ @.str.22, %if.then379 ], [ @.str.21, %if.then370 ], [ @.str.20, %if.else363 ], [ @.str.18, %if.then334 ], [ @.str.17, %if.then328 ], [ @.str.16, %if.then245 ], [ @.str.15, %if.then227 ], [ @.str.14, %if.then216 ], [ @.str.13, %if.then195 ], [ @.str.12, %if.then177 ], [ @.str.12, %if.then169 ]
+  %bad.0414 = phi ptr [ %bad.0, %act_on_entry ], [ @.str.22, %if.then379 ], [ @.str.21, %if.then370 ], [ @.str.20, %if.else363 ], [ @.str.18, %if.then334 ], [ @.str.17, %if.then328 ], [ @.str.16, %if.then245 ], [ @.str.15, %if.then227 ], [ @.str.14, %if.then216 ], [ @.str.13, %if.then195 ], [ @.str.12, %if.then177 ], [ @.str.12, %if.then169 ]
   %79 = load i32, ptr %ignore_errors, align 4
   %tobool423.not = icmp eq i32 %79, 0
   br i1 %tobool423.not, label %if.then424, label %remove_entry
 
 if.then424:                                       ; preds = %if.end422
   %call425 = call fastcc ptr @_(ptr noundef nonnull @.str.24)
-  call void (ptr, ...) @die(ptr noundef %call425, ptr noundef nonnull %bad.1414, ptr noundef %13, ptr noundef %14) #12
+  call void (ptr, ...) @die(ptr noundef %call425, ptr noundef nonnull %bad.0414, ptr noundef %13, ptr noundef %14) #12
   unreachable
 
 remove_entry:                                     ; preds = %if.end415.thread, %if.end422, %if.end415
@@ -996,9 +996,9 @@ move_array.exit391:                               ; preds = %if.then430, %if.the
 
 for.inc459:                                       ; preds = %if.then358, %_.exit329, %if.then181, %if.end197, %if.then189, %if.end418, %for.end, %prepare_move_submodule.exit, %if.end164, %remove_entry, %move_array.exit391, %act_on_entry
   %modes.3 = phi ptr [ %modes.0527, %move_array.exit391 ], [ %modes.0527, %remove_entry ], [ %modes.0527, %act_on_entry ], [ %modes.0527, %if.then358 ], [ %modes.0527, %_.exit329 ], [ %modes.0527, %if.then181 ], [ %modes.0527, %if.end197 ], [ %modes.0527, %if.then189 ], [ %modes.0527, %if.end418 ], [ %call281, %for.end ], [ %modes.0527, %prepare_move_submodule.exit ], [ %modes.0527, %if.end164 ]
-  %src_dir_alloc.5 = phi i32 [ %src_dir_alloc.0528, %move_array.exit391 ], [ %src_dir_alloc.0528, %remove_entry ], [ %src_dir_alloc.0528, %act_on_entry ], [ %src_dir_alloc.0528, %if.then358 ], [ %src_dir_alloc.0528, %_.exit329 ], [ %src_dir_alloc.0528, %if.then181 ], [ %src_dir_alloc.0528, %if.end197 ], [ %src_dir_alloc.0528, %if.then189 ], [ %src_dir_alloc.0528, %if.end418 ], [ %src_dir_alloc.2, %for.end ], [ %src_dir_alloc.0528, %prepare_move_submodule.exit ], [ %src_dir_alloc.0528, %if.end164 ]
+  %src_dir_alloc.5 = phi i32 [ %src_dir_alloc.0528, %move_array.exit391 ], [ %src_dir_alloc.0528, %remove_entry ], [ %src_dir_alloc.0528, %act_on_entry ], [ %src_dir_alloc.0528, %if.then358 ], [ %src_dir_alloc.0528, %_.exit329 ], [ %src_dir_alloc.0528, %if.then181 ], [ %src_dir_alloc.0528, %if.end197 ], [ %src_dir_alloc.0528, %if.then189 ], [ %src_dir_alloc.0528, %if.end418 ], [ %src_dir_alloc.3, %for.end ], [ %src_dir_alloc.0528, %prepare_move_submodule.exit ], [ %src_dir_alloc.0528, %if.end164 ]
   %src_dir_nr.3 = phi i32 [ %src_dir_nr.0529, %move_array.exit391 ], [ %src_dir_nr.0529, %remove_entry ], [ %src_dir_nr.0529, %act_on_entry ], [ %src_dir_nr.0529, %if.then358 ], [ %src_dir_nr.0529, %_.exit329 ], [ %src_dir_nr.0529, %if.then181 ], [ %src_dir_nr.0529, %if.end197 ], [ %src_dir_nr.0529, %if.then189 ], [ %src_dir_nr.0529, %if.end418 ], [ %add, %for.end ], [ %src_dir_nr.0529, %prepare_move_submodule.exit ], [ %src_dir_nr.0529, %if.end164 ]
-  %src_dir.4 = phi ptr [ %src_dir.0530, %move_array.exit391 ], [ %src_dir.0530, %remove_entry ], [ %src_dir.0530, %act_on_entry ], [ %src_dir.0530, %if.then358 ], [ %src_dir.0530, %_.exit329 ], [ %src_dir.0530, %if.then181 ], [ %src_dir.0530, %if.end197 ], [ %src_dir.0530, %if.then189 ], [ %src_dir.0530, %if.end418 ], [ %src_dir.1, %for.end ], [ %src_dir.0530, %prepare_move_submodule.exit ], [ %src_dir.0530, %if.end164 ]
+  %src_dir.4 = phi ptr [ %src_dir.0530, %move_array.exit391 ], [ %src_dir.0530, %remove_entry ], [ %src_dir.0530, %act_on_entry ], [ %src_dir.0530, %if.then358 ], [ %src_dir.0530, %_.exit329 ], [ %src_dir.0530, %if.then181 ], [ %src_dir.0530, %if.end197 ], [ %src_dir.0530, %if.then189 ], [ %src_dir.0530, %if.end418 ], [ %src_dir.2, %for.end ], [ %src_dir.0530, %prepare_move_submodule.exit ], [ %src_dir.0530, %if.end164 ]
   %submodule_gitfile.3 = phi ptr [ %submodule_gitfile.0531, %move_array.exit391 ], [ %submodule_gitfile.0531, %remove_entry ], [ %submodule_gitfile.0531, %act_on_entry ], [ %submodule_gitfile.0531, %if.then358 ], [ %submodule_gitfile.0531, %_.exit329 ], [ %submodule_gitfile.0531, %if.then181 ], [ %submodule_gitfile.0531, %if.end197 ], [ %submodule_gitfile.0531, %if.then189 ], [ %submodule_gitfile.0531, %if.end418 ], [ %call284, %for.end ], [ %submodule_gitfile.0531, %prepare_move_submodule.exit ], [ %submodule_gitfile.0531, %if.end164 ]
   %destination.4 = phi ptr [ %destination.1532, %move_array.exit391 ], [ %destination.1532, %remove_entry ], [ %destination.1532, %act_on_entry ], [ %destination.1532, %if.then358 ], [ %destination.1532, %_.exit329 ], [ %destination.1532, %if.then181 ], [ %destination.1532, %if.end197 ], [ %destination.1532, %if.then189 ], [ %destination.1532, %if.end418 ], [ %call278, %for.end ], [ %destination.1532, %prepare_move_submodule.exit ], [ %destination.1532, %if.end164 ]
   %source.3 = phi ptr [ %source.0533, %move_array.exit391 ], [ %source.0533, %remove_entry ], [ %source.0533, %act_on_entry ], [ %source.0533, %if.then358 ], [ %source.0533, %_.exit329 ], [ %source.0533, %if.then181 ], [ %source.0533, %if.end197 ], [ %source.0533, %if.then189 ], [ %source.0533, %if.end418 ], [ %call275, %for.end ], [ %source.0533, %prepare_move_submodule.exit ], [ %source.0533, %if.end164 ]
@@ -1030,7 +1030,7 @@ for.body471.lr.ph:                                ; preds = %if.end467
   br label %for.body471
 
 for.cond606.preheader.loopexit:                   ; preds = %for.inc603
-  %82 = icmp eq i32 %gitmodules_modified.3, 0
+  %82 = icmp eq i32 %gitmodules_modified.1, 0
   br label %for.cond606.preheader
 
 for.cond606.preheader:                            ; preds = %for.cond606.preheader.loopexit, %if.end467
@@ -1046,7 +1046,7 @@ for.body609.lr.ph:                                ; preds = %for.cond606.prehead
 
 for.body471:                                      ; preds = %for.body471.lr.ph, %for.inc603
   %indvars.iv574 = phi i64 [ 0, %for.body471.lr.ph ], [ %indvars.iv.next575, %for.inc603 ]
-  %gitmodules_modified.0544 = phi i32 [ 0, %for.body471.lr.ph ], [ %gitmodules_modified.3, %for.inc603 ]
+  %gitmodules_modified.0544 = phi i32 [ 0, %for.body471.lr.ph ], [ %gitmodules_modified.1, %for.inc603 ]
   %arrayidx474 = getelementptr inbounds ptr, ptr %source.3, i64 %indvars.iv574
   %83 = load ptr, ptr %arrayidx474, align 8
   %arrayidx477 = getelementptr inbounds ptr, ptr %destination.4, i64 %indvars.iv574
@@ -1232,7 +1232,7 @@ if.else592:                                       ; preds = %if.then579
   br label %for.inc603
 
 for.inc603:                                       ; preds = %land.lhs.true552, %if.else570, %if.end543, %land.lhs.true576, %if.else592, %if.then588, %if.then555, %if.end526, %if.then504, %if.end491
-  %gitmodules_modified.3 = phi i32 [ %gitmodules_modified.0544, %if.end491 ], [ %gitmodules_modified.2, %if.end526 ], [ %gitmodules_modified.2, %if.then555 ], [ %gitmodules_modified.2, %land.lhs.true576 ], [ %gitmodules_modified.2, %if.else592 ], [ %gitmodules_modified.2, %if.then588 ], [ %gitmodules_modified.2, %if.else570 ], [ %gitmodules_modified.2, %if.end543 ], [ %gitmodules_modified.0544, %if.then504 ], [ %gitmodules_modified.2, %land.lhs.true552 ]
+  %gitmodules_modified.1 = phi i32 [ %gitmodules_modified.0544, %if.end491 ], [ %gitmodules_modified.2, %if.end526 ], [ %gitmodules_modified.2, %if.then555 ], [ %gitmodules_modified.2, %land.lhs.true576 ], [ %gitmodules_modified.2, %if.else592 ], [ %gitmodules_modified.2, %if.then588 ], [ %gitmodules_modified.2, %if.else570 ], [ %gitmodules_modified.2, %if.end543 ], [ %gitmodules_modified.0544, %if.then504 ], [ %gitmodules_modified.2, %land.lhs.true552 ]
   %indvars.iv.next575 = add nuw nsw i64 %indvars.iv574, 1
   %exitcond578.not = icmp eq i64 %indvars.iv.next575, %wide.trip.count577
   br i1 %exitcond578.not, label %for.cond606.preheader.loopexit, label %for.body471, !llvm.loop !8

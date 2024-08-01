@@ -456,15 +456,15 @@ entry:
   br i1 %or.cond, label %land.rhs, label %if.end
 
 land.rhs:                                         ; preds = %entry, %while.body
-  %ret.0 = phi ptr [ %4, %while.body ], [ %0, %entry ]
+  %ret.1 = phi ptr [ %4, %while.body ], [ %0, %entry ]
   %2 = load ptr, ptr %name, align 8
-  %3 = load ptr, ptr %ret.0, align 8
+  %3 = load ptr, ptr %ret.1, align 8
   %call = tail call i32 @g_str_equal(ptr noundef %2, ptr noundef %3) #20
   %tobool4.not = icmp eq i32 %call, 0
   br i1 %tobool4.not, label %while.body, label %cond.true
 
 while.body:                                       ; preds = %land.rhs
-  %next = getelementptr inbounds i8, ptr %ret.0, i64 40
+  %next = getelementptr inbounds i8, ptr %ret.1, i64 40
   %4 = load ptr, ptr %next, align 8
   %tobool1.old.not = icmp eq ptr %4, null
   br i1 %tobool1.old.not, label %cond.end11.critedge, label %land.rhs
@@ -474,11 +474,11 @@ if.end:                                           ; preds = %entry
   br i1 %tobool5.not, label %cond.end11.critedge, label %cond.true
 
 cond.true:                                        ; preds = %land.rhs, %if.end
-  %ret.116 = phi ptr [ %0, %if.end ], [ %ret.0, %land.rhs ]
-  %next6 = getelementptr inbounds i8, ptr %ret.116, i64 40
+  %ret.016 = phi ptr [ %0, %if.end ], [ %ret.1, %land.rhs ]
+  %next6 = getelementptr inbounds i8, ptr %ret.016, i64 40
   %5 = load ptr, ptr %next6, align 8
   store ptr %5, ptr %opt, align 8
-  %str = getelementptr inbounds i8, ptr %ret.116, i64 8
+  %str = getelementptr inbounds i8, ptr %ret.016, i64 8
   %6 = load ptr, ptr %str, align 8
   br label %cond.end11
 
@@ -883,7 +883,7 @@ if.end2.i:                                        ; preds = %if.then4
   br label %parse_option_number.exit
 
 parse_option_number.exit:                         ; preds = %if.then.i, %if.then1.i, %if.end2.i
-  %ret.0 = phi i64 [ %defval, %if.then1.i ], [ %5, %if.end2.i ], [ %defval, %if.then.i ]
+  %ret.1 = phi i64 [ %defval, %if.then1.i ], [ %5, %if.end2.i ], [ %defval, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %number.i)
   br label %return
 
@@ -954,7 +954,7 @@ for.inc.i:                                        ; preds = %qemu_opt_del.exit.i
   br i1 %tobool.not.i14, label %return, label %land.rhs.i, !llvm.loop !10
 
 return:                                           ; preds = %for.inc.i, %for.cond.i.i, %if.then2, %if.end12, %if.then14, %find_default_by_name.exit, %parse_option_number.exit, %entry
-  %retval.0 = phi i64 [ %defval, %entry ], [ %defval, %find_default_by_name.exit ], [ %ret.0, %parse_option_number.exit ], [ %8, %if.then14 ], [ %8, %if.end12 ], [ %defval, %if.then2 ], [ %defval, %for.cond.i.i ], [ %8, %for.inc.i ]
+  %retval.0 = phi i64 [ %defval, %entry ], [ %defval, %find_default_by_name.exit ], [ %ret.1, %parse_option_number.exit ], [ %8, %if.then14 ], [ %8, %if.end12 ], [ %defval, %if.then2 ], [ %defval, %for.cond.i.i ], [ %8, %for.inc.i ]
   ret i64 %retval.0
 }
 
@@ -1051,7 +1051,7 @@ if.end2.i:                                        ; preds = %if.then4
   br label %parse_option_size.exit
 
 parse_option_size.exit:                           ; preds = %if.then.i, %if.then1.i, %if.end2.i
-  %ret.0 = phi i64 [ %defval, %if.then1.i ], [ %5, %if.end2.i ], [ %defval, %if.then.i ]
+  %ret.1 = phi i64 [ %defval, %if.then1.i ], [ %5, %if.end2.i ], [ %defval, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %size.i)
   br label %return
 
@@ -1122,7 +1122,7 @@ for.inc.i:                                        ; preds = %qemu_opt_del.exit.i
   br i1 %tobool.not.i14, label %return, label %land.rhs.i, !llvm.loop !10
 
 return:                                           ; preds = %for.inc.i, %for.cond.i.i, %if.then2, %if.end12, %if.then14, %find_default_by_name.exit, %parse_option_size.exit, %entry
-  %retval.0 = phi i64 [ %defval, %entry ], [ %defval, %find_default_by_name.exit ], [ %ret.0, %parse_option_size.exit ], [ %8, %if.then14 ], [ %8, %if.end12 ], [ %defval, %if.then2 ], [ %defval, %for.cond.i.i ], [ %8, %for.inc.i ]
+  %retval.0 = phi i64 [ %defval, %entry ], [ %defval, %find_default_by_name.exit ], [ %ret.1, %parse_option_size.exit ], [ %8, %if.then14 ], [ %8, %if.end12 ], [ %defval, %if.then2 ], [ %defval, %for.cond.i.i ], [ %8, %for.inc.i ]
   ret i64 %retval.0
 }
 
@@ -2579,15 +2579,15 @@ qobject_check_type.exit26:                        ; preds = %qobject_type.exit
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %qobject_check_type.exit26, %qobject_check_type.exit16, %qobject_check_type.exit
-  %tmp.0 = phi ptr [ null, %qobject_check_type.exit26 ], [ %call9, %qobject_check_type.exit16 ], [ null, %qobject_check_type.exit ]
+  %tmp.1 = phi ptr [ null, %qobject_check_type.exit26 ], [ %call9, %qobject_check_type.exit16 ], [ null, %qobject_check_type.exit ]
   %value.0 = phi ptr [ %buf, %qobject_check_type.exit26 ], [ %call9, %qobject_check_type.exit16 ], [ %call6, %qobject_check_type.exit ]
   %call14 = call zeroext i1 @qemu_opt_set(ptr noundef %opts, ptr noundef nonnull %call, ptr noundef %value.0, ptr noundef %errp)
   br label %cleanup
 
 cleanup:                                          ; preds = %qobject_type.exit, %entry.tail, %sw.epilog
-  %tmp.1 = phi ptr [ null, %entry.tail ], [ null, %qobject_type.exit ], [ %tmp.0, %sw.epilog ]
+  %tmp.0 = phi ptr [ null, %entry.tail ], [ null, %qobject_type.exit ], [ %tmp.1, %sw.epilog ]
   %retval.0 = phi i1 [ true, %entry.tail ], [ true, %qobject_type.exit ], [ %call14, %sw.epilog ]
-  call void @g_free(ptr noundef %tmp.1) #20
+  call void @g_free(ptr noundef %tmp.0) #20
   ret i1 %retval.0
 }
 

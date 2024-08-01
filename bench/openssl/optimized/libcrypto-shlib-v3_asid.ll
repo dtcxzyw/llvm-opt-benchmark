@@ -493,7 +493,7 @@ if.then7:                                         ; preds = %lor.lhs.false, %lor
 
 for.cond:                                         ; preds = %lor.lhs.false4, %if.end49
   %i.0 = phi i32 [ %add, %if.end49 ], [ 0, %lor.lhs.false4 ]
-  %bn.0 = phi ptr [ %bn.1, %if.end49 ], [ null, %lor.lhs.false4 ]
+  %bn.0 = phi ptr [ %bn.2, %if.end49 ], [ null, %lor.lhs.false4 ]
   %a_max_plus_one.0 = phi ptr [ %call46, %if.end49 ], [ null, %lor.lhs.false4 ]
   %2 = load ptr, ptr %u, align 8
   %call11 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #5
@@ -583,25 +583,25 @@ land.lhs.true:                                    ; preds = %if.end34
   br i1 %cmp37, label %if.then44, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %land.lhs.true, %if.end34
-  %bn.1 = phi ptr [ %call36, %land.lhs.true ], [ %bn.0, %if.end34 ]
-  %call39 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef %a_max.0, ptr noundef nonnull %bn.1) #5
+  %bn.2 = phi ptr [ %call36, %land.lhs.true ], [ %bn.0, %if.end34 ]
+  %call39 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef %a_max.0, ptr noundef nonnull %bn.2) #5
   %cmp40 = icmp eq ptr %call39, null
   br i1 %cmp40, label %if.then44, label %lor.lhs.false41
 
 lor.lhs.false41:                                  ; preds = %lor.lhs.false38
-  %call42 = tail call i32 @BN_add_word(ptr noundef nonnull %bn.1, i64 noundef 1) #5
+  %call42 = tail call i32 @BN_add_word(ptr noundef nonnull %bn.2, i64 noundef 1) #5
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.then44, label %if.end45
 
 if.then44:                                        ; preds = %lor.lhs.false41, %lor.lhs.false38, %land.lhs.true
-  %bn.2 = phi ptr [ null, %land.lhs.true ], [ %bn.1, %lor.lhs.false38 ], [ %bn.1, %lor.lhs.false41 ]
+  %bn.3 = phi ptr [ null, %land.lhs.true ], [ %bn.2, %lor.lhs.false38 ], [ %bn.2, %lor.lhs.false41 ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 313, ptr noundef nonnull @__func__.ASIdentifierChoice_is_canonical) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524291, ptr noundef null) #5
   br label %done
 
 if.end45:                                         ; preds = %lor.lhs.false41
-  %call46 = tail call ptr @BN_to_ASN1_INTEGER(ptr noundef nonnull %bn.1, ptr noundef %a_max_plus_one.0) #5
+  %call46 = tail call ptr @BN_to_ASN1_INTEGER(ptr noundef nonnull %bn.2, ptr noundef %a_max_plus_one.0) #5
   %cmp47 = icmp eq ptr %call46, null
   br i1 %cmp47, label %if.then48, label %if.end49
 
@@ -644,10 +644,10 @@ if.end76:                                         ; preds = %lor.lhs.false71, %l
 
 done:                                             ; preds = %if.end.i22, %lor.lhs.false20, %if.end.i, %for.body, %if.end49, %if.end24, %lor.lhs.false27, %lor.lhs.false30, %lor.lhs.false71, %if.end76, %if.then48, %if.then44
   %ret.0 = phi i32 [ 0, %if.then44 ], [ 0, %if.then48 ], [ 0, %lor.lhs.false71 ], [ 1, %if.end76 ], [ 0, %lor.lhs.false30 ], [ 0, %lor.lhs.false27 ], [ 0, %if.end24 ], [ 0, %if.end49 ], [ 0, %for.body ], [ 0, %if.end.i ], [ 0, %lor.lhs.false20 ], [ 0, %if.end.i22 ]
-  %bn.3 = phi ptr [ %bn.2, %if.then44 ], [ %bn.1, %if.then48 ], [ %bn.0, %lor.lhs.false71 ], [ %bn.0, %if.end76 ], [ %bn.0, %if.end.i22 ], [ %bn.0, %lor.lhs.false20 ], [ %bn.0, %if.end.i ], [ %bn.0, %for.body ], [ %bn.1, %if.end49 ], [ %bn.0, %if.end24 ], [ %bn.0, %lor.lhs.false27 ], [ %bn.0, %lor.lhs.false30 ]
+  %bn.1 = phi ptr [ %bn.3, %if.then44 ], [ %bn.2, %if.then48 ], [ %bn.0, %lor.lhs.false71 ], [ %bn.0, %if.end76 ], [ %bn.0, %if.end.i22 ], [ %bn.0, %lor.lhs.false20 ], [ %bn.0, %if.end.i ], [ %bn.0, %for.body ], [ %bn.2, %if.end49 ], [ %bn.0, %if.end24 ], [ %bn.0, %lor.lhs.false27 ], [ %bn.0, %lor.lhs.false30 ]
   %a_max_plus_one.1 = phi ptr [ %a_max_plus_one.0, %if.then44 ], [ %a_max_plus_one.0, %if.then48 ], [ %a_max_plus_one.0, %lor.lhs.false71 ], [ %a_max_plus_one.0, %if.end76 ], [ %a_max_plus_one.0, %if.end.i22 ], [ %a_max_plus_one.0, %lor.lhs.false20 ], [ %a_max_plus_one.0, %if.end.i ], [ %a_max_plus_one.0, %for.body ], [ %call46, %if.end49 ], [ %a_max_plus_one.0, %if.end24 ], [ %a_max_plus_one.0, %lor.lhs.false27 ], [ %a_max_plus_one.0, %lor.lhs.false30 ]
   tail call void @ASN1_INTEGER_free(ptr noundef %a_max_plus_one.1) #5
-  tail call void @BN_free(ptr noundef %bn.3) #5
+  tail call void @BN_free(ptr noundef %bn.1) #5
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %entry, %done, %if.then7
@@ -714,7 +714,7 @@ if.end8:                                          ; preds = %lor.lhs.false4
 
 for.body:                                         ; preds = %if.end8, %for.inc
   %a_max_plus_one.089 = phi ptr [ %call64, %for.inc ], [ null, %if.end8 ]
-  %bn.088 = phi ptr [ %bn.1, %for.inc ], [ null, %if.end8 ]
+  %bn.088 = phi ptr [ %bn.2, %for.inc ], [ null, %if.end8 ]
   %i.087 = phi i32 [ %inc.pre-phi, %for.inc ], [ 0, %if.end8 ]
   %4 = load ptr, ptr %u, align 8
   %call17 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %i.087) #5
@@ -808,25 +808,25 @@ land.lhs.true:                                    ; preds = %if.end49
   br i1 %cmp53, label %if.then62, label %lor.lhs.false55
 
 lor.lhs.false55:                                  ; preds = %land.lhs.true, %if.end49
-  %bn.1 = phi ptr [ %call52, %land.lhs.true ], [ %bn.088, %if.end49 ]
-  %call56 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef %a_max.0, ptr noundef nonnull %bn.1) #5
+  %bn.2 = phi ptr [ %call52, %land.lhs.true ], [ %bn.088, %if.end49 ]
+  %call56 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef %a_max.0, ptr noundef nonnull %bn.2) #5
   %cmp57 = icmp eq ptr %call56, null
   br i1 %cmp57, label %if.then62, label %lor.lhs.false59
 
 lor.lhs.false59:                                  ; preds = %lor.lhs.false55
-  %call60 = tail call i32 @BN_add_word(ptr noundef nonnull %bn.1, i64 noundef 1) #5
+  %call60 = tail call i32 @BN_add_word(ptr noundef nonnull %bn.2, i64 noundef 1) #5
   %tobool61.not = icmp eq i32 %call60, 0
   br i1 %tobool61.not, label %if.then62, label %if.end63
 
 if.then62:                                        ; preds = %lor.lhs.false59, %lor.lhs.false55, %land.lhs.true
-  %bn.2 = phi ptr [ null, %land.lhs.true ], [ %bn.1, %lor.lhs.false55 ], [ %bn.1, %lor.lhs.false59 ]
+  %bn.3 = phi ptr [ null, %land.lhs.true ], [ %bn.2, %lor.lhs.false55 ], [ %bn.2, %lor.lhs.false59 ]
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 434, ptr noundef nonnull @__func__.ASIdentifierChoice_canonize) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524291, ptr noundef null) #5
   br label %done
 
 if.end63:                                         ; preds = %lor.lhs.false59
-  %call64 = tail call ptr @BN_to_ASN1_INTEGER(ptr noundef nonnull %bn.1, ptr noundef %a_max_plus_one.089) #5
+  %call64 = tail call ptr @BN_to_ASN1_INTEGER(ptr noundef nonnull %bn.2, ptr noundef %a_max_plus_one.089) #5
   %cmp65 = icmp eq ptr %call64, null
   br i1 %cmp65, label %if.then67, label %if.end68
 
@@ -909,7 +909,7 @@ for.inc:                                          ; preds = %if.end68, %sw.epilo
   br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %if.end8
-  %bn.0.lcssa = phi ptr [ null, %if.end8 ], [ %bn.1, %for.inc ]
+  %bn.0.lcssa = phi ptr [ null, %if.end8 ], [ %bn.2, %for.inc ]
   %a_max_plus_one.0.lcssa = phi ptr [ null, %if.end8 ], [ %call64, %for.inc ]
   %24 = load ptr, ptr %u, align 8
   %call100 = tail call i32 @OPENSSL_sk_num(ptr noundef %24) #5
@@ -940,10 +940,10 @@ if.end123:                                        ; preds = %lor.lhs.false117, %
 
 done:                                             ; preds = %if.end.i38, %lor.lhs.false22, %if.end.i, %for.body, %sw.bb, %if.end35, %lor.lhs.false39, %if.end26, %if.end123, %lor.lhs.false117, %if.then67, %if.then62, %if.then48
   %ret.0 = phi i32 [ 0, %if.then48 ], [ 0, %if.then62 ], [ 0, %if.then67 ], [ 0, %lor.lhs.false117 ], [ %call124, %if.end123 ], [ 0, %if.end26 ], [ 0, %lor.lhs.false39 ], [ 0, %if.end35 ], [ 0, %sw.bb ], [ 0, %for.body ], [ 0, %if.end.i ], [ 0, %lor.lhs.false22 ], [ 0, %if.end.i38 ]
-  %bn.3 = phi ptr [ %bn.088, %if.then48 ], [ %bn.2, %if.then62 ], [ %bn.1, %if.then67 ], [ %bn.0.lcssa, %lor.lhs.false117 ], [ %bn.0.lcssa, %if.end123 ], [ %bn.088, %if.end.i38 ], [ %bn.088, %lor.lhs.false22 ], [ %bn.088, %if.end.i ], [ %bn.088, %for.body ], [ %bn.1, %sw.bb ], [ %bn.088, %if.end35 ], [ %bn.088, %lor.lhs.false39 ], [ %bn.088, %if.end26 ]
+  %bn.1 = phi ptr [ %bn.088, %if.then48 ], [ %bn.3, %if.then62 ], [ %bn.2, %if.then67 ], [ %bn.0.lcssa, %lor.lhs.false117 ], [ %bn.0.lcssa, %if.end123 ], [ %bn.088, %if.end.i38 ], [ %bn.088, %lor.lhs.false22 ], [ %bn.088, %if.end.i ], [ %bn.088, %for.body ], [ %bn.2, %sw.bb ], [ %bn.088, %if.end35 ], [ %bn.088, %lor.lhs.false39 ], [ %bn.088, %if.end26 ]
   %a_max_plus_one.1 = phi ptr [ %a_max_plus_one.089, %if.then48 ], [ %a_max_plus_one.089, %if.then62 ], [ %a_max_plus_one.089, %if.then67 ], [ %a_max_plus_one.0.lcssa, %lor.lhs.false117 ], [ %a_max_plus_one.0.lcssa, %if.end123 ], [ %a_max_plus_one.089, %if.end.i38 ], [ %a_max_plus_one.089, %lor.lhs.false22 ], [ %a_max_plus_one.089, %if.end.i ], [ %a_max_plus_one.089, %for.body ], [ %call64, %sw.bb ], [ %a_max_plus_one.089, %if.end35 ], [ %a_max_plus_one.089, %lor.lhs.false39 ], [ %a_max_plus_one.089, %if.end26 ]
   tail call void @ASN1_INTEGER_free(ptr noundef %a_max_plus_one.1) #5
-  tail call void @BN_free(ptr noundef %bn.3) #5
+  tail call void @BN_free(ptr noundef %bn.1) #5
   br label %return
 
 return:                                           ; preds = %lor.lhs.false, %entry, %done, %if.then7
@@ -1157,9 +1157,9 @@ if.then102:                                       ; preds = %if.end98
   br label %err
 
 if.end104:                                        ; preds = %if.end98, %if.then75
-  %max.1 = phi ptr [ %call92, %if.end98 ], [ null, %if.then75 ]
+  %max.3 = phi ptr [ %call92, %if.end98 ], [ null, %if.then75 ]
   %20 = load ptr, ptr %min, align 8
-  %call105 = call i32 @X509v3_asid_add_id_or_range(ptr noundef nonnull %call1.i, i32 noundef %which.0, ptr noundef %20, ptr noundef %max.1)
+  %call105 = call i32 @X509v3_asid_add_id_or_range(ptr noundef nonnull %call1.i, i32 noundef %which.0, ptr noundef %20, ptr noundef %max.3)
   %tobool106.not = icmp eq i32 %call105, 0
   br i1 %tobool106.not, label %if.then107, label %if.end108
 
@@ -1193,11 +1193,11 @@ X509v3_asid_canonize.exit:                        ; preds = %lor.rhs.i
   br i1 %tobool111.not, label %err, label %return
 
 err:                                              ; preds = %if.else80, %lor.rhs.i, %X509v3_asid_canonize.exit, %if.then107, %if.then102, %if.then97, %if.then78, %if.then69, %if.then45, %if.end23, %if.else12
-  %max.3 = phi ptr [ null, %if.else12 ], [ null, %if.end23 ], [ %call92, %if.then97 ], [ %call92, %if.then102 ], [ %max.1, %if.then107 ], [ null, %if.then78 ], [ null, %if.then45 ], [ null, %if.then69 ], [ null, %X509v3_asid_canonize.exit ], [ null, %lor.rhs.i ], [ null, %if.else80 ]
+  %max.1 = phi ptr [ null, %if.else12 ], [ null, %if.end23 ], [ %call92, %if.then97 ], [ %call92, %if.then102 ], [ %max.3, %if.then107 ], [ null, %if.then78 ], [ null, %if.then45 ], [ null, %if.then69 ], [ null, %X509v3_asid_canonize.exit ], [ null, %lor.rhs.i ], [ null, %if.else80 ]
   call void @ASN1_item_free(ptr noundef nonnull %call1.i, ptr noundef nonnull @ASIdentifiers_it.local_it) #5
   %23 = load ptr, ptr %min, align 8
   call void @ASN1_INTEGER_free(ptr noundef %23) #5
-  call void @ASN1_INTEGER_free(ptr noundef %max.3) #5
+  call void @ASN1_INTEGER_free(ptr noundef %max.1) #5
   br label %return
 
 return:                                           ; preds = %X509v3_asid_canonize.exit, %err, %if.then
@@ -1634,11 +1634,11 @@ for.body.lr.ph:                                   ; preds = %if.end79
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.1207 = phi i32 [ %i.1197, %for.body.lr.ph ], [ %i.1, %for.inc ]
-  %inherit_rdi.1205 = phi i32 [ %inherit_rdi.0, %for.body.lr.ph ], [ %inherit_rdi.3, %for.inc ]
-  %inherit_as.1204 = phi i32 [ %inherit_as.0, %for.body.lr.ph ], [ %inherit_as.4, %for.inc ]
-  %ret.2203 = phi i32 [ %ret.1, %for.body.lr.ph ], [ %ret.13, %for.inc ]
-  %child_rdi.1201 = phi ptr [ %child_rdi.0, %for.body.lr.ph ], [ %child_rdi.3, %for.inc ]
-  %child_as.1200 = phi ptr [ %child_as.0, %for.body.lr.ph ], [ %child_as.4, %for.inc ]
+  %inherit_rdi.1205 = phi i32 [ %inherit_rdi.0, %for.body.lr.ph ], [ %inherit_rdi.2, %for.inc ]
+  %inherit_as.1204 = phi i32 [ %inherit_as.0, %for.body.lr.ph ], [ %inherit_as.2, %for.inc ]
+  %ret.3203 = phi i32 [ %ret.1, %for.body.lr.ph ], [ %ret.5, %for.inc ]
+  %child_rdi.1201 = phi ptr [ %child_rdi.0, %for.body.lr.ph ], [ %child_rdi.2, %for.inc ]
+  %child_as.1200 = phi ptr [ %child_as.0, %for.body.lr.ph ], [ %child_as.2, %for.inc ]
   %call85 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %chain, i32 noundef %i.1207) #5
   %cmp86.not = icmp eq ptr %call85, null
   br i1 %cmp86.not, label %if.then96, label %if.end102
@@ -1735,9 +1735,9 @@ if.end167.if.end172_crit_edge:                    ; preds = %if.end167
 if.end172:                                        ; preds = %if.end167.if.end172_crit_edge, %if.end149.thread, %if.end149
   %22 = phi ptr [ %18, %if.end149 ], [ %.pre213, %if.end167.if.end172_crit_edge ], [ %20, %if.end149.thread ]
   %23 = phi ptr [ %17, %if.end149 ], [ %.pre, %if.end167.if.end172_crit_edge ], [ %19, %if.end149.thread ]
-  %child_as.2 = phi ptr [ %child_as.1200, %if.end149 ], [ null, %if.end167.if.end172_crit_edge ], [ %child_as.1200, %if.end149.thread ]
-  %ret.7 = phi i32 [ %ret.2203, %if.end149 ], [ %call165, %if.end167.if.end172_crit_edge ], [ %call142, %if.end149.thread ]
-  %inherit_as.2 = phi i32 [ %inherit_as.1204, %if.end149 ], [ 0, %if.end167.if.end172_crit_edge ], [ %inherit_as.1204, %if.end149.thread ]
+  %child_as.3 = phi ptr [ %child_as.1200, %if.end149 ], [ null, %if.end167.if.end172_crit_edge ], [ %child_as.1200, %if.end149.thread ]
+  %ret.8 = phi i32 [ %ret.3203, %if.end149 ], [ %call165, %if.end167.if.end172_crit_edge ], [ %call142, %if.end149.thread ]
+  %inherit_as.3 = phi i32 [ %inherit_as.1204, %if.end149 ], [ 0, %if.end167.if.end172_crit_edge ], [ %inherit_as.1204, %if.end149.thread ]
   %cmp175.not = icmp eq ptr %22, null
   br i1 %cmp175.not, label %if.end212, label %land.lhs.true177
 
@@ -1747,13 +1747,13 @@ land.lhs.true177:                                 ; preds = %if.end172
   br i1 %cmp181, label %if.then183, label %if.end212
 
 if.then183:                                       ; preds = %land.lhs.true177
-  %tobool184.not = icmp eq i32 %inherit_as.2, 0
+  %tobool184.not = icmp eq i32 %inherit_as.3, 0
   br i1 %tobool184.not, label %lor.lhs.false185, label %if.then191
 
 lor.lhs.false185:                                 ; preds = %if.then183
   %u188 = getelementptr inbounds i8, ptr %22, i64 8
   %25 = load ptr, ptr %u188, align 8
-  %call189 = tail call fastcc i32 @asid_contains(ptr noundef %25, ptr noundef %child_as.2)
+  %call189 = tail call fastcc i32 @asid_contains(ptr noundef %25, ptr noundef %child_as.3)
   %tobool190.not = icmp eq i32 %call189, 0
   br i1 %tobool190.not, label %do.body196, label %lor.lhs.false185.if.then191_crit_edge
 
@@ -1783,8 +1783,8 @@ if.end206:                                        ; preds = %do.body196
 
 if.end212:                                        ; preds = %if.then191, %land.lhs.true177, %if.end172
   %30 = phi ptr [ %27, %if.then191 ], [ %23, %land.lhs.true177 ], [ %23, %if.end172 ]
-  %child_as.3 = phi ptr [ %28, %if.then191 ], [ %child_as.2, %land.lhs.true177 ], [ %child_as.2, %if.end172 ]
-  %inherit_as.3 = phi i32 [ 0, %if.then191 ], [ %inherit_as.2, %land.lhs.true177 ], [ %inherit_as.2, %if.end172 ]
+  %child_as.4 = phi ptr [ %28, %if.then191 ], [ %child_as.3, %land.lhs.true177 ], [ %child_as.3, %if.end172 ]
+  %inherit_as.4 = phi i32 [ 0, %if.then191 ], [ %inherit_as.3, %land.lhs.true177 ], [ %inherit_as.3, %if.end172 ]
   %rdi214 = getelementptr inbounds i8, ptr %30, i64 8
   %31 = load ptr, ptr %rdi214, align 8
   %cmp215 = icmp eq ptr %31, null
@@ -1805,8 +1805,8 @@ do.body221:                                       ; preds = %if.end212
   br i1 %cmp5, label %if.end231, label %return
 
 if.end231:                                        ; preds = %if.end212.thread, %do.body221
-  %child_as.3174182 = phi ptr [ %child_as.3, %do.body221 ], [ %child_as.2, %if.end212.thread ]
-  %inherit_as.3176180 = phi i32 [ %inherit_as.3, %do.body221 ], [ 0, %if.end212.thread ]
+  %child_as.4174182 = phi ptr [ %child_as.4, %do.body221 ], [ %child_as.3, %if.end212.thread ]
+  %inherit_as.4176180 = phi i32 [ %inherit_as.4, %do.body221 ], [ 0, %if.end212.thread ]
   store i32 46, ptr %error138, align 8
   store i32 %i.1207, ptr %error_depth139, align 4
   store ptr %call85, ptr %current_cert140, align 8
@@ -1823,11 +1823,11 @@ if.end231.if.end236_crit_edge:                    ; preds = %if.end231
 
 if.end236:                                        ; preds = %if.end231.if.end236_crit_edge, %if.end212.thread, %if.end212
   %35 = phi ptr [ %31, %if.end212 ], [ %.pre217, %if.end231.if.end236_crit_edge ], [ %33, %if.end212.thread ]
-  %inherit_as.3175 = phi i32 [ %inherit_as.3, %if.end212 ], [ %inherit_as.3176180, %if.end231.if.end236_crit_edge ], [ 0, %if.end212.thread ]
-  %child_as.3173 = phi ptr [ %child_as.3, %if.end212 ], [ %child_as.3174182, %if.end231.if.end236_crit_edge ], [ %child_as.2, %if.end212.thread ]
-  %child_rdi.2 = phi ptr [ %child_rdi.1201, %if.end212 ], [ null, %if.end231.if.end236_crit_edge ], [ %child_rdi.1201, %if.end212.thread ]
-  %ret.11 = phi i32 [ %ret.7, %if.end212 ], [ %call229, %if.end231.if.end236_crit_edge ], [ %call204, %if.end212.thread ]
-  %inherit_rdi.2 = phi i32 [ %inherit_rdi.1205, %if.end212 ], [ 0, %if.end231.if.end236_crit_edge ], [ %inherit_rdi.1205, %if.end212.thread ]
+  %inherit_as.4175 = phi i32 [ %inherit_as.4, %if.end212 ], [ %inherit_as.4176180, %if.end231.if.end236_crit_edge ], [ 0, %if.end212.thread ]
+  %child_as.4173 = phi ptr [ %child_as.4, %if.end212 ], [ %child_as.4174182, %if.end231.if.end236_crit_edge ], [ %child_as.3, %if.end212.thread ]
+  %child_rdi.3 = phi ptr [ %child_rdi.1201, %if.end212 ], [ null, %if.end231.if.end236_crit_edge ], [ %child_rdi.1201, %if.end212.thread ]
+  %ret.12 = phi i32 [ %ret.8, %if.end212 ], [ %call229, %if.end231.if.end236_crit_edge ], [ %call204, %if.end212.thread ]
+  %inherit_rdi.3 = phi i32 [ %inherit_rdi.1205, %if.end212 ], [ 0, %if.end231.if.end236_crit_edge ], [ %inherit_rdi.1205, %if.end212.thread ]
   %cmp239.not = icmp eq ptr %35, null
   br i1 %cmp239.not, label %for.inc, label %land.lhs.true241
 
@@ -1837,13 +1837,13 @@ land.lhs.true241:                                 ; preds = %if.end236
   br i1 %cmp245, label %if.then247, label %for.inc
 
 if.then247:                                       ; preds = %land.lhs.true241
-  %tobool248.not = icmp eq i32 %inherit_rdi.2, 0
+  %tobool248.not = icmp eq i32 %inherit_rdi.3, 0
   br i1 %tobool248.not, label %lor.lhs.false249, label %if.then255
 
 lor.lhs.false249:                                 ; preds = %if.then247
   %u252 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load ptr, ptr %u252, align 8
-  %call253 = tail call fastcc i32 @asid_contains(ptr noundef %37, ptr noundef %child_rdi.2)
+  %call253 = tail call fastcc i32 @asid_contains(ptr noundef %37, ptr noundef %child_rdi.3)
   %tobool254.not = icmp eq i32 %call253, 0
   br i1 %tobool254.not, label %do.body260, label %lor.lhs.false249.if.then255_crit_edge
 
@@ -1872,11 +1872,11 @@ if.end270:                                        ; preds = %do.body260
   br i1 %tobool271.not, label %return, label %for.inc
 
 for.inc:                                          ; preds = %if.end236, %land.lhs.true241, %if.end270, %if.then255, %if.then106, %if.end123
-  %child_as.4 = phi ptr [ %child_as.1200, %if.end123 ], [ null, %if.then106 ], [ %child_as.3173, %if.then255 ], [ %child_as.3173, %if.end270 ], [ %child_as.3173, %land.lhs.true241 ], [ %child_as.3173, %if.end236 ]
-  %child_rdi.3 = phi ptr [ %child_rdi.1201, %if.end123 ], [ null, %if.then106 ], [ %39, %if.then255 ], [ %child_rdi.2, %if.end270 ], [ %child_rdi.2, %land.lhs.true241 ], [ %child_rdi.2, %if.end236 ]
-  %ret.13 = phi i32 [ %call121, %if.end123 ], [ %ret.2203, %if.then106 ], [ %ret.11, %if.then255 ], [ %call268, %if.end270 ], [ %ret.11, %land.lhs.true241 ], [ %ret.11, %if.end236 ]
-  %inherit_as.4 = phi i32 [ %inherit_as.1204, %if.end123 ], [ %inherit_as.1204, %if.then106 ], [ %inherit_as.3175, %if.then255 ], [ %inherit_as.3175, %if.end270 ], [ %inherit_as.3175, %land.lhs.true241 ], [ %inherit_as.3175, %if.end236 ]
-  %inherit_rdi.3 = phi i32 [ %inherit_rdi.1205, %if.end123 ], [ %inherit_rdi.1205, %if.then106 ], [ 0, %if.then255 ], [ 0, %if.end270 ], [ %inherit_rdi.2, %land.lhs.true241 ], [ %inherit_rdi.2, %if.end236 ]
+  %child_as.2 = phi ptr [ %child_as.1200, %if.end123 ], [ null, %if.then106 ], [ %child_as.4173, %if.then255 ], [ %child_as.4173, %if.end270 ], [ %child_as.4173, %land.lhs.true241 ], [ %child_as.4173, %if.end236 ]
+  %child_rdi.2 = phi ptr [ %child_rdi.1201, %if.end123 ], [ null, %if.then106 ], [ %39, %if.then255 ], [ %child_rdi.3, %if.end270 ], [ %child_rdi.3, %land.lhs.true241 ], [ %child_rdi.3, %if.end236 ]
+  %ret.5 = phi i32 [ %call121, %if.end123 ], [ %ret.3203, %if.then106 ], [ %ret.12, %if.then255 ], [ %call268, %if.end270 ], [ %ret.12, %land.lhs.true241 ], [ %ret.12, %if.end236 ]
+  %inherit_as.2 = phi i32 [ %inherit_as.1204, %if.end123 ], [ %inherit_as.1204, %if.then106 ], [ %inherit_as.4175, %if.then255 ], [ %inherit_as.4175, %if.end270 ], [ %inherit_as.4175, %land.lhs.true241 ], [ %inherit_as.4175, %if.end236 ]
+  %inherit_rdi.2 = phi i32 [ %inherit_rdi.1205, %if.end123 ], [ %inherit_rdi.1205, %if.then106 ], [ 0, %if.then255 ], [ 0, %if.end270 ], [ %inherit_rdi.3, %land.lhs.true241 ], [ %inherit_rdi.3, %if.end236 ]
   %i.1 = add nuw nsw i32 %i.1207, 1
   %call81 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %chain) #5
   %cmp82 = icmp slt i32 %i.1, %call81
@@ -1897,7 +1897,7 @@ if.then291:                                       ; preds = %if.then288
 if.end294:                                        ; preds = %for.inc, %for.end
   %i.1.lcssa227 = phi i32 [ %i.1197, %for.end ], [ %i.1, %for.inc ]
   %x.1.lcssa226 = phi ptr [ %x.0, %for.end ], [ %call85, %for.inc ]
-  %ret.2.lcssa225 = phi i32 [ %ret.1, %for.end ], [ %ret.13, %for.inc ]
+  %ret.3.lcssa225 = phi i32 [ %ret.1, %for.end ], [ %ret.5, %for.inc ]
   %rfc3779_asid295 = getelementptr inbounds i8, ptr %x.1.lcssa226, i64 304
   %41 = load ptr, ptr %rfc3779_asid295, align 8
   %cmp296.not = icmp eq ptr %41, null
@@ -1935,7 +1935,7 @@ if.end320.if.end325_crit_edge:                    ; preds = %if.end320
 
 if.end325:                                        ; preds = %if.end320.if.end325_crit_edge, %land.lhs.true303, %if.then298
   %45 = phi ptr [ %.pre220, %if.end320.if.end325_crit_edge ], [ %41, %land.lhs.true303 ], [ %41, %if.then298 ]
-  %ret.15 = phi i32 [ %call318, %if.end320.if.end325_crit_edge ], [ %ret.2.lcssa225, %land.lhs.true303 ], [ %ret.2.lcssa225, %if.then298 ]
+  %ret.15 = phi i32 [ %call318, %if.end320.if.end325_crit_edge ], [ %ret.3.lcssa225, %land.lhs.true303 ], [ %ret.3.lcssa225, %if.then298 ]
   %rdi327 = getelementptr inbounds i8, ptr %45, i64 8
   %46 = load ptr, ptr %rdi327, align 8
   %cmp328.not = icmp eq ptr %46, null
@@ -1961,7 +1961,7 @@ if.then340:                                       ; preds = %land.lhs.true330
   br label %return
 
 return:                                           ; preds = %do.body260, %do.body221, %do.body196, %do.body157, %do.body134, %do.body113, %if.end123, %if.end144, %if.end167, %if.end206, %if.end231, %if.end270, %do.body310, %do.body, %lor.lhs.false, %land.lhs.true330, %if.else, %if.end57, %if.end320, %if.end325, %if.end294, %if.then340, %if.then288, %if.then291, %if.then96, %if.then99, %if.then, %if.then35
-  %retval.0 = phi i32 [ 0, %if.then35 ], [ 0, %if.then ], [ 0, %if.then99 ], [ 0, %if.then96 ], [ 0, %if.then291 ], [ 0, %if.then288 ], [ %call345, %if.then340 ], [ %ret.15.mux, %land.lhs.true330 ], [ %ret.15, %if.end325 ], [ 0, %if.end320 ], [ %ret.2.lcssa225, %if.end294 ], [ 0, %if.end57 ], [ 1, %if.else ], [ 0, %lor.lhs.false ], [ 0, %do.body ], [ 0, %do.body310 ], [ 0, %if.end270 ], [ 0, %if.end231 ], [ 0, %if.end206 ], [ 0, %if.end167 ], [ 0, %if.end144 ], [ 0, %if.end123 ], [ 0, %do.body113 ], [ 0, %do.body134 ], [ 0, %do.body157 ], [ 0, %do.body196 ], [ 0, %do.body221 ], [ 0, %do.body260 ]
+  %retval.0 = phi i32 [ 0, %if.then35 ], [ 0, %if.then ], [ 0, %if.then99 ], [ 0, %if.then96 ], [ 0, %if.then291 ], [ 0, %if.then288 ], [ %call345, %if.then340 ], [ %ret.15.mux, %land.lhs.true330 ], [ %ret.15, %if.end325 ], [ 0, %if.end320 ], [ %ret.3.lcssa225, %if.end294 ], [ 0, %if.end57 ], [ 1, %if.else ], [ 0, %lor.lhs.false ], [ 0, %do.body ], [ 0, %do.body310 ], [ 0, %if.end270 ], [ 0, %if.end231 ], [ 0, %if.end206 ], [ 0, %if.end167 ], [ 0, %if.end144 ], [ 0, %if.end123 ], [ 0, %do.body113 ], [ 0, %do.body134 ], [ 0, %do.body157 ], [ 0, %do.body196 ], [ 0, %do.body221 ], [ 0, %do.body260 ]
   ret i32 %retval.0
 }
 

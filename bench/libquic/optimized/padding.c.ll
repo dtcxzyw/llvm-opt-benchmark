@@ -1081,7 +1081,7 @@ if.end51:                                         ; preds = %if.then46
   br i1 %tobool54.not, label %err, label %if.end57
 
 if.end57:                                         ; preds = %if.end51, %if.end43
-  %salt.0 = phi ptr [ %call48, %if.end51 ], [ null, %if.end43 ]
+  %salt.1 = phi ptr [ %call48, %if.end51 ], [ null, %if.end43 ]
   %3 = xor i64 %call, -1
   %sub59 = add i64 %emLen.0, %3
   %add.ptr = getelementptr inbounds i8, ptr %EM.addr.0, i64 %sub59
@@ -1106,7 +1106,7 @@ if.end68:                                         ; preds = %lor.lhs.false64
 
 land.lhs.true:                                    ; preds = %if.end68
   %conv70 = sext i32 %sLen.addr.1 to i64
-  %call71 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef %salt.0, i64 noundef %conv70) #8
+  %call71 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef %salt.1, i64 noundef %conv70) #8
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %err, label %if.end74
 
@@ -1142,7 +1142,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %add.ptr90.pn50 = phi ptr [ %add.ptr90, %for.body.preheader ], [ %p.0, %for.body ]
   %p.0 = getelementptr inbounds i8, ptr %add.ptr90.pn50, i64 1
-  %arrayidx = getelementptr inbounds i8, ptr %salt.0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds i8, ptr %salt.1, i64 %indvars.iv
   %8 = load i8, ptr %arrayidx, align 1
   %9 = load i8, ptr %p.0, align 1
   %xor10248 = xor i8 %9, %8
@@ -1171,8 +1171,8 @@ if.end112:                                        ; preds = %if.then106, %if.end
 
 err:                                              ; preds = %if.end78, %if.end74, %land.lhs.true, %if.end57, %lor.lhs.false, %lor.lhs.false64, %if.end51, %if.end112, %if.then50, %if.then41, %if.then30, %if.then14, %if.then9
   %ret.0 = phi i32 [ 0, %if.then14 ], [ 0, %if.then30 ], [ 0, %if.end78 ], [ 1, %if.end112 ], [ 0, %if.end74 ], [ 0, %land.lhs.true ], [ 0, %lor.lhs.false64 ], [ 0, %lor.lhs.false ], [ 0, %if.end57 ], [ 0, %if.end51 ], [ 0, %if.then50 ], [ 0, %if.then41 ], [ 0, %if.then9 ]
-  %salt.1 = phi ptr [ null, %if.then14 ], [ null, %if.then30 ], [ %salt.0, %if.end78 ], [ %salt.0, %if.end112 ], [ %salt.0, %if.end74 ], [ %salt.0, %land.lhs.true ], [ %salt.0, %lor.lhs.false64 ], [ %salt.0, %lor.lhs.false ], [ %salt.0, %if.end57 ], [ %call48, %if.end51 ], [ null, %if.then50 ], [ null, %if.then41 ], [ null, %if.then9 ]
-  call void @free(ptr noundef %salt.1) #8
+  %salt.0 = phi ptr [ null, %if.then14 ], [ null, %if.then30 ], [ %salt.1, %if.end78 ], [ %salt.1, %if.end112 ], [ %salt.1, %if.end74 ], [ %salt.1, %land.lhs.true ], [ %salt.1, %lor.lhs.false64 ], [ %salt.1, %lor.lhs.false ], [ %salt.1, %if.end57 ], [ %call48, %if.end51 ], [ null, %if.then50 ], [ null, %if.then41 ], [ null, %if.then9 ]
+  call void @free(ptr noundef %salt.0) #8
   ret i32 %ret.0
 }
 

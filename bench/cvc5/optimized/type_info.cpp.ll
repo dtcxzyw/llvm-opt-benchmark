@@ -3374,7 +3374,7 @@ for.body658.preheader:                            ; preds = %invoke.cont653
 
 for.body658:                                      ; preds = %for.body658.preheader, %_ZN4cvc58internal8TypeNodeD2Ev.exit1759
   %indvars.iv1989 = phi i64 [ 0, %for.body658.preheader ], [ %indvars.iv.next1990, %_ZN4cvc58internal8TypeNodeD2Ev.exit1759 ]
-  %csize.01968 = phi i32 [ 1, %for.body658.preheader ], [ %csize.1, %_ZN4cvc58internal8TypeNodeD2Ev.exit1759 ]
+  %csize.11968 = phi i32 [ 1, %for.body658.preheader ], [ %csize.2, %_ZN4cvc58internal8TypeNodeD2Ev.exit1759 ]
   %251 = load i32, ptr %i633, align 4
   %conv660 = zext i32 %251 to i64
   %call662 = invoke noundef nonnull align 8 dereferenceable(264) ptr @_ZNK4cvc58internal5DTypeixEm(ptr noundef nonnull align 8 dereferenceable(448) %call2, i64 noundef %conv660)
@@ -3392,7 +3392,7 @@ invoke.cont664:                                   ; preds = %invoke.cont661
 
 if.then668:                                       ; preds = %invoke.cont664
   %254 = load i32, ptr %d_min_term_size, align 8
-  %add = add i32 %254, %csize.01968
+  %add = add i32 %254, %csize.11968
   br label %if.end690
 
 lpad629:                                          ; preds = %invoke.cont628
@@ -3529,7 +3529,7 @@ terminate.lpad.i1747:                             ; preds = %if.then13.i.i1746
 _ZN4cvc58internal8TypeNodeD2Ev.exit1748:          ; preds = %invoke.cont682, %if.then.i.i1740, %if.then13.i.i1746
   %d_min_term_size.i = getelementptr inbounds i8, ptr %call683, i64 384
   %267 = load i32, ptr %d_min_term_size.i, align 8
-  %add687 = add i32 %267, %csize.01968
+  %add687 = add i32 %267, %csize.11968
   %.pre = load ptr, ptr %ct659, align 8
   br label %if.end690
 
@@ -3547,7 +3547,7 @@ lpad681:                                          ; preds = %invoke.cont680
 
 if.end690:                                        ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit1748, %_ZN4cvc58internal8TypeNodeD2Ev.exit1722, %if.then668
   %270 = phi ptr [ %252, %if.then668 ], [ %.pre, %_ZN4cvc58internal8TypeNodeD2Ev.exit1748 ], [ %.pre1994, %_ZN4cvc58internal8TypeNodeD2Ev.exit1722 ]
-  %csize.1 = phi i32 [ %add, %if.then668 ], [ %add687, %_ZN4cvc58internal8TypeNodeD2Ev.exit1748 ], [ %csize.01968, %_ZN4cvc58internal8TypeNodeD2Ev.exit1722 ]
+  %csize.2 = phi i32 [ %add, %if.then668 ], [ %add687, %_ZN4cvc58internal8TypeNodeD2Ev.exit1748 ], [ %csize.11968, %_ZN4cvc58internal8TypeNodeD2Ev.exit1722 ]
   %bf.load.i.i1749 = load i64, ptr %270, align 8
   %271 = and i64 %bf.load.i.i1749, 1152920405095219200
   %cmp.not.i.i1750 = icmp eq i64 %271, 1152920405095219200
@@ -3584,12 +3584,12 @@ ehcleanup691:                                     ; preds = %lpad681, %lpad673, 
   br label %ehcleanup731
 
 if.end695:                                        ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit1759, %invoke.cont653, %invoke.cont644
-  %csize.2 = phi i32 [ 0, %invoke.cont644 ], [ 1, %invoke.cont653 ], [ %csize.1, %_ZN4cvc58internal8TypeNodeD2Ev.exit1759 ]
+  %csize.0 = phi i32 [ 0, %invoke.cont644 ], [ 1, %invoke.cont653 ], [ %csize.2, %_ZN4cvc58internal8TypeNodeD2Ev.exit1759 ]
   %call697 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %d_min_cons_term_size, ptr noundef nonnull align 4 dereferenceable(4) %i633)
           to label %invoke.cont696 unwind label %lpad19.loopexit.split-lp.loopexit
 
 invoke.cont696:                                   ; preds = %if.end695
-  store i32 %csize.2, ptr %call697, align 4
+  store i32 %csize.0, ptr %call697, align 4
   %274 = load i32, ptr %i633, align 4
   %inc699 = add i32 %274, 1
   store i32 %inc699, ptr %i633, align 4

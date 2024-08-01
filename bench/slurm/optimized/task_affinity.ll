@@ -344,13 +344,13 @@ _numa_set_preferred.exit:                         ; preds = %44, %42, %45
   br label %47
 
 47:                                               ; preds = %switch.early.test, %switch.early.test, %26, %31, %_numa_set_preferred.exit
-  %.0 = phi i32 [ 0, %switch.early.test ], [ 0, %_numa_set_preferred.exit ], [ -1, %31 ], [ 0, %26 ], [ 0, %switch.early.test ]
+  %.1 = phi i32 [ 0, %switch.early.test ], [ 0, %_numa_set_preferred.exit ], [ -1, %31 ], [ 0, %26 ], [ 0, %switch.early.test ]
   call void @slurm_chk_memset(ptr noundef nonnull %6, ptr noundef %0) #5
   br label %48
 
 48:                                               ; preds = %47, %23, %20
-  %.1 = phi i32 [ %.0, %47 ], [ 0, %23 ], [ 0, %20 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %47 ], [ 0, %23 ], [ 0, %20 ]
+  ret i32 %.0
 }
 
 declare i32 @numa_available() local_unnamed_addr #1

@@ -805,7 +805,7 @@ if.then:                                          ; preds = %while.end
 
 while.body7:                                      ; preds = %if.then, %if.end69
   %call5119 = phi ptr [ %call5, %if.end69 ], [ %call5116, %if.then ]
-  %retval.sroa.14.0118 = phi i64 [ %retval.sroa.14.1, %if.end69 ], [ 0, %if.then ]
+  %retval.sroa.14.1118 = phi i64 [ %retval.sroa.14.2, %if.end69 ], [ 0, %if.then ]
   %0 = load ptr, ptr %call5119, align 8
   %call8 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(30) @.str.14) #24
   %cmp9 = icmp eq i32 %call8, 0
@@ -863,8 +863,8 @@ if.else55:                                        ; preds = %if.else50
 
 if.end69.sink.split:                              ; preds = %if.else55, %if.else50, %if.else45, %if.else40, %if.else35, %if.else30, %if.else25, %if.else20, %if.else15, %if.else, %while.body7
   %.str.11.sink = phi ptr [ @.str.14, %while.body7 ], [ @.str.11, %if.else ], [ @.str.12, %if.else15 ], [ @.str.15, %if.else20 ], [ @.str.18, %if.else25 ], [ @.str.16, %if.else30 ], [ @.str.19, %if.else35 ], [ @.str.21, %if.else40 ], [ @.str.21, %if.else45 ], [ @.str.23, %if.else50 ], [ @.str.25, %if.else55 ]
-  %inc.i26 = add i64 %retval.sroa.14.0118, 1
-  %arrayidx.i27 = getelementptr inbounds %struct.tsi_peer_property, ptr %call2, i64 %retval.sroa.14.0118
+  %inc.i26 = add i64 %retval.sroa.14.1118, 1
+  %arrayidx.i27 = getelementptr inbounds %struct.tsi_peer_property, ptr %call2, i64 %retval.sroa.14.1118
   store ptr %.str.11.sink, ptr %arrayidx.i27, align 8
   %value.i28 = getelementptr inbounds i8, ptr %call5119, i64 8
   %1 = load ptr, ptr %value.i28, align 8
@@ -877,16 +877,16 @@ if.end69.sink.split:                              ; preds = %if.else55, %if.else
   br label %if.end69
 
 if.end69:                                         ; preds = %if.end69.sink.split, %if.else55
-  %retval.sroa.14.1 = phi i64 [ %retval.sroa.14.0118, %if.else55 ], [ %inc.i26, %if.end69.sink.split ]
+  %retval.sroa.14.2 = phi i64 [ %retval.sroa.14.1118, %if.else55 ], [ %inc.i26, %if.end69.sink.split ]
   %call5 = call ptr @grpc_auth_property_iterator_next(ptr noundef nonnull %it)
   %cmp6.not = icmp eq ptr %call5, null
   br i1 %cmp6.not, label %if.end71, label %while.body7, !llvm.loop !17
 
 if.end71:                                         ; preds = %if.end69, %if.then, %while.end
   %retval.sroa.0.0 = phi ptr [ null, %while.end ], [ %call2, %if.then ], [ %call2, %if.end69 ]
-  %retval.sroa.14.2 = phi i64 [ 0, %while.end ], [ 0, %if.then ], [ %retval.sroa.14.1, %if.end69 ]
+  %retval.sroa.14.0 = phi i64 [ 0, %while.end ], [ 0, %if.then ], [ %retval.sroa.14.2, %if.end69 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.14.2, 1
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.14.0, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -1604,7 +1604,7 @@ invoke.cont33:                                    ; preds = %if.then32
           to label %cleanup unwind label %lpad.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont30, %invoke.cont33
-  %retval.0 = phi i32 [ 1, %invoke.cont33 ], [ 0, %invoke.cont30 ]
+  %retval.1 = phi i32 [ 1, %invoke.cont33 ], [ 0, %invoke.cont30 ]
   %23 = load ptr, ptr %_M_refcount3.i.i.i, align 8
   %cmp.not.i.i.i.i11 = icmp eq ptr %23, null
   br i1 %cmp.not.i.i.i.i11, label %return, label %if.then.i.i.i.i12
@@ -1678,8 +1678,8 @@ if.end8.sink.split.i.i.i.i.i32:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %return
 
 return:                                           ; preds = %if.end8.sink.split.i.i.i.i.i32, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i29, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i19, %cleanup, %if.then2
-  %retval.1 = phi i32 [ 1, %if.then2 ], [ %retval.0, %cleanup ], [ %retval.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i19 ], [ %retval.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i29 ], [ %retval.0, %if.end8.sink.split.i.i.i.i.i32 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 1, %if.then2 ], [ %retval.1, %cleanup ], [ %retval.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i19 ], [ %retval.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i29 ], [ %retval.1, %if.end8.sink.split.i.i.i.i.i32 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

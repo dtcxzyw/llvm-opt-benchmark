@@ -205,7 +205,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %exitcond.not, label %dump_one_relation.exit, label %.critedge.thread.sink.split.i.us, !llvm.loop !8
 
 .lr.ph63.i.split:                                 ; preds = %.lr.ph63.i, %107
-  %.061.i = phi i32 [ %.249.i, %107 ], [ 0, %.lr.ph63.i ]
+  %.061.i = phi i32 [ %.149.i, %107 ], [ 0, %.lr.ph63.i ]
   %81 = load ptr, ptr @block_buffer, align 8
   %82 = add nuw i32 %.061.i, 1
   %83 = zext i32 %.061.i to i64
@@ -223,10 +223,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph55.i:                                       ; preds = %94, %.lr.ph55.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %94 ], [ %89, %.lr.ph55.preheader.i ]
-  %.03853.i = phi i32 [ %91, %94 ], [ %85, %.lr.ph55.preheader.i ]
+  %.13953.i = phi i32 [ %91, %94 ], [ %85, %.lr.ph55.preheader.i ]
   %90 = getelementptr i32, ptr %81, i64 %indvars.iv
   %91 = load i32, ptr %90, align 4
-  %92 = add i32 %.03853.i, 1
+  %92 = add i32 %.13953.i, 1
   %93 = icmp eq i32 %91, %92
   br i1 %93, label %94, label %.critedge.i.split.loop.exit33
 
@@ -240,9 +240,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %94, %.critedge.i.split.loop.exit33
-  %.038.lcssa.i = phi i32 [ %.03853.i, %.critedge.i.split.loop.exit33 ], [ %88, %94 ]
-  %.1.lcssa.i = phi i32 [ %95, %.critedge.i.split.loop.exit33 ], [ %.040.lcssa.i, %94 ]
-  %96 = icmp eq i32 %85, %.038.lcssa.i
+  %.139.lcssa.i = phi i32 [ %.13953.i, %.critedge.i.split.loop.exit33 ], [ %88, %94 ]
+  %.2.lcssa.i = phi i32 [ %95, %.critedge.i.split.loop.exit33 ], [ %.040.lcssa.i, %94 ]
+  %96 = icmp eq i32 %85, %.139.lcssa.i
   %.pre65.i = load ptr, ptr %73, align 8
   br i1 %96, label %.critedge.thread.i, label %102
 
@@ -252,7 +252,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .critedge.thread.i:                               ; preds = %.critedge.thread.sink.split.i, %.critedge.i
   %97 = phi ptr [ %.pre65.i, %.critedge.i ], [ %.pre6569.i, %.critedge.thread.sink.split.i ]
-  %.250.i = phi i32 [ %.1.lcssa.i, %.critedge.i ], [ %82, %.critedge.thread.sink.split.i ]
+  %.150.i = phi i32 [ %.2.lcssa.i, %.critedge.i ], [ %82, %.critedge.thread.sink.split.i ]
   %98 = load i32, ptr %5, align 4
   %99 = load i32, ptr %18, align 4
   %100 = load i32, ptr %19, align 4
@@ -263,12 +263,12 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %103 = load i32, ptr %5, align 4
   %104 = load i32, ptr %18, align 4
   %105 = load i32, ptr %19, align 4
-  %106 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.8, i32 noundef %103, i32 noundef %104, i32 noundef %105, ptr noundef %.pre65.i, i32 noundef %85, i32 noundef %.038.lcssa.i) #8
+  %106 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.8, i32 noundef %103, i32 noundef %104, i32 noundef %105, ptr noundef %.pre65.i, i32 noundef %85, i32 noundef %.139.lcssa.i) #8
   br label %107
 
 107:                                              ; preds = %102, %.critedge.thread.i
-  %.249.i = phi i32 [ %.1.lcssa.i, %102 ], [ %.250.i, %.critedge.thread.i ]
-  %108 = icmp ult i32 %.249.i, %.040.lcssa.i
+  %.149.i = phi i32 [ %.2.lcssa.i, %102 ], [ %.150.i, %.critedge.thread.i ]
+  %108 = icmp ult i32 %.149.i, %.040.lcssa.i
   br i1 %108, label %.lr.ph63.i.split, label %dump_one_relation.exit, !llvm.loop !8
 
 dump_one_relation.exit:                           ; preds = %107, %.critedge.thread.sink.split.i.us, %._crit_edge.i, %69

@@ -4131,8 +4131,8 @@ for.inc:                                          ; preds = %_ZN4cvc58internal12
   br i1 %cmp, label %for.body, label %return, !llvm.loop !106
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91, %for.inc, %for.cond.preheader, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit
-  %retval.3 = phi i1 [ false, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ false, %for.cond.preheader ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91 ], [ false, %for.inc ]
-  ret i1 %retval.3
+  %retval.2 = phi i1 [ false, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ false, %for.cond.preheader ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91 ], [ false, %for.inc ]
+  ret i1 %retval.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4529,8 +4529,8 @@ for.inc:                                          ; preds = %_ZN4cvc58internal12
   br i1 %cmp, label %for.body, label %return, !llvm.loop !116
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91, %for.inc, %for.cond.preheader, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit
-  %retval.3 = phi i1 [ false, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ false, %for.cond.preheader ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91 ], [ false, %for.inc ]
-  ret i1 %retval.3
+  %retval.2 = phi i1 [ false, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ false, %for.cond.preheader ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit91 ], [ false, %for.inc ]
+  ret i1 %retval.2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4752,8 +4752,8 @@ terminate.lpad.i64:                               ; preds = %if.then13.i.i63
   unreachable
 
 return:                                           ; preds = %if.then13.i.i63, %if.then.i.i57, %cleanup20, %entry
-  %retval.3 = phi i1 [ false, %entry ], [ %cmp.i.not77, %cleanup20 ], [ %cmp.i.not77, %if.then.i.i57 ], [ %cmp.i.not77, %if.then13.i.i63 ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp.i.not77, %cleanup20 ], [ %cmp.i.not77, %if.then.i.i57 ], [ %cmp.i.not77, %if.then13.i.i63 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

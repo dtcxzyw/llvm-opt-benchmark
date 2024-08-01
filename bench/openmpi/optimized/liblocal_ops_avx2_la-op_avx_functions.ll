@@ -25,24 +25,24 @@ define internal void @ompi_op_avx_2buff_max_int8_t_avx2(ptr noundef %0, ptr noun
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader134, %.lr.ph
-  %.0137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
-  %.093136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
-  %.098135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
-  %11 = load <32 x i8>, ptr %.093136, align 1
-  %12 = getelementptr inbounds i8, ptr %.093136, i64 32
-  %13 = load <32 x i8>, ptr %.098135, align 1
+  %.1137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
+  %.194136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
+  %.199135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
+  %11 = load <32 x i8>, ptr %.194136, align 1
+  %12 = getelementptr inbounds i8, ptr %.194136, i64 32
+  %13 = load <32 x i8>, ptr %.199135, align 1
   %14 = tail call <32 x i8> @llvm.smax.v32i8(<32 x i8> %11, <32 x i8> %13)
-  store <32 x i8> %14, ptr %.098135, align 1
-  %15 = getelementptr inbounds i8, ptr %.098135, i64 32
-  %16 = add nsw i32 %.0137, -32
-  %17 = icmp ugt i32 %.0137, 63
+  store <32 x i8> %14, ptr %.199135, align 1
+  %15 = getelementptr inbounds i8, ptr %.199135, i64 32
+  %16 = add nsw i32 %.1137, -32
+  %17 = icmp ugt i32 %.1137, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader134
-  %.098.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -51,40 +51,40 @@ define internal void @ompi_op_avx_2buff_max_int8_t_avx2(ptr noundef %0, ptr noun
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 15
+  %23 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph143, label %.loopexit133
 
 .lr.ph143:                                        ; preds = %19, %.lr.ph143
-  %.2142 = phi i32 [ %29, %.lr.ph143 ], [ %.1, %19 ]
-  %.295141 = phi ptr [ %25, %.lr.ph143 ], [ %.194, %19 ]
-  %.2100140 = phi ptr [ %28, %.lr.ph143 ], [ %.199, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.295141)
-  %25 = getelementptr inbounds i8, ptr %.295141, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2100140)
+  %.3142 = phi i32 [ %29, %.lr.ph143 ], [ %.0, %19 ]
+  %.396141 = phi ptr [ %25, %.lr.ph143 ], [ %.093, %19 ]
+  %.3101140 = phi ptr [ %28, %.lr.ph143 ], [ %.098, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.396141)
+  %25 = getelementptr inbounds i8, ptr %.396141, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3101140)
   %27 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %24, <16 x i8> %26)
-  store <16 x i8> %27, ptr %.2100140, align 1
-  %28 = getelementptr inbounds i8, ptr %.2100140, i64 16
-  %29 = add nsw i32 %.2142, -16
-  %30 = icmp ugt i32 %.2142, 31
+  store <16 x i8> %27, ptr %.3101140, align 1
+  %28 = getelementptr inbounds i8, ptr %.3101140, i64 16
+  %29 = add nsw i32 %.3142, -16
+  %30 = icmp ugt i32 %.3142, 31
   br i1 %30, label %.lr.ph143, label %.loopexit133, !llvm.loop !6
 
 .loopexit133:                                     ; preds = %.lr.ph143, %19
-  %.3101 = phi ptr [ %.199, %19 ], [ %28, %.lr.ph143 ]
-  %.396 = phi ptr [ %.194, %19 ], [ %25, %.lr.ph143 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %29, %.lr.ph143 ]
-  %31 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %19 ], [ %28, %.lr.ph143 ]
+  %.295 = phi ptr [ %.093, %19 ], [ %25, %.lr.ph143 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %29, %.lr.ph143 ]
+  %31 = icmp sgt i32 %.2, 0
   br i1 %31, label %.lr.ph151, label %.loopexit
 
 .lr.ph151:                                        ; preds = %.loopexit133, %68
-  %.4149 = phi i32 [ %71, %68 ], [ %.3, %.loopexit133 ]
-  %.497148 = phi ptr [ %74, %68 ], [ %.396, %.loopexit133 ]
-  %.4102147 = phi ptr [ %73, %68 ], [ %.3101, %.loopexit133 ]
+  %.4149 = phi i32 [ %71, %68 ], [ %.2, %.loopexit133 ]
+  %.497148 = phi ptr [ %74, %68 ], [ %.295, %.loopexit133 ]
+  %.4102147 = phi ptr [ %73, %68 ], [ %.2100, %.loopexit133 ]
   %32 = tail call i32 @llvm.umin.i32(i32 %.4149, i32 8)
   switch i32 %32, label %default.unreachable [
     i32 8, label %33
@@ -192,24 +192,24 @@ define internal void @ompi_op_avx_2buff_max_uint8_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader134, %.lr.ph
-  %.0137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
-  %.093136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
-  %.098135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
-  %11 = load <32 x i8>, ptr %.093136, align 1
-  %12 = getelementptr inbounds i8, ptr %.093136, i64 32
-  %13 = load <32 x i8>, ptr %.098135, align 1
+  %.1137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
+  %.194136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
+  %.199135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
+  %11 = load <32 x i8>, ptr %.194136, align 1
+  %12 = getelementptr inbounds i8, ptr %.194136, i64 32
+  %13 = load <32 x i8>, ptr %.199135, align 1
   %14 = tail call <32 x i8> @llvm.umax.v32i8(<32 x i8> %11, <32 x i8> %13)
-  store <32 x i8> %14, ptr %.098135, align 1
-  %15 = getelementptr inbounds i8, ptr %.098135, i64 32
-  %16 = add nsw i32 %.0137, -32
-  %17 = icmp ugt i32 %.0137, 63
+  store <32 x i8> %14, ptr %.199135, align 1
+  %15 = getelementptr inbounds i8, ptr %.199135, i64 32
+  %16 = add nsw i32 %.1137, -32
+  %17 = icmp ugt i32 %.1137, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader134
-  %.098.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -218,40 +218,40 @@ define internal void @ompi_op_avx_2buff_max_uint8_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 15
+  %23 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph143, label %.loopexit133
 
 .lr.ph143:                                        ; preds = %19, %.lr.ph143
-  %.2142 = phi i32 [ %29, %.lr.ph143 ], [ %.1, %19 ]
-  %.295141 = phi ptr [ %25, %.lr.ph143 ], [ %.194, %19 ]
-  %.2100140 = phi ptr [ %28, %.lr.ph143 ], [ %.199, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.295141)
-  %25 = getelementptr inbounds i8, ptr %.295141, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2100140)
+  %.3142 = phi i32 [ %29, %.lr.ph143 ], [ %.0, %19 ]
+  %.396141 = phi ptr [ %25, %.lr.ph143 ], [ %.093, %19 ]
+  %.3101140 = phi ptr [ %28, %.lr.ph143 ], [ %.098, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.396141)
+  %25 = getelementptr inbounds i8, ptr %.396141, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3101140)
   %27 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %24, <16 x i8> %26)
-  store <16 x i8> %27, ptr %.2100140, align 1
-  %28 = getelementptr inbounds i8, ptr %.2100140, i64 16
-  %29 = add nsw i32 %.2142, -16
-  %30 = icmp ugt i32 %.2142, 31
+  store <16 x i8> %27, ptr %.3101140, align 1
+  %28 = getelementptr inbounds i8, ptr %.3101140, i64 16
+  %29 = add nsw i32 %.3142, -16
+  %30 = icmp ugt i32 %.3142, 31
   br i1 %30, label %.lr.ph143, label %.loopexit133, !llvm.loop !9
 
 .loopexit133:                                     ; preds = %.lr.ph143, %19
-  %.3101 = phi ptr [ %.199, %19 ], [ %28, %.lr.ph143 ]
-  %.396 = phi ptr [ %.194, %19 ], [ %25, %.lr.ph143 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %29, %.lr.ph143 ]
-  %31 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %19 ], [ %28, %.lr.ph143 ]
+  %.295 = phi ptr [ %.093, %19 ], [ %25, %.lr.ph143 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %29, %.lr.ph143 ]
+  %31 = icmp sgt i32 %.2, 0
   br i1 %31, label %.lr.ph151, label %.loopexit
 
 .lr.ph151:                                        ; preds = %.loopexit133, %68
-  %.4149 = phi i32 [ %71, %68 ], [ %.3, %.loopexit133 ]
-  %.497148 = phi ptr [ %74, %68 ], [ %.396, %.loopexit133 ]
-  %.4102147 = phi ptr [ %73, %68 ], [ %.3101, %.loopexit133 ]
+  %.4149 = phi i32 [ %71, %68 ], [ %.2, %.loopexit133 ]
+  %.497148 = phi ptr [ %74, %68 ], [ %.295, %.loopexit133 ]
+  %.4102147 = phi ptr [ %73, %68 ], [ %.2100, %.loopexit133 ]
   %32 = tail call i32 @llvm.umin.i32(i32 %.4149, i32 8)
   switch i32 %32, label %default.unreachable [
     i32 8, label %33
@@ -359,24 +359,24 @@ define internal void @ompi_op_avx_2buff_max_int16_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader134, %.lr.ph
-  %.0137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
-  %.093136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
-  %.098135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
-  %11 = load <16 x i16>, ptr %.093136, align 1
-  %12 = getelementptr inbounds i8, ptr %.093136, i64 32
-  %13 = load <16 x i16>, ptr %.098135, align 1
+  %.1137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
+  %.194136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
+  %.199135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
+  %11 = load <16 x i16>, ptr %.194136, align 1
+  %12 = getelementptr inbounds i8, ptr %.194136, i64 32
+  %13 = load <16 x i16>, ptr %.199135, align 1
   %14 = tail call <16 x i16> @llvm.smax.v16i16(<16 x i16> %11, <16 x i16> %13)
-  store <16 x i16> %14, ptr %.098135, align 1
-  %15 = getelementptr inbounds i8, ptr %.098135, i64 32
-  %16 = add nsw i32 %.0137, -16
-  %17 = icmp ugt i32 %.0137, 31
+  store <16 x i16> %14, ptr %.199135, align 1
+  %15 = getelementptr inbounds i8, ptr %.199135, i64 32
+  %16 = add nsw i32 %.1137, -16
+  %17 = icmp ugt i32 %.1137, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader134
-  %.098.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -385,42 +385,42 @@ define internal void @ompi_op_avx_2buff_max_int16_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 7
+  %23 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph143, label %.loopexit133
 
 .lr.ph143:                                        ; preds = %19, %.lr.ph143
-  %.2142 = phi i32 [ %31, %.lr.ph143 ], [ %.1, %19 ]
-  %.295141 = phi ptr [ %25, %.lr.ph143 ], [ %.194, %19 ]
-  %.2100140 = phi ptr [ %30, %.lr.ph143 ], [ %.199, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.295141)
-  %25 = getelementptr inbounds i8, ptr %.295141, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2100140)
+  %.3142 = phi i32 [ %31, %.lr.ph143 ], [ %.0, %19 ]
+  %.396141 = phi ptr [ %25, %.lr.ph143 ], [ %.093, %19 ]
+  %.3101140 = phi ptr [ %30, %.lr.ph143 ], [ %.098, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.396141)
+  %25 = getelementptr inbounds i8, ptr %.396141, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3101140)
   %27 = bitcast <16 x i8> %24 to <8 x i16>
   %28 = bitcast <16 x i8> %26 to <8 x i16>
   %29 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %27, <8 x i16> %28)
-  store <8 x i16> %29, ptr %.2100140, align 1
-  %30 = getelementptr inbounds i8, ptr %.2100140, i64 16
-  %31 = add nsw i32 %.2142, -8
-  %32 = icmp ugt i32 %.2142, 15
+  store <8 x i16> %29, ptr %.3101140, align 1
+  %30 = getelementptr inbounds i8, ptr %.3101140, i64 16
+  %31 = add nsw i32 %.3142, -8
+  %32 = icmp ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %.loopexit133, !llvm.loop !12
 
 .loopexit133:                                     ; preds = %.lr.ph143, %19
-  %.3101 = phi ptr [ %.199, %19 ], [ %30, %.lr.ph143 ]
-  %.396 = phi ptr [ %.194, %19 ], [ %25, %.lr.ph143 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph143 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %19 ], [ %30, %.lr.ph143 ]
+  %.295 = phi ptr [ %.093, %19 ], [ %25, %.lr.ph143 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph143 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph151, label %.loopexit
 
 .lr.ph151:                                        ; preds = %.loopexit133, %70
-  %.4149 = phi i32 [ %73, %70 ], [ %.3, %.loopexit133 ]
-  %.497148 = phi ptr [ %76, %70 ], [ %.396, %.loopexit133 ]
-  %.4102147 = phi ptr [ %75, %70 ], [ %.3101, %.loopexit133 ]
+  %.4149 = phi i32 [ %73, %70 ], [ %.2, %.loopexit133 ]
+  %.497148 = phi ptr [ %76, %70 ], [ %.295, %.loopexit133 ]
+  %.4102147 = phi ptr [ %75, %70 ], [ %.2100, %.loopexit133 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4149, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -528,24 +528,24 @@ define internal void @ompi_op_avx_2buff_max_uint16_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader134, %.lr.ph
-  %.0137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
-  %.093136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
-  %.098135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
-  %11 = load <16 x i16>, ptr %.093136, align 1
-  %12 = getelementptr inbounds i8, ptr %.093136, i64 32
-  %13 = load <16 x i16>, ptr %.098135, align 1
+  %.1137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
+  %.194136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
+  %.199135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
+  %11 = load <16 x i16>, ptr %.194136, align 1
+  %12 = getelementptr inbounds i8, ptr %.194136, i64 32
+  %13 = load <16 x i16>, ptr %.199135, align 1
   %14 = tail call <16 x i16> @llvm.umax.v16i16(<16 x i16> %11, <16 x i16> %13)
-  store <16 x i16> %14, ptr %.098135, align 1
-  %15 = getelementptr inbounds i8, ptr %.098135, i64 32
-  %16 = add nsw i32 %.0137, -16
-  %17 = icmp ugt i32 %.0137, 31
+  store <16 x i16> %14, ptr %.199135, align 1
+  %15 = getelementptr inbounds i8, ptr %.199135, i64 32
+  %16 = add nsw i32 %.1137, -16
+  %17 = icmp ugt i32 %.1137, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader134
-  %.098.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -554,42 +554,42 @@ define internal void @ompi_op_avx_2buff_max_uint16_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 7
+  %23 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph143, label %.loopexit133
 
 .lr.ph143:                                        ; preds = %19, %.lr.ph143
-  %.2142 = phi i32 [ %31, %.lr.ph143 ], [ %.1, %19 ]
-  %.295141 = phi ptr [ %25, %.lr.ph143 ], [ %.194, %19 ]
-  %.2100140 = phi ptr [ %30, %.lr.ph143 ], [ %.199, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.295141)
-  %25 = getelementptr inbounds i8, ptr %.295141, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2100140)
+  %.3142 = phi i32 [ %31, %.lr.ph143 ], [ %.0, %19 ]
+  %.396141 = phi ptr [ %25, %.lr.ph143 ], [ %.093, %19 ]
+  %.3101140 = phi ptr [ %30, %.lr.ph143 ], [ %.098, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.396141)
+  %25 = getelementptr inbounds i8, ptr %.396141, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3101140)
   %27 = bitcast <16 x i8> %24 to <8 x i16>
   %28 = bitcast <16 x i8> %26 to <8 x i16>
   %29 = tail call <8 x i16> @llvm.umax.v8i16(<8 x i16> %27, <8 x i16> %28)
-  store <8 x i16> %29, ptr %.2100140, align 1
-  %30 = getelementptr inbounds i8, ptr %.2100140, i64 16
-  %31 = add nsw i32 %.2142, -8
-  %32 = icmp ugt i32 %.2142, 15
+  store <8 x i16> %29, ptr %.3101140, align 1
+  %30 = getelementptr inbounds i8, ptr %.3101140, i64 16
+  %31 = add nsw i32 %.3142, -8
+  %32 = icmp ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %.loopexit133, !llvm.loop !15
 
 .loopexit133:                                     ; preds = %.lr.ph143, %19
-  %.3101 = phi ptr [ %.199, %19 ], [ %30, %.lr.ph143 ]
-  %.396 = phi ptr [ %.194, %19 ], [ %25, %.lr.ph143 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph143 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %19 ], [ %30, %.lr.ph143 ]
+  %.295 = phi ptr [ %.093, %19 ], [ %25, %.lr.ph143 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph143 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph151, label %.loopexit
 
 .lr.ph151:                                        ; preds = %.loopexit133, %70
-  %.4149 = phi i32 [ %73, %70 ], [ %.3, %.loopexit133 ]
-  %.497148 = phi ptr [ %76, %70 ], [ %.396, %.loopexit133 ]
-  %.4102147 = phi ptr [ %75, %70 ], [ %.3101, %.loopexit133 ]
+  %.4149 = phi i32 [ %73, %70 ], [ %.2, %.loopexit133 ]
+  %.497148 = phi ptr [ %76, %70 ], [ %.295, %.loopexit133 ]
+  %.4102147 = phi ptr [ %75, %70 ], [ %.2100, %.loopexit133 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4149, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -697,24 +697,24 @@ define internal void @ompi_op_avx_2buff_max_int32_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader127, %.lr.ph
-  %.0130 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader127 ]
-  %.093129 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader127 ]
-  %.098128 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader127 ]
-  %11 = load <8 x i32>, ptr %.093129, align 1
-  %12 = getelementptr inbounds i8, ptr %.093129, i64 32
-  %13 = load <8 x i32>, ptr %.098128, align 1
+  %.1130 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader127 ]
+  %.194129 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader127 ]
+  %.199128 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader127 ]
+  %11 = load <8 x i32>, ptr %.194129, align 1
+  %12 = getelementptr inbounds i8, ptr %.194129, i64 32
+  %13 = load <8 x i32>, ptr %.199128, align 1
   %14 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %11, <8 x i32> %13)
-  store <8 x i32> %14, ptr %.098128, align 1
-  %15 = getelementptr inbounds i8, ptr %.098128, i64 32
-  %16 = add nsw i32 %.0130, -8
-  %17 = icmp ugt i32 %.0130, 15
+  store <8 x i32> %14, ptr %.199128, align 1
+  %15 = getelementptr inbounds i8, ptr %.199128, i64 32
+  %16 = add nsw i32 %.1130, -8
+  %17 = icmp ugt i32 %.1130, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader127
-  %.098.lcssa = phi ptr [ %1, %.preheader127 ], [ %15, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader127 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader127 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader127 ], [ %15, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader127 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader127 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -723,42 +723,42 @@ define internal void @ompi_op_avx_2buff_max_int32_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 3
+  %23 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph136, label %.loopexit126
 
 .lr.ph136:                                        ; preds = %19, %.lr.ph136
-  %.2135 = phi i32 [ %31, %.lr.ph136 ], [ %.1, %19 ]
-  %.295134 = phi ptr [ %25, %.lr.ph136 ], [ %.194, %19 ]
-  %.2100133 = phi ptr [ %30, %.lr.ph136 ], [ %.199, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.295134)
-  %25 = getelementptr inbounds i8, ptr %.295134, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2100133)
+  %.3135 = phi i32 [ %31, %.lr.ph136 ], [ %.0, %19 ]
+  %.396134 = phi ptr [ %25, %.lr.ph136 ], [ %.093, %19 ]
+  %.3101133 = phi ptr [ %30, %.lr.ph136 ], [ %.098, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.396134)
+  %25 = getelementptr inbounds i8, ptr %.396134, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3101133)
   %27 = bitcast <16 x i8> %24 to <4 x i32>
   %28 = bitcast <16 x i8> %26 to <4 x i32>
   %29 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %27, <4 x i32> %28)
-  store <4 x i32> %29, ptr %.2100133, align 1
-  %30 = getelementptr inbounds i8, ptr %.2100133, i64 16
-  %31 = add nsw i32 %.2135, -4
-  %32 = icmp ugt i32 %.2135, 7
+  store <4 x i32> %29, ptr %.3101133, align 1
+  %30 = getelementptr inbounds i8, ptr %.3101133, i64 16
+  %31 = add nsw i32 %.3135, -4
+  %32 = icmp ugt i32 %.3135, 7
   br i1 %32, label %.lr.ph136, label %.loopexit126, !llvm.loop !18
 
 .loopexit126:                                     ; preds = %.lr.ph136, %19
-  %.3101 = phi ptr [ %.199, %19 ], [ %30, %.lr.ph136 ]
-  %.396 = phi ptr [ %.194, %19 ], [ %25, %.lr.ph136 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph136 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %19 ], [ %30, %.lr.ph136 ]
+  %.295 = phi ptr [ %.093, %19 ], [ %25, %.lr.ph136 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph136 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph144, label %.loopexit
 
 .lr.ph144:                                        ; preds = %.loopexit126, %70
-  %.4142 = phi i32 [ %73, %70 ], [ %.3, %.loopexit126 ]
-  %.497141 = phi ptr [ %76, %70 ], [ %.396, %.loopexit126 ]
-  %.4102140 = phi ptr [ %75, %70 ], [ %.3101, %.loopexit126 ]
+  %.4142 = phi i32 [ %73, %70 ], [ %.2, %.loopexit126 ]
+  %.497141 = phi ptr [ %76, %70 ], [ %.295, %.loopexit126 ]
+  %.4102140 = phi ptr [ %75, %70 ], [ %.2100, %.loopexit126 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4142, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -866,24 +866,24 @@ define internal void @ompi_op_avx_2buff_max_uint32_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader127, %.lr.ph
-  %.0130 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader127 ]
-  %.093129 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader127 ]
-  %.098128 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader127 ]
-  %11 = load <8 x i32>, ptr %.093129, align 1
-  %12 = getelementptr inbounds i8, ptr %.093129, i64 32
-  %13 = load <8 x i32>, ptr %.098128, align 1
+  %.1130 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader127 ]
+  %.194129 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader127 ]
+  %.199128 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader127 ]
+  %11 = load <8 x i32>, ptr %.194129, align 1
+  %12 = getelementptr inbounds i8, ptr %.194129, i64 32
+  %13 = load <8 x i32>, ptr %.199128, align 1
   %14 = tail call <8 x i32> @llvm.umax.v8i32(<8 x i32> %11, <8 x i32> %13)
-  store <8 x i32> %14, ptr %.098128, align 1
-  %15 = getelementptr inbounds i8, ptr %.098128, i64 32
-  %16 = add nsw i32 %.0130, -8
-  %17 = icmp ugt i32 %.0130, 15
+  store <8 x i32> %14, ptr %.199128, align 1
+  %15 = getelementptr inbounds i8, ptr %.199128, i64 32
+  %16 = add nsw i32 %.1130, -8
+  %17 = icmp ugt i32 %.1130, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader127
-  %.098.lcssa = phi ptr [ %1, %.preheader127 ], [ %15, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader127 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader127 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader127 ], [ %15, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader127 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader127 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -892,42 +892,42 @@ define internal void @ompi_op_avx_2buff_max_uint32_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 3
+  %23 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph136, label %.loopexit126
 
 .lr.ph136:                                        ; preds = %19, %.lr.ph136
-  %.2135 = phi i32 [ %31, %.lr.ph136 ], [ %.1, %19 ]
-  %.295134 = phi ptr [ %25, %.lr.ph136 ], [ %.194, %19 ]
-  %.2100133 = phi ptr [ %30, %.lr.ph136 ], [ %.199, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.295134)
-  %25 = getelementptr inbounds i8, ptr %.295134, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2100133)
+  %.3135 = phi i32 [ %31, %.lr.ph136 ], [ %.0, %19 ]
+  %.396134 = phi ptr [ %25, %.lr.ph136 ], [ %.093, %19 ]
+  %.3101133 = phi ptr [ %30, %.lr.ph136 ], [ %.098, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.396134)
+  %25 = getelementptr inbounds i8, ptr %.396134, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3101133)
   %27 = bitcast <16 x i8> %24 to <4 x i32>
   %28 = bitcast <16 x i8> %26 to <4 x i32>
   %29 = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %27, <4 x i32> %28)
-  store <4 x i32> %29, ptr %.2100133, align 1
-  %30 = getelementptr inbounds i8, ptr %.2100133, i64 16
-  %31 = add nsw i32 %.2135, -4
-  %32 = icmp ugt i32 %.2135, 7
+  store <4 x i32> %29, ptr %.3101133, align 1
+  %30 = getelementptr inbounds i8, ptr %.3101133, i64 16
+  %31 = add nsw i32 %.3135, -4
+  %32 = icmp ugt i32 %.3135, 7
   br i1 %32, label %.lr.ph136, label %.loopexit126, !llvm.loop !21
 
 .loopexit126:                                     ; preds = %.lr.ph136, %19
-  %.3101 = phi ptr [ %.199, %19 ], [ %30, %.lr.ph136 ]
-  %.396 = phi ptr [ %.194, %19 ], [ %25, %.lr.ph136 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph136 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %19 ], [ %30, %.lr.ph136 ]
+  %.295 = phi ptr [ %.093, %19 ], [ %25, %.lr.ph136 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph136 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph144, label %.loopexit
 
 .lr.ph144:                                        ; preds = %.loopexit126, %70
-  %.4142 = phi i32 [ %73, %70 ], [ %.3, %.loopexit126 ]
-  %.497141 = phi ptr [ %76, %70 ], [ %.396, %.loopexit126 ]
-  %.4102140 = phi ptr [ %75, %70 ], [ %.3101, %.loopexit126 ]
+  %.4142 = phi i32 [ %73, %70 ], [ %.2, %.loopexit126 ]
+  %.497141 = phi ptr [ %76, %70 ], [ %.295, %.loopexit126 ]
+  %.4102140 = phi ptr [ %75, %70 ], [ %.2100, %.loopexit126 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4142, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -1035,24 +1035,24 @@ define internal void @ompi_op_avx_2buff_max_float_avx2(ptr nocapture noundef rea
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader128, %.lr.ph
-  %.0131 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader128 ]
-  %.093130 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader128 ]
-  %.098129 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader128 ]
-  %10 = load <8 x float>, ptr %.093130, align 1
-  %11 = getelementptr inbounds i8, ptr %.093130, i64 32
-  %12 = load <8 x float>, ptr %.098129, align 1
+  %.1131 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader128 ]
+  %.194130 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader128 ]
+  %.199129 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader128 ]
+  %10 = load <8 x float>, ptr %.194130, align 1
+  %11 = getelementptr inbounds i8, ptr %.194130, i64 32
+  %12 = load <8 x float>, ptr %.199129, align 1
   %13 = tail call <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %10, <8 x float> %12)
-  store <8 x float> %13, ptr %.098129, align 1
-  %14 = getelementptr inbounds i8, ptr %.098129, i64 32
-  %15 = add nsw i32 %.0131, -8
-  %16 = icmp ugt i32 %.0131, 15
+  store <8 x float> %13, ptr %.199129, align 1
+  %14 = getelementptr inbounds i8, ptr %.199129, i64 32
+  %15 = add nsw i32 %.1131, -8
+  %16 = icmp ugt i32 %.1131, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader128
-  %.098.lcssa = phi ptr [ %1, %.preheader128 ], [ %14, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader128 ], [ %11, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader128 ], [ %15, %.lr.ph ]
-  %17 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader128 ], [ %14, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader128 ], [ %11, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader128 ], [ %15, %.lr.ph ]
+  %17 = icmp eq i32 %.1.lcssa, 0
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -1061,40 +1061,40 @@ define internal void @ompi_op_avx_2buff_max_float_avx2(ptr nocapture noundef rea
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
   %19 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %20 = and i32 %19, 1
   %.not119 = icmp ne i32 %20, 0
-  %21 = icmp sgt i32 %.1, 3
+  %21 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not119, i1 %21, i1 false
   br i1 %or.cond, label %.lr.ph137, label %.loopexit127
 
 .lr.ph137:                                        ; preds = %18, %.lr.ph137
-  %.2136 = phi i32 [ %27, %.lr.ph137 ], [ %.1, %18 ]
-  %.295135 = phi ptr [ %23, %.lr.ph137 ], [ %.194, %18 ]
-  %.2100134 = phi ptr [ %26, %.lr.ph137 ], [ %.199, %18 ]
-  %22 = load <4 x float>, ptr %.295135, align 1
-  %23 = getelementptr inbounds i8, ptr %.295135, i64 16
-  %24 = load <4 x float>, ptr %.2100134, align 1
+  %.3136 = phi i32 [ %27, %.lr.ph137 ], [ %.0, %18 ]
+  %.396135 = phi ptr [ %23, %.lr.ph137 ], [ %.093, %18 ]
+  %.3101134 = phi ptr [ %26, %.lr.ph137 ], [ %.098, %18 ]
+  %22 = load <4 x float>, ptr %.396135, align 1
+  %23 = getelementptr inbounds i8, ptr %.396135, i64 16
+  %24 = load <4 x float>, ptr %.3101134, align 1
   %25 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %22, <4 x float> %24)
-  store <4 x float> %25, ptr %.2100134, align 1
-  %26 = getelementptr inbounds i8, ptr %.2100134, i64 16
-  %27 = add nsw i32 %.2136, -4
-  %28 = icmp ugt i32 %.2136, 7
+  store <4 x float> %25, ptr %.3101134, align 1
+  %26 = getelementptr inbounds i8, ptr %.3101134, i64 16
+  %27 = add nsw i32 %.3136, -4
+  %28 = icmp ugt i32 %.3136, 7
   br i1 %28, label %.lr.ph137, label %.loopexit127, !llvm.loop !24
 
 .loopexit127:                                     ; preds = %.lr.ph137, %18
-  %.3101 = phi ptr [ %.199, %18 ], [ %26, %.lr.ph137 ]
-  %.396 = phi ptr [ %.194, %18 ], [ %23, %.lr.ph137 ]
-  %.3 = phi i32 [ %.1, %18 ], [ %27, %.lr.ph137 ]
-  %29 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %18 ], [ %26, %.lr.ph137 ]
+  %.295 = phi ptr [ %.093, %18 ], [ %23, %.lr.ph137 ]
+  %.2 = phi i32 [ %.0, %18 ], [ %27, %.lr.ph137 ]
+  %29 = icmp sgt i32 %.2, 0
   br i1 %29, label %.lr.ph145, label %.loopexit
 
 .lr.ph145:                                        ; preds = %.loopexit127, %73
-  %.4143 = phi i32 [ %77, %73 ], [ %.3, %.loopexit127 ]
-  %.497142 = phi ptr [ %80, %73 ], [ %.396, %.loopexit127 ]
-  %.4102141 = phi ptr [ %79, %73 ], [ %.3101, %.loopexit127 ]
+  %.4143 = phi i32 [ %77, %73 ], [ %.2, %.loopexit127 ]
+  %.497142 = phi ptr [ %80, %73 ], [ %.295, %.loopexit127 ]
+  %.4102141 = phi ptr [ %79, %73 ], [ %.2100, %.loopexit127 ]
   %30 = tail call i32 @llvm.umin.i32(i32 %.4143, i32 8)
   switch i32 %30, label %default.unreachable [
     i32 8, label %31
@@ -1210,24 +1210,24 @@ define internal void @ompi_op_avx_2buff_max_double_avx2(ptr nocapture noundef re
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader128, %.lr.ph
-  %.0131 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader128 ]
-  %.093130 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader128 ]
-  %.098129 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader128 ]
-  %10 = load <4 x double>, ptr %.093130, align 1
-  %11 = getelementptr inbounds i8, ptr %.093130, i64 32
-  %12 = load <4 x double>, ptr %.098129, align 1
+  %.1131 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader128 ]
+  %.194130 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader128 ]
+  %.199129 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader128 ]
+  %10 = load <4 x double>, ptr %.194130, align 1
+  %11 = getelementptr inbounds i8, ptr %.194130, i64 32
+  %12 = load <4 x double>, ptr %.199129, align 1
   %13 = tail call <4 x double> @llvm.x86.avx.max.pd.256(<4 x double> %10, <4 x double> %12)
-  store <4 x double> %13, ptr %.098129, align 1
-  %14 = getelementptr inbounds i8, ptr %.098129, i64 32
-  %15 = add nsw i32 %.0131, -4
-  %16 = icmp ugt i32 %.0131, 7
+  store <4 x double> %13, ptr %.199129, align 1
+  %14 = getelementptr inbounds i8, ptr %.199129, i64 32
+  %15 = add nsw i32 %.1131, -4
+  %16 = icmp ugt i32 %.1131, 7
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader128
-  %.098.lcssa = phi ptr [ %1, %.preheader128 ], [ %14, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader128 ], [ %11, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader128 ], [ %15, %.lr.ph ]
-  %17 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader128 ], [ %14, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader128 ], [ %11, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader128 ], [ %15, %.lr.ph ]
+  %17 = icmp eq i32 %.1.lcssa, 0
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -1236,40 +1236,40 @@ define internal void @ompi_op_avx_2buff_max_double_avx2(ptr nocapture noundef re
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
   %19 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %20 = and i32 %19, 2
   %.not119 = icmp ne i32 %20, 0
-  %21 = icmp sgt i32 %.1, 1
+  %21 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not119, i1 %21, i1 false
   br i1 %or.cond, label %.lr.ph137, label %.loopexit127
 
 .lr.ph137:                                        ; preds = %18, %.lr.ph137
-  %.2136 = phi i32 [ %27, %.lr.ph137 ], [ %.1, %18 ]
-  %.295135 = phi ptr [ %23, %.lr.ph137 ], [ %.194, %18 ]
-  %.2100134 = phi ptr [ %26, %.lr.ph137 ], [ %.199, %18 ]
-  %22 = load <2 x double>, ptr %.295135, align 1
-  %23 = getelementptr inbounds i8, ptr %.295135, i64 16
-  %24 = load <2 x double>, ptr %.2100134, align 1
+  %.3136 = phi i32 [ %27, %.lr.ph137 ], [ %.0, %18 ]
+  %.396135 = phi ptr [ %23, %.lr.ph137 ], [ %.093, %18 ]
+  %.3101134 = phi ptr [ %26, %.lr.ph137 ], [ %.098, %18 ]
+  %22 = load <2 x double>, ptr %.396135, align 1
+  %23 = getelementptr inbounds i8, ptr %.396135, i64 16
+  %24 = load <2 x double>, ptr %.3101134, align 1
   %25 = tail call <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %22, <2 x double> %24)
-  store <2 x double> %25, ptr %.2100134, align 1
-  %26 = getelementptr inbounds i8, ptr %.2100134, i64 16
-  %27 = add nsw i32 %.2136, -2
-  %28 = icmp ugt i32 %.2136, 3
+  store <2 x double> %25, ptr %.3101134, align 1
+  %26 = getelementptr inbounds i8, ptr %.3101134, i64 16
+  %27 = add nsw i32 %.3136, -2
+  %28 = icmp ugt i32 %.3136, 3
   br i1 %28, label %.lr.ph137, label %.loopexit127, !llvm.loop !27
 
 .loopexit127:                                     ; preds = %.lr.ph137, %18
-  %.3101 = phi ptr [ %.199, %18 ], [ %26, %.lr.ph137 ]
-  %.396 = phi ptr [ %.194, %18 ], [ %23, %.lr.ph137 ]
-  %.3 = phi i32 [ %.1, %18 ], [ %27, %.lr.ph137 ]
-  %29 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %18 ], [ %26, %.lr.ph137 ]
+  %.295 = phi ptr [ %.093, %18 ], [ %23, %.lr.ph137 ]
+  %.2 = phi i32 [ %.0, %18 ], [ %27, %.lr.ph137 ]
+  %29 = icmp sgt i32 %.2, 0
   br i1 %29, label %.lr.ph145, label %.loopexit
 
 .lr.ph145:                                        ; preds = %.loopexit127, %73
-  %.4143 = phi i32 [ %77, %73 ], [ %.3, %.loopexit127 ]
-  %.497142 = phi ptr [ %80, %73 ], [ %.396, %.loopexit127 ]
-  %.4102141 = phi ptr [ %79, %73 ], [ %.3101, %.loopexit127 ]
+  %.4143 = phi i32 [ %77, %73 ], [ %.2, %.loopexit127 ]
+  %.497142 = phi ptr [ %80, %73 ], [ %.295, %.loopexit127 ]
+  %.4102141 = phi ptr [ %79, %73 ], [ %.2100, %.loopexit127 ]
   %30 = tail call i32 @llvm.umin.i32(i32 %.4143, i32 8)
   switch i32 %30, label %default.unreachable [
     i32 8, label %31
@@ -1385,24 +1385,24 @@ define internal void @ompi_op_avx_2buff_min_int8_t_avx2(ptr noundef %0, ptr noun
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader134, %.lr.ph
-  %.0137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
-  %.093136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
-  %.098135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
-  %11 = load <32 x i8>, ptr %.093136, align 1
-  %12 = getelementptr inbounds i8, ptr %.093136, i64 32
-  %13 = load <32 x i8>, ptr %.098135, align 1
+  %.1137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
+  %.194136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
+  %.199135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
+  %11 = load <32 x i8>, ptr %.194136, align 1
+  %12 = getelementptr inbounds i8, ptr %.194136, i64 32
+  %13 = load <32 x i8>, ptr %.199135, align 1
   %14 = tail call <32 x i8> @llvm.smin.v32i8(<32 x i8> %11, <32 x i8> %13)
-  store <32 x i8> %14, ptr %.098135, align 1
-  %15 = getelementptr inbounds i8, ptr %.098135, i64 32
-  %16 = add nsw i32 %.0137, -32
-  %17 = icmp ugt i32 %.0137, 63
+  store <32 x i8> %14, ptr %.199135, align 1
+  %15 = getelementptr inbounds i8, ptr %.199135, i64 32
+  %16 = add nsw i32 %.1137, -32
+  %17 = icmp ugt i32 %.1137, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader134
-  %.098.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -1411,40 +1411,40 @@ define internal void @ompi_op_avx_2buff_min_int8_t_avx2(ptr noundef %0, ptr noun
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 15
+  %23 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph143, label %.loopexit133
 
 .lr.ph143:                                        ; preds = %19, %.lr.ph143
-  %.2142 = phi i32 [ %29, %.lr.ph143 ], [ %.1, %19 ]
-  %.295141 = phi ptr [ %25, %.lr.ph143 ], [ %.194, %19 ]
-  %.2100140 = phi ptr [ %28, %.lr.ph143 ], [ %.199, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.295141)
-  %25 = getelementptr inbounds i8, ptr %.295141, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2100140)
+  %.3142 = phi i32 [ %29, %.lr.ph143 ], [ %.0, %19 ]
+  %.396141 = phi ptr [ %25, %.lr.ph143 ], [ %.093, %19 ]
+  %.3101140 = phi ptr [ %28, %.lr.ph143 ], [ %.098, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.396141)
+  %25 = getelementptr inbounds i8, ptr %.396141, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3101140)
   %27 = tail call <16 x i8> @llvm.smin.v16i8(<16 x i8> %24, <16 x i8> %26)
-  store <16 x i8> %27, ptr %.2100140, align 1
-  %28 = getelementptr inbounds i8, ptr %.2100140, i64 16
-  %29 = add nsw i32 %.2142, -16
-  %30 = icmp ugt i32 %.2142, 31
+  store <16 x i8> %27, ptr %.3101140, align 1
+  %28 = getelementptr inbounds i8, ptr %.3101140, i64 16
+  %29 = add nsw i32 %.3142, -16
+  %30 = icmp ugt i32 %.3142, 31
   br i1 %30, label %.lr.ph143, label %.loopexit133, !llvm.loop !30
 
 .loopexit133:                                     ; preds = %.lr.ph143, %19
-  %.3101 = phi ptr [ %.199, %19 ], [ %28, %.lr.ph143 ]
-  %.396 = phi ptr [ %.194, %19 ], [ %25, %.lr.ph143 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %29, %.lr.ph143 ]
-  %31 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %19 ], [ %28, %.lr.ph143 ]
+  %.295 = phi ptr [ %.093, %19 ], [ %25, %.lr.ph143 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %29, %.lr.ph143 ]
+  %31 = icmp sgt i32 %.2, 0
   br i1 %31, label %.lr.ph151, label %.loopexit
 
 .lr.ph151:                                        ; preds = %.loopexit133, %68
-  %.4149 = phi i32 [ %71, %68 ], [ %.3, %.loopexit133 ]
-  %.497148 = phi ptr [ %74, %68 ], [ %.396, %.loopexit133 ]
-  %.4102147 = phi ptr [ %73, %68 ], [ %.3101, %.loopexit133 ]
+  %.4149 = phi i32 [ %71, %68 ], [ %.2, %.loopexit133 ]
+  %.497148 = phi ptr [ %74, %68 ], [ %.295, %.loopexit133 ]
+  %.4102147 = phi ptr [ %73, %68 ], [ %.2100, %.loopexit133 ]
   %32 = tail call i32 @llvm.umin.i32(i32 %.4149, i32 8)
   switch i32 %32, label %default.unreachable [
     i32 8, label %33
@@ -1552,24 +1552,24 @@ define internal void @ompi_op_avx_2buff_min_uint8_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader134, %.lr.ph
-  %.0137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
-  %.093136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
-  %.098135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
-  %11 = load <32 x i8>, ptr %.093136, align 1
-  %12 = getelementptr inbounds i8, ptr %.093136, i64 32
-  %13 = load <32 x i8>, ptr %.098135, align 1
+  %.1137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
+  %.194136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
+  %.199135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
+  %11 = load <32 x i8>, ptr %.194136, align 1
+  %12 = getelementptr inbounds i8, ptr %.194136, i64 32
+  %13 = load <32 x i8>, ptr %.199135, align 1
   %14 = tail call <32 x i8> @llvm.umin.v32i8(<32 x i8> %11, <32 x i8> %13)
-  store <32 x i8> %14, ptr %.098135, align 1
-  %15 = getelementptr inbounds i8, ptr %.098135, i64 32
-  %16 = add nsw i32 %.0137, -32
-  %17 = icmp ugt i32 %.0137, 63
+  store <32 x i8> %14, ptr %.199135, align 1
+  %15 = getelementptr inbounds i8, ptr %.199135, i64 32
+  %16 = add nsw i32 %.1137, -32
+  %17 = icmp ugt i32 %.1137, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader134
-  %.098.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -1578,40 +1578,40 @@ define internal void @ompi_op_avx_2buff_min_uint8_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 15
+  %23 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph143, label %.loopexit133
 
 .lr.ph143:                                        ; preds = %19, %.lr.ph143
-  %.2142 = phi i32 [ %29, %.lr.ph143 ], [ %.1, %19 ]
-  %.295141 = phi ptr [ %25, %.lr.ph143 ], [ %.194, %19 ]
-  %.2100140 = phi ptr [ %28, %.lr.ph143 ], [ %.199, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.295141)
-  %25 = getelementptr inbounds i8, ptr %.295141, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2100140)
+  %.3142 = phi i32 [ %29, %.lr.ph143 ], [ %.0, %19 ]
+  %.396141 = phi ptr [ %25, %.lr.ph143 ], [ %.093, %19 ]
+  %.3101140 = phi ptr [ %28, %.lr.ph143 ], [ %.098, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.396141)
+  %25 = getelementptr inbounds i8, ptr %.396141, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3101140)
   %27 = tail call <16 x i8> @llvm.umin.v16i8(<16 x i8> %24, <16 x i8> %26)
-  store <16 x i8> %27, ptr %.2100140, align 1
-  %28 = getelementptr inbounds i8, ptr %.2100140, i64 16
-  %29 = add nsw i32 %.2142, -16
-  %30 = icmp ugt i32 %.2142, 31
+  store <16 x i8> %27, ptr %.3101140, align 1
+  %28 = getelementptr inbounds i8, ptr %.3101140, i64 16
+  %29 = add nsw i32 %.3142, -16
+  %30 = icmp ugt i32 %.3142, 31
   br i1 %30, label %.lr.ph143, label %.loopexit133, !llvm.loop !33
 
 .loopexit133:                                     ; preds = %.lr.ph143, %19
-  %.3101 = phi ptr [ %.199, %19 ], [ %28, %.lr.ph143 ]
-  %.396 = phi ptr [ %.194, %19 ], [ %25, %.lr.ph143 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %29, %.lr.ph143 ]
-  %31 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %19 ], [ %28, %.lr.ph143 ]
+  %.295 = phi ptr [ %.093, %19 ], [ %25, %.lr.ph143 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %29, %.lr.ph143 ]
+  %31 = icmp sgt i32 %.2, 0
   br i1 %31, label %.lr.ph151, label %.loopexit
 
 .lr.ph151:                                        ; preds = %.loopexit133, %68
-  %.4149 = phi i32 [ %71, %68 ], [ %.3, %.loopexit133 ]
-  %.497148 = phi ptr [ %74, %68 ], [ %.396, %.loopexit133 ]
-  %.4102147 = phi ptr [ %73, %68 ], [ %.3101, %.loopexit133 ]
+  %.4149 = phi i32 [ %71, %68 ], [ %.2, %.loopexit133 ]
+  %.497148 = phi ptr [ %74, %68 ], [ %.295, %.loopexit133 ]
+  %.4102147 = phi ptr [ %73, %68 ], [ %.2100, %.loopexit133 ]
   %32 = tail call i32 @llvm.umin.i32(i32 %.4149, i32 8)
   switch i32 %32, label %default.unreachable [
     i32 8, label %33
@@ -1719,24 +1719,24 @@ define internal void @ompi_op_avx_2buff_min_int16_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader134, %.lr.ph
-  %.0137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
-  %.093136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
-  %.098135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
-  %11 = load <16 x i16>, ptr %.093136, align 1
-  %12 = getelementptr inbounds i8, ptr %.093136, i64 32
-  %13 = load <16 x i16>, ptr %.098135, align 1
+  %.1137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
+  %.194136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
+  %.199135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
+  %11 = load <16 x i16>, ptr %.194136, align 1
+  %12 = getelementptr inbounds i8, ptr %.194136, i64 32
+  %13 = load <16 x i16>, ptr %.199135, align 1
   %14 = tail call <16 x i16> @llvm.smin.v16i16(<16 x i16> %11, <16 x i16> %13)
-  store <16 x i16> %14, ptr %.098135, align 1
-  %15 = getelementptr inbounds i8, ptr %.098135, i64 32
-  %16 = add nsw i32 %.0137, -16
-  %17 = icmp ugt i32 %.0137, 31
+  store <16 x i16> %14, ptr %.199135, align 1
+  %15 = getelementptr inbounds i8, ptr %.199135, i64 32
+  %16 = add nsw i32 %.1137, -16
+  %17 = icmp ugt i32 %.1137, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader134
-  %.098.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -1745,42 +1745,42 @@ define internal void @ompi_op_avx_2buff_min_int16_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 7
+  %23 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph143, label %.loopexit133
 
 .lr.ph143:                                        ; preds = %19, %.lr.ph143
-  %.2142 = phi i32 [ %31, %.lr.ph143 ], [ %.1, %19 ]
-  %.295141 = phi ptr [ %25, %.lr.ph143 ], [ %.194, %19 ]
-  %.2100140 = phi ptr [ %30, %.lr.ph143 ], [ %.199, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.295141)
-  %25 = getelementptr inbounds i8, ptr %.295141, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2100140)
+  %.3142 = phi i32 [ %31, %.lr.ph143 ], [ %.0, %19 ]
+  %.396141 = phi ptr [ %25, %.lr.ph143 ], [ %.093, %19 ]
+  %.3101140 = phi ptr [ %30, %.lr.ph143 ], [ %.098, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.396141)
+  %25 = getelementptr inbounds i8, ptr %.396141, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3101140)
   %27 = bitcast <16 x i8> %24 to <8 x i16>
   %28 = bitcast <16 x i8> %26 to <8 x i16>
   %29 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %27, <8 x i16> %28)
-  store <8 x i16> %29, ptr %.2100140, align 1
-  %30 = getelementptr inbounds i8, ptr %.2100140, i64 16
-  %31 = add nsw i32 %.2142, -8
-  %32 = icmp ugt i32 %.2142, 15
+  store <8 x i16> %29, ptr %.3101140, align 1
+  %30 = getelementptr inbounds i8, ptr %.3101140, i64 16
+  %31 = add nsw i32 %.3142, -8
+  %32 = icmp ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %.loopexit133, !llvm.loop !36
 
 .loopexit133:                                     ; preds = %.lr.ph143, %19
-  %.3101 = phi ptr [ %.199, %19 ], [ %30, %.lr.ph143 ]
-  %.396 = phi ptr [ %.194, %19 ], [ %25, %.lr.ph143 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph143 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %19 ], [ %30, %.lr.ph143 ]
+  %.295 = phi ptr [ %.093, %19 ], [ %25, %.lr.ph143 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph143 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph151, label %.loopexit
 
 .lr.ph151:                                        ; preds = %.loopexit133, %70
-  %.4149 = phi i32 [ %73, %70 ], [ %.3, %.loopexit133 ]
-  %.497148 = phi ptr [ %76, %70 ], [ %.396, %.loopexit133 ]
-  %.4102147 = phi ptr [ %75, %70 ], [ %.3101, %.loopexit133 ]
+  %.4149 = phi i32 [ %73, %70 ], [ %.2, %.loopexit133 ]
+  %.497148 = phi ptr [ %76, %70 ], [ %.295, %.loopexit133 ]
+  %.4102147 = phi ptr [ %75, %70 ], [ %.2100, %.loopexit133 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4149, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -1888,24 +1888,24 @@ define internal void @ompi_op_avx_2buff_min_uint16_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader134, %.lr.ph
-  %.0137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
-  %.093136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
-  %.098135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
-  %11 = load <16 x i16>, ptr %.093136, align 1
-  %12 = getelementptr inbounds i8, ptr %.093136, i64 32
-  %13 = load <16 x i16>, ptr %.098135, align 1
+  %.1137 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader134 ]
+  %.194136 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader134 ]
+  %.199135 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader134 ]
+  %11 = load <16 x i16>, ptr %.194136, align 1
+  %12 = getelementptr inbounds i8, ptr %.194136, i64 32
+  %13 = load <16 x i16>, ptr %.199135, align 1
   %14 = tail call <16 x i16> @llvm.umin.v16i16(<16 x i16> %11, <16 x i16> %13)
-  store <16 x i16> %14, ptr %.098135, align 1
-  %15 = getelementptr inbounds i8, ptr %.098135, i64 32
-  %16 = add nsw i32 %.0137, -16
-  %17 = icmp ugt i32 %.0137, 31
+  store <16 x i16> %14, ptr %.199135, align 1
+  %15 = getelementptr inbounds i8, ptr %.199135, i64 32
+  %16 = add nsw i32 %.1137, -16
+  %17 = icmp ugt i32 %.1137, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader134
-  %.098.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader134 ], [ %15, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader134 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader134 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -1914,42 +1914,42 @@ define internal void @ompi_op_avx_2buff_min_uint16_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 7
+  %23 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph143, label %.loopexit133
 
 .lr.ph143:                                        ; preds = %19, %.lr.ph143
-  %.2142 = phi i32 [ %31, %.lr.ph143 ], [ %.1, %19 ]
-  %.295141 = phi ptr [ %25, %.lr.ph143 ], [ %.194, %19 ]
-  %.2100140 = phi ptr [ %30, %.lr.ph143 ], [ %.199, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.295141)
-  %25 = getelementptr inbounds i8, ptr %.295141, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2100140)
+  %.3142 = phi i32 [ %31, %.lr.ph143 ], [ %.0, %19 ]
+  %.396141 = phi ptr [ %25, %.lr.ph143 ], [ %.093, %19 ]
+  %.3101140 = phi ptr [ %30, %.lr.ph143 ], [ %.098, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.396141)
+  %25 = getelementptr inbounds i8, ptr %.396141, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3101140)
   %27 = bitcast <16 x i8> %24 to <8 x i16>
   %28 = bitcast <16 x i8> %26 to <8 x i16>
   %29 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %27, <8 x i16> %28)
-  store <8 x i16> %29, ptr %.2100140, align 1
-  %30 = getelementptr inbounds i8, ptr %.2100140, i64 16
-  %31 = add nsw i32 %.2142, -8
-  %32 = icmp ugt i32 %.2142, 15
+  store <8 x i16> %29, ptr %.3101140, align 1
+  %30 = getelementptr inbounds i8, ptr %.3101140, i64 16
+  %31 = add nsw i32 %.3142, -8
+  %32 = icmp ugt i32 %.3142, 15
   br i1 %32, label %.lr.ph143, label %.loopexit133, !llvm.loop !39
 
 .loopexit133:                                     ; preds = %.lr.ph143, %19
-  %.3101 = phi ptr [ %.199, %19 ], [ %30, %.lr.ph143 ]
-  %.396 = phi ptr [ %.194, %19 ], [ %25, %.lr.ph143 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph143 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %19 ], [ %30, %.lr.ph143 ]
+  %.295 = phi ptr [ %.093, %19 ], [ %25, %.lr.ph143 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph143 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph151, label %.loopexit
 
 .lr.ph151:                                        ; preds = %.loopexit133, %70
-  %.4149 = phi i32 [ %73, %70 ], [ %.3, %.loopexit133 ]
-  %.497148 = phi ptr [ %76, %70 ], [ %.396, %.loopexit133 ]
-  %.4102147 = phi ptr [ %75, %70 ], [ %.3101, %.loopexit133 ]
+  %.4149 = phi i32 [ %73, %70 ], [ %.2, %.loopexit133 ]
+  %.497148 = phi ptr [ %76, %70 ], [ %.295, %.loopexit133 ]
+  %.4102147 = phi ptr [ %75, %70 ], [ %.2100, %.loopexit133 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4149, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -2057,24 +2057,24 @@ define internal void @ompi_op_avx_2buff_min_int32_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader127, %.lr.ph
-  %.0130 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader127 ]
-  %.093129 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader127 ]
-  %.098128 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader127 ]
-  %11 = load <8 x i32>, ptr %.093129, align 1
-  %12 = getelementptr inbounds i8, ptr %.093129, i64 32
-  %13 = load <8 x i32>, ptr %.098128, align 1
+  %.1130 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader127 ]
+  %.194129 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader127 ]
+  %.199128 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader127 ]
+  %11 = load <8 x i32>, ptr %.194129, align 1
+  %12 = getelementptr inbounds i8, ptr %.194129, i64 32
+  %13 = load <8 x i32>, ptr %.199128, align 1
   %14 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %11, <8 x i32> %13)
-  store <8 x i32> %14, ptr %.098128, align 1
-  %15 = getelementptr inbounds i8, ptr %.098128, i64 32
-  %16 = add nsw i32 %.0130, -8
-  %17 = icmp ugt i32 %.0130, 15
+  store <8 x i32> %14, ptr %.199128, align 1
+  %15 = getelementptr inbounds i8, ptr %.199128, i64 32
+  %16 = add nsw i32 %.1130, -8
+  %17 = icmp ugt i32 %.1130, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader127
-  %.098.lcssa = phi ptr [ %1, %.preheader127 ], [ %15, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader127 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader127 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader127 ], [ %15, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader127 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader127 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -2083,42 +2083,42 @@ define internal void @ompi_op_avx_2buff_min_int32_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 3
+  %23 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph136, label %.loopexit126
 
 .lr.ph136:                                        ; preds = %19, %.lr.ph136
-  %.2135 = phi i32 [ %31, %.lr.ph136 ], [ %.1, %19 ]
-  %.295134 = phi ptr [ %25, %.lr.ph136 ], [ %.194, %19 ]
-  %.2100133 = phi ptr [ %30, %.lr.ph136 ], [ %.199, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.295134)
-  %25 = getelementptr inbounds i8, ptr %.295134, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2100133)
+  %.3135 = phi i32 [ %31, %.lr.ph136 ], [ %.0, %19 ]
+  %.396134 = phi ptr [ %25, %.lr.ph136 ], [ %.093, %19 ]
+  %.3101133 = phi ptr [ %30, %.lr.ph136 ], [ %.098, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.396134)
+  %25 = getelementptr inbounds i8, ptr %.396134, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3101133)
   %27 = bitcast <16 x i8> %24 to <4 x i32>
   %28 = bitcast <16 x i8> %26 to <4 x i32>
   %29 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %27, <4 x i32> %28)
-  store <4 x i32> %29, ptr %.2100133, align 1
-  %30 = getelementptr inbounds i8, ptr %.2100133, i64 16
-  %31 = add nsw i32 %.2135, -4
-  %32 = icmp ugt i32 %.2135, 7
+  store <4 x i32> %29, ptr %.3101133, align 1
+  %30 = getelementptr inbounds i8, ptr %.3101133, i64 16
+  %31 = add nsw i32 %.3135, -4
+  %32 = icmp ugt i32 %.3135, 7
   br i1 %32, label %.lr.ph136, label %.loopexit126, !llvm.loop !42
 
 .loopexit126:                                     ; preds = %.lr.ph136, %19
-  %.3101 = phi ptr [ %.199, %19 ], [ %30, %.lr.ph136 ]
-  %.396 = phi ptr [ %.194, %19 ], [ %25, %.lr.ph136 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph136 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %19 ], [ %30, %.lr.ph136 ]
+  %.295 = phi ptr [ %.093, %19 ], [ %25, %.lr.ph136 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph136 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph144, label %.loopexit
 
 .lr.ph144:                                        ; preds = %.loopexit126, %70
-  %.4142 = phi i32 [ %73, %70 ], [ %.3, %.loopexit126 ]
-  %.497141 = phi ptr [ %76, %70 ], [ %.396, %.loopexit126 ]
-  %.4102140 = phi ptr [ %75, %70 ], [ %.3101, %.loopexit126 ]
+  %.4142 = phi i32 [ %73, %70 ], [ %.2, %.loopexit126 ]
+  %.497141 = phi ptr [ %76, %70 ], [ %.295, %.loopexit126 ]
+  %.4102140 = phi ptr [ %75, %70 ], [ %.2100, %.loopexit126 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4142, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -2226,24 +2226,24 @@ define internal void @ompi_op_avx_2buff_min_uint32_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader127, %.lr.ph
-  %.0130 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader127 ]
-  %.093129 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader127 ]
-  %.098128 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader127 ]
-  %11 = load <8 x i32>, ptr %.093129, align 1
-  %12 = getelementptr inbounds i8, ptr %.093129, i64 32
-  %13 = load <8 x i32>, ptr %.098128, align 1
+  %.1130 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader127 ]
+  %.194129 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader127 ]
+  %.199128 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader127 ]
+  %11 = load <8 x i32>, ptr %.194129, align 1
+  %12 = getelementptr inbounds i8, ptr %.194129, i64 32
+  %13 = load <8 x i32>, ptr %.199128, align 1
   %14 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %11, <8 x i32> %13)
-  store <8 x i32> %14, ptr %.098128, align 1
-  %15 = getelementptr inbounds i8, ptr %.098128, i64 32
-  %16 = add nsw i32 %.0130, -8
-  %17 = icmp ugt i32 %.0130, 15
+  store <8 x i32> %14, ptr %.199128, align 1
+  %15 = getelementptr inbounds i8, ptr %.199128, i64 32
+  %16 = add nsw i32 %.1130, -8
+  %17 = icmp ugt i32 %.1130, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader127
-  %.098.lcssa = phi ptr [ %1, %.preheader127 ], [ %15, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader127 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader127 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader127 ], [ %15, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader127 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader127 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -2252,42 +2252,42 @@ define internal void @ompi_op_avx_2buff_min_uint32_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 3
+  %23 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph136, label %.loopexit126
 
 .lr.ph136:                                        ; preds = %19, %.lr.ph136
-  %.2135 = phi i32 [ %31, %.lr.ph136 ], [ %.1, %19 ]
-  %.295134 = phi ptr [ %25, %.lr.ph136 ], [ %.194, %19 ]
-  %.2100133 = phi ptr [ %30, %.lr.ph136 ], [ %.199, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.295134)
-  %25 = getelementptr inbounds i8, ptr %.295134, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2100133)
+  %.3135 = phi i32 [ %31, %.lr.ph136 ], [ %.0, %19 ]
+  %.396134 = phi ptr [ %25, %.lr.ph136 ], [ %.093, %19 ]
+  %.3101133 = phi ptr [ %30, %.lr.ph136 ], [ %.098, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.396134)
+  %25 = getelementptr inbounds i8, ptr %.396134, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3101133)
   %27 = bitcast <16 x i8> %24 to <4 x i32>
   %28 = bitcast <16 x i8> %26 to <4 x i32>
   %29 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %27, <4 x i32> %28)
-  store <4 x i32> %29, ptr %.2100133, align 1
-  %30 = getelementptr inbounds i8, ptr %.2100133, i64 16
-  %31 = add nsw i32 %.2135, -4
-  %32 = icmp ugt i32 %.2135, 7
+  store <4 x i32> %29, ptr %.3101133, align 1
+  %30 = getelementptr inbounds i8, ptr %.3101133, i64 16
+  %31 = add nsw i32 %.3135, -4
+  %32 = icmp ugt i32 %.3135, 7
   br i1 %32, label %.lr.ph136, label %.loopexit126, !llvm.loop !45
 
 .loopexit126:                                     ; preds = %.lr.ph136, %19
-  %.3101 = phi ptr [ %.199, %19 ], [ %30, %.lr.ph136 ]
-  %.396 = phi ptr [ %.194, %19 ], [ %25, %.lr.ph136 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph136 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %19 ], [ %30, %.lr.ph136 ]
+  %.295 = phi ptr [ %.093, %19 ], [ %25, %.lr.ph136 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph136 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph144, label %.loopexit
 
 .lr.ph144:                                        ; preds = %.loopexit126, %70
-  %.4142 = phi i32 [ %73, %70 ], [ %.3, %.loopexit126 ]
-  %.497141 = phi ptr [ %76, %70 ], [ %.396, %.loopexit126 ]
-  %.4102140 = phi ptr [ %75, %70 ], [ %.3101, %.loopexit126 ]
+  %.4142 = phi i32 [ %73, %70 ], [ %.2, %.loopexit126 ]
+  %.497141 = phi ptr [ %76, %70 ], [ %.295, %.loopexit126 ]
+  %.4102140 = phi ptr [ %75, %70 ], [ %.2100, %.loopexit126 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4142, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -2395,24 +2395,24 @@ define internal void @ompi_op_avx_2buff_min_float_avx2(ptr nocapture noundef rea
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader128, %.lr.ph
-  %.0131 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader128 ]
-  %.093130 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader128 ]
-  %.098129 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader128 ]
-  %10 = load <8 x float>, ptr %.093130, align 1
-  %11 = getelementptr inbounds i8, ptr %.093130, i64 32
-  %12 = load <8 x float>, ptr %.098129, align 1
+  %.1131 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader128 ]
+  %.194130 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader128 ]
+  %.199129 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader128 ]
+  %10 = load <8 x float>, ptr %.194130, align 1
+  %11 = getelementptr inbounds i8, ptr %.194130, i64 32
+  %12 = load <8 x float>, ptr %.199129, align 1
   %13 = tail call <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %10, <8 x float> %12)
-  store <8 x float> %13, ptr %.098129, align 1
-  %14 = getelementptr inbounds i8, ptr %.098129, i64 32
-  %15 = add nsw i32 %.0131, -8
-  %16 = icmp ugt i32 %.0131, 15
+  store <8 x float> %13, ptr %.199129, align 1
+  %14 = getelementptr inbounds i8, ptr %.199129, i64 32
+  %15 = add nsw i32 %.1131, -8
+  %16 = icmp ugt i32 %.1131, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader128
-  %.098.lcssa = phi ptr [ %1, %.preheader128 ], [ %14, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader128 ], [ %11, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader128 ], [ %15, %.lr.ph ]
-  %17 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader128 ], [ %14, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader128 ], [ %11, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader128 ], [ %15, %.lr.ph ]
+  %17 = icmp eq i32 %.1.lcssa, 0
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -2421,40 +2421,40 @@ define internal void @ompi_op_avx_2buff_min_float_avx2(ptr nocapture noundef rea
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
   %19 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %20 = and i32 %19, 1
   %.not119 = icmp ne i32 %20, 0
-  %21 = icmp sgt i32 %.1, 3
+  %21 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not119, i1 %21, i1 false
   br i1 %or.cond, label %.lr.ph137, label %.loopexit127
 
 .lr.ph137:                                        ; preds = %18, %.lr.ph137
-  %.2136 = phi i32 [ %27, %.lr.ph137 ], [ %.1, %18 ]
-  %.295135 = phi ptr [ %23, %.lr.ph137 ], [ %.194, %18 ]
-  %.2100134 = phi ptr [ %26, %.lr.ph137 ], [ %.199, %18 ]
-  %22 = load <4 x float>, ptr %.295135, align 1
-  %23 = getelementptr inbounds i8, ptr %.295135, i64 16
-  %24 = load <4 x float>, ptr %.2100134, align 1
+  %.3136 = phi i32 [ %27, %.lr.ph137 ], [ %.0, %18 ]
+  %.396135 = phi ptr [ %23, %.lr.ph137 ], [ %.093, %18 ]
+  %.3101134 = phi ptr [ %26, %.lr.ph137 ], [ %.098, %18 ]
+  %22 = load <4 x float>, ptr %.396135, align 1
+  %23 = getelementptr inbounds i8, ptr %.396135, i64 16
+  %24 = load <4 x float>, ptr %.3101134, align 1
   %25 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %22, <4 x float> %24)
-  store <4 x float> %25, ptr %.2100134, align 1
-  %26 = getelementptr inbounds i8, ptr %.2100134, i64 16
-  %27 = add nsw i32 %.2136, -4
-  %28 = icmp ugt i32 %.2136, 7
+  store <4 x float> %25, ptr %.3101134, align 1
+  %26 = getelementptr inbounds i8, ptr %.3101134, i64 16
+  %27 = add nsw i32 %.3136, -4
+  %28 = icmp ugt i32 %.3136, 7
   br i1 %28, label %.lr.ph137, label %.loopexit127, !llvm.loop !48
 
 .loopexit127:                                     ; preds = %.lr.ph137, %18
-  %.3101 = phi ptr [ %.199, %18 ], [ %26, %.lr.ph137 ]
-  %.396 = phi ptr [ %.194, %18 ], [ %23, %.lr.ph137 ]
-  %.3 = phi i32 [ %.1, %18 ], [ %27, %.lr.ph137 ]
-  %29 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %18 ], [ %26, %.lr.ph137 ]
+  %.295 = phi ptr [ %.093, %18 ], [ %23, %.lr.ph137 ]
+  %.2 = phi i32 [ %.0, %18 ], [ %27, %.lr.ph137 ]
+  %29 = icmp sgt i32 %.2, 0
   br i1 %29, label %.lr.ph145, label %.loopexit
 
 .lr.ph145:                                        ; preds = %.loopexit127, %73
-  %.4143 = phi i32 [ %77, %73 ], [ %.3, %.loopexit127 ]
-  %.497142 = phi ptr [ %80, %73 ], [ %.396, %.loopexit127 ]
-  %.4102141 = phi ptr [ %79, %73 ], [ %.3101, %.loopexit127 ]
+  %.4143 = phi i32 [ %77, %73 ], [ %.2, %.loopexit127 ]
+  %.497142 = phi ptr [ %80, %73 ], [ %.295, %.loopexit127 ]
+  %.4102141 = phi ptr [ %79, %73 ], [ %.2100, %.loopexit127 ]
   %30 = tail call i32 @llvm.umin.i32(i32 %.4143, i32 8)
   switch i32 %30, label %default.unreachable [
     i32 8, label %31
@@ -2570,24 +2570,24 @@ define internal void @ompi_op_avx_2buff_min_double_avx2(ptr nocapture noundef re
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader128, %.lr.ph
-  %.0131 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader128 ]
-  %.093130 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader128 ]
-  %.098129 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader128 ]
-  %10 = load <4 x double>, ptr %.093130, align 1
-  %11 = getelementptr inbounds i8, ptr %.093130, i64 32
-  %12 = load <4 x double>, ptr %.098129, align 1
+  %.1131 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader128 ]
+  %.194130 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader128 ]
+  %.199129 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader128 ]
+  %10 = load <4 x double>, ptr %.194130, align 1
+  %11 = getelementptr inbounds i8, ptr %.194130, i64 32
+  %12 = load <4 x double>, ptr %.199129, align 1
   %13 = tail call <4 x double> @llvm.x86.avx.min.pd.256(<4 x double> %10, <4 x double> %12)
-  store <4 x double> %13, ptr %.098129, align 1
-  %14 = getelementptr inbounds i8, ptr %.098129, i64 32
-  %15 = add nsw i32 %.0131, -4
-  %16 = icmp ugt i32 %.0131, 7
+  store <4 x double> %13, ptr %.199129, align 1
+  %14 = getelementptr inbounds i8, ptr %.199129, i64 32
+  %15 = add nsw i32 %.1131, -4
+  %16 = icmp ugt i32 %.1131, 7
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader128
-  %.098.lcssa = phi ptr [ %1, %.preheader128 ], [ %14, %.lr.ph ]
-  %.093.lcssa = phi ptr [ %0, %.preheader128 ], [ %11, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader128 ], [ %15, %.lr.ph ]
-  %17 = icmp eq i32 %.0.lcssa, 0
+  %.199.lcssa = phi ptr [ %1, %.preheader128 ], [ %14, %.lr.ph ]
+  %.194.lcssa = phi ptr [ %0, %.preheader128 ], [ %11, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader128 ], [ %15, %.lr.ph ]
+  %17 = icmp eq i32 %.1.lcssa, 0
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -2596,40 +2596,40 @@ define internal void @ompi_op_avx_2buff_min_double_avx2(ptr nocapture noundef re
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
   %19 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.199 = phi ptr [ %.098.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.194 = phi ptr [ %.093.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.098 = phi ptr [ %.199.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.093 = phi ptr [ %.194.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %20 = and i32 %19, 2
   %.not119 = icmp ne i32 %20, 0
-  %21 = icmp sgt i32 %.1, 1
+  %21 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not119, i1 %21, i1 false
   br i1 %or.cond, label %.lr.ph137, label %.loopexit127
 
 .lr.ph137:                                        ; preds = %18, %.lr.ph137
-  %.2136 = phi i32 [ %27, %.lr.ph137 ], [ %.1, %18 ]
-  %.295135 = phi ptr [ %23, %.lr.ph137 ], [ %.194, %18 ]
-  %.2100134 = phi ptr [ %26, %.lr.ph137 ], [ %.199, %18 ]
-  %22 = load <2 x double>, ptr %.295135, align 1
-  %23 = getelementptr inbounds i8, ptr %.295135, i64 16
-  %24 = load <2 x double>, ptr %.2100134, align 1
+  %.3136 = phi i32 [ %27, %.lr.ph137 ], [ %.0, %18 ]
+  %.396135 = phi ptr [ %23, %.lr.ph137 ], [ %.093, %18 ]
+  %.3101134 = phi ptr [ %26, %.lr.ph137 ], [ %.098, %18 ]
+  %22 = load <2 x double>, ptr %.396135, align 1
+  %23 = getelementptr inbounds i8, ptr %.396135, i64 16
+  %24 = load <2 x double>, ptr %.3101134, align 1
   %25 = tail call <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %22, <2 x double> %24)
-  store <2 x double> %25, ptr %.2100134, align 1
-  %26 = getelementptr inbounds i8, ptr %.2100134, i64 16
-  %27 = add nsw i32 %.2136, -2
-  %28 = icmp ugt i32 %.2136, 3
+  store <2 x double> %25, ptr %.3101134, align 1
+  %26 = getelementptr inbounds i8, ptr %.3101134, i64 16
+  %27 = add nsw i32 %.3136, -2
+  %28 = icmp ugt i32 %.3136, 3
   br i1 %28, label %.lr.ph137, label %.loopexit127, !llvm.loop !51
 
 .loopexit127:                                     ; preds = %.lr.ph137, %18
-  %.3101 = phi ptr [ %.199, %18 ], [ %26, %.lr.ph137 ]
-  %.396 = phi ptr [ %.194, %18 ], [ %23, %.lr.ph137 ]
-  %.3 = phi i32 [ %.1, %18 ], [ %27, %.lr.ph137 ]
-  %29 = icmp sgt i32 %.3, 0
+  %.2100 = phi ptr [ %.098, %18 ], [ %26, %.lr.ph137 ]
+  %.295 = phi ptr [ %.093, %18 ], [ %23, %.lr.ph137 ]
+  %.2 = phi i32 [ %.0, %18 ], [ %27, %.lr.ph137 ]
+  %29 = icmp sgt i32 %.2, 0
   br i1 %29, label %.lr.ph145, label %.loopexit
 
 .lr.ph145:                                        ; preds = %.loopexit127, %73
-  %.4143 = phi i32 [ %77, %73 ], [ %.3, %.loopexit127 ]
-  %.497142 = phi ptr [ %80, %73 ], [ %.396, %.loopexit127 ]
-  %.4102141 = phi ptr [ %79, %73 ], [ %.3101, %.loopexit127 ]
+  %.4143 = phi i32 [ %77, %73 ], [ %.2, %.loopexit127 ]
+  %.497142 = phi ptr [ %80, %73 ], [ %.295, %.loopexit127 ]
+  %.4102141 = phi ptr [ %79, %73 ], [ %.2100, %.loopexit127 ]
   %30 = tail call i32 @llvm.umin.i32(i32 %.4143, i32 8)
   switch i32 %30, label %default.unreachable [
     i32 8, label %31
@@ -2745,24 +2745,24 @@ define internal void @ompi_op_avx_2buff_sum_int8_t_avx2(ptr noundef %0, ptr noun
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <32 x i8>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <32 x i8>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <32 x i8>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <32 x i8>, ptr %.18389, align 1
   %14 = tail call <32 x i8> @llvm.sadd.sat.v32i8(<32 x i8> %11, <32 x i8> %13)
-  store <32 x i8> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -32
-  %17 = icmp ugt i32 %.091, 63
+  store <32 x i8> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -32
+  %17 = icmp ugt i32 %.191, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -2771,40 +2771,40 @@ define internal void @ompi_op_avx_2buff_sum_int8_t_avx2(ptr noundef %0, ptr noun
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 15
+  %23 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %29, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %25, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %28, %.lr.ph97 ], [ %.183, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %25 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %29, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %25, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %28, %.lr.ph97 ], [ %.082, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %25 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %27 = tail call <16 x i8> @llvm.sadd.sat.v16i8(<16 x i8> %24, <16 x i8> %26)
-  store <16 x i8> %27, ptr %.28494, align 1
-  %28 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %29 = add nsw i32 %.296, -16
-  %30 = icmp ugt i32 %.296, 31
+  store <16 x i8> %27, ptr %.38594, align 1
+  %28 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %29 = add nsw i32 %.396, -16
+  %30 = icmp ugt i32 %.396, 31
   br i1 %30, label %.lr.ph97, label %.loopexit87, !llvm.loop !54
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %28, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %25, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %29, %.lr.ph97 ]
-  %31 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %28, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %25, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %29, %.lr.ph97 ]
+  %31 = icmp sgt i32 %.2, 0
   br i1 %31, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %75
-  %.4103 = phi i32 [ %79, %75 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %82, %75 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %81, %75 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %79, %75 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %82, %75 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %81, %75 ], [ %.284, %.loopexit87 ]
   %32 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %32, label %default.unreachable [
     i32 8, label %33
@@ -2912,24 +2912,24 @@ define internal void @ompi_op_avx_2buff_sum_uint8_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <32 x i8>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <32 x i8>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <32 x i8>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <32 x i8>, ptr %.18389, align 1
   %14 = tail call <32 x i8> @llvm.uadd.sat.v32i8(<32 x i8> %11, <32 x i8> %13)
-  store <32 x i8> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -32
-  %17 = icmp ugt i32 %.091, 63
+  store <32 x i8> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -32
+  %17 = icmp ugt i32 %.191, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -2938,40 +2938,40 @@ define internal void @ompi_op_avx_2buff_sum_uint8_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 15
+  %23 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %29, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %25, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %28, %.lr.ph97 ], [ %.183, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %25 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %29, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %25, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %28, %.lr.ph97 ], [ %.082, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %25 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %27 = tail call <16 x i8> @llvm.uadd.sat.v16i8(<16 x i8> %24, <16 x i8> %26)
-  store <16 x i8> %27, ptr %.28494, align 1
-  %28 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %29 = add nsw i32 %.296, -16
-  %30 = icmp ugt i32 %.296, 31
+  store <16 x i8> %27, ptr %.38594, align 1
+  %28 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %29 = add nsw i32 %.396, -16
+  %30 = icmp ugt i32 %.396, 31
   br i1 %30, label %.lr.ph97, label %.loopexit87, !llvm.loop !57
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %28, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %25, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %29, %.lr.ph97 ]
-  %31 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %28, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %25, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %29, %.lr.ph97 ]
+  %31 = icmp sgt i32 %.2, 0
   br i1 %31, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %75
-  %.4103 = phi i32 [ %79, %75 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %82, %75 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %81, %75 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %79, %75 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %82, %75 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %81, %75 ], [ %.284, %.loopexit87 ]
   %32 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %32, label %default.unreachable [
     i32 8, label %33
@@ -3079,24 +3079,24 @@ define internal void @ompi_op_avx_2buff_sum_int16_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <16 x i16>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <16 x i16>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <16 x i16>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <16 x i16>, ptr %.18389, align 1
   %14 = tail call <16 x i16> @llvm.sadd.sat.v16i16(<16 x i16> %11, <16 x i16> %13)
-  store <16 x i16> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -16
-  %17 = icmp ugt i32 %.091, 31
+  store <16 x i16> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -16
+  %17 = icmp ugt i32 %.191, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -3105,42 +3105,42 @@ define internal void @ompi_op_avx_2buff_sum_int16_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 7
+  %23 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %31, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %25, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %30, %.lr.ph97 ], [ %.183, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %25 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %31, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %25, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %30, %.lr.ph97 ], [ %.082, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %25 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %27 = bitcast <16 x i8> %24 to <8 x i16>
   %28 = bitcast <16 x i8> %26 to <8 x i16>
   %29 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %27, <8 x i16> %28)
-  store <8 x i16> %29, ptr %.28494, align 1
-  %30 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %31 = add nsw i32 %.296, -8
-  %32 = icmp ugt i32 %.296, 15
+  store <8 x i16> %29, ptr %.38594, align 1
+  %30 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %31 = add nsw i32 %.396, -8
+  %32 = icmp ugt i32 %.396, 15
   br i1 %32, label %.lr.ph97, label %.loopexit87, !llvm.loop !60
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %30, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %25, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph97 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %30, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %25, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph97 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %77
-  %.4103 = phi i32 [ %81, %77 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %84, %77 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %83, %77 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %81, %77 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %84, %77 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %83, %77 ], [ %.284, %.loopexit87 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -3248,24 +3248,24 @@ define internal void @ompi_op_avx_2buff_sum_uint16_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <16 x i16>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <16 x i16>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <16 x i16>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <16 x i16>, ptr %.18389, align 1
   %14 = tail call <16 x i16> @llvm.uadd.sat.v16i16(<16 x i16> %11, <16 x i16> %13)
-  store <16 x i16> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -16
-  %17 = icmp ugt i32 %.091, 31
+  store <16 x i16> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -16
+  %17 = icmp ugt i32 %.191, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -3274,42 +3274,42 @@ define internal void @ompi_op_avx_2buff_sum_uint16_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 7
+  %23 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %31, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %25, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %30, %.lr.ph97 ], [ %.183, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %25 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %31, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %25, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %30, %.lr.ph97 ], [ %.082, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %25 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %27 = bitcast <16 x i8> %24 to <8 x i16>
   %28 = bitcast <16 x i8> %26 to <8 x i16>
   %29 = tail call <8 x i16> @llvm.uadd.sat.v8i16(<8 x i16> %27, <8 x i16> %28)
-  store <8 x i16> %29, ptr %.28494, align 1
-  %30 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %31 = add nsw i32 %.296, -8
-  %32 = icmp ugt i32 %.296, 15
+  store <8 x i16> %29, ptr %.38594, align 1
+  %30 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %31 = add nsw i32 %.396, -8
+  %32 = icmp ugt i32 %.396, 15
   br i1 %32, label %.lr.ph97, label %.loopexit87, !llvm.loop !63
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %30, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %25, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph97 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %30, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %25, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph97 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %77
-  %.4103 = phi i32 [ %81, %77 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %84, %77 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %83, %77 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %81, %77 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %84, %77 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %83, %77 ], [ %.284, %.loopexit87 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -3417,24 +3417,24 @@ define internal void @ompi_op_avx_2buff_sum_int32_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <8 x i32>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <8 x i32>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <8 x i32>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <8 x i32>, ptr %.18389, align 1
   %14 = add <8 x i32> %13, %11
-  store <8 x i32> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -8
-  %17 = icmp ugt i32 %.091, 15
+  store <8 x i32> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -8
+  %17 = icmp ugt i32 %.191, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -3443,42 +3443,42 @@ define internal void @ompi_op_avx_2buff_sum_int32_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 3
+  %23 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %31, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %25, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %30, %.lr.ph97 ], [ %.183, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %25 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %31, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %25, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %30, %.lr.ph97 ], [ %.082, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %25 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %27 = bitcast <16 x i8> %24 to <4 x i32>
   %28 = bitcast <16 x i8> %26 to <4 x i32>
   %29 = add <4 x i32> %28, %27
-  store <4 x i32> %29, ptr %.28494, align 1
-  %30 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %31 = add nsw i32 %.296, -4
-  %32 = icmp ugt i32 %.296, 7
+  store <4 x i32> %29, ptr %.38594, align 1
+  %30 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %31 = add nsw i32 %.396, -4
+  %32 = icmp ugt i32 %.396, 7
   br i1 %32, label %.lr.ph97, label %.loopexit87, !llvm.loop !66
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %30, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %25, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph97 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %30, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %25, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph97 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %77
-  %.4103 = phi i32 [ %81, %77 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %84, %77 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %83, %77 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %81, %77 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %84, %77 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %83, %77 ], [ %.284, %.loopexit87 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -3586,24 +3586,24 @@ define internal void @ompi_op_avx_2buff_sum_uint32_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <8 x i32>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <8 x i32>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <8 x i32>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <8 x i32>, ptr %.18389, align 1
   %14 = add <8 x i32> %13, %11
-  store <8 x i32> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -8
-  %17 = icmp ugt i32 %.091, 15
+  store <8 x i32> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -8
+  %17 = icmp ugt i32 %.191, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -3612,42 +3612,42 @@ define internal void @ompi_op_avx_2buff_sum_uint32_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 3
+  %23 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %31, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %25, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %30, %.lr.ph97 ], [ %.183, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %25 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %31, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %25, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %30, %.lr.ph97 ], [ %.082, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %25 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %27 = bitcast <16 x i8> %24 to <4 x i32>
   %28 = bitcast <16 x i8> %26 to <4 x i32>
   %29 = add <4 x i32> %28, %27
-  store <4 x i32> %29, ptr %.28494, align 1
-  %30 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %31 = add nsw i32 %.296, -4
-  %32 = icmp ugt i32 %.296, 7
+  store <4 x i32> %29, ptr %.38594, align 1
+  %30 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %31 = add nsw i32 %.396, -4
+  %32 = icmp ugt i32 %.396, 7
   br i1 %32, label %.lr.ph97, label %.loopexit87, !llvm.loop !69
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %30, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %25, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph97 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %30, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %25, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph97 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %77
-  %.4103 = phi i32 [ %81, %77 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %84, %77 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %83, %77 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %81, %77 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %84, %77 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %83, %77 ], [ %.284, %.loopexit87 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -3755,24 +3755,24 @@ define internal void @ompi_op_avx_2buff_sum_int64_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = add <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -4
-  %17 = icmp ugt i32 %.091, 7
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -4
+  %17 = icmp ugt i32 %.191, 7
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -3781,42 +3781,42 @@ define internal void @ompi_op_avx_2buff_sum_int64_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 1
+  %23 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %31, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %26, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %30, %.lr.ph97 ], [ %.183, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
+  %.396 = phi i32 [ %31, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %26, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %30, %.lr.ph97 ], [ %.082, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
   %25 = bitcast <16 x i8> %24 to <2 x i64>
-  %26 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %27 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %26 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %27 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %28 = bitcast <16 x i8> %27 to <2 x i64>
   %29 = add <2 x i64> %28, %25
-  store <2 x i64> %29, ptr %.28494, align 1
-  %30 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %31 = add nsw i32 %.296, -2
-  %32 = icmp ugt i32 %.296, 3
+  store <2 x i64> %29, ptr %.38594, align 1
+  %30 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %31 = add nsw i32 %.396, -2
+  %32 = icmp ugt i32 %.396, 3
   br i1 %32, label %.lr.ph97, label %.loopexit87, !llvm.loop !72
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %30, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %26, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph97 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %30, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %26, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph97 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %77
-  %.4103 = phi i32 [ %81, %77 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %84, %77 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %83, %77 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %81, %77 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %84, %77 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %83, %77 ], [ %.284, %.loopexit87 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -3924,24 +3924,24 @@ define internal void @ompi_op_avx_2buff_sum_uint64_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = add <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -4
-  %17 = icmp ugt i32 %.091, 7
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -4
+  %17 = icmp ugt i32 %.191, 7
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -3950,42 +3950,42 @@ define internal void @ompi_op_avx_2buff_sum_uint64_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 1
+  %23 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %31, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %26, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %30, %.lr.ph97 ], [ %.183, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
+  %.396 = phi i32 [ %31, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %26, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %30, %.lr.ph97 ], [ %.082, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
   %25 = bitcast <16 x i8> %24 to <2 x i64>
-  %26 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %27 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %26 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %27 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %28 = bitcast <16 x i8> %27 to <2 x i64>
   %29 = add <2 x i64> %28, %25
-  store <2 x i64> %29, ptr %.28494, align 1
-  %30 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %31 = add nsw i32 %.296, -2
-  %32 = icmp ugt i32 %.296, 3
+  store <2 x i64> %29, ptr %.38594, align 1
+  %30 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %31 = add nsw i32 %.396, -2
+  %32 = icmp ugt i32 %.396, 3
   br i1 %32, label %.lr.ph97, label %.loopexit87, !llvm.loop !75
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %30, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %26, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph97 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %30, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %26, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph97 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %77
-  %.4103 = phi i32 [ %81, %77 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %84, %77 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %83, %77 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %81, %77 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %84, %77 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %83, %77 ], [ %.284, %.loopexit87 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -4093,24 +4093,24 @@ define internal void @ompi_op_avx_2buff_add_float_avx2(ptr nocapture noundef rea
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader89, %.lr.ph
-  %.092 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader89 ]
-  %.07791 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader89 ]
-  %.08290 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader89 ]
-  %10 = load <8 x float>, ptr %.07791, align 1
-  %11 = getelementptr inbounds i8, ptr %.07791, i64 32
-  %12 = load <8 x float>, ptr %.08290, align 1
+  %.192 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader89 ]
+  %.17891 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader89 ]
+  %.18390 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader89 ]
+  %10 = load <8 x float>, ptr %.17891, align 1
+  %11 = getelementptr inbounds i8, ptr %.17891, i64 32
+  %12 = load <8 x float>, ptr %.18390, align 1
   %13 = fadd <8 x float> %10, %12
-  store <8 x float> %13, ptr %.08290, align 1
-  %14 = getelementptr inbounds i8, ptr %.08290, i64 32
-  %15 = add nsw i32 %.092, -8
-  %16 = icmp ugt i32 %.092, 15
+  store <8 x float> %13, ptr %.18390, align 1
+  %14 = getelementptr inbounds i8, ptr %.18390, i64 32
+  %15 = add nsw i32 %.192, -8
+  %16 = icmp ugt i32 %.192, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader89
-  %.082.lcssa = phi ptr [ %1, %.preheader89 ], [ %14, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader89 ], [ %11, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader89 ], [ %15, %.lr.ph ]
-  %17 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader89 ], [ %14, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader89 ], [ %11, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader89 ], [ %15, %.lr.ph ]
+  %17 = icmp eq i32 %.1.lcssa, 0
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -4119,40 +4119,40 @@ define internal void @ompi_op_avx_2buff_add_float_avx2(ptr nocapture noundef rea
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
   %19 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %20 = and i32 %19, 1
   %.not87 = icmp ne i32 %20, 0
-  %21 = icmp sgt i32 %.1, 3
+  %21 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not87, i1 %21, i1 false
   br i1 %or.cond, label %.lr.ph98, label %.loopexit88
 
 .lr.ph98:                                         ; preds = %18, %.lr.ph98
-  %.297 = phi i32 [ %27, %.lr.ph98 ], [ %.1, %18 ]
-  %.27996 = phi ptr [ %23, %.lr.ph98 ], [ %.178, %18 ]
-  %.28495 = phi ptr [ %26, %.lr.ph98 ], [ %.183, %18 ]
-  %22 = load <4 x float>, ptr %.27996, align 1
-  %23 = getelementptr inbounds i8, ptr %.27996, i64 16
-  %24 = load <4 x float>, ptr %.28495, align 1
+  %.397 = phi i32 [ %27, %.lr.ph98 ], [ %.0, %18 ]
+  %.38096 = phi ptr [ %23, %.lr.ph98 ], [ %.077, %18 ]
+  %.38595 = phi ptr [ %26, %.lr.ph98 ], [ %.082, %18 ]
+  %22 = load <4 x float>, ptr %.38096, align 1
+  %23 = getelementptr inbounds i8, ptr %.38096, i64 16
+  %24 = load <4 x float>, ptr %.38595, align 1
   %25 = fadd <4 x float> %22, %24
-  store <4 x float> %25, ptr %.28495, align 1
-  %26 = getelementptr inbounds i8, ptr %.28495, i64 16
-  %27 = add nsw i32 %.297, -4
-  %28 = icmp ugt i32 %.297, 7
+  store <4 x float> %25, ptr %.38595, align 1
+  %26 = getelementptr inbounds i8, ptr %.38595, i64 16
+  %27 = add nsw i32 %.397, -4
+  %28 = icmp ugt i32 %.397, 7
   br i1 %28, label %.lr.ph98, label %.loopexit88, !llvm.loop !78
 
 .loopexit88:                                      ; preds = %.lr.ph98, %18
-  %.385 = phi ptr [ %.183, %18 ], [ %26, %.lr.ph98 ]
-  %.380 = phi ptr [ %.178, %18 ], [ %23, %.lr.ph98 ]
-  %.3 = phi i32 [ %.1, %18 ], [ %27, %.lr.ph98 ]
-  %29 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %18 ], [ %26, %.lr.ph98 ]
+  %.279 = phi ptr [ %.077, %18 ], [ %23, %.lr.ph98 ]
+  %.2 = phi i32 [ %.0, %18 ], [ %27, %.lr.ph98 ]
+  %29 = icmp sgt i32 %.2, 0
   br i1 %29, label %.lr.ph106, label %.loopexit
 
 .lr.ph106:                                        ; preds = %.loopexit88, %73
-  %.4104 = phi i32 [ %77, %73 ], [ %.3, %.loopexit88 ]
-  %.481103 = phi ptr [ %80, %73 ], [ %.380, %.loopexit88 ]
-  %.486102 = phi ptr [ %79, %73 ], [ %.385, %.loopexit88 ]
+  %.4104 = phi i32 [ %77, %73 ], [ %.2, %.loopexit88 ]
+  %.481103 = phi ptr [ %80, %73 ], [ %.279, %.loopexit88 ]
+  %.486102 = phi ptr [ %79, %73 ], [ %.284, %.loopexit88 ]
   %30 = tail call i32 @llvm.umin.i32(i32 %.4104, i32 8)
   switch i32 %30, label %default.unreachable [
     i32 8, label %31
@@ -4260,24 +4260,24 @@ define internal void @ompi_op_avx_2buff_add_double_avx2(ptr nocapture noundef re
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader89, %.lr.ph
-  %.092 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader89 ]
-  %.07791 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader89 ]
-  %.08290 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader89 ]
-  %10 = load <4 x double>, ptr %.07791, align 1
-  %11 = getelementptr inbounds i8, ptr %.07791, i64 32
-  %12 = load <4 x double>, ptr %.08290, align 1
+  %.192 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader89 ]
+  %.17891 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader89 ]
+  %.18390 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader89 ]
+  %10 = load <4 x double>, ptr %.17891, align 1
+  %11 = getelementptr inbounds i8, ptr %.17891, i64 32
+  %12 = load <4 x double>, ptr %.18390, align 1
   %13 = fadd <4 x double> %10, %12
-  store <4 x double> %13, ptr %.08290, align 1
-  %14 = getelementptr inbounds i8, ptr %.08290, i64 32
-  %15 = add nsw i32 %.092, -4
-  %16 = icmp ugt i32 %.092, 7
+  store <4 x double> %13, ptr %.18390, align 1
+  %14 = getelementptr inbounds i8, ptr %.18390, i64 32
+  %15 = add nsw i32 %.192, -4
+  %16 = icmp ugt i32 %.192, 7
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader89
-  %.082.lcssa = phi ptr [ %1, %.preheader89 ], [ %14, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader89 ], [ %11, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader89 ], [ %15, %.lr.ph ]
-  %17 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader89 ], [ %14, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader89 ], [ %11, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader89 ], [ %15, %.lr.ph ]
+  %17 = icmp eq i32 %.1.lcssa, 0
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -4286,40 +4286,40 @@ define internal void @ompi_op_avx_2buff_add_double_avx2(ptr nocapture noundef re
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
   %19 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %20 = and i32 %19, 2
   %.not87 = icmp ne i32 %20, 0
-  %21 = icmp sgt i32 %.1, 1
+  %21 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not87, i1 %21, i1 false
   br i1 %or.cond, label %.lr.ph98, label %.loopexit88
 
 .lr.ph98:                                         ; preds = %18, %.lr.ph98
-  %.297 = phi i32 [ %27, %.lr.ph98 ], [ %.1, %18 ]
-  %.27996 = phi ptr [ %23, %.lr.ph98 ], [ %.178, %18 ]
-  %.28495 = phi ptr [ %26, %.lr.ph98 ], [ %.183, %18 ]
-  %22 = load <2 x double>, ptr %.27996, align 1
-  %23 = getelementptr inbounds i8, ptr %.27996, i64 16
-  %24 = load <2 x double>, ptr %.28495, align 1
+  %.397 = phi i32 [ %27, %.lr.ph98 ], [ %.0, %18 ]
+  %.38096 = phi ptr [ %23, %.lr.ph98 ], [ %.077, %18 ]
+  %.38595 = phi ptr [ %26, %.lr.ph98 ], [ %.082, %18 ]
+  %22 = load <2 x double>, ptr %.38096, align 1
+  %23 = getelementptr inbounds i8, ptr %.38096, i64 16
+  %24 = load <2 x double>, ptr %.38595, align 1
   %25 = fadd <2 x double> %22, %24
-  store <2 x double> %25, ptr %.28495, align 1
-  %26 = getelementptr inbounds i8, ptr %.28495, i64 16
-  %27 = add nsw i32 %.297, -2
-  %28 = icmp ugt i32 %.297, 3
+  store <2 x double> %25, ptr %.38595, align 1
+  %26 = getelementptr inbounds i8, ptr %.38595, i64 16
+  %27 = add nsw i32 %.397, -2
+  %28 = icmp ugt i32 %.397, 3
   br i1 %28, label %.lr.ph98, label %.loopexit88, !llvm.loop !81
 
 .loopexit88:                                      ; preds = %.lr.ph98, %18
-  %.385 = phi ptr [ %.183, %18 ], [ %26, %.lr.ph98 ]
-  %.380 = phi ptr [ %.178, %18 ], [ %23, %.lr.ph98 ]
-  %.3 = phi i32 [ %.1, %18 ], [ %27, %.lr.ph98 ]
-  %29 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %18 ], [ %26, %.lr.ph98 ]
+  %.279 = phi ptr [ %.077, %18 ], [ %23, %.lr.ph98 ]
+  %.2 = phi i32 [ %.0, %18 ], [ %27, %.lr.ph98 ]
+  %29 = icmp sgt i32 %.2, 0
   br i1 %29, label %.lr.ph106, label %.loopexit
 
 .lr.ph106:                                        ; preds = %.loopexit88, %73
-  %.4104 = phi i32 [ %77, %73 ], [ %.3, %.loopexit88 ]
-  %.481103 = phi ptr [ %80, %73 ], [ %.380, %.loopexit88 ]
-  %.486102 = phi ptr [ %79, %73 ], [ %.385, %.loopexit88 ]
+  %.4104 = phi i32 [ %77, %73 ], [ %.2, %.loopexit88 ]
+  %.481103 = phi ptr [ %80, %73 ], [ %.279, %.loopexit88 ]
+  %.486102 = phi ptr [ %79, %73 ], [ %.284, %.loopexit88 ]
   %30 = tail call i32 @llvm.umin.i32(i32 %.4104, i32 8)
   switch i32 %30, label %default.unreachable [
     i32 8, label %31
@@ -4635,24 +4635,24 @@ define internal void @ompi_op_avx_2buff_prod_int16_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <16 x i16>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <16 x i16>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <16 x i16>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <16 x i16>, ptr %.18389, align 1
   %14 = mul <16 x i16> %13, %11
-  store <16 x i16> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -16
-  %17 = icmp ugt i32 %.091, 31
+  store <16 x i16> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -16
+  %17 = icmp ugt i32 %.191, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -4661,42 +4661,42 @@ define internal void @ompi_op_avx_2buff_prod_int16_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 7
+  %23 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %31, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %25, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %30, %.lr.ph97 ], [ %.183, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %25 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %31, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %25, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %30, %.lr.ph97 ], [ %.082, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %25 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %27 = bitcast <16 x i8> %24 to <8 x i16>
   %28 = bitcast <16 x i8> %26 to <8 x i16>
   %29 = mul <8 x i16> %28, %27
-  store <8 x i16> %29, ptr %.28494, align 1
-  %30 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %31 = add nsw i32 %.296, -8
-  %32 = icmp ugt i32 %.296, 15
+  store <8 x i16> %29, ptr %.38594, align 1
+  %30 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %31 = add nsw i32 %.396, -8
+  %32 = icmp ugt i32 %.396, 15
   br i1 %32, label %.lr.ph97, label %.loopexit87, !llvm.loop !86
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %30, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %25, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph97 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %30, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %25, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph97 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %77
-  %.4103 = phi i32 [ %81, %77 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %84, %77 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %83, %77 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %81, %77 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %84, %77 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %83, %77 ], [ %.284, %.loopexit87 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -4804,24 +4804,24 @@ define internal void @ompi_op_avx_2buff_prod_uint16_t_avx2(ptr noundef %0, ptr n
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <16 x i16>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <16 x i16>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <16 x i16>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <16 x i16>, ptr %.18389, align 1
   %14 = mul <16 x i16> %13, %11
-  store <16 x i16> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -16
-  %17 = icmp ugt i32 %.091, 31
+  store <16 x i16> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -16
+  %17 = icmp ugt i32 %.191, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -4830,42 +4830,42 @@ define internal void @ompi_op_avx_2buff_prod_uint16_t_avx2(ptr noundef %0, ptr n
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 7
+  %23 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %31, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %25, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %30, %.lr.ph97 ], [ %.183, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %25 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %31, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %25, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %30, %.lr.ph97 ], [ %.082, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %25 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %27 = bitcast <16 x i8> %24 to <8 x i16>
   %28 = bitcast <16 x i8> %26 to <8 x i16>
   %29 = mul <8 x i16> %28, %27
-  store <8 x i16> %29, ptr %.28494, align 1
-  %30 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %31 = add nsw i32 %.296, -8
-  %32 = icmp ugt i32 %.296, 15
+  store <8 x i16> %29, ptr %.38594, align 1
+  %30 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %31 = add nsw i32 %.396, -8
+  %32 = icmp ugt i32 %.396, 15
   br i1 %32, label %.lr.ph97, label %.loopexit87, !llvm.loop !89
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %30, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %25, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph97 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %30, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %25, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph97 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %77
-  %.4103 = phi i32 [ %81, %77 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %84, %77 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %83, %77 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %81, %77 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %84, %77 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %83, %77 ], [ %.284, %.loopexit87 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -4973,24 +4973,24 @@ define internal void @ompi_op_avx_2buff_prod_int32_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <8 x i32>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <8 x i32>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <8 x i32>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <8 x i32>, ptr %.18389, align 1
   %14 = mul <8 x i32> %13, %11
-  store <8 x i32> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -8
-  %17 = icmp ugt i32 %.091, 15
+  store <8 x i32> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -8
+  %17 = icmp ugt i32 %.191, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -4999,42 +4999,42 @@ define internal void @ompi_op_avx_2buff_prod_int32_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 3
+  %23 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %31, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %25, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %30, %.lr.ph97 ], [ %.183, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %25 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %31, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %25, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %30, %.lr.ph97 ], [ %.082, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %25 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %27 = bitcast <16 x i8> %24 to <4 x i32>
   %28 = bitcast <16 x i8> %26 to <4 x i32>
   %29 = mul <4 x i32> %28, %27
-  store <4 x i32> %29, ptr %.28494, align 1
-  %30 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %31 = add nsw i32 %.296, -4
-  %32 = icmp ugt i32 %.296, 7
+  store <4 x i32> %29, ptr %.38594, align 1
+  %30 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %31 = add nsw i32 %.396, -4
+  %32 = icmp ugt i32 %.396, 7
   br i1 %32, label %.lr.ph97, label %.loopexit87, !llvm.loop !92
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %30, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %25, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph97 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %30, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %25, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph97 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %77
-  %.4103 = phi i32 [ %81, %77 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %84, %77 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %83, %77 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %81, %77 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %84, %77 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %83, %77 ], [ %.284, %.loopexit87 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -5142,24 +5142,24 @@ define internal void @ompi_op_avx_2buff_prod_uint32_t_avx2(ptr noundef %0, ptr n
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <8 x i32>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <8 x i32>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <8 x i32>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <8 x i32>, ptr %.18389, align 1
   %14 = mul <8 x i32> %13, %11
-  store <8 x i32> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -8
-  %17 = icmp ugt i32 %.091, 15
+  store <8 x i32> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -8
+  %17 = icmp ugt i32 %.191, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -5168,42 +5168,42 @@ define internal void @ompi_op_avx_2buff_prod_uint32_t_avx2(ptr noundef %0, ptr n
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 12
   %22 = icmp eq i32 %21, 12
-  %23 = icmp sgt i32 %.1, 3
+  %23 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %22, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %31, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %25, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %30, %.lr.ph97 ], [ %.183, %19 ]
-  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %25 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %31, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %25, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %30, %.lr.ph97 ], [ %.082, %19 ]
+  %24 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %25 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %27 = bitcast <16 x i8> %24 to <4 x i32>
   %28 = bitcast <16 x i8> %26 to <4 x i32>
   %29 = mul <4 x i32> %28, %27
-  store <4 x i32> %29, ptr %.28494, align 1
-  %30 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %31 = add nsw i32 %.296, -4
-  %32 = icmp ugt i32 %.296, 7
+  store <4 x i32> %29, ptr %.38594, align 1
+  %30 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %31 = add nsw i32 %.396, -4
+  %32 = icmp ugt i32 %.396, 7
   br i1 %32, label %.lr.ph97, label %.loopexit87, !llvm.loop !95
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %30, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %25, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %31, %.lr.ph97 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %30, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %25, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %31, %.lr.ph97 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %77
-  %.4103 = phi i32 [ %81, %77 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %84, %77 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %83, %77 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %81, %77 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %84, %77 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %83, %77 ], [ %.284, %.loopexit87 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -5311,24 +5311,24 @@ define internal void @ompi_op_avx_2buff_mul_float_avx2(ptr nocapture noundef rea
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader89, %.lr.ph
-  %.092 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader89 ]
-  %.07791 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader89 ]
-  %.08290 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader89 ]
-  %10 = load <8 x float>, ptr %.07791, align 1
-  %11 = getelementptr inbounds i8, ptr %.07791, i64 32
-  %12 = load <8 x float>, ptr %.08290, align 1
+  %.192 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader89 ]
+  %.17891 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader89 ]
+  %.18390 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader89 ]
+  %10 = load <8 x float>, ptr %.17891, align 1
+  %11 = getelementptr inbounds i8, ptr %.17891, i64 32
+  %12 = load <8 x float>, ptr %.18390, align 1
   %13 = fmul <8 x float> %10, %12
-  store <8 x float> %13, ptr %.08290, align 1
-  %14 = getelementptr inbounds i8, ptr %.08290, i64 32
-  %15 = add nsw i32 %.092, -8
-  %16 = icmp ugt i32 %.092, 15
+  store <8 x float> %13, ptr %.18390, align 1
+  %14 = getelementptr inbounds i8, ptr %.18390, i64 32
+  %15 = add nsw i32 %.192, -8
+  %16 = icmp ugt i32 %.192, 15
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader89
-  %.082.lcssa = phi ptr [ %1, %.preheader89 ], [ %14, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader89 ], [ %11, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader89 ], [ %15, %.lr.ph ]
-  %17 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader89 ], [ %14, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader89 ], [ %11, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader89 ], [ %15, %.lr.ph ]
+  %17 = icmp eq i32 %.1.lcssa, 0
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -5337,40 +5337,40 @@ define internal void @ompi_op_avx_2buff_mul_float_avx2(ptr nocapture noundef rea
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
   %19 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %20 = and i32 %19, 1
   %.not87 = icmp ne i32 %20, 0
-  %21 = icmp sgt i32 %.1, 3
+  %21 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not87, i1 %21, i1 false
   br i1 %or.cond, label %.lr.ph98, label %.loopexit88
 
 .lr.ph98:                                         ; preds = %18, %.lr.ph98
-  %.297 = phi i32 [ %27, %.lr.ph98 ], [ %.1, %18 ]
-  %.27996 = phi ptr [ %23, %.lr.ph98 ], [ %.178, %18 ]
-  %.28495 = phi ptr [ %26, %.lr.ph98 ], [ %.183, %18 ]
-  %22 = load <4 x float>, ptr %.27996, align 1
-  %23 = getelementptr inbounds i8, ptr %.27996, i64 16
-  %24 = load <4 x float>, ptr %.28495, align 1
+  %.397 = phi i32 [ %27, %.lr.ph98 ], [ %.0, %18 ]
+  %.38096 = phi ptr [ %23, %.lr.ph98 ], [ %.077, %18 ]
+  %.38595 = phi ptr [ %26, %.lr.ph98 ], [ %.082, %18 ]
+  %22 = load <4 x float>, ptr %.38096, align 1
+  %23 = getelementptr inbounds i8, ptr %.38096, i64 16
+  %24 = load <4 x float>, ptr %.38595, align 1
   %25 = fmul <4 x float> %22, %24
-  store <4 x float> %25, ptr %.28495, align 1
-  %26 = getelementptr inbounds i8, ptr %.28495, i64 16
-  %27 = add nsw i32 %.297, -4
-  %28 = icmp ugt i32 %.297, 7
+  store <4 x float> %25, ptr %.38595, align 1
+  %26 = getelementptr inbounds i8, ptr %.38595, i64 16
+  %27 = add nsw i32 %.397, -4
+  %28 = icmp ugt i32 %.397, 7
   br i1 %28, label %.lr.ph98, label %.loopexit88, !llvm.loop !98
 
 .loopexit88:                                      ; preds = %.lr.ph98, %18
-  %.385 = phi ptr [ %.183, %18 ], [ %26, %.lr.ph98 ]
-  %.380 = phi ptr [ %.178, %18 ], [ %23, %.lr.ph98 ]
-  %.3 = phi i32 [ %.1, %18 ], [ %27, %.lr.ph98 ]
-  %29 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %18 ], [ %26, %.lr.ph98 ]
+  %.279 = phi ptr [ %.077, %18 ], [ %23, %.lr.ph98 ]
+  %.2 = phi i32 [ %.0, %18 ], [ %27, %.lr.ph98 ]
+  %29 = icmp sgt i32 %.2, 0
   br i1 %29, label %.lr.ph106, label %.loopexit
 
 .lr.ph106:                                        ; preds = %.loopexit88, %73
-  %.4104 = phi i32 [ %77, %73 ], [ %.3, %.loopexit88 ]
-  %.481103 = phi ptr [ %80, %73 ], [ %.380, %.loopexit88 ]
-  %.486102 = phi ptr [ %79, %73 ], [ %.385, %.loopexit88 ]
+  %.4104 = phi i32 [ %77, %73 ], [ %.2, %.loopexit88 ]
+  %.481103 = phi ptr [ %80, %73 ], [ %.279, %.loopexit88 ]
+  %.486102 = phi ptr [ %79, %73 ], [ %.284, %.loopexit88 ]
   %30 = tail call i32 @llvm.umin.i32(i32 %.4104, i32 8)
   switch i32 %30, label %default.unreachable [
     i32 8, label %31
@@ -5478,24 +5478,24 @@ define internal void @ompi_op_avx_2buff_mul_double_avx2(ptr nocapture noundef re
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader89, %.lr.ph
-  %.092 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader89 ]
-  %.07791 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader89 ]
-  %.08290 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader89 ]
-  %10 = load <4 x double>, ptr %.07791, align 1
-  %11 = getelementptr inbounds i8, ptr %.07791, i64 32
-  %12 = load <4 x double>, ptr %.08290, align 1
+  %.192 = phi i32 [ %15, %.lr.ph ], [ %6, %.preheader89 ]
+  %.17891 = phi ptr [ %11, %.lr.ph ], [ %0, %.preheader89 ]
+  %.18390 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader89 ]
+  %10 = load <4 x double>, ptr %.17891, align 1
+  %11 = getelementptr inbounds i8, ptr %.17891, i64 32
+  %12 = load <4 x double>, ptr %.18390, align 1
   %13 = fmul <4 x double> %10, %12
-  store <4 x double> %13, ptr %.08290, align 1
-  %14 = getelementptr inbounds i8, ptr %.08290, i64 32
-  %15 = add nsw i32 %.092, -4
-  %16 = icmp ugt i32 %.092, 7
+  store <4 x double> %13, ptr %.18390, align 1
+  %14 = getelementptr inbounds i8, ptr %.18390, i64 32
+  %15 = add nsw i32 %.192, -4
+  %16 = icmp ugt i32 %.192, 7
   br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader89
-  %.082.lcssa = phi ptr [ %1, %.preheader89 ], [ %14, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader89 ], [ %11, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader89 ], [ %15, %.lr.ph ]
-  %17 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader89 ], [ %14, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader89 ], [ %11, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader89 ], [ %15, %.lr.ph ]
+  %17 = icmp eq i32 %.1.lcssa, 0
   br i1 %17, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -5504,40 +5504,40 @@ define internal void @ompi_op_avx_2buff_mul_double_avx2(ptr nocapture noundef re
 
 18:                                               ; preds = %._crit_edge._crit_edge, %5
   %19 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %20 = and i32 %19, 2
   %.not87 = icmp ne i32 %20, 0
-  %21 = icmp sgt i32 %.1, 1
+  %21 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not87, i1 %21, i1 false
   br i1 %or.cond, label %.lr.ph98, label %.loopexit88
 
 .lr.ph98:                                         ; preds = %18, %.lr.ph98
-  %.297 = phi i32 [ %27, %.lr.ph98 ], [ %.1, %18 ]
-  %.27996 = phi ptr [ %23, %.lr.ph98 ], [ %.178, %18 ]
-  %.28495 = phi ptr [ %26, %.lr.ph98 ], [ %.183, %18 ]
-  %22 = load <2 x double>, ptr %.27996, align 1
-  %23 = getelementptr inbounds i8, ptr %.27996, i64 16
-  %24 = load <2 x double>, ptr %.28495, align 1
+  %.397 = phi i32 [ %27, %.lr.ph98 ], [ %.0, %18 ]
+  %.38096 = phi ptr [ %23, %.lr.ph98 ], [ %.077, %18 ]
+  %.38595 = phi ptr [ %26, %.lr.ph98 ], [ %.082, %18 ]
+  %22 = load <2 x double>, ptr %.38096, align 1
+  %23 = getelementptr inbounds i8, ptr %.38096, i64 16
+  %24 = load <2 x double>, ptr %.38595, align 1
   %25 = fmul <2 x double> %22, %24
-  store <2 x double> %25, ptr %.28495, align 1
-  %26 = getelementptr inbounds i8, ptr %.28495, i64 16
-  %27 = add nsw i32 %.297, -2
-  %28 = icmp ugt i32 %.297, 3
+  store <2 x double> %25, ptr %.38595, align 1
+  %26 = getelementptr inbounds i8, ptr %.38595, i64 16
+  %27 = add nsw i32 %.397, -2
+  %28 = icmp ugt i32 %.397, 3
   br i1 %28, label %.lr.ph98, label %.loopexit88, !llvm.loop !101
 
 .loopexit88:                                      ; preds = %.lr.ph98, %18
-  %.385 = phi ptr [ %.183, %18 ], [ %26, %.lr.ph98 ]
-  %.380 = phi ptr [ %.178, %18 ], [ %23, %.lr.ph98 ]
-  %.3 = phi i32 [ %.1, %18 ], [ %27, %.lr.ph98 ]
-  %29 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %18 ], [ %26, %.lr.ph98 ]
+  %.279 = phi ptr [ %.077, %18 ], [ %23, %.lr.ph98 ]
+  %.2 = phi i32 [ %.0, %18 ], [ %27, %.lr.ph98 ]
+  %29 = icmp sgt i32 %.2, 0
   br i1 %29, label %.lr.ph106, label %.loopexit
 
 .lr.ph106:                                        ; preds = %.loopexit88, %73
-  %.4104 = phi i32 [ %77, %73 ], [ %.3, %.loopexit88 ]
-  %.481103 = phi ptr [ %80, %73 ], [ %.380, %.loopexit88 ]
-  %.486102 = phi ptr [ %79, %73 ], [ %.385, %.loopexit88 ]
+  %.4104 = phi i32 [ %77, %73 ], [ %.2, %.loopexit88 ]
+  %.481103 = phi ptr [ %80, %73 ], [ %.279, %.loopexit88 ]
+  %.486102 = phi ptr [ %79, %73 ], [ %.284, %.loopexit88 ]
   %30 = tail call i32 @llvm.umin.i32(i32 %.4104, i32 8)
   switch i32 %30, label %default.unreachable [
     i32 8, label %31
@@ -5645,24 +5645,24 @@ define internal void @ompi_op_avx_2buff_band_int8_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = and <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -32
-  %17 = icmp ugt i32 %.091, 63
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -32
+  %17 = icmp ugt i32 %.191, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -5671,40 +5671,40 @@ define internal void @ompi_op_avx_2buff_band_int8_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 15
+  %22 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = and <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -16
-  %29 = icmp ugt i32 %.296, 31
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -16
+  %29 = icmp ugt i32 %.396, 31
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !104
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -5812,24 +5812,24 @@ define internal void @ompi_op_avx_2buff_band_uint8_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = and <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -32
-  %17 = icmp ugt i32 %.091, 63
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -32
+  %17 = icmp ugt i32 %.191, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -5838,40 +5838,40 @@ define internal void @ompi_op_avx_2buff_band_uint8_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 15
+  %22 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = and <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -16
-  %29 = icmp ugt i32 %.296, 31
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -16
+  %29 = icmp ugt i32 %.396, 31
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !107
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -5979,24 +5979,24 @@ define internal void @ompi_op_avx_2buff_band_int16_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = and <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -16
-  %17 = icmp ugt i32 %.091, 31
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -16
+  %17 = icmp ugt i32 %.191, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -6005,40 +6005,40 @@ define internal void @ompi_op_avx_2buff_band_int16_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 7
+  %22 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = and <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -8
-  %29 = icmp ugt i32 %.296, 15
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -8
+  %29 = icmp ugt i32 %.396, 15
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !110
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -6146,24 +6146,24 @@ define internal void @ompi_op_avx_2buff_band_uint16_t_avx2(ptr noundef %0, ptr n
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = and <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -16
-  %17 = icmp ugt i32 %.091, 31
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -16
+  %17 = icmp ugt i32 %.191, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -6172,40 +6172,40 @@ define internal void @ompi_op_avx_2buff_band_uint16_t_avx2(ptr noundef %0, ptr n
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 7
+  %22 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = and <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -8
-  %29 = icmp ugt i32 %.296, 15
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -8
+  %29 = icmp ugt i32 %.396, 15
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !113
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -6313,24 +6313,24 @@ define internal void @ompi_op_avx_2buff_band_int32_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = and <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -8
-  %17 = icmp ugt i32 %.091, 15
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -8
+  %17 = icmp ugt i32 %.191, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !115
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -6339,40 +6339,40 @@ define internal void @ompi_op_avx_2buff_band_int32_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 3
+  %22 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = and <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -4
-  %29 = icmp ugt i32 %.296, 7
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -4
+  %29 = icmp ugt i32 %.396, 7
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !116
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -6480,24 +6480,24 @@ define internal void @ompi_op_avx_2buff_band_uint32_t_avx2(ptr noundef %0, ptr n
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = and <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -8
-  %17 = icmp ugt i32 %.091, 15
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -8
+  %17 = icmp ugt i32 %.191, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !118
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -6506,40 +6506,40 @@ define internal void @ompi_op_avx_2buff_band_uint32_t_avx2(ptr noundef %0, ptr n
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 3
+  %22 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = and <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -4
-  %29 = icmp ugt i32 %.296, 7
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -4
+  %29 = icmp ugt i32 %.396, 7
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !119
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -6647,24 +6647,24 @@ define internal void @ompi_op_avx_2buff_band_int64_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = and <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -4
-  %17 = icmp ugt i32 %.091, 7
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -4
+  %17 = icmp ugt i32 %.191, 7
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -6673,40 +6673,40 @@ define internal void @ompi_op_avx_2buff_band_int64_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 1
+  %22 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = and <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -2
-  %29 = icmp ugt i32 %.296, 3
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -2
+  %29 = icmp ugt i32 %.396, 3
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !122
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -6814,24 +6814,24 @@ define internal void @ompi_op_avx_2buff_band_uint64_t_avx2(ptr noundef %0, ptr n
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = and <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -4
-  %17 = icmp ugt i32 %.091, 7
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -4
+  %17 = icmp ugt i32 %.191, 7
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !124
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -6840,40 +6840,40 @@ define internal void @ompi_op_avx_2buff_band_uint64_t_avx2(ptr noundef %0, ptr n
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 1
+  %22 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = and <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -2
-  %29 = icmp ugt i32 %.296, 3
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -2
+  %29 = icmp ugt i32 %.396, 3
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !125
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -6981,24 +6981,24 @@ define internal void @ompi_op_avx_2buff_bor_int8_t_avx2(ptr noundef %0, ptr noun
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = or <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -32
-  %17 = icmp ugt i32 %.091, 63
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -32
+  %17 = icmp ugt i32 %.191, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -7007,40 +7007,40 @@ define internal void @ompi_op_avx_2buff_bor_int8_t_avx2(ptr noundef %0, ptr noun
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 15
+  %22 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = or <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -16
-  %29 = icmp ugt i32 %.296, 31
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -16
+  %29 = icmp ugt i32 %.396, 31
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !128
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -7148,24 +7148,24 @@ define internal void @ompi_op_avx_2buff_bor_uint8_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = or <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -32
-  %17 = icmp ugt i32 %.091, 63
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -32
+  %17 = icmp ugt i32 %.191, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -7174,40 +7174,40 @@ define internal void @ompi_op_avx_2buff_bor_uint8_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 15
+  %22 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = or <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -16
-  %29 = icmp ugt i32 %.296, 31
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -16
+  %29 = icmp ugt i32 %.396, 31
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !131
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -7315,24 +7315,24 @@ define internal void @ompi_op_avx_2buff_bor_int16_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = or <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -16
-  %17 = icmp ugt i32 %.091, 31
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -16
+  %17 = icmp ugt i32 %.191, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -7341,40 +7341,40 @@ define internal void @ompi_op_avx_2buff_bor_int16_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 7
+  %22 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = or <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -8
-  %29 = icmp ugt i32 %.296, 15
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -8
+  %29 = icmp ugt i32 %.396, 15
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !134
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -7482,24 +7482,24 @@ define internal void @ompi_op_avx_2buff_bor_uint16_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = or <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -16
-  %17 = icmp ugt i32 %.091, 31
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -16
+  %17 = icmp ugt i32 %.191, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !136
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -7508,40 +7508,40 @@ define internal void @ompi_op_avx_2buff_bor_uint16_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 7
+  %22 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = or <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -8
-  %29 = icmp ugt i32 %.296, 15
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -8
+  %29 = icmp ugt i32 %.396, 15
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !137
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -7649,24 +7649,24 @@ define internal void @ompi_op_avx_2buff_bor_int32_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = or <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -8
-  %17 = icmp ugt i32 %.091, 15
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -8
+  %17 = icmp ugt i32 %.191, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -7675,40 +7675,40 @@ define internal void @ompi_op_avx_2buff_bor_int32_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 3
+  %22 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = or <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -4
-  %29 = icmp ugt i32 %.296, 7
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -4
+  %29 = icmp ugt i32 %.396, 7
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !140
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -7816,24 +7816,24 @@ define internal void @ompi_op_avx_2buff_bor_uint32_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = or <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -8
-  %17 = icmp ugt i32 %.091, 15
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -8
+  %17 = icmp ugt i32 %.191, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !142
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -7842,40 +7842,40 @@ define internal void @ompi_op_avx_2buff_bor_uint32_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 3
+  %22 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = or <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -4
-  %29 = icmp ugt i32 %.296, 7
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -4
+  %29 = icmp ugt i32 %.396, 7
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !143
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -7983,24 +7983,24 @@ define internal void @ompi_op_avx_2buff_bor_int64_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = or <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -4
-  %17 = icmp ugt i32 %.091, 7
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -4
+  %17 = icmp ugt i32 %.191, 7
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !145
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -8009,40 +8009,40 @@ define internal void @ompi_op_avx_2buff_bor_int64_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 1
+  %22 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = or <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -2
-  %29 = icmp ugt i32 %.296, 3
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -2
+  %29 = icmp ugt i32 %.396, 3
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !146
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -8150,24 +8150,24 @@ define internal void @ompi_op_avx_2buff_bor_uint64_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = or <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -4
-  %17 = icmp ugt i32 %.091, 7
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -4
+  %17 = icmp ugt i32 %.191, 7
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !148
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -8176,40 +8176,40 @@ define internal void @ompi_op_avx_2buff_bor_uint64_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 1
+  %22 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = or <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -2
-  %29 = icmp ugt i32 %.296, 3
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -2
+  %29 = icmp ugt i32 %.396, 3
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !149
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -8317,24 +8317,24 @@ define internal void @ompi_op_avx_2buff_bxor_int8_t_avx2(ptr noundef %0, ptr nou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = xor <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -32
-  %17 = icmp ugt i32 %.091, 63
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -32
+  %17 = icmp ugt i32 %.191, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !151
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -8343,40 +8343,40 @@ define internal void @ompi_op_avx_2buff_bxor_int8_t_avx2(ptr noundef %0, ptr nou
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 15
+  %22 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = xor <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -16
-  %29 = icmp ugt i32 %.296, 31
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -16
+  %29 = icmp ugt i32 %.396, 31
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !152
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -8484,24 +8484,24 @@ define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = xor <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -32
-  %17 = icmp ugt i32 %.091, 63
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -32
+  %17 = icmp ugt i32 %.191, 63
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !154
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -8510,40 +8510,40 @@ define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 15
+  %22 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = xor <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -16
-  %29 = icmp ugt i32 %.296, 31
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -16
+  %29 = icmp ugt i32 %.396, 31
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !155
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -8651,24 +8651,24 @@ define internal void @ompi_op_avx_2buff_bxor_int16_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = xor <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -16
-  %17 = icmp ugt i32 %.091, 31
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -16
+  %17 = icmp ugt i32 %.191, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !157
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -8677,40 +8677,40 @@ define internal void @ompi_op_avx_2buff_bxor_int16_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 7
+  %22 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = xor <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -8
-  %29 = icmp ugt i32 %.296, 15
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -8
+  %29 = icmp ugt i32 %.396, 15
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !158
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -8818,24 +8818,24 @@ define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx2(ptr noundef %0, ptr n
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = xor <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -16
-  %17 = icmp ugt i32 %.091, 31
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -16
+  %17 = icmp ugt i32 %.191, 31
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !160
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -8844,40 +8844,40 @@ define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx2(ptr noundef %0, ptr n
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 7
+  %22 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = xor <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -8
-  %29 = icmp ugt i32 %.296, 15
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -8
+  %29 = icmp ugt i32 %.396, 15
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !161
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -8985,24 +8985,24 @@ define internal void @ompi_op_avx_2buff_bxor_int32_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = xor <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -8
-  %17 = icmp ugt i32 %.091, 15
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -8
+  %17 = icmp ugt i32 %.191, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -9011,40 +9011,40 @@ define internal void @ompi_op_avx_2buff_bxor_int32_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 3
+  %22 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = xor <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -4
-  %29 = icmp ugt i32 %.296, 7
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -4
+  %29 = icmp ugt i32 %.396, 7
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !164
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -9152,24 +9152,24 @@ define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx2(ptr noundef %0, ptr n
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = xor <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -8
-  %17 = icmp ugt i32 %.091, 15
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -8
+  %17 = icmp ugt i32 %.191, 15
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !166
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -9178,40 +9178,40 @@ define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx2(ptr noundef %0, ptr n
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 3
+  %22 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = xor <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -4
-  %29 = icmp ugt i32 %.296, 7
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -4
+  %29 = icmp ugt i32 %.396, 7
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !167
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -9319,24 +9319,24 @@ define internal void @ompi_op_avx_2buff_bxor_int64_t_avx2(ptr noundef %0, ptr no
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = xor <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -4
-  %17 = icmp ugt i32 %.091, 7
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -4
+  %17 = icmp ugt i32 %.191, 7
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !169
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -9345,40 +9345,40 @@ define internal void @ompi_op_avx_2buff_bxor_int64_t_avx2(ptr noundef %0, ptr no
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 1
+  %22 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = xor <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -2
-  %29 = icmp ugt i32 %.296, 3
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -2
+  %29 = icmp ugt i32 %.396, 3
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !170
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -9486,24 +9486,24 @@ define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx2(ptr noundef %0, ptr n
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader88, %.lr.ph
-  %.091 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
-  %.07790 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
-  %.08289 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
-  %11 = load <4 x i64>, ptr %.07790, align 1
-  %12 = getelementptr inbounds i8, ptr %.07790, i64 32
-  %13 = load <4 x i64>, ptr %.08289, align 1
+  %.191 = phi i32 [ %16, %.lr.ph ], [ %6, %.preheader88 ]
+  %.17890 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader88 ]
+  %.18389 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader88 ]
+  %11 = load <4 x i64>, ptr %.17890, align 1
+  %12 = getelementptr inbounds i8, ptr %.17890, i64 32
+  %13 = load <4 x i64>, ptr %.18389, align 1
   %14 = xor <4 x i64> %13, %11
-  store <4 x i64> %14, ptr %.08289, align 1
-  %15 = getelementptr inbounds i8, ptr %.08289, i64 32
-  %16 = add nsw i32 %.091, -4
-  %17 = icmp ugt i32 %.091, 7
+  store <4 x i64> %14, ptr %.18389, align 1
+  %15 = getelementptr inbounds i8, ptr %.18389, i64 32
+  %16 = add nsw i32 %.191, -4
+  %17 = icmp ugt i32 %.191, 7
   br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !172
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader88
-  %.082.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
-  %.077.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
-  %18 = icmp eq i32 %.0.lcssa, 0
+  %.183.lcssa = phi ptr [ %1, %.preheader88 ], [ %15, %.lr.ph ]
+  %.178.lcssa = phi ptr [ %0, %.preheader88 ], [ %12, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %6, %.preheader88 ], [ %16, %.lr.ph ]
+  %18 = icmp eq i32 %.1.lcssa, 0
   br i1 %18, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -9512,40 +9512,40 @@ define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx2(ptr noundef %0, ptr n
 
 19:                                               ; preds = %._crit_edge._crit_edge, %5
   %20 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %7, %5 ]
-  %.183 = phi ptr [ %.082.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
-  %.178 = phi ptr [ %.077.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
+  %.082 = phi ptr [ %.183.lcssa, %._crit_edge._crit_edge ], [ %1, %5 ]
+  %.077 = phi ptr [ %.178.lcssa, %._crit_edge._crit_edge ], [ %0, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %6, %5 ]
   %21 = and i32 %20, 4
   %.not = icmp ne i32 %21, 0
-  %22 = icmp sgt i32 %.1, 1
+  %22 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not, i1 %22, i1 false
   br i1 %or.cond, label %.lr.ph97, label %.loopexit87
 
 .lr.ph97:                                         ; preds = %19, %.lr.ph97
-  %.296 = phi i32 [ %28, %.lr.ph97 ], [ %.1, %19 ]
-  %.27995 = phi ptr [ %24, %.lr.ph97 ], [ %.178, %19 ]
-  %.28494 = phi ptr [ %27, %.lr.ph97 ], [ %.183, %19 ]
-  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.27995)
-  %24 = getelementptr inbounds i8, ptr %.27995, i64 16
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.28494)
+  %.396 = phi i32 [ %28, %.lr.ph97 ], [ %.0, %19 ]
+  %.38095 = phi ptr [ %24, %.lr.ph97 ], [ %.077, %19 ]
+  %.38594 = phi ptr [ %27, %.lr.ph97 ], [ %.082, %19 ]
+  %23 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38095)
+  %24 = getelementptr inbounds i8, ptr %.38095, i64 16
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.38594)
   %26 = xor <16 x i8> %25, %23
-  store <16 x i8> %26, ptr %.28494, align 1
-  %27 = getelementptr inbounds i8, ptr %.28494, i64 16
-  %28 = add nsw i32 %.296, -2
-  %29 = icmp ugt i32 %.296, 3
+  store <16 x i8> %26, ptr %.38594, align 1
+  %27 = getelementptr inbounds i8, ptr %.38594, i64 16
+  %28 = add nsw i32 %.396, -2
+  %29 = icmp ugt i32 %.396, 3
   br i1 %29, label %.lr.ph97, label %.loopexit87, !llvm.loop !173
 
 .loopexit87:                                      ; preds = %.lr.ph97, %19
-  %.385 = phi ptr [ %.183, %19 ], [ %27, %.lr.ph97 ]
-  %.380 = phi ptr [ %.178, %19 ], [ %24, %.lr.ph97 ]
-  %.3 = phi i32 [ %.1, %19 ], [ %28, %.lr.ph97 ]
-  %30 = icmp sgt i32 %.3, 0
+  %.284 = phi ptr [ %.082, %19 ], [ %27, %.lr.ph97 ]
+  %.279 = phi ptr [ %.077, %19 ], [ %24, %.lr.ph97 ]
+  %.2 = phi i32 [ %.0, %19 ], [ %28, %.lr.ph97 ]
+  %30 = icmp sgt i32 %.2, 0
   br i1 %30, label %.lr.ph105, label %.loopexit
 
 .lr.ph105:                                        ; preds = %.loopexit87, %74
-  %.4103 = phi i32 [ %78, %74 ], [ %.3, %.loopexit87 ]
-  %.481102 = phi ptr [ %81, %74 ], [ %.380, %.loopexit87 ]
-  %.486101 = phi ptr [ %80, %74 ], [ %.385, %.loopexit87 ]
+  %.4103 = phi i32 [ %78, %74 ], [ %.2, %.loopexit87 ]
+  %.481102 = phi ptr [ %81, %74 ], [ %.279, %.loopexit87 ]
+  %.486101 = phi ptr [ %80, %74 ], [ %.284, %.loopexit87 ]
   %31 = tail call i32 @llvm.umin.i32(i32 %.4103, i32 8)
   switch i32 %31, label %default.unreachable [
     i32 8, label %32
@@ -9653,69 +9653,69 @@ define internal void @ompi_op_avx_3buff_max_int8_t_avx2(ptr noalias noundef %0, 
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader146, %.lr.ph
-  %.0150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
-  %.0100149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
-  %.0105148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
-  %.0110147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
-  %12 = load <32 x i8>, ptr %.0150, align 1
-  %13 = load <32 x i8>, ptr %.0100149, align 1
-  %14 = getelementptr inbounds i8, ptr %.0150, i64 32
-  %15 = getelementptr inbounds i8, ptr %.0100149, i64 32
+  %.1150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
+  %.1101149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
+  %.1106148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
+  %.1111147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
+  %12 = load <32 x i8>, ptr %.1150, align 1
+  %13 = load <32 x i8>, ptr %.1101149, align 1
+  %14 = getelementptr inbounds i8, ptr %.1150, i64 32
+  %15 = getelementptr inbounds i8, ptr %.1101149, i64 32
   %16 = tail call <32 x i8> @llvm.smax.v32i8(<32 x i8> %12, <32 x i8> %13)
-  store <32 x i8> %16, ptr %.0105148, align 1
-  %17 = getelementptr inbounds i8, ptr %.0105148, i64 32
-  %18 = add nsw i32 %.0110147, -32
-  %19 = icmp ugt i32 %.0110147, 63
+  store <32 x i8> %16, ptr %.1106148, align 1
+  %17 = getelementptr inbounds i8, ptr %.1106148, i64 32
+  %18 = add nsw i32 %.1111147, -32
+  %19 = icmp ugt i32 %.1111147, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !175
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader146
-  %.0110.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.0110.lcssa, 0
+  %.1111.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.1111.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.1111 = phi i32 [ %.0110.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.0110 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.1111, 15
+  %24 = icmp sgt i32 %.0110, 15
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph158, label %.loopexit145
 
 .lr.ph158:                                        ; preds = %21, %.lr.ph158
-  %.2157 = phi ptr [ %27, %.lr.ph158 ], [ %.1, %21 ]
-  %.2102156 = phi ptr [ %28, %.lr.ph158 ], [ %.1101, %21 ]
-  %.2107155 = phi ptr [ %30, %.lr.ph158 ], [ %.1106, %21 ]
-  %.2112154 = phi i32 [ %31, %.lr.ph158 ], [ %.1111, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2157)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2102156)
-  %27 = getelementptr inbounds i8, ptr %.2157, i64 16
-  %28 = getelementptr inbounds i8, ptr %.2102156, i64 16
+  %.3157 = phi ptr [ %27, %.lr.ph158 ], [ %.0, %21 ]
+  %.3103156 = phi ptr [ %28, %.lr.ph158 ], [ %.0100, %21 ]
+  %.3108155 = phi ptr [ %30, %.lr.ph158 ], [ %.0105, %21 ]
+  %.3113154 = phi i32 [ %31, %.lr.ph158 ], [ %.0110, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3157)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3103156)
+  %27 = getelementptr inbounds i8, ptr %.3157, i64 16
+  %28 = getelementptr inbounds i8, ptr %.3103156, i64 16
   %29 = tail call <16 x i8> @llvm.smax.v16i8(<16 x i8> %25, <16 x i8> %26)
-  store <16 x i8> %29, ptr %.2107155, align 1
-  %30 = getelementptr inbounds i8, ptr %.2107155, i64 16
-  %31 = add nsw i32 %.2112154, -16
-  %32 = icmp ugt i32 %.2112154, 31
+  store <16 x i8> %29, ptr %.3108155, align 1
+  %30 = getelementptr inbounds i8, ptr %.3108155, i64 16
+  %31 = add nsw i32 %.3113154, -16
+  %32 = icmp ugt i32 %.3113154, 31
   br i1 %32, label %.lr.ph158, label %.loopexit145, !llvm.loop !176
 
 .loopexit145:                                     ; preds = %.lr.ph158, %21
-  %.3113 = phi i32 [ %.1111, %21 ], [ %31, %.lr.ph158 ]
-  %.3108 = phi ptr [ %.1106, %21 ], [ %30, %.lr.ph158 ]
-  %.3103 = phi ptr [ %.1101, %21 ], [ %28, %.lr.ph158 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph158 ]
-  %33 = icmp sgt i32 %.3113, 0
+  %.2112 = phi i32 [ %.0110, %21 ], [ %31, %.lr.ph158 ]
+  %.2107 = phi ptr [ %.0105, %21 ], [ %30, %.lr.ph158 ]
+  %.2102 = phi ptr [ %.0100, %21 ], [ %28, %.lr.ph158 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph158 ]
+  %33 = icmp sgt i32 %.2112, 0
   br i1 %33, label %.lr.ph168, label %.loopexit
 
 .lr.ph168:                                        ; preds = %.loopexit145, %77
-  %.4166 = phi ptr [ %83, %77 ], [ %.3, %.loopexit145 ]
-  %.4104165 = phi ptr [ %84, %77 ], [ %.3103, %.loopexit145 ]
-  %.4109164 = phi ptr [ %82, %77 ], [ %.3108, %.loopexit145 ]
-  %.4114163 = phi i32 [ %80, %77 ], [ %.3113, %.loopexit145 ]
+  %.4166 = phi ptr [ %83, %77 ], [ %.2, %.loopexit145 ]
+  %.4104165 = phi ptr [ %84, %77 ], [ %.2102, %.loopexit145 ]
+  %.4109164 = phi ptr [ %82, %77 ], [ %.2107, %.loopexit145 ]
+  %.4114163 = phi i32 [ %80, %77 ], [ %.2112, %.loopexit145 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4114163, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -9831,69 +9831,69 @@ define internal void @ompi_op_avx_3buff_max_uint8_t_avx2(ptr noalias noundef %0,
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader146, %.lr.ph
-  %.0150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
-  %.0100149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
-  %.0105148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
-  %.0110147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
-  %12 = load <32 x i8>, ptr %.0150, align 1
-  %13 = load <32 x i8>, ptr %.0100149, align 1
-  %14 = getelementptr inbounds i8, ptr %.0150, i64 32
-  %15 = getelementptr inbounds i8, ptr %.0100149, i64 32
+  %.1150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
+  %.1101149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
+  %.1106148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
+  %.1111147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
+  %12 = load <32 x i8>, ptr %.1150, align 1
+  %13 = load <32 x i8>, ptr %.1101149, align 1
+  %14 = getelementptr inbounds i8, ptr %.1150, i64 32
+  %15 = getelementptr inbounds i8, ptr %.1101149, i64 32
   %16 = tail call <32 x i8> @llvm.umax.v32i8(<32 x i8> %12, <32 x i8> %13)
-  store <32 x i8> %16, ptr %.0105148, align 1
-  %17 = getelementptr inbounds i8, ptr %.0105148, i64 32
-  %18 = add nsw i32 %.0110147, -32
-  %19 = icmp ugt i32 %.0110147, 63
+  store <32 x i8> %16, ptr %.1106148, align 1
+  %17 = getelementptr inbounds i8, ptr %.1106148, i64 32
+  %18 = add nsw i32 %.1111147, -32
+  %19 = icmp ugt i32 %.1111147, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader146
-  %.0110.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.0110.lcssa, 0
+  %.1111.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.1111.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.1111 = phi i32 [ %.0110.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.0110 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.1111, 15
+  %24 = icmp sgt i32 %.0110, 15
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph158, label %.loopexit145
 
 .lr.ph158:                                        ; preds = %21, %.lr.ph158
-  %.2157 = phi ptr [ %27, %.lr.ph158 ], [ %.1, %21 ]
-  %.2102156 = phi ptr [ %28, %.lr.ph158 ], [ %.1101, %21 ]
-  %.2107155 = phi ptr [ %30, %.lr.ph158 ], [ %.1106, %21 ]
-  %.2112154 = phi i32 [ %31, %.lr.ph158 ], [ %.1111, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2157)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2102156)
-  %27 = getelementptr inbounds i8, ptr %.2157, i64 16
-  %28 = getelementptr inbounds i8, ptr %.2102156, i64 16
+  %.3157 = phi ptr [ %27, %.lr.ph158 ], [ %.0, %21 ]
+  %.3103156 = phi ptr [ %28, %.lr.ph158 ], [ %.0100, %21 ]
+  %.3108155 = phi ptr [ %30, %.lr.ph158 ], [ %.0105, %21 ]
+  %.3113154 = phi i32 [ %31, %.lr.ph158 ], [ %.0110, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3157)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3103156)
+  %27 = getelementptr inbounds i8, ptr %.3157, i64 16
+  %28 = getelementptr inbounds i8, ptr %.3103156, i64 16
   %29 = tail call <16 x i8> @llvm.umax.v16i8(<16 x i8> %25, <16 x i8> %26)
-  store <16 x i8> %29, ptr %.2107155, align 1
-  %30 = getelementptr inbounds i8, ptr %.2107155, i64 16
-  %31 = add nsw i32 %.2112154, -16
-  %32 = icmp ugt i32 %.2112154, 31
+  store <16 x i8> %29, ptr %.3108155, align 1
+  %30 = getelementptr inbounds i8, ptr %.3108155, i64 16
+  %31 = add nsw i32 %.3113154, -16
+  %32 = icmp ugt i32 %.3113154, 31
   br i1 %32, label %.lr.ph158, label %.loopexit145, !llvm.loop !179
 
 .loopexit145:                                     ; preds = %.lr.ph158, %21
-  %.3113 = phi i32 [ %.1111, %21 ], [ %31, %.lr.ph158 ]
-  %.3108 = phi ptr [ %.1106, %21 ], [ %30, %.lr.ph158 ]
-  %.3103 = phi ptr [ %.1101, %21 ], [ %28, %.lr.ph158 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph158 ]
-  %33 = icmp sgt i32 %.3113, 0
+  %.2112 = phi i32 [ %.0110, %21 ], [ %31, %.lr.ph158 ]
+  %.2107 = phi ptr [ %.0105, %21 ], [ %30, %.lr.ph158 ]
+  %.2102 = phi ptr [ %.0100, %21 ], [ %28, %.lr.ph158 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph158 ]
+  %33 = icmp sgt i32 %.2112, 0
   br i1 %33, label %.lr.ph168, label %.loopexit
 
 .lr.ph168:                                        ; preds = %.loopexit145, %77
-  %.4166 = phi ptr [ %83, %77 ], [ %.3, %.loopexit145 ]
-  %.4104165 = phi ptr [ %84, %77 ], [ %.3103, %.loopexit145 ]
-  %.4109164 = phi ptr [ %82, %77 ], [ %.3108, %.loopexit145 ]
-  %.4114163 = phi i32 [ %80, %77 ], [ %.3113, %.loopexit145 ]
+  %.4166 = phi ptr [ %83, %77 ], [ %.2, %.loopexit145 ]
+  %.4104165 = phi ptr [ %84, %77 ], [ %.2102, %.loopexit145 ]
+  %.4109164 = phi ptr [ %82, %77 ], [ %.2107, %.loopexit145 ]
+  %.4114163 = phi i32 [ %80, %77 ], [ %.2112, %.loopexit145 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4114163, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -10009,71 +10009,71 @@ define internal void @ompi_op_avx_3buff_max_int16_t_avx2(ptr noalias noundef %0,
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader146, %.lr.ph
-  %.0150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
-  %.0100149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
-  %.0105148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
-  %.0110147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
-  %12 = load <16 x i16>, ptr %.0150, align 1
-  %13 = load <16 x i16>, ptr %.0100149, align 1
-  %14 = getelementptr inbounds i8, ptr %.0150, i64 32
-  %15 = getelementptr inbounds i8, ptr %.0100149, i64 32
+  %.1150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
+  %.1101149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
+  %.1106148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
+  %.1111147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
+  %12 = load <16 x i16>, ptr %.1150, align 1
+  %13 = load <16 x i16>, ptr %.1101149, align 1
+  %14 = getelementptr inbounds i8, ptr %.1150, i64 32
+  %15 = getelementptr inbounds i8, ptr %.1101149, i64 32
   %16 = tail call <16 x i16> @llvm.smax.v16i16(<16 x i16> %12, <16 x i16> %13)
-  store <16 x i16> %16, ptr %.0105148, align 1
-  %17 = getelementptr inbounds i8, ptr %.0105148, i64 32
-  %18 = add nsw i32 %.0110147, -16
-  %19 = icmp ugt i32 %.0110147, 31
+  store <16 x i16> %16, ptr %.1106148, align 1
+  %17 = getelementptr inbounds i8, ptr %.1106148, i64 32
+  %18 = add nsw i32 %.1111147, -16
+  %19 = icmp ugt i32 %.1111147, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !181
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader146
-  %.0110.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.0110.lcssa, 0
+  %.1111.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.1111.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.1111 = phi i32 [ %.0110.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.0110 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.1111, 7
+  %24 = icmp sgt i32 %.0110, 7
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph158, label %.loopexit145
 
 .lr.ph158:                                        ; preds = %21, %.lr.ph158
-  %.2157 = phi ptr [ %27, %.lr.ph158 ], [ %.1, %21 ]
-  %.2102156 = phi ptr [ %28, %.lr.ph158 ], [ %.1101, %21 ]
-  %.2107155 = phi ptr [ %32, %.lr.ph158 ], [ %.1106, %21 ]
-  %.2112154 = phi i32 [ %33, %.lr.ph158 ], [ %.1111, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2157)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2102156)
-  %27 = getelementptr inbounds i8, ptr %.2157, i64 16
-  %28 = getelementptr inbounds i8, ptr %.2102156, i64 16
+  %.3157 = phi ptr [ %27, %.lr.ph158 ], [ %.0, %21 ]
+  %.3103156 = phi ptr [ %28, %.lr.ph158 ], [ %.0100, %21 ]
+  %.3108155 = phi ptr [ %32, %.lr.ph158 ], [ %.0105, %21 ]
+  %.3113154 = phi i32 [ %33, %.lr.ph158 ], [ %.0110, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3157)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3103156)
+  %27 = getelementptr inbounds i8, ptr %.3157, i64 16
+  %28 = getelementptr inbounds i8, ptr %.3103156, i64 16
   %29 = bitcast <16 x i8> %25 to <8 x i16>
   %30 = bitcast <16 x i8> %26 to <8 x i16>
   %31 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %29, <8 x i16> %30)
-  store <8 x i16> %31, ptr %.2107155, align 1
-  %32 = getelementptr inbounds i8, ptr %.2107155, i64 16
-  %33 = add nsw i32 %.2112154, -8
-  %34 = icmp ugt i32 %.2112154, 15
+  store <8 x i16> %31, ptr %.3108155, align 1
+  %32 = getelementptr inbounds i8, ptr %.3108155, i64 16
+  %33 = add nsw i32 %.3113154, -8
+  %34 = icmp ugt i32 %.3113154, 15
   br i1 %34, label %.lr.ph158, label %.loopexit145, !llvm.loop !182
 
 .loopexit145:                                     ; preds = %.lr.ph158, %21
-  %.3113 = phi i32 [ %.1111, %21 ], [ %33, %.lr.ph158 ]
-  %.3108 = phi ptr [ %.1106, %21 ], [ %32, %.lr.ph158 ]
-  %.3103 = phi ptr [ %.1101, %21 ], [ %28, %.lr.ph158 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph158 ]
-  %35 = icmp sgt i32 %.3113, 0
+  %.2112 = phi i32 [ %.0110, %21 ], [ %33, %.lr.ph158 ]
+  %.2107 = phi ptr [ %.0105, %21 ], [ %32, %.lr.ph158 ]
+  %.2102 = phi ptr [ %.0100, %21 ], [ %28, %.lr.ph158 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph158 ]
+  %35 = icmp sgt i32 %.2112, 0
   br i1 %35, label %.lr.ph168, label %.loopexit
 
 .lr.ph168:                                        ; preds = %.loopexit145, %79
-  %.4166 = phi ptr [ %85, %79 ], [ %.3, %.loopexit145 ]
-  %.4104165 = phi ptr [ %86, %79 ], [ %.3103, %.loopexit145 ]
-  %.4109164 = phi ptr [ %84, %79 ], [ %.3108, %.loopexit145 ]
-  %.4114163 = phi i32 [ %82, %79 ], [ %.3113, %.loopexit145 ]
+  %.4166 = phi ptr [ %85, %79 ], [ %.2, %.loopexit145 ]
+  %.4104165 = phi ptr [ %86, %79 ], [ %.2102, %.loopexit145 ]
+  %.4109164 = phi ptr [ %84, %79 ], [ %.2107, %.loopexit145 ]
+  %.4114163 = phi i32 [ %82, %79 ], [ %.2112, %.loopexit145 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.4114163, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -10189,71 +10189,71 @@ define internal void @ompi_op_avx_3buff_max_uint16_t_avx2(ptr noalias noundef %0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader146, %.lr.ph
-  %.0150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
-  %.0100149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
-  %.0105148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
-  %.0110147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
-  %12 = load <16 x i16>, ptr %.0150, align 1
-  %13 = load <16 x i16>, ptr %.0100149, align 1
-  %14 = getelementptr inbounds i8, ptr %.0150, i64 32
-  %15 = getelementptr inbounds i8, ptr %.0100149, i64 32
+  %.1150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
+  %.1101149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
+  %.1106148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
+  %.1111147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
+  %12 = load <16 x i16>, ptr %.1150, align 1
+  %13 = load <16 x i16>, ptr %.1101149, align 1
+  %14 = getelementptr inbounds i8, ptr %.1150, i64 32
+  %15 = getelementptr inbounds i8, ptr %.1101149, i64 32
   %16 = tail call <16 x i16> @llvm.umax.v16i16(<16 x i16> %12, <16 x i16> %13)
-  store <16 x i16> %16, ptr %.0105148, align 1
-  %17 = getelementptr inbounds i8, ptr %.0105148, i64 32
-  %18 = add nsw i32 %.0110147, -16
-  %19 = icmp ugt i32 %.0110147, 31
+  store <16 x i16> %16, ptr %.1106148, align 1
+  %17 = getelementptr inbounds i8, ptr %.1106148, i64 32
+  %18 = add nsw i32 %.1111147, -16
+  %19 = icmp ugt i32 %.1111147, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !184
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader146
-  %.0110.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.0110.lcssa, 0
+  %.1111.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.1111.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.1111 = phi i32 [ %.0110.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.0110 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.1111, 7
+  %24 = icmp sgt i32 %.0110, 7
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph158, label %.loopexit145
 
 .lr.ph158:                                        ; preds = %21, %.lr.ph158
-  %.2157 = phi ptr [ %27, %.lr.ph158 ], [ %.1, %21 ]
-  %.2102156 = phi ptr [ %28, %.lr.ph158 ], [ %.1101, %21 ]
-  %.2107155 = phi ptr [ %32, %.lr.ph158 ], [ %.1106, %21 ]
-  %.2112154 = phi i32 [ %33, %.lr.ph158 ], [ %.1111, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2157)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2102156)
-  %27 = getelementptr inbounds i8, ptr %.2157, i64 16
-  %28 = getelementptr inbounds i8, ptr %.2102156, i64 16
+  %.3157 = phi ptr [ %27, %.lr.ph158 ], [ %.0, %21 ]
+  %.3103156 = phi ptr [ %28, %.lr.ph158 ], [ %.0100, %21 ]
+  %.3108155 = phi ptr [ %32, %.lr.ph158 ], [ %.0105, %21 ]
+  %.3113154 = phi i32 [ %33, %.lr.ph158 ], [ %.0110, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3157)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3103156)
+  %27 = getelementptr inbounds i8, ptr %.3157, i64 16
+  %28 = getelementptr inbounds i8, ptr %.3103156, i64 16
   %29 = bitcast <16 x i8> %25 to <8 x i16>
   %30 = bitcast <16 x i8> %26 to <8 x i16>
   %31 = tail call <8 x i16> @llvm.umax.v8i16(<8 x i16> %29, <8 x i16> %30)
-  store <8 x i16> %31, ptr %.2107155, align 1
-  %32 = getelementptr inbounds i8, ptr %.2107155, i64 16
-  %33 = add nsw i32 %.2112154, -8
-  %34 = icmp ugt i32 %.2112154, 15
+  store <8 x i16> %31, ptr %.3108155, align 1
+  %32 = getelementptr inbounds i8, ptr %.3108155, i64 16
+  %33 = add nsw i32 %.3113154, -8
+  %34 = icmp ugt i32 %.3113154, 15
   br i1 %34, label %.lr.ph158, label %.loopexit145, !llvm.loop !185
 
 .loopexit145:                                     ; preds = %.lr.ph158, %21
-  %.3113 = phi i32 [ %.1111, %21 ], [ %33, %.lr.ph158 ]
-  %.3108 = phi ptr [ %.1106, %21 ], [ %32, %.lr.ph158 ]
-  %.3103 = phi ptr [ %.1101, %21 ], [ %28, %.lr.ph158 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph158 ]
-  %35 = icmp sgt i32 %.3113, 0
+  %.2112 = phi i32 [ %.0110, %21 ], [ %33, %.lr.ph158 ]
+  %.2107 = phi ptr [ %.0105, %21 ], [ %32, %.lr.ph158 ]
+  %.2102 = phi ptr [ %.0100, %21 ], [ %28, %.lr.ph158 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph158 ]
+  %35 = icmp sgt i32 %.2112, 0
   br i1 %35, label %.lr.ph168, label %.loopexit
 
 .lr.ph168:                                        ; preds = %.loopexit145, %79
-  %.4166 = phi ptr [ %85, %79 ], [ %.3, %.loopexit145 ]
-  %.4104165 = phi ptr [ %86, %79 ], [ %.3103, %.loopexit145 ]
-  %.4109164 = phi ptr [ %84, %79 ], [ %.3108, %.loopexit145 ]
-  %.4114163 = phi i32 [ %82, %79 ], [ %.3113, %.loopexit145 ]
+  %.4166 = phi ptr [ %85, %79 ], [ %.2, %.loopexit145 ]
+  %.4104165 = phi ptr [ %86, %79 ], [ %.2102, %.loopexit145 ]
+  %.4109164 = phi ptr [ %84, %79 ], [ %.2107, %.loopexit145 ]
+  %.4114163 = phi i32 [ %82, %79 ], [ %.2112, %.loopexit145 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.4114163, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -10369,71 +10369,71 @@ define internal void @ompi_op_avx_3buff_max_int32_t_avx2(ptr noalias noundef %0,
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader139, %.lr.ph
-  %.0143 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader139 ]
-  %.0100142 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader139 ]
-  %.0105141 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader139 ]
-  %.0110140 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader139 ]
-  %12 = load <8 x i32>, ptr %.0143, align 1
-  %13 = load <8 x i32>, ptr %.0100142, align 1
-  %14 = getelementptr inbounds i8, ptr %.0143, i64 32
-  %15 = getelementptr inbounds i8, ptr %.0100142, i64 32
+  %.1143 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader139 ]
+  %.1101142 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader139 ]
+  %.1106141 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader139 ]
+  %.1111140 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader139 ]
+  %12 = load <8 x i32>, ptr %.1143, align 1
+  %13 = load <8 x i32>, ptr %.1101142, align 1
+  %14 = getelementptr inbounds i8, ptr %.1143, i64 32
+  %15 = getelementptr inbounds i8, ptr %.1101142, i64 32
   %16 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %12, <8 x i32> %13)
-  store <8 x i32> %16, ptr %.0105141, align 1
-  %17 = getelementptr inbounds i8, ptr %.0105141, i64 32
-  %18 = add nsw i32 %.0110140, -8
-  %19 = icmp ugt i32 %.0110140, 15
+  store <8 x i32> %16, ptr %.1106141, align 1
+  %17 = getelementptr inbounds i8, ptr %.1106141, i64 32
+  %18 = add nsw i32 %.1111140, -8
+  %19 = icmp ugt i32 %.1111140, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !187
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader139
-  %.0110.lcssa = phi i32 [ %7, %.preheader139 ], [ %18, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %2, %.preheader139 ], [ %17, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %1, %.preheader139 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader139 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.0110.lcssa, 0
+  %.1111.lcssa = phi i32 [ %7, %.preheader139 ], [ %18, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %2, %.preheader139 ], [ %17, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %1, %.preheader139 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader139 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.1111.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.1111 = phi i32 [ %.0110.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.0110 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.1111, 3
+  %24 = icmp sgt i32 %.0110, 3
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph151, label %.loopexit138
 
 .lr.ph151:                                        ; preds = %21, %.lr.ph151
-  %.2150 = phi ptr [ %27, %.lr.ph151 ], [ %.1, %21 ]
-  %.2102149 = phi ptr [ %28, %.lr.ph151 ], [ %.1101, %21 ]
-  %.2107148 = phi ptr [ %32, %.lr.ph151 ], [ %.1106, %21 ]
-  %.2112147 = phi i32 [ %33, %.lr.ph151 ], [ %.1111, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2150)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2102149)
-  %27 = getelementptr inbounds i8, ptr %.2150, i64 16
-  %28 = getelementptr inbounds i8, ptr %.2102149, i64 16
+  %.3150 = phi ptr [ %27, %.lr.ph151 ], [ %.0, %21 ]
+  %.3103149 = phi ptr [ %28, %.lr.ph151 ], [ %.0100, %21 ]
+  %.3108148 = phi ptr [ %32, %.lr.ph151 ], [ %.0105, %21 ]
+  %.3113147 = phi i32 [ %33, %.lr.ph151 ], [ %.0110, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3150)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3103149)
+  %27 = getelementptr inbounds i8, ptr %.3150, i64 16
+  %28 = getelementptr inbounds i8, ptr %.3103149, i64 16
   %29 = bitcast <16 x i8> %25 to <4 x i32>
   %30 = bitcast <16 x i8> %26 to <4 x i32>
   %31 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %29, <4 x i32> %30)
-  store <4 x i32> %31, ptr %.2107148, align 1
-  %32 = getelementptr inbounds i8, ptr %.2107148, i64 16
-  %33 = add nsw i32 %.2112147, -4
-  %34 = icmp ugt i32 %.2112147, 7
+  store <4 x i32> %31, ptr %.3108148, align 1
+  %32 = getelementptr inbounds i8, ptr %.3108148, i64 16
+  %33 = add nsw i32 %.3113147, -4
+  %34 = icmp ugt i32 %.3113147, 7
   br i1 %34, label %.lr.ph151, label %.loopexit138, !llvm.loop !188
 
 .loopexit138:                                     ; preds = %.lr.ph151, %21
-  %.3113 = phi i32 [ %.1111, %21 ], [ %33, %.lr.ph151 ]
-  %.3108 = phi ptr [ %.1106, %21 ], [ %32, %.lr.ph151 ]
-  %.3103 = phi ptr [ %.1101, %21 ], [ %28, %.lr.ph151 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph151 ]
-  %35 = icmp sgt i32 %.3113, 0
+  %.2112 = phi i32 [ %.0110, %21 ], [ %33, %.lr.ph151 ]
+  %.2107 = phi ptr [ %.0105, %21 ], [ %32, %.lr.ph151 ]
+  %.2102 = phi ptr [ %.0100, %21 ], [ %28, %.lr.ph151 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph151 ]
+  %35 = icmp sgt i32 %.2112, 0
   br i1 %35, label %.lr.ph161, label %.loopexit
 
 .lr.ph161:                                        ; preds = %.loopexit138, %79
-  %.4159 = phi ptr [ %85, %79 ], [ %.3, %.loopexit138 ]
-  %.4104158 = phi ptr [ %86, %79 ], [ %.3103, %.loopexit138 ]
-  %.4109157 = phi ptr [ %84, %79 ], [ %.3108, %.loopexit138 ]
-  %.4114156 = phi i32 [ %82, %79 ], [ %.3113, %.loopexit138 ]
+  %.4159 = phi ptr [ %85, %79 ], [ %.2, %.loopexit138 ]
+  %.4104158 = phi ptr [ %86, %79 ], [ %.2102, %.loopexit138 ]
+  %.4109157 = phi ptr [ %84, %79 ], [ %.2107, %.loopexit138 ]
+  %.4114156 = phi i32 [ %82, %79 ], [ %.2112, %.loopexit138 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.4114156, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -10549,71 +10549,71 @@ define internal void @ompi_op_avx_3buff_max_uint32_t_avx2(ptr noalias noundef %0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader139, %.lr.ph
-  %.0143 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader139 ]
-  %.0100142 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader139 ]
-  %.0105141 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader139 ]
-  %.0110140 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader139 ]
-  %12 = load <8 x i32>, ptr %.0143, align 1
-  %13 = load <8 x i32>, ptr %.0100142, align 1
-  %14 = getelementptr inbounds i8, ptr %.0143, i64 32
-  %15 = getelementptr inbounds i8, ptr %.0100142, i64 32
+  %.1143 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader139 ]
+  %.1101142 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader139 ]
+  %.1106141 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader139 ]
+  %.1111140 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader139 ]
+  %12 = load <8 x i32>, ptr %.1143, align 1
+  %13 = load <8 x i32>, ptr %.1101142, align 1
+  %14 = getelementptr inbounds i8, ptr %.1143, i64 32
+  %15 = getelementptr inbounds i8, ptr %.1101142, i64 32
   %16 = tail call <8 x i32> @llvm.umax.v8i32(<8 x i32> %12, <8 x i32> %13)
-  store <8 x i32> %16, ptr %.0105141, align 1
-  %17 = getelementptr inbounds i8, ptr %.0105141, i64 32
-  %18 = add nsw i32 %.0110140, -8
-  %19 = icmp ugt i32 %.0110140, 15
+  store <8 x i32> %16, ptr %.1106141, align 1
+  %17 = getelementptr inbounds i8, ptr %.1106141, i64 32
+  %18 = add nsw i32 %.1111140, -8
+  %19 = icmp ugt i32 %.1111140, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !190
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader139
-  %.0110.lcssa = phi i32 [ %7, %.preheader139 ], [ %18, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %2, %.preheader139 ], [ %17, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %1, %.preheader139 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader139 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.0110.lcssa, 0
+  %.1111.lcssa = phi i32 [ %7, %.preheader139 ], [ %18, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %2, %.preheader139 ], [ %17, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %1, %.preheader139 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader139 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.1111.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.1111 = phi i32 [ %.0110.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.0110 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.1111, 3
+  %24 = icmp sgt i32 %.0110, 3
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph151, label %.loopexit138
 
 .lr.ph151:                                        ; preds = %21, %.lr.ph151
-  %.2150 = phi ptr [ %27, %.lr.ph151 ], [ %.1, %21 ]
-  %.2102149 = phi ptr [ %28, %.lr.ph151 ], [ %.1101, %21 ]
-  %.2107148 = phi ptr [ %32, %.lr.ph151 ], [ %.1106, %21 ]
-  %.2112147 = phi i32 [ %33, %.lr.ph151 ], [ %.1111, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2150)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2102149)
-  %27 = getelementptr inbounds i8, ptr %.2150, i64 16
-  %28 = getelementptr inbounds i8, ptr %.2102149, i64 16
+  %.3150 = phi ptr [ %27, %.lr.ph151 ], [ %.0, %21 ]
+  %.3103149 = phi ptr [ %28, %.lr.ph151 ], [ %.0100, %21 ]
+  %.3108148 = phi ptr [ %32, %.lr.ph151 ], [ %.0105, %21 ]
+  %.3113147 = phi i32 [ %33, %.lr.ph151 ], [ %.0110, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3150)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3103149)
+  %27 = getelementptr inbounds i8, ptr %.3150, i64 16
+  %28 = getelementptr inbounds i8, ptr %.3103149, i64 16
   %29 = bitcast <16 x i8> %25 to <4 x i32>
   %30 = bitcast <16 x i8> %26 to <4 x i32>
   %31 = tail call <4 x i32> @llvm.umax.v4i32(<4 x i32> %29, <4 x i32> %30)
-  store <4 x i32> %31, ptr %.2107148, align 1
-  %32 = getelementptr inbounds i8, ptr %.2107148, i64 16
-  %33 = add nsw i32 %.2112147, -4
-  %34 = icmp ugt i32 %.2112147, 7
+  store <4 x i32> %31, ptr %.3108148, align 1
+  %32 = getelementptr inbounds i8, ptr %.3108148, i64 16
+  %33 = add nsw i32 %.3113147, -4
+  %34 = icmp ugt i32 %.3113147, 7
   br i1 %34, label %.lr.ph151, label %.loopexit138, !llvm.loop !191
 
 .loopexit138:                                     ; preds = %.lr.ph151, %21
-  %.3113 = phi i32 [ %.1111, %21 ], [ %33, %.lr.ph151 ]
-  %.3108 = phi ptr [ %.1106, %21 ], [ %32, %.lr.ph151 ]
-  %.3103 = phi ptr [ %.1101, %21 ], [ %28, %.lr.ph151 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph151 ]
-  %35 = icmp sgt i32 %.3113, 0
+  %.2112 = phi i32 [ %.0110, %21 ], [ %33, %.lr.ph151 ]
+  %.2107 = phi ptr [ %.0105, %21 ], [ %32, %.lr.ph151 ]
+  %.2102 = phi ptr [ %.0100, %21 ], [ %28, %.lr.ph151 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph151 ]
+  %35 = icmp sgt i32 %.2112, 0
   br i1 %35, label %.lr.ph161, label %.loopexit
 
 .lr.ph161:                                        ; preds = %.loopexit138, %79
-  %.4159 = phi ptr [ %85, %79 ], [ %.3, %.loopexit138 ]
-  %.4104158 = phi ptr [ %86, %79 ], [ %.3103, %.loopexit138 ]
-  %.4109157 = phi ptr [ %84, %79 ], [ %.3108, %.loopexit138 ]
-  %.4114156 = phi i32 [ %82, %79 ], [ %.3113, %.loopexit138 ]
+  %.4159 = phi ptr [ %85, %79 ], [ %.2, %.loopexit138 ]
+  %.4104158 = phi ptr [ %86, %79 ], [ %.2102, %.loopexit138 ]
+  %.4109157 = phi ptr [ %84, %79 ], [ %.2107, %.loopexit138 ]
+  %.4114156 = phi i32 [ %82, %79 ], [ %.2112, %.loopexit138 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.4114156, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -10729,27 +10729,27 @@ define internal void @ompi_op_avx_3buff_max_float_avx2(ptr nocapture noundef rea
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader140, %.lr.ph
-  %.0144 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader140 ]
-  %.0100143 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader140 ]
-  %.0105142 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader140 ]
-  %.0110141 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader140 ]
-  %11 = load <8 x float>, ptr %.0100143, align 1
-  %12 = load <8 x float>, ptr %.0105142, align 1
-  %13 = getelementptr inbounds i8, ptr %.0100143, i64 32
-  %14 = getelementptr inbounds i8, ptr %.0105142, i64 32
+  %.1144 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader140 ]
+  %.1101143 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader140 ]
+  %.1106142 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader140 ]
+  %.1111141 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader140 ]
+  %11 = load <8 x float>, ptr %.1101143, align 1
+  %12 = load <8 x float>, ptr %.1106142, align 1
+  %13 = getelementptr inbounds i8, ptr %.1101143, i64 32
+  %14 = getelementptr inbounds i8, ptr %.1106142, i64 32
   %15 = tail call <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %11, <8 x float> %12)
-  store <8 x float> %15, ptr %.0110141, align 1
-  %16 = getelementptr inbounds i8, ptr %.0110141, i64 32
-  %17 = add nsw i32 %.0144, -8
-  %18 = icmp ugt i32 %.0144, 15
+  store <8 x float> %15, ptr %.1111141, align 1
+  %16 = getelementptr inbounds i8, ptr %.1111141, i64 32
+  %17 = add nsw i32 %.1144, -8
+  %18 = icmp ugt i32 %.1144, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !193
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader140
-  %.0110.lcssa = phi ptr [ %2, %.preheader140 ], [ %16, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %1, %.preheader140 ], [ %14, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %0, %.preheader140 ], [ %13, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader140 ], [ %17, %.lr.ph ]
-  %19 = icmp eq i32 %.0.lcssa, 0
+  %.1111.lcssa = phi ptr [ %2, %.preheader140 ], [ %16, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %1, %.preheader140 ], [ %14, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %0, %.preheader140 ], [ %13, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader140 ], [ %17, %.lr.ph ]
+  %19 = icmp eq i32 %.1.lcssa, 0
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -10758,45 +10758,45 @@ define internal void @ompi_op_avx_3buff_max_float_avx2(ptr nocapture noundef rea
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
   %21 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.1111 = phi ptr [ %.0110.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.0110 = phi ptr [ %.1111.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %22 = and i32 %21, 1
   %.not131 = icmp ne i32 %22, 0
-  %23 = icmp sgt i32 %.1, 3
+  %23 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not131, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph152, label %.loopexit139
 
 .lr.ph152:                                        ; preds = %20, %.lr.ph152
-  %.2151 = phi i32 [ %30, %.lr.ph152 ], [ %.1, %20 ]
-  %.2102150 = phi ptr [ %26, %.lr.ph152 ], [ %.1101, %20 ]
-  %.2107149 = phi ptr [ %27, %.lr.ph152 ], [ %.1106, %20 ]
-  %.2112148 = phi ptr [ %29, %.lr.ph152 ], [ %.1111, %20 ]
-  %24 = load <4 x float>, ptr %.2102150, align 1
-  %25 = load <4 x float>, ptr %.2107149, align 1
-  %26 = getelementptr inbounds i8, ptr %.2102150, i64 16
-  %27 = getelementptr inbounds i8, ptr %.2107149, i64 16
+  %.3151 = phi i32 [ %30, %.lr.ph152 ], [ %.0, %20 ]
+  %.3103150 = phi ptr [ %26, %.lr.ph152 ], [ %.0100, %20 ]
+  %.3108149 = phi ptr [ %27, %.lr.ph152 ], [ %.0105, %20 ]
+  %.3113148 = phi ptr [ %29, %.lr.ph152 ], [ %.0110, %20 ]
+  %24 = load <4 x float>, ptr %.3103150, align 1
+  %25 = load <4 x float>, ptr %.3108149, align 1
+  %26 = getelementptr inbounds i8, ptr %.3103150, i64 16
+  %27 = getelementptr inbounds i8, ptr %.3108149, i64 16
   %28 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %24, <4 x float> %25)
-  store <4 x float> %28, ptr %.2112148, align 1
-  %29 = getelementptr inbounds i8, ptr %.2112148, i64 16
-  %30 = add nsw i32 %.2151, -4
-  %31 = icmp ugt i32 %.2151, 7
+  store <4 x float> %28, ptr %.3113148, align 1
+  %29 = getelementptr inbounds i8, ptr %.3113148, i64 16
+  %30 = add nsw i32 %.3151, -4
+  %31 = icmp ugt i32 %.3151, 7
   br i1 %31, label %.lr.ph152, label %.loopexit139, !llvm.loop !194
 
 .loopexit139:                                     ; preds = %.lr.ph152, %20
-  %.3113 = phi ptr [ %.1111, %20 ], [ %29, %.lr.ph152 ]
-  %.3108 = phi ptr [ %.1106, %20 ], [ %27, %.lr.ph152 ]
-  %.3103 = phi ptr [ %.1101, %20 ], [ %26, %.lr.ph152 ]
-  %.3 = phi i32 [ %.1, %20 ], [ %30, %.lr.ph152 ]
-  %32 = icmp sgt i32 %.3, 0
+  %.2112 = phi ptr [ %.0110, %20 ], [ %29, %.lr.ph152 ]
+  %.2107 = phi ptr [ %.0105, %20 ], [ %27, %.lr.ph152 ]
+  %.2102 = phi ptr [ %.0100, %20 ], [ %26, %.lr.ph152 ]
+  %.2 = phi i32 [ %.0, %20 ], [ %30, %.lr.ph152 ]
+  %32 = icmp sgt i32 %.2, 0
   br i1 %32, label %.lr.ph162, label %.loopexit
 
 .lr.ph162:                                        ; preds = %.loopexit139, %83
-  %.4160 = phi i32 [ %87, %83 ], [ %.3, %.loopexit139 ]
-  %.4104159 = phi ptr [ %90, %83 ], [ %.3103, %.loopexit139 ]
-  %.4109158 = phi ptr [ %91, %83 ], [ %.3108, %.loopexit139 ]
-  %.4114157 = phi ptr [ %89, %83 ], [ %.3113, %.loopexit139 ]
+  %.4160 = phi i32 [ %87, %83 ], [ %.2, %.loopexit139 ]
+  %.4104159 = phi ptr [ %90, %83 ], [ %.2102, %.loopexit139 ]
+  %.4109158 = phi ptr [ %91, %83 ], [ %.2107, %.loopexit139 ]
+  %.4114157 = phi ptr [ %89, %83 ], [ %.2112, %.loopexit139 ]
   %33 = tail call i32 @llvm.umin.i32(i32 %.4160, i32 8)
   switch i32 %33, label %default.unreachable [
     i32 8, label %34
@@ -10920,27 +10920,27 @@ define internal void @ompi_op_avx_3buff_max_double_avx2(ptr nocapture noundef re
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader140, %.lr.ph
-  %.0144 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader140 ]
-  %.0100143 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader140 ]
-  %.0105142 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader140 ]
-  %.0110141 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader140 ]
-  %11 = load <4 x double>, ptr %.0100143, align 1
-  %12 = load <4 x double>, ptr %.0105142, align 1
-  %13 = getelementptr inbounds i8, ptr %.0100143, i64 32
-  %14 = getelementptr inbounds i8, ptr %.0105142, i64 32
+  %.1144 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader140 ]
+  %.1101143 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader140 ]
+  %.1106142 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader140 ]
+  %.1111141 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader140 ]
+  %11 = load <4 x double>, ptr %.1101143, align 1
+  %12 = load <4 x double>, ptr %.1106142, align 1
+  %13 = getelementptr inbounds i8, ptr %.1101143, i64 32
+  %14 = getelementptr inbounds i8, ptr %.1106142, i64 32
   %15 = tail call <4 x double> @llvm.x86.avx.max.pd.256(<4 x double> %11, <4 x double> %12)
-  store <4 x double> %15, ptr %.0110141, align 1
-  %16 = getelementptr inbounds i8, ptr %.0110141, i64 32
-  %17 = add nsw i32 %.0144, -4
-  %18 = icmp ugt i32 %.0144, 7
+  store <4 x double> %15, ptr %.1111141, align 1
+  %16 = getelementptr inbounds i8, ptr %.1111141, i64 32
+  %17 = add nsw i32 %.1144, -4
+  %18 = icmp ugt i32 %.1144, 7
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !196
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader140
-  %.0110.lcssa = phi ptr [ %2, %.preheader140 ], [ %16, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %1, %.preheader140 ], [ %14, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %0, %.preheader140 ], [ %13, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader140 ], [ %17, %.lr.ph ]
-  %19 = icmp eq i32 %.0.lcssa, 0
+  %.1111.lcssa = phi ptr [ %2, %.preheader140 ], [ %16, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %1, %.preheader140 ], [ %14, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %0, %.preheader140 ], [ %13, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader140 ], [ %17, %.lr.ph ]
+  %19 = icmp eq i32 %.1.lcssa, 0
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -10949,45 +10949,45 @@ define internal void @ompi_op_avx_3buff_max_double_avx2(ptr nocapture noundef re
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
   %21 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.1111 = phi ptr [ %.0110.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.0110 = phi ptr [ %.1111.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %22 = and i32 %21, 2
   %.not131 = icmp ne i32 %22, 0
-  %23 = icmp sgt i32 %.1, 1
+  %23 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not131, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph152, label %.loopexit139
 
 .lr.ph152:                                        ; preds = %20, %.lr.ph152
-  %.2151 = phi i32 [ %30, %.lr.ph152 ], [ %.1, %20 ]
-  %.2102150 = phi ptr [ %26, %.lr.ph152 ], [ %.1101, %20 ]
-  %.2107149 = phi ptr [ %27, %.lr.ph152 ], [ %.1106, %20 ]
-  %.2112148 = phi ptr [ %29, %.lr.ph152 ], [ %.1111, %20 ]
-  %24 = load <2 x double>, ptr %.2102150, align 1
-  %25 = load <2 x double>, ptr %.2107149, align 1
-  %26 = getelementptr inbounds i8, ptr %.2102150, i64 16
-  %27 = getelementptr inbounds i8, ptr %.2107149, i64 16
+  %.3151 = phi i32 [ %30, %.lr.ph152 ], [ %.0, %20 ]
+  %.3103150 = phi ptr [ %26, %.lr.ph152 ], [ %.0100, %20 ]
+  %.3108149 = phi ptr [ %27, %.lr.ph152 ], [ %.0105, %20 ]
+  %.3113148 = phi ptr [ %29, %.lr.ph152 ], [ %.0110, %20 ]
+  %24 = load <2 x double>, ptr %.3103150, align 1
+  %25 = load <2 x double>, ptr %.3108149, align 1
+  %26 = getelementptr inbounds i8, ptr %.3103150, i64 16
+  %27 = getelementptr inbounds i8, ptr %.3108149, i64 16
   %28 = tail call <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %24, <2 x double> %25)
-  store <2 x double> %28, ptr %.2112148, align 1
-  %29 = getelementptr inbounds i8, ptr %.2112148, i64 16
-  %30 = add nsw i32 %.2151, -2
-  %31 = icmp ugt i32 %.2151, 3
+  store <2 x double> %28, ptr %.3113148, align 1
+  %29 = getelementptr inbounds i8, ptr %.3113148, i64 16
+  %30 = add nsw i32 %.3151, -2
+  %31 = icmp ugt i32 %.3151, 3
   br i1 %31, label %.lr.ph152, label %.loopexit139, !llvm.loop !197
 
 .loopexit139:                                     ; preds = %.lr.ph152, %20
-  %.3113 = phi ptr [ %.1111, %20 ], [ %29, %.lr.ph152 ]
-  %.3108 = phi ptr [ %.1106, %20 ], [ %27, %.lr.ph152 ]
-  %.3103 = phi ptr [ %.1101, %20 ], [ %26, %.lr.ph152 ]
-  %.3 = phi i32 [ %.1, %20 ], [ %30, %.lr.ph152 ]
-  %32 = icmp sgt i32 %.3, 0
+  %.2112 = phi ptr [ %.0110, %20 ], [ %29, %.lr.ph152 ]
+  %.2107 = phi ptr [ %.0105, %20 ], [ %27, %.lr.ph152 ]
+  %.2102 = phi ptr [ %.0100, %20 ], [ %26, %.lr.ph152 ]
+  %.2 = phi i32 [ %.0, %20 ], [ %30, %.lr.ph152 ]
+  %32 = icmp sgt i32 %.2, 0
   br i1 %32, label %.lr.ph162, label %.loopexit
 
 .lr.ph162:                                        ; preds = %.loopexit139, %83
-  %.4160 = phi i32 [ %87, %83 ], [ %.3, %.loopexit139 ]
-  %.4104159 = phi ptr [ %90, %83 ], [ %.3103, %.loopexit139 ]
-  %.4109158 = phi ptr [ %91, %83 ], [ %.3108, %.loopexit139 ]
-  %.4114157 = phi ptr [ %89, %83 ], [ %.3113, %.loopexit139 ]
+  %.4160 = phi i32 [ %87, %83 ], [ %.2, %.loopexit139 ]
+  %.4104159 = phi ptr [ %90, %83 ], [ %.2102, %.loopexit139 ]
+  %.4109158 = phi ptr [ %91, %83 ], [ %.2107, %.loopexit139 ]
+  %.4114157 = phi ptr [ %89, %83 ], [ %.2112, %.loopexit139 ]
   %33 = tail call i32 @llvm.umin.i32(i32 %.4160, i32 8)
   switch i32 %33, label %default.unreachable [
     i32 8, label %34
@@ -11111,69 +11111,69 @@ define internal void @ompi_op_avx_3buff_min_int8_t_avx2(ptr noalias noundef %0, 
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader146, %.lr.ph
-  %.0150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
-  %.0100149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
-  %.0105148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
-  %.0110147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
-  %12 = load <32 x i8>, ptr %.0150, align 1
-  %13 = load <32 x i8>, ptr %.0100149, align 1
-  %14 = getelementptr inbounds i8, ptr %.0150, i64 32
-  %15 = getelementptr inbounds i8, ptr %.0100149, i64 32
+  %.1150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
+  %.1101149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
+  %.1106148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
+  %.1111147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
+  %12 = load <32 x i8>, ptr %.1150, align 1
+  %13 = load <32 x i8>, ptr %.1101149, align 1
+  %14 = getelementptr inbounds i8, ptr %.1150, i64 32
+  %15 = getelementptr inbounds i8, ptr %.1101149, i64 32
   %16 = tail call <32 x i8> @llvm.smin.v32i8(<32 x i8> %12, <32 x i8> %13)
-  store <32 x i8> %16, ptr %.0105148, align 1
-  %17 = getelementptr inbounds i8, ptr %.0105148, i64 32
-  %18 = add nsw i32 %.0110147, -32
-  %19 = icmp ugt i32 %.0110147, 63
+  store <32 x i8> %16, ptr %.1106148, align 1
+  %17 = getelementptr inbounds i8, ptr %.1106148, i64 32
+  %18 = add nsw i32 %.1111147, -32
+  %19 = icmp ugt i32 %.1111147, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !199
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader146
-  %.0110.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.0110.lcssa, 0
+  %.1111.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.1111.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.1111 = phi i32 [ %.0110.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.0110 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.1111, 15
+  %24 = icmp sgt i32 %.0110, 15
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph158, label %.loopexit145
 
 .lr.ph158:                                        ; preds = %21, %.lr.ph158
-  %.2157 = phi ptr [ %27, %.lr.ph158 ], [ %.1, %21 ]
-  %.2102156 = phi ptr [ %28, %.lr.ph158 ], [ %.1101, %21 ]
-  %.2107155 = phi ptr [ %30, %.lr.ph158 ], [ %.1106, %21 ]
-  %.2112154 = phi i32 [ %31, %.lr.ph158 ], [ %.1111, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2157)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2102156)
-  %27 = getelementptr inbounds i8, ptr %.2157, i64 16
-  %28 = getelementptr inbounds i8, ptr %.2102156, i64 16
+  %.3157 = phi ptr [ %27, %.lr.ph158 ], [ %.0, %21 ]
+  %.3103156 = phi ptr [ %28, %.lr.ph158 ], [ %.0100, %21 ]
+  %.3108155 = phi ptr [ %30, %.lr.ph158 ], [ %.0105, %21 ]
+  %.3113154 = phi i32 [ %31, %.lr.ph158 ], [ %.0110, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3157)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3103156)
+  %27 = getelementptr inbounds i8, ptr %.3157, i64 16
+  %28 = getelementptr inbounds i8, ptr %.3103156, i64 16
   %29 = tail call <16 x i8> @llvm.smin.v16i8(<16 x i8> %25, <16 x i8> %26)
-  store <16 x i8> %29, ptr %.2107155, align 1
-  %30 = getelementptr inbounds i8, ptr %.2107155, i64 16
-  %31 = add nsw i32 %.2112154, -16
-  %32 = icmp ugt i32 %.2112154, 31
+  store <16 x i8> %29, ptr %.3108155, align 1
+  %30 = getelementptr inbounds i8, ptr %.3108155, i64 16
+  %31 = add nsw i32 %.3113154, -16
+  %32 = icmp ugt i32 %.3113154, 31
   br i1 %32, label %.lr.ph158, label %.loopexit145, !llvm.loop !200
 
 .loopexit145:                                     ; preds = %.lr.ph158, %21
-  %.3113 = phi i32 [ %.1111, %21 ], [ %31, %.lr.ph158 ]
-  %.3108 = phi ptr [ %.1106, %21 ], [ %30, %.lr.ph158 ]
-  %.3103 = phi ptr [ %.1101, %21 ], [ %28, %.lr.ph158 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph158 ]
-  %33 = icmp sgt i32 %.3113, 0
+  %.2112 = phi i32 [ %.0110, %21 ], [ %31, %.lr.ph158 ]
+  %.2107 = phi ptr [ %.0105, %21 ], [ %30, %.lr.ph158 ]
+  %.2102 = phi ptr [ %.0100, %21 ], [ %28, %.lr.ph158 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph158 ]
+  %33 = icmp sgt i32 %.2112, 0
   br i1 %33, label %.lr.ph168, label %.loopexit
 
 .lr.ph168:                                        ; preds = %.loopexit145, %77
-  %.4166 = phi ptr [ %83, %77 ], [ %.3, %.loopexit145 ]
-  %.4104165 = phi ptr [ %84, %77 ], [ %.3103, %.loopexit145 ]
-  %.4109164 = phi ptr [ %82, %77 ], [ %.3108, %.loopexit145 ]
-  %.4114163 = phi i32 [ %80, %77 ], [ %.3113, %.loopexit145 ]
+  %.4166 = phi ptr [ %83, %77 ], [ %.2, %.loopexit145 ]
+  %.4104165 = phi ptr [ %84, %77 ], [ %.2102, %.loopexit145 ]
+  %.4109164 = phi ptr [ %82, %77 ], [ %.2107, %.loopexit145 ]
+  %.4114163 = phi i32 [ %80, %77 ], [ %.2112, %.loopexit145 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4114163, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -11289,69 +11289,69 @@ define internal void @ompi_op_avx_3buff_min_uint8_t_avx2(ptr noalias noundef %0,
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader146, %.lr.ph
-  %.0150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
-  %.0100149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
-  %.0105148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
-  %.0110147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
-  %12 = load <32 x i8>, ptr %.0150, align 1
-  %13 = load <32 x i8>, ptr %.0100149, align 1
-  %14 = getelementptr inbounds i8, ptr %.0150, i64 32
-  %15 = getelementptr inbounds i8, ptr %.0100149, i64 32
+  %.1150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
+  %.1101149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
+  %.1106148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
+  %.1111147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
+  %12 = load <32 x i8>, ptr %.1150, align 1
+  %13 = load <32 x i8>, ptr %.1101149, align 1
+  %14 = getelementptr inbounds i8, ptr %.1150, i64 32
+  %15 = getelementptr inbounds i8, ptr %.1101149, i64 32
   %16 = tail call <32 x i8> @llvm.umin.v32i8(<32 x i8> %12, <32 x i8> %13)
-  store <32 x i8> %16, ptr %.0105148, align 1
-  %17 = getelementptr inbounds i8, ptr %.0105148, i64 32
-  %18 = add nsw i32 %.0110147, -32
-  %19 = icmp ugt i32 %.0110147, 63
+  store <32 x i8> %16, ptr %.1106148, align 1
+  %17 = getelementptr inbounds i8, ptr %.1106148, i64 32
+  %18 = add nsw i32 %.1111147, -32
+  %19 = icmp ugt i32 %.1111147, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !202
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader146
-  %.0110.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.0110.lcssa, 0
+  %.1111.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.1111.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.1111 = phi i32 [ %.0110.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.0110 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.1111, 15
+  %24 = icmp sgt i32 %.0110, 15
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph158, label %.loopexit145
 
 .lr.ph158:                                        ; preds = %21, %.lr.ph158
-  %.2157 = phi ptr [ %27, %.lr.ph158 ], [ %.1, %21 ]
-  %.2102156 = phi ptr [ %28, %.lr.ph158 ], [ %.1101, %21 ]
-  %.2107155 = phi ptr [ %30, %.lr.ph158 ], [ %.1106, %21 ]
-  %.2112154 = phi i32 [ %31, %.lr.ph158 ], [ %.1111, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2157)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2102156)
-  %27 = getelementptr inbounds i8, ptr %.2157, i64 16
-  %28 = getelementptr inbounds i8, ptr %.2102156, i64 16
+  %.3157 = phi ptr [ %27, %.lr.ph158 ], [ %.0, %21 ]
+  %.3103156 = phi ptr [ %28, %.lr.ph158 ], [ %.0100, %21 ]
+  %.3108155 = phi ptr [ %30, %.lr.ph158 ], [ %.0105, %21 ]
+  %.3113154 = phi i32 [ %31, %.lr.ph158 ], [ %.0110, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3157)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3103156)
+  %27 = getelementptr inbounds i8, ptr %.3157, i64 16
+  %28 = getelementptr inbounds i8, ptr %.3103156, i64 16
   %29 = tail call <16 x i8> @llvm.umin.v16i8(<16 x i8> %25, <16 x i8> %26)
-  store <16 x i8> %29, ptr %.2107155, align 1
-  %30 = getelementptr inbounds i8, ptr %.2107155, i64 16
-  %31 = add nsw i32 %.2112154, -16
-  %32 = icmp ugt i32 %.2112154, 31
+  store <16 x i8> %29, ptr %.3108155, align 1
+  %30 = getelementptr inbounds i8, ptr %.3108155, i64 16
+  %31 = add nsw i32 %.3113154, -16
+  %32 = icmp ugt i32 %.3113154, 31
   br i1 %32, label %.lr.ph158, label %.loopexit145, !llvm.loop !203
 
 .loopexit145:                                     ; preds = %.lr.ph158, %21
-  %.3113 = phi i32 [ %.1111, %21 ], [ %31, %.lr.ph158 ]
-  %.3108 = phi ptr [ %.1106, %21 ], [ %30, %.lr.ph158 ]
-  %.3103 = phi ptr [ %.1101, %21 ], [ %28, %.lr.ph158 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph158 ]
-  %33 = icmp sgt i32 %.3113, 0
+  %.2112 = phi i32 [ %.0110, %21 ], [ %31, %.lr.ph158 ]
+  %.2107 = phi ptr [ %.0105, %21 ], [ %30, %.lr.ph158 ]
+  %.2102 = phi ptr [ %.0100, %21 ], [ %28, %.lr.ph158 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph158 ]
+  %33 = icmp sgt i32 %.2112, 0
   br i1 %33, label %.lr.ph168, label %.loopexit
 
 .lr.ph168:                                        ; preds = %.loopexit145, %77
-  %.4166 = phi ptr [ %83, %77 ], [ %.3, %.loopexit145 ]
-  %.4104165 = phi ptr [ %84, %77 ], [ %.3103, %.loopexit145 ]
-  %.4109164 = phi ptr [ %82, %77 ], [ %.3108, %.loopexit145 ]
-  %.4114163 = phi i32 [ %80, %77 ], [ %.3113, %.loopexit145 ]
+  %.4166 = phi ptr [ %83, %77 ], [ %.2, %.loopexit145 ]
+  %.4104165 = phi ptr [ %84, %77 ], [ %.2102, %.loopexit145 ]
+  %.4109164 = phi ptr [ %82, %77 ], [ %.2107, %.loopexit145 ]
+  %.4114163 = phi i32 [ %80, %77 ], [ %.2112, %.loopexit145 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4114163, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -11467,71 +11467,71 @@ define internal void @ompi_op_avx_3buff_min_int16_t_avx2(ptr noalias noundef %0,
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader146, %.lr.ph
-  %.0150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
-  %.0100149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
-  %.0105148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
-  %.0110147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
-  %12 = load <16 x i16>, ptr %.0150, align 1
-  %13 = load <16 x i16>, ptr %.0100149, align 1
-  %14 = getelementptr inbounds i8, ptr %.0150, i64 32
-  %15 = getelementptr inbounds i8, ptr %.0100149, i64 32
+  %.1150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
+  %.1101149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
+  %.1106148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
+  %.1111147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
+  %12 = load <16 x i16>, ptr %.1150, align 1
+  %13 = load <16 x i16>, ptr %.1101149, align 1
+  %14 = getelementptr inbounds i8, ptr %.1150, i64 32
+  %15 = getelementptr inbounds i8, ptr %.1101149, i64 32
   %16 = tail call <16 x i16> @llvm.smin.v16i16(<16 x i16> %12, <16 x i16> %13)
-  store <16 x i16> %16, ptr %.0105148, align 1
-  %17 = getelementptr inbounds i8, ptr %.0105148, i64 32
-  %18 = add nsw i32 %.0110147, -16
-  %19 = icmp ugt i32 %.0110147, 31
+  store <16 x i16> %16, ptr %.1106148, align 1
+  %17 = getelementptr inbounds i8, ptr %.1106148, i64 32
+  %18 = add nsw i32 %.1111147, -16
+  %19 = icmp ugt i32 %.1111147, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !205
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader146
-  %.0110.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.0110.lcssa, 0
+  %.1111.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.1111.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.1111 = phi i32 [ %.0110.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.0110 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.1111, 7
+  %24 = icmp sgt i32 %.0110, 7
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph158, label %.loopexit145
 
 .lr.ph158:                                        ; preds = %21, %.lr.ph158
-  %.2157 = phi ptr [ %27, %.lr.ph158 ], [ %.1, %21 ]
-  %.2102156 = phi ptr [ %28, %.lr.ph158 ], [ %.1101, %21 ]
-  %.2107155 = phi ptr [ %32, %.lr.ph158 ], [ %.1106, %21 ]
-  %.2112154 = phi i32 [ %33, %.lr.ph158 ], [ %.1111, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2157)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2102156)
-  %27 = getelementptr inbounds i8, ptr %.2157, i64 16
-  %28 = getelementptr inbounds i8, ptr %.2102156, i64 16
+  %.3157 = phi ptr [ %27, %.lr.ph158 ], [ %.0, %21 ]
+  %.3103156 = phi ptr [ %28, %.lr.ph158 ], [ %.0100, %21 ]
+  %.3108155 = phi ptr [ %32, %.lr.ph158 ], [ %.0105, %21 ]
+  %.3113154 = phi i32 [ %33, %.lr.ph158 ], [ %.0110, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3157)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3103156)
+  %27 = getelementptr inbounds i8, ptr %.3157, i64 16
+  %28 = getelementptr inbounds i8, ptr %.3103156, i64 16
   %29 = bitcast <16 x i8> %25 to <8 x i16>
   %30 = bitcast <16 x i8> %26 to <8 x i16>
   %31 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %29, <8 x i16> %30)
-  store <8 x i16> %31, ptr %.2107155, align 1
-  %32 = getelementptr inbounds i8, ptr %.2107155, i64 16
-  %33 = add nsw i32 %.2112154, -8
-  %34 = icmp ugt i32 %.2112154, 15
+  store <8 x i16> %31, ptr %.3108155, align 1
+  %32 = getelementptr inbounds i8, ptr %.3108155, i64 16
+  %33 = add nsw i32 %.3113154, -8
+  %34 = icmp ugt i32 %.3113154, 15
   br i1 %34, label %.lr.ph158, label %.loopexit145, !llvm.loop !206
 
 .loopexit145:                                     ; preds = %.lr.ph158, %21
-  %.3113 = phi i32 [ %.1111, %21 ], [ %33, %.lr.ph158 ]
-  %.3108 = phi ptr [ %.1106, %21 ], [ %32, %.lr.ph158 ]
-  %.3103 = phi ptr [ %.1101, %21 ], [ %28, %.lr.ph158 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph158 ]
-  %35 = icmp sgt i32 %.3113, 0
+  %.2112 = phi i32 [ %.0110, %21 ], [ %33, %.lr.ph158 ]
+  %.2107 = phi ptr [ %.0105, %21 ], [ %32, %.lr.ph158 ]
+  %.2102 = phi ptr [ %.0100, %21 ], [ %28, %.lr.ph158 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph158 ]
+  %35 = icmp sgt i32 %.2112, 0
   br i1 %35, label %.lr.ph168, label %.loopexit
 
 .lr.ph168:                                        ; preds = %.loopexit145, %79
-  %.4166 = phi ptr [ %85, %79 ], [ %.3, %.loopexit145 ]
-  %.4104165 = phi ptr [ %86, %79 ], [ %.3103, %.loopexit145 ]
-  %.4109164 = phi ptr [ %84, %79 ], [ %.3108, %.loopexit145 ]
-  %.4114163 = phi i32 [ %82, %79 ], [ %.3113, %.loopexit145 ]
+  %.4166 = phi ptr [ %85, %79 ], [ %.2, %.loopexit145 ]
+  %.4104165 = phi ptr [ %86, %79 ], [ %.2102, %.loopexit145 ]
+  %.4109164 = phi ptr [ %84, %79 ], [ %.2107, %.loopexit145 ]
+  %.4114163 = phi i32 [ %82, %79 ], [ %.2112, %.loopexit145 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.4114163, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -11647,71 +11647,71 @@ define internal void @ompi_op_avx_3buff_min_uint16_t_avx2(ptr noalias noundef %0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader146, %.lr.ph
-  %.0150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
-  %.0100149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
-  %.0105148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
-  %.0110147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
-  %12 = load <16 x i16>, ptr %.0150, align 1
-  %13 = load <16 x i16>, ptr %.0100149, align 1
-  %14 = getelementptr inbounds i8, ptr %.0150, i64 32
-  %15 = getelementptr inbounds i8, ptr %.0100149, i64 32
+  %.1150 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader146 ]
+  %.1101149 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader146 ]
+  %.1106148 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader146 ]
+  %.1111147 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader146 ]
+  %12 = load <16 x i16>, ptr %.1150, align 1
+  %13 = load <16 x i16>, ptr %.1101149, align 1
+  %14 = getelementptr inbounds i8, ptr %.1150, i64 32
+  %15 = getelementptr inbounds i8, ptr %.1101149, i64 32
   %16 = tail call <16 x i16> @llvm.umin.v16i16(<16 x i16> %12, <16 x i16> %13)
-  store <16 x i16> %16, ptr %.0105148, align 1
-  %17 = getelementptr inbounds i8, ptr %.0105148, i64 32
-  %18 = add nsw i32 %.0110147, -16
-  %19 = icmp ugt i32 %.0110147, 31
+  store <16 x i16> %16, ptr %.1106148, align 1
+  %17 = getelementptr inbounds i8, ptr %.1106148, i64 32
+  %18 = add nsw i32 %.1111147, -16
+  %19 = icmp ugt i32 %.1111147, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !208
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader146
-  %.0110.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.0110.lcssa, 0
+  %.1111.lcssa = phi i32 [ %7, %.preheader146 ], [ %18, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %2, %.preheader146 ], [ %17, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %1, %.preheader146 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader146 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.1111.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.1111 = phi i32 [ %.0110.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.0110 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.1111, 7
+  %24 = icmp sgt i32 %.0110, 7
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph158, label %.loopexit145
 
 .lr.ph158:                                        ; preds = %21, %.lr.ph158
-  %.2157 = phi ptr [ %27, %.lr.ph158 ], [ %.1, %21 ]
-  %.2102156 = phi ptr [ %28, %.lr.ph158 ], [ %.1101, %21 ]
-  %.2107155 = phi ptr [ %32, %.lr.ph158 ], [ %.1106, %21 ]
-  %.2112154 = phi i32 [ %33, %.lr.ph158 ], [ %.1111, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2157)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2102156)
-  %27 = getelementptr inbounds i8, ptr %.2157, i64 16
-  %28 = getelementptr inbounds i8, ptr %.2102156, i64 16
+  %.3157 = phi ptr [ %27, %.lr.ph158 ], [ %.0, %21 ]
+  %.3103156 = phi ptr [ %28, %.lr.ph158 ], [ %.0100, %21 ]
+  %.3108155 = phi ptr [ %32, %.lr.ph158 ], [ %.0105, %21 ]
+  %.3113154 = phi i32 [ %33, %.lr.ph158 ], [ %.0110, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3157)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3103156)
+  %27 = getelementptr inbounds i8, ptr %.3157, i64 16
+  %28 = getelementptr inbounds i8, ptr %.3103156, i64 16
   %29 = bitcast <16 x i8> %25 to <8 x i16>
   %30 = bitcast <16 x i8> %26 to <8 x i16>
   %31 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %29, <8 x i16> %30)
-  store <8 x i16> %31, ptr %.2107155, align 1
-  %32 = getelementptr inbounds i8, ptr %.2107155, i64 16
-  %33 = add nsw i32 %.2112154, -8
-  %34 = icmp ugt i32 %.2112154, 15
+  store <8 x i16> %31, ptr %.3108155, align 1
+  %32 = getelementptr inbounds i8, ptr %.3108155, i64 16
+  %33 = add nsw i32 %.3113154, -8
+  %34 = icmp ugt i32 %.3113154, 15
   br i1 %34, label %.lr.ph158, label %.loopexit145, !llvm.loop !209
 
 .loopexit145:                                     ; preds = %.lr.ph158, %21
-  %.3113 = phi i32 [ %.1111, %21 ], [ %33, %.lr.ph158 ]
-  %.3108 = phi ptr [ %.1106, %21 ], [ %32, %.lr.ph158 ]
-  %.3103 = phi ptr [ %.1101, %21 ], [ %28, %.lr.ph158 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph158 ]
-  %35 = icmp sgt i32 %.3113, 0
+  %.2112 = phi i32 [ %.0110, %21 ], [ %33, %.lr.ph158 ]
+  %.2107 = phi ptr [ %.0105, %21 ], [ %32, %.lr.ph158 ]
+  %.2102 = phi ptr [ %.0100, %21 ], [ %28, %.lr.ph158 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph158 ]
+  %35 = icmp sgt i32 %.2112, 0
   br i1 %35, label %.lr.ph168, label %.loopexit
 
 .lr.ph168:                                        ; preds = %.loopexit145, %79
-  %.4166 = phi ptr [ %85, %79 ], [ %.3, %.loopexit145 ]
-  %.4104165 = phi ptr [ %86, %79 ], [ %.3103, %.loopexit145 ]
-  %.4109164 = phi ptr [ %84, %79 ], [ %.3108, %.loopexit145 ]
-  %.4114163 = phi i32 [ %82, %79 ], [ %.3113, %.loopexit145 ]
+  %.4166 = phi ptr [ %85, %79 ], [ %.2, %.loopexit145 ]
+  %.4104165 = phi ptr [ %86, %79 ], [ %.2102, %.loopexit145 ]
+  %.4109164 = phi ptr [ %84, %79 ], [ %.2107, %.loopexit145 ]
+  %.4114163 = phi i32 [ %82, %79 ], [ %.2112, %.loopexit145 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.4114163, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -11827,71 +11827,71 @@ define internal void @ompi_op_avx_3buff_min_int32_t_avx2(ptr noalias noundef %0,
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader139, %.lr.ph
-  %.0143 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader139 ]
-  %.0100142 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader139 ]
-  %.0105141 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader139 ]
-  %.0110140 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader139 ]
-  %12 = load <8 x i32>, ptr %.0143, align 1
-  %13 = load <8 x i32>, ptr %.0100142, align 1
-  %14 = getelementptr inbounds i8, ptr %.0143, i64 32
-  %15 = getelementptr inbounds i8, ptr %.0100142, i64 32
+  %.1143 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader139 ]
+  %.1101142 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader139 ]
+  %.1106141 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader139 ]
+  %.1111140 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader139 ]
+  %12 = load <8 x i32>, ptr %.1143, align 1
+  %13 = load <8 x i32>, ptr %.1101142, align 1
+  %14 = getelementptr inbounds i8, ptr %.1143, i64 32
+  %15 = getelementptr inbounds i8, ptr %.1101142, i64 32
   %16 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %12, <8 x i32> %13)
-  store <8 x i32> %16, ptr %.0105141, align 1
-  %17 = getelementptr inbounds i8, ptr %.0105141, i64 32
-  %18 = add nsw i32 %.0110140, -8
-  %19 = icmp ugt i32 %.0110140, 15
+  store <8 x i32> %16, ptr %.1106141, align 1
+  %17 = getelementptr inbounds i8, ptr %.1106141, i64 32
+  %18 = add nsw i32 %.1111140, -8
+  %19 = icmp ugt i32 %.1111140, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !211
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader139
-  %.0110.lcssa = phi i32 [ %7, %.preheader139 ], [ %18, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %2, %.preheader139 ], [ %17, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %1, %.preheader139 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader139 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.0110.lcssa, 0
+  %.1111.lcssa = phi i32 [ %7, %.preheader139 ], [ %18, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %2, %.preheader139 ], [ %17, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %1, %.preheader139 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader139 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.1111.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.1111 = phi i32 [ %.0110.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.0110 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.1111, 3
+  %24 = icmp sgt i32 %.0110, 3
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph151, label %.loopexit138
 
 .lr.ph151:                                        ; preds = %21, %.lr.ph151
-  %.2150 = phi ptr [ %27, %.lr.ph151 ], [ %.1, %21 ]
-  %.2102149 = phi ptr [ %28, %.lr.ph151 ], [ %.1101, %21 ]
-  %.2107148 = phi ptr [ %32, %.lr.ph151 ], [ %.1106, %21 ]
-  %.2112147 = phi i32 [ %33, %.lr.ph151 ], [ %.1111, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2150)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2102149)
-  %27 = getelementptr inbounds i8, ptr %.2150, i64 16
-  %28 = getelementptr inbounds i8, ptr %.2102149, i64 16
+  %.3150 = phi ptr [ %27, %.lr.ph151 ], [ %.0, %21 ]
+  %.3103149 = phi ptr [ %28, %.lr.ph151 ], [ %.0100, %21 ]
+  %.3108148 = phi ptr [ %32, %.lr.ph151 ], [ %.0105, %21 ]
+  %.3113147 = phi i32 [ %33, %.lr.ph151 ], [ %.0110, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3150)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3103149)
+  %27 = getelementptr inbounds i8, ptr %.3150, i64 16
+  %28 = getelementptr inbounds i8, ptr %.3103149, i64 16
   %29 = bitcast <16 x i8> %25 to <4 x i32>
   %30 = bitcast <16 x i8> %26 to <4 x i32>
   %31 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %29, <4 x i32> %30)
-  store <4 x i32> %31, ptr %.2107148, align 1
-  %32 = getelementptr inbounds i8, ptr %.2107148, i64 16
-  %33 = add nsw i32 %.2112147, -4
-  %34 = icmp ugt i32 %.2112147, 7
+  store <4 x i32> %31, ptr %.3108148, align 1
+  %32 = getelementptr inbounds i8, ptr %.3108148, i64 16
+  %33 = add nsw i32 %.3113147, -4
+  %34 = icmp ugt i32 %.3113147, 7
   br i1 %34, label %.lr.ph151, label %.loopexit138, !llvm.loop !212
 
 .loopexit138:                                     ; preds = %.lr.ph151, %21
-  %.3113 = phi i32 [ %.1111, %21 ], [ %33, %.lr.ph151 ]
-  %.3108 = phi ptr [ %.1106, %21 ], [ %32, %.lr.ph151 ]
-  %.3103 = phi ptr [ %.1101, %21 ], [ %28, %.lr.ph151 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph151 ]
-  %35 = icmp sgt i32 %.3113, 0
+  %.2112 = phi i32 [ %.0110, %21 ], [ %33, %.lr.ph151 ]
+  %.2107 = phi ptr [ %.0105, %21 ], [ %32, %.lr.ph151 ]
+  %.2102 = phi ptr [ %.0100, %21 ], [ %28, %.lr.ph151 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph151 ]
+  %35 = icmp sgt i32 %.2112, 0
   br i1 %35, label %.lr.ph161, label %.loopexit
 
 .lr.ph161:                                        ; preds = %.loopexit138, %79
-  %.4159 = phi ptr [ %85, %79 ], [ %.3, %.loopexit138 ]
-  %.4104158 = phi ptr [ %86, %79 ], [ %.3103, %.loopexit138 ]
-  %.4109157 = phi ptr [ %84, %79 ], [ %.3108, %.loopexit138 ]
-  %.4114156 = phi i32 [ %82, %79 ], [ %.3113, %.loopexit138 ]
+  %.4159 = phi ptr [ %85, %79 ], [ %.2, %.loopexit138 ]
+  %.4104158 = phi ptr [ %86, %79 ], [ %.2102, %.loopexit138 ]
+  %.4109157 = phi ptr [ %84, %79 ], [ %.2107, %.loopexit138 ]
+  %.4114156 = phi i32 [ %82, %79 ], [ %.2112, %.loopexit138 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.4114156, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -12007,71 +12007,71 @@ define internal void @ompi_op_avx_3buff_min_uint32_t_avx2(ptr noalias noundef %0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader139, %.lr.ph
-  %.0143 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader139 ]
-  %.0100142 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader139 ]
-  %.0105141 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader139 ]
-  %.0110140 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader139 ]
-  %12 = load <8 x i32>, ptr %.0143, align 1
-  %13 = load <8 x i32>, ptr %.0100142, align 1
-  %14 = getelementptr inbounds i8, ptr %.0143, i64 32
-  %15 = getelementptr inbounds i8, ptr %.0100142, i64 32
+  %.1143 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader139 ]
+  %.1101142 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader139 ]
+  %.1106141 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader139 ]
+  %.1111140 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader139 ]
+  %12 = load <8 x i32>, ptr %.1143, align 1
+  %13 = load <8 x i32>, ptr %.1101142, align 1
+  %14 = getelementptr inbounds i8, ptr %.1143, i64 32
+  %15 = getelementptr inbounds i8, ptr %.1101142, i64 32
   %16 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %12, <8 x i32> %13)
-  store <8 x i32> %16, ptr %.0105141, align 1
-  %17 = getelementptr inbounds i8, ptr %.0105141, i64 32
-  %18 = add nsw i32 %.0110140, -8
-  %19 = icmp ugt i32 %.0110140, 15
+  store <8 x i32> %16, ptr %.1106141, align 1
+  %17 = getelementptr inbounds i8, ptr %.1106141, i64 32
+  %18 = add nsw i32 %.1111140, -8
+  %19 = icmp ugt i32 %.1111140, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !214
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader139
-  %.0110.lcssa = phi i32 [ %7, %.preheader139 ], [ %18, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %2, %.preheader139 ], [ %17, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %1, %.preheader139 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader139 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.0110.lcssa, 0
+  %.1111.lcssa = phi i32 [ %7, %.preheader139 ], [ %18, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %2, %.preheader139 ], [ %17, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %1, %.preheader139 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader139 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.1111.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.1111 = phi i32 [ %.0110.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.0110 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.1111, 3
+  %24 = icmp sgt i32 %.0110, 3
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph151, label %.loopexit138
 
 .lr.ph151:                                        ; preds = %21, %.lr.ph151
-  %.2150 = phi ptr [ %27, %.lr.ph151 ], [ %.1, %21 ]
-  %.2102149 = phi ptr [ %28, %.lr.ph151 ], [ %.1101, %21 ]
-  %.2107148 = phi ptr [ %32, %.lr.ph151 ], [ %.1106, %21 ]
-  %.2112147 = phi i32 [ %33, %.lr.ph151 ], [ %.1111, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2150)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2102149)
-  %27 = getelementptr inbounds i8, ptr %.2150, i64 16
-  %28 = getelementptr inbounds i8, ptr %.2102149, i64 16
+  %.3150 = phi ptr [ %27, %.lr.ph151 ], [ %.0, %21 ]
+  %.3103149 = phi ptr [ %28, %.lr.ph151 ], [ %.0100, %21 ]
+  %.3108148 = phi ptr [ %32, %.lr.ph151 ], [ %.0105, %21 ]
+  %.3113147 = phi i32 [ %33, %.lr.ph151 ], [ %.0110, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3150)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3103149)
+  %27 = getelementptr inbounds i8, ptr %.3150, i64 16
+  %28 = getelementptr inbounds i8, ptr %.3103149, i64 16
   %29 = bitcast <16 x i8> %25 to <4 x i32>
   %30 = bitcast <16 x i8> %26 to <4 x i32>
   %31 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %29, <4 x i32> %30)
-  store <4 x i32> %31, ptr %.2107148, align 1
-  %32 = getelementptr inbounds i8, ptr %.2107148, i64 16
-  %33 = add nsw i32 %.2112147, -4
-  %34 = icmp ugt i32 %.2112147, 7
+  store <4 x i32> %31, ptr %.3108148, align 1
+  %32 = getelementptr inbounds i8, ptr %.3108148, i64 16
+  %33 = add nsw i32 %.3113147, -4
+  %34 = icmp ugt i32 %.3113147, 7
   br i1 %34, label %.lr.ph151, label %.loopexit138, !llvm.loop !215
 
 .loopexit138:                                     ; preds = %.lr.ph151, %21
-  %.3113 = phi i32 [ %.1111, %21 ], [ %33, %.lr.ph151 ]
-  %.3108 = phi ptr [ %.1106, %21 ], [ %32, %.lr.ph151 ]
-  %.3103 = phi ptr [ %.1101, %21 ], [ %28, %.lr.ph151 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph151 ]
-  %35 = icmp sgt i32 %.3113, 0
+  %.2112 = phi i32 [ %.0110, %21 ], [ %33, %.lr.ph151 ]
+  %.2107 = phi ptr [ %.0105, %21 ], [ %32, %.lr.ph151 ]
+  %.2102 = phi ptr [ %.0100, %21 ], [ %28, %.lr.ph151 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph151 ]
+  %35 = icmp sgt i32 %.2112, 0
   br i1 %35, label %.lr.ph161, label %.loopexit
 
 .lr.ph161:                                        ; preds = %.loopexit138, %79
-  %.4159 = phi ptr [ %85, %79 ], [ %.3, %.loopexit138 ]
-  %.4104158 = phi ptr [ %86, %79 ], [ %.3103, %.loopexit138 ]
-  %.4109157 = phi ptr [ %84, %79 ], [ %.3108, %.loopexit138 ]
-  %.4114156 = phi i32 [ %82, %79 ], [ %.3113, %.loopexit138 ]
+  %.4159 = phi ptr [ %85, %79 ], [ %.2, %.loopexit138 ]
+  %.4104158 = phi ptr [ %86, %79 ], [ %.2102, %.loopexit138 ]
+  %.4109157 = phi ptr [ %84, %79 ], [ %.2107, %.loopexit138 ]
+  %.4114156 = phi i32 [ %82, %79 ], [ %.2112, %.loopexit138 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.4114156, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -12187,27 +12187,27 @@ define internal void @ompi_op_avx_3buff_min_float_avx2(ptr nocapture noundef rea
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader140, %.lr.ph
-  %.0144 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader140 ]
-  %.0100143 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader140 ]
-  %.0105142 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader140 ]
-  %.0110141 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader140 ]
-  %11 = load <8 x float>, ptr %.0100143, align 1
-  %12 = load <8 x float>, ptr %.0105142, align 1
-  %13 = getelementptr inbounds i8, ptr %.0100143, i64 32
-  %14 = getelementptr inbounds i8, ptr %.0105142, i64 32
+  %.1144 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader140 ]
+  %.1101143 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader140 ]
+  %.1106142 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader140 ]
+  %.1111141 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader140 ]
+  %11 = load <8 x float>, ptr %.1101143, align 1
+  %12 = load <8 x float>, ptr %.1106142, align 1
+  %13 = getelementptr inbounds i8, ptr %.1101143, i64 32
+  %14 = getelementptr inbounds i8, ptr %.1106142, i64 32
   %15 = tail call <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %11, <8 x float> %12)
-  store <8 x float> %15, ptr %.0110141, align 1
-  %16 = getelementptr inbounds i8, ptr %.0110141, i64 32
-  %17 = add nsw i32 %.0144, -8
-  %18 = icmp ugt i32 %.0144, 15
+  store <8 x float> %15, ptr %.1111141, align 1
+  %16 = getelementptr inbounds i8, ptr %.1111141, i64 32
+  %17 = add nsw i32 %.1144, -8
+  %18 = icmp ugt i32 %.1144, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !217
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader140
-  %.0110.lcssa = phi ptr [ %2, %.preheader140 ], [ %16, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %1, %.preheader140 ], [ %14, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %0, %.preheader140 ], [ %13, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader140 ], [ %17, %.lr.ph ]
-  %19 = icmp eq i32 %.0.lcssa, 0
+  %.1111.lcssa = phi ptr [ %2, %.preheader140 ], [ %16, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %1, %.preheader140 ], [ %14, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %0, %.preheader140 ], [ %13, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader140 ], [ %17, %.lr.ph ]
+  %19 = icmp eq i32 %.1.lcssa, 0
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -12216,45 +12216,45 @@ define internal void @ompi_op_avx_3buff_min_float_avx2(ptr nocapture noundef rea
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
   %21 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.1111 = phi ptr [ %.0110.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.0110 = phi ptr [ %.1111.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %22 = and i32 %21, 1
   %.not131 = icmp ne i32 %22, 0
-  %23 = icmp sgt i32 %.1, 3
+  %23 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not131, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph152, label %.loopexit139
 
 .lr.ph152:                                        ; preds = %20, %.lr.ph152
-  %.2151 = phi i32 [ %30, %.lr.ph152 ], [ %.1, %20 ]
-  %.2102150 = phi ptr [ %26, %.lr.ph152 ], [ %.1101, %20 ]
-  %.2107149 = phi ptr [ %27, %.lr.ph152 ], [ %.1106, %20 ]
-  %.2112148 = phi ptr [ %29, %.lr.ph152 ], [ %.1111, %20 ]
-  %24 = load <4 x float>, ptr %.2102150, align 1
-  %25 = load <4 x float>, ptr %.2107149, align 1
-  %26 = getelementptr inbounds i8, ptr %.2102150, i64 16
-  %27 = getelementptr inbounds i8, ptr %.2107149, i64 16
+  %.3151 = phi i32 [ %30, %.lr.ph152 ], [ %.0, %20 ]
+  %.3103150 = phi ptr [ %26, %.lr.ph152 ], [ %.0100, %20 ]
+  %.3108149 = phi ptr [ %27, %.lr.ph152 ], [ %.0105, %20 ]
+  %.3113148 = phi ptr [ %29, %.lr.ph152 ], [ %.0110, %20 ]
+  %24 = load <4 x float>, ptr %.3103150, align 1
+  %25 = load <4 x float>, ptr %.3108149, align 1
+  %26 = getelementptr inbounds i8, ptr %.3103150, i64 16
+  %27 = getelementptr inbounds i8, ptr %.3108149, i64 16
   %28 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %24, <4 x float> %25)
-  store <4 x float> %28, ptr %.2112148, align 1
-  %29 = getelementptr inbounds i8, ptr %.2112148, i64 16
-  %30 = add nsw i32 %.2151, -4
-  %31 = icmp ugt i32 %.2151, 7
+  store <4 x float> %28, ptr %.3113148, align 1
+  %29 = getelementptr inbounds i8, ptr %.3113148, i64 16
+  %30 = add nsw i32 %.3151, -4
+  %31 = icmp ugt i32 %.3151, 7
   br i1 %31, label %.lr.ph152, label %.loopexit139, !llvm.loop !218
 
 .loopexit139:                                     ; preds = %.lr.ph152, %20
-  %.3113 = phi ptr [ %.1111, %20 ], [ %29, %.lr.ph152 ]
-  %.3108 = phi ptr [ %.1106, %20 ], [ %27, %.lr.ph152 ]
-  %.3103 = phi ptr [ %.1101, %20 ], [ %26, %.lr.ph152 ]
-  %.3 = phi i32 [ %.1, %20 ], [ %30, %.lr.ph152 ]
-  %32 = icmp sgt i32 %.3, 0
+  %.2112 = phi ptr [ %.0110, %20 ], [ %29, %.lr.ph152 ]
+  %.2107 = phi ptr [ %.0105, %20 ], [ %27, %.lr.ph152 ]
+  %.2102 = phi ptr [ %.0100, %20 ], [ %26, %.lr.ph152 ]
+  %.2 = phi i32 [ %.0, %20 ], [ %30, %.lr.ph152 ]
+  %32 = icmp sgt i32 %.2, 0
   br i1 %32, label %.lr.ph162, label %.loopexit
 
 .lr.ph162:                                        ; preds = %.loopexit139, %83
-  %.4160 = phi i32 [ %87, %83 ], [ %.3, %.loopexit139 ]
-  %.4104159 = phi ptr [ %90, %83 ], [ %.3103, %.loopexit139 ]
-  %.4109158 = phi ptr [ %91, %83 ], [ %.3108, %.loopexit139 ]
-  %.4114157 = phi ptr [ %89, %83 ], [ %.3113, %.loopexit139 ]
+  %.4160 = phi i32 [ %87, %83 ], [ %.2, %.loopexit139 ]
+  %.4104159 = phi ptr [ %90, %83 ], [ %.2102, %.loopexit139 ]
+  %.4109158 = phi ptr [ %91, %83 ], [ %.2107, %.loopexit139 ]
+  %.4114157 = phi ptr [ %89, %83 ], [ %.2112, %.loopexit139 ]
   %33 = tail call i32 @llvm.umin.i32(i32 %.4160, i32 8)
   switch i32 %33, label %default.unreachable [
     i32 8, label %34
@@ -12378,27 +12378,27 @@ define internal void @ompi_op_avx_3buff_min_double_avx2(ptr nocapture noundef re
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader140, %.lr.ph
-  %.0144 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader140 ]
-  %.0100143 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader140 ]
-  %.0105142 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader140 ]
-  %.0110141 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader140 ]
-  %11 = load <4 x double>, ptr %.0100143, align 1
-  %12 = load <4 x double>, ptr %.0105142, align 1
-  %13 = getelementptr inbounds i8, ptr %.0100143, i64 32
-  %14 = getelementptr inbounds i8, ptr %.0105142, i64 32
+  %.1144 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader140 ]
+  %.1101143 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader140 ]
+  %.1106142 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader140 ]
+  %.1111141 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader140 ]
+  %11 = load <4 x double>, ptr %.1101143, align 1
+  %12 = load <4 x double>, ptr %.1106142, align 1
+  %13 = getelementptr inbounds i8, ptr %.1101143, i64 32
+  %14 = getelementptr inbounds i8, ptr %.1106142, i64 32
   %15 = tail call <4 x double> @llvm.x86.avx.min.pd.256(<4 x double> %11, <4 x double> %12)
-  store <4 x double> %15, ptr %.0110141, align 1
-  %16 = getelementptr inbounds i8, ptr %.0110141, i64 32
-  %17 = add nsw i32 %.0144, -4
-  %18 = icmp ugt i32 %.0144, 7
+  store <4 x double> %15, ptr %.1111141, align 1
+  %16 = getelementptr inbounds i8, ptr %.1111141, i64 32
+  %17 = add nsw i32 %.1144, -4
+  %18 = icmp ugt i32 %.1144, 7
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !220
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader140
-  %.0110.lcssa = phi ptr [ %2, %.preheader140 ], [ %16, %.lr.ph ]
-  %.0105.lcssa = phi ptr [ %1, %.preheader140 ], [ %14, %.lr.ph ]
-  %.0100.lcssa = phi ptr [ %0, %.preheader140 ], [ %13, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader140 ], [ %17, %.lr.ph ]
-  %19 = icmp eq i32 %.0.lcssa, 0
+  %.1111.lcssa = phi ptr [ %2, %.preheader140 ], [ %16, %.lr.ph ]
+  %.1106.lcssa = phi ptr [ %1, %.preheader140 ], [ %14, %.lr.ph ]
+  %.1101.lcssa = phi ptr [ %0, %.preheader140 ], [ %13, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader140 ], [ %17, %.lr.ph ]
+  %19 = icmp eq i32 %.1.lcssa, 0
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -12407,45 +12407,45 @@ define internal void @ompi_op_avx_3buff_min_double_avx2(ptr nocapture noundef re
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
   %21 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.1111 = phi ptr [ %.0110.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.1106 = phi ptr [ %.0105.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.1101 = phi ptr [ %.0100.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.0110 = phi ptr [ %.1111.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.0105 = phi ptr [ %.1106.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.0100 = phi ptr [ %.1101.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %22 = and i32 %21, 2
   %.not131 = icmp ne i32 %22, 0
-  %23 = icmp sgt i32 %.1, 1
+  %23 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not131, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph152, label %.loopexit139
 
 .lr.ph152:                                        ; preds = %20, %.lr.ph152
-  %.2151 = phi i32 [ %30, %.lr.ph152 ], [ %.1, %20 ]
-  %.2102150 = phi ptr [ %26, %.lr.ph152 ], [ %.1101, %20 ]
-  %.2107149 = phi ptr [ %27, %.lr.ph152 ], [ %.1106, %20 ]
-  %.2112148 = phi ptr [ %29, %.lr.ph152 ], [ %.1111, %20 ]
-  %24 = load <2 x double>, ptr %.2102150, align 1
-  %25 = load <2 x double>, ptr %.2107149, align 1
-  %26 = getelementptr inbounds i8, ptr %.2102150, i64 16
-  %27 = getelementptr inbounds i8, ptr %.2107149, i64 16
+  %.3151 = phi i32 [ %30, %.lr.ph152 ], [ %.0, %20 ]
+  %.3103150 = phi ptr [ %26, %.lr.ph152 ], [ %.0100, %20 ]
+  %.3108149 = phi ptr [ %27, %.lr.ph152 ], [ %.0105, %20 ]
+  %.3113148 = phi ptr [ %29, %.lr.ph152 ], [ %.0110, %20 ]
+  %24 = load <2 x double>, ptr %.3103150, align 1
+  %25 = load <2 x double>, ptr %.3108149, align 1
+  %26 = getelementptr inbounds i8, ptr %.3103150, i64 16
+  %27 = getelementptr inbounds i8, ptr %.3108149, i64 16
   %28 = tail call <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %24, <2 x double> %25)
-  store <2 x double> %28, ptr %.2112148, align 1
-  %29 = getelementptr inbounds i8, ptr %.2112148, i64 16
-  %30 = add nsw i32 %.2151, -2
-  %31 = icmp ugt i32 %.2151, 3
+  store <2 x double> %28, ptr %.3113148, align 1
+  %29 = getelementptr inbounds i8, ptr %.3113148, i64 16
+  %30 = add nsw i32 %.3151, -2
+  %31 = icmp ugt i32 %.3151, 3
   br i1 %31, label %.lr.ph152, label %.loopexit139, !llvm.loop !221
 
 .loopexit139:                                     ; preds = %.lr.ph152, %20
-  %.3113 = phi ptr [ %.1111, %20 ], [ %29, %.lr.ph152 ]
-  %.3108 = phi ptr [ %.1106, %20 ], [ %27, %.lr.ph152 ]
-  %.3103 = phi ptr [ %.1101, %20 ], [ %26, %.lr.ph152 ]
-  %.3 = phi i32 [ %.1, %20 ], [ %30, %.lr.ph152 ]
-  %32 = icmp sgt i32 %.3, 0
+  %.2112 = phi ptr [ %.0110, %20 ], [ %29, %.lr.ph152 ]
+  %.2107 = phi ptr [ %.0105, %20 ], [ %27, %.lr.ph152 ]
+  %.2102 = phi ptr [ %.0100, %20 ], [ %26, %.lr.ph152 ]
+  %.2 = phi i32 [ %.0, %20 ], [ %30, %.lr.ph152 ]
+  %32 = icmp sgt i32 %.2, 0
   br i1 %32, label %.lr.ph162, label %.loopexit
 
 .lr.ph162:                                        ; preds = %.loopexit139, %83
-  %.4160 = phi i32 [ %87, %83 ], [ %.3, %.loopexit139 ]
-  %.4104159 = phi ptr [ %90, %83 ], [ %.3103, %.loopexit139 ]
-  %.4109158 = phi ptr [ %91, %83 ], [ %.3108, %.loopexit139 ]
-  %.4114157 = phi ptr [ %89, %83 ], [ %.3113, %.loopexit139 ]
+  %.4160 = phi i32 [ %87, %83 ], [ %.2, %.loopexit139 ]
+  %.4104159 = phi ptr [ %90, %83 ], [ %.2102, %.loopexit139 ]
+  %.4109158 = phi ptr [ %91, %83 ], [ %.2107, %.loopexit139 ]
+  %.4114157 = phi ptr [ %89, %83 ], [ %.2112, %.loopexit139 ]
   %33 = tail call i32 @llvm.umin.i32(i32 %.4160, i32 8)
   switch i32 %33, label %default.unreachable [
     i32 8, label %34
@@ -12569,69 +12569,69 @@ define internal void @ompi_op_avx_3buff_sum_int8_t_avx2(ptr noalias noundef %0, 
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.084103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.089102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %.094101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %12 = load <32 x i8>, ptr %.0104, align 1
-  %13 = load <32 x i8>, ptr %.084103, align 1
-  %14 = getelementptr inbounds i8, ptr %.0104, i64 32
-  %15 = getelementptr inbounds i8, ptr %.084103, i64 32
+  %.1104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.185103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.190102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %.195101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %12 = load <32 x i8>, ptr %.1104, align 1
+  %13 = load <32 x i8>, ptr %.185103, align 1
+  %14 = getelementptr inbounds i8, ptr %.1104, i64 32
+  %15 = getelementptr inbounds i8, ptr %.185103, i64 32
   %16 = add <32 x i8> %13, %12
-  store <32 x i8> %16, ptr %.089102, align 1
-  %17 = getelementptr inbounds i8, ptr %.089102, i64 32
-  %18 = add nsw i32 %.094101, -32
-  %19 = icmp ugt i32 %.094101, 63
+  store <32 x i8> %16, ptr %.190102, align 1
+  %17 = getelementptr inbounds i8, ptr %.190102, i64 32
+  %18 = add nsw i32 %.195101, -32
+  %19 = icmp ugt i32 %.195101, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !223
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.094.lcssa, 0
+  %.195.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.195.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.195 = phi i32 [ %.094.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.094 = phi i32 [ %.195.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.195, 15
+  %24 = icmp sgt i32 %.094, 15
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi ptr [ %27, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %28, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %30, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi i32 [ %31, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2111)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %27 = getelementptr inbounds i8, ptr %.2111, i64 16
-  %28 = getelementptr inbounds i8, ptr %.286110, i64 16
+  %.3111 = phi ptr [ %27, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %28, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %30, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi i32 [ %31, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3111)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %27 = getelementptr inbounds i8, ptr %.3111, i64 16
+  %28 = getelementptr inbounds i8, ptr %.387110, i64 16
   %29 = add <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.291109, align 1
-  %30 = getelementptr inbounds i8, ptr %.291109, i64 16
-  %31 = add nsw i32 %.296108, -16
-  %32 = icmp ugt i32 %.296108, 31
+  store <16 x i8> %29, ptr %.392109, align 1
+  %30 = getelementptr inbounds i8, ptr %.392109, i64 16
+  %31 = add nsw i32 %.397108, -16
+  %32 = icmp ugt i32 %.397108, 31
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !224
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi i32 [ %.195, %21 ], [ %31, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %30, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %28, %.lr.ph112 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.397, 0
+  %.296 = phi i32 [ %.094, %21 ], [ %31, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %30, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %28, %.lr.ph112 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.296, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi ptr [ %91, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %92, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %90, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi i32 [ %88, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi ptr [ %91, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %92, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %90, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi i32 [ %88, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.498117, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -12747,69 +12747,69 @@ define internal void @ompi_op_avx_3buff_sum_uint8_t_avx2(ptr noalias noundef %0,
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.084103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.089102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %.094101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %12 = load <32 x i8>, ptr %.0104, align 1
-  %13 = load <32 x i8>, ptr %.084103, align 1
-  %14 = getelementptr inbounds i8, ptr %.0104, i64 32
-  %15 = getelementptr inbounds i8, ptr %.084103, i64 32
+  %.1104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.185103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.190102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %.195101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %12 = load <32 x i8>, ptr %.1104, align 1
+  %13 = load <32 x i8>, ptr %.185103, align 1
+  %14 = getelementptr inbounds i8, ptr %.1104, i64 32
+  %15 = getelementptr inbounds i8, ptr %.185103, i64 32
   %16 = add <32 x i8> %13, %12
-  store <32 x i8> %16, ptr %.089102, align 1
-  %17 = getelementptr inbounds i8, ptr %.089102, i64 32
-  %18 = add nsw i32 %.094101, -32
-  %19 = icmp ugt i32 %.094101, 63
+  store <32 x i8> %16, ptr %.190102, align 1
+  %17 = getelementptr inbounds i8, ptr %.190102, i64 32
+  %18 = add nsw i32 %.195101, -32
+  %19 = icmp ugt i32 %.195101, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !226
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.094.lcssa, 0
+  %.195.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.195.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.195 = phi i32 [ %.094.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.094 = phi i32 [ %.195.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.195, 15
+  %24 = icmp sgt i32 %.094, 15
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi ptr [ %27, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %28, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %30, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi i32 [ %31, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2111)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %27 = getelementptr inbounds i8, ptr %.2111, i64 16
-  %28 = getelementptr inbounds i8, ptr %.286110, i64 16
+  %.3111 = phi ptr [ %27, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %28, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %30, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi i32 [ %31, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3111)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %27 = getelementptr inbounds i8, ptr %.3111, i64 16
+  %28 = getelementptr inbounds i8, ptr %.387110, i64 16
   %29 = add <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.291109, align 1
-  %30 = getelementptr inbounds i8, ptr %.291109, i64 16
-  %31 = add nsw i32 %.296108, -16
-  %32 = icmp ugt i32 %.296108, 31
+  store <16 x i8> %29, ptr %.392109, align 1
+  %30 = getelementptr inbounds i8, ptr %.392109, i64 16
+  %31 = add nsw i32 %.397108, -16
+  %32 = icmp ugt i32 %.397108, 31
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !227
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi i32 [ %.195, %21 ], [ %31, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %30, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %28, %.lr.ph112 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.397, 0
+  %.296 = phi i32 [ %.094, %21 ], [ %31, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %30, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %28, %.lr.ph112 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.296, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi ptr [ %91, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %92, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %90, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi i32 [ %88, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi ptr [ %91, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %92, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %90, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi i32 [ %88, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.498117, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -12925,71 +12925,71 @@ define internal void @ompi_op_avx_3buff_sum_int16_t_avx2(ptr noalias noundef %0,
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.084103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.089102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %.094101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %12 = load <16 x i16>, ptr %.0104, align 1
-  %13 = load <16 x i16>, ptr %.084103, align 1
-  %14 = getelementptr inbounds i8, ptr %.0104, i64 32
-  %15 = getelementptr inbounds i8, ptr %.084103, i64 32
+  %.1104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.185103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.190102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %.195101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %12 = load <16 x i16>, ptr %.1104, align 1
+  %13 = load <16 x i16>, ptr %.185103, align 1
+  %14 = getelementptr inbounds i8, ptr %.1104, i64 32
+  %15 = getelementptr inbounds i8, ptr %.185103, i64 32
   %16 = add <16 x i16> %13, %12
-  store <16 x i16> %16, ptr %.089102, align 1
-  %17 = getelementptr inbounds i8, ptr %.089102, i64 32
-  %18 = add nsw i32 %.094101, -16
-  %19 = icmp ugt i32 %.094101, 31
+  store <16 x i16> %16, ptr %.190102, align 1
+  %17 = getelementptr inbounds i8, ptr %.190102, i64 32
+  %18 = add nsw i32 %.195101, -16
+  %19 = icmp ugt i32 %.195101, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !229
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.094.lcssa, 0
+  %.195.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.195.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.195 = phi i32 [ %.094.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.094 = phi i32 [ %.195.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.195, 7
+  %24 = icmp sgt i32 %.094, 7
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi ptr [ %27, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %28, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %32, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi i32 [ %33, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2111)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %27 = getelementptr inbounds i8, ptr %.2111, i64 16
-  %28 = getelementptr inbounds i8, ptr %.286110, i64 16
+  %.3111 = phi ptr [ %27, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %28, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %32, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi i32 [ %33, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3111)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %27 = getelementptr inbounds i8, ptr %.3111, i64 16
+  %28 = getelementptr inbounds i8, ptr %.387110, i64 16
   %29 = bitcast <16 x i8> %25 to <8 x i16>
   %30 = bitcast <16 x i8> %26 to <8 x i16>
   %31 = add <8 x i16> %30, %29
-  store <8 x i16> %31, ptr %.291109, align 1
-  %32 = getelementptr inbounds i8, ptr %.291109, i64 16
-  %33 = add nsw i32 %.296108, -8
-  %34 = icmp ugt i32 %.296108, 15
+  store <8 x i16> %31, ptr %.392109, align 1
+  %32 = getelementptr inbounds i8, ptr %.392109, i64 16
+  %33 = add nsw i32 %.397108, -8
+  %34 = icmp ugt i32 %.397108, 15
   br i1 %34, label %.lr.ph112, label %.loopexit99, !llvm.loop !230
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi i32 [ %.195, %21 ], [ %33, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %32, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %28, %.lr.ph112 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph112 ]
-  %35 = icmp sgt i32 %.397, 0
+  %.296 = phi i32 [ %.094, %21 ], [ %33, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %32, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %28, %.lr.ph112 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph112 ]
+  %35 = icmp sgt i32 %.296, 0
   br i1 %35, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %86
-  %.4120 = phi ptr [ %93, %86 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %94, %86 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %86 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi i32 [ %90, %86 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi ptr [ %93, %86 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %94, %86 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %86 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi i32 [ %90, %86 ], [ %.296, %.loopexit99 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.498117, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -13105,71 +13105,71 @@ define internal void @ompi_op_avx_3buff_sum_uint16_t_avx2(ptr noalias noundef %0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.084103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.089102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %.094101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %12 = load <16 x i16>, ptr %.0104, align 1
-  %13 = load <16 x i16>, ptr %.084103, align 1
-  %14 = getelementptr inbounds i8, ptr %.0104, i64 32
-  %15 = getelementptr inbounds i8, ptr %.084103, i64 32
+  %.1104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.185103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.190102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %.195101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %12 = load <16 x i16>, ptr %.1104, align 1
+  %13 = load <16 x i16>, ptr %.185103, align 1
+  %14 = getelementptr inbounds i8, ptr %.1104, i64 32
+  %15 = getelementptr inbounds i8, ptr %.185103, i64 32
   %16 = add <16 x i16> %13, %12
-  store <16 x i16> %16, ptr %.089102, align 1
-  %17 = getelementptr inbounds i8, ptr %.089102, i64 32
-  %18 = add nsw i32 %.094101, -16
-  %19 = icmp ugt i32 %.094101, 31
+  store <16 x i16> %16, ptr %.190102, align 1
+  %17 = getelementptr inbounds i8, ptr %.190102, i64 32
+  %18 = add nsw i32 %.195101, -16
+  %19 = icmp ugt i32 %.195101, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !232
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.094.lcssa, 0
+  %.195.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.195.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.195 = phi i32 [ %.094.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.094 = phi i32 [ %.195.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.195, 7
+  %24 = icmp sgt i32 %.094, 7
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi ptr [ %27, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %28, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %32, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi i32 [ %33, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2111)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %27 = getelementptr inbounds i8, ptr %.2111, i64 16
-  %28 = getelementptr inbounds i8, ptr %.286110, i64 16
+  %.3111 = phi ptr [ %27, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %28, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %32, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi i32 [ %33, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3111)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %27 = getelementptr inbounds i8, ptr %.3111, i64 16
+  %28 = getelementptr inbounds i8, ptr %.387110, i64 16
   %29 = bitcast <16 x i8> %25 to <8 x i16>
   %30 = bitcast <16 x i8> %26 to <8 x i16>
   %31 = add <8 x i16> %30, %29
-  store <8 x i16> %31, ptr %.291109, align 1
-  %32 = getelementptr inbounds i8, ptr %.291109, i64 16
-  %33 = add nsw i32 %.296108, -8
-  %34 = icmp ugt i32 %.296108, 15
+  store <8 x i16> %31, ptr %.392109, align 1
+  %32 = getelementptr inbounds i8, ptr %.392109, i64 16
+  %33 = add nsw i32 %.397108, -8
+  %34 = icmp ugt i32 %.397108, 15
   br i1 %34, label %.lr.ph112, label %.loopexit99, !llvm.loop !233
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi i32 [ %.195, %21 ], [ %33, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %32, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %28, %.lr.ph112 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph112 ]
-  %35 = icmp sgt i32 %.397, 0
+  %.296 = phi i32 [ %.094, %21 ], [ %33, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %32, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %28, %.lr.ph112 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph112 ]
+  %35 = icmp sgt i32 %.296, 0
   br i1 %35, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %86
-  %.4120 = phi ptr [ %93, %86 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %94, %86 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %86 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi i32 [ %90, %86 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi ptr [ %93, %86 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %94, %86 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %86 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi i32 [ %90, %86 ], [ %.296, %.loopexit99 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.498117, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -13285,71 +13285,71 @@ define internal void @ompi_op_avx_3buff_sum_int32_t_avx2(ptr noalias noundef %0,
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.084103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.089102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %.094101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %12 = load <8 x i32>, ptr %.0104, align 1
-  %13 = load <8 x i32>, ptr %.084103, align 1
-  %14 = getelementptr inbounds i8, ptr %.0104, i64 32
-  %15 = getelementptr inbounds i8, ptr %.084103, i64 32
+  %.1104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.185103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.190102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %.195101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %12 = load <8 x i32>, ptr %.1104, align 1
+  %13 = load <8 x i32>, ptr %.185103, align 1
+  %14 = getelementptr inbounds i8, ptr %.1104, i64 32
+  %15 = getelementptr inbounds i8, ptr %.185103, i64 32
   %16 = add <8 x i32> %13, %12
-  store <8 x i32> %16, ptr %.089102, align 1
-  %17 = getelementptr inbounds i8, ptr %.089102, i64 32
-  %18 = add nsw i32 %.094101, -8
-  %19 = icmp ugt i32 %.094101, 15
+  store <8 x i32> %16, ptr %.190102, align 1
+  %17 = getelementptr inbounds i8, ptr %.190102, i64 32
+  %18 = add nsw i32 %.195101, -8
+  %19 = icmp ugt i32 %.195101, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !235
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.094.lcssa, 0
+  %.195.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.195.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.195 = phi i32 [ %.094.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.094 = phi i32 [ %.195.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.195, 3
+  %24 = icmp sgt i32 %.094, 3
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi ptr [ %27, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %28, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %32, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi i32 [ %33, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2111)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %27 = getelementptr inbounds i8, ptr %.2111, i64 16
-  %28 = getelementptr inbounds i8, ptr %.286110, i64 16
+  %.3111 = phi ptr [ %27, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %28, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %32, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi i32 [ %33, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3111)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %27 = getelementptr inbounds i8, ptr %.3111, i64 16
+  %28 = getelementptr inbounds i8, ptr %.387110, i64 16
   %29 = bitcast <16 x i8> %25 to <4 x i32>
   %30 = bitcast <16 x i8> %26 to <4 x i32>
   %31 = add <4 x i32> %30, %29
-  store <4 x i32> %31, ptr %.291109, align 1
-  %32 = getelementptr inbounds i8, ptr %.291109, i64 16
-  %33 = add nsw i32 %.296108, -4
-  %34 = icmp ugt i32 %.296108, 7
+  store <4 x i32> %31, ptr %.392109, align 1
+  %32 = getelementptr inbounds i8, ptr %.392109, i64 16
+  %33 = add nsw i32 %.397108, -4
+  %34 = icmp ugt i32 %.397108, 7
   br i1 %34, label %.lr.ph112, label %.loopexit99, !llvm.loop !236
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi i32 [ %.195, %21 ], [ %33, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %32, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %28, %.lr.ph112 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph112 ]
-  %35 = icmp sgt i32 %.397, 0
+  %.296 = phi i32 [ %.094, %21 ], [ %33, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %32, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %28, %.lr.ph112 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph112 ]
+  %35 = icmp sgt i32 %.296, 0
   br i1 %35, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %86
-  %.4120 = phi ptr [ %93, %86 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %94, %86 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %86 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi i32 [ %90, %86 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi ptr [ %93, %86 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %94, %86 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %86 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi i32 [ %90, %86 ], [ %.296, %.loopexit99 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.498117, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -13465,71 +13465,71 @@ define internal void @ompi_op_avx_3buff_sum_uint32_t_avx2(ptr noalias noundef %0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.084103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.089102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %.094101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %12 = load <8 x i32>, ptr %.0104, align 1
-  %13 = load <8 x i32>, ptr %.084103, align 1
-  %14 = getelementptr inbounds i8, ptr %.0104, i64 32
-  %15 = getelementptr inbounds i8, ptr %.084103, i64 32
+  %.1104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.185103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.190102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %.195101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %12 = load <8 x i32>, ptr %.1104, align 1
+  %13 = load <8 x i32>, ptr %.185103, align 1
+  %14 = getelementptr inbounds i8, ptr %.1104, i64 32
+  %15 = getelementptr inbounds i8, ptr %.185103, i64 32
   %16 = add <8 x i32> %13, %12
-  store <8 x i32> %16, ptr %.089102, align 1
-  %17 = getelementptr inbounds i8, ptr %.089102, i64 32
-  %18 = add nsw i32 %.094101, -8
-  %19 = icmp ugt i32 %.094101, 15
+  store <8 x i32> %16, ptr %.190102, align 1
+  %17 = getelementptr inbounds i8, ptr %.190102, i64 32
+  %18 = add nsw i32 %.195101, -8
+  %19 = icmp ugt i32 %.195101, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !238
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.094.lcssa, 0
+  %.195.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.195.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.195 = phi i32 [ %.094.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.094 = phi i32 [ %.195.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.195, 3
+  %24 = icmp sgt i32 %.094, 3
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi ptr [ %27, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %28, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %32, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi i32 [ %33, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2111)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %27 = getelementptr inbounds i8, ptr %.2111, i64 16
-  %28 = getelementptr inbounds i8, ptr %.286110, i64 16
+  %.3111 = phi ptr [ %27, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %28, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %32, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi i32 [ %33, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3111)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %27 = getelementptr inbounds i8, ptr %.3111, i64 16
+  %28 = getelementptr inbounds i8, ptr %.387110, i64 16
   %29 = bitcast <16 x i8> %25 to <4 x i32>
   %30 = bitcast <16 x i8> %26 to <4 x i32>
   %31 = add <4 x i32> %30, %29
-  store <4 x i32> %31, ptr %.291109, align 1
-  %32 = getelementptr inbounds i8, ptr %.291109, i64 16
-  %33 = add nsw i32 %.296108, -4
-  %34 = icmp ugt i32 %.296108, 7
+  store <4 x i32> %31, ptr %.392109, align 1
+  %32 = getelementptr inbounds i8, ptr %.392109, i64 16
+  %33 = add nsw i32 %.397108, -4
+  %34 = icmp ugt i32 %.397108, 7
   br i1 %34, label %.lr.ph112, label %.loopexit99, !llvm.loop !239
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi i32 [ %.195, %21 ], [ %33, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %32, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %28, %.lr.ph112 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph112 ]
-  %35 = icmp sgt i32 %.397, 0
+  %.296 = phi i32 [ %.094, %21 ], [ %33, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %32, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %28, %.lr.ph112 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph112 ]
+  %35 = icmp sgt i32 %.296, 0
   br i1 %35, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %86
-  %.4120 = phi ptr [ %93, %86 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %94, %86 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %86 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi i32 [ %90, %86 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi ptr [ %93, %86 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %94, %86 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %86 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi i32 [ %90, %86 ], [ %.296, %.loopexit99 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.498117, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -13645,71 +13645,71 @@ define internal void @ompi_op_avx_3buff_sum_int64_t_avx2(ptr noalias noundef %0,
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.084103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.089102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %.094101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.0104, align 1
-  %13 = load <4 x i64>, ptr %.084103, align 1
-  %14 = getelementptr inbounds i8, ptr %.0104, i64 32
-  %15 = getelementptr inbounds i8, ptr %.084103, i64 32
+  %.1104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.185103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.190102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %.195101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.1104, align 1
+  %13 = load <4 x i64>, ptr %.185103, align 1
+  %14 = getelementptr inbounds i8, ptr %.1104, i64 32
+  %15 = getelementptr inbounds i8, ptr %.185103, i64 32
   %16 = add <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.089102, align 1
-  %17 = getelementptr inbounds i8, ptr %.089102, i64 32
-  %18 = add nsw i32 %.094101, -4
-  %19 = icmp ugt i32 %.094101, 7
+  store <4 x i64> %16, ptr %.190102, align 1
+  %17 = getelementptr inbounds i8, ptr %.190102, i64 32
+  %18 = add nsw i32 %.195101, -4
+  %19 = icmp ugt i32 %.195101, 7
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !241
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.094.lcssa, 0
+  %.195.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.195.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.195 = phi i32 [ %.094.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.094 = phi i32 [ %.195.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.195, 1
+  %24 = icmp sgt i32 %.094, 1
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi ptr [ %29, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %30, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %32, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi i32 [ %33, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2111)
+  %.3111 = phi ptr [ %29, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %30, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %32, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi i32 [ %33, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3111)
   %26 = bitcast <16 x i8> %25 to <2 x i64>
-  %27 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
+  %27 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
   %28 = bitcast <16 x i8> %27 to <2 x i64>
-  %29 = getelementptr inbounds i8, ptr %.2111, i64 16
-  %30 = getelementptr inbounds i8, ptr %.286110, i64 16
+  %29 = getelementptr inbounds i8, ptr %.3111, i64 16
+  %30 = getelementptr inbounds i8, ptr %.387110, i64 16
   %31 = add <2 x i64> %28, %26
-  store <2 x i64> %31, ptr %.291109, align 1
-  %32 = getelementptr inbounds i8, ptr %.291109, i64 16
-  %33 = add nsw i32 %.296108, -2
-  %34 = icmp ugt i32 %.296108, 3
+  store <2 x i64> %31, ptr %.392109, align 1
+  %32 = getelementptr inbounds i8, ptr %.392109, i64 16
+  %33 = add nsw i32 %.397108, -2
+  %34 = icmp ugt i32 %.397108, 3
   br i1 %34, label %.lr.ph112, label %.loopexit99, !llvm.loop !242
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi i32 [ %.195, %21 ], [ %33, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %32, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %30, %.lr.ph112 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %29, %.lr.ph112 ]
-  %35 = icmp sgt i32 %.397, 0
+  %.296 = phi i32 [ %.094, %21 ], [ %33, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %32, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %30, %.lr.ph112 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %29, %.lr.ph112 ]
+  %35 = icmp sgt i32 %.296, 0
   br i1 %35, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %86
-  %.4120 = phi ptr [ %93, %86 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %94, %86 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %86 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi i32 [ %90, %86 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi ptr [ %93, %86 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %94, %86 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %86 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi i32 [ %90, %86 ], [ %.296, %.loopexit99 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.498117, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -13825,71 +13825,71 @@ define internal void @ompi_op_avx_3buff_sum_uint64_t_avx2(ptr noalias noundef %0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.084103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.089102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %.094101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.0104, align 1
-  %13 = load <4 x i64>, ptr %.084103, align 1
-  %14 = getelementptr inbounds i8, ptr %.0104, i64 32
-  %15 = getelementptr inbounds i8, ptr %.084103, i64 32
+  %.1104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.185103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.190102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %.195101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.1104, align 1
+  %13 = load <4 x i64>, ptr %.185103, align 1
+  %14 = getelementptr inbounds i8, ptr %.1104, i64 32
+  %15 = getelementptr inbounds i8, ptr %.185103, i64 32
   %16 = add <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.089102, align 1
-  %17 = getelementptr inbounds i8, ptr %.089102, i64 32
-  %18 = add nsw i32 %.094101, -4
-  %19 = icmp ugt i32 %.094101, 7
+  store <4 x i64> %16, ptr %.190102, align 1
+  %17 = getelementptr inbounds i8, ptr %.190102, i64 32
+  %18 = add nsw i32 %.195101, -4
+  %19 = icmp ugt i32 %.195101, 7
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !244
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.094.lcssa, 0
+  %.195.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.195.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.195 = phi i32 [ %.094.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.094 = phi i32 [ %.195.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.195, 1
+  %24 = icmp sgt i32 %.094, 1
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi ptr [ %29, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %30, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %32, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi i32 [ %33, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2111)
+  %.3111 = phi ptr [ %29, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %30, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %32, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi i32 [ %33, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3111)
   %26 = bitcast <16 x i8> %25 to <2 x i64>
-  %27 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
+  %27 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
   %28 = bitcast <16 x i8> %27 to <2 x i64>
-  %29 = getelementptr inbounds i8, ptr %.2111, i64 16
-  %30 = getelementptr inbounds i8, ptr %.286110, i64 16
+  %29 = getelementptr inbounds i8, ptr %.3111, i64 16
+  %30 = getelementptr inbounds i8, ptr %.387110, i64 16
   %31 = add <2 x i64> %28, %26
-  store <2 x i64> %31, ptr %.291109, align 1
-  %32 = getelementptr inbounds i8, ptr %.291109, i64 16
-  %33 = add nsw i32 %.296108, -2
-  %34 = icmp ugt i32 %.296108, 3
+  store <2 x i64> %31, ptr %.392109, align 1
+  %32 = getelementptr inbounds i8, ptr %.392109, i64 16
+  %33 = add nsw i32 %.397108, -2
+  %34 = icmp ugt i32 %.397108, 3
   br i1 %34, label %.lr.ph112, label %.loopexit99, !llvm.loop !245
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi i32 [ %.195, %21 ], [ %33, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %32, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %30, %.lr.ph112 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %29, %.lr.ph112 ]
-  %35 = icmp sgt i32 %.397, 0
+  %.296 = phi i32 [ %.094, %21 ], [ %33, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %32, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %30, %.lr.ph112 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %29, %.lr.ph112 ]
+  %35 = icmp sgt i32 %.296, 0
   br i1 %35, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %86
-  %.4120 = phi ptr [ %93, %86 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %94, %86 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %86 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi i32 [ %90, %86 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi ptr [ %93, %86 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %94, %86 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %86 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi i32 [ %90, %86 ], [ %.296, %.loopexit99 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.498117, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -14005,27 +14005,27 @@ define internal void @ompi_op_avx_3buff_add_float_avx2(ptr nocapture noundef rea
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader101, %.lr.ph
-  %.0105 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader101 ]
-  %.084104 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader101 ]
-  %.089103 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader101 ]
-  %.094102 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader101 ]
-  %11 = load <8 x float>, ptr %.084104, align 1
-  %12 = load <8 x float>, ptr %.089103, align 1
-  %13 = getelementptr inbounds i8, ptr %.084104, i64 32
-  %14 = getelementptr inbounds i8, ptr %.089103, i64 32
+  %.1105 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader101 ]
+  %.185104 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader101 ]
+  %.190103 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader101 ]
+  %.195102 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader101 ]
+  %11 = load <8 x float>, ptr %.185104, align 1
+  %12 = load <8 x float>, ptr %.190103, align 1
+  %13 = getelementptr inbounds i8, ptr %.185104, i64 32
+  %14 = getelementptr inbounds i8, ptr %.190103, i64 32
   %15 = fadd <8 x float> %11, %12
-  store <8 x float> %15, ptr %.094102, align 1
-  %16 = getelementptr inbounds i8, ptr %.094102, i64 32
-  %17 = add nsw i32 %.0105, -8
-  %18 = icmp ugt i32 %.0105, 15
+  store <8 x float> %15, ptr %.195102, align 1
+  %16 = getelementptr inbounds i8, ptr %.195102, i64 32
+  %17 = add nsw i32 %.1105, -8
+  %18 = icmp ugt i32 %.1105, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !247
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader101
-  %.094.lcssa = phi ptr [ %2, %.preheader101 ], [ %16, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader101 ], [ %14, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader101 ], [ %13, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader101 ], [ %17, %.lr.ph ]
-  %19 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader101 ], [ %16, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader101 ], [ %14, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader101 ], [ %13, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader101 ], [ %17, %.lr.ph ]
+  %19 = icmp eq i32 %.1.lcssa, 0
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -14034,45 +14034,45 @@ define internal void @ompi_op_avx_3buff_add_float_avx2(ptr nocapture noundef rea
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
   %21 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %22 = and i32 %21, 1
   %.not99 = icmp ne i32 %22, 0
-  %23 = icmp sgt i32 %.1, 3
+  %23 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not99, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph113, label %.loopexit100
 
 .lr.ph113:                                        ; preds = %20, %.lr.ph113
-  %.2112 = phi i32 [ %30, %.lr.ph113 ], [ %.1, %20 ]
-  %.286111 = phi ptr [ %26, %.lr.ph113 ], [ %.185, %20 ]
-  %.291110 = phi ptr [ %27, %.lr.ph113 ], [ %.190, %20 ]
-  %.296109 = phi ptr [ %29, %.lr.ph113 ], [ %.195, %20 ]
-  %24 = load <4 x float>, ptr %.286111, align 1
-  %25 = load <4 x float>, ptr %.291110, align 1
-  %26 = getelementptr inbounds i8, ptr %.286111, i64 16
-  %27 = getelementptr inbounds i8, ptr %.291110, i64 16
+  %.3112 = phi i32 [ %30, %.lr.ph113 ], [ %.0, %20 ]
+  %.387111 = phi ptr [ %26, %.lr.ph113 ], [ %.084, %20 ]
+  %.392110 = phi ptr [ %27, %.lr.ph113 ], [ %.089, %20 ]
+  %.397109 = phi ptr [ %29, %.lr.ph113 ], [ %.094, %20 ]
+  %24 = load <4 x float>, ptr %.387111, align 1
+  %25 = load <4 x float>, ptr %.392110, align 1
+  %26 = getelementptr inbounds i8, ptr %.387111, i64 16
+  %27 = getelementptr inbounds i8, ptr %.392110, i64 16
   %28 = fadd <4 x float> %24, %25
-  store <4 x float> %28, ptr %.296109, align 1
-  %29 = getelementptr inbounds i8, ptr %.296109, i64 16
-  %30 = add nsw i32 %.2112, -4
-  %31 = icmp ugt i32 %.2112, 7
+  store <4 x float> %28, ptr %.397109, align 1
+  %29 = getelementptr inbounds i8, ptr %.397109, i64 16
+  %30 = add nsw i32 %.3112, -4
+  %31 = icmp ugt i32 %.3112, 7
   br i1 %31, label %.lr.ph113, label %.loopexit100, !llvm.loop !248
 
 .loopexit100:                                     ; preds = %.lr.ph113, %20
-  %.397 = phi ptr [ %.195, %20 ], [ %29, %.lr.ph113 ]
-  %.392 = phi ptr [ %.190, %20 ], [ %27, %.lr.ph113 ]
-  %.387 = phi ptr [ %.185, %20 ], [ %26, %.lr.ph113 ]
-  %.3 = phi i32 [ %.1, %20 ], [ %30, %.lr.ph113 ]
-  %32 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %20 ], [ %29, %.lr.ph113 ]
+  %.291 = phi ptr [ %.089, %20 ], [ %27, %.lr.ph113 ]
+  %.286 = phi ptr [ %.084, %20 ], [ %26, %.lr.ph113 ]
+  %.2 = phi i32 [ %.0, %20 ], [ %30, %.lr.ph113 ]
+  %32 = icmp sgt i32 %.2, 0
   br i1 %32, label %.lr.ph123, label %.loopexit
 
 .lr.ph123:                                        ; preds = %.loopexit100, %83
-  %.4121 = phi i32 [ %87, %83 ], [ %.3, %.loopexit100 ]
-  %.488120 = phi ptr [ %90, %83 ], [ %.387, %.loopexit100 ]
-  %.493119 = phi ptr [ %91, %83 ], [ %.392, %.loopexit100 ]
-  %.498118 = phi ptr [ %89, %83 ], [ %.397, %.loopexit100 ]
+  %.4121 = phi i32 [ %87, %83 ], [ %.2, %.loopexit100 ]
+  %.488120 = phi ptr [ %90, %83 ], [ %.286, %.loopexit100 ]
+  %.493119 = phi ptr [ %91, %83 ], [ %.291, %.loopexit100 ]
+  %.498118 = phi ptr [ %89, %83 ], [ %.296, %.loopexit100 ]
   %33 = tail call i32 @llvm.umin.i32(i32 %.4121, i32 8)
   switch i32 %33, label %default.unreachable [
     i32 8, label %34
@@ -14188,27 +14188,27 @@ define internal void @ompi_op_avx_3buff_add_double_avx2(ptr nocapture noundef re
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader101, %.lr.ph
-  %.0105 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader101 ]
-  %.084104 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader101 ]
-  %.089103 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader101 ]
-  %.094102 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader101 ]
-  %11 = load <4 x double>, ptr %.084104, align 1
-  %12 = load <4 x double>, ptr %.089103, align 1
-  %13 = getelementptr inbounds i8, ptr %.084104, i64 32
-  %14 = getelementptr inbounds i8, ptr %.089103, i64 32
+  %.1105 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader101 ]
+  %.185104 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader101 ]
+  %.190103 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader101 ]
+  %.195102 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader101 ]
+  %11 = load <4 x double>, ptr %.185104, align 1
+  %12 = load <4 x double>, ptr %.190103, align 1
+  %13 = getelementptr inbounds i8, ptr %.185104, i64 32
+  %14 = getelementptr inbounds i8, ptr %.190103, i64 32
   %15 = fadd <4 x double> %11, %12
-  store <4 x double> %15, ptr %.094102, align 1
-  %16 = getelementptr inbounds i8, ptr %.094102, i64 32
-  %17 = add nsw i32 %.0105, -4
-  %18 = icmp ugt i32 %.0105, 7
+  store <4 x double> %15, ptr %.195102, align 1
+  %16 = getelementptr inbounds i8, ptr %.195102, i64 32
+  %17 = add nsw i32 %.1105, -4
+  %18 = icmp ugt i32 %.1105, 7
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !250
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader101
-  %.094.lcssa = phi ptr [ %2, %.preheader101 ], [ %16, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader101 ], [ %14, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader101 ], [ %13, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader101 ], [ %17, %.lr.ph ]
-  %19 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader101 ], [ %16, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader101 ], [ %14, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader101 ], [ %13, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader101 ], [ %17, %.lr.ph ]
+  %19 = icmp eq i32 %.1.lcssa, 0
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -14217,45 +14217,45 @@ define internal void @ompi_op_avx_3buff_add_double_avx2(ptr nocapture noundef re
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
   %21 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %22 = and i32 %21, 2
   %.not99 = icmp ne i32 %22, 0
-  %23 = icmp sgt i32 %.1, 1
+  %23 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not99, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph113, label %.loopexit100
 
 .lr.ph113:                                        ; preds = %20, %.lr.ph113
-  %.2112 = phi i32 [ %30, %.lr.ph113 ], [ %.1, %20 ]
-  %.286111 = phi ptr [ %26, %.lr.ph113 ], [ %.185, %20 ]
-  %.291110 = phi ptr [ %27, %.lr.ph113 ], [ %.190, %20 ]
-  %.296109 = phi ptr [ %29, %.lr.ph113 ], [ %.195, %20 ]
-  %24 = load <2 x double>, ptr %.286111, align 1
-  %25 = load <2 x double>, ptr %.291110, align 1
-  %26 = getelementptr inbounds i8, ptr %.286111, i64 16
-  %27 = getelementptr inbounds i8, ptr %.291110, i64 16
+  %.3112 = phi i32 [ %30, %.lr.ph113 ], [ %.0, %20 ]
+  %.387111 = phi ptr [ %26, %.lr.ph113 ], [ %.084, %20 ]
+  %.392110 = phi ptr [ %27, %.lr.ph113 ], [ %.089, %20 ]
+  %.397109 = phi ptr [ %29, %.lr.ph113 ], [ %.094, %20 ]
+  %24 = load <2 x double>, ptr %.387111, align 1
+  %25 = load <2 x double>, ptr %.392110, align 1
+  %26 = getelementptr inbounds i8, ptr %.387111, i64 16
+  %27 = getelementptr inbounds i8, ptr %.392110, i64 16
   %28 = fadd <2 x double> %24, %25
-  store <2 x double> %28, ptr %.296109, align 1
-  %29 = getelementptr inbounds i8, ptr %.296109, i64 16
-  %30 = add nsw i32 %.2112, -2
-  %31 = icmp ugt i32 %.2112, 3
+  store <2 x double> %28, ptr %.397109, align 1
+  %29 = getelementptr inbounds i8, ptr %.397109, i64 16
+  %30 = add nsw i32 %.3112, -2
+  %31 = icmp ugt i32 %.3112, 3
   br i1 %31, label %.lr.ph113, label %.loopexit100, !llvm.loop !251
 
 .loopexit100:                                     ; preds = %.lr.ph113, %20
-  %.397 = phi ptr [ %.195, %20 ], [ %29, %.lr.ph113 ]
-  %.392 = phi ptr [ %.190, %20 ], [ %27, %.lr.ph113 ]
-  %.387 = phi ptr [ %.185, %20 ], [ %26, %.lr.ph113 ]
-  %.3 = phi i32 [ %.1, %20 ], [ %30, %.lr.ph113 ]
-  %32 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %20 ], [ %29, %.lr.ph113 ]
+  %.291 = phi ptr [ %.089, %20 ], [ %27, %.lr.ph113 ]
+  %.286 = phi ptr [ %.084, %20 ], [ %26, %.lr.ph113 ]
+  %.2 = phi i32 [ %.0, %20 ], [ %30, %.lr.ph113 ]
+  %32 = icmp sgt i32 %.2, 0
   br i1 %32, label %.lr.ph123, label %.loopexit
 
 .lr.ph123:                                        ; preds = %.loopexit100, %83
-  %.4121 = phi i32 [ %87, %83 ], [ %.3, %.loopexit100 ]
-  %.488120 = phi ptr [ %90, %83 ], [ %.387, %.loopexit100 ]
-  %.493119 = phi ptr [ %91, %83 ], [ %.392, %.loopexit100 ]
-  %.498118 = phi ptr [ %89, %83 ], [ %.397, %.loopexit100 ]
+  %.4121 = phi i32 [ %87, %83 ], [ %.2, %.loopexit100 ]
+  %.488120 = phi ptr [ %90, %83 ], [ %.286, %.loopexit100 ]
+  %.493119 = phi ptr [ %91, %83 ], [ %.291, %.loopexit100 ]
+  %.498118 = phi ptr [ %89, %83 ], [ %.296, %.loopexit100 ]
   %33 = tail call i32 @llvm.umin.i32(i32 %.4121, i32 8)
   switch i32 %33, label %default.unreachable [
     i32 8, label %34
@@ -14597,71 +14597,71 @@ define internal void @ompi_op_avx_3buff_prod_int16_t_avx2(ptr noalias noundef %0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.084103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.089102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %.094101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %12 = load <16 x i16>, ptr %.0104, align 1
-  %13 = load <16 x i16>, ptr %.084103, align 1
-  %14 = getelementptr inbounds i8, ptr %.0104, i64 32
-  %15 = getelementptr inbounds i8, ptr %.084103, i64 32
+  %.1104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.185103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.190102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %.195101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %12 = load <16 x i16>, ptr %.1104, align 1
+  %13 = load <16 x i16>, ptr %.185103, align 1
+  %14 = getelementptr inbounds i8, ptr %.1104, i64 32
+  %15 = getelementptr inbounds i8, ptr %.185103, i64 32
   %16 = mul <16 x i16> %13, %12
-  store <16 x i16> %16, ptr %.089102, align 1
-  %17 = getelementptr inbounds i8, ptr %.089102, i64 32
-  %18 = add nsw i32 %.094101, -16
-  %19 = icmp ugt i32 %.094101, 31
+  store <16 x i16> %16, ptr %.190102, align 1
+  %17 = getelementptr inbounds i8, ptr %.190102, i64 32
+  %18 = add nsw i32 %.195101, -16
+  %19 = icmp ugt i32 %.195101, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !255
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.094.lcssa, 0
+  %.195.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.195.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.195 = phi i32 [ %.094.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.094 = phi i32 [ %.195.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.195, 7
+  %24 = icmp sgt i32 %.094, 7
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi ptr [ %27, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %28, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %32, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi i32 [ %33, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2111)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %27 = getelementptr inbounds i8, ptr %.2111, i64 16
-  %28 = getelementptr inbounds i8, ptr %.286110, i64 16
+  %.3111 = phi ptr [ %27, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %28, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %32, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi i32 [ %33, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3111)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %27 = getelementptr inbounds i8, ptr %.3111, i64 16
+  %28 = getelementptr inbounds i8, ptr %.387110, i64 16
   %29 = bitcast <16 x i8> %25 to <8 x i16>
   %30 = bitcast <16 x i8> %26 to <8 x i16>
   %31 = mul <8 x i16> %30, %29
-  store <8 x i16> %31, ptr %.291109, align 1
-  %32 = getelementptr inbounds i8, ptr %.291109, i64 16
-  %33 = add nsw i32 %.296108, -8
-  %34 = icmp ugt i32 %.296108, 15
+  store <8 x i16> %31, ptr %.392109, align 1
+  %32 = getelementptr inbounds i8, ptr %.392109, i64 16
+  %33 = add nsw i32 %.397108, -8
+  %34 = icmp ugt i32 %.397108, 15
   br i1 %34, label %.lr.ph112, label %.loopexit99, !llvm.loop !256
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi i32 [ %.195, %21 ], [ %33, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %32, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %28, %.lr.ph112 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph112 ]
-  %35 = icmp sgt i32 %.397, 0
+  %.296 = phi i32 [ %.094, %21 ], [ %33, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %32, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %28, %.lr.ph112 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph112 ]
+  %35 = icmp sgt i32 %.296, 0
   br i1 %35, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %86
-  %.4120 = phi ptr [ %93, %86 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %94, %86 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %86 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi i32 [ %90, %86 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi ptr [ %93, %86 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %94, %86 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %86 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi i32 [ %90, %86 ], [ %.296, %.loopexit99 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.498117, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -14777,71 +14777,71 @@ define internal void @ompi_op_avx_3buff_prod_uint16_t_avx2(ptr noalias noundef %
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.084103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.089102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %.094101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %12 = load <16 x i16>, ptr %.0104, align 1
-  %13 = load <16 x i16>, ptr %.084103, align 1
-  %14 = getelementptr inbounds i8, ptr %.0104, i64 32
-  %15 = getelementptr inbounds i8, ptr %.084103, i64 32
+  %.1104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.185103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.190102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %.195101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %12 = load <16 x i16>, ptr %.1104, align 1
+  %13 = load <16 x i16>, ptr %.185103, align 1
+  %14 = getelementptr inbounds i8, ptr %.1104, i64 32
+  %15 = getelementptr inbounds i8, ptr %.185103, i64 32
   %16 = mul <16 x i16> %13, %12
-  store <16 x i16> %16, ptr %.089102, align 1
-  %17 = getelementptr inbounds i8, ptr %.089102, i64 32
-  %18 = add nsw i32 %.094101, -16
-  %19 = icmp ugt i32 %.094101, 31
+  store <16 x i16> %16, ptr %.190102, align 1
+  %17 = getelementptr inbounds i8, ptr %.190102, i64 32
+  %18 = add nsw i32 %.195101, -16
+  %19 = icmp ugt i32 %.195101, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !258
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.094.lcssa, 0
+  %.195.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.195.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.195 = phi i32 [ %.094.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.094 = phi i32 [ %.195.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.195, 7
+  %24 = icmp sgt i32 %.094, 7
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi ptr [ %27, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %28, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %32, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi i32 [ %33, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2111)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %27 = getelementptr inbounds i8, ptr %.2111, i64 16
-  %28 = getelementptr inbounds i8, ptr %.286110, i64 16
+  %.3111 = phi ptr [ %27, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %28, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %32, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi i32 [ %33, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3111)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %27 = getelementptr inbounds i8, ptr %.3111, i64 16
+  %28 = getelementptr inbounds i8, ptr %.387110, i64 16
   %29 = bitcast <16 x i8> %25 to <8 x i16>
   %30 = bitcast <16 x i8> %26 to <8 x i16>
   %31 = mul <8 x i16> %30, %29
-  store <8 x i16> %31, ptr %.291109, align 1
-  %32 = getelementptr inbounds i8, ptr %.291109, i64 16
-  %33 = add nsw i32 %.296108, -8
-  %34 = icmp ugt i32 %.296108, 15
+  store <8 x i16> %31, ptr %.392109, align 1
+  %32 = getelementptr inbounds i8, ptr %.392109, i64 16
+  %33 = add nsw i32 %.397108, -8
+  %34 = icmp ugt i32 %.397108, 15
   br i1 %34, label %.lr.ph112, label %.loopexit99, !llvm.loop !259
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi i32 [ %.195, %21 ], [ %33, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %32, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %28, %.lr.ph112 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph112 ]
-  %35 = icmp sgt i32 %.397, 0
+  %.296 = phi i32 [ %.094, %21 ], [ %33, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %32, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %28, %.lr.ph112 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph112 ]
+  %35 = icmp sgt i32 %.296, 0
   br i1 %35, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %86
-  %.4120 = phi ptr [ %93, %86 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %94, %86 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %86 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi i32 [ %90, %86 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi ptr [ %93, %86 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %94, %86 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %86 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi i32 [ %90, %86 ], [ %.296, %.loopexit99 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.498117, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -14957,71 +14957,71 @@ define internal void @ompi_op_avx_3buff_prod_int32_t_avx2(ptr noalias noundef %0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.084103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.089102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %.094101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %12 = load <8 x i32>, ptr %.0104, align 1
-  %13 = load <8 x i32>, ptr %.084103, align 1
-  %14 = getelementptr inbounds i8, ptr %.0104, i64 32
-  %15 = getelementptr inbounds i8, ptr %.084103, i64 32
+  %.1104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.185103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.190102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %.195101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %12 = load <8 x i32>, ptr %.1104, align 1
+  %13 = load <8 x i32>, ptr %.185103, align 1
+  %14 = getelementptr inbounds i8, ptr %.1104, i64 32
+  %15 = getelementptr inbounds i8, ptr %.185103, i64 32
   %16 = mul <8 x i32> %13, %12
-  store <8 x i32> %16, ptr %.089102, align 1
-  %17 = getelementptr inbounds i8, ptr %.089102, i64 32
-  %18 = add nsw i32 %.094101, -8
-  %19 = icmp ugt i32 %.094101, 15
+  store <8 x i32> %16, ptr %.190102, align 1
+  %17 = getelementptr inbounds i8, ptr %.190102, i64 32
+  %18 = add nsw i32 %.195101, -8
+  %19 = icmp ugt i32 %.195101, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !261
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.094.lcssa, 0
+  %.195.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.195.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.195 = phi i32 [ %.094.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.094 = phi i32 [ %.195.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.195, 3
+  %24 = icmp sgt i32 %.094, 3
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi ptr [ %27, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %28, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %32, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi i32 [ %33, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2111)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %27 = getelementptr inbounds i8, ptr %.2111, i64 16
-  %28 = getelementptr inbounds i8, ptr %.286110, i64 16
+  %.3111 = phi ptr [ %27, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %28, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %32, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi i32 [ %33, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3111)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %27 = getelementptr inbounds i8, ptr %.3111, i64 16
+  %28 = getelementptr inbounds i8, ptr %.387110, i64 16
   %29 = bitcast <16 x i8> %25 to <4 x i32>
   %30 = bitcast <16 x i8> %26 to <4 x i32>
   %31 = mul <4 x i32> %30, %29
-  store <4 x i32> %31, ptr %.291109, align 1
-  %32 = getelementptr inbounds i8, ptr %.291109, i64 16
-  %33 = add nsw i32 %.296108, -4
-  %34 = icmp ugt i32 %.296108, 7
+  store <4 x i32> %31, ptr %.392109, align 1
+  %32 = getelementptr inbounds i8, ptr %.392109, i64 16
+  %33 = add nsw i32 %.397108, -4
+  %34 = icmp ugt i32 %.397108, 7
   br i1 %34, label %.lr.ph112, label %.loopexit99, !llvm.loop !262
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi i32 [ %.195, %21 ], [ %33, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %32, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %28, %.lr.ph112 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph112 ]
-  %35 = icmp sgt i32 %.397, 0
+  %.296 = phi i32 [ %.094, %21 ], [ %33, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %32, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %28, %.lr.ph112 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph112 ]
+  %35 = icmp sgt i32 %.296, 0
   br i1 %35, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %86
-  %.4120 = phi ptr [ %93, %86 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %94, %86 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %86 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi i32 [ %90, %86 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi ptr [ %93, %86 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %94, %86 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %86 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi i32 [ %90, %86 ], [ %.296, %.loopexit99 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.498117, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -15137,71 +15137,71 @@ define internal void @ompi_op_avx_3buff_prod_uint32_t_avx2(ptr noalias noundef %
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.084103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.089102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %.094101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %12 = load <8 x i32>, ptr %.0104, align 1
-  %13 = load <8 x i32>, ptr %.084103, align 1
-  %14 = getelementptr inbounds i8, ptr %.0104, i64 32
-  %15 = getelementptr inbounds i8, ptr %.084103, i64 32
+  %.1104 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.185103 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.190102 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %.195101 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %12 = load <8 x i32>, ptr %.1104, align 1
+  %13 = load <8 x i32>, ptr %.185103, align 1
+  %14 = getelementptr inbounds i8, ptr %.1104, i64 32
+  %15 = getelementptr inbounds i8, ptr %.185103, i64 32
   %16 = mul <8 x i32> %13, %12
-  store <8 x i32> %16, ptr %.089102, align 1
-  %17 = getelementptr inbounds i8, ptr %.089102, i64 32
-  %18 = add nsw i32 %.094101, -8
-  %19 = icmp ugt i32 %.094101, 15
+  store <8 x i32> %16, ptr %.190102, align 1
+  %17 = getelementptr inbounds i8, ptr %.190102, i64 32
+  %18 = add nsw i32 %.195101, -8
+  %19 = icmp ugt i32 %.195101, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !264
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %20 = icmp eq i32 %.094.lcssa, 0
+  %.195.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %20 = icmp eq i32 %.195.lcssa, 0
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %._crit_edge, %6
-  %.195 = phi i32 [ %.094.lcssa, %._crit_edge ], [ %7, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge ], [ %2, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge ], [ %1, %6 ]
-  %.1 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %0, %6 ]
+  %.094 = phi i32 [ %.195.lcssa, %._crit_edge ], [ %7, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge ], [ %2, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge ], [ %1, %6 ]
+  %.0 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %0, %6 ]
   %22 = and i32 %8, 12
   %23 = icmp eq i32 %22, 12
-  %24 = icmp sgt i32 %.195, 3
+  %24 = icmp sgt i32 %.094, 3
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi ptr [ %27, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %28, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %32, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi i32 [ %33, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.2111)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %27 = getelementptr inbounds i8, ptr %.2111, i64 16
-  %28 = getelementptr inbounds i8, ptr %.286110, i64 16
+  %.3111 = phi ptr [ %27, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %28, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %32, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi i32 [ %33, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.3111)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %27 = getelementptr inbounds i8, ptr %.3111, i64 16
+  %28 = getelementptr inbounds i8, ptr %.387110, i64 16
   %29 = bitcast <16 x i8> %25 to <4 x i32>
   %30 = bitcast <16 x i8> %26 to <4 x i32>
   %31 = mul <4 x i32> %30, %29
-  store <4 x i32> %31, ptr %.291109, align 1
-  %32 = getelementptr inbounds i8, ptr %.291109, i64 16
-  %33 = add nsw i32 %.296108, -4
-  %34 = icmp ugt i32 %.296108, 7
+  store <4 x i32> %31, ptr %.392109, align 1
+  %32 = getelementptr inbounds i8, ptr %.392109, i64 16
+  %33 = add nsw i32 %.397108, -4
+  %34 = icmp ugt i32 %.397108, 7
   br i1 %34, label %.lr.ph112, label %.loopexit99, !llvm.loop !265
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi i32 [ %.195, %21 ], [ %33, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %32, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %28, %.lr.ph112 ]
-  %.3 = phi ptr [ %.1, %21 ], [ %27, %.lr.ph112 ]
-  %35 = icmp sgt i32 %.397, 0
+  %.296 = phi i32 [ %.094, %21 ], [ %33, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %32, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %28, %.lr.ph112 ]
+  %.2 = phi ptr [ %.0, %21 ], [ %27, %.lr.ph112 ]
+  %35 = icmp sgt i32 %.296, 0
   br i1 %35, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %86
-  %.4120 = phi ptr [ %93, %86 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %94, %86 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %86 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi i32 [ %90, %86 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi ptr [ %93, %86 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %94, %86 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %86 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi i32 [ %90, %86 ], [ %.296, %.loopexit99 ]
   %36 = tail call i32 @llvm.umin.i32(i32 %.498117, i32 8)
   switch i32 %36, label %default.unreachable [
     i32 8, label %37
@@ -15317,27 +15317,27 @@ define internal void @ompi_op_avx_3buff_mul_float_avx2(ptr nocapture noundef rea
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader101, %.lr.ph
-  %.0105 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader101 ]
-  %.084104 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader101 ]
-  %.089103 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader101 ]
-  %.094102 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader101 ]
-  %11 = load <8 x float>, ptr %.084104, align 1
-  %12 = load <8 x float>, ptr %.089103, align 1
-  %13 = getelementptr inbounds i8, ptr %.084104, i64 32
-  %14 = getelementptr inbounds i8, ptr %.089103, i64 32
+  %.1105 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader101 ]
+  %.185104 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader101 ]
+  %.190103 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader101 ]
+  %.195102 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader101 ]
+  %11 = load <8 x float>, ptr %.185104, align 1
+  %12 = load <8 x float>, ptr %.190103, align 1
+  %13 = getelementptr inbounds i8, ptr %.185104, i64 32
+  %14 = getelementptr inbounds i8, ptr %.190103, i64 32
   %15 = fmul <8 x float> %11, %12
-  store <8 x float> %15, ptr %.094102, align 1
-  %16 = getelementptr inbounds i8, ptr %.094102, i64 32
-  %17 = add nsw i32 %.0105, -8
-  %18 = icmp ugt i32 %.0105, 15
+  store <8 x float> %15, ptr %.195102, align 1
+  %16 = getelementptr inbounds i8, ptr %.195102, i64 32
+  %17 = add nsw i32 %.1105, -8
+  %18 = icmp ugt i32 %.1105, 15
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !267
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader101
-  %.094.lcssa = phi ptr [ %2, %.preheader101 ], [ %16, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader101 ], [ %14, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader101 ], [ %13, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader101 ], [ %17, %.lr.ph ]
-  %19 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader101 ], [ %16, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader101 ], [ %14, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader101 ], [ %13, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader101 ], [ %17, %.lr.ph ]
+  %19 = icmp eq i32 %.1.lcssa, 0
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -15346,45 +15346,45 @@ define internal void @ompi_op_avx_3buff_mul_float_avx2(ptr nocapture noundef rea
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
   %21 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %22 = and i32 %21, 1
   %.not99 = icmp ne i32 %22, 0
-  %23 = icmp sgt i32 %.1, 3
+  %23 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not99, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph113, label %.loopexit100
 
 .lr.ph113:                                        ; preds = %20, %.lr.ph113
-  %.2112 = phi i32 [ %30, %.lr.ph113 ], [ %.1, %20 ]
-  %.286111 = phi ptr [ %26, %.lr.ph113 ], [ %.185, %20 ]
-  %.291110 = phi ptr [ %27, %.lr.ph113 ], [ %.190, %20 ]
-  %.296109 = phi ptr [ %29, %.lr.ph113 ], [ %.195, %20 ]
-  %24 = load <4 x float>, ptr %.286111, align 1
-  %25 = load <4 x float>, ptr %.291110, align 1
-  %26 = getelementptr inbounds i8, ptr %.286111, i64 16
-  %27 = getelementptr inbounds i8, ptr %.291110, i64 16
+  %.3112 = phi i32 [ %30, %.lr.ph113 ], [ %.0, %20 ]
+  %.387111 = phi ptr [ %26, %.lr.ph113 ], [ %.084, %20 ]
+  %.392110 = phi ptr [ %27, %.lr.ph113 ], [ %.089, %20 ]
+  %.397109 = phi ptr [ %29, %.lr.ph113 ], [ %.094, %20 ]
+  %24 = load <4 x float>, ptr %.387111, align 1
+  %25 = load <4 x float>, ptr %.392110, align 1
+  %26 = getelementptr inbounds i8, ptr %.387111, i64 16
+  %27 = getelementptr inbounds i8, ptr %.392110, i64 16
   %28 = fmul <4 x float> %24, %25
-  store <4 x float> %28, ptr %.296109, align 1
-  %29 = getelementptr inbounds i8, ptr %.296109, i64 16
-  %30 = add nsw i32 %.2112, -4
-  %31 = icmp ugt i32 %.2112, 7
+  store <4 x float> %28, ptr %.397109, align 1
+  %29 = getelementptr inbounds i8, ptr %.397109, i64 16
+  %30 = add nsw i32 %.3112, -4
+  %31 = icmp ugt i32 %.3112, 7
   br i1 %31, label %.lr.ph113, label %.loopexit100, !llvm.loop !268
 
 .loopexit100:                                     ; preds = %.lr.ph113, %20
-  %.397 = phi ptr [ %.195, %20 ], [ %29, %.lr.ph113 ]
-  %.392 = phi ptr [ %.190, %20 ], [ %27, %.lr.ph113 ]
-  %.387 = phi ptr [ %.185, %20 ], [ %26, %.lr.ph113 ]
-  %.3 = phi i32 [ %.1, %20 ], [ %30, %.lr.ph113 ]
-  %32 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %20 ], [ %29, %.lr.ph113 ]
+  %.291 = phi ptr [ %.089, %20 ], [ %27, %.lr.ph113 ]
+  %.286 = phi ptr [ %.084, %20 ], [ %26, %.lr.ph113 ]
+  %.2 = phi i32 [ %.0, %20 ], [ %30, %.lr.ph113 ]
+  %32 = icmp sgt i32 %.2, 0
   br i1 %32, label %.lr.ph123, label %.loopexit
 
 .lr.ph123:                                        ; preds = %.loopexit100, %83
-  %.4121 = phi i32 [ %87, %83 ], [ %.3, %.loopexit100 ]
-  %.488120 = phi ptr [ %90, %83 ], [ %.387, %.loopexit100 ]
-  %.493119 = phi ptr [ %91, %83 ], [ %.392, %.loopexit100 ]
-  %.498118 = phi ptr [ %89, %83 ], [ %.397, %.loopexit100 ]
+  %.4121 = phi i32 [ %87, %83 ], [ %.2, %.loopexit100 ]
+  %.488120 = phi ptr [ %90, %83 ], [ %.286, %.loopexit100 ]
+  %.493119 = phi ptr [ %91, %83 ], [ %.291, %.loopexit100 ]
+  %.498118 = phi ptr [ %89, %83 ], [ %.296, %.loopexit100 ]
   %33 = tail call i32 @llvm.umin.i32(i32 %.4121, i32 8)
   switch i32 %33, label %default.unreachable [
     i32 8, label %34
@@ -15500,27 +15500,27 @@ define internal void @ompi_op_avx_3buff_mul_double_avx2(ptr nocapture noundef re
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader101, %.lr.ph
-  %.0105 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader101 ]
-  %.084104 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader101 ]
-  %.089103 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader101 ]
-  %.094102 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader101 ]
-  %11 = load <4 x double>, ptr %.084104, align 1
-  %12 = load <4 x double>, ptr %.089103, align 1
-  %13 = getelementptr inbounds i8, ptr %.084104, i64 32
-  %14 = getelementptr inbounds i8, ptr %.089103, i64 32
+  %.1105 = phi i32 [ %17, %.lr.ph ], [ %7, %.preheader101 ]
+  %.185104 = phi ptr [ %13, %.lr.ph ], [ %0, %.preheader101 ]
+  %.190103 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader101 ]
+  %.195102 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader101 ]
+  %11 = load <4 x double>, ptr %.185104, align 1
+  %12 = load <4 x double>, ptr %.190103, align 1
+  %13 = getelementptr inbounds i8, ptr %.185104, i64 32
+  %14 = getelementptr inbounds i8, ptr %.190103, i64 32
   %15 = fmul <4 x double> %11, %12
-  store <4 x double> %15, ptr %.094102, align 1
-  %16 = getelementptr inbounds i8, ptr %.094102, i64 32
-  %17 = add nsw i32 %.0105, -4
-  %18 = icmp ugt i32 %.0105, 7
+  store <4 x double> %15, ptr %.195102, align 1
+  %16 = getelementptr inbounds i8, ptr %.195102, i64 32
+  %17 = add nsw i32 %.1105, -4
+  %18 = icmp ugt i32 %.1105, 7
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !270
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader101
-  %.094.lcssa = phi ptr [ %2, %.preheader101 ], [ %16, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader101 ], [ %14, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader101 ], [ %13, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader101 ], [ %17, %.lr.ph ]
-  %19 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader101 ], [ %16, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader101 ], [ %14, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader101 ], [ %13, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader101 ], [ %17, %.lr.ph ]
+  %19 = icmp eq i32 %.1.lcssa, 0
   br i1 %19, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -15529,45 +15529,45 @@ define internal void @ompi_op_avx_3buff_mul_double_avx2(ptr nocapture noundef re
 
 20:                                               ; preds = %._crit_edge._crit_edge, %6
   %21 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %22 = and i32 %21, 2
   %.not99 = icmp ne i32 %22, 0
-  %23 = icmp sgt i32 %.1, 1
+  %23 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not99, i1 %23, i1 false
   br i1 %or.cond, label %.lr.ph113, label %.loopexit100
 
 .lr.ph113:                                        ; preds = %20, %.lr.ph113
-  %.2112 = phi i32 [ %30, %.lr.ph113 ], [ %.1, %20 ]
-  %.286111 = phi ptr [ %26, %.lr.ph113 ], [ %.185, %20 ]
-  %.291110 = phi ptr [ %27, %.lr.ph113 ], [ %.190, %20 ]
-  %.296109 = phi ptr [ %29, %.lr.ph113 ], [ %.195, %20 ]
-  %24 = load <2 x double>, ptr %.286111, align 1
-  %25 = load <2 x double>, ptr %.291110, align 1
-  %26 = getelementptr inbounds i8, ptr %.286111, i64 16
-  %27 = getelementptr inbounds i8, ptr %.291110, i64 16
+  %.3112 = phi i32 [ %30, %.lr.ph113 ], [ %.0, %20 ]
+  %.387111 = phi ptr [ %26, %.lr.ph113 ], [ %.084, %20 ]
+  %.392110 = phi ptr [ %27, %.lr.ph113 ], [ %.089, %20 ]
+  %.397109 = phi ptr [ %29, %.lr.ph113 ], [ %.094, %20 ]
+  %24 = load <2 x double>, ptr %.387111, align 1
+  %25 = load <2 x double>, ptr %.392110, align 1
+  %26 = getelementptr inbounds i8, ptr %.387111, i64 16
+  %27 = getelementptr inbounds i8, ptr %.392110, i64 16
   %28 = fmul <2 x double> %24, %25
-  store <2 x double> %28, ptr %.296109, align 1
-  %29 = getelementptr inbounds i8, ptr %.296109, i64 16
-  %30 = add nsw i32 %.2112, -2
-  %31 = icmp ugt i32 %.2112, 3
+  store <2 x double> %28, ptr %.397109, align 1
+  %29 = getelementptr inbounds i8, ptr %.397109, i64 16
+  %30 = add nsw i32 %.3112, -2
+  %31 = icmp ugt i32 %.3112, 3
   br i1 %31, label %.lr.ph113, label %.loopexit100, !llvm.loop !271
 
 .loopexit100:                                     ; preds = %.lr.ph113, %20
-  %.397 = phi ptr [ %.195, %20 ], [ %29, %.lr.ph113 ]
-  %.392 = phi ptr [ %.190, %20 ], [ %27, %.lr.ph113 ]
-  %.387 = phi ptr [ %.185, %20 ], [ %26, %.lr.ph113 ]
-  %.3 = phi i32 [ %.1, %20 ], [ %30, %.lr.ph113 ]
-  %32 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %20 ], [ %29, %.lr.ph113 ]
+  %.291 = phi ptr [ %.089, %20 ], [ %27, %.lr.ph113 ]
+  %.286 = phi ptr [ %.084, %20 ], [ %26, %.lr.ph113 ]
+  %.2 = phi i32 [ %.0, %20 ], [ %30, %.lr.ph113 ]
+  %32 = icmp sgt i32 %.2, 0
   br i1 %32, label %.lr.ph123, label %.loopexit
 
 .lr.ph123:                                        ; preds = %.loopexit100, %83
-  %.4121 = phi i32 [ %87, %83 ], [ %.3, %.loopexit100 ]
-  %.488120 = phi ptr [ %90, %83 ], [ %.387, %.loopexit100 ]
-  %.493119 = phi ptr [ %91, %83 ], [ %.392, %.loopexit100 ]
-  %.498118 = phi ptr [ %89, %83 ], [ %.397, %.loopexit100 ]
+  %.4121 = phi i32 [ %87, %83 ], [ %.2, %.loopexit100 ]
+  %.488120 = phi ptr [ %90, %83 ], [ %.286, %.loopexit100 ]
+  %.493119 = phi ptr [ %91, %83 ], [ %.291, %.loopexit100 ]
+  %.498118 = phi ptr [ %89, %83 ], [ %.296, %.loopexit100 ]
   %33 = tail call i32 @llvm.umin.i32(i32 %.4121, i32 8)
   switch i32 %33, label %default.unreachable [
     i32 8, label %34
@@ -15683,27 +15683,27 @@ define internal void @ompi_op_avx_3buff_and_int8_t_avx2(ptr noundef %0, ptr noun
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = and <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -32
-  %19 = icmp ugt i32 %.0104, 63
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -32
+  %19 = icmp ugt i32 %.1104, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !273
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -15712,45 +15712,45 @@ define internal void @ompi_op_avx_3buff_and_int8_t_avx2(ptr noundef %0, ptr noun
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 15
+  %24 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = and <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -16
-  %32 = icmp ugt i32 %.2111, 31
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -16
+  %32 = icmp ugt i32 %.3111, 31
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !274
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -15866,27 +15866,27 @@ define internal void @ompi_op_avx_3buff_and_uint8_t_avx2(ptr noundef %0, ptr nou
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = and <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -32
-  %19 = icmp ugt i32 %.0104, 63
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -32
+  %19 = icmp ugt i32 %.1104, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !276
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -15895,45 +15895,45 @@ define internal void @ompi_op_avx_3buff_and_uint8_t_avx2(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 15
+  %24 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = and <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -16
-  %32 = icmp ugt i32 %.2111, 31
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -16
+  %32 = icmp ugt i32 %.3111, 31
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !277
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -16049,27 +16049,27 @@ define internal void @ompi_op_avx_3buff_and_int16_t_avx2(ptr noundef %0, ptr nou
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = and <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -16
-  %19 = icmp ugt i32 %.0104, 31
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -16
+  %19 = icmp ugt i32 %.1104, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !279
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -16078,45 +16078,45 @@ define internal void @ompi_op_avx_3buff_and_int16_t_avx2(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 7
+  %24 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = and <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -8
-  %32 = icmp ugt i32 %.2111, 15
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -8
+  %32 = icmp ugt i32 %.3111, 15
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !280
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -16232,27 +16232,27 @@ define internal void @ompi_op_avx_3buff_and_uint16_t_avx2(ptr noundef %0, ptr no
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = and <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -16
-  %19 = icmp ugt i32 %.0104, 31
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -16
+  %19 = icmp ugt i32 %.1104, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !282
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -16261,45 +16261,45 @@ define internal void @ompi_op_avx_3buff_and_uint16_t_avx2(ptr noundef %0, ptr no
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 7
+  %24 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = and <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -8
-  %32 = icmp ugt i32 %.2111, 15
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -8
+  %32 = icmp ugt i32 %.3111, 15
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !283
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -16415,27 +16415,27 @@ define internal void @ompi_op_avx_3buff_and_int32_t_avx2(ptr noundef %0, ptr nou
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = and <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -8
-  %19 = icmp ugt i32 %.0104, 15
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -8
+  %19 = icmp ugt i32 %.1104, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !285
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -16444,45 +16444,45 @@ define internal void @ompi_op_avx_3buff_and_int32_t_avx2(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 3
+  %24 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = and <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -4
-  %32 = icmp ugt i32 %.2111, 7
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -4
+  %32 = icmp ugt i32 %.3111, 7
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !286
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -16598,27 +16598,27 @@ define internal void @ompi_op_avx_3buff_and_uint32_t_avx2(ptr noundef %0, ptr no
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = and <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -8
-  %19 = icmp ugt i32 %.0104, 15
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -8
+  %19 = icmp ugt i32 %.1104, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !288
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -16627,45 +16627,45 @@ define internal void @ompi_op_avx_3buff_and_uint32_t_avx2(ptr noundef %0, ptr no
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 3
+  %24 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = and <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -4
-  %32 = icmp ugt i32 %.2111, 7
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -4
+  %32 = icmp ugt i32 %.3111, 7
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !289
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -16781,27 +16781,27 @@ define internal void @ompi_op_avx_3buff_and_int64_t_avx2(ptr noundef %0, ptr nou
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = and <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -4
-  %19 = icmp ugt i32 %.0104, 7
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -4
+  %19 = icmp ugt i32 %.1104, 7
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !291
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -16810,45 +16810,45 @@ define internal void @ompi_op_avx_3buff_and_int64_t_avx2(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 1
+  %24 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = and <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -2
-  %32 = icmp ugt i32 %.2111, 3
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -2
+  %32 = icmp ugt i32 %.3111, 3
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !292
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -16964,27 +16964,27 @@ define internal void @ompi_op_avx_3buff_and_uint64_t_avx2(ptr noundef %0, ptr no
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = and <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -4
-  %19 = icmp ugt i32 %.0104, 7
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -4
+  %19 = icmp ugt i32 %.1104, 7
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !294
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -16993,45 +16993,45 @@ define internal void @ompi_op_avx_3buff_and_uint64_t_avx2(ptr noundef %0, ptr no
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 1
+  %24 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = and <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -2
-  %32 = icmp ugt i32 %.2111, 3
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -2
+  %32 = icmp ugt i32 %.3111, 3
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !295
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -17147,27 +17147,27 @@ define internal void @ompi_op_avx_3buff_or_int8_t_avx2(ptr noundef %0, ptr nound
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = or <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -32
-  %19 = icmp ugt i32 %.0104, 63
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -32
+  %19 = icmp ugt i32 %.1104, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !297
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -17176,45 +17176,45 @@ define internal void @ompi_op_avx_3buff_or_int8_t_avx2(ptr noundef %0, ptr nound
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 15
+  %24 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = or <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -16
-  %32 = icmp ugt i32 %.2111, 31
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -16
+  %32 = icmp ugt i32 %.3111, 31
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !298
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -17330,27 +17330,27 @@ define internal void @ompi_op_avx_3buff_or_uint8_t_avx2(ptr noundef %0, ptr noun
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = or <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -32
-  %19 = icmp ugt i32 %.0104, 63
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -32
+  %19 = icmp ugt i32 %.1104, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !300
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -17359,45 +17359,45 @@ define internal void @ompi_op_avx_3buff_or_uint8_t_avx2(ptr noundef %0, ptr noun
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 15
+  %24 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = or <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -16
-  %32 = icmp ugt i32 %.2111, 31
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -16
+  %32 = icmp ugt i32 %.3111, 31
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !301
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -17513,27 +17513,27 @@ define internal void @ompi_op_avx_3buff_or_int16_t_avx2(ptr noundef %0, ptr noun
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = or <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -16
-  %19 = icmp ugt i32 %.0104, 31
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -16
+  %19 = icmp ugt i32 %.1104, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !303
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -17542,45 +17542,45 @@ define internal void @ompi_op_avx_3buff_or_int16_t_avx2(ptr noundef %0, ptr noun
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 7
+  %24 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = or <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -8
-  %32 = icmp ugt i32 %.2111, 15
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -8
+  %32 = icmp ugt i32 %.3111, 15
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !304
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -17696,27 +17696,27 @@ define internal void @ompi_op_avx_3buff_or_uint16_t_avx2(ptr noundef %0, ptr nou
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = or <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -16
-  %19 = icmp ugt i32 %.0104, 31
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -16
+  %19 = icmp ugt i32 %.1104, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !306
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -17725,45 +17725,45 @@ define internal void @ompi_op_avx_3buff_or_uint16_t_avx2(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 7
+  %24 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = or <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -8
-  %32 = icmp ugt i32 %.2111, 15
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -8
+  %32 = icmp ugt i32 %.3111, 15
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !307
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -17879,27 +17879,27 @@ define internal void @ompi_op_avx_3buff_or_int32_t_avx2(ptr noundef %0, ptr noun
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = or <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -8
-  %19 = icmp ugt i32 %.0104, 15
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -8
+  %19 = icmp ugt i32 %.1104, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !309
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -17908,45 +17908,45 @@ define internal void @ompi_op_avx_3buff_or_int32_t_avx2(ptr noundef %0, ptr noun
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 3
+  %24 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = or <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -4
-  %32 = icmp ugt i32 %.2111, 7
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -4
+  %32 = icmp ugt i32 %.3111, 7
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !310
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -18062,27 +18062,27 @@ define internal void @ompi_op_avx_3buff_or_uint32_t_avx2(ptr noundef %0, ptr nou
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = or <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -8
-  %19 = icmp ugt i32 %.0104, 15
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -8
+  %19 = icmp ugt i32 %.1104, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !312
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -18091,45 +18091,45 @@ define internal void @ompi_op_avx_3buff_or_uint32_t_avx2(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 3
+  %24 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = or <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -4
-  %32 = icmp ugt i32 %.2111, 7
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -4
+  %32 = icmp ugt i32 %.3111, 7
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !313
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -18245,27 +18245,27 @@ define internal void @ompi_op_avx_3buff_or_int64_t_avx2(ptr noundef %0, ptr noun
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = or <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -4
-  %19 = icmp ugt i32 %.0104, 7
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -4
+  %19 = icmp ugt i32 %.1104, 7
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !315
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -18274,45 +18274,45 @@ define internal void @ompi_op_avx_3buff_or_int64_t_avx2(ptr noundef %0, ptr noun
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 1
+  %24 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = or <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -2
-  %32 = icmp ugt i32 %.2111, 3
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -2
+  %32 = icmp ugt i32 %.3111, 3
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !316
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -18428,27 +18428,27 @@ define internal void @ompi_op_avx_3buff_or_uint64_t_avx2(ptr noundef %0, ptr nou
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = or <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -4
-  %19 = icmp ugt i32 %.0104, 7
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -4
+  %19 = icmp ugt i32 %.1104, 7
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !318
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -18457,45 +18457,45 @@ define internal void @ompi_op_avx_3buff_or_uint64_t_avx2(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 1
+  %24 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = or <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -2
-  %32 = icmp ugt i32 %.2111, 3
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -2
+  %32 = icmp ugt i32 %.3111, 3
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !319
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -18611,27 +18611,27 @@ define internal void @ompi_op_avx_3buff_xor_int8_t_avx2(ptr noundef %0, ptr noun
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = xor <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -32
-  %19 = icmp ugt i32 %.0104, 63
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -32
+  %19 = icmp ugt i32 %.1104, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !321
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -18640,45 +18640,45 @@ define internal void @ompi_op_avx_3buff_xor_int8_t_avx2(ptr noundef %0, ptr noun
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 15
+  %24 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = xor <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -16
-  %32 = icmp ugt i32 %.2111, 31
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -16
+  %32 = icmp ugt i32 %.3111, 31
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !322
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -18794,27 +18794,27 @@ define internal void @ompi_op_avx_3buff_xor_uint8_t_avx2(ptr noundef %0, ptr nou
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = xor <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -32
-  %19 = icmp ugt i32 %.0104, 63
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -32
+  %19 = icmp ugt i32 %.1104, 63
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !324
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -18823,45 +18823,45 @@ define internal void @ompi_op_avx_3buff_xor_uint8_t_avx2(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 15
+  %24 = icmp sgt i32 %.0, 15
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = xor <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -16
-  %32 = icmp ugt i32 %.2111, 31
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -16
+  %32 = icmp ugt i32 %.3111, 31
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !325
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -18977,27 +18977,27 @@ define internal void @ompi_op_avx_3buff_xor_int16_t_avx2(ptr noundef %0, ptr nou
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = xor <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -16
-  %19 = icmp ugt i32 %.0104, 31
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -16
+  %19 = icmp ugt i32 %.1104, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !327
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -19006,45 +19006,45 @@ define internal void @ompi_op_avx_3buff_xor_int16_t_avx2(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 7
+  %24 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = xor <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -8
-  %32 = icmp ugt i32 %.2111, 15
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -8
+  %32 = icmp ugt i32 %.3111, 15
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !328
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -19160,27 +19160,27 @@ define internal void @ompi_op_avx_3buff_xor_uint16_t_avx2(ptr noundef %0, ptr no
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = xor <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -16
-  %19 = icmp ugt i32 %.0104, 31
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -16
+  %19 = icmp ugt i32 %.1104, 31
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !330
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -19189,45 +19189,45 @@ define internal void @ompi_op_avx_3buff_xor_uint16_t_avx2(ptr noundef %0, ptr no
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 7
+  %24 = icmp sgt i32 %.0, 7
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = xor <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -8
-  %32 = icmp ugt i32 %.2111, 15
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -8
+  %32 = icmp ugt i32 %.3111, 15
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !331
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -19343,27 +19343,27 @@ define internal void @ompi_op_avx_3buff_xor_int32_t_avx2(ptr noundef %0, ptr nou
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = xor <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -8
-  %19 = icmp ugt i32 %.0104, 15
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -8
+  %19 = icmp ugt i32 %.1104, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !333
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -19372,45 +19372,45 @@ define internal void @ompi_op_avx_3buff_xor_int32_t_avx2(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 3
+  %24 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = xor <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -4
-  %32 = icmp ugt i32 %.2111, 7
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -4
+  %32 = icmp ugt i32 %.3111, 7
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !334
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -19526,27 +19526,27 @@ define internal void @ompi_op_avx_3buff_xor_uint32_t_avx2(ptr noundef %0, ptr no
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = xor <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -8
-  %19 = icmp ugt i32 %.0104, 15
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -8
+  %19 = icmp ugt i32 %.1104, 15
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !336
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -19555,45 +19555,45 @@ define internal void @ompi_op_avx_3buff_xor_uint32_t_avx2(ptr noundef %0, ptr no
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 3
+  %24 = icmp sgt i32 %.0, 3
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = xor <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -4
-  %32 = icmp ugt i32 %.2111, 7
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -4
+  %32 = icmp ugt i32 %.3111, 7
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !337
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -19709,27 +19709,27 @@ define internal void @ompi_op_avx_3buff_xor_int64_t_avx2(ptr noundef %0, ptr nou
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = xor <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -4
-  %19 = icmp ugt i32 %.0104, 7
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -4
+  %19 = icmp ugt i32 %.1104, 7
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !339
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -19738,45 +19738,45 @@ define internal void @ompi_op_avx_3buff_xor_int64_t_avx2(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 1
+  %24 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = xor <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -2
-  %32 = icmp ugt i32 %.2111, 3
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -2
+  %32 = icmp ugt i32 %.3111, 3
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !340
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35
@@ -19892,27 +19892,27 @@ define internal void @ompi_op_avx_3buff_xor_uint64_t_avx2(ptr noundef %0, ptr no
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100, %.lr.ph
-  %.0104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
-  %.084103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
-  %.089102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
-  %.094101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
-  %12 = load <4 x i64>, ptr %.084103, align 1
-  %13 = load <4 x i64>, ptr %.089102, align 1
-  %14 = getelementptr inbounds i8, ptr %.084103, i64 32
-  %15 = getelementptr inbounds i8, ptr %.089102, i64 32
+  %.1104 = phi i32 [ %18, %.lr.ph ], [ %7, %.preheader100 ]
+  %.185103 = phi ptr [ %14, %.lr.ph ], [ %0, %.preheader100 ]
+  %.190102 = phi ptr [ %15, %.lr.ph ], [ %1, %.preheader100 ]
+  %.195101 = phi ptr [ %17, %.lr.ph ], [ %2, %.preheader100 ]
+  %12 = load <4 x i64>, ptr %.185103, align 1
+  %13 = load <4 x i64>, ptr %.190102, align 1
+  %14 = getelementptr inbounds i8, ptr %.185103, i64 32
+  %15 = getelementptr inbounds i8, ptr %.190102, i64 32
   %16 = xor <4 x i64> %13, %12
-  store <4 x i64> %16, ptr %.094101, align 1
-  %17 = getelementptr inbounds i8, ptr %.094101, i64 32
-  %18 = add nsw i32 %.0104, -4
-  %19 = icmp ugt i32 %.0104, 7
+  store <4 x i64> %16, ptr %.195101, align 1
+  %17 = getelementptr inbounds i8, ptr %.195101, i64 32
+  %18 = add nsw i32 %.1104, -4
+  %19 = icmp ugt i32 %.1104, 7
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !342
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader100
-  %.094.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
-  %.089.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
-  %.084.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
-  %20 = icmp eq i32 %.0.lcssa, 0
+  %.195.lcssa = phi ptr [ %2, %.preheader100 ], [ %17, %.lr.ph ]
+  %.190.lcssa = phi ptr [ %1, %.preheader100 ], [ %15, %.lr.ph ]
+  %.185.lcssa = phi ptr [ %0, %.preheader100 ], [ %14, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %7, %.preheader100 ], [ %18, %.lr.ph ]
+  %20 = icmp eq i32 %.1.lcssa, 0
   br i1 %20, label %.loopexit, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
@@ -19921,45 +19921,45 @@ define internal void @ompi_op_avx_3buff_xor_uint64_t_avx2(ptr noundef %0, ptr no
 
 21:                                               ; preds = %._crit_edge._crit_edge, %6
   %22 = phi i32 [ %.pre, %._crit_edge._crit_edge ], [ %8, %6 ]
-  %.195 = phi ptr [ %.094.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
-  %.190 = phi ptr [ %.089.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
-  %.185 = phi ptr [ %.084.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
-  %.1 = phi i32 [ %.0.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
+  %.094 = phi ptr [ %.195.lcssa, %._crit_edge._crit_edge ], [ %2, %6 ]
+  %.089 = phi ptr [ %.190.lcssa, %._crit_edge._crit_edge ], [ %1, %6 ]
+  %.084 = phi ptr [ %.185.lcssa, %._crit_edge._crit_edge ], [ %0, %6 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge._crit_edge ], [ %7, %6 ]
   %23 = and i32 %22, 4
   %.not = icmp ne i32 %23, 0
-  %24 = icmp sgt i32 %.1, 1
+  %24 = icmp sgt i32 %.0, 1
   %or.cond = select i1 %.not, i1 %24, i1 false
   br i1 %or.cond, label %.lr.ph112, label %.loopexit99
 
 .lr.ph112:                                        ; preds = %21, %.lr.ph112
-  %.2111 = phi i32 [ %31, %.lr.ph112 ], [ %.1, %21 ]
-  %.286110 = phi ptr [ %27, %.lr.ph112 ], [ %.185, %21 ]
-  %.291109 = phi ptr [ %28, %.lr.ph112 ], [ %.190, %21 ]
-  %.296108 = phi ptr [ %30, %.lr.ph112 ], [ %.195, %21 ]
-  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.286110)
-  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.291109)
-  %27 = getelementptr inbounds i8, ptr %.286110, i64 16
-  %28 = getelementptr inbounds i8, ptr %.291109, i64 16
+  %.3111 = phi i32 [ %31, %.lr.ph112 ], [ %.0, %21 ]
+  %.387110 = phi ptr [ %27, %.lr.ph112 ], [ %.084, %21 ]
+  %.392109 = phi ptr [ %28, %.lr.ph112 ], [ %.089, %21 ]
+  %.397108 = phi ptr [ %30, %.lr.ph112 ], [ %.094, %21 ]
+  %25 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.387110)
+  %26 = tail call <16 x i8> @llvm.x86.sse3.ldu.dq(ptr %.392109)
+  %27 = getelementptr inbounds i8, ptr %.387110, i64 16
+  %28 = getelementptr inbounds i8, ptr %.392109, i64 16
   %29 = xor <16 x i8> %26, %25
-  store <16 x i8> %29, ptr %.296108, align 1
-  %30 = getelementptr inbounds i8, ptr %.296108, i64 16
-  %31 = add nsw i32 %.2111, -2
-  %32 = icmp ugt i32 %.2111, 3
+  store <16 x i8> %29, ptr %.397108, align 1
+  %30 = getelementptr inbounds i8, ptr %.397108, i64 16
+  %31 = add nsw i32 %.3111, -2
+  %32 = icmp ugt i32 %.3111, 3
   br i1 %32, label %.lr.ph112, label %.loopexit99, !llvm.loop !343
 
 .loopexit99:                                      ; preds = %.lr.ph112, %21
-  %.397 = phi ptr [ %.195, %21 ], [ %30, %.lr.ph112 ]
-  %.392 = phi ptr [ %.190, %21 ], [ %28, %.lr.ph112 ]
-  %.387 = phi ptr [ %.185, %21 ], [ %27, %.lr.ph112 ]
-  %.3 = phi i32 [ %.1, %21 ], [ %31, %.lr.ph112 ]
-  %33 = icmp sgt i32 %.3, 0
+  %.296 = phi ptr [ %.094, %21 ], [ %30, %.lr.ph112 ]
+  %.291 = phi ptr [ %.089, %21 ], [ %28, %.lr.ph112 ]
+  %.286 = phi ptr [ %.084, %21 ], [ %27, %.lr.ph112 ]
+  %.2 = phi i32 [ %.0, %21 ], [ %31, %.lr.ph112 ]
+  %33 = icmp sgt i32 %.2, 0
   br i1 %33, label %.lr.ph122, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.loopexit99, %84
-  %.4120 = phi i32 [ %88, %84 ], [ %.3, %.loopexit99 ]
-  %.488119 = phi ptr [ %91, %84 ], [ %.387, %.loopexit99 ]
-  %.493118 = phi ptr [ %92, %84 ], [ %.392, %.loopexit99 ]
-  %.498117 = phi ptr [ %90, %84 ], [ %.397, %.loopexit99 ]
+  %.4120 = phi i32 [ %88, %84 ], [ %.2, %.loopexit99 ]
+  %.488119 = phi ptr [ %91, %84 ], [ %.286, %.loopexit99 ]
+  %.493118 = phi ptr [ %92, %84 ], [ %.291, %.loopexit99 ]
+  %.498117 = phi ptr [ %90, %84 ], [ %.296, %.loopexit99 ]
   %34 = tail call i32 @llvm.umin.i32(i32 %.4120, i32 8)
   switch i32 %34, label %default.unreachable [
     i32 8, label %35

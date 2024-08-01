@@ -6960,19 +6960,19 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %2
   %31 = extractvalue { ptr, i64 } %30, 0
   %.not47 = icmp eq ptr %31, null
   %32 = extractvalue { ptr, i64 } %30, 1
-  %.sroa.016.0 = select i1 %.not47, ptr @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.76, ptr %31
-  %.sroa.417.0 = select i1 %.not47, i64 1, i64 %32
+  %.sroa.016.1 = select i1 %.not47, ptr @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.76, ptr %31
+  %.sroa.417.1 = select i1 %.not47, i64 1, i64 %32
   br label %_ZN10actix_http6header3map9HeaderMap3get17h6e5c2eb97cd33725E.exit.thread
 
 _ZN10actix_http6header3map9HeaderMap3get17h6e5c2eb97cd33725E.exit.thread: ; preds = %14, %28
-  %.sroa.016.1 = phi ptr [ %.sroa.016.0, %28 ], [ @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.76, %14 ]
-  %.sroa.417.1 = phi i64 [ %.sroa.417.0, %28 ], [ 1, %14 ]
-  %33 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h47c9ed78f471a9edE"(i64 noundef %.sroa.417.1, i1 noundef zeroext false)
+  %.sroa.016.0 = phi ptr [ %.sroa.016.1, %28 ], [ @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.76, %14 ]
+  %.sroa.417.0 = phi i64 [ %.sroa.417.1, %28 ], [ 1, %14 ]
+  %33 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h47c9ed78f471a9edE"(i64 noundef %.sroa.417.0, i1 noundef zeroext false)
   %34 = extractvalue { i64, ptr } %33, 0
   %35 = extractvalue { i64, ptr } %33, 1
   %36 = icmp ne ptr %35, null
   tail call void @llvm.assume(i1 %36)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %.sroa.016.1, i64 %.sroa.417.1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull align 1 %.sroa.016.0, i64 %.sroa.417.0, i1 false)
   invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$actix_web..middleware..logger..FormatText$GT$17hf3839ad75e8d115aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
           to label %39 unwind label %37
 
@@ -6984,7 +6984,7 @@ _ZN10actix_http6header3map9HeaderMap3get17h6e5c2eb97cd33725E.exit.thread: ; pred
   %.sroa.511.sroa.5.0..sroa.511.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %35, ptr %.sroa.511.sroa.5.0..sroa.511.0..sroa_idx.sroa_idx, align 8
   %.sroa.511.sroa.6.0..sroa.511.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.417.1, ptr %.sroa.511.sroa.6.0..sroa.511.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.417.0, ptr %.sroa.511.sroa.6.0..sroa.511.0..sroa_idx.sroa_idx, align 8
   br label %27
 
 39:                                               ; preds = %_ZN10actix_http6header3map9HeaderMap3get17h6e5c2eb97cd33725E.exit.thread
@@ -6993,7 +6993,7 @@ _ZN10actix_http6header3map9HeaderMap3get17h6e5c2eb97cd33725E.exit.thread: ; pred
   %.sroa.511.sroa.5.0..sroa.511.0..sroa_idx12.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %35, ptr %.sroa.511.sroa.5.0..sroa.511.0..sroa_idx12.sroa_idx, align 8
   %.sroa.511.sroa.6.0..sroa.511.0..sroa_idx12.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.417.1, ptr %.sroa.511.sroa.6.0..sroa.511.0..sroa_idx12.sroa_idx, align 8
+  store i64 %.sroa.417.0, ptr %.sroa.511.sroa.6.0..sroa.511.0..sroa_idx12.sroa_idx, align 8
   br label %8
 
 40:                                               ; preds = %20
@@ -7739,19 +7739,19 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit189: ; preds = %"_ZN4core3str21_$LT
   %243 = extractvalue { ptr, i64 } %242, 0
   %.not118 = icmp eq ptr %243, null
   %244 = extractvalue { ptr, i64 } %242, 1
-  %.sroa.040.0 = select i1 %.not118, ptr @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.76, ptr %243
-  %.sroa.441.0 = select i1 %.not118, i64 1, i64 %244
+  %.sroa.040.1 = select i1 %.not118, ptr @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.76, ptr %243
+  %.sroa.441.1 = select i1 %.not118, i64 1, i64 %244
   br label %_ZN10actix_http6header3map9HeaderMap3get17h6e5c2eb97cd33725E.exit.thread
 
 _ZN10actix_http6header3map9HeaderMap3get17h6e5c2eb97cd33725E.exit.thread: ; preds = %85, %240
-  %.sroa.040.1 = phi ptr [ %.sroa.040.0, %240 ], [ @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.76, %85 ]
-  %.sroa.441.1 = phi i64 [ %.sroa.441.0, %240 ], [ 1, %85 ]
-  %245 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h47c9ed78f471a9edE"(i64 noundef %.sroa.441.1, i1 noundef zeroext false)
+  %.sroa.040.0 = phi ptr [ %.sroa.040.1, %240 ], [ @anon.c8ce99f97dd1a7c2d7b2e82421dc6b83.76, %85 ]
+  %.sroa.441.0 = phi i64 [ %.sroa.441.1, %240 ], [ 1, %85 ]
+  %245 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h47c9ed78f471a9edE"(i64 noundef %.sroa.441.0, i1 noundef zeroext false)
   %246 = extractvalue { i64, ptr } %245, 0
   %247 = extractvalue { i64, ptr } %245, 1
   %248 = icmp ne ptr %247, null
   tail call void @llvm.assume(i1 %248)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %247, ptr nonnull align 1 %.sroa.040.1, i64 %.sroa.441.1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %247, ptr nonnull align 1 %.sroa.040.0, i64 %.sroa.441.0, i1 false)
   invoke fastcc void @"_ZN4core3ptr62drop_in_place$LT$actix_web..middleware..logger..FormatText$GT$17hf3839ad75e8d115aE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0)
           to label %251 unwind label %249
 
@@ -7763,7 +7763,7 @@ _ZN10actix_http6header3map9HeaderMap3get17h6e5c2eb97cd33725E.exit.thread: ; pred
   %.sroa.535.sroa.5.0..sroa.535.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %247, ptr %.sroa.535.sroa.5.0..sroa.535.0..sroa_idx.sroa_idx, align 8
   %.sroa.535.sroa.6.0..sroa.535.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.441.1, ptr %.sroa.535.sroa.6.0..sroa.535.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.441.0, ptr %.sroa.535.sroa.6.0..sroa.535.0..sroa_idx.sroa_idx, align 8
   br label %common.resume
 
 251:                                              ; preds = %_ZN10actix_http6header3map9HeaderMap3get17h6e5c2eb97cd33725E.exit.thread
@@ -7772,7 +7772,7 @@ _ZN10actix_http6header3map9HeaderMap3get17h6e5c2eb97cd33725E.exit.thread: ; pred
   %.sroa.535.sroa.5.0..sroa.535.0..sroa_idx36.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %247, ptr %.sroa.535.sroa.5.0..sroa.535.0..sroa_idx36.sroa_idx, align 8
   %.sroa.535.sroa.6.0..sroa.535.0..sroa_idx36.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.441.1, ptr %.sroa.535.sroa.6.0..sroa.535.0..sroa_idx36.sroa_idx, align 8
+  store i64 %.sroa.441.0, ptr %.sroa.535.sroa.6.0..sroa.535.0..sroa_idx36.sroa_idx, align 8
   br label %19
 
 252:                                              ; preds = %94

@@ -4591,7 +4591,7 @@ _ZN7Compile14find_intrinsicEP8ciMethodb.exit.thread: ; preds = %475, %_ZN7Compil
   br label %486
 
 486:                                              ; preds = %_ZN7Compile14find_intrinsicEP8ciMethodb.exit.thread69, %_ZN7Compile14find_intrinsicEP8ciMethodb.exit, %_ZN7Compile14find_intrinsicEP8ciMethodb.exit.thread, %_ZN11PhaseValues15set_type_bottomEPK4Node.exit
-  %.1 = phi ptr [ %360, %_ZN11PhaseValues15set_type_bottomEPK4Node.exit ], [ %485, %_ZN7Compile14find_intrinsicEP8ciMethodb.exit.thread ], [ %479, %_ZN7Compile14find_intrinsicEP8ciMethodb.exit ], [ %476, %_ZN7Compile14find_intrinsicEP8ciMethodb.exit.thread69 ]
+  %.0 = phi ptr [ %360, %_ZN11PhaseValues15set_type_bottomEPK4Node.exit ], [ %485, %_ZN7Compile14find_intrinsicEP8ciMethodb.exit.thread ], [ %479, %_ZN7Compile14find_intrinsicEP8ciMethodb.exit ], [ %476, %_ZN7Compile14find_intrinsicEP8ciMethodb.exit.thread69 ]
   %487 = load ptr, ptr %45, align 8
   %488 = getelementptr inbounds i8, ptr %487, i64 88
   %489 = load ptr, ptr %488, align 8
@@ -4602,7 +4602,7 @@ _ZN7Compile14find_intrinsicEP8ciMethodb.exit.thread: ; preds = %475, %_ZN7Compil
   br i1 %493, label %.critedge, label %494
 
 494:                                              ; preds = %486
-  %495 = icmp eq ptr %.1, null
+  %495 = icmp eq ptr %.0, null
   br i1 %495, label %496, label %499
 
 496:                                              ; preds = %494
@@ -4671,10 +4671,10 @@ _ZNK7Compile5startEv.exit:                        ; preds = %.lr.ph.i
   %532 = getelementptr inbounds i8, ptr %0, i64 48
   %533 = load ptr, ptr %532, align 8
   %534 = call noundef ptr @_ZN7Compile17build_start_stateEP9StartNodePK8TypeFunc(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull %526, ptr noundef %533) #18
-  %535 = load ptr, ptr %.1, align 8
+  %535 = load ptr, ptr %.0, align 8
   %536 = getelementptr inbounds i8, ptr %535, i64 176
   %537 = load ptr, ptr %536, align 8
-  %538 = call noundef ptr %537(ptr noundef nonnull align 8 dereferenceable(16) %.1, ptr noundef %534) #18
+  %538 = call noundef ptr %537(ptr noundef nonnull align 8 dereferenceable(16) %.0, ptr noundef %534) #18
   %539 = icmp eq ptr %538, null
   br i1 %539, label %540, label %546
 
@@ -9103,9 +9103,9 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
 
 114:                                              ; preds = %67, %91, %97, %94, %88, %63
   %.1139 = phi ptr [ %83, %67 ], [ %89, %88 ], [ %93, %91 ], [ %96, %94 ], [ %113, %97 ], [ %.0138, %63 ]
-  %.1136 = phi i32 [ %.0135, %67 ], [ %.0135, %88 ], [ 5, %91 ], [ 5, %94 ], [ %.0135, %97 ], [ %.0135, %63 ]
-  %.1130 = phi i32 [ -2000000001, %67 ], [ %.0129, %88 ], [ 8, %91 ], [ 0, %94 ], [ -2000000001, %97 ], [ -2000000001, %63 ]
-  %.2 = phi ptr [ %83, %67 ], [ %89, %88 ], [ %92, %91 ], [ %95, %94 ], [ %113, %97 ], [ %.0138, %63 ]
+  %.2137 = phi i32 [ %.0135, %67 ], [ %.0135, %88 ], [ 5, %91 ], [ 5, %94 ], [ %.0135, %97 ], [ %.0135, %63 ]
+  %.2131 = phi i32 [ -2000000001, %67 ], [ %.0129, %88 ], [ 8, %91 ], [ 0, %94 ], [ -2000000001, %97 ], [ -2000000001, %63 ]
+  %.3 = phi ptr [ %83, %67 ], [ %89, %88 ], [ %92, %91 ], [ %95, %94 ], [ %113, %97 ], [ %.0138, %63 ]
   %115 = getelementptr inbounds i8, ptr %.1139, i64 80
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds i8, ptr %116, i64 32
@@ -9125,7 +9125,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 176
   %130 = load ptr, ptr %129, align 8
-  %131 = tail call noundef ptr %130(ptr noundef nonnull align 8 dereferenceable(89) %127, i32 noundef %.1136) #18
+  %131 = tail call noundef ptr %130(ptr noundef nonnull align 8 dereferenceable(89) %127, i32 noundef %.2137) #18
   %132 = tail call noundef ptr @_ZNK10TypeAryPtr8with_aryEPK7TypeAry(ptr noundef nonnull align 8 dereferenceable(89) %131, ptr noundef %123) #18
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 280
@@ -9138,7 +9138,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
 137:                                              ; preds = %120, %114
   %138 = phi ptr [ %.pre, %120 ], [ %116, %114 ]
   %.2140 = phi ptr [ %136, %120 ], [ %.1139, %114 ]
-  %.3 = phi ptr [ %136, %120 ], [ %.2, %114 ]
+  %.4 = phi ptr [ %136, %120 ], [ %.3, %114 ]
   %139 = getelementptr inbounds i8, ptr %138, i64 24
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i8, ptr %140, i64 16
@@ -9159,7 +9159,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   %149 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %145, ptr noundef %148, i1 noundef zeroext false) #18
   %150 = getelementptr inbounds i8, ptr %.2140, i64 48
   %151 = load ptr, ptr %150, align 8
-  %152 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %.1136, ptr noundef %151, ptr noundef %149, ptr noundef null, i1 noundef zeroext false, i32 noundef %.1130, i32 noundef 0, ptr noundef null, i32 noundef 2147483647, i1 noundef zeroext false) #18
+  %152 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %.2137, ptr noundef %151, ptr noundef %149, ptr noundef null, i1 noundef zeroext false, i32 noundef %.2131, i32 noundef 0, ptr noundef null, i32 noundef 2147483647, i1 noundef zeroext false) #18
   %.phi.trans.insert214 = getelementptr inbounds i8, ptr %152, i64 80
   %.pre215 = load ptr, ptr %.phi.trans.insert214, align 8
   %.phi.trans.insert216 = getelementptr inbounds i8, ptr %.pre215, i64 24
@@ -9173,7 +9173,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   %155 = phi ptr [ %.pre217, %146 ], [ %140, %137 ]
   %156 = phi ptr [ %.pre215, %146 ], [ %138, %137 ]
   %.3141 = phi ptr [ %152, %146 ], [ %.2140, %137 ]
-  %.4 = phi ptr [ %152, %146 ], [ %.3, %137 ]
+  %.5 = phi ptr [ %152, %146 ], [ %.4, %137 ]
   %157 = add i32 %154, -23
   %or.cond.i186 = icmp ult i32 %157, -3
   br i1 %or.cond.i186, label %.thread, label %158
@@ -9189,7 +9189,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   %163 = tail call noundef ptr @_ZN7TypeAry4makeEPK4TypePK7TypeIntb(ptr noundef %159, ptr noundef %162, i1 noundef zeroext false) #18
   %164 = getelementptr inbounds i8, ptr %.3141, i64 48
   %165 = load ptr, ptr %164, align 8
-  %166 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %.1136, ptr noundef %165, ptr noundef %163, ptr noundef null, i1 noundef zeroext false, i32 noundef %.1130, i32 noundef 0, ptr noundef null, i32 noundef 2147483647, i1 noundef zeroext false) #18
+  %166 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %.2137, ptr noundef %165, ptr noundef %163, ptr noundef null, i1 noundef zeroext false, i32 noundef %.2131, i32 noundef 0, ptr noundef null, i32 noundef 2147483647, i1 noundef zeroext false) #18
   %.phi.trans.insert220 = getelementptr inbounds i8, ptr %166, i64 80
   %.pre221 = load ptr, ptr %.phi.trans.insert220, align 8
   %.phi.trans.insert222 = getelementptr inbounds i8, ptr %.pre221, i64 24
@@ -9200,7 +9200,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   %167 = phi ptr [ %.pre223, %160 ], [ %155, %158 ], [ %155, %153 ], [ %140, %144 ]
   %168 = phi ptr [ %.pre221, %160 ], [ %156, %158 ], [ %156, %153 ], [ %138, %144 ]
   %.4142 = phi ptr [ %166, %160 ], [ %.3141, %158 ], [ %.3141, %153 ], [ %.2140, %144 ]
-  %.5 = phi ptr [ %166, %160 ], [ %.4, %158 ], [ %.4, %153 ], [ %.3, %144 ]
+  %.6 = phi ptr [ %166, %160 ], [ %.5, %158 ], [ %.5, %153 ], [ %.4, %144 ]
   %169 = load ptr, ptr @_ZN7TypeInt4BOOLE, align 8
   %170 = icmp eq ptr %167, %169
   br i1 %170, label %171, label %180
@@ -9213,13 +9213,13 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   %176 = tail call noundef ptr @_ZN16ciTypeArrayKlass4makeE9BasicType(i8 noundef zeroext 8) #18
   %177 = getelementptr inbounds i8, ptr %.4142, i64 48
   %178 = load ptr, ptr %177, align 8
-  %179 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %.1136, ptr noundef %178, ptr noundef %175, ptr noundef %176, i1 noundef zeroext false, i32 noundef %.1130, i32 noundef 0, ptr noundef null, i32 noundef 2147483647, i1 noundef zeroext false) #18
+  %179 = tail call noundef ptr @_ZN10TypeAryPtr4makeEN7TypePtr3PTREP8ciObjectPK7TypeAryP7ciKlassbiiPKS0_ib(i32 noundef %.2137, ptr noundef %178, ptr noundef %175, ptr noundef %176, i1 noundef zeroext false, i32 noundef %.2131, i32 noundef 0, ptr noundef null, i32 noundef 2147483647, i1 noundef zeroext false) #18
   br label %180
 
 180:                                              ; preds = %171, %.thread
   %.5143 = phi ptr [ %179, %171 ], [ %.4142, %.thread ]
-  %.6 = phi ptr [ %179, %171 ], [ %.5, %.thread ]
-  %181 = icmp eq i32 %.1136, 4
+  %.7 = phi ptr [ %179, %171 ], [ %.6, %.thread ]
+  %181 = icmp eq i32 %.2137, 4
   br i1 %181, label %192, label %182
 
 182:                                              ; preds = %180
@@ -9250,7 +9250,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   %202 = getelementptr inbounds i8, ptr %201, i64 280
   %203 = load ptr, ptr %202, align 8
   %204 = tail call noundef ptr %203(ptr noundef nonnull align 8 dereferenceable(89) %200, i1 noundef zeroext false) #18
-  %205 = sext i32 %.1130 to i64
+  %205 = sext i32 %.2131 to i64
   %206 = load ptr, ptr %204, align 8
   %207 = getelementptr inbounds i8, ptr %206, i64 200
   %208 = load ptr, ptr %207, align 8
@@ -9258,13 +9258,13 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   br label %.thread200
 
 .thread200:                                       ; preds = %33, %192, %187, %45, %46, %50
-  %.2137 = phi i32 [ %.0135, %50 ], [ %.0135, %46 ], [ %.0135, %45 ], [ %.1136, %192 ], [ %.1136, %187 ], [ %.0135, %33 ]
-  %.2131 = phi i32 [ -2000000001, %50 ], [ %.0129, %46 ], [ -2000000001, %45 ], [ %.1130, %192 ], [ %.1130, %187 ], [ %.0129, %33 ]
-  %.7 = phi ptr [ %62, %50 ], [ %.0138, %46 ], [ %.0138, %45 ], [ %209, %192 ], [ %.6, %187 ], [ %.0, %33 ]
-  %210 = getelementptr inbounds i8, ptr %.7, i64 16
+  %.1136 = phi i32 [ %.0135, %50 ], [ %.0135, %46 ], [ %.0135, %45 ], [ %.2137, %192 ], [ %.2137, %187 ], [ %.0135, %33 ]
+  %.1130 = phi i32 [ -2000000001, %50 ], [ %.0129, %46 ], [ -2000000001, %45 ], [ %.2131, %192 ], [ %.2131, %187 ], [ %.0129, %33 ]
+  %.2 = phi ptr [ %62, %50 ], [ %.0138, %46 ], [ %.0138, %45 ], [ %209, %192 ], [ %.7, %187 ], [ %.0, %33 ]
+  %210 = getelementptr inbounds i8, ptr %.2, i64 16
   %211 = load i32, ptr %210, align 8
   %212 = icmp eq i32 %211, 21
-  %..i187 = select i1 %212, ptr %.7, ptr null
+  %..i187 = select i1 %212, ptr %.2, ptr null
   %.not170 = icmp eq ptr %..i187, null
   %213 = load ptr, ptr @_ZN10TypeOopPtr6BOTTOME, align 8
   %.not171 = icmp eq ptr %..i187, %213
@@ -9276,7 +9276,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   %216 = getelementptr inbounds i8, ptr %215, i64 232
   %217 = load ptr, ptr %216, align 8
   %218 = tail call noundef ptr %217(ptr noundef nonnull align 8 dereferenceable(80) %..i187) #18
-  %219 = icmp eq i32 %.2137, 2
+  %219 = icmp eq i32 %.1136, 2
   br i1 %219, label %220, label %236
 
 220:                                              ; preds = %214
@@ -9288,7 +9288,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   %223 = getelementptr inbounds i8, ptr %218, i64 40
   %224 = load i32, ptr %223, align 8
   %225 = and i32 %224, -2
-  %226 = icmp slt i32 %.2131, %225
+  %226 = icmp slt i32 %.1130, %225
   br i1 %226, label %227, label %261
 
 227:                                              ; preds = %222, %220
@@ -9306,7 +9306,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   br i1 %22, label %261, label %237
 
 237:                                              ; preds = %236
-  %238 = icmp eq i32 %.2137, 4
+  %238 = icmp eq i32 %.1136, 4
   br i1 %238, label %244, label %239
 
 239:                                              ; preds = %237
@@ -9340,7 +9340,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   br label %261
 
 261:                                              ; preds = %.sink.split, %236, %239, %222
-  %.0144 = phi ptr [ %.7, %222 ], [ %.7, %239 ], [ %.7, %236 ], [ %260, %.sink.split ]
+  %.0144 = phi ptr [ %.2, %222 ], [ %.2, %239 ], [ %.2, %236 ], [ %260, %.sink.split ]
   %262 = load ptr, ptr %.0144, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 88
   %264 = load ptr, ptr %263, align 8
@@ -9357,14 +9357,14 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
 
 271:                                              ; preds = %266, %261
   %.1145 = phi ptr [ %270, %266 ], [ %.0144, %261 ]
-  %272 = icmp sgt i32 %.2131, -1
+  %272 = icmp sgt i32 %.1130, -1
   br i1 %272, label %273, label %.thread204
 
 273:                                              ; preds = %271
   %274 = load i8, ptr @UseCompressedClassPointers, align 1
   %275 = trunc i8 %274 to i1
   %spec.select.i188 = select i1 %275, i32 12, i32 16
-  %276 = icmp ult i32 %.2131, %spec.select.i188
+  %276 = icmp ult i32 %.1130, %spec.select.i188
   br i1 %276, label %277, label %283
 
 277:                                              ; preds = %273
@@ -9376,7 +9376,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   store ptr %279, ptr %8, align 8
   %280 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #18
   %281 = load ptr, ptr %8, align 8
-  %282 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 5, ptr noundef %281, ptr noundef %280, i1 noundef zeroext false, ptr noundef null, i32 noundef %.2131, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #18
+  %282 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef 5, ptr noundef %281, ptr noundef %280, i1 noundef zeroext false, ptr noundef null, i32 noundef %.1130, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %311
 
@@ -9384,7 +9384,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   %284 = getelementptr inbounds i8, ptr %218, i64 40
   %285 = load i32, ptr %284, align 8
   %286 = and i32 %285, -2
-  %.not174 = icmp slt i32 %.2131, %286
+  %.not174 = icmp slt i32 %.1130, %286
   br i1 %.not174, label %292, label %.thread204
 
 .thread204:                                       ; preds = %271, %283
@@ -9399,14 +9399,14 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   br label %311
 
 292:                                              ; preds = %283
-  %293 = tail call noundef ptr @_ZN15ciInstanceKlass20get_canonical_holderEi(ptr noundef nonnull align 8 dereferenceable(144) %218, i32 noundef %.2131) #18
+  %293 = tail call noundef ptr @_ZN15ciInstanceKlass20get_canonical_holderEi(ptr noundef nonnull align 8 dereferenceable(144) %218, i32 noundef %.1130) #18
   %294 = icmp eq ptr %218, %293
   br i1 %294, label %295, label %298
 
 295:                                              ; preds = %292
   %296 = getelementptr inbounds i8, ptr %.1145, i64 36
   %297 = load i32, ptr %296, align 4
-  %.not175 = icmp eq i32 %297, %.2131
+  %.not175 = icmp eq i32 %297, %.1130
   br i1 %.not175, label %311, label %298
 
 298:                                              ; preds = %295, %292
@@ -9421,7 +9421,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   store ptr %293, ptr %7, align 8
   %304 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #18
   %305 = load ptr, ptr %7, align 8
-  %306 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %300, ptr noundef %305, ptr noundef %304, i1 noundef zeroext true, ptr noundef null, i32 noundef %.2131, i32 noundef %303, ptr noundef null, i32 noundef 2147483647) #18
+  %306 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %300, ptr noundef %305, ptr noundef %304, i1 noundef zeroext true, ptr noundef null, i32 noundef %.1130, i32 noundef %303, ptr noundef null, i32 noundef 2147483647) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %311
 
@@ -9430,18 +9430,18 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   store ptr %293, ptr %6, align 8
   %308 = call noundef ptr @_ZN7TypePtr10interfacesERP7ciKlassbbbN4Type17InterfaceHandlingE(ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 1) #18
   %309 = load ptr, ptr %6, align 8
-  %310 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %300, ptr noundef %309, ptr noundef %308, i1 noundef zeroext false, ptr noundef null, i32 noundef %.2131, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #18
+  %310 = call noundef ptr @_ZN11TypeInstPtr4makeEN7TypePtr3PTREP7ciKlassPK14TypeInterfacesbP8ciObjectiiPKS0_i(i32 noundef %300, ptr noundef %309, ptr noundef %308, i1 noundef zeroext false, ptr noundef null, i32 noundef %.1130, i32 noundef 0, ptr noundef null, i32 noundef 2147483647) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %311
 
 311:                                              ; preds = %278, %277, %295, %307, %301, %.thread204, %288, %.thread200
-  %.3132 = phi i32 [ %.2131, %277 ], [ %.2131, %278 ], [ %291, %288 ], [ %.2131, %.thread204 ], [ %.2131, %301 ], [ %.2131, %307 ], [ %.2131, %295 ], [ %.2131, %.thread200 ]
-  %.10 = phi ptr [ %.1145, %277 ], [ %282, %278 ], [ %289, %288 ], [ %.1145, %.thread204 ], [ %306, %301 ], [ %310, %307 ], [ %.1145, %295 ], [ %.7, %.thread200 ]
-  %312 = getelementptr inbounds i8, ptr %.10, i64 16
+  %.3132 = phi i32 [ %.1130, %277 ], [ %.1130, %278 ], [ %291, %288 ], [ %.1130, %.thread204 ], [ %.1130, %301 ], [ %.1130, %307 ], [ %.1130, %295 ], [ %.1130, %.thread200 ]
+  %.8 = phi ptr [ %.1145, %277 ], [ %282, %278 ], [ %289, %288 ], [ %.1145, %.thread204 ], [ %306, %301 ], [ %310, %307 ], [ %.1145, %295 ], [ %.2, %.thread200 ]
+  %312 = getelementptr inbounds i8, ptr %.8, i64 16
   %313 = load i32, ptr %312, align 8
   %314 = add i32 %313, -27
   %or.cond.i189 = icmp ult i32 %314, -3
-  %.not177211 = icmp eq ptr %.10, null
+  %.not177211 = icmp eq ptr %.8, null
   %.not177 = or i1 %.not177211, %or.cond.i189
   br i1 %.not177, label %.thread205, label %315
 
@@ -9474,7 +9474,7 @@ define hidden noundef ptr @_ZNK7Compile18flatten_alias_typeEPK7TypePtr(ptr nocap
   br label %327
 
 327:                                              ; preds = %.split, %.split146, %321
-  %.0133 = phi ptr [ %.10, %321 ], [ %320, %.split ], [ %326, %.split146 ]
+  %.0133 = phi ptr [ %.8, %321 ], [ %320, %.split ], [ %326, %.split146 ]
   %328 = getelementptr inbounds i8, ptr %.0133, i64 16
   %329 = load i32, ptr %328, align 8
   %330 = icmp ne i32 %329, 26
@@ -9551,12 +9551,12 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %340, %_ZNK10ciMetad
   br label %.thread205
 
 .thread205:                                       ; preds = %356, %358, %360, %311
-  %.13 = phi ptr [ %364, %360 ], [ %.1134, %358 ], [ %.10, %311 ], [ %.1134, %356 ]
-  %365 = getelementptr inbounds i8, ptr %.13, i64 16
+  %.11 = phi ptr [ %364, %360 ], [ %.1134, %358 ], [ %.8, %311 ], [ %.1134, %356 ]
+  %365 = getelementptr inbounds i8, ptr %.11, i64 16
   %366 = load i32, ptr %365, align 8
   %367 = icmp eq i32 %366, 19
   %368 = load ptr, ptr @_ZN10TypeRawPtr6BOTTOME, align 8
-  %spec.select = select i1 %367, ptr %368, ptr %.13
+  %spec.select = select i1 %367, ptr %368, ptr %.11
   %369 = getelementptr inbounds i8, ptr %spec.select, i64 16
   %370 = load i32, ptr %369, align 8
   %371 = icmp eq i32 %370, 18
@@ -10825,7 +10825,7 @@ _ZN16ciBytecodeStreamC2EP8ciMethod.exit:          ; preds = %39, %_ZN8ciMethod4c
 
 81:                                               ; preds = %.lr.ph, %130
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %130 ]
-  %.04764 = phi i8 [ %29, %.lr.ph ], [ %.1, %130 ]
+  %.164 = phi i8 [ %29, %.lr.ph ], [ %.2, %130 ]
   %82 = load i32, ptr %78, align 4
   %83 = trunc nuw nsw i64 %indvars.iv to i32
   %84 = add i32 %82, %83
@@ -10910,13 +10910,13 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
   br label %130
 
 130:                                              ; preds = %81, %92, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit
-  %.1 = phi i8 [ %.04764, %81 ], [ %.04764, %92 ], [ 1, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit ]
+  %.2 = phi i8 [ %.164, %81 ], [ %.164, %92 ], [ 1, %_ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %81, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %130, %63
-  %.047.lcssa = phi i8 [ %29, %63 ], [ %.1, %130 ]
+  %.1.lcssa = phi i8 [ %29, %63 ], [ %.2, %130 ]
   %131 = load ptr, ptr %68, align 8
   %.not.i.i.i.i58 = icmp eq ptr %131, null
   br i1 %.not.i.i.i.i58, label %133, label %132
@@ -10938,8 +10938,8 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %135, %133, %21
-  %.2 = phi i8 [ %29, %21 ], [ %.047.lcssa, %133 ], [ %.047.lcssa, %135 ]
-  %136 = trunc i8 %.2 to i1
+  %.047 = phi i8 [ %29, %21 ], [ %.1.lcssa, %133 ], [ %.1.lcssa, %135 ]
+  %136 = trunc i8 %.047 to i1
   br i1 %136, label %137, label %138
 
 137:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
@@ -11605,7 +11605,7 @@ define hidden void @_ZN7Compile20inline_incrementallyER12PhaseIterGVN(ptr nocapt
 
 34:                                               ; preds = %173, %2
   %35 = phi i32 [ %.pre, %2 ], [ %174, %173 ]
-  %.0 = phi i32 [ 0, %2 ], [ %.3, %173 ]
+  %.0 = phi i32 [ 0, %2 ], [ %.1, %173 ]
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %37, label %.loopexit
 
@@ -11655,7 +11655,7 @@ define hidden void @_ZN7Compile20inline_incrementallyER12PhaseIterGVN(ptr nocapt
   br label %67
 
 67:                                               ; preds = %48, %63
-  %.1 = phi i32 [ %66, %63 ], [ %.0, %48 ]
+  %.3 = phi i32 [ %66, %63 ], [ %.0, %48 ]
   %68 = load ptr, ptr %22, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 352
   %70 = load ptr, ptr %69, align 8
@@ -11698,7 +11698,7 @@ _ZN7Compile10TracePhaseD2Ev.exit._crit_edge:      ; preds = %_ZN7Compile10TraceP
 87:                                               ; preds = %_ZN7Compile10TracePhaseD2Ev.exit._crit_edge, %44
   %.pre-phi39 = phi i32 [ %.pre38, %_ZN7Compile10TracePhaseD2Ev.exit._crit_edge ], [ %42, %44 ]
   %.pre-phi = phi i32 [ %.pre37, %_ZN7Compile10TracePhaseD2Ev.exit._crit_edge ], [ %40, %44 ]
-  %.2 = phi i32 [ %.1, %_ZN7Compile10TracePhaseD2Ev.exit._crit_edge ], [ %.0, %44 ]
+  %.2 = phi i32 [ %.3, %_ZN7Compile10TracePhaseD2Ev.exit._crit_edge ], [ %.0, %44 ]
   %88 = icmp ugt i32 %.pre-phi, %.pre-phi39
   br i1 %88, label %89, label %127
 
@@ -11785,7 +11785,7 @@ _ZN7Compile23log_late_inline_failureEP13CallGeneratorPKc.exit: ; preds = %.lr.ph
   br i1 %126, label %.lr.ph.split, label %.loopexit, !llvm.loop !48
 
 127:                                              ; preds = %87, %37
-  %.3 = phi i32 [ %.2, %87 ], [ %.0, %37 ]
+  %.1 = phi i32 [ %.2, %87 ], [ %.0, %37 ]
   %128 = load ptr, ptr %29, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 32
   store i32 0, ptr %129, align 8
@@ -14001,8 +14001,8 @@ _ZN16Unique_Node_List4pushEP4Node.exit104:        ; preds = %_ZN9Node_List4pushE
   br label %389
 
 389:                                              ; preds = %199, %_ZNK9VectorSet4testEj.exit.thread, %._crit_edge128, %14
-  %.1 = phi i1 [ true, %14 ], [ false, %._crit_edge128 ], [ true, %_ZNK9VectorSet4testEj.exit.thread ], [ true, %199 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %14 ], [ false, %._crit_edge128 ], [ true, %_ZNK9VectorSet4testEj.exit.thread ], [ true, %199 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -18365,7 +18365,7 @@ _ZN16Unique_Node_List3popEv.exit:                 ; preds = %164, %169
 
 .outer:                                           ; preds = %.thread91, %.lr.ph
   %indvars.iv.ph = phi i64 [ %indvars.iv.next93, %.thread91 ], [ 0, %.lr.ph ]
-  %.05879.ph = phi i1 [ false, %.thread91 ], [ true, %.lr.ph ]
+  %.15979.ph = phi i1 [ false, %.thread91 ], [ true, %.lr.ph ]
   br label %209
 
 209:                                              ; preds = %.outer, %222
@@ -18403,7 +18403,7 @@ _ZN16Unique_Node_List3popEv.exit:                 ; preds = %164, %169
   br i1 %228, label %.outer, label %_ZN4Node7set_reqEjPS_.exit, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %222
-  br i1 %.05879.ph, label %.thread, label %_ZN4Node7set_reqEjPS_.exit
+  br i1 %.15979.ph, label %.thread, label %_ZN4Node7set_reqEjPS_.exit
 
 .thread.thread:                                   ; preds = %.preheader, %205
   %229 = getelementptr inbounds i8, ptr %200, i64 8

@@ -1047,7 +1047,7 @@ _ZN2cv5mjpeg12mjpeg_buffer6finishEv.exit:         ; preds = %56, %59
   br label %111
 
 111:                                              ; preds = %236, %107
-  %.047 = phi i32 [ 0, %107 ], [ %.2, %236 ]
+  %.047 = phi i32 [ 0, %107 ], [ %.148, %236 ]
   %.046 = phi i32 [ 0, %107 ], [ %242, %236 ]
   %.045 = phi i32 [ 0, %107 ], [ %spec.select, %236 ]
   %112 = zext i32 %.046 to i64
@@ -1176,11 +1176,11 @@ _ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit65: ; preds = %146, %154
 195:                                              ; preds = %.lr.ph, %195
   %196 = phi ptr [ %.pre81, %.lr.ph ], [ %206, %195 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %195 ]
-  %.14874 = phi i32 [ %.047, %.lr.ph ], [ %209, %195 ]
+  %.274 = phi i32 [ %.047, %.lr.ph ], [ %209, %195 ]
   %197 = getelementptr inbounds i32, ptr %196, i64 %indvars.iv
   %198 = load i32, ptr %197, align 4
   %199 = lshr i32 %198, %.pre82
-  %200 = or i32 %199, %.14874
+  %200 = or i32 %199, %.274
   %201 = load i32, ptr %108, align 8
   %202 = add nsw i32 %201, 1
   store i32 %202, ptr %108, align 8
@@ -1201,13 +1201,13 @@ _ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit65: ; preds = %146, %154
 
 ._crit_edge:                                      ; preds = %195, %.preheader
   %214 = phi ptr [ %.pre81, %.preheader ], [ %206, %195 ]
-  %.148.lcssa = phi i32 [ %.047, %.preheader ], [ %209, %195 ]
+  %.2.lcssa = phi i32 [ %.047, %.preheader ], [ %209, %195 ]
   %.lcssa = phi i32 [ 0, %.preheader ], [ %211, %195 ]
   %215 = zext i32 %.lcssa to i64
   %216 = getelementptr inbounds i32, ptr %214, i64 %215
   %217 = load i32, ptr %216, align 4
   %218 = lshr i32 %217, %.pre82
-  %219 = or i32 %218, %.148.lcssa
+  %219 = or i32 %218, %.2.lcssa
   %220 = getelementptr inbounds i8, ptr %storemerge.i.i.i.i64, i64 24
   %221 = load i32, ptr %220, align 8
   %.not52 = icmp sgt i32 %221, %.pre
@@ -1232,7 +1232,7 @@ _ZNSt5dequeIN2cv5mjpeg12mjpeg_bufferESaIS2_EEixEm.exit65: ; preds = %146, %154
   br label %236
 
 236:                                              ; preds = %._crit_edge, %222, %175, %181
-  %.2 = phi i32 [ 0, %175 ], [ %194, %181 ], [ %235, %222 ], [ %219, %._crit_edge ]
+  %.148 = phi i32 [ 0, %175 ], [ %194, %181 ], [ %235, %222 ], [ %219, %._crit_edge ]
   %237 = getelementptr inbounds i8, ptr %storemerge.i.i.i.i64, i64 24
   %238 = load i32, ptr %237, align 8
   %239 = add nsw i32 %238, %.045

@@ -272,12 +272,12 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
 
 .sink.split548:                                   ; preds = %230, %470, %97
   %.sink549 = phi i32 [ %99, %97 ], [ 3, %470 ], [ 3, %230 ]
-  %.0.ph = phi i32 [ -1, %97 ], [ %.12, %470 ], [ %.5, %230 ]
+  %.4.ph = phi i32 [ -1, %97 ], [ %.14, %470 ], [ %.1, %230 ]
   store i32 %.sink549, ptr %2, align 8
   br label %100
 
 100:                                              ; preds = %.sink.split548, %1
-  %.0 = phi i32 [ -1, %1 ], [ %.0.ph, %.sink.split548 ]
+  %.4 = phi i32 [ -1, %1 ], [ %.4.ph, %.sink.split548 ]
   %101 = getelementptr inbounds i8, ptr %0, i64 1572
   %102 = load i32, ptr %101, align 4
   %.not409 = icmp eq i32 %102, 0
@@ -353,7 +353,7 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
 130:                                              ; preds = %lookup_tree.exit.thread, %127
   %131 = phi i8 [ %122, %127 ], [ %157, %lookup_tree.exit.thread ]
   %132 = phi i32 [ 0, %127 ], [ %178, %lookup_tree.exit.thread ]
-  %.1 = phi i32 [ %.0, %127 ], [ -1, %lookup_tree.exit.thread ]
+  %.5 = phi i32 [ %.4, %127 ], [ -1, %lookup_tree.exit.thread ]
   %133 = icmp ult i32 %132, 16
   br i1 %133, label %134, label %179
 
@@ -449,7 +449,7 @@ lookup_tree.exit.thread:                          ; preds = %176
   br label %130
 
 179:                                              ; preds = %130
-  %180 = icmp eq i32 %.1, -1
+  %180 = icmp eq i32 %.5, -1
   br i1 %180, label %513, label %.thread457
 
 181:                                              ; preds = %124
@@ -458,7 +458,7 @@ lookup_tree.exit.thread:                          ; preds = %176
 
 182:                                              ; preds = %._crit_edge489, %181
   %183 = phi i8 [ %122, %181 ], [ %.pre491, %._crit_edge489 ]
-  %.3 = phi i32 [ %.0, %181 ], [ -1, %._crit_edge489 ]
+  %.0 = phi i32 [ %.4, %181 ], [ -1, %._crit_edge489 ]
   %184 = getelementptr inbounds i8, ptr %0, i64 9780
   %185 = icmp ugt i8 %183, 7
   br i1 %185, label %186, label %192
@@ -525,15 +525,15 @@ lookup_tree.exit.thread:                          ; preds = %176
   br label %.thread457
 
 .thread457:                                       ; preds = %186, %215, %204, %179, %lookup_tree.exit
-  %.2364.sink = phi i32 [ %.1, %179 ], [ %177, %lookup_tree.exit ], [ %189, %186 ], [ %212, %204 ], [ %224, %215 ]
-  %.4 = phi i32 [ %.1, %179 ], [ %177, %lookup_tree.exit ], [ %.3, %186 ], [ %.3, %204 ], [ %.3, %215 ]
+  %.2364.sink = phi i32 [ %.5, %179 ], [ %177, %lookup_tree.exit ], [ %189, %186 ], [ %212, %204 ], [ %224, %215 ]
+  %.7 = phi i32 [ %.5, %179 ], [ %177, %lookup_tree.exit ], [ %.0, %186 ], [ %.0, %204 ], [ %.0, %215 ]
   %226 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %.2364.sink, ptr %226, align 8
   store i32 10, ptr %2, align 8
   br label %227
 
 227:                                              ; preds = %.thread457, %1
-  %.5 = phi i32 [ %.4, %.thread457 ], [ -1, %1 ]
+  %.1 = phi i32 [ %.7, %.thread457 ], [ -1, %1 ]
   %228 = getelementptr inbounds i8, ptr %0, i64 1576
   %229 = load i32, ptr %228, align 8
   %.not439 = icmp eq i32 %229, 0
@@ -571,7 +571,7 @@ lookup_tree.exit.thread:                          ; preds = %176
 
 250:                                              ; preds = %._crit_edge492, %249
   %251 = phi i8 [ %122, %249 ], [ %.pre494, %._crit_edge492 ]
-  %.6 = phi i32 [ %.0, %249 ], [ -1, %._crit_edge492 ]
+  %.2 = phi i32 [ %.4, %249 ], [ -1, %._crit_edge492 ]
   %252 = getelementptr inbounds i8, ptr %0, i64 9780
   %253 = zext i8 %251 to i32
   %254 = getelementptr inbounds i8, ptr %0, i64 9781
@@ -658,7 +658,7 @@ lookup_tree.exit.thread:                          ; preds = %176
 303:                                              ; preds = %lookup_tree.exit446.thread, %297
   %304 = phi i8 [ %298, %297 ], [ %330, %lookup_tree.exit446.thread ]
   %305 = phi i32 [ 0, %297 ], [ %351, %lookup_tree.exit446.thread ]
-  %.7 = phi i32 [ %.6, %297 ], [ -1, %lookup_tree.exit446.thread ]
+  %.9 = phi i32 [ %.2, %297 ], [ -1, %lookup_tree.exit446.thread ]
   %306 = icmp ult i32 %305, 16
   br i1 %306, label %307, label %352
 
@@ -754,17 +754,17 @@ lookup_tree.exit446.thread:                       ; preds = %349
   br label %303
 
 352:                                              ; preds = %303
-  %353 = icmp eq i32 %.7, -1
+  %353 = icmp eq i32 %.9, -1
   br i1 %353, label %513, label %.thread462
 
 .thread462:                                       ; preds = %lookup_tree.exit446, %352
   %354 = phi i8 [ %304, %352 ], [ %330, %lookup_tree.exit446 ]
-  %.8464 = phi i32 [ %.7, %352 ], [ %350, %lookup_tree.exit446 ]
+  %.10464 = phi i32 [ %.9, %352 ], [ %350, %lookup_tree.exit446 ]
   %355 = getelementptr inbounds i8, ptr %0, i64 9781
   %356 = load i8, ptr %355, align 1
   %357 = zext i8 %356 to i32
   %358 = add nuw nsw i32 %357, 6
-  %359 = shl i32 %.8464, %358
+  %359 = shl i32 %.10464, %358
   %360 = getelementptr inbounds i8, ptr %0, i64 1580
   %361 = load i16, ptr %360, align 4
   %362 = trunc i32 %359 to i16
@@ -781,7 +781,7 @@ lookup_tree.exit446.thread:                       ; preds = %349
 367:                                              ; preds = %lookup_tree.exit453.thread, %.thread462
   %368 = phi i8 [ %354, %.thread462 ], [ %394, %lookup_tree.exit453.thread ]
   %369 = phi i32 [ 0, %.thread462 ], [ %415, %lookup_tree.exit453.thread ]
-  %.9 = phi i32 [ %.8464, %.thread462 ], [ -1, %lookup_tree.exit453.thread ]
+  %.11 = phi i32 [ %.10464, %.thread462 ], [ -1, %lookup_tree.exit453.thread ]
   %370 = icmp ult i32 %369, 16
   br i1 %370, label %371, label %416
 
@@ -878,8 +878,8 @@ lookup_tree.exit453.thread:                       ; preds = %413
 
 416:                                              ; preds = %lookup_tree.exit453, %367
   %417 = phi i8 [ %394, %lookup_tree.exit453 ], [ %368, %367 ]
-  %.10 = phi i32 [ %414, %lookup_tree.exit453 ], [ %.9, %367 ]
-  switch i32 %.10, label %465 [
+  %.12 = phi i32 [ %414, %lookup_tree.exit453 ], [ %.11, %367 ]
+  switch i32 %.12, label %465 [
     i32 -1, label %513
     i32 63, label %418
   ]
@@ -961,17 +961,17 @@ lookup_tree.exit453.thread:                       ; preds = %413
   br label %465
 
 465:                                              ; preds = %416, %463
-  %.11 = phi i32 [ %464, %463 ], [ %.10, %416 ]
+  %.13 = phi i32 [ %464, %463 ], [ %.12, %416 ]
   %466 = getelementptr inbounds i8, ptr %0, i64 20
   %467 = load i32, ptr %466, align 4
-  %468 = add i32 %467, %.11
+  %468 = add i32 %467, %.13
   %469 = trunc i32 %468 to i16
   store i32 11, ptr %2, align 8
   br label %470
 
 470:                                              ; preds = %496, %465
   %471 = phi i16 [ %.pre505, %496 ], [ %469, %465 ]
-  %.12 = phi i32 [ %.13, %496 ], [ %.11, %465 ]
+  %.14 = phi i32 [ %.3, %496 ], [ %.13, %465 ]
   %472 = getelementptr inbounds i8, ptr %0, i64 1582
   %473 = add i16 %471, -1
   store i16 %473, ptr %472, align 2
@@ -979,7 +979,7 @@ lookup_tree.exit453.thread:                       ; preds = %413
   br i1 %.not428, label %.sink.split548, label %474
 
 474:                                              ; preds = %470, %1
-  %.13 = phi i32 [ -1, %1 ], [ %.12, %470 ]
+  %.3 = phi i32 [ -1, %1 ], [ %.14, %470 ]
   %475 = getelementptr inbounds i8, ptr %0, i64 1576
   %476 = load i32, ptr %475, align 8
   %.not429 = icmp eq i32 %476, 0

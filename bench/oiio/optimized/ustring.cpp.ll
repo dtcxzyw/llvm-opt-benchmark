@@ -965,18 +965,18 @@ if.then:                                          ; preds = %entry
 lpad:                                             ; preds = %if.end
   %2 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i = icmp eq ptr %heap_buf.sroa.0.1, null
+  %cmp.not.i = icmp eq ptr %heap_buf.sroa.0.0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %lpad
-  call void @_ZdaPv(ptr noundef nonnull %heap_buf.sroa.0.1) #20
+  call void @_ZdaPv(ptr noundef nonnull %heap_buf.sroa.0.0) #20
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %lpad, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
   resume { ptr, i32 } %2
 
 if.end:                                           ; preds = %if.then, %entry
-  %heap_buf.sroa.0.1 = phi ptr [ null, %entry ], [ %call2, %if.then ]
+  %heap_buf.sroa.0.0 = phi ptr [ null, %entry ], [ %call2, %if.then ]
   %buf.0 = phi ptr [ %local_buf, %entry ], [ %call2, %if.then ]
   %3 = load ptr, ptr %s, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buf.0, ptr align 1 %3, i64 %0, i1 false)
@@ -993,11 +993,11 @@ if.end:                                           ; preds = %if.then, %entry
 invoke.cont6:                                     ; preds = %if.end
   store ptr %call.i9, ptr %agg.result, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %cmp.not.i10 = icmp eq ptr %heap_buf.sroa.0.1, null
+  %cmp.not.i10 = icmp eq ptr %heap_buf.sroa.0.0, null
   br i1 %cmp.not.i10, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit12, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i11
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i11: ; preds = %invoke.cont6
-  call void @_ZdaPv(ptr noundef nonnull %heap_buf.sroa.0.1) #20
+  call void @_ZdaPv(ptr noundef nonnull %heap_buf.sroa.0.0) #20
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit12
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit12: ; preds = %invoke.cont6, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i11

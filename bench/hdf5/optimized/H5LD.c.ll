@@ -104,8 +104,8 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr nocapture noundef %1, i64 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
-  %.095 = phi i32 [ %.3, %46 ], [ 0, %.lr.ph.preheader ]
-  %.05593 = phi i8 [ %.257, %46 ], [ 0, %.lr.ph.preheader ]
+  %.095 = phi i32 [ %.2, %46 ], [ 0, %.lr.ph.preheader ]
+  %.05593 = phi i8 [ %.156, %46 ], [ 0, %.lr.ph.preheader ]
   %.06291 = phi ptr [ %.264, %46 ], [ %.066, %.lr.ph.preheader ]
   %.16790 = phi ptr [ %.268, %46 ], [ %.066, %.lr.ph.preheader ]
   %21 = load i8, ptr %.16790, align 1
@@ -168,8 +168,8 @@ define i32 @H5LD_construct_vector(ptr noundef %0, ptr nocapture noundef %1, i64 
 46:                                               ; preds = %33, %28, %43
   %.268 = phi ptr [ %44, %43 ], [ %34, %33 ], [ %29, %28 ]
   %.264 = phi ptr [ %45, %43 ], [ %35, %33 ], [ %30, %28 ]
-  %.257 = phi i8 [ 1, %43 ], [ 0, %33 ], [ 1, %28 ]
-  %.3 = phi i32 [ %.095, %43 ], [ %37, %33 ], [ %.095, %28 ]
+  %.156 = phi i8 [ 1, %43 ], [ 0, %33 ], [ 1, %28 ]
+  %.2 = phi i32 [ %.095, %43 ], [ %37, %33 ], [ %.095, %28 ]
   br i1 %20, label %.critedge, label %.lr.ph
 
 .critedge.sink.split:                             ; preds = %40, %.thread
@@ -812,9 +812,9 @@ define range(i32 -1, 1) i32 @H5LDget_dset_elmts(i64 noundef %0, ptr noundef %1, 
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge155.i, %77, %71, %68, %65, %61, %58, %56, %54, %49, %46, %43, %40, %37, %34, %31, %._crit_edge.i, %21, %18, %15, %5
   %.0109.i = phi i64 [ -1, %5 ], [ -1, %15 ], [ -1, %18 ], [ -1, %31 ], [ -1, %40 ], [ %44, %43 ], [ %44, %46 ], [ %44, %49 ], [ %44, %56 ], [ %44, %58 ], [ %44, %61 ], [ %44, %65 ], [ %44, %68 ], [ %44, %71 ], [ %44, %77 ], [ -1, %34 ], [ -1, %37 ], [ -1, %._crit_edge.i ], [ %44, %._crit_edge155.i ], [ %44, %54 ], [ -1, %21 ]
-  %.1108.i = phi ptr [ null, %5 ], [ null, %15 ], [ null, %18 ], [ null, %31 ], [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ null, %56 ], [ null, %58 ], [ null, %61 ], [ null, %65 ], [ null, %68 ], [ null, %71 ], [ %75, %77 ], [ null, %34 ], [ null, %37 ], [ null, %._crit_edge.i ], [ %75, %._crit_edge155.i ], [ null, %54 ], [ null, %21 ]
-  %.1106.i = phi ptr [ null, %5 ], [ null, %15 ], [ null, %18 ], [ null, %31 ], [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ null, %56 ], [ null, %58 ], [ null, %61 ], [ null, %65 ], [ null, %68 ], [ %69, %71 ], [ %69, %77 ], [ null, %34 ], [ null, %37 ], [ null, %._crit_edge.i ], [ %69, %._crit_edge155.i ], [ null, %54 ], [ null, %21 ]
-  %.1104.i = phi ptr [ null, %5 ], [ null, %15 ], [ null, %18 ], [ null, %31 ], [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ null, %56 ], [ null, %58 ], [ null, %61 ], [ %63, %65 ], [ %63, %68 ], [ %63, %71 ], [ %63, %77 ], [ null, %34 ], [ null, %37 ], [ null, %._crit_edge.i ], [ %63, %._crit_edge155.i ], [ null, %54 ], [ null, %21 ]
+  %.0107.i = phi ptr [ null, %5 ], [ null, %15 ], [ null, %18 ], [ null, %31 ], [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ null, %56 ], [ null, %58 ], [ null, %61 ], [ null, %65 ], [ null, %68 ], [ null, %71 ], [ %75, %77 ], [ null, %34 ], [ null, %37 ], [ null, %._crit_edge.i ], [ %75, %._crit_edge155.i ], [ null, %54 ], [ null, %21 ]
+  %.0105.i = phi ptr [ null, %5 ], [ null, %15 ], [ null, %18 ], [ null, %31 ], [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ null, %56 ], [ null, %58 ], [ null, %61 ], [ null, %65 ], [ null, %68 ], [ %69, %71 ], [ %69, %77 ], [ null, %34 ], [ null, %37 ], [ null, %._crit_edge.i ], [ %69, %._crit_edge155.i ], [ null, %54 ], [ null, %21 ]
+  %.0103.i = phi ptr [ null, %5 ], [ null, %15 ], [ null, %18 ], [ null, %31 ], [ null, %40 ], [ null, %43 ], [ null, %46 ], [ null, %49 ], [ null, %56 ], [ null, %58 ], [ null, %61 ], [ %63, %65 ], [ %63, %68 ], [ %63, %71 ], [ %63, %77 ], [ null, %34 ], [ null, %37 ], [ null, %._crit_edge.i ], [ %63, %._crit_edge155.i ], [ null, %54 ], [ null, %21 ]
   %.0100.i = phi i64 [ -1, %5 ], [ %16, %15 ], [ %16, %18 ], [ %16, %31 ], [ %16, %40 ], [ %16, %43 ], [ %16, %46 ], [ %16, %49 ], [ %16, %56 ], [ %16, %58 ], [ %16, %61 ], [ %16, %65 ], [ %16, %68 ], [ %16, %71 ], [ %16, %77 ], [ %16, %34 ], [ %16, %37 ], [ %16, %._crit_edge.i ], [ %16, %._crit_edge155.i ], [ %16, %54 ], [ %16, %21 ]
   %.097.i = phi i32 [ -1, %5 ], [ -1, %15 ], [ -1, %18 ], [ -1, %31 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ -1, %49 ], [ -1, %56 ], [ -1, %58 ], [ -1, %61 ], [ -1, %65 ], [ -1, %68 ], [ -1, %71 ], [ -1, %77 ], [ -1, %34 ], [ -1, %37 ], [ -1, %._crit_edge.i ], [ 0, %._crit_edge155.i ], [ %.lobit.i, %54 ], [ -1, %21 ]
   %.094.i = phi i64 [ -1, %5 ], [ -1, %15 ], [ -1, %18 ], [ -1, %31 ], [ -1, %40 ], [ -1, %43 ], [ -1, %46 ], [ %50, %49 ], [ %50, %56 ], [ %50, %58 ], [ %50, %61 ], [ %50, %65 ], [ %50, %68 ], [ %50, %71 ], [ %50, %77 ], [ -1, %34 ], [ -1, %37 ], [ -1, %._crit_edge.i ], [ %50, %._crit_edge155.i ], [ %50, %54 ], [ -1, %21 ]
@@ -854,27 +854,27 @@ define range(i32 -1, 1) i32 @H5LDget_dset_elmts(i64 noundef %0, ptr noundef %1, 
   br label %124
 
 124:                                              ; preds = %122, %120
-  %.not140.i = icmp eq ptr %.1108.i, null
+  %.not140.i = icmp eq ptr %.0107.i, null
   br i1 %.not140.i, label %126, label %125
 
 125:                                              ; preds = %124
-  call void @free(ptr noundef nonnull %.1108.i) #9
+  call void @free(ptr noundef nonnull %.0107.i) #9
   br label %126
 
 126:                                              ; preds = %125, %124
-  %.not141.i = icmp eq ptr %.1106.i, null
+  %.not141.i = icmp eq ptr %.0105.i, null
   br i1 %.not141.i, label %128, label %127
 
 127:                                              ; preds = %126
-  call void @free(ptr noundef nonnull %.1106.i) #9
+  call void @free(ptr noundef nonnull %.0105.i) #9
   br label %128
 
 128:                                              ; preds = %127, %126
-  %.not142.i = icmp eq ptr %.1104.i, null
+  %.not142.i = icmp eq ptr %.0103.i, null
   br i1 %.not142.i, label %H5LD_get_dset_elmts.exit, label %129
 
 129:                                              ; preds = %128
-  call void @free(ptr noundef nonnull %.1104.i) #9
+  call void @free(ptr noundef nonnull %.0103.i) #9
   br label %H5LD_get_dset_elmts.exit
 
 H5LD_get_dset_elmts.exit:                         ; preds = %128, %129

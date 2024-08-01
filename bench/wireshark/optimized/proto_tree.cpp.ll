@@ -9816,8 +9816,8 @@ _ZN7QStringD2Ev.exit158:                          ; preds = %326, %_ZN17QArrayDa
   br label %333
 
 333:                                              ; preds = %_ZN7QStringD2Ev.exit122, %.critedge, %36, %32
-  %.3 = phi i1 [ %33, %32 ], [ %37, %36 ], [ %332, %.critedge ], [ true, %_ZN7QStringD2Ev.exit122 ]
-  ret i1 %.3
+  %.036 = phi i1 [ %33, %32 ], [ %37, %36 ], [ %332, %.critedge ], [ true, %_ZN7QStringD2Ev.exit122 ]
+  ret i1 %.036
 }
 
 declare noundef zeroext i1 @_ZN17QAbstractItemView11eventFilterEP7QObjectP6QEvent(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef) unnamed_addr #1

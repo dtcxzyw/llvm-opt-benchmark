@@ -1743,8 +1743,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br label %499
 
 .loopexit253:                                     ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit, %_ZNSt6vectorIN26cmExportBuildFileGenerator12TargetExportESaIS1_EED2Ev.exit, %498
-  %.3 = phi i1 [ false, %_ZNSt6vectorIN26cmExportBuildFileGenerator12TargetExportESaIS1_EED2Ev.exit ], [ true, %498 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit ]
-  ret i1 %.3
+  %.1 = phi i1 [ false, %_ZNSt6vectorIN26cmExportBuildFileGenerator12TargetExportESaIS1_EED2Ev.exit ], [ true, %498 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit ]
+  ret i1 %.1
 
 499:                                              ; preds = %.loopexit.split-lp, %459, %.body
   %.pn121.pn = phi { ptr, i32 } [ %.pn121, %.body ], [ %.pn118.pn, %459 ], [ %.pn91, %.loopexit.split-lp ]
@@ -2285,7 +2285,7 @@ define dso_local noundef zeroext i1 @_ZNK26cmExportBuildFileGenerator44GenerateI
   br label %115
 
 .loopexit:                                        ; preds = %111, %91, %79
-  %.0 = xor i1 %65, true
+  %.1 = xor i1 %65, true
   call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %9) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #17
   br label %117
@@ -2301,9 +2301,9 @@ define dso_local noundef zeroext i1 @_ZNK26cmExportBuildFileGenerator44GenerateI
   br label %118
 
 117:                                              ; preds = %3, %.loopexit
-  %.1 = phi i1 [ %.0, %.loopexit ], [ true, %3 ]
+  %.0 = phi i1 [ %.1, %.loopexit ], [ true, %3 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  ret i1 %.1
+  ret i1 %.0
 
 118:                                              ; preds = %116, %22
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %116 ], [ %23, %22 ]

@@ -2979,7 +2979,7 @@ if.end20.i:                                       ; preds = %if.else14.i
   br i1 %tobool21.not.i, label %if.then.i.i, label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.end20.i, %if.else14.i, %if.end.i.i19.i, %if.then12.i
-  %ofile.09.i = phi ptr [ %call18.i, %if.end20.i ], [ @_Py_NoneStruct, %if.end.i.i19.i ], [ @_Py_NoneStruct, %if.then12.i ], [ %call15.i, %if.else14.i ]
+  %ofile.19.i = phi ptr [ %call18.i, %if.end20.i ], [ @_Py_NoneStruct, %if.end.i.i19.i ], [ @_Py_NoneStruct, %if.then12.i ], [ %call15.i, %if.else14.i ]
   %call25.i = tail call ptr @X509_get_default_cert_dir_env() #11
   %tobool26.not.i = icmp eq ptr %call25.i, null
   br i1 %tobool26.not.i, label %if.then27.i, label %if.else29.i
@@ -3005,7 +3005,7 @@ if.end35.i:                                       ; preds = %if.else29.i
   br i1 %tobool36.not.i, label %if.then.i.i, label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end35.i, %if.else29.i, %if.end.i.i23.i, %if.then27.i
-  %odir_env.012.i = phi ptr [ %call33.i, %if.end35.i ], [ @_Py_NoneStruct, %if.end.i.i23.i ], [ @_Py_NoneStruct, %if.then27.i ], [ %call30.i, %if.else29.i ]
+  %odir_env.112.i = phi ptr [ %call33.i, %if.end35.i ], [ @_Py_NoneStruct, %if.end.i.i23.i ], [ @_Py_NoneStruct, %if.then27.i ], [ %call30.i, %if.else29.i ]
   %call40.i = tail call ptr @X509_get_default_cert_dir() #11
   %tobool41.not.i = icmp eq ptr %call40.i, null
   br i1 %tobool41.not.i, label %if.then42.i, label %if.else44.i
@@ -3031,13 +3031,13 @@ if.end50.i:                                       ; preds = %if.else44.i
   br i1 %tobool51.not.i, label %if.then.i.i, label %if.end53.i
 
 if.end53.i:                                       ; preds = %if.end50.i, %if.else44.i, %if.end.i.i27.i, %if.then42.i
-  %odir.015.i = phi ptr [ %call48.i, %if.end50.i ], [ @_Py_NoneStruct, %if.end.i.i27.i ], [ @_Py_NoneStruct, %if.then42.i ], [ %call45.i, %if.else44.i ]
-  %call54.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.49, ptr noundef nonnull %ofile_env.03.i, ptr noundef nonnull %ofile.09.i, ptr noundef nonnull %odir_env.012.i, ptr noundef nonnull %odir.015.i) #11
+  %odir.115.i = phi ptr [ %call48.i, %if.end50.i ], [ @_Py_NoneStruct, %if.end.i.i27.i ], [ @_Py_NoneStruct, %if.then42.i ], [ %call45.i, %if.else44.i ]
+  %call54.i = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.49, ptr noundef nonnull %ofile_env.03.i, ptr noundef nonnull %ofile.19.i, ptr noundef nonnull %odir_env.112.i, ptr noundef nonnull %odir.115.i) #11
   br label %_ssl_get_default_verify_paths_impl.exit
 
 if.then.i.i:                                      ; preds = %if.end50.i, %if.end35.i, %if.end20.i
-  %odir_env.1.ph.i = phi ptr [ null, %if.end20.i ], [ null, %if.end35.i ], [ %odir_env.012.i, %if.end50.i ]
-  %ofile.1.ph.i = phi ptr [ null, %if.end20.i ], [ %ofile.09.i, %if.end35.i ], [ %ofile.09.i, %if.end50.i ]
+  %odir_env.0.ph.i = phi ptr [ null, %if.end20.i ], [ null, %if.end35.i ], [ %odir_env.112.i, %if.end50.i ]
+  %ofile.0.ph.i = phi ptr [ null, %if.end20.i ], [ %ofile.19.i, %if.end35.i ], [ %ofile.19.i, %if.end50.i ]
   %4 = load i64, ptr %ofile_env.03.i, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %5, 0
@@ -3054,43 +3054,43 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i29.i
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i29.i, %if.then.i.i
-  %cmp.not.i31.i = icmp eq ptr %ofile.1.ph.i, null
+  %cmp.not.i31.i = icmp eq ptr %ofile.0.ph.i, null
   br i1 %cmp.not.i31.i, label %Py_XDECREF.exit38.i, label %if.then.i32.i
 
 if.then.i32.i:                                    ; preds = %Py_XDECREF.exit.i
-  %6 = load i64, ptr %ofile.1.ph.i, align 8
+  %6 = load i64, ptr %ofile.0.ph.i, align 8
   %7 = and i64 %6, 2147483648
   %cmp.i2.not.i33.i = icmp eq i64 %7, 0
   br i1 %cmp.i2.not.i33.i, label %if.end.i.i34.i, label %Py_XDECREF.exit38.i
 
 if.end.i.i34.i:                                   ; preds = %if.then.i32.i
   %dec.i.i35.i = add i64 %6, -1
-  store i64 %dec.i.i35.i, ptr %ofile.1.ph.i, align 8
+  store i64 %dec.i.i35.i, ptr %ofile.0.ph.i, align 8
   %cmp.i.i36.i = icmp eq i64 %dec.i.i35.i, 0
   br i1 %cmp.i.i36.i, label %if.then1.i.i37.i, label %Py_XDECREF.exit38.i
 
 if.then1.i.i37.i:                                 ; preds = %if.end.i.i34.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %ofile.1.ph.i) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %ofile.0.ph.i) #11
   br label %Py_XDECREF.exit38.i
 
 Py_XDECREF.exit38.i:                              ; preds = %if.then1.i.i37.i, %if.end.i.i34.i, %if.then.i32.i, %Py_XDECREF.exit.i
-  %cmp.not.i39.i = icmp eq ptr %odir_env.1.ph.i, null
+  %cmp.not.i39.i = icmp eq ptr %odir_env.0.ph.i, null
   br i1 %cmp.not.i39.i, label %_ssl_get_default_verify_paths_impl.exit, label %if.then.i40.i
 
 if.then.i40.i:                                    ; preds = %Py_XDECREF.exit38.i
-  %8 = load i64, ptr %odir_env.1.ph.i, align 8
+  %8 = load i64, ptr %odir_env.0.ph.i, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i2.not.i41.i = icmp eq i64 %9, 0
   br i1 %cmp.i2.not.i41.i, label %if.end.i.i42.i, label %_ssl_get_default_verify_paths_impl.exit
 
 if.end.i.i42.i:                                   ; preds = %if.then.i40.i
   %dec.i.i43.i = add i64 %8, -1
-  store i64 %dec.i.i43.i, ptr %odir_env.1.ph.i, align 8
+  store i64 %dec.i.i43.i, ptr %odir_env.0.ph.i, align 8
   %cmp.i.i44.i = icmp eq i64 %dec.i.i43.i, 0
   br i1 %cmp.i.i44.i, label %if.then1.i.i45.i, label %_ssl_get_default_verify_paths_impl.exit
 
 if.then1.i.i45.i:                                 ; preds = %if.end.i.i42.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %odir_env.1.ph.i) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %odir_env.0.ph.i) #11
   br label %_ssl_get_default_verify_paths_impl.exit
 
 _ssl_get_default_verify_paths_impl.exit:          ; preds = %if.end5.i, %if.end53.i, %Py_XDECREF.exit38.i, %if.then.i40.i, %if.end.i.i42.i, %if.then1.i.i45.i
@@ -4214,9 +4214,9 @@ sw.epilog.sink.split:                             ; preds = %if.end36, %sw.bb40,
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end36
-  %v.1 = phi ptr [ %v.0175, %if.end36 ], [ %call44, %sw.epilog.sink.split ]
+  %v.2 = phi ptr [ %v.0175, %if.end36 ], [ %call44, %sw.epilog.sink.split ]
   %as.0 = phi ptr [ null, %if.end36 ], [ %7, %sw.epilog.sink.split ]
-  %cmp46 = icmp eq ptr %v.1, null
+  %cmp46 = icmp eq ptr %v.2, null
   br i1 %cmp46, label %if.then47, label %if.end48
 
 if.then47:                                        ; preds = %sw.epilog
@@ -4237,7 +4237,7 @@ if.then1.i343:                                    ; preds = %if.end.i340
 
 if.end48:                                         ; preds = %sw.epilog
   %ob_item.i141 = getelementptr inbounds i8, ptr %call33, i64 24
-  store ptr %v.1, ptr %ob_item.i141, align 8
+  store ptr %v.2, ptr %ob_item.i141, align 8
   %call49 = call ptr @ASN1_STRING_get0_data(ptr noundef %as.0) #11
   %call50 = call i32 @ASN1_STRING_length(ptr noundef %as.0) #11
   %conv = sext i32 %call50 to i64
@@ -4330,8 +4330,8 @@ if.else77:                                        ; preds = %if.else
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then75, %if.else77
-  %v.2 = phi ptr [ %call76, %if.then75 ], [ %call80, %if.else77 ]
-  %cmp83 = icmp eq ptr %v.2, null
+  %v.3 = phi ptr [ %call76, %if.then75 ], [ %call80, %if.else77 ]
+  %cmp83 = icmp eq ptr %v.3, null
   br i1 %cmp83, label %if.then85, label %sw.epilog223
 
 if.then85:                                        ; preds = %if.end82
@@ -4478,8 +4478,8 @@ if.else167:                                       ; preds = %if.end97
   br label %if.end170
 
 if.end170:                                        ; preds = %if.then116, %if.else167, %if.then101
-  %v.3 = phi ptr [ %call110, %if.then101 ], [ %call166, %if.then116 ], [ %call168, %if.else167 ]
-  %cmp171 = icmp eq ptr %v.3, null
+  %v.4 = phi ptr [ %call110, %if.then101 ], [ %call166, %if.then116 ], [ %call168, %if.else167 ]
+  %cmp171 = icmp eq ptr %v.4, null
   br i1 %cmp171, label %if.then173, label %sw.epilog223
 
 if.then173:                                       ; preds = %if.end170
@@ -4582,7 +4582,7 @@ if.then1.i271:                                    ; preds = %if.end.i268
 
 sw.epilog223:                                     ; preds = %if.end212, %if.end170, %if.end82, %if.end48, %if.end27
   %call201.sink = phi ptr [ %call20, %if.end27 ], [ %call33, %if.end48 ], [ %call57, %if.end82 ], [ %call88, %if.end170 ], [ %call201, %if.end212 ]
-  %call218.sink = phi ptr [ %call28, %if.end27 ], [ %call51, %if.end48 ], [ %v.2, %if.end82 ], [ %v.3, %if.end170 ], [ %call218, %if.end212 ]
+  %call218.sink = phi ptr [ %call28, %if.end27 ], [ %call51, %if.end48 ], [ %v.3, %if.end82 ], [ %v.4, %if.end170 ], [ %call218, %if.end212 ]
   %arrayidx.i156 = getelementptr i8, ptr %call201.sink, i64 32
   store ptr %call218.sink, ptr %arrayidx.i156, align 8
   %call224 = call i32 @PyList_Append(ptr noundef nonnull %call10, ptr noundef nonnull %call201.sink) #11
@@ -5212,8 +5212,8 @@ if.end.i.i:                                       ; preds = %if.else
   br label %if.end60
 
 sw.epilog:                                        ; preds = %if.then52, %sw.bb46, %sw.bb
-  %verify_obj.0 = phi ptr [ %call53, %if.then52 ], [ %call48, %sw.bb46 ], [ %call45, %sw.bb ]
-  %cmp56 = icmp eq ptr %verify_obj.0, null
+  %verify_obj.2 = phi ptr [ %call53, %if.then52 ], [ %call48, %sw.bb46 ], [ %call45, %sw.bb ]
+  %cmp56 = icmp eq ptr %verify_obj.2, null
   br i1 %cmp56, label %if.then.i86, label %if.end60
 
 if.end60.thread:                                  ; preds = %land.lhs.true35, %if.end28
@@ -5222,7 +5222,7 @@ if.end60.thread:                                  ; preds = %land.lhs.true35, %i
   br label %if.else68
 
 if.end60:                                         ; preds = %if.end.i.i, %if.else, %sw.epilog
-  %verify_obj.1 = phi ptr [ %verify_obj.0, %sw.epilog ], [ @_Py_NoneStruct, %if.else ], [ @_Py_NoneStruct, %if.end.i.i ]
+  %verify_obj.1 = phi ptr [ %verify_obj.2, %sw.epilog ], [ @_Py_NoneStruct, %if.else ], [ @_Py_NoneStruct, %if.end.i.i ]
   %tobool63 = icmp ne ptr %reason_obj.0, null
   %tobool65 = icmp ne ptr %lib_obj.0, null
   %or.cond1 = select i1 %tobool63, i1 %tobool65, i1 false
@@ -5235,7 +5235,7 @@ if.then66:                                        ; preds = %if.end60
 if.else68:                                        ; preds = %if.end60.thread, %if.end60
   %tobool65117 = phi i1 [ %tobool65110, %if.end60.thread ], [ %tobool65, %if.end60 ]
   %tobool63116 = phi i1 [ %tobool63108, %if.end60.thread ], [ %tobool63, %if.end60 ]
-  %verify_code_obj.0115 = phi ptr [ null, %if.end60.thread ], [ %call40, %if.end60 ]
+  %verify_code_obj.1115 = phi ptr [ null, %if.end60.thread ], [ %call40, %if.end60 ]
   %verify_obj.1113 = phi ptr [ null, %if.end60.thread ], [ %verify_obj.1, %if.end60 ]
   %or.cond2 = select i1 %tobool63116, i1 %tobool65117, i1 false
   br i1 %or.cond2, label %if.then72, label %if.else74
@@ -5256,7 +5256,7 @@ if.else78:                                        ; preds = %if.else74
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then72, %if.else78, %if.then76, %if.then66
-  %verify_code_obj.0114 = phi ptr [ %call40, %if.then66 ], [ %verify_code_obj.0115, %if.then72 ], [ %verify_code_obj.0115, %if.then76 ], [ %verify_code_obj.0115, %if.else78 ]
+  %verify_code_obj.1114 = phi ptr [ %call40, %if.then66 ], [ %verify_code_obj.1115, %if.then72 ], [ %verify_code_obj.1115, %if.then76 ], [ %verify_code_obj.1115, %if.else78 ]
   %verify_obj.1112 = phi ptr [ %verify_obj.1, %if.then66 ], [ %verify_obj.1113, %if.then72 ], [ %verify_obj.1113, %if.then76 ], [ %verify_obj.1113, %if.else78 ]
   %msg.0 = phi ptr [ %call67, %if.then66 ], [ %call73, %if.then72 ], [ %call77, %if.then76 ], [ %call79, %if.else78 ]
   %cmp83 = icmp eq ptr %msg.0, null
@@ -5321,7 +5321,7 @@ land.lhs.true117:                                 ; preds = %if.end114
 if.then121:                                       ; preds = %land.lhs.true117
   %str_verify_code = getelementptr inbounds i8, ptr %state, i64 136
   %18 = load ptr, ptr %str_verify_code, align 8
-  %call122 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %call94, ptr noundef %18, ptr noundef %verify_code_obj.0114) #11
+  %call122 = tail call i32 @PyObject_SetAttr(ptr noundef nonnull %call94, ptr noundef %18, ptr noundef %verify_code_obj.1114) #11
   %tobool123.not = icmp eq i32 %call122, 0
   br i1 %tobool123.not, label %if.end125, label %if.then.i
 
@@ -5353,46 +5353,46 @@ if.then1.i.i:                                     ; preds = %if.end.i.i83
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %Py_DECREF.exit, %if.end86, %if.end82, %if.then.i, %if.end.i.i83, %if.then1.i.i
-  %cmp.not.i85 = icmp eq ptr %verify_code_obj.0114, null
+  %cmp.not.i85 = icmp eq ptr %verify_code_obj.1114, null
   br i1 %cmp.not.i85, label %Py_XDECREF.exit93, label %if.then.i86
 
 if.then.i86:                                      ; preds = %sw.epilog, %Py_XDECREF.exit
-  %verify_obj.2122133 = phi ptr [ %verify_obj.1112, %Py_XDECREF.exit ], [ null, %sw.epilog ]
-  %verify_code_obj.1123132 = phi ptr [ %verify_code_obj.0114, %Py_XDECREF.exit ], [ %call40, %sw.epilog ]
-  %22 = load i64, ptr %verify_code_obj.1123132, align 8
+  %verify_obj.0122133 = phi ptr [ %verify_obj.1112, %Py_XDECREF.exit ], [ null, %sw.epilog ]
+  %verify_code_obj.0123132 = phi ptr [ %verify_code_obj.1114, %Py_XDECREF.exit ], [ %call40, %sw.epilog ]
+  %22 = load i64, ptr %verify_code_obj.0123132, align 8
   %23 = and i64 %22, 2147483648
   %cmp.i2.not.i87 = icmp eq i64 %23, 0
   br i1 %cmp.i2.not.i87, label %if.end.i.i89, label %Py_XDECREF.exit93
 
 if.end.i.i89:                                     ; preds = %if.then.i86
   %dec.i.i90 = add i64 %22, -1
-  store i64 %dec.i.i90, ptr %verify_code_obj.1123132, align 8
+  store i64 %dec.i.i90, ptr %verify_code_obj.0123132, align 8
   %cmp.i.i91 = icmp eq i64 %dec.i.i90, 0
   br i1 %cmp.i.i91, label %if.then1.i.i92, label %Py_XDECREF.exit93
 
 if.then1.i.i92:                                   ; preds = %if.end.i.i89
-  tail call void @_Py_Dealloc(ptr noundef nonnull %verify_code_obj.1123132) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %verify_code_obj.0123132) #11
   br label %Py_XDECREF.exit93
 
 Py_XDECREF.exit93:                                ; preds = %Py_XDECREF.exit, %if.then.i86, %if.end.i.i89, %if.then1.i.i92
-  %verify_obj.2122127 = phi ptr [ %verify_obj.1112, %Py_XDECREF.exit ], [ %verify_obj.2122133, %if.then.i86 ], [ %verify_obj.2122133, %if.end.i.i89 ], [ %verify_obj.2122133, %if.then1.i.i92 ]
-  %cmp.not.i94 = icmp eq ptr %verify_obj.2122127, null
+  %verify_obj.0122127 = phi ptr [ %verify_obj.1112, %Py_XDECREF.exit ], [ %verify_obj.0122133, %if.then.i86 ], [ %verify_obj.0122133, %if.end.i.i89 ], [ %verify_obj.0122133, %if.then1.i.i92 ]
+  %cmp.not.i94 = icmp eq ptr %verify_obj.0122127, null
   br i1 %cmp.not.i94, label %Py_XDECREF.exit102, label %if.then.i95
 
 if.then.i95:                                      ; preds = %Py_XDECREF.exit93
-  %24 = load i64, ptr %verify_obj.2122127, align 8
+  %24 = load i64, ptr %verify_obj.0122127, align 8
   %25 = and i64 %24, 2147483648
   %cmp.i2.not.i96 = icmp eq i64 %25, 0
   br i1 %cmp.i2.not.i96, label %if.end.i.i98, label %Py_XDECREF.exit102
 
 if.end.i.i98:                                     ; preds = %if.then.i95
   %dec.i.i99 = add i64 %24, -1
-  store i64 %dec.i.i99, ptr %verify_obj.2122127, align 8
+  store i64 %dec.i.i99, ptr %verify_obj.0122127, align 8
   %cmp.i.i100 = icmp eq i64 %dec.i.i99, 0
   br i1 %cmp.i.i100, label %if.then1.i.i101, label %Py_XDECREF.exit102
 
 if.then1.i.i101:                                  ; preds = %if.end.i.i98
-  tail call void @_Py_Dealloc(ptr noundef nonnull %verify_obj.2122127) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %verify_obj.0122127) #11
   br label %Py_XDECREF.exit102
 
 Py_XDECREF.exit102:                               ; preds = %if.then38, %land.lhs.true18, %if.end9, %land.lhs.true, %if.then, %Py_XDECREF.exit93, %if.then.i95, %if.end.i.i98, %if.then1.i.i101
@@ -7012,14 +7012,14 @@ if.then41:                                        ; preds = %if.end38
   br i1 %tobool44.not, label %skip_optional_kwonly, label %if.end47
 
 if.end47:                                         ; preds = %if.then41, %if.end38
-  %owner.0 = phi ptr [ %14, %if.then41 ], [ @_Py_NoneStruct, %if.end38 ]
+  %owner.1 = phi ptr [ %14, %if.then41 ], [ @_Py_NoneStruct, %if.end38 ]
   %arrayidx48 = getelementptr i8, ptr %cond1031, i64 32
   %15 = load ptr, ptr %arrayidx48, align 8
   br label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.then41, %skip_optional_pos, %if.end47
   %hostname_obj.037 = phi ptr [ %hostname_obj.043, %if.end47 ], [ %hostname_obj.043, %if.then41 ], [ %13, %skip_optional_pos ]
-  %owner.1 = phi ptr [ %owner.0, %if.end47 ], [ %14, %if.then41 ], [ @_Py_NoneStruct, %skip_optional_pos ]
+  %owner.0 = phi ptr [ %owner.1, %if.end47 ], [ %14, %if.then41 ], [ @_Py_NoneStruct, %skip_optional_pos ]
   %session.0 = phi ptr [ %15, %if.end47 ], [ @_Py_NoneStruct, %if.then41 ], [ @_Py_NoneStruct, %skip_optional_pos ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hostname.i)
   store ptr null, ptr %hostname.i, align 8
@@ -7037,9 +7037,9 @@ if.then.if.end2_crit_edge.i:                      ; preds = %if.then.i
 
 if.end2.i:                                        ; preds = %skip_optional_kwonly.thread, %if.then.if.end2_crit_edge.i, %skip_optional_kwonly
   %session.049 = phi ptr [ %session.0, %if.then.if.end2_crit_edge.i ], [ %session.0, %skip_optional_kwonly ], [ @_Py_NoneStruct, %skip_optional_kwonly.thread ]
-  %owner.148 = phi ptr [ %owner.1, %if.then.if.end2_crit_edge.i ], [ %owner.1, %skip_optional_kwonly ], [ @_Py_NoneStruct, %skip_optional_kwonly.thread ]
+  %owner.048 = phi ptr [ %owner.0, %if.then.if.end2_crit_edge.i ], [ %owner.0, %skip_optional_kwonly ], [ @_Py_NoneStruct, %skip_optional_kwonly.thread ]
   %16 = phi ptr [ %.pre.i, %if.then.if.end2_crit_edge.i ], [ null, %skip_optional_kwonly ], [ null, %skip_optional_kwonly.thread ]
-  %call3.i = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %self, ptr noundef %11, i32 noundef %call21, ptr noundef %16, ptr noundef %owner.148, ptr noundef %session.049, ptr noundef null, ptr noundef null)
+  %call3.i = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %self, ptr noundef %11, i32 noundef %call21, ptr noundef %16, ptr noundef %owner.048, ptr noundef %session.049, ptr noundef null, ptr noundef null)
   %17 = load ptr, ptr %hostname.i, align 8
   %cmp4.not.i = icmp eq ptr %17, null
   br i1 %cmp4.not.i, label %_ssl__SSLContext__wrap_socket_impl.exit, label %if.then5.i
@@ -7180,14 +7180,14 @@ if.then53:                                        ; preds = %if.end50
   br i1 %tobool56.not, label %skip_optional_kwonly, label %if.end59
 
 if.end59:                                         ; preds = %if.then53, %if.end50
-  %owner.0 = phi ptr [ %20, %if.then53 ], [ @_Py_NoneStruct, %if.end50 ]
+  %owner.1 = phi ptr [ %20, %if.then53 ], [ @_Py_NoneStruct, %if.end50 ]
   %arrayidx60 = getelementptr i8, ptr %cond1043, i64 40
   %21 = load ptr, ptr %arrayidx60, align 8
   br label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %if.then53, %skip_optional_pos, %if.end59
   %hostname_obj.051 = phi ptr [ %hostname_obj.057, %if.end59 ], [ %hostname_obj.057, %if.then53 ], [ %19, %skip_optional_pos ]
-  %owner.1 = phi ptr [ %owner.0, %if.end59 ], [ %20, %if.then53 ], [ @_Py_NoneStruct, %skip_optional_pos ]
+  %owner.0 = phi ptr [ %owner.1, %if.end59 ], [ %20, %if.then53 ], [ @_Py_NoneStruct, %skip_optional_pos ]
   %session.0 = phi ptr [ %21, %if.end59 ], [ @_Py_NoneStruct, %if.then53 ], [ @_Py_NoneStruct, %skip_optional_pos ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %hostname.i)
   store ptr null, ptr %hostname.i, align 8
@@ -7205,9 +7205,9 @@ if.then.if.end2_crit_edge.i:                      ; preds = %if.then.i
 
 if.end2.i:                                        ; preds = %skip_optional_kwonly.thread, %if.then.if.end2_crit_edge.i, %skip_optional_kwonly
   %session.063 = phi ptr [ %session.0, %if.then.if.end2_crit_edge.i ], [ %session.0, %skip_optional_kwonly ], [ @_Py_NoneStruct, %skip_optional_kwonly.thread ]
-  %owner.162 = phi ptr [ %owner.1, %if.then.if.end2_crit_edge.i ], [ %owner.1, %skip_optional_kwonly ], [ @_Py_NoneStruct, %skip_optional_kwonly.thread ]
+  %owner.062 = phi ptr [ %owner.0, %if.then.if.end2_crit_edge.i ], [ %owner.0, %skip_optional_kwonly ], [ @_Py_NoneStruct, %skip_optional_kwonly.thread ]
   %22 = phi ptr [ %.pre.i, %if.then.if.end2_crit_edge.i ], [ null, %skip_optional_kwonly ], [ null, %skip_optional_kwonly.thread ]
-  %call3.i = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %self, ptr noundef null, i32 noundef %call33, ptr noundef %22, ptr noundef %owner.162, ptr noundef %session.063, ptr noundef readonly %11, ptr noundef readonly %17)
+  %call3.i = call fastcc ptr @newPySSLSocket(ptr noundef nonnull %self, ptr noundef null, i32 noundef %call33, ptr noundef %22, ptr noundef %owner.062, ptr noundef %session.063, ptr noundef readonly %11, ptr noundef readonly %17)
   %23 = load ptr, ptr %hostname.i, align 8
   call void @PyMem_Free(ptr noundef %23) #11
   br label %_ssl__SSLContext__wrap_bio_impl.exit
@@ -7395,13 +7395,13 @@ if.then17:                                        ; preds = %if.end14
   br i1 %tobool19.not, label %skip_optional_pos, label %if.end22
 
 if.end22:                                         ; preds = %if.then17, %if.end14
-  %keyfile.0 = phi ptr [ %5, %if.then17 ], [ @_Py_NoneStruct, %if.end14 ]
+  %keyfile.1 = phi ptr [ %5, %if.then17 ], [ @_Py_NoneStruct, %if.end14 ]
   %arrayidx23 = getelementptr i8, ptr %cond1028, i64 16
   %6 = load ptr, ptr %arrayidx23, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.then17, %if.end, %if.end22
-  %keyfile.1 = phi ptr [ %keyfile.0, %if.end22 ], [ %5, %if.then17 ], [ @_Py_NoneStruct, %if.end ]
+  %keyfile.0 = phi ptr [ %keyfile.1, %if.end22 ], [ %5, %if.then17 ], [ @_Py_NoneStruct, %if.end ]
   %password.0 = phi ptr [ %6, %if.end22 ], [ @_Py_NoneStruct, %if.then17 ], [ @_Py_NoneStruct, %if.end ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %certfile_bytes.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %keyfile_bytes.i)
@@ -7417,7 +7417,7 @@ skip_optional_pos:                                ; preds = %if.then17, %if.end,
   %call3.i = tail call ptr @__errno_location() #13
   store i32 0, ptr %call3.i, align 4
   call void @ERR_clear_error() #11
-  %cmp.i = icmp eq ptr %keyfile.1, @_Py_NoneStruct
+  %cmp.i = icmp eq ptr %keyfile.0, @_Py_NoneStruct
   %call4.i = call i32 @PyUnicode_FSConverter(ptr noundef %4, ptr noundef nonnull %certfile_bytes.i) #11
   %tobool.not.i = icmp eq i32 %call4.i, 0
   br i1 %tobool.not.i, label %if.then5.i, label %if.end10.i
@@ -7437,7 +7437,7 @@ if.end10.i:                                       ; preds = %skip_optional_pos
   br i1 %cmp.i, label %if.end19.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end10.i
-  %call12.i = call i32 @PyUnicode_FSConverter(ptr noundef nonnull %keyfile.1, ptr noundef nonnull %keyfile_bytes.i) #11
+  %call12.i = call i32 @PyUnicode_FSConverter(ptr noundef nonnull %keyfile.0, ptr noundef nonnull %keyfile_bytes.i) #11
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %if.then14.i, label %if.end19.i
 
@@ -7817,7 +7817,7 @@ if.then16:                                        ; preds = %if.end14
 
 if.end21:                                         ; preds = %if.then16, %if.end14
   %noptargs.0 = phi i64 [ %dec, %if.then16 ], [ %add2630, %if.end14 ]
-  %cafile.0 = phi ptr [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end14 ]
+  %cafile.1 = phi ptr [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end14 ]
   %arrayidx22 = getelementptr i8, ptr %cond1031, i64 8
   %4 = load ptr, ptr %arrayidx22, align 8
   %tobool23.not = icmp eq ptr %4, null
@@ -7828,14 +7828,14 @@ if.then24:                                        ; preds = %if.end21
   br i1 %tobool27.not, label %skip_optional_pos, label %if.end30
 
 if.end30:                                         ; preds = %if.then24, %if.end21
-  %capath.0 = phi ptr [ %4, %if.then24 ], [ @_Py_NoneStruct, %if.end21 ]
+  %capath.1 = phi ptr [ %4, %if.then24 ], [ @_Py_NoneStruct, %if.end21 ]
   %arrayidx31 = getelementptr i8, ptr %cond1031, i64 16
   %5 = load ptr, ptr %arrayidx31, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.then24, %if.then16, %if.end, %if.end30
-  %cafile.1 = phi ptr [ %cafile.0, %if.end30 ], [ %cafile.0, %if.then24 ], [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end ]
-  %capath.1 = phi ptr [ %capath.0, %if.end30 ], [ %4, %if.then24 ], [ @_Py_NoneStruct, %if.then16 ], [ @_Py_NoneStruct, %if.end ]
+  %cafile.0 = phi ptr [ %cafile.1, %if.end30 ], [ %cafile.1, %if.then24 ], [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end ]
+  %capath.0 = phi ptr [ %capath.1, %if.end30 ], [ %4, %if.then24 ], [ @_Py_NoneStruct, %if.then16 ], [ @_Py_NoneStruct, %if.end ]
   %cadata.0 = phi ptr [ %5, %if.end30 ], [ @_Py_NoneStruct, %if.then24 ], [ @_Py_NoneStruct, %if.then16 ], [ @_Py_NoneStruct, %if.end ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cafile_bytes.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %capath_bytes.i)
@@ -7844,8 +7844,8 @@ skip_optional_pos:                                ; preds = %if.then24, %if.then
   store ptr null, ptr %capath_bytes.i, align 8
   %call.i = tail call ptr @__errno_location() #13
   store i32 0, ptr %call.i, align 4
-  %cmp.i = icmp eq ptr %cafile.1, @_Py_NoneStruct
-  %cmp1.i = icmp eq ptr %capath.1, @_Py_NoneStruct
+  %cmp.i = icmp eq ptr %cafile.0, @_Py_NoneStruct
+  %cmp1.i = icmp eq ptr %capath.0, @_Py_NoneStruct
   %cmp4.i = icmp eq ptr %cadata.0, @_Py_NoneStruct
   %spec.store.select1.i = select i1 %cmp4.i, ptr null, ptr %cadata.0
   %or.cond.i = and i1 %cmp.i, %cmp1.i
@@ -7862,7 +7862,7 @@ if.end12.i:                                       ; preds = %skip_optional_pos
   br i1 %cmp.i, label %if.end21.i, label %land.lhs.true13.i
 
 land.lhs.true13.i:                                ; preds = %if.end12.i
-  %call14.i = call i32 @PyUnicode_FSConverter(ptr noundef nonnull %cafile.1, ptr noundef nonnull %cafile_bytes.i) #11
+  %call14.i = call i32 @PyUnicode_FSConverter(ptr noundef nonnull %cafile.0, ptr noundef nonnull %cafile_bytes.i) #11
   %tobool15.not.i = icmp eq i32 %call14.i, 0
   br i1 %tobool15.not.i, label %if.then16.i, label %if.end21.i
 
@@ -7881,7 +7881,7 @@ if.end21.i:                                       ; preds = %land.lhs.true13.i, 
   br i1 %cmp1.i, label %if.end31.i, label %land.lhs.true23.i
 
 land.lhs.true23.i:                                ; preds = %if.end21.i
-  %call24.i = call i32 @PyUnicode_FSConverter(ptr noundef nonnull %capath.1, ptr noundef nonnull %capath_bytes.i) #11
+  %call24.i = call i32 @PyUnicode_FSConverter(ptr noundef nonnull %capath.0, ptr noundef nonnull %capath_bytes.i) #11
   %tobool25.not.i = icmp eq i32 %call24.i, 0
   br i1 %tobool25.not.i, label %if.then26.i, label %if.end31.i
 
@@ -9995,7 +9995,7 @@ if.else19:                                        ; preds = %PyObject_TypeCheck.
   br label %return
 
 if.end22:                                         ; preds = %if.then.i, %if.then10, %if.end
-  %password_bytes.0 = phi ptr [ %call2, %if.end ], [ null, %if.then10 ], [ null, %if.then.i ]
+  %password_bytes.1 = phi ptr [ %call2, %if.end ], [ null, %if.then10 ], [ null, %if.then.i ]
   %data.0 = phi ptr [ %ob_sval.i, %if.end ], [ %ob_sval.i26, %if.then10 ], [ %7, %if.then.i ]
   %size.0 = phi i64 [ %call2.val, %if.end ], [ %password.val21, %if.then10 ], [ %op.val.i, %if.then.i ]
   %cmp = icmp sgt i64 %size.0, 2147483647
@@ -10009,7 +10009,7 @@ if.then23:                                        ; preds = %if.end22
 if.end25:                                         ; preds = %if.then16, %if.end22
   %size.044 = phi i64 [ %size.0, %if.end22 ], [ 0, %if.then16 ]
   %data.043 = phi ptr [ %data.0, %if.end22 ], [ @_PyByteArray_empty_string, %if.then16 ]
-  %password_bytes.042 = phi ptr [ %password_bytes.0, %if.end22 ], [ null, %if.then16 ]
+  %password_bytes.142 = phi ptr [ %password_bytes.1, %if.end22 ], [ null, %if.then16 ]
   %password26 = getelementptr inbounds i8, ptr %pw_info, i64 16
   %10 = load ptr, ptr %password26, align 8
   tail call void @PyMem_Free(ptr noundef %10) #11
@@ -10028,44 +10028,44 @@ if.end32:                                         ; preds = %if.end25
   %conv = trunc i64 %size.044 to i32
   %size34 = getelementptr inbounds i8, ptr %pw_info, i64 24
   store i32 %conv, ptr %size34, align 8
-  %cmp.not.i = icmp eq ptr %password_bytes.042, null
+  %cmp.not.i = icmp eq ptr %password_bytes.142, null
   br i1 %cmp.not.i, label %return, label %if.then.i27
 
 if.then.i27:                                      ; preds = %if.end32
-  %12 = load i64, ptr %password_bytes.042, align 8
+  %12 = load i64, ptr %password_bytes.142, align 8
   %13 = and i64 %12, 2147483648
   %cmp.i2.not.i = icmp eq i64 %13, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i, label %return
 
 if.end.i.i:                                       ; preds = %if.then.i27
   %dec.i.i = add i64 %12, -1
-  store i64 %dec.i.i, ptr %password_bytes.042, align 8
+  store i64 %dec.i.i, ptr %password_bytes.142, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then1.i.i, label %return
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %password_bytes.042) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %password_bytes.142) #11
   br label %return
 
 error:                                            ; preds = %if.then31, %if.then23
-  %password_bytes.1 = phi ptr [ %password_bytes.0, %if.then23 ], [ %password_bytes.042, %if.then31 ]
-  %cmp.not.i28 = icmp eq ptr %password_bytes.1, null
+  %password_bytes.0 = phi ptr [ %password_bytes.1, %if.then23 ], [ %password_bytes.142, %if.then31 ]
+  %cmp.not.i28 = icmp eq ptr %password_bytes.0, null
   br i1 %cmp.not.i28, label %return, label %if.then.i29
 
 if.then.i29:                                      ; preds = %error
-  %14 = load i64, ptr %password_bytes.1, align 8
+  %14 = load i64, ptr %password_bytes.0, align 8
   %15 = and i64 %14, 2147483648
   %cmp.i2.not.i30 = icmp eq i64 %15, 0
   br i1 %cmp.i2.not.i30, label %if.end.i.i31, label %return
 
 if.end.i.i31:                                     ; preds = %if.then.i29
   %dec.i.i32 = add i64 %14, -1
-  store i64 %dec.i.i32, ptr %password_bytes.1, align 8
+  store i64 %dec.i.i32, ptr %password_bytes.0, align 8
   %cmp.i.i33 = icmp eq i64 %dec.i.i32, 0
   br i1 %cmp.i.i33, label %if.then1.i.i34, label %return
 
 if.then1.i.i34:                                   ; preds = %if.end.i.i31
-  tail call void @_Py_Dealloc(ptr noundef nonnull %password_bytes.1) #11
+  tail call void @_Py_Dealloc(ptr noundef nonnull %password_bytes.0) #11
   br label %return
 
 return:                                           ; preds = %if.else19, %if.then, %if.then1.i.i34, %if.end.i.i31, %if.then.i29, %error, %if.then1.i.i, %if.end.i.i, %if.then.i27, %if.end32
@@ -12184,7 +12184,7 @@ if.then43:                                        ; preds = %if.else39
   br label %if.end45
 
 if.end45:                                         ; preds = %if.else39, %if.then43, %if.else36
-  %ret.0 = phi i32 [ 0, %if.else36 ], [ 2, %if.then43 ], [ 2, %if.else39 ]
+  %ret.1 = phi i32 [ 0, %if.else36 ], [ 2, %if.then43 ], [ 2, %if.else39 ]
   %19 = load i64, ptr %result.0, align 8
   %20 = and i64 %19, 2147483648
   %cmp.i108.not = icmp eq i64 %20, 0
@@ -12222,7 +12222,7 @@ Py_DECREF.exit:                                   ; preds = %error, %if.then1.i,
   br label %return
 
 return:                                           ; preds = %if.then34, %if.end45, %if.then1.i53, %if.end.i50, %entry, %Py_DECREF.exit
-  %retval.0 = phi i32 [ 2, %Py_DECREF.exit ], [ 0, %entry ], [ 2, %if.then34 ], [ %ret.0, %if.end45 ], [ %ret.0, %if.then1.i53 ], [ %ret.0, %if.end.i50 ]
+  %retval.0 = phi i32 [ 2, %Py_DECREF.exit ], [ 0, %entry ], [ 2, %if.then34 ], [ %ret.1, %if.end45 ], [ %ret.1, %if.then1.i53 ], [ %ret.1, %if.end.i50 ]
   tail call void @PyGILState_Release(i32 noundef %call1) #11
   ret i32 %retval.0
 }
@@ -15078,10 +15078,10 @@ sw.default:                                       ; preds = %if.then
   br label %if.end56
 
 if.end56:                                         ; preds = %sw.bb36.split, %sw.bb36, %if.then45, %if.else27, %if.then33, %if.then, %sw.bb, %sw.bb4, %sw.bb5, %sw.bb7, %sw.default, %if.then14, %if.else24, %if.else22, %if.then53, %entry
-  %errstr.1 = phi ptr [ @.str.242, %sw.default ], [ @.str.239, %if.then53 ], [ @.str.239, %if.then14 ], [ @.str.239, %if.else22 ], [ @.str.240, %if.else24 ], [ @.str.238, %sw.bb7 ], [ @.str.236, %sw.bb5 ], [ @.str.235, %sw.bb4 ], [ @.str.234, %sw.bb ], [ null, %entry ], [ @.str.237, %if.then ], [ null, %if.then33 ], [ null, %if.else27 ], [ @.str.241, %sw.bb36 ], [ null, %if.then45 ], [ null, %sw.bb36.split ]
+  %errstr.0 = phi ptr [ @.str.242, %sw.default ], [ @.str.239, %if.then53 ], [ @.str.239, %if.then14 ], [ @.str.239, %if.else22 ], [ @.str.240, %if.else24 ], [ @.str.238, %sw.bb7 ], [ @.str.236, %sw.bb5 ], [ @.str.235, %sw.bb4 ], [ @.str.234, %sw.bb ], [ null, %entry ], [ @.str.237, %if.then ], [ null, %if.then33 ], [ null, %if.else27 ], [ @.str.241, %sw.bb36 ], [ null, %if.then45 ], [ null, %sw.bb36.split ]
   %p.0 = phi i32 [ 10, %sw.default ], [ 8, %if.then53 ], [ 8, %if.then14 ], [ 8, %if.else22 ], [ 5, %if.else24 ], [ %err.sroa.0.0.copyload, %sw.bb7 ], [ 3, %sw.bb5 ], [ 2, %sw.bb4 ], [ 6, %sw.bb ], [ 0, %entry ], [ %err.sroa.0.0.copyload, %if.then ], [ 5, %if.then33 ], [ 5, %if.else27 ], [ 1, %sw.bb36 ], [ 1, %if.then45 ], [ 1, %sw.bb36.split ]
-  %type.2 = phi ptr [ %2, %sw.default ], [ %19, %if.then53 ], [ %12, %if.then14 ], [ %14, %if.else22 ], [ %15, %if.else24 ], [ %2, %sw.bb7 ], [ %6, %sw.bb5 ], [ %5, %sw.bb4 ], [ %4, %sw.bb ], [ %2, %entry ], [ %2, %if.then ], [ %17, %if.then33 ], [ %2, %if.else27 ], [ %2, %sw.bb36 ], [ %18, %if.then45 ], [ %2, %sw.bb36.split ]
-  tail call fastcc void @fill_and_set_sslerror(ptr noundef nonnull %1, ptr noundef nonnull %sslsock, ptr noundef %type.2, i32 noundef %p.0, ptr noundef %errstr.1, i32 noundef %lineno, i64 noundef %call)
+  %type.0 = phi ptr [ %2, %sw.default ], [ %19, %if.then53 ], [ %12, %if.then14 ], [ %14, %if.else22 ], [ %15, %if.else24 ], [ %2, %sw.bb7 ], [ %6, %sw.bb5 ], [ %5, %sw.bb4 ], [ %4, %sw.bb ], [ %2, %entry ], [ %2, %if.then ], [ %17, %if.then33 ], [ %2, %if.else27 ], [ %2, %sw.bb36 ], [ %18, %if.then45 ], [ %2, %sw.bb36.split ]
+  tail call fastcc void @fill_and_set_sslerror(ptr noundef nonnull %1, ptr noundef nonnull %sslsock, ptr noundef %type.0, i32 noundef %p.0, ptr noundef %errstr.0, i32 noundef %lineno, i64 noundef %call)
   tail call void @ERR_clear_error() #11
   %exc.i = getelementptr inbounds i8, ptr %sslsock, i64 72
   %20 = load ptr, ptr %exc.i, align 8

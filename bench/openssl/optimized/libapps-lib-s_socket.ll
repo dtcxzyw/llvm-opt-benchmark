@@ -88,8 +88,8 @@ for.body.lr.ph:                                   ; preds = %if.end15
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc85
-  %options.082 = phi i32 [ 0, %for.body.lr.ph ], [ %options.2, %for.inc85 ]
-  %found.081 = phi i32 [ 0, %for.body.lr.ph ], [ %found.2, %for.inc85 ]
+  %options.082 = phi i32 [ 0, %for.body.lr.ph ], [ %options.1, %for.inc85 ]
+  %found.081 = phi i32 [ 0, %for.body.lr.ph ], [ %found.3, %for.inc85 ]
   %bi.080 = phi ptr [ null, %for.body.lr.ph ], [ %bi.3, %for.inc85 ]
   %ai.079 = phi ptr [ %2, %for.body.lr.ph ], [ %call86, %for.inc85 ]
   br i1 %cmp17, label %land.lhs.true21, label %lor.lhs.false18
@@ -125,14 +125,14 @@ cond.end:                                         ; preds = %land.lhs.true26, %l
   br i1 %cmp31.not, label %if.end45, label %for.body35
 
 for.body35:                                       ; preds = %cond.end, %for.inc
-  %bi.177 = phi ptr [ %call41, %for.inc ], [ %3, %cond.end ]
-  %call36 = call i32 @BIO_ADDRINFO_family(ptr noundef nonnull %bi.177) #9
+  %bi.277 = phi ptr [ %call41, %for.inc ], [ %3, %cond.end ]
+  %call36 = call i32 @BIO_ADDRINFO_family(ptr noundef nonnull %bi.277) #9
   %call37 = call i32 @BIO_ADDRINFO_family(ptr noundef nonnull %ai.079) #9
   %cmp38 = icmp eq i32 %call36, %call37
   br i1 %cmp38, label %if.end44, label %for.inc
 
 for.inc:                                          ; preds = %for.body35
-  %call41 = call ptr @BIO_ADDRINFO_next(ptr noundef nonnull %bi.177) #9
+  %call41 = call ptr @BIO_ADDRINFO_next(ptr noundef nonnull %bi.277) #9
   %cond = icmp eq ptr %call41, null
   br i1 %cond, label %for.inc85, label %for.body35, !llvm.loop !4
 
@@ -141,8 +141,8 @@ if.end44:                                         ; preds = %for.body35
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end44, %cond.end
-  %bi.2 = phi ptr [ %bi.177, %if.end44 ], [ %bi.080, %cond.end ]
-  %found.1 = phi i32 [ %inc, %if.end44 ], [ %found.081, %cond.end ]
+  %bi.1 = phi ptr [ %bi.277, %if.end44 ], [ %bi.080, %cond.end ]
+  %found.2 = phi i32 [ %inc, %if.end44 ], [ %found.081, %cond.end ]
   %call46 = call i32 @BIO_ADDRINFO_family(ptr noundef nonnull %ai.079) #9
   %call47 = call i32 @BIO_ADDRINFO_socktype(ptr noundef nonnull %ai.079) #9
   %call48 = call i32 @BIO_ADDRINFO_protocol(ptr noundef nonnull %ai.079) #9
@@ -152,11 +152,11 @@ if.end45:                                         ; preds = %if.end44, %cond.end
   br i1 %cmp50, label %for.inc85, label %if.end52
 
 if.end52:                                         ; preds = %if.end45
-  %cmp53.not = icmp eq ptr %bi.2, null
+  %cmp53.not = icmp eq ptr %bi.1, null
   br i1 %cmp53.not, label %if.end61, label %if.then54
 
 if.then54:                                        ; preds = %if.end52
-  %call55 = call ptr @BIO_ADDRINFO_address(ptr noundef nonnull %bi.2) #9
+  %call55 = call ptr @BIO_ADDRINFO_address(ptr noundef nonnull %bi.1) #9
   %call56 = call i32 @BIO_bind(i32 noundef %call49, ptr noundef %call55, i32 noundef 1) #9
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %for.end87.thread, label %if.end61
@@ -171,13 +171,13 @@ if.end61:                                         ; preds = %if.then54, %if.end5
   %call62 = call i32 @BIO_ADDRINFO_protocol(ptr noundef nonnull %ai.079) #9
   %cmp63 = icmp eq i32 %call62, 6
   %spec.select = select i1 %cmp63, i32 %spec.select.v, i32 0
-  %options.1 = or i32 %spec.select, %options.082
+  %options.2 = or i32 %spec.select, %options.082
   br i1 %tobool70.not, label %if.then81, label %land.lhs.true71
 
 land.lhs.true71:                                  ; preds = %if.end61
   %5 = load i32, ptr %sock, align 4
   %call72 = call ptr @BIO_ADDRINFO_address(ptr noundef nonnull %ai.079) #9
-  %call73 = call i32 @BIO_connect(i32 noundef %5, ptr noundef %call72, i32 noundef %options.1) #9
+  %call73 = call i32 @BIO_connect(i32 noundef %5, ptr noundef %call72, i32 noundef %options.2) #9
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %if.then75, label %if.end77
 
@@ -198,25 +198,25 @@ if.then81:                                        ; preds = %if.end61, %if.end77
   br label %for.end87
 
 for.inc85:                                        ; preds = %for.inc, %if.end45, %if.then75
-  %bi.3 = phi ptr [ %bi.2, %if.end45 ], [ %bi.2, %if.then75 ], [ null, %for.inc ]
-  %found.2 = phi i32 [ %found.1, %if.end45 ], [ %found.1, %if.then75 ], [ %found.081, %for.inc ]
-  %options.2 = phi i32 [ %options.082, %if.end45 ], [ %options.1, %if.then75 ], [ %options.082, %for.inc ]
+  %bi.3 = phi ptr [ %bi.1, %if.end45 ], [ %bi.1, %if.then75 ], [ null, %for.inc ]
+  %found.3 = phi i32 [ %found.2, %if.end45 ], [ %found.2, %if.then75 ], [ %found.081, %for.inc ]
+  %options.1 = phi i32 [ %options.082, %if.end45 ], [ %options.2, %if.then75 ], [ %options.082, %for.inc ]
   %call86 = call ptr @BIO_ADDRINFO_next(ptr noundef nonnull %ai.079) #9
   %cmp16.not = icmp eq ptr %call86, null
   br i1 %cmp16.not, label %for.end87, label %for.body, !llvm.loop !6
 
 for.end87:                                        ; preds = %for.inc85, %if.end15, %if.then81, %if.end77
   %ai.073 = phi ptr [ %ai.079, %if.then81 ], [ %ai.079, %if.end77 ], [ null, %if.end15 ], [ null, %for.inc85 ]
-  %found.3.ph = phi i32 [ %found.1, %if.then81 ], [ %found.1, %if.end77 ], [ 0, %if.end15 ], [ %found.2, %for.inc85 ]
+  %found.1.ph = phi i32 [ %found.2, %if.then81 ], [ %found.2, %if.end77 ], [ 0, %if.end15 ], [ %found.3, %for.inc85 ]
   %.pr = load i32, ptr %sock, align 4
   %cmp88 = icmp eq i32 %.pr, -1
   br i1 %cmp88, label %if.then89, label %if.else
 
 if.then89:                                        ; preds = %for.end87.thread, %for.end87
-  %found.362 = phi i32 [ %found.1, %for.end87.thread ], [ %found.3.ph, %for.end87 ]
+  %found.162 = phi i32 [ %found.2, %for.end87.thread ], [ %found.1.ph, %for.end87 ]
   %7 = load ptr, ptr %bindaddr, align 8
   %cmp90 = icmp eq ptr %7, null
-  %tobool92 = icmp ne i32 %found.362, 0
+  %tobool92 = icmp ne i32 %found.162, 0
   %or.cond3 = select i1 %cmp90, i1 true, i1 %tobool92
   br i1 %or.cond3, label %if.end122, label %if.then93
 
@@ -271,7 +271,7 @@ if.end128:                                        ; preds = %if.then126, %if.els
   br label %out
 
 out:                                              ; preds = %if.end122, %if.end128, %if.then13
-  %ret.1 = phi i32 [ 0, %if.then13 ], [ 0, %if.end122 ], [ 1, %if.end128 ]
+  %ret.0 = phi i32 [ 0, %if.then13 ], [ 0, %if.end122 ], [ 1, %if.end128 ]
   %14 = load ptr, ptr %bindaddr, align 8
   %cmp130.not = icmp eq ptr %14, null
   br i1 %cmp130.not, label %if.end132, label %if.then131
@@ -286,7 +286,7 @@ if.end132:                                        ; preds = %if.then131, %out
   br label %return
 
 return:                                           ; preds = %if.end, %if.end132, %if.then6
-  %retval.0 = phi i32 [ 0, %if.then6 ], [ %ret.1, %if.end132 ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ 0, %if.then6 ], [ %ret.0, %if.end132 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -448,13 +448,13 @@ if.else:                                          ; preds = %get_sock_info_addre
   br label %if.end11
 
 if.end11:                                         ; preds = %if.else, %if.then5
-  %success.0.in = phi i32 [ %3, %if.then5 ], [ 0, %if.else ]
+  %success.1.in = phi i32 [ %3, %if.then5 ], [ 0, %if.else ]
   call void @CRYPTO_free(ptr noundef %hostname.0, ptr noundef nonnull @.str.1, i32 noundef 264) #9
   call void @CRYPTO_free(ptr noundef %service.0, ptr noundef nonnull @.str.1, i32 noundef 265) #9
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end11, %if.end
-  %success.1 = phi i32 [ %success.0.in, %if.end11 ], [ 1, %if.end ]
+  %success.0 = phi i32 [ %success.1.in, %if.end11 ], [ 1, %if.end ]
   %tobool13.not = icmp eq i32 %with_pid, 0
   br i1 %tobool13.not, label %if.end19, label %if.then14
 
@@ -462,11 +462,11 @@ if.then14:                                        ; preds = %if.end12
   %call15 = call i32 @getpid() #9
   %call16 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.13, i32 noundef %call15) #9
   %cmp17 = icmp sgt i32 %call16, 0
-  %mul = select i1 %cmp17, i32 %success.1, i32 0
+  %mul = select i1 %cmp17, i32 %success.0, i32 0
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then14, %if.end12
-  %success.2 = phi i32 [ %mul, %if.then14 ], [ %success.1, %if.end12 ]
+  %success.2 = phi i32 [ %mul, %if.then14 ], [ %success.0, %if.end12 ]
   %call20 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.14) #9
   %cmp21 = icmp sgt i32 %call20, 0
   %mul23 = select i1 %cmp21, i32 %success.2, i32 0

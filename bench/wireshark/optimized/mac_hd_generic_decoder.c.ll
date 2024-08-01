@@ -1012,9 +1012,9 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   br label %314
 
 314:                                              ; preds = %.lr.ph512, %.thread
-  %.0510 = phi i32 [ 1, %.lr.ph512 ], [ %.2, %.thread ]
+  %.0510 = phi i32 [ 1, %.lr.ph512 ], [ %.1, %.thread ]
   %.5509 = phi i32 [ %.4, %.lr.ph512 ], [ %581, %.thread ]
-  %.3427508 = phi ptr [ %.2426, %.lr.ph512 ], [ %.6430, %.thread ]
+  %.3427508 = phi ptr [ %.2426, %.lr.ph512 ], [ %.5429, %.thread ]
   %.7507 = phi i32 [ %.6441, %.lr.ph512 ], [ %580, %.thread ]
   store i32 %.7507, ptr @frag_len, align 4
   br i1 %.not461, label %363, label %315
@@ -1474,11 +1474,11 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
 558:                                              ; preds = %555
   %559 = icmp eq i32 %557, 0
   %560 = load i32, ptr @frag_len, align 4
-  %.2446 = select i1 %559, i32 %560, i32 %.1445
+  %.4448 = select i1 %559, i32 %560, i32 %.1445
   %.0434 = select i1 %559, ptr @.str.269, ptr @dissect_mac_header_generic_decoder.reassem_str
   %561 = tail call ptr @tvb_new_subset_length(ptr noundef nonnull %.0423, i32 noundef 0, i32 noundef %.1445) #4
   %562 = load i32, ptr @proto_mac_header_generic_decoder, align 4
-  %563 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %562, ptr noundef %561, i32 noundef 0, i32 noundef %.2446, ptr noundef nonnull %.0434, i32 noundef %.2446) #4
+  %563 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %562, ptr noundef %561, i32 noundef 0, i32 noundef %.4448, ptr noundef nonnull %.0434, i32 noundef %.4448) #4
   %564 = load i32, ptr @ett_mac_data_pdu_decoder, align 4
   %565 = tail call ptr @proto_item_add_subtree(ptr noundef %563, i32 noundef %564) #4
   %566 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0423, i32 noundef 0) #4
@@ -1506,8 +1506,8 @@ decode_packing_subheader.exit:                    ; preds = %329, %336, %341
   br label %.thread
 
 .thread:                                          ; preds = %551, %576, %573, %570, %555, %536, %485, %532, %463, %476
-  %.6430 = phi ptr [ %.4428, %476 ], [ %.4428, %463 ], [ %542, %536 ], [ %.4428, %551 ], [ %565, %570 ], [ %565, %573 ], [ %565, %576 ], [ %.4428, %555 ], [ %.4428, %485 ], [ %.4428, %532 ]
-  %.2 = phi i32 [ %.0510, %476 ], [ %.0510, %463 ], [ %.0510, %536 ], [ %.0510, %551 ], [ %.0510, %570 ], [ %.0510, %573 ], [ %.0510, %576 ], [ %.0510, %555 ], [ 0, %485 ], [ 0, %532 ]
+  %.5429 = phi ptr [ %.4428, %476 ], [ %.4428, %463 ], [ %542, %536 ], [ %.4428, %551 ], [ %565, %570 ], [ %565, %573 ], [ %565, %576 ], [ %.4428, %555 ], [ %.4428, %485 ], [ %.4428, %532 ]
+  %.1 = phi i32 [ %.0510, %476 ], [ %.0510, %463 ], [ %.0510, %536 ], [ %.0510, %551 ], [ %.0510, %570 ], [ %.0510, %573 ], [ %.0510, %576 ], [ %.0510, %555 ], [ 0, %485 ], [ 0, %532 ]
   %579 = load i32, ptr @frag_len, align 4
   %580 = sub i32 %.8, %579
   %581 = add i32 %579, %.6

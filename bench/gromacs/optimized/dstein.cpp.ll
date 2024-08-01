@@ -170,7 +170,7 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 88:                                               ; preds = %.lr.ph337, %.loopexit276
   %indvars.iv381 = phi i64 [ 1, %.lr.ph337 ], [ %indvars.iv.next382, %.loopexit276 ]
-  %.0240334 = phi double [ 0.000000e+00, %.lr.ph337 ], [ %.2242, %.loopexit276 ]
+  %.0240334 = phi double [ 0.000000e+00, %.lr.ph337 ], [ %.1241, %.loopexit276 ]
   %.0244333 = phi i32 [ 1, %.lr.ph337 ], [ %.1245, %.loopexit276 ]
   %89 = icmp eq i64 %indvars.iv381, 1
   br i1 %89, label %93, label %90
@@ -261,8 +261,8 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 146:                                              ; preds = %.lr.ph324, %._crit_edge313
   %indvars.iv374 = phi i64 [ %143, %.lr.ph324 ], [ %indvars.iv.next375, %._crit_edge313 ]
   %indvars.iv372 = phi i64 [ 0, %.lr.ph324 ], [ %indvars.iv.next373, %._crit_edge313 ]
-  %.0237322 = phi i32 [ %.0246, %.lr.ph324 ], [ %.5, %._crit_edge313 ]
-  %.1241320 = phi double [ %.0240334, %.lr.ph324 ], [ %266, %._crit_edge313 ]
+  %.0237322 = phi i32 [ %.0246, %.lr.ph324 ], [ %.1, %._crit_edge313 ]
+  %.2242320 = phi double [ %.0240334, %.lr.ph324 ], [ %266, %._crit_edge313 ]
   %147 = trunc nuw nsw i64 %indvars.iv372 to i32
   %148 = mul i32 %30, %147
   %149 = add i32 %142, %148
@@ -297,12 +297,12 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %164 = fmul double %158, 0x3CB0000000000000
   %165 = call noundef double @llvm.fabs.f64(double %164)
   %166 = fmul double %165, 1.000000e+01
-  %167 = fsub double %158, %.1241320
+  %167 = fsub double %158, %.2242320
   %168 = fcmp olt double %167, %166
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %163
-  %170 = fadd double %.1241320, %166
+  %170 = fadd double %.2242320, %166
   store double %170, ptr %15, align 8
   br label %171
 
@@ -370,14 +370,14 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .outer:                                           ; preds = %.outer.preheader, %.split298
   %.0243.ph = phi i32 [ %202, %.split298 ], [ 0, %.outer.preheader ]
-  %.1.ph = phi i32 [ %.2, %.split298 ], [ %.0237322, %.outer.preheader ]
+  %.2.ph = phi i32 [ %.4, %.split298 ], [ %.0237322, %.outer.preheader ]
   %.0236.ph = phi i32 [ %234, %.split298 ], [ 0, %.outer.preheader ]
   %smax = call i32 @llvm.smax.i32(i32 %.0243.ph, i32 5)
   br label %201
 
 201:                                              ; preds = %.outer, %.loopexit
   %.0243 = phi i32 [ %202, %.loopexit ], [ %.0243.ph, %.outer ]
-  %.1 = phi i32 [ %.2, %.loopexit ], [ %.1.ph, %.outer ]
+  %.2 = phi i32 [ %.4, %.loopexit ], [ %.2.ph, %.outer ]
   %202 = add i32 %.0243, 1
   %exitcond358 = icmp eq i32 %.0243, %smax
   br i1 %exitcond358, label %.split.us.split.us, label %203
@@ -400,16 +400,16 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   call void @dscal_(ptr noundef nonnull %21, ptr noundef nonnull %16, ptr noundef %9, ptr noundef nonnull %23)
   call void @dlagts_(ptr noundef nonnull %24, ptr noundef nonnull %21, ptr noundef %gep, ptr noundef %gep315, ptr noundef nonnull %81, ptr noundef nonnull %84, ptr noundef %10, ptr noundef %9, ptr noundef nonnull %17, ptr noundef nonnull %20)
   %217 = load double, ptr %15, align 8
-  %218 = fsub double %217, %.1241320
+  %218 = fsub double %217, %.2242320
   %219 = call noundef double @llvm.fabs.f64(double %218)
   %220 = fcmp ogt double %219, %135
-  %.2 = select i1 %220, i32 %155, i32 %.1
-  %.not270 = icmp eq i32 %.2, %155
+  %.4 = select i1 %220, i32 %155, i32 %.2
+  %.not270 = icmp eq i32 %.4, %155
   br i1 %.not270, label %.loopexit, label %221
 
 221:                                              ; preds = %203
   store i32 %177, ptr %14, align 4
-  %222 = sext i32 %.2 to i64
+  %222 = sext i32 %.4 to i64
   %.not271293.not = icmp sgt i64 %indvars.iv374, %222
   br i1 %.not271293.not, label %.lr.ph296, label %.loopexit
 
@@ -442,7 +442,7 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %exitcond359.not, label %.loopexit275, label %.outer
 
 .split.us.split.us:                               ; preds = %201, %178
-  %.us-phi = phi i32 [ %.0237322, %178 ], [ %.1, %201 ]
+  %.us-phi = phi i32 [ %.0237322, %178 ], [ %.2, %201 ]
   %235 = load i32, ptr %12, align 4
   %236 = add nsw i32 %235, 1
   store i32 %236, ptr %12, align 4
@@ -452,7 +452,7 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br label %.loopexit275
 
 .loopexit275:                                     ; preds = %.split298, %.split298.us.us, %.split.us.split.us
-  %.4 = phi i32 [ %.us-phi, %.split.us.split.us ], [ %.0237322, %.split298.us.us ], [ %.2, %.split298 ]
+  %.5 = phi i32 [ %.us-phi, %.split.us.split.us ], [ %.0237322, %.split298.us.us ], [ %.4, %.split298 ]
   %239 = call double @dnrm2_(ptr noundef nonnull %21, ptr noundef %9, ptr noundef nonnull %23)
   %240 = fdiv double 1.000000e+00, %239
   store double %240, ptr %16, align 8
@@ -474,7 +474,7 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br label %250
 
 250:                                              ; preds = %249, %161
-  %.5 = phi i32 [ %.0237322, %161 ], [ %.4, %249 ]
+  %.1 = phi i32 [ %.0237322, %161 ], [ %.5, %249 ]
   %251 = load i32, ptr %0, align 4
   %.not272304 = icmp slt i32 %251, 1
   br i1 %.not272304, label %._crit_edge308, label %.lr.ph307
@@ -520,7 +520,7 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .loopexit276:                                     ; preds = %._crit_edge313, %146, %._crit_edge292, %93
   %.1245 = phi i32 [ %.0244333, %93 ], [ %.0244333, %._crit_edge292 ], [ %.0244333, %._crit_edge313 ], [ %155, %146 ]
-  %.2242 = phi double [ %.0240334, %93 ], [ %.0240334, %._crit_edge292 ], [ %266, %._crit_edge313 ], [ %.1241320, %146 ]
+  %.1241 = phi double [ %.0240334, %93 ], [ %.0240334, %._crit_edge292 ], [ %266, %._crit_edge313 ], [ %.2242320, %146 ]
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
   %exitcond385.not = icmp eq i64 %indvars.iv.next382, %wide.trip.count384
   br i1 %exitcond385.not, label %.thread, label %88, !llvm.loop !11

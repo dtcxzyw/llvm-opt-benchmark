@@ -214,7 +214,7 @@ sw.bb:                                            ; preds = %while.end
   br label %sw.bb30
 
 sw.bb30:                                          ; preds = %sw.bb, %while.end
-  %t.sroa.10.0 = phi i64 [ 0, %while.end ], [ %2, %sw.bb ]
+  %t.sroa.10.1 = phi i64 [ 0, %while.end ], [ %2, %sw.bb ]
   %arrayidx31 = getelementptr i8, ptr %in.0.lcssa, i64 5
   %3 = load i8, ptr %arrayidx31, align 1
   %4 = zext i8 %3 to i64
@@ -222,8 +222,8 @@ sw.bb30:                                          ; preds = %sw.bb, %while.end
   br label %sw.bb33
 
 sw.bb33:                                          ; preds = %sw.bb30, %while.end
-  %t.sroa.10.1 = phi i64 [ 0, %while.end ], [ %t.sroa.10.0, %sw.bb30 ]
-  %t.sroa.9.0 = phi i64 [ 0, %while.end ], [ %5, %sw.bb30 ]
+  %t.sroa.10.2 = phi i64 [ 0, %while.end ], [ %t.sroa.10.1, %sw.bb30 ]
+  %t.sroa.9.1 = phi i64 [ 0, %while.end ], [ %5, %sw.bb30 ]
   %arrayidx34 = getelementptr i8, ptr %in.0.lcssa, i64 4
   %6 = load i8, ptr %arrayidx34, align 1
   %7 = zext i8 %6 to i64
@@ -231,9 +231,9 @@ sw.bb33:                                          ; preds = %sw.bb30, %while.end
   br label %sw.bb36
 
 sw.bb36:                                          ; preds = %sw.bb33, %while.end
-  %t.sroa.10.2 = phi i64 [ 0, %while.end ], [ %t.sroa.10.1, %sw.bb33 ]
-  %t.sroa.9.1 = phi i64 [ 0, %while.end ], [ %t.sroa.9.0, %sw.bb33 ]
-  %t.sroa.8168.0 = phi i64 [ 0, %while.end ], [ %8, %sw.bb33 ]
+  %t.sroa.10.3 = phi i64 [ 0, %while.end ], [ %t.sroa.10.2, %sw.bb33 ]
+  %t.sroa.9.2 = phi i64 [ 0, %while.end ], [ %t.sroa.9.1, %sw.bb33 ]
+  %t.sroa.8168.1 = phi i64 [ 0, %while.end ], [ %8, %sw.bb33 ]
   %t.sroa.0.0.copyload = load i8, ptr %in.0.lcssa, align 1
   %t.sroa.6.0.in.0.sroa_idx = getelementptr inbounds i8, ptr %in.0.lcssa, i64 1
   %t.sroa.6.0.copyload = load i8, ptr %t.sroa.6.0.in.0.sroa_idx, align 1
@@ -251,31 +251,31 @@ sw.bb37:                                          ; preds = %while.end
   br label %sw.bb40
 
 sw.bb40:                                          ; preds = %sw.bb37, %while.end
-  %t.sroa.7.0 = phi i8 [ 0, %while.end ], [ %11, %sw.bb37 ]
+  %t.sroa.7.1 = phi i8 [ 0, %while.end ], [ %11, %sw.bb37 ]
   %arrayidx41 = getelementptr i8, ptr %in.0.lcssa, i64 1
   %12 = load i8, ptr %arrayidx41, align 1
   br label %sw.bb43
 
 sw.bb43:                                          ; preds = %sw.bb40, %while.end
-  %t.sroa.7.1 = phi i8 [ 0, %while.end ], [ %t.sroa.7.0, %sw.bb40 ]
-  %t.sroa.6.0 = phi i8 [ 0, %while.end ], [ %12, %sw.bb40 ]
+  %t.sroa.7.2 = phi i8 [ 0, %while.end ], [ %t.sroa.7.1, %sw.bb40 ]
+  %t.sroa.6.1 = phi i8 [ 0, %while.end ], [ %12, %sw.bb40 ]
   %13 = load i8, ptr %in.0.lcssa, align 1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb43, %sw.bb36, %while.end
-  %t.sroa.10.3 = phi i64 [ 0, %while.end ], [ 0, %sw.bb43 ], [ %t.sroa.10.2, %sw.bb36 ]
-  %t.sroa.9.2 = phi i64 [ 0, %while.end ], [ 0, %sw.bb43 ], [ %t.sroa.9.1, %sw.bb36 ]
-  %t.sroa.8168.1 = phi i64 [ 0, %while.end ], [ 0, %sw.bb43 ], [ %t.sroa.8168.0, %sw.bb36 ]
+  %t.sroa.10.0 = phi i64 [ 0, %while.end ], [ 0, %sw.bb43 ], [ %t.sroa.10.3, %sw.bb36 ]
+  %t.sroa.9.0 = phi i64 [ 0, %while.end ], [ 0, %sw.bb43 ], [ %t.sroa.9.2, %sw.bb36 ]
+  %t.sroa.8168.0 = phi i64 [ 0, %while.end ], [ 0, %sw.bb43 ], [ %t.sroa.8168.1, %sw.bb36 ]
   %t.sroa.8.0 = phi i64 [ 0, %while.end ], [ 0, %sw.bb43 ], [ %10, %sw.bb36 ]
-  %t.sroa.7.2 = phi i8 [ 0, %while.end ], [ %t.sroa.7.1, %sw.bb43 ], [ %t.sroa.7.0.copyload, %sw.bb36 ]
-  %t.sroa.6.1 = phi i8 [ 0, %while.end ], [ %t.sroa.6.0, %sw.bb43 ], [ %t.sroa.6.0.copyload, %sw.bb36 ]
+  %t.sroa.7.0 = phi i8 [ 0, %while.end ], [ %t.sroa.7.2, %sw.bb43 ], [ %t.sroa.7.0.copyload, %sw.bb36 ]
+  %t.sroa.6.0 = phi i8 [ 0, %while.end ], [ %t.sroa.6.1, %sw.bb43 ], [ %t.sroa.6.0.copyload, %sw.bb36 ]
   %t.sroa.0.0 = phi i8 [ 0, %while.end ], [ %13, %sw.bb43 ], [ %t.sroa.0.0.copyload, %sw.bb36 ]
   %shl = shl i64 %src_sz, 56
-  %t.sroa.9.0.insert.insert = or i64 %t.sroa.9.2, %t.sroa.10.3
-  %t.sroa.8168.0.insert.insert = or i64 %t.sroa.9.0.insert.insert, %t.sroa.8168.1
-  %t.sroa.7.0.insert.ext = zext i8 %t.sroa.7.2 to i64
+  %t.sroa.9.0.insert.insert = or i64 %t.sroa.9.0, %t.sroa.10.0
+  %t.sroa.8168.0.insert.insert = or i64 %t.sroa.9.0.insert.insert, %t.sroa.8168.0
+  %t.sroa.7.0.insert.ext = zext i8 %t.sroa.7.0 to i64
   %t.sroa.7.0.insert.shift = shl nuw nsw i64 %t.sroa.7.0.insert.ext, 16
-  %t.sroa.6.0.insert.ext = zext i8 %t.sroa.6.1 to i64
+  %t.sroa.6.0.insert.ext = zext i8 %t.sroa.6.0 to i64
   %t.sroa.6.0.insert.shift = shl nuw nsw i64 %t.sroa.6.0.insert.ext, 8
   %t.sroa.8168.0.insert.insert.masked = and i64 %t.sroa.8168.0.insert.insert, -65536
   %t.sroa.8.0.insert.insert.masked = or i64 %t.sroa.8168.0.insert.insert.masked, %t.sroa.8.0

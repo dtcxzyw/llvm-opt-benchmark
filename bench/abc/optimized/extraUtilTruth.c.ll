@@ -2755,17 +2755,17 @@ Extra_TruthSupport.exit51:                        ; preds = %Extra_TruthVarInSup
   br i1 %180, label %Extra_TruthSupport.exit51._crit_edge, label %10
 
 Extra_TruthSupport.exit51._crit_edge:             ; preds = %10, %Extra_TruthSupport.exit51, %3
-  %.233 = phi i32 [ -1, %3 ], [ %spec.select, %Extra_TruthSupport.exit51 ], [ %spec.select, %10 ]
-  %.2 = phi i32 [ 32, %3 ], [ %spec.select37, %10 ], [ 0, %Extra_TruthSupport.exit51 ]
+  %.132 = phi i32 [ -1, %3 ], [ %spec.select, %Extra_TruthSupport.exit51 ], [ %spec.select, %10 ]
+  %.1 = phi i32 [ 32, %3 ], [ %spec.select37, %10 ], [ 0, %Extra_TruthSupport.exit51 ]
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %182, label %181
 
 181:                                              ; preds = %Extra_TruthSupport.exit51._crit_edge
-  store i32 %.233, ptr %2, align 4
+  store i32 %.132, ptr %2, align 4
   br label %182
 
 182:                                              ; preds = %181, %Extra_TruthSupport.exit51._crit_edge
-  ret i32 %.2
+  ret i32 %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

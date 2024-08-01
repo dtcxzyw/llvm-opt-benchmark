@@ -8904,7 +8904,7 @@ Vec_IntFill.exit:                                 ; preds = %32, %Vec_IntAlloc.e
 
 .preheader158:                                    ; preds = %.preheader158.lr.ph, %200
   %.val133166 = phi i32 [ %.val133166223, %.preheader158.lr.ph ], [ %.val133166220, %200 ]
-  %.0202 = phi i32 [ %7, %.preheader158.lr.ph ], [ %.1.lcssa, %200 ]
+  %.0202 = phi i32 [ %7, %.preheader158.lr.ph ], [ %.2.lcssa, %200 ]
   %.084201 = phi i32 [ 0, %.preheader158.lr.ph ], [ %201, %200 ]
   %.val134167 = load ptr, ptr %57, align 8
   %59 = getelementptr i8, ptr %.val134167, i64 4
@@ -9234,7 +9234,7 @@ Gia_ObjTerSimPrint.exit:                          ; preds = %173, %.sink.split.i
   %.val120239 = phi ptr [ %.val120, %194 ], [ %.val120193, %178 ]
   %.val119237 = phi i32 [ %.val119, %194 ], [ %.val119192, %178 ]
   %indvars.iv216 = phi i64 [ %indvars.iv.next217, %194 ], [ 0, %178 ]
-  %.1196 = phi i32 [ %.2, %194 ], [ %.0202, %178 ]
+  %.2196 = phi i32 [ %.3, %194 ], [ %.0202, %178 ]
   %.val110 = load ptr, ptr %36, align 8
   %181 = getelementptr i8, ptr %.val120239, i64 8
   %.val111.val = load ptr, ptr %181, align 8
@@ -9260,7 +9260,7 @@ Gia_ObjTerSimPrint.exit:                          ; preds = %173, %.sink.split.i
 
 192:                                              ; preds = %190
   store i32 %.084201, ptr %187, align 4
-  %193 = add nsw i32 %.1196, -1
+  %193 = add nsw i32 %.2196, -1
   %.val119.pre = load i32, ptr %4, align 8
   %.val120.pre = load ptr, ptr %5, align 8
   br label %194
@@ -9268,7 +9268,7 @@ Gia_ObjTerSimPrint.exit:                          ; preds = %173, %.sink.split.i
 194:                                              ; preds = %186, %190, %192
   %.val120 = phi ptr [ %.val120.pre, %192 ], [ %.val120239, %190 ], [ %.val120239, %186 ]
   %.val119 = phi i32 [ %.val119.pre, %192 ], [ %.val119237, %190 ], [ %.val119237, %186 ]
-  %.2 = phi i32 [ %193, %192 ], [ %.1196, %190 ], [ %.1196, %186 ]
+  %.3 = phi i32 [ %193, %192 ], [ %.2196, %190 ], [ %.2196, %186 ]
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %195 = getelementptr i8, ptr %.val120, i64 4
   %.val120.val = load i32, ptr %195, align 4
@@ -9279,8 +9279,8 @@ Gia_ObjTerSimPrint.exit:                          ; preds = %173, %.sink.split.i
 
 .critedge12:                                      ; preds = %.lr.ph198, %194, %178
   %.val133166220 = phi i32 [ %.val119192, %178 ], [ %.val119, %194 ], [ %.val119237, %.lr.ph198 ]
-  %.1.lcssa = phi i32 [ %.0202, %178 ], [ %.2, %194 ], [ %.1196, %.lr.ph198 ]
-  %199 = icmp eq i32 %.1.lcssa, 0
+  %.2.lcssa = phi i32 [ %.0202, %178 ], [ %.3, %194 ], [ %.2196, %.lr.ph198 ]
+  %199 = icmp eq i32 %.2.lcssa, 0
   br i1 %199, label %.thread150, label %200
 
 200:                                              ; preds = %.critedge12

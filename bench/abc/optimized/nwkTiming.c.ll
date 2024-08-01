@@ -285,7 +285,7 @@ define float @Nwk_NodeComputeArrival(ptr nocapture noundef readonly %0, i32 noun
 
 43:                                               ; preds = %.lr.ph116, %46
   %indvars.iv140 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next141, %46 ]
-  %.267114 = phi float [ -1.000000e+09, %.lr.ph116 ], [ %.368, %46 ]
+  %.368114 = phi float [ -1.000000e+09, %.lr.ph116 ], [ %.4, %46 ]
   %44 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv140
   %45 = load ptr, ptr %44, align 8
   %.not76 = icmp eq ptr %45, null
@@ -296,8 +296,8 @@ define float @Nwk_NodeComputeArrival(ptr nocapture noundef readonly %0, i32 noun
   %.val85 = load float, ptr %47, align 8
   %48 = load float, ptr %38, align 4
   %49 = fadd float %.val85, %48
-  %50 = fcmp olt float %.267114, %49
-  %.368 = select i1 %50, float %49, float %.267114
+  %50 = fcmp olt float %.368114, %49
+  %.4 = select i1 %50, float %49, float %.368114
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count143
   br i1 %exitcond144.not, label %.critedge.thread, label %43, !llvm.loop !11
@@ -415,7 +415,7 @@ Nwk_ManDelayTraceSortPins.exit:                   ; preds = %92
 
 94:                                               ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
-  %.4104 = phi float [ -1.000000e+09, %.lr.ph ], [ %.5, %97 ]
+  %.5104 = phi float [ -1.000000e+09, %.lr.ph ], [ %.6, %97 ]
   %95 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8
   %.not79 = icmp eq ptr %96, null
@@ -432,15 +432,15 @@ Nwk_ManDelayTraceSortPins.exit:                   ; preds = %92
   %104 = getelementptr inbounds float, ptr %38, i64 %indvars.iv
   %105 = load float, ptr %104, align 4
   %106 = fadd float %.val83, %105
-  %107 = fcmp olt float %.4104, %106
-  %.5 = select i1 %107, float %106, float %.4104
+  %107 = fcmp olt float %.5104, %106
+  %.6 = select i1 %107, float %106, float %.5104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond134.not, label %.critedge.thread, label %94, !llvm.loop !12
 
 108:                                              ; preds = %.lr.ph110, %111
   %indvars.iv135 = phi i64 [ 0, %.lr.ph110 ], [ %indvars.iv.next136, %111 ]
-  %.6108 = phi float [ -1.000000e+09, %.lr.ph110 ], [ %.7, %111 ]
+  %.7108 = phi float [ -1.000000e+09, %.lr.ph110 ], [ %.8, %111 ]
   %109 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv135
   %110 = load ptr, ptr %109, align 8
   %.not78 = icmp eq ptr %110, null
@@ -452,8 +452,8 @@ Nwk_ManDelayTraceSortPins.exit:                   ; preds = %92
   %113 = getelementptr inbounds float, ptr %38, i64 %indvars.iv135
   %114 = load float, ptr %113, align 4
   %115 = fadd float %.val81, %114
-  %116 = fcmp olt float %.6108, %115
-  %.7 = select i1 %116, float %115, float %.6108
+  %116 = fcmp olt float %.7108, %115
+  %.8 = select i1 %116, float %115, float %.7108
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %wide.trip.count138
   br i1 %exitcond139.not, label %.critedge.thread, label %108, !llvm.loop !13
@@ -468,7 +468,7 @@ Nwk_ManDelayTraceSortPins.exit:                   ; preds = %92
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %97, %94, %111, %108, %43, %46, %25, %22, %118, %.critedge, %12, %10
-  %.069 = phi float [ %.val89, %10 ], [ %.val88, %12 ], [ 0.000000e+00, %118 ], [ -1.000000e+09, %.critedge ], [ %.065120, %22 ], [ %.166, %25 ], [ %.368, %46 ], [ %.267114, %43 ], [ %.6108, %108 ], [ %.7, %111 ], [ %.4104, %94 ], [ %.5, %97 ]
+  %.069 = phi float [ %.val89, %10 ], [ %.val88, %12 ], [ 0.000000e+00, %118 ], [ -1.000000e+09, %.critedge ], [ %.065120, %22 ], [ %.166, %25 ], [ %.4, %46 ], [ %.368114, %43 ], [ %.7108, %108 ], [ %.8, %111 ], [ %.5104, %94 ], [ %.6, %97 ]
   ret float %.069
 }
 
@@ -558,7 +558,7 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
 
 43:                                               ; preds = %.lr.ph143, %53
   %indvars.iv162 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next163, %53 ]
-  %.279141 = phi float [ 1.000000e+09, %.lr.ph143 ], [ %.380, %53 ]
+  %.380141 = phi float [ 1.000000e+09, %.lr.ph143 ], [ %.4, %53 ]
   %gep179 = getelementptr ptr, ptr %invariant.gep178, i64 %indvars.iv162
   %44 = load ptr, ptr %gep179, align 8
   %.not88 = icmp eq ptr %44, null
@@ -584,8 +584,8 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
   %55 = getelementptr i8, ptr %44, i64 52
   %.val107 = load float, ptr %55, align 4
   %56 = fsub float %.val107, %54
-  %57 = fcmp ogt float %.279141, %56
-  %.380 = select i1 %57, float %56, float %.279141
+  %57 = fcmp ogt float %.380141, %56
+  %.4 = select i1 %57, float %56, float %.380141
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
   br i1 %exitcond166.not, label %.critedge, label %43, !llvm.loop !15
@@ -625,7 +625,7 @@ define float @Nwk_NodeComputeRequired(ptr noundef %0, i32 noundef %1) local_unna
 
 74:                                               ; preds = %.lr.ph, %130
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %130 ]
-  %.4131 = phi float [ 1.000000e+09, %.lr.ph ], [ %.5, %130 ]
+  %.5131 = phi float [ 1.000000e+09, %.lr.ph ], [ %.6, %130 ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
   %75 = load ptr, ptr %gep, align 8
   %.not93 = icmp eq ptr %75, null
@@ -762,15 +762,15 @@ Nwk_ManWhereIsPin.exit:                           ; preds = %Nwk_ManDelayTraceSo
   %132 = getelementptr i8, ptr %75, i64 52
   %.val109 = load float, ptr %132, align 4
   %133 = fsub float %.val109, %131
-  %134 = fcmp ogt float %.4131, %133
-  %.5 = select i1 %134, float %133, float %.4131
+  %134 = fcmp ogt float %.5131, %133
+  %.6 = select i1 %134, float %133, float %.5131
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond161.not, label %.critedge, label %74, !llvm.loop !16
 
 135:                                              ; preds = %.lr.ph137, %153
   %.3136 = phi i32 [ 0, %.lr.ph137 ], [ %158, %153 ]
-  %.6135 = phi float [ 1.000000e+09, %.lr.ph137 ], [ %.7, %153 ]
+  %.7135 = phi float [ 1.000000e+09, %.lr.ph137 ], [ %.8, %153 ]
   %136 = load ptr, ptr %68, align 8
   %137 = load i32, ptr %72, align 4
   %138 = add nsw i32 %137, %.3136
@@ -803,15 +803,15 @@ Nwk_ManWhereIsPin.exit:                           ; preds = %Nwk_ManDelayTraceSo
   %155 = getelementptr i8, ptr %141, i64 52
   %.val111 = load float, ptr %155, align 4
   %156 = fsub float %.val111, %154
-  %157 = fcmp ogt float %.6135, %156
-  %.7 = select i1 %157, float %156, float %.6135
+  %157 = fcmp ogt float %.7135, %156
+  %.8 = select i1 %157, float %156, float %.7135
   %158 = add nuw nsw i32 %.3136, 1
   %159 = load i32, ptr %69, align 8
   %160 = icmp slt i32 %158, %159
   br i1 %160, label %135, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %74, %130, %135, %153, %53, %43, %22, %24, %.preheader129, %.preheader127, %.preheader125, %.preheader, %10
-  %.081 = phi float [ %.val104, %10 ], [ 1.000000e+09, %.preheader ], [ 1.000000e+09, %.preheader125 ], [ 1.000000e+09, %.preheader127 ], [ 1.000000e+09, %.preheader129 ], [ %.077147, %22 ], [ %.178, %24 ], [ %.380, %53 ], [ %.279141, %43 ], [ %.6135, %135 ], [ %.7, %153 ], [ %.4131, %74 ], [ %.5, %130 ]
+  %.081 = phi float [ %.val104, %10 ], [ 1.000000e+09, %.preheader ], [ 1.000000e+09, %.preheader125 ], [ 1.000000e+09, %.preheader127 ], [ 1.000000e+09, %.preheader129 ], [ %.077147, %22 ], [ %.178, %24 ], [ %.4, %53 ], [ %.380141, %43 ], [ %.7135, %135 ], [ %.8, %153 ], [ %.5131, %74 ], [ %.6, %130 ]
   ret float %.081
 }
 
@@ -1092,8 +1092,8 @@ Nwk_ManDelayTraceSortPins.exit:                   ; preds = %93
   br i1 %133, label %118, label %.critedge, !llvm.loop !21
 
 .critedge:                                        ; preds = %97, %114, %118, %130, %.lr.ph104, %48, %24, %.lr.ph107, %.lr.ph, %.lr.ph99, %58, %Nwk_ManDelayTraceSortPins.exit, %.preheader, %34, %11
-  %.264 = phi float [ %13, %11 ], [ %37, %34 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %Nwk_ManDelayTraceSortPins.exit ], [ 0.000000e+00, %58 ], [ 0.000000e+00, %.lr.ph99 ], [ 0.000000e+00, %.lr.ph ], [ %13, %.lr.ph107 ], [ %13, %24 ], [ %37, %48 ], [ %37, %.lr.ph104 ], [ %126, %130 ], [ %126, %118 ], [ %105, %114 ], [ %105, %97 ]
-  ret float %.264
+  %.062 = phi float [ %13, %11 ], [ %37, %34 ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %Nwk_ManDelayTraceSortPins.exit ], [ 0.000000e+00, %58 ], [ 0.000000e+00, %.lr.ph99 ], [ 0.000000e+00, %.lr.ph ], [ %13, %.lr.ph107 ], [ %13, %24 ], [ %37, %48 ], [ %37, %.lr.ph104 ], [ %126, %130 ], [ %126, %118 ], [ %105, %114 ], [ %105, %97 ]
+  ret float %.062
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1905,7 +1905,7 @@ Vec_PtrPush.exit:                                 ; preds = %1, %Vec_PtrGrow.exi
 
 32:                                               ; preds = %.lr.ph99, %.critedge3
   %indvars.iv102 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next103, %.critedge3 ]
-  %.098 = phi ptr [ null, %.lr.ph99 ], [ %.3, %.critedge3 ]
+  %.098 = phi ptr [ null, %.lr.ph99 ], [ %.1, %.critedge3 ]
   %.val81 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds ptr, ptr %.val81, i64 %indvars.iv102
   %34 = load ptr, ptr %33, align 8
@@ -1992,8 +1992,8 @@ Vec_PtrPush.exit:                                 ; preds = %1, %Vec_PtrGrow.exi
 
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph94.preheader ], [ %indvars.iv.next, %88 ]
-  %.193 = phi ptr [ %.098, %.lr.ph94.preheader ], [ %81, %88 ]
-  %76 = load ptr, ptr %.193, align 8
+  %.293 = phi ptr [ %.098, %.lr.ph94.preheader ], [ %81, %88 ]
+  %76 = load ptr, ptr %.293, align 8
   %77 = getelementptr i8, ptr %76, i64 16
   %.val85 = load ptr, ptr %77, align 8
   %78 = getelementptr i8, ptr %.val85, i64 8
@@ -2053,7 +2053,7 @@ Vec_PtrPush.exit:                                 ; preds = %1, %Vec_PtrGrow.exi
   br i1 %107, label %89, label %.critedge3, !llvm.loop !31
 
 .critedge3:                                       ; preds = %89, %104, %88, %.preheader, %68, %59, %58, %44
-  %.3 = phi ptr [ %.098, %44 ], [ %.098, %59 ], [ %.098, %58 ], [ %.098, %68 ], [ %.098, %.preheader ], [ %81, %88 ], [ null, %89 ], [ %96, %104 ]
+  %.1 = phi ptr [ %.098, %44 ], [ %.098, %59 ], [ %.098, %58 ], [ %.098, %68 ], [ %.098, %.preheader ], [ %81, %88 ], [ null, %89 ], [ %96, %104 ]
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %.val = load i32, ptr %8, align 4
   %108 = sext i32 %.val to i64
@@ -2143,7 +2143,7 @@ define void @Nwk_NodeUpdateRequired(ptr noundef %0) local_unnamed_addr #3 {
 
 33:                                               ; preds = %.lr.ph117, %.critedge5
   %indvars.iv126 = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next127, %.critedge5 ]
-  %.2116 = phi ptr [ %.1, %.lr.ph117 ], [ %.5, %.critedge5 ]
+  %.2116 = phi ptr [ %.1, %.lr.ph117 ], [ %.3, %.critedge5 ]
   %.val93 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds ptr, ptr %.val93, i64 %indvars.iv126
   %35 = load ptr, ptr %34, align 8
@@ -2230,8 +2230,8 @@ define void @Nwk_NodeUpdateRequired(ptr noundef %0) local_unnamed_addr #3 {
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %88
   %indvars.iv123 = phi i64 [ 0, %.lr.ph112.preheader ], [ %indvars.iv.next124, %88 ]
-  %.3111 = phi ptr [ %.2116, %.lr.ph112.preheader ], [ %81, %88 ]
-  %76 = load ptr, ptr %.3111, align 8
+  %.4111 = phi ptr [ %.2116, %.lr.ph112.preheader ], [ %81, %88 ]
+  %76 = load ptr, ptr %.4111, align 8
   %77 = getelementptr i8, ptr %76, i64 24
   %.val97 = load ptr, ptr %77, align 8
   %78 = getelementptr i8, ptr %.val97, i64 8
@@ -2289,7 +2289,7 @@ define void @Nwk_NodeUpdateRequired(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %103, label %.lr.ph106, label %.critedge5, !llvm.loop !35
 
 .critedge5:                                       ; preds = %.lr.ph106, %100, %88, %.preheader, %68, %59, %58, %45
-  %.5 = phi ptr [ %.2116, %45 ], [ %.2116, %59 ], [ %.2116, %58 ], [ %.2116, %68 ], [ %.2116, %.preheader ], [ %81, %88 ], [ null, %.lr.ph106 ], [ %92, %100 ]
+  %.3 = phi ptr [ %.2116, %45 ], [ %.2116, %59 ], [ %.2116, %58 ], [ %.2116, %68 ], [ %.2116, %.preheader ], [ %81, %88 ], [ null, %.lr.ph106 ], [ %92, %100 ]
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %.val = load i32, ptr %8, align 4
   %104 = sext i32 %.val to i64
@@ -2366,12 +2366,12 @@ define i32 @Nwk_ObjLevelNew(ptr nocapture noundef readonly %0) local_unnamed_add
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.050 = phi i32 [ 0, %.lr.ph ], [ %28, %25 ]
+  %.150 = phi i32 [ 0, %.lr.ph ], [ %28, %25 ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
   %26 = load ptr, ptr %gep, align 8
   %27 = getelementptr i8, ptr %26, i64 44
   %.val44 = load i32, ptr %27, align 4
-  %28 = tail call noundef i32 @llvm.smax.i32(i32 %.050, i32 %.val44)
+  %28 = tail call noundef i32 @llvm.smax.i32(i32 %.150, i32 %.val44)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %25, !llvm.loop !37
@@ -2467,7 +2467,7 @@ Vec_PtrPush.exit:                                 ; preds = %1, %Vec_PtrGrow.exi
 
 28:                                               ; preds = %.lr.ph78, %.critedge2
   %indvars.iv81 = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next82, %.critedge2 ]
-  %.077 = phi ptr [ null, %.lr.ph78 ], [ %.3, %.critedge2 ]
+  %.077 = phi ptr [ null, %.lr.ph78 ], [ %.1, %.critedge2 ]
   %.val63 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds ptr, ptr %.val63, i64 %indvars.iv81
   %30 = load ptr, ptr %29, align 8
@@ -2524,8 +2524,8 @@ Vec_PtrPush.exit:                                 ; preds = %1, %Vec_PtrGrow.exi
 
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %68
   %indvars.iv = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next, %68 ]
-  %.172 = phi ptr [ %.077, %.lr.ph73.preheader ], [ %61, %68 ]
-  %56 = load ptr, ptr %.172, align 8
+  %.272 = phi ptr [ %.077, %.lr.ph73.preheader ], [ %61, %68 ]
+  %56 = load ptr, ptr %.272, align 8
   %57 = getelementptr i8, ptr %56, i64 16
   %.val66 = load ptr, ptr %57, align 8
   %58 = getelementptr i8, ptr %.val66, i64 8
@@ -2585,7 +2585,7 @@ Vec_PtrPush.exit:                                 ; preds = %1, %Vec_PtrGrow.exi
   br i1 %87, label %69, label %.critedge2, !llvm.loop !40
 
 .critedge2:                                       ; preds = %69, %84, %68, %.preheader, %50, %46, %45, %28
-  %.3 = phi ptr [ %.077, %28 ], [ %.077, %46 ], [ %.077, %45 ], [ %.077, %50 ], [ %.077, %.preheader ], [ %61, %68 ], [ null, %69 ], [ %76, %84 ]
+  %.1 = phi ptr [ %.077, %28 ], [ %.077, %46 ], [ %.077, %45 ], [ %.077, %50 ], [ %.077, %.preheader ], [ %61, %68 ], [ null, %69 ], [ %76, %84 ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %.val = load i32, ptr %7, align 4
   %88 = sext i32 %.val to i64

@@ -784,7 +784,7 @@ define ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not2036, label %.loopexit, label %.lr.ph40
 
 .lr.ph40:                                         ; preds = %11, %.outer._crit_edge
-  %.038 = phi ptr [ %.1.ph.lcssa, %.outer._crit_edge ], [ null, %11 ]
+  %.138 = phi ptr [ %.2.ph.lcssa, %.outer._crit_edge ], [ null, %11 ]
   %.01837 = phi ptr [ %47, %.outer._crit_edge ], [ %14, %11 ]
   %15 = call ptr @opendir(ptr noundef nonnull %.01837)
   %.not21 = icmp eq ptr %15, null
@@ -830,7 +830,7 @@ define ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_addr #0 {
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #13
   %36 = getelementptr inbounds i8, ptr %21, i64 %35
   %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %6, i64 noundef %33, ptr noundef nonnull @.str.28, ptr noundef %34, ptr noundef nonnull %36) #10
-  %.not26 = icmp eq ptr %.1.ph34, null
+  %.not26 = icmp eq ptr %.2.ph34, null
   br i1 %.not26, label %38, label %40
 
 38:                                               ; preds = %32
@@ -838,14 +838,14 @@ define ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_addr #0 {
   br label %40
 
 40:                                               ; preds = %38, %32
-  %.2 = phi ptr [ %.1.ph34, %32 ], [ %39, %38 ]
-  %41 = call ptr @list_find_first(ptr noundef %.2, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef nonnull %6) #10
+  %.3 = phi ptr [ %.2.ph34, %32 ], [ %39, %38 ]
+  %41 = call ptr @list_find_first(ptr noundef %.3, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef nonnull %6) #10
   %.not27 = icmp eq ptr %41, null
   br i1 %.not27, label %42, label %.outer
 
 42:                                               ; preds = %40
   %43 = call ptr @xstrdup(ptr noundef nonnull %6) #10
-  call void @list_append(ptr noundef %.2, ptr noundef %43) #10
+  call void @list_append(ptr noundef %.3, ptr noundef %43) #10
   br label %.outer
 
 .outer:                                           ; preds = %42, %40
@@ -855,22 +855,22 @@ define ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %.outer
   %45 = phi ptr [ %44, %.outer ], [ %16, %.preheader ]
-  %.1.ph34 = phi ptr [ %.2, %.outer ], [ %.038, %.preheader ]
+  %.2.ph34 = phi ptr [ %.3, %.outer ], [ %.138, %.preheader ]
   br label %19
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader
-  %.1.ph.lcssa = phi ptr [ %.038, %.preheader ], [ %.1.ph34, %.backedge ], [ %.2, %.outer ]
+  %.2.ph.lcssa = phi ptr [ %.138, %.preheader ], [ %.2.ph34, %.backedge ], [ %.3, %.outer ]
   %46 = call i32 @closedir(ptr noundef nonnull %15)
   %47 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef nonnull %3) #10
   %.not20 = icmp eq ptr %47, null
   br i1 %.not20, label %.loopexit, label %.lr.ph40, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.outer._crit_edge, %11, %17, %9
-  %.3 = phi ptr [ %.038, %17 ], [ null, %9 ], [ null, %11 ], [ %.1.ph.lcssa, %.outer._crit_edge ]
+  %.0 = phi ptr [ %.138, %17 ], [ null, %9 ], [ null, %11 ], [ %.2.ph.lcssa, %.outer._crit_edge ]
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   call void @slurm_xfree(ptr noundef nonnull %4) #10
   call void @slurm_xfree(ptr noundef nonnull %5) #10
-  ret ptr %.3
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn

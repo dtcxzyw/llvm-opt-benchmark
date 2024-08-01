@@ -94,11 +94,11 @@ for.cond5.preheader.us.preheader:                 ; preds = %for.cond5.preheader
   br label %for.cond5.preheader.us
 
 for.cond5.preheader.us:                           ; preds = %for.cond5.preheader.us.preheader, %if.end48.us
-  %fg_count.0222.us = phi i32 [ %fg_count.2.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
-  %bg_count.0221.us = phi i32 [ %bg_count.2.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
-  %n_colors.0220.us = phi i32 [ %n_colors.2.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
-  %fg.0219.us = phi i32 [ %fg.2.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
-  %bg.0218.us = phi i32 [ %bg.2.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
+  %fg_count.0222.us = phi i32 [ %fg_count.3.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
+  %bg_count.0221.us = phi i32 [ %bg_count.3.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
+  %n_colors.0220.us = phi i32 [ %n_colors.3.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
+  %fg.0219.us = phi i32 [ %fg.3.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
+  %bg.0218.us = phi i32 [ %bg.3.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
   %irow.0217.us = phi ptr [ %add.ptr.us, %if.end48.us ], [ %call, %for.cond5.preheader.us.preheader ]
   %j.0216.us = phi i32 [ %inc52.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
   br label %for.body8.us.outer
@@ -114,8 +114,8 @@ if.end48.us:                                      ; preds = %for.cond5.for.end_c
 
 for.body8.us:                                     ; preds = %for.body8.us.outer, %for.inc.us.thread
   %indvars.iv = phi i64 [ %indvars.iv.next306, %for.inc.us.thread ], [ %indvars.iv.ph, %for.body8.us.outer ]
-  %n_colors.1208.us = phi i32 [ 3, %for.inc.us.thread ], [ %n_colors.1208.us.ph, %for.body8.us.outer ]
-  switch i32 %n_colors.1208.us, label %for.inc.us [
+  %n_colors.2208.us = phi i32 [ 3, %for.inc.us.thread ], [ %n_colors.2208.us.ph, %for.body8.us.outer ]
+  switch i32 %n_colors.2208.us, label %for.inc.us [
     i32 0, label %sw.bb.us
     i32 1, label %sw.bb9.us
     i32 2, label %sw.bb18.us
@@ -124,8 +124,8 @@ for.body8.us:                                     ; preds = %for.body8.us.outer,
 sw.bb18.us:                                       ; preds = %for.body8.us
   %arrayidx20.us = getelementptr i32, ptr %irow.0217.us, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx20.us, align 4
-  %cmp21.not.us = icmp eq i32 %2, %bg.1206.us.ph
-  %cmp25.not.us = icmp eq i32 %2, %fg.1207.us.ph
+  %cmp21.not.us = icmp eq i32 %2, %bg.2206.us.ph
+  %cmp25.not.us = icmp eq i32 %2, %fg.2207.us.ph
   %or.cond.us = select i1 %cmp21.not.us, i1 true, i1 %cmp25.not.us
   br i1 %or.cond.us, label %if.else28.us, label %for.inc.us.thread
 
@@ -134,18 +134,18 @@ if.else28.us:                                     ; preds = %sw.bb18.us
 
 if.else34.us:                                     ; preds = %if.else28.us
   %inc40.us = zext i1 %cmp25.not.us to i32
-  %spec.select155.us = add i32 %fg_count.1210.us.ph, %inc40.us
+  %spec.select155.us = add i32 %fg_count.2210.us.ph, %inc40.us
   br label %for.inc.us
 
 if.then33.us:                                     ; preds = %if.else28.us
-  %inc.us = add i32 %bg_count.1209.us.ph, 1
+  %inc.us = add i32 %bg_count.2209.us.ph, 1
   br label %for.inc.us
 
 sw.bb9.us:                                        ; preds = %for.body8.us
   %arrayidx11.us = getelementptr i32, ptr %irow.0217.us, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx11.us, align 4
-  %cmp12.not.us = icmp eq i32 %3, %bg.1206.us.ph
-  %spec.select.us = select i1 %cmp12.not.us, i32 %fg.1207.us.ph, i32 %3
+  %cmp12.not.us = icmp eq i32 %3, %bg.2206.us.ph
+  %spec.select.us = select i1 %cmp12.not.us, i32 %fg.2207.us.ph, i32 %3
   %spec.select154.us = select i1 %cmp12.not.us, i32 1, i32 2
   br label %for.inc.us
 
@@ -155,22 +155,22 @@ sw.bb.us:                                         ; preds = %for.body8.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.body8.us, %sw.bb.us, %sw.bb9.us, %if.then33.us, %if.else34.us
-  %bg.2.us = phi i32 [ %bg.1206.us.ph, %if.then33.us ], [ %4, %sw.bb.us ], [ %bg.1206.us.ph, %sw.bb9.us ], [ %bg.1206.us.ph, %if.else34.us ], [ %bg.1206.us.ph, %for.body8.us ]
-  %fg.2.us = phi i32 [ %fg.1207.us.ph, %if.then33.us ], [ %fg.1207.us.ph, %sw.bb.us ], [ %spec.select.us, %sw.bb9.us ], [ %fg.1207.us.ph, %if.else34.us ], [ %fg.1207.us.ph, %for.body8.us ]
-  %n_colors.2.us = phi i32 [ 2, %if.then33.us ], [ 1, %sw.bb.us ], [ %spec.select154.us, %sw.bb9.us ], [ 2, %if.else34.us ], [ %n_colors.1208.us, %for.body8.us ]
-  %bg_count.2.us = phi i32 [ %inc.us, %if.then33.us ], [ %bg_count.1209.us.ph, %sw.bb.us ], [ %bg_count.1209.us.ph, %sw.bb9.us ], [ %bg_count.1209.us.ph, %if.else34.us ], [ %bg_count.1209.us.ph, %for.body8.us ]
-  %fg_count.2.us = phi i32 [ %fg_count.1210.us.ph, %if.then33.us ], [ %fg_count.1210.us.ph, %sw.bb.us ], [ %fg_count.1210.us.ph, %sw.bb9.us ], [ %spec.select155.us, %if.else34.us ], [ %fg_count.1210.us.ph, %for.body8.us ]
+  %bg.3.us = phi i32 [ %bg.2206.us.ph, %if.then33.us ], [ %4, %sw.bb.us ], [ %bg.2206.us.ph, %sw.bb9.us ], [ %bg.2206.us.ph, %if.else34.us ], [ %bg.2206.us.ph, %for.body8.us ]
+  %fg.3.us = phi i32 [ %fg.2207.us.ph, %if.then33.us ], [ %fg.2207.us.ph, %sw.bb.us ], [ %spec.select.us, %sw.bb9.us ], [ %fg.2207.us.ph, %if.else34.us ], [ %fg.2207.us.ph, %for.body8.us ]
+  %n_colors.3.us = phi i32 [ 2, %if.then33.us ], [ 1, %sw.bb.us ], [ %spec.select154.us, %sw.bb9.us ], [ 2, %if.else34.us ], [ %n_colors.2208.us, %for.body8.us ]
+  %bg_count.3.us = phi i32 [ %inc.us, %if.then33.us ], [ %bg_count.2209.us.ph, %sw.bb.us ], [ %bg_count.2209.us.ph, %sw.bb9.us ], [ %bg_count.2209.us.ph, %if.else34.us ], [ %bg_count.2209.us.ph, %for.body8.us ]
+  %fg_count.3.us = phi i32 [ %fg_count.2210.us.ph, %if.then33.us ], [ %fg_count.2210.us.ph, %sw.bb.us ], [ %fg_count.2210.us.ph, %sw.bb9.us ], [ %spec.select155.us, %if.else34.us ], [ %fg_count.2210.us.ph, %for.body8.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond285.not, label %for.cond5.for.end_crit_edge.us, label %for.body8.us.outer, !llvm.loop !9
 
 for.body8.us.outer:                               ; preds = %for.inc.us, %for.cond5.preheader.us
   %indvars.iv.ph = phi i64 [ %indvars.iv.next, %for.inc.us ], [ 0, %for.cond5.preheader.us ]
-  %fg_count.1210.us.ph = phi i32 [ %fg_count.2.us, %for.inc.us ], [ %fg_count.0222.us, %for.cond5.preheader.us ]
-  %bg_count.1209.us.ph = phi i32 [ %bg_count.2.us, %for.inc.us ], [ %bg_count.0221.us, %for.cond5.preheader.us ]
-  %n_colors.1208.us.ph = phi i32 [ %n_colors.2.us, %for.inc.us ], [ %n_colors.0220.us, %for.cond5.preheader.us ]
-  %fg.1207.us.ph = phi i32 [ %fg.2.us, %for.inc.us ], [ %fg.0219.us, %for.cond5.preheader.us ]
-  %bg.1206.us.ph = phi i32 [ %bg.2.us, %for.inc.us ], [ %bg.0218.us, %for.cond5.preheader.us ]
+  %fg_count.2210.us.ph = phi i32 [ %fg_count.3.us, %for.inc.us ], [ %fg_count.0222.us, %for.cond5.preheader.us ]
+  %bg_count.2209.us.ph = phi i32 [ %bg_count.3.us, %for.inc.us ], [ %bg_count.0221.us, %for.cond5.preheader.us ]
+  %n_colors.2208.us.ph = phi i32 [ %n_colors.3.us, %for.inc.us ], [ %n_colors.0220.us, %for.cond5.preheader.us ]
+  %fg.2207.us.ph = phi i32 [ %fg.3.us, %for.inc.us ], [ %fg.0219.us, %for.cond5.preheader.us ]
+  %bg.2206.us.ph = phi i32 [ %bg.3.us, %for.inc.us ], [ %bg.0218.us, %for.cond5.preheader.us ]
   br label %for.body8.us
 
 for.inc.us.thread:                                ; preds = %sw.bb18.us
@@ -179,7 +179,7 @@ for.inc.us.thread:                                ; preds = %sw.bb18.us
   br i1 %exitcond285.not307, label %for.end53, label %for.body8.us, !llvm.loop !9
 
 for.cond5.for.end_crit_edge.us:                   ; preds = %for.inc.us
-  %cmp45.us = icmp sgt i32 %n_colors.2.us, 2
+  %cmp45.us = icmp sgt i32 %n_colors.3.us, 2
   br i1 %cmp45.us, label %for.end53, label %if.end48.us
 
 if.else:                                          ; preds = %entry
@@ -194,16 +194,16 @@ for.cond5.preheader:                              ; preds = %for.cond5.preheader
   br i1 %exitcond.not, label %for.end53, label %for.cond5.preheader, !llvm.loop !8
 
 for.end53:                                        ; preds = %for.cond5.preheader, %if.end48.us, %for.cond5.for.end_crit_edge.us, %for.inc.us.thread, %for.cond.preheader
-  %bg.3 = phi i32 [ 0, %for.cond.preheader ], [ %bg.1206.us.ph, %for.inc.us.thread ], [ %bg.2.us, %for.cond5.for.end_crit_edge.us ], [ %bg.2.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
-  %fg.3 = phi i32 [ 0, %for.cond.preheader ], [ %fg.1207.us.ph, %for.inc.us.thread ], [ %fg.2.us, %for.cond5.for.end_crit_edge.us ], [ %fg.2.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
-  %n_colors.3 = phi i32 [ 0, %for.cond.preheader ], [ 3, %for.inc.us.thread ], [ %n_colors.2.us, %for.cond5.for.end_crit_edge.us ], [ %n_colors.2.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
-  %bg_count.3 = phi i32 [ 0, %for.cond.preheader ], [ %bg_count.1209.us.ph, %for.inc.us.thread ], [ %bg_count.2.us, %for.cond5.for.end_crit_edge.us ], [ %bg_count.2.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
-  %fg_count.3 = phi i32 [ 0, %for.cond.preheader ], [ %fg_count.1210.us.ph, %for.inc.us.thread ], [ %fg_count.2.us, %for.cond5.for.end_crit_edge.us ], [ %fg_count.2.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
-  %cmp54 = icmp sgt i32 %n_colors.3, 1
-  %cmp57 = icmp sgt i32 %fg_count.3, %bg_count.3
+  %bg.1 = phi i32 [ 0, %for.cond.preheader ], [ %bg.2206.us.ph, %for.inc.us.thread ], [ %bg.3.us, %for.cond5.for.end_crit_edge.us ], [ %bg.3.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
+  %fg.1 = phi i32 [ 0, %for.cond.preheader ], [ %fg.2207.us.ph, %for.inc.us.thread ], [ %fg.3.us, %for.cond5.for.end_crit_edge.us ], [ %fg.3.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
+  %n_colors.1 = phi i32 [ 0, %for.cond.preheader ], [ 3, %for.inc.us.thread ], [ %n_colors.3.us, %for.cond5.for.end_crit_edge.us ], [ %n_colors.3.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
+  %bg_count.1 = phi i32 [ 0, %for.cond.preheader ], [ %bg_count.2209.us.ph, %for.inc.us.thread ], [ %bg_count.3.us, %for.cond5.for.end_crit_edge.us ], [ %bg_count.3.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
+  %fg_count.1 = phi i32 [ 0, %for.cond.preheader ], [ %fg_count.2210.us.ph, %for.inc.us.thread ], [ %fg_count.3.us, %for.cond5.for.end_crit_edge.us ], [ %fg_count.3.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
+  %cmp54 = icmp sgt i32 %n_colors.1, 1
+  %cmp57 = icmp sgt i32 %fg_count.1, %bg_count.1
   %or.cond156 = select i1 %cmp54, i1 %cmp57, i1 false
-  %bg.4 = select i1 %or.cond156, i32 %fg.3, i32 %bg.3
-  %fg.4 = select i1 %or.cond156, i32 %bg.3, i32 %fg.3
+  %bg.4 = select i1 %or.cond156, i32 %fg.1, i32 %bg.1
+  %fg.4 = select i1 %or.cond156, i32 %bg.1, i32 %fg.1
   %5 = load i32, ptr %has_bg, align 4
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %if.then63, label %lor.lhs.false
@@ -220,7 +220,7 @@ if.then63:                                        ; preds = %lor.lhs.false, %for
 
 if.end64:                                         ; preds = %if.then63, %lor.lhs.false
   %flags.0 = phi i32 [ 2, %if.then63 ], [ 0, %lor.lhs.false ]
-  %cmp65 = icmp slt i32 %n_colors.3, 3
+  %cmp65 = icmp slt i32 %n_colors.1, 3
   br i1 %cmp65, label %land.lhs.true67, label %if.end74
 
 land.lhs.true67:                                  ; preds = %if.end64
@@ -241,7 +241,7 @@ if.then72:                                        ; preds = %lor.lhs.false69, %l
 
 if.end74:                                         ; preds = %if.then72, %lor.lhs.false69, %if.end64
   %flags.1 = phi i32 [ %or73, %if.then72 ], [ %flags.0, %lor.lhs.false69 ], [ %flags.0, %if.end64 ]
-  switch i32 %n_colors.3, label %sw.epilog212 [
+  switch i32 %n_colors.1, label %sw.epilog212 [
     i32 1, label %if.then220
     i32 2, label %sw.bb76
     i32 3, label %sw.bb123
@@ -260,15 +260,15 @@ for.cond82.preheader.us.preheader:                ; preds = %for.cond82.preheade
   br label %for.cond82.preheader.us
 
 for.cond82.preheader.us:                          ; preds = %for.cond82.preheader.us.preheader, %if.end115.us
-  %n_subtiles.0274.us = phi i32 [ %n_subtiles.3.us, %if.end115.us ], [ 0, %for.cond82.preheader.us.preheader ]
-  %n_data.0273.us = phi i32 [ %n_data.3.us, %if.end115.us ], [ 0, %for.cond82.preheader.us.preheader ]
+  %n_subtiles.1274.us = phi i32 [ %n_subtiles.4.us, %if.end115.us ], [ 0, %for.cond82.preheader.us.preheader ]
+  %n_data.1273.us = phi i32 [ %n_data.4.us, %if.end115.us ], [ 0, %for.cond82.preheader.us.preheader ]
   %irow.1272.us = phi ptr [ %add.ptr119.us, %if.end115.us ], [ %call, %for.cond82.preheader.us.preheader ]
   %j.1271.us = phi i32 [ %inc121.us, %if.end115.us ], [ 0, %for.cond82.preheader.us.preheader ]
   %and1.i.us = and i32 %j.1271.us, 15
   br label %for.body85.us
 
 if.then108.us:                                    ; preds = %for.cond82.for.end105_crit_edge.us
-  %idx.ext110.us = sext i32 %n_data.2.us to i64
+  %idx.ext110.us = sext i32 %n_data.3.us to i64
   %add.ptr111.us = getelementptr i8, ptr %data, i64 %idx.ext110.us
   %sub112.us = sub i32 %w, %min_x.1.us
   %and.i158.us = shl i32 %min_x.1.us, 4
@@ -280,13 +280,13 @@ if.then108.us:                                    ; preds = %for.cond82.for.end1
   %conv7.i163.us = add i8 %9, -16
   %arrayidx8.i164.us = getelementptr i8, ptr %add.ptr111.us, i64 1
   store i8 %conv7.i163.us, ptr %arrayidx8.i164.us, align 1
-  %add113.us = add i32 %n_data.2.us, 2
-  %inc114.us = add i32 %n_subtiles.2.us, 1
+  %add113.us = add i32 %n_data.3.us, 2
+  %inc114.us = add i32 %n_subtiles.3.us, 1
   br label %if.end115.us
 
 if.end115.us:                                     ; preds = %if.then108.us, %for.cond82.for.end105_crit_edge.us
-  %n_data.3.us = phi i32 [ %add113.us, %if.then108.us ], [ %n_data.2.us, %for.cond82.for.end105_crit_edge.us ]
-  %n_subtiles.3.us = phi i32 [ %inc114.us, %if.then108.us ], [ %n_subtiles.2.us, %for.cond82.for.end105_crit_edge.us ]
+  %n_data.4.us = phi i32 [ %add113.us, %if.then108.us ], [ %n_data.3.us, %for.cond82.for.end105_crit_edge.us ]
+  %n_subtiles.4.us = phi i32 [ %inc114.us, %if.then108.us ], [ %n_subtiles.3.us, %for.cond82.for.end105_crit_edge.us ]
   %call116.us = tail call i32 @vnc_server_fb_stride(ptr noundef %0) #7
   %conv117.us = sext i32 %call116.us to i64
   %div118153.us = lshr i64 %conv117.us, 2
@@ -298,8 +298,8 @@ if.end115.us:                                     ; preds = %if.then108.us, %for
 for.body85.us:                                    ; preds = %for.cond82.preheader.us, %for.inc103.us
   %indvars.iv294 = phi i64 [ 0, %for.cond82.preheader.us ], [ %indvars.iv.next295, %for.inc103.us ]
   %min_x.0265.us = phi i32 [ -1, %for.cond82.preheader.us ], [ %min_x.1.us, %for.inc103.us ]
-  %n_subtiles.1264.us = phi i32 [ %n_subtiles.0274.us, %for.cond82.preheader.us ], [ %n_subtiles.2.us, %for.inc103.us ]
-  %n_data.1263.us = phi i32 [ %n_data.0273.us, %for.cond82.preheader.us ], [ %n_data.2.us, %for.inc103.us ]
+  %n_subtiles.2264.us = phi i32 [ %n_subtiles.1274.us, %for.cond82.preheader.us ], [ %n_subtiles.3.us, %for.inc103.us ]
+  %n_data.2263.us = phi i32 [ %n_data.1273.us, %for.cond82.preheader.us ], [ %n_data.3.us, %for.inc103.us ]
   %arrayidx87.us = getelementptr i32, ptr %irow.1272.us, i64 %indvars.iv294
   %10 = load i32, ptr %arrayidx87.us, align 4
   %cmp88.us = icmp eq i32 %10, %fg.4
@@ -310,7 +310,7 @@ if.else95.us:                                     ; preds = %for.body85.us
   br i1 %cmp91.us, label %for.inc103.us, label %if.then98.us
 
 if.then98.us:                                     ; preds = %if.else95.us
-  %idx.ext.us = sext i32 %n_data.1263.us to i64
+  %idx.ext.us = sext i32 %n_data.2263.us to i64
   %add.ptr99.us = getelementptr i8, ptr %data, i64 %idx.ext.us
   %11 = trunc nuw nsw i64 %indvars.iv294 to i32
   %sub.us = sub i32 %11, %min_x.0265.us
@@ -323,8 +323,8 @@ if.then98.us:                                     ; preds = %if.else95.us
   %conv7.i.us = add i8 %12, -16
   %arrayidx8.i.us = getelementptr i8, ptr %add.ptr99.us, i64 1
   store i8 %conv7.i.us, ptr %arrayidx8.i.us, align 1
-  %add.us = add i32 %n_data.1263.us, 2
-  %inc100.us = add i32 %n_subtiles.1264.us, 1
+  %add.us = add i32 %n_data.2263.us, 2
+  %inc100.us = add i32 %n_subtiles.2264.us, 1
   br label %for.inc103.us
 
 if.then90.us:                                     ; preds = %for.body85.us
@@ -333,8 +333,8 @@ if.then90.us:                                     ; preds = %for.body85.us
   br label %for.inc103.us
 
 for.inc103.us:                                    ; preds = %if.then90.us, %if.then98.us, %if.else95.us
-  %n_data.2.us = phi i32 [ %add.us, %if.then98.us ], [ %n_data.1263.us, %if.else95.us ], [ %n_data.1263.us, %if.then90.us ]
-  %n_subtiles.2.us = phi i32 [ %inc100.us, %if.then98.us ], [ %n_subtiles.1264.us, %if.else95.us ], [ %n_subtiles.1264.us, %if.then90.us ]
+  %n_data.3.us = phi i32 [ %add.us, %if.then98.us ], [ %n_data.2263.us, %if.else95.us ], [ %n_data.2263.us, %if.then90.us ]
+  %n_subtiles.3.us = phi i32 [ %inc100.us, %if.then98.us ], [ %n_subtiles.2264.us, %if.else95.us ], [ %n_subtiles.2264.us, %if.then90.us ]
   %min_x.1.us = phi i32 [ -1, %if.then98.us ], [ -1, %if.else95.us ], [ %spec.select157.us, %if.then90.us ]
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %exitcond298.not = icmp eq i64 %indvars.iv.next295, %wide.trip.count297
@@ -367,7 +367,7 @@ if.then129:                                       ; preds = %lor.lhs.false126, %
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then129, %lor.lhs.false126
-  %flags.2 = phi i32 [ %or130, %if.then129 ], [ %or124, %lor.lhs.false126 ]
+  %flags.3 = phi i32 [ %or130, %if.then129 ], [ %or124, %lor.lhs.false126 ]
   br i1 %cmp3215, label %for.cond137.preheader.lr.ph, label %for.end203
 
 for.cond137.preheader.lr.ph:                      ; preds = %if.end131
@@ -376,8 +376,8 @@ for.cond137.preheader.lr.ph:                      ; preds = %if.end131
   br label %for.cond137.preheader
 
 for.cond137.preheader:                            ; preds = %for.cond137.preheader.lr.ph, %if.end196
-  %n_subtiles.4258 = phi i32 [ 0, %for.cond137.preheader.lr.ph ], [ %n_subtiles.7, %if.end196 ]
-  %n_data.4257 = phi i32 [ 0, %for.cond137.preheader.lr.ph ], [ %n_data.7, %if.end196 ]
+  %n_subtiles.5258 = phi i32 [ 0, %for.cond137.preheader.lr.ph ], [ %n_subtiles.8, %if.end196 ]
+  %n_data.5257 = phi i32 [ 0, %for.cond137.preheader.lr.ph ], [ %n_data.8, %if.end196 ]
   %irow.2256 = phi ptr [ %call, %for.cond137.preheader.lr.ph ], [ %add.ptr200, %if.end196 ]
   %j.2255 = phi i32 [ 0, %for.cond137.preheader.lr.ph ], [ %inc202, %if.end196 ]
   br i1 %cmp138242, label %for.body140.lr.ph, label %if.end196
@@ -391,8 +391,8 @@ for.body140:                                      ; preds = %for.body140.lr.ph, 
   %color.0248 = phi i32 [ 0, %for.body140.lr.ph ], [ %color.1, %for.inc179 ]
   %min_x136.0247 = phi i32 [ -1, %for.body140.lr.ph ], [ %min_x136.1, %for.inc179 ]
   %has_color.0246 = phi i32 [ 0, %for.body140.lr.ph ], [ %has_color.1, %for.inc179 ]
-  %n_subtiles.5245 = phi i32 [ %n_subtiles.4258, %for.body140.lr.ph ], [ %n_subtiles.6, %for.inc179 ]
-  %n_data.5244 = phi i32 [ %n_data.4257, %for.body140.lr.ph ], [ %n_data.6, %for.inc179 ]
+  %n_subtiles.6245 = phi i32 [ %n_subtiles.5258, %for.body140.lr.ph ], [ %n_subtiles.7, %for.inc179 ]
+  %n_data.6244 = phi i32 [ %n_data.5257, %for.body140.lr.ph ], [ %n_data.7, %for.inc179 ]
   %tobool141.not = icmp eq i32 %has_color.0246, 0
   %16 = trunc nuw nsw i64 %indvars.iv287 to i32
   %arrayidx144 = getelementptr i32, ptr %irow.2256, i64 %indvars.iv287
@@ -411,10 +411,10 @@ if.else151:                                       ; preds = %for.body140
   br i1 %cmp154.not, label %for.inc179, label %if.then156
 
 if.then156:                                       ; preds = %if.else151
-  %idx.ext158 = sext i32 %n_data.5244 to i64
+  %idx.ext158 = sext i32 %n_data.6244 to i64
   %add.ptr159 = getelementptr i8, ptr %data, i64 %idx.ext158
   store i32 %color.0248, ptr %add.ptr159, align 1
-  %add161 = add i32 %n_data.5244, 4
+  %add161 = add i32 %n_data.6244, 4
   %idx.ext164 = sext i32 %add161 to i64
   %add.ptr165 = getelementptr i8, ptr %data, i64 %idx.ext164
   %sub166 = sub i32 %16, %min_x136.0247
@@ -427,8 +427,8 @@ if.then156:                                       ; preds = %if.else151
   %conv7.i170 = add i8 %18, -16
   %arrayidx8.i171 = getelementptr i8, ptr %add.ptr165, i64 1
   store i8 %conv7.i170, ptr %arrayidx8.i171, align 1
-  %add167 = add i32 %n_data.5244, 6
-  %inc168 = add i32 %n_subtiles.5245, 1
+  %add167 = add i32 %n_data.6244, 6
+  %inc168 = add i32 %n_subtiles.6245, 1
   %cmp171.not = icmp eq i32 %17, %bg.4
   br i1 %cmp171.not, label %for.inc179, label %if.then173
 
@@ -436,8 +436,8 @@ if.then173:                                       ; preds = %if.then156
   br label %for.inc179
 
 for.inc179:                                       ; preds = %if.end148, %if.then156, %if.then173, %if.else151, %if.then142
-  %n_data.6 = phi i32 [ %add167, %if.then173 ], [ %add167, %if.then156 ], [ %n_data.5244, %if.else151 ], [ %n_data.5244, %if.then142 ], [ %n_data.5244, %if.end148 ]
-  %n_subtiles.6 = phi i32 [ %inc168, %if.then173 ], [ %inc168, %if.then156 ], [ %n_subtiles.5245, %if.else151 ], [ %n_subtiles.5245, %if.then142 ], [ %n_subtiles.5245, %if.end148 ]
+  %n_data.7 = phi i32 [ %add167, %if.then173 ], [ %add167, %if.then156 ], [ %n_data.6244, %if.else151 ], [ %n_data.6244, %if.then142 ], [ %n_data.6244, %if.end148 ]
+  %n_subtiles.7 = phi i32 [ %inc168, %if.then173 ], [ %inc168, %if.then156 ], [ %n_subtiles.6245, %if.else151 ], [ %n_subtiles.6245, %if.then142 ], [ %n_subtiles.6245, %if.end148 ]
   %tobool182.not = phi i1 [ false, %if.then173 ], [ true, %if.then156 ], [ false, %if.else151 ], [ true, %if.then142 ], [ false, %if.end148 ]
   %has_color.1 = phi i32 [ 1, %if.then173 ], [ 0, %if.then156 ], [ 1, %if.else151 ], [ 0, %if.then142 ], [ 1, %if.end148 ]
   %min_x136.1 = phi i32 [ %16, %if.then173 ], [ -1, %if.then156 ], [ %min_x136.0247, %if.else151 ], [ %min_x136.0247, %if.then142 ], [ %16, %if.end148 ]
@@ -450,10 +450,10 @@ for.end181:                                       ; preds = %for.inc179
   br i1 %tobool182.not, label %if.end196, label %if.then183
 
 if.then183:                                       ; preds = %for.end181
-  %idx.ext185 = sext i32 %n_data.6 to i64
+  %idx.ext185 = sext i32 %n_data.7 to i64
   %add.ptr186 = getelementptr i8, ptr %data, i64 %idx.ext185
   store i32 %color.1, ptr %add.ptr186, align 1
-  %add188 = add i32 %n_data.6, 4
+  %add188 = add i32 %n_data.7, 4
   %idx.ext191 = sext i32 %add188 to i64
   %add.ptr192 = getelementptr i8, ptr %data, i64 %idx.ext191
   %sub193 = sub i32 %w, %min_x136.1
@@ -467,13 +467,13 @@ if.then183:                                       ; preds = %for.end181
   %conv7.i177 = add i8 %19, -16
   %arrayidx8.i178 = getelementptr i8, ptr %add.ptr192, i64 1
   store i8 %conv7.i177, ptr %arrayidx8.i178, align 1
-  %add194 = add i32 %n_data.6, 6
-  %inc195 = add i32 %n_subtiles.6, 1
+  %add194 = add i32 %n_data.7, 6
+  %inc195 = add i32 %n_subtiles.7, 1
   br label %if.end196
 
 if.end196:                                        ; preds = %for.cond137.preheader, %if.then183, %for.end181
-  %n_data.7 = phi i32 [ %add194, %if.then183 ], [ %n_data.6, %for.end181 ], [ %n_data.4257, %for.cond137.preheader ]
-  %n_subtiles.7 = phi i32 [ %inc195, %if.then183 ], [ %n_subtiles.6, %for.end181 ], [ %n_subtiles.4258, %for.cond137.preheader ]
+  %n_data.8 = phi i32 [ %add194, %if.then183 ], [ %n_data.7, %for.end181 ], [ %n_data.5257, %for.cond137.preheader ]
+  %n_subtiles.8 = phi i32 [ %inc195, %if.then183 ], [ %n_subtiles.7, %for.end181 ], [ %n_subtiles.5258, %for.cond137.preheader ]
   %call197 = tail call i32 @vnc_server_fb_stride(ptr noundef %0) #7
   %conv198 = sext i32 %call197 to i64
   %div199152 = lshr i64 %conv198, 2
@@ -483,10 +483,10 @@ if.end196:                                        ; preds = %for.cond137.prehead
   br i1 %exitcond292.not, label %for.end203, label %for.cond137.preheader, !llvm.loop !13
 
 for.end203:                                       ; preds = %if.end196, %if.end131
-  %n_data.4.lcssa = phi i32 [ 0, %if.end131 ], [ %n_data.7, %if.end196 ]
-  %n_subtiles.4.lcssa = phi i32 [ 0, %if.end131 ], [ %n_subtiles.7, %if.end196 ]
+  %n_data.5.lcssa = phi i32 [ 0, %if.end131 ], [ %n_data.8, %if.end196 ]
+  %n_subtiles.5.lcssa = phi i32 [ 0, %if.end131 ], [ %n_subtiles.8, %if.end196 ]
   store i32 0, ptr %has_fg, align 4
-  %conv204 = sext i32 %n_data.4.lcssa to i64
+  %conv204 = sext i32 %n_data.5.lcssa to i64
   %mul = mul i32 %h, %w
   %conv205 = sext i32 %mul to i64
   %mul206 = shl nsw i64 %conv205, 2
@@ -494,7 +494,7 @@ for.end203:                                       ; preds = %if.end196, %if.end1
   br i1 %cmp207, label %if.end216, label %if.then220
 
 sw.epilog212:                                     ; preds = %if.end74
-  %cmp213 = icmp slt i32 %n_colors.3, 4
+  %cmp213 = icmp slt i32 %n_colors.1, 4
   br i1 %cmp213, label %if.then220, label %if.end216
 
 if.end216:                                        ; preds = %for.end203, %sw.epilog212
@@ -509,9 +509,9 @@ for.body239.lr.ph:                                ; preds = %if.end216
   br label %for.body239
 
 if.then220:                                       ; preds = %for.cond82.preheader, %if.end115.us, %sw.bb76, %if.end74, %for.end203, %sw.epilog212
-  %n_subtiles.8185.ph = phi i32 [ 0, %sw.epilog212 ], [ %n_subtiles.4.lcssa, %for.end203 ], [ 0, %if.end74 ], [ 0, %sw.bb76 ], [ %n_subtiles.3.us, %if.end115.us ], [ 0, %for.cond82.preheader ]
-  %n_data.8184.ph = phi i32 [ 0, %sw.epilog212 ], [ %n_data.4.lcssa, %for.end203 ], [ 0, %if.end74 ], [ 0, %sw.bb76 ], [ %n_data.3.us, %if.end115.us ], [ 0, %for.cond82.preheader ]
-  %flags.4.ph = phi i32 [ %flags.1, %sw.epilog212 ], [ %flags.2, %for.end203 ], [ %flags.1, %if.end74 ], [ %or77, %sw.bb76 ], [ %or77, %if.end115.us ], [ %or77, %for.cond82.preheader ]
+  %n_subtiles.0185.ph = phi i32 [ 0, %sw.epilog212 ], [ %n_subtiles.5.lcssa, %for.end203 ], [ 0, %if.end74 ], [ 0, %sw.bb76 ], [ %n_subtiles.4.us, %if.end115.us ], [ 0, %for.cond82.preheader ]
+  %n_data.0184.ph = phi i32 [ 0, %sw.epilog212 ], [ %n_data.5.lcssa, %for.end203 ], [ 0, %if.end74 ], [ 0, %sw.bb76 ], [ %n_data.4.us, %if.end115.us ], [ 0, %for.cond82.preheader ]
+  %flags.4.ph = phi i32 [ %flags.1, %sw.epilog212 ], [ %flags.3, %for.end203 ], [ %flags.1, %if.end74 ], [ %or77, %sw.bb76 ], [ %or77, %if.end115.us ], [ %or77, %for.cond82.preheader ]
   %conv217200 = trunc nuw nsw i32 %flags.4.ph to i8
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv217200) #7
   %and = and i32 %flags.4.ph, 2
@@ -536,13 +536,13 @@ if.then226:                                       ; preds = %if.end223
   br label %if.end228
 
 if.end228:                                        ; preds = %if.then226, %if.end223
-  %tobool229.not = icmp eq i32 %n_subtiles.8185.ph, 0
+  %tobool229.not = icmp eq i32 %n_subtiles.0185.ph, 0
   br i1 %tobool229.not, label %if.end248, label %if.then230
 
 if.then230:                                       ; preds = %if.end228
-  %conv231 = trunc i32 %n_subtiles.8185.ph to i8
+  %conv231 = trunc i32 %n_subtiles.0185.ph to i8
   tail call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv231) #7
-  %conv233 = sext i32 %n_data.8184.ph to i64
+  %conv233 = sext i32 %n_data.0184.ph to i64
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %data, i64 noundef %conv233) #7
   br label %if.end248
 
@@ -587,11 +587,11 @@ for.cond5.preheader.us.preheader:                 ; preds = %for.cond5.preheader
   br label %for.cond5.preheader.us
 
 for.cond5.preheader.us:                           ; preds = %for.cond5.preheader.us.preheader, %if.end48.us
-  %fg_count.0227.us = phi i32 [ %fg_count.2.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
-  %bg_count.0226.us = phi i32 [ %bg_count.2.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
-  %n_colors.0225.us = phi i32 [ %n_colors.2.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
-  %fg.0224.us = phi i32 [ %fg.2.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
-  %bg.0223.us = phi i32 [ %bg.2.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
+  %fg_count.0227.us = phi i32 [ %fg_count.3.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
+  %bg_count.0226.us = phi i32 [ %bg_count.3.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
+  %n_colors.0225.us = phi i32 [ %n_colors.3.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
+  %fg.0224.us = phi i32 [ %fg.3.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
+  %bg.0223.us = phi i32 [ %bg.3.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
   %irow.0222.us = phi ptr [ %add.ptr.us, %if.end48.us ], [ %call, %for.cond5.preheader.us.preheader ]
   %j.0221.us = phi i32 [ %inc52.us, %if.end48.us ], [ 0, %for.cond5.preheader.us.preheader ]
   br label %for.body8.us.outer
@@ -607,8 +607,8 @@ if.end48.us:                                      ; preds = %for.cond5.for.end_c
 
 for.body8.us:                                     ; preds = %for.body8.us.outer, %for.inc.us.thread
   %indvars.iv = phi i64 [ %indvars.iv.next311, %for.inc.us.thread ], [ %indvars.iv.ph, %for.body8.us.outer ]
-  %n_colors.1213.us = phi i32 [ 3, %for.inc.us.thread ], [ %n_colors.1213.us.ph, %for.body8.us.outer ]
-  switch i32 %n_colors.1213.us, label %for.inc.us [
+  %n_colors.2213.us = phi i32 [ 3, %for.inc.us.thread ], [ %n_colors.2213.us.ph, %for.body8.us.outer ]
+  switch i32 %n_colors.2213.us, label %for.inc.us [
     i32 0, label %sw.bb.us
     i32 1, label %sw.bb9.us
     i32 2, label %sw.bb18.us
@@ -617,8 +617,8 @@ for.body8.us:                                     ; preds = %for.body8.us.outer,
 sw.bb18.us:                                       ; preds = %for.body8.us
   %arrayidx20.us = getelementptr i32, ptr %irow.0222.us, i64 %indvars.iv
   %2 = load i32, ptr %arrayidx20.us, align 4
-  %cmp21.not.us = icmp eq i32 %2, %bg.1211.us.ph
-  %cmp25.not.us = icmp eq i32 %2, %fg.1212.us.ph
+  %cmp21.not.us = icmp eq i32 %2, %bg.2211.us.ph
+  %cmp25.not.us = icmp eq i32 %2, %fg.2212.us.ph
   %or.cond.us = select i1 %cmp21.not.us, i1 true, i1 %cmp25.not.us
   br i1 %or.cond.us, label %if.else28.us, label %for.inc.us.thread
 
@@ -627,18 +627,18 @@ if.else28.us:                                     ; preds = %sw.bb18.us
 
 if.else34.us:                                     ; preds = %if.else28.us
   %inc40.us = zext i1 %cmp25.not.us to i32
-  %spec.select160.us = add i32 %fg_count.1215.us.ph, %inc40.us
+  %spec.select160.us = add i32 %fg_count.2215.us.ph, %inc40.us
   br label %for.inc.us
 
 if.then33.us:                                     ; preds = %if.else28.us
-  %inc.us = add i32 %bg_count.1214.us.ph, 1
+  %inc.us = add i32 %bg_count.2214.us.ph, 1
   br label %for.inc.us
 
 sw.bb9.us:                                        ; preds = %for.body8.us
   %arrayidx11.us = getelementptr i32, ptr %irow.0222.us, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx11.us, align 4
-  %cmp12.not.us = icmp eq i32 %3, %bg.1211.us.ph
-  %spec.select.us = select i1 %cmp12.not.us, i32 %fg.1212.us.ph, i32 %3
+  %cmp12.not.us = icmp eq i32 %3, %bg.2211.us.ph
+  %spec.select.us = select i1 %cmp12.not.us, i32 %fg.2212.us.ph, i32 %3
   %spec.select159.us = select i1 %cmp12.not.us, i32 1, i32 2
   br label %for.inc.us
 
@@ -648,22 +648,22 @@ sw.bb.us:                                         ; preds = %for.body8.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %for.body8.us, %sw.bb.us, %sw.bb9.us, %if.then33.us, %if.else34.us
-  %bg.2.us = phi i32 [ %bg.1211.us.ph, %if.then33.us ], [ %4, %sw.bb.us ], [ %bg.1211.us.ph, %sw.bb9.us ], [ %bg.1211.us.ph, %if.else34.us ], [ %bg.1211.us.ph, %for.body8.us ]
-  %fg.2.us = phi i32 [ %fg.1212.us.ph, %if.then33.us ], [ %fg.1212.us.ph, %sw.bb.us ], [ %spec.select.us, %sw.bb9.us ], [ %fg.1212.us.ph, %if.else34.us ], [ %fg.1212.us.ph, %for.body8.us ]
-  %n_colors.2.us = phi i32 [ 2, %if.then33.us ], [ 1, %sw.bb.us ], [ %spec.select159.us, %sw.bb9.us ], [ 2, %if.else34.us ], [ %n_colors.1213.us, %for.body8.us ]
-  %bg_count.2.us = phi i32 [ %inc.us, %if.then33.us ], [ %bg_count.1214.us.ph, %sw.bb.us ], [ %bg_count.1214.us.ph, %sw.bb9.us ], [ %bg_count.1214.us.ph, %if.else34.us ], [ %bg_count.1214.us.ph, %for.body8.us ]
-  %fg_count.2.us = phi i32 [ %fg_count.1215.us.ph, %if.then33.us ], [ %fg_count.1215.us.ph, %sw.bb.us ], [ %fg_count.1215.us.ph, %sw.bb9.us ], [ %spec.select160.us, %if.else34.us ], [ %fg_count.1215.us.ph, %for.body8.us ]
+  %bg.3.us = phi i32 [ %bg.2211.us.ph, %if.then33.us ], [ %4, %sw.bb.us ], [ %bg.2211.us.ph, %sw.bb9.us ], [ %bg.2211.us.ph, %if.else34.us ], [ %bg.2211.us.ph, %for.body8.us ]
+  %fg.3.us = phi i32 [ %fg.2212.us.ph, %if.then33.us ], [ %fg.2212.us.ph, %sw.bb.us ], [ %spec.select.us, %sw.bb9.us ], [ %fg.2212.us.ph, %if.else34.us ], [ %fg.2212.us.ph, %for.body8.us ]
+  %n_colors.3.us = phi i32 [ 2, %if.then33.us ], [ 1, %sw.bb.us ], [ %spec.select159.us, %sw.bb9.us ], [ 2, %if.else34.us ], [ %n_colors.2213.us, %for.body8.us ]
+  %bg_count.3.us = phi i32 [ %inc.us, %if.then33.us ], [ %bg_count.2214.us.ph, %sw.bb.us ], [ %bg_count.2214.us.ph, %sw.bb9.us ], [ %bg_count.2214.us.ph, %if.else34.us ], [ %bg_count.2214.us.ph, %for.body8.us ]
+  %fg_count.3.us = phi i32 [ %fg_count.2215.us.ph, %if.then33.us ], [ %fg_count.2215.us.ph, %sw.bb.us ], [ %fg_count.2215.us.ph, %sw.bb9.us ], [ %spec.select160.us, %if.else34.us ], [ %fg_count.2215.us.ph, %for.body8.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond290.not, label %for.cond5.for.end_crit_edge.us, label %for.body8.us.outer, !llvm.loop !16
 
 for.body8.us.outer:                               ; preds = %for.inc.us, %for.cond5.preheader.us
   %indvars.iv.ph = phi i64 [ %indvars.iv.next, %for.inc.us ], [ 0, %for.cond5.preheader.us ]
-  %fg_count.1215.us.ph = phi i32 [ %fg_count.2.us, %for.inc.us ], [ %fg_count.0227.us, %for.cond5.preheader.us ]
-  %bg_count.1214.us.ph = phi i32 [ %bg_count.2.us, %for.inc.us ], [ %bg_count.0226.us, %for.cond5.preheader.us ]
-  %n_colors.1213.us.ph = phi i32 [ %n_colors.2.us, %for.inc.us ], [ %n_colors.0225.us, %for.cond5.preheader.us ]
-  %fg.1212.us.ph = phi i32 [ %fg.2.us, %for.inc.us ], [ %fg.0224.us, %for.cond5.preheader.us ]
-  %bg.1211.us.ph = phi i32 [ %bg.2.us, %for.inc.us ], [ %bg.0223.us, %for.cond5.preheader.us ]
+  %fg_count.2215.us.ph = phi i32 [ %fg_count.3.us, %for.inc.us ], [ %fg_count.0227.us, %for.cond5.preheader.us ]
+  %bg_count.2214.us.ph = phi i32 [ %bg_count.3.us, %for.inc.us ], [ %bg_count.0226.us, %for.cond5.preheader.us ]
+  %n_colors.2213.us.ph = phi i32 [ %n_colors.3.us, %for.inc.us ], [ %n_colors.0225.us, %for.cond5.preheader.us ]
+  %fg.2212.us.ph = phi i32 [ %fg.3.us, %for.inc.us ], [ %fg.0224.us, %for.cond5.preheader.us ]
+  %bg.2211.us.ph = phi i32 [ %bg.3.us, %for.inc.us ], [ %bg.0223.us, %for.cond5.preheader.us ]
   br label %for.body8.us
 
 for.inc.us.thread:                                ; preds = %sw.bb18.us
@@ -672,7 +672,7 @@ for.inc.us.thread:                                ; preds = %sw.bb18.us
   br i1 %exitcond290.not312, label %for.end53, label %for.body8.us, !llvm.loop !16
 
 for.cond5.for.end_crit_edge.us:                   ; preds = %for.inc.us
-  %cmp45.us = icmp sgt i32 %n_colors.2.us, 2
+  %cmp45.us = icmp sgt i32 %n_colors.3.us, 2
   br i1 %cmp45.us, label %for.end53, label %if.end48.us
 
 if.else:                                          ; preds = %entry
@@ -687,16 +687,16 @@ for.cond5.preheader:                              ; preds = %for.cond5.preheader
   br i1 %exitcond.not, label %for.end53, label %for.cond5.preheader, !llvm.loop !15
 
 for.end53:                                        ; preds = %for.cond5.preheader, %if.end48.us, %for.cond5.for.end_crit_edge.us, %for.inc.us.thread, %for.cond.preheader
-  %bg.3 = phi i32 [ 0, %for.cond.preheader ], [ %bg.1211.us.ph, %for.inc.us.thread ], [ %bg.2.us, %for.cond5.for.end_crit_edge.us ], [ %bg.2.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
-  %fg.3 = phi i32 [ 0, %for.cond.preheader ], [ %fg.1212.us.ph, %for.inc.us.thread ], [ %fg.2.us, %for.cond5.for.end_crit_edge.us ], [ %fg.2.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
-  %n_colors.3 = phi i32 [ 0, %for.cond.preheader ], [ 3, %for.inc.us.thread ], [ %n_colors.2.us, %for.cond5.for.end_crit_edge.us ], [ %n_colors.2.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
-  %bg_count.3 = phi i32 [ 0, %for.cond.preheader ], [ %bg_count.1214.us.ph, %for.inc.us.thread ], [ %bg_count.2.us, %for.cond5.for.end_crit_edge.us ], [ %bg_count.2.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
-  %fg_count.3 = phi i32 [ 0, %for.cond.preheader ], [ %fg_count.1215.us.ph, %for.inc.us.thread ], [ %fg_count.2.us, %for.cond5.for.end_crit_edge.us ], [ %fg_count.2.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
-  %cmp54 = icmp sgt i32 %n_colors.3, 1
-  %cmp57 = icmp sgt i32 %fg_count.3, %bg_count.3
+  %bg.1 = phi i32 [ 0, %for.cond.preheader ], [ %bg.2211.us.ph, %for.inc.us.thread ], [ %bg.3.us, %for.cond5.for.end_crit_edge.us ], [ %bg.3.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
+  %fg.1 = phi i32 [ 0, %for.cond.preheader ], [ %fg.2212.us.ph, %for.inc.us.thread ], [ %fg.3.us, %for.cond5.for.end_crit_edge.us ], [ %fg.3.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
+  %n_colors.1 = phi i32 [ 0, %for.cond.preheader ], [ 3, %for.inc.us.thread ], [ %n_colors.3.us, %for.cond5.for.end_crit_edge.us ], [ %n_colors.3.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
+  %bg_count.1 = phi i32 [ 0, %for.cond.preheader ], [ %bg_count.2214.us.ph, %for.inc.us.thread ], [ %bg_count.3.us, %for.cond5.for.end_crit_edge.us ], [ %bg_count.3.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
+  %fg_count.1 = phi i32 [ 0, %for.cond.preheader ], [ %fg_count.2215.us.ph, %for.inc.us.thread ], [ %fg_count.3.us, %for.cond5.for.end_crit_edge.us ], [ %fg_count.3.us, %if.end48.us ], [ 0, %for.cond5.preheader ]
+  %cmp54 = icmp sgt i32 %n_colors.1, 1
+  %cmp57 = icmp sgt i32 %fg_count.1, %bg_count.1
   %or.cond161 = select i1 %cmp54, i1 %cmp57, i1 false
-  %bg.4 = select i1 %or.cond161, i32 %fg.3, i32 %bg.3
-  %fg.4 = select i1 %or.cond161, i32 %bg.3, i32 %fg.3
+  %bg.4 = select i1 %or.cond161, i32 %fg.1, i32 %bg.1
+  %fg.4 = select i1 %or.cond161, i32 %bg.1, i32 %fg.1
   %5 = load i32, ptr %has_bg, align 4
   %tobool.not = icmp eq i32 %5, 0
   br i1 %tobool.not, label %if.then63, label %lor.lhs.false
@@ -713,7 +713,7 @@ if.then63:                                        ; preds = %lor.lhs.false, %for
 
 if.end64:                                         ; preds = %if.then63, %lor.lhs.false
   %flags.0 = phi i32 [ 2, %if.then63 ], [ 0, %lor.lhs.false ]
-  %cmp65 = icmp slt i32 %n_colors.3, 3
+  %cmp65 = icmp slt i32 %n_colors.1, 3
   br i1 %cmp65, label %land.lhs.true67, label %if.end74
 
 land.lhs.true67:                                  ; preds = %if.end64
@@ -734,7 +734,7 @@ if.then72:                                        ; preds = %lor.lhs.false69, %l
 
 if.end74:                                         ; preds = %if.then72, %lor.lhs.false69, %if.end64
   %flags.1 = phi i32 [ %or73, %if.then72 ], [ %flags.0, %lor.lhs.false69 ], [ %flags.0, %if.end64 ]
-  switch i32 %n_colors.3, label %sw.epilog214 [
+  switch i32 %n_colors.1, label %sw.epilog214 [
     i32 1, label %if.then222
     i32 2, label %sw.bb76
     i32 3, label %sw.bb123
@@ -753,15 +753,15 @@ for.cond82.preheader.us.preheader:                ; preds = %for.cond82.preheade
   br label %for.cond82.preheader.us
 
 for.cond82.preheader.us:                          ; preds = %for.cond82.preheader.us.preheader, %if.end115.us
-  %n_subtiles.0279.us = phi i32 [ %n_subtiles.3.us, %if.end115.us ], [ 0, %for.cond82.preheader.us.preheader ]
-  %n_data.0278.us = phi i32 [ %n_data.3.us, %if.end115.us ], [ 0, %for.cond82.preheader.us.preheader ]
+  %n_subtiles.1279.us = phi i32 [ %n_subtiles.4.us, %if.end115.us ], [ 0, %for.cond82.preheader.us.preheader ]
+  %n_data.1278.us = phi i32 [ %n_data.4.us, %if.end115.us ], [ 0, %for.cond82.preheader.us.preheader ]
   %irow.1277.us = phi ptr [ %add.ptr119.us, %if.end115.us ], [ %call, %for.cond82.preheader.us.preheader ]
   %j.1276.us = phi i32 [ %inc121.us, %if.end115.us ], [ 0, %for.cond82.preheader.us.preheader ]
   %and1.i.us = and i32 %j.1276.us, 15
   br label %for.body85.us
 
 if.then108.us:                                    ; preds = %for.cond82.for.end105_crit_edge.us
-  %idx.ext110.us = sext i32 %n_data.2.us to i64
+  %idx.ext110.us = sext i32 %n_data.3.us to i64
   %add.ptr111.us = getelementptr i8, ptr %data, i64 %idx.ext110.us
   %sub112.us = sub i32 %w, %min_x.1.us
   %and.i163.us = shl i32 %min_x.1.us, 4
@@ -773,13 +773,13 @@ if.then108.us:                                    ; preds = %for.cond82.for.end1
   %conv7.i168.us = add i8 %9, -16
   %arrayidx8.i169.us = getelementptr i8, ptr %add.ptr111.us, i64 1
   store i8 %conv7.i168.us, ptr %arrayidx8.i169.us, align 1
-  %add113.us = add i32 %n_data.2.us, 2
-  %inc114.us = add i32 %n_subtiles.2.us, 1
+  %add113.us = add i32 %n_data.3.us, 2
+  %inc114.us = add i32 %n_subtiles.3.us, 1
   br label %if.end115.us
 
 if.end115.us:                                     ; preds = %if.then108.us, %for.cond82.for.end105_crit_edge.us
-  %n_data.3.us = phi i32 [ %add113.us, %if.then108.us ], [ %n_data.2.us, %for.cond82.for.end105_crit_edge.us ]
-  %n_subtiles.3.us = phi i32 [ %inc114.us, %if.then108.us ], [ %n_subtiles.2.us, %for.cond82.for.end105_crit_edge.us ]
+  %n_data.4.us = phi i32 [ %add113.us, %if.then108.us ], [ %n_data.3.us, %for.cond82.for.end105_crit_edge.us ]
+  %n_subtiles.4.us = phi i32 [ %inc114.us, %if.then108.us ], [ %n_subtiles.3.us, %for.cond82.for.end105_crit_edge.us ]
   %call116.us = tail call i32 @vnc_server_fb_stride(ptr noundef %0) #7
   %conv117.us = sext i32 %call116.us to i64
   %div118158.us = lshr i64 %conv117.us, 2
@@ -791,8 +791,8 @@ if.end115.us:                                     ; preds = %if.then108.us, %for
 for.body85.us:                                    ; preds = %for.cond82.preheader.us, %for.inc103.us
   %indvars.iv299 = phi i64 [ 0, %for.cond82.preheader.us ], [ %indvars.iv.next300, %for.inc103.us ]
   %min_x.0270.us = phi i32 [ -1, %for.cond82.preheader.us ], [ %min_x.1.us, %for.inc103.us ]
-  %n_subtiles.1269.us = phi i32 [ %n_subtiles.0279.us, %for.cond82.preheader.us ], [ %n_subtiles.2.us, %for.inc103.us ]
-  %n_data.1268.us = phi i32 [ %n_data.0278.us, %for.cond82.preheader.us ], [ %n_data.2.us, %for.inc103.us ]
+  %n_subtiles.2269.us = phi i32 [ %n_subtiles.1279.us, %for.cond82.preheader.us ], [ %n_subtiles.3.us, %for.inc103.us ]
+  %n_data.2268.us = phi i32 [ %n_data.1278.us, %for.cond82.preheader.us ], [ %n_data.3.us, %for.inc103.us ]
   %arrayidx87.us = getelementptr i32, ptr %irow.1277.us, i64 %indvars.iv299
   %10 = load i32, ptr %arrayidx87.us, align 4
   %cmp88.us = icmp eq i32 %10, %fg.4
@@ -803,7 +803,7 @@ if.else95.us:                                     ; preds = %for.body85.us
   br i1 %cmp91.us, label %for.inc103.us, label %if.then98.us
 
 if.then98.us:                                     ; preds = %if.else95.us
-  %idx.ext.us = sext i32 %n_data.1268.us to i64
+  %idx.ext.us = sext i32 %n_data.2268.us to i64
   %add.ptr99.us = getelementptr i8, ptr %data, i64 %idx.ext.us
   %11 = trunc nuw nsw i64 %indvars.iv299 to i32
   %sub.us = sub i32 %11, %min_x.0270.us
@@ -816,8 +816,8 @@ if.then98.us:                                     ; preds = %if.else95.us
   %conv7.i.us = add i8 %12, -16
   %arrayidx8.i.us = getelementptr i8, ptr %add.ptr99.us, i64 1
   store i8 %conv7.i.us, ptr %arrayidx8.i.us, align 1
-  %add.us = add i32 %n_data.1268.us, 2
-  %inc100.us = add i32 %n_subtiles.1269.us, 1
+  %add.us = add i32 %n_data.2268.us, 2
+  %inc100.us = add i32 %n_subtiles.2269.us, 1
   br label %for.inc103.us
 
 if.then90.us:                                     ; preds = %for.body85.us
@@ -826,8 +826,8 @@ if.then90.us:                                     ; preds = %for.body85.us
   br label %for.inc103.us
 
 for.inc103.us:                                    ; preds = %if.then90.us, %if.then98.us, %if.else95.us
-  %n_data.2.us = phi i32 [ %add.us, %if.then98.us ], [ %n_data.1268.us, %if.else95.us ], [ %n_data.1268.us, %if.then90.us ]
-  %n_subtiles.2.us = phi i32 [ %inc100.us, %if.then98.us ], [ %n_subtiles.1269.us, %if.else95.us ], [ %n_subtiles.1269.us, %if.then90.us ]
+  %n_data.3.us = phi i32 [ %add.us, %if.then98.us ], [ %n_data.2268.us, %if.else95.us ], [ %n_data.2268.us, %if.then90.us ]
+  %n_subtiles.3.us = phi i32 [ %inc100.us, %if.then98.us ], [ %n_subtiles.2269.us, %if.else95.us ], [ %n_subtiles.2269.us, %if.then90.us ]
   %min_x.1.us = phi i32 [ -1, %if.then98.us ], [ -1, %if.else95.us ], [ %spec.select162.us, %if.then90.us ]
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
   %exitcond303.not = icmp eq i64 %indvars.iv.next300, %wide.trip.count302
@@ -860,7 +860,7 @@ if.then129:                                       ; preds = %lor.lhs.false126, %
   br label %if.end131
 
 if.end131:                                        ; preds = %if.then129, %lor.lhs.false126
-  %flags.2 = phi i32 [ %or130, %if.then129 ], [ %or124, %lor.lhs.false126 ]
+  %flags.3 = phi i32 [ %or130, %if.then129 ], [ %or124, %lor.lhs.false126 ]
   br i1 %cmp3220, label %for.cond137.preheader.lr.ph, label %for.end205
 
 for.cond137.preheader.lr.ph:                      ; preds = %if.end131
@@ -869,8 +869,8 @@ for.cond137.preheader.lr.ph:                      ; preds = %if.end131
   br label %for.cond137.preheader
 
 for.cond137.preheader:                            ; preds = %for.cond137.preheader.lr.ph, %if.end198
-  %n_subtiles.4263 = phi i32 [ 0, %for.cond137.preheader.lr.ph ], [ %n_subtiles.7, %if.end198 ]
-  %n_data.4262 = phi i32 [ 0, %for.cond137.preheader.lr.ph ], [ %n_data.7, %if.end198 ]
+  %n_subtiles.5263 = phi i32 [ 0, %for.cond137.preheader.lr.ph ], [ %n_subtiles.8, %if.end198 ]
+  %n_data.5262 = phi i32 [ 0, %for.cond137.preheader.lr.ph ], [ %n_data.8, %if.end198 ]
   %irow.2261 = phi ptr [ %call, %for.cond137.preheader.lr.ph ], [ %add.ptr202, %if.end198 ]
   %j.2260 = phi i32 [ 0, %for.cond137.preheader.lr.ph ], [ %inc204, %if.end198 ]
   br i1 %cmp138247, label %for.body140.lr.ph, label %if.end198
@@ -884,8 +884,8 @@ for.body140:                                      ; preds = %for.body140.lr.ph, 
   %color.0253 = phi i32 [ 0, %for.body140.lr.ph ], [ %color.1, %for.inc180 ]
   %min_x136.0252 = phi i32 [ -1, %for.body140.lr.ph ], [ %min_x136.1, %for.inc180 ]
   %has_color.0251 = phi i32 [ 0, %for.body140.lr.ph ], [ %has_color.1, %for.inc180 ]
-  %n_subtiles.5250 = phi i32 [ %n_subtiles.4263, %for.body140.lr.ph ], [ %n_subtiles.6, %for.inc180 ]
-  %n_data.5249 = phi i32 [ %n_data.4262, %for.body140.lr.ph ], [ %n_data.6, %for.inc180 ]
+  %n_subtiles.6250 = phi i32 [ %n_subtiles.5263, %for.body140.lr.ph ], [ %n_subtiles.7, %for.inc180 ]
+  %n_data.6249 = phi i32 [ %n_data.5262, %for.body140.lr.ph ], [ %n_data.7, %for.inc180 ]
   %tobool141.not = icmp eq i32 %has_color.0251, 0
   %16 = trunc nuw nsw i64 %indvars.iv292 to i32
   %arrayidx144 = getelementptr i32, ptr %irow.2261, i64 %indvars.iv292
@@ -904,12 +904,12 @@ if.else151:                                       ; preds = %for.body140
   br i1 %cmp154.not, label %for.inc180, label %if.then156
 
 if.then156:                                       ; preds = %if.else151
-  %idx.ext158 = sext i32 %n_data.5249 to i64
+  %idx.ext158 = sext i32 %n_data.6249 to i64
   %add.ptr159 = getelementptr i8, ptr %data, i64 %idx.ext158
   call void @vnc_convert_pixel(ptr noundef %vs, ptr noundef %add.ptr159, i32 noundef %color.0253) #7
   %18 = load i8, ptr %bytes_per_pixel, align 1
   %conv162 = zext i8 %18 to i32
-  %add163 = add i32 %n_data.5249, %conv162
+  %add163 = add i32 %n_data.6249, %conv162
   %idx.ext165 = sext i32 %add163 to i64
   %add.ptr166 = getelementptr i8, ptr %data, i64 %idx.ext165
   %sub167 = sub i32 %16, %min_x136.0252
@@ -923,7 +923,7 @@ if.then156:                                       ; preds = %if.else151
   %arrayidx8.i176 = getelementptr i8, ptr %add.ptr166, i64 1
   store i8 %conv7.i175, ptr %arrayidx8.i176, align 1
   %add168 = add i32 %add163, 2
-  %inc169 = add i32 %n_subtiles.5250, 1
+  %inc169 = add i32 %n_subtiles.6250, 1
   %20 = load i32, ptr %arrayidx144, align 4
   %cmp172.not = icmp eq i32 %20, %bg.4
   br i1 %cmp172.not, label %for.inc180, label %if.then174
@@ -932,8 +932,8 @@ if.then174:                                       ; preds = %if.then156
   br label %for.inc180
 
 for.inc180:                                       ; preds = %if.end148, %if.then156, %if.then174, %if.else151, %if.then142
-  %n_data.6 = phi i32 [ %add168, %if.then174 ], [ %add168, %if.then156 ], [ %n_data.5249, %if.else151 ], [ %n_data.5249, %if.then142 ], [ %n_data.5249, %if.end148 ]
-  %n_subtiles.6 = phi i32 [ %inc169, %if.then174 ], [ %inc169, %if.then156 ], [ %n_subtiles.5250, %if.else151 ], [ %n_subtiles.5250, %if.then142 ], [ %n_subtiles.5250, %if.end148 ]
+  %n_data.7 = phi i32 [ %add168, %if.then174 ], [ %add168, %if.then156 ], [ %n_data.6249, %if.else151 ], [ %n_data.6249, %if.then142 ], [ %n_data.6249, %if.end148 ]
+  %n_subtiles.7 = phi i32 [ %inc169, %if.then174 ], [ %inc169, %if.then156 ], [ %n_subtiles.6250, %if.else151 ], [ %n_subtiles.6250, %if.then142 ], [ %n_subtiles.6250, %if.end148 ]
   %tobool183.not = phi i1 [ false, %if.then174 ], [ true, %if.then156 ], [ false, %if.else151 ], [ true, %if.then142 ], [ false, %if.end148 ]
   %has_color.1 = phi i32 [ 1, %if.then174 ], [ 0, %if.then156 ], [ 1, %if.else151 ], [ 0, %if.then142 ], [ 1, %if.end148 ]
   %min_x136.1 = phi i32 [ %16, %if.then174 ], [ -1, %if.then156 ], [ %min_x136.0252, %if.else151 ], [ %min_x136.0252, %if.then142 ], [ %16, %if.end148 ]
@@ -946,12 +946,12 @@ for.end182:                                       ; preds = %for.inc180
   br i1 %tobool183.not, label %if.end198, label %if.then184
 
 if.then184:                                       ; preds = %for.end182
-  %idx.ext186 = sext i32 %n_data.6 to i64
+  %idx.ext186 = sext i32 %n_data.7 to i64
   %add.ptr187 = getelementptr i8, ptr %data, i64 %idx.ext186
   call void @vnc_convert_pixel(ptr noundef %vs, ptr noundef %add.ptr187, i32 noundef %color.1) #7
   %21 = load i8, ptr %bytes_per_pixel, align 1
   %conv190 = zext i8 %21 to i32
-  %add191 = add i32 %n_data.6, %conv190
+  %add191 = add i32 %n_data.7, %conv190
   %idx.ext193 = sext i32 %add191 to i64
   %add.ptr194 = getelementptr i8, ptr %data, i64 %idx.ext193
   %sub195 = sub i32 %w, %min_x136.1
@@ -966,12 +966,12 @@ if.then184:                                       ; preds = %for.end182
   %arrayidx8.i183 = getelementptr i8, ptr %add.ptr194, i64 1
   store i8 %conv7.i182, ptr %arrayidx8.i183, align 1
   %add196 = add i32 %add191, 2
-  %inc197 = add i32 %n_subtiles.6, 1
+  %inc197 = add i32 %n_subtiles.7, 1
   br label %if.end198
 
 if.end198:                                        ; preds = %for.cond137.preheader, %if.then184, %for.end182
-  %n_data.7 = phi i32 [ %add196, %if.then184 ], [ %n_data.6, %for.end182 ], [ %n_data.4262, %for.cond137.preheader ]
-  %n_subtiles.7 = phi i32 [ %inc197, %if.then184 ], [ %n_subtiles.6, %for.end182 ], [ %n_subtiles.4263, %for.cond137.preheader ]
+  %n_data.8 = phi i32 [ %add196, %if.then184 ], [ %n_data.7, %for.end182 ], [ %n_data.5262, %for.cond137.preheader ]
+  %n_subtiles.8 = phi i32 [ %inc197, %if.then184 ], [ %n_subtiles.7, %for.end182 ], [ %n_subtiles.5263, %for.cond137.preheader ]
   %call199 = call i32 @vnc_server_fb_stride(ptr noundef %0) #7
   %conv200 = sext i32 %call199 to i64
   %div201157 = lshr i64 %conv200, 2
@@ -981,10 +981,10 @@ if.end198:                                        ; preds = %for.cond137.prehead
   br i1 %exitcond297.not, label %for.end205, label %for.cond137.preheader, !llvm.loop !20
 
 for.end205:                                       ; preds = %if.end198, %if.end131
-  %n_data.4.lcssa = phi i32 [ 0, %if.end131 ], [ %n_data.7, %if.end198 ]
-  %n_subtiles.4.lcssa = phi i32 [ 0, %if.end131 ], [ %n_subtiles.7, %if.end198 ]
+  %n_data.5.lcssa = phi i32 [ 0, %if.end131 ], [ %n_data.8, %if.end198 ]
+  %n_subtiles.5.lcssa = phi i32 [ 0, %if.end131 ], [ %n_subtiles.8, %if.end198 ]
   store i32 0, ptr %has_fg, align 4
-  %conv206 = sext i32 %n_data.4.lcssa to i64
+  %conv206 = sext i32 %n_data.5.lcssa to i64
   %mul = mul i32 %h, %w
   %conv207 = sext i32 %mul to i64
   %mul208 = shl nsw i64 %conv207, 2
@@ -992,7 +992,7 @@ for.end205:                                       ; preds = %if.end198, %if.end1
   br i1 %cmp209, label %if.end218, label %if.then222
 
 sw.epilog214:                                     ; preds = %if.end74
-  %cmp215 = icmp slt i32 %n_colors.3, 4
+  %cmp215 = icmp slt i32 %n_colors.1, 4
   br i1 %cmp215, label %if.then222, label %if.end218
 
 if.end218:                                        ; preds = %for.end205, %sw.epilog214
@@ -1007,9 +1007,9 @@ for.body241.lr.ph:                                ; preds = %if.end218
   br label %for.body241
 
 if.then222:                                       ; preds = %for.cond82.preheader, %if.end115.us, %sw.bb76, %if.end74, %for.end205, %sw.epilog214
-  %n_subtiles.8190.ph = phi i32 [ 0, %sw.epilog214 ], [ %n_subtiles.4.lcssa, %for.end205 ], [ 0, %if.end74 ], [ 0, %sw.bb76 ], [ %n_subtiles.3.us, %if.end115.us ], [ 0, %for.cond82.preheader ]
-  %n_data.8189.ph = phi i32 [ 0, %sw.epilog214 ], [ %n_data.4.lcssa, %for.end205 ], [ 0, %if.end74 ], [ 0, %sw.bb76 ], [ %n_data.3.us, %if.end115.us ], [ 0, %for.cond82.preheader ]
-  %flags.4.ph = phi i32 [ %flags.1, %sw.epilog214 ], [ %flags.2, %for.end205 ], [ %flags.1, %if.end74 ], [ %or77, %sw.bb76 ], [ %or77, %if.end115.us ], [ %or77, %for.cond82.preheader ]
+  %n_subtiles.0190.ph = phi i32 [ 0, %sw.epilog214 ], [ %n_subtiles.5.lcssa, %for.end205 ], [ 0, %if.end74 ], [ 0, %sw.bb76 ], [ %n_subtiles.4.us, %if.end115.us ], [ 0, %for.cond82.preheader ]
+  %n_data.0189.ph = phi i32 [ 0, %sw.epilog214 ], [ %n_data.5.lcssa, %for.end205 ], [ 0, %if.end74 ], [ 0, %sw.bb76 ], [ %n_data.4.us, %if.end115.us ], [ 0, %for.cond82.preheader ]
+  %flags.4.ph = phi i32 [ %flags.1, %sw.epilog214 ], [ %flags.3, %for.end205 ], [ %flags.1, %if.end74 ], [ %or77, %sw.bb76 ], [ %or77, %if.end115.us ], [ %or77, %for.cond82.preheader ]
   %conv219205 = trunc nuw nsw i32 %flags.4.ph to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv219205) #7
   %and = and i32 %flags.4.ph, 2
@@ -1034,13 +1034,13 @@ if.then228:                                       ; preds = %if.end225
   br label %if.end230
 
 if.end230:                                        ; preds = %if.then228, %if.end225
-  %tobool231.not = icmp eq i32 %n_subtiles.8190.ph, 0
+  %tobool231.not = icmp eq i32 %n_subtiles.0190.ph, 0
   br i1 %tobool231.not, label %if.end250, label %if.then232
 
 if.then232:                                       ; preds = %if.end230
-  %conv233 = trunc i32 %n_subtiles.8190.ph to i8
+  %conv233 = trunc i32 %n_subtiles.0190.ph to i8
   call void @vnc_write_u8(ptr noundef %vs, i8 noundef zeroext %conv233) #7
-  %conv235 = sext i32 %n_data.8189.ph to i64
+  %conv235 = sext i32 %n_data.0189.ph to i64
   call void @vnc_write(ptr noundef %vs, ptr noundef nonnull %data, i64 noundef %conv235) #7
   br label %if.end250
 

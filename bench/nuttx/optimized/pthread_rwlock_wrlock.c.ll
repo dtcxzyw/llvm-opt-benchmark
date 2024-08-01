@@ -107,12 +107,12 @@ define i32 @pthread_rwlock_clockwrlock(ptr noundef %0, i32 noundef %1, ptr nound
   br label %28
 
 28:                                               ; preds = %5, %25
-  %.3 = phi i32 [ %.230, %25 ], [ 11, %5 ]
+  %.0 = phi i32 [ %.230, %25 ], [ 11, %5 ]
   %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #2
   br label %30
 
 30:                                               ; preds = %3, %28
-  %.021 = phi i32 [ %.3, %28 ], [ %4, %3 ]
+  %.021 = phi i32 [ %.0, %28 ], [ %4, %3 ]
   ret i32 %.021
 }
 
@@ -181,12 +181,12 @@ define i32 @pthread_rwlock_wrlock(ptr noundef %0) local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %18, %3
-  %.3.i = phi i32 [ %.230.i, %18 ], [ 11, %3 ]
+  %.0.i = phi i32 [ %.230.i, %18 ], [ 11, %3 ]
   %22 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #2
   br label %pthread_rwlock_clockwrlock.exit
 
 pthread_rwlock_clockwrlock.exit:                  ; preds = %1, %21
-  %.021.i = phi i32 [ %.3.i, %21 ], [ %2, %1 ]
+  %.021.i = phi i32 [ %.0.i, %21 ], [ %2, %1 ]
   ret i32 %.021.i
 }
 

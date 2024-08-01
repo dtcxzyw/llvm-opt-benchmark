@@ -874,7 +874,7 @@ define range(i32 -1, 1) i32 @tree_msg_to_spawned_sruns(i32 noundef %0, ptr nound
   %7 = phi i32 [ %4, %.lr.ph ], [ %20, %19 ]
   %8 = phi ptr [ %.pre21, %.lr.ph ], [ %21, %19 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %.016 = phi i32 [ 0, %.lr.ph ], [ %.2, %19 ]
+  %.016 = phi i32 [ 0, %.lr.ph ], [ %.1, %19 ]
   %9 = getelementptr inbounds i16, ptr %8, i64 %indvars.iv
   %10 = load i16, ptr %9, align 2
   %11 = icmp eq i16 %10, 0
@@ -899,14 +899,14 @@ define range(i32 -1, 1) i32 @tree_msg_to_spawned_sruns(i32 noundef %0, ptr nound
 19:                                               ; preds = %6, %15
   %20 = phi i32 [ %7, %6 ], [ %.pre22, %15 ]
   %21 = phi ptr [ %8, %6 ], [ %.pre, %15 ]
-  %.2 = phi i32 [ %.016, %6 ], [ %spec.select, %15 ]
+  %.1 = phi i32 [ %.016, %6 ], [ %spec.select, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = zext i32 %20 to i64
   %23 = icmp ult i64 %indvars.iv.next, %22
   br i1 %23, label %6, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %12, %19, %2
-  %.013 = phi i32 [ 0, %2 ], [ %.2, %19 ], [ -1, %12 ]
+  %.013 = phi i32 [ 0, %2 ], [ %.1, %19 ], [ -1, %12 ]
   ret i32 %.013
 }
 
@@ -1048,7 +1048,7 @@ define internal i32 @_handle_kvs_fence(i32 %0, ptr noundef %1) #0 {
   br label %77
 
 77:                                               ; preds = %71, %76, %75, %52
-  %.0 = phi i32 [ %62, %71 ], [ 0, %76 ], [ 0, %75 ], [ 0, %52 ]
+  %.1 = phi i32 [ %62, %71 ], [ 0, %76 ], [ 0, %75 ], [ 0, %52 ]
   %78 = call i32 @slurm_get_log_level() #7
   %79 = icmp sgt i32 %78, 6
   br i1 %79, label %80, label %83
@@ -1060,9 +1060,9 @@ define internal i32 @_handle_kvs_fence(i32 %0, ptr noundef %1) #0 {
   br label %83
 
 83:                                               ; preds = %77, %80, %37, %40, %84, %26
-  %.1 = phi i32 [ -1, %84 ], [ 0, %26 ], [ 0, %40 ], [ 0, %37 ], [ %.0, %80 ], [ %.0, %77 ]
+  %.0 = phi i32 [ -1, %84 ], [ 0, %26 ], [ 0, %40 ], [ 0, %37 ], [ %.1, %80 ], [ %.1, %77 ]
   call void @slurm_xfree(ptr noundef nonnull %7) #7
-  ret i32 %.1
+  ret i32 %.0
 
 84:                                               ; preds = %13, %11, %9, %2
   %85 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.27) #7

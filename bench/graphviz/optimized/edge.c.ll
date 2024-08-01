@@ -755,8 +755,8 @@ agfindedge_by_id.exit55:                          ; preds = %agsubrep.exit.threa
   br label %.thread59
 
 .thread59:                                        ; preds = %agfindedge_by_id.exit, %92, %95, %93, %66, %63
-  %.2 = phi ptr [ %89, %92 ], [ %96, %95 ], [ null, %93 ], [ null, %66 ], [ %.0, %63 ], [ %32, %agfindedge_by_id.exit ]
-  ret ptr %.2
+  %.1 = phi ptr [ %89, %92 ], [ %96, %95 ], [ null, %93 ], [ null, %66 ], [ %.0, %63 ], [ %32, %agfindedge_by_id.exit ]
+  ret ptr %.1
 }
 
 declare i32 @agisundirected(ptr noundef) local_unnamed_addr #1
@@ -1530,8 +1530,8 @@ agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.i, %3
   br i1 %46, label %56, label %48
 
 48:                                               ; preds = %.thread, %47
-  %.037 = phi ptr [ %1, %.thread ], [ %.0.i, %47 ]
-  %49 = load i32, ptr %.037, align 8
+  %.137 = phi ptr [ %1, %.thread ], [ %.0.i, %47 ]
+  %49 = load i32, ptr %.137, align 8
   %50 = and i32 %49, 3
   %51 = load i32, ptr %1, align 8
   %52 = and i32 %51, 3
@@ -1541,12 +1541,12 @@ agfindedge_by_key.exit:                           ; preds = %agsubrep.exit.i, %3
 53:                                               ; preds = %48
   %54 = icmp eq i32 %50, 3
   %.v = select i1 %54, i64 -64, i64 64
-  %55 = getelementptr inbounds i8, ptr %.037, i64 %.v
+  %55 = getelementptr inbounds i8, ptr %.137, i64 %.v
   br label %56
 
 56:                                               ; preds = %47, %48, %53, %3
-  %.1 = phi ptr [ %55, %53 ], [ %.037, %48 ], [ null, %47 ], [ null, %3 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %55, %53 ], [ %.137, %48 ], [ null, %47 ], [ null, %3 ]
+  ret ptr %.0
 }
 
 declare ptr @agsubnode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

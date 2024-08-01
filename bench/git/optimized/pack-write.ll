@@ -142,13 +142,13 @@ if.else14:                                        ; preds = %if.else9
 
 if.end17:                                         ; preds = %if.else14, %if.then11
   %fd.0 = phi i32 [ %call16, %if.else14 ], [ %call12, %if.then11 ]
-  %index_name.addr.0 = phi ptr [ %index_name, %if.else14 ], [ %call13, %if.then11 ]
-  %call18 = call ptr @hashfd(i32 noundef %fd.0, ptr noundef %index_name.addr.0) #19
+  %index_name.addr.1 = phi ptr [ %index_name, %if.else14 ], [ %call13, %if.then11 ]
+  %call18 = call ptr @hashfd(i32 noundef %fd.0, ptr noundef %index_name.addr.1) #19
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end17, %if.then8
   %f.0 = phi ptr [ %call, %if.then8 ], [ %call18, %if.end17 ]
-  %index_name.addr.1 = phi ptr [ %index_name, %if.then8 ], [ %index_name.addr.0, %if.end17 ]
+  %index_name.addr.0 = phi ptr [ %index_name, %if.then8 ], [ %index_name.addr.1, %if.end17 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ofsval.i)
   %tobool.not.i = icmp ult i64 %last_obj_offset.2, 2147483648
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %need_large_offset.exit.thread
@@ -495,7 +495,7 @@ if.end122:                                        ; preds = %while.cond109.backe
   %42 = and i32 %and127, 2
   %or130 = xor i32 %42, 7
   %call131 = call i32 @finalize_hashfile(ptr noundef %f.0, ptr noundef null, i32 noundef 4, i32 noundef %or130) #19
-  ret ptr %index_name.addr.1
+  ret ptr %index_name.addr.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable

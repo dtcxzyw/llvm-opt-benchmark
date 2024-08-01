@@ -145,7 +145,7 @@ define hidden i32 @createNewJPLISAgent(ptr noundef %0, ptr nocapture noundef wri
   br label %29
 
 21:                                               ; preds = %18, %10
-  %.0.ph = phi i32 [ 3, %10 ], [ %16, %18 ]
+  %.1.ph = phi i32 [ 3, %10 ], [ %16, %18 ]
   %22 = load ptr, ptr %5, align 8
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 1008
@@ -157,8 +157,8 @@ define hidden i32 @createNewJPLISAgent(ptr noundef %0, ptr nocapture noundef wri
   br label %29
 
 29:                                               ; preds = %20, %4, %21
-  %.1 = phi i32 [ %.0.ph, %21 ], [ 0, %20 ], [ 1, %4 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1.ph, %21 ], [ 0, %20 ], [ 1, %4 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -692,7 +692,7 @@ commandStringIntoJavaStrings.exit.thread:         ; preds = %5, %13
   br label %33
 
 .thread.i:                                        ; preds = %13, %12
-  %.012 = phi ptr [ null, %12 ], [ %17, %13 ]
+  %.013 = phi ptr [ null, %12 ], [ %17, %13 ]
   tail call void @JPLISAssertConditionWithMessage(i8 noundef zeroext 1, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 458) #10
   %20 = getelementptr inbounds i8, ptr %0, i64 56
   %21 = load ptr, ptr %20, align 8
@@ -705,10 +705,10 @@ commandStringIntoJavaStrings.exit.thread:         ; preds = %5, %13
   %25 = load ptr, ptr %1, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 488
   %27 = load ptr, ptr %26, align 8
-  tail call void (ptr, ptr, ptr, ...) %27(ptr noundef nonnull %1, ptr noundef %21, ptr noundef nonnull %4, ptr noundef %9, ptr noundef %.012) #10
+  tail call void (ptr, ptr, ptr, ...) %27(ptr noundef nonnull %1, ptr noundef %21, ptr noundef nonnull %4, ptr noundef %9, ptr noundef %.013) #10
   %28 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %1) #10
-  %.not.i10 = icmp eq i8 %28, 0
-  br i1 %.not.i10, label %30, label %29
+  %.not.i11 = icmp eq i8 %28, 0
+  br i1 %.not.i11, label %30, label %29
 
 29:                                               ; preds = %24
   tail call void @logThrowable(ptr noundef nonnull %1) #10
@@ -717,16 +717,16 @@ commandStringIntoJavaStrings.exit.thread:         ; preds = %5, %13
 
 30:                                               ; preds = %29, %24
   %31 = tail call zeroext i8 @checkForAndClearThrowable(ptr noundef nonnull %1) #10
-  %32 = zext i1 %.not.i10 to i8
+  %32 = zext i1 %.not.i11 to i8
   br label %invokeJavaAgentMainMethod.exit
 
 invokeJavaAgentMainMethod.exit:                   ; preds = %.thread.i, %30
-  %.0.i = phi i8 [ %32, %30 ], [ 1, %.thread.i ]
-  tail call void @JPLISAssertConditionWithMessage(i8 noundef zeroext %.0.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 466) #10
+  %.0.i10 = phi i8 [ %32, %30 ], [ 1, %.thread.i ]
+  tail call void @JPLISAssertConditionWithMessage(i8 noundef zeroext %.0.i10, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 466) #10
   br label %33
 
 33:                                               ; preds = %commandStringIntoJavaStrings.exit.thread, %invokeJavaAgentMainMethod.exit
-  %.0 = phi i8 [ %.0.i, %invokeJavaAgentMainMethod.exit ], [ 0, %commandStringIntoJavaStrings.exit.thread ]
+  %.0 = phi i8 [ %.0.i10, %invokeJavaAgentMainMethod.exit ], [ 0, %commandStringIntoJavaStrings.exit.thread ]
   ret i8 %.0
 }
 
@@ -779,8 +779,8 @@ define hidden zeroext range(i8 0, 2) i8 @commandStringIntoJavaStrings(ptr nounde
   br label %20
 
 20:                                               ; preds = %13, %.thread, %5
-  %.1 = phi i8 [ 0, %5 ], [ 0, %13 ], [ 1, %.thread ]
-  ret i8 %.1
+  %.0 = phi i8 [ 0, %5 ], [ 0, %13 ], [ 1, %.thread ]
+  ret i8 %.0
 }
 
 ; Function Attrs: nounwind uwtable

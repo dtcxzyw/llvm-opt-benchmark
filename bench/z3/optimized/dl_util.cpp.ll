@@ -1068,12 +1068,12 @@ _ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_bac
   br label %if.end30
 
 if.end30:                                         ; preds = %invoke.cont20, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %invoke.cont10, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit98, %invoke.cont21
-  %new_var.1 = phi ptr [ %17, %invoke.cont10 ], [ %call18, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit98 ], [ %call18, %invoke.cont21 ], [ %call18, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %call18, %invoke.cont20 ]
-  %tobool.not.i.i.i.i99 = icmp eq ptr %new_var.1, null
+  %new_var.0 = phi ptr [ %17, %invoke.cont10 ], [ %call18, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit98 ], [ %call18, %invoke.cont21 ], [ %call18, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %call18, %invoke.cont20 ]
+  %tobool.not.i.i.i.i99 = icmp eq ptr %new_var.0, null
   br i1 %tobool.not.i.i.i.i99, label %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE7inc_refEPS0_.exit.i103, label %if.then.i.i.i.i100
 
 if.then.i.i.i.i100:                               ; preds = %if.end30
-  %m_ref_count.i.i.i.i.i101 = getelementptr inbounds i8, ptr %new_var.1, i64 8
+  %m_ref_count.i.i.i.i.i101 = getelementptr inbounds i8, ptr %new_var.0, i64 8
   %39 = load i32, ptr %m_ref_count.i.i.i.i.i101, align 4
   %inc.i.i.i.i.i102 = add i32 %39, 1
   store i32 %inc.i.i.i.i.i102, ptr %m_ref_count.i.i.i.i.i101, align 4
@@ -1139,10 +1139,10 @@ _ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i129: ; preds = %.noexc138, %for.end
 for.inc:                                          ; preds = %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i129, %entry.if.end_crit_edge.i.i134, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i, %entry.if.end_crit_edge.i.i
   %.sink177 = phi i32 [ %4, %entry.if.end_crit_edge.i.i ], [ %.pre1.i.i, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i ], [ %40, %entry.if.end_crit_edge.i.i134 ], [ %.pre1.i.i130, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i129 ]
   %.sink = phi ptr [ %.pre.i.i, %entry.if.end_crit_edge.i.i ], [ %call.i.i.i17, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i ], [ %.pre.i.i135, %entry.if.end_crit_edge.i.i134 ], [ %call.i.i.i137, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i129 ]
-  %new_var.1.sink = phi ptr [ %2, %entry.if.end_crit_edge.i.i ], [ %2, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i ], [ %new_var.1, %entry.if.end_crit_edge.i.i134 ], [ %new_var.1, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i129 ]
+  %new_var.0.sink = phi ptr [ %2, %entry.if.end_crit_edge.i.i ], [ %2, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i ], [ %new_var.0, %entry.if.end_crit_edge.i.i134 ], [ %new_var.0, %_ZN6bufferIP4exprLb0ELj16EE6expandEv.exit.i.i129 ]
   %idx.ext.i.i131 = zext i32 %.sink177 to i64
   %add.ptr.i.i132 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i131
-  store ptr %new_var.1.sink, ptr %add.ptr.i.i132, align 8
+  store ptr %new_var.0.sink, ptr %add.ptr.i.i132, align 8
   %44 = load i32, ptr %m_pos.i.i.i.i, align 8
   %storemerge = add i32 %44, 1
   store i32 %storemerge, ptr %m_pos.i.i.i.i, align 8

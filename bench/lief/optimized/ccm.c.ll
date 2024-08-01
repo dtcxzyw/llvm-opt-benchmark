@@ -714,12 +714,12 @@ mbedtls_ccm_crypt.exit116:                        ; preds = %.lr.ph.i113
   br i1 %.not104, label %.loopexit117, label %35, !llvm.loop !12
 
 .loopexit117:                                     ; preds = %.loopexit, %28, %mbedtls_ccm_crypt.exit116.thread, %mbedtls_ccm_crypt.exit.thread, %102, %57
-  %.3 = phi i32 [ %56, %57 ], [ %101, %102 ], [ %61, %mbedtls_ccm_crypt.exit.thread ], [ %75, %mbedtls_ccm_crypt.exit116.thread ], [ 0, %28 ], [ 0, %.loopexit ]
+  %.285 = phi i32 [ %56, %57 ], [ %101, %102 ], [ %61, %mbedtls_ccm_crypt.exit.thread ], [ %75, %mbedtls_ccm_crypt.exit116.thread ], [ 0, %28 ], [ 0, %.loopexit ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %12, i64 noundef 16) #10
   br label %124
 
 124:                                              ; preds = %27, %19, %6, %.loopexit117
-  %.0 = phi i32 [ %.3, %.loopexit117 ], [ -13, %6 ], [ -13, %19 ], [ -13, %27 ]
+  %.0 = phi i32 [ %.285, %.loopexit117 ], [ -13, %6 ], [ -13, %19 ], [ -13, %27 ]
   ret i32 %.0
 }
 

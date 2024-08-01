@@ -368,7 +368,7 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
 13:                                               ; preds = %.lr.ph90, %106
   %14 = phi i32 [ %7, %.lr.ph90 ], [ %107, %106 ]
   %.088 = phi i32 [ 0, %.lr.ph90 ], [ %.2115, %106 ]
-  %.06587 = phi i32 [ 0, %.lr.ph90 ], [ %.3, %106 ]
+  %.06587 = phi i32 [ 0, %.lr.ph90 ], [ %.267, %106 ]
   %15 = load i8, ptr %9, align 8
   %16 = trunc i8 %15 to i1
   %17 = load i32, ptr %10, align 8
@@ -528,8 +528,8 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
 
 .critedge2.loopexit92:                            ; preds = %.lr.ph131, %.lr.ph83, %.lr.ph83.preheader
   %93 = phi i32 [ %14, %.lr.ph83.preheader ], [ %90, %.lr.ph83 ], [ %90, %.lr.ph131 ]
-  %.3.ph.in = phi i64 [ %53, %.lr.ph83.preheader ], [ %indvars.iv.next95, %.lr.ph83 ], [ %indvars.iv.next95, %.lr.ph131 ]
-  %.3.ph = trunc i64 %.3.ph.in to i32
+  %.267.ph.in = phi i64 [ %53, %.lr.ph83.preheader ], [ %indvars.iv.next95, %.lr.ph83 ], [ %indvars.iv.next95, %.lr.ph131 ]
+  %.267.ph = trunc i64 %.267.ph.in to i32
   br label %.critedge2
 
 .critedge2.loopexit:                              ; preds = %69
@@ -539,13 +539,13 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge2.loopexit92, %.preheader
   %.2115 = phi i32 [ %.2, %.preheader ], [ %.2, %.critedge2.loopexit92 ], [ %.2116, %.critedge2.loopexit ]
   %95 = phi i32 [ %14, %.preheader ], [ %93, %.critedge2.loopexit92 ], [ %14, %.critedge2.loopexit ]
-  %.3 = phi i32 [ %.06587, %.preheader ], [ %.3.ph, %.critedge2.loopexit92 ], [ %94, %.critedge2.loopexit ]
-  %96 = icmp slt i32 %.3, %95
+  %.267 = phi i32 [ %.06587, %.preheader ], [ %.267.ph, %.critedge2.loopexit92 ], [ %94, %.critedge2.loopexit ]
+  %96 = icmp slt i32 %.267, %95
   br i1 %96, label %97, label %106
 
 97:                                               ; preds = %.critedge2
   %98 = load ptr, ptr %3, align 8
-  %99 = sext i32 %.3 to i64
+  %99 = sext i32 %.267 to i64
   %100 = getelementptr inbounds i32, ptr %98, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = getelementptr i8, ptr %100, i64 -4
@@ -560,7 +560,7 @@ define internal void @_ZL17evaluate_same_intRKN3gmx20SelMethodEvalContextEP15gmx
 
 106:                                              ; preds = %105, %97, %.critedge2
   %107 = phi i32 [ %.pre108, %105 ], [ %95, %97 ], [ %95, %.critedge2 ]
-  %108 = icmp slt i32 %.3, %107
+  %108 = icmp slt i32 %.267, %107
   br i1 %108, label %13, label %._crit_edge91, !llvm.loop !12
 
 ._crit_edge91:                                    ; preds = %106, %67, %4
@@ -1623,7 +1623,7 @@ define internal void @_ZL17evaluate_same_strRKN3gmx20SelMethodEvalContextEP15gmx
 .lr.ph40.split:                                   ; preds = %.lr.ph40, %.lr.ph40.splitthread-pre-split
   %14 = phi i32 [ %.pr, %.lr.ph40.splitthread-pre-split ], [ %12, %.lr.ph40 ]
   %15 = phi i32 [ %65, %.lr.ph40.splitthread-pre-split ], [ %7, %.lr.ph40 ]
-  %.039 = phi i32 [ %.3, %.lr.ph40.splitthread-pre-split ], [ 0, %.lr.ph40 ]
+  %.039 = phi i32 [ %.2, %.lr.ph40.splitthread-pre-split ], [ 0, %.lr.ph40 ]
   %16 = icmp sgt i32 %14, 0
   %.pre = load ptr, ptr %3, align 8
   %17 = sext i32 %.039 to i64
@@ -1704,8 +1704,8 @@ define internal void @_ZL17evaluate_same_strRKN3gmx20SelMethodEvalContextEP15gmx
 
 .critedge.loopexit41:                             ; preds = %.lr.ph57, %.lr.ph, %.lr.ph.preheader
   %63 = phi i32 [ %.pre50, %.lr.ph.preheader ], [ %60, %.lr.ph ], [ %60, %.lr.ph57 ]
-  %.3.ph.in = phi i64 [ %17, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.next, %.lr.ph57 ]
-  %.3.ph = trunc i64 %.3.ph.in to i32
+  %.2.ph.in = phi i64 [ %17, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.next, %.lr.ph57 ]
+  %.2.ph = trunc i64 %.2.ph.in to i32
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %31
@@ -1714,8 +1714,8 @@ define internal void @_ZL17evaluate_same_strRKN3gmx20SelMethodEvalContextEP15gmx
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.critedge.loopexit41, %36
   %65 = phi i32 [ %.pre50, %36 ], [ %63, %.critedge.loopexit41 ], [ %24, %.critedge.loopexit ]
-  %.3 = phi i32 [ %.039, %36 ], [ %.3.ph, %.critedge.loopexit41 ], [ %64, %.critedge.loopexit ]
-  %66 = icmp slt i32 %.3, %65
+  %.2 = phi i32 [ %.039, %36 ], [ %.2.ph, %.critedge.loopexit41 ], [ %64, %.critedge.loopexit ]
+  %66 = icmp slt i32 %.2, %65
   br i1 %66, label %.lr.ph40.splitthread-pre-split, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.critedge, %29, %.lr.ph40, %4

@@ -345,8 +345,8 @@ define hidden noundef zeroext i1 @"_ZN3mbe7tt_iter15TtIter$LT$S$GT$13expect_doll
   br label %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.thread"
 
 "_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.thread": ; preds = %1, %6, %13, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit"
-  %.1 = phi i1 [ true, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit" ], [ %16, %13 ], [ true, %6 ], [ true, %1 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit" ], [ %16, %13 ], [ true, %6 ], [ true, %1 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -378,8 +378,8 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN3mbe7tt_iter1
   br label %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.thread"
 
 "_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.thread": ; preds = %1, %6, %13, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit"
-  %.1 = phi ptr [ null, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit" ], [ %spec.select, %13 ], [ null, %6 ], [ null, %1 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit" ], [ %spec.select, %13 ], [ null, %6 ], [ null, %1 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -403,12 +403,12 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN3mbe7tt_iter1
   %11 = load i32, ptr %4, align 8, !range !9, !noundef !4
   %12 = icmp eq i32 %11, 2
   %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %.0 = select i1 %12, ptr %13, ptr null
+  %.1 = select i1 %12, ptr %13, ptr null
   br label %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.thread"
 
 "_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.thread": ; preds = %1, %6, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit"
-  %.1 = phi ptr [ %.0, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit" ], [ null, %6 ], [ null, %1 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit" ], [ null, %6 ], [ null, %1 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -476,12 +476,12 @@ define hidden noundef align 4 dereferenceable_or_null(28) ptr @"_ZN3mbe7tt_iter1
   %11 = load i32, ptr %4, align 8, !range !9, !noundef !4
   %12 = icmp eq i32 %11, 1
   %13 = getelementptr inbounds i8, ptr %4, i64 4
-  %.0 = select i1 %12, ptr %13, ptr null
+  %.1 = select i1 %12, ptr %13, ptr null
   br label %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.thread"
 
 "_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit.thread": ; preds = %1, %6, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit"
-  %.1 = phi ptr [ %.0, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit" ], [ null, %6 ], [ null, %1 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %"_ZN3mbe7tt_iter15TtIter$LT$S$GT$11expect_leaf17h934ce9d914019863E.exit" ], [ null, %6 ], [ null, %1 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

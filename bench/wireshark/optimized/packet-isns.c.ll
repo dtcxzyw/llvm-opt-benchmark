@@ -729,8 +729,8 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %51
 
 51:                                               ; preds = %48, %46
-  %.077 = phi i32 [ 16, %48 ], [ 12, %46 ]
-  %52 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.077) #3
+  %.1 = phi i32 [ 16, %48 ], [ 12, %46 ]
+  %52 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #3
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %56
 
@@ -740,18 +740,18 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 56:                                               ; preds = %._crit_edge, %51
   %.pre-phi = phi i16 [ %.pre, %._crit_edge ], [ %47, %51 ]
-  %.1 = phi i32 [ 12, %._crit_edge ], [ %.077, %51 ]
+  %.077 = phi i32 [ 12, %._crit_edge ], [ %.1, %51 ]
   %.not78 = icmp eq i16 %.pre-phi, 0
   br i1 %.not78, label %57, label %60
 
 57:                                               ; preds = %56
-  %58 = tail call ptr @proto_tree_add_expert(ptr noundef %34, ptr noundef nonnull %1, ptr noundef nonnull @ei_isns_not_first_pdu, ptr noundef %0, i32 noundef %.1, i32 noundef -1) #3
+  %58 = tail call ptr @proto_tree_add_expert(ptr noundef %34, ptr noundef nonnull %1, ptr noundef nonnull @ei_isns_not_first_pdu, ptr noundef %0, i32 noundef %.077, i32 noundef -1) #3
   %59 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %411
 
 60:                                               ; preds = %56
   %61 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
-  %62 = icmp ult i32 %.1, %61
+  %62 = icmp ult i32 %.077, %61
   br i1 %62, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %60
@@ -760,7 +760,7 @@ define internal i32 @dissect_isns_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %64
 
 64:                                               ; preds = %.lr.ph, %AddAttribute.exit
-  %.279 = phi i32 [ %.1, %.lr.ph ], [ %.0.i, %AddAttribute.exit ]
+  %.279 = phi i32 [ %.077, %.lr.ph ], [ %.0.i, %AddAttribute.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %65 = load i32, ptr @ett_isns_attribute, align 4
   %66 = call ptr @proto_tree_add_subtree(ptr noundef %34, ptr noundef %0, i32 noundef %.279, i32 noundef -1, i32 noundef %65, ptr noundef nonnull %5, ptr noundef nonnull @.str.368) #3

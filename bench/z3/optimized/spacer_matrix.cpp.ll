@@ -3320,7 +3320,7 @@ cleanup:                                          ; preds = %.noexc.i343, %invok
           to label %.noexc.i347 unwind label %terminate.lpad.i346
 
 .noexc.i347:                                      ; preds = %cleanup
-  %retval.0 = xor i1 %call70, true
+  %retval.1 = xor i1 %call70, true
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %147, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i.i190)
           to label %return unwind label %terminate.lpad.i346
 
@@ -3332,8 +3332,8 @@ terminate.lpad.i346:                              ; preds = %.noexc.i347, %clean
   unreachable
 
 return:                                           ; preds = %_ZN8rationalD2Ev.exit181, %.noexc.i347
-  %retval.1 = phi i1 [ %retval.0, %.noexc.i347 ], [ false, %_ZN8rationalD2Ev.exit181 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %.noexc.i347 ], [ false, %_ZN8rationalD2Ev.exit181 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

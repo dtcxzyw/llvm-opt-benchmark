@@ -509,30 +509,30 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
 
 43:                                               ; preds = %38, %36
   %.071.i = phi ptr [ %.170112, %36 ], [ %42, %38 ]
-  %.0.i = phi i32 [ 0, %36 ], [ %41, %38 ]
+  %.1.i = phi i32 [ 0, %36 ], [ %41, %38 ]
   %44 = load i8, ptr %.071.i, align 1
   %45 = zext i8 %44 to i32
-  %46 = or disjoint i32 %.0.i, %45
+  %46 = or disjoint i32 %.1.i, %45
   %47 = shl nuw nsw i32 %46, 8
   %48 = getelementptr inbounds i8, ptr %.071.i, i64 1
   br label %49
 
 49:                                               ; preds = %43, %36
   %.172.i = phi ptr [ %.170112, %36 ], [ %48, %43 ]
-  %.1.i = phi i32 [ 0, %36 ], [ %47, %43 ]
+  %.2.i = phi i32 [ 0, %36 ], [ %47, %43 ]
   %50 = load i8, ptr %.172.i, align 1
   %51 = zext i8 %50 to i32
-  %52 = or disjoint i32 %.1.i, %51
+  %52 = or disjoint i32 %.2.i, %51
   %53 = shl nuw i32 %52, 8
   %54 = getelementptr inbounds i8, ptr %.172.i, i64 1
   br label %55
 
 55:                                               ; preds = %49, %36
   %.273.i = phi ptr [ %.170112, %36 ], [ %54, %49 ]
-  %.2.i = phi i32 [ 0, %36 ], [ %53, %49 ]
+  %.3.i = phi i32 [ 0, %36 ], [ %53, %49 ]
   %56 = load i8, ptr %.273.i, align 1
   %57 = zext i8 %56 to i32
-  %58 = or disjoint i32 %.2.i, %57
+  %58 = or disjoint i32 %.3.i, %57
   br label %93
 
 59:                                               ; preds = %35
@@ -553,30 +553,30 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
 
 66:                                               ; preds = %61, %59
   %.374.i = phi ptr [ %.170112, %59 ], [ %65, %61 ]
-  %.3.i = phi i32 [ 0, %59 ], [ %64, %61 ]
+  %.4.i = phi i32 [ 0, %59 ], [ %64, %61 ]
   %67 = load i8, ptr %.374.i, align 1
   %68 = zext i8 %67 to i32
   %69 = shl nuw nsw i32 %68, 16
-  %70 = or disjoint i32 %69, %.3.i
+  %70 = or disjoint i32 %69, %.4.i
   %71 = getelementptr inbounds i8, ptr %.374.i, i64 1
   br label %72
 
 72:                                               ; preds = %66, %59
   %.475.i = phi ptr [ %.170112, %59 ], [ %71, %66 ]
-  %.4.i = phi i32 [ 0, %59 ], [ %70, %66 ]
+  %.5.i = phi i32 [ 0, %59 ], [ %70, %66 ]
   %73 = load i8, ptr %.475.i, align 1
   %74 = zext i8 %73 to i32
   %75 = shl nuw nsw i32 %74, 8
-  %76 = or i32 %75, %.4.i
+  %76 = or i32 %75, %.5.i
   %77 = getelementptr inbounds i8, ptr %.475.i, i64 1
   br label %78
 
 78:                                               ; preds = %72, %59
   %.576.i = phi ptr [ %.170112, %59 ], [ %77, %72 ]
-  %.5.i = phi i32 [ 0, %59 ], [ %76, %72 ]
+  %.6.i = phi i32 [ 0, %59 ], [ %76, %72 ]
   %79 = load i8, ptr %.576.i, align 1
   %80 = zext i8 %79 to i32
-  %81 = or i32 %.5.i, %80
+  %81 = or i32 %.6.i, %80
   br label %93
 
 82:                                               ; preds = %35
@@ -606,16 +606,16 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
   br label %93
 
 93:                                               ; preds = %90, %87, %86, %84, %82, %78, %59, %55, %36, %35
-  %.6.i = phi i32 [ 0, %35 ], [ 0, %82 ], [ %92, %90 ], [ %89, %87 ], [ -1, %86 ], [ %85, %84 ], [ 0, %59 ], [ %81, %78 ], [ 0, %36 ], [ %58, %55 ]
+  %.0.i = phi i32 [ 0, %35 ], [ 0, %82 ], [ %92, %90 ], [ %89, %87 ], [ -1, %86 ], [ %85, %84 ], [ 0, %59 ], [ %81, %78 ], [ 0, %36 ], [ %58, %55 ]
   br i1 %.not.i, label %101, label %94
 
 94:                                               ; preds = %93
   %95 = load i32, ptr %26, align 8
-  %96 = icmp eq i32 %.6.i, %95
+  %96 = icmp eq i32 %.0.i, %95
   br i1 %96, label %getRGBA.exit.thread, label %97
 
 97:                                               ; preds = %94
-  %98 = zext i32 %.6.i to i64
+  %98 = zext i32 %.0.i to i64
   %99 = getelementptr inbounds i32, ptr %25, i64 %98
   %100 = load i32, ptr %99, align 4
   br label %getRGBA.exit
@@ -623,7 +623,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
 101:                                              ; preds = %93
   %102 = load i32, ptr %27, align 8
   %103 = load i32, ptr %20, align 8
-  %104 = and i32 %103, %.6.i
+  %104 = and i32 %103, %.0.i
   %105 = sub nsw i32 0, %102
   %106 = shl i32 %104, %105
   %isneg78.i = icmp slt i32 %102, 0
@@ -631,7 +631,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
   %108 = select i1 %isneg78.i, i32 %106, i32 %107
   %109 = load i32, ptr %28, align 4
   %110 = load i32, ptr %29, align 4
-  %111 = and i32 %110, %.6.i
+  %111 = and i32 %110, %.0.i
   %112 = sub nsw i32 0, %109
   %113 = shl i32 %111, %112
   %isneg80.i = icmp slt i32 %109, 0
@@ -640,7 +640,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
   %116 = or i32 %115, %108
   %117 = load i32, ptr %30, align 8
   %118 = load i32, ptr %31, align 8
-  %119 = and i32 %118, %.6.i
+  %119 = and i32 %118, %.0.i
   %120 = sub nsw i32 0, %117
   %121 = shl i32 %119, %120
   %isneg82.i = icmp slt i32 %117, 0
@@ -649,7 +649,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
   %124 = or i32 %116, %123
   %125 = load i32, ptr %32, align 4
   %126 = load i32, ptr %33, align 4
-  %127 = and i32 %126, %.6.i
+  %127 = and i32 %126, %.0.i
   %128 = sub nsw i32 0, %125
   %129 = shl i32 %127, %128
   %isneg84.i = icmp slt i32 %125, 0
@@ -704,30 +704,30 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
 
 148:                                              ; preds = %143, %141
   %.071.i98 = phi ptr [ %.2116, %141 ], [ %147, %143 ]
-  %.0.i99 = phi i32 [ 0, %141 ], [ %146, %143 ]
+  %.1.i99 = phi i32 [ 0, %141 ], [ %146, %143 ]
   %149 = load i8, ptr %.071.i98, align 1
   %150 = zext i8 %149 to i32
-  %151 = or disjoint i32 %.0.i99, %150
+  %151 = or disjoint i32 %.1.i99, %150
   %152 = shl nuw nsw i32 %151, 8
   %153 = getelementptr inbounds i8, ptr %.071.i98, i64 1
   br label %154
 
 154:                                              ; preds = %148, %141
   %.172.i96 = phi ptr [ %.2116, %141 ], [ %153, %148 ]
-  %.1.i97 = phi i32 [ 0, %141 ], [ %152, %148 ]
+  %.2.i97 = phi i32 [ 0, %141 ], [ %152, %148 ]
   %155 = load i8, ptr %.172.i96, align 1
   %156 = zext i8 %155 to i32
-  %157 = or disjoint i32 %.1.i97, %156
+  %157 = or disjoint i32 %.2.i97, %156
   %158 = shl nuw i32 %157, 8
   %159 = getelementptr inbounds i8, ptr %.172.i96, i64 1
   br label %160
 
 160:                                              ; preds = %154, %141
   %.273.i94 = phi ptr [ %.2116, %141 ], [ %159, %154 ]
-  %.2.i95 = phi i32 [ 0, %141 ], [ %158, %154 ]
+  %.3.i95 = phi i32 [ 0, %141 ], [ %158, %154 ]
   %161 = load i8, ptr %.273.i94, align 1
   %162 = zext i8 %161 to i32
-  %163 = or disjoint i32 %.2.i95, %162
+  %163 = or disjoint i32 %.3.i95, %162
   br label %198
 
 164:                                              ; preds = %.lr.ph117
@@ -748,30 +748,30 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
 
 171:                                              ; preds = %166, %164
   %.374.i92 = phi ptr [ %.2116, %164 ], [ %170, %166 ]
-  %.3.i93 = phi i32 [ 0, %164 ], [ %169, %166 ]
+  %.4.i93 = phi i32 [ 0, %164 ], [ %169, %166 ]
   %172 = load i8, ptr %.374.i92, align 1
   %173 = zext i8 %172 to i32
   %174 = shl nuw nsw i32 %173, 16
-  %175 = or disjoint i32 %174, %.3.i93
+  %175 = or disjoint i32 %174, %.4.i93
   %176 = getelementptr inbounds i8, ptr %.374.i92, i64 1
   br label %177
 
 177:                                              ; preds = %171, %164
   %.475.i90 = phi ptr [ %.2116, %164 ], [ %176, %171 ]
-  %.4.i91 = phi i32 [ 0, %164 ], [ %175, %171 ]
+  %.5.i91 = phi i32 [ 0, %164 ], [ %175, %171 ]
   %178 = load i8, ptr %.475.i90, align 1
   %179 = zext i8 %178 to i32
   %180 = shl nuw nsw i32 %179, 8
-  %181 = or i32 %180, %.4.i91
+  %181 = or i32 %180, %.5.i91
   %182 = getelementptr inbounds i8, ptr %.475.i90, i64 1
   br label %183
 
 183:                                              ; preds = %177, %164
   %.576.i88 = phi ptr [ %.2116, %164 ], [ %182, %177 ]
-  %.5.i89 = phi i32 [ 0, %164 ], [ %181, %177 ]
+  %.6.i89 = phi i32 [ 0, %164 ], [ %181, %177 ]
   %184 = load i8, ptr %.576.i88, align 1
   %185 = zext i8 %184 to i32
-  %186 = or i32 %.5.i89, %185
+  %186 = or i32 %.6.i89, %185
   br label %198
 
 187:                                              ; preds = %.lr.ph117
@@ -801,16 +801,16 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   br label %198
 
 198:                                              ; preds = %195, %192, %191, %189, %187, %183, %164, %160, %141, %.lr.ph117
-  %.6.i81 = phi i32 [ 0, %.lr.ph117 ], [ 0, %187 ], [ %197, %195 ], [ %194, %192 ], [ -1, %191 ], [ %190, %189 ], [ 0, %164 ], [ %186, %183 ], [ 0, %141 ], [ %163, %160 ]
+  %.0.i81 = phi i32 [ 0, %.lr.ph117 ], [ 0, %187 ], [ %197, %195 ], [ %194, %192 ], [ -1, %191 ], [ %190, %189 ], [ 0, %164 ], [ %186, %183 ], [ 0, %141 ], [ %163, %160 ]
   br i1 %.not.i, label %206, label %199
 
 199:                                              ; preds = %198
   %200 = load i32, ptr %26, align 8
-  %201 = icmp eq i32 %.6.i81, %200
+  %201 = icmp eq i32 %.0.i81, %200
   br i1 %201, label %.critedge2, label %202
 
 202:                                              ; preds = %199
-  %203 = zext i32 %.6.i81 to i64
+  %203 = zext i32 %.0.i81 to i64
   %204 = getelementptr inbounds i32, ptr %25, i64 %203
   %205 = load i32, ptr %204, align 4
   br label %getRGBA.exit100
@@ -818,7 +818,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
 206:                                              ; preds = %198
   %207 = load i32, ptr %27, align 8
   %208 = load i32, ptr %20, align 8
-  %209 = and i32 %208, %.6.i81
+  %209 = and i32 %208, %.0.i81
   %210 = sub nsw i32 0, %207
   %211 = shl i32 %209, %210
   %isneg78.i84 = icmp slt i32 %207, 0
@@ -826,7 +826,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   %213 = select i1 %isneg78.i84, i32 %211, i32 %212
   %214 = load i32, ptr %28, align 4
   %215 = load i32, ptr %29, align 4
-  %216 = and i32 %215, %.6.i81
+  %216 = and i32 %215, %.0.i81
   %217 = sub nsw i32 0, %214
   %218 = shl i32 %216, %217
   %isneg80.i85 = icmp slt i32 %214, 0
@@ -835,7 +835,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   %221 = or i32 %220, %213
   %222 = load i32, ptr %30, align 8
   %223 = load i32, ptr %31, align 8
-  %224 = and i32 %223, %.6.i81
+  %224 = and i32 %223, %.0.i81
   %225 = sub nsw i32 0, %222
   %226 = shl i32 %224, %225
   %isneg82.i86 = icmp slt i32 %222, 0
@@ -844,7 +844,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   %229 = or i32 %221, %228
   %230 = load i32, ptr %32, align 4
   %231 = load i32, ptr %33, align 4
-  %232 = and i32 %231, %.6.i81
+  %232 = and i32 %231, %.0.i81
   %233 = sub nsw i32 0, %230
   %234 = shl i32 %232, %233
   %isneg84.i87 = icmp slt i32 %230, 0

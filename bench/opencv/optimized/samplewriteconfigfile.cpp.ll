@@ -814,7 +814,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %252 unwind label %165
 
 252:                                              ; preds = %250, %119
-  %.018 = phi i32 [ -1, %119 ], [ 0, %250 ]
+  %.119 = phi i32 [ -1, %119 ], [ 0, %250 ]
   call void @_ZN2cv11FileStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %59) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #7
   br label %254
@@ -825,9 +825,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %255
 
 254:                                              ; preds = %69, %252
-  %.119 = phi i32 [ %.018, %252 ], [ 0, %69 ]
+  %.018 = phi i32 [ %.119, %252 ], [ 0, %69 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #7
-  ret i32 %.119
+  ret i32 %.018
 
 255:                                              ; preds = %253, %162, %159, %154, %149, %144, %139, %134, %129, %124, %81, %80
   %.pn43 = phi { ptr, i32 } [ %82, %81 ], [ %.pn41, %253 ], [ %.pn39, %162 ], [ %.pn37, %159 ], [ %.pn35, %154 ], [ %.pn33, %149 ], [ %.pn31, %144 ], [ %.pn29, %139 ], [ %.pn27, %134 ], [ %.pn25, %129 ], [ %.pn23, %124 ], [ %.pn21, %80 ]

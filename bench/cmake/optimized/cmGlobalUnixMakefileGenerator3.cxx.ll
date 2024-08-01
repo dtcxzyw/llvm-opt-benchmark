@@ -6702,7 +6702,7 @@ _ZNSt3mapIPK17cmGeneratorTargetN30cmGlobalUnixMakefileGenerator314TargetProgress
   br i1 %.not16, label %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EE6insertERKS2_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt3mapIPK17cmGeneratorTargetN30cmGlobalUnixMakefileGenerator314TargetProgressENS0_22StrictTargetComparisonESaISt4pairIKS2_S4_EEEixERS7_.exit, %66
-  %.018 = phi i64 [ %.1, %66 ], [ %54, %_ZNSt3mapIPK17cmGeneratorTargetN30cmGlobalUnixMakefileGenerator314TargetProgressENS0_22StrictTargetComparisonESaISt4pairIKS2_S4_EEEixERS7_.exit ]
+  %.118 = phi i64 [ %.2, %66 ], [ %54, %_ZNSt3mapIPK17cmGeneratorTargetN30cmGlobalUnixMakefileGenerator314TargetProgressENS0_22StrictTargetComparisonESaISt4pairIKS2_S4_EEEixERS7_.exit ]
   %.sroa.08.017 = phi ptr [ %67, %66 ], [ %57, %_ZNSt3mapIPK17cmGeneratorTargetN30cmGlobalUnixMakefileGenerator314TargetProgressENS0_22StrictTargetComparisonESaISt4pairIKS2_S4_EEEixERS7_.exit ]
   %59 = getelementptr inbounds i8, ptr %.sroa.08.017, i64 32
   %60 = load ptr, ptr %59, align 8
@@ -6712,18 +6712,18 @@ _ZNSt3mapIPK17cmGeneratorTargetN30cmGlobalUnixMakefileGenerator314TargetProgress
 62:                                               ; preds = %.lr.ph
   %63 = load ptr, ptr %59, align 8
   %64 = call noundef i64 @_ZN30cmGlobalUnixMakefileGenerator326CountProgressMarksInTargetEPK17cmGeneratorTargetRSt3setIS2_St4lessIS2_ESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(2120) %0, ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(48) %2)
-  %65 = add i64 %64, %.018
+  %65 = add i64 %64, %.118
   br label %66
 
 66:                                               ; preds = %.lr.ph, %62
-  %.1 = phi i64 [ %65, %62 ], [ %.018, %.lr.ph ]
+  %.2 = phi i64 [ %65, %62 ], [ %.118, %.lr.ph ]
   %67 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.017) #24
   %.not = icmp eq ptr %67, %58
   br i1 %.not, label %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EE6insertERKS2_.exit, label %.lr.ph
 
 _ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EE6insertERKS2_.exit: ; preds = %66, %_ZNSt3mapIPK17cmGeneratorTargetN30cmGlobalUnixMakefileGenerator314TargetProgressENS0_22StrictTargetComparisonESaISt4pairIKS2_S4_EEEixERS7_.exit, %18
-  %.2 = phi i64 [ 0, %18 ], [ %54, %_ZNSt3mapIPK17cmGeneratorTargetN30cmGlobalUnixMakefileGenerator314TargetProgressENS0_22StrictTargetComparisonESaISt4pairIKS2_S4_EEEixERS7_.exit ], [ %.1, %66 ]
-  ret i64 %.2
+  %.0 = phi i64 [ 0, %18 ], [ %54, %_ZNSt3mapIPK17cmGeneratorTargetN30cmGlobalUnixMakefileGenerator314TargetProgressENS0_22StrictTargetComparisonESaISt4pairIKS2_S4_EEEixERS7_.exit ], [ %.2, %66 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

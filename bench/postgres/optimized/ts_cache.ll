@@ -175,15 +175,15 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   br label %70
 
 70:                                               ; preds = %66, %67
-  %.051 = phi ptr [ %69, %67 ], [ %25, %66 ]
-  %71 = ptrtoint ptr %.051 to i64
+  %.1 = phi ptr [ %69, %67 ], [ %25, %66 ]
+  %71 = ptrtoint ptr %.1 to i64
   %72 = and i64 %71, 7
   %73 = icmp eq i64 %72, 0
   br i1 %73, label %74, label %83
 
 74:                                               ; preds = %70
-  %75 = getelementptr i8, ptr %.051, i64 224
-  %76 = icmp ult ptr %.051, %75
+  %75 = getelementptr i8, ptr %.1, i64 224
+  %76 = icmp ult ptr %.1, %75
   br i1 %76, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %74
@@ -194,45 +194,45 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   %80 = add i64 %umax, %79
   %81 = and i64 %80, -8
   %82 = add i64 %81, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %.051, i8 0, i64 %82, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %.1, i8 0, i64 %82, i1 false)
   br label %.loopexit
 
 83:                                               ; preds = %70
-  %84 = getelementptr inbounds i8, ptr %.051, i64 4
+  %84 = getelementptr inbounds i8, ptr %.1, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(224) %84, i8 0, i64 220, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %74, %83
   %85 = load i32, ptr %2, align 4
-  store i32 %85, ptr %.051, align 8
+  store i32 %85, ptr %.1, align 8
   %86 = load i32, ptr %46, align 4
-  %87 = getelementptr inbounds i8, ptr %.051, i64 8
+  %87 = getelementptr inbounds i8, ptr %.1, i64 8
   store i32 %86, ptr %87, align 8
   %88 = load i32, ptr %53, align 4
-  %89 = getelementptr inbounds i8, ptr %.051, i64 12
+  %89 = getelementptr inbounds i8, ptr %.1, i64 12
   store i32 %88, ptr %89, align 4
   %90 = load i32, ptr %60, align 4
-  %91 = getelementptr inbounds i8, ptr %.051, i64 16
+  %91 = getelementptr inbounds i8, ptr %.1, i64 16
   store i32 %90, ptr %91, align 8
   %92 = getelementptr inbounds i8, ptr %45, i64 84
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %.051, i64 20
+  %94 = getelementptr inbounds i8, ptr %.1, i64 20
   store i32 %93, ptr %94, align 4
   %95 = getelementptr inbounds i8, ptr %45, i64 88
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %.051, i64 24
+  %97 = getelementptr inbounds i8, ptr %.1, i64 24
   store i32 %96, ptr %97, align 8
   call void @ReleaseSysCache(ptr noundef nonnull %34) #9
   %98 = load i32, ptr %87, align 8
-  %99 = getelementptr inbounds i8, ptr %.051, i64 32
+  %99 = getelementptr inbounds i8, ptr %.1, i64 32
   %100 = load ptr, ptr @CacheMemoryContext, align 8
   call void @fmgr_info_cxt(i32 noundef %98, ptr noundef nonnull %99, ptr noundef %100) #9
   %101 = load i32, ptr %89, align 4
-  %102 = getelementptr inbounds i8, ptr %.051, i64 80
+  %102 = getelementptr inbounds i8, ptr %.1, i64 80
   %103 = load ptr, ptr @CacheMemoryContext, align 8
   call void @fmgr_info_cxt(i32 noundef %101, ptr noundef nonnull %102, ptr noundef %103) #9
   %104 = load i32, ptr %91, align 8
-  %105 = getelementptr inbounds i8, ptr %.051, i64 128
+  %105 = getelementptr inbounds i8, ptr %.1, i64 128
   %106 = load ptr, ptr @CacheMemoryContext, align 8
   call void @fmgr_info_cxt(i32 noundef %104, ptr noundef nonnull %105, ptr noundef %106) #9
   %107 = load i32, ptr %94, align 4
@@ -240,23 +240,23 @@ define dso_local ptr @lookup_ts_parser_cache(i32 noundef %0) local_unnamed_addr 
   br i1 %.not62, label %111, label %108
 
 108:                                              ; preds = %.loopexit
-  %109 = getelementptr inbounds i8, ptr %.051, i64 176
+  %109 = getelementptr inbounds i8, ptr %.1, i64 176
   %110 = load ptr, ptr @CacheMemoryContext, align 8
   call void @fmgr_info_cxt(i32 noundef %107, ptr noundef nonnull %109, ptr noundef %110) #9
   br label %111
 
 111:                                              ; preds = %108, %.loopexit
-  %112 = getelementptr inbounds i8, ptr %.051, i64 4
+  %112 = getelementptr inbounds i8, ptr %.1, i64 4
   store i8 1, ptr %112, align 4
   br label %113
 
 113:                                              ; preds = %111, %27
-  %.1 = phi ptr [ %.051, %111 ], [ %25, %27 ]
-  store ptr %.1, ptr @lastUsedParser, align 8
+  %.051 = phi ptr [ %.1, %111 ], [ %25, %27 ]
+  store ptr %.051, ptr @lastUsedParser, align 8
   br label %114
 
 114:                                              ; preds = %19, %113
-  %.0 = phi ptr [ %.1, %113 ], [ %15, %19 ]
+  %.0 = phi ptr [ %.051, %113 ], [ %15, %19 ]
   ret ptr %.0
 }
 
@@ -464,17 +464,17 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
 
 85:                                               ; preds = %77, %82
   %.sink79 = phi ptr [ %81, %77 ], [ %84, %82 ]
-  %.061 = phi ptr [ %79, %77 ], [ %28, %82 ]
+  %.1 = phi ptr [ %79, %77 ], [ %28, %82 ]
   %86 = call ptr @MemoryContextStrdup(ptr noundef %.sink79, ptr noundef nonnull %76) #9
   call void @MemoryContextSetIdentifier(ptr noundef %.sink79, ptr noundef %86) #9
-  %87 = ptrtoint ptr %.061 to i64
+  %87 = ptrtoint ptr %.1 to i64
   %88 = and i64 %87, 7
   %89 = icmp eq i64 %88, 0
   br i1 %89, label %90, label %99
 
 90:                                               ; preds = %85
-  %91 = getelementptr i8, ptr %.061, i64 80
-  %92 = icmp ult ptr %.061, %91
+  %91 = getelementptr i8, ptr %.1, i64 80
+  %92 = icmp ult ptr %.1, %91
   br i1 %92, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %90
@@ -485,21 +485,21 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   %96 = add i64 %umax, %95
   %97 = and i64 %96, -8
   %98 = add i64 %97, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %.061, i8 0, i64 %98, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %.1, i8 0, i64 %98, i1 false)
   br label %.loopexit
 
 99:                                               ; preds = %85
-  %100 = getelementptr inbounds i8, ptr %.061, i64 4
+  %100 = getelementptr inbounds i8, ptr %.1, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %100, i8 0, i64 76, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %90, %99
   %101 = load i32, ptr %2, align 4
-  store i32 %101, ptr %.061, align 8
-  %102 = getelementptr inbounds i8, ptr %.061, i64 64
+  store i32 %101, ptr %.1, align 8
+  %102 = getelementptr inbounds i8, ptr %.1, i64 64
   store ptr %.sink79, ptr %102, align 8
   %103 = load i32, ptr %69, align 4
-  %104 = getelementptr inbounds i8, ptr %.061, i64 8
+  %104 = getelementptr inbounds i8, ptr %.1, i64 8
   store i32 %103, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %68, i64 72
   %106 = load i32, ptr %105, align 4
@@ -524,7 +524,7 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   %116 = load i32, ptr %105, align 4
   %117 = call i64 @OidFunctionCall1Coll(i32 noundef %116, i32 noundef 0, i64 noundef %.062) #9
   %118 = inttoptr i64 %117 to ptr
-  %119 = getelementptr inbounds i8, ptr %.061, i64 72
+  %119 = getelementptr inbounds i8, ptr %.1, i64 72
   store ptr %118, ptr %119, align 8
   store ptr %108, ptr @CurrentMemoryContext, align 8
   br label %120
@@ -533,20 +533,20 @@ define dso_local ptr @lookup_ts_dictionary_cache(i32 noundef %0) local_unnamed_a
   call void @ReleaseSysCache(ptr noundef nonnull %57) #9
   call void @ReleaseSysCache(ptr noundef nonnull %37) #9
   %121 = load i32, ptr %104, align 8
-  %122 = getelementptr inbounds i8, ptr %.061, i64 16
+  %122 = getelementptr inbounds i8, ptr %.1, i64 16
   %123 = load ptr, ptr %102, align 8
   call void @fmgr_info_cxt(i32 noundef %121, ptr noundef nonnull %122, ptr noundef %123) #9
-  %124 = getelementptr inbounds i8, ptr %.061, i64 4
+  %124 = getelementptr inbounds i8, ptr %.1, i64 4
   store i8 1, ptr %124, align 4
   br label %125
 
 125:                                              ; preds = %120, %30
-  %.1 = phi ptr [ %.061, %120 ], [ %28, %30 ]
-  store ptr %.1, ptr @lastUsedDictionary, align 8
+  %.061 = phi ptr [ %.1, %120 ], [ %28, %30 ]
+  store ptr %.061, ptr @lastUsedDictionary, align 8
   br label %126
 
 126:                                              ; preds = %22, %125
-  %.0 = phi ptr [ %.1, %125 ], [ %18, %22 ]
+  %.0 = phi ptr [ %.061, %125 ], [ %18, %22 ]
   ret ptr %.0
 }
 
@@ -717,15 +717,15 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   br label %78
 
 78:                                               ; preds = %59, %._crit_edge, %62
-  %.0100 = phi ptr [ %61, %59 ], [ %31, %._crit_edge ], [ %31, %62 ]
-  %79 = ptrtoint ptr %.0100 to i64
+  %.1 = phi ptr [ %61, %59 ], [ %31, %._crit_edge ], [ %31, %62 ]
+  %79 = ptrtoint ptr %.1 to i64
   %80 = and i64 %79, 7
   %81 = icmp eq i64 %80, 0
   br i1 %81, label %82, label %91
 
 82:                                               ; preds = %78
-  %83 = getelementptr i8, ptr %.0100, i64 24
-  %84 = icmp ult ptr %.0100, %83
+  %83 = getelementptr i8, ptr %.1, i64 24
+  %84 = icmp ult ptr %.1, %83
   br i1 %84, label %.lr.ph131.preheader, label %.loopexit
 
 .lr.ph131.preheader:                              ; preds = %82
@@ -736,19 +736,19 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   %88 = add i64 %umax, %87
   %89 = and i64 %88, -8
   %90 = add i64 %89, 8
-  call void @llvm.memset.p0.i64(ptr align 8 %.0100, i8 0, i64 %90, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 8 %.1, i8 0, i64 %90, i1 false)
   br label %.loopexit
 
 91:                                               ; preds = %78
-  %92 = getelementptr inbounds i8, ptr %.0100, i64 4
+  %92 = getelementptr inbounds i8, ptr %.1, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %92, i8 0, i64 20, i1 false)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph131.preheader, %82, %91
   %93 = load i32, ptr %3, align 4
-  store i32 %93, ptr %.0100, align 8
+  store i32 %93, ptr %.1, align 8
   %94 = load i32, ptr %52, align 4
-  %95 = getelementptr inbounds i8, ptr %.0100, i64 8
+  %95 = getelementptr inbounds i8, ptr %.1, i64 8
   store i32 %94, ptr %95, align 8
   call void @ReleaseSysCache(ptr noundef nonnull %40) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4112) %5, i8 0, i64 4112, i1 false)
@@ -871,13 +871,13 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   store ptr %155, ptr %156, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %155, ptr nonnull align 16 %6, i64 %154, i1 false)
   %157 = add nuw nsw i32 %.0101.lcssa, 1
-  %158 = getelementptr inbounds i8, ptr %.0100, i64 12
+  %158 = getelementptr inbounds i8, ptr %.1, i64 12
   store i32 %157, ptr %158, align 4
   %159 = load ptr, ptr @CacheMemoryContext, align 8
   %160 = zext nneg i32 %157 to i64
   %161 = shl nuw nsw i64 %160, 4
   %162 = call ptr @MemoryContextAlloc(ptr noundef %159, i64 noundef %161) #9
-  %163 = getelementptr inbounds i8, ptr %.0100, i64 16
+  %163 = getelementptr inbounds i8, ptr %.1, i64 16
   store ptr %162, ptr %163, align 8
   %164 = load i32, ptr %158, align 4
   %165 = sext i32 %164 to i64
@@ -886,17 +886,17 @@ init_ts_config_cache.exit:                        ; preds = %10, %18
   br label %167
 
 167:                                              ; preds = %149, %._crit_edge137
-  %168 = getelementptr inbounds i8, ptr %.0100, i64 4
+  %168 = getelementptr inbounds i8, ptr %.1, i64 4
   store i8 1, ptr %168, align 4
   br label %169
 
 169:                                              ; preds = %167, %33
-  %.1 = phi ptr [ %.0100, %167 ], [ %31, %33 ]
-  store ptr %.1, ptr @lastUsedConfig, align 8
+  %.0100 = phi ptr [ %.1, %167 ], [ %31, %33 ]
+  store ptr %.0100, ptr @lastUsedConfig, align 8
   br label %170
 
 170:                                              ; preds = %25, %169
-  %.0 = phi ptr [ %.1, %169 ], [ %20, %25 ]
+  %.0 = phi ptr [ %.0100, %169 ], [ %20, %25 ]
   ret ptr %.0
 }
 

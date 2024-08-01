@@ -4498,14 +4498,14 @@ define void @_ZN2cv12ppf_match_3d13PPF3DDetector5matchERKNS_3MatERSt6vectorINS_3
   br label %105
 
 105:                                              ; preds = %103, %101
-  %.189 = phi i1 [ %.088, %103 ], [ true, %101 ]
+  %.391 = phi i1 [ %.088, %103 ], [ true, %101 ]
   %.pn = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #22
   br label %106
 
 106:                                              ; preds = %99, %105
-  %.290 = phi i1 [ %.189, %105 ], [ true, %99 ]
+  %.290 = phi i1 [ %.391, %105 ], [ true, %99 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %105 ], [ %100, %99 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %39) #22
@@ -5015,13 +5015,13 @@ _ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i: ; preds 
   br label %336
 
 336:                                              ; preds = %_ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i, %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i
-  %.sroa.6.3 = phi double [ %333, %_ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i ], [ 0.000000e+00, %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ]
+  %.sroa.6.2 = phi double [ %333, %_ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i ], [ 0.000000e+00, %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ]
   %337 = phi <2 x double> [ %335, %_ZN2cv12ppf_match_3dL17TAngle3NormalizedERKNS_3VecIdLi3EEES4_.exit24.i ], [ zeroinitializer, %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   %338 = load double, ptr %135, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
   %339 = shufflevector <2 x double> %337, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %340 = insertelement <4 x double> %339, double %.sroa.6.3, i64 2
+  %340 = insertelement <4 x double> %339, double %.sroa.6.2, i64 2
   %341 = insertelement <4 x double> %340, double %306, i64 3
   %342 = insertelement <4 x double> poison, double %338, i64 0
   %343 = insertelement <4 x double> %342, double %186, i64 1

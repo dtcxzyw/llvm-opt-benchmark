@@ -547,15 +547,15 @@ Vec_PtrFree.exit:                                 ; preds = %41
   br label %.loopexit
 
 .preheader:                                       ; preds = %Vec_PtrFree.exit, %.preheader
-  %.379 = phi ptr [ %95, %.preheader ], [ %.161, %Vec_PtrFree.exit ]
-  %95 = getelementptr inbounds i8, ptr %.379, i64 1
+  %.479 = phi ptr [ %95, %.preheader ], [ %.161, %Vec_PtrFree.exit ]
+  %95 = getelementptr inbounds i8, ptr %.479, i64 1
   %.pr = load i8, ptr %95, align 1
   %.not72 = icmp eq i8 %.pr, 0
   br i1 %.not72, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %Vec_PtrFree.exit, %94
-  %.4 = phi ptr [ %19, %94 ], [ %.161, %Vec_PtrFree.exit ], [ %95, %.preheader ]
-  ret ptr %.4
+  %.3 = phi ptr [ %19, %94 ], [ %.161, %Vec_PtrFree.exit ], [ %95, %.preheader ]
+  ret ptr %.3
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -699,7 +699,7 @@ define range(i32 0, 2) i32 @CmdApplyAlias(ptr noundef %0, ptr nocapture noundef 
   br label %67
 
 67:                                               ; preds = %65, %62
-  %.1105 = phi i32 [ %66, %65 ], [ 1, %62 ]
+  %.2106 = phi i32 [ %66, %65 ], [ 1, %62 ]
   %68 = load i32, ptr %5, align 4
   %69 = load ptr, ptr %6, align 8
   %70 = icmp sgt i32 %68, 0
@@ -735,7 +735,7 @@ define range(i32 0, 2) i32 @CmdApplyAlias(ptr noundef %0, ptr nocapture noundef 
   br label %CmdFreeArgv.exit
 
 CmdFreeArgv.exit:                                 ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %75 = icmp eq i32 %.1105, 0
+  %75 = icmp eq i32 %.2106, 0
   br i1 %75, label %.preheader, label %76, !llvm.loop !13
 
 76:                                               ; preds = %CmdFreeArgv.exit
@@ -962,8 +962,8 @@ sub_059:                                          ; preds = %sub_0, %.tail
   br label %45
 
 45:                                               ; preds = %.thread52, %41
-  %.1 = phi ptr [ %44, %.thread52 ], [ %42, %41 ]
-  %46 = tail call noalias ptr @fopen(ptr noundef %.1, ptr noundef nonnull %2)
+  %.2 = phi ptr [ %44, %.thread52 ], [ %42, %41 ]
+  %46 = tail call noalias ptr @fopen(ptr noundef %.2, ptr noundef nonnull %2)
   %47 = icmp eq ptr %46, null
   %.not47 = icmp eq i32 %4, 0
   br i1 %47, label %48, label %50
@@ -972,44 +972,44 @@ sub_059:                                          ; preds = %sub_0, %.tail
   br i1 %.not47, label %49, label %60
 
 49:                                               ; preds = %48
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, ptr noundef %.1)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, ptr noundef %.2)
   br label %60
 
 50:                                               ; preds = %45
   br i1 %.not47, label %51, label %60
 
 51:                                               ; preds = %50
-  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #25
+  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2) #25
   %53 = icmp ugt i64 %52, 5
   br i1 %53, label %54, label %60
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %.1, i64 %52
+  %55 = getelementptr inbounds i8, ptr %.2, i64 %52
   %56 = getelementptr inbounds i8, ptr %55, i64 -6
   %57 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(7) @.str.19) #25
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %60
 
 59:                                               ; preds = %54
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.20, ptr noundef %.1)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.20, ptr noundef %.2)
   br label %60
 
 60:                                               ; preds = %49, %48, %59, %54, %51, %50, %13, %.tail54.thread
-  %.2 = phi ptr [ %14, %13 ], [ %16, %.tail54.thread ], [ %.1, %48 ], [ %.1, %49 ], [ %.1, %50 ], [ %.1, %59 ], [ %.1, %54 ], [ %.1, %51 ]
+  %.039 = phi ptr [ %14, %13 ], [ %16, %.tail54.thread ], [ %.2, %48 ], [ %.2, %49 ], [ %.2, %50 ], [ %.2, %59 ], [ %.2, %54 ], [ %.2, %51 ]
   %.0 = phi ptr [ %15, %13 ], [ %17, %.tail54.thread ], [ null, %48 ], [ null, %49 ], [ %46, %50 ], [ %46, %59 ], [ %46, %54 ], [ %46, %51 ]
   %.not48 = icmp eq ptr %3, null
   br i1 %.not48, label %62, label %61
 
 61:                                               ; preds = %60
-  store ptr %.2, ptr %3, align 8
+  store ptr %.039, ptr %3, align 8
   br label %64
 
 62:                                               ; preds = %60
-  %.not49 = icmp eq ptr %.2, null
+  %.not49 = icmp eq ptr %.039, null
   br i1 %.not49, label %64, label %63
 
 63:                                               ; preds = %62
-  tail call void @free(ptr noundef nonnull %.2) #22
+  tail call void @free(ptr noundef nonnull %.039) #22
   br label %64
 
 64:                                               ; preds = %63, %62, %61

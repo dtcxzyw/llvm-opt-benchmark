@@ -176,9 +176,9 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %72
   %.in = phi i32 [ %40, %72 ], [ %17, %.lr.ph68.preheader ]
-  %.04566 = phi i32 [ %.2, %72 ], [ 1, %.lr.ph68.preheader ]
+  %.04566 = phi i32 [ %.146, %72 ], [ 1, %.lr.ph68.preheader ]
   %.05065 = phi ptr [ %73, %72 ], [ %16, %.lr.ph68.preheader ]
-  %.05264 = phi ptr [ %.254, %72 ], [ %39, %.lr.ph68.preheader ]
+  %.05264 = phi ptr [ %.153, %72 ], [ %39, %.lr.ph68.preheader ]
   %40 = add nsw i32 %.in, -1
   %41 = load i32, ptr %5, align 4
   %42 = icmp sgt i32 %41, 0
@@ -241,15 +241,15 @@ define hidden range(i32 0, 2) i32 @GetXVisualInfo(ptr noundef %0, i32 noundef %1
   br label %70
 
 70:                                               ; preds = %60, %._crit_edge.thread
-  %.153 = phi ptr [ %69, %60 ], [ %.05264, %._crit_edge.thread ]
-  %.146 = phi i32 [ %61, %60 ], [ %.04566, %._crit_edge.thread ]
-  %71 = getelementptr inbounds i8, ptr %.153, i64 8
-  store ptr %.05065, ptr %.153, align 8
+  %.254 = phi ptr [ %69, %60 ], [ %.05264, %._crit_edge.thread ]
+  %.2 = phi i32 [ %61, %60 ], [ %.04566, %._crit_edge.thread ]
+  %71 = getelementptr inbounds i8, ptr %.254, i64 8
+  store ptr %.05065, ptr %.254, align 8
   br label %72
 
 72:                                               ; preds = %70, %._crit_edge
-  %.254 = phi ptr [ %71, %70 ], [ %.05264, %._crit_edge ]
-  %.2 = phi i32 [ %.146, %70 ], [ %.04566, %._crit_edge ]
+  %.153 = phi ptr [ %71, %70 ], [ %.05264, %._crit_edge ]
+  %.146 = phi i32 [ %.2, %70 ], [ %.04566, %._crit_edge ]
   %73 = getelementptr inbounds i8, ptr %.05065, i64 64
   %74 = icmp sgt i32 %.in, 1
   br i1 %74, label %.lr.ph68, label %.loopexit, !llvm.loop !9

@@ -1177,7 +1177,7 @@ for.cond108.preheader:                            ; preds = %lor.lhs.false
 for.body110:                                      ; preds = %for.cond108.preheader, %for.inc140
   %i107.0136 = phi i64 [ %inc141, %for.inc140 ], [ 0, %for.cond108.preheader ]
   %j.0135 = phi i64 [ %j.1, %for.inc140 ], [ 0, %for.cond108.preheader ]
-  %remaining.0134 = phi i64 [ %remaining.2, %for.inc140 ], [ %call21, %for.cond108.preheader ]
+  %remaining.0134 = phi i64 [ %remaining.1, %for.inc140 ], [ %call21, %for.cond108.preheader ]
   %arrayidx111 = getelementptr inbounds [64 x %struct.iovec], ptr %iov, i64 0, i64 %i107.0136
   %iov_len112 = getelementptr inbounds i8, ptr %arrayidx111, i64 8
   %52 = load i64, ptr %iov_len112, align 8
@@ -1213,7 +1213,7 @@ if.end138:                                        ; preds = %if.else129, %if.the
   br label %for.inc140
 
 for.inc140:                                       ; preds = %if.end138, %if.then114
-  %remaining.2 = phi i64 [ %sub, %if.then114 ], [ 0, %if.end138 ]
+  %remaining.1 = phi i64 [ %sub, %if.then114 ], [ 0, %if.end138 ]
   %j.1 = phi i64 [ %j.0135, %if.then114 ], [ %inc139, %if.end138 ]
   %inc141 = add nuw i64 %i107.0136, 1
   %exitcond144.not = icmp eq i64 %inc141, %iov_len.0
@@ -2957,19 +2957,19 @@ if.end:                                           ; preds = %_ZN17grpc_event_eng
   br i1 %cmp16.not, label %if.end19, label %if.then17
 
 if.then17:                                        ; preds = %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx13GetSendRecordEv.exit, %if.end
-  %zerocopy_send_record.022 = phi ptr [ %retval.0.i.i17, %if.end ], [ %retval.0.i.i, %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx13GetSendRecordEv.exit ]
-  %out_offset_.i = getelementptr inbounds i8, ptr %zerocopy_send_record.022, i64 272
+  %zerocopy_send_record.122 = phi ptr [ %retval.0.i.i17, %if.end ], [ %retval.0.i.i, %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx13GetSendRecordEv.exit ]
+  %out_offset_.i = getelementptr inbounds i8, ptr %zerocopy_send_record.122, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %out_offset_.i, i8 0, i64 16, i1 false)
-  tail call void @grpc_slice_buffer_swap(ptr noundef nonnull %zerocopy_send_record.022, ptr noundef nonnull %buf)
-  %ref_.i.i = getelementptr inbounds i8, ptr %zerocopy_send_record.022, i64 264
+  tail call void @grpc_slice_buffer_swap(ptr noundef nonnull %zerocopy_send_record.122, ptr noundef nonnull %buf)
+  %ref_.i.i = getelementptr inbounds i8, ptr %zerocopy_send_record.122, i64 264
   %17 = atomicrmw add ptr %ref_.i.i, i64 1 monotonic, align 8
   %outgoing_buffer_ = getelementptr inbounds i8, ptr %this, i64 360
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %outgoing_buffer_, i8 0, i64 16, i1 false)
   br label %if.end19
 
 if.end19:                                         ; preds = %entry, %if.end, %if.then17, %land.rhs
-  %zerocopy_send_record.1 = phi ptr [ %zerocopy_send_record.022, %if.then17 ], [ null, %if.end ], [ null, %land.rhs ], [ null, %entry ]
-  ret ptr %zerocopy_send_record.1
+  %zerocopy_send_record.0 = phi ptr [ %zerocopy_send_record.122, %if.then17 ], [ null, %if.end ], [ null, %land.rhs ], [ null, %entry ]
+  ret ptr %zerocopy_send_record.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3952,7 +3952,7 @@ if.then11.i:                                      ; preds = %if.else8.i
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.then11.i, %if.else8.i, %if.else.i, %if.then4.i
-  %constrained.1.shrunk = phi i1 [ %cmp.i17, %if.then4.i ], [ %cmp.i17, %if.else.i ], [ false, %if.else8.i ], [ false, %if.then11.i ]
+  %constrained.0.shrunk = phi i1 [ %cmp.i17, %if.then4.i ], [ %cmp.i17, %if.else.i ], [ false, %if.else8.i ], [ false, %if.then11.i ]
   %retval.0.i = phi i1 [ true, %if.then4.i ], [ %cmp.i17, %if.else.i ], [ false, %if.else8.i ], [ false, %if.then11.i ]
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i)
           to label %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemStateAfterSendEbRb.exit unwind label %terminate.lpad.i2.i
@@ -3968,7 +3968,7 @@ _ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemSt
   br i1 %retval.0.i, label %if.then19, label %if.end38
 
 if.then19:                                        ; preds = %_ZN17grpc_event_engine12experimental18TcpZerocopySendCtx34UpdateZeroCopyOptMemStateAfterSendEbRb.exit
-  br i1 %constrained.1.shrunk, label %do.body, label %if.then21
+  br i1 %constrained.0.shrunk, label %do.body, label %if.then21
 
 if.then21:                                        ; preds = %if.then19
   %30 = load ptr, ptr %handle_, align 8
@@ -7711,7 +7711,7 @@ invoke.cont97:                                    ; preds = %invoke.cont.i172, %
           to label %if.end101 unwind label %lpad59
 
 if.end101:                                        ; preds = %if.then88.invoke, %if.end66, %invoke.cont97, %land.end
-  %zerocopy_enabled.1 = phi i1 [ true, %invoke.cont97 ], [ false, %land.end ], [ false, %if.end66 ], [ false, %if.then88.invoke ]
+  %zerocopy_enabled.0 = phi i1 [ true, %invoke.cont97 ], [ false, %land.end ], [ false, %if.end66 ], [ false, %if.then88.invoke ]
   %call.i176179 = invoke noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #32
           to label %call.i176.noexc unwind label %lpad59
 
@@ -7721,7 +7721,7 @@ call.i176.noexc:                                  ; preds = %if.end101
   %113 = load i32, ptr %tcp_tx_zerocopy_max_simultaneous_sends, align 8, !noalias !89
   %114 = load i32, ptr %tcp_tx_zerocopy_send_bytes_threshold, align 4, !noalias !89
   %conv.i = sext i32 %114 to i64
-  invoke void @_ZN17grpc_event_engine12experimental18TcpZerocopySendCtxC2Ebim(ptr noundef nonnull align 8 dereferenceable(83) %call.i176179, i1 noundef zeroext %zerocopy_enabled.1, i32 noundef %113, i64 noundef %conv.i)
+  invoke void @_ZN17grpc_event_engine12experimental18TcpZerocopySendCtxC2Ebim(ptr noundef nonnull align 8 dereferenceable(83) %call.i176179, i1 noundef zeroext %zerocopy_enabled.0, i32 noundef %113, i64 noundef %conv.i)
           to label %invoke.cont103 unwind label %lpad.i177, !noalias !89
 
 lpad.i177:                                        ; preds = %call.i176.noexc
@@ -8845,7 +8845,7 @@ if.else:                                          ; preds = %lor.lhs.false
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont25, %lor.lhs.false, %if.else
-  %retval.0 = phi i64 [ %conv33, %if.else ], [ -1, %lor.lhs.false ], [ -1, %invoke.cont25 ]
+  %retval.2 = phi i64 [ %conv33, %if.else ], [ -1, %lor.lhs.false ], [ -1, %invoke.cont25 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %memlock_value_string) #28
   br label %cleanup35
 
@@ -8855,7 +8855,7 @@ ehcleanup:                                        ; preds = %lpad24, %lpad22
   br label %ehcleanup36
 
 cleanup35:                                        ; preds = %cleanup, %invoke.cont15
-  %retval.1 = phi i64 [ %retval.0, %cleanup ], [ 0, %invoke.cont15 ]
+  %retval.1 = phi i64 [ %retval.2, %cleanup ], [ 0, %invoke.cont15 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_contents) #28
   %.pr = load i64, ptr %result, align 8
   %cmp.i.i.i.i15 = icmp eq i64 %.pr, 0
@@ -8885,7 +8885,7 @@ terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i.i.i.i
   unreachable
 
 if.else.i.i:                                      ; preds = %invoke.cont2, %cleanup35
-  %retval.219 = phi i64 [ %retval.1, %cleanup35 ], [ 0, %invoke.cont2 ]
+  %retval.019 = phi i64 [ %retval.1, %cleanup35 ], [ 0, %invoke.cont2 ]
   %44 = phi i64 [ %.pr, %cleanup35 ], [ %3, %invoke.cont2 ]
   %and.i.i.i5.i.i = and i64 %44, 1
   %cmp.i.i.i6.i.i = icmp eq i64 %and.i.i.i5.i.i, 0
@@ -8903,8 +8903,8 @@ terminate.lpad.i8.i.i:                            ; preds = %if.then.i.i7.i.i
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIN9grpc_core5SliceEED2Ev.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %if.then.i.i2.i.i, %if.then.i.i.i.i.i, %if.else.i.i, %if.then.i.i7.i.i
-  %retval.218 = phi i64 [ %retval.1, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %retval.1, %if.then.i.i2.i.i ], [ %retval.1, %if.then.i.i.i.i.i ], [ %retval.219, %if.else.i.i ], [ %retval.219, %if.then.i.i7.i.i ]
-  ret i64 %retval.218
+  %retval.018 = phi i64 [ %retval.1, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %retval.1, %if.then.i.i2.i.i ], [ %retval.1, %if.then.i.i.i.i.i ], [ %retval.019, %if.else.i.i ], [ %retval.019, %if.then.i.i7.i.i ]
+  ret i64 %retval.018
 
 ehcleanup36:                                      ; preds = %ehcleanup, %lpad14
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad14 ]

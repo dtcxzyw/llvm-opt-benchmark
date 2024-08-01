@@ -1199,7 +1199,7 @@ define internal void @_ZL19pipeline_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwi
 
 10:                                               ; preds = %.lr.ph, %17
   %.sroa.6.sroa.4.0 = phi i64 [ 0, %.lr.ph ], [ %.sroa.6.sroa.4.1, %17 ]
-  %.sroa.0.019 = phi double [ %.sroa.0.0.copyload6, %.lr.ph ], [ %.sroa.0.1, %17 ]
+  %.sroa.0.019 = phi double [ %.sroa.0.0.copyload6, %.lr.ph ], [ %.sroa.0.2, %17 ]
   %.sroa.016.018 = phi ptr [ %.val12, %.lr.ph ], [ %18, %17 ]
   %11 = getelementptr inbounds i8, ptr %.sroa.016.018, i64 8
   %12 = load i8, ptr %11, align 8
@@ -1220,14 +1220,14 @@ define internal void @_ZL19pipeline_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwi
 
 17:                                               ; preds = %10, %14
   %.sroa.6.sroa.4.1 = phi i64 [ %.sroa.6.sroa.4.0, %10 ], [ %.sroa.6.sroa.4.0.copyload22, %14 ]
-  %.sroa.0.1 = phi double [ %.sroa.0.019, %10 ], [ %.sroa.0.0.copyload5, %14 ]
+  %.sroa.0.2 = phi double [ %.sroa.0.019, %10 ], [ %.sroa.0.0.copyload5, %14 ]
   %18 = getelementptr inbounds i8, ptr %.sroa.016.018, i64 16
   %.not = icmp eq ptr %18, %.val
   br i1 %.not, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %17, %14, %3
-  %.sroa.0.2 = phi double [ %.sroa.0.0.copyload6, %3 ], [ 0x7FF0000000000000, %14 ], [ %.sroa.0.1, %17 ]
-  store double %.sroa.0.2, ptr %0, align 8
+  %.sroa.0.1 = phi double [ %.sroa.0.0.copyload6, %3 ], [ 0x7FF0000000000000, %14 ], [ %.sroa.0.2, %17 ]
+  store double %.sroa.0.1, ptr %0, align 8
   %.sroa.6.0..sroa_idx10 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, i64 16, i1 false)
   ret void
@@ -1260,7 +1260,7 @@ define internal void @_ZL19pipeline_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwi
 10:                                               ; preds = %.lr.ph, %18
   %.sroa.6.sroa.4.0 = phi i64 [ 0, %.lr.ph ], [ %.sroa.6.sroa.4.1, %18 ]
   %.val1123 = phi ptr [ %.val1116, %.lr.ph ], [ %.val11, %18 ]
-  %.sroa.0.019 = phi double [ %.sroa.0.0.copyload5, %.lr.ph ], [ %.sroa.0.1, %18 ]
+  %.sroa.0.019 = phi double [ %.sroa.0.0.copyload5, %.lr.ph ], [ %.sroa.0.2, %18 ]
   %.sroa.015.018 = phi ptr [ %.val, %.lr.ph ], [ %11, %18 ]
   %11 = getelementptr inbounds i8, ptr %.sroa.015.018, i64 -16
   %12 = getelementptr inbounds i8, ptr %.sroa.015.018, i64 -7
@@ -1287,13 +1287,13 @@ define internal void @_ZL19pipeline_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwi
 18:                                               ; preds = %._crit_edge22, %10
   %.sroa.6.sroa.4.1 = phi i64 [ %.sroa.6.sroa.4.0, %10 ], [ %.sroa.6.sroa.4.0.copyload25, %._crit_edge22 ]
   %.val11 = phi ptr [ %.val1123, %10 ], [ %.val11.pre, %._crit_edge22 ]
-  %.sroa.0.1 = phi double [ %.sroa.0.019, %10 ], [ %.sroa.0.0.copyload4, %._crit_edge22 ]
+  %.sroa.0.2 = phi double [ %.sroa.0.019, %10 ], [ %.sroa.0.0.copyload4, %._crit_edge22 ]
   %.not = icmp eq ptr %11, %.val11
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %18, %15, %3
-  %.sroa.0.2 = phi double [ %.sroa.0.0.copyload5, %3 ], [ 0x7FF0000000000000, %15 ], [ %.sroa.0.1, %18 ]
-  store double %.sroa.0.2, ptr %0, align 8
+  %.sroa.0.1 = phi double [ %.sroa.0.0.copyload5, %3 ], [ 0x7FF0000000000000, %15 ], [ %.sroa.0.2, %18 ]
+  store double %.sroa.0.1, ptr %0, align 8
   %.sroa.6.0..sroa_idx9 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.sroa.0, i64 16, i1 false)
   ret void
@@ -1322,8 +1322,8 @@ define internal { double, double } @_ZL16pipeline_forward5PJ_LPP8PJconsts(double
   br label %10
 
 10:                                               ; preds = %.lr.ph, %17
-  %.sroa.6.sroa.0.025 = phi double [ %1, %.lr.ph ], [ %.sroa.6.sroa.0.1, %17 ]
-  %.sroa.0.024 = phi double [ %0, %.lr.ph ], [ %.sroa.0.1, %17 ]
+  %.sroa.6.sroa.0.025 = phi double [ %1, %.lr.ph ], [ %.sroa.6.sroa.0.2, %17 ]
+  %.sroa.0.024 = phi double [ %0, %.lr.ph ], [ %.sroa.0.2, %17 ]
   %.sroa.021.023 = phi ptr [ %.val17, %.lr.ph ], [ %18, %17 ]
   %11 = getelementptr inbounds i8, ptr %.sroa.021.023, i64 8
   %12 = load i8, ptr %11, align 8
@@ -1343,17 +1343,17 @@ define internal { double, double } @_ZL16pipeline_forward5PJ_LPP8PJconsts(double
   br i1 %16, label %._crit_edge, label %17
 
 17:                                               ; preds = %10, %14
-  %.sroa.0.1 = phi double [ %.sroa.0.024, %10 ], [ %.sroa.0.0.copyload5, %14 ]
-  %.sroa.6.sroa.0.1 = phi double [ %.sroa.6.sroa.0.025, %10 ], [ %.sroa.6.sroa.0.0.copyload13, %14 ]
+  %.sroa.0.2 = phi double [ %.sroa.0.024, %10 ], [ %.sroa.0.0.copyload5, %14 ]
+  %.sroa.6.sroa.0.2 = phi double [ %.sroa.6.sroa.0.025, %10 ], [ %.sroa.6.sroa.0.0.copyload13, %14 ]
   %18 = getelementptr inbounds i8, ptr %.sroa.021.023, i64 16
   %.not = icmp eq ptr %18, %.val
   br i1 %.not, label %._crit_edge, label %10
 
 ._crit_edge:                                      ; preds = %17, %14, %3
-  %.sroa.0.2 = phi double [ %0, %3 ], [ 0x7FF0000000000000, %14 ], [ %.sroa.0.1, %17 ]
-  %.sroa.6.sroa.0.2 = phi double [ %1, %3 ], [ %.sroa.6.sroa.0.0.copyload13, %14 ], [ %.sroa.6.sroa.0.1, %17 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.2, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.sroa.0.2, 1
+  %.sroa.0.1 = phi double [ %0, %3 ], [ 0x7FF0000000000000, %14 ], [ %.sroa.0.2, %17 ]
+  %.sroa.6.sroa.0.1 = phi double [ %1, %3 ], [ %.sroa.6.sroa.0.0.copyload13, %14 ], [ %.sroa.6.sroa.0.2, %17 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.1, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.sroa.0.1, 1
   ret { double, double } %.fca.1.insert
 }
 
@@ -1381,8 +1381,8 @@ define internal { double, double } @_ZL16pipeline_reverse5PJ_XYP8PJconsts(double
 
 10:                                               ; preds = %.lr.ph, %18
   %.val1631 = phi ptr [ %.val1621, %.lr.ph ], [ %.val16, %18 ]
-  %.sroa.6.sroa.0.025 = phi double [ %1, %.lr.ph ], [ %.sroa.6.sroa.0.1, %18 ]
-  %.sroa.0.024 = phi double [ %0, %.lr.ph ], [ %.sroa.0.1, %18 ]
+  %.sroa.6.sroa.0.025 = phi double [ %1, %.lr.ph ], [ %.sroa.6.sroa.0.2, %18 ]
+  %.sroa.0.024 = phi double [ %0, %.lr.ph ], [ %.sroa.0.2, %18 ]
   %.sroa.020.023 = phi ptr [ %.val, %.lr.ph ], [ %11, %18 ]
   %11 = getelementptr inbounds i8, ptr %.sroa.020.023, i64 -16
   %12 = getelementptr inbounds i8, ptr %.sroa.020.023, i64 -7
@@ -1408,16 +1408,16 @@ define internal { double, double } @_ZL16pipeline_reverse5PJ_XYP8PJconsts(double
 
 18:                                               ; preds = %._crit_edge30, %10
   %.val16 = phi ptr [ %.val1631, %10 ], [ %.val16.pre, %._crit_edge30 ]
-  %.sroa.0.1 = phi double [ %.sroa.0.024, %10 ], [ %.sroa.0.0.copyload4, %._crit_edge30 ]
-  %.sroa.6.sroa.0.1 = phi double [ %.sroa.6.sroa.0.025, %10 ], [ %.sroa.6.sroa.0.0.copyload12, %._crit_edge30 ]
+  %.sroa.0.2 = phi double [ %.sroa.0.024, %10 ], [ %.sroa.0.0.copyload4, %._crit_edge30 ]
+  %.sroa.6.sroa.0.2 = phi double [ %.sroa.6.sroa.0.025, %10 ], [ %.sroa.6.sroa.0.0.copyload12, %._crit_edge30 ]
   %.not = icmp eq ptr %11, %.val16
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %18, %15, %3
-  %.sroa.0.2 = phi double [ %0, %3 ], [ 0x7FF0000000000000, %15 ], [ %.sroa.0.1, %18 ]
-  %.sroa.6.sroa.0.2 = phi double [ %1, %3 ], [ %.sroa.6.sroa.0.0.copyload12, %15 ], [ %.sroa.6.sroa.0.1, %18 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.2, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.sroa.0.2, 1
+  %.sroa.0.1 = phi double [ %0, %3 ], [ 0x7FF0000000000000, %15 ], [ %.sroa.0.2, %18 ]
+  %.sroa.6.sroa.0.1 = phi double [ %1, %3 ], [ %.sroa.6.sroa.0.0.copyload12, %15 ], [ %.sroa.6.sroa.0.2, %18 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0.1, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.sroa.0.1, 1
   ret { double, double } %.fca.1.insert
 }
 

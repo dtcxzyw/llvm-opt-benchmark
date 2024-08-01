@@ -2289,8 +2289,8 @@ for.body.i:                                       ; preds = %if.then288, %for.in
   %12 = phi i32 [ %17, %for.inc.i ], [ %11, %if.then288 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then288 ]
   %active_modules.sroa.11.025.i = phi i32 [ %active_modules.sroa.11.1.i, %for.inc.i ], [ 0, %if.then288 ]
-  %active_modules.sroa.5.024.i = phi i32 [ %active_modules.sroa.5.3.i, %for.inc.i ], [ 0, %if.then288 ]
-  %active_modules.sroa.0.023.i = phi ptr [ %active_modules.sroa.0.2.i, %for.inc.i ], [ null, %if.then288 ]
+  %active_modules.sroa.5.024.i = phi i32 [ %active_modules.sroa.5.1.i, %for.inc.i ], [ 0, %if.then288 ]
+  %active_modules.sroa.0.023.i = phi ptr [ %active_modules.sroa.0.1.i, %for.inc.i ], [ null, %if.then288 ]
   %13 = load ptr, ptr %list278, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.i
   %14 = load ptr, ptr %arrayidx.i, align 8
@@ -2325,18 +2325,18 @@ st_mult.exit.i:                                   ; preds = %if.then3.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %st_mult.exit.i, %do.body.i
-  %active_modules.sroa.0.1.i = phi ptr [ %call22.i, %st_mult.exit.i ], [ %active_modules.sroa.0.023.i, %do.body.i ]
-  %active_modules.sroa.5.2.i = phi i32 [ %div.add.i, %st_mult.exit.i ], [ %active_modules.sroa.5.024.i, %do.body.i ]
+  %active_modules.sroa.0.2.i = phi ptr [ %call22.i, %st_mult.exit.i ], [ %active_modules.sroa.0.023.i, %do.body.i ]
+  %active_modules.sroa.5.3.i = phi i32 [ %div.add.i, %st_mult.exit.i ], [ %active_modules.sroa.5.024.i, %do.body.i ]
   %idxprom27.i = sext i32 %active_modules.sroa.11.025.i to i64
-  %arrayidx28.i = getelementptr inbounds ptr, ptr %active_modules.sroa.0.1.i, i64 %idxprom27.i
+  %arrayidx28.i = getelementptr inbounds ptr, ptr %active_modules.sroa.0.2.i, i64 %idxprom27.i
   store ptr %14, ptr %arrayidx28.i, align 8
   %.pre71 = load i32, ptr %nr.i, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %do.end.i, %for.body.i
   %17 = phi i32 [ %.pre71, %do.end.i ], [ %12, %for.body.i ]
-  %active_modules.sroa.0.2.i = phi ptr [ %active_modules.sroa.0.1.i, %do.end.i ], [ %active_modules.sroa.0.023.i, %for.body.i ]
-  %active_modules.sroa.5.3.i = phi i32 [ %active_modules.sroa.5.2.i, %do.end.i ], [ %active_modules.sroa.5.024.i, %for.body.i ]
+  %active_modules.sroa.0.1.i = phi ptr [ %active_modules.sroa.0.2.i, %do.end.i ], [ %active_modules.sroa.0.023.i, %for.body.i ]
+  %active_modules.sroa.5.1.i = phi i32 [ %active_modules.sroa.5.3.i, %do.end.i ], [ %active_modules.sroa.5.024.i, %for.body.i ]
   %active_modules.sroa.11.1.i = phi i32 [ %add.i, %do.end.i ], [ %active_modules.sroa.11.025.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %18 = sext i32 %17 to i64
@@ -2344,8 +2344,8 @@ for.inc.i:                                        ; preds = %do.end.i, %for.body
   br i1 %cmp.i, label %for.body.i, label %module_list_active.exit, !llvm.loop !7
 
 module_list_active.exit:                          ; preds = %for.inc.i, %if.then288
-  %active_modules.sroa.0.0.lcssa.i = phi ptr [ null, %if.then288 ], [ %active_modules.sroa.0.2.i, %for.inc.i ]
-  %active_modules.sroa.5.0.lcssa.i = phi i32 [ 0, %if.then288 ], [ %active_modules.sroa.5.3.i, %for.inc.i ]
+  %active_modules.sroa.0.0.lcssa.i = phi ptr [ null, %if.then288 ], [ %active_modules.sroa.0.1.i, %for.inc.i ]
+  %active_modules.sroa.5.0.lcssa.i = phi i32 [ 0, %if.then288 ], [ %active_modules.sroa.5.1.i, %for.inc.i ]
   %active_modules.sroa.11.0.lcssa.i = phi i32 [ 0, %if.then288 ], [ %active_modules.sroa.11.1.i, %for.inc.i ]
   %list.val.i = load ptr, ptr %list278, align 8
   call void @free(ptr noundef %list.val.i) #19
@@ -2468,7 +2468,7 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
 
 for.body.i15:                                     ; preds = %for.inc.i19, %for.body.lr.ph.i
   %indvars.iv.i16 = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i20, %for.inc.i19 ]
-  %ret.068.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %ret.1.i, %for.inc.i19 ]
+  %ret.168.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %ret.2.i, %for.inc.i19 ]
   %27 = load ptr, ptr %update_clone.i, align 8
   %arrayidx.i17 = getelementptr inbounds %struct.update_clone_data, ptr %27, i64 %indvars.iv.i16
   %ucd.sroa.0.0.copyload.i = load ptr, ptr %arrayidx.i17, align 8
@@ -3656,7 +3656,7 @@ for.inc.fold.split.i:                             ; preds = %fail.i
   br label %for.inc.i19
 
 for.inc.i19:                                      ; preds = %for.inc.fold.split.i, %fail.i
-  %ret.1.i = phi i32 [ %ret.068.i, %fail.i ], [ %code.0.i, %for.inc.fold.split.i ]
+  %ret.2.i = phi i32 [ %ret.168.i, %fail.i ], [ %code.0.i, %for.inc.fold.split.i ]
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i16, 1
   %145 = load i32, ptr %update_clone_nr.i, align 8
   %146 = sext i32 %145 to i64
@@ -3664,7 +3664,7 @@ for.inc.i19:                                      ; preds = %for.inc.fold.split.
   br i1 %cmp.i21, label %for.body.i15, label %update_submodules.exit, !llvm.loop !10
 
 update_submodules.exit:                           ; preds = %fail.i, %for.inc.i19, %if.end299, %for.cond.preheader.i
-  %ret.2.i = phi i32 [ 1, %if.end299 ], [ 0, %for.cond.preheader.i ], [ %code.0.i, %fail.i ], [ %ret.1.i, %for.inc.i19 ]
+  %ret.0.i = phi i32 [ 1, %if.end299 ], [ 0, %for.cond.preheader.i ], [ %code.0.i, %fail.i ], [ %ret.2.i, %for.inc.i19 ]
   %update_clone.i.i = getelementptr inbounds i8, ptr %suc.i, i64 16
   %147 = load ptr, ptr %update_clone.i.i, align 8
   call void @free(ptr noundef %147) #19
@@ -3677,7 +3677,7 @@ update_submodules.exit:                           ; preds = %fail.i, %for.inc.i1
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end268, %update_submodules.exit, %if.then282
-  %ret.0 = phi i32 [ 1, %if.then282 ], [ %ret.2.i, %update_submodules.exit ], [ 1, %if.end268 ]
+  %ret.0 = phi i32 [ 1, %if.then282 ], [ %ret.0.i, %update_submodules.exit ], [ 1, %if.end268 ]
   %displaypath.i22 = getelementptr inbounds i8, ptr %opt, i64 16
   %149 = load ptr, ptr %displaypath.i22, align 16
   call void @free(ptr noundef %149) #19
@@ -4029,8 +4029,8 @@ for.body.i:                                       ; preds = %if.then11, %for.inc
   %2 = phi i32 [ %7, %for.inc.i ], [ %1, %if.then11 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %if.then11 ]
   %active_modules.sroa.11.025.i = phi i32 [ %active_modules.sroa.11.1.i, %for.inc.i ], [ 0, %if.then11 ]
-  %active_modules.sroa.5.024.i = phi i32 [ %active_modules.sroa.5.3.i, %for.inc.i ], [ 0, %if.then11 ]
-  %active_modules.sroa.0.023.i = phi ptr [ %active_modules.sroa.0.2.i, %for.inc.i ], [ null, %if.then11 ]
+  %active_modules.sroa.5.024.i = phi i32 [ %active_modules.sroa.5.1.i, %for.inc.i ], [ 0, %if.then11 ]
+  %active_modules.sroa.0.023.i = phi ptr [ %active_modules.sroa.0.1.i, %for.inc.i ], [ null, %if.then11 ]
   %3 = load ptr, ptr %list, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx.i, align 8
@@ -4065,18 +4065,18 @@ st_mult.exit.i:                                   ; preds = %if.then3.i
   br label %do.end.i
 
 do.end.i:                                         ; preds = %st_mult.exit.i, %do.body.i
-  %active_modules.sroa.0.1.i = phi ptr [ %call22.i, %st_mult.exit.i ], [ %active_modules.sroa.0.023.i, %do.body.i ]
-  %active_modules.sroa.5.2.i = phi i32 [ %div.add.i, %st_mult.exit.i ], [ %active_modules.sroa.5.024.i, %do.body.i ]
+  %active_modules.sroa.0.2.i = phi ptr [ %call22.i, %st_mult.exit.i ], [ %active_modules.sroa.0.023.i, %do.body.i ]
+  %active_modules.sroa.5.3.i = phi i32 [ %div.add.i, %st_mult.exit.i ], [ %active_modules.sroa.5.024.i, %do.body.i ]
   %idxprom27.i = sext i32 %active_modules.sroa.11.025.i to i64
-  %arrayidx28.i = getelementptr inbounds ptr, ptr %active_modules.sroa.0.1.i, i64 %idxprom27.i
+  %arrayidx28.i = getelementptr inbounds ptr, ptr %active_modules.sroa.0.2.i, i64 %idxprom27.i
   store ptr %4, ptr %arrayidx28.i, align 8
   %.pre = load i32, ptr %nr.i, align 4
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %do.end.i, %for.body.i
   %7 = phi i32 [ %.pre, %do.end.i ], [ %2, %for.body.i ]
-  %active_modules.sroa.0.2.i = phi ptr [ %active_modules.sroa.0.1.i, %do.end.i ], [ %active_modules.sroa.0.023.i, %for.body.i ]
-  %active_modules.sroa.5.3.i = phi i32 [ %active_modules.sroa.5.2.i, %do.end.i ], [ %active_modules.sroa.5.024.i, %for.body.i ]
+  %active_modules.sroa.0.1.i = phi ptr [ %active_modules.sroa.0.2.i, %do.end.i ], [ %active_modules.sroa.0.023.i, %for.body.i ]
+  %active_modules.sroa.5.1.i = phi i32 [ %active_modules.sroa.5.3.i, %do.end.i ], [ %active_modules.sroa.5.024.i, %for.body.i ]
   %active_modules.sroa.11.1.i = phi i32 [ %add.i, %do.end.i ], [ %active_modules.sroa.11.025.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %8 = sext i32 %7 to i64
@@ -4084,7 +4084,7 @@ for.inc.i:                                        ; preds = %do.end.i, %for.body
   br i1 %cmp.i, label %for.body.i, label %module_list_active.exit, !llvm.loop !7
 
 module_list_active.exit:                          ; preds = %for.inc.i, %if.then11
-  %active_modules.sroa.0.0.lcssa.i = phi ptr [ null, %if.then11 ], [ %active_modules.sroa.0.2.i, %for.inc.i ]
+  %active_modules.sroa.0.0.lcssa.i = phi ptr [ null, %if.then11 ], [ %active_modules.sroa.0.1.i, %for.inc.i ]
   %active_modules.sroa.11.0.lcssa.i = phi i32 [ 0, %if.then11 ], [ %active_modules.sroa.11.1.i, %for.inc.i ]
   %list.val.i = load ptr, ptr %list, align 8
   call void @free(ptr noundef %list.val.i) #19
@@ -7120,8 +7120,8 @@ for.inc.loopexit.split.loop.exit34:               ; preds = %land.rhs
   br label %for.inc
 
 for.inc:                                          ; preds = %while.cond, %for.inc.loopexit.split.loop.exit34, %for.body, %lor.lhs.false
-  %i.2 = phi i32 [ %i.031, %lor.lhs.false ], [ %i.031, %for.body ], [ %19, %for.inc.loopexit.split.loop.exit34 ], [ %16, %while.cond ]
-  %inc58 = add nuw nsw i32 %i.2, 1
+  %i.1 = phi i32 [ %i.031, %lor.lhs.false ], [ %i.031, %for.body ], [ %19, %for.inc.loopexit.split.loop.exit34 ], [ %16, %while.cond ]
+  %inc58 = add nuw nsw i32 %i.1, 1
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @the_index, i64 12), align 4
   %cmp7 = icmp ult i32 %inc58, %20
   br i1 %cmp7, label %for.body, label %for.end, !llvm.loop !17
@@ -7929,7 +7929,7 @@ if.end53thread-pre-split:                         ; preds = %strbuf_setlen.exit
 
 if.end53:                                         ; preds = %if.end53thread-pre-split, %if.then47, %if.else50
   %37 = phi ptr [ %.pr, %if.end53thread-pre-split ], [ %call49, %if.then47 ], [ %36, %if.else50 ]
-  %need_free_url.0 = phi i32 [ 0, %if.end53thread-pre-split ], [ 1, %if.then47 ], [ 0, %if.else50 ]
+  %need_free_url.1 = phi i32 [ 0, %if.end53thread-pre-split ], [ 1, %if.then47 ], [ 0, %if.else50 ]
   %tobool54.not = icmp eq ptr %37, null
   br i1 %tobool54.not, label %if.then55, label %if.end58
 
@@ -8189,10 +8189,10 @@ if.then199:                                       ; preds = %if.end195
 
 cleanup:                                          ; preds = %if.end195, %if.then199, %do.end, %if.then31, %strbuf_addch.exit122, %if.then7, %strbuf_addch.exit
   %needs_cloning.0 = phi i32 [ 0, %strbuf_addch.exit ], [ 0, %strbuf_addch.exit122 ], [ %lnot.ext, %if.then199 ], [ %lnot.ext, %if.end195 ], [ 0, %do.end ], [ 0, %if.then31 ], [ 0, %if.then7 ]
-  %need_free_url.1 = phi i32 [ 0, %strbuf_addch.exit ], [ 0, %strbuf_addch.exit122 ], [ %need_free_url.0, %if.then199 ], [ %need_free_url.0, %if.end195 ], [ %need_free_url.0, %do.end ], [ 0, %if.then31 ], [ 0, %if.then7 ]
+  %need_free_url.0 = phi i32 [ 0, %strbuf_addch.exit ], [ 0, %strbuf_addch.exit122 ], [ %need_free_url.1, %if.then199 ], [ %need_free_url.1, %if.end195 ], [ %need_free_url.1, %do.end ], [ 0, %if.then31 ], [ 0, %if.then7 ]
   call void @free(ptr noundef %retval.0.i) #19
   call void @strbuf_release(ptr noundef nonnull %sb) #19
-  %tobool206.not = icmp eq i32 %need_free_url.1, 0
+  %tobool206.not = icmp eq i32 %need_free_url.0, 0
   br i1 %tobool206.not, label %if.end208, label %if.then207
 
 if.then207:                                       ; preds = %cleanup

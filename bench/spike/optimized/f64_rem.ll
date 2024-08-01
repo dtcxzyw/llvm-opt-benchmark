@@ -111,11 +111,11 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %48, %.lr.ph
   %58 = phi i64 [ %67, %.lr.ph ], [ %56, %48 ]
-  %.0101139 = phi i64 [ %spec.select130, %.lr.ph ], [ %52, %48 ]
+  %.1102139 = phi i64 [ %spec.select130, %.lr.ph ], [ %52, %48 ]
   %.0106138 = phi i64 [ %65, %.lr.ph ], [ %53, %48 ]
   %59 = add nuw i64 %58, 2147483648
   %60 = lshr i64 %59, 32
-  %61 = shl i64 %.0101139, 29
+  %61 = shl i64 %.1102139, 29
   %62 = mul i64 %60, %54
   %63 = sub i64 %61, %62
   %.not120134 = icmp slt i64 %63, 0
@@ -129,7 +129,7 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %48
   %.0106.lcssa = phi i64 [ %53, %48 ], [ %65, %.lr.ph ]
-  %.0101.lcssa = phi i64 [ %52, %48 ], [ %spec.select130, %.lr.ph ]
+  %.1102.lcssa = phi i64 [ %52, %48 ], [ %spec.select130, %.lr.ph ]
   %.lcssa137 = phi i64 [ %56, %48 ], [ %67, %.lr.ph ]
   %69 = lshr i64 %.lcssa137, 32
   %70 = trunc nuw i64 %69 to i32
@@ -138,7 +138,7 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
   %73 = xor i32 %72, 31
   %74 = lshr i32 %70, %73
   %75 = add nsw i64 %.0106.lcssa, 30
-  %76 = shl i64 %.0101.lcssa, %75
+  %76 = shl i64 %.1102.lcssa, %75
   %77 = zext i32 %74 to i64
   %78 = mul i64 %54, %77
   %79 = sub i64 %76, %78
@@ -151,29 +151,29 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
 
 82:                                               ; preds = %43, %._crit_edge, %41
   %.0103 = phi i32 [ 0, %41 ], [ %74, %._crit_edge ], [ %46, %43 ]
-  %.2 = phi i64 [ %42, %41 ], [ %79, %._crit_edge ], [ %spec.select, %43 ]
+  %.0101 = phi i64 [ %42, %41 ], [ %79, %._crit_edge ], [ %spec.select, %43 ]
   %.1 = phi i64 [ %40, %41 ], [ %54, %._crit_edge ], [ %40, %43 ]
   br label %83
 
 83:                                               ; preds = %83, %82
-  %.1104 = phi i32 [ %.0103, %82 ], [ %84, %83 ]
-  %.3 = phi i64 [ %.2, %82 ], [ %85, %83 ]
-  %84 = add i32 %.1104, 1
-  %85 = sub i64 %.3, %.1
+  %.2105 = phi i32 [ %.0103, %82 ], [ %84, %83 ]
+  %.4 = phi i64 [ %.0101, %82 ], [ %85, %83 ]
+  %84 = add i32 %.2105, 1
+  %85 = sub i64 %.4, %.1
   %.not123 = icmp sgt i64 %85, -1
   br i1 %.not123, label %83, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %83, %80
-  %.2105 = phi i32 [ %74, %80 ], [ %84, %83 ]
-  %.4 = phi i64 [ %79, %80 ], [ %85, %83 ]
-  %.0100 = phi i64 [ %81, %80 ], [ %.3, %83 ]
-  %86 = add i64 %.0100, %.4
+  %.1104 = phi i32 [ %74, %80 ], [ %84, %83 ]
+  %.3 = phi i64 [ %79, %80 ], [ %85, %83 ]
+  %.0100 = phi i64 [ %81, %80 ], [ %.4, %83 ]
+  %86 = add i64 %.0100, %.3
   %.not124 = icmp sgt i64 %86, -1
   br i1 %.not124, label %87, label %89
 
 87:                                               ; preds = %.loopexit
   %.not125 = icmp ne i64 %86, 0
-  %88 = and i32 %.2105, 1
+  %88 = and i32 %.1104, 1
   %.not126 = icmp eq i32 %88, 0
   %or.cond131 = select i1 %.not125, i1 true, i1 %.not126
   br i1 %or.cond131, label %90, label %89
@@ -182,7 +182,7 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
   br label %90
 
 90:                                               ; preds = %89, %87
-  %.5 = phi i64 [ %.0100, %89 ], [ %.4, %87 ]
+  %.5 = phi i64 [ %.0100, %89 ], [ %.3, %87 ]
   %spec.select132 = tail call i64 @llvm.abs.i64(i64 %.5, i1 false)
   %91 = xor i64 %.5, %0
   %spec.select133 = icmp slt i64 %91, 0

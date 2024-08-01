@@ -924,7 +924,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZNK5Yosys6SigMap5a
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit
   %352 = phi ptr [ %349, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit ], [ %.pre927, %._crit_edge.loopexit ]
-  %.154.lcssa = phi i32 [ %.053816, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit ], [ %.356, %._crit_edge.loopexit ]
+  %.154.lcssa = phi i32 [ %.053816, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit ], [ %.255, %._crit_edge.loopexit ]
   %.151.lcssa = phi i32 [ %.050817, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit ], [ %.252, %._crit_edge.loopexit ]
   %.not.i.i.i.i86 = icmp eq ptr %352, null
   br i1 %.not.i.i.i.i86, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i87, label %353
@@ -1012,7 +1012,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit98:               ; preds = %_ZSt8_DestroyIPN5Yo
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit189
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit189 ]
   %.151812 = phi i32 [ %.050817, %.lr.ph.preheader ], [ %.252, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit189 ]
-  %.154811 = phi i32 [ %.053816, %.lr.ph.preheader ], [ %.356, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit189 ]
+  %.154811 = phi i32 [ %.053816, %.lr.ph.preheader ], [ %.255, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit189 ]
   %367 = load ptr, ptr %63, align 8
   %368 = load ptr, ptr %64, align 8
   %369 = icmp eq ptr %367, %368
@@ -2387,7 +2387,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i187: ; preds = 
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit189
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit189:              ; preds = %566, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i, %933, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i187, %378
-  %.356 = phi i32 [ %.154811, %378 ], [ %922, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i187 ], [ %922, %933 ], [ %.154811, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i ], [ %.154811, %566 ]
+  %.255 = phi i32 [ %.154811, %378 ], [ %922, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i187 ], [ %922, %933 ], [ %.154811, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i ], [ %.154811, %566 ]
   %.252 = phi i32 [ %.151812, %378 ], [ %923, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i187 ], [ %923, %933 ], [ %.151812, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.i.us.i ], [ %.151812, %566 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not427 = icmp eq i64 %indvars.iv.next, %351

@@ -524,18 +524,18 @@ if.then4:                                         ; preds = %do.body.i3, %do.bod
   br i1 %tobool5.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %do.cond.i17, %if.then4
-  %arg.addr.4 = phi ptr [ %scevgep, %if.then4 ], [ %arg, %do.cond.i17 ]
+  %arg.addr.0 = phi ptr [ %scevgep, %if.then4 ], [ %arg, %do.cond.i17 ]
   %tobool10.not = icmp eq ptr %prefix, null
   br i1 %tobool10.not, label %if.end13, label %if.then11
 
 if.then11:                                        ; preds = %if.end9
-  %call12 = tail call ptr @prefix_filename(ptr noundef nonnull %prefix, ptr noundef %arg.addr.4) #21
+  %call12 = tail call ptr @prefix_filename(ptr noundef nonnull %prefix, ptr noundef %arg.addr.0) #21
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then, %if.then11, %if.end9
-  %arg.addr.5 = phi ptr [ %arg.addr.4, %if.end9 ], [ %call12, %if.then11 ], [ %scevgep, %if.then ]
+  %arg.addr.2 = phi ptr [ %arg.addr.0, %if.end9 ], [ %call12, %if.then11 ], [ %scevgep, %if.then ]
   %to_free.0 = phi ptr [ null, %if.end9 ], [ %call12, %if.then11 ], [ null, %if.then ]
-  %call14 = call i32 @lstat64(ptr noundef %arg.addr.5, ptr noundef nonnull %st) #21
+  %call14 = call i32 @lstat64(ptr noundef %arg.addr.2, ptr noundef nonnull %st) #21
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return.sink.split, label %if.end17
 
@@ -549,7 +549,7 @@ if.end17:                                         ; preds = %if.end13
 
 if.end22:                                         ; preds = %if.end17
   %call23 = tail call fastcc ptr @_(ptr noundef nonnull @.str.6)
-  tail call void (ptr, ...) @die_errno(ptr noundef %call23, ptr noundef %arg.addr.5) #22
+  tail call void (ptr, ...) @die_errno(ptr noundef %call23, ptr noundef %arg.addr.2) #22
   unreachable
 
 return.sink.split:                                ; preds = %if.end17, %if.end17, %if.end13
@@ -1303,21 +1303,21 @@ if.then39:                                        ; preds = %land.lhs.true
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then39, %land.lhs.true, %if.end33
-  %dir.0 = phi ptr [ %add.ptr, %if.end33 ], [ %call45, %if.then39 ], [ %add.ptr, %land.lhs.true ]
-  %buf.0 = phi ptr [ %call11, %if.end33 ], [ %call45, %if.then39 ], [ %call11, %land.lhs.true ]
-  %call47 = tail call i32 @is_git_directory(ptr noundef %dir.0)
+  %dir.1 = phi ptr [ %add.ptr, %if.end33 ], [ %call45, %if.then39 ], [ %add.ptr, %land.lhs.true ]
+  %buf.1 = phi ptr [ %call11, %if.end33 ], [ %call45, %if.then39 ], [ %call11, %land.lhs.true ]
+  %call47 = tail call i32 @is_git_directory(ptr noundef %dir.1)
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %cleanup_return, label %cleanup_return.thread
 
 cleanup_return:                                   ; preds = %if.end46, %while.end, %if.end18, %if.end9, %if.end5, %if.end2, %if.end, %entry
-  %dir.1 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end2 ], [ null, %if.end5 ], [ null, %if.end9 ], [ null, %if.end18 ], [ null, %while.end ], [ %dir.0, %if.end46 ]
-  %buf.1 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end2 ], [ null, %if.end5 ], [ %call11, %if.end9 ], [ %call11, %if.end18 ], [ %call11, %while.end ], [ %buf.0, %if.end46 ]
+  %dir.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end2 ], [ null, %if.end5 ], [ null, %if.end9 ], [ null, %if.end18 ], [ null, %while.end ], [ %dir.1, %if.end46 ]
+  %buf.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ null, %if.end2 ], [ null, %if.end5 ], [ %call11, %if.end9 ], [ %call11, %if.end18 ], [ %call11, %while.end ], [ %buf.1, %if.end46 ]
   %error_code.0 = phi i32 [ 1, %entry ], [ 2, %if.end ], [ 8, %if.end2 ], [ 3, %if.end5 ], [ 4, %if.end9 ], [ 5, %if.end18 ], [ 6, %while.end ], [ 7, %if.end46 ]
   %tobool52.not = icmp eq ptr %return_error_code, null
   br i1 %tobool52.not, label %if.end57.thread58, label %if.end57
 
 cleanup_return.thread:                            ; preds = %if.end46
-  %call51 = tail call ptr @strbuf_realpath(ptr noundef nonnull @read_gitfile_gently.realpath, ptr noundef %dir.0, i32 noundef 1) #21
+  %call51 = tail call ptr @strbuf_realpath(ptr noundef nonnull @read_gitfile_gently.realpath, ptr noundef %dir.1, i32 noundef 1) #21
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @read_gitfile_gently.realpath, i64 16), align 8
   %tobool52.not36 = icmp eq ptr %return_error_code, null
   br i1 %tobool52.not36, label %if.end57.thread, label %if.end57.thread62
@@ -1327,7 +1327,7 @@ if.end57.thread62:                                ; preds = %cleanup_return.thre
   br label %if.end57.thread
 
 if.end57.thread58:                                ; preds = %cleanup_return
-  tail call void @read_gitfile_error_die(i32 noundef %error_code.0, ptr noundef %path, ptr noundef %dir.1)
+  tail call void @read_gitfile_error_die(i32 noundef %error_code.0, ptr noundef %path, ptr noundef %dir.0)
   br label %if.end57.thread
 
 if.end57:                                         ; preds = %cleanup_return
@@ -1335,9 +1335,9 @@ if.end57:                                         ; preds = %cleanup_return
   br label %if.end57.thread
 
 if.end57.thread:                                  ; preds = %cleanup_return.thread, %if.end57.thread62, %if.end57, %if.end57.thread58
-  %buf.0.sink = phi ptr [ %buf.0, %if.end57.thread62 ], [ %buf.1, %if.end57 ], [ %buf.1, %if.end57.thread58 ], [ %buf.0, %cleanup_return.thread ]
+  %buf.1.sink = phi ptr [ %buf.1, %if.end57.thread62 ], [ %buf.0, %if.end57 ], [ %buf.0, %if.end57.thread58 ], [ %buf.1, %cleanup_return.thread ]
   %6 = phi ptr [ %5, %if.end57.thread62 ], [ null, %if.end57 ], [ null, %if.end57.thread58 ], [ %5, %cleanup_return.thread ]
-  tail call void @free(ptr noundef %buf.0.sink) #21
+  tail call void @free(ptr noundef %buf.1.sink) #21
   ret ptr %6
 }
 
@@ -3930,15 +3930,15 @@ if.then8:                                         ; preds = %if.then6
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then8, %if.then6
-  %initial_branch.addr.0 = phi ptr [ %initial_branch, %if.then6 ], [ %call9, %if.then8 ]
-  %call11 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.67, ptr noundef %initial_branch.addr.0) #21
+  %initial_branch.addr.1 = phi ptr [ %initial_branch, %if.then6 ], [ %call9, %if.then8 ]
+  %call11 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.67, ptr noundef %initial_branch.addr.1) #21
   %call12 = call i32 @check_refname_format(ptr noundef %call11, i32 noundef 0) #21
   %cmp = icmp slt i32 %call12, 0
   br i1 %cmp, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.end10
   %call14 = call fastcc ptr @_(ptr noundef nonnull @.str.68)
-  call void (ptr, ...) @die(ptr noundef %call14, ptr noundef %initial_branch.addr.0) #22
+  call void (ptr, ...) @die(ptr noundef %call14, ptr noundef %initial_branch.addr.1) #22
   unreachable
 
 if.end15:                                         ; preds = %if.end10

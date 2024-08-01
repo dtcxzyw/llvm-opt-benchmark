@@ -229,10 +229,10 @@ define void @_Z11sha256_doneP14sha256_contextPh(ptr nocapture noundef %0, ptr no
   br label %16
 
 16:                                               ; preds = %11, %._crit_edge
-  %.137 = phi i32 [ 0, %._crit_edge ], [ %8, %11 ]
-  %17 = zext nneg i32 %.137 to i64
+  %.037 = phi i32 [ 0, %._crit_edge ], [ %8, %11 ]
+  %17 = zext nneg i32 %.037 to i64
   %18 = getelementptr inbounds i8, ptr %7, i64 %17
-  %19 = sub nuw nsw i32 56, %.137
+  %19 = sub nuw nsw i32 56, %.037
   %20 = zext nneg i32 %19 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %18, i8 0, i64 %20, i1 false)
   br label %21

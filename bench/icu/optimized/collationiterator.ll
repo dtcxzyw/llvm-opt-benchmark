@@ -438,9 +438,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3101,7 +3101,7 @@ invoke.cont:
 
 for.cond:                                         ; preds = %if.end13, %invoke.cont
   %lookBehind.0 = phi i32 [ 0, %invoke.cont ], [ %inc, %if.end13 ]
-  %ce32.addr.0 = phi i32 [ %or.i, %invoke.cont ], [ %ce32.addr.1, %if.end13 ]
+  %ce32.addr.0 = phi i32 [ %or.i, %invoke.cont ], [ %ce32.addr.2, %if.end13 ]
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
   %3 = load ptr, ptr %vfn, align 8
@@ -3206,14 +3206,14 @@ if.else4.i.i:                                     ; preds = %if.else.i6.i
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else4.i.i, %if.then2.i9.i, %if.then.i.i, %if.end9.sink.split.i.i, %cond.true.i, %invoke.cont7
-  %ce32.addr.1 = phi i32 [ %ce32.addr.0, %invoke.cont7 ], [ %and2.i, %cond.true.i ], [ %or.i.i, %if.end9.sink.split.i.i ], [ %sub.i13.i, %if.then.i.i ], [ %or.i12.i, %if.then2.i9.i ], [ %or9.i.i, %if.else4.i.i ]
+  %ce32.addr.2 = phi i32 [ %ce32.addr.0, %invoke.cont7 ], [ %and2.i, %cond.true.i ], [ %or.i.i, %if.end9.sink.split.i.i ], [ %sub.i13.i, %if.then.i.i ], [ %or.i12.i, %if.then2.i9.i ], [ %or9.i.i, %if.else4.i.i ]
   %and = and i32 %call8, 1
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %for.end, label %for.cond, !llvm.loop !13
 
 for.end:                                          ; preds = %if.end13, %invoke.cont5
   %lookBehind.1 = phi i32 [ %lookBehind.0, %invoke.cont5 ], [ %inc, %if.end13 ]
-  %ce32.addr.2 = phi i32 [ %ce32.addr.0, %invoke.cont5 ], [ %ce32.addr.1, %if.end13 ]
+  %ce32.addr.1 = phi i32 [ %ce32.addr.0, %invoke.cont5 ], [ %ce32.addr.2, %if.end13 ]
   %vtable16 = load ptr, ptr %this, align 8
   %vfn17 = getelementptr inbounds i8, ptr %vtable16, i64 96
   %11 = load ptr, ptr %vfn17, align 8
@@ -3222,7 +3222,7 @@ for.end:                                          ; preds = %if.end13, %invoke.c
 
 invoke.cont18:                                    ; preds = %for.end
   call void @_ZN6icu_7510UCharsTrieD1Ev(ptr noundef nonnull align 8 dereferenceable(28) %prefixes) #17
-  ret i32 %ce32.addr.2
+  ret i32 %ce32.addr.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3432,10 +3432,10 @@ for.cond.preheader:                               ; preds = %if.end
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.preheader, %invoke.cont63
-  %c.addr.0 = phi i32 [ %c.addr.2, %invoke.cont63 ], [ %c, %for.cond.preheader ]
+  %c.addr.0 = phi i32 [ %c.addr.1, %invoke.cont63 ], [ %c, %for.cond.preheader ]
   %ce32.addr.0 = phi i32 [ %ce32.addr.1, %invoke.cont63 ], [ %ce32, %for.cond.preheader ]
   %lookAhead.0 = phi i32 [ %inc62, %invoke.cont63 ], [ 1, %for.cond.preheader ]
-  %sinceMatch.0 = phi i32 [ %sinceMatch.2, %invoke.cont63 ], [ 1, %for.cond.preheader ]
+  %sinceMatch.0 = phi i32 [ %sinceMatch.1, %invoke.cont63 ], [ 1, %for.cond.preheader ]
   %match.0 = phi i32 [ %call64, %invoke.cont63 ], [ %call8, %for.cond.preheader ]
   %cmp9 = icmp sgt i32 %match.0, 1
   br i1 %cmp9, label %if.then10, label %if.else
@@ -3868,31 +3868,31 @@ invoke.cont47:                                    ; preds = %if.then24.i131, %if
   br label %if.end50
 
 if.end50:                                         ; preds = %invoke.cont47, %if.then43
-  %c.addr.1 = phi i32 [ %retval.0.i130, %invoke.cont47 ], [ %c.addr.0, %if.then43 ]
+  %c.addr.2 = phi i32 [ %retval.0.i130, %invoke.cont47 ], [ %c.addr.0, %if.then43 ]
   %lookAhead.1 = phi i32 [ %sub49, %invoke.cont47 ], [ %lookAhead.0, %if.then43 ]
-  %sinceMatch.1 = phi i32 [ 1, %invoke.cont47 ], [ %sinceMatch.0, %if.then43 ]
+  %sinceMatch.2 = phi i32 [ 1, %invoke.cont47 ], [ %sinceMatch.0, %if.then43 ]
   %nfcImpl.i = getelementptr inbounds i8, ptr %d, i64 48
   %56 = load ptr, ptr %nfcImpl.i, align 8
   %minDecompNoCP.i.i = getelementptr inbounds i8, ptr %56, i64 8
   %57 = load i16, ptr %minDecompNoCP.i.i, align 8
   %conv.i.i146 = zext i16 %57 to i32
-  %cmp.i.i147 = icmp slt i32 %c.addr.1, %conv.i.i146
+  %cmp.i.i147 = icmp slt i32 %c.addr.2, %conv.i.i146
   br i1 %cmp.i.i147, label %for.end, label %if.else.i.i148
 
 if.else.i.i148:                                   ; preds = %if.end50
-  %cmp2.i.i = icmp ult i32 %c.addr.1, 65536
+  %cmp2.i.i = icmp ult i32 %c.addr.2, 65536
   br i1 %cmp2.i.i, label %if.then3.i.i150, label %if.end6.i.i
 
 if.then3.i.i150:                                  ; preds = %if.else.i.i148
   %smallFCD.i.i.i = getelementptr inbounds i8, ptr %56, i64 56
   %58 = load ptr, ptr %smallFCD.i.i.i, align 8
-  %shr.i.i.i = lshr i32 %c.addr.1, 8
+  %shr.i.i.i = lshr i32 %c.addr.2, 8
   %idxprom.i.i.i = zext nneg i32 %shr.i.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %58, i64 %idxprom.i.i.i
   %59 = load i8, ptr %arrayidx.i.i.i, align 1
   %cmp.i.i.i151 = icmp eq i8 %59, 0
   %conv.i.i.i = zext i8 %59 to i32
-  %shr3.i.i.i = lshr i32 %c.addr.1, 5
+  %shr3.i.i.i = lshr i32 %c.addr.2, 5
   %and.i.i.i = and i32 %shr3.i.i.i, 7
   %60 = shl nuw nsw i32 1, %and.i.i.i
   %61 = and i32 %60, %conv.i.i.i
@@ -3901,7 +3901,7 @@ if.then3.i.i150:                                  ; preds = %if.else.i.i148
   br i1 %tobool.not.i.i, label %for.end, label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then3.i.i150, %if.else.i.i148
-  %call7.i.i152 = invoke noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %56, i32 noundef %c.addr.1)
+  %call7.i.i152 = invoke noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %56, i32 noundef %c.addr.2)
           to label %invoke.cont51 unwind label %lpad3.loopexit.split-lp
 
 invoke.cont51:                                    ; preds = %if.end6.i.i
@@ -3909,7 +3909,7 @@ invoke.cont51:                                    ; preds = %if.end6.i.i
   br i1 %cmp53, label %if.then54, label %for.end
 
 if.then54:                                        ; preds = %invoke.cont51
-  %call56 = invoke noundef i32 @_ZN6icu_7517CollationIterator36nextCE32FromDiscontiguousContractionEPKNS_13CollationDataERNS_10UCharsTrieEjiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef nonnull %d, ptr noundef nonnull align 8 dereferenceable(28) %suffixes, i32 noundef %ce32.addr.0, i32 noundef %lookAhead.1, i32 noundef %c.addr.1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  %call56 = invoke noundef i32 @_ZN6icu_7517CollationIterator36nextCE32FromDiscontiguousContractionEPKNS_13CollationDataERNS_10UCharsTrieEjiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef nonnull %d, ptr noundef nonnull align 8 dereferenceable(28) %suffixes, i32 noundef %ce32.addr.0, i32 noundef %lookAhead.1, i32 noundef %c.addr.2, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %cleanup unwind label %lpad3.loopexit.split-lp
 
 if.else59:                                        ; preds = %invoke.cont32.thread202, %invoke.cont32
@@ -3918,10 +3918,10 @@ if.else59:                                        ; preds = %invoke.cont32.threa
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then26, %if.end18, %invoke.cont23, %if.else59
-  %c.addr.2 = phi i32 [ %retval.0.i65205, %if.else59 ], [ %retval.0.i199, %if.then26 ], [ %retval.0.i199, %invoke.cont23 ], [ %retval.0.i199, %if.end18 ]
+  %c.addr.1 = phi i32 [ %retval.0.i65205, %if.else59 ], [ %retval.0.i199, %if.then26 ], [ %retval.0.i199, %invoke.cont23 ], [ %retval.0.i199, %if.end18 ]
   %ce32.addr.1 = phi i32 [ %ce32.addr.0, %if.else59 ], [ %cond.i, %if.then26 ], [ %cond.i, %invoke.cont23 ], [ %cond.i, %if.end18 ]
-  %sinceMatch.2 = phi i32 [ %inc, %if.else59 ], [ 1, %if.then26 ], [ 1, %invoke.cont23 ], [ 1, %if.end18 ]
-  %call64 = invoke noundef i32 @_ZN6icu_7510UCharsTrie16nextForCodePointEi(ptr noundef nonnull align 8 dereferenceable(28) %suffixes, i32 noundef %c.addr.2)
+  %sinceMatch.1 = phi i32 [ %inc, %if.else59 ], [ 1, %if.then26 ], [ 1, %invoke.cont23 ], [ 1, %if.end18 ]
+  %call64 = invoke noundef i32 @_ZN6icu_7510UCharsTrie16nextForCodePointEi(ptr noundef nonnull align 8 dereferenceable(28) %suffixes, i32 noundef %c.addr.1)
           to label %invoke.cont63 unwind label %lpad3.loopexit
 
 invoke.cont63:                                    ; preds = %if.end61
@@ -3929,7 +3929,7 @@ invoke.cont63:                                    ; preds = %if.end61
   br label %for.cond, !llvm.loop !14
 
 for.end:                                          ; preds = %if.then3.i.i150, %if.end50, %land.lhs.true38, %if.then35, %invoke.cont51
-  %sinceMatch.3 = phi i32 [ %sinceMatch.1, %invoke.cont51 ], [ %sinceMatch.0, %if.then35 ], [ %sinceMatch.0, %land.lhs.true38 ], [ %sinceMatch.1, %if.end50 ], [ %sinceMatch.1, %if.then3.i.i150 ]
+  %sinceMatch.3 = phi i32 [ %sinceMatch.2, %invoke.cont51 ], [ %sinceMatch.0, %if.then35 ], [ %sinceMatch.0, %land.lhs.true38 ], [ %sinceMatch.2, %if.end50 ], [ %sinceMatch.2, %if.then3.i.i150 ]
   %62 = load ptr, ptr %skipped, align 8
   %cmp.not.i154 = icmp eq ptr %62, null
   br i1 %cmp.not.i154, label %if.end.i158, label %land.lhs.true.i155
@@ -4994,7 +4994,7 @@ for.cond46:                                       ; preds = %_ZNK6icu_7513Collat
   %fcd16.0 = phi i16 [ %call7.i.i75, %if.end44 ], [ %call7.i.i214, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ]
   %prevCC.0 = phi i8 [ %conv, %if.end44 ], [ %prevCC.1, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ]
   %c.addr.0 = phi i32 [ %retval.0.i301, %if.end44 ], [ %retval.0.i194310, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ]
-  %ce32.addr.0 = phi i32 [ %ce32, %if.end44 ], [ %ce32.addr.1, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ]
+  %ce32.addr.0 = phi i32 [ %ce32, %if.end44 ], [ %ce32.addr.2, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ]
   %sinceMatch.0 = phi i32 [ 2, %if.end44 ], [ %inc68, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ]
   %58 = lshr i16 %fcd16.0, 8
   %59 = zext i8 %prevCC.0 to i16
@@ -5133,8 +5133,8 @@ _ZNK6icu_7512SkippedState16resetToTrieStateERNS_10UCharsTrieE.exit166: ; preds =
 
 if.end63:                                         ; preds = %_ZNK6icu_7512SkippedState16resetToTrieStateERNS_10UCharsTrieE.exit166, %if.end57
   %prevCC.1 = phi i8 [ %prevCC.0, %if.end57 ], [ %conv62, %_ZNK6icu_7512SkippedState16resetToTrieStateERNS_10UCharsTrieE.exit166 ]
-  %ce32.addr.1 = phi i32 [ %cond.i, %if.end57 ], [ %ce32.addr.0, %_ZNK6icu_7512SkippedState16resetToTrieStateERNS_10UCharsTrieE.exit166 ]
-  %sinceMatch.1 = phi i32 [ 0, %if.end57 ], [ %sinceMatch.0, %_ZNK6icu_7512SkippedState16resetToTrieStateERNS_10UCharsTrieE.exit166 ]
+  %ce32.addr.2 = phi i32 [ %cond.i, %if.end57 ], [ %ce32.addr.0, %_ZNK6icu_7512SkippedState16resetToTrieStateERNS_10UCharsTrieE.exit166 ]
+  %sinceMatch.2 = phi i32 [ 0, %if.end57 ], [ %sinceMatch.0, %_ZNK6icu_7512SkippedState16resetToTrieStateERNS_10UCharsTrieE.exit166 ]
   %81 = load ptr, ptr %skipped.i, align 8
   %cmp.not.i168 = icmp eq ptr %81, null
   br i1 %cmp.not.i168, label %if.end.i177, label %land.lhs.true.i169
@@ -5211,7 +5211,7 @@ _ZN6icu_7517CollationIterator20nextSkippedCodePointER10UErrorCode.exit206: ; pre
 
 if.end67:                                         ; preds = %_ZN6icu_7517CollationIterator20nextSkippedCodePointER10UErrorCode.exit206.thread307, %_ZN6icu_7517CollationIterator20nextSkippedCodePointER10UErrorCode.exit206
   %retval.0.i194310 = phi i32 [ %call8.i183, %_ZN6icu_7517CollationIterator20nextSkippedCodePointER10UErrorCode.exit206.thread307 ], [ %retval.0.i194, %_ZN6icu_7517CollationIterator20nextSkippedCodePointER10UErrorCode.exit206 ]
-  %inc68 = add nsw i32 %sinceMatch.1, 1
+  %inc68 = add nsw i32 %sinceMatch.2, 1
   %93 = load ptr, ptr %nfcImpl.i, align 8
   %minDecompNoCP.i.i208 = getelementptr inbounds i8, ptr %93, i64 8
   %94 = load i16, ptr %minDecompNoCP.i.i208, align 8
@@ -5246,8 +5246,8 @@ _ZNK6icu_7513CollationData8getFCD16Ei.exit227:    ; preds = %if.else.i.i211, %if
   br i1 %cmp71, label %for.end74, label %for.cond46, !llvm.loop !21
 
 for.end74:                                        ; preds = %if.then3.i.i216, %if.end67, %if.end.i177, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227, %_ZN6icu_7517CollationIterator20nextSkippedCodePointER10UErrorCode.exit206, %_ZNK6icu_7510UCharsTrie8getValueEv.exit
-  %ce32.addr.2 = phi i32 [ %ce32.addr.1, %_ZN6icu_7517CollationIterator20nextSkippedCodePointER10UErrorCode.exit206 ], [ %ce32.addr.1, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ], [ %cond.i, %_ZNK6icu_7510UCharsTrie8getValueEv.exit ], [ %ce32.addr.1, %if.end.i177 ], [ %ce32.addr.1, %if.end67 ], [ %ce32.addr.1, %if.then3.i.i216 ]
-  %sinceMatch.2 = phi i32 [ %sinceMatch.1, %_ZN6icu_7517CollationIterator20nextSkippedCodePointER10UErrorCode.exit206 ], [ %inc68, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ], [ 0, %_ZNK6icu_7510UCharsTrie8getValueEv.exit ], [ %sinceMatch.1, %if.end.i177 ], [ %inc68, %if.end67 ], [ %inc68, %if.then3.i.i216 ]
+  %ce32.addr.1 = phi i32 [ %ce32.addr.2, %_ZN6icu_7517CollationIterator20nextSkippedCodePointER10UErrorCode.exit206 ], [ %ce32.addr.2, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ], [ %cond.i, %_ZNK6icu_7510UCharsTrie8getValueEv.exit ], [ %ce32.addr.2, %if.end.i177 ], [ %ce32.addr.2, %if.end67 ], [ %ce32.addr.2, %if.then3.i.i216 ]
+  %sinceMatch.1 = phi i32 [ %sinceMatch.2, %_ZN6icu_7517CollationIterator20nextSkippedCodePointER10UErrorCode.exit206 ], [ %inc68, %_ZNK6icu_7513CollationData8getFCD16Ei.exit227 ], [ 0, %_ZNK6icu_7510UCharsTrie8getValueEv.exit ], [ %sinceMatch.2, %if.end.i177 ], [ %inc68, %if.end67 ], [ %inc68, %if.then3.i.i216 ]
   %99 = load ptr, ptr %skipped.i, align 8
   %cmp.not.i229 = icmp eq ptr %99, null
   br i1 %cmp.not.i229, label %if.end.i233, label %land.lhs.true.i230
@@ -5273,31 +5273,31 @@ if.then.i241:                                     ; preds = %land.lhs.true.i230
   br i1 %cmp.i.i249, label %if.then.i.i255, label %if.else10.i.i250
 
 if.then.i.i255:                                   ; preds = %if.then.i241
-  %cmp2.not.i.i256 = icmp slt i32 %sub.i.i248, %sinceMatch.2
+  %cmp2.not.i.i256 = icmp slt i32 %sub.i.i248, %sinceMatch.1
   br i1 %cmp2.not.i.i256, label %if.else.i.i259, label %if.then3.i.i257
 
 if.then3.i.i257:                                  ; preds = %if.then.i.i255
-  %sub5.i.i258 = sub nsw i32 %103, %sinceMatch.2
+  %sub5.i.i258 = sub nsw i32 %103, %sinceMatch.1
   br label %_ZN6icu_7512SkippedState21backwardNumCodePointsEi.exit.i252
 
 if.else.i.i259:                                   ; preds = %if.then.i.i255
-  %sub7.i.i260 = sub nsw i32 %sub.i.i248, %sinceMatch.2
+  %sub7.i.i260 = sub nsw i32 %sub.i.i248, %sinceMatch.1
   %call8.i.i261 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %oldBuffer.i.i242, i32 noundef %cond.i.i.i246, i32 noundef %sub7.i.i260)
   br label %_ZN6icu_7512SkippedState21backwardNumCodePointsEi.exit.i252
 
 if.else10.i.i250:                                 ; preds = %if.then.i241
-  %sub13.i.i = sub nsw i32 0, %sinceMatch.2
+  %sub13.i.i = sub nsw i32 0, %sinceMatch.1
   %call14.i.i251 = tail call noundef i32 @_ZNK6icu_7513UnicodeString11moveIndex32Eii(ptr noundef nonnull align 8 dereferenceable(64) %oldBuffer.i.i242, i32 noundef %103, i32 noundef %sub13.i.i)
   br label %_ZN6icu_7512SkippedState21backwardNumCodePointsEi.exit.i252
 
 _ZN6icu_7512SkippedState21backwardNumCodePointsEi.exit.i252: ; preds = %if.else10.i.i250, %if.else.i.i259, %if.then3.i.i257
   %call14.sink.i.i253 = phi i32 [ %call14.i.i251, %if.else10.i.i250 ], [ %call8.i.i261, %if.else.i.i259 ], [ %sub5.i.i258, %if.then3.i.i257 ]
-  %retval.0.i.i254 = phi i32 [ 0, %if.else10.i.i250 ], [ %sub.i.i248, %if.else.i.i259 ], [ %sinceMatch.2, %if.then3.i.i257 ]
+  %retval.0.i.i254 = phi i32 [ 0, %if.else10.i.i250 ], [ %sub.i.i248, %if.else.i.i259 ], [ %sinceMatch.1, %if.then3.i.i257 ]
   store i32 %call14.sink.i.i253, ptr %pos.i.i247, align 8
   br label %if.end.i233
 
 if.end.i233:                                      ; preds = %_ZN6icu_7512SkippedState21backwardNumCodePointsEi.exit.i252, %land.lhs.true.i230, %for.end74
-  %n.addr.0.i234 = phi i32 [ %sinceMatch.2, %land.lhs.true.i230 ], [ %retval.0.i.i254, %_ZN6icu_7512SkippedState21backwardNumCodePointsEi.exit.i252 ], [ %sinceMatch.2, %for.end74 ]
+  %n.addr.0.i234 = phi i32 [ %sinceMatch.1, %land.lhs.true.i230 ], [ %retval.0.i.i254, %_ZN6icu_7512SkippedState21backwardNumCodePointsEi.exit.i252 ], [ %sinceMatch.1, %for.end74 ]
   %vtable.i235 = load ptr, ptr %this, align 8
   %vfn.i236 = getelementptr inbounds i8, ptr %vtable.i235, i64 104
   %104 = load ptr, ptr %vfn.i236, align 8
@@ -5339,9 +5339,9 @@ for.cond84.preheader:                             ; preds = %land.lhs.true79
 
 for.cond84:                                       ; preds = %for.cond84.backedge, %for.cond84.preheader
   %c.addr.1 = phi i32 [ -1, %for.cond84.preheader ], [ %call.i284, %for.cond84.backedge ]
-  %ce32.addr.3 = phi i32 [ %ce32.addr.2, %for.cond84.preheader ], [ %ce32.addr.3.be, %for.cond84.backedge ]
+  %ce32.addr.4 = phi i32 [ %ce32.addr.1, %for.cond84.preheader ], [ %ce32.addr.4.be, %for.cond84.backedge ]
   %d.addr.0 = phi ptr [ %d, %for.cond84.preheader ], [ %d.addr.0.be, %for.cond84.backedge ]
-  tail call void @_ZN6icu_7517CollationIterator17appendCEsFromCE32EPKNS_13CollationDataEijaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef %d.addr.0, i32 noundef %c.addr.1, i32 noundef %ce32.addr.3, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  tail call void @_ZN6icu_7517CollationIterator17appendCEsFromCE32EPKNS_13CollationDataEijaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr noundef %d.addr.0, i32 noundef %c.addr.1, i32 noundef %ce32.addr.4, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %112 = load ptr, ptr %skipped.i, align 8
   %pos.i274 = getelementptr inbounds i8, ptr %112, i64 136
   %113 = load i32, ptr %pos.i274, align 8
@@ -5373,7 +5373,7 @@ if.end89:                                         ; preds = %for.cond84
   br i1 %cmp95, label %if.then96, label %for.cond84.backedge
 
 for.cond84.backedge:                              ; preds = %if.end89, %_ZNK6icu_7513CollationData7getCE32Ei.exit
-  %ce32.addr.3.be = phi i32 [ %call94, %if.end89 ], [ %134, %_ZNK6icu_7513CollationData7getCE32Ei.exit ]
+  %ce32.addr.4.be = phi i32 [ %call94, %if.end89 ], [ %134, %_ZNK6icu_7513CollationData7getCE32Ei.exit ]
   %d.addr.0.be = phi ptr [ %119, %if.end89 ], [ %120, %_ZNK6icu_7513CollationData7getCE32Ei.exit ]
   br label %for.cond84, !llvm.loop !22
 
@@ -5469,7 +5469,7 @@ for.end101:                                       ; preds = %for.cond84
   br label %return
 
 return:                                           ; preds = %if.then6.i100, %if.end.i94, %if.then6.i, %if.end.i52, %_ZN6icu_7517CollationIterator18backwardNumSkippedEiR10UErrorCode.exit262, %land.lhs.true79, %for.end101, %entry, %if.then23
-  %retval.0 = phi i32 [ 0, %if.then23 ], [ 0, %entry ], [ %ce32.addr.2, %land.lhs.true79 ], [ 1, %for.end101 ], [ %ce32.addr.2, %_ZN6icu_7517CollationIterator18backwardNumSkippedEiR10UErrorCode.exit262 ], [ %ce32, %if.end.i52 ], [ %ce32, %if.then6.i ], [ %ce32, %if.end.i94 ], [ %ce32, %if.then6.i100 ]
+  %retval.0 = phi i32 [ 0, %if.then23 ], [ 0, %entry ], [ %ce32.addr.1, %land.lhs.true79 ], [ 1, %for.end101 ], [ %ce32.addr.1, %_ZN6icu_7517CollationIterator18backwardNumSkippedEiR10UErrorCode.exit262 ], [ %ce32, %if.end.i52 ], [ %ce32, %if.then6.i ], [ %ce32, %if.end.i94 ], [ %ce32, %if.then6.i100 ]
   ret i32 %retval.0
 }
 

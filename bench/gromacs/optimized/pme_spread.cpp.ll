@@ -2405,9 +2405,9 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.loopexit251.us.i
-  %.2195286.us.i = phi i1 [ %.4.us.i, %.loopexit251.us.i ], [ %.1194305.i, %.lr.ph.i ]
-  %.2198285.us.i = phi i1 [ %.4200.us.i, %.loopexit251.us.i ], [ %.1197304.i, %.lr.ph.i ]
-  %.2203284.us.i = phi i1 [ %.4205.us.i, %.loopexit251.us.i ], [ %.1202303.i, %.lr.ph.i ]
+  %.2195286.us.i = phi i1 [ %.3.us.i, %.loopexit251.us.i ], [ %.1194305.i, %.lr.ph.i ]
+  %.2198285.us.i = phi i1 [ %.3199.us.i, %.loopexit251.us.i ], [ %.1197304.i, %.lr.ph.i ]
+  %.2203284.us.i = phi i1 [ %.3204.us.i, %.loopexit251.us.i ], [ %.1202303.i, %.lr.ph.i ]
   %.0213283.us.i = phi i32 [ %208, %.loopexit251.us.i ], [ 0, %.lr.ph.i ]
   %160 = load i32, ptr %95, align 8
   %161 = add nsw i32 %160, %.0213283.us.i
@@ -2473,18 +2473,18 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br label %207
 
 207:                                              ; preds = %203, %192, %177
-  %.3204.us.i = phi i1 [ %.2203284.us.i, %203 ], [ %.2203284.us.i, %192 ], [ false, %177 ]
-  %.3199.us.i = phi i1 [ %.2198285.us.i, %203 ], [ false, %192 ], [ %.2198285.us.i, %177 ]
-  %.3.us.i = phi i1 [ false, %203 ], [ %.2195286.us.i, %192 ], [ %.2195286.us.i, %177 ]
+  %.4205.us.i = phi i1 [ %.2203284.us.i, %203 ], [ %.2203284.us.i, %192 ], [ false, %177 ]
+  %.4200.us.i = phi i1 [ %.2198285.us.i, %203 ], [ false, %192 ], [ %.2198285.us.i, %177 ]
+  %.4.us.i = phi i1 [ false, %203 ], [ %.2195286.us.i, %192 ], [ %.2195286.us.i, %177 ]
   %.0192.in.us.i = phi i1 [ %.2195286.us.i, %203 ], [ %.2198285.us.i, %192 ], [ %.2203284.us.i, %177 ]
   %.0183.us.i = phi i32 [ %202, %203 ], [ %202, %192 ], [ %43, %177 ]
   %.0.us.i = phi ptr [ %206, %203 ], [ %36, %192 ], [ %34, %177 ]
   br i1 %134, label %.preheader249.lr.ph.us.i, label %.loopexit251.us.i
 
 .loopexit251.us.i:                                ; preds = %._crit_edge.split.split.us.us.us.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i, %.preheader249.lr.ph.split.us.split.us.us.i, %.preheader249.lr.ph.split.us.split.us296.i, %.preheader249.lr.ph.us.i, %207, %166
-  %.4205.us.i = phi i1 [ %.2203284.us.i, %166 ], [ %.3204.us.i, %207 ], [ %.3204.us.i, %.preheader249.lr.ph.us.i ], [ %.3204.us.i, %.preheader249.lr.ph.split.us.split.us296.i ], [ %.3204.us.i, %.preheader249.lr.ph.split.us.split.us.us.i ], [ %.3204.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i ], [ %.3204.us.i, %._crit_edge.split.split.us.us.us.us.i ]
-  %.4200.us.i = phi i1 [ %.2198285.us.i, %166 ], [ %.3199.us.i, %207 ], [ %.3199.us.i, %.preheader249.lr.ph.us.i ], [ %.3199.us.i, %.preheader249.lr.ph.split.us.split.us296.i ], [ %.3199.us.i, %.preheader249.lr.ph.split.us.split.us.us.i ], [ %.3199.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i ], [ %.3199.us.i, %._crit_edge.split.split.us.us.us.us.i ]
-  %.4.us.i = phi i1 [ %.2195286.us.i, %166 ], [ %.3.us.i, %207 ], [ %.3.us.i, %.preheader249.lr.ph.us.i ], [ %.3.us.i, %.preheader249.lr.ph.split.us.split.us296.i ], [ %.3.us.i, %.preheader249.lr.ph.split.us.split.us.us.i ], [ %.3.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i ], [ %.3.us.i, %._crit_edge.split.split.us.us.us.us.i ]
+  %.3204.us.i = phi i1 [ %.2203284.us.i, %166 ], [ %.4205.us.i, %207 ], [ %.4205.us.i, %.preheader249.lr.ph.us.i ], [ %.4205.us.i, %.preheader249.lr.ph.split.us.split.us296.i ], [ %.4205.us.i, %.preheader249.lr.ph.split.us.split.us.us.i ], [ %.4205.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i ], [ %.4205.us.i, %._crit_edge.split.split.us.us.us.us.i ]
+  %.3199.us.i = phi i1 [ %.2198285.us.i, %166 ], [ %.4200.us.i, %207 ], [ %.4200.us.i, %.preheader249.lr.ph.us.i ], [ %.4200.us.i, %.preheader249.lr.ph.split.us.split.us296.i ], [ %.4200.us.i, %.preheader249.lr.ph.split.us.split.us.us.i ], [ %.4200.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i ], [ %.4200.us.i, %._crit_edge.split.split.us.us.us.us.i ]
+  %.3.us.i = phi i1 [ %.2195286.us.i, %166 ], [ %.4.us.i, %207 ], [ %.4.us.i, %.preheader249.lr.ph.us.i ], [ %.4.us.i, %.preheader249.lr.ph.split.us.split.us296.i ], [ %.4.us.i, %.preheader249.lr.ph.split.us.split.us.us.i ], [ %.4.us.i, %._crit_edge.split.us.split.us.us.us.us.us.i ], [ %.4.us.i, %._crit_edge.split.split.us.us.us.us.i ]
   %208 = add nsw i32 %.0213283.us.i, -1
   %209 = load i32, ptr %94, align 8
   %210 = sub nsw i32 0, %209
@@ -2709,9 +2709,9 @@ define internal void @_Z14spread_on_gridPK9gmx_pme_tP11PmeAtomCommP14PmeAndFftGr
   br i1 %.not222.not.i, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !54
 
 ._crit_edge.i:                                    ; preds = %.loopexit253.i, %.loopexit251.us.i, %144
-  %.2203.lcssa.i = phi i1 [ %.1202303.i, %144 ], [ %.4205.us.i, %.loopexit251.us.i ], [ %.1202303.i, %.loopexit253.i ]
-  %.2198.lcssa.i = phi i1 [ %.1197304.i, %144 ], [ %.4200.us.i, %.loopexit251.us.i ], [ %.1197304.i, %.loopexit253.i ]
-  %.2195.lcssa.i = phi i1 [ %.1194305.i, %144 ], [ %.4.us.i, %.loopexit251.us.i ], [ %.1194305.i, %.loopexit253.i ]
+  %.2203.lcssa.i = phi i1 [ %.1202303.i, %144 ], [ %.3204.us.i, %.loopexit251.us.i ], [ %.1202303.i, %.loopexit253.i ]
+  %.2198.lcssa.i = phi i1 [ %.1197304.i, %144 ], [ %.3199.us.i, %.loopexit251.us.i ], [ %.1197304.i, %.loopexit253.i ]
+  %.2195.lcssa.i = phi i1 [ %.1194305.i, %144 ], [ %.3.us.i, %.loopexit251.us.i ], [ %.1194305.i, %.loopexit253.i ]
   %300 = add nsw i32 %.0214302.i, -1
   %301 = load i32, ptr %90, align 4
   %302 = sub nsw i32 0, %301

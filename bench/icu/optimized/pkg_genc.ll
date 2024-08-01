@@ -509,9 +509,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -847,13 +847,13 @@ if.then19.i:                                      ; preds = %if.else12.i
   br label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then19.i, %if.then14.i, %if.else12.i
-  %s.221.i.ph = phi ptr [ %s.0.i, %if.else12.i ], [ %incdec.ptr16.i, %if.then14.i ], [ %incdec.ptr20.i, %if.then19.i ]
+  %s.321.i.ph = phi ptr [ %s.0.i, %if.else12.i ], [ %incdec.ptr16.i, %if.then14.i ], [ %incdec.ptr20.i, %if.then19.i ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 3, %for.body.i.preheader ]
   %seenNonZero.023.i = phi i32 [ %seenNonZero.1.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %s.221.i = phi ptr [ %s.3.i, %for.inc.i ], [ %s.221.i.ph, %for.body.i.preheader ]
+  %s.321.i = phi ptr [ %s.4.i, %for.inc.i ], [ %s.321.i.ph, %for.body.i.preheader ]
   %arrayidx25.i = getelementptr inbounds i8, ptr %bitField.addr.i, i64 %indvars.iv.i
   %18 = load i8, ptr %arrayidx25.i, align 1
   %tobool.i = icmp ne i8 %18, 0
@@ -867,18 +867,18 @@ if.then27.i:                                      ; preds = %for.body.i
   %idxprom28.i = zext nneg i32 %shr.i to i64
   %arrayidx29.i = getelementptr inbounds [16 x i8], ptr @_ZZL7write32P11_FileStreamjjE8hexToStr, i64 0, i64 %idxprom28.i
   %19 = load i8, ptr %arrayidx29.i, align 1
-  %incdec.ptr30.i = getelementptr inbounds i8, ptr %s.221.i, i64 1
-  store i8 %19, ptr %s.221.i, align 1
+  %incdec.ptr30.i = getelementptr inbounds i8, ptr %s.321.i, i64 1
+  store i8 %19, ptr %s.321.i, align 1
   %and.i = and i32 %conv.i, 15
   %idxprom32.i = zext nneg i32 %and.i to i64
   %arrayidx33.i = getelementptr inbounds [16 x i8], ptr @_ZZL7write32P11_FileStreamjjE8hexToStr, i64 0, i64 %idxprom32.i
   %20 = load i8, ptr %arrayidx33.i, align 1
-  %incdec.ptr34.i = getelementptr inbounds i8, ptr %s.221.i, i64 2
+  %incdec.ptr34.i = getelementptr inbounds i8, ptr %s.321.i, i64 2
   store i8 %20, ptr %incdec.ptr30.i, align 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then27.i, %for.body.i
-  %s.3.i = phi ptr [ %incdec.ptr34.i, %if.then27.i ], [ %s.221.i, %for.body.i ]
+  %s.4.i = phi ptr [ %incdec.ptr34.i, %if.then27.i ], [ %s.321.i, %for.body.i ]
   %seenNonZero.1.i = phi i32 [ 1, %if.then27.i ], [ 0, %for.body.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp23.not.i = icmp eq i64 %indvars.iv.i, 0
@@ -890,13 +890,13 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %cmp36.i, label %if.then37.i, label %_ZL7write32P11_FileStreamjj.exit
 
 if.then37.i:                                      ; preds = %for.end.i
-  %incdec.ptr38.i = getelementptr inbounds i8, ptr %s.3.i, i64 1
-  store i8 104, ptr %s.3.i, align 1
+  %incdec.ptr38.i = getelementptr inbounds i8, ptr %s.4.i, i64 1
+  store i8 104, ptr %s.4.i, align 1
   br label %_ZL7write32P11_FileStreamjj.exit
 
 _ZL7write32P11_FileStreamjj.exit:                 ; preds = %if.then8.i, %for.end.i, %if.then37.i
-  %s.4.i = phi ptr [ %incdec.ptr11.i, %if.then8.i ], [ %incdec.ptr38.i, %if.then37.i ], [ %s.3.i, %for.end.i ]
-  store i8 0, ptr %s.4.i, align 1
+  %s.1.i = phi ptr [ %incdec.ptr11.i, %if.then8.i ], [ %incdec.ptr38.i, %if.then37.i ], [ %s.4.i, %for.end.i ]
+  store i8 0, ptr %s.1.i, align 1
   %call43.i = call i32 @T_FileStream_writeLine(ptr noundef nonnull %call17, ptr noundef nonnull %bitFieldStr.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bitField.addr.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %bitFieldStr.i)
@@ -1692,7 +1692,7 @@ if.then78:                                        ; preds = %if.else71
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then78, %if.else71
-  %paddingSize.1 = phi i32 [ %sub79, %if.then78 ], [ 0, %if.else71 ]
+  %paddingSize.2 = phi i32 [ %sub79, %if.then78 ], [ 0, %if.else71 ]
   %conv83 = sext i32 %call12 to i64
   store i64 %conv83, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE16sectionHeaders64, i64 288), align 16
   store i64 %conv83, ptr getelementptr inbounds (i8, ptr @_ZZ15writeObjectCodeE9symbols64, i64 40), align 8
@@ -1702,14 +1702,14 @@ if.end82:                                         ; preds = %if.then78, %if.else
   br label %if.end88
 
 if.end88:                                         ; preds = %if.end82, %if.end67
-  %paddingSize.2 = phi i32 [ %paddingSize.0, %if.end67 ], [ %paddingSize.1, %if.end82 ]
+  %paddingSize.1 = phi i32 [ %paddingSize.0, %if.end67 ], [ %paddingSize.2, %if.end82 ]
   %call89 = call i32 @T_FileStream_write(ptr noundef nonnull %call52, ptr noundef nonnull @_ZZ15writeObjectCodeE14sectionStrings, i32 noundef 40)
   %call91 = call i32 @T_FileStream_write(ptr noundef nonnull %call52, ptr noundef nonnull %entry1, i32 noundef 96)
-  %cmp92.not = icmp eq i32 %paddingSize.2, 0
+  %cmp92.not = icmp eq i32 %paddingSize.1, 0
   br i1 %cmp92.not, label %if.end95, label %if.then93
 
 if.then93:                                        ; preds = %if.end88
-  %call94 = call i32 @T_FileStream_write(ptr noundef nonnull %call52, ptr noundef nonnull @_ZZ15writeObjectCodeE7padding, i32 noundef %paddingSize.2)
+  %call94 = call i32 @T_FileStream_write(ptr noundef nonnull %call52, ptr noundef nonnull @_ZZ15writeObjectCodeE7padding, i32 noundef %paddingSize.1)
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then93, %if.end88

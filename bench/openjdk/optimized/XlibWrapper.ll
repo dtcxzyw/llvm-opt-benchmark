@@ -90,7 +90,7 @@ define hidden noundef ptr @stringArrayToNative(ptr noundef %0, ptr noundef %1, p
 
 .lr.ph:                                           ; preds = %.preheader, %32
   %.03960 = phi i32 [ %33, %32 ], [ 0, %.preheader ]
-  %.04059 = phi i32 [ %.343, %32 ], [ 0, %.preheader ]
+  %.04059 = phi i32 [ %.444, %32 ], [ 0, %.preheader ]
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 1384
   %16 = load ptr, ptr %15, align 8
@@ -120,33 +120,33 @@ define hidden noundef ptr @stringArrayToNative(ptr noundef %0, ptr noundef %1, p
   br label %27
 
 27:                                               ; preds = %26, %22
-  %.141 = phi i32 [ %23, %22 ], [ %.04059, %26 ]
-  %.1 = phi i32 [ 0, %22 ], [ 1, %26 ]
+  %.242 = phi i32 [ %23, %22 ], [ %.04059, %26 ]
+  %.2 = phi i32 [ 0, %22 ], [ 1, %26 ]
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %19) #14
   br label %28
 
 28:                                               ; preds = %18, %27
-  %.242 = phi i32 [ %.141, %27 ], [ %.04059, %18 ]
-  %.2 = phi i32 [ %.1, %27 ], [ 1, %18 ]
+  %.343 = phi i32 [ %.242, %27 ], [ %.04059, %18 ]
+  %.3 = phi i32 [ %.2, %27 ], [ 1, %18 ]
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 184
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull %0, ptr noundef nonnull %17) #14
-  %.not52 = icmp eq i32 %.2, 0
+  %.not52 = icmp eq i32 %.3, 0
   br i1 %.not52, label %32, label %.preheader.i
 
 32:                                               ; preds = %.lr.ph, %28
-  %.343 = phi i32 [ %.242, %28 ], [ %.04059, %.lr.ph ]
+  %.444 = phi i32 [ %.343, %28 ], [ %.04059, %.lr.ph ]
   %33 = add nuw nsw i32 %.03960, 1
   %exitcond.not = icmp eq i32 %33, %7
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %28
-  %34 = icmp sgt i32 %.242, 0
+  %34 = icmp sgt i32 %.343, 0
   br i1 %34, label %.lr.ph.preheader.i, label %freeNativeStringArray.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = zext nneg i32 %.242 to i64
+  %wide.trip.count.i = zext nneg i32 %.343 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -163,7 +163,7 @@ freeNativeStringArray.exit:                       ; preds = %.lr.ph.i, %.prehead
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %.preheader, %freeNativeStringArray.exit
-  %.5 = phi i32 [ -1, %freeNativeStringArray.exit ], [ 0, %.preheader ], [ %.343, %32 ]
+  %.5 = phi i32 [ -1, %freeNativeStringArray.exit ], [ 0, %.preheader ], [ %.444, %32 ]
   %.038 = phi ptr [ null, %freeNativeStringArray.exit ], [ %11, %.preheader ], [ %11, %32 ]
   store i32 %.5, ptr %2, align 4
   br label %37

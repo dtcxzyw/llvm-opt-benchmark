@@ -1011,14 +1011,14 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %exitcond1645.not, label %.loopexit1405, label %.lr.ph1425, !llvm.loop !17
 
 709:                                              ; preds = %655, %666
-  %.31293.in = phi double [ %665, %655 ], [ %677, %666 ]
-  %.31293 = fptrunc double %.31293.in to float
+  %.41294.in = phi double [ %665, %655 ], [ %677, %666 ]
+  %.41294 = fptrunc double %.41294.in to float
   %710 = load float, ptr %529, align 4
-  %711 = tail call float @llvm.fmuladd.f32(float %710, float %710, float %.31293)
+  %711 = tail call float @llvm.fmuladd.f32(float %710, float %710, float %.41294)
   %712 = tail call noundef float @llvm.fabs.f32(float %711)
   %sqrt1398 = tail call float @llvm.sqrt.f32(float %712)
   %713 = fadd float %710, %sqrt1398
-  %714 = fdiv float %.31293, %713
+  %714 = fdiv float %.41294, %713
   store float %714, ptr %14, align 4
   %715 = load i32, ptr %1, align 4
   %716 = add nsw i32 %715, 1
@@ -1056,7 +1056,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .loopexit1405:                                    ; preds = %.lr.ph1425, %.lr.ph1429, %678, %709
   %.012521743 = phi float [ 0.000000e+00, %709 ], [ %537, %678 ], [ 0.000000e+00, %.lr.ph1429 ], [ %537, %.lr.ph1425 ]
   %.012571741 = phi float [ %645, %709 ], [ 0.000000e+00, %678 ], [ %645, %.lr.ph1429 ], [ 0.000000e+00, %.lr.ph1425 ]
-  %.412941739 = phi float [ %.31293, %709 ], [ %.21292, %678 ], [ %.31293, %.lr.ph1429 ], [ %.21292, %.lr.ph1425 ]
+  %.312931739 = phi float [ %.41294, %709 ], [ %.21292, %678 ], [ %.41294, %.lr.ph1429 ], [ %.21292, %.lr.ph1425 ]
   %.01302 = phi i32 [ %716, %709 ], [ %685, %678 ], [ %716, %.lr.ph1429 ], [ %685, %.lr.ph1425 ]
   %732 = add nsw i32 %.01302, -1
   %733 = add nsw i32 %.01302, 1
@@ -1171,7 +1171,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %790 = tail call noundef float @llvm.fabs.f32(float %782)
   %791 = fpext float %790 to double
   %792 = tail call double @llvm.fmuladd.f64(double %791, double 3.000000e+00, double %789)
-  %793 = tail call noundef float @llvm.fabs.f32(float %.412941739)
+  %793 = tail call noundef float @llvm.fabs.f32(float %.312931739)
   %794 = fmul float %793, %781
   %795 = fpext float %794 to double
   %796 = fadd double %792, %795
@@ -1186,13 +1186,13 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %802, label %806, label %803
 
 803:                                              ; preds = %801
-  %804 = fcmp ogt float %.012571741, %.412941739
-  %805 = select i1 %804, float %.012571741, float %.412941739
+  %804 = fcmp ogt float %.012571741, %.312931739
+  %805 = select i1 %804, float %.012571741, float %.312931739
   br label %809
 
 806:                                              ; preds = %801
-  %807 = fcmp olt float %.012521743, %.412941739
-  %808 = select i1 %807, float %.012521743, float %.412941739
+  %807 = fcmp olt float %.012521743, %.312931739
+  %808 = select i1 %807, float %.012521743, float %.312931739
   br label %809
 
 809:                                              ; preds = %806, %803
@@ -1456,20 +1456,20 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %981, label %982, label %985
 
 982:                                              ; preds = %980
-  %983 = fsub float %.11253, %.412941739
+  %983 = fsub float %.11253, %.312931739
   %984 = fmul float %983, 5.000000e-01
   store float %984, ptr %14, align 4
   br label %988
 
 985:                                              ; preds = %980
-  %986 = fsub float %.11258, %.412941739
+  %986 = fsub float %.11258, %.312931739
   %987 = fmul float %986, 5.000000e-01
   store float %987, ptr %14, align 4
   br label %988
 
 988:                                              ; preds = %975, %982, %985
   %989 = phi float [ %968, %975 ], [ %984, %982 ], [ %987, %985 ]
-  %990 = fadd float %.412941739, %989
+  %990 = fadd float %.312931739, %989
   %991 = load float, ptr %6, align 4
   %992 = call float @llvm.fmuladd.f32(float %991, float %991, float %989)
   %993 = call noundef float @sqrtf(float noundef %992) #5
@@ -1732,20 +1732,20 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.not1365 = icmp eq i32 %1136, 0
   %1137 = call float @llvm.fmuladd.f32(float %1135, float %1135, float %.612701511)
   %1138 = call float @llvm.fmuladd.f32(float %1135, float %1135, float %.312771510)
-  %.41278 = select i1 %.not1365, float %1138, float %.312771510
-  %.71271 = select i1 %.not1365, float %.612701511, float %1137
+  %.51279 = select i1 %.not1365, float %1138, float %.312771510
+  %.81272 = select i1 %.not1365, float %.612701511, float %1137
   %1139 = fneg float %1115
-  %1140 = call float @llvm.fmuladd.f32(float %1139, float %.71271, float %1100)
+  %1140 = call float @llvm.fmuladd.f32(float %1139, float %.81272, float %1100)
   %1141 = fneg float %1108
-  %1142 = call float @llvm.fmuladd.f32(float %1141, float %.41278, float %1140)
+  %1142 = call float @llvm.fmuladd.f32(float %1141, float %.51279, float %1140)
   store float %1142, ptr %10, align 4
   br label %1143
 
 1143:                                             ; preds = %1118, %1126, %1133
   %1144 = phi i32 [ %1136, %1133 ], [ 1, %1118 ], [ 0, %1126 ]
   %1145 = phi float [ %1142, %1133 ], [ %1125, %1118 ], [ %1132, %1126 ]
-  %.51279 = phi float [ %.41278, %1133 ], [ %.312771510, %1118 ], [ %.312771510, %1126 ]
-  %.81272 = phi float [ %.71271, %1133 ], [ %.612701511, %1118 ], [ %.612701511, %1126 ]
+  %.41278 = phi float [ %.51279, %1133 ], [ %.312771510, %1118 ], [ %.312771510, %1126 ]
+  %.71271 = phi float [ %.81272, %1133 ], [ %.612701511, %1118 ], [ %.612701511, %1126 ]
   %1146 = fadd float %1108, %1115
   %1147 = fmul float %1108, %1115
   %1148 = fneg float %1147
@@ -1772,7 +1772,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %1160 = getelementptr inbounds float, ptr %19, i64 %1110
   %1161 = load float, ptr %1160, align 4
   %1162 = fmul float %1108, %1108
-  %1163 = fadd float %.51279, %.81272
+  %1163 = fadd float %.41278, %.71271
   %1164 = fmul float %1162, %1163
   %1165 = call float @llvm.fmuladd.f32(float %1161, float %1161, float %1164)
   br label %1177
@@ -1780,7 +1780,7 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 1166:                                             ; preds = %1158
   %1167 = load float, ptr %595, align 4
   %1168 = fmul float %1115, %1115
-  %1169 = fadd float %.51279, %.81272
+  %1169 = fadd float %.41278, %.71271
   %1170 = fmul float %1168, %1169
   %1171 = call float @llvm.fmuladd.f32(float %1167, float %1167, float %1170)
   br label %1177
@@ -1788,8 +1788,8 @@ define void @slasd4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 1172:                                             ; preds = %1157
   %1173 = fmul float %1115, %1115
   %1174 = fmul float %1108, %1108
-  %1175 = fmul float %1174, %.51279
-  %1176 = call float @llvm.fmuladd.f32(float %1173, float %.81272, float %1175)
+  %1175 = fmul float %1174, %.41278
+  %1176 = call float @llvm.fmuladd.f32(float %1173, float %.71271, float %1175)
   br label %1177
 
 1177:                                             ; preds = %1172, %1166, %1159, %1154

@@ -361,7 +361,7 @@ define i32 @select(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %
 
 .lr.ph167:                                        ; preds = %.lr.ph167.preheader, %209
   %indvars.iv = phi i64 [ 0, %.lr.ph167.preheader ], [ %indvars.iv.next, %209 ]
-  %.095166 = phi i32 [ 0, %.lr.ph167.preheader ], [ %.3, %209 ]
+  %.196166 = phi i32 [ 0, %.lr.ph167.preheader ], [ %.4, %209 ]
   br i1 %.not123, label %177, label %162
 
 162:                                              ; preds = %.lr.ph167
@@ -382,11 +382,11 @@ define i32 @select(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %
   %174 = load i32, ptr %173, align 4
   %175 = or i32 %170, %174
   store i32 %175, ptr %173, align 4
-  %176 = add nsw i32 %.095166, 1
+  %176 = add nsw i32 %.196166, 1
   br label %177
 
 177:                                              ; preds = %162, %167, %.lr.ph167
-  %.196 = phi i32 [ %176, %167 ], [ %.095166, %162 ], [ %.095166, %.lr.ph167 ]
+  %.297 = phi i32 [ %176, %167 ], [ %.196166, %162 ], [ %.196166, %.lr.ph167 ]
   br i1 %.not124, label %193, label %178
 
 178:                                              ; preds = %177
@@ -407,11 +407,11 @@ define i32 @select(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %
   %190 = load i32, ptr %189, align 4
   %191 = or i32 %186, %190
   store i32 %191, ptr %189, align 4
-  %192 = add nsw i32 %.196, 1
+  %192 = add nsw i32 %.297, 1
   br label %193
 
 193:                                              ; preds = %178, %183, %177
-  %.297 = phi i32 [ %192, %183 ], [ %.196, %178 ], [ %.196, %177 ]
+  %.3 = phi i32 [ %192, %183 ], [ %.297, %178 ], [ %.297, %177 ]
   br i1 %.not125, label %209, label %194
 
 194:                                              ; preds = %193
@@ -432,22 +432,22 @@ define i32 @select(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %
   %206 = load i32, ptr %205, align 4
   %207 = or i32 %202, %206
   store i32 %207, ptr %205, align 4
-  %208 = add nsw i32 %.297, 1
+  %208 = add nsw i32 %.3, 1
   br label %209
 
 209:                                              ; preds = %193, %199, %194
-  %.3 = phi i32 [ %208, %199 ], [ %.297, %194 ], [ %.297, %193 ]
+  %.4 = phi i32 [ %208, %199 ], [ %.3, %194 ], [ %.3, %193 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond184.not, label %.loopexit, label %.lr.ph167, !llvm.loop !9
 
 .loopexit:                                        ; preds = %209, %160
-  %.4 = phi i32 [ %.mux, %160 ], [ %.3, %209 ]
+  %.095 = phi i32 [ %.mux, %160 ], [ %.4, %209 ]
   tail call void @free(ptr noundef %.0105192)
   br label %210
 
 210:                                              ; preds = %.loopexit, %96, %69
-  %.0106 = phi i32 [ -1, %69 ], [ -1, %96 ], [ %.4, %.loopexit ]
+  %.0106 = phi i32 [ -1, %69 ], [ -1, %96 ], [ %.095, %.loopexit ]
   ret i32 %.0106
 }
 

@@ -293,7 +293,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
   br i1 %110, label %.thread, label %112
 
 .thread:                                          ; preds = %97, %107
-  %.0187229 = phi i64 [ %109, %107 ], [ 1, %97 ]
+  %.1188229 = phi i64 [ %109, %107 ], [ 1, %97 ]
   %111 = add nsw i64 %102, 1
   store i64 %111, ptr %1, align 8
   br label %.loopexit
@@ -404,13 +404,13 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
 180:                                              ; preds = %.lr.ph210, %180
   %indvars.iv216 = phi i64 [ 1, %.lr.ph210 ], [ %indvars.iv.next217, %180 ]
   %181 = phi i64 [ %175, %.lr.ph210 ], [ %187, %180 ]
-  %.3208 = phi i64 [ %178, %.lr.ph210 ], [ %186, %180 ]
+  %.4208 = phi i64 [ %178, %.lr.ph210 ], [ %186, %180 ]
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %182 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next217
   %183 = load i32, ptr %182, align 4
   %184 = sext i32 %183 to i64
   %185 = mul nsw i64 %169, %184
-  %186 = add nsw i64 %185, %.3208
+  %186 = add nsw i64 %185, %.4208
   %187 = add nsw i64 %185, %181
   store i64 %187, ptr %1, align 8
   %exitcond220.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count219
@@ -476,7 +476,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread236
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread236 ]
-  %.5206 = phi i64 [ 0, %.lr.ph.preheader ], [ %.7, %.thread236 ]
+  %.6206 = phi i64 [ 0, %.lr.ph.preheader ], [ %.8, %.thread236 ]
   %224 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
   %225 = load ptr, ptr %224, align 8
   %226 = call i32 @PMPI_Type_get_envelope(ptr noundef %225, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %4) #6
@@ -493,7 +493,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
 233:                                              ; preds = %.lr.ph
   %234 = load ptr, ptr %224, align 8
   %235 = call i64 @ADIOI_Count_contiguous_blocks(ptr noundef %234, ptr noundef nonnull %1)
-  %236 = add nsw i64 %235, %.5206
+  %236 = add nsw i64 %235, %.6206
   %.pre = load i64, ptr %1, align 8
   %237 = icmp eq i64 %228, %.pre
   br i1 %237, label %.thread236, label %238
@@ -508,10 +508,10 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
   br label %.thread236
 
 .thread236:                                       ; preds = %.lr.ph, %233, %238
-  %.6238 = phi i64 [ %236, %238 ], [ %236, %233 ], [ %.5206, %.lr.ph ]
+  %.7238 = phi i64 [ %236, %238 ], [ %236, %233 ], [ %.6206, %.lr.ph ]
   %244 = phi i64 [ %.pre, %238 ], [ %.pre, %233 ], [ %228, %.lr.ph ]
   %.pn = phi i64 [ %243, %238 ], [ 1, %233 ], [ 1, %.lr.ph ]
-  %.7 = add nsw i64 %.pn, %.6238
+  %.8 = add nsw i64 %.pn, %.7238
   %storemerge = add nsw i64 %.pn, %244
   store i64 %storemerge, ptr %1, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -550,7 +550,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread236, %180, %221, %168, %255, %259, %.thread234, %204, %.thread232, %.thread230, %136, %.thread, %112, %43, %46, %262, %69, %49
-  %.8 = phi i64 [ 0, %262 ], [ 3, %259 ], [ %258, %255 ], [ %202, %.thread234 ], [ %220, %204 ], [ %166, %.thread232 ], [ %134, %.thread230 ], [ %142, %136 ], [ %.0187229, %.thread ], [ %115, %112 ], [ %95, %69 ], [ %67, %49 ], [ 1, %46 ], [ %45, %43 ], [ %178, %168 ], [ 0, %221 ], [ %186, %180 ], [ %.7, %.thread236 ]
+  %.0187 = phi i64 [ 0, %262 ], [ 3, %259 ], [ %258, %255 ], [ %202, %.thread234 ], [ %220, %204 ], [ %166, %.thread232 ], [ %134, %.thread230 ], [ %142, %136 ], [ %.1188229, %.thread ], [ %115, %112 ], [ %95, %69 ], [ %67, %49 ], [ 1, %46 ], [ %45, %43 ], [ %178, %168 ], [ 0, %221 ], [ %186, %180 ], [ %.8, %.thread236 ]
   %264 = load i32, ptr %8, align 4
   %265 = icmp sgt i32 %264, 0
   br i1 %265, label %.lr.ph213, label %._crit_edge
@@ -579,7 +579,7 @@ define i64 @ADIOI_Count_contiguous_blocks(ptr noundef %0, ptr noundef %1) local_
   call void @ADIOI_Free_fn(ptr noundef %19, i32 noundef 1145, ptr noundef nonnull @.str) #6
   call void @ADIOI_Free_fn(ptr noundef %24, i32 noundef 1146, ptr noundef nonnull @.str) #6
   call void @ADIOI_Free_fn(ptr noundef %29, i32 noundef 1147, ptr noundef nonnull @.str) #6
-  ret i64 %.8
+  ret i64 %.0187
 }
 
 declare i32 @PMPI_Type_size_x(ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -256,8 +256,8 @@ define noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef %0, ptr noundef %1, 
   br label %17
 
 17:                                               ; preds = %15, %13
-  %.0 = phi ptr [ %14, %13 ], [ %16, %15 ]
-  %18 = icmp eq ptr %.0, null
+  %.1 = phi ptr [ %14, %13 ], [ %16, %15 ]
+  %18 = icmp eq ptr %.1, null
   br i1 %18, label %19, label %_Z9save_freePKcS0_iPv.exit
 
 19:                                               ; preds = %17
@@ -277,8 +277,8 @@ define noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef %0, ptr noundef %1, 
   resume { ptr, i32 } %24
 
 _Z9save_freePKcS0_iPv.exit:                       ; preds = %11, %10, %17
-  %.1 = phi ptr [ %.0, %17 ], [ null, %10 ], [ null, %11 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %17 ], [ null, %10 ], [ null, %11 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable

@@ -82,12 +82,12 @@ ompi_comm_invalid.exit.thread:                    ; preds = %13, %ompi_comm_inva
   br i1 %or.cond118, label %33, label %ompi_errcode_get_mpi_code.exit
 
 ompi_errcode_get_mpi_code.exit:                   ; preds = %25, %23, %20
-  %.0109.ph = phi i32 [ 3, %25 ], [ 2, %23 ], [ 3, %20 ]
+  %.1.ph = phi i32 [ 3, %25 ], [ 2, %23 ], [ 3, %20 ]
   %28 = getelementptr inbounds i8, ptr %4, i64 296
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %4, i64 304
   %31 = load i32, ptr %30, align 8
-  %32 = tail call i32 @ompi_errhandler_invoke(ptr noundef %29, ptr noundef nonnull %4, i32 noundef %31, i32 noundef %.0109.ph, ptr noundef nonnull @FUNC_NAME) #4
+  %32 = tail call i32 @ompi_errhandler_invoke(ptr noundef %29, ptr noundef nonnull %4, i32 noundef %31, i32 noundef %.1.ph, ptr noundef nonnull @FUNC_NAME) #4
   br label %132
 
 33:                                               ; preds = %25
@@ -278,7 +278,7 @@ ompi_errcode_get_mpi_code.exit107:                ; preds = %102, %98, %.prehead
   br label %132
 
 132:                                              ; preds = %90, %84, %89, %ompi_errcode_get_mpi_code.exit107, %ompi_errcode_get_mpi_code.exit95, %62, %48, %35, %ompi_errcode_get_mpi_code.exit, %ompi_comm_invalid.exit.thread
-  %.0 = phi i32 [ %19, %ompi_comm_invalid.exit.thread ], [ %.0109.ph, %ompi_errcode_get_mpi_code.exit ], [ %40, %35 ], [ %.2.ph, %ompi_errcode_get_mpi_code.exit95 ], [ %.0.i97, %ompi_errcode_get_mpi_code.exit107 ], [ %67, %62 ], [ %53, %48 ], [ 0, %89 ], [ 0, %84 ], [ 0, %90 ]
+  %.0 = phi i32 [ %19, %ompi_comm_invalid.exit.thread ], [ %.1.ph, %ompi_errcode_get_mpi_code.exit ], [ %40, %35 ], [ %.2.ph, %ompi_errcode_get_mpi_code.exit95 ], [ %.0.i97, %ompi_errcode_get_mpi_code.exit107 ], [ %67, %62 ], [ %53, %48 ], [ 0, %89 ], [ 0, %84 ], [ 0, %90 ]
   ret i32 %.0
 }
 

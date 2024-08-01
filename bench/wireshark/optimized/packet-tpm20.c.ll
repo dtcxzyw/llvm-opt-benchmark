@@ -779,18 +779,18 @@ get_num_hndl.exit.i:                              ; preds = %.loopexit.i.i
 
 104:                                              ; preds = %104, %99
   %indvars.iv.i = phi i64 [ 0, %99 ], [ %indvars.iv.next.i, %104 ]
-  %.09295.i = phi i32 [ 10, %99 ], [ %109, %104 ]
+  %.195.i = phi i32 [ 10, %99 ], [ %109, %104 ]
   %105 = getelementptr [3 x ptr], ptr %77, i64 0, i64 %indvars.iv.i
   %106 = load ptr, ptr %105, align 8
   %107 = load i32, ptr %106, align 4
-  %108 = tail call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %107, ptr noundef %0, i32 noundef %.09295.i, i32 noundef 4, i32 noundef 0) #5
-  %109 = add nuw nsw i32 %.09295.i, 4
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %103, i32 noundef %107, ptr noundef %0, i32 noundef %.195.i, i32 noundef 4, i32 noundef 0) #5
+  %109 = add nuw nsw i32 %.195.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %104, !llvm.loop !6
 
 .loopexit.i:                                      ; preds = %104, %get_num_hndl.exit.i
-  %.1.i = phi i32 [ 10, %get_num_hndl.exit.i ], [ %109, %104 ]
+  %.092.i = phi i32 [ 10, %get_num_hndl.exit.i ], [ %109, %104 ]
   switch i16 %56, label %159 [
     i16 -32766, label %110
     i16 -32767, label %162
@@ -814,8 +814,8 @@ get_num_hndl.exit.i:                              ; preds = %.loopexit.i.i
 
 119:                                              ; preds = %110
   %120 = load i32, ptr @hf_auth_area_size, align 4
-  %121 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %114, i32 noundef %120, ptr noundef %0, i32 noundef %.1.i, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %20) #5
-  %122 = add i32 %.1.i, 4
+  %121 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %114, i32 noundef %120, ptr noundef %0, i32 noundef %.092.i, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %20) #5
+  %122 = add i32 %.092.i, 4
   %123 = load i32, ptr %20, align 4
   %124 = icmp ult i32 %123, 9
   br i1 %124, label %125, label %.lr.ph.i51.i.preheader
@@ -830,11 +830,11 @@ get_num_hndl.exit.i:                              ; preds = %.loopexit.i.i
   br label %.lr.ph.i51.i
 
 .lr.ph.i51.i:                                     ; preds = %.lr.ph.i51.i.preheader, %.lr.ph.i51.i
-  %.2.i = phi i32 [ %151, %.lr.ph.i51.i ], [ %122, %.lr.ph.i51.i.preheader ]
+  %.3.i = phi i32 [ %151, %.lr.ph.i51.i ], [ %122, %.lr.ph.i51.i.preheader ]
   %.02.i.i = phi i32 [ %154, %.lr.ph.i51.i ], [ 0, %.lr.ph.i51.i.preheader ]
   %128 = load i32, ptr @hf_tpmi_sh_auth_session, align 4
-  %129 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %128, ptr noundef %0, i32 noundef %.2.i, i32 noundef 4, i32 noundef 0) #5
-  %130 = add i32 %.2.i, 4
+  %129 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %128, ptr noundef %0, i32 noundef %.3.i, i32 noundef 4, i32 noundef 0) #5
+  %130 = add i32 %.3.i, 4
   %131 = load i32, ptr %20, align 4
   %132 = add i32 %131, -4
   store i32 %132, ptr %20, align 4
@@ -842,7 +842,7 @@ get_num_hndl.exit.i:                              ; preds = %.loopexit.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %133 = load i32, ptr @hf_session_nonce_size, align 4
   %134 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %114, i32 noundef %133, ptr noundef %0, i32 noundef %130, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #5
-  %135 = add i32 %.2.i, 6
+  %135 = add i32 %.3.i, 6
   %136 = load i32, ptr @hf_session_nonce, align 4
   %137 = load i32, ptr %10, align 4
   %138 = call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %136, ptr noundef %0, i32 noundef %135, i32 noundef %137, i32 noundef 0) #5
@@ -878,7 +878,7 @@ get_num_hndl.exit.i:                              ; preds = %.loopexit.i.i
   br label %dissect_auth_command.exit.i
 
 dissect_auth_command.exit.i:                      ; preds = %156, %._crit_edge.i.i, %125
-  %.3.i = phi i32 [ %122, %125 ], [ %151, %156 ], [ %151, %._crit_edge.i.i ]
+  %.4.i = phi i32 [ %122, %125 ], [ %151, %156 ], [ %151, %._crit_edge.i.i ]
   %.0.lcssa6.i.i = phi i32 [ 0, %125 ], [ %154, %156 ], [ %154, %._crit_edge.i.i ]
   %158 = getelementptr inbounds i8, ptr %117, i64 12
   store i32 %.0.lcssa6.i.i, ptr %158, align 4
@@ -891,7 +891,7 @@ dissect_auth_command.exit.i:                      ; preds = %156, %._crit_edge.i
   br label %162
 
 162:                                              ; preds = %159, %dissect_auth_command.exit.i, %.loopexit.i
-  %.4.i = phi i32 [ %.1.i, %159 ], [ %.1.i, %.loopexit.i ], [ %.3.i, %dissect_auth_command.exit.i ]
+  %.2.i = phi i32 [ %.092.i, %159 ], [ %.092.i, %.loopexit.i ], [ %.4.i, %dissect_auth_command.exit.i ]
   %.val.i = load i32, ptr %34, align 4
   store i32 %.val.i, ptr @last_command_pnum, align 4
   switch i32 %55, label %dissect_tpm20_tpm_command.exit [
@@ -903,7 +903,7 @@ dissect_auth_command.exit.i:                      ; preds = %156, %._crit_edge.i
 
 163:                                              ; preds = %162
   %164 = load i32, ptr @hf_tpm20_startup_type, align 4
-  %165 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %164, ptr noundef %0, i32 noundef %.4.i, i32 noundef 2, i32 noundef 0) #5
+  %165 = call ptr @proto_tree_add_item(ptr noundef %63, i32 noundef %164, ptr noundef %0, i32 noundef %.2.i, i32 noundef 2, i32 noundef 0) #5
   br label %dissect_tpm20_tpm_command.exit
 
 166:                                              ; preds = %162
@@ -911,8 +911,8 @@ dissect_auth_command.exit.i:                      ; preds = %156, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
   %167 = load i32, ptr @hf_tpm_sensitive_crate_size, align 4
-  %168 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %47, i32 noundef %167, ptr noundef %0, i32 noundef %.4.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %17) #5
-  %169 = add i32 %.4.i, 2
+  %168 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %47, i32 noundef %167, ptr noundef %0, i32 noundef %.2.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %17) #5
+  %169 = add i32 %.2.i, 2
   %170 = load i32, ptr @hf_tpm_sensitive_crate, align 4
   %171 = load i32, ptr %17, align 4
   %172 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %170, ptr noundef %0, i32 noundef %169, i32 noundef %171, i32 noundef 0) #5
@@ -942,8 +942,8 @@ dissect_auth_command.exit.i:                      ; preds = %156, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   %190 = load i32, ptr @hf_session_nonce_size, align 4
-  %191 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %47, i32 noundef %190, ptr noundef %0, i32 noundef %.4.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %14) #5
-  %192 = add i32 %.4.i, 2
+  %191 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %47, i32 noundef %190, ptr noundef %0, i32 noundef %.2.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %14) #5
+  %192 = add i32 %.2.i, 2
   %193 = load i32, ptr @hf_session_nonce, align 4
   %194 = load i32, ptr %14, align 4
   %195 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %193, ptr noundef %0, i32 noundef %192, i32 noundef %194, i32 noundef 0) #5
@@ -989,8 +989,8 @@ dissect_start_auth_session.exit.i.i:              ; preds = %213, %189
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   %224 = load i32, ptr @hf_tpm_sensitive_crate_size, align 4
-  %225 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %47, i32 noundef %224, ptr noundef %0, i32 noundef %.4.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %12) #5
-  %226 = add i32 %.4.i, 2
+  %225 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %47, i32 noundef %224, ptr noundef %0, i32 noundef %.2.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %12) #5
+  %226 = add i32 %.2.i, 2
   %227 = load i32, ptr @hf_tpm_sensitive_crate, align 4
   %228 = load i32, ptr %12, align 4
   %229 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %227, ptr noundef %0, i32 noundef %226, i32 noundef %228, i32 noundef 0) #5

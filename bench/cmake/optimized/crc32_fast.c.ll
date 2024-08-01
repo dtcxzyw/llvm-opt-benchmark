@@ -18,41 +18,41 @@ define dso_local i32 @lzma_crc32(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.043 = phi ptr [ %8, %.lr.ph ], [ %0, %.preheader ]
-  %.03042 = phi i64 [ %18, %.lr.ph ], [ %1, %.preheader ]
-  %.03341 = phi i32 [ %17, %.lr.ph ], [ %4, %.preheader ]
-  %8 = getelementptr inbounds i8, ptr %.043, i64 1
-  %9 = load i8, ptr %.043, align 1
+  %.143 = phi ptr [ %8, %.lr.ph ], [ %0, %.preheader ]
+  %.13142 = phi i64 [ %18, %.lr.ph ], [ %1, %.preheader ]
+  %.13441 = phi i32 [ %17, %.lr.ph ], [ %4, %.preheader ]
+  %8 = getelementptr inbounds i8, ptr %.143, i64 1
+  %9 = load i8, ptr %.143, align 1
   %10 = zext i8 %9 to i32
-  %11 = and i32 %.03341, 255
+  %11 = and i32 %.13441, 255
   %12 = xor i32 %11, %10
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds [256 x i32], ptr @lzma_crc32_table, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
-  %16 = lshr i32 %.03341, 8
+  %16 = lshr i32 %.13441, 8
   %17 = xor i32 %15, %16
-  %18 = add i64 %.03042, -1
+  %18 = add i64 %.13142, -1
   %19 = ptrtoint ptr %8 to i64
   %20 = and i64 %19, 7
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.033.lcssa = phi i32 [ %4, %.preheader ], [ %17, %.lr.ph ]
-  %.030.lcssa = phi i64 [ %1, %.preheader ], [ %18, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.preheader ], [ %8, %.lr.ph ]
-  %21 = and i64 %.030.lcssa, -8
-  %22 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %21
-  %23 = and i64 %.030.lcssa, 7
+  %.134.lcssa = phi i32 [ %4, %.preheader ], [ %17, %.lr.ph ]
+  %.131.lcssa = phi i64 [ %1, %.preheader ], [ %18, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %0, %.preheader ], [ %8, %.lr.ph ]
+  %21 = and i64 %.131.lcssa, -8
+  %22 = getelementptr inbounds i8, ptr %.1.lcssa, i64 %21
+  %23 = and i64 %.131.lcssa, 7
   %24 = icmp sgt i64 %21, 0
   br i1 %24, label %.lr.ph49, label %.loopexit
 
 .lr.ph49:                                         ; preds = %._crit_edge, %.lr.ph49
-  %.147 = phi ptr [ %45, %.lr.ph49 ], [ %.0.lcssa, %._crit_edge ]
-  %.13446 = phi i32 [ %70, %.lr.ph49 ], [ %.033.lcssa, %._crit_edge ]
-  %.1.val = load i32, ptr %.147, align 1
-  %25 = xor i32 %.1.val, %.13446
-  %26 = getelementptr inbounds i8, ptr %.147, i64 4
+  %.247 = phi ptr [ %45, %.lr.ph49 ], [ %.1.lcssa, %._crit_edge ]
+  %.23546 = phi i32 [ %70, %.lr.ph49 ], [ %.134.lcssa, %._crit_edge ]
+  %.2.val = load i32, ptr %.247, align 1
+  %25 = xor i32 %.2.val, %.23546
+  %26 = getelementptr inbounds i8, ptr %.247, i64 4
   %27 = and i32 %25, 255
   %28 = zext nneg i32 %27 to i64
   %29 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @lzma_crc32_table, i64 7168), i64 0, i64 %28
@@ -72,7 +72,7 @@ define dso_local i32 @lzma_crc32(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   %43 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @lzma_crc32_table, i64 4096), i64 0, i64 %42
   %44 = load i32, ptr %43, align 4
   %.val = load i32, ptr %26, align 1
-  %45 = getelementptr inbounds i8, ptr %.147, i64 8
+  %45 = getelementptr inbounds i8, ptr %.247, i64 8
   %46 = and i32 %.val, 255
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds [256 x i32], ptr getelementptr inbounds (i8, ptr @lzma_crc32_table, i64 3072), i64 0, i64 %47
@@ -102,16 +102,16 @@ define dso_local i32 @lzma_crc32(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br i1 %71, label %.lr.ph49, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph49, %._crit_edge, %3
-  %.235 = phi i32 [ %4, %3 ], [ %.033.lcssa, %._crit_edge ], [ %70, %.lr.ph49 ]
-  %.131 = phi i64 [ %1, %3 ], [ %23, %._crit_edge ], [ %23, %.lr.ph49 ]
-  %.2 = phi ptr [ %0, %3 ], [ %.0.lcssa, %._crit_edge ], [ %45, %.lr.ph49 ]
-  %.not3952 = icmp eq i64 %.131, 0
+  %.033 = phi i32 [ %4, %3 ], [ %.134.lcssa, %._crit_edge ], [ %70, %.lr.ph49 ]
+  %.030 = phi i64 [ %1, %3 ], [ %23, %._crit_edge ], [ %23, %.lr.ph49 ]
+  %.0 = phi ptr [ %0, %3 ], [ %.1.lcssa, %._crit_edge ], [ %45, %.lr.ph49 ]
+  %.not3952 = icmp eq i64 %.030, 0
   br i1 %.not3952, label %._crit_edge58, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %.loopexit, %.lr.ph57
-  %.355 = phi ptr [ %73, %.lr.ph57 ], [ %.2, %.loopexit ]
-  %.23254 = phi i64 [ %72, %.lr.ph57 ], [ %.131, %.loopexit ]
-  %.33653 = phi i32 [ %82, %.lr.ph57 ], [ %.235, %.loopexit ]
+  %.355 = phi ptr [ %73, %.lr.ph57 ], [ %.0, %.loopexit ]
+  %.23254 = phi i64 [ %72, %.lr.ph57 ], [ %.030, %.loopexit ]
+  %.33653 = phi i32 [ %82, %.lr.ph57 ], [ %.033, %.loopexit ]
   %72 = add nsw i64 %.23254, -1
   %73 = getelementptr inbounds i8, ptr %.355, i64 1
   %74 = load i8, ptr %.355, align 1
@@ -127,7 +127,7 @@ define dso_local i32 @lzma_crc32(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br i1 %.not39, label %._crit_edge58, label %.lr.ph57, !llvm.loop !8
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %.loopexit
-  %.336.lcssa = phi i32 [ %.235, %.loopexit ], [ %82, %.lr.ph57 ]
+  %.336.lcssa = phi i32 [ %.033, %.loopexit ], [ %82, %.lr.ph57 ]
   %83 = xor i32 %.336.lcssa, -1
   ret i32 %83
 }

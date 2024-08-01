@@ -519,9 +519,9 @@ if.then118:                                       ; preds = %for.end116
   br label %err
 
 err:                                              ; preds = %for.body47, %if.then79, %for.body100, %lor.lhs.false106, %if.then118, %for.end116, %for.end59, %lor.lhs.false63, %land.lhs.true, %if.end26, %lor.lhs.false
-  %pq.1 = phi ptr [ %call.i, %lor.lhs.false63 ], [ %call.i, %for.end59 ], [ %call.i, %land.lhs.true ], [ %call.i, %lor.lhs.false ], [ %call.i, %if.end26 ], [ %call.i, %for.end116 ], [ null, %if.then118 ], [ %call.i, %lor.lhs.false106 ], [ %call.i, %for.body100 ], [ %call.i, %if.then79 ], [ %call.i, %for.body47 ]
+  %pq.0 = phi ptr [ %call.i, %lor.lhs.false63 ], [ %call.i, %for.end59 ], [ %call.i, %land.lhs.true ], [ %call.i, %lor.lhs.false ], [ %call.i, %if.end26 ], [ %call.i, %for.end116 ], [ null, %if.then118 ], [ %call.i, %lor.lhs.false106 ], [ %call.i, %for.body100 ], [ %call.i, %if.then79 ], [ %call.i, %for.body47 ]
   %res.0 = phi i32 [ 0, %lor.lhs.false63 ], [ 0, %for.end59 ], [ 0, %land.lhs.true ], [ 0, %lor.lhs.false ], [ 0, %if.end26 ], [ 1, %for.end116 ], [ %spec.select, %if.then118 ], [ 0, %lor.lhs.false106 ], [ 0, %for.body100 ], [ 0, %if.then79 ], [ 0, %for.body47 ]
-  tail call void @ossl_pqueue_free(ptr noundef %pq.1) #7
+  tail call void @ossl_pqueue_free(ptr noundef %pq.0) #7
   br label %return
 
 return:                                           ; preds = %entry, %err

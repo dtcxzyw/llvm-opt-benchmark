@@ -174,7 +174,7 @@ if.end39:                                         ; preds = %land.lhs.true35, %i
   br i1 %tobool41.not, label %skip_optional_pos, label %if.end44
 
 if.end44:                                         ; preds = %if.end39, %if.end28
-  %logopt.0 = phi i64 [ %call33, %if.end39 ], [ 0, %if.end28 ]
+  %logopt.1 = phi i64 [ %call33, %if.end39 ], [ 0, %if.end28 ]
   %arrayidx45 = getelementptr i8, ptr %cond1035, i64 16
   %8 = load ptr, ptr %arrayidx45, align 8
   %call46 = call i64 @PyLong_AsLong(ptr noundef %8) #4
@@ -187,10 +187,10 @@ land.lhs.true48:                                  ; preds = %if.end44
   br i1 %tobool50.not, label %skip_optional_pos, label %exit
 
 skip_optional_pos:                                ; preds = %if.end44, %land.lhs.true48, %if.end39, %if.end23, %if.end
-  %ident.1 = phi ptr [ %3, %land.lhs.true48 ], [ %3, %if.end44 ], [ %3, %if.end39 ], [ %3, %if.end23 ], [ null, %if.end ]
-  %logopt.1 = phi i64 [ %logopt.0, %land.lhs.true48 ], [ %logopt.0, %if.end44 ], [ %call33, %if.end39 ], [ 0, %if.end23 ], [ 0, %if.end ]
+  %ident.0 = phi ptr [ %3, %land.lhs.true48 ], [ %3, %if.end44 ], [ %3, %if.end39 ], [ %3, %if.end23 ], [ null, %if.end ]
+  %logopt.0 = phi i64 [ %logopt.1, %land.lhs.true48 ], [ %logopt.1, %if.end44 ], [ %call33, %if.end39 ], [ 0, %if.end23 ], [ 0, %if.end ]
   %facility.0 = phi i64 [ -1, %land.lhs.true48 ], [ %call46, %if.end44 ], [ 8, %if.end39 ], [ 8, %if.end23 ], [ 8, %if.end ]
-  %call53 = call fastcc ptr @syslog_openlog_impl(ptr noundef %ident.1, i64 noundef %logopt.1, i64 noundef %facility.0)
+  %call53 = call fastcc ptr @syslog_openlog_impl(ptr noundef %ident.0, i64 noundef %logopt.0, i64 noundef %facility.0)
   br label %exit
 
 exit:                                             ; preds = %land.lhs.true48, %land.lhs.true35, %cond.end9, %skip_optional_pos, %if.then21

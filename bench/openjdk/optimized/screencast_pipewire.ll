@@ -1684,7 +1684,7 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %46,
   br i1 %.not.i116, label %releaseToken.exit, label %releaseToken.exit.sink.split
 
 releaseToken.exit.sink.split:                     ; preds = %._crit_edge123, %73, %70
-  %.0.ph = phi i32 [ -11, %70 ], [ %72, %73 ], [ 0, %._crit_edge123 ]
+  %.1.ph = phi i32 [ -11, %70 ], [ %72, %73 ], [ 0, %._crit_edge123 ]
   %131 = load ptr, ptr %0, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 1360
   %133 = load ptr, ptr %132, align 8
@@ -1692,13 +1692,13 @@ releaseToken.exit.sink.split:                     ; preds = %._crit_edge123, %73
   br label %releaseToken.exit
 
 releaseToken.exit:                                ; preds = %releaseToken.exit.sink.split, %._crit_edge123, %73, %70
-  %.0 = phi i32 [ -11, %70 ], [ %72, %73 ], [ 0, %._crit_edge123 ], [ %.0.ph, %releaseToken.exit.sink.split ]
+  %.1 = phi i32 [ -11, %70 ], [ %72, %73 ], [ 0, %._crit_edge123 ], [ %.1.ph, %releaseToken.exit.sink.split ]
   call void @llvm.stackrestore.p0(ptr %57)
   br label %134
 
 134:                                              ; preds = %releaseToken.exit, %28
-  %.1 = phi i32 [ -1, %28 ], [ %.0, %releaseToken.exit ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %28 ], [ %.1, %releaseToken.exit ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
@@ -4769,14 +4769,14 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   br i1 %213, label %.lr.ph.preheader.i, label %._crit_edge.i
 
 .lr.ph.preheader.i:                               ; preds = %210, %164
-  %.1206.i = phi ptr [ %spec.select.i, %210 ], [ %162, %164 ]
+  %.0206.i = phi ptr [ %spec.select.i, %210 ], [ %162, %164 ]
   %.084205.i = phi i32 [ %212, %210 ], [ 1, %164 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %spa_pod_builder_primitive.exit.i, %.lr.ph.preheader.i
   %.in.i = phi i32 [ %214, %spa_pod_builder_primitive.exit.i ], [ %.084205.i, %.lr.ph.preheader.i ]
   %214 = add nsw i32 %.in.i, -1
-  %215 = load i8, ptr %.1206.i, align 1
+  %215 = load i8, ptr %.0206.i, align 1
   switch i8 %215, label %spa_pod_builder_primitive.exit.i [
     i8 98, label %216
     i8 73, label %232
@@ -5559,8 +5559,8 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
   br label %.critedge.i.i180.i
 
 .critedge.i.i180.i:                               ; preds = %572, %561
-  %.1.i.i.i = phi i32 [ 0, %561 ], [ %574, %572 ]
-  %575 = icmp eq i32 %.1.i.i.i, 0
+  %.0.i.i.i = phi i32 [ 0, %561 ], [ %574, %572 ]
+  %575 = icmp eq i32 %.0.i.i.i, 0
   %576 = icmp ne ptr %.0.i179.i, null
   %or.cond.i.i.i = and i1 %576, %575
   br i1 %or.cond.i.i.i, label %577, label %.critedge.thread.i.i181.i
@@ -5789,7 +5789,7 @@ spa_pod_builder_frame.exit:                       ; preds = %spa_pod_builder_raw
   br label %spa_pod_builder_frame.exit.thread
 
 spa_pod_builder_frame.exit.thread:                ; preds = %spa_pod_builder_raw.exit, %47, %spa_pod_builder_frame.exit
-  %.0.i20 = phi ptr [ %48, %47 ], [ null, %spa_pod_builder_frame.exit ], [ null, %spa_pod_builder_raw.exit ]
+  %.0.i1621 = phi ptr [ %48, %47 ], [ null, %spa_pod_builder_frame.exit ], [ null, %spa_pod_builder_raw.exit ]
   %50 = getelementptr inbounds i8, ptr %0, i64 16
   %51 = getelementptr inbounds i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
@@ -5804,8 +5804,8 @@ spa_pod_builder_frame.exit.thread:                ; preds = %spa_pod_builder_raw
   %57 = add i32 %56, -1
   %58 = or i32 %57, 7
   %59 = add i32 %58, 1
-  %.not.i16 = icmp eq i32 %59, %56
-  br i1 %.not.i16, label %spa_pod_builder_pad.exit, label %60
+  %.not.i17 = icmp eq i32 %59, %56
+  br i1 %.not.i17, label %spa_pod_builder_pad.exit, label %60
 
 60:                                               ; preds = %spa_pod_builder_frame.exit.thread
   %61 = sub i32 %59, %56
@@ -5866,7 +5866,7 @@ spa_pod_builder_frame.exit.thread:                ; preds = %spa_pod_builder_raw
 
 spa_pod_builder_pad.exit:                         ; preds = %.lr.ph.i.i, %spa_pod_builder_frame.exit.thread, %.critedge.thread.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  ret ptr %.0.i20
+  ret ptr %.0.i1621
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -5972,9 +5972,9 @@ spa_pod_builder_raw.exit:                         ; preds = %spa_pod_builder_raw
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %45, %spa_pod_builder_raw.exit
-  %.1.i.i = phi i1 [ true, %spa_pod_builder_raw.exit ], [ %49, %45 ]
+  %.0.i.i = phi i1 [ true, %spa_pod_builder_raw.exit ], [ %49, %45 ]
   %50 = icmp ne ptr %1, null
-  %or.cond.i.i = and i1 %50, %.1.i.i
+  %or.cond.i.i = and i1 %50, %.0.i.i
   br i1 %or.cond.i.i, label %51, label %.critedge.thread.i.i
 
 51:                                               ; preds = %.critedge.i.i
@@ -6206,9 +6206,9 @@ define internal fastcc void @spa_pod_builder_primitive(ptr nocapture noundef %0,
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %30, %16
-  %.1.i = phi i1 [ true, %16 ], [ %34, %30 ]
+  %.0.i = phi i1 [ true, %16 ], [ %34, %30 ]
   %35 = icmp ne ptr %.0, null
-  %or.cond.i = and i1 %35, %.1.i
+  %or.cond.i = and i1 %35, %.0.i
   br i1 %or.cond.i, label %36, label %.critedge.thread.i
 
 36:                                               ; preds = %.critedge.i
@@ -6360,9 +6360,9 @@ define internal fastcc void @spa_pod_builder_raw_padded(ptr nocapture noundef %0
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %18, %3
-  %.1.i = phi i1 [ true, %3 ], [ %22, %18 ]
+  %.0.i = phi i1 [ true, %3 ], [ %22, %18 ]
   %23 = icmp ne ptr %1, null
-  %or.cond.i = and i1 %23, %.1.i
+  %or.cond.i = and i1 %23, %.0.i
   br i1 %or.cond.i, label %24, label %.critedge.thread.i
 
 24:                                               ; preds = %.critedge.i

@@ -572,7 +572,7 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
 
 .lr.ph.split.i:                                   ; preds = %71, %.thread.i
   %indvars.iv.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i, %71 ]
-  %.149.i = phi i8 [ %29, %.thread.i ], [ %.3.i, %71 ]
+  %.149.i = phi i8 [ %29, %.thread.i ], [ %.2.i, %71 ]
   %.13947.i = phi ptr [ %46, %.thread.i ], [ %73, %71 ]
   switch i8 %.149.i, label %60 [
     i8 58, label %57
@@ -586,9 +586,9 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
   br label %60
 
 60:                                               ; preds = %57, %.lr.ph.split.i
-  %.240.i = phi ptr [ %58, %57 ], [ %.13947.i, %.lr.ph.split.i ]
-  %.2.i = phi i8 [ %59, %57 ], [ %.149.i, %.lr.ph.split.i ]
-  %61 = zext i8 %.2.i to i64
+  %.341.i = phi ptr [ %58, %57 ], [ %.13947.i, %.lr.ph.split.i ]
+  %.3.i = phi i8 [ %59, %57 ], [ %.149.i, %.lr.ph.split.i ]
+  %61 = zext i8 %.3.i to i64
   %62 = getelementptr i16, ptr %50, i64 %61
   %63 = load i16, ptr %62, align 2
   %64 = and i16 %63, 1024
@@ -596,7 +596,7 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
   br i1 %.not43.i, label %.loopexit87, label %65
 
 65:                                               ; preds = %60
-  %66 = load i8, ptr %.240.i, align 1
+  %66 = load i8, ptr %.341.i, align 1
   %67 = zext i8 %66 to i64
   %68 = getelementptr i16, ptr %50, i64 %67
   %69 = load i16, ptr %68, align 2
@@ -605,9 +605,9 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
   br i1 %.not44.i, label %.loopexit87, label %71
 
 71:                                               ; preds = %65
-  %72 = getelementptr i8, ptr %.240.i, i64 1
-  %73 = getelementptr i8, ptr %.240.i, i64 2
-  %.3.i = load i8, ptr %72, align 1
+  %72 = getelementptr i8, ptr %.341.i, i64 1
+  %73 = getelementptr i8, ptr %.341.i, i64 2
+  %.2.i = load i8, ptr %72, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %.loopexit88, label %.lr.ph.split.i, !llvm.loop !8
@@ -646,7 +646,7 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
 
 .lr.ph.split.i29:                                 ; preds = %.loopexit88, %99
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i39, %99 ], [ 0, %.loopexit88 ]
-  %.149.i31 = phi i8 [ %.3.i38, %99 ], [ %35, %.loopexit88 ]
+  %.149.i31 = phi i8 [ %.2.i38, %99 ], [ %35, %.loopexit88 ]
   %.13947.i32 = phi ptr [ %101, %99 ], [ %76, %.loopexit88 ]
   switch i8 %.149.i31, label %88 [
     i8 58, label %85
@@ -660,9 +660,9 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
   br label %88
 
 88:                                               ; preds = %85, %.lr.ph.split.i29
-  %.240.i33 = phi ptr [ %86, %85 ], [ %.13947.i32, %.lr.ph.split.i29 ]
-  %.2.i34 = phi i8 [ %87, %85 ], [ %.149.i31, %.lr.ph.split.i29 ]
-  %89 = zext i8 %.2.i34 to i64
+  %.341.i33 = phi ptr [ %86, %85 ], [ %.13947.i32, %.lr.ph.split.i29 ]
+  %.3.i34 = phi i8 [ %87, %85 ], [ %.149.i31, %.lr.ph.split.i29 ]
+  %89 = zext i8 %.3.i34 to i64
   %90 = getelementptr i16, ptr %75, i64 %89
   %91 = load i16, ptr %90, align 2
   %92 = and i16 %91, 1024
@@ -670,7 +670,7 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
   br i1 %.not43.i35, label %.loopexit83, label %93
 
 93:                                               ; preds = %88
-  %94 = load i8, ptr %.240.i33, align 1
+  %94 = load i8, ptr %.341.i33, align 1
   %95 = zext i8 %94 to i64
   %96 = getelementptr i16, ptr %75, i64 %95
   %97 = load i16, ptr %96, align 2
@@ -679,9 +679,9 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
   br i1 %.not44.i37, label %.loopexit83, label %99
 
 99:                                               ; preds = %93
-  %100 = getelementptr i8, ptr %.240.i33, i64 1
-  %101 = getelementptr i8, ptr %.240.i33, i64 2
-  %.3.i38 = load i8, ptr %100, align 1
+  %100 = getelementptr i8, ptr %.341.i33, i64 1
+  %101 = getelementptr i8, ptr %.341.i33, i64 2
+  %.2.i38 = load i8, ptr %100, align 1
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, 8
   br i1 %exitcond.not.i40, label %.loopexit84, label %.lr.ph.split.i29, !llvm.loop !8
@@ -719,7 +719,7 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
 
 .lr.ph.split.i53:                                 ; preds = %.loopexit84, %126
   %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i63, %126 ], [ 0, %.loopexit84 ]
-  %.149.i55 = phi i8 [ %.3.i62, %126 ], [ %41, %.loopexit84 ]
+  %.149.i55 = phi i8 [ %.2.i62, %126 ], [ %41, %.loopexit84 ]
   %.13947.i56 = phi ptr [ %128, %126 ], [ %103, %.loopexit84 ]
   switch i8 %.149.i55, label %115 [
     i8 58, label %112
@@ -733,9 +733,9 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
   br label %115
 
 115:                                              ; preds = %112, %.lr.ph.split.i53
-  %.240.i57 = phi ptr [ %113, %112 ], [ %.13947.i56, %.lr.ph.split.i53 ]
-  %.2.i58 = phi i8 [ %114, %112 ], [ %.149.i55, %.lr.ph.split.i53 ]
-  %116 = zext i8 %.2.i58 to i64
+  %.341.i57 = phi ptr [ %113, %112 ], [ %.13947.i56, %.lr.ph.split.i53 ]
+  %.3.i58 = phi i8 [ %114, %112 ], [ %.149.i55, %.lr.ph.split.i53 ]
+  %116 = zext i8 %.3.i58 to i64
   %117 = getelementptr i16, ptr %75, i64 %116
   %118 = load i16, ptr %117, align 2
   %119 = and i16 %118, 1024
@@ -743,7 +743,7 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
   br i1 %.not43.i59, label %.loopexit, label %120
 
 120:                                              ; preds = %115
-  %121 = load i8, ptr %.240.i57, align 1
+  %121 = load i8, ptr %.341.i57, align 1
   %122 = zext i8 %121 to i64
   %123 = getelementptr i16, ptr %75, i64 %122
   %124 = load i16, ptr %123, align 2
@@ -752,9 +752,9 @@ define internal noundef zeroext i1 @uat_key_record_update_cb(ptr nocapture nound
   br i1 %.not44.i61, label %.loopexit, label %126
 
 126:                                              ; preds = %120
-  %127 = getelementptr i8, ptr %.240.i57, i64 1
-  %128 = getelementptr i8, ptr %.240.i57, i64 2
-  %.3.i62 = load i8, ptr %127, align 1
+  %127 = getelementptr i8, ptr %.341.i57, i64 1
+  %128 = getelementptr i8, ptr %.341.i57, i64 2
+  %.2.i62 = load i8, ptr %127, align 1
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, 16
   br i1 %exitcond.not.i64, label %zbd_parse_uat_hexline.exit74, label %.lr.ph.split.i53, !llvm.loop !8
@@ -883,7 +883,7 @@ define internal void @uat_key_record_post_update() #0 {
 
 .lr.ph.split.i:                                   ; preds = %29, %58
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %58 ], [ 0, %29 ]
-  %.149.i = phi i8 [ %.3.i, %58 ], [ %31, %29 ]
+  %.149.i = phi i8 [ %.2.i, %58 ], [ %31, %29 ]
   %.13947.i = phi ptr [ %63, %58 ], [ %30, %29 ]
   switch i8 %.149.i, label %44 [
     i8 58, label %41
@@ -897,9 +897,9 @@ define internal void @uat_key_record_post_update() #0 {
   br label %44
 
 44:                                               ; preds = %41, %.lr.ph.split.i
-  %.240.i = phi ptr [ %42, %41 ], [ %.13947.i, %.lr.ph.split.i ]
-  %.2.i = phi i8 [ %43, %41 ], [ %.149.i, %.lr.ph.split.i ]
-  %45 = zext i8 %.2.i to i64
+  %.341.i = phi ptr [ %42, %41 ], [ %.13947.i, %.lr.ph.split.i ]
+  %.3.i = phi i8 [ %43, %41 ], [ %.149.i, %.lr.ph.split.i ]
+  %45 = zext i8 %.3.i to i64
   %46 = getelementptr i16, ptr %14, i64 %45
   %47 = load i16, ptr %46, align 2
   %48 = and i16 %47, 1024
@@ -907,12 +907,12 @@ define internal void @uat_key_record_post_update() #0 {
   br i1 %.not43.i, label %zbd_parse_uat_hexline.exit, label %49
 
 49:                                               ; preds = %44
-  %50 = call i32 @g_ascii_xdigit_value(i8 noundef signext %.2.i) #12
+  %50 = call i32 @g_ascii_xdigit_value(i8 noundef signext %.3.i) #12
   %.tr.i = trunc i32 %50 to i8
   %51 = shl i8 %.tr.i, 4
   %52 = getelementptr i8, ptr %2, i64 %indvars.iv.i
   store i8 %51, ptr %52, align 1
-  %53 = load i8, ptr %.240.i, align 1
+  %53 = load i8, ptr %.341.i, align 1
   %54 = zext i8 %53 to i64
   %55 = getelementptr i16, ptr %14, i64 %54
   %56 = load i16, ptr %55, align 2
@@ -921,13 +921,13 @@ define internal void @uat_key_record_post_update() #0 {
   br i1 %.not44.i, label %zbd_parse_uat_hexline.exit, label %58
 
 58:                                               ; preds = %49
-  %59 = getelementptr i8, ptr %.240.i, i64 1
+  %59 = getelementptr i8, ptr %.341.i, i64 1
   %60 = call i32 @g_ascii_xdigit_value(i8 noundef signext %53) #12
   %61 = trunc i32 %60 to i8
   %62 = or i8 %51, %61
   store i8 %62, ptr %52, align 1
-  %63 = getelementptr i8, ptr %.240.i, i64 2
-  %.3.i = load i8, ptr %59, align 1
+  %63 = getelementptr i8, ptr %.341.i, i64 2
+  %.2.i = load i8, ptr %59, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
   br i1 %exitcond.not.i, label %zbd_parse_uat_hexline.exit, label %.lr.ph.split.i, !llvm.loop !8
@@ -972,7 +972,7 @@ zbd_parse_uat_hexline.exit:                       ; preds = %44, %49, %58, %.lr.
 
 .lr.ph.split.i22:                                 ; preds = %67, %96
   %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i32, %96 ], [ 0, %67 ]
-  %.149.i24 = phi i8 [ %.3.i31, %96 ], [ %69, %67 ]
+  %.149.i24 = phi i8 [ %.2.i31, %96 ], [ %69, %67 ]
   %.13947.i25 = phi ptr [ %101, %96 ], [ %68, %67 ]
   switch i8 %.149.i24, label %82 [
     i8 58, label %79
@@ -986,9 +986,9 @@ zbd_parse_uat_hexline.exit:                       ; preds = %44, %49, %58, %.lr.
   br label %82
 
 82:                                               ; preds = %79, %.lr.ph.split.i22
-  %.240.i26 = phi ptr [ %80, %79 ], [ %.13947.i25, %.lr.ph.split.i22 ]
-  %.2.i27 = phi i8 [ %81, %79 ], [ %.149.i24, %.lr.ph.split.i22 ]
-  %83 = zext i8 %.2.i27 to i64
+  %.341.i26 = phi ptr [ %80, %79 ], [ %.13947.i25, %.lr.ph.split.i22 ]
+  %.3.i27 = phi i8 [ %81, %79 ], [ %.149.i24, %.lr.ph.split.i22 ]
+  %83 = zext i8 %.3.i27 to i64
   %84 = getelementptr i16, ptr %14, i64 %83
   %85 = load i16, ptr %84, align 2
   %86 = and i16 %85, 1024
@@ -996,12 +996,12 @@ zbd_parse_uat_hexline.exit:                       ; preds = %44, %49, %58, %.lr.
   br i1 %.not43.i28, label %zbd_parse_uat_hexline.exit43, label %87
 
 87:                                               ; preds = %82
-  %88 = call i32 @g_ascii_xdigit_value(i8 noundef signext %.2.i27) #12
+  %88 = call i32 @g_ascii_xdigit_value(i8 noundef signext %.3.i27) #12
   %.tr.i29 = trunc i32 %88 to i8
   %89 = shl i8 %.tr.i29, 4
   %90 = getelementptr i8, ptr %3, i64 %indvars.iv.i23
   store i8 %89, ptr %90, align 1
-  %91 = load i8, ptr %.240.i26, align 1
+  %91 = load i8, ptr %.341.i26, align 1
   %92 = zext i8 %91 to i64
   %93 = getelementptr i16, ptr %14, i64 %92
   %94 = load i16, ptr %93, align 2
@@ -1010,13 +1010,13 @@ zbd_parse_uat_hexline.exit:                       ; preds = %44, %49, %58, %.lr.
   br i1 %.not44.i30, label %zbd_parse_uat_hexline.exit43, label %96
 
 96:                                               ; preds = %87
-  %97 = getelementptr i8, ptr %.240.i26, i64 1
+  %97 = getelementptr i8, ptr %.341.i26, i64 1
   %98 = call i32 @g_ascii_xdigit_value(i8 noundef signext %91) #12
   %99 = trunc i32 %98 to i8
   %100 = or i8 %89, %99
   store i8 %100, ptr %90, align 1
-  %101 = getelementptr i8, ptr %.240.i26, i64 2
-  %.3.i31 = load i8, ptr %97, align 1
+  %101 = getelementptr i8, ptr %.341.i26, i64 2
+  %.2.i31 = load i8, ptr %97, align 1
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i23, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, 8
   br i1 %exitcond.not.i33, label %zbd_parse_uat_hexline.exit43, label %.lr.ph.split.i22, !llvm.loop !8
@@ -1062,7 +1062,7 @@ zbd_parse_uat_hexline.exit43:                     ; preds = %82, %87, %96, %.lr.
 
 .lr.ph.split.i46:                                 ; preds = %106, %135
   %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i56, %135 ], [ 0, %106 ]
-  %.149.i48 = phi i8 [ %.3.i55, %135 ], [ %108, %106 ]
+  %.149.i48 = phi i8 [ %.2.i55, %135 ], [ %108, %106 ]
   %.13947.i49 = phi ptr [ %140, %135 ], [ %107, %106 ]
   switch i8 %.149.i48, label %121 [
     i8 58, label %118
@@ -1076,9 +1076,9 @@ zbd_parse_uat_hexline.exit43:                     ; preds = %82, %87, %96, %.lr.
   br label %121
 
 121:                                              ; preds = %118, %.lr.ph.split.i46
-  %.240.i50 = phi ptr [ %119, %118 ], [ %.13947.i49, %.lr.ph.split.i46 ]
-  %.2.i51 = phi i8 [ %120, %118 ], [ %.149.i48, %.lr.ph.split.i46 ]
-  %122 = zext i8 %.2.i51 to i64
+  %.341.i50 = phi ptr [ %119, %118 ], [ %.13947.i49, %.lr.ph.split.i46 ]
+  %.3.i51 = phi i8 [ %120, %118 ], [ %.149.i48, %.lr.ph.split.i46 ]
+  %122 = zext i8 %.3.i51 to i64
   %123 = getelementptr i16, ptr %14, i64 %122
   %124 = load i16, ptr %123, align 2
   %125 = and i16 %124, 1024
@@ -1086,12 +1086,12 @@ zbd_parse_uat_hexline.exit43:                     ; preds = %82, %87, %96, %.lr.
   br i1 %.not43.i52, label %zbd_parse_uat_hexline.exit67, label %126
 
 126:                                              ; preds = %121
-  %127 = call i32 @g_ascii_xdigit_value(i8 noundef signext %.2.i51) #12
+  %127 = call i32 @g_ascii_xdigit_value(i8 noundef signext %.3.i51) #12
   %.tr.i53 = trunc i32 %127 to i8
   %128 = shl i8 %.tr.i53, 4
   %129 = getelementptr i8, ptr %4, i64 %indvars.iv.i47
   store i8 %128, ptr %129, align 1
-  %130 = load i8, ptr %.240.i50, align 1
+  %130 = load i8, ptr %.341.i50, align 1
   %131 = zext i8 %130 to i64
   %132 = getelementptr i16, ptr %14, i64 %131
   %133 = load i16, ptr %132, align 2
@@ -1100,13 +1100,13 @@ zbd_parse_uat_hexline.exit43:                     ; preds = %82, %87, %96, %.lr.
   br i1 %.not44.i54, label %zbd_parse_uat_hexline.exit67, label %135
 
 135:                                              ; preds = %126
-  %136 = getelementptr i8, ptr %.240.i50, i64 1
+  %136 = getelementptr i8, ptr %.341.i50, i64 1
   %137 = call i32 @g_ascii_xdigit_value(i8 noundef signext %130) #12
   %138 = trunc i32 %137 to i8
   %139 = or i8 %128, %138
   store i8 %139, ptr %129, align 1
-  %140 = getelementptr i8, ptr %.240.i50, i64 2
-  %.3.i55 = load i8, ptr %136, align 1
+  %140 = getelementptr i8, ptr %.341.i50, i64 2
+  %.2.i55 = load i8, ptr %136, align 1
   %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, 16
   br i1 %exitcond.not.i57, label %zbd_parse_uat_hexline.exit67, label %.lr.ph.split.i46, !llvm.loop !8
@@ -1957,14 +1957,14 @@ zb_direct_decryption_needed.exit.i:               ; preds = %41, %39
   br label %73
 
 73:                                               ; preds = %77, %.preheader.i
-  %.056.i = phi ptr [ %79, %77 ], [ %54, %.preheader.i ]
-  %74 = load ptr, ptr %.056.i, align 8
+  %.1.i = phi ptr [ %79, %77 ], [ %54, %.preheader.i ]
+  %74 = load ptr, ptr %.1.i, align 8
   %75 = load i32, ptr %74, align 8
   %76 = icmp ugt i32 %75, %72
   br i1 %76, label %77, label %.lr.ph.i
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %.056.i, i64 8
+  %78 = getelementptr inbounds i8, ptr %.1.i, i64 8
   %79 = load ptr, ptr %78, align 8
   %.old2.not.i = icmp eq ptr %79, null
   br i1 %.old2.not.i, label %._crit_edge.i, label %73
@@ -1974,7 +1974,7 @@ zb_direct_decryption_needed.exit.i:               ; preds = %41, %39
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %73, %.critedge.i
-  %.155.i = phi ptr [ %54, %.critedge.i ], [ %.056.i, %73 ]
+  %.05655.i = phi ptr [ %54, %.critedge.i ], [ %.1.i, %73 ]
   %80 = getelementptr inbounds i8, ptr %14, i64 8
   %invariant.gep.i.i.i.i.i = getelementptr i8, ptr %3, i64 16
   %81 = getelementptr inbounds i8, ptr %12, i64 16
@@ -1993,7 +1993,7 @@ zb_direct_decryption_needed.exit.i:               ; preds = %41, %39
   br i1 %89, label %.thread.i.us, label %.preheader46.i.preheader
 
 .thread.i.us:                                     ; preds = %.lr.ph.i, %.thread.i.us
-  %.227.i.us = phi ptr [ %96, %.thread.i.us ], [ %.155.i, %.lr.ph.i ]
+  %.227.i.us = phi ptr [ %96, %.thread.i.us ], [ %.05655.i, %.lr.ph.i ]
   %93 = load ptr, ptr %0, align 8
   %94 = call ptr @tvb_get_ptr(ptr noundef %93, i32 noundef 0, i32 noundef %88) #10
   %95 = getelementptr inbounds i8, ptr %.227.i.us, i64 8
@@ -2002,7 +2002,7 @@ zb_direct_decryption_needed.exit.i:               ; preds = %41, %39
   br i1 %.not116.i.us, label %._crit_edge.i, label %.thread.i.us, !llvm.loop !15
 
 .preheader46.i.preheader:                         ; preds = %.lr.ph.i, %131
-  %.227.i = phi ptr [ %133, %131 ], [ %.155.i, %.lr.ph.i ]
+  %.227.i = phi ptr [ %133, %131 ], [ %.05655.i, %.lr.ph.i ]
   %97 = load ptr, ptr %0, align 8
   %98 = call ptr @tvb_get_ptr(ptr noundef %97, i32 noundef 0, i32 noundef %88) #10
   %99 = load ptr, ptr %.227.i, align 8

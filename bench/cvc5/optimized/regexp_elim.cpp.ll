@@ -3024,9 +3024,9 @@ cond.true226.lr.ph:                               ; preds = %invoke.cont214
   br label %cond.true226
 
 cond.true226:                                     ; preds = %cond.true226.lr.ph, %for.inc310
-  %gap_minsize.sroa.0.14722 = phi ptr [ %call5.i.i.i.i.i.i1003, %cond.true226.lr.ph ], [ %gap_minsize.sroa.0.4.ph, %for.inc310 ]
-  %gap_minsize.sroa.11.14721 = phi ptr [ %incdec.ptr.i.i.i, %cond.true226.lr.ph ], [ %gap_minsize.sroa.11.3.ph, %for.inc310 ]
-  %gap_minsize.sroa.21.14720 = phi ptr [ %incdec.ptr.i.i.i, %cond.true226.lr.ph ], [ %gap_minsize.sroa.21.3.ph, %for.inc310 ]
+  %gap_minsize.sroa.0.14722 = phi ptr [ %call5.i.i.i.i.i.i1003, %cond.true226.lr.ph ], [ %gap_minsize.sroa.0.3.ph, %for.inc310 ]
+  %gap_minsize.sroa.11.04721 = phi ptr [ %incdec.ptr.i.i.i, %cond.true226.lr.ph ], [ %gap_minsize.sroa.11.2.ph, %for.inc310 ]
+  %gap_minsize.sroa.21.04720 = phi ptr [ %incdec.ptr.i.i.i, %cond.true226.lr.ph ], [ %gap_minsize.sroa.21.1.ph, %for.inc310 ]
   %__begin3.sroa.0.04719 = phi ptr [ %218, %cond.true226.lr.ph ], [ %incdec.ptr.i1361, %for.inc310 ]
   %220 = load ptr, ptr %__begin3.sroa.0.04719, align 8
   %d_kind.i1096 = getelementptr inbounds i8, ptr %220, i64 8
@@ -3147,15 +3147,15 @@ terminate.lpad.i1162:                             ; preds = %if.then13.i.i1161
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1163: ; preds = %invoke.cont247, %if.then.i.i1154, %if.then13.i.i1161
-  %cmp.not.i.i1166 = icmp eq ptr %gap_minsize.sroa.11.14721, %gap_minsize.sroa.21.14720
+  %cmp.not.i.i1166 = icmp eq ptr %gap_minsize.sroa.11.04721, %gap_minsize.sroa.21.04720
   br i1 %cmp.not.i.i1166, label %if.else.i.i1169, label %if.then.i.i1167
 
 if.then.i.i1167:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1163
-  store i32 0, ptr %gap_minsize.sroa.11.14721, align 4
+  store i32 0, ptr %gap_minsize.sroa.11.04721, align 4
   br label %invoke.cont250
 
 if.else.i.i1169:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1163
-  %sub.ptr.lhs.cast.i.i.i.i.i1170 = ptrtoint ptr %gap_minsize.sroa.11.14721 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i1170 = ptrtoint ptr %gap_minsize.sroa.11.04721 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i1171 = ptrtoint ptr %gap_minsize.sroa.0.14722 to i64
   %sub.ptr.sub.i.i.i.i.i1172 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i1170, %sub.ptr.rhs.cast.i.i.i.i.i1171
   %cmp.i.i.i.i1173 = icmp eq i64 %sub.ptr.sub.i.i.i.i.i1172, 9223372036854775804
@@ -3208,10 +3208,10 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   br label %invoke.cont250
 
 invoke.cont250:                                   ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i1192, %if.then.i.i1167
-  %gap_minsize.sroa.21.2 = phi ptr [ %add.ptr19.i.i.i1193, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i1192 ], [ %gap_minsize.sroa.21.14720, %if.then.i.i1167 ]
-  %add.ptr.i.i.i.i.i.i1188.pn = phi ptr [ %add.ptr.i.i.i.i.i.i1188, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i1192 ], [ %gap_minsize.sroa.11.14721, %if.then.i.i1167 ]
-  %gap_minsize.sroa.0.2 = phi ptr [ %cond.i10.i.i.i1184, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i1192 ], [ %gap_minsize.sroa.0.14722, %if.then.i.i1167 ]
-  %gap_minsize.sroa.11.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i1188.pn, i64 4
+  %gap_minsize.sroa.21.3 = phi ptr [ %add.ptr19.i.i.i1193, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i1192 ], [ %gap_minsize.sroa.21.04720, %if.then.i.i1167 ]
+  %add.ptr.i.i.i.i.i.i1188.pn = phi ptr [ %add.ptr.i.i.i.i.i.i1188, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i1192 ], [ %gap_minsize.sroa.11.04721, %if.then.i.i1167 ]
+  %gap_minsize.sroa.0.6 = phi ptr [ %cond.i10.i.i.i1184, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i1192 ], [ %gap_minsize.sroa.0.14722, %if.then.i.i1167 ]
+  %gap_minsize.sroa.11.4 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i1188.pn, i64 4
   %233 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %234 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8
   %cmp.not.i1202 = icmp eq ptr %233, %234
@@ -3243,13 +3243,13 @@ if.else.i1216:                                    ; preds = %invoke.cont250
           to label %for.inc310 unwind label %lpad212.loopexit
 
 lpad212.loopexit:                                 ; preds = %if.then243, %if.then13.i.i.i1119, %cond.true.i.i.i.i1181, %if.else.i1216, %land.rhs256, %if.then13.i.i.i1242
-  %gap_minsize.sroa.0.3.ph = phi ptr [ %gap_minsize.sroa.0.14722, %land.rhs256 ], [ %gap_minsize.sroa.0.14722, %if.then13.i.i.i1242 ], [ %gap_minsize.sroa.0.14722, %if.then243 ], [ %gap_minsize.sroa.0.14722, %if.then13.i.i.i1119 ], [ %gap_minsize.sroa.0.14722, %cond.true.i.i.i.i1181 ], [ %gap_minsize.sroa.0.2, %if.else.i1216 ]
+  %gap_minsize.sroa.0.0.ph = phi ptr [ %gap_minsize.sroa.0.14722, %land.rhs256 ], [ %gap_minsize.sroa.0.14722, %if.then13.i.i.i1242 ], [ %gap_minsize.sroa.0.14722, %if.then243 ], [ %gap_minsize.sroa.0.14722, %if.then13.i.i.i1119 ], [ %gap_minsize.sroa.0.14722, %cond.true.i.i.i.i1181 ], [ %gap_minsize.sroa.0.6, %if.else.i1216 ]
   %lpad.loopexit4632 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup1362
 
 lpad212.loopexit.split-lp:                        ; preds = %cond.true199, %if.else.i1013, %if.then.i.i.i.i1195, %if.then13.i.i.i2911, %if.then13.i.i2925
-  %gap_minsize.sroa.0.3.ph4631 = phi ptr [ null, %cond.true199 ], [ %call5.i.i.i.i.i.i1003, %if.else.i1013 ], [ %gap_minsize.sroa.0.14645, %if.then13.i.i.i2911 ], [ %gap_minsize.sroa.0.14645, %if.then13.i.i2925 ], [ %gap_minsize.sroa.0.14722, %if.then.i.i.i.i1195 ]
+  %gap_minsize.sroa.0.0.ph4631 = phi ptr [ null, %cond.true199 ], [ %call5.i.i.i.i.i.i1003, %if.else.i1013 ], [ %gap_minsize.sroa.0.14645, %if.then13.i.i.i2911 ], [ %gap_minsize.sroa.0.14645, %if.then13.i.i2925 ], [ %gap_minsize.sroa.0.14722, %if.then.i.i.i.i1195 ]
   %lpad.loopexit.split-lp4633 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup1362
@@ -3370,7 +3370,7 @@ if.else278:                                       ; preds = %cleanup.done267.if.
   br i1 %cmp281, label %if.then282, label %if.end779
 
 if.then282:                                       ; preds = %if.else278
-  %sub.ptr.lhs.cast.i1277 = ptrtoint ptr %gap_minsize.sroa.11.14721 to i64
+  %sub.ptr.lhs.cast.i1277 = ptrtoint ptr %gap_minsize.sroa.11.04721 to i64
   %sub.ptr.rhs.cast.i1278 = ptrtoint ptr %gap_minsize.sroa.0.14722 to i64
   %sub.ptr.sub.i1279 = sub i64 %sub.ptr.lhs.cast.i1277, %sub.ptr.rhs.cast.i1278
   %sub.ptr.div.i1280 = ashr exact i64 %sub.ptr.sub.i1279, 2
@@ -3382,16 +3382,16 @@ if.then282:                                       ; preds = %if.else278
   br label %for.inc310
 
 for.inc310:                                       ; preds = %invoke.cont275, %if.then282, %if.else.i1216, %_ZNSt13_Bit_iteratorppEi.exit.i1208
-  %gap_minsize.sroa.21.3.ph = phi ptr [ %gap_minsize.sroa.21.2, %_ZNSt13_Bit_iteratorppEi.exit.i1208 ], [ %gap_minsize.sroa.21.2, %if.else.i1216 ], [ %gap_minsize.sroa.21.14720, %if.then282 ], [ %gap_minsize.sroa.21.14720, %invoke.cont275 ]
-  %gap_minsize.sroa.11.3.ph = phi ptr [ %gap_minsize.sroa.11.2, %_ZNSt13_Bit_iteratorppEi.exit.i1208 ], [ %gap_minsize.sroa.11.2, %if.else.i1216 ], [ %gap_minsize.sroa.11.14721, %if.then282 ], [ %gap_minsize.sroa.11.14721, %invoke.cont275 ]
-  %gap_minsize.sroa.0.4.ph = phi ptr [ %gap_minsize.sroa.0.2, %_ZNSt13_Bit_iteratorppEi.exit.i1208 ], [ %gap_minsize.sroa.0.2, %if.else.i1216 ], [ %gap_minsize.sroa.0.14722, %if.then282 ], [ %gap_minsize.sroa.0.14722, %invoke.cont275 ]
+  %gap_minsize.sroa.21.1.ph = phi ptr [ %gap_minsize.sroa.21.3, %_ZNSt13_Bit_iteratorppEi.exit.i1208 ], [ %gap_minsize.sroa.21.3, %if.else.i1216 ], [ %gap_minsize.sroa.21.04720, %if.then282 ], [ %gap_minsize.sroa.21.04720, %invoke.cont275 ]
+  %gap_minsize.sroa.11.2.ph = phi ptr [ %gap_minsize.sroa.11.4, %_ZNSt13_Bit_iteratorppEi.exit.i1208 ], [ %gap_minsize.sroa.11.4, %if.else.i1216 ], [ %gap_minsize.sroa.11.04721, %if.then282 ], [ %gap_minsize.sroa.11.04721, %invoke.cont275 ]
+  %gap_minsize.sroa.0.3.ph = phi ptr [ %gap_minsize.sroa.0.6, %_ZNSt13_Bit_iteratorppEi.exit.i1208 ], [ %gap_minsize.sroa.0.6, %if.else.i1216 ], [ %gap_minsize.sroa.0.14722, %if.then282 ], [ %gap_minsize.sroa.0.14722, %invoke.cont275 ]
   %incdec.ptr.i1361 = getelementptr inbounds i8, ptr %__begin3.sroa.0.04719, i64 8
   %cmp.i1016.not = icmp eq ptr %incdec.ptr.i1361, %219
   br i1 %cmp.i1016.not, label %land.lhs.true314, label %cond.true226
 
 land.lhs.true314:                                 ; preds = %for.inc310, %invoke.cont214
-  %gap_minsize.sroa.11.1.lcssa = phi ptr [ %incdec.ptr.i.i.i, %invoke.cont214 ], [ %gap_minsize.sroa.11.3.ph, %for.inc310 ]
-  %gap_minsize.sroa.0.1.lcssa = phi ptr [ %call5.i.i.i.i.i.i1003, %invoke.cont214 ], [ %gap_minsize.sroa.0.4.ph, %for.inc310 ]
+  %gap_minsize.sroa.11.0.lcssa = phi ptr [ %incdec.ptr.i.i.i, %invoke.cont214 ], [ %gap_minsize.sroa.11.2.ph, %for.inc310 ]
+  %gap_minsize.sroa.0.1.lcssa = phi ptr [ %call5.i.i.i.i.i.i1003, %invoke.cont214 ], [ %gap_minsize.sroa.0.3.ph, %for.inc310 ]
   %248 = load ptr, ptr %sep_children, align 8
   %_M_finish.i.i1362 = getelementptr inbounds i8, ptr %sep_children, i64 8
   %249 = load ptr, ptr %_M_finish.i.i1362, align 8
@@ -3429,7 +3429,7 @@ if.then13.i.i1370:                                ; preds = %if.else.i.i1368
 
 invoke.cont322:                                   ; preds = %if.then13.i.i1370, %if.then.i.i1372, %if.else.i.i1368
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %prev_ends, i8 0, i64 24, i1 false)
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %gap_minsize.sroa.11.1.lcssa, i64 -4
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %gap_minsize.sroa.11.0.lcssa, i64 -4
   %252 = load i32, ptr %add.ptr.i.i, align 4
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %retval.sroa.2.0.copyload.i.i = load i32, ptr %_M_offset.i.i1.i.i.i.i, align 8
@@ -3469,7 +3469,7 @@ for.body332.lr.ph:                                ; preds = %invoke.cont322
 
 for.body332:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2015, %for.body332.lr.ph
   %indvars.iv4760 = phi i64 [ 0, %for.body332.lr.ph ], [ %indvars.iv.next4761, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2015 ]
-  %canProcess.04726 = phi i1 [ true, %for.body332.lr.ph ], [ %canProcess.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2015 ]
+  %canProcess.04726 = phi i1 [ true, %for.body332.lr.ph ], [ %canProcess.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2015 ]
   %add.ptr.i1397 = getelementptr inbounds i32, ptr %gap_minsize.sroa.0.1.lcssa, i64 %indvars.iv4760
   %259 = load i32, ptr %add.ptr.i1397, align 4
   %cmp335.not = icmp eq i32 %259, 0
@@ -5072,7 +5072,7 @@ ehcleanup526:                                     ; preds = %ehcleanup508, %ehcl
   br label %ehcleanup528
 
 cleanup:                                          ; preds = %if.then13.i.i1987, %if.then.i.i1980, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1977, %if.then13.i.i1661, %if.then.i.i1654, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1651, %if.then428
-  %canProcess.1 = phi i1 [ false, %if.then428 ], [ %canProcess.04726, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1651 ], [ %canProcess.04726, %if.then.i.i1654 ], [ %canProcess.04726, %if.then13.i.i1661 ], [ %canProcess.04726, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1977 ], [ %canProcess.04726, %if.then.i.i1980 ], [ %canProcess.04726, %if.then13.i.i1987 ]
+  %canProcess.2 = phi i1 [ false, %if.then428 ], [ %canProcess.04726, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1651 ], [ %canProcess.04726, %if.then.i.i1654 ], [ %canProcess.04726, %if.then13.i.i1661 ], [ %canProcess.04726, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1977 ], [ %canProcess.04726, %if.then.i.i1980 ], [ %canProcess.04726, %if.then13.i.i1987 ]
   %switch.not = phi i1 [ true, %if.then428 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1651 ], [ false, %if.then.i.i1654 ], [ false, %if.then13.i.i1661 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1977 ], [ false, %if.then.i.i1980 ], [ false, %if.then13.i.i1987 ]
   %457 = load ptr, ptr %lensc, align 8
   %bf.load.i.i1992 = load i64, ptr %457, align 8
@@ -5144,7 +5144,7 @@ ehcleanup530:                                     ; preds = %lpad370, %ehcleanup
   br label %ehcleanup770
 
 for.end533:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2015
-  br i1 %canProcess.1, label %if.then535, label %if.end779.critedge
+  br i1 %canProcess.2, label %if.then535, label %if.end779.critedge
 
 if.then535:                                       ; preds = %invoke.cont322, %for.end533
   invoke void @_ZN4cvc58internal8RationalC2Ej(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp536, i32 noundef %252)
@@ -11444,7 +11444,7 @@ invoke.cont.i4341:                                ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i4342, label %cleanup1367, label %cleanup1367.sink.split
 
 ehcleanup1362:                                    ; preds = %lpad212.loopexit, %lpad212.loopexit.split-lp, %ehcleanup1360, %ehcleanup778, %lpad246
-  %gap_minsize.sroa.0.6 = phi ptr [ %gap_minsize.sroa.0.14645, %ehcleanup1360 ], [ %gap_minsize.sroa.0.1.lcssa, %ehcleanup778 ], [ %gap_minsize.sroa.0.14722, %lpad246 ], [ %gap_minsize.sroa.0.3.ph, %lpad212.loopexit ], [ %gap_minsize.sroa.0.3.ph4631, %lpad212.loopexit.split-lp ]
+  %gap_minsize.sroa.0.4 = phi ptr [ %gap_minsize.sroa.0.14645, %ehcleanup1360 ], [ %gap_minsize.sroa.0.1.lcssa, %ehcleanup778 ], [ %gap_minsize.sroa.0.14722, %lpad246 ], [ %gap_minsize.sroa.0.0.ph, %lpad212.loopexit ], [ %gap_minsize.sroa.0.0.ph4631, %lpad212.loopexit.split-lp ]
   %.pn236.pn.pn.pn = phi { ptr, i32 } [ %.pn236.pn.pn, %ehcleanup1360 ], [ %.pn175.pn.pn.pn.pn.pn, %ehcleanup778 ], [ %236, %lpad246 ], [ %lpad.loopexit4632, %lpad212.loopexit ], [ %lpad.loopexit.split-lp4633, %lpad212.loopexit.split-lp ]
   %1206 = load ptr, ptr %gap_exact, align 8
   %tobool.not.i.i.i4347 = icmp eq ptr %1206, null
@@ -11467,11 +11467,11 @@ if.then.i.i.i4348:                                ; preds = %ehcleanup1362
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit4359
 
 _ZNSt6vectorIbSaIbEED2Ev.exit4359:                ; preds = %ehcleanup1362, %if.then.i.i.i4348
-  %tobool.not.i.i.i4361 = icmp eq ptr %gap_minsize.sroa.0.6, null
+  %tobool.not.i.i.i4361 = icmp eq ptr %gap_minsize.sroa.0.4, null
   br i1 %tobool.not.i.i.i4361, label %ehcleanup1368, label %if.then.i.i.i4362
 
 if.then.i.i.i4362:                                ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit4359
-  call void @_ZdlPv(ptr noundef nonnull %gap_minsize.sroa.0.6) #18
+  call void @_ZdlPv(ptr noundef nonnull %gap_minsize.sroa.0.4) #18
   br label %ehcleanup1368
 
 cleanup1367.sink.split:                           ; preds = %invoke.cont.i4341, %invoke.cont.i942
@@ -12905,7 +12905,7 @@ lpad88:                                           ; preds = %land.lhs.true, %inv
   br label %ehcleanup408
 
 if.end97:                                         ; preds = %invoke.cont91, %invoke.cont89
-  %lenOnePeriod.1 = phi i8 [ 0, %invoke.cont89 ], [ %spec.select, %invoke.cont91 ]
+  %lenOnePeriod.2 = phi i8 [ 0, %invoke.cont89 ], [ %spec.select, %invoke.cont91 ]
   %92 = load ptr, ptr %s, align 8
   %bf.load.i.i381 = load i64, ptr %92, align 8
   %93 = and i64 %bf.load.i.i381, 1152920405095219200
@@ -12938,8 +12938,8 @@ if.else99:                                        ; preds = %for.body79
   br label %if.end105
 
 if.end105:                                        ; preds = %if.then13.i.i389, %if.then.i.i383, %if.end97, %if.else99
-  %lenOnePeriod.2 = phi i8 [ %spec.select84, %if.else99 ], [ %lenOnePeriod.1, %if.end97 ], [ %lenOnePeriod.1, %if.then.i.i383 ], [ %lenOnePeriod.1, %if.then13.i.i389 ]
-  %tobool106 = trunc nuw i8 %lenOnePeriod.2 to i1
+  %lenOnePeriod.3 = phi i8 [ %spec.select84, %if.else99 ], [ %lenOnePeriod.2, %if.end97 ], [ %lenOnePeriod.2, %if.then.i.i383 ], [ %lenOnePeriod.2, %if.then13.i.i389 ]
+  %tobool106 = trunc nuw i8 %lenOnePeriod.3 to i1
   br i1 %tobool106, label %if.else108, label %for.end124
 
 if.else108:                                       ; preds = %if.end105
@@ -13077,7 +13077,7 @@ lpad118:                                          ; preds = %if.else.i423, %if.t
   br label %ehcleanup408
 
 for.end124:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit437, %if.end105
-  %tobool125 = trunc nuw i8 %lenOnePeriod.2 to i1
+  %tobool125 = trunc nuw i8 %lenOnePeriod.3 to i1
   br i1 %tobool125, label %if.then126, label %if.end211
 
 if.then126:                                       ; preds = %_ZN4cvc58internal8RationalD2Ev.exit340, %for.end124

@@ -967,7 +967,7 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %211, %209, %206, %._crit_edge276, %191, %190, %175, %173, %150, %147, %._crit_edge, %60, %33, %25, %3
-  %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.2, %211 ], [ %.sroa.0.2, %209 ], [ %.sroa.0.2, %206 ], [ %.sroa.0.1, %60 ], [ %.sroa.0.1, %._crit_edge276 ], [ %.sroa.0.1, %191 ], [ %.sroa.0.1, %190 ], [ %.sroa.0.1, %175 ], [ %.sroa.0.1, %173 ], [ %.sroa.0.1, %150 ], [ %.sroa.0.1, %147 ], [ %.sroa.0.1, %._crit_edge ], [ %32, %33 ], [ null, %25 ], [ null, %3 ]
+  %.sroa.0.0.ph.ph = phi ptr [ %.sroa.0.1, %211 ], [ %.sroa.0.1, %209 ], [ %.sroa.0.1, %206 ], [ %.sroa.0.4, %60 ], [ %.sroa.0.4, %._crit_edge276 ], [ %.sroa.0.4, %191 ], [ %.sroa.0.4, %190 ], [ %.sroa.0.4, %175 ], [ %.sroa.0.4, %173 ], [ %.sroa.0.4, %150 ], [ %.sroa.0.4, %147 ], [ %.sroa.0.4, %._crit_edge ], [ %32, %33 ], [ null, %25 ], [ null, %3 ]
   %lpad.loopexit.split-lp230 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -1000,7 +1000,7 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
   br label %47
 
 47:                                               ; preds = %33, %34
-  %.sroa.0.1 = phi ptr [ %32, %33 ], [ null, %34 ]
+  %.sroa.0.4 = phi ptr [ %32, %33 ], [ null, %34 ]
   %48 = getelementptr inbounds i8, ptr %7, i64 168
   %49 = call i32 @_setjmp(ptr noundef nonnull %48) #25
   %50 = icmp eq i32 %49, 0
@@ -1374,7 +1374,7 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
   br label %204
 
 204:                                              ; preds = %47, %203, %29
-  %.sroa.0.2 = phi ptr [ null, %29 ], [ %.sroa.0.1, %203 ], [ %.sroa.0.1, %47 ]
+  %.sroa.0.1 = phi ptr [ null, %29 ], [ %.sroa.0.4, %203 ], [ %.sroa.0.4, %47 ]
   %.0..0..0..0.87 = load volatile i8, ptr %4, align 1
   %205 = trunc i8 %.0..0..0..0.87 to i1
   br i1 %205, label %211, label %206
@@ -1404,11 +1404,11 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %212, %214
-  %.not.i = icmp eq ptr %.sroa.0.2, null
+  %.not.i = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i, label %_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.exit, label %215
 
 215:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit
-  %216 = call i32 @fclose(ptr noundef nonnull %.sroa.0.2)
+  %216 = call i32 @fclose(ptr noundef nonnull %.sroa.0.1)
   br label %_ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.exit
 
 _ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.exit: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %215
@@ -1416,7 +1416,7 @@ _ZZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEEN11fileWrapperD2Ev.exit
   ret i1 %217
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %138, %64
-  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %64 ], [ %.sroa.0.1, %138 ], [ %.sroa.0.1, %.loopexit ], [ %.sroa.0.1, %.loopexit.split-lp.loopexit ], [ %.sroa.0.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %64 ], [ %.sroa.0.4, %138 ], [ %.sroa.0.4, %.loopexit ], [ %.sroa.0.4, %.loopexit.split-lp.loopexit ], [ %.sroa.0.0.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn152 = phi { ptr, i32 } [ %65, %64 ], [ %.pn, %138 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit229, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp230, %.loopexit.split-lp.loopexit.split-lp ]
   %218 = load ptr, ptr %5, align 8
   %.not.i.i.i156 = icmp eq ptr %218, null

@@ -106,9 +106,9 @@ for.body9:                                        ; preds = %for.end, %for.inc11
   %3 = phi ptr [ %.pre103, %for.end ], [ %14, %for.inc113 ]
   %4 = phi i32 [ %.pre, %for.end ], [ %15, %for.inc113 ]
   %indvars.iv100 = phi i64 [ 1, %for.end ], [ %indvars.iv.next101, %for.inc113 ]
-  %oldest.093 = phi i32 [ -1, %for.end ], [ %oldest.1, %for.inc113 ]
+  %oldest.093 = phi i32 [ -1, %for.end ], [ %oldest.2, %for.inc113 ]
   %oldest_age.092 = phi i64 [ 0, %for.end ], [ %oldest_age.1, %for.inc113 ]
-  %youngest.091 = phi i32 [ -1, %for.end ], [ %youngest.1, %for.inc113 ]
+  %youngest.091 = phi i32 [ -1, %for.end ], [ %youngest.2, %for.inc113 ]
   %youngest_evicting.090 = phi i1 [ false, %for.end ], [ %youngest_evicting.1, %for.inc113 ]
   %youngest_age.089 = phi i64 [ -1, %for.end ], [ %youngest_age.1, %for.inc113 ]
   %5 = trunc nuw nsw i64 %indvars.iv100 to i32
@@ -241,7 +241,7 @@ land.lhs.true:                                    ; preds = %if.end82
 
 if.end92:                                         ; preds = %land.lhs.true, %if.end82
   %oldest_age.1 = phi i64 [ %oldest_age.092, %if.end82 ], [ %spec.select, %land.lhs.true ]
-  %oldest.1 = phi i32 [ %oldest.093, %if.end82 ], [ %spec.select73, %land.lhs.true ]
+  %oldest.2 = phi i32 [ %oldest.093, %if.end82 ], [ %spec.select73, %land.lhs.true ]
   %cmp93 = icmp ult i64 %div64, %youngest_age.089
   br i1 %cmp93, label %land.lhs.true95, label %for.inc113
 
@@ -263,7 +263,7 @@ if.then109:                                       ; preds = %lor.lhs.false, %lan
 for.inc113:                                       ; preds = %if.end92, %lor.lhs.false, %if.then109
   %youngest_age.1 = phi i64 [ %div64, %if.then109 ], [ %youngest_age.089, %lor.lhs.false ], [ %youngest_age.089, %if.end92 ]
   %youngest_evicting.1 = phi i1 [ %cmp24.not, %if.then109 ], [ %youngest_evicting.090, %lor.lhs.false ], [ %youngest_evicting.090, %if.end92 ]
-  %youngest.1 = phi i32 [ %5, %if.then109 ], [ %youngest.091, %lor.lhs.false ], [ %youngest.091, %if.end92 ]
+  %youngest.2 = phi i32 [ %5, %if.then109 ], [ %youngest.091, %lor.lhs.false ], [ %youngest.091, %if.end92 ]
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next101, 64
   br i1 %exitcond102.not, label %for.end115, label %for.body9, !llvm.loop !8
@@ -272,12 +272,12 @@ for.end115:                                       ; preds = %for.inc113, %if.the
   %youngest_age.086 = phi i64 [ %youngest_age.089, %if.then80 ], [ %youngest_age.1, %for.inc113 ]
   %youngest_evicting.084 = phi i1 [ %youngest_evicting.090, %if.then80 ], [ %youngest_evicting.1, %for.inc113 ]
   %oldest_age.081 = phi i64 [ %oldest_age.092, %if.then80 ], [ %oldest_age.1, %for.inc113 ]
-  %youngest.2 = phi i32 [ -1, %if.then80 ], [ %youngest.1, %for.inc113 ]
-  %oldest.2 = phi i32 [ -1, %if.then80 ], [ %oldest.1, %for.inc113 ]
+  %youngest.1 = phi i32 [ -1, %if.then80 ], [ %youngest.2, %for.inc113 ]
+  %oldest.1 = phi i32 [ -1, %if.then80 ], [ %oldest.2, %for.inc113 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %iam_before, ptr noundef nonnull align 8 dereferenceable(1536) %iam_after, i64 1536, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1536) %sam_before, ptr noundef nonnull align 8 dereferenceable(1536) %sam_after, i64 1536, i1 false)
-  %cmp124 = icmp ne i32 %youngest.2, -1
-  %cmp127 = icmp ne i32 %oldest.2, -1
+  %cmp124 = icmp ne i32 %youngest.1, -1
+  %cmp127 = icmp ne i32 %oldest.1, -1
   %or.cond = select i1 %cmp124, i1 %cmp127, i1 false
   br i1 %or.cond, label %land.lhs.true129, label %if.end145
 
@@ -298,8 +298,8 @@ if.then134:                                       ; preds = %land.lhs.true129
   br i1 %brmerge.not, label %if.then143, label %if.end145
 
 if.then143:                                       ; preds = %if.then134
-  store i32 %oldest.2, ptr %src, align 4
-  store i32 %youngest.2, ptr %dst, align 4
+  store i32 %oldest.1, ptr %src, align 4
+  store i32 %youngest.1, ptr %dst, align 4
   br label %if.end145
 
 if.end145:                                        ; preds = %if.then134, %if.then143, %land.lhs.true129, %for.end115

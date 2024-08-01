@@ -75,14 +75,14 @@ if.then7:                                         ; preds = %if.end
   %cmp11 = icmp sgt i32 %call10, 0
   %idx.ext = zext nneg i32 %call10 to i64
   %add.ptr13 = getelementptr inbounds i8, ptr %message, i64 %idx.ext
-  %p.0 = select i1 %cmp11, ptr %add.ptr13, ptr %add.ptr5.ptr
+  %p.1 = select i1 %cmp11, ptr %add.ptr13, ptr %add.ptr5.ptr
   call void @llvm.va_end.p0(ptr nonnull %backup_ap)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then7, %if.end
-  %p.1 = phi ptr [ %p.0, %if.then7 ], [ %message, %if.end ]
-  %cmp17 = icmp ugt ptr %p.1, %add.ptr5.ptr
-  %spec.select = select i1 %cmp17, ptr %add.ptr5.ptr, ptr %p.1
+  %p.0 = phi ptr [ %p.1, %if.then7 ], [ %message, %if.end ]
+  %cmp17 = icmp ugt ptr %p.0, %add.ptr5.ptr
+  %spec.select = select i1 %cmp17, ptr %add.ptr5.ptr, ptr %p.0
   store i8 0, ptr %spec.select, align 1
   %logs_ = getelementptr inbounds i8, ptr %this, i64 2304
   call void @_ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(104) %logs_, ptr noundef nonnull align 8 dereferenceable(8) %buffered_log)
@@ -352,10 +352,10 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %cmp11.i = icmp sgt i32 %call10.i, 0
   %idx.ext.i = zext nneg i32 %call10.i to i64
   %add.ptr13.i = getelementptr inbounds i8, ptr %message.i, i64 %idx.ext.i
-  %p.0.i = select i1 %cmp11.i, ptr %add.ptr13.i, ptr %add.ptr5.ptr.i
+  %p.1.i = select i1 %cmp11.i, ptr %add.ptr13.i, ptr %add.ptr5.ptr.i
   call void @llvm.va_end.p0(ptr nonnull %backup_ap.i)
-  %cmp17.i = icmp ugt ptr %p.0.i, %add.ptr5.ptr.i
-  %spec.select.i = select i1 %cmp17.i, ptr %add.ptr5.ptr.i, ptr %p.0.i
+  %cmp17.i = icmp ugt ptr %p.1.i, %add.ptr5.ptr.i
+  %spec.select.i = select i1 %cmp17.i, ptr %add.ptr5.ptr.i, ptr %p.1.i
   store i8 0, ptr %spec.select.i, align 1
   %logs_.i = getelementptr inbounds i8, ptr %log_buffer, i64 2304
   call void @_ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(104) %logs_.i, ptr noundef nonnull align 8 dereferenceable(8) %buffered_log.i)

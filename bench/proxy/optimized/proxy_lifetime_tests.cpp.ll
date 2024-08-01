@@ -2447,8 +2447,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %281
 
 281:                                              ; preds = %280, %210, %133, %132, %70
-  %.sroa.39.6 = phi ptr [ %.sroa.39.1, %70 ], [ %193, %280 ], [ null, %210 ], [ null, %133 ], [ null, %132 ]
-  %.sroa.0279.6 = phi ptr [ %.sroa.0279.1, %70 ], [ %190, %280 ], [ null, %210 ], [ null, %133 ], [ null, %132 ]
+  %.sroa.39.3 = phi ptr [ %.sroa.39.1, %70 ], [ %193, %280 ], [ null, %210 ], [ null, %133 ], [ null, %132 ]
+  %.sroa.0279.3 = phi ptr [ %.sroa.0279.1, %70 ], [ %190, %280 ], [ null, %210 ], [ null, %133 ], [ null, %132 ]
   %.pn35.pn.pn.pn = phi { ptr, i32 } [ %71, %70 ], [ %.pn35.pn.pn, %280 ], [ %.pn32.pn, %210 ], [ %134, %133 ], [ %.pn.pn.pn, %132 ]
   %282 = load ptr, ptr %4, align 8
   %.not.i126 = icmp eq ptr %282, null
@@ -2637,17 +2637,17 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %339
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127: ; preds = %283, %281
-  %.not.i.i.i146 = icmp eq ptr %.sroa.0279.6, null
+  %.not.i.i.i146 = icmp eq ptr %.sroa.0279.3, null
   br i1 %.not.i.i.i146, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit147, label %339
 
 339:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread342, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127
   %.pn40.pn.pn.pn349 = phi { ptr, i32 } [ %.pn40.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread342 ], [ %.pn35.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
-  %.sroa.0279.8348 = phi ptr [ %190, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread342 ], [ %.sroa.0279.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
-  %.sroa.39.8347 = phi ptr [ %193, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread342 ], [ %.sroa.39.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
-  %340 = ptrtoint ptr %.sroa.39.8347 to i64
-  %341 = ptrtoint ptr %.sroa.0279.8348 to i64
+  %.sroa.0279.2348 = phi ptr [ %190, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread342 ], [ %.sroa.0279.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
+  %.sroa.39.2347 = phi ptr [ %193, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread342 ], [ %.sroa.39.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
+  %340 = ptrtoint ptr %.sroa.39.2347 to i64
+  %341 = ptrtoint ptr %.sroa.0279.2348 to i64
   %342 = sub i64 %340, %341
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0279.8348, i64 noundef %342) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0279.2348, i64 noundef %342) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit147
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit147: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127, %339
@@ -2764,8 +2764,8 @@ define dso_local void @_ZN63ProxyLifetimeTests_TestPolyConstrction_FromValue_Exc
   unreachable
 
 31:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i195, %1
-  %.sroa.23.1 = phi ptr [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i195 ], [ null, %1 ]
-  %.sroa.0.1 = phi ptr [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i195 ], [ null, %1 ]
+  %.sroa.23.0 = phi ptr [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i195 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i195 ], [ null, %1 ]
   %32 = landingpad { ptr, i32 }
           cleanup
   %33 = extractvalue { ptr, i32 } %32, 0
@@ -2773,8 +2773,8 @@ define dso_local void @_ZN63ProxyLifetimeTests_TestPolyConstrction_FromValue_Exc
   br label %337
 
 35:                                               ; preds = %21, %77
-  %.sroa.23.2 = phi ptr [ %28, %77 ], [ null, %21 ]
-  %.sroa.0.2 = phi ptr [ %25, %77 ], [ null, %21 ]
+  %.sroa.23.1 = phi ptr [ %28, %77 ], [ null, %21 ]
+  %.sroa.0.1 = phi ptr [ %25, %77 ], [ null, %21 ]
   %36 = landingpad { ptr, i32 }
           cleanup
   %37 = extractvalue { ptr, i32 } %36, 0
@@ -3314,10 +3314,10 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i195: 
   br label %245
 
 245:                                              ; preds = %80, %244, %39, %35
-  %.sroa.23.4 = phi ptr [ %.sroa.23.2, %35 ], [ %28, %244 ], [ %28, %80 ], [ %28, %39 ]
-  %.sroa.0.4 = phi ptr [ %.sroa.0.2, %35 ], [ %25, %244 ], [ %25, %80 ], [ %25, %39 ]
-  %.931 = phi i32 [ %38, %35 ], [ %.830, %244 ], [ %.224, %80 ], [ %42, %39 ]
-  %.9 = phi ptr [ %37, %35 ], [ %.8, %244 ], [ %.219, %80 ], [ %41, %39 ]
+  %.sroa.23.3 = phi ptr [ %.sroa.23.1, %35 ], [ %28, %244 ], [ %28, %80 ], [ %28, %39 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %35 ], [ %25, %244 ], [ %25, %80 ], [ %25, %39 ]
+  %.123 = phi i32 [ %38, %35 ], [ %.830, %244 ], [ %.224, %80 ], [ %42, %39 ]
+  %.118 = phi ptr [ %37, %35 ], [ %.8, %244 ], [ %.219, %80 ], [ %41, %39 ]
   call void @_ZN5utils15LifetimeTracker7SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %337
 
@@ -3554,12 +3554,12 @@ _ZN5utils15LifetimeTracker7SessionD2Ev.exit:      ; preds = %_ZNKSt14default_del
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, %133, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit236, %290, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit
-  %.sroa.0.5275 = phi ptr [ %222, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %25, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %25, %133 ], [ %25, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit236 ], [ %25, %290 ]
-  %.sroa.23.5274 = phi ptr [ %226, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %28, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %28, %133 ], [ %28, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit236 ], [ %28, %290 ]
-  %328 = ptrtoint ptr %.sroa.23.5274 to i64
-  %329 = ptrtoint ptr %.sroa.0.5275 to i64
+  %.sroa.0.4275 = phi ptr [ %222, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %25, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %25, %133 ], [ %25, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit236 ], [ %25, %290 ]
+  %.sroa.23.4274 = phi ptr [ %226, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %28, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %28, %133 ], [ %28, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit236 ], [ %28, %290 ]
+  %328 = ptrtoint ptr %.sroa.23.4274 to i64
+  %329 = ptrtoint ptr %.sroa.0.4275 to i64
   %330 = sub i64 %328, %329
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5275, i64 noundef %330) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4275, i64 noundef %330) #23
   %331 = load ptr, ptr %17, align 8
   %.not.i.i.i.i = icmp eq ptr %331, null
   br i1 %.not.i.i.i.i, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %332
@@ -3577,33 +3577,33 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
 
 .thread:                                          ; preds = %246, %_ZN7testing7MessageD2Ev.exit117
   %.pn48.pn.pn = phi { ptr, i32 } [ %.pn48.pn, %_ZN7testing7MessageD2Ev.exit117 ], [ %247, %246 ]
-  %.12 = extractvalue { ptr, i32 } %.pn48.pn.pn, 0
-  %.1234 = extractvalue { ptr, i32 } %.pn48.pn.pn, 1
+  %.11 = extractvalue { ptr, i32 } %.pn48.pn.pn, 0
+  %.1133 = extractvalue { ptr, i32 } %.pn48.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
   br label %338
 
 337:                                              ; preds = %245, %31
-  %.sroa.23.6 = phi ptr [ %.sroa.23.1, %31 ], [ %.sroa.23.4, %245 ]
-  %.sroa.0.6 = phi ptr [ %.sroa.0.1, %31 ], [ %.sroa.0.4, %245 ]
-  %.1335 = phi i32 [ %34, %31 ], [ %.931, %245 ]
-  %.13 = phi ptr [ %33, %31 ], [ %.9, %245 ]
-  %.not.i.i.i126 = icmp eq ptr %.sroa.0.6, null
+  %.sroa.23.2 = phi ptr [ %.sroa.23.0, %31 ], [ %.sroa.23.3, %245 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %31 ], [ %.sroa.0.3, %245 ]
+  %.022 = phi i32 [ %34, %31 ], [ %.123, %245 ]
+  %.017 = phi ptr [ %33, %31 ], [ %.118, %245 ]
+  %.not.i.i.i126 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i126, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit127, label %338
 
 338:                                              ; preds = %.thread, %337
-  %.13304 = phi ptr [ %.12, %.thread ], [ %.13, %337 ]
-  %.1335302 = phi i32 [ %.1234, %.thread ], [ %.1335, %337 ]
-  %.sroa.0.6301 = phi ptr [ %222, %.thread ], [ %.sroa.0.6, %337 ]
-  %.sroa.23.6300 = phi ptr [ %226, %.thread ], [ %.sroa.23.6, %337 ]
-  %339 = ptrtoint ptr %.sroa.23.6300 to i64
-  %340 = ptrtoint ptr %.sroa.0.6301 to i64
+  %.017304 = phi ptr [ %.11, %.thread ], [ %.017, %337 ]
+  %.022302 = phi i32 [ %.1133, %.thread ], [ %.022, %337 ]
+  %.sroa.0.2301 = phi ptr [ %222, %.thread ], [ %.sroa.0.2, %337 ]
+  %.sroa.23.2300 = phi ptr [ %226, %.thread ], [ %.sroa.23.2, %337 ]
+  %339 = ptrtoint ptr %.sroa.23.2300 to i64
+  %340 = ptrtoint ptr %.sroa.0.2301 to i64
   %341 = sub i64 %339, %340
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.6301, i64 noundef %341) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2301, i64 noundef %341) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit127
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit127: ; preds = %337, %338
-  %.13305 = phi ptr [ %.13, %337 ], [ %.13304, %338 ]
-  %.1335303 = phi i32 [ %.1335, %337 ], [ %.1335302, %338 ]
+  %.017305 = phi ptr [ %.017, %337 ], [ %.017304, %338 ]
+  %.022303 = phi i32 [ %.022, %337 ], [ %.022302, %338 ]
   %342 = load ptr, ptr %17, align 8
   %.not.i.i.i.i128 = icmp eq ptr %342, null
   br i1 %.not.i.i.i.i128, label %_ZN5utils15LifetimeTrackerD2Ev.exit129, label %343
@@ -3617,8 +3617,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit127: ; preds = %337, %3
   br label %_ZN5utils15LifetimeTrackerD2Ev.exit129
 
 _ZN5utils15LifetimeTrackerD2Ev.exit129:           ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit127, %343
-  %348 = insertvalue { ptr, i32 } poison, ptr %.13305, 0
-  %349 = insertvalue { ptr, i32 } %348, i32 %.1335303, 1
+  %348 = insertvalue { ptr, i32 } poison, ptr %.017305, 0
+  %349 = insertvalue { ptr, i32 } %348, i32 %.022303, 1
   resume { ptr, i32 } %349
 
 350:                                              ; preds = %80
@@ -4159,8 +4159,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i144: 
   br label %188
 
 188:                                              ; preds = %187, %113, %44, %27
-  %.sroa.23.3 = phi ptr [ null, %27 ], [ %96, %187 ], [ null, %113 ], [ null, %44 ]
-  %.sroa.0.3 = phi ptr [ null, %27 ], [ %93, %187 ], [ null, %113 ], [ null, %44 ]
+  %.sroa.23.2 = phi ptr [ null, %27 ], [ %96, %187 ], [ null, %113 ], [ null, %44 ]
+  %.sroa.0.2 = phi ptr [ null, %27 ], [ %93, %187 ], [ null, %113 ], [ null, %44 ]
   %.pn35.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %.pn35.pn.pn, %187 ], [ %.pn32.pn, %113 ], [ %45, %44 ]
   %189 = load ptr, ptr %3, align 8
   %.not.i117 = icmp eq ptr %189, null
@@ -4310,12 +4310,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread197
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread197: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %145, %_ZN7testing15AssertionResultD2Ev.exit95
-  %.sroa.0.4202 = phi ptr [ %165, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %93, %_ZN7testing15AssertionResultD2Ev.exit95 ], [ %93, %145 ]
-  %.sroa.23.4201 = phi ptr [ %169, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %96, %_ZN7testing15AssertionResultD2Ev.exit95 ], [ %96, %145 ]
-  %239 = ptrtoint ptr %.sroa.23.4201 to i64
-  %240 = ptrtoint ptr %.sroa.0.4202 to i64
+  %.sroa.0.3202 = phi ptr [ %165, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %93, %_ZN7testing15AssertionResultD2Ev.exit95 ], [ %93, %145 ]
+  %.sroa.23.3201 = phi ptr [ %169, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %96, %_ZN7testing15AssertionResultD2Ev.exit95 ], [ %96, %145 ]
+  %239 = ptrtoint ptr %.sroa.23.3201 to i64
+  %240 = ptrtoint ptr %.sroa.0.3202 to i64
   %241 = sub i64 %239, %240
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4202, i64 noundef %241) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3202, i64 noundef %241) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %235, %_ZN7testing15AssertionResultD2Ev.exit75, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread197
@@ -4340,20 +4340,20 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %248
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118: ; preds = %190, %188, %25
-  %.sroa.23.5 = phi ptr [ %.sroa.23.0, %25 ], [ %.sroa.23.3, %188 ], [ %.sroa.23.3, %190 ]
-  %.sroa.0.5 = phi ptr [ %.sroa.0.0, %25 ], [ %.sroa.0.3, %188 ], [ %.sroa.0.3, %190 ]
+  %.sroa.23.1 = phi ptr [ %.sroa.23.0, %25 ], [ %.sroa.23.2, %188 ], [ %.sroa.23.2, %190 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %25 ], [ %.sroa.0.2, %188 ], [ %.sroa.0.2, %190 ]
   %.pn40.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %.pn35.pn.pn.pn, %188 ], [ %.pn35.pn.pn.pn, %190 ]
-  %.not.i.i.i136 = icmp eq ptr %.sroa.0.5, null
+  %.not.i.i.i136 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i136, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit137, label %248
 
 248:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118
   %.pn40.pn.pn.pn210 = phi { ptr, i32 } [ %.pn40.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118.thread ], [ %.pn40.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118 ]
-  %.sroa.0.5209 = phi ptr [ %165, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118.thread ], [ %.sroa.0.5, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118 ]
-  %.sroa.23.5208 = phi ptr [ %169, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118.thread ], [ %.sroa.23.5, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118 ]
-  %249 = ptrtoint ptr %.sroa.23.5208 to i64
-  %250 = ptrtoint ptr %.sroa.0.5209 to i64
+  %.sroa.0.1209 = phi ptr [ %165, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118.thread ], [ %.sroa.0.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118 ]
+  %.sroa.23.1208 = phi ptr [ %169, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118.thread ], [ %.sroa.23.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118 ]
+  %249 = ptrtoint ptr %.sroa.23.1208 to i64
+  %250 = ptrtoint ptr %.sroa.0.1209 to i64
   %251 = sub i64 %249, %250
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5209, i64 noundef %251) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1209, i64 noundef %251) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit137
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit137: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118, %248
@@ -5012,8 +5012,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i144: 
   br label %188
 
 188:                                              ; preds = %187, %113, %44, %27
-  %.sroa.23.3 = phi ptr [ null, %27 ], [ %96, %187 ], [ null, %113 ], [ null, %44 ]
-  %.sroa.0175.3 = phi ptr [ null, %27 ], [ %93, %187 ], [ null, %113 ], [ null, %44 ]
+  %.sroa.23.2 = phi ptr [ null, %27 ], [ %96, %187 ], [ null, %113 ], [ null, %44 ]
+  %.sroa.0175.2 = phi ptr [ null, %27 ], [ %93, %187 ], [ null, %113 ], [ null, %44 ]
   %.pn35.pn.pn.pn = phi { ptr, i32 } [ %28, %27 ], [ %.pn35.pn.pn, %187 ], [ %.pn32.pn, %113 ], [ %45, %44 ]
   %189 = load ptr, ptr %3, align 8
   %.not.i117 = icmp eq ptr %189, null
@@ -5163,12 +5163,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread198
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread198: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %145, %_ZN7testing15AssertionResultD2Ev.exit95
-  %.sroa.0175.4203 = phi ptr [ %165, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %93, %_ZN7testing15AssertionResultD2Ev.exit95 ], [ %93, %145 ]
-  %.sroa.23.4202 = phi ptr [ %169, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %96, %_ZN7testing15AssertionResultD2Ev.exit95 ], [ %96, %145 ]
-  %239 = ptrtoint ptr %.sroa.23.4202 to i64
-  %240 = ptrtoint ptr %.sroa.0175.4203 to i64
+  %.sroa.0175.3203 = phi ptr [ %165, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %93, %_ZN7testing15AssertionResultD2Ev.exit95 ], [ %93, %145 ]
+  %.sroa.23.3202 = phi ptr [ %169, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %96, %_ZN7testing15AssertionResultD2Ev.exit95 ], [ %96, %145 ]
+  %239 = ptrtoint ptr %.sroa.23.3202 to i64
+  %240 = ptrtoint ptr %.sroa.0175.3203 to i64
   %241 = sub i64 %239, %240
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0175.4203, i64 noundef %241) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0175.3203, i64 noundef %241) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %235, %_ZN7testing15AssertionResultD2Ev.exit75, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread198
@@ -5193,20 +5193,20 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %248
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118: ; preds = %190, %188, %25
-  %.sroa.23.5 = phi ptr [ %.sroa.23.0, %25 ], [ %.sroa.23.3, %188 ], [ %.sroa.23.3, %190 ]
-  %.sroa.0175.5 = phi ptr [ %.sroa.0175.0, %25 ], [ %.sroa.0175.3, %188 ], [ %.sroa.0175.3, %190 ]
+  %.sroa.23.1 = phi ptr [ %.sroa.23.0, %25 ], [ %.sroa.23.2, %188 ], [ %.sroa.23.2, %190 ]
+  %.sroa.0175.1 = phi ptr [ %.sroa.0175.0, %25 ], [ %.sroa.0175.2, %188 ], [ %.sroa.0175.2, %190 ]
   %.pn40.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %.pn35.pn.pn.pn, %188 ], [ %.pn35.pn.pn.pn, %190 ]
-  %.not.i.i.i136 = icmp eq ptr %.sroa.0175.5, null
+  %.not.i.i.i136 = icmp eq ptr %.sroa.0175.1, null
   br i1 %.not.i.i.i136, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit137, label %248
 
 248:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118
   %.pn40.pn.pn.pn211 = phi { ptr, i32 } [ %.pn40.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118.thread ], [ %.pn40.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118 ]
-  %.sroa.0175.5210 = phi ptr [ %165, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118.thread ], [ %.sroa.0175.5, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118 ]
-  %.sroa.23.5209 = phi ptr [ %169, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118.thread ], [ %.sroa.23.5, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118 ]
-  %249 = ptrtoint ptr %.sroa.23.5209 to i64
-  %250 = ptrtoint ptr %.sroa.0175.5210 to i64
+  %.sroa.0175.1210 = phi ptr [ %165, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118.thread ], [ %.sroa.0175.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118 ]
+  %.sroa.23.1209 = phi ptr [ %169, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118.thread ], [ %.sroa.23.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118 ]
+  %249 = ptrtoint ptr %.sroa.23.1209 to i64
+  %250 = ptrtoint ptr %.sroa.0175.1210 to i64
   %251 = sub i64 %249, %250
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0175.5210, i64 noundef %251) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0175.1210, i64 noundef %251) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit137
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit137: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit118, %248
@@ -5458,15 +5458,15 @@ define dso_local void @_ZN53ProxyLifetimeTests_TestCopyConstrction_FromValue_Tes
   br i1 %46, label %97, label %57
 
 49:                                               ; preds = %1, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i261
-  %.sroa.39.1 = phi ptr [ %280, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i261 ], [ null, %1 ]
-  %.sroa.0.1 = phi ptr [ %276, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i261 ], [ null, %1 ]
+  %.sroa.39.0 = phi ptr [ %280, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i261 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %276, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i261 ], [ null, %1 ]
   %50 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212
 
 51:                                               ; preds = %40, %._crit_edge
-  %.sroa.39.2 = phi ptr [ null, %._crit_edge ], [ %42, %40 ]
-  %.sroa.0.2 = phi ptr [ null, %._crit_edge ], [ %39, %40 ]
+  %.sroa.39.1 = phi ptr [ null, %._crit_edge ], [ %42, %40 ]
+  %.sroa.0.1 = phi ptr [ null, %._crit_edge ], [ %39, %40 ]
   %52 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit210
@@ -6384,8 +6384,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i261: 
   br label %380
 
 380:                                              ; preds = %379, %297, %229, %228, %167, %116, %115, %53
-  %.sroa.39.6 = phi ptr [ %42, %53 ], [ %280, %379 ], [ %42, %297 ], [ %42, %229 ], [ %42, %228 ], [ %42, %167 ], [ %42, %116 ], [ %42, %115 ]
-  %.sroa.0.6 = phi ptr [ %39, %53 ], [ %276, %379 ], [ %39, %297 ], [ %39, %229 ], [ %39, %228 ], [ %39, %167 ], [ %39, %116 ], [ %39, %115 ]
+  %.sroa.39.4 = phi ptr [ %42, %53 ], [ %280, %379 ], [ %42, %297 ], [ %42, %229 ], [ %42, %228 ], [ %42, %167 ], [ %42, %116 ], [ %42, %115 ]
+  %.sroa.0.4 = phi ptr [ %39, %53 ], [ %276, %379 ], [ %39, %297 ], [ %39, %229 ], [ %39, %228 ], [ %39, %167 ], [ %39, %116 ], [ %39, %115 ]
   %.pn54.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn54.pn.pn, %379 ], [ %.pn51.pn, %297 ], [ %230, %229 ], [ %.pn47.pn.pn, %228 ], [ %.pn44.pn, %167 ], [ %117, %116 ], [ %.pn.pn.pn, %115 ]
   %381 = load ptr, ptr %5, align 8
   %.not.i209 = icmp eq ptr %381, null
@@ -6398,8 +6398,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i261: 
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit210
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit210: ; preds = %382, %380, %51
-  %.sroa.39.7 = phi ptr [ %.sroa.39.2, %51 ], [ %.sroa.39.6, %380 ], [ %.sroa.39.6, %382 ]
-  %.sroa.0.7 = phi ptr [ %.sroa.0.2, %51 ], [ %.sroa.0.6, %380 ], [ %.sroa.0.6, %382 ]
+  %.sroa.39.3 = phi ptr [ %.sroa.39.1, %51 ], [ %.sroa.39.4, %380 ], [ %.sroa.39.4, %382 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %51 ], [ %.sroa.0.4, %380 ], [ %.sroa.0.4, %382 ]
   %.pn54.pn.pn.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %.pn54.pn.pn.pn, %380 ], [ %.pn54.pn.pn.pn, %382 ]
   %385 = load ptr, ptr %4, align 8
   %.not.i211 = icmp eq ptr %385, null
@@ -6574,12 +6574,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit228, %437, %333, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit226
-  %.sroa.0.8356 = phi ptr [ %39, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit228 ], [ %39, %437 ], [ %357, %_ZN7testing15AssertionResultD2Ev.exit226 ], [ %276, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %276, %333 ]
-  %.sroa.39.8355 = phi ptr [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit228 ], [ %42, %437 ], [ %360, %_ZN7testing15AssertionResultD2Ev.exit226 ], [ %280, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %280, %333 ]
-  %440 = ptrtoint ptr %.sroa.39.8355 to i64
-  %441 = ptrtoint ptr %.sroa.0.8356 to i64
+  %.sroa.0.5356 = phi ptr [ %39, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit228 ], [ %39, %437 ], [ %357, %_ZN7testing15AssertionResultD2Ev.exit226 ], [ %276, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %276, %333 ]
+  %.sroa.39.5355 = phi ptr [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit228 ], [ %42, %437 ], [ %360, %_ZN7testing15AssertionResultD2Ev.exit226 ], [ %280, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %280, %333 ]
+  %440 = ptrtoint ptr %.sroa.39.5355 to i64
+  %441 = ptrtoint ptr %.sroa.0.5356 to i64
   %442 = sub i64 %440, %441
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.8356, i64 noundef %442) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5356, i64 noundef %442) #23
   %443 = load ptr, ptr %31, align 8
   %.not.i.i.i.i231 = icmp eq ptr %443, null
   br i1 %.not.i.i.i.i231, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %444
@@ -6601,20 +6601,20 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %449
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212: ; preds = %386, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit210, %49
-  %.sroa.39.9 = phi ptr [ %.sroa.39.1, %49 ], [ %.sroa.39.7, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit210 ], [ %.sroa.39.7, %386 ]
-  %.sroa.0.9 = phi ptr [ %.sroa.0.1, %49 ], [ %.sroa.0.7, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit210 ], [ %.sroa.0.7, %386 ]
+  %.sroa.39.2 = phi ptr [ %.sroa.39.0, %49 ], [ %.sroa.39.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit210 ], [ %.sroa.39.3, %386 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %49 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit210 ], [ %.sroa.0.3, %386 ]
   %.pn60.pn.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %.pn54.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit210 ], [ %.pn54.pn.pn.pn.pn, %386 ]
-  %.not.i.i.i232 = icmp eq ptr %.sroa.0.9, null
+  %.not.i.i.i232 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i232, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit233, label %449
 
 449:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212
   %.pn60.pn.pn.pn369 = phi { ptr, i32 } [ %.pn60.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212.thread ], [ %.pn60.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212 ]
-  %.sroa.0.9368 = phi ptr [ %357, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212.thread ], [ %.sroa.0.9, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212 ]
-  %.sroa.39.9367 = phi ptr [ %360, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212.thread ], [ %.sroa.39.9, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212 ]
-  %450 = ptrtoint ptr %.sroa.39.9367 to i64
-  %451 = ptrtoint ptr %.sroa.0.9368 to i64
+  %.sroa.0.2368 = phi ptr [ %357, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212.thread ], [ %.sroa.0.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212 ]
+  %.sroa.39.2367 = phi ptr [ %360, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212.thread ], [ %.sroa.39.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212 ]
+  %450 = ptrtoint ptr %.sroa.39.2367 to i64
+  %451 = ptrtoint ptr %.sroa.0.2368 to i64
   %452 = sub i64 %450, %451
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.9368, i64 noundef %452) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2368, i64 noundef %452) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit233
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit233: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212, %449
@@ -6703,8 +6703,8 @@ define dso_local void @_ZN63ProxyLifetimeTests_TestCopyConstrction_FromValue_Exc
   unreachable
 
 39:                                               ; preds = %1, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i202
-  %.sroa.23.1 = phi ptr [ %36, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i202 ], [ null, %1 ]
-  %.sroa.0.1 = phi ptr [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i202 ], [ null, %1 ]
+  %.sroa.23.0 = phi ptr [ %36, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i202 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i202 ], [ null, %1 ]
   %40 = landingpad { ptr, i32 }
           cleanup
   %41 = extractvalue { ptr, i32 } %40, 0
@@ -6712,8 +6712,8 @@ define dso_local void @_ZN63ProxyLifetimeTests_TestCopyConstrction_FromValue_Exc
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176
 
 43:                                               ; preds = %._crit_edge, %135, %85
-  %.sroa.23.2 = phi ptr [ %36, %135 ], [ %36, %85 ], [ null, %._crit_edge ]
-  %.sroa.0.2 = phi ptr [ %33, %135 ], [ %33, %85 ], [ null, %._crit_edge ]
+  %.sroa.23.1 = phi ptr [ %36, %135 ], [ %36, %85 ], [ null, %._crit_edge ]
+  %.sroa.0.1 = phi ptr [ %33, %135 ], [ %33, %85 ], [ null, %._crit_edge ]
   %44 = landingpad { ptr, i32 }
           cleanup
   %45 = extractvalue { ptr, i32 } %44, 0
@@ -7192,8 +7192,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 220:                                              ; preds = %_ZN7testing7MessageD2Ev.exit136, %158
   %.pn59.pn = phi { ptr, i32 } [ %.pn59, %_ZN7testing7MessageD2Ev.exit136 ], [ %159, %158 ]
-  %.10 = extractvalue { ptr, i32 } %.pn59.pn, 0
-  %.1038 = extractvalue { ptr, i32 } %.pn59.pn, 1
+  %.11 = extractvalue { ptr, i32 } %.pn59.pn, 0
+  %.1139 = extractvalue { ptr, i32 } %.pn59.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
   br label %295
 
@@ -7407,10 +7407,10 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i202: 
   br label %295
 
 295:                                              ; preds = %88, %294, %220, %154, %153, %47, %43
-  %.sroa.23.4 = phi ptr [ %.sroa.23.2, %43 ], [ %36, %294 ], [ %36, %220 ], [ %36, %154 ], [ %36, %153 ], [ %36, %88 ], [ %36, %47 ]
-  %.sroa.0.4 = phi ptr [ %.sroa.0.2, %43 ], [ %33, %294 ], [ %33, %220 ], [ %33, %154 ], [ %33, %153 ], [ %33, %88 ], [ %33, %47 ]
-  %.1442 = phi i32 [ %46, %43 ], [ %.1341, %294 ], [ %.1038, %220 ], [ %157, %154 ], [ %.836, %153 ], [ %.230, %88 ], [ %50, %47 ]
-  %.14 = phi ptr [ %45, %43 ], [ %.13, %294 ], [ %.10, %220 ], [ %156, %154 ], [ %.8, %153 ], [ %.223, %88 ], [ %49, %47 ]
+  %.sroa.23.3 = phi ptr [ %.sroa.23.1, %43 ], [ %36, %294 ], [ %36, %220 ], [ %36, %154 ], [ %36, %153 ], [ %36, %88 ], [ %36, %47 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %43 ], [ %33, %294 ], [ %33, %220 ], [ %33, %154 ], [ %33, %153 ], [ %33, %88 ], [ %33, %47 ]
+  %.129 = phi i32 [ %46, %43 ], [ %.1341, %294 ], [ %.1139, %220 ], [ %157, %154 ], [ %.836, %153 ], [ %.230, %88 ], [ %50, %47 ]
+  %.122 = phi ptr [ %45, %43 ], [ %.13, %294 ], [ %.11, %220 ], [ %156, %154 ], [ %.8, %153 ], [ %.223, %88 ], [ %49, %47 ]
   %296 = load ptr, ptr %3, align 8
   %.not.i175 = icmp eq ptr %296, null
   br i1 %.not.i175, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176, label %297
@@ -7576,12 +7576,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit152, %252, %.critedge75, %343, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154
-  %.sroa.0.5260 = phi ptr [ %272, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154 ], [ %33, %_ZN7testing15AssertionResultD2Ev.exit152 ], [ %33, %252 ], [ %33, %.critedge75 ], [ %33, %343 ]
-  %.sroa.23.5259 = phi ptr [ %276, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154 ], [ %36, %_ZN7testing15AssertionResultD2Ev.exit152 ], [ %36, %252 ], [ %36, %.critedge75 ], [ %36, %343 ]
-  %347 = ptrtoint ptr %.sroa.23.5259 to i64
-  %348 = ptrtoint ptr %.sroa.0.5260 to i64
+  %.sroa.0.4260 = phi ptr [ %272, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154 ], [ %33, %_ZN7testing15AssertionResultD2Ev.exit152 ], [ %33, %252 ], [ %33, %.critedge75 ], [ %33, %343 ]
+  %.sroa.23.4259 = phi ptr [ %276, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154 ], [ %36, %_ZN7testing15AssertionResultD2Ev.exit152 ], [ %36, %252 ], [ %36, %.critedge75 ], [ %36, %343 ]
+  %347 = ptrtoint ptr %.sroa.23.4259 to i64
+  %348 = ptrtoint ptr %.sroa.0.4260 to i64
   %349 = sub i64 %347, %348
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5260, i64 noundef %349) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4260, i64 noundef %349) #23
   %350 = load ptr, ptr %25, align 8
   %.not.i.i.i.i193 = icmp eq ptr %350, null
   br i1 %.not.i.i.i.i193, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %351
@@ -7599,33 +7599,33 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176.thread: ; preds = %300, %_ZN7testing7MessageD2Ev.exit185
   %.pn66.pn.pn = phi { ptr, i32 } [ %.pn66.pn, %_ZN7testing7MessageD2Ev.exit185 ], [ %301, %300 ]
-  %.17 = extractvalue { ptr, i32 } %.pn66.pn.pn, 0
-  %.1745 = extractvalue { ptr, i32 } %.pn66.pn.pn, 1
+  %.16 = extractvalue { ptr, i32 } %.pn66.pn.pn, 0
+  %.1644 = extractvalue { ptr, i32 } %.pn66.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #20
   br label %356
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176: ; preds = %297, %295, %39
-  %.sroa.23.6 = phi ptr [ %.sroa.23.1, %39 ], [ %.sroa.23.4, %295 ], [ %.sroa.23.4, %297 ]
-  %.sroa.0.6 = phi ptr [ %.sroa.0.1, %39 ], [ %.sroa.0.4, %295 ], [ %.sroa.0.4, %297 ]
-  %.1846 = phi i32 [ %42, %39 ], [ %.1442, %295 ], [ %.1442, %297 ]
-  %.18 = phi ptr [ %41, %39 ], [ %.14, %295 ], [ %.14, %297 ]
-  %.not.i.i.i194 = icmp eq ptr %.sroa.0.6, null
+  %.sroa.23.2 = phi ptr [ %.sroa.23.0, %39 ], [ %.sroa.23.3, %295 ], [ %.sroa.23.3, %297 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %39 ], [ %.sroa.0.3, %295 ], [ %.sroa.0.3, %297 ]
+  %.028 = phi i32 [ %42, %39 ], [ %.129, %295 ], [ %.129, %297 ]
+  %.021 = phi ptr [ %41, %39 ], [ %.122, %295 ], [ %.122, %297 ]
+  %.not.i.i.i194 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i194, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit195, label %356
 
 356:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176
-  %.18271 = phi ptr [ %.17, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176.thread ], [ %.18, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176 ]
-  %.1846269 = phi i32 [ %.1745, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176.thread ], [ %.1846, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176 ]
-  %.sroa.0.6268 = phi ptr [ %272, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176.thread ], [ %.sroa.0.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176 ]
-  %.sroa.23.6267 = phi ptr [ %276, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176.thread ], [ %.sroa.23.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176 ]
-  %357 = ptrtoint ptr %.sroa.23.6267 to i64
-  %358 = ptrtoint ptr %.sroa.0.6268 to i64
+  %.021271 = phi ptr [ %.16, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176.thread ], [ %.021, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176 ]
+  %.028269 = phi i32 [ %.1644, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176.thread ], [ %.028, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176 ]
+  %.sroa.0.2268 = phi ptr [ %272, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176.thread ], [ %.sroa.0.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176 ]
+  %.sroa.23.2267 = phi ptr [ %276, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176.thread ], [ %.sroa.23.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176 ]
+  %357 = ptrtoint ptr %.sroa.23.2267 to i64
+  %358 = ptrtoint ptr %.sroa.0.2268 to i64
   %359 = sub i64 %357, %358
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.6268, i64 noundef %359) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2268, i64 noundef %359) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit195
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit195: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176, %356
-  %.18272 = phi ptr [ %.18, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176 ], [ %.18271, %356 ]
-  %.1846270 = phi i32 [ %.1846, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176 ], [ %.1846269, %356 ]
+  %.021272 = phi ptr [ %.021, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176 ], [ %.021271, %356 ]
+  %.028270 = phi i32 [ %.028, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit176 ], [ %.028269, %356 ]
   %360 = load ptr, ptr %25, align 8
   %.not.i.i.i.i196 = icmp eq ptr %360, null
   br i1 %.not.i.i.i.i196, label %_ZN5utils15LifetimeTrackerD2Ev.exit197, label %361
@@ -7639,8 +7639,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit195: ; preds = %_ZN3pro
   br label %_ZN5utils15LifetimeTrackerD2Ev.exit197
 
 _ZN5utils15LifetimeTrackerD2Ev.exit197:           ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit195, %361
-  %366 = insertvalue { ptr, i32 } poison, ptr %.18272, 0
-  %367 = insertvalue { ptr, i32 } %366, i32 %.1846270, 1
+  %366 = insertvalue { ptr, i32 } poison, ptr %.021272, 0
+  %367 = insertvalue { ptr, i32 } %366, i32 %.028270, 1
   resume { ptr, i32 } %367
 
 368:                                              ; preds = %88
@@ -7717,8 +7717,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit188
 
 33:                                               ; preds = %153, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i195, %85
-  %.sroa.39.2 = phi ptr [ %157, %153 ], [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i195 ], [ %37, %85 ]
-  %.sroa.0.2 = phi ptr [ %152, %153 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i195 ], [ %30, %85 ]
+  %.sroa.39.1 = phi ptr [ %157, %153 ], [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i195 ], [ %37, %85 ]
+  %.sroa.0.1 = phi ptr [ %152, %153 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i195 ], [ %30, %85 ]
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %257
@@ -8329,8 +8329,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %257
 
 257:                                              ; preds = %256, %178, %105, %104, %33
-  %.sroa.39.6 = phi ptr [ %.sroa.39.2, %33 ], [ %161, %256 ], [ %37, %178 ], [ %37, %105 ], [ %37, %104 ]
-  %.sroa.0.6 = phi ptr [ %.sroa.0.2, %33 ], [ %158, %256 ], [ %30, %178 ], [ %30, %105 ], [ %30, %104 ]
+  %.sroa.39.4 = phi ptr [ %.sroa.39.1, %33 ], [ %161, %256 ], [ %37, %178 ], [ %37, %105 ], [ %37, %104 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.1, %33 ], [ %158, %256 ], [ %30, %178 ], [ %30, %105 ], [ %30, %104 ]
   %.pn46.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn46.pn.pn, %256 ], [ %.pn43.pn, %178 ], [ %106, %105 ], [ %.pn39.pn.pn, %104 ]
   %258 = load ptr, ptr %4, align 8
   %.not.i164 = icmp eq ptr %258, null
@@ -8510,12 +8510,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit183, %310, %214, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit181
-  %.sroa.0.8329 = phi ptr [ %30, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit183 ], [ %30, %310 ], [ %158, %214 ], [ %158, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %158, %_ZN7testing15AssertionResultD2Ev.exit181 ]
-  %.sroa.39.8328 = phi ptr [ %37, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit183 ], [ %37, %310 ], [ %161, %214 ], [ %161, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %161, %_ZN7testing15AssertionResultD2Ev.exit181 ]
-  %313 = ptrtoint ptr %.sroa.39.8328 to i64
-  %314 = ptrtoint ptr %.sroa.0.8329 to i64
+  %.sroa.0.5329 = phi ptr [ %30, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit183 ], [ %30, %310 ], [ %158, %214 ], [ %158, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %158, %_ZN7testing15AssertionResultD2Ev.exit181 ]
+  %.sroa.39.5328 = phi ptr [ %37, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit183 ], [ %37, %310 ], [ %161, %214 ], [ %161, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %161, %_ZN7testing15AssertionResultD2Ev.exit181 ]
+  %313 = ptrtoint ptr %.sroa.39.5328 to i64
+  %314 = ptrtoint ptr %.sroa.0.5329 to i64
   %315 = sub i64 %313, %314
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.8329, i64 noundef %315) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5329, i64 noundef %315) #23
   %316 = load ptr, ptr %22, align 8
   %.not.i.i.i.i186 = icmp eq ptr %316, null
   br i1 %.not.i.i.i.i186, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %317
@@ -8544,12 +8544,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167.thread: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165, %322, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167
   %.pn52.pn.pn.pn344 = phi { ptr, i32 } [ %.pn46.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167 ], [ %.pn46.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165 ], [ %.pn52.pn.pn, %322 ]
-  %.sroa.0.9343 = phi ptr [ %.sroa.0.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167 ], [ %.sroa.0.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165 ], [ %158, %322 ]
-  %.sroa.39.9342 = phi ptr [ %.sroa.39.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167 ], [ %.sroa.39.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165 ], [ %161, %322 ]
-  %325 = ptrtoint ptr %.sroa.39.9342 to i64
-  %326 = ptrtoint ptr %.sroa.0.9343 to i64
+  %.sroa.0.2343 = phi ptr [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165 ], [ %158, %322 ]
+  %.sroa.39.2342 = phi ptr [ %.sroa.39.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167 ], [ %.sroa.39.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165 ], [ %161, %322 ]
+  %325 = ptrtoint ptr %.sroa.39.2342 to i64
+  %326 = ptrtoint ptr %.sroa.0.2343 to i64
   %327 = sub i64 %325, %326
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.9343, i64 noundef %327) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2343, i64 noundef %327) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit188
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit188: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167.thread351, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167.thread346, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167.thread
@@ -8611,15 +8611,15 @@ define dso_local void @_ZN61ProxyLifetimeTests_TestMoveConstrction_FromValue_Tri
           to label %30 unwind label %28
 
 26:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i269, %1
-  %.sroa.23.1 = phi ptr [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i269 ], [ null, %1 ]
-  %.sroa.0323.1 = phi ptr [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i269 ], [ null, %1 ]
+  %.sroa.23.0 = phi ptr [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i269 ], [ null, %1 ]
+  %.sroa.0323.0 = phi ptr [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i269 ], [ null, %1 ]
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %352
 
 28:                                               ; preds = %30, %21
-  %.sroa.23.2 = phi ptr [ null, %21 ], [ %32, %30 ]
-  %.sroa.0323.2 = phi ptr [ null, %21 ], [ %25, %30 ]
+  %.sroa.23.1 = phi ptr [ null, %21 ], [ %32, %30 ]
+  %.sroa.0323.1 = phi ptr [ null, %21 ], [ %25, %30 ]
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %265
@@ -9241,8 +9241,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i269: 
   br label %265
 
 265:                                              ; preds = %264, %117, %48, %28
-  %.sroa.23.4 = phi ptr [ %.sroa.23.2, %28 ], [ %32, %264 ], [ %32, %117 ], [ %32, %48 ]
-  %.sroa.0323.4 = phi ptr [ %.sroa.0323.2, %28 ], [ %25, %264 ], [ %25, %117 ], [ %25, %48 ]
+  %.sroa.23.3 = phi ptr [ %.sroa.23.1, %28 ], [ %32, %264 ], [ %32, %117 ], [ %32, %48 ]
+  %.sroa.0323.3 = phi ptr [ %.sroa.0323.1, %28 ], [ %25, %264 ], [ %25, %117 ], [ %25, %48 ]
   %.pn55.pn.pn.pn = phi { ptr, i32 } [ %29, %28 ], [ %.pn55.pn.pn, %264 ], [ %.pn52.pn, %117 ], [ %49, %48 ]
   call void @_ZN5utils15LifetimeTracker7SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %352
@@ -9466,12 +9466,12 @@ _ZN5utils15LifetimeTracker7SessionD2Ev.exit:      ; preds = %_ZNKSt14default_del
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, %153, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit310, %308, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit
-  %.sroa.0323.5350 = phi ptr [ %242, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %25, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %25, %153 ], [ %25, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit310 ], [ %25, %308 ]
-  %.sroa.23.5349 = phi ptr [ %246, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %32, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %32, %153 ], [ %32, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit310 ], [ %32, %308 ]
-  %343 = ptrtoint ptr %.sroa.23.5349 to i64
-  %344 = ptrtoint ptr %.sroa.0323.5350 to i64
+  %.sroa.0323.4350 = phi ptr [ %242, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %25, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %25, %153 ], [ %25, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit310 ], [ %25, %308 ]
+  %.sroa.23.4349 = phi ptr [ %246, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %32, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %32, %153 ], [ %32, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit310 ], [ %32, %308 ]
+  %343 = ptrtoint ptr %.sroa.23.4349 to i64
+  %344 = ptrtoint ptr %.sroa.0323.4350 to i64
   %345 = sub i64 %343, %344
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0323.5350, i64 noundef %345) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0323.4350, i64 noundef %345) #23
   %346 = load ptr, ptr %17, align 8
   %.not.i.i.i.i199 = icmp eq ptr %346, null
   br i1 %.not.i.i.i.i199, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %347
@@ -9493,20 +9493,20 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   br label %353
 
 352:                                              ; preds = %265, %26
-  %.sroa.23.6 = phi ptr [ %.sroa.23.1, %26 ], [ %.sroa.23.4, %265 ]
-  %.sroa.0323.6 = phi ptr [ %.sroa.0323.1, %26 ], [ %.sroa.0323.4, %265 ]
+  %.sroa.23.2 = phi ptr [ %.sroa.23.0, %26 ], [ %.sroa.23.3, %265 ]
+  %.sroa.0323.2 = phi ptr [ %.sroa.0323.0, %26 ], [ %.sroa.0323.3, %265 ]
   %.pn60.pn.pn.pn = phi { ptr, i32 } [ %27, %26 ], [ %.pn55.pn.pn.pn, %265 ]
-  %.not.i.i.i200 = icmp eq ptr %.sroa.0323.6, null
+  %.not.i.i.i200 = icmp eq ptr %.sroa.0323.2, null
   br i1 %.not.i.i.i200, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit201, label %353
 
 353:                                              ; preds = %.thread367, %352
   %.pn60.pn.pn.pn374 = phi { ptr, i32 } [ %.pn60.pn.pn, %.thread367 ], [ %.pn60.pn.pn.pn, %352 ]
-  %.sroa.0323.6373 = phi ptr [ %242, %.thread367 ], [ %.sroa.0323.6, %352 ]
-  %.sroa.23.6372 = phi ptr [ %246, %.thread367 ], [ %.sroa.23.6, %352 ]
-  %354 = ptrtoint ptr %.sroa.23.6372 to i64
-  %355 = ptrtoint ptr %.sroa.0323.6373 to i64
+  %.sroa.0323.2373 = phi ptr [ %242, %.thread367 ], [ %.sroa.0323.2, %352 ]
+  %.sroa.23.2372 = phi ptr [ %246, %.thread367 ], [ %.sroa.23.2, %352 ]
+  %354 = ptrtoint ptr %.sroa.23.2372 to i64
+  %355 = ptrtoint ptr %.sroa.0323.2373 to i64
   %356 = sub i64 %354, %355
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0323.6373, i64 noundef %356) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0323.2373, i64 noundef %356) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit201
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit201: ; preds = %352, %353
@@ -9613,8 +9613,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
 
 36:                                               ; preds = %.lr.ph.i.i.i.i195.preheader, %._crit_edge
   %37 = phi ptr [ null, %.lr.ph.i.i.i.i195.preheader ], [ @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_25copyability_meta_providerILb0EEEEENS3_INS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEE13meta_providerIN5utils4spec8ToStringEEEEEEEEEEEE7storageINSM_15LifetimeTracker7SessionEEE, %._crit_edge ]
-  %.sroa.23.1 = phi ptr [ %25, %.lr.ph.i.i.i.i195.preheader ], [ null, %._crit_edge ]
-  %.sroa.0.1 = phi ptr [ %21, %.lr.ph.i.i.i.i195.preheader ], [ null, %._crit_edge ]
+  %.sroa.23.0 = phi ptr [ %25, %.lr.ph.i.i.i.i195.preheader ], [ null, %._crit_edge ]
+  %.sroa.0.0 = phi ptr [ %21, %.lr.ph.i.i.i.i195.preheader ], [ null, %._crit_edge ]
   %38 = landingpad { ptr, i32 }
           cleanup
   br label %123
@@ -9854,8 +9854,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
 
 123:                                              ; preds = %122, %36
   %124 = phi ptr [ %37, %36 ], [ %.pre171, %122 ]
-  %.sroa.23.3 = phi ptr [ %.sroa.23.1, %36 ], [ %42, %122 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %36 ], [ %31, %122 ]
+  %.sroa.23.2 = phi ptr [ %.sroa.23.0, %36 ], [ %42, %122 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %36 ], [ %31, %122 ]
   %.pn27.pn.pn.pn = phi { ptr, i32 } [ %38, %36 ], [ %.pn27.pn.pn, %122 ]
   %.not.i84 = icmp eq ptr %124, null
   br i1 %.not.i84, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85, label %125
@@ -10020,17 +10020,17 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %177
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85: ; preds = %125, %123
-  %.not.i.i.i103 = icmp eq ptr %.sroa.0.3, null
+  %.not.i.i.i103 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i103, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit104, label %177
 
 177:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread180, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85
   %.pn32.pn.pn.pn187 = phi { ptr, i32 } [ %.pn32.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread180 ], [ %.pn27.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85 ]
-  %.sroa.0.5186 = phi ptr [ %31, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread180 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85 ]
-  %.sroa.23.5185 = phi ptr [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread180 ], [ %.sroa.23.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85 ]
-  %178 = ptrtoint ptr %.sroa.23.5185 to i64
-  %179 = ptrtoint ptr %.sroa.0.5186 to i64
+  %.sroa.0.1186 = phi ptr [ %31, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread180 ], [ %.sroa.0.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85 ]
+  %.sroa.23.1185 = phi ptr [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread180 ], [ %.sroa.23.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85 ]
+  %178 = ptrtoint ptr %.sroa.23.1185 to i64
+  %179 = ptrtoint ptr %.sroa.0.1186 to i64
   %180 = sub i64 %178, %179
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5186, i64 noundef %180) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1186, i64 noundef %180) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit104
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit104: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85, %177
@@ -10314,15 +10314,15 @@ _ZN5utils15LifetimeTracker7SessionD2Ev.exit:      ; preds = %_ZNSt6vectorIN5util
   br i1 %107, label %156, label %116
 
 110:                                              ; preds = %313, %307, %1
-  %.sroa.55.1 = phi ptr [ %237, %307 ], [ %237, %313 ], [ null, %1 ]
-  %.sroa.0.1 = phi ptr [ %233, %307 ], [ %233, %313 ], [ null, %1 ]
+  %.sroa.55.0 = phi ptr [ %237, %307 ], [ %237, %313 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %233, %307 ], [ %233, %313 ], [ null, %1 ]
   %111 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137
 
 112:                                              ; preds = %.noexc244, %223, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i204, %58, %52, %26, %156, %35
-  %.sroa.55.2 = phi ptr [ %32, %35 ], [ %32, %52 ], [ %232, %.noexc244 ], [ %227, %223 ], [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i204 ], [ %32, %156 ], [ %32, %58 ], [ null, %26 ]
-  %.sroa.0.2 = phi ptr [ %29, %35 ], [ %29, %52 ], [ %228, %.noexc244 ], [ %222, %223 ], [ %29, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i204 ], [ %29, %156 ], [ %29, %58 ], [ null, %26 ]
+  %.sroa.55.1 = phi ptr [ %32, %35 ], [ %32, %52 ], [ %232, %.noexc244 ], [ %227, %223 ], [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i204 ], [ %32, %156 ], [ %32, %58 ], [ null, %26 ]
+  %.sroa.0.1 = phi ptr [ %29, %35 ], [ %29, %52 ], [ %228, %.noexc244 ], [ %222, %223 ], [ %29, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i204 ], [ %29, %156 ], [ %29, %58 ], [ null, %26 ]
   %113 = landingpad { ptr, i32 }
           cleanup
   br label %343
@@ -10936,11 +10936,11 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i288: 
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit129
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit129: ; preds = %.noexc128, %303
-  %.sroa.55.7 = phi ptr [ %322, %.noexc128 ], [ %237, %303 ]
+  %.sroa.55.10 = phi ptr [ %322, %.noexc128 ], [ %237, %303 ]
   %.012.i.i.i.i293.pn = phi ptr [ %.012.i.i.i.i293, %.noexc128 ], [ %.ptr.le, %303 ]
-  %.sroa.0.7 = phi ptr [ %316, %.noexc128 ], [ %233, %303 ]
+  %.sroa.0.10 = phi ptr [ %316, %.noexc128 ], [ %233, %303 ]
   %.sroa.17.5 = getelementptr inbounds i8, ptr %.012.i.i.i.i293.pn, i64 16
-  %.pre-phi = ptrtoint ptr %.sroa.0.7 to i64
+  %.pre-phi = ptrtoint ptr %.sroa.0.10 to i64
   %323 = load ptr, ptr %24, align 8
   %324 = load ptr, ptr %23, align 8
   %325 = ptrtoint ptr %323 to i64
@@ -10956,7 +10956,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br i1 %.not9.i.i.i.i.i130, label %.thread, label %.lr.ph.i.i.i.i.i131
 
 .lr.ph.i.i.i.i.i131:                              ; preds = %331, %338
-  %.011.i.i.i.i.i132 = phi ptr [ %340, %338 ], [ %.sroa.0.7, %331 ]
+  %.011.i.i.i.i.i132 = phi ptr [ %340, %338 ], [ %.sroa.0.10, %331 ]
   %.0810.i.i.i.i.i133 = phi ptr [ %339, %338 ], [ %324, %331 ]
   %332 = load <2 x i32>, ptr %.0810.i.i.i.i.i133, align 4
   %333 = load <2 x i32>, ptr %.011.i.i.i.i.i132, align 4
@@ -10984,8 +10984,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %343
 
 343:                                              ; preds = %342, %254, %175, %174, %112
-  %.sroa.55.8 = phi ptr [ %.sroa.55.2, %112 ], [ %237, %342 ], [ %32, %254 ], [ %32, %175 ], [ %32, %174 ]
-  %.sroa.0.8 = phi ptr [ %.sroa.0.2, %112 ], [ %233, %342 ], [ %29, %254 ], [ %29, %175 ], [ %29, %174 ]
+  %.sroa.55.3 = phi ptr [ %.sroa.55.1, %112 ], [ %237, %342 ], [ %32, %254 ], [ %32, %175 ], [ %32, %174 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %112 ], [ %233, %342 ], [ %29, %254 ], [ %29, %175 ], [ %29, %174 ]
   %.pn35.pn.pn.pn = phi { ptr, i32 } [ %113, %112 ], [ %.pn35.pn.pn, %342 ], [ %.pn32.pn, %254 ], [ %176, %175 ], [ %.pn.pn.pn, %174 ]
   %344 = load ptr, ptr %4, align 8
   %.not.i136 = icmp eq ptr %344, null
@@ -11140,25 +11140,25 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i149, %380, %.thread
   %391 = phi ptr [ %341, %.thread ], [ %350, %380 ], [ %350, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i149 ]
   store ptr null, ptr %391, align 8
-  %.not.i.i.i154 = icmp eq ptr %.sroa.0.7, null
+  %.not.i.i.i154 = icmp eq ptr %.sroa.0.10, null
   br i1 %.not.i.i.i154, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split: ; preds = %.critedge48, %_ZN7testing15AssertionResultD2Ev.exit114
   %.sink418 = phi ptr [ %285, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %390, %.critedge48 ]
-  %.sroa.0.9390.ph = phi ptr [ %233, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %29, %.critedge48 ]
-  %.sroa.55.9389.ph = phi ptr [ %237, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %32, %.critedge48 ]
+  %.sroa.0.4390.ph = phi ptr [ %233, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %29, %.critedge48 ]
+  %.sroa.55.4389.ph = phi ptr [ %237, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %32, %.critedge48 ]
   %392 = getelementptr inbounds i8, ptr %.sink418, i64 16
   %393 = load ptr, ptr %392, align 8
   call void %393(ptr noundef nonnull %27) #20
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split, %_ZN7testing15AssertionResultD2Ev.exit114, %.critedge48, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit
-  %.sroa.0.9390 = phi ptr [ %.sroa.0.7, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %29, %.critedge48 ], [ %233, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %.sroa.0.9390.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split ]
-  %.sroa.55.9389 = phi ptr [ %.sroa.55.7, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %32, %.critedge48 ], [ %237, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %.sroa.55.9389.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split ]
-  %394 = ptrtoint ptr %.sroa.55.9389 to i64
-  %395 = ptrtoint ptr %.sroa.0.9390 to i64
+  %.sroa.0.4390 = phi ptr [ %.sroa.0.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %29, %.critedge48 ], [ %233, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %.sroa.0.4390.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split ]
+  %.sroa.55.4389 = phi ptr [ %.sroa.55.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %32, %.critedge48 ], [ %237, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %.sroa.55.4389.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split ]
+  %394 = ptrtoint ptr %.sroa.55.4389 to i64
+  %395 = ptrtoint ptr %.sroa.0.4390 to i64
   %396 = sub i64 %394, %395
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.9390, i64 noundef %396) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4390, i64 noundef %396) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread
@@ -11183,17 +11183,17 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137: ; preds = %345, %343, %403, %110
-  %.sroa.55.10 = phi ptr [ %.sroa.55.1, %110 ], [ %.sroa.55.7, %403 ], [ %.sroa.55.8, %343 ], [ %.sroa.55.8, %345 ]
-  %.sroa.0.10 = phi ptr [ %.sroa.0.1, %110 ], [ %.sroa.0.7, %403 ], [ %.sroa.0.8, %343 ], [ %.sroa.0.8, %345 ]
+  %.sroa.55.2 = phi ptr [ %.sroa.55.0, %110 ], [ %.sroa.55.10, %403 ], [ %.sroa.55.3, %343 ], [ %.sroa.55.3, %345 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %110 ], [ %.sroa.0.10, %403 ], [ %.sroa.0.3, %343 ], [ %.sroa.0.3, %345 ]
   %.pn40.pn.pn.pn = phi { ptr, i32 } [ %111, %110 ], [ %.pn40.pn.pn, %403 ], [ %.pn35.pn.pn.pn, %343 ], [ %.pn35.pn.pn.pn, %345 ]
-  %.not.i.i.i156 = icmp eq ptr %.sroa.0.10, null
+  %.not.i.i.i156 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i156, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit157, label %404
 
 404:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137
-  %405 = ptrtoint ptr %.sroa.55.10 to i64
-  %406 = ptrtoint ptr %.sroa.0.10 to i64
+  %405 = ptrtoint ptr %.sroa.55.2 to i64
+  %406 = ptrtoint ptr %.sroa.0.2 to i64
   %407 = sub i64 %405, %406
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.10, i64 noundef %407) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2, i64 noundef %407) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit157
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit157: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137, %404
@@ -11477,8 +11477,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i235: 
           to label %142 unwind label %98
 
 86:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i297, %1
-  %.sroa.39.2 = phi ptr [ %84, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i297 ], [ null, %1 ]
-  %.sroa.0.2 = phi ptr [ %80, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i297 ], [ null, %1 ]
+  %.sroa.39.0 = phi ptr [ %84, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i297 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %80, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i297 ], [ null, %1 ]
   %87 = landingpad { ptr, i32 }
           cleanup
   %88 = extractvalue { ptr, i32 } %87, 0
@@ -11486,8 +11486,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i235: 
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186
 
 90:                                               ; preds = %66, %60, %34, %43
-  %.sroa.39.3 = phi ptr [ %40, %43 ], [ %40, %60 ], [ %40, %66 ], [ null, %34 ]
-  %.sroa.0.3 = phi ptr [ %37, %43 ], [ %37, %60 ], [ %37, %66 ], [ null, %34 ]
+  %.sroa.39.1 = phi ptr [ %40, %43 ], [ %40, %60 ], [ %40, %66 ], [ null, %34 ]
+  %.sroa.0.1 = phi ptr [ %37, %43 ], [ %37, %60 ], [ %37, %66 ], [ null, %34 ]
   %91 = landingpad { ptr, i32 }
           cleanup
   %92 = extractvalue { ptr, i32 } %91, 0
@@ -11495,8 +11495,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i235: 
   br label %473
 
 94:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i235, %231, %136
-  %.sroa.39.4 = phi ptr [ %84, %231 ], [ %84, %136 ], [ %40, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i235 ]
-  %.sroa.0.4 = phi ptr [ %80, %231 ], [ %80, %136 ], [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i235 ]
+  %.sroa.39.2 = phi ptr [ %84, %231 ], [ %84, %136 ], [ %40, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i235 ]
+  %.sroa.0.2 = phi ptr [ %80, %231 ], [ %80, %136 ], [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i235 ]
   %95 = landingpad { ptr, i32 }
           cleanup
   %96 = extractvalue { ptr, i32 } %95, 0
@@ -11618,8 +11618,8 @@ _ZN7testing7MessageD2Ev.exit90:                   ; preds = %131, %_ZNKSt14defau
 
 139:                                              ; preds = %138, %110
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %138 ], [ %111, %110 ]
-  %.223 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %.230 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.324 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %.331 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   invoke void @__cxa_end_catch()
           to label %472 unwind label %585
 
@@ -11758,8 +11758,8 @@ _ZN7testing7MessageD2Ev.exit97:                   ; preds = %178, %_ZNKSt14defau
 
 188:                                              ; preds = %_ZN7testing7MessageD2Ev.exit97, %140
   %.pn52.pn.pn = phi { ptr, i32 } [ %.pn52.pn, %_ZN7testing7MessageD2Ev.exit97 ], [ %141, %140 ]
-  %.526 = extractvalue { ptr, i32 } %.pn52.pn.pn, 0
-  %.533 = extractvalue { ptr, i32 } %.pn52.pn.pn, 1
+  %.627 = extractvalue { ptr, i32 } %.pn52.pn.pn, 0
+  %.634 = extractvalue { ptr, i32 } %.pn52.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #20
   br label %472
 
@@ -11936,8 +11936,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127: ; preds = %_Z
 
 249:                                              ; preds = %_ZN7testing7MessageD2Ev.exit116, %189
   %.pn56.pn.pn = phi { ptr, i32 } [ %.pn56.pn, %_ZN7testing7MessageD2Ev.exit116 ], [ %190, %189 ]
-  %.8 = extractvalue { ptr, i32 } %.pn56.pn.pn, 0
-  %.836 = extractvalue { ptr, i32 } %.pn56.pn.pn, 1
+  %.9 = extractvalue { ptr, i32 } %.pn56.pn.pn, 0
+  %.937 = extractvalue { ptr, i32 } %.pn56.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #20
   br label %472
 
@@ -12106,8 +12106,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 316:                                              ; preds = %_ZN7testing7MessageD2Ev.exit140, %254
   %.pn60.pn = phi { ptr, i32 } [ %.pn60, %_ZN7testing7MessageD2Ev.exit140 ], [ %255, %254 ]
-  %.10 = extractvalue { ptr, i32 } %.pn60.pn, 0
-  %.1038 = extractvalue { ptr, i32 } %.pn60.pn, 1
+  %.12 = extractvalue { ptr, i32 } %.pn60.pn, 0
+  %.1240 = extractvalue { ptr, i32 } %.pn60.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #20
   br label %472
 
@@ -12511,24 +12511,24 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i297: 
 
 471:                                              ; preds = %_ZN7testing7MessageD2Ev.exit161, %317
   %.pn63.pn.pn = phi { ptr, i32 } [ %.pn63.pn, %_ZN7testing7MessageD2Ev.exit161 ], [ %318, %317 ]
-  %.13 = extractvalue { ptr, i32 } %.pn63.pn.pn, 0
-  %.1341 = extractvalue { ptr, i32 } %.pn63.pn.pn, 1
+  %.14 = extractvalue { ptr, i32 } %.pn63.pn.pn, 0
+  %.1442 = extractvalue { ptr, i32 } %.pn63.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #20
   br label %472
 
 472:                                              ; preds = %139, %471, %316, %250, %249, %188, %98, %94
-  %.sroa.39.7 = phi ptr [ %.sroa.39.4, %94 ], [ %84, %471 ], [ %84, %316 ], [ %84, %250 ], [ %84, %249 ], [ %84, %188 ], [ %84, %139 ], [ %84, %98 ]
-  %.sroa.0.7 = phi ptr [ %.sroa.0.4, %94 ], [ %80, %471 ], [ %80, %316 ], [ %80, %250 ], [ %80, %249 ], [ %80, %188 ], [ %80, %139 ], [ %80, %98 ]
-  %.1442 = phi i32 [ %97, %94 ], [ %.1341, %471 ], [ %.1038, %316 ], [ %253, %250 ], [ %.836, %249 ], [ %.533, %188 ], [ %.230, %139 ], [ %101, %98 ]
-  %.14 = phi ptr [ %96, %94 ], [ %.13, %471 ], [ %.10, %316 ], [ %252, %250 ], [ %.8, %249 ], [ %.526, %188 ], [ %.223, %139 ], [ %100, %98 ]
+  %.sroa.39.5 = phi ptr [ %.sroa.39.2, %94 ], [ %84, %471 ], [ %84, %316 ], [ %84, %250 ], [ %84, %249 ], [ %84, %188 ], [ %84, %139 ], [ %84, %98 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.2, %94 ], [ %80, %471 ], [ %80, %316 ], [ %80, %250 ], [ %80, %249 ], [ %80, %188 ], [ %80, %139 ], [ %80, %98 ]
+  %.230 = phi i32 [ %97, %94 ], [ %.1442, %471 ], [ %.1240, %316 ], [ %253, %250 ], [ %.937, %249 ], [ %.634, %188 ], [ %.331, %139 ], [ %101, %98 ]
+  %.223 = phi ptr [ %96, %94 ], [ %.14, %471 ], [ %.12, %316 ], [ %252, %250 ], [ %.9, %249 ], [ %.627, %188 ], [ %.324, %139 ], [ %100, %98 ]
   call void @_ZN5utils15LifetimeTracker7SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #20
   br label %473
 
 473:                                              ; preds = %472, %90
-  %.sroa.39.8 = phi ptr [ %.sroa.39.3, %90 ], [ %.sroa.39.7, %472 ]
-  %.sroa.0.8 = phi ptr [ %.sroa.0.3, %90 ], [ %.sroa.0.7, %472 ]
-  %.1543 = phi i32 [ %93, %90 ], [ %.1442, %472 ]
-  %.15 = phi ptr [ %92, %90 ], [ %.14, %472 ]
+  %.sroa.39.4 = phi ptr [ %.sroa.39.1, %90 ], [ %.sroa.39.5, %472 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.1, %90 ], [ %.sroa.0.5, %472 ]
+  %.129 = phi i32 [ %93, %90 ], [ %.230, %472 ]
+  %.122 = phi ptr [ %92, %90 ], [ %.223, %472 ]
   %474 = load ptr, ptr %4, align 8
   %.not.i185 = icmp eq ptr %474, null
   br i1 %.not.i185, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186, label %475
@@ -12790,12 +12790,12 @@ _ZN5utils15LifetimeTracker7SessionD2Ev.exit202:   ; preds = %_ZNSt6vectorIN5util
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %561, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit202, %387, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit200
-  %.sroa.39.9 = phi ptr [ %452, %_ZN7testing15AssertionResultD2Ev.exit200 ], [ %84, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %84, %387 ], [ %84, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit202 ], [ %84, %561 ]
-  %.sroa.0.9 = phi ptr [ %449, %_ZN7testing15AssertionResultD2Ev.exit200 ], [ %80, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %80, %387 ], [ %80, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit202 ], [ %80, %561 ]
-  %564 = ptrtoint ptr %.sroa.39.9 to i64
-  %565 = ptrtoint ptr %.sroa.0.9 to i64
+  %.sroa.39.6 = phi ptr [ %452, %_ZN7testing15AssertionResultD2Ev.exit200 ], [ %84, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %84, %387 ], [ %84, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit202 ], [ %84, %561 ]
+  %.sroa.0.6 = phi ptr [ %449, %_ZN7testing15AssertionResultD2Ev.exit200 ], [ %80, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %80, %387 ], [ %80, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit202 ], [ %80, %561 ]
+  %564 = ptrtoint ptr %.sroa.39.6 to i64
+  %565 = ptrtoint ptr %.sroa.0.6 to i64
   %566 = sub i64 %564, %565
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.9, i64 noundef %566) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.6, i64 noundef %566) #23
   %567 = load ptr, ptr %31, align 8
   %.not.i.i.i.i206 = icmp eq ptr %567, null
   br i1 %.not.i.i.i.i206, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %568
@@ -12813,33 +12813,33 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186.thread: ; preds = %478, %_ZN7testing7MessageD2Ev.exit195
   %.pn67.pn.pn = phi { ptr, i32 } [ %.pn67.pn, %_ZN7testing7MessageD2Ev.exit195 ], [ %479, %478 ]
-  %.18 = extractvalue { ptr, i32 } %.pn67.pn.pn, 0
-  %.1846 = extractvalue { ptr, i32 } %.pn67.pn.pn, 1
+  %.17 = extractvalue { ptr, i32 } %.pn67.pn.pn, 0
+  %.1745 = extractvalue { ptr, i32 } %.pn67.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %26) #20
   br label %573
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186: ; preds = %475, %473, %86
-  %.sroa.39.10 = phi ptr [ %.sroa.39.2, %86 ], [ %.sroa.39.8, %473 ], [ %.sroa.39.8, %475 ]
-  %.sroa.0.10 = phi ptr [ %.sroa.0.2, %86 ], [ %.sroa.0.8, %473 ], [ %.sroa.0.8, %475 ]
-  %.1947 = phi i32 [ %89, %86 ], [ %.1543, %473 ], [ %.1543, %475 ]
-  %.19 = phi ptr [ %88, %86 ], [ %.15, %473 ], [ %.15, %475 ]
-  %.not.i.i.i207 = icmp eq ptr %.sroa.0.10, null
+  %.sroa.39.3 = phi ptr [ %.sroa.39.0, %86 ], [ %.sroa.39.4, %473 ], [ %.sroa.39.4, %475 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0, %86 ], [ %.sroa.0.4, %473 ], [ %.sroa.0.4, %475 ]
+  %.028 = phi i32 [ %89, %86 ], [ %.129, %473 ], [ %.129, %475 ]
+  %.021 = phi ptr [ %88, %86 ], [ %.122, %473 ], [ %.122, %475 ]
+  %.not.i.i.i207 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i207, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit208, label %573
 
 573:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186
-  %.19444 = phi ptr [ %.18, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186.thread ], [ %.19, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186 ]
-  %.1947442 = phi i32 [ %.1846, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186.thread ], [ %.1947, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186 ]
-  %.sroa.0.10441 = phi ptr [ %449, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186.thread ], [ %.sroa.0.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186 ]
-  %.sroa.39.10440 = phi ptr [ %452, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186.thread ], [ %.sroa.39.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186 ]
-  %574 = ptrtoint ptr %.sroa.39.10440 to i64
-  %575 = ptrtoint ptr %.sroa.0.10441 to i64
+  %.021444 = phi ptr [ %.17, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186.thread ], [ %.021, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186 ]
+  %.028442 = phi i32 [ %.1745, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186.thread ], [ %.028, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186 ]
+  %.sroa.0.3441 = phi ptr [ %449, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186.thread ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186 ]
+  %.sroa.39.3440 = phi ptr [ %452, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186.thread ], [ %.sroa.39.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186 ]
+  %574 = ptrtoint ptr %.sroa.39.3440 to i64
+  %575 = ptrtoint ptr %.sroa.0.3441 to i64
   %576 = sub i64 %574, %575
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.10441, i64 noundef %576) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3441, i64 noundef %576) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit208
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit208: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186, %573
-  %.19445 = phi ptr [ %.19, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186 ], [ %.19444, %573 ]
-  %.1947443 = phi i32 [ %.1947, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186 ], [ %.1947442, %573 ]
+  %.021445 = phi ptr [ %.021, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186 ], [ %.021444, %573 ]
+  %.028443 = phi i32 [ %.028, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit186 ], [ %.028442, %573 ]
   %577 = load ptr, ptr %31, align 8
   %.not.i.i.i.i209 = icmp eq ptr %577, null
   br i1 %.not.i.i.i.i209, label %_ZN5utils15LifetimeTrackerD2Ev.exit210, label %578
@@ -12853,8 +12853,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit208: ; preds = %_ZN3pro
   br label %_ZN5utils15LifetimeTrackerD2Ev.exit210
 
 _ZN5utils15LifetimeTrackerD2Ev.exit210:           ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit208, %578
-  %583 = insertvalue { ptr, i32 } poison, ptr %.19445, 0
-  %584 = insertvalue { ptr, i32 } %583, i32 %.1947443, 1
+  %583 = insertvalue { ptr, i32 } poison, ptr %.021445, 0
+  %584 = insertvalue { ptr, i32 } %583, i32 %.028443, 1
   resume { ptr, i32 } %584
 
 585:                                              ; preds = %139
@@ -13769,8 +13769,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %279
 
 279:                                              ; preds = %278, %208, %131, %130, %67
-  %.sroa.39.5 = phi ptr [ %.sroa.39.0, %67 ], [ %191, %278 ], [ null, %208 ], [ null, %131 ], [ null, %130 ]
-  %.sroa.0.5 = phi ptr [ %.sroa.0.0, %67 ], [ %188, %278 ], [ null, %208 ], [ null, %131 ], [ null, %130 ]
+  %.sroa.39.1 = phi ptr [ %.sroa.39.0, %67 ], [ %191, %278 ], [ null, %208 ], [ null, %131 ], [ null, %130 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %67 ], [ %188, %278 ], [ null, %208 ], [ null, %131 ], [ null, %130 ]
   %.pn35.pn.pn.pn = phi { ptr, i32 } [ %68, %67 ], [ %.pn35.pn.pn, %278 ], [ %.pn32.pn, %208 ], [ %132, %131 ], [ %.pn.pn.pn, %130 ]
   %280 = load ptr, ptr %3, align 8
   %.not.i126 = icmp eq ptr %280, null
@@ -13961,17 +13961,17 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %339
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127: ; preds = %281, %279
-  %.not.i.i.i146 = icmp eq ptr %.sroa.0.5, null
+  %.not.i.i.i146 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i146, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit147, label %339
 
 339:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127
   %.pn40.pn.pn.pn336 = phi { ptr, i32 } [ %.pn40.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread ], [ %.pn35.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
-  %.sroa.0.7335 = phi ptr [ %188, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread ], [ %.sroa.0.5, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
-  %.sroa.39.7334 = phi ptr [ %191, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread ], [ %.sroa.39.5, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
-  %340 = ptrtoint ptr %.sroa.39.7334 to i64
-  %341 = ptrtoint ptr %.sroa.0.7335 to i64
+  %.sroa.0.3335 = phi ptr [ %188, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread ], [ %.sroa.0.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
+  %.sroa.39.3334 = phi ptr [ %191, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread ], [ %.sroa.39.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
+  %340 = ptrtoint ptr %.sroa.39.3334 to i64
+  %341 = ptrtoint ptr %.sroa.0.3335 to i64
   %342 = sub i64 %340, %341
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.7335, i64 noundef %342) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3335, i64 noundef %342) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit147
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit147: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127, %339
@@ -14052,8 +14052,8 @@ define dso_local void @_ZN69ProxyLifetimeTests_TestPolyAssignment_FromValue_ToNu
           to label %95 unwind label %51
 
 39:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i231, %1
-  %.sroa.23.1 = phi ptr [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i231 ], [ null, %1 ]
-  %.sroa.0.1 = phi ptr [ %34, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i231 ], [ null, %1 ]
+  %.sroa.23.0 = phi ptr [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i231 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %34, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i231 ], [ null, %1 ]
   %40 = landingpad { ptr, i32 }
           cleanup
   %41 = extractvalue { ptr, i32 } %40, 0
@@ -14189,8 +14189,8 @@ _ZN7testing7MessageD2Ev.exit74:                   ; preds = %84, %_ZNKSt14defaul
 
 92:                                               ; preds = %91, %63
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %91 ], [ %64, %63 ]
-  %.221 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %.227 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.322 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %.328 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   invoke void @__cxa_end_catch()
           to label %353 unwind label %468
 
@@ -14329,8 +14329,8 @@ _ZN7testing7MessageD2Ev.exit81:                   ; preds = %131, %_ZNKSt14defau
 
 140:                                              ; preds = %_ZN7testing7MessageD2Ev.exit81, %93
   %.pn47.pn.pn = phi { ptr, i32 } [ %.pn47.pn, %_ZN7testing7MessageD2Ev.exit81 ], [ %94, %93 ]
-  %.524 = extractvalue { ptr, i32 } %.pn47.pn.pn, 0
-  %.530 = extractvalue { ptr, i32 } %.pn47.pn.pn, 1
+  %.6 = extractvalue { ptr, i32 } %.pn47.pn.pn, 0
+  %.631 = extractvalue { ptr, i32 } %.pn47.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #20
   br label %353
 
@@ -14484,8 +14484,8 @@ _ZN7testing7MessageD2Ev.exit100:                  ; preds = %178, %_ZNKSt14defau
 
 200:                                              ; preds = %_ZN7testing7MessageD2Ev.exit100, %141
   %.pn51.pn.pn = phi { ptr, i32 } [ %.pn51.pn, %_ZN7testing7MessageD2Ev.exit100 ], [ %142, %141 ]
-  %.8 = extractvalue { ptr, i32 } %.pn51.pn.pn, 0
-  %.833 = extractvalue { ptr, i32 } %.pn51.pn.pn, 1
+  %.9 = extractvalue { ptr, i32 } %.pn51.pn.pn, 0
+  %.934 = extractvalue { ptr, i32 } %.pn51.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #20
   br label %353
 
@@ -14878,14 +14878,14 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i231: 
 
 352:                                              ; preds = %_ZN7testing7MessageD2Ev.exit121, %201
   %.pn55.pn.pn = phi { ptr, i32 } [ %.pn55.pn, %_ZN7testing7MessageD2Ev.exit121 ], [ %202, %201 ]
-  %.11 = extractvalue { ptr, i32 } %.pn55.pn.pn, 0
-  %.1136 = extractvalue { ptr, i32 } %.pn55.pn.pn, 1
+  %.12 = extractvalue { ptr, i32 } %.pn55.pn.pn, 0
+  %.1237 = extractvalue { ptr, i32 } %.pn55.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #20
   br label %353
 
 353:                                              ; preds = %92, %352, %200, %140, %51, %47
-  %.1237 = phi i32 [ %.1136, %352 ], [ %50, %47 ], [ %.833, %200 ], [ %.530, %140 ], [ %.227, %92 ], [ %54, %51 ]
-  %.12 = phi ptr [ %.11, %352 ], [ %49, %47 ], [ %.8, %200 ], [ %.524, %140 ], [ %.221, %92 ], [ %53, %51 ]
+  %.227 = phi i32 [ %.1237, %352 ], [ %50, %47 ], [ %.934, %200 ], [ %.631, %140 ], [ %.328, %92 ], [ %54, %51 ]
+  %.221 = phi ptr [ %.12, %352 ], [ %49, %47 ], [ %.9, %200 ], [ %.6, %140 ], [ %.322, %92 ], [ %53, %51 ]
   %354 = load ptr, ptr %4, align 8
   %.not.i141 = icmp eq ptr %354, null
   br i1 %.not.i141, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142, label %355
@@ -14898,10 +14898,10 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i231: 
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142: ; preds = %355, %353, %43
-  %.sroa.23.3 = phi ptr [ null, %43 ], [ %37, %353 ], [ %37, %355 ]
-  %.sroa.0.3 = phi ptr [ null, %43 ], [ %34, %353 ], [ %34, %355 ]
-  %.1338 = phi i32 [ %46, %43 ], [ %.1237, %353 ], [ %.1237, %355 ]
-  %.13 = phi ptr [ %45, %43 ], [ %.12, %353 ], [ %.12, %355 ]
+  %.sroa.23.2 = phi ptr [ null, %43 ], [ %37, %353 ], [ %37, %355 ]
+  %.sroa.0.2 = phi ptr [ null, %43 ], [ %34, %353 ], [ %34, %355 ]
+  %.126 = phi i32 [ %46, %43 ], [ %.227, %353 ], [ %.227, %355 ]
+  %.120 = phi ptr [ %45, %43 ], [ %.221, %353 ], [ %.221, %355 ]
   call void @_ZN5utils15LifetimeTracker7SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #20
   br label %455
 
@@ -15157,12 +15157,12 @@ _ZN5utils15LifetimeTracker7SessionD2Ev.exit:      ; preds = %_ZNKSt14default_del
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit, %241, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit272, %411, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit
-  %.sroa.0.4312 = phi ptr [ %330, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %34, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %34, %241 ], [ %34, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit272 ], [ %34, %411 ]
-  %.sroa.23.4311 = phi ptr [ %334, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %37, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %37, %241 ], [ %37, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit272 ], [ %37, %411 ]
-  %446 = ptrtoint ptr %.sroa.23.4311 to i64
-  %447 = ptrtoint ptr %.sroa.0.4312 to i64
+  %.sroa.0.3312 = phi ptr [ %330, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %34, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %34, %241 ], [ %34, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit272 ], [ %34, %411 ]
+  %.sroa.23.3311 = phi ptr [ %334, %_ZN5utils15LifetimeTracker7SessionD2Ev.exit ], [ %37, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit ], [ %37, %241 ], [ %37, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit272 ], [ %37, %411 ]
+  %446 = ptrtoint ptr %.sroa.23.3311 to i64
+  %447 = ptrtoint ptr %.sroa.0.3312 to i64
   %448 = sub i64 %446, %447
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4312, i64 noundef %448) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3312, i64 noundef %448) #23
   %449 = load ptr, ptr %26, align 8
   %.not.i.i.i.i = icmp eq ptr %449, null
   br i1 %.not.i.i.i.i, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %450
@@ -15180,33 +15180,33 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
 
 .thread:                                          ; preds = %359, %_ZN7testing7MessageD2Ev.exit151
   %.pn59.pn.pn = phi { ptr, i32 } [ %.pn59.pn, %_ZN7testing7MessageD2Ev.exit151 ], [ %360, %359 ]
-  %.16 = extractvalue { ptr, i32 } %.pn59.pn.pn, 0
-  %.1641 = extractvalue { ptr, i32 } %.pn59.pn.pn, 1
+  %.15 = extractvalue { ptr, i32 } %.pn59.pn.pn, 0
+  %.1540 = extractvalue { ptr, i32 } %.pn59.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #20
   br label %456
 
 455:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142, %39
-  %.sroa.23.5 = phi ptr [ %.sroa.23.1, %39 ], [ %.sroa.23.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
-  %.sroa.0.5 = phi ptr [ %.sroa.0.1, %39 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
-  %.1742 = phi i32 [ %42, %39 ], [ %.1338, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
-  %.17 = phi ptr [ %41, %39 ], [ %.13, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
-  %.not.i.i.i162 = icmp eq ptr %.sroa.0.5, null
+  %.sroa.23.1 = phi ptr [ %.sroa.23.0, %39 ], [ %.sroa.23.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %39 ], [ %.sroa.0.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
+  %.025 = phi i32 [ %42, %39 ], [ %.126, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
+  %.019 = phi ptr [ %41, %39 ], [ %.120, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
+  %.not.i.i.i162 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i162, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit163, label %456
 
 456:                                              ; preds = %.thread, %455
-  %.17338 = phi ptr [ %.16, %.thread ], [ %.17, %455 ]
-  %.1742336 = phi i32 [ %.1641, %.thread ], [ %.1742, %455 ]
-  %.sroa.0.5335 = phi ptr [ %330, %.thread ], [ %.sroa.0.5, %455 ]
-  %.sroa.23.5334 = phi ptr [ %334, %.thread ], [ %.sroa.23.5, %455 ]
-  %457 = ptrtoint ptr %.sroa.23.5334 to i64
-  %458 = ptrtoint ptr %.sroa.0.5335 to i64
+  %.019338 = phi ptr [ %.15, %.thread ], [ %.019, %455 ]
+  %.025336 = phi i32 [ %.1540, %.thread ], [ %.025, %455 ]
+  %.sroa.0.1335 = phi ptr [ %330, %.thread ], [ %.sroa.0.1, %455 ]
+  %.sroa.23.1334 = phi ptr [ %334, %.thread ], [ %.sroa.23.1, %455 ]
+  %457 = ptrtoint ptr %.sroa.23.1334 to i64
+  %458 = ptrtoint ptr %.sroa.0.1335 to i64
   %459 = sub i64 %457, %458
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5335, i64 noundef %459) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1335, i64 noundef %459) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit163
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit163: ; preds = %455, %456
-  %.17339 = phi ptr [ %.17, %455 ], [ %.17338, %456 ]
-  %.1742337 = phi i32 [ %.1742, %455 ], [ %.1742336, %456 ]
+  %.019339 = phi ptr [ %.019, %455 ], [ %.019338, %456 ]
+  %.025337 = phi i32 [ %.025, %455 ], [ %.025336, %456 ]
   %460 = load ptr, ptr %26, align 8
   %.not.i.i.i.i164 = icmp eq ptr %460, null
   br i1 %.not.i.i.i.i164, label %_ZN5utils15LifetimeTrackerD2Ev.exit165, label %461
@@ -15220,8 +15220,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit163: ; preds = %455, %4
   br label %_ZN5utils15LifetimeTrackerD2Ev.exit165
 
 _ZN5utils15LifetimeTrackerD2Ev.exit165:           ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit163, %461
-  %466 = insertvalue { ptr, i32 } poison, ptr %.17339, 0
-  %467 = insertvalue { ptr, i32 } %466, i32 %.1742337, 1
+  %466 = insertvalue { ptr, i32 } poison, ptr %.019339, 0
+  %467 = insertvalue { ptr, i32 } %466, i32 %.025337, 1
   resume { ptr, i32 } %467
 
 468:                                              ; preds = %92
@@ -15369,8 +15369,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit150
 
 53:                                               ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit319, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i300, %119, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i157, %._crit_edge, %39
-  %.sroa.39.2 = phi ptr [ %28, %39 ], [ %123, %119 ], [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i157 ], [ null, %._crit_edge ], [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i300 ], [ %28, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit319 ]
-  %.sroa.0.2 = phi ptr [ %25, %39 ], [ %118, %119 ], [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i157 ], [ null, %._crit_edge ], [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i300 ], [ %25, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit319 ]
+  %.sroa.39.1 = phi ptr [ %28, %39 ], [ %123, %119 ], [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i157 ], [ null, %._crit_edge ], [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i300 ], [ %28, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit319 ]
+  %.sroa.0.1 = phi ptr [ %25, %39 ], [ %118, %119 ], [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i157 ], [ null, %._crit_edge ], [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i300 ], [ %25, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit319 ]
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %213
@@ -15826,8 +15826,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %213
 
 213:                                              ; preds = %212, %144, %70, %53
-  %.sroa.39.6 = phi ptr [ %.sroa.39.2, %53 ], [ %127, %212 ], [ %28, %144 ], [ %28, %70 ]
-  %.sroa.0.6 = phi ptr [ %.sroa.0.2, %53 ], [ %124, %212 ], [ %25, %144 ], [ %25, %70 ]
+  %.sroa.39.3 = phi ptr [ %.sroa.39.1, %53 ], [ %127, %212 ], [ %28, %144 ], [ %28, %70 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %53 ], [ %124, %212 ], [ %25, %144 ], [ %25, %70 ]
   %.pn35.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn35.pn.pn, %212 ], [ %.pn32.pn, %144 ], [ %71, %70 ]
   %214 = load ptr, ptr %3, align 8
   %.not.i130 = icmp eq ptr %214, null
@@ -15977,12 +15977,12 @@ _ZN7testing15AssertionResultD2Ev.exit145:         ; preds = %.thread, %250, %_ZN
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit81, %261, %176, %_ZN7testing15AssertionResultD2Ev.exit108, %_ZN7testing15AssertionResultD2Ev.exit145
-  %.sroa.0.7279 = phi ptr [ %25, %_ZN7testing15AssertionResultD2Ev.exit81 ], [ %25, %261 ], [ %124, %176 ], [ %124, %_ZN7testing15AssertionResultD2Ev.exit108 ], [ %124, %_ZN7testing15AssertionResultD2Ev.exit145 ]
-  %.sroa.39.7278 = phi ptr [ %28, %_ZN7testing15AssertionResultD2Ev.exit81 ], [ %28, %261 ], [ %127, %176 ], [ %127, %_ZN7testing15AssertionResultD2Ev.exit108 ], [ %127, %_ZN7testing15AssertionResultD2Ev.exit145 ]
-  %264 = ptrtoint ptr %.sroa.39.7278 to i64
-  %265 = ptrtoint ptr %.sroa.0.7279 to i64
+  %.sroa.0.4279 = phi ptr [ %25, %_ZN7testing15AssertionResultD2Ev.exit81 ], [ %25, %261 ], [ %124, %176 ], [ %124, %_ZN7testing15AssertionResultD2Ev.exit108 ], [ %124, %_ZN7testing15AssertionResultD2Ev.exit145 ]
+  %.sroa.39.4278 = phi ptr [ %28, %_ZN7testing15AssertionResultD2Ev.exit81 ], [ %28, %261 ], [ %127, %176 ], [ %127, %_ZN7testing15AssertionResultD2Ev.exit108 ], [ %127, %_ZN7testing15AssertionResultD2Ev.exit145 ]
+  %264 = ptrtoint ptr %.sroa.39.4278 to i64
+  %265 = ptrtoint ptr %.sroa.0.4279 to i64
   %266 = sub i64 %264, %265
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.7279, i64 noundef %266) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4279, i64 noundef %266) #23
   %267 = load ptr, ptr %17, align 8
   %.not.i.i.i.i148 = icmp eq ptr %267, null
   br i1 %.not.i.i.i.i148, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %268
@@ -16004,17 +16004,17 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %273
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131: ; preds = %215, %213
-  %.not.i.i.i149 = icmp eq ptr %.sroa.0.6, null
+  %.not.i.i.i149 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i149, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit150, label %273
 
 273:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread291, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131
   %.pn40.pn.pn.pn298 = phi { ptr, i32 } [ %.pn40.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread291 ], [ %.pn35.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131 ]
-  %.sroa.0.8297 = phi ptr [ %124, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread291 ], [ %.sroa.0.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131 ]
-  %.sroa.39.8296 = phi ptr [ %127, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread291 ], [ %.sroa.39.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131 ]
-  %274 = ptrtoint ptr %.sroa.39.8296 to i64
-  %275 = ptrtoint ptr %.sroa.0.8297 to i64
+  %.sroa.0.2297 = phi ptr [ %124, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread291 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131 ]
+  %.sroa.39.2296 = phi ptr [ %127, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread291 ], [ %.sroa.39.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131 ]
+  %274 = ptrtoint ptr %.sroa.39.2296 to i64
+  %275 = ptrtoint ptr %.sroa.0.2297 to i64
   %276 = sub i64 %274, %275
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.8297, i64 noundef %276) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2297, i64 noundef %276) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit150
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit150: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131, %273
@@ -16186,8 +16186,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit161
 
 64:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i168, %._crit_edge, %106
-  %.sroa.23.1 = phi ptr [ %36, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i168 ], [ %36, %106 ], [ null, %._crit_edge ]
-  %.sroa.0.1 = phi ptr [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i168 ], [ %33, %106 ], [ null, %._crit_edge ]
+  %.sroa.23.0 = phi ptr [ %36, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i168 ], [ %36, %106 ], [ null, %._crit_edge ]
+  %.sroa.0.0 = phi ptr [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i168 ], [ %33, %106 ], [ null, %._crit_edge ]
   %65 = landingpad { ptr, i32 }
           cleanup
   %66 = extractvalue { ptr, i32 } %65, 0
@@ -16811,10 +16811,10 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %284
 
 284:                                              ; preds = %109, %283, %219, %155, %68, %64
-  %.sroa.23.3 = phi ptr [ %.sroa.23.1, %64 ], [ %202, %283 ], [ %36, %219 ], [ %36, %155 ], [ %36, %109 ], [ %36, %68 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %64 ], [ %198, %283 ], [ %33, %219 ], [ %33, %155 ], [ %33, %109 ], [ %33, %68 ]
-  %.1237 = phi i32 [ %67, %64 ], [ %.1136, %283 ], [ %.833, %219 ], [ %.530, %155 ], [ %.227, %109 ], [ %71, %68 ]
-  %.12 = phi ptr [ %66, %64 ], [ %.11, %283 ], [ %.8, %219 ], [ %.524, %155 ], [ %.221, %109 ], [ %70, %68 ]
+  %.sroa.23.2 = phi ptr [ %.sroa.23.0, %64 ], [ %202, %283 ], [ %36, %219 ], [ %36, %155 ], [ %36, %109 ], [ %36, %68 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %64 ], [ %198, %283 ], [ %33, %219 ], [ %33, %155 ], [ %33, %109 ], [ %33, %68 ]
+  %.126 = phi i32 [ %67, %64 ], [ %.1136, %283 ], [ %.833, %219 ], [ %.530, %155 ], [ %.227, %109 ], [ %71, %68 ]
+  %.120 = phi ptr [ %66, %64 ], [ %.11, %283 ], [ %.8, %219 ], [ %.524, %155 ], [ %.221, %109 ], [ %70, %68 ]
   %285 = load ptr, ptr %3, align 8
   %.not.i141 = icmp eq ptr %285, null
   br i1 %.not.i141, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142, label %286
@@ -16980,12 +16980,12 @@ _ZN7testing15AssertionResultD2Ev.exit156:         ; preds = %.thread218, %321, %
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %.critedge65, %333, %251, %_ZN7testing15AssertionResultD2Ev.exit123, %_ZN7testing15AssertionResultD2Ev.exit156
-  %.sroa.0.4224 = phi ptr [ %33, %.critedge65 ], [ %33, %333 ], [ %198, %251 ], [ %198, %_ZN7testing15AssertionResultD2Ev.exit123 ], [ %198, %_ZN7testing15AssertionResultD2Ev.exit156 ]
-  %.sroa.23.4223 = phi ptr [ %36, %.critedge65 ], [ %36, %333 ], [ %202, %251 ], [ %202, %_ZN7testing15AssertionResultD2Ev.exit123 ], [ %202, %_ZN7testing15AssertionResultD2Ev.exit156 ]
-  %336 = ptrtoint ptr %.sroa.23.4223 to i64
-  %337 = ptrtoint ptr %.sroa.0.4224 to i64
+  %.sroa.0.3224 = phi ptr [ %33, %.critedge65 ], [ %33, %333 ], [ %198, %251 ], [ %198, %_ZN7testing15AssertionResultD2Ev.exit123 ], [ %198, %_ZN7testing15AssertionResultD2Ev.exit156 ]
+  %.sroa.23.3223 = phi ptr [ %36, %.critedge65 ], [ %36, %333 ], [ %202, %251 ], [ %202, %_ZN7testing15AssertionResultD2Ev.exit123 ], [ %202, %_ZN7testing15AssertionResultD2Ev.exit156 ]
+  %336 = ptrtoint ptr %.sroa.23.3223 to i64
+  %337 = ptrtoint ptr %.sroa.0.3224 to i64
   %338 = sub i64 %336, %337
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4224, i64 noundef %338) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3224, i64 noundef %338) #23
   %339 = load ptr, ptr %25, align 8
   %.not.i.i.i.i159 = icmp eq ptr %339, null
   br i1 %.not.i.i.i.i159, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %340
@@ -17003,29 +17003,29 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread242: ; preds = %289, %_ZN7testing7MessageD2Ev.exit151
   %.pn58.pn.pn = phi { ptr, i32 } [ %.pn58.pn, %_ZN7testing7MessageD2Ev.exit151 ], [ %290, %289 ]
-  %.15 = extractvalue { ptr, i32 } %.pn58.pn.pn, 0
-  %.1540 = extractvalue { ptr, i32 } %.pn58.pn.pn, 1
+  %.14 = extractvalue { ptr, i32 } %.pn58.pn.pn, 0
+  %.1439 = extractvalue { ptr, i32 } %.pn58.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #20
   br label %345
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142: ; preds = %286, %284
-  %.not.i.i.i160 = icmp eq ptr %.sroa.0.3, null
+  %.not.i.i.i160 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i160, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit161, label %345
 
 345:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread242, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142
-  %.16251 = phi ptr [ %.15, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread242 ], [ %.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
-  %.1641250 = phi i32 [ %.1540, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread242 ], [ %.1237, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
-  %.sroa.0.5249 = phi ptr [ %198, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread242 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
-  %.sroa.23.5248 = phi ptr [ %202, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread242 ], [ %.sroa.23.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
-  %346 = ptrtoint ptr %.sroa.23.5248 to i64
-  %347 = ptrtoint ptr %.sroa.0.5249 to i64
+  %.019251 = phi ptr [ %.14, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread242 ], [ %.120, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
+  %.025250 = phi i32 [ %.1439, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread242 ], [ %.126, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
+  %.sroa.0.1249 = phi ptr [ %198, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread242 ], [ %.sroa.0.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
+  %.sroa.23.1248 = phi ptr [ %202, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread242 ], [ %.sroa.23.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
+  %346 = ptrtoint ptr %.sroa.23.1248 to i64
+  %347 = ptrtoint ptr %.sroa.0.1249 to i64
   %348 = sub i64 %346, %347
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5249, i64 noundef %348) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1249, i64 noundef %348) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit161
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit161: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142, %345
-  %.16231 = phi ptr [ %62, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread ], [ %.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ], [ %.16251, %345 ]
-  %.1641230 = phi i32 [ %63, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread ], [ %.1237, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ], [ %.1641250, %345 ]
+  %.019231 = phi ptr [ %62, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread ], [ %.120, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ], [ %.019251, %345 ]
+  %.025230 = phi i32 [ %63, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread ], [ %.126, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ], [ %.025250, %345 ]
   %349 = load ptr, ptr %25, align 8
   %.not.i.i.i.i162 = icmp eq ptr %349, null
   br i1 %.not.i.i.i.i162, label %_ZN5utils15LifetimeTrackerD2Ev.exit163, label %350
@@ -17039,8 +17039,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit161: ; preds = %_ZN3pro
   br label %_ZN5utils15LifetimeTrackerD2Ev.exit163
 
 _ZN5utils15LifetimeTrackerD2Ev.exit163:           ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit161, %350
-  %355 = insertvalue { ptr, i32 } poison, ptr %.16231, 0
-  %356 = insertvalue { ptr, i32 } %355, i32 %.1641230, 1
+  %355 = insertvalue { ptr, i32 } poison, ptr %.019231, 0
+  %356 = insertvalue { ptr, i32 } %355, i32 %.025230, 1
   resume { ptr, i32 } %356
 
 357:                                              ; preds = %109
@@ -17539,8 +17539,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i145: 
   br label %186
 
 186:                                              ; preds = %185, %111, %42, %25
-  %.sroa.23.2 = phi ptr [ null, %25 ], [ %94, %185 ], [ null, %111 ], [ null, %42 ]
-  %.sroa.0.2 = phi ptr [ null, %25 ], [ %91, %185 ], [ null, %111 ], [ null, %42 ]
+  %.sroa.23.0 = phi ptr [ null, %25 ], [ %94, %185 ], [ null, %111 ], [ null, %42 ]
+  %.sroa.0.0 = phi ptr [ null, %25 ], [ %91, %185 ], [ null, %111 ], [ null, %42 ]
   %.pn35.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %.pn35.pn.pn, %185 ], [ %.pn32.pn, %111 ], [ %43, %42 ]
   %187 = load ptr, ptr %3, align 8
   %.not.i118 = icmp eq ptr %187, null
@@ -17696,12 +17696,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread198
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread198: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %143, %_ZN7testing15AssertionResultD2Ev.exit96
-  %.sroa.0.3203 = phi ptr [ %163, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %91, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %91, %143 ]
-  %.sroa.23.3202 = phi ptr [ %167, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %94, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %94, %143 ]
-  %239 = ptrtoint ptr %.sroa.23.3202 to i64
-  %240 = ptrtoint ptr %.sroa.0.3203 to i64
+  %.sroa.0.1203 = phi ptr [ %163, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %91, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %91, %143 ]
+  %.sroa.23.1202 = phi ptr [ %167, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %94, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %94, %143 ]
+  %239 = ptrtoint ptr %.sroa.23.1202 to i64
+  %240 = ptrtoint ptr %.sroa.0.1203 to i64
   %241 = sub i64 %239, %240
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3203, i64 noundef %241) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1203, i64 noundef %241) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %235, %_ZN7testing15AssertionResultD2Ev.exit76, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread198
@@ -17726,17 +17726,17 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %248
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119: ; preds = %188, %186
-  %.not.i.i.i137 = icmp eq ptr %.sroa.0.2, null
+  %.not.i.i.i137 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i.i.i137, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit138, label %248
 
 248:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread213, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119
   %.pn40.pn.pn.pn210 = phi { ptr, i32 } [ %192, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread ], [ %.pn35.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119 ], [ %.pn40.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread213 ]
-  %.sroa.0.4209 = phi ptr [ %91, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread ], [ %.sroa.0.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119 ], [ %163, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread213 ]
-  %.sroa.23.4208 = phi ptr [ %94, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread ], [ %.sroa.23.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119 ], [ %167, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread213 ]
-  %249 = ptrtoint ptr %.sroa.23.4208 to i64
-  %250 = ptrtoint ptr %.sroa.0.4209 to i64
+  %.sroa.0.2209 = phi ptr [ %91, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread ], [ %.sroa.0.0, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119 ], [ %163, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread213 ]
+  %.sroa.23.2208 = phi ptr [ %94, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread ], [ %.sroa.23.0, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119 ], [ %167, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread213 ]
+  %249 = ptrtoint ptr %.sroa.23.2208 to i64
+  %250 = ptrtoint ptr %.sroa.0.2209 to i64
   %251 = sub i64 %249, %250
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4209, i64 noundef %251) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2209, i64 noundef %251) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit138
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit138: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119, %248
@@ -18220,8 +18220,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit150
 
 53:                                               ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit320, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i301, %119, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i157, %._crit_edge, %39
-  %.sroa.39.2 = phi ptr [ %28, %39 ], [ %123, %119 ], [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i157 ], [ null, %._crit_edge ], [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i301 ], [ %28, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit320 ]
-  %.sroa.0238.2 = phi ptr [ %25, %39 ], [ %118, %119 ], [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i157 ], [ null, %._crit_edge ], [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i301 ], [ %25, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit320 ]
+  %.sroa.39.1 = phi ptr [ %28, %39 ], [ %123, %119 ], [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i157 ], [ null, %._crit_edge ], [ %28, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i301 ], [ %28, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit320 ]
+  %.sroa.0238.1 = phi ptr [ %25, %39 ], [ %118, %119 ], [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i157 ], [ null, %._crit_edge ], [ %25, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i301 ], [ %25, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE17_M_realloc_insertIJRiRNS0_21LifetimeOperationTypeEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit320 ]
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %213
@@ -18677,8 +18677,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %213
 
 213:                                              ; preds = %212, %144, %70, %53
-  %.sroa.39.6 = phi ptr [ %.sroa.39.2, %53 ], [ %127, %212 ], [ %28, %144 ], [ %28, %70 ]
-  %.sroa.0238.6 = phi ptr [ %.sroa.0238.2, %53 ], [ %124, %212 ], [ %25, %144 ], [ %25, %70 ]
+  %.sroa.39.3 = phi ptr [ %.sroa.39.1, %53 ], [ %127, %212 ], [ %28, %144 ], [ %28, %70 ]
+  %.sroa.0238.3 = phi ptr [ %.sroa.0238.1, %53 ], [ %124, %212 ], [ %25, %144 ], [ %25, %70 ]
   %.pn35.pn.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %.pn35.pn.pn, %212 ], [ %.pn32.pn, %144 ], [ %71, %70 ]
   %214 = load ptr, ptr %3, align 8
   %.not.i130 = icmp eq ptr %214, null
@@ -18828,12 +18828,12 @@ _ZN7testing15AssertionResultD2Ev.exit145:         ; preds = %.thread, %250, %_ZN
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit81, %261, %176, %_ZN7testing15AssertionResultD2Ev.exit108, %_ZN7testing15AssertionResultD2Ev.exit145
-  %.sroa.0238.7280 = phi ptr [ %25, %_ZN7testing15AssertionResultD2Ev.exit81 ], [ %25, %261 ], [ %124, %176 ], [ %124, %_ZN7testing15AssertionResultD2Ev.exit108 ], [ %124, %_ZN7testing15AssertionResultD2Ev.exit145 ]
-  %.sroa.39.7279 = phi ptr [ %28, %_ZN7testing15AssertionResultD2Ev.exit81 ], [ %28, %261 ], [ %127, %176 ], [ %127, %_ZN7testing15AssertionResultD2Ev.exit108 ], [ %127, %_ZN7testing15AssertionResultD2Ev.exit145 ]
-  %264 = ptrtoint ptr %.sroa.39.7279 to i64
-  %265 = ptrtoint ptr %.sroa.0238.7280 to i64
+  %.sroa.0238.4280 = phi ptr [ %25, %_ZN7testing15AssertionResultD2Ev.exit81 ], [ %25, %261 ], [ %124, %176 ], [ %124, %_ZN7testing15AssertionResultD2Ev.exit108 ], [ %124, %_ZN7testing15AssertionResultD2Ev.exit145 ]
+  %.sroa.39.4279 = phi ptr [ %28, %_ZN7testing15AssertionResultD2Ev.exit81 ], [ %28, %261 ], [ %127, %176 ], [ %127, %_ZN7testing15AssertionResultD2Ev.exit108 ], [ %127, %_ZN7testing15AssertionResultD2Ev.exit145 ]
+  %264 = ptrtoint ptr %.sroa.39.4279 to i64
+  %265 = ptrtoint ptr %.sroa.0238.4280 to i64
   %266 = sub i64 %264, %265
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0238.7280, i64 noundef %266) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0238.4280, i64 noundef %266) #23
   %267 = load ptr, ptr %17, align 8
   %.not.i.i.i.i148 = icmp eq ptr %267, null
   br i1 %.not.i.i.i.i148, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %268
@@ -18855,17 +18855,17 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %273
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131: ; preds = %215, %213
-  %.not.i.i.i149 = icmp eq ptr %.sroa.0238.6, null
+  %.not.i.i.i149 = icmp eq ptr %.sroa.0238.3, null
   br i1 %.not.i.i.i149, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit150, label %273
 
 273:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread292, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131
   %.pn40.pn.pn.pn299 = phi { ptr, i32 } [ %.pn40.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread292 ], [ %.pn35.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131 ]
-  %.sroa.0238.8298 = phi ptr [ %124, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread292 ], [ %.sroa.0238.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131 ]
-  %.sroa.39.8297 = phi ptr [ %127, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread292 ], [ %.sroa.39.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131 ]
-  %274 = ptrtoint ptr %.sroa.39.8297 to i64
-  %275 = ptrtoint ptr %.sroa.0238.8298 to i64
+  %.sroa.0238.2298 = phi ptr [ %124, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread292 ], [ %.sroa.0238.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131 ]
+  %.sroa.39.2297 = phi ptr [ %127, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread292 ], [ %.sroa.39.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131 ]
+  %274 = ptrtoint ptr %.sroa.39.2297 to i64
+  %275 = ptrtoint ptr %.sroa.0238.2298 to i64
   %276 = sub i64 %274, %275
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0238.8298, i64 noundef %276) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0238.2298, i64 noundef %276) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit150
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit150: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit131, %273
@@ -19037,8 +19037,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit161
 
 64:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i168, %._crit_edge, %106
-  %.sroa.23.1 = phi ptr [ %36, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i168 ], [ %36, %106 ], [ null, %._crit_edge ]
-  %.sroa.0200.1 = phi ptr [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i168 ], [ %33, %106 ], [ null, %._crit_edge ]
+  %.sroa.23.0 = phi ptr [ %36, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i168 ], [ %36, %106 ], [ null, %._crit_edge ]
+  %.sroa.0200.0 = phi ptr [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i168 ], [ %33, %106 ], [ null, %._crit_edge ]
   %65 = landingpad { ptr, i32 }
           cleanup
   %66 = extractvalue { ptr, i32 } %65, 0
@@ -19662,10 +19662,10 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %284
 
 284:                                              ; preds = %109, %283, %219, %155, %68, %64
-  %.sroa.23.3 = phi ptr [ %.sroa.23.1, %64 ], [ %202, %283 ], [ %36, %219 ], [ %36, %155 ], [ %36, %109 ], [ %36, %68 ]
-  %.sroa.0200.3 = phi ptr [ %.sroa.0200.1, %64 ], [ %198, %283 ], [ %33, %219 ], [ %33, %155 ], [ %33, %109 ], [ %33, %68 ]
-  %.1237 = phi i32 [ %67, %64 ], [ %.1136, %283 ], [ %.833, %219 ], [ %.530, %155 ], [ %.227, %109 ], [ %71, %68 ]
-  %.12 = phi ptr [ %66, %64 ], [ %.11, %283 ], [ %.8, %219 ], [ %.524, %155 ], [ %.221, %109 ], [ %70, %68 ]
+  %.sroa.23.2 = phi ptr [ %.sroa.23.0, %64 ], [ %202, %283 ], [ %36, %219 ], [ %36, %155 ], [ %36, %109 ], [ %36, %68 ]
+  %.sroa.0200.2 = phi ptr [ %.sroa.0200.0, %64 ], [ %198, %283 ], [ %33, %219 ], [ %33, %155 ], [ %33, %109 ], [ %33, %68 ]
+  %.126 = phi i32 [ %67, %64 ], [ %.1136, %283 ], [ %.833, %219 ], [ %.530, %155 ], [ %.227, %109 ], [ %71, %68 ]
+  %.120 = phi ptr [ %66, %64 ], [ %.11, %283 ], [ %.8, %219 ], [ %.524, %155 ], [ %.221, %109 ], [ %70, %68 ]
   %285 = load ptr, ptr %3, align 8
   %.not.i141 = icmp eq ptr %285, null
   br i1 %.not.i141, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142, label %286
@@ -19831,12 +19831,12 @@ _ZN7testing15AssertionResultD2Ev.exit156:         ; preds = %.thread219, %321, %
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %.critedge65, %333, %251, %_ZN7testing15AssertionResultD2Ev.exit123, %_ZN7testing15AssertionResultD2Ev.exit156
-  %.sroa.0200.4225 = phi ptr [ %33, %.critedge65 ], [ %33, %333 ], [ %198, %251 ], [ %198, %_ZN7testing15AssertionResultD2Ev.exit123 ], [ %198, %_ZN7testing15AssertionResultD2Ev.exit156 ]
-  %.sroa.23.4224 = phi ptr [ %36, %.critedge65 ], [ %36, %333 ], [ %202, %251 ], [ %202, %_ZN7testing15AssertionResultD2Ev.exit123 ], [ %202, %_ZN7testing15AssertionResultD2Ev.exit156 ]
-  %336 = ptrtoint ptr %.sroa.23.4224 to i64
-  %337 = ptrtoint ptr %.sroa.0200.4225 to i64
+  %.sroa.0200.3225 = phi ptr [ %33, %.critedge65 ], [ %33, %333 ], [ %198, %251 ], [ %198, %_ZN7testing15AssertionResultD2Ev.exit123 ], [ %198, %_ZN7testing15AssertionResultD2Ev.exit156 ]
+  %.sroa.23.3224 = phi ptr [ %36, %.critedge65 ], [ %36, %333 ], [ %202, %251 ], [ %202, %_ZN7testing15AssertionResultD2Ev.exit123 ], [ %202, %_ZN7testing15AssertionResultD2Ev.exit156 ]
+  %336 = ptrtoint ptr %.sroa.23.3224 to i64
+  %337 = ptrtoint ptr %.sroa.0200.3225 to i64
   %338 = sub i64 %336, %337
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0200.4225, i64 noundef %338) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0200.3225, i64 noundef %338) #23
   %339 = load ptr, ptr %25, align 8
   %.not.i.i.i.i159 = icmp eq ptr %339, null
   br i1 %.not.i.i.i.i159, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %340
@@ -19854,29 +19854,29 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread243: ; preds = %289, %_ZN7testing7MessageD2Ev.exit151
   %.pn58.pn.pn = phi { ptr, i32 } [ %.pn58.pn, %_ZN7testing7MessageD2Ev.exit151 ], [ %290, %289 ]
-  %.15 = extractvalue { ptr, i32 } %.pn58.pn.pn, 0
-  %.1540 = extractvalue { ptr, i32 } %.pn58.pn.pn, 1
+  %.14 = extractvalue { ptr, i32 } %.pn58.pn.pn, 0
+  %.1439 = extractvalue { ptr, i32 } %.pn58.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #20
   br label %345
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142: ; preds = %286, %284
-  %.not.i.i.i160 = icmp eq ptr %.sroa.0200.3, null
+  %.not.i.i.i160 = icmp eq ptr %.sroa.0200.2, null
   br i1 %.not.i.i.i160, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit161, label %345
 
 345:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread243, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142
-  %.16252 = phi ptr [ %.15, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread243 ], [ %.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
-  %.1641251 = phi i32 [ %.1540, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread243 ], [ %.1237, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
-  %.sroa.0200.5250 = phi ptr [ %198, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread243 ], [ %.sroa.0200.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
-  %.sroa.23.5249 = phi ptr [ %202, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread243 ], [ %.sroa.23.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
-  %346 = ptrtoint ptr %.sroa.23.5249 to i64
-  %347 = ptrtoint ptr %.sroa.0200.5250 to i64
+  %.019252 = phi ptr [ %.14, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread243 ], [ %.120, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
+  %.025251 = phi i32 [ %.1439, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread243 ], [ %.126, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
+  %.sroa.0200.1250 = phi ptr [ %198, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread243 ], [ %.sroa.0200.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
+  %.sroa.23.1249 = phi ptr [ %202, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread243 ], [ %.sroa.23.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ]
+  %346 = ptrtoint ptr %.sroa.23.1249 to i64
+  %347 = ptrtoint ptr %.sroa.0200.1250 to i64
   %348 = sub i64 %346, %347
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0200.5250, i64 noundef %348) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0200.1250, i64 noundef %348) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit161
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit161: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142, %345
-  %.16232 = phi ptr [ %62, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread ], [ %.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ], [ %.16252, %345 ]
-  %.1641231 = phi i32 [ %63, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread ], [ %.1237, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ], [ %.1641251, %345 ]
+  %.019232 = phi ptr [ %62, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread ], [ %.120, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ], [ %.019252, %345 ]
+  %.025231 = phi i32 [ %63, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142.thread ], [ %.126, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit142 ], [ %.025251, %345 ]
   %349 = load ptr, ptr %25, align 8
   %.not.i.i.i.i162 = icmp eq ptr %349, null
   br i1 %.not.i.i.i.i162, label %_ZN5utils15LifetimeTrackerD2Ev.exit163, label %350
@@ -19890,8 +19890,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit161: ; preds = %_ZN3pro
   br label %_ZN5utils15LifetimeTrackerD2Ev.exit163
 
 _ZN5utils15LifetimeTrackerD2Ev.exit163:           ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit161, %350
-  %355 = insertvalue { ptr, i32 } poison, ptr %.16232, 0
-  %356 = insertvalue { ptr, i32 } %355, i32 %.1641231, 1
+  %355 = insertvalue { ptr, i32 } poison, ptr %.019232, 0
+  %356 = insertvalue { ptr, i32 } %355, i32 %.025231, 1
   resume { ptr, i32 } %356
 
 357:                                              ; preds = %109
@@ -20390,8 +20390,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i145: 
   br label %186
 
 186:                                              ; preds = %185, %111, %42, %25
-  %.sroa.23.2 = phi ptr [ null, %25 ], [ %94, %185 ], [ null, %111 ], [ null, %42 ]
-  %.sroa.0176.2 = phi ptr [ null, %25 ], [ %91, %185 ], [ null, %111 ], [ null, %42 ]
+  %.sroa.23.0 = phi ptr [ null, %25 ], [ %94, %185 ], [ null, %111 ], [ null, %42 ]
+  %.sroa.0176.0 = phi ptr [ null, %25 ], [ %91, %185 ], [ null, %111 ], [ null, %42 ]
   %.pn35.pn.pn.pn = phi { ptr, i32 } [ %26, %25 ], [ %.pn35.pn.pn, %185 ], [ %.pn32.pn, %111 ], [ %43, %42 ]
   %187 = load ptr, ptr %3, align 8
   %.not.i118 = icmp eq ptr %187, null
@@ -20547,12 +20547,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread199
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread199: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %143, %_ZN7testing15AssertionResultD2Ev.exit96
-  %.sroa.0176.3204 = phi ptr [ %163, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %91, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %91, %143 ]
-  %.sroa.23.3203 = phi ptr [ %167, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %94, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %94, %143 ]
-  %239 = ptrtoint ptr %.sroa.23.3203 to i64
-  %240 = ptrtoint ptr %.sroa.0176.3204 to i64
+  %.sroa.0176.1204 = phi ptr [ %163, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %91, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %91, %143 ]
+  %.sroa.23.1203 = phi ptr [ %167, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %94, %_ZN7testing15AssertionResultD2Ev.exit96 ], [ %94, %143 ]
+  %239 = ptrtoint ptr %.sroa.23.1203 to i64
+  %240 = ptrtoint ptr %.sroa.0176.1204 to i64
   %241 = sub i64 %239, %240
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0176.3204, i64 noundef %241) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0176.1204, i64 noundef %241) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %235, %_ZN7testing15AssertionResultD2Ev.exit76, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread199
@@ -20577,17 +20577,17 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %248
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119: ; preds = %188, %186
-  %.not.i.i.i137 = icmp eq ptr %.sroa.0176.2, null
+  %.not.i.i.i137 = icmp eq ptr %.sroa.0176.0, null
   br i1 %.not.i.i.i137, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit138, label %248
 
 248:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread214, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119
   %.pn40.pn.pn.pn211 = phi { ptr, i32 } [ %192, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread ], [ %.pn35.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119 ], [ %.pn40.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread214 ]
-  %.sroa.0176.4210 = phi ptr [ %91, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread ], [ %.sroa.0176.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119 ], [ %163, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread214 ]
-  %.sroa.23.4209 = phi ptr [ %94, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread ], [ %.sroa.23.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119 ], [ %167, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread214 ]
-  %249 = ptrtoint ptr %.sroa.23.4209 to i64
-  %250 = ptrtoint ptr %.sroa.0176.4210 to i64
+  %.sroa.0176.2210 = phi ptr [ %91, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread ], [ %.sroa.0176.0, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119 ], [ %163, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread214 ]
+  %.sroa.23.2209 = phi ptr [ %94, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread ], [ %.sroa.23.0, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119 ], [ %167, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119.thread214 ]
+  %249 = ptrtoint ptr %.sroa.23.2209 to i64
+  %250 = ptrtoint ptr %.sroa.0176.2210 to i64
   %251 = sub i64 %249, %250
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0176.4210, i64 noundef %251) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0176.2210, i64 noundef %251) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit138
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit138: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit119, %248
@@ -21117,22 +21117,22 @@ _ZSt10destroy_atIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEEvPT_.exit.i.i: ; pre
   br i1 %81, label %133, label %92
 
 84:                                               ; preds = %448, %442, %422, %416, %1
-  %.sroa.71.2 = phi ptr [ %.sroa.71.8, %416 ], [ %.sroa.71.9, %442 ], [ %.sroa.71.9, %448 ], [ %.sroa.71.8, %422 ], [ null, %1 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.8, %416 ], [ %.sroa.0.9, %442 ], [ %.sroa.0.9, %448 ], [ %.sroa.0.8, %422 ], [ null, %1 ]
+  %.sroa.71.0 = phi ptr [ %.sroa.71.12, %416 ], [ %.sroa.71.13, %442 ], [ %.sroa.71.13, %448 ], [ %.sroa.71.12, %422 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.12, %416 ], [ %.sroa.0.13, %442 ], [ %.sroa.0.13, %448 ], [ %.sroa.0.12, %422 ], [ null, %1 ]
   %85 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit234
 
 86:                                               ; preds = %36, %56, %45
-  %.sroa.71.3 = phi ptr [ %42, %45 ], [ %42, %56 ], [ null, %36 ]
-  %.sroa.0.3 = phi ptr [ %39, %45 ], [ %39, %56 ], [ null, %36 ]
+  %.sroa.71.1 = phi ptr [ %42, %45 ], [ %42, %56 ], [ null, %36 ]
+  %.sroa.0.1 = phi ptr [ %39, %45 ], [ %39, %56 ], [ null, %36 ]
   %87 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit232
 
 88:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i346, %.noexc302, %313, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i262, %247, %133, %66
-  %.sroa.71.4 = phi ptr [ %323, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i346 ], [ %318, %.noexc302 ], [ %64, %313 ], [ %64, %247 ], [ %64, %133 ], [ %64, %66 ], [ %42, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i262 ]
-  %.sroa.0.4 = phi ptr [ %319, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i346 ], [ %314, %.noexc302 ], [ %60, %313 ], [ %60, %247 ], [ %60, %133 ], [ %60, %66 ], [ %39, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i262 ]
+  %.sroa.71.2 = phi ptr [ %323, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i346 ], [ %318, %.noexc302 ], [ %64, %313 ], [ %64, %247 ], [ %64, %133 ], [ %64, %66 ], [ %42, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i262 ]
+  %.sroa.0.2 = phi ptr [ %319, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i346 ], [ %314, %.noexc302 ], [ %60, %313 ], [ %60, %247 ], [ %60, %133 ], [ %60, %66 ], [ %39, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i262 ]
   %89 = landingpad { ptr, i32 }
           cleanup
   br label %481
@@ -21851,9 +21851,9 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i346: 
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit190
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit190: ; preds = %.noexc189, %324
-  %.sroa.71.8 = phi ptr [ %332, %.noexc189 ], [ %323, %324 ]
+  %.sroa.71.12 = phi ptr [ %332, %.noexc189 ], [ %323, %324 ]
   %.012.i.i.i.i351.pn = phi ptr [ %.012.i.i.i.i351, %.noexc189 ], [ %.ptr.le, %324 ]
-  %.sroa.0.8 = phi ptr [ %326, %.noexc189 ], [ %319, %324 ]
+  %.sroa.0.12 = phi ptr [ %326, %.noexc189 ], [ %319, %324 ]
   %.sroa.21.5 = getelementptr inbounds i8, ptr %.012.i.i.i.i351.pn, i64 16
   %333 = load ptr, ptr %34, align 8
   %334 = load ptr, ptr %33, align 8
@@ -21861,7 +21861,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   %336 = ptrtoint ptr %334 to i64
   %337 = sub i64 %335, %336
   %338 = ptrtoint ptr %.sroa.21.5 to i64
-  %339 = ptrtoint ptr %.sroa.0.8 to i64
+  %339 = ptrtoint ptr %.sroa.0.12 to i64
   %340 = sub i64 %338, %339
   %341 = icmp eq i64 %337, %340
   br i1 %341, label %342, label %.loopexit498
@@ -21871,7 +21871,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br i1 %.not9.i.i.i.i.i, label %_ZN7testing15AssertionResultD2Ev.exit212, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %342, %349
-  %.011.i.i.i.i.i = phi ptr [ %351, %349 ], [ %.sroa.0.8, %342 ]
+  %.011.i.i.i.i.i = phi ptr [ %351, %349 ], [ %.sroa.0.12, %342 ]
   %.0810.i.i.i.i.i = phi ptr [ %350, %349 ], [ %334, %342 ]
   %343 = load <2 x i32>, ptr %.0810.i.i.i.i.i, align 4
   %344 = load <2 x i32>, ptr %.011.i.i.i.i.i, align 4
@@ -22067,7 +22067,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit216
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit216: ; preds = %409, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214
-  %.not.i217 = icmp eq ptr %.sroa.21.5, %.sroa.71.8
+  %.not.i217 = icmp eq ptr %.sroa.21.5, %.sroa.71.12
   br i1 %.not.i217, label %414, label %412
 
 412:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit216
@@ -22108,35 +22108,35 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i367: 
   store i32 2, ptr %426, align 4
   %427 = getelementptr inbounds i8, ptr %426, i64 4
   store i32 5, ptr %427, align 4
-  %.not10.i.i.i.i370 = icmp eq ptr %.sroa.0.8, %.sroa.71.8
+  %.not10.i.i.i.i370 = icmp eq ptr %.sroa.0.12, %.sroa.71.12
   br i1 %.not10.i.i.i.i370, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i382, label %.lr.ph.i.i.i.i371
 
 .lr.ph.i.i.i.i371:                                ; preds = %.noexc386, %.lr.ph.i.i.i.i371
   %.012.i.i.i.i372 = phi ptr [ %430, %.lr.ph.i.i.i.i371 ], [ %425, %.noexc386 ]
-  %.0911.i.i.i.i373 = phi ptr [ %429, %.lr.ph.i.i.i.i371 ], [ %.sroa.0.8, %.noexc386 ]
+  %.0911.i.i.i.i373 = phi ptr [ %429, %.lr.ph.i.i.i.i371 ], [ %.sroa.0.12, %.noexc386 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !438)
   call void @llvm.experimental.noalias.scope.decl(metadata !441)
   %428 = load i64, ptr %.0911.i.i.i.i373, align 4, !alias.scope !441, !noalias !438
   store i64 %428, ptr %.012.i.i.i.i372, align 4, !alias.scope !438, !noalias !441
   %429 = getelementptr inbounds i8, ptr %.0911.i.i.i.i373, i64 8
   %430 = getelementptr inbounds i8, ptr %.012.i.i.i.i372, i64 8
-  %.not.i.i.i.i374 = icmp eq ptr %429, %.sroa.71.8
+  %.not.i.i.i.i374 = icmp eq ptr %429, %.sroa.71.12
   br i1 %.not.i.i.i.i374, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i382, label %.lr.ph.i.i.i.i371, !llvm.loop !10
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i382: ; preds = %.noexc386, %.lr.ph.i.i.i.i371
   %.0.lcssa.i.i.i.i376 = phi ptr [ %425, %.noexc386 ], [ %430, %.lr.ph.i.i.i.i371 ]
-  %431 = ptrtoint ptr %.sroa.71.8 to i64
+  %431 = ptrtoint ptr %.sroa.71.12 to i64
   %432 = sub i64 %431, %339
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.8, i64 noundef %432) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.12, i64 noundef %432) #23
   %433 = getelementptr inbounds %"struct.utils::LifetimeOperation", ptr %425, i64 %421
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit220
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit220: ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i382, %412
-  %.sroa.71.9 = phi ptr [ %433, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i382 ], [ %.sroa.71.8, %412 ]
+  %.sroa.71.13 = phi ptr [ %433, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i382 ], [ %.sroa.71.12, %412 ]
   %.0.lcssa.i.i.i.i376.pn = phi ptr [ %.0.lcssa.i.i.i.i376, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i382 ], [ %.sroa.21.5, %412 ]
-  %.sroa.0.9 = phi ptr [ %425, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i382 ], [ %.sroa.0.8, %412 ]
+  %.sroa.0.13 = phi ptr [ %425, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i382 ], [ %.sroa.0.12, %412 ]
   %.sroa.21.6 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i376.pn, i64 8
-  %.not.i221 = icmp eq ptr %.sroa.21.6, %.sroa.71.9
+  %.not.i221 = icmp eq ptr %.sroa.21.6, %.sroa.71.13
   br i1 %.not.i221, label %437, label %434
 
 434:                                              ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit220
@@ -22147,8 +22147,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit224
 
 437:                                              ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit220
-  %438 = ptrtoint ptr %.sroa.71.9 to i64
-  %439 = ptrtoint ptr %.sroa.0.9 to i64
+  %438 = ptrtoint ptr %.sroa.71.13 to i64
+  %439 = ptrtoint ptr %.sroa.0.13 to i64
   %440 = sub i64 %438, %439
   %441 = icmp eq i64 %440, 9223372036854775800
   br i1 %441, label %442, label %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i388
@@ -22181,12 +22181,12 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i388: 
   store i32 4, ptr %452, align 4
   %453 = getelementptr inbounds i8, ptr %452, i64 4
   store i32 5, ptr %453, align 4
-  %.not10.i.i.i.i391 = icmp eq ptr %.sroa.0.9, %.sroa.71.9
+  %.not10.i.i.i.i391 = icmp eq ptr %.sroa.0.13, %.sroa.71.13
   br i1 %.not10.i.i.i.i391, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i403, label %.lr.ph.i.i.i.i392
 
 .lr.ph.i.i.i.i392:                                ; preds = %.noexc407, %.lr.ph.i.i.i.i392
   %.012.i.i.i.i393 = phi ptr [ %456, %.lr.ph.i.i.i.i392 ], [ %451, %.noexc407 ]
-  %.0911.i.i.i.i394 = phi ptr [ %455, %.lr.ph.i.i.i.i392 ], [ %.sroa.0.9, %.noexc407 ]
+  %.0911.i.i.i.i394 = phi ptr [ %455, %.lr.ph.i.i.i.i392 ], [ %.sroa.0.13, %.noexc407 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !443)
   call void @llvm.experimental.noalias.scope.decl(metadata !446)
   %454 = load i64, ptr %.0911.i.i.i.i394, align 4, !alias.scope !446, !noalias !443
@@ -22199,11 +22199,11 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i388: 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i403: ; preds = %.lr.ph.i.i.i.i392, %.noexc407
   %.0.lcssa.i.i.i.i397 = phi ptr [ %451, %.noexc407 ], [ %456, %.lr.ph.i.i.i.i392 ]
   %457 = getelementptr i8, ptr %.0.lcssa.i.i.i.i397, i64 8
-  %.not.i34.i405 = icmp eq ptr %.sroa.0.9, null
+  %.not.i34.i405 = icmp eq ptr %.sroa.0.13, null
   br i1 %.not.i34.i405, label %.noexc223, label %458
 
 458:                                              ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i403
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.9, i64 noundef %440) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.13, i64 noundef %440) #23
   br label %.noexc223
 
 .noexc223:                                        ; preds = %458, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i403
@@ -22211,16 +22211,16 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit224
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit224: ; preds = %.noexc223, %434
-  %.sroa.71.10 = phi ptr [ %459, %.noexc223 ], [ %.sroa.71.9, %434 ]
+  %.sroa.71.14 = phi ptr [ %459, %.noexc223 ], [ %.sroa.71.13, %434 ]
   %.sroa.21.7 = phi ptr [ %457, %.noexc223 ], [ %436, %434 ]
-  %.sroa.0.10 = phi ptr [ %451, %.noexc223 ], [ %.sroa.0.9, %434 ]
+  %.sroa.0.14 = phi ptr [ %451, %.noexc223 ], [ %.sroa.0.13, %434 ]
   %460 = load ptr, ptr %34, align 8
   %461 = load ptr, ptr %33, align 8
   %462 = ptrtoint ptr %460 to i64
   %463 = ptrtoint ptr %461 to i64
   %464 = sub i64 %462, %463
   %465 = ptrtoint ptr %.sroa.21.7 to i64
-  %466 = ptrtoint ptr %.sroa.0.10 to i64
+  %466 = ptrtoint ptr %.sroa.0.14 to i64
   %467 = sub i64 %465, %466
   %468 = icmp eq i64 %464, %467
   br i1 %468, label %469, label %.loopexit
@@ -22230,7 +22230,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br i1 %.not9.i.i.i.i.i225, label %.thread, label %.lr.ph.i.i.i.i.i226
 
 .lr.ph.i.i.i.i.i226:                              ; preds = %469, %476
-  %.011.i.i.i.i.i227 = phi ptr [ %478, %476 ], [ %.sroa.0.10, %469 ]
+  %.011.i.i.i.i.i227 = phi ptr [ %478, %476 ], [ %.sroa.0.14, %469 ]
   %.0810.i.i.i.i.i228 = phi ptr [ %477, %476 ], [ %461, %469 ]
   %470 = load <2 x i32>, ptr %.0810.i.i.i.i.i228, align 4
   %471 = load <2 x i32>, ptr %.011.i.i.i.i.i227, align 4
@@ -22258,8 +22258,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %481
 
 481:                                              ; preds = %480, %352, %266, %265, %204, %153, %152, %88
-  %.sroa.71.11 = phi ptr [ %.sroa.71.4, %88 ], [ %.sroa.71.8, %480 ], [ %64, %352 ], [ %64, %266 ], [ %64, %265 ], [ %64, %204 ], [ %64, %153 ], [ %64, %152 ]
-  %.sroa.0.11 = phi ptr [ %.sroa.0.4, %88 ], [ %.sroa.0.8, %480 ], [ %60, %352 ], [ %60, %266 ], [ %60, %265 ], [ %60, %204 ], [ %60, %153 ], [ %60, %152 ]
+  %.sroa.71.5 = phi ptr [ %.sroa.71.2, %88 ], [ %.sroa.71.12, %480 ], [ %64, %352 ], [ %64, %266 ], [ %64, %265 ], [ %64, %204 ], [ %64, %153 ], [ %64, %152 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.2, %88 ], [ %.sroa.0.12, %480 ], [ %60, %352 ], [ %60, %266 ], [ %60, %265 ], [ %60, %204 ], [ %60, %153 ], [ %60, %152 ]
   %.pn54.pn.pn.pn = phi { ptr, i32 } [ %89, %88 ], [ %.pn54.pn.pn, %480 ], [ %.pn51.pn, %352 ], [ %267, %266 ], [ %.pn47.pn.pn, %265 ], [ %.pn44.pn, %204 ], [ %154, %153 ], [ %.pn.pn.pn, %152 ]
   %482 = load ptr, ptr %7, align 8
   %.not.i231 = icmp eq ptr %482, null
@@ -22272,8 +22272,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit232
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit232: ; preds = %483, %481, %86
-  %.sroa.71.12 = phi ptr [ %.sroa.71.3, %86 ], [ %.sroa.71.11, %481 ], [ %.sroa.71.11, %483 ]
-  %.sroa.0.12 = phi ptr [ %.sroa.0.3, %86 ], [ %.sroa.0.11, %481 ], [ %.sroa.0.11, %483 ]
+  %.sroa.71.4 = phi ptr [ %.sroa.71.1, %86 ], [ %.sroa.71.5, %481 ], [ %.sroa.71.5, %483 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.1, %86 ], [ %.sroa.0.5, %481 ], [ %.sroa.0.5, %483 ]
   %.pn54.pn.pn.pn.pn = phi { ptr, i32 } [ %87, %86 ], [ %.pn54.pn.pn.pn, %481 ], [ %.pn54.pn.pn.pn, %483 ]
   %486 = load ptr, ptr %6, align 8
   %.not.i233 = icmp eq ptr %486, null
@@ -22448,18 +22448,18 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit204.thread
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit204: ; preds = %388, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit248
-  %.sroa.71.13 = phi ptr [ %.sroa.71.10, %_ZN7testing15AssertionResultD2Ev.exit248 ], [ %.sroa.71.8, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.71.8, %388 ]
-  %.sroa.0.13 = phi ptr [ %.sroa.0.10, %_ZN7testing15AssertionResultD2Ev.exit248 ], [ %.sroa.0.8, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.0.8, %388 ]
-  %.not.i.i.i = icmp eq ptr %.sroa.0.13, null
+  %.sroa.71.6 = phi ptr [ %.sroa.71.14, %_ZN7testing15AssertionResultD2Ev.exit248 ], [ %.sroa.71.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.71.12, %388 ]
+  %.sroa.0.6 = phi ptr [ %.sroa.0.14, %_ZN7testing15AssertionResultD2Ev.exit248 ], [ %.sroa.0.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.0.12, %388 ]
+  %.not.i.i.i = icmp eq ptr %.sroa.0.6, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit204.thread
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit204.thread: ; preds = %538, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit250, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit204
-  %.sroa.0.13516 = phi ptr [ %.sroa.0.13, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit204 ], [ %60, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit250 ], [ %60, %538 ]
-  %.sroa.71.13515 = phi ptr [ %.sroa.71.13, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit204 ], [ %64, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit250 ], [ %64, %538 ]
-  %541 = ptrtoint ptr %.sroa.71.13515 to i64
-  %542 = ptrtoint ptr %.sroa.0.13516 to i64
+  %.sroa.0.6516 = phi ptr [ %.sroa.0.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit204 ], [ %60, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit250 ], [ %60, %538 ]
+  %.sroa.71.6515 = phi ptr [ %.sroa.71.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit204 ], [ %64, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit250 ], [ %64, %538 ]
+  %541 = ptrtoint ptr %.sroa.71.6515 to i64
+  %542 = ptrtoint ptr %.sroa.0.6516 to i64
   %543 = sub i64 %541, %542
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.13516, i64 noundef %543) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.6516, i64 noundef %543) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit204, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit204.thread
@@ -22484,17 +22484,17 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit234
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit234: ; preds = %487, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit232, %550, %84
-  %.sroa.71.14 = phi ptr [ %.sroa.71.2, %84 ], [ %.sroa.71.10, %550 ], [ %.sroa.71.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit232 ], [ %.sroa.71.12, %487 ]
-  %.sroa.0.14 = phi ptr [ %.sroa.0.2, %84 ], [ %.sroa.0.10, %550 ], [ %.sroa.0.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit232 ], [ %.sroa.0.12, %487 ]
+  %.sroa.71.3 = phi ptr [ %.sroa.71.0, %84 ], [ %.sroa.71.14, %550 ], [ %.sroa.71.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit232 ], [ %.sroa.71.4, %487 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0, %84 ], [ %.sroa.0.14, %550 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit232 ], [ %.sroa.0.4, %487 ]
   %.pn60.pn.pn.pn = phi { ptr, i32 } [ %85, %84 ], [ %.pn60.pn.pn, %550 ], [ %.pn54.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit232 ], [ %.pn54.pn.pn.pn.pn, %487 ]
-  %.not.i.i.i254 = icmp eq ptr %.sroa.0.14, null
+  %.not.i.i.i254 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i254, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit255, label %551
 
 551:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit234
-  %552 = ptrtoint ptr %.sroa.71.14 to i64
-  %553 = ptrtoint ptr %.sroa.0.14 to i64
+  %552 = ptrtoint ptr %.sroa.71.3 to i64
+  %553 = ptrtoint ptr %.sroa.0.3 to i64
   %554 = sub i64 %552, %553
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.14, i64 noundef %554) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %554) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit255
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit255: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit234, %551
@@ -22693,8 +22693,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEOS3_QL_ZNS_5proxy17HasMoveAssignme
   br label %143
 
 87:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i320, %1
-  %.sroa.39.2 = phi ptr [ %72, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i320 ], [ null, %1 ]
-  %.sroa.0.2 = phi ptr [ %68, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i320 ], [ null, %1 ]
+  %.sroa.39.0 = phi ptr [ %72, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i320 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %68, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i320 ], [ null, %1 ]
   %88 = landingpad { ptr, i32 }
           cleanup
   %89 = extractvalue { ptr, i32 } %88, 0
@@ -22702,8 +22702,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEOS3_QL_ZNS_5proxy17HasMoveAssignme
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271
 
 91:                                               ; preds = %44, %64, %53
-  %.sroa.39.3 = phi ptr [ %50, %53 ], [ %50, %64 ], [ null, %44 ]
-  %.sroa.0.3 = phi ptr [ %47, %53 ], [ %47, %64 ], [ null, %44 ]
+  %.sroa.39.1 = phi ptr [ %50, %53 ], [ %50, %64 ], [ null, %44 ]
+  %.sroa.0.1 = phi ptr [ %47, %53 ], [ %47, %64 ], [ null, %44 ]
   %92 = landingpad { ptr, i32 }
           cleanup
   %93 = extractvalue { ptr, i32 } %92, 0
@@ -22711,8 +22711,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEOS3_QL_ZNS_5proxy17HasMoveAssignme
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit269
 
 95:                                               ; preds = %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i299, %347, %232, %137
-  %.sroa.39.4 = phi ptr [ %72, %347 ], [ %72, %232 ], [ %72, %137 ], [ %50, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i299 ]
-  %.sroa.0.4 = phi ptr [ %68, %347 ], [ %68, %232 ], [ %68, %137 ], [ %47, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i299 ]
+  %.sroa.39.2 = phi ptr [ %72, %347 ], [ %72, %232 ], [ %72, %137 ], [ %50, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i299 ]
+  %.sroa.0.2 = phi ptr [ %68, %347 ], [ %68, %232 ], [ %68, %137 ], [ %47, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i299 ]
   %96 = landingpad { ptr, i32 }
           cleanup
   %97 = extractvalue { ptr, i32 } %96, 0
@@ -22834,8 +22834,8 @@ _ZN7testing7MessageD2Ev.exit118:                  ; preds = %132, %_ZNKSt14defau
 
 140:                                              ; preds = %139, %111
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %139 ], [ %112, %111 ]
-  %.227 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %.236 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.328 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %.337 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   invoke void @__cxa_end_catch()
           to label %515 unwind label %596
 
@@ -22975,8 +22975,8 @@ _ZN7testing7MessageD2Ev.exit125:                  ; preds = %179, %_ZNKSt14defau
 
 189:                                              ; preds = %_ZN7testing7MessageD2Ev.exit125, %141
   %.pn63.pn.pn = phi { ptr, i32 } [ %.pn63.pn, %_ZN7testing7MessageD2Ev.exit125 ], [ %142, %141 ]
-  %.530 = extractvalue { ptr, i32 } %.pn63.pn.pn, 0
-  %.539 = extractvalue { ptr, i32 } %.pn63.pn.pn, 1
+  %.631 = extractvalue { ptr, i32 } %.pn63.pn.pn, 0
+  %.640 = extractvalue { ptr, i32 } %.pn63.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #20
   br label %515
 
@@ -23153,8 +23153,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %_Z
 
 250:                                              ; preds = %_ZN7testing7MessageD2Ev.exit144, %190
   %.pn67.pn.pn = phi { ptr, i32 } [ %.pn67.pn, %_ZN7testing7MessageD2Ev.exit144 ], [ %191, %190 ]
-  %.833 = extractvalue { ptr, i32 } %.pn67.pn.pn, 0
-  %.842 = extractvalue { ptr, i32 } %.pn67.pn.pn, 1
+  %.9 = extractvalue { ptr, i32 } %.pn67.pn.pn, 0
+  %.943 = extractvalue { ptr, i32 } %.pn67.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #20
   br label %515
 
@@ -23302,8 +23302,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 304:                                              ; preds = %_ZN7testing7MessageD2Ev.exit169, %255
   %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZN7testing7MessageD2Ev.exit169 ], [ %256, %255 ]
-  %.10 = extractvalue { ptr, i32 } %.pn71.pn, 0
-  %.1044 = extractvalue { ptr, i32 } %.pn71.pn, 1
+  %.12 = extractvalue { ptr, i32 } %.pn71.pn, 0
+  %.1246 = extractvalue { ptr, i32 } %.pn71.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #20
   br label %515
 
@@ -23480,8 +23480,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209: ; preds = %_Z
 
 365:                                              ; preds = %_ZN7testing7MessageD2Ev.exit188, %305
   %.pn74.pn.pn = phi { ptr, i32 } [ %.pn74.pn, %_ZN7testing7MessageD2Ev.exit188 ], [ %306, %305 ]
-  %.13 = extractvalue { ptr, i32 } %.pn74.pn.pn, 0
-  %.1347 = extractvalue { ptr, i32 } %.pn74.pn.pn, 1
+  %.14 = extractvalue { ptr, i32 } %.pn74.pn.pn, 0
+  %.1448 = extractvalue { ptr, i32 } %.pn74.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %24) #20
   br label %515
 
@@ -23650,8 +23650,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 432:                                              ; preds = %_ZN7testing7MessageD2Ev.exit222, %370
   %.pn78.pn = phi { ptr, i32 } [ %.pn78, %_ZN7testing7MessageD2Ev.exit222 ], [ %371, %370 ]
-  %.15 = extractvalue { ptr, i32 } %.pn78.pn, 0
-  %.1549 = extractvalue { ptr, i32 } %.pn78.pn, 1
+  %.17 = extractvalue { ptr, i32 } %.pn78.pn, 0
+  %.1751 = extractvalue { ptr, i32 } %.pn78.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %28) #20
   br label %515
 
@@ -23882,16 +23882,16 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i320: 
 
 514:                                              ; preds = %_ZN7testing7MessageD2Ev.exit244, %433
   %.pn81.pn.pn = phi { ptr, i32 } [ %.pn81.pn, %_ZN7testing7MessageD2Ev.exit244 ], [ %434, %433 ]
-  %.18 = extractvalue { ptr, i32 } %.pn81.pn.pn, 0
-  %.1852 = extractvalue { ptr, i32 } %.pn81.pn.pn, 1
+  %.19 = extractvalue { ptr, i32 } %.pn81.pn.pn, 0
+  %.1953 = extractvalue { ptr, i32 } %.pn81.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %32) #20
   br label %515
 
 515:                                              ; preds = %140, %514, %432, %366, %365, %304, %251, %250, %189, %99, %95
-  %.sroa.39.7 = phi ptr [ %.sroa.39.4, %95 ], [ %72, %514 ], [ %72, %432 ], [ %72, %366 ], [ %72, %365 ], [ %72, %304 ], [ %72, %251 ], [ %72, %250 ], [ %72, %189 ], [ %72, %140 ], [ %72, %99 ]
-  %.sroa.0.7 = phi ptr [ %.sroa.0.4, %95 ], [ %68, %514 ], [ %68, %432 ], [ %68, %366 ], [ %68, %365 ], [ %68, %304 ], [ %68, %251 ], [ %68, %250 ], [ %68, %189 ], [ %68, %140 ], [ %68, %99 ]
-  %.1953 = phi i32 [ %98, %95 ], [ %.1852, %514 ], [ %.1549, %432 ], [ %369, %366 ], [ %.1347, %365 ], [ %.1044, %304 ], [ %254, %251 ], [ %.842, %250 ], [ %.539, %189 ], [ %.236, %140 ], [ %102, %99 ]
-  %.19 = phi ptr [ %97, %95 ], [ %.18, %514 ], [ %.15, %432 ], [ %368, %366 ], [ %.13, %365 ], [ %.10, %304 ], [ %253, %251 ], [ %.833, %250 ], [ %.530, %189 ], [ %.227, %140 ], [ %101, %99 ]
+  %.sroa.39.5 = phi ptr [ %.sroa.39.2, %95 ], [ %72, %514 ], [ %72, %432 ], [ %72, %366 ], [ %72, %365 ], [ %72, %304 ], [ %72, %251 ], [ %72, %250 ], [ %72, %189 ], [ %72, %140 ], [ %72, %99 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.2, %95 ], [ %68, %514 ], [ %68, %432 ], [ %68, %366 ], [ %68, %365 ], [ %68, %304 ], [ %68, %251 ], [ %68, %250 ], [ %68, %189 ], [ %68, %140 ], [ %68, %99 ]
+  %.236 = phi i32 [ %98, %95 ], [ %.1953, %514 ], [ %.1751, %432 ], [ %369, %366 ], [ %.1448, %365 ], [ %.1246, %304 ], [ %254, %251 ], [ %.943, %250 ], [ %.640, %189 ], [ %.337, %140 ], [ %102, %99 ]
+  %.227 = phi ptr [ %97, %95 ], [ %.19, %514 ], [ %.17, %432 ], [ %368, %366 ], [ %.14, %365 ], [ %.12, %304 ], [ %253, %251 ], [ %.9, %250 ], [ %.631, %189 ], [ %.328, %140 ], [ %101, %99 ]
   %516 = load ptr, ptr %7, align 8
   %.not.i268 = icmp eq ptr %516, null
   br i1 %.not.i268, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit269, label %517
@@ -23903,10 +23903,10 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i320: 
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit269
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit269: ; preds = %517, %515, %91
-  %.sroa.39.8 = phi ptr [ %.sroa.39.3, %91 ], [ %.sroa.39.7, %515 ], [ %.sroa.39.7, %517 ]
-  %.sroa.0.8 = phi ptr [ %.sroa.0.3, %91 ], [ %.sroa.0.7, %515 ], [ %.sroa.0.7, %517 ]
-  %.2054 = phi i32 [ %94, %91 ], [ %.1953, %515 ], [ %.1953, %517 ]
-  %.20 = phi ptr [ %93, %91 ], [ %.19, %515 ], [ %.19, %517 ]
+  %.sroa.39.4 = phi ptr [ %.sroa.39.1, %91 ], [ %.sroa.39.5, %515 ], [ %.sroa.39.5, %517 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.1, %91 ], [ %.sroa.0.5, %515 ], [ %.sroa.0.5, %517 ]
+  %.135 = phi i32 [ %94, %91 ], [ %.236, %515 ], [ %.236, %517 ]
+  %.126 = phi ptr [ %93, %91 ], [ %.227, %515 ], [ %.227, %517 ]
   %520 = load ptr, ptr %6, align 8
   %.not.i270 = icmp eq ptr %520, null
   br i1 %.not.i270, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271, label %521
@@ -24083,12 +24083,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %572, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit287, %468, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit285
-  %.sroa.39.9 = phi ptr [ %495, %_ZN7testing15AssertionResultD2Ev.exit285 ], [ %72, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %72, %468 ], [ %72, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit287 ], [ %72, %572 ]
-  %.sroa.0.9 = phi ptr [ %492, %_ZN7testing15AssertionResultD2Ev.exit285 ], [ %68, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %68, %468 ], [ %68, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit287 ], [ %68, %572 ]
-  %575 = ptrtoint ptr %.sroa.39.9 to i64
-  %576 = ptrtoint ptr %.sroa.0.9 to i64
+  %.sroa.39.6 = phi ptr [ %495, %_ZN7testing15AssertionResultD2Ev.exit285 ], [ %72, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %72, %468 ], [ %72, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit287 ], [ %72, %572 ]
+  %.sroa.0.6 = phi ptr [ %492, %_ZN7testing15AssertionResultD2Ev.exit285 ], [ %68, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %68, %468 ], [ %68, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit287 ], [ %68, %572 ]
+  %575 = ptrtoint ptr %.sroa.39.6 to i64
+  %576 = ptrtoint ptr %.sroa.0.6 to i64
   %577 = sub i64 %575, %576
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.9, i64 noundef %577) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.6, i64 noundef %577) #23
   %578 = load ptr, ptr %41, align 8
   %.not.i.i.i.i290 = icmp eq ptr %578, null
   br i1 %.not.i.i.i.i290, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %579
@@ -24106,33 +24106,33 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271.thread: ; preds = %524, %_ZN7testing7MessageD2Ev.exit280
   %.pn85.pn.pn = phi { ptr, i32 } [ %.pn85.pn, %_ZN7testing7MessageD2Ev.exit280 ], [ %525, %524 ]
-  %.23 = extractvalue { ptr, i32 } %.pn85.pn.pn, 0
-  %.2357 = extractvalue { ptr, i32 } %.pn85.pn.pn, 1
+  %.22 = extractvalue { ptr, i32 } %.pn85.pn.pn, 0
+  %.2256 = extractvalue { ptr, i32 } %.pn85.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %36) #20
   br label %584
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271: ; preds = %521, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit269, %87
-  %.sroa.39.10 = phi ptr [ %.sroa.39.2, %87 ], [ %.sroa.39.8, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit269 ], [ %.sroa.39.8, %521 ]
-  %.sroa.0.10 = phi ptr [ %.sroa.0.2, %87 ], [ %.sroa.0.8, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit269 ], [ %.sroa.0.8, %521 ]
-  %.2458 = phi i32 [ %90, %87 ], [ %.2054, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit269 ], [ %.2054, %521 ]
-  %.24 = phi ptr [ %89, %87 ], [ %.20, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit269 ], [ %.20, %521 ]
-  %.not.i.i.i291 = icmp eq ptr %.sroa.0.10, null
+  %.sroa.39.3 = phi ptr [ %.sroa.39.0, %87 ], [ %.sroa.39.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit269 ], [ %.sroa.39.4, %521 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0, %87 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit269 ], [ %.sroa.0.4, %521 ]
+  %.034 = phi i32 [ %90, %87 ], [ %.135, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit269 ], [ %.135, %521 ]
+  %.025 = phi ptr [ %89, %87 ], [ %.126, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit269 ], [ %.126, %521 ]
+  %.not.i.i.i291 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i291, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit292, label %584
 
 584:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271
-  %.24427 = phi ptr [ %.23, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271.thread ], [ %.24, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271 ]
-  %.2458425 = phi i32 [ %.2357, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271.thread ], [ %.2458, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271 ]
-  %.sroa.0.10424 = phi ptr [ %492, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271.thread ], [ %.sroa.0.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271 ]
-  %.sroa.39.10423 = phi ptr [ %495, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271.thread ], [ %.sroa.39.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271 ]
-  %585 = ptrtoint ptr %.sroa.39.10423 to i64
-  %586 = ptrtoint ptr %.sroa.0.10424 to i64
+  %.025427 = phi ptr [ %.22, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271.thread ], [ %.025, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271 ]
+  %.034425 = phi i32 [ %.2256, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271.thread ], [ %.034, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271 ]
+  %.sroa.0.3424 = phi ptr [ %492, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271.thread ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271 ]
+  %.sroa.39.3423 = phi ptr [ %495, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271.thread ], [ %.sroa.39.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271 ]
+  %585 = ptrtoint ptr %.sroa.39.3423 to i64
+  %586 = ptrtoint ptr %.sroa.0.3424 to i64
   %587 = sub i64 %585, %586
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.10424, i64 noundef %587) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3424, i64 noundef %587) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit292
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit292: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271, %584
-  %.24428 = phi ptr [ %.24, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271 ], [ %.24427, %584 ]
-  %.2458426 = phi i32 [ %.2458, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271 ], [ %.2458425, %584 ]
+  %.025428 = phi ptr [ %.025, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271 ], [ %.025427, %584 ]
+  %.034426 = phi i32 [ %.034, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit271 ], [ %.034425, %584 ]
   %588 = load ptr, ptr %41, align 8
   %.not.i.i.i.i293 = icmp eq ptr %588, null
   br i1 %.not.i.i.i.i293, label %_ZN5utils15LifetimeTrackerD2Ev.exit294, label %589
@@ -24146,8 +24146,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit292: ; preds = %_ZN3pro
   br label %_ZN5utils15LifetimeTrackerD2Ev.exit294
 
 _ZN5utils15LifetimeTrackerD2Ev.exit294:           ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit292, %589
-  %594 = insertvalue { ptr, i32 } poison, ptr %.24428, 0
-  %595 = insertvalue { ptr, i32 } %594, i32 %.2458426, 1
+  %594 = insertvalue { ptr, i32 } poison, ptr %.025428, 0
+  %595 = insertvalue { ptr, i32 } %594, i32 %.034426, 1
   resume { ptr, i32 } %595
 
 596:                                              ; preds = %140
@@ -24274,8 +24274,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit156
 
 50:                                               ; preds = %32, %.noexc203, %163, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i163, %._crit_edge, %95
-  %.sroa.55.2 = phi ptr [ %172, %.noexc203 ], [ %167, %163 ], [ %34, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i163 ], [ %34, %95 ], [ null, %._crit_edge ], [ %34, %32 ]
-  %.sroa.0.2 = phi ptr [ %168, %.noexc203 ], [ %162, %163 ], [ %31, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i163 ], [ %31, %95 ], [ null, %._crit_edge ], [ %31, %32 ]
+  %.sroa.55.1 = phi ptr [ %172, %.noexc203 ], [ %167, %163 ], [ %34, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i163 ], [ %34, %95 ], [ null, %._crit_edge ], [ %34, %32 ]
+  %.sroa.0.1 = phi ptr [ %168, %.noexc203 ], [ %162, %163 ], [ %31, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i163 ], [ %31, %95 ], [ null, %._crit_edge ], [ %31, %32 ]
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %257
@@ -24856,8 +24856,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %257
 
 257:                                              ; preds = %256, %193, %115, %114, %50
-  %.sroa.55.8 = phi ptr [ %.sroa.55.2, %50 ], [ %176, %256 ], [ %34, %193 ], [ %34, %115 ], [ %34, %114 ]
-  %.sroa.0.8 = phi ptr [ %.sroa.0.2, %50 ], [ %173, %256 ], [ %31, %193 ], [ %31, %115 ], [ %31, %114 ]
+  %.sroa.55.3 = phi ptr [ %.sroa.55.1, %50 ], [ %176, %256 ], [ %34, %193 ], [ %34, %115 ], [ %34, %114 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %50 ], [ %173, %256 ], [ %31, %193 ], [ %31, %115 ], [ %31, %114 ]
   %.pn35.pn.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %.pn35.pn.pn, %256 ], [ %.pn32.pn, %193 ], [ %116, %115 ], [ %.pn.pn.pn, %114 ]
   %258 = load ptr, ptr %5, align 8
   %.not.i136 = icmp eq ptr %258, null
@@ -25016,20 +25016,20 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split: ; preds = %.critedge48, %_ZN7testing15AssertionResultD2Ev.exit114
   %.sink371 = phi ptr [ %224, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %304, %.critedge48 ]
-  %.sroa.0.9351.ph = phi ptr [ %173, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %31, %.critedge48 ]
-  %.sroa.55.9350.ph = phi ptr [ %176, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %34, %.critedge48 ]
+  %.sroa.0.4351.ph = phi ptr [ %173, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %31, %.critedge48 ]
+  %.sroa.55.4350.ph = phi ptr [ %176, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %34, %.critedge48 ]
   %306 = getelementptr inbounds i8, ptr %.sink371, i64 16
   %307 = load ptr, ptr %306, align 8
   call void %307(ptr noundef nonnull %29) #20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %.critedge48, %_ZN7testing15AssertionResultD2Ev.exit114, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit
-  %.sroa.0.9351 = phi ptr [ %173, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %31, %.critedge48 ], [ %173, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %.sroa.0.9351.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split ]
-  %.sroa.55.9350 = phi ptr [ %176, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %34, %.critedge48 ], [ %176, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %.sroa.55.9350.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split ]
-  %308 = ptrtoint ptr %.sroa.55.9350 to i64
-  %309 = ptrtoint ptr %.sroa.0.9351 to i64
+  %.sroa.0.4351 = phi ptr [ %173, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %31, %.critedge48 ], [ %173, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %.sroa.0.4351.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split ]
+  %.sroa.55.4350 = phi ptr [ %176, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %34, %.critedge48 ], [ %176, %_ZN7testing15AssertionResultD2Ev.exit114 ], [ %.sroa.55.4350.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split ]
+  %308 = ptrtoint ptr %.sroa.55.4350 to i64
+  %309 = ptrtoint ptr %.sroa.0.4351 to i64
   %310 = sub i64 %308, %309
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.9351, i64 noundef %310) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4351, i64 noundef %310) #23
   %311 = load ptr, ptr %23, align 8
   %.not.i.i.i.i154 = icmp eq ptr %311, null
   br i1 %.not.i.i.i.i154, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %312
@@ -25051,17 +25051,17 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %317
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137: ; preds = %259, %257
-  %.not.i.i.i155 = icmp eq ptr %.sroa.0.8, null
+  %.not.i.i.i155 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i155, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit156, label %317
 
 317:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137.thread394, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137
   %.pn40.pn.pn.pn401 = phi { ptr, i32 } [ %.pn40.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137.thread394 ], [ %.pn35.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137 ]
-  %.sroa.0.10400 = phi ptr [ %173, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137.thread394 ], [ %.sroa.0.8, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137 ]
-  %.sroa.55.10399 = phi ptr [ %176, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137.thread394 ], [ %.sroa.55.8, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137 ]
-  %318 = ptrtoint ptr %.sroa.55.10399 to i64
-  %319 = ptrtoint ptr %.sroa.0.10400 to i64
+  %.sroa.0.2400 = phi ptr [ %173, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137.thread394 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137 ]
+  %.sroa.55.2399 = phi ptr [ %176, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137.thread394 ], [ %.sroa.55.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137 ]
+  %318 = ptrtoint ptr %.sroa.55.2399 to i64
+  %319 = ptrtoint ptr %.sroa.0.2400 to i64
   %320 = sub i64 %318, %319
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.10400, i64 noundef %320) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2400, i64 noundef %320) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit156
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit156: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit137, %317
@@ -25211,8 +25211,8 @@ _ZSt10destroy_atIN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEEEvPT_.exit.i.i: ; pre
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit219
 
 62:                                               ; preds = %41, %288, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i249, %._crit_edge, %221, %107
-  %.sroa.55.1 = phi ptr [ %292, %288 ], [ %43, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i249 ], [ %43, %221 ], [ %43, %107 ], [ null, %._crit_edge ], [ %43, %41 ]
-  %.sroa.0.1 = phi ptr [ %287, %288 ], [ %40, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i249 ], [ %40, %221 ], [ %40, %107 ], [ null, %._crit_edge ], [ %40, %41 ]
+  %.sroa.55.0 = phi ptr [ %292, %288 ], [ %43, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i249 ], [ %43, %221 ], [ %43, %107 ], [ null, %._crit_edge ], [ %43, %41 ]
+  %.sroa.0.0 = phi ptr [ %287, %288 ], [ %40, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i249 ], [ %40, %221 ], [ %40, %107 ], [ null, %._crit_edge ], [ %40, %41 ]
   %63 = landingpad { ptr, i32 }
           cleanup
   br label %395
@@ -26142,8 +26142,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i312: 
   br label %395
 
 395:                                              ; preds = %394, %314, %240, %239, %178, %127, %126, %62
-  %.sroa.55.7 = phi ptr [ %.sroa.55.1, %62 ], [ %296, %394 ], [ %43, %314 ], [ %43, %240 ], [ %43, %239 ], [ %43, %178 ], [ %43, %127 ], [ %43, %126 ]
-  %.sroa.0.7 = phi ptr [ %.sroa.0.1, %62 ], [ %293, %394 ], [ %40, %314 ], [ %40, %240 ], [ %40, %239 ], [ %40, %178 ], [ %40, %127 ], [ %40, %126 ]
+  %.sroa.55.2 = phi ptr [ %.sroa.55.0, %62 ], [ %296, %394 ], [ %43, %314 ], [ %43, %240 ], [ %43, %239 ], [ %43, %178 ], [ %43, %127 ], [ %43, %126 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %62 ], [ %293, %394 ], [ %40, %314 ], [ %40, %240 ], [ %40, %239 ], [ %40, %178 ], [ %40, %127 ], [ %40, %126 ]
   %.pn54.pn.pn.pn = phi { ptr, i32 } [ %63, %62 ], [ %.pn54.pn.pn, %394 ], [ %.pn51.pn, %314 ], [ %241, %240 ], [ %.pn47.pn.pn, %239 ], [ %.pn44.pn, %178 ], [ %128, %127 ], [ %.pn.pn.pn, %126 ]
   %396 = load ptr, ptr %6, align 8
   %.not.i218 = icmp eq ptr %396, null
@@ -26156,8 +26156,8 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i312: 
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit219
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit219: ; preds = %397, %395, %60
-  %.sroa.55.8 = phi ptr [ null, %60 ], [ %.sroa.55.7, %395 ], [ %.sroa.55.7, %397 ]
-  %.sroa.0.8 = phi ptr [ null, %60 ], [ %.sroa.0.7, %395 ], [ %.sroa.0.7, %397 ]
+  %.sroa.55.1 = phi ptr [ null, %60 ], [ %.sroa.55.2, %395 ], [ %.sroa.55.2, %397 ]
+  %.sroa.0.1 = phi ptr [ null, %60 ], [ %.sroa.0.2, %395 ], [ %.sroa.0.2, %397 ]
   %.pn54.pn.pn.pn.pn = phi { ptr, i32 } [ %61, %60 ], [ %.pn54.pn.pn.pn, %395 ], [ %.pn54.pn.pn.pn, %397 ]
   %400 = load ptr, ptr %5, align 8
   %.not.i220 = icmp eq ptr %400, null
@@ -26339,12 +26339,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit237, %453, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %350, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit191
-  %.sroa.0.10434 = phi ptr [ %374, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit191 ], [ %40, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit237 ], [ %40, %453 ], [ %293, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %293, %350 ]
-  %.sroa.55.10433 = phi ptr [ %377, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit191 ], [ %43, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit237 ], [ %43, %453 ], [ %296, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %296, %350 ]
-  %458 = ptrtoint ptr %.sroa.55.10433 to i64
-  %459 = ptrtoint ptr %.sroa.0.10434 to i64
+  %.sroa.0.3434 = phi ptr [ %374, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit191 ], [ %40, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit237 ], [ %40, %453 ], [ %293, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %293, %350 ]
+  %.sroa.55.3433 = phi ptr [ %377, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit191 ], [ %43, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit237 ], [ %43, %453 ], [ %296, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %296, %350 ]
+  %458 = ptrtoint ptr %.sroa.55.3433 to i64
+  %459 = ptrtoint ptr %.sroa.0.3434 to i64
   %460 = sub i64 %458, %459
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.10434, i64 noundef %460) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3434, i64 noundef %460) #23
   %461 = load ptr, ptr %32, align 8
   %.not.i.i.i.i240 = icmp eq ptr %461, null
   br i1 %.not.i.i.i.i240, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %462
@@ -26366,17 +26366,17 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %467
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221: ; preds = %401, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit219
-  %.not.i.i.i241 = icmp eq ptr %.sroa.0.8, null
+  %.not.i.i.i241 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i241, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit242, label %467
 
 467:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221.thread473, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221
   %.pn60.pn.pn.pn464 = phi { ptr, i32 } [ %405, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221.thread ], [ %.pn54.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221 ], [ %.pn60.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221.thread473 ]
-  %.sroa.0.11463 = phi ptr [ %293, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221.thread ], [ %.sroa.0.8, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221 ], [ %374, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221.thread473 ]
-  %.sroa.55.11462 = phi ptr [ %296, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221.thread ], [ %.sroa.55.8, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221 ], [ %377, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221.thread473 ]
-  %468 = ptrtoint ptr %.sroa.55.11462 to i64
-  %469 = ptrtoint ptr %.sroa.0.11463 to i64
+  %.sroa.0.5463 = phi ptr [ %293, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221.thread ], [ %.sroa.0.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221 ], [ %374, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221.thread473 ]
+  %.sroa.55.5462 = phi ptr [ %296, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221.thread ], [ %.sroa.55.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221 ], [ %377, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221.thread473 ]
+  %468 = ptrtoint ptr %.sroa.55.5462 to i64
+  %469 = ptrtoint ptr %.sroa.0.5463 to i64
   %470 = sub i64 %468, %469
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.11463, i64 noundef %470) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5463, i64 noundef %470) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit242
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit242: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221, %467
@@ -26478,8 +26478,8 @@ define dso_local void @_ZN69ProxyLifetimeTests_TestCopyAssignment_FromValue_ToNu
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212
 
 48:                                               ; preds = %._crit_edge, %186, %90
-  %.sroa.23.1 = phi ptr [ %41, %186 ], [ %41, %90 ], [ null, %._crit_edge ]
-  %.sroa.0.1 = phi ptr [ %38, %186 ], [ %38, %90 ], [ null, %._crit_edge ]
+  %.sroa.23.0 = phi ptr [ %41, %186 ], [ %41, %90 ], [ null, %._crit_edge ]
+  %.sroa.0.0 = phi ptr [ %38, %186 ], [ %38, %90 ], [ null, %._crit_edge ]
   %49 = landingpad { ptr, i32 }
           cleanup
   %50 = extractvalue { ptr, i32 } %49, 0
@@ -27092,8 +27092,8 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 271:                                              ; preds = %_ZN7testing7MessageD2Ev.exit169, %209
   %.pn70.pn = phi { ptr, i32 } [ %.pn70, %_ZN7testing7MessageD2Ev.exit169 ], [ %210, %209 ]
-  %.13 = extractvalue { ptr, i32 } %.pn70.pn, 0
-  %.1344 = extractvalue { ptr, i32 } %.pn70.pn, 1
+  %.14 = extractvalue { ptr, i32 } %.pn70.pn, 0
+  %.1445 = extractvalue { ptr, i32 } %.pn70.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #20
   br label %356
 
@@ -27331,10 +27331,10 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i242: 
   br label %356
 
 356:                                              ; preds = %93, %355, %271, %205, %204, %143, %52, %48
-  %.sroa.23.3 = phi ptr [ %.sroa.23.1, %48 ], [ %41, %355 ], [ %41, %271 ], [ %41, %205 ], [ %41, %204 ], [ %41, %143 ], [ %41, %93 ], [ %41, %52 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %48 ], [ %38, %355 ], [ %38, %271 ], [ %38, %205 ], [ %38, %204 ], [ %38, %143 ], [ %38, %93 ], [ %38, %52 ]
-  %.1748 = phi i32 [ %51, %48 ], [ %.1647, %355 ], [ %.1344, %271 ], [ %208, %205 ], [ %.1142, %204 ], [ %.839, %143 ], [ %.233, %93 ], [ %55, %52 ]
-  %.17 = phi ptr [ %50, %48 ], [ %.16, %355 ], [ %.13, %271 ], [ %207, %205 ], [ %.11, %204 ], [ %.8, %143 ], [ %.225, %93 ], [ %54, %52 ]
+  %.sroa.23.2 = phi ptr [ %.sroa.23.0, %48 ], [ %41, %355 ], [ %41, %271 ], [ %41, %205 ], [ %41, %204 ], [ %41, %143 ], [ %41, %93 ], [ %41, %52 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %48 ], [ %38, %355 ], [ %38, %271 ], [ %38, %205 ], [ %38, %204 ], [ %38, %143 ], [ %38, %93 ], [ %38, %52 ]
+  %.132 = phi i32 [ %51, %48 ], [ %.1647, %355 ], [ %.1445, %271 ], [ %208, %205 ], [ %.1142, %204 ], [ %.839, %143 ], [ %.233, %93 ], [ %55, %52 ]
+  %.124 = phi ptr [ %50, %48 ], [ %.16, %355 ], [ %.14, %271 ], [ %207, %205 ], [ %.11, %204 ], [ %.8, %143 ], [ %.225, %93 ], [ %54, %52 ]
   %357 = load ptr, ptr %4, align 8
   %.not.i211 = icmp eq ptr %357, null
   br i1 %.not.i211, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212, label %358
@@ -27346,10 +27346,10 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i242: 
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212: ; preds = %358, %356, %44
-  %.sroa.23.4 = phi ptr [ null, %44 ], [ %.sroa.23.3, %356 ], [ %.sroa.23.3, %358 ]
-  %.sroa.0.4 = phi ptr [ null, %44 ], [ %.sroa.0.3, %356 ], [ %.sroa.0.3, %358 ]
-  %.1849 = phi i32 [ %47, %44 ], [ %.1748, %356 ], [ %.1748, %358 ]
-  %.18 = phi ptr [ %46, %44 ], [ %.17, %356 ], [ %.17, %358 ]
+  %.sroa.23.1 = phi ptr [ null, %44 ], [ %.sroa.23.2, %356 ], [ %.sroa.23.2, %358 ]
+  %.sroa.0.1 = phi ptr [ null, %44 ], [ %.sroa.0.2, %356 ], [ %.sroa.0.2, %358 ]
+  %.031 = phi i32 [ %47, %44 ], [ %.132, %356 ], [ %.132, %358 ]
+  %.023 = phi ptr [ %46, %44 ], [ %.124, %356 ], [ %.124, %358 ]
   %361 = load ptr, ptr %3, align 8
   %.not.i213 = icmp eq ptr %361, null
   br i1 %.not.i213, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214, label %362
@@ -27535,12 +27535,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %307, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit230, %416, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit188
-  %.sroa.0.5299 = phi ptr [ %333, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit188 ], [ %38, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %38, %307 ], [ %38, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit230 ], [ %38, %416 ]
-  %.sroa.23.5298 = phi ptr [ %337, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit188 ], [ %41, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %41, %307 ], [ %41, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit230 ], [ %41, %416 ]
-  %421 = ptrtoint ptr %.sroa.23.5298 to i64
-  %422 = ptrtoint ptr %.sroa.0.5299 to i64
+  %.sroa.0.3299 = phi ptr [ %333, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit188 ], [ %38, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %38, %307 ], [ %38, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit230 ], [ %38, %416 ]
+  %.sroa.23.3298 = phi ptr [ %337, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit188 ], [ %41, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %41, %307 ], [ %41, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit230 ], [ %41, %416 ]
+  %421 = ptrtoint ptr %.sroa.23.3298 to i64
+  %422 = ptrtoint ptr %.sroa.0.3299 to i64
   %423 = sub i64 %421, %422
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5299, i64 noundef %423) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3299, i64 noundef %423) #23
   %424 = load ptr, ptr %30, align 8
   %.not.i.i.i.i233 = icmp eq ptr %424, null
   br i1 %.not.i.i.i.i233, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %425
@@ -27558,29 +27558,29 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread312: ; preds = %369, %_ZN7testing7MessageD2Ev.exit223
   %.pn77.pn.pn = phi { ptr, i32 } [ %.pn77.pn, %_ZN7testing7MessageD2Ev.exit223 ], [ %370, %369 ]
-  %.21 = extractvalue { ptr, i32 } %.pn77.pn.pn, 0
-  %.2152 = extractvalue { ptr, i32 } %.pn77.pn.pn, 1
+  %.20 = extractvalue { ptr, i32 } %.pn77.pn.pn, 0
+  %.2051 = extractvalue { ptr, i32 } %.pn77.pn.pn, 1
   call void @_ZN7testing15AssertionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #20
   br label %430
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214: ; preds = %362, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit212
-  %.not.i.i.i234 = icmp eq ptr %.sroa.0.4, null
+  %.not.i.i.i234 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i234, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit235, label %430
 
 430:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread312, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214
-  %.22309 = phi ptr [ %367, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread ], [ %.18, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214 ], [ %.21, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread312 ]
-  %.2253307 = phi i32 [ %368, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread ], [ %.1849, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214 ], [ %.2152, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread312 ]
-  %.sroa.0.6306 = phi ptr [ %38, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214 ], [ %333, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread312 ]
-  %.sroa.23.6305 = phi ptr [ %41, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread ], [ %.sroa.23.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214 ], [ %337, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread312 ]
-  %431 = ptrtoint ptr %.sroa.23.6305 to i64
-  %432 = ptrtoint ptr %.sroa.0.6306 to i64
+  %.19309 = phi ptr [ %367, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread ], [ %.023, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214 ], [ %.20, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread312 ]
+  %.1950307 = phi i32 [ %368, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread ], [ %.031, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214 ], [ %.2051, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread312 ]
+  %.sroa.0.4306 = phi ptr [ %38, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread ], [ %.sroa.0.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214 ], [ %333, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread312 ]
+  %.sroa.23.4305 = phi ptr [ %41, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread ], [ %.sroa.23.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214 ], [ %337, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214.thread312 ]
+  %431 = ptrtoint ptr %.sroa.23.4305 to i64
+  %432 = ptrtoint ptr %.sroa.0.4306 to i64
   %433 = sub i64 %431, %432
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.6306, i64 noundef %433) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4306, i64 noundef %433) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit235
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit235: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214, %430
-  %.22310 = phi ptr [ %.18, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214 ], [ %.22309, %430 ]
-  %.2253308 = phi i32 [ %.1849, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214 ], [ %.2253307, %430 ]
+  %.19310 = phi ptr [ %.023, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214 ], [ %.19309, %430 ]
+  %.1950308 = phi i32 [ %.031, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit214 ], [ %.1950307, %430 ]
   %434 = load ptr, ptr %30, align 8
   %.not.i.i.i.i236 = icmp eq ptr %434, null
   br i1 %.not.i.i.i.i236, label %_ZN5utils15LifetimeTrackerD2Ev.exit237, label %435
@@ -27594,8 +27594,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit235: ; preds = %_ZN3pro
   br label %_ZN5utils15LifetimeTrackerD2Ev.exit237
 
 _ZN5utils15LifetimeTrackerD2Ev.exit237:           ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit235, %435
-  %440 = insertvalue { ptr, i32 } poison, ptr %.22310, 0
-  %441 = insertvalue { ptr, i32 } %440, i32 %.2253308, 1
+  %440 = insertvalue { ptr, i32 } poison, ptr %.19310, 0
+  %441 = insertvalue { ptr, i32 } %440, i32 %.1950308, 1
   resume { ptr, i32 } %441
 
 442:                                              ; preds = %93
@@ -28153,12 +28153,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit61.thread152: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit59, %199, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit61
   %.pn23.pn.pn.pn159 = phi { ptr, i32 } [ %.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit61 ], [ %.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit59 ], [ %.pn23.pn.pn, %199 ]
-  %.sroa.0.4158 = phi ptr [ %.sroa.0.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit61 ], [ %.sroa.0.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit59 ], [ %40, %199 ]
-  %.sroa.23.4157 = phi ptr [ %.sroa.23.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit61 ], [ %.sroa.23.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit59 ], [ %44, %199 ]
-  %202 = ptrtoint ptr %.sroa.23.4157 to i64
-  %203 = ptrtoint ptr %.sroa.0.4158 to i64
+  %.sroa.0.0158 = phi ptr [ %.sroa.0.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit61 ], [ %.sroa.0.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit59 ], [ %40, %199 ]
+  %.sroa.23.0157 = phi ptr [ %.sroa.23.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit61 ], [ %.sroa.23.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit59 ], [ %44, %199 ]
+  %202 = ptrtoint ptr %.sroa.23.0157 to i64
+  %203 = ptrtoint ptr %.sroa.0.0158 to i64
   %204 = sub i64 %202, %203
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4158, i64 noundef %204) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0158, i64 noundef %204) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit78
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit78: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit61.thread160, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit61.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit61.thread152
@@ -28346,22 +28346,22 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEOS3_QL_ZNS_5proxy17HasMoveAssignme
   br i1 %69, label %121, label %80
 
 72:                                               ; preds = %328, %322, %1
-  %.sroa.55.2 = phi ptr [ %244, %322 ], [ %244, %328 ], [ null, %1 ]
-  %.sroa.0.2 = phi ptr [ %240, %322 ], [ %240, %328 ], [ null, %1 ]
+  %.sroa.55.0 = phi ptr [ %244, %322 ], [ %244, %328 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %240, %322 ], [ %240, %328 ], [ null, %1 ]
   %73 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit180
 
 74:                                               ; preds = %31, %51, %40
-  %.sroa.55.3 = phi ptr [ %37, %40 ], [ %37, %51 ], [ null, %31 ]
-  %.sroa.0.3 = phi ptr [ %34, %40 ], [ %34, %51 ], [ null, %31 ]
+  %.sroa.55.1 = phi ptr [ %37, %40 ], [ %37, %51 ], [ null, %31 ]
+  %.sroa.0.1 = phi ptr [ %34, %40 ], [ %34, %51 ], [ null, %31 ]
   %75 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit178
 
 76:                                               ; preds = %.noexc249, %234, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i209, %121
-  %.sroa.55.4 = phi ptr [ %239, %.noexc249 ], [ %59, %234 ], [ %59, %121 ], [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i209 ]
-  %.sroa.0.4 = phi ptr [ %235, %.noexc249 ], [ %55, %234 ], [ %55, %121 ], [ %34, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i209 ]
+  %.sroa.55.2 = phi ptr [ %239, %.noexc249 ], [ %59, %234 ], [ %59, %121 ], [ %37, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i209 ]
+  %.sroa.0.2 = phi ptr [ %235, %.noexc249 ], [ %55, %234 ], [ %55, %121 ], [ %34, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i209 ]
   %77 = landingpad { ptr, i32 }
           cleanup
   br label %358
@@ -29117,11 +29117,11 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i293: 
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit170
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit170: ; preds = %.noexc169, %318
-  %.sroa.55.8 = phi ptr [ %337, %.noexc169 ], [ %244, %318 ]
+  %.sroa.55.12 = phi ptr [ %337, %.noexc169 ], [ %244, %318 ]
   %.012.i.i.i.i298.pn = phi ptr [ %.012.i.i.i.i298, %.noexc169 ], [ %.ptr.le, %318 ]
-  %.sroa.0.8 = phi ptr [ %331, %.noexc169 ], [ %240, %318 ]
+  %.sroa.0.12 = phi ptr [ %331, %.noexc169 ], [ %240, %318 ]
   %.sroa.17.5 = getelementptr inbounds i8, ptr %.012.i.i.i.i298.pn, i64 16
-  %.pre-phi = ptrtoint ptr %.sroa.0.8 to i64
+  %.pre-phi = ptrtoint ptr %.sroa.0.12 to i64
   %338 = load ptr, ptr %29, align 8
   %339 = load ptr, ptr %28, align 8
   %340 = ptrtoint ptr %338 to i64
@@ -29137,7 +29137,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br i1 %.not9.i.i.i.i.i171, label %.thread, label %.lr.ph.i.i.i.i.i172
 
 .lr.ph.i.i.i.i.i172:                              ; preds = %346, %353
-  %.011.i.i.i.i.i173 = phi ptr [ %355, %353 ], [ %.sroa.0.8, %346 ]
+  %.011.i.i.i.i.i173 = phi ptr [ %355, %353 ], [ %.sroa.0.12, %346 ]
   %.0810.i.i.i.i.i174 = phi ptr [ %354, %353 ], [ %339, %346 ]
   %347 = load <2 x i32>, ptr %.0810.i.i.i.i.i174, align 4
   %348 = load <2 x i32>, ptr %.011.i.i.i.i.i173, align 4
@@ -29165,8 +29165,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %358
 
 358:                                              ; preds = %357, %261, %191, %141, %140, %76
-  %.sroa.55.9 = phi ptr [ %.sroa.55.4, %76 ], [ %244, %357 ], [ %59, %261 ], [ %59, %191 ], [ %59, %141 ], [ %59, %140 ]
-  %.sroa.0.9 = phi ptr [ %.sroa.0.4, %76 ], [ %240, %357 ], [ %55, %261 ], [ %55, %191 ], [ %55, %141 ], [ %55, %140 ]
+  %.sroa.55.5 = phi ptr [ %.sroa.55.2, %76 ], [ %244, %357 ], [ %59, %261 ], [ %59, %191 ], [ %59, %141 ], [ %59, %140 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.2, %76 ], [ %240, %357 ], [ %55, %261 ], [ %55, %191 ], [ %55, %141 ], [ %55, %140 ]
   %.pn46.pn.pn.pn = phi { ptr, i32 } [ %77, %76 ], [ %.pn46.pn.pn, %357 ], [ %.pn42.pn.pn, %261 ], [ %.pn39.pn, %191 ], [ %142, %141 ], [ %.pn.pn.pn, %140 ]
   %359 = load ptr, ptr %6, align 8
   %.not.i177 = icmp eq ptr %359, null
@@ -29179,8 +29179,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit178
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit178: ; preds = %360, %358, %74
-  %.sroa.55.10 = phi ptr [ %.sroa.55.3, %74 ], [ %.sroa.55.9, %358 ], [ %.sroa.55.9, %360 ]
-  %.sroa.0.10 = phi ptr [ %.sroa.0.3, %74 ], [ %.sroa.0.9, %358 ], [ %.sroa.0.9, %360 ]
+  %.sroa.55.4 = phi ptr [ %.sroa.55.1, %74 ], [ %.sroa.55.5, %358 ], [ %.sroa.55.5, %360 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.1, %74 ], [ %.sroa.0.5, %358 ], [ %.sroa.0.5, %360 ]
   %.pn46.pn.pn.pn.pn = phi { ptr, i32 } [ %75, %74 ], [ %.pn46.pn.pn.pn, %358 ], [ %.pn46.pn.pn.pn, %360 ]
   %363 = load ptr, ptr %5, align 8
   %.not.i179 = icmp eq ptr %363, null
@@ -29346,25 +29346,25 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154: ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i192, %399, %.thread
   %414 = phi ptr [ %356, %.thread ], [ %369, %399 ], [ %369, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i192 ]
   store ptr null, ptr %414, align 8
-  %.not.i.i.i199 = icmp eq ptr %.sroa.0.8, null
+  %.not.i.i.i199 = icmp eq ptr %.sroa.0.12, null
   br i1 %.not.i.i.i199, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154.thread
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154.thread.sink.split: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit196, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit
   %.sink401 = phi ptr [ %296, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %413, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit196 ]
-  %.sroa.0.11397.ph = phi ptr [ %240, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %55, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit196 ]
-  %.sroa.55.11396.ph = phi ptr [ %244, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %59, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit196 ]
+  %.sroa.0.6397.ph = phi ptr [ %240, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %55, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit196 ]
+  %.sroa.55.6396.ph = phi ptr [ %244, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %59, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit196 ]
   %415 = getelementptr inbounds i8, ptr %.sink401, i64 16
   %416 = load ptr, ptr %415, align 8
   call void %416(ptr noundef nonnull %32) #20
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154.thread
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154.thread: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154.thread.sink.split, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit196, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154
-  %.sroa.0.11397 = phi ptr [ %.sroa.0.8, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154 ], [ %55, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit196 ], [ %240, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.0.11397.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154.thread.sink.split ]
-  %.sroa.55.11396 = phi ptr [ %.sroa.55.8, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154 ], [ %59, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit196 ], [ %244, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.55.11396.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154.thread.sink.split ]
-  %417 = ptrtoint ptr %.sroa.55.11396 to i64
-  %418 = ptrtoint ptr %.sroa.0.11397 to i64
+  %.sroa.0.6397 = phi ptr [ %.sroa.0.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154 ], [ %55, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit196 ], [ %240, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.0.6397.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154.thread.sink.split ]
+  %.sroa.55.6396 = phi ptr [ %.sroa.55.12, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154 ], [ %59, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit196 ], [ %244, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.55.6396.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154.thread.sink.split ]
+  %417 = ptrtoint ptr %.sroa.55.6396 to i64
+  %418 = ptrtoint ptr %.sroa.0.6397 to i64
   %419 = sub i64 %417, %418
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.11397, i64 noundef %419) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.6397, i64 noundef %419) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit154.thread
@@ -29389,17 +29389,17 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit180
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit180: ; preds = %364, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit178, %426, %72
-  %.sroa.55.12 = phi ptr [ %.sroa.55.2, %72 ], [ %.sroa.55.8, %426 ], [ %.sroa.55.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit178 ], [ %.sroa.55.10, %364 ]
-  %.sroa.0.12 = phi ptr [ %.sroa.0.2, %72 ], [ %.sroa.0.8, %426 ], [ %.sroa.0.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit178 ], [ %.sroa.0.10, %364 ]
+  %.sroa.55.3 = phi ptr [ %.sroa.55.0, %72 ], [ %.sroa.55.12, %426 ], [ %.sroa.55.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit178 ], [ %.sroa.55.4, %364 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0, %72 ], [ %.sroa.0.12, %426 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit178 ], [ %.sroa.0.4, %364 ]
   %.pn52.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %.pn52.pn.pn, %426 ], [ %.pn46.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit178 ], [ %.pn46.pn.pn.pn.pn, %364 ]
-  %.not.i.i.i201 = icmp eq ptr %.sroa.0.12, null
+  %.not.i.i.i201 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i201, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit202, label %427
 
 427:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit180
-  %428 = ptrtoint ptr %.sroa.55.12 to i64
-  %429 = ptrtoint ptr %.sroa.0.12 to i64
+  %428 = ptrtoint ptr %.sroa.55.3 to i64
+  %429 = ptrtoint ptr %.sroa.0.3 to i64
   %430 = sub i64 %428, %429
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.12, i64 noundef %430) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %430) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit202
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit202: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit180, %427
@@ -29459,8 +29459,8 @@ define dso_local void @_ZN59ProxyLifetimeTests_TestMoveAssignment_FromValue_ToSe
           to label %.lr.ph.i.i.i.i.i.preheader unwind label %.thread
 
 22:                                               ; preds = %1, %.lr.ph.i.i.i.i199.preheader
-  %.sroa.23.1 = phi ptr [ %26, %.lr.ph.i.i.i.i199.preheader ], [ null, %1 ]
-  %.sroa.0.1 = phi ptr [ %21, %.lr.ph.i.i.i.i199.preheader ], [ null, %1 ]
+  %.sroa.23.0 = phi ptr [ %26, %.lr.ph.i.i.i.i199.preheader ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %21, %.lr.ph.i.i.i.i199.preheader ], [ null, %1 ]
   %23 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86
@@ -29707,8 +29707,8 @@ _ZN7testing7MessageD2Ev.exit67:                   ; preds = %74, %_ZNKSt14defaul
 
 112:                                              ; preds = %.thread, %111
   %.pn27.pn.pn.pn167 = phi { ptr, i32 } [ %24, %.thread ], [ %.pn27.pn.pn, %111 ]
-  %.sroa.0.3165 = phi ptr [ null, %.thread ], [ %21, %111 ]
-  %.sroa.23.3163 = phi ptr [ null, %.thread ], [ %26, %111 ]
+  %.sroa.0.2165 = phi ptr [ null, %.thread ], [ %21, %111 ]
+  %.sroa.23.2163 = phi ptr [ null, %.thread ], [ %26, %111 ]
   %113 = phi ptr [ @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_25copyability_meta_providerILb0EEEEENS3_INS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEE13meta_providerIN5utils4spec8ToStringEEEEEEEEEEEE7storageINSM_15LifetimeTracker7SessionEEE, %.thread ], [ %.pr.pre, %111 ]
   %114 = getelementptr inbounds i8, ptr %113, i64 16
   %115 = load ptr, ptr %114, align 8
@@ -29847,12 +29847,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit63, %64, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit
-  %.sroa.0.4176 = phi ptr [ %86, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %21, %_ZN7testing15AssertionResultD2Ev.exit63 ], [ %21, %64 ]
-  %.sroa.23.4175 = phi ptr [ %93, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %26, %_ZN7testing15AssertionResultD2Ev.exit63 ], [ %26, %64 ]
-  %159 = ptrtoint ptr %.sroa.23.4175 to i64
-  %160 = ptrtoint ptr %.sroa.0.4176 to i64
+  %.sroa.0.3176 = phi ptr [ %86, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %21, %_ZN7testing15AssertionResultD2Ev.exit63 ], [ %21, %64 ]
+  %.sroa.23.3175 = phi ptr [ %93, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %26, %_ZN7testing15AssertionResultD2Ev.exit63 ], [ %26, %64 ]
+  %159 = ptrtoint ptr %.sroa.23.3175 to i64
+  %160 = ptrtoint ptr %.sroa.0.3176 to i64
   %161 = sub i64 %159, %160
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4176, i64 noundef %161) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3176, i64 noundef %161) #23
   %162 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %162, null
   br i1 %.not.i.i.i.i, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %163
@@ -29874,20 +29874,20 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86.thread
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86: ; preds = %112, %22
-  %.sroa.23.5 = phi ptr [ %.sroa.23.1, %22 ], [ %.sroa.23.3163, %112 ]
-  %.sroa.0.5 = phi ptr [ %.sroa.0.1, %22 ], [ %.sroa.0.3165, %112 ]
+  %.sroa.23.1 = phi ptr [ %.sroa.23.0, %22 ], [ %.sroa.23.2163, %112 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %22 ], [ %.sroa.0.2165, %112 ]
   %.pn32.pn.pn.pn = phi { ptr, i32 } [ %23, %22 ], [ %.pn27.pn.pn.pn167, %112 ]
-  %.not.i.i.i103 = icmp eq ptr %.sroa.0.5, null
+  %.not.i.i.i103 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i103, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit104, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86.thread
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86.thread: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86.thread187, %111, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86
   %.pn32.pn.pn.pn183 = phi { ptr, i32 } [ %.pn32.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86 ], [ %.pn27.pn.pn, %111 ], [ %.pn32.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86.thread187 ]
-  %.sroa.0.5182 = phi ptr [ %.sroa.0.5, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86 ], [ %21, %111 ], [ %86, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86.thread187 ]
-  %.sroa.23.5181 = phi ptr [ %.sroa.23.5, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86 ], [ %26, %111 ], [ %93, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86.thread187 ]
-  %168 = ptrtoint ptr %.sroa.23.5181 to i64
-  %169 = ptrtoint ptr %.sroa.0.5182 to i64
+  %.sroa.0.1182 = phi ptr [ %.sroa.0.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86 ], [ %21, %111 ], [ %86, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86.thread187 ]
+  %.sroa.23.1181 = phi ptr [ %.sroa.23.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86 ], [ %26, %111 ], [ %93, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86.thread187 ]
+  %168 = ptrtoint ptr %.sroa.23.1181 to i64
+  %169 = ptrtoint ptr %.sroa.0.1182 to i64
   %170 = sub i64 %168, %169
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5182, i64 noundef %170) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1182, i64 noundef %170) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit104
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit104: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit86.thread
@@ -30006,8 +30006,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEEaSEOS3_QL_ZNS_5proxy17HasMoveAssignme
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165
 
 51:                                               ; preds = %211, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i196, %._crit_edge, %96
-  %.sroa.39.1 = phi ptr [ %215, %211 ], [ %35, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i196 ], [ %35, %96 ], [ null, %._crit_edge ]
-  %.sroa.0.1 = phi ptr [ %210, %211 ], [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i196 ], [ %32, %96 ], [ null, %._crit_edge ]
+  %.sroa.39.0 = phi ptr [ %215, %211 ], [ %35, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i196 ], [ %35, %96 ], [ null, %._crit_edge ]
+  %.sroa.0.0 = phi ptr [ %210, %211 ], [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i196 ], [ %32, %96 ], [ null, %._crit_edge ]
   %52 = landingpad { ptr, i32 }
           cleanup
   br label %315
@@ -30734,8 +30734,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %315
 
 315:                                              ; preds = %314, %236, %167, %117, %116, %51
-  %.sroa.39.5 = phi ptr [ %.sroa.39.1, %51 ], [ %219, %314 ], [ %35, %236 ], [ %35, %167 ], [ %35, %117 ], [ %35, %116 ]
-  %.sroa.0.5 = phi ptr [ %.sroa.0.1, %51 ], [ %216, %314 ], [ %32, %236 ], [ %32, %167 ], [ %32, %117 ], [ %32, %116 ]
+  %.sroa.39.2 = phi ptr [ %.sroa.39.0, %51 ], [ %219, %314 ], [ %35, %236 ], [ %35, %167 ], [ %35, %117 ], [ %35, %116 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %51 ], [ %216, %314 ], [ %32, %236 ], [ %32, %167 ], [ %32, %117 ], [ %32, %116 ]
   %.pn46.pn.pn.pn = phi { ptr, i32 } [ %52, %51 ], [ %.pn46.pn.pn, %314 ], [ %.pn42.pn.pn, %236 ], [ %.pn39.pn, %167 ], [ %118, %117 ], [ %.pn.pn.pn, %116 ]
   %316 = load ptr, ptr %5, align 8
   %.not.i164 = icmp eq ptr %316, null
@@ -30748,8 +30748,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165: ; preds = %317, %315, %49
-  %.sroa.39.6 = phi ptr [ null, %49 ], [ %.sroa.39.5, %315 ], [ %.sroa.39.5, %317 ]
-  %.sroa.0.6 = phi ptr [ null, %49 ], [ %.sroa.0.5, %315 ], [ %.sroa.0.5, %317 ]
+  %.sroa.39.1 = phi ptr [ null, %49 ], [ %.sroa.39.2, %315 ], [ %.sroa.39.2, %317 ]
+  %.sroa.0.1 = phi ptr [ null, %49 ], [ %.sroa.0.2, %315 ], [ %.sroa.0.2, %317 ]
   %.pn46.pn.pn.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %.pn46.pn.pn.pn, %315 ], [ %.pn46.pn.pn.pn, %317 ]
   %320 = load ptr, ptr %4, align 8
   %.not.i166 = icmp eq ptr %320, null
@@ -30926,12 +30926,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit183, %373, %272, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit181
-  %.sroa.0.7319 = phi ptr [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit183 ], [ %32, %373 ], [ %216, %272 ], [ %216, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %216, %_ZN7testing15AssertionResultD2Ev.exit181 ]
-  %.sroa.39.7318 = phi ptr [ %35, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit183 ], [ %35, %373 ], [ %219, %272 ], [ %219, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %219, %_ZN7testing15AssertionResultD2Ev.exit181 ]
-  %377 = ptrtoint ptr %.sroa.39.7318 to i64
-  %378 = ptrtoint ptr %.sroa.0.7319 to i64
+  %.sroa.0.3319 = phi ptr [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit183 ], [ %32, %373 ], [ %216, %272 ], [ %216, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %216, %_ZN7testing15AssertionResultD2Ev.exit181 ]
+  %.sroa.39.3318 = phi ptr [ %35, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit183 ], [ %35, %373 ], [ %219, %272 ], [ %219, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %219, %_ZN7testing15AssertionResultD2Ev.exit181 ]
+  %377 = ptrtoint ptr %.sroa.39.3318 to i64
+  %378 = ptrtoint ptr %.sroa.0.3319 to i64
   %379 = sub i64 %377, %378
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.7319, i64 noundef %379) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3319, i64 noundef %379) #23
   %380 = load ptr, ptr %27, align 8
   %.not.i.i.i.i187 = icmp eq ptr %380, null
   br i1 %.not.i.i.i.i187, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %381
@@ -30953,17 +30953,17 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %386
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167: ; preds = %321, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit165
-  %.not.i.i.i188 = icmp eq ptr %.sroa.0.6, null
+  %.not.i.i.i188 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i188, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit189, label %386
 
 386:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167
   %.pn52.pn.pn.pn335 = phi { ptr, i32 } [ %.pn52.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167.thread ], [ %.pn46.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167 ]
-  %.sroa.0.8334 = phi ptr [ %216, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167.thread ], [ %.sroa.0.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167 ]
-  %.sroa.39.8333 = phi ptr [ %219, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167.thread ], [ %.sroa.39.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167 ]
-  %387 = ptrtoint ptr %.sroa.39.8333 to i64
-  %388 = ptrtoint ptr %.sroa.0.8334 to i64
+  %.sroa.0.4334 = phi ptr [ %216, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167.thread ], [ %.sroa.0.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167 ]
+  %.sroa.39.4333 = phi ptr [ %219, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167.thread ], [ %.sroa.39.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167 ]
+  %387 = ptrtoint ptr %.sroa.39.4333 to i64
+  %388 = ptrtoint ptr %.sroa.0.4334 to i64
   %389 = sub i64 %387, %388
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.8334, i64 noundef %389) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4334, i64 noundef %389) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit189
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit189: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit167, %386
@@ -31525,12 +31525,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit60.thread160: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit58, %196, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit60
   %.pn23.pn.pn.pn167 = phi { ptr, i32 } [ %.pn.pn.pn.pn159, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit60 ], [ %.pn.pn.pn.pn159, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit58 ], [ %.pn23.pn.pn, %196 ]
-  %.sroa.0.4166 = phi ptr [ %.sroa.0.2158, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit60 ], [ %.sroa.0.2158, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit58 ], [ %40, %196 ]
-  %.sroa.23.4165 = phi ptr [ %.sroa.23.2157, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit60 ], [ %.sroa.23.2157, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit58 ], [ %44, %196 ]
-  %199 = ptrtoint ptr %.sroa.23.4165 to i64
-  %200 = ptrtoint ptr %.sroa.0.4166 to i64
+  %.sroa.0.0166 = phi ptr [ %.sroa.0.2158, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit60 ], [ %.sroa.0.2158, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit58 ], [ %40, %196 ]
+  %.sroa.23.0165 = phi ptr [ %.sroa.23.2157, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit60 ], [ %.sroa.23.2157, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit58 ], [ %44, %196 ]
+  %199 = ptrtoint ptr %.sroa.23.0165 to i64
+  %200 = ptrtoint ptr %.sroa.0.0166 to i64
   %201 = sub i64 %199, %200
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4166, i64 noundef %201) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0166, i64 noundef %201) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit77
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit77: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit60.thread168, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit60.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit60.thread160
@@ -31814,8 +31814,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
 
 23:                                               ; preds = %.lr.ph.i.i.i.i190.preheader, %._crit_edge
   %24 = phi ptr [ null, %.lr.ph.i.i.i.i190.preheader ], [ @_ZN3pro7details8meta_ptrINS0_14composite_metaIJNS0_15dispatcher_metaINS0_25copyability_meta_providerILb0EEEEENS3_INS0_28relocatability_meta_providerILb1EEEEENS3_INS0_29destructibility_meta_providerILb1EEEEENS2_IJNS3_INS0_20overload_traits_implILb0ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEE13meta_providerIN5utils4spec8ToStringEEEEEEEEEEEE7storageINSM_15LifetimeTracker7SessionEEE, %._crit_edge ]
-  %.sroa.23.1 = phi ptr [ %29, %.lr.ph.i.i.i.i190.preheader ], [ null, %._crit_edge ]
-  %.sroa.0.1 = phi ptr [ %21, %.lr.ph.i.i.i.i190.preheader ], [ null, %._crit_edge ]
+  %.sroa.23.0 = phi ptr [ %29, %.lr.ph.i.i.i.i190.preheader ], [ null, %._crit_edge ]
+  %.sroa.0.0 = phi ptr [ %21, %.lr.ph.i.i.i.i190.preheader ], [ null, %._crit_edge ]
   %25 = landingpad { ptr, i32 }
           cleanup
   br label %123
@@ -32089,8 +32089,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
 
 123:                                              ; preds = %122, %23
   %124 = phi ptr [ %24, %23 ], [ %.pre166, %122 ]
-  %.sroa.23.3 = phi ptr [ %.sroa.23.1, %23 ], [ %42, %122 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %23 ], [ %35, %122 ]
+  %.sroa.23.2 = phi ptr [ %.sroa.23.0, %23 ], [ %42, %122 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %23 ], [ %35, %122 ]
   %.pn27.pn.pn.pn = phi { ptr, i32 } [ %25, %23 ], [ %.pn27.pn.pn, %122 ]
   %.not.i84 = icmp eq ptr %124, null
   br i1 %.not.i84, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85, label %125
@@ -32255,17 +32255,17 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %177
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85: ; preds = %125, %123
-  %.not.i.i.i103 = icmp eq ptr %.sroa.0.3, null
+  %.not.i.i.i103 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i103, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit104, label %177
 
 177:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread175, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85
   %.pn32.pn.pn.pn182 = phi { ptr, i32 } [ %.pn32.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread175 ], [ %.pn27.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85 ]
-  %.sroa.0.5181 = phi ptr [ %35, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread175 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85 ]
-  %.sroa.23.5180 = phi ptr [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread175 ], [ %.sroa.23.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85 ]
-  %178 = ptrtoint ptr %.sroa.23.5180 to i64
-  %179 = ptrtoint ptr %.sroa.0.5181 to i64
+  %.sroa.0.1181 = phi ptr [ %35, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread175 ], [ %.sroa.0.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85 ]
+  %.sroa.23.1180 = phi ptr [ %42, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread175 ], [ %.sroa.23.2, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85 ]
+  %178 = ptrtoint ptr %.sroa.23.1180 to i64
+  %179 = ptrtoint ptr %.sroa.0.1181 to i64
   %180 = sub i64 %178, %179
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5181, i64 noundef %180) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1181, i64 noundef %180) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit104
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit104: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit85, %177
@@ -32506,22 +32506,22 @@ _ZN3pro4swapERNS_5proxyIN12_GLOBAL__N_110TestFacadeEEES4_.exit: ; preds = %_ZSt1
   br i1 %95, label %147, label %106
 
 98:                                               ; preds = %511, %505, %484, %478, %1
-  %.sroa.87.2 = phi ptr [ %.sroa.87.10, %478 ], [ %.sroa.87.11, %505 ], [ %.sroa.87.11, %511 ], [ %.sroa.87.10, %484 ], [ null, %1 ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.10, %478 ], [ %.sroa.0.11, %505 ], [ %.sroa.0.11, %511 ], [ %.sroa.0.10, %484 ], [ null, %1 ]
+  %.sroa.87.0 = phi ptr [ %.sroa.87.14, %478 ], [ %.sroa.87.15, %505 ], [ %.sroa.87.15, %511 ], [ %.sroa.87.14, %484 ], [ null, %1 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.14, %478 ], [ %.sroa.0.15, %505 ], [ %.sroa.0.15, %511 ], [ %.sroa.0.14, %484 ], [ null, %1 ]
   %99 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit241
 
 100:                                              ; preds = %36, %56, %45
-  %.sroa.87.3 = phi ptr [ %42, %45 ], [ %42, %56 ], [ null, %36 ]
-  %.sroa.0.3 = phi ptr [ %39, %45 ], [ %39, %56 ], [ null, %36 ]
+  %.sroa.87.1 = phi ptr [ %42, %45 ], [ %42, %56 ], [ null, %36 ]
+  %.sroa.0.1 = phi ptr [ %39, %45 ], [ %39, %56 ], [ null, %36 ]
   %101 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239
 
 102:                                              ; preds = %383, %377, %359, %353, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i353, %.noexc309, %326, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i269, %260, %147
-  %.sroa.87.4 = phi ptr [ %.sroa.87.8, %353 ], [ %.sroa.87.9, %377 ], [ %.sroa.87.9, %383 ], [ %.sroa.87.8, %359 ], [ %336, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i353 ], [ %331, %.noexc309 ], [ %64, %326 ], [ %64, %260 ], [ %64, %147 ], [ %42, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i269 ]
-  %.sroa.0.4 = phi ptr [ %.sroa.0.8, %353 ], [ %.sroa.0.9, %377 ], [ %.sroa.0.9, %383 ], [ %.sroa.0.8, %359 ], [ %332, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i353 ], [ %327, %.noexc309 ], [ %60, %326 ], [ %60, %260 ], [ %60, %147 ], [ %39, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i269 ]
+  %.sroa.87.2 = phi ptr [ %.sroa.87.12, %353 ], [ %.sroa.87.13, %377 ], [ %.sroa.87.13, %383 ], [ %.sroa.87.12, %359 ], [ %336, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i353 ], [ %331, %.noexc309 ], [ %64, %326 ], [ %64, %260 ], [ %64, %147 ], [ %42, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i269 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.12, %353 ], [ %.sroa.0.13, %377 ], [ %.sroa.0.13, %383 ], [ %.sroa.0.12, %359 ], [ %332, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i353 ], [ %327, %.noexc309 ], [ %60, %326 ], [ %60, %260 ], [ %60, %147 ], [ %39, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i269 ]
   %103 = landingpad { ptr, i32 }
           cleanup
   br label %544
@@ -33239,11 +33239,11 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i353: 
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit189
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit189: ; preds = %.noexc188, %337
-  %.sroa.87.8 = phi ptr [ %345, %.noexc188 ], [ %336, %337 ]
+  %.sroa.87.12 = phi ptr [ %345, %.noexc188 ], [ %336, %337 ]
   %.012.i.i.i.i358.pn = phi ptr [ %.012.i.i.i.i358, %.noexc188 ], [ %.ptr.le, %337 ]
-  %.sroa.0.8 = phi ptr [ %339, %.noexc188 ], [ %332, %337 ]
+  %.sroa.0.12 = phi ptr [ %339, %.noexc188 ], [ %332, %337 ]
   %.sroa.25.5 = getelementptr inbounds i8, ptr %.012.i.i.i.i358.pn, i64 16
-  %.not.i190 = icmp eq ptr %.sroa.25.5, %.sroa.87.8
+  %.not.i190 = icmp eq ptr %.sroa.25.5, %.sroa.87.12
   br i1 %.not.i190, label %348, label %346
 
 346:                                              ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit189
@@ -33253,8 +33253,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit193
 
 348:                                              ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit189
-  %349 = ptrtoint ptr %.sroa.87.8 to i64
-  %350 = ptrtoint ptr %.sroa.0.8 to i64
+  %349 = ptrtoint ptr %.sroa.87.12 to i64
+  %350 = ptrtoint ptr %.sroa.0.12 to i64
   %351 = sub i64 %349, %350
   %352 = icmp eq i64 %351, 9223372036854775800
   br i1 %352, label %353, label %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i374
@@ -33287,33 +33287,33 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i374: 
   store i32 5, ptr %363, align 4
   %364 = getelementptr inbounds i8, ptr %363, i64 4
   store i32 4, ptr %364, align 4
-  %.not10.i.i.i.i377 = icmp eq ptr %.sroa.0.8, %.sroa.87.8
+  %.not10.i.i.i.i377 = icmp eq ptr %.sroa.0.12, %.sroa.87.12
   br i1 %.not10.i.i.i.i377, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i389, label %.lr.ph.i.i.i.i378
 
 .lr.ph.i.i.i.i378:                                ; preds = %.noexc393, %.lr.ph.i.i.i.i378
   %.012.i.i.i.i379 = phi ptr [ %367, %.lr.ph.i.i.i.i378 ], [ %362, %.noexc393 ]
-  %.0911.i.i.i.i380 = phi ptr [ %366, %.lr.ph.i.i.i.i378 ], [ %.sroa.0.8, %.noexc393 ]
+  %.0911.i.i.i.i380 = phi ptr [ %366, %.lr.ph.i.i.i.i378 ], [ %.sroa.0.12, %.noexc393 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !680)
   call void @llvm.experimental.noalias.scope.decl(metadata !683)
   %365 = load i64, ptr %.0911.i.i.i.i380, align 4, !alias.scope !683, !noalias !680
   store i64 %365, ptr %.012.i.i.i.i379, align 4, !alias.scope !680, !noalias !683
   %366 = getelementptr inbounds i8, ptr %.0911.i.i.i.i380, i64 8
   %367 = getelementptr inbounds i8, ptr %.012.i.i.i.i379, i64 8
-  %.not.i.i.i.i381 = icmp eq ptr %366, %.sroa.87.8
+  %.not.i.i.i.i381 = icmp eq ptr %366, %.sroa.87.12
   br i1 %.not.i.i.i.i381, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i389, label %.lr.ph.i.i.i.i378, !llvm.loop !10
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i389: ; preds = %.noexc393, %.lr.ph.i.i.i.i378
   %.0.lcssa.i.i.i.i383 = phi ptr [ %362, %.noexc393 ], [ %367, %.lr.ph.i.i.i.i378 ]
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.8, i64 noundef %351) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.12, i64 noundef %351) #23
   %368 = getelementptr inbounds %"struct.utils::LifetimeOperation", ptr %362, i64 %358
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit193
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit193: ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i389, %346
-  %.sroa.87.9 = phi ptr [ %368, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i389 ], [ %.sroa.87.8, %346 ]
+  %.sroa.87.13 = phi ptr [ %368, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i389 ], [ %.sroa.87.12, %346 ]
   %.0.lcssa.i.i.i.i383.pn = phi ptr [ %.0.lcssa.i.i.i.i383, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i389 ], [ %.sroa.25.5, %346 ]
-  %.sroa.0.9 = phi ptr [ %362, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i389 ], [ %.sroa.0.8, %346 ]
+  %.sroa.0.13 = phi ptr [ %362, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i389 ], [ %.sroa.0.12, %346 ]
   %.sroa.25.6 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i383.pn, i64 8
-  %.not.i194 = icmp eq ptr %.sroa.25.6, %.sroa.87.9
+  %.not.i194 = icmp eq ptr %.sroa.25.6, %.sroa.87.13
   br i1 %.not.i194, label %372, label %369
 
 369:                                              ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit193
@@ -33324,8 +33324,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit197
 
 372:                                              ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit193
-  %373 = ptrtoint ptr %.sroa.87.9 to i64
-  %374 = ptrtoint ptr %.sroa.0.9 to i64
+  %373 = ptrtoint ptr %.sroa.87.13 to i64
+  %374 = ptrtoint ptr %.sroa.0.13 to i64
   %375 = sub i64 %373, %374
   %376 = icmp eq i64 %375, 9223372036854775800
   br i1 %376, label %377, label %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i395
@@ -33358,12 +33358,12 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i395: 
   store i32 3, ptr %387, align 4
   %388 = getelementptr inbounds i8, ptr %387, i64 4
   store i32 5, ptr %388, align 4
-  %.not10.i.i.i.i398 = icmp eq ptr %.sroa.0.9, %.sroa.87.9
+  %.not10.i.i.i.i398 = icmp eq ptr %.sroa.0.13, %.sroa.87.13
   br i1 %.not10.i.i.i.i398, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i410, label %.lr.ph.i.i.i.i399
 
 .lr.ph.i.i.i.i399:                                ; preds = %.noexc414, %.lr.ph.i.i.i.i399
   %.012.i.i.i.i400 = phi ptr [ %391, %.lr.ph.i.i.i.i399 ], [ %386, %.noexc414 ]
-  %.0911.i.i.i.i401 = phi ptr [ %390, %.lr.ph.i.i.i.i399 ], [ %.sroa.0.9, %.noexc414 ]
+  %.0911.i.i.i.i401 = phi ptr [ %390, %.lr.ph.i.i.i.i399 ], [ %.sroa.0.13, %.noexc414 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !685)
   call void @llvm.experimental.noalias.scope.decl(metadata !688)
   %389 = load i64, ptr %.0911.i.i.i.i401, align 4, !alias.scope !688, !noalias !685
@@ -33376,11 +33376,11 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i395: 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i410: ; preds = %.lr.ph.i.i.i.i399, %.noexc414
   %.0.lcssa.i.i.i.i404 = phi ptr [ %386, %.noexc414 ], [ %391, %.lr.ph.i.i.i.i399 ]
   %392 = getelementptr i8, ptr %.0.lcssa.i.i.i.i404, i64 8
-  %.not.i34.i412 = icmp eq ptr %.sroa.0.9, null
+  %.not.i34.i412 = icmp eq ptr %.sroa.0.13, null
   br i1 %.not.i34.i412, label %.noexc196, label %393
 
 393:                                              ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i410
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.9, i64 noundef %375) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.13, i64 noundef %375) #23
   br label %.noexc196
 
 .noexc196:                                        ; preds = %393, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i410
@@ -33388,16 +33388,16 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit197
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit197: ; preds = %.noexc196, %369
-  %.sroa.87.10 = phi ptr [ %394, %.noexc196 ], [ %.sroa.87.9, %369 ]
+  %.sroa.87.14 = phi ptr [ %394, %.noexc196 ], [ %.sroa.87.13, %369 ]
   %.sroa.25.7 = phi ptr [ %392, %.noexc196 ], [ %371, %369 ]
-  %.sroa.0.10 = phi ptr [ %386, %.noexc196 ], [ %.sroa.0.9, %369 ]
+  %.sroa.0.14 = phi ptr [ %386, %.noexc196 ], [ %.sroa.0.13, %369 ]
   %395 = load ptr, ptr %34, align 8
   %396 = load ptr, ptr %33, align 8
   %397 = ptrtoint ptr %395 to i64
   %398 = ptrtoint ptr %396 to i64
   %399 = sub i64 %397, %398
   %400 = ptrtoint ptr %.sroa.25.7 to i64
-  %401 = ptrtoint ptr %.sroa.0.10 to i64
+  %401 = ptrtoint ptr %.sroa.0.14 to i64
   %402 = sub i64 %400, %401
   %403 = icmp eq i64 %399, %402
   br i1 %403, label %404, label %.loopexit567
@@ -33407,7 +33407,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br i1 %.not9.i.i.i.i.i, label %_ZN7testing15AssertionResultD2Ev.exit219, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %404, %411
-  %.011.i.i.i.i.i = phi ptr [ %413, %411 ], [ %.sroa.0.10, %404 ]
+  %.011.i.i.i.i.i = phi ptr [ %413, %411 ], [ %.sroa.0.14, %404 ]
   %.0810.i.i.i.i.i = phi ptr [ %412, %411 ], [ %396, %404 ]
   %405 = load <2 x i32>, ptr %.0810.i.i.i.i.i, align 4
   %406 = load <2 x i32>, ptr %.011.i.i.i.i.i, align 4
@@ -33603,7 +33603,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit223
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit223: ; preds = %471, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit221
-  %.not.i224 = icmp eq ptr %.sroa.25.7, %.sroa.87.10
+  %.not.i224 = icmp eq ptr %.sroa.25.7, %.sroa.87.14
   br i1 %.not.i224, label %476, label %474
 
 474:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit223
@@ -33644,30 +33644,30 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i416: 
   store i32 5, ptr %488, align 4
   %489 = getelementptr inbounds i8, ptr %488, i64 4
   store i32 5, ptr %489, align 4
-  %.not10.i.i.i.i419 = icmp eq ptr %.sroa.0.10, %.sroa.87.10
+  %.not10.i.i.i.i419 = icmp eq ptr %.sroa.0.14, %.sroa.87.14
   br i1 %.not10.i.i.i.i419, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i431, label %.lr.ph.i.i.i.i420
 
 .lr.ph.i.i.i.i420:                                ; preds = %.noexc435, %.lr.ph.i.i.i.i420
   %.012.i.i.i.i421 = phi ptr [ %492, %.lr.ph.i.i.i.i420 ], [ %487, %.noexc435 ]
-  %.0911.i.i.i.i422 = phi ptr [ %491, %.lr.ph.i.i.i.i420 ], [ %.sroa.0.10, %.noexc435 ]
+  %.0911.i.i.i.i422 = phi ptr [ %491, %.lr.ph.i.i.i.i420 ], [ %.sroa.0.14, %.noexc435 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !690)
   call void @llvm.experimental.noalias.scope.decl(metadata !693)
   %490 = load i64, ptr %.0911.i.i.i.i422, align 4, !alias.scope !693, !noalias !690
   store i64 %490, ptr %.012.i.i.i.i421, align 4, !alias.scope !690, !noalias !693
   %491 = getelementptr inbounds i8, ptr %.0911.i.i.i.i422, i64 8
   %492 = getelementptr inbounds i8, ptr %.012.i.i.i.i421, i64 8
-  %.not.i.i.i.i423 = icmp eq ptr %491, %.sroa.87.10
+  %.not.i.i.i.i423 = icmp eq ptr %491, %.sroa.87.14
   br i1 %.not.i.i.i.i423, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i431, label %.lr.ph.i.i.i.i420, !llvm.loop !10
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i431: ; preds = %.lr.ph.i.i.i.i420, %.noexc435
   %.0.lcssa.i.i.i.i425 = phi ptr [ %487, %.noexc435 ], [ %492, %.lr.ph.i.i.i.i420 ]
-  %.not.i34.i433 = icmp eq ptr %.sroa.0.10, null
+  %.not.i34.i433 = icmp eq ptr %.sroa.0.14, null
   br i1 %.not.i34.i433, label %.noexc226, label %493
 
 493:                                              ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i431
-  %494 = ptrtoint ptr %.sroa.87.10 to i64
+  %494 = ptrtoint ptr %.sroa.87.14 to i64
   %495 = sub i64 %494, %401
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.10, i64 noundef %495) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.14, i64 noundef %495) #23
   br label %.noexc226
 
 .noexc226:                                        ; preds = %493, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i431
@@ -33675,11 +33675,11 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit227
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit227: ; preds = %.noexc226, %474
-  %.sroa.87.11 = phi ptr [ %496, %.noexc226 ], [ %.sroa.87.10, %474 ]
+  %.sroa.87.15 = phi ptr [ %496, %.noexc226 ], [ %.sroa.87.14, %474 ]
   %.0.lcssa.i.i.i.i425.pn = phi ptr [ %.0.lcssa.i.i.i.i425, %.noexc226 ], [ %.sroa.25.7, %474 ]
-  %.sroa.0.11 = phi ptr [ %487, %.noexc226 ], [ %.sroa.0.10, %474 ]
+  %.sroa.0.15 = phi ptr [ %487, %.noexc226 ], [ %.sroa.0.14, %474 ]
   %.sroa.25.8 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i425.pn, i64 8
-  %.not.i228 = icmp eq ptr %.sroa.25.8, %.sroa.87.11
+  %.not.i228 = icmp eq ptr %.sroa.25.8, %.sroa.87.15
   br i1 %.not.i228, label %500, label %497
 
 497:                                              ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit227
@@ -33690,8 +33690,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit231
 
 500:                                              ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit227
-  %501 = ptrtoint ptr %.sroa.87.11 to i64
-  %502 = ptrtoint ptr %.sroa.0.11 to i64
+  %501 = ptrtoint ptr %.sroa.87.15 to i64
+  %502 = ptrtoint ptr %.sroa.0.15 to i64
   %503 = sub i64 %501, %502
   %504 = icmp eq i64 %503, 9223372036854775800
   br i1 %504, label %505, label %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i437
@@ -33724,12 +33724,12 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i437: 
   store i32 4, ptr %515, align 4
   %516 = getelementptr inbounds i8, ptr %515, i64 4
   store i32 5, ptr %516, align 4
-  %.not10.i.i.i.i440 = icmp eq ptr %.sroa.0.11, %.sroa.87.11
+  %.not10.i.i.i.i440 = icmp eq ptr %.sroa.0.15, %.sroa.87.15
   br i1 %.not10.i.i.i.i440, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i452, label %.lr.ph.i.i.i.i441
 
 .lr.ph.i.i.i.i441:                                ; preds = %.noexc456, %.lr.ph.i.i.i.i441
   %.012.i.i.i.i442 = phi ptr [ %519, %.lr.ph.i.i.i.i441 ], [ %514, %.noexc456 ]
-  %.0911.i.i.i.i443 = phi ptr [ %518, %.lr.ph.i.i.i.i441 ], [ %.sroa.0.11, %.noexc456 ]
+  %.0911.i.i.i.i443 = phi ptr [ %518, %.lr.ph.i.i.i.i441 ], [ %.sroa.0.15, %.noexc456 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !695)
   call void @llvm.experimental.noalias.scope.decl(metadata !698)
   %517 = load i64, ptr %.0911.i.i.i.i443, align 4, !alias.scope !698, !noalias !695
@@ -33742,11 +33742,11 @@ _ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i437: 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i452: ; preds = %.lr.ph.i.i.i.i441, %.noexc456
   %.0.lcssa.i.i.i.i446 = phi ptr [ %514, %.noexc456 ], [ %519, %.lr.ph.i.i.i.i441 ]
   %520 = getelementptr i8, ptr %.0.lcssa.i.i.i.i446, i64 8
-  %.not.i34.i454 = icmp eq ptr %.sroa.0.11, null
+  %.not.i34.i454 = icmp eq ptr %.sroa.0.15, null
   br i1 %.not.i34.i454, label %.noexc230, label %521
 
 521:                                              ; preds = %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i452
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.11, i64 noundef %503) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.15, i64 noundef %503) #23
   br label %.noexc230
 
 .noexc230:                                        ; preds = %521, %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i452
@@ -33754,16 +33754,16 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit231
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeOperationTypeEEEERS1_DpOT_.exit231: ; preds = %.noexc230, %497
-  %.sroa.87.12 = phi ptr [ %522, %.noexc230 ], [ %.sroa.87.11, %497 ]
+  %.sroa.87.16 = phi ptr [ %522, %.noexc230 ], [ %.sroa.87.15, %497 ]
   %.sroa.25.9 = phi ptr [ %520, %.noexc230 ], [ %499, %497 ]
-  %.sroa.0.12 = phi ptr [ %514, %.noexc230 ], [ %.sroa.0.11, %497 ]
+  %.sroa.0.16 = phi ptr [ %514, %.noexc230 ], [ %.sroa.0.15, %497 ]
   %523 = load ptr, ptr %34, align 8
   %524 = load ptr, ptr %33, align 8
   %525 = ptrtoint ptr %523 to i64
   %526 = ptrtoint ptr %524 to i64
   %527 = sub i64 %525, %526
   %528 = ptrtoint ptr %.sroa.25.9 to i64
-  %529 = ptrtoint ptr %.sroa.0.12 to i64
+  %529 = ptrtoint ptr %.sroa.0.16 to i64
   %530 = sub i64 %528, %529
   %531 = icmp eq i64 %527, %530
   br i1 %531, label %532, label %.loopexit
@@ -33773,7 +33773,7 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br i1 %.not9.i.i.i.i.i232, label %.thread, label %.lr.ph.i.i.i.i.i233
 
 .lr.ph.i.i.i.i.i233:                              ; preds = %532, %539
-  %.011.i.i.i.i.i234 = phi ptr [ %541, %539 ], [ %.sroa.0.12, %532 ]
+  %.011.i.i.i.i.i234 = phi ptr [ %541, %539 ], [ %.sroa.0.16, %532 ]
   %.0810.i.i.i.i.i235 = phi ptr [ %540, %539 ], [ %524, %532 ]
   %533 = load <2 x i32>, ptr %.0810.i.i.i.i.i235, align 4
   %534 = load <2 x i32>, ptr %.011.i.i.i.i.i234, align 4
@@ -33801,8 +33801,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %544
 
 544:                                              ; preds = %543, %414, %279, %278, %217, %166, %165, %102
-  %.sroa.87.13 = phi ptr [ %.sroa.87.4, %102 ], [ %.sroa.87.10, %543 ], [ %64, %414 ], [ %64, %279 ], [ %64, %278 ], [ %64, %217 ], [ %64, %166 ], [ %64, %165 ]
-  %.sroa.0.13 = phi ptr [ %.sroa.0.4, %102 ], [ %.sroa.0.10, %543 ], [ %60, %414 ], [ %60, %279 ], [ %60, %278 ], [ %60, %217 ], [ %60, %166 ], [ %60, %165 ]
+  %.sroa.87.5 = phi ptr [ %.sroa.87.2, %102 ], [ %.sroa.87.14, %543 ], [ %64, %414 ], [ %64, %279 ], [ %64, %278 ], [ %64, %217 ], [ %64, %166 ], [ %64, %165 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.2, %102 ], [ %.sroa.0.14, %543 ], [ %60, %414 ], [ %60, %279 ], [ %60, %278 ], [ %60, %217 ], [ %60, %166 ], [ %60, %165 ]
   %.pn54.pn.pn.pn = phi { ptr, i32 } [ %103, %102 ], [ %.pn54.pn.pn, %543 ], [ %.pn51.pn, %414 ], [ %280, %279 ], [ %.pn47.pn.pn, %278 ], [ %.pn44.pn, %217 ], [ %167, %166 ], [ %.pn.pn.pn, %165 ]
   %545 = load ptr, ptr %7, align 8
   %.not.i238 = icmp eq ptr %545, null
@@ -33815,8 +33815,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239: ; preds = %546, %544, %100
-  %.sroa.87.14 = phi ptr [ %.sroa.87.3, %100 ], [ %.sroa.87.13, %544 ], [ %.sroa.87.13, %546 ]
-  %.sroa.0.14 = phi ptr [ %.sroa.0.3, %100 ], [ %.sroa.0.13, %544 ], [ %.sroa.0.13, %546 ]
+  %.sroa.87.4 = phi ptr [ %.sroa.87.1, %100 ], [ %.sroa.87.5, %544 ], [ %.sroa.87.5, %546 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.1, %100 ], [ %.sroa.0.5, %544 ], [ %.sroa.0.5, %546 ]
   %.pn54.pn.pn.pn.pn = phi { ptr, i32 } [ %101, %100 ], [ %.pn54.pn.pn.pn, %544 ], [ %.pn54.pn.pn.pn, %546 ]
   %549 = load ptr, ptr %6, align 8
   %.not.i240 = icmp eq ptr %549, null
@@ -33991,18 +33991,18 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit211.thread
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit211: ; preds = %450, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit, %_ZN7testing15AssertionResultD2Ev.exit255
-  %.sroa.87.15 = phi ptr [ %.sroa.87.12, %_ZN7testing15AssertionResultD2Ev.exit255 ], [ %.sroa.87.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.87.10, %450 ]
-  %.sroa.0.15 = phi ptr [ %.sroa.0.12, %_ZN7testing15AssertionResultD2Ev.exit255 ], [ %.sroa.0.10, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.0.10, %450 ]
-  %.not.i.i.i = icmp eq ptr %.sroa.0.15, null
+  %.sroa.87.6 = phi ptr [ %.sroa.87.16, %_ZN7testing15AssertionResultD2Ev.exit255 ], [ %.sroa.87.14, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.87.14, %450 ]
+  %.sroa.0.6 = phi ptr [ %.sroa.0.16, %_ZN7testing15AssertionResultD2Ev.exit255 ], [ %.sroa.0.14, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %.sroa.0.14, %450 ]
+  %.not.i.i.i = icmp eq ptr %.sroa.0.6, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit, label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit211.thread
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit211.thread: ; preds = %601, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit257, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit211
-  %.sroa.0.15589 = phi ptr [ %.sroa.0.15, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit211 ], [ %60, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit257 ], [ %60, %601 ]
-  %.sroa.87.15588 = phi ptr [ %.sroa.87.15, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit211 ], [ %64, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit257 ], [ %64, %601 ]
-  %604 = ptrtoint ptr %.sroa.87.15588 to i64
-  %605 = ptrtoint ptr %.sroa.0.15589 to i64
+  %.sroa.0.6589 = phi ptr [ %.sroa.0.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit211 ], [ %60, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit257 ], [ %60, %601 ]
+  %.sroa.87.6588 = phi ptr [ %.sroa.87.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit211 ], [ %64, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit257 ], [ %64, %601 ]
+  %604 = ptrtoint ptr %.sroa.87.6588 to i64
+  %605 = ptrtoint ptr %.sroa.0.6589 to i64
   %606 = sub i64 %604, %605
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.15589, i64 noundef %606) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.6589, i64 noundef %606) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit211, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit211.thread
@@ -34027,17 +34027,17 @@ _ZN5utils15LifetimeTrackerD2Ev.exit:              ; preds = %_ZNSt6vectorIN5util
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit241
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit241: ; preds = %550, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239, %613, %98
-  %.sroa.87.16 = phi ptr [ %.sroa.87.2, %98 ], [ %.sroa.87.12, %613 ], [ %.sroa.87.14, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239 ], [ %.sroa.87.14, %550 ]
-  %.sroa.0.16 = phi ptr [ %.sroa.0.2, %98 ], [ %.sroa.0.12, %613 ], [ %.sroa.0.14, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239 ], [ %.sroa.0.14, %550 ]
+  %.sroa.87.3 = phi ptr [ %.sroa.87.0, %98 ], [ %.sroa.87.16, %613 ], [ %.sroa.87.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239 ], [ %.sroa.87.4, %550 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.0, %98 ], [ %.sroa.0.16, %613 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239 ], [ %.sroa.0.4, %550 ]
   %.pn60.pn.pn.pn = phi { ptr, i32 } [ %99, %98 ], [ %.pn60.pn.pn, %613 ], [ %.pn54.pn.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit239 ], [ %.pn54.pn.pn.pn.pn, %550 ]
-  %.not.i.i.i261 = icmp eq ptr %.sroa.0.16, null
+  %.not.i.i.i261 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i261, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit262, label %614
 
 614:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit241
-  %615 = ptrtoint ptr %.sroa.87.16 to i64
-  %616 = ptrtoint ptr %.sroa.0.16 to i64
+  %615 = ptrtoint ptr %.sroa.87.3 to i64
+  %616 = ptrtoint ptr %.sroa.0.3 to i64
   %617 = sub i64 %615, %616
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.16, i64 noundef %617) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3, i64 noundef %617) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit262
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit262: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit241, %614
@@ -34148,8 +34148,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit155
 
 44:                                               ; preds = %.noexc202, %157, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i162, %._crit_edge, %89
-  %.sroa.55.2 = phi ptr [ %166, %.noexc202 ], [ %161, %157 ], [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i162 ], [ %32, %89 ], [ null, %._crit_edge ]
-  %.sroa.0.2 = phi ptr [ %162, %.noexc202 ], [ %156, %157 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i162 ], [ %30, %89 ], [ null, %._crit_edge ]
+  %.sroa.55.1 = phi ptr [ %166, %.noexc202 ], [ %161, %157 ], [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i162 ], [ %32, %89 ], [ null, %._crit_edge ]
+  %.sroa.0.1 = phi ptr [ %162, %.noexc202 ], [ %156, %157 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i162 ], [ %30, %89 ], [ null, %._crit_edge ]
   %45 = landingpad { ptr, i32 }
           cleanup
   br label %251
@@ -34730,8 +34730,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %251
 
 251:                                              ; preds = %250, %187, %109, %108, %44
-  %.sroa.55.8 = phi ptr [ %.sroa.55.2, %44 ], [ %170, %250 ], [ %32, %187 ], [ %32, %109 ], [ %32, %108 ]
-  %.sroa.0.8 = phi ptr [ %.sroa.0.2, %44 ], [ %167, %250 ], [ %30, %187 ], [ %30, %109 ], [ %30, %108 ]
+  %.sroa.55.3 = phi ptr [ %.sroa.55.1, %44 ], [ %170, %250 ], [ %32, %187 ], [ %32, %109 ], [ %32, %108 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.1, %44 ], [ %167, %250 ], [ %30, %187 ], [ %30, %109 ], [ %30, %108 ]
   %.pn35.pn.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %.pn35.pn.pn, %250 ], [ %.pn32.pn, %187 ], [ %110, %109 ], [ %.pn.pn.pn, %108 ]
   %252 = load ptr, ptr %4, align 8
   %.not.i135 = icmp eq ptr %252, null
@@ -34890,20 +34890,20 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split: ; preds = %.critedge48, %_ZN7testing15AssertionResultD2Ev.exit113
   %.sink365 = phi ptr [ %218, %_ZN7testing15AssertionResultD2Ev.exit113 ], [ %298, %.critedge48 ]
-  %.sroa.0.9346.ph = phi ptr [ %167, %_ZN7testing15AssertionResultD2Ev.exit113 ], [ %30, %.critedge48 ]
-  %.sroa.55.9345.ph = phi ptr [ %170, %_ZN7testing15AssertionResultD2Ev.exit113 ], [ %32, %.critedge48 ]
+  %.sroa.0.4346.ph = phi ptr [ %167, %_ZN7testing15AssertionResultD2Ev.exit113 ], [ %30, %.critedge48 ]
+  %.sroa.55.4345.ph = phi ptr [ %170, %_ZN7testing15AssertionResultD2Ev.exit113 ], [ %32, %.critedge48 ]
   %300 = getelementptr inbounds i8, ptr %.sink365, i64 16
   %301 = load ptr, ptr %300, align 8
   call void %301(ptr noundef nonnull %28) #20
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %.critedge48, %_ZN7testing15AssertionResultD2Ev.exit113, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit
-  %.sroa.0.9346 = phi ptr [ %167, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %30, %.critedge48 ], [ %167, %_ZN7testing15AssertionResultD2Ev.exit113 ], [ %.sroa.0.9346.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split ]
-  %.sroa.55.9345 = phi ptr [ %170, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %32, %.critedge48 ], [ %170, %_ZN7testing15AssertionResultD2Ev.exit113 ], [ %.sroa.55.9345.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split ]
-  %302 = ptrtoint ptr %.sroa.55.9345 to i64
-  %303 = ptrtoint ptr %.sroa.0.9346 to i64
+  %.sroa.0.4346 = phi ptr [ %167, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %30, %.critedge48 ], [ %167, %_ZN7testing15AssertionResultD2Ev.exit113 ], [ %.sroa.0.4346.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split ]
+  %.sroa.55.4345 = phi ptr [ %170, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit ], [ %32, %.critedge48 ], [ %170, %_ZN7testing15AssertionResultD2Ev.exit113 ], [ %.sroa.55.4345.ph, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit.thread.sink.split ]
+  %302 = ptrtoint ptr %.sroa.55.4345 to i64
+  %303 = ptrtoint ptr %.sroa.0.4346 to i64
   %304 = sub i64 %302, %303
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.9346, i64 noundef %304) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4346, i64 noundef %304) #23
   %305 = load ptr, ptr %22, align 8
   %.not.i.i.i.i153 = icmp eq ptr %305, null
   br i1 %.not.i.i.i.i153, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %306
@@ -34925,17 +34925,17 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %311
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136: ; preds = %253, %251
-  %.not.i.i.i154 = icmp eq ptr %.sroa.0.8, null
+  %.not.i.i.i154 = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.i.i.i154, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit155, label %311
 
 311:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136.thread381, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136
   %.pn40.pn.pn.pn388 = phi { ptr, i32 } [ %.pn40.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136.thread381 ], [ %.pn35.pn.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136 ]
-  %.sroa.0.10387 = phi ptr [ %167, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136.thread381 ], [ %.sroa.0.8, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136 ]
-  %.sroa.55.10386 = phi ptr [ %170, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136.thread381 ], [ %.sroa.55.8, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136 ]
-  %312 = ptrtoint ptr %.sroa.55.10386 to i64
-  %313 = ptrtoint ptr %.sroa.0.10387 to i64
+  %.sroa.0.2387 = phi ptr [ %167, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136.thread381 ], [ %.sroa.0.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136 ]
+  %.sroa.55.2386 = phi ptr [ %170, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136.thread381 ], [ %.sroa.55.3, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136 ]
+  %312 = ptrtoint ptr %.sroa.55.2386 to i64
+  %313 = ptrtoint ptr %.sroa.0.2387 to i64
   %314 = sub i64 %312, %313
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.10387, i64 noundef %314) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2387, i64 noundef %314) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit155
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit155: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit136, %311
@@ -35012,8 +35012,8 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit148
 
 29:                                               ; preds = %149, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i155, %81
-  %.sroa.37.2 = phi ptr [ %153, %149 ], [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i155 ], [ %33, %81 ]
-  %.sroa.0.2 = phi ptr [ %148, %149 ], [ %26, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i155 ], [ %26, %81 ]
+  %.sroa.37.1 = phi ptr [ %153, %149 ], [ %33, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i155 ], [ %33, %81 ]
+  %.sroa.0.1 = phi ptr [ %148, %149 ], [ %26, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i155 ], [ %26, %81 ]
   %30 = landingpad { ptr, i32 }
           cleanup
   br label %185
@@ -35437,8 +35437,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %185
 
 185:                                              ; preds = %184, %101, %100, %29
-  %.sroa.37.6 = phi ptr [ %.sroa.37.2, %29 ], [ %33, %184 ], [ %33, %101 ], [ %33, %100 ]
-  %.sroa.0.6 = phi ptr [ %.sroa.0.2, %29 ], [ %26, %184 ], [ %26, %101 ], [ %26, %100 ]
+  %.sroa.37.4 = phi ptr [ %.sroa.37.1, %29 ], [ %33, %184 ], [ %33, %101 ], [ %33, %100 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.1, %29 ], [ %26, %184 ], [ %26, %101 ], [ %26, %100 ]
   %.pn39 = phi { ptr, i32 } [ %30, %29 ], [ %.pn36.pn, %184 ], [ %102, %101 ], [ %.pn32.pn.pn, %100 ]
   %186 = load ptr, ptr %4, align 8
   %.not.i124 = icmp eq ptr %186, null
@@ -35618,12 +35618,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit143, %237, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit145
-  %.sroa.0.8286 = phi ptr [ %154, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit145 ], [ %26, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit143 ], [ %26, %237 ]
-  %.sroa.37.8285 = phi ptr [ %157, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit145 ], [ %33, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit143 ], [ %33, %237 ]
-  %241 = ptrtoint ptr %.sroa.37.8285 to i64
-  %242 = ptrtoint ptr %.sroa.0.8286 to i64
+  %.sroa.0.5286 = phi ptr [ %154, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit145 ], [ %26, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit143 ], [ %26, %237 ]
+  %.sroa.37.5285 = phi ptr [ %157, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit145 ], [ %33, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit143 ], [ %33, %237 ]
+  %241 = ptrtoint ptr %.sroa.37.5285 to i64
+  %242 = ptrtoint ptr %.sroa.0.5286 to i64
   %243 = sub i64 %241, %242
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.8286, i64 noundef %243) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.5286, i64 noundef %243) #23
   %244 = load ptr, ptr %18, align 8
   %.not.i.i.i.i146 = icmp eq ptr %244, null
   br i1 %.not.i.i.i.i146, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %245
@@ -35652,12 +35652,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit125, %250, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127
   %.pn42.pn.pn.pn299 = phi { ptr, i32 } [ %.pn39, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ], [ %.pn39, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit125 ], [ %.pn42.pn.pn, %250 ]
-  %.sroa.0.9298 = phi ptr [ %.sroa.0.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ], [ %.sroa.0.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit125 ], [ %154, %250 ]
-  %.sroa.37.9297 = phi ptr [ %.sroa.37.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ], [ %.sroa.37.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit125 ], [ %157, %250 ]
-  %253 = ptrtoint ptr %.sroa.37.9297 to i64
-  %254 = ptrtoint ptr %.sroa.0.9298 to i64
+  %.sroa.0.2298 = phi ptr [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ], [ %.sroa.0.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit125 ], [ %154, %250 ]
+  %.sroa.37.2297 = phi ptr [ %.sroa.37.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ], [ %.sroa.37.4, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit125 ], [ %157, %250 ]
+  %253 = ptrtoint ptr %.sroa.37.2297 to i64
+  %254 = ptrtoint ptr %.sroa.0.2298 to i64
   %255 = sub i64 %253, %254
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.9298, i64 noundef %255) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2298, i64 noundef %255) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit148
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit148: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread306, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread301, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread
@@ -35750,8 +35750,8 @@ _ZN3pro4swapERNS_5proxyIN12_GLOBAL__N_110TestFacadeEEES4_.exit: ; preds = %._cri
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit125
 
 40:                                               ; preds = %199, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i155, %._crit_edge, %84
-  %.sroa.37.1 = phi ptr [ %203, %199 ], [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i155 ], [ %32, %84 ], [ null, %._crit_edge ]
-  %.sroa.0.1 = phi ptr [ %198, %199 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i155 ], [ %30, %84 ], [ null, %._crit_edge ]
+  %.sroa.37.0 = phi ptr [ %203, %199 ], [ %32, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i155 ], [ %32, %84 ], [ null, %._crit_edge ]
+  %.sroa.0.0 = phi ptr [ %198, %199 ], [ %30, %_ZNKSt6vectorIN5utils17LifetimeOperationESaIS1_EE12_M_check_lenEmPKc.exit.i155 ], [ %30, %84 ], [ null, %._crit_edge ]
   %41 = landingpad { ptr, i32 }
           cleanup
   br label %235
@@ -36290,8 +36290,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %235
 
 235:                                              ; preds = %234, %155, %105, %104, %40
-  %.sroa.37.5 = phi ptr [ %.sroa.37.1, %40 ], [ %32, %234 ], [ %32, %155 ], [ %32, %105 ], [ %32, %104 ]
-  %.sroa.0.5 = phi ptr [ %.sroa.0.1, %40 ], [ %30, %234 ], [ %30, %155 ], [ %30, %105 ], [ %30, %104 ]
+  %.sroa.37.2 = phi ptr [ %.sroa.37.0, %40 ], [ %32, %234 ], [ %32, %155 ], [ %32, %105 ], [ %32, %104 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.0, %40 ], [ %30, %234 ], [ %30, %155 ], [ %30, %105 ], [ %30, %104 ]
   %.pn39 = phi { ptr, i32 } [ %41, %40 ], [ %.pn35.pn.pn, %234 ], [ %.pn32.pn, %155 ], [ %106, %105 ], [ %.pn.pn.pn, %104 ]
   %236 = load ptr, ptr %4, align 8
   %.not.i124 = icmp eq ptr %236, null
@@ -36304,8 +36304,8 @@ _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EE12emplace_backIJiNS0_21LifetimeO
   br label %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit125
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit125: ; preds = %237, %235, %38
-  %.sroa.37.6 = phi ptr [ null, %38 ], [ %.sroa.37.5, %235 ], [ %.sroa.37.5, %237 ]
-  %.sroa.0.6 = phi ptr [ null, %38 ], [ %.sroa.0.5, %235 ], [ %.sroa.0.5, %237 ]
+  %.sroa.37.1 = phi ptr [ null, %38 ], [ %.sroa.37.2, %235 ], [ %.sroa.37.2, %237 ]
+  %.sroa.0.1 = phi ptr [ null, %38 ], [ %.sroa.0.2, %235 ], [ %.sroa.0.2, %237 ]
   %.pn39.pn = phi { ptr, i32 } [ %39, %38 ], [ %.pn39, %235 ], [ %.pn39, %237 ]
   %240 = load ptr, ptr %3, align 8
   %.not.i126 = icmp eq ptr %240, null
@@ -36482,12 +36482,12 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit143, %292, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit145
-  %.sroa.0.7275 = phi ptr [ %204, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit145 ], [ %30, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit143 ], [ %30, %292 ]
-  %.sroa.37.7274 = phi ptr [ %207, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit145 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit143 ], [ %32, %292 ]
-  %297 = ptrtoint ptr %.sroa.37.7274 to i64
-  %298 = ptrtoint ptr %.sroa.0.7275 to i64
+  %.sroa.0.3275 = phi ptr [ %204, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit145 ], [ %30, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit143 ], [ %30, %292 ]
+  %.sroa.37.3274 = phi ptr [ %207, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit145 ], [ %32, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit143 ], [ %32, %292 ]
+  %297 = ptrtoint ptr %.sroa.37.3274 to i64
+  %298 = ptrtoint ptr %.sroa.0.3275 to i64
   %299 = sub i64 %297, %298
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.7275, i64 noundef %299) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.3275, i64 noundef %299) #23
   %300 = load ptr, ptr %22, align 8
   %.not.i.i.i.i146 = icmp eq ptr %300, null
   br i1 %.not.i.i.i.i146, label %_ZN5utils15LifetimeTrackerD2Ev.exit, label %301
@@ -36509,17 +36509,17 @@ _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDest
   br label %306
 
 _ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127: ; preds = %241, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit125
-  %.not.i.i.i147 = icmp eq ptr %.sroa.0.6, null
+  %.not.i.i.i147 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i147, label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit148, label %306
 
 306:                                              ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127
   %.pn42.pn.pn.pn288 = phi { ptr, i32 } [ %.pn42.pn.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread ], [ %.pn39.pn, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
-  %.sroa.0.8287 = phi ptr [ %204, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread ], [ %.sroa.0.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
-  %.sroa.37.8286 = phi ptr [ %207, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread ], [ %.sroa.37.6, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
-  %307 = ptrtoint ptr %.sroa.37.8286 to i64
-  %308 = ptrtoint ptr %.sroa.0.8287 to i64
+  %.sroa.0.4287 = phi ptr [ %204, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread ], [ %.sroa.0.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
+  %.sroa.37.4286 = phi ptr [ %207, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127.thread ], [ %.sroa.37.1, %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127 ]
+  %307 = ptrtoint ptr %.sroa.37.4286 to i64
+  %308 = ptrtoint ptr %.sroa.0.4287 to i64
   %309 = sub i64 %307, %308
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.8287, i64 noundef %309) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.4287, i64 noundef %309) #23
   br label %_ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit148
 
 _ZNSt6vectorIN5utils17LifetimeOperationESaIS1_EED2Ev.exit148: ; preds = %_ZN3pro5proxyIN12_GLOBAL__N_110TestFacadeEED2EvQaantL_ZNS_5proxy20HasTrivialDestructorEEL_ZNS4_13HasDestructorEE.exit127, %306

@@ -1404,9 +1404,9 @@ if.else74:                                        ; preds = %if.else68
 
 if.end80:                                         ; preds = %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96, %if.else74, %if.then71, %if.then56, %if.else52
   %65 = phi ptr [ %20, %if.else52 ], [ %call63, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ %20, %if.then71 ], [ %20, %if.else74 ], [ %20, %if.then56 ]
-  %prev_root_id.2 = phi i32 [ %prev_root_id.0168, %if.else52 ], [ %prev_root_id.0168, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ %62, %if.then71 ], [ %64, %if.else74 ], [ -1, %if.then56 ]
-  %prev_open.2 = phi i8 [ %prev_open.0169, %if.else52 ], [ %prev_open.0169, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ 0, %if.then71 ], [ 1, %if.else74 ], [ 1, %if.then56 ]
-  %prev_inf.2 = phi i8 [ %prev_inf.0176, %if.else52 ], [ %prev_inf.0176, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ 0, %if.then71 ], [ 0, %if.else74 ], [ 1, %if.then56 ]
+  %prev_root_id.1 = phi i32 [ %prev_root_id.0168, %if.else52 ], [ %prev_root_id.0168, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ %62, %if.then71 ], [ %64, %if.else74 ], [ -1, %if.then56 ]
+  %prev_open.1 = phi i8 [ %prev_open.0169, %if.else52 ], [ %prev_open.0169, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ 0, %if.then71 ], [ 1, %if.else74 ], [ 1, %if.then56 ]
+  %prev_inf.1 = phi i8 [ %prev_inf.0176, %if.else52 ], [ %prev_inf.0176, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ 0, %if.then71 ], [ 0, %if.else74 ], [ 1, %if.then56 ]
   %prev_sat.1 = phi i8 [ %prev_sat.0177, %if.else52 ], [ 0, %_ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit96 ], [ 0, %if.then71 ], [ 0, %if.else74 ], [ 0, %if.then56 ]
   %cmp82 = icmp eq i32 %c.0170, %sub81
   br i1 %cmp82, label %if.then83, label %for.inc106
@@ -1427,13 +1427,13 @@ init.i115:                                        ; preds = %init.check.i113
   br label %invoke.cont87
 
 invoke.cont87:                                    ; preds = %init.i115, %init.check.i113, %if.then83
-  %cmp.i108 = icmp eq i32 %prev_root_id.2, -1
+  %cmp.i108 = icmp eq i32 %prev_root_id.1, -1
   %68 = load ptr, ptr %m_sections.i, align 8
-  %idxprom.i.i110 = zext i32 %prev_root_id.2 to i64
+  %idxprom.i.i110 = zext i32 %prev_root_id.1 to i64
   %arrayidx.i.i111 = getelementptr inbounds %"struct.nlsat::evaluator::imp::sign_table::section", ptr %68, i64 %idxprom.i.i110
   %retval.0.i112 = select i1 %cmp.i108, ptr @_ZZNK5nlsat9evaluator3imp10sign_table8get_rootEjE4zero, ptr %arrayidx.i.i111
-  %tobool86 = trunc nuw i8 %prev_inf.2 to i1
-  %tobool85 = trunc nuw i8 %prev_open.2 to i1
+  %tobool86 = trunc nuw i8 %prev_inf.1 to i1
+  %tobool85 = trunc nuw i8 %prev_open.1 to i1
   %call92 = invoke noundef ptr @_ZN5nlsat20interval_set_manager2mkEbbRKN17algebraic_numbers4anumEbbS4_N3sat7literalEPKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(28) %m_ism, i1 noundef zeroext %tobool85, i1 noundef zeroext %tobool86, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i112, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %dummy, i32 %add.i, ptr noundef %cls)
           to label %invoke.cont91 unwind label %lpad5
 
@@ -1482,18 +1482,18 @@ if.then.i.i132:                                   ; preds = %if.end.i130
 
 for.inc106.sink.split:                            ; preds = %if.end.i130, %if.then.i.i132, %if.end.i80, %if.then.i.i82
   %call101.sink = phi ptr [ %call48, %if.then.i.i82 ], [ %call48, %if.end.i80 ], [ %call101, %if.then.i.i132 ], [ %call101, %if.end.i130 ]
-  %prev_root_id.3.ph = phi i32 [ %prev_root_id.0168, %if.then.i.i82 ], [ %prev_root_id.0168, %if.end.i80 ], [ %prev_root_id.2, %if.then.i.i132 ], [ %prev_root_id.2, %if.end.i130 ]
-  %prev_open.3.ph = phi i8 [ %prev_open.0169, %if.then.i.i82 ], [ %prev_open.0169, %if.end.i80 ], [ %prev_open.2, %if.then.i.i132 ], [ %prev_open.2, %if.end.i130 ]
-  %prev_inf.3.ph = phi i8 [ %prev_inf.0176, %if.then.i.i82 ], [ %prev_inf.0176, %if.end.i80 ], [ %prev_inf.2, %if.then.i.i132 ], [ %prev_inf.2, %if.end.i130 ]
+  %prev_root_id.3.ph = phi i32 [ %prev_root_id.0168, %if.then.i.i82 ], [ %prev_root_id.0168, %if.end.i80 ], [ %prev_root_id.1, %if.then.i.i132 ], [ %prev_root_id.1, %if.end.i130 ]
+  %prev_open.3.ph = phi i8 [ %prev_open.0169, %if.then.i.i82 ], [ %prev_open.0169, %if.end.i80 ], [ %prev_open.1, %if.then.i.i132 ], [ %prev_open.1, %if.end.i130 ]
+  %prev_inf.3.ph = phi i8 [ %prev_inf.0176, %if.then.i.i82 ], [ %prev_inf.0176, %if.end.i80 ], [ %prev_inf.1, %if.then.i.i132 ], [ %prev_inf.1, %if.end.i130 ]
   %prev_sat.2.ph = phi i8 [ 1, %if.then.i.i82 ], [ 1, %if.end.i80 ], [ %prev_sat.1, %if.then.i.i132 ], [ %prev_sat.1, %if.end.i130 ]
   store ptr %call101.sink, ptr %agg.result, align 8
   br label %for.inc106
 
 for.inc106:                                       ; preds = %for.inc106.sink.split, %if.then, %if.end80
   %75 = phi ptr [ %20, %if.then ], [ %65, %if.end80 ], [ %call101.sink, %for.inc106.sink.split ]
-  %prev_root_id.3 = phi i32 [ %prev_root_id.0168, %if.then ], [ %prev_root_id.2, %if.end80 ], [ %prev_root_id.3.ph, %for.inc106.sink.split ]
-  %prev_open.3 = phi i8 [ %prev_open.0169, %if.then ], [ %prev_open.2, %if.end80 ], [ %prev_open.3.ph, %for.inc106.sink.split ]
-  %prev_inf.3 = phi i8 [ %prev_inf.0176, %if.then ], [ %prev_inf.2, %if.end80 ], [ %prev_inf.3.ph, %for.inc106.sink.split ]
+  %prev_root_id.3 = phi i32 [ %prev_root_id.0168, %if.then ], [ %prev_root_id.1, %if.end80 ], [ %prev_root_id.3.ph, %for.inc106.sink.split ]
+  %prev_open.3 = phi i8 [ %prev_open.0169, %if.then ], [ %prev_open.1, %if.end80 ], [ %prev_open.3.ph, %for.inc106.sink.split ]
+  %prev_inf.3 = phi i8 [ %prev_inf.0176, %if.then ], [ %prev_inf.1, %if.end80 ], [ %prev_inf.3.ph, %for.inc106.sink.split ]
   %prev_sat.2 = phi i8 [ %prev_sat.0177, %if.then ], [ %prev_sat.1, %if.end80 ], [ %prev_sat.2.ph, %for.inc106.sink.split ]
   %inc107 = add nuw i32 %c.0170, 1
   %exitcond180.not = icmp eq i32 %inc107, %retval.0.i.i

@@ -14287,7 +14287,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %.body162
 
 360:                                              ; preds = %353, %345
-  %.2 = phi i32 [ %354, %353 ], [ %.1, %345 ]
+  %.3 = phi i32 [ %354, %353 ], [ %.1, %345 ]
   %361 = invoke noundef ptr @_ZN12colvarmodule4mainEv()
           to label %362 unwind label %.loopexit.split-lp
 
@@ -14298,7 +14298,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %_ZN12colvarmodule8vector1dIdEC2Em.exit unwind label %.loopexit.split-lp
 
 _ZN12colvarmodule8vector1dIdEC2Em.exit:           ; preds = %362
-  %366 = or i32 %365, %.2
+  %366 = or i32 %365, %.3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   %367 = getelementptr inbounds i8, ptr %37, i64 8
   %368 = invoke noundef i32 @_ZN12colvarmodule8vector1dIdE18from_simple_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(32) %31)
@@ -14349,7 +14349,7 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit:           ; preds = %362
   br label %433
 
 384:                                              ; preds = %375, %369
-  %.3 = phi i32 [ %376, %375 ], [ %366, %369 ]
+  %.4 = phi i32 [ %376, %375 ], [ %366, %369 ]
   %385 = load ptr, ptr %367, align 8
   %386 = load ptr, ptr %37, align 8
   %387 = ptrtoint ptr %385 to i64
@@ -14411,7 +14411,7 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit:           ; preds = %362
           to label %422 unwind label %426
 
 422:                                              ; preds = %420
-  %423 = or i32 %421, %.3
+  %423 = or i32 %421, %.4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %41) #26
   br label %_ZN12colvarmodule8vector1dIdEaSERKS1_.exit
@@ -14433,7 +14433,7 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit:           ; preds = %362
   br label %433
 
 _ZN12colvarmodule8vector1dIdEaSERKS1_.exit:       ; preds = %.lr.ph, %.preheader, %415, %422
-  %.4 = phi i32 [ %423, %422 ], [ %.3, %415 ], [ %.3, %.preheader ], [ %.3, %.lr.ph ]
+  %.5 = phi i32 [ %423, %422 ], [ %.4, %415 ], [ %.4, %.preheader ], [ %.4, %.lr.ph ]
   %429 = load ptr, ptr %37, align 8
   %430 = load ptr, ptr %367, align 8
   %.not.i.i.i173 = icmp eq ptr %430, %429
@@ -14482,7 +14482,7 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.i177:           ; preds = %436, %433
   br label %491
 
 438:                                              ; preds = %297, %_ZN12colvarmodule8vector1dIdED2Ev.exit, %289
-  %.5 = phi i32 [ %298, %297 ], [ %.4, %_ZN12colvarmodule8vector1dIdED2Ev.exit ], [ %.1, %289 ]
+  %.2 = phi i32 [ %298, %297 ], [ %.5, %_ZN12colvarmodule8vector1dIdED2Ev.exit ], [ %.1, %289 ]
   %439 = load ptr, ptr %245, align 8
   %440 = load ptr, ptr %244, align 8
   %.not.i181 = icmp eq ptr %439, %440
@@ -14601,7 +14601,7 @@ _ZN12colvarmodule8vector1dIdEdVEd.exit:           ; preds = %.lr.ph.i188, %458, 
 
 490:                                              ; preds = %483
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #26
-  ret i32 %.5
+  ret i32 %.2
 
 491:                                              ; preds = %.body184, %.body162, %.body158, %.body153, %335, %.body148, %.body143
   %.pn104 = phi { ptr, i32 } [ %336, %335 ], [ %.pn102, %.body184 ], [ %.pn100, %.body148 ], [ %.pn98, %.body162 ], [ %eh.lpad-body159, %.body158 ], [ %.pn87, %.body153 ], [ %.pn85, %.body143 ]

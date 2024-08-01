@@ -235,7 +235,7 @@ entry:
 
 while.body14.lr.ph:                               ; preds = %entry, %if.end43
   %4 = phi ptr [ %14, %if.end43 ], [ %3, %entry ]
-  %ret.0.ph21 = phi i32 [ %ret.2, %if.end43 ], [ 0, %entry ]
+  %ret.0.ph21 = phi i32 [ %ret.1, %if.end43 ], [ 0, %entry ]
   br label %while.body14
 
 while.body14:                                     ; preds = %while.body14.lr.ph, %if.end
@@ -284,7 +284,7 @@ if.then34:                                        ; preds = %aio_bh_dequeue.exit
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then34, %aio_bh_dequeue.exit
-  %ret.2 = phi i32 [ %spec.select, %if.then34 ], [ %ret.0.ph21, %aio_bh_dequeue.exit ]
+  %ret.1 = phi i32 [ %spec.select, %if.then34 ], [ %ret.0.ph21, %aio_bh_dequeue.exit ]
   %and40 = and i32 %10, 12
   %tobool41.not = icmp eq i32 %and40, 0
   br i1 %tobool41.not, label %if.end43, label %if.then42
@@ -299,7 +299,7 @@ if.end43:                                         ; preds = %if.then42, %if.end3
   br i1 %tobool.not18, label %while.end44, label %while.body14.lr.ph, !llvm.loop !10
 
 while.end44:                                      ; preds = %if.end43, %if.end, %entry
-  %ret.0.ph.lcssa = phi i32 [ 0, %entry ], [ %ret.0.ph21, %if.end ], [ %ret.2, %if.end43 ]
+  %ret.0.ph.lcssa = phi i32 [ 0, %entry ], [ %ret.0.ph21, %if.end ], [ %ret.1, %if.end43 ]
   ret i32 %ret.0.ph.lcssa
 }
 

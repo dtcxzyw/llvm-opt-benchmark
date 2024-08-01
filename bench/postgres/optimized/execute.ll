@@ -964,18 +964,18 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
 
 .lr.ph:                                           ; preds = %.preheader174, %.lr.ph
   %.2178 = phi i32 [ %476, %.lr.ph ], [ 0, %.preheader174 ]
-  %.1150177 = phi i32 [ %475, %.lr.ph ], [ 0, %.preheader174 ]
+  %.2151177 = phi i32 [ %475, %.lr.ph ], [ 0, %.preheader174 ]
   %474 = tail call i32 @PQgetlength(ptr noundef %0, i32 noundef %.2178, i32 noundef %1) #14
-  %475 = add i32 %474, %.1150177
+  %475 = add i32 %474, %.2151177
   %476 = add nuw nsw i32 %.2178, 1
   %exitcond.not = icmp eq i32 %476, %5
   br i1 %exitcond.not, label %.loopexit175, label %.lr.ph, !llvm.loop !8
 
 .loopexit175:                                     ; preds = %.lr.ph, %.preheader174, %463, %469, %._crit_edge, %._crit_edge184
-  %.2151 = phi i32 [ %473, %469 ], [ %468, %463 ], [ %462, %._crit_edge ], [ %444, %._crit_edge184 ], [ 0, %.preheader174 ], [ %475, %.lr.ph ]
+  %.1150 = phi i32 [ %473, %469 ], [ %468, %463 ], [ %462, %._crit_edge ], [ %444, %._crit_edge184 ], [ 0, %.preheader174 ], [ %475, %.lr.ph ]
   %477 = load i32, ptr %2, align 8
   tail call void (ptr, ...) @ecpg_log(ptr noundef nonnull @.str.4, i32 noundef %477, i32 noundef %5) #14
-  %478 = sext i32 %.2151 to i64
+  %478 = sext i32 %.1150 to i64
   %479 = load i32, ptr %2, align 8
   %480 = tail call ptr @ecpg_auto_alloc(i64 noundef %478, i32 noundef %479) #14
   store ptr %480, ptr %418, align 8
@@ -1116,7 +1116,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
 
 557:                                              ; preds = %.lr.ph198, %557
   %.4196 = phi i32 [ 0, %.lr.ph198 ], [ %570, %557 ]
-  %.2146195 = phi i8 [ 1, %.lr.ph198 ], [ %spec.select, %557 ]
+  %.3147195 = phi i8 [ 1, %.lr.ph198 ], [ %spec.select, %557 ]
   %558 = load i32, ptr %2, align 8
   %559 = load i32, ptr %3, align 8
   %560 = load i32, ptr %550, align 8
@@ -1129,7 +1129,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   %567 = load i8, ptr %556, align 4
   %568 = trunc i8 %567 to i1
   %569 = tail call zeroext i1 @ecpg_get_data(ptr noundef %0, i32 noundef %.4196, i32 noundef %1, i32 noundef %558, i32 noundef %559, i32 noundef %560, ptr noundef %561, ptr noundef %562, i64 noundef %563, i64 noundef %564, i64 noundef %565, i32 noundef %.0112.i, i32 noundef %566, i1 noundef zeroext %568) #14
-  %spec.select = select i1 %569, i8 %.2146195, i8 0
+  %spec.select = select i1 %569, i8 %.3147195, i8 0
   %570 = add nuw nsw i32 %.4196, 1
   %571 = icmp slt i32 %570, %5
   %572 = trunc nuw i8 %spec.select to i1
@@ -1137,8 +1137,8 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   br i1 %573, label %557, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %557, %548, %._crit_edge192
-  %.4148 = phi i8 [ %.0144.lcssa, %._crit_edge192 ], [ 1, %548 ], [ %spec.select, %557 ]
-  %574 = trunc nuw i8 %.4148 to i1
+  %.2146 = phi i8 [ %.0144.lcssa, %._crit_edge192 ], [ 1, %548 ], [ %spec.select, %557 ]
+  %574 = trunc nuw i8 %.2146 to i1
   br label %575
 
 575:                                              ; preds = %500, %.loopexit175, %.loopexit, %406, %393, %ecpg_is_type_an_array.exit.thread
@@ -4393,17 +4393,17 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   br label %91
 
 91:                                               ; preds = %.lr.ph236, %102
-  %.0165235 = phi ptr [ %10, %.lr.ph236 ], [ %.1166, %102 ]
-  %.2170234 = phi i8 [ 1, %.lr.ph236 ], [ %.3, %102 ]
+  %.1166235 = phi ptr [ %10, %.lr.ph236 ], [ %.2167, %102 ]
+  %.4234 = phi i8 [ 1, %.lr.ph236 ], [ %.5, %102 ]
   %.0171233 = phi i32 [ 0, %.lr.ph236 ], [ %103, %102 ]
-  %.not186 = icmp eq ptr %.0165235, null
+  %.not186 = icmp eq ptr %.1166235, null
   br i1 %.not186, label %98, label %92
 
 92:                                               ; preds = %91
   %93 = load ptr, ptr %11, align 8
-  %94 = tail call zeroext i1 @ecpg_store_result(ptr noundef %93, i32 noundef %.0171233, ptr noundef nonnull %0, ptr noundef nonnull %.0165235)
+  %94 = tail call zeroext i1 @ecpg_store_result(ptr noundef %93, i32 noundef %.0171233, ptr noundef nonnull %0, ptr noundef nonnull %.1166235)
   %95 = zext i1 %94 to i8
-  %96 = getelementptr inbounds i8, ptr %.0165235, i64 96
+  %96 = getelementptr inbounds i8, ptr %.1166235, i64 96
   %97 = load ptr, ptr %96, align 8
   br label %102
 
@@ -4419,34 +4419,34 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   br label %207
 
 102:                                              ; preds = %98, %92
-  %.3 = phi i8 [ %95, %92 ], [ %.2170234, %98 ]
-  %.1166 = phi ptr [ %97, %92 ], [ null, %98 ]
+  %.5 = phi i8 [ %95, %92 ], [ %.4234, %98 ]
+  %.2167 = phi ptr [ %97, %92 ], [ null, %98 ]
   %103 = add nuw nsw i32 %.0171233, 1
   %104 = icmp slt i32 %103, %16
-  %105 = trunc nuw i8 %.3 to i1
+  %105 = trunc nuw i8 %.5 to i1
   %106 = select i1 %104, i1 %105, i1 false
   br i1 %106, label %91, label %.loopexit, !llvm.loop !37
 
 .loopexit.sink.split:                             ; preds = %78, %59, %.loopexit197.sink.split, %37, %31
-  %.4.ph = phi i8 [ 1, %37 ], [ 0, %31 ], [ 0, %.loopexit197.sink.split ], [ 1, %59 ], [ 1, %78 ]
-  %.1159.ph = phi i1 [ false, %37 ], [ %1, %31 ], [ %1, %.loopexit197.sink.split ], [ %1, %59 ], [ %1, %78 ]
+  %.2170.ph = phi i8 [ 1, %37 ], [ 0, %31 ], [ 0, %.loopexit197.sink.split ], [ 1, %59 ], [ 1, %78 ]
+  %.2160.ph = phi i1 [ false, %37 ], [ %1, %31 ], [ %1, %.loopexit197.sink.split ], [ %1, %59 ], [ %1, %78 ]
   %107 = getelementptr inbounds i8, ptr %10, i64 96
   %108 = load ptr, ptr %107, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %102, %.loopexit.sink.split, %.critedge
-  %.4 = phi i8 [ 1, %.critedge ], [ %.4.ph, %.loopexit.sink.split ], [ %.3, %102 ]
-  %.2167 = phi ptr [ %10, %.critedge ], [ %108, %.loopexit.sink.split ], [ %.1166, %102 ]
-  %.1159 = phi i1 [ %1, %.critedge ], [ %.1159.ph, %.loopexit.sink.split ], [ %1, %102 ]
-  %109 = trunc nuw i8 %.4 to i1
-  %110 = icmp ne ptr %.2167, null
+  %.2170 = phi i8 [ 1, %.critedge ], [ %.2170.ph, %.loopexit.sink.split ], [ %.5, %102 ]
+  %.0165 = phi ptr [ %10, %.critedge ], [ %108, %.loopexit.sink.split ], [ %.2167, %102 ]
+  %.2160 = phi i1 [ %1, %.critedge ], [ %.2160.ph, %.loopexit.sink.split ], [ %1, %102 ]
+  %109 = trunc nuw i8 %.2170 to i1
+  %110 = icmp ne ptr %.0165, null
   %or.cond = select i1 %109, i1 %110, i1 false
   br i1 %or.cond, label %111, label %180
 
 111:                                              ; preds = %.loopexit
   %112 = load i32, ptr %0, align 8
   tail call void @ecpg_raise(i32 noundef %112, i32 noundef -201, ptr noundef nonnull @.str.45, ptr noundef null) #14
-  br i1 %.1159, label %181, label %183
+  br i1 %.2160, label %181, label %183
 
 113:                                              ; preds = %8
   %114 = load ptr, ptr %11, align 8
@@ -4559,19 +4559,19 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   br i1 %1, label %181, label %183
 
 180:                                              ; preds = %._crit_edge, %113, %127, %135, %.loopexit
-  %.5 = phi i8 [ 0, %._crit_edge ], [ 1, %127 ], [ 1, %135 ], [ 1, %113 ], [ %.4, %.loopexit ]
-  %.2160 = phi i1 [ %1, %._crit_edge ], [ %1, %127 ], [ %1, %135 ], [ %1, %113 ], [ %.1159, %.loopexit ]
-  br i1 %.2160, label %181, label %183
+  %.0168 = phi i8 [ 0, %._crit_edge ], [ 1, %127 ], [ 1, %135 ], [ 1, %113 ], [ %.2170, %.loopexit ]
+  %.0158 = phi i1 [ %1, %._crit_edge ], [ %1, %127 ], [ %1, %135 ], [ %1, %113 ], [ %.2160, %.loopexit ]
+  br i1 %.0158, label %181, label %183
 
 181:                                              ; preds = %111, %26, %138, %167, %166, %170, %180
-  %.5248 = phi i8 [ 0, %170 ], [ %.5, %180 ], [ 0, %166 ], [ 0, %167 ], [ 1, %138 ], [ 0, %26 ], [ 0, %111 ]
+  %.0168248 = phi i8 [ 0, %170 ], [ %.0168, %180 ], [ 0, %166 ], [ 0, %167 ], [ 1, %138 ], [ 0, %26 ], [ 0, %111 ]
   %182 = load ptr, ptr %11, align 8
   call void @PQclear(ptr noundef %182) #14
   store ptr null, ptr %11, align 8
   br label %183
 
 183:                                              ; preds = %111, %26, %138, %167, %166, %170, %181, %180
-  %.5247 = phi i8 [ 0, %170 ], [ %.5248, %181 ], [ %.5, %180 ], [ 0, %166 ], [ 0, %167 ], [ 1, %138 ], [ 0, %26 ], [ 0, %111 ]
+  %.0168247 = phi i8 [ 0, %170 ], [ %.0168248, %181 ], [ %.0168, %180 ], [ 0, %166 ], [ 0, %167 ], [ 1, %138 ], [ 0, %26 ], [ 0, %111 ]
   %184 = getelementptr inbounds i8, ptr %0, i64 24
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 8
@@ -4604,7 +4604,7 @@ define zeroext i1 @ecpg_process_output(ptr noundef %0, i1 noundef zeroext %1) lo
   br i1 %.not194, label %._crit_edge242, label %.lr.ph241, !llvm.loop !39
 
 ._crit_edge242:                                   ; preds = %.lr.ph241, %183
-  %206 = trunc nuw i8 %.5247 to i1
+  %206 = trunc nuw i8 %.0168247 to i1
   br label %207
 
 207:                                              ; preds = %._crit_edge242, %100, %6

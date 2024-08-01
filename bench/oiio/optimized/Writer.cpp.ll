@@ -1178,7 +1178,7 @@ for.body.lr.ph:                                   ; preds = %cond.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %fileOffset.047 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc ]
+  %fileOffset.047 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.2, %for.inc ]
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %1 = trunc nuw i64 %indvars.iv to i32
   %mul12 = mul i32 %mul, %1
@@ -1267,20 +1267,20 @@ if.then49:                                        ; preds = %if.end47
   br i1 %cmp.i36, label %for.inc, label %delete.notnull.sink.split
 
 for.inc:                                          ; preds = %if.end47, %if.then49
-  %fileOffset.1 = phi i32 [ %add50.reass, %if.then49 ], [ %add28, %if.end47 ]
+  %fileOffset.2 = phi i32 [ %add50.reass, %if.then49 ], [ %add28, %if.end47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %delete.notnull, label %for.body, !llvm.loop !13
 
 delete.notnull.sink.split:                        ; preds = %if.then49, %if.end23
-  %fileOffset.2.ph = phi i32 [ %add28, %if.end23 ], [ %add50.reass, %if.then49 ]
+  %fileOffset.1.ph = phi i32 [ %add28, %if.end23 ], [ %add50.reass, %if.then49 ]
   store i8 0, ptr %status, align 1
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.inc, %delete.notnull.sink.split, %cond.end
-  %fileOffset.2 = phi i32 [ 0, %cond.end ], [ %fileOffset.2.ph, %delete.notnull.sink.split ], [ %0, %for.inc ]
+  %fileOffset.1 = phi i32 [ 0, %cond.end ], [ %fileOffset.1.ph, %delete.notnull.sink.split ], [ %0, %for.inc ]
   tail call void @_ZdaPv(ptr noundef nonnull %call) #18
-  ret i32 %fileOffset.2
+  ret i32 %fileOffset.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1366,14 +1366,14 @@ for.inc:                                          ; preds = %if.end46
   br i1 %exitcond.not, label %delete.notnull, label %for.body, !llvm.loop !14
 
 delete.notnull.sink.split:                        ; preds = %if.end46, %for.body.us, %if.then45.split
-  %fileOffset.2.ph = phi i32 [ %add27.le, %if.then45.split ], [ %add27.us, %for.body.us ], [ %add49.reass, %if.end46 ]
+  %fileOffset.1.ph = phi i32 [ %add27.le, %if.then45.split ], [ %add27.us, %for.body.us ], [ %add49.reass, %if.end46 ]
   store i8 0, ptr %status, align 1
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.inc, %if.end46.us, %delete.notnull.sink.split, %cond.end
-  %fileOffset.2 = phi i32 [ 0, %cond.end ], [ %fileOffset.2.ph, %delete.notnull.sink.split ], [ %2, %if.end46.us ], [ %0, %for.inc ]
+  %fileOffset.1 = phi i32 [ 0, %cond.end ], [ %fileOffset.1.ph, %delete.notnull.sink.split ], [ %2, %if.end46.us ], [ %0, %for.inc ]
   tail call void @_ZdaPv(ptr noundef nonnull %call) #18
-  ret i32 %fileOffset.2
+  ret i32 %fileOffset.1
 }
 
 declare noundef zeroext i1 @_ZNK3dpx6Header9DatumSwapEi(ptr noundef nonnull align 4 dereferenceable(2049), i32 noundef) local_unnamed_addr #1
@@ -1428,7 +1428,7 @@ for.body.lr.ph:                                   ; preds = %cond.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv165 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next166, %for.inc ]
-  %fileOffset.0143 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc ]
+  %fileOffset.0143 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.2, %for.inc ]
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %4 = trunc nuw i64 %indvars.iv165 to i32
   %mul12 = mul i32 %mul, %4
@@ -1761,20 +1761,20 @@ if.then62:                                        ; preds = %if.end60
   br i1 %cmp.i123, label %for.inc, label %delete.notnull.sink.split
 
 for.inc:                                          ; preds = %if.end60, %if.then62
-  %fileOffset.1 = phi i32 [ %add63, %if.then62 ], [ %conv42, %if.end60 ]
+  %fileOffset.2 = phi i32 [ %add63, %if.then62 ], [ %conv42, %if.end60 ]
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count
   br i1 %exitcond.not, label %delete.notnull, label %for.body, !llvm.loop !21
 
 delete.notnull.sink.split:                        ; preds = %if.then62, %if.end51
-  %fileOffset.2.ph = phi i32 [ %conv42, %if.end51 ], [ %add63, %if.then62 ]
+  %fileOffset.1.ph = phi i32 [ %conv42, %if.end51 ], [ %add63, %if.then62 ]
   store i8 0, ptr %status, align 1
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.inc, %delete.notnull.sink.split, %cond.end
-  %fileOffset.2 = phi i32 [ 0, %cond.end ], [ %fileOffset.2.ph, %delete.notnull.sink.split ], [ %fileOffset.1, %for.inc ]
+  %fileOffset.1 = phi i32 [ 0, %cond.end ], [ %fileOffset.1.ph, %delete.notnull.sink.split ], [ %fileOffset.2, %for.inc ]
   tail call void @_ZdaPv(ptr noundef nonnull %call) #18
-  ret i32 %fileOffset.2
+  ret i32 %fileOffset.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1826,7 +1826,7 @@ for.body.lr.ph:                                   ; preds = %cond.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv154 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next155, %for.inc ]
-  %fileOffset.0135 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc ]
+  %fileOffset.0135 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.2, %for.inc ]
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %4 = trunc nuw i64 %indvars.iv154 to i32
   %mul12 = mul i32 %mul, %4
@@ -2101,20 +2101,20 @@ if.then61:                                        ; preds = %if.end59
   br i1 %cmp.i117, label %for.inc, label %delete.notnull.sink.split
 
 for.inc:                                          ; preds = %if.end59, %if.then61
-  %fileOffset.1 = phi i32 [ %add62, %if.then61 ], [ %conv41, %if.end59 ]
+  %fileOffset.2 = phi i32 [ %add62, %if.then61 ], [ %conv41, %if.end59 ]
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count
   br i1 %exitcond.not, label %delete.notnull, label %for.body, !llvm.loop !22
 
 delete.notnull.sink.split:                        ; preds = %if.then61, %if.end50
-  %fileOffset.2.ph = phi i32 [ %conv41, %if.end50 ], [ %add62, %if.then61 ]
+  %fileOffset.1.ph = phi i32 [ %conv41, %if.end50 ], [ %add62, %if.then61 ]
   store i8 0, ptr %status, align 1
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.inc, %delete.notnull.sink.split, %cond.end
-  %fileOffset.2 = phi i32 [ 0, %cond.end ], [ %fileOffset.2.ph, %delete.notnull.sink.split ], [ %fileOffset.1, %for.inc ]
+  %fileOffset.1 = phi i32 [ 0, %cond.end ], [ %fileOffset.1.ph, %delete.notnull.sink.split ], [ %fileOffset.2, %for.inc ]
   tail call void @_ZdaPv(ptr noundef nonnull %call) #18
-  ret i32 %fileOffset.2
+  ret i32 %fileOffset.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2157,7 +2157,7 @@ for.body.lr.ph:                                   ; preds = %cond.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc75
   %indvars.iv82 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next83, %for.inc75 ]
-  %fileOffset.069 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc75 ]
+  %fileOffset.069 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.2, %for.inc75 ]
   %bufaccess.sroa.8.067 = phi i32 [ %mul, %for.body.lr.ph ], [ %bufaccess.sroa.8.1, %for.inc75 ]
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %3 = trunc nuw i64 %indvars.iv82 to i32
@@ -2375,20 +2375,20 @@ if.then68:                                        ; preds = %if.end66
   br i1 %cmp.i51, label %for.inc75, label %delete.notnull.sink.split
 
 for.inc75:                                        ; preds = %if.end66, %if.then68
-  %fileOffset.1 = phi i32 [ %add69, %if.then68 ], [ %conv48, %if.end66 ]
+  %fileOffset.2 = phi i32 [ %add69, %if.then68 ], [ %conv48, %if.end66 ]
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
   br i1 %exitcond86.not, label %delete.notnull, label %for.body, !llvm.loop !25
 
 delete.notnull.sink.split:                        ; preds = %if.then68, %if.end57
-  %fileOffset.2.ph = phi i32 [ %conv48, %if.end57 ], [ %add69, %if.then68 ]
+  %fileOffset.1.ph = phi i32 [ %conv48, %if.end57 ], [ %add69, %if.then68 ]
   store i8 0, ptr %status, align 1
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.inc75, %delete.notnull.sink.split, %cond.end
-  %fileOffset.2 = phi i32 [ 0, %cond.end ], [ %fileOffset.2.ph, %delete.notnull.sink.split ], [ %fileOffset.1, %for.inc75 ]
+  %fileOffset.1 = phi i32 [ 0, %cond.end ], [ %fileOffset.1.ph, %delete.notnull.sink.split ], [ %fileOffset.2, %for.inc75 ]
   tail call void @_ZdaPv(ptr noundef nonnull %call) #18
-  ret i32 %fileOffset.2
+  ret i32 %fileOffset.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2430,7 +2430,7 @@ for.body.lr.ph:                                   ; preds = %cond.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc74
   %indvars.iv70 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next71, %for.inc74 ]
-  %fileOffset.060 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc74 ]
+  %fileOffset.060 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.2, %for.inc74 ]
   %bufaccess.sroa.8.058 = phi i32 [ %mul, %for.body.lr.ph ], [ %bufaccess.sroa.8.1, %for.inc74 ]
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %3 = trunc nuw i64 %indvars.iv70 to i32
@@ -2591,20 +2591,20 @@ if.then67:                                        ; preds = %if.end65
   br i1 %cmp.i45, label %for.inc74, label %delete.notnull.sink.split
 
 for.inc74:                                        ; preds = %if.end65, %if.then67
-  %fileOffset.1 = phi i32 [ %add68, %if.then67 ], [ %conv47, %if.end65 ]
+  %fileOffset.2 = phi i32 [ %add68, %if.then67 ], [ %conv47, %if.end65 ]
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %delete.notnull, label %for.body, !llvm.loop !27
 
 delete.notnull.sink.split:                        ; preds = %if.then67, %if.end56
-  %fileOffset.2.ph = phi i32 [ %conv47, %if.end56 ], [ %add68, %if.then67 ]
+  %fileOffset.1.ph = phi i32 [ %conv47, %if.end56 ], [ %add68, %if.then67 ]
   store i8 0, ptr %status, align 1
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.inc74, %delete.notnull.sink.split, %cond.end
-  %fileOffset.2 = phi i32 [ 0, %cond.end ], [ %fileOffset.2.ph, %delete.notnull.sink.split ], [ %fileOffset.1, %for.inc74 ]
+  %fileOffset.1 = phi i32 [ 0, %cond.end ], [ %fileOffset.1.ph, %delete.notnull.sink.split ], [ %fileOffset.2, %for.inc74 ]
   tail call void @_ZdaPv(ptr noundef nonnull %call) #18
-  ret i32 %fileOffset.2
+  ret i32 %fileOffset.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2647,7 +2647,7 @@ for.body.lr.ph:                                   ; preds = %cond.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %fileOffset.047 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc ]
+  %fileOffset.047 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.2, %for.inc ]
   %call10 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %5 = trunc nuw i64 %indvars.iv to i32
   %mul12 = mul i32 %mul, %5
@@ -2752,20 +2752,20 @@ if.then49:                                        ; preds = %if.end47
   br i1 %cmp.i36, label %for.inc, label %delete.notnull.sink.split
 
 for.inc:                                          ; preds = %if.end47, %if.then49
-  %fileOffset.1 = phi i32 [ %add50.reass, %if.then49 ], [ %conv29, %if.end47 ]
+  %fileOffset.2 = phi i32 [ %add50.reass, %if.then49 ], [ %conv29, %if.end47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %delete.notnull, label %for.body, !llvm.loop !28
 
 delete.notnull.sink.split:                        ; preds = %if.then49, %if.end38
-  %fileOffset.2.ph = phi i32 [ %conv29, %if.end38 ], [ %add50.reass, %if.then49 ]
+  %fileOffset.1.ph = phi i32 [ %conv29, %if.end38 ], [ %add50.reass, %if.then49 ]
   store i8 0, ptr %status, align 1
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.inc, %delete.notnull.sink.split, %cond.end
-  %fileOffset.2 = phi i32 [ 0, %cond.end ], [ %fileOffset.2.ph, %delete.notnull.sink.split ], [ %4, %for.inc ]
+  %fileOffset.1 = phi i32 [ 0, %cond.end ], [ %fileOffset.1.ph, %delete.notnull.sink.split ], [ %4, %for.inc ]
   tail call void @_ZdaPv(ptr noundef nonnull %call) #18
-  ret i32 %fileOffset.2
+  ret i32 %fileOffset.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2950,14 +2950,14 @@ for.inc:                                          ; preds = %if.end46
   br i1 %exitcond.not, label %delete.notnull, label %for.body, !llvm.loop !29
 
 delete.notnull.sink.split:                        ; preds = %if.end46, %for.body.us42, %if.end46.us, %if.end37.loopexit.us.us, %if.then45.split.us.split, %if.then45.split.split
-  %fileOffset.2.ph = phi i32 [ %conv28.us.le, %if.then45.split.us.split ], [ %conv28.le, %if.then45.split.split ], [ %conv28.us.us, %if.end37.loopexit.us.us ], [ %add49.reass.us, %if.end46.us ], [ %conv28.us46, %for.body.us42 ], [ %add49.reass, %if.end46 ]
+  %fileOffset.1.ph = phi i32 [ %conv28.us.le, %if.then45.split.us.split ], [ %conv28.le, %if.then45.split.split ], [ %conv28.us.us, %if.end37.loopexit.us.us ], [ %add49.reass.us, %if.end46.us ], [ %conv28.us46, %for.body.us42 ], [ %add49.reass, %if.end46 ]
   store i8 0, ptr %status, align 1
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.inc, %if.end46.us51, %for.inc.us, %if.end46.us.us, %delete.notnull.sink.split, %cond.end
-  %fileOffset.2 = phi i32 [ 0, %cond.end ], [ %fileOffset.2.ph, %delete.notnull.sink.split ], [ %6, %if.end46.us.us ], [ %3, %for.inc.us ], [ %17, %if.end46.us51 ], [ %14, %for.inc ]
+  %fileOffset.1 = phi i32 [ 0, %cond.end ], [ %fileOffset.1.ph, %delete.notnull.sink.split ], [ %6, %if.end46.us.us ], [ %3, %for.inc.us ], [ %17, %if.end46.us51 ], [ %14, %for.inc ]
   tail call void @_ZdaPv(ptr noundef nonnull %call) #18
-  ret i32 %fileOffset.2
+  ret i32 %fileOffset.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3167,14 +3167,14 @@ for.inc:                                          ; preds = %if.end39
   br i1 %exitcond.not, label %delete.notnull, label %for.body, !llvm.loop !30
 
 delete.notnull.sink.split:                        ; preds = %if.end39, %for.body.us41, %if.end39.us, %if.end30.loopexit.us.us, %if.then38.split.us.split, %if.then38.split.split
-  %fileOffset.2.ph = phi i32 [ %conv21.us.le, %if.then38.split.us.split ], [ %conv21.le, %if.then38.split.split ], [ %conv21.us.us, %if.end30.loopexit.us.us ], [ %add42.reass.us, %if.end39.us ], [ %conv21.us45, %for.body.us41 ], [ %add42.reass, %if.end39 ]
+  %fileOffset.1.ph = phi i32 [ %conv21.us.le, %if.then38.split.us.split ], [ %conv21.le, %if.then38.split.split ], [ %conv21.us.us, %if.end30.loopexit.us.us ], [ %add42.reass.us, %if.end39.us ], [ %conv21.us45, %for.body.us41 ], [ %add42.reass, %if.end39 ]
   store i8 0, ptr %status, align 1
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.inc, %if.end39.us50, %for.inc.us, %if.end39.us.us, %delete.notnull.sink.split, %cond.end
-  %fileOffset.2 = phi i32 [ 0, %cond.end ], [ %fileOffset.2.ph, %delete.notnull.sink.split ], [ %6, %if.end39.us.us ], [ %3, %for.inc.us ], [ %17, %if.end39.us50 ], [ %14, %for.inc ]
+  %fileOffset.1 = phi i32 [ 0, %cond.end ], [ %fileOffset.1.ph, %delete.notnull.sink.split ], [ %6, %if.end39.us.us ], [ %3, %for.inc.us ], [ %17, %if.end39.us50 ], [ %14, %for.inc ]
   tail call void @_ZdaPv(ptr noundef nonnull %call) #18
-  ret i32 %fileOffset.2
+  ret i32 %fileOffset.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3216,7 +3216,7 @@ for.body.lr.ph:                                   ; preds = %cond.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %fileOffset.046 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc ]
+  %fileOffset.046 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.2, %for.inc ]
   %call5 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %5 = trunc nuw i64 %indvars.iv to i32
   %mul7 = mul i32 %mul, %5
@@ -3332,20 +3332,20 @@ if.then42:                                        ; preds = %if.end40
   br i1 %cmp.i35, label %for.inc, label %delete.notnull.sink.split
 
 for.inc:                                          ; preds = %if.end40, %if.then42
-  %fileOffset.1 = phi i32 [ %add43.reass, %if.then42 ], [ %conv22, %if.end40 ]
+  %fileOffset.2 = phi i32 [ %add43.reass, %if.then42 ], [ %conv22, %if.end40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %delete.notnull, label %for.body, !llvm.loop !34
 
 delete.notnull.sink.split:                        ; preds = %if.then42, %if.end31
-  %fileOffset.2.ph = phi i32 [ %conv22, %if.end31 ], [ %add43.reass, %if.then42 ]
+  %fileOffset.1.ph = phi i32 [ %conv22, %if.end31 ], [ %add43.reass, %if.then42 ]
   store i8 0, ptr %status, align 1
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.inc, %delete.notnull.sink.split, %cond.end
-  %fileOffset.2 = phi i32 [ 0, %cond.end ], [ %fileOffset.2.ph, %delete.notnull.sink.split ], [ %4, %for.inc ]
+  %fileOffset.1 = phi i32 [ 0, %cond.end ], [ %fileOffset.1.ph, %delete.notnull.sink.split ], [ %4, %for.inc ]
   tail call void @_ZdaPv(ptr noundef nonnull %call) #18
-  ret i32 %fileOffset.2
+  ret i32 %fileOffset.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3557,14 +3557,14 @@ for.inc:                                          ; preds = %if.end39
   br i1 %exitcond.not, label %delete.notnull, label %for.body, !llvm.loop !35
 
 delete.notnull.sink.split:                        ; preds = %if.end39, %for.body.us41, %if.end39.us, %if.end30.loopexit.us.us, %if.then38.split.us.split, %if.then38.split.split
-  %fileOffset.2.ph = phi i32 [ %conv21.us.le, %if.then38.split.us.split ], [ %conv21.le, %if.then38.split.split ], [ %conv21.us.us, %if.end30.loopexit.us.us ], [ %add42.reass.us, %if.end39.us ], [ %conv21.us45, %for.body.us41 ], [ %add42.reass, %if.end39 ]
+  %fileOffset.1.ph = phi i32 [ %conv21.us.le, %if.then38.split.us.split ], [ %conv21.le, %if.then38.split.split ], [ %conv21.us.us, %if.end30.loopexit.us.us ], [ %add42.reass.us, %if.end39.us ], [ %conv21.us45, %for.body.us41 ], [ %add42.reass, %if.end39 ]
   store i8 0, ptr %status, align 1
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.inc, %if.end39.us50, %for.inc.us, %if.end39.us.us, %delete.notnull.sink.split, %cond.end
-  %fileOffset.2 = phi i32 [ 0, %cond.end ], [ %fileOffset.2.ph, %delete.notnull.sink.split ], [ %6, %if.end39.us.us ], [ %3, %for.inc.us ], [ %17, %if.end39.us50 ], [ %14, %for.inc ]
+  %fileOffset.1 = phi i32 [ 0, %cond.end ], [ %fileOffset.1.ph, %delete.notnull.sink.split ], [ %6, %if.end39.us.us ], [ %3, %for.inc.us ], [ %17, %if.end39.us50 ], [ %14, %for.inc ]
   tail call void @_ZdaPv(ptr noundef nonnull %call) #18
-  ret i32 %fileOffset.2
+  ret i32 %fileOffset.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3608,7 +3608,7 @@ for.body.lr.ph:                                   ; preds = %cond.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %fileOffset.046 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.1, %for.inc ]
+  %fileOffset.046 = phi i32 [ 0, %for.body.lr.ph ], [ %fileOffset.2, %for.inc ]
   %call5 = tail call noundef i32 @_ZN3dpx13GenericHeader17DataSizeByteCountENS_8DataSizeE(i32 noundef %src_size)
   %5 = trunc nuw i64 %indvars.iv to i32
   %mul7 = mul i32 %mul, %5
@@ -3724,20 +3724,20 @@ if.then42:                                        ; preds = %if.end40
   br i1 %cmp.i35, label %for.inc, label %delete.notnull.sink.split
 
 for.inc:                                          ; preds = %if.end40, %if.then42
-  %fileOffset.1 = phi i32 [ %add43.reass, %if.then42 ], [ %conv22, %if.end40 ]
+  %fileOffset.2 = phi i32 [ %add43.reass, %if.then42 ], [ %conv22, %if.end40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %delete.notnull, label %for.body, !llvm.loop !39
 
 delete.notnull.sink.split:                        ; preds = %if.then42, %if.end31
-  %fileOffset.2.ph = phi i32 [ %conv22, %if.end31 ], [ %add43.reass, %if.then42 ]
+  %fileOffset.1.ph = phi i32 [ %conv22, %if.end31 ], [ %add43.reass, %if.then42 ]
   store i8 0, ptr %status, align 1
   br label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.inc, %delete.notnull.sink.split, %cond.end
-  %fileOffset.2 = phi i32 [ 0, %cond.end ], [ %fileOffset.2.ph, %delete.notnull.sink.split ], [ %4, %for.inc ]
+  %fileOffset.1 = phi i32 [ 0, %cond.end ], [ %fileOffset.1.ph, %delete.notnull.sink.split ], [ %4, %for.inc ]
   tail call void @_ZdaPv(ptr noundef nonnull %call) #18
-  ret i32 %fileOffset.2
+  ret i32 %fileOffset.1
 }
 
 ; Function Attrs: mustprogress uwtable

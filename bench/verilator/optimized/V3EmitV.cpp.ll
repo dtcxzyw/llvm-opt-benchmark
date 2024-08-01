@@ -14199,16 +14199,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br i1 %.not130, label %._crit_edge, label %.lr.ph
 
 .preheader:                                       ; preds = %101, %.thread
-  %.sroa.6.0.lcssa = phi ptr [ %.sroa.6.0132, %.thread ], [ %.sroa.6.1, %101 ]
-  %.sroa.095.0.lcssa = phi ptr [ %.sroa.095.0133, %.thread ], [ %.sroa.095.1, %101 ]
+  %.sroa.6.0.lcssa = phi ptr [ %.sroa.6.0132, %.thread ], [ %.sroa.6.2, %101 ]
+  %.sroa.095.0.lcssa = phi ptr [ %.sroa.095.0133, %.thread ], [ %.sroa.095.2, %101 ]
   %.not104136 = icmp eq ptr %.sroa.095.0.lcssa, %.sroa.6.0.lcssa
   br i1 %.not104136, label %._crit_edge, label %.lr.ph138
 
 .lr.ph:                                           ; preds = %42, %101
   %.023134 = phi ptr [ %106, %101 ], [ %44, %42 ]
-  %.sroa.095.0133 = phi ptr [ %.sroa.095.1, %101 ], [ null, %42 ]
-  %.sroa.6.0132 = phi ptr [ %.sroa.6.1, %101 ], [ null, %42 ]
-  %.sroa.11.0131 = phi ptr [ %.sroa.11.1, %101 ], [ null, %42 ]
+  %.sroa.095.0133 = phi ptr [ %.sroa.095.2, %101 ], [ null, %42 ]
+  %.sroa.6.0132 = phi ptr [ %.sroa.6.2, %101 ], [ null, %42 ]
+  %.sroa.11.0131 = phi ptr [ %.sroa.11.2, %101 ], [ null, %42 ]
   %45 = load ptr, ptr %.023134, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 328
   %47 = load ptr, ptr %46, align 8
@@ -14395,10 +14395,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit50: ; 
   br label %.body52
 
 101:                                              ; preds = %53, %_ZNSt6vectorIPK19AstUnpackArrayDTypeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %.sroa.11.1 = phi ptr [ %74, %_ZNSt6vectorIPK19AstUnpackArrayDTypeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.11.0131, %53 ]
+  %.sroa.11.2 = phi ptr [ %74, %_ZNSt6vectorIPK19AstUnpackArrayDTypeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.11.0131, %53 ]
   %.pn103 = phi ptr [ %72, %_ZNSt6vectorIPK19AstUnpackArrayDTypeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.6.0132, %53 ]
-  %.sroa.095.1 = phi ptr [ %68, %_ZNSt6vectorIPK19AstUnpackArrayDTypeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.095.0133, %53 ]
-  %.sroa.6.1 = getelementptr inbounds i8, ptr %.pn103, i64 8
+  %.sroa.095.2 = phi ptr [ %68, %_ZNSt6vectorIPK19AstUnpackArrayDTypeSaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.095.0133, %53 ]
+  %.sroa.6.2 = getelementptr inbounds i8, ptr %.pn103, i64 8
   %102 = getelementptr inbounds i8, ptr %48, i64 168
   %103 = load ptr, ptr %102, align 8
   %.not.i44 = icmp eq ptr %103, null

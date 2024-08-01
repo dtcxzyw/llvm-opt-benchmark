@@ -1784,26 +1784,26 @@ define internal void @_GLOBAL__sub_I_radius_matching.cpp() #14 section ".text.st
   br label %20
 
 20:                                               ; preds = %18, %16
-  %.08.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 128), %18 ], [ getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 96), %16 ]
+  %.311.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 128), %18 ], [ getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 96), %16 ]
   %.pn.i = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   br label %21
 
 21:                                               ; preds = %20, %14
-  %.19.i = phi ptr [ %.08.i, %20 ], [ getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 64), %14 ]
+  %.210.i = phi ptr [ %.311.i, %20 ], [ getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 64), %14 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %20 ], [ %15, %14 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
   br label %22
 
 22:                                               ; preds = %21, %12
-  %.210.i = phi ptr [ %.19.i, %21 ], [ getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 32), %12 ]
+  %.19.i = phi ptr [ %.210.i, %21 ], [ getelementptr inbounds (i8, ptr @_ZL6imagesB5cxx11, i64 32), %12 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %21 ], [ %13, %12 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #18
   br label %23
 
 23:                                               ; preds = %23, %22
-  %24 = phi ptr [ %25, %23 ], [ %.210.i, %22 ]
+  %24 = phi ptr [ %25, %23 ], [ %.19.i, %22 ]
   %25 = getelementptr inbounds i8, ptr %24, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #18
   %26 = icmp eq ptr %25, @_ZL6imagesB5cxx11

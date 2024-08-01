@@ -224,27 +224,27 @@ define internal { double, double } @_ZL15ortho_s_inverse5PJ_XYP8PJconsts(double 
 45:                                               ; preds = %34, %31
   %.pn = phi double [ %44, %34 ], [ %.0, %31 ]
   %.pn45 = phi double [ %43, %34 ], [ %16, %31 ]
-  %.sroa.4.0 = phi double [ %41, %34 ], [ %33, %31 ]
-  %.sroa.9.0 = fmul double %6, %.pn45
-  %.sroa.0.0 = fmul double %.pn, %0
-  %46 = tail call double @llvm.fabs.f64(double %.sroa.4.0)
+  %.sroa.4.2 = phi double [ %41, %34 ], [ %33, %31 ]
+  %.sroa.9.1 = fmul double %6, %.pn45
+  %.sroa.0.1 = fmul double %.pn, %0
+  %46 = tail call double @llvm.fabs.f64(double %.sroa.4.2)
   %47 = fcmp ult double %46, 1.000000e+00
   br i1 %47, label %51, label %48
 
 48:                                               ; preds = %45
-  %49 = fcmp olt double %.sroa.4.0, 0.000000e+00
+  %49 = fcmp olt double %.sroa.4.2, 0.000000e+00
   %50 = select i1 %49, double 0xBFF921FB54442D18, double 0x3FF921FB54442D18
   br label %53
 
 51:                                               ; preds = %45
-  %52 = tail call double @asin(double noundef %.sroa.4.0) #8
+  %52 = tail call double @asin(double noundef %.sroa.4.2) #8
   br label %53
 
 53:                                               ; preds = %48, %51, %28, %25, %22
-  %.sroa.0.1 = phi double [ %0, %22 ], [ %.sroa.0.0, %48 ], [ %.sroa.0.0, %51 ], [ %0, %28 ], [ %0, %25 ]
-  %.sroa.9.1 = phi double [ %1, %22 ], [ %.sroa.9.0, %48 ], [ %.sroa.9.0, %51 ], [ %1, %28 ], [ %26, %25 ]
+  %.sroa.0.0 = phi double [ %0, %22 ], [ %.sroa.0.1, %48 ], [ %.sroa.0.1, %51 ], [ %0, %28 ], [ %0, %25 ]
+  %.sroa.9.0 = phi double [ %1, %22 ], [ %.sroa.9.1, %48 ], [ %.sroa.9.1, %51 ], [ %1, %28 ], [ %26, %25 ]
   %.sroa.4.1 = phi double [ 0x7FF0000000000000, %22 ], [ %50, %48 ], [ %52, %51 ], [ %30, %28 ], [ %27, %25 ]
-  %54 = fcmp oeq double %.sroa.9.1, 0.000000e+00
+  %54 = fcmp oeq double %.sroa.9.0, 0.000000e+00
   br i1 %54, label %55, label %63
 
 55:                                               ; preds = %53
@@ -254,23 +254,23 @@ define internal { double, double } @_ZL15ortho_s_inverse5PJ_XYP8PJconsts(double 
   br i1 %switch, label %58, label %63
 
 58:                                               ; preds = %55
-  %59 = fcmp oeq double %.sroa.0.1, 0.000000e+00
+  %59 = fcmp oeq double %.sroa.0.0, 0.000000e+00
   br i1 %59, label %65, label %60
 
 60:                                               ; preds = %58
-  %61 = fcmp olt double %.sroa.0.1, 0.000000e+00
+  %61 = fcmp olt double %.sroa.0.0, 0.000000e+00
   %62 = select i1 %61, double 0xBFF921FB54442D18, double 0x3FF921FB54442D18
   br label %65
 
 63:                                               ; preds = %55, %53
-  %64 = tail call double @atan2(double noundef %.sroa.0.1, double noundef %.sroa.9.1) #8
+  %64 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.9.0) #8
   br label %65
 
 65:                                               ; preds = %63, %58, %60, %19, %11
   %.sroa.039.0 = phi double [ 0x7FF0000000000000, %11 ], [ 0.000000e+00, %19 ], [ %64, %63 ], [ %62, %60 ], [ 0.000000e+00, %58 ]
-  %.sroa.4.2 = phi double [ 0x7FF0000000000000, %11 ], [ %21, %19 ], [ %.sroa.4.1, %63 ], [ %.sroa.4.1, %60 ], [ %.sroa.4.1, %58 ]
+  %.sroa.4.0 = phi double [ 0x7FF0000000000000, %11 ], [ %21, %19 ], [ %.sroa.4.1, %63 ], [ %.sroa.4.1, %60 ], [ %.sroa.4.1, %58 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.039.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.2, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
 }
 
@@ -423,7 +423,7 @@ define internal { double, double } @_ZL15ortho_e_inverse5PJ_XYP8PJconsts(double 
 
 34:                                               ; preds = %13, %18
   %35 = phi i32 [ %29, %18 ], [ %7, %13 ]
-  %.sroa.17.0 = phi double [ %33, %18 ], [ 0.000000e+00, %13 ]
+  %.sroa.17.1 = phi double [ %33, %18 ], [ 0.000000e+00, %13 ]
   %36 = icmp eq i32 %35, 0
   %37 = select i1 %36, i32 -1, i32 1
   %38 = sitofp i32 %37 to double
@@ -529,13 +529,13 @@ define internal { double, double } @_ZL15ortho_e_inverse5PJ_XYP8PJconsts(double 
   br i1 %exitcond.not, label %195, label %112, !llvm.loop !4
 
 112:                                              ; preds = %103, %110
-  %.sroa.17.1131 = phi double [ %106, %103 ], [ %.sroa.17.2, %110 ]
-  %.sroa.0109.0130 = phi double [ %105, %103 ], [ %190, %110 ]
+  %.sroa.17.2131 = phi double [ %106, %103 ], [ %.sroa.17.3, %110 ]
+  %.sroa.0109.1130 = phi double [ %105, %103 ], [ %190, %110 ]
   %.0129 = phi i32 [ 0, %103 ], [ %111, %110 ]
-  %113 = tail call double @cos(double noundef %.sroa.17.1131) #8
-  %114 = tail call double @sin(double noundef %.sroa.17.1131) #8
-  %115 = tail call double @cos(double noundef %.sroa.0109.0130) #8
-  %116 = tail call double @sin(double noundef %.sroa.0109.0130) #8
+  %113 = tail call double @cos(double noundef %.sroa.17.2131) #8
+  %114 = tail call double @sin(double noundef %.sroa.17.2131) #8
+  %115 = tail call double @cos(double noundef %.sroa.0109.1130) #8
+  %116 = tail call double @sin(double noundef %.sroa.0109.1130) #8
   %117 = load double, ptr %107, align 8
   %118 = fneg double %117
   %119 = fmul double %114, %118
@@ -595,7 +595,7 @@ define internal { double, double } @_ZL15ortho_e_inverse5PJ_XYP8PJconsts(double 
   %173 = shufflevector <2 x double> %172, <2 x double> poison, <2 x i32> zeroinitializer
   %174 = fdiv <2 x double> %171, %173
   %175 = extractelement <2 x double> %174, i64 1
-  %176 = fadd double %.sroa.17.1131, %175
+  %176 = fadd double %.sroa.17.2131, %175
   %177 = fcmp ogt double %176, 0x3FF921FB54442D18
   br i1 %177, label %178, label %181
 
@@ -614,16 +614,16 @@ define internal { double, double } @_ZL15ortho_e_inverse5PJ_XYP8PJconsts(double 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %178, %183
-  %.sroa.17.2.ph = phi double [ %185, %183 ], [ %180, %178 ]
-  %186 = fadd double %.sroa.0109.0130, 0x400921FB54442D18
+  %.sroa.17.3.ph = phi double [ %185, %183 ], [ %180, %178 ]
+  %186 = fadd double %.sroa.0109.1130, 0x400921FB54442D18
   %187 = tail call noundef double @_Z6adjlond(double noundef %186)
   br label %188
 
 188:                                              ; preds = %.sink.split, %181
-  %.sroa.0109.1 = phi double [ %.sroa.0109.0130, %181 ], [ %187, %.sink.split ]
-  %.sroa.17.2 = phi double [ %176, %181 ], [ %.sroa.17.2.ph, %.sink.split ]
+  %.sroa.0109.2 = phi double [ %.sroa.0109.1130, %181 ], [ %187, %.sink.split ]
+  %.sroa.17.3 = phi double [ %176, %181 ], [ %.sroa.17.3.ph, %.sink.split ]
   %189 = extractelement <2 x double> %174, i64 0
-  %190 = fadd double %189, %.sroa.0109.1
+  %190 = fadd double %189, %.sroa.0109.2
   %191 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %174)
   %192 = fcmp olt <2 x double> %191, <double 0x3D719799812DEA11, double 0x3D719799812DEA11>
   %193 = extractelement <2 x i1> %192, i64 0
@@ -637,10 +637,10 @@ define internal { double, double } @_ZL15ortho_e_inverse5PJ_XYP8PJconsts(double 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %188, %85, %88, %195, %101, %65, %52, %34, %16
-  %.sroa.0109.2 = phi double [ 0x7FF0000000000000, %16 ], [ %40, %34 ], [ 0x7FF0000000000000, %52 ], [ 0.000000e+00, %65 ], [ %87, %85 ], [ %89, %88 ], [ 0x7FF0000000000000, %101 ], [ %190, %195 ], [ %190, %188 ]
-  %.sroa.17.3 = phi double [ 0x7FF0000000000000, %16 ], [ %.sroa.17.0, %34 ], [ 0x7FF0000000000000, %52 ], [ %67, %65 ], [ %73, %85 ], [ %73, %88 ], [ 0x7FF0000000000000, %101 ], [ %.sroa.17.2, %195 ], [ %.sroa.17.2, %188 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0109.2, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.17.3, 1
+  %.sroa.0109.0 = phi double [ 0x7FF0000000000000, %16 ], [ %40, %34 ], [ 0x7FF0000000000000, %52 ], [ 0.000000e+00, %65 ], [ %87, %85 ], [ %89, %88 ], [ 0x7FF0000000000000, %101 ], [ %190, %195 ], [ %190, %188 ]
+  %.sroa.17.0 = phi double [ 0x7FF0000000000000, %16 ], [ %.sroa.17.1, %34 ], [ 0x7FF0000000000000, %52 ], [ %67, %65 ], [ %73, %85 ], [ %73, %88 ], [ 0x7FF0000000000000, %101 ], [ %.sroa.17.3, %195 ], [ %.sroa.17.3, %188 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0109.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.17.0, 1
   ret { double, double } %.fca.1.insert
 }
 

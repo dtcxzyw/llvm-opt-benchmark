@@ -3103,8 +3103,8 @@ aeron_pos_add_length.exit.i:                      ; preds = %181
   br label %217
 
 217:                                              ; preds = %213, %196, %195, %191, %189, %aeron_stream_rcv_add.exit.i
-  %.sroa.0177.1.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ 0, %213 ], [ %spec.select.i, %196 ], [ %spec.select.i, %189 ], [ %spec.select.i, %195 ], [ %spec.select.i, %191 ]
-  %.sroa.9.1.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ 0, %213 ], [ %spec.select212.i, %196 ], [ %spec.select212.i, %189 ], [ %183, %195 ], [ %spec.select212.i, %191 ]
+  %.sroa.0177.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ 0, %213 ], [ %spec.select.i, %196 ], [ %spec.select.i, %189 ], [ %spec.select.i, %195 ], [ %spec.select.i, %191 ]
+  %.sroa.9.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ 0, %213 ], [ %spec.select212.i, %196 ], [ %spec.select212.i, %189 ], [ %183, %195 ], [ %spec.select212.i, %191 ]
   %.sroa.5.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ %203, %213 ], [ 0, %196 ], [ 0, %189 ], [ 0, %195 ], [ 0, %191 ]
   %.sroa.0169.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ %201, %213 ], [ 0, %196 ], [ 0, %189 ], [ 0, %195 ], [ 0, %191 ]
   %218 = load i32, ptr @aeron_stream_analysis, align 4
@@ -3260,8 +3260,8 @@ thread-pre-split.i:                               ; preds = %293, %290, %aeron_p
   br i1 %.not.i, label %aeron_frame_process_rx.exit.i, label %304
 
 304:                                              ; preds = %303
-  %305 = icmp eq i32 %.sroa.0177.1.i, %.sroa.0174.0.extract.trunc.i
-  %306 = icmp eq i32 %.sroa.9.1.i, %.sroa.3.0.extract.trunc.i
+  %305 = icmp eq i32 %.sroa.0177.0.i, %.sroa.0174.0.extract.trunc.i
+  %306 = icmp eq i32 %.sroa.9.0.i, %.sroa.3.0.extract.trunc.i
   %or.cond.i = select i1 %305, i1 %306, i1 false
   %307 = getelementptr inbounds i8, ptr %2, i64 16
   %308 = load i32, ptr %307, align 8
@@ -3324,19 +3324,19 @@ aeron_pos_add_length.exit148.i:                   ; preds = %332
   %spec.select214.i = select i1 %.not.i146.i, i32 0, i32 %334
   %336 = zext i1 %.not.i146.i to i32
   %spec.select215.i = add i32 %336, %.sroa.0174.0.extract.trunc.i
-  %337 = icmp eq i32 %spec.select215.i, %.sroa.0177.1.i
+  %337 = icmp eq i32 %spec.select215.i, %.sroa.0177.0.i
   br i1 %337, label %338, label %342
 
 338:                                              ; preds = %aeron_pos_add_length.exit148.i
-  %339 = icmp eq i32 %spec.select214.i, %.sroa.9.1.i
+  %339 = icmp eq i32 %spec.select214.i, %.sroa.9.0.i
   br i1 %339, label %aeron_frame_process_rx.exit.i, label %340
 
 340:                                              ; preds = %338
-  %341 = icmp ult i32 %spec.select214.i, %.sroa.9.1.i
+  %341 = icmp ult i32 %spec.select214.i, %.sroa.9.0.i
   br i1 %341, label %select.unfold.i, label %aeron_pos_compare.exit150.i
 
 342:                                              ; preds = %aeron_pos_add_length.exit148.i
-  %343 = icmp ult i32 %spec.select215.i, %.sroa.0177.1.i
+  %343 = icmp ult i32 %spec.select215.i, %.sroa.0177.0.i
   br i1 %343, label %select.unfold.i, label %aeron_pos_compare.exit150.i
 
 aeron_pos_compare.exit150.i:                      ; preds = %342, %340
@@ -3455,7 +3455,7 @@ select.unfold.i:                                  ; preds = %342, %340
   br label %aeron_frame_process_rx.exit.i
 
 aeron_frame_process_rx.exit.i:                    ; preds = %aeron_frame_nak_rx_add.exit.i.i, %select.unfold.i, %aeron_pos_compare.exit150.i, %338, %323, %321, %aeron_pos_compare.exit145.i, %310, %303
-  %.0116.i = phi i32 [ 2, %310 ], [ 0, %select.unfold.i ], [ 0, %303 ], [ 1, %aeron_pos_compare.exit145.i ], [ 1, %321 ], [ 1, %323 ], [ 1, %aeron_pos_compare.exit150.i ], [ 0, %338 ], [ 1, %aeron_frame_nak_rx_add.exit.i.i ]
+  %.1.i = phi i32 [ 2, %310 ], [ 0, %select.unfold.i ], [ 0, %303 ], [ 1, %aeron_pos_compare.exit145.i ], [ 1, %321 ], [ 1, %323 ], [ 1, %aeron_pos_compare.exit150.i ], [ 0, %338 ], [ 1, %aeron_frame_nak_rx_add.exit.i.i ]
   br i1 %.not55, label %402, label %426
 
 402:                                              ; preds = %aeron_frame_process_rx.exit.i
@@ -3505,14 +3505,14 @@ aeron_frame_process_rx.exit.i:                    ; preds = %aeron_frame_nak_rx_
 .sink.split231.i:                                 ; preds = %420, %406
   %.sink236.i = phi ptr [ %407, %406 ], [ %421, %420 ]
   %.sink235.i = phi i32 [ 1024, %406 ], [ 64, %420 ]
-  %.1.ph.i = phi i32 [ %.0116.i, %406 ], [ 0, %420 ]
+  %.0116.ph.i = phi i32 [ %.1.i, %406 ], [ 0, %420 ]
   %424 = load i32, ptr %.sink236.i, align 4
   %425 = or i32 %424, %.sink235.i
   store i32 %425, ptr %.sink236.i, align 4
   br label %426
 
 426:                                              ; preds = %.sink.split231.i, %420, %408, %402, %aeron_frame_process_rx.exit.i, %301, %226
-  %.1.i = phi i32 [ 0, %301 ], [ 0, %420 ], [ 0, %408 ], [ %.0116.i, %402 ], [ %.0116.i, %aeron_frame_process_rx.exit.i ], [ 0, %226 ], [ %.1.ph.i, %.sink.split231.i ]
+  %.0116.i = phi i32 [ 0, %301 ], [ 0, %420 ], [ 0, %408 ], [ %.1.i, %402 ], [ %.1.i, %aeron_frame_process_rx.exit.i ], [ 0, %226 ], [ %.0116.ph.i, %.sink.split231.i ]
   %427 = load i16, ptr %86, align 8
   %switch.i = icmp ult i16 %427, 2
   br i1 %switch.i, label %428, label %509
@@ -3566,12 +3566,12 @@ aeron_term_fragment_add.exit.i:                   ; preds = %441, %434, %428
   %.0.i47 = phi ptr [ %432, %428 ], [ %443, %441 ], [ %439, %434 ]
   %453 = getelementptr inbounds i8, ptr %2, i64 16
   %454 = load i32, ptr %453, align 8
-  %.not.i159.i = icmp eq i32 %.1.i, 0
+  %.not.i159.i = icmp eq i32 %.0116.i, 0
   br i1 %.not.i159.i, label %457, label %455
 
 455:                                              ; preds = %aeron_term_fragment_add.exit.i
   %456 = getelementptr inbounds i8, ptr %3, i64 72
-  store i32 %.1.i, ptr %456, align 8
+  store i32 %.0116.i, ptr %456, align 8
   br label %457
 
 457:                                              ; preds = %455, %aeron_term_fragment_add.exit.i
@@ -3672,12 +3672,12 @@ aeron_term_fragment_add.exit.i:                   ; preds = %441, %434, %428
   br i1 %.not.i.i.i.i.i, label %aeron_frame_stream_analysis_setup.exit, label %aeron_pos_add_length.exit.thread.sink.split.sink.split.i
 
 509:                                              ; preds = %426
-  %.not.i160.i = icmp eq i32 %.1.i, 0
+  %.not.i160.i = icmp eq i32 %.0116.i, 0
   br i1 %.not.i160.i, label %512, label %510
 
 510:                                              ; preds = %509
   %511 = getelementptr inbounds i8, ptr %3, i64 72
-  store i32 %.1.i, ptr %511, align 8
+  store i32 %.0116.i, ptr %511, align 8
   br label %512
 
 512:                                              ; preds = %510, %509
@@ -5150,8 +5150,8 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %35, %62
   %.072 = phi ptr [ %63, %62 ], [ %44, %35 ]
-  %.05371 = phi i32 [ %.2, %62 ], [ 0, %35 ]
-  %.05470 = phi i32 [ %.256, %62 ], [ 0, %35 ]
+  %.05371 = phi i32 [ %.1, %62 ], [ 0, %35 ]
+  %.05470 = phi i32 [ %.155, %62 ], [ 0, %35 ]
   %.05769 = phi i64 [ %.158, %62 ], [ 0, %35 ]
   %.05968 = phi i64 [ %.160, %62 ], [ 0, %35 ]
   %45 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.072) #9
@@ -5171,8 +5171,8 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   br label %54
 
 54:                                               ; preds = %51, %46
-  %.155 = phi i32 [ %53, %51 ], [ %.05470, %46 ]
-  %.1 = phi i32 [ 1, %51 ], [ %.05371, %46 ]
+  %.256 = phi i32 [ %53, %51 ], [ %.05470, %46 ]
+  %.2 = phi i32 [ 1, %51 ], [ %.05371, %46 ]
   %55 = getelementptr i8, ptr %42, i64 %.05968
   %56 = load ptr, ptr %45, align 8
   %57 = getelementptr inbounds i8, ptr %45, i64 16
@@ -5186,8 +5186,8 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
 62:                                               ; preds = %54, %.lr.ph
   %.160 = phi i64 [ %60, %54 ], [ %.05968, %.lr.ph ]
   %.158 = phi i64 [ %61, %54 ], [ %.05769, %.lr.ph ]
-  %.256 = phi i32 [ %.155, %54 ], [ %.05470, %.lr.ph ]
-  %.2 = phi i32 [ %.1, %54 ], [ %.05371, %.lr.ph ]
+  %.155 = phi i32 [ %.256, %54 ], [ %.05470, %.lr.ph ]
+  %.1 = phi i32 [ %.2, %54 ], [ %.05371, %.lr.ph ]
   %63 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.072) #9
   %.not64 = icmp eq ptr %63, null
   br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !14
@@ -5208,7 +5208,7 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   unreachable
 
 70:                                               ; preds = %._crit_edge
-  %71 = icmp eq i32 %.2, 1
+  %71 = icmp eq i32 %.1, 1
   br i1 %71, label %72, label %.thread
 
 .thread:                                          ; preds = %._crit_edge.thread, %70
@@ -5223,7 +5223,7 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   %77 = tail call noalias ptr @wmem_alloc(ptr noundef %76, i64 noundef 8) #9
   store i32 %73, ptr %77, align 4
   %78 = getelementptr i8, ptr %77, i64 4
-  store i32 %.256, ptr %78, align 4
+  store i32 %.155, ptr %78, align 4
   store i32 2, ptr %75, align 8
   %79 = getelementptr inbounds i8, ptr %75, i64 8
   store ptr %77, ptr %79, align 8

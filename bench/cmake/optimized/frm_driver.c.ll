@@ -3101,10 +3101,10 @@ Synchronize_Linked_Fields.exit:                   ; preds = %.lr.ph.i, %116, %.p
   br label %.loopexit123
 
 .loopexit123:                                     ; preds = %25, %64, %.thread, %Synchronize_Linked_Fields.exit, %44, %3, %7
-  %.188.sink = phi i32 [ -2, %7 ], [ -2, %3 ], [ -1, %44 ], [ 0, %.thread ], [ %spec.select102, %Synchronize_Linked_Fields.exit ], [ -2, %64 ], [ -2, %25 ]
+  %.087.sink = phi i32 [ -2, %7 ], [ -2, %3 ], [ -1, %44 ], [ 0, %.thread ], [ %spec.select102, %Synchronize_Linked_Fields.exit ], [ -2, %64 ], [ -2, %25 ]
   %126 = tail call ptr @__errno_location() #14
-  store i32 %.188.sink, ptr %126, align 4
-  ret i32 %.188.sink
+  store i32 %.087.sink, ptr %126, align 4
+  ret i32 %.087.sink
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -4026,21 +4026,21 @@ Sorted_Previous_Field.exit.i:                     ; preds = %9
   br i1 %.not.i, label %Upper_Neighbour_Field.exit, label %8, !llvm.loop !29
 
 .lr.ph.i:                                         ; preds = %Sorted_Previous_Field.exit.i, %Sorted_Previous_Field.exit27.i
-  %.139.i = phi ptr [ %26, %Sorted_Previous_Field.exit27.i ], [ %11, %Sorted_Previous_Field.exit.i ]
-  %22 = getelementptr inbounds i8, ptr %.139.i, i64 8
+  %.239.i = phi ptr [ %26, %Sorted_Previous_Field.exit27.i ], [ %11, %Sorted_Previous_Field.exit.i ]
+  %22 = getelementptr inbounds i8, ptr %.239.i, i64 8
   %23 = load i16, ptr %22, align 8
   %24 = icmp sgt i16 %23, %7
   br i1 %24, label %.preheader.i, label %Upper_Neighbour_Field.exit
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
-  %.0.i24.i = phi ptr [ %26, %.preheader.i ], [ %.139.i, %.lr.ph.i ]
+  %.0.i24.i = phi ptr [ %26, %.preheader.i ], [ %.239.i, %.lr.ph.i ]
   %25 = getelementptr inbounds i8, ptr %.0.i24.i, i64 64
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 48
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 3
   %30 = icmp eq i32 %29, 3
-  %.not.i25.i = icmp eq ptr %26, %.139.i
+  %.not.i25.i = icmp eq ptr %26, %.239.i
   %or.cond.i26.i = or i1 %.not.i25.i, %30
   br i1 %or.cond.i26.i, label %Sorted_Previous_Field.exit27.i, label %.preheader.i, !llvm.loop !26
 
@@ -4063,8 +4063,8 @@ Sorted_Previous_Field.exit27.i:                   ; preds = %.preheader.i
   br i1 %or.cond.i30.i, label %Upper_Neighbour_Field.exit, label %.critedge2.i, !llvm.loop !25
 
 Upper_Neighbour_Field.exit:                       ; preds = %19, %.lr.ph.i, %.critedge2.i
-  %.2.i = phi ptr [ %35, %.critedge2.i ], [ %.139.i, %.lr.ph.i ], [ %11, %19 ]
-  %40 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.2.i)
+  %.1.i = phi ptr [ %35, %.critedge2.i ], [ %.239.i, %.lr.ph.i ], [ %11, %19 ]
+  %40 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.1.i)
   ret i32 %40
 }
 
@@ -4107,21 +4107,21 @@ Sorted_Next_Field.exit.i:                         ; preds = %9
   br i1 %.not.i, label %Down_Neighbour_Field.exit, label %8, !llvm.loop !31
 
 .lr.ph.i:                                         ; preds = %Sorted_Next_Field.exit.i, %Sorted_Next_Field.exit27.i
-  %.139.i = phi ptr [ %26, %Sorted_Next_Field.exit27.i ], [ %11, %Sorted_Next_Field.exit.i ]
-  %22 = getelementptr inbounds i8, ptr %.139.i, i64 8
+  %.239.i = phi ptr [ %26, %Sorted_Next_Field.exit27.i ], [ %11, %Sorted_Next_Field.exit.i ]
+  %22 = getelementptr inbounds i8, ptr %.239.i, i64 8
   %23 = load i16, ptr %22, align 8
   %24 = icmp slt i16 %23, %7
   br i1 %24, label %.preheader.i, label %Down_Neighbour_Field.exit
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
-  %.0.i24.i = phi ptr [ %26, %.preheader.i ], [ %.139.i, %.lr.ph.i ]
+  %.0.i24.i = phi ptr [ %26, %.preheader.i ], [ %.239.i, %.lr.ph.i ]
   %25 = getelementptr inbounds i8, ptr %.0.i24.i, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 48
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 3
   %30 = icmp eq i32 %29, 3
-  %.not.i25.i = icmp eq ptr %26, %.139.i
+  %.not.i25.i = icmp eq ptr %26, %.239.i
   %or.cond.i26.i = or i1 %.not.i25.i, %30
   br i1 %or.cond.i26.i, label %Sorted_Next_Field.exit27.i, label %.preheader.i, !llvm.loop !25
 
@@ -4144,8 +4144,8 @@ Sorted_Next_Field.exit27.i:                       ; preds = %.preheader.i
   br i1 %or.cond.i30.i, label %Down_Neighbour_Field.exit, label %.critedge2.i, !llvm.loop !26
 
 Down_Neighbour_Field.exit:                        ; preds = %19, %.lr.ph.i, %.critedge2.i
-  %.2.i = phi ptr [ %35, %.critedge2.i ], [ %.139.i, %.lr.ph.i ], [ %11, %19 ]
-  %40 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.2.i)
+  %.1.i = phi ptr [ %35, %.critedge2.i ], [ %.239.i, %.lr.ph.i ], [ %11, %19 ]
+  %40 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %.1.i)
   ret i32 %40
 }
 

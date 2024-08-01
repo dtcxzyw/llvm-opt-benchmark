@@ -204,7 +204,7 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
 .outer:                                           ; preds = %152, %.preheader
   %.3.ph = phi i32 [ %.4, %152 ], [ %.0199.lcssa, %.preheader ]
   %.2202.ph = phi i32 [ %108, %152 ], [ 0, %.preheader ]
-  %.0193.ph = phi i32 [ %.1194.lcssa, %152 ], [ %spec.select221, %.preheader ]
+  %.0193.ph = phi i32 [ %.2195.lcssa, %152 ], [ %spec.select221, %.preheader ]
   %.0191.ph = phi i32 [ %spec.select222, %152 ], [ 0, %.preheader ]
   %.0187.ph = phi i32 [ %149, %152 ], [ %70, %.preheader ]
   %.0185.ph = phi i32 [ %.1186, %152 ], [ 0, %.preheader ]
@@ -333,7 +333,7 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
 136:                                              ; preds = %.lr.ph261, %144
   %137 = phi i32 [ %.4, %.lr.ph261 ], [ %.reass267, %144 ]
   %.1190259 = phi i32 [ %134, %.lr.ph261 ], [ %146, %144 ]
-  %.1194258 = phi i32 [ %132, %.lr.ph261 ], [ %145, %144 ]
+  %.2195258 = phi i32 [ %132, %.lr.ph261 ], [ %145, %144 ]
   %138 = zext i32 %137 to i64
   %139 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %138
   %140 = load i16, ptr %139, align 2
@@ -343,15 +343,15 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
   br i1 %143, label %._crit_edge262, label %144
 
 144:                                              ; preds = %136
-  %145 = add i32 %.1194258, 1
+  %145 = add i32 %.2195258, 1
   %146 = shl nuw i32 %142, 1
-  %.reass267 = add i32 %.1194258, %invariant.op266
+  %.reass267 = add i32 %.2195258, %invariant.op266
   %147 = icmp ult i32 %.reass267, %.0198245
   br i1 %147, label %136, label %._crit_edge262, !llvm.loop !13
 
 ._crit_edge262:                                   ; preds = %144, %136, %128
-  %.1194.lcssa = phi i32 [ %132, %128 ], [ %.1194258, %136 ], [ %135, %144 ]
-  %148 = shl nuw i32 1, %.1194.lcssa
+  %.2195.lcssa = phi i32 [ %132, %128 ], [ %.2195258, %136 ], [ %135, %144 ]
+  %148 = shl nuw i32 1, %.2195.lcssa
   %149 = add i32 %148, %.0187.ph
   %150 = icmp ugt i32 %149, 852
   %or.cond7 = select i1 %69, i1 %150, i1 false
@@ -361,7 +361,7 @@ define range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture noundef
   br i1 %or.cond223, label %.loopexit, label %152
 
 152:                                              ; preds = %._crit_edge262
-  %153 = trunc i32 %.1194.lcssa to i8
+  %153 = trunc i32 %.2195.lcssa to i8
   %154 = load ptr, ptr %3, align 8
   %155 = zext i32 %127 to i64
   %156 = getelementptr inbounds %struct.code, ptr %154, i64 %155

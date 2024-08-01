@@ -780,9 +780,9 @@ dissect_etf_versioned_type.exit:                  ; preds = %106, %110
   br label %166
 
 166:                                              ; preds = %161, %156
-  %.070.i = phi i32 [ 18, %156 ], [ %162, %161 ]
+  %.1.i = phi i32 [ 18, %156 ], [ %162, %161 ]
   store i32 %144, ptr %143, align 8
-  %167 = call i32 @tvb_reported_length_remaining(ptr noundef %125, i32 noundef %.070.i) #5
+  %167 = call i32 @tvb_reported_length_remaining(ptr noundef %125, i32 noundef %.1.i) #5
   br label %dissect_etf_pdu.exit
 
 dissect_etf_pdu.exit:                             ; preds = %123, %127, %135, %138, %166
@@ -1105,17 +1105,17 @@ dissect_etf_tuple_content.exit:                   ; preds = %.lr.ph49, %152
   br i1 %.not59, label %._crit_edge, label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %161, %.lr.ph39
-  %.0.i38 = phi i32 [ %166, %.lr.ph39 ], [ %164, %161 ]
+  %.1.i38 = phi i32 [ %166, %.lr.ph39 ], [ %164, %161 ]
   %.0285.i37 = phi i32 [ %167, %.lr.ph39 ], [ 0, %161 ]
-  %166 = call fastcc i32 @dissect_etf_type(ptr noundef null, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i38, ptr noundef %19)
+  %166 = call fastcc i32 @dissect_etf_type(ptr noundef null, ptr noundef %1, ptr noundef %2, i32 noundef %.1.i38, ptr noundef %19)
   %167 = add nuw i32 %.0285.i37, 1
   %168 = load i32, ptr %9, align 4
   %169 = icmp ult i32 %167, %168
   br i1 %169, label %.lr.ph39, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph39, %161
-  %.0.i.lcssa = phi i32 [ %164, %161 ], [ %166, %.lr.ph39 ]
-  %170 = call fastcc i32 @dissect_etf_type(ptr noundef nonnull @.str.228, ptr noundef %1, ptr noundef %2, i32 noundef %.0.i.lcssa, ptr noundef %19)
+  %.1.i.lcssa = phi i32 [ %164, %161 ], [ %166, %.lr.ph39 ]
+  %170 = call fastcc i32 @dissect_etf_type(ptr noundef nonnull @.str.228, ptr noundef %1, ptr noundef %2, i32 noundef %.1.i.lcssa, ptr noundef %19)
   br label %dissect_etf_type_content.exit
 
 171:                                              ; preds = %27
@@ -1142,12 +1142,12 @@ dissect_etf_tuple_content.exit:                   ; preds = %.lr.ph49, %152
   br i1 %.not58, label %dissect_etf_type_content.exit, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %180, %.lr.ph35
-  %.1.i34 = phi i32 [ %192, %.lr.ph35 ], [ %187, %180 ]
+  %.2.i34 = phi i32 [ %192, %.lr.ph35 ], [ %187, %180 ]
   %.1286.i33 = phi i32 [ %193, %.lr.ph35 ], [ 0, %180 ]
-  %189 = call i32 @tvb_get_ntohl(ptr noundef %2, i32 noundef %.1.i34) #5
+  %189 = call i32 @tvb_get_ntohl(ptr noundef %2, i32 noundef %.2.i34) #5
   %190 = load i32, ptr @hf_erldp_new_ref_ext_id, align 4
-  %191 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %190, ptr noundef %2, i32 noundef %.1.i34, i32 noundef 4, i32 noundef %189, ptr noundef nonnull @.str.229, i32 noundef %.1286.i33, i32 noundef %189) #5
-  %192 = add i32 %.1.i34, 4
+  %191 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %190, ptr noundef %2, i32 noundef %.2.i34, i32 noundef 4, i32 noundef %189, ptr noundef nonnull @.str.229, i32 noundef %.1286.i33, i32 noundef %189) #5
+  %192 = add i32 %.2.i34, 4
   %193 = add nuw i32 %.1286.i33, 1
   %194 = load i32, ptr %9, align 4
   %195 = icmp ult i32 %193, %194
@@ -1160,19 +1160,19 @@ dissect_etf_tuple_content.exit:                   ; preds = %.lr.ph49, %152
   %200 = call fastcc i32 @dissect_etf_type(ptr noundef nonnull @.str.227, ptr noundef %1, ptr noundef %2, i32 noundef %199, ptr noundef %19)
   %201 = load i32, ptr @hf_erldp_new_ref_ext_creation, align 4
   %202 = call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %201, ptr noundef %2, i32 noundef %200, i32 noundef 4, i32 noundef 0) #5
-  %.2.i28 = add i32 %200, 4
+  %.3.i28 = add i32 %200, 4
   %203 = load i32, ptr %9, align 4
   %.not57 = icmp eq i32 %203, 0
   br i1 %.not57, label %dissect_etf_type_content.exit, label %.lr.ph31
 
 .lr.ph31:                                         ; preds = %196, %.lr.ph31
-  %.2.i30 = phi i32 [ %.2.i, %.lr.ph31 ], [ %.2.i28, %196 ]
+  %.3.i30 = phi i32 [ %.3.i, %.lr.ph31 ], [ %.3.i28, %196 ]
   %.2287.i29 = phi i32 [ %207, %.lr.ph31 ], [ 0, %196 ]
-  %204 = call i32 @tvb_get_ntohl(ptr noundef %2, i32 noundef %.2.i30) #5
+  %204 = call i32 @tvb_get_ntohl(ptr noundef %2, i32 noundef %.3.i30) #5
   %205 = load i32, ptr @hf_erldp_new_ref_ext_id, align 4
-  %206 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %205, ptr noundef %2, i32 noundef %.2.i30, i32 noundef 4, i32 noundef %204, ptr noundef nonnull @.str.229, i32 noundef %.2287.i29, i32 noundef %204) #5
+  %206 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %205, ptr noundef %2, i32 noundef %.3.i30, i32 noundef 4, i32 noundef %204, ptr noundef nonnull @.str.229, i32 noundef %.2287.i29, i32 noundef %204) #5
   %207 = add nuw i32 %.2287.i29, 1
-  %.2.i = add i32 %.2.i30, 4
+  %.3.i = add i32 %.3.i30, 4
   %208 = load i32, ptr %9, align 4
   %209 = icmp ult i32 %207, %208
   br i1 %209, label %.lr.ph31, label %dissect_etf_type_content.exit, !llvm.loop !8
@@ -1190,11 +1190,11 @@ dissect_etf_tuple_content.exit:                   ; preds = %.lr.ph49, %152
   br i1 %.not56, label %dissect_etf_type_content.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %210, %.lr.ph
-  %.3.i27 = phi i32 [ %221, %.lr.ph ], [ %217, %210 ]
+  %.4.i27 = phi i32 [ %221, %.lr.ph ], [ %217, %210 ]
   %.3288.i26 = phi i32 [ %219, %.lr.ph ], [ 0, %210 ]
   %219 = add nuw i32 %.3288.i26, 1
   %220 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 240, ptr noundef nonnull @.str.233, i32 noundef %219) #5
-  %221 = call fastcc i32 @dissect_etf_type(ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, i32 noundef %.3.i27, ptr noundef %19)
+  %221 = call fastcc i32 @dissect_etf_type(ptr noundef nonnull %12, ptr noundef %1, ptr noundef %2, i32 noundef %.4.i27, ptr noundef %19)
   %222 = load i32, ptr %9, align 4
   %223 = icmp ult i32 %219, %222
   br i1 %223, label %.lr.ph, label %dissect_etf_type_content.exit, !llvm.loop !9
@@ -1224,17 +1224,17 @@ dissect_etf_tuple_content.exit:                   ; preds = %.lr.ph49, %152
   br i1 %.not60, label %dissect_etf_type_content.exit, label %.lr.ph44
 
 .lr.ph44:                                         ; preds = %224, %.lr.ph44
-  %.4.i42 = phi i32 [ %247, %.lr.ph44 ], [ %243, %224 ]
+  %.5.i42 = phi i32 [ %247, %.lr.ph44 ], [ %243, %224 ]
   %.4289.i41 = phi i32 [ %245, %.lr.ph44 ], [ 0, %224 ]
   %245 = add nuw i32 %.4289.i41, 1
   %246 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 240, ptr noundef nonnull @.str.233, i32 noundef %245) #5
-  %247 = call fastcc i32 @dissect_etf_type(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i32 noundef %.4.i42, ptr noundef %19)
+  %247 = call fastcc i32 @dissect_etf_type(ptr noundef nonnull %13, ptr noundef %1, ptr noundef %2, i32 noundef %.5.i42, ptr noundef %19)
   %248 = load i32, ptr %9, align 4
   %249 = icmp ult i32 %245, %248
   br i1 %249, label %.lr.ph44, label %dissect_etf_type_content.exit, !llvm.loop !10
 
 dissect_etf_type_content.exit:                    ; preds = %.lr.ph, %.lr.ph31, %.lr.ph35, %.lr.ph44, %210, %196, %180, %224, %27, %30, %38, %46, %54, %60, %66, %73, %81, %93, %105, %113, %121, %132, %dissect_etf_tuple_content.exit22, %dissect_etf_tuple_content.exit, %._crit_edge, %171
-  %.5.i = phi i32 [ %22, %27 ], [ %179, %171 ], [ %170, %._crit_edge ], [ %.1.i18.lcssa, %dissect_etf_tuple_content.exit ], [ %.1.i20.lcssa, %dissect_etf_tuple_content.exit22 ], [ %142, %132 ], [ %131, %121 ], [ %120, %113 ], [ %112, %105 ], [ %103, %93 ], [ %91, %81 ], [ %80, %73 ], [ %71, %66 ], [ %65, %60 ], [ %59, %54 ], [ %49, %46 ], [ %41, %38 ], [ %33, %30 ], [ %243, %224 ], [ %187, %180 ], [ %.2.i28, %196 ], [ %217, %210 ], [ %247, %.lr.ph44 ], [ %192, %.lr.ph35 ], [ %.2.i, %.lr.ph31 ], [ %221, %.lr.ph ]
+  %.0.i = phi i32 [ %22, %27 ], [ %179, %171 ], [ %170, %._crit_edge ], [ %.1.i18.lcssa, %dissect_etf_tuple_content.exit ], [ %.1.i20.lcssa, %dissect_etf_tuple_content.exit22 ], [ %142, %132 ], [ %131, %121 ], [ %120, %113 ], [ %112, %105 ], [ %103, %93 ], [ %91, %81 ], [ %80, %73 ], [ %71, %66 ], [ %65, %60 ], [ %59, %54 ], [ %49, %46 ], [ %41, %38 ], [ %33, %30 ], [ %243, %224 ], [ %187, %180 ], [ %.3.i28, %196 ], [ %217, %210 ], [ %247, %.lr.ph44 ], [ %192, %.lr.ph35 ], [ %.3.i, %.lr.ph31 ], [ %221, %.lr.ph ]
   call void @decrement_dissection_depth(ptr noundef %1) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -1253,9 +1253,9 @@ dissect_etf_type_content.exit:                    ; preds = %.lr.ph, %.lr.ph31, 
 
 253:                                              ; preds = %251, %dissect_etf_type_content.exit
   %254 = load ptr, ptr %15, align 8
-  %255 = sub i32 %.5.i, %3
+  %255 = sub i32 %.0.i, %3
   call void @proto_item_set_len(ptr noundef %254, i32 noundef %255) #5
-  ret i32 %.5.i
+  ret i32 %.0.i
 }
 
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1518,7 +1518,7 @@ define internal fastcc i32 @dissect_etf_dist_header(ptr nocapture noundef readon
 
 70:                                               ; preds = %.lr.ph96, %101
   %71 = phi i32 [ 0, %.lr.ph96 ], [ %103, %101 ]
-  %.08394 = phi i32 [ %61, %.lr.ph96 ], [ %.2, %101 ]
+  %.08394 = phi i32 [ %61, %.lr.ph96 ], [ %.1, %101 ]
   %.18593 = phi i8 [ 0, %.lr.ph96 ], [ %102, %101 ]
   %72 = lshr i32 %71, 1
   %73 = add i32 %72, %13
@@ -1560,7 +1560,7 @@ define internal fastcc i32 @dissect_etf_dist_header(ptr nocapture noundef readon
   br label %101
 
 101:                                              ; preds = %70, %87
-  %.2 = phi i32 [ %98, %87 ], [ %86, %70 ]
+  %.1 = phi i32 [ %98, %87 ], [ %86, %70 ]
   %102 = add i8 %.18593, 1
   %103 = zext i8 %102 to i32
   %104 = load i32, ptr %5, align 4
@@ -1568,7 +1568,7 @@ define internal fastcc i32 @dissect_etf_dist_header(ptr nocapture noundef readon
   br i1 %105, label %70, label %._crit_edge97, !llvm.loop !13
 
 ._crit_edge97:                                    ; preds = %101, %._crit_edge
-  %.083.lcssa = phi i32 [ %61, %._crit_edge ], [ %.2, %101 ]
+  %.083.lcssa = phi i32 [ %61, %._crit_edge ], [ %.1, %101 ]
   %106 = load ptr, ptr %8, align 8
   %107 = sub i32 %.083.lcssa, %61
   call void @proto_item_set_len(ptr noundef %106, i32 noundef %107) #5

@@ -7018,24 +7018,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit351: ; preds = %_Z
   br i1 %or.cond9, label %.preheader787, label %.critedge3
 
 .preheader787:                                    ; preds = %553, %566
-  %.0239 = phi i32 [ %567, %566 ], [ %555, %553 ]
-  %559 = ashr i32 %.0239, 5
+  %.1240 = phi i32 [ %567, %566 ], [ %555, %553 ]
+  %559 = ashr i32 %.1240, 5
   %560 = sext i32 %559 to i64
   %561 = getelementptr inbounds i32, ptr %.0238, i64 %560
   %562 = load i32, ptr %561, align 4
-  %563 = and i32 %.0239, 31
+  %563 = and i32 %.1240, 31
   %564 = shl nuw i32 1, %563
   %565 = and i32 %564, %562
   %.not275 = icmp eq i32 %565, 0
   br i1 %.not275, label %566, label %.critedge3
 
 566:                                              ; preds = %.preheader787
-  %567 = add nsw i32 %.0239, -1
+  %567 = add nsw i32 %.1240, -1
   %.old8.not = icmp eq i32 %567, 0
   br i1 %.old8.not, label %.critedge3, label %.preheader787
 
 .critedge3:                                       ; preds = %.preheader787, %566, %553
-  %.1240 = phi i32 [ %555, %553 ], [ %.0239, %.preheader787 ], [ 0, %566 ]
+  %.0239 = phi i32 [ %555, %553 ], [ %.1240, %.preheader787 ], [ 0, %566 ]
   switch i8 %114, label %1786 [
     i8 99, label %569
     i8 115, label %585
@@ -7098,11 +7098,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit354: ; preds = %_Z
   %586 = load ptr, ptr %21, align 8
   store i8 0, ptr %586, align 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
-  %587 = icmp sgt i32 %.1240, -1
+  %587 = icmp sgt i32 %.0239, -1
   br i1 %587, label %.lr.ph954, label %._crit_edge
 
 .lr.ph954:                                        ; preds = %585, %608
-  %.2241953 = phi i32 [ %614, %608 ], [ %.1240, %585 ]
+  %.2241953 = phi i32 [ %614, %608 ], [ %.0239, %585 ]
   %588 = lshr i32 %.2241953, 5
   %589 = zext nneg i32 %588 to i64
   %590 = getelementptr inbounds i32, ptr %.0238, i64 %589
@@ -9372,7 +9372,7 @@ _ZL17VL_MOSTSETBITP1_WiPKj.exit:                  ; preds = %.loopexit.i, %1334,
   br label %1353
 
 1353:                                             ; preds = %_ZL17VL_MOSTSETBITP1_WiPKj.exit, %1332
-  %.3242 = phi i32 [ %1352, %_ZL17VL_MOSTSETBITP1_WiPKj.exit ], [ %.1240, %1332 ]
+  %.3242 = phi i32 [ %1352, %_ZL17VL_MOSTSETBITP1_WiPKj.exit ], [ %.0239, %1332 ]
   %.3242.fr = freeze i32 %.3242
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #23
@@ -19716,18 +19716,18 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 
 .lr.ph.i.i:                                       ; preds = %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i, %52
   %.sroa.07.028.i.i = phi ptr [ %.sroa.07.0.i.i, %52 ], [ %.sroa.07.026.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ]
-  %.sroa.013.027.i.i = phi ptr [ %.sroa.013.1.i.i, %52 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ]
+  %.sroa.013.127.i.i = phi ptr [ %.sroa.013.2.i.i, %52 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ]
   %48 = load i8, ptr %.sroa.07.028.i.i, align 1
   %49 = icmp eq i8 %48, 95
   br i1 %49, label %52, label %50
 
 50:                                               ; preds = %.lr.ph.i.i
-  store i8 %48, ptr %.sroa.013.027.i.i, align 1
-  %51 = getelementptr inbounds i8, ptr %.sroa.013.027.i.i, i64 1
+  store i8 %48, ptr %.sroa.013.127.i.i, align 1
+  %51 = getelementptr inbounds i8, ptr %.sroa.013.127.i.i, i64 1
   br label %52
 
 52:                                               ; preds = %50, %.lr.ph.i.i
-  %.sroa.013.1.i.i = phi ptr [ %.sroa.013.027.i.i, %.lr.ph.i.i ], [ %51, %50 ]
+  %.sroa.013.2.i.i = phi ptr [ %.sroa.013.127.i.i, %.lr.ph.i.i ], [ %51, %50 ]
   %.sroa.07.0.i.i = getelementptr inbounds i8, ptr %.sroa.07.028.i.i, i64 1
   %53 = icmp eq ptr %.sroa.07.0.i.i, %7
   br i1 %53, label %.loopexit.loopexit, label %.lr.ph.i.i, !llvm.loop !147
@@ -19738,8 +19738,8 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i
   %54 = phi ptr [ %4, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ], [ %4, %._crit_edge.i.i.i.i ], [ %.pre, %.loopexit.loopexit ]
-  %.sroa.013.2.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ], [ %7, %._crit_edge.i.i.i.i ], [ %.sroa.013.1.i.i, %.loopexit.loopexit ]
-  %55 = ptrtoint ptr %.sroa.013.2.i.i to i64
+  %.sroa.013.0.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i ], [ %7, %._crit_edge.i.i.i.i ], [ %.sroa.013.2.i.i, %.loopexit.loopexit ]
+  %55 = ptrtoint ptr %.sroa.013.0.i.i to i64
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
   store i64 %57, ptr %5, align 8
@@ -28942,9 +28942,9 @@ define dso_local void @_ZN9Verilated10stackCheckEm(i64 noundef %0) #0 align 2 {
   %7 = icmp eq i64 %6, -1
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load i64, ptr %8, align 8
-  %.0 = select i1 %7, i64 %9, i64 %6
-  %10 = icmp eq i64 %.0, -1
-  %spec.store.select = select i1 %10, i64 0, i64 %.0
+  %.1 = select i1 %7, i64 %9, i64 %6
+  %10 = icmp eq i64 %.1, -1
+  %spec.store.select = select i1 %10, i64 0, i64 %.1
   %11 = lshr i64 %0, 1
   %12 = add i64 %11, %0
   %13 = icmp ne i64 %spec.store.select, 0

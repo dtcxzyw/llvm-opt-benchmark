@@ -1245,10 +1245,10 @@ define void @_ZN2cv4flipERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef no
   %.sroa.4.0.extract.shift.mask = and i64 %23, -4294967296
   %28 = icmp eq i64 %.sroa.4.0.extract.shift.mask, 4294967296
   %spec.select49 = select i1 %28, i32 1, i32 %spec.select
-  %.1 = select i1 %25, i32 %spec.select49, i32 %2
-  %29 = icmp sgt i32 %.1, 0
+  %.0 = select i1 %25, i32 %spec.select49, i32 %2
+  %29 = icmp sgt i32 %.0, 0
   %or.cond = and i1 %27, %29
-  %30 = icmp eq i32 %.1, 0
+  %30 = icmp eq i32 %.0, 0
   %or.cond3 = and i1 %28, %30
   %or.cond65 = select i1 %or.cond, i1 true, i1 %or.cond3
   br i1 %or.cond65, label %31, label %32
@@ -1317,7 +1317,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %35, %38
   %60 = and i32 %59, 15
   %61 = mul nuw nsw i32 %60, %56
   %62 = zext nneg i32 %61 to i64
-  %63 = icmp slt i32 %.1, 1
+  %63 = icmp slt i32 %.0, 1
   %64 = load ptr, ptr %51, align 8
   %65 = load i64, ptr %52, align 8
   %66 = load ptr, ptr %53, align 8
@@ -1448,12 +1448,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %35, %38
   br label %..loopexit_crit_edge.us.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %..loopexit_crit_edge.us.loopexit.i, %.lr.ph110.split.us.split.i
-  %.2.us.i = phi i32 [ 0, %.lr.ph110.split.us.split.i ], [ %120, %..loopexit_crit_edge.us.loopexit.i ]
-  %121 = icmp slt i32 %.2.us.i, %.fr.i
+  %.093.us.i = phi i32 [ 0, %.lr.ph110.split.us.split.i ], [ %120, %..loopexit_crit_edge.us.loopexit.i ]
+  %121 = icmp slt i32 %.093.us.i, %.fr.i
   br i1 %121, label %.lr.ph103.us.preheader.i, label %._crit_edge.us.i
 
 .lr.ph103.us.preheader.i:                         ; preds = %..loopexit_crit_edge.us.i
-  %122 = zext nneg i32 %.2.us.i to i64
+  %122 = zext nneg i32 %.093.us.i to i64
   br label %.lr.ph103.us.i
 
 ._crit_edge.us.i:                                 ; preds = %.lr.ph103.us.i, %..loopexit_crit_edge.us.i
@@ -1558,12 +1558,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %35, %38
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %..preheader_crit_edge.i, %.lr.ph110.split.i
-  %.2.i = phi i32 [ 0, %.lr.ph110.split.i ], [ %143, %..preheader_crit_edge.i ], [ %174, %.loopexit.loopexit.i ]
-  %175 = icmp slt i32 %.2.i, %.fr.i
+  %.093.i = phi i32 [ 0, %.lr.ph110.split.i ], [ %143, %..preheader_crit_edge.i ], [ %174, %.loopexit.loopexit.i ]
+  %175 = icmp slt i32 %.093.i, %.fr.i
   br i1 %175, label %.lr.ph103.preheader.i, label %._crit_edge.i
 
 .lr.ph103.preheader.i:                            ; preds = %.loopexit.i
-  %176 = zext nneg i32 %.2.i to i64
+  %176 = zext nneg i32 %.093.i to i64
   br label %.lr.ph103.i
 
 .lr.ph103.i:                                      ; preds = %.lr.ph103.i, %.lr.ph103.preheader.i
@@ -1602,7 +1602,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %35, %38
           to label %_ZN2cvL8flipVertEPKhmPhmNS_5Size_IiEEm.exit.thread unwind label %208
 
 _ZN2cvL8flipVertEPKhmPhmNS_5Size_IiEEm.exit:      ; preds = %._crit_edge.i, %._crit_edge.us.i, %._crit_edge.us.us.us.i, %.lr.ph110.split.us.split.us.i, %73
-  %192 = icmp slt i32 %.1, 0
+  %192 = icmp slt i32 %.0, 0
   br i1 %192, label %193, label %_ZN2cvL8flipVertEPKhmPhmNS_5Size_IiEEm.exit.thread
 
 193:                                              ; preds = %_ZN2cvL8flipVertEPKhmPhmNS_5Size_IiEEm.exit

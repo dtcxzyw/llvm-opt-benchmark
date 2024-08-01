@@ -264,11 +264,11 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h93a0045f44
   br label %.loopexit25
 
 .body.i.i:                                        ; preds = %43, %37
-  %.0.i.i = phi i1 [ false, %43 ], [ %38, %37 ]
+  %.1.i.i = phi i1 [ false, %43 ], [ %38, %37 ]
   %.pn7.i.i = phi { ptr, i32 } [ %44, %43 ], [ %39, %37 ]
   %36 = load ptr, ptr %14, align 8, !alias.scope !70, !noalias !73, !noundef !9
   %.not.i.i = icmp eq ptr %36, null
-  %brmerge.i.i = or i1 %.0.i.i, %.not.i.i
+  %brmerge.i.i = or i1 %.1.i.i, %.not.i.i
   br i1 %brmerge.i.i, label %common.resume.i, label %97
 
 37:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$std..sys..unix..fs..DirEntry$GT$17ha5617cb7dd8d9eb0E.llvm.10063921922768059169.exit.i23.i.i", %83, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h97a58151d849bf0cE.exit14.i.i", %"_ZN4core3ptr49drop_in_place$LT$std..sys..unix..fs..DirEntry$GT$17ha5617cb7dd8d9eb0E.llvm.10063921922768059169.exit.i.i.i", %63, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h97a58151d849bf0cE.exit.i.i", %33

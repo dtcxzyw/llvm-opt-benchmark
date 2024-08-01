@@ -2194,8 +2194,8 @@ if.then.i.i.i25:                                  ; preds = %_ZNSt6vectorIlSaIlE
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i25, %_ZNSt6vectorIlSaIlEED2Ev.exit23, %entry
-  %retval.1 = phi i1 [ true, %entry ], [ %cmp1234, %_ZNSt6vectorIlSaIlEED2Ev.exit23 ], [ %cmp1234, %if.then.i.i.i25 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %entry ], [ %cmp1234, %_ZNSt6vectorIlSaIlEED2Ev.exit23 ], [ %cmp1234, %if.then.i.i.i25 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

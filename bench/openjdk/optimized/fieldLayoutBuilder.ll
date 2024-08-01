@@ -1080,7 +1080,7 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
 
 .lr.ph:                                           ; preds = %._crit_edge54, %45
   %.02947 = phi ptr [ %.029, %45 ], [ %.02944, %._crit_edge54 ]
-  %.046 = phi ptr [ %.1, %45 ], [ null, %._crit_edge54 ]
+  %.146 = phi ptr [ %.2, %45 ], [ null, %._crit_edge54 ]
   %27 = getelementptr inbounds i8, ptr %.02947, i64 16
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 0
@@ -1100,11 +1100,11 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
   br i1 %.not41, label %45, label %38
 
 38:                                               ; preds = %30
-  %39 = icmp eq ptr %.046, null
+  %39 = icmp eq ptr %.146, null
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %.046, i64 28
+  %41 = getelementptr inbounds i8, ptr %.146, i64 28
   %42 = load i32, ptr %41, align 4
   %43 = icmp slt i32 %36, %42
   br i1 %43, label %44, label %45
@@ -1113,24 +1113,24 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
   br label %45
 
 45:                                               ; preds = %40, %44, %30, %.lr.ph
-  %.1 = phi ptr [ %.02947, %44 ], [ %.046, %40 ], [ %.046, %30 ], [ %.046, %.lr.ph ]
+  %.2 = phi ptr [ %.02947, %44 ], [ %.146, %40 ], [ %.146, %30 ], [ %.146, %.lr.ph ]
   %.029.in = getelementptr inbounds i8, ptr %.02947, i64 8
   %.029 = load ptr, ptr %.029.in, align 8
   %.not = icmp eq ptr %.029, %.030
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %45, %._crit_edge54
-  %.0.lcssa = phi ptr [ null, %._crit_edge54 ], [ %.1, %45 ]
-  %46 = icmp ne ptr %.0.lcssa, null
-  %spec.select40 = select i1 %46, ptr %.0.lcssa, ptr %17
+  %.1.lcssa = phi ptr [ null, %._crit_edge54 ], [ %.2, %45 ]
+  %46 = icmp ne ptr %.1.lcssa, null
+  %spec.select40 = select i1 %46, ptr %.1.lcssa, ptr %17
   br label %47
 
 47:                                               ; preds = %19, %._crit_edge, %13
   %.137 = phi i1 [ %.03648, %13 ], [ %46, %._crit_edge ], [ false, %19 ]
   %.135 = phi i32 [ %.03449, %13 ], [ %21, %._crit_edge ], [ %.03449, %19 ]
   %.133 = phi i32 [ %.03250, %13 ], [ %24, %._crit_edge ], [ %.03250, %19 ]
-  %.2 = phi ptr [ %17, %13 ], [ %spec.select40, %._crit_edge ], [ %17, %19 ]
-  %48 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %.2, ptr noundef %16)
+  %.0 = phi ptr [ %17, %13 ], [ %spec.select40, %._crit_edge ], [ %17, %19 ]
+  %48 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %.0, ptr noundef %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %1, align 4
   %50 = sext i32 %49 to i64
@@ -1571,34 +1571,34 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
   br label %27
 
 27:                                               ; preds = %.critedge, %22
-  %.pn = phi ptr [ %20, %22 ], [ %.026, %.critedge ]
-  %.026.in = getelementptr inbounds i8, ptr %.pn, i64 8
-  %.026 = load ptr, ptr %.026.in, align 8
-  %28 = getelementptr inbounds i8, ptr %.026, i64 16
+  %.pn = phi ptr [ %20, %22 ], [ %.1, %.critedge ]
+  %.1.in = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.1 = load ptr, ptr %.1.in, align 8
+  %28 = getelementptr inbounds i8, ptr %.1, i64 16
   %29 = load i32, ptr %28, align 8
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %30, label %.critedge
 
 30:                                               ; preds = %27
   %31 = load i32, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %.026, i64 20
+  %32 = getelementptr inbounds i8, ptr %.1, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = srem i32 %33, %31
   %.not.i = icmp eq i32 %34, 0
   %35 = sub nsw i32 %31, %34
   %spec.select.i = select i1 %.not.i, i32 0, i32 %35
-  %36 = getelementptr inbounds i8, ptr %.026, i64 28
+  %36 = getelementptr inbounds i8, ptr %.1, i64 28
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %spec.select.i, %.025.lcssa
   %.not30 = icmp slt i32 %37, %38
   br i1 %.not30, label %.critedge, label %.loopexit31
 
 .critedge:                                        ; preds = %27, %30
-  %39 = icmp eq ptr %.026, %.0
+  %39 = icmp eq ptr %.1, %.0
   br i1 %39, label %.loopexit31, label %27, !llvm.loop !19
 
 .loopexit31:                                      ; preds = %.critedge, %30, %._crit_edge
-  %.1 = phi ptr [ %20, %._crit_edge ], [ %20, %.critedge ], [ %.026, %30 ]
+  %.026 = phi ptr [ %20, %._crit_edge ], [ %20, %.critedge ], [ %.1, %30 ]
   br i1 %10, label %.lr.ph36, label %.loopexit
 
 .lr.ph36:                                         ; preds = %.loopexit31
@@ -1610,7 +1610,7 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
   %42 = load ptr, ptr %40, align 8
   %43 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv38
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %.1, ptr noundef %44)
+  %45 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %.026, ptr noundef %44)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %46 = load i32, ptr %1, align 4
   %47 = sext i32 %46 to i64
@@ -2566,7 +2566,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit: ; pred
 
 .lr.ph.i:                                         ; preds = %._crit_edge54.i, %89
   %.02947.i = phi ptr [ %.029.i, %89 ], [ %.02944.i, %._crit_edge54.i ]
-  %.046.i = phi ptr [ %.1.i, %89 ], [ null, %._crit_edge54.i ]
+  %.146.i = phi ptr [ %.2.i, %89 ], [ null, %._crit_edge54.i ]
   %71 = getelementptr inbounds i8, ptr %.02947.i, i64 16
   %72 = load i32, ptr %71, align 8
   %73 = icmp eq i32 %72, 0
@@ -2586,11 +2586,11 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit: ; pred
   br i1 %.not41.i, label %89, label %82
 
 82:                                               ; preds = %74
-  %83 = icmp eq ptr %.046.i, null
+  %83 = icmp eq ptr %.146.i, null
   br i1 %83, label %88, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %.046.i, i64 28
+  %85 = getelementptr inbounds i8, ptr %.146.i, i64 28
   %86 = load i32, ptr %85, align 4
   %87 = icmp slt i32 %80, %86
   br i1 %87, label %88, label %89
@@ -2599,24 +2599,24 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit: ; pred
   br label %89
 
 89:                                               ; preds = %88, %84, %74, %.lr.ph.i
-  %.1.i = phi ptr [ %.02947.i, %88 ], [ %.046.i, %84 ], [ %.046.i, %74 ], [ %.046.i, %.lr.ph.i ]
+  %.2.i = phi ptr [ %.02947.i, %88 ], [ %.146.i, %84 ], [ %.146.i, %74 ], [ %.146.i, %.lr.ph.i ]
   %.029.in.i = getelementptr inbounds i8, ptr %.02947.i, i64 8
   %.029.i = load ptr, ptr %.029.in.i, align 8
   %.not.i = icmp eq ptr %.029.i, %52
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %89, %._crit_edge54.i
-  %.0.lcssa.i = phi ptr [ null, %._crit_edge54.i ], [ %.1.i, %89 ]
-  %90 = icmp ne ptr %.0.lcssa.i, null
-  %spec.select40.i = select i1 %90, ptr %.0.lcssa.i, ptr %61
+  %.1.lcssa.i = phi ptr [ null, %._crit_edge54.i ], [ %.2.i, %89 ]
+  %90 = icmp ne ptr %.1.lcssa.i, null
+  %spec.select40.i = select i1 %90, ptr %.1.lcssa.i, ptr %61
   br label %91
 
 91:                                               ; preds = %._crit_edge.i, %63, %57
   %.137.i = phi i1 [ %.03648.i, %57 ], [ %90, %._crit_edge.i ], [ false, %63 ]
   %.135.i = phi i32 [ %.03449.i, %57 ], [ %65, %._crit_edge.i ], [ %.03449.i, %63 ]
   %.133.i = phi i32 [ %.03250.i, %57 ], [ %68, %._crit_edge.i ], [ %.03250.i, %63 ]
-  %.2.i = phi ptr [ %61, %57 ], [ %spec.select40.i, %._crit_edge.i ], [ %61, %63 ]
-  %92 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef %.2.i, ptr noundef %60)
+  %.0.i = phi ptr [ %61, %57 ], [ %spec.select40.i, %._crit_edge.i ], [ %61, %63 ]
+  %92 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef %.0.i, ptr noundef %60)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %93 = load i32, ptr %48, align 4
   %94 = sext i32 %93 to i64
@@ -2679,7 +2679,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN
 
 .lr.ph.i26:                                       ; preds = %._crit_edge54.i22, %140
   %.02947.i27 = phi ptr [ %.029.i31, %140 ], [ %.02944.i24, %._crit_edge54.i22 ]
-  %.046.i28 = phi ptr [ %.1.i29, %140 ], [ null, %._crit_edge54.i22 ]
+  %.146.i28 = phi ptr [ %.2.i29, %140 ], [ null, %._crit_edge54.i22 ]
   %122 = getelementptr inbounds i8, ptr %.02947.i27, i64 16
   %123 = load i32, ptr %122, align 8
   %124 = icmp eq i32 %123, 0
@@ -2699,11 +2699,11 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN
   br i1 %.not41.i38, label %140, label %133
 
 133:                                              ; preds = %125
-  %134 = icmp eq ptr %.046.i28, null
+  %134 = icmp eq ptr %.146.i28, null
   br i1 %134, label %139, label %135
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %.046.i28, i64 28
+  %136 = getelementptr inbounds i8, ptr %.146.i28, i64 28
   %137 = load i32, ptr %136, align 4
   %138 = icmp slt i32 %131, %137
   br i1 %138, label %139, label %140
@@ -2712,24 +2712,24 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN
   br label %140
 
 140:                                              ; preds = %139, %135, %125, %.lr.ph.i26
-  %.1.i29 = phi ptr [ %.02947.i27, %139 ], [ %.046.i28, %135 ], [ %.046.i28, %125 ], [ %.046.i28, %.lr.ph.i26 ]
+  %.2.i29 = phi ptr [ %.02947.i27, %139 ], [ %.146.i28, %135 ], [ %.146.i28, %125 ], [ %.146.i28, %.lr.ph.i26 ]
   %.029.in.i30 = getelementptr inbounds i8, ptr %.02947.i27, i64 8
   %.029.i31 = load ptr, ptr %.029.in.i30, align 8
   %.not.i32 = icmp eq ptr %.029.i31, %103
   br i1 %.not.i32, label %._crit_edge.i33, label %.lr.ph.i26, !llvm.loop !15
 
 ._crit_edge.i33:                                  ; preds = %140, %._crit_edge54.i22
-  %.0.lcssa.i34 = phi ptr [ null, %._crit_edge54.i22 ], [ %.1.i29, %140 ]
-  %141 = icmp ne ptr %.0.lcssa.i34, null
-  %spec.select40.i35 = select i1 %141, ptr %.0.lcssa.i34, ptr %112
+  %.1.lcssa.i34 = phi ptr [ null, %._crit_edge54.i22 ], [ %.2.i29, %140 ]
+  %141 = icmp ne ptr %.1.lcssa.i34, null
+  %spec.select40.i35 = select i1 %141, ptr %.1.lcssa.i34, ptr %112
   br label %142
 
 142:                                              ; preds = %._crit_edge.i33, %114, %108
   %.137.i17 = phi i1 [ %.03648.i15, %108 ], [ %141, %._crit_edge.i33 ], [ false, %114 ]
   %.135.i18 = phi i32 [ %.03449.i14, %108 ], [ %116, %._crit_edge.i33 ], [ %.03449.i14, %114 ]
   %.133.i19 = phi i32 [ %.03250.i13, %108 ], [ %119, %._crit_edge.i33 ], [ %.03250.i13, %114 ]
-  %.2.i20 = phi ptr [ %112, %108 ], [ %spec.select40.i35, %._crit_edge.i33 ], [ %112, %114 ]
-  %143 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %97, ptr noundef %.2.i20, ptr noundef %111)
+  %.0.i20 = phi ptr [ %112, %108 ], [ %spec.select40.i35, %._crit_edge.i33 ], [ %112, %114 ]
+  %143 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %97, ptr noundef %.0.i20, ptr noundef %111)
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i12, 1
   %144 = load i32, ptr %99, align 4
   %145 = sext i32 %144 to i64
@@ -2867,7 +2867,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
 
 .lr.ph.i57:                                       ; preds = %._crit_edge54.i53, %232
   %.02947.i58 = phi ptr [ %.029.i62, %232 ], [ %.02944.i55, %._crit_edge54.i53 ]
-  %.046.i59 = phi ptr [ %.1.i60, %232 ], [ null, %._crit_edge54.i53 ]
+  %.146.i59 = phi ptr [ %.2.i60, %232 ], [ null, %._crit_edge54.i53 ]
   %214 = getelementptr inbounds i8, ptr %.02947.i58, i64 16
   %215 = load i32, ptr %214, align 8
   %216 = icmp eq i32 %215, 0
@@ -2887,11 +2887,11 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
   br i1 %.not41.i69, label %232, label %225
 
 225:                                              ; preds = %217
-  %226 = icmp eq ptr %.046.i59, null
+  %226 = icmp eq ptr %.146.i59, null
   br i1 %226, label %231, label %227
 
 227:                                              ; preds = %225
-  %228 = getelementptr inbounds i8, ptr %.046.i59, i64 28
+  %228 = getelementptr inbounds i8, ptr %.146.i59, i64 28
   %229 = load i32, ptr %228, align 4
   %230 = icmp slt i32 %223, %229
   br i1 %230, label %231, label %232
@@ -2900,16 +2900,16 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
   br label %232
 
 232:                                              ; preds = %231, %227, %217, %.lr.ph.i57
-  %.1.i60 = phi ptr [ %.02947.i58, %231 ], [ %.046.i59, %227 ], [ %.046.i59, %217 ], [ %.046.i59, %.lr.ph.i57 ]
+  %.2.i60 = phi ptr [ %.02947.i58, %231 ], [ %.146.i59, %227 ], [ %.146.i59, %217 ], [ %.146.i59, %.lr.ph.i57 ]
   %.029.in.i61 = getelementptr inbounds i8, ptr %.02947.i58, i64 8
   %.029.i62 = load ptr, ptr %.029.in.i61, align 8
   %.not.i63 = icmp eq ptr %.029.i62, %.030.i
   br i1 %.not.i63, label %._crit_edge.i64, label %.lr.ph.i57, !llvm.loop !15
 
 ._crit_edge.i64:                                  ; preds = %232, %._crit_edge54.i53
-  %.0.lcssa.i65 = phi ptr [ null, %._crit_edge54.i53 ], [ %.1.i60, %232 ]
-  %233 = icmp ne ptr %.0.lcssa.i65, null
-  %spec.select40.i66 = select i1 %233, ptr %.0.lcssa.i65, ptr %204
+  %.1.lcssa.i65 = phi ptr [ null, %._crit_edge54.i53 ], [ %.2.i60, %232 ]
+  %233 = icmp ne ptr %.1.lcssa.i65, null
+  %spec.select40.i66 = select i1 %233, ptr %.1.lcssa.i65, ptr %204
   br label %234
 
 234:                                              ; preds = %._crit_edge, %._crit_edge.i64, %206
@@ -2917,8 +2917,8 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
   %.137.i48 = phi i1 [ %.03648.i46, %._crit_edge ], [ %233, %._crit_edge.i64 ], [ false, %206 ]
   %.135.i49 = phi i32 [ %.03449.i45, %._crit_edge ], [ %208, %._crit_edge.i64 ], [ %.03449.i45, %206 ]
   %.133.i50 = phi i32 [ %.03250.i44, %._crit_edge ], [ %211, %._crit_edge.i64 ], [ %.03250.i44, %206 ]
-  %.2.i51 = phi ptr [ %204, %._crit_edge ], [ %spec.select40.i66, %._crit_edge.i64 ], [ %204, %206 ]
-  %236 = getelementptr inbounds i8, ptr %.2.i51, i64 20
+  %.0.i51 = phi ptr [ %204, %._crit_edge ], [ %spec.select40.i66, %._crit_edge.i64 ], [ %204, %206 ]
+  %236 = getelementptr inbounds i8, ptr %.0.i51, i64 20
   %237 = load i32, ptr %236, align 4
   %238 = srem i32 %237, %235
   %.not.i141 = icmp eq i32 %238, 0
@@ -2942,16 +2942,16 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
   store i32 %247, ptr %242, align 4
   %248 = add nsw i32 %247, %240
   store i32 %248, ptr %236, align 4
-  %249 = getelementptr inbounds i8, ptr %.2.i51, i64 28
+  %249 = getelementptr inbounds i8, ptr %.0.i51, i64 28
   %250 = load i32, ptr %249, align 4
   %251 = load i32, ptr %244, align 4
   %252 = sub nsw i32 %250, %251
   store i32 %252, ptr %249, align 4
-  %253 = getelementptr inbounds i8, ptr %.2.i51, i64 8
+  %253 = getelementptr inbounds i8, ptr %.0.i51, i64 8
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds i8, ptr %241, i64 8
   store ptr %254, ptr %255, align 8
-  store ptr %.2.i51, ptr %241, align 8
+  store ptr %.0.i51, ptr %241, align 8
   store ptr %241, ptr %253, align 8
   %256 = load ptr, ptr %255, align 8
   %.not.i.i142 = icmp eq ptr %256, null
@@ -2963,7 +2963,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
 
 258:                                              ; preds = %257, %239
   %259 = load ptr, ptr %199, align 8
-  %260 = icmp eq ptr %259, %.2.i51
+  %260 = icmp eq ptr %259, %.0.i51
   br i1 %260, label %261, label %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit.i
 
 261:                                              ; preds = %258
@@ -2978,16 +2978,16 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit.i: ; preds = %261, %258, %234
   %265 = load i32, ptr %264, align 4
   %266 = add nsw i32 %265, %262
   store i32 %266, ptr %236, align 4
-  %267 = getelementptr inbounds i8, ptr %.2.i51, i64 28
+  %267 = getelementptr inbounds i8, ptr %.0.i51, i64 28
   %268 = load i32, ptr %267, align 4
   %269 = load i32, ptr %264, align 4
   %270 = sub nsw i32 %268, %269
   store i32 %270, ptr %267, align 4
-  %271 = getelementptr inbounds i8, ptr %.2.i51, i64 8
+  %271 = getelementptr inbounds i8, ptr %.0.i51, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = getelementptr inbounds i8, ptr %203, i64 8
   store ptr %272, ptr %273, align 8
-  store ptr %.2.i51, ptr %203, align 8
+  store ptr %.0.i51, ptr %203, align 8
   store ptr %203, ptr %271, align 8
   %274 = load ptr, ptr %273, align 8
   %.not.i15.i = icmp eq ptr %274, null
@@ -2999,7 +2999,7 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit.i: ; preds = %261, %258, %234
 
 276:                                              ; preds = %275, %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit.i
   %277 = load ptr, ptr %199, align 8
-  %278 = icmp eq ptr %277, %.2.i51
+  %278 = icmp eq ptr %277, %.0.i51
   br i1 %278, label %279, label %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i
 
 279:                                              ; preds = %276
@@ -3013,18 +3013,18 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i: ; preds = %279, %276
   br i1 %282, label %283, label %_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit
 
 283:                                              ; preds = %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i
-  %284 = icmp eq ptr %280, %.2.i51
+  %284 = icmp eq ptr %280, %.0.i51
   br i1 %284, label %285, label %287
 
 285:                                              ; preds = %283
-  %286 = load ptr, ptr %.2.i51, align 8
+  %286 = load ptr, ptr %.0.i51, align 8
   store ptr %286, ptr %199, align 8
   %.not.i17.i = icmp eq ptr %286, null
   br i1 %.not.i17.i, label %292, label %.sink.split.i.i
 
 287:                                              ; preds = %283
   %288 = load ptr, ptr %271, align 8
-  %289 = load ptr, ptr %.2.i51, align 8
+  %289 = load ptr, ptr %.0.i51, align 8
   store ptr %289, ptr %288, align 8
   %290 = load ptr, ptr %271, align 8
   br label %.sink.split.i.i
@@ -3038,7 +3038,7 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i: ; preds = %279, %276
 
 292:                                              ; preds = %.sink.split.i.i, %285
   %293 = load ptr, ptr %193, align 8
-  %294 = icmp eq ptr %293, %.2.i51
+  %294 = icmp eq ptr %293, %.0.i51
   br i1 %294, label %295, label %_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit
 
 295:                                              ; preds = %292
@@ -3124,7 +3124,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
 
 .lr.ph.i87:                                       ; preds = %._crit_edge54.i83, %353
   %.02947.i88 = phi ptr [ %.029.i92, %353 ], [ %.02944.i85, %._crit_edge54.i83 ]
-  %.046.i89 = phi ptr [ %.1.i90, %353 ], [ null, %._crit_edge54.i83 ]
+  %.146.i89 = phi ptr [ %.2.i90, %353 ], [ null, %._crit_edge54.i83 ]
   %335 = getelementptr inbounds i8, ptr %.02947.i88, i64 16
   %336 = load i32, ptr %335, align 8
   %337 = icmp eq i32 %336, 0
@@ -3144,11 +3144,11 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
   br i1 %.not41.i99, label %353, label %346
 
 346:                                              ; preds = %338
-  %347 = icmp eq ptr %.046.i89, null
+  %347 = icmp eq ptr %.146.i89, null
   br i1 %347, label %352, label %348
 
 348:                                              ; preds = %346
-  %349 = getelementptr inbounds i8, ptr %.046.i89, i64 28
+  %349 = getelementptr inbounds i8, ptr %.146.i89, i64 28
   %350 = load i32, ptr %349, align 4
   %351 = icmp slt i32 %344, %350
   br i1 %351, label %352, label %353
@@ -3157,16 +3157,16 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
   br label %353
 
 353:                                              ; preds = %352, %348, %338, %.lr.ph.i87
-  %.1.i90 = phi ptr [ %.02947.i88, %352 ], [ %.046.i89, %348 ], [ %.046.i89, %338 ], [ %.046.i89, %.lr.ph.i87 ]
+  %.2.i90 = phi ptr [ %.02947.i88, %352 ], [ %.146.i89, %348 ], [ %.146.i89, %338 ], [ %.146.i89, %.lr.ph.i87 ]
   %.029.in.i91 = getelementptr inbounds i8, ptr %.02947.i88, i64 8
   %.029.i92 = load ptr, ptr %.029.in.i91, align 8
   %.not.i93 = icmp eq ptr %.029.i92, %.030.i71
   br i1 %.not.i93, label %._crit_edge.i94, label %.lr.ph.i87, !llvm.loop !15
 
 ._crit_edge.i94:                                  ; preds = %353, %._crit_edge54.i83
-  %.0.lcssa.i95 = phi ptr [ null, %._crit_edge54.i83 ], [ %.1.i90, %353 ]
-  %354 = icmp ne ptr %.0.lcssa.i95, null
-  %spec.select40.i96 = select i1 %354, ptr %.0.lcssa.i95, ptr %325
+  %.1.lcssa.i95 = phi ptr [ null, %._crit_edge54.i83 ], [ %.2.i90, %353 ]
+  %354 = icmp ne ptr %.1.lcssa.i95, null
+  %spec.select40.i96 = select i1 %354, ptr %.1.lcssa.i95, ptr %325
   br label %355
 
 355:                                              ; preds = %._crit_edge159, %._crit_edge.i94, %327
@@ -3174,8 +3174,8 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
   %.137.i78 = phi i1 [ %.03648.i76, %._crit_edge159 ], [ %354, %._crit_edge.i94 ], [ false, %327 ]
   %.135.i79 = phi i32 [ %.03449.i75, %._crit_edge159 ], [ %329, %._crit_edge.i94 ], [ %.03449.i75, %327 ]
   %.133.i80 = phi i32 [ %.03250.i74, %._crit_edge159 ], [ %332, %._crit_edge.i94 ], [ %.03250.i74, %327 ]
-  %.2.i81 = phi ptr [ %325, %._crit_edge159 ], [ %spec.select40.i96, %._crit_edge.i94 ], [ %325, %327 ]
-  %357 = getelementptr inbounds i8, ptr %.2.i81, i64 20
+  %.0.i81 = phi ptr [ %325, %._crit_edge159 ], [ %spec.select40.i96, %._crit_edge.i94 ], [ %325, %327 ]
+  %357 = getelementptr inbounds i8, ptr %.0.i81, i64 20
   %358 = load i32, ptr %357, align 4
   %359 = srem i32 %358, %356
   %.not.i143 = icmp eq i32 %359, 0
@@ -3199,16 +3199,16 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
   store i32 %368, ptr %363, align 4
   %369 = add nsw i32 %368, %361
   store i32 %369, ptr %357, align 4
-  %370 = getelementptr inbounds i8, ptr %.2.i81, i64 28
+  %370 = getelementptr inbounds i8, ptr %.0.i81, i64 28
   %371 = load i32, ptr %370, align 4
   %372 = load i32, ptr %365, align 4
   %373 = sub nsw i32 %371, %372
   store i32 %373, ptr %370, align 4
-  %374 = getelementptr inbounds i8, ptr %.2.i81, i64 8
+  %374 = getelementptr inbounds i8, ptr %.0.i81, i64 8
   %375 = load ptr, ptr %374, align 8
   %376 = getelementptr inbounds i8, ptr %362, i64 8
   store ptr %375, ptr %376, align 8
-  store ptr %.2.i81, ptr %362, align 8
+  store ptr %.0.i81, ptr %362, align 8
   store ptr %362, ptr %374, align 8
   %377 = load ptr, ptr %376, align 8
   %.not.i.i144 = icmp eq ptr %377, null
@@ -3220,7 +3220,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
 
 379:                                              ; preds = %378, %360
   %380 = load ptr, ptr %320, align 8
-  %381 = icmp eq ptr %380, %.2.i81
+  %381 = icmp eq ptr %380, %.0.i81
   br i1 %381, label %382, label %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit.i145
 
 382:                                              ; preds = %379
@@ -3235,16 +3235,16 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit.i145: ; preds = %382, %379, %3
   %386 = load i32, ptr %385, align 4
   %387 = add nsw i32 %386, %383
   store i32 %387, ptr %357, align 4
-  %388 = getelementptr inbounds i8, ptr %.2.i81, i64 28
+  %388 = getelementptr inbounds i8, ptr %.0.i81, i64 28
   %389 = load i32, ptr %388, align 4
   %390 = load i32, ptr %385, align 4
   %391 = sub nsw i32 %389, %390
   store i32 %391, ptr %388, align 4
-  %392 = getelementptr inbounds i8, ptr %.2.i81, i64 8
+  %392 = getelementptr inbounds i8, ptr %.0.i81, i64 8
   %393 = load ptr, ptr %392, align 8
   %394 = getelementptr inbounds i8, ptr %324, i64 8
   store ptr %393, ptr %394, align 8
-  store ptr %.2.i81, ptr %324, align 8
+  store ptr %.0.i81, ptr %324, align 8
   store ptr %324, ptr %392, align 8
   %395 = load ptr, ptr %394, align 8
   %.not.i15.i146 = icmp eq ptr %395, null
@@ -3256,7 +3256,7 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit.i145: ; preds = %382, %379, %3
 
 397:                                              ; preds = %396, %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit.i145
   %398 = load ptr, ptr %320, align 8
-  %399 = icmp eq ptr %398, %.2.i81
+  %399 = icmp eq ptr %398, %.0.i81
   br i1 %399, label %400, label %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i147
 
 400:                                              ; preds = %397
@@ -3270,18 +3270,18 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i147: ; preds = %400, %397
   br i1 %403, label %404, label %_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit152
 
 404:                                              ; preds = %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i147
-  %405 = icmp eq ptr %401, %.2.i81
+  %405 = icmp eq ptr %401, %.0.i81
   br i1 %405, label %406, label %408
 
 406:                                              ; preds = %404
-  %407 = load ptr, ptr %.2.i81, align 8
+  %407 = load ptr, ptr %.0.i81, align 8
   store ptr %407, ptr %320, align 8
   %.not.i17.i151 = icmp eq ptr %407, null
   br i1 %.not.i17.i151, label %413, label %.sink.split.i.i148
 
 408:                                              ; preds = %404
   %409 = load ptr, ptr %392, align 8
-  %410 = load ptr, ptr %.2.i81, align 8
+  %410 = load ptr, ptr %.0.i81, align 8
   store ptr %410, ptr %409, align 8
   %411 = load ptr, ptr %392, align 8
   br label %.sink.split.i.i148
@@ -3295,7 +3295,7 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i147: ; preds = %400, %397
 
 413:                                              ; preds = %.sink.split.i.i148, %406
   %414 = load ptr, ptr %314, align 8
-  %415 = icmp eq ptr %414, %.2.i81
+  %415 = icmp eq ptr %414, %.0.i81
   br i1 %415, label %416, label %_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit152
 
 416:                                              ; preds = %413
@@ -3403,7 +3403,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; p
   %473 = load ptr, ptr %472, align 8
   %474 = load i32, ptr %469, align 4
   %475 = icmp sgt i32 %474, 0
-  br i1 %475, label %.lr.ph.i108, label %._crit_edge.i103
+  br i1 %475, label %.lr.ph.i108, label %._crit_edge.i104
 
 .lr.ph.i108:                                      ; preds = %471
   %476 = getelementptr inbounds i8, ptr %469, i64 8
@@ -3421,16 +3421,16 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; p
   %483 = add nsw i32 %482, %.02533.i
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i109, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i110, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i103, label %478, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge.i104, label %478, !llvm.loop !18
 
-._crit_edge.i103:                                 ; preds = %478, %471
+._crit_edge.i104:                                 ; preds = %478, %471
   %.025.lcssa.i = phi i32 [ 0, %471 ], [ %483, %478 ]
   %484 = getelementptr inbounds i8, ptr %465, i64 32
   %485 = load ptr, ptr %484, align 8
   %486 = icmp eq ptr %473, %485
   br i1 %486, label %.loopexit31.i, label %487
 
-487:                                              ; preds = %._crit_edge.i103
+487:                                              ; preds = %._crit_edge.i104
   %488 = getelementptr inbounds i8, ptr %469, i64 8
   %489 = load ptr, ptr %488, align 8
   %490 = load ptr, ptr %489, align 8
@@ -3438,34 +3438,34 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; p
   br label %492
 
 492:                                              ; preds = %.critedge.i, %487
-  %.pn.i = phi ptr [ %485, %487 ], [ %.026.i, %.critedge.i ]
-  %.026.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
-  %.026.i = load ptr, ptr %.026.in.i, align 8
-  %493 = getelementptr inbounds i8, ptr %.026.i, i64 16
+  %.pn.i = phi ptr [ %485, %487 ], [ %.1.i, %.critedge.i ]
+  %.1.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %.1.i = load ptr, ptr %.1.in.i, align 8
+  %493 = getelementptr inbounds i8, ptr %.1.i, i64 16
   %494 = load i32, ptr %493, align 8
-  %.not.i104 = icmp eq i32 %494, 0
-  br i1 %.not.i104, label %495, label %.critedge.i
+  %.not.i105 = icmp eq i32 %494, 0
+  br i1 %.not.i105, label %495, label %.critedge.i
 
 495:                                              ; preds = %492
   %496 = load i32, ptr %491, align 8
-  %497 = getelementptr inbounds i8, ptr %.026.i, i64 20
+  %497 = getelementptr inbounds i8, ptr %.1.i, i64 20
   %498 = load i32, ptr %497, align 4
   %499 = srem i32 %498, %496
   %.not.i.i106 = icmp eq i32 %499, 0
   %500 = sub nsw i32 %496, %499
   %spec.select.i.i107 = select i1 %.not.i.i106, i32 0, i32 %500
-  %501 = getelementptr inbounds i8, ptr %.026.i, i64 28
+  %501 = getelementptr inbounds i8, ptr %.1.i, i64 28
   %502 = load i32, ptr %501, align 4
   %503 = add nsw i32 %spec.select.i.i107, %.025.lcssa.i
   %.not30.i = icmp slt i32 %502, %503
   br i1 %.not30.i, label %.critedge.i, label %.loopexit31.i
 
 .critedge.i:                                      ; preds = %495, %492
-  %504 = icmp eq ptr %.026.i, %473
+  %504 = icmp eq ptr %.1.i, %473
   br i1 %504, label %.loopexit31.i, label %492, !llvm.loop !19
 
-.loopexit31.i:                                    ; preds = %.critedge.i, %495, %._crit_edge.i103
-  %.1.i105 = phi ptr [ %485, %._crit_edge.i103 ], [ %.026.i, %495 ], [ %485, %.critedge.i ]
+.loopexit31.i:                                    ; preds = %.critedge.i, %495, %._crit_edge.i104
+  %.026.i = phi ptr [ %485, %._crit_edge.i104 ], [ %.1.i, %495 ], [ %485, %.critedge.i ]
   br i1 %475, label %.lr.ph36.i, label %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit
 
 .lr.ph36.i:                                       ; preds = %.loopexit31.i
@@ -3477,7 +3477,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; p
   %507 = load ptr, ptr %505, align 8
   %508 = getelementptr inbounds ptr, ptr %507, i64 %indvars.iv38.i
   %509 = load ptr, ptr %508, align 8
-  %510 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %465, ptr noundef %.1.i105, ptr noundef %509)
+  %510 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %465, ptr noundef %.026.i, ptr noundef %509)
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %511 = load i32, ptr %469, align 4
   %512 = sext i32 %511 to i64
@@ -3540,7 +3540,7 @@ _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit: 
 
 .lr.ph.i127:                                      ; preds = %._crit_edge54.i123, %558
   %.02947.i128 = phi ptr [ %.029.i132, %558 ], [ %.02944.i125, %._crit_edge54.i123 ]
-  %.046.i129 = phi ptr [ %.1.i130, %558 ], [ null, %._crit_edge54.i123 ]
+  %.146.i129 = phi ptr [ %.2.i130, %558 ], [ null, %._crit_edge54.i123 ]
   %540 = getelementptr inbounds i8, ptr %.02947.i128, i64 16
   %541 = load i32, ptr %540, align 8
   %542 = icmp eq i32 %541, 0
@@ -3560,11 +3560,11 @@ _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit: 
   br i1 %.not41.i139, label %558, label %551
 
 551:                                              ; preds = %543
-  %552 = icmp eq ptr %.046.i129, null
+  %552 = icmp eq ptr %.146.i129, null
   br i1 %552, label %557, label %553
 
 553:                                              ; preds = %551
-  %554 = getelementptr inbounds i8, ptr %.046.i129, i64 28
+  %554 = getelementptr inbounds i8, ptr %.146.i129, i64 28
   %555 = load i32, ptr %554, align 4
   %556 = icmp slt i32 %549, %555
   br i1 %556, label %557, label %558
@@ -3573,24 +3573,24 @@ _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit: 
   br label %558
 
 558:                                              ; preds = %557, %553, %543, %.lr.ph.i127
-  %.1.i130 = phi ptr [ %.02947.i128, %557 ], [ %.046.i129, %553 ], [ %.046.i129, %543 ], [ %.046.i129, %.lr.ph.i127 ]
+  %.2.i130 = phi ptr [ %.02947.i128, %557 ], [ %.146.i129, %553 ], [ %.146.i129, %543 ], [ %.146.i129, %.lr.ph.i127 ]
   %.029.in.i131 = getelementptr inbounds i8, ptr %.02947.i128, i64 8
   %.029.i132 = load ptr, ptr %.029.in.i131, align 8
   %.not.i133 = icmp eq ptr %.029.i132, %521
   br i1 %.not.i133, label %._crit_edge.i134, label %.lr.ph.i127, !llvm.loop !15
 
 ._crit_edge.i134:                                 ; preds = %558, %._crit_edge54.i123
-  %.0.lcssa.i135 = phi ptr [ null, %._crit_edge54.i123 ], [ %.1.i130, %558 ]
-  %559 = icmp ne ptr %.0.lcssa.i135, null
-  %spec.select40.i136 = select i1 %559, ptr %.0.lcssa.i135, ptr %530
+  %.1.lcssa.i135 = phi ptr [ null, %._crit_edge54.i123 ], [ %.2.i130, %558 ]
+  %559 = icmp ne ptr %.1.lcssa.i135, null
+  %spec.select40.i136 = select i1 %559, ptr %.1.lcssa.i135, ptr %530
   br label %560
 
 560:                                              ; preds = %._crit_edge.i134, %532, %526
   %.137.i118 = phi i1 [ %.03648.i116, %526 ], [ %559, %._crit_edge.i134 ], [ false, %532 ]
   %.135.i119 = phi i32 [ %.03449.i115, %526 ], [ %534, %._crit_edge.i134 ], [ %.03449.i115, %532 ]
   %.133.i120 = phi i32 [ %.03250.i114, %526 ], [ %537, %._crit_edge.i134 ], [ %.03250.i114, %532 ]
-  %.2.i121 = phi ptr [ %530, %526 ], [ %spec.select40.i136, %._crit_edge.i134 ], [ %530, %532 ]
-  %561 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %515, ptr noundef %.2.i121, ptr noundef %529)
+  %.0.i121 = phi ptr [ %530, %526 ], [ %spec.select40.i136, %._crit_edge.i134 ], [ %530, %532 ]
+  %561 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %515, ptr noundef %.0.i121, ptr noundef %529)
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i113, 1
   %562 = load i32, ptr %517, align 4
   %563 = sext i32 %562 to i64

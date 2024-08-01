@@ -1685,17 +1685,17 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
   %218 = add i32 %2, 8
   %219 = load i32, ptr @hf_wlccp_duration, align 4
   %220 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %219, ptr noundef %1, i32 noundef %218, i32 noundef 2, i32 noundef 0) #4
-  %.0402424.i = add i32 %2, 10
+  %.1424.i = add i32 %2, 10
   %.not.i = icmp eq i8 %216, 0
   br i1 %.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph427.i
 
 .lr.ph427.i:                                      ; preds = %204, %.lr.ph427.i
-  %.0402426.i = phi i32 [ %.0402.i, %.lr.ph427.i ], [ %.0402424.i, %204 ]
+  %.1426.i = phi i32 [ %.1.i, %.lr.ph427.i ], [ %.1424.i, %204 ]
   %.0403425.i = phi i32 [ %223, %.lr.ph427.i ], [ 0, %204 ]
   %221 = load i32, ptr @hf_wlccp_bssid, align 4
-  %222 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %221, ptr noundef %1, i32 noundef %.0402426.i, i32 noundef 6, i32 noundef 0) #4
+  %222 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %221, ptr noundef %1, i32 noundef %.1426.i, i32 noundef 6, i32 noundef 0) #4
   %223 = add nuw nsw i32 %.0403425.i, 1
-  %.0402.i = add i32 %.0402426.i, 6
+  %.1.i = add i32 %.1426.i, 6
   %exitcond437.not.i = icmp eq i32 %223, %217
   br i1 %exitcond437.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph427.i, !llvm.loop !6
 
@@ -1727,20 +1727,20 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
   br label %.lr.ph422.i
 
 .lr.ph422.i:                                      ; preds = %.lr.ph422.i, %.lr.ph422.preheader.i
-  %.1421.i = phi i32 [ %254, %.lr.ph422.i ], [ %236, %.lr.ph422.preheader.i ]
+  %.2421.i = phi i32 [ %254, %.lr.ph422.i ], [ %236, %.lr.ph422.preheader.i ]
   %.0404420.i = phi i32 [ %255, %.lr.ph422.i ], [ 0, %.lr.ph422.preheader.i ]
   %243 = load i32, ptr @hf_wlccp_numframes, align 4
-  %244 = tail call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %243, ptr noundef %1, i32 noundef %.1421.i, i32 noundef 1, i32 noundef 0) #4
-  %245 = add i32 %.1421.i, 1
+  %244 = tail call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %243, ptr noundef %1, i32 noundef %.2421.i, i32 noundef 1, i32 noundef 0) #4
+  %245 = add i32 %.2421.i, 1
   %246 = load i32, ptr @hf_wlccp_rss, align 4
   %247 = tail call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %246, ptr noundef %1, i32 noundef %245, i32 noundef 1, i32 noundef 0) #4
-  %248 = add i32 %.1421.i, 2
+  %248 = add i32 %.2421.i, 2
   %249 = load i32, ptr @hf_wlccp_bssid, align 4
   %250 = tail call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %249, ptr noundef %1, i32 noundef %248, i32 noundef 6, i32 noundef 0) #4
-  %251 = add i32 %.1421.i, 8
+  %251 = add i32 %.2421.i, 8
   %252 = load i32, ptr @hf_wlccp_stamac, align 4
   %253 = tail call ptr @proto_tree_add_item(ptr noundef %242, i32 noundef %252, ptr noundef %1, i32 noundef %251, i32 noundef 6, i32 noundef 0) #4
-  %254 = add i32 %.1421.i, 14
+  %254 = add i32 %.2421.i, 14
   %255 = add nuw nsw i32 %.0404420.i, 1
   %exitcond436.not.i = icmp eq i32 %255, %umax.i
   br i1 %exitcond436.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph422.i, !llvm.loop !7
@@ -1922,16 +1922,16 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
 
 .lr.ph418.i:                                      ; preds = %404, %.lr.ph418.i
   %.0401417.i = phi i32 [ %416, %.lr.ph418.i ], [ 0, %404 ]
-  %.2416.i = phi i32 [ %415, %.lr.ph418.i ], [ %35, %404 ]
+  %.3416.i = phi i32 [ %415, %.lr.ph418.i ], [ %35, %404 ]
   %407 = load i32, ptr @hf_wlccp_ipv4_address, align 4
-  %408 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %407, ptr noundef %1, i32 noundef %.2416.i, i32 noundef 4, i32 noundef 0) #4
-  %409 = add i32 %.2416.i, 4
+  %408 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %407, ptr noundef %1, i32 noundef %.3416.i, i32 noundef 4, i32 noundef 0) #4
+  %409 = add i32 %.3416.i, 4
   %410 = load i32, ptr @hf_wlccp_bssid, align 4
   %411 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %410, ptr noundef %1, i32 noundef %409, i32 noundef 6, i32 noundef 0) #4
-  %412 = add i32 %.2416.i, 10
+  %412 = add i32 %.3416.i, 10
   %413 = load i32, ptr @hf_wlccp_stamac, align 4
   %414 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %413, ptr noundef %1, i32 noundef %412, i32 noundef 6, i32 noundef 0) #4
-  %415 = add i32 %.2416.i, 16
+  %415 = add i32 %.3416.i, 16
   %416 = add nuw nsw i32 %.0401417.i, 1
   %exitcond435.not.i = icmp eq i32 %416, %405
   br i1 %exitcond435.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph418.i, !llvm.loop !8
@@ -1947,16 +1947,16 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
 
 .lr.ph.i:                                         ; preds = %417, %.lr.ph.i
   %.0415.i = phi i32 [ %432, %.lr.ph.i ], [ 0, %417 ]
-  %.3414.i = phi i32 [ %431, %.lr.ph.i ], [ %420, %417 ]
+  %.4414.i = phi i32 [ %431, %.lr.ph.i ], [ %420, %417 ]
   %423 = load i32, ptr @hf_wlccp_ipv4_address, align 4
-  %424 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %423, ptr noundef %1, i32 noundef %.3414.i, i32 noundef 4, i32 noundef 0) #4
-  %425 = add i32 %.3414.i, 4
+  %424 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %423, ptr noundef %1, i32 noundef %.4414.i, i32 noundef 4, i32 noundef 0) #4
+  %425 = add i32 %.4414.i, 4
   %426 = load i32, ptr @hf_wlccp_bssid, align 4
   %427 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %426, ptr noundef %1, i32 noundef %425, i32 noundef 6, i32 noundef 0) #4
-  %428 = add i32 %.3414.i, 10
+  %428 = add i32 %.4414.i, 10
   %429 = load i32, ptr @hf_wlccp_status, align 4
   %430 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %429, ptr noundef %1, i32 noundef %428, i32 noundef 1, i32 noundef 0) #4
-  %431 = add i32 %.3414.i, 11
+  %431 = add i32 %.4414.i, 11
   %432 = add nuw nsw i32 %.0415.i, 1
   %exitcond.not.i = icmp eq i32 %432, %421
   br i1 %exitcond.not.i, label %dissect_wlccp_sec_tlv.exit, label %.lr.ph.i, !llvm.loop !9
@@ -2133,7 +2133,7 @@ dissect_wlccp_ccm_tlv.exit:                       ; preds = %.thread, %79, %80
 
 dissect_wlccp_sec_tlv.exit:                       ; preds = %.lr.ph.i, %.lr.ph418.i, %.lr.ph422.i, %.lr.ph427.i, %555, %529, %516, %497, %484, %458, %451, %441, %437, %433, %417, %404, %385, %328, %315, %298, %285, %269, %256, %224, %204, %188, %187, %177, %170, %144, %132, %110, %88, %83, %dissect_wlccp_ccm_tlv.exit
   %567 = phi i16 [ %38, %dissect_wlccp_ccm_tlv.exit ], [ %44, %83 ], [ %44, %88 ], [ %44, %110 ], [ %44, %132 ], [ %44, %144 ], [ %49, %170 ], [ %49, %177 ], [ %49, %187 ], [ %49, %188 ], [ %49, %204 ], [ %49, %224 ], [ %49, %256 ], [ %49, %269 ], [ %49, %285 ], [ %49, %298 ], [ %49, %315 ], [ %49, %328 ], [ %49, %385 ], [ %49, %404 ], [ %49, %417 ], [ %49, %433 ], [ %49, %437 ], [ %49, %441 ], [ %49, %451 ], [ %63, %458 ], [ %63, %484 ], [ %63, %497 ], [ %63, %516 ], [ %63, %529 ], [ %63, %555 ], [ %49, %.lr.ph427.i ], [ %49, %.lr.ph422.i ], [ %49, %.lr.ph418.i ], [ %49, %.lr.ph.i ]
-  %.0 = phi i32 [ %.0.i, %dissect_wlccp_ccm_tlv.exit ], [ %87, %83 ], [ %109, %88 ], [ %131, %110 ], [ %143, %132 ], [ %165, %144 ], [ %176, %170 ], [ %186, %177 ], [ %35, %187 ], [ %203, %188 ], [ %.0402424.i, %204 ], [ %236, %224 ], [ %268, %256 ], [ %284, %269 ], [ %297, %285 ], [ %314, %298 ], [ %327, %315 ], [ %384, %328 ], [ %403, %385 ], [ %35, %404 ], [ %420, %417 ], [ %436, %433 ], [ %440, %437 ], [ %450, %441 ], [ %454, %451 ], [ %483, %458 ], [ %496, %484 ], [ %515, %497 ], [ %528, %516 ], [ %554, %529 ], [ %562, %555 ], [ %.0402.i, %.lr.ph427.i ], [ %254, %.lr.ph422.i ], [ %415, %.lr.ph418.i ], [ %431, %.lr.ph.i ]
+  %.0 = phi i32 [ %.0.i, %dissect_wlccp_ccm_tlv.exit ], [ %87, %83 ], [ %109, %88 ], [ %131, %110 ], [ %143, %132 ], [ %165, %144 ], [ %176, %170 ], [ %186, %177 ], [ %35, %187 ], [ %203, %188 ], [ %.1424.i, %204 ], [ %236, %224 ], [ %268, %256 ], [ %284, %269 ], [ %297, %285 ], [ %314, %298 ], [ %327, %315 ], [ %384, %328 ], [ %403, %385 ], [ %35, %404 ], [ %420, %417 ], [ %436, %433 ], [ %440, %437 ], [ %450, %441 ], [ %454, %451 ], [ %483, %458 ], [ %496, %484 ], [ %515, %497 ], [ %528, %516 ], [ %554, %529 ], [ %562, %555 ], [ %.1.i, %.lr.ph427.i ], [ %254, %.lr.ph422.i ], [ %415, %.lr.ph418.i ], [ %431, %.lr.ph.i ]
   %.not = icmp slt i16 %567, 0
   %568 = icmp ult i32 %.0, %8
   %or.cond = select i1 %.not, i1 %568, i1 false
@@ -2141,14 +2141,14 @@ dissect_wlccp_sec_tlv.exit:                       ; preds = %.lr.ph.i, %.lr.ph41
 
 .preheader:                                       ; preds = %dissect_wlccp_sec_tlv.exit, %570
   %.0123 = phi i32 [ %571, %570 ], [ %3, %dissect_wlccp_sec_tlv.exit ]
-  %.1 = phi i32 [ %572, %570 ], [ %.0, %dissect_wlccp_sec_tlv.exit ]
-  %569 = icmp ult i32 %.1, %8
+  %.2 = phi i32 [ %572, %570 ], [ %.0, %dissect_wlccp_sec_tlv.exit ]
+  %569 = icmp ult i32 %.2, %8
   br i1 %569, label %570, label %.loopexit
 
 570:                                              ; preds = %.preheader
   %571 = add i32 %.0123, 1
-  %572 = tail call fastcc i32 @dissect_wlccp_tlvs(ptr noundef %12, ptr noundef %1, i32 noundef %.1, i32 noundef %.0123)
-  %573 = icmp ugt i32 %572, %.1
+  %572 = tail call fastcc i32 @dissect_wlccp_tlvs(ptr noundef %12, ptr noundef %1, i32 noundef %.2, i32 noundef %.0123)
+  %573 = icmp ugt i32 %572, %.2
   br i1 %573, label %.preheader, label %574, !llvm.loop !10
 
 574:                                              ; preds = %570
@@ -2156,8 +2156,8 @@ dissect_wlccp_sec_tlv.exit:                       ; preds = %.lr.ph.i, %.lr.ph41
   unreachable
 
 .loopexit:                                        ; preds = %.preheader, %563, %455, %166, %.thread132, %.thread134, %dissect_wlccp_sec_tlv.exit.thread, %dissect_wlccp_sec_tlv.exit
-  %.2 = phi i32 [ %.0, %dissect_wlccp_sec_tlv.exit ], [ %spec.select, %dissect_wlccp_sec_tlv.exit.thread ], [ %8, %.thread134 ], [ %8, %.thread132 ], [ %8, %166 ], [ %8, %455 ], [ %8, %563 ], [ %.1, %.preheader ]
-  %575 = tail call i32 @llvm.umax.i32(i32 %8, i32 %.2)
+  %.1 = phi i32 [ %.0, %dissect_wlccp_sec_tlv.exit ], [ %spec.select, %dissect_wlccp_sec_tlv.exit.thread ], [ %8, %.thread134 ], [ %8, %.thread132 ], [ %8, %166 ], [ %8, %455 ], [ %8, %563 ], [ %.2, %.preheader ]
+  %575 = tail call i32 @llvm.umax.i32(i32 %8, i32 %.1)
   ret i32 %575
 }
 

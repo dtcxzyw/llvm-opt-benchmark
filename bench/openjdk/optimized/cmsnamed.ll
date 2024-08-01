@@ -384,7 +384,7 @@ decodeUTF8.exit:                                  ; preds = %49
 
 .lr.ph.i26:                                       ; preds = %59, %89
   %61 = phi i8 [ %90, %89 ], [ %60, %59 ]
-  %.033.i27 = phi ptr [ %.2.i34, %89 ], [ %57, %59 ]
+  %.033.i27 = phi ptr [ %.1.i34, %89 ], [ %57, %59 ]
   %.02231.i29 = phi i32 [ %.123.i31, %89 ], [ 0, %59 ]
   %.02430.i30 = phi ptr [ %81, %89 ], [ %3, %59 ]
   %62 = zext i8 %61 to i32
@@ -443,7 +443,7 @@ decodeUTF8.exit:                                  ; preds = %49
 
 89:                                               ; preds = %86, %87, %80
   %90 = phi i8 [ %82, %80 ], [ %.pre.pre.i38, %87 ], [ %82, %86 ]
-  %.2.i34 = phi ptr [ %.033.i27, %80 ], [ %88, %87 ], [ null, %86 ]
+  %.1.i34 = phi ptr [ %.033.i27, %80 ], [ %88, %87 ], [ null, %86 ]
   %.not.i35 = icmp eq i8 %90, 0
   br i1 %.not.i35, label %decodeUTF8.exit41, label %.lr.ph.i26, !llvm.loop !10
 
@@ -998,9 +998,9 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
 10:                                               ; preds = %.lr.ph, %._crit_edge86
   %11 = phi i32 [ %5, %.lr.ph ], [ %81, %._crit_edge86 ]
   %.085 = phi i32 [ 0, %.lr.ph ], [ %80, %._crit_edge86 ]
-  %.06084 = phi i32 [ 0, %.lr.ph ], [ %.2, %._crit_edge86 ]
-  %.06183 = phi i32 [ 0, %.lr.ph ], [ %.263, %._crit_edge86 ]
-  %.06482 = phi ptr [ %0, %.lr.ph ], [ %.6, %._crit_edge86 ]
+  %.06084 = phi i32 [ 0, %.lr.ph ], [ %.1, %._crit_edge86 ]
+  %.06183 = phi i32 [ 0, %.lr.ph ], [ %.162, %._crit_edge86 ]
+  %.06482 = phi ptr [ %0, %.lr.ph ], [ %.165, %._crit_edge86 ]
   %.06781 = phi ptr [ %1, %.lr.ph ], [ %79, %._crit_edge86 ]
   %12 = and i32 %11, -1024
   %or.cond73 = icmp eq i32 %12, 55296
@@ -1015,8 +1015,8 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
   %or.cond74 = icmp eq i32 %12, 56320
   %17 = add nsw i32 %11, -56320
   %18 = or i32 %17, %.06183
-  %.162 = select i1 %or.cond74, i32 %18, i32 %11
-  %19 = icmp ult i32 %.162, 128
+  %.263 = select i1 %or.cond74, i32 %18, i32 %11
+  %19 = icmp ult i32 %.263, 128
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %16
@@ -1029,13 +1029,13 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
   br i1 %22, label %23, label %._crit_edge86
 
 23:                                               ; preds = %21
-  %24 = trunc nuw nsw i32 %.162 to i8
+  %24 = trunc nuw nsw i32 %.263 to i8
   %25 = getelementptr inbounds i8, ptr %.06482, i64 1
   store i8 %24, ptr %.06482, align 1
   br label %._crit_edge86
 
 26:                                               ; preds = %16
-  %27 = icmp ult i32 %.162, 2048
+  %27 = icmp ult i32 %.263, 2048
   br i1 %27, label %28, label %41
 
 28:                                               ; preds = %26
@@ -1047,12 +1047,12 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
   br i1 %or.cond76, label %32, label %._crit_edge86
 
 32:                                               ; preds = %28
-  %33 = lshr i32 %.162, 6
+  %33 = lshr i32 %.263, 6
   %34 = trunc nuw i32 %33 to i8
   %35 = or disjoint i8 %34, -64
   %36 = getelementptr inbounds i8, ptr %.06482, i64 1
   store i8 %35, ptr %.06482, align 1
-  %37 = trunc i32 %.162 to i8
+  %37 = trunc i32 %.263 to i8
   %38 = and i8 %37, 63
   %39 = or disjoint i8 %38, -128
   %40 = getelementptr inbounds i8, ptr %.06482, i64 2
@@ -1060,7 +1060,7 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
   br label %._crit_edge86
 
 41:                                               ; preds = %26
-  %42 = icmp ult i32 %.162, 65536
+  %42 = icmp ult i32 %.263, 65536
   %43 = icmp ne ptr %.06482, null
   %or.cond3 = and i1 %9, %43
   br i1 %42, label %44, label %61
@@ -1072,18 +1072,18 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
   br i1 %or.cond78, label %47, label %._crit_edge86
 
 47:                                               ; preds = %44
-  %48 = lshr i32 %.162, 12
+  %48 = lshr i32 %.263, 12
   %49 = trunc nuw i32 %48 to i8
   %50 = or disjoint i8 %49, -32
   %51 = getelementptr inbounds i8, ptr %.06482, i64 1
   store i8 %50, ptr %.06482, align 1
-  %52 = lshr i32 %.162, 6
+  %52 = lshr i32 %.263, 6
   %53 = trunc i32 %52 to i8
   %54 = and i8 %53, 63
   %55 = or disjoint i8 %54, -128
   %56 = getelementptr inbounds i8, ptr %.06482, i64 2
   store i8 %55, ptr %51, align 1
-  %57 = trunc i32 %.162 to i8
+  %57 = trunc i32 %.263 to i8
   %58 = and i8 %57, 63
   %59 = or disjoint i8 %58, -128
   %60 = getelementptr inbounds i8, ptr %.06482, i64 3
@@ -1097,9 +1097,9 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
   br i1 %or.cond80, label %64, label %._crit_edge86
 
 64:                                               ; preds = %61
-  %65 = lshr i32 %.162, 18
-  %66 = lshr i32 %.162, 12
-  %67 = lshr i32 %.162, 6
+  %65 = lshr i32 %.263, 18
+  %66 = lshr i32 %.263, 12
+  %67 = lshr i32 %.263, 6
   %68 = getelementptr inbounds i8, ptr %.06482, i64 4
   %69 = trunc i32 %65 to i8
   %70 = insertelement <4 x i8> poison, i8 %69, i64 0
@@ -1107,7 +1107,7 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
   %72 = insertelement <4 x i8> %70, i8 %71, i64 1
   %73 = trunc i32 %67 to i8
   %74 = insertelement <4 x i8> %72, i8 %73, i64 2
-  %75 = trunc i32 %.162 to i8
+  %75 = trunc i32 %.263 to i8
   %76 = insertelement <4 x i8> %74, i8 %75, i64 3
   %77 = and <4 x i8> %76, <i8 7, i8 63, i8 63, i8 63>
   %78 = or disjoint <4 x i8> %77, <i8 -16, i8 -128, i8 -128, i8 -128>
@@ -1115,9 +1115,9 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
   br label %._crit_edge86
 
 ._crit_edge86:                                    ; preds = %20, %21, %23, %61, %64, %44, %47, %28, %32, %13
-  %.6 = phi ptr [ %.06482, %13 ], [ %40, %32 ], [ %.06482, %28 ], [ %60, %47 ], [ %.06482, %44 ], [ %68, %64 ], [ %.06482, %61 ], [ %25, %23 ], [ %.06482, %21 ], [ null, %20 ]
-  %.263 = phi i32 [ %15, %13 ], [ 0, %32 ], [ 0, %28 ], [ 0, %47 ], [ 0, %44 ], [ 0, %64 ], [ 0, %61 ], [ 0, %23 ], [ 0, %21 ], [ 0, %20 ]
-  %.2 = phi i32 [ %.06084, %13 ], [ %30, %32 ], [ %30, %28 ], [ %45, %47 ], [ %45, %44 ], [ %62, %64 ], [ %62, %61 ], [ %.pre, %23 ], [ %.pre, %21 ], [ %.pre, %20 ]
+  %.165 = phi ptr [ %.06482, %13 ], [ %40, %32 ], [ %.06482, %28 ], [ %60, %47 ], [ %.06482, %44 ], [ %68, %64 ], [ %.06482, %61 ], [ %25, %23 ], [ %.06482, %21 ], [ null, %20 ]
+  %.162 = phi i32 [ %15, %13 ], [ 0, %32 ], [ 0, %28 ], [ 0, %47 ], [ 0, %44 ], [ 0, %64 ], [ 0, %61 ], [ 0, %23 ], [ 0, %21 ], [ 0, %20 ]
+  %.1 = phi i32 [ %.06084, %13 ], [ %30, %32 ], [ %30, %28 ], [ %45, %47 ], [ %45, %44 ], [ %62, %64 ], [ %62, %61 ], [ %.pre, %23 ], [ %.pre, %21 ], [ %.pre, %20 ]
   %79 = getelementptr inbounds i8, ptr %.06781, i64 4
   %80 = add nuw nsw i32 %.085, 1
   %81 = load i32, ptr %79, align 4
@@ -1127,7 +1127,7 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture n
   br i1 %84, label %10, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %._crit_edge86, %4
-  %.060.lcssa = phi i32 [ 0, %4 ], [ %.2, %._crit_edge86 ]
+  %.060.lcssa = phi i32 [ 0, %4 ], [ %.1, %._crit_edge86 ]
   ret i32 %.060.lcssa
 }
 
@@ -1236,7 +1236,7 @@ strTo16.exit19:                                   ; preds = %strTo16.exit, %16
 
 _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.i, %41
   %.sink30 = phi i32 [ %45, %41 ], [ %52, %._crit_edge.thread.i ]
-  %.023 = phi i32 [ %43, %41 ], [ %.pre68.i, %._crit_edge.thread.i ]
+  %.1 = phi i32 [ %43, %41 ], [ %.pre68.i, %._crit_edge.thread.i ]
   %.sink.in = getelementptr inbounds i8, ptr %0, i64 32
   %.sink = load ptr, ptr %.sink.in, align 8
   %57 = zext i32 %.sink30 to i64
@@ -1249,7 +1249,7 @@ _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %60
-  %63 = add i32 %.023, 4
+  %63 = add i32 %.1, 4
   br label %_cmsMLUgetWide.exit.thread
 
 64:                                               ; preds = %60
@@ -1258,11 +1258,11 @@ _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.
 
 66:                                               ; preds = %64
   %67 = zext i32 %4 to i64
-  %68 = zext i32 %.023 to i64
+  %68 = zext i32 %.1 to i64
   %69 = add nuw nsw i64 %68, 4
   %70 = icmp ugt i64 %69, %67
   %71 = add i32 %4, -4
-  %spec.select = select i1 %70, i32 %71, i32 %.023
+  %spec.select = select i1 %70, i32 %71, i32 %.1
   %72 = zext i32 %spec.select to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %3, ptr nonnull align 4 %58, i64 %72, i1 false)
   %73 = lshr i32 %spec.select, 2

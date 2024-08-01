@@ -159,9 +159,9 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
   br i1 %.not6165, label %.loopexit64, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %.lr.ph
-  %.066 = phi i32 [ %33, %.lr.ph ], [ %29, %28 ]
+  %.166 = phi i32 [ %33, %.lr.ph ], [ %29, %28 ]
   %32 = load i32, ptr @hf_oxid_oid, align 4
-  %33 = call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %.066, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #2
+  %33 = call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %.166, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %32, ptr noundef null) #2
   %34 = load i16, ptr %8, align 2
   %35 = add i16 %34, -1
   store i16 %35, ptr %8, align 2
@@ -169,8 +169,8 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
   br i1 %.not61, label %.loopexit64, label %.lr.ph, !llvm.loop !4
 
 .loopexit64:                                      ; preds = %.lr.ph, %28, %6
-  %.1 = phi i32 [ %26, %6 ], [ %29, %28 ], [ %33, %.lr.ph ]
-  %36 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %10) #2
+  %.0 = phi i32 [ %26, %6 ], [ %29, %28 ], [ %33, %.lr.ph ]
+  %36 = call i32 @dissect_dcom_dcerpc_pointer(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %10) #2
   %37 = load i32, ptr %10, align 4
   %.not62 = icmp eq i32 %37, 0
   br i1 %.not62, label %.loopexit, label %38
@@ -184,9 +184,9 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
   br i1 %.not6367, label %.loopexit, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %38, %.lr.ph69
-  %.268 = phi i32 [ %43, %.lr.ph69 ], [ %39, %38 ]
+  %.368 = phi i32 [ %43, %.lr.ph69 ], [ %39, %38 ]
   %42 = load i32, ptr @hf_oxid_oid, align 4
-  %43 = call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %.268, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %42, ptr noundef null) #2
+  %43 = call i32 @dissect_ndr_duint32(ptr noundef %0, i32 noundef %.368, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %42, ptr noundef null) #2
   %44 = load i16, ptr %9, align 2
   %45 = add i16 %44, -1
   store i16 %45, ptr %9, align 2
@@ -194,8 +194,8 @@ define internal i32 @dissect_oxid_complex_ping_rqst(ptr noundef %0, i32 noundef 
   br i1 %.not63, label %.loopexit, label %.lr.ph69, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph69, %38, %.loopexit64
-  %.3 = phi i32 [ %36, %.loopexit64 ], [ %39, %38 ], [ %43, %.lr.ph69 ]
-  ret i32 %.3
+  %.2 = phi i32 [ %36, %.loopexit64 ], [ %39, %38 ], [ %43, %.lr.ph69 ]
+  ret i32 %.2
 }
 
 ; Function Attrs: nounwind uwtable

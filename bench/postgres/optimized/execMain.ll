@@ -2447,7 +2447,7 @@ slot_getallattrs.exit:                            ; preds = %15, %23
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %55
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %55 ], [ 0, %.lr.ph ]
-  %.04860.us = phi i1 [ %.250.us, %55 ], [ false, %.lr.ph ]
+  %.04860.us = phi i1 [ %.149.us, %55 ], [ false, %.lr.ph ]
   %30 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %26, i64 0, i64 %indvars.iv65
   %31 = getelementptr inbounds i8, ptr %30, i64 95
   %32 = load i8, ptr %31, align 1
@@ -2497,7 +2497,7 @@ slot_getallattrs.exit:                            ; preds = %15, %23
   br label %55
 
 55:                                               ; preds = %54, %52, %.lr.ph.split.us
-  %.250.us = phi i1 [ %.04860.us, %.lr.ph.split.us ], [ true, %54 ], [ true, %52 ]
+  %.149.us = phi i1 [ %.04860.us, %.lr.ph.split.us ], [ true, %54 ], [ true, %52 ]
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %56 = load i32, ptr %2, align 8
   %57 = sext i32 %56 to i64
@@ -2506,9 +2506,9 @@ slot_getallattrs.exit:                            ; preds = %15, %23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %97
   %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ 0, %.lr.ph ]
-  %.163 = phi i8 [ %.3, %97 ], [ %.041, %.lr.ph ]
-  %.04461 = phi i1 [ %.347, %97 ], [ false, %.lr.ph ]
-  %.04860 = phi i1 [ %.250, %97 ], [ false, %.lr.ph ]
+  %.163 = phi i8 [ %.2, %97 ], [ %.041, %.lr.ph ]
+  %.04461 = phi i1 [ %.145, %97 ], [ false, %.lr.ph ]
+  %.04860 = phi i1 [ %.149, %97 ], [ false, %.lr.ph ]
   %59 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %26, i64 0, i64 %indvars.iv
   %60 = getelementptr inbounds i8, ptr %59, i64 95
   %61 = load i8, ptr %60, align 1
@@ -2580,9 +2580,9 @@ slot_getallattrs.exit:                            ; preds = %15, %23
   br label %97
 
 97:                                               ; preds = %63, %95, %94, %.lr.ph.split
-  %.250 = phi i1 [ %.04860, %.lr.ph.split ], [ true, %94 ], [ true, %95 ], [ %.04860, %63 ]
-  %.347 = phi i1 [ %.04461, %.lr.ph.split ], [ true, %94 ], [ true, %95 ], [ %.04461, %63 ]
-  %.3 = phi i8 [ %.163, %.lr.ph.split ], [ 1, %94 ], [ 1, %95 ], [ %.163, %63 ]
+  %.149 = phi i1 [ %.04860, %.lr.ph.split ], [ true, %94 ], [ true, %95 ], [ %.04860, %63 ]
+  %.145 = phi i1 [ %.04461, %.lr.ph.split ], [ true, %94 ], [ true, %95 ], [ %.04461, %63 ]
+  %.2 = phi i8 [ %.163, %.lr.ph.split ], [ 1, %94 ], [ 1, %95 ], [ %.163, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %98 = load i32, ptr %2, align 8
   %99 = sext i32 %98 to i64
@@ -2590,7 +2590,7 @@ slot_getallattrs.exit:                            ; preds = %15, %23
   br i1 %100, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %97, %55, %slot_getallattrs.exit
-  %.1.lcssa = phi i8 [ %.041, %slot_getallattrs.exit ], [ %.041, %55 ], [ %.3, %97 ]
+  %.1.lcssa = phi i8 [ %.041, %slot_getallattrs.exit ], [ %.041, %55 ], [ %.2, %97 ]
   %101 = trunc nuw i8 %.1.lcssa to i1
   br i1 %101, label %102, label %111
 

@@ -1518,12 +1518,12 @@ _ZN7xgboost4JsonD2Ev.exit32:                      ; preds = %121, %125, %129
   br i1 %133, label %.thread, label %121
 
 134:                                              ; preds = %113, %115
-  %.114 = phi ptr [ %12, %113 ], [ %19, %115 ]
+  %.013 = phi ptr [ %12, %113 ], [ %19, %115 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %116, %115 ]
   br label %135
 
 135:                                              ; preds = %134, %_ZN7xgboost4JsonD2Ev.exit34
-  %136 = phi ptr [ %137, %_ZN7xgboost4JsonD2Ev.exit34 ], [ %.114, %134 ]
+  %136 = phi ptr [ %137, %_ZN7xgboost4JsonD2Ev.exit34 ], [ %.013, %134 ]
   %137 = getelementptr inbounds i8, ptr %136, i64 -8
   %138 = load ptr, ptr %137, align 8
   %.not.i.i.i33 = icmp eq ptr %138, null

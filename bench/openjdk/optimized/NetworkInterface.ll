@@ -333,26 +333,26 @@ define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nocapt
 
 45:                                               ; preds = %44
   %46 = getelementptr inbounds i8, ptr %.04662, i64 24
-  %.163 = load ptr, ptr %46, align 8
-  %.not5264 = icmp eq ptr %.163, null
+  %.263 = load ptr, ptr %46, align 8
+  %.not5264 = icmp eq ptr %.263, null
   br i1 %.not5264, label %.thread56, label %.lr.ph
 
 .lr.ph:                                           ; preds = %45, %50
-  %.165 = phi ptr [ %.1, %50 ], [ %.163, %45 ]
-  %47 = load ptr, ptr %.165, align 8
+  %.265 = phi ptr [ %.2, %50 ], [ %.263, %45 ]
+  %47 = load ptr, ptr %.265, align 8
   %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %47) #15
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.loopexit, label %50
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds i8, ptr %.165, i64 32
-  %.1 = load ptr, ptr %51, align 8
-  %.not52 = icmp eq ptr %.1, null
+  %51 = getelementptr inbounds i8, ptr %.265, i64 32
+  %.2 = load ptr, ptr %51, align 8
+  %.not52 = icmp eq ptr %.2, null
   br i1 %.not52, label %.thread56, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %44
-  %.2 = phi ptr [ %.04662, %44 ], [ %.165, %.lr.ph ]
-  %52 = call fastcc ptr @createNetworkInterface(ptr noundef nonnull %0, ptr noundef nonnull %.2)
+  %.1 = phi ptr [ %.04662, %44 ], [ %.265, %.lr.ph ]
+  %52 = call fastcc ptr @createNetworkInterface(ptr noundef nonnull %0, ptr noundef nonnull %.1)
   br label %.thread56
 
 .thread56:                                        ; preds = %41, %50, %45, %.loopexit
@@ -1347,7 +1347,7 @@ define internal fastcc noundef ptr @enumIPv6Interfaces(ptr noundef %0, i32 nound
   br label %22
 
 22:                                               ; preds = %.preheader, %24
-  %.0 = phi ptr [ %30, %24 ], [ %2, %.preheader ]
+  %.1 = phi ptr [ %30, %24 ], [ %2, %.preheader ]
   %23 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.35, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %4) #14
   %.not7 = icmp eq i32 %23, -1
   br i1 %.not7, label %35, label %24
@@ -1360,7 +1360,7 @@ define internal fastcc noundef ptr @enumIPv6Interfaces(ptr noundef %0, i32 nound
   store i32 %27, ptr %21, align 4
   %28 = load i32, ptr %6, align 4
   %29 = trunc i32 %28 to i16
-  %30 = call fastcc ptr @addif(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef %.0, ptr noundef nonnull %11, ptr noundef null, i32 noundef 10, i16 noundef signext %29)
+  %30 = call fastcc ptr @addif(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef %.1, ptr noundef nonnull %11, ptr noundef null, i32 noundef 10, i16 noundef signext %29)
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 120
   %33 = load ptr, ptr %32, align 8
@@ -1369,13 +1369,13 @@ define internal fastcc noundef ptr @enumIPv6Interfaces(ptr noundef %0, i32 nound
   br i1 %.not8, label %22, label %35, !llvm.loop !20
 
 35:                                               ; preds = %24, %22
-  %.1 = phi ptr [ %30, %24 ], [ %.0, %22 ]
+  %.2 = phi ptr [ %30, %24 ], [ %.1, %22 ]
   %36 = call i32 @fclose(ptr noundef nonnull %12)
   br label %37
 
 37:                                               ; preds = %35, %3
-  %.2 = phi ptr [ %.1, %35 ], [ %2, %3 ]
-  ret ptr %.2
+  %.0 = phi ptr [ %.2, %35 ], [ %2, %3 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable

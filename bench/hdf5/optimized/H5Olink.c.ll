@@ -391,9 +391,9 @@ define internal ptr @H5O__link_decode(ptr noundef %0, ptr nocapture readnone %1,
 
 196:                                              ; preds = %194, %196
   %.0225 = phi i64 [ 0, %194 ], [ %203, %196 ]
-  %.0160224 = phi i64 [ 0, %194 ], [ %202, %196 ]
+  %.1224 = phi i64 [ 0, %194 ], [ %202, %196 ]
   %197 = phi ptr [ %195, %194 ], [ %199, %196 ]
-  %198 = shl i64 %.0160224, 8
+  %198 = shl i64 %.1224, 8
   %199 = getelementptr inbounds i8, ptr %197, i64 -1
   store ptr %199, ptr %7, align 8
   %200 = load i8, ptr %199, align 1
@@ -412,8 +412,8 @@ default.unreachable228:                           ; preds = %120
 
 206:                                              ; preds = %204, %165, %146, %132
   %207 = phi ptr [ %205, %204 ], [ %183, %165 ], [ %154, %146 ], [ %133, %132 ]
-  %.1 = phi i64 [ %202, %204 ], [ %182, %165 ], [ %153, %146 ], [ %135, %132 ]
-  %208 = icmp eq i64 %.1, 0
+  %.0160 = phi i64 [ %202, %204 ], [ %182, %165 ], [ %153, %146 ], [ %135, %132 ]
+  %208 = icmp eq i64 %.0160, 0
   br i1 %208, label %209, label %213
 
 209:                                              ; preds = %206
@@ -430,7 +430,7 @@ default.unreachable228:                           ; preds = %120
   %216 = ptrtoint ptr %207 to i64
   %217 = add i64 %11, 1
   %218 = sub i64 %217, %216
-  %219 = icmp ugt i64 %.1, %218
+  %219 = icmp ugt i64 %.0160, %218
   br i1 %219, label %220, label %224
 
 220:                                              ; preds = %213, %215
@@ -440,7 +440,7 @@ default.unreachable228:                           ; preds = %120
   br label %348
 
 224:                                              ; preds = %215
-  %225 = add i64 %.1, 1
+  %225 = add i64 %.0160, 1
   %226 = tail call noalias ptr @malloc(i64 noundef %225) #8
   %227 = getelementptr inbounds i8, ptr %27, i64 24
   store ptr %226, ptr %227, align 8
@@ -454,10 +454,10 @@ default.unreachable228:                           ; preds = %120
   br label %348
 
 233:                                              ; preds = %224
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %226, ptr nonnull align 1 %207, i64 %.1, i1 false)
-  %234 = getelementptr inbounds i8, ptr %226, i64 %.1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %226, ptr nonnull align 1 %207, i64 %.0160, i1 false)
+  %234 = getelementptr inbounds i8, ptr %226, i64 %.0160
   store i8 0, ptr %234, align 1
-  %235 = getelementptr inbounds i8, ptr %207, i64 %.1
+  %235 = getelementptr inbounds i8, ptr %207, i64 %.0160
   store ptr %235, ptr %7, align 8
   %trunc = trunc nuw i32 %67 to i8
   switch i8 %trunc, label %297 [

@@ -78,7 +78,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
 
 .backedge.i:                                      ; preds = %113, %26
   %.0106.be.i = phi i32 [ %116, %113 ], [ %29, %26 ]
-  %.0105.be.i = phi ptr [ %.3.i, %113 ], [ %27, %26 ]
+  %.0105.be.i = phi ptr [ %.2.i, %113 ], [ %27, %26 ]
   %.0.be.i = phi ptr [ %115, %113 ], [ %28, %26 ]
   %30 = icmp sgt i32 %.0106.be.i, 0
   br i1 %30, label %.lr.ph.i, label %euc_jis_20042shift_jis_2004.exit, !llvm.loop !4
@@ -166,7 +166,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   br label %67
 
 67:                                               ; preds = %.sink.split.i, %63
-  %.1.i = phi ptr [ %.0105140.i, %63 ], [ %66, %.sink.split.i ]
+  %.3.i = phi ptr [ %.0105140.i, %63 ], [ %66, %.sink.split.i ]
   %68 = and i32 %49, 1
   %.not116.i = icmp eq i32 %68, 0
   br i1 %.not116.i, label %81, label %69
@@ -178,8 +178,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
 
 71:                                               ; preds = %69
   %72 = add i8 %51, -97
-  %73 = getelementptr i8, ptr %.1.i, i64 1
-  store i8 %72, ptr %.1.i, align 1
+  %73 = getelementptr i8, ptr %.3.i, i64 1
+  store i8 %72, ptr %.3.i, align 1
   br label %113
 
 74:                                               ; preds = %69
@@ -189,8 +189,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
 
 76:                                               ; preds = %74
   %77 = add nsw i8 %51, -96
-  %78 = getelementptr i8, ptr %.1.i, i64 1
-  store i8 %77, ptr %.1.i, align 1
+  %78 = getelementptr i8, ptr %.3.i, i64 1
+  store i8 %77, ptr %.3.i, align 1
   br label %113
 
 79:                                               ; preds = %74
@@ -202,8 +202,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
 
 81:                                               ; preds = %67
   %82 = add i8 %51, -2
-  %83 = getelementptr i8, ptr %.1.i, i64 1
-  store i8 %82, ptr %.1.i, align 1
+  %83 = getelementptr i8, ptr %.3.i, i64 1
+  store i8 %82, ptr %.3.i, align 1
   br label %113
 
 84:                                               ; preds = %43
@@ -231,7 +231,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
 93:                                               ; preds = %89, %85
   %.sink.i = phi i32 [ 97, %85 ], [ 225, %89 ]
   %94 = add nuw nsw i32 %.sink.i, %21
-  %.2.i = getelementptr i8, ptr %.0105140.i, i64 1
+  %.4.i = getelementptr i8, ptr %.0105140.i, i64 1
   %storemerge.in.i = lshr i32 %94, 1
   %storemerge.i = trunc nuw i32 %storemerge.in.i to i8
   store i8 %storemerge.i, ptr %.0105140.i, align 1
@@ -247,7 +247,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
 98:                                               ; preds = %96
   %99 = add i8 %87, -97
   %100 = getelementptr i8, ptr %.0105140.i, i64 2
-  store i8 %99, ptr %.2.i, align 1
+  store i8 %99, ptr %.4.i, align 1
   br label %113
 
 101:                                              ; preds = %96
@@ -258,7 +258,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
 103:                                              ; preds = %101
   %104 = add nsw i8 %87, -96
   %105 = getelementptr i8, ptr %.0105140.i, i64 2
-  store i8 %104, ptr %.2.i, align 1
+  store i8 %104, ptr %.4.i, align 1
   br label %113
 
 106:                                              ; preds = %101
@@ -271,7 +271,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
 108:                                              ; preds = %93
   %109 = add i8 %87, -2
   %110 = getelementptr i8, ptr %.0105140.i, i64 2
-  store i8 %109, ptr %.2.i, align 1
+  store i8 %109, ptr %.4.i, align 1
   br label %113
 
 111:                                              ; preds = %84
@@ -282,7 +282,7 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
   unreachable
 
 113:                                              ; preds = %108, %103, %98, %81, %76, %71, %39
-  %.3.i = phi ptr [ %42, %39 ], [ %73, %71 ], [ %78, %76 ], [ %83, %81 ], [ %100, %98 ], [ %105, %103 ], [ %110, %108 ]
+  %.2.i = phi ptr [ %42, %39 ], [ %73, %71 ], [ %78, %76 ], [ %83, %81 ], [ %100, %98 ], [ %105, %103 ], [ %110, %108 ]
   %114 = zext nneg i32 %32 to i64
   %115 = getelementptr i8, ptr %.0141.i, i64 %114
   %116 = sub nsw i32 %.0106139.i, %32
@@ -290,8 +290,8 @@ define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(pt
 
 euc_jis_20042shift_jis_2004.exit:                 ; preds = %.backedge.i, %1, %24, %34, %79, %91, %106, %111
   %.0124.i = phi ptr [ %.0141.i, %34 ], [ %.0141.i, %79 ], [ %.0141.i, %106 ], [ %.0141.i, %91 ], [ %.0141.i, %111 ], [ %.0141.i, %24 ], [ %5, %1 ], [ %.0.be.i, %.backedge.i ]
-  %.4.i = phi ptr [ %.0105140.i, %34 ], [ %.1.i, %79 ], [ %.2.i, %106 ], [ %.0105140.i, %91 ], [ %.0105140.i, %111 ], [ %.0105140.i, %24 ], [ %8, %1 ], [ %.0105.be.i, %.backedge.i ]
-  store i8 0, ptr %.4.i, align 1
+  %.1.i = phi ptr [ %.0105140.i, %34 ], [ %.3.i, %79 ], [ %.4.i, %106 ], [ %.0105140.i, %91 ], [ %.0105140.i, %111 ], [ %.0105140.i, %24 ], [ %8, %1 ], [ %.0105.be.i, %.backedge.i ]
+  store i8 0, ptr %.1.i, align 1
   %117 = ptrtoint ptr %.0124.i to i64
   %118 = sub i64 %117, %4
   %sext = shl i64 %118, 32
@@ -354,7 +354,7 @@ define range(i64 -2147483648, 2147483648) i64 @shift_jis_2004_to_euc_jis_2004(pt
 
 .backedge.i:                                      ; preds = %131, %26
   %.095.be.i = phi i32 [ %134, %131 ], [ %29, %26 ]
-  %.091.be.i = phi ptr [ %.2.i, %131 ], [ %27, %26 ]
+  %.091.be.i = phi ptr [ %.1.i, %131 ], [ %27, %26 ]
   %.0.be.i = phi ptr [ %133, %131 ], [ %28, %26 ]
   %30 = icmp sgt i32 %.095.be.i, 0
   br i1 %30, label %.lr.ph.i, label %shift_jis_20042euc_jis_2004.exit, !llvm.loop !6
@@ -618,19 +618,19 @@ get_ten.exit124.thread.i:                         ; preds = %get_ten.exit124.i, 
 124:                                              ; preds = %122, %75, %59
   %.093166.i = phi i32 [ %.093.ph.i, %122 ], [ %.0.i137.i, %59 ], [ %.0.i109145.i, %75 ]
   %.094164.i = phi i32 [ %.094.ph.i, %122 ], [ %62, %59 ], [ %78, %75 ]
-  %.1.i = phi ptr [ %123, %122 ], [ %.091195.i, %59 ], [ %.091195.i, %75 ]
+  %.2.i = phi ptr [ %123, %122 ], [ %.091195.i, %59 ], [ %.091195.i, %75 ]
   %125 = trunc i32 %.094164.i to i8
   %126 = add i8 %125, -96
-  %127 = getelementptr i8, ptr %.1.i, i64 1
-  store i8 %126, ptr %.1.i, align 1
+  %127 = getelementptr i8, ptr %.2.i, i64 1
+  store i8 %126, ptr %.2.i, align 1
   %128 = trunc i32 %.093166.i to i8
   %129 = add i8 %128, -96
-  %130 = getelementptr i8, ptr %.1.i, i64 2
+  %130 = getelementptr i8, ptr %.2.i, i64 2
   store i8 %129, ptr %127, align 1
   br label %131
 
 131:                                              ; preds = %124, %41, %38
-  %.2.i = phi ptr [ %40, %38 ], [ %130, %124 ], [ %.091195.i, %41 ]
+  %.1.i = phi ptr [ %40, %38 ], [ %130, %124 ], [ %.091195.i, %41 ]
   %132 = zext nneg i32 %32 to i64
   %133 = getelementptr i8, ptr %.0197.i, i64 %132
   %134 = sub nsw i32 %.095191.i, %32

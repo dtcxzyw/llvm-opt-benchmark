@@ -226,7 +226,7 @@ invoke.cont29:                                    ; preds = %if.end28
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont, %invoke.cont29
-  %retval.0 = phi i1 [ %lnot, %invoke.cont29 ], [ false, %invoke.cont ]
+  %retval.1 = phi i1 [ %lnot, %invoke.cont29 ], [ false, %invoke.cont ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %ifs) #16
   br label %return
 
@@ -236,8 +236,8 @@ ehcleanup:                                        ; preds = %lpad21, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable

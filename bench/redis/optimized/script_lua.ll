@@ -2410,14 +2410,14 @@ if.else53:                                        ; preds = %if.end40, %land.lhs
 
 while.body:                                       ; preds = %if.else53, %while.body
   %20 = phi ptr [ %26, %while.body ], [ %18, %if.else53 ]
-  %reply.071 = phi ptr [ %call64, %while.body ], [ %call57, %if.else53 ]
+  %reply.171 = phi ptr [ %call64, %while.body ], [ %call57, %if.else53 ]
   %21 = load ptr, ptr %20, align 8
   %value = getelementptr inbounds i8, ptr %21, i64 16
   %22 = load ptr, ptr %value, align 8
   %buf63 = getelementptr inbounds i8, ptr %22, i64 16
   %used = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i64, ptr %used, align 8
-  %call64 = call ptr @sdscatlen(ptr noundef %reply.071, ptr noundef nonnull %buf63, i64 noundef %23) #11
+  %call64 = call ptr @sdscatlen(ptr noundef %reply.171, ptr noundef nonnull %buf63, i64 noundef %23) #11
   %24 = load ptr, ptr %reply41, align 8
   %25 = load ptr, ptr %24, align 8
   call void @listDelNode(ptr noundef nonnull %24, ptr noundef %25) #11
@@ -2428,20 +2428,20 @@ while.body:                                       ; preds = %if.else53, %while.b
   br i1 %tobool61.not, label %if.end68, label %while.body, !llvm.loop !16
 
 if.end68:                                         ; preds = %while.body, %if.else53, %if.then47
-  %reply.1 = phi ptr [ %16, %if.then47 ], [ %call57, %if.else53 ], [ %call64, %while.body ]
+  %reply.0 = phi ptr [ %16, %if.then47 ], [ %call57, %if.else53 ], [ %call64, %while.body ]
   %tobool69.not = icmp eq i32 %raise_error, 0
   br i1 %tobool69.not, label %if.end76, label %land.lhs.true70
 
 land.lhs.true70:                                  ; preds = %if.end68
-  %28 = load i8, ptr %reply.1, align 1
+  %28 = load i8, ptr %reply.0, align 1
   %cmp73.not = icmp eq i8 %28, 45
   %spec.select = zext i1 %cmp73.not to i32
   br label %if.end76
 
 if.end76:                                         ; preds = %land.lhs.true70, %if.end68
-  %raise_error.addr.0 = phi i32 [ 0, %if.end68 ], [ %spec.select, %land.lhs.true70 ]
+  %raise_error.addr.1 = phi i32 [ 0, %if.end68 ], [ %spec.select, %land.lhs.true70 ]
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %parser.i)
-  store ptr %reply.1, ptr %parser.i, align 8
+  store ptr %reply.0, ptr %parser.i, align 8
   %callbacks.i = getelementptr inbounds i8, ptr %parser.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %callbacks.i, ptr noundef nonnull align 8 dereferenceable(128) @DefaultLuaTypeParserCallbacks, i64 128, i1 false)
   %call.i62 = call i32 @parseReply(ptr noundef nonnull %parser.i, ptr noundef %lua) #11
@@ -2451,17 +2451,17 @@ if.end76:                                         ; preds = %land.lhs.true70, %i
   br i1 %tobool78.not, label %if.end80, label %if.then79
 
 if.then79:                                        ; preds = %if.end76
-  call void @ldbLogRedisReply(ptr noundef %reply.1) #11
+  call void @ldbLogRedisReply(ptr noundef %reply.0) #11
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then79, %if.end76
   %buf81 = getelementptr inbounds i8, ptr %0, i64 768
   %29 = load ptr, ptr %buf81, align 8
-  %cmp82.not = icmp eq ptr %reply.1, %29
+  %cmp82.not = icmp eq ptr %reply.0, %29
   br i1 %cmp82.not, label %if.end85, label %if.then84
 
 if.then84:                                        ; preds = %if.end80
-  call void @sdsfree(ptr noundef %reply.1) #11
+  call void @sdsfree(ptr noundef %reply.0) #11
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then84, %if.end80
@@ -2470,7 +2470,7 @@ if.end85:                                         ; preds = %if.then84, %if.end8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end85, %if.then39
-  %raise_error.addr.1 = phi i32 [ %raise_error, %if.then39 ], [ %raise_error.addr.0, %if.end85 ]
+  %raise_error.addr.0 = phi i32 [ %raise_error, %if.then39 ], [ %raise_error.addr.1, %if.end85 ]
   %30 = load ptr, ptr %argv, align 8
   %31 = load i32, ptr %argc, align 8
   %32 = load i32, ptr %argv_len, align 8
@@ -2484,7 +2484,7 @@ cleanup:                                          ; preds = %if.end85, %if.then3
   %33 = load i32, ptr @luaRedisGenericCommand.inuse, align 4
   %dec = add nsw i32 %33, -1
   store i32 %dec, ptr @luaRedisGenericCommand.inuse, align 4
-  %tobool92.not = icmp eq i32 %raise_error.addr.1, 0
+  %tobool92.not = icmp eq i32 %raise_error.addr.0, 0
   br i1 %tobool92.not, label %return, label %if.then93
 
 if.then93:                                        ; preds = %cleanup

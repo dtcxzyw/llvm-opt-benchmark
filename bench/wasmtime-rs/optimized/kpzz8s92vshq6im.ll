@@ -284,11 +284,11 @@ define internal fastcc { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   br label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread"
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit": ; preds = %._crit_edge.i.i.i.i.i, %18
-  %.sroa.4.0.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !17
   %24 = getelementptr inbounds i8, ptr %0, i64 72
-  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = icmp eq ptr %26, null
   br i1 %27, label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread", label %28
@@ -366,11 +366,11 @@ define internal fastcc { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   br label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread"
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit": ; preds = %._crit_edge.i.i.i.i.i, %18
-  %.sroa.4.0.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !36
   %24 = getelementptr inbounds i8, ptr %0, i64 72
-  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = icmp eq ptr %26, null
   br i1 %27, label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread", label %28
@@ -448,11 +448,11 @@ define internal fastcc { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   br label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread"
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit": ; preds = %._crit_edge.i.i.i.i.i, %18
-  %.sroa.4.0.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !52
   %24 = getelementptr inbounds i8, ptr %0, i64 72
-  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = icmp eq ptr %26, null
   br i1 %27, label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread", label %28
@@ -530,11 +530,11 @@ define internal fastcc { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   br label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread"
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit": ; preds = %._crit_edge.i.i.i.i.i, %18
-  %.sroa.4.0.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !68
   %24 = getelementptr inbounds i8, ptr %0, i64 72
-  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = icmp eq ptr %26, null
   br i1 %27, label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread", label %28
@@ -612,11 +612,11 @@ define internal fastcc { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   br label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread"
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit": ; preds = %._crit_edge.i.i.i.i.i, %18
-  %.sroa.4.0.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !84
   %24 = getelementptr inbounds i8, ptr %0, i64 72
-  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = icmp eq ptr %26, null
   br i1 %27, label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread", label %28
@@ -694,11 +694,11 @@ define internal fastcc { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   br label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread"
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit": ; preds = %._crit_edge.i.i.i.i.i, %18
-  %.sroa.4.0.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !100
   %24 = getelementptr inbounds i8, ptr %0, i64 72
-  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = icmp eq ptr %26, null
   br i1 %27, label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread", label %28
@@ -776,11 +776,11 @@ define internal fastcc { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   br label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread"
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit": ; preds = %._crit_edge.i.i.i.i.i, %18
-  %.sroa.4.0.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !116
   %24 = getelementptr inbounds i8, ptr %0, i64 72
-  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = icmp eq ptr %26, null
   br i1 %27, label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread", label %28
@@ -858,11 +858,11 @@ define internal fastcc { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   br label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread"
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit": ; preds = %._crit_edge.i.i.i.i.i, %18
-  %.sroa.4.0.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !132
   %24 = getelementptr inbounds i8, ptr %0, i64 72
-  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = icmp eq ptr %26, null
   br i1 %27, label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread", label %28
@@ -940,11 +940,11 @@ define internal fastcc { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   br label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread"
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit": ; preds = %._crit_edge.i.i.i.i.i, %18
-  %.sroa.4.0.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !148
   %24 = getelementptr inbounds i8, ptr %0, i64 72
-  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = icmp eq ptr %26, null
   br i1 %27, label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread", label %28
@@ -1022,11 +1022,11 @@ define internal fastcc { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$
   br label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread"
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit": ; preds = %._crit_edge.i.i.i.i.i, %18
-  %.sroa.4.0.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !164
   %24 = getelementptr inbounds i8, ptr %0, i64 72
-  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i)
+  %25 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %24, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i)
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = icmp eq ptr %26, null
   br i1 %27, label %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.thread", label %28
@@ -5396,19 +5396,19 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   ret void
 
 148:                                              ; preds = %._crit_edge.i.i, %133
-  %.sroa.4.0.i = phi i64 [ %138, %133 ], [ %132, %._crit_edge.i.i ]
-  %.sroa.0.0.i = phi ptr [ %137, %133 ], [ %131, %._crit_edge.i.i ]
+  %.sroa.4.1.i = phi i64 [ %138, %133 ], [ %132, %._crit_edge.i.i ]
+  %.sroa.0.1.i = phi ptr [ %137, %133 ], [ %131, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !916
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
-  store ptr %.sroa.0.0.i, ptr %34, align 8
-  store i64 %.sroa.4.0.i, ptr %111, align 8
+  store ptr %.sroa.0.1.i, ptr %34, align 8
+  store i64 %.sroa.4.1.i, ptr %111, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %33)
   store i64 0, ptr %.sroa.4184.0..sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4184.sroa.4.0..sroa.4184.0..sroa_idx.sroa_idx, align 8
-  store ptr %.sroa.0.0.i, ptr %.sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4184.sroa.5.sroa.4.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4184.sroa.4.0..sroa.4184.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.0.1.i, ptr %.sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4184.sroa.5.sroa.4.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i64 0, ptr %.sroa.4184.sroa.5.sroa.5.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4184.sroa.5.sroa.6.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4184.sroa.5.sroa.6.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i64 1, ptr %.sroa.4184.sroa.5.sroa.7.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store <4 x i8> <i8 61, i8 0, i8 0, i8 0>, ptr %.sroa.4184.sroa.5.sroa.8.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i32 61, ptr %.sroa.4184.sroa.5.sroa.9.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 4
@@ -5458,7 +5458,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %159 = load i64, ptr %112, align 8, !noalias !937, !noundef !18
   %160 = load i64, ptr %113, align 8, !noalias !937, !noundef !18
   %161 = load i64, ptr %.sroa.4184.0..sroa_idx, align 8, !alias.scope !937, !noundef !18
-  %162 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %161
+  %162 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 %161
   %163 = sub i64 %159, %161
   store i64 %160, ptr %.sroa.4184.0..sroa_idx, align 8, !alias.scope !937
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24), !noalias !937
@@ -5466,10 +5466,10 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 164:                                              ; preds = %158, %.thread37
   %.pre.i.i240 = phi i64 [ %.pre.i.i.i, %.thread37 ], [ %160, %158 ]
-  %.sroa.0.0.i.i41 = phi ptr [ %156, %.thread37 ], [ %162, %158 ]
-  %.sroa.4.0.i.i40 = phi i64 [ %157, %.thread37 ], [ %163, %158 ]
-  store ptr %.sroa.0.0.i.i41, ptr %32, align 8
-  store i64 %.sroa.4.0.i.i40, ptr %114, align 8
+  %.sroa.0.1.i.i41 = phi ptr [ %156, %.thread37 ], [ %162, %158 ]
+  %.sroa.4.1.i.i40 = phi i64 [ %157, %.thread37 ], [ %163, %158 ]
+  store ptr %.sroa.0.1.i.i41, ptr %32, align 8
+  store i64 %.sroa.4.1.i.i40, ptr %114, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !941)
   %165 = load i64, ptr %33, align 8, !alias.scope !941, !noundef !18
   switch i64 %165, label %166 [
@@ -5527,8 +5527,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256": ; preds = %180, %._crit_edge.i.i.i259, %175, %172
-  %.sroa.4.0.i.i257 = phi i64 [ %185, %180 ], [ %179, %._crit_edge.i.i.i259 ], [ undef, %172 ], [ undef, %175 ]
-  %.sroa.0.0.i.i258 = phi ptr [ %184, %180 ], [ %178, %._crit_edge.i.i.i259 ], [ null, %172 ], [ null, %175 ]
+  %.sroa.4.1.i.i257 = phi i64 [ %185, %180 ], [ %179, %._crit_edge.i.i.i259 ], [ undef, %172 ], [ undef, %175 ]
+  %.sroa.0.1.i.i258 = phi ptr [ %184, %180 ], [ %178, %._crit_edge.i.i.i259 ], [ null, %172 ], [ null, %175 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !947
   br label %.lr.ph.i
 
@@ -5554,8 +5554,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %164, %166, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256", %186, %189, %._crit_edge.i.i247
-  %.sroa.4.0.i245 = phi i64 [ undef, %164 ], [ %.sroa.4.0.i.i257, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ undef, %166 ], [ %193, %._crit_edge.i.i247 ], [ undef, %186 ], [ undef, %189 ]
-  %.sroa.0.0.i246 = phi ptr [ null, %164 ], [ %.sroa.0.0.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ null, %166 ], [ %192, %._crit_edge.i.i247 ], [ null, %186 ], [ null, %189 ]
+  %.sroa.4.0.i245 = phi i64 [ undef, %164 ], [ %.sroa.4.1.i.i257, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ undef, %166 ], [ %193, %._crit_edge.i.i247 ], [ undef, %186 ], [ undef, %189 ]
+  %.sroa.0.0.i246 = phi ptr [ null, %164 ], [ %.sroa.0.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ null, %166 ], [ %192, %._crit_edge.i.i247 ], [ null, %186 ], [ null, %189 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.12)
   call void @llvm.experimental.noalias.scope.decl(metadata !954)
@@ -6197,10 +6197,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %260
   br label %.thread53
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.i": ; preds = %367, %._crit_edge.i.i.i.i.i.i
-  %.sroa.4.0.i.i.i.i.i = phi i64 [ %371, %367 ], [ %366, %._crit_edge.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %370, %367 ], [ %365, %._crit_edge.i.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i.i = phi i64 [ %371, %367 ], [ %366, %._crit_edge.i.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i.i = phi ptr [ %370, %367 ], [ %365, %._crit_edge.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1104
-  %372 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %340, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i)
+  %372 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %340, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i.i)
           to label %.noexc291 unwind label %.loopexit.split-lp71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc291:                                        ; preds = %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.i"
@@ -7064,19 +7064,19 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   ret void
 
 147:                                              ; preds = %._crit_edge.i.i, %132
-  %.sroa.4.0.i = phi i64 [ %137, %132 ], [ %131, %._crit_edge.i.i ]
-  %.sroa.0.0.i = phi ptr [ %136, %132 ], [ %130, %._crit_edge.i.i ]
+  %.sroa.4.1.i = phi i64 [ %137, %132 ], [ %131, %._crit_edge.i.i ]
+  %.sroa.0.1.i = phi ptr [ %136, %132 ], [ %130, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25), !noalias !1186
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
-  store ptr %.sroa.0.0.i, ptr %33, align 8
-  store i64 %.sroa.4.0.i, ptr %110, align 8
+  store ptr %.sroa.0.1.i, ptr %33, align 8
+  store i64 %.sroa.4.1.i, ptr %110, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32)
   store i64 0, ptr %.sroa.4184.0..sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4184.sroa.4.0..sroa.4184.0..sroa_idx.sroa_idx, align 8
-  store ptr %.sroa.0.0.i, ptr %.sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4184.sroa.5.sroa.4.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4184.sroa.4.0..sroa.4184.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.0.1.i, ptr %.sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4184.sroa.5.sroa.4.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i64 0, ptr %.sroa.4184.sroa.5.sroa.5.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4184.sroa.5.sroa.6.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4184.sroa.5.sroa.6.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i64 1, ptr %.sroa.4184.sroa.5.sroa.7.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store <4 x i8> <i8 61, i8 0, i8 0, i8 0>, ptr %.sroa.4184.sroa.5.sroa.8.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i32 61, ptr %.sroa.4184.sroa.5.sroa.9.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 4
@@ -7126,7 +7126,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %158 = load i64, ptr %111, align 8, !noalias !1207, !noundef !18
   %159 = load i64, ptr %112, align 8, !noalias !1207, !noundef !18
   %160 = load i64, ptr %.sroa.4184.0..sroa_idx, align 8, !alias.scope !1207, !noundef !18
-  %161 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %160
+  %161 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 %160
   %162 = sub i64 %158, %160
   store i64 %159, ptr %.sroa.4184.0..sroa_idx, align 8, !alias.scope !1207
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !1207
@@ -7134,10 +7134,10 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 163:                                              ; preds = %157, %.thread37
   %.pre.i.i240 = phi i64 [ %.pre.i.i.i, %.thread37 ], [ %159, %157 ]
-  %.sroa.0.0.i.i41 = phi ptr [ %155, %.thread37 ], [ %161, %157 ]
-  %.sroa.4.0.i.i40 = phi i64 [ %156, %.thread37 ], [ %162, %157 ]
-  store ptr %.sroa.0.0.i.i41, ptr %31, align 8
-  store i64 %.sroa.4.0.i.i40, ptr %113, align 8
+  %.sroa.0.1.i.i41 = phi ptr [ %155, %.thread37 ], [ %161, %157 ]
+  %.sroa.4.1.i.i40 = phi i64 [ %156, %.thread37 ], [ %162, %157 ]
+  store ptr %.sroa.0.1.i.i41, ptr %31, align 8
+  store i64 %.sroa.4.1.i.i40, ptr %113, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1211)
   %164 = load i64, ptr %32, align 8, !alias.scope !1211, !noundef !18
   switch i64 %164, label %165 [
@@ -7195,8 +7195,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256": ; preds = %179, %._crit_edge.i.i.i259, %174, %171
-  %.sroa.4.0.i.i257 = phi i64 [ %184, %179 ], [ %178, %._crit_edge.i.i.i259 ], [ undef, %171 ], [ undef, %174 ]
-  %.sroa.0.0.i.i258 = phi ptr [ %183, %179 ], [ %177, %._crit_edge.i.i.i259 ], [ null, %171 ], [ null, %174 ]
+  %.sroa.4.1.i.i257 = phi i64 [ %184, %179 ], [ %178, %._crit_edge.i.i.i259 ], [ undef, %171 ], [ undef, %174 ]
+  %.sroa.0.1.i.i258 = phi ptr [ %183, %179 ], [ %177, %._crit_edge.i.i.i259 ], [ null, %171 ], [ null, %174 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !1217
   br label %.lr.ph.i
 
@@ -7222,8 +7222,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %163, %165, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256", %185, %188, %._crit_edge.i.i247
-  %.sroa.4.0.i245 = phi i64 [ undef, %163 ], [ %.sroa.4.0.i.i257, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ undef, %165 ], [ %192, %._crit_edge.i.i247 ], [ undef, %185 ], [ undef, %188 ]
-  %.sroa.0.0.i246 = phi ptr [ null, %163 ], [ %.sroa.0.0.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ null, %165 ], [ %191, %._crit_edge.i.i247 ], [ null, %185 ], [ null, %188 ]
+  %.sroa.4.0.i245 = phi i64 [ undef, %163 ], [ %.sroa.4.1.i.i257, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ undef, %165 ], [ %192, %._crit_edge.i.i247 ], [ undef, %185 ], [ undef, %188 ]
+  %.sroa.0.0.i246 = phi ptr [ null, %163 ], [ %.sroa.0.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ null, %165 ], [ %191, %._crit_edge.i.i247 ], [ null, %185 ], [ null, %188 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.12)
   call void @llvm.experimental.noalias.scope.decl(metadata !1224)
@@ -7827,10 +7827,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %245
   br label %.thread53
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.i": ; preds = %352, %._crit_edge.i.i.i.i.i.i
-  %.sroa.4.0.i.i.i.i.i = phi i64 [ %356, %352 ], [ %351, %._crit_edge.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %355, %352 ], [ %350, %._crit_edge.i.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i.i = phi i64 [ %356, %352 ], [ %351, %._crit_edge.i.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i.i = phi ptr [ %355, %352 ], [ %350, %._crit_edge.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1363
-  %357 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %325, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i)
+  %357 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %325, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i.i)
           to label %.noexc287 unwind label %.loopexit.split-lp71.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc287:                                        ; preds = %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.i"
@@ -8692,19 +8692,19 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   ret void
 
 148:                                              ; preds = %._crit_edge.i.i, %133
-  %.sroa.4.0.i = phi i64 [ %138, %133 ], [ %132, %._crit_edge.i.i ]
-  %.sroa.0.0.i = phi ptr [ %137, %133 ], [ %131, %._crit_edge.i.i ]
+  %.sroa.4.1.i = phi i64 [ %138, %133 ], [ %132, %._crit_edge.i.i ]
+  %.sroa.0.1.i = phi ptr [ %137, %133 ], [ %131, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !1445
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
-  store ptr %.sroa.0.0.i, ptr %33, align 8
-  store i64 %.sroa.4.0.i, ptr %110, align 8
+  store ptr %.sroa.0.1.i, ptr %33, align 8
+  store i64 %.sroa.4.1.i, ptr %110, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32)
   store i64 0, ptr %.sroa.4185.0..sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4185.sroa.4.0..sroa.4185.0..sroa_idx.sroa_idx, align 8
-  store ptr %.sroa.0.0.i, ptr %.sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4185.sroa.5.sroa.4.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4185.sroa.4.0..sroa.4185.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.0.1.i, ptr %.sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4185.sroa.5.sroa.4.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i64 0, ptr %.sroa.4185.sroa.5.sroa.5.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4185.sroa.5.sroa.6.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4185.sroa.5.sroa.6.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i64 1, ptr %.sroa.4185.sroa.5.sroa.7.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store <4 x i8> <i8 61, i8 0, i8 0, i8 0>, ptr %.sroa.4185.sroa.5.sroa.8.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i32 61, ptr %.sroa.4185.sroa.5.sroa.9.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 4
@@ -8754,7 +8754,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %159 = load i64, ptr %111, align 8, !noalias !1466, !noundef !18
   %160 = load i64, ptr %112, align 8, !noalias !1466, !noundef !18
   %161 = load i64, ptr %.sroa.4185.0..sroa_idx, align 8, !alias.scope !1466, !noundef !18
-  %162 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %161
+  %162 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 %161
   %163 = sub i64 %159, %161
   store i64 %160, ptr %.sroa.4185.0..sroa_idx, align 8, !alias.scope !1466
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24), !noalias !1466
@@ -8762,10 +8762,10 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 164:                                              ; preds = %158, %.thread38
   %.pre.i.i241 = phi i64 [ %.pre.i.i.i, %.thread38 ], [ %160, %158 ]
-  %.sroa.0.0.i.i42 = phi ptr [ %156, %.thread38 ], [ %162, %158 ]
-  %.sroa.4.0.i.i41 = phi i64 [ %157, %.thread38 ], [ %163, %158 ]
-  store ptr %.sroa.0.0.i.i42, ptr %31, align 8
-  store i64 %.sroa.4.0.i.i41, ptr %113, align 8
+  %.sroa.0.1.i.i42 = phi ptr [ %156, %.thread38 ], [ %162, %158 ]
+  %.sroa.4.1.i.i41 = phi i64 [ %157, %.thread38 ], [ %163, %158 ]
+  store ptr %.sroa.0.1.i.i42, ptr %31, align 8
+  store i64 %.sroa.4.1.i.i41, ptr %113, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1470)
   %165 = load i64, ptr %32, align 8, !alias.scope !1470, !noundef !18
   switch i64 %165, label %166 [
@@ -8823,8 +8823,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257": ; preds = %180, %._crit_edge.i.i.i260, %175, %172
-  %.sroa.4.0.i.i258 = phi i64 [ %185, %180 ], [ %179, %._crit_edge.i.i.i260 ], [ undef, %172 ], [ undef, %175 ]
-  %.sroa.0.0.i.i259 = phi ptr [ %184, %180 ], [ %178, %._crit_edge.i.i.i260 ], [ null, %172 ], [ null, %175 ]
+  %.sroa.4.1.i.i258 = phi i64 [ %185, %180 ], [ %179, %._crit_edge.i.i.i260 ], [ undef, %172 ], [ undef, %175 ]
+  %.sroa.0.1.i.i259 = phi ptr [ %184, %180 ], [ %178, %._crit_edge.i.i.i260 ], [ null, %172 ], [ null, %175 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !1476
   br label %.lr.ph.i
 
@@ -8850,8 +8850,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %164, %166, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257", %186, %189, %._crit_edge.i.i248
-  %.sroa.4.0.i246 = phi i64 [ undef, %164 ], [ %.sroa.4.0.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ undef, %166 ], [ %193, %._crit_edge.i.i248 ], [ undef, %186 ], [ undef, %189 ]
-  %.sroa.0.0.i247 = phi ptr [ null, %164 ], [ %.sroa.0.0.i.i259, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ null, %166 ], [ %192, %._crit_edge.i.i248 ], [ null, %186 ], [ null, %189 ]
+  %.sroa.4.0.i246 = phi i64 [ undef, %164 ], [ %.sroa.4.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ undef, %166 ], [ %193, %._crit_edge.i.i248 ], [ undef, %186 ], [ undef, %189 ]
+  %.sroa.0.0.i247 = phi ptr [ null, %164 ], [ %.sroa.0.1.i.i259, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ null, %166 ], [ %192, %._crit_edge.i.i248 ], [ null, %186 ], [ null, %189 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.12)
   call void @llvm.experimental.noalias.scope.decl(metadata !1483)
@@ -9467,10 +9467,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %254
   br label %.thread51
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.i": ; preds = %360, %._crit_edge.i.i.i.i.i.i
-  %.sroa.4.0.i.i.i.i.i = phi i64 [ %364, %360 ], [ %359, %._crit_edge.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %363, %360 ], [ %358, %._crit_edge.i.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i.i = phi i64 [ %364, %360 ], [ %359, %._crit_edge.i.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i.i = phi ptr [ %363, %360 ], [ %358, %._crit_edge.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1630
-  %365 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %333, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i)
+  %365 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %333, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i.i)
           to label %.noexc289 unwind label %.loopexit.split-lp69.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc289:                                        ; preds = %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.i"
@@ -10334,19 +10334,19 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   ret void
 
 147:                                              ; preds = %._crit_edge.i.i, %132
-  %.sroa.4.0.i = phi i64 [ %137, %132 ], [ %131, %._crit_edge.i.i ]
-  %.sroa.0.0.i = phi ptr [ %136, %132 ], [ %130, %._crit_edge.i.i ]
+  %.sroa.4.1.i = phi i64 [ %137, %132 ], [ %131, %._crit_edge.i.i ]
+  %.sroa.0.1.i = phi ptr [ %136, %132 ], [ %130, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25), !noalias !1712
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
-  store ptr %.sroa.0.0.i, ptr %33, align 8
-  store i64 %.sroa.4.0.i, ptr %110, align 8
+  store ptr %.sroa.0.1.i, ptr %33, align 8
+  store i64 %.sroa.4.1.i, ptr %110, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32)
   store i64 0, ptr %.sroa.4185.0..sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4185.sroa.4.0..sroa.4185.0..sroa_idx.sroa_idx, align 8
-  store ptr %.sroa.0.0.i, ptr %.sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4185.sroa.5.sroa.4.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4185.sroa.4.0..sroa.4185.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.0.1.i, ptr %.sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4185.sroa.5.sroa.4.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i64 0, ptr %.sroa.4185.sroa.5.sroa.5.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4185.sroa.5.sroa.6.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4185.sroa.5.sroa.6.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i64 1, ptr %.sroa.4185.sroa.5.sroa.7.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store <4 x i8> <i8 61, i8 0, i8 0, i8 0>, ptr %.sroa.4185.sroa.5.sroa.8.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i32 61, ptr %.sroa.4185.sroa.5.sroa.9.0..sroa.4185.sroa.5.0..sroa.4185.0..sroa_idx.sroa_idx.sroa_idx, align 4
@@ -10396,7 +10396,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %158 = load i64, ptr %111, align 8, !noalias !1733, !noundef !18
   %159 = load i64, ptr %112, align 8, !noalias !1733, !noundef !18
   %160 = load i64, ptr %.sroa.4185.0..sroa_idx, align 8, !alias.scope !1733, !noundef !18
-  %161 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %160
+  %161 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 %160
   %162 = sub i64 %158, %160
   store i64 %159, ptr %.sroa.4185.0..sroa_idx, align 8, !alias.scope !1733
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !1733
@@ -10404,10 +10404,10 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 163:                                              ; preds = %157, %.thread37
   %.pre.i.i241 = phi i64 [ %.pre.i.i.i, %.thread37 ], [ %159, %157 ]
-  %.sroa.0.0.i.i41 = phi ptr [ %155, %.thread37 ], [ %161, %157 ]
-  %.sroa.4.0.i.i40 = phi i64 [ %156, %.thread37 ], [ %162, %157 ]
-  store ptr %.sroa.0.0.i.i41, ptr %31, align 8
-  store i64 %.sroa.4.0.i.i40, ptr %113, align 8
+  %.sroa.0.1.i.i41 = phi ptr [ %155, %.thread37 ], [ %161, %157 ]
+  %.sroa.4.1.i.i40 = phi i64 [ %156, %.thread37 ], [ %162, %157 ]
+  store ptr %.sroa.0.1.i.i41, ptr %31, align 8
+  store i64 %.sroa.4.1.i.i40, ptr %113, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1737)
   %164 = load i64, ptr %32, align 8, !alias.scope !1737, !noundef !18
   switch i64 %164, label %165 [
@@ -10465,8 +10465,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257": ; preds = %179, %._crit_edge.i.i.i260, %174, %171
-  %.sroa.4.0.i.i258 = phi i64 [ %184, %179 ], [ %178, %._crit_edge.i.i.i260 ], [ undef, %171 ], [ undef, %174 ]
-  %.sroa.0.0.i.i259 = phi ptr [ %183, %179 ], [ %177, %._crit_edge.i.i.i260 ], [ null, %171 ], [ null, %174 ]
+  %.sroa.4.1.i.i258 = phi i64 [ %184, %179 ], [ %178, %._crit_edge.i.i.i260 ], [ undef, %171 ], [ undef, %174 ]
+  %.sroa.0.1.i.i259 = phi ptr [ %183, %179 ], [ %177, %._crit_edge.i.i.i260 ], [ null, %171 ], [ null, %174 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22), !noalias !1743
   br label %.lr.ph.i
 
@@ -10492,8 +10492,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %163, %165, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257", %185, %188, %._crit_edge.i.i248
-  %.sroa.4.0.i246 = phi i64 [ undef, %163 ], [ %.sroa.4.0.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ undef, %165 ], [ %192, %._crit_edge.i.i248 ], [ undef, %185 ], [ undef, %188 ]
-  %.sroa.0.0.i247 = phi ptr [ null, %163 ], [ %.sroa.0.0.i.i259, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ null, %165 ], [ %191, %._crit_edge.i.i248 ], [ null, %185 ], [ null, %188 ]
+  %.sroa.4.0.i246 = phi i64 [ undef, %163 ], [ %.sroa.4.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ undef, %165 ], [ %192, %._crit_edge.i.i248 ], [ undef, %185 ], [ undef, %188 ]
+  %.sroa.0.0.i247 = phi ptr [ null, %163 ], [ %.sroa.0.1.i.i259, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i257" ], [ null, %165 ], [ %191, %._crit_edge.i.i248 ], [ null, %185 ], [ null, %188 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.12)
   call void @llvm.experimental.noalias.scope.decl(metadata !1750)
@@ -11099,10 +11099,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %245
   br label %.thread50
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.i": ; preds = %353, %._crit_edge.i.i.i.i.i.i
-  %.sroa.4.0.i.i.i.i.i = phi i64 [ %357, %353 ], [ %352, %._crit_edge.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %356, %353 ], [ %351, %._crit_edge.i.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i.i = phi i64 [ %357, %353 ], [ %352, %._crit_edge.i.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i.i = phi ptr [ %356, %353 ], [ %351, %._crit_edge.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !1890
-  %358 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %326, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i)
+  %358 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %326, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i.i)
           to label %.noexc288 unwind label %.loopexit.split-lp68.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc288:                                        ; preds = %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.i"
@@ -11965,19 +11965,19 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   ret void
 
 147:                                              ; preds = %._crit_edge.i.i, %132
-  %.sroa.4.0.i = phi i64 [ %137, %132 ], [ %131, %._crit_edge.i.i ]
-  %.sroa.0.0.i = phi ptr [ %136, %132 ], [ %130, %._crit_edge.i.i ]
+  %.sroa.4.1.i = phi i64 [ %137, %132 ], [ %131, %._crit_edge.i.i ]
+  %.sroa.0.1.i = phi ptr [ %136, %132 ], [ %130, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26), !noalias !1972
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
-  store ptr %.sroa.0.0.i, ptr %33, align 8
-  store i64 %.sroa.4.0.i, ptr %110, align 8
+  store ptr %.sroa.0.1.i, ptr %33, align 8
+  store i64 %.sroa.4.1.i, ptr %110, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %32)
   store i64 0, ptr %.sroa.4184.0..sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4184.sroa.4.0..sroa.4184.0..sroa_idx.sroa_idx, align 8
-  store ptr %.sroa.0.0.i, ptr %.sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4184.sroa.5.sroa.4.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4184.sroa.4.0..sroa.4184.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.0.1.i, ptr %.sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4184.sroa.5.sroa.4.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i64 0, ptr %.sroa.4184.sroa.5.sroa.5.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.4184.sroa.5.sroa.6.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.4.1.i, ptr %.sroa.4184.sroa.5.sroa.6.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i64 1, ptr %.sroa.4184.sroa.5.sroa.7.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store <4 x i8> <i8 61, i8 0, i8 0, i8 0>, ptr %.sroa.4184.sroa.5.sroa.8.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 8
   store i32 61, ptr %.sroa.4184.sroa.5.sroa.9.0..sroa.4184.sroa.5.0..sroa.4184.0..sroa_idx.sroa_idx.sroa_idx, align 4
@@ -12027,7 +12027,7 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   %158 = load i64, ptr %111, align 8, !noalias !1993, !noundef !18
   %159 = load i64, ptr %112, align 8, !noalias !1993, !noundef !18
   %160 = load i64, ptr %.sroa.4184.0..sroa_idx, align 8, !alias.scope !1993, !noundef !18
-  %161 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %160
+  %161 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 %160
   %162 = sub i64 %158, %160
   store i64 %159, ptr %.sroa.4184.0..sroa_idx, align 8, !alias.scope !1993
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24), !noalias !1993
@@ -12035,10 +12035,10 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
 
 163:                                              ; preds = %157, %.thread38
   %.pre.i.i240 = phi i64 [ %.pre.i.i.i, %.thread38 ], [ %159, %157 ]
-  %.sroa.0.0.i.i42 = phi ptr [ %155, %.thread38 ], [ %161, %157 ]
-  %.sroa.4.0.i.i41 = phi i64 [ %156, %.thread38 ], [ %162, %157 ]
-  store ptr %.sroa.0.0.i.i42, ptr %31, align 8
-  store i64 %.sroa.4.0.i.i41, ptr %113, align 8
+  %.sroa.0.1.i.i42 = phi ptr [ %155, %.thread38 ], [ %161, %157 ]
+  %.sroa.4.1.i.i41 = phi i64 [ %156, %.thread38 ], [ %162, %157 ]
+  store ptr %.sroa.0.1.i.i42, ptr %31, align 8
+  store i64 %.sroa.4.1.i.i41, ptr %113, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1997)
   %164 = load i64, ptr %32, align 8, !alias.scope !1997, !noundef !18
   switch i64 %164, label %165 [
@@ -12096,8 +12096,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256": ; preds = %179, %._crit_edge.i.i.i259, %174, %171
-  %.sroa.4.0.i.i257 = phi i64 [ %184, %179 ], [ %178, %._crit_edge.i.i.i259 ], [ undef, %171 ], [ undef, %174 ]
-  %.sroa.0.0.i.i258 = phi ptr [ %183, %179 ], [ %177, %._crit_edge.i.i.i259 ], [ null, %171 ], [ null, %174 ]
+  %.sroa.4.1.i.i257 = phi i64 [ %184, %179 ], [ %178, %._crit_edge.i.i.i259 ], [ undef, %171 ], [ undef, %174 ]
+  %.sroa.0.1.i.i258 = phi ptr [ %183, %179 ], [ %177, %._crit_edge.i.i.i259 ], [ null, %171 ], [ null, %174 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !2003
   br label %.lr.ph.i
 
@@ -12123,8 +12123,8 @@ define internal fastcc void @"_ZN128_$LT$wasmtime_cli_flags..opt..CommaSeparated
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %163, %165, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256", %185, %188, %._crit_edge.i.i247
-  %.sroa.4.0.i245 = phi i64 [ undef, %163 ], [ %.sroa.4.0.i.i257, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ undef, %165 ], [ %192, %._crit_edge.i.i247 ], [ undef, %185 ], [ undef, %188 ]
-  %.sroa.0.0.i246 = phi ptr [ null, %163 ], [ %.sroa.0.0.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ null, %165 ], [ %191, %._crit_edge.i.i247 ], [ null, %185 ], [ null, %188 ]
+  %.sroa.4.0.i245 = phi i64 [ undef, %163 ], [ %.sroa.4.1.i.i257, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ undef, %165 ], [ %192, %._crit_edge.i.i247 ], [ undef, %185 ], [ undef, %188 ]
+  %.sroa.0.0.i246 = phi ptr [ null, %163 ], [ %.sroa.0.1.i.i258, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hcd06a078df74e75fE.exit.i.i256" ], [ null, %165 ], [ %191, %._crit_edge.i.i247 ], [ null, %185 ], [ null, %188 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.12)
   call void @llvm.experimental.noalias.scope.decl(metadata !2010)
@@ -12741,10 +12741,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i.i: ; preds = %252
   br label %.thread54
 
 "_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.i": ; preds = %359, %._crit_edge.i.i.i.i.i.i
-  %.sroa.4.0.i.i.i.i.i = phi i64 [ %363, %359 ], [ %358, %._crit_edge.i.i.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %362, %359 ], [ %357, %._crit_edge.i.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i.i = phi i64 [ %363, %359 ], [ %358, %._crit_edge.i.i.i.i.i.i ]
+  %.sroa.0.1.i.i.i.i.i = phi ptr [ %362, %359 ], [ %357, %._crit_edge.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11), !noalias !2158
-  %364 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %332, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i)
+  %364 = invoke { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17he4dc73ebb965e03bE.llvm.6837425203651090250"(ptr noalias noundef nonnull readonly align 1 %332, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i.i.i, i64 noundef %.sroa.4.1.i.i.i.i.i)
           to label %.noexc288 unwind label %.loopexit.split-lp72.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc288:                                        ; preds = %"_ZN81_$LT$core..str..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h174c31cffbd127f2E.exit.i"

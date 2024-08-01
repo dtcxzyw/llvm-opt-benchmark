@@ -2621,17 +2621,17 @@ define internal fastcc i32 @dissect_ndr_ucarray_core(ptr noundef %0, i32 noundef
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.04955 = phi i32 [ %41, %.lr.ph ], [ %1, %.preheader ]
+  %.155 = phi i32 [ %41, %.lr.ph ], [ %1, %.preheader ]
   %.05054 = phi i32 [ %42, %.lr.ph ], [ 0, %.preheader ]
-  %41 = tail call i32 %6(ptr noundef %0, i32 noundef %.04955, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5) #16
+  %41 = tail call i32 %6(ptr noundef %0, i32 noundef %.155, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5) #16
   %42 = add nuw i32 %.05054, 1
   %43 = load i32, ptr %35, align 8
   %44 = icmp ult i32 %42, %43
   br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %39, %21
-  %.1 = phi i32 [ %23, %21 ], [ %40, %39 ], [ %1, %.preheader ], [ %41, %.lr.ph ]
-  ret i32 %.1
+  %.049 = phi i32 [ %23, %21 ], [ %40, %39 ], [ %1, %.preheader ], [ %41, %.lr.ph ]
+  ret i32 %.049
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2764,14 +2764,14 @@ define internal fastcc i32 @dissect_ndr_ucvarray_core(ptr noundef %0, i32 nounde
 
 .lr.ph:                                           ; preds = %.preheader, %74
   %.089 = phi i32 [ %75, %74 ], [ 0, %.preheader ]
-  %.07688 = phi i32 [ %78, %74 ], [ %1, %.preheader ]
-  %78 = tail call i32 %6(ptr noundef %0, i32 noundef %.07688, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5) #16
-  %.not87 = icmp slt i32 %.07688, %78
+  %.188 = phi i32 [ %78, %74 ], [ %1, %.preheader ]
+  %78 = tail call i32 %6(ptr noundef %0, i32 noundef %.188, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5) #16
+  %.not87 = icmp slt i32 %.188, %78
   br i1 %.not87, label %74, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %74, %.preheader, %69, %72, %43
-  %.1 = phi i32 [ %39, %43 ], [ %71, %69 ], [ %1, %72 ], [ %1, %.preheader ], [ %78, %74 ], [ %78, %.lr.ph ]
-  ret i32 %.1
+  %.076 = phi i32 [ %39, %43 ], [ %71, %69 ], [ %1, %72 ], [ %1, %.preheader ], [ %78, %74 ], [ %78, %.lr.ph ]
+  ret i32 %.076
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2855,17 +2855,17 @@ define hidden i32 @dissect_ndr_uvarray(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not54, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %39, %.lr.ph
-  %.053 = phi i32 [ %53, %.lr.ph ], [ %1, %39 ]
+  %.153 = phi i32 [ %53, %.lr.ph ], [ %1, %39 ]
   %.04852 = phi i32 [ %54, %.lr.ph ], [ 0, %39 ]
-  %53 = tail call i32 %6(ptr noundef %0, i32 noundef %.053, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5) #16
+  %53 = tail call i32 %6(ptr noundef %0, i32 noundef %.153, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5) #16
   %54 = add nuw i32 %.04852, 1
   %55 = load i32, ptr %49, align 8
   %56 = icmp ult i32 %54, %55
   br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %39, %32
-  %.1 = phi i32 [ %28, %32 ], [ %1, %39 ], [ %53, %.lr.ph ]
-  ret i32 %.1
+  %.0 = phi i32 [ %28, %32 ], [ %1, %39 ], [ %53, %.lr.ph ]
+  ret i32 %.0
 }
 
 declare i32 @dissect_ndr_uint3264(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -6164,7 +6164,7 @@ define internal fastcc i32 @dissect_verification_trailer(ptr nocapture noundef r
   br label %57
 
 57:                                               ; preds = %176, %.preheader.i
-  %.197.i = phi i32 [ %.298.i, %176 ], [ %53, %.preheader.i ]
+  %.197.i = phi i32 [ %.3.i, %176 ], [ %53, %.preheader.i ]
   %.1.i = phi i32 [ %.2.i, %176 ], [ %55, %.preheader.i ]
   %58 = call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %.197.i) #16
   %59 = zext i16 %58 to i32
@@ -6386,20 +6386,20 @@ dissect_sec_vt_header.exit.i:                     ; preds = %157, %156
   br label %176
 
 176:                                              ; preds = %171, %167
-  %.298.i = phi i32 [ %174, %171 ], [ %168, %167 ]
+  %.3.i = phi i32 [ %174, %171 ], [ %168, %167 ]
   %.2.i = phi i32 [ %175, %171 ], [ %169, %167 ]
   %177 = icmp sgt i32 %.2.i, 3
   %or.cond.i = select i1 %.not106.i, i1 %177, i1 false
   br i1 %or.cond.i, label %57, label %.loopexit.i, !llvm.loop !19
 
 .loopexit.i:                                      ; preds = %176, %48
-  %.3.i = phi i32 [ %53, %48 ], [ %.298.i, %176 ]
+  %.298.i = phi i32 [ %53, %48 ], [ %.3.i, %176 ]
   %178 = load ptr, ptr %10, align 8
-  call void @proto_item_set_end(ptr noundef %178, ptr noundef %1, i32 noundef %.3.i) #16
+  call void @proto_item_set_end(ptr noundef %178, ptr noundef %1, i32 noundef %.298.i) #16
   br label %dissect_verification_trailer_impl.exit
 
 dissect_verification_trailer_impl.exit:           ; preds = %34, %36, %.loopexit.i
-  %.0.i = phi i32 [ %.3.i, %.loopexit.i ], [ -1, %34 ], [ -1, %36 ]
+  %.0.i = phi i32 [ %.298.i, %.loopexit.i ], [ -1, %34 ], [ -1, %36 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   store volatile i32 %.0.i, ptr %12, align 4

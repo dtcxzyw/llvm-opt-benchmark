@@ -1211,7 +1211,7 @@ define void @_ZN11CommandData16ParseCommandLineEbiPPc(ptr noundef nonnull align 
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %24
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %24 ], [ 1, %.lr.ph ]
-  %.sroa.0.026.us = phi ptr [ %.sroa.0.1.us, %24 ], [ null, %.lr.ph ]
+  %.sroa.0.026.us = phi ptr [ %.sroa.0.2.us, %24 ], [ null, %.lr.ph ]
   %.sroa.11.025.us = phi i64 [ %.sroa.11.1.us, %24 ], [ 0, %.lr.ph ]
   %8 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv32
   %9 = load ptr, ptr %8, align 8
@@ -1236,13 +1236,13 @@ define void @_ZN11CommandData16ParseCommandLineEbiPPc(ptr noundef nonnull align 
 
 _ZN5ArrayIwE5AllocEm.exit.us:                     ; preds = %20, %13, %.lr.ph.split.us
   %.sroa.11.1.us = phi i64 [ %.sroa.11.025.us, %.lr.ph.split.us ], [ %..i.i.us, %20 ], [ %..i.i.us, %13 ]
-  %.sroa.0.1.us = phi ptr [ %.sroa.0.026.us, %.lr.ph.split.us ], [ null, %20 ], [ %18, %13 ]
+  %.sroa.0.2.us = phi ptr [ %.sroa.0.026.us, %.lr.ph.split.us ], [ null, %20 ], [ %18, %13 ]
   %21 = load ptr, ptr %8, align 8
-  %22 = invoke noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %21, ptr noundef nonnull %.sroa.0.1.us, i64 noundef %11)
+  %22 = invoke noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %21, ptr noundef nonnull %.sroa.0.2.us, i64 noundef %11)
           to label %23 unwind label %.loopexit.split.us
 
 23:                                               ; preds = %_ZN5ArrayIwE5AllocEm.exit.us
-  invoke void @_ZN11CommandData13PreprocessArgEPKw(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %.sroa.0.1.us)
+  invoke void @_ZN11CommandData13PreprocessArgEPKw(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %.sroa.0.2.us)
           to label %24 unwind label %.loopexit.split.us
 
 24:                                               ; preds = %23
@@ -1251,14 +1251,14 @@ _ZN5ArrayIwE5AllocEm.exit.us:                     ; preds = %20, %13, %.lr.ph.sp
   br i1 %exitcond36.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
 .loopexit.split.us:                               ; preds = %23, %_ZN5ArrayIwE5AllocEm.exit.us, %20
-  %.sroa.0.2.ph.us = phi ptr [ %.sroa.0.026.us, %20 ], [ %.sroa.0.1.us, %_ZN5ArrayIwE5AllocEm.exit.us ], [ %.sroa.0.1.us, %23 ]
+  %.sroa.0.1.ph.us = phi ptr [ %.sroa.0.026.us, %20 ], [ %.sroa.0.2.us, %_ZN5ArrayIwE5AllocEm.exit.us ], [ %.sroa.0.2.us, %23 ]
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 1, %.lr.ph ]
-  %.sroa.0.026 = phi ptr [ %.sroa.0.1, %42 ], [ null, %.lr.ph ]
+  %.sroa.0.026 = phi ptr [ %.sroa.0.2, %42 ], [ null, %.lr.ph ]
   %.sroa.11.025 = phi i64 [ %.sroa.11.1, %42 ], [ 0, %.lr.ph ]
   %25 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
@@ -1283,17 +1283,17 @@ _ZN5ArrayIwE5AllocEm.exit.us:                     ; preds = %20, %13, %.lr.ph.sp
 
 _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %.lr.ph.split, %37, %30
   %.sroa.11.1 = phi i64 [ %.sroa.11.025, %.lr.ph.split ], [ %..i.i, %37 ], [ %..i.i, %30 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.026, %.lr.ph.split ], [ null, %37 ], [ %35, %30 ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.026, %.lr.ph.split ], [ null, %37 ], [ %35, %30 ]
   %38 = load ptr, ptr %25, align 8
-  %39 = invoke noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %38, ptr noundef nonnull %.sroa.0.1, i64 noundef %28)
+  %39 = invoke noundef zeroext i1 @_Z10CharToWidePKcPwm(ptr noundef %38, ptr noundef nonnull %.sroa.0.2, i64 noundef %28)
           to label %40 unwind label %.loopexit.split
 
 40:                                               ; preds = %_ZN5ArrayIwE5AllocEm.exit
-  invoke void @_ZN11CommandData8ParseArgEPw(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %.sroa.0.1)
+  invoke void @_ZN11CommandData8ParseArgEPw(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %.sroa.0.2)
           to label %42 unwind label %.loopexit.split
 
 .loopexit.split:                                  ; preds = %_ZN5ArrayIwE5AllocEm.exit, %40, %37
-  %.sroa.0.2.ph = phi ptr [ %.sroa.0.026, %37 ], [ %.sroa.0.1, %_ZN5ArrayIwE5AllocEm.exit ], [ %.sroa.0.1, %40 ]
+  %.sroa.0.1.ph = phi ptr [ %.sroa.0.026, %37 ], [ %.sroa.0.2, %_ZN5ArrayIwE5AllocEm.exit ], [ %.sroa.0.2, %40 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -1304,13 +1304,13 @@ _ZN5ArrayIwE5AllocEm.exit:                        ; preds = %.lr.ph.split, %37, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.split, %.loopexit.split.us, %.loopexit.split-lp
-  %.sroa.0.2 = phi ptr [ %.sroa.0.0.lcssa, %.loopexit.split-lp ], [ %.sroa.0.2.ph, %.loopexit.split ], [ %.sroa.0.2.ph.us, %.loopexit.split.us ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.0.lcssa, %.loopexit.split-lp ], [ %.sroa.0.1.ph, %.loopexit.split ], [ %.sroa.0.1.ph.us, %.loopexit.split.us ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
-  %.not.i = icmp eq ptr %.sroa.0.2, null
+  %.not.i = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i, label %_ZN5ArrayIwED2Ev.exit, label %41
 
 41:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %.sroa.0.2) #18
+  tail call void @free(ptr noundef nonnull %.sroa.0.1) #18
   br label %_ZN5ArrayIwED2Ev.exit
 
 _ZN5ArrayIwED2Ev.exit:                            ; preds = %.loopexit, %41
@@ -1322,7 +1322,7 @@ _ZN5ArrayIwED2Ev.exit:                            ; preds = %.loopexit, %41
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %42, %24, %4
-  %.sroa.0.0.lcssa = phi ptr [ null, %4 ], [ %.sroa.0.1.us, %24 ], [ %.sroa.0.1, %42 ]
+  %.sroa.0.0.lcssa = phi ptr [ null, %4 ], [ %.sroa.0.2.us, %24 ], [ %.sroa.0.2, %42 ]
   br i1 %1, label %_ZN11CommandData9ParseDoneEv.exit, label %43
 
 43:                                               ; preds = %._crit_edge
@@ -2393,21 +2393,21 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
   br label %276
 
 276:                                              ; preds = %276, %274
-  %.1172 = phi ptr [ %.0171228, %274 ], [ %279, %276 ]
-  %277 = load i32, ptr %.1172, align 4
+  %.2173 = phi ptr [ %.0171228, %274 ], [ %279, %276 ]
+  %277 = load i32, ptr %.2173, align 4
   %278 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %277)
-  %279 = getelementptr inbounds i8, ptr %.1172, i64 4
+  %279 = getelementptr inbounds i8, ptr %.2173, i64 4
   br i1 %278, label %276, label %.loopexit215, !llvm.loop !14
 
 .loopexit215:                                     ; preds = %276, %271
   %.0180 = phi i32 [ 0, %271 ], [ %275, %276 ]
-  %.2173 = phi ptr [ %.0171228, %271 ], [ %.1172, %276 ]
-  %280 = load i32, ptr %.2173, align 4
+  %.1172 = phi ptr [ %.0171228, %271 ], [ %.2173, %276 ]
+  %280 = load i32, ptr %.1172, align 4
   %281 = icmp eq i32 %280, 58
   br i1 %281, label %282, label %.loopexit214
 
 282:                                              ; preds = %.loopexit215
-  %283 = getelementptr inbounds i8, ptr %.2173, i64 4
+  %283 = getelementptr inbounds i8, ptr %.1172, i64 4
   %284 = load i32, ptr %283, align 4
   %285 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %284)
   br i1 %285, label %286, label %.loopexit214
@@ -2417,17 +2417,17 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
   br label %288
 
 288:                                              ; preds = %288, %286
-  %.3 = phi ptr [ %283, %286 ], [ %291, %288 ]
-  %289 = load i32, ptr %.3, align 4
+  %.4 = phi ptr [ %283, %286 ], [ %291, %288 ]
+  %289 = load i32, ptr %.4, align 4
   %290 = tail call noundef zeroext i1 @_Z7IsDigiti(i32 noundef %289)
-  %291 = getelementptr inbounds i8, ptr %.3, i64 4
+  %291 = getelementptr inbounds i8, ptr %.4, i64 4
   br i1 %290, label %288, label %.loopexit214, !llvm.loop !15
 
 .loopexit214:                                     ; preds = %288, %282, %.loopexit215
   %.0179 = phi i32 [ 0, %282 ], [ 0, %.loopexit215 ], [ %287, %288 ]
-  %.4 = phi ptr [ %.2173, %282 ], [ %.2173, %.loopexit215 ], [ %.3, %288 ]
-  %292 = getelementptr inbounds i8, ptr %.4, i64 4
-  %293 = load i32, ptr %.4, align 4
+  %.3 = phi ptr [ %.1172, %282 ], [ %.1172, %.loopexit215 ], [ %.4, %288 ]
+  %292 = getelementptr inbounds i8, ptr %.3, i64 4
+  %293 = load i32, ptr %.3, align 4
   %294 = tail call noundef i32 @_Z8toupperwi(i32 noundef %293)
   switch i32 %294, label %301 [
     i32 84, label %295
@@ -2465,7 +2465,7 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
   ]
 
 303:                                              ; preds = %301, %301
-  %304 = getelementptr inbounds i8, ptr %.4, i64 8
+  %304 = getelementptr inbounds i8, ptr %.3, i64 8
   %305 = icmp eq i32 %302, 43
   %306 = select i1 %305, i32 2, i32 3
   br label %307

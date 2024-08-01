@@ -1350,7 +1350,7 @@ define hidden void @_ZN5uu_wc22word_count_from_reader17h792ea8a4636abe39E(ptr no
   br i1 %106, label %110, label %_ZN5uu_wc10count_fast24count_bytes_using_splice17hc1a7f8521c37f22dE.exit.thread.i
 
 _ZN5uu_wc10count_fast24count_bytes_using_splice17hc1a7f8521c37f22dE.exit.thread.i: ; preds = %.critedge.i.i, %.noexc15, %110, %.noexc
-  %.0.i = phi i64 [ 0, %.noexc ], [ 0, %110 ], [ 0, %.noexc15 ], [ %.sroa.8.2.i.i, %.critedge.i.i ]
+  %.0.i = phi i64 [ 0, %.noexc ], [ 0, %110 ], [ 0, %.noexc15 ], [ %.sroa.8.1.i.i, %.critedge.i.i ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %68), !noalias !207
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %67), !noalias !207
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16384) %67, i8 0, i64 16384, i1 false), !noalias !207
@@ -1359,7 +1359,7 @@ _ZN5uu_wc10count_fast24count_bytes_using_splice17hc1a7f8521c37f22dE.exit.thread.
   br label %.outer.i
 
 .outer.i:                                         ; preds = %184, %_ZN5uu_wc10count_fast24count_bytes_using_splice17hc1a7f8521c37f22dE.exit.thread.i
-  %.5.ph.i = phi i64 [ %185, %184 ], [ %.0.i, %_ZN5uu_wc10count_fast24count_bytes_using_splice17hc1a7f8521c37f22dE.exit.thread.i ]
+  %.2.ph.i = phi i64 [ %185, %184 ], [ %.0.i, %_ZN5uu_wc10count_fast24count_bytes_using_splice17hc1a7f8521c37f22dE.exit.thread.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66), !noalias !207
   invoke void @"_ZN59_$LT$std..io..stdio..StdinLock$u20$as$u20$std..io..Read$GT$4read17hcddda94bfd1c33a4E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %66, ptr noalias noundef nonnull align 8 dereferenceable(16) %69, ptr noalias noundef nonnull align 1 %67, i64 noundef 16384)
           to label %.noexc12 unwind label %.body.loopexit.split-lp.loopexit
@@ -1589,7 +1589,7 @@ _ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i: ; preds = 
   br label %150
 
 .loopexit47.i.i:                                  ; preds = %_ZN6uucore8features5pipes6splice17h079ba82cb7ee58c7E.exit.i.i, %_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i
-  %.sroa.8.1.i.i = phi i64 [ %158, %_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i ], [ %.038.i.i, %_ZN6uucore8features5pipes6splice17h079ba82cb7ee58c7E.exit.i.i ]
+  %.sroa.8.2.i.i = phi i64 [ %158, %_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i ], [ %.038.i.i, %_ZN6uucore8features5pipes6splice17h079ba82cb7ee58c7E.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62), !noalias !207
   %173 = invoke noundef i32 @close(i32 noundef %.sroa.4.0.extract.trunc.i.i.i)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i" unwind label %169, !noalias !207
@@ -1599,7 +1599,7 @@ _ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i: ; preds = 
           to label %.critedge.i.i unwind label %127, !noalias !207
 
 .critedge.i.i:                                    ; preds = %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i", %145, %131, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h699771517ac1189aE.exit.i.i"
-  %.sroa.8.2.i.i = phi i64 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h699771517ac1189aE.exit.i.i" ], [ 0, %131 ], [ %.sroa.8.1.i.i, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i" ], [ 0, %145 ]
+  %.sroa.8.1.i.i = phi i64 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h699771517ac1189aE.exit.i.i" ], [ 0, %131 ], [ %.sroa.8.2.i.i, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i" ], [ 0, %145 ]
   %175 = invoke noundef i32 @close(i32 noundef %125)
           to label %_ZN5uu_wc10count_fast24count_bytes_using_splice17hc1a7f8521c37f22dE.exit.thread.i unwind label %.body.loopexit.split-lp.loopexit.split-lp
 
@@ -1629,7 +1629,7 @@ _ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i: ; preds = 
   br i1 %183, label %186, label %.loopexit.i
 
 184:                                              ; preds = %._crit_edge.i
-  %185 = add i64 %180, %.5.ph.i
+  %185 = add i64 %180, %.2.ph.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66), !noalias !207
   br label %.outer.i
 
@@ -1667,7 +1667,7 @@ _ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i: ; preds = 
 
 190:                                              ; preds = %.loopexit.i, %.noexc17
   %.sroa.5.1.i = phi ptr [ null, %.noexc17 ], [ %.sroa.5.2.i, %.loopexit.i ]
-  %.sroa.0.1.i = phi i64 [ %.038.i.i, %.noexc17 ], [ %.5.ph.i, %.loopexit.i ]
+  %.sroa.0.1.i = phi i64 [ %.038.i.i, %.noexc17 ], [ %.2.ph.i, %.loopexit.i ]
   store i64 %.sroa.0.1.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %191 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3906,7 +3906,7 @@ define hidden void @_ZN5uu_wc22word_count_from_reader17hb0d0f696feb72e8fE(ptr no
   br i1 %115, label %122, label %119
 
 _ZN5uu_wc10count_fast24count_bytes_using_splice17hd9582513b1fe0a7aE.exit.thread.i: ; preds = %.critedge.i.i, %.noexc21, %119, %.noexc
-  %.0.i = phi i64 [ 0, %.noexc ], [ %.1.i, %119 ], [ 0, %.noexc21 ], [ %.sroa.8.2.i.i, %.critedge.i.i ]
+  %.0.i = phi i64 [ 0, %.noexc ], [ %.1.i, %119 ], [ 0, %.noexc21 ], [ %.sroa.8.1.i.i, %.critedge.i.i ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %70), !noalias !781
   call void @llvm.lifetime.start.p0(i64 16384, ptr nonnull %67), !noalias !781
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16384) %67, i8 0, i64 16384, i1 false), !noalias !781
@@ -3915,7 +3915,7 @@ _ZN5uu_wc10count_fast24count_bytes_using_splice17hd9582513b1fe0a7aE.exit.thread.
   br label %.outer.i
 
 .outer.i:                                         ; preds = %215, %_ZN5uu_wc10count_fast24count_bytes_using_splice17hd9582513b1fe0a7aE.exit.thread.i
-  %.5.ph.i = phi i64 [ %216, %215 ], [ %.0.i, %_ZN5uu_wc10count_fast24count_bytes_using_splice17hd9582513b1fe0a7aE.exit.thread.i ]
+  %.2.ph.i = phi i64 [ %216, %215 ], [ %.0.i, %_ZN5uu_wc10count_fast24count_bytes_using_splice17hd9582513b1fe0a7aE.exit.thread.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66), !noalias !781
   invoke void @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$4read17h8460fb0b076d3424E"(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %66, ptr noalias noundef nonnull align 4 dereferenceable(4) %71, ptr noalias noundef nonnull align 1 %67, i64 noundef 16384)
           to label %.noexc12 unwind label %.body.loopexit.split-lp.loopexit
@@ -3926,7 +3926,7 @@ _ZN5uu_wc10count_fast24count_bytes_using_splice17hd9582513b1fe0a7aE.exit.thread.
   br i1 %trunc40.i, label %.lr.ph.i, label %._crit_edge.i
 
 119:                                              ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17hffa0b1d4d58d44c4E.exit.i", %122, %108
-  %.1.i = phi i64 [ 0, %122 ], [ 0, %108 ], [ %.3.i, %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17hffa0b1d4d58d44c4E.exit.i" ]
+  %.1.i = phi i64 [ 0, %122 ], [ 0, %108 ], [ %.4.i, %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17hffa0b1d4d58d44c4E.exit.i" ]
   %120 = and i32 %110, 4096
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %_ZN5uu_wc10count_fast24count_bytes_using_splice17hd9582513b1fe0a7aE.exit.thread.i, label %147
@@ -3973,7 +3973,7 @@ _ZN5uu_wc10count_fast24count_bytes_using_splice17hd9582513b1fe0a7aE.exit.thread.
   %139 = icmp eq i64 %138, 0
   %140 = getelementptr inbounds i8, ptr %69, i64 8
   %141 = load i64, ptr %140, align 8, !noalias !781
-  %.3.i = select i1 %139, i64 %141, i64 0
+  %.4.i = select i1 %139, i64 %141, i64 0
   br i1 %139, label %"_ZN4core3ptr76drop_in_place$LT$core..result..Result$LT$u64$C$std..io..error..Error$GT$$GT$17hffa0b1d4d58d44c4E.exit.i", label %142
 
 142:                                              ; preds = %.noexc16
@@ -4214,7 +4214,7 @@ _ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i: ; preds = 
   br label %182
 
 .loopexit47.i.i:                                  ; preds = %_ZN6uucore8features5pipes6splice17h1815b91d86907b5fE.exit.i.i, %_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i
-  %.sroa.8.1.i.i = phi i64 [ %190, %_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i ], [ %.038.i.i, %_ZN6uucore8features5pipes6splice17h1815b91d86907b5fE.exit.i.i ]
+  %.sroa.8.2.i.i = phi i64 [ %190, %_ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i ], [ %.038.i.i, %_ZN6uucore8features5pipes6splice17h1815b91d86907b5fE.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61), !noalias !781
   %205 = invoke noundef i32 @close(i32 noundef %.sroa.4.0.extract.trunc.i.i.i)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i" unwind label %201
@@ -4224,7 +4224,7 @@ _ZN6uucore8features5pipes12splice_exact17hd3d4f1362d033cbcE.exit.i.i: ; preds = 
           to label %.critedge.i.i unwind label %159
 
 .critedge.i.i:                                    ; preds = %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i", %177, %163, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbbc40f84449eaf19E.exit.i.i"
-  %.sroa.8.2.i.i = phi i64 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbbc40f84449eaf19E.exit.i.i" ], [ 0, %163 ], [ %.sroa.8.1.i.i, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i" ], [ 0, %177 ]
+  %.sroa.8.1.i.i = phi i64 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbbc40f84449eaf19E.exit.i.i" ], [ 0, %163 ], [ %.sroa.8.2.i.i, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h830ab77ffb00e60dE.exit72.i.i" ], [ 0, %177 ]
   %207 = invoke noundef i32 @close(i32 noundef %157)
           to label %_ZN5uu_wc10count_fast24count_bytes_using_splice17hd9582513b1fe0a7aE.exit.thread.i unwind label %.body.loopexit.split-lp.loopexit.split-lp
 
@@ -4255,7 +4255,7 @@ _ZN5uu_wc10count_fast24count_bytes_using_splice17hd9582513b1fe0a7aE.exit.i: ; pr
   br i1 %214, label %217, label %.loopexit.i
 
 215:                                              ; preds = %._crit_edge.i
-  %216 = add i64 %211, %.5.ph.i
+  %216 = add i64 %211, %.2.ph.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66), !noalias !781
   br label %.outer.i
 
@@ -4293,7 +4293,7 @@ _ZN5uu_wc10count_fast24count_bytes_using_splice17hd9582513b1fe0a7aE.exit.i: ; pr
 
 221:                                              ; preds = %.loopexit.i, %.noexc23
   %.sroa.5.1.i = phi ptr [ null, %.noexc23 ], [ %.sroa.5.2.i, %.loopexit.i ]
-  %.sroa.0.1.i = phi i64 [ %.sroa.0.0.i, %.noexc23 ], [ %.5.ph.i, %.loopexit.i ]
+  %.sroa.0.1.i = phi i64 [ %.sroa.0.0.i, %.noexc23 ], [ %.2.ph.i, %.loopexit.i ]
   store i64 %.sroa.0.1.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %222 = getelementptr inbounds i8, ptr %0, i64 40

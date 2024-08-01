@@ -4192,7 +4192,7 @@ _ZL21compute_huffman_codesP4zbuf.exit.i:          ; preds = %294
   br label %301
 
 301:                                              ; preds = %.loopexit.i.i, %299
-  %.097.i.i = phi ptr [ %300, %299 ], [ %.3.i.i, %.loopexit.i.i ]
+  %.097.i.i = phi ptr [ %300, %299 ], [ %.198.i.i, %.loopexit.i.i ]
   %302 = load i32, ptr %12, align 8
   %303 = icmp slt i32 %302, 16
   br i1 %303, label %304, label %307
@@ -4500,19 +4500,19 @@ _ZL24zhuffman_decode_slowpathP4zbufP8zhuffman.exit124.i.i: ; preds = %426, %393
   br i1 %.not115.i.i, label %.loopexit.i.i, label %.preheader129.i.i
 
 .preheader129.i.i:                                ; preds = %473, %.preheader129.i.i
-  %.299.i.i = phi ptr [ %476, %.preheader129.i.i ], [ %.097.i.i, %473 ]
+  %.3.i.i = phi ptr [ %476, %.preheader129.i.i ], [ %.097.i.i, %473 ]
   %.096.i.i = phi ptr [ %474, %.preheader129.i.i ], [ %466, %473 ]
   %.2.i.i = phi i32 [ %477, %.preheader129.i.i ], [ %.095.i.i, %473 ]
   %474 = getelementptr inbounds i8, ptr %.096.i.i, i64 1
   %475 = load i8, ptr %.096.i.i, align 1
-  %476 = getelementptr inbounds i8, ptr %.299.i.i, i64 1
-  store i8 %475, ptr %.299.i.i, align 1
+  %476 = getelementptr inbounds i8, ptr %.3.i.i, i64 1
+  store i8 %475, ptr %.3.i.i, align 1
   %477 = add nsw i32 %.2.i.i, -1
   %.not114.i.i = icmp eq i32 %477, 0
   br i1 %.not114.i.i, label %.loopexit.i.i, label %.preheader129.i.i, !llvm.loop !14
 
 .loopexit.i.i:                                    ; preds = %.preheader129.i.i, %473, %.preheader.preheader.i50.i, %468, %357
-  %.3.i.i = phi ptr [ %359, %357 ], [ %.097.i.i, %468 ], [ %.097.i.i, %473 ], [ %scevgep136.i.i, %.preheader.preheader.i50.i ], [ %476, %.preheader129.i.i ]
+  %.198.i.i = phi ptr [ %359, %357 ], [ %.097.i.i, %468 ], [ %.097.i.i, %473 ], [ %scevgep136.i.i, %.preheader.preheader.i50.i ], [ %476, %.preheader129.i.i ]
   br label %301, !llvm.loop !15
 
 478:                                              ; preds = %360

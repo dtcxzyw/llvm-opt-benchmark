@@ -1822,7 +1822,7 @@ define void @_ZN20CaptureCommentDialog21on_buttonBox_acceptedEv(ptr noundef nonn
   br i1 %42, label %.lr.ph._crit_edge, label %.lr.ph21, !llvm.loop !25
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.01014.lcssa = phi i32 [ 0, %.lr.ph.preheader ], [ 1, %.lr.ph ]
+  %.114.lcssa = phi i32 [ 0, %.lr.ph.preheader ], [ 1, %.lr.ph ]
   %43 = tail call ptr (i32, i32, ptr, ...) @simple_dialog(i32 noundef 3, i32 noundef 1, ptr noundef nonnull @.str.8)
   br label %.loopexit
 
@@ -1845,11 +1845,11 @@ define void @_ZN20CaptureCommentDialog21on_buttonBox_acceptedEv(ptr noundef nonn
   br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph21, %14, %.preheader, %1, %5, %.lr.ph._crit_edge
-  %.1.sink = phi i32 [ %.01014.lcssa, %.lr.ph._crit_edge ], [ 0, %5 ], [ 0, %1 ], [ 0, %14 ], [ 0, %.preheader ], [ 1, %.lr.ph21 ]
+  %.010.sink = phi i32 [ %.114.lcssa, %.lr.ph._crit_edge ], [ 0, %5 ], [ 0, %1 ], [ 0, %14 ], [ 0, %.preheader ], [ 1, %.lr.ph21 ]
   %56 = load ptr, ptr %0, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 432
   %58 = load ptr, ptr %57, align 8
-  tail call void %58(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.1.sink)
+  tail call void %58(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.010.sink)
   ret void
 }
 

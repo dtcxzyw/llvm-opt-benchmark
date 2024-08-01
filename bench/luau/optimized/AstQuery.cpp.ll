@@ -2528,7 +2528,7 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
   br label %136
 
 136:                                              ; preds = %129, %.loopexit.i
-  %.sroa.014.0.i = phi ptr [ %..i.i, %129 ], [ undef, %.loopexit.i ]
+  %.sroa.014.1.i = phi ptr [ %..i.i, %129 ], [ undef, %.loopexit.i ]
   %.not.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i, label %141, label %137
 
@@ -2545,7 +2545,7 @@ _ZNSt13unordered_mapIN4Luau6SymbolENS0_7BindingESt4hashIS1_ESt8equal_toIS1_ESaIS
   br i1 %.not.i17.not, label %.loopexit48, label %142
 
 142:                                              ; preds = %141
-  %143 = getelementptr inbounds i8, ptr %.sroa.014.0.i, i64 12
+  %143 = getelementptr inbounds i8, ptr %.sroa.014.1.i, i64 12
   %144 = invoke noundef zeroext i1 @_ZNK4Luau8Location8containsERKNS_8PositionE(ptr noundef nonnull align 4 dereferenceable(16) %143, ptr noundef nonnull align 4 dereferenceable(8) %7)
           to label %145 unwind label %.loopexit
 

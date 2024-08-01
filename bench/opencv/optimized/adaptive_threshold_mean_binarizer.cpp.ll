@@ -665,7 +665,7 @@ _ZN5zxing30AdaptiveThresholdMeanBinarizer16TransMatToBufferEN2cv3MatEPhRiS4_.exi
   br i1 %.not.i40, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %41, %159
-  %.12251 = phi i1 [ %160, %159 ], [ false, %41 ]
+  %.02151 = phi i1 [ %160, %159 ], [ false, %41 ]
   %161 = phi ptr [ %.pre48, %159 ], [ %31, %41 ]
   %162 = getelementptr inbounds i8, ptr %161, i64 8
   %163 = load i32, ptr %162, align 8
@@ -680,11 +680,11 @@ _ZN5zxing30AdaptiveThresholdMeanBinarizer16TransMatToBufferEN2cv3MatEPhRiS4_.exi
   %168 = getelementptr inbounds i8, ptr %167, i64 8
   %169 = load ptr, ptr %168, align 8
   call void %169(ptr noundef nonnull align 8 dereferenceable(12) %161) #10
-  br i1 %.12251, label %212, label %213
+  br i1 %.02151, label %212, label %213
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %159, %.thread
-  %.12252 = phi i1 [ %160, %159 ], [ %.12251, %.thread ]
-  br i1 %.12252, label %212, label %213
+  %.02152 = phi i1 [ %160, %159 ], [ %.02151, %.thread ]
+  br i1 %.02152, label %212, label %213
 
 170:                                              ; preds = %154, %152
   %.pn30 = phi { ptr, i32 } [ %153, %152 ], [ %155, %154 ]

@@ -1461,7 +1461,7 @@ if.then100:                                       ; preds = %if.then92, %if.else
   br label %out
 
 if.end104:                                        ; preds = %if.else94, %if.then92
-  %total.1 = phi i64 [ %conv1.i, %if.then92 ], [ %retval.0.i98, %if.else94 ]
+  %total.0 = phi i64 [ %conv1.i, %if.then92 ], [ %retval.0.i98, %if.else94 ]
   %call97 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t2) #25
   br i1 %Pflag.0, label %if.then106, label %if.end114
 
@@ -1479,12 +1479,12 @@ if.then110:                                       ; preds = %if.then106
   br label %if.end113
 
 if.end113:                                        ; preds = %if.then110, %if.then106
-  %ret.1 = phi i32 [ -22, %if.then110 ], [ 0, %if.then106 ]
+  %ret.3 = phi i32 [ -22, %if.then110 ], [ 0, %if.then106 ]
   call void @g_free(ptr noundef %call107) #25
   br label %if.end114
 
 if.end114:                                        ; preds = %if.end113, %if.end104
-  %ret.2 = phi i32 [ %ret.1, %if.end113 ], [ 0, %if.end104 ]
+  %ret.2 = phi i32 [ %ret.3, %if.end113 ], [ 0, %if.end104 ]
   br i1 %qflag.0, label %out, label %if.end117
 
 if.end117:                                        ; preds = %if.end114
@@ -1510,16 +1510,16 @@ if.end120:                                        ; preds = %if.then119, %if.end
   %sub6.i = add i64 %t1.sroa.0.0.i, %sub.lobit.i
   store i64 %sub6.i, ptr %t2, align 8
   store i64 %t1.sroa.6.0.i, ptr %22, align 8
-  call fastcc void @print_report(ptr noundef nonnull @.str.18, ptr noundef nonnull %t2, i64 noundef %retval.0.i86, i64 noundef %retval.0.i98, i64 noundef %total.1, i32 noundef 1, i1 noundef zeroext %Cflag.0)
+  call fastcc void @print_report(ptr noundef nonnull @.str.18, ptr noundef nonnull %t2, i64 noundef %retval.0.i86, i64 noundef %retval.0.i98, i64 noundef %total.0, i32 noundef 1, i1 noundef zeroext %Cflag.0)
   br label %out
 
 out:                                              ; preds = %if.end114, %if.end120, %if.then100
-  %ret.3 = phi i32 [ %ret.0.ph, %if.then100 ], [ %ret.2, %if.end114 ], [ %ret.2, %if.end120 ]
+  %ret.1 = phi i32 [ %ret.0.ph, %if.then100 ], [ %ret.2, %if.end114 ], [ %ret.2, %if.end120 ]
   call fastcc void @qemu_io_free(ptr noundef %blk, ptr noundef %call89, i64 noundef %retval.0.i98, i1 noundef zeroext %and87.pre-phi)
   br label %return
 
 return:                                           ; preds = %parse_pattern.exit.thread, %out, %if.then83, %if.then79, %if.then73, %if.then66, %if.then55, %if.then45, %if.then39, %if.then29, %if.then24, %sw.default, %if.then18, %if.then
-  %retval.0 = phi i32 [ -22, %sw.default ], [ %conv19, %if.then18 ], [ %conv, %if.then ], [ -22, %if.then24 ], [ %conv32, %if.then29 ], [ %conv42, %if.then39 ], [ -22, %if.then45 ], [ -22, %if.then66 ], [ -22, %if.then83 ], [ %ret.3, %out ], [ -22, %if.then79 ], [ -22, %if.then73 ], [ -22, %if.then55 ], [ -22, %parse_pattern.exit.thread ]
+  %retval.0 = phi i32 [ -22, %sw.default ], [ %conv19, %if.then18 ], [ %conv, %if.then ], [ -22, %if.then24 ], [ %conv32, %if.then29 ], [ %conv42, %if.then39 ], [ -22, %if.then45 ], [ -22, %if.then66 ], [ -22, %if.then83 ], [ %ret.1, %out ], [ -22, %if.then79 ], [ -22, %if.then73 ], [ -22, %if.then55 ], [ -22, %parse_pattern.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -2038,12 +2038,12 @@ if.then41:                                        ; preds = %if.then35
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then41, %if.then35
-  %ret.0 = phi i32 [ -22, %if.then41 ], [ 0, %if.then35 ]
+  %ret.2 = phi i32 [ -22, %if.then41 ], [ 0, %if.then35 ]
   call void @g_free(ptr noundef %call36) #25
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end44, %if.end33
-  %ret.1 = phi i32 [ %ret.0, %if.end44 ], [ 0, %if.end33 ]
+  %ret.1 = phi i32 [ %ret.2, %if.end44 ], [ 0, %if.end33 ]
   br i1 %qflag.0.ph101, label %out, label %if.end48
 
 if.end48:                                         ; preds = %if.end45
@@ -2077,7 +2077,7 @@ if.end52:                                         ; preds = %if.then50, %if.end4
   br label %out
 
 out:                                              ; preds = %if.end45, %if.end52, %if.then29
-  %ret.2 = phi i32 [ %.lcssa.i, %if.then29 ], [ %ret.1, %if.end45 ], [ %ret.1, %if.end52 ]
+  %ret.0 = phi i32 [ %.lcssa.i, %if.then29 ], [ %ret.1, %if.end45 ], [ %ret.1, %if.end52 ]
   %21 = load i8, ptr @qemuio_misalign, align 1
   %tobool.i = trunc i8 %21 to i1
   %p.addr.0.idx.i = select i1 %tobool.i, i64 -16, i64 0
@@ -2097,7 +2097,7 @@ qemu_io_free.exit:                                ; preds = %out, %if.then2.i
   br label %return
 
 return:                                           ; preds = %parse_pattern.exit.thread, %if.end15, %qemu_io_free.exit, %if.then12, %if.then8, %sw.default
-  %retval.0 = phi i32 [ -22, %sw.default ], [ -22, %if.then8 ], [ %conv, %if.then12 ], [ %ret.2, %qemu_io_free.exit ], [ -22, %if.end15 ], [ -22, %parse_pattern.exit.thread ]
+  %retval.0 = phi i32 [ -22, %sw.default ], [ -22, %if.then8 ], [ %conv, %if.then12 ], [ %ret.0, %qemu_io_free.exit ], [ -22, %if.end15 ], [ -22, %parse_pattern.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -2595,7 +2595,7 @@ if.then144:                                       ; preds = %if.end.i84, %if.the
 
 if.end148:                                        ; preds = %if.end.i98, %if.end.i93, %if.then130, %if.end.i84
   %buf.0110 = phi ptr [ %buf.0112, %if.end.i84 ], [ null, %if.then130 ], [ %buf.0, %if.end.i93 ], [ %buf.0, %if.end.i98 ]
-  %total.4 = phi i64 [ %conv1.i, %if.end.i84 ], [ %call66, %if.then130 ], [ %call66, %if.end.i93 ], [ %call66, %if.end.i98 ]
+  %total.0 = phi i64 [ %conv1.i, %if.end.i84 ], [ %call66, %if.then130 ], [ %call66, %if.end.i93 ], [ %call66, %if.end.i98 ]
   %call141 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t2) #25
   br i1 %qflag.0, label %out, label %if.end151
 
@@ -2615,7 +2615,7 @@ if.end151:                                        ; preds = %if.end148
   %sub6.i = add i64 %t1.sroa.0.0.i, %sub.lobit.i
   store i64 %sub6.i, ptr %t2, align 8
   store i64 %t1.sroa.6.0.i, ptr %15, align 8
-  call fastcc void @print_report(ptr noundef nonnull @.str.77, ptr noundef nonnull %t2, i64 noundef %retval.0.i77, i64 noundef %call66, i64 noundef %total.4, i32 noundef 1, i1 noundef zeroext %Cflag.0)
+  call fastcc void @print_report(ptr noundef nonnull @.str.77, ptr noundef nonnull %t2, i64 noundef %retval.0.i77, i64 noundef %call66, i64 noundef %total.0, i32 noundef 1, i1 noundef zeroext %Cflag.0)
   br label %out
 
 out:                                              ; preds = %if.end148, %if.end151, %if.then144

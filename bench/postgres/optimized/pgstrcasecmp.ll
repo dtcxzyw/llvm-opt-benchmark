@@ -48,7 +48,7 @@ define dso_local range(i32 -255, 256) i32 @pg_strcasecmp(ptr nocapture noundef r
   br label %25
 
 25:                                               ; preds = %14, %15, %22, %12
-  %.026 = phi i8 [ %13, %12 ], [ %24, %22 ], [ %5, %15 ], [ %5, %14 ]
+  %.1 = phi i8 [ %13, %12 ], [ %24, %22 ], [ %5, %15 ], [ %5, %14 ]
   %26 = add i8 %7, -65
   %or.cond5 = icmp ult i8 %26, 26
   br i1 %or.cond5, label %27, label %29
@@ -78,18 +78,18 @@ define dso_local range(i32 -255, 256) i32 @pg_strcasecmp(ptr nocapture noundef r
 
 40:                                               ; preds = %29, %30, %37, %27
   %.0 = phi i8 [ %28, %27 ], [ %39, %37 ], [ %7, %30 ], [ %7, %29 ]
-  %.not38 = icmp eq i8 %.026, %.0
+  %.not38 = icmp eq i8 %.1, %.0
   br i1 %.not38, label %45, label %41
 
 41:                                               ; preds = %40
   %42 = zext i8 %.0 to i32
-  %43 = zext i8 %.026 to i32
+  %43 = zext i8 %.1 to i32
   %44 = sub nsw i32 %43, %42
   br label %.loopexit
 
 45:                                               ; preds = %40, %3
-  %.1 = phi i8 [ %.026, %40 ], [ %5, %3 ]
-  %46 = icmp eq i8 %.1, 0
+  %.026 = phi i8 [ %.1, %40 ], [ %5, %3 ]
+  %46 = icmp eq i8 %.026, 0
   br i1 %46, label %.loopexit, label %3
 
 .loopexit:                                        ; preds = %45, %41
@@ -154,7 +154,7 @@ define dso_local range(i32 -255, 256) i32 @pg_strncasecmp(ptr nocapture noundef 
   br label %28
 
 28:                                               ; preds = %17, %18, %25, %15
-  %.027 = phi i8 [ %16, %15 ], [ %27, %25 ], [ %8, %18 ], [ %8, %17 ]
+  %.1 = phi i8 [ %16, %15 ], [ %27, %25 ], [ %8, %18 ], [ %8, %17 ]
   %29 = add i8 %10, -65
   %or.cond5 = icmp ult i8 %29, 26
   br i1 %or.cond5, label %30, label %32
@@ -184,18 +184,18 @@ define dso_local range(i32 -255, 256) i32 @pg_strncasecmp(ptr nocapture noundef 
 
 43:                                               ; preds = %32, %33, %40, %30
   %.0 = phi i8 [ %31, %30 ], [ %42, %40 ], [ %10, %33 ], [ %10, %32 ]
-  %.not41 = icmp eq i8 %.027, %.0
+  %.not41 = icmp eq i8 %.1, %.0
   br i1 %.not41, label %48, label %44
 
 44:                                               ; preds = %43
   %45 = zext i8 %.0 to i32
-  %46 = zext i8 %.027 to i32
+  %46 = zext i8 %.1 to i32
   %47 = sub nsw i32 %46, %45
   br label %.loopexit
 
 48:                                               ; preds = %43, %6
-  %.1 = phi i8 [ %.027, %43 ], [ %8, %6 ]
-  %49 = icmp eq i8 %.1, 0
+  %.027 = phi i8 [ %.1, %43 ], [ %8, %6 ]
+  %49 = icmp eq i8 %.027, 0
   br i1 %49, label %.loopexit, label %4, !llvm.loop !5
 
 .loopexit:                                        ; preds = %4, %48, %44

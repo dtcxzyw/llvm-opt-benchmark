@@ -620,9 +620,9 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h9f8
   br label %15
 
 15:                                               ; preds = %108, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h3128778b22b68466E.exit.split.us"
-  %.sroa.3156.0.us = phi i64 [ %.sroa.03.sroa.10.0.copyload, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h3128778b22b68466E.exit.split.us" ], [ %.sroa.3156.3.us, %108 ]
-  %.sroa.19.0.us = phi i64 [ %.sroa.03.sroa.8.0.copyload, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h3128778b22b68466E.exit.split.us" ], [ %.sroa.19.3.us, %108 ]
-  %.0.us = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h3128778b22b68466E.exit.split.us" ], [ %.sroa.19.3.us, %108 ]
+  %.sroa.3156.0.us = phi i64 [ %.sroa.03.sroa.10.0.copyload, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h3128778b22b68466E.exit.split.us" ], [ %.sroa.3156.1.us, %108 ]
+  %.sroa.19.0.us = phi i64 [ %.sroa.03.sroa.8.0.copyload, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h3128778b22b68466E.exit.split.us" ], [ %.sroa.19.1.us, %108 ]
+  %.0.us = phi i64 [ 0, %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h3128778b22b68466E.exit.split.us" ], [ %.sroa.19.1.us, %108 ]
   %16 = icmp eq i64 %.sroa.3156.0.us, -1
   %17 = add i64 %.sroa.19.0.us, %12
   %.not3754.i.us = icmp ult i64 %17, %.sroa.03.sroa.13.0.copyload
@@ -770,11 +770,11 @@ define internal fastcc void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h9f8
   br label %129
 
 .loopexit248:                                     ; preds = %33, %74
-  %.sroa.3156.3.us = phi i64 [ -1, %74 ], [ 0, %33 ]
-  %.sroa.6.4.us = phi i64 [ %64, %74 ], [ %21, %33 ]
-  %.sroa.19.3.us = add i64 %.sroa.6.4.us, %.sroa.03.sroa.15.0.copyload
+  %.sroa.3156.1.us = phi i64 [ -1, %74 ], [ 0, %33 ]
+  %.sroa.6.2.us = phi i64 [ %64, %74 ], [ %21, %33 ]
+  %.sroa.19.1.us = add i64 %.sroa.6.2.us, %.sroa.03.sroa.15.0.copyload
   %86 = getelementptr inbounds i8, ptr %1, i64 %.0.us
-  %87 = sub i64 %.sroa.6.4.us, %.0.us
+  %87 = sub i64 %.sroa.6.2.us, %.0.us
   %88 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !84, !noalias !89, !noundef !5
   %89 = load i64, ptr %7, align 8, !alias.scope !91, !noalias !89, !noundef !5
   %90 = sub i64 %89, %88

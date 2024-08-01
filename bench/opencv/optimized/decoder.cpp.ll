@@ -1262,7 +1262,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit106:                ; preds = %204, %208, %213
 
 246:                                              ; preds = %.lr.ph180, %237
   %.052179 = phi i64 [ 0, %.lr.ph180 ], [ %238, %237 ]
-  %.053178 = phi i32 [ 0, %.lr.ph180 ], [ %.255, %237 ]
+  %.053178 = phi i32 [ 0, %.lr.ph180 ], [ %.154, %237 ]
   %247 = load ptr, ptr %4, align 8
   %248 = getelementptr inbounds i8, ptr %247, i64 56
   %249 = load ptr, ptr %248, align 8
@@ -1419,7 +1419,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit114:                ; preds = %267, %268, %273
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %284
-  %.255 = phi i32 [ %.053178, %284 ], [ %.053178, %.preheader ], [ %309, %.loopexit.loopexit ]
+  %.154 = phi i32 [ %.053178, %284 ], [ %.053178, %.preheader ], [ %309, %.loopexit.loopexit ]
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIcEE, i64 16), ptr %18, align 8
   %310 = load ptr, ptr %235, align 8
   %.not.i117 = icmp eq ptr %310, null
@@ -2130,7 +2130,7 @@ define hidden noundef float @_ZN5zxing6qrcode7Decoder20estimateFixedPatternENS_3
   br label %103
 
 103:                                              ; preds = %94, %36
-  %.0 = phi float [ -1.000000e+00, %36 ], [ %102, %94 ]
+  %.1 = phi float [ -1.000000e+00, %36 ], [ %102, %94 ]
   %104 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %104, null
   br i1 %.not.i, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit, label %105
@@ -2174,7 +2174,7 @@ define hidden noundef float @_ZN5zxing6qrcode7Decoder20estimateFixedPatternENS_3
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit44
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %110, %105, %103, %18
-  %.1 = phi float [ -1.000000e+00, %18 ], [ %.0, %103 ], [ %.0, %105 ], [ %.0, %110 ]
+  %.0 = phi float [ -1.000000e+00, %18 ], [ %.1, %103 ], [ %.1, %105 ], [ %.1, %110 ]
   %124 = load ptr, ptr %5, align 8
   %.not.i45 = icmp eq ptr %124, null
   br i1 %.not.i45, label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit46, label %125
@@ -2196,7 +2196,7 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %110, %105, %103, %1
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit46
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit46:         ; preds = %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit, %125, %130
-  ret float %.1
+  ret float %.0
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit44:         ; preds = %120, %115, %.loopexit.split-lp, %22, %20
   %.pn40 = phi { ptr, i32 } [ %23, %22 ], [ %21, %20 ], [ %.pn, %.loopexit.split-lp ], [ %.pn, %115 ], [ %.pn, %120 ]

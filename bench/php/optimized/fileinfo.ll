@@ -688,8 +688,8 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture n
   br label %66
 
 66:                                               ; preds = %36, %63
-  %.0111 = phi ptr [ %37, %36 ], [ %65, %63 ]
-  %.0109 = phi ptr [ null, %36 ], [ %59, %63 ]
+  %.1112 = phi ptr [ %37, %36 ], [ %65, %63 ]
+  %.1110 = phi ptr [ null, %36 ], [ %59, %63 ]
   %.1 = phi i32 [ %.0, %36 ], [ %2, %63 ]
   %67 = load i64, ptr %5, align 8
   %.not124 = icmp eq i64 %67, 0
@@ -697,14 +697,14 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture n
 
 68:                                               ; preds = %66
   %69 = trunc i64 %67 to i32
-  %70 = call i32 @magic_setflags(ptr noundef %.0111, i32 noundef %69) #9
+  %70 = call i32 @magic_setflags(ptr noundef %.1112, i32 noundef %69) #9
   %71 = icmp eq i32 %70, -1
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %68
   %73 = load i64, ptr %5, align 8
-  %74 = call i32 @magic_errno(ptr noundef %.0111) #9
-  %75 = call ptr @magic_error(ptr noundef %.0111) #9
+  %74 = call i32 @magic_errno(ptr noundef %.1112) #9
+  %75 = call ptr @magic_error(ptr noundef %.1112) #9
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.14, i64 noundef %73, i32 noundef %74, ptr noundef %75) #9
   %76 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %76, align 8
@@ -720,7 +720,7 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture n
 78:                                               ; preds = %77
   %79 = load ptr, ptr %6, align 8
   %80 = load i64, ptr %7, align 8
-  %81 = call ptr @magic_buffer(ptr noundef %.0111, ptr noundef %79, i64 noundef %80) #9
+  %81 = call ptr @magic_buffer(ptr noundef %.1112, ptr noundef %79, i64 noundef %80) #9
   br label %130
 
 82:                                               ; preds = %77
@@ -734,7 +734,7 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture n
 87:                                               ; preds = %82
   %88 = call i64 @_php_stream_tell(ptr noundef nonnull %86) #9
   %89 = call i32 @_php_stream_seek(ptr noundef nonnull %86, i64 noundef 0, i32 noundef 0) #9
-  %90 = call ptr @magic_stream(ptr noundef %.0111, ptr noundef nonnull %86) #9
+  %90 = call ptr @magic_stream(ptr noundef %.1112, ptr noundef nonnull %86) #9
   %91 = call i32 @_php_stream_seek(ptr noundef nonnull %86, i64 noundef %88, i32 noundef 0) #9
   br label %130
 
@@ -809,11 +809,11 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture n
   br i1 %.not130, label %125, label %127
 
 125:                                              ; preds = %121
-  %126 = call ptr @magic_stream(ptr noundef %.0111, ptr noundef nonnull %115) #9
+  %126 = call ptr @magic_stream(ptr noundef %.1112, ptr noundef nonnull %115) #9
   br label %127
 
 127:                                              ; preds = %121, %125, %118
-  %.0107 = phi ptr [ %126, %125 ], [ null, %118 ], [ %10, %121 ]
+  %.1108 = phi ptr [ %126, %125 ], [ null, %118 ], [ %10, %121 ]
   %128 = call i32 @_php_stream_free(ptr noundef nonnull %115, i32 noundef 3) #9
   br label %130
 
@@ -821,12 +821,12 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture n
   unreachable
 
 130:                                              ; preds = %78, %87, %127
-  %.1108 = phi ptr [ %.0107, %127 ], [ %90, %87 ], [ %81, %78 ]
-  %.not132 = icmp eq ptr %.1108, null
+  %.0107 = phi ptr [ %.1108, %127 ], [ %90, %87 ], [ %81, %78 ]
+  %.not132 = icmp eq ptr %.0107, null
   br i1 %.not132, label %.thread, label %131
 
 131:                                              ; preds = %130
-  %132 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1108) #10
+  %132 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0107) #10
   %133 = and i64 %132, -8
   %134 = add i64 %133, 32
   %135 = call noalias ptr @_emalloc(i64 noundef %134) #8
@@ -838,7 +838,7 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture n
   %138 = getelementptr inbounds i8, ptr %135, i64 16
   store i64 %132, ptr %138, align 8
   %139 = getelementptr inbounds i8, ptr %135, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %139, ptr nonnull align 1 %.1108, i64 %132, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %139, ptr nonnull align 1 %.0107, i64 %132, i1 false)
   %140 = getelementptr inbounds [1 x i8], ptr %139, i64 0, i64 %132
   store i8 0, ptr %140, align 1
   store ptr %135, ptr %1, align 8
@@ -847,18 +847,18 @@ define internal fastcc void @_php_finfo_get_type(ptr noundef %0, ptr nocapture n
   br label %145
 
 .thread:                                          ; preds = %82, %101, %40, %130
-  %.1110139 = phi ptr [ %.0109, %130 ], [ %.0109, %82 ], [ %.0109, %101 ], [ null, %40 ]
-  %.1112138 = phi ptr [ %.0111, %130 ], [ %.0111, %82 ], [ %.0111, %101 ], [ %37, %40 ]
-  %142 = call i32 @magic_errno(ptr noundef %.1112138) #9
-  %143 = call ptr @magic_error(ptr noundef %.1112138) #9
+  %.0109139 = phi ptr [ %.1110, %130 ], [ %.1110, %82 ], [ %.1110, %101 ], [ null, %40 ]
+  %.0111138 = phi ptr [ %.1112, %130 ], [ %.1112, %82 ], [ %.1112, %101 ], [ %37, %40 ]
+  %142 = call i32 @magic_errno(ptr noundef %.0111138) #9
+  %143 = call ptr @magic_error(ptr noundef %.0111138) #9
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.52, i32 noundef %142, ptr noundef %143) #9
   %144 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %144, align 8
   br label %145
 
 145:                                              ; preds = %131, %.thread, %116, %100, %97
-  %.2113 = phi ptr [ %.0111, %131 ], [ %.1112138, %.thread ], [ %.0111, %97 ], [ %.0111, %100 ], [ %.0111, %116 ]
-  %.2 = phi ptr [ %.0109, %131 ], [ %.1110139, %.thread ], [ %.0109, %97 ], [ %.0109, %100 ], [ %.0109, %116 ]
+  %.2113 = phi ptr [ %.1112, %131 ], [ %.0111138, %.thread ], [ %.1112, %97 ], [ %.1112, %100 ], [ %.1112, %116 ]
+  %.2 = phi ptr [ %.1110, %131 ], [ %.0109139, %.thread ], [ %.1110, %97 ], [ %.1110, %100 ], [ %.1110, %116 ]
   br i1 %.not, label %147, label %146
 
 146:                                              ; preds = %145

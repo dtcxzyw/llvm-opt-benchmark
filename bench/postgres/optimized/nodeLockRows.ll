@@ -179,7 +179,7 @@ ExecProcNode.exit:                                ; preds = %.backedge, %21
   br i1 %38, label %.lr.ph170, label %.loopexit88
 
 .lr.ph170:                                        ; preds = %.lr.ph, %172
-  %.064111169 = phi i1 [ %.2, %172 ], [ false, %.lr.ph ]
+  %.064111169 = phi i1 [ %.1, %172 ], [ false, %.lr.ph ]
   %indvars.iv168 = phi i64 [ %indvars.iv.next, %172 ], [ 0, %.lr.ph ]
   %39 = load ptr, ptr %33, align 8
   %40 = getelementptr %union.ListCell, ptr %39, i64 %indvars.iv168
@@ -417,7 +417,7 @@ switch.lookup:                                    ; preds = %127
   unreachable
 
 172:                                              ; preds = %124, %146, %76
-  %.2 = phi i1 [ %.064111169, %76 ], [ %spec.select82, %146 ], [ %spec.select, %124 ]
+  %.1 = phi i1 [ %.064111169, %76 ], [ %spec.select82, %146 ], [ %spec.select, %124 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv168, 1
   %173 = load i32, ptr %32, align 4
   %174 = sext i32 %173 to i64
@@ -425,7 +425,7 @@ switch.lookup:                                    ; preds = %127
   br i1 %175, label %.lr.ph170, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %172
-  br i1 %.2, label %176, label %.loopexit88
+  br i1 %.1, label %176, label %.loopexit88
 
 176:                                              ; preds = %._crit_edge
   call void @EvalPlanQualBegin(ptr noundef nonnull %15) #5

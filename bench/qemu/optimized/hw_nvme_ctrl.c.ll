@@ -1188,7 +1188,7 @@ if.end128.i:                                      ; preds = %if.else.i
   br i1 %tobool131.not.i, label %return, label %unmap.i
 
 unmap.i:                                          ; preds = %if.end128.i, %trace_pci_nvme_err_invalid_prp2_align.exit.i, %cleanup.thread.i, %nvme_sg_init.exit.i
-  %status.2.i = phi i16 [ %call6.i, %nvme_sg_init.exit.i ], [ 16403, %trace_pci_nvme_err_invalid_prp2_align.exit.i ], [ %call130.i, %if.end128.i ], [ %status.1.ph.i, %cleanup.thread.i ]
+  %status.0.i = phi i16 [ %call6.i, %nvme_sg_init.exit.i ], [ 16403, %trace_pci_nvme_err_invalid_prp2_align.exit.i ], [ %call130.i, %if.end128.i ], [ %status.1.ph.i, %cleanup.thread.i ]
   %51 = load i32, ptr %sg, align 8
   %and.i.i = and i32 %51, 1
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
@@ -1223,7 +1223,7 @@ default.unreachable22:                            ; preds = %entry
   unreachable
 
 return:                                           ; preds = %if.end5.i.i, %unmap.i, %if.end128.i, %cleanup.i, %if.end.i, %entry, %sw.bb7
-  %retval.0 = phi i16 [ %call9, %sw.bb7 ], [ 2, %entry ], [ 0, %cleanup.i ], [ 0, %if.end128.i ], [ 0, %if.end.i ], [ %status.2.i, %unmap.i ], [ %status.2.i, %if.end5.i.i ]
+  %retval.0 = phi i16 [ %call9, %sw.bb7 ], [ 2, %entry ], [ 0, %cleanup.i ], [ 0, %if.end128.i ], [ 0, %if.end.i ], [ %status.0.i, %unmap.i ], [ %status.0.i, %if.end5.i.i ]
   ret i16 %retval.0
 }
 
@@ -15118,17 +15118,17 @@ for.cond15.i:                                     ; preds = %land.rhs17.i, %nvme
   br i1 %tobool16.not.i, label %for.end31.i, label %land.rhs17.i, !llvm.loop !39
 
 land.rhs17.i:                                     ; preds = %if.then14.i, %for.cond15.i
-  %zone.addr.2111.i = phi ptr [ %28, %for.cond15.i ], [ %27, %if.then14.i ]
-  %entry18.i = getelementptr inbounds i8, ptr %zone.addr.2111.i, i64 72
+  %zone.addr.3111.i = phi ptr [ %28, %for.cond15.i ], [ %27, %if.then14.i ]
+  %entry18.i = getelementptr inbounds i8, ptr %zone.addr.3111.i, i64 72
   %28 = load ptr, ptr %entry18.i, align 8
-  %29 = getelementptr i8, ptr %zone.addr.2111.i, i64 1
+  %29 = getelementptr i8, ptr %zone.addr.3111.i, i64 1
   %zone.val.i63.i = load i8, ptr %29, align 1
   %30 = and i8 %zone.val.i63.i, -32
   %switch = icmp eq i8 %30, 32
   br i1 %switch, label %nvme_bulk_proc_zone.exit74.i, label %for.cond15.i
 
 nvme_bulk_proc_zone.exit74.i:                     ; preds = %land.rhs17.i
-  %call.i241 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.2111.i)
+  %call.i241 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.3111.i)
   %31 = add nsw i16 %call.i241, -1
   %or.cond1.i = icmp ult i16 %31, -2
   br i1 %or.cond1.i, label %sw.epilog, label %for.cond15.i, !llvm.loop !39
@@ -15144,17 +15144,17 @@ for.cond32.i:                                     ; preds = %land.rhs34.i, %nvme
   br i1 %tobool33.not.i, label %return, label %land.rhs34.i, !llvm.loop !40
 
 land.rhs34.i:                                     ; preds = %for.end31.i, %for.cond32.i
-  %zone.addr.3114.i = phi ptr [ %33, %for.cond32.i ], [ %32, %for.end31.i ]
-  %entry35.i = getelementptr inbounds i8, ptr %zone.addr.3114.i, i64 72
+  %zone.addr.4114.i = phi ptr [ %33, %for.cond32.i ], [ %32, %for.end31.i ]
+  %entry35.i = getelementptr inbounds i8, ptr %zone.addr.4114.i, i64 72
   %33 = load ptr, ptr %entry35.i, align 8
-  %34 = getelementptr i8, ptr %zone.addr.3114.i, i64 1
+  %34 = getelementptr i8, ptr %zone.addr.4114.i, i64 1
   %zone.val.i75.i = load i8, ptr %34, align 1
   %35 = and i8 %zone.val.i75.i, -32
   %switch275.not = icmp eq i8 %35, 32
   br i1 %switch275.not, label %nvme_bulk_proc_zone.exit86.i, label %for.cond32.i
 
 nvme_bulk_proc_zone.exit86.i:                     ; preds = %land.rhs34.i
-  %call.i = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.3114.i)
+  %call.i = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_close(ptr noundef %0, ptr noundef nonnull %zone.addr.4114.i)
   %36 = add nsw i16 %call.i, -1
   %or.cond2.i = icmp ult i16 %36, -2
   br i1 %or.cond2.i, label %sw.epilog, label %for.cond32.i, !llvm.loop !40
@@ -15213,10 +15213,10 @@ for.cond.i:                                       ; preds = %land.rhs.i, %nvme_b
   br i1 %tobool4.not.i, label %if.end11.i, label %land.rhs.i, !llvm.loop !41
 
 land.rhs.i:                                       ; preds = %if.else.i114, %for.cond.i
-  %zone.addr.0109.i = phi ptr [ %44, %for.cond.i ], [ %43, %if.else.i114 ]
-  %entry5.i = getelementptr inbounds i8, ptr %zone.addr.0109.i, i64 72
+  %zone.addr.1109.i = phi ptr [ %44, %for.cond.i ], [ %43, %if.else.i114 ]
+  %entry5.i = getelementptr inbounds i8, ptr %zone.addr.1109.i, i64 72
   %44 = load ptr, ptr %entry5.i, align 8
-  %45 = getelementptr i8, ptr %zone.addr.0109.i, i64 1
+  %45 = getelementptr i8, ptr %zone.addr.1109.i, i64 1
   %zone.val.i.i = load i8, ptr %45, align 1
   %46 = lshr i8 %zone.val.i.i, 4
   %.off251 = add nsw i8 %46, -2
@@ -15224,7 +15224,7 @@ land.rhs.i:                                       ; preds = %if.else.i114, %for.
   br i1 %switch252, label %nvme_bulk_proc_zone.exit.i, label %for.cond.i
 
 nvme_bulk_proc_zone.exit.i:                       ; preds = %land.rhs.i
-  %call.i245 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.0109.i)
+  %call.i245 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.1109.i)
   %47 = add nsw i16 %call.i245, -1
   %or.cond.i = icmp ult i16 %47, -2
   br i1 %or.cond.i, label %sw.epilog, label %for.cond.i, !llvm.loop !41
@@ -15250,10 +15250,10 @@ for.cond15.i128:                                  ; preds = %nvme_bulk_proc_zone
   br i1 %tobool16.not.i130, label %for.end31.i131, label %land.rhs17.i119, !llvm.loop !39
 
 land.rhs17.i119:                                  ; preds = %for.cond15.i128, %land.rhs17.lr.ph.i118
-  %zone.addr.2111.i120 = phi ptr [ %48, %land.rhs17.lr.ph.i118 ], [ %51, %for.cond15.i128 ]
-  %entry18.i121 = getelementptr inbounds i8, ptr %zone.addr.2111.i120, i64 72
+  %zone.addr.3111.i120 = phi ptr [ %48, %land.rhs17.lr.ph.i118 ], [ %51, %for.cond15.i128 ]
+  %entry18.i121 = getelementptr inbounds i8, ptr %zone.addr.3111.i120, i64 72
   %51 = load ptr, ptr %entry18.i121, align 8
-  %52 = getelementptr i8, ptr %zone.addr.2111.i120, i64 1
+  %52 = getelementptr i8, ptr %zone.addr.3111.i120, i64 1
   %zone.val.i63.i122 = load i8, ptr %52, align 1
   %53 = lshr i8 %zone.val.i63.i122, 4
   switch i8 %53, label %for.cond15.i128 [
@@ -15271,7 +15271,7 @@ sw.epilog.i66.i125:                               ; preds = %sw.bb1.i72.i159, %l
   br i1 %tobool13.i68.i127, label %nvme_bulk_proc_zone.exit74.i156, label %for.cond15.i128
 
 nvme_bulk_proc_zone.exit74.i156:                  ; preds = %sw.epilog.i66.i125
-  %call.i244 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.2111.i120)
+  %call.i244 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.3111.i120)
   %54 = add nsw i16 %call.i244, -1
   %or.cond1.i158 = icmp ult i16 %54, -2
   br i1 %or.cond1.i158, label %sw.epilog, label %for.cond15.i128, !llvm.loop !39
@@ -15292,10 +15292,10 @@ for.cond32.i145:                                  ; preds = %nvme_bulk_proc_zone
   br i1 %tobool33.not.i147, label %return, label %land.rhs34.i136, !llvm.loop !40
 
 land.rhs34.i136:                                  ; preds = %for.cond32.i145, %land.rhs34.lr.ph.i135
-  %zone.addr.3114.i137 = phi ptr [ %55, %land.rhs34.lr.ph.i135 ], [ %58, %for.cond32.i145 ]
-  %entry35.i138 = getelementptr inbounds i8, ptr %zone.addr.3114.i137, i64 72
+  %zone.addr.4114.i137 = phi ptr [ %55, %land.rhs34.lr.ph.i135 ], [ %58, %for.cond32.i145 ]
+  %entry35.i138 = getelementptr inbounds i8, ptr %zone.addr.4114.i137, i64 72
   %58 = load ptr, ptr %entry35.i138, align 8
-  %59 = getelementptr i8, ptr %zone.addr.3114.i137, i64 1
+  %59 = getelementptr i8, ptr %zone.addr.4114.i137, i64 1
   %zone.val.i75.i139 = load i8, ptr %59, align 1
   %60 = lshr i8 %zone.val.i75.i139, 4
   switch i8 %60, label %for.cond32.i145 [
@@ -15313,7 +15313,7 @@ sw.epilog.i78.i142:                               ; preds = %sw.bb1.i84.i155, %l
   br i1 %tobool13.i80.i144, label %nvme_bulk_proc_zone.exit86.i152, label %for.cond32.i145
 
 nvme_bulk_proc_zone.exit86.i152:                  ; preds = %sw.epilog.i78.i142
-  %call.i243 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.3114.i137)
+  %call.i243 = tail call fastcc zeroext range(i16 0, 448) i16 @nvme_zrm_finish(ptr noundef %0, ptr noundef nonnull %zone.addr.4114.i137)
   %61 = add nsw i16 %call.i243, -1
   %or.cond2.i154 = icmp ult i16 %61, -2
   br i1 %or.cond2.i154, label %sw.epilog, label %for.cond32.i145, !llvm.loop !40
@@ -21094,10 +21094,10 @@ for.cond:                                         ; preds = %land.rhs, %sw.epilo
   br i1 %tobool4.not, label %if.end11, label %land.rhs, !llvm.loop !41
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.cond
-  %zone.addr.0109 = phi ptr [ %2, %land.rhs.lr.ph ], [ %6, %for.cond ]
-  %entry5 = getelementptr inbounds i8, ptr %zone.addr.0109, i64 72
+  %zone.addr.1109 = phi ptr [ %2, %land.rhs.lr.ph ], [ %6, %for.cond ]
+  %entry5 = getelementptr inbounds i8, ptr %zone.addr.1109, i64 72
   %6 = load ptr, ptr %entry5, align 8
-  %7 = getelementptr i8, ptr %zone.addr.0109, i64 1
+  %7 = getelementptr i8, ptr %zone.addr.1109, i64 1
   %zone.val.i = load i8, ptr %7, align 1
   %8 = lshr i8 %zone.val.i, 4
   %shr.i.i = zext nneg i8 %8 to i32
@@ -21120,14 +21120,14 @@ sw.epilog.i:                                      ; preds = %land.rhs, %land.rhs
   br i1 %tobool13.i, label %nvme_bulk_proc_zone.exit, label %for.cond
 
 nvme_bulk_proc_zone.exit:                         ; preds = %sw.epilog.i
-  %call14.i = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.0109, i32 noundef %shr.i.i, ptr noundef %req) #19, !callees !54
+  %call14.i = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.1109, i32 noundef %shr.i.i, ptr noundef %req) #19, !callees !54
   %9 = add i16 %call14.i, -1
   %or.cond = icmp ult i16 %9, -2
   br i1 %or.cond, label %out, label %for.cond, !llvm.loop !41
 
 if.end11:                                         ; preds = %for.cond, %if.then3, %if.else
-  %zone.addr.1 = phi ptr [ %zone, %if.else ], [ null, %if.then3 ], [ null, %for.cond ]
-  %status.1 = phi i16 [ 0, %if.else ], [ 0, %if.then3 ], [ %status.0.i129, %for.cond ]
+  %zone.addr.0 = phi ptr [ %zone, %if.else ], [ null, %if.then3 ], [ null, %for.cond ]
+  %status.0 = phi i16 [ 0, %if.else ], [ 0, %if.then3 ], [ %status.0.i129, %for.cond ]
   %and12 = and i32 %proc_mask, 1
   %tobool13.not = icmp eq i32 %and12, 0
   br i1 %tobool13.not, label %if.end70, label %if.then14
@@ -21150,10 +21150,10 @@ for.cond15:                                       ; preds = %land.rhs17, %sw.epi
   br i1 %tobool16.not, label %for.end31, label %land.rhs17, !llvm.loop !39
 
 land.rhs17:                                       ; preds = %land.rhs17.lr.ph, %for.cond15
-  %zone.addr.2111 = phi ptr [ %10, %land.rhs17.lr.ph ], [ %14, %for.cond15 ]
-  %entry18 = getelementptr inbounds i8, ptr %zone.addr.2111, i64 72
+  %zone.addr.3111 = phi ptr [ %10, %land.rhs17.lr.ph ], [ %14, %for.cond15 ]
+  %entry18 = getelementptr inbounds i8, ptr %zone.addr.3111, i64 72
   %14 = load ptr, ptr %entry18, align 8
-  %15 = getelementptr i8, ptr %zone.addr.2111, i64 1
+  %15 = getelementptr i8, ptr %zone.addr.3111, i64 1
   %zone.val.i63 = load i8, ptr %15, align 1
   %16 = lshr i8 %zone.val.i63, 4
   %shr.i.i64 = zext nneg i8 %16 to i32
@@ -21176,13 +21176,13 @@ sw.epilog.i66:                                    ; preds = %land.rhs17, %land.r
   br i1 %tobool13.i68, label %nvme_bulk_proc_zone.exit74, label %for.cond15
 
 nvme_bulk_proc_zone.exit74:                       ; preds = %sw.epilog.i66
-  %call14.i71 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.2111, i32 noundef %shr.i.i64, ptr noundef %req) #19, !callees !54
+  %call14.i71 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.3111, i32 noundef %shr.i.i64, ptr noundef %req) #19, !callees !54
   %17 = add i16 %call14.i71, -1
   %or.cond1 = icmp ult i16 %17, -2
   br i1 %or.cond1, label %out, label %for.cond15, !llvm.loop !39
 
 for.end31:                                        ; preds = %for.cond15, %if.then14
-  %status.2.lcssa = phi i16 [ %status.1, %if.then14 ], [ %status.0.i69132, %for.cond15 ]
+  %status.4.lcssa = phi i16 [ %status.0, %if.then14 ], [ %status.0.i69132, %for.cond15 ]
   %exp_open_zones = getelementptr inbounds i8, ptr %ns, i64 8544
   %18 = load ptr, ptr %exp_open_zones, align 8
   %tobool33.not113 = icmp eq ptr %18, null
@@ -21200,10 +21200,10 @@ for.cond32:                                       ; preds = %land.rhs34, %sw.epi
   br i1 %tobool33.not, label %if.end70, label %land.rhs34, !llvm.loop !40
 
 land.rhs34:                                       ; preds = %land.rhs34.lr.ph, %for.cond32
-  %zone.addr.3114 = phi ptr [ %18, %land.rhs34.lr.ph ], [ %22, %for.cond32 ]
-  %entry35 = getelementptr inbounds i8, ptr %zone.addr.3114, i64 72
+  %zone.addr.4114 = phi ptr [ %18, %land.rhs34.lr.ph ], [ %22, %for.cond32 ]
+  %entry35 = getelementptr inbounds i8, ptr %zone.addr.4114, i64 72
   %22 = load ptr, ptr %entry35, align 8
-  %23 = getelementptr i8, ptr %zone.addr.3114, i64 1
+  %23 = getelementptr i8, ptr %zone.addr.4114, i64 1
   %zone.val.i75 = load i8, ptr %23, align 1
   %24 = lshr i8 %zone.val.i75, 4
   %shr.i.i76 = zext nneg i8 %24 to i32
@@ -21226,14 +21226,14 @@ sw.epilog.i78:                                    ; preds = %land.rhs34, %land.r
   br i1 %tobool13.i80, label %nvme_bulk_proc_zone.exit86, label %for.cond32
 
 nvme_bulk_proc_zone.exit86:                       ; preds = %sw.epilog.i78
-  %call14.i83 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.3114, i32 noundef %shr.i.i76, ptr noundef %req) #19, !callees !54
+  %call14.i83 = tail call zeroext i16 %op_hndlr(ptr noundef %ns, ptr noundef nonnull %zone.addr.4114, i32 noundef %shr.i.i76, ptr noundef %req) #19, !callees !54
   %25 = add i16 %call14.i83, -1
   %or.cond2 = icmp ult i16 %25, -2
   br i1 %or.cond2, label %out, label %for.cond32, !llvm.loop !40
 
 if.end70:                                         ; preds = %for.cond32, %for.end31, %if.end11
-  %zone.addr.4 = phi ptr [ %zone.addr.1, %if.end11 ], [ null, %for.end31 ], [ null, %for.cond32 ]
-  %status.4 = phi i16 [ %status.1, %if.end11 ], [ %status.2.lcssa, %for.end31 ], [ %status.0.i81135, %for.cond32 ]
+  %zone.addr.2 = phi ptr [ %zone.addr.0, %if.end11 ], [ null, %for.end31 ], [ null, %for.cond32 ]
+  %status.3 = phi i16 [ %status.0, %if.end11 ], [ %status.4.lcssa, %for.end31 ], [ %status.0.i81135, %for.cond32 ]
   %and71 = and i32 %proc_mask, 4
   %tobool72.not = icmp eq i32 %and71, 0
   br i1 %tobool72.not, label %out, label %for.cond74.preheader
@@ -21253,7 +21253,7 @@ for.body77.lr.ph:                                 ; preds = %for.cond74.preheade
 for.body77:                                       ; preds = %for.body77.lr.ph, %for.inc87
   %30 = phi i32 [ %26, %for.body77.lr.ph ], [ %34, %for.inc87 ]
   %i.0118 = phi i32 [ 0, %for.body77.lr.ph ], [ %inc, %for.inc87 ]
-  %zone.addr.7117 = phi ptr [ %zone.addr.4, %for.body77.lr.ph ], [ %incdec.ptr, %for.inc87 ]
+  %zone.addr.7117 = phi ptr [ %zone.addr.2, %for.body77.lr.ph ], [ %incdec.ptr, %for.inc87 ]
   %31 = getelementptr i8, ptr %zone.addr.7117, i64 1
   %zone.val.i87 = load i8, ptr %31, align 1
   %32 = lshr i8 %zone.val.i87, 4
@@ -21295,8 +21295,8 @@ for.inc87:                                        ; preds = %nvme_bulk_proc_zone
   br i1 %cmp75, label %for.body77, label %out, !llvm.loop !55
 
 out:                                              ; preds = %nvme_bulk_proc_zone.exit, %nvme_bulk_proc_zone.exit74, %nvme_bulk_proc_zone.exit86, %nvme_bulk_proc_zone.exit98, %for.inc87, %for.cond74.preheader, %if.then, %if.end70
-  %status.8 = phi i16 [ %status.4, %if.end70 ], [ %call1, %if.then ], [ %status.4, %for.cond74.preheader ], [ %call14.i95, %nvme_bulk_proc_zone.exit98 ], [ %status.0.i93101, %for.inc87 ], [ %call14.i83, %nvme_bulk_proc_zone.exit86 ], [ %call14.i71, %nvme_bulk_proc_zone.exit74 ], [ %call14.i, %nvme_bulk_proc_zone.exit ]
-  ret i16 %status.8
+  %status.2 = phi i16 [ %status.3, %if.end70 ], [ %call1, %if.then ], [ %status.3, %for.cond74.preheader ], [ %call14.i95, %nvme_bulk_proc_zone.exit98 ], [ %status.0.i93101, %for.inc87 ], [ %call14.i83, %nvme_bulk_proc_zone.exit86 ], [ %call14.i71, %nvme_bulk_proc_zone.exit74 ], [ %call14.i, %nvme_bulk_proc_zone.exit ]
+  ret i16 %status.2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -22251,10 +22251,10 @@ if.end6:                                          ; preds = %nvme_ns.exit
 
 nvme_ns.exit29:                                   ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 1, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %stats.sroa.16.068 = phi i64 [ 0, %for.cond.preheader ], [ %stats.sroa.16.1, %for.inc ]
-  %stats.sroa.11.067 = phi i64 [ 0, %for.cond.preheader ], [ %stats.sroa.11.1, %for.inc ]
-  %stats.sroa.6.066 = phi i64 [ 0, %for.cond.preheader ], [ %stats.sroa.6.1, %for.inc ]
-  %stats.sroa.0.065 = phi i64 [ 0, %for.cond.preheader ], [ %stats.sroa.0.1, %for.inc ]
+  %stats.sroa.16.168 = phi i64 [ 0, %for.cond.preheader ], [ %stats.sroa.16.2, %for.inc ]
+  %stats.sroa.11.167 = phi i64 [ 0, %for.cond.preheader ], [ %stats.sroa.11.2, %for.inc ]
+  %stats.sroa.6.166 = phi i64 [ 0, %for.cond.preheader ], [ %stats.sroa.6.2, %for.inc ]
+  %stats.sroa.0.165 = phi i64 [ 0, %for.cond.preheader ], [ %stats.sroa.0.2, %for.inc ]
   %arrayidx.i27 = getelementptr [257 x ptr], ptr %namespaces.i25, i64 0, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx.i27, align 8
   %tobool9.not = icmp eq ptr %9, null
@@ -22266,32 +22266,32 @@ if.end11:                                         ; preds = %nvme_ns.exit29
   %call.i30 = tail call ptr @blk_get_stats(ptr noundef %call8.val) #19
   %arrayidx.i31 = getelementptr i8, ptr %call.i30, i64 56
   %11 = load i64, ptr %arrayidx.i31, align 8
-  %add.i32 = add i64 %11, %stats.sroa.0.065
+  %add.i32 = add i64 %11, %stats.sroa.0.165
   %arrayidx2.i33 = getelementptr i8, ptr %call.i30, i64 64
   %12 = load i64, ptr %arrayidx2.i33, align 8
-  %add3.i35 = add i64 %12, %stats.sroa.6.066
+  %add3.i35 = add i64 %12, %stats.sroa.6.166
   %arrayidx4.i36 = getelementptr i8, ptr %call.i30, i64 104
   %13 = load i64, ptr %arrayidx4.i36, align 8
-  %add5.i38 = add i64 %13, %stats.sroa.11.067
+  %add5.i38 = add i64 %13, %stats.sroa.11.167
   %arrayidx7.i39 = getelementptr i8, ptr %call.i30, i64 112
   %14 = load i64, ptr %arrayidx7.i39, align 8
-  %add8.i41 = add i64 %14, %stats.sroa.16.068
+  %add8.i41 = add i64 %14, %stats.sroa.16.168
   br label %for.inc
 
 for.inc:                                          ; preds = %nvme_ns.exit29, %if.end11
-  %stats.sroa.0.1 = phi i64 [ %stats.sroa.0.065, %nvme_ns.exit29 ], [ %add.i32, %if.end11 ]
-  %stats.sroa.6.1 = phi i64 [ %stats.sroa.6.066, %nvme_ns.exit29 ], [ %add3.i35, %if.end11 ]
-  %stats.sroa.11.1 = phi i64 [ %stats.sroa.11.067, %nvme_ns.exit29 ], [ %add5.i38, %if.end11 ]
-  %stats.sroa.16.1 = phi i64 [ %stats.sroa.16.068, %nvme_ns.exit29 ], [ %add8.i41, %if.end11 ]
+  %stats.sroa.0.2 = phi i64 [ %stats.sroa.0.165, %nvme_ns.exit29 ], [ %add.i32, %if.end11 ]
+  %stats.sroa.6.2 = phi i64 [ %stats.sroa.6.166, %nvme_ns.exit29 ], [ %add3.i35, %if.end11 ]
+  %stats.sroa.11.2 = phi i64 [ %stats.sroa.11.167, %nvme_ns.exit29 ], [ %add5.i38, %if.end11 ]
+  %stats.sroa.16.2 = phi i64 [ %stats.sroa.16.168, %nvme_ns.exit29 ], [ %add8.i41, %if.end11 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
   br i1 %exitcond.not, label %if.end12, label %nvme_ns.exit29, !llvm.loop !57
 
 if.end12:                                         ; preds = %for.inc, %if.end6
-  %stats.sroa.0.2 = phi i64 [ %5, %if.end6 ], [ %stats.sroa.0.1, %for.inc ]
-  %stats.sroa.6.2 = phi i64 [ %6, %if.end6 ], [ %stats.sroa.6.1, %for.inc ]
-  %stats.sroa.11.2 = phi i64 [ %7, %if.end6 ], [ %stats.sroa.11.1, %for.inc ]
-  %stats.sroa.16.2 = phi i64 [ %8, %if.end6 ], [ %stats.sroa.16.1, %for.inc ]
+  %stats.sroa.0.0 = phi i64 [ %5, %if.end6 ], [ %stats.sroa.0.2, %for.inc ]
+  %stats.sroa.6.0 = phi i64 [ %6, %if.end6 ], [ %stats.sroa.6.2, %for.inc ]
+  %stats.sroa.11.0 = phi i64 [ %7, %if.end6 ], [ %stats.sroa.11.2, %for.inc ]
+  %stats.sroa.16.0 = phi i64 [ %8, %if.end6 ], [ %stats.sroa.16.2, %for.inc ]
   %sub = sub nuw nsw i64 512, %off
   %conv = zext i32 %buf_len to i64
   %cond = tail call i64 @llvm.umin.i64(i64 %sub, i64 %conv)
@@ -22299,10 +22299,10 @@ if.end12:                                         ; preds = %for.inc, %if.end6
   %smart_critical_warning = getelementptr inbounds i8, ptr %n, i64 7474
   %15 = load i8, ptr %smart_critical_warning, align 2
   store i8 %15, ptr %smart, align 1
-  %shr = lshr i64 %stats.sroa.0.2, 9
+  %shr = lshr i64 %stats.sroa.0.0, 9
   %sub16 = add nuw nsw i64 %shr, 999
   %div = udiv i64 %sub16, 1000
-  %shr17 = lshr i64 %stats.sroa.6.2, 9
+  %shr17 = lshr i64 %stats.sroa.6.0, 9
   %sub19 = add nuw nsw i64 %shr17, 999
   %div20 = udiv i64 %sub19, 1000
   %data_units_read = getelementptr inbounds i8, ptr %smart, i64 32
@@ -22310,9 +22310,9 @@ if.end12:                                         ; preds = %for.inc, %if.end6
   %data_units_written = getelementptr inbounds i8, ptr %smart, i64 48
   store i64 %div20, ptr %data_units_written, align 1
   %host_read_commands = getelementptr inbounds i8, ptr %smart, i64 64
-  store i64 %stats.sroa.11.2, ptr %host_read_commands, align 1
+  store i64 %stats.sroa.11.0, ptr %host_read_commands, align 1
   %host_write_commands = getelementptr inbounds i8, ptr %smart, i64 80
-  store i64 %stats.sroa.16.2, ptr %host_write_commands, align 1
+  store i64 %stats.sroa.16.0, ptr %host_write_commands, align 1
   %temperature = getelementptr inbounds i8, ptr %n, i64 7472
   %16 = load i16, ptr %temperature, align 16
   %temperature29 = getelementptr inbounds i8, ptr %smart, i64 1
@@ -24445,7 +24445,7 @@ for.cond.preheader:                               ; preds = %if.end20
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %for.inc ]
-  %nentries.025 = phi i32 [ 0, %for.cond.preheader ], [ %nentries.1, %for.inc ]
+  %nentries.025 = phi i32 [ 0, %for.cond.preheader ], [ %nentries.2, %for.inc ]
   %s_events_ndx.024 = phi i8 [ 0, %for.cond.preheader ], [ %s_events_ndx.1, %for.inc ]
   %arrayidx32 = getelementptr [255 x i8], ptr @nvme_fdp_evf_shifts, i64 0, i64 %indvars.iv
   %10 = load i8, ptr %arrayidx32, align 1
@@ -24473,13 +24473,13 @@ if.end37:                                         ; preds = %for.body
 
 for.inc:                                          ; preds = %if.end37, %for.body
   %s_events_ndx.1 = phi i8 [ %s_events_ndx.024, %for.body ], [ %inc44, %if.end37 ]
-  %nentries.1 = phi i32 [ %nentries.025, %for.body ], [ %inc, %if.end37 ]
+  %nentries.2 = phi i32 [ %nentries.025, %for.body ], [ %inc, %if.end37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp29.not = icmp eq i64 %indvars.iv.next, 255
   br i1 %cmp29.not, label %for.end, label %for.body, !llvm.loop !67
 
 for.end:                                          ; preds = %if.end37, %for.inc
-  %nentries.2 = phi i32 [ %inc, %if.end37 ], [ %nentries.1, %for.inc ]
+  %nentries.1 = phi i32 [ %inc, %if.end37 ], [ %nentries.2, %for.inc ]
   %sg.i = getelementptr inbounds i8, ptr %req, i64 144
   %cmd.i = getelementptr inbounds i8, ptr %req, i64 56
   %call.i = tail call zeroext i16 @nvme_map_dptr(ptr noundef %n, ptr noundef nonnull %sg.i, i64 noundef %mul, ptr noundef nonnull %cmd.i)
@@ -24492,7 +24492,7 @@ nvme_c2h.exit:                                    ; preds = %for.end
   br i1 %tobool54.not, label %if.end56, label %cleanup
 
 if.end56:                                         ; preds = %nvme_c2h.exit
-  store i32 %nentries.2, ptr %result, align 4
+  store i32 %nentries.1, ptr %result, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end, %nvme_c2h.exit, %if.end20, %if.end, %entry, %lor.lhs.false, %if.end56

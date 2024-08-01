@@ -118,8 +118,8 @@ gv_alloc.exit:                                    ; preds = %20
 .lr.ph116:                                        ; preds = %.loopexit, %90
   %.0115 = phi ptr [ %91, %90 ], [ %61, %.loopexit ]
   %.070114 = phi i32 [ %.171, %90 ], [ 0, %.loopexit ]
-  %.174113 = phi ptr [ %.3, %90 ], [ %.073, %.loopexit ]
-  %.177112 = phi i64 [ %.379, %90 ], [ %.076, %.loopexit ]
+  %.174113 = phi ptr [ %.2, %90 ], [ %.073, %.loopexit ]
+  %.177112 = phi i64 [ %.278, %90 ], [ %.076, %.loopexit ]
   %62 = getelementptr inbounds i8, ptr %.0115, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 164
@@ -166,22 +166,22 @@ gv_alloc.exit97:                                  ; preds = %73
   br label %89
 
 89:                                               ; preds = %gv_alloc.exit97, %72
-  %.278 = phi i64 [ %.177112, %72 ], [ %85, %gv_alloc.exit97 ]
-  %.2 = phi ptr [ %.174113, %72 ], [ %78, %gv_alloc.exit97 ]
-  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.0115, ptr noundef nonnull %.2, ptr noundef nonnull %14)
+  %.379 = phi i64 [ %.177112, %72 ], [ %85, %gv_alloc.exit97 ]
+  %.3 = phi ptr [ %.174113, %72 ], [ %78, %gv_alloc.exit97 ]
+  call fastcc void @dfs(ptr noundef %0, ptr noundef nonnull %.0115, ptr noundef nonnull %.3, ptr noundef nonnull %14)
   br label %90
 
 90:                                               ; preds = %69, %.lr.ph116, %89
-  %.379 = phi i64 [ %.177112, %.lr.ph116 ], [ %.177112, %69 ], [ %.278, %89 ]
-  %.3 = phi ptr [ %.174113, %.lr.ph116 ], [ %.174113, %69 ], [ %.2, %89 ]
+  %.278 = phi i64 [ %.177112, %.lr.ph116 ], [ %.177112, %69 ], [ %.379, %89 ]
+  %.2 = phi ptr [ %.174113, %.lr.ph116 ], [ %.174113, %69 ], [ %.3, %89 ]
   %.171 = phi i32 [ %.070114, %.lr.ph116 ], [ %.070114, %69 ], [ 1, %89 ]
   %91 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0115) #7
   %.not86 = icmp eq ptr %91, null
   br i1 %.not86, label %._crit_edge, label %.lr.ph116
 
 ._crit_edge:                                      ; preds = %90, %.loopexit
-  %.177.lcssa = phi i64 [ %.076, %.loopexit ], [ %.379, %90 ]
-  %.174.lcssa = phi ptr [ %.073, %.loopexit ], [ %.3, %90 ]
+  %.177.lcssa = phi i64 [ %.076, %.loopexit ], [ %.278, %90 ]
+  %.174.lcssa = phi ptr [ %.073, %.loopexit ], [ %.2, %90 ]
   %.070.lcssa = phi i32 [ 0, %.loopexit ], [ %.171, %90 ]
   %.not87 = icmp eq ptr %.174.lcssa, null
   br i1 %.not87, label %94, label %92

@@ -21,9 +21,9 @@ for.body.preheader:                               ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %i.041 = phi i64 [ %add24, %for.body ], [ 0, %for.body.preheader ]
-  %p.040 = phi ptr [ %incdec.ptr23, %for.body ], [ %dest, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds i8, ptr %str, i64 %i.041
+  %i.141 = phi i64 [ %add24, %for.body ], [ 0, %for.body.preheader ]
+  %p.140 = phi ptr [ %incdec.ptr23, %for.body ], [ %dest, %for.body.preheader ]
+  %arrayidx = getelementptr inbounds i8, ptr %str, i64 %i.141
   %0 = load i8, ptr %arrayidx, align 1
   %arrayidx2 = getelementptr i8, ptr %arrayidx, i64 1
   %1 = load i8, ptr %arrayidx2, align 1
@@ -32,8 +32,8 @@ for.body:                                         ; preds = %for.body.preheader,
   %idxprom = zext i8 %0 to i64
   %arrayidx5 = getelementptr inbounds [256 x i8], ptr @_ZL2e0, i64 0, i64 %idxprom
   %3 = load i8, ptr %arrayidx5, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.040, i64 1
-  store i8 %3, ptr %p.040, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.140, i64 1
+  store i8 %3, ptr %p.140, align 1
   %4 = shl i8 %0, 4
   %5 = and i8 %4, 48
   %shl = zext nneg i8 %5 to i32
@@ -43,7 +43,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %idxprom8 = zext nneg i32 %or to i64
   %arrayidx9 = getelementptr inbounds [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom8
   %6 = load i8, ptr %arrayidx9, align 1
-  %incdec.ptr10 = getelementptr inbounds i8, ptr %p.040, i64 2
+  %incdec.ptr10 = getelementptr inbounds i8, ptr %p.140, i64 2
   store i8 %6, ptr %incdec.ptr, align 1
   %and12 = shl nuw nsw i32 %conv6, 2
   %shl13 = and i32 %and12, 60
@@ -53,54 +53,54 @@ for.body:                                         ; preds = %for.body.preheader,
   %idxprom18 = zext nneg i32 %or17 to i64
   %arrayidx19 = getelementptr inbounds [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom18
   %8 = load i8, ptr %arrayidx19, align 1
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %p.040, i64 3
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %p.140, i64 3
   store i8 %8, ptr %incdec.ptr10, align 1
   %idxprom21 = zext i8 %2 to i64
   %arrayidx22 = getelementptr inbounds [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom21
   %9 = load i8, ptr %arrayidx22, align 1
-  %incdec.ptr23 = getelementptr inbounds i8, ptr %p.040, i64 4
+  %incdec.ptr23 = getelementptr inbounds i8, ptr %p.140, i64 4
   store i8 %9, ptr %incdec.ptr20, align 1
-  %add24 = add i64 %i.041, 3
+  %add24 = add i64 %i.141, 3
   %cmp1 = icmp ult i64 %add24, %sub
   br i1 %cmp1, label %for.body, label %if.end, !llvm.loop !5
 
 if.end:                                           ; preds = %for.body, %entry
-  %p.1 = phi ptr [ %dest, %entry ], [ %incdec.ptr23, %for.body ]
-  %i.1 = phi i64 [ 0, %entry ], [ %add24, %for.body ]
-  %sub25 = sub i64 %len, %i.1
+  %p.0 = phi ptr [ %dest, %entry ], [ %incdec.ptr23, %for.body ]
+  %i.0 = phi i64 [ 0, %entry ], [ %add24, %for.body ]
+  %sub25 = sub i64 %len, %i.0
   switch i64 %sub25, label %sw.default [
     i64 0, label %sw.epilog
     i64 1, label %sw.bb26
   ]
 
 sw.bb26:                                          ; preds = %if.end
-  %arrayidx27 = getelementptr inbounds i8, ptr %str, i64 %i.1
+  %arrayidx27 = getelementptr inbounds i8, ptr %str, i64 %i.0
   %10 = load i8, ptr %arrayidx27, align 1
   %idxprom28 = zext i8 %10 to i64
   %arrayidx29 = getelementptr inbounds [256 x i8], ptr @_ZL2e0, i64 0, i64 %idxprom28
   %11 = load i8, ptr %arrayidx29, align 1
-  %incdec.ptr30 = getelementptr inbounds i8, ptr %p.1, i64 1
-  store i8 %11, ptr %p.1, align 1
+  %incdec.ptr30 = getelementptr inbounds i8, ptr %p.0, i64 1
+  store i8 %11, ptr %p.0, align 1
   %12 = shl i8 %10, 4
   %13 = and i8 %12, 48
   %idxprom34 = zext nneg i8 %13 to i64
   %arrayidx35 = getelementptr inbounds [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom34
   %14 = load i8, ptr %arrayidx35, align 16
-  %incdec.ptr36 = getelementptr inbounds i8, ptr %p.1, i64 2
+  %incdec.ptr36 = getelementptr inbounds i8, ptr %p.0, i64 2
   store i8 %14, ptr %incdec.ptr30, align 1
   store i8 61, ptr %incdec.ptr36, align 1
   br label %sw.epilog.sink.split
 
 sw.default:                                       ; preds = %if.end
-  %arrayidx39 = getelementptr inbounds i8, ptr %str, i64 %i.1
+  %arrayidx39 = getelementptr inbounds i8, ptr %str, i64 %i.0
   %15 = load i8, ptr %arrayidx39, align 1
   %arrayidx41 = getelementptr i8, ptr %arrayidx39, i64 1
   %16 = load i8, ptr %arrayidx41, align 1
   %idxprom42 = zext i8 %15 to i64
   %arrayidx43 = getelementptr inbounds [256 x i8], ptr @_ZL2e0, i64 0, i64 %idxprom42
   %17 = load i8, ptr %arrayidx43, align 1
-  %incdec.ptr44 = getelementptr inbounds i8, ptr %p.1, i64 1
-  store i8 %17, ptr %p.1, align 1
+  %incdec.ptr44 = getelementptr inbounds i8, ptr %p.0, i64 1
+  store i8 %17, ptr %p.0, align 1
   %18 = shl i8 %15, 4
   %19 = and i8 %18, 48
   %shl47 = zext nneg i8 %19 to i32
@@ -110,7 +110,7 @@ sw.default:                                       ; preds = %if.end
   %idxprom52 = zext nneg i32 %or51 to i64
   %arrayidx53 = getelementptr inbounds [256 x i8], ptr @_ZL2e2, i64 0, i64 %idxprom52
   %20 = load i8, ptr %arrayidx53, align 1
-  %incdec.ptr54 = getelementptr inbounds i8, ptr %p.1, i64 2
+  %incdec.ptr54 = getelementptr inbounds i8, ptr %p.0, i64 2
   store i8 %20, ptr %incdec.ptr44, align 1
   %and56 = shl nuw nsw i32 %conv48, 2
   %shl57 = and i32 %and56, 60
@@ -121,13 +121,13 @@ sw.default:                                       ; preds = %if.end
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.bb26, %sw.default
-  %incdec.ptr60.sink = getelementptr inbounds i8, ptr %p.1, i64 3
-  %incdec.ptr61 = getelementptr inbounds i8, ptr %p.1, i64 4
+  %incdec.ptr60.sink = getelementptr inbounds i8, ptr %p.0, i64 3
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %p.0, i64 4
   store i8 61, ptr %incdec.ptr60.sink, align 1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end
-  %p.2 = phi ptr [ %p.1, %if.end ], [ %incdec.ptr61, %sw.epilog.sink.split ]
+  %p.2 = phi ptr [ %p.0, %if.end ], [ %incdec.ptr61, %sw.epilog.sink.split ]
   store i8 0, ptr %p.2, align 1
   %sub.ptr.lhs.cast = ptrtoint ptr %p.2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %dest to i64

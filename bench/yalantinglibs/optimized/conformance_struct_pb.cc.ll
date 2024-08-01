@@ -4631,8 +4631,8 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, %entry
-  %index.0 = phi i32 [ 0, %entry ], [ %index.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ]
-  %retval.0 = phi i32 [ undef, %entry ], [ %retval.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ]
+  %index.0 = phi i32 [ 0, %entry ], [ %index.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ]
+  %retval.0 = phi i32 [ undef, %entry ], [ %retval.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ]
   %cmp = icmp slt i32 %index.0, 1283
   br i1 %cmp, label %while.body, label %cleanup77
 
@@ -4928,9 +4928,9 @@ if.end67:                                         ; preds = %land.rhs.i, %_ZSteq
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont63, %if.end67
-  %index.1 = phi i32 [ %inc, %if.end67 ], [ %index.0, %invoke.cont63 ]
-  %retval.1 = phi i32 [ %retval.0, %if.end67 ], [ 3, %invoke.cont63 ]
-  %cleanup.dest.slot.0 = phi i32 [ 0, %if.end67 ], [ 1, %invoke.cont63 ]
+  %index.3 = phi i32 [ %inc, %if.end67 ], [ %index.0, %invoke.cont63 ]
+  %retval.3 = phi i32 [ %retval.0, %if.end67 ], [ 3, %invoke.cont63 ]
+  %cleanup.dest.slot.2 = phi i32 [ 0, %if.end67 ], [ 1, %invoke.cont63 ]
   %39 = load ptr, ptr %buf, align 8
   %cmp.i.i.i40 = icmp eq ptr %39, %7
   br i1 %cmp.i.i.i40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i42, label %if.then.i.i41
@@ -4950,9 +4950,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %_ZN
   br label %cleanup69
 
 cleanup69:                                        ; preds = %invoke.cont45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45
-  %index.2 = phi i32 [ %index.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ %index.0, %invoke.cont45 ]
-  %retval.2 = phi i32 [ %retval.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ 2, %invoke.cont45 ]
-  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ 1, %invoke.cont45 ]
+  %index.2 = phi i32 [ %index.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ %index.0, %invoke.cont45 ]
+  %retval.2 = phi i32 [ %retval.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ 2, %invoke.cont45 ]
+  %cleanup.dest.slot.1 = phi i32 [ %cleanup.dest.slot.2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ], [ 1, %invoke.cont45 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i.i.i)
   invoke void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_S9_S9_S9_S9_S9_S9_S9_EE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(33) %data_.i)
           to label %_ZN4absl8StatusOrIN11conformance19ConformanceResponseEED2Ev.exit unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i
@@ -4970,9 +4970,9 @@ _ZN4absl8StatusOrIN11conformance19ConformanceResponseEED2Ev.exit: ; preds = %cle
   br label %cleanup71
 
 cleanup71:                                        ; preds = %invoke.cont32, %_ZN4absl8StatusOrIN11conformance19ConformanceResponseEED2Ev.exit
-  %index.3 = phi i32 [ %index.2, %_ZN4absl8StatusOrIN11conformance19ConformanceResponseEED2Ev.exit ], [ %index.0, %invoke.cont32 ]
-  %retval.3 = phi i32 [ %retval.2, %_ZN4absl8StatusOrIN11conformance19ConformanceResponseEED2Ev.exit ], [ 1, %invoke.cont32 ]
-  %cleanup.dest.slot.2 = phi i32 [ %cleanup.dest.slot.1, %_ZN4absl8StatusOrIN11conformance19ConformanceResponseEED2Ev.exit ], [ 1, %invoke.cont32 ]
+  %index.1 = phi i32 [ %index.2, %_ZN4absl8StatusOrIN11conformance19ConformanceResponseEED2Ev.exit ], [ %index.0, %invoke.cont32 ]
+  %retval.1 = phi i32 [ %retval.2, %_ZN4absl8StatusOrIN11conformance19ConformanceResponseEED2Ev.exit ], [ 1, %invoke.cont32 ]
+  %cleanup.dest.slot.0 = phi i32 [ %cleanup.dest.slot.1, %_ZN4absl8StatusOrIN11conformance19ConformanceResponseEED2Ev.exit ], [ 1, %invoke.cont32 ]
   %43 = load ptr, ptr %jspb_encoding_options, align 8
   %cmp.not.i.i = icmp eq ptr %43, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN11conformance18JspbEncodingConfigESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN11conformance18JspbEncodingConfigEEclEPS1_.exit.i.i
@@ -5042,7 +5042,7 @@ if.then.i.i55:                                    ; preds = %_ZNSt7__cxx1112basi
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i56, %if.then.i.i55
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %in_buf) #22
-  %cond = icmp eq i32 %cleanup.dest.slot.2, 0
+  %cond = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond, label %while.cond, label %cleanup77, !llvm.loop !23
 
 ehcleanup70:                                      ; preds = %if.then.i.i.i.i38, %lpad53, %lpad58, %lpad37
@@ -5062,7 +5062,7 @@ ehcleanup76:                                      ; preds = %ehcleanup72, %ehcle
   br label %ehcleanup78
 
 cleanup77:                                        ; preds = %while.cond, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59
-  %retval.4 = phi i32 [ %retval.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ], [ 0, %while.cond ]
+  %retval.4 = phi i32 [ %retval.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59 ], [ 0, %while.cond ]
   %52 = load ptr, ptr %type_url_.i, align 8
   %cmp.i.i.i.i61 = icmp eq ptr %52, %0
   br i1 %cmp.i.i.i.i61, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i64, label %if.then.i.i.i62

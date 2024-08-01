@@ -2454,7 +2454,7 @@ lpad57:                                           ; preds = %invoke.cont55
 
 if.end65:                                         ; preds = %lor.lhs.false, %invoke.cont58, %cond.end
   %34 = phi ptr [ %.pre115, %cond.end ], [ %.pre114, %invoke.cont58 ], [ %30, %lor.lhs.false ]
-  %must_join_again.1 = phi i1 [ false, %cond.end ], [ %tobool61.not, %invoke.cont58 ], [ false, %lor.lhs.false ]
+  %must_join_again.0 = phi i1 [ false, %cond.end ], [ %tobool61.not, %invoke.cont58 ], [ false, %lor.lhs.false ]
   %mProgressHandler67 = getelementptr inbounds i8, ptr %34, i64 32
   %35 = load ptr, ptr %mProgressHandler67, align 8
   %vtable68 = load ptr, ptr %35, align 8
@@ -2661,7 +2661,7 @@ if.end154:                                        ; preds = %for.end148, %invoke
           to label %invoke.cont159 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont159:                                   ; preds = %if.end154
-  br i1 %must_join_again.1, label %if.then161, label %if.end166
+  br i1 %must_join_again.0, label %if.then161, label %if.end166
 
 if.then161:                                       ; preds = %invoke.cont159
   call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %proc162) #28
@@ -2781,9 +2781,9 @@ ehcleanup:                                        ; preds = %lpad20.loopexit, %l
 catch.dispatch:                                   ; preds = %ehcleanup, %lpad13
   %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup ], [ %26, %lpad13 ]
   %exn.slot.1 = extractvalue { ptr, i32 } %.pn35.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn35.pn, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn35.pn, 1
   %74 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI17DeadlyExportError) #28
-  %matches = icmp eq i32 %ehselector.slot.1, %74
+  %matches = icmp eq i32 %ehselector.slot.0, %74
   br i1 %matches, label %catch, label %catch213
 
 catch:                                            ; preds = %catch.dispatch
@@ -2854,13 +2854,13 @@ lpad206:                                          ; preds = %invoke.cont205
 
 ehcleanup212:                                     ; preds = %lpad204, %lpad.i, %lpad206
   %.pn = phi { ptr, i32 } [ %83, %lpad206 ], [ %82, %lpad204 ], [ %80, %lpad.i ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
+  %exn.slot.3 = extractvalue { ptr, i32 } %.pn, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp203) #28
   br label %catch213
 
 catch213:                                         ; preds = %lpad192, %ehcleanup212, %catch.dispatch, %lpad
-  %exn.slot.3 = phi ptr [ %25, %lpad ], [ %79, %lpad192 ], [ %exn.slot.1, %catch.dispatch ], [ %exn.slot.2, %ehcleanup212 ]
-  %84 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #28
+  %exn.slot.0 = phi ptr [ %25, %lpad ], [ %79, %lpad192 ], [ %exn.slot.1, %catch.dispatch ], [ %exn.slot.3, %ehcleanup212 ]
+  %84 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #28
   %call218 = invoke noundef i32 @_ZNK18ExceptionSwallowerI8aiReturnEclEv(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp215)
           to label %invoke.cont217 unwind label %lpad216
 

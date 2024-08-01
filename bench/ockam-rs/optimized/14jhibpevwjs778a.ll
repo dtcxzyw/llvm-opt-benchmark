@@ -128,13 +128,13 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN104_$LT$tracing_subscriber..regis
   br label %18
 
 18:                                               ; preds = %11, %16
-  %.1 = phi i64 [ %17, %16 ], [ 0, %11 ]
+  %.2 = phi i64 [ %17, %16 ], [ 0, %11 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %14, %8, %2, %18
-  %.2 = phi i64 [ %.1, %18 ], [ 0, %2 ], [ %15, %14 ], [ 0, %8 ]
-  %20 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h00d0c4448e4c437dE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.2)
+  %.0 = phi i64 [ %.2, %18 ], [ 0, %2 ], [ %15, %14 ], [ 0, %8 ]
+  %20 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h00d0c4448e4c437dE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.0)
   %.fca.0.extract = extractvalue { i64, i64 } %20, 0
   %switch = icmp eq i64 %.fca.0.extract, 0
   br i1 %switch, label %21, label %22
@@ -217,10 +217,10 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h5029f64cf176c679E.exit"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12downcast_raw17h5029f64cf176c679E.exit": ; preds = %2, %3, %6, %6, %8, %10, %12, %2
-  %.sroa.0.1 = phi i64 [ 1, %2 ], [ 1, %2 ], [ 1, %3 ], [ %..i.i, %12 ], [ 1, %8 ], [ 1, %10 ], [ 1, %6 ], [ 1, %6 ]
-  %.sroa.4.1 = phi ptr [ %0, %2 ], [ %0, %2 ], [ %4, %3 ], [ %4, %12 ], [ %9, %8 ], [ %11, %10 ], [ %7, %6 ], [ %7, %6 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.4.1, 1
+  %.sroa.0.0 = phi i64 [ 1, %2 ], [ 1, %2 ], [ 1, %3 ], [ %..i.i, %12 ], [ 1, %8 ], [ 1, %10 ], [ 1, %6 ], [ 1, %6 ]
+  %.sroa.4.0 = phi ptr [ %0, %2 ], [ %0, %2 ], [ %4, %3 ], [ %4, %12 ], [ %9, %8 ], [ %11, %10 ], [ %7, %6 ], [ %7, %6 ]
+  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.4.0, 1
   ret { i64, ptr } %15
 }
 
@@ -252,10 +252,10 @@ define hidden { i64, ptr } @"_ZN113_$LT$tracing_subscriber..layer..layered..Laye
   br label %"_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread"
 
 "_ZN124_$LT$tracing_subscriber..fmt..fmt_layer..Layer$LT$S$C$N$C$E$C$W$GT$$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$12downcast_raw17h89a364658902affbE.exit.thread": ; preds = %10, %6, %8, %4, %4, %2
-  %.sroa.0.1 = phi i64 [ 1, %2 ], [ %..i, %10 ], [ 1, %6 ], [ 1, %8 ], [ 1, %4 ], [ 1, %4 ]
-  %.sroa.4.1 = phi ptr [ %0, %2 ], [ %0, %10 ], [ %7, %6 ], [ %9, %8 ], [ %5, %4 ], [ %5, %4 ]
-  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.4.1, 1
+  %.sroa.0.0 = phi i64 [ 1, %2 ], [ %..i, %10 ], [ 1, %6 ], [ 1, %8 ], [ 1, %4 ], [ 1, %4 ]
+  %.sroa.4.0 = phi ptr [ %0, %2 ], [ %0, %10 ], [ %7, %6 ], [ %9, %8 ], [ %5, %4 ], [ %5, %4 ]
+  %12 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.4.0, 1
   ret { i64, ptr } %13
 }
 
@@ -297,8 +297,8 @@ define hidden noundef i64 @"_ZN113_$LT$tracing_subscriber..layer..layered..Layer
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h8e97ac2e5a0b499aE.llvm.17652871756462562911.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h8e97ac2e5a0b499aE.llvm.17652871756462562911.exit": ; preds = %6, %1
-  %.1.i = phi i64 [ %2, %1 ], [ %spec.select, %6 ]
-  ret i64 %.1.i
+  %.028.i = phi i64 [ %2, %1 ], [ %spec.select, %6 ]
+  ret i64 %.028.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1332,8 +1332,8 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   br i1 %or.cond39, label %.critedge, label %22
 
 .critedge:                                        ; preds = %30, %29, %27, %22, %21, %17, %32, %20, %12, %4
-  %.1 = phi i64 [ %1, %4 ], [ 6, %12 ], [ 6, %20 ], [ 6, %17 ], [ %.0.sroa.speculated.i, %32 ], [ %1, %21 ], [ %31, %30 ], [ %1, %27 ], [ %2, %29 ], [ %2, %22 ]
-  ret i64 %.1
+  %.028 = phi i64 [ %1, %4 ], [ 6, %12 ], [ 6, %20 ], [ 6, %17 ], [ %.0.sroa.speculated.i, %32 ], [ %1, %21 ], [ %31, %30 ], [ %1, %27 ], [ %2, %29 ], [ %2, %22 ]
+  ret i64 %.028
 
 22:                                               ; preds = %21
   %23 = icmp ne i64 %1, 6
@@ -1409,8 +1409,8 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   br i1 %or.cond39, label %.critedge, label %22
 
 .critedge:                                        ; preds = %30, %29, %27, %22, %21, %17, %32, %20, %12, %4
-  %.1 = phi i64 [ %1, %4 ], [ 6, %12 ], [ 6, %20 ], [ 6, %17 ], [ %.0.sroa.speculated.i, %32 ], [ %1, %21 ], [ %31, %30 ], [ %1, %27 ], [ %2, %29 ], [ %2, %22 ]
-  ret i64 %.1
+  %.028 = phi i64 [ %1, %4 ], [ 6, %12 ], [ 6, %20 ], [ 6, %17 ], [ %.0.sroa.speculated.i, %32 ], [ %1, %21 ], [ %31, %30 ], [ %1, %27 ], [ %2, %29 ], [ %2, %22 ]
+  ret i64 %.028
 
 22:                                               ; preds = %21
   %23 = icmp ne i64 %1, 6

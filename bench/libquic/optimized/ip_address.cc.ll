@@ -691,7 +691,7 @@ lpad.body.thread:                                 ; preds = %lpad.i68, %lpad.i
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 lpad1.i:                                          ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i43, %invoke.cont6.i, %invoke.cont2.i, %invoke.cont.i
-  %number.sroa.0.1 = phi ptr [ %call5.i.i.i.i.i63, %invoke.cont6.i ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i43 ], [ null, %invoke.cont2.i ], [ null, %invoke.cont.i ]
+  %number.sroa.0.3 = phi ptr [ %call5.i.i.i.i.i63, %invoke.cont6.i ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i43 ], [ null, %invoke.cont2.i ], [ null, %invoke.cont.i ]
   %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %host_brackets.i) #22
@@ -729,19 +729,19 @@ invoke.cont:                                      ; preds = %call14.i.noexc
   br i1 %cmp17.i, label %cleanup, label %if.then.i.i.i8
 
 lpad:                                             ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i, %call14.i.noexc, %call12.i.noexc, %.noexc, %entry
-  %number.sroa.0.5 = phi ptr [ %call5.i.i.i.i.i13, %call14.i.noexc ], [ %call5.i.i.i.i.i13, %call12.i.noexc ], [ %call5.i.i.i.i.i13, %.noexc ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i ], [ null, %entry ]
+  %number.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i13, %call14.i.noexc ], [ %call5.i.i.i.i.i13, %call12.i.noexc ], [ %call5.i.i.i.i.i13, %.noexc ], [ null, %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i ], [ null, %entry ]
   %5 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad1.i, %lpad
-  %number.sroa.0.6 = phi ptr [ %number.sroa.0.5, %lpad ], [ %number.sroa.0.1, %lpad1.i ]
+  %number.sroa.0.4 = phi ptr [ %number.sroa.0.0, %lpad ], [ %number.sroa.0.3, %lpad1.i ]
   %eh.lpad-body = phi { ptr, i32 } [ %5, %lpad ], [ %4, %lpad1.i ]
-  %tobool.not.i.i.i = icmp eq ptr %number.sroa.0.6, null
+  %tobool.not.i.i.i = icmp eq ptr %number.sroa.0.4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.body
-  call void @_ZdlPv(ptr noundef nonnull %number.sroa.0.6) #21
+  call void @_ZdlPv(ptr noundef nonnull %number.sroa.0.4) #21
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %lpad.body.thread, %lpad.body, %if.then.i.i.i
@@ -749,21 +749,21 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %lpad.body.thread, %
   resume { ptr, i32 } %eh.lpad-body89
 
 cleanup:                                          ; preds = %invoke.cont, %invoke.cont9.i
-  %number.sroa.21.283 = phi ptr [ %add.ptr36.i.i58, %invoke.cont9.i ], [ %add.ptr36.i.i, %invoke.cont ]
-  %number.sroa.0.481 = phi ptr [ %call5.i.i.i.i.i63, %invoke.cont9.i ], [ %call5.i.i.i.i.i13, %invoke.cont ]
+  %number.sroa.21.083 = phi ptr [ %add.ptr36.i.i58, %invoke.cont9.i ], [ %add.ptr36.i.i, %invoke.cont ]
+  %number.sroa.0.581 = phi ptr [ %call5.i.i.i.i.i63, %invoke.cont9.i ], [ %call5.i.i.i.i.i13, %invoke.cont ]
   %6 = load ptr, ptr %this, align 8
   %_M_finish.i2.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_end_of_storage.i4.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %number.sroa.0.481, ptr %this, align 8
-  store ptr %number.sroa.21.283, ptr %_M_finish.i2.i.i.i, align 8
-  store ptr %number.sroa.21.283, ptr %_M_end_of_storage.i4.i.i.i, align 8
+  store ptr %number.sroa.0.581, ptr %this, align 8
+  store ptr %number.sroa.21.083, ptr %_M_finish.i2.i.i.i, align 8
+  store ptr %number.sroa.21.083, ptr %_M_end_of_storage.i4.i.i.i, align 8
   %tobool.not.i.i.i7 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i7, label %_ZNSt6vectorIhSaIhEED2Ev.exit9, label %if.then.i.i.i8
 
 if.then.i.i.i8:                                   ; preds = %invoke.cont9.i, %invoke.cont, %cleanup
-  %number.sroa.0.795 = phi ptr [ %6, %cleanup ], [ %call5.i.i.i.i.i63, %invoke.cont9.i ], [ %call5.i.i.i.i.i13, %invoke.cont ]
+  %number.sroa.0.195 = phi ptr [ %6, %cleanup ], [ %call5.i.i.i.i.i63, %invoke.cont9.i ], [ %call5.i.i.i.i.i13, %invoke.cont ]
   %retval.0.i8493 = phi i1 [ true, %cleanup ], [ false, %invoke.cont9.i ], [ false, %invoke.cont ]
-  call void @_ZdlPv(ptr noundef nonnull %number.sroa.0.795) #21
+  call void @_ZdlPv(ptr noundef nonnull %number.sroa.0.195) #21
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit9
 
 _ZNSt6vectorIhSaIhEED2Ev.exit9:                   ; preds = %cleanup, %if.then.i.i.i8

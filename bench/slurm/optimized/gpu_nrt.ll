@@ -207,7 +207,7 @@ _get_system_gpu_list_neuron.exit.thread7:         ; preds = %_count_devices.exit
 
 33:                                               ; preds = %129, %.lr.ph.i
   %34 = phi ptr [ %25, %.lr.ph.i ], [ %130, %129 ]
-  %.0925.i = phi ptr [ null, %.lr.ph.i ], [ %.2.i, %129 ]
+  %.0925.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %129 ]
   %35 = getelementptr inbounds i8, ptr %34, i64 19
   %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %35, ptr noundef nonnull @.str.6, ptr noundef nonnull %9) #8
   %37 = icmp eq i32 %36, 1
@@ -482,15 +482,15 @@ _get_connected_devices.exit.i:                    ; preds = %.loopexit.i.i, %66
   br label %128
 
 128:                                              ; preds = %126, %122
-  %.1.i = phi ptr [ %.0925.i, %122 ], [ %127, %126 ]
-  call void @add_gres_to_list(ptr noundef %.1.i, ptr noundef nonnull %13) #8
+  %.2.i = phi ptr [ %.0925.i, %122 ], [ %127, %126 ]
+  call void @add_gres_to_list(ptr noundef %.2.i, ptr noundef nonnull %13) #8
   call void @slurm_xfree(ptr noundef nonnull %10) #8
   call void @slurm_xfree(ptr noundef nonnull %11) #8
   call void @slurm_xfree(ptr noundef nonnull %12) #8
   br label %129
 
 129:                                              ; preds = %128, %33
-  %.2.i = phi ptr [ %.1.i, %128 ], [ %.0925.i, %33 ]
+  %.1.i = phi ptr [ %.2.i, %128 ], [ %.0925.i, %33 ]
   %130 = call ptr @readdir(ptr noundef nonnull %14) #8
   %.not12.i = icmp eq ptr %130, null
   br i1 %.not12.i, label %_get_system_gpu_list_neuron.exit, label %33, !llvm.loop !11
@@ -502,7 +502,7 @@ _get_system_gpu_list_neuron.exit:                 ; preds = %129
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %13)
-  %.not = icmp eq ptr %.2.i, null
+  %.not = icmp eq ptr %.1.i, null
   br i1 %.not, label %132, label %134
 
 132:                                              ; preds = %_get_system_gpu_list_neuron.exit.thread7, %_get_system_gpu_list_neuron.exit.thread, %_get_system_gpu_list_neuron.exit
@@ -510,7 +510,7 @@ _get_system_gpu_list_neuron.exit:                 ; preds = %129
   br label %134
 
 134:                                              ; preds = %132, %_get_system_gpu_list_neuron.exit
-  %.0.i5 = phi ptr [ null, %132 ], [ %.2.i, %_get_system_gpu_list_neuron.exit ]
+  %.0.i5 = phi ptr [ null, %132 ], [ %.1.i, %_get_system_gpu_list_neuron.exit ]
   ret ptr %.0.i5
 }
 

@@ -218,7 +218,7 @@ if.end20:                                         ; preds = %invoke.cont17
   br label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i12
 
 _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i12: ; preds = %invoke.cont17, %if.end20
-  %retval.0.ph = phi i1 [ false, %invoke.cont17 ], [ %tobool23.not, %if.end20 ]
+  %retval.1.ph = phi i1 [ false, %invoke.cont17 ], [ %tobool23.not, %if.end20 ]
   %vtable.i.i13 = load ptr, ptr %call3.i9, align 8
   %vfn.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i13, i64 8
   %7 = load ptr, ptr %vfn.i.i14, align 8
@@ -226,9 +226,9 @@ _ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i12: ; preds = %invoke.co
   br label %cleanup27
 
 cleanup27:                                        ; preds = %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i12, %invoke.cont11, %if.else, %if.then4, %entry
-  %retval.1 = phi i1 [ true, %entry ], [ true, %if.then4 ], [ false, %if.else ], [ %retval.0.ph, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i12 ], [ false, %invoke.cont11 ]
+  %retval.0 = phi i1 [ true, %entry ], [ true, %if.then4 ], [ false, %if.else ], [ %retval.1.ph, %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i12 ], [ false, %invoke.cont11 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extension) #14
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup28:                                      ; preds = %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit, %ehcleanup
   %.pn4 = phi { ptr, i32 } [ %5, %_ZNSt10unique_ptrIN6Assimp8IOStreamESt14default_deleteIS1_EED2Ev.exit ], [ %.pn, %ehcleanup ]

@@ -5075,8 +5075,8 @@ _ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit: ; pred
   br label %.thread123
 
 .thread123:                                       ; preds = %14, %37, %_ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit, %49, %45, %29
-  %.2 = phi i8 [ %36, %29 ], [ %48, %45 ], [ %52, %49 ], [ 3, %_ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit ], [ 3, %37 ], [ 3, %14 ]
-  ret i8 %.2
+  %.0 = phi i8 [ %36, %29 ], [ %48, %45 ], [ %52, %49 ], [ 3, %_ZN16wasmtime_runtime5table5Table12element_type17h2c468cc7572b170dE.exit ], [ 3, %37 ], [ 3, %14 ]
+  ret i8 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5324,8 +5324,8 @@ _ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23: 
   br label %_ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread
 
 _ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread: ; preds = %110, %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23, %115
-  %.0 = phi i8 [ 17, %115 ], [ 1, %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23 ], [ 1, %110 ]
-  ret i8 %.0
+  %.1 = phi i8 [ 17, %115 ], [ 1, %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23 ], [ 1, %110 ]
+  ret i8 %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -5717,8 +5717,8 @@ _ZN16wasmtime_runtime8instance8Instance9wasm_data17hf24029735212abb4E.exit: ; pr
   br label %_ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread
 
 _ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread: ; preds = %85, %_ZN16wasmtime_runtime8instance8Instance9wasm_data17hf24029735212abb4E.exit, %90
-  %.0 = phi i8 [ 17, %90 ], [ 1, %_ZN16wasmtime_runtime8instance8Instance9wasm_data17hf24029735212abb4E.exit ], [ 1, %85 ]
-  ret i8 %.0
+  %.1 = phi i8 [ 17, %90 ], [ 1, %_ZN16wasmtime_runtime8instance8Instance9wasm_data17hf24029735212abb4E.exit ], [ 1, %85 ]
+  ret i8 %.1
 }
 
 ; Function Attrs: nonlazybind uwtable

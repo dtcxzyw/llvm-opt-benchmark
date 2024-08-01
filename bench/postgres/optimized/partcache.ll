@@ -533,13 +533,13 @@ define dso_local ptr @get_partition_qual_relid(i32 noundef %0) local_unnamed_add
   br label %15
 
 15:                                               ; preds = %3, %10, %12
-  %.0 = phi ptr [ %11, %10 ], [ %14, %12 ], [ null, %3 ]
+  %.1 = phi ptr [ %11, %10 ], [ %14, %12 ], [ null, %3 ]
   tail call void @relation_close(ptr noundef %4, i32 noundef 0) #6
   br label %16
 
 16:                                               ; preds = %15, %1
-  %.1 = phi ptr [ %.0, %15 ], [ null, %1 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %15 ], [ null, %1 ]
+  ret ptr %.0
 }
 
 declare zeroext i1 @get_rel_relispartition(i32 noundef) local_unnamed_addr #1

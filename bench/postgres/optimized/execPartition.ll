@@ -272,10 +272,10 @@ define dso_local ptr @ExecFindPartition(ptr noundef %0, ptr noundef %1, ptr noca
 
 43:                                               ; preds = %41, %27
   %44 = load ptr, ptr %16, align 8
-  %.not119196 = icmp eq ptr %44, null
-  br i1 %.not119196, label %._crit_edge.thread, label %.lr.ph200
+  %.not119195 = icmp eq ptr %44, null
+  br i1 %.not119195, label %._crit_edge.thread, label %.lr.ph199
 
-.lr.ph200:                                        ; preds = %43
+.lr.ph199:                                        ; preds = %43
   %45 = getelementptr inbounds i8, ptr %0, i64 224
   %46 = getelementptr inbounds i8, ptr %2, i64 16
   %47 = getelementptr inbounds i8, ptr %0, i64 8
@@ -292,10 +292,10 @@ define dso_local ptr @ExecFindPartition(ptr noundef %0, ptr noundef %1, ptr noca
   %58 = getelementptr inbounds i8, ptr %2, i64 32
   br label %59
 
-59:                                               ; preds = %.lr.ph200, %779
-  %.0199 = phi ptr [ %3, %.lr.ph200 ], [ %.3, %779 ]
-  %.0100198 = phi ptr [ %44, %.lr.ph200 ], [ %.2102, %779 ]
-  %.0103197 = phi ptr [ null, %.lr.ph200 ], [ %.1104, %779 ]
+59:                                               ; preds = %.lr.ph199, %779
+  %.0198 = phi ptr [ %3, %.lr.ph199 ], [ %.2, %779 ]
+  %.0100197 = phi ptr [ %44, %.lr.ph199 ], [ %.1101, %779 ]
+  %.0103196 = phi ptr [ null, %.lr.ph199 ], [ %.1104, %779 ]
   %60 = load volatile i32, ptr @InterruptPending, align 4
   %.not121 = icmp eq i32 %60, 0
   br i1 %.not121, label %62, label %61
@@ -305,17 +305,17 @@ define dso_local ptr @ExecFindPartition(ptr noundef %0, ptr noundef %1, ptr noca
   br label %62
 
 62:                                               ; preds = %59, %61
-  %63 = load ptr, ptr %.0100198, align 8
-  %64 = getelementptr inbounds i8, ptr %.0100198, i64 24
+  %63 = load ptr, ptr %.0100197, align 8
+  %64 = getelementptr inbounds i8, ptr %.0100197, i64 24
   %65 = load ptr, ptr %64, align 8
-  store ptr %.0199, ptr %29, align 8
+  store ptr %.0198, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
-  %66 = getelementptr inbounds i8, ptr %.0100198, i64 8
+  %66 = getelementptr inbounds i8, ptr %.0100197, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
   %.not.i = icmp eq ptr %69, null
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0100198, i64 16
+  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.0100197, i64 16
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br i1 %.not.i, label %._crit_edge39.i, label %70
 
@@ -348,9 +348,9 @@ list_head.exit.i:                                 ; preds = %.thread.i, %._crit_
   br i1 %82, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %list_head.exit.i
-  %83 = getelementptr inbounds i8, ptr %.0199, i64 6
-  %84 = getelementptr inbounds i8, ptr %.0199, i64 32
-  %85 = getelementptr inbounds i8, ptr %.0199, i64 24
+  %83 = getelementptr inbounds i8, ptr %.0198, i64 6
+  %84 = getelementptr inbounds i8, ptr %.0198, i64 32
+  %85 = getelementptr inbounds i8, ptr %.0198, i64 24
   br label %86
 
 86:                                               ; preds = %130, %.lr.ph.i
@@ -371,7 +371,7 @@ list_head.exit.i:                                 ; preds = %.thread.i, %._crit_
   br i1 %95, label %slot_getsomeattrs.exit.i.i, label %slot_getattr.exit.i
 
 slot_getsomeattrs.exit.i.i:                       ; preds = %92
-  call void @slot_getsomeattrs_int(ptr noundef nonnull %.0199, i32 noundef %93) #8
+  call void @slot_getsomeattrs_int(ptr noundef nonnull %.0198, i32 noundef %93) #8
   br label %slot_getattr.exit.i
 
 slot_getattr.exit.i:                              ; preds = %slot_getsomeattrs.exit.i.i, %92
@@ -512,7 +512,7 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %171 = getelementptr inbounds i8, ptr %.0100.val127, i64 40
   %172 = load i32, ptr %171, align 8
   %173 = icmp sgt i32 %172, 15
-  %.pre225 = load i64, ptr %13, align 16
+  %.pre224 = load i64, ptr %13, align 16
   br i1 %173, label %174, label %195
 
 174:                                              ; preds = %170
@@ -529,12 +529,12 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %185 = getelementptr inbounds i8, ptr %.0100.val, i64 48
   %186 = load ptr, ptr %185, align 8
   %187 = load i32, ptr %186, align 4
-  %188 = call i64 @FunctionCall2Coll(ptr noundef %184, i32 noundef %187, i64 noundef %182, i64 noundef %.pre225) #8
+  %188 = call i64 @FunctionCall2Coll(ptr noundef %184, i32 noundef %187, i64 noundef %182, i64 noundef %.pre224) #8
   %189 = and i64 %188, 4294967295
   %190 = icmp eq i64 %189, 0
-  br i1 %190, label %191, label %._crit_edge224
+  br i1 %190, label %191, label %._crit_edge223
 
-._crit_edge224:                                   ; preds = %174
+._crit_edge223:                                   ; preds = %174
   %.pre = load i64, ptr %13, align 16
   br label %195
 
@@ -544,8 +544,8 @@ FormPartitionKeyDatum.exit:                       ; preds = %._crit_edge.i
   %194 = getelementptr i32, ptr %193, i64 %179
   br label %get_partition_for_tuple.exit.sink.split
 
-195:                                              ; preds = %._crit_edge224, %170
-  %196 = phi i64 [ %.pre, %._crit_edge224 ], [ %.pre225, %170 ]
+195:                                              ; preds = %._crit_edge223, %170
+  %196 = phi i64 [ %.pre, %._crit_edge223 ], [ %.pre224, %170 ]
   %197 = getelementptr inbounds i8, ptr %.0100.val, i64 40
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds i8, ptr %.0100.val, i64 48
@@ -716,8 +716,8 @@ get_partition_for_tuple.exit.thread:              ; preds = %299, %296
   br label %358
 
 get_partition_for_tuple.exit.sink.split:          ; preds = %.thread.i129, %267, %240, %191, %150
-  %.sink254 = phi ptr [ %163, %150 ], [ %194, %191 ], [ %245, %240 ], [ %270, %267 ], [ %290, %.thread.i129 ]
-  %301 = load i32, ptr %.sink254, align 4
+  %.sink253 = phi ptr [ %163, %150 ], [ %194, %191 ], [ %245, %240 ], [ %270, %267 ], [ %290, %.thread.i129 ]
+  %301 = load i32, ptr %.sink253, align 4
   br label %get_partition_for_tuple.exit
 
 get_partition_for_tuple.exit:                     ; preds = %get_partition_for_tuple.exit.sink.split, %167
@@ -862,14 +862,14 @@ ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %317, %321, %303, %.
   unreachable
 
 358:                                              ; preds = %get_partition_for_tuple.exit.thread, %get_partition_for_tuple.exit
-  %.0.i128156 = phi i32 [ %.092.i, %get_partition_for_tuple.exit.thread ], [ %.0.i128, %get_partition_for_tuple.exit ]
+  %.0.i128155 = phi i32 [ %.092.i, %get_partition_for_tuple.exit.thread ], [ %.0.i128, %get_partition_for_tuple.exit ]
   %359 = getelementptr inbounds i8, ptr %65, i64 16
   %360 = load ptr, ptr %359, align 8
-  %361 = zext nneg i32 %.0.i128156 to i64
+  %361 = zext nneg i32 %.0.i128155 to i64
   %362 = getelementptr i8, ptr %360, i64 %361
   %363 = load i8, ptr %362, align 1
   %364 = trunc i8 %363 to i1
-  %365 = getelementptr inbounds i8, ptr %.0100198, i64 48
+  %365 = getelementptr inbounds i8, ptr %.0100197, i64 48
   %366 = getelementptr [0 x i32], ptr %365, i64 0, i64 %361
   %367 = load i32, ptr %366, align 4
   %368 = icmp sgt i32 %367, -1
@@ -896,7 +896,7 @@ ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %317, %321, %303, %.
 
 381:                                              ; preds = %375
   call void @CheckValidResultRel(ptr noundef nonnull %380, i32 noundef 3, ptr noundef null) #8
-  call fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %4, ptr noundef %2, ptr noundef nonnull %.0100198, ptr noundef nonnull %380, i32 noundef %.0.i128156, i1 noundef zeroext true)
+  call fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %4, ptr noundef %2, ptr noundef nonnull %.0100197, ptr noundef nonnull %380, i32 noundef %.0.i128155, i1 noundef zeroext true)
   br label %762
 
 382:                                              ; preds = %375
@@ -935,8 +935,8 @@ ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %317, %321, %303, %.
   br i1 %407, label %408, label %415
 
 408:                                              ; preds = %404
-  %.not.i153 = icmp eq ptr %383, null
-  br i1 %.not.i153, label %413, label %409
+  %.not.i152 = icmp eq ptr %383, null
+  br i1 %.not.i152, label %413, label %409
 
 409:                                              ; preds = %408
   %410 = getelementptr inbounds i8, ptr %383, i64 188
@@ -983,19 +983,19 @@ ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %317, %321, %303, %.
   br i1 %434, label %.lr.ph298.i, label %._crit_edge293.i
 
 .lr.ph298.i:                                      ; preds = %.lr.ph.i144, %.lr.ph298.i
-  %indvars.iv.i151 = phi i64 [ %indvars.iv.next.i152, %.lr.ph298.i ], [ 0, %.lr.ph.i144 ]
+  %indvars.iv.i150 = phi i64 [ %indvars.iv.next.i151, %.lr.ph298.i ], [ 0, %.lr.ph.i144 ]
   %.0204292296.i = phi ptr [ %441, %.lr.ph298.i ], [ null, %.lr.ph.i144 ]
   %435 = load ptr, ptr %432, align 8
-  %436 = getelementptr %union.ListCell, ptr %435, i64 %indvars.iv.i151
+  %436 = getelementptr %union.ListCell, ptr %435, i64 %indvars.iv.i150
   %437 = load ptr, ptr %436, align 8
   %438 = getelementptr inbounds i8, ptr %437, i64 24
   %439 = load ptr, ptr %438, align 8
   %440 = call ptr @ExecInitQual(ptr noundef %439, ptr noundef %0) #8
   %441 = call ptr @lappend(ptr noundef %.0204292296.i, ptr noundef %440) #8
-  %indvars.iv.next.i152 = add nuw nsw i64 %indvars.iv.i151, 1
+  %indvars.iv.next.i151 = add nuw nsw i64 %indvars.iv.i150, 1
   %442 = load i32, ptr %431, align 4
   %443 = sext i32 %442 to i64
-  %444 = icmp slt i64 %indvars.iv.next.i152, %443
+  %444 = icmp slt i64 %indvars.iv.next.i151, %443
   br i1 %444, label %.lr.ph298.i, label %._crit_edge293.i
 
 ._crit_edge293.i:                                 ; preds = %.lr.ph298.i, %.lr.ph.i144, %419
@@ -1039,11 +1039,11 @@ ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %317, %321, %303, %.
 
 464:                                              ; preds = %457, %453
   %465 = phi ptr [ %458, %457 ], [ %455, %453 ]
-  %.1.i145 = phi ptr [ %463, %457 ], [ %426, %453 ]
+  %.2.i = phi ptr [ %463, %457 ], [ %426, %453 ]
   %466 = load ptr, ptr %399, align 8
   %467 = getelementptr inbounds i8, ptr %466, i64 72
   %468 = load i32, ptr %467, align 4
-  %469 = call ptr @map_variable_attnos(ptr noundef %465, i32 noundef %391, i32 noundef 0, ptr noundef %.1.i145, i32 noundef %468, ptr noundef nonnull %6) #8
+  %469 = call ptr @map_variable_attnos(ptr noundef %465, i32 noundef %391, i32 noundef 0, ptr noundef %.2.i, i32 noundef %468, ptr noundef nonnull %6) #8
   %470 = getelementptr inbounds i8, ptr %397, i64 240
   store ptr %469, ptr %470, align 8
   %471 = load ptr, ptr %51, align 8
@@ -1056,12 +1056,12 @@ ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %317, %321, %303, %.
   br label %477
 
 .thread248.i:                                     ; preds = %415
-  call fastcc void @ExecInitRoutingInfo(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %.0100198, ptr noundef nonnull %397, i32 noundef %.0.i128156, i1 noundef zeroext false)
+  call fastcc void @ExecInitRoutingInfo(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %.0100197, ptr noundef nonnull %397, i32 noundef %.0.i128155, i1 noundef zeroext false)
   br label %625
 
 477:                                              ; preds = %464, %.thread253.i, %._crit_edge293.i
-  %.2.ph.i = phi ptr [ null, %.thread253.i ], [ %426, %._crit_edge293.i ], [ %.1.i145, %464 ]
-  call fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %4, ptr noundef %2, ptr noundef nonnull %.0100198, ptr noundef nonnull %397, i32 noundef %.0.i128156, i1 noundef zeroext false)
+  %.1.ph.i = phi ptr [ null, %.thread253.i ], [ %426, %._crit_edge293.i ], [ %.2.i, %464 ]
+  call fastcc void @ExecInitRoutingInfo(ptr noundef %0, ptr noundef %4, ptr noundef %2, ptr noundef nonnull %.0100197, ptr noundef nonnull %397, i32 noundef %.0.i128155, i1 noundef zeroext false)
   %478 = getelementptr inbounds i8, ptr %383, i64 188
   %479 = load i32, ptr %478, align 4
   %.not230.i = icmp eq i32 %479, 0
@@ -1090,10 +1090,10 @@ ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %317, %321, %303, %.
   br i1 %492, label %.lr.ph, label %._crit_edge317.i
 
 .lr.ph:                                           ; preds = %.lr.ph316.i, %._crit_edge303.i
-  %.0208314.i193 = phi ptr [ %.1209.lcssa.i, %._crit_edge303.i ], [ null, %.lr.ph316.i ]
-  %indvars.iv335.i192 = phi i64 [ %indvars.iv.next336.i, %._crit_edge303.i ], [ 0, %.lr.ph316.i ]
+  %.1209314.i192 = phi ptr [ %.2210.lcssa.i, %._crit_edge303.i ], [ null, %.lr.ph316.i ]
+  %indvars.iv335.i191 = phi i64 [ %indvars.iv.next336.i, %._crit_edge303.i ], [ 0, %.lr.ph316.i ]
   %493 = load ptr, ptr %490, align 8
-  %494 = getelementptr %union.ListCell, ptr %493, i64 %indvars.iv335.i192
+  %494 = getelementptr %union.ListCell, ptr %493, i64 %indvars.iv335.i191
   %495 = load i32, ptr %494, align 8
   %496 = call ptr @get_partition_ancestors(i32 noundef %495) #8
   %497 = load ptr, ptr %53, align 8
@@ -1109,7 +1109,7 @@ ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %317, %321, %303, %.
 
 .lr.ph311.i:                                      ; preds = %.lr.ph302.i, %508
   %indvars.iv332.i = phi i64 [ %indvars.iv.next333.i, %508 ], [ 0, %.lr.ph302.i ]
-  %.1209300309.i = phi ptr [ %.2210.i, %508 ], [ %.0208314.i193, %.lr.ph302.i ]
+  %.2210300309.i = phi ptr [ %.3211.i, %508 ], [ %.1209314.i192, %.lr.ph302.i ]
   %502 = load ptr, ptr %499, align 8
   %503 = getelementptr %union.ListCell, ptr %502, i64 %indvars.iv332.i
   %504 = load i32, ptr %503, align 8
@@ -1117,11 +1117,11 @@ ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %317, %321, %303, %.
   br i1 %505, label %506, label %508
 
 506:                                              ; preds = %.lr.ph311.i
-  %507 = call ptr @lappend_oid(ptr noundef %.1209300309.i, i32 noundef %495) #8
+  %507 = call ptr @lappend_oid(ptr noundef %.2210300309.i, i32 noundef %495) #8
   br label %508
 
 508:                                              ; preds = %506, %.lr.ph311.i
-  %.2210.i = phi ptr [ %507, %506 ], [ %.1209300309.i, %.lr.ph311.i ]
+  %.3211.i = phi ptr [ %507, %506 ], [ %.2210300309.i, %.lr.ph311.i ]
   %indvars.iv.next333.i = add nuw nsw i64 %indvars.iv332.i, 1
   %509 = load i32, ptr %498, align 4
   %510 = sext i32 %509 to i64
@@ -1129,19 +1129,19 @@ ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %317, %321, %303, %.
   br i1 %511, label %.lr.ph311.i, label %._crit_edge303.i
 
 ._crit_edge303.i:                                 ; preds = %508, %.lr.ph302.i, %.lr.ph
-  %.1209.lcssa.i = phi ptr [ %.0208314.i193, %.lr.ph ], [ %.0208314.i193, %.lr.ph302.i ], [ %.2210.i, %508 ]
+  %.2210.lcssa.i = phi ptr [ %.1209314.i192, %.lr.ph ], [ %.1209314.i192, %.lr.ph302.i ], [ %.3211.i, %508 ]
   call void @list_free(ptr noundef %496) #8
-  %indvars.iv.next336.i = add nuw nsw i64 %indvars.iv335.i192, 1
+  %indvars.iv.next336.i = add nuw nsw i64 %indvars.iv335.i191, 1
   %512 = load i32, ptr %489, align 4
   %513 = sext i32 %512 to i64
   %514 = icmp slt i64 %indvars.iv.next336.i, %513
   br i1 %514, label %.lr.ph, label %._crit_edge317.i
 
 ._crit_edge317.i:                                 ; preds = %._crit_edge303.i, %.lr.ph316.i, %485
-  %.0208.lcssa.i = phi ptr [ null, %485 ], [ null, %.lr.ph316.i ], [ %.1209.lcssa.i, %._crit_edge303.i ]
+  %.1209.lcssa.i = phi ptr [ null, %485 ], [ null, %.lr.ph316.i ], [ %.2210.lcssa.i, %._crit_edge303.i ]
   %.pr.i = load ptr, ptr %53, align 8
-  %.not.i.i146 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i146, label %list_length.exit.i, label %515
+  %.not.i.i145 = icmp eq ptr %.pr.i, null
+  br i1 %.not.i.i145, label %list_length.exit.i, label %515
 
 515:                                              ; preds = %._crit_edge317.i
   %516 = getelementptr inbounds i8, ptr %.pr.i, i64 4
@@ -1150,11 +1150,11 @@ ExecBuildSlotPartitionKeyDescription.exit:        ; preds = %317, %321, %303, %.
 
 list_length.exit.i:                               ; preds = %515, %._crit_edge317.i
   %518 = phi i32 [ %517, %515 ], [ 0, %._crit_edge317.i ]
-  %.not.i243.i = icmp eq ptr %.0208.lcssa.i, null
+  %.not.i243.i = icmp eq ptr %.1209.lcssa.i, null
   br i1 %.not.i243.i, label %list_length.exit244.i, label %519
 
 519:                                              ; preds = %list_length.exit.i
-  %520 = getelementptr inbounds i8, ptr %.0208.lcssa.i, i64 4
+  %520 = getelementptr inbounds i8, ptr %.1209.lcssa.i, i64 4
   %521 = load i32, ptr %520, align 4
   br label %list_length.exit244.i
 
@@ -1171,9 +1171,9 @@ list_length.exit244.i:                            ; preds = %519, %list_length.e
   unreachable
 
 list_length.exit244.thread.i:                     ; preds = %list_length.exit244.i, %480
-  %.3211275278281.i = phi ptr [ %.0208.lcssa.i, %list_length.exit244.i ], [ null, %480 ]
+  %.0208275278281.i = phi ptr [ %.1209.lcssa.i, %list_length.exit244.i ], [ null, %480 ]
   %526 = getelementptr inbounds i8, ptr %397, i64 256
-  store ptr %.3211275278281.i, ptr %526, align 8
+  store ptr %.0208275278281.i, ptr %526, align 8
   %527 = load i32, ptr %478, align 4
   %528 = icmp eq i32 %527, 2
   br i1 %528, label %529, label %625
@@ -1216,7 +1216,7 @@ list_length.exit244.thread.i:                     ; preds = %list_length.exit244
   %554 = getelementptr inbounds i8, ptr %383, i64 200
   %555 = load ptr, ptr %554, align 8
   %556 = call ptr @copyObjectImpl(ptr noundef %555) #8
-  %557 = icmp eq ptr %.2.ph.i, null
+  %557 = icmp eq ptr %.1.ph.i, null
   br i1 %557, label %558, label %563
 
 558:                                              ; preds = %553
@@ -1227,15 +1227,15 @@ list_length.exit244.thread.i:                     ; preds = %list_length.exit244
   br label %563
 
 563:                                              ; preds = %558, %553
-  %.3.i = phi ptr [ %562, %558 ], [ %.2.ph.i, %553 ]
+  %.4.i = phi ptr [ %562, %558 ], [ %.1.ph.i, %553 ]
   %564 = load ptr, ptr %399, align 8
   %565 = getelementptr inbounds i8, ptr %564, i64 72
   %566 = load i32, ptr %565, align 4
-  %567 = call ptr @map_variable_attnos(ptr noundef %556, i32 noundef -1, i32 noundef 0, ptr noundef %.3.i, i32 noundef %566, ptr noundef nonnull %6) #8
+  %567 = call ptr @map_variable_attnos(ptr noundef %556, i32 noundef -1, i32 noundef 0, ptr noundef %.4.i, i32 noundef %566, ptr noundef nonnull %6) #8
   %568 = load ptr, ptr %399, align 8
   %569 = getelementptr inbounds i8, ptr %568, i64 72
   %570 = load i32, ptr %569, align 4
-  %571 = call ptr @map_variable_attnos(ptr noundef %567, i32 noundef %391, i32 noundef 0, ptr noundef %.3.i, i32 noundef %570, ptr noundef nonnull %6) #8
+  %571 = call ptr @map_variable_attnos(ptr noundef %567, i32 noundef %391, i32 noundef 0, ptr noundef %.4.i, i32 noundef %570, ptr noundef nonnull %6) #8
   %572 = getelementptr inbounds i8, ptr %383, i64 208
   %573 = load ptr, ptr %572, align 8
   %574 = call ptr @ExecGetChildToRootMap(ptr noundef nonnull %397) #8
@@ -1313,18 +1313,18 @@ adjust_partition_colnos.exit.i:                   ; preds = %599, %.lr.ph.i.i.i,
   %615 = load ptr, ptr %399, align 8
   %616 = getelementptr inbounds i8, ptr %615, i64 72
   %617 = load i32, ptr %616, align 4
-  %618 = call ptr @map_variable_attnos(ptr noundef %614, i32 noundef -1, i32 noundef 0, ptr noundef %.3.i, i32 noundef %617, ptr noundef nonnull %6) #8
+  %618 = call ptr @map_variable_attnos(ptr noundef %614, i32 noundef -1, i32 noundef 0, ptr noundef %.4.i, i32 noundef %617, ptr noundef nonnull %6) #8
   %619 = load ptr, ptr %399, align 8
   %620 = getelementptr inbounds i8, ptr %619, i64 72
   %621 = load i32, ptr %620, align 4
-  %622 = call ptr @map_variable_attnos(ptr noundef %618, i32 noundef %391, i32 noundef 0, ptr noundef %.3.i, i32 noundef %621, ptr noundef nonnull %6) #8
+  %622 = call ptr @map_variable_attnos(ptr noundef %618, i32 noundef %391, i32 noundef 0, ptr noundef %.4.i, i32 noundef %621, ptr noundef nonnull %6) #8
   %623 = call ptr @ExecInitQual(ptr noundef %622, ptr noundef nonnull %0) #8
   %624 = getelementptr inbounds i8, ptr %530, i64 32
   store ptr %623, ptr %624, align 8
   br label %625
 
 625:                                              ; preds = %613, %adjust_partition_colnos.exit.i, %540, %list_length.exit244.thread.i, %477, %.thread248.i
-  %.4.i = phi ptr [ %.2.ph.i, %540 ], [ %.3.i, %613 ], [ %.3.i, %adjust_partition_colnos.exit.i ], [ %.2.ph.i, %list_length.exit244.thread.i ], [ %.2.ph.i, %477 ], [ null, %.thread248.i ]
+  %.3.i = phi ptr [ %.1.ph.i, %540 ], [ %.4.i, %613 ], [ %.4.i, %adjust_partition_colnos.exit.i ], [ %.1.ph.i, %list_length.exit244.thread.i ], [ %.1.ph.i, %477 ], [ null, %.thread248.i ]
   %626 = load ptr, ptr %56, align 8
   store ptr %626, ptr @CurrentMemoryContext, align 8
   %627 = load ptr, ptr %57, align 8
@@ -1345,7 +1345,7 @@ adjust_partition_colnos.exit.i:                   ; preds = %599, %.lr.ph.i.i.i,
   %.val242.i = load ptr, ptr %636, align 8
   %637 = load ptr, ptr %.val242.i, align 8
   %638 = load ptr, ptr %52, align 8
-  %639 = icmp eq ptr %.4.i, null
+  %639 = icmp eq ptr %.3.i, null
   br i1 %639, label %640, label %646
 
 640:                                              ; preds = %633
@@ -1357,7 +1357,7 @@ adjust_partition_colnos.exit.i:                   ; preds = %599, %.lr.ph.i.i.i,
   br label %646
 
 646:                                              ; preds = %640, %633
-  %.5.i = phi ptr [ %645, %640 ], [ %.4.i, %633 ]
+  %.5.i = phi ptr [ %645, %640 ], [ %.3.i, %633 ]
   %647 = getelementptr inbounds i8, ptr %397, i64 80
   %648 = load i8, ptr %647, align 8
   %649 = trunc i8 %648 to i1
@@ -1381,12 +1381,12 @@ adjust_partition_colnos.exit.i:                   ; preds = %599, %.lr.ph.i.i.i,
   %657 = getelementptr inbounds i8, ptr %396, i64 64
   %658 = load i32, ptr %652, align 4
   %659 = icmp sgt i32 %658, 0
-  br i1 %659, label %.lr.ph195, label %ExecInitPartitionInfo.exit
+  br i1 %659, label %.lr.ph194, label %ExecInitPartitionInfo.exit
 
-.lr.ph195:                                        ; preds = %.lr.ph323.i, %720
-  %indvars.iv338.i194 = phi i64 [ %indvars.iv.next339.i, %720 ], [ 0, %.lr.ph323.i ]
+.lr.ph194:                                        ; preds = %.lr.ph323.i, %720
+  %indvars.iv338.i193 = phi i64 [ %indvars.iv.next339.i, %720 ], [ 0, %.lr.ph323.i ]
   %660 = load ptr, ptr %653, align 8
-  %661 = getelementptr %union.ListCell, ptr %660, i64 %indvars.iv338.i194
+  %661 = getelementptr %union.ListCell, ptr %660, i64 %indvars.iv338.i193
   %662 = load ptr, ptr %661, align 8
   %663 = call ptr @copyObjectImpl(ptr noundef %662) #8
   %664 = call noundef ptr @palloc0(i64 noundef 32) #8
@@ -1397,10 +1397,10 @@ adjust_partition_colnos.exit.i:                   ; preds = %599, %.lr.ph.i.i.i,
   %667 = load i8, ptr %666, align 4
   %668 = trunc i8 %667 to i1
   %.0.v.i = select i1 %668, i64 272, i64 280
-  %.0.i147 = getelementptr inbounds i8, ptr %397, i64 %.0.v.i
-  %669 = load ptr, ptr %.0.i147, align 8
+  %.0.i146 = getelementptr inbounds i8, ptr %397, i64 %.0.v.i
+  %669 = load ptr, ptr %.0.i146, align 8
   %670 = call ptr @lappend(ptr noundef %669, ptr noundef nonnull %664) #8
-  store ptr %670, ptr %.0.i147, align 8
+  store ptr %670, ptr %.0.i146, align 8
   %671 = getelementptr inbounds i8, ptr %663, i64 8
   %672 = load i32, ptr %671, align 8
   switch i32 %672, label %716 [
@@ -1409,7 +1409,7 @@ adjust_partition_colnos.exit.i:                   ; preds = %599, %.lr.ph.i.i.i,
     i32 4, label %720
   ]
 
-673:                                              ; preds = %.lr.ph195
+673:                                              ; preds = %.lr.ph194
   %674 = getelementptr inbounds i8, ptr %663, i64 24
   %675 = load ptr, ptr %674, align 8
   %676 = load ptr, ptr %656, align 8
@@ -1417,18 +1417,18 @@ adjust_partition_colnos.exit.i:                   ; preds = %599, %.lr.ph.i.i.i,
   %678 = call ptr @ExecBuildProjectionInfo(ptr noundef %675, ptr noundef %638, ptr noundef %676, ptr noundef %0, ptr noundef %677) #8
   br label %.sink.split.i
 
-679:                                              ; preds = %.lr.ph195
-  %.phi.trans.insert.i148 = getelementptr inbounds i8, ptr %663, i64 32
-  %.pre.i149 = load ptr, ptr %.phi.trans.insert.i148, align 8
-  br i1 %.not238.i, label %._crit_edge.i150, label %680
+679:                                              ; preds = %.lr.ph194
+  %.phi.trans.insert.i147 = getelementptr inbounds i8, ptr %663, i64 32
+  %.pre.i148 = load ptr, ptr %.phi.trans.insert.i147, align 8
+  br i1 %.not238.i, label %._crit_edge.i149, label %680
 
 680:                                              ; preds = %679
-  %.not.i245.i = icmp eq ptr %.pre.i149, null
+  %.not.i245.i = icmp eq ptr %.pre.i148, null
   br i1 %.not.i245.i, label %adjust_partition_colnos_using_map.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %680
-  %681 = getelementptr inbounds i8, ptr %.pre.i149, i64 4
-  %682 = getelementptr inbounds i8, ptr %.pre.i149, i64 16
+  %681 = getelementptr inbounds i8, ptr %.pre.i148, i64 4
+  %682 = getelementptr inbounds i8, ptr %.pre.i148, i64 16
   %683 = load i32, ptr %681, align 4
   %684 = icmp sgt i32 %683, 0
   br i1 %684, label %.lr.ph31.i.i, label %adjust_partition_colnos_using_map.exit.i
@@ -1476,11 +1476,11 @@ adjust_partition_colnos.exit.i:                   ; preds = %599, %.lr.ph.i.i.i,
 
 adjust_partition_colnos_using_map.exit.i:         ; preds = %702, %.lr.ph.i.i, %680
   %.0.lcssa.i.i = phi ptr [ null, %680 ], [ null, %.lr.ph.i.i ], [ %704, %702 ]
-  store ptr %.0.lcssa.i.i, ptr %.phi.trans.insert.i148, align 8
-  br label %._crit_edge.i150
+  store ptr %.0.lcssa.i.i, ptr %.phi.trans.insert.i147, align 8
+  br label %._crit_edge.i149
 
-._crit_edge.i150:                                 ; preds = %adjust_partition_colnos_using_map.exit.i, %679
-  %708 = phi ptr [ %.0.lcssa.i.i, %adjust_partition_colnos_using_map.exit.i ], [ %.pre.i149, %679 ]
+._crit_edge.i149:                                 ; preds = %adjust_partition_colnos_using_map.exit.i, %679
+  %708 = phi ptr [ %.0.lcssa.i.i, %adjust_partition_colnos_using_map.exit.i ], [ %.pre.i148, %679 ]
   %709 = getelementptr inbounds i8, ptr %663, i64 24
   %710 = load ptr, ptr %709, align 8
   %711 = load ptr, ptr %655, align 8
@@ -1490,20 +1490,20 @@ adjust_partition_colnos_using_map.exit.i:         ; preds = %702, %.lr.ph.i.i, %
   %715 = call ptr @ExecBuildUpdateProjection(ptr noundef %710, i1 noundef zeroext true, ptr noundef %708, ptr noundef %713, ptr noundef %638, ptr noundef %714, ptr noundef null) #8
   br label %.sink.split.i
 
-716:                                              ; preds = %.lr.ph195
+716:                                              ; preds = %.lr.ph194
   %717 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %717)
   %718 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #8
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 950, ptr noundef nonnull @__func__.ExecInitPartitionInfo) #8
   unreachable
 
-.sink.split.i:                                    ; preds = %._crit_edge.i150, %673
-  %.sink.i = phi ptr [ %715, %._crit_edge.i150 ], [ %678, %673 ]
+.sink.split.i:                                    ; preds = %._crit_edge.i149, %673
+  %.sink.i = phi ptr [ %715, %._crit_edge.i149 ], [ %678, %673 ]
   %719 = getelementptr inbounds i8, ptr %664, i64 16
   store ptr %.sink.i, ptr %719, align 8
   br label %720
 
-720:                                              ; preds = %.sink.split.i, %.lr.ph195
+720:                                              ; preds = %.sink.split.i, %.lr.ph194
   %721 = getelementptr inbounds i8, ptr %663, i64 16
   %722 = load ptr, ptr %721, align 8
   %723 = load ptr, ptr %399, align 8
@@ -1514,11 +1514,11 @@ adjust_partition_colnos_using_map.exit.i:         ; preds = %702, %.lr.ph.i.i, %
   %727 = call ptr @ExecInitQual(ptr noundef %726, ptr noundef %0) #8
   %728 = getelementptr inbounds i8, ptr %664, i64 24
   store ptr %727, ptr %728, align 8
-  %indvars.iv.next339.i = add nuw nsw i64 %indvars.iv338.i194, 1
+  %indvars.iv.next339.i = add nuw nsw i64 %indvars.iv338.i193, 1
   %729 = load i32, ptr %652, align 4
   %730 = sext i32 %729 to i64
   %731 = icmp slt i64 %indvars.iv.next339.i, %730
-  br i1 %731, label %.lr.ph195, label %ExecInitPartitionInfo.exit
+  br i1 %731, label %.lr.ph194, label %ExecInitPartitionInfo.exit
 
 ExecInitPartitionInfo.exit:                       ; preds = %720, %.lr.ph323.i, %625, %629, %651
   store ptr %395, ptr @CurrentMemoryContext, align 8
@@ -1542,7 +1542,7 @@ ExecInitPartitionInfo.exit:                       ; preds = %720, %.lr.ph323.i, 
   %742 = getelementptr i32, ptr %741, i64 %361
   %743 = load i32, ptr %742, align 4
   %744 = load ptr, ptr %45, align 8
-  %745 = call fastcc ptr @ExecInitPartitionDispatchInfo(ptr noundef %4, ptr noundef %2, i32 noundef %743, ptr noundef nonnull %.0100198, i32 noundef %.0.i128156, ptr noundef %744)
+  %745 = call fastcc ptr @ExecInitPartitionDispatchInfo(ptr noundef %4, ptr noundef %2, i32 noundef %743, ptr noundef nonnull %.0100197, i32 noundef %.0.i128155, ptr noundef %744)
   %746 = load ptr, ptr %46, align 8
   %747 = load i32, ptr %366, align 4
   %748 = sext i32 %747 to i64
@@ -1550,65 +1550,65 @@ ExecInitPartitionInfo.exit:                       ; preds = %720, %.lr.ph323.i, 
   br label %750
 
 750:                                              ; preds = %739, %733
-  %.2107.in = phi ptr [ %736, %733 ], [ %749, %739 ]
-  %.1101 = phi ptr [ %738, %733 ], [ %745, %739 ]
-  %.2107 = load ptr, ptr %.2107.in, align 8
-  %751 = getelementptr inbounds i8, ptr %.1101, i64 32
+  %.3108.in = phi ptr [ %736, %733 ], [ %749, %739 ]
+  %.2102 = phi ptr [ %738, %733 ], [ %745, %739 ]
+  %.3108 = load ptr, ptr %.3108.in, align 8
+  %751 = getelementptr inbounds i8, ptr %.2102, i64 32
   %752 = load ptr, ptr %751, align 8
   %.not122 = icmp eq ptr %752, null
   br i1 %.not122, label %762, label %753
 
 753:                                              ; preds = %750
-  %754 = getelementptr inbounds i8, ptr %.1101, i64 40
+  %754 = getelementptr inbounds i8, ptr %.2102, i64 40
   %755 = load ptr, ptr %754, align 8
-  %756 = call ptr @execute_attr_map_slot(ptr noundef %755, ptr noundef %.0199, ptr noundef nonnull %752) #8
-  %.not123 = icmp eq ptr %.0103197, null
+  %756 = call ptr @execute_attr_map_slot(ptr noundef %755, ptr noundef %.0198, ptr noundef nonnull %752) #8
+  %.not123 = icmp eq ptr %.0103196, null
   br i1 %.not123, label %762, label %757
 
 757:                                              ; preds = %753
-  %758 = getelementptr inbounds i8, ptr %.0103197, i64 8
+  %758 = getelementptr inbounds i8, ptr %.0103196, i64 8
   %759 = load ptr, ptr %758, align 8
   %760 = getelementptr inbounds i8, ptr %759, i64 24
   %761 = load ptr, ptr %760, align 8
-  call void %761(ptr noundef nonnull %.0103197) #8
+  call void %761(ptr noundef nonnull %.0103196) #8
   br label %762
 
 762:                                              ; preds = %370, %ExecInitPartitionInfo.exit, %381, %750, %757, %753
-  %.3108 = phi ptr [ %.2107, %757 ], [ %.2107, %753 ], [ %.2107, %750 ], [ %374, %370 ], [ %380, %381 ], [ %397, %ExecInitPartitionInfo.exit ]
-  %.1104 = phi ptr [ %752, %757 ], [ %752, %753 ], [ %.0103197, %750 ], [ %.0103197, %370 ], [ %.0103197, %381 ], [ %.0103197, %ExecInitPartitionInfo.exit ]
-  %.2102 = phi ptr [ %.1101, %757 ], [ %.1101, %753 ], [ %.1101, %750 ], [ null, %370 ], [ null, %381 ], [ null, %ExecInitPartitionInfo.exit ]
-  %.1 = phi ptr [ %756, %757 ], [ %756, %753 ], [ %.0199, %750 ], [ %.0199, %370 ], [ %.0199, %381 ], [ %.0199, %ExecInitPartitionInfo.exit ]
+  %.2107 = phi ptr [ %.3108, %757 ], [ %.3108, %753 ], [ %.3108, %750 ], [ %374, %370 ], [ %380, %381 ], [ %397, %ExecInitPartitionInfo.exit ]
+  %.1104 = phi ptr [ %752, %757 ], [ %752, %753 ], [ %.0103196, %750 ], [ %.0103196, %370 ], [ %.0103196, %381 ], [ %.0103196, %ExecInitPartitionInfo.exit ]
+  %.1101 = phi ptr [ %.2102, %757 ], [ %.2102, %753 ], [ %.2102, %750 ], [ null, %370 ], [ null, %381 ], [ null, %ExecInitPartitionInfo.exit ]
+  %.1 = phi ptr [ %756, %757 ], [ %756, %753 ], [ %.0198, %750 ], [ %.0198, %370 ], [ %.0198, %381 ], [ %.0198, %ExecInitPartitionInfo.exit ]
   %763 = getelementptr inbounds i8, ptr %65, i64 24
   %764 = load ptr, ptr %763, align 8
   %765 = getelementptr inbounds i8, ptr %764, i64 52
   %766 = load i32, ptr %765, align 4
-  %767 = icmp eq i32 %.0.i128156, %766
+  %767 = icmp eq i32 %.0.i128155, %766
   br i1 %767, label %768, label %779
 
 768:                                              ; preds = %762
   br i1 %364, label %769, label %777
 
 769:                                              ; preds = %768
-  %770 = call ptr @ExecGetRootToChildMap(ptr noundef %.3108, ptr noundef %4) #8
+  %770 = call ptr @ExecGetRootToChildMap(ptr noundef %.2107, ptr noundef %4) #8
   %.not125 = icmp eq ptr %770, null
   br i1 %.not125, label %777, label %771
 
 771:                                              ; preds = %769
   %772 = getelementptr inbounds i8, ptr %770, i64 16
   %773 = load ptr, ptr %772, align 8
-  %774 = getelementptr inbounds i8, ptr %.3108, i64 336
+  %774 = getelementptr inbounds i8, ptr %.2107, i64 336
   %775 = load ptr, ptr %774, align 8
   %776 = call ptr @execute_attr_map_slot(ptr noundef %773, ptr noundef %3, ptr noundef %775) #8
   br label %777
 
 777:                                              ; preds = %769, %771, %768
-  %.2 = phi ptr [ %776, %771 ], [ %.1, %768 ], [ %3, %769 ]
-  %778 = call zeroext i1 @ExecPartitionCheck(ptr noundef %.3108, ptr noundef %.2, ptr noundef %4, i1 noundef zeroext true) #8
+  %.3 = phi ptr [ %776, %771 ], [ %.1, %768 ], [ %3, %769 ]
+  %778 = call zeroext i1 @ExecPartitionCheck(ptr noundef %.2107, ptr noundef %.3, ptr noundef %4, i1 noundef zeroext true) #8
   br label %779
 
 779:                                              ; preds = %777, %762
-  %.3 = phi ptr [ %.2, %777 ], [ %.1, %762 ]
-  %.not119 = icmp eq ptr %.2102, null
+  %.2 = phi ptr [ %.3, %777 ], [ %.1, %762 ]
+  %.not119 = icmp eq ptr %.1101, null
   br i1 %.not119, label %._crit_edge, label %59, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %779
@@ -1624,10 +1624,10 @@ ExecInitPartitionInfo.exit:                       ; preds = %720, %.lr.ph323.i, 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %43, %780, %._crit_edge
-  %.0105.lcssa229 = phi ptr [ %.3108, %780 ], [ %.3108, %._crit_edge ], [ null, %43 ]
+  %.0105.lcssa228 = phi ptr [ %.2107, %780 ], [ %.2107, %._crit_edge ], [ null, %43 ]
   store ptr %28, ptr %29, align 8
   store ptr %33, ptr @CurrentMemoryContext, align 8
-  ret ptr %.0105.lcssa229
+  ret ptr %.0105.lcssa228
 }
 
 declare ptr @MakePerTupleExprContext(ptr noundef) local_unnamed_addr #1

@@ -247,7 +247,7 @@ get_libs_order.exit:                              ; preds = %._crit_edge.i, %.cr
 
 .critedge:                                        ; preds = %69, %97, %82, %.lr.ph, %get_libs_order.exit.thread, %get_libs_order.exit, %40, %45
   %101 = phi ptr [ %44, %40 ], [ %49, %45 ], [ %65, %get_libs_order.exit ], [ %54, %get_libs_order.exit.thread ], [ null, %.lr.ph ], [ %87, %82 ], [ %98, %97 ], [ %98, %69 ]
-  %.1 = phi ptr [ %22, %40 ], [ %22, %45 ], [ null, %get_libs_order.exit ], [ null, %get_libs_order.exit.thread ], [ null, %.lr.ph ], [ %71, %82 ], [ %71, %97 ], [ %71, %69 ]
+  %.029 = phi ptr [ %22, %40 ], [ %22, %45 ], [ null, %get_libs_order.exit ], [ null, %get_libs_order.exit.thread ], [ null, %.lr.ph ], [ %71, %82 ], [ %71, %97 ], [ %71, %69 ]
   %.not39 = icmp eq i32 %2, 0
   br i1 %.not39, label %109, label %102
 
@@ -257,7 +257,7 @@ get_libs_order.exit:                              ; preds = %._crit_edge.i, %.cr
   br i1 %.not40, label %107, label %104
 
 104:                                              ; preds = %102
-  %105 = load i32, ptr %.1, align 8
+  %105 = load i32, ptr %.029, align 8
   %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.2, i32 noundef %105) #7
   br label %109
 

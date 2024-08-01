@@ -10409,7 +10409,7 @@ _ZNK7AstNode10prettyNameB5cxx11Ev.exit:           ; preds = %42
   br i1 %.not, label %53, label %.thread
 
 .thread:                                          ; preds = %_ZNK7AstNode10prettyNameB5cxx11Ev.exit, %51
-  %.05.ph = phi ptr [ @.str.496, %51 ], [ @.str.494, %_ZNK7AstNode10prettyNameB5cxx11Ev.exit ]
+  %.1.ph = phi ptr [ @.str.496, %51 ], [ @.str.494, %_ZNK7AstNode10prettyNameB5cxx11Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %_ZNK6AstVar17isToggleCoverableEv.exit.thread
 
@@ -10437,8 +10437,8 @@ _ZNK7AstNode5widthEv.exit:                        ; preds = %54, %56
   br label %_ZNK6AstVar17isToggleCoverableEv.exit.thread
 
 _ZNK6AstVar17isToggleCoverableEv.exit.thread:     ; preds = %9, %7, %_ZNK6AstVar10isBitLogicEv.exit.i, %.thread.i, %_ZNK7AstNode8isDoubleEv.exit.i, %.thread, %_ZNK7AstNode5widthEv.exit, %_ZNK6AstVar17isToggleCoverableEv.exit
-  %.1 = phi ptr [ @.str.493, %_ZNK6AstVar17isToggleCoverableEv.exit ], [ %.str.497., %_ZNK7AstNode5widthEv.exit ], [ %.05.ph, %.thread ], [ @.str.493, %_ZNK7AstNode8isDoubleEv.exit.i ], [ @.str.493, %.thread.i ], [ @.str.493, %_ZNK6AstVar10isBitLogicEv.exit.i ], [ @.str.493, %7 ], [ @.str.493, %9 ]
-  ret ptr %.1
+  %.05 = phi ptr [ @.str.493, %_ZNK6AstVar17isToggleCoverableEv.exit ], [ %.str.497., %_ZNK7AstNode5widthEv.exit ], [ %.1.ph, %.thread ], [ @.str.493, %_ZNK7AstNode8isDoubleEv.exit.i ], [ @.str.493, %.thread.i ], [ @.str.493, %_ZNK6AstVar10isBitLogicEv.exit.i ], [ @.str.493, %7 ], [ @.str.493, %9 ]
+  ret ptr %.05
 }
 
 ; Function Attrs: mustprogress uwtable

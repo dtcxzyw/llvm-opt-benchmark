@@ -633,17 +633,17 @@ if.else36.i31:                                    ; preds = %if.else31.i30
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then29.i62, %if.else36.i31, %if.then35.i49, %if.then8.i, %if.then5.i, %while.end
-  %result_size.4 = phi i64 [ %result_size.0.ph.ph, %while.end ], [ %inc.i.i, %if.then5.i ], [ %inc11.i.i, %if.then8.i ], [ %inc56.i46, %if.else36.i31 ], [ %inc11.i54.i58, %if.then35.i49 ], [ %inc.i40.i65, %if.then29.i62 ]
+  %result_size.2 = phi i64 [ %result_size.0.ph.ph, %while.end ], [ %inc.i.i, %if.then5.i ], [ %inc11.i.i, %if.then8.i ], [ %inc56.i46, %if.else36.i31 ], [ %inc11.i54.i58, %if.then35.i49 ], [ %inc.i40.i65, %if.then29.i62 ]
   %27 = load ptr, ptr %result, align 8
   %tobool50.not = icmp eq ptr %27, null
   br i1 %tobool50.not, label %cond.false53, label %cond.true51
 
 cond.true51:                                      ; preds = %if.end48
-  store i64 %result_size.4, ptr %data, align 8
+  store i64 %result_size.2, ptr %data, align 8
   br label %cond.end58
 
 cond.false53:                                     ; preds = %if.end48
-  %conv54 = trunc i64 %result_size.4 to i8
+  %conv54 = trunc i64 %result_size.2 to i8
   store i8 %conv54, ptr %data, align 8
   br label %cond.end58
 

@@ -434,9 +434,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -543,13 +543,13 @@ if.else:                                          ; preds = %if.end10
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.then14, %if.else, %if.then6
-  %retval.0 = phi i32 [ %cond, %if.then6 ], [ %1, %if.else ], [ %1, %if.then14 ]
+  %retval.1 = phi i32 [ %cond, %if.then6 ], [ %1, %if.else ], [ %1, %if.then14 ]
   call void @_ZN6icu_7520CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(29) %sink) #11
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN6icu_7520CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29), ptr noundef, i32 noundef) unnamed_addr #5
@@ -859,13 +859,13 @@ if.else:                                          ; preds = %if.end10
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.then14, %if.else, %if.then6
-  %retval.0 = phi i32 [ %cond, %if.then6 ], [ %1, %if.else ], [ %1, %if.then14 ]
+  %retval.1 = phi i32 [ %cond, %if.then6 ], [ %1, %if.else ], [ %1, %if.then14 ]
   call void @_ZN6icu_7520CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(29) %sink) #11
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1348,8 +1348,8 @@ if.end43:                                         ; preds = %cleanup, %entry
   br label %return
 
 return:                                           ; preds = %cleanup.thread, %cleanup, %if.then16, %if.then, %if.end43, %sw.bb17
-  %retval.1 = phi i8 [ 0, %cleanup ], [ %call46, %if.end43 ], [ 1, %sw.bb17 ], [ 0, %if.then ], [ 0, %if.then16 ], [ 0, %cleanup.thread ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ 0, %cleanup ], [ %call46, %if.end43 ], [ 1, %sw.bb17 ], [ 0, %if.then ], [ 0, %if.then16 ], [ 0, %cleanup.thread ]
+  ret i8 %retval.0
 }
 
 declare i32 @uloc_getScript_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
@@ -1449,7 +1449,7 @@ lpad15:                                           ; preds = %invoke.cont
   br label %ehcleanup
 
 if.end31:                                         ; preds = %invoke.cont24, %invoke.cont16
-  %rgLen.0 = phi i32 [ 0, %invoke.cont16 ], [ %spec.select, %invoke.cont24 ]
+  %rgLen.1 = phi i32 [ 0, %invoke.cont16 ], [ %spec.select, %invoke.cont24 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %locBuf) #11
   br label %if.end35
 
@@ -1459,13 +1459,13 @@ ehcleanup:                                        ; preds = %lpad15, %lpad
   resume { ptr, i32 } %.pn
 
 if.end35:                                         ; preds = %if.then2, %if.then10, %if.end31, %if.else, %if.end
-  %rgLen.1 = phi i32 [ %rgLen.0, %if.end31 ], [ %call12, %if.then10 ], [ %call4, %if.else ], [ %call1, %if.end ], [ 0, %if.then2 ]
-  %idxprom = sext i32 %rgLen.1 to i64
+  %rgLen.0 = phi i32 [ %rgLen.1, %if.end31 ], [ %call12, %if.then10 ], [ %call4, %if.else ], [ %call1, %if.end ], [ 0, %if.then2 ]
+  %idxprom = sext i32 %rgLen.0 to i64
   %arrayidx = getelementptr inbounds [8 x i8], ptr %rgBuf, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %conv = sext i32 %regionCapacity to i64
   %call37 = call ptr @strncpy(ptr noundef %region, ptr noundef nonnull %rgBuf, i64 noundef %conv) #11
-  %call38 = call i32 @u_terminateChars_75(ptr noundef %region, i32 noundef %regionCapacity, i32 noundef %rgLen.1, ptr noundef nonnull %status)
+  %call38 = call i32 @u_terminateChars_75(ptr noundef %region, i32 noundef %regionCapacity, i32 noundef %rgLen.0, ptr noundef nonnull %status)
   br label %return
 
 return:                                           ; preds = %entry, %if.end35

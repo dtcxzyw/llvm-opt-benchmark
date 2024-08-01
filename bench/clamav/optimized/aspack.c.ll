@@ -167,8 +167,8 @@ switch.lookup:                                    ; preds = %8
   br i1 %.not194449, label %.critedge211, label %.lr.ph452
 
 .lr.ph452:                                        ; preds = %.lr.ph313, %.loopexit
-  %.0172311451 = phi ptr [ %.2174, %.loopexit ], [ %22, %.lr.ph313 ]
-  %.1312450 = phi i32 [ %.4, %.loopexit ], [ 0, %.lr.ph313 ]
+  %.0172311451 = phi ptr [ %.1173, %.loopexit ], [ %22, %.lr.ph313 ]
+  %.1312450 = phi i32 [ %.2, %.loopexit ], [ 0, %.lr.ph313 ]
   %82 = ptrtoint ptr %.0172311451 to i64
   %83 = add i64 %82, 8
   %.not195 = icmp ule i64 %83, %68
@@ -559,8 +559,8 @@ decomp_block.exit.thread:                         ; preds = %105, %decomp_block.
   br label %.lr.ph309
 
 .lr.ph309:                                        ; preds = %.lr.ph309.preheader, %269
-  %.2308 = phi i32 [ %270, %269 ], [ 0, %.lr.ph309.preheader ]
-  %253 = add i32 %.2308, %87
+  %.3308 = phi i32 [ %270, %269 ], [ 0, %.lr.ph309.preheader ]
+  %253 = add i32 %.3308, %87
   %254 = zext i32 %253 to i64
   %255 = getelementptr inbounds i8, ptr %0, i64 %254
   %256 = load i8, ptr %255, align 1
@@ -569,7 +569,7 @@ decomp_block.exit.thread:                         ; preds = %105, %decomp_block.
   br i1 %or.cond10, label %258, label %269
 
 258:                                              ; preds = %.lr.ph309
-  %.reass = add i32 %.2308, %invariant.op
+  %.reass = add i32 %.3308, %invariant.op
   %259 = zext i32 %.reass to i64
   %260 = getelementptr inbounds i8, ptr %0, i64 %259
   %261 = load i8, ptr %260, align 1
@@ -580,19 +580,19 @@ decomp_block.exit.thread:                         ; preds = %105, %decomp_block.
 264:                                              ; preds = %258
   %265 = load i32, ptr %260, align 1
   %266 = lshr i32 %265, 8
-  %267 = sub i32 %266, %.2308
+  %267 = sub i32 %266, %.3308
   store i32 %267, ptr %260, align 1
-  %268 = add i32 %.2308, 4
+  %268 = add i32 %.3308, 4
   br label %269
 
 269:                                              ; preds = %258, %264, %.lr.ph309
-  %.3 = phi i32 [ %268, %264 ], [ %.2308, %258 ], [ %.2308, %.lr.ph309 ]
-  %270 = add i32 %.3, 1
+  %.4 = phi i32 [ %268, %264 ], [ %.3308, %258 ], [ %.3308, %.lr.ph309 ]
+  %270 = add i32 %.4, 1
   %271 = icmp ult i32 %270, %252
   br i1 %271, label %.lr.ph309, label %.loopexit220
 
 .loopexit220:                                     ; preds = %269, %249
-  %.4 = phi i32 [ %.1312450, %249 ], [ %270, %269 ]
+  %.2 = phi i32 [ %.1312450, %249 ], [ %270, %269 ]
   br i1 %81, label %272, label %274
 
 272:                                              ; preds = %.loopexit220
@@ -604,17 +604,17 @@ decomp_block.exit.thread:                         ; preds = %105, %decomp_block.
   br label %276
 
 276:                                              ; preds = %276, %274
-  %.0172.pn = phi ptr [ %.0172311451, %274 ], [ %.1173, %276 ]
+  %.0172.pn = phi ptr [ %.0172311451, %274 ], [ %.2174, %276 ]
   %.0169.in = phi ptr [ %275, %274 ], [ %277, %276 ]
-  %.1173 = getelementptr inbounds i8, ptr %.0172.pn, i64 12
+  %.2174 = getelementptr inbounds i8, ptr %.0172.pn, i64 12
   %.0169 = load i32, ptr %.0169.in, align 1
   %.not207 = icmp eq i32 %.0169, -270
   %277 = getelementptr inbounds i8, ptr %.0172.pn, i64 28
   br i1 %.not207, label %276, label %.loopexit
 
 .loopexit:                                        ; preds = %276, %272
-  %.2174 = phi ptr [ %273, %272 ], [ %.1173, %276 ]
-  %.not194 = icmp ult ptr %.2174, %0
+  %.1173 = phi ptr [ %273, %272 ], [ %.2174, %276 ]
+  %.not194 = icmp ult ptr %.1173, %0
   br i1 %.not194, label %.critedge211, label %.lr.ph452
 
 .critedge:                                        ; preds = %86

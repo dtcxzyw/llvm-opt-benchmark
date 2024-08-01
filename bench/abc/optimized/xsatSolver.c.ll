@@ -1426,7 +1426,7 @@ define i32 @xSAT_SolverPropagate(ptr nocapture noundef %0) local_unnamed_addr #0
 
 .lr.ph142:                                        ; preds = %.lr.ph142.lr.ph, %.outer
   %.1.ph160 = phi i32 [ %.0100165, %.lr.ph142.lr.ph ], [ %.2, %.outer ]
-  %.0102.ph159 = phi ptr [ %.val126, %.lr.ph142.lr.ph ], [ %.2104, %.outer ]
+  %.0102.ph159 = phi ptr [ %.val126, %.lr.ph142.lr.ph ], [ %.1103, %.outer ]
   %.1106.ph158 = phi ptr [ %.val126, %.lr.ph142.lr.ph ], [ %158, %.outer ]
   br label %61
 
@@ -1590,18 +1590,18 @@ xSAT_SolverReadClause.exit:                       ; preds = %78, %81
   %151 = getelementptr i8, ptr %150, i64 4
   %.val118 = load i32, ptr %151, align 4
   store i32 %.val118, ptr %2, align 8
-  %.2107151 = getelementptr inbounds i8, ptr %.1106140, i64 8
-  %152 = icmp ult ptr %.2107151, %58
+  %.3151 = getelementptr inbounds i8, ptr %.1106140, i64 8
+  %152 = icmp ult ptr %.3151, %58
   br i1 %152, label %.lr.ph155, label %.outer
 
 .lr.ph155:                                        ; preds = %149, %.lr.ph155
-  %.2107153 = phi ptr [ %.2107, %.lr.ph155 ], [ %.2107151, %149 ]
-  %.1103152 = phi ptr [ %153, %.lr.ph155 ], [ %136, %149 ]
-  %153 = getelementptr inbounds i8, ptr %.1103152, i64 8
-  %154 = load i64, ptr %.2107153, align 4
-  store i64 %154, ptr %.1103152, align 4
-  %.2107 = getelementptr inbounds i8, ptr %.2107153, i64 8
-  %155 = icmp ult ptr %.2107, %58
+  %.3153 = phi ptr [ %.3, %.lr.ph155 ], [ %.3151, %149 ]
+  %.2104152 = phi ptr [ %153, %.lr.ph155 ], [ %136, %149 ]
+  %153 = getelementptr inbounds i8, ptr %.2104152, i64 8
+  %154 = load i64, ptr %.3153, align 4
+  store i64 %154, ptr %.2104152, align 4
+  %.3 = getelementptr inbounds i8, ptr %.3153, i64 8
+  %155 = icmp ult ptr %.3, %58
   br i1 %155, label %.lr.ph155, label %.outer, !llvm.loop !19
 
 156:                                              ; preds = %._crit_edge150
@@ -1609,16 +1609,16 @@ xSAT_SolverReadClause.exit:                       ; preds = %78, %81
   br label %.outer
 
 .outer:                                           ; preds = %.lr.ph155, %149, %106, %156, %125
-  %.3 = phi ptr [ %.1106140, %106 ], [ %.1106140, %125 ], [ %.1106140, %156 ], [ %.2107151, %149 ], [ %.2107, %.lr.ph155 ]
-  %.2104 = phi ptr [ %107, %106 ], [ %.0102141, %125 ], [ %136, %156 ], [ %136, %149 ], [ %153, %.lr.ph155 ]
+  %.2107 = phi ptr [ %.1106140, %106 ], [ %.1106140, %125 ], [ %.1106140, %156 ], [ %.3151, %149 ], [ %.3, %.lr.ph155 ]
+  %.1103 = phi ptr [ %107, %106 ], [ %.0102141, %125 ], [ %136, %156 ], [ %136, %149 ], [ %153, %.lr.ph155 ]
   %.2 = phi i32 [ %.1.ph160, %106 ], [ %.1.ph160, %125 ], [ %.1.ph160, %156 ], [ %148, %149 ], [ %148, %.lr.ph155 ]
-  %158 = getelementptr inbounds i8, ptr %.3, i64 8
+  %158 = getelementptr inbounds i8, ptr %.2107, i64 8
   %159 = icmp ult ptr %158, %58
   br i1 %159, label %.lr.ph142, label %.outer._crit_edge, !llvm.loop !17
 
 .outer._crit_edge:                                ; preds = %.outer, %73, %._crit_edge
   %.1.ph.lcssa = phi i32 [ %.0100165, %._crit_edge ], [ %.1.ph160, %73 ], [ %.2, %.outer ]
-  %.0102.lcssa = phi ptr [ %.val126, %._crit_edge ], [ %74, %73 ], [ %.2104, %.outer ]
+  %.0102.lcssa = phi ptr [ %.val126, %._crit_edge ], [ %74, %73 ], [ %.1103, %.outer ]
   %.val127 = load ptr, ptr %55, align 8
   %160 = ptrtoint ptr %.0102.lcssa to i64
   %161 = ptrtoint ptr %.val127 to i64

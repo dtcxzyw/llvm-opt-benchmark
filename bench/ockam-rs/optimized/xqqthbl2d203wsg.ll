@@ -8187,8 +8187,8 @@ common.ret:                                       ; preds = %817, %818
   br label %.body65.i.i
 
 453:                                              ; preds = %448, %446, %444
-  %.sroa.776.i.sroa.6.0.i.i = phi ptr [ %.sroa.6.i.sroa.6.i.sroa.7.0.copyload116.i.i, %444 ], [ %.sroa.947.sroa.9.i.sroa.8.0.copyload.i.i, %448 ], [ %.sroa.7.i.sroa.8.0.copyload.i.i, %446 ]
-  %.sroa.776.i.sroa.0.0.i.i = phi ptr [ %.sroa.6.i.sroa.6.i.sroa.0.0.copyload115.i.i, %444 ], [ %.sroa.947.sroa.9.i.sroa.0.0.copyload.i.i, %448 ], [ %.sroa.7.i.sroa.0.0.copyload.i.i, %446 ]
+  %.sroa.776.i.sroa.6.1.i.i = phi ptr [ %.sroa.6.i.sroa.6.i.sroa.7.0.copyload116.i.i, %444 ], [ %.sroa.947.sroa.9.i.sroa.8.0.copyload.i.i, %448 ], [ %.sroa.7.i.sroa.8.0.copyload.i.i, %446 ]
+  %.sroa.776.i.sroa.0.1.i.i = phi ptr [ %.sroa.6.i.sroa.6.i.sroa.0.0.copyload115.i.i, %444 ], [ %.sroa.947.sroa.9.i.sroa.0.0.copyload.i.i, %448 ], [ %.sroa.7.i.sroa.0.0.copyload.i.i, %446 ]
   %.sroa.474.0.i.i.i = phi i64 [ %.sroa.6.i.sroa.0.0.copyload87.i.i.i, %444 ], [ %.sroa.947.sroa.0.0.copyload.i.i.i, %448 ], [ %.sroa.063.0.copyload.i.i.i, %446 ]
   %.sroa.073.0.i.i.i = phi i64 [ %.sroa.04.0.copyload.i.i.i.i, %444 ], [ 3, %448 ], [ 3, %446 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %.sroa.9.sroa.7.i.i, ptr noundef nonnull align 8 dereferenceable(240) %.sroa.776.i.sroa.7.i.i, i64 240, i1 false), !noalias !1200
@@ -8304,8 +8304,8 @@ common.ret:                                       ; preds = %817, %818
 
 485:                                              ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i", %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i", %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i"
   %.sink.i210.i = phi ptr [ %476, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ %259, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ %259, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
-  %.sroa.793.0.i.i = phi ptr [ %.sroa.776.i.sroa.6.0.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
-  %.sroa.592.0.i.i = phi ptr [ %.sroa.776.i.sroa.0.0.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ %269, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ %269, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
+  %.sroa.793.0.i.i = phi ptr [ %.sroa.776.i.sroa.6.1.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
+  %.sroa.592.0.i.i = phi ptr [ %.sroa.776.i.sroa.0.1.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ %269, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ %269, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
   %.sroa.391.0.i.i = phi i64 [ %.sroa.474.0.i.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ 3, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ 3, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
   %.sroa.090.0.i.i = phi i64 [ %.sroa.073.0.i.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ 3, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ 3, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
   store i8 0, ptr %.sink.i210.i, align 1, !noalias !1054
@@ -11182,7 +11182,7 @@ common.ret:                                       ; preds = %969, %970
   br label %.body65.i.i
 
 498:                                              ; preds = %493, %491
-  %.sroa.671.i.sroa.0.0.i.i = phi ptr [ %.sroa.941.sroa.11.i.sroa.0.0.copyload.i.i, %493 ], [ %.sroa.7.sroa.7.i.sroa.0.0.copyload.i.i, %491 ]
+  %.sroa.671.i.sroa.0.1.i.i = phi ptr [ %.sroa.941.sroa.11.i.sroa.0.0.copyload.i.i, %493 ], [ %.sroa.7.sroa.7.i.sroa.0.0.copyload.i.i, %491 ]
   %.sroa.469.0.i.i.i = phi i64 [ %.sroa.941.sroa.9.0.copyload.i.i.i, %493 ], [ %.sroa.7.sroa.0.0.copyload.i.i.i, %491 ]
   %.sroa.067.0.i.i.i = phi i64 [ %.sroa.941.sroa.0.0.copyload.i.i.i, %493 ], [ %.sroa.057.0.copyload.i.i.i, %491 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.sroa.6.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.671.i.sroa.6.i.i, i64 16, i1 false), !noalias !1598
@@ -11204,7 +11204,7 @@ common.ret:                                       ; preds = %969, %970
 502:                                              ; preds = %498, %.thread130.i.i
   %.sroa.067.0.i136.i.i = phi i64 [ 7, %.thread130.i.i ], [ %.sroa.067.0.i.i.i, %498 ]
   %.sroa.469.0.i135.i.i = phi i64 [ %.sroa.04.0.copyload.i.i.i.i, %.thread130.i.i ], [ %.sroa.469.0.i.i.i, %498 ]
-  %.sroa.671.i.sroa.0.0134.i.i = phi ptr [ %.sroa.6.i.i.sroa.0.0.copyload108.i.i, %.thread130.i.i ], [ %.sroa.671.i.sroa.0.0.i.i, %498 ]
+  %.sroa.671.i.sroa.0.1134.i.i = phi ptr [ %.sroa.6.i.i.sroa.0.0.copyload108.i.i, %.thread130.i.i ], [ %.sroa.671.i.sroa.0.1.i.i, %498 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.795.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9.sroa.6.i.i, i64 16, i1 false), !noalias !1450
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %.sroa.896.i.i, ptr noundef nonnull align 8 dereferenceable(296) %.sroa.9.sroa.7.i.i, i64 296, i1 false), !noalias !1450
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.sroa.6.i.i)
@@ -11286,7 +11286,7 @@ common.ret:                                       ; preds = %969, %970
 
 527:                                              ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i.i", %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i", %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i"
   %.sink.i337.i = phi ptr [ %518, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i.i" ], [ %302, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ %302, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
-  %.sroa.594.0.i.i = phi ptr [ %.sroa.671.i.sroa.0.0134.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
+  %.sroa.594.0.i.i = phi ptr [ %.sroa.671.i.sroa.0.1134.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
   %.sroa.393.0.i.i = phi i64 [ %.sroa.469.0.i135.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i.i" ], [ %354, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ %354, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
   %.sroa.092.0.i.i = phi i64 [ %.sroa.067.0.i136.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i.i" ], [ 3, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ 3, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
   store i8 0, ptr %.sink.i337.i, align 1, !noalias !1450
@@ -11760,7 +11760,7 @@ common.ret:                                       ; preds = %969, %970
   br label %668
 
 668:                                              ; preds = %"_ZN4core3ptr203drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h3e419c47328ba2aeE.exit.i", %"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h55f05cf14f754179E.exit", %584, %557, %.thread809.i
-  %.sroa.6772.0.i = phi i8 [ 0, %"_ZN4core3ptr203drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h3e419c47328ba2aeE.exit.i" ], [ 1, %584 ], [ 1, %557 ], [ 1, %.thread809.i ], [ 1, %"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h55f05cf14f754179E.exit" ]
+  %.sroa.6772.1.i = phi i8 [ 0, %"_ZN4core3ptr203drop_in_place$LT$aws_smithy_runtime_api..client..result..ServiceError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$17h3e419c47328ba2aeE.exit.i" ], [ 1, %584 ], [ 1, %557 ], [ 1, %.thread809.i ], [ 1, %"_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h55f05cf14f754179E.exit" ]
   %669 = getelementptr inbounds i8, ptr %1, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !1668
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h163a741ddb426c0dE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %669)
@@ -12886,7 +12886,7 @@ common.ret:                                       ; preds = %969, %970
 970:                                              ; preds = %"_ZN4core3ptr333drop_in_place$LT$core..result..Result$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_output..ScheduleKeyDeletionOutput$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17hd470120c542b98b4E.exit.i", %"_ZN4core3ptr333drop_in_place$LT$core..result..Result$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_output..ScheduleKeyDeletionOutput$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17hd470120c542b98b4E.exit508.i", %291
   %971 = phi ptr [ %129, %291 ], [ %296, %"_ZN4core3ptr333drop_in_place$LT$core..result..Result$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_output..ScheduleKeyDeletionOutput$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17hd470120c542b98b4E.exit508.i" ], [ %296, %"_ZN4core3ptr333drop_in_place$LT$core..result..Result$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_output..ScheduleKeyDeletionOutput$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17hd470120c542b98b4E.exit.i" ]
   %.sroa.037.0.ph = phi i8 [ 1, %291 ], [ 1, %"_ZN4core3ptr333drop_in_place$LT$core..result..Result$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_output..ScheduleKeyDeletionOutput$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17hd470120c542b98b4E.exit508.i" ], [ 0, %"_ZN4core3ptr333drop_in_place$LT$core..result..Result$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_output..ScheduleKeyDeletionOutput$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17hd470120c542b98b4E.exit.i" ]
-  %.sroa.838.0.ph = phi i8 [ undef, %291 ], [ undef, %"_ZN4core3ptr333drop_in_place$LT$core..result..Result$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_output..ScheduleKeyDeletionOutput$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17hd470120c542b98b4E.exit508.i" ], [ %.sroa.6772.0.i, %"_ZN4core3ptr333drop_in_place$LT$core..result..Result$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_output..ScheduleKeyDeletionOutput$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17hd470120c542b98b4E.exit.i" ]
+  %.sroa.838.0.ph = phi i8 [ undef, %291 ], [ undef, %"_ZN4core3ptr333drop_in_place$LT$core..result..Result$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_output..ScheduleKeyDeletionOutput$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17hd470120c542b98b4E.exit508.i" ], [ %.sroa.6772.1.i, %"_ZN4core3ptr333drop_in_place$LT$core..result..Result$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_output..ScheduleKeyDeletionOutput$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17hd470120c542b98b4E.exit.i" ]
   %.sroa.940.0.ph = phi ptr [ %141, %291 ], [ %925, %"_ZN4core3ptr333drop_in_place$LT$core..result..Result$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_output..ScheduleKeyDeletionOutput$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17hd470120c542b98b4E.exit508.i" ], [ undef, %"_ZN4core3ptr333drop_in_place$LT$core..result..Result$LT$aws_sdk_kms..operation..schedule_key_deletion.._schedule_key_deletion_output..ScheduleKeyDeletionOutput$C$aws_smithy_runtime_api..client..result..SdkError$LT$aws_sdk_kms..operation..schedule_key_deletion..ScheduleKeyDeletionError$C$aws_smithy_runtime_api..http..response..Response$GT$$GT$$GT$17hd470120c542b98b4E.exit.i" ]
   store i8 1, ptr %971, align 8, !noalias !1378
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %95)
@@ -14103,8 +14103,8 @@ common.ret:                                       ; preds = %324, %65
   br label %.body65.i
 
 293:                                              ; preds = %288, %286
-  %.sroa.469.i.sroa.6.0.i = phi ptr [ %.sroa.941.sroa.9.i.sroa.8.0.copyload.i, %288 ], [ %.sroa.7.i.sroa.8.0.copyload.i, %286 ]
-  %.sroa.469.i.sroa.0.0.i = phi ptr [ %.sroa.941.sroa.9.i.sroa.0.0.copyload.i, %288 ], [ %.sroa.7.i.sroa.0.0.copyload.i, %286 ]
+  %.sroa.469.i.sroa.6.1.i = phi ptr [ %.sroa.941.sroa.9.i.sroa.8.0.copyload.i, %288 ], [ %.sroa.7.i.sroa.8.0.copyload.i, %286 ]
+  %.sroa.469.i.sroa.0.1.i = phi ptr [ %.sroa.941.sroa.9.i.sroa.0.0.copyload.i, %288 ], [ %.sroa.7.i.sroa.0.0.copyload.i, %286 ]
   %.sroa.770.0.i.i = phi i8 [ %.sroa.941.sroa.11.0.copyload.i.i, %288 ], [ %.sroa.1058.sroa.5.0.copyload.i.i, %286 ]
   %.sroa.067.0.i.i = phi i64 [ %.sroa.941.sroa.0.0.copyload.i.i, %288 ], [ %.sroa.057.0.copyload.i.i, %286 ]
   store i8 1, ptr %184, align 8, !noalias !1887
@@ -14124,8 +14124,8 @@ common.ret:                                       ; preds = %324, %65
 297:                                              ; preds = %.thread, %293
   %.sroa.067.0.i.i135 = phi i64 [ 7, %.thread ], [ %.sroa.067.0.i.i, %293 ]
   %.sroa.770.0.i.i134 = phi i8 [ %.sroa.4.0.copyload.i.i.i, %.thread ], [ %.sroa.770.0.i.i, %293 ]
-  %.sroa.469.i.sroa.0.0.i133 = phi ptr [ %.sroa.0.i.i.sroa.0.0.copyload.i, %.thread ], [ %.sroa.469.i.sroa.0.0.i, %293 ]
-  %.sroa.469.i.sroa.6.0.i132 = phi ptr [ %.sroa.0.i.i.sroa.7.0.copyload.i, %.thread ], [ %.sroa.469.i.sroa.6.0.i, %293 ]
+  %.sroa.469.i.sroa.0.1.i133 = phi ptr [ %.sroa.0.i.i.sroa.0.0.copyload.i, %.thread ], [ %.sroa.469.i.sroa.0.1.i, %293 ]
+  %.sroa.469.i.sroa.6.1.i132 = phi ptr [ %.sroa.0.i.i.sroa.7.0.copyload.i, %.thread ], [ %.sroa.469.i.sroa.6.1.i, %293 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.469.i.sroa.7.i, i64 16, i1 false), !noalias !1827
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.797.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.469.i.sroa.8.i, i64 40, i1 false), !noalias !1827
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.999.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.872.i.i, i64 7, i1 false), !noalias !1827
@@ -14206,8 +14206,8 @@ common.ret:                                       ; preds = %324, %65
 322:                                              ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i", %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i", %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i"
   %.sink.i = phi ptr [ %313, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i" ], [ %98, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i" ], [ %98, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i" ]
   %.sroa.898.0.i = phi i8 [ %.sroa.770.0.i.i134, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i" ], [ undef, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i" ], [ undef, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i" ]
-  %.sroa.596.0.i = phi ptr [ %.sroa.469.i.sroa.6.0.i132, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i" ]
-  %.sroa.395.0.i = phi ptr [ %.sroa.469.i.sroa.0.0.i133, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i" ], [ %107, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i" ], [ %107, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i" ]
+  %.sroa.596.0.i = phi ptr [ %.sroa.469.i.sroa.6.1.i132, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i" ]
+  %.sroa.395.0.i = phi ptr [ %.sroa.469.i.sroa.0.1.i133, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i" ], [ %107, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i" ], [ %107, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i" ]
   %.sroa.094.0.i = phi i64 [ %.sroa.067.0.i.i135, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit73.i" ], [ 3, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i" ], [ 3, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i" ]
   store i8 0, ptr %.sink.i, align 1, !noalias !1827
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.i, i64 16, i1 false)
@@ -16561,7 +16561,7 @@ common.ret:                                       ; preds = %1223, %1224
 
 533:                                              ; preds = %527, %525
   %.sroa.677.i.sroa.6.i.sroa.6.0.i = phi i64 [ %.sroa.677.i.sroa.6.i.sroa.6.0.copyload1046.i, %527 ], [ %.sroa.7.sroa.7.i.sroa.8.i.sroa.8.0.copyload.i, %525 ]
-  %.sroa.677.i.sroa.0.0.i.i = phi ptr [ %.sroa.947.sroa.11.i.sroa.0.0.copyload.i.i, %527 ], [ %.sroa.7.sroa.7.i.sroa.0.0.copyload.i.i, %525 ]
+  %.sroa.677.i.sroa.0.1.i.i = phi ptr [ %.sroa.947.sroa.11.i.sroa.0.0.copyload.i.i, %527 ], [ %.sroa.7.sroa.7.i.sroa.0.0.copyload.i.i, %525 ]
   %.sroa.475.0.i.i.i = phi i64 [ %.sroa.947.sroa.9.0.copyload.i.i.i, %527 ], [ %.sroa.7.sroa.0.0.copyload.i.i.i, %525 ]
   %.sroa.073.0.i.i.i = phi i64 [ %.sroa.947.sroa.0.0.copyload.i.i.i, %527 ], [ %.sroa.063.0.copyload.i.i.i, %525 ]
   %534 = phi <2 x i64> [ %528, %527 ], [ %506, %525 ]
@@ -16575,7 +16575,7 @@ common.ret:                                       ; preds = %1223, %1224
 536:                                              ; preds = %533, %.thread1074.i
   %.sroa.073.0.i.i1086.i = phi i64 [ 7, %.thread1074.i ], [ %.sroa.073.0.i.i.i, %533 ]
   %.sroa.475.0.i.i1085.i = phi i64 [ %.sroa.04.0.copyload.i.i.i.i, %.thread1074.i ], [ %.sroa.475.0.i.i.i, %533 ]
-  %.sroa.677.i.sroa.0.0.i1083.i = phi ptr [ %.sroa.6.i.i.sroa.0.0.copyload110.i.i, %.thread1074.i ], [ %.sroa.677.i.sroa.0.0.i.i, %533 ]
+  %.sroa.677.i.sroa.0.1.i1083.i = phi ptr [ %.sroa.6.i.i.sroa.0.0.copyload110.i.i, %.thread1074.i ], [ %.sroa.677.i.sroa.0.1.i.i, %533 ]
   %.sroa.677.i.sroa.6.i.sroa.6.01082.i = phi i64 [ %.sroa.6.i.i.sroa.7.i.sroa.7.0.copyload1055.i, %.thread1074.i ], [ %.sroa.677.i.sroa.6.i.sroa.6.0.i, %533 ]
   %537 = phi <2 x i64> [ %513, %.thread1074.i ], [ %534, %533 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.793.i.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.677.i.sroa.6.i.sroa.0.i, i64 24, i1 false), !noalias !2099
@@ -16672,7 +16672,7 @@ common.ret:                                       ; preds = %1223, %1224
 567:                                              ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i", %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i", %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i"
   %.sroa.793.i.sroa.4.0.i = phi i64 [ %.sroa.677.i.sroa.6.i.sroa.6.01082.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ undef, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ undef, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
   %.sink.i408.i = phi ptr [ %558, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ %337, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ %337, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
-  %.sroa.592.0.i.i = phi ptr [ %.sroa.677.i.sroa.0.0.i1083.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
+  %.sroa.592.0.i.i = phi ptr [ %.sroa.677.i.sroa.0.1.i1083.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
   %.sroa.391.0.i.i = phi i64 [ %.sroa.475.0.i.i1085.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ %388, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ %388, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
   %.sroa.090.0.i.i = phi i64 [ %.sroa.073.0.i.i1086.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ 3, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ 3, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
   %568 = phi <2 x i64> [ %537, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ undef, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ undef, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
@@ -17800,9 +17800,9 @@ _ZN4core3cmp9PartialEq2ne17h4cf0c94738cf25ceE.exit.i: ; preds = %702
   br label %857
 
 857:                                              ; preds = %865, %855, %848
-  %.sroa.01032.1.i = phi i8 [ 1, %865 ], [ 0, %848 ], [ 1, %855 ]
-  %.sroa.17.1.i = phi i64 [ %866, %865 ], [ %.sroa.6955.sroa.6.0.copyload.i, %848 ], [ %856, %855 ]
-  %.sroa.30.1.i = phi i64 [ undef, %865 ], [ %.sroa.30.2.insert.ext.i, %848 ], [ undef, %855 ]
+  %.sroa.01032.2.i = phi i8 [ 1, %865 ], [ 0, %848 ], [ 1, %855 ]
+  %.sroa.17.2.i = phi i64 [ %866, %865 ], [ %.sroa.6955.sroa.6.0.copyload.i, %848 ], [ %856, %855 ]
+  %.sroa.30.2.i = phi i64 [ undef, %865 ], [ %.sroa.30.2.insert.ext.i, %848 ], [ undef, %855 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %89), !noalias !2027
   br label %867
 
@@ -17839,9 +17839,9 @@ _ZN4core3cmp9PartialEq2ne17h4cf0c94738cf25ceE.exit.i: ; preds = %702
   br label %857
 
 867:                                              ; preds = %1195, %1087, %857
-  %.sroa.01032.2.i = phi i8 [ 1, %1195 ], [ 1, %1087 ], [ %.sroa.01032.1.i, %857 ]
-  %.sroa.17.2.i = phi i64 [ %1196, %1195 ], [ %1088, %1087 ], [ %.sroa.17.1.i, %857 ]
-  %.sroa.30.2.i = phi i64 [ undef, %1195 ], [ undef, %1087 ], [ %.sroa.30.1.i, %857 ]
+  %.sroa.01032.3.i = phi i8 [ 1, %1195 ], [ 1, %1087 ], [ %.sroa.01032.2.i, %857 ]
+  %.sroa.17.3.i = phi i64 [ %1196, %1195 ], [ %1088, %1087 ], [ %.sroa.17.2.i, %857 ]
+  %.sroa.30.3.i = phi i64 [ undef, %1195 ], [ undef, %1087 ], [ %.sroa.30.2.i, %857 ]
   invoke void @"_ZN4core3ptr103drop_in_place$LT$aws_sdk_kms..operation..get_public_key.._get_public_key_output..GetPublicKeyOutput$GT$17h77a9b1379d7c9b59E"(ptr noalias noundef nonnull align 8 dereferenceable(216) %136)
           to label %1204 unwind label %1202, !noalias !2031
 
@@ -19013,9 +19013,9 @@ _ZN4core3cmp9PartialEq2ne17hd2b374bfe580c1c8E.exit.thread.i: ; preds = %_ZN4core
   br label %1199
 
 1204:                                             ; preds = %1217, %867
-  %.sroa.01032.6.i = phi i8 [ 1, %1217 ], [ %.sroa.01032.2.i, %867 ]
-  %.sroa.17.6.i = phi i64 [ %1218, %1217 ], [ %.sroa.17.2.i, %867 ]
-  %.sroa.30.6.i = phi i64 [ undef, %1217 ], [ %.sroa.30.2.i, %867 ]
+  %.sroa.01032.4.i = phi i8 [ 1, %1217 ], [ %.sroa.01032.3.i, %867 ]
+  %.sroa.17.4.i = phi i64 [ %1218, %1217 ], [ %.sroa.17.3.i, %867 ]
+  %.sroa.30.4.i = phi i64 [ undef, %1217 ], [ %.sroa.30.3.i, %867 ]
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %136), !noalias !2027
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !2557
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h163a741ddb426c0dE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %573)
@@ -19099,9 +19099,9 @@ _ZN4core3cmp9PartialEq2ne17hd2b374bfe580c1c8E.exit.thread.i: ; preds = %_ZN4core
 
 1224:                                             ; preds = %981, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i", %322
   %1225 = phi ptr [ %331, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ %165, %322 ], [ %331, %981 ]
-  %.sroa.01032.3.i = phi i8 [ %.sroa.01032.6.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ 1, %322 ], [ 1, %981 ]
-  %.sroa.17.3.i = phi i64 [ %.sroa.17.6.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ %323, %322 ], [ %982, %981 ]
-  %.sroa.30.3.i = phi i64 [ %.sroa.30.6.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ undef, %322 ], [ undef, %981 ]
+  %.sroa.01032.0.i = phi i8 [ %.sroa.01032.4.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ 1, %322 ], [ 1, %981 ]
+  %.sroa.17.0.i = phi i64 [ %.sroa.17.4.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ %323, %322 ], [ %982, %981 ]
+  %.sroa.30.0.i = phi i64 [ %.sroa.30.4.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ undef, %322 ], [ undef, %981 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.934, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.161036.i, i64 6, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.11, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.271037.i, i64 48, i1 false)
   store i8 1, ptr %1225, align 8, !noalias !2027
@@ -19110,17 +19110,17 @@ _ZN4core3cmp9PartialEq2ne17hd2b374bfe580c1c8E.exit.thread.i: ; preds = %_ZN4core
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.7702.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %.sroa.11704.sroa.3.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %.sroa.13705.i)
-  store i8 %.sroa.01032.3.i, ptr %0, align 8
+  store i8 %.sroa.01032.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.934, i64 6, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.17.3.i, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sroa.17.0.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.536.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.536.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.11, i64 48, i1 false)
   %.sroa.637.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %.sroa.30.3.i, ptr %.sroa.637.0..sroa_idx, align 8
+  store i64 %.sroa.30.0.i, ptr %.sroa.637.0..sroa_idx, align 8
   br label %common.ret
 
 .body14:                                          ; preds = %1221, %324
@@ -20870,7 +20870,7 @@ common.ret:                                       ; preds = %995, %996
   br label %.body65.i.i
 
 530:                                              ; preds = %525, %523
-  %.sroa.677.i.sroa.0.0.i.i = phi ptr [ %.sroa.947.sroa.11.i.sroa.0.0.copyload.i.i, %525 ], [ %.sroa.7.sroa.7.i.sroa.0.0.copyload.i.i, %523 ]
+  %.sroa.677.i.sroa.0.1.i.i = phi ptr [ %.sroa.947.sroa.11.i.sroa.0.0.copyload.i.i, %525 ], [ %.sroa.7.sroa.7.i.sroa.0.0.copyload.i.i, %523 ]
   %.sroa.475.0.i.i.i = phi i64 [ %.sroa.947.sroa.9.0.copyload.i.i.i, %525 ], [ %.sroa.7.sroa.0.0.copyload.i.i.i, %523 ]
   %.sroa.073.0.i.i.i = phi i64 [ %.sroa.947.sroa.0.0.copyload.i.i.i, %525 ], [ %.sroa.063.0.copyload.i.i.i, %523 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.9.sroa.6.i.i, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.677.i.sroa.6.i.i, i64 128, i1 false), !noalias !2788
@@ -20887,7 +20887,7 @@ common.ret:                                       ; preds = %995, %996
 532:                                              ; preds = %530, %.thread126.i.i
   %.sroa.073.0.i133.i.i = phi i64 [ 7, %.thread126.i.i ], [ %.sroa.073.0.i.i.i, %530 ]
   %.sroa.475.0.i132.i.i = phi i64 [ %.sroa.04.0.copyload.i.i.i.i, %.thread126.i.i ], [ %.sroa.475.0.i.i.i, %530 ]
-  %.sroa.677.i.sroa.0.0131.i.i = phi ptr [ %.sroa.6.i.i.sroa.0.0.copyload104.i.i, %.thread126.i.i ], [ %.sroa.677.i.sroa.0.0.i.i, %530 ]
+  %.sroa.677.i.sroa.0.1131.i.i = phi ptr [ %.sroa.6.i.i.sroa.0.0.copyload104.i.i, %.thread126.i.i ], [ %.sroa.677.i.sroa.0.1.i.i, %530 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.793.i.i, ptr noundef nonnull align 8 dereferenceable(128) %.sroa.9.sroa.6.i.i, i64 128, i1 false), !noalias !2641
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %.sroa.894.i.i, ptr noundef nonnull align 8 dereferenceable(184) %.sroa.9.sroa.7.i.i, i64 184, i1 false), !noalias !2641
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.9.sroa.6.i.i)
@@ -20984,7 +20984,7 @@ common.ret:                                       ; preds = %995, %996
 
 562:                                              ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i", %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i", %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i"
   %.sink.i270.i = phi ptr [ %553, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ %337, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ %337, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
-  %.sroa.592.0.i.i = phi ptr [ %.sroa.677.i.sroa.0.0131.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
+  %.sroa.592.0.i.i = phi ptr [ %.sroa.677.i.sroa.0.1131.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ @anon.bc03be4b81514a0f564db6163b49c01c.50.llvm.17484987761838435091, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
   %.sroa.391.0.i.i = phi i64 [ %.sroa.475.0.i132.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ %389, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ %389, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
   %.sroa.090.0.i.i = phi i64 [ %.sroa.073.0.i133.i.i, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit71.i.i" ], [ 3, %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$aws_sdk_kms..client..Handle$GT$$GT$17h5b990b9a9241c2a2E.exit.i.i" ], [ 3, %"_ZN4core3ptr49drop_in_place$LT$aws_sdk_kms..config..Builder$GT$17h693c1f5f19bed58bE.exit.i.i.i" ]
   store i8 0, ptr %.sink.i270.i, align 1, !noalias !2641
@@ -22050,11 +22050,11 @@ thread-pre-split:                                 ; preds = %803
   br label %839
 
 839:                                              ; preds = %844, %838
-  %.sroa.0655.0.i = phi i8 [ 0, %838 ], [ 1, %844 ]
-  %.sroa.18.0.i = phi i8 [ %.sroa.4.sroa.4.sroa.4.0.extract.trunc.i, %838 ], [ undef, %844 ]
-  %.sroa.21.0.i = phi i64 [ %.sroa.21.17.insert.ext.i, %838 ], [ undef, %844 ]
-  %.sroa.11658.sroa.0.0.i = phi i8 [ %.sroa.6569.sroa.5.0.copyload.i, %838 ], [ %.sroa.11658.sroa.0.0.extract.trunc666.i, %844 ]
-  %.sroa.11658.sroa.8.0.in.i = phi i64 [ %.sroa.8570.1.copyload.i, %838 ], [ %.sroa.11658.sroa.8.0.extract.shift672.i, %844 ]
+  %.sroa.0655.1.i = phi i8 [ 0, %838 ], [ 1, %844 ]
+  %.sroa.18.1.i = phi i8 [ %.sroa.4.sroa.4.sroa.4.0.extract.trunc.i, %838 ], [ undef, %844 ]
+  %.sroa.21.1.i = phi i64 [ %.sroa.21.17.insert.ext.i, %838 ], [ undef, %844 ]
+  %.sroa.11658.sroa.0.1.i = phi i8 [ %.sroa.6569.sroa.5.0.copyload.i, %838 ], [ %.sroa.11658.sroa.0.0.extract.trunc666.i, %844 ]
+  %.sroa.11658.sroa.8.1.in.i = phi i64 [ %.sroa.8570.1.copyload.i, %838 ], [ %.sroa.11658.sroa.8.0.extract.shift672.i, %844 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %87), !noalias !2569
   invoke void @"_ZN4core3ptr75drop_in_place$LT$aws_sdk_kms..operation..sign.._sign_output..SignOutput$GT$17ha4b86287566b2e48E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %105)
           to label %851 unwind label %849, !noalias !2573
@@ -22096,11 +22096,11 @@ thread-pre-split:                                 ; preds = %803
   br label %846
 
 851:                                              ; preds = %989, %839
-  %.sroa.0655.1.i = phi i8 [ 1, %989 ], [ %.sroa.0655.0.i, %839 ]
-  %.sroa.18.1.i = phi i8 [ undef, %989 ], [ %.sroa.18.0.i, %839 ]
-  %.sroa.21.1.i = phi i64 [ undef, %989 ], [ %.sroa.21.0.i, %839 ]
-  %.sroa.11658.sroa.0.1.i = phi i8 [ %.sroa.11658.sroa.0.0.extract.trunc665.i, %989 ], [ %.sroa.11658.sroa.0.0.i, %839 ]
-  %.sroa.11658.sroa.8.1.in.i = phi i64 [ %.sroa.11658.sroa.8.0.extract.shift670.i, %989 ], [ %.sroa.11658.sroa.8.0.in.i, %839 ]
+  %.sroa.0655.2.i = phi i8 [ 1, %989 ], [ %.sroa.0655.1.i, %839 ]
+  %.sroa.18.2.i = phi i8 [ undef, %989 ], [ %.sroa.18.1.i, %839 ]
+  %.sroa.21.2.i = phi i64 [ undef, %989 ], [ %.sroa.21.1.i, %839 ]
+  %.sroa.11658.sroa.0.2.i = phi i8 [ %.sroa.11658.sroa.0.0.extract.trunc665.i, %989 ], [ %.sroa.11658.sroa.0.1.i, %839 ]
+  %.sroa.11658.sroa.8.2.in.i = phi i64 [ %.sroa.11658.sroa.8.0.extract.shift670.i, %989 ], [ %.sroa.11658.sroa.8.1.in.i, %839 ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %105), !noalias !2569
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !2939
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h163a741ddb426c0dE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %567)
@@ -22125,7 +22125,7 @@ thread-pre-split:                                 ; preds = %803
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i": ; preds = %858, %854, %.noexc352.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !2939
-  %860 = and i64 %.sroa.11658.sroa.8.1.in.i, 72057594037927935
+  %860 = and i64 %.sroa.11658.sroa.8.2.in.i, 72057594037927935
   br label %996
 
 861:                                              ; preds = %789, %785
@@ -22612,14 +22612,14 @@ thread-pre-split:                                 ; preds = %803
 
 996:                                              ; preds = %984, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i", %322
   %997 = phi ptr [ %331, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ %331, %984 ], [ %145, %322 ]
-  %.sroa.0655.2.i = phi i8 [ %.sroa.0655.1.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ 1, %984 ], [ 1, %322 ]
-  %.sroa.18.2.i = phi i8 [ %.sroa.18.1.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ undef, %984 ], [ undef, %322 ]
-  %.sroa.21.2.i = phi i64 [ %.sroa.21.1.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ undef, %984 ], [ undef, %322 ]
-  %.sroa.11658.sroa.0.2.i = phi i8 [ %.sroa.11658.sroa.0.1.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ %.sroa.11658.sroa.0.0.extract.trunc668.i, %984 ], [ %.sroa.11658.sroa.0.0.extract.trunc.i, %322 ]
-  %.sroa.11658.sroa.8.2.in.i = phi i64 [ %860, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ %.sroa.11658.sroa.8.0.extract.shift676.i, %984 ], [ %.sroa.11658.sroa.8.0.extract.shift.i, %322 ]
+  %.sroa.0655.0.i = phi i8 [ %.sroa.0655.2.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ 1, %984 ], [ 1, %322 ]
+  %.sroa.18.0.i = phi i8 [ %.sroa.18.2.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ undef, %984 ], [ undef, %322 ]
+  %.sroa.21.0.i = phi i64 [ %.sroa.21.2.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ undef, %984 ], [ undef, %322 ]
+  %.sroa.11658.sroa.0.0.i = phi i8 [ %.sroa.11658.sroa.0.2.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ %.sroa.11658.sroa.0.0.extract.trunc668.i, %984 ], [ %.sroa.11658.sroa.0.0.extract.trunc.i, %322 ]
+  %.sroa.11658.sroa.8.0.in.i = phi i64 [ %860, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hd0b093f9fcba14daE.exit.i" ], [ %.sroa.11658.sroa.8.0.extract.shift676.i, %984 ], [ %.sroa.11658.sroa.8.0.extract.shift.i, %322 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.937, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.10657.i, i64 6, i1 false)
-  %.sroa.11658.sroa.8.0.insert.shift.i = shl nuw i64 %.sroa.11658.sroa.8.2.in.i, 8
-  %.sroa.11658.sroa.0.0.insert.ext.i = zext i8 %.sroa.11658.sroa.0.2.i to i64
+  %.sroa.11658.sroa.8.0.insert.shift.i = shl nuw i64 %.sroa.11658.sroa.8.0.in.i, 8
+  %.sroa.11658.sroa.0.0.insert.ext.i = zext i8 %.sroa.11658.sroa.0.0.i to i64
   %.sroa.11658.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.11658.sroa.8.0.insert.shift.i, %.sroa.11658.sroa.0.0.insert.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.12, ptr noundef nonnull align 8 dereferenceable(47) %.sroa.20.i, i64 47, i1 false)
   store i8 1, ptr %997, align 8, !noalias !2569
@@ -22628,7 +22628,7 @@ thread-pre-split:                                 ; preds = %803
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %.sroa.7479.i)
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %.sroa.11480.i)
   call void @llvm.lifetime.end.p0(i64 624, ptr nonnull %102)
-  store i8 %.sroa.0655.2.i, ptr %0, align 8
+  store i8 %.sroa.0655.0.i, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 1, ptr %.sroa.2.0..sroa_idx, align 1
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 2
@@ -22636,11 +22636,11 @@ thread-pre-split:                                 ; preds = %803
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.11658.sroa.0.0.insert.insert.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.541.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 %.sroa.18.2.i, ptr %.sroa.541.0..sroa_idx, align 8
+  store i8 %.sroa.18.0.i, ptr %.sroa.541.0..sroa_idx, align 8
   %.sroa.642.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %.sroa.642.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(47) %.sroa.12, i64 47, i1 false)
   %.sroa.743.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %.sroa.21.2.i, ptr %.sroa.743.0..sroa_idx, align 8
+  store i64 %.sroa.21.0.i, ptr %.sroa.743.0..sroa_idx, align 8
   br label %common.ret
 
 .body15:                                          ; preds = %993, %324

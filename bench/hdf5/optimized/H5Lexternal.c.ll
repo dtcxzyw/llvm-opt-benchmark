@@ -260,8 +260,8 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
   br label %191
 
 118:                                              ; preds = %107, %111
-  %.062 = phi ptr [ %112, %111 ], [ %13, %107 ]
-  %119 = call i32 @H5G_get_name(ptr noundef nonnull %8, ptr noundef nonnull %.062, i64 noundef %109, ptr noundef null, ptr noundef null) #6
+  %.264 = phi ptr [ %112, %111 ], [ %13, %107 ]
+  %119 = call i32 @H5G_get_name(ptr noundef nonnull %8, ptr noundef nonnull %.264, i64 noundef %109, ptr noundef null, ptr noundef null) #6
   %120 = icmp slt i32 %119, 0
   br i1 %120, label %121, label %125
 
@@ -276,7 +276,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
   %127 = load i64, ptr %11, align 8
   %128 = getelementptr inbounds i8, ptr %10, i64 8
   %129 = load ptr, ptr %128, align 8
-  %130 = call i32 %126(ptr noundef %100, ptr noundef nonnull %.062, ptr noundef nonnull %28, ptr noundef nonnull %31, ptr noundef nonnull %9, i64 noundef %127, ptr noundef %129) #6
+  %130 = call i32 %126(ptr noundef %100, ptr noundef nonnull %.264, ptr noundef nonnull %28, ptr noundef nonnull %31, ptr noundef nonnull %9, i64 noundef %127, ptr noundef %129) #6
   %131 = icmp slt i32 %130, 0
   br i1 %131, label %132, label %136
 
@@ -299,7 +299,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
   br label %191
 
 143:                                              ; preds = %136, %95
-  %.163 = phi ptr [ null, %95 ], [ %.062, %136 ]
+  %.163 = phi ptr [ null, %95 ], [ %.264, %136 ]
   %144 = call i32 @H5P_set(ptr noundef nonnull %89, ptr noundef nonnull @.str.19, ptr noundef nonnull %14) #6
   %145 = icmp slt i32 %144, 0
   br i1 %145, label %146, label %150
@@ -373,7 +373,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
 
 191:                                              ; preds = %183, %187, %179, %172, %165, %153, %146, %139, %132, %121, %114, %103, %91, %82, %75, %56, %49, %42, %35, %23, %18
   %.065 = phi i64 [ -1, %18 ], [ -1, %23 ], [ -1, %35 ], [ -1, %42 ], [ -1, %49 ], [ -1, %56 ], [ -1, %75 ], [ -1, %82 ], [ -1, %91 ], [ -1, %103 ], [ -1, %114 ], [ -1, %121 ], [ -1, %132 ], [ -1, %139 ], [ -1, %146 ], [ -1, %153 ], [ -1, %165 ], [ -1, %172 ], [ -1, %179 ], [ %185, %187 ], [ %185, %183 ]
-  %.264 = phi ptr [ null, %18 ], [ null, %23 ], [ null, %35 ], [ null, %42 ], [ null, %49 ], [ null, %56 ], [ null, %75 ], [ null, %82 ], [ null, %91 ], [ null, %103 ], [ null, %114 ], [ %.062, %121 ], [ %.062, %132 ], [ %.062, %139 ], [ %.163, %146 ], [ %.163, %153 ], [ %.163, %165 ], [ %.163, %172 ], [ %.163, %179 ], [ %.163, %187 ], [ %.163, %183 ]
+  %.062 = phi ptr [ null, %18 ], [ null, %23 ], [ null, %35 ], [ null, %42 ], [ null, %49 ], [ null, %56 ], [ null, %75 ], [ null, %82 ], [ null, %91 ], [ null, %103 ], [ null, %114 ], [ %.264, %121 ], [ %.264, %132 ], [ %.264, %139 ], [ %.163, %146 ], [ %.163, %153 ], [ %.163, %165 ], [ %.163, %172 ], [ %.163, %179 ], [ %.163, %187 ], [ %.163, %183 ]
   %.061 = phi i64 [ -1, %18 ], [ -1, %23 ], [ -1, %35 ], [ -1, %42 ], [ -1, %49 ], [ -1, %56 ], [ -1, %75 ], [ -1, %82 ], [ -1, %91 ], [ -1, %103 ], [ -1, %114 ], [ -1, %121 ], [ -1, %132 ], [ -1, %139 ], [ -1, %146 ], [ -1, %153 ], [ -1, %165 ], [ -1, %172 ], [ -1, %179 ], [ -1, %187 ], [ %185, %183 ]
   %.0 = phi ptr [ null, %18 ], [ null, %23 ], [ null, %35 ], [ null, %42 ], [ null, %49 ], [ null, %56 ], [ null, %75 ], [ null, %82 ], [ null, %91 ], [ null, %103 ], [ null, %114 ], [ null, %121 ], [ null, %132 ], [ null, %139 ], [ null, %146 ], [ null, %153 ], [ null, %165 ], [ %163, %172 ], [ %163, %179 ], [ %163, %187 ], [ %163, %183 ]
   %192 = load i64, ptr %11, align 8
@@ -411,13 +411,13 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
 
 211:                                              ; preds = %207, %202, %201
   %.2 = phi i64 [ -1, %207 ], [ %.1, %202 ], [ %.1, %201 ]
-  %212 = icmp ne ptr %.264, null
-  %213 = icmp ne ptr %.264, %13
+  %212 = icmp ne ptr %.062, null
+  %213 = icmp ne ptr %.062, %13
   %or.cond = and i1 %212, %213
   br i1 %or.cond, label %214, label %216
 
 214:                                              ; preds = %211
-  %215 = call ptr @H5MM_xfree(ptr noundef nonnull %.264) #6
+  %215 = call ptr @H5MM_xfree(ptr noundef nonnull %.062) #6
   br label %216
 
 216:                                              ; preds = %214, %211

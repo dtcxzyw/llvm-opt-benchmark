@@ -539,7 +539,7 @@ define i32 @Gia_ManProcessLevel(ptr nocapture noundef %0, i32 noundef %1) local_
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %27
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %27 ], [ 0, %.lr.ph ]
-  %.267.us = phi i32 [ %.3.us, %27 ], [ 0, %.lr.ph ]
+  %.367.us = phi i32 [ %.4.us, %27 ], [ 0, %.lr.ph ]
   %.val60.us = load ptr, ptr %10, align 8
   %13 = getelementptr inbounds i32, ptr %.val60.us, i64 %indvars.iv79
   %14 = load i32, ptr %13, align 4
@@ -556,11 +556,11 @@ define i32 @Gia_ManProcessLevel(ptr nocapture noundef %0, i32 noundef %1) local_
 
 24:                                               ; preds = %.lr.ph.split.us
   %25 = tail call i32 @Gia_ManFindOrAddNode(ptr noundef nonnull %0, i32 noundef 5, i32 noundef %21, ptr noundef null)
-  %26 = add nsw i32 %.267.us, 1
+  %26 = add nsw i32 %.367.us, 1
   br label %27
 
 27:                                               ; preds = %24, %.lr.ph.split.us
-  %.3.us = phi i32 [ %.267.us, %.lr.ph.split.us ], [ %26, %24 ]
+  %.4.us = phi i32 [ %.367.us, %.lr.ph.split.us ], [ %26, %24 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %.val.us = load i32, ptr %8, align 4
   %28 = sext i32 %.val.us to i64
@@ -644,7 +644,7 @@ Abc_TtEqual.exit.thread:                          ; preds = %55, %Abc_TtEqual.ex
 
 64:                                               ; preds = %.lr.ph.split, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %78 ]
-  %.267 = phi i32 [ 0, %.lr.ph.split ], [ %.3, %78 ]
+  %.367 = phi i32 [ 0, %.lr.ph.split ], [ %.4, %78 ]
   %.val60 = load ptr, ptr %10, align 8
   %65 = getelementptr inbounds i32, ptr %.val60, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4
@@ -660,11 +660,11 @@ Abc_TtEqual.exit.thread:                          ; preds = %55, %Abc_TtEqual.ex
 
 75:                                               ; preds = %64
   %76 = tail call i32 @Gia_ManFindOrAddNode(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %72, ptr noundef null)
-  %77 = add nsw i32 %.267, 1
+  %77 = add nsw i32 %.367, 1
   br label %78
 
 78:                                               ; preds = %64, %75
-  %.3 = phi i32 [ %.267, %64 ], [ %77, %75 ]
+  %.4 = phi i32 [ %.367, %64 ], [ %77, %75 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %8, align 4
   %79 = sext i32 %.val to i64
@@ -672,8 +672,8 @@ Abc_TtEqual.exit.thread:                          ; preds = %55, %Abc_TtEqual.ex
   br i1 %80, label %64, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %78, %27, %Abc_TtEqual.exit.thread, %Abc_TtEqual.exit.thread.us, %.preheader, %34
-  %.4 = phi i32 [ 0, %34 ], [ 0, %.preheader ], [ 0, %Abc_TtEqual.exit.thread.us ], [ %.154, %Abc_TtEqual.exit.thread ], [ %.3.us, %27 ], [ %.3, %78 ]
-  ret i32 %.4
+  %.2 = phi i32 [ 0, %34 ], [ 0, %.preheader ], [ 0, %Abc_TtEqual.exit.thread.us ], [ %.154, %Abc_TtEqual.exit.thread ], [ %.4.us, %27 ], [ %.4, %78 ]
+  ret i32 %.2
 }
 
 ; Function Attrs: nounwind uwtable

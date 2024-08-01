@@ -42248,7 +42248,7 @@ default.unreachable320:                           ; preds = %251, %2
   br label %211
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hcbd6300a64c4e229E.exit": ; preds = %213, %579, %226
-  %.2 = phi ptr [ %.fca.1.extract, %579 ], [ %139, %226 ], [ %214, %213 ]
+  %.3 = phi ptr [ %.fca.1.extract, %579 ], [ %139, %226 ], [ %214, %213 ]
   %217 = getelementptr inbounds i8, ptr %0, i64 3512
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !5969
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h52e88670787a671eE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %217)
@@ -42284,7 +42284,7 @@ default.unreachable320:                           ; preds = %251, %2
   br label %228
 
 228:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h940161dc4663eb48E.exit", %227
-  %.3 = phi ptr [ %.2, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h940161dc4663eb48E.exit" ], [ %129, %227 ]
+  %.4 = phi ptr [ %.3, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h940161dc4663eb48E.exit" ], [ %129, %227 ]
   %229 = getelementptr inbounds i8, ptr %0, i64 160
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !5976
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h52e88670787a671eE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %229)
@@ -43251,9 +43251,9 @@ common.ret:                                       ; preds = %576, %435
   br label %576
 
 576:                                              ; preds = %600, %574, %595
-  %.4 = phi ptr [ null, %574 ], [ %.3, %600 ], [ %.3, %595 ]
+  %.1 = phi ptr [ null, %574 ], [ %.4, %600 ], [ %.4, %595 ]
   store i8 1, ptr %50, align 2
-  %577 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.4, 1
+  %577 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.1, 1
   br label %common.ret
 
 578:                                              ; preds = %528, %519
@@ -63062,7 +63062,7 @@ default.unreachable832:                           ; preds = %527, %330, %3
   br label %324
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h400f74d0fbfeebeeE.exit": ; preds = %452, %816, %307, %209, %762
-  %.sroa.10732.2 = phi ptr [ %.sroa.10732.3, %762 ], [ %.sroa.10732.0, %209 ], [ %308, %307 ], [ %.fca.1.extract137, %816 ], [ %.sroa.5735.0, %452 ]
+  %.sroa.10732.2 = phi ptr [ %.sroa.10732.4, %762 ], [ %.sroa.10732.0, %209 ], [ %308, %307 ], [ %.fca.1.extract137, %816 ], [ %.sroa.5735.0, %452 ]
   invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9a47296061e8ed1E.llvm.12836552674783018658"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
           to label %313 unwind label %311
 
@@ -64409,7 +64409,7 @@ common.ret:                                       ; preds = %1033, %813, %782, %
   br label %762
 
 762:                                              ; preds = %785, %761
-  %.sroa.10732.3 = phi ptr [ %.sroa.7637.0788, %761 ], [ %.fca.1.extract, %785 ]
+  %.sroa.10732.4 = phi ptr [ %.sroa.7637.0788, %761 ], [ %.fca.1.extract, %785 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0630.sroa.0)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.0630.sroa.11)
   call void @llvm.lifetime.end.p0(i64 1136, ptr nonnull %.sroa.0630.sroa.12)
@@ -65239,11 +65239,11 @@ common.ret:                                       ; preds = %1033, %813, %782, %
   br label %1033
 
 1033:                                             ; preds = %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h27662129950bb2c9E.exit", %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h92d6a17003b20cb7E.exit"
-  %.sroa.0731.4 = phi i64 [ 3, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h92d6a17003b20cb7E.exit" ], [ 4, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h27662129950bb2c9E.exit" ]
-  %.sroa.10732.4 = phi ptr [ undef, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h92d6a17003b20cb7E.exit" ], [ %.sroa.10732.2, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h27662129950bb2c9E.exit" ]
-  store i64 %.sroa.0731.4, ptr %0, align 8
+  %.sroa.0731.3 = phi i64 [ 3, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h92d6a17003b20cb7E.exit" ], [ 4, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h27662129950bb2c9E.exit" ]
+  %.sroa.10732.3 = phi ptr [ undef, %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$ockam_core..routing..route..Route$GT$$GT$17h92d6a17003b20cb7E.exit" ], [ %.sroa.10732.2, %"_ZN4core3ptr54drop_in_place$LT$ockam_core..routing..route..Route$GT$17h27662129950bb2c9E.exit" ]
+  store i64 %.sroa.0731.3, ptr %0, align 8
   %.sroa.10732.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.10732.4, ptr %.sroa.10732.0..sroa_idx, align 8
+  store ptr %.sroa.10732.3, ptr %.sroa.10732.0..sroa_idx, align 8
   br label %common.ret
 
 1034:                                             ; preds = %1024, %1013
@@ -67189,7 +67189,7 @@ _ZN4core3cmp9PartialEq2ne17hd187123e2a43dc54E.exit: ; preds = %103, %101, %"_ZN1
   br label %152
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hcbd6300a64c4e229E.exit": ; preds = %287, %302, %172, %154, %140, %176, %315
-  %.2 = phi ptr [ %317, %315 ], [ %178, %176 ], [ %141, %140 ], [ %155, %154 ], [ %173, %172 ], [ %303, %302 ], [ %284, %287 ]
+  %.4 = phi ptr [ %317, %315 ], [ %178, %176 ], [ %141, %140 ], [ %155, %154 ], [ %173, %172 ], [ %303, %302 ], [ %284, %287 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26), !noalias !8866
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h52e88670787a671eE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %105)
           to label %.noexc287 unwind label %322
@@ -67802,7 +67802,7 @@ _ZN4core3cmp9PartialEq2ne17hd187123e2a43dc54E.exit: ; preds = %103, %101, %"_ZN1
   br label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hcbd6300a64c4e229E.exit335"
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hcbd6300a64c4e229E.exit335": ; preds = %351, %341
-  %.7 = phi ptr [ %.2, %341 ], [ %352, %351 ]
+  %.9 = phi ptr [ %.4, %341 ], [ %352, %351 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !8946
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h52e88670787a671eE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %80)
           to label %.noexc330 unwind label %356
@@ -67855,7 +67855,7 @@ _ZN4core3cmp9PartialEq2ne17hd187123e2a43dc54E.exit: ; preds = %103, %101, %"_ZN1
   br label %355
 
 358:                                              ; preds = %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h031c37a5e1c30fdfE.exit", %376
-  %.9 = phi ptr [ %78, %376 ], [ %.7, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h031c37a5e1c30fdfE.exit" ]
+  %.10 = phi ptr [ %78, %376 ], [ %.9, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h031c37a5e1c30fdfE.exit" ]
   invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc9a47296061e8ed1E.llvm.12836552674783018658"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
           to label %361 unwind label %359
 
@@ -67943,14 +67943,14 @@ _ZN4core3cmp9PartialEq2ne17hd187123e2a43dc54E.exit: ; preds = %103, %101, %"_ZN1
   br i1 %388, label %.thread, label %389
 
 389:                                              ; preds = %.thread, %387
-  %.10574 = phi ptr [ %.10575, %.thread ], [ %.9, %387 ]
+  %.2574 = phi ptr [ %.2575, %.thread ], [ %.10, %387 ]
   store i8 0, ptr %54, align 1
   %390 = load i8, ptr %56, align 2, !range !75, !noundef !5
   %391 = trunc nuw i8 %390 to i1
   br i1 %391, label %396, label %394
 
 .thread:                                          ; preds = %53, %387
-  %.10575 = phi ptr [ %.9, %387 ], [ null, %53 ]
+  %.2575 = phi ptr [ %.10, %387 ], [ null, %53 ]
   invoke void @"_ZN4core3ptr80drop_in_place$LT$ockam_core..message..Routed$LT$ockam_core..message..Any$GT$$GT$17h9e7315e338c3ed20E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %59)
           to label %389 unwind label %392
 
@@ -67964,9 +67964,9 @@ common.ret:                                       ; preds = %823, %697, %686, %5
   ret { i64, ptr } %common.ret.op
 
 394:                                              ; preds = %871, %396, %389
-  %.11 = phi ptr [ %.12, %871 ], [ %.10574, %396 ], [ %.10574, %389 ]
+  %.1 = phi ptr [ %.12, %871 ], [ %.2574, %396 ], [ %.2574, %389 ]
   store i8 1, ptr %51, align 1
-  %395 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.11, 1
+  %395 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.1, 1
   br label %common.ret
 
 396:                                              ; preds = %389
@@ -90233,7 +90233,7 @@ default.unreachable440:                           ; preds = %2
   br label %130
 
 130:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h940161dc4663eb48E.exit302", %136, %129
-  %.1117 = phi ptr [ %.fca.1.extract111, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h940161dc4663eb48E.exit302" ], [ %112, %136 ], [ %123, %129 ]
+  %.2 = phi ptr [ %.fca.1.extract111, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h940161dc4663eb48E.exit302" ], [ %112, %136 ], [ %123, %129 ]
   %131 = getelementptr inbounds i8, ptr %0, i64 546
   store i8 0, ptr %131, align 2
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %29)
@@ -90593,7 +90593,7 @@ default.unreachable440:                           ; preds = %2
   br label %222
 
 251:                                              ; preds = %277, %149, %130
-  %.2 = phi ptr [ %.1117, %130 ], [ %150, %149 ], [ %.fca.1.extract, %277 ]
+  %.3 = phi ptr [ %.2, %130 ], [ %150, %149 ], [ %.fca.1.extract, %277 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !11515
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h52e88670787a671eE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0)
           to label %.noexc257 unwind label %318
@@ -90789,9 +90789,9 @@ common.ret:                                       ; preds = %431, %322, %289, %2
   br label %322
 
 322:                                              ; preds = %456, %320, %448
-  %.3 = phi ptr [ %.2, %456 ], [ %.2, %448 ], [ null, %320 ]
+  %.1117 = phi ptr [ %.3, %456 ], [ %.3, %448 ], [ null, %320 ]
   store i8 1, ptr %42, align 1
-  %323 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.3, 1
+  %323 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.1117, 1
   br label %common.ret
 
 324:                                              ; preds = %.noexc262, %293

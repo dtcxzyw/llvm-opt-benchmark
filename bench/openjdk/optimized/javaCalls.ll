@@ -1479,13 +1479,13 @@ _ZNK6HandleclEv.exit:                             ; preds = %_ZN17JavaCallArgume
   br label %136
 
 136:                                              ; preds = %129, %132, %124
-  %.0 = phi ptr [ %0, %124 ], [ %131, %132 ], [ %131, %129 ]
+  %.1 = phi ptr [ %0, %124 ], [ %131, %132 ], [ %131, %129 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #8
   br label %137
 
 137:                                              ; preds = %63, %136
-  %.155 = phi i1 [ %.not73, %136 ], [ true, %63 ]
-  %.1 = phi ptr [ %.0, %136 ], [ %0, %63 ]
+  %.054 = phi i1 [ %.not73, %136 ], [ true, %63 ]
+  %.0 = phi ptr [ %.1, %136 ], [ %0, %63 ]
   %138 = load ptr, ptr %5, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 1072
   %140 = load ptr, ptr %139, align 8
@@ -1536,13 +1536,13 @@ _ZN15JavaFrameAnchor4copyEPS_.exit.i:             ; preds = %148, %137
 
 _ZN15JavaCallWrapperD2Ev.exit:                    ; preds = %_ZN15JavaFrameAnchor4copyEPS_.exit.i, %159, %162
   %.not57 = xor i1 %48, true
-  %brmerge = or i1 %.155, %.not57
+  %brmerge = or i1 %.054, %.not57
   br i1 %brmerge, label %167, label %163
 
 163:                                              ; preds = %_ZN15JavaCallWrapperD2Ev.exit
   %164 = getelementptr inbounds i8, ptr %3, i64 1016
   %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds i8, ptr %.1, i64 8
+  %166 = getelementptr inbounds i8, ptr %.0, i64 8
   store ptr %165, ptr %166, align 8
   store ptr null, ptr %164, align 8
   br label %167

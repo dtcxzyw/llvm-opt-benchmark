@@ -4914,7 +4914,7 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   br label %.body
 
 .body:                                            ; preds = %106, %.body.i, %108
-  %.010 = phi i1 [ false, %108 ], [ true, %.body.i ], [ true, %106 ]
+  %.111 = phi i1 [ false, %108 ], [ true, %.body.i ], [ true, %106 ]
   %.pn = phi { ptr, i32 } [ %109, %108 ], [ %31, %.body.i ], [ %107, %106 ]
   %110 = load i32, ptr %5, align 8
   %111 = sext i32 %110 to i64
@@ -4931,7 +4931,7 @@ _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackField
   unreachable
 
 _ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit18: ; preds = %.body
-  br i1 %.010, label %117, label %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit26
+  br i1 %.111, label %117, label %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit26
 
 117:                                              ; preds = %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit18.thread, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit18
   %.pn.pn35 = phi { ptr, i32 } [ %105, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit18.thread ], [ %.pn, %_ZN4Luau7VariantIJNS_8TypePath8PropertyENS1_5IndexENS1_9TypeFieldENS1_9PackFieldENS1_9ReductionEEED2Ev.exit18 ]

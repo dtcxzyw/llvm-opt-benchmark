@@ -809,8 +809,8 @@ define i32 @cli_scanishield(ptr noundef %0, i64 noundef %1, i64 noundef %2) loca
 .outer303:                                        ; preds = %320, %.lr.ph309.i
   %.0183308.i.ph = phi i32 [ %326, %320 ], [ %155, %.lr.ph309.i ]
   %.0184306.i.ph = phi i32 [ %327, %320 ], [ 0, %.lr.ph309.i ]
-  %.0185305.i.ph = phi i32 [ %.2.i, %320 ], [ 0, %.lr.ph309.i ]
-  %.0187304.i.ph = phi i32 [ %.3190.i, %320 ], [ 22, %.lr.ph309.i ]
+  %.0185305.i.ph = phi i32 [ %.1186.i, %320 ], [ 0, %.lr.ph309.i ]
+  %.0187304.i.ph = phi i32 [ %.1188.i, %320 ], [ 22, %.lr.ph309.i ]
   %159 = zext i32 %.0183308.i.ph to i64
   %160 = add nsw i64 %.sroa.12.0.ph221, %159
   %161 = load ptr, ptr %111, align 8
@@ -1091,8 +1091,8 @@ md5str.exit.i:                                    ; preds = %175
   br label %.thread325.i
 
 .thread325.i:                                     ; preds = %.thread325.fold.split.i, %302, %301, %289, %.critedge.thread.i, %288, %251, %244, %230
-  %.3190.i = phi i32 [ %.0187304.i.lcssa, %302 ], [ %.0187304.i.lcssa, %244 ], [ %.0187304.i.lcssa, %251 ], [ %.0187304.i.lcssa, %301 ], [ %.0187304.i.lcssa, %230 ], [ 0, %288 ], [ 0, %.critedge.thread.i ], [ 0, %289 ], [ %.0187304.i.lcssa, %.thread325.fold.split.i ]
-  %.2.i = phi i32 [ %.0185305.i.ph, %302 ], [ %.0185305.i.ph, %244 ], [ %.0185305.i.ph, %251 ], [ %.0185305.i.ph, %301 ], [ %.0185305.i.ph, %230 ], [ %.0185305.i.ph, %288 ], [ %.0185305.i.ph, %.critedge.thread.i ], [ %274, %289 ], [ %274, %.thread325.fold.split.i ]
+  %.1188.i = phi i32 [ %.0187304.i.lcssa, %302 ], [ %.0187304.i.lcssa, %244 ], [ %.0187304.i.lcssa, %251 ], [ %.0187304.i.lcssa, %301 ], [ %.0187304.i.lcssa, %230 ], [ 0, %288 ], [ 0, %.critedge.thread.i ], [ 0, %289 ], [ %.0187304.i.lcssa, %.thread325.fold.split.i ]
+  %.1186.i = phi i32 [ %.0185305.i.ph, %302 ], [ %.0185305.i.ph, %244 ], [ %.0185305.i.ph, %251 ], [ %.0185305.i.ph, %301 ], [ %.0185305.i.ph, %230 ], [ %.0185305.i.ph, %288 ], [ %.0185305.i.ph, %.critedge.thread.i ], [ %274, %289 ], [ %274, %.thread325.fold.split.i ]
   %.not232.i = icmp eq ptr %spec.select234.i, @.str.35
   br i1 %.not232.i, label %311, label %303
 
@@ -1179,7 +1179,7 @@ is_parse_hdr.exit.thread173:                      ; preds = %127, %114, %110, %1
 
 is_parse_hdr.exit:                                ; preds = %320
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %4)
-  %336 = icmp eq i32 %.3190.i, 0
+  %336 = icmp eq i32 %.1188.i, 0
   br i1 %336, label %337, label %354
 
 337:                                              ; preds = %is_parse_hdr.exit.thread298, %is_parse_hdr.exit.thread173, %is_parse_hdr.exit
@@ -1191,8 +1191,8 @@ is_parse_hdr.exit:                                ; preds = %320
   br label %340
 
 340:                                              ; preds = %338, %337
-  %.2 = phi i32 [ %339, %338 ], [ 0, %337 ]
-  %341 = icmp eq i32 %.2, 0
+  %.3 = phi i32 [ %339, %338 ], [ 0, %337 ]
+  %341 = icmp eq i32 %.3, 0
   %342 = select i1 %106, i1 %341, i1 false
   br i1 %342, label %.lr.ph258.preheader, label %.loopexit
 
@@ -1217,24 +1217,24 @@ is_parse_hdr.exit:                                ; preds = %320
   br i1 %353, label %.lr.ph258, label %.loopexit.thread
 
 354:                                              ; preds = %is_parse_hdr.exit.thread, %is_parse_hdr.exit
-  %.0182.i171 = phi i32 [ %.0182.i.ph, %is_parse_hdr.exit.thread ], [ %.3190.i, %is_parse_hdr.exit ]
+  %.0182.i171 = phi i32 [ %.0182.i.ph, %is_parse_hdr.exit.thread ], [ %.1188.i, %is_parse_hdr.exit ]
   %355 = icmp eq i32 %.0182.i171, 22
   %spec.store.select = select i1 %355, i32 0, i32 %.0182.i171
   br label %.loopexit
 
 .loopexit:                                        ; preds = %97, %54, %340, %354, %105
-  %.4 = phi i32 [ %spec.store.select, %354 ], [ 0, %105 ], [ %.2, %340 ], [ 1, %54 ], [ %102, %97 ]
+  %.2 = phi i32 [ %spec.store.select, %354 ], [ 0, %105 ], [ %.3, %340 ], [ 1, %54 ], [ %102, %97 ]
   %.not138 = icmp eq ptr %.sroa.0.0.ph, null
   br i1 %.not138, label %.thread175, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph258, %.loopexit
-  %.4302 = phi i32 [ %.4, %.loopexit ], [ %350, %.lr.ph258 ]
+  %.2302 = phi i32 [ %.2, %.loopexit ], [ %350, %.lr.ph258 ]
   call void @free(ptr noundef nonnull %.sroa.0.0.ph) #13
   br label %.thread175
 
 .thread175:                                       ; preds = %.critedge.thread, %.loopexit.thread, %.loopexit
-  %.4179 = phi i32 [ %.4302, %.loopexit.thread ], [ %.4, %.loopexit ], [ 20, %.critedge.thread ]
-  ret i32 %.4179
+  %.2179 = phi i32 [ %.2302, %.loopexit.thread ], [ %.2, %.loopexit ], [ 20, %.critedge.thread ]
+  ret i32 %.2179
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1462,7 +1462,7 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
   br label %55
 
 55:                                               ; preds = %67, %51
-  %.280 = phi i64 [ %.179.ph, %51 ], [ %64, %67 ]
+  %.3 = phi i64 [ %.179.ph, %51 ], [ %64, %67 ]
   store ptr %8, ptr %20, align 8
   store i32 65536, ptr %21, align 8
   %56 = call i32 @inflate(ptr noundef nonnull %5, i32 noundef 0) #13
@@ -1482,7 +1482,7 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
   br i1 %.not98, label %63, label %.thread
 
 63:                                               ; preds = %58
-  %64 = add i64 %.280, %61
+  %64 = add i64 %.3, %61
   %65 = load i32, ptr %21, align 8
   %66 = icmp eq i32 %65, 65536
   %or.cond6 = select i1 %57, i1 true, i1 %66
@@ -1511,13 +1511,13 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
   br label %.thread108
 
 .loopexit:                                        ; preds = %63, %73
-  %.3 = phi i64 [ %2, %73 ], [ %64, %63 ]
+  %.4 = phi i64 [ %2, %73 ], [ %64, %63 ]
   %76 = call i32 @inflateEnd(ptr noundef nonnull %5) #13
   %.not113 = icmp eq i64 %47, 0
   br i1 %.not113, label %77, label %.preheader.outer
 
 .preheader.outer:                                 ; preds = %.preheader.lr.ph, %.loopexit
-  %.179.ph = phi i64 [ 0, %.preheader.lr.ph ], [ %.3, %.loopexit ]
+  %.179.ph = phi i64 [ 0, %.preheader.lr.ph ], [ %.4, %.loopexit ]
   %.173.ph = phi i64 [ %3, %.preheader.lr.ph ], [ %47, %.loopexit ]
   %.1.ph = phi i64 [ %1, %.preheader.lr.ph ], [ %52, %.loopexit ]
   br label %.preheader
@@ -1528,11 +1528,11 @@ define internal fastcc i32 @is_extract_cab(ptr noundef %0, i64 noundef %1, i64 n
 
 77:                                               ; preds = %.loopexit
   call void @free(ptr noundef %8) #13
-  %.not101 = icmp eq i64 %.3, %2
+  %.not101 = icmp eq i64 %.4, %2
   br i1 %.not101, label %79, label %78
 
 78:                                               ; preds = %77
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.55, i64 noundef %.3, ptr noundef nonnull %13, i64 noundef %2) #13
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.55, i64 noundef %.4, ptr noundef nonnull %13, i64 noundef %2) #13
   br label %80
 
 79:                                               ; preds = %77

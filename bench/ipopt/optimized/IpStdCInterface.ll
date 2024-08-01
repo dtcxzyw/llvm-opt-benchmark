@@ -1160,14 +1160,14 @@ _ZN5Ipopt8SmartPtrINS_4TNLPEEC2INS_16StdInterfaceTNLPEEERKNS0_IT_EE.exit: ; pred
 
 _ZN5Ipopt8SmartPtrINS_4TNLPEED2Ev.exit100:        ; preds = %175, %170, %167, %165, %163
   %.pn = phi { ptr, i32 } [ %164, %163 ], [ %166, %165 ], [ %168, %167 ], [ %168, %170 ], [ %168, %175 ]
-  %.071 = extractvalue { ptr, i32 } %.pn, 0
-  %.076 = extractvalue { ptr, i32 } %.pn, 1
+  %.1 = extractvalue { ptr, i32 } %.pn, 0
+  %.177 = extractvalue { ptr, i32 } %.pn, 1
   %179 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt24INVALID_STDINTERFACE_NLPE) #16
-  %180 = icmp eq i32 %.076, %179
+  %180 = icmp eq i32 %.177, %179
   br i1 %180, label %181, label %222
 
 181:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_4TNLPEED2Ev.exit100
-  %182 = call ptr @__cxa_begin_catch(ptr %.071) #16
+  %182 = call ptr @__cxa_begin_catch(ptr %.1) #16
   %183 = load ptr, ptr %0, align 8
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds i8, ptr %184, i64 104
@@ -1257,11 +1257,11 @@ _ZN5Ipopt8SmartPtrINS_16StdInterfaceTNLPEEaSEPS1_.exit104: ; preds = %_ZN5Ipopt8
 
 222:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_4TNLPEED2Ev.exit100
   %223 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt14IpoptExceptionE) #16
-  %224 = icmp eq i32 %.076, %223
+  %224 = icmp eq i32 %.177, %223
   br i1 %224, label %225, label %_ZN5Ipopt8SmartPtrINS_10JournalistEED2Ev.exit95
 
 225:                                              ; preds = %222
-  %226 = call ptr @__cxa_begin_catch(ptr %.071) #16
+  %226 = call ptr @__cxa_begin_catch(ptr %.1) #16
   %227 = load ptr, ptr %0, align 8
   %228 = load ptr, ptr %227, align 8
   %229 = getelementptr inbounds i8, ptr %228, i64 104

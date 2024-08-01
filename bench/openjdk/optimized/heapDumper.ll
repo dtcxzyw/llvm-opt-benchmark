@@ -2666,13 +2666,13 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %68, %70
 
 .preheader:                                       ; preds = %._crit_edge, %73
   %.pn = phi ptr [ %.019, %73 ], [ %0, %._crit_edge ]
-  %.2.in = phi i32 [ %.2, %73 ], [ %.0.lcssa, %._crit_edge ]
+  %.3.in = phi i32 [ %.3, %73 ], [ %.0.lcssa, %._crit_edge ]
   %storemerge.in = load i16, ptr %1, align 2
   %storemerge = add i16 %storemerge.in, 1
   store i16 %storemerge, ptr %1, align 2
   %.019.in = getelementptr inbounds i8, ptr %.pn, i64 376
   %.019 = load ptr, ptr %.019.in, align 8
-  %.2 = add i32 %.2.in, 8
+  %.3 = add i32 %.3.in, 8
   %.not20 = icmp eq ptr %.019, null
   br i1 %.not20, label %.critedge, label %73
 
@@ -2684,7 +2684,7 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %68, %70
   br i1 %.not21, label %.critedge, label %.preheader, !llvm.loop !11
 
 .critedge:                                        ; preds = %73, %.preheader, %._crit_edge
-  %.3 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.2, %.preheader ], [ %.2, %73 ]
+  %.2 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.3, %.preheader ], [ %.3, %73 ]
   %77 = call noundef ptr @_ZNK13InstanceKlass9init_lockEv(ptr noundef nonnull align 8 dereferenceable(464) %0) #19
   %.not22 = icmp eq ptr %77, null
   %.pre29 = load i16, ptr %1, align 2
@@ -2693,12 +2693,12 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %68, %70
 78:                                               ; preds = %.critedge
   %79 = add i16 %.pre29, 1
   store i16 %79, ptr %1, align 2
-  %80 = add i32 %.3, 8
+  %80 = add i32 %.2, 8
   br label %81
 
 81:                                               ; preds = %78, %.critedge
   %82 = phi i16 [ %79, %78 ], [ %.pre29, %.critedge ]
-  %.4 = phi i32 [ %80, %78 ], [ %.3, %.critedge ]
+  %.4 = phi i32 [ %80, %78 ], [ %.2, %.critedge ]
   %83 = zext i16 %82 to i32
   %84 = mul nuw nsw i32 %83, 9
   %85 = add i32 %84, %.4
@@ -10287,7 +10287,7 @@ _ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit: ; preds = %146
   br label %.thread49
 
 .thread49:                                        ; preds = %142, %146, %133, %_ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit, %144, %159
-  %.1 = phi i1 [ false, %159 ], [ %138, %144 ], [ %138, %_ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit ], [ %138, %133 ], [ %138, %146 ], [ %138, %142 ]
+  %.0 = phi i1 [ false, %159 ], [ %138, %144 ], [ %138, %_ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit ], [ %138, %133 ], [ %138, %146 ], [ %138, %142 ]
   %173 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #19
   %174 = call noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 dereferenceable(1800) %121) #19
   call void @_ZN12ThreadDumperC2ENS_10ThreadTypeEP10JavaThreadP7oopDesc(ptr noundef nonnull align 8 dereferenceable(48) %173, i32 noundef 0, ptr noundef nonnull %121, ptr noundef %174)
@@ -10298,7 +10298,7 @@ _ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit: ; preds = %146
   %178 = sext i32 %176 to i64
   %179 = getelementptr inbounds ptr, ptr %175, i64 %178
   store ptr %173, ptr %179, align 8
-  br i1 %.1, label %180, label %183
+  br i1 %.0, label %180, label %183
 
 180:                                              ; preds = %.thread49
   %181 = load ptr, ptr %109, align 8
@@ -10713,7 +10713,7 @@ _ZN8JfrEventI13EventHeapDumpE6commitEv.exit:      ; preds = %107, %_ZN8JfrEventI
   br label %130
 
 130:                                              ; preds = %_ZN10HeapDumper9set_errorEPKc.exit46, %50, %126
-  %.032 = phi i32 [ %129, %126 ], [ -1, %50 ], [ -1, %_ZN10HeapDumper9set_errorEPKc.exit46 ]
+  %.1 = phi i32 [ %129, %126 ], [ -1, %50 ], [ -1, %_ZN10HeapDumper9set_errorEPKc.exit46 ]
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV10DumpWriter, i64 16), ptr %8, align 8
   %131 = getelementptr inbounds i8, ptr %8, i64 8
   %132 = load ptr, ptr %131, align 8
@@ -10758,8 +10758,8 @@ _ZN8JfrEventI13EventHeapDumpE6commitEv.exit:      ; preds = %107, %_ZN8JfrEventI
   br label %_ZN10DumpWriterD2Ev.exit
 
 _ZN10DumpWriterD2Ev.exit:                         ; preds = %145, %142, %_ZN10HeapDumper9set_errorEPKc.exit
-  %.1 = phi i32 [ -1, %_ZN10HeapDumper9set_errorEPKc.exit ], [ %.032, %142 ], [ %.032, %145 ]
-  ret i32 %.1
+  %.032 = phi i32 [ -1, %_ZN10HeapDumper9set_errorEPKc.exit ], [ %.1, %142 ], [ %.1, %145 ]
+  ret i32 %.032
 }
 
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #5
@@ -17235,8 +17235,8 @@ _ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEvPKT_m.exit
 
@@ -17722,8 +17722,8 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvPKT_m.exit
 

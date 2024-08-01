@@ -77,15 +77,15 @@ define range(i32 -1, 1) i32 @MPL_env2range(ptr noundef %0, ptr nocapture noundef
   br i1 %32, label %.preheader, label %.critedge4
 
 .preheader:                                       ; preds = %.critedge2
-  %.266 = getelementptr inbounds i8, ptr %.163, i64 1
-  %33 = load i8, ptr %.266, align 1
+  %.366 = getelementptr inbounds i8, ptr %.163, i64 1
+  %33 = load i8, ptr %.366, align 1
   %.not4067 = icmp eq i8 %33, 0
   br i1 %.not4067, label %.critedge4.thread, label %.lr.ph70
 
 .lr.ph70:                                         ; preds = %.preheader, %39
   %34 = phi i8 [ %44, %39 ], [ %33, %.preheader ]
-  %.269 = phi ptr [ %.2, %39 ], [ %.266, %.preheader ]
-  %.02768 = phi i32 [ %43, %39 ], [ 0, %.preheader ]
+  %.369 = phi ptr [ %.3, %39 ], [ %.366, %.preheader ]
+  %.12868 = phi i32 [ %43, %39 ], [ 0, %.preheader ]
   %35 = sext i8 %34 to i64
   %36 = getelementptr inbounds i16, ptr %18, i64 %35
   %37 = load i16, ptr %36, align 2
@@ -95,11 +95,11 @@ define range(i32 -1, 1) i32 @MPL_env2range(ptr noundef %0, ptr nocapture noundef
 
 39:                                               ; preds = %.lr.ph70
   %40 = sext i8 %34 to i32
-  %41 = mul nsw i32 %.02768, 10
+  %41 = mul nsw i32 %.12868, 10
   %42 = add i32 %41, -48
   %43 = add i32 %42, %40
-  %.2 = getelementptr inbounds i8, ptr %.269, i64 1
-  %44 = load i8, ptr %.2, align 1
+  %.3 = getelementptr inbounds i8, ptr %.369, i64 1
+  %44 = load i8, ptr %.3, align 1
   %.not40 = icmp eq i8 %44, 0
   br i1 %.not40, label %.critedge4.thread, label %.lr.ph70, !llvm.loop !7
 
@@ -112,9 +112,9 @@ define range(i32 -1, 1) i32 @MPL_env2range(ptr noundef %0, ptr nocapture noundef
 
 .critedge4.thread:                                ; preds = %14, %25, %39, %.preheader50, %.preheader
   %.02956 = phi i32 [ %.02962, %.preheader ], [ 0, %.preheader50 ], [ %.02962, %39 ], [ %30, %25 ], [ 0, %14 ]
-  %.12848 = phi i32 [ 0, %.preheader ], [ 0, %.preheader50 ], [ %43, %39 ], [ 0, %25 ], [ 0, %14 ]
+  %.02748 = phi i32 [ 0, %.preheader ], [ 0, %.preheader50 ], [ %43, %39 ], [ 0, %25 ], [ 0, %14 ]
   store i32 %.02956, ptr %1, align 4
-  store i32 %.12848, ptr %2, align 4
+  store i32 %.02748, ptr %2, align 4
   br label %48
 
 48:                                               ; preds = %3, %.critedge4.thread, %.critedge4

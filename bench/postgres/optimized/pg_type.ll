@@ -861,8 +861,8 @@ switch.early.test:                                ; preds = %74
   br label %221
 
 221:                                              ; preds = %208, %218, %219
-  %.0 = phi i32 [ %213, %218 ], [ %220, %219 ], [ %0, %208 ]
-  %222 = zext i32 %.0 to i64
+  %.1 = phi i32 [ %213, %218 ], [ %220, %219 ], [ %0, %208 ]
+  %222 = zext i32 %.1 to i64
   store i64 %222, ptr %35, align 16
   %223 = getelementptr inbounds i8, ptr %177, i64 64
   %224 = load ptr, ptr %223, align 8
@@ -872,7 +872,7 @@ switch.early.test:                                ; preds = %74
 
 226:                                              ; preds = %221, %202
   %.0136 = phi ptr [ %205, %202 ], [ %225, %221 ]
-  %.1 = phi i32 [ %207, %202 ], [ %.0, %221 ]
+  %.0 = phi i32 [ %207, %202 ], [ %.1, %221 ]
   %227 = load i32, ptr @Mode, align 4
   %228 = icmp eq i32 %227, 0
   br i1 %228, label %234, label %229
@@ -895,12 +895,12 @@ switch.early.test:                                ; preds = %74
   br i1 %.not162, label %237, label %236
 
 236:                                              ; preds = %234
-  call void @RunObjectPostCreateHook(i32 noundef 1247, i32 noundef %.1, i32 noundef 0, i1 noundef zeroext false) #6
+  call void @RunObjectPostCreateHook(i32 noundef 1247, i32 noundef %.0, i32 noundef 0, i1 noundef zeroext false) #6
   br label %237
 
 237:                                              ; preds = %236, %234
   call void @table_close(ptr noundef nonnull %177, i32 noundef 3) #6
-  %.sroa.2132.0.insert.ext = zext i32 %.1 to i64
+  %.sroa.2132.0.insert.ext = zext i32 %.0 to i64
   %.sroa.2132.0.insert.shift = shl nuw i64 %.sroa.2132.0.insert.ext, 32
   %.sroa.0131.0.insert.insert = or disjoint i64 %.sroa.2132.0.insert.shift, 1247
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0131.0.insert.insert, 0

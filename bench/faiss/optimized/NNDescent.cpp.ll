@@ -5059,9 +5059,9 @@ define internal void @_ZN5faiss9NNDescent17generate_eval_setERNS_16DistanceCompu
 
 .lr.ph:                                           ; preds = %.preheader, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit ], [ 0, %.preheader ]
-  %.sroa.048.166 = phi ptr [ %.sroa.048.3, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit ], [ null, %.preheader ]
-  %.sroa.7.165 = phi ptr [ %.sroa.7.3, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit ], [ null, %.preheader ]
-  %.sroa.12.164 = phi ptr [ %.sroa.12.3, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit ], [ null, %.preheader ]
+  %.sroa.048.166 = phi ptr [ %.sroa.048.2, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit ], [ null, %.preheader ]
+  %.sroa.7.165 = phi ptr [ %.sroa.7.2, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit ], [ null, %.preheader ]
+  %.sroa.12.164 = phi ptr [ %.sroa.12.2, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit ], [ null, %.preheader ]
   %30 = load ptr, ptr %2, align 8
   %31 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv78
   %32 = load i32, ptr %31, align 4
@@ -5155,9 +5155,9 @@ _ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__
   br label %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %42, %.lr.ph
-  %.sroa.12.3 = phi ptr [ %.sroa.12.164, %.lr.ph ], [ %66, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.12.164, %42 ]
-  %.sroa.7.3 = phi ptr [ %.sroa.7.165, %.lr.ph ], [ %64, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %44, %42 ]
-  %.sroa.048.3 = phi ptr [ %.sroa.048.166, %.lr.ph ], [ %58, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.048.166, %42 ]
+  %.sroa.12.2 = phi ptr [ %.sroa.12.164, %.lr.ph ], [ %66, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.12.164, %42 ]
+  %.sroa.7.2 = phi ptr [ %.sroa.7.165, %.lr.ph ], [ %64, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %44, %42 ]
+  %.sroa.048.2 = phi ptr [ %.sroa.048.166, %.lr.ph ], [ %58, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.048.166, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = load i32, ptr %3, align 4
   %68 = sext i32 %67 to i64
@@ -5165,8 +5165,8 @@ _ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit: ; preds = 
   br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit, %.preheader
-  %.sroa.7.1.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.7.3, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit ]
-  %.sroa.048.1.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.048.3, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit ]
+  %.sroa.7.1.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.7.2, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit ]
+  %.sroa.048.1.lcssa = phi ptr [ null, %.preheader ], [ %.sroa.048.2, %_ZNSt6vectorIN5faiss9nndescent8NeighborESaIS2_EE9push_backEOS2_.exit ]
   %70 = load i32, ptr %26, align 8
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds %"struct.faiss::nndescent::Neighbor", ptr %.sroa.048.1.lcssa, i64 %71
@@ -6932,7 +6932,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %.noexc77, %_ZSt6fil
 
 .lr.ph126:                                        ; preds = %100, %166
   %104 = phi i32 [ %168, %166 ], [ %102, %100 ]
-  %.065124 = phi i32 [ %.166, %166 ], [ %.sroa.speculated, %100 ]
+  %.166124 = phi i32 [ %.267, %166 ], [ %.sroa.speculated, %100 ]
   %.068123 = phi i32 [ %167, %166 ], [ 0, %100 ]
   %105 = mul nsw i32 %104, %101
   %106 = add nsw i32 %105, %.068123
@@ -7058,21 +7058,21 @@ _ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split: ; pre
 
 _ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit: ; preds = %146, %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split, %._crit_edge.i, %156
   %.0.i = phi i32 [ %30, %156 ], [ %30, %._crit_edge.i ], [ %.0.i.ph, %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split ], [ %30, %146 ]
-  %spec.select = call i32 @llvm.smin.i32(i32 %.0.i, i32 %.065124)
+  %spec.select = call i32 @llvm.smin.i32(i32 %.0.i, i32 %.166124)
   br label %166
 
 166:                                              ; preds = %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit, %122, %.lr.ph126
-  %.166 = phi i32 [ %.065124, %.lr.ph126 ], [ %.065124, %122 ], [ %spec.select, %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit ]
+  %.267 = phi i32 [ %.166124, %.lr.ph126 ], [ %.166124, %122 ], [ %spec.select, %_ZN5faiss9nndescent16insert_into_poolEPNS0_8NeighborEiS1_.exit ]
   %167 = add nuw nsw i32 %.068123, 1
   %168 = load i32, ptr %83, align 8
   %169 = icmp slt i32 %167, %168
   br i1 %169, label %.lr.ph126, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %166, %100, %94
-  %.267 = phi i32 [ %.sroa.speculated, %94 ], [ %.sroa.speculated, %100 ], [ %.166, %166 ]
-  %.not = icmp sgt i32 %.267, %.063127
+  %.065 = phi i32 [ %.sroa.speculated, %94 ], [ %.sroa.speculated, %100 ], [ %.267, %166 ]
+  %.not = icmp sgt i32 %.065, %.063127
   %170 = add nsw i32 %.063127, 1
-  %.164 = select i1 %.not, i32 %170, i32 %.267
+  %.164 = select i1 %.not, i32 %170, i32 %.065
   %171 = icmp slt i32 %.164, %.sroa.speculated
   br i1 %171, label %94, label %.preheader, !llvm.loop !62
 

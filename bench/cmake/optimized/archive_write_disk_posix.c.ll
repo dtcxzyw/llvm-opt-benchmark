@@ -1412,14 +1412,14 @@ restore_entry.exit:                               ; preds = %188, %207, %218, %2
   br label %340
 
 340:                                              ; preds = %337, %335
-  %.0168 = phi i32 [ -30, %337 ], [ %.089.i, %335 ]
+  %.1 = phi i32 [ -30, %337 ], [ %.089.i, %335 ]
   %341 = load i32, ptr %28, align 8
   %342 = call i32 @close(i32 noundef %341) #19
   store i32 -1, ptr %28, align 8
   br label %343
 
 343:                                              ; preds = %340, %restore_entry.exit
-  %.1 = phi i32 [ %.0168, %340 ], [ %.089.i, %restore_entry.exit ]
+  %.0168 = phi i32 [ %.1, %340 ], [ %.089.i, %restore_entry.exit ]
   %344 = load i32, ptr %20, align 4
   %345 = and i32 %344, 872415232
   %.not198 = icmp eq i32 %345, 0
@@ -1704,7 +1704,7 @@ current_fixup.exit216.thread:                     ; preds = %427, %current_fixup
   br label %483
 
 483:                                              ; preds = %477, %470
-  %484 = icmp sgt i32 %.1, -21
+  %484 = icmp sgt i32 %.0168, -21
   br i1 %484, label %485, label %486
 
 485:                                              ; preds = %483
@@ -1722,7 +1722,7 @@ current_fixup.exit216.thread:                     ; preds = %427, %current_fixup
   br label %490
 
 490:                                              ; preds = %current_fixup.exit216.thread219, %current_fixup.exit214.thread218, %current_fixup.exit.thread217, %check_symlinks.exit, %cleanup_pathname.exit, %486, %489, %473, %455, %14, %2, %70
-  %.0 = phi i32 [ -20, %70 ], [ -30, %2 ], [ -30, %14 ], [ %60, %cleanup_pathname.exit ], [ %134, %check_symlinks.exit ], [ -30, %455 ], [ -30, %473 ], [ %.1, %489 ], [ %.1, %486 ], [ -30, %current_fixup.exit.thread217 ], [ -30, %current_fixup.exit214.thread218 ], [ -30, %current_fixup.exit216.thread219 ]
+  %.0 = phi i32 [ -20, %70 ], [ -30, %2 ], [ -30, %14 ], [ %60, %cleanup_pathname.exit ], [ %134, %check_symlinks.exit ], [ -30, %455 ], [ -30, %473 ], [ %.0168, %489 ], [ %.0168, %486 ], [ -30, %current_fixup.exit.thread217 ], [ -30, %current_fixup.exit214.thread218 ], [ -30, %current_fixup.exit216.thread219 ]
   ret i32 %.0
 }
 
@@ -1999,7 +1999,7 @@ archive_write_disk_gid.exit:                      ; preds = %109, %117, %120
 
 set_ownership.exit.thread:                        ; preds = %153, %139, %156, %.thread
   %.pre173 = phi i32 [ %125, %.thread ], [ %.pre173.pre, %156 ], [ %141, %139 ], [ %155, %153 ]
-  %.2 = phi i32 [ 0, %.thread ], [ -20, %156 ], [ 0, %139 ], [ 0, %153 ]
+  %.3 = phi i32 [ 0, %.thread ], [ -20, %156 ], [ 0, %139 ], [ 0, %153 ]
   %162 = getelementptr inbounds i8, ptr %0, i64 168
   %163 = load i64, ptr %162, align 8
   %.not132 = icmp eq i64 %163, 0
@@ -2024,13 +2024,13 @@ set_ownership.exit.thread:                        ; preds = %153, %139, %156, %.
 
 set_xattrs.exit:                                  ; preds = %165, %170
   %.0.i156 = phi i32 [ -20, %170 ], [ 0, %165 ]
-  %spec.select141 = tail call i32 @llvm.smin.i32(i32 %.0.i156, i32 %.2)
+  %spec.select141 = tail call i32 @llvm.smin.i32(i32 %.0.i156, i32 %.3)
   %.pre172 = load i32, ptr %89, align 8
   br label %171
 
 171:                                              ; preds = %set_xattrs.exit, %set_ownership.exit.thread
   %172 = phi i32 [ %.pre173, %set_ownership.exit.thread ], [ %.pre172, %set_xattrs.exit ]
-  %.3 = phi i32 [ %.2, %set_ownership.exit.thread ], [ %spec.select141, %set_xattrs.exit ]
+  %.4 = phi i32 [ %.3, %set_ownership.exit.thread ], [ %spec.select141, %set_xattrs.exit ]
   %173 = and i32 %172, 872415232
   %.not134 = icmp eq i32 %173, 0
   br i1 %.not134, label %266, label %174
@@ -2165,23 +2165,23 @@ lazy_stat.exit.i:                                 ; preds = %189
 
 239:                                              ; preds = %238, %233, %229
   %240 = phi i32 [ %.pre64.i, %238 ], [ %172, %233 ], [ %172, %229 ]
-  %.242.i = phi i32 [ %234, %238 ], [ %234, %233 ], [ %177, %229 ]
-  %.2.i = phi i32 [ -20, %238 ], [ 0, %233 ], [ 0, %229 ]
+  %.343.i = phi i32 [ %234, %238 ], [ %234, %233 ], [ %177, %229 ]
+  %.3.i = phi i32 [ -20, %238 ], [ 0, %233 ], [ 0, %229 ]
   %241 = and i32 %240, -134217729
   br label %.sink.split65.i
 
 .sink.split65.i:                                  ; preds = %239, %224
   %.sink66.i = phi i32 [ %241, %239 ], [ %226, %224 ]
-  %.343.ph.i = phi i32 [ %.242.i, %239 ], [ %.141.i, %224 ]
-  %.3.ph.i = phi i32 [ %.2.i, %239 ], [ %.1.i, %224 ]
+  %.242.ph.i = phi i32 [ %.343.i, %239 ], [ %.141.i, %224 ]
+  %.2.ph.i = phi i32 [ %.3.i, %239 ], [ %.1.i, %224 ]
   store i32 %.sink66.i, ptr %89, align 8
   %.pre174 = load i32, ptr %175, align 4
   br label %242
 
 242:                                              ; preds = %.sink.split65.i, %227
   %243 = phi i32 [ %176, %227 ], [ %.pre174, %.sink.split65.i ]
-  %.343.i = phi i32 [ %177, %227 ], [ %.343.ph.i, %.sink.split65.i ]
-  %.3.i = phi i32 [ 0, %227 ], [ %.3.ph.i, %.sink.split65.i ]
+  %.242.i = phi i32 [ %177, %227 ], [ %.242.ph.i, %.sink.split65.i ]
+  %.2.i = phi i32 [ 0, %227 ], [ %.2.ph.i, %.sink.split65.i ]
   %244 = trunc i32 %243 to i16
   %trunc.i = and i16 %244, -4096
   switch i16 %trunc.i, label %253 [
@@ -2192,7 +2192,7 @@ lazy_stat.exit.i:                                 ; preds = %189
 245:                                              ; preds = %242
   %246 = getelementptr inbounds i8, ptr %0, i64 440
   %247 = load ptr, ptr %246, align 8
-  %248 = tail call i32 @lchmod(ptr noundef %247, i32 noundef %.343.i) #19
+  %248 = tail call i32 @lchmod(ptr noundef %247, i32 noundef %.242.i) #19
   %.not59.i = icmp eq i32 %248, 0
   br i1 %.not59.i, label %set_mode.exit, label %249
 
@@ -2205,7 +2205,7 @@ lazy_stat.exit.i:                                 ; preds = %189
   ]
 
 252:                                              ; preds = %249
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %251, ptr noundef nonnull @.str.53, i32 noundef %.343.i) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %251, ptr noundef nonnull @.str.53, i32 noundef %.242.i) #19
   br label %set_mode.exit
 
 253:                                              ; preds = %242
@@ -2214,13 +2214,13 @@ lazy_stat.exit.i:                                 ; preds = %189
   br i1 %255, label %256, label %258
 
 256:                                              ; preds = %253
-  %257 = tail call i32 @fchmod(i32 noundef %254, i32 noundef %.343.i) #19
+  %257 = tail call i32 @fchmod(i32 noundef %254, i32 noundef %.242.i) #19
   br label %262
 
 258:                                              ; preds = %253
   %259 = getelementptr inbounds i8, ptr %0, i64 440
   %260 = load ptr, ptr %259, align 8
-  %261 = tail call i32 @chmod(ptr noundef %260, i32 noundef %.343.i) #19
+  %261 = tail call i32 @chmod(ptr noundef %260, i32 noundef %.242.i) #19
   br label %262
 
 262:                                              ; preds = %258, %256
@@ -2231,18 +2231,18 @@ lazy_stat.exit.i:                                 ; preds = %189
 263:                                              ; preds = %262
   %264 = tail call ptr @__errno_location() #21
   %265 = load i32, ptr %264, align 4
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %265, ptr noundef nonnull @.str.53, i32 noundef %.343.i) #19
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %265, ptr noundef nonnull @.str.53, i32 noundef %.242.i) #19
   br label %set_mode.exit
 
 set_mode.exit:                                    ; preds = %lazy_stat.exit.i, %242, %245, %249, %249, %252, %262, %263
-  %.044.i = phi i32 [ -20, %lazy_stat.exit.i ], [ -20, %252 ], [ %.3.i, %249 ], [ %.3.i, %249 ], [ %.3.i, %245 ], [ -20, %263 ], [ %.3.i, %262 ], [ %.3.i, %242 ]
-  %spec.select142 = tail call i32 @llvm.smin.i32(i32 %.044.i, i32 %.3)
+  %.044.i = phi i32 [ -20, %lazy_stat.exit.i ], [ -20, %252 ], [ %.2.i, %249 ], [ %.2.i, %249 ], [ %.2.i, %245 ], [ -20, %263 ], [ %.2.i, %262 ], [ %.2.i, %242 ]
+  %spec.select142 = tail call i32 @llvm.smin.i32(i32 %.044.i, i32 %.4)
   %.pre176.pre = load i32, ptr %89, align 8
   br label %266
 
 266:                                              ; preds = %set_mode.exit, %171
   %.pre176 = phi i32 [ %172, %171 ], [ %.pre176.pre, %set_mode.exit ]
-  %.4 = phi i32 [ %.3, %171 ], [ %spec.select142, %set_mode.exit ]
+  %.5 = phi i32 [ %.4, %171 ], [ %spec.select142, %set_mode.exit ]
   %267 = load i64, ptr %162, align 8
   %268 = icmp ne i64 %267, 0
   %269 = and i32 %.pre176, 128
@@ -2266,13 +2266,13 @@ set_mode.exit:                                    ; preds = %lazy_stat.exit.i, %
 
 set_xattrs.exit163:                               ; preds = %270, %275
   %.0.i162 = phi i32 [ -20, %275 ], [ 0, %270 ]
-  %spec.select143 = tail call i32 @llvm.smin.i32(i32 %.0.i162, i32 %.4)
+  %spec.select143 = tail call i32 @llvm.smin.i32(i32 %.0.i162, i32 %.5)
   %.pre175 = load i32, ptr %89, align 8
   br label %276
 
 276:                                              ; preds = %set_xattrs.exit163, %266
   %277 = phi i32 [ %.pre176, %266 ], [ %.pre175, %set_xattrs.exit163 ]
-  %.5 = phi i32 [ %.4, %266 ], [ %spec.select143, %set_xattrs.exit163 ]
+  %.6 = phi i32 [ %.5, %266 ], [ %spec.select143, %set_xattrs.exit163 ]
   %278 = and i32 %277, 64
   %.not136 = icmp eq i32 %278, 0
   br i1 %.not136, label %322, label %279
@@ -2363,13 +2363,13 @@ set_fflags.exit:                                  ; preds = %current_fixup.exit.
   %.0.i165 = phi i32 [ 0, %321 ], [ %320, %315 ], [ -30, %current_fixup.exit.thread23.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %spec.select144 = call i32 @llvm.smin.i32(i32 %.0.i165, i32 %.5)
+  %spec.select144 = call i32 @llvm.smin.i32(i32 %.0.i165, i32 %.6)
   %.pre177 = load i32, ptr %89, align 8
   br label %322
 
 322:                                              ; preds = %set_fflags.exit, %276
   %323 = phi i32 [ %277, %276 ], [ %.pre177, %set_fflags.exit ]
-  %.6 = phi i32 [ %.5, %276 ], [ %spec.select144, %set_fflags.exit ]
+  %.7 = phi i32 [ %.6, %276 ], [ %spec.select144, %set_fflags.exit ]
   %324 = and i32 %323, 4
   %.not137 = icmp eq i32 %324, 0
   br i1 %.not137, label %381, label %325
@@ -2482,13 +2482,13 @@ set_time.exit.i.i:                                ; preds = %376, %374
 
 set_times_from_entry.exit:                        ; preds = %331, %set_time.exit.i.i, %378
   %.034.i = phi i32 [ 0, %331 ], [ -20, %378 ], [ 0, %set_time.exit.i.i ]
-  %spec.select145 = call i32 @llvm.smin.i32(i32 %.034.i, i32 %.6)
+  %spec.select145 = call i32 @llvm.smin.i32(i32 %.034.i, i32 %.7)
   %.pre178 = load i32, ptr %89, align 8
   br label %381
 
 381:                                              ; preds = %set_times_from_entry.exit, %322
   %382 = phi i32 [ %323, %322 ], [ %.pre178, %set_times_from_entry.exit ]
-  %.7 = phi i32 [ %.6, %322 ], [ %spec.select145, %set_times_from_entry.exit ]
+  %.8 = phi i32 [ %.7, %322 ], [ %spec.select145, %set_times_from_entry.exit ]
   %383 = and i32 %382, 8192
   %.not138 = icmp eq i32 %383, 0
   br i1 %.not138, label %394, label %384
@@ -2553,12 +2553,12 @@ set_times_from_entry.exit:                        ; preds = %331, %set_time.exit
   br label %422
 
 422:                                              ; preds = %417, %412
-  %.10 = phi i32 [ -25, %417 ], [ %.7, %412 ]
+  %.11 = phi i32 [ -25, %417 ], [ %.8, %412 ]
   store ptr null, ptr %410, align 8
   br label %423
 
 423:                                              ; preds = %408, %422, %405
-  %.11 = phi i32 [ %.10, %422 ], [ %.7, %408 ], [ %.7, %405 ]
+  %.10 = phi i32 [ %.11, %422 ], [ %.8, %408 ], [ %.8, %405 ]
   %424 = getelementptr inbounds i8, ptr %0, i64 432
   %425 = load ptr, ptr %424, align 8
   call void @archive_entry_free(ptr noundef %425) #19
@@ -2567,7 +2567,7 @@ set_times_from_entry.exit:                        ; preds = %331, %set_time.exit
   br label %close_file_descriptor.exit
 
 close_file_descriptor.exit:                       ; preds = %85, %80, %74, %69, %57, %52, %36, %31, %9, %1, %423
-  %.0 = phi i32 [ %.11, %423 ], [ -30, %1 ], [ 0, %9 ], [ -25, %31 ], [ -25, %36 ], [ -20, %52 ], [ -20, %57 ], [ -30, %69 ], [ -30, %74 ], [ -30, %80 ], [ -30, %85 ]
+  %.0 = phi i32 [ %.10, %423 ], [ -30, %1 ], [ 0, %9 ], [ -25, %31 ], [ -25, %36 ], [ -20, %52 ], [ -20, %57 ], [ -30, %69 ], [ -30, %74 ], [ -30, %80 ], [ -30, %85 ]
   ret i32 %.0
 }
 
@@ -3025,7 +3025,7 @@ define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef
   br i1 %.not47, label %.outer.us, label %.outer
 
 .outer.us:                                        ; preds = %18, %27
-  %.038.ph.us = phi ptr [ %.240.us, %27 ], [ %0, %18 ]
+  %.038.ph.us = phi ptr [ %.3.us, %27 ], [ %0, %18 ]
   %.137.ph.us = phi ptr [ %28, %27 ], [ %.036, %18 ]
   %.1.ph.us = phi i8 [ 47, %27 ], [ %.0, %18 ]
   br label %32
@@ -3048,11 +3048,11 @@ define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef
   br label %.preheader
 
 .preheader:                                       ; preds = %23, %.loopexit59.us
-  %.240.us.ph = phi ptr [ %.038.ph.us, %.loopexit59.us ], [ %24, %23 ]
+  %.3.us.ph = phi ptr [ %.038.ph.us, %.loopexit59.us ], [ %24, %23 ]
   br label %25
 
 25:                                               ; preds = %.preheader, %29
-  %.240.us = phi ptr [ %31, %29 ], [ %.240.us.ph, %.preheader ]
+  %.3.us = phi ptr [ %31, %29 ], [ %.3.us.ph, %.preheader ]
   %.2.us = phi ptr [ %30, %29 ], [ %.137.us, %.preheader ]
   %26 = load i8, ptr %.2.us, align 1
   switch i8 %26, label %29 [
@@ -3066,8 +3066,8 @@ define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %.2.us, i64 1
-  %31 = getelementptr inbounds i8, ptr %.240.us, i64 1
-  store i8 %26, ptr %.240.us, align 1
+  %31 = getelementptr inbounds i8, ptr %.3.us, i64 1
+  store i8 %26, ptr %.3.us, align 1
   br label %25, !llvm.loop !13
 
 32:                                               ; preds = %.backedge.us, %.outer.us
@@ -3085,7 +3085,7 @@ define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef
   br label %32
 
 .outer:                                           ; preds = %18, %55
-  %.038.ph = phi ptr [ %.240, %55 ], [ %0, %18 ]
+  %.038.ph = phi ptr [ %.3, %55 ], [ %0, %18 ]
   %.137.ph = phi ptr [ %56, %55 ], [ %.036, %18 ]
   %.1.ph = phi i8 [ 47, %55 ], [ %.0, %18 ]
   br label %35
@@ -3147,11 +3147,11 @@ define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef
   br label %.preheader135
 
 .preheader135:                                    ; preds = %48, %.loopexit59
-  %.240.ph = phi ptr [ %.038.ph, %.loopexit59 ], [ %49, %48 ]
+  %.3.ph = phi ptr [ %.038.ph, %.loopexit59 ], [ %49, %48 ]
   br label %50
 
 50:                                               ; preds = %.preheader135, %52
-  %.240 = phi ptr [ %54, %52 ], [ %.240.ph, %.preheader135 ]
+  %.3 = phi ptr [ %54, %52 ], [ %.3.ph, %.preheader135 ]
   %.2 = phi ptr [ %53, %52 ], [ %.137, %.preheader135 ]
   %51 = load i8, ptr %.2, align 1
   switch i8 %51, label %52 [
@@ -3161,8 +3161,8 @@ define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds i8, ptr %.2, i64 1
-  %54 = getelementptr inbounds i8, ptr %.240, i64 1
-  store i8 %51, ptr %.240, align 1
+  %54 = getelementptr inbounds i8, ptr %.3, i64 1
+  store i8 %51, ptr %.3, align 1
   br label %50, !llvm.loop !13
 
 55:                                               ; preds = %50
@@ -3171,19 +3171,19 @@ define internal fastcc range(i32 -25, 1) i32 @cleanup_pathname_fsobj(ptr noundef
 
 .loopexit:                                        ; preds = %35, %38, %50, %32, %20, %25
   %.1.ph68 = phi i8 [ %.1.ph.us, %25 ], [ %.1.ph.us, %20 ], [ %.1.ph.us, %32 ], [ %.1.ph, %50 ], [ %.1.ph, %38 ], [ %.1.ph, %35 ]
-  %.3 = phi ptr [ %.240.us, %25 ], [ %.038.ph.us, %20 ], [ %.038.ph.us, %32 ], [ %.240, %50 ], [ %.038.ph, %38 ], [ %.038.ph, %35 ]
-  %57 = icmp eq ptr %.3, %0
+  %.139 = phi ptr [ %.3.us, %25 ], [ %.038.ph.us, %20 ], [ %.038.ph.us, %32 ], [ %.3, %50 ], [ %.038.ph, %38 ], [ %.038.ph, %35 ]
+  %57 = icmp eq ptr %.139, %0
   br i1 %57, label %.sink.split, label %59
 
 .sink.split:                                      ; preds = %.loopexit
   %.not51 = icmp eq i8 %.1.ph68, 0
-  %58 = getelementptr inbounds i8, ptr %.3, i64 1
+  %58 = getelementptr inbounds i8, ptr %.139, i64 1
   %. = select i1 %.not51, i8 46, i8 47
-  store i8 %., ptr %.3, align 1
+  store i8 %., ptr %.139, align 1
   br label %59
 
 59:                                               ; preds = %.sink.split, %.loopexit
-  %.4 = phi ptr [ %.3, %.loopexit ], [ %58, %.sink.split ]
+  %.4 = phi ptr [ %.139, %.loopexit ], [ %58, %.sink.split ]
   store i8 0, ptr %.4, align 1
   br label %fsobj_error.exit
 
@@ -3242,35 +3242,35 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br i1 %25, label %.preheader171.us.us, label %.preheader171.us
 
 .preheader171.us.us:                              ; preds = %.split.us, %57
-  %.0210.us.us = phi i32 [ %.3.us.us, %57 ], [ %10, %.split.us ]
+  %.0210.us.us = phi i32 [ %.4.us.us, %57 ], [ %10, %.split.us ]
   %.0114209.us.us = phi ptr [ %.1115.us.us, %57 ], [ %0, %.split.us ]
   %.1117208.us.us = phi ptr [ %spec.select141.us.us, %57 ], [ %spec.select, %.split.us ]
   br label %26
 
 26:                                               ; preds = %26, %.preheader171.us.us
-  %.2118.us.us = phi ptr [ %29, %26 ], [ %.1117208.us.us, %.preheader171.us.us ]
-  %27 = load i8, ptr %.2118.us.us, align 1
+  %.3119.us.us = phi ptr [ %29, %26 ], [ %.1117208.us.us, %.preheader171.us.us ]
+  %27 = load i8, ptr %.3119.us.us, align 1
   %28 = icmp eq i8 %27, 47
-  %29 = getelementptr inbounds i8, ptr %.2118.us.us, i64 1
+  %29 = getelementptr inbounds i8, ptr %.3119.us.us, i64 1
   br i1 %28, label %26, label %.preheader.us.us, !llvm.loop !14
 
 .preheader.us.us:                                 ; preds = %26, %58
   %30 = phi i8 [ %.pr.us.us, %58 ], [ %27, %26 ]
-  %.3119.us.us = phi ptr [ %59, %58 ], [ %.2118.us.us, %26 ]
+  %.4120.us.us = phi ptr [ %59, %58 ], [ %.3119.us.us, %26 ]
   switch i8 %30, label %58 [
     i8 0, label %.loopexit.us.us
     i8 47, label %31
   ]
 
 31:                                               ; preds = %.preheader.us.us
-  %32 = getelementptr inbounds i8, ptr %.3119.us.us, i64 1
+  %32 = getelementptr inbounds i8, ptr %.4120.us.us, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 0
   br label %.loopexit.us.us
 
 .loopexit.us.us:                                  ; preds = %.preheader.us.us, %31
   %35 = phi i1 [ %34, %31 ], [ true, %.preheader.us.us ]
-  store i8 0, ptr %.3119.us.us, align 1
+  store i8 0, ptr %.4120.us.us, align 1
   %36 = call i32 @fstatat(i32 noundef %.0210.us.us, ptr noundef %.0114209.us.us, ptr noundef nonnull %6, i32 noundef 256) #19
   %.not133.us.us = icmp eq i32 %36, 0
   br i1 %.not133.us.us, label %37, label %.split212.us
@@ -3311,10 +3311,10 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br i1 %35, label %.thread, label %52
 
 .thread:                                          ; preds = %51
-  store i8 %30, ptr %.3119.us.us, align 1
+  store i8 %30, ptr %.4120.us.us, align 1
   %.not140.us.us372 = icmp ne i8 %30, 0
   %spec.select141.idx.us.us373 = zext i1 %.not140.us.us372 to i64
-  %spec.select141.us.us374 = getelementptr inbounds i8, ptr %.3119.us.us, i64 %spec.select141.idx.us.us373
+  %spec.select141.us.us374 = getelementptr inbounds i8, ptr %.4120.us.us, i64 %spec.select141.idx.us.us373
   br label %fsobj_error.exit144
 
 52:                                               ; preds = %51
@@ -3323,55 +3323,55 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br i1 %54, label %.sink.split, label %.split245.us
 
 .sink.split:                                      ; preds = %52, %48
-  %.3.us.us.ph = phi i32 [ %49, %48 ], [ %53, %52 ]
+  %.4.us.us.ph = phi i32 [ %49, %48 ], [ %53, %52 ]
   %55 = call i32 @close(i32 noundef %.0210.us.us) #19
-  %56 = getelementptr inbounds i8, ptr %.3119.us.us, i64 1
+  %56 = getelementptr inbounds i8, ptr %.4120.us.us, i64 1
   br label %57
 
 57:                                               ; preds = %.sink.split, %37
   %.1115.us.us = phi ptr [ %.0114209.us.us, %37 ], [ %56, %.sink.split ]
-  %.3.us.us = phi i32 [ %.0210.us.us, %37 ], [ %.3.us.us.ph, %.sink.split ]
-  store i8 %30, ptr %.3119.us.us, align 1
+  %.4.us.us = phi i32 [ %.0210.us.us, %37 ], [ %.4.us.us.ph, %.sink.split ]
+  store i8 %30, ptr %.4120.us.us, align 1
   %.not140.us.us = icmp ne i8 %30, 0
   %spec.select141.idx.us.us = zext i1 %.not140.us.us to i64
-  %spec.select141.us.us = getelementptr inbounds i8, ptr %.3119.us.us, i64 %spec.select141.idx.us.us
+  %spec.select141.us.us = getelementptr inbounds i8, ptr %.4120.us.us, i64 %spec.select141.idx.us.us
   br i1 %35, label %fsobj_error.exit144, label %.preheader171.us.us, !llvm.loop !15
 
 58:                                               ; preds = %.preheader.us.us
-  %59 = getelementptr inbounds i8, ptr %.3119.us.us, i64 1
+  %59 = getelementptr inbounds i8, ptr %.4120.us.us, i64 1
   %.pr.us.us = load i8, ptr %59, align 1
   br label %.preheader.us.us, !llvm.loop !16
 
 .preheader171.us:                                 ; preds = %.split.us, %83
-  %.0210.us = phi i32 [ %.3.us, %83 ], [ %10, %.split.us ]
+  %.0210.us = phi i32 [ %.4.us, %83 ], [ %10, %.split.us ]
   %.0114209.us = phi ptr [ %.1115.us, %83 ], [ %0, %.split.us ]
   %.1117208.us = phi ptr [ %spec.select141.us, %83 ], [ %spec.select, %.split.us ]
   br label %60
 
 60:                                               ; preds = %60, %.preheader171.us
-  %.2118.us = phi ptr [ %63, %60 ], [ %.1117208.us, %.preheader171.us ]
-  %61 = load i8, ptr %.2118.us, align 1
+  %.3119.us = phi ptr [ %63, %60 ], [ %.1117208.us, %.preheader171.us ]
+  %61 = load i8, ptr %.3119.us, align 1
   %62 = icmp eq i8 %61, 47
-  %63 = getelementptr inbounds i8, ptr %.2118.us, i64 1
+  %63 = getelementptr inbounds i8, ptr %.3119.us, i64 1
   br i1 %62, label %60, label %.preheader.us, !llvm.loop !14
 
 .preheader.us:                                    ; preds = %60, %84
   %64 = phi i8 [ %.pr.us, %84 ], [ %61, %60 ]
-  %.3119.us = phi ptr [ %85, %84 ], [ %.2118.us, %60 ]
+  %.4120.us = phi ptr [ %85, %84 ], [ %.3119.us, %60 ]
   switch i8 %64, label %84 [
     i8 0, label %.loopexit.us
     i8 47, label %65
   ]
 
 65:                                               ; preds = %.preheader.us
-  %66 = getelementptr inbounds i8, ptr %.3119.us, i64 1
+  %66 = getelementptr inbounds i8, ptr %.4120.us, i64 1
   %67 = load i8, ptr %66, align 1
   %68 = icmp eq i8 %67, 0
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.preheader.us, %65
   %69 = phi i1 [ %68, %65 ], [ true, %.preheader.us ]
-  store i8 0, ptr %.3119.us, align 1
+  store i8 0, ptr %.4120.us, align 1
   %70 = call i32 @fstatat(i32 noundef %.0210.us, ptr noundef %.0114209.us, ptr noundef nonnull %6, i32 noundef 256) #19
   %.not133.us = icmp eq i32 %70, 0
   br i1 %.not133.us, label %71, label %.split212.us
@@ -3396,10 +3396,10 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br i1 %69, label %.thread375, label %77
 
 .thread375:                                       ; preds = %76
-  store i8 %64, ptr %.3119.us, align 1
+  store i8 %64, ptr %.4120.us, align 1
   %.not140.us378 = icmp ne i8 %64, 0
   %spec.select141.idx.us379 = zext i1 %.not140.us378 to i64
-  %spec.select141.us380 = getelementptr inbounds i8, ptr %.3119.us, i64 %spec.select141.idx.us379
+  %spec.select141.us380 = getelementptr inbounds i8, ptr %.4120.us, i64 %spec.select141.idx.us379
   br label %fsobj_error.exit144
 
 77:                                               ; preds = %76
@@ -3409,58 +3409,58 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
 
 80:                                               ; preds = %77
   %81 = call i32 @close(i32 noundef %.0210.us) #19
-  %82 = getelementptr inbounds i8, ptr %.3119.us, i64 1
+  %82 = getelementptr inbounds i8, ptr %.4120.us, i64 1
   br label %83
 
 83:                                               ; preds = %80, %71
   %.1115.us = phi ptr [ %82, %80 ], [ %.0114209.us, %71 ]
-  %.3.us = phi i32 [ %78, %80 ], [ %.0210.us, %71 ]
-  store i8 %64, ptr %.3119.us, align 1
+  %.4.us = phi i32 [ %78, %80 ], [ %.0210.us, %71 ]
+  store i8 %64, ptr %.4120.us, align 1
   %.not140.us = icmp ne i8 %64, 0
   %spec.select141.idx.us = zext i1 %.not140.us to i64
-  %spec.select141.us = getelementptr inbounds i8, ptr %.3119.us, i64 %spec.select141.idx.us
+  %spec.select141.us = getelementptr inbounds i8, ptr %.4120.us, i64 %spec.select141.idx.us
   br i1 %69, label %fsobj_error.exit144, label %.preheader171.us, !llvm.loop !15
 
 84:                                               ; preds = %.preheader.us
-  %85 = getelementptr inbounds i8, ptr %.3119.us, i64 1
+  %85 = getelementptr inbounds i8, ptr %.4120.us, i64 1
   %.pr.us = load i8, ptr %85, align 1
   br label %.preheader.us, !llvm.loop !16
 
 .preheader171:                                    ; preds = %18, %154
-  %.0210 = phi i32 [ %.3, %154 ], [ %10, %18 ]
+  %.0210 = phi i32 [ %.4, %154 ], [ %10, %18 ]
   %.0114209 = phi ptr [ %.1115, %154 ], [ %0, %18 ]
   %.1117208 = phi ptr [ %spec.select141, %154 ], [ %spec.select, %18 ]
   br label %86
 
 86:                                               ; preds = %86, %.preheader171
-  %.2118 = phi ptr [ %89, %86 ], [ %.1117208, %.preheader171 ]
-  %87 = load i8, ptr %.2118, align 1
+  %.3119 = phi ptr [ %89, %86 ], [ %.1117208, %.preheader171 ]
+  %87 = load i8, ptr %.3119, align 1
   %88 = icmp eq i8 %87, 47
-  %89 = getelementptr inbounds i8, ptr %.2118, i64 1
+  %89 = getelementptr inbounds i8, ptr %.3119, i64 1
   br i1 %88, label %86, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %86, %91
   %90 = phi i8 [ %.pr, %91 ], [ %87, %86 ]
-  %.3119 = phi ptr [ %92, %91 ], [ %.2118, %86 ]
+  %.4120 = phi ptr [ %92, %91 ], [ %.3119, %86 ]
   switch i8 %90, label %91 [
     i8 0, label %.loopexit
     i8 47, label %93
   ]
 
 91:                                               ; preds = %.preheader
-  %92 = getelementptr inbounds i8, ptr %.3119, i64 1
+  %92 = getelementptr inbounds i8, ptr %.4120, i64 1
   %.pr = load i8, ptr %92, align 1
   br label %.preheader, !llvm.loop !16
 
 93:                                               ; preds = %.preheader
-  %94 = getelementptr inbounds i8, ptr %.3119, i64 1
+  %94 = getelementptr inbounds i8, ptr %.4120, i64 1
   %95 = load i8, ptr %94, align 1
   %96 = icmp eq i8 %95, 0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %93
   %97 = phi i1 [ %96, %93 ], [ true, %.preheader ]
-  store i8 0, ptr %.3119, align 1
+  store i8 0, ptr %.4120, align 1
   %98 = call i32 @fstatat(i32 noundef %.0210, ptr noundef %.0114209, ptr noundef nonnull %6, i32 noundef 256) #19
   %.not133 = icmp eq i32 %98, 0
   br i1 %.not133, label %106, label %.split212.us
@@ -3468,7 +3468,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
 .split212.us:                                     ; preds = %.loopexit, %.loopexit.us, %.loopexit.us.us
   %.us-phi = phi i32 [ %.0210.us.us, %.loopexit.us.us ], [ %.0210.us, %.loopexit.us ], [ %.0210, %.loopexit ]
   %.us-phi213 = phi i8 [ %30, %.loopexit.us.us ], [ %64, %.loopexit.us ], [ %90, %.loopexit ]
-  %.us-phi214 = phi ptr [ %.3119.us.us, %.loopexit.us.us ], [ %.3119.us, %.loopexit.us ], [ %.3119, %.loopexit ]
+  %.us-phi214 = phi ptr [ %.4120.us.us, %.loopexit.us.us ], [ %.4120.us, %.loopexit.us ], [ %.4120, %.loopexit ]
   store i8 %.us-phi213, ptr %.us-phi214, align 1
   %99 = tail call ptr @__errno_location() #21
   %100 = load i32, ptr %99, align 4
@@ -3504,10 +3504,10 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br i1 %97, label %.thread383, label %110
 
 .thread383:                                       ; preds = %109
-  store i8 %90, ptr %.3119, align 1
+  store i8 %90, ptr %.4120, align 1
   %.not140386 = icmp ne i8 %90, 0
   %spec.select141.idx387 = zext i1 %.not140386 to i64
-  %spec.select141388 = getelementptr inbounds i8, ptr %.3119, i64 %spec.select141.idx387
+  %spec.select141388 = getelementptr inbounds i8, ptr %.4120, i64 %spec.select141.idx387
   br label %fsobj_error.exit144
 
 110:                                              ; preds = %109
@@ -3518,7 +3518,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
 .split245.us:                                     ; preds = %110, %77, %52
   %.us-phi246 = phi i32 [ %.0210.us.us, %52 ], [ %.0210.us, %77 ], [ %.0210, %110 ]
   %.us-phi247 = phi i8 [ %30, %52 ], [ %64, %77 ], [ %90, %110 ]
-  %.us-phi248 = phi ptr [ %.3119.us.us, %52 ], [ %.3119.us, %77 ], [ %.3119, %110 ]
+  %.us-phi248 = phi ptr [ %.4120.us.us, %52 ], [ %.4120.us, %77 ], [ %.4120, %110 ]
   store i8 %.us-phi247, ptr %.us-phi248, align 1
   %.not.i145 = icmp eq ptr %1, null
   br i1 %.not.i145, label %116, label %113
@@ -3539,7 +3539,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
 
 118:                                              ; preds = %110
   %119 = call i32 @close(i32 noundef %.0210) #19
-  %120 = getelementptr inbounds i8, ptr %.3119, i64 1
+  %120 = getelementptr inbounds i8, ptr %.4120, i64 1
   br label %154
 
 121:                                              ; preds = %106
@@ -3553,7 +3553,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   %.us-phi220 = phi ptr [ %.0114209.us, %75 ], [ %.0114209.us.us, %41 ], [ %.0114209, %122 ]
   %.us-phi221 = phi i32 [ %.0210.us, %75 ], [ %.0210.us.us, %41 ], [ %.0210, %122 ]
   %.us-phi222 = phi i8 [ %64, %75 ], [ %30, %41 ], [ %90, %122 ]
-  %.us-phi223 = phi ptr [ %.3119.us, %75 ], [ %.3119.us.us, %41 ], [ %.3119, %122 ]
+  %.us-phi223 = phi ptr [ %.4120.us, %75 ], [ %.4120.us.us, %41 ], [ %.4120, %122 ]
   %123 = call i32 @unlinkat(i32 noundef %.us-phi221, ptr noundef %.us-phi220, i32 noundef 0) #19
   %.not138 = icmp eq i32 %123, 0
   store i8 %.us-phi222, ptr %.us-phi223, align 1
@@ -3583,7 +3583,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br i1 %.not137, label %154, label %132
 
 132:                                              ; preds = %130
-  store i8 %90, ptr %.3119, align 1
+  store i8 %90, ptr %.4120, align 1
   %.not.i151 = icmp eq ptr %1, null
   br i1 %.not.i151, label %134, label %133
 
@@ -3600,7 +3600,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br label %fsobj_error.exit144
 
 .split230.us:                                     ; preds = %42
-  store i8 %30, ptr %.3119.us.us, align 1
+  store i8 %30, ptr %.4120.us.us, align 1
   %136 = tail call ptr @__errno_location() #21
   %137 = load i32, ptr %136, align 4
   %138 = icmp eq i32 %137, 2
@@ -3623,7 +3623,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br label %fsobj_error.exit144
 
 .split240.us:                                     ; preds = %48
-  store i8 %30, ptr %.3119.us.us, align 1
+  store i8 %30, ptr %.4120.us.us, align 1
   %.not.i157 = icmp eq ptr %1, null
   br i1 %.not.i157, label %146, label %143
 
@@ -3642,7 +3642,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br label %fsobj_error.exit144
 
 .split235.us:                                     ; preds = %44
-  store i8 %30, ptr %.3119.us.us, align 1
+  store i8 %30, ptr %.4120.us.us, align 1
   %.not.i160 = icmp eq ptr %1, null
   br i1 %.not.i160, label %149, label %148
 
@@ -3659,7 +3659,7 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
   br label %fsobj_error.exit144
 
 .split225.us:                                     ; preds = %75
-  store i8 %64, ptr %.3119.us, align 1
+  store i8 %64, ptr %.4120.us, align 1
   %.not.i163 = icmp eq ptr %1, null
   br i1 %.not.i163, label %152, label %151
 
@@ -3677,19 +3677,19 @@ define internal fastcc range(i32 -30, 1) i32 @check_symlinks_fsobj(ptr noundef %
 
 154:                                              ; preds = %130, %106, %118
   %.1115 = phi ptr [ %120, %118 ], [ %.0114209, %106 ], [ %.0114209, %130 ]
-  %.3 = phi i32 [ %111, %118 ], [ %.0210, %106 ], [ %.0210, %130 ]
-  store i8 %90, ptr %.3119, align 1
+  %.4 = phi i32 [ %111, %118 ], [ %.0210, %106 ], [ %.0210, %130 ]
+  store i8 %90, ptr %.4120, align 1
   %.not140 = icmp ne i8 %90, 0
   %spec.select141.idx = zext i1 %.not140 to i64
-  %spec.select141 = getelementptr inbounds i8, ptr %.3119, i64 %spec.select141.idx
+  %spec.select141 = getelementptr inbounds i8, ptr %.4120, i64 %spec.select141.idx
   br i1 %97, label %fsobj_error.exit144, label %.preheader171, !llvm.loop !15
 
 fsobj_error.exit144:                              ; preds = %154, %121, %83, %40, %57, %.split219.us, %.thread383, %.thread375, %.thread, %74, %153, %152, %150, %149, %147, %146, %142, %141, %135, %134, %129, %128, %117, %116, %105, %104, %.split230.us, %.split212.us
-  %.0199 = phi i32 [ %.us-phi, %.split212.us ], [ %.0210.us.us, %.split230.us ], [ %.us-phi, %104 ], [ %.us-phi, %105 ], [ %.us-phi246, %116 ], [ %.us-phi246, %117 ], [ %.us-phi221, %128 ], [ %.us-phi221, %129 ], [ %.0210, %134 ], [ %.0210, %135 ], [ %.0210.us.us, %141 ], [ %.0210.us.us, %142 ], [ %.0210.us.us, %146 ], [ %.0210.us.us, %147 ], [ %.0210.us.us, %149 ], [ %.0210.us.us, %150 ], [ %.0210.us, %152 ], [ %.0210.us, %153 ], [ %.0210.us, %74 ], [ %.0210.us.us, %.thread ], [ %.0210.us, %.thread375 ], [ %.0210, %.thread383 ], [ %.us-phi221, %.split219.us ], [ %.3.us.us, %57 ], [ %.0210.us.us, %40 ], [ %.3.us, %83 ], [ %.3, %154 ], [ %.0210, %121 ]
+  %.0199 = phi i32 [ %.us-phi, %.split212.us ], [ %.0210.us.us, %.split230.us ], [ %.us-phi, %104 ], [ %.us-phi, %105 ], [ %.us-phi246, %116 ], [ %.us-phi246, %117 ], [ %.us-phi221, %128 ], [ %.us-phi221, %129 ], [ %.0210, %134 ], [ %.0210, %135 ], [ %.0210.us.us, %141 ], [ %.0210.us.us, %142 ], [ %.0210.us.us, %146 ], [ %.0210.us.us, %147 ], [ %.0210.us.us, %149 ], [ %.0210.us.us, %150 ], [ %.0210.us, %152 ], [ %.0210.us, %153 ], [ %.0210.us, %74 ], [ %.0210.us.us, %.thread ], [ %.0210.us, %.thread375 ], [ %.0210, %.thread383 ], [ %.us-phi221, %.split219.us ], [ %.4.us.us, %57 ], [ %.0210.us.us, %40 ], [ %.4.us, %83 ], [ %.4, %154 ], [ %.0210, %121 ]
   %.0121 = phi i32 [ 0, %.split212.us ], [ 0, %.split230.us ], [ -25, %104 ], [ -25, %105 ], [ -30, %116 ], [ -30, %117 ], [ -25, %128 ], [ -25, %129 ], [ -25, %134 ], [ -25, %135 ], [ -25, %141 ], [ -25, %142 ], [ -30, %146 ], [ -30, %147 ], [ -25, %149 ], [ -25, %150 ], [ -25, %152 ], [ -25, %153 ], [ 0, %74 ], [ 0, %.thread ], [ 0, %.thread375 ], [ 0, %.thread383 ], [ 0, %.split219.us ], [ 0, %57 ], [ 0, %40 ], [ 0, %83 ], [ 0, %121 ], [ 0, %154 ]
-  %.5 = phi ptr [ %.us-phi214, %.split212.us ], [ %.3119.us.us, %.split230.us ], [ %.us-phi214, %104 ], [ %.us-phi214, %105 ], [ %.us-phi248, %116 ], [ %.us-phi248, %117 ], [ %.us-phi223, %128 ], [ %.us-phi223, %129 ], [ %.3119, %134 ], [ %.3119, %135 ], [ %.3119.us.us, %141 ], [ %.3119.us.us, %142 ], [ %.3119.us.us, %146 ], [ %.3119.us.us, %147 ], [ %.3119.us.us, %149 ], [ %.3119.us.us, %150 ], [ %.3119.us, %152 ], [ %.3119.us, %153 ], [ %.3119.us, %74 ], [ %spec.select141.us.us374, %.thread ], [ %spec.select141.us380, %.thread375 ], [ %spec.select141388, %.thread383 ], [ %.us-phi223, %.split219.us ], [ %spec.select141.us.us, %57 ], [ %.3119.us.us, %40 ], [ %spec.select141.us, %83 ], [ %spec.select141, %154 ], [ %.3119, %121 ]
+  %.2118 = phi ptr [ %.us-phi214, %.split212.us ], [ %.4120.us.us, %.split230.us ], [ %.us-phi214, %104 ], [ %.us-phi214, %105 ], [ %.us-phi248, %116 ], [ %.us-phi248, %117 ], [ %.us-phi223, %128 ], [ %.us-phi223, %129 ], [ %.4120, %134 ], [ %.4120, %135 ], [ %.4120.us.us, %141 ], [ %.4120.us.us, %142 ], [ %.4120.us.us, %146 ], [ %.4120.us.us, %147 ], [ %.4120.us.us, %149 ], [ %.4120.us.us, %150 ], [ %.4120.us, %152 ], [ %.4120.us, %153 ], [ %.4120.us, %74 ], [ %spec.select141.us.us374, %.thread ], [ %spec.select141.us380, %.thread375 ], [ %spec.select141388, %.thread383 ], [ %.us-phi223, %.split219.us ], [ %spec.select141.us.us, %57 ], [ %.4120.us.us, %40 ], [ %spec.select141.us, %83 ], [ %spec.select141, %154 ], [ %.4120, %121 ]
   %.1112 = phi i8 [ %.us-phi213, %.split212.us ], [ %30, %.split230.us ], [ %.us-phi213, %104 ], [ %.us-phi213, %105 ], [ %.us-phi247, %116 ], [ %.us-phi247, %117 ], [ %.us-phi222, %128 ], [ %.us-phi222, %129 ], [ %90, %134 ], [ %90, %135 ], [ %30, %141 ], [ %30, %142 ], [ %30, %146 ], [ %30, %147 ], [ %30, %149 ], [ %30, %150 ], [ %64, %152 ], [ %64, %153 ], [ %64, %74 ], [ %30, %.thread ], [ %64, %.thread375 ], [ %90, %.thread383 ], [ %.us-phi222, %.split219.us ], [ %30, %57 ], [ %30, %40 ], [ %64, %83 ], [ %90, %121 ], [ %90, %154 ]
-  store i8 %.1112, ptr %.5, align 1
+  store i8 %.1112, ptr %.2118, align 1
   %155 = call i32 @close(i32 noundef %.0199) #19
   br label %fsobj_error.exit
 

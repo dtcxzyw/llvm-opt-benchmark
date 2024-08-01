@@ -72,9 +72,9 @@ entry:
 for.cond.preheader:                               ; preds = %entry
   %arrayidx7 = getelementptr inbounds i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx7, align 8
-  %call888 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) @_ZL6kAEADs, ptr noundef nonnull dereferenceable(1) %0) #17
-  %cmp989 = icmp eq i32 %call888, 0
-  br i1 %cmp989, label %for.end, label %for.cond
+  %call889 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) @_ZL6kAEADs, ptr noundef nonnull dereferenceable(1) %0) #17
+  %cmp990 = icmp eq i32 %call889, 0
+  br i1 %cmp990, label %for.end, label %for.cond
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
@@ -83,8 +83,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.end6
-  %indvars.iv90 = phi i64 [ %indvars.iv.next, %if.end6 ], [ 0, %for.cond.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv90, 1
+  %indvars.iv91 = phi i64 [ %indvars.iv.next, %if.end6 ], [ 0, %for.cond.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv91, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 24
   br i1 %exitcond, label %if.then3, label %if.end6, !llvm.loop !7
 
@@ -106,7 +106,7 @@ if.end6.for.end_crit_edge:                        ; preds = %if.end6
 
 for.end:                                          ; preds = %if.end6.for.end_crit_edge, %for.cond.preheader
   %.lcssa = phi ptr [ %4, %if.end6.for.end_crit_edge ], [ @EVP_aead_aes_128_gcm, %for.cond.preheader ]
-  %arrayidx135.lcssa = phi ptr [ %arrayidx1, %if.end6.for.end_crit_edge ], [ @_ZL6kAEADs, %for.cond.preheader ]
+  %arrayidx136.lcssa = phi ptr [ %arrayidx1, %if.end6.for.end_crit_edge ], [ @_ZL6kAEADs, %for.cond.preheader ]
   %call13 = tail call noundef ptr %.lcssa()
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ctx.i)
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %key.i)
@@ -151,7 +151,7 @@ if.end16:                                         ; preds = %if.end7.i
   call void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull %ctx.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ctx.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %key.i)
-  %limited_implementation = getelementptr inbounds i8, ptr %arrayidx135.lcssa, i64 48
+  %limited_implementation = getelementptr inbounds i8, ptr %arrayidx136.lcssa, i64 48
   %11 = load i8, ptr %limited_implementation, align 8
   %tobool17 = trunc i8 %11 to i1
   br i1 %tobool17, label %if.end23, label %land.lhs.true
@@ -337,10 +337,10 @@ if.then.i.i.i.i.i.i.i.i.i82.i:                    ; preds = %call5.i.i.i.i1.i.i.
   br label %invoke.cont46.i
 
 invoke.cont46.i:                                  ; preds = %if.then.i.i.i.i.i.i.i.i.i82.i, %call5.i.i.i.i1.i.i.noexc88.i, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i74.i
-  %buffer.sroa.0.1.i = phi ptr [ %call5.i.i.i.i1.i.i89.i, %call5.i.i.i.i1.i.i.noexc88.i ], [ %call5.i.i.i.i1.i.i89.i, %if.then.i.i.i.i.i.i.i.i.i82.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i74.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(260) %buffer.sroa.0.1.i, ptr noundef nonnull align 16 dereferenceable(260) @_ZZL22TestWithAliasedBuffersPK11evp_aead_stE10kPlaintext, i64 260, i1 false)
-  %add.ptr.i = getelementptr inbounds i8, ptr %buffer.sroa.0.1.i, i64 %20
-  %call56.i = invoke i32 @EVP_AEAD_CTX_seal(ptr noundef nonnull %ctx.i11, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %out_len.i, i64 noundef %add.i, ptr noundef %nonce.sroa.0.0.i, i64 noundef %call1.i, ptr noundef nonnull %buffer.sroa.0.1.i, i64 noundef 260, ptr noundef null, i64 noundef 0)
+  %buffer.sroa.0.2.i = phi ptr [ %call5.i.i.i.i1.i.i89.i, %call5.i.i.i.i1.i.i.noexc88.i ], [ %call5.i.i.i.i1.i.i89.i, %if.then.i.i.i.i.i.i.i.i.i82.i ], [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i74.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(260) %buffer.sroa.0.2.i, ptr noundef nonnull align 16 dereferenceable(260) @_ZZL22TestWithAliasedBuffersPK11evp_aead_stE10kPlaintext, i64 260, i1 false)
+  %add.ptr.i = getelementptr inbounds i8, ptr %buffer.sroa.0.2.i, i64 %20
+  %call56.i = invoke i32 @EVP_AEAD_CTX_seal(ptr noundef nonnull %ctx.i11, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %out_len.i, i64 noundef %add.i, ptr noundef %nonce.sroa.0.0.i, i64 noundef %call1.i, ptr noundef nonnull %buffer.sroa.0.2.i, i64 noundef 260, ptr noundef null, i64 noundef 0)
           to label %invoke.cont55.i unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.i
 
 invoke.cont55.i:                                  ; preds = %invoke.cont46.i
@@ -373,7 +373,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.i: ; preds = %if.else74.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.i, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.i
   %lpad.phi208.i = phi { ptr, i32 } [ %lpad.loopexit206.i, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.i ], [ %lpad.loopexit.split-lp207.i, %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.i ]
-  call void @_ZdlPv(ptr noundef nonnull %buffer.sroa.0.1.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %buffer.sroa.0.2.i) #21
   br label %ehcleanup.i
 
 if.else.i:                                        ; preds = %invoke.cont55.i
@@ -384,8 +384,8 @@ if.else.i:                                        ; preds = %invoke.cont55.i
 
 if.end62.i:                                       ; preds = %if.then58.i
   %23 = load i64, ptr %valid_encryption_len.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buffer.sroa.0.1.i, ptr align 1 %valid_encryption.sroa.0.0.i, i64 %23, i1 false)
-  %call70.i = invoke i32 @EVP_AEAD_CTX_open(ptr noundef nonnull %ctx.i11, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %out_len.i, i64 noundef %23, ptr noundef %nonce.sroa.0.0.i, i64 noundef %call1.i, ptr noundef nonnull %buffer.sroa.0.1.i, i64 noundef %23, ptr noundef null, i64 noundef 0)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buffer.sroa.0.2.i, ptr align 1 %valid_encryption.sroa.0.0.i, i64 %23, i1 false)
+  %call70.i = invoke i32 @EVP_AEAD_CTX_open(ptr noundef nonnull %ctx.i11, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %out_len.i, i64 noundef %23, ptr noundef %nonce.sroa.0.0.i, i64 noundef %call1.i, ptr noundef nonnull %buffer.sroa.0.2.i, i64 noundef %23, ptr noundef null, i64 noundef 0)
           to label %invoke.cont69.i unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.i
 
 invoke.cont69.i:                                  ; preds = %if.end62.i
@@ -405,7 +405,7 @@ if.else74.i:                                      ; preds = %invoke.cont69.i
           to label %_ZNSt6vectorIhSaIhEED2Ev.exit124.i unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit94.i:                ; preds = %if.then72.i
-  call void @_ZdlPv(ptr noundef nonnull %buffer.sroa.0.1.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %buffer.sroa.0.2.i) #21
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit94.i, %for.body.i
@@ -513,7 +513,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit120.i:               ; preds = %lor.lhs.false139.i
   br i1 %cmp.i96.not.i, label %cleanup153.i, label %for.body90.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit124.i:               ; preds = %if.else74.i, %if.else.i
-  call void @_ZdlPv(ptr noundef nonnull %buffer.sroa.0.1.i) #21
+  call void @_ZdlPv(ptr noundef nonnull %buffer.sroa.0.2.i) #21
   br label %cleanup153.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit127.i:               ; preds = %lor.lhs.false139.i, %if.end137.i, %invoke.cont130.i, %lor.lhs.false.i, %if.end115.i, %invoke.cont108.i
@@ -525,7 +525,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit127.i:               ; preds = %lor.lhs.false139.i,
   br label %cleanup153.i
 
 cleanup153.i:                                     ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit120.i, %_ZNSt6vectorIhSaIhEED2Ev.exit127.i, %_ZNSt6vectorIhSaIhEED2Ev.exit124.i, %if.then32.i
-  %retval.5.i = phi i1 [ false, %if.then32.i ], [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit124.i ], [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit127.i ], [ true, %_ZNSt6vectorIhSaIhEED2Ev.exit120.i ]
+  %retval.1.i = phi i1 [ false, %if.then32.i ], [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit124.i ], [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit127.i ], [ true, %_ZNSt6vectorIhSaIhEED2Ev.exit120.i ]
   %tobool.not.i.i.i128.i = icmp eq ptr %valid_encryption.sroa.0.0.i, null
   br i1 %tobool.not.i.i.i128.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit130.i, label %if.then.i.i.i129.i
 
@@ -569,7 +569,7 @@ _ZNSt6vectorImSaImEED2Ev.exit146.i:               ; preds = %if.then.i.i.i141.i,
   br label %ehcleanup159.i
 
 cleanup158.i:                                     ; preds = %_ZNSt6vectorImSaImEED2Ev.exit.i, %invoke.cont10.i
-  %retval.6.i = phi i1 [ %retval.5.i, %_ZNSt6vectorImSaImEED2Ev.exit.i ], [ false, %invoke.cont10.i ]
+  %retval.0.i15 = phi i1 [ %retval.1.i, %_ZNSt6vectorImSaImEED2Ev.exit.i ], [ false, %invoke.cont10.i ]
   invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull %ctx.i11)
           to label %_ZN20ScopedOpenSSLContextI15evp_aead_ctx_stvXadL_Z17EVP_AEAD_CTX_zeroEEXadL_Z20EVP_AEAD_CTX_cleanupEEED2Ev.exit.i unwind label %terminate.lpad.i.i
 
@@ -617,11 +617,11 @@ _ZL22TestWithAliasedBuffersPK11evp_aead_st.exit:  ; preds = %_ZN20ScopedOpenSSLC
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %valid_encryption_len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out_len.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out_len102.i)
-  br i1 %retval.6.i, label %if.end23, label %if.then19
+  br i1 %retval.0.i15, label %if.end23, label %if.then19
 
 if.then19:                                        ; preds = %_ZL22TestWithAliasedBuffersPK11evp_aead_st.exit
   %37 = load ptr, ptr @stderr, align 8
-  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.2, ptr noundef nonnull %arrayidx135.lcssa) #18
+  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.2, ptr noundef nonnull %arrayidx136.lcssa) #18
   br label %return
 
 if.end23:                                         ; preds = %_ZL22TestWithAliasedBuffersPK11evp_aead_st.exit, %if.end16
@@ -1763,7 +1763,7 @@ if.end325.invoke:                                 ; preds = %invoke.cont320, %if
           to label %cleanup unwind label %lpad230
 
 cleanup:                                          ; preds = %if.then323.invoke, %if.end325.invoke, %invoke.cont258
-  %retval.0 = phi i1 [ false, %invoke.cont258 ], [ true, %if.end325.invoke ], [ false, %if.then323.invoke ]
+  %retval.3 = phi i1 [ false, %invoke.cont258 ], [ true, %if.end325.invoke ], [ false, %if.then323.invoke ]
   %125 = load ptr, ptr %out2, align 8
   %tobool.not.i.i.i = icmp eq ptr %125, null
   br i1 %tobool.not.i.i.i, label %cleanup328, label %if.then.i.i.i367
@@ -1783,7 +1783,7 @@ if.then.i.i.i369:                                 ; preds = %ehcleanup327
   br label %ehcleanup329
 
 cleanup328:                                       ; preds = %if.then213.invoke, %if.then.i.i.i367, %cleanup, %invoke.cont180, %invoke.cont188, %if.then169
-  %retval.1 = phi i1 [ false, %if.then169 ], [ false, %invoke.cont188 ], [ false, %invoke.cont180 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i367 ], [ false, %if.then213.invoke ]
+  %retval.2 = phi i1 [ false, %if.then169 ], [ false, %invoke.cont188 ], [ false, %invoke.cont180 ], [ %retval.3, %cleanup ], [ %retval.3, %if.then.i.i.i367 ], [ false, %if.then213.invoke ]
   %127 = load ptr, ptr %out, align 8
   %tobool.not.i.i.i371 = icmp eq ptr %127, null
   br i1 %tobool.not.i.i.i371, label %cleanup330, label %if.then.i.i.i372
@@ -1803,7 +1803,7 @@ if.then.i.i.i375:                                 ; preds = %ehcleanup329
   br label %ehcleanup331
 
 cleanup330:                                       ; preds = %if.then.i.i.i372, %cleanup328, %if.then127
-  %retval.2 = phi i1 [ false, %if.then127 ], [ %retval.1, %cleanup328 ], [ %retval.1, %if.then.i.i.i372 ]
+  %retval.1 = phi i1 [ false, %if.then127 ], [ %retval.2, %cleanup328 ], [ %retval.2, %if.then.i.i.i372 ]
   invoke void @EVP_AEAD_CTX_cleanup(ptr noundef nonnull %ctx)
           to label %cleanup332 unwind label %terminate.lpad.i
 
@@ -1852,7 +1852,7 @@ cleanup332.sink.split:                            ; preds = %cleanup332.sink.spl
   br label %cleanup332
 
 cleanup332:                                       ; preds = %cleanup332.sink.split, %cleanup330, %cleanup.done56.thread
-  %retval.3 = phi i1 [ false, %cleanup.done56.thread ], [ %retval.2, %cleanup330 ], [ false, %cleanup332.sink.split ]
+  %retval.0 = phi i1 [ false, %cleanup.done56.thread ], [ %retval.1, %cleanup330 ], [ false, %cleanup332.sink.split ]
   %133 = load ptr, ptr %tag, align 8
   %tobool.not.i.i.i379 = icmp eq ptr %133, null
   br i1 %tobool.not.i.i.i379, label %_ZNSt6vectorIhSaIhEED2Ev.exit381, label %if.then.i.i.i380
@@ -1907,7 +1907,7 @@ if.then.i.i.i395:                                 ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit396
 
 _ZNSt6vectorIhSaIhEED2Ev.exit396:                 ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit393, %if.then.i.i.i395
-  ret i1 %retval.3
+  ret i1 %retval.0
 
 ehcleanup333:                                     ; preds = %ehcleanup331, %lpad118, %ehcleanup117
   %.pn43.pn.pn = phi { ptr, i32 } [ %16, %lpad118 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup117 ], [ %.pn43.pn, %ehcleanup331 ]

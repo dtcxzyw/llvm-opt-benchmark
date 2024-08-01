@@ -147,13 +147,13 @@ define zeroext i1 @zend_gdb_present() local_unnamed_addr #0 {
   br label %24
 
 24:                                               ; preds = %22, %8, %18, %16, %5
-  %.0 = phi i1 [ false, %18 ], [ false, %16 ], [ false, %8 ], [ false, %5 ], [ %.not20, %22 ]
+  %.1 = phi i1 [ false, %18 ], [ false, %16 ], [ false, %8 ], [ false, %5 ], [ %.not20, %22 ]
   %25 = call i32 @close(i32 noundef %3) #9
   br label %26
 
 26:                                               ; preds = %24, %0
-  %.1 = phi i1 [ %.0, %24 ], [ false, %0 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %24 ], [ false, %0 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nofree

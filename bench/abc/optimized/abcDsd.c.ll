@@ -1593,7 +1593,7 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
 
 29:                                               ; preds = %.lr.ph77, %29
   %indvars.iv83 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next84, %29 ]
-  %.06374 = phi ptr [ %27, %.lr.ph77 ], [ %40, %29 ]
+  %.16474 = phi ptr [ %27, %.lr.ph77 ], [ %40, %29 ]
   %30 = trunc nuw nsw i64 %indvars.iv83 to i32
   %31 = tail call ptr @Dsd_NodeReadDec(ptr noundef %1, i32 noundef %30) #10
   %32 = load ptr, ptr %28, align 8
@@ -1604,9 +1604,9 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
   %37 = and i64 %36, 1
   %38 = xor i64 %37, %35
   %39 = inttoptr i64 %38 to ptr
-  %40 = tail call ptr @Cudd_bddOr(ptr noundef nonnull %18, ptr noundef %.06374, ptr noundef %39) #10
+  %40 = tail call ptr @Cudd_bddOr(ptr noundef nonnull %18, ptr noundef %.16474, ptr noundef %39) #10
   tail call void @Cudd_Ref(ptr noundef %40) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %18, ptr noundef %.06374) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %18, ptr noundef %.16474) #10
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
   br i1 %exitcond87.not, label %.loopexit, label %29, !llvm.loop !23
@@ -1627,13 +1627,13 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
 
 48:                                               ; preds = %.lr.ph73, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph73 ], [ %indvars.iv.next, %48 ]
-  %.16470 = phi ptr [ %46, %.lr.ph73 ], [ %52, %48 ]
+  %.26570 = phi ptr [ %46, %.lr.ph73 ], [ %52, %48 ]
   %49 = load ptr, ptr %47, align 8
   %50 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call ptr @Cudd_bddXor(ptr noundef nonnull %18, ptr noundef %.16470, ptr noundef %51) #10
+  %52 = tail call ptr @Cudd_bddXor(ptr noundef nonnull %18, ptr noundef %.26570, ptr noundef %51) #10
   tail call void @Cudd_Ref(ptr noundef %52) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %18, ptr noundef %.16470) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %18, ptr noundef %.26570) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond82.not, label %.loopexit, label %48, !llvm.loop !24
@@ -1662,9 +1662,9 @@ define internal fastcc ptr @Abc_NtkDsdConstructNode(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %48, %29, %41, %22, %._crit_edge, %60, %19
-  %.265 = phi ptr [ null, %._crit_edge ], [ %62, %60 ], [ %21, %19 ], [ %27, %22 ], [ %46, %41 ], [ %40, %29 ], [ %52, %48 ]
+  %.063 = phi ptr [ null, %._crit_edge ], [ %62, %60 ], [ %21, %19 ], [ %27, %22 ], [ %46, %41 ], [ %40, %29 ], [ %52, %48 ]
   %63 = getelementptr inbounds i8, ptr %7, i64 56
-  store ptr %.265, ptr %63, align 8
+  store ptr %.063, ptr %63, align 8
   %64 = ptrtoint ptr %7 to i64
   tail call void @Dsd_NodeSetMark(ptr noundef %1, i64 noundef %64) #10
   ret ptr %7

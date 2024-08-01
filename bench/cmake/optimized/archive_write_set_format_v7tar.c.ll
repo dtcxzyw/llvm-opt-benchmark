@@ -324,7 +324,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
 
 93:                                               ; preds = %92, %.thread.i
   %94 = phi i64 [ 100, %92 ], [ %90, %.thread.i ]
-  %.4.i = phi i32 [ -25, %92 ], [ %.3119.i, %.thread.i ]
+  %.5.i = phi i32 [ -25, %92 ], [ %.3119.i, %.thread.i ]
   %95 = getelementptr inbounds i8, ptr %6, i64 157
   %96 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %95, ptr noundef nonnull align 1 dereferenceable(1) %96, i64 %94, i1 false)
@@ -332,7 +332,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
 
 97:                                               ; preds = %93, %89
   %.0121.i = phi i8 [ %.0120.i, %93 ], [ -1, %89 ]
-  %.5.i = phi i32 [ %.4.i, %93 ], [ %.3.ph.i, %89 ]
+  %.4.i = phi i32 [ %.5.i, %93 ], [ %.3.ph.i, %89 ]
   %98 = call i32 @archive_entry_mode(ptr noundef %1) #11
   %99 = and i32 %98, 4095
   %100 = zext nneg i32 %99 to i64
@@ -363,7 +363,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
   br label %format_number.exit.thread.i
 
 format_number.exit.thread.i:                      ; preds = %110, %._crit_edge.i.i.i
-  %.6.i = phi i32 [ -25, %110 ], [ %.5.i, %._crit_edge.i.i.i ]
+  %.6.i = phi i32 [ -25, %110 ], [ %.4.i, %._crit_edge.i.i.i ]
   %111 = call i64 @archive_entry_uid(ptr noundef %1) #11
   %112 = icmp slt i64 %111, 0
   br i1 %112, label %.preheader.i.i.i, label %114

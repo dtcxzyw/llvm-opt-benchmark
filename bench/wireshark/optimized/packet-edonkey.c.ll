@@ -1019,10 +1019,10 @@ dissect_edonkey_file_status.exit50.i:             ; preds = %76, %69
   br label %80
 
 80:                                               ; preds = %dissect_edonkey_file_status.exit50.i, %67
-  %.1.i = phi i32 [ %79, %dissect_edonkey_file_status.exit50.i ], [ 2, %67 ]
+  %.2.i = phi i32 [ %79, %dissect_edonkey_file_status.exit50.i ], [ 2, %67 ]
   %81 = load i32, ptr @hf_edonkey_emule_queue_ranking, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %81, ptr noundef %0, i32 noundef %.1.i, i32 noundef 2, i32 noundef -2147483648) #7
-  %83 = add nuw nsw i32 %.1.i, 2
+  %82 = tail call ptr @proto_tree_add_item(ptr noundef %31, i32 noundef %81, ptr noundef %0, i32 noundef %.2.i, i32 noundef 2, i32 noundef -2147483648) #7
+  %83 = add nuw nsw i32 %.2.i, 2
   br label %dissect_emule_udp_message.exit
 
 84:                                               ; preds = %45
@@ -1442,21 +1442,21 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   br label %.lr.ph237
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.1234 = phi i32 [ %115, %.lr.ph ], [ %109, %.lr.ph.preheader ]
+  %.2234 = phi i32 [ %115, %.lr.ph ], [ %109, %.lr.ph.preheader ]
   %.0216233 = phi i32 [ %116, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %113 = load i32, ptr @hf_edonkey_start_offset, align 4
-  %114 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %113, ptr noundef %1, i32 noundef %.1234, i32 noundef 4, i32 noundef -2147483648) #7
-  %115 = add i32 %.1234, 4
+  %114 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %113, ptr noundef %1, i32 noundef %.2234, i32 noundef 4, i32 noundef -2147483648) #7
+  %115 = add i32 %.2234, 4
   %116 = add nuw nsw i32 %.0216233, 1
   %exitcond.not = icmp eq i32 %116, %smax
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !5
 
 .lr.ph237:                                        ; preds = %.lr.ph237.preheader, %.lr.ph237
-  %.2236 = phi i32 [ %119, %.lr.ph237 ], [ %115, %.lr.ph237.preheader ]
+  %.3236 = phi i32 [ %119, %.lr.ph237 ], [ %115, %.lr.ph237.preheader ]
   %.1217235 = phi i32 [ %120, %.lr.ph237 ], [ 0, %.lr.ph237.preheader ]
   %117 = load i32, ptr @hf_edonkey_end_offset, align 4
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %117, ptr noundef %1, i32 noundef %.2236, i32 noundef 4, i32 noundef -2147483648) #7
-  %119 = add i32 %.2236, 4
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %117, ptr noundef %1, i32 noundef %.3236, i32 noundef 4, i32 noundef -2147483648) #7
+  %119 = add i32 %.3236, 4
   %120 = add nuw nsw i32 %.1217235, 1
   %exitcond241.not = icmp eq i32 %120, %smax240
   br i1 %exitcond241.not, label %.loopexit, label %.lr.ph237, !llvm.loop !7
@@ -1507,14 +1507,14 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph237, %106, %.preheader, %.thread230, %121, %132, %47, %56, %24, %147, %145, %142, %140, %138, %136, %101, %96, %90, %81, %76, %73, %68, %63, %59, %45, %41, %39, %37, %35, %33, %30
-  %.3 = phi i32 [ %3, %147 ], [ %146, %145 ], [ %144, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %130, %132 ], [ %130, %121 ], [ %105, %101 ], [ %100, %96 ], [ %3, %90 ], [ %89, %81 ], [ %.pre.i226, %76 ], [ %.pre.i, %73 ], [ %72, %68 ], [ %67, %63 ], [ %62, %59 ], [ %54, %56 ], [ %54, %47 ], [ %46, %45 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %30 ], [ %29, %24 ], [ %23, %.thread230 ], [ %115, %.preheader ], [ %109, %106 ], [ %119, %.lr.ph237 ]
-  %150 = icmp slt i32 %.3, %12
+  %.1 = phi i32 [ %3, %147 ], [ %146, %145 ], [ %144, %142 ], [ %141, %140 ], [ %139, %138 ], [ %137, %136 ], [ %130, %132 ], [ %130, %121 ], [ %105, %101 ], [ %100, %96 ], [ %3, %90 ], [ %89, %81 ], [ %.pre.i226, %76 ], [ %.pre.i, %73 ], [ %72, %68 ], [ %67, %63 ], [ %62, %59 ], [ %54, %56 ], [ %54, %47 ], [ %46, %45 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %30 ], [ %29, %24 ], [ %23, %.thread230 ], [ %115, %.preheader ], [ %109, %106 ], [ %119, %.lr.ph237 ]
+  %150 = icmp slt i32 %.1, %12
   br i1 %150, label %151, label %155
 
 151:                                              ; preds = %.loopexit
-  %152 = sub i32 %12, %.3
+  %152 = sub i32 %12, %.1
   %153 = load i32, ptr @hf_edonkey_unparsed_data_length, align 4
-  %154 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %5, i32 noundef %153, ptr noundef %1, i32 noundef %.3, i32 noundef %152, i32 noundef %152, ptr noundef nonnull @.str.408, i32 noundef %152) #7
+  %154 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %5, i32 noundef %153, ptr noundef %1, i32 noundef %.1, i32 noundef %152, i32 noundef %152, ptr noundef nonnull @.str.408, i32 noundef %152) #7
   br label %155
 
 155:                                              ; preds = %.loopexit, %151, %6

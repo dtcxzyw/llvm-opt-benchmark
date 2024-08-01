@@ -511,35 +511,35 @@ if.then13.i.i:                                    ; preds = %if.else10.i.i
   br label %if.end38.i.i
 
 do.body.i.i:                                      ; preds = %if.else10.i.i, %do.body.i.i
-  %successor.0.i.i = phi ptr [ %tmp.0.i.i, %do.body.i.i ], [ %6, %if.else10.i.i ]
-  %tmp.0.i.i = phi ptr [ %19, %do.body.i.i ], [ %16, %if.else10.i.i ]
-  %rb_left16.i.i = getelementptr inbounds i8, ptr %tmp.0.i.i, i64 16
+  %successor.1.i.i = phi ptr [ %tmp.1.i.i, %do.body.i.i ], [ %6, %if.else10.i.i ]
+  %tmp.1.i.i = phi ptr [ %19, %do.body.i.i ], [ %16, %if.else10.i.i ]
+  %rb_left16.i.i = getelementptr inbounds i8, ptr %tmp.1.i.i, i64 16
   %19 = load ptr, ptr %rb_left16.i.i, align 8
   %tobool17.not.i.i = icmp eq ptr %19, null
   br i1 %tobool17.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !9
 
 do.end.i.i:                                       ; preds = %do.body.i.i
-  %rb_right18.i.i = getelementptr inbounds i8, ptr %tmp.0.i.i, i64 8
+  %rb_right18.i.i = getelementptr inbounds i8, ptr %tmp.1.i.i, i64 8
   %20 = load ptr, ptr %rb_right18.i.i, align 8
-  %rb_left23.i.i = getelementptr inbounds i8, ptr %successor.0.i.i, i64 16
+  %rb_left23.i.i = getelementptr inbounds i8, ptr %successor.1.i.i, i64 16
   %21 = ptrtoint ptr %20 to i64
   store atomic i64 %21, ptr %rb_left23.i.i monotonic, align 8
   %22 = ptrtoint ptr %6 to i64
   store atomic i64 %22, ptr %rb_right18.i.i monotonic, align 8
   %23 = load atomic i64, ptr %6 monotonic, align 8
   %conv.i.i.i.i.i = and i64 %23, 1
-  %24 = ptrtoint ptr %tmp.0.i.i to i64
+  %24 = ptrtoint ptr %tmp.1.i.i to i64
   %or.i.i.i.i = or i64 %conv.i.i.i.i.i, %24
   store atomic i64 %or.i.i.i.i, ptr %6 monotonic, align 8
   %subtree_last.i77.i.i = getelementptr inbounds i8, ptr %node, i64 40
   %25 = load i64, ptr %subtree_last.i77.i.i, align 8
-  %subtree_last4.i78.i.i = getelementptr inbounds i8, ptr %tmp.0.i.i, i64 40
+  %subtree_last4.i78.i.i = getelementptr inbounds i8, ptr %tmp.1.i.i, i64 40
   store i64 %25, ptr %subtree_last4.i78.i.i, align 8
-  %cmp.not4.i.i.i = icmp eq ptr %successor.0.i.i, %tmp.0.i.i
+  %cmp.not4.i.i.i = icmp eq ptr %successor.1.i.i, %tmp.1.i.i
   br i1 %cmp.not4.i.i.i, label %if.end38.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %do.end.i.i, %if.end.i.i.i
-  %rb.addr.05.i.i.i = phi ptr [ %33, %if.end.i.i.i ], [ %successor.0.i.i, %do.end.i.i ]
+  %rb.addr.05.i.i.i = phi ptr [ %33, %if.end.i.i.i ], [ %successor.1.i.i, %do.end.i.i ]
   %last.i.i.i.i = getelementptr inbounds i8, ptr %rb.addr.05.i.i.i, i64 32
   %26 = load i64, ptr %last.i.i.i.i, align 8
   %rb_left.i.i.i.i = getelementptr inbounds i8, ptr %rb.addr.05.i.i.i, i64 16
@@ -578,16 +578,16 @@ if.end.i.i.i:                                     ; preds = %if.end19.i.i.i.i
   %32 = load atomic i64, ptr %rb.addr.05.i.i.i monotonic, align 8
   %and.i.i.i.i.i = and i64 %32, -2
   %33 = inttoptr i64 %and.i.i.i.i.i to ptr
-  %cmp.not.i.i.i = icmp eq ptr %tmp.0.i.i, %33
+  %cmp.not.i.i.i = icmp eq ptr %tmp.1.i.i, %33
   br i1 %cmp.not.i.i.i, label %if.end38.i.i, label %while.body.i.i.i, !llvm.loop !10
 
 if.end38.i.i:                                     ; preds = %if.end.i.i.i, %if.end19.i.i.i.i, %do.end.i.i, %if.then13.i.i
   %.pre-phi.i.i = phi i64 [ %24, %do.end.i.i ], [ %.pre.i.i, %if.then13.i.i ], [ %24, %if.end19.i.i.i.i ], [ %24, %if.end.i.i.i ]
-  %successor.1.i.i = phi ptr [ %tmp.0.i.i, %do.end.i.i ], [ %6, %if.then13.i.i ], [ %tmp.0.i.i, %if.end19.i.i.i.i ], [ %tmp.0.i.i, %if.end.i.i.i ]
+  %successor.0.i.i = phi ptr [ %tmp.1.i.i, %do.end.i.i ], [ %6, %if.then13.i.i ], [ %tmp.1.i.i, %if.end19.i.i.i.i ], [ %tmp.1.i.i, %if.end.i.i.i ]
   %child2.0.i.i = phi ptr [ %20, %do.end.i.i ], [ %17, %if.then13.i.i ], [ %20, %if.end19.i.i.i.i ], [ %20, %if.end.i.i.i ]
-  %parent.0.i.i = phi ptr [ %successor.0.i.i, %do.end.i.i ], [ %6, %if.then13.i.i ], [ %successor.0.i.i, %if.end19.i.i.i.i ], [ %successor.0.i.i, %if.end.i.i.i ]
+  %parent.0.i.i = phi ptr [ %successor.1.i.i, %do.end.i.i ], [ %6, %if.then13.i.i ], [ %successor.1.i.i, %if.end19.i.i.i.i ], [ %successor.1.i.i, %if.end.i.i.i ]
   %34 = load ptr, ptr %rb_left.i6.i, align 8
-  %rb_left47.i.i = getelementptr inbounds i8, ptr %successor.1.i.i, i64 16
+  %rb_left47.i.i = getelementptr inbounds i8, ptr %successor.0.i.i, i64 16
   %35 = ptrtoint ptr %34 to i64
   store atomic i64 %35, ptr %rb_left47.i.i monotonic, align 8
   %36 = load atomic i64, ptr %34 monotonic, align 8
@@ -621,30 +621,30 @@ if.then54.i.i:                                    ; preds = %rb_change_child.exi
   br label %if.end63.thread.i.i
 
 if.else55.i.i:                                    ; preds = %rb_change_child.exit89.i.i
-  %41 = load atomic i64, ptr %successor.1.i.i monotonic, align 8
+  %41 = load atomic i64, ptr %successor.0.i.i monotonic, align 8
   %conv.i1.i.i.i.i.i = and i64 %41, 1
   %cmp.i.i.i.not.i.i = icmp eq i64 %conv.i1.i.i.i.i.i, 0
   %cond60.i.i = select i1 %cmp.i.i.i.not.i.i, ptr null, ptr %parent.0.i.i
   br label %if.end63.thread.i.i
 
 if.end63.thread.i.i:                              ; preds = %if.else55.i.i, %if.then54.i.i
-  %rebalance.1.i.i = phi ptr [ null, %if.then54.i.i ], [ %cond60.i.i, %if.else55.i.i ]
-  store atomic i64 %37, ptr %successor.1.i.i monotonic, align 8
+  %rebalance.2.i.i = phi ptr [ null, %if.then54.i.i ], [ %cond60.i.i, %if.else55.i.i ]
+  store atomic i64 %37, ptr %successor.0.i.i monotonic, align 8
   br label %while.body.i91.preheader.i.i
 
 if.end63.i.i:                                     ; preds = %rb_change_child.exit76.i.i, %if.else.i.i, %if.then3.i.i
-  %rebalance.2.i.i = phi ptr [ null, %rb_change_child.exit76.i.i ], [ null, %if.then3.i.i ], [ %cond.i.i, %if.else.i.i ]
-  %tmp.1.i.i = phi ptr [ %13, %rb_change_child.exit76.i.i ], [ %9, %if.then3.i.i ], [ %9, %if.else.i.i ]
-  %cmp.not4.i90.i.i = icmp eq ptr %tmp.1.i.i, null
+  %rebalance.1.i.i = phi ptr [ null, %rb_change_child.exit76.i.i ], [ null, %if.then3.i.i ], [ %cond.i.i, %if.else.i.i ]
+  %tmp.0.i.i = phi ptr [ %13, %rb_change_child.exit76.i.i ], [ %9, %if.then3.i.i ], [ %9, %if.else.i.i ]
+  %cmp.not4.i90.i.i = icmp eq ptr %tmp.0.i.i, null
   br i1 %cmp.not4.i90.i.i, label %interval_tree_propagate.exit113.i.i, label %while.body.i91.preheader.i.i
 
 while.body.i91.preheader.i.i:                     ; preds = %if.end63.i.i, %if.end63.thread.i.i
-  %tmp.180.i.i = phi ptr [ %successor.1.i.i, %if.end63.thread.i.i ], [ %tmp.1.i.i, %if.end63.i.i ]
-  %rebalance.278.i.i = phi ptr [ %rebalance.1.i.i, %if.end63.thread.i.i ], [ %rebalance.2.i.i, %if.end63.i.i ]
+  %tmp.080.i.i = phi ptr [ %successor.0.i.i, %if.end63.thread.i.i ], [ %tmp.0.i.i, %if.end63.i.i ]
+  %rebalance.178.i.i = phi ptr [ %rebalance.2.i.i, %if.end63.thread.i.i ], [ %rebalance.1.i.i, %if.end63.i.i ]
   br label %while.body.i91.i.i
 
 while.body.i91.i.i:                               ; preds = %if.end.i110.i.i, %while.body.i91.preheader.i.i
-  %rb.addr.05.i92.i.i = phi ptr [ %49, %if.end.i110.i.i ], [ %tmp.180.i.i, %while.body.i91.preheader.i.i ]
+  %rb.addr.05.i92.i.i = phi ptr [ %49, %if.end.i110.i.i ], [ %tmp.080.i.i, %while.body.i91.preheader.i.i ]
   %last.i.i93.i.i = getelementptr inbounds i8, ptr %rb.addr.05.i92.i.i, i64 32
   %42 = load i64, ptr %last.i.i93.i.i, align 8
   %rb_left.i.i94.i.i = getelementptr inbounds i8, ptr %rb.addr.05.i92.i.i, i64 16
@@ -687,13 +687,13 @@ if.end.i110.i.i:                                  ; preds = %if.end19.i.i106.i.i
   br i1 %cmp.not.i112.i.i, label %interval_tree_propagate.exit113.i.i, label %while.body.i91.i.i, !llvm.loop !10
 
 interval_tree_propagate.exit113.i.i:              ; preds = %if.end.i110.i.i, %if.end19.i.i106.i.i, %if.end63.i.i
-  %rebalance.279.i.i = phi ptr [ %rebalance.2.i.i, %if.end63.i.i ], [ %rebalance.278.i.i, %if.end19.i.i106.i.i ], [ %rebalance.278.i.i, %if.end.i110.i.i ]
-  %tobool65.not.i.i = icmp eq ptr %rebalance.279.i.i, null
+  %rebalance.179.i.i = phi ptr [ %rebalance.1.i.i, %if.end63.i.i ], [ %rebalance.178.i.i, %if.end19.i.i106.i.i ], [ %rebalance.178.i.i, %if.end.i110.i.i ]
+  %tobool65.not.i.i = icmp eq ptr %rebalance.179.i.i, null
   br i1 %tobool65.not.i.i, label %rb_erase_augmented_cached.exit, label %while.body.i114.i.i
 
 while.body.i114.i.i:                              ; preds = %interval_tree_propagate.exit113.i.i, %while.body.backedge.i.i.i
   %node.0.i.i.i = phi ptr [ %parent.addr.0.i.i.i, %while.body.backedge.i.i.i ], [ null, %interval_tree_propagate.exit113.i.i ]
-  %parent.addr.0.i.i.i = phi ptr [ %parent.addr.0.be.i.i.i, %while.body.backedge.i.i.i ], [ %rebalance.279.i.i, %interval_tree_propagate.exit113.i.i ]
+  %parent.addr.0.i.i.i = phi ptr [ %parent.addr.0.be.i.i.i, %while.body.backedge.i.i.i ], [ %rebalance.179.i.i, %interval_tree_propagate.exit113.i.i ]
   %rb_right.i115.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 8
   %50 = load ptr, ptr %rb_right.i115.i.i, align 8
   %cmp.not.i116.i.i = icmp eq ptr %node.0.i.i.i, %50

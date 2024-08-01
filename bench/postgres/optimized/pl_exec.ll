@@ -2437,16 +2437,16 @@ expanded_record_get_tupdesc.exit:                 ; preds = %143, %148
   br label %157
 
 157:                                              ; preds = %153, %155, %expanded_record_get_tupdesc.exit
-  %.060 = phi ptr [ %156, %155 ], [ %145, %153 ], [ %145, %expanded_record_get_tupdesc.exit ]
+  %.1 = phi ptr [ %156, %155 ], [ %145, %153 ], [ %145, %expanded_record_get_tupdesc.exit ]
   %158 = getelementptr inbounds i8, ptr %1, i64 24
   %159 = load ptr, ptr %158, align 8
-  %.not79 = icmp eq ptr %.060, %159
+  %.not79 = icmp eq ptr %.1, %159
   br i1 %.not79, label %189, label %160
 
 160:                                              ; preds = %157
   %161 = getelementptr inbounds i8, ptr %1, i64 16
   %162 = load ptr, ptr %161, align 8
-  %.not80 = icmp eq ptr %.060, %162
+  %.not80 = icmp eq ptr %.1, %162
   br i1 %.not80, label %189, label %.sink.split
 
 163:                                              ; preds = %138, %132
@@ -2481,7 +2481,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %143, %148
   br label %183
 
 183:                                              ; preds = %163, %181
-  %.1 = phi ptr [ %182, %181 ], [ %5, %163 ]
+  %.2 = phi ptr [ %182, %181 ], [ %5, %163 ]
   %184 = getelementptr inbounds i8, ptr %176, i64 12
   %185 = load i32, ptr %184, align 4
   %186 = icmp sgt i32 %185, -1
@@ -2492,12 +2492,12 @@ expanded_record_get_tupdesc.exit:                 ; preds = %143, %148
   br label %.sink.split
 
 .sink.split:                                      ; preds = %187, %183, %160
-  %.1.sink = phi ptr [ %.060, %160 ], [ %.1, %183 ], [ %.1, %187 ]
-  %188 = call ptr @SPI_copytuple(ptr noundef %.1.sink) #11
+  %.2.sink = phi ptr [ %.1, %160 ], [ %.2, %183 ], [ %.2, %187 ]
+  %188 = call ptr @SPI_copytuple(ptr noundef %.2.sink) #11
   br label %189
 
 189:                                              ; preds = %.sink.split, %125, %129, %160, %157
-  %.2 = phi ptr [ %.060, %160 ], [ %.060, %157 ], [ null, %129 ], [ null, %125 ], [ %188, %.sink.split ]
+  %.060 = phi ptr [ %.1, %160 ], [ %.1, %157 ], [ null, %129 ], [ null, %125 ], [ %188, %.sink.split ]
   %190 = load ptr, ptr @plpgsql_plugin_ptr, align 8
   %191 = load ptr, ptr %190, align 8
   %.not81 = icmp eq ptr %191, null
@@ -2544,7 +2544,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %143, %148
 exec_eval_cleanup.exit:                           ; preds = %196, %204, %205
   %208 = load ptr, ptr %4, align 8
   store ptr %208, ptr @error_context_stack, align 8
-  ret ptr %.2
+  ret ptr %.060
 }
 
 declare ptr @make_expanded_record_from_tupdesc(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -5404,7 +5404,7 @@ exec_eval_cleanup.exit208:                        ; preds = %736, %738
   br label %728
 
 exec_stmt_while.exit:                             ; preds = %exec_eval_cleanup.exit208, %743, %758, %760, %746, %749, %751, %754
-  %.2.i = phi i32 [ 0, %754 ], [ 1, %751 ], [ 1, %749 ], [ 0, %746 ], [ 3, %758 ], [ 3, %760 ], [ %745, %743 ], [ %.0.i109, %exec_eval_cleanup.exit208 ]
+  %.1.i = phi i32 [ 0, %754 ], [ 1, %751 ], [ 1, %749 ], [ 0, %746 ], [ 3, %758 ], [ 3, %760 ], [ %745, %743 ], [ %.0.i109, %exec_eval_cleanup.exit208 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %65)
   br label %exec_stmt_perform.exit
 
@@ -5588,7 +5588,7 @@ exec_eval_cleanup.exit211:                        ; preds = %848, %850
   %865 = phi i32 [ %.pre726, %858 ], [ %.be, %.backedge1046 ]
   %.065.i = phi i32 [ %792, %858 ], [ %.065.i.be, %.backedge1046 ]
   %.062.i = phi i8 [ 0, %858 ], [ 1, %.backedge1046 ]
-  %.0.i113 = phi i32 [ 0, %858 ], [ %.1.i115, %.backedge1046 ]
+  %.0.i113 = phi i32 [ 0, %858 ], [ %.2.i115, %.backedge1046 ]
   %.not75.i = icmp eq i32 %865, 0
   br i1 %.not75.i, label %868, label %866
 
@@ -5650,7 +5650,7 @@ exec_eval_cleanup.exit211:                        ; preds = %848, %850
   br label %892
 
 892:                                              ; preds = %891, %883, %870
-  %.1.i115 = phi i32 [ 0, %891 ], [ %873, %870 ], [ 0, %883 ]
+  %.2.i115 = phi i32 [ 0, %891 ], [ %873, %870 ], [ 0, %883 ]
   %893 = load i32, ptr %859, align 8
   %.not77.i = icmp eq i32 %893, 0
   br i1 %.not77.i, label %898, label %894
@@ -5678,7 +5678,7 @@ exec_eval_cleanup.exit211:                        ; preds = %848, %850
 
 exec_stmt_fori.exit:                              ; preds = %866, %868, %870, %886, %888, %894, %898, %874, %877, %879, %882
   %.163.i = phi i8 [ 1, %882 ], [ 1, %879 ], [ 1, %877 ], [ 1, %874 ], [ %.062.i, %868 ], [ 1, %886 ], [ 1, %888 ], [ 1, %898 ], [ 1, %894 ], [ 1, %870 ], [ %.062.i, %866 ]
-  %.2.i114 = phi i32 [ 0, %882 ], [ 1, %879 ], [ 1, %877 ], [ 0, %874 ], [ %.0.i113, %868 ], [ 3, %886 ], [ 3, %888 ], [ %.1.i115, %898 ], [ %.1.i115, %894 ], [ %873, %870 ], [ %.0.i113, %866 ]
+  %.1.i114 = phi i32 [ 0, %882 ], [ 1, %879 ], [ 1, %877 ], [ 0, %874 ], [ %.0.i113, %868 ], [ 3, %886 ], [ 3, %888 ], [ %.2.i115, %898 ], [ %.2.i115, %894 ], [ %873, %870 ], [ %.0.i113, %866 ]
   %902 = load ptr, ptr %81, align 8
   %903 = load i32, ptr %85, align 8
   %904 = sext i32 %903 to i64
@@ -6175,14 +6175,14 @@ exec_eval_cleanup.exit228:                        ; preds = %1072, %1074
   br label %1155
 
 1155:                                             ; preds = %1154, %1146, %1134
-  %.160.i = phi i32 [ 0, %1154 ], [ %1136, %1134 ], [ 0, %1146 ]
+  %.2.i121 = phi i32 [ 0, %1154 ], [ %1136, %1134 ], [ 0, %1146 ]
   store ptr %1057, ptr @CurrentMemoryContext, align 8
   %1156 = call zeroext i1 @array_iterate(ptr noundef %1118, ptr noundef nonnull %58, ptr noundef nonnull %59) #11
   br i1 %1156, label %1125, label %exec_stmt_foreach_a.exit, !llvm.loop !14
 
 exec_stmt_foreach_a.exit:                         ; preds = %1151, %1149, %1134, %1155, %1117, %1137, %1140, %1142, %1145
-  %.2.i120 = phi i32 [ 0, %1145 ], [ 1, %1142 ], [ 1, %1140 ], [ 0, %1137 ], [ 0, %1117 ], [ 3, %1151 ], [ 3, %1149 ], [ %1136, %1134 ], [ %.160.i, %1155 ]
-  %.1.i121 = phi i64 [ 1, %1145 ], [ 1, %1142 ], [ 1, %1140 ], [ 1, %1137 ], [ 0, %1117 ], [ 1, %1155 ], [ 1, %1134 ], [ 1, %1149 ], [ 1, %1151 ]
+  %.160.i = phi i32 [ 0, %1145 ], [ 1, %1142 ], [ 1, %1140 ], [ 0, %1137 ], [ 0, %1117 ], [ 3, %1151 ], [ 3, %1149 ], [ %1136, %1134 ], [ %.2.i121, %1155 ]
+  %.1.i120 = phi i64 [ 1, %1145 ], [ 1, %1142 ], [ 1, %1140 ], [ 1, %1137 ], [ 0, %1117 ], [ 1, %1155 ], [ 1, %1134 ], [ 1, %1149 ], [ 1, %1151 ]
   store ptr %1058, ptr @CurrentMemoryContext, align 8
   %1157 = load ptr, ptr %87, align 8
   store ptr %1157, ptr %86, align 8
@@ -6194,7 +6194,7 @@ exec_stmt_foreach_a.exit:                         ; preds = %1151, %1149, %1134,
   %1161 = sext i32 %1160 to i64
   %1162 = getelementptr ptr, ptr %1159, i64 %1161
   %1163 = load ptr, ptr %1162, align 8
-  call fastcc void @assign_simple_var(ptr noundef readonly %0, ptr noundef %1163, i64 noundef %.1.i121, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @assign_simple_var(ptr noundef readonly %0, ptr noundef %1163, i64 noundef %.1.i120, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %56)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %57)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58)
@@ -8459,7 +8459,7 @@ exec_stmt_rollback.exit:                          ; preds = %2209, %2210
   unreachable
 
 exec_stmt_perform.exit:                           ; preds = %720, %718, %703, %714, %711, %709, %706, %510, %508, %174, %172, %exec_stmt_rollback.exit, %exec_stmt_commit.exit, %exec_stmt_close.exit, %exec_stmt_fetch.exit, %exec_stmt_open.exit, %1948, %exec_stmt_dynexecute.exit, %1823, %exec_stmt_assert.exit, %exec_stmt_raise.exit, %exec_stmt_return_query.exit, %exec_stmt_return_next.exit, %exec_stmt_return.exit, %exec_stmt_exit.exit, %exec_stmt_foreach_a.exit, %exec_stmt_forc.exit, %908, %exec_stmt_fori.exit, %exec_stmt_while.exit, %exec_stmt_case.exit, %exec_stmt_if.exit, %exec_stmt_call.exit, %152, %150
-  %.0 = phi i32 [ 0, %exec_stmt_rollback.exit ], [ 0, %exec_stmt_commit.exit ], [ 0, %exec_stmt_close.exit ], [ 0, %exec_stmt_fetch.exit ], [ 0, %exec_stmt_open.exit ], [ %1954, %1948 ], [ 0, %exec_stmt_dynexecute.exit ], [ 0, %1823 ], [ 0, %exec_stmt_assert.exit ], [ 0, %exec_stmt_raise.exit ], [ 0, %exec_stmt_return_query.exit ], [ 0, %exec_stmt_return_next.exit ], [ 2, %exec_stmt_return.exit ], [ %.0.i126, %exec_stmt_exit.exit ], [ %.2.i120, %exec_stmt_foreach_a.exit ], [ %1011, %exec_stmt_forc.exit ], [ %913, %908 ], [ %.2.i114, %exec_stmt_fori.exit ], [ %.2.i, %exec_stmt_while.exit ], [ %702, %exec_stmt_case.exit ], [ %563, %exec_stmt_if.exit ], [ 0, %exec_stmt_call.exit ], [ 0, %152 ], [ %151, %150 ], [ 0, %172 ], [ 0, %174 ], [ 0, %508 ], [ 0, %510 ], [ 0, %714 ], [ 1, %711 ], [ 1, %709 ], [ 0, %706 ], [ %705, %703 ], [ %705, %718 ], [ %705, %720 ]
+  %.0 = phi i32 [ 0, %exec_stmt_rollback.exit ], [ 0, %exec_stmt_commit.exit ], [ 0, %exec_stmt_close.exit ], [ 0, %exec_stmt_fetch.exit ], [ 0, %exec_stmt_open.exit ], [ %1954, %1948 ], [ 0, %exec_stmt_dynexecute.exit ], [ 0, %1823 ], [ 0, %exec_stmt_assert.exit ], [ 0, %exec_stmt_raise.exit ], [ 0, %exec_stmt_return_query.exit ], [ 0, %exec_stmt_return_next.exit ], [ 2, %exec_stmt_return.exit ], [ %.0.i126, %exec_stmt_exit.exit ], [ %.160.i, %exec_stmt_foreach_a.exit ], [ %1011, %exec_stmt_forc.exit ], [ %913, %908 ], [ %.1.i114, %exec_stmt_fori.exit ], [ %.1.i, %exec_stmt_while.exit ], [ %702, %exec_stmt_case.exit ], [ %563, %exec_stmt_if.exit ], [ 0, %exec_stmt_call.exit ], [ 0, %152 ], [ %151, %150 ], [ 0, %172 ], [ 0, %174 ], [ 0, %508 ], [ 0, %510 ], [ 0, %714 ], [ 1, %711 ], [ 1, %709 ], [ 0, %706 ], [ %705, %703 ], [ %705, %718 ], [ %705, %720 ]
   %2215 = load ptr, ptr @plpgsql_plugin_ptr, align 8
   %2216 = load ptr, ptr %2215, align 8
   %.not88 = icmp eq ptr %2216, null
@@ -10147,7 +10147,7 @@ exec_eval_cleanup.exit93:                         ; preds = %127, %129
   br label %152
 
 152:                                              ; preds = %143, %exec_eval_cleanup.exit93, %151
-  %.273 = phi i32 [ 0, %151 ], [ %133, %exec_eval_cleanup.exit93 ], [ 0, %143 ]
+  %.374 = phi i32 [ 0, %151 ], [ %133, %exec_eval_cleanup.exit93 ], [ 0, %143 ]
   %153 = add nuw i64 %.065108, 1
   %exitcond.not = icmp eq i64 %153, %.066113
   br i1 %exitcond.not, label %154, label %40, !llvm.loop !16
@@ -10162,7 +10162,7 @@ exec_eval_cleanup.exit93:                         ; preds = %127, %129
 
 .loopexit:                                        ; preds = %154, %exec_eval_cleanup.exit93, %146, %148, %26, %29, %134, %137, %139, %142
   %.076105 = phi ptr [ %.076110, %142 ], [ %.076110, %139 ], [ %.076110, %137 ], [ %.076110, %134 ], [ %18, %29 ], [ %18, %26 ], [ %.076110, %148 ], [ %.076110, %146 ], [ %.076110, %exec_eval_cleanup.exit93 ], [ %155, %154 ]
-  %.374 = phi i32 [ 0, %142 ], [ 1, %139 ], [ 1, %137 ], [ 0, %134 ], [ 0, %29 ], [ 0, %26 ], [ %133, %148 ], [ %133, %146 ], [ %133, %exec_eval_cleanup.exit93 ], [ %.273, %154 ]
+  %.273 = phi i32 [ 0, %142 ], [ 1, %139 ], [ 1, %137 ], [ 0, %134 ], [ 0, %29 ], [ 0, %26 ], [ %133, %148 ], [ %133, %146 ], [ %133, %exec_eval_cleanup.exit93 ], [ %.374, %154 ]
   tail call void @SPI_freetuptable(ptr noundef %.076105) #11
   tail call void @UnpinPortal(ptr noundef %2) #11
   %157 = load ptr, ptr %5, align 8
@@ -10173,7 +10173,7 @@ exec_eval_cleanup.exit93:                         ; preds = %127, %129
   %162 = load ptr, ptr %161, align 8
   %163 = zext i1 %20 to i64
   tail call fastcc void @assign_simple_var(ptr noundef nonnull readonly %0, ptr noundef %162, i64 noundef %163, i1 noundef zeroext false, i1 noundef zeroext false)
-  ret i32 %.374
+  ret i32 %.273
 }
 
 declare void @SPI_cursor_close(ptr noundef) local_unnamed_addr #1
@@ -12204,7 +12204,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %26, %29
 
 48:                                               ; preds = %.lr.ph214, %88
   %indvars.iv239 = phi i64 [ 0, %.lr.ph214 ], [ %indvars.iv.next240, %88 ]
-  %.0166211 = phi i32 [ 0, %.lr.ph214 ], [ %.3, %88 ]
+  %.0166211 = phi i32 [ 0, %.lr.ph214 ], [ %.1167, %88 ]
   %49 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %46, i64 0, i64 %indvars.iv239
   %50 = getelementptr inbounds i8, ptr %49, i64 95
   %51 = load i8, ptr %50, align 1
@@ -12249,7 +12249,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %26, %29
   br label %78
 
 .critedge184:                                     ; preds = %58, %.preheader194
-  %.1167.lcssa = phi i32 [ %.0166211, %.preheader194 ], [ %17, %58 ]
+  %.2.lcssa = phi i32 [ %.0166211, %.preheader194 ], [ %17, %58 ]
   store i8 1, ptr %9, align 1
   br i1 %.not178, label %78, label %71
 
@@ -12266,7 +12266,7 @@ expanded_record_get_tupdesc.exit:                 ; preds = %26, %29
   br label %78
 
 78:                                               ; preds = %71, %73, %.critedge184, %.critedge
-  %.2 = phi i32 [ %70, %.critedge ], [ %.1167.lcssa, %.critedge184 ], [ %.1167.lcssa, %73 ], [ %.1167.lcssa, %71 ]
+  %.3 = phi i32 [ %70, %.critedge ], [ %.2.lcssa, %.critedge184 ], [ %.2.lcssa, %73 ], [ %.2.lcssa, %71 ]
   %.0164 = phi i64 [ %61, %.critedge ], [ 0, %.critedge184 ], [ 0, %73 ], [ 0, %71 ]
   %.0163 = phi i32 [ %67, %.critedge ], [ 705, %.critedge184 ], [ 705, %73 ], [ 705, %71 ]
   %.0162 = phi i32 [ %69, %.critedge ], [ -1, %.critedge184 ], [ -1, %73 ], [ -1, %71 ]
@@ -12284,13 +12284,13 @@ expanded_record_get_tupdesc.exit:                 ; preds = %26, %29
   br label %88
 
 88:                                               ; preds = %48, %78
-  %.3 = phi i32 [ %.0166211, %48 ], [ %.2, %78 ]
+  %.1167 = phi i32 [ %.0166211, %48 ], [ %.3, %78 ]
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next240, %wide.trip.count
   br i1 %exitcond242.not, label %._crit_edge215, label %48, !llvm.loop !24
 
 ._crit_edge215:                                   ; preds = %88, %44
-  %.0166.lcssa = phi i32 [ 0, %44 ], [ %.3, %88 ]
+  %.0166.lcssa = phi i32 [ 0, %44 ], [ %.1167, %88 ]
   %89 = icmp sge i32 %.0166.lcssa, %17
   %or.cond185.not = select i1 %.not178, i1 true, i1 %89
   br i1 %or.cond185.not, label %.critedge186, label %.preheader

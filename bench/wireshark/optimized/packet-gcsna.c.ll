@@ -204,27 +204,27 @@ define internal i32 @dissect_gcsna(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.03.i.i = phi i16 [ %43, %.lr.ph.i.i ], [ %39, %.lr.ph.preheader.i.i ]
-  %.0782.i.i = phi i32 [ %42, %.lr.ph.i.i ], [ %38, %.lr.ph.preheader.i.i ]
+  %.12.i.i = phi i32 [ %42, %.lr.ph.i.i ], [ %38, %.lr.ph.preheader.i.i ]
   %40 = load i32, ptr @hf_gcsna_altGCSNAOption, align 4
-  %41 = tail call ptr @proto_tree_add_bits_item(ptr noundef %11, i32 noundef %40, ptr noundef %0, i32 noundef %.0782.i.i, i32 noundef 8, i32 noundef 0) #2
-  %42 = add i32 %.0782.i.i, 8
+  %41 = tail call ptr @proto_tree_add_bits_item(ptr noundef %11, i32 noundef %40, ptr noundef %0, i32 noundef %.12.i.i, i32 noundef 8, i32 noundef 0) #2
+  %42 = add i32 %.12.i.i, 8
   %43 = add nsw i16 %.03.i.i, -1
   %.not79.i.i = icmp eq i16 %43, 0
   br i1 %.not79.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !4
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %34, %18
-  %.1.i.i = phi i32 [ %33, %18 ], [ %38, %34 ], [ %42, %.lr.ph.i.i ]
-  %44 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.1.i.i, i32 noundef 1) #2
+  %.078.i.i = phi i32 [ %33, %18 ], [ %38, %34 ], [ %42, %.lr.ph.i.i ]
+  %44 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.078.i.i, i32 noundef 1) #2
   %45 = load i32, ptr @hf_gcsna_iwsidIncluded, align 4
-  %46 = tail call ptr @proto_tree_add_bits_item(ptr noundef %11, i32 noundef %45, ptr noundef %0, i32 noundef %.1.i.i, i32 noundef 1, i32 noundef 0) #2
-  %47 = add i32 %.1.i.i, 1
+  %46 = tail call ptr @proto_tree_add_bits_item(ptr noundef %11, i32 noundef %45, ptr noundef %0, i32 noundef %.078.i.i, i32 noundef 1, i32 noundef 0) #2
+  %47 = add i32 %.078.i.i, 1
   %.not80.i.i = icmp eq i8 %44, 0
   br i1 %.not80.i.i, label %52, label %48
 
 48:                                               ; preds = %.loopexit.i.i
   %49 = load i32, ptr @hf_gcsna_iwsidValue, align 4
   %50 = tail call ptr @proto_tree_add_bits_item(ptr noundef %11, i32 noundef %49, ptr noundef %0, i32 noundef %47, i32 noundef 16, i32 noundef 0) #2
-  %51 = add i32 %.1.i.i, 17
+  %51 = add i32 %.078.i.i, 17
   br label %52
 
 52:                                               ; preds = %48, %.loopexit.i.i
@@ -363,12 +363,12 @@ gcsna_message_GCSNA1xCircuitService.exit.i:       ; preds = %74, %52
   br label %.lr.ph.i19.i
 
 .lr.ph.i19.i:                                     ; preds = %.lr.ph.i19.i, %.lr.ph.preheader.i18.i
-  %.13.i.i = phi i16 [ %143, %.lr.ph.i19.i ], [ %138, %.lr.ph.preheader.i18.i ]
+  %.23.i.i = phi i16 [ %143, %.lr.ph.i19.i ], [ %138, %.lr.ph.preheader.i18.i ]
   %.1592.i.i = phi i16 [ %144, %.lr.ph.i19.i ], [ %139, %.lr.ph.preheader.i18.i ]
   %140 = load i32, ptr @hf_gcsna_recordType, align 4
-  %141 = zext i16 %.13.i.i to i32
+  %141 = zext i16 %.23.i.i to i32
   %142 = tail call ptr @proto_tree_add_bits_item(ptr noundef %93, i32 noundef %140, ptr noundef %0, i32 noundef %141, i32 noundef 8, i32 noundef 0) #2
-  %143 = add i16 %.13.i.i, 8
+  %143 = add i16 %.23.i.i, 8
   %144 = add nsw i16 %.1592.i.i, -1
   %.not.i20.i = icmp eq i16 %144, 0
   br i1 %.not.i20.i, label %gcsna_message_GCSNAServiceReject.exit.i, label %.lr.ph.i19.i, !llvm.loop !7
@@ -380,8 +380,8 @@ gcsna_message_GCSNA1xCircuitService.exit.i:       ; preds = %74, %52
   br label %gcsna_message_GCSNAServiceReject.exit.i
 
 gcsna_message_GCSNAServiceReject.exit.i:          ; preds = %.lr.ph.i19.i, %145, %135, %130, %125, %120, %._crit_edge.i.i
-  %.2.i22.i = phi i16 [ %104, %145 ], [ %134, %130 ], [ %129, %125 ], [ %124, %120 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %138, %135 ], [ %143, %.lr.ph.i19.i ]
-  %149 = zext i16 %.2.i22.i to i32
+  %.1.i.i = phi i16 [ %104, %145 ], [ %134, %130 ], [ %129, %125 ], [ %124, %120 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %138, %135 ], [ %143, %.lr.ph.i19.i ]
+  %149 = zext i16 %.1.i.i to i32
   %150 = and i32 %149, 7
   %151 = icmp ne i32 %150, 0
   %152 = lshr i32 %149, 3

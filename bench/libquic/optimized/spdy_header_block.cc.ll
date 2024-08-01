@@ -1736,8 +1736,8 @@ cleanup25:                                        ; preds = %for.inc, %if.end, %
   br label %return
 
 return:                                           ; preds = %cleanup25, %entry, %lor.lhs.false, %lor.lhs.false1
-  %retval.3 = phi i1 [ false, %lor.lhs.false1 ], [ false, %lor.lhs.false ], [ false, %entry ], [ %cmp.i.i14, %cleanup25 ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ false, %lor.lhs.false1 ], [ false, %lor.lhs.false ], [ false, %entry ], [ %cmp.i.i14, %cleanup25 ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK4base15DictionaryValue13GetDictionaryENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPPKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr, i64, ptr noundef) local_unnamed_addr #6

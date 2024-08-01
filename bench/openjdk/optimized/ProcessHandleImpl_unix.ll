@@ -650,8 +650,8 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %57, label %.thread, label %58
 
 58:                                               ; preds = %52, %51
-  %.081 = phi ptr [ %56, %52 ], [ null, %51 ]
-  %.081.fr = freeze ptr %.081
+  %.182 = phi ptr [ %56, %52 ], [ null, %51 ]
+  %.182.fr = freeze ptr %.182
   br i1 %.not101, label %65, label %59
 
 59:                                               ; preds = %58
@@ -663,15 +663,15 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %59, %58
-  %.079 = phi ptr [ %63, %59 ], [ null, %58 ]
-  %.079.fr = freeze ptr %.079
+  %.180 = phi ptr [ %63, %59 ], [ null, %58 ]
+  %.180.fr = freeze ptr %.180
   %66 = icmp eq i32 %8, 0
-  %.not105 = icmp eq ptr %.081.fr, null
-  %.not106 = icmp eq ptr %.079.fr, null
+  %.not105 = icmp eq ptr %.182.fr, null
+  %.not106 = icmp eq ptr %.180.fr, null
   br i1 %.not106, label %.outer.us.outer, label %.split
 
 .outer.us.outer:                                  ; preds = %65, %84
-  %.078.ph.us.ph = phi i32 [ %85, %84 ], [ 0, %65 ]
+  %.1.ph.us.ph = phi i32 [ %85, %84 ], [ 0, %65 ]
   br label %.outer.us
 
 .outer.us:                                        ; preds = %.outer.us.outer, %71
@@ -694,24 +694,24 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %or.cond, label %75, label %.outer.us, !llvm.loop !11
 
 75:                                               ; preds = %71
-  %76 = icmp slt i32 %.078.ph.us.ph, %12
+  %76 = icmp slt i32 %.1.ph.us.ph, %12
   br i1 %76, label %77, label %84
 
 77:                                               ; preds = %75
   %78 = zext nneg i32 %69 to i64
-  %79 = zext nneg i32 %.078.ph.us.ph to i64
+  %79 = zext nneg i32 %.1.ph.us.ph to i64
   %80 = getelementptr inbounds i64, ptr %49, i64 %79
   store i64 %78, ptr %80, align 8
   br i1 %.not105, label %84, label %81
 
 81:                                               ; preds = %77
   %82 = zext nneg i32 %72 to i64
-  %83 = getelementptr inbounds i64, ptr %.081.fr, i64 %79
+  %83 = getelementptr inbounds i64, ptr %.182.fr, i64 %79
   store i64 %82, ptr %83, align 8
   br label %84
 
 84:                                               ; preds = %77, %81, %75
-  %85 = add nuw nsw i32 %.078.ph.us.ph, 1
+  %85 = add nuw nsw i32 %.1.ph.us.ph, 1
   br label %.outer.us.outer, !llvm.loop !11
 
 86:                                               ; preds = %67, %.outer.us
@@ -723,7 +723,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %.not105, label %.outer.us137.outer, label %.split.split
 
 .outer.us137.outer:                               ; preds = %.split, %104
-  %.078.ph.us138.ph = phi i32 [ %105, %104 ], [ 0, %.split ]
+  %.1.ph.us138.ph = phi i32 [ %105, %104 ], [ 0, %.split ]
   br label %.outer.us137
 
 .outer.us137:                                     ; preds = %.outer.us137.outer, %92
@@ -746,21 +746,21 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %or.cond153, label %96, label %.outer.us137, !llvm.loop !11
 
 96:                                               ; preds = %92
-  %97 = icmp slt i32 %.078.ph.us138.ph, %12
+  %97 = icmp slt i32 %.1.ph.us138.ph, %12
   br i1 %97, label %98, label %104
 
 98:                                               ; preds = %96
   %99 = zext nneg i32 %90 to i64
-  %100 = zext nneg i32 %.078.ph.us138.ph to i64
+  %100 = zext nneg i32 %.1.ph.us138.ph to i64
   %101 = getelementptr inbounds i64, ptr %49, i64 %100
   store i64 %99, ptr %101, align 8
   %102 = load i64, ptr %7, align 8
-  %103 = getelementptr inbounds i64, ptr %.079.fr, i64 %100
+  %103 = getelementptr inbounds i64, ptr %.180.fr, i64 %100
   store i64 %102, ptr %103, align 8
   br label %104
 
 104:                                              ; preds = %98, %96
-  %105 = add nuw nsw i32 %.078.ph.us138.ph, 1
+  %105 = add nuw nsw i32 %.1.ph.us138.ph, 1
   br label %.outer.us137.outer, !llvm.loop !11
 
 106:                                              ; preds = %88, %.outer.us137
@@ -776,7 +776,7 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br label %.outer.outer
 
 .outer.outer:                                     ; preds = %149, %.outer.preheader
-  %.078.ph.ph = phi i32 [ %150, %149 ], [ 0, %.outer.preheader ]
+  %.1.ph.ph = phi i32 [ %150, %149 ], [ 0, %.outer.preheader ]
   br label %.outer
 
 .outer.us145:                                     ; preds = %.outer.us145.outer, %113
@@ -796,28 +796,28 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %115, label %116, label %.outer.us145, !llvm.loop !11
 
 116:                                              ; preds = %113
-  %117 = icmp slt i32 %.078.ph.us146.ph, %12
+  %117 = icmp slt i32 %.1.ph.us146.ph, %12
   br i1 %117, label %118, label %126
 
 118:                                              ; preds = %116
   %119 = zext nneg i32 %111 to i64
-  %120 = zext nneg i32 %.078.ph.us146.ph to i64
+  %120 = zext nneg i32 %.1.ph.us146.ph to i64
   %121 = getelementptr inbounds i64, ptr %49, i64 %120
   store i64 %119, ptr %121, align 8
   %122 = zext nneg i32 %114 to i64
-  %123 = getelementptr inbounds i64, ptr %.081.fr, i64 %120
+  %123 = getelementptr inbounds i64, ptr %.182.fr, i64 %120
   store i64 %122, ptr %123, align 8
   %124 = load i64, ptr %7, align 8
-  %125 = getelementptr inbounds i64, ptr %.079.fr, i64 %120
+  %125 = getelementptr inbounds i64, ptr %.180.fr, i64 %120
   store i64 %124, ptr %125, align 8
   br label %126
 
 126:                                              ; preds = %118, %116
-  %127 = add nuw nsw i32 %.078.ph.us146.ph, 1
+  %127 = add nuw nsw i32 %.1.ph.us146.ph, 1
   br label %.outer.us145.outer, !llvm.loop !11
 
 .outer.us145.outer:                               ; preds = %.split.split, %126
-  %.078.ph.us146.ph = phi i32 [ %127, %126 ], [ 0, %.split.split ]
+  %.1.ph.us146.ph = phi i32 [ %127, %126 ], [ 0, %.split.split ]
   br label %.outer.us145
 
 128:                                              ; preds = %109, %.outer.us145
@@ -849,61 +849,61 @@ define hidden i32 @unix_getChildren(ptr noundef %0, i64 noundef %1, ptr noundef 
   br i1 %or.cond154, label %140, label %.outer, !llvm.loop !11
 
 140:                                              ; preds = %136
-  %141 = icmp slt i32 %.078.ph.ph, %12
+  %141 = icmp slt i32 %.1.ph.ph, %12
   br i1 %141, label %142, label %149
 
 142:                                              ; preds = %140
   %143 = zext nneg i32 %134 to i64
-  %144 = zext nneg i32 %.078.ph.ph to i64
+  %144 = zext nneg i32 %.1.ph.ph to i64
   %145 = getelementptr inbounds i64, ptr %49, i64 %144
   store i64 %143, ptr %145, align 8
-  %146 = getelementptr inbounds i64, ptr %.081.fr, i64 %144
+  %146 = getelementptr inbounds i64, ptr %.182.fr, i64 %144
   store i64 %108, ptr %146, align 8
   %147 = load i64, ptr %7, align 8
-  %148 = getelementptr inbounds i64, ptr %.079.fr, i64 %144
+  %148 = getelementptr inbounds i64, ptr %.180.fr, i64 %144
   store i64 %147, ptr %148, align 8
   br label %149
 
 149:                                              ; preds = %142, %140
-  %150 = add nuw nsw i32 %.078.ph.ph, 1
+  %150 = add nuw nsw i32 %.1.ph.ph, 1
   br label %.outer.outer, !llvm.loop !11
 
 .thread:                                          ; preds = %130, %128, %106, %86, %52, %59
-  %.2117 = phi i32 [ 0, %59 ], [ 0, %52 ], [ %.078.ph.us.ph, %86 ], [ %.078.ph.us138.ph, %106 ], [ %.078.ph.us146.ph, %128 ], [ %.078.ph.ph, %130 ]
-  %.180115 = phi ptr [ null, %59 ], [ null, %52 ], [ null, %86 ], [ %.079.fr, %106 ], [ %.079.fr, %128 ], [ %.079.fr, %130 ]
-  %.182113 = phi ptr [ %.081.fr, %59 ], [ null, %52 ], [ %.081.fr, %86 ], [ null, %106 ], [ %.081.fr, %128 ], [ %.081.fr, %130 ]
+  %.078117 = phi i32 [ 0, %59 ], [ 0, %52 ], [ %.1.ph.us.ph, %86 ], [ %.1.ph.us138.ph, %106 ], [ %.1.ph.us146.ph, %128 ], [ %.1.ph.ph, %130 ]
+  %.079115 = phi ptr [ null, %59 ], [ null, %52 ], [ null, %86 ], [ %.180.fr, %106 ], [ %.180.fr, %128 ], [ %.180.fr, %130 ]
+  %.081113 = phi ptr [ %.182.fr, %59 ], [ null, %52 ], [ %.182.fr, %86 ], [ null, %106 ], [ %.182.fr, %128 ], [ %.182.fr, %130 ]
   %151 = load ptr, ptr %0, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 1568
   %153 = load ptr, ptr %152, align 8
   call void %153(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %49, i32 noundef 0) #11
-  %.not108 = icmp eq ptr %.182113, null
+  %.not108 = icmp eq ptr %.081113, null
   br i1 %.not108, label %158, label %154
 
 154:                                              ; preds = %.thread
   %155 = load ptr, ptr %0, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 1568
   %157 = load ptr, ptr %156, align 8
-  call void %157(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.182113, i32 noundef 0) #11
+  call void %157(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.081113, i32 noundef 0) #11
   br label %158
 
 158:                                              ; preds = %154, %.thread
-  %.not109 = icmp eq ptr %.180115, null
+  %.not109 = icmp eq ptr %.079115, null
   br i1 %.not109, label %.thread130, label %159
 
 159:                                              ; preds = %158
   %160 = load ptr, ptr %0, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 1568
   %162 = load ptr, ptr %161, align 8
-  call void %162(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %.180115, i32 noundef 0) #11
+  call void %162(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %.079115, i32 noundef 0) #11
   br label %.thread130
 
 .thread130:                                       ; preds = %45, %159, %158
-  %.2118128134 = phi i32 [ %.2117, %159 ], [ %.2117, %158 ], [ 0, %45 ]
+  %.078118128134 = phi i32 [ %.078117, %159 ], [ %.078117, %158 ], [ 0, %45 ]
   %163 = call i32 @closedir(ptr noundef nonnull %42)
   br label %164
 
 164:                                              ; preds = %30, %18, %5, %.thread130, %44, %40, %28
-  %.0 = phi i32 [ 0, %28 ], [ 0, %40 ], [ -1, %44 ], [ %.2118128134, %.thread130 ], [ -1, %5 ], [ -1, %18 ], [ -1, %30 ]
+  %.0 = phi i32 [ 0, %28 ], [ 0, %40 ], [ -1, %44 ], [ %.078118128134, %.thread130 ], [ -1, %5 ], [ -1, %18 ], [ -1, %30 ]
   ret i32 %.0
 }
 

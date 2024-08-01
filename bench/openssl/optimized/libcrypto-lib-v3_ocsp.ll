@@ -172,10 +172,10 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br i1 %cmp2, label %err, label %if.end4
 
 if.end4:                                          ; preds = %lor.lhs.false, %if.then
-  %os.0 = phi ptr [ %call, %if.then ], [ %0, %lor.lhs.false ]
+  %os.1 = phi ptr [ %call, %if.then ], [ %0, %lor.lhs.false ]
   %1 = load ptr, ptr %pp, align 8
   %conv = trunc i64 %length to i32
-  %call5 = tail call i32 @ASN1_OCTET_STRING_set(ptr noundef nonnull %os.0, ptr noundef %1, i32 noundef %conv) #5
+  %call5 = tail call i32 @ASN1_OCTET_STRING_set(ptr noundef nonnull %os.1, ptr noundef %1, i32 noundef %conv) #5
   %tobool.not = icmp eq i32 %call5, 0
   br i1 %tobool.not, label %err, label %if.end7
 
@@ -186,20 +186,20 @@ if.end7:                                          ; preds = %if.end4
   br i1 %cmp, label %return, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  store ptr %os.0, ptr %a, align 8
+  store ptr %os.1, ptr %a, align 8
   br label %return
 
 err:                                              ; preds = %if.end4, %if.then
-  %os.1 = phi ptr [ null, %if.then ], [ %os.0, %if.end4 ]
+  %os.0 = phi ptr [ null, %if.then ], [ %os.1, %if.end4 ]
   br i1 %cmp, label %if.then16, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %err
   %3 = load ptr, ptr %a, align 8
-  %cmp14.not = icmp eq ptr %3, %os.1
+  %cmp14.not = icmp eq ptr %3, %os.0
   br i1 %cmp14.not, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %lor.lhs.false13, %err
-  tail call void @ASN1_OCTET_STRING_free(ptr noundef %os.1) #5
+  tail call void @ASN1_OCTET_STRING_free(ptr noundef %os.0) #5
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %lor.lhs.false13
@@ -209,7 +209,7 @@ if.end17:                                         ; preds = %if.then16, %lor.lhs
   br label %return
 
 return:                                           ; preds = %if.end7, %if.then9, %if.end17
-  %retval.0 = phi ptr [ null, %if.end17 ], [ %os.0, %if.then9 ], [ %os.0, %if.end7 ]
+  %retval.0 = phi ptr [ null, %if.end17 ], [ %os.1, %if.then9 ], [ %os.1, %if.end7 ]
   ret ptr %retval.0
 }
 

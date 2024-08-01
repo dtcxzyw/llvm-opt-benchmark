@@ -759,7 +759,7 @@ osc_rdma_accelerator_mem_copy.exit.thread:        ; preds = %59, %61, %66
   br label %_ompi_osc_rdma_register.exit.thread
 
 _ompi_osc_rdma_register.exit.thread:              ; preds = %41, %38, %32, %67, %7
-  %.2 = phi ptr [ %70, %67 ], [ null, %32 ], [ null, %7 ], [ null, %38 ], [ %48, %41 ]
+  %.067 = phi ptr [ %70, %67 ], [ null, %32 ], [ null, %7 ], [ null, %38 ], [ %48, %41 ]
   %71 = getelementptr inbounds i8, ptr %13, i64 1072
   %72 = load i8, ptr %71, align 16
   %73 = trunc i8 %72 to i1
@@ -775,7 +775,7 @@ ompi_osc_rdma_use_btl_flush.exit:                 ; preds = %_ompi_osc_rdma_regi
 
 78:                                               ; preds = %ompi_osc_rdma_use_btl_flush.exit
   %79 = icmp ne ptr %6, null
-  %80 = icmp ne ptr %.2, null
+  %80 = icmp ne ptr %.067, null
   %or.cond = select i1 %79, i1 true, i1 %80
   %81 = load ptr, ptr %10, align 8
   %82 = icmp ne ptr %81, null
@@ -867,7 +867,7 @@ ompi_osc_rdma_btl_put.exit.i:                     ; preds = %121, %119
   %.sink38.i.i = phi ptr [ %126, %121 ], [ %120, %119 ]
   %.sink.i.i = phi ptr [ %125, %121 ], [ %118, %119 ]
   %127 = load ptr, ptr %.sink38.i.i, align 8
-  %128 = call i32 %127(ptr noundef %.sink.i.i, ptr noundef %115, ptr noundef %98, i64 noundef %2, ptr noundef %.2, ptr noundef %3, i64 noundef %5, i32 noundef 0, i32 noundef 255, ptr noundef %.049, ptr noundef %.1, ptr noundef %99) #11
+  %128 = call i32 %127(ptr noundef %.sink.i.i, ptr noundef %115, ptr noundef %98, i64 noundef %2, ptr noundef %.067, ptr noundef %3, i64 noundef %5, i32 noundef 0, i32 noundef 255, ptr noundef %.049, ptr noundef %.1, ptr noundef %99) #11
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %_ompi_osc_rdma_register.exit, label %130
 
@@ -919,7 +919,7 @@ opal_thread_add_fetch_32.exit.i.i:                ; preds = %145, %142
   br label %ompi_osc_rdma_frag_complete.exit.i
 
 154:                                              ; preds = %ompi_osc_rdma_put_real.exit
-  %.not.i.i64 = icmp eq ptr %.2, null
+  %.not.i.i64 = icmp eq ptr %.067, null
   br i1 %.not.i.i64, label %ompi_osc_rdma_frag_complete.exit.i, label %155
 
 155:                                              ; preds = %154
@@ -928,7 +928,7 @@ opal_thread_add_fetch_32.exit.i.i:                ; preds = %145, %142
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 264
   %160 = load ptr, ptr %159, align 8
-  %161 = call i32 %160(ptr noundef %158, ptr noundef nonnull %.2) #11
+  %161 = call i32 %160(ptr noundef %158, ptr noundef nonnull %.067) #11
   br label %ompi_osc_rdma_frag_complete.exit.i
 
 ompi_osc_rdma_frag_complete.exit.i:               ; preds = %155, %154, %150, %opal_thread_add_fetch_32.exit.i.i
@@ -2783,25 +2783,25 @@ define internal i32 @ompi_osc_rdma_get_contig(ptr noundef %0, ptr noundef %1, i6
   br label %69
 
 69:                                               ; preds = %64, %51, %49
-  %.0139 = phi i64 [ %67, %64 ], [ %5, %51 ], [ %5, %49 ]
-  %.0136 = phi ptr [ %66, %64 ], [ %4, %51 ], [ %4, %49 ]
-  %.0133 = phi i64 [ %61, %64 ], [ %2, %51 ], [ %2, %49 ]
-  %.0130 = phi i64 [ %68, %64 ], [ %19, %51 ], [ %19, %49 ]
-  %.0128 = phi i64 [ %61, %64 ], [ %15, %51 ], [ %15, %49 ]
-  %.0125 = phi i32 [ 0, %64 ], [ -18, %51 ], [ -18, %49 ]
-  %70 = ptrtoint ptr %.0136 to i64
-  %71 = or i64 %.0133, %70
+  %.2141 = phi i64 [ %67, %64 ], [ %5, %51 ], [ %5, %49 ]
+  %.2138 = phi ptr [ %66, %64 ], [ %4, %51 ], [ %4, %49 ]
+  %.2135 = phi i64 [ %61, %64 ], [ %2, %51 ], [ %2, %49 ]
+  %.2132 = phi i64 [ %68, %64 ], [ %19, %51 ], [ %19, %49 ]
+  %.2 = phi i64 [ %61, %64 ], [ %15, %51 ], [ %15, %49 ]
+  %.1 = phi i32 [ 0, %64 ], [ -18, %51 ], [ -18, %49 ]
+  %70 = ptrtoint ptr %.2138 to i64
+  %71 = or i64 %.2135, %70
   %72 = and i64 %71, %spec.select
   %.not156 = icmp ne i64 %72, 0
-  %73 = and i64 %.0139, %spec.select
+  %73 = and i64 %.2141, %spec.select
   %.not157 = icmp eq i64 %73, 0
   %or.cond = or i1 %.not157, %.not156
   br i1 %or.cond, label %._crit_edge, label %74
 
 74:                                               ; preds = %69
-  %75 = and i64 %.0139, %14
-  %76 = sub i64 %.0139, %75
-  %77 = add i64 %.0133, %75
+  %75 = and i64 %.2141, %14
+  %76 = sub i64 %.2141, %75
+  %77 = add i64 %.2135, %75
   %78 = add i64 %75, %70
   %79 = inttoptr i64 %78 to ptr
   %80 = tail call fastcc i32 @ompi_osc_rdma_get_partial(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %77, ptr noundef %3, ptr noundef %79, i64 noundef %76, ptr noundef %6)
@@ -2809,12 +2809,12 @@ define internal i32 @ompi_osc_rdma_get_contig(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not158, label %._crit_edge, label %ompi_osc_rdma_cleanup_rdma.exit
 
 ._crit_edge:                                      ; preds = %47, %69, %74
-  %.1140 = phi i64 [ %.0139, %69 ], [ %75, %74 ], [ %5, %47 ]
-  %.1137 = phi ptr [ %.0136, %69 ], [ %.0136, %74 ], [ %4, %47 ]
-  %.1134 = phi i64 [ %.0133, %69 ], [ %.0133, %74 ], [ %2, %47 ]
-  %.1131 = phi i64 [ %.0130, %69 ], [ %75, %74 ], [ %19, %47 ]
-  %.1129 = phi i64 [ %.0128, %69 ], [ %.0128, %74 ], [ %15, %47 ]
-  %.1 = phi i32 [ %.0125, %69 ], [ 0, %74 ], [ %48, %47 ]
+  %.1140 = phi i64 [ %.2141, %69 ], [ %75, %74 ], [ %5, %47 ]
+  %.1137 = phi ptr [ %.2138, %69 ], [ %.2138, %74 ], [ %4, %47 ]
+  %.1134 = phi i64 [ %.2135, %69 ], [ %.2135, %74 ], [ %2, %47 ]
+  %.1131 = phi i64 [ %.2132, %69 ], [ %75, %74 ], [ %19, %47 ]
+  %.1129 = phi i64 [ %.2, %69 ], [ %.2, %74 ], [ %15, %47 ]
+  %.0125 = phi i32 [ %.1, %69 ], [ 0, %74 ], [ %48, %47 ]
   %81 = ptrtoint ptr %.1137 to i64
   %82 = or i64 %.1140, %81
   %83 = or i64 %82, %.1134
@@ -2864,19 +2864,19 @@ _ompi_osc_rdma_register.exit.thread:              ; preds = %89, %88, %_ompi_osc
   br label %106
 
 106:                                              ; preds = %42, %_ompi_osc_rdma_register.exit, %102, %7
-  %.3 = phi ptr [ %98, %_ompi_osc_rdma_register.exit ], [ %105, %102 ], [ null, %42 ], [ null, %7 ]
-  %.2141 = phi i64 [ %.1140, %_ompi_osc_rdma_register.exit ], [ %5, %102 ], [ %5, %42 ], [ %5, %7 ]
-  %.2138 = phi ptr [ %.1137, %_ompi_osc_rdma_register.exit ], [ %4, %102 ], [ %4, %42 ], [ %4, %7 ]
-  %.2135 = phi i64 [ %.1134, %_ompi_osc_rdma_register.exit ], [ %2, %102 ], [ %2, %42 ], [ %2, %7 ]
-  %.2132 = phi i64 [ %.1131, %_ompi_osc_rdma_register.exit ], [ %19, %102 ], [ %19, %42 ], [ %19, %7 ]
-  %.2 = phi i64 [ %.1129, %_ompi_osc_rdma_register.exit ], [ %15, %102 ], [ %15, %42 ], [ %15, %7 ]
-  %107 = sub i64 %.2135, %.2
+  %.0165 = phi ptr [ %98, %_ompi_osc_rdma_register.exit ], [ %105, %102 ], [ null, %42 ], [ null, %7 ]
+  %.0139 = phi i64 [ %.1140, %_ompi_osc_rdma_register.exit ], [ %5, %102 ], [ %5, %42 ], [ %5, %7 ]
+  %.0136 = phi ptr [ %.1137, %_ompi_osc_rdma_register.exit ], [ %4, %102 ], [ %4, %42 ], [ %4, %7 ]
+  %.0133 = phi i64 [ %.1134, %_ompi_osc_rdma_register.exit ], [ %2, %102 ], [ %2, %42 ], [ %2, %7 ]
+  %.0130 = phi i64 [ %.1131, %_ompi_osc_rdma_register.exit ], [ %19, %102 ], [ %19, %42 ], [ %19, %7 ]
+  %.0128 = phi i64 [ %.1129, %_ompi_osc_rdma_register.exit ], [ %15, %102 ], [ %15, %42 ], [ %15, %7 ]
+  %107 = sub i64 %.0133, %.0128
   %108 = getelementptr inbounds i8, ptr %6, i64 216
   store i64 %107, ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %6, i64 224
-  store i64 %.2141, ptr %109, align 8
+  store i64 %.0139, ptr %109, align 8
   %110 = getelementptr inbounds i8, ptr %6, i64 192
-  store ptr %.2138, ptr %110, align 8
+  store ptr %.0136, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %6, i64 264
   store ptr %0, ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %6, i64 272
@@ -2940,7 +2940,7 @@ ompi_osc_rdma_btl_get.exit:                       ; preds = %136, %138
   %.sink38.i = phi ptr [ %143, %138 ], [ %137, %136 ]
   %.sink.i = phi ptr [ %142, %138 ], [ %135, %136 ]
   %144 = load ptr, ptr %.sink38.i, align 8
-  %145 = tail call i32 %144(ptr noundef %.sink.i, ptr noundef %132, ptr noundef %126, i64 noundef %.2, ptr noundef %.3, ptr noundef %3, i64 noundef %.2132, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_get_complete, ptr noundef %6, ptr noundef %127) #11
+  %145 = tail call i32 %144(ptr noundef %.sink.i, ptr noundef %132, ptr noundef %126, i64 noundef %.0128, ptr noundef %.0165, ptr noundef %3, i64 noundef %.0130, i32 noundef 0, i32 noundef 255, ptr noundef nonnull @ompi_osc_rdma_get_complete, ptr noundef %6, ptr noundef %127) #11
   %146 = icmp eq i32 %145, 0
   br i1 %146, label %ompi_osc_rdma_cleanup_rdma.exit, label %147
 
@@ -2994,7 +2994,7 @@ opal_thread_add_fetch_32.exit.i.i:                ; preds = %161, %158
   br label %ompi_osc_rdma_frag_complete.exit.i
 
 170:                                              ; preds = %.critedge
-  %.not.i.i = icmp eq ptr %.3, null
+  %.not.i.i = icmp eq ptr %.0165, null
   br i1 %.not.i.i, label %ompi_osc_rdma_frag_complete.exit.i, label %171
 
 171:                                              ; preds = %170
@@ -3003,7 +3003,7 @@ opal_thread_add_fetch_32.exit.i.i:                ; preds = %161, %158
   %174 = load ptr, ptr %173, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 264
   %176 = load ptr, ptr %175, align 8
-  %177 = tail call i32 %176(ptr noundef %174, ptr noundef nonnull %.3) #11
+  %177 = tail call i32 %176(ptr noundef %174, ptr noundef nonnull %.0165) #11
   br label %ompi_osc_rdma_frag_complete.exit.i
 
 ompi_osc_rdma_frag_complete.exit.i:               ; preds = %171, %170, %166, %opal_thread_add_fetch_32.exit.i.i
@@ -3052,7 +3052,7 @@ ompi_osc_rdma_sync_rdma_dec.exit.sink.split.i:    ; preds = %ompi_osc_rdma_use_b
   br label %ompi_osc_rdma_cleanup_rdma.exit
 
 ompi_osc_rdma_cleanup_rdma.exit:                  ; preds = %ompi_osc_rdma_btl_get.exit, %ompi_osc_rdma_sync_rdma_dec.exit.sink.split.i, %ompi_osc_rdma_use_btl_flush.exit.i.i, %74, %55, %_ompi_osc_rdma_register.exit.thread
-  %.0127 = phi i32 [ %.1, %_ompi_osc_rdma_register.exit.thread ], [ %63, %55 ], [ %80, %74 ], [ %145, %ompi_osc_rdma_use_btl_flush.exit.i.i ], [ %145, %ompi_osc_rdma_sync_rdma_dec.exit.sink.split.i ], [ 0, %ompi_osc_rdma_btl_get.exit ]
+  %.0127 = phi i32 [ %.0125, %_ompi_osc_rdma_register.exit.thread ], [ %63, %55 ], [ %80, %74 ], [ %145, %ompi_osc_rdma_use_btl_flush.exit.i.i ], [ %145, %ompi_osc_rdma_sync_rdma_dec.exit.sink.split.i ], [ 0, %ompi_osc_rdma_btl_get.exit ]
   ret i32 %.0127
 }
 

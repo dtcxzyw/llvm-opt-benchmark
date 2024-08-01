@@ -455,7 +455,7 @@ while.cond.outer:                                 ; preds = %if.end123, %if.end1
   %total_ul.0.ph = phi i64 [ %total_ul.1, %if.end123 ], [ 0, %if.end16 ]
   %keepon.0.ph = phi i1 [ %keepon.2, %if.end123 ], [ true, %if.end16 ]
   %total_dl.0.ph = phi i64 [ %total_dl.2, %if.end123 ], [ 0, %if.end16 ]
-  %result.0.ph = phi i32 [ %result.4, %if.end123 ], [ 0, %if.end16 ]
+  %result.0.ph = phi i32 [ %result.5, %if.end123 ], [ 0, %if.end16 ]
   br i1 %keepon.0.ph, label %do.end, label %while.end
 
 do.end:                                           ; preds = %while.cond.outer
@@ -1810,18 +1810,18 @@ if.then121:                                       ; preds = %if.then113
 
 if.end123:                                        ; preds = %if.then113, %if.then121, %sw.epilog
   %keepon.2 = phi i1 [ false, %if.then121 ], [ %keepon.1, %if.then113 ], [ %keepon.1, %sw.epilog ]
-  %result.4 = phi i32 [ 28, %if.then121 ], [ %result.3, %if.then113 ], [ %result.3, %sw.epilog ]
+  %result.5 = phi i32 [ 28, %if.then121 ], [ %result.3, %if.then113 ], [ %result.3, %sw.epilog ]
   %call124 = call i32 @Curl_pgrsUpdate(ptr noundef nonnull %data) #10
   %tobool125.not = icmp eq i32 %call124, 0
   br i1 %tobool125.not, label %while.cond.outer, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end123, %while.cond.outer, %do.end
-  %result.5 = phi i32 [ %result.0.ph, %while.cond.outer ], [ %result.0.ph, %do.end ], [ 42, %if.end123 ]
+  %result.1 = phi i32 [ %result.0.ph, %while.cond.outer ], [ %result.0.ph, %do.end ], [ 42, %if.end123 ]
   call void @Curl_setup_transfer(ptr noundef %data, i32 noundef -1, i64 noundef -1, i1 noundef zeroext false, i32 noundef -1) #10
   br label %return
 
 return:                                           ; preds = %check_telnet_options.exit, %entry, %while.end
-  %retval.0 = phi i32 [ %result.5, %while.end ], [ %retval.0.i47, %check_telnet_options.exit ], [ 27, %entry ]
+  %retval.0 = phi i32 [ %result.1, %while.end ], [ %retval.0.i47, %check_telnet_options.exit ], [ 27, %entry ]
   ret i32 %retval.0
 }
 
@@ -2568,7 +2568,7 @@ if.then177:                                       ; preds = %land.lhs.true169
 
 if.end180:                                        ; preds = %if.end161.thread, %if.end161
   %sub162129 = phi i64 [ %sub162126, %if.end161.thread ], [ %sub162, %if.end161 ]
-  %i.0128 = phi i64 [ %14, %if.end161.thread ], [ 0, %if.end161 ]
+  %i.1128 = phi i64 [ %14, %if.end161.thread ], [ 0, %if.end161 ]
   %16 = load i8, ptr %pointer, align 1
   %cmp183 = icmp ult i8 %16, 40
   br i1 %cmp183, label %if.then185, label %land.lhs.true223
@@ -2614,7 +2614,7 @@ land.lhs.true223:                                 ; preds = %if.end180
   br i1 %tobool230.not, label %if.end237, label %if.then231
 
 if.then231:                                       ; preds = %land.lhs.true223
-  %arrayidx233 = getelementptr inbounds i8, ptr %pointer, i64 %i.0128
+  %arrayidx233 = getelementptr inbounds i8, ptr %pointer, i64 %i.1128
   %22 = load i8, ptr %arrayidx233, align 1
   %conv234 = zext i8 %22 to i32
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.87, i32 noundef %conv234) #10

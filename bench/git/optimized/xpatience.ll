@@ -96,8 +96,8 @@ while.body8.i.outer:                              ; preds = %insert_record.exit.
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %insert_record.exit
   %indvars.iv = phi i64 [ %6, %while.body.i.preheader ], [ %indvars.iv.next, %insert_record.exit ]
-  %map.sroa.0.1 = phi i32 [ 0, %while.body.i.preheader ], [ %map.sroa.0.2, %insert_record.exit ]
-  %map.sroa.17.1 = phi ptr [ null, %while.body.i.preheader ], [ %map.sroa.17.3, %insert_record.exit ]
+  %map.sroa.0.0 = phi i32 [ 0, %while.body.i.preheader ], [ %map.sroa.0.3, %insert_record.exit ]
+  %map.sroa.17.0 = phi ptr [ null, %while.body.i.preheader ], [ %map.sroa.17.4, %insert_record.exit ]
   %map.sroa.20.0 = phi ptr [ null, %while.body.i.preheader ], [ %map.sroa.20.1, %insert_record.exit ]
   %count1.addr.013.i = phi i32 [ %count1, %while.body.i.preheader ], [ %dec.i, %insert_record.exit ]
   %dec.i = add nsw i32 %count1.addr.013.i, -1
@@ -191,8 +191,8 @@ is_anchor.exit.i:                                 ; preds = %for.body.i.i, %for.
   %bf.clear.i65 = and i8 %bf.load.i64, -2
   %bf.set.i = or disjoint i8 %bf.clear.i65, %retval.0.i.i
   store i8 %bf.set.i, ptr %anchor.i63, align 8
-  %tobool61.not.i = icmp eq ptr %map.sroa.17.1, null
-  %spec.select = select i1 %tobool61.not.i, ptr %arrayidx50.i, ptr %map.sroa.17.1
+  %tobool61.not.i = icmp eq ptr %map.sroa.17.0, null
+  %spec.select = select i1 %tobool61.not.i, ptr %arrayidx50.i, ptr %map.sroa.17.0
   %tobool66.not.i = icmp eq ptr %map.sroa.20.0, null
   br i1 %tobool66.not.i, label %if.end76.i, label %if.then67.i
 
@@ -204,12 +204,12 @@ if.then67.i:                                      ; preds = %is_anchor.exit.i
   br label %if.end76.i
 
 if.end76.i:                                       ; preds = %if.then67.i, %is_anchor.exit.i
-  %inc81.i = add nsw i32 %map.sroa.0.1, 1
+  %inc81.i = add nsw i32 %map.sroa.0.0, 1
   br label %insert_record.exit
 
 insert_record.exit:                               ; preds = %if.end16.i, %if.end76.i
-  %map.sroa.0.2 = phi i32 [ %inc81.i, %if.end76.i ], [ %map.sroa.0.1, %if.end16.i ]
-  %map.sroa.17.3 = phi ptr [ %spec.select, %if.end76.i ], [ %map.sroa.17.1, %if.end16.i ]
+  %map.sroa.0.3 = phi i32 [ %inc81.i, %if.end76.i ], [ %map.sroa.0.0, %if.end16.i ]
+  %map.sroa.17.4 = phi ptr [ %spec.select, %if.end76.i ], [ %map.sroa.17.0, %if.end16.i ]
   %map.sroa.20.1 = phi ptr [ %arrayidx50.i, %if.end76.i ], [ %map.sroa.20.0, %if.end16.i ]
   %tobool4.not.i = icmp eq i32 %dec.i, 0
   br i1 %tobool4.not.i, label %while.body8.lr.ph.i, label %while.body.i, !llvm.loop !10
@@ -313,22 +313,22 @@ while.end41:                                      ; preds = %while.body34
   br label %return
 
 if.end42:                                         ; preds = %insert_record.exit.i.thread, %if.end17
-  %cmp.i = icmp sgt i32 %map.sroa.0.2, -1
+  %cmp.i = icmp sgt i32 %map.sroa.0.3, -1
   br i1 %cmp.i, label %cond.end.i, label %out
 
 cond.end.i:                                       ; preds = %if.end42
-  %conv.i26 = zext nneg i32 %map.sroa.0.2 to i64
+  %conv.i26 = zext nneg i32 %map.sroa.0.3 to i64
   %mul.i27 = shl nuw nsw i64 %conv.i26, 3
   %call.i28 = tail call ptr @xmalloc(i64 noundef %mul.i27) #6
   %tobool.not.i29 = icmp eq ptr %call.i28, null
   br i1 %tobool.not.i29, label %out, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end.i
-  %tobool5.not40.i = icmp eq ptr %map.sroa.17.3, null
+  %tobool5.not40.i = icmp eq ptr %map.sroa.17.4, null
   br i1 %tobool5.not40.i, label %if.else50, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.inc.i
-  %entry1.043.i = phi ptr [ %entry1.0.i, %for.inc.i ], [ %map.sroa.17.3, %if.end.i ]
+  %entry1.043.i = phi ptr [ %entry1.0.i, %for.inc.i ], [ %map.sroa.17.4, %if.end.i ]
   %anchor_i.042.i = phi i32 [ %anchor_i.1.i, %for.inc.i ], [ -1, %if.end.i ]
   %longest.041.i = phi i32 [ %longest.1.i, %for.inc.i ], [ 0, %if.end.i ]
   %line2.i = getelementptr inbounds i8, ptr %entry1.043.i, i64 16

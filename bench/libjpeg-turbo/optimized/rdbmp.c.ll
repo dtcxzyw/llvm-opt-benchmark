@@ -381,7 +381,7 @@ define internal void @start_input_bmp(ptr noundef %0, ptr nocapture noundef %1) 
   br label %246
 
 246:                                              ; preds = %241, %230, %220
-  %.0231 = phi i32 [ 0, %241 ], [ 0, %230 ], [ 4, %220 ]
+  %.1232 = phi i32 [ 0, %241 ], [ 0, %230 ], [ 4, %220 ]
   %.not245 = icmp eq i32 %180, 0
   br i1 %.not245, label %252, label %247
 
@@ -424,7 +424,7 @@ define internal void @start_input_bmp(ptr noundef %0, ptr nocapture noundef %1) 
 
 268:                                              ; preds = %252, %255, %110, %120, %131
   %.0233 = phi i32 [ %219, %255 ], [ %219, %252 ], [ 0, %131 ], [ 0, %120 ], [ 0, %110 ]
-  %.1232 = phi i32 [ %.0231, %255 ], [ %.0231, %252 ], [ 0, %131 ], [ 0, %120 ], [ 3, %110 ]
+  %.0231 = phi i32 [ %.1232, %255 ], [ %.1232, %252 ], [ 0, %131 ], [ 0, %120 ], [ 3, %110 ]
   %.0227 = phi i16 [ %169, %255 ], [ %169, %252 ], [ %100, %131 ], [ %100, %120 ], [ %100, %110 ]
   %.0226 = phi i32 [ %161, %255 ], [ %161, %252 ], [ %92, %131 ], [ %92, %120 ], [ %92, %110 ]
   %.0 = phi i32 [ %148, %255 ], [ %148, %252 ], [ %84, %131 ], [ %84, %120 ], [ %84, %110 ]
@@ -484,7 +484,7 @@ define internal void @start_input_bmp(ptr noundef %0, ptr nocapture noundef %1) 
 
 299:                                              ; preds = %294, %293
   %300 = sub nsw i32 %34, %57
-  %.not266 = icmp eq i32 %.1232, 0
+  %.not266 = icmp eq i32 %.0231, 0
   br i1 %.not266, label %483, label %301
 
 301:                                              ; preds = %299
@@ -516,7 +516,7 @@ define internal void @start_input_bmp(ptr noundef %0, ptr nocapture noundef %1) 
   %317 = getelementptr inbounds i8, ptr %1, i64 100
   store i32 %.1234, ptr %317, align 4
   %318 = getelementptr inbounds i8, ptr %1, i64 64
-  switch i32 %.1232, label %.thread.i [
+  switch i32 %.0231, label %.thread.i [
     i32 3, label %.preheader.i
     i32 4, label %.preheader83.i
   ]
@@ -630,7 +630,7 @@ read_byte.exit67.i:                               ; preds = %353, %read_byte.exi
 
 379:                                              ; preds = %448, %.preheader83.i
   %indvars.iv.i = phi i64 [ 0, %.preheader83.i ], [ %indvars.iv.next.i, %448 ]
-  %.286.i = phi i32 [ 1, %.preheader83.i ], [ %.3.i, %448 ]
+  %.386.i = phi i32 [ 1, %.preheader83.i ], [ %.4.i, %448 ]
   %380 = load ptr, ptr %5, align 8
   %381 = tail call i32 @getc(ptr noundef %380)
   %382 = icmp eq i32 %381, -1
@@ -739,13 +739,13 @@ read_byte.exit71.i:                               ; preds = %427, %read_byte.exi
   br label %448
 
 448:                                              ; preds = %447, %443
-  %.3.i = phi i32 [ 0, %447 ], [ %.286.i, %443 ]
+  %.4.i = phi i32 [ 0, %447 ], [ %.386.i, %443 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %379, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %448, %378
-  %.4.i = phi i32 [ %.1.i, %378 ], [ %.3.i, %448 ]
+  %.2.i = phi i32 [ %.1.i, %378 ], [ %.4.i, %448 ]
   %449 = getelementptr inbounds i8, ptr %1, i64 64
   %450 = load ptr, ptr %449, align 8
   %451 = getelementptr inbounds i8, ptr %450, i64 60
@@ -773,14 +773,14 @@ read_byte.exit71.i:                               ; preds = %427, %read_byte.exi
   %.pre.i = phi i32 [ %462, %.thread.i ], [ %452, %.loopexit.i ]
   %466 = phi ptr [ %461, %.thread.i ], [ %451, %.loopexit.i ]
   %467 = phi ptr [ %318, %.thread.i ], [ %449, %.loopexit.i ]
-  %.476.i = phi i32 [ 1, %.thread.i ], [ %.4.i, %.loopexit.i ]
+  %.276.i = phi i32 [ 1, %.thread.i ], [ %.2.i, %.loopexit.i ]
   %468 = icmp eq i32 %.pre.i, 2
-  %469 = icmp ne i32 %.476.i, 0
+  %469 = icmp ne i32 %.276.i, 0
   %or.cond.i = select i1 %468, i1 %469, i1 false
   br i1 %or.cond.i, label %.thread80.i, label %472
 
 470:                                              ; preds = %.loopexit.i
-  %.old1.not.i = icmp eq i32 %.4.i, 0
+  %.old1.not.i = icmp eq i32 %.2.i, 0
   br i1 %.old1.not.i, label %read_colormap.exit, label %.thread80.i
 
 .thread80.i:                                      ; preds = %470, %464, %.thread.i
@@ -804,7 +804,7 @@ read_byte.exit71.i:                               ; preds = %427, %read_byte.exi
   br label %read_colormap.exit
 
 read_colormap.exit:                               ; preds = %470, %.thread80.i, %472, %475
-  %481 = mul nuw nsw i32 %.1234, %.1232
+  %481 = mul nuw nsw i32 %.1234, %.0231
   %482 = sub nsw i32 %300, %481
   br label %483
 

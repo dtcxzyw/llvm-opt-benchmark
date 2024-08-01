@@ -404,7 +404,7 @@ if.end95:                                         ; preds = %if.end36, %if.end93
   br i1 %cmp, label %if.then13, label %if.end21, !llvm.loop !9
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.then45, %if.then59, %if.then32, %if.end18, %if.then16
-  %retval.0 = phi i32 [ %cond, %if.then16 ], [ 2, %if.end18 ], [ 2, %if.then59 ], [ 2, %if.then32 ], [ 0, %if.then45 ]
+  %retval.1 = phi i32 [ %cond, %if.then16 ], [ 2, %if.end18 ], [ 2, %if.then59 ], [ 2, %if.then32 ], [ 0, %if.then45 ]
   call void @_ZdaPv(ptr noundef nonnull %call10) #26
   br label %return
 
@@ -414,8 +414,8 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit18: ; preds = %ehcleanup, 
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %for.body, %if.then, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
-  %retval.1 = phi i32 [ %retval.0, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit ], [ 2, %if.then ], [ 2, %for.body ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit ], [ 2, %if.then ], [ 2, %for.body ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable

@@ -18,7 +18,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %in.addr.075 = phi ptr [ %in, %for.body.lr.ph ], [ %in.addr.8, %if.end ]
+  %in.addr.075 = phi ptr [ %in, %for.body.lr.ph ], [ %in.addr.1, %if.end ]
   %l.074 = phi i64 [ %length, %for.body.lr.ph ], [ %sub, %if.end ]
   %tout1.073 = phi i32 [ %1, %for.body.lr.ph ], [ %12, %if.end ]
   %tout0.072 = phi i32 [ %0, %for.body.lr.ph ], [ %11, %if.end ]
@@ -52,75 +52,75 @@ sw.bb60:                                          ; preds = %if.else
   br label %sw.bb65
 
 sw.bb65:                                          ; preds = %sw.bb60, %if.else
-  %tin1.1 = phi i32 [ 0, %if.else ], [ %shl63, %sw.bb60 ]
-  %in.addr.2 = phi ptr [ %add.ptr, %if.else ], [ %incdec.ptr61, %sw.bb60 ]
-  %incdec.ptr66 = getelementptr inbounds i8, ptr %in.addr.2, i64 -1
+  %tin1.2 = phi i32 [ 0, %if.else ], [ %shl63, %sw.bb60 ]
+  %in.addr.3 = phi ptr [ %add.ptr, %if.else ], [ %incdec.ptr61, %sw.bb60 ]
+  %incdec.ptr66 = getelementptr inbounds i8, ptr %in.addr.3, i64 -1
   %5 = load i8, ptr %incdec.ptr66, align 1
   %conv67 = zext i8 %5 to i32
   %shl68 = shl nuw nsw i32 %conv67, 8
-  %or69 = or disjoint i32 %shl68, %tin1.1
+  %or69 = or disjoint i32 %shl68, %tin1.2
   br label %sw.bb70
 
 sw.bb70:                                          ; preds = %sw.bb65, %if.else
-  %tin1.2 = phi i32 [ 0, %if.else ], [ %or69, %sw.bb65 ]
-  %in.addr.3 = phi ptr [ %add.ptr, %if.else ], [ %incdec.ptr66, %sw.bb65 ]
-  %incdec.ptr71 = getelementptr inbounds i8, ptr %in.addr.3, i64 -1
+  %tin1.3 = phi i32 [ 0, %if.else ], [ %or69, %sw.bb65 ]
+  %in.addr.4 = phi ptr [ %add.ptr, %if.else ], [ %incdec.ptr66, %sw.bb65 ]
+  %incdec.ptr71 = getelementptr inbounds i8, ptr %in.addr.4, i64 -1
   %6 = load i8, ptr %incdec.ptr71, align 1
   %conv72 = zext i8 %6 to i32
-  %or73 = or i32 %tin1.2, %conv72
+  %or73 = or i32 %tin1.3, %conv72
   br label %sw.bb74
 
 sw.bb74:                                          ; preds = %sw.bb70, %if.else
-  %tin1.3 = phi i32 [ 0, %if.else ], [ %or73, %sw.bb70 ]
-  %in.addr.4 = phi ptr [ %add.ptr, %if.else ], [ %incdec.ptr71, %sw.bb70 ]
-  %incdec.ptr75 = getelementptr inbounds i8, ptr %in.addr.4, i64 -1
+  %tin1.4 = phi i32 [ 0, %if.else ], [ %or73, %sw.bb70 ]
+  %in.addr.5 = phi ptr [ %add.ptr, %if.else ], [ %incdec.ptr71, %sw.bb70 ]
+  %incdec.ptr75 = getelementptr inbounds i8, ptr %in.addr.5, i64 -1
   %7 = load i8, ptr %incdec.ptr75, align 1
   %conv76 = zext i8 %7 to i32
   %shl77 = shl nuw i32 %conv76, 24
   br label %sw.bb78
 
 sw.bb78:                                          ; preds = %sw.bb74, %if.else
-  %tin0.0 = phi i32 [ 0, %if.else ], [ %shl77, %sw.bb74 ]
-  %tin1.4 = phi i32 [ 0, %if.else ], [ %tin1.3, %sw.bb74 ]
-  %in.addr.5 = phi ptr [ %add.ptr, %if.else ], [ %incdec.ptr75, %sw.bb74 ]
-  %incdec.ptr79 = getelementptr inbounds i8, ptr %in.addr.5, i64 -1
+  %tin0.1 = phi i32 [ 0, %if.else ], [ %shl77, %sw.bb74 ]
+  %tin1.5 = phi i32 [ 0, %if.else ], [ %tin1.4, %sw.bb74 ]
+  %in.addr.6 = phi ptr [ %add.ptr, %if.else ], [ %incdec.ptr75, %sw.bb74 ]
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %in.addr.6, i64 -1
   %8 = load i8, ptr %incdec.ptr79, align 1
   %conv80 = zext i8 %8 to i32
   %shl81 = shl nuw nsw i32 %conv80, 16
-  %or82 = or disjoint i32 %shl81, %tin0.0
+  %or82 = or disjoint i32 %shl81, %tin0.1
   br label %sw.bb83
 
 sw.bb83:                                          ; preds = %sw.bb78, %if.else
-  %tin0.1 = phi i32 [ 0, %if.else ], [ %or82, %sw.bb78 ]
-  %tin1.5 = phi i32 [ 0, %if.else ], [ %tin1.4, %sw.bb78 ]
-  %in.addr.6 = phi ptr [ %add.ptr, %if.else ], [ %incdec.ptr79, %sw.bb78 ]
-  %incdec.ptr84 = getelementptr inbounds i8, ptr %in.addr.6, i64 -1
+  %tin0.2 = phi i32 [ 0, %if.else ], [ %or82, %sw.bb78 ]
+  %tin1.6 = phi i32 [ 0, %if.else ], [ %tin1.5, %sw.bb78 ]
+  %in.addr.7 = phi ptr [ %add.ptr, %if.else ], [ %incdec.ptr79, %sw.bb78 ]
+  %incdec.ptr84 = getelementptr inbounds i8, ptr %in.addr.7, i64 -1
   %9 = load i8, ptr %incdec.ptr84, align 1
   %conv85 = zext i8 %9 to i32
   %shl86 = shl nuw nsw i32 %conv85, 8
-  %or87 = or i32 %shl86, %tin0.1
+  %or87 = or i32 %shl86, %tin0.2
   br label %sw.bb88
 
 sw.bb88:                                          ; preds = %if.else, %sw.bb83
-  %tin0.2 = phi i32 [ 0, %if.else ], [ %or87, %sw.bb83 ]
-  %tin1.6 = phi i32 [ 0, %if.else ], [ %tin1.5, %sw.bb83 ]
-  %in.addr.7 = phi ptr [ %add.ptr, %if.else ], [ %incdec.ptr84, %sw.bb83 ]
-  %incdec.ptr89 = getelementptr inbounds i8, ptr %in.addr.7, i64 -1
+  %tin0.3 = phi i32 [ 0, %if.else ], [ %or87, %sw.bb83 ]
+  %tin1.7 = phi i32 [ 0, %if.else ], [ %tin1.6, %sw.bb83 ]
+  %in.addr.8 = phi ptr [ %add.ptr, %if.else ], [ %incdec.ptr84, %sw.bb83 ]
+  %incdec.ptr89 = getelementptr inbounds i8, ptr %in.addr.8, i64 -1
   %10 = load i8, ptr %incdec.ptr89, align 1
   %conv90 = zext i8 %10 to i32
-  %or91 = or i32 %tin0.2, %conv90
+  %or91 = or i32 %tin0.3, %conv90
   br label %if.end
 
 default.unreachable:                              ; preds = %if.else
   unreachable
 
 if.end:                                           ; preds = %sw.bb88, %if.then
-  %tin0.3 = phi i32 [ %2, %if.then ], [ %or91, %sw.bb88 ]
-  %tin1.7 = phi i32 [ %3, %if.then ], [ %tin1.6, %sw.bb88 ]
-  %in.addr.8 = phi ptr [ %incdec.ptr53, %if.then ], [ %incdec.ptr89, %sw.bb88 ]
-  %xor = xor i32 %tin0.3, %tout0.072
+  %tin0.0 = phi i32 [ %2, %if.then ], [ %or91, %sw.bb88 ]
+  %tin1.0 = phi i32 [ %3, %if.then ], [ %tin1.7, %sw.bb88 ]
+  %in.addr.1 = phi ptr [ %incdec.ptr53, %if.then ], [ %incdec.ptr89, %sw.bb88 ]
+  %xor = xor i32 %tin0.0, %tout0.072
   store i32 %xor, ptr %tin, align 4
-  %xor93 = xor i32 %tin1.7, %tout1.073
+  %xor93 = xor i32 %tin1.0, %tout1.073
   store i32 %xor93, ptr %arrayidx94, align 4
   call void @DES_encrypt1(ptr noundef nonnull %tin, ptr noundef %schedule, i32 noundef 1) #3
   %11 = load i32, ptr %tin, align 4

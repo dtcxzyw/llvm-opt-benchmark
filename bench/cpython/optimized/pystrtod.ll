@@ -560,7 +560,7 @@ if.end67.sink.split.i:                            ; preds = %if.else.i, %if.end5
   br label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.end67.sink.split.i, %if.else.i
-  %p.0.i = phi ptr [ %call54.i, %if.else.i ], [ %incdec.ptr65.i, %if.end67.sink.split.i ]
+  %p.1.i = phi ptr [ %call54.i, %if.else.i ], [ %incdec.ptr65.i, %if.end67.sink.split.i ]
   %7 = load i8, ptr %call5140.i, align 1
   switch i8 %7, label %lor.lhs.false88.i [
     i8 105, label %if.then77.i
@@ -570,8 +570,8 @@ if.end67.i:                                       ; preds = %if.end67.sink.split
 
 if.then77.i:                                      ; preds = %if.end67.i, %if.end67.i
   %8 = load ptr, ptr %float_strings.3, align 8
-  %call79.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %p.0.i, ptr noundef nonnull dereferenceable(1) %8, i64 noundef 3) #13
-  %add.ptr.i = getelementptr i8, ptr %p.0.i, i64 3
+  %call79.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %p.1.i, ptr noundef nonnull dereferenceable(1) %8, i64 noundef 3) #13
+  %add.ptr.i = getelementptr i8, ptr %p.1.i, i64 3
   %tobool80.not.i = icmp eq ptr %type, null
   br i1 %tobool80.not.i, label %if.then254.i, label %if.then81.i
 
@@ -587,8 +587,8 @@ lor.lhs.false88.i:                                ; preds = %if.end67.i
 if.then93.i:                                      ; preds = %lor.lhs.false88.i, %if.end67.i
   %arrayidx94.i = getelementptr i8, ptr %float_strings.3, i64 8
   %9 = load ptr, ptr %arrayidx94.i, align 8
-  %call95.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %p.0.i, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 3) #13
-  %add.ptr96.i = getelementptr i8, ptr %p.0.i, i64 3
+  %call95.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %p.1.i, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 3) #13
+  %add.ptr96.i = getelementptr i8, ptr %p.1.i, i64 3
   %tobool97.not.i = icmp eq ptr %type, null
   br i1 %tobool97.not.i, label %if.then254.i, label %if.then98.i
 
@@ -636,7 +636,7 @@ if.then119.i:                                     ; preds = %lor.lhs.false114.i,
   br label %if.end120.i
 
 if.end120.i:                                      ; preds = %if.then119.i, %lor.lhs.false114.i
-  %use_exp.0.i = phi i32 [ 1, %if.then119.i ], [ 0, %lor.lhs.false114.i ]
+  %use_exp.1.i = phi i32 [ 1, %if.then119.i ], [ 0, %lor.lhs.false114.i ]
   %tobool121.not.i = icmp eq i32 %and13, 0
   %conv123.i = sext i32 %precision.addr.0 to i64
   %spec.select.i = select i1 %tobool121.not.i, i64 %sub.ptr.sub.i, i64 %conv123.i
@@ -653,9 +653,9 @@ sw.default.i:                                     ; preds = %if.end106.i
   br label %if.then257.i
 
 sw.epilog.i:                                      ; preds = %sw.bb125.i, %if.end120.i, %sw.bb109.i, %sw.bb.i
-  %use_exp.1.i = phi i32 [ 0, %sw.bb109.i ], [ 1, %sw.bb.i ], [ %use_exp.0.i, %if.end120.i ], [ %spec.select134.i, %sw.bb125.i ]
+  %use_exp.0.i = phi i32 [ 0, %sw.bb109.i ], [ 1, %sw.bb.i ], [ %use_exp.1.i, %if.end120.i ], [ %spec.select134.i, %sw.bb125.i ]
   %vdigits_end.0.i = phi i64 [ %add.i, %sw.bb109.i ], [ %conv108.i, %sw.bb.i ], [ %spec.select.i, %if.end120.i ], [ %sub.ptr.sub.i, %sw.bb125.i ]
-  %tobool133.not.i = icmp eq i32 %use_exp.1.i, 0
+  %tobool133.not.i = icmp eq i32 %use_exp.0.i, 0
   %sub136.i = add i32 %0, -1
   %spec.select135.i = select i1 %tobool133.not.i, i64 %conv14.i, i64 1
   %cmp138.i = icmp slt i64 %spec.select135.i, 1
@@ -704,13 +704,13 @@ if.end185.sink.split.i:                           ; preds = %if.else180.i, %if.e
   br label %if.end185.i
 
 if.end185.i:                                      ; preds = %if.end185.sink.split.i, %if.else180.i
-  %p.1.i = phi ptr [ %call170.i, %if.else180.i ], [ %incdec.ptr183.i, %if.end185.sink.split.i ]
+  %p.2.i = phi ptr [ %call170.i, %if.else180.i ], [ %incdec.ptr183.i, %if.end185.sink.split.i ]
   br i1 %cmp138.i, label %if.end200.thread.i, label %if.end200.i
 
 if.end200.thread.i:                               ; preds = %if.end185.i
-  store i8 48, ptr %p.1.i, align 1
-  %add.ptr191.i = getelementptr i8, ptr %p.1.i, i64 1
-  %incdec.ptr192.i = getelementptr i8, ptr %p.1.i, i64 2
+  store i8 48, ptr %p.2.i, align 1
+  %add.ptr191.i = getelementptr i8, ptr %p.2.i, i64 1
+  %incdec.ptr192.i = getelementptr i8, ptr %p.2.i, i64 2
   store i8 46, ptr %add.ptr191.i, align 1
   %sub193.i = sub nsw i64 0, %spec.select135.i
   call void @llvm.memset.p0.i64(ptr align 1 %incdec.ptr192.i, i8 48, i64 %sub193.i, i1 false)
@@ -725,8 +725,8 @@ if.end200.i:                                      ; preds = %if.end185.i
   br i1 %cmp204.not.i, label %if.end220.i, label %if.then206.i
 
 if.then206.i:                                     ; preds = %if.end200.i
-  %call208.i = call ptr @strncpy(ptr noundef %p.1.i, ptr noundef nonnull %call5140.i, i64 noundef %spec.select135.i) #13
-  %add.ptr210.i = getelementptr i8, ptr %p.1.i, i64 %spec.select135.i
+  %call208.i = call ptr @strncpy(ptr noundef %p.2.i, ptr noundef nonnull %call5140.i, i64 noundef %spec.select135.i) #13
+  %add.ptr210.i = getelementptr i8, ptr %p.2.i, i64 %spec.select135.i
   %incdec.ptr211.i = getelementptr i8, ptr %add.ptr210.i, i64 1
   store i8 46, ptr %add.ptr210.i, align 1
   %add.ptr212.i = getelementptr i8, ptr %call5140.i, i64 %spec.select135.i
@@ -736,25 +736,25 @@ if.then206.i:                                     ; preds = %if.end200.i
   br label %if.end235.i
 
 if.end220.i:                                      ; preds = %if.end200.i
-  %call218.i = call ptr @strncpy(ptr noundef %p.1.i, ptr noundef nonnull %call5140.i, i64 noundef %sub.ptr.sub.i) #13
-  %add.ptr219.i = getelementptr i8, ptr %p.1.i, i64 %sub.ptr.sub.i
+  %call218.i = call ptr @strncpy(ptr noundef %p.2.i, ptr noundef nonnull %call5140.i, i64 noundef %sub.ptr.sub.i) #13
+  %add.ptr219.i = getelementptr i8, ptr %p.2.i, i64 %sub.ptr.sub.i
   br label %if.then223.i
 
 if.then223.i:                                     ; preds = %if.end220.i, %if.end200.thread.i
-  %p.3150.i = phi ptr [ %add.ptr219.i, %if.end220.i ], [ %add.ptr219153.i, %if.end200.thread.i ]
+  %p.4150.i = phi ptr [ %add.ptr219.i, %if.end220.i ], [ %add.ptr219153.i, %if.end200.thread.i ]
   %sub224.i = sub i64 %spec.select135.i, %sub.ptr.sub.i
-  call void @llvm.memset.p0.i64(ptr align 1 %p.3150.i, i8 48, i64 %sub224.i, i1 false)
-  %add.ptr226.i = getelementptr i8, ptr %p.3150.i, i64 %sub224.i
+  call void @llvm.memset.p0.i64(ptr align 1 %p.4150.i, i8 48, i64 %sub224.i, i1 false)
+  %add.ptr226.i = getelementptr i8, ptr %p.4150.i, i64 %sub224.i
   %incdec.ptr227.i = getelementptr i8, ptr %add.ptr226.i, i64 1
   store i8 46, ptr %add.ptr226.i, align 1
   br label %if.end235.i
 
 if.end235.i:                                      ; preds = %if.then223.i, %if.then206.i, %if.end200.thread.i
   %sub.ptr.sub.sink.i = phi i64 [ %spec.select135.i, %if.then223.i ], [ %sub.ptr.sub.i, %if.then206.i ], [ %sub.ptr.sub.i, %if.end200.thread.i ]
-  %p.3151.sink170.i = phi ptr [ %incdec.ptr227.i, %if.then223.i ], [ %add.ptr216.i, %if.then206.i ], [ %add.ptr219153.i, %if.end200.thread.i ]
+  %p.4151.sink170.i = phi ptr [ %incdec.ptr227.i, %if.then223.i ], [ %add.ptr216.i, %if.then206.i ], [ %add.ptr219153.i, %if.end200.thread.i ]
   %sub232.i = sub i64 %vdigits_end.1.i, %sub.ptr.sub.sink.i
-  call void @llvm.memset.p0.i64(ptr align 1 %p.3151.sink170.i, i8 48, i64 %sub232.i, i1 false)
-  %add.ptr234.i = getelementptr i8, ptr %p.3151.sink170.i, i64 %sub232.i
+  call void @llvm.memset.p0.i64(ptr align 1 %p.4151.sink170.i, i8 48, i64 %sub232.i, i1 false)
+  %add.ptr234.i = getelementptr i8, ptr %p.4151.sink170.i, i64 %sub232.i
   %arrayidx236.i = getelementptr i8, ptr %add.ptr234.i, i64 -1
   %13 = load i8, ptr %arrayidx236.i, align 1
   %cmp238.i = icmp ne i8 %13, 46
@@ -775,9 +775,9 @@ if.then246.i:                                     ; preds = %if.end235.i
   br label %if.then254.i
 
 if.then254.i:                                     ; preds = %if.then246.i, %if.end235.i, %if.then98.i, %if.then93.i, %if.then81.i, %if.then77.i
-  %p.6.ph.i = phi ptr [ %add.ptr96.i, %if.then93.i ], [ %add.ptr96.i, %if.then98.i ], [ %add.ptr.i, %if.then77.i ], [ %add.ptr.i, %if.then81.i ], [ %spec.select138.i, %if.end235.i ], [ %add.ptr251.i, %if.then246.i ]
+  %p.0.ph.i = phi ptr [ %add.ptr96.i, %if.then93.i ], [ %add.ptr96.i, %if.then98.i ], [ %add.ptr.i, %if.then77.i ], [ %add.ptr.i, %if.then81.i ], [ %spec.select138.i, %if.end235.i ], [ %add.ptr251.i, %if.then246.i ]
   %buf.0.ph.i = phi ptr [ %call54.i, %if.then93.i ], [ %call54.i, %if.then98.i ], [ %call54.i, %if.then77.i ], [ %call54.i, %if.then81.i ], [ %call170.i, %if.end235.i ], [ %call170.i, %if.then246.i ]
-  store i8 0, ptr %p.6.ph.i, align 1
+  store i8 0, ptr %p.0.ph.i, align 1
   br label %if.then257.i
 
 if.end255.i:                                      ; preds = %do.end13.i

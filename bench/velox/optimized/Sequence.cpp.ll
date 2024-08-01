@@ -2353,372 +2353,372 @@ arraydestroy.body204.i:                           ; preds = %arraydestroy.body20
 
 ehcleanup.i:                                      ; preds = %arraydestroy.body204.i, %lpad195.i
   %.pn.i = phi { ptr, i32 } [ %135, %lpad195.i ], [ %136, %arraydestroy.body204.i ]
-  %cleanup.isactive.0.i = phi i1 [ true, %lpad195.i ], [ false, %arraydestroy.body204.i ]
+  %cleanup.isactive.51.i = phi i1 [ true, %lpad195.i ], [ false, %arraydestroy.body204.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp191.i) #28
   br label %ehcleanup209.i
 
 ehcleanup209.i:                                   ; preds = %ehcleanup.i, %lpad193.i, %lpad.i314.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %134, %lpad193.i ], [ %72, %lpad.i314.i ]
-  %cleanup.isactive.1.i = phi i1 [ %cleanup.isactive.0.i, %ehcleanup.i ], [ true, %lpad193.i ], [ true, %lpad.i314.i ]
+  %cleanup.isactive.50.i = phi i1 [ %cleanup.isactive.51.i, %ehcleanup.i ], [ true, %lpad193.i ], [ true, %lpad.i314.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp192.i) #28
   br label %ehcleanup210.i
 
 ehcleanup210.i:                                   ; preds = %ehcleanup209.i, %lpad188.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup209.i ], [ %133, %lpad188.i ]
-  %cleanup.isactive.2.i = phi i1 [ %cleanup.isactive.1.i, %ehcleanup209.i ], [ true, %lpad188.i ]
+  %cleanup.isactive.49.i = phi i1 [ %cleanup.isactive.50.i, %ehcleanup209.i ], [ true, %lpad188.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp184.i) #28
   br label %ehcleanup211.i
 
 ehcleanup211.i:                                   ; preds = %ehcleanup210.i, %lpad186.i, %lpad.i13
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %ehcleanup210.i ], [ %132, %lpad186.i ], [ %71, %lpad.i13 ]
-  %cleanup.isactive.3.i = phi i1 [ %cleanup.isactive.2.i, %ehcleanup210.i ], [ true, %lpad186.i ], [ true, %lpad.i13 ]
+  %cleanup.isactive.48.i = phi i1 [ %cleanup.isactive.49.i, %ehcleanup210.i ], [ true, %lpad186.i ], [ true, %lpad.i13 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp185.i) #28
   br label %ehcleanup212.i
 
 ehcleanup212.i:                                   ; preds = %ehcleanup211.i, %lpad181.i
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %ehcleanup211.i ], [ %131, %lpad181.i ]
-  %cleanup.isactive.4.i = phi i1 [ %cleanup.isactive.3.i, %ehcleanup211.i ], [ true, %lpad181.i ]
+  %cleanup.isactive.47.i = phi i1 [ %cleanup.isactive.48.i, %ehcleanup211.i ], [ true, %lpad181.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177.i) #28
   br label %ehcleanup213.i
 
 ehcleanup213.i:                                   ; preds = %ehcleanup212.i, %lpad179.i, %lpad.i21
   %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %ehcleanup212.i ], [ %130, %lpad179.i ], [ %68, %lpad.i21 ]
-  %cleanup.isactive.5.i = phi i1 [ %cleanup.isactive.4.i, %ehcleanup212.i ], [ true, %lpad179.i ], [ true, %lpad.i21 ]
+  %cleanup.isactive.46.i = phi i1 [ %cleanup.isactive.47.i, %ehcleanup212.i ], [ true, %lpad179.i ], [ true, %lpad.i21 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp178.i) #28
   br label %ehcleanup214.i
 
 ehcleanup214.i:                                   ; preds = %ehcleanup213.i, %lpad174.i
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.i, %ehcleanup213.i ], [ %129, %lpad174.i ]
-  %cleanup.isactive.6.i = phi i1 [ %cleanup.isactive.5.i, %ehcleanup213.i ], [ true, %lpad174.i ]
+  %cleanup.isactive.45.i = phi i1 [ %cleanup.isactive.46.i, %ehcleanup213.i ], [ true, %lpad174.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp170.i) #28
   br label %ehcleanup215.i
 
 ehcleanup215.i:                                   ; preds = %ehcleanup214.i, %lpad172.i, %lpad.i290.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup214.i ], [ %128, %lpad172.i ], [ %65, %lpad.i290.i ]
-  %cleanup.isactive.7.i = phi i1 [ %cleanup.isactive.6.i, %ehcleanup214.i ], [ true, %lpad172.i ], [ true, %lpad.i290.i ]
+  %cleanup.isactive.44.i = phi i1 [ %cleanup.isactive.45.i, %ehcleanup214.i ], [ true, %lpad172.i ], [ true, %lpad.i290.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp171.i) #28
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp169.i) #28
   br label %ehcleanup217.i
 
 ehcleanup217.i:                                   ; preds = %ehcleanup215.i, %lpad164.i
-  %arrayinit.endOfInit.0.i = phi ptr [ %arrayinit.element168.i, %ehcleanup215.i ], [ %arrayinit.element137.i, %lpad164.i ]
+  %arrayinit.endOfInit.43.i = phi ptr [ %arrayinit.element168.i, %ehcleanup215.i ], [ %arrayinit.element137.i, %lpad164.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup215.i ], [ %127, %lpad164.i ]
-  %cleanup.isactive.8.i = phi i1 [ %cleanup.isactive.7.i, %ehcleanup215.i ], [ true, %lpad164.i ]
+  %cleanup.isactive.43.i = phi i1 [ %cleanup.isactive.44.i, %ehcleanup215.i ], [ true, %lpad164.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp160.i) #28
   br label %ehcleanup218.i
 
 ehcleanup218.i:                                   ; preds = %ehcleanup217.i, %lpad162.i, %lpad.i271.i
-  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.0.i, %ehcleanup217.i ], [ %arrayinit.element137.i, %lpad.i271.i ], [ %arrayinit.element137.i, %lpad162.i ]
+  %arrayinit.endOfInit.42.i = phi ptr [ %arrayinit.endOfInit.43.i, %ehcleanup217.i ], [ %arrayinit.element137.i, %lpad.i271.i ], [ %arrayinit.element137.i, %lpad162.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup217.i ], [ %63, %lpad.i271.i ], [ %126, %lpad162.i ]
-  %cleanup.isactive.9.i = phi i1 [ %cleanup.isactive.8.i, %ehcleanup217.i ], [ true, %lpad.i271.i ], [ true, %lpad162.i ]
+  %cleanup.isactive.42.i = phi i1 [ %cleanup.isactive.43.i, %ehcleanup217.i ], [ true, %lpad.i271.i ], [ true, %lpad162.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp161.i) #28
   br label %ehcleanup219.i
 
 ehcleanup219.i:                                   ; preds = %ehcleanup218.i, %lpad157.i
-  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.endOfInit.1.i, %ehcleanup218.i ], [ %arrayinit.element137.i, %lpad157.i ]
+  %arrayinit.endOfInit.41.i = phi ptr [ %arrayinit.endOfInit.42.i, %ehcleanup218.i ], [ %arrayinit.element137.i, %lpad157.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup218.i ], [ %125, %lpad157.i ]
-  %cleanup.isactive.10.i = phi i1 [ %cleanup.isactive.9.i, %ehcleanup218.i ], [ true, %lpad157.i ]
+  %cleanup.isactive.41.i = phi i1 [ %cleanup.isactive.42.i, %ehcleanup218.i ], [ true, %lpad157.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp153.i) #28
   br label %ehcleanup220.i
 
 ehcleanup220.i:                                   ; preds = %ehcleanup219.i, %lpad155.i, %lpad.i31
-  %arrayinit.endOfInit.3.i = phi ptr [ %arrayinit.endOfInit.2.i, %ehcleanup219.i ], [ %arrayinit.element137.i, %lpad.i31 ], [ %arrayinit.element137.i, %lpad155.i ]
+  %arrayinit.endOfInit.40.i = phi ptr [ %arrayinit.endOfInit.41.i, %ehcleanup219.i ], [ %arrayinit.element137.i, %lpad.i31 ], [ %arrayinit.element137.i, %lpad155.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup219.i ], [ %62, %lpad.i31 ], [ %124, %lpad155.i ]
-  %cleanup.isactive.11.i = phi i1 [ %cleanup.isactive.10.i, %ehcleanup219.i ], [ true, %lpad.i31 ], [ true, %lpad155.i ]
+  %cleanup.isactive.40.i = phi i1 [ %cleanup.isactive.41.i, %ehcleanup219.i ], [ true, %lpad.i31 ], [ true, %lpad155.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp154.i) #28
   br label %ehcleanup221.i
 
 ehcleanup221.i:                                   ; preds = %ehcleanup220.i, %lpad150.i
-  %arrayinit.endOfInit.4.i = phi ptr [ %arrayinit.endOfInit.3.i, %ehcleanup220.i ], [ %arrayinit.element137.i, %lpad150.i ]
+  %arrayinit.endOfInit.39.i = phi ptr [ %arrayinit.endOfInit.40.i, %ehcleanup220.i ], [ %arrayinit.element137.i, %lpad150.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup220.i ], [ %123, %lpad150.i ]
-  %cleanup.isactive.12.i = phi i1 [ %cleanup.isactive.11.i, %ehcleanup220.i ], [ true, %lpad150.i ]
+  %cleanup.isactive.39.i = phi i1 [ %cleanup.isactive.40.i, %ehcleanup220.i ], [ true, %lpad150.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp146.i) #28
   br label %ehcleanup222.i
 
 ehcleanup222.i:                                   ; preds = %ehcleanup221.i, %lpad148.i, %lpad.i41
-  %arrayinit.endOfInit.5.i = phi ptr [ %arrayinit.endOfInit.4.i, %ehcleanup221.i ], [ %arrayinit.element137.i, %lpad.i41 ], [ %arrayinit.element137.i, %lpad148.i ]
+  %arrayinit.endOfInit.38.i = phi ptr [ %arrayinit.endOfInit.39.i, %ehcleanup221.i ], [ %arrayinit.element137.i, %lpad.i41 ], [ %arrayinit.element137.i, %lpad148.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup221.i ], [ %59, %lpad.i41 ], [ %122, %lpad148.i ]
-  %cleanup.isactive.13.i = phi i1 [ %cleanup.isactive.12.i, %ehcleanup221.i ], [ true, %lpad.i41 ], [ true, %lpad148.i ]
+  %cleanup.isactive.38.i = phi i1 [ %cleanup.isactive.39.i, %ehcleanup221.i ], [ true, %lpad.i41 ], [ true, %lpad148.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp147.i) #28
   br label %ehcleanup223.i
 
 ehcleanup223.i:                                   ; preds = %ehcleanup222.i, %lpad143.i
-  %arrayinit.endOfInit.6.i = phi ptr [ %arrayinit.endOfInit.5.i, %ehcleanup222.i ], [ %arrayinit.element137.i, %lpad143.i ]
+  %arrayinit.endOfInit.37.i = phi ptr [ %arrayinit.endOfInit.38.i, %ehcleanup222.i ], [ %arrayinit.element137.i, %lpad143.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup222.i ], [ %121, %lpad143.i ]
-  %cleanup.isactive.14.i = phi i1 [ %cleanup.isactive.13.i, %ehcleanup222.i ], [ true, %lpad143.i ]
+  %cleanup.isactive.37.i = phi i1 [ %cleanup.isactive.38.i, %ehcleanup222.i ], [ true, %lpad143.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp139.i) #28
   br label %ehcleanup224.i
 
 ehcleanup224.i:                                   ; preds = %ehcleanup223.i, %lpad141.i, %lpad.i247.i
-  %arrayinit.endOfInit.7.i = phi ptr [ %arrayinit.endOfInit.6.i, %ehcleanup223.i ], [ %arrayinit.element137.i, %lpad.i247.i ], [ %arrayinit.element137.i, %lpad141.i ]
+  %arrayinit.endOfInit.36.i = phi ptr [ %arrayinit.endOfInit.37.i, %ehcleanup223.i ], [ %arrayinit.element137.i, %lpad.i247.i ], [ %arrayinit.element137.i, %lpad141.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup223.i ], [ %56, %lpad.i247.i ], [ %120, %lpad141.i ]
-  %cleanup.isactive.15.i = phi i1 [ %cleanup.isactive.14.i, %ehcleanup223.i ], [ true, %lpad.i247.i ], [ true, %lpad141.i ]
+  %cleanup.isactive.36.i = phi i1 [ %cleanup.isactive.37.i, %ehcleanup223.i ], [ true, %lpad.i247.i ], [ true, %lpad141.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp140.i) #28
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp138.i) #28
   br label %ehcleanup226.i
 
 ehcleanup226.i:                                   ; preds = %ehcleanup224.i, %lpad133.i
-  %arrayinit.endOfInit.8.i = phi ptr [ %arrayinit.endOfInit.7.i, %ehcleanup224.i ], [ %arrayinit.element106.i, %lpad133.i ]
+  %arrayinit.endOfInit.35.i = phi ptr [ %arrayinit.endOfInit.36.i, %ehcleanup224.i ], [ %arrayinit.element106.i, %lpad133.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup224.i ], [ %119, %lpad133.i ]
-  %cleanup.isactive.16.i = phi i1 [ %cleanup.isactive.15.i, %ehcleanup224.i ], [ true, %lpad133.i ]
+  %cleanup.isactive.35.i = phi i1 [ %cleanup.isactive.36.i, %ehcleanup224.i ], [ true, %lpad133.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp129.i) #28
   br label %ehcleanup227.i
 
 ehcleanup227.i:                                   ; preds = %ehcleanup226.i, %lpad131.i, %lpad.i228.i
-  %arrayinit.endOfInit.9.i = phi ptr [ %arrayinit.endOfInit.8.i, %ehcleanup226.i ], [ %arrayinit.element106.i, %lpad.i228.i ], [ %arrayinit.element106.i, %lpad131.i ]
+  %arrayinit.endOfInit.34.i = phi ptr [ %arrayinit.endOfInit.35.i, %ehcleanup226.i ], [ %arrayinit.element106.i, %lpad.i228.i ], [ %arrayinit.element106.i, %lpad131.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup226.i ], [ %54, %lpad.i228.i ], [ %118, %lpad131.i ]
-  %cleanup.isactive.17.i = phi i1 [ %cleanup.isactive.16.i, %ehcleanup226.i ], [ true, %lpad.i228.i ], [ true, %lpad131.i ]
+  %cleanup.isactive.34.i = phi i1 [ %cleanup.isactive.35.i, %ehcleanup226.i ], [ true, %lpad.i228.i ], [ true, %lpad131.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp130.i) #28
   br label %ehcleanup228.i
 
 ehcleanup228.i:                                   ; preds = %ehcleanup227.i, %lpad126.i
-  %arrayinit.endOfInit.10.i = phi ptr [ %arrayinit.endOfInit.9.i, %ehcleanup227.i ], [ %arrayinit.element106.i, %lpad126.i ]
+  %arrayinit.endOfInit.33.i = phi ptr [ %arrayinit.endOfInit.34.i, %ehcleanup227.i ], [ %arrayinit.element106.i, %lpad126.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup227.i ], [ %117, %lpad126.i ]
-  %cleanup.isactive.18.i = phi i1 [ %cleanup.isactive.17.i, %ehcleanup227.i ], [ true, %lpad126.i ]
+  %cleanup.isactive.33.i = phi i1 [ %cleanup.isactive.34.i, %ehcleanup227.i ], [ true, %lpad126.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp122.i) #28
   br label %ehcleanup229.i
 
 ehcleanup229.i:                                   ; preds = %ehcleanup228.i, %lpad124.i, %lpad.i51
-  %arrayinit.endOfInit.11.i = phi ptr [ %arrayinit.endOfInit.10.i, %ehcleanup228.i ], [ %arrayinit.element106.i, %lpad.i51 ], [ %arrayinit.element106.i, %lpad124.i ]
+  %arrayinit.endOfInit.32.i = phi ptr [ %arrayinit.endOfInit.33.i, %ehcleanup228.i ], [ %arrayinit.element106.i, %lpad.i51 ], [ %arrayinit.element106.i, %lpad124.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup228.i ], [ %53, %lpad.i51 ], [ %116, %lpad124.i ]
-  %cleanup.isactive.19.i = phi i1 [ %cleanup.isactive.18.i, %ehcleanup228.i ], [ true, %lpad.i51 ], [ true, %lpad124.i ]
+  %cleanup.isactive.32.i = phi i1 [ %cleanup.isactive.33.i, %ehcleanup228.i ], [ true, %lpad.i51 ], [ true, %lpad124.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp123.i) #28
   br label %ehcleanup230.i
 
 ehcleanup230.i:                                   ; preds = %ehcleanup229.i, %lpad119.i
-  %arrayinit.endOfInit.12.i = phi ptr [ %arrayinit.endOfInit.11.i, %ehcleanup229.i ], [ %arrayinit.element106.i, %lpad119.i ]
+  %arrayinit.endOfInit.31.i = phi ptr [ %arrayinit.endOfInit.32.i, %ehcleanup229.i ], [ %arrayinit.element106.i, %lpad119.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup229.i ], [ %115, %lpad119.i ]
-  %cleanup.isactive.20.i = phi i1 [ %cleanup.isactive.19.i, %ehcleanup229.i ], [ true, %lpad119.i ]
+  %cleanup.isactive.31.i = phi i1 [ %cleanup.isactive.32.i, %ehcleanup229.i ], [ true, %lpad119.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp115.i) #28
   br label %ehcleanup231.i
 
 ehcleanup231.i:                                   ; preds = %ehcleanup230.i, %lpad117.i, %lpad.i61
-  %arrayinit.endOfInit.13.i = phi ptr [ %arrayinit.endOfInit.12.i, %ehcleanup230.i ], [ %arrayinit.element106.i, %lpad.i61 ], [ %arrayinit.element106.i, %lpad117.i ]
+  %arrayinit.endOfInit.30.i = phi ptr [ %arrayinit.endOfInit.31.i, %ehcleanup230.i ], [ %arrayinit.element106.i, %lpad.i61 ], [ %arrayinit.element106.i, %lpad117.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup230.i ], [ %50, %lpad.i61 ], [ %114, %lpad117.i ]
-  %cleanup.isactive.21.i = phi i1 [ %cleanup.isactive.20.i, %ehcleanup230.i ], [ true, %lpad.i61 ], [ true, %lpad117.i ]
+  %cleanup.isactive.30.i = phi i1 [ %cleanup.isactive.31.i, %ehcleanup230.i ], [ true, %lpad.i61 ], [ true, %lpad117.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp116.i) #28
   br label %ehcleanup232.i
 
 ehcleanup232.i:                                   ; preds = %ehcleanup231.i, %lpad112.i
-  %arrayinit.endOfInit.14.i = phi ptr [ %arrayinit.endOfInit.13.i, %ehcleanup231.i ], [ %arrayinit.element106.i, %lpad112.i ]
+  %arrayinit.endOfInit.29.i = phi ptr [ %arrayinit.endOfInit.30.i, %ehcleanup231.i ], [ %arrayinit.element106.i, %lpad112.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup231.i ], [ %113, %lpad112.i ]
-  %cleanup.isactive.22.i = phi i1 [ %cleanup.isactive.21.i, %ehcleanup231.i ], [ true, %lpad112.i ]
+  %cleanup.isactive.29.i = phi i1 [ %cleanup.isactive.30.i, %ehcleanup231.i ], [ true, %lpad112.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp108.i) #28
-  %137 = xor i1 %cleanup.isactive.22.i, true
+  %137 = xor i1 %cleanup.isactive.29.i, true
   br label %ehcleanup233.i
 
 ehcleanup233.i:                                   ; preds = %ehcleanup232.i, %lpad110.i, %lpad.i71
-  %arrayinit.endOfInit.15.i = phi ptr [ %arrayinit.endOfInit.14.i, %ehcleanup232.i ], [ %arrayinit.element106.i, %lpad.i71 ], [ %arrayinit.element106.i, %lpad110.i ]
+  %arrayinit.endOfInit.28.i = phi ptr [ %arrayinit.endOfInit.29.i, %ehcleanup232.i ], [ %arrayinit.element106.i, %lpad.i71 ], [ %arrayinit.element106.i, %lpad110.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup232.i ], [ %47, %lpad.i71 ], [ %112, %lpad110.i ]
-  %cleanup.isactive.23.i = phi i1 [ %137, %ehcleanup232.i ], [ false, %lpad.i71 ], [ false, %lpad110.i ]
+  %cleanup.isactive.28.i = phi i1 [ %137, %ehcleanup232.i ], [ false, %lpad.i71 ], [ false, %lpad110.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp109.i) #28
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp107.i) #28
   br label %ehcleanup235.i
 
 ehcleanup235.i:                                   ; preds = %ehcleanup233.i, %lpad102.i
-  %arrayinit.endOfInit.16.i = phi ptr [ %arrayinit.endOfInit.15.i, %ehcleanup233.i ], [ %arrayinit.element75.i, %lpad102.i ]
+  %arrayinit.endOfInit.27.i = phi ptr [ %arrayinit.endOfInit.28.i, %ehcleanup233.i ], [ %arrayinit.element75.i, %lpad102.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup233.i ], [ %111, %lpad102.i ]
-  %cleanup.isactive.24.i = phi i1 [ %cleanup.isactive.23.i, %ehcleanup233.i ], [ false, %lpad102.i ]
+  %cleanup.isactive.27.i = phi i1 [ %cleanup.isactive.28.i, %ehcleanup233.i ], [ false, %lpad102.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp98.i) #28
   br label %ehcleanup236.i
 
 ehcleanup236.i:                                   ; preds = %ehcleanup235.i, %lpad100.i, %lpad.i185.i
-  %arrayinit.endOfInit.17.i = phi ptr [ %arrayinit.endOfInit.16.i, %ehcleanup235.i ], [ %arrayinit.element75.i, %lpad.i185.i ], [ %arrayinit.element75.i, %lpad100.i ]
+  %arrayinit.endOfInit.26.i = phi ptr [ %arrayinit.endOfInit.27.i, %ehcleanup235.i ], [ %arrayinit.element75.i, %lpad.i185.i ], [ %arrayinit.element75.i, %lpad100.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup235.i ], [ %43, %lpad.i185.i ], [ %110, %lpad100.i ]
-  %cleanup.isactive.25.i = phi i1 [ %cleanup.isactive.24.i, %ehcleanup235.i ], [ false, %lpad.i185.i ], [ false, %lpad100.i ]
+  %cleanup.isactive.26.i = phi i1 [ %cleanup.isactive.27.i, %ehcleanup235.i ], [ false, %lpad.i185.i ], [ false, %lpad100.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp99.i) #28
   br label %ehcleanup237.i
 
 ehcleanup237.i:                                   ; preds = %ehcleanup236.i, %lpad95.i
-  %arrayinit.endOfInit.18.i = phi ptr [ %arrayinit.endOfInit.17.i, %ehcleanup236.i ], [ %arrayinit.element75.i, %lpad95.i ]
+  %arrayinit.endOfInit.25.i = phi ptr [ %arrayinit.endOfInit.26.i, %ehcleanup236.i ], [ %arrayinit.element75.i, %lpad95.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup236.i ], [ %109, %lpad95.i ]
-  %cleanup.isactive.26.i = phi i1 [ %cleanup.isactive.25.i, %ehcleanup236.i ], [ false, %lpad95.i ]
+  %cleanup.isactive.25.i = phi i1 [ %cleanup.isactive.26.i, %ehcleanup236.i ], [ false, %lpad95.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91.i) #28
   br label %ehcleanup238.i
 
 ehcleanup238.i:                                   ; preds = %ehcleanup237.i, %lpad93.i, %lpad.i81
-  %arrayinit.endOfInit.19.i = phi ptr [ %arrayinit.endOfInit.18.i, %ehcleanup237.i ], [ %arrayinit.element75.i, %lpad.i81 ], [ %arrayinit.element75.i, %lpad93.i ]
+  %arrayinit.endOfInit.24.i = phi ptr [ %arrayinit.endOfInit.25.i, %ehcleanup237.i ], [ %arrayinit.element75.i, %lpad.i81 ], [ %arrayinit.element75.i, %lpad93.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup237.i ], [ %42, %lpad.i81 ], [ %108, %lpad93.i ]
-  %cleanup.isactive.27.i = phi i1 [ %cleanup.isactive.26.i, %ehcleanup237.i ], [ false, %lpad.i81 ], [ false, %lpad93.i ]
+  %cleanup.isactive.24.i = phi i1 [ %cleanup.isactive.25.i, %ehcleanup237.i ], [ false, %lpad.i81 ], [ false, %lpad93.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp92.i) #28
   br label %ehcleanup239.i
 
 ehcleanup239.i:                                   ; preds = %ehcleanup238.i, %lpad88.i
-  %arrayinit.endOfInit.20.i = phi ptr [ %arrayinit.endOfInit.19.i, %ehcleanup238.i ], [ %arrayinit.element75.i, %lpad88.i ]
+  %arrayinit.endOfInit.23.i = phi ptr [ %arrayinit.endOfInit.24.i, %ehcleanup238.i ], [ %arrayinit.element75.i, %lpad88.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup238.i ], [ %107, %lpad88.i ]
-  %cleanup.isactive.28.i = phi i1 [ %cleanup.isactive.27.i, %ehcleanup238.i ], [ false, %lpad88.i ]
+  %cleanup.isactive.23.i = phi i1 [ %cleanup.isactive.24.i, %ehcleanup238.i ], [ false, %lpad88.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp84.i) #28
   br label %ehcleanup240.i
 
 ehcleanup240.i:                                   ; preds = %ehcleanup239.i, %lpad86.i, %lpad.i91
-  %arrayinit.endOfInit.21.i = phi ptr [ %arrayinit.endOfInit.20.i, %ehcleanup239.i ], [ %arrayinit.element75.i, %lpad.i91 ], [ %arrayinit.element75.i, %lpad86.i ]
+  %arrayinit.endOfInit.22.i = phi ptr [ %arrayinit.endOfInit.23.i, %ehcleanup239.i ], [ %arrayinit.element75.i, %lpad.i91 ], [ %arrayinit.element75.i, %lpad86.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup239.i ], [ %39, %lpad.i91 ], [ %106, %lpad86.i ]
-  %cleanup.isactive.29.i = phi i1 [ %cleanup.isactive.28.i, %ehcleanup239.i ], [ false, %lpad.i91 ], [ false, %lpad86.i ]
+  %cleanup.isactive.22.i = phi i1 [ %cleanup.isactive.23.i, %ehcleanup239.i ], [ false, %lpad.i91 ], [ false, %lpad86.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85.i) #28
   br label %ehcleanup241.i
 
 ehcleanup241.i:                                   ; preds = %ehcleanup240.i, %lpad81.i
-  %arrayinit.endOfInit.22.i = phi ptr [ %arrayinit.endOfInit.21.i, %ehcleanup240.i ], [ %arrayinit.element75.i, %lpad81.i ]
+  %arrayinit.endOfInit.21.i = phi ptr [ %arrayinit.endOfInit.22.i, %ehcleanup240.i ], [ %arrayinit.element75.i, %lpad81.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup240.i ], [ %105, %lpad81.i ]
-  %cleanup.isactive.30.i = phi i1 [ %cleanup.isactive.29.i, %ehcleanup240.i ], [ false, %lpad81.i ]
+  %cleanup.isactive.21.i = phi i1 [ %cleanup.isactive.22.i, %ehcleanup240.i ], [ false, %lpad81.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77.i) #28
   br label %ehcleanup242.i
 
 ehcleanup242.i:                                   ; preds = %ehcleanup241.i, %lpad79.i, %lpad.i101
-  %arrayinit.endOfInit.23.i = phi ptr [ %arrayinit.endOfInit.22.i, %ehcleanup241.i ], [ %arrayinit.element75.i, %lpad.i101 ], [ %arrayinit.element75.i, %lpad79.i ]
+  %arrayinit.endOfInit.20.i = phi ptr [ %arrayinit.endOfInit.21.i, %ehcleanup241.i ], [ %arrayinit.element75.i, %lpad.i101 ], [ %arrayinit.element75.i, %lpad79.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup241.i ], [ %36, %lpad.i101 ], [ %104, %lpad79.i ]
-  %cleanup.isactive.31.i = phi i1 [ %cleanup.isactive.30.i, %ehcleanup241.i ], [ false, %lpad.i101 ], [ false, %lpad79.i ]
+  %cleanup.isactive.20.i = phi i1 [ %cleanup.isactive.21.i, %ehcleanup241.i ], [ false, %lpad.i101 ], [ false, %lpad79.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp78.i) #28
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp76.i) #28
   br label %ehcleanup244.i
 
 ehcleanup244.i:                                   ; preds = %ehcleanup242.i, %lpad71.i
-  %arrayinit.endOfInit.24.i = phi ptr [ %arrayinit.endOfInit.23.i, %ehcleanup242.i ], [ %arrayinit.element51.i, %lpad71.i ]
+  %arrayinit.endOfInit.19.i = phi ptr [ %arrayinit.endOfInit.20.i, %ehcleanup242.i ], [ %arrayinit.element51.i, %lpad71.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup242.i ], [ %103, %lpad71.i ]
-  %cleanup.isactive.32.i = phi i1 [ %cleanup.isactive.31.i, %ehcleanup242.i ], [ false, %lpad71.i ]
+  %cleanup.isactive.19.i = phi i1 [ %cleanup.isactive.20.i, %ehcleanup242.i ], [ false, %lpad71.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67.i) #28
   br label %ehcleanup245.i
 
 ehcleanup245.i:                                   ; preds = %ehcleanup244.i, %lpad69.i, %lpad.i111
-  %arrayinit.endOfInit.25.i = phi ptr [ %arrayinit.endOfInit.24.i, %ehcleanup244.i ], [ %arrayinit.element51.i, %lpad.i111 ], [ %arrayinit.element51.i, %lpad69.i ]
+  %arrayinit.endOfInit.18.i = phi ptr [ %arrayinit.endOfInit.19.i, %ehcleanup244.i ], [ %arrayinit.element51.i, %lpad.i111 ], [ %arrayinit.element51.i, %lpad69.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup244.i ], [ %32, %lpad.i111 ], [ %102, %lpad69.i ]
-  %cleanup.isactive.33.i = phi i1 [ %cleanup.isactive.32.i, %ehcleanup244.i ], [ false, %lpad.i111 ], [ false, %lpad69.i ]
+  %cleanup.isactive.18.i = phi i1 [ %cleanup.isactive.19.i, %ehcleanup244.i ], [ false, %lpad.i111 ], [ false, %lpad69.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68.i) #28
   br label %ehcleanup246.i
 
 ehcleanup246.i:                                   ; preds = %ehcleanup245.i, %lpad64.i
-  %arrayinit.endOfInit.26.i = phi ptr [ %arrayinit.endOfInit.25.i, %ehcleanup245.i ], [ %arrayinit.element51.i, %lpad64.i ]
+  %arrayinit.endOfInit.17.i = phi ptr [ %arrayinit.endOfInit.18.i, %ehcleanup245.i ], [ %arrayinit.element51.i, %lpad64.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup245.i ], [ %101, %lpad64.i ]
-  %cleanup.isactive.34.i = phi i1 [ %cleanup.isactive.33.i, %ehcleanup245.i ], [ false, %lpad64.i ]
+  %cleanup.isactive.17.i = phi i1 [ %cleanup.isactive.18.i, %ehcleanup245.i ], [ false, %lpad64.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60.i) #28
   br label %ehcleanup247.i
 
 ehcleanup247.i:                                   ; preds = %ehcleanup246.i, %lpad62.i, %lpad.i121
-  %arrayinit.endOfInit.27.i = phi ptr [ %arrayinit.endOfInit.26.i, %ehcleanup246.i ], [ %arrayinit.element51.i, %lpad.i121 ], [ %arrayinit.element51.i, %lpad62.i ]
+  %arrayinit.endOfInit.16.i = phi ptr [ %arrayinit.endOfInit.17.i, %ehcleanup246.i ], [ %arrayinit.element51.i, %lpad.i121 ], [ %arrayinit.element51.i, %lpad62.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup246.i ], [ %29, %lpad.i121 ], [ %100, %lpad62.i ]
-  %cleanup.isactive.35.i = phi i1 [ %cleanup.isactive.34.i, %ehcleanup246.i ], [ false, %lpad.i121 ], [ false, %lpad62.i ]
+  %cleanup.isactive.16.i = phi i1 [ %cleanup.isactive.17.i, %ehcleanup246.i ], [ false, %lpad.i121 ], [ false, %lpad62.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp61.i) #28
   br label %ehcleanup248.i
 
 ehcleanup248.i:                                   ; preds = %ehcleanup247.i, %lpad57.i
-  %arrayinit.endOfInit.28.i = phi ptr [ %arrayinit.endOfInit.27.i, %ehcleanup247.i ], [ %arrayinit.element51.i, %lpad57.i ]
+  %arrayinit.endOfInit.15.i = phi ptr [ %arrayinit.endOfInit.16.i, %ehcleanup247.i ], [ %arrayinit.element51.i, %lpad57.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup247.i ], [ %99, %lpad57.i ]
-  %cleanup.isactive.36.i = phi i1 [ %cleanup.isactive.35.i, %ehcleanup247.i ], [ false, %lpad57.i ]
+  %cleanup.isactive.15.i = phi i1 [ %cleanup.isactive.16.i, %ehcleanup247.i ], [ false, %lpad57.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp53.i) #28
   br label %ehcleanup249.i
 
 ehcleanup249.i:                                   ; preds = %ehcleanup248.i, %lpad55.i, %lpad.i131
-  %arrayinit.endOfInit.29.i = phi ptr [ %arrayinit.endOfInit.28.i, %ehcleanup248.i ], [ %arrayinit.element51.i, %lpad.i131 ], [ %arrayinit.element51.i, %lpad55.i ]
+  %arrayinit.endOfInit.14.i = phi ptr [ %arrayinit.endOfInit.15.i, %ehcleanup248.i ], [ %arrayinit.element51.i, %lpad.i131 ], [ %arrayinit.element51.i, %lpad55.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup248.i ], [ %26, %lpad.i131 ], [ %98, %lpad55.i ]
-  %cleanup.isactive.37.i = phi i1 [ %cleanup.isactive.36.i, %ehcleanup248.i ], [ false, %lpad.i131 ], [ false, %lpad55.i ]
+  %cleanup.isactive.14.i = phi i1 [ %cleanup.isactive.15.i, %ehcleanup248.i ], [ false, %lpad.i131 ], [ false, %lpad55.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp54.i) #28
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp52.i) #28
   br label %ehcleanup251.i
 
 ehcleanup251.i:                                   ; preds = %ehcleanup249.i, %lpad47.i
-  %arrayinit.endOfInit.30.i = phi ptr [ %arrayinit.endOfInit.29.i, %ehcleanup249.i ], [ %arrayinit.element.i, %lpad47.i ]
+  %arrayinit.endOfInit.13.i = phi ptr [ %arrayinit.endOfInit.14.i, %ehcleanup249.i ], [ %arrayinit.element.i, %lpad47.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup249.i ], [ %97, %lpad47.i ]
-  %cleanup.isactive.38.i = phi i1 [ %cleanup.isactive.37.i, %ehcleanup249.i ], [ false, %lpad47.i ]
+  %cleanup.isactive.13.i = phi i1 [ %cleanup.isactive.14.i, %ehcleanup249.i ], [ false, %lpad47.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43.i) #28
   br label %ehcleanup252.i
 
 ehcleanup252.i:                                   ; preds = %ehcleanup251.i, %lpad45.i, %lpad.i141
-  %arrayinit.endOfInit.31.i = phi ptr [ %arrayinit.endOfInit.30.i, %ehcleanup251.i ], [ %arrayinit.element.i, %lpad.i141 ], [ %arrayinit.element.i, %lpad45.i ]
+  %arrayinit.endOfInit.12.i = phi ptr [ %arrayinit.endOfInit.13.i, %ehcleanup251.i ], [ %arrayinit.element.i, %lpad.i141 ], [ %arrayinit.element.i, %lpad45.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup251.i ], [ %22, %lpad.i141 ], [ %96, %lpad45.i ]
-  %cleanup.isactive.39.i = phi i1 [ %cleanup.isactive.38.i, %ehcleanup251.i ], [ false, %lpad.i141 ], [ false, %lpad45.i ]
+  %cleanup.isactive.12.i = phi i1 [ %cleanup.isactive.13.i, %ehcleanup251.i ], [ false, %lpad.i141 ], [ false, %lpad45.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44.i) #28
   br label %ehcleanup253.i
 
 ehcleanup253.i:                                   ; preds = %ehcleanup252.i, %lpad40.i
-  %arrayinit.endOfInit.32.i = phi ptr [ %arrayinit.endOfInit.31.i, %ehcleanup252.i ], [ %arrayinit.element.i, %lpad40.i ]
+  %arrayinit.endOfInit.11.i = phi ptr [ %arrayinit.endOfInit.12.i, %ehcleanup252.i ], [ %arrayinit.element.i, %lpad40.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup252.i ], [ %95, %lpad40.i ]
-  %cleanup.isactive.40.i = phi i1 [ %cleanup.isactive.39.i, %ehcleanup252.i ], [ false, %lpad40.i ]
+  %cleanup.isactive.11.i = phi i1 [ %cleanup.isactive.12.i, %ehcleanup252.i ], [ false, %lpad40.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36.i) #28
   br label %ehcleanup254.i
 
 ehcleanup254.i:                                   ; preds = %ehcleanup253.i, %lpad38.i, %lpad.i151
-  %arrayinit.endOfInit.33.i = phi ptr [ %arrayinit.endOfInit.32.i, %ehcleanup253.i ], [ %arrayinit.element.i, %lpad.i151 ], [ %arrayinit.element.i, %lpad38.i ]
+  %arrayinit.endOfInit.10.i = phi ptr [ %arrayinit.endOfInit.11.i, %ehcleanup253.i ], [ %arrayinit.element.i, %lpad.i151 ], [ %arrayinit.element.i, %lpad38.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup253.i ], [ %19, %lpad.i151 ], [ %94, %lpad38.i ]
-  %cleanup.isactive.41.i = phi i1 [ %cleanup.isactive.40.i, %ehcleanup253.i ], [ false, %lpad.i151 ], [ false, %lpad38.i ]
+  %cleanup.isactive.10.i = phi i1 [ %cleanup.isactive.11.i, %ehcleanup253.i ], [ false, %lpad.i151 ], [ false, %lpad38.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37.i) #28
   br label %ehcleanup255.i
 
 ehcleanup255.i:                                   ; preds = %ehcleanup254.i, %lpad33.i
-  %arrayinit.endOfInit.34.i = phi ptr [ %arrayinit.endOfInit.33.i, %ehcleanup254.i ], [ %arrayinit.element.i, %lpad33.i ]
+  %arrayinit.endOfInit.9.i = phi ptr [ %arrayinit.endOfInit.10.i, %ehcleanup254.i ], [ %arrayinit.element.i, %lpad33.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup254.i ], [ %93, %lpad33.i ]
-  %cleanup.isactive.42.i = phi i1 [ %cleanup.isactive.41.i, %ehcleanup254.i ], [ false, %lpad33.i ]
+  %cleanup.isactive.9.i = phi i1 [ %cleanup.isactive.10.i, %ehcleanup254.i ], [ false, %lpad33.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29.i) #28
   br label %ehcleanup256.i
 
 ehcleanup256.i:                                   ; preds = %ehcleanup255.i, %lpad31.i, %lpad.i161
-  %arrayinit.endOfInit.35.i = phi ptr [ %arrayinit.endOfInit.34.i, %ehcleanup255.i ], [ %arrayinit.element.i, %lpad.i161 ], [ %arrayinit.element.i, %lpad31.i ]
+  %arrayinit.endOfInit.8.i = phi ptr [ %arrayinit.endOfInit.9.i, %ehcleanup255.i ], [ %arrayinit.element.i, %lpad.i161 ], [ %arrayinit.element.i, %lpad31.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup255.i ], [ %16, %lpad.i161 ], [ %92, %lpad31.i ]
-  %cleanup.isactive.43.i = phi i1 [ %cleanup.isactive.42.i, %ehcleanup255.i ], [ false, %lpad.i161 ], [ false, %lpad31.i ]
+  %cleanup.isactive.8.i = phi i1 [ %cleanup.isactive.9.i, %ehcleanup255.i ], [ false, %lpad.i161 ], [ false, %lpad31.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp30.i) #28
   br label %ehcleanup257.i
 
 ehcleanup257.i:                                   ; preds = %ehcleanup256.i, %lpad26.i
-  %arrayinit.endOfInit.36.i = phi ptr [ %arrayinit.endOfInit.35.i, %ehcleanup256.i ], [ %arrayinit.element.i, %lpad26.i ]
+  %arrayinit.endOfInit.7.i = phi ptr [ %arrayinit.endOfInit.8.i, %ehcleanup256.i ], [ %arrayinit.element.i, %lpad26.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup256.i ], [ %91, %lpad26.i ]
-  %cleanup.isactive.44.i = phi i1 [ %cleanup.isactive.43.i, %ehcleanup256.i ], [ false, %lpad26.i ]
+  %cleanup.isactive.7.i = phi i1 [ %cleanup.isactive.8.i, %ehcleanup256.i ], [ false, %lpad26.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22.i) #28
   br label %ehcleanup258.i
 
 ehcleanup258.i:                                   ; preds = %ehcleanup257.i, %lpad24.i, %lpad.i171
-  %arrayinit.endOfInit.37.i = phi ptr [ %arrayinit.endOfInit.36.i, %ehcleanup257.i ], [ %arrayinit.element.i, %lpad.i171 ], [ %arrayinit.element.i, %lpad24.i ]
+  %arrayinit.endOfInit.6.i = phi ptr [ %arrayinit.endOfInit.7.i, %ehcleanup257.i ], [ %arrayinit.element.i, %lpad.i171 ], [ %arrayinit.element.i, %lpad24.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup257.i ], [ %13, %lpad.i171 ], [ %90, %lpad24.i ]
-  %cleanup.isactive.45.i = phi i1 [ %cleanup.isactive.44.i, %ehcleanup257.i ], [ false, %lpad.i171 ], [ false, %lpad24.i ]
+  %cleanup.isactive.6.i = phi i1 [ %cleanup.isactive.7.i, %ehcleanup257.i ], [ false, %lpad.i171 ], [ false, %lpad24.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp23.i) #28
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp21.i) #28
   br label %ehcleanup260.i
 
 ehcleanup260.i:                                   ; preds = %ehcleanup258.i, %lpad17.i
-  %arrayinit.endOfInit.38.i = phi ptr [ %arrayinit.endOfInit.37.i, %ehcleanup258.i ], [ %ref.tmp.i, %lpad17.i ]
+  %arrayinit.endOfInit.5.i = phi ptr [ %arrayinit.endOfInit.6.i, %ehcleanup258.i ], [ %ref.tmp.i, %lpad17.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup258.i ], [ %89, %lpad17.i ]
-  %cleanup.isactive.46.i = phi i1 [ %cleanup.isactive.45.i, %ehcleanup258.i ], [ false, %lpad17.i ]
+  %cleanup.isactive.5.i = phi i1 [ %cleanup.isactive.6.i, %ehcleanup258.i ], [ false, %lpad17.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13.i) #28
   br label %ehcleanup261.i
 
 ehcleanup261.i:                                   ; preds = %ehcleanup260.i, %lpad15.i, %lpad.i181
-  %arrayinit.endOfInit.39.i = phi ptr [ %arrayinit.endOfInit.38.i, %ehcleanup260.i ], [ %ref.tmp.i, %lpad.i181 ], [ %ref.tmp.i, %lpad15.i ]
+  %arrayinit.endOfInit.4.i = phi ptr [ %arrayinit.endOfInit.5.i, %ehcleanup260.i ], [ %ref.tmp.i, %lpad.i181 ], [ %ref.tmp.i, %lpad15.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup260.i ], [ %9, %lpad.i181 ], [ %88, %lpad15.i ]
-  %cleanup.isactive.47.i = phi i1 [ %cleanup.isactive.46.i, %ehcleanup260.i ], [ false, %lpad.i181 ], [ false, %lpad15.i ]
+  %cleanup.isactive.4.i = phi i1 [ %cleanup.isactive.5.i, %ehcleanup260.i ], [ false, %lpad.i181 ], [ false, %lpad15.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14.i) #28
   br label %ehcleanup262.i
 
 ehcleanup262.i:                                   ; preds = %ehcleanup261.i, %lpad10.i
-  %arrayinit.endOfInit.40.i = phi ptr [ %arrayinit.endOfInit.39.i, %ehcleanup261.i ], [ %ref.tmp.i, %lpad10.i ]
+  %arrayinit.endOfInit.3.i = phi ptr [ %arrayinit.endOfInit.4.i, %ehcleanup261.i ], [ %ref.tmp.i, %lpad10.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup261.i ], [ %87, %lpad10.i ]
-  %cleanup.isactive.48.i = phi i1 [ %cleanup.isactive.47.i, %ehcleanup261.i ], [ false, %lpad10.i ]
+  %cleanup.isactive.3.i = phi i1 [ %cleanup.isactive.4.i, %ehcleanup261.i ], [ false, %lpad10.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6.i) #28
   br label %ehcleanup263.i
 
 ehcleanup263.i:                                   ; preds = %ehcleanup262.i, %lpad8.i, %lpad.i191
-  %arrayinit.endOfInit.41.i = phi ptr [ %arrayinit.endOfInit.40.i, %ehcleanup262.i ], [ %ref.tmp.i, %lpad.i191 ], [ %ref.tmp.i, %lpad8.i ]
+  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.endOfInit.3.i, %ehcleanup262.i ], [ %ref.tmp.i, %lpad.i191 ], [ %ref.tmp.i, %lpad8.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup262.i ], [ %6, %lpad.i191 ], [ %86, %lpad8.i ]
-  %cleanup.isactive.49.i = phi i1 [ %cleanup.isactive.48.i, %ehcleanup262.i ], [ false, %lpad.i191 ], [ false, %lpad8.i ]
+  %cleanup.isactive.2.i = phi i1 [ %cleanup.isactive.3.i, %ehcleanup262.i ], [ false, %lpad.i191 ], [ false, %lpad8.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #28
   br label %ehcleanup264.i
 
 ehcleanup264.i:                                   ; preds = %ehcleanup263.i, %lpad4.i
-  %arrayinit.endOfInit.42.i = phi ptr [ %arrayinit.endOfInit.41.i, %ehcleanup263.i ], [ %ref.tmp.i, %lpad4.i ]
+  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.2.i, %ehcleanup263.i ], [ %ref.tmp.i, %lpad4.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup263.i ], [ %85, %lpad4.i ]
-  %cleanup.isactive.50.i = phi i1 [ %cleanup.isactive.49.i, %ehcleanup263.i ], [ false, %lpad4.i ]
+  %cleanup.isactive.1.i = phi i1 [ %cleanup.isactive.2.i, %ehcleanup263.i ], [ false, %lpad4.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2.i) #28
   br label %ehcleanup265.i
 
 ehcleanup265.i:                                   ; preds = %ehcleanup264.i, %lpad.i, %lpad.i201
-  %arrayinit.endOfInit.43.i = phi ptr [ %arrayinit.endOfInit.42.i, %ehcleanup264.i ], [ %ref.tmp.i, %lpad.i201 ], [ %ref.tmp.i, %lpad.i ]
+  %arrayinit.endOfInit.0.i = phi ptr [ %arrayinit.endOfInit.1.i, %ehcleanup264.i ], [ %ref.tmp.i, %lpad.i201 ], [ %ref.tmp.i, %lpad.i ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %ehcleanup264.i ], [ %3, %lpad.i201 ], [ %84, %lpad.i ]
-  %cleanup.isactive.51.i = phi i1 [ %cleanup.isactive.50.i, %ehcleanup264.i ], [ false, %lpad.i201 ], [ false, %lpad.i ]
+  %cleanup.isactive.0.i = phi i1 [ %cleanup.isactive.1.i, %ehcleanup264.i ], [ false, %lpad.i201 ], [ false, %lpad.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #28
   call void @_ZN8facebook5velox4exec24FunctionSignatureBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %ref.tmp1.i) #28
-  %arraydestroy.isempty.i = icmp eq ptr %ref.tmp.i, %arrayinit.endOfInit.43.i
-  %or.cond.i = select i1 %cleanup.isactive.51.i, i1 true, i1 %arraydestroy.isempty.i
+  %arraydestroy.isempty.i = icmp eq ptr %ref.tmp.i, %arrayinit.endOfInit.0.i
+  %or.cond.i = select i1 %cleanup.isactive.0.i, i1 true, i1 %arraydestroy.isempty.i
   br i1 %or.cond.i, label %common.resume, label %arraydestroy.body268.i
 
 arraydestroy.body268.i:                           ; preds = %ehcleanup265.i, %arraydestroy.body268.i
-  %arraydestroy.elementPast269.i = phi ptr [ %arraydestroy.element270.i, %arraydestroy.body268.i ], [ %arrayinit.endOfInit.43.i, %ehcleanup265.i ]
+  %arraydestroy.elementPast269.i = phi ptr [ %arraydestroy.element270.i, %arraydestroy.body268.i ], [ %arrayinit.endOfInit.0.i, %ehcleanup265.i ]
   %arraydestroy.element270.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast269.i, i64 -16
   call void @_ZNSt10shared_ptrIN8facebook5velox4exec17FunctionSignatureEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %arraydestroy.element270.i) #28
   %arraydestroy.done271.i = icmp eq ptr %arraydestroy.element270.i, %ref.tmp.i
@@ -6863,7 +6863,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %62 = phi ptr [ %.pre334, %for.body.lr.ph.i.i ], [ %67, %for.body.i.i ]
-  %numElements.0 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i.i, %for.body.i.i ]
+  %numElements.9 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i.i, %for.body.i.i ]
   %indvars.iv.i.i = phi i64 [ %60, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %63 = load ptr, ptr %startVector, align 8
   %64 = load ptr, ptr %stopVector, align 8
@@ -6875,7 +6875,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %67 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i.i = getelementptr inbounds i32, ptr %67, i64 %indvars.iv.i.i
   %68 = load i32, ptr %arrayidx4.i.i.i, align 4
-  %add.i.i.i = add nsw i32 %68, %numElements.0
+  %add.i.i.i = add nsw i32 %68, %numElements.9
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %69 = load i32, ptr %end_.i, align 8
   %70 = sext i32 %69 to i64
@@ -6927,7 +6927,7 @@ while.body.i.i.i.i.i.i.preheader:                 ; preds = %if.then3.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i.preheader, %while.body.i.i.i.i.i.i
   %78 = phi ptr [ %83, %while.body.i.i.i.i.i.i ], [ %.pre333, %while.body.i.i.i.i.i.i.preheader ]
-  %numElements.1 = phi i32 [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i.i.preheader ]
+  %numElements.8 = phi i32 [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i.i.preheader ]
   %word.0.i.i.i.i.i.i = phi i64 [ %and6.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.preheader ]
   %79 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %79 to i32
@@ -6942,7 +6942,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %83 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %83, i64 %idxprom.i.i.i.i.i.i.i
   %84 = load i32, ptr %arrayidx4.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %84, %numElements.1
+  %add.i.i.i.i.i.i.i = add nsw i32 %84, %numElements.8
   %sub.i27.i.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i.i, -1
   %and6.i.i.i.i.i.i = and i64 %sub.i27.i.i.i.i.i, %word.0.i.i.i.i.i.i
   %tobool5.old.not.i.i.i.i.i.i = icmp eq i64 %and6.i.i.i.i.i.i, 0
@@ -6977,7 +6977,7 @@ while.body.preheader.i40.i.i.i.i.i:               ; preds = %if.then10.i.i.i.i.i
 
 while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i
   %87 = phi ptr [ %.pre, %while.body.preheader.i40.i.i.i.i.i ], [ %92, %while.body.i42.i.i.i.i.i ]
-  %numElements.2 = phi i32 [ 0, %while.body.preheader.i40.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
+  %numElements.0 = phi i32 [ 0, %while.body.preheader.i40.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %word.0.i43.i.i.i.i.i = phi i64 [ %and.i38.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i ], [ %and6.i54.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %88 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %88 to i32
@@ -6992,14 +6992,14 @@ while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.
   %92 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i51.i.i.i.i.i = getelementptr inbounds i32, ptr %92, i64 %idxprom.i.i49.i.i.i.i.i
   %93 = load i32, ptr %arrayidx4.i.i51.i.i.i.i.i, align 4
-  %add.i.i52.i.i.i.i.i = add nsw i32 %93, %numElements.2
+  %add.i.i52.i.i.i.i.i = add nsw i32 %93, %numElements.0
   %sub.i53.i.i.i.i.i = add i64 %word.0.i43.i.i.i.i.i, -1
   %and6.i54.i.i.i.i.i = and i64 %sub.i53.i.i.i.i.i, %word.0.i43.i.i.i.i.i
   %tobool5.old.not.i55.i.i.i.i.i = icmp eq i64 %and6.i54.i.i.i.i.i, 0
   br i1 %tobool5.old.not.i55.i.i.i.i.i, label %if.end14.i.i.i.i.i, label %while.body.i42.i.i.i.i.i
 
 if.end14.i.i.i.i.i:                               ; preds = %while.body.i42.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.end8.i.i.i.i.i
-  %numElements.3 = phi i32 [ 0, %if.end8.i.i.i.i.i ], [ 0, %if.then10.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
+  %numElements.1 = phi i32 [ 0, %if.end8.i.i.i.i.i ], [ 0, %if.then10.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %add105.i.i.i.i.i = add nsw i32 %mul.i.i.i.i.i.i, 64
   %cmp15.not106.i.i.i.i.i = icmp sgt i32 %add105.i.i.i.i.i, %75
   br i1 %cmp15.not106.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i.preheader
@@ -7012,7 +7012,7 @@ for.body.i.i.i25.i.i.preheader:                   ; preds = %if.end14.i.i.i.i.i
   br label %for.body.i.i.i25.i.i
 
 for.body.i.i.i25.i.i:                             ; preds = %for.body.i.i.i25.i.i.preheader, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIiiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i
-  %numElements.4 = phi i32 [ %numElements.7, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIiiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ], [ %numElements.3, %for.body.i.i.i25.i.i.preheader ]
+  %numElements.2 = phi i32 [ %numElements.3, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIiiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ], [ %numElements.1, %for.body.i.i.i25.i.i.preheader ]
   %add108.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIiiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ], [ %add105.i.i.i.i.i, %for.body.i.i.i25.i.i.preheader ]
   %i.0107.i.i.i.i.i = phi i32 [ %add108.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIiiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %for.body.i.i.i25.i.i.preheader ]
   %div16.i.i.i.i.i = sdiv i32 %i.0107.i.i.i.i.i, 64
@@ -7043,7 +7043,7 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i
   %96 = phi ptr [ %.pre331, %for.body.lr.ph.i.i.i.i.i.i ], [ %100, %for.body.i.i.i.i.i.i ]
-  %numElements.5 = phi i32 [ %numElements.4, %for.body.lr.ph.i.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %numElements.6 = phi i32 [ %numElements.2, %for.body.lr.ph.i.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %row.062.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %97 = load ptr, ptr %startVector, align 8
   %98 = load ptr, ptr %stopVector, align 8
@@ -7055,13 +7055,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %100 = load ptr, ptr %rawSizes, align 8
   %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %100, i64 %row.062.i.i.i.i.i.i
   %101 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
-  %add.i.i65.i.i.i.i.i = add nsw i32 %101, %numElements.5
+  %add.i.i65.i.i.i.i.i = add nsw i32 %101, %numElements.6
   %inc.i.i.i.i.i.i = add nuw i64 %row.062.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i.i, %conv5.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIiiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !37
 
 while.body.i66.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
-  %numElements.6 = phi i32 [ %numElements.4, %while.body.lr.ph.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ]
+  %numElements.7 = phi i32 [ %numElements.2, %while.body.lr.ph.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ]
   %word.060.i.i.i.i.i.i = phi i64 [ %95, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i71.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ]
   %102 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.060.i.i.i.i.i.i, i1 true)
   %cast.i67.i.i.i.i.i = trunc nuw nsw i64 %102 to i32
@@ -7245,20 +7245,20 @@ _ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE14checkArguments
   %130 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i69.i.i.i.i.i = getelementptr inbounds i32, ptr %130, i64 %idxprom.i.i68.i.i.i.i.i
   %131 = load i32, ptr %arrayidx4.i.i69.i.i.i.i.i, align 4
-  %add.i41.i.i.i.i.i.i = add nsw i32 %131, %numElements.6
+  %add.i41.i.i.i.i.i.i = add nsw i32 %131, %numElements.7
   %sub.i70.i.i.i.i.i = add i64 %word.060.i.i.i.i.i.i, -1
   %and.i71.i.i.i.i.i = and i64 %sub.i70.i.i.i.i.i, %word.060.i.i.i.i.i.i
   %tobool7.not.i.i.i.i.i.i = icmp eq i64 %and.i71.i.i.i.i.i, 0
   br i1 %tobool7.not.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIiiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i66.i.i.i.i.i, !llvm.loop !38
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIiiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i25.i.i
-  %numElements.7 = phi i32 [ %numElements.4, %for.body.i.i.i25.i.i ], [ %numElements.4, %if.then.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %numElements.3 = phi i32 [ %numElements.2, %for.body.i.i.i25.i.i ], [ %numElements.2, %if.then.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %add.i.i.i.i.i = add nsw i32 %add108.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %75
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i, !llvm.loop !39
 
 for.end.i.i.i26.i.i:                              ; preds = %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIiiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i, %if.end14.i.i.i.i.i
-  %numElements.8 = phi i32 [ %numElements.3, %if.end14.i.i.i.i.i ], [ %numElements.7, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIiiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ]
+  %numElements.4 = phi i32 [ %numElements.1, %if.end14.i.i.i.i.i ], [ %numElements.3, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIiiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ]
   %cmp18.not.i.i.i.i.i = icmp eq i32 %75, %73
   br i1 %cmp18.not.i.i.i.i.i, label %invoke.cont36, label %if.then19.i.i.i.i.i
 
@@ -7283,7 +7283,7 @@ while.body.i83.i.i.i.i.i.preheader:               ; preds = %if.then19.i.i.i.i.i
 
 while.body.i83.i.i.i.i.i:                         ; preds = %while.body.i83.i.i.i.i.i.preheader, %while.body.i83.i.i.i.i.i
   %134 = phi ptr [ %139, %while.body.i83.i.i.i.i.i ], [ %.pre332, %while.body.i83.i.i.i.i.i.preheader ]
-  %numElements.9 = phi i32 [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %numElements.8, %while.body.i83.i.i.i.i.i.preheader ]
+  %numElements.5 = phi i32 [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %numElements.4, %while.body.i83.i.i.i.i.i.preheader ]
   %word.0.i84.i.i.i.i.i = phi i64 [ %and6.i95.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %and.i79.i.i.i.i.i, %while.body.i83.i.i.i.i.i.preheader ]
   %135 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i84.i.i.i.i.i, i1 true)
   %cast.i85.i.i.i.i.i = trunc nuw nsw i64 %135 to i32
@@ -7298,14 +7298,14 @@ while.body.i83.i.i.i.i.i:                         ; preds = %while.body.i83.i.i.
   %139 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i92.i.i.i.i.i = getelementptr inbounds i32, ptr %139, i64 %idxprom.i.i90.i.i.i.i.i
   %140 = load i32, ptr %arrayidx4.i.i92.i.i.i.i.i, align 4
-  %add.i.i93.i.i.i.i.i = add nsw i32 %140, %numElements.9
+  %add.i.i93.i.i.i.i.i = add nsw i32 %140, %numElements.5
   %sub.i94.i.i.i.i.i = add nsw i64 %word.0.i84.i.i.i.i.i, -1
   %and6.i95.i.i.i.i.i = and i64 %sub.i94.i.i.i.i.i, %word.0.i84.i.i.i.i.i
   %tobool5.old.not.i96.i.i.i.i.i = icmp eq i64 %and6.i95.i.i.i.i.i, 0
   br i1 %tobool5.old.not.i96.i.i.i.i.i, label %invoke.cont36, label %while.body.i83.i.i.i.i.i
 
 invoke.cont36:                                    ; preds = %while.body.i83.i.i.i.i.i, %while.body.i.i.i.i.i.i, %for.body.i.i, %if.then19.i.i.i.i.i, %for.end.i.i.i26.i.i, %if.then3.i.i.i.i.i, %if.else.i.i, %if.then.i.i
-  %numElements.10 = phi i32 [ 0, %if.then.i.i ], [ 0, %if.then3.i.i.i.i.i ], [ %numElements.8, %for.end.i.i.i26.i.i ], [ %numElements.8, %if.then19.i.i.i.i.i ], [ 0, %if.else.i.i ], [ %add.i.i.i, %for.body.i.i ], [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ]
+  %numElements.10 = phi i32 [ 0, %if.then.i.i ], [ 0, %if.then3.i.i.i.i.i ], [ %numElements.4, %for.end.i.i.i26.i.i ], [ %numElements.4, %if.then19.i.i.i.i.i ], [ 0, %if.else.i.i ], [ %add.i.i.i, %for.body.i.i ], [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ]
   %141 = load ptr, ptr %outputType, align 8
   %vtable = load ptr, ptr %141, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -14377,7 +14377,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %62 = phi ptr [ %.pre371, %for.body.lr.ph.i.i ], [ %67, %for.body.i.i ]
-  %numElements.0 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i.i, %for.body.i.i ]
+  %numElements.9 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i.i, %for.body.i.i ]
   %indvars.iv.i.i = phi i64 [ %60, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %63 = load ptr, ptr %startVector, align 8
   %64 = load ptr, ptr %stopVector, align 8
@@ -14389,7 +14389,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %67 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i.i = getelementptr inbounds i32, ptr %67, i64 %indvars.iv.i.i
   %68 = load i32, ptr %arrayidx4.i.i.i, align 4
-  %add.i.i.i = add nsw i32 %68, %numElements.0
+  %add.i.i.i = add nsw i32 %68, %numElements.9
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %69 = load i32, ptr %end_.i, align 8
   %70 = sext i32 %69 to i64
@@ -14441,7 +14441,7 @@ while.body.i.i.i.i.i.i.preheader:                 ; preds = %if.then3.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i.preheader, %while.body.i.i.i.i.i.i
   %78 = phi ptr [ %83, %while.body.i.i.i.i.i.i ], [ %.pre370, %while.body.i.i.i.i.i.i.preheader ]
-  %numElements.1 = phi i32 [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i.i.preheader ]
+  %numElements.8 = phi i32 [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i.i.preheader ]
   %word.0.i.i.i.i.i.i = phi i64 [ %and6.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.preheader ]
   %79 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %79 to i32
@@ -14456,7 +14456,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %83 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %83, i64 %idxprom.i.i.i.i.i.i.i
   %84 = load i32, ptr %arrayidx4.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %84, %numElements.1
+  %add.i.i.i.i.i.i.i = add nsw i32 %84, %numElements.8
   %sub.i27.i.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i.i, -1
   %and6.i.i.i.i.i.i = and i64 %sub.i27.i.i.i.i.i, %word.0.i.i.i.i.i.i
   %tobool5.old.not.i.i.i.i.i.i = icmp eq i64 %and6.i.i.i.i.i.i, 0
@@ -14491,7 +14491,7 @@ while.body.preheader.i40.i.i.i.i.i:               ; preds = %if.then10.i.i.i.i.i
 
 while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i
   %87 = phi ptr [ %.pre, %while.body.preheader.i40.i.i.i.i.i ], [ %92, %while.body.i42.i.i.i.i.i ]
-  %numElements.2 = phi i32 [ 0, %while.body.preheader.i40.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
+  %numElements.0 = phi i32 [ 0, %while.body.preheader.i40.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %word.0.i43.i.i.i.i.i = phi i64 [ %and.i38.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i ], [ %and6.i54.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %88 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %88 to i32
@@ -14506,14 +14506,14 @@ while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.
   %92 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i51.i.i.i.i.i = getelementptr inbounds i32, ptr %92, i64 %idxprom.i.i49.i.i.i.i.i
   %93 = load i32, ptr %arrayidx4.i.i51.i.i.i.i.i, align 4
-  %add.i.i52.i.i.i.i.i = add nsw i32 %93, %numElements.2
+  %add.i.i52.i.i.i.i.i = add nsw i32 %93, %numElements.0
   %sub.i53.i.i.i.i.i = add i64 %word.0.i43.i.i.i.i.i, -1
   %and6.i54.i.i.i.i.i = and i64 %sub.i53.i.i.i.i.i, %word.0.i43.i.i.i.i.i
   %tobool5.old.not.i55.i.i.i.i.i = icmp eq i64 %and6.i54.i.i.i.i.i, 0
   br i1 %tobool5.old.not.i55.i.i.i.i.i, label %if.end14.i.i.i.i.i, label %while.body.i42.i.i.i.i.i
 
 if.end14.i.i.i.i.i:                               ; preds = %while.body.i42.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.end8.i.i.i.i.i
-  %numElements.3 = phi i32 [ 0, %if.end8.i.i.i.i.i ], [ 0, %if.then10.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
+  %numElements.1 = phi i32 [ 0, %if.end8.i.i.i.i.i ], [ 0, %if.then10.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %add106.i.i.i.i.i = add nsw i32 %mul.i.i.i.i.i.i, 64
   %cmp15.not107.i.i.i.i.i = icmp sgt i32 %add106.i.i.i.i.i, %75
   br i1 %cmp15.not107.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i.preheader
@@ -14526,7 +14526,7 @@ for.body.i.i.i25.i.i.preheader:                   ; preds = %if.end14.i.i.i.i.i
   br label %for.body.i.i.i25.i.i
 
 for.body.i.i.i25.i.i:                             ; preds = %for.body.i.i.i25.i.i.preheader, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i
-  %numElements.4 = phi i32 [ %numElements.7, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ], [ %numElements.3, %for.body.i.i.i25.i.i.preheader ]
+  %numElements.2 = phi i32 [ %numElements.3, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ], [ %numElements.1, %for.body.i.i.i25.i.i.preheader ]
   %add109.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ], [ %add106.i.i.i.i.i, %for.body.i.i.i25.i.i.preheader ]
   %i.0108.i.i.i.i.i = phi i32 [ %add109.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %for.body.i.i.i25.i.i.preheader ]
   %div16.i.i.i.i.i = sdiv i32 %i.0108.i.i.i.i.i, 64
@@ -14557,7 +14557,7 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i
   %96 = phi ptr [ %.pre368, %for.body.lr.ph.i.i.i.i.i.i ], [ %100, %for.body.i.i.i.i.i.i ]
-  %numElements.5 = phi i32 [ %numElements.4, %for.body.lr.ph.i.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %numElements.6 = phi i32 [ %numElements.2, %for.body.lr.ph.i.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %row.062.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %97 = load ptr, ptr %startVector, align 8
   %98 = load ptr, ptr %stopVector, align 8
@@ -14569,13 +14569,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %100 = load ptr, ptr %rawSizes, align 8
   %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %100, i64 %row.062.i.i.i.i.i.i
   %101 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
-  %add.i.i65.i.i.i.i.i = add nsw i32 %101, %numElements.5
+  %add.i.i65.i.i.i.i.i = add nsw i32 %101, %numElements.6
   %inc.i.i.i.i.i.i = add nuw i64 %row.062.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i.i, %conv5.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !131
 
 while.body.i66.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
-  %numElements.6 = phi i32 [ %numElements.4, %while.body.lr.ph.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ]
+  %numElements.7 = phi i32 [ %numElements.2, %while.body.lr.ph.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ]
   %word.060.i.i.i.i.i.i = phi i64 [ %95, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i71.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ]
   %102 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.060.i.i.i.i.i.i, i1 true)
   %cast.i67.i.i.i.i.i = trunc nuw nsw i64 %102 to i32
@@ -14759,20 +14759,20 @@ _ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE14checkArguments
   %130 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i69.i.i.i.i.i = getelementptr inbounds i32, ptr %130, i64 %idxprom.i.i68.i.i.i.i.i
   %131 = load i32, ptr %arrayidx4.i.i69.i.i.i.i.i, align 4
-  %add.i41.i.i.i.i.i.i = add nsw i32 %131, %numElements.6
+  %add.i41.i.i.i.i.i.i = add nsw i32 %131, %numElements.7
   %sub.i70.i.i.i.i.i = add i64 %word.060.i.i.i.i.i.i, -1
   %and.i71.i.i.i.i.i = and i64 %sub.i70.i.i.i.i.i, %word.060.i.i.i.i.i.i
   %tobool7.not.i.i.i.i.i.i = icmp eq i64 %and.i71.i.i.i.i.i, 0
   br i1 %tobool7.not.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i66.i.i.i.i.i, !llvm.loop !132
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i25.i.i
-  %numElements.7 = phi i32 [ %numElements.4, %for.body.i.i.i25.i.i ], [ %numElements.4, %if.then.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %numElements.3 = phi i32 [ %numElements.2, %for.body.i.i.i25.i.i ], [ %numElements.2, %if.then.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIilE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %add.i.i.i.i.i = add nsw i32 %add109.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %75
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i, !llvm.loop !133
 
 for.end.i.i.i26.i.i:                              ; preds = %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i, %if.end14.i.i.i.i.i
-  %numElements.8 = phi i32 [ %numElements.3, %if.end14.i.i.i.i.i ], [ %numElements.7, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ]
+  %numElements.4 = phi i32 [ %numElements.1, %if.end14.i.i.i.i.i ], [ %numElements.3, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIilE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ]
   %cmp18.not.i.i.i.i.i = icmp eq i32 %75, %73
   br i1 %cmp18.not.i.i.i.i.i, label %invoke.cont33, label %if.then19.i.i.i.i.i
 
@@ -14797,7 +14797,7 @@ while.body.i83.i.i.i.i.i.preheader:               ; preds = %if.then19.i.i.i.i.i
 
 while.body.i83.i.i.i.i.i:                         ; preds = %while.body.i83.i.i.i.i.i.preheader, %while.body.i83.i.i.i.i.i
   %134 = phi ptr [ %139, %while.body.i83.i.i.i.i.i ], [ %.pre369, %while.body.i83.i.i.i.i.i.preheader ]
-  %numElements.9 = phi i32 [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %numElements.8, %while.body.i83.i.i.i.i.i.preheader ]
+  %numElements.5 = phi i32 [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %numElements.4, %while.body.i83.i.i.i.i.i.preheader ]
   %word.0.i84.i.i.i.i.i = phi i64 [ %and6.i95.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %and.i79.i.i.i.i.i, %while.body.i83.i.i.i.i.i.preheader ]
   %135 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i84.i.i.i.i.i, i1 true)
   %cast.i85.i.i.i.i.i = trunc nuw nsw i64 %135 to i32
@@ -14812,14 +14812,14 @@ while.body.i83.i.i.i.i.i:                         ; preds = %while.body.i83.i.i.
   %139 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i92.i.i.i.i.i = getelementptr inbounds i32, ptr %139, i64 %idxprom.i.i90.i.i.i.i.i
   %140 = load i32, ptr %arrayidx4.i.i92.i.i.i.i.i, align 4
-  %add.i.i93.i.i.i.i.i = add nsw i32 %140, %numElements.9
+  %add.i.i93.i.i.i.i.i = add nsw i32 %140, %numElements.5
   %sub.i94.i.i.i.i.i = add nsw i64 %word.0.i84.i.i.i.i.i, -1
   %and6.i95.i.i.i.i.i = and i64 %sub.i94.i.i.i.i.i, %word.0.i84.i.i.i.i.i
   %tobool5.old.not.i96.i.i.i.i.i = icmp eq i64 %and6.i95.i.i.i.i.i, 0
   br i1 %tobool5.old.not.i96.i.i.i.i.i, label %invoke.cont33, label %while.body.i83.i.i.i.i.i
 
 invoke.cont33:                                    ; preds = %while.body.i83.i.i.i.i.i, %while.body.i.i.i.i.i.i, %for.body.i.i, %if.then19.i.i.i.i.i, %for.end.i.i.i26.i.i, %if.then3.i.i.i.i.i, %if.else.i.i, %if.then.i.i
-  %numElements.10 = phi i32 [ 0, %if.then.i.i ], [ 0, %if.then3.i.i.i.i.i ], [ %numElements.8, %for.end.i.i.i26.i.i ], [ %numElements.8, %if.then19.i.i.i.i.i ], [ 0, %if.else.i.i ], [ %add.i.i.i, %for.body.i.i ], [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ]
+  %numElements.10 = phi i32 [ 0, %if.then.i.i ], [ 0, %if.then3.i.i.i.i.i ], [ %numElements.4, %for.end.i.i.i26.i.i ], [ %numElements.4, %if.then19.i.i.i.i.i ], [ 0, %if.else.i.i ], [ %add.i.i.i, %for.body.i.i ], [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ]
   %141 = load ptr, ptr %outputType, align 8
   %vtable = load ptr, ptr %141, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -16817,7 +16817,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %62 = phi ptr [ %.pre373, %for.body.lr.ph.i.i ], [ %67, %for.body.i.i ]
-  %numElements.0 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i.i, %for.body.i.i ]
+  %numElements.9 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i.i, %for.body.i.i ]
   %indvars.iv.i.i = phi i64 [ %60, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %63 = load ptr, ptr %startVector, align 8
   %64 = load ptr, ptr %stopVector, align 8
@@ -16829,7 +16829,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %67 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i.i = getelementptr inbounds i32, ptr %67, i64 %indvars.iv.i.i
   %68 = load i32, ptr %arrayidx4.i.i.i, align 4
-  %add.i.i.i = add nsw i32 %68, %numElements.0
+  %add.i.i.i = add nsw i32 %68, %numElements.9
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %69 = load i32, ptr %end_.i, align 8
   %70 = sext i32 %69 to i64
@@ -16881,7 +16881,7 @@ while.body.i.i.i.i.i.i.preheader:                 ; preds = %if.then3.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i.preheader, %while.body.i.i.i.i.i.i
   %78 = phi ptr [ %83, %while.body.i.i.i.i.i.i ], [ %.pre372, %while.body.i.i.i.i.i.i.preheader ]
-  %numElements.1 = phi i32 [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i.i.preheader ]
+  %numElements.8 = phi i32 [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i.i.preheader ]
   %word.0.i.i.i.i.i.i = phi i64 [ %and6.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.preheader ]
   %79 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %79 to i32
@@ -16896,7 +16896,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %83 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %83, i64 %idxprom.i.i.i.i.i.i.i
   %84 = load i32, ptr %arrayidx4.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %84, %numElements.1
+  %add.i.i.i.i.i.i.i = add nsw i32 %84, %numElements.8
   %sub.i27.i.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i.i, -1
   %and6.i.i.i.i.i.i = and i64 %sub.i27.i.i.i.i.i, %word.0.i.i.i.i.i.i
   %tobool5.old.not.i.i.i.i.i.i = icmp eq i64 %and6.i.i.i.i.i.i, 0
@@ -16931,7 +16931,7 @@ while.body.preheader.i40.i.i.i.i.i:               ; preds = %if.then10.i.i.i.i.i
 
 while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i
   %87 = phi ptr [ %.pre, %while.body.preheader.i40.i.i.i.i.i ], [ %92, %while.body.i42.i.i.i.i.i ]
-  %numElements.2 = phi i32 [ 0, %while.body.preheader.i40.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
+  %numElements.0 = phi i32 [ 0, %while.body.preheader.i40.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %word.0.i43.i.i.i.i.i = phi i64 [ %and.i38.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i ], [ %and6.i54.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %88 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %88 to i32
@@ -16946,14 +16946,14 @@ while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.
   %92 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i51.i.i.i.i.i = getelementptr inbounds i32, ptr %92, i64 %idxprom.i.i49.i.i.i.i.i
   %93 = load i32, ptr %arrayidx4.i.i51.i.i.i.i.i, align 4
-  %add.i.i52.i.i.i.i.i = add nsw i32 %93, %numElements.2
+  %add.i.i52.i.i.i.i.i = add nsw i32 %93, %numElements.0
   %sub.i53.i.i.i.i.i = add i64 %word.0.i43.i.i.i.i.i, -1
   %and6.i54.i.i.i.i.i = and i64 %sub.i53.i.i.i.i.i, %word.0.i43.i.i.i.i.i
   %tobool5.old.not.i55.i.i.i.i.i = icmp eq i64 %and6.i54.i.i.i.i.i, 0
   br i1 %tobool5.old.not.i55.i.i.i.i.i, label %if.end14.i.i.i.i.i, label %while.body.i42.i.i.i.i.i
 
 if.end14.i.i.i.i.i:                               ; preds = %while.body.i42.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.end8.i.i.i.i.i
-  %numElements.3 = phi i32 [ 0, %if.end8.i.i.i.i.i ], [ 0, %if.then10.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
+  %numElements.1 = phi i32 [ 0, %if.end8.i.i.i.i.i ], [ 0, %if.then10.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %add105.i.i.i.i.i = add nsw i32 %mul.i.i.i.i.i.i, 64
   %cmp15.not106.i.i.i.i.i = icmp sgt i32 %add105.i.i.i.i.i, %75
   br i1 %cmp15.not106.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i.preheader
@@ -16966,7 +16966,7 @@ for.body.i.i.i25.i.i.preheader:                   ; preds = %if.end14.i.i.i.i.i
   br label %for.body.i.i.i25.i.i
 
 for.body.i.i.i25.i.i:                             ; preds = %for.body.i.i.i25.i.i.preheader, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i
-  %numElements.4 = phi i32 [ %numElements.7, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ], [ %numElements.3, %for.body.i.i.i25.i.i.preheader ]
+  %numElements.2 = phi i32 [ %numElements.3, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ], [ %numElements.1, %for.body.i.i.i25.i.i.preheader ]
   %add108.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ], [ %add105.i.i.i.i.i, %for.body.i.i.i25.i.i.preheader ]
   %i.0107.i.i.i.i.i = phi i32 [ %add108.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %for.body.i.i.i25.i.i.preheader ]
   %div16.i.i.i.i.i = sdiv i32 %i.0107.i.i.i.i.i, 64
@@ -16997,7 +16997,7 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i
   %96 = phi ptr [ %.pre370, %for.body.lr.ph.i.i.i.i.i.i ], [ %100, %for.body.i.i.i.i.i.i ]
-  %numElements.5 = phi i32 [ %numElements.4, %for.body.lr.ph.i.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %numElements.6 = phi i32 [ %numElements.2, %for.body.lr.ph.i.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %row.062.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %97 = load ptr, ptr %startVector, align 8
   %98 = load ptr, ptr %stopVector, align 8
@@ -17009,13 +17009,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %100 = load ptr, ptr %rawSizes, align 8
   %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %100, i64 %row.062.i.i.i.i.i.i
   %101 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
-  %add.i.i65.i.i.i.i.i = add nsw i32 %101, %numElements.5
+  %add.i.i65.i.i.i.i.i = add nsw i32 %101, %numElements.6
   %inc.i.i.i.i.i.i = add nuw i64 %row.062.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i.i, %conv5.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !164
 
 while.body.i66.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
-  %numElements.6 = phi i32 [ %numElements.4, %while.body.lr.ph.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ]
+  %numElements.7 = phi i32 [ %numElements.2, %while.body.lr.ph.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ]
   %word.060.i.i.i.i.i.i = phi i64 [ %95, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i71.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ]
   %102 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.060.i.i.i.i.i.i, i1 true)
   %cast.i67.i.i.i.i.i = trunc nuw nsw i64 %102 to i32
@@ -17188,20 +17188,20 @@ _ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE14checkArguments
   %129 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i69.i.i.i.i.i = getelementptr inbounds i32, ptr %129, i64 %idxprom.i.i68.i.i.i.i.i
   %130 = load i32, ptr %arrayidx4.i.i69.i.i.i.i.i, align 4
-  %add.i41.i.i.i.i.i.i = add nsw i32 %130, %numElements.6
+  %add.i41.i.i.i.i.i.i = add nsw i32 %130, %numElements.7
   %sub.i70.i.i.i.i.i = add i64 %word.060.i.i.i.i.i.i, -1
   %and.i71.i.i.i.i.i = and i64 %sub.i70.i.i.i.i.i, %word.060.i.i.i.i.i.i
   %tobool7.not.i.i.i.i.i.i = icmp eq i64 %and.i71.i.i.i.i.i, 0
   br i1 %tobool7.not.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i66.i.i.i.i.i, !llvm.loop !165
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i25.i.i
-  %numElements.7 = phi i32 [ %numElements.4, %for.body.i.i.i25.i.i ], [ %numElements.4, %if.then.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %numElements.3 = phi i32 [ %numElements.2, %for.body.i.i.i25.i.i ], [ %numElements.2, %if.then.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIllE14checkArgumentsEPNS0_13DecodedVectorES6_S6_ibb.exit.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %add.i.i.i.i.i = add nsw i32 %add108.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %75
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i, !llvm.loop !166
 
 for.end.i.i.i26.i.i:                              ; preds = %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i, %if.end14.i.i.i.i.i
-  %numElements.8 = phi i32 [ %numElements.3, %if.end14.i.i.i.i.i ], [ %numElements.7, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ]
+  %numElements.4 = phi i32 [ %numElements.1, %if.end14.i.i.i.i.i ], [ %numElements.3, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionIllE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISG_EERKSE_IKNS0_4TypeEERS4_RSG_EUlT_E_EEvSC_SR_EUlSR_E_EEvPKmiibSR_ENKUliE_clEi.exit.i.i.i.i.i ]
   %cmp18.not.i.i.i.i.i = icmp eq i32 %75, %73
   br i1 %cmp18.not.i.i.i.i.i, label %invoke.cont33, label %if.then19.i.i.i.i.i
 
@@ -17226,7 +17226,7 @@ while.body.i83.i.i.i.i.i.preheader:               ; preds = %if.then19.i.i.i.i.i
 
 while.body.i83.i.i.i.i.i:                         ; preds = %while.body.i83.i.i.i.i.i.preheader, %while.body.i83.i.i.i.i.i
   %133 = phi ptr [ %138, %while.body.i83.i.i.i.i.i ], [ %.pre371, %while.body.i83.i.i.i.i.i.preheader ]
-  %numElements.9 = phi i32 [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %numElements.8, %while.body.i83.i.i.i.i.i.preheader ]
+  %numElements.5 = phi i32 [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %numElements.4, %while.body.i83.i.i.i.i.i.preheader ]
   %word.0.i84.i.i.i.i.i = phi i64 [ %and6.i95.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %and.i79.i.i.i.i.i, %while.body.i83.i.i.i.i.i.preheader ]
   %134 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i84.i.i.i.i.i, i1 true)
   %cast.i85.i.i.i.i.i = trunc nuw nsw i64 %134 to i32
@@ -17241,14 +17241,14 @@ while.body.i83.i.i.i.i.i:                         ; preds = %while.body.i83.i.i.
   %138 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i92.i.i.i.i.i = getelementptr inbounds i32, ptr %138, i64 %idxprom.i.i90.i.i.i.i.i
   %139 = load i32, ptr %arrayidx4.i.i92.i.i.i.i.i, align 4
-  %add.i.i93.i.i.i.i.i = add nsw i32 %139, %numElements.9
+  %add.i.i93.i.i.i.i.i = add nsw i32 %139, %numElements.5
   %sub.i94.i.i.i.i.i = add nsw i64 %word.0.i84.i.i.i.i.i, -1
   %and6.i95.i.i.i.i.i = and i64 %sub.i94.i.i.i.i.i, %word.0.i84.i.i.i.i.i
   %tobool5.old.not.i96.i.i.i.i.i = icmp eq i64 %and6.i95.i.i.i.i.i, 0
   br i1 %tobool5.old.not.i96.i.i.i.i.i, label %invoke.cont33, label %while.body.i83.i.i.i.i.i
 
 invoke.cont33:                                    ; preds = %while.body.i83.i.i.i.i.i, %while.body.i.i.i.i.i.i, %for.body.i.i, %if.then19.i.i.i.i.i, %for.end.i.i.i26.i.i, %if.then3.i.i.i.i.i, %if.else.i.i, %if.then.i.i
-  %numElements.10 = phi i32 [ 0, %if.then.i.i ], [ 0, %if.then3.i.i.i.i.i ], [ %numElements.8, %for.end.i.i.i26.i.i ], [ %numElements.8, %if.then19.i.i.i.i.i ], [ 0, %if.else.i.i ], [ %add.i.i.i, %for.body.i.i ], [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ]
+  %numElements.10 = phi i32 [ 0, %if.then.i.i ], [ 0, %if.then3.i.i.i.i.i ], [ %numElements.4, %for.end.i.i.i26.i.i ], [ %numElements.4, %if.then19.i.i.i.i.i ], [ 0, %if.else.i.i ], [ %add.i.i.i, %for.body.i.i ], [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ]
   %140 = load ptr, ptr %outputType, align 8
   %vtable = load ptr, ptr %140, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -19456,7 +19456,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %62 = phi ptr [ %.pre338, %for.body.lr.ph.i.i ], [ %67, %for.body.i.i ]
-  %numElements.0 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i.i, %for.body.i.i ]
+  %numElements.9 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i.i, %for.body.i.i ]
   %indvars.iv.i.i = phi i64 [ %60, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %63 = load ptr, ptr %startVector, align 8
   %64 = load ptr, ptr %stopVector, align 8
@@ -19468,7 +19468,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %67 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i.i = getelementptr inbounds i32, ptr %67, i64 %indvars.iv.i.i
   %68 = load i32, ptr %arrayidx4.i.i.i, align 4
-  %add.i.i.i = add nsw i32 %68, %numElements.0
+  %add.i.i.i = add nsw i32 %68, %numElements.9
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %69 = load i32, ptr %end_.i, align 8
   %70 = sext i32 %69 to i64
@@ -19520,7 +19520,7 @@ while.body.i.i.i.i.i.i.preheader:                 ; preds = %if.then3.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i.preheader, %while.body.i.i.i.i.i.i
   %78 = phi ptr [ %83, %while.body.i.i.i.i.i.i ], [ %.pre337, %while.body.i.i.i.i.i.i.preheader ]
-  %numElements.1 = phi i32 [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i.i.preheader ]
+  %numElements.8 = phi i32 [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i.i.preheader ]
   %word.0.i.i.i.i.i.i = phi i64 [ %and6.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.preheader ]
   %79 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %79 to i32
@@ -19535,7 +19535,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %83 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %83, i64 %idxprom.i.i.i.i.i.i.i
   %84 = load i32, ptr %arrayidx4.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %84, %numElements.1
+  %add.i.i.i.i.i.i.i = add nsw i32 %84, %numElements.8
   %sub.i27.i.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i.i, -1
   %and6.i.i.i.i.i.i = and i64 %sub.i27.i.i.i.i.i, %word.0.i.i.i.i.i.i
   %tobool5.old.not.i.i.i.i.i.i = icmp eq i64 %and6.i.i.i.i.i.i, 0
@@ -19570,7 +19570,7 @@ while.body.preheader.i40.i.i.i.i.i:               ; preds = %if.then10.i.i.i.i.i
 
 while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i
   %87 = phi ptr [ %.pre, %while.body.preheader.i40.i.i.i.i.i ], [ %92, %while.body.i42.i.i.i.i.i ]
-  %numElements.2 = phi i32 [ 0, %while.body.preheader.i40.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
+  %numElements.0 = phi i32 [ 0, %while.body.preheader.i40.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %word.0.i43.i.i.i.i.i = phi i64 [ %and.i38.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i ], [ %and6.i54.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %88 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %88 to i32
@@ -19585,14 +19585,14 @@ while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.
   %92 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i51.i.i.i.i.i = getelementptr inbounds i32, ptr %92, i64 %idxprom.i.i49.i.i.i.i.i
   %93 = load i32, ptr %arrayidx4.i.i51.i.i.i.i.i, align 4
-  %add.i.i52.i.i.i.i.i = add nsw i32 %93, %numElements.2
+  %add.i.i52.i.i.i.i.i = add nsw i32 %93, %numElements.0
   %sub.i53.i.i.i.i.i = add i64 %word.0.i43.i.i.i.i.i, -1
   %and6.i54.i.i.i.i.i = and i64 %sub.i53.i.i.i.i.i, %word.0.i43.i.i.i.i.i
   %tobool5.old.not.i55.i.i.i.i.i = icmp eq i64 %and6.i54.i.i.i.i.i, 0
   br i1 %tobool5.old.not.i55.i.i.i.i.i, label %if.end14.i.i.i.i.i, label %while.body.i42.i.i.i.i.i
 
 if.end14.i.i.i.i.i:                               ; preds = %while.body.i42.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.end8.i.i.i.i.i
-  %numElements.3 = phi i32 [ 0, %if.end8.i.i.i.i.i ], [ 0, %if.then10.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
+  %numElements.1 = phi i32 [ 0, %if.end8.i.i.i.i.i ], [ 0, %if.then10.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %add106.i.i.i.i.i = add nsw i32 %mul.i.i.i.i.i.i, 64
   %cmp15.not107.i.i.i.i.i = icmp sgt i32 %add106.i.i.i.i.i, %75
   br i1 %cmp15.not107.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i.preheader
@@ -19605,7 +19605,7 @@ for.body.i.i.i25.i.i.preheader:                   ; preds = %if.end14.i.i.i.i.i
   br label %for.body.i.i.i25.i.i
 
 for.body.i.i.i25.i.i:                             ; preds = %for.body.i.i.i25.i.i.preheader, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i
-  %numElements.4 = phi i32 [ %numElements.7, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i ], [ %numElements.3, %for.body.i.i.i25.i.i.preheader ]
+  %numElements.2 = phi i32 [ %numElements.3, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i ], [ %numElements.1, %for.body.i.i.i25.i.i.preheader ]
   %add109.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i ], [ %add106.i.i.i.i.i, %for.body.i.i.i25.i.i.preheader ]
   %i.0108.i.i.i.i.i = phi i32 [ %add109.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %for.body.i.i.i25.i.i.preheader ]
   %div16.i.i.i.i.i = sdiv i32 %i.0108.i.i.i.i.i, 64
@@ -19636,7 +19636,7 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i
   %96 = phi ptr [ %.pre335, %for.body.lr.ph.i.i.i.i.i.i ], [ %100, %for.body.i.i.i.i.i.i ]
-  %numElements.5 = phi i32 [ %numElements.4, %for.body.lr.ph.i.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %numElements.6 = phi i32 [ %numElements.2, %for.body.lr.ph.i.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %row.062.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %97 = load ptr, ptr %startVector, align 8
   %98 = load ptr, ptr %stopVector, align 8
@@ -19648,13 +19648,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %100 = load ptr, ptr %rawSizes, align 8
   %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %100, i64 %row.062.i.i.i.i.i.i
   %101 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
-  %add.i.i65.i.i.i.i.i = add nsw i32 %101, %numElements.5
+  %add.i.i65.i.i.i.i.i = add nsw i32 %101, %numElements.6
   %inc.i.i.i.i.i.i = add nuw i64 %row.062.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i.i, %conv5.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !200
 
 while.body.i66.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
-  %numElements.6 = phi i32 [ %numElements.4, %while.body.lr.ph.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i ]
+  %numElements.7 = phi i32 [ %numElements.2, %while.body.lr.ph.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i ]
   %word.060.i.i.i.i.i.i = phi i64 [ %95, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i71.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i ]
   %102 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.060.i.i.i.i.i.i, i1 true)
   %cast.i67.i.i.i.i.i = trunc nuw nsw i64 %102 to i32
@@ -19889,20 +19889,20 @@ _ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE14
   %130 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i69.i.i.i.i.i = getelementptr inbounds i32, ptr %130, i64 %idxprom.i.i68.i.i.i.i.i
   %131 = load i32, ptr %arrayidx4.i.i69.i.i.i.i.i, align 4
-  %add.i41.i.i.i.i.i.i = add nsw i32 %131, %numElements.6
+  %add.i41.i.i.i.i.i.i = add nsw i32 %131, %numElements.7
   %sub.i70.i.i.i.i.i = add i64 %word.060.i.i.i.i.i.i, -1
   %and.i71.i.i.i.i.i = and i64 %sub.i70.i.i.i.i.i, %word.060.i.i.i.i.i.i
   %tobool7.not.i.i.i.i.i.i = icmp eq i64 %and.i71.i.i.i.i.i, 0
   br i1 %tobool7.not.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i66.i.i.i.i.i, !llvm.loop !201
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i25.i.i
-  %numElements.7 = phi i32 [ %numElements.4, %for.body.i.i.i25.i.i ], [ %numElements.4, %if.then.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %numElements.3 = phi i32 [ %numElements.2, %for.body.i.i.i25.i.i ], [ %numElements.2, %if.then.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %add.i.i.i.i.i = add nsw i32 %add109.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %75
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i, !llvm.loop !202
 
 for.end.i.i.i26.i.i:                              ; preds = %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i, %if.end14.i.i.i.i.i
-  %numElements.8 = phi i32 [ %numElements.3, %if.end14.i.i.i.i.i ], [ %numElements.7, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i ]
+  %numElements.4 = phi i32 [ %numElements.1, %if.end14.i.i.i.i.i ], [ %numElements.3, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampEiE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i ]
   %cmp18.not.i.i.i.i.i = icmp eq i32 %75, %73
   br i1 %cmp18.not.i.i.i.i.i, label %invoke.cont33, label %if.then19.i.i.i.i.i
 
@@ -19927,7 +19927,7 @@ while.body.i83.i.i.i.i.i.preheader:               ; preds = %if.then19.i.i.i.i.i
 
 while.body.i83.i.i.i.i.i:                         ; preds = %while.body.i83.i.i.i.i.i.preheader, %while.body.i83.i.i.i.i.i
   %134 = phi ptr [ %139, %while.body.i83.i.i.i.i.i ], [ %.pre336, %while.body.i83.i.i.i.i.i.preheader ]
-  %numElements.9 = phi i32 [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %numElements.8, %while.body.i83.i.i.i.i.i.preheader ]
+  %numElements.5 = phi i32 [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %numElements.4, %while.body.i83.i.i.i.i.i.preheader ]
   %word.0.i84.i.i.i.i.i = phi i64 [ %and6.i95.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %and.i79.i.i.i.i.i, %while.body.i83.i.i.i.i.i.preheader ]
   %135 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i84.i.i.i.i.i, i1 true)
   %cast.i85.i.i.i.i.i = trunc nuw nsw i64 %135 to i32
@@ -19942,14 +19942,14 @@ while.body.i83.i.i.i.i.i:                         ; preds = %while.body.i83.i.i.
   %139 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i92.i.i.i.i.i = getelementptr inbounds i32, ptr %139, i64 %idxprom.i.i90.i.i.i.i.i
   %140 = load i32, ptr %arrayidx4.i.i92.i.i.i.i.i, align 4
-  %add.i.i93.i.i.i.i.i = add nsw i32 %140, %numElements.9
+  %add.i.i93.i.i.i.i.i = add nsw i32 %140, %numElements.5
   %sub.i94.i.i.i.i.i = add nsw i64 %word.0.i84.i.i.i.i.i, -1
   %and6.i95.i.i.i.i.i = and i64 %sub.i94.i.i.i.i.i, %word.0.i84.i.i.i.i.i
   %tobool5.old.not.i96.i.i.i.i.i = icmp eq i64 %and6.i95.i.i.i.i.i, 0
   br i1 %tobool5.old.not.i96.i.i.i.i.i, label %invoke.cont33, label %while.body.i83.i.i.i.i.i
 
 invoke.cont33:                                    ; preds = %while.body.i83.i.i.i.i.i, %while.body.i.i.i.i.i.i, %for.body.i.i, %if.then19.i.i.i.i.i, %for.end.i.i.i26.i.i, %if.then3.i.i.i.i.i, %if.else.i.i, %if.then.i.i
-  %numElements.10 = phi i32 [ 0, %if.then.i.i ], [ 0, %if.then3.i.i.i.i.i ], [ %numElements.8, %for.end.i.i.i26.i.i ], [ %numElements.8, %if.then19.i.i.i.i.i ], [ 0, %if.else.i.i ], [ %add.i.i.i, %for.body.i.i ], [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ]
+  %numElements.10 = phi i32 [ 0, %if.then.i.i ], [ 0, %if.then3.i.i.i.i.i ], [ %numElements.4, %for.end.i.i.i26.i.i ], [ %numElements.4, %if.then19.i.i.i.i.i ], [ 0, %if.else.i.i ], [ %add.i.i.i, %for.body.i.i ], [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ]
   %141 = load ptr, ptr %outputType, align 8
   %vtable = load ptr, ptr %141, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -22501,7 +22501,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
   %62 = phi ptr [ %.pre337, %for.body.lr.ph.i.i ], [ %67, %for.body.i.i ]
-  %numElements.0 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i.i, %for.body.i.i ]
+  %numElements.9 = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %add.i.i.i, %for.body.i.i ]
   %indvars.iv.i.i = phi i64 [ %60, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %63 = load ptr, ptr %startVector, align 8
   %64 = load ptr, ptr %stopVector, align 8
@@ -22513,7 +22513,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %67 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i.i = getelementptr inbounds i32, ptr %67, i64 %indvars.iv.i.i
   %68 = load i32, ptr %arrayidx4.i.i.i, align 4
-  %add.i.i.i = add nsw i32 %68, %numElements.0
+  %add.i.i.i = add nsw i32 %68, %numElements.9
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %69 = load i32, ptr %end_.i, align 8
   %70 = sext i32 %69 to i64
@@ -22565,7 +22565,7 @@ while.body.i.i.i.i.i.i.preheader:                 ; preds = %if.then3.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i.preheader, %while.body.i.i.i.i.i.i
   %78 = phi ptr [ %83, %while.body.i.i.i.i.i.i ], [ %.pre336, %while.body.i.i.i.i.i.i.preheader ]
-  %numElements.1 = phi i32 [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i.i.preheader ]
+  %numElements.8 = phi i32 [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ 0, %while.body.i.i.i.i.i.i.preheader ]
   %word.0.i.i.i.i.i.i = phi i64 [ %and6.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.preheader ]
   %79 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %79 to i32
@@ -22580,7 +22580,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %83 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %83, i64 %idxprom.i.i.i.i.i.i.i
   %84 = load i32, ptr %arrayidx4.i.i.i.i.i.i.i, align 4
-  %add.i.i.i.i.i.i.i = add nsw i32 %84, %numElements.1
+  %add.i.i.i.i.i.i.i = add nsw i32 %84, %numElements.8
   %sub.i27.i.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i.i, -1
   %and6.i.i.i.i.i.i = and i64 %sub.i27.i.i.i.i.i, %word.0.i.i.i.i.i.i
   %tobool5.old.not.i.i.i.i.i.i = icmp eq i64 %and6.i.i.i.i.i.i, 0
@@ -22615,7 +22615,7 @@ while.body.preheader.i40.i.i.i.i.i:               ; preds = %if.then10.i.i.i.i.i
 
 while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i
   %87 = phi ptr [ %.pre, %while.body.preheader.i40.i.i.i.i.i ], [ %92, %while.body.i42.i.i.i.i.i ]
-  %numElements.2 = phi i32 [ 0, %while.body.preheader.i40.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
+  %numElements.0 = phi i32 [ 0, %while.body.preheader.i40.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %word.0.i43.i.i.i.i.i = phi i64 [ %and.i38.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i ], [ %and6.i54.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %88 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
   %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %88 to i32
@@ -22630,14 +22630,14 @@ while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.
   %92 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i51.i.i.i.i.i = getelementptr inbounds i32, ptr %92, i64 %idxprom.i.i49.i.i.i.i.i
   %93 = load i32, ptr %arrayidx4.i.i51.i.i.i.i.i, align 4
-  %add.i.i52.i.i.i.i.i = add nsw i32 %93, %numElements.2
+  %add.i.i52.i.i.i.i.i = add nsw i32 %93, %numElements.0
   %sub.i53.i.i.i.i.i = add i64 %word.0.i43.i.i.i.i.i, -1
   %and6.i54.i.i.i.i.i = and i64 %sub.i53.i.i.i.i.i, %word.0.i43.i.i.i.i.i
   %tobool5.old.not.i55.i.i.i.i.i = icmp eq i64 %and6.i54.i.i.i.i.i, 0
   br i1 %tobool5.old.not.i55.i.i.i.i.i, label %if.end14.i.i.i.i.i, label %while.body.i42.i.i.i.i.i
 
 if.end14.i.i.i.i.i:                               ; preds = %while.body.i42.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.end8.i.i.i.i.i
-  %numElements.3 = phi i32 [ 0, %if.end8.i.i.i.i.i ], [ 0, %if.then10.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
+  %numElements.1 = phi i32 [ 0, %if.end8.i.i.i.i.i ], [ 0, %if.then10.i.i.i.i.i ], [ %add.i.i52.i.i.i.i.i, %while.body.i42.i.i.i.i.i ]
   %add106.i.i.i.i.i = add nsw i32 %mul.i.i.i.i.i.i, 64
   %cmp15.not107.i.i.i.i.i = icmp sgt i32 %add106.i.i.i.i.i, %75
   br i1 %cmp15.not107.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i.preheader
@@ -22650,7 +22650,7 @@ for.body.i.i.i25.i.i.preheader:                   ; preds = %if.end14.i.i.i.i.i
   br label %for.body.i.i.i25.i.i
 
 for.body.i.i.i25.i.i:                             ; preds = %for.body.i.i.i25.i.i.preheader, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i
-  %numElements.4 = phi i32 [ %numElements.7, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i ], [ %numElements.3, %for.body.i.i.i25.i.i.preheader ]
+  %numElements.2 = phi i32 [ %numElements.3, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i ], [ %numElements.1, %for.body.i.i.i25.i.i.preheader ]
   %add109.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i ], [ %add106.i.i.i.i.i, %for.body.i.i.i25.i.i.preheader ]
   %i.0108.i.i.i.i.i = phi i32 [ %add109.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %for.body.i.i.i25.i.i.preheader ]
   %div16.i.i.i.i.i = sdiv i32 %i.0108.i.i.i.i.i, 64
@@ -22681,7 +22681,7 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i
   %96 = phi ptr [ %.pre334, %for.body.lr.ph.i.i.i.i.i.i ], [ %100, %for.body.i.i.i.i.i.i ]
-  %numElements.5 = phi i32 [ %numElements.4, %for.body.lr.ph.i.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %numElements.6 = phi i32 [ %numElements.2, %for.body.lr.ph.i.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %row.062.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %97 = load ptr, ptr %startVector, align 8
   %98 = load ptr, ptr %stopVector, align 8
@@ -22693,13 +22693,13 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %100 = load ptr, ptr %rawSizes, align 8
   %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %100, i64 %row.062.i.i.i.i.i.i
   %101 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
-  %add.i.i65.i.i.i.i.i = add nsw i32 %101, %numElements.5
+  %add.i.i65.i.i.i.i.i = add nsw i32 %101, %numElements.6
   %inc.i.i.i.i.i.i = add nuw i64 %row.062.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i.i, %conv5.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !236
 
 while.body.i66.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
-  %numElements.6 = phi i32 [ %numElements.4, %while.body.lr.ph.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i ]
+  %numElements.7 = phi i32 [ %numElements.2, %while.body.lr.ph.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i ]
   %word.060.i.i.i.i.i.i = phi i64 [ %95, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i71.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i ]
   %102 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.060.i.i.i.i.i.i, i1 true)
   %cast.i67.i.i.i.i.i = trunc nuw nsw i64 %102 to i32
@@ -22935,20 +22935,20 @@ _ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE14
   %130 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i69.i.i.i.i.i = getelementptr inbounds i32, ptr %130, i64 %idxprom.i.i68.i.i.i.i.i
   %131 = load i32, ptr %arrayidx4.i.i69.i.i.i.i.i, align 4
-  %add.i41.i.i.i.i.i.i = add nsw i32 %131, %numElements.6
+  %add.i41.i.i.i.i.i.i = add nsw i32 %131, %numElements.7
   %sub.i70.i.i.i.i.i = add i64 %word.060.i.i.i.i.i.i, -1
   %and.i71.i.i.i.i.i = and i64 %sub.i70.i.i.i.i.i, %word.060.i.i.i.i.i.i
   %tobool7.not.i.i.i.i.i.i = icmp eq i64 %and.i71.i.i.i.i.i, 0
   br i1 %tobool7.not.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i, label %while.body.i66.i.i.i.i.i, !llvm.loop !237
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i25.i.i
-  %numElements.7 = phi i32 [ %numElements.4, %for.body.i.i.i25.i.i ], [ %numElements.4, %if.then.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+  %numElements.3 = phi i32 [ %numElements.2, %for.body.i.i.i25.i.i ], [ %numElements.2, %if.then.i.i.i.i.i.i ], [ %add.i41.i.i.i.i.i.i, %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE14checkArgumentsEPNS0_13DecodedVectorES7_S7_ibb.exit.i.i.i.i.i ], [ %add.i.i65.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   %add.i.i.i.i.i = add nsw i32 %add109.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %75
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i26.i.i, label %for.body.i.i.i25.i.i, !llvm.loop !238
 
 for.end.i.i.i26.i.i:                              ; preds = %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i, %if.end14.i.i.i.i.i
-  %numElements.8 = phi i32 [ %numElements.3, %if.end14.i.i.i.i.i ], [ %numElements.7, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i ]
+  %numElements.4 = phi i32 [ %numElements.1, %if.end14.i.i.i.i.i ], [ %numElements.3, %_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNKS0_9functions12_GLOBAL__N_116SequenceFunctionINS0_9TimestampElE5applyERKNS0_17SelectivityVectorERSt6vectorISt10shared_ptrINS0_10BaseVectorEESaISH_EERKSF_IKNS0_4TypeEERS4_RSH_EUlT_E_EEvSD_SS_EUlSS_E_EEvPKmiibSS_ENKUliE_clEi.exit.i.i.i.i.i ]
   %cmp18.not.i.i.i.i.i = icmp eq i32 %75, %73
   br i1 %cmp18.not.i.i.i.i.i, label %invoke.cont33, label %if.then19.i.i.i.i.i
 
@@ -22973,7 +22973,7 @@ while.body.i83.i.i.i.i.i.preheader:               ; preds = %if.then19.i.i.i.i.i
 
 while.body.i83.i.i.i.i.i:                         ; preds = %while.body.i83.i.i.i.i.i.preheader, %while.body.i83.i.i.i.i.i
   %134 = phi ptr [ %139, %while.body.i83.i.i.i.i.i ], [ %.pre335, %while.body.i83.i.i.i.i.i.preheader ]
-  %numElements.9 = phi i32 [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %numElements.8, %while.body.i83.i.i.i.i.i.preheader ]
+  %numElements.5 = phi i32 [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %numElements.4, %while.body.i83.i.i.i.i.i.preheader ]
   %word.0.i84.i.i.i.i.i = phi i64 [ %and6.i95.i.i.i.i.i, %while.body.i83.i.i.i.i.i ], [ %and.i79.i.i.i.i.i, %while.body.i83.i.i.i.i.i.preheader ]
   %135 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i84.i.i.i.i.i, i1 true)
   %cast.i85.i.i.i.i.i = trunc nuw nsw i64 %135 to i32
@@ -22988,14 +22988,14 @@ while.body.i83.i.i.i.i.i:                         ; preds = %while.body.i83.i.i.
   %139 = load ptr, ptr %rawSizes, align 8
   %arrayidx4.i.i92.i.i.i.i.i = getelementptr inbounds i32, ptr %139, i64 %idxprom.i.i90.i.i.i.i.i
   %140 = load i32, ptr %arrayidx4.i.i92.i.i.i.i.i, align 4
-  %add.i.i93.i.i.i.i.i = add nsw i32 %140, %numElements.9
+  %add.i.i93.i.i.i.i.i = add nsw i32 %140, %numElements.5
   %sub.i94.i.i.i.i.i = add nsw i64 %word.0.i84.i.i.i.i.i, -1
   %and6.i95.i.i.i.i.i = and i64 %sub.i94.i.i.i.i.i, %word.0.i84.i.i.i.i.i
   %tobool5.old.not.i96.i.i.i.i.i = icmp eq i64 %and6.i95.i.i.i.i.i, 0
   br i1 %tobool5.old.not.i96.i.i.i.i.i, label %invoke.cont33, label %while.body.i83.i.i.i.i.i
 
 invoke.cont33:                                    ; preds = %while.body.i83.i.i.i.i.i, %while.body.i.i.i.i.i.i, %for.body.i.i, %if.then19.i.i.i.i.i, %for.end.i.i.i26.i.i, %if.then3.i.i.i.i.i, %if.else.i.i, %if.then.i.i
-  %numElements.10 = phi i32 [ 0, %if.then.i.i ], [ 0, %if.then3.i.i.i.i.i ], [ %numElements.8, %for.end.i.i.i26.i.i ], [ %numElements.8, %if.then19.i.i.i.i.i ], [ 0, %if.else.i.i ], [ %add.i.i.i, %for.body.i.i ], [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ]
+  %numElements.10 = phi i32 [ 0, %if.then.i.i ], [ 0, %if.then3.i.i.i.i.i ], [ %numElements.4, %for.end.i.i.i26.i.i ], [ %numElements.4, %if.then19.i.i.i.i.i ], [ 0, %if.else.i.i ], [ %add.i.i.i, %for.body.i.i ], [ %add.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %add.i.i93.i.i.i.i.i, %while.body.i83.i.i.i.i.i ]
   %141 = load ptr, ptr %outputType, align 8
   %vtable = load ptr, ptr %141, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24

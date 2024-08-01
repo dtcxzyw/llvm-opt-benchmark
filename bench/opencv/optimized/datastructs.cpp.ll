@@ -1332,9 +1332,9 @@ define ptr @cvGetSeqElem(ptr nocapture noundef readonly %0, i32 noundef %1) loca
   br i1 %.not46, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .preheader:                                       ; preds = %11, %.preheader
-  %.1 = phi ptr [ %23, %.preheader ], [ %13, %11 ]
+  %.2 = phi ptr [ %23, %.preheader ], [ %13, %11 ]
   %.0 = phi i32 [ %26, %.preheader ], [ %4, %11 ]
-  %23 = load ptr, ptr %.1, align 8
+  %23 = load ptr, ptr %.2, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 20
   %25 = load i32, ptr %24, align 4
   %26 = sub nsw i32 %.0, %25
@@ -1347,8 +1347,8 @@ define ptr @cvGetSeqElem(ptr nocapture noundef readonly %0, i32 noundef %1) loca
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader47, %28
   %.235 = phi i32 [ %29, %28 ], [ %.033, %.preheader47 ], [ %20, %.lr.ph ]
-  %.2 = phi ptr [ %23, %28 ], [ %13, %.preheader47 ], [ %19, %.lr.ph ]
-  %30 = getelementptr inbounds i8, ptr %.2, i64 24
+  %.1 = phi ptr [ %23, %28 ], [ %13, %.preheader47 ], [ %19, %.lr.ph ]
+  %30 = getelementptr inbounds i8, ptr %.1, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 44
   %33 = load i32, ptr %32, align 4
@@ -1933,11 +1933,11 @@ define void @cvSetSeqReaderPos(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 
 .preheader139:                                    ; preds = %54, %.preheader139
   %.0106 = phi i32 [ %60, %.preheader139 ], [ %53, %54 ]
-  %.090 = phi ptr [ %57, %.preheader139 ], [ %51, %54 ]
-  %.1 = phi i32 [ %58, %.preheader139 ], [ %.0, %54 ]
-  %56 = getelementptr inbounds i8, ptr %.090, i64 8
+  %.191 = phi ptr [ %57, %.preheader139 ], [ %51, %54 ]
+  %.2 = phi i32 [ %58, %.preheader139 ], [ %.0, %54 ]
+  %56 = getelementptr inbounds i8, ptr %.191, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = sub nsw i32 %.1, %.0106
+  %58 = sub nsw i32 %.2, %.0106
   %59 = getelementptr inbounds i8, ptr %57, i64 20
   %60 = load i32, ptr %59, align 4
   %.not132 = icmp slt i32 %58, %60
@@ -1945,8 +1945,8 @@ define void @cvSetSeqReaderPos(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 
 .preheader:                                       ; preds = %54, %.preheader
   %.0105 = phi i32 [ %64, %.preheader ], [ %22, %54 ]
-  %.191 = phi ptr [ %61, %.preheader ], [ %51, %54 ]
-  %61 = load ptr, ptr %.191, align 8
+  %.292 = phi ptr [ %61, %.preheader ], [ %51, %54 ]
+  %61 = load ptr, ptr %.292, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 20
   %63 = load i32, ptr %62, align 4
   %64 = sub nsw i32 %.0105, %63
@@ -1958,26 +1958,26 @@ define void @cvSetSeqReaderPos(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader139, %66, %49
-  %.292 = phi ptr [ %61, %66 ], [ %51, %49 ], [ %57, %.preheader139 ]
-  %.2 = phi i32 [ %67, %66 ], [ %.0, %49 ], [ %58, %.preheader139 ]
-  %68 = getelementptr inbounds i8, ptr %.292, i64 24
+  %.090 = phi ptr [ %61, %66 ], [ %51, %49 ], [ %57, %.preheader139 ]
+  %.1 = phi i32 [ %67, %66 ], [ %.0, %49 ], [ %58, %.preheader139 ]
+  %68 = getelementptr inbounds i8, ptr %.090, i64 24
   %69 = load ptr, ptr %68, align 8
-  %70 = mul nsw i32 %.2, %24
+  %70 = mul nsw i32 %.1, %24
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i8, ptr %69, i64 %71
   %73 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %72, ptr %73, align 8
   %74 = getelementptr inbounds i8, ptr %0, i64 16
   %75 = load ptr, ptr %74, align 8
-  %.not133 = icmp eq ptr %75, %.292
+  %.not133 = icmp eq ptr %75, %.090
   br i1 %.not133, label %135, label %76
 
 76:                                               ; preds = %.loopexit
-  store ptr %.292, ptr %74, align 8
+  store ptr %.090, ptr %74, align 8
   %77 = load ptr, ptr %68, align 8
   %78 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %77, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %.292, i64 20
+  %79 = getelementptr inbounds i8, ptr %.090, i64 20
   %80 = load i32, ptr %79, align 4
   %81 = mul nsw i32 %80, %24
   %82 = sext i32 %81 to i64
@@ -2995,20 +2995,20 @@ define internal fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef %0, i32 noundef
   br label %179
 
 179:                                              ; preds = %179, %177
-  %.1 = phi ptr [ %.0, %177 ], [ %184, %179 ]
-  %180 = getelementptr inbounds i8, ptr %.1, i64 16
+  %.2 = phi ptr [ %.0, %177 ], [ %184, %179 ]
+  %180 = getelementptr inbounds i8, ptr %.2, i64 16
   %181 = load i32, ptr %180, align 8
   %182 = add nsw i32 %181, %125
   store i32 %182, ptr %180, align 8
-  %183 = getelementptr inbounds i8, ptr %.1, i64 8
+  %183 = getelementptr inbounds i8, ptr %.2, i64 8
   %184 = load ptr, ptr %183, align 8
   %185 = load ptr, ptr %109, align 8
   %186 = icmp eq ptr %184, %185
   br i1 %186, label %.loopexit, label %179, !llvm.loop !15
 
 .loopexit:                                        ; preds = %179, %152
-  %.2 = phi ptr [ %.0, %152 ], [ %184, %179 ]
-  %187 = getelementptr inbounds i8, ptr %.2, i64 20
+  %.1 = phi ptr [ %.0, %152 ], [ %184, %179 ]
+  %187 = getelementptr inbounds i8, ptr %.1, i64 20
   store i32 0, ptr %187, align 4
   br label %188
 
@@ -3604,12 +3604,12 @@ define internal fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr nocapture noundef 
   br label %93
 
 93:                                               ; preds = %93, %81
-  %.0 = phi ptr [ %10, %81 ], [ %98, %93 ]
-  %94 = getelementptr inbounds i8, ptr %.0, i64 16
+  %.1 = phi ptr [ %10, %81 ], [ %98, %93 ]
+  %94 = getelementptr inbounds i8, ptr %.1, i64 16
   %95 = load i32, ptr %94, align 8
   %96 = sub nsw i32 %95, %83
   store i32 %96, ptr %94, align 8
-  %97 = getelementptr inbounds i8, ptr %.0, i64 8
+  %97 = getelementptr inbounds i8, ptr %.1, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %9, align 8
   %100 = icmp eq ptr %98, %99
@@ -3623,18 +3623,18 @@ define internal fastcc void @_ZL15icvFreeSeqBlockP5CvSeqi(ptr nocapture noundef 
 
 104:                                              ; preds = %101, %63
   %105 = phi ptr [ %103, %101 ], [ %.pre, %63 ]
-  %.1 = phi ptr [ %98, %101 ], [ %26, %63 ]
-  %106 = getelementptr inbounds i8, ptr %.1, i64 8
-  %107 = load ptr, ptr %.1, align 8
+  %.0 = phi ptr [ %98, %101 ], [ %26, %63 ]
+  %106 = getelementptr inbounds i8, ptr %.0, i64 8
+  %107 = load ptr, ptr %.0, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   store ptr %105, ptr %108, align 8
-  %109 = load ptr, ptr %.1, align 8
+  %109 = load ptr, ptr %.0, align 8
   %110 = load ptr, ptr %106, align 8
   store ptr %109, ptr %110, align 8
   br label %111
 
 111:                                              ; preds = %28, %104
-  %.2 = phi ptr [ %10, %28 ], [ %.1, %104 ]
+  %.2 = phi ptr [ %10, %28 ], [ %.0, %104 ]
   %112 = getelementptr inbounds i8, ptr %.2, i64 20
   %113 = load i32, ptr %112, align 4
   %114 = icmp sgt i32 %113, 0
@@ -4261,14 +4261,14 @@ define ptr @cvSeqInsert(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_un
   br label %193
 
 193:                                              ; preds = %182, %192, %130
-  %.0131 = phi ptr [ %128, %130 ], [ %191, %192 ], [ %191, %182 ]
+  %.1132 = phi ptr [ %128, %130 ], [ %191, %192 ], [ %191, %182 ]
   %194 = add nsw i32 %23, 1
   store i32 %194, ptr %22, align 8
   br label %195
 
 195:                                              ; preds = %44, %193, %40
-  %.1132 = phi ptr [ %41, %40 ], [ %45, %44 ], [ %.0131, %193 ]
-  ret ptr %.1132
+  %.0131 = phi ptr [ %41, %40 ], [ %45, %44 ], [ %.1132, %193 ]
+  ret ptr %.0131
 
 196:                                              ; preds = %178, %180, %111, %113, %65, %67, %34, %36, %17, %19
   %.sink = phi ptr [ %5, %19 ], [ %5, %17 ], [ %7, %36 ], [ %7, %34 ], [ %9, %67 ], [ %9, %65 ], [ %11, %113 ], [ %11, %111 ], [ %13, %180 ], [ %13, %178 ]
@@ -4469,9 +4469,9 @@ define void @cvSeqRemove(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 p
 
 95:                                               ; preds = %.lr.ph137, %95
   %.199135 = phi i32 [ %93, %.lr.ph137 ], [ %104, %95 ]
-  %.2102134 = phi ptr [ %.0100.lcssa, %.lr.ph137 ], [ %96, %95 ]
-  %96 = load ptr, ptr %.2102134, align 8
-  %97 = getelementptr inbounds i8, ptr %.2102134, i64 24
+  %.3134 = phi ptr [ %.0100.lcssa, %.lr.ph137 ], [ %96, %95 ]
+  %96 = load ptr, ptr %.3134, align 8
+  %97 = getelementptr inbounds i8, ptr %.3134, i64 24
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 %88
   %100 = sub nsw i32 %.199135, %40
@@ -4498,9 +4498,9 @@ define void @cvSeqRemove(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 p
 
 ._crit_edge138:                                   ; preds = %._crit_edge138.loopexit, %87
   %113 = phi ptr [ %54, %87 ], [ %.pre, %._crit_edge138.loopexit ]
-  %.2102.lcssa = phi ptr [ %.0100.lcssa, %87 ], [ %96, %._crit_edge138.loopexit ]
+  %.3.lcssa = phi ptr [ %.0100.lcssa, %87 ], [ %96, %._crit_edge138.loopexit ]
   %.199.lcssa = phi i32 [ %93, %87 ], [ %104, %._crit_edge138.loopexit ]
-  %114 = getelementptr inbounds i8, ptr %.2102.lcssa, i64 24
+  %114 = getelementptr inbounds i8, ptr %.3.lcssa, i64 24
   %115 = getelementptr inbounds i8, ptr %113, i64 %88
   %116 = sub nsw i32 %.199.lcssa, %40
   %117 = sext i32 %116 to i64
@@ -4508,16 +4508,16 @@ define void @cvSeqRemove(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 p
   %118 = load ptr, ptr %114, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 %88
   store ptr %119, ptr %114, align 8
-  %120 = getelementptr inbounds i8, ptr %.2102.lcssa, i64 16
+  %120 = getelementptr inbounds i8, ptr %.3.lcssa, i64 16
   %121 = load i32, ptr %120, align 8
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr %120, align 8
   br label %123
 
 123:                                              ; preds = %._crit_edge138, %._crit_edge129
-  %.3 = phi ptr [ %.2102.lcssa, %._crit_edge138 ], [ %.1101.lcssa, %._crit_edge129 ]
+  %.2102 = phi ptr [ %.3.lcssa, %._crit_edge138 ], [ %.1101.lcssa, %._crit_edge129 ]
   store i32 %30, ptr %15, align 8
-  %124 = getelementptr inbounds i8, ptr %.3, i64 20
+  %124 = getelementptr inbounds i8, ptr %.2102, i64 20
   %125 = load i32, ptr %124, align 4
   %126 = add nsw i32 %125, -1
   store i32 %126, ptr %124, align 4
@@ -4619,7 +4619,7 @@ define void @cvSeqPushMulti(ptr noundef %0, ptr noundef readonly %1, i32 noundef
 
 35:                                               ; preds = %63, %.lr.ph100
   %.06299 = phi i32 [ %2, %.lr.ph100 ], [ %.16394, %63 ]
-  %.07198 = phi ptr [ %1, %.lr.ph100 ], [ %.27392, %63 ]
+  %.07198 = phi ptr [ %1, %.lr.ph100 ], [ %.17292, %63 ]
   %36 = load ptr, ptr %30, align 8
   %37 = load ptr, ptr %31, align 8
   %38 = ptrtoint ptr %36 to i64
@@ -4659,7 +4659,7 @@ define void @cvSeqPushMulti(ptr noundef %0, ptr noundef readonly %1, i32 noundef
 
 59:                                               ; preds = %._crit_edge, %55
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %57, %55 ]
-  %.172 = phi ptr [ null, %._crit_edge ], [ %58, %55 ]
+  %.273 = phi ptr [ null, %._crit_edge ], [ %58, %55 ]
   %60 = load ptr, ptr %31, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 %.pre-phi
   store ptr %61, ptr %31, align 8
@@ -4668,7 +4668,7 @@ define void @cvSeqPushMulti(ptr noundef %0, ptr noundef readonly %1, i32 noundef
 
 63:                                               ; preds = %59, %35
   %.16394 = phi i32 [ %53, %59 ], [ %.06299, %35 ]
-  %.27392 = phi ptr [ %.172, %59 ], [ %.07198, %35 ]
+  %.17292 = phi ptr [ %.273, %59 ], [ %.07198, %35 ]
   tail call fastcc void @_ZL10icvGrowSeqP5CvSeqi(ptr noundef nonnull %0, i32 noundef 0)
   br label %35, !llvm.loop !22
 
@@ -7050,8 +7050,8 @@ cvGetSeqReaderPos.exit332:                        ; preds = %229, %238
   %.sroa.18912.11218.us = phi ptr [ %.sroa.18912.2.us, %300 ], [ %.sroa.18912.0, %.lr.ph1221 ]
   %.sroa.10.11216.us = phi ptr [ %.sroa.10.2.us, %300 ], [ %.sroa.10.0, %.lr.ph1221 ]
   %.sroa.4907.11214.us = phi ptr [ %.sroa.4907.2.us, %300 ], [ %.sroa.4907.0, %.lr.ph1221 ]
-  %.sroa.13897.01213.us = phi ptr [ %.sroa.13897.4.us, %300 ], [ %.sroa.13897.0.copyload, %.lr.ph1221 ]
-  %.sroa.3.01212.us = phi ptr [ %.sroa.3.4.us, %300 ], [ %.sroa.3.0.copyload, %.lr.ph1221 ]
+  %.sroa.13897.01213.us = phi ptr [ %.sroa.13897.3.us, %300 ], [ %.sroa.13897.0.copyload, %.lr.ph1221 ]
+  %.sroa.3.01212.us = phi ptr [ %.sroa.3.3.us, %300 ], [ %.sroa.3.0.copyload, %.lr.ph1221 ]
   %.not318.us = icmp eq ptr %.sroa.3.01212.us, %.sroa.4907.11214.us
   %spec.select978.us = select i1 %.not318.us, ptr %.sroa.13897.01213.us, ptr %.sroa.18912.11218.us
   %287 = load ptr, ptr %67, align 8
@@ -7059,8 +7059,8 @@ cvGetSeqReaderPos.exit332:                        ; preds = %229, %238
   br i1 %.not3191196.us, label %._crit_edge1202.split.us.us, label %.lr.ph1201.us
 
 ._crit_edge1202.split.us.us:                      ; preds = %..loopexit996_crit_edge.us.us, %315, %.lr.ph1221.split.us
-  %.sroa.3.4.us = phi ptr [ %.sroa.4907.11214.us, %.lr.ph1221.split.us ], [ %.sroa.3.3.us.us, %315 ], [ %.sroa.3.3.us.us, %..loopexit996_crit_edge.us.us ]
-  %.sroa.13897.4.us = phi ptr [ %spec.select978.us, %.lr.ph1221.split.us ], [ %.sroa.13897.3.us.us, %315 ], [ %.sroa.13897.3.us.us, %..loopexit996_crit_edge.us.us ]
+  %.sroa.3.3.us = phi ptr [ %.sroa.4907.11214.us, %.lr.ph1221.split.us ], [ %.sroa.3.4.us.us, %315 ], [ %.sroa.3.4.us.us, %..loopexit996_crit_edge.us.us ]
+  %.sroa.13897.3.us = phi ptr [ %spec.select978.us, %.lr.ph1221.split.us ], [ %.sroa.13897.4.us.us, %315 ], [ %.sroa.13897.4.us.us, %..loopexit996_crit_edge.us.us ]
   %288 = getelementptr inbounds i8, ptr %.sroa.10.11216.us, i64 %103
   %.not320.us = icmp ult ptr %288, %.sroa.22.11219.us
   br i1 %.not320.us, label %300, label %289
@@ -7088,9 +7088,9 @@ cvGetSeqReaderPos.exit332:                        ; preds = %229, %238
   br i1 %.not317.us, label %.loopexit1011, label %.lr.ph1221.split.us, !llvm.loop !32
 
 .lr.ph1201.us:                                    ; preds = %.lr.ph1221.split.us, %..loopexit996_crit_edge.us.us
-  %.sroa.13897.21199.us.us = phi ptr [ %.sroa.13897.3.us.us, %..loopexit996_crit_edge.us.us ], [ %spec.select978.us, %.lr.ph1221.split.us ]
+  %.sroa.13897.21199.us.us = phi ptr [ %.sroa.13897.4.us.us, %..loopexit996_crit_edge.us.us ], [ %spec.select978.us, %.lr.ph1221.split.us ]
   %.sroa.7892.01198.us.us = phi ptr [ %.sroa.7892.1.us.us, %..loopexit996_crit_edge.us.us ], [ %.sroa.10.11216.us, %.lr.ph1221.split.us ]
-  %.sroa.3.21197.us.us = phi ptr [ %.sroa.3.3.us.us, %..loopexit996_crit_edge.us.us ], [ %.sroa.4907.11214.us, %.lr.ph1221.split.us ]
+  %.sroa.3.21197.us.us = phi ptr [ %.sroa.3.4.us.us, %..loopexit996_crit_edge.us.us ], [ %.sroa.4907.11214.us, %.lr.ph1221.split.us ]
   %302 = getelementptr inbounds i8, ptr %.sroa.7892.01198.us.us, i64 %104
   %303 = icmp ult ptr %302, %.sroa.13897.21199.us.us
   br i1 %303, label %304, label %315
@@ -7109,9 +7109,9 @@ cvGetSeqReaderPos.exit332:                        ; preds = %229, %238
   br label %315
 
 315:                                              ; preds = %304, %.lr.ph1201.us
-  %.sroa.3.3.us.us = phi ptr [ %305, %304 ], [ %.sroa.3.21197.us.us, %.lr.ph1201.us ]
+  %.sroa.3.4.us.us = phi ptr [ %305, %304 ], [ %.sroa.3.21197.us.us, %.lr.ph1201.us ]
   %.sroa.7892.1.us.us = phi ptr [ %314, %304 ], [ %302, %.lr.ph1201.us ]
-  %.sroa.13897.3.us.us = phi ptr [ %307, %304 ], [ %.sroa.13897.21199.us.us, %.lr.ph1201.us ]
+  %.sroa.13897.4.us.us = phi ptr [ %307, %304 ], [ %.sroa.13897.21199.us.us, %.lr.ph1201.us ]
   %316 = call noundef i32 %1(ptr noundef %.sroa.7892.1.us.us, ptr noundef %.sroa.7892.01198.us.us, ptr noundef %2)
   %317 = icmp slt i32 %316, 1
   br i1 %317, label %._crit_edge1202.split.us.us, label %.preheader995.us.us
@@ -7139,17 +7139,17 @@ cvGetSeqReaderPos.exit332:                        ; preds = %229, %238
   %.sroa.18912.11218 = phi ptr [ %.sroa.18912.2, %354 ], [ %.sroa.18912.0, %.lr.ph1221 ]
   %.sroa.10.11216 = phi ptr [ %.sroa.10.2, %354 ], [ %.sroa.10.0, %.lr.ph1221 ]
   %.sroa.4907.11214 = phi ptr [ %.sroa.4907.2, %354 ], [ %.sroa.4907.0, %.lr.ph1221 ]
-  %.sroa.13897.01213 = phi ptr [ %.sroa.13897.4, %354 ], [ %.sroa.13897.0.copyload, %.lr.ph1221 ]
-  %.sroa.3.01212 = phi ptr [ %.sroa.3.4, %354 ], [ %.sroa.3.0.copyload, %.lr.ph1221 ]
+  %.sroa.13897.01213 = phi ptr [ %.sroa.13897.3, %354 ], [ %.sroa.13897.0.copyload, %.lr.ph1221 ]
+  %.sroa.3.01212 = phi ptr [ %.sroa.3.3, %354 ], [ %.sroa.3.0.copyload, %.lr.ph1221 ]
   %.not318 = icmp eq ptr %.sroa.3.01212, %.sroa.4907.11214
   %spec.select978 = select i1 %.not318, ptr %.sroa.13897.01213, ptr %.sroa.18912.11218
   %.not3191196 = icmp eq ptr %.sroa.10.11216, %323
   br i1 %.not3191196, label %._crit_edge1202.split, label %.lr.ph1201
 
 .lr.ph1201:                                       ; preds = %.lr.ph1221.split, %337
-  %.sroa.13897.21199 = phi ptr [ %.sroa.13897.3, %337 ], [ %spec.select978, %.lr.ph1221.split ]
+  %.sroa.13897.21199 = phi ptr [ %.sroa.13897.4, %337 ], [ %spec.select978, %.lr.ph1221.split ]
   %.sroa.7892.01198 = phi ptr [ %.sroa.7892.1, %337 ], [ %.sroa.10.11216, %.lr.ph1221.split ]
-  %.sroa.3.21197 = phi ptr [ %.sroa.3.3, %337 ], [ %.sroa.4907.11214, %.lr.ph1221.split ]
+  %.sroa.3.21197 = phi ptr [ %.sroa.3.4, %337 ], [ %.sroa.4907.11214, %.lr.ph1221.split ]
   %324 = getelementptr inbounds i8, ptr %.sroa.7892.01198, i64 %104
   %325 = icmp ult ptr %324, %.sroa.13897.21199
   br i1 %325, label %326, label %337
@@ -7168,9 +7168,9 @@ cvGetSeqReaderPos.exit332:                        ; preds = %229, %238
   br label %337
 
 337:                                              ; preds = %326, %.lr.ph1201
-  %.sroa.3.3 = phi ptr [ %327, %326 ], [ %.sroa.3.21197, %.lr.ph1201 ]
+  %.sroa.3.4 = phi ptr [ %327, %326 ], [ %.sroa.3.21197, %.lr.ph1201 ]
   %.sroa.7892.1 = phi ptr [ %336, %326 ], [ %324, %.lr.ph1201 ]
-  %.sroa.13897.3 = phi ptr [ %329, %326 ], [ %.sroa.13897.21199, %.lr.ph1201 ]
+  %.sroa.13897.4 = phi ptr [ %329, %326 ], [ %.sroa.13897.21199, %.lr.ph1201 ]
   %338 = call noundef i32 %1(ptr noundef %.sroa.7892.1, ptr noundef %.sroa.7892.01198, ptr noundef %2)
   %339 = icmp slt i32 %338, 1
   %340 = load ptr, ptr %67, align 8
@@ -7180,8 +7180,8 @@ cvGetSeqReaderPos.exit332:                        ; preds = %229, %238
 
 ._crit_edge1202.split:                            ; preds = %337, %.lr.ph1221.split
   %341 = phi ptr [ %323, %.lr.ph1221.split ], [ %340, %337 ]
-  %.sroa.3.4 = phi ptr [ %.sroa.4907.11214, %.lr.ph1221.split ], [ %.sroa.3.3, %337 ]
-  %.sroa.13897.4 = phi ptr [ %spec.select978, %.lr.ph1221.split ], [ %.sroa.13897.3, %337 ]
+  %.sroa.3.3 = phi ptr [ %.sroa.4907.11214, %.lr.ph1221.split ], [ %.sroa.3.4, %337 ]
+  %.sroa.13897.3 = phi ptr [ %spec.select978, %.lr.ph1221.split ], [ %.sroa.13897.4, %337 ]
   %342 = getelementptr inbounds i8, ptr %.sroa.10.11216, i64 %103
   %.not320 = icmp ult ptr %342, %.sroa.22.11219
   br i1 %.not320, label %354, label %343
@@ -7347,10 +7347,10 @@ cvGetSeqReaderPos.exit332:                        ; preds = %229, %238
   br i1 %409, label %.lr.ph.i, label %.loopexit1009, !llvm.loop !13
 
 .loopexit1009:                                    ; preds = %.lr.ph.i, %._crit_edge156.loopexit.i
-  %.sroa.132.2 = phi ptr [ %390, %._crit_edge156.loopexit.i ], [ %406, %.lr.ph.i ]
+  %.sroa.132.6 = phi ptr [ %390, %._crit_edge156.loopexit.i ], [ %406, %.lr.ph.i ]
   %.sroa.100.2 = phi ptr [ %385, %._crit_edge156.loopexit.i ], [ %401, %.lr.ph.i ]
-  %.sroa.50800.0 = phi ptr [ %392, %._crit_edge156.loopexit.i ], [ %408, %.lr.ph.i ]
-  %.sroa.16782.2 = phi ptr [ %383, %._crit_edge156.loopexit.i ], [ %399, %.lr.ph.i ]
+  %.sroa.50800.4 = phi ptr [ %392, %._crit_edge156.loopexit.i ], [ %408, %.lr.ph.i ]
+  %.sroa.16782.6 = phi ptr [ %383, %._crit_edge156.loopexit.i ], [ %399, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21)
   br i1 %372, label %.loopexit1009..preheader140.i356_crit_edge, label %.loopexit1009..preheader141.i348_crit_edge
@@ -7365,29 +7365,29 @@ cvGetSeqReaderPos.exit332:                        ; preds = %229, %238
 
 .preheader141.i348:                               ; preds = %.loopexit1009..preheader141.i348_crit_edge, %.thread925
   %.pre-phi1433 = phi i64 [ %.pre1432, %.loopexit1009..preheader141.i348_crit_edge ], [ %373, %.thread925 ]
-  %.sroa.16782.2933 = phi ptr [ %.sroa.16782.2, %.loopexit1009..preheader141.i348_crit_edge ], [ %163, %.thread925 ]
-  %.sroa.50800.0932 = phi ptr [ %.sroa.50800.0, %.loopexit1009..preheader141.i348_crit_edge ], [ %374, %.thread925 ]
+  %.sroa.16782.6933 = phi ptr [ %.sroa.16782.6, %.loopexit1009..preheader141.i348_crit_edge ], [ %163, %.thread925 ]
+  %.sroa.50800.4932 = phi ptr [ %.sroa.50800.4, %.loopexit1009..preheader141.i348_crit_edge ], [ %374, %.thread925 ]
   %.sroa.100.2931 = phi ptr [ %.sroa.100.2, %.loopexit1009..preheader141.i348_crit_edge ], [ %.sroa.100.0.copyload, %.thread925 ]
-  %.sroa.132.2930 = phi ptr [ %.sroa.132.2, %.loopexit1009..preheader141.i348_crit_edge ], [ %.sroa.132.0.copyload, %.thread925 ]
-  %410 = getelementptr inbounds i8, ptr %.sroa.50800.0932, i64 %.pre-phi1433
+  %.sroa.132.6930 = phi ptr [ %.sroa.132.6, %.loopexit1009..preheader141.i348_crit_edge ], [ %.sroa.132.0.copyload, %.thread925 ]
+  %410 = getelementptr inbounds i8, ptr %.sroa.50800.4932, i64 %.pre-phi1433
   %411 = icmp ult ptr %410, %.sroa.100.2931
   br i1 %411, label %.lr.ph.i352, label %cvSetSeqReaderPos.exit370
 
 .preheader140.i356:                               ; preds = %.loopexit1009..preheader140.i356_crit_edge, %.thread
   %.pre-phi = phi i64 [ %.pre1423, %.loopexit1009..preheader140.i356_crit_edge ], [ %376, %.thread ]
-  %.sroa.16782.2924 = phi ptr [ %.sroa.16782.2, %.loopexit1009..preheader140.i356_crit_edge ], [ %163, %.thread ]
-  %.sroa.50800.0923 = phi ptr [ %.sroa.50800.0, %.loopexit1009..preheader140.i356_crit_edge ], [ %377, %.thread ]
+  %.sroa.16782.6924 = phi ptr [ %.sroa.16782.6, %.loopexit1009..preheader140.i356_crit_edge ], [ %163, %.thread ]
+  %.sroa.50800.4923 = phi ptr [ %.sroa.50800.4, %.loopexit1009..preheader140.i356_crit_edge ], [ %377, %.thread ]
   %.sroa.100.2921 = phi ptr [ %.sroa.100.2, %.loopexit1009..preheader140.i356_crit_edge ], [ %.sroa.100.0.copyload, %.thread ]
-  %.sroa.132.2920 = phi ptr [ %.sroa.132.2, %.loopexit1009..preheader140.i356_crit_edge ], [ %.sroa.132.0.copyload, %.thread ]
-  %412 = getelementptr inbounds i8, ptr %.sroa.50800.0923, i64 %.pre-phi
-  %.not137151.i358 = icmp ult ptr %412, %.sroa.132.2920
+  %.sroa.132.6920 = phi ptr [ %.sroa.132.6, %.loopexit1009..preheader140.i356_crit_edge ], [ %.sroa.132.0.copyload, %.thread ]
+  %412 = getelementptr inbounds i8, ptr %.sroa.50800.4923, i64 %.pre-phi
+  %.not137151.i358 = icmp ult ptr %412, %.sroa.132.6920
   br i1 %.not137151.i358, label %cvSetSeqReaderPos.exit370, label %.lr.ph155.i359
 
 .lr.ph155.i359:                                   ; preds = %.preheader140.i356, %.lr.ph155.i359
   %.3154.i360 = phi i32 [ %416, %.lr.ph155.i359 ], [ %371, %.preheader140.i356 ]
-  %.393153.i361 = phi ptr [ %418, %.lr.ph155.i359 ], [ %.sroa.16782.2924, %.preheader140.i356 ]
-  %.095152.i362 = phi ptr [ %420, %.lr.ph155.i359 ], [ %.sroa.50800.0923, %.preheader140.i356 ]
-  %413 = phi ptr [ %425, %.lr.ph155.i359 ], [ %.sroa.132.2920, %.preheader140.i356 ]
+  %.393153.i361 = phi ptr [ %418, %.lr.ph155.i359 ], [ %.sroa.16782.6924, %.preheader140.i356 ]
+  %.095152.i362 = phi ptr [ %420, %.lr.ph155.i359 ], [ %.sroa.50800.4923, %.preheader140.i356 ]
+  %413 = phi ptr [ %425, %.lr.ph155.i359 ], [ %.sroa.132.6920, %.preheader140.i356 ]
   %414 = ptrtoint ptr %413 to i64
   %415 = ptrtoint ptr %.095152.i362 to i64
   %.neg.i363 = sub i64 %415, %414
@@ -7412,8 +7412,8 @@ cvGetSeqReaderPos.exit332:                        ; preds = %229, %238
 
 .lr.ph.i352:                                      ; preds = %.preheader141.i348, %.lr.ph.i352
   %.4149.i353 = phi i32 [ %433, %.lr.ph.i352 ], [ %371, %.preheader141.i348 ]
-  %.494148.i354 = phi ptr [ %434, %.lr.ph.i352 ], [ %.sroa.16782.2933, %.preheader141.i348 ]
-  %.196147.i355 = phi ptr [ %441, %.lr.ph.i352 ], [ %.sroa.50800.0932, %.preheader141.i348 ]
+  %.494148.i354 = phi ptr [ %434, %.lr.ph.i352 ], [ %.sroa.16782.6933, %.preheader141.i348 ]
+  %.196147.i355 = phi ptr [ %441, %.lr.ph.i352 ], [ %.sroa.50800.4932, %.preheader141.i348 ]
   %428 = phi ptr [ %436, %.lr.ph.i352 ], [ %.sroa.100.2931, %.preheader141.i348 ]
   %429 = ptrtoint ptr %.196147.i355 to i64
   %430 = ptrtoint ptr %428 to i64
@@ -7434,14 +7434,14 @@ cvGetSeqReaderPos.exit332:                        ; preds = %229, %238
   br i1 %444, label %.lr.ph.i352, label %cvSetSeqReaderPos.exit370, !llvm.loop !13
 
 cvSetSeqReaderPos.exit370:                        ; preds = %.lr.ph.i352, %.preheader141.i348, %.preheader140.i356, %._crit_edge156.loopexit.i366
-  %.sroa.50800.0922 = phi ptr [ %.sroa.50800.0923, %._crit_edge156.loopexit.i366 ], [ %.sroa.50800.0923, %.preheader140.i356 ], [ %.sroa.50800.0932, %.preheader141.i348 ], [ %.sroa.50800.0932, %.lr.ph.i352 ]
-  %.sroa.132.5 = phi ptr [ %425, %._crit_edge156.loopexit.i366 ], [ %.sroa.132.2920, %.preheader140.i356 ], [ %.sroa.132.2930, %.preheader141.i348 ], [ %441, %.lr.ph.i352 ]
+  %.sroa.50800.4922 = phi ptr [ %.sroa.50800.4923, %._crit_edge156.loopexit.i366 ], [ %.sroa.50800.4923, %.preheader140.i356 ], [ %.sroa.50800.4932, %.preheader141.i348 ], [ %.sroa.50800.4932, %.lr.ph.i352 ]
+  %.sroa.132.9 = phi ptr [ %425, %._crit_edge156.loopexit.i366 ], [ %.sroa.132.6920, %.preheader140.i356 ], [ %.sroa.132.6930, %.preheader141.i348 ], [ %441, %.lr.ph.i352 ]
   %.sroa.100.5 = phi ptr [ %420, %._crit_edge156.loopexit.i366 ], [ %.sroa.100.2921, %.preheader140.i356 ], [ %.sroa.100.2931, %.preheader141.i348 ], [ %436, %.lr.ph.i352 ]
-  %.sroa.50800.1 = phi ptr [ %427, %._crit_edge156.loopexit.i366 ], [ %412, %.preheader140.i356 ], [ %410, %.preheader141.i348 ], [ %443, %.lr.ph.i352 ]
-  %.sroa.16782.5 = phi ptr [ %418, %._crit_edge156.loopexit.i366 ], [ %.sroa.16782.2924, %.preheader140.i356 ], [ %.sroa.16782.2933, %.preheader141.i348 ], [ %434, %.lr.ph.i352 ]
-  %445 = call noundef i32 %1(ptr noundef %.sroa.50800.0.copyload, ptr noundef %.sroa.50800.0922, ptr noundef %2)
+  %.sroa.50800.5 = phi ptr [ %427, %._crit_edge156.loopexit.i366 ], [ %412, %.preheader140.i356 ], [ %410, %.preheader141.i348 ], [ %443, %.lr.ph.i352 ]
+  %.sroa.16782.9 = phi ptr [ %418, %._crit_edge156.loopexit.i366 ], [ %.sroa.16782.6924, %.preheader140.i356 ], [ %.sroa.16782.6933, %.preheader141.i348 ], [ %434, %.lr.ph.i352 ]
+  %445 = call noundef i32 %1(ptr noundef %.sroa.50800.0.copyload, ptr noundef %.sroa.50800.4922, ptr noundef %2)
   %446 = icmp slt i32 %445, 0
-  %447 = call noundef i32 %1(ptr noundef %.sroa.50800.0922, ptr noundef %.sroa.50800.1, ptr noundef %2)
+  %447 = call noundef i32 %1(ptr noundef %.sroa.50800.4922, ptr noundef %.sroa.50800.5, ptr noundef %2)
   br i1 %446, label %448, label %454
 
 448:                                              ; preds = %cvSetSeqReaderPos.exit370
@@ -7449,9 +7449,9 @@ cvSetSeqReaderPos.exit370:                        ; preds = %.lr.ph.i352, %.preh
   br i1 %449, label %460, label %450
 
 450:                                              ; preds = %448
-  %451 = call noundef i32 %1(ptr noundef %.sroa.50800.0.copyload, ptr noundef %.sroa.50800.1, ptr noundef %2)
+  %451 = call noundef i32 %1(ptr noundef %.sroa.50800.0.copyload, ptr noundef %.sroa.50800.5, ptr noundef %2)
   %452 = icmp slt i32 %451, 0
-  %453 = select i1 %452, ptr %.sroa.50800.1, ptr %.sroa.50800.0.copyload
+  %453 = select i1 %452, ptr %.sroa.50800.5, ptr %.sroa.50800.0.copyload
   br label %460
 
 454:                                              ; preds = %cvSetSeqReaderPos.exit370
@@ -7459,13 +7459,13 @@ cvSetSeqReaderPos.exit370:                        ; preds = %.lr.ph.i352, %.preh
   br i1 %455, label %460, label %456
 
 456:                                              ; preds = %454
-  %457 = call noundef i32 %1(ptr noundef %.sroa.50800.0.copyload, ptr noundef %.sroa.50800.1, ptr noundef %2)
+  %457 = call noundef i32 %1(ptr noundef %.sroa.50800.0.copyload, ptr noundef %.sroa.50800.5, ptr noundef %2)
   %458 = icmp slt i32 %457, 0
-  %459 = select i1 %458, ptr %.sroa.50800.0.copyload, ptr %.sroa.50800.1
+  %459 = select i1 %458, ptr %.sroa.50800.0.copyload, ptr %.sroa.50800.5
   br label %460
 
 460:                                              ; preds = %456, %454, %450, %448
-  %461 = phi ptr [ %453, %450 ], [ %459, %456 ], [ %.sroa.50800.0922, %448 ], [ %.sroa.50800.0922, %454 ]
+  %461 = phi ptr [ %453, %450 ], [ %459, %456 ], [ %.sroa.50800.4922, %448 ], [ %.sroa.50800.4922, %454 ]
   %462 = lshr i32 %357, 1
   %463 = mul nuw nsw i32 %360, 3
   %464 = sub nsw i32 %462, %463
@@ -7476,21 +7476,21 @@ cvSetSeqReaderPos.exit370:                        ; preds = %.lr.ph.i352, %.preh
 
 .preheader141.i373:                               ; preds = %460
   %468 = sext i32 %466 to i64
-  %469 = getelementptr inbounds i8, ptr %.sroa.50800.1, i64 %468
+  %469 = getelementptr inbounds i8, ptr %.sroa.50800.5, i64 %468
   %470 = icmp ult ptr %469, %.sroa.100.5
   br i1 %470, label %.lr.ph.i377, label %.loopexit1008
 
 .preheader140.i381:                               ; preds = %460
   %471 = zext nneg i32 %466 to i64
-  %472 = getelementptr inbounds i8, ptr %.sroa.50800.1, i64 %471
-  %.not137151.i383 = icmp ult ptr %472, %.sroa.132.5
+  %472 = getelementptr inbounds i8, ptr %.sroa.50800.5, i64 %471
+  %.not137151.i383 = icmp ult ptr %472, %.sroa.132.9
   br i1 %.not137151.i383, label %.loopexit1008, label %.lr.ph155.i384
 
 .lr.ph155.i384:                                   ; preds = %.preheader140.i381, %.lr.ph155.i384
   %.3154.i385 = phi i32 [ %476, %.lr.ph155.i384 ], [ %466, %.preheader140.i381 ]
-  %.393153.i386 = phi ptr [ %478, %.lr.ph155.i384 ], [ %.sroa.16782.5, %.preheader140.i381 ]
-  %.095152.i387 = phi ptr [ %480, %.lr.ph155.i384 ], [ %.sroa.50800.1, %.preheader140.i381 ]
-  %473 = phi ptr [ %485, %.lr.ph155.i384 ], [ %.sroa.132.5, %.preheader140.i381 ]
+  %.393153.i386 = phi ptr [ %478, %.lr.ph155.i384 ], [ %.sroa.16782.9, %.preheader140.i381 ]
+  %.095152.i387 = phi ptr [ %480, %.lr.ph155.i384 ], [ %.sroa.50800.5, %.preheader140.i381 ]
+  %473 = phi ptr [ %485, %.lr.ph155.i384 ], [ %.sroa.132.9, %.preheader140.i381 ]
   %474 = ptrtoint ptr %473 to i64
   %475 = ptrtoint ptr %.095152.i387 to i64
   %.neg.i388 = sub i64 %475, %474
@@ -7515,8 +7515,8 @@ cvSetSeqReaderPos.exit370:                        ; preds = %.lr.ph.i352, %.preh
 
 .lr.ph.i377:                                      ; preds = %.preheader141.i373, %.lr.ph.i377
   %.4149.i378 = phi i32 [ %493, %.lr.ph.i377 ], [ %466, %.preheader141.i373 ]
-  %.494148.i379 = phi ptr [ %494, %.lr.ph.i377 ], [ %.sroa.16782.5, %.preheader141.i373 ]
-  %.196147.i380 = phi ptr [ %501, %.lr.ph.i377 ], [ %.sroa.50800.1, %.preheader141.i373 ]
+  %.494148.i379 = phi ptr [ %494, %.lr.ph.i377 ], [ %.sroa.16782.9, %.preheader141.i373 ]
+  %.196147.i380 = phi ptr [ %501, %.lr.ph.i377 ], [ %.sroa.50800.5, %.preheader141.i373 ]
   %488 = phi ptr [ %496, %.lr.ph.i377 ], [ %.sroa.100.5, %.preheader141.i373 ]
   %489 = ptrtoint ptr %.196147.i380 to i64
   %490 = ptrtoint ptr %488 to i64
@@ -7537,31 +7537,31 @@ cvSetSeqReaderPos.exit370:                        ; preds = %.lr.ph.i352, %.preh
   br i1 %504, label %.lr.ph.i377, label %.loopexit1008, !llvm.loop !13
 
 .loopexit1008:                                    ; preds = %.lr.ph.i377, %._crit_edge156.loopexit.i391, %.preheader140.i381, %.preheader141.i373
-  %.sroa.132.8 = phi ptr [ %.sroa.132.5, %.preheader140.i381 ], [ %485, %._crit_edge156.loopexit.i391 ], [ %.sroa.132.5, %.preheader141.i373 ], [ %501, %.lr.ph.i377 ]
+  %.sroa.132.12 = phi ptr [ %.sroa.132.9, %.preheader140.i381 ], [ %485, %._crit_edge156.loopexit.i391 ], [ %.sroa.132.9, %.preheader141.i373 ], [ %501, %.lr.ph.i377 ]
   %.sroa.100.8 = phi ptr [ %.sroa.100.5, %.preheader140.i381 ], [ %480, %._crit_edge156.loopexit.i391 ], [ %.sroa.100.5, %.preheader141.i373 ], [ %496, %.lr.ph.i377 ]
-  %.sroa.50800.2 = phi ptr [ %472, %.preheader140.i381 ], [ %487, %._crit_edge156.loopexit.i391 ], [ %469, %.preheader141.i373 ], [ %503, %.lr.ph.i377 ]
-  %.sroa.16782.8 = phi ptr [ %.sroa.16782.5, %.preheader140.i381 ], [ %478, %._crit_edge156.loopexit.i391 ], [ %.sroa.16782.5, %.preheader141.i373 ], [ %494, %.lr.ph.i377 ]
+  %.sroa.50800.6 = phi ptr [ %472, %.preheader140.i381 ], [ %487, %._crit_edge156.loopexit.i391 ], [ %469, %.preheader141.i373 ], [ %503, %.lr.ph.i377 ]
+  %.sroa.16782.12 = phi ptr [ %.sroa.16782.9, %.preheader140.i381 ], [ %478, %._crit_edge156.loopexit.i391 ], [ %.sroa.16782.9, %.preheader141.i373 ], [ %494, %.lr.ph.i377 ]
   %505 = mul nsw i32 %465, %360
   %506 = icmp sgt i32 %505, 0
   br i1 %506, label %.preheader140.i406, label %.preheader141.i398
 
 .preheader141.i398:                               ; preds = %.loopexit1008
   %507 = sext i32 %505 to i64
-  %508 = getelementptr inbounds i8, ptr %.sroa.50800.2, i64 %507
+  %508 = getelementptr inbounds i8, ptr %.sroa.50800.6, i64 %507
   %509 = icmp ult ptr %508, %.sroa.100.8
   br i1 %509, label %.lr.ph.i402, label %.preheader141.i423
 
 .preheader140.i406:                               ; preds = %.loopexit1008
   %510 = zext nneg i32 %505 to i64
-  %511 = getelementptr inbounds i8, ptr %.sroa.50800.2, i64 %510
-  %.not137151.i408 = icmp ult ptr %511, %.sroa.132.8
+  %511 = getelementptr inbounds i8, ptr %.sroa.50800.6, i64 %510
+  %.not137151.i408 = icmp ult ptr %511, %.sroa.132.12
   br i1 %.not137151.i408, label %.preheader140.i431, label %.lr.ph155.i409
 
 .lr.ph155.i409:                                   ; preds = %.preheader140.i406, %.lr.ph155.i409
   %.3154.i410 = phi i32 [ %515, %.lr.ph155.i409 ], [ %505, %.preheader140.i406 ]
-  %.393153.i411 = phi ptr [ %517, %.lr.ph155.i409 ], [ %.sroa.16782.8, %.preheader140.i406 ]
-  %.095152.i412 = phi ptr [ %519, %.lr.ph155.i409 ], [ %.sroa.50800.2, %.preheader140.i406 ]
-  %512 = phi ptr [ %524, %.lr.ph155.i409 ], [ %.sroa.132.8, %.preheader140.i406 ]
+  %.393153.i411 = phi ptr [ %517, %.lr.ph155.i409 ], [ %.sroa.16782.12, %.preheader140.i406 ]
+  %.095152.i412 = phi ptr [ %519, %.lr.ph155.i409 ], [ %.sroa.50800.6, %.preheader140.i406 ]
+  %512 = phi ptr [ %524, %.lr.ph155.i409 ], [ %.sroa.132.12, %.preheader140.i406 ]
   %513 = ptrtoint ptr %512 to i64
   %514 = ptrtoint ptr %.095152.i412 to i64
   %.neg.i413 = sub i64 %514, %513
@@ -7586,8 +7586,8 @@ cvSetSeqReaderPos.exit370:                        ; preds = %.lr.ph.i352, %.preh
 
 .lr.ph.i402:                                      ; preds = %.preheader141.i398, %.lr.ph.i402
   %.4149.i403 = phi i32 [ %532, %.lr.ph.i402 ], [ %505, %.preheader141.i398 ]
-  %.494148.i404 = phi ptr [ %533, %.lr.ph.i402 ], [ %.sroa.16782.8, %.preheader141.i398 ]
-  %.196147.i405 = phi ptr [ %540, %.lr.ph.i402 ], [ %.sroa.50800.2, %.preheader141.i398 ]
+  %.494148.i404 = phi ptr [ %533, %.lr.ph.i402 ], [ %.sroa.16782.12, %.preheader141.i398 ]
+  %.196147.i405 = phi ptr [ %540, %.lr.ph.i402 ], [ %.sroa.50800.6, %.preheader141.i398 ]
   %527 = phi ptr [ %535, %.lr.ph.i402 ], [ %.sroa.100.8, %.preheader141.i398 ]
   %528 = ptrtoint ptr %.196147.i405 to i64
   %529 = ptrtoint ptr %527 to i64
@@ -7608,10 +7608,10 @@ cvSetSeqReaderPos.exit370:                        ; preds = %.lr.ph.i352, %.preh
   br i1 %543, label %.lr.ph.i402, label %.loopexit1007, !llvm.loop !13
 
 .loopexit1007:                                    ; preds = %.lr.ph.i402, %._crit_edge156.loopexit.i416
-  %.sroa.132.11 = phi ptr [ %524, %._crit_edge156.loopexit.i416 ], [ %540, %.lr.ph.i402 ]
+  %.sroa.132.15 = phi ptr [ %524, %._crit_edge156.loopexit.i416 ], [ %540, %.lr.ph.i402 ]
   %.sroa.100.11 = phi ptr [ %519, %._crit_edge156.loopexit.i416 ], [ %535, %.lr.ph.i402 ]
-  %.sroa.50800.3 = phi ptr [ %526, %._crit_edge156.loopexit.i416 ], [ %542, %.lr.ph.i402 ]
-  %.sroa.16782.11 = phi ptr [ %517, %._crit_edge156.loopexit.i416 ], [ %533, %.lr.ph.i402 ]
+  %.sroa.50800.7 = phi ptr [ %526, %._crit_edge156.loopexit.i416 ], [ %542, %.lr.ph.i402 ]
+  %.sroa.16782.15 = phi ptr [ %517, %._crit_edge156.loopexit.i416 ], [ %533, %.lr.ph.i402 ]
   br i1 %506, label %.loopexit1007..preheader140.i431_crit_edge, label %.loopexit1007..preheader141.i423_crit_edge
 
 .loopexit1007..preheader140.i431_crit_edge:       ; preds = %.loopexit1007
@@ -7624,29 +7624,29 @@ cvSetSeqReaderPos.exit370:                        ; preds = %.lr.ph.i352, %.preh
 
 .preheader141.i423:                               ; preds = %.loopexit1007..preheader141.i423_crit_edge, %.preheader141.i398
   %.pre-phi1431 = phi i64 [ %.pre1430, %.loopexit1007..preheader141.i423_crit_edge ], [ %507, %.preheader141.i398 ]
-  %.sroa.16782.11952 = phi ptr [ %.sroa.16782.11, %.loopexit1007..preheader141.i423_crit_edge ], [ %.sroa.16782.8, %.preheader141.i398 ]
-  %.sroa.50800.3951 = phi ptr [ %.sroa.50800.3, %.loopexit1007..preheader141.i423_crit_edge ], [ %508, %.preheader141.i398 ]
+  %.sroa.16782.15952 = phi ptr [ %.sroa.16782.15, %.loopexit1007..preheader141.i423_crit_edge ], [ %.sroa.16782.12, %.preheader141.i398 ]
+  %.sroa.50800.7951 = phi ptr [ %.sroa.50800.7, %.loopexit1007..preheader141.i423_crit_edge ], [ %508, %.preheader141.i398 ]
   %.sroa.100.11950 = phi ptr [ %.sroa.100.11, %.loopexit1007..preheader141.i423_crit_edge ], [ %.sroa.100.8, %.preheader141.i398 ]
-  %.sroa.132.11949 = phi ptr [ %.sroa.132.11, %.loopexit1007..preheader141.i423_crit_edge ], [ %.sroa.132.8, %.preheader141.i398 ]
-  %544 = getelementptr inbounds i8, ptr %.sroa.50800.3951, i64 %.pre-phi1431
+  %.sroa.132.15949 = phi ptr [ %.sroa.132.15, %.loopexit1007..preheader141.i423_crit_edge ], [ %.sroa.132.12, %.preheader141.i398 ]
+  %544 = getelementptr inbounds i8, ptr %.sroa.50800.7951, i64 %.pre-phi1431
   %545 = icmp ult ptr %544, %.sroa.100.11950
   br i1 %545, label %.lr.ph.i427, label %cvSetSeqReaderPos.exit445
 
 .preheader140.i431:                               ; preds = %.loopexit1007..preheader140.i431_crit_edge, %.preheader140.i406
   %.pre-phi1425 = phi i64 [ %.pre1424, %.loopexit1007..preheader140.i431_crit_edge ], [ %510, %.preheader140.i406 ]
-  %.sroa.16782.11943 = phi ptr [ %.sroa.16782.11, %.loopexit1007..preheader140.i431_crit_edge ], [ %.sroa.16782.8, %.preheader140.i406 ]
-  %.sroa.50800.3942 = phi ptr [ %.sroa.50800.3, %.loopexit1007..preheader140.i431_crit_edge ], [ %511, %.preheader140.i406 ]
+  %.sroa.16782.15943 = phi ptr [ %.sroa.16782.15, %.loopexit1007..preheader140.i431_crit_edge ], [ %.sroa.16782.12, %.preheader140.i406 ]
+  %.sroa.50800.7942 = phi ptr [ %.sroa.50800.7, %.loopexit1007..preheader140.i431_crit_edge ], [ %511, %.preheader140.i406 ]
   %.sroa.100.11940 = phi ptr [ %.sroa.100.11, %.loopexit1007..preheader140.i431_crit_edge ], [ %.sroa.100.8, %.preheader140.i406 ]
-  %.sroa.132.11939 = phi ptr [ %.sroa.132.11, %.loopexit1007..preheader140.i431_crit_edge ], [ %.sroa.132.8, %.preheader140.i406 ]
-  %546 = getelementptr inbounds i8, ptr %.sroa.50800.3942, i64 %.pre-phi1425
-  %.not137151.i433 = icmp ult ptr %546, %.sroa.132.11939
+  %.sroa.132.15939 = phi ptr [ %.sroa.132.15, %.loopexit1007..preheader140.i431_crit_edge ], [ %.sroa.132.12, %.preheader140.i406 ]
+  %546 = getelementptr inbounds i8, ptr %.sroa.50800.7942, i64 %.pre-phi1425
+  %.not137151.i433 = icmp ult ptr %546, %.sroa.132.15939
   br i1 %.not137151.i433, label %cvSetSeqReaderPos.exit445, label %.lr.ph155.i434
 
 .lr.ph155.i434:                                   ; preds = %.preheader140.i431, %.lr.ph155.i434
   %.3154.i435 = phi i32 [ %550, %.lr.ph155.i434 ], [ %505, %.preheader140.i431 ]
-  %.393153.i436 = phi ptr [ %552, %.lr.ph155.i434 ], [ %.sroa.16782.11943, %.preheader140.i431 ]
-  %.095152.i437 = phi ptr [ %554, %.lr.ph155.i434 ], [ %.sroa.50800.3942, %.preheader140.i431 ]
-  %547 = phi ptr [ %559, %.lr.ph155.i434 ], [ %.sroa.132.11939, %.preheader140.i431 ]
+  %.393153.i436 = phi ptr [ %552, %.lr.ph155.i434 ], [ %.sroa.16782.15943, %.preheader140.i431 ]
+  %.095152.i437 = phi ptr [ %554, %.lr.ph155.i434 ], [ %.sroa.50800.7942, %.preheader140.i431 ]
+  %547 = phi ptr [ %559, %.lr.ph155.i434 ], [ %.sroa.132.15939, %.preheader140.i431 ]
   %548 = ptrtoint ptr %547 to i64
   %549 = ptrtoint ptr %.095152.i437 to i64
   %.neg.i438 = sub i64 %549, %548
@@ -7671,8 +7671,8 @@ cvSetSeqReaderPos.exit370:                        ; preds = %.lr.ph.i352, %.preh
 
 .lr.ph.i427:                                      ; preds = %.preheader141.i423, %.lr.ph.i427
   %.4149.i428 = phi i32 [ %567, %.lr.ph.i427 ], [ %505, %.preheader141.i423 ]
-  %.494148.i429 = phi ptr [ %568, %.lr.ph.i427 ], [ %.sroa.16782.11952, %.preheader141.i423 ]
-  %.196147.i430 = phi ptr [ %575, %.lr.ph.i427 ], [ %.sroa.50800.3951, %.preheader141.i423 ]
+  %.494148.i429 = phi ptr [ %568, %.lr.ph.i427 ], [ %.sroa.16782.15952, %.preheader141.i423 ]
+  %.196147.i430 = phi ptr [ %575, %.lr.ph.i427 ], [ %.sroa.50800.7951, %.preheader141.i423 ]
   %562 = phi ptr [ %570, %.lr.ph.i427 ], [ %.sroa.100.11950, %.preheader141.i423 ]
   %563 = ptrtoint ptr %.196147.i430 to i64
   %564 = ptrtoint ptr %562 to i64
@@ -7693,14 +7693,14 @@ cvSetSeqReaderPos.exit370:                        ; preds = %.lr.ph.i352, %.preh
   br i1 %578, label %.lr.ph.i427, label %cvSetSeqReaderPos.exit445, !llvm.loop !13
 
 cvSetSeqReaderPos.exit445:                        ; preds = %.lr.ph.i427, %.preheader141.i423, %.preheader140.i431, %._crit_edge156.loopexit.i441
-  %.sroa.50800.3941 = phi ptr [ %.sroa.50800.3942, %._crit_edge156.loopexit.i441 ], [ %.sroa.50800.3942, %.preheader140.i431 ], [ %.sroa.50800.3951, %.preheader141.i423 ], [ %.sroa.50800.3951, %.lr.ph.i427 ]
-  %.sroa.132.14 = phi ptr [ %559, %._crit_edge156.loopexit.i441 ], [ %.sroa.132.11939, %.preheader140.i431 ], [ %.sroa.132.11949, %.preheader141.i423 ], [ %575, %.lr.ph.i427 ]
+  %.sroa.50800.7941 = phi ptr [ %.sroa.50800.7942, %._crit_edge156.loopexit.i441 ], [ %.sroa.50800.7942, %.preheader140.i431 ], [ %.sroa.50800.7951, %.preheader141.i423 ], [ %.sroa.50800.7951, %.lr.ph.i427 ]
+  %.sroa.132.18 = phi ptr [ %559, %._crit_edge156.loopexit.i441 ], [ %.sroa.132.15939, %.preheader140.i431 ], [ %.sroa.132.15949, %.preheader141.i423 ], [ %575, %.lr.ph.i427 ]
   %.sroa.100.14 = phi ptr [ %554, %._crit_edge156.loopexit.i441 ], [ %.sroa.100.11940, %.preheader140.i431 ], [ %.sroa.100.11950, %.preheader141.i423 ], [ %570, %.lr.ph.i427 ]
-  %.sroa.50800.4 = phi ptr [ %561, %._crit_edge156.loopexit.i441 ], [ %546, %.preheader140.i431 ], [ %544, %.preheader141.i423 ], [ %577, %.lr.ph.i427 ]
-  %.sroa.16782.14 = phi ptr [ %552, %._crit_edge156.loopexit.i441 ], [ %.sroa.16782.11943, %.preheader140.i431 ], [ %.sroa.16782.11952, %.preheader141.i423 ], [ %568, %.lr.ph.i427 ]
-  %579 = call noundef i32 %1(ptr noundef %.sroa.50800.2, ptr noundef %.sroa.50800.3941, ptr noundef %2)
+  %.sroa.50800.8 = phi ptr [ %561, %._crit_edge156.loopexit.i441 ], [ %546, %.preheader140.i431 ], [ %544, %.preheader141.i423 ], [ %577, %.lr.ph.i427 ]
+  %.sroa.16782.18 = phi ptr [ %552, %._crit_edge156.loopexit.i441 ], [ %.sroa.16782.15943, %.preheader140.i431 ], [ %.sroa.16782.15952, %.preheader141.i423 ], [ %568, %.lr.ph.i427 ]
+  %579 = call noundef i32 %1(ptr noundef %.sroa.50800.6, ptr noundef %.sroa.50800.7941, ptr noundef %2)
   %580 = icmp slt i32 %579, 0
-  %581 = call noundef i32 %1(ptr noundef %.sroa.50800.3941, ptr noundef %.sroa.50800.4, ptr noundef %2)
+  %581 = call noundef i32 %1(ptr noundef %.sroa.50800.7941, ptr noundef %.sroa.50800.8, ptr noundef %2)
   br i1 %580, label %582, label %588
 
 582:                                              ; preds = %cvSetSeqReaderPos.exit445
@@ -7708,9 +7708,9 @@ cvSetSeqReaderPos.exit445:                        ; preds = %.lr.ph.i427, %.preh
   br i1 %583, label %594, label %584
 
 584:                                              ; preds = %582
-  %585 = call noundef i32 %1(ptr noundef %.sroa.50800.2, ptr noundef %.sroa.50800.4, ptr noundef %2)
+  %585 = call noundef i32 %1(ptr noundef %.sroa.50800.6, ptr noundef %.sroa.50800.8, ptr noundef %2)
   %586 = icmp slt i32 %585, 0
-  %587 = select i1 %586, ptr %.sroa.50800.4, ptr %.sroa.50800.2
+  %587 = select i1 %586, ptr %.sroa.50800.8, ptr %.sroa.50800.6
   br label %594
 
 588:                                              ; preds = %cvSetSeqReaderPos.exit445
@@ -7718,13 +7718,13 @@ cvSetSeqReaderPos.exit445:                        ; preds = %.lr.ph.i427, %.preh
   br i1 %589, label %594, label %590
 
 590:                                              ; preds = %588
-  %591 = call noundef i32 %1(ptr noundef %.sroa.50800.2, ptr noundef %.sroa.50800.4, ptr noundef %2)
+  %591 = call noundef i32 %1(ptr noundef %.sroa.50800.6, ptr noundef %.sroa.50800.8, ptr noundef %2)
   %592 = icmp slt i32 %591, 0
-  %593 = select i1 %592, ptr %.sroa.50800.2, ptr %.sroa.50800.4
+  %593 = select i1 %592, ptr %.sroa.50800.6, ptr %.sroa.50800.8
   br label %594
 
 594:                                              ; preds = %590, %588, %584, %582
-  %595 = phi ptr [ %587, %584 ], [ %593, %590 ], [ %.sroa.50800.3941, %582 ], [ %.sroa.50800.3941, %588 ]
+  %595 = phi ptr [ %587, %584 ], [ %593, %590 ], [ %.sroa.50800.7941, %582 ], [ %.sroa.50800.7941, %588 ]
   %596 = xor i32 %463, -1
   %597 = sub nsw i32 %357, %462
   %598 = add i32 %597, %596
@@ -7735,21 +7735,21 @@ cvSetSeqReaderPos.exit445:                        ; preds = %.lr.ph.i427, %.preh
 
 .preheader141.i449:                               ; preds = %594
   %602 = sext i32 %600 to i64
-  %603 = getelementptr inbounds i8, ptr %.sroa.50800.4, i64 %602
+  %603 = getelementptr inbounds i8, ptr %.sroa.50800.8, i64 %602
   %604 = icmp ult ptr %603, %.sroa.100.14
   br i1 %604, label %.lr.ph.i453, label %.loopexit1006
 
 .preheader140.i457:                               ; preds = %594
   %605 = zext nneg i32 %600 to i64
-  %606 = getelementptr inbounds i8, ptr %.sroa.50800.4, i64 %605
-  %.not137151.i459 = icmp ult ptr %606, %.sroa.132.14
+  %606 = getelementptr inbounds i8, ptr %.sroa.50800.8, i64 %605
+  %.not137151.i459 = icmp ult ptr %606, %.sroa.132.18
   br i1 %.not137151.i459, label %.loopexit1006, label %.lr.ph155.i460
 
 .lr.ph155.i460:                                   ; preds = %.preheader140.i457, %.lr.ph155.i460
   %.3154.i461 = phi i32 [ %610, %.lr.ph155.i460 ], [ %600, %.preheader140.i457 ]
-  %.393153.i462 = phi ptr [ %612, %.lr.ph155.i460 ], [ %.sroa.16782.14, %.preheader140.i457 ]
-  %.095152.i463 = phi ptr [ %614, %.lr.ph155.i460 ], [ %.sroa.50800.4, %.preheader140.i457 ]
-  %607 = phi ptr [ %619, %.lr.ph155.i460 ], [ %.sroa.132.14, %.preheader140.i457 ]
+  %.393153.i462 = phi ptr [ %612, %.lr.ph155.i460 ], [ %.sroa.16782.18, %.preheader140.i457 ]
+  %.095152.i463 = phi ptr [ %614, %.lr.ph155.i460 ], [ %.sroa.50800.8, %.preheader140.i457 ]
+  %607 = phi ptr [ %619, %.lr.ph155.i460 ], [ %.sroa.132.18, %.preheader140.i457 ]
   %608 = ptrtoint ptr %607 to i64
   %609 = ptrtoint ptr %.095152.i463 to i64
   %.neg.i464 = sub i64 %609, %608
@@ -7774,8 +7774,8 @@ cvSetSeqReaderPos.exit445:                        ; preds = %.lr.ph.i427, %.preh
 
 .lr.ph.i453:                                      ; preds = %.preheader141.i449, %.lr.ph.i453
   %.4149.i454 = phi i32 [ %627, %.lr.ph.i453 ], [ %600, %.preheader141.i449 ]
-  %.494148.i455 = phi ptr [ %628, %.lr.ph.i453 ], [ %.sroa.16782.14, %.preheader141.i449 ]
-  %.196147.i456 = phi ptr [ %635, %.lr.ph.i453 ], [ %.sroa.50800.4, %.preheader141.i449 ]
+  %.494148.i455 = phi ptr [ %628, %.lr.ph.i453 ], [ %.sroa.16782.18, %.preheader141.i449 ]
+  %.196147.i456 = phi ptr [ %635, %.lr.ph.i453 ], [ %.sroa.50800.8, %.preheader141.i449 ]
   %622 = phi ptr [ %630, %.lr.ph.i453 ], [ %.sroa.100.14, %.preheader141.i449 ]
   %623 = ptrtoint ptr %.196147.i456 to i64
   %624 = ptrtoint ptr %622 to i64
@@ -7796,31 +7796,31 @@ cvSetSeqReaderPos.exit445:                        ; preds = %.lr.ph.i427, %.preh
   br i1 %638, label %.lr.ph.i453, label %.loopexit1006, !llvm.loop !13
 
 .loopexit1006:                                    ; preds = %.lr.ph.i453, %._crit_edge156.loopexit.i467, %.preheader140.i457, %.preheader141.i449
-  %.sroa.132.17 = phi ptr [ %.sroa.132.14, %.preheader140.i457 ], [ %619, %._crit_edge156.loopexit.i467 ], [ %.sroa.132.14, %.preheader141.i449 ], [ %635, %.lr.ph.i453 ]
+  %.sroa.132.21 = phi ptr [ %.sroa.132.18, %.preheader140.i457 ], [ %619, %._crit_edge156.loopexit.i467 ], [ %.sroa.132.18, %.preheader141.i449 ], [ %635, %.lr.ph.i453 ]
   %.sroa.100.17 = phi ptr [ %.sroa.100.14, %.preheader140.i457 ], [ %614, %._crit_edge156.loopexit.i467 ], [ %.sroa.100.14, %.preheader141.i449 ], [ %630, %.lr.ph.i453 ]
-  %.sroa.50800.5 = phi ptr [ %606, %.preheader140.i457 ], [ %621, %._crit_edge156.loopexit.i467 ], [ %603, %.preheader141.i449 ], [ %637, %.lr.ph.i453 ]
-  %.sroa.16782.17 = phi ptr [ %.sroa.16782.14, %.preheader140.i457 ], [ %612, %._crit_edge156.loopexit.i467 ], [ %.sroa.16782.14, %.preheader141.i449 ], [ %628, %.lr.ph.i453 ]
+  %.sroa.50800.9 = phi ptr [ %606, %.preheader140.i457 ], [ %621, %._crit_edge156.loopexit.i467 ], [ %603, %.preheader141.i449 ], [ %637, %.lr.ph.i453 ]
+  %.sroa.16782.21 = phi ptr [ %.sroa.16782.18, %.preheader140.i457 ], [ %612, %._crit_edge156.loopexit.i467 ], [ %.sroa.16782.18, %.preheader141.i449 ], [ %628, %.lr.ph.i453 ]
   %639 = mul nsw i32 %599, %360
   %640 = icmp sgt i32 %639, 0
   br i1 %640, label %.preheader140.i482, label %.preheader141.i474
 
 .preheader141.i474:                               ; preds = %.loopexit1006
   %641 = sext i32 %639 to i64
-  %642 = getelementptr inbounds i8, ptr %.sroa.50800.5, i64 %641
+  %642 = getelementptr inbounds i8, ptr %.sroa.50800.9, i64 %641
   %643 = icmp ult ptr %642, %.sroa.100.17
   br i1 %643, label %.lr.ph.i478, label %.preheader141.i499
 
 .preheader140.i482:                               ; preds = %.loopexit1006
   %644 = zext nneg i32 %639 to i64
-  %645 = getelementptr inbounds i8, ptr %.sroa.50800.5, i64 %644
-  %.not137151.i484 = icmp ult ptr %645, %.sroa.132.17
+  %645 = getelementptr inbounds i8, ptr %.sroa.50800.9, i64 %644
+  %.not137151.i484 = icmp ult ptr %645, %.sroa.132.21
   br i1 %.not137151.i484, label %.preheader140.i507, label %.lr.ph155.i485
 
 .lr.ph155.i485:                                   ; preds = %.preheader140.i482, %.lr.ph155.i485
   %.3154.i486 = phi i32 [ %649, %.lr.ph155.i485 ], [ %639, %.preheader140.i482 ]
-  %.393153.i487 = phi ptr [ %651, %.lr.ph155.i485 ], [ %.sroa.16782.17, %.preheader140.i482 ]
-  %.095152.i488 = phi ptr [ %653, %.lr.ph155.i485 ], [ %.sroa.50800.5, %.preheader140.i482 ]
-  %646 = phi ptr [ %658, %.lr.ph155.i485 ], [ %.sroa.132.17, %.preheader140.i482 ]
+  %.393153.i487 = phi ptr [ %651, %.lr.ph155.i485 ], [ %.sroa.16782.21, %.preheader140.i482 ]
+  %.095152.i488 = phi ptr [ %653, %.lr.ph155.i485 ], [ %.sroa.50800.9, %.preheader140.i482 ]
+  %646 = phi ptr [ %658, %.lr.ph155.i485 ], [ %.sroa.132.21, %.preheader140.i482 ]
   %647 = ptrtoint ptr %646 to i64
   %648 = ptrtoint ptr %.095152.i488 to i64
   %.neg.i489 = sub i64 %648, %647
@@ -7845,8 +7845,8 @@ cvSetSeqReaderPos.exit445:                        ; preds = %.lr.ph.i427, %.preh
 
 .lr.ph.i478:                                      ; preds = %.preheader141.i474, %.lr.ph.i478
   %.4149.i479 = phi i32 [ %666, %.lr.ph.i478 ], [ %639, %.preheader141.i474 ]
-  %.494148.i480 = phi ptr [ %667, %.lr.ph.i478 ], [ %.sroa.16782.17, %.preheader141.i474 ]
-  %.196147.i481 = phi ptr [ %674, %.lr.ph.i478 ], [ %.sroa.50800.5, %.preheader141.i474 ]
+  %.494148.i480 = phi ptr [ %667, %.lr.ph.i478 ], [ %.sroa.16782.21, %.preheader141.i474 ]
+  %.196147.i481 = phi ptr [ %674, %.lr.ph.i478 ], [ %.sroa.50800.9, %.preheader141.i474 ]
   %661 = phi ptr [ %669, %.lr.ph.i478 ], [ %.sroa.100.17, %.preheader141.i474 ]
   %662 = ptrtoint ptr %.196147.i481 to i64
   %663 = ptrtoint ptr %661 to i64
@@ -7867,10 +7867,10 @@ cvSetSeqReaderPos.exit445:                        ; preds = %.lr.ph.i427, %.preh
   br i1 %677, label %.lr.ph.i478, label %.loopexit1005, !llvm.loop !13
 
 .loopexit1005:                                    ; preds = %.lr.ph.i478, %._crit_edge156.loopexit.i492
-  %.sroa.132.20 = phi ptr [ %658, %._crit_edge156.loopexit.i492 ], [ %674, %.lr.ph.i478 ]
+  %.sroa.132.24 = phi ptr [ %658, %._crit_edge156.loopexit.i492 ], [ %674, %.lr.ph.i478 ]
   %.sroa.100.20 = phi ptr [ %653, %._crit_edge156.loopexit.i492 ], [ %669, %.lr.ph.i478 ]
-  %.sroa.50800.6 = phi ptr [ %660, %._crit_edge156.loopexit.i492 ], [ %676, %.lr.ph.i478 ]
-  %.sroa.16782.20 = phi ptr [ %651, %._crit_edge156.loopexit.i492 ], [ %667, %.lr.ph.i478 ]
+  %.sroa.50800.10 = phi ptr [ %660, %._crit_edge156.loopexit.i492 ], [ %676, %.lr.ph.i478 ]
+  %.sroa.16782.24 = phi ptr [ %651, %._crit_edge156.loopexit.i492 ], [ %667, %.lr.ph.i478 ]
   br i1 %640, label %.loopexit1005..preheader140.i507_crit_edge, label %.loopexit1005..preheader141.i499_crit_edge
 
 .loopexit1005..preheader140.i507_crit_edge:       ; preds = %.loopexit1005
@@ -7883,27 +7883,27 @@ cvSetSeqReaderPos.exit445:                        ; preds = %.lr.ph.i427, %.preh
 
 .preheader141.i499:                               ; preds = %.loopexit1005..preheader141.i499_crit_edge, %.preheader141.i474
   %.pre-phi1429 = phi i64 [ %.pre1428, %.loopexit1005..preheader141.i499_crit_edge ], [ %641, %.preheader141.i474 ]
-  %.sroa.16782.20969 = phi ptr [ %.sroa.16782.20, %.loopexit1005..preheader141.i499_crit_edge ], [ %.sroa.16782.17, %.preheader141.i474 ]
-  %.sroa.50800.6968 = phi ptr [ %.sroa.50800.6, %.loopexit1005..preheader141.i499_crit_edge ], [ %642, %.preheader141.i474 ]
+  %.sroa.16782.24969 = phi ptr [ %.sroa.16782.24, %.loopexit1005..preheader141.i499_crit_edge ], [ %.sroa.16782.21, %.preheader141.i474 ]
+  %.sroa.50800.10968 = phi ptr [ %.sroa.50800.10, %.loopexit1005..preheader141.i499_crit_edge ], [ %642, %.preheader141.i474 ]
   %.sroa.100.20967 = phi ptr [ %.sroa.100.20, %.loopexit1005..preheader141.i499_crit_edge ], [ %.sroa.100.17, %.preheader141.i474 ]
-  %678 = getelementptr inbounds i8, ptr %.sroa.50800.6968, i64 %.pre-phi1429
+  %678 = getelementptr inbounds i8, ptr %.sroa.50800.10968, i64 %.pre-phi1429
   %679 = icmp ult ptr %678, %.sroa.100.20967
   br i1 %679, label %.lr.ph.i503, label %cvSetSeqReaderPos.exit521
 
 .preheader140.i507:                               ; preds = %.loopexit1005..preheader140.i507_crit_edge, %.preheader140.i482
   %.pre-phi1427 = phi i64 [ %.pre1426, %.loopexit1005..preheader140.i507_crit_edge ], [ %644, %.preheader140.i482 ]
-  %.sroa.16782.20961 = phi ptr [ %.sroa.16782.20, %.loopexit1005..preheader140.i507_crit_edge ], [ %.sroa.16782.17, %.preheader140.i482 ]
-  %.sroa.50800.6960 = phi ptr [ %.sroa.50800.6, %.loopexit1005..preheader140.i507_crit_edge ], [ %645, %.preheader140.i482 ]
-  %.sroa.132.20958 = phi ptr [ %.sroa.132.20, %.loopexit1005..preheader140.i507_crit_edge ], [ %.sroa.132.17, %.preheader140.i482 ]
-  %680 = getelementptr inbounds i8, ptr %.sroa.50800.6960, i64 %.pre-phi1427
-  %.not137151.i509 = icmp ult ptr %680, %.sroa.132.20958
+  %.sroa.16782.24961 = phi ptr [ %.sroa.16782.24, %.loopexit1005..preheader140.i507_crit_edge ], [ %.sroa.16782.21, %.preheader140.i482 ]
+  %.sroa.50800.10960 = phi ptr [ %.sroa.50800.10, %.loopexit1005..preheader140.i507_crit_edge ], [ %645, %.preheader140.i482 ]
+  %.sroa.132.24958 = phi ptr [ %.sroa.132.24, %.loopexit1005..preheader140.i507_crit_edge ], [ %.sroa.132.21, %.preheader140.i482 ]
+  %680 = getelementptr inbounds i8, ptr %.sroa.50800.10960, i64 %.pre-phi1427
+  %.not137151.i509 = icmp ult ptr %680, %.sroa.132.24958
   br i1 %.not137151.i509, label %cvSetSeqReaderPos.exit521, label %.lr.ph155.i510
 
 .lr.ph155.i510:                                   ; preds = %.preheader140.i507, %.lr.ph155.i510
   %.3154.i511 = phi i32 [ %684, %.lr.ph155.i510 ], [ %639, %.preheader140.i507 ]
-  %.393153.i512 = phi ptr [ %686, %.lr.ph155.i510 ], [ %.sroa.16782.20961, %.preheader140.i507 ]
-  %.095152.i513 = phi ptr [ %688, %.lr.ph155.i510 ], [ %.sroa.50800.6960, %.preheader140.i507 ]
-  %681 = phi ptr [ %693, %.lr.ph155.i510 ], [ %.sroa.132.20958, %.preheader140.i507 ]
+  %.393153.i512 = phi ptr [ %686, %.lr.ph155.i510 ], [ %.sroa.16782.24961, %.preheader140.i507 ]
+  %.095152.i513 = phi ptr [ %688, %.lr.ph155.i510 ], [ %.sroa.50800.10960, %.preheader140.i507 ]
+  %681 = phi ptr [ %693, %.lr.ph155.i510 ], [ %.sroa.132.24958, %.preheader140.i507 ]
   %682 = ptrtoint ptr %681 to i64
   %683 = ptrtoint ptr %.095152.i513 to i64
   %.neg.i514 = sub i64 %683, %682
@@ -7928,8 +7928,8 @@ cvSetSeqReaderPos.exit445:                        ; preds = %.lr.ph.i427, %.preh
 
 .lr.ph.i503:                                      ; preds = %.preheader141.i499, %.lr.ph.i503
   %.4149.i504 = phi i32 [ %701, %.lr.ph.i503 ], [ %639, %.preheader141.i499 ]
-  %.494148.i505 = phi ptr [ %702, %.lr.ph.i503 ], [ %.sroa.16782.20969, %.preheader141.i499 ]
-  %.196147.i506 = phi ptr [ %709, %.lr.ph.i503 ], [ %.sroa.50800.6968, %.preheader141.i499 ]
+  %.494148.i505 = phi ptr [ %702, %.lr.ph.i503 ], [ %.sroa.16782.24969, %.preheader141.i499 ]
+  %.196147.i506 = phi ptr [ %709, %.lr.ph.i503 ], [ %.sroa.50800.10968, %.preheader141.i499 ]
   %696 = phi ptr [ %704, %.lr.ph.i503 ], [ %.sroa.100.20967, %.preheader141.i499 ]
   %697 = ptrtoint ptr %.196147.i506 to i64
   %698 = ptrtoint ptr %696 to i64
@@ -7950,11 +7950,11 @@ cvSetSeqReaderPos.exit445:                        ; preds = %.lr.ph.i427, %.preh
   br i1 %712, label %.lr.ph.i503, label %cvSetSeqReaderPos.exit521, !llvm.loop !13
 
 cvSetSeqReaderPos.exit521:                        ; preds = %.lr.ph.i503, %.preheader141.i499, %.preheader140.i507, %._crit_edge156.loopexit.i517
-  %.sroa.50800.6959 = phi ptr [ %.sroa.50800.6960, %._crit_edge156.loopexit.i517 ], [ %.sroa.50800.6960, %.preheader140.i507 ], [ %.sroa.50800.6968, %.preheader141.i499 ], [ %.sroa.50800.6968, %.lr.ph.i503 ]
-  %.sroa.50800.7 = phi ptr [ %695, %._crit_edge156.loopexit.i517 ], [ %680, %.preheader140.i507 ], [ %678, %.preheader141.i499 ], [ %711, %.lr.ph.i503 ]
-  %713 = call noundef i32 %1(ptr noundef %.sroa.50800.5, ptr noundef %.sroa.50800.6959, ptr noundef %2)
+  %.sroa.50800.10959 = phi ptr [ %.sroa.50800.10960, %._crit_edge156.loopexit.i517 ], [ %.sroa.50800.10960, %.preheader140.i507 ], [ %.sroa.50800.10968, %.preheader141.i499 ], [ %.sroa.50800.10968, %.lr.ph.i503 ]
+  %.sroa.50800.11 = phi ptr [ %695, %._crit_edge156.loopexit.i517 ], [ %680, %.preheader140.i507 ], [ %678, %.preheader141.i499 ], [ %711, %.lr.ph.i503 ]
+  %713 = call noundef i32 %1(ptr noundef %.sroa.50800.9, ptr noundef %.sroa.50800.10959, ptr noundef %2)
   %714 = icmp slt i32 %713, 0
-  %715 = call noundef i32 %1(ptr noundef %.sroa.50800.6959, ptr noundef %.sroa.50800.7, ptr noundef %2)
+  %715 = call noundef i32 %1(ptr noundef %.sroa.50800.10959, ptr noundef %.sroa.50800.11, ptr noundef %2)
   br i1 %714, label %716, label %722
 
 716:                                              ; preds = %cvSetSeqReaderPos.exit521
@@ -7962,9 +7962,9 @@ cvSetSeqReaderPos.exit521:                        ; preds = %.lr.ph.i503, %.preh
   br i1 %717, label %_Z7icvMed3PaS_S_PFiPKvS1_PvES2_.exit522, label %718
 
 718:                                              ; preds = %716
-  %719 = call noundef i32 %1(ptr noundef %.sroa.50800.5, ptr noundef %.sroa.50800.7, ptr noundef %2)
+  %719 = call noundef i32 %1(ptr noundef %.sroa.50800.9, ptr noundef %.sroa.50800.11, ptr noundef %2)
   %720 = icmp slt i32 %719, 0
-  %721 = select i1 %720, ptr %.sroa.50800.7, ptr %.sroa.50800.5
+  %721 = select i1 %720, ptr %.sroa.50800.11, ptr %.sroa.50800.9
   br label %_Z7icvMed3PaS_S_PFiPKvS1_PvES2_.exit522
 
 722:                                              ; preds = %cvSetSeqReaderPos.exit521
@@ -7972,9 +7972,9 @@ cvSetSeqReaderPos.exit521:                        ; preds = %.lr.ph.i503, %.preh
   br i1 %723, label %_Z7icvMed3PaS_S_PFiPKvS1_PvES2_.exit522, label %724
 
 724:                                              ; preds = %722
-  %725 = call noundef i32 %1(ptr noundef %.sroa.50800.5, ptr noundef %.sroa.50800.7, ptr noundef %2)
+  %725 = call noundef i32 %1(ptr noundef %.sroa.50800.9, ptr noundef %.sroa.50800.11, ptr noundef %2)
   %726 = icmp slt i32 %725, 0
-  %727 = select i1 %726, ptr %.sroa.50800.5, ptr %.sroa.50800.7
+  %727 = select i1 %726, ptr %.sroa.50800.9, ptr %.sroa.50800.11
   br label %_Z7icvMed3PaS_S_PFiPKvS1_PvES2_.exit522
 
 728:                                              ; preds = %356
@@ -8076,10 +8076,10 @@ cvSetSeqReaderPos.exit521:                        ; preds = %.lr.ph.i503, %.preh
   br i1 %778, label %.lr.ph.i529, label %.loopexit1010, !llvm.loop !13
 
 .loopexit1010:                                    ; preds = %.lr.ph.i529, %._crit_edge156.loopexit.i543, %.preheader140.i533, %.preheader141.i525
-  %.sroa.132.23 = phi ptr [ %.sroa.132.0.copyload, %.preheader140.i533 ], [ %759, %._crit_edge156.loopexit.i543 ], [ %.sroa.132.0.copyload, %.preheader141.i525 ], [ %775, %.lr.ph.i529 ]
+  %.sroa.132.27 = phi ptr [ %.sroa.132.0.copyload, %.preheader140.i533 ], [ %759, %._crit_edge156.loopexit.i543 ], [ %.sroa.132.0.copyload, %.preheader141.i525 ], [ %775, %.lr.ph.i529 ]
   %.sroa.100.23 = phi ptr [ %.sroa.100.0.copyload, %.preheader140.i533 ], [ %754, %._crit_edge156.loopexit.i543 ], [ %.sroa.100.0.copyload, %.preheader141.i525 ], [ %770, %.lr.ph.i529 ]
-  %.sroa.50800.8 = phi ptr [ %746, %.preheader140.i533 ], [ %761, %._crit_edge156.loopexit.i543 ], [ %743, %.preheader141.i525 ], [ %777, %.lr.ph.i529 ]
-  %.sroa.16782.23 = phi ptr [ %163, %.preheader140.i533 ], [ %752, %._crit_edge156.loopexit.i543 ], [ %163, %.preheader141.i525 ], [ %768, %.lr.ph.i529 ]
+  %.sroa.50800.12 = phi ptr [ %746, %.preheader140.i533 ], [ %761, %._crit_edge156.loopexit.i543 ], [ %743, %.preheader141.i525 ], [ %777, %.lr.ph.i529 ]
+  %.sroa.16782.27 = phi ptr [ %163, %.preheader140.i533 ], [ %752, %._crit_edge156.loopexit.i543 ], [ %163, %.preheader141.i525 ], [ %768, %.lr.ph.i529 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19)
   %779 = xor i32 %729, -1
@@ -8090,21 +8090,21 @@ cvSetSeqReaderPos.exit521:                        ; preds = %.lr.ph.i503, %.preh
 
 .preheader141.i550:                               ; preds = %.loopexit1010
   %783 = sext i32 %781 to i64
-  %784 = getelementptr inbounds i8, ptr %.sroa.50800.8, i64 %783
+  %784 = getelementptr inbounds i8, ptr %.sroa.50800.12, i64 %783
   %785 = icmp ult ptr %784, %.sroa.100.23
   br i1 %785, label %.lr.ph.i554, label %_Z7icvMed3PaS_S_PFiPKvS1_PvES2_.exit522
 
 .preheader140.i558:                               ; preds = %.loopexit1010
   %786 = zext nneg i32 %781 to i64
-  %787 = getelementptr inbounds i8, ptr %.sroa.50800.8, i64 %786
-  %.not137151.i560 = icmp ult ptr %787, %.sroa.132.23
+  %787 = getelementptr inbounds i8, ptr %.sroa.50800.12, i64 %786
+  %.not137151.i560 = icmp ult ptr %787, %.sroa.132.27
   br i1 %.not137151.i560, label %_Z7icvMed3PaS_S_PFiPKvS1_PvES2_.exit522, label %.lr.ph155.i561
 
 .lr.ph155.i561:                                   ; preds = %.preheader140.i558, %.lr.ph155.i561
   %.3154.i562 = phi i32 [ %791, %.lr.ph155.i561 ], [ %781, %.preheader140.i558 ]
-  %.393153.i563 = phi ptr [ %793, %.lr.ph155.i561 ], [ %.sroa.16782.23, %.preheader140.i558 ]
-  %.095152.i564 = phi ptr [ %795, %.lr.ph155.i561 ], [ %.sroa.50800.8, %.preheader140.i558 ]
-  %788 = phi ptr [ %800, %.lr.ph155.i561 ], [ %.sroa.132.23, %.preheader140.i558 ]
+  %.393153.i563 = phi ptr [ %793, %.lr.ph155.i561 ], [ %.sroa.16782.27, %.preheader140.i558 ]
+  %.095152.i564 = phi ptr [ %795, %.lr.ph155.i561 ], [ %.sroa.50800.12, %.preheader140.i558 ]
+  %788 = phi ptr [ %800, %.lr.ph155.i561 ], [ %.sroa.132.27, %.preheader140.i558 ]
   %789 = ptrtoint ptr %788 to i64
   %790 = ptrtoint ptr %.095152.i564 to i64
   %.neg.i565 = sub i64 %790, %789
@@ -8129,8 +8129,8 @@ cvSetSeqReaderPos.exit521:                        ; preds = %.lr.ph.i503, %.preh
 
 .lr.ph.i554:                                      ; preds = %.preheader141.i550, %.lr.ph.i554
   %.4149.i555 = phi i32 [ %808, %.lr.ph.i554 ], [ %781, %.preheader141.i550 ]
-  %.494148.i556 = phi ptr [ %809, %.lr.ph.i554 ], [ %.sroa.16782.23, %.preheader141.i550 ]
-  %.196147.i557 = phi ptr [ %816, %.lr.ph.i554 ], [ %.sroa.50800.8, %.preheader141.i550 ]
+  %.494148.i556 = phi ptr [ %809, %.lr.ph.i554 ], [ %.sroa.16782.27, %.preheader141.i550 ]
+  %.196147.i557 = phi ptr [ %816, %.lr.ph.i554 ], [ %.sroa.50800.12, %.preheader141.i550 ]
   %803 = phi ptr [ %811, %.lr.ph.i554 ], [ %.sroa.100.23, %.preheader141.i550 ]
   %804 = ptrtoint ptr %.196147.i557 to i64
   %805 = ptrtoint ptr %803 to i64
@@ -8151,8 +8151,8 @@ cvSetSeqReaderPos.exit521:                        ; preds = %.lr.ph.i503, %.preh
   br i1 %819, label %.lr.ph.i554, label %_Z7icvMed3PaS_S_PFiPKvS1_PvES2_.exit522, !llvm.loop !13
 
 _Z7icvMed3PaS_S_PFiPKvS1_PvES2_.exit522:          ; preds = %.lr.ph.i554, %._crit_edge156.loopexit.i568, %.preheader140.i558, %.preheader141.i550, %724, %722, %718, %716
-  %.0259 = phi ptr [ %721, %718 ], [ %727, %724 ], [ %.sroa.50800.6959, %716 ], [ %.sroa.50800.6959, %722 ], [ %787, %.preheader140.i558 ], [ %802, %._crit_edge156.loopexit.i568 ], [ %784, %.preheader141.i550 ], [ %818, %.lr.ph.i554 ]
-  %.0257 = phi ptr [ %595, %718 ], [ %595, %724 ], [ %595, %716 ], [ %595, %722 ], [ %.sroa.50800.8, %.preheader140.i558 ], [ %.sroa.50800.8, %._crit_edge156.loopexit.i568 ], [ %.sroa.50800.8, %.preheader141.i550 ], [ %.sroa.50800.8, %.lr.ph.i554 ]
+  %.0259 = phi ptr [ %721, %718 ], [ %727, %724 ], [ %.sroa.50800.10959, %716 ], [ %.sroa.50800.10959, %722 ], [ %787, %.preheader140.i558 ], [ %802, %._crit_edge156.loopexit.i568 ], [ %784, %.preheader141.i550 ], [ %818, %.lr.ph.i554 ]
+  %.0257 = phi ptr [ %595, %718 ], [ %595, %724 ], [ %595, %716 ], [ %595, %722 ], [ %.sroa.50800.12, %.preheader140.i558 ], [ %.sroa.50800.12, %._crit_edge156.loopexit.i568 ], [ %.sroa.50800.12, %.preheader141.i550 ], [ %.sroa.50800.12, %.lr.ph.i554 ]
   %.0256 = phi ptr [ %461, %718 ], [ %461, %724 ], [ %461, %716 ], [ %461, %722 ], [ %.sroa.50800.0.copyload, %.preheader140.i558 ], [ %.sroa.50800.0.copyload, %._crit_edge156.loopexit.i568 ], [ %.sroa.50800.0.copyload, %.preheader141.i550 ], [ %.sroa.50800.0.copyload, %.lr.ph.i554 ]
   %820 = call noundef i32 %1(ptr noundef %.0256, ptr noundef %.0257, ptr noundef %2)
   %821 = icmp slt i32 %820, 0
@@ -9022,27 +9022,27 @@ cvGetSeqReaderPos.exit626:                        ; preds = %1180, %1189
   br i1 %1246, label %.lr.ph.i633, label %.preheader998.preheader, !llvm.loop !13
 
 .preheader998.preheader:                          ; preds = %.lr.ph.i633, %._crit_edge156.loopexit.i647, %.preheader140.i637, %.preheader141.i629
-  %.sroa.40.2 = phi ptr [ %.sroa.40.0.copyload, %.preheader140.i637 ], [ %1227, %._crit_edge156.loopexit.i647 ], [ %.sroa.40.0.copyload, %.preheader141.i629 ], [ %1243, %.lr.ph.i633 ]
-  %.sroa.16.0 = phi ptr [ %1214, %.preheader140.i637 ], [ %1229, %._crit_edge156.loopexit.i647 ], [ %1211, %.preheader141.i629 ], [ %1245, %.lr.ph.i633 ]
-  %.sroa.6.2 = phi ptr [ %1115, %.preheader140.i637 ], [ %1220, %._crit_edge156.loopexit.i647 ], [ %1115, %.preheader141.i629 ], [ %1236, %.lr.ph.i633 ]
+  %.sroa.40.6 = phi ptr [ %.sroa.40.0.copyload, %.preheader140.i637 ], [ %1227, %._crit_edge156.loopexit.i647 ], [ %.sroa.40.0.copyload, %.preheader141.i629 ], [ %1243, %.lr.ph.i633 ]
+  %.sroa.16.4 = phi ptr [ %1214, %.preheader140.i637 ], [ %1229, %._crit_edge156.loopexit.i647 ], [ %1211, %.preheader141.i629 ], [ %1245, %.lr.ph.i633 ]
+  %.sroa.6.6 = phi ptr [ %1115, %.preheader140.i637 ], [ %1220, %._crit_edge156.loopexit.i647 ], [ %1115, %.preheader141.i629 ], [ %1236, %.lr.ph.i633 ]
   %smax = call i32 @llvm.smax.i32(i32 %., i32 1)
   br label %.preheader998
 
 .preheader998:                                    ; preds = %.preheader998.preheader, %1276
   %.02501183 = phi i32 [ %1277, %1276 ], [ 0, %.preheader998.preheader ]
-  %.sroa.6.31182 = phi ptr [ %.sroa.6.4, %1276 ], [ %.sroa.6.2, %.preheader998.preheader ]
-  %.sroa.16.11181 = phi ptr [ %.sroa.16.2, %1276 ], [ %.sroa.16.0, %.preheader998.preheader ]
-  %.sroa.40.31180 = phi ptr [ %.sroa.40.4, %1276 ], [ %.sroa.40.2, %.preheader998.preheader ]
-  %.sroa.16782.241179 = phi ptr [ %.sroa.16782.25, %1276 ], [ %1160, %.preheader998.preheader ]
-  %.sroa.50800.101178 = phi ptr [ %.sroa.50800.11, %1276 ], [ %1125, %.preheader998.preheader ]
-  %.sroa.132.241177 = phi ptr [ %.sroa.132.25, %1276 ], [ %.sroa.132.0.copyload841, %.preheader998.preheader ]
+  %.sroa.6.01182 = phi ptr [ %.sroa.6.1, %1276 ], [ %.sroa.6.6, %.preheader998.preheader ]
+  %.sroa.16.01181 = phi ptr [ %.sroa.16.1, %1276 ], [ %.sroa.16.4, %.preheader998.preheader ]
+  %.sroa.40.01180 = phi ptr [ %.sroa.40.1, %1276 ], [ %.sroa.40.6, %.preheader998.preheader ]
+  %.sroa.16782.01179 = phi ptr [ %.sroa.16782.1, %1276 ], [ %1160, %.preheader998.preheader ]
+  %.sroa.50800.01178 = phi ptr [ %.sroa.50800.1, %1276 ], [ %1125, %.preheader998.preheader ]
+  %.sroa.132.01177 = phi ptr [ %.sroa.132.1, %1276 ], [ %.sroa.132.0.copyload841, %.preheader998.preheader ]
   br i1 %144, label %._crit_edge1176, label %.lr.ph1175
 
 .lr.ph1175:                                       ; preds = %.preheader998, %.lr.ph1175
   %indvars.iv1366 = phi i64 [ %indvars.iv.next1367, %.lr.ph1175 ], [ 0, %.preheader998 ]
-  %1247 = getelementptr inbounds i8, ptr %.sroa.50800.101178, i64 %indvars.iv1366
+  %1247 = getelementptr inbounds i8, ptr %.sroa.50800.01178, i64 %indvars.iv1366
   %1248 = load i8, ptr %1247, align 1
-  %1249 = getelementptr inbounds i8, ptr %.sroa.16.11181, i64 %indvars.iv1366
+  %1249 = getelementptr inbounds i8, ptr %.sroa.16.01181, i64 %indvars.iv1366
   %1250 = load i8, ptr %1249, align 1
   store i8 %1250, ptr %1247, align 1
   store i8 %1248, ptr %1249, align 1
@@ -9051,12 +9051,12 @@ cvGetSeqReaderPos.exit626:                        ; preds = %1180, %1189
   br i1 %exitcond1370.not, label %._crit_edge1176, label %.lr.ph1175, !llvm.loop !43
 
 ._crit_edge1176:                                  ; preds = %.lr.ph1175, %.preheader998
-  %1251 = getelementptr inbounds i8, ptr %.sroa.50800.101178, i64 %103
-  %.not309 = icmp ult ptr %1251, %.sroa.132.241177
+  %1251 = getelementptr inbounds i8, ptr %.sroa.50800.01178, i64 %103
+  %.not309 = icmp ult ptr %1251, %.sroa.132.01177
   br i1 %.not309, label %1263, label %1252
 
 1252:                                             ; preds = %._crit_edge1176
-  %1253 = getelementptr inbounds i8, ptr %.sroa.16782.241179, i64 8
+  %1253 = getelementptr inbounds i8, ptr %.sroa.16782.01179, i64 8
   %1254 = load ptr, ptr %1253, align 8
   %1255 = getelementptr inbounds i8, ptr %1254, i64 24
   %1256 = load ptr, ptr %1255, align 8
@@ -9069,15 +9069,15 @@ cvGetSeqReaderPos.exit626:                        ; preds = %1180, %1189
   br label %1263
 
 1263:                                             ; preds = %1252, %._crit_edge1176
-  %.sroa.132.25 = phi ptr [ %.sroa.132.241177, %._crit_edge1176 ], [ %1262, %1252 ]
-  %.sroa.50800.11 = phi ptr [ %1251, %._crit_edge1176 ], [ %1256, %1252 ]
-  %.sroa.16782.25 = phi ptr [ %.sroa.16782.241179, %._crit_edge1176 ], [ %1254, %1252 ]
-  %1264 = getelementptr inbounds i8, ptr %.sroa.16.11181, i64 %103
-  %.not310 = icmp ult ptr %1264, %.sroa.40.31180
+  %.sroa.132.1 = phi ptr [ %.sroa.132.01177, %._crit_edge1176 ], [ %1262, %1252 ]
+  %.sroa.50800.1 = phi ptr [ %1251, %._crit_edge1176 ], [ %1256, %1252 ]
+  %.sroa.16782.1 = phi ptr [ %.sroa.16782.01179, %._crit_edge1176 ], [ %1254, %1252 ]
+  %1264 = getelementptr inbounds i8, ptr %.sroa.16.01181, i64 %103
+  %.not310 = icmp ult ptr %1264, %.sroa.40.01180
   br i1 %.not310, label %1276, label %1265
 
 1265:                                             ; preds = %1263
-  %1266 = getelementptr inbounds i8, ptr %.sroa.6.31182, i64 8
+  %1266 = getelementptr inbounds i8, ptr %.sroa.6.01182, i64 8
   %1267 = load ptr, ptr %1266, align 8
   %1268 = getelementptr inbounds i8, ptr %1267, i64 24
   %1269 = load ptr, ptr %1268, align 8
@@ -9090,9 +9090,9 @@ cvGetSeqReaderPos.exit626:                        ; preds = %1180, %1189
   br label %1276
 
 1276:                                             ; preds = %1263, %1265
-  %.sroa.40.4 = phi ptr [ %.sroa.40.31180, %1263 ], [ %1275, %1265 ]
-  %.sroa.16.2 = phi ptr [ %1264, %1263 ], [ %1269, %1265 ]
-  %.sroa.6.4 = phi ptr [ %.sroa.6.31182, %1263 ], [ %1267, %1265 ]
+  %.sroa.40.1 = phi ptr [ %.sroa.40.01180, %1263 ], [ %1275, %1265 ]
+  %.sroa.16.1 = phi ptr [ %1264, %1263 ], [ %1269, %1265 ]
+  %.sroa.6.1 = phi ptr [ %.sroa.6.01182, %1263 ], [ %1267, %1265 ]
   %1277 = add nuw nsw i32 %.02501183, 1
   %exitcond1371.not = icmp eq i32 %1277, %smax
   br i1 %exitcond1371.not, label %.loopexit1001, label %.preheader998, !llvm.loop !44
@@ -9404,28 +9404,28 @@ cvGetSeqReaderPos.exit680:                        ; preds = %1371, %1380
   br i1 %1434, label %.lr.ph.i687, label %.preheader997.lr.ph, !llvm.loop !13
 
 .preheader997.lr.ph:                              ; preds = %.lr.ph.i687, %._crit_edge156.loopexit.i701, %.preheader140.i691, %.preheader141.i683
-  %.sroa.40.7 = phi ptr [ %.sroa.40.0.copyload760, %.preheader140.i691 ], [ %1415, %._crit_edge156.loopexit.i701 ], [ %.sroa.40.0.copyload760, %.preheader141.i683 ], [ %1431, %.lr.ph.i687 ]
-  %.sroa.16.3 = phi ptr [ %1402, %.preheader140.i691 ], [ %1417, %._crit_edge156.loopexit.i701 ], [ %1399, %.preheader141.i683 ], [ %1433, %.lr.ph.i687 ]
-  %.sroa.6.7 = phi ptr [ %1352, %.preheader140.i691 ], [ %1408, %._crit_edge156.loopexit.i701 ], [ %1352, %.preheader141.i683 ], [ %1424, %.lr.ph.i687 ]
+  %.sroa.40.9 = phi ptr [ %.sroa.40.0.copyload760, %.preheader140.i691 ], [ %1415, %._crit_edge156.loopexit.i701 ], [ %.sroa.40.0.copyload760, %.preheader141.i683 ], [ %1431, %.lr.ph.i687 ]
+  %.sroa.16.5 = phi ptr [ %1402, %.preheader140.i691 ], [ %1417, %._crit_edge156.loopexit.i701 ], [ %1399, %.preheader141.i683 ], [ %1433, %.lr.ph.i687 ]
+  %.sroa.6.9 = phi ptr [ %1352, %.preheader140.i691 ], [ %1408, %._crit_edge156.loopexit.i701 ], [ %1352, %.preheader141.i683 ], [ %1424, %.lr.ph.i687 ]
   %1435 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload772, i64 44
   %smax1377 = call i32 @llvm.smax.i32(i32 %.321, i32 1)
   br label %.preheader997
 
 .preheader997:                                    ; preds = %.preheader997.lr.ph, %1465
   %.12511193 = phi i32 [ 0, %.preheader997.lr.ph ], [ %1466, %1465 ]
-  %.sroa.6.81192 = phi ptr [ %.sroa.6.7, %.preheader997.lr.ph ], [ %.sroa.6.9, %1465 ]
-  %.sroa.16.41191 = phi ptr [ %.sroa.16.3, %.preheader997.lr.ph ], [ %.sroa.16.5, %1465 ]
-  %.sroa.40.81190 = phi ptr [ %.sroa.40.7, %.preheader997.lr.ph ], [ %.sroa.40.9, %1465 ]
-  %.sroa.16782.261189 = phi ptr [ %.sroa.16782.0.copyload788, %.preheader997.lr.ph ], [ %.sroa.16782.27, %1465 ]
-  %.sroa.50800.121188 = phi ptr [ %.sroa.50800.0.copyload806, %.preheader997.lr.ph ], [ %.sroa.50800.13, %1465 ]
-  %.sroa.132.261187 = phi ptr [ %.sroa.132.0.copyload843, %.preheader997.lr.ph ], [ %.sroa.132.27, %1465 ]
+  %.sroa.6.21192 = phi ptr [ %.sroa.6.9, %.preheader997.lr.ph ], [ %.sroa.6.3, %1465 ]
+  %.sroa.16.21191 = phi ptr [ %.sroa.16.5, %.preheader997.lr.ph ], [ %.sroa.16.3, %1465 ]
+  %.sroa.40.21190 = phi ptr [ %.sroa.40.9, %.preheader997.lr.ph ], [ %.sroa.40.3, %1465 ]
+  %.sroa.16782.21189 = phi ptr [ %.sroa.16782.0.copyload788, %.preheader997.lr.ph ], [ %.sroa.16782.3, %1465 ]
+  %.sroa.50800.21188 = phi ptr [ %.sroa.50800.0.copyload806, %.preheader997.lr.ph ], [ %.sroa.50800.3, %1465 ]
+  %.sroa.132.21187 = phi ptr [ %.sroa.132.0.copyload843, %.preheader997.lr.ph ], [ %.sroa.132.3, %1465 ]
   br i1 %144, label %._crit_edge1186, label %.lr.ph1185
 
 .lr.ph1185:                                       ; preds = %.preheader997, %.lr.ph1185
   %indvars.iv1372 = phi i64 [ %indvars.iv.next1373, %.lr.ph1185 ], [ 0, %.preheader997 ]
-  %1436 = getelementptr inbounds i8, ptr %.sroa.50800.121188, i64 %indvars.iv1372
+  %1436 = getelementptr inbounds i8, ptr %.sroa.50800.21188, i64 %indvars.iv1372
   %1437 = load i8, ptr %1436, align 1
-  %1438 = getelementptr inbounds i8, ptr %.sroa.16.41191, i64 %indvars.iv1372
+  %1438 = getelementptr inbounds i8, ptr %.sroa.16.21191, i64 %indvars.iv1372
   %1439 = load i8, ptr %1438, align 1
   store i8 %1439, ptr %1436, align 1
   store i8 %1437, ptr %1438, align 1
@@ -9434,12 +9434,12 @@ cvGetSeqReaderPos.exit680:                        ; preds = %1371, %1380
   br i1 %exitcond1376.not, label %._crit_edge1186, label %.lr.ph1185, !llvm.loop !45
 
 ._crit_edge1186:                                  ; preds = %.lr.ph1185, %.preheader997
-  %1440 = getelementptr inbounds i8, ptr %.sroa.50800.121188, i64 %103
-  %.not307 = icmp ult ptr %1440, %.sroa.132.261187
+  %1440 = getelementptr inbounds i8, ptr %.sroa.50800.21188, i64 %103
+  %.not307 = icmp ult ptr %1440, %.sroa.132.21187
   br i1 %.not307, label %1452, label %1441
 
 1441:                                             ; preds = %._crit_edge1186
-  %1442 = getelementptr inbounds i8, ptr %.sroa.16782.261189, i64 8
+  %1442 = getelementptr inbounds i8, ptr %.sroa.16782.21189, i64 8
   %1443 = load ptr, ptr %1442, align 8
   %1444 = getelementptr inbounds i8, ptr %1443, i64 24
   %1445 = load ptr, ptr %1444, align 8
@@ -9452,15 +9452,15 @@ cvGetSeqReaderPos.exit680:                        ; preds = %1371, %1380
   br label %1452
 
 1452:                                             ; preds = %1441, %._crit_edge1186
-  %.sroa.132.27 = phi ptr [ %.sroa.132.261187, %._crit_edge1186 ], [ %1451, %1441 ]
-  %.sroa.50800.13 = phi ptr [ %1440, %._crit_edge1186 ], [ %1445, %1441 ]
-  %.sroa.16782.27 = phi ptr [ %.sroa.16782.261189, %._crit_edge1186 ], [ %1443, %1441 ]
-  %1453 = getelementptr inbounds i8, ptr %.sroa.16.41191, i64 %103
-  %.not308 = icmp ult ptr %1453, %.sroa.40.81190
+  %.sroa.132.3 = phi ptr [ %.sroa.132.21187, %._crit_edge1186 ], [ %1451, %1441 ]
+  %.sroa.50800.3 = phi ptr [ %1440, %._crit_edge1186 ], [ %1445, %1441 ]
+  %.sroa.16782.3 = phi ptr [ %.sroa.16782.21189, %._crit_edge1186 ], [ %1443, %1441 ]
+  %1453 = getelementptr inbounds i8, ptr %.sroa.16.21191, i64 %103
+  %.not308 = icmp ult ptr %1453, %.sroa.40.21190
   br i1 %.not308, label %1465, label %1454
 
 1454:                                             ; preds = %1452
-  %1455 = getelementptr inbounds i8, ptr %.sroa.6.81192, i64 8
+  %1455 = getelementptr inbounds i8, ptr %.sroa.6.21192, i64 8
   %1456 = load ptr, ptr %1455, align 8
   %1457 = getelementptr inbounds i8, ptr %1456, i64 24
   %1458 = load ptr, ptr %1457, align 8
@@ -9473,9 +9473,9 @@ cvGetSeqReaderPos.exit680:                        ; preds = %1371, %1380
   br label %1465
 
 1465:                                             ; preds = %1452, %1454
-  %.sroa.40.9 = phi ptr [ %.sroa.40.81190, %1452 ], [ %1464, %1454 ]
-  %.sroa.16.5 = phi ptr [ %1453, %1452 ], [ %1458, %1454 ]
-  %.sroa.6.9 = phi ptr [ %.sroa.6.81192, %1452 ], [ %1456, %1454 ]
+  %.sroa.40.3 = phi ptr [ %.sroa.40.21190, %1452 ], [ %1464, %1454 ]
+  %.sroa.16.3 = phi ptr [ %1453, %1452 ], [ %1458, %1454 ]
+  %.sroa.6.3 = phi ptr [ %.sroa.6.21192, %1452 ], [ %1456, %1454 ]
   %1466 = add nuw nsw i32 %.12511193, 1
   %exitcond1378.not = icmp eq i32 %1466, %smax1377
   br i1 %exitcond1378.not, label %.loopexit1000, label %.preheader997, !llvm.loop !46
@@ -9783,8 +9783,8 @@ define ptr @cvSeqSearch(ptr noundef readonly %0, ptr noundef %1, ptr noundef rea
   br label %cvStartReadSeq.exit
 
 cvStartReadSeq.exit:                              ; preds = %42, %45
-  %.sroa.14.0 = phi ptr [ %47, %45 ], [ null, %42 ]
-  %.sroa.32.0 = phi ptr [ %52, %45 ], [ null, %42 ]
+  %.sroa.14.7 = phi ptr [ %47, %45 ], [ null, %42 ]
+  %.sroa.32.6 = phi ptr [ %52, %45 ], [ null, %42 ]
   %.not108 = icmp eq ptr %2, null
   br i1 %.not108, label %73, label %.preheader148
 
@@ -9798,20 +9798,20 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
 
 55:                                               ; preds = %.lr.ph163, %71
   %.080162 = phi i32 [ 0, %.lr.ph163 ], [ %72, %71 ]
-  %.sroa.32.1161 = phi ptr [ %.sroa.32.0, %.lr.ph163 ], [ %.sroa.32.2, %71 ]
-  %.sroa.14.1160 = phi ptr [ %.sroa.14.0, %.lr.ph163 ], [ %.sroa.14.2, %71 ]
-  %.sroa.6.1159 = phi ptr [ %44, %.lr.ph163 ], [ %.sroa.6.2, %71 ]
-  %56 = tail call noundef i32 %2(ptr noundef nonnull %1, ptr noundef %.sroa.14.1160, ptr noundef %5)
+  %.sroa.32.0161 = phi ptr [ %.sroa.32.6, %.lr.ph163 ], [ %.sroa.32.1, %71 ]
+  %.sroa.14.0160 = phi ptr [ %.sroa.14.7, %.lr.ph163 ], [ %.sroa.14.1, %71 ]
+  %.sroa.6.0159 = phi ptr [ %44, %.lr.ph163 ], [ %.sroa.6.1, %71 ]
+  %56 = tail call noundef i32 %2(ptr noundef nonnull %1, ptr noundef %.sroa.14.0160, ptr noundef %5)
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %.loopexit, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %.sroa.14.1160, i64 %54
-  %.not113 = icmp ult ptr %59, %.sroa.32.1161
+  %59 = getelementptr inbounds i8, ptr %.sroa.14.0160, i64 %54
+  %.not113 = icmp ult ptr %59, %.sroa.32.0161
   br i1 %.not113, label %71, label %60
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %.sroa.6.1159, i64 8
+  %61 = getelementptr inbounds i8, ptr %.sroa.6.0159, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
@@ -9824,9 +9824,9 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
   br label %71
 
 71:                                               ; preds = %58, %60
-  %.sroa.6.2 = phi ptr [ %.sroa.6.1159, %58 ], [ %62, %60 ]
-  %.sroa.14.2 = phi ptr [ %59, %58 ], [ %64, %60 ]
-  %.sroa.32.2 = phi ptr [ %.sroa.32.1161, %58 ], [ %70, %60 ]
+  %.sroa.6.1 = phi ptr [ %.sroa.6.0159, %58 ], [ %62, %60 ]
+  %.sroa.14.1 = phi ptr [ %59, %58 ], [ %64, %60 ]
+  %.sroa.32.1 = phi ptr [ %.sroa.32.0161, %58 ], [ %70, %60 ]
   %72 = add nuw nsw i32 %.080162, 1
   %exitcond.not = icmp eq i32 %72, %39
   br i1 %exitcond.not, label %.loopexit, label %55, !llvm.loop !49
@@ -9850,10 +9850,10 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
   br label %.preheader145.us
 
 .preheader145.us:                                 ; preds = %.preheader145.us.preheader, %98
-  %.2177.us = phi i32 [ %99, %98 ], [ 0, %.preheader145.us.preheader ]
-  %.sroa.32.5176.us = phi ptr [ %.sroa.32.6.us, %98 ], [ %.sroa.32.0, %.preheader145.us.preheader ]
-  %.sroa.14.5175.us = phi ptr [ %.sroa.14.6.us, %98 ], [ %.sroa.14.0, %.preheader145.us.preheader ]
-  %.sroa.6.5174.us = phi ptr [ %.sroa.6.6.us, %98 ], [ %44, %.preheader145.us.preheader ]
+  %.3177.us = phi i32 [ %99, %98 ], [ 0, %.preheader145.us.preheader ]
+  %.sroa.32.4176.us = phi ptr [ %.sroa.32.5.us, %98 ], [ %.sroa.32.6, %.preheader145.us.preheader ]
+  %.sroa.14.5175.us = phi ptr [ %.sroa.14.6.us, %98 ], [ %.sroa.14.7, %.preheader145.us.preheader ]
+  %.sroa.6.4174.us = phi ptr [ %.sroa.6.5.us, %98 ], [ %44, %.preheader145.us.preheader ]
   br label %79
 
 79:                                               ; preds = %.preheader145.us, %100
@@ -9872,11 +9872,11 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
 
 86:                                               ; preds = %._crit_edge.us
   %87 = getelementptr inbounds i8, ptr %.sroa.14.5175.us, i64 %74
-  %.not110.us = icmp ult ptr %87, %.sroa.32.5176.us
+  %.not110.us = icmp ult ptr %87, %.sroa.32.4176.us
   br i1 %.not110.us, label %98, label %88
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %.sroa.6.5174.us, i64 8
+  %89 = getelementptr inbounds i8, ptr %.sroa.6.4174.us, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
@@ -9888,10 +9888,10 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
   br label %98
 
 98:                                               ; preds = %88, %86
-  %.sroa.6.6.us = phi ptr [ %.sroa.6.5174.us, %86 ], [ %90, %88 ]
+  %.sroa.6.5.us = phi ptr [ %.sroa.6.4174.us, %86 ], [ %90, %88 ]
   %.sroa.14.6.us = phi ptr [ %87, %86 ], [ %92, %88 ]
-  %.sroa.32.6.us = phi ptr [ %.sroa.32.5176.us, %86 ], [ %97, %88 ]
-  %99 = add nuw nsw i32 %.2177.us, 1
+  %.sroa.32.5.us = phi ptr [ %.sroa.32.4176.us, %86 ], [ %97, %88 ]
+  %99 = add nuw nsw i32 %.3177.us, 1
   %exitcond242.not = icmp eq i32 %99, %39
   br i1 %exitcond242.not, label %.loopexit, label %.preheader145.us, !llvm.loop !50
 
@@ -9912,10 +9912,10 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
   br i1 %102, label %.preheader.us, label %.preheader.lr.ph.split
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %122
-  %.1203.us = phi i32 [ %123, %122 ], [ 0, %.preheader.lr.ph ]
-  %.sroa.32.3202.us = phi ptr [ %.sroa.32.4.us, %122 ], [ %.sroa.32.0, %.preheader.lr.ph ]
-  %.sroa.14.3201.us = phi ptr [ %.sroa.14.4.us, %122 ], [ %.sroa.14.0, %.preheader.lr.ph ]
-  %.sroa.6.3200.us = phi ptr [ %.sroa.6.4.us, %122 ], [ %44, %.preheader.lr.ph ]
+  %.2203.us = phi i32 [ %123, %122 ], [ 0, %.preheader.lr.ph ]
+  %.sroa.32.2202.us = phi ptr [ %.sroa.32.3.us, %122 ], [ %.sroa.32.6, %.preheader.lr.ph ]
+  %.sroa.14.3201.us = phi ptr [ %.sroa.14.4.us, %122 ], [ %.sroa.14.7, %.preheader.lr.ph ]
+  %.sroa.6.2200.us = phi ptr [ %.sroa.6.3.us, %122 ], [ %44, %.preheader.lr.ph ]
   br label %103
 
 103:                                              ; preds = %.preheader.us, %124
@@ -9935,11 +9935,11 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
 
 110:                                              ; preds = %._crit_edge.us209
   %111 = getelementptr inbounds i8, ptr %.sroa.14.3201.us, i64 %74
-  %.not112.us = icmp ult ptr %111, %.sroa.32.3202.us
+  %.not112.us = icmp ult ptr %111, %.sroa.32.2202.us
   br i1 %.not112.us, label %122, label %112
 
 112:                                              ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %.sroa.6.3200.us, i64 8
+  %113 = getelementptr inbounds i8, ptr %.sroa.6.2200.us, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 24
   %116 = load ptr, ptr %115, align 8
@@ -9951,10 +9951,10 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
   br label %122
 
 122:                                              ; preds = %112, %110
-  %.sroa.6.4.us = phi ptr [ %.sroa.6.3200.us, %110 ], [ %114, %112 ]
+  %.sroa.6.3.us = phi ptr [ %.sroa.6.2200.us, %110 ], [ %114, %112 ]
   %.sroa.14.4.us = phi ptr [ %111, %110 ], [ %116, %112 ]
-  %.sroa.32.4.us = phi ptr [ %.sroa.32.3202.us, %110 ], [ %121, %112 ]
-  %123 = add nuw nsw i32 %.1203.us, 1
+  %.sroa.32.3.us = phi ptr [ %.sroa.32.2202.us, %110 ], [ %121, %112 ]
+  %123 = add nuw nsw i32 %.2203.us, 1
   %exitcond244.not = icmp eq i32 %123, %39
   br i1 %exitcond244.not, label %.loopexit, label %.preheader.us, !llvm.loop !52
 
@@ -9968,16 +9968,16 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
   br i1 %127, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %139
-  %.1203 = phi i32 [ %140, %139 ], [ 0, %.preheader.lr.ph.split ]
-  %.sroa.32.3202 = phi ptr [ %.sroa.32.4, %139 ], [ %.sroa.32.0, %.preheader.lr.ph.split ]
-  %.sroa.14.3201 = phi ptr [ %.sroa.14.4, %139 ], [ %.sroa.14.0, %.preheader.lr.ph.split ]
-  %.sroa.6.3200 = phi ptr [ %.sroa.6.4, %139 ], [ %44, %.preheader.lr.ph.split ]
+  %.2203 = phi i32 [ %140, %139 ], [ 0, %.preheader.lr.ph.split ]
+  %.sroa.32.2202 = phi ptr [ %.sroa.32.3, %139 ], [ %.sroa.32.6, %.preheader.lr.ph.split ]
+  %.sroa.14.3201 = phi ptr [ %.sroa.14.4, %139 ], [ %.sroa.14.7, %.preheader.lr.ph.split ]
+  %.sroa.6.2200 = phi ptr [ %.sroa.6.3, %139 ], [ %44, %.preheader.lr.ph.split ]
   %128 = getelementptr inbounds i8, ptr %.sroa.14.3201, i64 %74
-  %.not112 = icmp ult ptr %128, %.sroa.32.3202
+  %.not112 = icmp ult ptr %128, %.sroa.32.2202
   br i1 %.not112, label %139, label %129
 
 129:                                              ; preds = %.preheader
-  %130 = getelementptr inbounds i8, ptr %.sroa.6.3200, i64 8
+  %130 = getelementptr inbounds i8, ptr %.sroa.6.2200, i64 8
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 24
   %133 = load ptr, ptr %132, align 8
@@ -9989,24 +9989,24 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
   br label %139
 
 139:                                              ; preds = %.preheader, %129
-  %.sroa.6.4 = phi ptr [ %.sroa.6.3200, %.preheader ], [ %131, %129 ]
+  %.sroa.6.3 = phi ptr [ %.sroa.6.2200, %.preheader ], [ %131, %129 ]
   %.sroa.14.4 = phi ptr [ %128, %.preheader ], [ %133, %129 ]
-  %.sroa.32.4 = phi ptr [ %.sroa.32.3202, %.preheader ], [ %138, %129 ]
-  %140 = add nuw nsw i32 %.1203, 1
+  %.sroa.32.3 = phi ptr [ %.sroa.32.2202, %.preheader ], [ %138, %129 ]
+  %140 = add nuw nsw i32 %.2203, 1
   %exitcond243.not = icmp eq i32 %140, %39
   br i1 %exitcond243.not, label %.loopexit, label %.preheader, !llvm.loop !52
 
 .preheader145:                                    ; preds = %.preheader145.lr.ph.split, %152
-  %.2177 = phi i32 [ %153, %152 ], [ 0, %.preheader145.lr.ph.split ]
-  %.sroa.32.5176 = phi ptr [ %.sroa.32.6, %152 ], [ %.sroa.32.0, %.preheader145.lr.ph.split ]
-  %.sroa.14.5175 = phi ptr [ %.sroa.14.6, %152 ], [ %.sroa.14.0, %.preheader145.lr.ph.split ]
-  %.sroa.6.5174 = phi ptr [ %.sroa.6.6, %152 ], [ %44, %.preheader145.lr.ph.split ]
+  %.3177 = phi i32 [ %153, %152 ], [ 0, %.preheader145.lr.ph.split ]
+  %.sroa.32.4176 = phi ptr [ %.sroa.32.5, %152 ], [ %.sroa.32.6, %.preheader145.lr.ph.split ]
+  %.sroa.14.5175 = phi ptr [ %.sroa.14.6, %152 ], [ %.sroa.14.7, %.preheader145.lr.ph.split ]
+  %.sroa.6.4174 = phi ptr [ %.sroa.6.5, %152 ], [ %44, %.preheader145.lr.ph.split ]
   %141 = getelementptr inbounds i8, ptr %.sroa.14.5175, i64 %74
-  %.not110 = icmp ult ptr %141, %.sroa.32.5176
+  %.not110 = icmp ult ptr %141, %.sroa.32.4176
   br i1 %.not110, label %152, label %142
 
 142:                                              ; preds = %.preheader145
-  %143 = getelementptr inbounds i8, ptr %.sroa.6.5174, i64 8
+  %143 = getelementptr inbounds i8, ptr %.sroa.6.4174, i64 8
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds i8, ptr %144, i64 24
   %146 = load ptr, ptr %145, align 8
@@ -10018,18 +10018,18 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
   br label %152
 
 152:                                              ; preds = %.preheader145, %142
-  %.sroa.6.6 = phi ptr [ %.sroa.6.5174, %.preheader145 ], [ %144, %142 ]
+  %.sroa.6.5 = phi ptr [ %.sroa.6.4174, %.preheader145 ], [ %144, %142 ]
   %.sroa.14.6 = phi ptr [ %141, %.preheader145 ], [ %146, %142 ]
-  %.sroa.32.6 = phi ptr [ %.sroa.32.5176, %.preheader145 ], [ %151, %142 ]
-  %153 = add nuw nsw i32 %.2177, 1
+  %.sroa.32.5 = phi ptr [ %.sroa.32.4176, %.preheader145 ], [ %151, %142 ]
+  %153 = add nuw nsw i32 %.3177, 1
   %exitcond239.not = icmp eq i32 %153, %39
   br i1 %exitcond239.not, label %.loopexit, label %.preheader145, !llvm.loop !50
 
 .loopexit:                                        ; preds = %55, %71, %152, %98, %._crit_edge.us, %100, %139, %122, %._crit_edge.us209, %.preheader148, %.preheader146, %.preheader145.lr.ph.split, %.preheader144, %.preheader.lr.ph.split
-  %.sroa.14.7 = phi ptr [ %.sroa.14.0, %.preheader144 ], [ %.sroa.14.0, %.preheader.lr.ph.split ], [ %.sroa.14.0, %.preheader146 ], [ %.sroa.14.0, %.preheader145.lr.ph.split ], [ %.sroa.14.0, %.preheader148 ], [ %.sroa.14.4.us, %122 ], [ %.sroa.14.3201.us, %._crit_edge.us209 ], [ %.sroa.14.4, %139 ], [ %.sroa.14.5175.us, %100 ], [ %.sroa.14.6.us, %98 ], [ %.sroa.14.5175.us, %._crit_edge.us ], [ %.sroa.14.6, %152 ], [ %.sroa.14.1160, %55 ], [ %.sroa.14.2, %71 ]
-  %.3 = phi i32 [ 0, %.preheader144 ], [ 0, %.preheader.lr.ph.split ], [ 0, %.preheader146 ], [ 0, %.preheader145.lr.ph.split ], [ 0, %.preheader148 ], [ %39, %122 ], [ %.1203.us, %._crit_edge.us209 ], [ %39, %139 ], [ %.2177.us, %100 ], [ %39, %98 ], [ %.2177.us, %._crit_edge.us ], [ %39, %152 ], [ %.080162, %55 ], [ %39, %71 ]
-  %154 = icmp slt i32 %.3, %39
-  %spec.select = select i1 %154, ptr %.sroa.14.7, ptr null
+  %.sroa.14.2 = phi ptr [ %.sroa.14.7, %.preheader144 ], [ %.sroa.14.7, %.preheader.lr.ph.split ], [ %.sroa.14.7, %.preheader146 ], [ %.sroa.14.7, %.preheader145.lr.ph.split ], [ %.sroa.14.7, %.preheader148 ], [ %.sroa.14.4.us, %122 ], [ %.sroa.14.3201.us, %._crit_edge.us209 ], [ %.sroa.14.4, %139 ], [ %.sroa.14.5175.us, %100 ], [ %.sroa.14.6.us, %98 ], [ %.sroa.14.5175.us, %._crit_edge.us ], [ %.sroa.14.6, %152 ], [ %.sroa.14.0160, %55 ], [ %.sroa.14.1, %71 ]
+  %.1 = phi i32 [ 0, %.preheader144 ], [ 0, %.preheader.lr.ph.split ], [ 0, %.preheader146 ], [ 0, %.preheader145.lr.ph.split ], [ 0, %.preheader148 ], [ %39, %122 ], [ %.2203.us, %._crit_edge.us209 ], [ %39, %139 ], [ %.3177.us, %100 ], [ %39, %98 ], [ %.3177.us, %._crit_edge.us ], [ %39, %152 ], [ %.080162, %55 ], [ %39, %71 ]
+  %154 = icmp slt i32 %.1, %39
+  %spec.select = select i1 %154, ptr %.sroa.14.2, ptr null
   br label %.loopexit151
 
 155:                                              ; preds = %41
@@ -10107,9 +10107,9 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
   br i1 %.not46.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %171, %.preheader.i
-  %.1.i = phi ptr [ %182, %.preheader.i ], [ %172, %171 ]
+  %.2.i = phi ptr [ %182, %.preheader.i ], [ %172, %171 ]
   %.0.i = phi i32 [ %185, %.preheader.i ], [ %168, %171 ]
-  %182 = load ptr, ptr %.1.i, align 8
+  %182 = load ptr, ptr %.2.i, align 8
   %183 = getelementptr inbounds i8, ptr %182, i64 20
   %184 = load i32, ptr %183, align 4
   %185 = sub nsw i32 %.0.i, %184
@@ -10122,8 +10122,8 @@ cvStartReadSeq.exit:                              ; preds = %42, %45
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %187, %.preheader47.i
   %.235.i = phi i32 [ %188, %187 ], [ %.033.i, %.preheader47.i ], [ %179, %.lr.ph.i ]
-  %.2.i = phi ptr [ %182, %187 ], [ %172, %.preheader47.i ], [ %178, %.lr.ph.i ]
-  %189 = getelementptr inbounds i8, ptr %.2.i, i64 24
+  %.1.i = phi ptr [ %182, %187 ], [ %172, %.preheader47.i ], [ %178, %.lr.ph.i ]
+  %189 = getelementptr inbounds i8, ptr %.1.i, i64 24
   %190 = load ptr, ptr %189, align 8
   %191 = load i32, ptr %36, align 4
   %192 = mul nsw i32 %191, %.235.i
@@ -10149,7 +10149,7 @@ cvGetSeqElem.exit:                                ; preds = %169, %.loopexit.i
   br i1 %200, label %165, label %.loopexit151, !llvm.loop !54
 
 .loopexit151:                                     ; preds = %197, %.preheader150, %.loopexit
-  %.079 = phi i32 [ %.3, %.loopexit ], [ %39, %.preheader150 ], [ %.384, %197 ]
+  %.079 = phi i32 [ %.1, %.loopexit ], [ %39, %.preheader150 ], [ %.384, %197 ]
   %.078 = phi ptr [ %spec.select, %.loopexit ], [ null, %.preheader150 ], [ null, %197 ]
   br i1 %.not, label %201, label %.sink.split
 
@@ -10762,7 +10762,7 @@ cvStartAppendToSeq.exit:                          ; preds = %97, %101
 
 .lr.ph187:                                        ; preds = %.lr.ph187.preheader, %238
   %186 = phi ptr [ %239, %238 ], [ %.pre197, %.lr.ph187.preheader ]
-  %.186186 = phi ptr [ %.3, %238 ], [ %.085, %.lr.ph187.preheader ]
+  %.186186 = phi ptr [ %.2, %238 ], [ %.085, %.lr.ph187.preheader ]
   %.093185 = phi i32 [ %240, %238 ], [ 0, %.lr.ph187.preheader ]
   %187 = getelementptr inbounds i8, ptr %186, i64 8
   %188 = load ptr, ptr %187, align 8
@@ -10809,8 +10809,8 @@ cvStartAppendToSeq.exit:                          ; preds = %97, %101
   br label %206
 
 206:                                              ; preds = %200, %201
-  %.2 = phi ptr [ %.186186, %200 ], [ %.083, %201 ]
-  %207 = load ptr, ptr %.2, align 8
+  %.3 = phi ptr [ %.186186, %200 ], [ %.083, %201 ]
+  %207 = load ptr, ptr %.3, align 8
   %208 = icmp eq ptr %207, null
   br i1 %208, label %.preheader172, label %210
 
@@ -10850,7 +10850,7 @@ cvStartAppendToSeq.exit:                          ; preds = %97, %101
 .lr.ph181:                                        ; preds = %.preheader172, %.lr.ph181
   %218 = phi ptr [ %219, %.lr.ph181 ], [ %209, %.preheader172 ]
   %.084180 = phi ptr [ %218, %.lr.ph181 ], [ %186, %.preheader172 ]
-  store ptr %.2, ptr %.084180, align 8
+  store ptr %.3, ptr %.084180, align 8
   %219 = load ptr, ptr %218, align 8
   %.not137 = icmp eq ptr %219, null
   br i1 %.not137, label %.preheader171, label %.lr.ph181, !llvm.loop !60
@@ -10858,13 +10858,13 @@ cvStartAppendToSeq.exit:                          ; preds = %97, %101
 .lr.ph184:                                        ; preds = %.preheader171, %.lr.ph184
   %220 = phi ptr [ %221, %.lr.ph184 ], [ %217, %.preheader171 ]
   %.1183 = phi ptr [ %220, %.lr.ph184 ], [ %162, %.preheader171 ]
-  store ptr %.2, ptr %.1183, align 8
+  store ptr %.3, ptr %.1183, align 8
   %221 = load ptr, ptr %220, align 8
   %.not138 = icmp eq ptr %221, null
   br i1 %.not138, label %.loopexit, label %.lr.ph184, !llvm.loop !61
 
 .loopexit:                                        ; preds = %.lr.ph184, %.preheader171, %193, %189, %.lr.ph187
-  %.3 = phi ptr [ %.186186, %193 ], [ %.186186, %189 ], [ %.186186, %.lr.ph187 ], [ %.2, %.preheader171 ], [ %.2, %.lr.ph184 ]
+  %.2 = phi ptr [ %.186186, %193 ], [ %.186186, %189 ], [ %.186186, %.lr.ph187 ], [ %.3, %.preheader171 ], [ %.3, %.lr.ph184 ]
   %222 = load ptr, ptr %59, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 24
   store ptr %223, ptr %59, align 8
@@ -10943,7 +10943,7 @@ cvStartAppendToSeq.exit160:                       ; preds = %._crit_edge191, %25
   br i1 %261, label %.lr.ph194, label %._crit_edge195
 
 .lr.ph194:                                        ; preds = %cvStartAppendToSeq.exit160, %297
-  %.087193 = phi i32 [ %.289, %297 ], [ 0, %cvStartAppendToSeq.exit160 ]
+  %.087193 = phi i32 [ %.188, %297 ], [ 0, %cvStartAppendToSeq.exit160 ]
   %.292192 = phi i32 [ %301, %297 ], [ 0, %cvStartAppendToSeq.exit160 ]
   %262 = load ptr, ptr %59, align 8
   %263 = getelementptr inbounds i8, ptr %262, i64 8
@@ -10973,13 +10973,13 @@ cvStartAppendToSeq.exit160:                       ; preds = %._crit_edge191, %25
 273:                                              ; preds = %270, %266
   %.pre199 = phi ptr [ %.pre199.pre, %270 ], [ %262, %266 ]
   %274 = phi i32 [ %272, %270 ], [ %268, %266 ]
-  %.188 = phi i32 [ %271, %270 ], [ %.087193, %266 ]
+  %.289 = phi i32 [ %271, %270 ], [ %.087193, %266 ]
   %275 = xor i32 %274, -1
   br label %276
 
 276:                                              ; preds = %273, %.lr.ph194
   %277 = phi ptr [ %.pre199, %273 ], [ %262, %.lr.ph194 ]
-  %.289 = phi i32 [ %.188, %273 ], [ %.087193, %.lr.ph194 ]
+  %.188 = phi i32 [ %.289, %273 ], [ %.087193, %.lr.ph194 ]
   %.0 = phi i32 [ %275, %273 ], [ -1, %.lr.ph194 ]
   %278 = getelementptr inbounds i8, ptr %277, i64 24
   store ptr %278, ptr %59, align 8
@@ -11030,7 +11030,7 @@ cvStartAppendToSeq.exit160:                       ; preds = %._crit_edge191, %25
   br i1 %303, label %.lr.ph194, label %._crit_edge195, !llvm.loop !65
 
 ._crit_edge195:                                   ; preds = %297, %cvStartAppendToSeq.exit160
-  %.087.lcssa = phi i32 [ 0, %cvStartAppendToSeq.exit160 ], [ %.289, %297 ]
+  %.087.lcssa = phi i32 [ 0, %cvStartAppendToSeq.exit160 ], [ %.188, %297 ]
   %304 = call ptr @cvEndWriteSeq(ptr noundef nonnull %8)
   store ptr %246, ptr %2, align 8
   %.not11.i = icmp eq ptr %52, null
@@ -11437,9 +11437,9 @@ define void @cvSetRemove(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 p
   br i1 %.not46.i.i, label %cvGetSeqElem.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 .preheader.i.i:                                   ; preds = %22, %.preheader.i.i
-  %.1.i.i = phi ptr [ %34, %.preheader.i.i ], [ %24, %22 ]
+  %.2.i.i = phi ptr [ %34, %.preheader.i.i ], [ %24, %22 ]
   %.0.i.i = phi i32 [ %37, %.preheader.i.i ], [ %15, %22 ]
-  %34 = load ptr, ptr %.1.i.i, align 8
+  %34 = load ptr, ptr %.2.i.i, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = sub nsw i32 %.0.i.i, %36
@@ -11452,8 +11452,8 @@ define void @cvSetRemove(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 p
 
 cvGetSeqElem.exit.i:                              ; preds = %.lr.ph.i.i, %39, %.preheader47.i.i
   %.235.i.i = phi i32 [ %40, %39 ], [ %.033.i.i, %.preheader47.i.i ], [ %31, %.lr.ph.i.i ]
-  %.2.i.i = phi ptr [ %34, %39 ], [ %24, %.preheader47.i.i ], [ %30, %.lr.ph.i.i ]
-  %41 = getelementptr inbounds i8, ptr %.2.i.i, i64 24
+  %.1.i.i = phi ptr [ %34, %39 ], [ %24, %.preheader47.i.i ], [ %30, %.lr.ph.i.i ]
+  %41 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not.i = icmp eq ptr %42, null
   br i1 %.not.i, label %_ZL12cvGetSetElemPK5CvSeti.exit.thread, label %43
@@ -12116,9 +12116,9 @@ define i32 @cvGraphRemoveVtx(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   br i1 %.not46.i.i, label %cvGetSeqElem.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 .preheader.i.i:                                   ; preds = %23, %.preheader.i.i
-  %.1.i.i = phi ptr [ %35, %.preheader.i.i ], [ %25, %23 ]
+  %.2.i.i = phi ptr [ %35, %.preheader.i.i ], [ %25, %23 ]
   %.0.i.i = phi i32 [ %38, %.preheader.i.i ], [ %16, %23 ]
-  %35 = load ptr, ptr %.1.i.i, align 8
+  %35 = load ptr, ptr %.2.i.i, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = sub nsw i32 %.0.i.i, %37
@@ -12131,8 +12131,8 @@ define i32 @cvGraphRemoveVtx(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 
 cvGetSeqElem.exit.i:                              ; preds = %.lr.ph.i.i, %40, %.preheader47.i.i
   %.235.i.i = phi i32 [ %41, %40 ], [ %.033.i.i, %.preheader47.i.i ], [ %32, %.lr.ph.i.i ]
-  %.2.i.i = phi ptr [ %35, %40 ], [ %25, %.preheader47.i.i ], [ %31, %.lr.ph.i.i ]
-  %42 = getelementptr inbounds i8, ptr %.2.i.i, i64 24
+  %.1.i.i = phi ptr [ %35, %40 ], [ %25, %.preheader47.i.i ], [ %31, %.lr.ph.i.i ]
+  %42 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %52, label %44
@@ -12427,9 +12427,9 @@ define ptr @cvFindGraphEdge(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   br i1 %.not46.i.i, label %cvGetSeqElem.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 .preheader.i.i:                                   ; preds = %23, %.preheader.i.i
-  %.1.i.i = phi ptr [ %35, %.preheader.i.i ], [ %25, %23 ]
+  %.2.i.i = phi ptr [ %35, %.preheader.i.i ], [ %25, %23 ]
   %.0.i.i = phi i32 [ %38, %.preheader.i.i ], [ %16, %23 ]
-  %35 = load ptr, ptr %.1.i.i, align 8
+  %35 = load ptr, ptr %.2.i.i, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = sub nsw i32 %.0.i.i, %37
@@ -12442,8 +12442,8 @@ define ptr @cvFindGraphEdge(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 
 cvGetSeqElem.exit.i:                              ; preds = %.lr.ph.i.i, %40, %.preheader47.i.i
   %.235.i.i = phi i32 [ %41, %40 ], [ %.033.i.i, %.preheader47.i.i ], [ %32, %.lr.ph.i.i ]
-  %.2.i.i = phi ptr [ %35, %40 ], [ %25, %.preheader47.i.i ], [ %31, %.lr.ph.i.i ]
-  %42 = getelementptr inbounds i8, ptr %.2.i.i, i64 24
+  %.1.i.i = phi ptr [ %35, %40 ], [ %25, %.preheader47.i.i ], [ %31, %.lr.ph.i.i ]
+  %42 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %_ZL12cvGetSetElemPK5CvSeti.exit, label %44
@@ -12501,9 +12501,9 @@ _ZL12cvGetSetElemPK5CvSeti.exit:                  ; preds = %17, %cvGetSeqElem.e
   br i1 %.not46.i.i22, label %cvGetSeqElem.exit.i23, label %.lr.ph.i.i19, !llvm.loop !6
 
 .preheader.i.i28:                                 ; preds = %59, %.preheader.i.i28
-  %.1.i.i29 = phi ptr [ %71, %.preheader.i.i28 ], [ %61, %59 ]
+  %.2.i.i29 = phi ptr [ %71, %.preheader.i.i28 ], [ %61, %59 ]
   %.0.i.i30 = phi i32 [ %74, %.preheader.i.i28 ], [ %16, %59 ]
-  %71 = load ptr, ptr %.1.i.i29, align 8
+  %71 = load ptr, ptr %.2.i.i29, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 20
   %73 = load i32, ptr %72, align 4
   %74 = sub nsw i32 %.0.i.i30, %73
@@ -12516,8 +12516,8 @@ _ZL12cvGetSetElemPK5CvSeti.exit:                  ; preds = %17, %cvGetSeqElem.e
 
 cvGetSeqElem.exit.i23:                            ; preds = %.lr.ph.i.i19, %76, %.preheader47.i.i17
   %.235.i.i24 = phi i32 [ %77, %76 ], [ %.033.i.i15, %.preheader47.i.i17 ], [ %68, %.lr.ph.i.i19 ]
-  %.2.i.i25 = phi ptr [ %71, %76 ], [ %61, %.preheader47.i.i17 ], [ %67, %.lr.ph.i.i19 ]
-  %78 = getelementptr inbounds i8, ptr %.2.i.i25, i64 24
+  %.1.i.i25 = phi ptr [ %71, %76 ], [ %61, %.preheader47.i.i17 ], [ %67, %.lr.ph.i.i19 ]
+  %78 = getelementptr inbounds i8, ptr %.1.i.i25, i64 24
   %79 = load ptr, ptr %78, align 8
   %.not.i26 = icmp eq ptr %79, null
   br i1 %.not.i26, label %_ZL12cvGetSetElemPK5CvSeti.exit31, label %80
@@ -12837,9 +12837,9 @@ define range(i32 0, 2) i32 @cvGraphAddEdge(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %.not46.i.i, label %cvGetSeqElem.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 .preheader.i.i:                                   ; preds = %25, %.preheader.i.i
-  %.1.i.i = phi ptr [ %37, %.preheader.i.i ], [ %27, %25 ]
+  %.2.i.i = phi ptr [ %37, %.preheader.i.i ], [ %27, %25 ]
   %.0.i.i = phi i32 [ %40, %.preheader.i.i ], [ %18, %25 ]
-  %37 = load ptr, ptr %.1.i.i, align 8
+  %37 = load ptr, ptr %.2.i.i, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4
   %40 = sub nsw i32 %.0.i.i, %39
@@ -12852,8 +12852,8 @@ define range(i32 0, 2) i32 @cvGraphAddEdge(ptr noundef %0, i32 noundef %1, i32 n
 
 cvGetSeqElem.exit.i:                              ; preds = %.lr.ph.i.i, %42, %.preheader47.i.i
   %.235.i.i = phi i32 [ %43, %42 ], [ %.033.i.i, %.preheader47.i.i ], [ %34, %.lr.ph.i.i ]
-  %.2.i.i = phi ptr [ %37, %42 ], [ %27, %.preheader47.i.i ], [ %33, %.lr.ph.i.i ]
-  %44 = getelementptr inbounds i8, ptr %.2.i.i, i64 24
+  %.1.i.i = phi ptr [ %37, %42 ], [ %27, %.preheader47.i.i ], [ %33, %.lr.ph.i.i ]
+  %44 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
   %45 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %45, null
   br i1 %.not.i, label %_ZL12cvGetSetElemPK5CvSeti.exit, label %46
@@ -12911,9 +12911,9 @@ _ZL12cvGetSetElemPK5CvSeti.exit:                  ; preds = %19, %cvGetSeqElem.e
   br i1 %.not46.i.i24, label %cvGetSeqElem.exit.i25, label %.lr.ph.i.i21, !llvm.loop !6
 
 .preheader.i.i30:                                 ; preds = %61, %.preheader.i.i30
-  %.1.i.i31 = phi ptr [ %73, %.preheader.i.i30 ], [ %63, %61 ]
+  %.2.i.i31 = phi ptr [ %73, %.preheader.i.i30 ], [ %63, %61 ]
   %.0.i.i32 = phi i32 [ %76, %.preheader.i.i30 ], [ %18, %61 ]
-  %73 = load ptr, ptr %.1.i.i31, align 8
+  %73 = load ptr, ptr %.2.i.i31, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 20
   %75 = load i32, ptr %74, align 4
   %76 = sub nsw i32 %.0.i.i32, %75
@@ -12926,8 +12926,8 @@ _ZL12cvGetSetElemPK5CvSeti.exit:                  ; preds = %19, %cvGetSeqElem.e
 
 cvGetSeqElem.exit.i25:                            ; preds = %.lr.ph.i.i21, %78, %.preheader47.i.i19
   %.235.i.i26 = phi i32 [ %79, %78 ], [ %.033.i.i17, %.preheader47.i.i19 ], [ %70, %.lr.ph.i.i21 ]
-  %.2.i.i27 = phi ptr [ %73, %78 ], [ %63, %.preheader47.i.i19 ], [ %69, %.lr.ph.i.i21 ]
-  %80 = getelementptr inbounds i8, ptr %.2.i.i27, i64 24
+  %.1.i.i27 = phi ptr [ %73, %78 ], [ %63, %.preheader47.i.i19 ], [ %69, %.lr.ph.i.i21 ]
+  %80 = getelementptr inbounds i8, ptr %.1.i.i27, i64 24
   %81 = load ptr, ptr %80, align 8
   %.not.i28 = icmp eq ptr %81, null
   br i1 %.not.i28, label %_ZL12cvGetSetElemPK5CvSeti.exit33, label %82
@@ -13027,9 +13027,9 @@ define void @cvGraphRemoveEdge(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br i1 %.not46.i.i, label %cvGetSeqElem.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 .preheader.i.i:                                   ; preds = %23, %.preheader.i.i
-  %.1.i.i = phi ptr [ %35, %.preheader.i.i ], [ %25, %23 ]
+  %.2.i.i = phi ptr [ %35, %.preheader.i.i ], [ %25, %23 ]
   %.0.i.i = phi i32 [ %38, %.preheader.i.i ], [ %16, %23 ]
-  %35 = load ptr, ptr %.1.i.i, align 8
+  %35 = load ptr, ptr %.2.i.i, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = sub nsw i32 %.0.i.i, %37
@@ -13042,8 +13042,8 @@ define void @cvGraphRemoveEdge(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 
 cvGetSeqElem.exit.i:                              ; preds = %.lr.ph.i.i, %40, %.preheader47.i.i
   %.235.i.i = phi i32 [ %41, %40 ], [ %.033.i.i, %.preheader47.i.i ], [ %32, %.lr.ph.i.i ]
-  %.2.i.i = phi ptr [ %35, %40 ], [ %25, %.preheader47.i.i ], [ %31, %.lr.ph.i.i ]
-  %42 = getelementptr inbounds i8, ptr %.2.i.i, i64 24
+  %.1.i.i = phi ptr [ %35, %40 ], [ %25, %.preheader47.i.i ], [ %31, %.lr.ph.i.i ]
+  %42 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %_ZL12cvGetSetElemPK5CvSeti.exit, label %44
@@ -13101,9 +13101,9 @@ _ZL12cvGetSetElemPK5CvSeti.exit:                  ; preds = %17, %cvGetSeqElem.e
   br i1 %.not46.i.i22, label %cvGetSeqElem.exit.i23, label %.lr.ph.i.i19, !llvm.loop !6
 
 .preheader.i.i28:                                 ; preds = %59, %.preheader.i.i28
-  %.1.i.i29 = phi ptr [ %71, %.preheader.i.i28 ], [ %61, %59 ]
+  %.2.i.i29 = phi ptr [ %71, %.preheader.i.i28 ], [ %61, %59 ]
   %.0.i.i30 = phi i32 [ %74, %.preheader.i.i28 ], [ %16, %59 ]
-  %71 = load ptr, ptr %.1.i.i29, align 8
+  %71 = load ptr, ptr %.2.i.i29, align 8
   %72 = getelementptr inbounds i8, ptr %71, i64 20
   %73 = load i32, ptr %72, align 4
   %74 = sub nsw i32 %.0.i.i30, %73
@@ -13116,8 +13116,8 @@ _ZL12cvGetSetElemPK5CvSeti.exit:                  ; preds = %17, %cvGetSeqElem.e
 
 cvGetSeqElem.exit.i23:                            ; preds = %.lr.ph.i.i19, %76, %.preheader47.i.i17
   %.235.i.i24 = phi i32 [ %77, %76 ], [ %.033.i.i15, %.preheader47.i.i17 ], [ %68, %.lr.ph.i.i19 ]
-  %.2.i.i25 = phi ptr [ %71, %76 ], [ %61, %.preheader47.i.i17 ], [ %67, %.lr.ph.i.i19 ]
-  %78 = getelementptr inbounds i8, ptr %.2.i.i25, i64 24
+  %.1.i.i25 = phi ptr [ %71, %76 ], [ %61, %.preheader47.i.i17 ], [ %67, %.lr.ph.i.i19 ]
+  %78 = getelementptr inbounds i8, ptr %.1.i.i25, i64 24
   %79 = load ptr, ptr %78, align 8
   %.not.i26 = icmp eq ptr %79, null
   br i1 %.not.i26, label %_ZL12cvGetSetElemPK5CvSeti.exit31, label %80
@@ -13276,9 +13276,9 @@ define i32 @cvGraphVtxDegree(ptr noundef readonly %0, i32 noundef %1) local_unna
   br i1 %.not46.i.i, label %cvGetSeqElem.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 .preheader.i.i:                                   ; preds = %23, %.preheader.i.i
-  %.1.i.i = phi ptr [ %35, %.preheader.i.i ], [ %25, %23 ]
+  %.2.i.i = phi ptr [ %35, %.preheader.i.i ], [ %25, %23 ]
   %.0.i.i = phi i32 [ %38, %.preheader.i.i ], [ %16, %23 ]
-  %35 = load ptr, ptr %.1.i.i, align 8
+  %35 = load ptr, ptr %.2.i.i, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = sub nsw i32 %.0.i.i, %37
@@ -13291,8 +13291,8 @@ define i32 @cvGraphVtxDegree(ptr noundef readonly %0, i32 noundef %1) local_unna
 
 cvGetSeqElem.exit.i:                              ; preds = %.lr.ph.i.i, %40, %.preheader47.i.i
   %.235.i.i = phi i32 [ %41, %40 ], [ %.033.i.i, %.preheader47.i.i ], [ %32, %.lr.ph.i.i ]
-  %.2.i.i = phi ptr [ %35, %40 ], [ %25, %.preheader47.i.i ], [ %31, %.lr.ph.i.i ]
-  %42 = getelementptr inbounds i8, ptr %.2.i.i, i64 24
+  %.1.i.i = phi ptr [ %35, %40 ], [ %25, %.preheader47.i.i ], [ %31, %.lr.ph.i.i ]
+  %42 = getelementptr inbounds i8, ptr %.1.i.i, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %52, label %44
@@ -13462,8 +13462,8 @@ define noundef ptr @cvCreateGraphScanner(ptr noundef %0, ptr noundef %1, i32 nou
   br label %cvStartReadSeq.exit.i
 
 cvStartReadSeq.exit.i:                            ; preds = %45, %27
-  %.sroa.8.0.i = phi ptr [ %47, %45 ], [ null, %27 ]
-  %.sroa.15.0.i = phi ptr [ %52, %45 ], [ null, %27 ]
+  %.sroa.8.2.i = phi ptr [ %47, %45 ], [ null, %27 ]
+  %.sroa.15.2.i = phi ptr [ %52, %45 ], [ null, %27 ]
   %53 = icmp sgt i32 %42, 0
   br i1 %53, label %.lr.ph.i, label %_ZL21icvSeqElemsClearFlagsP5CvSeqii.exit
 
@@ -13473,18 +13473,18 @@ cvStartReadSeq.exit.i:                            ; preds = %45, %27
 
 55:                                               ; preds = %70, %.lr.ph.i
   %.033.i = phi i32 [ 0, %.lr.ph.i ], [ %71, %70 ]
-  %.sroa.15.132.i = phi ptr [ %.sroa.15.0.i, %.lr.ph.i ], [ %.sroa.15.2.i, %70 ]
-  %.sroa.8.131.i = phi ptr [ %.sroa.8.0.i, %.lr.ph.i ], [ %.sroa.8.2.i, %70 ]
-  %.sroa.4.130.i = phi ptr [ %44, %.lr.ph.i ], [ %.sroa.4.2.i, %70 ]
-  %56 = load i32, ptr %.sroa.8.131.i, align 4
+  %.sroa.15.032.i = phi ptr [ %.sroa.15.2.i, %.lr.ph.i ], [ %.sroa.15.1.i, %70 ]
+  %.sroa.8.031.i = phi ptr [ %.sroa.8.2.i, %.lr.ph.i ], [ %.sroa.8.1.i, %70 ]
+  %.sroa.4.030.i = phi ptr [ %44, %.lr.ph.i ], [ %.sroa.4.1.i, %70 ]
+  %56 = load i32, ptr %.sroa.8.031.i, align 4
   %57 = and i32 %56, -1610612737
-  store i32 %57, ptr %.sroa.8.131.i, align 4
-  %58 = getelementptr inbounds i8, ptr %.sroa.8.131.i, i64 %54
-  %.not22.i = icmp ult ptr %58, %.sroa.15.132.i
+  store i32 %57, ptr %.sroa.8.031.i, align 4
+  %58 = getelementptr inbounds i8, ptr %.sroa.8.031.i, i64 %54
+  %.not22.i = icmp ult ptr %58, %.sroa.15.032.i
   br i1 %.not22.i, label %70, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %.sroa.4.130.i, i64 8
+  %60 = getelementptr inbounds i8, ptr %.sroa.4.030.i, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8
@@ -13497,9 +13497,9 @@ cvStartReadSeq.exit.i:                            ; preds = %45, %27
   br label %70
 
 70:                                               ; preds = %59, %55
-  %.sroa.4.2.i = phi ptr [ %.sroa.4.130.i, %55 ], [ %61, %59 ]
-  %.sroa.8.2.i = phi ptr [ %58, %55 ], [ %63, %59 ]
-  %.sroa.15.2.i = phi ptr [ %.sroa.15.132.i, %55 ], [ %69, %59 ]
+  %.sroa.4.1.i = phi ptr [ %.sroa.4.030.i, %55 ], [ %61, %59 ]
+  %.sroa.8.1.i = phi ptr [ %58, %55 ], [ %63, %59 ]
+  %.sroa.15.1.i = phi ptr [ %.sroa.15.032.i, %55 ], [ %69, %59 ]
   %71 = add nuw nsw i32 %.033.i, 1
   %exitcond.not.i = icmp eq i32 %71, %42
   br i1 %exitcond.not.i, label %_ZL21icvSeqElemsClearFlagsP5CvSeqii.exit, label %55, !llvm.loop !74
@@ -13562,8 +13562,8 @@ common.resume:                                    ; preds = %23, %25, %13, %15, 
   br label %cvStartReadSeq.exit.i29
 
 cvStartReadSeq.exit.i29:                          ; preds = %88, %81
-  %.sroa.8.0.i30 = phi ptr [ %90, %88 ], [ null, %81 ]
-  %.sroa.15.0.i31 = phi ptr [ %95, %88 ], [ null, %81 ]
+  %.sroa.8.2.i30 = phi ptr [ %90, %88 ], [ null, %81 ]
+  %.sroa.15.2.i31 = phi ptr [ %95, %88 ], [ null, %81 ]
   %96 = icmp sgt i32 %85, 0
   br i1 %96, label %.lr.ph.i32, label %_ZL21icvSeqElemsClearFlagsP5CvSeqii.exit43
 
@@ -13573,18 +13573,18 @@ cvStartReadSeq.exit.i29:                          ; preds = %88, %81
 
 98:                                               ; preds = %113, %.lr.ph.i32
   %.033.i33 = phi i32 [ 0, %.lr.ph.i32 ], [ %114, %113 ]
-  %.sroa.15.132.i34 = phi ptr [ %.sroa.15.0.i31, %.lr.ph.i32 ], [ %.sroa.15.2.i40, %113 ]
-  %.sroa.8.131.i35 = phi ptr [ %.sroa.8.0.i30, %.lr.ph.i32 ], [ %.sroa.8.2.i39, %113 ]
-  %.sroa.4.130.i36 = phi ptr [ %87, %.lr.ph.i32 ], [ %.sroa.4.2.i38, %113 ]
-  %99 = load i32, ptr %.sroa.8.131.i35, align 4
+  %.sroa.15.032.i34 = phi ptr [ %.sroa.15.2.i31, %.lr.ph.i32 ], [ %.sroa.15.1.i40, %113 ]
+  %.sroa.8.031.i35 = phi ptr [ %.sroa.8.2.i30, %.lr.ph.i32 ], [ %.sroa.8.1.i39, %113 ]
+  %.sroa.4.030.i36 = phi ptr [ %87, %.lr.ph.i32 ], [ %.sroa.4.1.i38, %113 ]
+  %99 = load i32, ptr %.sroa.8.031.i35, align 4
   %100 = and i32 %99, -1073741825
-  store i32 %100, ptr %.sroa.8.131.i35, align 4
-  %101 = getelementptr inbounds i8, ptr %.sroa.8.131.i35, i64 %97
-  %.not22.i37 = icmp ult ptr %101, %.sroa.15.132.i34
+  store i32 %100, ptr %.sroa.8.031.i35, align 4
+  %101 = getelementptr inbounds i8, ptr %.sroa.8.031.i35, i64 %97
+  %.not22.i37 = icmp ult ptr %101, %.sroa.15.032.i34
   br i1 %.not22.i37, label %113, label %102
 
 102:                                              ; preds = %98
-  %103 = getelementptr inbounds i8, ptr %.sroa.4.130.i36, i64 8
+  %103 = getelementptr inbounds i8, ptr %.sroa.4.030.i36, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8
@@ -13597,9 +13597,9 @@ cvStartReadSeq.exit.i29:                          ; preds = %88, %81
   br label %113
 
 113:                                              ; preds = %102, %98
-  %.sroa.4.2.i38 = phi ptr [ %.sroa.4.130.i36, %98 ], [ %104, %102 ]
-  %.sroa.8.2.i39 = phi ptr [ %101, %98 ], [ %106, %102 ]
-  %.sroa.15.2.i40 = phi ptr [ %.sroa.15.132.i34, %98 ], [ %112, %102 ]
+  %.sroa.4.1.i38 = phi ptr [ %.sroa.4.030.i36, %98 ], [ %104, %102 ]
+  %.sroa.8.1.i39 = phi ptr [ %101, %98 ], [ %106, %102 ]
+  %.sroa.15.1.i40 = phi ptr [ %.sroa.15.032.i34, %98 ], [ %112, %102 ]
   %114 = add nuw nsw i32 %.033.i33, 1
   %exitcond.not.i41 = icmp eq i32 %114, %85
   br i1 %exitcond.not.i41, label %_ZL21icvSeqElemsClearFlagsP5CvSeqii.exit43, label %98, !llvm.loop !74
@@ -14670,8 +14670,8 @@ cvNextTreeNode.exit.thread:                       ; preds = %25
   br label %31
 
 cvInitTreeNodeIterator.exit.preheader.split:      ; preds = %15, %cvInitTreeNodeIterator.exit
-  %.sroa.0.025 = phi ptr [ %.225.i20, %cvInitTreeNodeIterator.exit ], [ %0, %15 ]
-  %.sroa.3.024 = phi i32 [ %.2.i21, %cvInitTreeNodeIterator.exit ], [ 0, %15 ]
+  %.sroa.0.025 = phi ptr [ %.023.i20, %cvInitTreeNodeIterator.exit ], [ %0, %15 ]
+  %.sroa.3.024 = phi i32 [ %.022.i21, %cvInitTreeNodeIterator.exit ], [ 0, %15 ]
   %19 = getelementptr inbounds i8, ptr %.sroa.0.025, i64 32
   %20 = load ptr, ptr %19, align 8
   %.not35.i = icmp eq ptr %20, null
@@ -14681,23 +14681,23 @@ cvInitTreeNodeIterator.exit.preheader.split:      ; preds = %15, %cvInitTreeNode
   br i1 %or.cond, label %.preheader, label %cvInitTreeNodeIterator.exit
 
 .preheader:                                       ; preds = %cvInitTreeNodeIterator.exit.preheader.split, %25
-  %.023.i = phi ptr [ %27, %25 ], [ %.sroa.0.025, %cvInitTreeNodeIterator.exit.preheader.split ]
-  %.022.i = phi i32 [ %28, %25 ], [ %.sroa.3.024, %cvInitTreeNodeIterator.exit.preheader.split ]
-  %22 = getelementptr inbounds i8, ptr %.023.i, i64 16
+  %.124.i = phi ptr [ %27, %25 ], [ %.sroa.0.025, %cvInitTreeNodeIterator.exit.preheader.split ]
+  %.1.i = phi i32 [ %28, %25 ], [ %.sroa.3.024, %cvInitTreeNodeIterator.exit.preheader.split ]
+  %22 = getelementptr inbounds i8, ptr %.124.i, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %cvInitTreeNodeIterator.exit
 
 25:                                               ; preds = %.preheader
-  %26 = getelementptr inbounds i8, ptr %.023.i, i64 24
+  %26 = getelementptr inbounds i8, ptr %.124.i, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = add nsw i32 %.022.i, -1
-  %29 = icmp slt i32 %.022.i, 1
+  %28 = add nsw i32 %.1.i, -1
+  %29 = icmp slt i32 %.1.i, 1
   br i1 %29, label %cvNextTreeNode.exit.thread, label %.preheader, !llvm.loop !81
 
 cvInitTreeNodeIterator.exit:                      ; preds = %.preheader, %cvInitTreeNodeIterator.exit.preheader.split
-  %.2.i21 = phi i32 [ %21, %cvInitTreeNodeIterator.exit.preheader.split ], [ %.022.i, %.preheader ]
-  %.225.i20 = phi ptr [ %20, %cvInitTreeNodeIterator.exit.preheader.split ], [ %23, %.preheader ]
+  %.022.i21 = phi i32 [ %21, %cvInitTreeNodeIterator.exit.preheader.split ], [ %.1.i, %.preheader ]
+  %.023.i20 = phi ptr [ %20, %cvInitTreeNodeIterator.exit.preheader.split ], [ %23, %.preheader ]
   store ptr %.sroa.0.025, ptr %6, align 8
   %30 = call ptr @cvSeqPush(ptr noundef %17, ptr noundef nonnull %6)
   br label %cvInitTreeNodeIterator.exit.preheader.split, !llvm.loop !82
@@ -14843,18 +14843,18 @@ define ptr @cvNextTreeNode(ptr noundef %0) local_unnamed_addr #0 personality ptr
   br label %26
 
 26:                                               ; preds = %30, %24
-  %.023 = phi ptr [ %13, %24 ], [ %32, %30 ]
-  %.022 = phi i32 [ %15, %24 ], [ %33, %30 ]
-  %27 = getelementptr inbounds i8, ptr %.023, i64 16
+  %.124 = phi ptr [ %13, %24 ], [ %32, %30 ]
+  %.1 = phi i32 [ %15, %24 ], [ %33, %30 ]
+  %27 = getelementptr inbounds i8, ptr %.124, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %.023, i64 24
+  %31 = getelementptr inbounds i8, ptr %.124, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = add nsw i32 %.022, -1
-  %34 = icmp slt i32 %.022, 1
+  %33 = add nsw i32 %.1, -1
+  %34 = icmp slt i32 %.1, 1
   br i1 %34, label %.thread, label %26, !llvm.loop !81
 
 35:                                               ; preds = %26
@@ -14865,10 +14865,10 @@ define ptr @cvNextTreeNode(ptr noundef %0) local_unnamed_addr #0 personality ptr
   br label %.thread
 
 .thread:                                          ; preds = %30, %35, %19, %12
-  %.225 = phi ptr [ null, %12 ], [ %18, %19 ], [ %spec.select, %35 ], [ null, %30 ]
-  %.2 = phi i32 [ %15, %12 ], [ %20, %19 ], [ %.022, %35 ], [ %25, %30 ]
-  store ptr %.225, ptr %0, align 8
-  store i32 %.2, ptr %14, align 8
+  %.023 = phi ptr [ null, %12 ], [ %18, %19 ], [ %spec.select, %35 ], [ null, %30 ]
+  %.022 = phi i32 [ %15, %12 ], [ %20, %19 ], [ %.1, %35 ], [ %25, %30 ]
+  store ptr %.023, ptr %0, align 8
+  store i32 %.022, ptr %14, align 8
   ret ptr %13
 }
 
@@ -15167,8 +15167,8 @@ define ptr @cvPrevTreeNode(ptr noundef %0) local_unnamed_addr #0 personality ptr
   br label %.critedge
 
 .loopexit:                                        ; preds = %33
-  %28 = add i32 %.0224047, 1
-  %29 = getelementptr inbounds i8, ptr %.124, i64 32
+  %28 = add i32 %.14047, 1
+  %29 = getelementptr inbounds i8, ptr %.2, i64 32
   %30 = load ptr, ptr %29, align 8
   %.not36 = icmp eq ptr %30, null
   br i1 %.not36, label %.critedge, label %31, !llvm.loop !83
@@ -15178,22 +15178,22 @@ define ptr @cvPrevTreeNode(ptr noundef %0) local_unnamed_addr #0 personality ptr
   br i1 %exitcond.not, label %.critedge, label %.preheader45, !llvm.loop !83
 
 .preheader45:                                     ; preds = %.lr.ph, %31
-  %.0224047 = phi i32 [ %28, %31 ], [ %15, %.lr.ph ]
+  %.14047 = phi i32 [ %28, %31 ], [ %15, %.lr.ph ]
   %32 = phi ptr [ %30, %31 ], [ %20, %.lr.ph ]
   br label %33
 
 33:                                               ; preds = %.preheader45, %33
-  %.124 = phi ptr [ %35, %33 ], [ %32, %.preheader45 ]
-  %34 = getelementptr inbounds i8, ptr %.124, i64 16
+  %.2 = phi ptr [ %35, %33 ], [ %32, %.preheader45 ]
+  %34 = getelementptr inbounds i8, ptr %.2, i64 16
   %35 = load ptr, ptr %34, align 8
   %.not37 = icmp eq ptr %35, null
   br i1 %.not37, label %.loopexit, label %33, !llvm.loop !84
 
 .critedge:                                        ; preds = %.loopexit, %31, %.lr.ph, %.preheader, %23, %12
-  %.2 = phi ptr [ null, %12 ], [ %spec.select, %23 ], [ %18, %.preheader ], [ %18, %.lr.ph ], [ %.124, %31 ], [ %.124, %.loopexit ]
-  %.1 = phi i32 [ %15, %12 ], [ %26, %23 ], [ %15, %.preheader ], [ %smax, %.lr.ph ], [ %smax, %31 ], [ %28, %.loopexit ]
-  store ptr %.2, ptr %0, align 8
-  store i32 %.1, ptr %14, align 8
+  %.023 = phi ptr [ null, %12 ], [ %spec.select, %23 ], [ %18, %.preheader ], [ %18, %.lr.ph ], [ %.2, %31 ], [ %.2, %.loopexit ]
+  %.022 = phi i32 [ %15, %12 ], [ %26, %23 ], [ %15, %.preheader ], [ %smax, %.lr.ph ], [ %smax, %31 ], [ %28, %.loopexit ]
+  store ptr %.023, ptr %0, align 8
+  store i32 %.022, ptr %14, align 8
   ret ptr %13
 }
 
@@ -15277,9 +15277,9 @@ define noundef ptr @_ZN2cv10getSeqElemEPK5CvSeqi(ptr nocapture noundef readonly 
   br i1 %.not46.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %11, %.preheader.i
-  %.1.i = phi ptr [ %23, %.preheader.i ], [ %13, %11 ]
+  %.2.i = phi ptr [ %23, %.preheader.i ], [ %13, %11 ]
   %.0.i = phi i32 [ %26, %.preheader.i ], [ %4, %11 ]
-  %23 = load ptr, ptr %.1.i, align 8
+  %23 = load ptr, ptr %.2.i, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 20
   %25 = load i32, ptr %24, align 4
   %26 = sub nsw i32 %.0.i, %25
@@ -15292,8 +15292,8 @@ define noundef ptr @_ZN2cv10getSeqElemEPK5CvSeqi(ptr nocapture noundef readonly 
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %28, %.preheader47.i
   %.235.i = phi i32 [ %29, %28 ], [ %.033.i, %.preheader47.i ], [ %20, %.lr.ph.i ]
-  %.2.i = phi ptr [ %23, %28 ], [ %13, %.preheader47.i ], [ %19, %.lr.ph.i ]
-  %30 = getelementptr inbounds i8, ptr %.2.i, i64 24
+  %.1.i = phi ptr [ %23, %28 ], [ %13, %.preheader47.i ], [ %19, %.lr.ph.i ]
+  %30 = getelementptr inbounds i8, ptr %.1.i, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 44
   %33 = load i32, ptr %32, align 4

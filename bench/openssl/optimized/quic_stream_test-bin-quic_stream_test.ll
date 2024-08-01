@@ -1249,7 +1249,7 @@ for.body:                                         ; preds = %for.body.preheader,
 for.cond17.preheader:                             ; preds = %for.cond13.preheader, %for.inc175
   %indvars.iv108 = phi i64 [ 0, %for.cond13.preheader ], [ %indvars.iv.next109, %for.inc175 ]
   %fin_set.099 = phi i32 [ 0, %for.cond13.preheader ], [ %fin_set.1, %for.inc175 ]
-  %queued_max.097 = phi i64 [ 0, %for.cond13.preheader ], [ %queued_max.3, %for.inc175 ]
+  %queued_max.097 = phi i64 [ 0, %for.cond13.preheader ], [ %queued_max.2, %for.inc175 ]
   %queued_min.096 = phi i64 [ 0, %for.cond13.preheader ], [ %add136, %for.inc175 ]
   %invariant.op = add i64 %queued_min.096, -50
   %1 = mul nuw nsw i64 %indvars.iv108, 10
@@ -1257,8 +1257,8 @@ for.cond17.preheader:                             ; preds = %for.cond13.preheade
 
 for.body20:                                       ; preds = %for.cond17.preheader, %for.inc97
   %indvars.iv = phi i64 [ 0, %for.cond17.preheader ], [ %indvars.iv.next, %for.inc97 ]
-  %queued_max.194 = phi i64 [ %queued_max.097, %for.cond17.preheader ], [ %queued_max.3, %for.inc97 ]
-  %queued_min.193 = phi i64 [ %queued_min.096, %for.cond17.preheader ], [ %queued_min.4, %for.inc97 ]
+  %queued_max.194 = phi i64 [ %queued_max.097, %for.cond17.preheader ], [ %queued_max.2, %for.inc97 ]
+  %queued_min.193 = phi i64 [ %queued_min.096, %for.cond17.preheader ], [ %queued_min.2, %for.inc97 ]
   %call23 = call i32 @test_random() #7
   %rem24 = urem i32 %call23, 10
   %cmp25 = icmp eq i32 %rem24, 0
@@ -1270,7 +1270,7 @@ if.end28:                                         ; preds = %for.body20
   %cmp29.not = icmp ult i64 %queued_min.193, %3
   %add31 = add nuw nsw i64 %3, 10
   %spec.select = call i64 @llvm.umax.i64(i64 %add31, i64 %queued_min.193)
-  %queued_min.2 = select i1 %cmp29.not, i64 %queued_min.193, i64 %spec.select
+  %queued_min.3 = select i1 %cmp29.not, i64 %queued_min.193, i64 %spec.select
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %3
   %call37 = call i32 @ossl_quic_rstream_queue_data(ptr noundef %call6, ptr noundef null, i64 noundef %3, ptr noundef %add.ptr, i64 noundef 10, i32 noundef 0) #7
   %cmp38 = icmp ne i32 %call37, 0
@@ -1311,16 +1311,16 @@ if.end55:                                         ; preds = %if.end43
   br i1 %tobool88.not, label %err, label %if.end90
 
 if.end90:                                         ; preds = %if.end55
-  %cmp74.not = icmp ugt i64 %off.1, %queued_min.2
+  %cmp74.not = icmp ugt i64 %off.1, %queued_min.3
   %add77 = add i64 %off.1, %conv67
-  %spec.select82 = call i64 @llvm.umax.i64(i64 %add77, i64 %queued_min.2)
-  %queued_min.3 = select i1 %cmp74.not, i64 %queued_min.2, i64 %spec.select82
+  %spec.select82 = call i64 @llvm.umax.i64(i64 %add77, i64 %queued_min.3)
+  %queued_min.4 = select i1 %cmp74.not, i64 %queued_min.3, i64 %spec.select82
   %spec.select83 = call i64 @llvm.umax.i64(i64 %spec.select80, i64 %add77)
   br label %for.inc97
 
 for.inc97:                                        ; preds = %if.end90, %if.end43, %for.body20
-  %queued_min.4 = phi i64 [ %queued_min.193, %for.body20 ], [ %queued_min.2, %if.end43 ], [ %queued_min.3, %if.end90 ]
-  %queued_max.3 = phi i64 [ %queued_max.194, %for.body20 ], [ %spec.select80, %if.end43 ], [ %spec.select83, %if.end90 ]
+  %queued_min.2 = phi i64 [ %queued_min.193, %for.body20 ], [ %queued_min.3, %if.end43 ], [ %queued_min.4, %if.end90 ]
+  %queued_max.2 = phi i64 [ %queued_max.194, %for.body20 ], [ %spec.select80, %if.end43 ], [ %spec.select83, %if.end90 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond107.not, label %for.end99, label %for.body20, !llvm.loop !15
@@ -1393,7 +1393,7 @@ if.else:                                          ; preds = %for.end99
 
 if.end118:                                        ; preds = %if.else, %test_single_copy_read.exit
   %9 = load i64, ptr %readbytes, align 8
-  %sub119 = sub i64 %queued_min.4, %queued_min.096
+  %sub119 = sub i64 %queued_min.2, %queued_min.096
   %call120 = call i32 @test_size_t_ge(ptr noundef nonnull @.str.4, i32 noundef 545, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.94, i64 noundef %9, i64 noundef %sub119) #7
   %tobool121.not = icmp eq i32 %call120, 0
   br i1 %tobool121.not, label %err, label %lor.lhs.false122
@@ -1424,7 +1424,7 @@ if.end135:                                        ; preds = %land.lhs.true130, %
   br i1 %cmp139, label %if.then141, label %if.end157
 
 if.then141:                                       ; preds = %if.end135
-  %sub142 = add i64 %queued_max.3, 1
+  %sub142 = add i64 %queued_max.2, 1
   %add143 = sub i64 %sub142, %add136
   %call144 = call i32 @ossl_quic_rstream_resize_rbuf(ptr noundef %call6, i64 noundef %add143) #7
   %cmp145 = icmp ne i32 %call144, 0
@@ -1450,7 +1450,7 @@ land.lhs.true159:                                 ; preds = %if.end157
   %rem161 = urem i32 %call160, 200
   %narrow = sub nuw nsw i32 10000, %rem161
   %sub163 = zext nneg i32 %narrow to i64
-  %cmp164.not = icmp ult i64 %queued_max.3, %sub163
+  %cmp164.not = icmp ult i64 %queued_max.2, %sub163
   br i1 %cmp164.not, label %for.inc175, label %if.then166
 
 if.then166:                                       ; preds = %land.lhs.true159

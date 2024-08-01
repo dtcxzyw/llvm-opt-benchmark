@@ -12597,7 +12597,7 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL5StateESaIS2_EE11_M_allocateEm.exit.i.i: ; pred
   br label %4513
 
 4513:                                             ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i, %.lr.ph.i661
-  %4514 = phi ptr [ %4507, %.lr.ph.i661 ], [ %.sroa.9.3, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i ]
+  %4514 = phi ptr [ %4507, %.lr.ph.i661 ], [ %.sroa.9.10, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i ]
   %indvars.iv.i662 = phi i64 [ %4510, %.lr.ph.i661 ], [ %indvars.iv.next.i665, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i ]
   %4515 = phi ptr [ %4508, %.lr.ph.i661 ], [ %4541, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i ]
   %4516 = phi ptr [ %4507, %.lr.ph.i661 ], [ %4540, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i ]
@@ -12680,7 +12680,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
   %.pn1304 = phi ptr [ %4534, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %4514, %.cont.i ]
   %4540 = phi ptr [ %4533, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %4516, %.cont.i ]
   %4541 = phi ptr [ %4539, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %4515, %.cont.i ]
-  %.sroa.9.3 = getelementptr inbounds i8, ptr %.pn1304, i64 1
+  %.sroa.9.10 = getelementptr inbounds i8, ptr %.pn1304, i64 1
   %indvars.iv.next.i665 = add nsw i64 %indvars.iv.i662, 1
   %4542 = icmp slt i64 %indvars.iv.next.i665, %4511
   br i1 %4542, label %4513, label %_ZNK5Yosys5RTLIL5Const7extractEiiNS0_5StateE.exit, !llvm.loop !81
@@ -12712,7 +12712,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
   br label %.body671
 
 _ZNK5Yosys5RTLIL5Const7extractEiiNS0_5StateE.exit: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backERKS2_.exit.i
-  %.not4452.i.i.i.i.i.i.i = icmp eq ptr %4540, %.sroa.9.3
+  %.not4452.i.i.i.i.i.i.i = icmp eq ptr %4540, %.sroa.9.10
   br i1 %.not4452.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i84.i.i
 
 4545:                                             ; preds = %.lr.ph.i.i.i.i.i84.i.i
@@ -140164,7 +140164,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys5RTLIL7Sig
 85:                                               ; preds = %.lr.ph, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit ]
   %86 = phi ptr [ %68, %.lr.ph ], [ %181, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit ]
-  %.021.i18 = phi i1 [ false, %.lr.ph ], [ %.1.i, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit ]
+  %.1.i18 = phi i1 [ false, %.lr.ph ], [ %.2.i, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit ]
   %87 = getelementptr inbounds %"class.std::tuple.394", ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
   store ptr %88, ptr %8, align 8
@@ -140334,7 +140334,7 @@ _ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iterator
   br label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit
 
 _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit: ; preds = %136, %179, %176
-  %.1.i = phi i1 [ true, %179 ], [ true, %176 ], [ %.021.i18, %136 ]
+  %.2.i = phi i1 [ true, %179 ], [ true, %176 ], [ %.1.i18, %136 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %180 = load ptr, ptr %66, align 8
   %181 = load ptr, ptr %65, align 8
@@ -140348,7 +140348,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit: ;
 
 ._crit_edge:                                      ; preds = %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit
   store ptr null, ptr %8, align 8
-  br i1 %.1.i, label %_ZN12_GLOBAL__N_121xilinx_dsp_cascade_pm7block_4Ei.exit, label %187
+  br i1 %.2.i, label %_ZN12_GLOBAL__N_121xilinx_dsp_cascade_pm7block_4Ei.exit, label %187
 
 .sink.split:                                      ; preds = %60, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   store ptr null, ptr %8, align 8
@@ -140869,7 +140869,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %_ZN5Yosys5RTLIL7Sig
 126:                                              ; preds = %.lr.ph, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit ]
   %127 = phi ptr [ %102, %.lr.ph ], [ %241, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit ]
-  %.02570 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit ]
+  %.170 = phi i1 [ false, %.lr.ph ], [ %.2, %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit ]
   %128 = getelementptr inbounds %"class.std::tuple.394", ptr %127, i64 %indvars.iv
   %129 = load ptr, ptr %128, align 8
   store ptr %129, ptr %12, align 8
@@ -141094,7 +141094,7 @@ _ZN5Yosys7hashlib4dictIPNS_5RTLIL4CellEiNS0_8hash_opsIS4_EEE5eraseENS7_8iterator
   br label %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit
 
 _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit: ; preds = %177, %236, %239
-  %.1 = phi i1 [ true, %239 ], [ true, %236 ], [ %.02570, %177 ]
+  %.2 = phi i1 [ true, %239 ], [ true, %236 ], [ %.170, %177 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %240 = load ptr, ptr %100, align 8
   %241 = load ptr, ptr %99, align 8
@@ -141108,7 +141108,7 @@ _ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit: ;
 
 ._crit_edge:                                      ; preds = %_ZNK5Yosys7hashlib4poolIPNS_5RTLIL4CellENS0_8hash_opsIS4_EEE5countERKS4_.exit
   store ptr null, ptr %12, align 8
-  br i1 %.1, label %.loopexit, label %247
+  br i1 %.2, label %.loopexit, label %247
 
 .sink.split:                                      ; preds = %94, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit
   store ptr null, ptr %12, align 8
@@ -144193,7 +144193,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit768:                ; preds = %_ZN5Yosys5RTLIL5Con
   br i1 %.0165.i1017, label %.critedge368.i, label %.critedge369.i
 
 .critedge368.i:                                   ; preds = %.thread, %1166, %.critedge366.i
-  %.1176.i901904 = phi i1 [ %or.cond988, %.critedge366.i ], [ true, %1166 ], [ true, %.thread ]
+  %.2177.i901904 = phi i1 [ %or.cond988, %.critedge366.i ], [ true, %1166 ], [ true, %.thread ]
   %1212 = phi i1 [ %1190, %.critedge366.i ], [ true, %1166 ], [ false, %.thread ]
   %1213 = getelementptr inbounds i8, ptr %35, i64 8
   %1214 = load ptr, ptr %1213, align 8
@@ -144244,9 +144244,9 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit762:                ; preds = %_ZN5Yosys5RTLIL5Con
   unreachable
 
 .critedge369.i:                                   ; preds = %1167, %1230, %1223, %_ZN5Yosys5RTLIL5ConstD2Ev.exit762, %.critedge366.i
-  %.1176.i901903 = phi i1 [ %or.cond988, %.critedge366.i ], [ %.1176.i901904, %_ZN5Yosys5RTLIL5ConstD2Ev.exit762 ], [ %.1176.i901904, %1223 ], [ %.1176.i901904, %1230 ], [ %or.cond988, %1167 ]
+  %.2177.i901903 = phi i1 [ %or.cond988, %.critedge366.i ], [ %.2177.i901904, %_ZN5Yosys5RTLIL5ConstD2Ev.exit762 ], [ %.2177.i901904, %1223 ], [ %.2177.i901904, %1230 ], [ %or.cond988, %1167 ]
   %1234 = phi i1 [ %1190, %.critedge366.i ], [ %1212, %_ZN5Yosys5RTLIL5ConstD2Ev.exit762 ], [ %1212, %1223 ], [ %1212, %1230 ], [ false, %1167 ]
-  br i1 %.1176.i901903, label %.critedge371.i, label %.critedge372.i
+  br i1 %.2177.i901903, label %.critedge371.i, label %.critedge372.i
 
 .critedge371.i:                                   ; preds = %.critedge369.i
   %1235 = getelementptr inbounds i8, ptr %32, i64 8

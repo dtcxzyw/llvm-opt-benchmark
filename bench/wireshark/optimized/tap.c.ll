@@ -87,23 +87,23 @@ define i32 @register_tap(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %6
-  %.027 = phi i32 [ %7, %6 ], [ 1, %1 ]
-  %.01626 = phi ptr [ %8, %6 ], [ %2, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.01626, i64 8
+  %.127 = phi i32 [ %7, %6 ], [ 1, %1 ]
+  %.11726 = phi ptr [ %8, %6 ], [ %2, %1 ]
+  %3 = getelementptr inbounds i8, ptr %.11726, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #9
   %.not22 = icmp eq i32 %5, 0
   br i1 %.not22, label %.loopexit23, label %6
 
 6:                                                ; preds = %.preheader
-  %7 = add i32 %.027, 1
-  %8 = load ptr, ptr %.01626, align 8
+  %7 = add i32 %.127, 1
+  %8 = load ptr, ptr %.11726, align 8
   %.not20 = icmp eq ptr %8, null
   br i1 %.not20, label %.loopexit, label %.preheader, !llvm.loop !6
 
 .loopexit:                                        ; preds = %6, %1
-  %.117 = phi ptr [ null, %1 ], [ %.01626, %6 ]
-  %.1 = phi i32 [ 0, %1 ], [ %7, %6 ]
+  %.016 = phi ptr [ null, %1 ], [ %.11726, %6 ]
+  %.0 = phi i32 [ 0, %1 ], [ %7, %6 ]
   %9 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #10
   store ptr null, ptr %9, align 8
   %10 = tail call noalias ptr @g_strdup(ptr noundef %0) #8
@@ -111,13 +111,13 @@ define i32 @register_tap(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %10, ptr %11, align 8
   %12 = load ptr, ptr @tap_dissector_list, align 8
   %.not21 = icmp eq ptr %12, null
-  %tap_dissector_list..117 = select i1 %.not21, ptr @tap_dissector_list, ptr %.117
-  %..1 = select i1 %.not21, i32 1, i32 %.1
-  store ptr %9, ptr %tap_dissector_list..117, align 8
+  %tap_dissector_list..016 = select i1 %.not21, ptr @tap_dissector_list, ptr %.016
+  %..0 = select i1 %.not21, i32 1, i32 %.0
+  store ptr %9, ptr %tap_dissector_list..016, align 8
   br label %.loopexit23
 
 .loopexit23:                                      ; preds = %.preheader, %.loopexit
-  %.018 = phi i32 [ %..1, %.loopexit ], [ %.027, %.preheader ]
+  %.018 = phi i32 [ %..0, %.loopexit ], [ %.127, %.preheader ]
   ret i32 %.018
 }
 

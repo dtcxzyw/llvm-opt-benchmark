@@ -640,7 +640,7 @@ define dso_local noundef i64 @pg_ls_dir(ptr noundef %0) local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %18, %14
-  %.020 = phi i1 [ false, %14 ], [ %21, %18 ]
+  %.1 = phi i1 [ false, %14 ], [ %21, %18 ]
   %23 = getelementptr i8, ptr %0, i64 72
   %24 = load i8, ptr %23, align 8
   %25 = trunc i8 %24 to i1
@@ -654,11 +654,11 @@ define dso_local noundef i64 @pg_ls_dir(ptr noundef %0) local_unnamed_addr #0 {
 
 30:                                               ; preds = %22, %26, %1
   %.021 = phi i1 [ false, %22 ], [ %29, %26 ], [ false, %1 ]
-  %.1 = phi i1 [ %.020, %22 ], [ %.020, %26 ], [ false, %1 ]
+  %.020 = phi i1 [ %.1, %22 ], [ %.1, %26 ], [ false, %1 ]
   tail call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 1) #8
   %31 = tail call ptr @AllocateDir(ptr noundef %10) #8
   %.not = icmp eq ptr %31, null
-  %brmerge.not = select i1 %.not, i1 %.1, i1 false
+  %brmerge.not = select i1 %.not, i1 %.020, i1 false
   br i1 %brmerge.not, label %32, label %36
 
 32:                                               ; preds = %30
@@ -1050,7 +1050,7 @@ define internal fastcc ptr @read_binary_file(ptr noundef %0, i64 noundef %1, i64
   br label %46
 
 46:                                               ; preds = %.lr.ph, %59
-  %.02839 = phi i64 [ 0, %.lr.ph ], [ %72, %59 ]
+  %.139 = phi i64 [ 0, %.lr.ph ], [ %72, %59 ]
   %47 = call i32 @ferror(ptr noundef nonnull %13) #8
   %.not35 = icmp eq i32 %47, 0
   br i1 %.not35, label %48, label %.critedge
@@ -1093,18 +1093,18 @@ define internal fastcc ptr @read_binary_file(ptr noundef %0, i64 noundef %1, i64
   %70 = trunc i64 %68 to i32
   %71 = add i32 %69, %70
   store i32 %71, ptr %41, align 8
-  %72 = add i64 %68, %.02839
+  %72 = add i64 %68, %.139
   %73 = call i32 @feof(ptr noundef nonnull %13) #8
   %.not31 = icmp eq i32 %73, 0
   br i1 %.not31, label %46, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %46, %59, %40, %53
-  %.02837 = phi i64 [ %.02839, %53 ], [ 0, %40 ], [ %.02839, %46 ], [ %72, %59 ]
+  %.137 = phi i64 [ %.139, %53 ], [ 0, %40 ], [ %.139, %46 ], [ %72, %59 ]
   %74 = load ptr, ptr %5, align 8
   br label %75
 
 75:                                               ; preds = %.critedge, %35
-  %.1 = phi i64 [ %39, %35 ], [ %.02837, %.critedge ]
+  %.028 = phi i64 [ %39, %35 ], [ %.137, %.critedge ]
   %.027 = phi ptr [ %37, %35 ], [ %74, %.critedge ]
   %76 = call i32 @ferror(ptr noundef nonnull %13) #8
   %.not34 = icmp eq i32 %76, 0
@@ -1119,7 +1119,7 @@ define internal fastcc ptr @read_binary_file(ptr noundef %0, i64 noundef %1, i64
   unreachable
 
 81:                                               ; preds = %75
-  %82 = trunc i64 %.1 to i32
+  %82 = trunc i64 %.028 to i32
   %83 = shl i32 %82, 2
   %84 = add i32 %83, 16
   store i32 %84, ptr %.027, align 4

@@ -422,15 +422,15 @@ default.unreachable:                              ; preds = %31
 
 106:                                              ; preds = %98, %94, %92, %65, %61, %54
   %.0142.i = phi i16 [ %105, %98 ], [ %93, %92 ], [ %97, %94 ], [ %75, %65 ], [ %64, %61 ], [ %60, %54 ]
-  %.1.i = phi i32 [ %103, %98 ], [ 11, %92 ], [ %95, %94 ], [ %73, %65 ], [ %62, %61 ], [ %58, %54 ]
+  %.0141.i = phi i32 [ %103, %98 ], [ 11, %92 ], [ %95, %94 ], [ %73, %65 ], [ %62, %61 ], [ %58, %54 ]
   %.not145.i = icmp eq i16 %.0142.i, 0
   br i1 %.not145.i, label %dissect_lisp_tcp_reliable_transport_message.exit, label %107
 
 107:                                              ; preds = %106
   %108 = load i32, ptr @hf_lisp_tcp_message_data, align 4
   %109 = zext i16 %.0142.i to i32
-  %110 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %108, ptr noundef %0, i32 noundef %.1.i, i32 noundef %109, i32 noundef 0) #2
-  %111 = add i32 %.1.i, %109
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %108, ptr noundef %0, i32 noundef %.0141.i, i32 noundef %109, i32 noundef 0) #2
+  %111 = add i32 %.0141.i, %109
   %112 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %8, ptr noundef nonnull @ei_lisp_tcp_undecoded, ptr noundef nonnull @.str.118) #2
   br label %dissect_lisp_tcp_reliable_transport_message.exit
 
@@ -549,7 +549,7 @@ default.unreachable:                              ; preds = %31
   br label %dissect_lisp_tcp_reliable_transport_message.exit
 
 dissect_lisp_tcp_reliable_transport_message.exit: ; preds = %170, %169, %107, %106, %49, %32, %19, %176, %17
-  %.0 = phi i32 [ 4, %17 ], [ %180, %176 ], [ 4, %19 ], [ %53, %49 ], [ 20, %32 ], [ %111, %107 ], [ %.1.i, %106 ], [ %174, %170 ], [ %.0.i79, %169 ]
+  %.0 = phi i32 [ 4, %17 ], [ %180, %176 ], [ 4, %19 ], [ %53, %49 ], [ 20, %32 ], [ %111, %107 ], [ %.0141.i, %106 ], [ %174, %170 ], [ %.0.i79, %169 ]
   %181 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0) #2
   %182 = load i32, ptr @hf_lisp_tcp_message_end_marker, align 4
   %183 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %182, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0) #2

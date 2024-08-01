@@ -1145,7 +1145,7 @@ parseDimensions.exit.thread:                      ; preds = %.lr.ph.i, %179
   br label %processDataFile.exit.thread.i
 
 322:                                              ; preds = %316, %310
-  %.045.i.i = phi ptr [ %311, %310 ], [ %317, %316 ]
+  %.1.i.i = phi ptr [ %311, %310 ], [ %317, %316 ]
   %323 = load i32, ptr %308, align 4
   switch i32 %323, label %948 [
     i32 0, label %324
@@ -1293,7 +1293,7 @@ allocateIntegerStorage.exit.i.i:                  ; preds = %352, %347, %342, %3
 .lr.ph134.i.i.i:                                  ; preds = %385, %.lr.ph134.preheader.i.i.i
   %.078132.i.i.i = phi ptr [ %389, %385 ], [ %380, %.lr.ph134.preheader.i.i.i ]
   %.082131.i.i.i = phi i64 [ %388, %385 ], [ 0, %.lr.ph134.preheader.i.i.i ]
-  %381 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.045.i.i, ptr noundef nonnull @.str.482, ptr noundef nonnull %27) #17
+  %381 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.1.i.i, ptr noundef nonnull @.str.482, ptr noundef nonnull %27) #17
   %.not94.i.i.i = icmp eq i32 %381, 1
   br i1 %.not94.i.i.i, label %385, label %382
 
@@ -1323,7 +1323,7 @@ allocateIntegerStorage.exit.i.i:                  ; preds = %352, %347, %342, %3
 .lr.ph130.i.i.i:                                  ; preds = %397, %.lr.ph130.preheader.i.i.i
   %.1128.i.i.i = phi ptr [ %399, %397 ], [ %392, %.lr.ph130.preheader.i.i.i ]
   %.183127.i.i.i = phi i64 [ %398, %397 ], [ 0, %.lr.ph130.preheader.i.i.i ]
-  %393 = call i64 @fread(ptr noundef %.1128.i.i.i, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %.045.i.i)
+  %393 = call i64 @fread(ptr noundef %.1128.i.i.i, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %.1.i.i)
   %.not93.i.i.i = icmp eq i64 %393, 1
   br i1 %.not93.i.i.i, label %397, label %394
 
@@ -1363,7 +1363,7 @@ allocateIntegerStorage.exit.i.i:                  ; preds = %352, %347, %342, %3
 .lr.ph126.i.i.i:                                  ; preds = %.preheader.i.i.i, %411
   %.079125.i.i.i = phi ptr [ %413, %411 ], [ %405, %.preheader.i.i.i ]
   %.2124.i.i.i = phi i64 [ %412, %411 ], [ 0, %.preheader.i.i.i ]
-  %407 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.045.i.i, ptr noundef nonnull @.str.482, ptr noundef %.079125.i.i.i) #17
+  %407 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.1.i.i, ptr noundef nonnull @.str.482, ptr noundef %.079125.i.i.i) #17
   %.not92.i.i.i = icmp eq i32 %407, 1
   br i1 %.not92.i.i.i, label %411, label %408
 
@@ -1381,7 +1381,7 @@ allocateIntegerStorage.exit.i.i:                  ; preds = %352, %347, %342, %3
 .lr.ph123.i.i.i:                                  ; preds = %.preheader97.i.i.i, %418
   %.180122.i.i.i = phi ptr [ %421, %418 ], [ %405, %.preheader97.i.i.i ]
   %.3121.i.i.i = phi i64 [ %420, %418 ], [ 0, %.preheader97.i.i.i ]
-  %414 = call i64 @fread(ptr noundef nonnull %27, i64 noundef 2, i64 noundef 1, ptr noundef nonnull %.045.i.i)
+  %414 = call i64 @fread(ptr noundef nonnull %27, i64 noundef 2, i64 noundef 1, ptr noundef nonnull %.1.i.i)
   %.not91.i.i.i = icmp eq i64 %414, 1
   br i1 %.not91.i.i.i, label %418, label %415
 
@@ -1423,7 +1423,7 @@ allocateIntegerStorage.exit.i.i:                  ; preds = %352, %347, %342, %3
 .lr.ph120.i.i.i:                                  ; preds = %.preheader99.i.i.i, %433
   %.4119.i.i.i = phi i64 [ %434, %433 ], [ 0, %.preheader99.i.i.i ]
   %.087118.i.i.i = phi ptr [ %435, %433 ], [ %427, %.preheader99.i.i.i ]
-  %429 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.045.i.i, ptr noundef nonnull @.str.14, ptr noundef %.087118.i.i.i) #17
+  %429 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.1.i.i, ptr noundef nonnull @.str.14, ptr noundef %.087118.i.i.i) #17
   %.not90.i.i.i = icmp eq i32 %429, 1
   br i1 %.not90.i.i.i, label %433, label %430
 
@@ -1441,7 +1441,7 @@ allocateIntegerStorage.exit.i.i:                  ; preds = %352, %347, %342, %3
 .lr.ph117.i.i.i:                                  ; preds = %.preheader101.i.i.i, %440
   %.5116.i.i.i = phi i64 [ %442, %440 ], [ 0, %.preheader101.i.i.i ]
   %.188115.i.i.i = phi ptr [ %443, %440 ], [ %427, %.preheader101.i.i.i ]
-  %436 = call i64 @fread(ptr noundef nonnull %28, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %.045.i.i)
+  %436 = call i64 @fread(ptr noundef nonnull %28, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %.1.i.i)
   %.not89.i.i.i = icmp eq i64 %436, 1
   br i1 %.not89.i.i.i, label %440, label %437
 
@@ -1483,7 +1483,7 @@ allocateIntegerStorage.exit.i.i:                  ; preds = %352, %347, %342, %3
 .lr.ph114.i.i.i:                                  ; preds = %.preheader103.i.i.i, %456
   %.6113.i.i.i = phi i64 [ %458, %456 ], [ 0, %.preheader103.i.i.i ]
   %.085112.i.i.i = phi ptr [ %459, %456 ], [ %449, %.preheader103.i.i.i ]
-  %451 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.045.i.i, ptr noundef nonnull @.str.12, ptr noundef nonnull %30) #17
+  %451 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.1.i.i, ptr noundef nonnull @.str.12, ptr noundef nonnull %30) #17
   %452 = icmp slt i32 %451, 1
   br i1 %452, label %453, label %456
 
@@ -1503,7 +1503,7 @@ allocateIntegerStorage.exit.i.i:                  ; preds = %352, %347, %342, %3
 .lr.ph111.i.i.i:                                  ; preds = %.preheader105.i.i.i, %464
   %.7110.i.i.i = phi i64 [ %466, %464 ], [ 0, %.preheader105.i.i.i ]
   %.186109.i.i.i = phi ptr [ %467, %464 ], [ %449, %.preheader105.i.i.i ]
-  %460 = call i64 @fread(ptr noundef nonnull %29, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %.045.i.i)
+  %460 = call i64 @fread(ptr noundef nonnull %29, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %.1.i.i)
   %.not.i.i.i = icmp eq i64 %460, 1
   br i1 %.not.i.i.i, label %464, label %461
 
@@ -1662,7 +1662,7 @@ allocateFloatStorage.exit.i.i:                    ; preds = %494, %489
 .lr.ph105.i.i.i:                                  ; preds = %.preheader.i69.i.i, %524
   %.062104.i.i.i = phi ptr [ %526, %524 ], [ %518, %.preheader.i69.i.i ]
   %.065103.i.i.i = phi i64 [ %525, %524 ], [ 0, %.preheader.i69.i.i ]
-  %520 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.045.i.i, ptr noundef nonnull @.str.486, ptr noundef %.062104.i.i.i) #17
+  %520 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.1.i.i, ptr noundef nonnull @.str.486, ptr noundef %.062104.i.i.i) #17
   %.not75.i.i.i = icmp eq i32 %520, 1
   br i1 %.not75.i.i.i, label %524, label %521
 
@@ -1680,7 +1680,7 @@ allocateFloatStorage.exit.i.i:                    ; preds = %494, %489
 .lr.ph102.i.i.i:                                  ; preds = %.preheader76.i.i.i, %531
   %.1101.i.i.i = phi ptr [ %533, %531 ], [ %518, %.preheader76.i.i.i ]
   %.166100.i.i.i = phi i64 [ %532, %531 ], [ 0, %.preheader76.i.i.i ]
-  %527 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.045.i.i, ptr noundef nonnull @.str.486, ptr noundef %.1101.i.i.i) #17
+  %527 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.1.i.i, ptr noundef nonnull @.str.486, ptr noundef %.1101.i.i.i) #17
   %.not74.i.i.i = icmp eq i32 %527, 1
   br i1 %.not74.i.i.i, label %531, label %528
 
@@ -1698,7 +1698,7 @@ allocateFloatStorage.exit.i.i:                    ; preds = %494, %489
 .lr.ph99.i.i.i:                                   ; preds = %.preheader78.i.i.i, %538
   %.06398.i.i.i = phi ptr [ %541, %538 ], [ %518, %.preheader78.i.i.i ]
   %.297.i.i.i = phi i64 [ %540, %538 ], [ 0, %.preheader78.i.i.i ]
-  %534 = call i64 @fread(ptr noundef nonnull %25, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %.045.i.i)
+  %534 = call i64 @fread(ptr noundef nonnull %25, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %.1.i.i)
   %.not73.i.i.i = icmp eq i64 %534, 1
   br i1 %.not73.i.i.i, label %538, label %535
 
@@ -1745,7 +1745,7 @@ allocateFloatStorage.exit.i.i:                    ; preds = %494, %489
 .lr.ph96.i.i.i:                                   ; preds = %.preheader80.i.i.i, %553
   %.395.i.i.i = phi i64 [ %554, %553 ], [ 0, %.preheader80.i.i.i ]
   %.06994.i.i.i = phi ptr [ %555, %553 ], [ %547, %.preheader80.i.i.i ]
-  %549 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.045.i.i, ptr noundef nonnull @.str.487, ptr noundef %.06994.i.i.i) #17
+  %549 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.1.i.i, ptr noundef nonnull @.str.487, ptr noundef %.06994.i.i.i) #17
   %.not72.i.i.i = icmp eq i32 %549, 1
   br i1 %.not72.i.i.i, label %553, label %550
 
@@ -1763,7 +1763,7 @@ allocateFloatStorage.exit.i.i:                    ; preds = %494, %489
 .lr.ph93.i.i.i:                                   ; preds = %.preheader82.i.i.i, %560
   %.492.i.i.i = phi i64 [ %561, %560 ], [ 0, %.preheader82.i.i.i ]
   %.17091.i.i.i = phi ptr [ %562, %560 ], [ %547, %.preheader82.i.i.i ]
-  %556 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.045.i.i, ptr noundef nonnull @.str.487, ptr noundef %.17091.i.i.i) #17
+  %556 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.1.i.i, ptr noundef nonnull @.str.487, ptr noundef %.17091.i.i.i) #17
   %.not71.i.i.i = icmp eq i32 %556, 1
   br i1 %.not71.i.i.i, label %560, label %557
 
@@ -1781,7 +1781,7 @@ allocateFloatStorage.exit.i.i:                    ; preds = %494, %489
 .lr.ph90.i.i.i:                                   ; preds = %.preheader84.i.i.i, %567
   %.589.i.i.i = phi i64 [ %569, %567 ], [ 0, %.preheader84.i.i.i ]
   %.06888.i.i.i = phi ptr [ %570, %567 ], [ %547, %.preheader84.i.i.i ]
-  %563 = call i64 @fread(ptr noundef nonnull %26, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %.045.i.i)
+  %563 = call i64 @fread(ptr noundef nonnull %26, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %.1.i.i)
   %.not.i67.i.i = icmp eq i64 %563, 1
   br i1 %.not.i67.i.i, label %567, label %564
 
@@ -1958,7 +1958,7 @@ readFloatData.exit.thread.i.i:                    ; preds = %567, %560, %553, %5
   br i1 %647, label %.loopexit.i.i.i, label %.preheader.i76.i.i
 
 .preheader.i76.i.i:                               ; preds = %643
-  %648 = call ptr @fgets(ptr noundef nonnull %16, i32 noundef 1024, ptr noundef nonnull %.045.i.i)
+  %648 = call ptr @fgets(ptr noundef nonnull %16, i32 noundef 1024, ptr noundef nonnull %.1.i.i)
   %.not7090.i.i.i = icmp eq ptr %648, null
   br i1 %.not7090.i.i.i, label %processStrHDFData.exit.i.i, label %.lr.ph92.i.i.i
 
@@ -2009,7 +2009,7 @@ readFloatData.exit.thread.i.i:                    ; preds = %567, %560, %553, %5
 668:                                              ; preds = %665, %653, %650, %.lr.ph92.i.i.i
   %.1.i.i.i = phi i64 [ %659, %665 ], [ %.04991.i.i.i, %653 ], [ %.04991.i.i.i, %650 ], [ %.04991.i.i.i, %.lr.ph92.i.i.i ]
   store i8 0, ptr %16, align 16
-  %669 = call ptr @fgets(ptr noundef nonnull %16, i32 noundef 1024, ptr noundef nonnull %.045.i.i)
+  %669 = call ptr @fgets(ptr noundef nonnull %16, i32 noundef 1024, ptr noundef nonnull %.1.i.i)
   %.not70.i.i.i = icmp eq ptr %669, null
   br i1 %.not70.i.i.i, label %processStrHDFData.exit.i.i, label %.lr.ph92.i.i.i
 
@@ -2099,7 +2099,7 @@ processStrHDFData.exit.i.i:                       ; preds = %668, %.preheader.i7
   br label %698
 
 698:                                              ; preds = %.outer1187, %698
-  %699 = call i32 @fgetc(ptr noundef nonnull %.045.i.i)
+  %699 = call i32 @fgetc(ptr noundef nonnull %.1.i.i)
   switch i32 %699, label %698 [
     i32 -1, label %702
     i32 10, label %700
@@ -2115,7 +2115,7 @@ processStrHDFData.exit.i.i:                       ; preds = %668, %.preheader.i7
 
 703:                                              ; preds = %702
   store i64 %.051.i.i.i.ph, ptr %7, align 8
-  %704 = call i32 @fseeko64(ptr noundef nonnull %.045.i.i, i64 noundef 0, i32 noundef 0)
+  %704 = call i32 @fseeko64(ptr noundef nonnull %.1.i.i, i64 noundef 0, i32 noundef 0)
   %705 = call i32 @H5open() #17
   %706 = load i64, ptr @H5T_C_S1_g, align 8
   %707 = call i64 @H5Tcopy(i64 noundef %706) #17
@@ -2232,7 +2232,7 @@ processStrHDFData.exit.i.i:                       ; preds = %668, %.preheader.i7
   br i1 %765, label %.loopexit.i.i, label %.preheader.i90.i.i
 
 .preheader.i90.i.i:                               ; preds = %761
-  %766 = call i32 @fgetc(ptr noundef nonnull %.045.i.i)
+  %766 = call i32 @fgetc(ptr noundef nonnull %.1.i.i)
   %.not7186.i.i.i = icmp eq i32 %766, -1
   br i1 %.not7186.i.i.i, label %._crit_edge.i93.i.i, label %.lr.ph89.i.i.i
 
@@ -2280,7 +2280,7 @@ processStrHDFData.exit.i.i:                       ; preds = %668, %.preheader.i7
 787:                                              ; preds = %786, %.lr.ph89.i.i.i
   %.156.i.i.i = phi i32 [ 0, %786 ], [ %771, %.lr.ph89.i.i.i ]
   %.1.i91.i.i = phi i64 [ %777, %786 ], [ %.05088.i.i.i, %.lr.ph89.i.i.i ]
-  %788 = call i32 @fgetc(ptr noundef nonnull %.045.i.i)
+  %788 = call i32 @fgetc(ptr noundef nonnull %.1.i.i)
   %.not71.i92.i.i = icmp eq i32 %788, -1
   br i1 %.not71.i92.i.i, label %._crit_edge.i93.i.i, label %.lr.ph89.i.i.i
 
@@ -2450,7 +2450,7 @@ allocateUIntegerStorage.exit.i.i:                 ; preds = %823, %818, %813, %8
 .lr.ph133.i.i.i:                                  ; preds = %856, %.lr.ph133.preheader.i.i.i
   %.077131.i.i.i = phi ptr [ %860, %856 ], [ %851, %.lr.ph133.preheader.i.i.i ]
   %.081130.i.i.i = phi i64 [ %859, %856 ], [ 0, %.lr.ph133.preheader.i.i.i ]
-  %852 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.045.i.i, ptr noundef nonnull @.str.490, ptr noundef nonnull %3) #17
+  %852 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.1.i.i, ptr noundef nonnull @.str.490, ptr noundef nonnull %3) #17
   %.not93.i129.i.i = icmp eq i32 %852, 1
   br i1 %.not93.i129.i.i, label %856, label %853
 
@@ -2480,7 +2480,7 @@ allocateUIntegerStorage.exit.i.i:                 ; preds = %823, %818, %813, %8
 .lr.ph129.i.i.i:                                  ; preds = %868, %.lr.ph129.preheader.i.i.i
   %.1127.i.i.i = phi ptr [ %870, %868 ], [ %863, %.lr.ph129.preheader.i.i.i ]
   %.182126.i.i.i = phi i64 [ %869, %868 ], [ 0, %.lr.ph129.preheader.i.i.i ]
-  %864 = call i64 @fread(ptr noundef %.1127.i.i.i, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %.045.i.i)
+  %864 = call i64 @fread(ptr noundef %.1127.i.i.i, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %.1.i.i)
   %.not92.i126.i.i = icmp eq i64 %864, 1
   br i1 %.not92.i126.i.i, label %868, label %865
 
@@ -2520,7 +2520,7 @@ allocateUIntegerStorage.exit.i.i:                 ; preds = %823, %818, %813, %8
 .lr.ph125.i.i.i:                                  ; preds = %.preheader.i121.i.i, %882
   %.078124.i.i.i = phi ptr [ %884, %882 ], [ %876, %.preheader.i121.i.i ]
   %.2123.i.i.i = phi i64 [ %883, %882 ], [ 0, %.preheader.i121.i.i ]
-  %878 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.045.i.i, ptr noundef nonnull @.str.490, ptr noundef %.078124.i.i.i) #17
+  %878 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.1.i.i, ptr noundef nonnull @.str.490, ptr noundef %.078124.i.i.i) #17
   %.not91.i123.i.i = icmp eq i32 %878, 1
   br i1 %.not91.i123.i.i, label %882, label %879
 
@@ -2538,7 +2538,7 @@ allocateUIntegerStorage.exit.i.i:                 ; preds = %823, %818, %813, %8
 .lr.ph122.i.i.i:                                  ; preds = %.preheader96.i.i.i, %889
   %.179121.i.i.i = phi ptr [ %892, %889 ], [ %876, %.preheader96.i.i.i ]
   %.3120.i.i.i = phi i64 [ %891, %889 ], [ 0, %.preheader96.i.i.i ]
-  %885 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 2, i64 noundef 1, ptr noundef nonnull %.045.i.i)
+  %885 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 2, i64 noundef 1, ptr noundef nonnull %.1.i.i)
   %.not90.i119.i.i = icmp eq i64 %885, 1
   br i1 %.not90.i119.i.i, label %889, label %886
 
@@ -2580,7 +2580,7 @@ allocateUIntegerStorage.exit.i.i:                 ; preds = %823, %818, %813, %8
 .lr.ph119.i.i.i:                                  ; preds = %.preheader98.i.i.i, %904
   %.4118.i.i.i = phi i64 [ %905, %904 ], [ 0, %.preheader98.i.i.i ]
   %.086117.i.i.i = phi ptr [ %906, %904 ], [ %898, %.preheader98.i.i.i ]
-  %900 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.045.i.i, ptr noundef nonnull @.str.491, ptr noundef %.086117.i.i.i) #17
+  %900 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.1.i.i, ptr noundef nonnull @.str.491, ptr noundef %.086117.i.i.i) #17
   %.not89.i116.i.i = icmp eq i32 %900, 1
   br i1 %.not89.i116.i.i, label %904, label %901
 
@@ -2598,7 +2598,7 @@ allocateUIntegerStorage.exit.i.i:                 ; preds = %823, %818, %813, %8
 .lr.ph116.i.i.i:                                  ; preds = %.preheader100.i.i.i, %911
   %.5115.i.i.i = phi i64 [ %913, %911 ], [ 0, %.preheader100.i.i.i ]
   %.187114.i.i.i = phi ptr [ %914, %911 ], [ %898, %.preheader100.i.i.i ]
-  %907 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %.045.i.i)
+  %907 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %.1.i.i)
   %.not88.i.i.i = icmp eq i64 %907, 1
   br i1 %.not88.i.i.i, label %911, label %908
 
@@ -2640,7 +2640,7 @@ allocateUIntegerStorage.exit.i.i:                 ; preds = %823, %818, %813, %8
 .lr.ph113.i.i.i:                                  ; preds = %.preheader102.i.i.i, %927
   %.6112.i.i.i = phi i64 [ %929, %927 ], [ 0, %.preheader102.i.i.i ]
   %.084111.i.i.i = phi ptr [ %930, %927 ], [ %920, %.preheader102.i.i.i ]
-  %922 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.045.i.i, ptr noundef nonnull @.str.12, ptr noundef nonnull %6) #17
+  %922 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %.1.i.i, ptr noundef nonnull @.str.12, ptr noundef nonnull %6) #17
   %923 = icmp slt i32 %922, 1
   br i1 %923, label %924, label %927
 
@@ -2660,7 +2660,7 @@ allocateUIntegerStorage.exit.i.i:                 ; preds = %823, %818, %813, %8
 .lr.ph110.i.i.i:                                  ; preds = %.preheader104.i.i.i, %935
   %.7109.i.i.i = phi i64 [ %937, %935 ], [ 0, %.preheader104.i.i.i ]
   %.185108.i.i.i = phi ptr [ %938, %935 ], [ %920, %.preheader104.i.i.i ]
-  %931 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %.045.i.i)
+  %931 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %.1.i.i)
   %.not.i108.i.i = icmp eq i64 %931, 1
   br i1 %.not.i108.i.i, label %935, label %932
 
@@ -2709,7 +2709,7 @@ readUIntegerData.exit.thread.i.i:                 ; preds = %935, %927, %911, %9
   br label %processDataFile.exit.thread125.i
 
 processDataFile.exit.thread125.i:                 ; preds = %948, %945, %allocateUIntegerStorage.exit.i.i, %.loopexit.i.i, %694, %577, %allocateFloatStorage.exit.i.i, %474, %allocateIntegerStorage.exit.i.i
-  %951 = call i32 @fclose(ptr noundef nonnull %.045.i.i)
+  %951 = call i32 @fclose(ptr noundef nonnull %.1.i.i)
   br label %processDataFile.exit.thread.i
 
 processDataFile.exit.thread.i:                    ; preds = %processDataFile.exit.thread125.i, %319, %313
@@ -2718,7 +2718,7 @@ processDataFile.exit.thread.i:                    ; preds = %processDataFile.exi
   br label %process.exit.thread
 
 954:                                              ; preds = %readUIntegerData.exit.thread.i.i, %processStrData.exit.i.i, %processStrHDFData.exit.i.i, %readFloatData.exit.thread.i.i, %readIntegerData.exit.thread.i.i
-  %955 = call i32 @fclose(ptr noundef nonnull %.045.i.i)
+  %955 = call i32 @fclose(ptr noundef nonnull %.1.i.i)
   %956 = load i32, ptr %308, align 4
   %.not118.i = icmp eq i32 %956, 5
   br i1 %.not118.i, label %1110, label %.preheader128.i

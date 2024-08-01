@@ -45,7 +45,7 @@ define i64 @strtol(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
 
 19:                                               ; preds = %.thread, %9
   %20 = phi i64 [ %8, %.thread ], [ %11, %9 ]
-  %.020 = phi i8 [ 0, %.thread ], [ %7, %9 ]
+  %.120 = phi i8 [ 0, %.thread ], [ %7, %9 ]
   %21 = icmp slt i64 %20, 0
   br i1 %21, label %22, label %24
 
@@ -56,9 +56,9 @@ define i64 @strtol(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
 
 24:                                               ; preds = %19, %17, %15, %22
   %.014 = phi i64 [ -9223372036854775808, %15 ], [ %18, %17 ], [ 9223372036854775807, %22 ], [ %20, %19 ]
-  %.1 = phi i8 [ 45, %15 ], [ 45, %17 ], [ %.020, %22 ], [ %.020, %19 ]
+  %.0 = phi i8 [ 45, %15 ], [ 45, %17 ], [ %.120, %22 ], [ %.120, %19 ]
   %25 = icmp ne ptr %1, null
-  %26 = icmp ne i8 %.1, 0
+  %26 = icmp ne i8 %.0, 0
   %or.cond = and i1 %25, %26
   br i1 %or.cond, label %27, label %.thread21
 
@@ -66,7 +66,7 @@ define i64 @strtol(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   %28 = load ptr, ptr %1, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 -1
   %30 = load i8, ptr %29, align 1
-  %31 = icmp eq i8 %30, %.1
+  %31 = icmp eq i8 %30, %.0
   br i1 %31, label %32, label %.thread21
 
 32:                                               ; preds = %27

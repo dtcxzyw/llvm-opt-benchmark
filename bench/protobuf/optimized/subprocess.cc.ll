@@ -402,7 +402,7 @@ for.cond.preheader.lr.ph:                         ; preds = %if.end
   br label %if.end45
 
 while.cond18thread-pre-split:                     ; preds = %land.lhs.true121, %if.then140, %if.then63
-  %input_pos.0.ph.ph = phi i32 [ %input_pos.2, %land.lhs.true121 ], [ %input_pos.2, %if.then140 ], [ %input_pos.049, %if.then63 ]
+  %input_pos.0.ph.ph = phi i32 [ %input_pos.1, %land.lhs.true121 ], [ %input_pos.1, %if.then140 ], [ %input_pos.049, %if.then63 ]
   %.pr.pr = load i32, ptr %child_stdout_, align 4
   %cmp.not = icmp eq i32 %.pr.pr, -1
   br i1 %cmp.not, label %while.end152.loopexit, label %if.end45
@@ -537,8 +537,8 @@ if.else106:                                       ; preds = %invoke.cont99
   br label %if.end108
 
 if.end108:                                        ; preds = %if.else106, %if.then103
-  %input_pos.1 = phi i32 [ %conv105, %if.then103 ], [ %add107, %if.else106 ]
-  %conv109 = sext i32 %input_pos.1 to i64
+  %input_pos.2 = phi i32 [ %conv105, %if.then103 ], [ %add107, %if.else106 ]
+  %conv109 = sext i32 %input_pos.2 to i64
   %call110 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %input_data) #22
   %cmp111 = icmp eq i64 %call110, %conv109
   br i1 %cmp111, label %if.then112, label %if.end118
@@ -553,7 +553,7 @@ invoke.cont114:                                   ; preds = %if.then112
   br label %if.end118
 
 if.end118:                                        ; preds = %if.end108, %invoke.cont114, %land.lhs.true, %if.end81
-  %input_pos.2 = phi i32 [ %input_pos.1, %invoke.cont114 ], [ %input_pos.1, %if.end108 ], [ %input_pos.049, %land.lhs.true ], [ %input_pos.049, %if.end81 ]
+  %input_pos.1 = phi i32 [ %input_pos.2, %invoke.cont114 ], [ %input_pos.2, %if.end108 ], [ %input_pos.049, %land.lhs.true ], [ %input_pos.049, %if.end81 ]
   %17 = load i32, ptr %child_stdout_, align 4
   %cmp120.not = icmp eq i32 %17, -1
   br i1 %cmp120.not, label %while.end152.loopexit, label %land.lhs.true121, !llvm.loop !4
@@ -789,7 +789,7 @@ cleanup.sink.split:                               ; preds = %invoke.cont198, %in
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont222, %if.else216
-  %retval.0 = phi i1 [ false, %if.else216 ], [ true, %invoke.cont222 ], [ false, %cleanup.sink.split ]
+  %retval.1 = phi i1 [ false, %if.else216 ], [ true, %invoke.cont222 ], [ false, %cleanup.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_data) #22
   br label %cleanup238
 
@@ -799,9 +799,9 @@ ehcleanup:                                        ; preds = %lpad15.loopexit.spl
   br label %ehcleanup239
 
 cleanup238:                                       ; preds = %if.then, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %if.then ]
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %if.then ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %input_data) #22
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup239:                                     ; preds = %ehcleanup, %lpad9
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %4, %lpad9 ]

@@ -11463,8 +11463,8 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 return:                                           ; preds = %entry, %if.then.i.i.i, %cleanup, %_ZNK6vectorIPN7datalog23finite_product_relationELb0EjE5emptyEv.exit
-  %retval.1 = phi i1 [ true, %_ZNK6vectorIPN7datalog23finite_product_relationELb0EjE5emptyEv.exit ], [ %cmp21.not.lcssa, %cleanup ], [ %cmp21.not.lcssa, %if.then.i.i.i ], [ true, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZNK6vectorIPN7datalog23finite_product_relationELb0EjE5emptyEv.exit ], [ %cmp21.not.lcssa, %cleanup ], [ %cmp21.not.lcssa, %if.then.i.i.i ], [ true, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16371,7 +16371,7 @@ for.body44.lr.ph:                                 ; preds = %_ZNK6vectorIPN7data
 
 for.body44:                                       ; preds = %for.body44.lr.ph, %for.inc81
   %indvars.iv78 = phi i64 [ 0, %for.body44.lr.ph ], [ %indvars.iv.next79, %for.inc81 ]
-  %res_oplugin.075 = phi ptr [ null, %for.body44.lr.ph ], [ %res_oplugin.1, %for.inc81 ]
+  %res_oplugin.175 = phi ptr [ null, %for.body44.lr.ph ], [ %res_oplugin.2, %for.inc81 ]
   %30 = load ptr, ptr %res_relations, align 8
   %arrayidx.i47 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv78
   %31 = load ptr, ptr %arrayidx.i47, align 8
@@ -16437,7 +16437,7 @@ invoke.cont67:                                    ; preds = %if.end61
           to label %invoke.cont73 unwind label %lpad.loopexit
 
 invoke.cont73:                                    ; preds = %invoke.cont67
-  %tobool74.not = icmp eq ptr %res_oplugin.075, null
+  %tobool74.not = icmp eq ptr %res_oplugin.175, null
   br i1 %tobool74.not, label %if.then75, label %for.inc81
 
 if.then75:                                        ; preds = %invoke.cont73
@@ -16449,21 +16449,21 @@ if.then75:                                        ; preds = %invoke.cont73
   br label %for.inc81
 
 for.inc81:                                        ; preds = %invoke.cont73, %if.then75, %for.body44
-  %res_oplugin.1 = phi ptr [ %res_oplugin.075, %for.body44 ], [ %res_oplugin.075, %invoke.cont73 ], [ %43, %if.then75 ]
+  %res_oplugin.2 = phi ptr [ %res_oplugin.175, %for.body44 ], [ %res_oplugin.175, %invoke.cont73 ], [ %43, %if.then75 ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
   br i1 %exitcond82.not, label %if.end84, label %for.body44, !llvm.loop !57
 
 if.end84:                                         ; preds = %for.inc81, %if.then38, %_ZNK6vectorIPN7datalog13relation_baseELb0EjE4sizeEv.exit45, %if.end, %_ZNK6vectorIjLb0EjE5emptyEv.exit40
-  %res_oplugin.2 = phi ptr [ null, %_ZNK6vectorIjLb0EjE5emptyEv.exit40 ], [ null, %if.end ], [ null, %_ZNK6vectorIPN7datalog13relation_baseELb0EjE4sizeEv.exit45 ], [ null, %if.then38 ], [ %res_oplugin.1, %for.inc81 ]
+  %res_oplugin.0 = phi ptr [ null, %_ZNK6vectorIjLb0EjE5emptyEv.exit40 ], [ null, %if.end ], [ null, %_ZNK6vectorIPN7datalog13relation_baseELb0EjE4sizeEv.exit45 ], [ null, %if.then38 ], [ %res_oplugin.2, %for.inc81 ]
   %m_other_plugin = getelementptr inbounds i8, ptr %rb, i64 88
   %44 = load ptr, ptr %m_other_plugin, align 8
   %call89 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 160)
           to label %invoke.cont90 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont90:                                    ; preds = %if.end84
-  %tobool85.not = icmp eq ptr %res_oplugin.2, null
-  %res_oplugin.3 = select i1 %tobool85.not, ptr %44, ptr %res_oplugin.2
+  %tobool85.not = icmp eq ptr %res_oplugin.0, null
+  %res_oplugin.3 = select i1 %tobool85.not, ptr %44, ptr %res_oplugin.0
   %45 = load ptr, ptr %m_plugin.i.i, align 8
   %m_result_sig.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_res_table_columns = getelementptr inbounds i8, ptr %this, i64 56
@@ -27185,7 +27185,7 @@ sw.bb202:                                         ; preds = %while.end
 
 sw.bb205:                                         ; preds = %while.end.sw.bb205_crit_edge, %sw.bb202
   %73 = phi ptr [ %.pre, %while.end.sw.bb205_crit_edge ], [ %70, %sw.bb202 ]
-  %b.1 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
+  %b.2 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
   %74 = load ptr, ptr %73, align 8
   %m_hash.i.i381 = getelementptr inbounds i8, ptr %74, i64 12
   %75 = load i32, ptr %m_hash.i.i381, align 4
@@ -27193,14 +27193,14 @@ sw.bb205:                                         ; preds = %while.end.sw.bb205_
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb205, %while.end
-  %b.2 = phi i32 [ %xor196, %while.end ], [ %b.1, %sw.bb205 ]
+  %b.1 = phi i32 [ %xor196, %while.end ], [ %b.2, %sw.bb205 ]
   %c.1 = phi i32 [ %xor200, %while.end ], [ %add207, %sw.bb205 ]
-  %76 = add i32 %b.2, %c.1
+  %76 = add i32 %b.1, %c.1
   %sub209 = sub i32 %69, %76
   %shr210 = lshr i32 %c.1, 13
   %xor211 = xor i32 %sub209, %shr210
   %77 = add i32 %c.1, %xor211
-  %sub213 = sub i32 %b.2, %77
+  %sub213 = sub i32 %b.1, %77
   %shl214 = shl i32 %xor211, 8
   %xor215 = xor i32 %sub213, %shl214
   %78 = add i32 %xor211, %xor215
@@ -29167,7 +29167,7 @@ sw.bb202:                                         ; preds = %while.end
 
 sw.bb205:                                         ; preds = %while.end.sw.bb205_crit_edge, %sw.bb202
   %69 = phi ptr [ %.pre, %while.end.sw.bb205_crit_edge ], [ %66, %sw.bb202 ]
-  %b.1 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
+  %b.2 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
   %70 = load i8, ptr %69, align 1
   %71 = and i8 %70, 1
   %conv.i.i381 = zext nneg i8 %71 to i32
@@ -29175,14 +29175,14 @@ sw.bb205:                                         ; preds = %while.end.sw.bb205_
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb205, %while.end
-  %b.2 = phi i32 [ %xor196, %while.end ], [ %b.1, %sw.bb205 ]
+  %b.1 = phi i32 [ %xor196, %while.end ], [ %b.2, %sw.bb205 ]
   %c.1 = phi i32 [ %xor200, %while.end ], [ %add207, %sw.bb205 ]
-  %72 = add i32 %b.2, %c.1
+  %72 = add i32 %b.1, %c.1
   %sub209 = sub i32 %65, %72
   %shr210 = lshr i32 %c.1, 13
   %xor211 = xor i32 %sub209, %shr210
   %73 = add i32 %c.1, %xor211
-  %sub213 = sub i32 %b.2, %73
+  %sub213 = sub i32 %b.1, %73
   %shl214 = shl i32 %xor211, 8
   %xor215 = xor i32 %sub213, %shl214
   %74 = add i32 %xor211, %xor215

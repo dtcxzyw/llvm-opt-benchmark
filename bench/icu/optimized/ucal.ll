@@ -458,9 +458,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -992,8 +992,8 @@ _ZN6icu_7512LocalPointerINS_8TimeZoneEED2Ev.exit23: ; preds = %lpad39, %lpad31, 
   resume { ptr, i32 } %.pn34
 
 return:                                           ; preds = %cleanup.thread, %invoke.cont40, %invoke.cont32, %delete.notnull.i, %cleanup, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ null, %cleanup ], [ null, %delete.notnull.i ], [ %call41, %invoke.cont40 ], [ %call33, %invoke.cont32 ], [ null, %cleanup.thread ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ null, %cleanup ], [ null, %delete.notnull.i ], [ %call41, %invoke.cont40 ], [ %call33, %invoke.cont32 ], [ null, %cleanup.thread ]
+  ret ptr %retval.0
 }
 
 declare ptr @uloc_getDefault_75() local_unnamed_addr #5
@@ -2361,13 +2361,13 @@ cleanup:                                          ; preds = %if.then16
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %cond.end, %cleanup
-  %retval.1.ph = phi i8 [ 1, %cleanup ], [ 0, %cond.end ]
+  %retval.0.ph = phi i8 [ 1, %cleanup ], [ 0, %cond.end ]
   call void @_ZN6icu_7518TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tzt) #11
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end, %land.lhs.true, %entry
-  %retval.1 = phi i8 [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ %retval.1.ph, %return.sink.split ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ 0, %entry ], [ 0, %land.lhs.true ], [ 0, %if.end ], [ %retval.0.ph, %return.sink.split ]
+  ret i8 %retval.0
 }
 
 declare void @_ZN6icu_7518TimeZoneTransitionC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5

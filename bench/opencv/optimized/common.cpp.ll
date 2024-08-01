@@ -160,9 +160,9 @@ _ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit:         ; preds = %49
   br label %66
 
 _ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit.thread:  ; preds = %30, %35, %49, %46, %39, %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit
-  %.sroa.15.2 = phi i64 [ %.sroa.15.12.insert.insert, %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit ], [ 4294967297, %39 ], [ 4294967297, %46 ], [ 4294967297, %49 ], [ 4294967297, %35 ], [ 4294967297, %30 ]
-  %.sroa.082.sroa.7.2 = phi i64 [ %56, %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit ], [ 0, %39 ], [ 0, %46 ], [ 0, %49 ], [ 0, %35 ], [ 0, %30 ]
-  %.sroa.082.sroa.0.2 = phi i64 [ %57, %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit ], [ 0, %39 ], [ 0, %46 ], [ 0, %49 ], [ 0, %35 ], [ 0, %30 ]
+  %.sroa.15.0 = phi i64 [ %.sroa.15.12.insert.insert, %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit ], [ 4294967297, %39 ], [ 4294967297, %46 ], [ 4294967297, %49 ], [ 4294967297, %35 ], [ 4294967297, %30 ]
+  %.sroa.082.sroa.7.0 = phi i64 [ %56, %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit ], [ 0, %39 ], [ 0, %46 ], [ 0, %49 ], [ 0, %35 ], [ 0, %30 ]
+  %.sroa.082.sroa.0.0 = phi i64 [ %57, %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit ], [ 0, %39 ], [ 0, %46 ], [ 0, %49 ], [ 0, %35 ], [ 0, %30 ]
   %64 = load ptr, ptr %4, align 8
   %.not.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %65
@@ -172,9 +172,9 @@ _ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit.thread:  ; preds = %30, %35, %49, %46, 
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_.exit.thread, %65
-  %.sroa.082.sroa.0.0.insert.insert = or disjoint i64 %.sroa.082.sroa.7.2, %.sroa.082.sroa.0.2
+  %.sroa.082.sroa.0.0.insert.insert = or disjoint i64 %.sroa.082.sroa.7.0, %.sroa.082.sroa.0.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.082.sroa.0.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.15.2, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.15.0, 1
   ret { i64, i64 } %.fca.1.insert
 
 66:                                               ; preds = %60, %62, %58

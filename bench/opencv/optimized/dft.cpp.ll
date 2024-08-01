@@ -751,7 +751,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %167
   br label %291
 
 290:                                              ; preds = %285, %80
-  %.0 = phi i32 [ -1, %80 ], [ 0, %285 ]
+  %.1 = phi i32 [ -1, %80 ], [ 0, %285 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #9
   br label %293
@@ -767,9 +767,9 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %167
   br label %.body
 
 293:                                              ; preds = %61, %290
-  %.1 = phi i32 [ %.0, %290 ], [ 0, %61 ]
+  %.0 = phi i32 [ %.1, %290 ], [ 0, %61 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #9
-  ret i32 %.1
+  ret i32 %.0
 
 .body:                                            ; preds = %74, %292, %72
   %.pn83 = phi { ptr, i32 } [ %.pn80.pn, %292 ], [ %.pn52, %72 ], [ %75, %74 ]

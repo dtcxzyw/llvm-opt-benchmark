@@ -447,9 +447,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -877,7 +877,7 @@ land.rhs:                                         ; preds = %while.cond.preheade
   %mode.0344 = phi i8 [ 0, %while.cond.preheader ], [ %mode.0.be, %while.cond.backedge ]
   %lastItem.0343 = phi i8 [ 0, %while.cond.preheader ], [ %lastItem.0.be, %while.cond.backedge ]
   %usePat.0342 = phi i8 [ 0, %while.cond.preheader ], [ %usePat.0.be, %while.cond.backedge ]
-  %scratch.sroa.0.0341 = phi ptr [ null, %while.cond.preheader ], [ %scratch.sroa.0.0.be, %while.cond.backedge ]
+  %scratch.sroa.0.1341 = phi ptr [ null, %while.cond.preheader ], [ %scratch.sroa.0.1.be, %while.cond.backedge ]
   %call14 = invoke noundef signext i8 @_ZNK6icu_7521RuleCharacterIterator5atEndEv(ptr noundef nonnull align 8 dereferenceable(36) %chars)
           to label %invoke.cont13 unwind label %lpad9.loopexit.split-lp.loopexit.loopexit
 
@@ -900,7 +900,7 @@ lpad9.loopexit:                                   ; preds = %while.cond228, %whi
   br label %ehcleanup
 
 lpad9.loopexit.split-lp.loopexit.loopexit:        ; preds = %land.rhs, %while.body, %if.else, %invoke.cont20, %if.then33, %invoke.cont36, %invoke.cont38, %invoke.cont50, %invoke.cont52, %if.else63, %if.then69, %if.end90, %invoke.cont91, %sw.bb, %sw.bb115, %invoke.cont116, %sw.bb123, %sw.bb133, %sw.bb136, %sw.bb139, %if.then221, %invoke.cont222, %if.end250, %invoke.cont253, %sw.bb258, %invoke.cont259, %if.then276, %if.end308, %invoke.cont309, %invoke.cont312, %if.else315, %invoke.cont316, %if.else35, %if.then49, %if.then99, %if.then.i193, %invoke.cont251, %invoke.cont255, %invoke.cont311
-  %scratch.sroa.0.1.ph.ph.ph = phi ptr [ %scratch.sroa.0.0341, %land.rhs ], [ %scratch.sroa.0.0341, %while.body ], [ %scratch.sroa.0.0341, %if.else ], [ %scratch.sroa.0.0341, %invoke.cont20 ], [ %scratch.sroa.0.0341, %if.else35 ], [ %scratch.sroa.0.0341, %invoke.cont36 ], [ %scratch.sroa.0.0341, %invoke.cont38 ], [ %scratch.sroa.0.0341, %if.then49 ], [ %scratch.sroa.0.0341, %invoke.cont50 ], [ %scratch.sroa.0.0341, %invoke.cont52 ], [ %scratch.sroa.0.0341, %if.else63 ], [ %scratch.sroa.0.0341, %if.then33 ], [ %scratch.sroa.0.0341, %if.then69 ], [ %scratch.sroa.0.0341, %if.end90 ], [ %scratch.sroa.0.0341, %invoke.cont91 ], [ %scratch.sroa.0.0341, %if.then99 ], [ %scratch.sroa.0.4, %sw.bb ], [ %scratch.sroa.0.4, %sw.bb115 ], [ %scratch.sroa.0.4, %invoke.cont116 ], [ %scratch.sroa.0.4, %sw.bb123 ], [ %scratch.sroa.0.4, %sw.bb133 ], [ %scratch.sroa.0.4, %sw.bb136 ], [ %scratch.sroa.0.4, %sw.bb139 ], [ %scratch.sroa.0.0341, %if.then221 ], [ %scratch.sroa.0.0341, %invoke.cont222 ], [ %scratch.sroa.0.0341, %if.then.i193 ], [ %scratch.sroa.0.0341, %if.end250 ], [ %scratch.sroa.0.0341, %invoke.cont251 ], [ %scratch.sroa.0.0341, %invoke.cont253 ], [ %scratch.sroa.0.0341, %invoke.cont255 ], [ %scratch.sroa.0.0341, %sw.bb258 ], [ %scratch.sroa.0.0341, %invoke.cont259 ], [ %scratch.sroa.0.0341, %if.then276 ], [ %scratch.sroa.0.0341, %if.else315 ], [ %scratch.sroa.0.0341, %invoke.cont316 ], [ %scratch.sroa.0.0341, %if.end308 ], [ %scratch.sroa.0.0341, %invoke.cont309 ], [ %scratch.sroa.0.0341, %invoke.cont311 ], [ %scratch.sroa.0.0341, %invoke.cont312 ]
+  %scratch.sroa.0.0.ph.ph.ph = phi ptr [ %scratch.sroa.0.1341, %land.rhs ], [ %scratch.sroa.0.1341, %while.body ], [ %scratch.sroa.0.1341, %if.else ], [ %scratch.sroa.0.1341, %invoke.cont20 ], [ %scratch.sroa.0.1341, %if.else35 ], [ %scratch.sroa.0.1341, %invoke.cont36 ], [ %scratch.sroa.0.1341, %invoke.cont38 ], [ %scratch.sroa.0.1341, %if.then49 ], [ %scratch.sroa.0.1341, %invoke.cont50 ], [ %scratch.sroa.0.1341, %invoke.cont52 ], [ %scratch.sroa.0.1341, %if.else63 ], [ %scratch.sroa.0.1341, %if.then33 ], [ %scratch.sroa.0.1341, %if.then69 ], [ %scratch.sroa.0.1341, %if.end90 ], [ %scratch.sroa.0.1341, %invoke.cont91 ], [ %scratch.sroa.0.1341, %if.then99 ], [ %scratch.sroa.0.5, %sw.bb ], [ %scratch.sroa.0.5, %sw.bb115 ], [ %scratch.sroa.0.5, %invoke.cont116 ], [ %scratch.sroa.0.5, %sw.bb123 ], [ %scratch.sroa.0.5, %sw.bb133 ], [ %scratch.sroa.0.5, %sw.bb136 ], [ %scratch.sroa.0.5, %sw.bb139 ], [ %scratch.sroa.0.1341, %if.then221 ], [ %scratch.sroa.0.1341, %invoke.cont222 ], [ %scratch.sroa.0.1341, %if.then.i193 ], [ %scratch.sroa.0.1341, %if.end250 ], [ %scratch.sroa.0.1341, %invoke.cont251 ], [ %scratch.sroa.0.1341, %invoke.cont253 ], [ %scratch.sroa.0.1341, %invoke.cont255 ], [ %scratch.sroa.0.1341, %sw.bb258 ], [ %scratch.sroa.0.1341, %invoke.cont259 ], [ %scratch.sroa.0.1341, %if.then276 ], [ %scratch.sroa.0.1341, %if.else315 ], [ %scratch.sroa.0.1341, %invoke.cont316 ], [ %scratch.sroa.0.1341, %if.end308 ], [ %scratch.sroa.0.1341, %invoke.cont309 ], [ %scratch.sroa.0.1341, %invoke.cont311 ], [ %scratch.sroa.0.1341, %invoke.cont312 ]
   %lpad.loopexit406 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -911,7 +911,7 @@ lpad9.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %if.then153, %invo
   br label %ehcleanup
 
 lpad9.loopexit.split-lp.loopexit.split-lp:        ; preds = %if.then347, %if.else350, %invoke.cont341, %if.then340, %memptr.end, %if.end330, %if.then128, %invoke.cont
-  %scratch.sroa.0.1.ph.ph268 = phi ptr [ %scratch.sroa.0.5.ph, %if.else350 ], [ %scratch.sroa.0.5.ph, %if.then347 ], [ %scratch.sroa.0.5.ph, %invoke.cont341 ], [ %scratch.sroa.0.5.ph, %if.then340 ], [ %scratch.sroa.0.5.ph, %memptr.end ], [ %scratch.sroa.0.5.ph, %if.end330 ], [ %scratch.sroa.0.4, %if.then128 ], [ null, %invoke.cont ]
+  %scratch.sroa.0.0.ph.ph268 = phi ptr [ %scratch.sroa.0.2.ph, %if.else350 ], [ %scratch.sroa.0.2.ph, %if.then347 ], [ %scratch.sroa.0.2.ph, %invoke.cont341 ], [ %scratch.sroa.0.2.ph, %if.then340 ], [ %scratch.sroa.0.2.ph, %memptr.end ], [ %scratch.sroa.0.2.ph, %if.end330 ], [ %scratch.sroa.0.5, %if.then128 ], [ null, %invoke.cont ]
   %lpad.loopexit.split-lp270 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -992,9 +992,9 @@ invoke.cont53:                                    ; preds = %invoke.cont52
   br i1 %cmp.i174, label %if.end60, label %cleanup
 
 if.end60:                                         ; preds = %invoke.cont53, %if.end45
-  %invert.1 = phi i8 [ %invert.0347, %if.end45 ], [ 1, %invoke.cont53 ]
-  %c.0 = phi i32 [ %call40, %if.end45 ], [ %call54, %invoke.cont53 ]
-  %cmp61 = icmp eq i32 %c.0, 45
+  %invert.3 = phi i8 [ %invert.0347, %if.end45 ], [ 1, %invoke.cont53 ]
+  %c.1 = phi i32 [ %call40, %if.end45 ], [ %call54, %invoke.cont53 ]
+  %cmp61 = icmp eq i32 %c.1, 45
   br i1 %cmp61, label %if.end147.thread, label %if.else63
 
 if.end147.thread:                                 ; preds = %if.end60
@@ -1064,7 +1064,7 @@ if.end102:                                        ; preds = %invoke.cont91, %_ZN
   br i1 %cmp103, label %if.then104, label %if.end112
 
 if.then104:                                       ; preds = %if.end102
-  %cmp.i179 = icmp eq ptr %scratch.sroa.0.0341, null
+  %cmp.i179 = icmp eq ptr %scratch.sroa.0.1341, null
   br i1 %cmp.i179, label %if.then.i, label %if.end112
 
 if.then.i:                                        ; preds = %if.then104
@@ -1087,8 +1087,8 @@ cleanup.thread:                                   ; preds = %if.then.i
   br label %_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.exit
 
 if.end112:                                        ; preds = %new.notnull.i, %if.then104, %if.end102
-  %scratch.sroa.0.4 = phi ptr [ %scratch.sroa.0.0341, %if.end102 ], [ %scratch.sroa.0.0341, %if.then104 ], [ %call.i, %new.notnull.i ]
-  %nested.1 = phi ptr [ %nested.0, %if.end102 ], [ %scratch.sroa.0.0341, %if.then104 ], [ %call.i, %new.notnull.i ]
+  %scratch.sroa.0.5 = phi ptr [ %scratch.sroa.0.1341, %if.end102 ], [ %scratch.sroa.0.1341, %if.then104 ], [ %call.i, %new.notnull.i ]
+  %nested.1 = phi ptr [ %nested.0, %if.end102 ], [ %scratch.sroa.0.1341, %if.then104 ], [ %call.i, %new.notnull.i ]
   switch i32 %setMode.0, label %default.unreachable394 [
     i32 1, label %sw.bb
     i32 2, label %sw.bb115
@@ -1152,13 +1152,13 @@ sw.bb139:                                         ; preds = %if.end131
           to label %while.cond.backedge unwind label %lpad9.loopexit.split-lp.loopexit.loopexit
 
 while.cond.backedge:                              ; preds = %if.end299, %invoke.cont312, %invoke.cont316, %sw.bb320, %if.end131, %sw.bb133, %sw.bb136, %sw.bb139, %if.else63, %if.then178, %sw.bb204, %_ZN6icu_7513UnicodeString6appendEDs.exit203
-  %scratch.sroa.0.0.be = phi ptr [ %scratch.sroa.0.0341, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ %scratch.sroa.0.0341, %sw.bb204 ], [ %scratch.sroa.0.0341, %if.then178 ], [ %scratch.sroa.0.0341, %if.else63 ], [ %scratch.sroa.0.4, %sw.bb139 ], [ %scratch.sroa.0.4, %sw.bb136 ], [ %scratch.sroa.0.4, %sw.bb133 ], [ %scratch.sroa.0.4, %if.end131 ], [ %scratch.sroa.0.0341, %sw.bb320 ], [ %scratch.sroa.0.0341, %invoke.cont316 ], [ %scratch.sroa.0.0341, %invoke.cont312 ], [ %scratch.sroa.0.0341, %if.end299 ]
+  %scratch.sroa.0.1.be = phi ptr [ %scratch.sroa.0.1341, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ %scratch.sroa.0.1341, %sw.bb204 ], [ %scratch.sroa.0.1341, %if.then178 ], [ %scratch.sroa.0.1341, %if.else63 ], [ %scratch.sroa.0.5, %sw.bb139 ], [ %scratch.sroa.0.5, %sw.bb136 ], [ %scratch.sroa.0.5, %sw.bb133 ], [ %scratch.sroa.0.5, %if.end131 ], [ %scratch.sroa.0.1341, %sw.bb320 ], [ %scratch.sroa.0.1341, %invoke.cont316 ], [ %scratch.sroa.0.1341, %invoke.cont312 ], [ %scratch.sroa.0.1341, %if.end299 ]
   %usePat.0.be = phi i8 [ %usePat.0342, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ %usePat.0342, %sw.bb204 ], [ %usePat.0342, %if.then178 ], [ %usePat.0342, %if.else63 ], [ 1, %sw.bb139 ], [ 1, %sw.bb136 ], [ 1, %sw.bb133 ], [ 1, %if.end131 ], [ %usePat.0342, %sw.bb320 ], [ %usePat.0342, %invoke.cont316 ], [ %usePat.0342, %invoke.cont312 ], [ %usePat.0342, %if.end299 ]
   %lastItem.0.be = phi i8 [ 0, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ 2, %sw.bb204 ], [ %lastItem.0343, %if.then178 ], [ %lastItem.0343, %if.else63 ], [ 2, %sw.bb139 ], [ 2, %sw.bb136 ], [ 2, %sw.bb133 ], [ 2, %if.end131 ], [ 1, %sw.bb320 ], [ 1, %invoke.cont316 ], [ 0, %invoke.cont312 ], [ 1, %if.end299 ]
-  %mode.0.be = phi i8 [ %mode.0344, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ %mode.0344, %sw.bb204 ], [ %mode.0344, %if.then178 ], [ 1, %if.else63 ], [ %mode.0344, %sw.bb139 ], [ %mode.0344, %sw.bb136 ], [ %mode.0344, %sw.bb133 ], [ %mode.0344, %if.end131 ], [ %mode.1.ph248256, %sw.bb320 ], [ %mode.1.ph248256, %invoke.cont316 ], [ %mode.1.ph248256, %invoke.cont312 ], [ %mode.1.ph248256, %if.end299 ]
+  %mode.0.be = phi i8 [ %mode.0344, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ %mode.0344, %sw.bb204 ], [ %mode.0344, %if.then178 ], [ 1, %if.else63 ], [ %mode.0344, %sw.bb139 ], [ %mode.0344, %sw.bb136 ], [ %mode.0344, %sw.bb133 ], [ %mode.0344, %if.end131 ], [ %mode.2.ph248256, %sw.bb320 ], [ %mode.2.ph248256, %invoke.cont316 ], [ %mode.2.ph248256, %invoke.cont312 ], [ %mode.2.ph248256, %if.end299 ]
   %lastChar.0.be = phi i32 [ %lastChar.0345, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ %lastChar.0345, %sw.bb204 ], [ %lastChar.0345, %if.then178 ], [ %lastChar.0345, %if.else63 ], [ %lastChar.0345, %sw.bb139 ], [ %lastChar.0345, %sw.bb136 ], [ %lastChar.0345, %sw.bb133 ], [ %lastChar.0345, %if.end131 ], [ %c.2, %sw.bb320 ], [ %c.2, %invoke.cont316 ], [ %lastChar.0345, %invoke.cont312 ], [ %c.2, %if.end299 ]
   %op.0.be = phi i16 [ 0, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ 38, %sw.bb204 ], [ 45, %if.then178 ], [ %op.0346, %if.else63 ], [ 0, %sw.bb139 ], [ 0, %sw.bb136 ], [ 0, %sw.bb133 ], [ 0, %if.end131 ], [ 0, %sw.bb320 ], [ %op.0346, %invoke.cont316 ], [ 0, %invoke.cont312 ], [ %op.0346, %if.end299 ]
-  %invert.0.be = phi i8 [ %invert.0347, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ %invert.0347, %sw.bb204 ], [ %invert.0347, %if.then178 ], [ %invert.1, %if.else63 ], [ %invert.0347, %sw.bb139 ], [ %invert.0347, %sw.bb136 ], [ %invert.0347, %sw.bb133 ], [ %invert.0347, %if.end131 ], [ %invert.2.ph249255, %sw.bb320 ], [ %invert.2.ph249255, %invoke.cont316 ], [ %invert.2.ph249255, %invoke.cont312 ], [ %invert.2.ph249255, %if.end299 ]
+  %invert.0.be = phi i8 [ %invert.0347, %_ZN6icu_7513UnicodeString6appendEDs.exit203 ], [ %invert.0347, %sw.bb204 ], [ %invert.0347, %if.then178 ], [ %invert.3, %if.else63 ], [ %invert.0347, %sw.bb139 ], [ %invert.0347, %sw.bb136 ], [ %invert.0347, %sw.bb133 ], [ %invert.0347, %if.end131 ], [ %invert.2.ph249255, %sw.bb320 ], [ %invert.2.ph249255, %invoke.cont316 ], [ %invert.2.ph249255, %invoke.cont312 ], [ %invert.2.ph249255, %if.end299 ]
   %cmp12.not = icmp eq i8 %mode.0.be, 2
   br i1 %cmp12.not, label %if.end330.loopexit, label %land.rhs, !llvm.loop !5
 
@@ -1431,8 +1431,8 @@ _ZN6icu_7513UnicodeString6appendEDs.exit213:      ; preds = %invoke.cont293
   br label %if.end330.loopexit
 
 if.end299:                                        ; preds = %if.end147.thread, %if.then276, %if.then149, %if.end147
-  %mode.1.ph248256 = phi i8 [ %mode.0344, %if.end147 ], [ %mode.0344, %if.then149 ], [ %mode.0344, %if.then276 ], [ 1, %if.end147.thread ]
-  %invert.2.ph249255 = phi i8 [ %invert.0347, %if.end147 ], [ %invert.0347, %if.then149 ], [ %invert.0347, %if.then276 ], [ %invert.1, %if.end147.thread ]
+  %mode.2.ph248256 = phi i8 [ %mode.0344, %if.end147 ], [ %mode.0344, %if.then149 ], [ %mode.0344, %if.then276 ], [ 1, %if.end147.thread ]
+  %invert.2.ph249255 = phi i8 [ %invert.0347, %if.end147 ], [ %invert.0347, %if.then149 ], [ %invert.0347, %if.then276 ], [ %invert.3, %if.end147.thread ]
   %c.2 = phi i32 [ %call22, %if.end147 ], [ %call22, %if.then149 ], [ 36, %if.then276 ], [ 45, %if.end147.thread ]
   switch i8 %lastItem.0343, label %default.unreachable [
     i8 0, label %while.cond.backedge
@@ -1482,13 +1482,13 @@ sw.bb320:                                         ; preds = %if.end299
 if.end330.loopexit:                               ; preds = %while.cond.backedge, %_ZN6icu_7513UnicodeString6appendEDs.exit189, %invoke.cont199, %_ZN6icu_7513UnicodeString6appendEDs.exit213
   %invert.0.be405 = phi i8 [ %invert.0347, %_ZN6icu_7513UnicodeString6appendEDs.exit213 ], [ %invert.0347, %invoke.cont199 ], [ %invert.0347, %_ZN6icu_7513UnicodeString6appendEDs.exit189 ], [ %invert.0.be, %while.cond.backedge ]
   %usePat.0.be404 = phi i8 [ 1, %_ZN6icu_7513UnicodeString6appendEDs.exit213 ], [ %usePat.0342, %invoke.cont199 ], [ %usePat.0342, %_ZN6icu_7513UnicodeString6appendEDs.exit189 ], [ %usePat.0.be, %while.cond.backedge ]
-  %scratch.sroa.0.0.be403 = phi ptr [ %scratch.sroa.0.0341, %_ZN6icu_7513UnicodeString6appendEDs.exit213 ], [ %scratch.sroa.0.0341, %invoke.cont199 ], [ %scratch.sroa.0.0341, %_ZN6icu_7513UnicodeString6appendEDs.exit189 ], [ %scratch.sroa.0.0.be, %while.cond.backedge ]
+  %scratch.sroa.0.1.be403 = phi ptr [ %scratch.sroa.0.1341, %_ZN6icu_7513UnicodeString6appendEDs.exit213 ], [ %scratch.sroa.0.1341, %invoke.cont199 ], [ %scratch.sroa.0.1341, %_ZN6icu_7513UnicodeString6appendEDs.exit189 ], [ %scratch.sroa.0.1.be, %while.cond.backedge ]
   %23 = icmp eq i8 %usePat.0.be404, 0
   br label %if.end330
 
 if.end330:                                        ; preds = %if.end330.loopexit, %if.then128
   %invert.0296 = phi i8 [ %invert.0347, %if.then128 ], [ %invert.0.be405, %if.end330.loopexit ]
-  %scratch.sroa.0.5.ph = phi ptr [ %scratch.sroa.0.4, %if.then128 ], [ %scratch.sroa.0.0.be403, %if.end330.loopexit ]
+  %scratch.sroa.0.2.ph = phi ptr [ %scratch.sroa.0.5, %if.then128 ], [ %scratch.sroa.0.1.be403, %if.end330.loopexit ]
   %usePat.1.ph = phi i1 [ false, %if.then128 ], [ %23, %if.end330.loopexit ]
   invoke void @_ZN6icu_7521RuleCharacterIterator11skipIgnoredEi(ptr noundef nonnull align 8 dereferenceable(36) %chars, i32 noundef %spec.select)
           to label %invoke.cont331 unwind label %lpad9.loopexit.split-lp.loopexit.split-lp
@@ -1562,18 +1562,18 @@ if.end353:                                        ; preds = %if.then347, %if.els
 
 cleanup.sink.split:                               ; preds = %invoke.cont13, %sw.bb320, %if.then305, %sw.bb214, %if.then149, %sw.bb204, %sw.bb175, %if.end143, %if.then86, %dynamic_cast.notnull, %invoke.cont229, %if.end353, %if.end278, %if.end192, %if.end157
   %.sink = phi i32 [ 65538, %if.end157 ], [ 65538, %if.end192 ], [ 65538, %if.end278 ], [ 7, %if.end353 ], [ 65538, %invoke.cont229 ], [ 65538, %dynamic_cast.notnull ], [ 65538, %if.then86 ], [ 65538, %if.end143 ], [ 65538, %sw.bb175 ], [ 65538, %sw.bb204 ], [ 65538, %if.then149 ], [ 65538, %sw.bb214 ], [ 65538, %if.then305 ], [ 65538, %sw.bb320 ], [ 65538, %invoke.cont13 ]
-  %scratch.sroa.0.6.ph = phi ptr [ %scratch.sroa.0.0341, %if.end157 ], [ %scratch.sroa.0.0341, %if.end192 ], [ %scratch.sroa.0.0341, %if.end278 ], [ %scratch.sroa.0.5.ph, %if.end353 ], [ %scratch.sroa.0.0341, %invoke.cont229 ], [ %scratch.sroa.0.0341, %dynamic_cast.notnull ], [ %scratch.sroa.0.0341, %if.then86 ], [ %scratch.sroa.0.0341, %if.end143 ], [ %scratch.sroa.0.0341, %sw.bb175 ], [ %scratch.sroa.0.0341, %sw.bb204 ], [ %scratch.sroa.0.0341, %if.then149 ], [ %scratch.sroa.0.0341, %sw.bb214 ], [ %scratch.sroa.0.0341, %if.then305 ], [ %scratch.sroa.0.0341, %sw.bb320 ], [ %scratch.sroa.0.0341, %invoke.cont13 ]
+  %scratch.sroa.0.4.ph = phi ptr [ %scratch.sroa.0.1341, %if.end157 ], [ %scratch.sroa.0.1341, %if.end192 ], [ %scratch.sroa.0.1341, %if.end278 ], [ %scratch.sroa.0.2.ph, %if.end353 ], [ %scratch.sroa.0.1341, %invoke.cont229 ], [ %scratch.sroa.0.1341, %dynamic_cast.notnull ], [ %scratch.sroa.0.1341, %if.then86 ], [ %scratch.sroa.0.1341, %if.end143 ], [ %scratch.sroa.0.1341, %sw.bb175 ], [ %scratch.sroa.0.1341, %sw.bb204 ], [ %scratch.sroa.0.1341, %if.then149 ], [ %scratch.sroa.0.1341, %sw.bb214 ], [ %scratch.sroa.0.1341, %if.then305 ], [ %scratch.sroa.0.1341, %sw.bb320 ], [ %scratch.sroa.0.1341, %invoke.cont13 ]
   store i32 %.sink, ptr %ec, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont260, %invoke.cont117, %invoke.cont53, %invoke.cont39, %invoke.cont21, %invoke.cont234, %cleanup.sink.split, %invoke.cont186, %if.end353
-  %scratch.sroa.0.6 = phi ptr [ %scratch.sroa.0.5.ph, %if.end353 ], [ %scratch.sroa.0.0341, %invoke.cont186 ], [ %scratch.sroa.0.6.ph, %cleanup.sink.split ], [ %scratch.sroa.0.0341, %invoke.cont234 ], [ %scratch.sroa.0.0341, %invoke.cont21 ], [ %scratch.sroa.0.0341, %invoke.cont39 ], [ %scratch.sroa.0.0341, %invoke.cont53 ], [ %scratch.sroa.0.4, %invoke.cont117 ], [ %scratch.sroa.0.0341, %invoke.cont260 ]
-  %isnull.i = icmp eq ptr %scratch.sroa.0.6, null
+  %scratch.sroa.0.4 = phi ptr [ %scratch.sroa.0.2.ph, %if.end353 ], [ %scratch.sroa.0.1341, %invoke.cont186 ], [ %scratch.sroa.0.4.ph, %cleanup.sink.split ], [ %scratch.sroa.0.1341, %invoke.cont234 ], [ %scratch.sroa.0.1341, %invoke.cont21 ], [ %scratch.sroa.0.1341, %invoke.cont39 ], [ %scratch.sroa.0.1341, %invoke.cont53 ], [ %scratch.sroa.0.5, %invoke.cont117 ], [ %scratch.sroa.0.1341, %invoke.cont260 ]
+  %isnull.i = icmp eq ptr %scratch.sroa.0.4, null
   br i1 %isnull.i, label %_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.exit, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %cleanup
-  call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %scratch.sroa.0.6) #15
-  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %scratch.sroa.0.6) #15
+  call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %scratch.sroa.0.4) #15
+  call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %scratch.sroa.0.4) #15
   br label %_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.exit
 
 _ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev.exit: ; preds = %cleanup.thread, %cleanup, %delete.notnull.i
@@ -1585,9 +1585,9 @@ cleanup.cont:                                     ; preds = %entry, %_ZN6icu_751
   ret void
 
 ehcleanup:                                        ; preds = %lpad9.loopexit.split-lp.loopexit.loopexit, %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp, %lpad9.loopexit, %lpad9.loopexit.split-lp.loopexit.split-lp, %lpad.i, %lpad198
-  %scratch.sroa.0.7 = phi ptr [ %scratch.sroa.0.0341, %lpad198 ], [ null, %lpad.i ], [ %scratch.sroa.0.0341, %lpad9.loopexit ], [ %scratch.sroa.0.1.ph.ph268, %lpad9.loopexit.split-lp.loopexit.split-lp ], [ %scratch.sroa.0.1.ph.ph.ph, %lpad9.loopexit.split-lp.loopexit.loopexit ], [ %scratch.sroa.0.0341, %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %scratch.sroa.0.3 = phi ptr [ %scratch.sroa.0.1341, %lpad198 ], [ null, %lpad.i ], [ %scratch.sroa.0.1341, %lpad9.loopexit ], [ %scratch.sroa.0.0.ph.ph268, %lpad9.loopexit.split-lp.loopexit.split-lp ], [ %scratch.sroa.0.0.ph.ph.ph, %lpad9.loopexit.split-lp.loopexit.loopexit ], [ %scratch.sroa.0.1341, %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %13, %lpad198 ], [ %9, %lpad.i ], [ %lpad.loopexit, %lpad9.loopexit ], [ %lpad.loopexit.split-lp270, %lpad9.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit406, %lpad9.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %lpad9.loopexit.split-lp.loopexit.loopexit.split-lp ]
-  call fastcc void @_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev(ptr %scratch.sroa.0.7) #15
+  call fastcc void @_ZN6icu_7512_GLOBAL__N_117UnicodeSetPointerD2Ev(ptr %scratch.sroa.0.3) #15
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %buf) #15
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %patLocal) #15
   resume { ptr, i32 } %.pn

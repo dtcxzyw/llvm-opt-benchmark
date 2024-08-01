@@ -3013,7 +3013,7 @@ lpad26:                                           ; preds = %invoke.cont35
   br label %lpad26.body
 
 lpad26.body:                                      ; preds = %_ZNSt10unique_ptrIN5arrow7compute6detail14KernelExecutorESt14default_deleteIS3_EED2Ev.exit5.i.i.i.i, %lpad26
-  %executor.sroa.0.2 = phi ptr [ null, %_ZNSt10unique_ptrIN5arrow7compute6detail14KernelExecutorESt14default_deleteIS3_EED2Ev.exit5.i.i.i.i ], [ %executor.sroa.0.1, %lpad26 ]
+  %executor.sroa.0.5 = phi ptr [ null, %_ZNSt10unique_ptrIN5arrow7compute6detail14KernelExecutorESt14default_deleteIS3_EED2Ev.exit5.i.i.i.i ], [ %executor.sroa.0.1, %lpad26 ]
   %eh.lpad-body = phi { ptr, i32 } [ %23, %_ZNSt10unique_ptrIN5arrow7compute6detail14KernelExecutorESt14default_deleteIS3_EED2Ev.exit5.i.i.i.i ], [ %19, %lpad26 ]
   call void @_ZN5arrow6ResultIPKNS_7compute6KernelEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp24) #18
   br label %ehcleanup
@@ -3089,7 +3089,7 @@ _ZNSt10shared_ptrIN5arrow7compute6detail20FunctionExecutorImplEED2Ev.exit: ; pre
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN5arrow7compute6detail20FunctionExecutorImplEED2Ev.exit, %if.then31
-  %executor.sroa.0.3 = phi ptr [ null, %_ZNSt10shared_ptrIN5arrow7compute6detail20FunctionExecutorImplEED2Ev.exit ], [ %executor.sroa.0.1, %if.then31 ]
+  %executor.sroa.0.4 = phi ptr [ null, %_ZNSt10shared_ptrIN5arrow7compute6detail20FunctionExecutorImplEED2Ev.exit ], [ %executor.sroa.0.1, %if.then31 ]
   %26 = load ptr, ptr %ref.tmp24, align 8
   %cmp.not.i.i = icmp eq ptr %26, null
   br i1 %cmp.not.i.i, label %cleanup39, label %delete.notnull.i.i.i
@@ -3176,30 +3176,30 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i:         ; preds = %if.end8.sink.split.
   br label %cleanup39
 
 cleanup39:                                        ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i.i, %cleanup
-  %cmp.not.i32 = icmp eq ptr %executor.sroa.0.3, null
+  %cmp.not.i32 = icmp eq ptr %executor.sroa.0.4, null
   br i1 %cmp.not.i32, label %_ZNSt10unique_ptrIN5arrow7compute6detail14KernelExecutorESt14default_deleteIS3_EED2Ev.exit36, label %_ZNKSt14default_deleteIN5arrow7compute6detail14KernelExecutorEEclEPS3_.exit.i33
 
 _ZNKSt14default_deleteIN5arrow7compute6detail14KernelExecutorEEclEPS3_.exit.i33: ; preds = %cleanup39
-  %vtable.i.i34 = load ptr, ptr %executor.sroa.0.3, align 8
+  %vtable.i.i34 = load ptr, ptr %executor.sroa.0.4, align 8
   %vfn.i.i35 = getelementptr inbounds i8, ptr %vtable.i.i34, i64 8
   %38 = load ptr, ptr %vfn.i.i35, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %executor.sroa.0.3) #18
+  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %executor.sroa.0.4) #18
   br label %_ZNSt10unique_ptrIN5arrow7compute6detail14KernelExecutorESt14default_deleteIS3_EED2Ev.exit36
 
 _ZNSt10unique_ptrIN5arrow7compute6detail14KernelExecutorESt14default_deleteIS3_EED2Ev.exit36: ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i, %invoke.cont21, %cleanup39, %_ZNKSt14default_deleteIN5arrow7compute6detail14KernelExecutorEEclEPS3_.exit.i33
   ret void
 
 ehcleanup:                                        ; preds = %lpad26.body, %lpad
-  %executor.sroa.0.5 = phi ptr [ %executor.sroa.0.2, %lpad26.body ], [ %executor.sroa.0.0, %lpad ]
+  %executor.sroa.0.2 = phi ptr [ %executor.sroa.0.5, %lpad26.body ], [ %executor.sroa.0.0, %lpad ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad26.body ], [ %2, %lpad ]
-  %cmp.not.i37 = icmp eq ptr %executor.sroa.0.5, null
+  %cmp.not.i37 = icmp eq ptr %executor.sroa.0.2, null
   br i1 %cmp.not.i37, label %_ZNSt10unique_ptrIN5arrow7compute6detail14KernelExecutorESt14default_deleteIS3_EED2Ev.exit41, label %_ZNKSt14default_deleteIN5arrow7compute6detail14KernelExecutorEEclEPS3_.exit.i38
 
 _ZNKSt14default_deleteIN5arrow7compute6detail14KernelExecutorEEclEPS3_.exit.i38: ; preds = %ehcleanup
-  %vtable.i.i39 = load ptr, ptr %executor.sroa.0.5, align 8
+  %vtable.i.i39 = load ptr, ptr %executor.sroa.0.2, align 8
   %vfn.i.i40 = getelementptr inbounds i8, ptr %vtable.i.i39, i64 8
   %39 = load ptr, ptr %vfn.i.i40, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %executor.sroa.0.5) #18
+  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %executor.sroa.0.2) #18
   br label %_ZNSt10unique_ptrIN5arrow7compute6detail14KernelExecutorESt14default_deleteIS3_EED2Ev.exit41
 
 _ZNSt10unique_ptrIN5arrow7compute6detail14KernelExecutorESt14default_deleteIS3_EED2Ev.exit41: ; preds = %ehcleanup, %_ZNKSt14default_deleteIN5arrow7compute6detail14KernelExecutorEEclEPS3_.exit.i38

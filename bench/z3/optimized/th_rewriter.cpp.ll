@@ -10357,12 +10357,12 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i: ; preds = %_ZN1
 
 start.i.i.i.sink.split:                           ; preds = %start.backedge.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i
   %.sink = phi i32 [ 1, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i ], [ %inc.i127.i.i.i, %start.backedge.i.i.i ]
-  %has_mark.sroa.5.2.i.ph = phi i1 [ %has_mark.sroa.5.0126.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i ], [ %has_mark.sroa.5.4.i, %start.backedge.i.i.i ]
+  %has_mark.sroa.5.2.i.ph = phi i1 [ %has_mark.sroa.5.0126.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE9push_backEOS3_.exit.i.i.i ], [ %has_mark.sroa.5.3.i, %start.backedge.i.i.i ]
   store i32 %.sink, ptr %m_pos.i.i25.i.i.i, align 8
   br label %start.i.i.i
 
 start.i.i.i:                                      ; preds = %start.i.i.i.sink.split, %sw.epilog92.i.i.i
-  %has_mark.sroa.5.2.i = phi i1 [ %has_mark.sroa.5.7.i, %sw.epilog92.i.i.i ], [ %has_mark.sroa.5.2.i.ph, %start.i.i.i.sink.split ]
+  %has_mark.sroa.5.2.i = phi i1 [ %has_mark.sroa.5.4.i, %sw.epilog92.i.i.i ], [ %has_mark.sroa.5.2.i.ph, %start.i.i.i.sink.split ]
   %122 = phi i32 [ %.pr.i.i.i, %sw.epilog92.i.i.i ], [ %.sink, %start.i.i.i.sink.split ]
   %123 = load ptr, ptr %stack.i.i.i, align 8
   %sub.i.i.i.i = add i32 %122, -1
@@ -10435,7 +10435,7 @@ while.body20.lr.ph.i.i.i:                         ; preds = %sw.bb15.i.i.i
   br label %while.body20.i.i.i
 
 while.body20.i.i.i:                               ; preds = %while.cond18.backedge.i.i.i, %while.body20.lr.ph.i.i.i
-  %has_mark.sroa.5.3.i = phi i1 [ %has_mark.sroa.5.2.i, %while.body20.lr.ph.i.i.i ], [ %has_mark.sroa.5.5.i, %while.cond18.backedge.i.i.i ]
+  %has_mark.sroa.5.6.i = phi i1 [ %has_mark.sroa.5.2.i, %while.body20.lr.ph.i.i.i ], [ %has_mark.sroa.5.7.i, %while.cond18.backedge.i.i.i ]
   %132 = phi i32 [ %131, %while.body20.lr.ph.i.i.i ], [ %156, %while.cond18.backedge.i.i.i ]
   %idxprom.i34.i.i.i = zext i32 %132 to i64
   %arrayidx.i35.i.i.i = getelementptr inbounds [0 x ptr], ptr %m_args.i.i.i.i, i64 0, i64 %idxprom.i34.i.i.i
@@ -10597,7 +10597,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i122.i.i.i: ; preds = %.noex
   br label %start.backedge.i.i.i
 
 start.backedge.i.i.i:                             ; preds = %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i275.i.i.i, %entry.if.end_crit_edge.i281.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i173.i.i.i, %entry.if.end_crit_edge.i179.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i122.i.i.i, %entry.if.end_crit_edge.i128.i.i.i
-  %has_mark.sroa.5.4.i = phi i1 [ %has_mark.sroa.5.2.i, %entry.if.end_crit_edge.i281.i.i.i ], [ %has_mark.sroa.5.2.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i275.i.i.i ], [ %has_mark.sroa.5.3.i, %entry.if.end_crit_edge.i179.i.i.i ], [ %has_mark.sroa.5.3.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i173.i.i.i ], [ %has_mark.sroa.5.3.i, %entry.if.end_crit_edge.i128.i.i.i ], [ %has_mark.sroa.5.3.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i122.i.i.i ]
+  %has_mark.sroa.5.3.i = phi i1 [ %has_mark.sroa.5.2.i, %entry.if.end_crit_edge.i281.i.i.i ], [ %has_mark.sroa.5.2.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i275.i.i.i ], [ %has_mark.sroa.5.6.i, %entry.if.end_crit_edge.i179.i.i.i ], [ %has_mark.sroa.5.6.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i173.i.i.i ], [ %has_mark.sroa.5.6.i, %entry.if.end_crit_edge.i128.i.i.i ], [ %has_mark.sroa.5.6.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i122.i.i.i ]
   %.sink379.i.i.i = phi i32 [ %177, %entry.if.end_crit_edge.i281.i.i.i ], [ %.pre1.i276.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i275.i.i.i ], [ %150, %entry.if.end_crit_edge.i179.i.i.i ], [ %.pre1.i174.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i173.i.i.i ], [ %144, %entry.if.end_crit_edge.i128.i.i.i ], [ %.pre1.i123.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i122.i.i.i ]
   %.sink.i.i.i = phi ptr [ %.pre.i282.i.i.i, %entry.if.end_crit_edge.i281.i.i.i ], [ %call.i.i284.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i275.i.i.i ], [ %.pre.i180.i.i.i, %entry.if.end_crit_edge.i179.i.i.i ], [ %call.i.i182.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i173.i.i.i ], [ %.pre.i129.i.i.i, %entry.if.end_crit_edge.i128.i.i.i ], [ %call.i.i131.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i122.i.i.i ]
   %.lcssa360.sink.i.i.i = phi ptr [ %retval.0.i.i.i.i, %entry.if.end_crit_edge.i281.i.i.i ], [ %retval.0.i.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i275.i.i.i ], [ %133, %entry.if.end_crit_edge.i179.i.i.i ], [ %133, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i173.i.i.i ], [ %133, %entry.if.end_crit_edge.i128.i.i.i ], [ %133, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i122.i.i.i ]
@@ -10701,12 +10701,12 @@ while.cond18.backedge.sink.split.sink.split.i.i.i: ; preds = %if.then48.i.i.i, %
 
 while.cond18.backedge.sink.split.i.i.i:           ; preds = %while.cond18.backedge.sink.split.sink.split.i.i.i, %if.then48.i.i.i, %sw.bb35.i.i.i
   %.sink382.i.i.i = phi i1 [ false, %sw.bb35.i.i.i ], [ false, %if.then48.i.i.i ], [ %cmp.i.i.i.i146.i.i.i, %while.cond18.backedge.sink.split.sink.split.i.i.i ]
-  %155 = or i1 %has_mark.sroa.5.3.i, %.sink382.i.i.i
+  %155 = or i1 %has_mark.sroa.5.6.i, %.sink382.i.i.i
   %.pre.i.i382 = load i32, ptr %second.i.i.i, align 8
   br label %while.cond18.backedge.i.i.i
 
 while.cond18.backedge.i.i.i:                      ; preds = %while.cond18.backedge.sink.split.i.i.i, %invoke.cont28.i.i.i
-  %has_mark.sroa.5.5.i = phi i1 [ %155, %while.cond18.backedge.sink.split.i.i.i ], [ %has_mark.sroa.5.3.i, %invoke.cont28.i.i.i ]
+  %has_mark.sroa.5.7.i = phi i1 [ %155, %while.cond18.backedge.sink.split.i.i.i ], [ %has_mark.sroa.5.6.i, %invoke.cont28.i.i.i ]
   %156 = phi i32 [ %.pre.i.i382, %while.cond18.backedge.sink.split.i.i.i ], [ %inc.i.i.i381, %invoke.cont28.i.i.i ]
   %cmp19.i.i.i = icmp ult i32 %156, %130
   br i1 %cmp19.i.i.i, label %while.body20.i.i.i, label %while.end.loopexit.i.i.i, !llvm.loop !40
@@ -10717,7 +10717,7 @@ while.end.loopexit.i.i.i:                         ; preds = %while.cond18.backed
   br label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %sw.bb15.i.i.i, %while.end.loopexit.i.i.i
-  %has_mark.sroa.5.6.i = phi i1 [ %has_mark.sroa.5.5.i, %while.end.loopexit.i.i.i ], [ %has_mark.sroa.5.2.i, %sw.bb15.i.i.i ]
+  %has_mark.sroa.5.5.i = phi i1 [ %has_mark.sroa.5.7.i, %while.end.loopexit.i.i.i ], [ %has_mark.sroa.5.2.i, %sw.bb15.i.i.i ]
   %dec.i186.pre-phi.i.i.i = phi i32 [ %.pre355.i.i.i, %while.end.loopexit.i.i.i ], [ %sub.i.i.i.i, %sw.bb15.i.i.i ]
   store i32 %dec.i186.pre-phi.i.i.i, ptr %m_pos.i.i25.i.i.i, align 8
   %call58.val.i.i.i = load i32, ptr %124, align 4
@@ -10739,7 +10739,7 @@ land.rhs.i.i.i190.i.i.i:                          ; preds = %while.end.i.i.i
 
 _ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.exit199.i.i.i: ; preds = %land.rhs.i.i.i190.i.i.i, %while.end.i.i.i
   %160 = phi i1 [ false, %while.end.i.i.i ], [ %cmp.i.i.i.i198.i.i.i, %land.rhs.i.i.i190.i.i.i ]
-  %161 = or i1 %has_mark.sroa.5.6.i, %160
+  %161 = or i1 %has_mark.sroa.5.5.i, %160
   br label %sw.epilog92.i.i.i
 
 sw.bb60.i.i.i:                                    ; preds = %start.i.i.i
@@ -10939,7 +10939,7 @@ invoke.cont91.i.i.i:                              ; preds = %sw.default90.i.i.i
   unreachable
 
 sw.epilog92.i.i.i:                                ; preds = %while.end86.i.i.i, %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.exit199.i.i.i, %invoke.cont13.i.i.i
-  %has_mark.sroa.5.7.i = phi i1 [ true, %while.end86.i.i.i ], [ %161, %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.exit199.i.i.i ], [ %129, %invoke.cont13.i.i.i ]
+  %has_mark.sroa.5.4.i = phi i1 [ true, %while.end86.i.i.i ], [ %161, %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.exit199.i.i.i ], [ %129, %invoke.cont13.i.i.i ]
   %.pr.i.i.i = phi i32 [ %dec.i288.i.i.i, %while.end86.i.i.i ], [ %dec.i186.pre-phi.i.i.i, %_ZZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEEN8has_markclEPS2_.exit199.i.i.i ], [ %sub.i.i.i.i, %invoke.cont13.i.i.i ]
   %cmp.i.i.i.i372 = icmp eq i32 %.pr.i.i.i, 0
   br i1 %cmp.i.i.i.i372, label %while.end93.i.i.i, label %start.i.i.i, !llvm.loop !42
@@ -10963,7 +10963,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i294
   unreachable
 
 _Z19quick_for_each_exprIZN12_GLOBAL__N_115th_rewriter_cfg11apply_substER10ptr_bufferI4exprLj16EEE8has_markEvRT_R13ast_fast_markILj1EEPS3_.exit.i: ; preds = %if.end.i.i.i.i.i294.i.i.i, %while.end93.i.i.i, %if.then.i.i24.i
-  %has_mark.sroa.5.8.i = phi i1 [ %has_mark.sroa.5.7.i, %while.end93.i.i.i ], [ %has_mark.sroa.5.7.i, %if.end.i.i.i.i.i294.i.i.i ], [ %has_mark.sroa.5.0126.i, %if.then.i.i24.i ]
+  %has_mark.sroa.5.8.i = phi i1 [ %has_mark.sroa.5.4.i, %while.end93.i.i.i ], [ %has_mark.sroa.5.4.i, %if.end.i.i.i.i.i294.i.i.i ], [ %has_mark.sroa.5.0126.i, %if.then.i.i24.i ]
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %stack.i.i.i)
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.0127.i, i64 8
   %cmp.not.i373 = icmp eq ptr %incdec.ptr.i, %add.ptr.i170.i
@@ -16734,7 +16734,7 @@ cleanup.sink.split:                               ; preds = %if.then.i.i.i35, %i
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %lor.rhs.i23.i, %if.else.i, %_ZNK12_GLOBAL__N_115th_rewriter_cfg15is_arith_bv_appEP4expr.exit33.i, %invoke.cont13
-  %retval.0 = phi i32 [ 5, %invoke.cont13 ], [ 5, %_ZNK12_GLOBAL__N_115th_rewriter_cfg15is_arith_bv_appEP4expr.exit33.i ], [ 5, %if.else.i ], [ 5, %lor.rhs.i23.i ], [ 4, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 5, %invoke.cont13 ], [ 5, %_ZNK12_GLOBAL__N_115th_rewriter_cfg15is_arith_bv_appEP4expr.exit33.i ], [ 5, %if.else.i ], [ 5, %lor.rhs.i23.i ], [ 4, %cleanup.sink.split ]
   %33 = load ptr, ptr %common, align 8
   %tobool.not.i.i = icmp eq ptr %33, null
   br i1 %tobool.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i43
@@ -16810,8 +16810,8 @@ terminate.lpad.i65:                               ; preds = %if.then2.i.i.i64
   unreachable
 
 return:                                           ; preds = %entry, %_ZNK4decl13get_family_idEv.exit.thread.i.i, %if.then2.i.i.i64, %if.then.i.i.i59, %_ZN7obj_refI4expr11ast_managerED2Ev.exit57, %_ZNK11ast_manager6is_iteEPK9func_decl.exit
-  %retval.1 = phi i32 [ 5, %_ZNK11ast_manager6is_iteEPK9func_decl.exit ], [ %retval.0, %_ZN7obj_refI4expr11ast_managerED2Ev.exit57 ], [ %retval.0, %if.then.i.i.i59 ], [ %retval.0, %if.then2.i.i.i64 ], [ 5, %_ZNK4decl13get_family_idEv.exit.thread.i.i ], [ 5, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 5, %_ZNK11ast_manager6is_iteEPK9func_decl.exit ], [ %retval.1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit57 ], [ %retval.1, %if.then.i.i.i59 ], [ %retval.1, %if.then2.i.i.i64 ], [ 5, %_ZNK4decl13get_family_idEv.exit.thread.i.i ], [ 5, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -18917,8 +18917,8 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   unreachable
 
 return:                                           ; preds = %land.rhs.i.i, %entry, %if.end.i.i.i.i.i, %cleanup, %if.end, %_ZNK11ast_manager6is_iteEPK4expr.exit
-  %retval.1 = phi i1 [ false, %_ZNK11ast_manager6is_iteEPK4expr.exit ], [ false, %if.end ], [ %cmp.i.lcssa, %cleanup ], [ %cmp.i.lcssa, %if.end.i.i.i.i.i ], [ false, %entry ], [ false, %land.rhs.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZNK11ast_manager6is_iteEPK4expr.exit ], [ false, %if.end ], [ %cmp.i.lcssa, %cleanup ], [ %cmp.i.lcssa, %if.end.i.i.i.i.i ], [ false, %entry ], [ false, %land.rhs.i.i ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK11ast_manager9are_equalEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, ptr noundef) local_unnamed_addr #0

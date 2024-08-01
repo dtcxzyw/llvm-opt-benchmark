@@ -2200,8 +2200,8 @@ for.body15.i:                                     ; preds = %for.inc76.i, %st_mu
   %indvars.iv319.i = phi i64 [ 0, %st_mult.exit48.thread.i ], [ %indvars.iv.next320.i, %for.inc76.i ]
   %deduplicated_entries.0287.i = phi ptr [ %call11.i, %st_mult.exit48.thread.i ], [ %deduplicated_entries.1.lcssa.i, %for.inc76.i ]
   %alloc_objects.0286.i = phi i64 [ %74, %st_mult.exit48.thread.i ], [ %alloc_objects.1.lcssa.i, %for.inc76.i ]
-  %fanout.sroa.32.0285.i = phi i64 [ %74, %st_mult.exit48.thread.i ], [ %fanout.sroa.32.13.i, %for.inc76.i ]
-  %fanout.sroa.0.0284.i = phi ptr [ %call9.i, %st_mult.exit48.thread.i ], [ %fanout.sroa.0.13.i, %for.inc76.i ]
+  %fanout.sroa.32.0285.i = phi i64 [ %74, %st_mult.exit48.thread.i ], [ %fanout.sroa.32.3.i, %for.inc76.i ]
+  %fanout.sroa.0.0284.i = phi ptr [ %call9.i, %st_mult.exit48.thread.i ], [ %fanout.sroa.0.3.i, %for.inc76.i ]
   br i1 %tobool.not.i147, label %if.end.i149, label %if.then.i148
 
 if.then.i148:                                     ; preds = %for.body15.i
@@ -2229,9 +2229,9 @@ for.body.lr.ph.i.i:                               ; preds = %if.else.i16.i.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
-  %fanout.sroa.0.1.i = phi ptr [ %fanout.sroa.0.0284.i, %for.body.lr.ph.i.i ], [ %fanout.sroa.0.3.i, %for.inc.i.i ]
-  %fanout.sroa.16.0.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %fanout.sroa.16.1.i, %for.inc.i.i ]
-  %fanout.sroa.32.1.i = phi i64 [ %fanout.sroa.32.0285.i, %for.body.lr.ph.i.i ], [ %fanout.sroa.32.3.i, %for.inc.i.i ]
+  %fanout.sroa.0.4.i = phi ptr [ %fanout.sroa.0.0284.i, %for.body.lr.ph.i.i ], [ %fanout.sroa.0.6.i, %for.inc.i.i ]
+  %fanout.sroa.16.3.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %fanout.sroa.16.4.i, %for.inc.i.i ]
+  %fanout.sroa.32.4.i = phi i64 [ %fanout.sroa.32.0285.i, %for.body.lr.ph.i.i ], [ %fanout.sroa.32.6.i, %for.inc.i.i ]
   %indvars.iv.i.i = phi i64 [ %80, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   br i1 %cmp202436, label %land.lhs.true.i.i, label %if.end9.i.i
 
@@ -2260,8 +2260,8 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i
   br i1 %cmp7.i.i, label %for.inc.i.i, label %if.end9.i.i
 
 if.end9.i.i:                                      ; preds = %land.lhs.true.i.i, %for.body.i.i
-  %add.i50.i = add i64 %fanout.sroa.16.0.i, 1
-  %cmp.i.i.i = icmp eq i64 %fanout.sroa.16.0.i, -1
+  %add.i50.i = add i64 %fanout.sroa.16.3.i, 1
+  %cmp.i.i.i = icmp eq i64 %fanout.sroa.16.3.i, -1
   br i1 %cmp.i.i.i, label %if.then.i23.i.i, label %do.body.i.i.i
 
 if.then.i23.i.i:                                  ; preds = %if.end9.i.i
@@ -2269,11 +2269,11 @@ if.then.i23.i.i:                                  ; preds = %if.end9.i.i
   unreachable
 
 do.body.i.i.i:                                    ; preds = %if.end9.i.i
-  %cmp3.i.i.i = icmp ult i64 %fanout.sroa.32.1.i, %add.i50.i
+  %cmp3.i.i.i = icmp ult i64 %fanout.sroa.32.4.i, %add.i50.i
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %midx_fanout_grow.exit.i.i
 
 if.then4.i.i.i:                                   ; preds = %do.body.i.i.i
-  %86 = mul i64 %fanout.sroa.32.1.i, 3
+  %86 = mul i64 %fanout.sroa.32.4.i, 3
   %mul.i22.i.i = add i64 %86, 48
   %div15.i.i.i = lshr i64 %mul.i22.i.i, 1
   %nr.div15.i.i.i = call i64 @llvm.umax.i64(i64 %div15.i.i.i, i64 %add.i50.i)
@@ -2286,19 +2286,19 @@ if.then.i.i.i.i:                                  ; preds = %if.then4.i.i.i
 
 st_mult.exit.i.i.i:                               ; preds = %if.then4.i.i.i
   %mul.i.i.i.i = shl nuw i64 %nr.div15.i.i.i, 6
-  %call16.i.i.i = call ptr @xrealloc(ptr noundef %fanout.sroa.0.1.i, i64 noundef %mul.i.i.i.i) #23
+  %call16.i.i.i = call ptr @xrealloc(ptr noundef %fanout.sroa.0.4.i, i64 noundef %mul.i.i.i.i) #23
   br label %midx_fanout_grow.exit.i.i
 
 midx_fanout_grow.exit.i.i:                        ; preds = %st_mult.exit.i.i.i, %do.body.i.i.i
-  %fanout.sroa.0.2.i = phi ptr [ %call16.i.i.i, %st_mult.exit.i.i.i ], [ %fanout.sroa.0.1.i, %do.body.i.i.i ]
-  %fanout.sroa.32.2.i = phi i64 [ %nr.div15.i.i.i, %st_mult.exit.i.i.i ], [ %fanout.sroa.32.1.i, %do.body.i.i.i ]
+  %fanout.sroa.0.5.i = phi ptr [ %call16.i.i.i, %st_mult.exit.i.i.i ], [ %fanout.sroa.0.4.i, %do.body.i.i.i ]
+  %fanout.sroa.32.5.i = phi i64 [ %nr.div15.i.i.i, %st_mult.exit.i.i.i ], [ %fanout.sroa.32.4.i, %do.body.i.i.i ]
   %87 = load i32, ptr %num_objects.i.i.i, align 4
   %88 = zext i32 %87 to i64
   %cmp.not.i.i.i = icmp ult i64 %indvars.iv.i.i, %88
   br i1 %cmp.not.i.i.i, label %nth_midxed_object_oid.exit.i.i.i, label %nth_midxed_pack_midx_entry.exit.i.i
 
 nth_midxed_object_oid.exit.i.i.i:                 ; preds = %midx_fanout_grow.exit.i.i
-  %arrayidx11.i.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.2.i, i64 %fanout.sroa.16.0.i
+  %arrayidx11.i.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.5.i, i64 %fanout.sroa.16.3.i
   %89 = load ptr, ptr %chunk_oid_lookup.i.i.i.i, align 8
   %90 = load i8, ptr %hash_len.i.i.i.i, align 1
   %conv.i.i24.i.i = zext i8 %90 to i64
@@ -2436,25 +2436,25 @@ nth_midxed_offset.exit.i:                         ; preds = %if.end12.i.i, %if.e
   br label %nth_midxed_pack_midx_entry.exit.i.i
 
 nth_midxed_pack_midx_entry.exit.i.i:              ; preds = %nth_midxed_offset.exit.i, %midx_fanout_grow.exit.i.i
-  %preferred.i.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.2.i, i64 %fanout.sroa.16.0.i, i32 4
+  %preferred.i.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.5.i, i64 %fanout.sroa.16.3.i, i32 4
   %bf.load.i.i = load i8, ptr %preferred.i.i, align 8
   %bf.clear.i.i = and i8 %bf.load.i.i, -2
   store i8 %bf.clear.i.i, ptr %preferred.i.i, align 8
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %nth_midxed_pack_midx_entry.exit.i.i, %land.lhs.true.i.i
-  %fanout.sroa.0.3.i = phi ptr [ %fanout.sroa.0.1.i, %land.lhs.true.i.i ], [ %fanout.sroa.0.2.i, %nth_midxed_pack_midx_entry.exit.i.i ]
-  %fanout.sroa.16.1.i = phi i64 [ %fanout.sroa.16.0.i, %land.lhs.true.i.i ], [ %add.i50.i, %nth_midxed_pack_midx_entry.exit.i.i ]
-  %fanout.sroa.32.3.i = phi i64 [ %fanout.sroa.32.1.i, %land.lhs.true.i.i ], [ %fanout.sroa.32.2.i, %nth_midxed_pack_midx_entry.exit.i.i ]
+  %fanout.sroa.0.6.i = phi ptr [ %fanout.sroa.0.4.i, %land.lhs.true.i.i ], [ %fanout.sroa.0.5.i, %nth_midxed_pack_midx_entry.exit.i.i ]
+  %fanout.sroa.16.4.i = phi i64 [ %fanout.sroa.16.3.i, %land.lhs.true.i.i ], [ %add.i50.i, %nth_midxed_pack_midx_entry.exit.i.i ]
+  %fanout.sroa.32.6.i = phi i64 [ %fanout.sroa.32.4.i, %land.lhs.true.i.i ], [ %fanout.sroa.32.5.i, %nth_midxed_pack_midx_entry.exit.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond.not.i.i = icmp eq i32 %79, %lftr.wideiv.i.i
   br i1 %exitcond.not.i.i, label %if.end.i149, label %for.body.i.i, !llvm.loop !17
 
 if.end.i149:                                      ; preds = %for.inc.i.i, %if.else.i16.i.i, %for.body15.i
-  %fanout.sroa.0.5.i = phi ptr [ %fanout.sroa.0.0284.i, %for.body15.i ], [ %fanout.sroa.0.0284.i, %if.else.i16.i.i ], [ %fanout.sroa.0.3.i, %for.inc.i.i ]
-  %fanout.sroa.16.3.i = phi i64 [ 0, %for.body15.i ], [ 0, %if.else.i16.i.i ], [ %fanout.sroa.16.1.i, %for.inc.i.i ]
-  %fanout.sroa.32.5.i = phi i64 [ %fanout.sroa.32.0285.i, %for.body15.i ], [ %fanout.sroa.32.0285.i, %if.else.i16.i.i ], [ %fanout.sroa.32.3.i, %for.inc.i.i ]
+  %fanout.sroa.0.1.i = phi ptr [ %fanout.sroa.0.0284.i, %for.body15.i ], [ %fanout.sroa.0.0284.i, %if.else.i16.i.i ], [ %fanout.sroa.0.6.i, %for.inc.i.i ]
+  %fanout.sroa.16.0.i = phi i64 [ 0, %for.body15.i ], [ 0, %if.else.i16.i.i ], [ %fanout.sroa.16.4.i, %for.inc.i.i ]
+  %fanout.sroa.32.1.i = phi i64 [ %fanout.sroa.32.0285.i, %for.body15.i ], [ %fanout.sroa.32.0285.i, %if.else.i16.i.i ], [ %fanout.sroa.32.6.i, %for.inc.i.i ]
   br i1 %cmp265.i, label %for.body20.lr.ph.i, label %for.end25.i
 
 for.body20.lr.ph.i:                               ; preds = %if.end.i149
@@ -2465,9 +2465,9 @@ for.body20.lr.ph.i:                               ; preds = %if.end.i149
 
 for.body20.i:                                     ; preds = %midx_fanout_add_pack_fanout.exit.i, %for.body20.lr.ph.i
   %indvars.iv314.i = phi i64 [ %71, %for.body20.lr.ph.i ], [ %indvars.iv.next315.i, %midx_fanout_add_pack_fanout.exit.i ]
-  %fanout.sroa.32.6271.i = phi i64 [ %fanout.sroa.32.5.i, %for.body20.lr.ph.i ], [ %fanout.sroa.32.9.i, %midx_fanout_add_pack_fanout.exit.i ]
-  %fanout.sroa.16.4270.i = phi i64 [ %fanout.sroa.16.3.i, %for.body20.lr.ph.i ], [ %fanout.sroa.16.6.i, %midx_fanout_add_pack_fanout.exit.i ]
-  %fanout.sroa.0.6269.i = phi ptr [ %fanout.sroa.0.5.i, %for.body20.lr.ph.i ], [ %fanout.sroa.0.9.i, %midx_fanout_add_pack_fanout.exit.i ]
+  %fanout.sroa.32.2271.i = phi i64 [ %fanout.sroa.32.1.i, %for.body20.lr.ph.i ], [ %fanout.sroa.32.10.i, %midx_fanout_add_pack_fanout.exit.i ]
+  %fanout.sroa.16.1270.i = phi i64 [ %fanout.sroa.16.0.i, %for.body20.lr.ph.i ], [ %fanout.sroa.16.7.i, %midx_fanout_add_pack_fanout.exit.i ]
+  %fanout.sroa.0.2269.i = phi ptr [ %fanout.sroa.0.1.i, %for.body20.lr.ph.i ], [ %fanout.sroa.0.10.i, %midx_fanout_add_pack_fanout.exit.i ]
   %cmp21.i = icmp eq i64 %indvars.iv314.i, %idxprom.i83.i
   %p.i.i = getelementptr inbounds %struct.pack_info, ptr %.pre421437, i64 %indvars.iv314.i, i32 2
   %120 = load ptr, ptr %p.i.i, align 8
@@ -2489,12 +2489,12 @@ for.body.lr.ph.i56.i:                             ; preds = %if.end.i54.i
   br label %for.body.i60.i
 
 for.body.i60.i:                                   ; preds = %fill_pack_entry.exit.i.i, %for.body.lr.ph.i56.i
-  %fanout.sroa.0.7.i = phi ptr [ %fanout.sroa.0.6269.i, %for.body.lr.ph.i56.i ], [ %fanout.sroa.0.8.i, %fill_pack_entry.exit.i.i ]
-  %fanout.sroa.16.5.i = phi i64 [ %fanout.sroa.16.4270.i, %for.body.lr.ph.i56.i ], [ %add.i61.i, %fill_pack_entry.exit.i.i ]
-  %fanout.sroa.32.7.i = phi i64 [ %fanout.sroa.32.6271.i, %for.body.lr.ph.i56.i ], [ %fanout.sroa.32.8.i, %fill_pack_entry.exit.i.i ]
+  %fanout.sroa.0.8.i = phi ptr [ %fanout.sroa.0.2269.i, %for.body.lr.ph.i56.i ], [ %fanout.sroa.0.9.i, %fill_pack_entry.exit.i.i ]
+  %fanout.sroa.16.6.i = phi i64 [ %fanout.sroa.16.1270.i, %for.body.lr.ph.i56.i ], [ %add.i61.i, %fill_pack_entry.exit.i.i ]
+  %fanout.sroa.32.8.i = phi i64 [ %fanout.sroa.32.2271.i, %for.body.lr.ph.i56.i ], [ %fanout.sroa.32.9.i, %fill_pack_entry.exit.i.i ]
   %cur_object.023.i.i = phi i32 [ %start.0.i55.i, %for.body.lr.ph.i56.i ], [ %inc8.i.i, %fill_pack_entry.exit.i.i ]
-  %add.i61.i = add i64 %fanout.sroa.16.5.i, 1
-  %cmp.i.i62.i = icmp eq i64 %fanout.sroa.16.5.i, -1
+  %add.i61.i = add i64 %fanout.sroa.16.6.i, 1
+  %cmp.i.i62.i = icmp eq i64 %fanout.sroa.16.6.i, -1
   br i1 %cmp.i.i62.i, label %if.then.i.i82.i, label %do.body.i.i63.i
 
 if.then.i.i82.i:                                  ; preds = %for.body.i60.i
@@ -2502,11 +2502,11 @@ if.then.i.i82.i:                                  ; preds = %for.body.i60.i
   unreachable
 
 do.body.i.i63.i:                                  ; preds = %for.body.i60.i
-  %cmp3.i.i64.i = icmp ult i64 %fanout.sroa.32.7.i, %add.i61.i
+  %cmp3.i.i64.i = icmp ult i64 %fanout.sroa.32.8.i, %add.i61.i
   br i1 %cmp3.i.i64.i, label %if.then4.i.i72.i, label %midx_fanout_grow.exit.i66.i
 
 if.then4.i.i72.i:                                 ; preds = %do.body.i.i63.i
-  %123 = mul i64 %fanout.sroa.32.7.i, 3
+  %123 = mul i64 %fanout.sroa.32.8.i, 3
   %mul.i.i73.i = add i64 %123, 48
   %div15.i.i74.i = lshr i64 %mul.i.i73.i, 1
   %nr.div15.i.i75.i = call i64 @llvm.umax.i64(i64 %div15.i.i74.i, i64 %add.i61.i)
@@ -2519,14 +2519,14 @@ if.then.i.i.i81.i:                                ; preds = %if.then4.i.i72.i
 
 st_mult.exit.i.i77.i:                             ; preds = %if.then4.i.i72.i
   %mul.i.i.i78.i = shl nuw i64 %nr.div15.i.i75.i, 6
-  %call16.i.i79.i = call ptr @xrealloc(ptr noundef %fanout.sroa.0.7.i, i64 noundef %mul.i.i.i78.i) #23
+  %call16.i.i79.i = call ptr @xrealloc(ptr noundef %fanout.sroa.0.8.i, i64 noundef %mul.i.i.i78.i) #23
   br label %midx_fanout_grow.exit.i66.i
 
 midx_fanout_grow.exit.i66.i:                      ; preds = %st_mult.exit.i.i77.i, %do.body.i.i63.i
-  %fanout.sroa.0.8.i = phi ptr [ %call16.i.i79.i, %st_mult.exit.i.i77.i ], [ %fanout.sroa.0.7.i, %do.body.i.i63.i ]
-  %fanout.sroa.32.8.i = phi i64 [ %nr.div15.i.i75.i, %st_mult.exit.i.i77.i ], [ %fanout.sroa.32.7.i, %do.body.i.i63.i ]
+  %fanout.sroa.0.9.i = phi ptr [ %call16.i.i79.i, %st_mult.exit.i.i77.i ], [ %fanout.sroa.0.8.i, %do.body.i.i63.i ]
+  %fanout.sroa.32.9.i = phi i64 [ %nr.div15.i.i75.i, %st_mult.exit.i.i77.i ], [ %fanout.sroa.32.8.i, %do.body.i.i63.i ]
   %124 = load ptr, ptr %p.i.i, align 8
-  %arrayidx6.i.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.8.i, i64 %fanout.sroa.16.5.i
+  %arrayidx6.i.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.9.i, i64 %fanout.sroa.16.6.i
   %call.i.i.i = call i32 @nth_packed_object_id(ptr noundef %arrayidx6.i.i, ptr noundef %124, i32 noundef %cur_object.023.i.i) #23
   %cmp.i13.i.i = icmp slt i32 %call.i.i.i, 0
   br i1 %cmp.i13.i.i, label %if.then.i14.i.i, label %fill_pack_entry.exit.i.i
@@ -2556,17 +2556,17 @@ fill_pack_entry.exit.i.i:                         ; preds = %midx_fanout_grow.ex
   br i1 %exitcond.not.i70.i, label %midx_fanout_add_pack_fanout.exit.i, label %for.body.i60.i, !llvm.loop !18
 
 midx_fanout_add_pack_fanout.exit.i:               ; preds = %fill_pack_entry.exit.i.i, %if.end.i54.i
-  %fanout.sroa.0.9.i = phi ptr [ %fanout.sroa.0.6269.i, %if.end.i54.i ], [ %fanout.sroa.0.8.i, %fill_pack_entry.exit.i.i ]
-  %fanout.sroa.16.6.i = phi i64 [ %fanout.sroa.16.4270.i, %if.end.i54.i ], [ %add.i61.i, %fill_pack_entry.exit.i.i ]
-  %fanout.sroa.32.9.i = phi i64 [ %fanout.sroa.32.6271.i, %if.end.i54.i ], [ %fanout.sroa.32.8.i, %fill_pack_entry.exit.i.i ]
+  %fanout.sroa.0.10.i = phi ptr [ %fanout.sroa.0.2269.i, %if.end.i54.i ], [ %fanout.sroa.0.9.i, %fill_pack_entry.exit.i.i ]
+  %fanout.sroa.16.7.i = phi i64 [ %fanout.sroa.16.1270.i, %if.end.i54.i ], [ %add.i61.i, %fill_pack_entry.exit.i.i ]
+  %fanout.sroa.32.10.i = phi i64 [ %fanout.sroa.32.2271.i, %if.end.i54.i ], [ %fanout.sroa.32.9.i, %fill_pack_entry.exit.i.i ]
   %indvars.iv.next315.i = add nuw nsw i64 %indvars.iv314.i, 1
   %exitcond318.not.i = icmp eq i64 %indvars.iv.next315.i, %wide.trip.count.i
   br i1 %exitcond318.not.i, label %for.end25.i, label %for.body20.i, !llvm.loop !19
 
 for.end25.i:                                      ; preds = %midx_fanout_add_pack_fanout.exit.i, %if.end.i149
-  %fanout.sroa.0.6.lcssa.i = phi ptr [ %fanout.sroa.0.5.i, %if.end.i149 ], [ %fanout.sroa.0.9.i, %midx_fanout_add_pack_fanout.exit.i ]
-  %fanout.sroa.16.4.lcssa.i = phi i64 [ %fanout.sroa.16.3.i, %if.end.i149 ], [ %fanout.sroa.16.6.i, %midx_fanout_add_pack_fanout.exit.i ]
-  %fanout.sroa.32.6.lcssa.i = phi i64 [ %fanout.sroa.32.5.i, %if.end.i149 ], [ %fanout.sroa.32.9.i, %midx_fanout_add_pack_fanout.exit.i ]
+  %fanout.sroa.0.2.lcssa.i = phi ptr [ %fanout.sroa.0.1.i, %if.end.i149 ], [ %fanout.sroa.0.10.i, %midx_fanout_add_pack_fanout.exit.i ]
+  %fanout.sroa.16.1.lcssa.i = phi i64 [ %fanout.sroa.16.0.i, %if.end.i149 ], [ %fanout.sroa.16.7.i, %midx_fanout_add_pack_fanout.exit.i ]
+  %fanout.sroa.32.2.lcssa.i = phi i64 [ %fanout.sroa.32.1.i, %if.end.i149 ], [ %fanout.sroa.32.10.i, %midx_fanout_add_pack_fanout.exit.i ]
   br i1 %or.cond.i, label %if.then30.i, label %if.end31.i
 
 if.then30.i:                                      ; preds = %for.end25.i
@@ -2588,12 +2588,12 @@ if.end.i89.i:                                     ; preds = %if.then30.i, %if.th
   br i1 %cmp22.i92.i, label %for.body.i97.i, label %if.end31.i
 
 for.body.i97.i:                                   ; preds = %if.end.i89.i, %fill_pack_entry.exit.i109.i
-  %fanout.sroa.0.10.i = phi ptr [ %fanout.sroa.0.11.i, %fill_pack_entry.exit.i109.i ], [ %fanout.sroa.0.6.lcssa.i, %if.end.i89.i ]
-  %fanout.sroa.16.7.i = phi i64 [ %add.i99.i, %fill_pack_entry.exit.i109.i ], [ %fanout.sroa.16.4.lcssa.i, %if.end.i89.i ]
-  %fanout.sroa.32.10.i = phi i64 [ %fanout.sroa.32.11.i, %fill_pack_entry.exit.i109.i ], [ %fanout.sroa.32.6.lcssa.i, %if.end.i89.i ]
+  %fanout.sroa.0.11.i = phi ptr [ %fanout.sroa.0.12.i, %fill_pack_entry.exit.i109.i ], [ %fanout.sroa.0.2.lcssa.i, %if.end.i89.i ]
+  %fanout.sroa.16.8.i = phi i64 [ %add.i99.i, %fill_pack_entry.exit.i109.i ], [ %fanout.sroa.16.1.lcssa.i, %if.end.i89.i ]
+  %fanout.sroa.32.11.i = phi i64 [ %fanout.sroa.32.12.i, %fill_pack_entry.exit.i109.i ], [ %fanout.sroa.32.2.lcssa.i, %if.end.i89.i ]
   %cur_object.023.i98.i = phi i32 [ %inc8.i120.i, %fill_pack_entry.exit.i109.i ], [ %start.0.i90.i, %if.end.i89.i ]
-  %add.i99.i = add i64 %fanout.sroa.16.7.i, 1
-  %cmp.i.i100.i = icmp eq i64 %fanout.sroa.16.7.i, -1
+  %add.i99.i = add i64 %fanout.sroa.16.8.i, 1
+  %cmp.i.i100.i = icmp eq i64 %fanout.sroa.16.8.i, -1
   br i1 %cmp.i.i100.i, label %if.then.i.i134.i, label %do.body.i.i101.i
 
 if.then.i.i134.i:                                 ; preds = %for.body.i97.i
@@ -2601,11 +2601,11 @@ if.then.i.i134.i:                                 ; preds = %for.body.i97.i
   unreachable
 
 do.body.i.i101.i:                                 ; preds = %for.body.i97.i
-  %cmp3.i.i102.i = icmp ult i64 %fanout.sroa.32.10.i, %add.i99.i
+  %cmp3.i.i102.i = icmp ult i64 %fanout.sroa.32.11.i, %add.i99.i
   br i1 %cmp3.i.i102.i, label %if.then4.i.i124.i, label %midx_fanout_grow.exit.i105.i
 
 if.then4.i.i124.i:                                ; preds = %do.body.i.i101.i
-  %129 = mul i64 %fanout.sroa.32.10.i, 3
+  %129 = mul i64 %fanout.sroa.32.11.i, 3
   %mul.i.i125.i = add i64 %129, 48
   %div15.i.i126.i = lshr i64 %mul.i.i125.i, 1
   %nr.div15.i.i127.i = call i64 @llvm.umax.i64(i64 %div15.i.i126.i, i64 %add.i99.i)
@@ -2618,14 +2618,14 @@ if.then.i.i.i133.i:                               ; preds = %if.then4.i.i124.i
 
 st_mult.exit.i.i129.i:                            ; preds = %if.then4.i.i124.i
   %mul.i.i.i130.i = shl nuw i64 %nr.div15.i.i127.i, 6
-  %call16.i.i131.i = call ptr @xrealloc(ptr noundef %fanout.sroa.0.10.i, i64 noundef %mul.i.i.i130.i) #23
+  %call16.i.i131.i = call ptr @xrealloc(ptr noundef %fanout.sroa.0.11.i, i64 noundef %mul.i.i.i130.i) #23
   br label %midx_fanout_grow.exit.i105.i
 
 midx_fanout_grow.exit.i105.i:                     ; preds = %st_mult.exit.i.i129.i, %do.body.i.i101.i
-  %fanout.sroa.0.11.i = phi ptr [ %call16.i.i131.i, %st_mult.exit.i.i129.i ], [ %fanout.sroa.0.10.i, %do.body.i.i101.i ]
-  %fanout.sroa.32.11.i = phi i64 [ %nr.div15.i.i127.i, %st_mult.exit.i.i129.i ], [ %fanout.sroa.32.10.i, %do.body.i.i101.i ]
+  %fanout.sroa.0.12.i = phi ptr [ %call16.i.i131.i, %st_mult.exit.i.i129.i ], [ %fanout.sroa.0.11.i, %do.body.i.i101.i ]
+  %fanout.sroa.32.12.i = phi i64 [ %nr.div15.i.i127.i, %st_mult.exit.i.i129.i ], [ %fanout.sroa.32.11.i, %do.body.i.i101.i ]
   %130 = load ptr, ptr %p.i84.i, align 8
-  %arrayidx6.i106.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.11.i, i64 %fanout.sroa.16.7.i
+  %arrayidx6.i106.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.12.i, i64 %fanout.sroa.16.8.i
   %call.i.i107.i = call i32 @nth_packed_object_id(ptr noundef %arrayidx6.i106.i, ptr noundef %130, i32 noundef %cur_object.023.i98.i) #23
   %cmp.i13.i108.i = icmp slt i32 %call.i.i107.i, 0
   br i1 %cmp.i13.i108.i, label %if.then.i14.i122.i, label %fill_pack_entry.exit.i109.i
@@ -2654,18 +2654,18 @@ fill_pack_entry.exit.i109.i:                      ; preds = %midx_fanout_grow.ex
   br i1 %exitcond.not.i121.i, label %if.end31.i, label %for.body.i97.i, !llvm.loop !18
 
 if.end31.i:                                       ; preds = %fill_pack_entry.exit.i109.i, %if.end.i89.i, %for.end25.i
-  %fanout.sroa.0.13.i = phi ptr [ %fanout.sroa.0.6.lcssa.i, %for.end25.i ], [ %fanout.sroa.0.6.lcssa.i, %if.end.i89.i ], [ %fanout.sroa.0.11.i, %fill_pack_entry.exit.i109.i ]
-  %fanout.sroa.16.9.i = phi i64 [ %fanout.sroa.16.4.lcssa.i, %for.end25.i ], [ %fanout.sroa.16.4.lcssa.i, %if.end.i89.i ], [ %add.i99.i, %fill_pack_entry.exit.i109.i ]
-  %fanout.sroa.32.13.i = phi i64 [ %fanout.sroa.32.6.lcssa.i, %for.end25.i ], [ %fanout.sroa.32.6.lcssa.i, %if.end.i89.i ], [ %fanout.sroa.32.11.i, %fill_pack_entry.exit.i109.i ]
-  %cmp.i.i136.i = icmp ugt i64 %fanout.sroa.16.9.i, 1
+  %fanout.sroa.0.3.i = phi ptr [ %fanout.sroa.0.2.lcssa.i, %for.end25.i ], [ %fanout.sroa.0.2.lcssa.i, %if.end.i89.i ], [ %fanout.sroa.0.12.i, %fill_pack_entry.exit.i109.i ]
+  %fanout.sroa.16.2.i = phi i64 [ %fanout.sroa.16.1.lcssa.i, %for.end25.i ], [ %fanout.sroa.16.1.lcssa.i, %if.end.i89.i ], [ %add.i99.i, %fill_pack_entry.exit.i109.i ]
+  %fanout.sroa.32.3.i = phi i64 [ %fanout.sroa.32.2.lcssa.i, %for.end25.i ], [ %fanout.sroa.32.2.lcssa.i, %if.end.i89.i ], [ %fanout.sroa.32.12.i, %fill_pack_entry.exit.i109.i ]
+  %cmp.i.i136.i = icmp ugt i64 %fanout.sroa.16.2.i, 1
   br i1 %cmp.i.i136.i, label %midx_fanout_sort.exit.thread.i, label %midx_fanout_sort.exit.i
 
 midx_fanout_sort.exit.thread.i:                   ; preds = %if.end31.i
-  call void @qsort(ptr noundef %fanout.sroa.0.13.i, i64 noundef %fanout.sroa.16.9.i, i64 noundef 64, ptr noundef nonnull @midx_oid_compare) #23
+  call void @qsort(ptr noundef %fanout.sroa.0.3.i, i64 noundef %fanout.sroa.16.2.i, i64 noundef 64, ptr noundef nonnull @midx_oid_compare) #23
   br label %for.body37.i.preheader
 
 midx_fanout_sort.exit.i:                          ; preds = %if.end31.i
-  %cmp35276.not.i = icmp eq i64 %fanout.sroa.16.9.i, 0
+  %cmp35276.not.i = icmp eq i64 %fanout.sroa.16.2.i, 0
   br i1 %cmp35276.not.i, label %for.inc76.i, label %for.body37.i.preheader
 
 for.body37.i.preheader:                           ; preds = %midx_fanout_sort.exit.i, %midx_fanout_sort.exit.thread.i
@@ -2673,8 +2673,8 @@ for.body37.i.preheader:                           ; preds = %midx_fanout_sort.ex
 
 for.body37.i:                                     ; preds = %for.body37.i.preheader, %for.inc73.i
   %conv33281.i = phi i64 [ %conv33.i, %for.inc73.i ], [ 0, %for.body37.i.preheader ]
-  %deduplicated_entries.1280.i = phi ptr [ %deduplicated_entries.3.i, %for.inc73.i ], [ %deduplicated_entries.0287.i, %for.body37.i.preheader ]
-  %alloc_objects.1279.i = phi i64 [ %alloc_objects.4.i, %for.inc73.i ], [ %alloc_objects.0286.i, %for.body37.i.preheader ]
+  %deduplicated_entries.1280.i = phi ptr [ %deduplicated_entries.2.i, %for.inc73.i ], [ %deduplicated_entries.0287.i, %for.body37.i.preheader ]
+  %alloc_objects.1279.i = phi i64 [ %alloc_objects.2.i, %for.inc73.i ], [ %alloc_objects.0286.i, %for.body37.i.preheader ]
   %cur_object.0277.i = phi i32 [ %inc74.i, %for.inc73.i ], [ 0, %for.body37.i.preheader ]
   %tobool38.not.i = icmp eq i32 %cur_object.0277.i, 0
   br i1 %tobool38.not.i, label %do.body.i, label %land.lhs.true39.i
@@ -2682,8 +2682,8 @@ for.body37.i:                                     ; preds = %for.body37.i.prehea
 land.lhs.true39.i:                                ; preds = %for.body37.i
   %sub.i = add i32 %cur_object.0277.i, -1
   %idxprom41.i = zext i32 %sub.i to i64
-  %arrayidx42.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.13.i, i64 %idxprom41.i
-  %arrayidx45.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.13.i, i64 %conv33281.i
+  %arrayidx42.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.3.i, i64 %idxprom41.i
+  %arrayidx45.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.3.i, i64 %conv33281.i
   %algo.i.i = getelementptr inbounds i8, ptr %arrayidx42.i, i64 32
   %132 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i138.i = icmp eq i32 %132, 0
@@ -2754,10 +2754,10 @@ st_mult.exit169.i:                                ; preds = %st_add.exit156.i
 
 do.end.i:                                         ; preds = %st_mult.exit169.i, %st_add.exit150.i
   %138 = phi i64 [ %.pre.i, %st_mult.exit169.i ], [ %136, %st_add.exit150.i ]
-  %alloc_objects.3.i = phi i64 [ %spec.select.i, %st_mult.exit169.i ], [ %alloc_objects.1279.i, %st_add.exit150.i ]
-  %deduplicated_entries.2.i = phi ptr [ %call66.i, %st_mult.exit169.i ], [ %deduplicated_entries.1280.i, %st_add.exit150.i ]
-  %arrayidx68.i = getelementptr inbounds %struct.pack_midx_entry, ptr %deduplicated_entries.2.i, i64 %138
-  %arrayidx71.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.13.i, i64 %conv33281.i
+  %alloc_objects.4.i = phi i64 [ %spec.select.i, %st_mult.exit169.i ], [ %alloc_objects.1279.i, %st_add.exit150.i ]
+  %deduplicated_entries.3.i = phi ptr [ %call66.i, %st_mult.exit169.i ], [ %deduplicated_entries.1280.i, %st_add.exit150.i ]
+  %arrayidx68.i = getelementptr inbounds %struct.pack_midx_entry, ptr %deduplicated_entries.3.i, i64 %138
+  %arrayidx71.i = getelementptr inbounds %struct.pack_midx_entry, ptr %fanout.sroa.0.3.i, i64 %conv33281.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx68.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx71.i, i64 64, i1 false)
   %139 = load i64, ptr %entries_nr, align 8
   %inc72.i = add i64 %139, 1
@@ -2765,22 +2765,22 @@ do.end.i:                                         ; preds = %st_mult.exit169.i, 
   br label %for.inc73.i
 
 for.inc73.i:                                      ; preds = %do.end.i, %oideq.exit.i
-  %alloc_objects.4.i = phi i64 [ %alloc_objects.1279.i, %oideq.exit.i ], [ %alloc_objects.3.i, %do.end.i ]
-  %deduplicated_entries.3.i = phi ptr [ %deduplicated_entries.1280.i, %oideq.exit.i ], [ %deduplicated_entries.2.i, %do.end.i ]
+  %alloc_objects.2.i = phi i64 [ %alloc_objects.1279.i, %oideq.exit.i ], [ %alloc_objects.4.i, %do.end.i ]
+  %deduplicated_entries.2.i = phi ptr [ %deduplicated_entries.1280.i, %oideq.exit.i ], [ %deduplicated_entries.3.i, %do.end.i ]
   %inc74.i = add i32 %cur_object.0277.i, 1
   %conv33.i = zext i32 %inc74.i to i64
-  %cmp35.i = icmp ugt i64 %fanout.sroa.16.9.i, %conv33.i
+  %cmp35.i = icmp ugt i64 %fanout.sroa.16.2.i, %conv33.i
   br i1 %cmp35.i, label %for.body37.i, label %for.inc76.i, !llvm.loop !20
 
 for.inc76.i:                                      ; preds = %for.inc73.i, %midx_fanout_sort.exit.i
-  %alloc_objects.1.lcssa.i = phi i64 [ %alloc_objects.0286.i, %midx_fanout_sort.exit.i ], [ %alloc_objects.4.i, %for.inc73.i ]
-  %deduplicated_entries.1.lcssa.i = phi ptr [ %deduplicated_entries.0287.i, %midx_fanout_sort.exit.i ], [ %deduplicated_entries.3.i, %for.inc73.i ]
+  %alloc_objects.1.lcssa.i = phi i64 [ %alloc_objects.0286.i, %midx_fanout_sort.exit.i ], [ %alloc_objects.2.i, %for.inc73.i ]
+  %deduplicated_entries.1.lcssa.i = phi ptr [ %deduplicated_entries.0287.i, %midx_fanout_sort.exit.i ], [ %deduplicated_entries.2.i, %for.inc73.i ]
   %indvars.iv.next320.i = add nuw nsw i64 %indvars.iv319.i, 1
   %exitcond324.not.i = icmp eq i64 %indvars.iv.next320.i, 256
   br i1 %exitcond324.not.i, label %get_sorted_entries.exit, label %for.body15.i, !llvm.loop !21
 
 get_sorted_entries.exit:                          ; preds = %for.inc76.i
-  call void @free(ptr noundef %fanout.sroa.0.13.i) #23
+  call void @free(ptr noundef %fanout.sroa.0.3.i) #23
   %entries = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %deduplicated_entries.1.lcssa.i, ptr %entries, align 8
   %large_offsets_needed = getelementptr inbounds i8, ptr %ctx, i64 80

@@ -456,7 +456,7 @@ if.end22.i.i:                                     ; preds = %land.lhs.true.i.i, 
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then16.i.i, %aer_log_add_err.exit.i.i, %if.end22.i.i, %if.end20.i51
-  %inj.sroa.46.0 = phi i1 [ false, %if.end20.i51 ], [ false, %if.end22.i.i ], [ false, %aer_log_add_err.exit.i.i ], [ true, %if.then16.i.i ]
+  %inj.sroa.46.1 = phi i1 [ false, %if.end20.i51 ], [ false, %if.end22.i.i ], [ false, %aer_log_add_err.exit.i.i ], [ true, %if.then16.i.i ]
   %add.ptr35.i = getelementptr i8, ptr %aer_cap.0160, i64 4
   %config.val.i22.i = load i32, ptr %add.ptr35.i, align 1
   %or.i23.i = or i32 %config.val.i22.i, %and4
@@ -464,7 +464,7 @@ if.end33.i:                                       ; preds = %if.then16.i.i, %aer
   br label %if.end38.i52
 
 if.end38.i52:                                     ; preds = %if.end33.i, %if.then68
-  %inj.sroa.46.1 = phi i1 [ false, %if.then68 ], [ %inj.sroa.46.0, %if.end33.i ]
+  %inj.sroa.46.2 = phi i1 [ false, %if.then68 ], [ %inj.sroa.46.1, %if.end33.i ]
   %23 = and i16 %devctl.0156, 8
   %tobool44.not.i55 = icmp eq i16 %23, 0
   %or.cond.i56 = select i1 %cmp, i1 %tobool44.not.i55, i1 false
@@ -575,7 +575,7 @@ pcie_aer_record_error.exit.i105:                  ; preds = %if.end22.i.i113, %a
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %pcie_aer_record_error.exit.i105, %if.else73
-  %inj.sroa.46.3 = phi i1 [ false, %if.else73 ], [ %tobool30.i106, %pcie_aer_record_error.exit.i105 ]
+  %inj.sroa.46.4 = phi i1 [ false, %if.else73 ], [ %tobool30.i106, %pcie_aer_record_error.exit.i105 ]
   %38 = load ptr, ptr %config.i65, align 8
   %add.ptr39.i = getelementptr i8, ptr %38, i64 4
   %add.ptr39.val.i = load i16, ptr %add.ptr39.i, align 1
@@ -611,11 +611,11 @@ if.else64.i:                                      ; preds = %if.end52.i108
   br i1 %or.cond183, label %return, label %if.end79
 
 if.end79:                                         ; preds = %if.then11.i, %if.else64.i, %if.then54.i, %if.end38.i52, %if.end38.i
-  %inj.sroa.46.5 = phi i1 [ false, %if.end38.i ], [ %inj.sroa.46.1, %if.end38.i52 ], [ %inj.sroa.46.3, %if.then54.i ], [ %inj.sroa.46.3, %if.else64.i ], [ false, %if.then11.i ]
+  %inj.sroa.46.0 = phi i1 [ false, %if.end38.i ], [ %inj.sroa.46.2, %if.end38.i52 ], [ %inj.sroa.46.4, %if.then54.i ], [ %inj.sroa.46.4, %if.else64.i ], [ false, %if.then11.i ]
   %cmp.i.i = phi i1 [ true, %if.end38.i ], [ true, %if.end38.i52 ], [ true, %if.then54.i ], [ false, %if.else64.i ], [ true, %if.then11.i ]
   %cmp16.i.i = phi i1 [ false, %if.end38.i ], [ false, %if.end38.i52 ], [ true, %if.then54.i ], [ true, %if.else64.i ], [ false, %if.then11.i ]
   %cmp24.i.i = phi i1 [ true, %if.end38.i ], [ true, %if.end38.i52 ], [ false, %if.then54.i ], [ true, %if.else64.i ], [ true, %if.then11.i ]
-  %inj.sroa.50.3 = phi i32 [ 1, %if.end38.i ], [ 1, %if.end38.i52 ], [ 4, %if.then54.i ], [ 2, %if.else64.i ], [ 1, %if.then11.i ]
+  %inj.sroa.50.0 = phi i32 [ 1, %if.end38.i ], [ 1, %if.end38.i52 ], [ 4, %if.then54.i ], [ 2, %if.else64.i ], [ 1, %if.then11.i ]
   %source_id = getelementptr inbounds i8, ptr %err, i64 4
   %43 = load i16, ptr %source_id, align 4
   br label %while.body.i
@@ -640,7 +640,7 @@ land.lhs.true.i120:                               ; preds = %if.end.i115
   %dev.addr.0.val13.i = load ptr, ptr %45, align 8
   %add.ptr.i.i121 = getelementptr i8, ptr %dev.addr.0.val13.i, i64 62
   %add.ptr.val.i.i = load i16, ptr %add.ptr.i.i121, align 1
-  switch i32 %inj.sroa.50.3, label %pcie_aer_msg_vbridge.exit.i [
+  switch i32 %inj.sroa.50.0, label %pcie_aer_msg_vbridge.exit.i [
     i32 4, label %if.then.i.i
     i32 2, label %if.then.i.i
   ]
@@ -666,7 +666,7 @@ if.end13.i116:                                    ; preds = %pcie_aer_msg_vbridg
   %add.ptr.i14.i = getelementptr i8, ptr %47, i64 %idx.ext.i.i117
   %add.ptr1.i.i = getelementptr i8, ptr %add.ptr.i14.i, i64 8
   %add.ptr1.val.i.i = load i16, ptr %add.ptr1.i.i, align 1
-  switch i32 %inj.sroa.50.3, label %land.lhs.true14.i.i [
+  switch i32 %inj.sroa.50.0, label %land.lhs.true14.i.i [
     i32 4, label %land.lhs.true.i.i118
     i32 2, label %land.lhs.true.i.i118
   ]
@@ -708,7 +708,7 @@ pcie_aer_msg_alldev.exit.i:                       ; preds = %land.lhs.true22.i.i
   %add.ptr40.i.i = getelementptr i8, ptr %add.ptr39.i.i, i64 8
   %add.ptr40.val.i.i = load i16, ptr %add.ptr40.i.i, align 1
   %conv42.i.i = zext i16 %add.ptr40.val.i.i to i32
-  %and43.i.i = and i32 %inj.sroa.50.3, %conv42.i.i
+  %and43.i.i = and i32 %inj.sroa.50.0, %conv42.i.i
   %tobool44.not.i.not.i = icmp eq i32 %and43.i.i, 0
   br i1 %tobool44.not.i.not.i, label %pcie_aer_msg.exit, label %if.end16.i
 
@@ -724,7 +724,7 @@ if.then20.i:                                      ; preds = %if.end16.i
   %add.ptr4.val.i.i = load i32, ptr %add.ptr4.i.i, align 1
   %add.ptr6.i.i = getelementptr i8, ptr %add.ptr3.i20.i, i64 48
   %add.ptr6.val.i.i = load i32, ptr %add.ptr6.i.i, align 1
-  switch i32 %inj.sroa.50.3, label %sw.default.i.i [
+  switch i32 %inj.sroa.50.0, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
     i32 2, label %sw.bb16.i.i
     i32 4, label %sw.bb18.i.i
@@ -762,13 +762,13 @@ sw.epilog.i.i:                                    ; preds = %sw.bb.i.i
   br label %if.end37.i.i
 
 if.then26.i.i:                                    ; preds = %sw.bb18.i.i, %sw.bb16.i.i
-  %root_status.227.i.i = phi i32 [ %or17.i.i, %sw.bb16.i.i ], [ %or24.i.i, %sw.bb18.i.i ]
-  %and27.i.i = and i32 %root_status.227.i.i, 4
+  %root_status.127.i.i = phi i32 [ %or17.i.i, %sw.bb16.i.i ], [ %or24.i.i, %sw.bb18.i.i ]
+  %and27.i.i = and i32 %root_status.127.i.i, 4
   %tobool28.not.i.i = icmp eq i32 %and27.i.i, 0
   br i1 %tobool28.not.i.i, label %if.else31.i.i, label %if.then29.i.i
 
 if.then29.i.i:                                    ; preds = %if.then26.i.i
-  %or30.i.i = or i32 %root_status.227.i.i, 8
+  %or30.i.i = or i32 %root_status.127.i.i, 8
   br label %if.end35.i.i
 
 if.else31.i.i:                                    ; preds = %if.then26.i.i
@@ -777,14 +777,14 @@ if.else31.i.i:                                    ; preds = %if.then26.i.i
   br label %if.end35.i.i
 
 if.end35.i.i:                                     ; preds = %if.else31.i.i, %if.then29.i.i
-  %root_status.3.i.i = phi i32 [ %or30.i.i, %if.then29.i.i ], [ %root_status.227.i.i, %if.else31.i.i ]
-  %or36.i.i = or i32 %root_status.3.i.i, 4
+  %root_status.4.i.i = phi i32 [ %or30.i.i, %if.then29.i.i ], [ %root_status.127.i.i, %if.else31.i.i ]
+  %or36.i.i = or i32 %root_status.4.i.i, 4
   br label %if.end37.i.i
 
 if.end37.i.i:                                     ; preds = %sw.epilog.i.i, %if.end35.i.i, %sw.epilog.thread28.i.i
-  %root_status.4.i.i = phi i32 [ %or36.i.i, %if.end35.i.i ], [ %or15.i.i, %sw.epilog.i.i ], [ %or1531.i.i, %sw.epilog.thread28.i.i ]
-  store i32 %root_status.4.i.i, ptr %add.ptr6.i.i, align 1
-  %and40.i.i = and i32 %add.ptr4.val.i.i, %inj.sroa.50.3
+  %root_status.3.i.i = phi i32 [ %or36.i.i, %if.end35.i.i ], [ %or15.i.i, %sw.epilog.i.i ], [ %or1531.i.i, %sw.epilog.thread28.i.i ]
+  store i32 %root_status.3.i.i, ptr %add.ptr6.i.i, align 1
+  %and40.i.i = and i32 %add.ptr4.val.i.i, %inj.sroa.50.0
   %tobool41.not.i.i = icmp eq i32 %and40.i.i, 0
   br i1 %tobool41.not.i.i, label %pcie_aer_msg.exit, label %lor.lhs.false.i.i
 
@@ -847,7 +847,7 @@ if.end21.i:                                       ; preds = %if.end16.i
   br i1 %tobool.not.i, label %pcie_aer_msg.exit, label %while.body.i, !llvm.loop !5
 
 pcie_aer_msg.exit:                                ; preds = %while.body.i, %pcie_aer_msg_vbridge.exit.i, %land.lhs.true22.i.i, %pcie_aer_msg_alldev.exit.i, %if.end21.i, %if.end37.i.i, %lor.lhs.false.i.i, %if.then.i.i.i, %if.then3.i.i.i, %if.else5.i.i.i, %if.then7.i.i.i
-  br i1 %inj.sroa.46.5, label %if.then84, label %return
+  br i1 %inj.sroa.46.0, label %if.then84, label %return
 
 if.then84:                                        ; preds = %pcie_aer_msg.exit
   %60 = getelementptr inbounds i8, ptr %header_log_overflow, i64 4

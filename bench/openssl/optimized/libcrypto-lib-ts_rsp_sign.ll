@@ -634,17 +634,17 @@ if.end32:                                         ; preds = %if.end24, %if.end4
 err.sink.split:                                   ; preds = %if.end32, %if.end24, %land.lhs.true, %if.then6, %lor.lhs.false, %if.end, %entry
   %.sink10 = phi i32 [ 288, %entry ], [ 292, %if.end ], [ 298, %lor.lhs.false ], [ 298, %if.then6 ], [ 303, %land.lhs.true ], [ 307, %if.end24 ], [ 313, %if.end32 ]
   %.sink = phi i32 [ 524335, %entry ], [ 524301, %if.end ], [ 524301, %lor.lhs.false ], [ 524301, %if.then6 ], [ 524303, %land.lhs.true ], [ 524303, %if.end24 ], [ 524335, %if.end32 ]
-  %utf8_text.1.ph = phi ptr [ null, %entry ], [ null, %if.end ], [ %call7, %lor.lhs.false ], [ %call7, %if.then6 ], [ %call7, %land.lhs.true ], [ %call7, %if.end24 ], [ null, %if.end32 ]
+  %utf8_text.0.ph = phi ptr [ null, %entry ], [ null, %if.end ], [ %call7, %lor.lhs.false ], [ %call7, %if.then6 ], [ %call7, %land.lhs.true ], [ %call7, %if.end24 ], [ null, %if.end32 ]
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10, ptr noundef nonnull @__func__.TS_RESP_CTX_set_status_info) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 47, i32 noundef %.sink, ptr noundef null) #9
   br label %err
 
 err:                                              ; preds = %err.sink.split, %if.end32
-  %utf8_text.1 = phi ptr [ null, %if.end32 ], [ %utf8_text.1.ph, %err.sink.split ]
+  %utf8_text.0 = phi ptr [ null, %if.end32 ], [ %utf8_text.0.ph, %err.sink.split ]
   %ret.0 = phi i32 [ 1, %if.end32 ], [ 0, %err.sink.split ]
   tail call void @TS_STATUS_INFO_free(ptr noundef %call) #9
-  tail call void @ASN1_UTF8STRING_free(ptr noundef %utf8_text.1) #9
+  tail call void @ASN1_UTF8STRING_free(ptr noundef %utf8_text.0) #9
   ret i32 %ret.0
 }
 
@@ -1160,8 +1160,8 @@ if.then9.i.i:                                     ; preds = %if.end4.i.i
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i, %if.then9.i.i
-  %p.0.i.i = phi ptr [ %add.ptr13.i.i, %if.then9.i.i ], [ %incdec.ptr.i.i, %while.cond.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.0.i.i, i64 -1
+  %p.1.i.i = phi ptr [ %add.ptr13.i.i, %if.then9.i.i ], [ %incdec.ptr.i.i, %while.cond.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %p.1.i.i, i64 -1
   %53 = load i8, ptr %incdec.ptr.i.i, align 1
   switch i8 %53, label %if.end23.i.i [
     i8 48, label %while.cond.i.i
@@ -1172,9 +1172,9 @@ if.end23.i.i.loopexit:                            ; preds = %while.cond.i.i
   br label %if.end23.i.i
 
 if.end23.i.i:                                     ; preds = %while.cond.i.i, %if.end23.i.i.loopexit, %if.end4.i.i
-  %p.1.i.i = phi ptr [ %add.ptr7.i.i, %if.end4.i.i ], [ %incdec.ptr.i.i, %if.end23.i.i.loopexit ], [ %p.0.i.i, %while.cond.i.i ]
-  %incdec.ptr24.i.i = getelementptr inbounds i8, ptr %p.1.i.i, i64 1
-  store i8 90, ptr %p.1.i.i, align 1
+  %p.0.i.i = phi ptr [ %add.ptr7.i.i, %if.end4.i.i ], [ %incdec.ptr.i.i, %if.end23.i.i.loopexit ], [ %p.1.i.i, %while.cond.i.i ]
+  %incdec.ptr24.i.i = getelementptr inbounds i8, ptr %p.0.i.i, i64 1
+  store i8 90, ptr %p.0.i.i, align 1
   store i8 0, ptr %incdec.ptr24.i.i, align 1
   %call28.i.i = call ptr @ASN1_GENERALIZEDTIME_new() #9
   %cmp29.i.i = icmp eq ptr %call28.i.i, null
@@ -1240,14 +1240,14 @@ land.lhs.true39.i:                                ; preds = %if.end36.i
   br i1 %tobool42.not.i, label %if.then101.i, label %if.end44.i
 
 if.end44.i:                                       ; preds = %land.lhs.true39.i, %if.end36.i, %lor.lhs.false31.i
-  %accuracy.077.i = phi ptr [ %call33.i, %land.lhs.true39.i ], [ %call33.i, %if.end36.i ], [ null, %lor.lhs.false31.i ]
+  %accuracy.177.i = phi ptr [ %call33.i, %land.lhs.true39.i ], [ %call33.i, %if.end36.i ], [ null, %lor.lhs.false31.i ]
   %millis45.i = getelementptr inbounds i8, ptr %ctx, i64 72
   %57 = load ptr, ptr %millis45.i, align 8
   %tobool46.not.i = icmp eq ptr %57, null
   br i1 %tobool46.not.i, label %if.end52.i, label %land.lhs.true47.i
 
 land.lhs.true47.i:                                ; preds = %if.end44.i
-  %call49.i = call i32 @TS_ACCURACY_set_millis(ptr noundef %accuracy.077.i, ptr noundef nonnull %57) #9
+  %call49.i = call i32 @TS_ACCURACY_set_millis(ptr noundef %accuracy.177.i, ptr noundef nonnull %57) #9
   %tobool50.not.i = icmp eq i32 %call49.i, 0
   br i1 %tobool50.not.i, label %if.then101.i, label %if.end52.i
 
@@ -1258,16 +1258,16 @@ if.end52.i:                                       ; preds = %land.lhs.true47.i, 
   br i1 %tobool54.not.i, label %if.end60.i, label %land.lhs.true55.i
 
 land.lhs.true55.i:                                ; preds = %if.end52.i
-  %call57.i = call i32 @TS_ACCURACY_set_micros(ptr noundef %accuracy.077.i, ptr noundef nonnull %58) #9
+  %call57.i = call i32 @TS_ACCURACY_set_micros(ptr noundef %accuracy.177.i, ptr noundef nonnull %58) #9
   %tobool58.not.i = icmp eq i32 %call57.i, 0
   br i1 %tobool58.not.i, label %if.then101.i, label %if.end60.i
 
 if.end60.i:                                       ; preds = %land.lhs.true55.i, %if.end52.i
-  %tobool61.not.i = icmp eq ptr %accuracy.077.i, null
+  %tobool61.not.i = icmp eq ptr %accuracy.177.i, null
   br i1 %tobool61.not.i, label %if.end66.i, label %land.lhs.true62.i
 
 land.lhs.true62.i:                                ; preds = %if.end60.i
-  %call63.i = call i32 @TS_TST_INFO_set_accuracy(ptr noundef nonnull %call.i44, ptr noundef nonnull %accuracy.077.i) #9
+  %call63.i = call i32 @TS_TST_INFO_set_accuracy(ptr noundef nonnull %call.i44, ptr noundef nonnull %accuracy.177.i) #9
   %tobool64.not.i = icmp eq i32 %call63.i, 0
   br i1 %tobool64.not.i, label %if.then101.i, label %if.end66.i
 
@@ -1322,8 +1322,8 @@ end.i:                                            ; preds = %if.end88.i
   br i1 %tobool96.not.i, label %if.then101.i, label %ts_RESP_create_tst_info.exit
 
 if.then101.i:                                     ; preds = %end.i, %if.end88.i, %if.then84.i, %land.lhs.true76.i, %land.lhs.true68.i, %land.lhs.true62.i, %land.lhs.true55.i, %land.lhs.true47.i, %land.lhs.true39.i, %land.lhs.true.i59, %lor.lhs.false23.i, %TS_RESP_set_genTime_with_precision.exit.thread.i, %if.end17.i, %lor.lhs.false.i52, %if.end11.i, %if.end7.i, %if.end3.i, %if.end.i46, %if.end18
-  %tsa_name.163.i = phi ptr [ %call85.i, %end.i ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %if.end.i46 ], [ null, %if.end3.i ], [ null, %if.end7.i ], [ null, %lor.lhs.false.i52 ], [ null, %if.end17.i ], [ null, %lor.lhs.false23.i ], [ null, %land.lhs.true39.i ], [ null, %land.lhs.true47.i ], [ null, %land.lhs.true55.i ], [ null, %land.lhs.true62.i ], [ null, %land.lhs.true68.i ], [ null, %land.lhs.true76.i ], [ %call85.i, %if.end88.i ], [ null, %if.then84.i ], [ null, %land.lhs.true.i59 ], [ null, %if.end11.i ], [ null, %if.end18 ]
-  %accuracy.161.i = phi ptr [ %accuracy.077.i, %end.i ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %if.end.i46 ], [ null, %if.end3.i ], [ null, %if.end7.i ], [ null, %lor.lhs.false.i52 ], [ null, %if.end17.i ], [ null, %lor.lhs.false23.i ], [ %call33.i, %land.lhs.true39.i ], [ %accuracy.077.i, %land.lhs.true47.i ], [ %accuracy.077.i, %land.lhs.true55.i ], [ %accuracy.077.i, %land.lhs.true62.i ], [ %accuracy.077.i, %land.lhs.true68.i ], [ %accuracy.077.i, %land.lhs.true76.i ], [ %accuracy.077.i, %if.end88.i ], [ %accuracy.077.i, %if.then84.i ], [ null, %land.lhs.true.i59 ], [ null, %if.end11.i ], [ null, %if.end18 ]
+  %tsa_name.063.i = phi ptr [ %call85.i, %end.i ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %if.end.i46 ], [ null, %if.end3.i ], [ null, %if.end7.i ], [ null, %lor.lhs.false.i52 ], [ null, %if.end17.i ], [ null, %lor.lhs.false23.i ], [ null, %land.lhs.true39.i ], [ null, %land.lhs.true47.i ], [ null, %land.lhs.true55.i ], [ null, %land.lhs.true62.i ], [ null, %land.lhs.true68.i ], [ null, %land.lhs.true76.i ], [ %call85.i, %if.end88.i ], [ null, %if.then84.i ], [ null, %land.lhs.true.i59 ], [ null, %if.end11.i ], [ null, %if.end18 ]
+  %accuracy.061.i = phi ptr [ %accuracy.177.i, %end.i ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %if.end.i46 ], [ null, %if.end3.i ], [ null, %if.end7.i ], [ null, %lor.lhs.false.i52 ], [ null, %if.end17.i ], [ null, %lor.lhs.false23.i ], [ %call33.i, %land.lhs.true39.i ], [ %accuracy.177.i, %land.lhs.true47.i ], [ %accuracy.177.i, %land.lhs.true55.i ], [ %accuracy.177.i, %land.lhs.true62.i ], [ %accuracy.177.i, %land.lhs.true68.i ], [ %accuracy.177.i, %land.lhs.true76.i ], [ %accuracy.177.i, %if.end88.i ], [ %accuracy.177.i, %if.then84.i ], [ null, %land.lhs.true.i59 ], [ null, %if.end11.i ], [ null, %if.end18 ]
   %asn1_time.059.i = phi ptr [ %call28.i.i, %end.i ], [ null, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %if.end.i46 ], [ null, %if.end3.i ], [ null, %if.end7.i ], [ null, %lor.lhs.false.i52 ], [ null, %if.end17.i ], [ %call28.i.i, %lor.lhs.false23.i ], [ %call28.i.i, %land.lhs.true39.i ], [ %call28.i.i, %land.lhs.true47.i ], [ %call28.i.i, %land.lhs.true55.i ], [ %call28.i.i, %land.lhs.true62.i ], [ %call28.i.i, %land.lhs.true68.i ], [ %call28.i.i, %land.lhs.true76.i ], [ %call28.i.i, %if.end88.i ], [ %call28.i.i, %if.then84.i ], [ %call28.i.i, %land.lhs.true.i59 ], [ null, %if.end11.i ], [ null, %if.end18 ]
   %serial.057.i = phi ptr [ %call12.i51, %end.i ], [ %call12.i51, %TS_RESP_set_genTime_with_precision.exit.thread.i ], [ null, %if.end.i46 ], [ null, %if.end3.i ], [ null, %if.end7.i ], [ %call12.i51, %lor.lhs.false.i52 ], [ %call12.i51, %if.end17.i ], [ %call12.i51, %lor.lhs.false23.i ], [ %call12.i51, %land.lhs.true39.i ], [ %call12.i51, %land.lhs.true47.i ], [ %call12.i51, %land.lhs.true55.i ], [ %call12.i51, %land.lhs.true62.i ], [ %call12.i51, %land.lhs.true68.i ], [ %call12.i51, %land.lhs.true76.i ], [ %call12.i51, %if.end88.i ], [ %call12.i51, %if.then84.i ], [ %call12.i51, %land.lhs.true.i59 ], [ null, %if.end11.i ], [ null, %if.end18 ]
   call void @TS_TST_INFO_free(ptr noundef %call.i44) #9
@@ -1342,13 +1342,13 @@ if.then.i.i:                                      ; preds = %if.then101.i
   br label %ts_RESP_create_tst_info.exit
 
 ts_RESP_create_tst_info.exit:                     ; preds = %if.end80.i, %end.i, %if.then101.i, %if.then.i.i
-  %tsa_name.162.i = phi ptr [ %call85.i, %end.i ], [ %tsa_name.163.i, %if.then101.i ], [ %tsa_name.163.i, %if.then.i.i ], [ null, %if.end80.i ]
-  %accuracy.160.i = phi ptr [ %accuracy.077.i, %end.i ], [ %accuracy.161.i, %if.then101.i ], [ %accuracy.161.i, %if.then.i.i ], [ %accuracy.077.i, %if.end80.i ]
+  %tsa_name.062.i = phi ptr [ %call85.i, %end.i ], [ %tsa_name.063.i, %if.then101.i ], [ %tsa_name.063.i, %if.then.i.i ], [ null, %if.end80.i ]
+  %accuracy.060.i = phi ptr [ %accuracy.177.i, %end.i ], [ %accuracy.061.i, %if.then101.i ], [ %accuracy.061.i, %if.then.i.i ], [ %accuracy.177.i, %if.end80.i ]
   %asn1_time.058.i = phi ptr [ %call28.i.i, %end.i ], [ %asn1_time.059.i, %if.then101.i ], [ %asn1_time.059.i, %if.then.i.i ], [ %call28.i.i, %if.end80.i ]
   %serial.056.i = phi ptr [ %call12.i51, %end.i ], [ %serial.057.i, %if.then101.i ], [ %serial.057.i, %if.then.i.i ], [ %call12.i51, %if.end80.i ]
   %tst_info.0.i = phi ptr [ %call.i44, %end.i ], [ null, %if.then101.i ], [ null, %if.then.i.i ], [ %call.i44, %if.end80.i ]
-  call void @GENERAL_NAME_free(ptr noundef %tsa_name.162.i) #9
-  call void @TS_ACCURACY_free(ptr noundef %accuracy.160.i) #9
+  call void @GENERAL_NAME_free(ptr noundef %tsa_name.062.i) #9
+  call void @TS_ACCURACY_free(ptr noundef %accuracy.060.i) #9
   call void @ASN1_GENERALIZEDTIME_free(ptr noundef %asn1_time.058.i) #9
   call void @ASN1_INTEGER_free(ptr noundef %serial.056.i) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sec.i)
@@ -1482,10 +1482,10 @@ if.else44.i:                                      ; preds = %if.else.i
   br label %if.end47.i
 
 if.end47.i:                                       ; preds = %if.else44.i, %if.then38.i, %if.then31.i
-  %signer_md.0.i = phi ptr [ %call34.i, %if.then31.i ], [ %call43.i, %if.then38.i ], [ %88, %if.else44.i ]
+  %signer_md.1.i = phi ptr [ %call34.i, %if.then31.i ], [ %call43.i, %if.then38.i ], [ %88, %if.else44.i ]
   %89 = load ptr, ptr %ctx, align 8
   %90 = load ptr, ptr %signer_key.i, align 8
-  %call50.i = call ptr @PKCS7_add_signature(ptr noundef %call1.i73, ptr noundef %89, ptr noundef %90, ptr noundef %signer_md.0.i) #9
+  %call50.i = call ptr @PKCS7_add_signature(ptr noundef %call1.i73, ptr noundef %89, ptr noundef %90, ptr noundef %signer_md.1.i) #9
   %cmp51.i = icmp eq ptr %call50.i, null
   br i1 %cmp51.i, label %if.then52.i, label %if.end53.i
 
@@ -1598,8 +1598,8 @@ if.then84.i111:                                   ; preds = %if.end81.i
   br label %err.i105
 
 if.end86.i:                                       ; preds = %if.end81.i, %ossl_ess_add1_signing_cert.exit.i
-  %sc2.0.i = phi ptr [ null, %ossl_ess_add1_signing_cert.exit.i ], [ %call78.i, %if.end81.i ]
-  %sc.0.i = phi ptr [ %call67.i, %ossl_ess_add1_signing_cert.exit.i ], [ null, %if.end81.i ]
+  %sc2.1.i = phi ptr [ null, %ossl_ess_add1_signing_cert.exit.i ], [ %call78.i, %if.end81.i ]
+  %sc.1.i = phi ptr [ %call67.i, %ossl_ess_add1_signing_cert.exit.i ], [ null, %if.end81.i ]
   %call.i55.i97 = call ptr @PKCS7_new() #9
   %cmp.i56.i = icmp eq ptr %call.i55.i97, null
   br i1 %cmp.i56.i, label %ts_TST_INFO_content_new.exit.thread.i, label %if.end.i57.i
@@ -1673,19 +1673,19 @@ if.end102.i:                                      ; preds = %if.end98.i
   br label %err.i105
 
 err.i105:                                         ; preds = %if.end102.i, %if.then101.i109, %if.then97.i, %if.then93.i, %ts_TST_INFO_content_new.exit.thread.i, %if.then84.i111, %if.else75.i, %if.then73.i, %if.then65.i, %if.then57.i, %if.then52.i, %if.end7.i78, %if.end3.i75, %if.then2.i, %if.then.i116
-  %sc2.1.i = phi ptr [ null, %if.then2.i ], [ null, %if.then52.i ], [ null, %if.then65.i ], [ %sc2.0.i, %if.then93.i ], [ %sc2.0.i, %if.end102.i ], [ %sc2.0.i, %if.then101.i109 ], [ %sc2.0.i, %if.then97.i ], [ null, %if.then73.i ], [ null, %if.else75.i ], [ %call78.i, %if.then84.i111 ], [ null, %if.then57.i ], [ null, %if.end7.i78 ], [ null, %if.end3.i75 ], [ null, %if.then.i116 ], [ %sc2.0.i, %ts_TST_INFO_content_new.exit.thread.i ]
-  %sc.1.i = phi ptr [ null, %if.then2.i ], [ null, %if.then52.i ], [ null, %if.then65.i ], [ %sc.0.i, %if.then93.i ], [ %sc.0.i, %if.end102.i ], [ %sc.0.i, %if.then101.i109 ], [ %sc.0.i, %if.then97.i ], [ %call67.i, %if.then73.i ], [ null, %if.else75.i ], [ null, %if.then84.i111 ], [ null, %if.then57.i ], [ null, %if.end7.i78 ], [ null, %if.end3.i75 ], [ null, %if.then.i116 ], [ %sc.0.i, %ts_TST_INFO_content_new.exit.thread.i ]
+  %sc2.0.i = phi ptr [ null, %if.then2.i ], [ null, %if.then52.i ], [ null, %if.then65.i ], [ %sc2.1.i, %if.then93.i ], [ %sc2.1.i, %if.end102.i ], [ %sc2.1.i, %if.then101.i109 ], [ %sc2.1.i, %if.then97.i ], [ null, %if.then73.i ], [ null, %if.else75.i ], [ %call78.i, %if.then84.i111 ], [ null, %if.then57.i ], [ null, %if.end7.i78 ], [ null, %if.end3.i75 ], [ null, %if.then.i116 ], [ %sc2.1.i, %ts_TST_INFO_content_new.exit.thread.i ]
+  %sc.0.i = phi ptr [ null, %if.then2.i ], [ null, %if.then52.i ], [ null, %if.then65.i ], [ %sc.1.i, %if.then93.i ], [ %sc.1.i, %if.end102.i ], [ %sc.1.i, %if.then101.i109 ], [ %sc.1.i, %if.then97.i ], [ %call67.i, %if.then73.i ], [ null, %if.else75.i ], [ null, %if.then84.i111 ], [ null, %if.then57.i ], [ null, %if.end7.i78 ], [ null, %if.end3.i75 ], [ null, %if.then.i116 ], [ %sc.1.i, %ts_TST_INFO_content_new.exit.thread.i ]
   %p7.0.i = phi ptr [ null, %if.then2.i ], [ %call1.i73, %if.then52.i ], [ %call1.i73, %if.then65.i ], [ %call1.i73, %if.then93.i ], [ null, %if.end102.i ], [ %call1.i73, %if.then101.i109 ], [ %call1.i73, %if.then97.i ], [ %call1.i73, %if.then73.i ], [ %call1.i73, %if.else75.i ], [ %call1.i73, %if.then84.i111 ], [ %call1.i73, %if.then57.i ], [ %call1.i73, %if.end7.i78 ], [ %call1.i73, %if.end3.i75 ], [ null, %if.then.i116 ], [ %call1.i73, %ts_TST_INFO_content_new.exit.thread.i ]
   %p7bio.0.i = phi ptr [ null, %if.then2.i ], [ null, %if.then52.i ], [ null, %if.then65.i ], [ null, %if.then93.i ], [ %call91.i, %if.end102.i ], [ %call91.i, %if.then101.i109 ], [ %call91.i, %if.then97.i ], [ null, %if.then73.i ], [ null, %if.else75.i ], [ null, %if.then84.i111 ], [ null, %if.then57.i ], [ null, %if.end7.i78 ], [ null, %if.end3.i75 ], [ null, %if.then.i116 ], [ null, %ts_TST_INFO_content_new.exit.thread.i ]
-  %signer_md.1.i = phi ptr [ null, %if.then2.i ], [ %signer_md.0.i, %if.then52.i ], [ %signer_md.0.i, %if.then65.i ], [ %signer_md.0.i, %if.then93.i ], [ %signer_md.0.i, %if.end102.i ], [ %signer_md.0.i, %if.then101.i109 ], [ %signer_md.0.i, %if.then97.i ], [ %signer_md.0.i, %if.then73.i ], [ %signer_md.0.i, %if.else75.i ], [ %signer_md.0.i, %if.then84.i111 ], [ %signer_md.0.i, %if.then57.i ], [ null, %if.end7.i78 ], [ null, %if.end3.i75 ], [ null, %if.then.i116 ], [ %signer_md.0.i, %ts_TST_INFO_content_new.exit.thread.i ]
+  %signer_md.0.i = phi ptr [ null, %if.then2.i ], [ %signer_md.1.i, %if.then52.i ], [ %signer_md.1.i, %if.then65.i ], [ %signer_md.1.i, %if.then93.i ], [ %signer_md.1.i, %if.end102.i ], [ %signer_md.1.i, %if.then101.i109 ], [ %signer_md.1.i, %if.then97.i ], [ %signer_md.1.i, %if.then73.i ], [ %signer_md.1.i, %if.else75.i ], [ %signer_md.1.i, %if.then84.i111 ], [ %signer_md.1.i, %if.then57.i ], [ null, %if.end7.i78 ], [ null, %if.end3.i75 ], [ null, %if.then.i116 ], [ %signer_md.1.i, %ts_TST_INFO_content_new.exit.thread.i ]
   %tobool109.not.i = phi i1 [ true, %if.then2.i ], [ true, %if.then52.i ], [ true, %if.then65.i ], [ true, %if.then93.i ], [ false, %if.end102.i ], [ true, %if.then101.i109 ], [ true, %if.then97.i ], [ true, %if.then73.i ], [ true, %if.else75.i ], [ true, %if.then84.i111 ], [ true, %if.then57.i ], [ true, %if.end7.i78 ], [ true, %if.end3.i75 ], [ true, %if.then.i116 ], [ true, %ts_TST_INFO_content_new.exit.thread.i ]
   %signer_md105.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %101 = load ptr, ptr %signer_md105.i, align 8
-  %cmp106.not.i = icmp eq ptr %signer_md.1.i, %101
+  %cmp106.not.i = icmp eq ptr %signer_md.0.i, %101
   br i1 %cmp106.not.i, label %if.end108.i, label %if.then107.i
 
 if.then107.i:                                     ; preds = %err.i105
-  call void @EVP_MD_free(ptr noundef %signer_md.1.i) #9
+  call void @EVP_MD_free(ptr noundef %signer_md.0.i) #9
   br label %if.end108.i
 
 if.end108.i:                                      ; preds = %if.then107.i, %err.i105
@@ -1705,8 +1705,8 @@ if.then.i.i107:                                   ; preds = %if.then110.i
 
 ts_RESP_sign.exit:                                ; preds = %if.then110.i, %if.then.i.i107
   call void @BIO_free_all(ptr noundef %p7bio.0.i) #9
-  call void @ESS_SIGNING_CERT_V2_free(ptr noundef %sc2.1.i) #9
-  call void @ESS_SIGNING_CERT_free(ptr noundef %sc.1.i) #9
+  call void @ESS_SIGNING_CERT_V2_free(ptr noundef %sc2.0.i) #9
+  call void @ESS_SIGNING_CERT_free(ptr noundef %sc.0.i) #9
   call void @PKCS7_free(ptr noundef %p7.0.i) #9
   br label %if.then32
 
@@ -1738,8 +1738,8 @@ if.then38:                                        ; preds = %TS_RESP_CTX_set_sta
 
 if.end43.critedge:                                ; preds = %if.end108.i
   call void @BIO_free_all(ptr noundef %p7bio.0.i) #9
-  call void @ESS_SIGNING_CERT_V2_free(ptr noundef %sc2.1.i) #9
-  call void @ESS_SIGNING_CERT_free(ptr noundef %sc.1.i) #9
+  call void @ESS_SIGNING_CERT_V2_free(ptr noundef %sc2.0.i) #9
+  call void @ESS_SIGNING_CERT_free(ptr noundef %sc.0.i) #9
   call void @PKCS7_free(ptr noundef %p7.0.i) #9
   br label %if.end43
 

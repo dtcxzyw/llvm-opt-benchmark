@@ -125,20 +125,20 @@ define void @zend_object_std_dtor(ptr noundef %0) local_unnamed_addr #0 {
   br label %29
 
 29:                                               ; preds = %79, %25
-  %.058 = phi ptr [ %20, %25 ], [ %80, %79 ]
-  %30 = getelementptr inbounds i8, ptr %.058, i64 9
+  %.1 = phi ptr [ %20, %25 ], [ %80, %79 ]
+  %30 = getelementptr inbounds i8, ptr %.1, i64 9
   %31 = load i8, ptr %30, align 1
   %.not67 = icmp eq i8 %31, 0
   br i1 %.not67, label %79, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %.058, i64 8
+  %33 = getelementptr inbounds i8, ptr %.1, i64 8
   %34 = load i8, ptr %33, align 8
   %35 = icmp eq i8 %34, 10
   br i1 %35, label %36, label %.thread
 
 36:                                               ; preds = %32
-  %37 = load ptr, ptr %.058, align 8
+  %37 = load ptr, ptr %.1, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   %.not68 = icmp eq ptr %39, null
@@ -148,7 +148,7 @@ define void @zend_object_std_dtor(ptr noundef %0) local_unnamed_addr #0 {
   %41 = load ptr, ptr %21, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 248
   %43 = load ptr, ptr %42, align 8
-  %44 = ptrtoint ptr %.058 to i64
+  %44 = ptrtoint ptr %.1 to i64
   %45 = sub i64 %44, %28
   %46 = ashr exact i64 %45, 4
   %47 = icmp sgt i64 %46, -1
@@ -173,7 +173,7 @@ define void @zend_object_std_dtor(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not70, label %79, label %.thread
 
 .thread:                                          ; preds = %32, %36, %40, %57
-  %58 = load ptr, ptr %.058, align 8
+  %58 = load ptr, ptr %.1, align 8
   %59 = load i32, ptr %58, align 4
   %60 = icmp ne i32 %59, 0
   tail call void @llvm.assume(i1 %60)
@@ -218,7 +218,7 @@ define void @zend_object_std_dtor(ptr noundef %0) local_unnamed_addr #0 {
   br label %79
 
 79:                                               ; preds = %57, %74, %78, %67, %62, %29
-  %80 = getelementptr inbounds i8, ptr %.058, i64 16
+  %80 = getelementptr inbounds i8, ptr %.1, i64 16
   %.not73 = icmp eq ptr %80, %27
   br i1 %.not73, label %.loopexit.loopexit, label %29
 
@@ -228,7 +228,7 @@ define void @zend_object_std_dtor(ptr noundef %0) local_unnamed_addr #0 {
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %19
   %81 = phi ptr [ %22, %19 ], [ %.pre79, %.loopexit.loopexit ]
-  %.1 = phi ptr [ %20, %19 ], [ %27, %.loopexit.loopexit ]
+  %.058 = phi ptr [ %20, %19 ], [ %27, %.loopexit.loopexit ]
   %82 = getelementptr inbounds i8, ptr %81, i64 28
   %83 = load i32, ptr %82, align 4
   %84 = and i32 %83, 2048
@@ -236,7 +236,7 @@ define void @zend_object_std_dtor(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not74, label %100, label %85
 
 85:                                               ; preds = %.loopexit
-  %86 = getelementptr inbounds i8, ptr %.1, i64 8
+  %86 = getelementptr inbounds i8, ptr %.058, i64 8
   %87 = load i8, ptr %86, align 8
   switch i8 %87, label %100 [
     i8 6, label %88
@@ -244,13 +244,13 @@ define void @zend_object_std_dtor(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %.1, i64 9
+  %89 = getelementptr inbounds i8, ptr %.058, i64 9
   %90 = load i8, ptr %89, align 1
   %.not75 = icmp eq i8 %90, 0
   br i1 %.not75, label %100, label %91
 
 91:                                               ; preds = %88
-  %92 = load ptr, ptr %.1, align 8
+  %92 = load ptr, ptr %.058, align 8
   %93 = load i32, ptr %92, align 4
   %94 = icmp ne i32 %93, 0
   tail call void @llvm.assume(i1 %94)
@@ -260,12 +260,12 @@ define void @zend_object_std_dtor(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not76, label %96, label %100
 
 96:                                               ; preds = %91
-  %97 = load ptr, ptr %.1, align 8
+  %97 = load ptr, ptr %.058, align 8
   tail call void @_efree(ptr noundef %97) #6
   br label %100
 
 98:                                               ; preds = %85
-  %99 = load ptr, ptr %.1, align 8, !nonnull !4, !noundef !4
+  %99 = load ptr, ptr %.058, align 8, !nonnull !4, !noundef !4
   tail call void @zend_hash_destroy(ptr noundef nonnull %99) #6
   tail call void @_efree_56(ptr noundef nonnull %99) #6
   br label %100

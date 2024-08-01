@@ -1619,7 +1619,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %23, %.lr.ph.i
 
 .lr.ph27.i:                                       ; preds = %Abc_TtCountOnes2.exit20.i, %.lr.ph27.preheader.i
   %indvars.iv32.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next33.i, %Abc_TtCountOnes2.exit20.i ]
-  %.126.i = phi i32 [ 0, %.lr.ph27.preheader.i ], [ %69, %Abc_TtCountOnes2.exit20.i ]
+  %.226.i = phi i32 [ 0, %.lr.ph27.preheader.i ], [ %69, %Abc_TtCountOnes2.exit20.i ]
   %44 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv32.i
   %45 = load i64, ptr %44, align 8
   %46 = getelementptr inbounds i64, ptr %11, i64 %indvars.iv32.i
@@ -1651,14 +1651,14 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %23, %.lr.ph.i
 
 Abc_TtCountOnes2.exit20.i:                        ; preds = %49, %.lr.ph27.i
   %68 = phi i32 [ %67, %49 ], [ 0, %.lr.ph27.i ]
-  %69 = add nuw nsw i32 %68, %.126.i
+  %69 = add nuw nsw i32 %68, %.226.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
   br i1 %exitcond36.not.i, label %Abc_TtCountOnesVecMask.exit, label %.lr.ph27.i, !llvm.loop !19
 
 Abc_TtCountOnesVecMask.exit:                      ; preds = %Abc_TtCountOnes2.exit.i, %Abc_TtCountOnes2.exit20.i, %.preheader21.i, %.preheader.i
-  %.2.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader21.i ], [ %69, %Abc_TtCountOnes2.exit20.i ], [ %43, %Abc_TtCountOnes2.exit.i ]
-  ret i32 %.2.i
+  %.1.i = phi i32 [ 0, %.preheader.i ], [ 0, %.preheader21.i ], [ %69, %Abc_TtCountOnes2.exit20.i ], [ %43, %Abc_TtCountOnes2.exit.i ]
+  ret i32 %.1.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1804,7 +1804,7 @@ Abc_TtCountOnes2.exit.i.i:                        ; preds = %61, %.lr.ph.i.i
 
 .lr.ph27.i.i:                                     ; preds = %Abc_TtCountOnes2.exit20.i.i, %.lr.ph27.preheader.i.i
   %indvars.iv32.i.i = phi i64 [ 0, %.lr.ph27.preheader.i.i ], [ %indvars.iv.next33.i.i, %Abc_TtCountOnes2.exit20.i.i ]
-  %.126.i.i = phi i32 [ 0, %.lr.ph27.preheader.i.i ], [ %107, %Abc_TtCountOnes2.exit20.i.i ]
+  %.226.i.i = phi i32 [ 0, %.lr.ph27.preheader.i.i ], [ %107, %Abc_TtCountOnes2.exit20.i.i ]
   %82 = getelementptr inbounds i64, ptr %40, i64 %indvars.iv32.i.i
   %83 = load i64, ptr %82, align 8
   %84 = getelementptr inbounds i64, ptr %52, i64 %indvars.iv32.i.i
@@ -1836,14 +1836,14 @@ Abc_TtCountOnes2.exit.i.i:                        ; preds = %61, %.lr.ph.i.i
 
 Abc_TtCountOnes2.exit20.i.i:                      ; preds = %87, %.lr.ph27.i.i
   %106 = phi i32 [ %105, %87 ], [ 0, %.lr.ph27.i.i ]
-  %107 = add nuw nsw i32 %106, %.126.i.i
+  %107 = add nuw nsw i32 %106, %.226.i.i
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
   %exitcond36.not.i.i = icmp eq i64 %indvars.iv.next33.i.i, %wide.trip.count35.i.i
   br i1 %exitcond36.not.i.i, label %Sfm_DecFindCost.exit, label %.lr.ph27.i.i, !llvm.loop !19
 
 Sfm_DecFindCost.exit:                             ; preds = %Abc_TtCountOnes2.exit.i.i, %Abc_TtCountOnes2.exit20.i.i, %.preheader21.i.i, %.preheader.i.i
-  %.2.i.i = phi i32 [ 0, %.preheader.i.i ], [ 0, %.preheader21.i.i ], [ %107, %Abc_TtCountOnes2.exit20.i.i ], [ %81, %Abc_TtCountOnes2.exit.i.i ]
-  %108 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %47, i32 noundef %48, i32 noundef %.2.i.i)
+  %.1.i.i = phi i32 [ 0, %.preheader.i.i ], [ 0, %.preheader21.i.i ], [ %107, %Abc_TtCountOnes2.exit20.i.i ], [ %81, %Abc_TtCountOnes2.exit.i.i ]
+  %108 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull %47, i32 noundef %48, i32 noundef %.1.i.i)
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %.val58 = load i32, ptr %36, align 4
   %109 = sext i32 %.val58 to i64
@@ -2003,7 +2003,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %19, %.lr.ph.i
 
 .lr.ph27.i:                                       ; preds = %Abc_TtCountOnes2.exit.i, %Abc_TtCountOnes2.exit20.i
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %Abc_TtCountOnes2.exit20.i ], [ 0, %Abc_TtCountOnes2.exit.i ]
-  %.126.i = phi i32 [ %65, %Abc_TtCountOnes2.exit20.i ], [ 0, %Abc_TtCountOnes2.exit.i ]
+  %.226.i = phi i32 [ %65, %Abc_TtCountOnes2.exit20.i ], [ 0, %Abc_TtCountOnes2.exit.i ]
   %40 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv32.i
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv32.i
@@ -2035,18 +2035,18 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %19, %.lr.ph.i
 
 Abc_TtCountOnes2.exit20.i:                        ; preds = %45, %.lr.ph27.i
   %64 = phi i32 [ %63, %45 ], [ 0, %.lr.ph27.i ]
-  %65 = add nuw nsw i32 %64, %.126.i
+  %65 = add nuw nsw i32 %64, %.226.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count.i
   br i1 %exitcond36.not.i, label %Abc_TtCountOnesVecMask.exit, label %.lr.ph27.i, !llvm.loop !19
 
 Abc_TtCountOnesVecMask.exit:                      ; preds = %Abc_TtCountOnes2.exit20.i, %9
   %.0.lcssa.i21 = phi i32 [ 0, %9 ], [ %39, %Abc_TtCountOnes2.exit20.i ]
-  %.2.i = phi i32 [ 0, %9 ], [ %65, %Abc_TtCountOnes2.exit20.i ]
+  %.1.i = phi i32 [ 0, %9 ], [ %65, %Abc_TtCountOnes2.exit20.i ]
   %66 = getelementptr inbounds [2 x i32], ptr %3, i64 %indvars.iv
   %67 = getelementptr inbounds i8, ptr %66, i64 4
-  store i32 %.2.i, ptr %67, align 4
-  %68 = sub nsw i32 %.0.lcssa.i21, %.2.i
+  store i32 %.1.i, ptr %67, align 4
+  %68 = sub nsw i32 %.0.lcssa.i21, %.1.i
   store i32 %68, ptr %66, align 4
   br i1 %10, label %9, label %69, !llvm.loop !28
 
@@ -2233,7 +2233,7 @@ Abc_TtCountOnes2.exit.i.i:                        ; preds = %43, %.lr.ph.i.i
 
 .lr.ph27.i.i:                                     ; preds = %Abc_TtCountOnes2.exit20.i.i, %.lr.ph27.preheader.i.i
   %indvars.iv32.i.i = phi i64 [ 0, %.lr.ph27.preheader.i.i ], [ %indvars.iv.next33.i.i, %Abc_TtCountOnes2.exit20.i.i ]
-  %.126.i.i = phi i32 [ 0, %.lr.ph27.preheader.i.i ], [ %89, %Abc_TtCountOnes2.exit20.i.i ]
+  %.226.i.i = phi i32 [ 0, %.lr.ph27.preheader.i.i ], [ %89, %Abc_TtCountOnes2.exit20.i.i ]
   %64 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv32.i.i
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr inbounds i64, ptr %33, i64 %indvars.iv32.i.i
@@ -2265,17 +2265,17 @@ Abc_TtCountOnes2.exit.i.i:                        ; preds = %43, %.lr.ph.i.i
 
 Abc_TtCountOnes2.exit20.i.i:                      ; preds = %69, %.lr.ph27.i.i
   %88 = phi i32 [ %87, %69 ], [ 0, %.lr.ph27.i.i ]
-  %89 = add nuw nsw i32 %88, %.126.i.i
+  %89 = add nuw nsw i32 %88, %.226.i.i
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
   %exitcond36.not.i.i = icmp eq i64 %indvars.iv.next33.i.i, %wide.trip.count35.i.i
   br i1 %exitcond36.not.i.i, label %Sfm_DecFindCost.exit, label %.lr.ph27.i.i, !llvm.loop !19
 
 Sfm_DecFindCost.exit:                             ; preds = %Abc_TtCountOnes2.exit.i.i, %Abc_TtCountOnes2.exit20.i.i, %.preheader21.i.i, %.preheader.i.i
-  %.2.i.i = phi i32 [ 0, %.preheader.i.i ], [ 0, %.preheader21.i.i ], [ %89, %Abc_TtCountOnes2.exit20.i.i ], [ %63, %Abc_TtCountOnes2.exit.i.i ]
-  %90 = icmp sgt i32 %.136, %.2.i.i
+  %.1.i.i = phi i32 [ 0, %.preheader.i.i ], [ 0, %.preheader21.i.i ], [ %89, %Abc_TtCountOnes2.exit20.i.i ], [ %63, %Abc_TtCountOnes2.exit.i.i ]
+  %90 = icmp sgt i32 %.136, %.1.i.i
   %91 = ashr i32 %19, 1
   %spec.select = select i1 %90, i32 %91, i32 %.12435
-  %spec.select31 = tail call i32 @llvm.smin.i32(i32 %.136, i32 %.2.i.i)
+  %spec.select31 = tail call i32 @llvm.smin.i32(i32 %.136, i32 %.1.i.i)
   br label %Vec_IntFind.exit
 
 Vec_IntFind.exit:                                 ; preds = %25, %Sfm_DecFindCost.exit
@@ -3034,31 +3034,31 @@ Vec_IntGrow.exit23.i:                             ; preds = %Vec_IntTwoMerge2Int
 
 .lr.ph.preheader.i:                               ; preds = %80, %82, %Vec_IntGrow.exit23.i
   %86 = phi i32 [ %84, %Vec_IntGrow.exit23.i ], [ 17, %82 ], [ 17, %80 ]
-  %.sroa.10.1131 = phi ptr [ %8, %Vec_IntGrow.exit23.i ], [ %83, %82 ], [ %81, %80 ]
+  %.sroa.10.0131 = phi ptr [ %8, %Vec_IntGrow.exit23.i ], [ %83, %82 ], [ %81, %80 ]
   %87 = and i64 %76, 4294967295
   br label %.lr.ph.i64
 
 .lr.ph.i64:                                       ; preds = %91, %.lr.ph.preheader.i
   %indvars.iv.i65 = phi i64 [ %87, %.lr.ph.preheader.i ], [ %indvars.iv.next.i66, %91 ]
   %indvars.iv.next.i66 = add nsw i64 %indvars.iv.i65, -1
-  %88 = getelementptr inbounds i32, ptr %.sroa.10.1131, i64 %indvars.iv.next.i66
+  %88 = getelementptr inbounds i32, ptr %.sroa.10.0131, i64 %indvars.iv.next.i66
   %89 = load i32, ptr %88, align 4
   %90 = icmp sgt i32 %89, %9
   br i1 %90, label %91, label %Vec_IntPushOrder.exit
 
 91:                                               ; preds = %.lr.ph.i64
-  %92 = getelementptr inbounds i32, ptr %.sroa.10.1131, i64 %indvars.iv.i65
+  %92 = getelementptr inbounds i32, ptr %.sroa.10.0131, i64 %indvars.iv.i65
   store i32 %89, ptr %92, align 4
   %93 = icmp ugt i64 %indvars.iv.i65, 1
   br i1 %93, label %.lr.ph.i64, label %Vec_IntPushOrder.exit, !llvm.loop !45
 
 Vec_IntPushOrder.exit:                            ; preds = %.lr.ph.i64, %91, %Vec_IntGrow.exit23.i
   %94 = phi i32 [ %84, %Vec_IntGrow.exit23.i ], [ %86, %91 ], [ %86, %.lr.ph.i64 ]
-  %.sroa.10.1132 = phi ptr [ %8, %Vec_IntGrow.exit23.i ], [ %.sroa.10.1131, %91 ], [ %.sroa.10.1131, %.lr.ph.i64 ]
+  %.sroa.10.0132 = phi ptr [ %8, %Vec_IntGrow.exit23.i ], [ %.sroa.10.0131, %91 ], [ %.sroa.10.0131, %.lr.ph.i64 ]
   %.0.in.lcssa.i = phi i64 [ %76, %Vec_IntGrow.exit23.i ], [ %indvars.iv.i65, %.lr.ph.i64 ], [ 0, %91 ]
   %sext = shl i64 %.0.in.lcssa.i, 32
   %95 = ashr exact i64 %sext, 32
-  %96 = getelementptr inbounds i32, ptr %.sroa.10.1132, i64 %95
+  %96 = getelementptr inbounds i32, ptr %.sroa.10.0132, i64 %95
   store i32 %9, ptr %96, align 4
   %97 = load ptr, ptr %0, align 8
   %98 = getelementptr inbounds i8, ptr %97, i64 16
@@ -3168,7 +3168,7 @@ Vec_IntFind.exit.thread:                          ; preds = %Abc_TtStretch6.exit
 
 138:                                              ; preds = %142, %.lr.ph.i93
   %indvars.iv.i94 = phi i64 [ 0, %.lr.ph.i93 ], [ %indvars.iv.next.i95, %142 ]
-  %139 = getelementptr inbounds i32, ptr %.sroa.10.1132, i64 %indvars.iv.i94
+  %139 = getelementptr inbounds i32, ptr %.sroa.10.0132, i64 %indvars.iv.i94
   %140 = load i32, ptr %139, align 4
   %141 = icmp eq i32 %140, %9
   br i1 %141, label %._crit_edge.loopexit.split.loop.exit12.i, label %142
@@ -4780,8 +4780,8 @@ Vec_IntFind.exit444.loopexit.us:                  ; preds = %595
   br label %.critedge8.thread
 
 .critedge8.thread:                                ; preds = %Vec_IntFind.exit444.loopexit.us, %599, %583, %.lr.ph540.split, %.loopexit483
-  %.3349 = phi i32 [ %580, %.loopexit483 ], [ %603, %.lr.ph540.split ], [ -1, %583 ], [ %594, %599 ], [ -1, %Vec_IntFind.exit444.loopexit.us ]
-  %.0339 = phi i32 [ %6, %.loopexit483 ], [ 0, %.lr.ph540.split ], [ 0, %583 ], [ 0, %599 ], [ 0, %Vec_IntFind.exit444.loopexit.us ]
+  %.1347 = phi i32 [ %580, %.loopexit483 ], [ %603, %.lr.ph540.split ], [ -1, %583 ], [ %594, %599 ], [ -1, %Vec_IntFind.exit444.loopexit.us ]
+  %.1 = phi i32 [ %6, %.loopexit483 ], [ 0, %.lr.ph540.split ], [ 0, %583 ], [ 0, %599 ], [ 0, %Vec_IntFind.exit444.loopexit.us ]
   %604 = load ptr, ptr %0, align 8
   %605 = getelementptr inbounds i8, ptr %604, i64 120
   %606 = load i32, ptr %605, align 4
@@ -4790,14 +4790,14 @@ Vec_IntFind.exit444.loopexit.us:                  ; preds = %595
 
 607:                                              ; preds = %.critedge8.thread
   call void @Sfm_DecPrint(ptr noundef nonnull %0, ptr noundef %5)
-  %608 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %.3349)
+  %608 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, i32 noundef %.1347)
   %putchar368 = call i32 @putchar(i32 10)
   br label %609
 
 609:                                              ; preds = %.critedge8.thread, %607, %192
-  %.4350 = phi i32 [ %191, %192 ], [ %.3349, %607 ], [ %.3349, %.critedge8.thread ]
-  %.1 = phi i32 [ %6, %192 ], [ %.0339, %607 ], [ %.0339, %.critedge8.thread ]
-  %610 = icmp sgt i32 %.4350, -1
+  %.0346 = phi i32 [ %191, %192 ], [ %.1347, %607 ], [ %.1347, %.critedge8.thread ]
+  %.0339 = phi i32 [ %6, %192 ], [ %.1, %607 ], [ %.1, %.critedge8.thread ]
+  %610 = icmp sgt i32 %.0346, -1
   br i1 %610, label %611, label %.loopexit
 
 611:                                              ; preds = %609
@@ -4869,10 +4869,10 @@ Vec_IntPush.exit451:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %641, ptr %613, align 4
   %642 = sext i32 %640 to i64
   %643 = getelementptr inbounds i32, ptr %639, i64 %642
-  store i32 %.4350, ptr %643, align 4
-  %644 = shl nsw i32 %.4350, 3
+  store i32 %.0346, ptr %643, align 4
+  %644 = shl nsw i32 %.0346, 3
   %645 = zext nneg i32 %644 to i64
-  %646 = shl nuw nsw i32 %.4350, 1
+  %646 = shl nuw nsw i32 %.0346, 1
   %647 = add nsw i32 %4, 1
   %648 = sext i32 %647 to i64
   %649 = getelementptr inbounds [8 x ptr], ptr %24, i64 0, i64 %648
@@ -5005,7 +5005,7 @@ Abc_TtAndSharp.exit:                              ; preds = %.lr.ph.i456
   %.sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 8
   %703 = select i1 %.not.i453.not, i32 0, i32 %.sroa.0.0..sroa.0.0.
   %704 = add i32 %651, %703
-  %705 = call i32 @Sfm_DecPeformDec_rec(ptr noundef %0, ptr noundef nonnull %indvars.iv644.sroa.phi739, ptr noundef nonnull %indvars.iv644.sroa.phi735, ptr noundef %3, i32 noundef %647, ptr noundef nonnull %19, i32 noundef %.1, i32 noundef %704)
+  %705 = call i32 @Sfm_DecPeformDec_rec(ptr noundef %0, ptr noundef nonnull %indvars.iv644.sroa.phi739, ptr noundef nonnull %indvars.iv644.sroa.phi735, ptr noundef %3, i32 noundef %647, ptr noundef nonnull %19, i32 noundef %.0339, i32 noundef %704)
   store i32 %705, ptr %indvars.iv644.sroa.phi, align 4
   %706 = icmp eq i32 %705, -2
   br i1 %706, label %.loopexit, label %652
@@ -5015,7 +5015,7 @@ Abc_TtAndSharp.exit:                              ; preds = %.lr.ph.i456
   %709 = getelementptr inbounds i8, ptr %20, i64 64
   %.sroa.0.0..sroa.0.0.734 = load i32, ptr %.sroa.0, align 8
   %.sroa.4.0..sroa.4.4. = load i32, ptr %.sroa.4, align 4
-  %710 = call i32 @Sfm_DecCombineDec(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull %708, ptr noundef nonnull %20, ptr noundef nonnull %709, i32 noundef %.sroa.0.0..sroa.0.0.734, i32 noundef %.sroa.4.0..sroa.4.4., ptr noundef %1, ptr noundef %2, i32 noundef %.4350)
+  %710 = call i32 @Sfm_DecCombineDec(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull %708, ptr noundef nonnull %20, ptr noundef nonnull %709, i32 noundef %.sroa.0.0..sroa.0.0.734, i32 noundef %.sroa.4.0..sroa.4.4., ptr noundef %1, ptr noundef %2, i32 noundef %.0346)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.split.us, %609, %.loopexit478, %520, %402, %405, %Abc_TtUnit.exit, %390, %Abc_TtConst.exit, %132, %707, %443, %255, %97
@@ -5857,11 +5857,11 @@ define i32 @Sfm_DecPeformDec3(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 
 64:                                               ; preds = %33, %.loopexit
   %indvar = phi i64 [ 0, %33 ], [ %indvar.next, %.loopexit ]
-  %.0181298 = phi i32 [ -1, %33 ], [ %.4185, %.loopexit ]
-  %.0186297 = phi ptr [ null, %33 ], [ %.4190, %.loopexit ]
-  %.0191296 = phi ptr [ null, %33 ], [ %.4195, %.loopexit ]
-  %.0196295 = phi ptr [ null, %33 ], [ %.4200, %.loopexit ]
-  %.0201294 = phi ptr [ null, %33 ], [ %.4205, %.loopexit ]
+  %.0181298 = phi i32 [ -1, %33 ], [ %.1182, %.loopexit ]
+  %.0186297 = phi ptr [ null, %33 ], [ %.1187, %.loopexit ]
+  %.0191296 = phi ptr [ null, %33 ], [ %.1192, %.loopexit ]
+  %.0196295 = phi ptr [ null, %33 ], [ %.1197, %.loopexit ]
+  %.0201294 = phi ptr [ null, %33 ], [ %.1202, %.loopexit ]
   %.0206293 = phi i32 [ 0, %33 ], [ %104, %.loopexit ]
   %65 = shl nuw nsw i64 %indvar, 5
   %scevgep = getelementptr i8, ptr %5, i64 %65
@@ -6155,13 +6155,13 @@ Sfm_DecMffcAreaReal.exit:                         ; preds = %193, %.critedge.i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %264
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %264 ]
-  %.1286 = phi i32 [ %72, %.lr.ph.preheader ], [ %.3, %264 ]
-  %.0178285 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2180, %264 ]
-  %.1182284 = phi i32 [ %.0181298, %.lr.ph.preheader ], [ %.3184, %264 ]
-  %.1187283 = phi ptr [ %.0186297, %.lr.ph.preheader ], [ %.3189, %264 ]
-  %.1192282 = phi ptr [ %.0191296, %.lr.ph.preheader ], [ %.3194, %264 ]
-  %.1197281 = phi ptr [ %.0196295, %.lr.ph.preheader ], [ %.3199, %264 ]
-  %.1202280 = phi ptr [ %.0201294, %.lr.ph.preheader ], [ %.3204, %264 ]
+  %.2286 = phi i32 [ %72, %.lr.ph.preheader ], [ %.3, %264 ]
+  %.0178285 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1179, %264 ]
+  %.2183284 = phi i32 [ %.0181298, %.lr.ph.preheader ], [ %.3184, %264 ]
+  %.2188283 = phi ptr [ %.0186297, %.lr.ph.preheader ], [ %.3189, %264 ]
+  %.2193282 = phi ptr [ %.0191296, %.lr.ph.preheader ], [ %.3194, %264 ]
+  %.2198281 = phi ptr [ %.0196295, %.lr.ph.preheader ], [ %.3199, %264 ]
+  %.2203280 = phi ptr [ %.0201294, %.lr.ph.preheader ], [ %.3204, %264 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %200 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #23
   %201 = icmp slt i32 %200, 0
@@ -6252,20 +6252,20 @@ Abc_Clock.exit:                                   ; preds = %.lr.ph, %202
   br i1 %248, label %264, label %249
 
 249:                                              ; preds = %245, %238
-  %250 = icmp sgt i32 %.1286, %240
+  %250 = icmp sgt i32 %.2286, %240
   br i1 %250, label %251, label %252
 
 251:                                              ; preds = %249
   br label %252
 
 252:                                              ; preds = %249, %251, %235, %237
-  %.2203 = phi ptr [ %207, %237 ], [ %.1202280, %235 ], [ %207, %251 ], [ %.1202280, %249 ]
-  %.2198 = phi ptr [ %210, %237 ], [ %.1197281, %235 ], [ %210, %251 ], [ %.1197281, %249 ]
-  %.2193 = phi ptr [ %221, %237 ], [ %.1192282, %235 ], [ %221, %251 ], [ %.1192282, %249 ]
-  %.2188 = phi ptr [ %223, %237 ], [ %.1187283, %235 ], [ %223, %251 ], [ %.1187283, %249 ]
-  %.2183 = phi i32 [ %199, %237 ], [ %.1182284, %235 ], [ %199, %251 ], [ %.1182284, %249 ]
-  %.1179 = phi i32 [ %226, %237 ], [ %.0178285, %235 ], [ %.0178285, %251 ], [ %.0178285, %249 ]
-  %.2 = phi i32 [ %.1286, %237 ], [ %.1286, %235 ], [ %240, %251 ], [ %.1286, %249 ]
+  %.4205 = phi ptr [ %207, %237 ], [ %.2203280, %235 ], [ %207, %251 ], [ %.2203280, %249 ]
+  %.4200 = phi ptr [ %210, %237 ], [ %.2198281, %235 ], [ %210, %251 ], [ %.2198281, %249 ]
+  %.4195 = phi ptr [ %221, %237 ], [ %.2193282, %235 ], [ %221, %251 ], [ %.2193282, %249 ]
+  %.4190 = phi ptr [ %223, %237 ], [ %.2188283, %235 ], [ %223, %251 ], [ %.2188283, %249 ]
+  %.4185 = phi i32 [ %199, %237 ], [ %.2183284, %235 ], [ %199, %251 ], [ %.2183284, %249 ]
+  %.2180 = phi i32 [ %226, %237 ], [ %.0178285, %235 ], [ %.0178285, %251 ], [ %.0178285, %249 ]
+  %.4 = phi i32 [ %.2286, %237 ], [ %.2286, %235 ], [ %240, %251 ], [ %.2286, %249 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %253 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #23
   %254 = icmp slt i32 %253, 0
@@ -6289,13 +6289,13 @@ Abc_Clock.exit258:                                ; preds = %252, %255
   br label %264
 
 264:                                              ; preds = %245, %231, %Abc_Clock.exit258
-  %.3204 = phi ptr [ %.1202280, %231 ], [ %.2203, %Abc_Clock.exit258 ], [ %.1202280, %245 ]
-  %.3199 = phi ptr [ %.1197281, %231 ], [ %.2198, %Abc_Clock.exit258 ], [ %.1197281, %245 ]
-  %.3194 = phi ptr [ %.1192282, %231 ], [ %.2193, %Abc_Clock.exit258 ], [ %.1192282, %245 ]
-  %.3189 = phi ptr [ %.1187283, %231 ], [ %.2188, %Abc_Clock.exit258 ], [ %.1187283, %245 ]
-  %.3184 = phi i32 [ %.1182284, %231 ], [ %.2183, %Abc_Clock.exit258 ], [ %.1182284, %245 ]
-  %.2180 = phi i32 [ %.0178285, %231 ], [ %.1179, %Abc_Clock.exit258 ], [ %.0178285, %245 ]
-  %.3 = phi i32 [ %.1286, %231 ], [ %.2, %Abc_Clock.exit258 ], [ %.1286, %245 ]
+  %.3204 = phi ptr [ %.2203280, %231 ], [ %.4205, %Abc_Clock.exit258 ], [ %.2203280, %245 ]
+  %.3199 = phi ptr [ %.2198281, %231 ], [ %.4200, %Abc_Clock.exit258 ], [ %.2198281, %245 ]
+  %.3194 = phi ptr [ %.2193282, %231 ], [ %.4195, %Abc_Clock.exit258 ], [ %.2193282, %245 ]
+  %.3189 = phi ptr [ %.2188283, %231 ], [ %.4190, %Abc_Clock.exit258 ], [ %.2188283, %245 ]
+  %.3184 = phi i32 [ %.2183284, %231 ], [ %.4185, %Abc_Clock.exit258 ], [ %.2183284, %245 ]
+  %.1179 = phi i32 [ %.0178285, %231 ], [ %.2180, %Abc_Clock.exit258 ], [ %.0178285, %245 ]
+  %.3 = phi i32 [ %.2286, %231 ], [ %.4, %Abc_Clock.exit258 ], [ %.2286, %245 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !87
@@ -6308,12 +6308,12 @@ Abc_Clock.exit258:                                ; preds = %252, %255
   br label %.loopexit
 
 .loopexit:                                        ; preds = %264, %.loopexit.sink.split, %Sfm_DecMffcAreaReal.exit, %141, %135, %110
-  %.4205 = phi ptr [ %.0201294, %110 ], [ %.0201294, %135 ], [ %.0201294, %141 ], [ %.0201294, %Sfm_DecMffcAreaReal.exit ], [ %.0201294, %.loopexit.sink.split ], [ %.3204, %264 ]
-  %.4200 = phi ptr [ %.0196295, %110 ], [ %.0196295, %135 ], [ %.0196295, %141 ], [ %.0196295, %Sfm_DecMffcAreaReal.exit ], [ %.0196295, %.loopexit.sink.split ], [ %.3199, %264 ]
-  %.4195 = phi ptr [ %.0191296, %110 ], [ %.0191296, %135 ], [ %.0191296, %141 ], [ %.0191296, %Sfm_DecMffcAreaReal.exit ], [ %.0191296, %.loopexit.sink.split ], [ %.3194, %264 ]
-  %.4190 = phi ptr [ %.0186297, %110 ], [ %.0186297, %135 ], [ %.0186297, %141 ], [ %.0186297, %Sfm_DecMffcAreaReal.exit ], [ %.0186297, %.loopexit.sink.split ], [ %.3189, %264 ]
-  %.4185 = phi i32 [ %.0181298, %110 ], [ %.0181298, %135 ], [ %.0181298, %141 ], [ %.0181298, %Sfm_DecMffcAreaReal.exit ], [ %.0181298, %.loopexit.sink.split ], [ %.3184, %264 ]
-  %.4 = phi i32 [ %72, %110 ], [ %72, %135 ], [ %72, %141 ], [ %72, %Sfm_DecMffcAreaReal.exit ], [ %72, %.loopexit.sink.split ], [ %.3, %264 ]
+  %.1202 = phi ptr [ %.0201294, %110 ], [ %.0201294, %135 ], [ %.0201294, %141 ], [ %.0201294, %Sfm_DecMffcAreaReal.exit ], [ %.0201294, %.loopexit.sink.split ], [ %.3204, %264 ]
+  %.1197 = phi ptr [ %.0196295, %110 ], [ %.0196295, %135 ], [ %.0196295, %141 ], [ %.0196295, %Sfm_DecMffcAreaReal.exit ], [ %.0196295, %.loopexit.sink.split ], [ %.3199, %264 ]
+  %.1192 = phi ptr [ %.0191296, %110 ], [ %.0191296, %135 ], [ %.0191296, %141 ], [ %.0191296, %Sfm_DecMffcAreaReal.exit ], [ %.0191296, %.loopexit.sink.split ], [ %.3194, %264 ]
+  %.1187 = phi ptr [ %.0186297, %110 ], [ %.0186297, %135 ], [ %.0186297, %141 ], [ %.0186297, %Sfm_DecMffcAreaReal.exit ], [ %.0186297, %.loopexit.sink.split ], [ %.3189, %264 ]
+  %.1182 = phi i32 [ %.0181298, %110 ], [ %.0181298, %135 ], [ %.0181298, %141 ], [ %.0181298, %Sfm_DecMffcAreaReal.exit ], [ %.0181298, %.loopexit.sink.split ], [ %.3184, %264 ]
+  %.1 = phi i32 [ %72, %110 ], [ %72, %135 ], [ %72, %141 ], [ %72, %Sfm_DecMffcAreaReal.exit ], [ %72, %.loopexit.sink.split ], [ %.3, %264 ]
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond309.not = icmp eq i64 %indvar.next, %wide.trip.count308
   br i1 %exitcond309.not, label %269, label %64, !llvm.loop !88
@@ -6394,7 +6394,7 @@ Abc_Clock.exit258:                                ; preds = %252, %255
 Sfm_ObjSetdownSimInfo.exit:                       ; preds = %303, %269, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.4)
-  %310 = icmp eq i32 %.4185, -1
+  %310 = icmp eq i32 %.1182, -1
   br i1 %310, label %311, label %317
 
 311:                                              ; preds = %Sfm_ObjSetdownSimInfo.exit
@@ -6412,13 +6412,13 @@ Sfm_ObjSetdownSimInfo.exit:                       ; preds = %303, %269, %.prehea
   br label %340
 
 317:                                              ; preds = %Sfm_ObjSetdownSimInfo.exit
-  %318 = sext i32 %.4185 to i64
+  %318 = sext i32 %.1182 to i64
   br i1 %36, label %319, label %._crit_edge
 
 319:                                              ; preds = %317
   %320 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %318
   %321 = load i32, ptr %320, align 4
-  %322 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %.4185, i32 noundef %321)
+  %322 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, i32 noundef %.1182, i32 noundef %321)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %317, %319
@@ -6426,7 +6426,7 @@ Sfm_ObjSetdownSimInfo.exit:                       ; preds = %303, %269, %.prehea
   %324 = getelementptr inbounds [4 x [16 x i32]], ptr %7, i64 0, i64 %318
   %325 = getelementptr inbounds i8, ptr %0, i64 224
   %326 = getelementptr inbounds i8, ptr %0, i64 240
-  %327 = call i32 @Sfm_LibImplementGatesDelay(ptr noundef %323, ptr noundef nonnull %324, ptr noundef %.4205, ptr noundef %.4200, ptr noundef %.4195, ptr noundef %.4190, ptr noundef nonnull %325, ptr noundef nonnull %326) #23
+  %327 = call i32 @Sfm_LibImplementGatesDelay(ptr noundef %323, ptr noundef nonnull %324, ptr noundef %.1202, ptr noundef %.1197, ptr noundef %.1192, ptr noundef %.1187, ptr noundef nonnull %325, ptr noundef nonnull %326) #23
   %328 = getelementptr inbounds i8, ptr %0, i64 1224
   %329 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %318
   %330 = load i32, ptr %329, align 4
@@ -6441,7 +6441,7 @@ Sfm_ObjSetdownSimInfo.exit:                       ; preds = %303, %269, %.prehea
   %338 = load i32, ptr %337, align 4
   %339 = add nsw i32 %338, 1
   store i32 %339, ptr %337, align 4
-  store i32 %.4, ptr %34, align 4
+  store i32 %.1, ptr %34, align 4
   br label %340
 
 340:                                              ; preds = %._crit_edge, %313, %.thread264
@@ -12105,7 +12105,7 @@ Abc_Clock.exit116:                                ; preds = %133, %136
   br label %.critedge
 
 .critedge:                                        ; preds = %151, %145, %158, %Abc_Clock.exit116
-  %.1 = phi i32 [ %156, %158 ], [ %140, %Abc_Clock.exit116 ], [ %140, %145 ], [ %156, %151 ]
+  %.091 = phi i32 [ %156, %158 ], [ %140, %Abc_Clock.exit116 ], [ %140, %145 ], [ %156, %151 ]
   %162 = load ptr, ptr %0, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 120
   %164 = load i32, ptr %163, align 4
@@ -12139,7 +12139,7 @@ Abc_Clock.exit118:                                ; preds = %166, %169
   %178 = load i64, ptr %177, align 8
   %179 = add nsw i64 %176, %178
   store i64 %179, ptr %177, align 8
-  %180 = icmp slt i32 %.1, 0
+  %180 = icmp slt i32 %.091, 0
   br i1 %180, label %243, label %181
 
 181:                                              ; preds = %Abc_Clock.exit118
@@ -13131,7 +13131,7 @@ Abc_Clock.exit196:                                ; preds = %203, %206
   br label %.critedge5
 
 .critedge5:                                       ; preds = %216, %213, %222, %Abc_Clock.exit196
-  %.1 = phi i32 [ %220, %222 ], [ %209, %Abc_Clock.exit196 ], [ %209, %213 ], [ %220, %216 ]
+  %.0145 = phi i32 [ %220, %222 ], [ %209, %Abc_Clock.exit196 ], [ %209, %213 ], [ %220, %216 ]
   %225 = load ptr, ptr %0, align 8
   %226 = getelementptr inbounds i8, ptr %225, i64 120
   %227 = load i32, ptr %226, align 4
@@ -13163,7 +13163,7 @@ Abc_Clock.exit198:                                ; preds = %229, %232
   %239 = load i64, ptr %56, align 8
   %240 = add nsw i64 %238, %239
   store i64 %240, ptr %56, align 8
-  %241 = icmp slt i32 %.1, 0
+  %241 = icmp slt i32 %.0145, 0
   br i1 %241, label %.sink.split, label %242
 
 242:                                              ; preds = %Abc_Clock.exit198

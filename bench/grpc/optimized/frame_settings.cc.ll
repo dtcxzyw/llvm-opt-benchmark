@@ -612,8 +612,8 @@ if.end36:                                         ; preds = %sw.bb
   br label %sw.bb41
 
 sw.bb41:                                          ; preds = %for.cond, %if.end36
-  %cur.1 = phi ptr [ %incdec.ptr, %if.end36 ], [ %cur.0.ph, %for.cond ]
-  %cmp42 = icmp eq ptr %cur.1, %add.ptr
+  %cur.2 = phi ptr [ %incdec.ptr, %if.end36 ], [ %cur.0.ph, %for.cond ]
+  %cmp42 = icmp eq ptr %cur.2, %add.ptr
   br i1 %cmp42, label %if.then43, label %if.end45
 
 if.then43:                                        ; preds = %sw.bb41
@@ -623,16 +623,16 @@ if.then43:                                        ; preds = %sw.bb41
 
 if.end45:                                         ; preds = %sw.bb41
   %11 = load i16, ptr %id40, align 2
-  %12 = load i8, ptr %cur.1, align 1
+  %12 = load i8, ptr %cur.2, align 1
   %13 = zext i8 %12 to i16
   %14 = or i16 %11, %13
   store i16 %14, ptr %id40, align 2
-  %incdec.ptr51 = getelementptr inbounds i8, ptr %cur.1, i64 1
+  %incdec.ptr51 = getelementptr inbounds i8, ptr %cur.2, i64 1
   br label %sw.bb52
 
 sw.bb52:                                          ; preds = %for.cond, %if.end45
-  %cur.2 = phi ptr [ %incdec.ptr51, %if.end45 ], [ %cur.0.ph, %for.cond ]
-  %cmp53 = icmp eq ptr %cur.2, %add.ptr
+  %cur.3 = phi ptr [ %incdec.ptr51, %if.end45 ], [ %cur.0.ph, %for.cond ]
+  %cmp53 = icmp eq ptr %cur.3, %add.ptr
   br i1 %cmp53, label %if.then54, label %if.end56
 
 if.then54:                                        ; preds = %sw.bb52
@@ -641,16 +641,16 @@ if.then54:                                        ; preds = %sw.bb52
   br label %return
 
 if.end56:                                         ; preds = %sw.bb52
-  %15 = load i8, ptr %cur.2, align 1
+  %15 = load i8, ptr %cur.3, align 1
   %conv57 = zext i8 %15 to i32
   %shl58 = shl nuw i32 %conv57, 24
   store i32 %shl58, ptr %value, align 4
-  %incdec.ptr59 = getelementptr inbounds i8, ptr %cur.2, i64 1
+  %incdec.ptr59 = getelementptr inbounds i8, ptr %cur.3, i64 1
   br label %sw.bb60
 
 sw.bb60:                                          ; preds = %for.cond, %if.end56
-  %cur.3 = phi ptr [ %incdec.ptr59, %if.end56 ], [ %cur.0.ph, %for.cond ]
-  %cmp61 = icmp eq ptr %cur.3, %add.ptr
+  %cur.4 = phi ptr [ %incdec.ptr59, %if.end56 ], [ %cur.0.ph, %for.cond ]
+  %cmp61 = icmp eq ptr %cur.4, %add.ptr
   br i1 %cmp61, label %if.then62, label %if.end64
 
 if.then62:                                        ; preds = %sw.bb60
@@ -659,18 +659,18 @@ if.then62:                                        ; preds = %sw.bb60
   br label %return
 
 if.end64:                                         ; preds = %sw.bb60
-  %16 = load i8, ptr %cur.3, align 1
+  %16 = load i8, ptr %cur.4, align 1
   %conv65 = zext i8 %16 to i32
   %shl66 = shl nuw nsw i32 %conv65, 16
   %17 = load i32, ptr %value, align 4
   %or68 = or i32 %shl66, %17
   store i32 %or68, ptr %value, align 4
-  %incdec.ptr69 = getelementptr inbounds i8, ptr %cur.3, i64 1
+  %incdec.ptr69 = getelementptr inbounds i8, ptr %cur.4, i64 1
   br label %sw.bb70
 
 sw.bb70:                                          ; preds = %for.cond, %if.end64
-  %cur.4 = phi ptr [ %incdec.ptr69, %if.end64 ], [ %cur.0.ph, %for.cond ]
-  %cmp71 = icmp eq ptr %cur.4, %add.ptr
+  %cur.5 = phi ptr [ %incdec.ptr69, %if.end64 ], [ %cur.0.ph, %for.cond ]
+  %cmp71 = icmp eq ptr %cur.5, %add.ptr
   br i1 %cmp71, label %if.then72, label %if.end74
 
 if.then72:                                        ; preds = %sw.bb70
@@ -679,18 +679,18 @@ if.then72:                                        ; preds = %sw.bb70
   br label %return
 
 if.end74:                                         ; preds = %sw.bb70
-  %18 = load i8, ptr %cur.4, align 1
+  %18 = load i8, ptr %cur.5, align 1
   %conv75 = zext i8 %18 to i32
   %shl76 = shl nuw nsw i32 %conv75, 8
   %19 = load i32, ptr %value, align 4
   %or78 = or i32 %shl76, %19
   store i32 %or78, ptr %value, align 4
-  %incdec.ptr79 = getelementptr inbounds i8, ptr %cur.4, i64 1
+  %incdec.ptr79 = getelementptr inbounds i8, ptr %cur.5, i64 1
   br label %sw.bb80
 
 sw.bb80:                                          ; preds = %for.cond, %if.end74
-  %cur.5 = phi ptr [ %incdec.ptr79, %if.end74 ], [ %cur.0.ph, %for.cond ]
-  %cmp81 = icmp eq ptr %cur.5, %add.ptr
+  %cur.6 = phi ptr [ %incdec.ptr79, %if.end74 ], [ %cur.0.ph, %for.cond ]
+  %cmp81 = icmp eq ptr %cur.6, %add.ptr
   br i1 %cmp81, label %if.then82, label %if.else
 
 if.then82:                                        ; preds = %sw.bb80
@@ -700,12 +700,12 @@ if.then82:                                        ; preds = %sw.bb80
 
 if.else:                                          ; preds = %sw.bb80
   store i32 0, ptr %p, align 8
-  %20 = load i8, ptr %cur.5, align 1
+  %20 = load i8, ptr %cur.6, align 1
   %conv86 = zext i8 %20 to i32
   %21 = load i32, ptr %value, align 4
   %or88 = or i32 %21, %conv86
   store i32 %or88, ptr %value, align 4
-  %incdec.ptr89 = getelementptr inbounds i8, ptr %cur.5, i64 1
+  %incdec.ptr89 = getelementptr inbounds i8, ptr %cur.6, i64 1
   %22 = load i16, ptr %id40, align 2
   %conv91 = zext i16 %22 to i32
   %call = call noundef zeroext i1 @_Z26grpc_wire_id_to_setting_idjP22grpc_chttp2_setting_id(i32 noundef %conv91, ptr noundef nonnull %id)

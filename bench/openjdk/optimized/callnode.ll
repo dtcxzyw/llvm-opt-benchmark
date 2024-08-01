@@ -5583,7 +5583,7 @@ _ZL12next_controlP4Node.exit:                     ; preds = %17, %20, %28, %10, 
   br i1 %35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL12next_controlP4Node.exit, %_ZL12next_controlP4Node.exit53
-  %.03163 = phi ptr [ %.2, %_ZL12next_controlP4Node.exit53 ], [ %.013.i, %_ZL12next_controlP4Node.exit ]
+  %.03163 = phi ptr [ %.3, %_ZL12next_controlP4Node.exit53 ], [ %.013.i, %_ZL12next_controlP4Node.exit ]
   %36 = getelementptr inbounds i8, ptr %.03163, i64 44
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 15
@@ -5600,7 +5600,7 @@ _ZL12next_controlP4Node.exit:                     ; preds = %17, %20, %28, %10, 
 
 44:                                               ; preds = %40, %.lr.ph
   %45 = phi i32 [ %.pre, %40 ], [ %37, %.lr.ph ]
-  %.1 = phi ptr [ %43, %40 ], [ %.03163, %.lr.ph ]
+  %.2 = phi ptr [ %43, %40 ], [ %.03163, %.lr.ph ]
   %46 = and i32 %45, 3
   %47 = icmp eq i32 %46, 3
   br i1 %47, label %._crit_edge, label %48
@@ -5611,13 +5611,13 @@ _ZL12next_controlP4Node.exit:                     ; preds = %17, %20, %28, %10, 
   br i1 %50, label %51, label %.preheader.i54.sink.split
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %.1, i64 24
+  %52 = getelementptr inbounds i8, ptr %.2, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %53, 3
   br i1 %54, label %55, label %._crit_edge
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %.1, i64 8
+  %56 = getelementptr inbounds i8, ptr %.2, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
@@ -5819,7 +5819,7 @@ _ZNK10RegionNode7is_copyEv.exit.i52:              ; preds = %152
   br i1 %.not.i50, label %_ZL12next_controlP4Node.exit53, label %.preheader.i47.sink.split, !llvm.loop !29
 
 .preheader.i54.sink.split:                        ; preds = %48, %198
-  %.sink88 = phi ptr [ %193, %198 ], [ %.1, %48 ]
+  %.sink88 = phi ptr [ %193, %198 ], [ %.2, %48 ]
   %173 = getelementptr inbounds i8, ptr %.sink88, i64 8
   %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr %174, align 8
@@ -5867,15 +5867,15 @@ _ZNK10RegionNode7is_copyEv.exit.i59:              ; preds = %180
   br i1 %.not.i57, label %_ZL12next_controlP4Node.exit53, label %.preheader.i54.sink.split, !llvm.loop !29
 
 _ZL12next_controlP4Node.exit53:                   ; preds = %198, %190, %187, %170, %162, %159, %_ZNK10RegionNode7is_copyEv.exit.i59, %180, %_ZNK10RegionNode7is_copyEv.exit.i52, %152
-  %.2 = phi ptr [ %.013.i48, %152 ], [ %.013.i48, %_ZNK10RegionNode7is_copyEv.exit.i52 ], [ %.013.i55, %180 ], [ %.013.i55, %_ZNK10RegionNode7is_copyEv.exit.i59 ], [ %.013.i48, %159 ], [ %.013.i48, %162 ], [ %.013.i48, %170 ], [ %.013.i55, %187 ], [ %.013.i55, %190 ], [ %.013.i55, %198 ]
-  %201 = getelementptr inbounds i8, ptr %.2, i64 16
+  %.3 = phi ptr [ %.013.i48, %152 ], [ %.013.i48, %_ZNK10RegionNode7is_copyEv.exit.i52 ], [ %.013.i55, %180 ], [ %.013.i55, %_ZNK10RegionNode7is_copyEv.exit.i59 ], [ %.013.i48, %159 ], [ %.013.i48, %162 ], [ %.013.i48, %170 ], [ %.013.i55, %187 ], [ %.013.i55, %190 ], [ %.013.i55, %198 ]
+  %201 = getelementptr inbounds i8, ptr %.3, i64 16
   %202 = load ptr, ptr %201, align 8
   %203 = icmp eq ptr %202, null
   br i1 %203, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %_ZL12next_controlP4Node.exit53, %44, %137, %_ZL12next_controlP4Node.exit46._crit_edge, %60, %55, %51, %_ZL12next_controlP4Node.exit
-  %.3 = phi ptr [ %.013.i, %_ZL12next_controlP4Node.exit ], [ %.1, %51 ], [ %.1, %55 ], [ %.1, %60 ], [ %.1, %_ZL12next_controlP4Node.exit46._crit_edge ], [ %.1, %137 ], [ %.1, %44 ], [ %.2, %_ZL12next_controlP4Node.exit53 ]
-  %204 = getelementptr inbounds i8, ptr %.3, i64 44
+  %.1 = phi ptr [ %.013.i, %_ZL12next_controlP4Node.exit ], [ %.2, %51 ], [ %.2, %55 ], [ %.2, %60 ], [ %.2, %_ZL12next_controlP4Node.exit46._crit_edge ], [ %.2, %137 ], [ %.2, %44 ], [ %.3, %_ZL12next_controlP4Node.exit53 ]
+  %204 = getelementptr inbounds i8, ptr %.1, i64 44
   %205 = load i32, ptr %204, align 4
   %206 = and i32 %205, 255
   %207 = icmp eq i32 %206, 199
@@ -5885,7 +5885,7 @@ _ZL12next_controlP4Node.exit53:                   ; preds = %198, %190, %187, %1
   %209 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %210 = getelementptr inbounds i8, ptr %209, i64 40
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds i8, ptr %.3, i64 8
+  %212 = getelementptr inbounds i8, ptr %.1, i64 8
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds i8, ptr %213, i64 40
   %215 = load ptr, ptr %214, align 8
@@ -5917,7 +5917,7 @@ _ZL12next_controlP4Node.exit53:                   ; preds = %198, %190, %187, %1
   %239 = getelementptr inbounds i8, ptr %236, i64 52
   %240 = load i32, ptr %239, align 4
   %241 = icmp eq i32 %238, %240
-  %spec.select = select i1 %241, ptr %.3, ptr null
+  %spec.select = select i1 %241, ptr %.1, ptr null
   br label %242
 
 242:                                              ; preds = %230, %208, %._crit_edge

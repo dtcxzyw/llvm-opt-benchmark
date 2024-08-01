@@ -4291,7 +4291,7 @@ invoke.cont575:                                   ; preds = %invoke.cont559
   br i1 %cmp.i.not4.i, label %if.end637, label %for.body.i901
 
 for.body.i901:                                    ; preds = %invoke.cont575, %for.inc.i902
-  %requiredProperties.sroa.0.1 = phi ptr [ %requiredProperties.sroa.0.2, %for.inc.i902 ], [ null, %invoke.cont575 ]
+  %requiredProperties.sroa.0.3 = phi ptr [ %requiredProperties.sroa.0.4, %for.inc.i902 ], [ null, %invoke.cont575 ]
   %requiredProperties.sroa.7.1 = phi ptr [ %requiredProperties.sroa.7.2, %for.inc.i902 ], [ null, %invoke.cont575 ]
   %requiredProperties.sroa.14.1 = phi ptr [ %requiredProperties.sroa.14.2, %for.inc.i902 ], [ null, %invoke.cont575 ]
   %__first.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i903, %for.inc.i902 ], [ %273, %invoke.cont575 ]
@@ -4312,7 +4312,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %requiredProperties.sroa.7.1 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %requiredProperties.sroa.0.1 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %requiredProperties.sroa.0.3 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -4347,17 +4347,17 @@ _ZNSt12_Vector_baseIPN11flatbuffers8FieldDefESaIS2_EE11_M_allocateEm.exit.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_baseIPN11flatbuffers8FieldDefESaIS2_EE11_M_allocateEm.exit.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i.i, ptr align 8 %requiredProperties.sroa.0.1, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i.i, ptr align 8 %requiredProperties.sroa.0.3, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i
 
 _ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN11flatbuffers8FieldDefESaIS2_EE11_M_allocateEm.exit.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i, i64 8
-  %tobool.not.i.i.i.i.i = icmp eq ptr %requiredProperties.sroa.0.1, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %requiredProperties.sroa.0.3, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, label %if.then.i18.i.i.i.i
 
 if.then.i18.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %requiredProperties.sroa.0.1) #20
+  call void @_ZdlPv(ptr noundef nonnull %requiredProperties.sroa.0.3) #20
   br label %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %if.then.i18.i.i.i.i, %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i
@@ -4365,7 +4365,7 @@ _ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__
   br label %for.inc.i902
 
 for.inc.i902:                                     ; preds = %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %if.then.i.i.i, %for.body.i901
-  %requiredProperties.sroa.0.2 = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %requiredProperties.sroa.0.1, %if.then.i.i.i ], [ %requiredProperties.sroa.0.1, %for.body.i901 ]
+  %requiredProperties.sroa.0.4 = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %requiredProperties.sroa.0.3, %if.then.i.i.i ], [ %requiredProperties.sroa.0.3, %for.body.i901 ]
   %requiredProperties.sroa.7.2 = phi ptr [ %incdec.ptr.i.i.i.i, %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %incdec.ptr.i.i.i905, %if.then.i.i.i ], [ %requiredProperties.sroa.7.1, %for.body.i901 ]
   %requiredProperties.sroa.14.2 = phi ptr [ %add.ptr19.i.i.i.i, %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %requiredProperties.sroa.14.1, %if.then.i.i.i ], [ %requiredProperties.sroa.14.1, %for.body.i901 ]
   %incdec.ptr.i.i903 = getelementptr inbounds i8, ptr %__first.sroa.0.05.i, i64 8
@@ -4373,7 +4373,7 @@ for.inc.i902:                                     ; preds = %_ZNSt6vectorIPN11fl
   br i1 %cmp.i.not.i, label %invoke.cont582, label %for.body.i901, !llvm.loop !177
 
 invoke.cont582:                                   ; preds = %for.inc.i902
-  %cmp.i.i909 = icmp eq ptr %requiredProperties.sroa.0.2, %requiredProperties.sroa.7.2
+  %cmp.i.i909 = icmp eq ptr %requiredProperties.sroa.0.4, %requiredProperties.sroa.7.2
   br i1 %cmp.i.i909, label %if.end637, label %if.then586
 
 if.then586:                                       ; preds = %invoke.cont582
@@ -4391,7 +4391,7 @@ for.body599.lr.ph:                                ; preds = %invoke.cont588
   br label %for.body599
 
 for.body599:                                      ; preds = %for.body599.lr.ph, %for.inc620
-  %req_prop.sroa.0.01542 = phi ptr [ %requiredProperties.sroa.0.2, %for.body599.lr.ph ], [ %incdec.ptr.i933, %for.inc620 ]
+  %req_prop.sroa.0.01542 = phi ptr [ %requiredProperties.sroa.0.4, %for.body599.lr.ph ], [ %incdec.ptr.i933, %for.inc620 ]
   %278 = load ptr, ptr %req_prop.sroa.0.01542, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i916)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp1.i917)
@@ -4484,7 +4484,7 @@ lpad574.loopexit:                                 ; preds = %cond.true.i.i.i.i.i
   br label %ehcleanup685
 
 lpad574.loopexit.split-lp.loopexit:               ; preds = %invoke.cont651, %if.end637, %if.then586
-  %requiredProperties.sroa.0.4.ph.ph = phi ptr [ %requiredProperties.sroa.0.31352, %invoke.cont651 ], [ %requiredProperties.sroa.0.31352, %if.end637 ], [ %requiredProperties.sroa.0.2, %if.then586 ]
+  %requiredProperties.sroa.0.1.ph.ph = phi ptr [ %requiredProperties.sroa.0.51352, %invoke.cont651 ], [ %requiredProperties.sroa.0.51352, %if.end637 ], [ %requiredProperties.sroa.0.4, %if.then586 ]
   %lpad.loopexit1364 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup685
@@ -4576,7 +4576,7 @@ ehcleanup636:                                     ; preds = %lpad604.loopexit, %
   br label %ehcleanup685
 
 if.end637:                                        ; preds = %invoke.cont575, %invoke.cont632, %invoke.cont582
-  %requiredProperties.sroa.0.31352 = phi ptr [ %requiredProperties.sroa.0.2, %invoke.cont632 ], [ %requiredProperties.sroa.0.2, %invoke.cont582 ], [ null, %invoke.cont575 ]
+  %requiredProperties.sroa.0.51352 = phi ptr [ %requiredProperties.sroa.0.4, %invoke.cont632 ], [ %requiredProperties.sroa.0.4, %invoke.cont582 ], [ null, %invoke.cont575 ]
   invoke void @_ZNK11flatbuffers5jsons19JsonSchemaGenerator6IndentB5cxx11Ei(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp640, ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef 3)
           to label %invoke.cont641 unwind label %lpad574.loopexit.split-lp.loopexit
 
@@ -4708,11 +4708,11 @@ invoke.cont680:                                   ; preds = %invoke.cont677
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp673) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp674) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %closeType) #19
-  %tobool.not.i.i.i = icmp eq ptr %requiredProperties.sroa.0.31352, null
+  %tobool.not.i.i.i = icmp eq ptr %requiredProperties.sroa.0.51352, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EED2Ev.exit, label %if.then.i.i.i965
 
 if.then.i.i.i965:                                 ; preds = %invoke.cont680
-  call void @_ZdlPv(ptr noundef nonnull %requiredProperties.sroa.0.31352) #20
+  call void @_ZdlPv(ptr noundef nonnull %requiredProperties.sroa.0.51352) #20
   br label %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EED2Ev.exit: ; preds = %invoke.cont680, %if.then.i.i.i965
@@ -4746,13 +4746,13 @@ ehcleanup684:                                     ; preds = %ehcleanup683, %lpad
   br label %ehcleanup685
 
 ehcleanup685:                                     ; preds = %lpad574.loopexit, %lpad574.loopexit.split-lp.loopexit.split-lp, %lpad574.loopexit.split-lp.loopexit, %ehcleanup684, %lpad659, %ehcleanup656, %ehcleanup636, %lpad589
-  %requiredProperties.sroa.0.5 = phi ptr [ %requiredProperties.sroa.0.31352, %ehcleanup684 ], [ %requiredProperties.sroa.0.31352, %lpad659 ], [ %requiredProperties.sroa.0.31352, %ehcleanup656 ], [ %requiredProperties.sroa.0.2, %ehcleanup636 ], [ %requiredProperties.sroa.0.2, %lpad589 ], [ %requiredProperties.sroa.0.1, %lpad574.loopexit ], [ %requiredProperties.sroa.0.4.ph.ph, %lpad574.loopexit.split-lp.loopexit ], [ %requiredProperties.sroa.0.1, %lpad574.loopexit.split-lp.loopexit.split-lp ]
+  %requiredProperties.sroa.0.2 = phi ptr [ %requiredProperties.sroa.0.51352, %ehcleanup684 ], [ %requiredProperties.sroa.0.51352, %lpad659 ], [ %requiredProperties.sroa.0.51352, %ehcleanup656 ], [ %requiredProperties.sroa.0.4, %ehcleanup636 ], [ %requiredProperties.sroa.0.4, %lpad589 ], [ %requiredProperties.sroa.0.3, %lpad574.loopexit ], [ %requiredProperties.sroa.0.1.ph.ph, %lpad574.loopexit.split-lp.loopexit ], [ %requiredProperties.sroa.0.3, %lpad574.loopexit.split-lp.loopexit.split-lp ]
   %.pn74.pn.pn = phi { ptr, i32 } [ %.pn74.pn, %ehcleanup684 ], [ %299, %lpad659 ], [ %.pn70.pn.pn, %ehcleanup656 ], [ %.pn68, %ehcleanup636 ], [ %286, %lpad589 ], [ %lpad.loopexit1361, %lpad574.loopexit ], [ %lpad.loopexit1364, %lpad574.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1365, %lpad574.loopexit.split-lp.loopexit.split-lp ]
-  %tobool.not.i.i.i968 = icmp eq ptr %requiredProperties.sroa.0.5, null
+  %tobool.not.i.i.i968 = icmp eq ptr %requiredProperties.sroa.0.2, null
   br i1 %tobool.not.i.i.i968, label %eh.resume, label %if.then.i.i.i969
 
 if.then.i.i.i969:                                 ; preds = %ehcleanup685
-  call void @_ZdlPv(ptr noundef nonnull %requiredProperties.sroa.0.5) #20
+  call void @_ZdlPv(ptr noundef nonnull %requiredProperties.sroa.0.2) #20
   br label %eh.resume
 
 for.end689:                                       ; preds = %_ZNSt6vectorIPN11flatbuffers8FieldDefESaIS2_EED2Ev.exit, %for.end192

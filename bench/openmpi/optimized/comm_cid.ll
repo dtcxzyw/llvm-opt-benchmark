@@ -449,7 +449,7 @@ ompi_comm_extended_cid_get_unique_tag.exit.i.i:   ; preds = %50, %46
   br i1 %153, label %.lr.ph7.i.i, label %.thread.i.i, !llvm.loop !6
 
 .thread.i.i:                                      ; preds = %150, %144, %140, %136, %132, %128, %125, %121, %117, %113, %109, %106, %102, %98, %94, %90, %87, %.preheader.i.i
-  %.1.i.i = phi i64 [ %147, %144 ], [ %143, %140 ], [ %139, %136 ], [ %135, %132 ], [ %131, %128 ], [ %127, %125 ], [ %124, %121 ], [ %120, %117 ], [ %116, %113 ], [ %112, %109 ], [ %108, %106 ], [ %105, %102 ], [ %101, %98 ], [ %97, %94 ], [ %93, %90 ], [ %89, %87 ], [ undef, %.preheader.i.i ], [ undef, %150 ]
+  %.077.i.i = phi i64 [ %147, %144 ], [ %143, %140 ], [ %139, %136 ], [ %135, %132 ], [ %131, %128 ], [ %127, %125 ], [ %124, %121 ], [ %120, %117 ], [ %116, %113 ], [ %112, %109 ], [ %108, %106 ], [ %105, %102 ], [ %101, %98 ], [ %97, %94 ], [ %93, %90 ], [ %89, %87 ], [ undef, %.preheader.i.i ], [ undef, %150 ]
   %154 = call i32 @PMIx_Group_destruct(ptr noundef %.078.i.i, ptr noundef null, i64 noundef 0) #14
   %.not91.i.i = icmp eq i32 %154, 0
   br i1 %.not91.i.i, label %157, label %155
@@ -459,7 +459,7 @@ ompi_comm_extended_cid_get_unique_tag.exit.i.i:   ; preds = %50, %46
   br label %159
 
 157:                                              ; preds = %.thread.i.i
-  store i64 %.1.i.i, ptr %25, align 8
+  store i64 %.077.i.i, ptr %25, align 8
   %158 = getelementptr inbounds i8, ptr %0, i64 192
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %158, i8 0, i64 18, i1 false)
   br label %159

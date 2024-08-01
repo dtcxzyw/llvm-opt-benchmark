@@ -508,8 +508,8 @@ cleanup:                                          ; preds = %invoke.cont, %if.el
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi ptr [ %call.i3, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %call.i3, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

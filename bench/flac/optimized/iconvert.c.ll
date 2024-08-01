@@ -97,7 +97,7 @@ if.then42:                                        ; preds = %if.end39
   br label %return
 
 if.end45:                                         ; preds = %if.end33, %if.end39, %lor.lhs.false21
-  %cd2.1 = phi ptr [ %call38, %if.end39 ], [ inttoptr (i64 -1 to ptr), %lor.lhs.false21 ], [ %call34, %if.end33 ]
+  %cd2.0 = phi ptr [ %call38, %if.end39 ], [ inttoptr (i64 -1 to ptr), %lor.lhs.false21 ], [ %call34, %if.end33 ]
   %call46 = call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #8
   %tobool47.not = icmp eq ptr %call46, null
   br i1 %tobool47.not, label %if.end198, label %if.end49
@@ -116,7 +116,7 @@ if.end53:                                         ; preds = %if.end49, %if.end69
   %9 = phi i64 [ %15, %if.end69 ], [ %8, %if.end49 ]
   %ret.0126 = phi i32 [ %ret.1, %if.end69 ], [ 0, %if.end49 ]
   %utflen.0125 = phi i64 [ %utflen.1, %if.end69 ], [ 1, %if.end49 ]
-  %utfbuf.0124 = phi ptr [ %utfbuf.1, %if.end69 ], [ %call46, %if.end49 ]
+  %utfbuf.1124 = phi ptr [ %utfbuf.2, %if.end69 ], [ %call46, %if.end49 ]
   %10 = load i64, ptr %obl, align 8
   %cmp54 = icmp ult i64 %10, 6
   br i1 %cmp54, label %if.then56, label %if.else
@@ -128,13 +128,13 @@ if.then56:                                        ; preds = %if.end53
 
 if.end60:                                         ; preds = %if.then56
   %11 = load ptr, ptr %ob, align 8
-  %call62 = call ptr @realloc(ptr noundef %utfbuf.0124, i64 noundef %mul) #9
+  %call62 = call ptr @realloc(ptr noundef %utfbuf.1124, i64 noundef %mul) #9
   %tobool63.not = icmp eq ptr %call62, null
   br i1 %tobool63.not, label %fail, label %if.end65
 
 if.end65:                                         ; preds = %if.end60
   %sub.ptr.lhs.cast = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %utfbuf.0124 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %utfbuf.1124 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add.ptr = getelementptr inbounds i8, ptr %call62, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %ob, align 8
@@ -159,7 +159,7 @@ if.else:                                          ; preds = %if.end53
   br label %if.end69
 
 if.end69:                                         ; preds = %if.else, %if.end65
-  %utfbuf.1 = phi ptr [ %call62, %if.end65 ], [ %utfbuf.0124, %if.else ]
+  %utfbuf.2 = phi ptr [ %call62, %if.end65 ], [ %utfbuf.1124, %if.else ]
   %utflen.1 = phi i64 [ %mul, %if.end65 ], [ %utflen.0125, %if.else ]
   %ret.1 = phi i32 [ %ret.0126, %if.end65 ], [ 2, %if.else ]
   %call50 = call i64 @iconv(ptr noundef %call, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
@@ -168,9 +168,9 @@ if.end69:                                         ; preds = %if.else, %if.end65
   br i1 %tobool51.not, label %for.end, label %if.end53
 
 for.end:                                          ; preds = %if.end69, %if.end49
-  %utfbuf.0.lcssa = phi ptr [ %call46, %if.end49 ], [ %utfbuf.1, %if.end69 ]
+  %utfbuf.1.lcssa = phi ptr [ %call46, %if.end49 ], [ %utfbuf.2, %if.end69 ]
   %ret.0.lcssa = phi i32 [ 0, %if.end49 ], [ %ret.1, %if.end69 ]
-  %cmp70 = icmp eq ptr %cd2.1, inttoptr (i64 -1 to ptr)
+  %cmp70 = icmp eq ptr %cd2.0, inttoptr (i64 -1 to ptr)
   br i1 %cmp70, label %if.then72, label %if.end95
 
 if.then72:                                        ; preds = %for.end
@@ -180,7 +180,7 @@ if.then72:                                        ; preds = %for.end
 if.then74:                                        ; preds = %if.then72
   %16 = load ptr, ptr %ob, align 8
   %sub.ptr.lhs.cast75 = ptrtoint ptr %16 to i64
-  %sub.ptr.rhs.cast76 = ptrtoint ptr %utfbuf.0.lcssa to i64
+  %sub.ptr.rhs.cast76 = ptrtoint ptr %utfbuf.1.lcssa to i64
   %sub.ptr.sub77 = sub i64 %sub.ptr.lhs.cast75, %sub.ptr.rhs.cast76
   store i64 %sub.ptr.sub77, ptr %tolen, align 8
   br label %if.end78
@@ -190,21 +190,21 @@ if.end78:                                         ; preds = %if.then74, %if.then
   br i1 %tobool79.not, label %if.then80, label %if.end82
 
 if.then80:                                        ; preds = %if.end78
-  call void @free(ptr noundef %utfbuf.0.lcssa) #7
+  call void @free(ptr noundef %utfbuf.1.lcssa) #7
   %call81 = call i32 @iconv_close(ptr noundef %call) #7
   br label %return
 
 if.end82:                                         ; preds = %if.end78
   %17 = load ptr, ptr %ob, align 8
   %sub.ptr.lhs.cast83 = ptrtoint ptr %17 to i64
-  %sub.ptr.rhs.cast84 = ptrtoint ptr %utfbuf.0.lcssa to i64
+  %sub.ptr.rhs.cast84 = ptrtoint ptr %utfbuf.1.lcssa to i64
   %sub.ptr.sub85 = sub i64 %sub.ptr.lhs.cast83, %sub.ptr.rhs.cast84
   %cmp.i = icmp eq i64 %sub.ptr.sub85, -1
   br i1 %cmp.i, label %fail, label %safe_realloc_nofree_add_2op_.exit
 
 safe_realloc_nofree_add_2op_.exit:                ; preds = %if.end82
   %add.i = add nuw i64 %sub.ptr.sub85, 1
-  %call.i = call ptr @realloc(ptr noundef %utfbuf.0.lcssa, i64 noundef %add.i) #9
+  %call.i = call ptr @realloc(ptr noundef %utfbuf.1.lcssa, i64 noundef %add.i) #9
   %tobool87.not = icmp eq ptr %call.i, null
   br i1 %tobool87.not, label %fail, label %if.end89
 
@@ -222,13 +222,13 @@ if.end89:                                         ; preds = %safe_realloc_nofree
 if.end95:                                         ; preds = %for.end
   %19 = load ptr, ptr %ob, align 8
   %sub.ptr.lhs.cast96 = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast97 = ptrtoint ptr %utfbuf.0.lcssa to i64
+  %sub.ptr.rhs.cast97 = ptrtoint ptr %utfbuf.1.lcssa to i64
   %sub.ptr.sub98 = sub i64 %sub.ptr.lhs.cast96, %sub.ptr.rhs.cast97
-  %cmp99 = icmp eq ptr %19, %utfbuf.0.lcssa
+  %cmp99 = icmp eq ptr %19, %utfbuf.1.lcssa
   br i1 %cmp99, label %fail, label %if.end102
 
 if.end102:                                        ; preds = %if.end95
-  %call103 = call ptr @realloc(ptr noundef %utfbuf.0.lcssa, i64 noundef %sub.ptr.sub98) #9
+  %call103 = call ptr @realloc(ptr noundef %utfbuf.1.lcssa, i64 noundef %sub.ptr.sub98) #9
   %tobool104.not = icmp eq ptr %call103, null
   br i1 %tobool104.not, label %fail, label %while.body.lr.ph
 
@@ -238,7 +238,7 @@ while.body.lr.ph:                                 ; preds = %if.end102
   %sub.ptr.rhs.cast119 = ptrtoint ptr %tbuf to i64
   store ptr %tbuf, ptr %ob, align 8
   store i64 2048, ptr %obl, align 8
-  %call108164 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
+  %call108164 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %20 = load i64, ptr %ibl, align 8
   %tobool109.not165 = icmp eq i64 %20, 0
   br i1 %tobool109.not165, label %while.end, label %land.lhs.true
@@ -264,7 +264,7 @@ if.then116:                                       ; preds = %land.lhs.true112, %
   %add = add i64 %sub.ptr.sub120, %outlen.0130166
   store ptr %tbuf, ptr %ob, align 8
   store i64 2048, ptr %obl, align 8
-  %call122 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %tb, ptr noundef nonnull %tbl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
+  %call122 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef nonnull %tb, ptr noundef nonnull %tbl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %23 = load ptr, ptr %ib, align 8
   %ibl.promoted = load i64, ptr %ibl, align 8
   br label %for.cond125
@@ -292,7 +292,7 @@ if.end132:                                        ; preds = %land.rhs, %land.lhs
   %add137 = add i64 %sub.ptr.sub136, %sub.ptr.lhs.cast134
   store ptr %tbuf, ptr %ob, align 8
   store i64 2048, ptr %obl, align 8
-  %call108 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
+  %call108 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %26 = load i64, ptr %ibl, align 8
   %tobool109.not = icmp eq i64 %26, 0
   br i1 %tobool109.not, label %while.end, label %land.lhs.true, !llvm.loop !7
@@ -305,7 +305,7 @@ while.end:                                        ; preds = %if.end132, %for.con
   %add137147 = add i64 %sub.ptr.sub136146, %sub.ptr.lhs.cast134145
   store ptr %tbuf, ptr %ob, align 8
   store i64 2048, ptr %obl, align 8
-  %call139 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef null, ptr noundef null, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
+  %call139 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef null, ptr noundef null, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %28 = load ptr, ptr %ob, align 8
   %sub.ptr.lhs.cast141 = ptrtoint ptr %28 to i64
   %sub.ptr.sub143 = sub i64 %sub.ptr.lhs.cast141, %sub.ptr.rhs.cast119
@@ -324,7 +324,7 @@ while.body151.preheader:                          ; preds = %safe_malloc_add_2op
   store i64 %sub.ptr.sub98, ptr %ibl, align 8
   store ptr %call.i.i, ptr %ob, align 8
   store i64 %add144, ptr %obl, align 8
-  %call152168 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
+  %call152168 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %tobool153169 = icmp eq i64 %call152168, 0
   %tobool155170 = icmp ne i32 %ret.0.lcssa, 0
   %or.cond1171 = select i1 %tobool153169, i1 true, i1 %tobool155170
@@ -348,7 +348,7 @@ land.lhs.true162:                                 ; preds = %land.lhs.true159
 if.then166:                                       ; preds = %land.lhs.true162, %land.lhs.true159
   store ptr @.str.5, ptr %tb167, align 8
   store i64 1, ptr %tbl168, align 8
-  %call169 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %tb167, ptr noundef nonnull %tbl168, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
+  %call169 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef nonnull %tb167, ptr noundef nonnull %tbl168, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %31 = load ptr, ptr %ib, align 8
   %ibl.promoted132 = load i64, ptr %ibl, align 8
   br label %for.cond172
@@ -369,7 +369,7 @@ land.rhs174:                                      ; preds = %for.cond172
   br i1 %tobool177.not, label %if.end184, label %for.cond172, !llvm.loop !8
 
 if.end184:                                        ; preds = %land.rhs174, %land.lhs.true162
-  %call152 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
+  %call152 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef nonnull %ib, ptr noundef nonnull %ibl, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %tobool153 = icmp eq i64 %call152, 0
   %tobool155 = icmp ne i32 %spec.store.select175, 0
   %or.cond1 = select i1 %tobool153, i1 true, i1 %tobool155
@@ -380,12 +380,12 @@ if.end184:                                        ; preds = %land.rhs174, %land.
 
 while.end185:                                     ; preds = %if.end184, %for.cond172, %while.body151.preheader
   %spec.store.select161 = phi i32 [ %spec.store.select172, %while.body151.preheader ], [ %spec.store.select175, %for.cond172 ], [ %spec.store.select, %if.end184 ]
-  %call186 = call i64 @iconv(ptr noundef %cd2.1, ptr noundef null, ptr noundef null, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
+  %call186 = call i64 @iconv(ptr noundef %cd2.0, ptr noundef null, ptr noundef null, ptr noundef nonnull %ob, ptr noundef nonnull %obl) #7
   %34 = load ptr, ptr %ob, align 8
   store i8 0, ptr %34, align 1
   call void @free(ptr noundef %call103) #7
   %call187 = call i32 @iconv_close(ptr noundef %call) #7
-  %call188 = call i32 @iconv_close(ptr noundef %cd2.1) #7
+  %call188 = call i32 @iconv_close(ptr noundef %cd2.0) #7
   %tobool189.not = icmp eq ptr %tolen, null
   br i1 %tobool189.not, label %if.end191, label %if.then190
 
@@ -406,21 +406,21 @@ if.end194:                                        ; preds = %if.end191
   br label %return
 
 fail:                                             ; preds = %if.end60, %if.then56, %while.end, %if.end82, %safe_malloc_add_2op_.exit, %if.end102, %if.end95, %safe_realloc_nofree_add_2op_.exit
-  %utfbuf.2 = phi ptr [ %utfbuf.0.lcssa, %safe_realloc_nofree_add_2op_.exit ], [ %utfbuf.0.lcssa, %if.end95 ], [ %call103, %safe_malloc_add_2op_.exit ], [ %utfbuf.0.lcssa, %if.end102 ], [ %utfbuf.0.lcssa, %if.end82 ], [ %call103, %while.end ], [ %utfbuf.0124, %if.then56 ], [ %utfbuf.0124, %if.end60 ]
-  %cmp195.not = icmp eq ptr %utfbuf.2, null
+  %utfbuf.0 = phi ptr [ %utfbuf.1.lcssa, %safe_realloc_nofree_add_2op_.exit ], [ %utfbuf.1.lcssa, %if.end95 ], [ %call103, %safe_malloc_add_2op_.exit ], [ %utfbuf.1.lcssa, %if.end102 ], [ %utfbuf.1.lcssa, %if.end82 ], [ %call103, %while.end ], [ %utfbuf.1124, %if.then56 ], [ %utfbuf.1124, %if.end60 ]
+  %cmp195.not = icmp eq ptr %utfbuf.0, null
   br i1 %cmp195.not, label %if.end198, label %if.then197
 
 if.then197:                                       ; preds = %fail
-  call void @free(ptr noundef nonnull %utfbuf.2) #7
+  call void @free(ptr noundef nonnull %utfbuf.0) #7
   br label %if.end198
 
 if.end198:                                        ; preds = %if.end45, %if.then197, %fail
   %call199 = call i32 @iconv_close(ptr noundef %call) #7
-  %cmp200.not = icmp eq ptr %cd2.1, inttoptr (i64 -1 to ptr)
+  %cmp200.not = icmp eq ptr %cd2.0, inttoptr (i64 -1 to ptr)
   br i1 %cmp200.not, label %return, label %if.then202
 
 if.then202:                                       ; preds = %if.end198
-  %call203 = call i32 @iconv_close(ptr noundef %cd2.1) #7
+  %call203 = call i32 @iconv_close(ptr noundef %cd2.0) #7
   br label %return
 
 return:                                           ; preds = %if.end198.thread, %if.end198, %if.then202, %entry, %if.end194, %if.then193, %if.end89, %if.then80, %if.then42

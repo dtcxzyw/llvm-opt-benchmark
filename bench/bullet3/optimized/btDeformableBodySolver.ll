@@ -4968,7 +4968,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc51
   %indvars.iv94 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next95, %for.inc51 ]
-  %counter.088 = phi i32 [ 0, %for.body.lr.ph ], [ %counter.2, %for.inc51 ]
+  %counter.088 = phi i32 [ 0, %for.body.lr.ph ], [ %counter.1, %for.inc51 ]
   %1 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv94
   %2 = load ptr, ptr %arrayidx.i, align 8
@@ -5099,7 +5099,7 @@ for.inc51.loopexit:                               ; preds = %if.end41
   br label %for.inc51
 
 for.inc51:                                        ; preds = %for.inc51.loopexit, %for.cond6.preheader, %if.then
-  %counter.2 = phi i32 [ %add, %if.then ], [ %counter.088, %for.cond6.preheader ], [ %34, %for.inc51.loopexit ]
+  %counter.1 = phi i32 [ %add, %if.then ], [ %counter.088, %for.cond6.preheader ], [ %34, %for.inc51.loopexit ]
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %35 = load i32, ptr %m_size.i, align 4
   %36 = sext i32 %35 to i64
@@ -8511,7 +8511,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc55.us
   %1 = phi i32 [ %7, %for.inc55.us ], [ %0, %for.body.lr.ph ]
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %for.inc55.us ], [ 0, %for.body.lr.ph ]
-  %counter.0104.us = phi i32 [ %counter.2.us, %for.inc55.us ], [ 0, %for.body.lr.ph ]
+  %counter.0104.us = phi i32 [ %counter.1.us, %for.inc55.us ], [ 0, %for.body.lr.ph ]
   %2 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i.us = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv121
   %3 = load ptr, ptr %arrayidx.i.us, align 8
@@ -8536,7 +8536,7 @@ for.inc55.us.loopexit:                            ; preds = %if.end26.us.us
 
 for.inc55.us:                                     ; preds = %for.inc55.us.loopexit, %for.cond6.preheader.us, %if.then.us
   %7 = phi i32 [ %1, %if.then.us ], [ %1, %for.cond6.preheader.us ], [ %.pre125, %for.inc55.us.loopexit ]
-  %counter.2.us = phi i32 [ %add.us, %if.then.us ], [ %counter.0104.us, %for.cond6.preheader.us ], [ %6, %for.inc55.us.loopexit ]
+  %counter.1.us = phi i32 [ %add.us, %if.then.us ], [ %counter.0104.us, %for.cond6.preheader.us ], [ %6, %for.inc55.us.loopexit ]
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %8 = sext i32 %7 to i64
   %cmp.us = icmp slt i64 %indvars.iv.next122, %8
@@ -8633,7 +8633,7 @@ if.end26.us.us:                                   ; preds = %if.then16.us.us, %i
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc55
   %33 = phi i32 [ %56, %for.inc55 ], [ %0, %for.body.lr.ph ]
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %for.inc55 ], [ 0, %for.body.lr.ph ]
-  %counter.0104 = phi i32 [ %counter.2, %for.inc55 ], [ 0, %for.body.lr.ph ]
+  %counter.0104 = phi i32 [ %counter.1, %for.inc55 ], [ 0, %for.body.lr.ph ]
   %34 = load ptr, ptr %m_data.i, align 8
   %arrayidx.i = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv111
   %35 = load ptr, ptr %arrayidx.i, align 8
@@ -8709,7 +8709,7 @@ for.inc55.loopexit:                               ; preds = %for.body10
 
 for.inc55:                                        ; preds = %for.inc55.loopexit, %for.cond6.preheader, %if.then
   %56 = phi i32 [ %33, %if.then ], [ %33, %for.cond6.preheader ], [ %.pre, %for.inc55.loopexit ]
-  %counter.2 = phi i32 [ %add, %if.then ], [ %counter.0104, %for.cond6.preheader ], [ %55, %for.inc55.loopexit ]
+  %counter.1 = phi i32 [ %add, %if.then ], [ %counter.0104, %for.cond6.preheader ], [ %55, %for.inc55.loopexit ]
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %57 = sext i32 %56 to i64
   %cmp = icmp slt i64 %indvars.iv.next112, %57

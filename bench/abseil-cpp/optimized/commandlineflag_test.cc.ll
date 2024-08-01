@@ -454,7 +454,7 @@ if.end:                                           ; preds = %invoke.cont15
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont15, %if.end
-  %retval.0 = phi ptr [ %v2, %if.end ], [ null, %invoke.cont15 ]
+  %retval.1 = phi ptr [ %v2, %if.end ], [ null, %invoke.cont15 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %temp) #18
   br label %return
 
@@ -474,8 +474,8 @@ sw.epilog:                                        ; preds = %entry
   br label %return
 
 return:                                           ; preds = %sw.bb, %entry, %sw.epilog, %sw.bb20, %sw.bb18, %cleanup, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %invoke.cont4
-  %retval.1 = phi ptr [ null, %sw.epilog ], [ inttoptr (i64 80 to ptr), %sw.bb20 ], [ null, %sw.bb18 ], [ %retval.0, %cleanup ], [ @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, %sw.bb11 ], [ @_ZN4absl13base_internal11FastTypeTagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9dummy_varE, %sw.bb9 ], [ null, %sw.bb7 ], [ null, %sw.bb5 ], [ null, %invoke.cont4 ], [ inttoptr (i64 32 to ptr), %entry ], [ %call5.i.i14, %sw.bb ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ inttoptr (i64 80 to ptr), %sw.bb20 ], [ null, %sw.bb18 ], [ %retval.1, %cleanup ], [ @_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, %sw.bb11 ], [ @_ZN4absl13base_internal11FastTypeTagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9dummy_varE, %sw.bb9 ], [ null, %sw.bb7 ], [ null, %sw.bb5 ], [ null, %invoke.cont4 ], [ inttoptr (i64 32 to ptr), %entry ], [ %call5.i.i14, %sw.bb ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4683,11 +4683,11 @@ if.then.i.i.i:                                    ; preds = %_ZN7testing15Assert
           to label %invoke.cont48 unwind label %lpad
 
 invoke.cont48:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit137, %if.then.i.i.i
-  %u.sroa.0.1.in.i.i.i = phi i64 [ %17, %_ZN7testing15AssertionResultD2Ev.exit137 ], [ %call.i2.i.i.i138, %if.then.i.i.i ]
-  %u.sroa.0.1.i.i.i = trunc i64 %u.sroa.0.1.in.i.i.i to i32
-  store i32 %u.sroa.0.1.i.i.i, ptr %ref.tmp47, align 4
+  %u.sroa.0.0.in.i.i.i = phi i64 [ %17, %_ZN7testing15AssertionResultD2Ev.exit137 ], [ %call.i2.i.i.i138, %if.then.i.i.i ]
+  %u.sroa.0.0.i.i.i = trunc i64 %u.sroa.0.0.in.i.i.i to i32
+  store i32 %u.sroa.0.0.i.i.i, ptr %ref.tmp47, align 4
   store i32 11, ptr %ref.tmp50, align 4
-  %cmp.i.i = icmp eq i32 %u.sroa.0.1.i.i.i, 11
+  %cmp.i.i = icmp eq i32 %u.sroa.0.0.i.i.i, 11
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont48
@@ -5008,11 +5008,11 @@ if.then.i.i.i194:                                 ; preds = %_ZN7testing15Assert
           to label %invoke.cont125 unwind label %lpad
 
 invoke.cont125:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit190, %if.then.i.i.i194
-  %u.sroa.0.1.in.i.i.i192 = phi i64 [ %44, %_ZN7testing15AssertionResultD2Ev.exit190 ], [ %call.i2.i.i.i196, %if.then.i.i.i194 ]
-  %u.sroa.0.1.i.i.i193 = trunc i64 %u.sroa.0.1.in.i.i.i192 to i32
-  store i32 %u.sroa.0.1.i.i.i193, ptr %ref.tmp124, align 4
+  %u.sroa.0.0.in.i.i.i192 = phi i64 [ %44, %_ZN7testing15AssertionResultD2Ev.exit190 ], [ %call.i2.i.i.i196, %if.then.i.i.i194 ]
+  %u.sroa.0.0.i.i.i193 = trunc i64 %u.sroa.0.0.in.i.i.i192 to i32
+  store i32 %u.sroa.0.0.i.i.i193, ptr %ref.tmp124, align 4
   store i32 -123, ptr %ref.tmp127, align 4
-  %cmp.i.i198 = icmp eq i32 %u.sroa.0.1.i.i.i193, -123
+  %cmp.i.i198 = icmp eq i32 %u.sroa.0.0.i.i.i193, -123
   br i1 %cmp.i.i198, label %if.then.i.i200, label %if.end.i.i199
 
 if.then.i.i200:                                   ; preds = %invoke.cont125
@@ -5334,11 +5334,11 @@ if.then.i.i.i264:                                 ; preds = %_ZN7testing15Assert
           to label %invoke.cont203 unwind label %lpad
 
 invoke.cont203:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit260, %if.then.i.i.i264
-  %u.sroa.0.1.in.i.i.i262 = phi i64 [ %71, %_ZN7testing15AssertionResultD2Ev.exit260 ], [ %call.i2.i.i.i266, %if.then.i.i.i264 ]
-  %u.sroa.0.1.i.i.i263 = trunc i64 %u.sroa.0.1.in.i.i.i262 to i32
-  store i32 %u.sroa.0.1.i.i.i263, ptr %ref.tmp202, align 4
+  %u.sroa.0.0.in.i.i.i262 = phi i64 [ %71, %_ZN7testing15AssertionResultD2Ev.exit260 ], [ %call.i2.i.i.i266, %if.then.i.i.i264 ]
+  %u.sroa.0.0.i.i.i263 = trunc i64 %u.sroa.0.0.in.i.i.i262 to i32
+  store i32 %u.sroa.0.0.i.i.i263, ptr %ref.tmp202, align 4
   store i32 -123, ptr %ref.tmp205, align 4
-  %cmp.i.i268 = icmp eq i32 %u.sroa.0.1.i.i.i263, -123
+  %cmp.i.i268 = icmp eq i32 %u.sroa.0.0.i.i.i263, -123
   br i1 %cmp.i.i268, label %if.then.i.i270, label %if.end.i.i269
 
 if.then.i.i270:                                   ; preds = %invoke.cont203
@@ -5768,11 +5768,11 @@ if.then.i.i.i359:                                 ; preds = %_ZN7testing15Assert
           to label %invoke.cont300 unwind label %lpad
 
 invoke.cont300:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit355, %if.then.i.i.i359
-  %u.sroa.0.1.in.i.i.i357 = phi i64 [ %108, %_ZN7testing15AssertionResultD2Ev.exit355 ], [ %call.i2.i.i.i361, %if.then.i.i.i359 ]
-  %u.sroa.0.1.i.i.i358 = trunc i64 %u.sroa.0.1.in.i.i.i357 to i32
-  store i32 %u.sroa.0.1.i.i.i358, ptr %ref.tmp299, align 4
+  %u.sroa.0.0.in.i.i.i357 = phi i64 [ %108, %_ZN7testing15AssertionResultD2Ev.exit355 ], [ %call.i2.i.i.i361, %if.then.i.i.i359 ]
+  %u.sroa.0.0.i.i.i358 = trunc i64 %u.sroa.0.0.in.i.i.i357 to i32
+  store i32 %u.sroa.0.0.i.i.i358, ptr %ref.tmp299, align 4
   store i32 -123, ptr %ref.tmp302, align 4
-  %cmp.i.i363 = icmp eq i32 %u.sroa.0.1.i.i.i358, -123
+  %cmp.i.i363 = icmp eq i32 %u.sroa.0.0.i.i.i358, -123
   br i1 %cmp.i.i363, label %if.then.i.i365, label %if.end.i.i364
 
 if.then.i.i365:                                   ; preds = %invoke.cont300
@@ -6201,11 +6201,11 @@ if.then.i.i.i456:                                 ; preds = %_ZN7testing15Assert
           to label %invoke.cont396 unwind label %lpad
 
 invoke.cont396:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit452, %if.then.i.i.i456
-  %u.sroa.0.1.in.i.i.i454 = phi i64 [ %145, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %call.i2.i.i.i458, %if.then.i.i.i456 ]
-  %u.sroa.0.1.i.i.i455 = trunc i64 %u.sroa.0.1.in.i.i.i454 to i32
-  store i32 %u.sroa.0.1.i.i.i455, ptr %ref.tmp395, align 4
+  %u.sroa.0.0.in.i.i.i454 = phi i64 [ %145, %_ZN7testing15AssertionResultD2Ev.exit452 ], [ %call.i2.i.i.i458, %if.then.i.i.i456 ]
+  %u.sroa.0.0.i.i.i455 = trunc i64 %u.sroa.0.0.in.i.i.i454 to i32
+  store i32 %u.sroa.0.0.i.i.i455, ptr %ref.tmp395, align 4
   store i32 16, ptr %ref.tmp398, align 4
-  %cmp.i.i460 = icmp eq i32 %u.sroa.0.1.i.i.i455, 16
+  %cmp.i.i460 = icmp eq i32 %u.sroa.0.0.i.i.i455, 16
   br i1 %cmp.i.i460, label %if.then.i.i462, label %if.end.i.i461
 
 if.then.i.i462:                                   ; preds = %invoke.cont396
@@ -6526,11 +6526,11 @@ if.then.i.i.i526:                                 ; preds = %_ZN7testing15Assert
           to label %invoke.cont473 unwind label %lpad
 
 invoke.cont473:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit522, %if.then.i.i.i526
-  %u.sroa.0.1.in.i.i.i524 = phi i64 [ %172, %_ZN7testing15AssertionResultD2Ev.exit522 ], [ %call.i2.i.i.i528, %if.then.i.i.i526 ]
-  %u.sroa.0.1.i.i.i525 = trunc i64 %u.sroa.0.1.in.i.i.i524 to i32
-  store i32 %u.sroa.0.1.i.i.i525, ptr %ref.tmp472, align 4
+  %u.sroa.0.0.in.i.i.i524 = phi i64 [ %172, %_ZN7testing15AssertionResultD2Ev.exit522 ], [ %call.i2.i.i.i528, %if.then.i.i.i526 ]
+  %u.sroa.0.0.i.i.i525 = trunc i64 %u.sroa.0.0.in.i.i.i524 to i32
+  store i32 %u.sroa.0.0.i.i.i525, ptr %ref.tmp472, align 4
   store i32 11, ptr %ref.tmp475, align 4
-  %cmp.i.i530 = icmp eq i32 %u.sroa.0.1.i.i.i525, 11
+  %cmp.i.i530 = icmp eq i32 %u.sroa.0.0.i.i.i525, 11
   br i1 %cmp.i.i530, label %if.then.i.i532, label %if.end.i.i531
 
 if.then.i.i532:                                   ; preds = %invoke.cont473
@@ -8626,11 +8626,11 @@ if.then.i.i.i:                                    ; preds = %_ZN7testing15Assert
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %if.then.i.i.i
-  %u.sroa.0.1.in.i.i.i = phi i64 [ %10, %_ZN7testing15AssertionResultD2Ev.exit ], [ %call.i2.i.i.i39, %if.then.i.i.i ]
-  %u.sroa.0.1.i.i.i = trunc i64 %u.sroa.0.1.in.i.i.i to i32
-  store i32 %u.sroa.0.1.i.i.i, ptr %ref.tmp23, align 4
+  %u.sroa.0.0.in.i.i.i = phi i64 [ %10, %_ZN7testing15AssertionResultD2Ev.exit ], [ %call.i2.i.i.i39, %if.then.i.i.i ]
+  %u.sroa.0.0.i.i.i = trunc i64 %u.sroa.0.0.in.i.i.i to i32
+  store i32 %u.sroa.0.0.i.i.i, ptr %ref.tmp23, align 4
   store i32 22, ptr %ref.tmp26, align 4
-  %cmp.i.i = icmp eq i32 %u.sroa.0.1.i.i.i, 22
+  %cmp.i.i = icmp eq i32 %u.sroa.0.0.i.i.i, 22
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont24
@@ -8848,11 +8848,11 @@ if.then.i.i.i78:                                  ; preds = %_ZN7testing15Assert
           to label %invoke.cont74 unwind label %lpad
 
 invoke.cont74:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit74, %if.then.i.i.i78
-  %u.sroa.0.1.in.i.i.i76 = phi i64 [ %29, %_ZN7testing15AssertionResultD2Ev.exit74 ], [ %call.i2.i.i.i80, %if.then.i.i.i78 ]
-  %u.sroa.0.1.i.i.i77 = trunc i64 %u.sroa.0.1.in.i.i.i76 to i32
-  store i32 %u.sroa.0.1.i.i.i77, ptr %ref.tmp73, align 4
+  %u.sroa.0.0.in.i.i.i76 = phi i64 [ %29, %_ZN7testing15AssertionResultD2Ev.exit74 ], [ %call.i2.i.i.i80, %if.then.i.i.i78 ]
+  %u.sroa.0.0.i.i.i77 = trunc i64 %u.sroa.0.0.in.i.i.i76 to i32
+  store i32 %u.sroa.0.0.i.i.i77, ptr %ref.tmp73, align 4
   store i32 22, ptr %ref.tmp76, align 4
-  %cmp.i.i82 = icmp eq i32 %u.sroa.0.1.i.i.i77, 22
+  %cmp.i.i82 = icmp eq i32 %u.sroa.0.0.i.i.i77, 22
   br i1 %cmp.i.i82, label %if.then.i.i84, label %if.end.i.i83
 
 if.then.i.i84:                                    ; preds = %invoke.cont74
@@ -9172,11 +9172,11 @@ if.then.i.i.i150:                                 ; preds = %_ZN7testing15Assert
           to label %invoke.cont151 unwind label %lpad
 
 invoke.cont151:                                   ; preds = %_ZN7testing15AssertionResultD2Ev.exit146, %if.then.i.i.i150
-  %u.sroa.0.1.in.i.i.i148 = phi i64 [ %56, %_ZN7testing15AssertionResultD2Ev.exit146 ], [ %call.i2.i.i.i152, %if.then.i.i.i150 ]
-  %u.sroa.0.1.i.i.i149 = trunc i64 %u.sroa.0.1.in.i.i.i148 to i32
-  store i32 %u.sroa.0.1.i.i.i149, ptr %ref.tmp150, align 4
+  %u.sroa.0.0.in.i.i.i148 = phi i64 [ %56, %_ZN7testing15AssertionResultD2Ev.exit146 ], [ %call.i2.i.i.i152, %if.then.i.i.i150 ]
+  %u.sroa.0.0.i.i.i149 = trunc i64 %u.sroa.0.0.in.i.i.i148 to i32
+  store i32 %u.sroa.0.0.i.i.i149, ptr %ref.tmp150, align 4
   store i32 201, ptr %ref.tmp153, align 4
-  %cmp.i.i154 = icmp eq i32 %u.sroa.0.1.i.i.i149, 201
+  %cmp.i.i154 = icmp eq i32 %u.sroa.0.0.i.i.i149, 201
   br i1 %cmp.i.i154, label %if.then.i.i156, label %if.end.i.i155
 
 if.then.i.i156:                                   ; preds = %invoke.cont151

@@ -7386,13 +7386,13 @@ _ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetVa
   br label %73
 
 73:                                               ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit, %18, %72
-  %.0 = phi i1 [ true, %72 ], [ false, %18 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit ]
+  %.1 = phi i1 [ true, %72 ], [ false, %18 ], [ false, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   br label %74
 
 74:                                               ; preds = %2, %73
-  %.1 = phi i1 [ %.0, %73 ], [ false, %2 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %73 ], [ false, %2 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7575,7 +7575,7 @@ _ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9SetSt
   br label %80
 
 80:                                               ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEE4findERS9_.exit, %19, %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9SetStringERKS6_m.exit
-  %.07 = phi i1 [ true, %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9SetStringERKS6_m.exit ], [ false, %19 ], [ false, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEE4findERS9_.exit ]
+  %.1 = phi i1 [ true, %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9SetStringERKS6_m.exit ], [ false, %19 ], [ false, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaISt4pairIKS5_mEEE4findERS9_.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   br label %82
 
@@ -7585,8 +7585,8 @@ _ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9SetSt
   resume { ptr, i32 } %.pn
 
 82:                                               ; preds = %2, %7, %80
-  %.1 = phi i1 [ %.07, %80 ], [ false, %7 ], [ false, %2 ]
-  ret i1 %.1
+  %.07 = phi i1 [ %.1, %80 ], [ false, %7 ], [ false, %2 ]
+  ret i1 %.07
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8006,13 +8006,13 @@ define noundef zeroext i1 @_ZN2mu17ParserTokenReader11IsPostOpTokERNS_11ParserTo
   br i1 %.not9, label %.loopexit, label %.lr.ph, !llvm.loop !366
 
 .loopexit:                                        ; preds = %40, %20, %15, %33
-  %.0 = phi i1 [ true, %33 ], [ false, %15 ], [ false, %20 ], [ false, %40 ]
+  %.1 = phi i1 [ true, %33 ], [ false, %15 ], [ false, %20 ], [ false, %40 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   br label %44
 
 44:                                               ; preds = %2, %.loopexit
-  %.1 = phi i1 [ %.0, %.loopexit ], [ false, %2 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %.loopexit ], [ false, %2 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

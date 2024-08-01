@@ -651,7 +651,7 @@ define internal fastcc range(i32 0, 17) i32 @php_get_xbm(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %.preheader, %22
   %8 = phi ptr [ %23, %22 ], [ %7, %.preheader ]
-  %.067 = phi i32 [ %.1, %22 ], [ 0, %.preheader ]
+  %.067 = phi i32 [ %.2, %22 ], [ 0, %.preheader ]
   %.02966 = phi i32 [ %.231, %22 ], [ 0, %.preheader ]
   %9 = call noalias ptr @_estrdup(ptr noundef nonnull %8) #13
   %10 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %8, ptr noundef nonnull @.str.33, ptr noundef %9, ptr noundef nonnull %3) #13
@@ -673,19 +673,19 @@ define internal fastcc range(i32 0, 17) i32 @php_get_xbm(ptr noundef %0, ptr nou
   br i1 %.not43, label %18, label %24
 
 18:                                               ; preds = %16, %12
-  %.130 = phi i32 [ %.02966, %12 ], [ %17, %16 ]
+  %.3 = phi i32 [ %.02966, %12 ], [ %17, %16 ]
   %19 = call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.35, ptr noundef nonnull dereferenceable(1) %.032) #14
   %.not44 = icmp eq i32 %19, 0
   br i1 %.not44, label %20, label %22
 
 20:                                               ; preds = %18
   %21 = load i32, ptr %3, align 4
-  %.not45 = icmp eq i32 %.130, 0
+  %.not45 = icmp eq i32 %.3, 0
   br i1 %.not45, label %22, label %24
 
 22:                                               ; preds = %18, %20, %.lr.ph
-  %.231 = phi i32 [ %.130, %18 ], [ 0, %20 ], [ %.02966, %.lr.ph ]
-  %.1 = phi i32 [ %.067, %18 ], [ %21, %20 ], [ %.067, %.lr.ph ]
+  %.231 = phi i32 [ %.3, %18 ], [ 0, %20 ], [ %.02966, %.lr.ph ]
+  %.2 = phi i32 [ %.067, %18 ], [ %21, %20 ], [ %.067, %.lr.ph ]
   call void @_efree(ptr noundef nonnull %8) #13
   call void @_efree(ptr noundef %9) #13
   %23 = call ptr @_php_stream_get_line(ptr noundef %0, ptr noundef null, i64 noundef 0, ptr noundef null) #13
@@ -693,17 +693,17 @@ define internal fastcc range(i32 0, 17) i32 @php_get_xbm(ptr noundef %0, ptr nou
   br i1 %.not40, label %.loopexit, label %.lr.ph
 
 24:                                               ; preds = %20, %16
-  %.3.ph = phi i32 [ %17, %16 ], [ %.130, %20 ]
-  %.2.ph = phi i32 [ %.067, %16 ], [ %21, %20 ]
+  %.130.ph = phi i32 [ %17, %16 ], [ %.3, %20 ]
+  %.1.ph = phi i32 [ %.067, %16 ], [ %21, %20 ]
   call void @_efree(ptr noundef %9) #13
   call void @_efree(ptr noundef nonnull %8) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %22, %24
-  %.251 = phi i32 [ %.2.ph, %24 ], [ %.1, %22 ]
-  %.349 = phi i32 [ %.3.ph, %24 ], [ %.231, %22 ]
-  %25 = icmp eq i32 %.349, 0
-  %26 = icmp eq i32 %.251, 0
+  %.151 = phi i32 [ %.1.ph, %24 ], [ %.2, %22 ]
+  %.13049 = phi i32 [ %.130.ph, %24 ], [ %.231, %22 ]
+  %25 = icmp eq i32 %.13049, 0
+  %26 = icmp eq i32 %.151, 0
   %or.cond.not54 = select i1 %25, i1 true, i1 %26
   %brmerge = or i1 %.not, %or.cond.not54
   %.mux = select i1 %or.cond.not54, i32 0, i32 16
@@ -712,9 +712,9 @@ define internal fastcc range(i32 0, 17) i32 @php_get_xbm(ptr noundef %0, ptr nou
 27:                                               ; preds = %.loopexit
   %28 = call noalias dereferenceable_or_null(16) ptr @_ecalloc(i64 noundef 1, i64 noundef 16) #16
   store ptr %28, ptr %1, align 8
-  store i32 %.349, ptr %28, align 4
+  store i32 %.13049, ptr %28, align 4
   %29 = getelementptr inbounds i8, ptr %28, i64 4
-  store i32 %.251, ptr %29, align 4
+  store i32 %.151, ptr %29, align 4
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %.loopexit, %27, %5

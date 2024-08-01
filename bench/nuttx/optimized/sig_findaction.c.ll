@@ -14,13 +14,13 @@ define ptr @nxsig_find_action(ptr noundef readonly %0, i32 noundef %1) local_unn
   br label %6
 
 6:                                                ; preds = %7, %3
-  %.0.in = phi ptr [ %5, %3 ], [ %.0, %7 ]
-  %.0 = load ptr, ptr %.0.in, align 8
-  %.not7 = icmp eq ptr %.0, null
+  %.1.in = phi ptr [ %5, %3 ], [ %.1, %7 ]
+  %.1 = load ptr, ptr %.1.in, align 8
+  %.not7 = icmp eq ptr %.1, null
   br i1 %.not7, label %.critedge, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %.0, i64 40
+  %8 = getelementptr inbounds i8, ptr %.1, i64 40
   %9 = load i8, ptr %8, align 8
   %10 = zext i8 %9 to i32
   %.not8 = icmp eq i32 %10, %1
@@ -31,8 +31,8 @@ define ptr @nxsig_find_action(ptr noundef readonly %0, i32 noundef %1) local_unn
   br label %12
 
 12:                                               ; preds = %.critedge, %2
-  %.1 = phi ptr [ %.0, %.critedge ], [ null, %2 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %.critedge ], [ null, %2 ]
+  ret ptr %.0
 }
 
 declare i32 @sched_lock() local_unnamed_addr #1

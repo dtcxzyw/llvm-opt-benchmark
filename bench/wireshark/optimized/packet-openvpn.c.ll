@@ -343,15 +343,15 @@ define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr nound
   br i1 %or.cond8, label %70, label %88
 
 70:                                               ; preds = %.thread, %69
-  %.0201232 = phi i32 [ %68, %.thread ], [ %37, %69 ]
-  %71 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0201232) #2
+  %.1232 = phi i32 [ %68, %.thread ], [ %37, %69 ]
+  %71 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1232) #2
   %72 = icmp sgt i32 %71, 7
   br i1 %72, label %73, label %83
 
 73:                                               ; preds = %70
   %74 = load i32, ptr @hf_openvpn_pid, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef %.0201232, i32 noundef 4, i32 noundef 0) #2
-  %76 = add i32 %.0201232, 4
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef %.1232, i32 noundef 4, i32 noundef 0) #2
+  %76 = add i32 %.1232, 4
   %77 = load i32, ptr @pref_long_format, align 4
   %78 = icmp ne i32 %77, 0
   %or.cond10 = or i1 %or.cond6, %78
@@ -360,22 +360,22 @@ define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr nound
 79:                                               ; preds = %73
   %80 = load i32, ptr @hf_openvpn_net_time, align 4
   %81 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %80, ptr noundef %0, i32 noundef %76, i32 noundef 4, i32 noundef 0) #2
-  %82 = add i32 %.0201232, 8
+  %82 = add i32 %.1232, 8
   br label %83
 
 83:                                               ; preds = %79, %73, %70
-  %.1 = phi i32 [ %82, %79 ], [ %76, %73 ], [ %.0201232, %70 ]
+  %.3 = phi i32 [ %82, %79 ], [ %76, %73 ], [ %.1232, %70 ]
   br i1 %or.cond6, label %.thread233, label %88
 
 .thread233:                                       ; preds = %83
   %84 = load i32, ptr @hf_openvpn_hmac, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %.1, i32 noundef 32, i32 noundef 0) #2
-  %86 = add i32 %.1, 32
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %84, ptr noundef %0, i32 noundef %.3, i32 noundef 32, i32 noundef 0) #2
+  %86 = add i32 %.3, 32
   %87 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %86) #2
   br label %112
 
 88:                                               ; preds = %83, %69
-  %.2 = phi i32 [ %.1, %83 ], [ %37, %69 ]
+  %.2 = phi i32 [ %.3, %83 ], [ %37, %69 ]
   %89 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #2
   %90 = icmp slt i32 %89, 1
   %or.cond12.not = or i1 %or.cond6, %90
@@ -396,11 +396,11 @@ define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr nound
   br label %100
 
 100:                                              ; preds = %97, %100
-  %.3251 = phi i32 [ %96, %97 ], [ %103, %100 ]
+  %.5251 = phi i32 [ %96, %97 ], [ %103, %100 ]
   %.0206250 = phi i32 [ 0, %97 ], [ %104, %100 ]
   %101 = load i32, ptr @hf_openvpn_mpid_arrayelement, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %101, ptr noundef %0, i32 noundef %.3251, i32 noundef 4, i32 noundef 0) #2
-  %103 = add i32 %.3251, 4
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %101, ptr noundef %0, i32 noundef %.5251, i32 noundef 4, i32 noundef 0) #2
+  %103 = add i32 %.5251, 4
   %104 = add nuw nsw i32 %.0206250, 1
   %exitcond.not = icmp eq i32 %104, %93
   br i1 %exitcond.not, label %105, label %100, !llvm.loop !4
@@ -413,7 +413,7 @@ define internal fastcc i32 @dissect_openvpn_msg_common(ptr noundef %0, ptr nound
 108:                                              ; preds = %105
   %109 = load i32, ptr @hf_openvpn_rsessionid, align 4
   %110 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %109, ptr noundef %0, i32 noundef %103, i32 noundef 8, i32 noundef 0) #2
-  %111 = add i32 %.3251, 12
+  %111 = add i32 %.5251, 12
   br label %112
 
 112:                                              ; preds = %.thread233, %108, %105
@@ -444,8 +444,8 @@ switch.early.test:                                ; preds = %88, %91, %112
 122:                                              ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %112, %5, %113, %116, %27
   %.0210 = phi i32 [ -1, %27 ], [ %34, %116 ], [ %34, %113 ], [ %34, %switch.early.test ], [ -1, %5 ], [ %34, %112 ], [ %34, %switch.early.test ], [ %34, %switch.early.test ]
   %.0208 = phi i32 [ -1, %27 ], [ %118, %116 ], [ -1, %113 ], [ -1, %switch.early.test ], [ -1, %5 ], [ -1, %112 ], [ -1, %switch.early.test ], [ -1, %switch.early.test ]
-  %.5 = phi i32 [ %30, %27 ], [ %121, %116 ], [ %.4238, %113 ], [ %.4238, %switch.early.test ], [ %26, %5 ], [ %.4, %112 ], [ %.4238, %switch.early.test ], [ %.4238, %switch.early.test ]
-  %123 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5) #2
+  %.0201 = phi i32 [ %30, %27 ], [ %121, %116 ], [ %.4238, %113 ], [ %.4238, %switch.early.test ], [ %26, %5 ], [ %.4, %112 ], [ %.4238, %switch.early.test ], [ %.4238, %switch.early.test ]
+  %123 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0201) #2
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %190, label %125
 
@@ -472,9 +472,9 @@ switch.early.test:                                ; preds = %88, %91, %112
   %.0204244 = phi i32 [ %131, %.thread239 ], [ -1, %133 ]
   %.0205243 = phi i32 [ %132, %.thread239 ], [ %123, %133 ]
   %135 = load i32, ptr @ett_openvpn_data, align 4
-  %136 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.5, i32 noundef %.0205243, i32 noundef %135, ptr noundef null, ptr noundef nonnull @.str.94, i32 noundef %.0205243) #2
+  %136 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0201, i32 noundef %.0205243, i32 noundef %135, ptr noundef null, ptr noundef nonnull @.str.94, i32 noundef %.0205243) #2
   %137 = load i32, ptr @hf_openvpn_data, align 4
-  %138 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %137, ptr noundef %0, i32 noundef %.5, i32 noundef %.0205243, i32 noundef 0) #2
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %137, ptr noundef %0, i32 noundef %.0201, i32 noundef %.0205243, i32 noundef 0) #2
   %139 = icmp sgt i32 %.0204244, 0
   br i1 %139, label %140, label %190
 
@@ -483,7 +483,7 @@ switch.early.test:                                ; preds = %88, %91, %112
   %142 = sub i32 %141, %.0204244
   %143 = load i32, ptr @ett_openvpn_wkc, align 4
   %144 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %142) #2
-  %145 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.5, i32 noundef %.0205243, i32 noundef %143, ptr noundef null, ptr noundef nonnull @.str.95, i32 noundef %144) #2
+  %145 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0201, i32 noundef %.0205243, i32 noundef %143, ptr noundef null, ptr noundef nonnull @.str.95, i32 noundef %144) #2
   %146 = load i32, ptr @hf_openvpn_wkc_data, align 4
   %147 = tail call ptr @proto_tree_add_item(ptr noundef %145, i32 noundef %146, ptr noundef %0, i32 noundef %142, i32 noundef %.0204244, i32 noundef 0) #2
   %148 = load i32, ptr @hf_openvpn_wkc_length, align 4
@@ -498,7 +498,7 @@ switch.early.test:                                ; preds = %88, %91, %112
   %155 = load i32, ptr %154, align 8
   store i32 1, ptr %154, align 8
   %156 = zext i1 %153 to i32
-  %157 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @msg_reassembly_table, ptr noundef %0, i32 noundef %.5, ptr noundef %1, i32 noundef %.0210, ptr noundef null, i32 noundef %123, i32 noundef %156) #2
+  %157 = tail call ptr @fragment_add_seq_next(ptr noundef nonnull @msg_reassembly_table, ptr noundef %0, i32 noundef %.0201, ptr noundef %1, i32 noundef %.0210, ptr noundef null, i32 noundef %123, i32 noundef %156) #2
   %158 = icmp eq ptr %157, null
   br i1 %158, label %.thread247.critedge, label %159
 
@@ -509,17 +509,17 @@ switch.early.test:                                ; preds = %88, %91, %112
 
 161:                                              ; preds = %159
   %162 = load i32, ptr @ett_openvpn_data, align 4
-  %163 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.5) #2
-  %164 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.5, i32 noundef -1, i32 noundef %162, ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef %163) #2
+  %163 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0201) #2
+  %164 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0201, i32 noundef -1, i32 noundef %162, ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef %163) #2
   %165 = load i32, ptr @hf_openvpn_fragment_bytes, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %165, ptr noundef %0, i32 noundef %.5, i32 noundef -1, i32 noundef 0) #2
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef %164, i32 noundef %165, ptr noundef %0, i32 noundef %.0201, i32 noundef -1, i32 noundef 0) #2
   br label %.thread245
 
 .thread245:                                       ; preds = %161, %159
   br i1 %153, label %172, label %167
 
 167:                                              ; preds = %.thread245
-  %168 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.5, ptr noundef nonnull %1, ptr noundef nonnull @.str.97, ptr noundef nonnull %157, ptr noundef nonnull @openvpn_frag_items, ptr noundef null, ptr noundef %2) #2
+  %168 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.0201, ptr noundef nonnull %1, ptr noundef nonnull @.str.97, ptr noundef nonnull %157, ptr noundef nonnull @openvpn_frag_items, ptr noundef null, ptr noundef %2) #2
   %169 = load ptr, ptr %157, align 8
   %.not228 = icmp eq ptr %169, null
   br i1 %.not228, label %186, label %170
@@ -546,10 +546,10 @@ switch.early.test:                                ; preds = %88, %91, %112
 
 .thread247.critedge:                              ; preds = %152
   %181 = load i32, ptr @ett_openvpn_data, align 4
-  %182 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.5) #2
-  %183 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.5, i32 noundef -1, i32 noundef %181, ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef %182) #2
+  %182 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0201) #2
+  %183 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %0, i32 noundef %.0201, i32 noundef -1, i32 noundef %181, ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef %182) #2
   %184 = load i32, ptr @hf_openvpn_fragment_bytes, align 4
-  %185 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %184, ptr noundef %0, i32 noundef %.5, i32 noundef -1, i32 noundef 0) #2
+  %185 = tail call ptr @proto_tree_add_item(ptr noundef %183, i32 noundef %184, ptr noundef %0, i32 noundef %.0201, i32 noundef -1, i32 noundef 0) #2
   br label %.thread247
 
 .thread247:                                       ; preds = %.thread247.critedge, %178, %172

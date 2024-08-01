@@ -529,19 +529,19 @@ hwloc_get_pu_obj_by_os_index.exit:                ; preds = %186
 
 .thread126:                                       ; preds = %162, %196, %197, %190
   %.076118 = phi ptr [ %.076119.ph, %197 ], [ %.076119.ph, %196 ], [ %.076120, %190 ], [ %128, %162 ]
-  %.071 = phi i32 [ 0, %197 ], [ 0, %196 ], [ 1, %190 ], [ 0, %162 ]
+  %.2 = phi i32 [ 0, %197 ], [ 0, %196 ], [ 1, %190 ], [ 0, %162 ]
   call void @free(ptr noundef %.076118) #14
   br label %198
 
 198:                                              ; preds = %.thread126, %118
-  %.172 = phi i32 [ 1, %118 ], [ %.071, %.thread126 ]
+  %.172 = phi i32 [ 1, %118 ], [ %.2, %.thread126 ]
   %199 = load ptr, ptr %3, align 8
   call void @hwloc_topology_destroy(ptr noundef %199) #14
   br label %200
 
 200:                                              ; preds = %198, %110, %98, %92, %67, %58
-  %.2 = phi i32 [ 1, %67 ], [ 0, %58 ], [ 1, %92 ], [ %.172, %198 ], [ 1, %110 ], [ 1, %98 ]
-  ret i32 %.2
+  %.071 = phi i32 [ 1, %67 ], [ 0, %58 ], [ 1, %92 ], [ %.172, %198 ], [ 1, %110 ], [ 1, %98 ]
+  ret i32 %.071
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

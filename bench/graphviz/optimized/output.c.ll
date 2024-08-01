@@ -1883,8 +1883,8 @@ agxbuse.exit297:                                  ; preds = %agxbclear.exit.thre
   br label %.thread
 
 .thread:                                          ; preds = %284, %282, %275
-  %.1 = phi i64 [ %280, %275 ], [ 8, %282 ], [ %spec.select, %284 ]
-  %287 = uitofp i64 %.1 to double
+  %.0176 = phi i64 [ %280, %275 ], [ 8, %282 ], [ %spec.select, %284 ]
+  %287 = uitofp i64 %.0176 to double
   %288 = getelementptr inbounds i8, ptr %278, i64 56
   br label %289
 
@@ -2007,7 +2007,7 @@ agxbputc.exit:                                    ; preds = %300, %295, %289
 
 357:                                              ; preds = %325, %355
   %358 = add nuw i64 %.0174518, 1
-  %exitcond.not = icmp eq i64 %358, %.1
+  %exitcond.not = icmp eq i64 %358, %.0176
   br i1 %exitcond.not, label %agxbsizeof.exit.i.i303, label %289
 
 agxbsizeof.exit.i.i303:                           ; preds = %357
@@ -2083,8 +2083,8 @@ agxbuse.exit315:                                  ; preds = %agxbclear.exit.thre
 
 .lr.ph532:                                        ; preds = %383, %700
   %.0177530 = phi ptr [ %701, %700 ], [ %384, %383 ]
-  %.1180529 = phi i8 [ %.4, %700 ], [ %.0179537, %383 ]
-  %.1182528 = phi i8 [ %.4185, %700 ], [ %.0181536, %383 ]
+  %.1180529 = phi i8 [ %.2, %700 ], [ %.0179537, %383 ]
+  %.1182528 = phi i8 [ %.2183, %700 ], [ %.0181536, %383 ]
   %385 = getelementptr inbounds i8, ptr %.0177530, i64 16
   %386 = load ptr, ptr %385, align 8
   %387 = getelementptr inbounds i8, ptr %386, i64 152
@@ -2106,8 +2106,8 @@ agxbuse.exit315:                                  ; preds = %agxbclear.exit.thre
 
 .lr.ph524:                                        ; preds = %.preheader, %._crit_edge
   %.0173523 = phi i64 [ %535, %._crit_edge ], [ 0, %.preheader ]
-  %.2522 = phi i8 [ %.3, %._crit_edge ], [ %.1180529, %.preheader ]
-  %.2183521 = phi i8 [ %.3184, %._crit_edge ], [ %.1182528, %.preheader ]
+  %.3522 = phi i8 [ %.4, %._crit_edge ], [ %.1180529, %.preheader ]
+  %.3184521 = phi i8 [ %.4185, %._crit_edge ], [ %.1182528, %.preheader ]
   %.not213 = icmp eq i64 %.0173523, 0
   br i1 %.not213, label %agxbputc.exit326, label %396
 
@@ -2249,7 +2249,7 @@ agxbputc.exit326:                                 ; preds = %425, %.thread459, %
 453:                                              ; preds = %451, %agxbputc.exit326
   %454 = phi ptr [ %.pre570, %451 ], [ %434, %agxbputc.exit326 ]
   %455 = phi ptr [ %.pre569, %451 ], [ %433, %agxbputc.exit326 ]
-  %.3 = phi i8 [ 1, %451 ], [ %.2522, %agxbputc.exit326 ]
+  %.4 = phi i8 [ 1, %451 ], [ %.3522, %agxbputc.exit326 ]
   %456 = getelementptr inbounds %struct.bezier, ptr %454, i64 %.0173523
   %457 = getelementptr inbounds i8, ptr %456, i64 20
   %458 = load i32, ptr %457, align 4
@@ -2287,7 +2287,7 @@ agxbputc.exit326:                                 ; preds = %425, %.thread459, %
 474:                                              ; preds = %472, %453
   %475 = phi ptr [ %.pre574, %472 ], [ %454, %453 ]
   %476 = phi ptr [ %.pre573, %472 ], [ %455, %453 ]
-  %.3184 = phi i8 [ 1, %472 ], [ %.2183521, %453 ]
+  %.4185 = phi i8 [ 1, %472 ], [ %.3184521, %453 ]
   %477 = getelementptr inbounds %struct.bezier, ptr %475, i64 %.0173523, i32 1
   %478 = load i64, ptr %477, align 8
   %.not545 = icmp eq i64 %478, 0
@@ -2430,8 +2430,8 @@ agxbputc.exit337:                                 ; preds = %508, %.thread470, %
   br i1 %538, label %.lr.ph524, label %._crit_edge525
 
 ._crit_edge525:                                   ; preds = %._crit_edge, %.preheader
-  %.2183.lcssa = phi i8 [ %.1182528, %.preheader ], [ %.3184, %._crit_edge ]
-  %.2.lcssa = phi i8 [ %.1180529, %.preheader ], [ %.3, %._crit_edge ]
+  %.3184.lcssa = phi i8 [ %.1182528, %.preheader ], [ %.4185, %._crit_edge ]
+  %.3.lcssa = phi i8 [ %.1180529, %.preheader ], [ %.4, %._crit_edge ]
   %.val.i.i.i338 = load i8, ptr %61, align 1
   %.not.i.i.i339 = icmp eq i8 %.val.i.i.i338, -1
   br i1 %.not.i.i.i339, label %agxbsizeof.exit.i.i341, label %agxbsizeof.exit.i.i341.thread
@@ -2862,15 +2862,15 @@ agxbuse.exit417:                                  ; preds = %agxbclear.exit.thre
   br label %700
 
 700:                                              ; preds = %670, %agxbuse.exit417, %390, %.lr.ph532
-  %.4185 = phi i8 [ %.1182528, %.lr.ph532 ], [ %.1182528, %390 ], [ %.2183.lcssa, %agxbuse.exit417 ], [ %.2183.lcssa, %670 ]
-  %.4 = phi i8 [ %.1180529, %.lr.ph532 ], [ %.1180529, %390 ], [ %.2.lcssa, %agxbuse.exit417 ], [ %.2.lcssa, %670 ]
+  %.2183 = phi i8 [ %.1182528, %.lr.ph532 ], [ %.1182528, %390 ], [ %.3184.lcssa, %agxbuse.exit417 ], [ %.3184.lcssa, %670 ]
+  %.2 = phi i8 [ %.1180529, %.lr.ph532 ], [ %.1180529, %390 ], [ %.3.lcssa, %agxbuse.exit417 ], [ %.3.lcssa, %670 ]
   %701 = call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.0177530) #18
   %.not208 = icmp eq ptr %701, null
   br i1 %.not208, label %.loopexit, label %.lr.ph532
 
 .loopexit:                                        ; preds = %700, %383, %380
-  %.5186 = phi i8 [ %.0181536, %380 ], [ %.0181536, %383 ], [ %.4185, %700 ]
-  %.5 = phi i8 [ %.0179537, %380 ], [ %.0179537, %383 ], [ %.4, %700 ]
+  %.5186 = phi i8 [ %.0181536, %380 ], [ %.0181536, %383 ], [ %.2183, %700 ]
+  %.5 = phi i8 [ %.0179537, %380 ], [ %.0179537, %383 ], [ %.2, %700 ]
   %702 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.0175538) #18
   %.not202 = icmp eq ptr %702, null
   br i1 %.not202, label %._crit_edge541.loopexit, label %64

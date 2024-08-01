@@ -1965,10 +1965,10 @@ _ZL19icvAddBasicVariableP10CvEMDStateiiP8CvNode1DS2_S2_.exit.i.i: ; preds = %642
   br i1 %exitcond182.not.i.us, label %._crit_edge137.i.loopexit.us, label %.lr.ph136.i.us, !llvm.loop !32
 
 768:                                              ; preds = %.loopexit.i167.us, %._crit_edge137.i.loopexit.us
-  %.sroa.0116.0.i.us = phi ptr [ %519, %._crit_edge137.i.loopexit.us ], [ %.sroa.0116.6.i.us, %.loopexit.i167.us ]
-  %.sroa.0.0.i.us = phi ptr [ null, %._crit_edge137.i.loopexit.us ], [ %.sroa.0.6.i.us, %.loopexit.i167.us ]
-  %.0112.i.us = phi i32 [ 0, %._crit_edge137.i.loopexit.us ], [ %.2114.i.us, %.loopexit.i167.us ]
-  %.096.i.us = phi i32 [ 0, %._crit_edge137.i.loopexit.us ], [ %.2.i.us, %.loopexit.i167.us ]
+  %.sroa.0116.0.i.us = phi ptr [ %519, %._crit_edge137.i.loopexit.us ], [ %.sroa.0116.3.i.us, %.loopexit.i167.us ]
+  %.sroa.0.0.i.us = phi ptr [ null, %._crit_edge137.i.loopexit.us ], [ %.sroa.0.5.i.us, %.loopexit.i167.us ]
+  %.0112.i.us = phi i32 [ 0, %._crit_edge137.i.loopexit.us ], [ %.1113.i.us, %.loopexit.i167.us ]
+  %.096.i.us = phi i32 [ 0, %._crit_edge137.i.loopexit.us ], [ %.197.i.us, %.loopexit.i167.us ]
   %769 = icmp slt i32 %.096.i.us, %.2273.i299
   %770 = icmp slt i32 %.0112.i.us, %.2276.i297
   %771 = select i1 %769, i1 true, i1 %770
@@ -2083,7 +2083,7 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
 
 816:                                              ; preds = %873, %798
   %.069.i.i.us = phi ptr [ %.sroa.35.1387.us, %798 ], [ %.5.i.i.us, %873 ]
-  %.0.i.i.us = phi i32 [ 1, %798 ], [ %.3.i.i.us, %873 ]
+  %.0.i.i.us = phi i32 [ 1, %798 ], [ %.4.i.i.us, %873 ]
   %817 = and i32 %.0.i.i.us, 1
   %.not.i.i182.us = icmp eq i32 %817, 0
   br i1 %.not.i.i182.us, label %830, label %818
@@ -2118,50 +2118,50 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
   %832 = load i32, ptr %831, align 4
   %833 = sext i32 %832 to i64
   %834 = getelementptr inbounds ptr, ptr %521, i64 %833
-  %.27197.i.i.us = load ptr, ptr %834, align 8
-  %.not7598.i.i.us = icmp eq ptr %.27197.i.i.us, null
+  %.37297.i.i.us = load ptr, ptr %834, align 8
+  %.not7598.i.i.us = icmp eq ptr %.37297.i.i.us, null
   br i1 %.not7598.i.i.us, label %.critedge2.i.i.us, label %.lr.ph100.i.i.us
 
 .lr.ph100.i.i.us:                                 ; preds = %830, %840
-  %.27199.i.i.us = phi ptr [ %.271.i.i.us, %840 ], [ %.27197.i.i.us, %830 ]
-  %835 = ptrtoint ptr %.27199.i.i.us to i64
+  %.37299.i.i.us = phi ptr [ %.372.i.i.us, %840 ], [ %.37297.i.i.us, %830 ]
+  %835 = ptrtoint ptr %.37299.i.i.us to i64
   %836 = sub i64 %835, %759
   %837 = ashr exact i64 %836, 5
   %838 = getelementptr inbounds i8, ptr %280, i64 %837
   %839 = load i8, ptr %838, align 1
   %.not76.i.i.us = icmp eq i8 %839, 0
-  %.not77.i.i.us = icmp eq ptr %.27199.i.i.us, %.sroa.35.1387.us
+  %.not77.i.i.us = icmp eq ptr %.37299.i.i.us, %.sroa.35.1387.us
   %or.cond.i.i189.us = or i1 %.not77.i.i.us, %.not76.i.i.us
   br i1 %or.cond.i.i189.us, label %.critedge2.i.i.us, label %840
 
 840:                                              ; preds = %.lr.ph100.i.i.us
-  %841 = getelementptr inbounds i8, ptr %.27199.i.i.us, i64 16
-  %.271.i.i.us = load ptr, ptr %841, align 8
-  %.not75.i.i.us = icmp eq ptr %.271.i.i.us, null
+  %841 = getelementptr inbounds i8, ptr %.37299.i.i.us, i64 16
+  %.372.i.i.us = load ptr, ptr %841, align 8
+  %.not75.i.i.us = icmp eq ptr %.372.i.i.us, null
   br i1 %.not75.i.i.us, label %.critedge2.i.i.us, label %.lr.ph100.i.i.us, !llvm.loop !36
 
 .critedge2.i.i.us:                                ; preds = %.lr.ph100.i.i.us, %840, %830
-  %.271.lcssa.i.i.us = phi ptr [ null, %830 ], [ %.27199.i.i.us, %.lr.ph100.i.i.us ], [ null, %840 ]
-  %842 = icmp eq ptr %.271.lcssa.i.i.us, %.sroa.35.1387.us
+  %.372.lcssa.i.i.us = phi ptr [ null, %830 ], [ %.37299.i.i.us, %.lr.ph100.i.i.us ], [ null, %840 ]
+  %842 = icmp eq ptr %.372.lcssa.i.i.us, %.sroa.35.1387.us
   br i1 %842, label %.preheader106.i.us, label %.critedge.i.i.us
 
 .critedge.i.i.us:                                 ; preds = %.critedge2.i.i.us
-  %.not80.i.i.us = icmp eq ptr %.271.lcssa.i.i.us, null
+  %.not80.i.i.us = icmp eq ptr %.372.lcssa.i.i.us, null
   br i1 %.not80.i.i.us, label %.preheader.preheader.i.i.us, label %.critedge..critedge.thread_crit_edge.i.i.us
 
 .critedge..critedge.thread_crit_edge.i.i.us:      ; preds = %.critedge.i.i.us
-  %.pre.i.i190.us = ptrtoint ptr %.271.lcssa.i.i.us to i64
+  %.pre.i.i190.us = ptrtoint ptr %.372.lcssa.i.i.us to i64
   %.pre111.i.i.us = sub i64 %.pre.i.i190.us, %759
   %.pre113.i.i.us = ashr exact i64 %.pre111.i.i.us, 5
   br label %.critedge.thread.i.i.us
 
 .critedge.thread.i.i.us:                          ; preds = %.lr.ph.i.i183.us, %.critedge..critedge.thread_crit_edge.i.i.us
   %.pre-phi114.i.i.us = phi i64 [ %.pre113.i.i.us, %.critedge..critedge.thread_crit_edge.i.i.us ], [ %825, %.lr.ph.i.i183.us ]
-  %.37285.i.i.us = phi ptr [ %.271.lcssa.i.i.us, %.critedge..critedge.thread_crit_edge.i.i.us ], [ %.17096.i.i.us, %.lr.ph.i.i183.us ]
+  %.27185.i.i.us = phi ptr [ %.372.lcssa.i.i.us, %.critedge..critedge.thread_crit_edge.i.i.us ], [ %.17096.i.i.us, %.lr.ph.i.i183.us ]
   %843 = add nuw nsw i32 %.0.i.i.us, 1
   %844 = zext nneg i32 %.0.i.i.us to i64
   %845 = getelementptr inbounds ptr, ptr %.0298.lcssa.i452, i64 %844
-  store ptr %.37285.i.i.us, ptr %845, align 8
+  store ptr %.27185.i.i.us, ptr %845, align 8
   br label %873
 
 .preheader.preheader.i.i.us:                      ; preds = %828, %.critedge.i.i.us, %818
@@ -2203,9 +2203,9 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
   br i1 %863, label %.preheader.i.i.us, label %.critedge4.thread86.i.i.us, !llvm.loop !38
 
 .critedge4.thread86.i.i.us:                       ; preds = %.critedge4.i.i.us, %853
-  %.288.in.i.i.us = phi i64 [ %indvars.iv.i.i184.us, %853 ], [ %indvars.iv.next.i.i188.us, %.critedge4.i.i.us ]
-  %.288.i.i.us = trunc i64 %.288.in.i.i.us to i32
-  %sext.i.i185.us = shl i64 %.288.in.i.i.us, 32
+  %.388.in.i.i.us = phi i64 [ %indvars.iv.i.i184.us, %853 ], [ %indvars.iv.next.i.i188.us, %.critedge4.i.i.us ]
+  %.388.i.i.us = trunc i64 %.388.in.i.i.us to i32
+  %sext.i.i185.us = shl i64 %.388.in.i.i.us, 32
   %864 = ashr exact i64 %sext.i.i185.us, 29
   %gep104.i.i.us = getelementptr i8, ptr %invariant.gep103.i.i, i64 %864
   %865 = load ptr, ptr %gep104.i.i.us, align 8
@@ -2222,11 +2222,11 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
 
 873:                                              ; preds = %.critedge4.thread86.i.i.us, %.critedge.thread.i.i.us
   %.pre-phi114.sink.i.i.us = phi i64 [ %.pre-phi114.i.i.us, %.critedge.thread.i.i.us ], [ %872, %.critedge4.thread86.i.i.us ]
-  %.5.i.i.us = phi ptr [ %.37285.i.i.us, %.critedge.thread.i.i.us ], [ %852, %.critedge4.thread86.i.i.us ]
-  %.3.i.i.us = phi i32 [ %843, %.critedge.thread.i.i.us ], [ %.288.i.i.us, %.critedge4.thread86.i.i.us ]
+  %.5.i.i.us = phi ptr [ %.27185.i.i.us, %.critedge.thread.i.i.us ], [ %852, %.critedge4.thread86.i.i.us ]
+  %.4.i.i.us = phi i32 [ %843, %.critedge.thread.i.i.us ], [ %.388.i.i.us, %.critedge4.thread86.i.i.us ]
   %874 = getelementptr inbounds i8, ptr %280, i64 %.pre-phi114.sink.i.i.us
   store i8 1, ptr %874, align 1
-  %875 = icmp sgt i32 %.3.i.i.us, 0
+  %875 = icmp sgt i32 %.4.i.i.us, 0
   br i1 %875, label %816, label %_ZL11icvFindLoopP10CvEMDState.exit.i, !llvm.loop !39
 
 .preheader106.i.us:                               ; preds = %.critedge2.i.i.us
@@ -2359,8 +2359,8 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
 .lr.ph150.split.i.us:                             ; preds = %.lr.ph150.i.us, %.lr.ph150.splitthread-pre-split.i.us
   %932 = phi ptr [ %.pr.i.us, %.lr.ph150.splitthread-pre-split.i.us ], [ %930, %.lr.ph150.i.us ]
   %.0104148.i.us = phi ptr [ %958, %.lr.ph150.splitthread-pre-split.i.us ], [ %.sroa.0116.0.i.us, %.lr.ph150.i.us ]
-  %.1113147.i.us = phi i32 [ %959, %.lr.ph150.splitthread-pre-split.i.us ], [ %.0112.i.us, %.lr.ph150.i.us ]
-  %.sroa.0.1146.i.us = phi ptr [ %.sroa.0.2.lcssa.i.us, %.lr.ph150.splitthread-pre-split.i.us ], [ %.sroa.0.0.i.us, %.lr.ph150.i.us ]
+  %.2114147.i.us = phi i32 [ %959, %.lr.ph150.splitthread-pre-split.i.us ], [ %.0112.i.us, %.lr.ph150.i.us ]
+  %.sroa.0.2146.i.us = phi ptr [ %.sroa.0.3.lcssa.i.us, %.lr.ph150.splitthread-pre-split.i.us ], [ %.sroa.0.0.i.us, %.lr.ph150.i.us ]
   %933 = load float, ptr %.0104148.i.us, align 8
   %.not128138.i.us = icmp eq ptr %932, null
   br i1 %.not128138.i.us, label %._crit_edge144.i.us, label %.lr.ph143.i.us
@@ -2375,7 +2375,7 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
 937:                                              ; preds = %956, %.lr.ph143.i.us
   %.0107141.i.us = phi ptr [ %16, %.lr.ph143.i.us ], [ %.1108.i.us, %956 ]
   %.0109140.i.us = phi ptr [ %932, %.lr.ph143.i.us ], [ %.1110.i.us, %956 ]
-  %.sroa.0.2139.i.us = phi ptr [ %.sroa.0.1146.i.us, %.lr.ph143.i.us ], [ %.sroa.0.3.i.us, %956 ]
+  %.sroa.0.3139.i.us = phi ptr [ %.sroa.0.2146.i.us, %.lr.ph143.i.us ], [ %.sroa.0.4.i.us, %956 ]
   %938 = ptrtoint ptr %.0109140.i.us to i64
   %939 = sub i64 %938, %582
   %sext129.i.us = shl i64 %939, 28
@@ -2398,7 +2398,7 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
   %952 = load ptr, ptr %951, align 8
   %953 = getelementptr inbounds i8, ptr %.0107141.i.us, i64 8
   store ptr %952, ptr %953, align 8
-  store ptr %.sroa.0.2139.i.us, ptr %951, align 8
+  store ptr %.sroa.0.3139.i.us, ptr %951, align 8
   br label %956
 
 954:                                              ; preds = %937
@@ -2406,7 +2406,7 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
   br label %956
 
 956:                                              ; preds = %954, %945
-  %.sroa.0.3.i.us = phi ptr [ %.0109140.i.us, %945 ], [ %.sroa.0.2139.i.us, %954 ]
+  %.sroa.0.4.i.us = phi ptr [ %.0109140.i.us, %945 ], [ %.sroa.0.3139.i.us, %954 ]
   %.1110.in.i.us = phi ptr [ %953, %945 ], [ %955, %954 ]
   %.1108.i.us = phi ptr [ %.0107141.i.us, %945 ], [ %.0109140.i.us, %954 ]
   %.1110.i.us = load ptr, ptr %.1110.in.i.us, align 8
@@ -2414,10 +2414,10 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
   br i1 %.not128.i.us, label %._crit_edge144.i.us, label %937, !llvm.loop !45
 
 ._crit_edge144.i.us:                              ; preds = %956, %.lr.ph150.split.i.us
-  %.sroa.0.2.lcssa.i.us = phi ptr [ %.sroa.0.1146.i.us, %.lr.ph150.split.i.us ], [ %.sroa.0.3.i.us, %956 ]
+  %.sroa.0.3.lcssa.i.us = phi ptr [ %.sroa.0.2146.i.us, %.lr.ph150.split.i.us ], [ %.sroa.0.4.i.us, %956 ]
   %957 = getelementptr inbounds i8, ptr %.0104148.i.us, i64 8
   %958 = load ptr, ptr %957, align 8
-  %959 = add nsw i32 %.1113147.i.us, 1
+  %959 = add nsw i32 %.2114147.i.us, 1
   %.not.i168.us = icmp eq ptr %958, null
   br i1 %.not.i168.us, label %.loopexit132.i.us, label %.lr.ph150.splitthread-pre-split.i.us, !llvm.loop !46
 
@@ -2427,24 +2427,24 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
 
 .lr.ph150.split.us.i.us:                          ; preds = %.lr.ph150.i.us, %.lr.ph150.split.us.i.us
   %.0104148.us.i.us = phi ptr [ %961, %.lr.ph150.split.us.i.us ], [ %.sroa.0116.0.i.us, %.lr.ph150.i.us ]
-  %.1113147.us.i.us = phi i32 [ %962, %.lr.ph150.split.us.i.us ], [ %.0112.i.us, %.lr.ph150.i.us ]
+  %.2114147.us.i.us = phi i32 [ %962, %.lr.ph150.split.us.i.us ], [ %.0112.i.us, %.lr.ph150.i.us ]
   %960 = getelementptr inbounds i8, ptr %.0104148.us.i.us, i64 8
   %961 = load ptr, ptr %960, align 8
-  %962 = add nsw i32 %.1113147.us.i.us, 1
+  %962 = add nsw i32 %.2114147.us.i.us, 1
   %.not.us.i.us = icmp eq ptr %961, null
   br i1 %.not.us.i.us, label %.loopexit132.i.us, label %.lr.ph150.split.us.i.us, !llvm.loop !48
 
 .loopexit132.i.us:                                ; preds = %._crit_edge144.i.us, %.lr.ph150.split.us.i.us, %928, %927
-  %.sroa.0116.2.i.us = phi ptr [ %.sroa.0116.0.i.us, %927 ], [ null, %928 ], [ null, %.lr.ph150.split.us.i.us ], [ null, %._crit_edge144.i.us ]
-  %.sroa.0.4.i.us = phi ptr [ %.sroa.0.0.i.us, %927 ], [ %.sroa.0.0.i.us, %928 ], [ %.sroa.0.0.i.us, %.lr.ph150.split.us.i.us ], [ %.sroa.0.2.lcssa.i.us, %._crit_edge144.i.us ]
-  %.2114.i.us = phi i32 [ %.0112.i.us, %927 ], [ %.0112.i.us, %928 ], [ %962, %.lr.ph150.split.us.i.us ], [ %959, %._crit_edge144.i.us ]
+  %.sroa.0116.1.i.us = phi ptr [ %.sroa.0116.0.i.us, %927 ], [ null, %928 ], [ null, %.lr.ph150.split.us.i.us ], [ null, %._crit_edge144.i.us ]
+  %.sroa.0.1.i.us = phi ptr [ %.sroa.0.0.i.us, %927 ], [ %.sroa.0.0.i.us, %928 ], [ %.sroa.0.0.i.us, %.lr.ph150.split.us.i.us ], [ %.sroa.0.3.lcssa.i.us, %._crit_edge144.i.us ]
+  %.1113.i.us = phi i32 [ %.0112.i.us, %927 ], [ %.0112.i.us, %928 ], [ %962, %.lr.ph150.split.us.i.us ], [ %959, %._crit_edge144.i.us ]
   %.0100.shrunk.i.us = phi i1 [ false, %927 ], [ %929, %928 ], [ true, %.lr.ph150.split.us.i.us ], [ true, %._crit_edge144.i.us ]
   br i1 %769, label %963, label %.loopexit.i167.us
 
 963:                                              ; preds = %.loopexit132.i.us
-  %964 = icmp ne ptr %.sroa.0.4.i.us, null
+  %964 = icmp ne ptr %.sroa.0.1.i.us, null
   %965 = select i1 %.0100.shrunk.i.us, i1 true, i1 %964
-  %.not124162.i.us = icmp eq ptr %.sroa.0.4.i.us, null
+  %.not124162.i.us = icmp eq ptr %.sroa.0.1.i.us, null
   br i1 %.not124162.i.us, label %.loopexit.i167.us, label %.lr.ph167.i.us
 
 .lr.ph167.i.us:                                   ; preds = %963
@@ -2453,9 +2453,9 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
   br i1 %967, label %.lr.ph167.split.us.i.us, label %.lr.ph167.split.i.us
 
 .lr.ph167.split.i.us:                             ; preds = %.lr.ph167.i.us, %._crit_edge160.i.us
-  %.197165.i.us = phi i32 [ %994, %._crit_edge160.i.us ], [ %.096.i.us, %.lr.ph167.i.us ]
-  %.2111164.i.us = phi ptr [ %993, %._crit_edge160.i.us ], [ %.sroa.0.4.i.us, %.lr.ph167.i.us ]
-  %.sroa.0116.3163.i.us = phi ptr [ %.sroa.0116.4.lcssa.i.us, %._crit_edge160.i.us ], [ %.sroa.0116.2.i.us, %.lr.ph167.i.us ]
+  %.2165.i.us = phi i32 [ %994, %._crit_edge160.i.us ], [ %.096.i.us, %.lr.ph167.i.us ]
+  %.2111164.i.us = phi ptr [ %993, %._crit_edge160.i.us ], [ %.sroa.0.1.i.us, %.lr.ph167.i.us ]
+  %.sroa.0116.4163.i.us = phi ptr [ %.sroa.0116.5.lcssa.i.us, %._crit_edge160.i.us ], [ %.sroa.0116.1.i.us, %.lr.ph167.i.us ]
   %968 = load float, ptr %.2111164.i.us, align 8
   %969 = ptrtoint ptr %.2111164.i.us to i64
   %970 = sub i64 %969, %582
@@ -2472,7 +2472,7 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
 .lr.ph159.i.us:                                   ; preds = %.lr.ph167.split.i.us, %991
   %.0102157.i.us = phi ptr [ %.1103.i.us, %991 ], [ %17, %.lr.ph167.split.i.us ]
   %.1105156.i.us = phi ptr [ %.2106.i.us, %991 ], [ %976, %.lr.ph167.split.i.us ]
-  %.sroa.0116.4155.i.us = phi ptr [ %.sroa.0116.5.i.us, %991 ], [ %.sroa.0116.3163.i.us, %.lr.ph167.split.i.us ]
+  %.sroa.0116.5155.i.us = phi ptr [ %.sroa.0116.6.i.us, %991 ], [ %.sroa.0116.4163.i.us, %.lr.ph167.split.i.us ]
   %977 = ptrtoint ptr %.1105156.i.us to i64
   %978 = sub i64 %977, %583
   %sext126.i.us = shl i64 %978, 28
@@ -2491,7 +2491,7 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
   %987 = load ptr, ptr %986, align 8
   %988 = getelementptr inbounds i8, ptr %.0102157.i.us, i64 8
   store ptr %987, ptr %988, align 8
-  store ptr %.sroa.0116.4155.i.us, ptr %986, align 8
+  store ptr %.sroa.0116.5155.i.us, ptr %986, align 8
   br label %991
 
 989:                                              ; preds = %.lr.ph159.i.us
@@ -2499,7 +2499,7 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
   br label %991
 
 991:                                              ; preds = %989, %982
-  %.sroa.0116.5.i.us = phi ptr [ %.1105156.i.us, %982 ], [ %.sroa.0116.4155.i.us, %989 ]
+  %.sroa.0116.6.i.us = phi ptr [ %.1105156.i.us, %982 ], [ %.sroa.0116.5155.i.us, %989 ]
   %.2106.in.i.us = phi ptr [ %988, %982 ], [ %990, %989 ]
   %.1103.i.us = phi ptr [ %.0102157.i.us, %982 ], [ %.1105156.i.us, %989 ]
   %.2106.i.us = load ptr, ptr %.2106.in.i.us, align 8
@@ -2507,27 +2507,27 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
   br i1 %.not125.i.us, label %._crit_edge160.i.us, label %.lr.ph159.i.us, !llvm.loop !49
 
 ._crit_edge160.i.us:                              ; preds = %991, %.lr.ph167.split.i.us
-  %.sroa.0116.4.lcssa.i.us = phi ptr [ %.sroa.0116.3163.i.us, %.lr.ph167.split.i.us ], [ %.sroa.0116.5.i.us, %991 ]
+  %.sroa.0116.5.lcssa.i.us = phi ptr [ %.sroa.0116.4163.i.us, %.lr.ph167.split.i.us ], [ %.sroa.0116.6.i.us, %991 ]
   %992 = getelementptr inbounds i8, ptr %.2111164.i.us, i64 8
   %993 = load ptr, ptr %992, align 8
-  %994 = add nsw i32 %.197165.i.us, 1
+  %994 = add nsw i32 %.2165.i.us, 1
   %.not124.i.us = icmp eq ptr %993, null
   br i1 %.not124.i.us, label %.loopexit.i167.us, label %.lr.ph167.split.i.us, !llvm.loop !50
 
 .lr.ph167.split.us.i.us:                          ; preds = %.lr.ph167.i.us, %.lr.ph167.split.us.i.us
-  %.197165.us.i.us = phi i32 [ %997, %.lr.ph167.split.us.i.us ], [ %.096.i.us, %.lr.ph167.i.us ]
-  %.2111164.us.i.us = phi ptr [ %996, %.lr.ph167.split.us.i.us ], [ %.sroa.0.4.i.us, %.lr.ph167.i.us ]
+  %.2165.us.i.us = phi i32 [ %997, %.lr.ph167.split.us.i.us ], [ %.096.i.us, %.lr.ph167.i.us ]
+  %.2111164.us.i.us = phi ptr [ %996, %.lr.ph167.split.us.i.us ], [ %.sroa.0.1.i.us, %.lr.ph167.i.us ]
   %995 = getelementptr inbounds i8, ptr %.2111164.us.i.us, i64 8
   %996 = load ptr, ptr %995, align 8
-  %997 = add nsw i32 %.197165.us.i.us, 1
+  %997 = add nsw i32 %.2165.us.i.us, 1
   %.not124.us.i.us = icmp eq ptr %996, null
   br i1 %.not124.us.i.us, label %.loopexit.i167.us, label %.lr.ph167.split.us.i.us, !llvm.loop !51
 
 .loopexit.i167.us:                                ; preds = %._crit_edge160.i.us, %.lr.ph167.split.us.i.us, %963, %.loopexit132.i.us
-  %.sroa.0116.6.i.us = phi ptr [ %.sroa.0116.2.i.us, %.loopexit132.i.us ], [ %.sroa.0116.2.i.us, %963 ], [ %.sroa.0116.2.i.us, %.lr.ph167.split.us.i.us ], [ %.sroa.0116.4.lcssa.i.us, %._crit_edge160.i.us ]
-  %.sroa.0.6.i.us = phi ptr [ %.sroa.0.4.i.us, %.loopexit132.i.us ], [ null, %963 ], [ null, %.lr.ph167.split.us.i.us ], [ null, %._crit_edge160.i.us ]
+  %.sroa.0116.3.i.us = phi ptr [ %.sroa.0116.1.i.us, %.loopexit132.i.us ], [ %.sroa.0116.1.i.us, %963 ], [ %.sroa.0116.1.i.us, %.lr.ph167.split.us.i.us ], [ %.sroa.0116.5.lcssa.i.us, %._crit_edge160.i.us ]
+  %.sroa.0.5.i.us = phi ptr [ %.sroa.0.1.i.us, %.loopexit132.i.us ], [ null, %963 ], [ null, %.lr.ph167.split.us.i.us ], [ null, %._crit_edge160.i.us ]
   %.1101.in.i.us = phi i1 [ %.0100.shrunk.i.us, %.loopexit132.i.us ], [ %965, %963 ], [ %965, %.lr.ph167.split.us.i.us ], [ %965, %._crit_edge160.i.us ]
-  %.2.i.us = phi i32 [ %.096.i.us, %.loopexit132.i.us ], [ %.096.i.us, %963 ], [ %997, %.lr.ph167.split.us.i.us ], [ %994, %._crit_edge160.i.us ]
+  %.197.i.us = phi i32 [ %.096.i.us, %.loopexit132.i.us ], [ %.096.i.us, %963 ], [ %997, %.lr.ph167.split.us.i.us ], [ %994, %._crit_edge160.i.us ]
   br i1 %.1101.in.i.us, label %768, label %.thread336, !llvm.loop !52
 
 ._crit_edge137.i.loopexit.us:                     ; preds = %.lr.ph136.i.us
@@ -2604,7 +2604,7 @@ _ZL12icvIsOptimalPPfPPcP8CvNode1DS4_iiP8CvNode2D.exit.us: ; preds = %._crit_edge
   br label %.body
 
 _ZL11icvFindLoopP10CvEMDState.exit.i:             ; preds = %873
-  %.not171.i = icmp eq i32 %.3.i.i.us, 0
+  %.not171.i = icmp eq i32 %.4.i.i.us, 0
   br i1 %.not171.i, label %1031, label %._crit_edge.thread.i186
 
 ._crit_edge.thread.i186:                          ; preds = %._crit_edge.i191.us, %_ZL11icvFindLoopP10CvEMDState.exit.i
@@ -2718,7 +2718,7 @@ _ZL11icvFindLoopP10CvEMDState.exit.i:             ; preds = %873
   br label %.body
 
 .loopexit:                                        ; preds = %921, %796, %.thread336, %.thread305
-  %.sroa.35.3 = phi ptr [ %.sroa.29.1, %.thread305 ], [ %.sroa.35.1387.us, %.thread336 ], [ %.sroa.35.1387.us, %796 ], [ %.088.lcssa.ph.i.us, %921 ]
+  %.sroa.35.0 = phi ptr [ %.sroa.29.1, %.thread305 ], [ %.sroa.35.1387.us, %.thread336 ], [ %.sroa.35.1387.us, %796 ], [ %.088.lcssa.ph.i.us, %921 ]
   %1039 = icmp ult ptr %516, %746
   br i1 %1039, label %.lr.ph, label %._crit_edge
 
@@ -2732,7 +2732,7 @@ _ZL11icvFindLoopP10CvEMDState.exit.i:             ; preds = %873
   %.088396 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %1074 ]
   %.0107395 = phi ptr [ %516, %.lr.ph ], [ %1075, %1074 ]
   %1043 = load float, ptr %.0107395, align 8
-  %1044 = icmp eq ptr %.0107395, %.sroa.35.3
+  %1044 = icmp eq ptr %.0107395, %.sroa.35.0
   br i1 %1044, label %1074, label %1045
 
 1045:                                             ; preds = %1042

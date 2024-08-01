@@ -98,18 +98,18 @@ sw.bb1.i:                                         ; preds = %if.end16.thread53, 
   br label %sw.bb2.i
 
 sw.bb2.i:                                         ; preds = %if.else12, %sw.bb1.i
-  %p.addr.1.i = phi ptr [ %add.ptr.i.i, %sw.bb1.i ], [ %p, %if.else12 ]
+  %p.addr.2.i = phi ptr [ %add.ptr.i.i, %sw.bb1.i ], [ %p, %if.else12 ]
   %u.addr.0.i = phi i32 [ %sub.i, %sw.bb1.i ], [ %u, %if.else12 ]
   %div3.i = udiv i32 %u.addr.0.i, 1000000
   %idxprom.i23.i = zext nneg i32 %div3.i to i64
   %arrayidx.i24.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i23.i
   %6 = load i16, ptr %arrayidx.i24.i, align 2
-  store i16 %6, ptr %p.addr.1.i, align 1
-  %add.ptr.i25.i = getelementptr inbounds i8, ptr %p.addr.1.i, i64 2
+  store i16 %6, ptr %p.addr.2.i, align 1
+  %add.ptr.i25.i = getelementptr inbounds i8, ptr %p.addr.2.i, i64 2
   br label %sw.bb5.i
 
 sw.bb5.i:                                         ; preds = %if.end16.thread61, %sw.bb2.i
-  %p.addr.2.i = phi ptr [ %add.ptr.i25.i, %sw.bb2.i ], [ %add.ptr.i.i36, %if.end16.thread61 ]
+  %p.addr.3.i = phi ptr [ %add.ptr.i25.i, %sw.bb2.i ], [ %add.ptr.i.i36, %if.end16.thread61 ]
   %d.addr.1.i = phi i32 [ %div3.i, %sw.bb2.i ], [ %div.i34, %if.end16.thread61 ]
   %u.addr.1.i = phi i32 [ %u.addr.0.i, %sw.bb2.i ], [ %u, %if.end16.thread61 ]
   %mul6.neg.i = mul i32 %d.addr.1.i, -1000000
@@ -117,18 +117,18 @@ sw.bb5.i:                                         ; preds = %if.end16.thread61, 
   br label %sw.bb8.i
 
 sw.bb8.i:                                         ; preds = %if.then10, %sw.bb5.i
-  %p.addr.3.i = phi ptr [ %p.addr.2.i, %sw.bb5.i ], [ %p, %if.then10 ]
+  %p.addr.4.i = phi ptr [ %p.addr.3.i, %sw.bb5.i ], [ %p, %if.then10 ]
   %u.addr.2.i = phi i32 [ %sub7.i, %sw.bb5.i ], [ %u, %if.then10 ]
   %div9.i = udiv i32 %u.addr.2.i, 10000
   %idxprom.i26.i = zext nneg i32 %div9.i to i64
   %arrayidx.i27.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i26.i
   %7 = load i16, ptr %arrayidx.i27.i, align 2
-  store i16 %7, ptr %p.addr.3.i, align 1
-  %add.ptr.i28.i = getelementptr inbounds i8, ptr %p.addr.3.i, i64 2
+  store i16 %7, ptr %p.addr.4.i, align 1
+  %add.ptr.i28.i = getelementptr inbounds i8, ptr %p.addr.4.i, i64 2
   br label %sw.bb11.i
 
 sw.bb11.i:                                        ; preds = %if.end16.thread69, %sw.bb8.i
-  %p.addr.4.i = phi ptr [ %add.ptr.i28.i, %sw.bb8.i ], [ %add.ptr.i.i29, %if.end16.thread69 ]
+  %p.addr.5.i = phi ptr [ %add.ptr.i28.i, %sw.bb8.i ], [ %add.ptr.i.i29, %if.end16.thread69 ]
   %d.addr.2.i = phi i32 [ %div9.i, %sw.bb8.i ], [ %div.i27, %if.end16.thread69 ]
   %u.addr.3.i = phi i32 [ %u.addr.2.i, %sw.bb8.i ], [ %u, %if.end16.thread69 ]
   %mul12.neg.i = mul i32 %d.addr.2.i, -10000
@@ -136,18 +136,18 @@ sw.bb11.i:                                        ; preds = %if.end16.thread69, 
   br label %sw.bb14.i
 
 sw.bb14.i:                                        ; preds = %if.then6, %sw.bb11.i
-  %p.addr.5.i = phi ptr [ %p.addr.4.i, %sw.bb11.i ], [ %p, %if.then6 ]
+  %p.addr.6.i = phi ptr [ %p.addr.5.i, %sw.bb11.i ], [ %p, %if.then6 ]
   %u.addr.4.i = phi i32 [ %sub13.i, %sw.bb11.i ], [ %u, %if.then6 ]
   %div15.i = udiv i32 %u.addr.4.i, 100
   %idxprom.i29.i = zext nneg i32 %div15.i to i64
   %arrayidx.i30.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i29.i
   %8 = load i16, ptr %arrayidx.i30.i, align 2
-  store i16 %8, ptr %p.addr.5.i, align 1
-  %add.ptr.i31.i = getelementptr inbounds i8, ptr %p.addr.5.i, i64 2
+  store i16 %8, ptr %p.addr.6.i, align 1
+  %add.ptr.i31.i = getelementptr inbounds i8, ptr %p.addr.6.i, i64 2
   br label %sw.bb17.i
 
 sw.bb17.i:                                        ; preds = %if.end16.thread77, %sw.bb14.i
-  %p.addr.6.i = phi ptr [ %add.ptr.i31.i, %sw.bb14.i ], [ %add.ptr.i.i22, %if.end16.thread77 ]
+  %p.addr.7.i = phi ptr [ %add.ptr.i31.i, %sw.bb14.i ], [ %add.ptr.i.i22, %if.end16.thread77 ]
   %d.addr.3.i = phi i32 [ %div15.i, %sw.bb14.i ], [ %div.i20.zext, %if.end16.thread77 ]
   %u.addr.5.i = phi i32 [ %u.addr.4.i, %sw.bb14.i ], [ %u, %if.end16.thread77 ]
   %mul18.neg.i = mul i32 %d.addr.3.i, -100
@@ -155,19 +155,19 @@ sw.bb17.i:                                        ; preds = %if.end16.thread77, 
   br label %sw.bb20.i
 
 sw.bb20.i:                                        ; preds = %if.then2, %sw.bb17.i
-  %p.addr.7.i = phi ptr [ %p.addr.6.i, %sw.bb17.i ], [ %p, %if.then2 ]
+  %p.addr.8.i = phi ptr [ %p.addr.7.i, %sw.bb17.i ], [ %p, %if.then2 ]
   %u.addr.6.i = phi i32 [ %sub19.i, %sw.bb17.i ], [ %u, %if.then2 ]
   %idxprom.i32.i = sext i32 %u.addr.6.i to i64
   %arrayidx.i33.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i32.i
   %9 = load i16, ptr %arrayidx.i33.i, align 2
-  store i16 %9, ptr %p.addr.7.i, align 1
-  %add.ptr.i34.i = getelementptr inbounds i8, ptr %p.addr.7.i, i64 2
+  store i16 %9, ptr %p.addr.8.i, align 1
+  %add.ptr.i34.i = getelementptr inbounds i8, ptr %p.addr.8.i, i64 2
   br label %itoa.exit
 
 itoa.exit:                                        ; preds = %if.end16.thread, %sw.bb20.i
-  %p.addr.8.i = phi ptr [ %add.ptr.i34.i, %sw.bb20.i ], [ %add.ptr.i.i15, %if.end16.thread ]
-  store i8 0, ptr %p.addr.8.i, align 1
-  ret ptr %p.addr.8.i
+  %p.addr.0.i = phi ptr [ %add.ptr.i34.i, %sw.bb20.i ], [ %add.ptr.i.i15, %if.end16.thread ]
+  store i8 0, ptr %p.addr.0.i, align 1
+  ret ptr %p.addr.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
@@ -275,18 +275,18 @@ sw.bb1.i.i:                                       ; preds = %sw.bb.i.i, %if.end1
   br label %sw.bb2.i.i
 
 sw.bb2.i.i:                                       ; preds = %sw.bb1.i.i, %if.else12.i
-  %p.addr.1.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb1.i.i ], [ %p.addr.0, %if.else12.i ]
+  %p.addr.2.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb1.i.i ], [ %p.addr.0, %if.else12.i ]
   %u.addr.0.i.i = phi i32 [ %sub.i.i, %sw.bb1.i.i ], [ %u.0, %if.else12.i ]
   %div3.i.i = udiv i32 %u.addr.0.i.i, 1000000
   %idxprom.i23.i.i = zext nneg i32 %div3.i.i to i64
   %arrayidx.i24.i.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i23.i.i
   %6 = load i16, ptr %arrayidx.i24.i.i, align 2
-  store i16 %6, ptr %p.addr.1.i.i, align 1
-  %add.ptr.i25.i.i = getelementptr inbounds i8, ptr %p.addr.1.i.i, i64 2
+  store i16 %6, ptr %p.addr.2.i.i, align 1
+  %add.ptr.i25.i.i = getelementptr inbounds i8, ptr %p.addr.2.i.i, i64 2
   br label %sw.bb5.i.i
 
 sw.bb5.i.i:                                       ; preds = %sw.bb2.i.i, %if.end16.thread61.i
-  %p.addr.2.i.i = phi ptr [ %add.ptr.i25.i.i, %sw.bb2.i.i ], [ %add.ptr.i.i36.i, %if.end16.thread61.i ]
+  %p.addr.3.i.i = phi ptr [ %add.ptr.i25.i.i, %sw.bb2.i.i ], [ %add.ptr.i.i36.i, %if.end16.thread61.i ]
   %d.addr.1.i.i = phi i32 [ %div3.i.i, %sw.bb2.i.i ], [ %div.i34.i, %if.end16.thread61.i ]
   %u.addr.1.i.i = phi i32 [ %u.addr.0.i.i, %sw.bb2.i.i ], [ %u.0, %if.end16.thread61.i ]
   %mul6.neg.i.i = mul i32 %d.addr.1.i.i, -1000000
@@ -294,18 +294,18 @@ sw.bb5.i.i:                                       ; preds = %sw.bb2.i.i, %if.end
   br label %sw.bb8.i.i
 
 sw.bb8.i.i:                                       ; preds = %sw.bb5.i.i, %if.then10.i
-  %p.addr.3.i.i = phi ptr [ %p.addr.2.i.i, %sw.bb5.i.i ], [ %p.addr.0, %if.then10.i ]
+  %p.addr.4.i.i = phi ptr [ %p.addr.3.i.i, %sw.bb5.i.i ], [ %p.addr.0, %if.then10.i ]
   %u.addr.2.i.i = phi i32 [ %sub7.i.i, %sw.bb5.i.i ], [ %u.0, %if.then10.i ]
   %div9.i.i = udiv i32 %u.addr.2.i.i, 10000
   %idxprom.i26.i.i = zext nneg i32 %div9.i.i to i64
   %arrayidx.i27.i.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i26.i.i
   %7 = load i16, ptr %arrayidx.i27.i.i, align 2
-  store i16 %7, ptr %p.addr.3.i.i, align 1
-  %add.ptr.i28.i.i = getelementptr inbounds i8, ptr %p.addr.3.i.i, i64 2
+  store i16 %7, ptr %p.addr.4.i.i, align 1
+  %add.ptr.i28.i.i = getelementptr inbounds i8, ptr %p.addr.4.i.i, i64 2
   br label %sw.bb11.i.i
 
 sw.bb11.i.i:                                      ; preds = %sw.bb8.i.i, %if.end16.thread69.i
-  %p.addr.4.i.i = phi ptr [ %add.ptr.i28.i.i, %sw.bb8.i.i ], [ %add.ptr.i.i29.i, %if.end16.thread69.i ]
+  %p.addr.5.i.i = phi ptr [ %add.ptr.i28.i.i, %sw.bb8.i.i ], [ %add.ptr.i.i29.i, %if.end16.thread69.i ]
   %d.addr.2.i.i = phi i32 [ %div9.i.i, %sw.bb8.i.i ], [ %div.i27.i, %if.end16.thread69.i ]
   %u.addr.3.i.i = phi i32 [ %u.addr.2.i.i, %sw.bb8.i.i ], [ %u.0, %if.end16.thread69.i ]
   %mul12.neg.i.i = mul i32 %d.addr.2.i.i, -10000
@@ -313,18 +313,18 @@ sw.bb11.i.i:                                      ; preds = %sw.bb8.i.i, %if.end
   br label %sw.bb14.i.i
 
 sw.bb14.i.i:                                      ; preds = %sw.bb11.i.i, %if.then6.i
-  %p.addr.5.i.i = phi ptr [ %p.addr.4.i.i, %sw.bb11.i.i ], [ %p.addr.0, %if.then6.i ]
+  %p.addr.6.i.i = phi ptr [ %p.addr.5.i.i, %sw.bb11.i.i ], [ %p.addr.0, %if.then6.i ]
   %u.addr.4.i.i = phi i32 [ %sub13.i.i, %sw.bb11.i.i ], [ %u.0, %if.then6.i ]
   %div15.i.i = udiv i32 %u.addr.4.i.i, 100
   %idxprom.i29.i.i = zext nneg i32 %div15.i.i to i64
   %arrayidx.i30.i.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i29.i.i
   %8 = load i16, ptr %arrayidx.i30.i.i, align 2
-  store i16 %8, ptr %p.addr.5.i.i, align 1
-  %add.ptr.i31.i.i = getelementptr inbounds i8, ptr %p.addr.5.i.i, i64 2
+  store i16 %8, ptr %p.addr.6.i.i, align 1
+  %add.ptr.i31.i.i = getelementptr inbounds i8, ptr %p.addr.6.i.i, i64 2
   br label %sw.bb17.i.i
 
 sw.bb17.i.i:                                      ; preds = %sw.bb14.i.i, %if.end16.thread77.i
-  %p.addr.6.i.i = phi ptr [ %add.ptr.i31.i.i, %sw.bb14.i.i ], [ %add.ptr.i.i22.i, %if.end16.thread77.i ]
+  %p.addr.7.i.i = phi ptr [ %add.ptr.i31.i.i, %sw.bb14.i.i ], [ %add.ptr.i.i22.i, %if.end16.thread77.i ]
   %d.addr.3.i.i = phi i32 [ %div15.i.i, %sw.bb14.i.i ], [ %div.i20.zext.i, %if.end16.thread77.i ]
   %u.addr.5.i.i = phi i32 [ %u.addr.4.i.i, %sw.bb14.i.i ], [ %u.0, %if.end16.thread77.i ]
   %mul18.neg.i.i = mul i32 %d.addr.3.i.i, -100
@@ -332,19 +332,19 @@ sw.bb17.i.i:                                      ; preds = %sw.bb14.i.i, %if.en
   br label %sw.bb20.i.i
 
 sw.bb20.i.i:                                      ; preds = %sw.bb17.i.i, %if.then2.i
-  %p.addr.7.i.i = phi ptr [ %p.addr.6.i.i, %sw.bb17.i.i ], [ %p.addr.0, %if.then2.i ]
+  %p.addr.8.i.i = phi ptr [ %p.addr.7.i.i, %sw.bb17.i.i ], [ %p.addr.0, %if.then2.i ]
   %u.addr.6.i.i = phi i32 [ %sub19.i.i, %sw.bb17.i.i ], [ %u.0, %if.then2.i ]
   %idxprom.i32.i.i = sext i32 %u.addr.6.i.i to i64
   %arrayidx.i33.i.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i32.i.i
   %9 = load i16, ptr %arrayidx.i33.i.i, align 2
-  store i16 %9, ptr %p.addr.7.i.i, align 1
-  %add.ptr.i34.i.i = getelementptr inbounds i8, ptr %p.addr.7.i.i, i64 2
+  store i16 %9, ptr %p.addr.8.i.i, align 1
+  %add.ptr.i34.i.i = getelementptr inbounds i8, ptr %p.addr.8.i.i, i64 2
   br label %itoa_u32.exit
 
 itoa_u32.exit:                                    ; preds = %if.end16.thread.i, %sw.bb20.i.i
-  %p.addr.8.i.i = phi ptr [ %add.ptr.i34.i.i, %sw.bb20.i.i ], [ %add.ptr.i.i15.i, %if.end16.thread.i ]
-  store i8 0, ptr %p.addr.8.i.i, align 1
-  ret ptr %p.addr.8.i.i
+  %p.addr.0.i.i = phi ptr [ %add.ptr.i34.i.i, %sw.bb20.i.i ], [ %add.ptr.i.i15.i, %if.end16.thread.i ]
+  store i8 0, ptr %p.addr.0.i.i, align 1
+  ret ptr %p.addr.0.i.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(write, inaccessiblemem: none) uwtable
@@ -445,18 +445,18 @@ sw.bb1.i.i:                                       ; preds = %sw.bb.i.i, %if.end1
   br label %sw.bb2.i.i
 
 sw.bb2.i.i:                                       ; preds = %sw.bb1.i.i, %if.else12.i
-  %p.addr.1.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb1.i.i ], [ %p, %if.else12.i ]
+  %p.addr.2.i.i = phi ptr [ %add.ptr.i.i.i, %sw.bb1.i.i ], [ %p, %if.else12.i ]
   %u.addr.0.i.i = phi i32 [ %sub.i.i, %sw.bb1.i.i ], [ %conv, %if.else12.i ]
   %div3.i.i = udiv i32 %u.addr.0.i.i, 1000000
   %idxprom.i23.i.i = zext nneg i32 %div3.i.i to i64
   %arrayidx.i24.i.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i23.i.i
   %6 = load i16, ptr %arrayidx.i24.i.i, align 2
-  store i16 %6, ptr %p.addr.1.i.i, align 1
-  %add.ptr.i25.i.i = getelementptr inbounds i8, ptr %p.addr.1.i.i, i64 2
+  store i16 %6, ptr %p.addr.2.i.i, align 1
+  %add.ptr.i25.i.i = getelementptr inbounds i8, ptr %p.addr.2.i.i, i64 2
   br label %sw.bb5.i.i
 
 sw.bb5.i.i:                                       ; preds = %sw.bb2.i.i, %if.end16.thread61.i
-  %p.addr.2.i.i = phi ptr [ %add.ptr.i25.i.i, %sw.bb2.i.i ], [ %add.ptr.i.i36.i, %if.end16.thread61.i ]
+  %p.addr.3.i.i = phi ptr [ %add.ptr.i25.i.i, %sw.bb2.i.i ], [ %add.ptr.i.i36.i, %if.end16.thread61.i ]
   %d.addr.1.i.i = phi i32 [ %div3.i.i, %sw.bb2.i.i ], [ %div.i34.i, %if.end16.thread61.i ]
   %u.addr.1.i.i = phi i32 [ %u.addr.0.i.i, %sw.bb2.i.i ], [ %conv, %if.end16.thread61.i ]
   %mul6.neg.i.i = mul i32 %d.addr.1.i.i, -1000000
@@ -464,18 +464,18 @@ sw.bb5.i.i:                                       ; preds = %sw.bb2.i.i, %if.end
   br label %sw.bb8.i.i
 
 sw.bb8.i.i:                                       ; preds = %sw.bb5.i.i, %if.then10.i
-  %p.addr.3.i.i = phi ptr [ %p.addr.2.i.i, %sw.bb5.i.i ], [ %p, %if.then10.i ]
+  %p.addr.4.i.i = phi ptr [ %p.addr.3.i.i, %sw.bb5.i.i ], [ %p, %if.then10.i ]
   %u.addr.2.i.i = phi i32 [ %sub7.i.i, %sw.bb5.i.i ], [ %conv, %if.then10.i ]
   %div9.i.i = udiv i32 %u.addr.2.i.i, 10000
   %idxprom.i26.i.i = zext nneg i32 %div9.i.i to i64
   %arrayidx.i27.i.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i26.i.i
   %7 = load i16, ptr %arrayidx.i27.i.i, align 2
-  store i16 %7, ptr %p.addr.3.i.i, align 1
-  %add.ptr.i28.i.i = getelementptr inbounds i8, ptr %p.addr.3.i.i, i64 2
+  store i16 %7, ptr %p.addr.4.i.i, align 1
+  %add.ptr.i28.i.i = getelementptr inbounds i8, ptr %p.addr.4.i.i, i64 2
   br label %sw.bb11.i.i
 
 sw.bb11.i.i:                                      ; preds = %sw.bb8.i.i, %if.end16.thread69.i
-  %p.addr.4.i.i = phi ptr [ %add.ptr.i28.i.i, %sw.bb8.i.i ], [ %add.ptr.i.i29.i, %if.end16.thread69.i ]
+  %p.addr.5.i.i = phi ptr [ %add.ptr.i28.i.i, %sw.bb8.i.i ], [ %add.ptr.i.i29.i, %if.end16.thread69.i ]
   %d.addr.2.i.i = phi i32 [ %div9.i.i, %sw.bb8.i.i ], [ %div.i27.i, %if.end16.thread69.i ]
   %u.addr.3.i.i = phi i32 [ %u.addr.2.i.i, %sw.bb8.i.i ], [ %conv, %if.end16.thread69.i ]
   %mul12.neg.i.i = mul i32 %d.addr.2.i.i, -10000
@@ -483,18 +483,18 @@ sw.bb11.i.i:                                      ; preds = %sw.bb8.i.i, %if.end
   br label %sw.bb14.i.i
 
 sw.bb14.i.i:                                      ; preds = %sw.bb11.i.i, %if.then6.i
-  %p.addr.5.i.i = phi ptr [ %p.addr.4.i.i, %sw.bb11.i.i ], [ %p, %if.then6.i ]
+  %p.addr.6.i.i = phi ptr [ %p.addr.5.i.i, %sw.bb11.i.i ], [ %p, %if.then6.i ]
   %u.addr.4.i.i = phi i32 [ %sub13.i.i, %sw.bb11.i.i ], [ %conv, %if.then6.i ]
   %div15.i.i = udiv i32 %u.addr.4.i.i, 100
   %idxprom.i29.i.i = zext nneg i32 %div15.i.i to i64
   %arrayidx.i30.i.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i29.i.i
   %8 = load i16, ptr %arrayidx.i30.i.i, align 2
-  store i16 %8, ptr %p.addr.5.i.i, align 1
-  %add.ptr.i31.i.i = getelementptr inbounds i8, ptr %p.addr.5.i.i, i64 2
+  store i16 %8, ptr %p.addr.6.i.i, align 1
+  %add.ptr.i31.i.i = getelementptr inbounds i8, ptr %p.addr.6.i.i, i64 2
   br label %sw.bb17.i.i
 
 sw.bb17.i.i:                                      ; preds = %sw.bb14.i.i, %if.end16.thread77.i
-  %p.addr.6.i.i = phi ptr [ %add.ptr.i31.i.i, %sw.bb14.i.i ], [ %add.ptr.i.i22.i, %if.end16.thread77.i ]
+  %p.addr.7.i.i = phi ptr [ %add.ptr.i31.i.i, %sw.bb14.i.i ], [ %add.ptr.i.i22.i, %if.end16.thread77.i ]
   %d.addr.3.i.i = phi i32 [ %div15.i.i, %sw.bb14.i.i ], [ %div.i20.zext.i, %if.end16.thread77.i ]
   %u.addr.5.i.i = phi i32 [ %u.addr.4.i.i, %sw.bb14.i.i ], [ %conv, %if.end16.thread77.i ]
   %mul18.neg.i.i = mul i32 %d.addr.3.i.i, -100
@@ -502,19 +502,19 @@ sw.bb17.i.i:                                      ; preds = %sw.bb14.i.i, %if.en
   br label %sw.bb20.i.i
 
 sw.bb20.i.i:                                      ; preds = %sw.bb17.i.i, %if.then2.i
-  %p.addr.7.i.i = phi ptr [ %p.addr.6.i.i, %sw.bb17.i.i ], [ %p, %if.then2.i ]
+  %p.addr.8.i.i = phi ptr [ %p.addr.7.i.i, %sw.bb17.i.i ], [ %p, %if.then2.i ]
   %u.addr.6.i.i = phi i32 [ %sub19.i.i, %sw.bb17.i.i ], [ %conv, %if.then2.i ]
   %idxprom.i32.i.i = sext i32 %u.addr.6.i.i to i64
   %arrayidx.i33.i.i = getelementptr inbounds i16, ptr @lut, i64 %idxprom.i32.i.i
   %9 = load i16, ptr %arrayidx.i33.i.i, align 2
-  store i16 %9, ptr %p.addr.7.i.i, align 1
-  %add.ptr.i34.i.i = getelementptr inbounds i8, ptr %p.addr.7.i.i, i64 2
+  store i16 %9, ptr %p.addr.8.i.i, align 1
+  %add.ptr.i34.i.i = getelementptr inbounds i8, ptr %p.addr.8.i.i, i64 2
   br label %common.ret
 
 common.ret:                                       ; preds = %sw.bb20.i.i, %if.end16.thread.i, %if.end
-  %p.addr.8.i.i.sink = phi ptr [ %add.ptr.i34.i, %if.end ], [ %add.ptr.i34.i.i, %sw.bb20.i.i ], [ %add.ptr.i.i15.i, %if.end16.thread.i ]
-  store i8 0, ptr %p.addr.8.i.i.sink, align 1
-  ret ptr %p.addr.8.i.i.sink
+  %p.addr.0.i.i.sink = phi ptr [ %add.ptr.i34.i, %if.end ], [ %add.ptr.i34.i.i, %sw.bb20.i.i ], [ %add.ptr.i.i15.i, %if.end16.thread.i ]
+  store i8 0, ptr %p.addr.0.i.i.sink, align 1
+  ret ptr %p.addr.0.i.i.sink
 
 if.end:                                           ; preds = %entry
   %div = udiv i64 %u, 1000000000

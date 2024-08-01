@@ -862,7 +862,7 @@ define void @_ZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14T
   br i1 %.not, label %32, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %3
-  %.2 = phi ptr [ %11, %3 ], [ %44, %.lr.ph ]
+  %.0 = phi ptr [ %11, %3 ], [ %44, %.lr.ph ]
   %45 = getelementptr inbounds i8, ptr %1, i64 8
   %storemerge79 = load ptr, ptr %45, align 8
   store ptr %storemerge79, ptr %5, align 8
@@ -873,14 +873,14 @@ define void @_ZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14T
   %46 = getelementptr inbounds i8, ptr %6, i64 8
   %47 = getelementptr inbounds i8, ptr %6, i64 16
   %48 = getelementptr inbounds i8, ptr %0, i64 32
-  %49 = getelementptr inbounds i8, ptr %.2, i64 80
-  %50 = getelementptr inbounds i8, ptr %.2, i64 58
-  %51 = getelementptr inbounds i8, ptr %.2, i64 76
-  %52 = getelementptr inbounds i8, ptr %.2, i64 72
-  %53 = getelementptr inbounds i8, ptr %.2, i64 68
-  %54 = getelementptr inbounds i8, ptr %.2, i64 64
-  %55 = getelementptr inbounds i8, ptr %.2, i64 60
-  %56 = getelementptr inbounds i8, ptr %.2, i64 57
+  %49 = getelementptr inbounds i8, ptr %.0, i64 80
+  %50 = getelementptr inbounds i8, ptr %.0, i64 58
+  %51 = getelementptr inbounds i8, ptr %.0, i64 76
+  %52 = getelementptr inbounds i8, ptr %.0, i64 72
+  %53 = getelementptr inbounds i8, ptr %.0, i64 68
+  %54 = getelementptr inbounds i8, ptr %.0, i64 64
+  %55 = getelementptr inbounds i8, ptr %.0, i64 60
+  %56 = getelementptr inbounds i8, ptr %.0, i64 57
   br label %57
 
 57:                                               ; preds = %.lr.ph82, %"_ZZN7glslang13TParseContext20handleLoopAttributesERKNS_5TListINS_14TAttributeArgsEEEP11TIntermNodeENK3$_4clEPKcRj.exit.thread"

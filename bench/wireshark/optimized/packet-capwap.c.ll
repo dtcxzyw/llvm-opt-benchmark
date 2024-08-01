@@ -2310,15 +2310,15 @@ dissect_capwap_data_message_bindings_ieee80211.exit: ; preds = %135, %118, %97
   br label %153
 
 153:                                              ; preds = %dissect_capwap_data_message_bindings_ieee80211.exit, %148, %95
-  %.2 = phi i32 [ %152, %148 ], [ %145, %dissect_capwap_data_message_bindings_ieee80211.exit ], [ %.0175, %95 ]
-  %154 = icmp ne i32 %.2, %15
+  %.1 = phi i32 [ %152, %148 ], [ %145, %dissect_capwap_data_message_bindings_ieee80211.exit ], [ %.0175, %95 ]
+  %154 = icmp ne i32 %.1, %15
   %155 = load i32, ptr @global_capwap_draft_8_cisco, align 4
   %156 = icmp eq i32 %155, 0
   %or.cond = select i1 %154, i1 %156, i1 false
   br i1 %or.cond, label %157, label %159
 
 157:                                              ; preds = %153
-  %158 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %21, ptr noundef nonnull @ei_capwap_header_length_bad, ptr noundef nonnull @.str.1057, i32 noundef %.2, i32 noundef %15) #2
+  %158 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %21, ptr noundef nonnull @ei_capwap_header_length_bad, ptr noundef nonnull @.str.1057, i32 noundef %.1, i32 noundef %15) #2
   br label %159
 
 159:                                              ; preds = %157, %153
@@ -4012,11 +4012,11 @@ define internal fastcc void @dissect_capwap_message_element_vendor_fortinet_type
   br label %.loopexit
 
 .lr.ph479:                                        ; preds = %.lr.ph479.preheader, %.lr.ph479
-  %.0478 = phi i32 [ %58, %.lr.ph479 ], [ %53, %.lr.ph479.preheader ]
+  %.1478 = phi i32 [ %58, %.lr.ph479 ], [ %53, %.lr.ph479.preheader ]
   %.0469477 = phi i32 [ %59, %.lr.ph479 ], [ 0, %.lr.ph479.preheader ]
   %56 = load i32, ptr @hf_capwap_fortinet_mac, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %56, ptr noundef %0, i32 noundef %.0478, i32 noundef 6, i32 noundef 0) #2
-  %58 = add i32 %.0478, 6
+  %57 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %56, ptr noundef %0, i32 noundef %.1478, i32 noundef 6, i32 noundef 0) #2
+  %58 = add i32 %.1478, 6
   %59 = add nuw nsw i32 %.0469477, 1
   %exitcond484.not = icmp eq i32 %59, %52
   br i1 %exitcond484.not, label %.loopexit, label %.lr.ph479, !llvm.loop !20
@@ -4053,20 +4053,20 @@ define internal fastcc void @dissect_capwap_message_element_vendor_fortinet_type
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader474, %.lr.ph
-  %.1476 = phi i32 [ %82, %.lr.ph ], [ %76, %.preheader474 ]
+  %.2476 = phi i32 [ %82, %.lr.ph ], [ %76, %.preheader474 ]
   %.1470475 = phi i32 [ %83, %.lr.ph ], [ 0, %.preheader474 ]
   %80 = load i32, ptr @hf_capwap_fortinet_wbh_sta_mac, align 4
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %80, ptr noundef %0, i32 noundef %.1476, i32 noundef 6, i32 noundef 0) #2
-  %82 = add i32 %.1476, 6
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %80, ptr noundef %0, i32 noundef %.2476, i32 noundef 6, i32 noundef 0) #2
+  %82 = add i32 %.2476, 6
   %83 = add nuw nsw i32 %.1470475, 1
   %exitcond.not = icmp eq i32 %83, %77
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader474
-  %.1.lcssa = phi i32 [ %76, %.preheader474 ], [ %82, %.lr.ph ]
+  %.2.lcssa = phi i32 [ %76, %.preheader474 ], [ %82, %.lr.ph ]
   %84 = load i32, ptr @hf_capwap_fortinet_wbh_sta_bssid, align 4
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %84, ptr noundef %0, i32 noundef %.1.lcssa, i32 noundef 6, i32 noundef 0) #2
-  %86 = add i32 %.1.lcssa, 6
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %84, ptr noundef %0, i32 noundef %.2.lcssa, i32 noundef 6, i32 noundef 0) #2
+  %86 = add i32 %.2.lcssa, 6
   %87 = load i32, ptr @hf_capwap_fortinet_wbh_sta_mhc, align 4
   %88 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %87, ptr noundef %0, i32 noundef %86, i32 noundef 1, i32 noundef 0) #2
   br label %.loopexit

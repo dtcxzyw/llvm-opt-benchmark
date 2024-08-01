@@ -1934,17 +1934,17 @@ define internal noundef i32 @php_plain_files_url_stater(ptr nocapture readnone %
   br i1 %.not12, label %13, label %19
 
 13:                                               ; preds = %7, %5
-  %.1 = phi ptr [ %1, %5 ], [ %spec.select, %7 ]
+  %.010 = phi ptr [ %1, %5 ], [ %spec.select, %7 ]
   %14 = and i32 %2, 1
   %.not13 = icmp eq i32 %14, 0
   br i1 %.not13, label %17, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @lstat(ptr noundef %.1, ptr noundef %3) #18
+  %16 = tail call i32 @lstat(ptr noundef %.010, ptr noundef %3) #18
   br label %19
 
 17:                                               ; preds = %13
-  %18 = tail call i32 @stat(ptr noundef %.1, ptr noundef %3) #18
+  %18 = tail call i32 @stat(ptr noundef %.010, ptr noundef %3) #18
   br label %19
 
 19:                                               ; preds = %7, %17, %15
@@ -2218,14 +2218,14 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr nocapture readnon
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %43
   %.04379.us = phi i32 [ %44, %43 ], [ 0, %.lr.ph.us.preheader ]
-  %.14878.us = phi ptr [ %38, %43 ], [ %33, %.lr.ph.us.preheader ]
-  %38 = getelementptr inbounds i8, ptr %.14878.us, i64 -1
+  %.24978.us = phi ptr [ %38, %43 ], [ %33, %.lr.ph.us.preheader ]
+  %38 = getelementptr inbounds i8, ptr %.24978.us, i64 -1
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 47
   br i1 %40, label %43, label %.critedge5.us
 
 .critedge5.us:                                    ; preds = %.lr.ph.us, %43, %.critedge.us
-  %.148.lcssa.us = phi ptr [ %33, %.critedge.us ], [ %38, %43 ], [ %.14878.us, %.lr.ph.us ]
+  %.249.lcssa.us = phi ptr [ %33, %.critedge.us ], [ %38, %43 ], [ %.24978.us, %.lr.ph.us ]
   %.043.lcssa.us = phi i32 [ 0, %.critedge.us ], [ %37, %43 ], [ %.04379.us, %.lr.ph.us ]
   %41 = call i32 @stat(ptr noundef nonnull %6, ptr noundef nonnull %8) #18
   %42 = icmp eq i32 %41, 0
@@ -2248,21 +2248,21 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr nocapture readnon
   br i1 %.not63, label %.critedge3, label %.critedge
 
 .critedge:                                        ; preds = %.preheader73.split, %47
-  %.047 = phi ptr [ %46, %.preheader73.split ], [ %48, %47 ]
-  store i8 0, ptr %.047, align 1
-  %49 = icmp ugt ptr %.047, %6
+  %.148 = phi ptr [ %46, %.preheader73.split ], [ %48, %47 ]
+  store i8 0, ptr %.148, align 1
+  %49 = icmp ugt ptr %.148, %6
   br i1 %49, label %.lr.ph.preheader, label %.critedge5
 
 .lr.ph.preheader:                                 ; preds = %.critedge
-  %.047106 = ptrtoint ptr %.047 to i64
-  %50 = trunc i64 %.047106 to i32
+  %.148106 = ptrtoint ptr %.148 to i64
+  %50 = trunc i64 %.148106 to i32
   %51 = sub i32 %50, %32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
   %.04379 = phi i32 [ %56, %55 ], [ 0, %.lr.ph.preheader ]
-  %.14878 = phi ptr [ %52, %55 ], [ %.047, %.lr.ph.preheader ]
-  %52 = getelementptr inbounds i8, ptr %.14878, i64 -1
+  %.24978 = phi ptr [ %52, %55 ], [ %.148, %.lr.ph.preheader ]
+  %52 = getelementptr inbounds i8, ptr %.24978, i64 -1
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 47
   br i1 %54, label %55, label %.critedge5
@@ -2274,14 +2274,14 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr nocapture readnon
   br i1 %57, label %.lr.ph, label %.critedge5
 
 .critedge5:                                       ; preds = %.lr.ph, %55, %.critedge
-  %.148.lcssa = phi ptr [ %.047, %.critedge ], [ %52, %55 ], [ %.14878, %.lr.ph ]
+  %.249.lcssa = phi ptr [ %.148, %.critedge ], [ %52, %55 ], [ %.24978, %.lr.ph ]
   %.043.lcssa = phi i32 [ 0, %.critedge ], [ %51, %55 ], [ %.04379, %.lr.ph ]
   %58 = call i32 @stat(ptr noundef nonnull %6, ptr noundef nonnull %8) #18
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %.preheader, label %.preheader73.split
 
 .preheader:                                       ; preds = %.critedge5, %.critedge5.us
-  %.us-phi = phi ptr [ %.148.lcssa.us, %.critedge5.us ], [ %.148.lcssa, %.critedge5 ]
+  %.us-phi = phi ptr [ %.249.lcssa.us, %.critedge5.us ], [ %.249.lcssa, %.critedge5 ]
   %.us-phi84 = phi i32 [ %.043.lcssa.us, %.critedge5.us ], [ %.043.lcssa, %.critedge5 ]
   store i8 47, ptr %.us-phi, align 1
   %.not6485 = icmp eq i32 %.us-phi84, 0
@@ -2296,9 +2296,9 @@ define internal range(i32 0, 2) i32 @php_plain_files_mkdir(ptr nocapture readnon
   br label %.critedge3
 
 .critedge3:                                       ; preds = %47, %.preheader73.split.us, %.lr.ph88.preheader, %.preheader, %22
-  %.3 = phi ptr [ %26, %22 ], [ %.us-phi, %.preheader ], [ %scevgep107, %.lr.ph88.preheader ], [ null, %.preheader73.split.us ], [ null, %47 ]
-  %.not65 = icmp eq ptr %.3, null
-  %spec.select71 = select i1 %.not65, ptr %6, ptr %.3
+  %.047 = phi ptr [ %26, %22 ], [ %.us-phi, %.preheader ], [ %scevgep107, %.lr.ph88.preheader ], [ null, %.preheader73.split.us ], [ null, %47 ]
+  %.not65 = icmp eq ptr %.047, null
+  %spec.select71 = select i1 %.not65, ptr %6, ptr %.047
   br label %.loopexit
 
 .loopexit:                                        ; preds = %76, %.critedge3

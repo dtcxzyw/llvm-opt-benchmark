@@ -3352,19 +3352,19 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
   br label %.critedge21
 
 .lr.ph215:                                        ; preds = %.loopexit194, %128
-  %.4142214 = phi ptr [ %129, %128 ], [ %97, %.loopexit194 ]
-  %125 = load i8, ptr %.4142214, align 1
+  %.5143214 = phi ptr [ %129, %128 ], [ %97, %.loopexit194 ]
+  %125 = load i8, ptr %.5143214, align 1
   %126 = and i8 %125, -64
   %127 = icmp eq i8 %126, -128
   br i1 %127, label %128, label %.critedge21
 
 128:                                              ; preds = %.lr.ph215
-  %129 = getelementptr inbounds i8, ptr %.4142214, i64 1
+  %129 = getelementptr inbounds i8, ptr %.5143214, i64 1
   %130 = icmp ult ptr %129, %11
   br i1 %130, label %.lr.ph215, label %.critedge21, !llvm.loop !22
 
 .critedge21:                                      ; preds = %128, %.lr.ph215, %.loopexit194.thread, %.loopexit194
-  %.5143 = phi ptr [ %.3141.lcssa276.mux, %.loopexit194 ], [ %spec.select, %.loopexit194.thread ], [ %129, %128 ], [ %.4142214, %.lr.ph215 ]
+  %.4142 = phi ptr [ %.3141.lcssa276.mux, %.loopexit194 ], [ %spec.select, %.loopexit194.thread ], [ %129, %128 ], [ %.5143214, %.lr.ph215 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3135226, ptr nonnull align 1 %9, i64 %.0129, i1 false)
   br label %zueci_encode_utf8.exit166
 
@@ -3439,7 +3439,7 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
   br label %zueci_encode_utf8.exit166
 
 zueci_encode_utf8.exit166:                        ; preds = %159, %147, %136, %132, %.critedge21
-  %.6144 = phi ptr [ %.5143, %.critedge21 ], [ %97, %132 ], [ %97, %136 ], [ %97, %147 ], [ %97, %159 ]
+  %.6144 = phi ptr [ %.4142, %.critedge21 ], [ %97, %132 ], [ %97, %136 ], [ %97, %147 ], [ %97, %159 ]
   %.0129.pn = phi i64 [ %.0129, %.critedge21 ], [ 1, %132 ], [ 2, %136 ], [ 3, %147 ], [ 4, %159 ]
   %.3 = phi i32 [ 1, %.critedge21 ], [ %.2228, %132 ], [ %.2228, %136 ], [ %.2228, %147 ], [ %.2228, %159 ]
   %.4136 = getelementptr inbounds i8, ptr %.3135226, i64 %.0129.pn
@@ -3907,14 +3907,14 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
   br i1 %brmerge.not, label %.lr.ph176, label %.critedge19
 
 .lr.ph176:                                        ; preds = %71, %77
-  %.4117175 = phi ptr [ %78, %77 ], [ %47, %71 ]
-  %74 = load i8, ptr %.4117175, align 1
+  %.5118175 = phi ptr [ %78, %77 ], [ %47, %71 ]
+  %74 = load i8, ptr %.5118175, align 1
   %75 = and i8 %74, -64
   %76 = icmp eq i8 %75, -128
   br i1 %76, label %77, label %.critedge19
 
 77:                                               ; preds = %.lr.ph176
-  %78 = getelementptr inbounds i8, ptr %.4117175, i64 1
+  %78 = getelementptr inbounds i8, ptr %.5118175, i64 1
   %79 = icmp ult ptr %78, %9
   br i1 %79, label %.lr.ph176, label %.critedge19, !llvm.loop !27
 
@@ -3930,7 +3930,7 @@ switch.early.test:                                ; preds = %zueci_decode_utf8.e
   br label %.critedge19
 
 .critedge19:                                      ; preds = %.lr.ph176, %77, %71, %.loopexit152
-  %.6119 = phi ptr [ %47, %.loopexit152 ], [ %.3116.mux, %71 ], [ %.4117175, %.lr.ph176 ], [ %78, %77 ]
+  %.6119 = phi ptr [ %47, %.loopexit152 ], [ %.3116.mux, %71 ], [ %.5118175, %.lr.ph176 ], [ %78, %77 ]
   %.0110.pn = phi i32 [ %87, %.loopexit152 ], [ %.0110, %71 ], [ %.0110, %77 ], [ %.0110, %.lr.ph176 ]
   %.3 = phi i32 [ %.2188, %.loopexit152 ], [ 1, %71 ], [ 1, %77 ], [ 1, %.lr.ph176 ]
   %.4108 = add nsw i32 %.0110.pn, %.3107187

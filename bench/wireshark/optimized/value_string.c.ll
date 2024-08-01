@@ -666,7 +666,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
 
 .lr.ph:                                           ; preds = %16, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %16 ]
-  %.05174 = phi i32 [ %.159, %35 ], [ 2, %16 ]
+  %.05174 = phi i32 [ %.259, %35 ], [ 2, %16 ]
   %.05273 = phi i32 [ %.pre, %35 ], [ %17, %16 ]
   %indvars84 = trunc i64 %indvars.iv to i32
   %19 = getelementptr %struct._value_string, ptr %4, i64 %indvars.iv
@@ -708,7 +708,7 @@ define ptr @_try_val_to_str_ext_init(i32 noundef %0, ptr noundef %1) #0 {
   br label %.thread61
 
 35:                                               ; preds = %23, %30
-  %.159 = phi i32 [ 1, %30 ], [ 2, %23 ]
+  %.259 = phi i32 [ 1, %30 ], [ 2, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -1064,7 +1064,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
 
 .lr.ph:                                           ; preds = %16, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %16 ]
-  %.05174 = phi i32 [ %.159, %37 ], [ 2, %16 ]
+  %.05174 = phi i32 [ %.259, %37 ], [ 2, %16 ]
   %.05273 = phi i64 [ %.pre, %37 ], [ %17, %16 ]
   %19 = getelementptr %struct._val64_string, ptr %4, i64 %indvars.iv
   %20 = getelementptr inbounds i8, ptr %19, i64 8
@@ -1107,7 +1107,7 @@ define ptr @_try_val64_to_str_ext_init(i64 noundef %0, ptr noundef %1) #0 {
   br label %.thread61
 
 37:                                               ; preds = %23, %31
-  %.159 = phi i32 [ 1, %31 ], [ 2, %23 ]
+  %.259 = phi i32 [ 1, %31 ], [ 2, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11

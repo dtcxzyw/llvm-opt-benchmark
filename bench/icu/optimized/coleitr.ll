@@ -1603,7 +1603,7 @@ lpad6:                                            ; preds = %invoke.cont
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont7, %if.then11
-  %retval.0 = phi ptr [ null, %if.then11 ], [ %call1, %invoke.cont7 ]
+  %retval.1 = phi ptr [ null, %if.then11 ], [ %call1, %invoke.cont7 ]
   call void @_ZN6icu_7525ContractionsAndExpansions6CESinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink) #8
   br label %return
 
@@ -1613,8 +1613,8 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end, %entry, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %entry ], [ null, %if.end ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %entry ], [ null, %if.end ]
+  ret ptr %retval.0
 }
 
 declare ptr @uhash_open_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4

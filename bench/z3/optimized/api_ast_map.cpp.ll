@@ -922,7 +922,7 @@ if.then31:                                        ; preds = %if.else
           to label %if.then.i13 unwind label %lpad1.thread
 
 if.then.i13:                                      ; preds = %if.then31, %if.then20
-  %retval.0.ph = phi ptr [ %15, %if.then31 ], [ null, %if.then20 ]
+  %retval.1.ph = phi ptr [ %15, %if.then31 ], [ null, %if.then20 ]
   store atomic i8 1, ptr @g_z3_log_enabled seq_cst, align 1
   br label %return
 
@@ -933,8 +933,8 @@ lpad37:                                           ; preds = %catch
           to label %eh.resume unwind label %terminate.lpad
 
 return:                                           ; preds = %if.then.i13, %if.else, %do.body, %invoke.cont40
-  %retval.1 = phi ptr [ null, %invoke.cont40 ], [ %retval.0.ph, %if.then.i13 ], [ null, %do.body ], [ %15, %if.else ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %invoke.cont40 ], [ %retval.1.ph, %if.then.i13 ], [ null, %do.body ], [ %15, %if.else ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad37, %_ZN10z3_log_ctxD2Ev.exit
   %lpad.val45.merged = phi { ptr, i32 } [ %16, %lpad37 ], [ %lpad.phi20, %_ZN10z3_log_ctxD2Ev.exit ]
@@ -1844,7 +1844,7 @@ ehcleanup55:                                      ; preds = %lpad8.loopexit, %lp
 
 ehcleanup56:                                      ; preds = %ehcleanup55, %lpad1
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup55 ], [ %1, %lpad1 ]
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   br i1 %tobool.i, label %if.then.i23, label %_ZN10z3_log_ctxD2Ev.exit24
 
 if.then.i23:                                      ; preds = %ehcleanup56
@@ -1853,12 +1853,12 @@ if.then.i23:                                      ; preds = %ehcleanup56
 
 _ZN10z3_log_ctxD2Ev.exit24:                       ; preds = %ehcleanup56, %if.then.i23
   %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #16
-  %matches = icmp eq i32 %ehselector.slot.2, %12
+  %matches = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %_ZN10z3_log_ctxD2Ev.exit24
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %13 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #16
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %13 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
   invoke void @_ZN3api7context16handle_exceptionER12z3_exception(ptr noundef nonnull align 8 dereferenceable(3048) %c, ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %invoke.cont60 unwind label %lpad57
 
@@ -2582,8 +2582,8 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !18
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.141 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %3, %for.cond17.preheader ]
-  %6 = load ptr, ptr %curr.141, align 8
+  %curr.241 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %3, %for.cond17.preheader ]
+  %6 = load ptr, ptr %curr.241, align 8
   %magicptr32 = ptrtoint ptr %6 to i64
   switch i64 %magicptr32, label %if.then21 [
     i64 0, label %if.end55
@@ -2599,13 +2599,13 @@ if.then21:                                        ; preds = %for.body19
   br i1 %or.cond31, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.141, i64 16
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.241, i64 16
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !19
 
 end_remove:                                       ; preds = %if.then, %if.then21
-  %curr.2 = phi ptr [ %curr.141, %if.then21 ], [ %curr.039, %if.then ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 16
+  %curr.1 = phi ptr [ %curr.241, %if.then21 ], [ %curr.039, %if.then ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 16
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %3, ptr %add.ptr37
   %8 = load ptr, ptr %spec.select, align 8
@@ -2613,7 +2613,7 @@ end_remove:                                       ; preds = %if.then, %if.then21
   br i1 %cmp.i28, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove
-  store ptr null, ptr %curr.2, align 8
+  store ptr null, ptr %curr.1, align 8
   %m_size = getelementptr inbounds i8, ptr %this, i64 12
   %9 = load i32, ptr %m_size, align 4
   %dec = add i32 %9, -1
@@ -2621,7 +2621,7 @@ if.then43:                                        ; preds = %end_remove
   br label %if.end55
 
 if.else44:                                        ; preds = %end_remove
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.2, align 8
+  store ptr inttoptr (i64 1 to ptr), ptr %curr.1, align 8
   %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
   %10 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %10, 1

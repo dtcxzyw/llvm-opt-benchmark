@@ -345,11 +345,11 @@ binary_oper_exact.exit:                           ; preds = %38, %.thread40.i, %
   %42 = icmp eq i32 %3, 0
   %43 = icmp eq i32 %2, 0
   %spec.select = select i1 %43, i32 %3, i32 %2
-  %.034 = select i1 %42, i32 %2, i32 %3
-  %.032 = select i1 %42, i32 %2, i32 %spec.select
-  store i32 %.032, ptr %10, align 4
+  %.135 = select i1 %42, i32 %2, i32 %3
+  %.133 = select i1 %42, i32 %2, i32 %spec.select
+  store i32 %.133, ptr %10, align 4
   %44 = getelementptr inbounds i8, ptr %10, i64 4
-  store i32 %.034, ptr %44, align 4
+  store i32 %.135, ptr %44, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %40, ptr %7, align 8
   %45 = call i32 @func_match_argtypes(i32 noundef 2, ptr noundef nonnull %10, ptr noundef nonnull %40, ptr noundef nonnull %7) #10
@@ -383,8 +383,8 @@ binary_oper_exact.exit:                           ; preds = %38, %.thread40.i, %
 
 .thread66:                                        ; preds = %31, %38, %.thread.i, %51
   %.03175 = phi i32 [ 2, %51 ], [ 0, %.thread.i ], [ 0, %38 ], [ 0, %31 ]
-  %.13374 = phi i32 [ %.032, %51 ], [ 705, %.thread.i ], [ %2, %38 ], [ %2, %31 ]
-  %.13573 = phi i32 [ %.034, %51 ], [ %3, %.thread.i ], [ %3, %38 ], [ %3, %31 ]
+  %.03274 = phi i32 [ %.133, %51 ], [ 705, %.thread.i ], [ %2, %38 ], [ %2, %31 ]
+  %.03473 = phi i32 [ %.135, %51 ], [ %3, %.thread.i ], [ %3, %38 ], [ %3, %31 ]
   %.05272 = phi i32 [ %53, %51 ], [ %35, %.thread.i ], [ %39, %38 ], [ %34, %31 ]
   %54 = zext i32 %.05272 to i64
   %55 = call ptr @SearchSysCache1(i32 noundef 38, i64 noundef %54) #10
@@ -402,13 +402,13 @@ binary_oper_exact.exit:                           ; preds = %38, %.thread40.i, %
   br label %62
 
 .thread81:                                        ; preds = %binary_oper_exact.exit, %.thread76, %51, %.thread66
-  %.1356390 = phi i32 [ %.13573, %.thread66 ], [ %.034, %.thread76 ], [ %.034, %51 ], [ %3, %binary_oper_exact.exit ]
-  %.1336489 = phi i32 [ %.13374, %.thread66 ], [ %.032, %.thread76 ], [ %.032, %51 ], [ %2, %binary_oper_exact.exit ]
+  %.0346390 = phi i32 [ %.03473, %.thread66 ], [ %.135, %.thread76 ], [ %.135, %51 ], [ %3, %binary_oper_exact.exit ]
+  %.0326489 = phi i32 [ %.03274, %.thread66 ], [ %.133, %.thread76 ], [ %.133, %51 ], [ %2, %binary_oper_exact.exit ]
   %.0316588 = phi i32 [ %.03175, %.thread66 ], [ %.0.i49.ph, %.thread76 ], [ 2, %51 ], [ 0, %binary_oper_exact.exit ]
   br i1 %4, label %62, label %61
 
 61:                                               ; preds = %.thread81
-  call fastcc void @op_error(ptr noundef %0, ptr noundef %1, i32 noundef %.1336489, i32 noundef %.1356390, i32 noundef %.0316588, i32 noundef %5)
+  call fastcc void @op_error(ptr noundef %0, ptr noundef %1, i32 noundef %.0326489, i32 noundef %.0346390, i32 noundef %.0316588, i32 noundef %5)
   unreachable
 
 62:                                               ; preds = %57, %56, %.thread81, %25

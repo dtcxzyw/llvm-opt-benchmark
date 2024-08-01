@@ -1205,7 +1205,7 @@ ansi_to_unicode.exit:                             ; preds = %.lr.ph.i, %9
 
 ._crit_edge:                                      ; preds = %72, %82, %81, %57
   %83 = phi i1 [ false, %57 ], [ true, %81 ], [ false, %82 ], [ false, %72 ]
-  %.1 = phi ptr [ null, %57 ], [ %69, %81 ], [ %69, %82 ], [ %69, %72 ]
+  %.2 = phi ptr [ null, %57 ], [ %69, %81 ], [ %69, %82 ], [ %69, %72 ]
   call void @gcry_md_hash_buffer(i32 noundef 301, ptr noundef nonnull %19, ptr noundef nonnull %16, i64 noundef 16) #12
   %84 = load i64, ptr %0, align 1
   store i64 %84, ptr %18, align 16
@@ -1300,21 +1300,21 @@ get_keyexchange_key.exit:                         ; preds = %92, %97, %100
 115:                                              ; preds = %104, %112, %114
   %116 = getelementptr inbounds i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 1 dereferenceable(16) %2, i64 16, i1 false)
-  %117 = icmp eq ptr %.1, null
+  %117 = icmp eq ptr %.2, null
   br i1 %117, label %233, label %118
 
 118:                                              ; preds = %115
   %119 = call ptr @proto_tree_get_parent(ptr noundef %8) #12
-  %120 = getelementptr inbounds i8, ptr %.1, i64 16
-  %121 = load i8, ptr %.1, align 1
+  %120 = getelementptr inbounds i8, ptr %.2, i64 16
+  %121 = load i8, ptr %.2, align 1
   %122 = zext i8 %121 to i32
-  %123 = getelementptr i8, ptr %.1, i64 1
+  %123 = getelementptr i8, ptr %.2, i64 1
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i32
-  %126 = getelementptr i8, ptr %.1, i64 2
+  %126 = getelementptr i8, ptr %.2, i64 2
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i32
-  %129 = getelementptr i8, ptr %.1, i64 3
+  %129 = getelementptr i8, ptr %.2, i64 3
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %7, ptr noundef %119, ptr noundef nonnull @ei_ntlmssp_auth_nthash, ptr noundef nonnull @.str.260, ptr noundef nonnull %120, i32 noundef %122, i32 noundef %125, i32 noundef %128, i32 noundef %131) #12
@@ -2159,14 +2159,14 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %202, %205, %169
   br label %223
 
 223:                                              ; preds = %217, %212
-  %.0165.i = phi ptr [ %219, %217 ], [ %215, %212 ]
+  %.1166.i = phi ptr [ %219, %217 ], [ %215, %212 ]
   %224 = call ptr @wmem_file_scope() #12
   %225 = load i32, ptr @proto_ntlmssp, align 4
-  call void @p_add_proto_data(ptr noundef %224, ptr noundef nonnull %1, i32 noundef %225, i32 noundef 0, ptr noundef %.0165.i) #12
+  call void @p_add_proto_data(ptr noundef %224, ptr noundef nonnull %1, i32 noundef %225, i32 noundef 0, ptr noundef %.1166.i) #12
   br label %226
 
 226:                                              ; preds = %223, %207
-  %.1166.i = phi ptr [ %.0165.i, %223 ], [ %210, %207 ]
+  %.0165.i = phi ptr [ %.1166.i, %223 ], [ %210, %207 ]
   %227 = add i32 %.0..0..0..0.51, 48
   %228 = call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %227, i32 noundef 4) #12
   %.not.i82 = icmp eq i32 %228, 0
@@ -2195,21 +2195,21 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %202, %205, %169
 .thread.i:                                        ; preds = %229
   %246 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %227) #12
   %247 = and i32 %246, 1
-  %248 = icmp ne ptr %.1166.i, null
+  %248 = icmp ne ptr %.0165.i, null
   br label %256
 
 249:                                              ; preds = %229, %226
-  %.not194.i = icmp eq ptr %.1166.i, null
+  %.not194.i = icmp eq ptr %.0165.i, null
   br i1 %.not194.i, label %256, label %250
 
 250:                                              ; preds = %249
-  %251 = getelementptr inbounds i8, ptr %.1166.i, i64 4
+  %251 = getelementptr inbounds i8, ptr %.0165.i, i64 4
   %252 = load i32, ptr %251, align 4
   %.not179.i = icmp eq i32 %252, 0
   br i1 %.not179.i, label %256, label %253
 
 253:                                              ; preds = %250
-  %254 = load i32, ptr %.1166.i, align 8
+  %254 = load i32, ptr %.0165.i, align 8
   %255 = and i32 %254, 1
   br label %256
 
@@ -2219,15 +2219,15 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %202, %205, %169
   %258 = add i32 %.0..0..0..0.51, 4
   %259 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %258) #12
   %260 = load i32, ptr @hf_ntlmssp_auth_lmresponse, align 4
-  %261 = icmp eq ptr %.1166.i, null
-  %262 = getelementptr inbounds i8, ptr %.1166.i, i64 88
+  %261 = icmp eq ptr %.0165.i, null
+  %262 = getelementptr inbounds i8, ptr %.0165.i, i64 88
   %263 = select i1 %261, ptr null, ptr %262
   %264 = call fastcc i32 @dissect_ntlmssp_blob(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0..0..0..0.36, i32 noundef %.0..0..0..0.51, i32 noundef %260, ptr noundef nonnull %7, ptr noundef %263)
   %265 = add i32 %264, 4
   %266 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %265) #12
   store i32 %266, ptr %6, align 4
   %267 = load i32, ptr @hf_ntlmssp_auth_ntresponse, align 4
-  %268 = getelementptr inbounds i8, ptr %.1166.i, i64 72
+  %268 = getelementptr inbounds i8, ptr %.0165.i, i64 72
   %269 = select i1 %261, ptr null, ptr %268
   %270 = call fastcc i32 @dissect_ntlmssp_blob(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0..0..0..0.36, i32 noundef %264, i32 noundef %267, ptr noundef nonnull %7, ptr noundef %269)
   %271 = load i32, ptr %6, align 4
@@ -2280,12 +2280,12 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %202, %205, %169
   br i1 %257, label %306, label %310
 
 306:                                              ; preds = %300
-  %307 = load i32, ptr %.1166.i, align 8
+  %307 = load i32, ptr %.0165.i, align 8
   %308 = icmp eq i32 %307, 0
   br i1 %308, label %309, label %310
 
 309:                                              ; preds = %306
-  store i32 %301, ptr %.1166.i, align 8
+  store i32 %301, ptr %.0165.i, align 8
   br label %310
 
 310:                                              ; preds = %309, %306, %300, %298
@@ -2341,15 +2341,15 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %202, %205, %169
   br i1 %257, label %336, label %dissect_ntlmssp_auth.exit
 
 336:                                              ; preds = %332
-  %337 = load i32, ptr %.1166.i, align 8
+  %337 = load i32, ptr %.0165.i, align 8
   %338 = and i32 %337, 524288
   %.not183.i = icmp eq i32 %338, 0
   br i1 %.not183.i, label %dissect_ntlmssp_auth.exit, label %339
 
 339:                                              ; preds = %336
-  %340 = getelementptr inbounds i8, ptr %.1166.i, i64 68
+  %340 = getelementptr inbounds i8, ptr %.0165.i, i64 68
   store i32 0, ptr %340, align 4
-  %341 = getelementptr inbounds i8, ptr %.1166.i, i64 60
+  %341 = getelementptr inbounds i8, ptr %.0165.i, i64 60
   call void @ntlmssp_create_session_key(ptr noundef nonnull %1, ptr noundef %.0..0..0..0.36, ptr noundef nonnull %44, i32 noundef %337, ptr noundef nonnull %341, ptr noundef nonnull %11, ptr noundef nonnull %268, ptr noundef nonnull %262)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
   %bcmp.i85 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %8, ptr noundef nonnull dereferenceable(16) @gbl_zeros, i64 16)
@@ -2357,9 +2357,9 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %202, %205, %169
   br i1 %.not184.i, label %dissect_ntlmssp_auth.exit, label %342
 
 342:                                              ; preds = %339
-  %343 = load i32, ptr %.1166.i, align 8
+  %343 = load i32, ptr %.0165.i, align 8
   call fastcc void @get_sealing_rc4key(ptr noundef nonnull %8, i32 noundef %343, ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %344 = getelementptr inbounds i8, ptr %.1166.i, i64 24
+  %344 = getelementptr inbounds i8, ptr %.0165.i, i64 24
   %345 = load i32, ptr %13, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %344, i8 0, i64 32, i1 false)
@@ -2368,7 +2368,7 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %202, %205, %169
   br i1 %.not.i.i86, label %347, label %get_signing_key.exit.i
 
 347:                                              ; preds = %342
-  %348 = getelementptr inbounds i8, ptr %.1166.i, i64 40
+  %348 = getelementptr inbounds i8, ptr %.0165.i, i64 40
   %349 = load ptr, ptr %5, align 8
   %350 = sext i32 %345 to i64
   call void @gcry_md_write(ptr noundef %349, ptr noundef nonnull %8, i64 noundef %350) #12
@@ -2392,7 +2392,7 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %202, %205, %169
 
 get_signing_key.exit.i:                           ; preds = %347, %342
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %360 = getelementptr inbounds i8, ptr %.1166.i, i64 16
+  %360 = getelementptr inbounds i8, ptr %.0165.i, i64 16
   %361 = call i32 @gcry_cipher_open(ptr noundef nonnull %360, i32 noundef 301, i32 noundef 4, i32 noundef 0) #12
   %.not185.i = icmp eq i32 %361, 0
   br i1 %.not185.i, label %362, label %369
@@ -2412,7 +2412,7 @@ get_signing_key.exit.i:                           ; preds = %347, %342
   br label %369
 
 369:                                              ; preds = %367, %362, %get_signing_key.exit.i
-  %370 = getelementptr inbounds i8, ptr %.1166.i, i64 8
+  %370 = getelementptr inbounds i8, ptr %.0165.i, i64 8
   %371 = call i32 @gcry_cipher_open(ptr noundef nonnull %370, i32 noundef 301, i32 noundef 4, i32 noundef 0) #12
   %.not187.i = icmp eq i32 %371, 0
   br i1 %.not187.i, label %372, label %379
@@ -2444,7 +2444,7 @@ get_signing_key.exit.i:                           ; preds = %347, %342
 383:                                              ; preds = %381
   %384 = getelementptr inbounds i8, ptr %1, i64 288
   %385 = load i32, ptr %384, align 8
-  %386 = getelementptr inbounds i8, ptr %.1166.i, i64 56
+  %386 = getelementptr inbounds i8, ptr %.0165.i, i64 56
   store i32 %385, ptr %386, align 8
   store i32 1, ptr %340, align 4
   br label %dissect_ntlmssp_auth.exit

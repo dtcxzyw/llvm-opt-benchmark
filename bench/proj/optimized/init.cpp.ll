@@ -394,14 +394,14 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
   br i1 %.not84104.i.i, label %.lr.ph.i.i, label %.thread91.i.i
 
 .thread91.i.i:                                    ; preds = %158, %126
-  %.073.lcssa.i.i = phi ptr [ %124, %126 ], [ %.174.i.i, %158 ]
+  %.073.lcssa.i.i = phi ptr [ %124, %126 ], [ %.275.i.i, %158 ]
   %.lcssa.i.i = phi ptr [ %132, %126 ], [ %163, %158 ]
   store i8 0, ptr %.lcssa.i.i, align 1
   br label %.sink.split.i.i
 
 .lr.ph.i.i:                                       ; preds = %126, %158
   %.068106.i.i = phi i64 [ %.169.i.i, %158 ], [ 5005, %126 ]
-  %.073105.i.i = phi ptr [ %.174.i.i, %158 ], [ %124, %126 ]
+  %.073105.i.i = phi ptr [ %.275.i.i, %158 ], [ %124, %126 ]
   store i8 0, ptr %10, align 1
   store i8 0, ptr %11, align 1
   %133 = load ptr, ptr %5, align 8
@@ -453,14 +453,14 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
   br label %158
 
 158:                                              ; preds = %156, %146
-  %.174.i.i = phi ptr [ %154, %156 ], [ %.073105.i.i, %146 ]
+  %.275.i.i = phi ptr [ %154, %156 ], [ %.073105.i.i, %146 ]
   %.169.i.i = phi i64 [ %153, %156 ], [ %.068106.i.i, %146 ]
-  %159 = getelementptr inbounds i8, ptr %.174.i.i, i64 %142
+  %159 = getelementptr inbounds i8, ptr %.275.i.i, i64 %142
   store i8 32, ptr %159, align 1
   %160 = getelementptr inbounds i8, ptr %159, i64 1
   %161 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   %162 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %160, ptr noundef nonnull dereferenceable(1) %161) #14
-  %163 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.174.i.i, i32 noundef 60) #13
+  %163 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.275.i.i, i32 noundef 60) #13
   %.not84.i.i = icmp eq ptr %163, null
   br i1 %.not84.i.i, label %.lr.ph.i.i, label %.thread91.i.i, !llvm.loop !6
 
@@ -479,12 +479,12 @@ define internal fastcc noundef ptr @_ZL23pj_expand_init_internalP6pj_ctxP8ARG_li
   br label %166
 
 166:                                              ; preds = %.sink.split118.i.i, %165
-  %.0.i.i = phi ptr [ %.073103.i.i, %165 ], [ null, %.sink.split118.i.i ]
+  %.2.i.i = phi ptr [ %.073103.i.i, %165 ], [ null, %.sink.split118.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #14
   br label %167
 
 167:                                              ; preds = %166, %86
-  %.1.i.i = phi ptr [ null, %86 ], [ %.0.i.i, %166 ]
+  %.1.i.i = phi ptr [ null, %86 ], [ %.2.i.i, %166 ]
   %168 = load ptr, ptr %5, align 8
   %.not.i86.i.i = icmp eq ptr %168, null
   br i1 %.not.i86.i.i, label %177, label %_ZNKSt14default_deleteIN5osgeo4proj4FileEEclEPS2_.exit.i.i.i

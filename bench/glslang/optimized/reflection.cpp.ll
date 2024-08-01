@@ -6479,13 +6479,13 @@ _ZNSt6vectorIiN7glslang14pool_allocatorIiEEE6resizeEm.exit.thread: ; preds = %10
   br i1 %exitcond.not, label %_ZN7glslang20TReflectionTraverser10getOffsetsERKNS_5TTypeERNS_7TVectorIiEE.exit, label %1078, !llvm.loop !102
 
 _ZN7glslang20TReflectionTraverser10getOffsetsERKNS_5TTypeERNS_7TVectorIiEE.exit: ; preds = %1098, %_ZNSt6vectorIiN7glslang14pool_allocatorIiEEE6resizeEm.exit.thread
-  %.sroa.3.0648 = phi ptr [ null, %_ZNSt6vectorIiN7glslang14pool_allocatorIiEEE6resizeEm.exit.thread ], [ %1075, %1098 ]
+  %.sroa.3.1648 = phi ptr [ null, %_ZNSt6vectorIiN7glslang14pool_allocatorIiEEE6resizeEm.exit.thread ], [ %1075, %1098 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   br label %1107
 
 1107:                                             ; preds = %_ZN7glslang20TReflectionTraverser10getOffsetsERKNS_5TTypeERNS_7TVectorIiEE.exit, %1058
-  %.sroa.3.1 = phi ptr [ %.sroa.3.0648, %_ZN7glslang20TReflectionTraverser10getOffsetsERKNS_5TTypeERNS_7TVectorIiEE.exit ], [ null, %1058 ]
+  %.sroa.3.0 = phi ptr [ %.sroa.3.1648, %_ZN7glslang20TReflectionTraverser10getOffsetsERKNS_5TTypeERNS_7TVectorIiEE.exit ], [ null, %1058 ]
   %1108 = getelementptr inbounds i8, ptr %1060, i64 8
   %1109 = getelementptr inbounds i8, ptr %1060, i64 16
   %1110 = load ptr, ptr %1109, align 8
@@ -6780,7 +6780,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   br i1 %1222, label %1223, label %1227
 
 1223:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6appendERKS6_.exit346
-  %1224 = getelementptr inbounds i32, ptr %.sroa.3.1, i64 %indvars.iv
+  %1224 = getelementptr inbounds i32, ptr %.sroa.3.0, i64 %indvars.iv
   %1225 = load i32, ptr %1224, align 4
   %1226 = add nsw i32 %1225, %.0.lcssa
   br label %1227
@@ -6986,7 +6986,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   %1330 = load ptr, ptr %1329, align 8
   %1331 = load i32, ptr %1330, align 8
   call void @_ZN7glslang5TTypeC2ERKS0_ib(ptr noundef nonnull align 8 dereferenceable(152) %50, ptr noundef nonnull align 8 dereferenceable(152) %49, i32 noundef 0, i1 noundef zeroext false)
-  %1332 = getelementptr inbounds i32, ptr %.sroa.3.1, i64 %indvars.iv
+  %1332 = getelementptr inbounds i32, ptr %.sroa.3.0, i64 %indvars.iv
   %1333 = load i32, ptr %1332, align 4
   %1334 = load ptr, ptr %.0187.lcssa, align 8
   %1335 = getelementptr inbounds i8, ptr %1334, i64 88
@@ -7010,7 +7010,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   %1348 = getelementptr inbounds i8, ptr %1347, i64 8
   %1349 = load ptr, ptr %1348, align 8
   %1350 = load i32, ptr %1349, align 8
-  %1351 = getelementptr inbounds i32, ptr %.sroa.3.1, i64 %indvars.iv
+  %1351 = getelementptr inbounds i32, ptr %.sroa.3.0, i64 %indvars.iv
   %1352 = load i32, ptr %1351, align 4
   %1353 = load ptr, ptr %.0187.lcssa, align 8
   %1354 = getelementptr inbounds i8, ptr %1353, i64 88
@@ -7024,7 +7024,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
   br label %1373
 
 1361:                                             ; preds = %1286
-  %1362 = getelementptr inbounds i32, ptr %.sroa.3.1, i64 %indvars.iv
+  %1362 = getelementptr inbounds i32, ptr %.sroa.3.0, i64 %indvars.iv
   %1363 = load i32, ptr %1362, align 4
   %1364 = load ptr, ptr %.0187.lcssa, align 8
   %1365 = getelementptr inbounds i8, ptr %1364, i64 88

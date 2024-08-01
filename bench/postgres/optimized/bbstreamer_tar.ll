@@ -35,8 +35,8 @@ define internal void @bbstreamer_tar_parser_content(ptr noundef %0, ptr nocaptur
   br label %21
 
 21:                                               ; preds = %.lr.ph86, %115
-  %.084 = phi i32 [ %3, %.lr.ph86 ], [ %.3, %115 ]
-  %.06083 = phi ptr [ %2, %.lr.ph86 ], [ %.363, %115 ]
+  %.084 = phi i32 [ %3, %.lr.ph86 ], [ %.1, %115 ]
+  %.06083 = phi ptr [ %2, %.lr.ph86 ], [ %.161, %115 ]
   %22 = load i32, ptr %7, align 8
   switch i32 %22, label %114 [
     i32 1, label %23
@@ -62,8 +62,8 @@ bbstreamer_buffer_until.exit:                     ; preds = %23
   br i1 %26, label %bbstreamer_buffer_until.exit.thread, label %.loopexit
 
 bbstreamer_buffer_until.exit.thread:              ; preds = %23, %bbstreamer_buffer_until.exit
-  %.168 = phi i32 [ %28, %bbstreamer_buffer_until.exit ], [ %.084, %23 ]
-  %.16167 = phi ptr [ %30, %bbstreamer_buffer_until.exit ], [ %.06083, %23 ]
+  %.268 = phi i32 [ %28, %bbstreamer_buffer_until.exit ], [ %.084, %23 ]
+  %.26267 = phi ptr [ %30, %bbstreamer_buffer_until.exit ], [ %.06083, %23 ]
   %31 = load ptr, ptr %10, align 8
   %32 = load i8, ptr %31, align 1
   %.not.i3981 = icmp eq i8 %32, 0
@@ -219,12 +219,12 @@ bbstreamer_buffer_until.exit44.bbstreamer_buffer_until.exit44.thread_crit_edge: 
 
 bbstreamer_buffer_until.exit44.thread:            ; preds = %bbstreamer_buffer_until.exit44.bbstreamer_buffer_until.exit44.thread_crit_edge, %101
   %.pre-phi = phi i32 [ %.pre94, %bbstreamer_buffer_until.exit44.bbstreamer_buffer_until.exit44.thread_crit_edge ], [ %103, %101 ]
-  %.273 = phi i32 [ %109, %bbstreamer_buffer_until.exit44.bbstreamer_buffer_until.exit44.thread_crit_edge ], [ %.084, %101 ]
-  %.26272 = phi ptr [ %108, %bbstreamer_buffer_until.exit44.bbstreamer_buffer_until.exit44.thread_crit_edge ], [ %.06083, %101 ]
+  %.373 = phi i32 [ %109, %bbstreamer_buffer_until.exit44.bbstreamer_buffer_until.exit44.thread_crit_edge ], [ %.084, %101 ]
+  %.36372 = phi ptr [ %108, %bbstreamer_buffer_until.exit44.bbstreamer_buffer_until.exit44.thread_crit_edge ], [ %.06083, %101 ]
   %110 = load ptr, ptr %11, align 8
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %111, align 8
-  tail call void %112(ptr noundef nonnull %110, ptr noundef nonnull %12, ptr noundef %.26272, i32 noundef %.pre-phi, i32 noundef 3) #7
+  tail call void %112(ptr noundef nonnull %110, ptr noundef nonnull %12, ptr noundef %.36372, i32 noundef %.pre-phi, i32 noundef 3) #7
   store i32 1, ptr %7, align 8
   store i32 0, ptr %9, align 8
   br label %115
@@ -239,9 +239,9 @@ bbstreamer_buffer_until.exit44.thread:            ; preds = %bbstreamer_buffer_u
   unreachable
 
 115:                                              ; preds = %77, %100, %76, %bbstreamer_tar_header.exit, %bbstreamer_buffer_until.exit44.thread
-  %.363 = phi ptr [ %.26272, %bbstreamer_buffer_until.exit44.thread ], [ %89, %100 ], [ %89, %77 ], [ %.16167, %76 ], [ %.16167, %bbstreamer_tar_header.exit ]
-  %.3 = phi i32 [ %.273, %bbstreamer_buffer_until.exit44.thread ], [ %90, %100 ], [ %90, %77 ], [ %.168, %76 ], [ %.168, %bbstreamer_tar_header.exit ]
-  %116 = icmp sgt i32 %.3, 0
+  %.161 = phi ptr [ %.36372, %bbstreamer_buffer_until.exit44.thread ], [ %89, %100 ], [ %89, %77 ], [ %.26267, %76 ], [ %.26267, %bbstreamer_tar_header.exit ]
+  %.1 = phi i32 [ %.373, %bbstreamer_buffer_until.exit44.thread ], [ %90, %100 ], [ %90, %77 ], [ %.268, %76 ], [ %.268, %bbstreamer_tar_header.exit ]
+  %116 = icmp sgt i32 %.1, 0
   br i1 %116, label %21, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %115, %bbstreamer_buffer_until.exit, %bbstreamer_buffer_until.exit44, %5, %113

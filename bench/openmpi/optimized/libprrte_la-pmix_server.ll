@@ -1662,11 +1662,11 @@ define internal void @pmix_server_dmdx_recv(i32 %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %.thread259, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.thread254
-  %.0276 = phi i1 [ %.1, %.thread254 ], [ false, %.preheader ]
-  %.0198275 = phi i64 [ %.1199, %.thread254 ], [ undef, %.preheader ]
+  %.1276 = phi i1 [ %.2, %.thread254 ], [ false, %.preheader ]
+  %.1199275 = phi i64 [ %.2200, %.thread254 ], [ undef, %.preheader ]
   %.0202274 = phi i64 [ %122, %.thread254 ], [ 0, %.preheader ]
-  %.0205273 = phi ptr [ %.1206, %.thread254 ], [ null, %.preheader ]
-  %.0208272 = phi i32 [ %.2210, %.thread254 ], [ 0, %.preheader ]
+  %.1206273 = phi ptr [ %.2207, %.thread254 ], [ null, %.preheader ]
+  %.1209272 = phi i32 [ %.2210, %.thread254 ], [ 0, %.preheader ]
   %46 = getelementptr inbounds %struct.pmix_info, ptr %38, i64 %.0202274
   %47 = call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %46, ptr noundef nonnull @.str.246) #15
   br i1 %47, label %48, label %52
@@ -1809,17 +1809,17 @@ define internal void @pmix_server_dmdx_recv(i32 %0, ptr noundef %1, ptr noundef 
   br label %.thread254
 
 .thread254:                                       ; preds = %111, %108, %105, %101, %97, %93, %90, %86, %82, %79, %75, %72, %68, %64, %61, %57, %117, %119, %48
-  %.2210 = phi i32 [ %.0208272, %48 ], [ %.0208272, %119 ], [ %.0208272, %117 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %104, %101 ], [ %100, %97 ], [ %96, %93 ], [ %92, %90 ], [ %89, %86 ], [ %85, %82 ], [ %81, %79 ], [ %78, %75 ], [ %74, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %61 ], [ %60, %57 ]
-  %.1206 = phi ptr [ %51, %48 ], [ %.0205273, %119 ], [ %.0205273, %117 ], [ %.0205273, %111 ], [ %.0205273, %108 ], [ %.0205273, %105 ], [ %.0205273, %101 ], [ %.0205273, %97 ], [ %.0205273, %93 ], [ %.0205273, %90 ], [ %.0205273, %86 ], [ %.0205273, %82 ], [ %.0205273, %79 ], [ %.0205273, %75 ], [ %.0205273, %72 ], [ %.0205273, %68 ], [ %.0205273, %64 ], [ %.0205273, %61 ], [ %.0205273, %57 ]
-  %.1199 = phi i64 [ %.0198275, %48 ], [ %.0202274, %119 ], [ %.0198275, %117 ], [ %.0198275, %111 ], [ %.0198275, %108 ], [ %.0198275, %105 ], [ %.0198275, %101 ], [ %.0198275, %97 ], [ %.0198275, %93 ], [ %.0198275, %90 ], [ %.0198275, %86 ], [ %.0198275, %82 ], [ %.0198275, %79 ], [ %.0198275, %75 ], [ %.0198275, %72 ], [ %.0198275, %68 ], [ %.0198275, %64 ], [ %.0198275, %61 ], [ %.0198275, %57 ]
-  %.1 = phi i1 [ %.0276, %48 ], [ %121, %119 ], [ %.0276, %117 ], [ %.0276, %111 ], [ %.0276, %108 ], [ %.0276, %105 ], [ %.0276, %101 ], [ %.0276, %97 ], [ %.0276, %93 ], [ %.0276, %90 ], [ %.0276, %86 ], [ %.0276, %82 ], [ %.0276, %79 ], [ %.0276, %75 ], [ %.0276, %72 ], [ %.0276, %68 ], [ %.0276, %64 ], [ %.0276, %61 ], [ %.0276, %57 ]
+  %.2210 = phi i32 [ %.1209272, %48 ], [ %.1209272, %119 ], [ %.1209272, %117 ], [ %113, %111 ], [ %110, %108 ], [ %107, %105 ], [ %104, %101 ], [ %100, %97 ], [ %96, %93 ], [ %92, %90 ], [ %89, %86 ], [ %85, %82 ], [ %81, %79 ], [ %78, %75 ], [ %74, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %61 ], [ %60, %57 ]
+  %.2207 = phi ptr [ %51, %48 ], [ %.1206273, %119 ], [ %.1206273, %117 ], [ %.1206273, %111 ], [ %.1206273, %108 ], [ %.1206273, %105 ], [ %.1206273, %101 ], [ %.1206273, %97 ], [ %.1206273, %93 ], [ %.1206273, %90 ], [ %.1206273, %86 ], [ %.1206273, %82 ], [ %.1206273, %79 ], [ %.1206273, %75 ], [ %.1206273, %72 ], [ %.1206273, %68 ], [ %.1206273, %64 ], [ %.1206273, %61 ], [ %.1206273, %57 ]
+  %.2200 = phi i64 [ %.1199275, %48 ], [ %.0202274, %119 ], [ %.1199275, %117 ], [ %.1199275, %111 ], [ %.1199275, %108 ], [ %.1199275, %105 ], [ %.1199275, %101 ], [ %.1199275, %97 ], [ %.1199275, %93 ], [ %.1199275, %90 ], [ %.1199275, %86 ], [ %.1199275, %82 ], [ %.1199275, %79 ], [ %.1199275, %75 ], [ %.1199275, %72 ], [ %.1199275, %68 ], [ %.1199275, %64 ], [ %.1199275, %61 ], [ %.1199275, %57 ]
+  %.2 = phi i1 [ %.1276, %48 ], [ %121, %119 ], [ %.1276, %117 ], [ %.1276, %111 ], [ %.1276, %108 ], [ %.1276, %105 ], [ %.1276, %101 ], [ %.1276, %97 ], [ %.1276, %93 ], [ %.1276, %90 ], [ %.1276, %86 ], [ %.1276, %82 ], [ %.1276, %79 ], [ %.1276, %75 ], [ %.1276, %72 ], [ %.1276, %68 ], [ %.1276, %64 ], [ %.1276, %61 ], [ %.1276, %57 ]
   %122 = add nuw i64 %.0202274, 1
   %123 = load i64, ptr %10, align 8
   %124 = icmp ult i64 %122, %123
   br i1 %124, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.thread254
-  br i1 %.1, label %125, label %.thread259
+  br i1 %.2, label %125, label %.thread259
 
 125:                                              ; preds = %._crit_edge
   %126 = icmp ugt i64 %123, 1
@@ -1836,7 +1836,7 @@ define internal void @pmix_server_dmdx_recv(i32 %0, ptr noundef %1, ptr noundef 
   %131 = phi i64 [ %139, %138 ], [ %130, %127 ]
   %.0201281 = phi i64 [ %140, %138 ], [ 0, %127 ]
   %.1203280 = phi i64 [ %.2204, %138 ], [ 0, %127 ]
-  %132 = icmp eq i64 %.0201281, %.1199
+  %132 = icmp eq i64 %.0201281, %.2200
   br i1 %132, label %138, label %133
 
 133:                                              ; preds = %.lr.ph283
@@ -1867,8 +1867,8 @@ define internal void @pmix_server_dmdx_recv(i32 %0, ptr noundef %1, ptr noundef 
   br label %.thread259
 
 .thread259:                                       ; preds = %.preheader, %35, %44, %._crit_edge284, %142, %._crit_edge
-  %.2207266 = phi ptr [ %.1206, %._crit_edge284 ], [ %.1206, %142 ], [ %.1206, %._crit_edge ], [ null, %44 ], [ null, %35 ], [ null, %.preheader ]
-  %.3265 = phi i32 [ %.2210, %._crit_edge284 ], [ %.2210, %142 ], [ %.2210, %._crit_edge ], [ 0, %44 ], [ 0, %35 ], [ 0, %.preheader ]
+  %.0205266 = phi ptr [ %.2207, %._crit_edge284 ], [ %.2207, %142 ], [ %.2207, %._crit_edge ], [ null, %44 ], [ null, %35 ], [ null, %.preheader ]
+  %.0208265 = phi i32 [ %.2210, %._crit_edge284 ], [ %.2210, %142 ], [ %.2210, %._crit_edge ], [ 0, %44 ], [ 0, %35 ], [ 0, %.preheader ]
   %.1212 = phi ptr [ %129, %._crit_edge284 ], [ null, %142 ], [ %38, %._crit_edge ], [ null, %44 ], [ null, %35 ], [ %38, %.preheader ]
   %143 = call ptr @prte_get_job_data_object(ptr noundef nonnull %9) #15
   %144 = icmp eq ptr %143, null
@@ -1904,12 +1904,12 @@ define internal void @pmix_server_dmdx_recv(i32 %0, ptr noundef %1, ptr noundef 
   %161 = load i64, ptr %10, align 8
   %162 = getelementptr inbounds i8, ptr %155, i64 464
   store i64 %161, ptr %162, align 8
-  %.not241 = icmp eq ptr %.2207266, null
+  %.not241 = icmp eq ptr %.0205266, null
   br i1 %.not241, label %165, label %163
 
 163:                                              ; preds = %154
   %164 = getelementptr inbounds i8, ptr %155, i64 408
-  store ptr %.2207266, ptr %164, align 8
+  store ptr %.0205266, ptr %164, align 8
   br label %165
 
 165:                                              ; preds = %163, %154
@@ -1927,7 +1927,7 @@ define internal void @pmix_server_dmdx_recv(i32 %0, ptr noundef %1, ptr noundef 
   fence release
   store i64 2, ptr %8, align 8
   %174 = call i32 @event_add(ptr noundef nonnull %170, ptr noundef nonnull %8) #15
-  %175 = icmp sgt i32 %.3265, 0
+  %175 = icmp sgt i32 %.0208265, 0
   br i1 %175, label %176, label %308
 
 176:                                              ; preds = %165
@@ -1937,7 +1937,7 @@ define internal void @pmix_server_dmdx_recv(i32 %0, ptr noundef %1, ptr noundef 
   %180 = getelementptr inbounds i8, ptr %155, i64 248
   store i8 1, ptr %180, align 8
   fence release
-  %181 = zext nneg i32 %.3265 to i64
+  %181 = zext nneg i32 %.0208265 to i64
   store i64 %181, ptr %8, align 8
   %182 = call i32 @event_add(ptr noundef nonnull %170, ptr noundef nonnull %8) #15
   br label %308
@@ -1983,7 +1983,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %183, %189, %pmix_po
   br label %308
 
 205:                                              ; preds = %199
-  %.not237 = icmp eq ptr %.2207266, null
+  %.not237 = icmp eq ptr %.0205266, null
   br i1 %.not237, label %.critedge, label %206
 
 206:                                              ; preds = %205
@@ -2000,12 +2000,12 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %183, %189, %pmix_po
 
 213:                                              ; preds = %208
   %214 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #15
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %207, ptr noundef nonnull @.str.251, ptr noundef %214, ptr noundef nonnull %.2207266) #15
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %207, ptr noundef nonnull @.str.251, ptr noundef %214, ptr noundef nonnull %.0205266) #15
   br label %215
 
 215:                                              ; preds = %213, %208, %206
   %216 = load i64, ptr %10, align 8
-  %217 = call i32 @PMIx_Get(ptr noundef nonnull %9, ptr noundef nonnull %.2207266, ptr noundef %.1212, i64 noundef %216, ptr noundef nonnull %11) #15
+  %217 = call i32 @PMIx_Get(ptr noundef nonnull %9, ptr noundef nonnull %.0205266, ptr noundef %.1212, i64 noundef %216, ptr noundef nonnull %11) #15
   %.not238 = icmp eq i32 %217, 0
   br i1 %.not238, label %254, label %218
 
@@ -2023,7 +2023,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %183, %189, %pmix_po
 
 225:                                              ; preds = %220
   %226 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #15
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %219, ptr noundef nonnull @.str.252, ptr noundef %226, ptr noundef nonnull %.2207266) #15
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %219, ptr noundef nonnull @.str.252, ptr noundef %226, ptr noundef nonnull %.0205266) #15
   br label %227
 
 227:                                              ; preds = %225, %220, %218
@@ -2040,7 +2040,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %183, %189, %pmix_po
   %235 = getelementptr inbounds i8, ptr %228, i64 464
   store i64 %234, ptr %235, align 8
   %236 = getelementptr inbounds i8, ptr %228, i64 408
-  store ptr %.2207266, ptr %236, align 8
+  store ptr %.0205266, ptr %236, align 8
   %237 = load i32, ptr %6, align 4
   %238 = getelementptr inbounds i8, ptr %228, i64 432
   store i32 %237, ptr %238, align 8
@@ -2055,7 +2055,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %183, %189, %pmix_po
   fence release
   store i64 2, ptr %8, align 8
   %245 = call i32 @event_add(ptr noundef nonnull %241, ptr noundef nonnull %8) #15
-  %246 = icmp sgt i32 %.3265, 0
+  %246 = icmp sgt i32 %.0208265, 0
   br i1 %246, label %247, label %308
 
 247:                                              ; preds = %227
@@ -2065,7 +2065,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %183, %189, %pmix_po
   %251 = getelementptr inbounds i8, ptr %228, i64 248
   store i8 1, ptr %251, align 8
   fence release
-  %252 = zext nneg i32 %.3265 to i64
+  %252 = zext nneg i32 %.0208265 to i64
   store i64 %252, ptr %8, align 8
   %253 = call i32 @event_add(ptr noundef nonnull %248, ptr noundef nonnull %8) #15
   br label %308
@@ -2087,11 +2087,11 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %183, %189, %pmix_po
 
 262:                                              ; preds = %257
   %263 = call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #15
-  call void (i32, ptr, ...) @pmix_output(i32 noundef %256, ptr noundef nonnull @.str.253, ptr noundef %263, ptr noundef nonnull %.2207266) #15
+  call void (i32, ptr, ...) @pmix_output(i32 noundef %256, ptr noundef nonnull @.str.253, ptr noundef %263, ptr noundef nonnull %.0205266) #15
   br label %264
 
 264:                                              ; preds = %262, %257, %254
-  call void @free(ptr noundef nonnull %.2207266) #15
+  call void @free(ptr noundef nonnull %.0205266) #15
   br label %.critedge
 
 .critedge:                                        ; preds = %205, %264
@@ -2113,7 +2113,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %183, %189, %pmix_po
   %275 = call i32 @pmix_pointer_array_add(ptr noundef nonnull getelementptr inbounds (i8, ptr @prte_pmix_server_globals, i64 16), ptr noundef %265) #15
   %276 = getelementptr inbounds i8, ptr %265, i64 428
   store i32 %275, ptr %276, align 4
-  %277 = icmp sgt i32 %.3265, 0
+  %277 = icmp sgt i32 %.0208265, 0
   br i1 %277, label %278, label %285
 
 278:                                              ; preds = %.critedge
@@ -2123,7 +2123,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %183, %189, %pmix_po
   %282 = getelementptr inbounds i8, ptr %265, i64 248
   store i8 1, ptr %282, align 8
   fence release
-  %283 = zext nneg i32 %.3265 to i64
+  %283 = zext nneg i32 %.0208265 to i64
   store i64 %283, ptr %8, align 8
   %284 = call i32 @event_add(ptr noundef nonnull %279, ptr noundef nonnull %8) #15
   br label %285

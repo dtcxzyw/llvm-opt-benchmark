@@ -1853,9 +1853,9 @@ _ZL18stack_has_headroomm.exit.i:                  ; preds = %291
   br i1 %307, label %.sink.split.i417, label %_ZN7VMError18can_reattempt_stepERPKc.exit
 
 .sink.split.i417:                                 ; preds = %305, %_ZL18stack_has_headroomm.exit.i, %_ZL18stack_has_headroomm.exit.thread.i
-  %.0512.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i ], [ @.str.4, %305 ]
+  %.8.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i ], [ @.str.4, %305 ]
   %308 = load ptr, ptr @_ZN7VMError18_current_step_infoE, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %308, ptr noundef nonnull %.0512.ph) #21
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %308, ptr noundef nonnull %.8.ph) #21
   br label %.critedge398
 
 _ZN7VMError18can_reattempt_stepERPKc.exit:        ; preds = %305
@@ -2236,9 +2236,9 @@ _ZL18stack_has_headroomm.exit.i418:               ; preds = %452
   br i1 %468, label %.sink.split.i421, label %_ZN7VMError18can_reattempt_stepERPKc.exit424
 
 .sink.split.i421:                                 ; preds = %466, %_ZL18stack_has_headroomm.exit.i418, %_ZL18stack_has_headroomm.exit.thread.i423
-  %.3514.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i418 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i423 ], [ @.str.4, %466 ]
+  %.9.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i418 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i423 ], [ @.str.4, %466 ]
   %469 = load ptr, ptr @_ZN7VMError18_current_step_infoE, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %469, ptr noundef nonnull %.3514.ph) #21
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %469, ptr noundef nonnull %.9.ph) #21
   br label %.critedge400
 
 _ZN7VMError18can_reattempt_stepERPKc.exit424:     ; preds = %466
@@ -2345,9 +2345,9 @@ _ZL18stack_has_headroomm.exit.i428:               ; preds = %499
   br i1 %515, label %.sink.split.i431, label %_ZN7VMError18can_reattempt_stepERPKc.exit434
 
 .sink.split.i431:                                 ; preds = %513, %_ZL18stack_has_headroomm.exit.i428, %_ZL18stack_has_headroomm.exit.thread.i433
-  %.6.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i428 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i433 ], [ @.str.4, %513 ]
+  %.10.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i428 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i433 ], [ @.str.4, %513 ]
   %516 = load ptr, ptr @_ZN7VMError18_current_step_infoE, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %516, ptr noundef nonnull %.6.ph) #21
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %516, ptr noundef nonnull %.10.ph) #21
   br label %.critedge402
 
 _ZN7VMError18can_reattempt_stepERPKc.exit434:     ; preds = %513
@@ -2555,9 +2555,9 @@ _ZL18stack_has_headroomm.exit.i441:               ; preds = %587
   br i1 %603, label %.sink.split.i444, label %_ZN7VMError18can_reattempt_stepERPKc.exit447
 
 .sink.split.i444:                                 ; preds = %601, %_ZL18stack_has_headroomm.exit.i441, %_ZL18stack_has_headroomm.exit.thread.i446
-  %.9.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i441 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i446 ], [ @.str.4, %601 ]
+  %.11.ph = phi ptr [ @.str, %_ZL18stack_has_headroomm.exit.i441 ], [ @.str, %_ZL18stack_has_headroomm.exit.thread.i446 ], [ @.str.4, %601 ]
   %604 = load ptr, ptr @_ZN7VMError18_current_step_infoE, align 8
-  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %604, ptr noundef nonnull %.9.ph) #21
+  call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.73, ptr noundef %604, ptr noundef nonnull %.11.ph) #21
   br label %.critedge404
 
 _ZN7VMError18can_reattempt_stepERPKc.exit447:     ; preds = %601
@@ -2804,7 +2804,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit457:     ; preds = %648
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %708
-  %.1603 = phi i32 [ %spec.select408, %708 ], [ 0, %.lr.ph.preheader ]
+  %.2603 = phi i32 [ %spec.select408, %708 ], [ 0, %.lr.ph.preheader ]
   %707 = load ptr, ptr %706, align 8
   %.not390 = icmp eq ptr %707, null
   br i1 %.not390, label %.critedge, label %708
@@ -2815,7 +2815,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit457:     ; preds = %648
   %711 = icmp eq ptr %707, %710
   %712 = call fastcc noundef zeroext i1 @_ZL10print_codeP12outputStreamP6ThreadPhbPS3_i(ptr noundef %0, ptr noundef %709, ptr noundef nonnull %707, i1 noundef zeroext %711, ptr noundef nonnull %20)
   %713 = zext i1 %712 to i32
-  %spec.select408 = add nuw nsw i32 %.1603, %713
+  %spec.select408 = add nuw nsw i32 %.2603, %713
   %714 = load ptr, ptr @_ZN7VMError7_threadE, align 8
   call fastcc void @_ZL10next_frame5frameP6Thread(ptr dead_on_unwind noalias nonnull writable align 8 %22, ptr noundef nonnull byval(%class.frame) align 8 %21, ptr noundef %714)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %22, i64 56, i1 false)
@@ -2823,7 +2823,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit457:     ; preds = %648
   br i1 %715, label %.lr.ph, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %708, %.lr.ph, %698
-  %.3 = phi i32 [ %spec.select407, %698 ], [ %spec.select408, %708 ], [ %.1603, %.lr.ph ]
+  %.1 = phi i32 [ %spec.select407, %698 ], [ %spec.select408, %708 ], [ %.2603, %.lr.ph ]
   %716 = load ptr, ptr @_ZN7VMError7_threadE, align 8
   %.not391 = icmp eq ptr %716, null
   br i1 %.not391, label %.critedge49, label %717
@@ -2844,7 +2844,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit457:     ; preds = %648
 
 726:                                              ; preds = %722
   call void @_ZN16StackFrameStreamC1EP10JavaThreadbbb(ptr noundef nonnull align 8 dereferenceable(5041) %23, ptr noundef nonnull %723, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext false) #21
-  %727 = icmp slt i32 %.3, %693
+  %727 = icmp slt i32 %.1, %693
   br i1 %727, label %.lr.ph607, label %.critedge49
 
 .lr.ph607:                                        ; preds = %726
@@ -2858,7 +2858,7 @@ _ZN7VMError18can_reattempt_stepERPKc.exit457:     ; preds = %648
   br label %735
 
 735:                                              ; preds = %.lr.ph607, %_ZN16StackFrameStream4nextEv.exit
-  %.4606 = phi i32 [ %.3, %.lr.ph607 ], [ %spec.select409, %_ZN16StackFrameStream4nextEv.exit ]
+  %.4606 = phi i32 [ %.1, %.lr.ph607 ], [ %spec.select409, %_ZN16StackFrameStream4nextEv.exit ]
   %736 = load i8, ptr %728, align 8
   %737 = trunc i8 %736 to i1
   br i1 %737, label %.critedge49, label %738

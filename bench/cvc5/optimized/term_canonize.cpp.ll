@@ -1295,7 +1295,7 @@ ehcleanup106:                                     ; preds = %lpad101, %lpad96
   br label %ehcleanup108
 
 cleanup:                                          ; preds = %for.inc, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit265, %if.then13.i.i487, %if.then.i.i481, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit478, %if.then13.i.i403, %if.then.i.i397, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit394, %invoke.cont89
-  %retval.0 = phi i1 [ %cmp91, %invoke.cont89 ], [ %call83, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit394 ], [ %call83, %if.then.i.i397 ], [ %call83, %if.then13.i.i403 ], [ %cmp104, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit478 ], [ %cmp104, %if.then.i.i481 ], [ %cmp104, %if.then13.i.i487 ], [ undef, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit265 ], [ undef, %for.inc ]
+  %retval.1 = phi i1 [ %cmp91, %invoke.cont89 ], [ %call83, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit394 ], [ %call83, %if.then.i.i397 ], [ %call83, %if.then13.i.i403 ], [ %cmp104, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit478 ], [ %cmp104, %if.then.i.i481 ], [ %cmp104, %if.then13.i.i487 ], [ undef, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit265 ], [ undef, %for.inc ]
   %switch = phi i1 [ false, %invoke.cont89 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit394 ], [ false, %if.then.i.i397 ], [ false, %if.then13.i.i403 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit478 ], [ false, %if.then.i.i481 ], [ false, %if.then13.i.i487 ], [ true, %_ZNK4cvc58internal12NodeTemplateILb1EE14getNumChildrenEv.exit265 ], [ true, %for.inc ]
   %56 = load ptr, ptr %bop, align 8
   %bf.load.i.i490 = load i64, ptr %56, align 8
@@ -1367,8 +1367,8 @@ if.end111:                                        ; preds = %_ZN4cvc58internal12
   br label %return
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit511, %if.then, %if.end111, %if.then4
-  %retval.1 = phi i1 [ %cmp.i, %if.then4 ], [ %retval.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit511 ], [ false, %if.end111 ], [ true, %if.then ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %cmp.i, %if.then4 ], [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit511 ], [ false, %if.end111 ], [ true, %if.then ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

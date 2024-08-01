@@ -70,18 +70,18 @@ while.body.preheader.i.i:                         ; preds = %entry
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.preheader.i.i
   %2 = phi i64 [ %4, %while.body.i.i ], [ %.pre.i.i, %while.body.preheader.i.i ]
   %incdec.ptr.i11.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i ], [ %incdec.ptr.i8.i.i, %while.body.preheader.i.i ]
-  %retval.sroa.0.010.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %0, %while.body.preheader.i.i ]
+  %retval.sroa.0.110.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %0, %while.body.preheader.i.i ]
   %3 = load i64, ptr %incdec.ptr.i11.i.i, align 8
   %cmp.i4.i.i = icmp ult i64 %2, %3
   %4 = tail call i64 @llvm.umax.i64(i64 %2, i64 %3)
-  %spec.select.i.i = select i1 %cmp.i4.i.i, ptr %incdec.ptr.i11.i.i, ptr %retval.sroa.0.010.i.i
+  %spec.select.i.i = select i1 %cmp.i4.i.i, ptr %incdec.ptr.i11.i.i, ptr %retval.sroa.0.110.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i11.i.i, i64 8
   %cmp.i3.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %1
   br i1 %cmp.i3.not.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET_S7_S7_.exit, label %while.body.i.i, !llvm.loop !4
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET_S7_S7_.exit: ; preds = %while.body.i.i, %entry
-  %retval.sroa.0.2.i.i = phi ptr [ %0, %entry ], [ %spec.select.i.i, %while.body.i.i ]
-  %5 = load i64, ptr %retval.sroa.0.2.i.i, align 8
+  %retval.sroa.0.0.i.i = phi ptr [ %0, %entry ], [ %spec.select.i.i, %while.body.i.i ]
+  %5 = load i64, ptr %retval.sroa.0.0.i.i, align 8
   %conv = sext i32 %region to i64
   %add.ptr.i = getelementptr inbounds i64, ptr %0, i64 %conv
   %6 = load i64, ptr %add.ptr.i, align 8

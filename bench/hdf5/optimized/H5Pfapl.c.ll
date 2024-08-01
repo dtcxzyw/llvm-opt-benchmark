@@ -841,8 +841,8 @@ define range(i32 -1, 1) i32 @H5P__facc_set_def_driver() local_unnamed_addr #0 {
 
 4:                                                ; preds = %0
   %5 = load i8, ptr %3, align 1
-  %.not29 = icmp eq i8 %5, 0
-  br i1 %.not29, label %.thread, label %6
+  %.not30 = icmp eq i8 %5, 0
+  br i1 %.not30, label %.thread, label %6
 
 6:                                                ; preds = %4
   %7 = call i32 @H5FD_is_driver_registered_by_name(ptr noundef nonnull %3, ptr noundef nonnull %1) #15
@@ -856,8 +856,8 @@ define range(i32 -1, 1) i32 @H5P__facc_set_def_driver() local_unnamed_addr #0 {
   br label %.thread
 
 13:                                               ; preds = %6
-  %.not30 = icmp eq i32 %7, 0
-  br i1 %.not30, label %22, label %14
+  %.not31 = icmp eq i32 %7, 0
+  br i1 %.not31, label %22, label %14
 
 14:                                               ; preds = %13
   %15 = load i64, ptr %1, align 8
@@ -1069,7 +1069,7 @@ define range(i32 -1, 1) i32 @H5P__facc_set_def_driver() local_unnamed_addr #0 {
 125:                                              ; preds = %119
   %126 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %3, ptr noundef nonnull dereferenceable(8) @.str.223) #16
   %.not52.i = icmp eq i32 %126, 0
-  br i1 %.not52.i, label %127, label %H5P__facc_set_def_driver_check_predefined.exit.thread32
+  br i1 %.not52.i, label %127, label %H5P__facc_set_def_driver_check_predefined.exit.thread33
 
 127:                                              ; preds = %125
   %128 = load i64, ptr @H5E_VFL_g, align 8
@@ -1077,7 +1077,7 @@ define range(i32 -1, 1) i32 @H5P__facc_set_def_driver() local_unnamed_addr #0 {
   %130 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__facc_set_def_driver_check_predefined, i32 noundef 1044, i64 noundef %128, i64 noundef %129, ptr noundef nonnull @.str.224) #15
   br label %131
 
-H5P__facc_set_def_driver_check_predefined.exit.thread32: ; preds = %125
+H5P__facc_set_def_driver_check_predefined.exit.thread33: ; preds = %125
   store i64 -1, ptr %1, align 8
   br label %143
 
@@ -1089,8 +1089,8 @@ H5P__facc_set_def_driver_check_predefined.exit.thread32: ; preds = %125
 
 H5P__facc_set_def_driver_check_predefined.exit:   ; preds = %82, %73, %64, %53, %44, %35, %24
   %135 = phi i64 [ %83, %82 ], [ %74, %73 ], [ %65, %64 ], [ %54, %53 ], [ %45, %44 ], [ %36, %35 ], [ %25, %24 ]
-  %.not34 = icmp eq i64 %135, 0
-  br i1 %.not34, label %143, label %136
+  %.not35 = icmp eq i64 %135, 0
+  br i1 %.not35, label %143, label %136
 
 136:                                              ; preds = %H5P__facc_set_def_driver_check_predefined.exit
   %137 = call i32 @H5I_inc_ref(i64 noundef %135, i1 noundef zeroext true) #15
@@ -1103,7 +1103,7 @@ H5P__facc_set_def_driver_check_predefined.exit:   ; preds = %82, %73, %64, %53, 
   %142 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5P__facc_set_def_driver, i32 noundef 892, i64 noundef %140, i64 noundef %141, ptr noundef nonnull @.str.6) #15
   br label %.thread
 
-143:                                              ; preds = %H5P__facc_set_def_driver_check_predefined.exit.thread32, %H5P__facc_set_def_driver_check_predefined.exit
+143:                                              ; preds = %H5P__facc_set_def_driver_check_predefined.exit.thread33, %H5P__facc_set_def_driver_check_predefined.exit
   %144 = call i64 @H5FD_register_driver_by_name(ptr noundef nonnull %3, i1 noundef zeroext true) #15
   store i64 %144, ptr %1, align 8
   %145 = icmp slt i64 %144, 0
@@ -1172,12 +1172,12 @@ H5P__facc_set_def_driver_check_predefined.exit:   ; preds = %82, %73, %64, %53, 
   br label %189
 
 .thread:                                          ; preds = %9, %18, %131, %139, %146, %4, %0, %177
-  %.not35.ph = phi i1 [ true, %0 ], [ true, %4 ], [ false, %146 ], [ false, %139 ], [ false, %131 ], [ true, %177 ], [ false, %18 ], [ false, %9 ]
+  %.not36.ph = phi i1 [ true, %0 ], [ true, %4 ], [ false, %146 ], [ false, %139 ], [ false, %131 ], [ true, %177 ], [ false, %18 ], [ false, %9 ]
   %.022.ph = phi i32 [ 0, %0 ], [ 0, %4 ], [ -1, %146 ], [ -1, %139 ], [ -1, %131 ], [ 0, %177 ], [ -1, %18 ], [ -1, %9 ]
   %187 = load i64, ptr %1, align 8
   %188 = icmp slt i64 %187, 0
-  %or.cond.not3741 = select i1 %.not35.ph, i1 true, i1 %188
-  %.022.mux43 = select i1 %or.cond.not3741, i32 %.022.ph, i32 -1
+  %or.cond.not3842 = select i1 %.not36.ph, i1 true, i1 %188
+  %.022.mux44 = select i1 %or.cond.not3842, i32 %.022.ph, i32 -1
   br label %199
 
 189:                                              ; preds = %183, %173, %165, %158
@@ -1197,7 +1197,7 @@ H5P__facc_set_def_driver_check_predefined.exit:   ; preds = %82, %73, %64, %53, 
   br label %199
 
 199:                                              ; preds = %.thread, %189, %192, %195
-  %.123 = phi i32 [ -1, %195 ], [ -1, %192 ], [ -1, %189 ], [ %.022.mux43, %.thread ]
+  %.123 = phi i32 [ -1, %195 ], [ -1, %192 ], [ -1, %189 ], [ %.022.mux44, %.thread ]
   ret i32 %.123
 }
 
@@ -4585,7 +4585,7 @@ define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef write
   br label %.thread48
 
 68:                                               ; preds = %61, %52
-  %.0 = phi ptr [ %55, %52 ], [ %62, %61 ]
+  %.1 = phi ptr [ %55, %52 ], [ %62, %61 ]
   %69 = getelementptr inbounds i8, ptr %4, i64 24
   %70 = load ptr, ptr %69, align 8
   %.not32 = icmp eq ptr %70, null
@@ -4597,8 +4597,8 @@ define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef write
 74:                                               ; preds = %68
   %75 = getelementptr inbounds i8, ptr %4, i64 64
   %76 = load ptr, ptr %75, align 8
-  %77 = call ptr %70(ptr noundef nonnull %.0, ptr noundef %71, i64 noundef %73, i32 noundef 3, ptr noundef %76) #15
-  %.not33 = icmp eq ptr %.0, %77
+  %77 = call ptr %70(ptr noundef nonnull %.1, ptr noundef %71, i64 noundef %73, i32 noundef 3, ptr noundef %76) #15
+  %.not33 = icmp eq ptr %.1, %77
   br i1 %.not33, label %83, label %78
 
 78:                                               ; preds = %74
@@ -4608,12 +4608,12 @@ define range(i32 -1, 1) i32 @H5Pget_file_image(i64 noundef %0, ptr noundef write
   br label %.thread48
 
 82:                                               ; preds = %68
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0, ptr align 1 %71, i64 %73, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.1, ptr align 1 %71, i64 %73, i1 false)
   br label %83
 
 83:                                               ; preds = %82, %74, %45
-  %.1 = phi ptr [ %.0, %74 ], [ %.0, %82 ], [ null, %45 ]
-  store ptr %.1, ptr %1, align 8
+  %.0 = phi ptr [ %.1, %74 ], [ %.1, %82 ], [ null, %45 ]
+  store ptr %.0, ptr %1, align 8
   br label %85
 
 .thread48:                                        ; preds = %64, %78, %57, %36, %29

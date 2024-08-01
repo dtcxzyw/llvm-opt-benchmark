@@ -133,15 +133,15 @@ aes_ctr_encrypt_counter.exit:                     ; preds = %aes_ctr_increase_co
   br i1 %or.cond.i49.not, label %.preheader67, label %.loopexit
 
 .preheader67:                                     ; preds = %aes_ctr_encrypt_counter.exit, %aes_ctr_encrypt_counter.exit59
-  %.1 = phi i32 [ %48, %aes_ctr_encrypt_counter.exit59 ], [ %.073, %aes_ctr_encrypt_counter.exit ]
-  %30 = sub i32 %12, %.1
+  %.3 = phi i32 [ %48, %aes_ctr_encrypt_counter.exit59 ], [ %.073, %aes_ctr_encrypt_counter.exit ]
+  %30 = sub i32 %12, %.3
   %31 = icmp ugt i32 %30, 15
   br i1 %31, label %.preheader, label %54
 
 .preheader:                                       ; preds = %.preheader67, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader67 ]
   %32 = trunc nuw nsw i64 %indvars.iv to i32
-  %33 = add i32 %.1, %32
+  %33 = add i32 %.3, %32
   %34 = zext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %1, i64 %34
   %36 = load i8, ptr %35, align 1
@@ -180,7 +180,7 @@ aes_ctr_encrypt_counter.exit59.thread:            ; preds = %aes_ctr_increase_co
   br label %.loopexit
 
 aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_counter.exit55
-  %48 = add i32 %.1, 16
+  %48 = add i32 %.3, 16
   %49 = load ptr, ptr %0, align 8
   %50 = call i32 @EVP_EncryptUpdate(ptr noundef %49, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %13, i32 noundef 16) #7
   %51 = icmp ne i32 %50, 0
@@ -191,12 +191,12 @@ aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_co
   br i1 %or.cond.i56.not, label %.preheader67, label %.loopexit, !llvm.loop !8
 
 54:                                               ; preds = %.preheader67
-  %.not47 = icmp ult i32 %.1, %12
+  %.not47 = icmp ult i32 %.3, %12
   br i1 %.not47, label %55, label %._crit_edge.loopexit
 
 55:                                               ; preds = %54, %16
   %.242 = phi i32 [ 0, %54 ], [ %.04072, %16 ]
-  %.2 = phi i32 [ %.1, %54 ], [ %.073, %16 ]
+  %.2 = phi i32 [ %.3, %54 ], [ %.073, %16 ]
   %56 = zext i32 %.2 to i64
   %57 = getelementptr inbounds i8, ptr %1, i64 %56
   %58 = load i8, ptr %57, align 1
@@ -212,16 +212,16 @@ aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_co
   br i1 %66, label %16, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %54, %55
-  %.343.ph = phi i32 [ %59, %55 ], [ 0, %54 ]
-  %.3.ph = phi i32 [ %65, %55 ], [ %.1, %54 ]
-  %67 = zext i32 %.3.ph to i64
+  %.141.ph = phi i32 [ %59, %55 ], [ 0, %54 ]
+  %.1.ph = phi i32 [ %65, %55 ], [ %.3, %54 ]
+  %67 = zext i32 %.1.ph to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
-  %.343 = phi i32 [ %10, %5 ], [ %.343.ph, %._crit_edge.loopexit ]
-  %.3 = phi i64 [ 0, %5 ], [ %67, %._crit_edge.loopexit ]
-  store i32 %.343, ptr %9, align 4
-  store i64 %.3, ptr %4, align 8
+  %.141 = phi i32 [ %10, %5 ], [ %.141.ph, %._crit_edge.loopexit ]
+  %.1 = phi i64 [ 0, %5 ], [ %67, %._crit_edge.loopexit ]
+  store i32 %.141, ptr %9, align 4
+  store i64 %.1, ptr %4, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %aes_ctr_encrypt_counter.exit, %aes_ctr_encrypt_counter.exit59, %aes_ctr_encrypt_counter.exit59.thread, %aes_ctr_encrypt_counter.exit.thread, %._crit_edge

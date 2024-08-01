@@ -614,7 +614,7 @@ if.then21:                                        ; preds = %if.end18
   br i1 %cmp23, label %if.end132, label %if.end27
 
 if.end27:                                         ; preds = %if.end18, %if.then21
-  %priv_key.0 = phi ptr [ %call22, %if.then21 ], [ %4, %if.end18 ]
+  %priv_key.1 = phi ptr [ %call22, %if.then21 ], [ %4, %if.end18 ]
   %pub_key28 = getelementptr inbounds i8, ptr %dh, i64 112
   %5 = load ptr, ptr %pub_key28, align 8
   %cmp29 = icmp eq ptr %5, null
@@ -626,7 +626,7 @@ if.then30:                                        ; preds = %if.end27
   br i1 %cmp32, label %if.end132, label %if.end37
 
 if.end37:                                         ; preds = %if.end27, %if.then30
-  %pub_key.0 = phi ptr [ %call31, %if.then30 ], [ %5, %if.end27 ]
+  %pub_key.1 = phi ptr [ %call31, %if.then30 ], [ %5, %if.end27 ]
   br i1 %cmp20.not, label %if.then38, label %if.end122
 
 if.then38:                                        ; preds = %if.end37
@@ -652,7 +652,7 @@ lor.lhs.false:                                    ; preds = %if.then41
 
 if.end56:                                         ; preds = %lor.lhs.false
   %9 = load i32, ptr %length, align 8
-  %call59 = tail call i32 @ossl_ffc_generate_private_key(ptr noundef nonnull %call15, ptr noundef nonnull %params, i32 noundef %9, i32 noundef %conv, ptr noundef nonnull %priv_key.0) #8
+  %call59 = tail call i32 @ossl_ffc_generate_private_key(ptr noundef nonnull %call15, ptr noundef nonnull %params, i32 noundef %9, i32 noundef %conv, ptr noundef nonnull %priv_key.1) #8
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %if.end132, label %if.end122
 
@@ -686,7 +686,7 @@ cond.false:                                       ; preds = %if.then68, %if.end8
 
 cond.end:                                         ; preds = %if.end80, %cond.false
   %cond = phi i32 [ %sub, %cond.false ], [ %.pr, %if.end80 ]
-  %call87 = tail call i32 @BN_priv_rand_ex(ptr noundef nonnull %priv_key.0, i32 noundef %cond, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %call15) #8
+  %call87 = tail call i32 @BN_priv_rand_ex(ptr noundef nonnull %priv_key.1, i32 noundef %cond, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %call15) #8
   %tobool88.not = icmp eq i32 %call87, 0
   br i1 %tobool88.not, label %if.end132, label %if.end90
 
@@ -704,7 +704,7 @@ land.lhs.true94:                                  ; preds = %if.end90
   br i1 %tobool98.not, label %if.then99, label %if.end122
 
 if.then99:                                        ; preds = %land.lhs.true94
-  %call100 = tail call i32 @BN_clear_bit(ptr noundef nonnull %priv_key.0, i32 noundef 0) #8
+  %call100 = tail call i32 @BN_clear_bit(ptr noundef nonnull %priv_key.1, i32 noundef 0) #8
   %tobool101.not = icmp eq i32 %call100, 0
   br i1 %tobool101.not, label %if.end132, label %if.end122
 
@@ -717,7 +717,7 @@ if.else105:                                       ; preds = %if.else63
 if.end111:                                        ; preds = %if.else105
   %17 = load ptr, ptr %q, align 8
   %call115 = tail call i32 @BN_num_bits(ptr noundef %17) #8
-  %call116 = tail call i32 @ossl_ffc_generate_private_key(ptr noundef nonnull %call15, ptr noundef nonnull %params, i32 noundef %call115, i32 noundef 80, ptr noundef nonnull %priv_key.0) #8
+  %call116 = tail call i32 @ossl_ffc_generate_private_key(ptr noundef nonnull %call15, ptr noundef nonnull %params, i32 noundef %call115, i32 noundef 80, ptr noundef nonnull %priv_key.1) #8
   %tobool117.not = icmp eq i32 %call116, 0
   br i1 %tobool117.not, label %if.end132, label %if.end122
 
@@ -748,7 +748,7 @@ ossl_dh_generate_public_key.exit.thread61:        ; preds = %if.then1.i
 
 ossl_dh_generate_public_key.exit:                 ; preds = %if.end.i, %if.then1.i
   %mont.0.i = phi ptr [ %call2.i, %if.then1.i ], [ null, %if.end.i ]
-  tail call void @BN_with_flags(ptr noundef nonnull %call.i, ptr noundef nonnull %priv_key.0, i32 noundef 4) #8
+  tail call void @BN_with_flags(ptr noundef nonnull %call.i, ptr noundef nonnull %priv_key.1, i32 noundef 4) #8
   %meth.i = getelementptr inbounds i8, ptr %dh, i64 184
   %21 = load ptr, ptr %meth.i, align 8
   %bn_mod_exp.i = getelementptr inbounds i8, ptr %21, i64 24
@@ -756,14 +756,14 @@ ossl_dh_generate_public_key.exit:                 ; preds = %if.end.i, %if.then1
   %g.i = getelementptr inbounds i8, ptr %dh, i64 24
   %23 = load ptr, ptr %g.i, align 8
   %24 = load ptr, ptr %params, align 8
-  %call10.i = tail call i32 %22(ptr noundef nonnull %dh, ptr noundef nonnull %pub_key.0, ptr noundef %23, ptr noundef nonnull %call.i, ptr noundef %24, ptr noundef nonnull %call15, ptr noundef %mont.0.i) #8
+  %call10.i = tail call i32 %22(ptr noundef nonnull %dh, ptr noundef nonnull %pub_key.1, ptr noundef %23, ptr noundef nonnull %call.i, ptr noundef %24, ptr noundef nonnull %call15, ptr noundef %mont.0.i) #8
   %tobool11.not.i.not = icmp eq i32 %call10.i, 0
   tail call void @BN_clear_free(ptr noundef nonnull %call.i) #8
   br i1 %tobool11.not.i.not, label %if.end132, label %if.end132.thread
 
 if.end132.thread:                                 ; preds = %ossl_dh_generate_public_key.exit
-  store ptr %pub_key.0, ptr %pub_key28, align 8
-  store ptr %priv_key.0, ptr %priv_key19, align 8
+  store ptr %pub_key.1, ptr %pub_key28, align 8
+  store ptr %priv_key.1, ptr %priv_key19, align 8
   %dirty_cnt = getelementptr inbounds i8, ptr %dh, i64 200
   %25 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %25, 1
@@ -771,30 +771,30 @@ if.end132.thread:                                 ; preds = %ossl_dh_generate_pu
   br label %if.end137
 
 if.end132:                                        ; preds = %ossl_dh_generate_public_key.exit.thread61, %if.else105, %if.end111, %cond.end, %if.then99, %land.lhs.true72, %if.end56, %ossl_dh_generate_public_key.exit, %lor.lhs.false, %if.then41, %if.then30, %if.then21, %if.end14, %if.end122
-  %pub_key.1.ph = phi ptr [ %pub_key.0, %ossl_dh_generate_public_key.exit.thread61 ], [ %pub_key.0, %if.else105 ], [ %pub_key.0, %if.end111 ], [ %pub_key.0, %cond.end ], [ %pub_key.0, %if.then99 ], [ %pub_key.0, %land.lhs.true72 ], [ %pub_key.0, %if.end56 ], [ %pub_key.0, %ossl_dh_generate_public_key.exit ], [ %pub_key.0, %lor.lhs.false ], [ %pub_key.0, %if.then41 ], [ null, %if.then30 ], [ null, %if.then21 ], [ null, %if.end14 ], [ %pub_key.0, %if.end122 ]
-  %priv_key.1.ph = phi ptr [ %priv_key.0, %ossl_dh_generate_public_key.exit.thread61 ], [ %priv_key.0, %if.else105 ], [ %priv_key.0, %if.end111 ], [ %priv_key.0, %cond.end ], [ %priv_key.0, %if.then99 ], [ %priv_key.0, %land.lhs.true72 ], [ %priv_key.0, %if.end56 ], [ %priv_key.0, %ossl_dh_generate_public_key.exit ], [ %priv_key.0, %lor.lhs.false ], [ %priv_key.0, %if.then41 ], [ %priv_key.0, %if.then30 ], [ null, %if.then21 ], [ null, %if.end14 ], [ %priv_key.0, %if.end122 ]
+  %pub_key.0.ph = phi ptr [ %pub_key.1, %ossl_dh_generate_public_key.exit.thread61 ], [ %pub_key.1, %if.else105 ], [ %pub_key.1, %if.end111 ], [ %pub_key.1, %cond.end ], [ %pub_key.1, %if.then99 ], [ %pub_key.1, %land.lhs.true72 ], [ %pub_key.1, %if.end56 ], [ %pub_key.1, %ossl_dh_generate_public_key.exit ], [ %pub_key.1, %lor.lhs.false ], [ %pub_key.1, %if.then41 ], [ null, %if.then30 ], [ null, %if.then21 ], [ null, %if.end14 ], [ %pub_key.1, %if.end122 ]
+  %priv_key.0.ph = phi ptr [ %priv_key.1, %ossl_dh_generate_public_key.exit.thread61 ], [ %priv_key.1, %if.else105 ], [ %priv_key.1, %if.end111 ], [ %priv_key.1, %cond.end ], [ %priv_key.1, %if.then99 ], [ %priv_key.1, %land.lhs.true72 ], [ %priv_key.1, %if.end56 ], [ %priv_key.1, %ossl_dh_generate_public_key.exit ], [ %priv_key.1, %lor.lhs.false ], [ %priv_key.1, %if.then41 ], [ %priv_key.1, %if.then30 ], [ null, %if.then21 ], [ null, %if.end14 ], [ %priv_key.1, %if.end122 ]
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 378, ptr noundef nonnull @__func__.generate_key) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef 524291, ptr noundef null) #8
   %pub_key133.phi.trans.insert = getelementptr inbounds i8, ptr %dh, i64 112
   %.pre = load ptr, ptr %pub_key133.phi.trans.insert, align 8
-  %cmp134.not = icmp eq ptr %pub_key.1.ph, %.pre
+  %cmp134.not = icmp eq ptr %pub_key.0.ph, %.pre
   br i1 %cmp134.not, label %if.end137, label %if.then136
 
 if.then136:                                       ; preds = %if.end132
-  tail call void @BN_free(ptr noundef %pub_key.1.ph) #8
+  tail call void @BN_free(ptr noundef %pub_key.0.ph) #8
   br label %if.end137
 
 if.end137:                                        ; preds = %if.end132.thread, %if.then136, %if.end132
   %ok.06979 = phi i32 [ 1, %if.end132.thread ], [ 0, %if.then136 ], [ 0, %if.end132 ]
-  %priv_key.17378 = phi ptr [ %priv_key.0, %if.end132.thread ], [ %priv_key.1.ph, %if.then136 ], [ %priv_key.1.ph, %if.end132 ]
+  %priv_key.07378 = phi ptr [ %priv_key.1, %if.end132.thread ], [ %priv_key.0.ph, %if.then136 ], [ %priv_key.0.ph, %if.end132 ]
   %priv_key138 = getelementptr inbounds i8, ptr %dh, i64 120
   %26 = load ptr, ptr %priv_key138, align 8
-  %cmp139.not = icmp eq ptr %priv_key.17378, %26
+  %cmp139.not = icmp eq ptr %priv_key.07378, %26
   br i1 %cmp139.not, label %if.end142, label %if.then141
 
 if.then141:                                       ; preds = %if.end137
-  tail call void @BN_free(ptr noundef %priv_key.17378) #8
+  tail call void @BN_free(ptr noundef %priv_key.07378) #8
   br label %if.end142
 
 if.end142:                                        ; preds = %if.then141, %if.end137

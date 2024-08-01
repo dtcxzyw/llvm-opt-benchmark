@@ -1474,7 +1474,7 @@ define hidden void @_ZN19ZReferenceProcessor30process_worker_discovered_listE8za
 6:                                                ; preds = %.lr.ph, %_ZN20SuspendibleThreadSet5yieldEv.exit
   %.041 = phi i64 [ %1, %.lr.ph ], [ %30, %_ZN20SuspendibleThreadSet5yieldEv.exit ]
   %.02440 = phi i64 [ 0, %.lr.ph ], [ %.1, %_ZN20SuspendibleThreadSet5yieldEv.exit ]
-  %.02539 = phi i64 [ 0, %.lr.ph ], [ %.2, %_ZN20SuspendibleThreadSet5yieldEv.exit ]
+  %.02539 = phi i64 [ 0, %.lr.ph ], [ %.126, %_ZN20SuspendibleThreadSet5yieldEv.exit ]
   %7 = inttoptr i64 %.041 to ptr
   %8 = load i8, ptr @UseCompressedClassPointers, align 1
   %9 = trunc i8 %8 to i1
@@ -1616,7 +1616,7 @@ switch.lookup54:                                  ; preds = %75
   br label %_ZL11list_appendR8zaddressS0_S_.exit
 
 _ZL11list_appendR8zaddressS0_S_.exit:             ; preds = %69, %57, %switch.lookup54, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread
-  %.2 = phi i64 [ %.02539, %switch.lookup54 ], [ %.02539, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread ], [ %.02539, %69 ], [ %.041, %57 ]
+  %.126 = phi i64 [ %.02539, %switch.lookup54 ], [ %.02539, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread ], [ %.02539, %69 ], [ %.041, %57 ]
   %.1 = phi i64 [ %.02440, %switch.lookup54 ], [ %.02440, %_ZNK19ZReferenceProcessor17try_make_inactiveE8zaddress13ReferenceType.exit.thread ], [ %.041, %69 ], [ %.041, %57 ]
   %80 = load volatile i8, ptr @_ZN20SuspendibleThreadSet12_suspend_allE, align 1
   %81 = trunc i8 %80 to i1
@@ -1631,14 +1631,14 @@ _ZN20SuspendibleThreadSet5yieldEv.exit:           ; preds = %_ZL11list_appendR8z
   br i1 %83, label %._crit_edge, label %6, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %_ZN20SuspendibleThreadSet5yieldEv.exit
-  %84 = icmp eq i64 %.2, 0
+  %84 = icmp eq i64 %.126, 0
   br i1 %84, label %._crit_edge.thread, label %85
 
 85:                                               ; preds = %._crit_edge
   %86 = getelementptr inbounds i8, ptr %0, i64 64
   %87 = load i64, ptr %86, align 8
   %88 = inttoptr i64 %87 to ptr
-  %89 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.2, ptr %88) #11, !srcloc !12
+  %89 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.126, ptr %88) #11, !srcloc !12
   %90 = inttoptr i64 %.1 to ptr
   %91 = inttoptr i64 %89 to ptr
   %92 = load i32, ptr @_ZN23java_lang_ref_Reference18_discovered_offsetE, align 4

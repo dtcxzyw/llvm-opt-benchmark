@@ -843,33 +843,33 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
 
 .lr.ph178.i.i:                                    ; preds = %196, %253
   %.0161176.i.i = phi i32 [ %254, %253 ], [ 0, %196 ]
-  %.0164175.i.i = phi i32 [ %.3.i.i, %253 ], [ 3, %196 ]
+  %.1175.i.i = phi i32 [ %.4.i.i, %253 ], [ 3, %196 ]
   %207 = load i32, ptr @hf_dlt_service_application_id, align 4
-  %208 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %207, ptr noundef %146, i32 noundef %.0164175.i.i, i32 noundef 4, i32 noundef 0) #7
-  %209 = add i32 %.0164175.i.i, 4
+  %208 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %207, ptr noundef %146, i32 noundef %.1175.i.i, i32 noundef 4, i32 noundef 0) #7
+  %209 = add i32 %.1175.i.i, 4
   %210 = load i32, ptr @ett_dlt_service_app_id, align 4
   %211 = call ptr @proto_item_add_subtree(ptr noundef %208, i32 noundef %210) #7
   %212 = load i32, ptr @hf_dlt_service_count, align 4
   %213 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %211, i32 noundef %212, ptr noundef %146, i32 noundef %209, i32 noundef 2, i32 noundef %spec.select.i.i, ptr noundef nonnull %10) #7
-  %214 = add i32 %.0164175.i.i, 6
+  %214 = add i32 %.1175.i.i, 6
   %215 = load i32, ptr %10, align 4
   %.not182.i.i = icmp eq i32 %215, 0
   br i1 %.not182.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph178.i.i, %238
   %.0174.i.i = phi i32 [ %239, %238 ], [ 0, %.lr.ph178.i.i ]
-  %.1173.i.i = phi i32 [ %.2.i.i, %238 ], [ %214, %.lr.ph178.i.i ]
+  %.2173.i.i = phi i32 [ %.3.i.i, %238 ], [ %214, %.lr.ph178.i.i ]
   %216 = load i32, ptr @hf_dlt_service_context_id, align 4
-  %217 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %216, ptr noundef %146, i32 noundef %.1173.i.i, i32 noundef 4, i32 noundef 0) #7
+  %217 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %216, ptr noundef %146, i32 noundef %.2173.i.i, i32 noundef 4, i32 noundef 0) #7
   %218 = load i32, ptr @ett_dlt_service_ctx_id, align 4
   %219 = call ptr @proto_item_add_subtree(ptr noundef %217, i32 noundef %218) #7
-  %220 = add i32 %.1173.i.i, 4
+  %220 = add i32 %.2173.i.i, 4
   %221 = load i32, ptr @hf_dlt_service_log_level, align 4
   %222 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %221, ptr noundef %146, i32 noundef %220, i32 noundef 1, i32 noundef %spec.select.i.i) #7
-  %223 = add i32 %.1173.i.i, 5
+  %223 = add i32 %.2173.i.i, 5
   %224 = load i32, ptr @hf_dlt_service_trace_status, align 4
   %225 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %224, ptr noundef %146, i32 noundef %223, i32 noundef 1, i32 noundef %spec.select.i.i) #7
-  %226 = add i32 %.1173.i.i, 6
+  %226 = add i32 %.2173.i.i, 6
   %227 = load i32, ptr %8, align 4
   %228 = icmp eq i32 %227, 7
   br i1 %228, label %229, label %238
@@ -877,7 +877,7 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
 229:                                              ; preds = %.lr.ph.i.i
   %230 = load i32, ptr @hf_dlt_service_count, align 4
   %231 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %211, i32 noundef %230, ptr noundef %146, i32 noundef %226, i32 noundef 2, i32 noundef %spec.select.i.i, ptr noundef nonnull %7) #7
-  %232 = add i32 %.1173.i.i, 8
+  %232 = add i32 %.2173.i.i, 8
   %233 = load i32, ptr @hf_dlt_service_ctx_desc, align 4
   %234 = load i32, ptr %7, align 4
   %235 = call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %233, ptr noundef %146, i32 noundef %232, i32 noundef %234, i32 noundef 0) #7
@@ -886,22 +886,22 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
   br label %238
 
 238:                                              ; preds = %229, %.lr.ph.i.i
-  %.2.i.i = phi i32 [ %237, %229 ], [ %226, %.lr.ph.i.i ]
+  %.3.i.i = phi i32 [ %237, %229 ], [ %226, %.lr.ph.i.i ]
   %239 = add nuw i32 %.0174.i.i, 1
   %240 = load i32, ptr %10, align 4
   %241 = icmp ult i32 %239, %240
   br i1 %241, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !6
 
 ._crit_edge.i.i:                                  ; preds = %238, %.lr.ph178.i.i
-  %.1.lcssa.i.i = phi i32 [ %214, %.lr.ph178.i.i ], [ %.2.i.i, %238 ]
+  %.2.lcssa.i.i = phi i32 [ %214, %.lr.ph178.i.i ], [ %.3.i.i, %238 ]
   %242 = load i32, ptr %8, align 4
   %243 = icmp eq i32 %242, 7
   br i1 %243, label %244, label %253
 
 244:                                              ; preds = %._crit_edge.i.i
   %245 = load i32, ptr @hf_dlt_service_count, align 4
-  %246 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %203, i32 noundef %245, ptr noundef %146, i32 noundef %.1.lcssa.i.i, i32 noundef 2, i32 noundef %spec.select.i.i, ptr noundef nonnull %7) #7
-  %247 = add i32 %.1.lcssa.i.i, 2
+  %246 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %203, i32 noundef %245, ptr noundef %146, i32 noundef %.2.lcssa.i.i, i32 noundef 2, i32 noundef %spec.select.i.i, ptr noundef nonnull %7) #7
+  %247 = add i32 %.2.lcssa.i.i, 2
   %248 = load i32, ptr @hf_dlt_service_app_desc, align 4
   %249 = load i32, ptr %7, align 4
   %250 = call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %248, ptr noundef %146, i32 noundef %247, i32 noundef %249, i32 noundef 0) #7
@@ -910,7 +910,7 @@ expert_dlt_buffer_too_short.exit:                 ; preds = %18, %19
   br label %253
 
 253:                                              ; preds = %244, %._crit_edge.i.i
-  %.3.i.i = phi i32 [ %252, %244 ], [ %.1.lcssa.i.i, %._crit_edge.i.i ]
+  %.4.i.i = phi i32 [ %252, %244 ], [ %.2.lcssa.i.i, %._crit_edge.i.i ]
   %254 = add nuw i32 %.0161176.i.i, 1
   %255 = load i32, ptr %9, align 4
   %256 = icmp ult i32 %254, %255

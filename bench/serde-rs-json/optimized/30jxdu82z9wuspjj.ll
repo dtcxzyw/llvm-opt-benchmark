@@ -1711,13 +1711,13 @@ _ZN10serde_json4read5error17h163b424e2d9691fcE.exit: ; preds = %38
   br label %210
 
 210:                                              ; preds = %224, %223, %219, %218, %214, %212, %208, %195, %192, %180, %168, %149
-  %.0 = phi ptr [ %151, %149 ], [ %225, %224 ], [ null, %223 ], [ %170, %168 ], [ %182, %180 ], [ %194, %192 ], [ %196, %195 ], [ %209, %208 ], [ %217, %214 ], [ %213, %212 ], [ %222, %219 ], [ null, %218 ]
+  %.1 = phi ptr [ %151, %149 ], [ %225, %224 ], [ null, %223 ], [ %170, %168 ], [ %182, %180 ], [ %194, %192 ], [ %196, %195 ], [ %209, %208 ], [ %217, %214 ], [ %213, %212 ], [ %222, %219 ], [ null, %218 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17)
   br label %211
 
 211:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit33", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit35", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit37", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit39", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit41", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit43", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit45", %160, %210, %_ZN10serde_json4read5error17h163b424e2d9691fcE.exit, %34
-  %.1 = phi ptr [ %37, %34 ], [ %46, %_ZN10serde_json4read5error17h163b424e2d9691fcE.exit ], [ %.0, %210 ], [ null, %160 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit45" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit43" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit41" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit39" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit37" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit35" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit33" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit" ]
-  ret ptr %.1
+  %.0 = phi ptr [ %37, %34 ], [ %46, %_ZN10serde_json4read5error17h163b424e2d9691fcE.exit ], [ %.1, %210 ], [ null, %160 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit45" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit43" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit41" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit39" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit37" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit35" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit33" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h681667b084e709e0E.exit" ]
+  ret ptr %.0
 
 212:                                              ; preds = %187
   tail call void @_ZN10serde_json4read12parse_escape16encode_surrogate17h123157416cd4f880E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i16 noundef %147)

@@ -2100,8 +2100,8 @@ define void @pmix_server_keyval_client(i32 noundef %0, ptr nocapture noundef rea
   br i1 %72, label %54, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %69, %50, %48, %40, %34, %32, %30, %24, %22, %37, %.loopexit110, %.loopexit109, %.loopexit108, %47
-  %.3 = phi i32 [ 0, %37 ], [ %44, %47 ], [ %56, %.loopexit108 ], [ %60, %.loopexit109 ], [ %66, %.loopexit110 ], [ -20, %22 ], [ -20, %24 ], [ -20, %30 ], [ -20, %32 ], [ -46, %34 ], [ %.061, %40 ], [ %.061, %48 ], [ %.061, %50 ], [ %.061, %69 ]
-  %.1 = phi ptr [ null, %37 ], [ null, %47 ], [ %51, %.loopexit108 ], [ %51, %.loopexit109 ], [ %51, %.loopexit110 ], [ null, %22 ], [ null, %24 ], [ null, %30 ], [ null, %32 ], [ null, %34 ], [ null, %40 ], [ null, %48 ], [ %51, %50 ], [ %51, %69 ]
+  %.062 = phi i32 [ 0, %37 ], [ %44, %47 ], [ %56, %.loopexit108 ], [ %60, %.loopexit109 ], [ %66, %.loopexit110 ], [ -20, %22 ], [ -20, %24 ], [ -20, %30 ], [ -20, %32 ], [ -46, %34 ], [ %.061, %40 ], [ %.061, %48 ], [ %.061, %50 ], [ %.061, %69 ]
+  %.060 = phi ptr [ null, %37 ], [ null, %47 ], [ %51, %.loopexit108 ], [ %51, %.loopexit109 ], [ %51, %.loopexit110 ], [ null, %22 ], [ null, %24 ], [ null, %30 ], [ null, %32 ], [ null, %34 ], [ null, %40 ], [ null, %48 ], [ %51, %50 ], [ %51, %69 ]
   %73 = load i32, ptr %8, align 4
   %74 = icmp sgt i32 %73, -1
   br i1 %74, label %75, label %.thread
@@ -2133,7 +2133,7 @@ define void @pmix_server_keyval_client(i32 noundef %0, ptr nocapture noundef rea
 87:                                               ; preds = %84
   %88 = getelementptr inbounds i8, ptr %82, i64 1376
   %89 = load ptr, ptr %88, align 8
-  call void %86(i32 noundef %.3, ptr noundef %89) #13
+  call void %86(i32 noundef %.062, ptr noundef %89) #13
   br label %99
 
 90:                                               ; preds = %84
@@ -2146,7 +2146,7 @@ define void @pmix_server_keyval_client(i32 noundef %0, ptr nocapture noundef rea
   %94 = load i64, ptr %13, align 8
   %95 = getelementptr inbounds i8, ptr %82, i64 1376
   %96 = load ptr, ptr %95, align 8
-  call void %92(i32 noundef %.3, ptr noundef %.1, i64 noundef %94, ptr noundef %96) #13
+  call void %92(i32 noundef %.062, ptr noundef %.060, i64 noundef %94, ptr noundef %96) #13
   br label %99
 
 97:                                               ; preds = %90
@@ -2209,12 +2209,12 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %110
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %.thread105, %121, %123, %104, %78
-  %.not100 = icmp eq ptr %.1, null
+  %.not100 = icmp eq ptr %.060, null
   br i1 %.not100, label %126, label %124
 
 124:                                              ; preds = %.thread
   %125 = load i64, ptr %13, align 8
-  call void @PMIx_Pdata_free(ptr noundef nonnull %.1, i64 noundef %125) #13
+  call void @PMIx_Pdata_free(ptr noundef nonnull %.060, i64 noundef %125) #13
   br label %126
 
 126:                                              ; preds = %26, %28, %124, %.thread

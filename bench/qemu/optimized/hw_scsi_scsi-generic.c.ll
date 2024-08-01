@@ -371,8 +371,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
   br i1 %exitcond.not.i.i, label %if.then34.i, label %for.body.i.i, !llvm.loop !5
 
 if.then34.i:                                      ; preds = %for.body.i.i, %if.end.i.i
-  %wwn.1.i = phi i64 [ %9, %if.end.i.i ], [ %or.i.i, %for.body.i.i ]
-  store i64 %wwn.1.i, ptr %wwn35.i, align 8
+  %wwn.2.i = phi i64 [ %9, %if.end.i.i ], [ %or.i.i, %for.body.i.i ]
+  store i64 %wwn.2.i, ptr %wwn35.i, align 8
   br label %if.end49.i
 
 if.then42.i:                                      ; preds = %if.end25.i
@@ -437,8 +437,8 @@ for.body.i30.i:                                   ; preds = %for.body.i30.i.preh
   br i1 %exitcond.not.i45.i, label %if.then46.i, label %for.body.i30.i, !llvm.loop !5
 
 if.then46.i:                                      ; preds = %for.body.i30.i, %if.end.i49.i
-  %wwn.2.i = phi i64 [ %15, %if.end.i49.i ], [ %or.i43.i, %for.body.i30.i ]
-  store i64 %wwn.2.i, ptr %port_wwn.i, align 8
+  %wwn.3.i = phi i64 [ %15, %if.end.i49.i ], [ %or.i43.i, %for.body.i30.i ]
+  store i64 %wwn.3.i, ptr %port_wwn.i, align 8
   br label %if.end49.i
 
 if.end49.i:                                       ; preds = %if.then46.i, %land.lhs.true.i26.i, %lor.lhs.false.i19.i, %if.then13.i16.i, %if.then.i46.i, %if.then42.i, %if.then34.i, %land.lhs.true.i.i, %lor.lhs.false.i.i, %if.then13.i.i, %if.then.i.i, %if.then30.i
@@ -1318,12 +1318,12 @@ if.then45:                                        ; preds = %land.lhs.true37
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then45, %land.lhs.true37, %land.lhs.true29, %land.lhs.true24, %land.lhs.true, %if.then13
-  %len.0 = phi i32 [ %call46, %if.then45 ], [ %sub, %land.lhs.true37 ], [ %sub, %land.lhs.true29 ], [ %sub, %land.lhs.true24 ], [ %sub, %land.lhs.true ], [ %sub, %if.then13 ]
+  %len.1 = phi i32 [ %call46, %if.then45 ], [ %sub, %land.lhs.true37 ], [ %sub, %land.lhs.true29 ], [ %sub, %land.lhs.true24 ], [ %sub, %land.lhs.true ], [ %sub, %if.then13 ]
   %tobool49.not = icmp eq i8 %sense.sroa.0.0.extract.trunc, 0
   br i1 %tobool49.not, label %if.end52, label %req_complete
 
 if.end52:                                         ; preds = %if.end47, %trace_scsi_generic_read_complete.exit
-  %len.1 = phi i32 [ %len.0, %if.end47 ], [ %sub, %trace_scsi_generic_read_complete.exit ]
+  %len.0 = phi i32 [ %len.1, %if.end47 ], [ %sub, %trace_scsi_generic_read_complete.exit ]
   %host_status = getelementptr inbounds i8, ptr %opaque, i64 492
   %21 = load i16, ptr %host_status, align 4
   %cmp55.not = icmp eq i16 %21, 0
@@ -1339,7 +1339,7 @@ lor.lhs.false63:                                  ; preds = %lor.lhs.false57
   %status = getelementptr inbounds i8, ptr %opaque, i64 488
   %24 = load i8, ptr %status, align 8
   %cmp66 = icmp ne i8 %24, 0
-  %cmp69 = icmp eq i32 %len.1, 0
+  %cmp69 = icmp eq i32 %len.0, 0
   %or.cond = select i1 %cmp66, i1 true, i1 %cmp69
   br i1 %or.cond, label %if.then71, label %if.end72
 
@@ -1455,11 +1455,11 @@ if.end186:                                        ; preds = %if.end186thread-pre
   br i1 %cmp192, label %if.then194, label %req_complete
 
 if.then194:                                       ; preds = %if.end186
-  %call195 = tail call fastcc i32 @scsi_handle_inquiry_reply(ptr noundef nonnull %opaque, ptr noundef nonnull %0, i32 noundef %len.1)
+  %call195 = tail call fastcc i32 @scsi_handle_inquiry_reply(ptr noundef nonnull %opaque, ptr noundef nonnull %0, i32 noundef %len.0)
   br label %req_complete
 
 req_complete:                                     ; preds = %if.end186, %if.then194, %if.end47
-  %len.2 = phi i32 [ %len.0, %if.end47 ], [ %call195, %if.then194 ], [ %len.1, %if.end186 ]
+  %len.2 = phi i32 [ %len.1, %if.end47 ], [ %call195, %if.then194 ], [ %len.0, %if.end186 ]
   tail call void @scsi_req_data(ptr noundef nonnull %opaque, i32 noundef %len.2) #14
   tail call void @scsi_req_unref(ptr noundef nonnull %opaque) #14
   br label %done

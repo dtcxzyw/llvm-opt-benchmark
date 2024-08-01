@@ -1092,7 +1092,7 @@ define hidden void @zif_mt_srand(ptr noundef %0, ptr nocapture readnone %1) #0 {
 
 .thread:                                          ; preds = %17, %13
   %storemerge = phi i64 [ %18, %17 ], [ 0, %13 ]
-  %.1 = phi i1 [ false, %17 ], [ true, %13 ]
+  %.2 = phi i1 [ false, %17 ], [ true, %13 ]
   store i64 %storemerge, ptr %3, align 8
   br label %21
 
@@ -1101,7 +1101,7 @@ define hidden void @zif_mt_srand(ptr noundef %0, ptr nocapture readnone %1) #0 {
   br i1 %20, label %21, label %.thread129
 
 21:                                               ; preds = %.thread, %19
-  %.2109 = phi i1 [ %.1, %.thread ], [ false, %19 ]
+  %.3109 = phi i1 [ %.2, %.thread ], [ false, %19 ]
   %.not = icmp eq i32 %7, 2
   br i1 %.not, label %22, label %.thread140.thread
 
@@ -1142,13 +1142,13 @@ define hidden void @zif_mt_srand(ptr noundef %0, ptr nocapture readnone %1) #0 {
 .thread140.thread:                                ; preds = %21, %.thread140
   %31 = getelementptr inbounds i8, ptr %5, i64 2500
   store i8 0, ptr %31, align 4
-  br i1 %.2109, label %34, label %35
+  br i1 %.3109, label %34, label %35
 
 32:                                               ; preds = %.thread140
   %33 = getelementptr inbounds i8, ptr %5, i64 2500
   store i8 1, ptr %33, align 4
   call void (i32, ptr, ...) @zend_error(i32 noundef 8192, ptr noundef nonnull @.str.1) #13
-  br i1 %.2109, label %34, label %35
+  br i1 %.3109, label %34, label %35
 
 34:                                               ; preds = %.thread140.thread.thread, %.thread140.thread, %32
   call void @php_random_mt19937_seed_default(ptr noundef nonnull %5) #13

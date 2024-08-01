@@ -1237,14 +1237,14 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
   br i1 %.not63, label %64, label %._crit_edge68
 
 ._crit_edge68:                                    ; preds = %64, %.preheader65, %55, %._crit_edge.us, %37
-  %.1 = phi i32 [ 0, %37 ], [ %63, %._crit_edge.us ], [ 0, %55 ], [ %72, %.preheader65 ], [ 0, %64 ]
+  %.2 = phi i32 [ 0, %37 ], [ %63, %._crit_edge.us ], [ 0, %55 ], [ %72, %.preheader65 ], [ 0, %64 ]
   tail call void @free(ptr noundef %40) #13
   tail call void @free(ptr noundef %41) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge.us74, %.preheader64, %._crit_edge68, %12
-  %.2 = phi i32 [ %13, %12 ], [ %.1, %._crit_edge68 ], [ 0, %.preheader64 ], [ 0, %._crit_edge.us74 ]
-  ret i32 %.2
+  %.0 = phi i32 [ %13, %12 ], [ %.2, %._crit_edge68 ], [ 0, %.preheader64 ], [ 0, %._crit_edge.us74 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1388,7 +1388,7 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
   br i1 %.not59, label %63, label %._crit_edge63
 
 ._crit_edge63:                                    ; preds = %63, %.preheader60, %54, %._crit_edge.us, %42
-  %.1 = phi i32 [ 0, %42 ], [ %62, %._crit_edge.us ], [ 0, %54 ], [ %71, %.preheader60 ], [ 0, %63 ]
+  %.2 = phi i32 [ 0, %42 ], [ %62, %._crit_edge.us ], [ 0, %54 ], [ %71, %.preheader60 ], [ 0, %63 ]
   tail call void @free(ptr noundef %45) #13
   br label %.loopexit
 
@@ -1411,8 +1411,8 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond89.not, label %.loopexit, label %.lr.ph69.split
 
 .loopexit:                                        ; preds = %.lr.ph69.split, %._crit_edge.us70, %.preheader, %._crit_edge63, %11
-  %.2 = phi i32 [ %12, %11 ], [ %.1, %._crit_edge63 ], [ 0, %.preheader ], [ 0, %._crit_edge.us70 ], [ 0, %.lr.ph69.split ]
-  ret i32 %.2
+  %.0 = phi i32 [ %12, %11 ], [ %.2, %._crit_edge63 ], [ 0, %.preheader ], [ 0, %._crit_edge.us70 ], [ 0, %.lr.ph69.split ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

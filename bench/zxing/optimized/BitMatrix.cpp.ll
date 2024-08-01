@@ -781,10 +781,10 @@ define noundef zeroext i1 @_ZNK5ZXing9BitMatrix15findBoundingBoxERiS1_S1_S1_i(pt
 
 .preheader.us:                                    ; preds = %.split.loop.exit172, %.preheader.lr.ph.split.us
   %.02993.us = phi i32 [ %122, %.preheader.lr.ph.split.us ], [ %138, %.split.loop.exit172 ]
-  %.192.us = phi i32 [ %121, %.preheader.lr.ph.split.us ], [ %.2.us, %.split.loop.exit172 ]
+  %.04492.us = phi i32 [ %121, %.preheader.lr.ph.split.us ], [ %.1.us, %.split.loop.exit172 ]
   %128 = mul nsw i32 %119, %.02993.us
   %invariant.op.us = add i32 %128, -1
-  %129 = sext i32 %.192.us to i64
+  %129 = sext i32 %.04492.us to i64
   br label %130
 
 130:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit38.us, %.preheader.us
@@ -811,7 +811,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit38.us:            ; preds = %132
   br label %.split.loop.exit172
 
 .split.loop.exit172:                              ; preds = %130, %.split.loop.exit
-  %.2.us = phi i32 [ %137, %.split.loop.exit ], [ %.192.us, %130 ]
+  %.1.us = phi i32 [ %137, %.split.loop.exit ], [ %.04492.us, %130 ]
   %138 = add i32 %.02993.us, 1
   %exitcond.not = icmp eq i32 %.02993.us, %120
   br i1 %exitcond.not, label %._crit_edge, label %.preheader.us, !llvm.loop !23
@@ -822,7 +822,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit38.us:            ; preds = %132
   %141 = phi i32 [ %159, %.split.loop.exit175 ], [ %119, %.preheader.lr.ph ]
   %142 = phi i32 [ %160, %.split.loop.exit175 ], [ %53, %.preheader.lr.ph ]
   %.02993 = phi i32 [ %175, %.split.loop.exit175 ], [ %122, %.preheader.lr.ph ]
-  %.192 = phi i32 [ %.2, %.split.loop.exit175 ], [ %121, %.preheader.lr.ph ]
+  %.04492 = phi i32 [ %.1, %.split.loop.exit175 ], [ %121, %.preheader.lr.ph ]
   %143 = icmp sgt i32 %142, 0
   br i1 %143, label %.lr.ph, label %.loopexit
 
@@ -875,7 +875,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit:                 ; preds = %149
   %163 = ptrtoint ptr %157 to i64
   %164 = sub i64 %162, %163
   %165 = sext i32 %159 to i64
-  %166 = sext i32 %.192 to i64
+  %166 = sext i32 %.04492 to i64
   br label %167
 
 167:                                              ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit38, %.loopexit
@@ -908,15 +908,15 @@ _ZNK5ZXing9BitMatrix3getEii.exit38:               ; preds = %169
   br label %.split.loop.exit175
 
 .split.loop.exit175:                              ; preds = %167, %.split.loop.exit174
-  %.2 = phi i32 [ %174, %.split.loop.exit174 ], [ %.192, %167 ]
+  %.1 = phi i32 [ %174, %.split.loop.exit174 ], [ %.04492, %167 ]
   %175 = add i32 %.02993, 1
   %exitcond129.not = icmp eq i32 %.02993, %120
   br i1 %exitcond129.not, label %._crit_edge, label %.preheader, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.split.loop.exit172, %.split.loop.exit175, %.preheader53
   %176 = phi i32 [ %53, %.preheader53 ], [ %160, %.split.loop.exit175 ], [ %53, %.split.loop.exit172 ]
-  %.1.lcssa = phi i32 [ %121, %.preheader53 ], [ %.2, %.split.loop.exit175 ], [ %.2.us, %.split.loop.exit172 ]
-  %177 = add i32 %.1.lcssa, 1
+  %.044.lcssa = phi i32 [ %121, %.preheader53 ], [ %.1, %.split.loop.exit175 ], [ %.1.us, %.split.loop.exit172 ]
+  %177 = add i32 %.044.lcssa, 1
   %178 = sub i32 %177, %176
   store i32 %178, ptr %3, align 4
   %179 = load i32, ptr %2, align 4

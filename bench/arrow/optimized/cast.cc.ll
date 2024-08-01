@@ -2831,9 +2831,9 @@ do.end9:                                          ; preds = %_ZN5arrow6StatusD2E
   br i1 %cmp.i46.not131, label %for.end, label %for.body
 
 for.body:                                         ; preds = %do.end9, %for.inc
-  %candidate_kernels.sroa.0.0135 = phi ptr [ %candidate_kernels.sroa.0.2, %for.inc ], [ null, %do.end9 ]
-  %candidate_kernels.sroa.10.0134 = phi ptr [ %candidate_kernels.sroa.10.2, %for.inc ], [ null, %do.end9 ]
-  %candidate_kernels.sroa.17.0133 = phi ptr [ %candidate_kernels.sroa.17.2, %for.inc ], [ null, %do.end9 ]
+  %candidate_kernels.sroa.0.0135 = phi ptr [ %candidate_kernels.sroa.0.1, %for.inc ], [ null, %do.end9 ]
+  %candidate_kernels.sroa.10.0134 = phi ptr [ %candidate_kernels.sroa.10.1, %for.inc ], [ null, %do.end9 ]
+  %candidate_kernels.sroa.17.0133 = phi ptr [ %candidate_kernels.sroa.17.1, %for.inc ], [ null, %do.end9 ]
   %__begin2.sroa.0.0132 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %14, %do.end9 ]
   %16 = load ptr, ptr %__begin2.sroa.0.0132, align 8
   %call18 = invoke noundef zeroext i1 @_ZNK5arrow7compute15KernelSignature13MatchesInputsERKSt6vectorINS_10TypeHolderESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(24) %types)
@@ -2917,16 +2917,16 @@ lpad16.loopexit.split-lp:                         ; preds = %if.then25, %if.then
   br label %ehcleanup70
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %if.then.i.i, %invoke.cont17
-  %candidate_kernels.sroa.17.2 = phi ptr [ %candidate_kernels.sroa.17.0133, %invoke.cont17 ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %candidate_kernels.sroa.17.0133, %if.then.i.i ]
-  %candidate_kernels.sroa.10.2 = phi ptr [ %candidate_kernels.sroa.10.0134, %invoke.cont17 ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
-  %candidate_kernels.sroa.0.2 = phi ptr [ %candidate_kernels.sroa.0.0135, %invoke.cont17 ], [ %cond.i10.i.i.i, %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %candidate_kernels.sroa.0.0135, %if.then.i.i ]
+  %candidate_kernels.sroa.17.1 = phi ptr [ %candidate_kernels.sroa.17.0133, %invoke.cont17 ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %candidate_kernels.sroa.17.0133, %if.then.i.i ]
+  %candidate_kernels.sroa.10.1 = phi ptr [ %candidate_kernels.sroa.10.0134, %invoke.cont17 ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
+  %candidate_kernels.sroa.0.1 = phi ptr [ %candidate_kernels.sroa.0.0135, %invoke.cont17 ], [ %cond.i10.i.i.i, %_ZNSt6vectorIPKN5arrow7compute12ScalarKernelESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %candidate_kernels.sroa.0.0135, %if.then.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0132, i64 96
   %cmp.i46.not = icmp eq ptr %incdec.ptr.i, %15
   br i1 %cmp.i46.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %do.end9
-  %candidate_kernels.sroa.10.0.lcssa = phi ptr [ null, %do.end9 ], [ %candidate_kernels.sroa.10.2, %for.inc ]
-  %candidate_kernels.sroa.0.0.lcssa = phi ptr [ null, %do.end9 ], [ %candidate_kernels.sroa.0.2, %for.inc ]
+  %candidate_kernels.sroa.10.0.lcssa = phi ptr [ null, %do.end9 ], [ %candidate_kernels.sroa.10.1, %for.inc ]
+  %candidate_kernels.sroa.0.0.lcssa = phi ptr [ null, %do.end9 ], [ %candidate_kernels.sroa.0.1, %for.inc ]
   %sub.ptr.lhs.cast.i50 = ptrtoint ptr %candidate_kernels.sroa.10.0.lcssa to i64
   %sub.ptr.rhs.cast.i51 = ptrtoint ptr %candidate_kernels.sroa.0.0.lcssa to i64
   %sub.ptr.sub.i52 = sub i64 %sub.ptr.lhs.cast.i50, %sub.ptr.rhs.cast.i51

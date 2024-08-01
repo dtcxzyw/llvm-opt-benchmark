@@ -2070,7 +2070,7 @@ _ZNKSt6vectorIN2cv6detail8tracking18SortableElementRevIfEESaIS4_EE12_M_check_len
   br label %_ZNSt6vectorIN2cv6detail8tracking18SortableElementRevIfEESaIS4_EE6resizeEm.exit
 
 _ZNSt6vectorIN2cv6detail8tracking18SortableElementRevIfEESaIS4_EE6resizeEm.exit: ; preds = %_ZNKSt6vectorIN2cv6detail8tracking18SortableElementRevIfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i, %2
-  %.sroa.0.0 = phi ptr [ %12, %_ZNKSt6vectorIN2cv6detail8tracking18SortableElementRevIfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %2 ]
+  %.sroa.0.1 = phi ptr [ %12, %_ZNKSt6vectorIN2cv6detail8tracking18SortableElementRevIfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %2 ]
   %.sroa.10.0 = phi ptr [ %13, %_ZNKSt6vectorIN2cv6detail8tracking18SortableElementRevIfEESaIS4_EE12_M_check_lenEmPKc.exit.i.i ], [ null, %2 ]
   %14 = load ptr, ptr %1, align 8
   %15 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2102,7 +2102,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIiSaIiE
 
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %.sroa.0.0, i64 %indvars.iv
+  %22 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %.sroa.0.1, i64 %indvars.iv
   %23 = getelementptr inbounds i8, ptr %22, i64 4
   %24 = trunc nuw i64 %indvars.iv to i32
   store i32 %24, ptr %23, align 4
@@ -2116,49 +2116,49 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %_ZNSt6vectorIiSaIiE
 27:                                               ; preds = %30, %18
   %28 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i = icmp eq ptr %.sroa.0.0, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6detail8tracking18SortableElementRevIfEESaIS4_EED2Ev.exit, label %29
 
 29:                                               ; preds = %27
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #18
   br label %_ZNSt6vectorIN2cv6detail8tracking18SortableElementRevIfEESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIN2cv6detail8tracking18SortableElementRevIfEESaIS4_EED2Ev.exit: ; preds = %27, %29
   resume { ptr, i32 } %28
 
 ._crit_edge:                                      ; preds = %21, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %.not.i.i29 = icmp eq ptr %.sroa.0.0, %.sroa.10.0
+  %.not.i.i29 = icmp eq ptr %.sroa.0.1, %.sroa.10.0
   br i1 %.not.i.i29, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit, label %30
 
 30:                                               ; preds = %._crit_edge
   %31 = ptrtoint ptr %.sroa.10.0 to i64
-  %32 = ptrtoint ptr %.sroa.0.0 to i64
+  %32 = ptrtoint ptr %.sroa.0.1 to i64
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 3
   %35 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %34, i1 true)
   %36 = shl nuw nsw i64 %35, 1
   %37 = xor i64 %36, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %.sroa.0.0, ptr %.sroa.10.0, i64 noundef %37, ptr nonnull @_ZN2cv6detail8trackingL25CompareSortableElementRevERKNS1_18SortableElementRevIfEES5_)
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_T1_(ptr %.sroa.0.1, ptr %.sroa.10.0, i64 noundef %37, ptr nonnull @_ZN2cv6detail8trackingL25CompareSortableElementRevERKNS1_18SortableElementRevIfEES5_)
           to label %.noexc30 unwind label %27
 
 .noexc30:                                         ; preds = %30
   %38 = icmp sgt i64 %33, 128
-  %scevgep.i = getelementptr i8, ptr %.sroa.0.0, i64 8
+  %scevgep.i = getelementptr i8, ptr %.sroa.0.1, i64 8
   br i1 %38, label %.lr.ph.i.i, label %60
 
 .lr.ph.i.i:                                       ; preds = %.noexc30, %50
   %.sroa.0.021.i.idx.i = phi i64 [ %.sroa.0.021.i.add.i, %50 ], [ 8, %.noexc30 ]
-  %.pn20.i.i = phi ptr [ %.sroa.0.021.i.ptr.i, %50 ], [ %.sroa.0.0, %.noexc30 ]
-  %.sroa.0.021.i.ptr.i = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.sroa.0.021.i.idx.i
+  %.pn20.i.i = phi ptr [ %.sroa.0.021.i.ptr.i, %50 ], [ %.sroa.0.1, %.noexc30 ]
+  %.sroa.0.021.i.ptr.i = getelementptr inbounds i8, ptr %.sroa.0.1, i64 %.sroa.0.021.i.idx.i
   %39 = load float, ptr %.sroa.0.021.i.ptr.i, align 4
-  %40 = load float, ptr %.sroa.0.0, align 4
+  %40 = load float, ptr %.sroa.0.1, align 4
   %41 = fcmp olt float %39, %40
   br i1 %41, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i, label %43
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i.i: ; preds = %.lr.ph.i.i
   %42 = load i64, ptr %.sroa.0.021.i.ptr.i, align 4
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.0, i64 %.sroa.0.021.i.idx.i, i1 false)
-  store i64 %42, ptr %.sroa.0.0, align 4
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.1, i64 %.sroa.0.021.i.idx.i, i1 false)
+  store i64 %42, ptr %.sroa.0.1, align 4
   br label %50
 
 43:                                               ; preds = %.lr.ph.i.i
@@ -2191,7 +2191,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8trac
   br i1 %.not.i.i34, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_.exit.i, label %.lr.ph.i.i, !llvm.loop !52
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_T0_.exit.i: ; preds = %50
-  %51 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 128
+  %51 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 128
   %.not7.i.i = icmp eq ptr %51, %.sroa.10.0
   br i1 %.not7.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit, label %.lr.ph.i10.i
 
@@ -2228,9 +2228,9 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8trac
 
 .lr.ph.i21.i:                                     ; preds = %60, %77
   %.sroa.0.021.i22.i = phi ptr [ %.sroa.0.0.i26.i, %77 ], [ %scevgep.i, %60 ]
-  %.pn20.i23.i = phi ptr [ %.sroa.0.021.i22.i, %77 ], [ %.sroa.0.0, %60 ]
+  %.pn20.i23.i = phi ptr [ %.sroa.0.021.i22.i, %77 ], [ %.sroa.0.1, %60 ]
   %61 = load float, ptr %.sroa.0.021.i22.i, align 4
-  %62 = load float, ptr %.sroa.0.0, align 4
+  %62 = load float, ptr %.sroa.0.1, align 4
   %63 = fcmp olt float %61, %62
   br i1 %63, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEESB_ET0_T_SD_SC_.exit.i32.i, label %70
 
@@ -2242,8 +2242,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18Sortab
   %68 = ashr exact i64 %67, 3
   %.pre.i.i.i.i.i.i33.i = sub nsw i64 0, %68
   %69 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %65, i64 %.pre.i.i.i.i.i.i33.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %69, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.0, i64 %67, i1 false)
-  store i64 %64, ptr %.sroa.0.0, align 4
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %69, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.0.1, i64 %67, i1 false)
+  store i64 %64, ptr %.sroa.0.1, align 4
   br label %77
 
 70:                                               ; preds = %.lr.ph.i21.i
@@ -2284,7 +2284,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementR
 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
   %indvars.iv65 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next66, %.lr.ph59 ]
-  %78 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %.sroa.0.0, i64 %indvars.iv65
+  %78 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %.sroa.0.1, i64 %indvars.iv65
   %79 = getelementptr inbounds i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = load ptr, ptr %1, align 8
@@ -2299,11 +2299,11 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementR
   br i1 %exitcond69.not, label %._crit_edge60.thread, label %.lr.ph59, !llvm.loop !54
 
 ._crit_edge60:                                    ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit
-  %.not.i.i.i32 = icmp eq ptr %.sroa.0.0, null
+  %.not.i.i.i32 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIN2cv6detail8tracking18SortableElementRevIfEESaIS4_EED2Ev.exit33, label %._crit_edge60.thread
 
 ._crit_edge60.thread:                             ; preds = %.lr.ph59, %._crit_edge60
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #18
   br label %_ZNSt6vectorIN2cv6detail8tracking18SortableElementRevIfEESaIS4_EED2Ev.exit33
 
 _ZNSt6vectorIN2cv6detail8tracking18SortableElementRevIfEESaIS4_EED2Ev.exit33: ; preds = %._crit_edge60, %._crit_edge60.thread

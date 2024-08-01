@@ -39,7 +39,7 @@ define range(i32 0, 2) i32 @compoundEdges(ptr noundef %0, ptr noundef %1, i32 no
 .lr.ph:                                           ; preds = %11, %.thread
   %.05283 = phi ptr [ %151, %.thread ], [ %12, %11 ]
   %.182 = phi ptr [ %.2, %.thread ], [ %.05487, %11 ]
-  %.15681 = phi i32 [ %.3, %.thread ], [ %.05586, %11 ]
+  %.15681 = phi i32 [ %.257, %.thread ], [ %.05586, %11 ]
   %13 = load i32, ptr %.05283, align 8
   %14 = and i32 %13, 3
   %15 = icmp eq i32 %14, 2
@@ -304,14 +304,14 @@ objectList.exit:                                  ; preds = %.lr.ph.i, %96
   br label %.thread
 
 .thread:                                          ; preds = %24, %25, %150, %29, %140, %115
-  %.3 = phi i32 [ %.15681, %25 ], [ %.15681, %150 ], [ 1, %115 ], [ 1, %140 ], [ %.15681, %29 ], [ %.15681, %24 ]
+  %.257 = phi i32 [ %.15681, %25 ], [ %.15681, %150 ], [ 1, %115 ], [ 1, %140 ], [ %.15681, %29 ], [ %.15681, %24 ]
   %.2 = phi ptr [ %.182, %25 ], [ %114, %150 ], [ null, %115 ], [ %.182, %140 ], [ %.182, %29 ], [ %.182, %24 ]
   %151 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.05283) #14
   %.not64 = icmp eq ptr %151, null
   br i1 %.not64, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.thread, %11
-  %.156.lcssa = phi i32 [ %.05586, %11 ], [ %.3, %.thread ]
+  %.156.lcssa = phi i32 [ %.05586, %11 ], [ %.257, %.thread ]
   %.1.lcssa = phi ptr [ %.05487, %11 ], [ %.2, %.thread ]
   %152 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.088) #14
   %.not = icmp eq ptr %152, null

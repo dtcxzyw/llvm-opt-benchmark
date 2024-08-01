@@ -5057,7 +5057,7 @@ ehcleanup:                                        ; preds = %lpad31, %lpad44
   br label %ehcleanup109
 
 if.end56:                                         ; preds = %if.end8.sink.split.i.i.i.i190, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i187, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i177, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit167, %if.then26
-  %foundContextVars.4 = phi i1 [ %foundContextVars.1, %if.then26 ], [ %69, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit167 ], [ %69, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i177 ], [ %69, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i187 ], [ %69, %if.end8.sink.split.i.i.i.i190 ]
+  %foundContextVars.3 = phi i1 [ %foundContextVars.1, %if.then26 ], [ %69, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev9TransformEED2Ev.exit167 ], [ %69, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i177 ], [ %69, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i187 ], [ %69, %if.end8.sink.split.i.i.i.i190 ]
   %_M_refcount.i.i200 = getelementptr inbounds i8, ptr %vt, i64 8
   %93 = load ptr, ptr %_M_refcount.i.i200, align 8
   %cmp.not.i.i.i201 = icmp eq ptr %93, null
@@ -5132,7 +5132,7 @@ if.end8.sink.split.i.i.i.i222:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %invoke.cont59
 
 invoke.cont59:                                    ; preds = %invoke.cont21, %land.lhs.true24, %if.end56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219, %if.end8.sink.split.i.i.i.i222
-  %foundContextVars.5 = phi i1 [ %foundContextVars.1, %land.lhs.true24 ], [ %foundContextVars.1, %invoke.cont21 ], [ %foundContextVars.4, %if.end56 ], [ %foundContextVars.4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209 ], [ %foundContextVars.4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219 ], [ %foundContextVars.4, %if.end8.sink.split.i.i.i.i222 ]
+  %foundContextVars.2 = phi i1 [ %foundContextVars.1, %land.lhs.true24 ], [ %foundContextVars.1, %invoke.cont21 ], [ %foundContextVars.3, %if.end56 ], [ %foundContextVars.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i209 ], [ %foundContextVars.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i219 ], [ %foundContextVars.3, %if.end8.sink.split.i.i.i.i222 ]
   %104 = load ptr, ptr %m_impl.i.i, align 8
   %m_looksBypass.i = getelementptr inbounds i8, ptr %104, i64 104
   %105 = load i8, ptr %m_looksBypass.i, align 8
@@ -5175,7 +5175,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont75
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc102
-  %foundContextVars.6320 = phi i1 [ %foundContextVars.5, %for.body.lr.ph ], [ %foundContextVars.7.lcssa, %for.inc102 ]
+  %foundContextVars.7320 = phi i1 [ %foundContextVars.2, %for.body.lr.ph ], [ %foundContextVars.8.lcssa, %for.inc102 ]
   %__begin2.sroa.0.0319 = phi ptr [ %107, %for.body.lr.ph ], [ %incdec.ptr.i273, %for.inc102 ]
   %109 = load ptr, ptr %__begin2.sroa.0.0319, align 8
   %_M_finish.i239 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0319, i64 8
@@ -5184,7 +5184,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i240.not315, label %for.inc102, label %for.body88
 
 for.body88:                                       ; preds = %for.body, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit
-  %foundContextVars.7317 = phi i1 [ %foundContextVars.8, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit ], [ %foundContextVars.6320, %for.body ]
+  %foundContextVars.8317 = phi i1 [ %foundContextVars.9, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit ], [ %foundContextVars.7320, %for.body ]
   %__begin3.sroa.0.0316 = phi ptr [ %incdec.ptr.i, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit ], [ %109, %for.body ]
   %call90 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin3.sroa.0.0316) #13
   invoke void @_ZNK19OpenColorIO_v2_4dev6Config7getLookEPKc(ptr nonnull sret(%"class.std::shared_ptr.46") align 8 %look, ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef %call90)
@@ -5202,7 +5202,7 @@ land.lhs.true93:                                  ; preds = %invoke.cont91
           to label %invoke.cont96 unwind label %lpad95
 
 invoke.cont96:                                    ; preds = %land.lhs.true93
-  %spec.select41 = select i1 %call97, i1 true, i1 %foundContextVars.7317
+  %spec.select41 = select i1 %call97, i1 true, i1 %foundContextVars.8317
   br label %if.end99
 
 lpad69:                                           ; preds = %invoke.cont66
@@ -5228,7 +5228,7 @@ lpad95:                                           ; preds = %land.lhs.true93
   br label %ehcleanup105
 
 if.end99:                                         ; preds = %invoke.cont96, %invoke.cont91
-  %foundContextVars.8 = phi i1 [ %foundContextVars.7317, %invoke.cont91 ], [ %spec.select41, %invoke.cont96 ]
+  %foundContextVars.9 = phi i1 [ %foundContextVars.8317, %invoke.cont91 ], [ %spec.select41, %invoke.cont96 ]
   %115 = load ptr, ptr %_M_refcount.i.i242, align 8
   %cmp.not.i.i.i243 = icmp eq ptr %115, null
   br i1 %cmp.not.i.i.i243, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit, label %if.then.i.i.i244
@@ -5307,13 +5307,13 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit: ; preds = %if.end99, 
   br i1 %cmp.i240.not, label %for.inc102, label %for.body88
 
 for.inc102:                                       ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit, %for.body
-  %foundContextVars.7.lcssa = phi i1 [ %foundContextVars.6320, %for.body ], [ %foundContextVars.8, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit ]
+  %foundContextVars.8.lcssa = phi i1 [ %foundContextVars.7320, %for.body ], [ %foundContextVars.9, %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev4LookEED2Ev.exit ]
   %incdec.ptr.i273 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0319, i64 24
   %cmp.i238.not = icmp eq ptr %incdec.ptr.i273, %108
   br i1 %cmp.i238.not, label %for.end104, label %for.body
 
 for.end104:                                       ; preds = %for.inc102, %invoke.cont75
-  %foundContextVars.6.lcssa = phi i1 [ %foundContextVars.5, %invoke.cont75 ], [ %foundContextVars.7.lcssa, %for.inc102 ]
+  %foundContextVars.7.lcssa = phi i1 [ %foundContextVars.2, %invoke.cont75 ], [ %foundContextVars.8.lcssa, %for.inc102 ]
   %126 = load ptr, ptr %looks, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %looks, i64 8
   %127 = load ptr, ptr %_M_finish.i.i, align 8
@@ -5377,7 +5377,7 @@ ehcleanup105:                                     ; preds = %lpad72.loopexit, %l
   br label %ehcleanup109
 
 if.end107:                                        ; preds = %_ZN19OpenColorIO_v2_4dev15LookParseResultD2Ev.exit, %invoke.cont59
-  %foundContextVars.9 = phi i1 [ %foundContextVars.5, %invoke.cont59 ], [ %foundContextVars.6.lcssa, %_ZN19OpenColorIO_v2_4dev15LookParseResultD2Ev.exit ]
+  %foundContextVars.6 = phi i1 [ %foundContextVars.2, %invoke.cont59 ], [ %foundContextVars.7.lcssa, %_ZN19OpenColorIO_v2_4dev15LookParseResultD2Ev.exit ]
   %_M_refcount.i.i275 = getelementptr inbounds i8, ptr %src, i64 8
   %132 = load ptr, ptr %_M_refcount.i.i275, align 8
   %cmp.not.i.i.i276 = icmp eq ptr %132, null
@@ -5452,7 +5452,7 @@ if.end8.sink.split.i.i.i.i297:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit306
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit306: ; preds = %if.end107, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i284, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i294, %if.end8.sink.split.i.i.i.i297
-  ret i1 %foundContextVars.9
+  ret i1 %foundContextVars.6
 
 ehcleanup109:                                     ; preds = %ehcleanup105, %lpad69, %ehcleanup, %lpad
   %.pn35.pn = phi { ptr, i32 } [ %.pn35, %ehcleanup105 ], [ %113, %lpad69 ], [ %1, %lpad ], [ %.pn, %ehcleanup ]

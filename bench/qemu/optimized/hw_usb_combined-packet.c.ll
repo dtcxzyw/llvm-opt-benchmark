@@ -201,7 +201,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end5
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc82
   %p.057 = phi ptr [ %4, %land.rhs.lr.ph ], [ %5, %for.inc82 ]
   %prev.056 = phi ptr [ null, %land.rhs.lr.ph ], [ %prev.1, %for.inc82 ]
-  %first.055 = phi ptr [ null, %land.rhs.lr.ph ], [ %first.2, %for.inc82 ]
+  %first.055 = phi ptr [ null, %land.rhs.lr.ph ], [ %first.1, %for.inc82 ]
   %queue7 = getelementptr inbounds i8, ptr %p.057, i64 104
   %5 = load ptr, ptr %queue7, align 8
   %6 = load i8, ptr %halted, align 1
@@ -293,7 +293,7 @@ if.end29:                                         ; preds = %if.then24, %if.then
 
 if.end32:                                         ; preds = %if.end19.if.end32_crit_edge, %if.end29
   %17 = phi ptr [ %14, %if.end29 ], [ %.pre, %if.end19.if.end32_crit_edge ]
-  %first.1 = phi ptr [ %first.055, %if.end29 ], [ %p.057, %if.end19.if.end32_crit_edge ]
+  %first.2 = phi ptr [ %first.055, %if.end29 ], [ %p.057, %if.end19.if.end32_crit_edge ]
   %tobool34.not = icmp eq ptr %17, null
   %size = getelementptr inbounds i8, ptr %17, i64 56
   %size38 = getelementptr inbounds i8, ptr %p.057, i64 64
@@ -336,8 +336,8 @@ lor.lhs.false57:                                  ; preds = %lor.lhs.false50
 
 if.then63:                                        ; preds = %lor.lhs.false57, %land.lhs.true54, %lor.lhs.false, %if.end32
   %22 = load ptr, ptr %dev, align 8
-  tail call void @usb_device_handle_data(ptr noundef %22, ptr noundef nonnull %first.1) #5
-  %status65 = getelementptr inbounds i8, ptr %first.1, i64 84
+  tail call void @usb_device_handle_data(ptr noundef %22, ptr noundef nonnull %first.2) #5
+  %status65 = getelementptr inbounds i8, ptr %first.2, i64 84
   %23 = load i32, ptr %status65, align 4
   %cmp66 = icmp eq i32 %23, -6
   br i1 %cmp66, label %if.end70, label %if.else69
@@ -347,7 +347,7 @@ if.else69:                                        ; preds = %if.then63
   unreachable
 
 if.end70:                                         ; preds = %if.then63
-  %combined71 = getelementptr inbounds i8, ptr %first.1, i64 96
+  %combined71 = getelementptr inbounds i8, ptr %first.2, i64 96
   %24 = load ptr, ptr %combined71, align 8
   %tobool72.not = icmp eq ptr %24, null
   br i1 %tobool72.not, label %if.else79, label %if.then73
@@ -367,11 +367,11 @@ for.body78:                                       ; preds = %if.then73, %for.bod
   br i1 %tobool77.not, label %for.inc82, label %for.body78, !llvm.loop !7
 
 if.else79:                                        ; preds = %if.end70
-  tail call void @usb_packet_set_state(ptr noundef nonnull %first.1, i32 noundef 3) #5
+  tail call void @usb_packet_set_state(ptr noundef nonnull %first.2, i32 noundef 3) #5
   br label %for.inc82
 
 for.inc82:                                        ; preds = %for.body78, %if.then73, %land.lhs.true54, %if.else79, %if.end10, %lor.lhs.false57, %if.then9
-  %first.2 = phi ptr [ %first.055, %if.then9 ], [ %first.1, %lor.lhs.false57 ], [ %first.055, %if.end10 ], [ null, %if.else79 ], [ %first.1, %land.lhs.true54 ], [ null, %if.then73 ], [ null, %for.body78 ]
+  %first.1 = phi ptr [ %first.055, %if.then9 ], [ %first.2, %lor.lhs.false57 ], [ %first.055, %if.end10 ], [ null, %if.else79 ], [ %first.2, %land.lhs.true54 ], [ null, %if.then73 ], [ null, %for.body78 ]
   %prev.1 = phi ptr [ %prev.056, %if.then9 ], [ %prev.056, %lor.lhs.false57 ], [ %p.057, %if.end10 ], [ %p.057, %if.else79 ], [ %prev.056, %land.lhs.true54 ], [ %p.057, %if.then73 ], [ %p.057, %for.body78 ]
   %tobool6.not = icmp eq ptr %5, null
   br i1 %tobool6.not, label %for.end83, label %land.rhs, !llvm.loop !8

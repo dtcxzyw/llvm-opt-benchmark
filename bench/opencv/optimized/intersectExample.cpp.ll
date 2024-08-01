@@ -1062,7 +1062,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit246.i: ; preds = %297, %294, %292
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread.i
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread465.i: ; preds = %171, %.lr.ph.i.i.i.i.i.i.i172.preheader.i, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i.i136.i, %148, %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i116.i
-  %.sroa.0320.6.ph.i = phi ptr [ %146, %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i116.i ], [ %147, %148 ], [ %150, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i.i136.i ], [ %152, %.lr.ph.i.i.i.i.i.i.i172.preheader.i ], [ %152, %171 ]
+  %.sroa.0320.0.ph.i = phi ptr [ %146, %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i116.i ], [ %147, %148 ], [ %150, %_ZNSt12_Vector_baseIN2cv6Point_IiEESaIS2_EE11_M_allocateEm.exit.i.i.i136.i ], [ %152, %.lr.ph.i.i.i.i.i.i.i172.preheader.i ], [ %152, %171 ]
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread.i
@@ -1074,8 +1074,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.i: ; preds = %145
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread.i: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread465.i, %309, %304, %299, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit246.i
   %.pn77463.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread465.i ], [ %.pn70.i, %299 ], [ %.pn70.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit246.i ], [ %.pn72.i, %304 ], [ %.pn74.pn.i, %309 ]
-  %.sroa.0320.7462.i = phi ptr [ %.sroa.0320.6.ph.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread465.i ], [ %152, %299 ], [ %152, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit246.i ], [ %152, %304 ], [ %152, %309 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0320.7462.i) #15
+  %.sroa.0320.1462.i = phi ptr [ %.sroa.0320.0.ph.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread465.i ], [ %152, %299 ], [ %152, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit246.i ], [ %152, %304 ], [ %152, %309 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0320.1462.i) #15
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit212.i
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit212.i: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.thread.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit248.i, %291, %286, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit242.i, %278, %273, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit238.i, %265, %260, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit234.i, %252, %247, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit230.i, %239, %234, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit226.i, %226, %221, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit222.i, %213, %208, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit218.i, %200, %195, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit214.i, %187, %182, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit210.i, %173

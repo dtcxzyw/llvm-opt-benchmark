@@ -65,7 +65,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br label %30
 
 30:                                               ; preds = %45, %26
-  %.0319.idx = phi i64 [ %29, %26 ], [ %.1320.idx, %45 ]
+  %.0319.idx = phi i64 [ %29, %26 ], [ %.2321.idx, %45 ]
   %.0317 = phi i32 [ 0, %26 ], [ %.1, %45 ]
   %.0319.ptr = getelementptr inbounds i8, ptr %.0328435, i64 %.0319.idx
   %31 = getelementptr inbounds i8, ptr %.0319.ptr, i64 28
@@ -112,16 +112,16 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br label %45
 
 45:                                               ; preds = %.critedge, %44
-  %.1320.idx = phi i64 [ %.0319.add, %.critedge ], [ %.0319.add375, %44 ]
+  %.2321.idx = phi i64 [ %.0319.add, %.critedge ], [ %.0319.add375, %44 ]
   %.1 = phi i32 [ %41, %.critedge ], [ %.0317, %44 ]
-  %46 = trunc i64 %.1320.idx to i32
+  %46 = trunc i64 %.2321.idx to i32
   store i32 %46, ptr %27, align 8
   br label %30
 
 .loopexit:                                        ; preds = %30, %.lr.ph434
-  %.2321.idx = phi i64 [ %.0319.add, %.lr.ph434 ], [ %.0319.idx, %30 ]
-  %.2321.ptr = getelementptr inbounds i8, ptr %.0328435, i64 %.2321.idx
-  %47 = icmp eq i64 %.2321.idx, 32
+  %.1320.idx = phi i64 [ %.0319.add, %.lr.ph434 ], [ %.0319.idx, %30 ]
+  %.1320.ptr = getelementptr inbounds i8, ptr %.0328435, i64 %.1320.idx
+  %47 = icmp eq i64 %.1320.idx, 32
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %.loopexit
@@ -140,7 +140,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br label %.loopexit395
 
 54:                                               ; preds = %.loopexit
-  %55 = getelementptr inbounds i8, ptr %.2321.ptr, i64 28
+  %55 = getelementptr inbounds i8, ptr %.1320.ptr, i64 28
   %56 = load i8, ptr %55, align 4
   switch i8 %56, label %78 [
     i8 62, label %57
@@ -156,7 +156,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br i1 %.not379, label %60, label %78
 
 60:                                               ; preds = %57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0328435, ptr noundef nonnull align 8 dereferenceable(32) %.2321.ptr, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0328435, ptr noundef nonnull align 8 dereferenceable(32) %.1320.ptr, i64 32, i1 false)
   %61 = getelementptr inbounds i8, ptr %.0328435, i64 29
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %62, 1
@@ -205,7 +205,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i8, ptr %82, i64 %88
-  %90 = icmp eq ptr %89, %.2321.ptr
+  %90 = icmp eq ptr %89, %.1320.ptr
   br i1 %90, label %91, label %.loopexit395
 
 91:                                               ; preds = %85
@@ -285,7 +285,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br label %127
 
 127:                                              ; preds = %182, %119
-  %.5324.idx = phi i64 [ %122, %119 ], [ %.6325.idx, %182 ]
+  %.5324.idx = phi i64 [ %122, %119 ], [ %.7326.idx, %182 ]
   %.4 = phi i32 [ 0, %119 ], [ %.5, %182 ]
   %.5324.ptr = getelementptr inbounds i8, ptr %.0328435, i64 %.5324.idx
   %128 = getelementptr inbounds i8, ptr %.5324.ptr, i64 28
@@ -407,15 +407,15 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br label %182
 
 182:                                              ; preds = %.critedge384, %178, %181, %.critedge386
-  %.6325.idx = phi i64 [ %.5324.add365, %.critedge384 ], [ %.5324.add, %.critedge386 ], [ %.5324.add367, %178 ], [ %.5324.add366, %181 ]
+  %.7326.idx = phi i64 [ %.5324.add365, %.critedge384 ], [ %.5324.add, %.critedge386 ], [ %.5324.add367, %178 ], [ %.5324.add366, %181 ]
   %.5 = phi i32 [ %139, %.critedge384 ], [ %162, %.critedge386 ], [ %.4, %178 ], [ %.4, %181 ]
-  %183 = trunc i64 %.6325.idx to i32
+  %183 = trunc i64 %.7326.idx to i32
   store i32 %183, ptr %120, align 4
   br label %127
 
 .loopexit396:                                     ; preds = %179, %.lr.ph425, %.lr.ph428
-  %.7326.idx = phi i64 [ %.5324.add365, %.lr.ph428 ], [ %.5324.add, %.lr.ph425 ], [ %.5324.idx, %179 ]
-  %184 = icmp eq i64 %.7326.idx, 32
+  %.6325.idx = phi i64 [ %.5324.add365, %.lr.ph428 ], [ %.5324.add, %.lr.ph425 ], [ %.5324.idx, %179 ]
+  %184 = icmp eq i64 %.6325.idx, 32
   br i1 %184, label %185, label %.loopexit395
 
 185:                                              ; preds = %.loopexit396
@@ -438,7 +438,7 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br label %199
 
 199:                                              ; preds = %357, %186
-  %.8.idx = phi i64 [ %189, %186 ], [ %.9.idx, %357 ]
+  %.8.idx = phi i64 [ %189, %186 ], [ %.10.idx, %357 ]
   %.6 = phi i32 [ 0, %186 ], [ %.7, %357 ]
   %.8.ptr = getelementptr inbounds i8, ptr %.0328435, i64 %.8.idx
   %200 = getelementptr inbounds i8, ptr %.8.ptr, i64 28
@@ -752,15 +752,15 @@ define hidden void @zend_optimizer_pass3(ptr noundef %0, ptr nocapture noundef r
   br label %357
 
 357:                                              ; preds = %.critedge388, %.critedge392, %326, %356, %.critedge394, %301, %.critedge390
-  %.9.idx = phi i64 [ %.8.add352, %.critedge388 ], [ %.8.add351, %.critedge390 ], [ %.8.add350, %.critedge392 ], [ %.8.add355, %301 ], [ %.8.add354, %326 ], [ %.8.add, %.critedge394 ], [ %.8.add353, %356 ]
+  %.10.idx = phi i64 [ %.8.add352, %.critedge388 ], [ %.8.add351, %.critedge390 ], [ %.8.add350, %.critedge392 ], [ %.8.add355, %301 ], [ %.8.add354, %326 ], [ %.8.add, %.critedge394 ], [ %.8.add353, %356 ]
   %.7 = phi i32 [ %211, %.critedge388 ], [ %243, %.critedge390 ], [ %278, %.critedge392 ], [ %.6, %301 ], [ %.6, %326 ], [ %353, %.critedge394 ], [ %.6, %356 ]
-  %358 = trunc i64 %.9.idx to i32
+  %358 = trunc i64 %.10.idx to i32
   store i32 %358, ptr %187, align 4
   br label %199
 
 .thread:                                          ; preds = %327, %338, %341, %.lr.ph, %.lr.ph416, %.lr.ph419, %.lr.ph422
-  %.10.idx = phi i64 [ %.8.add352, %.lr.ph422 ], [ %.8.add351, %.lr.ph419 ], [ %.8.add350, %.lr.ph416 ], [ %.8.add, %.lr.ph ], [ %.8.idx, %341 ], [ %.8.idx, %338 ], [ %.8.idx, %327 ]
-  %359 = icmp eq i64 %.10.idx, 32
+  %.9.idx = phi i64 [ %.8.add352, %.lr.ph422 ], [ %.8.add351, %.lr.ph419 ], [ %.8.add350, %.lr.ph416 ], [ %.8.add, %.lr.ph ], [ %.8.idx, %341 ], [ %.8.idx, %338 ], [ %.8.idx, %327 ]
+  %359 = icmp eq i64 %.9.idx, 32
   br i1 %359, label %360, label %.loopexit395
 
 360:                                              ; preds = %.thread

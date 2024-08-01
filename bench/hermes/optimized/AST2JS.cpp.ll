@@ -11334,14 +11334,14 @@ if.then.i39:                                      ; preds = %_ZN4llvh11raw_ostre
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then.i39, %_ZN4llvh11raw_ostreamlsEc.exit, %if.then4.i, %if.end.i, %if.then.i, %if.else, %if.end
-  %needSep.1 = phi i1 [ %tobool10, %if.end ], [ false, %if.else ], [ true, %if.then.i ], [ true, %if.end.i ], [ true, %if.then4.i ], [ false, %_ZN4llvh11raw_ostreamlsEc.exit ], [ false, %if.then.i39 ]
+  %needSep.0 = phi i1 [ %tobool10, %if.end ], [ false, %if.else ], [ true, %if.then.i ], [ true, %if.end.i ], [ true, %if.then4.i ], [ false, %_ZN4llvh11raw_ostreamlsEc.exit ], [ false, %if.then.i39 ]
   %_computed = getelementptr inbounds i8, ptr %node, i64 72
   %22 = load i8, ptr %_computed, align 8
   %tobool21 = trunc i8 %22 to i1
   br i1 %tobool21, label %if.then22, label %if.end28
 
 if.then22:                                        ; preds = %if.end20
-  br i1 %needSep.1, label %if.then24, label %if.end25
+  br i1 %needSep.0, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.then22
   %23 = getelementptr inbounds i8, ptr %this, i64 8
@@ -11374,7 +11374,7 @@ if.end.i52:                                       ; preds = %if.end25
   br label %if.end33
 
 if.end28:                                         ; preds = %if.end20
-  br i1 %needSep.1, label %if.then30, label %if.end33
+  br i1 %needSep.0, label %if.then30, label %if.end33
 
 if.then30:                                        ; preds = %if.end28
   %27 = load ptr, ptr %this, align 8

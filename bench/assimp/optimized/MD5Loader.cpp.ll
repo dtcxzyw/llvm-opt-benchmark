@@ -331,8 +331,8 @@ lpad13:                                           ; preds = %if.then12
 
 catch:                                            ; preds = %lpad13, %lpad3
   %.pn = phi { ptr, i32 } [ %1, %lpad3 ], [ %3, %lpad13 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %4 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #20
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
+  %4 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #20
   %mBuffer.i = getelementptr inbounds i8, ptr %this, i64 112
   %5 = load ptr, ptr %mBuffer.i, align 8
   %isnull.i = icmp eq ptr %5, null

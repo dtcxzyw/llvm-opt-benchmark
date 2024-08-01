@@ -1022,7 +1022,7 @@ if.end18:                                         ; preds = %if.end15
   br i1 %cmp11, label %if.then12, label %if.end15, !llvm.loop !15
 
 if.then.i:                                        ; preds = %if.end15, %if.then12
-  %retval.0 = phi i32 [ %conv14, %if.then12 ], [ 0, %if.end15 ]
+  %retval.1 = phi i32 [ %conv14, %if.then12 ], [ 0, %if.end15 ]
   call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %close_req.i.i)
   %call.i.i9 = call i32 @uv_fs_close(ptr noundef null, ptr noundef nonnull %close_req.i.i, i32 noundef %call, ptr noundef null) #19
   %cmp.not.i.i = icmp eq i32 %call.i.i9, 0
@@ -1039,9 +1039,9 @@ do.body4.i.i:                                     ; preds = %if.then.i
   br label %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_0ED2Ev.exit"
 
 "_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_0ED2Ev.exit": ; preds = %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_1ED2Ev.exit", %if.then
-  %retval.1 = phi i32 [ %conv, %if.then ], [ %retval.0, %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_1ED2Ev.exit" ]
+  %retval.0 = phi i32 [ %conv, %if.then ], [ %retval.1, %"_ZN4node16OnScopeLeaveImplIZNS_12ReadFileSyncEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcE3$_1ED2Ev.exit" ]
   call void @uv_fs_req_cleanup(ptr noundef nonnull %req) #19
-  ret i32 %retval.1
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind

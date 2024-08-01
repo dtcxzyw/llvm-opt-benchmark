@@ -664,7 +664,7 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %45
   %.sroa.0.053.us = phi ptr [ %.sroa.0.0.us, %45 ], [ %.sroa.0.050, %.lr.ph ]
-  %.03552.us = phi i1 [ %.2.us, %45 ], [ false, %.lr.ph ]
+  %.03552.us = phi i1 [ %.1.us, %45 ], [ false, %.lr.ph ]
   %36 = getelementptr inbounds i8, ptr %.sroa.0.053.us, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not48.us = icmp eq ptr %37, null
@@ -682,14 +682,14 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
   br label %45
 
 45:                                               ; preds = %41, %.lr.ph.split.us
-  %.2.us = phi i1 [ %spec.select.us, %41 ], [ %.03552.us, %.lr.ph.split.us ]
+  %.1.us = phi i1 [ %spec.select.us, %41 ], [ %.03552.us, %.lr.ph.split.us ]
   %.sroa.0.0.us = load ptr, ptr %36, align 8
   %.not47.us = icmp eq ptr %.sroa.0.0.us, null
   br i1 %.not47.us, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %58
   %.sroa.0.053 = phi ptr [ %.sroa.0.0, %58 ], [ %.sroa.0.050, %.lr.ph ]
-  %.03552 = phi i1 [ %.2, %58 ], [ false, %.lr.ph ]
+  %.03552 = phi i1 [ %.1, %58 ], [ false, %.lr.ph ]
   %46 = getelementptr inbounds i8, ptr %.sroa.0.053, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not48 = icmp eq ptr %47, null
@@ -711,13 +711,13 @@ define dso_local noundef zeroext i1 @_ZN16GraphPathChecker18pathExistsInternalEP
   br label %58
 
 58:                                               ; preds = %51, %.lr.ph.split
-  %.2 = phi i1 [ %spec.select, %51 ], [ %.03552, %.lr.ph.split ]
+  %.1 = phi i1 [ %spec.select, %51 ], [ %.03552, %.lr.ph.split ]
   %.sroa.0.0 = load ptr, ptr %46, align 8
   %.not47 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not47, label %.loopexit, label %.lr.ph.split
 
 .loopexit:                                        ; preds = %58, %45, %33, %28, %21, %19, %15, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %15 ], [ true, %19 ], [ false, %21 ], [ false, %28 ], [ false, %33 ], [ %.2.us, %45 ], [ %.2, %58 ]
+  %.0 = phi i1 [ false, %16 ], [ false, %15 ], [ true, %19 ], [ false, %21 ], [ false, %28 ], [ false, %33 ], [ %.1.us, %45 ], [ %.1, %58 ]
   ret i1 %.0
 }
 

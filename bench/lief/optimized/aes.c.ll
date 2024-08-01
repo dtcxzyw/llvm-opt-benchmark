@@ -2622,11 +2622,11 @@ mbedtls_aes_crypt_ecb.exit:                       ; preds = %14
 
 .lr.ph:                                           ; preds = %.preheader56, %33
   %.in = phi i64 [ %27, %33 ], [ %2, %.preheader56 ]
-  %.165 = phi i64 [ %41, %33 ], [ %8, %.preheader56 ]
+  %.265 = phi i64 [ %41, %33 ], [ %8, %.preheader56 ]
   %.13764 = phi ptr [ %39, %33 ], [ %6, %.preheader56 ]
   %.13963 = phi ptr [ %36, %33 ], [ %5, %.preheader56 ]
   %27 = add i64 %.in, -1
-  %28 = icmp eq i64 %.165, 0
+  %28 = icmp eq i64 %.265, 0
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %.lr.ph
@@ -2644,7 +2644,7 @@ mbedtls_aes_crypt_ecb.exit50:                     ; preds = %29
   br i1 %.not45, label %33, label %.loopexit55
 
 33:                                               ; preds = %mbedtls_aes_crypt_ecb.exit50.thread, %mbedtls_aes_crypt_ecb.exit50, %.lr.ph
-  %34 = getelementptr inbounds i8, ptr %4, i64 %.165
+  %34 = getelementptr inbounds i8, ptr %4, i64 %.265
   %35 = load i8, ptr %34, align 1
   %36 = getelementptr inbounds i8, ptr %.13963, i64 1
   %37 = load i8, ptr %.13963, align 1
@@ -2652,14 +2652,14 @@ mbedtls_aes_crypt_ecb.exit50:                     ; preds = %29
   %39 = getelementptr inbounds i8, ptr %.13764, i64 1
   store i8 %38, ptr %.13764, align 1
   store i8 %38, ptr %34, align 1
-  %40 = add nuw nsw i64 %.165, 1
+  %40 = add nuw nsw i64 %.265, 1
   %41 = and i64 %40, 15
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 .loopexit:                                        ; preds = %33, %18, %.preheader56, %.preheader
-  %.2 = phi i64 [ %8, %.preheader ], [ %8, %.preheader56 ], [ %26, %18 ], [ %41, %33 ]
-  store i64 %.2, ptr %3, align 8
+  %.1 = phi i64 [ %8, %.preheader ], [ %8, %.preheader56 ], [ %26, %18 ], [ %41, %33 ]
+  store i64 %.1, ptr %3, align 8
   br label %.loopexit55
 
 .loopexit55:                                      ; preds = %mbedtls_aes_crypt_ecb.exit50, %mbedtls_aes_crypt_ecb.exit, %.loopexit, %7
@@ -3084,15 +3084,15 @@ mbedtls_aes_crypt_ecb.exit.thread:                ; preds = %39, %mbedtls_aes_cr
 
 64:                                               ; preds = %62, %60
   %aes_test_cbc_enc.sink = phi ptr [ @aes_test_cbc_enc, %62 ], [ @aes_test_cbc_dec, %60 ]
-  %.1 = phi i32 [ %63, %62 ], [ %61, %60 ]
+  %.2 = phi i32 [ %63, %62 ], [ %61, %60 ]
   %65 = getelementptr inbounds [3 x [16 x i8]], ptr %aes_test_cbc_enc.sink, i64 0, i64 %59
-  %66 = icmp eq i32 %.1, -114
+  %66 = icmp eq i32 %.2, -114
   %67 = icmp eq i32 %51, 192
   %or.cond3 = select i1 %66, i1 %67, i1 false
   br i1 %or.cond3, label %91, label %68
 
 68:                                               ; preds = %64
-  %.not208 = icmp eq i32 %.1, 0
+  %.not208 = icmp eq i32 %.2, 0
   br i1 %.not208, label %.preheader, label %mbedtls_aes_crypt_cfb128.exit
 
 .preheader:                                       ; preds = %68
@@ -3301,10 +3301,10 @@ mbedtls_aes_crypt_ecb.exit.i227:                  ; preds = %119
 
 .lr.ph.i229:                                      ; preds = %139, %131
   %.in.i = phi i64 [ %133, %139 ], [ 64, %131 ]
-  %.165.i = phi i64 [ %146, %139 ], [ 0, %131 ]
+  %.265.i = phi i64 [ %146, %139 ], [ 0, %131 ]
   %.13764.i = phi ptr [ %142, %139 ], [ %4, %131 ]
   %133 = add nsw i64 %.in.i, -1
-  %134 = icmp eq i64 %.165.i, 0
+  %134 = icmp eq i64 %.265.i, 0
   br i1 %134, label %135, label %139
 
 135:                                              ; preds = %.lr.ph.i229
@@ -3322,14 +3322,14 @@ mbedtls_aes_crypt_ecb.exit50.i:                   ; preds = %135
   br i1 %.not45.i, label %139, label %mbedtls_aes_crypt_cfb128.exit
 
 139:                                              ; preds = %mbedtls_aes_crypt_ecb.exit50.i, %mbedtls_aes_crypt_ecb.exit50.thread.i, %.lr.ph.i229
-  %140 = getelementptr inbounds i8, ptr %5, i64 %.165.i
+  %140 = getelementptr inbounds i8, ptr %5, i64 %.265.i
   %141 = load i8, ptr %140, align 1
   %142 = getelementptr i8, ptr %.13764.i, i64 1
   %143 = load i8, ptr %.13764.i, align 1
   %144 = xor i8 %143, %141
   store i8 %144, ptr %.13764.i, align 1
   store i8 %144, ptr %140, align 1
-  %145 = add nuw nsw i64 %.165.i, 1
+  %145 = add nuw nsw i64 %.265.i, 1
   %146 = and i64 %145, 15
   %.not.i230 = icmp eq i64 %133, 0
   br i1 %.not.i230, label %.loopexit.i, label %.lr.ph.i229, !llvm.loop !28
@@ -3647,7 +3647,7 @@ mbedtls_aes_crypt_cfb128.exit.thread258:          ; preds = %241, %244
   br label %246
 
 mbedtls_aes_crypt_cfb128.exit:                    ; preds = %.split291.us, %32, %mbedtls_aes_crypt_ecb.exit, %mbedtls_aes_crypt_ecb.exit.us, %.split296.us, %68, %mbedtls_aes_crypt_ecb.exit57.us.i, %.loopexit.i, %112, %mbedtls_aes_crypt_ecb.exit50.i, %mbedtls_aes_crypt_ecb.exit.i227, %191, %170, %mbedtls_aes_crypt_ecb.exit.i240, %216, %209, %204, %239, %.split167, %235, %233, %mbedtls_aes_crypt_cbc.exit224
-  %.2 = phi i32 [ %70, %mbedtls_aes_crypt_cbc.exit224 ], [ 1, %239 ], [ %236, %235 ], [ %238, %.split167 ], [ %234, %233 ], [ 1, %216 ], [ %215, %209 ], [ %208, %204 ], [ %182, %mbedtls_aes_crypt_ecb.exit.i240 ], [ 1, %191 ], [ %167, %170 ], [ %122, %mbedtls_aes_crypt_ecb.exit.i227 ], [ %138, %mbedtls_aes_crypt_ecb.exit50.i ], [ 1, %.loopexit.i ], [ %109, %112 ], [ %80, %mbedtls_aes_crypt_ecb.exit57.us.i ], [ 1, %.split296.us ], [ %.1, %68 ], [ %34, %mbedtls_aes_crypt_ecb.exit.us ], [ %41, %mbedtls_aes_crypt_ecb.exit ], [ 1, %.split291.us ], [ %.0, %32 ]
+  %.1 = phi i32 [ %70, %mbedtls_aes_crypt_cbc.exit224 ], [ 1, %239 ], [ %236, %235 ], [ %238, %.split167 ], [ %234, %233 ], [ 1, %216 ], [ %215, %209 ], [ %208, %204 ], [ %182, %mbedtls_aes_crypt_ecb.exit.i240 ], [ 1, %191 ], [ %167, %170 ], [ %122, %mbedtls_aes_crypt_ecb.exit.i227 ], [ %138, %mbedtls_aes_crypt_ecb.exit50.i ], [ 1, %.loopexit.i ], [ %109, %112 ], [ %80, %mbedtls_aes_crypt_ecb.exit57.us.i ], [ 1, %.split296.us ], [ %.2, %68 ], [ %34, %mbedtls_aes_crypt_ecb.exit.us ], [ %41, %mbedtls_aes_crypt_ecb.exit ], [ 1, %.split291.us ], [ %.0, %32 ]
   br i1 %.not215, label %246, label %245
 
 245:                                              ; preds = %mbedtls_aes_crypt_cfb128.exit
@@ -3655,9 +3655,9 @@ mbedtls_aes_crypt_cfb128.exit:                    ; preds = %.split291.us, %32, 
   br label %246
 
 246:                                              ; preds = %mbedtls_aes_crypt_cfb128.exit.thread258, %245, %mbedtls_aes_crypt_cfb128.exit
-  %.2261 = phi i32 [ 0, %mbedtls_aes_crypt_cfb128.exit.thread258 ], [ %.2, %245 ], [ %.2, %mbedtls_aes_crypt_cfb128.exit ]
+  %.1261 = phi i32 [ 0, %mbedtls_aes_crypt_cfb128.exit.thread258 ], [ %.1, %245 ], [ %.1, %mbedtls_aes_crypt_cfb128.exit ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 288) #10
-  ret i32 %.2261
+  ret i32 %.1261
 }
 
 ; Function Attrs: nofree nounwind

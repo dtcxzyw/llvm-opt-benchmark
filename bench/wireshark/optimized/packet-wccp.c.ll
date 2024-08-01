@@ -3253,16 +3253,16 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   br i1 %.not.i.i, label %.thread5.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %78, %84
-  %.034.i.i = phi i32 [ %79, %84 ], [ %.0.i, %78 ]
-  %.033.i.i = phi i32 [ %83, %84 ], [ %55, %78 ]
-  %79 = call fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noundef %0, i32 noundef %.033.i.i, i32 noundef %.034.i.i, ptr noundef %76, ptr noundef readonly %5)
+  %.135.i.i = phi i32 [ %79, %84 ], [ %.0.i, %78 ]
+  %.1.i.i = phi i32 [ %83, %84 ], [ %55, %78 ]
+  %79 = call fastcc i32 @dissect_wccp2_alternate_mask_value_set_list(ptr noundef %0, i32 noundef %.1.i.i, i32 noundef %.135.i.i, ptr noundef %76, ptr noundef readonly %5)
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i, label %81
 
 81:                                               ; preds = %.preheader.i.i
-  %82 = sub nsw i32 %.034.i.i, %79
-  %83 = add i32 %82, %.033.i.i
-  %.not41.i.i = icmp slt i32 %.033.i.i, %83
+  %82 = sub nsw i32 %.135.i.i, %79
+  %83 = add i32 %82, %.1.i.i
+  %.not41.i.i = icmp slt i32 %.1.i.i, %83
   br i1 %.not41.i.i, label %84, label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i
 
 84:                                               ; preds = %81
@@ -3274,10 +3274,10 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   br i1 %.not11.i.i, label %.thread5.i.i, label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i
 
 .thread5.i.i:                                     ; preds = %85, %78
-  %.148.i.i = phi i32 [ %55, %78 ], [ %83, %85 ]
+  %.03348.i.i = phi i32 [ %55, %78 ], [ %83, %85 ]
   %86 = load i32, ptr @hf_assignment_weight, align 4
-  %87 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %86, ptr noundef %0, i32 noundef %.148.i.i, i32 noundef 2, i32 noundef 0) #7
-  %88 = add i32 %.148.i.i, 2
+  %87 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %86, ptr noundef %0, i32 noundef %.03348.i.i, i32 noundef 2, i32 noundef 0) #7
+  %88 = add i32 %.03348.i.i, 2
   %89 = load i32, ptr @hf_assignment_status, align 4
   %90 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %89, ptr noundef %0, i32 noundef %88, i32 noundef 2, i32 noundef 0) #7
   br label %dissect_wccp2_alternate_mask_assignment_data_element.exit.i

@@ -5002,7 +5002,7 @@ for.body86.lr.ph:                                 ; preds = %if.then79
 for.body86:                                       ; preds = %for.body86.lr.ph, %if.end113
   %91 = phi ptr [ %89, %for.body86.lr.ph ], [ %103, %if.end113 ]
   %i.0204 = phi i64 [ 0, %for.body86.lr.ph ], [ %inc126, %if.end113 ]
-  %first_idle_index.0203 = phi i64 [ %sub.ptr.div.i92, %for.body86.lr.ph ], [ %first_idle_index.1, %if.end113 ]
+  %first_idle_index.0203 = phi i64 [ %sub.ptr.div.i92, %for.body86.lr.ph ], [ %first_idle_index.2, %if.end113 ]
   %add.ptr.i = getelementptr inbounds %"class.grpc_core::EndpointAddresses", ptr %91, i64 %i.0204
   %92 = load ptr, ptr %add.ptr.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
@@ -5115,17 +5115,17 @@ if.end113:                                        ; preds = %do.end
   %cmp116 = icmp eq i64 %first_idle_index.0203, %sub.ptr.div.i125
   %cmp122 = icmp eq i32 %call107.val, 0
   %104 = and i1 %cmp122, %cmp116
-  %first_idle_index.1 = select i1 %104, i64 %i.0204, i64 %first_idle_index.0203
+  %first_idle_index.2 = select i1 %104, i64 %i.0204, i64 %first_idle_index.0203
   %inc126 = add nuw i64 %i.0204, 1
   %cmp85 = icmp ult i64 %inc126, %sub.ptr.div.i125
   br i1 %cmp85, label %for.body86, label %for.end127, !llvm.loop !77
 
 for.end127:                                       ; preds = %if.end113
-  %cmp130.not = icmp eq i64 %first_idle_index.1, %sub.ptr.div.i125
+  %cmp130.not = icmp eq i64 %first_idle_index.2, %sub.ptr.div.i125
   br i1 %cmp130.not, label %if.end174, label %if.then131
 
 if.then131:                                       ; preds = %for.end127
-  %add.ptr.i132 = getelementptr inbounds %"class.grpc_core::EndpointAddresses", ptr %103, i64 %first_idle_index.1
+  %add.ptr.i132 = getelementptr inbounds %"class.grpc_core::EndpointAddresses", ptr %103, i64 %first_idle_index.2
   %105 = load ptr, ptr %add.ptr.i132, align 8
   %_M_finish.i.i133 = getelementptr inbounds i8, ptr %add.ptr.i132, i64 8
   %106 = load ptr, ptr %_M_finish.i.i133, align 8
@@ -5209,7 +5209,7 @@ if.then156:                                       ; preds = %do.end153
   %second158 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i153, i64 80
   %second158.val = load ptr, ptr %second158, align 8
   %112 = load ptr, ptr %endpoints_80, align 8
-  %add.ptr.i164 = getelementptr inbounds %"class.grpc_core::EndpointAddresses", ptr %112, i64 %first_idle_index.1
+  %add.ptr.i164 = getelementptr inbounds %"class.grpc_core::EndpointAddresses", ptr %112, i64 %first_idle_index.2
   call void @_ZNK9grpc_core17EndpointAddresses8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp160, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i164)
   %call163 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp160) #23
   %113 = load ptr, ptr %_M_finish.i88, align 8
@@ -5218,7 +5218,7 @@ if.then156:                                       ; preds = %do.end153
   %sub.ptr.rhs.cast.i167 = ptrtoint ptr %114 to i64
   %sub.ptr.sub.i168 = sub i64 %sub.ptr.lhs.cast.i166, %sub.ptr.rhs.cast.i167
   %sub.ptr.div.i169 = ashr exact i64 %sub.ptr.sub.i168, 5
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.13, i32 noundef 835, i32 noundef 1, ptr noundef nonnull @.str.38, ptr noundef nonnull %this, ptr noundef %second158.val, ptr noundef %call163, i64 noundef %first_idle_index.1, i64 noundef %sub.ptr.div.i169)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.13, i32 noundef 835, i32 noundef 1, ptr noundef nonnull @.str.38, ptr noundef nonnull %this, ptr noundef %second158.val, ptr noundef %call163, i64 noundef %first_idle_index.2, i64 noundef %sub.ptr.div.i169)
           to label %invoke.cont167 unwind label %lpad166
 
 invoke.cont167:                                   ; preds = %if.then156

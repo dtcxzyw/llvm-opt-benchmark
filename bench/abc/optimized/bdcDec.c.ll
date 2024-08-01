@@ -1549,7 +1549,7 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
   br label %61
 
 61:                                               ; preds = %56, %52
-  %.083 = phi i32 [ %60, %56 ], [ 0, %52 ]
+  %.184 = phi i32 [ %60, %56 ], [ 0, %52 ]
   %62 = load ptr, ptr %18, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
@@ -1565,7 +1565,7 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
   br label %70
 
 70:                                               ; preds = %61, %65, %51
-  %.184 = phi i32 [ %.083, %65 ], [ %.083, %61 ], [ 0, %51 ]
+  %.083 = phi i32 [ %.184, %65 ], [ %.184, %61 ], [ 0, %51 ]
   %.082 = phi i32 [ %69, %65 ], [ 0, %61 ], [ 0, %51 ]
   br i1 %47, label %89, label %71
 
@@ -1585,7 +1585,7 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
   br label %80
 
 80:                                               ; preds = %75, %71
-  %.081 = phi i32 [ %79, %75 ], [ 0, %71 ]
+  %.1 = phi i32 [ %79, %75 ], [ 0, %71 ]
   %81 = load ptr, ptr %24, align 8
   %82 = getelementptr inbounds i8, ptr %81, i64 4
   %83 = load i32, ptr %82, align 4
@@ -1601,10 +1601,10 @@ define range(i32 3, 7) i32 @Bdc_DecomposeStep(ptr noundef %0, ptr nocapture noun
   br label %89
 
 89:                                               ; preds = %80, %84, %70
-  %.1 = phi i32 [ %.081, %84 ], [ %.081, %80 ], [ 0, %70 ]
+  %.081 = phi i32 [ %.1, %84 ], [ %.1, %80 ], [ 0, %70 ]
   %.0 = phi i32 [ %88, %84 ], [ 0, %80 ], [ 0, %70 ]
-  %90 = add nuw nsw i32 %.082, %.184
-  %91 = add nuw nsw i32 %.0, %.1
+  %90 = add nuw nsw i32 %.082, %.083
+  %91 = add nuw nsw i32 %.0, %.081
   %92 = icmp ugt i32 %90, %91
   br i1 %92, label %93, label %102
 

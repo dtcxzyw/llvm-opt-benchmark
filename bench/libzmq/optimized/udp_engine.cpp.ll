@@ -1319,7 +1319,7 @@ if.then54:                                        ; preds = %if.then43
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then54, %if.then43
-  %rc.1 = phi i32 [ %or60, %if.then54 ], [ %call.i, %if.then43 ]
+  %rc.2 = phi i32 [ %or60, %if.then54 ], [ %call.i, %if.then43 ]
   %20 = load i32, ptr %_fd, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bind_if.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %bind_addr.i)
@@ -1352,7 +1352,7 @@ _ZN3zmq12udp_engine_t23set_udp_multicast_ifaceEibPKNS_13udp_address_tE.exit: ; p
   call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %20, i32 noundef %rc.0.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bind_if.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %bind_addr.i)
-  %or65 = or i32 %rc.0.i, %rc.1
+  %or65 = or i32 %rc.0.i, %rc.2
   br label %if.end70
 
 if.else:                                          ; preds = %if.then35
@@ -1364,7 +1364,7 @@ if.else:                                          ; preds = %if.then35
   br label %if.end70
 
 if.end70:                                         ; preds = %if.else, %_ZN3zmq12udp_engine_t23set_udp_multicast_ifaceEibPKNS_13udp_address_tE.exit, %if.then38, %if.end33
-  %rc.2 = phi i32 [ 0, %if.else ], [ %or65, %_ZN3zmq12udp_engine_t23set_udp_multicast_ifaceEibPKNS_13udp_address_tE.exit ], [ 0, %if.then38 ], [ 0, %if.end33 ]
+  %rc.1 = phi i32 [ 0, %if.else ], [ %or65, %_ZN3zmq12udp_engine_t23set_udp_multicast_ifaceEibPKNS_13udp_address_tE.exit ], [ 0, %if.then38 ], [ 0, %if.end33 ]
   %_recv_enabled = getelementptr inbounds i8, ptr %this, i64 17877
   %22 = load i8, ptr %_recv_enabled, align 1
   %tobool71 = trunc i8 %22 to i1
@@ -1377,7 +1377,7 @@ if.then72:                                        ; preds = %if.end70
   %call.i31 = call i32 @setsockopt(i32 noundef %23, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %on.i, i32 noundef 4) #18
   call void @_ZN3zmq29assert_success_or_recoverableEii(i32 noundef %23, i32 noundef %call.i31)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %on.i)
-  %or75 = or i32 %call.i31, %rc.2
+  %or75 = or i32 %call.i31, %rc.1
   %call76 = call noundef ptr @_ZNK3zmq13udp_address_t9bind_addrEv(ptr noundef nonnull align 8 dereferenceable(104) %10)
   %call77 = call noundef i32 @_ZNK3zmq9ip_addr_t6familyEv(ptr noundef nonnull align 4 dereferenceable(28) %call76)
   call void @_ZN3zmq9ip_addr_t3anyEi(ptr nonnull sret(%"union.zmq::ip_addr_t") align 4 %any, i32 noundef %call77)
@@ -1398,8 +1398,8 @@ if.then81:                                        ; preds = %if.then72
 
 if.end87:                                         ; preds = %if.then72, %if.then81
   %real_bind_addr.0 = phi ptr [ %any, %if.then81 ], [ %call76, %if.then72 ]
-  %rc.3 = phi i32 [ %or84, %if.then81 ], [ %or75, %if.then72 ]
-  %cmp88.not = icmp eq i32 %rc.3, 0
+  %rc.4 = phi i32 [ %or84, %if.then81 ], [ %or75, %if.then72 ]
+  %cmp88.not = icmp eq i32 %rc.4, 0
   br i1 %cmp88.not, label %if.end90, label %if.then89
 
 if.then89:                                        ; preds = %if.end87
@@ -1429,8 +1429,8 @@ if.then101:                                       ; preds = %if.end99
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then101, %if.end70
-  %rc.4 = phi i32 [ %call103, %if.then101 ], [ %rc.2, %if.end70 ]
-  %cmp107.not = icmp eq i32 %rc.4, 0
+  %rc.3 = phi i32 [ %call103, %if.then101 ], [ %rc.1, %if.end70 ]
+  %cmp107.not = icmp eq i32 %rc.3, 0
   br i1 %cmp107.not, label %if.else109, label %if.then108
 
 if.then108:                                       ; preds = %if.end106
@@ -1996,14 +1996,14 @@ cleanup.sink.split:                               ; preds = %if.end24, %invoke.c
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end24
-  %retval.0 = phi i32 [ 0, %if.end24 ], [ -1, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %if.end24 ], [ -1, %cleanup.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %port_str) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %addr_str) #18
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then7
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ -1, %if.then7 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ -1, %if.then7 ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad15, %lpad
   %.pn = phi { ptr, i32 } [ %3, %lpad15 ], [ %2, %lpad ]

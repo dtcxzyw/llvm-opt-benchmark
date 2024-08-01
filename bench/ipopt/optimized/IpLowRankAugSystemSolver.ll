@@ -2163,8 +2163,8 @@ _ZNK5Ipopt19DenseGenMatrixSpace21MakeNewDenseGenMatrixEv.exit: ; preds = %.noexc
   br label %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit
 
 280:                                              ; preds = %259, %252
-  %.097 = phi i32 [ 1, %259 ], [ 0, %252 ]
-  %.072 = phi i32 [ 2, %259 ], [ 0, %252 ]
+  %.198 = phi i32 [ 1, %259 ], [ 0, %252 ]
+  %.173 = phi i32 [ 2, %259 ], [ 0, %252 ]
   %281 = load i32, ptr %227, align 8
   %282 = add nsw i32 %281, -1
   store i32 %282, ptr %227, align 8
@@ -2208,9 +2208,9 @@ _ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit: ; preds = %291, %_ZN5Ipopt8Sm
 
 _ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit: ; preds = %._ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit_crit_edge, %298, %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit
   %302 = phi ptr [ %.pre477, %._ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit_crit_edge ], [ %222, %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit ], [ %222, %298 ]
-  %.198 = phi i32 [ 1, %._ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit_crit_edge ], [ %.097, %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit ], [ %.097, %298 ]
-  %.173 = phi i32 [ %196, %._ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit_crit_edge ], [ %.072, %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit ], [ %.072, %298 ]
-  %.1 = phi i32 [ %196, %._ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit_crit_edge ], [ 2, %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit ], [ 2, %298 ]
+  %.097 = phi i32 [ 1, %._ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit_crit_edge ], [ %.198, %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit ], [ %.198, %298 ]
+  %.072 = phi i32 [ %196, %._ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit_crit_edge ], [ %.173, %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit ], [ %.173, %298 ]
+  %.0 = phi i32 [ %196, %._ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit_crit_edge ], [ 2, %_ZN5Ipopt8SmartPtrINS_14DenseSymMatrixEED2Ev.exit ], [ 2, %298 ]
   %.not.i.i181 = icmp eq ptr %302, null
   br i1 %.not.i.i181, label %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit, label %303
 
@@ -2230,7 +2230,7 @@ _ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit: ; preds = %._ZN5Ipopt8Sm
   br label %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit
 
 _ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit: ; preds = %_ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit, %303, %308
-  %cond1 = icmp eq i32 %.198, 0
+  %cond1 = icmp eq i32 %.097, 0
   br i1 %cond1, label %362, label %770
 
 _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit: ; preds = %267, %269, %.body172, %276
@@ -2331,8 +2331,8 @@ _ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEEaSEPS1_.exit190: ; preds = %347, %350, %
   br label %362
 
 362:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit, %_ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEEaSEPS1_.exit190
-  %.274 = phi i32 [ %.173, %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit ], [ 0, %_ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEEaSEPS1_.exit190 ]
-  %.2 = phi i32 [ %.1, %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit ], [ undef, %_ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEEaSEPS1_.exit190 ]
+  %.274 = phi i32 [ %.072, %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit ], [ 0, %_ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEEaSEPS1_.exit190 ]
+  %.3 = phi i32 [ %.0, %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit ], [ undef, %_ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEEaSEPS1_.exit190 ]
   %.not473 = icmp eq ptr %.sroa.0426.0, null
   br i1 %.not473, label %740, label %363
 
@@ -2693,7 +2693,7 @@ _ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEED2Ev.exit: ; preds = %533, %._crit_edge
   br label %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEEaSERKS2_.exit195
 
 .body211:                                         ; preds = %460, %519, %521, %526
-  %.sroa.0362.1 = phi ptr [ null, %460 ], [ null, %519 ], [ %459, %521 ], [ %459, %526 ]
+  %.sroa.0362.5 = phi ptr [ null, %460 ], [ null, %519 ], [ %459, %521 ], [ %459, %526 ]
   %.pn109 = phi { ptr, i32 } [ %461, %460 ], [ %520, %519 ], [ %522, %521 ], [ %522, %526 ]
   %544 = load i32, ptr %424, align 8
   %545 = add nsw i32 %544, -1
@@ -2709,7 +2709,7 @@ _ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEED2Ev.exit: ; preds = %533, %._crit_edge
   br label %.body201
 
 .body201:                                         ; preds = %421, %517, %.body211, %547
-  %.sroa.0362.2 = phi ptr [ null, %421 ], [ null, %517 ], [ %.sroa.0362.1, %.body211 ], [ %.sroa.0362.1, %547 ]
+  %.sroa.0362.4 = phi ptr [ null, %421 ], [ null, %517 ], [ %.sroa.0362.5, %.body211 ], [ %.sroa.0362.5, %547 ]
   %.pn109.pn = phi { ptr, i32 } [ %422, %421 ], [ %518, %517 ], [ %.pn109, %.body211 ], [ %.pn109, %547 ]
   %551 = load i32, ptr %417, align 8
   %552 = add nsw i32 %551, -1
@@ -2886,8 +2886,8 @@ _ZNK5Ipopt19DenseGenMatrixSpace21MakeNewDenseGenMatrixEv.exit258: ; preds = %.no
   br label %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit263
 
 631:                                              ; preds = %610, %603
-  %.375 = phi i32 [ 2, %610 ], [ 0, %603 ]
-  %.3 = phi i32 [ 2, %610 ], [ %.2, %603 ]
+  %.476 = phi i32 [ 2, %610 ], [ 0, %603 ]
+  %.5 = phi i32 [ 2, %610 ], [ %.3, %603 ]
   %632 = load i32, ptr %578, align 8
   %633 = add nsw i32 %632, -1
   store i32 %633, ptr %578, align 8
@@ -2946,9 +2946,9 @@ _ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit269: ; preds = %_ZN5Ipopt8
 
 _ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit271: ; preds = %._ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit271_crit_edge, %_ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit269, %657
   %661 = phi ptr [ %558, %_ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit269 ], [ %558, %657 ], [ %.pre478, %._ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit271_crit_edge ]
-  %.4465 = phi i32 [ %.3, %_ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit269 ], [ %.3, %657 ], [ %368, %._ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit271_crit_edge ]
-  %.476464 = phi i32 [ %.375, %_ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit269 ], [ %.375, %657 ], [ %368, %._ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit271_crit_edge ]
-  %.3100463 = phi i1 [ %602, %_ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit269 ], [ %602, %657 ], [ false, %._ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit271_crit_edge ]
+  %.4465 = phi i32 [ %.5, %_ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit269 ], [ %.5, %657 ], [ %368, %._ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit271_crit_edge ]
+  %.375464 = phi i32 [ %.476, %_ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit269 ], [ %.476, %657 ], [ %368, %._ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit271_crit_edge ]
+  %.299463 = phi i1 [ %602, %_ZN5Ipopt8SmartPtrINS_19DenseSymMatrixSpaceEED2Ev.exit269 ], [ %602, %657 ], [ false, %._ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit271_crit_edge ]
   %.not.i.i272 = icmp eq ptr %661, null
   br i1 %.not.i.i272, label %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit273, label %662
 
@@ -3008,7 +3008,7 @@ _ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit275: ; preds = %_ZN5Ipopt8Sm
   br label %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit277
 
 _ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit277: ; preds = %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit275, %682, %687
-  %spec.select = select i1 %.3100463, i32 %.476464, i32 %.4465
+  %spec.select = select i1 %.299463, i32 %.375464, i32 %.4465
   br label %770
 
 _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit263: ; preds = %618, %620, %.body256, %627
@@ -3042,13 +3042,13 @@ _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit263: ; preds = %618, %620,
   br label %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit238
 
 _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit238: ; preds = %701, %.body244, %554, %.body201, %614, %376
-  %.sroa.0362.5 = phi ptr [ %.sroa.0362.3, %614 ], [ %.sroa.0362.0, %376 ], [ %.sroa.0362.2, %.body201 ], [ %.sroa.0362.2, %554 ], [ %.sroa.0362.3, %.body244 ], [ %.sroa.0362.3, %701 ]
+  %.sroa.0362.2 = phi ptr [ %.sroa.0362.3, %614 ], [ %.sroa.0362.0, %376 ], [ %.sroa.0362.4, %.body201 ], [ %.sroa.0362.4, %554 ], [ %.sroa.0362.3, %.body244 ], [ %.sroa.0362.3, %701 ]
   %.pn115 = phi { ptr, i32 } [ %615, %614 ], [ %377, %376 ], [ %.pn109.pn, %.body201 ], [ %.pn109.pn, %554 ], [ %.pn112.pn, %.body244 ], [ %.pn112.pn, %701 ]
-  %.not.i.i282 = icmp eq ptr %.sroa.0362.5, null
+  %.not.i.i282 = icmp eq ptr %.sroa.0362.2, null
   br i1 %.not.i.i282, label %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit283, label %705
 
 705:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit238
-  %706 = getelementptr inbounds i8, ptr %.sroa.0362.5, i64 8
+  %706 = getelementptr inbounds i8, ptr %.sroa.0362.2, i64 8
   %707 = load i32, ptr %706, align 8
   %708 = add nsw i32 %707, -1
   store i32 %708, ptr %706, align 8
@@ -3056,10 +3056,10 @@ _ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit238: ; preds = %701, %.bod
   br i1 %709, label %710, label %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit283
 
 710:                                              ; preds = %705
-  %711 = load ptr, ptr %.sroa.0362.5, align 8
+  %711 = load ptr, ptr %.sroa.0362.2, align 8
   %712 = getelementptr inbounds i8, ptr %711, i64 8
   %713 = load ptr, ptr %712, align 8
-  tail call void %713(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0362.5) #15
+  tail call void %713(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.0362.2) #15
   br label %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit283
 
 _ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit283: ; preds = %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit238.thread, %_ZN5Ipopt8SmartPtrINS_19DenseGenMatrixSpaceEED2Ev.exit238, %705, %710
@@ -3170,7 +3170,7 @@ _ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEEaSEPS1_.exit293: ; preds = %755, %758
   br label %770
 
 770:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEEaSEPS1_.exit293, %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit277, %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit
-  %.5 = phi i32 [ %.1, %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit ], [ %.274, %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEEaSEPS1_.exit293 ], [ %spec.select, %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit277 ]
+  %.2 = phi i32 [ %.0, %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit ], [ %.274, %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEEaSEPS1_.exit293 ], [ %spec.select, %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit277 ]
   %771 = load ptr, ptr %21, align 8
   %.not.i.i294 = icmp eq ptr %771, null
   br i1 %.not.i.i294, label %_ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit295, label %772
@@ -3281,7 +3281,7 @@ _ZN5Ipopt8SmartPtrIKNS_17MultiVectorMatrixEED2Ev.exit301: ; preds = %814, %809, 
   br label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit303
 
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit303:     ; preds = %_ZN5Ipopt8SmartPtrIKNS_17MultiVectorMatrixEED2Ev.exit301, %822
-  ret i32 %.5
+  ret i32 %.2
 
 _ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEED2Ev.exit187.sink.split: ; preds = %735, %327
   %.sink484 = phi ptr [ %326, %327 ], [ %734, %735 ]

@@ -6999,7 +6999,7 @@ default.unreachable2697:                          ; preds = %1069
   br label %280
 
 280:                                              ; preds = %268, %279
-  %.0 = phi ptr [ %276, %279 ], [ %269, %268 ]
+  %.1 = phi ptr [ %276, %279 ], [ %269, %268 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %161)
   br label %"_ZN4core3ptr48drop_in_place$LT$wasmparser..parser..Payload$GT$17h3dc624a49e15092bE.exit1381"
 
@@ -7327,7 +7327,7 @@ _ZN16wasmtime_environ12module_types18ModuleTypesBuilder23reserve_wasm_signatures
   br label %408
 
 408:                                              ; preds = %284, %407
-  %.2 = phi ptr [ %380, %407 ], [ %285, %284 ]
+  %.3 = phi ptr [ %380, %407 ], [ %285, %284 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %156)
   br label %1960
 
@@ -7439,8 +7439,8 @@ _ZN16wasmtime_environ12module_types18ModuleTypesBuilder23reserve_wasm_signatures
   %.sroa.191432.02445 = phi i32 [ undef, %.lr.ph2449 ], [ %.sroa.191432.1, %581 ]
   %.sroa.181424.sroa.0.02444 = phi i24 [ undef, %.lr.ph2449 ], [ %.sroa.181424.sroa.0.1, %581 ]
   %.sroa.71580.02443 = phi i32 [ undef, %.lr.ph2449 ], [ %.sroa.71580.1, %581 ]
-  %.sroa.111577.02442 = phi i32 [ undef, %.lr.ph2449 ], [ %.sroa.111577.2, %581 ]
-  %.sroa.91576.02441 = phi i32 [ undef, %.lr.ph2449 ], [ %.sroa.91576.2, %581 ]
+  %.sroa.111577.02442 = phi i32 [ undef, %.lr.ph2449 ], [ %.sroa.111577.1, %581 ]
+  %.sroa.91576.02441 = phi i32 [ undef, %.lr.ph2449 ], [ %.sroa.91576.1, %581 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !323)
   %449 = load i32, ptr %.sroa.568.0..sroa_idx, align 8, !alias.scope !323, !noalias !326, !noundef !11
   %450 = icmp eq i32 %449, 0
@@ -7629,15 +7629,15 @@ _ZN16wasmtime_environ12module_types18ModuleTypesBuilder23reserve_wasm_signatures
   br label %513
 
 513:                                              ; preds = %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit, %578, %574, %505
-  %.sroa.91576.2 = phi i32 [ %.sroa.91576.1, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.91576.02441, %578 ], [ %.sroa.91576.02441, %574 ], [ %.sroa.91576.02441, %505 ]
-  %.sroa.111577.2 = phi i32 [ %.sroa.111577.1, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.111577.02442, %578 ], [ %.sroa.111577.02442, %574 ], [ %.sroa.111577.02442, %505 ]
+  %.sroa.91576.1 = phi i32 [ %.sroa.91576.2, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.91576.02441, %578 ], [ %.sroa.91576.02441, %574 ], [ %.sroa.91576.02441, %505 ]
+  %.sroa.111577.1 = phi i32 [ %.sroa.111577.2, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.111577.02442, %578 ], [ %.sroa.111577.02442, %574 ], [ %.sroa.111577.02442, %505 ]
   %.sroa.71580.1 = phi i32 [ %.sroa.71580.02443, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.71580.02443, %578 ], [ %.sroa.71580.8.insert.insert, %574 ], [ %.sroa.71580.02443, %505 ]
   %.sroa.181424.sroa.0.1 = phi i24 [ undef, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.181424.sroa.0.0.copyload, %578 ], [ %.sroa.41579.5.extract.trunc, %574 ], [ %.sroa.181424.sroa.0.02444, %505 ]
   %.sroa.191432.1 = phi i32 [ %.sroa.191432.02445, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.191432.0.copyload, %578 ], [ %.sroa.11.0.copyload, %574 ], [ %.sroa.191432.02445, %505 ]
   %.sroa.19.1 = phi i32 [ %.sroa.19.02446, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.19.0.copyload, %578 ], [ %.sroa.71580.8.insert.insert, %574 ], [ %.sroa.19.02446, %505 ]
   %.sroa.171417.1 = phi i8 [ %580, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.171417.0.copyload, %578 ], [ %.sroa.41579.4.extract.trunc, %574 ], [ %.sroa.171417.02447, %505 ]
-  %.sroa.161409.1 = phi i32 [ %.sroa.111577.1, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.161409.0.copyload, %578 ], [ %575, %574 ], [ %.sroa.161409.02448, %505 ]
-  %.sroa.131401.0 = phi i32 [ %.sroa.91576.1, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.131401.0.copyload, %578 ], [ %.sroa.3925.4.extract.trunc, %574 ], [ %508, %505 ]
+  %.sroa.161409.1 = phi i32 [ %.sroa.111577.2, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.161409.0.copyload, %578 ], [ %575, %574 ], [ %.sroa.161409.02448, %505 ]
+  %.sroa.131401.0 = phi i32 [ %.sroa.91576.2, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.131401.0.copyload, %578 ], [ %.sroa.3925.4.extract.trunc, %574 ], [ %508, %505 ]
   %.sroa.7.01601 = phi i32 [ %.sroa.01575.0, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.7.0.copyload, %578 ], [ %.sroa.3925.0.extract.trunc929, %574 ], [ 1, %505 ]
   %.sroa.01392.0 = phi i64 [ 2, %_ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit ], [ %.sroa.01392.0.copyload, %578 ], [ 5, %574 ], [ 6, %505 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !343)
@@ -7903,8 +7903,8 @@ _ZN16wasmtime_environ14module_environ17ModuleEnvironment9push_type17h6d18329b722
 
 _ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit: ; preds = %.noexc1124, %496, %495, %494, %493, %488
   %.sroa.01575.0 = phi i32 [ %500, %.noexc1124 ], [ 14, %496 ], [ 13, %495 ], [ 12, %494 ], [ 11, %493 ], [ 10, %488 ]
-  %.sroa.91576.1 = phi i32 [ %501, %.noexc1124 ], [ %.sroa.91576.02441, %496 ], [ %.sroa.91576.02441, %495 ], [ %.sroa.91576.02441, %494 ], [ %.sroa.91576.02441, %493 ], [ %.sroa.91576.02441, %488 ]
-  %.sroa.111577.1 = phi i32 [ %.sroa.111577.8.insert.insert, %.noexc1124 ], [ %.sroa.111577.02442, %496 ], [ %.sroa.111577.02442, %495 ], [ %.sroa.111577.02442, %494 ], [ %.sroa.111577.02442, %493 ], [ %.sroa.111577.02442, %488 ]
+  %.sroa.91576.2 = phi i32 [ %501, %.noexc1124 ], [ %.sroa.91576.02441, %496 ], [ %.sroa.91576.02441, %495 ], [ %.sroa.91576.02441, %494 ], [ %.sroa.91576.02441, %493 ], [ %.sroa.91576.02441, %488 ]
+  %.sroa.111577.2 = phi i32 [ %.sroa.111577.8.insert.insert, %.noexc1124 ], [ %.sroa.111577.02442, %496 ], [ %.sroa.111577.02442, %495 ], [ %.sroa.111577.02442, %494 ], [ %.sroa.111577.02442, %493 ], [ %.sroa.111577.02442, %488 ]
   %579 = trunc i64 %489 to i8
   %580 = and i8 %579, 1
   br label %513
@@ -7928,7 +7928,7 @@ _ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit: ; pr
   br label %590
 
 590:                                              ; preds = %411, %589
-  %.3 = phi ptr [ %474, %589 ], [ %412, %411 ]
+  %.4 = phi ptr [ %474, %589 ], [ %412, %411 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %148)
   br label %1960
 
@@ -8071,7 +8071,7 @@ _ZN16wasmtime_environ6module6Module13push_function17h1f5bf8c78844ae00E.exit: ; p
   br label %642
 
 642:                                              ; preds = %593, %641
-  %.4 = phi ptr [ %636, %641 ], [ %594, %593 ]
+  %.5 = phi ptr [ %636, %641 ], [ %594, %593 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %144)
   br label %1960
 
@@ -8559,7 +8559,7 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit: ; preds = %791
   br label %807
 
 807:                                              ; preds = %797, %806, %808
-  %.6 = phi ptr [ %727, %808 ], [ %737, %806 ], [ %792, %797 ]
+  %.7 = phi ptr [ %727, %808 ], [ %737, %806 ], [ %792, %797 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %139)
   br label %809
 
@@ -8569,12 +8569,12 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit: ; preds = %791
   br label %807
 
 809:                                              ; preds = %.loopexit2131, %807
-  %.7 = phi ptr [ %.6, %807 ], [ %696, %.loopexit2131 ]
+  %.8 = phi ptr [ %.7, %807 ], [ %696, %.loopexit2131 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %141)
   br label %810
 
 810:                                              ; preds = %645, %809
-  %.8 = phi ptr [ %.7, %809 ], [ %646, %645 ]
+  %.9 = phi ptr [ %.8, %809 ], [ %646, %645 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %142)
   br label %1960
 
@@ -8752,7 +8752,7 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit: ; preds = %791
   br label %872
 
 872:                                              ; preds = %813, %871
-  %.9 = phi ptr [ %850, %871 ], [ %814, %813 ]
+  %.10 = phi ptr [ %850, %871 ], [ %814, %813 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %129)
   br label %1960
 
@@ -9255,7 +9255,7 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1200: ; preds = %1022
   br label %1036
 
 1036:                                             ; preds = %1028, %1035, %1037
-  %.11 = phi ptr [ %935, %1037 ], [ %945, %1035 ], [ %1023, %1028 ]
+  %.12 = phi ptr [ %935, %1037 ], [ %945, %1035 ], [ %1023, %1028 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %121)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %122)
   br label %1038
@@ -9265,12 +9265,12 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1200: ; preds = %1022
   br label %1036
 
 1038:                                             ; preds = %.loopexit2140, %1036
-  %.12 = phi ptr [ %.11, %1036 ], [ %928, %.loopexit2140 ]
+  %.13 = phi ptr [ %.12, %1036 ], [ %928, %.loopexit2140 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %123)
   br label %1039
 
 1039:                                             ; preds = %880, %1038
-  %.13 = phi ptr [ %.12, %1038 ], [ %881, %880 ]
+  %.14 = phi ptr [ %.13, %1038 ], [ %881, %880 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %124)
   br label %1960
 
@@ -9436,7 +9436,7 @@ _ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h13
   br label %1098
 
 1098:                                             ; preds = %1042, %1097
-  %.14 = phi ptr [ %1075, %1097 ], [ %1043, %1042 ]
+  %.15 = phi ptr [ %1075, %1097 ], [ %1043, %1042 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %111)
   br label %1960
 
@@ -9792,10 +9792,10 @@ _ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h13
   br label %_ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h1380d06cb1166ca8E.exit1224
 
 .loopexit2154:                                    ; preds = %1201, %.thread1870
-  %.sroa.101513.21874 = phi ptr [ %1198, %.thread1870 ], [ %.sroa.101513.0.copyload, %1201 ]
-  %1222 = icmp ne ptr %.sroa.101513.21874, null
+  %.sroa.101513.31874 = phi ptr [ %1198, %.thread1870 ], [ %.sroa.101513.0.copyload, %1201 ]
+  %1222 = icmp ne ptr %.sroa.101513.31874, null
   call void @llvm.assume(i1 %1222)
-  %1223 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h16969da50787355cE"(ptr noalias noundef nonnull align 8 %.sroa.101513.21874)
+  %1223 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h16969da50787355cE"(ptr noalias noundef nonnull align 8 %.sroa.101513.31874)
           to label %1236 unwind label %.loopexit.split-lp2150
 
 _ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h1380d06cb1166ca8E.exit1224: ; preds = %1218, %"_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17hf903b6fe8a429569E.exit.i1221"
@@ -10088,7 +10088,7 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1232: ; preds = %1290
           to label %1292 unwind label %.thread1930.loopexit.split-lp
 
 1292:                                             ; preds = %1272, %_ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1232
-  %.16 = phi ptr [ %1291, %_ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1232 ], [ %1274, %1272 ]
+  %.18 = phi ptr [ %1291, %_ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1232 ], [ %1274, %1272 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %90)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %91)
   %1293 = icmp eq i64 %.sroa.151506.0, 0
@@ -10321,7 +10321,7 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1252: ; preds = %1358
   br label %1361
 
 1361:                                             ; preds = %1311, %1364, %1360
-  %.17 = phi ptr [ %1306, %1364 ], [ %1359, %1360 ], [ %1313, %1311 ]
+  %.19 = phi ptr [ %1306, %1364 ], [ %1359, %1360 ], [ %1313, %1311 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %98)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %100)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %101)
@@ -10343,7 +10343,7 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1252: ; preds = %1358
   br label %"_ZN4core3ptr67drop_in_place$LT$wasmtime_environ..module..TableSegmentElements$GT$17h5062467193cbfbbcE.exit"
 
 "_ZN4core3ptr67drop_in_place$LT$wasmtime_environ..module..TableSegmentElements$GT$17h5062467193cbfbbcE.exit": ; preds = %1183, %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_types..FuncIndex$u5d$$GT$$GT$17h64d438c7a397d17cE.exit.sink.split.i", %1292, %1237, %1365
-  %.18 = phi ptr [ %.17, %1365 ], [ %1223, %1237 ], [ %.16, %1292 ], [ %.16, %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_types..FuncIndex$u5d$$GT$$GT$17h64d438c7a397d17cE.exit.sink.split.i" ], [ %1185, %1183 ]
+  %.17 = phi ptr [ %.19, %1365 ], [ %1223, %1237 ], [ %.18, %1292 ], [ %.18, %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wasmtime_types..FuncIndex$u5d$$GT$$GT$17h64d438c7a397d17cE.exit.sink.split.i" ], [ %1185, %1183 ]
   call void @llvm.lifetime.end.p0(i64 47, ptr nonnull %.sroa.171496)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %106)
   br label %1366
@@ -10354,7 +10354,7 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1252: ; preds = %1358
           to label %.loopexit.split-lp unwind label %798
 
 1366:                                             ; preds = %1160, %"_ZN4core3ptr67drop_in_place$LT$wasmtime_environ..module..TableSegmentElements$GT$17h5062467193cbfbbcE.exit"
-  %.19 = phi ptr [ %.18, %"_ZN4core3ptr67drop_in_place$LT$wasmtime_environ..module..TableSegmentElements$GT$17h5062467193cbfbbcE.exit" ], [ %1161, %1160 ]
+  %.20 = phi ptr [ %.17, %"_ZN4core3ptr67drop_in_place$LT$wasmtime_environ..module..TableSegmentElements$GT$17h5062467193cbfbbcE.exit" ], [ %1161, %1160 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %107)
   br label %1960
 
@@ -10852,7 +10852,7 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1303: ; preds = %1538
   br label %1541
 
 1541:                                             ; preds = %1499, %1540
-  %.21 = phi ptr [ %1539, %1540 ], [ %1501, %1499 ]
+  %.23 = phi ptr [ %1539, %1540 ], [ %1501, %1499 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.10)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %68)
   br label %1543
@@ -10862,12 +10862,12 @@ _ZN6anyhow4kind5Trait3new17hda80c77497622707E.exit1303: ; preds = %1538
   br label %1543
 
 1543:                                             ; preds = %1485, %1542, %1541, %.loopexit2166
-  %.23 = phi ptr [ %1437, %.loopexit2166 ], [ %1465, %1485 ], [ %.21, %1541 ], [ %1493, %1542 ]
+  %.22 = phi ptr [ %1437, %.loopexit2166 ], [ %1465, %1485 ], [ %.23, %1541 ], [ %1493, %1542 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %69)
   br label %1544
 
 1544:                                             ; preds = %1378, %1543
-  %.24 = phi ptr [ %.23, %1543 ], [ %1379, %1378 ]
+  %.25 = phi ptr [ %.22, %1543 ], [ %1379, %1378 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %70)
   br label %1960
 
@@ -11258,7 +11258,7 @@ _ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit1324: 
   br label %1699
 
 1699:                                             ; preds = %1632, %1698
-  %.25 = phi ptr [ %1687, %1698 ], [ %1633, %1632 ]
+  %.26 = phi ptr [ %1687, %1698 ], [ %1633, %1632 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$$LP$u32$C$wasmtime_types..WasmValType$RP$$GT$$GT$17hc0fff955345f7947E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %77)
           to label %1700 unwind label %.thread2044
 
@@ -11268,7 +11268,7 @@ _ZN14wasmtime_types11TypeConvert15convert_valtype17h54202d03c6d8991fE.exit1324: 
           to label %1701 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 1701:                                             ; preds = %1571, %1700
-  %.26 = phi ptr [ %.25, %1700 ], [ %1572, %1571 ]
+  %.27 = phi ptr [ %.26, %1700 ], [ %1572, %1571 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %79)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %80)
   br label %1960
@@ -11901,7 +11901,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
   br i1 %1844, label %.outer.i, label %.lr.ph525thread-pre-split.i
 
 1845:                                             ; preds = %.noexc1358, %.noexc1354
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload3280, %.noexc1354 ], [ %.sroa.0.0.copyload3279, %.noexc1358 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0.copyload3280, %.noexc1354 ], [ %.sroa.0.0.copyload3279, %.noexc1358 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17), !noalias !780
   br label %1855
 
@@ -11938,11 +11938,11 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
   br label %"_ZN4core3ptr48drop_in_place$LT$wasmparser..parser..Payload$GT$17h3dc624a49e15092bE.exit1381"
 
 1855:                                             ; preds = %.noexc1343, %.noexc1350, %1845
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %1845 ], [ %.sroa.0.0.copyload3281, %.noexc1350 ], [ %.sroa.0.0.copyload3282, %.noexc1343 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %1845 ], [ %.sroa.0.0.copyload3281, %.noexc1350 ], [ %.sroa.0.0.copyload3282, %.noexc1343 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19), !noalias !780
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.8178.i)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.14180.i)
-  %.not = icmp eq i64 %.sroa.0.1, -9223372036854775805
+  %.not = icmp eq i64 %.sroa.0.0, -9223372036854775805
   br i1 %.not, label %1870, label %1859
 
 1856:                                             ; preds = %1859, %1869
@@ -11957,7 +11957,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
 
 1859:                                             ; preds = %1855
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59)
-  store i64 %.sroa.0.1, ptr %59, align 8
+  store i64 %.sroa.0.0, ptr %59, align 8
   %.sroa.8.0..sroa_idx3283 = getelementptr inbounds i8, ptr %59, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx3283, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8, i64 24, i1 false)
   %1860 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
@@ -12158,8 +12158,8 @@ switch.hole_check:                                ; preds = %277
   br i1 %switch.lobit, label %"_ZN4core3ptr48drop_in_place$LT$wasmparser..parser..Payload$GT$17h3dc624a49e15092bE.exit1381", label %.thread1610
 
 "_ZN4core3ptr48drop_in_place$LT$wasmparser..parser..Payload$GT$17h3dc624a49e15092bE.exit1381": ; preds = %switch.hole_check, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8e8fe0ea440457ecE.exit1365.thread", %280, %877, %1119, %1372, %1558, %1854, %270, %_ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h1380d06cb1166ca8E.exit1213, %1369, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h9ed7d3e724963662E.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11357125133562502446.exit.i.i.i.i1380", %1962, %1961, %.thread2101, %281, %1960, %1960, %1960, %1960, %1960, %1960, %1960, %1960, %1960, %1960, %1960, %1960, %1960, %1960, %1960, %1960, %.thread1610
-  %.27 = phi ptr [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %.1.ph, %1960 ], [ %1944, %281 ], [ null, %.thread1610 ], [ %1898, %.thread2101 ], [ %.1.ph, %1961 ], [ %.1.ph, %1962 ], [ %.1.ph, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11357125133562502446.exit.i.i.i.i1380" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h9ed7d3e724963662E.exit" ], [ null, %1369 ], [ null, %_ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h1380d06cb1166ca8E.exit1213 ], [ null, %270 ], [ %1853, %1854 ], [ %1548, %1558 ], [ %1371, %1372 ], [ %1116, %1119 ], [ %876, %877 ], [ %.0, %280 ], [ null, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8e8fe0ea440457ecE.exit1365.thread" ], [ null, %switch.hole_check ]
-  ret ptr %.27
+  %.0 = phi ptr [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %.2.ph, %1960 ], [ %1944, %281 ], [ null, %.thread1610 ], [ %1898, %.thread2101 ], [ %.2.ph, %1961 ], [ %.2.ph, %1962 ], [ %.2.ph, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11357125133562502446.exit.i.i.i.i1380" ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h9ed7d3e724963662E.exit" ], [ null, %1369 ], [ null, %_ZN16wasmtime_environ14module_environ17ModuleEnvironment17flag_func_escaped17h1380d06cb1166ca8E.exit1213 ], [ null, %270 ], [ %1853, %1854 ], [ %1548, %1558 ], [ %1371, %1372 ], [ %1116, %1119 ], [ %876, %877 ], [ %.1, %280 ], [ null, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h8e8fe0ea440457ecE.exit1365.thread" ], [ null, %switch.hole_check ]
+  ret ptr %.0
 
 .thread2101:                                      ; preds = %1897
   call void @llvm.lifetime.end.p0(i64 1896, ptr nonnull %.sroa.717)
@@ -12255,7 +12255,7 @@ switch.hole_check:                                ; preds = %277
   br label %281
 
 1960:                                             ; preds = %1701, %1544, %1366, %1098, %1039, %872, %810, %642, %590, %408
-  %.1.ph = phi ptr [ %.2, %408 ], [ %.3, %590 ], [ %.4, %642 ], [ %.8, %810 ], [ %.9, %872 ], [ %.13, %1039 ], [ %.14, %1098 ], [ %.19, %1366 ], [ %.24, %1544 ], [ %.26, %1701 ]
+  %.2.ph = phi ptr [ %.3, %408 ], [ %.4, %590 ], [ %.5, %642 ], [ %.9, %810 ], [ %.10, %872 ], [ %.14, %1039 ], [ %.15, %1098 ], [ %.20, %1366 ], [ %.25, %1544 ], [ %.27, %1701 ]
   switch i8 %162, label %1961 [
     i8 0, label %"_ZN4core3ptr48drop_in_place$LT$wasmparser..parser..Payload$GT$17h3dc624a49e15092bE.exit1381"
     i8 1, label %"_ZN4core3ptr48drop_in_place$LT$wasmparser..parser..Payload$GT$17h3dc624a49e15092bE.exit1381"

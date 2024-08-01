@@ -74,13 +74,13 @@ define hidden void @mlib_ImageCopy_bit_na(ptr noundef %0, ptr noundef %1, i32 no
   br label %58
 
 58:                                               ; preds = %55, %50
-  %.0106 = phi i64 [ %57, %55 ], [ 0, %50 ]
+  %.1107 = phi i64 [ %57, %55 ], [ 0, %50 ]
   %59 = load i64, ptr %10, align 8
   %60 = zext nneg i32 %51 to i64
   %61 = shl i64 %52, %60
   %62 = sub nsw i32 64, %51
   %63 = zext nneg i32 %62 to i64
-  %64 = lshr i64 %.0106, %63
+  %64 = lshr i64 %.1107, %63
   %65 = or i64 %64, %61
   %66 = add nsw i32 %17, %2
   %67 = icmp slt i32 %66, 64
@@ -113,7 +113,7 @@ define hidden void @mlib_ImageCopy_bit_na(ptr noundef %0, ptr noundef %1, i32 no
 
 87:                                               ; preds = %78, %41
   %.0108 = phi i32 [ %48, %41 ], [ %85, %78 ]
-  %.1107 = phi i64 [ 0, %41 ], [ %.0106, %78 ]
+  %.0106 = phi i64 [ 0, %41 ], [ %.1107, %78 ]
   %.0105 = phi i32 [ %49, %41 ], [ %51, %78 ]
   %.0103 = phi ptr [ %13, %41 ], [ %86, %78 ]
   %88 = icmp slt i32 %.0108, %2
@@ -124,7 +124,7 @@ define hidden void @mlib_ImageCopy_bit_na(ptr noundef %0, ptr noundef %1, i32 no
   br label %91
 
 91:                                               ; preds = %89, %87
-  %.2 = phi i64 [ %90, %89 ], [ %.1107, %87 ]
+  %.2 = phi i64 [ %90, %89 ], [ %.0106, %87 ]
   %92 = add nsw i32 %2, -64
   %.1115 = getelementptr inbounds i8, ptr %10, i64 8
   %.not116 = icmp sgt i32 %.0108, %92
@@ -263,13 +263,13 @@ define hidden void @mlib_ImageCopy_bit_na_r(ptr noundef %0, ptr noundef %1, i32 
   br label %55
 
 55:                                               ; preds = %52, %48
-  %.0107 = phi i64 [ %54, %52 ], [ 0, %48 ]
+  %.1108 = phi i64 [ %54, %52 ], [ 0, %48 ]
   %56 = load i64, ptr %10, align 8
   %57 = zext nneg i32 %49 to i64
   %58 = lshr i64 %50, %57
   %59 = sub nsw i32 64, %49
   %60 = zext nneg i32 %59 to i64
-  %61 = shl i64 %.0107, %60
+  %61 = shl i64 %.1108, %60
   %62 = or i64 %61, %58
   %.not = icmp slt i32 %17, %2
   br i1 %.not, label %74, label %63
@@ -303,7 +303,7 @@ define hidden void @mlib_ImageCopy_bit_na_r(ptr noundef %0, ptr noundef %1, i32 
   br label %85
 
 85:                                               ; preds = %74, %40
-  %.1108 = phi i64 [ 0, %40 ], [ %.0107, %74 ]
+  %.0107 = phi i64 [ 0, %40 ], [ %.1108, %74 ]
   %.0106 = phi i32 [ %26, %40 ], [ %84, %74 ]
   %.0104 = phi ptr [ %13, %40 ], [ %82, %74 ]
   %86 = icmp slt i32 %17, %2
@@ -314,7 +314,7 @@ define hidden void @mlib_ImageCopy_bit_na_r(ptr noundef %0, ptr noundef %1, i32 
   br label %89
 
 89:                                               ; preds = %87, %85
-  %.2 = phi i64 [ %88, %87 ], [ %.1108, %85 ]
+  %.2 = phi i64 [ %88, %87 ], [ %.0107, %85 ]
   %90 = add nsw i32 %2, -64
   %.1118 = getelementptr inbounds i8, ptr %10, i64 -8
   %.not117119 = icmp sgt i32 %17, %90

@@ -203,11 +203,11 @@ define hidden void @"_ZN20migrations_internals10file_names28_$u7b$$u7b$closure$u
   br label %48
 
 15:                                               ; preds = %25, %17
-  %.0 = phi i1 [ %18, %17 ], [ false, %25 ]
+  %.1 = phi i1 [ %18, %17 ], [ false, %25 ]
   %.pn7 = phi { ptr, i32 } [ %19, %17 ], [ %.pn, %25 ]
   %16 = load ptr, ptr %2, align 8, !noundef !3
   %.not9 = icmp eq ptr %16, null
-  %brmerge = or i1 %.0, %.not9
+  %brmerge = or i1 %.1, %.not9
   br i1 %brmerge, label %.thread, label %54
 
 17:                                               ; preds = %.invoke, %51, %43, %11

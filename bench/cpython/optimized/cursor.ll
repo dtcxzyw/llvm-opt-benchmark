@@ -243,8 +243,8 @@ Py_DECREF.exit313:                                ; preds = %if.end27, %if.then1
   br i1 %tobool29.not, label %if.then.i226, label %if.end32
 
 if.end32:                                         ; preds = %if.end.i.i, %if.then5, %Py_DECREF.exit313, %if.else
-  %parameters_iter.0 = phi ptr [ %call7, %if.else ], [ %call28, %Py_DECREF.exit313 ], [ %second_argument, %if.then5 ], [ %second_argument, %if.end.i.i ]
-  %parameters_list.0 = phi ptr [ null, %if.else ], [ %call13, %Py_DECREF.exit313 ], [ null, %if.then5 ], [ null, %if.end.i.i ]
+  %parameters_iter.1 = phi ptr [ %call7, %if.else ], [ %call28, %Py_DECREF.exit313 ], [ %second_argument, %if.then5 ], [ %second_argument, %if.end.i.i ]
+  %parameters_list.1 = phi ptr [ null, %if.else ], [ %call13, %Py_DECREF.exit313 ], [ null, %if.then5 ], [ null, %if.end.i.i ]
   %13 = load i32, ptr @_Py_NoneStruct, align 8
   %add.i = add i32 %13, 1
   %cmp.i = icmp eq i32 %add.i, 0
@@ -446,7 +446,7 @@ if.then89:                                        ; preds = %land.lhs.true85
   br i1 %cmp92, label %if.then.i217, label %if.end95
 
 if.end95:                                         ; preds = %if.then89, %land.lhs.true85, %land.lhs.true81, %land.lhs.true78, %stmt_reset.exit138
-  %call96304 = call ptr @PyIter_Next(ptr noundef nonnull %parameters_iter.0) #7
+  %call96304 = call ptr @PyIter_Next(ptr noundef nonnull %parameters_iter.1) #7
   %tobool97.not305 = icmp eq ptr %call96304, null
   br i1 %tobool97.not305, label %while.end, label %if.end99.lr.ph
 
@@ -1262,7 +1262,7 @@ if.then1.i.i205:                                  ; preds = %if.end.i.i202
   br label %Py_XDECREF.exit206
 
 Py_XDECREF.exit206:                               ; preds = %if.then.i199, %if.end.i.i202, %if.then1.i.i205
-  %call96 = call ptr @PyIter_Next(ptr noundef nonnull %parameters_iter.0) #7
+  %call96 = call ptr @PyIter_Next(ptr noundef nonnull %parameters_iter.1) #7
   %tobool97.not = icmp eq ptr %call96, null
   br i1 %tobool97.not, label %while.end, label %if.end99
 
@@ -1312,40 +1312,40 @@ if.then1.i.i214:                                  ; preds = %if.end.i.i211
   br label %if.then.i217
 
 if.then.i217:                                     ; preds = %if.then1.i.i214, %if.end.i.i211, %if.then.i208, %while.end, %if.then188, %if.then1.i266, %if.end.i263, %if.then53, %do.end66, %if.then89, %Py_XDECREF.exit
-  %157 = load i64, ptr %parameters_iter.0, align 8
+  %157 = load i64, ptr %parameters_iter.1, align 8
   %158 = and i64 %157, 2147483648
   %cmp.i2.not.i218 = icmp eq i64 %158, 0
   br i1 %cmp.i2.not.i218, label %if.end.i.i220, label %Py_XDECREF.exit224
 
 if.end.i.i220:                                    ; preds = %if.then.i217
   %dec.i.i221 = add i64 %157, -1
-  store i64 %dec.i.i221, ptr %parameters_iter.0, align 8
+  store i64 %dec.i.i221, ptr %parameters_iter.1, align 8
   %cmp.i.i222 = icmp eq i64 %dec.i.i221, 0
   br i1 %cmp.i.i222, label %if.then1.i.i223, label %Py_XDECREF.exit224
 
 if.then1.i.i223:                                  ; preds = %if.end.i.i220
-  call void @_Py_Dealloc(ptr noundef nonnull %parameters_iter.0) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %parameters_iter.1) #7
   br label %Py_XDECREF.exit224
 
 Py_XDECREF.exit224:                               ; preds = %if.then.i217, %if.end.i.i220, %if.then1.i.i223
-  %cmp.not.i225 = icmp eq ptr %parameters_list.0, null
+  %cmp.not.i225 = icmp eq ptr %parameters_list.1, null
   br i1 %cmp.not.i225, label %Py_XDECREF.exit233, label %if.then.i226
 
 if.then.i226:                                     ; preds = %if.then17, %Py_DECREF.exit313, %if.end.i317, %if.then1.i320, %if.then26, %Py_XDECREF.exit224
-  %parameters_list.1257261275 = phi ptr [ %parameters_list.0, %Py_XDECREF.exit224 ], [ %call13, %if.then26 ], [ %call13, %if.then1.i320 ], [ %call13, %if.end.i317 ], [ %call13, %Py_DECREF.exit313 ], [ %call13, %if.then17 ]
-  %159 = load i64, ptr %parameters_list.1257261275, align 8
+  %parameters_list.0257261275 = phi ptr [ %parameters_list.1, %Py_XDECREF.exit224 ], [ %call13, %if.then26 ], [ %call13, %if.then1.i320 ], [ %call13, %if.end.i317 ], [ %call13, %Py_DECREF.exit313 ], [ %call13, %if.then17 ]
+  %159 = load i64, ptr %parameters_list.0257261275, align 8
   %160 = and i64 %159, 2147483648
   %cmp.i2.not.i227 = icmp eq i64 %160, 0
   br i1 %cmp.i2.not.i227, label %if.end.i.i229, label %Py_XDECREF.exit233
 
 if.end.i.i229:                                    ; preds = %if.then.i226
   %dec.i.i230 = add i64 %159, -1
-  store i64 %dec.i.i230, ptr %parameters_list.1257261275, align 8
+  store i64 %dec.i.i230, ptr %parameters_list.0257261275, align 8
   %cmp.i.i231 = icmp eq i64 %dec.i.i230, 0
   br i1 %cmp.i.i231, label %if.then1.i.i232, label %Py_XDECREF.exit233
 
 if.then1.i.i232:                                  ; preds = %if.end.i.i229
-  call void @_Py_Dealloc(ptr noundef nonnull %parameters_list.1257261275) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %parameters_list.0257261275) #7
   br label %Py_XDECREF.exit233
 
 Py_XDECREF.exit233:                               ; preds = %if.else12, %if.else, %land.lhs.true.i, %if.end6.i, %return.sink.split.i, %Py_XDECREF.exit224, %if.then.i226, %if.end.i.i229, %if.then1.i.i232

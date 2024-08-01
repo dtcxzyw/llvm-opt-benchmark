@@ -1857,12 +1857,12 @@ ehcleanup:                                        ; preds = %lpad85, %lpad.i60, 
   br label %ehcleanup93
 
 cleanup92:                                        ; preds = %cleanup, %while.cond67.preheader, %cleanup.thread
-  %cleanup.dest.slot.1 = phi i32 [ 1, %cleanup.thread ], [ 0, %while.cond67.preheader ], [ 0, %cleanup ]
+  %cleanup.dest.slot.2 = phi i32 [ 1, %cleanup.thread ], [ 0, %while.cond67.preheader ], [ 0, %cleanup ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %prefix) #9
   br label %cleanup94
 
 cleanup94:                                        ; preds = %invoke.cont56, %cleanup92
-  %cleanup.dest.slot.2 = phi i32 [ %cleanup.dest.slot.1, %cleanup92 ], [ 7, %invoke.cont56 ]
+  %cleanup.dest.slot.0 = phi i32 [ %cleanup.dest.slot.2, %cleanup92 ], [ 7, %invoke.cont56 ]
   %26 = load ptr, ptr %remainder, align 8
   %cmp.not.i = icmp eq ptr %26, null
   br i1 %cmp.not.i, label %_ZN6icu_759HashtableD2Ev.exit, label %if.then.i
@@ -1879,7 +1879,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6icu_759HashtableD2Ev.exit:                    ; preds = %cleanup94, %if.then.i
-  switch i32 %cleanup.dest.slot.2, label %cleanup99 [
+  switch i32 %cleanup.dest.slot.0, label %cleanup99 [
     i32 0, label %while.cond.backedge
     i32 7, label %while.cond.backedge
   ]
@@ -1920,7 +1920,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
   br label %cleanup110
 
 cleanup110:                                       ; preds = %cleanup99, %for.end
-  %retval.8 = phi ptr [ null, %cleanup99 ], [ %fillinResult., %for.end ]
+  %retval.9 = phi ptr [ null, %cleanup99 ], [ %fillinResult., %for.end ]
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %starts) #9
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %toPut) #9
   br label %return
@@ -1936,8 +1936,8 @@ ehcleanup113:                                     ; preds = %lpad3, %lpad.i, %lp
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 
 return:                                           ; preds = %entry, %cleanup110
-  %retval.9 = phi ptr [ %retval.8, %cleanup110 ], [ null, %entry ]
-  ret ptr %retval.9
+  %retval.0 = phi ptr [ %retval.9, %cleanup110 ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
@@ -2274,7 +2274,7 @@ invoke.cont148:                                   ; preds = %if.else9.i82, %if.t
           to label %cleanup unwind label %lpad118
 
 cleanup:                                          ; preds = %invoke.cont119, %invoke.cont148, %cleanup.done137
-  %retval.0 = phi ptr [ null, %cleanup.done137 ], [ %call152, %invoke.cont148 ], [ null, %invoke.cont119 ]
+  %retval.2 = phi ptr [ null, %cleanup.done137 ], [ %call152, %invoke.cont148 ], [ null, %invoke.cont119 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %trial) #9
   br label %cleanup154
 
@@ -2284,7 +2284,7 @@ ehcleanup153:                                     ; preds = %lpad130, %lpad118
   br label %ehcleanup155
 
 cleanup154:                                       ; preds = %if.end98, %do.end, %invoke.cont5, %cleanup, %invoke.cont111, %if.then15
-  %retval.1 = phi ptr [ null, %if.then15 ], [ %fillinResult, %invoke.cont111 ], [ %retval.0, %cleanup ], [ null, %invoke.cont5 ], [ null, %do.end ], [ null, %if.end98 ]
+  %retval.1 = phi ptr [ null, %if.then15 ], [ %fillinResult, %invoke.cont111 ], [ %retval.2, %cleanup ], [ null, %invoke.cont5 ], [ null, %do.end ], [ null, %if.end98 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %decompString) #9
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %temp) #9
   br label %return
@@ -2296,8 +2296,8 @@ ehcleanup155:                                     ; preds = %lpad4.loopexit, %lp
   resume { ptr, i32 } %.pn47.pn
 
 return:                                           ; preds = %entry, %cleanup154
-  %retval.2 = phi ptr [ %retval.1, %cleanup154 ], [ null, %entry ]
-  ret ptr %retval.2
+  %retval.0 = phi ptr [ %retval.1, %cleanup154 ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: nounwind

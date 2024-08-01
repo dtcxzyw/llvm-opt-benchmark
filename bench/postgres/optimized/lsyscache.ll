@@ -458,9 +458,9 @@ get_opfamily_member.exit.thread:                  ; preds = %24, %20, %get_opfam
   br i1 %41, label %9, label %get_opfamily_member.exit._crit_edge, !llvm.loop !7
 
 get_opfamily_member.exit._crit_edge:              ; preds = %get_opfamily_member.exit.thread, %get_opfamily_member.exit, %2
-  %.2 = phi i32 [ 0, %2 ], [ %38, %get_opfamily_member.exit ], [ 0, %get_opfamily_member.exit.thread ]
+  %.1 = phi i32 [ 0, %2 ], [ %38, %get_opfamily_member.exit ], [ 0, %get_opfamily_member.exit.thread ]
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %4) #8
-  ret i32 %.2
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1209,7 +1209,7 @@ get_negator.exit:                                 ; preds = %40
 57:                                               ; preds = %.lr.ph58, %84
   %58 = phi i32 [ %54, %.lr.ph58 ], [ %85, %84 ]
   %indvars.iv62 = phi i64 [ 0, %.lr.ph58 ], [ %indvars.iv.next63, %84 ]
-  %.256 = phi ptr [ null, %.lr.ph58 ], [ %.3, %84 ]
+  %.356 = phi ptr [ null, %.lr.ph58 ], [ %.4, %84 ]
   %59 = getelementptr [0 x ptr], ptr %56, i64 0, i64 %indvars.iv62
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 80
@@ -1244,26 +1244,26 @@ get_negator.exit:                                 ; preds = %40
   %81 = load i32, ptr %80, align 4
   %82 = getelementptr inbounds i8, ptr %73, i64 12
   store i32 %81, ptr %82, align 4
-  %83 = tail call ptr @lappend(ptr noundef %.256, ptr noundef nonnull %73) #8
+  %83 = tail call ptr @lappend(ptr noundef %.356, ptr noundef nonnull %73) #8
   %.pre65 = load i32, ptr %53, align 8
   br label %84
 
 84:                                               ; preds = %69, %57, %72
   %85 = phi i32 [ %58, %57 ], [ %58, %69 ], [ %.pre65, %72 ]
-  %.3 = phi ptr [ %.256, %57 ], [ %.256, %69 ], [ %83, %72 ]
+  %.4 = phi ptr [ %.356, %57 ], [ %.356, %69 ], [ %83, %72 ]
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next63, %86
   br i1 %87, label %57, label %._crit_edge59, !llvm.loop !12
 
 ._crit_edge59:                                    ; preds = %84, %50
-  %.2.lcssa = phi ptr [ null, %50 ], [ %.3, %84 ]
+  %.3.lcssa = phi ptr [ null, %50 ], [ %.4, %84 ]
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %52) #8
   br label %get_negator.exit.thread
 
 get_negator.exit.thread:                          ; preds = %40, %get_negator.exit, %._crit_edge59, %._crit_edge
-  %.4 = phi ptr [ %.2.lcssa, %._crit_edge59 ], [ null, %get_negator.exit ], [ %.1, %._crit_edge ], [ null, %40 ]
-  ret ptr %.4
+  %.2 = phi ptr [ %.3.lcssa, %._crit_edge59 ], [ null, %get_negator.exit ], [ %.1, %._crit_edge ], [ null, %40 ]
+  ret ptr %.2
 }
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1

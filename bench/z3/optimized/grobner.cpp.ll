@@ -10340,8 +10340,8 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !45
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.143 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %2, %for.cond17.preheader ]
-  %4 = load ptr, ptr %curr.143, align 8
+  %curr.243 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %2, %for.cond17.preheader ]
+  %4 = load ptr, ptr %curr.243, align 8
   %magicptr34 = ptrtoint ptr %4 to i64
   switch i64 %magicptr34, label %if.then21 [
     i64 0, label %if.end55
@@ -10358,13 +10358,13 @@ if.then21:                                        ; preds = %for.body19
   br i1 %or.cond33, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.143, i64 8
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.243, i64 8
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !46
 
 end_remove:                                       ; preds = %if.then, %if.then21
-  %curr.2 = phi ptr [ %curr.143, %if.then21 ], [ %curr.041, %if.then ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 8
+  %curr.1 = phi ptr [ %curr.243, %if.then21 ], [ %curr.041, %if.then ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 8
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %2, ptr %add.ptr37
   %5 = load ptr, ptr %spec.select, align 8
@@ -10372,7 +10372,7 @@ end_remove:                                       ; preds = %if.then, %if.then21
   br i1 %cmp.i30, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove
-  store ptr null, ptr %curr.2, align 8
+  store ptr null, ptr %curr.1, align 8
   %m_size = getelementptr inbounds i8, ptr %this, i64 12
   %6 = load i32, ptr %m_size, align 4
   %dec = add i32 %6, -1
@@ -10380,7 +10380,7 @@ if.then43:                                        ; preds = %end_remove
   br label %if.end55
 
 if.else44:                                        ; preds = %end_remove
-  store ptr inttoptr (i64 1 to ptr), ptr %curr.2, align 8
+  store ptr inttoptr (i64 1 to ptr), ptr %curr.1, align 8
   %m_num_deleted = getelementptr inbounds i8, ptr %this, i64 16
   %7 = load i32, ptr %m_num_deleted, align 8
   %inc = add i32 %7, 1
@@ -11842,8 +11842,8 @@ if.end46:                                         ; preds = %if.else35
 for.body54:                                       ; preds = %if.end46, %for.body54
   %__i50.066 = phi i64 [ %inc58, %for.body54 ], [ 0, %if.end46 ]
   %__q47.065 = phi ptr [ %incdec.ptr56, %for.body54 ], [ %add.ptr40, %if.end46 ]
-  %__p.264 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
-  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.264, i64 -8
+  %__p.364 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.364, i64 -8
   %incdec.ptr56 = getelementptr inbounds i8, ptr %__q47.065, i64 -8
   %6 = load ptr, ptr %incdec.ptr55, align 8
   %7 = load ptr, ptr %incdec.ptr56, align 8
@@ -11854,7 +11854,7 @@ for.body54:                                       ; preds = %if.end46, %for.body
   br i1 %exitcond.not, label %for.end59, label %for.body54, !llvm.loop !63
 
 for.end59:                                        ; preds = %for.body54, %if.end46
-  %__p.2.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
+  %__p.3.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
   %rem60 = srem i64 %__n.0, %sub15
   %cmp61 = icmp eq i64 %rem60, 0
   br i1 %cmp61, label %return, label %for.cond.backedge
@@ -11862,7 +11862,7 @@ for.end59:                                        ; preds = %for.body54, %if.end
 for.cond.backedge:                                ; preds = %for.end59, %if.end33
   %__n.0.be = phi i64 [ %__k.0, %if.end33 ], [ %sub15, %for.end59 ]
   %__k.0.be = phi i64 [ %sub34, %if.end33 ], [ %rem60, %for.end59 ]
-  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.2.lcssa, %for.end59 ]
+  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.3.lcssa, %for.end59 ]
   br label %for.cond, !llvm.loop !64
 
 return:                                           ; preds = %for.end59, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPP4exprS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP4exprS2_ET0_T_S4_S3_.exit
@@ -13333,8 +13333,8 @@ if.end46:                                         ; preds = %if.else35
 for.body54:                                       ; preds = %if.end46, %for.body54
   %__i50.066 = phi i64 [ %inc58, %for.body54 ], [ 0, %if.end46 ]
   %__q47.065 = phi ptr [ %incdec.ptr56, %for.body54 ], [ %add.ptr40, %if.end46 ]
-  %__p.264 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
-  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.264, i64 -8
+  %__p.364 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.364, i64 -8
   %incdec.ptr56 = getelementptr inbounds i8, ptr %__q47.065, i64 -8
   %6 = load ptr, ptr %incdec.ptr55, align 8
   %7 = load ptr, ptr %incdec.ptr56, align 8
@@ -13345,7 +13345,7 @@ for.body54:                                       ; preds = %if.end46, %for.body
   br i1 %exitcond.not, label %for.end59, label %for.body54, !llvm.loop !77
 
 for.end59:                                        ; preds = %for.body54, %if.end46
-  %__p.2.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
+  %__p.3.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
   %rem60 = srem i64 %__n.0, %sub15
   %cmp61 = icmp eq i64 %rem60, 0
   br i1 %cmp61, label %return, label %for.cond.backedge
@@ -13353,7 +13353,7 @@ for.end59:                                        ; preds = %for.body54, %if.end
 for.cond.backedge:                                ; preds = %for.end59, %if.end33
   %__n.0.be = phi i64 [ %__k.0, %if.end33 ], [ %sub15, %for.end59 ]
   %__k.0.be = phi i64 [ %sub34, %if.end33 ], [ %rem60, %for.end59 ]
-  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.2.lcssa, %for.end59 ]
+  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.3.lcssa, %for.end59 ]
   br label %for.cond, !llvm.loop !78
 
 return:                                           ; preds = %for.end59, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPPN7grobner8monomialES3_ET0_T_S5_S4_.exit, %_ZSt4moveIPPN7grobner8monomialES3_ET0_T_S5_S4_.exit

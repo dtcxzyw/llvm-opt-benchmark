@@ -471,7 +471,7 @@ sub_0:                                            ; preds = %sub_0.preheader, %5
   %36 = phi i32 [ %34, %sub_0.preheader ], [ %57, %56 ]
   %37 = phi ptr [ %.pre, %sub_0.preheader ], [ %58, %56 ]
   %indvars.iv = phi i64 [ 0, %sub_0.preheader ], [ %indvars.iv.next, %56 ]
-  %.036 = phi i1 [ false, %sub_0.preheader ], [ %.1, %56 ]
+  %.136 = phi i1 [ false, %sub_0.preheader ], [ %.2, %56 ]
   %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = load i8, ptr %39, align 1
@@ -510,14 +510,14 @@ sub_1:                                            ; preds = %sub_0
 56:                                               ; preds = %._crit_edge39, %.tail
   %57 = phi i32 [ %.pre40, %._crit_edge39 ], [ %36, %.tail ]
   %58 = phi ptr [ %52, %._crit_edge39 ], [ %37, %.tail ]
-  %.1 = phi i1 [ true, %._crit_edge39 ], [ %.036, %.tail ]
+  %.2 = phi i1 [ true, %._crit_edge39 ], [ %.136, %.tail ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = sext i32 %57 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
   br i1 %60, label %sub_0, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %56
-  br i1 %.1, label %.thread, label %._crit_edge.thread
+  br i1 %.2, label %.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %61 = call i32 @opal_argv_append(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %3) #14

@@ -1528,7 +1528,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit42:              ; preds = %182
   br label %198
 
 191:                                              ; preds = %189, %128
-  %.0 = phi i32 [ 0, %128 ], [ 1, %189 ]
+  %.1 = phi i32 [ 0, %128 ], [ 1, %189 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %192 = load ptr, ptr %3, align 8
   %193 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1567,8 +1567,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   resume { ptr, i32 } %.pn34.pn.pn.pn
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %197, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %2
-  %.1 = phi i32 [ 1, %2 ], [ %.0, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.0, %197 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 1, %2 ], [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.1, %197 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6568,8 +6568,8 @@ _ZNSt3setIP17cmCPackIFWPackageSt4lessIS1_ESaIS1_EE6insertERKS1_.exit: ; preds = 
   resume { ptr, i32 } %.pn23
 
 174:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit.thread, %_ZNSt3setIP17cmCPackIFWPackageSt4lessIS1_ESaIS1_EE6insertERKS1_.exit, %26
-  %.1 = phi ptr [ %27, %26 ], [ %28, %_ZNSt3setIP17cmCPackIFWPackageSt4lessIS1_ESaIS1_EE6insertERKS1_.exit ], [ null, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit.thread ]
-  ret ptr %.1
+  %.0 = phi ptr [ %27, %26 ], [ %28, %_ZNSt3setIP17cmCPackIFWPackageSt4lessIS1_ESaIS1_EE6insertERKS1_.exit ], [ null, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16cmCPackComponentSt4lessIS5_ESaISt4pairIKS5_S6_EEE4findERSA_.exit.thread ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZN16cmCPackGenerator12GetComponentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(360), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0

@@ -478,22 +478,22 @@ define hidden i32 @mbedtls_rsa_validate_params(ptr noundef %0, ptr noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %67, %42, %12, %16, %25, %22, %39, %36, %33, %30, %46, %43, %57
-  %.3.ph = phi i32 [ -16896, %57 ], [ -16896, %43 ], [ -16896, %46 ], [ -16896, %30 ], [ -16896, %33 ], [ -16896, %36 ], [ -16896, %39 ], [ -16896, %22 ], [ -16896, %25 ], [ -16896, %16 ], [ -16896, %12 ], [ 0, %42 ], [ %spec.select, %67 ]
+  %.1.ph = phi i32 [ -16896, %57 ], [ -16896, %43 ], [ -16896, %46 ], [ -16896, %30 ], [ -16896, %33 ], [ -16896, %36 ], [ -16896, %39 ], [ -16896, %22 ], [ -16896, %25 ], [ -16896, %16 ], [ -16896, %12 ], [ 0, %42 ], [ %spec.select, %67 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %8) #2
   call void @mbedtls_mpi_free(ptr noundef nonnull %9) #2
   br label %71
 
 69:                                               ; preds = %65, %63, %61, %59, %55, %53, %51, %49, %20
-  %.3 = phi i32 [ %21, %20 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ]
+  %.1 = phi i32 [ %21, %20 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %8) #2
   call void @mbedtls_mpi_free(ptr noundef nonnull %9) #2
-  %cond = icmp eq i32 %.3, -16896
-  %70 = add nsw i32 %.3, -16896
+  %cond = icmp eq i32 %.1, -16896
+  %70 = add nsw i32 %.1, -16896
   %spec.select101 = select i1 %cond, i32 -16896, i32 %70
   br label %71
 
 71:                                               ; preds = %69, %.thread
-  %.4 = phi i32 [ %.3.ph, %.thread ], [ %spec.select101, %69 ]
+  %.4 = phi i32 [ %.1.ph, %.thread ], [ %spec.select101, %69 ]
   ret i32 %.4
 }
 
@@ -592,18 +592,18 @@ define hidden i32 @mbedtls_rsa_validate_crt(ptr noundef %0, ptr noundef %1, ptr 
   br label %.thread
 
 42:                                               ; preds = %38, %36, %34, %26, %24, %22, %15, %13, %11
-  %.2 = phi i32 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
-  switch i32 %.2, label %43 [
+  %.1 = phi i32 [ %12, %11 ], [ %14, %13 ], [ %16, %15 ], [ %23, %22 ], [ %25, %24 ], [ %27, %26 ], [ %35, %34 ], [ %37, %36 ], [ %39, %38 ]
+  switch i32 %.1, label %43 [
     i32 -16512, label %.thread
     i32 -16896, label %.thread
   ]
 
 43:                                               ; preds = %42
-  %44 = add nsw i32 %.2, -16896
+  %44 = add nsw i32 %.1, -16896
   br label %.thread
 
 .thread:                                          ; preds = %40, %31, %28, %20, %17, %9, %30, %42, %42, %43
-  %.3 = phi i32 [ %44, %43 ], [ %.2, %42 ], [ %.2, %42 ], [ -16512, %31 ], [ -16896, %28 ], [ -16512, %20 ], [ -16896, %17 ], [ -16512, %9 ], [ 0, %30 ], [ %spec.select, %40 ]
+  %.3 = phi i32 [ %44, %43 ], [ %.1, %42 ], [ %.1, %42 ], [ -16512, %31 ], [ -16896, %28 ], [ -16512, %20 ], [ -16896, %17 ], [ -16512, %9 ], [ 0, %30 ], [ %spec.select, %40 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %7) #2
   call void @mbedtls_mpi_free(ptr noundef nonnull %8) #2
   ret i32 %.3

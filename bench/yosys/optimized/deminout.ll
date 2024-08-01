@@ -5656,7 +5656,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit497:             ; preds = %_ZN5Yosys5RTLIL8IdS
 
 .lr.ph4181:                                       ; preds = %.lr.ph4181.preheader, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit564
   %indvars.iv5191 = phi i64 [ %2421, %.lr.ph4181.preheader ], [ %indvars.iv.next5192, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit564 ]
-  %.01164178 = phi i1 [ false, %.lr.ph4181.preheader ], [ %.3119, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit564 ]
+  %.11174178 = phi i1 [ false, %.lr.ph4181.preheader ], [ %.2118, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit564 ]
   %indvars.iv.next5192 = add nsw i64 %indvars.iv5191, -1
   %2422 = load ptr, ptr %2412, align 8
   %2423 = getelementptr inbounds %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, Yosys::RTLIL::SigSpec>::entry_t", ptr %2422, i64 %indvars.iv.next5192
@@ -6515,13 +6515,13 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit547:              ; preds = %.loopexit2366, %_ZN
   br i1 %.not.i.i.i.i552, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i553, label %._crit_edge4174.thread
 
 ._crit_edge4174.thread:                           ; preds = %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread, %._crit_edge4174
-  %.1117.lcssa5338 = phi i1 [ %.01164178, %._crit_edge4174 ], [ %2832, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread ]
+  %.3119.lcssa5338 = phi i1 [ %.11174178, %._crit_edge4174 ], [ %2832, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread ]
   %2794 = phi ptr [ %2790, %._crit_edge4174 ], [ %2820, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread ]
   call void @_ZdlPv(ptr noundef nonnull %2794) #18
   br label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i553
 
 _ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i553: ; preds = %._crit_edge4174.thread, %._crit_edge4174
-  %.1117.lcssa5339 = phi i1 [ %.1117.lcssa5338, %._crit_edge4174.thread ], [ %.01164178, %._crit_edge4174 ]
+  %.3119.lcssa5339 = phi i1 [ %.3119.lcssa5338, %._crit_edge4174.thread ], [ %.11174178, %._crit_edge4174 ]
   %2795 = load ptr, ptr %149, align 8
   %2796 = load ptr, ptr %150, align 8
   %.not4.i.i.i.i.i554 = icmp eq ptr %2795, %2796
@@ -6630,7 +6630,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i575: ; preds = 
   %2814 = phi ptr [ %2790, %.lr.ph4173.preheader ], [ %2820, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread ]
   %2815 = phi ptr [ %2789, %.lr.ph4173.preheader ], [ %2821, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread ]
   %indvars.iv5189 = phi i64 [ 0, %.lr.ph4173.preheader ], [ %indvars.iv.next5190, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread ]
-  %.11174172 = phi i1 [ %.01164178, %.lr.ph4173.preheader ], [ %2832, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread ]
+  %.31194172 = phi i1 [ %.11174178, %.lr.ph4173.preheader ], [ %2832, %_ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread ]
   %2816 = load ptr, ptr %149, align 8
   %2817 = load ptr, ptr %150, align 8
   %2818 = icmp eq ptr %2816, %2817
@@ -6672,18 +6672,18 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread:      ; preds = %_ZNK5Yosys5RTLIL7Si
   %2829 = and i32 %.sroa.22163.0.copyload.fr, 255
   %2830 = icmp eq i32 %2829, 3
   %2831 = and i1 %2828, %2830
-  %2832 = select i1 %2831, i1 true, i1 %.11174172
+  %2832 = select i1 %2831, i1 true, i1 %.31194172
   %indvars.iv.next5190 = add nuw nsw i64 %indvars.iv5189, 1
   %.not2350 = icmp eq i64 %indvars.iv.next5190, %2793
   br i1 %.not2350, label %._crit_edge4174.thread, label %.lr.ph4173
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit564:              ; preds = %2802, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i562, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit506
-  %.3119 = phi i1 [ %.01164178, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit506 ], [ %.1117.lcssa5339, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i562 ], [ %.1117.lcssa5339, %2802 ]
+  %.2118 = phi i1 [ %.11174178, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit506 ], [ %.3119.lcssa5339, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i562 ], [ %.3119.lcssa5339, %2802 ]
   %.not2349 = icmp eq i64 %indvars.iv.next5192, 0
   br i1 %.not2349, label %._crit_edge4182, label %.lr.ph4181
 
 ._crit_edge4182:                                  ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit564
-  br i1 %.3119, label %.thread, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit641
+  br i1 %.2118, label %.thread, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit641
 
 .thread:                                          ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit497, %._crit_edge4182
   %2833 = getelementptr inbounds i8, ptr %478, i64 8

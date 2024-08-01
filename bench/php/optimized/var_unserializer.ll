@@ -208,7 +208,7 @@ define void @var_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #
 
 26:                                               ; preds = %.lr.ph93, %125
   %.07192 = phi i64 [ 0, %.lr.ph93 ], [ %126, %125 ]
-  %.191 = phi i8 [ %.07396, %.lr.ph93 ], [ %.4, %125 ]
+  %.191 = phi i8 [ %.07396, %.lr.ph93 ], [ %.3, %125 ]
   %27 = getelementptr inbounds [255 x %struct._zval_struct], ptr %25, i64 0, i64 %.07192
   %28 = getelementptr inbounds i8, ptr %27, i64 12
   %29 = load i32, ptr %28, align 4
@@ -331,7 +331,7 @@ define void @var_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #
   br label %92
 
 92:                                               ; preds = %87, %78
-  %.3 = phi i8 [ 1, %87 ], [ %.191, %78 ]
+  %.4 = phi i8 [ 1, %87 ], [ %.191, %78 ]
   %93 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
   %94 = add i32 %93, -1
   store i32 %94, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
@@ -347,7 +347,7 @@ define void @var_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #
   br label %100
 
 100:                                              ; preds = %26, %95, %92, %58, %61
-  %.4 = phi i8 [ %.191, %61 ], [ %.2, %58 ], [ %.191, %95 ], [ %.3, %92 ], [ %.191, %26 ]
+  %.3 = phi i8 [ %.191, %61 ], [ %.2, %58 ], [ %.191, %95 ], [ %.4, %92 ], [ %.191, %26 ]
   %101 = getelementptr inbounds i8, ptr %27, i64 9
   %102 = load i8, ptr %101, align 1
   %.not83 = icmp eq i8 %102, 0
@@ -405,7 +405,7 @@ define void @var_destroy(ptr nocapture noundef readonly %0) local_unnamed_addr #
   br i1 %128, label %26, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %125, %.preheader
-  %.1.lcssa = phi i8 [ %.07396, %.preheader ], [ %.4, %125 ]
+  %.1.lcssa = phi i8 [ %.07396, %.preheader ], [ %.3, %125 ]
   %129 = getelementptr inbounds i8, ptr %.07495, i64 8
   %130 = load ptr, ptr %129, align 8
   call void @_efree_large(ptr noundef nonnull %.07495, i64 noundef 4096) #13
@@ -2004,8 +2004,8 @@ unserialize_allowed_class.exit.thread1243:        ; preds = %unserialize_allowed
   br label %641
 
 641:                                              ; preds = %637, %632
-  %.01021 = phi i8 [ 1, %637 ], [ 0, %632 ]
-  %.01020 = phi ptr [ %640, %637 ], [ %635, %632 ]
+  %.11022 = phi i8 [ 1, %637 ], [ 0, %632 ]
+  %.1 = phi ptr [ %640, %637 ], [ %635, %632 ]
   %642 = load i32, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
   %643 = add i32 %642, -1
   store i32 %643, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 848), align 8
@@ -2013,18 +2013,18 @@ unserialize_allowed_class.exit.thread1243:        ; preds = %unserialize_allowed
   br label %644
 
 644:                                              ; preds = %592, %532, %541, %536, %515, %524, %519, %464, %641, %599, %497
-  %.11022 = phi i8 [ 0, %515 ], [ 0, %524 ], [ 0, %519 ], [ 0, %592 ], [ 1, %599 ], [ %.01021, %641 ], [ 0, %532 ], [ 0, %541 ], [ 0, %536 ], [ 1, %497 ], [ 0, %464 ]
-  %.1 = phi ptr [ %514, %515 ], [ %514, %524 ], [ %514, %519 ], [ %569, %592 ], [ %600, %599 ], [ %.01020, %641 ], [ %528, %532 ], [ %528, %541 ], [ %528, %536 ], [ %498, %497 ], [ %468, %464 ]
+  %.01021 = phi i8 [ 0, %515 ], [ 0, %524 ], [ 0, %519 ], [ 0, %592 ], [ 1, %599 ], [ %.11022, %641 ], [ 0, %532 ], [ 0, %541 ], [ 0, %536 ], [ 1, %497 ], [ 0, %464 ]
+  %.01020 = phi ptr [ %514, %515 ], [ %514, %524 ], [ %514, %519 ], [ %569, %592 ], [ %600, %599 ], [ %.1, %641 ], [ %528, %532 ], [ %528, %541 ], [ %528, %536 ], [ %498, %497 ], [ %468, %464 ]
   %645 = load ptr, ptr %7, align 8
   store ptr %645, ptr %1, align 8
-  %646 = getelementptr inbounds i8, ptr %.1, i64 28
+  %646 = getelementptr inbounds i8, ptr %.01020, i64 28
   %647 = load i32, ptr %646, align 4
   %648 = and i32 %647, 536870912
   %.not1174 = icmp eq i32 %648, 0
   br i1 %.not1174, label %663, label %649
 
 649:                                              ; preds = %644
-  %650 = getelementptr inbounds i8, ptr %.1, i64 8
+  %650 = getelementptr inbounds i8, ptr %.01020, i64 8
   %651 = load ptr, ptr %650, align 8
   %652 = getelementptr inbounds i8, ptr %651, i64 24
   %653 = call ptr (ptr, i64, ptr, ...) @zend_throw_exception_ex(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef nonnull %652) #13
@@ -2051,12 +2051,12 @@ unserialize_allowed_class.exit.thread1243:        ; preds = %unserialize_allowed
   br i1 %422, label %664, label %679
 
 664:                                              ; preds = %663
-  %665 = call fastcc i32 @object_custom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %.1)
+  %665 = call fastcc i32 @object_custom(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %.01020)
   %.not1184 = icmp eq i32 %665, 0
   br i1 %.not1184, label %669, label %666
 
 666:                                              ; preds = %664
-  %667 = trunc nuw i8 %.11022 to i1
+  %667 = trunc nuw i8 %.01021 to i1
   br i1 %667, label %668, label %669
 
 668:                                              ; preds = %666
@@ -2163,25 +2163,25 @@ unserialize_allowed_class.exit.thread1243:        ; preds = %unserialize_allowed
 718:                                              ; preds = %714
   %719 = getelementptr inbounds i8, ptr %712, i64 2
   store ptr %719, ptr %1, align 8
-  %720 = trunc nuw i8 %.11022 to i1
+  %720 = trunc nuw i8 %.01021 to i1
   br i1 %720, label %725, label %721
 
 721:                                              ; preds = %718
-  %722 = getelementptr inbounds i8, ptr %.1, i64 352
+  %722 = getelementptr inbounds i8, ptr %.01020, i64 352
   %723 = load ptr, ptr %722, align 8
   %724 = icmp ne ptr %723, null
   br label %725
 
 725:                                              ; preds = %721, %718
   %726 = phi i1 [ false, %718 ], [ %724, %721 ]
-  %727 = getelementptr inbounds i8, ptr %.1, i64 408
+  %727 = getelementptr inbounds i8, ptr %.01020, i64 408
   %728 = load ptr, ptr %727, align 8
   %.not1178 = icmp eq ptr %728, null
   %brmerge = select i1 %.not1178, i1 true, i1 %726
   br i1 %brmerge, label %742, label %729
 
 729:                                              ; preds = %725
-  %730 = getelementptr inbounds i8, ptr %.1, i64 8
+  %730 = getelementptr inbounds i8, ptr %.01020, i64 8
   %731 = load ptr, ptr %730, align 8
   %732 = getelementptr inbounds i8, ptr %731, i64 24
   call void (i32, ptr, ...) @zend_error(i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef nonnull %732) #13
@@ -2205,7 +2205,7 @@ unserialize_allowed_class.exit.thread1243:        ; preds = %unserialize_allowed
   br label %.critedge1189
 
 742:                                              ; preds = %725
-  %743 = call i32 @object_init_ex(ptr noundef %0, ptr noundef nonnull %.1) #13
+  %743 = call i32 @object_init_ex(ptr noundef %0, ptr noundef nonnull %.01020) #13
   %744 = icmp eq i32 %743, -1
   br i1 %744, label %745, label %755
 

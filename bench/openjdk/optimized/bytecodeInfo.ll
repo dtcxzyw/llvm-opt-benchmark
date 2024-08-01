@@ -1714,14 +1714,14 @@ _ZNK10InlineTree10caller_bciEv.exit.i:            ; preds = %15, %10
   br label %.critedge
 
 .critedge:                                        ; preds = %31, %.critedge27, %36, %.loopexit
-  %.1 = phi i32 [ 1, %36 ], [ 1, %.critedge27 ], [ 0, %.loopexit ], [ 0, %31 ]
+  %.021 = phi i32 [ 1, %36 ], [ 1, %.critedge27 ], [ 0, %.loopexit ], [ 0, %31 ]
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 296
   %48 = tail call noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef 88, ptr noundef nonnull %47) #10
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 44
   %51 = load i32, ptr %50, align 4
-  %52 = add nsw i32 %51, %.1
+  %52 = add nsw i32 %51, %.021
   tail call void @_ZN10InlineTreeC2EP7CompilePKS_P8ciMethodP8JVMStateii(ptr noundef nonnull align 8 dereferenceable(81) %48, ptr noundef %49, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 poison, i32 noundef %52)
   %53 = load i32, ptr %5, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 52

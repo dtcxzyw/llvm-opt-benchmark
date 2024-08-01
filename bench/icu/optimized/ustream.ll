@@ -203,7 +203,7 @@ if.then36:                                        ; preds = %if.end34
 
 do.body:                                          ; preds = %if.then36, %if.end79
   %uBuffIdx.033 = phi i32 [ %uBuffIdx.1, %if.end79 ], [ 0, %if.then36 ]
-  %initialWhitespace.132 = phi i8 [ %initialWhitespace.3, %if.end79 ], [ %initialWhitespace.034, %if.then36 ]
+  %initialWhitespace.132 = phi i8 [ %initialWhitespace.2, %if.end79 ], [ %initialWhitespace.034, %if.then36 ]
   %inc = add nsw i32 %uBuffIdx.033, 1
   %idxprom = sext i32 %uBuffIdx.033 to i64
   %arrayidx = getelementptr inbounds [16 x i16], ptr %uBuffer, i64 0, i64 %idxprom
@@ -299,7 +299,7 @@ if.end77:                                         ; preds = %if.then4.i, %if.els
   br label %if.end79
 
 if.end79:                                         ; preds = %if.then61, %if.end77
-  %initialWhitespace.3 = phi i8 [ 1, %if.then61 ], [ 0, %if.end77 ]
+  %initialWhitespace.2 = phi i8 [ 1, %if.then61 ], [ 0, %if.end77 ]
   %cmp40 = icmp slt i32 %uBuffIdx.1, %conv38
   br i1 %cmp40, label %do.body, label %if.end85, !llvm.loop !7
 
@@ -312,7 +312,7 @@ if.else81:                                        ; preds = %if.end34
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end79, %if.then36, %if.else81
-  %initialWhitespace.4 = phi i8 [ %initialWhitespace.034, %if.else81 ], [ %initialWhitespace.034, %if.then36 ], [ %initialWhitespace.3, %if.end79 ]
+  %initialWhitespace.4 = phi i8 [ %initialWhitespace.034, %if.else81 ], [ %initialWhitespace.034, %if.then36 ], [ %initialWhitespace.2, %if.end79 ]
   %idx.2 = phi i32 [ %inc82, %if.else81 ], [ 0, %if.then36 ], [ 0, %if.end79 ]
   br i1 %call12, label %STOP_READING, label %while.body, !llvm.loop !8
 

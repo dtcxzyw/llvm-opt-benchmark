@@ -1188,7 +1188,7 @@ define internal fastcc range(i32 -1, 1) i32 @_enable_subtree_control(ptr noundef
 
 5:                                                ; preds = %2, %38
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %38 ]
-  %.01216 = phi i32 [ 0, %2 ], [ %.2, %38 ]
+  %.01216 = phi i32 [ 0, %2 ], [ %.1, %38 ]
   %6 = call i32 @bit_test(ptr noundef %1, i64 noundef %indvars.iv) #15
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %38, label %7
@@ -1249,19 +1249,19 @@ define internal fastcc range(i32 -1, 1) i32 @_enable_subtree_control(ptr noundef
   br label %37
 
 37:                                               ; preds = %35, %32, %29, %26, %18, %21, %24
-  %.1 = phi i32 [ %.01216, %24 ], [ %.01216, %21 ], [ %.01216, %18 ], [ -1, %26 ], [ %.01216, %35 ], [ %.01216, %32 ], [ %.01216, %29 ]
+  %.2 = phi i32 [ %.01216, %24 ], [ %.01216, %21 ], [ %.01216, %18 ], [ -1, %26 ], [ %.01216, %35 ], [ %.01216, %32 ], [ %.01216, %29 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #15
   br label %38
 
 38:                                               ; preds = %5, %37
-  %.2 = phi i32 [ %.1, %37 ], [ %.01216, %5 ]
+  %.1 = phi i32 [ %.2, %37 ], [ %.01216, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %39, label %5, !llvm.loop !11
 
 39:                                               ; preds = %38
   call void @slurm_xfree(ptr noundef nonnull %4) #15
-  ret i32 %.2
+  ret i32 %.1
 }
 
 declare ptr @log_build_step_id_str(ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
@@ -2030,7 +2030,7 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
   br label %18
 
 18:                                               ; preds = %14, %11
-  %.045 = phi i32 [ 0, %11 ], [ %spec.select, %14 ]
+  %.1 = phi i32 [ 0, %11 ], [ %spec.select, %14 ]
   %19 = getelementptr inbounds i8, ptr %2, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not67 = icmp eq ptr %20, null
@@ -2041,7 +2041,7 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
   %23 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %22
   %24 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %23, ptr noundef nonnull @.str.35, ptr noundef nonnull %20) #15
   %.not68 = icmp eq i32 %24, 0
-  %spec.select69 = select i1 %.not68, i32 %.045, i32 -1
+  %spec.select69 = select i1 %.not68, i32 %.1, i32 -1
   br label %91
 
 25:                                               ; preds = %10
@@ -2059,7 +2059,7 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
   br label %32
 
 32:                                               ; preds = %28, %25
-  %.1 = phi i32 [ 0, %25 ], [ %spec.select70, %28 ]
+  %.2 = phi i32 [ 0, %25 ], [ %spec.select70, %28 ]
   %33 = getelementptr inbounds i8, ptr %2, i64 72
   %34 = load i64, ptr %33, align 8
   %.not61 = icmp eq i64 %34, -2
@@ -2070,11 +2070,11 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
   %37 = getelementptr inbounds [9 x %struct.xcgroup_t], ptr @int_cg, i64 0, i64 %36
   %38 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %37, ptr noundef nonnull @.str.37, i64 noundef %34) #15
   %.not62 = icmp eq i32 %38, 0
-  %spec.select71 = select i1 %.not62, i32 %.1, i32 -1
+  %spec.select71 = select i1 %.not62, i32 %.2, i32 -1
   br label %39
 
 39:                                               ; preds = %35, %32
-  %.2 = phi i32 [ %.1, %32 ], [ %spec.select71, %35 ]
+  %.3 = phi i32 [ %.2, %32 ], [ %spec.select71, %35 ]
   %40 = getelementptr inbounds i8, ptr %2, i64 80
   %41 = load i64, ptr %40, align 8
   %.not63 = icmp eq i64 %41, -2
@@ -2087,7 +2087,7 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
   %46 = sub i64 %41, %45
   %47 = tail call i32 @common_cgroup_set_uint64_param(ptr noundef nonnull %44, ptr noundef nonnull @.str.38, i64 noundef %46) #15
   %.not64 = icmp eq i32 %47, 0
-  %spec.select72 = select i1 %.not64, i32 %.2, i32 -1
+  %spec.select72 = select i1 %.not64, i32 %.3, i32 -1
   br label %91
 
 48:                                               ; preds = %10
@@ -2178,7 +2178,7 @@ define i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr noundef %
   br label %91
 
 91:                                               ; preds = %42, %21, %80, %89, %10, %18, %39, %6, %3, %61, %56
-  %.043 = phi i32 [ -1, %61 ], [ -1, %56 ], [ 0, %3 ], [ -1, %6 ], [ -1, %89 ], [ %88, %80 ], [ %.2, %39 ], [ %.045, %18 ], [ %0, %10 ], [ %spec.select69, %21 ], [ %spec.select72, %42 ]
+  %.043 = phi i32 [ -1, %61 ], [ -1, %56 ], [ 0, %3 ], [ -1, %6 ], [ -1, %89 ], [ %88, %80 ], [ %.3, %39 ], [ %.1, %18 ], [ %0, %10 ], [ %spec.select69, %21 ], [ %spec.select72, %42 ]
   ret i32 %.043
 }
 

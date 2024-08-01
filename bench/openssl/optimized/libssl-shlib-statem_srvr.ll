@@ -2354,7 +2354,7 @@ if.then43:                                        ; preds = %land.lhs.true
 
 if.end44:                                         ; preds = %if.then17, %if.end24, %if.then30
   %pkdhp.1.ph = phi ptr [ %call35, %if.then30 ], [ %6, %if.end24 ], [ %call18, %if.then17 ]
-  %pkdh.1.ph = phi ptr [ %call35, %if.then30 ], [ null, %if.end24 ], [ %call18, %if.then17 ]
+  %pkdh.3.ph = phi ptr [ %call35, %if.then30 ], [ null, %if.end24 ], [ %call18, %if.then17 ]
   %call45 = call i32 @EVP_PKEY_get_security_bits(ptr noundef nonnull %pkdhp.1.ph) #12
   %call46 = call i32 @ssl_security(ptr noundef nonnull %s, i32 noundef 262151, i32 noundef %call45, i32 noundef 0, ptr noundef nonnull %pkdhp.1.ph) #12
   %tobool47.not = icmp eq i32 %call46, 0
@@ -2391,7 +2391,7 @@ if.then65:                                        ; preds = %if.end55
   br label %err
 
 if.end66:                                         ; preds = %if.end55
-  call void @EVP_PKEY_free(ptr noundef %pkdh.1.ph) #12
+  call void @EVP_PKEY_free(ptr noundef %pkdh.3.ph) #12
   %9 = load ptr, ptr %pkey, align 8
   %call71 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %9, ptr noundef nonnull @.str.2, ptr noundef nonnull %r) #12
   %tobool72.not = icmp eq i32 %call71, 0
@@ -2518,7 +2518,7 @@ if.else162:                                       ; preds = %if.else129
   br label %err
 
 if.end166:                                        ; preds = %lor.lhs.false79, %if.end149, %if.end124, %if.end3
-  %freer.0 = phi i32 [ 0, %if.end3 ], [ 1, %lor.lhs.false79 ], [ 0, %if.end124 ], [ 0, %if.end149 ]
+  %freer.1 = phi i32 [ 0, %if.end3 ], [ 1, %lor.lhs.false79 ], [ 0, %if.end124 ], [ 0, %if.end149 ]
   %curve_id.0 = phi i32 [ 0, %if.end3 ], [ 0, %lor.lhs.false79 ], [ %conv100, %if.end124 ], [ 0, %if.end149 ]
   %encodedlen.0 = phi i64 [ 0, %if.end3 ], [ 0, %lor.lhs.false79 ], [ %call120, %if.end124 ], [ 0, %if.end149 ]
   %18 = load ptr, ptr %new_cipher, align 8
@@ -2946,13 +2946,13 @@ if.end357:                                        ; preds = %lor.lhs.false353
 
 err:                                              ; preds = %if.end281, %if.end357, %if.end334, %if.end104, %if.then356, %if.then332, %if.then320, %if.then308, %if.then298, %if.then294, %if.then279, %if.then259, %if.then244, %if.then223, %if.then204, %if.then185, %if.else162, %if.then148, %if.then123, %if.then103, %if.then97, %if.then86, %if.then65, %if.then54, %if.then48, %if.then43, %if.then38, %if.then21, %if.then2, %if.then
   %ret.0 = phi i32 [ 0, %if.then2 ], [ 0, %if.then204 ], [ 0, %if.then259 ], [ 0, %if.then244 ], [ 0, %if.then223 ], [ 0, %if.then294 ], [ 0, %if.then320 ], [ 0, %if.then332 ], [ 0, %if.end334 ], [ 0, %if.then356 ], [ 0, %if.then308 ], [ 0, %if.then298 ], [ 0, %if.then279 ], [ 0, %if.then185 ], [ 0, %if.then21 ], [ 0, %if.then38 ], [ 0, %if.then43 ], [ 0, %if.then54 ], [ 0, %if.then65 ], [ 0, %if.then86 ], [ 0, %if.then48 ], [ 0, %if.then97 ], [ 0, %if.then103 ], [ 0, %if.end104 ], [ 0, %if.then123 ], [ 0, %if.then148 ], [ 0, %if.else162 ], [ 0, %if.then ], [ 1, %if.end357 ], [ 1, %if.end281 ]
-  %freer.1 = phi i32 [ 0, %if.then2 ], [ %freer.0, %if.then204 ], [ %freer.0, %if.then259 ], [ %freer.0, %if.then244 ], [ %freer.0, %if.then223 ], [ %freer.0, %if.then294 ], [ %freer.0, %if.then320 ], [ %freer.0, %if.then332 ], [ %freer.0, %if.end334 ], [ %freer.0, %if.then356 ], [ %freer.0, %if.then308 ], [ %freer.0, %if.then298 ], [ %freer.0, %if.then279 ], [ %freer.0, %if.then185 ], [ 0, %if.then21 ], [ 0, %if.then38 ], [ 0, %if.then43 ], [ 0, %if.then54 ], [ 0, %if.then65 ], [ 1, %if.then86 ], [ 0, %if.then48 ], [ 0, %if.then97 ], [ 0, %if.then103 ], [ 0, %if.end104 ], [ 0, %if.then123 ], [ 0, %if.then148 ], [ 0, %if.else162 ], [ 0, %if.then ], [ %freer.0, %if.end357 ], [ %freer.0, %if.end281 ]
-  %pkdh.3 = phi ptr [ null, %if.then2 ], [ null, %if.then204 ], [ null, %if.then259 ], [ null, %if.then244 ], [ null, %if.then223 ], [ null, %if.then294 ], [ null, %if.then320 ], [ null, %if.then332 ], [ null, %if.end334 ], [ null, %if.then356 ], [ null, %if.then308 ], [ null, %if.then298 ], [ null, %if.then279 ], [ null, %if.then185 ], [ null, %if.then21 ], [ null, %if.then38 ], [ null, %if.then43 ], [ %pkdh.1.ph, %if.then54 ], [ %pkdh.1.ph, %if.then65 ], [ null, %if.then86 ], [ %pkdh.1.ph, %if.then48 ], [ null, %if.then97 ], [ null, %if.then103 ], [ null, %if.end104 ], [ null, %if.then123 ], [ null, %if.then148 ], [ null, %if.else162 ], [ null, %if.then ], [ null, %if.end357 ], [ null, %if.end281 ]
-  call void @EVP_PKEY_free(ptr noundef %pkdh.3) #12
+  %freer.0 = phi i32 [ 0, %if.then2 ], [ %freer.1, %if.then204 ], [ %freer.1, %if.then259 ], [ %freer.1, %if.then244 ], [ %freer.1, %if.then223 ], [ %freer.1, %if.then294 ], [ %freer.1, %if.then320 ], [ %freer.1, %if.then332 ], [ %freer.1, %if.end334 ], [ %freer.1, %if.then356 ], [ %freer.1, %if.then308 ], [ %freer.1, %if.then298 ], [ %freer.1, %if.then279 ], [ %freer.1, %if.then185 ], [ 0, %if.then21 ], [ 0, %if.then38 ], [ 0, %if.then43 ], [ 0, %if.then54 ], [ 0, %if.then65 ], [ 1, %if.then86 ], [ 0, %if.then48 ], [ 0, %if.then97 ], [ 0, %if.then103 ], [ 0, %if.end104 ], [ 0, %if.then123 ], [ 0, %if.then148 ], [ 0, %if.else162 ], [ 0, %if.then ], [ %freer.1, %if.end357 ], [ %freer.1, %if.end281 ]
+  %pkdh.0 = phi ptr [ null, %if.then2 ], [ null, %if.then204 ], [ null, %if.then259 ], [ null, %if.then244 ], [ null, %if.then223 ], [ null, %if.then294 ], [ null, %if.then320 ], [ null, %if.then332 ], [ null, %if.end334 ], [ null, %if.then356 ], [ null, %if.then308 ], [ null, %if.then298 ], [ null, %if.then279 ], [ null, %if.then185 ], [ null, %if.then21 ], [ null, %if.then38 ], [ null, %if.then43 ], [ %pkdh.3.ph, %if.then54 ], [ %pkdh.3.ph, %if.then65 ], [ null, %if.then86 ], [ %pkdh.3.ph, %if.then48 ], [ null, %if.then97 ], [ null, %if.then103 ], [ null, %if.end104 ], [ null, %if.then123 ], [ null, %if.then148 ], [ null, %if.else162 ], [ null, %if.then ], [ null, %if.end357 ], [ null, %if.end281 ]
+  call void @EVP_PKEY_free(ptr noundef %pkdh.0) #12
   %65 = load ptr, ptr %encodedPoint, align 8
   call void @CRYPTO_free(ptr noundef %65, ptr noundef nonnull @.str.1, i32 noundef 2829) #12
   call void @EVP_MD_CTX_free(ptr noundef %call) #12
-  %tobool359.not = icmp eq i32 %freer.1, 0
+  %tobool359.not = icmp eq i32 %freer.0, 0
   br i1 %tobool359.not, label %if.end365, label %if.then360
 
 if.then360:                                       ; preds = %err
@@ -4586,18 +4586,18 @@ if.then194:                                       ; preds = %lor.lhs.false.i214,
 
 if.end202.sink.split:                             ; preds = %if.end180, %lor.lhs.false123
   %extensions128.sink = phi ptr [ %extensions128, %lor.lhs.false123 ], [ %extensions185, %if.end180 ]
-  %compression.sroa.3.1.ph = phi i64 [ 1, %lor.lhs.false123 ], [ %sub.i.i.i201, %if.end180 ]
-  %compression.sroa.0.1.ph = phi ptr [ @tls_process_client_hello.null_compression, %lor.lhs.false123 ], [ %add.ptr.i.i.i205, %if.end180 ]
+  %compression.sroa.3.0.ph = phi i64 [ 1, %lor.lhs.false123 ], [ %sub.i.i.i201, %if.end180 ]
+  %compression.sroa.0.0.ph = phi ptr [ @tls_process_client_hello.null_compression, %lor.lhs.false123 ], [ %add.ptr.i.i.i205, %if.end180 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extensions128.sink, i8 0, i64 16, i1 false)
   br label %if.end202
 
 if.end202:                                        ; preds = %if.end202.sink.split, %lor.lhs.false190
-  %compression.sroa.3.1 = phi i64 [ %conv.i202, %lor.lhs.false190 ], [ %compression.sroa.3.1.ph, %if.end202.sink.split ]
-  %compression.sroa.0.1 = phi ptr [ %add.ptr.i.i.i205, %lor.lhs.false190 ], [ %compression.sroa.0.1.ph, %if.end202.sink.split ]
+  %compression.sroa.3.0 = phi i64 [ %conv.i202, %lor.lhs.false190 ], [ %compression.sroa.3.0.ph, %if.end202.sink.split ]
+  %compression.sroa.0.0 = phi ptr [ %add.ptr.i.i.i205, %lor.lhs.false190 ], [ %compression.sroa.0.0.ph, %if.end202.sink.split ]
   %compressions = getelementptr inbounds i8, ptr %call40, i64 368
   %compressions_len = getelementptr inbounds i8, ptr %call40, i64 360
-  store i64 %compression.sroa.3.1, ptr %compressions_len, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %compressions, ptr nonnull align 1 %compression.sroa.0.1, i64 %compression.sroa.3.1, i1 false)
+  store i64 %compression.sroa.3.0, ptr %compressions_len, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %compressions, ptr nonnull align 1 %compression.sroa.0.0, i64 %compression.sroa.3.0, i1 false)
   %extensions203 = getelementptr inbounds i8, ptr %call40, i64 624
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %extensions, ptr noundef nonnull align 8 dereferenceable(16) %extensions203, i64 16, i1 false)
   %pre_proc_exts = getelementptr inbounds i8, ptr %call40, i64 648
@@ -4850,25 +4850,25 @@ if.then57:                                        ; preds = %lor.lhs.false.i92, 
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end124
   %chainidx.0162 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %if.end124 ]
-  %spkt.sroa.0.1161 = phi ptr [ %add.ptr.i2.i.i, %for.body.lr.ph ], [ %spkt.sroa.0.5, %if.end124 ]
-  %spkt.sroa.10.1160 = phi i64 [ %or7.i.i.i, %for.body.lr.ph ], [ %spkt.sroa.10.5, %if.end124 ]
-  %cmp.i.i = icmp ult i64 %spkt.sroa.10.1160, 3
+  %spkt.sroa.0.0161 = phi ptr [ %add.ptr.i2.i.i, %for.body.lr.ph ], [ %spkt.sroa.0.1, %if.end124 ]
+  %spkt.sroa.10.0160 = phi i64 [ %or7.i.i.i, %for.body.lr.ph ], [ %spkt.sroa.10.1, %if.end124 ]
+  %cmp.i.i = icmp ult i64 %spkt.sroa.10.0160, 3
   br i1 %cmp.i.i, label %if.then67, label %lor.lhs.false64
 
 lor.lhs.false64:                                  ; preds = %for.body
-  %15 = load i8, ptr %spkt.sroa.0.1161, align 1
+  %15 = load i8, ptr %spkt.sroa.0.0161, align 1
   %conv.i.i = zext i8 %15 to i64
   %shl.i.i = shl nuw nsw i64 %conv.i.i, 16
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %spkt.sroa.0.1161, i64 1
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %spkt.sroa.0.0161, i64 1
   %16 = load i8, ptr %add.ptr.i.i, align 1
   %conv2.i.i = zext i8 %16 to i64
   %shl3.i.i = shl nuw nsw i64 %conv2.i.i, 8
   %or.i.i = or disjoint i64 %shl3.i.i, %shl.i.i
-  %add.ptr5.i.i = getelementptr inbounds i8, ptr %spkt.sroa.0.1161, i64 2
+  %add.ptr5.i.i = getelementptr inbounds i8, ptr %spkt.sroa.0.0161, i64 2
   %17 = load i8, ptr %add.ptr5.i.i, align 1
   %conv6.i.i = zext i8 %17 to i64
   %or7.i.i = or disjoint i64 %or.i.i, %conv6.i.i
-  %sub.i.i = add i64 %spkt.sroa.10.1160, -3
+  %sub.i.i = add i64 %spkt.sroa.10.0160, -3
   %cmp.i.i102 = icmp ult i64 %sub.i.i, %or7.i.i
   br i1 %cmp.i.i102, label %if.then67, label %if.end68
 
@@ -4879,7 +4879,7 @@ if.then67:                                        ; preds = %lor.lhs.false64, %f
   br label %err
 
 if.end68:                                         ; preds = %lor.lhs.false64
-  %add.ptr.i2.i = getelementptr inbounds i8, ptr %spkt.sroa.0.1161, i64 3
+  %add.ptr.i2.i = getelementptr inbounds i8, ptr %spkt.sroa.0.0161, i64 3
   store ptr %add.ptr.i2.i, ptr %certbytes, align 8
   %add.ptr.i.i104 = getelementptr inbounds i8, ptr %add.ptr.i2.i, i64 %or7.i.i
   %sub.i.i105 = sub nuw i64 %sub.i.i, %or7.i.i
@@ -4990,8 +4990,8 @@ if.end117:                                        ; preds = %lor.lhs.false110
   br label %if.end118
 
 if.end118:                                        ; preds = %if.end117, %land.lhs.true89, %if.end82
-  %spkt.sroa.10.5 = phi i64 [ %sub.i.i105, %land.lhs.true89 ], [ %sub.i.i7.i120, %if.end117 ], [ %sub.i.i105, %if.end82 ]
-  %spkt.sroa.0.5 = phi ptr [ %add.ptr.i.i104, %land.lhs.true89 ], [ %add.ptr.i.i6.i119, %if.end117 ], [ %add.ptr.i.i104, %if.end82 ]
+  %spkt.sroa.10.1 = phi i64 [ %sub.i.i105, %land.lhs.true89 ], [ %sub.i.i7.i120, %if.end117 ], [ %sub.i.i105, %if.end82 ]
+  %spkt.sroa.0.1 = phi ptr [ %add.ptr.i.i104, %land.lhs.true89 ], [ %add.ptr.i.i6.i119, %if.end117 ], [ %add.ptr.i.i104, %if.end82 ]
   %31 = load ptr, ptr %x, align 8
   %call121 = call i32 @OPENSSL_sk_push(ptr noundef %call16, ptr noundef %31) #12
   %tobool122.not = icmp eq i32 %call121, 0
@@ -5006,7 +5006,7 @@ if.then123:                                       ; preds = %if.end118
 if.end124:                                        ; preds = %if.end118
   store ptr null, ptr %x, align 8
   %inc = add i64 %chainidx.0162, 1
-  %cmp60.not = icmp eq i64 %spkt.sroa.10.5, 0
+  %cmp60.not = icmp eq i64 %spkt.sroa.10.1, 0
   br i1 %cmp60.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end124, %for.cond.preheader
@@ -5440,8 +5440,8 @@ if.then9.i:                                       ; preds = %lor.lhs.false6.i, %
   br label %tls_process_cke_rsa.exit.thread
 
 if.end11.i32:                                     ; preds = %lor.lhs.false6.i, %if.then5.i31
-  %enc_premaster.sroa.3.1.i = phi i64 [ %or.i.i.i.i45, %lor.lhs.false6.i ], [ %enc_premaster.sroa.3.0.copyload.i, %if.then5.i31 ]
-  %enc_premaster.sroa.0.1.i = phi ptr [ %add.ptr.i2.i.i.i48, %lor.lhs.false6.i ], [ %enc_premaster.sroa.0.0.copyload.i, %if.then5.i31 ]
+  %enc_premaster.sroa.3.0.i = phi i64 [ %or.i.i.i.i45, %lor.lhs.false6.i ], [ %enc_premaster.sroa.3.0.copyload.i, %if.then5.i31 ]
+  %enc_premaster.sroa.0.0.i = phi ptr [ %add.ptr.i2.i.i.i48, %lor.lhs.false6.i ], [ %enc_premaster.sroa.0.0.copyload.i, %if.then5.i31 ]
   store i64 48, ptr %outlen.i, align 8
   %call12.i = call noalias ptr @CRYPTO_malloc(i64 noundef 48, ptr noundef nonnull @.str.1, i32 noundef 3001) #12
   %cmp13.i = icmp eq ptr %call12.i, null
@@ -5509,7 +5509,7 @@ if.end32.i:                                       ; preds = %if.then28.i, %if.en
   br i1 %tobool37.not.i, label %if.then43.i, label %lor.lhs.false38.i
 
 lor.lhs.false38.i:                                ; preds = %if.end32.i
-  %call41.i = call i32 @EVP_PKEY_decrypt(ptr noundef nonnull %call16.i, ptr noundef nonnull %call12.i, ptr noundef nonnull %outlen.i, ptr noundef %enc_premaster.sroa.0.1.i, i64 noundef %enc_premaster.sroa.3.1.i) #12
+  %call41.i = call i32 @EVP_PKEY_decrypt(ptr noundef nonnull %call16.i, ptr noundef nonnull %call12.i, ptr noundef nonnull %outlen.i, ptr noundef %enc_premaster.sroa.0.0.i, i64 noundef %enc_premaster.sroa.3.0.i) #12
   %cmp42.i = icmp slt i32 %call41.i, 1
   br i1 %cmp42.i, label %if.then43.i, label %if.end44.i
 
@@ -6706,13 +6706,13 @@ for.end494.thread.i:                              ; preds = %for.body480.i
   br label %for.cond502.preheader.i
 
 for.end494.i:                                     ; preds = %for.cond475.i, %for.cond475.preheader.i
-  %comp.0.lcssa.i = phi ptr [ null, %for.cond475.preheader.i ], [ %call483.i, %for.cond475.i ]
+  %comp.1.lcssa.i = phi ptr [ null, %for.cond475.preheader.i ], [ %call483.i, %for.cond475.i ]
   %.pr.i = load ptr, ptr %new_compression.i, align 8
   %103 = icmp eq ptr %.pr.i, null
   br i1 %103, label %if.then500.i, label %for.cond502.preheader.i
 
 for.cond502.preheader.i:                          ; preds = %for.end494.i, %for.end494.thread.i
-  %comp.1304.i = phi ptr [ %call483.i, %for.end494.thread.i ], [ %comp.0.lcssa.i, %for.end494.i ]
+  %comp.2304.i = phi ptr [ %call483.i, %for.end494.thread.i ], [ %comp.1.lcssa.i, %for.end494.i ]
   %104 = load i64, ptr %compressions_len.i, align 8
   %cmp505272.not.i = icmp eq i64 %104, 0
   br i1 %cmp505272.not.i, label %if.then522.i, label %for.body507.i
@@ -6799,7 +6799,7 @@ if.then571.i:                                     ; preds = %for.body552.i
   br label %if.end580.i
 
 if.end580.i:                                      ; preds = %for.body507.i, %for.inc567.i, %if.then571.i, %if.then534.i, %land.lhs.true531.i, %if.else528.i, %if.then458.i
-  %comp.4.ph.i = phi ptr [ null, %if.then458.i ], [ null, %if.else528.i ], [ null, %land.lhs.true531.i ], [ %call545.i, %if.then571.i ], [ null, %if.then534.i ], [ null, %for.inc567.i ], [ %comp.1304.i, %for.body507.i ]
+  %comp.0.ph.i = phi ptr [ null, %if.then458.i ], [ null, %if.else528.i ], [ null, %land.lhs.true531.i ], [ %call545.i, %if.then571.i ], [ null, %if.then534.i ], [ null, %for.inc567.i ], [ %comp.2304.i, %for.body507.i ]
   %.pr252.i = load i32, ptr %hit.i, align 8
   %tobool582.not.i = icmp eq i32 %.pr252.i, 0
   br i1 %tobool582.not.i, label %if.then602.i, label %if.end580.lor.lhs.false583_crit_edge.i
@@ -6815,7 +6815,7 @@ if.end580.lor.lhs.false583_crit_edge.i:           ; preds = %if.end580.i
 lor.lhs.false583.i:                               ; preds = %if.end580.lor.lhs.false583_crit_edge.i, %if.else524.i
   %112 = phi i32 [ %.pre294.i, %if.end580.lor.lhs.false583_crit_edge.i ], [ %94, %if.else524.i ]
   %113 = phi ptr [ %.pre292.i, %if.end580.lor.lhs.false583_crit_edge.i ], [ %92, %if.else524.i ]
-  %comp.4257.i = phi ptr [ %comp.4.ph.i, %if.end580.lor.lhs.false583_crit_edge.i ], [ null, %if.else524.i ]
+  %comp.0257.i = phi ptr [ %comp.0.ph.i, %if.end580.lor.lhs.false583_crit_edge.i ], [ null, %if.else524.i ]
   %and588.i = and i32 %112, 8
   %tobool589.not.i = icmp eq i32 %and588.i, 0
   br i1 %tobool589.not.i, label %land.lhs.true590.i, label %if.end7.thread
@@ -6828,7 +6828,7 @@ land.lhs.true590.i:                               ; preds = %lor.lhs.false583.i
   br i1 %or.cond243.i, label %if.end7.thread, label %if.then602.i
 
 if.then602.i:                                     ; preds = %land.lhs.true590.i, %if.end580.i
-  %comp.4256.i = phi ptr [ %comp.4257.i, %land.lhs.true590.i ], [ %comp.4.ph.i, %if.end580.i ]
+  %comp.0256.i = phi ptr [ %comp.0257.i, %land.lhs.true590.i ], [ %comp.0.ph.i, %if.end580.i ]
   %peer_ciphers603.i = getelementptr inbounds i8, ptr %s, i64 1240
   %115 = load ptr, ptr %peer_ciphers603.i, align 8
   call void @OPENSSL_sk_free(ptr noundef %115) #12
@@ -6850,11 +6850,11 @@ if.end610.i:                                      ; preds = %if.then602.i
   br i1 %117, label %if.then613.i, label %if.end7.thread
 
 if.then613.i:                                     ; preds = %if.end610.i
-  %cmp614.i = icmp eq ptr %comp.4256.i, null
+  %cmp614.i = icmp eq ptr %comp.0256.i, null
   br i1 %cmp614.i, label %cond.end619.i, label %cond.false617.i
 
 cond.false617.i:                                  ; preds = %if.then613.i
-  %118 = load i32, ptr %comp.4256.i, align 8
+  %118 = load i32, ptr %comp.0256.i, align 8
   br label %cond.end619.i
 
 cond.end619.i:                                    ; preds = %cond.false617.i, %if.then613.i

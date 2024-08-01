@@ -587,9 +587,9 @@ define void @oid_add_from_encoded(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 .lr.ph78.i:                                       ; preds = %._crit_edge.i, %35
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %35 ], [ 0, %._crit_edge.i ]
-  %.05277.i = phi i64 [ %.4.i, %35 ], [ 0, %._crit_edge.i ]
-  %.05476.i = phi i32 [ %.256.i, %35 ], [ 1, %._crit_edge.i ]
-  %.05775.i = phi ptr [ %.259.i, %35 ], [ %11, %._crit_edge.i ]
+  %.05277.i = phi i64 [ %.153.i, %35 ], [ 0, %._crit_edge.i ]
+  %.05476.i = phi i32 [ %.155.i, %35 ], [ 1, %._crit_edge.i ]
+  %.05775.i = phi ptr [ %.158.i, %35 ], [ %11, %._crit_edge.i ]
   %15 = getelementptr i8, ptr %1, i64 %indvars.iv80.i
   %16 = load i8, ptr %15, align 1
   %17 = shl i64 %.05277.i, 7
@@ -611,17 +611,17 @@ define void @oid_add_from_encoded(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %25 = icmp ugt i64 %spec.select69.i, 39
   %26 = select i1 %23, i32 2, i32 1
   %27 = add i64 %spec.select69.i, -40
-  %.2.i = select i1 %25, i64 %27, i64 %spec.select69.i
+  %.4.i = select i1 %25, i64 %27, i64 %spec.select69.i
   %.1.i = select i1 %25, i32 %26, i32 %spec.select70.i
   %28 = getelementptr i8, ptr %.05775.i, i64 4
   store i32 %.1.i, ptr %.05775.i, align 4
   br label %29
 
 29:                                               ; preds = %22, %21
-  %.158.i = phi ptr [ %28, %22 ], [ %.05775.i, %21 ]
-  %.3.i = phi i64 [ %.2.i, %22 ], [ %20, %21 ]
-  %30 = icmp uge ptr %.158.i, %12
-  %31 = icmp ugt i64 %.3.i, 4294967295
+  %.259.i = phi ptr [ %28, %22 ], [ %.05775.i, %21 ]
+  %.2.i = phi i64 [ %.4.i, %22 ], [ %20, %21 ]
+  %30 = icmp uge ptr %.259.i, %12
+  %31 = icmp ugt i64 %.2.i, 4294967295
   %or.cond5.i = select i1 %30, i1 true, i1 %31
   br i1 %or.cond5.i, label %oid_encoded2subid_sub.exit.thread, label %32
 
@@ -630,15 +630,15 @@ oid_encoded2subid_sub.exit.thread:                ; preds = %29
   br label %57
 
 32:                                               ; preds = %29
-  %33 = trunc nuw i64 %.3.i to i32
-  %34 = getelementptr i8, ptr %.158.i, i64 4
-  store i32 %33, ptr %.158.i, align 4
+  %33 = trunc nuw i64 %.2.i to i32
+  %34 = getelementptr i8, ptr %.259.i, i64 4
+  store i32 %33, ptr %.259.i, align 4
   br label %35
 
 35:                                               ; preds = %32, %.lr.ph78.i
-  %.259.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %34, %32 ]
-  %.256.i = phi i32 [ %.05476.i, %.lr.ph78.i ], [ 0, %32 ]
-  %.4.i = phi i64 [ %20, %.lr.ph78.i ], [ 0, %32 ]
+  %.158.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %34, %32 ]
+  %.155.i = phi i32 [ %.05476.i, %.lr.ph78.i ], [ 0, %32 ]
+  %.153.i = phi i64 [ %20, %.lr.ph78.i ], [ 0, %32 ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count.i
   br i1 %exitcond84.not.i, label %oid_encoded2subid_sub.exit, label %.lr.ph78.i, !llvm.loop !12
@@ -920,9 +920,9 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr nocapture noundef readonly
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %42
   %indvars.iv80 = phi i64 [ 0, %.lr.ph78.preheader ], [ %indvars.iv.next81, %42 ]
-  %.05277 = phi i64 [ 0, %.lr.ph78.preheader ], [ %.4, %42 ]
-  %.05476 = phi i32 [ %4, %.lr.ph78.preheader ], [ %.256, %42 ]
-  %.05775 = phi ptr [ %14, %.lr.ph78.preheader ], [ %.259, %42 ]
+  %.05277 = phi i64 [ 0, %.lr.ph78.preheader ], [ %.153, %42 ]
+  %.05476 = phi i32 [ %4, %.lr.ph78.preheader ], [ %.155, %42 ]
+  %.05775 = phi ptr [ %14, %.lr.ph78.preheader ], [ %.158, %42 ]
   %20 = getelementptr i8, ptr %1, i64 %indvars.iv80
   %21 = load i8, ptr %20, align 1
   %22 = shl i64 %.05277, 7
@@ -944,17 +944,17 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr nocapture noundef readonly
   %30 = icmp ugt i64 %spec.select69, 39
   %31 = select i1 %28, i32 2, i32 1
   %32 = add i64 %spec.select69, -40
-  %.2 = select i1 %30, i64 %32, i64 %spec.select69
+  %.4 = select i1 %30, i64 %32, i64 %spec.select69
   %.1 = select i1 %30, i32 %31, i32 %spec.select70
   %33 = getelementptr i8, ptr %.05775, i64 4
   store i32 %.1, ptr %.05775, align 4
   br label %34
 
 34:                                               ; preds = %27, %26
-  %.158 = phi ptr [ %33, %27 ], [ %.05775, %26 ]
-  %.3 = phi i64 [ %.2, %27 ], [ %25, %26 ]
-  %35 = icmp uge ptr %.158, %15
-  %36 = icmp ugt i64 %.3, 4294967295
+  %.259 = phi ptr [ %33, %27 ], [ %.05775, %26 ]
+  %.2 = phi i64 [ %.4, %27 ], [ %25, %26 ]
+  %35 = icmp uge ptr %.259, %15
+  %36 = icmp ugt i64 %.2, 4294967295
   %or.cond5 = select i1 %35, i1 true, i1 %36
   br i1 %or.cond5, label %37, label %39
 
@@ -965,15 +965,15 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr nocapture noundef readonly
   br label %.loopexit
 
 39:                                               ; preds = %34
-  %40 = trunc nuw i64 %.3 to i32
-  %41 = getelementptr i8, ptr %.158, i64 4
-  store i32 %40, ptr %.158, align 4
+  %40 = trunc nuw i64 %.2 to i32
+  %41 = getelementptr i8, ptr %.259, i64 4
+  store i32 %40, ptr %.259, align 4
   br label %42
 
 42:                                               ; preds = %.lr.ph78, %39
-  %.259 = phi ptr [ %.05775, %.lr.ph78 ], [ %41, %39 ]
-  %.256 = phi i32 [ %.05476, %.lr.ph78 ], [ 0, %39 ]
-  %.4 = phi i64 [ %25, %.lr.ph78 ], [ 0, %39 ]
+  %.158 = phi ptr [ %.05775, %.lr.ph78 ], [ %41, %39 ]
+  %.155 = phi i32 [ %.05476, %.lr.ph78 ], [ 0, %39 ]
+  %.153 = phi i64 [ %25, %.lr.ph78 ], [ 0, %39 ]
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %.loopexit, label %.lr.ph78, !llvm.loop !12
@@ -1199,9 +1199,9 @@ define ptr @oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef read
 
 .lr.ph78.i:                                       ; preds = %._crit_edge.i, %37
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %37 ], [ 0, %._crit_edge.i ]
-  %.05277.i = phi i64 [ %.4.i, %37 ], [ 0, %._crit_edge.i ]
-  %.05476.i = phi i32 [ %.256.i, %37 ], [ 1, %._crit_edge.i ]
-  %.05775.i = phi ptr [ %.259.i, %37 ], [ %11, %._crit_edge.i ]
+  %.05277.i = phi i64 [ %.153.i, %37 ], [ 0, %._crit_edge.i ]
+  %.05476.i = phi i32 [ %.155.i, %37 ], [ 1, %._crit_edge.i ]
+  %.05775.i = phi ptr [ %.158.i, %37 ], [ %11, %._crit_edge.i ]
   %16 = getelementptr i8, ptr %1, i64 %indvars.iv80.i
   %17 = load i8, ptr %16, align 1
   %18 = shl i64 %.05277.i, 7
@@ -1223,17 +1223,17 @@ define ptr @oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef read
   %26 = icmp ugt i64 %spec.select69.i, 39
   %27 = select i1 %24, i32 2, i32 1
   %28 = add i64 %spec.select69.i, -40
-  %.2.i = select i1 %26, i64 %28, i64 %spec.select69.i
+  %.4.i = select i1 %26, i64 %28, i64 %spec.select69.i
   %.1.i = select i1 %26, i32 %27, i32 %spec.select70.i
   %29 = getelementptr i8, ptr %.05775.i, i64 4
   store i32 %.1.i, ptr %.05775.i, align 4
   br label %30
 
 30:                                               ; preds = %23, %22
-  %.158.i = phi ptr [ %29, %23 ], [ %.05775.i, %22 ]
-  %.3.i = phi i64 [ %.2.i, %23 ], [ %21, %22 ]
-  %31 = icmp uge ptr %.158.i, %12
-  %32 = icmp ugt i64 %.3.i, 4294967295
+  %.259.i = phi ptr [ %29, %23 ], [ %.05775.i, %22 ]
+  %.2.i = phi i64 [ %.4.i, %23 ], [ %21, %22 ]
+  %31 = icmp uge ptr %.259.i, %12
+  %32 = icmp ugt i64 %.2.i, 4294967295
   %or.cond5.i = select i1 %31, i1 true, i1 %32
   br i1 %or.cond5.i, label %33, label %34
 
@@ -1242,15 +1242,15 @@ define ptr @oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef read
   br label %oid_encoded2subid_sub.exit
 
 34:                                               ; preds = %30
-  %35 = trunc nuw i64 %.3.i to i32
-  %36 = getelementptr i8, ptr %.158.i, i64 4
-  store i32 %35, ptr %.158.i, align 4
+  %35 = trunc nuw i64 %.2.i to i32
+  %36 = getelementptr i8, ptr %.259.i, i64 4
+  store i32 %35, ptr %.259.i, align 4
   br label %37
 
 37:                                               ; preds = %34, %.lr.ph78.i
-  %.259.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %36, %34 ]
-  %.256.i = phi i32 [ %.05476.i, %.lr.ph78.i ], [ 0, %34 ]
-  %.4.i = phi i64 [ %21, %.lr.ph78.i ], [ 0, %34 ]
+  %.158.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %36, %34 ]
+  %.155.i = phi i32 [ %.05476.i, %.lr.ph78.i ], [ 0, %34 ]
+  %.153.i = phi i64 [ %21, %.lr.ph78.i ], [ 0, %34 ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count.i
   br i1 %exitcond84.not.i, label %oid_encoded2subid_sub.exit, label %.lr.ph78.i, !llvm.loop !12
@@ -1317,7 +1317,7 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
 .lr.ph:                                           ; preds = %oid_get.exit, %34
   %.02572 = phi ptr [ %20, %34 ], [ %.021.lcssa.i, %oid_get.exit ]
   %.05871 = phi i32 [ %35, %34 ], [ %16, %oid_get.exit ]
-  %.170 = phi i32 [ %36, %34 ], [ %.020.lcssa.i, %oid_get.exit ]
+  %.05970 = phi i32 [ %36, %34 ], [ %.020.lcssa.i, %oid_get.exit ]
   %19 = getelementptr inbounds i8, ptr %.02572, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not33 = icmp eq ptr %20, null
@@ -1353,7 +1353,7 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
 
 34:                                               ; preds = %.lr.ph
   %35 = add i32 %.05871, 1
-  %36 = add i32 %.170, -1
+  %36 = add i32 %.05970, -1
   %37 = getelementptr inbounds i8, ptr %20, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not30 = icmp eq ptr %38, null
@@ -1361,7 +1361,7 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
 
 ._crit_edge:                                      ; preds = %34, %oid_get.exit
   %.025.lcssa = phi ptr [ %.021.lcssa.i, %oid_get.exit ], [ %20, %34 ]
-  %.1.lcssa = phi i32 [ %.020.lcssa.i, %oid_get.exit ], [ %36, %34 ]
+  %.059.lcssa = phi i32 [ %.020.lcssa.i, %oid_get.exit ], [ %36, %34 ]
   %.058.lcssa = phi i32 [ %16, %oid_get.exit ], [ %35, %34 ]
   %.lcssa = phi ptr [ %18, %oid_get.exit ], [ %38, %34 ]
   %39 = getelementptr inbounds i8, ptr %.025.lcssa, i64 8
@@ -1369,7 +1369,7 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
   br i1 %.not31, label %71, label %40
 
 40:                                               ; preds = %._crit_edge
-  %41 = icmp eq i32 %.1.lcssa, 0
+  %41 = icmp eq i32 %.059.lcssa, 0
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %40
@@ -1381,7 +1381,7 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
   br label %46
 
 46:                                               ; preds = %46, %44
-  %.015.i.i35 = phi i32 [ %.1.lcssa, %44 ], [ %49, %46 ]
+  %.015.i.i35 = phi i32 [ %.059.lcssa, %44 ], [ %49, %46 ]
   %.014.i.i36 = phi ptr [ %2, %44 ], [ %47, %46 ]
   %47 = getelementptr i8, ptr %.014.i.i36, i64 4
   %48 = load i32, ptr %.014.i.i36, align 4
@@ -1399,7 +1399,7 @@ oid_get.exit:                                     ; preds = %14, %.preheader.i, 
 
 oid_subid2string.exit39:                          ; preds = %42, %50
   %.0.i.i38 = phi ptr [ %43, %42 ], [ %53, %50 ]
-  %54 = zext i32 %.1.lcssa to i64
+  %54 = zext i32 %.059.lcssa to i64
   %55 = getelementptr i32, ptr %2, i64 %54
   %56 = icmp eq ptr %55, null
   br i1 %56, label %57, label %59
@@ -1485,8 +1485,8 @@ define ptr @rel_oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef 
 
 .lr.ph78.i:                                       ; preds = %25, %.lr.ph78.preheader.i
   %indvars.iv80.i = phi i64 [ 0, %.lr.ph78.preheader.i ], [ %indvars.iv.next81.i, %25 ]
-  %.05277.i = phi i64 [ 0, %.lr.ph78.preheader.i ], [ %.4.i, %25 ]
-  %.05775.i = phi ptr [ %10, %.lr.ph78.preheader.i ], [ %.259.i, %25 ]
+  %.05277.i = phi i64 [ 0, %.lr.ph78.preheader.i ], [ %.153.i, %25 ]
+  %.05775.i = phi ptr [ %10, %.lr.ph78.preheader.i ], [ %.158.i, %25 ]
   %12 = getelementptr i8, ptr %1, i64 %indvars.iv80.i
   %13 = load i8, ptr %12, align 1
   %14 = shl i64 %.05277.i, 7
@@ -1513,8 +1513,8 @@ define ptr @rel_oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef 
   br label %25
 
 25:                                               ; preds = %22, %.lr.ph78.i
-  %.259.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %24, %22 ]
-  %.4.i = phi i64 [ %17, %.lr.ph78.i ], [ 0, %22 ]
+  %.158.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %24, %22 ]
+  %.153.i = phi i64 [ %17, %.lr.ph78.i ], [ 0, %22 ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count83.i
   br i1 %exitcond84.not.i, label %oid_encoded2subid_sub.exit, label %.lr.ph78.i, !llvm.loop !12
@@ -1698,9 +1698,9 @@ define ptr @oid_encoded2string(ptr noundef %0, ptr nocapture noundef readonly %1
 
 .lr.ph78.i:                                       ; preds = %._crit_edge.i, %35
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %35 ], [ 0, %._crit_edge.i ]
-  %.05277.i = phi i64 [ %.4.i, %35 ], [ 0, %._crit_edge.i ]
-  %.05476.i = phi i32 [ %.256.i, %35 ], [ 1, %._crit_edge.i ]
-  %.05775.i = phi ptr [ %.259.i, %35 ], [ %11, %._crit_edge.i ]
+  %.05277.i = phi i64 [ %.153.i, %35 ], [ 0, %._crit_edge.i ]
+  %.05476.i = phi i32 [ %.155.i, %35 ], [ 1, %._crit_edge.i ]
+  %.05775.i = phi ptr [ %.158.i, %35 ], [ %11, %._crit_edge.i ]
   %15 = getelementptr i8, ptr %1, i64 %indvars.iv80.i
   %16 = load i8, ptr %15, align 1
   %17 = shl i64 %.05277.i, 7
@@ -1722,17 +1722,17 @@ define ptr @oid_encoded2string(ptr noundef %0, ptr nocapture noundef readonly %1
   %25 = icmp ugt i64 %spec.select69.i, 39
   %26 = select i1 %23, i32 2, i32 1
   %27 = add i64 %spec.select69.i, -40
-  %.2.i = select i1 %25, i64 %27, i64 %spec.select69.i
+  %.4.i = select i1 %25, i64 %27, i64 %spec.select69.i
   %.1.i = select i1 %25, i32 %26, i32 %spec.select70.i
   %28 = getelementptr i8, ptr %.05775.i, i64 4
   store i32 %.1.i, ptr %.05775.i, align 4
   br label %29
 
 29:                                               ; preds = %22, %21
-  %.158.i = phi ptr [ %28, %22 ], [ %.05775.i, %21 ]
-  %.3.i = phi i64 [ %.2.i, %22 ], [ %20, %21 ]
-  %30 = icmp uge ptr %.158.i, %12
-  %31 = icmp ugt i64 %.3.i, 4294967295
+  %.259.i = phi ptr [ %28, %22 ], [ %.05775.i, %21 ]
+  %.2.i = phi i64 [ %.4.i, %22 ], [ %20, %21 ]
+  %30 = icmp uge ptr %.259.i, %12
+  %31 = icmp ugt i64 %.2.i, 4294967295
   %or.cond5.i = select i1 %30, i1 true, i1 %31
   br i1 %or.cond5.i, label %oid_encoded2subid_sub.exit.thread, label %32
 
@@ -1741,15 +1741,15 @@ oid_encoded2subid_sub.exit.thread:                ; preds = %29
   br label %50
 
 32:                                               ; preds = %29
-  %33 = trunc nuw i64 %.3.i to i32
-  %34 = getelementptr i8, ptr %.158.i, i64 4
-  store i32 %33, ptr %.158.i, align 4
+  %33 = trunc nuw i64 %.2.i to i32
+  %34 = getelementptr i8, ptr %.259.i, i64 4
+  store i32 %33, ptr %.259.i, align 4
   br label %35
 
 35:                                               ; preds = %32, %.lr.ph78.i
-  %.259.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %34, %32 ]
-  %.256.i = phi i32 [ %.05476.i, %.lr.ph78.i ], [ 0, %32 ]
-  %.4.i = phi i64 [ %20, %.lr.ph78.i ], [ 0, %32 ]
+  %.158.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %34, %32 ]
+  %.155.i = phi i32 [ %.05476.i, %.lr.ph78.i ], [ 0, %32 ]
+  %.153.i = phi i64 [ %20, %.lr.ph78.i ], [ 0, %32 ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count.i
   br i1 %exitcond84.not.i, label %oid_encoded2subid_sub.exit, label %.lr.ph78.i, !llvm.loop !12
@@ -1838,8 +1838,8 @@ define ptr @rel_oid_encoded2string(ptr noundef %0, ptr nocapture noundef readonl
 
 .lr.ph78.i:                                       ; preds = %24, %.lr.ph78.preheader.i
   %indvars.iv80.i = phi i64 [ 0, %.lr.ph78.preheader.i ], [ %indvars.iv.next81.i, %24 ]
-  %.05277.i = phi i64 [ 0, %.lr.ph78.preheader.i ], [ %.4.i, %24 ]
-  %.05775.i = phi ptr [ %10, %.lr.ph78.preheader.i ], [ %.259.i, %24 ]
+  %.05277.i = phi i64 [ 0, %.lr.ph78.preheader.i ], [ %.153.i, %24 ]
+  %.05775.i = phi ptr [ %10, %.lr.ph78.preheader.i ], [ %.158.i, %24 ]
   %12 = getelementptr i8, ptr %1, i64 %indvars.iv80.i
   %13 = load i8, ptr %12, align 1
   %14 = shl i64 %.05277.i, 7
@@ -1866,8 +1866,8 @@ oid_encoded2subid_sub.exit.thread:                ; preds = %18
   br label %24
 
 24:                                               ; preds = %21, %.lr.ph78.i
-  %.259.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %23, %21 ]
-  %.4.i = phi i64 [ %17, %.lr.ph78.i ], [ 0, %21 ]
+  %.158.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %23, %21 ]
+  %.153.i = phi i64 [ %17, %.lr.ph78.i ], [ 0, %21 ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count83.i
   br i1 %exitcond84.not.i, label %oid_encoded2subid_sub.exit, label %.lr.ph78.i, !llvm.loop !12
@@ -2005,9 +2005,9 @@ define void @oid_both_from_encoded(ptr noundef %0, ptr nocapture noundef readonl
 
 .lr.ph78.i:                                       ; preds = %._crit_edge.i, %39
   %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %39 ], [ 0, %._crit_edge.i ]
-  %.05277.i = phi i64 [ %.4.i, %39 ], [ 0, %._crit_edge.i ]
-  %.05476.i = phi i32 [ %.256.i, %39 ], [ 1, %._crit_edge.i ]
-  %.05775.i = phi ptr [ %.259.i, %39 ], [ %13, %._crit_edge.i ]
+  %.05277.i = phi i64 [ %.153.i, %39 ], [ 0, %._crit_edge.i ]
+  %.05476.i = phi i32 [ %.155.i, %39 ], [ 1, %._crit_edge.i ]
+  %.05775.i = phi ptr [ %.158.i, %39 ], [ %13, %._crit_edge.i ]
   %18 = getelementptr i8, ptr %1, i64 %indvars.iv80.i
   %19 = load i8, ptr %18, align 1
   %20 = shl i64 %.05277.i, 7
@@ -2029,17 +2029,17 @@ define void @oid_both_from_encoded(ptr noundef %0, ptr nocapture noundef readonl
   %28 = icmp ugt i64 %spec.select69.i, 39
   %29 = select i1 %26, i32 2, i32 1
   %30 = add i64 %spec.select69.i, -40
-  %.2.i = select i1 %28, i64 %30, i64 %spec.select69.i
+  %.4.i = select i1 %28, i64 %30, i64 %spec.select69.i
   %.1.i = select i1 %28, i32 %29, i32 %spec.select70.i
   %31 = getelementptr i8, ptr %.05775.i, i64 4
   store i32 %.1.i, ptr %.05775.i, align 4
   br label %32
 
 32:                                               ; preds = %25, %24
-  %.158.i = phi ptr [ %31, %25 ], [ %.05775.i, %24 ]
-  %.3.i = phi i64 [ %.2.i, %25 ], [ %23, %24 ]
-  %33 = icmp uge ptr %.158.i, %14
-  %34 = icmp ugt i64 %.3.i, 4294967295
+  %.259.i = phi ptr [ %31, %25 ], [ %.05775.i, %24 ]
+  %.2.i = phi i64 [ %.4.i, %25 ], [ %23, %24 ]
+  %33 = icmp uge ptr %.259.i, %14
+  %34 = icmp ugt i64 %.2.i, 4294967295
   %or.cond5.i = select i1 %33, i1 true, i1 %34
   br i1 %or.cond5.i, label %35, label %36
 
@@ -2048,15 +2048,15 @@ define void @oid_both_from_encoded(ptr noundef %0, ptr nocapture noundef readonl
   br label %oid_encoded2subid_sub.exit
 
 36:                                               ; preds = %32
-  %37 = trunc nuw i64 %.3.i to i32
-  %38 = getelementptr i8, ptr %.158.i, i64 4
-  store i32 %37, ptr %.158.i, align 4
+  %37 = trunc nuw i64 %.2.i to i32
+  %38 = getelementptr i8, ptr %.259.i, i64 4
+  store i32 %37, ptr %.259.i, align 4
   br label %39
 
 39:                                               ; preds = %36, %.lr.ph78.i
-  %.259.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %38, %36 ]
-  %.256.i = phi i32 [ %.05476.i, %.lr.ph78.i ], [ 0, %36 ]
-  %.4.i = phi i64 [ %23, %.lr.ph78.i ], [ 0, %36 ]
+  %.158.i = phi ptr [ %.05775.i, %.lr.ph78.i ], [ %38, %36 ]
+  %.155.i = phi i32 [ %.05476.i, %.lr.ph78.i ], [ 0, %36 ]
+  %.153.i = phi i64 [ %23, %.lr.ph78.i ], [ 0, %36 ]
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count.i
   br i1 %exitcond84.not.i, label %oid_encoded2subid_sub.exit, label %.lr.ph78.i, !llvm.loop !12

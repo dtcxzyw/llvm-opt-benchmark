@@ -1993,8 +1993,8 @@ trymt:                                            ; preds = %if.else78, %if.then
 while.body:                                       ; preds = %if.then73, %trymt
   %30 = phi i64 [ %0, %trymt ], [ %.pre, %if.then73 ]
   %op.addr.0 = phi i32 [ %op, %trymt ], [ %xor74, %if.then73 ]
-  %o2.addr.0 = phi ptr [ %o2, %trymt ], [ %o1.addr.0, %if.then73 ]
-  %o1.addr.0 = phi ptr [ %o1, %trymt ], [ %o2.addr.0, %if.then73 ]
+  %o2.addr.1 = phi ptr [ %o2, %trymt ], [ %o1.addr.1, %if.then73 ]
+  %o1.addr.1 = phi ptr [ %o1, %trymt ], [ %o2.addr.1, %if.then73 ]
   %and59 = and i32 %op.addr.0, 2
   %tobool60.not = icmp eq i32 %and59, 0
   %cond61 = select i1 %tobool60.not, i32 6, i32 7
@@ -2057,7 +2057,7 @@ if.end32.i64:                                     ; preds = %if.then21.i55.if.en
 
 lj_meta_lookup.exit76:                            ; preds = %if.then21.i55, %if.end32.i64
   %retval.0.i63 = phi ptr [ %nilnode.i66, %if.end32.i64 ], [ %call.i61, %if.then21.i55 ]
-  %41 = load i64, ptr %o2.addr.0, align 8
+  %41 = load i64, ptr %o2.addr.1, align 8
   %shr.i77 = ashr i64 %41, 47
   switch i64 %shr.i77, label %if.else12.i100 [
     i64 -12, label %if.then.i97
@@ -2131,7 +2131,7 @@ if.then70:                                        ; preds = %lor.lhs.false67, %l
 
 if.then73:                                        ; preds = %if.then70
   %xor74 = xor i32 %op.addr.0, 3
-  %.pre = load i64, ptr %o2.addr.0, align 8
+  %.pre = load i64, ptr %o2.addr.1, align 8
   br label %while.body
 
 if.end76:                                         ; preds = %lor.lhs.false67
@@ -2172,10 +2172,10 @@ mmcall.exit122:                                   ; preds = %if.end76, %if.then.
   store i64 %62, ptr %incdec.ptr11.i113, align 8
   %incdec.ptr13.i115 = getelementptr inbounds i8, ptr %top.0.i111, i64 32
   store i64 -1, ptr %incdec.ptr12.i114, align 8
-  %63 = load i64, ptr %o1.addr.0, align 8
+  %63 = load i64, ptr %o1.addr.1, align 8
   store i64 %63, ptr %incdec.ptr13.i115, align 8
   %add.ptr14.i116 = getelementptr inbounds i8, ptr %top.0.i111, i64 40
-  %64 = load i64, ptr %o2.addr.0, align 8
+  %64 = load i64, ptr %o2.addr.1, align 8
   store i64 %64, ptr %add.ptr14.i116, align 8
   br label %return
 
@@ -2188,9 +2188,9 @@ if.else78:                                        ; preds = %if.else
   br i1 %or.cond123, label %trymt, label %err
 
 err:                                              ; preds = %if.then70, %if.else78, %lj_meta_lookup.exit
-  %o2.addr.1 = phi ptr [ %o2, %lj_meta_lookup.exit ], [ %o2, %if.else78 ], [ %o2.addr.0, %if.then70 ]
-  %o1.addr.1 = phi ptr [ %o1, %lj_meta_lookup.exit ], [ %o1, %if.else78 ], [ %o1.addr.0, %if.then70 ]
-  tail call void @lj_err_comp(ptr noundef %L, ptr noundef nonnull %o1.addr.1, ptr noundef %o2.addr.1) #6
+  %o2.addr.0 = phi ptr [ %o2, %lj_meta_lookup.exit ], [ %o2, %if.else78 ], [ %o2.addr.1, %if.then70 ]
+  %o1.addr.0 = phi ptr [ %o1, %lj_meta_lookup.exit ], [ %o1, %if.else78 ], [ %o1.addr.1, %if.then70 ]
+  tail call void @lj_err_comp(ptr noundef %L, ptr noundef nonnull %o1.addr.0, ptr noundef %o2.addr.0) #6
   unreachable
 
 return:                                           ; preds = %mmcall.exit122, %if.then36, %mmcall.exit

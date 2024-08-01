@@ -90,11 +90,11 @@ for.cond.preheader.i:                             ; preds = %if.else11.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %i.028.i = phi i64 [ %inc.i, %for.body.i ], [ 1, %for.cond.preheader.i ]
-  %pad.027.i = phi i32 [ %or.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
+  %pad.127.i = phi i32 [ %or.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
   %arrayidx17.i = getelementptr inbounds i8, ptr %0, i64 %i.028.i
   %4 = load i8, ptr %arrayidx17.i, align 1
   %conv18.i = zext i8 %4 to i32
-  %or.i = or i32 %pad.027.i, %conv18.i
+  %or.i = or i32 %pad.127.i, %conv18.i
   %inc.i = add nuw i64 %i.028.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %conv
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !4
@@ -104,20 +104,20 @@ for.end.loopexit.i:                               ; preds = %for.body.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.cond.preheader.i
-  %pad.0.lcssa.i = phi i1 [ false, %for.cond.preheader.i ], [ %5, %for.end.loopexit.i ]
-  %conv21.i = sext i1 %pad.0.lcssa.i to i8
+  %pad.1.lcssa.i = phi i1 [ false, %for.cond.preheader.i ], [ %5, %for.end.loopexit.i ]
+  %conv21.i = sext i1 %pad.1.lcssa.i to i8
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %for.end.i, %if.else11.i, %if.then7.i, %if.then.i
-  %pad.1.shrunk.i = phi i1 [ %pad.0.lcssa.i, %for.end.i ], [ false, %if.else11.i ], [ %cmp3.i, %if.then.i ], [ true, %if.then7.i ]
+  %pad.0.shrunk.i = phi i1 [ %pad.1.lcssa.i, %for.end.i ], [ false, %if.else11.i ], [ %cmp3.i, %if.then.i ], [ true, %if.then7.i ]
   %pb.0.i = phi i8 [ %conv21.i, %for.end.i ], [ -1, %if.else11.i ], [ 0, %if.then.i ], [ -1, %if.then7.i ]
-  %pad.1.i = zext i1 %pad.1.shrunk.i to i64
-  %add.i = add nsw i64 %pad.1.i, %conv
+  %pad.0.i = zext i1 %pad.0.shrunk.i to i64
+  %add.i = add nsw i64 %pad.0.i, %conv
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.end25.i, %entry
   %blen.addr.0.i = phi i64 [ %conv, %if.end25.i ], [ 0, %entry ]
-  %pad.2.i = phi i64 [ %pad.1.i, %if.end25.i ], [ 0, %entry ]
+  %pad.2.i = phi i64 [ %pad.0.i, %if.end25.i ], [ 0, %entry ]
   %ret.0.i = phi i64 [ %add.i, %if.end25.i ], [ 1, %entry ]
   %pb.1.i = phi i8 [ %pb.0.i, %if.end25.i ], [ 0, %entry ]
   %cmp29.i = icmp eq ptr %pp, null
@@ -301,11 +301,11 @@ if.end19:                                         ; preds = %if.end2
 
 for.body:                                         ; preds = %if.end19, %for.body
   %i.037 = phi i64 [ %inc, %for.body ], [ 1, %if.end19 ]
-  %pad.036 = phi i32 [ %or, %for.body ], [ 0, %if.end19 ]
+  %pad.136 = phi i32 [ %or, %for.body ], [ 0, %if.end19 ]
   %arrayidx33 = getelementptr inbounds i8, ptr %p, i64 %i.037
   %4 = load i8, ptr %arrayidx33, align 1
   %conv34 = zext i8 %4 to i32
-  %or = or i32 %pad.036, %conv34
+  %or = or i32 %pad.136, %conv34
   %inc = add nuw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc, %plen
   br i1 %exitcond.not, label %if.end38, label %for.body, !llvm.loop !7
@@ -328,8 +328,8 @@ if.then45:                                        ; preds = %land.lhs.true
   br label %return
 
 if.end46:                                         ; preds = %if.end19, %land.lhs.true, %if.end38
-  %pad.130.neg = phi i64 [ -1, %land.lhs.true ], [ 0, %if.end38 ], [ 0, %if.end19 ]
-  %sub = add i64 %pad.130.neg, %plen
+  %pad.030.neg = phi i64 [ -1, %land.lhs.true ], [ 0, %if.end38 ], [ 0, %if.end19 ]
+  %sub = add i64 %pad.030.neg, %plen
   %cmp48.not = icmp eq ptr %b, null
   br i1 %cmp48.not, label %return, label %if.then50
 
@@ -1227,11 +1227,11 @@ for.cond.preheader.i:                             ; preds = %if.else11.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %i.028.i = phi i64 [ %inc.i, %for.body.i ], [ 1, %for.cond.preheader.i ]
-  %pad.027.i = phi i32 [ %or.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
+  %pad.127.i = phi i32 [ %or.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
   %arrayidx17.i = getelementptr inbounds i8, ptr %arrayidx.i.le, i64 %i.028.i
   %0 = load i8, ptr %arrayidx17.i, align 1
   %conv18.i = zext i8 %0 to i32
-  %or.i = or i32 %pad.027.i, %conv18.i
+  %or.i = or i32 %pad.127.i, %conv18.i
   %inc.i = add nuw nsw i64 %i.028.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %sub
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !4
@@ -1241,15 +1241,15 @@ for.end.loopexit.i:                               ; preds = %for.body.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.cond.preheader.i
-  %pad.0.lcssa.i = phi i1 [ false, %for.cond.preheader.i ], [ %1, %for.end.loopexit.i ]
-  %conv21.i = sext i1 %pad.0.lcssa.i to i8
+  %pad.1.lcssa.i = phi i1 [ false, %for.cond.preheader.i ], [ %1, %for.end.loopexit.i ]
+  %conv21.i = sext i1 %pad.1.lcssa.i to i8
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.then.i, %if.then7.i, %if.else11.i, %for.end.i
-  %pad.1.shrunk.i = phi i1 [ %pad.0.lcssa.i, %for.end.i ], [ false, %if.else11.i ], [ %cmp3.i, %if.then.i ], [ true, %if.then7.i ]
+  %pad.0.shrunk.i = phi i1 [ %pad.1.lcssa.i, %for.end.i ], [ false, %if.else11.i ], [ %cmp3.i, %if.then.i ], [ true, %if.then7.i ]
   %pb.0.i = phi i8 [ %conv21.i, %for.end.i ], [ -1, %if.else11.i ], [ 0, %if.then.i ], [ -1, %if.then7.i ]
-  %pad.1.i = zext i1 %pad.1.shrunk.i to i64
-  %add.i = add i64 %sub, %pad.1.i
+  %pad.0.i = zext i1 %pad.0.shrunk.i to i64
+  %add.i = add i64 %sub, %pad.0.i
   %cmp31.i = icmp eq ptr %p, null
   br i1 %cmp31.i, label %i2c_ibuf.exit, label %if.end34.i
 
@@ -1263,7 +1263,7 @@ if.end34.i.thread:                                ; preds = %if.end28.i.thread
 
 if.end34.i:                                       ; preds = %if.end28.i
   store i8 %pb.0.i, ptr %p, align 1
-  %add.ptr.i = getelementptr inbounds i8, ptr %p, i64 %pad.1.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %p, i64 %pad.0.i
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %buf, i64 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub
   %2 = and i8 %pb.0.i, 1

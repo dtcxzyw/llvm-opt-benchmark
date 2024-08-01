@@ -91,16 +91,16 @@ Abc_Clock.exit:                                   ; preds = %14, %20
   br label %38
 
 38:                                               ; preds = %35, %32
-  %.0 = phi ptr [ %34, %32 ], [ %37, %35 ]
+  %.1 = phi ptr [ %34, %32 ], [ %37, %35 ]
   %39 = call ptr (...) @Abc_FrameReadLibGen() #13
   %.not92 = icmp eq ptr %39, null
   br i1 %.not92, label %43, label %40
 
 40:                                               ; preds = %38
   %41 = call ptr (...) @Abc_FrameReadLibGen() #13
-  call void @Mio_LibraryTransferDelays(ptr noundef %41, ptr noundef %.0) #13
+  call void @Mio_LibraryTransferDelays(ptr noundef %41, ptr noundef %.1) #13
   %42 = call ptr (...) @Abc_FrameReadLibGen() #13
-  call void @Mio_LibraryTransferProfile(ptr noundef %.0, ptr noundef %42) #13
+  call void @Mio_LibraryTransferProfile(ptr noundef %.1, ptr noundef %42) #13
   br label %43
 
 43:                                               ; preds = %40, %38
@@ -110,8 +110,8 @@ Abc_Clock.exit:                                   ; preds = %14, %20
   br label %45
 
 45:                                               ; preds = %43, %26, %Abc_Clock.exit
-  %.1 = phi ptr [ %.0, %43 ], [ %24, %26 ], [ %24, %Abc_Clock.exit ]
-  %46 = icmp eq ptr %.1, null
+  %.0 = phi ptr [ %.1, %43 ], [ %24, %26 ], [ %24, %Abc_Clock.exit ]
+  %46 = icmp eq ptr %.0, null
   br i1 %46, label %47, label %48
 
 47:                                               ; preds = %45
@@ -140,14 +140,14 @@ Abc_Clock.exit:                                   ; preds = %14, %20
   br i1 %49, label %57, label %58
 
 57:                                               ; preds = %56
-  call void @Mio_LibraryMultiArea(ptr noundef nonnull %.1, double noundef %2) #13
+  call void @Mio_LibraryMultiArea(ptr noundef nonnull %.0, double noundef %2) #13
   br label %58
 
 58:                                               ; preds = %57, %56
   br i1 %53, label %59, label %60
 
 59:                                               ; preds = %58
-  call void @Mio_LibraryMultiDelay(ptr noundef nonnull %.1, double noundef %3) #13
+  call void @Mio_LibraryMultiDelay(ptr noundef nonnull %.0, double noundef %3) #13
   br label %60
 
 60:                                               ; preds = %59, %58
@@ -164,14 +164,14 @@ Abc_Clock.exit:                                   ; preds = %14, %20
   br i1 %.not93, label %70, label %65
 
 65:                                               ; preds = %64
-  %66 = call ptr @Mio_LibraryReadName(ptr noundef nonnull %.1) #13
-  %67 = call ptr @Mio_LibraryReadName(ptr noundef nonnull %.1) #13
+  %66 = call ptr @Mio_LibraryReadName(ptr noundef nonnull %.0) #13
+  %67 = call ptr @Mio_LibraryReadName(ptr noundef nonnull %.0) #13
   %68 = call ptr @Extra_FileNameGenericAppend(ptr noundef %67, ptr noundef nonnull @.str.4) #13
   %69 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %66, ptr noundef %68)
   br label %70
 
 70:                                               ; preds = %65, %64
-  %71 = call i32 @Mio_LibraryHasProfile(ptr noundef nonnull %.1) #13
+  %71 = call i32 @Mio_LibraryHasProfile(ptr noundef nonnull %.0) #13
   %.not94 = icmp eq i32 %71, 0
   br i1 %.not94, label %73, label %72
 
@@ -180,7 +180,7 @@ Abc_Clock.exit:                                   ; preds = %14, %20
   br label %73
 
 73:                                               ; preds = %72, %70
-  %74 = call i32 @Map_SuperLibDeriveFromGenlib(ptr noundef nonnull %.1, i32 noundef %13) #13
+  %74 = call i32 @Map_SuperLibDeriveFromGenlib(ptr noundef nonnull %.0, i32 noundef %13) #13
   br label %75
 
 75:                                               ; preds = %73, %61
@@ -276,13 +276,13 @@ Abc_Clock.exit107:                                ; preds = %95
   %109 = or i1 %108, %107
   %110 = zext i1 %109 to i32
   %111 = call ptr @Abc_NtkFromMap(ptr noundef nonnull %91, ptr noundef %0, i32 noundef %110)
-  %112 = call i32 @Mio_LibraryHasProfile(ptr noundef nonnull %.1) #13
+  %112 = call i32 @Mio_LibraryHasProfile(ptr noundef nonnull %.0) #13
   %.not101 = icmp eq i32 %112, 0
   br i1 %.not101, label %115, label %113
 
 113:                                              ; preds = %106
   %114 = call ptr (...) @Abc_FrameReadLibGen() #13
-  call void @Mio_LibraryTransferProfile2(ptr noundef %114, ptr noundef nonnull %.1) #13
+  call void @Mio_LibraryTransferProfile2(ptr noundef %114, ptr noundef nonnull %.0) #13
   br label %115
 
 115:                                              ; preds = %113, %106

@@ -746,7 +746,7 @@ JsonbIteratorInit.exit26:                         ; preds = %44, %54
   %.not21 = icmp eq i8 %107, 0
   %108 = trunc i8 %104 to i1
   %109 = select i1 %108, i32 -1, i32 1
-  %.1 = select i1 %.not21, i32 0, i32 %109
+  %.3 = select i1 %.not21, i32 0, i32 %109
   %110 = load i32, ptr %63, align 8
   %111 = load i32, ptr %64, align 8
   %.not22 = icmp eq i32 %110, %111
@@ -795,12 +795,12 @@ JsonbIteratorInit.exit26:                         ; preds = %44, %54
   br label %compareJsonbScalarValue.exit.thread
 
 compareJsonbScalarValue.exit:                     ; preds = %81, %95, %88, %82, %103, %115, %75
-  %.2 = phi i32 [ 0, %75 ], [ 0, %115 ], [ %.1, %103 ], [ %94, %88 ], [ %87, %82 ], [ 0, %95 ], [ 0, %81 ]
+  %.2 = phi i32 [ 0, %75 ], [ 0, %115 ], [ %.3, %103 ], [ %94, %88 ], [ %87, %82 ], [ 0, %95 ], [ 0, %81 ]
   %135 = icmp eq i32 %.2, 0
   br i1 %135, label %69, label %compareJsonbScalarValue.exit.thread, !llvm.loop !10
 
 compareJsonbScalarValue.exit.thread:              ; preds = %73, %compareJsonbScalarValue.exit, %101, %130, %127, %112, %118
-  %.3 = phi i32 [ %..i, %101 ], [ %134, %130 ], [ %129, %127 ], [ %114, %112 ], [ %120, %118 ], [ %.2, %compareJsonbScalarValue.exit ], [ 0, %73 ]
+  %.1 = phi i32 [ %..i, %101 ], [ %134, %130 ], [ %129, %127 ], [ %114, %112 ], [ %120, %118 ], [ %.2, %compareJsonbScalarValue.exit ], [ 0, %73 ]
   %.pr = load ptr, ptr %3, align 8
   %.not2347 = icmp eq ptr %.pr, null
   br i1 %.not2347, label %thread-pre-split, label %.lr.ph
@@ -827,7 +827,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %compareJso
   br i1 %.not24, label %._crit_edge, label %.lr.ph51, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph51, %thread-pre-split
-  ret i32 %.3
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2393,8 +2393,8 @@ JsonbIteratorInit.exit62:                         ; preds = %76, %86
   br label %113
 
 113:                                              ; preds = %.lr.ph83, %206
-  %.04681 = phi i32 [ %101, %.lr.ph83 ], [ %.2, %206 ]
-  %.04880 = phi ptr [ null, %.lr.ph83 ], [ %.250, %206 ]
+  %.04681 = phi i32 [ %101, %.lr.ph83 ], [ %.147, %206 ]
+  %.04880 = phi ptr [ null, %.lr.ph83 ], [ %.149, %206 ]
   %114 = load i32, ptr %4, align 8
   switch i32 %114, label %119 [
     i32 32, label %115
@@ -2452,16 +2452,16 @@ JsonbIteratorInit.exit62:                         ; preds = %76, %86
   br i1 %.not101, label %._crit_edge76, label %.lr.ph75
 
 .lr.ph75:                                         ; preds = %._crit_edge, %135
-  %.147112 = phi i32 [ %.04681, %135 ], [ %.1, %._crit_edge ]
-  %.149110 = phi ptr [ %.04880, %135 ], [ %124, %._crit_edge ]
+  %.2112 = phi i32 [ %.04681, %135 ], [ %.1, %._crit_edge ]
+  %.250110 = phi ptr [ %.04880, %135 ], [ %124, %._crit_edge ]
   %136 = load ptr, ptr %112, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 4
-  %wide.trip.count = zext i32 %.147112 to i64
+  %wide.trip.count = zext i32 %.2112 to i64
   br label %138
 
 138:                                              ; preds = %.lr.ph75, %203
   %indvars.iv = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next, %203 ]
-  %139 = getelementptr %struct.JsonbValue, ptr %.149110, i64 %indvars.iv, i32 1, i32 0, i32 1
+  %139 = getelementptr %struct.JsonbValue, ptr %.250110, i64 %indvars.iv, i32 1, i32 0, i32 1
   %140 = load ptr, ptr %139, align 8
   %141 = tail call ptr @palloc0(i64 noundef 56) #13
   store ptr %140, ptr %141, align 8
@@ -2597,15 +2597,15 @@ JsonbIteratorInit.exit66:                         ; preds = %177, %187
   br label %._crit_edge76
 
 ._crit_edge76:                                    ; preds = %._crit_edge76.loopexit, %135
-  %.147113 = phi i32 [ 0, %135 ], [ %.147112, %._crit_edge76.loopexit ]
-  %.149111 = phi ptr [ %.04880, %135 ], [ %.149110, %._crit_edge76.loopexit ]
+  %.2113 = phi i32 [ 0, %135 ], [ %.2112, %._crit_edge76.loopexit ]
+  %.250111 = phi ptr [ %.04880, %135 ], [ %.250110, %._crit_edge76.loopexit ]
   %.145.lcssa = phi i32 [ 0, %135 ], [ %204, %._crit_edge76.loopexit ]
-  %205 = icmp eq i32 %.145.lcssa, %.147113
+  %205 = icmp eq i32 %.145.lcssa, %.2113
   br i1 %205, label %.loopexit, label %206
 
 206:                                              ; preds = %._crit_edge76, %115
-  %.250 = phi ptr [ %.04880, %115 ], [ %.149111, %._crit_edge76 ]
-  %.2 = phi i32 [ %.04681, %115 ], [ %.147113, %._crit_edge76 ]
+  %.149 = phi ptr [ %.04880, %115 ], [ %.250111, %._crit_edge76 ]
+  %.147 = phi i32 [ %.04681, %115 ], [ %.2113, %._crit_edge76 ]
   %207 = call i32 @JsonbIteratorNext(ptr noundef %1, ptr noundef nonnull %4, i1 noundef zeroext true)
   %208 = icmp eq i32 %207, 5
   br i1 %208, label %.loopexit, label %113

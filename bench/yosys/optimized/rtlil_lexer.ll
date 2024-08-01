@@ -639,8 +639,8 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
 
 220:                                              ; preds = %216, %210
   %221 = phi i8 [ %219, %216 ], [ %narrow, %210 ]
-  %.198 = phi i32 [ %211, %216 ], [ %202, %210 ]
-  %222 = add nsw i32 %.198, 1
+  %.299 = phi i32 [ %211, %216 ], [ %202, %210 ]
+  %222 = add nsw i32 %.299, 1
   %223 = sext i32 %222 to i64
   %224 = getelementptr inbounds i8, ptr %193, i64 %223
   %225 = load i8, ptr %224, align 1
@@ -649,7 +649,7 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
   br i1 %or.cond137, label %227, label %._crit_edge297
 
 ._crit_edge297:                                   ; preds = %220
-  %.pre298 = sext i32 %.198 to i64
+  %.pre298 = sext i32 %.299 to i64
   br label %231
 
 227:                                              ; preds = %220
@@ -661,8 +661,8 @@ _Z31rtlil_frontend_yy_create_bufferP8_IO_FILEi.exit: ; preds = %37
 
 231:                                              ; preds = %._crit_edge297, %201, %197, %206, %208, %227, %207
   %.pre-phi = phi i64 [ %.pre298, %._crit_edge297 ], [ %198, %201 ], [ %198, %197 ], [ %203, %206 ], [ %203, %208 ], [ %223, %227 ], [ %203, %207 ]
-  %.299 = phi i32 [ %.198, %._crit_edge297 ], [ %.097, %201 ], [ %.097, %197 ], [ %202, %206 ], [ %202, %208 ], [ %222, %227 ], [ %202, %207 ]
-  %232 = add nsw i32 %.299, 1
+  %.198 = phi i32 [ %.299, %._crit_edge297 ], [ %.097, %201 ], [ %.097, %197 ], [ %202, %206 ], [ %202, %208 ], [ %222, %227 ], [ %202, %207 ]
+  %232 = add nsw i32 %.198, 1
   %233 = getelementptr inbounds i8, ptr %193, i64 %.pre-phi
   %234 = load i8, ptr %233, align 1
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1

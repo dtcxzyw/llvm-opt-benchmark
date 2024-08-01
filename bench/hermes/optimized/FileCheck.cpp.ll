@@ -939,7 +939,7 @@ entry:
 while.cond:                                       ; preds = %if.end23, %entry
   %Str.sroa.0.0 = phi ptr [ %Str.coerce0, %entry ], [ %Str.sroa.0.1, %if.end23 ]
   %Str.sroa.9.0 = phi i64 [ %Str.coerce1, %entry ], [ %Str.sroa.9.1, %if.end23 ]
-  %BracketDepth.0 = phi i64 [ 0, %entry ], [ %BracketDepth.2, %if.end23 ]
+  %BracketDepth.0 = phi i64 [ 0, %entry ], [ %BracketDepth.1, %if.end23 ]
   %Offset.0 = phi i64 [ 0, %entry ], [ %inc22, %if.end23 ]
   switch i64 %Str.sroa.9.0, label %if.end.i [
     i64 0, label %return
@@ -991,7 +991,7 @@ if.end19:                                         ; preds = %sw.bb9
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end, %if.end19, %sw.bb
-  %BracketDepth.1 = phi i64 [ %dec, %if.end19 ], [ %inc, %sw.bb ], [ %BracketDepth.0, %if.end ]
+  %BracketDepth.2 = phi i64 [ %dec, %if.end19 ], [ %inc, %sw.bb ], [ %BracketDepth.0, %if.end ]
   %add.ptr.i = getelementptr inbounds i8, ptr %Str.sroa.0.0, i64 1
   %sub.i = add i64 %Str.sroa.9.0, -1
   br label %if.end23
@@ -1000,7 +1000,7 @@ if.end23:                                         ; preds = %sw.epilog, %if.then
   %.sink = phi i64 [ 1, %sw.epilog ], [ 2, %if.then5 ]
   %Str.sroa.0.1 = phi ptr [ %add.ptr.i, %sw.epilog ], [ %add.ptr.i37, %if.then5 ]
   %Str.sroa.9.1 = phi i64 [ %sub.i, %sw.epilog ], [ %sub.i39, %if.then5 ]
-  %BracketDepth.2 = phi i64 [ %BracketDepth.1, %sw.epilog ], [ %BracketDepth.0, %if.then5 ]
+  %BracketDepth.1 = phi i64 [ %BracketDepth.2, %sw.epilog ], [ %BracketDepth.0, %if.then5 ]
   %inc22 = add i64 %Offset.0, %.sink
   br label %while.cond, !llvm.loop !31
 
@@ -1316,10 +1316,10 @@ _ZNK4llvh9StringRef12getAsIntegerIiEENSt9enable_ifIXsr3std14numeric_limitsIT_EE9
   br label %if.end20
 
 if.end20:                                         ; preds = %_ZNK4llvh9StringRef12getAsIntegerIiEENSt9enable_ifIXsr3std14numeric_limitsIT_EE9is_signedEbE4typeEjRS3_.exit, %_ZN4llvh9StringRefC2EPKc.exit55
-  %Offset.1 = phi i32 [ 0, %_ZN4llvh9StringRefC2EPKc.exit55 ], [ %conv.i, %_ZNK4llvh9StringRef12getAsIntegerIiEENSt9enable_ifIXsr3std14numeric_limitsIT_EE9is_signedEbE4typeEjRS3_.exit ]
+  %Offset.0 = phi i32 [ 0, %_ZN4llvh9StringRefC2EPKc.exit55 ], [ %conv.i, %_ZNK4llvh9StringRef12getAsIntegerIiEENSt9enable_ifIXsr3std14numeric_limitsIT_EE9is_signedEbE4typeEjRS3_.exit ]
   %LineNumber = getelementptr inbounds i8, ptr %this, i64 132
   %4 = load i32, ptr %LineNumber, align 4
-  %add = add i32 %4, %Offset.1
+  %add = add i32 %4, %Offset.0
   %conv22 = zext i32 %add to i64
   call void @_ZN4llvh6itostrB5cxx11El(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp21, i64 noundef %conv22)
   %call23 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Value, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21) #17
@@ -1610,7 +1610,7 @@ for.end96:                                        ; preds = %for.end96.loopexit,
 
 cleanup104:                                       ; preds = %if.end72, %for.end96
   %20 = phi ptr [ %.pre, %for.end96 ], [ %.pre41, %if.end72 ]
-  %retval.2 = phi i64 [ %add103, %for.end96 ], [ -1, %if.end72 ]
+  %retval.4 = phi i64 [ %add103, %for.end96 ], [ -1, %if.end72 ]
   %cmp.i.i.i = icmp eq ptr %20, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %cleanup105, label %if.then.i.i
 
@@ -1619,13 +1619,13 @@ if.then.i.i:                                      ; preds = %cleanup104
   br label %cleanup105
 
 cleanup105:                                       ; preds = %if.then.i.i, %cleanup104, %cleanup.thread
-  %retval.3 = phi i64 [ -1, %cleanup.thread ], [ %retval.2, %cleanup104 ], [ %retval.2, %if.then.i.i ]
+  %retval.3 = phi i64 [ -1, %cleanup.thread ], [ %retval.4, %cleanup104 ], [ %retval.4, %if.then.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %TmpStr) #17
   br label %return
 
 return:                                           ; preds = %cleanup105, %if.then3, %if.then
-  %retval.4 = phi i64 [ %Buffer.coerce1, %if.then ], [ %retval.3, %cleanup105 ], [ %call7, %if.then3 ]
-  ret i64 %retval.4
+  %retval.0 = phi i64 [ %Buffer.coerce1, %if.then ], [ %retval.3, %cleanup105 ], [ %call7, %if.then3 ]
+  ret i64 %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
@@ -2229,7 +2229,7 @@ _ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit35: ; preds = %if.end
 
 land.rhs:                                         ; preds = %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit35, %while.body
   %add.ptr1749 = phi ptr [ %add.ptr17, %while.body ], [ %add.ptr1746, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit35 ]
-  %Ptr.148 = phi ptr [ %add.ptr1749, %while.body ], [ %Ptr.052, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit35 ]
+  %Ptr.248 = phi ptr [ %add.ptr1749, %while.body ], [ %Ptr.052, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit35 ]
   %20 = load i8, ptr %add.ptr1749, align 1
   switch i8 %20, label %for.inc [
     i8 32, label %while.body
@@ -2242,8 +2242,8 @@ while.body:                                       ; preds = %land.rhs, %land.rhs
   br i1 %cmp18.not, label %for.inc, label %land.rhs, !llvm.loop !60
 
 for.inc:                                          ; preds = %while.body, %land.rhs, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit35, %land.lhs.true6, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit
-  %Ptr.2 = phi ptr [ %Ptr.052, %land.lhs.true6 ], [ %Ptr.052, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %Ptr.052, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit35 ], [ %add.ptr1749, %while.body ], [ %Ptr.148, %land.rhs ]
-  %incdec.ptr25 = getelementptr inbounds i8, ptr %Ptr.2, i64 1
+  %Ptr.1 = phi ptr [ %Ptr.052, %land.lhs.true6 ], [ %Ptr.052, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit ], [ %Ptr.052, %_ZN4llvh23SmallVectorTemplateBaseIcLb1EE9push_backERKc.exit35 ], [ %add.ptr1749, %while.body ], [ %Ptr.248, %land.rhs ]
+  %incdec.ptr25 = getelementptr inbounds i8, ptr %Ptr.1, i64 1
   %cmp.not = icmp eq ptr %incdec.ptr25, %3
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !61
 
@@ -2666,13 +2666,13 @@ _ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheck
 
 while.body.preheader.i:                           ; preds = %while.body.preheader.i.lr.ph, %while.cond.backedge
   %38 = phi i64 [ %35, %while.body.preheader.i.lr.ph ], [ %85, %while.cond.backedge ]
-  %LineNumber.0588 = phi i32 [ 1, %while.body.preheader.i.lr.ph ], [ %LineNumber.4, %while.cond.backedge ]
-  %CheckTy.0587 = phi i32 [ undef, %while.body.preheader.i.lr.ph ], [ %CheckTy.3, %while.cond.backedge ]
+  %LineNumber.0588 = phi i32 [ 1, %while.body.preheader.i.lr.ph ], [ %LineNumber.2, %while.cond.backedge ]
+  %CheckTy.0587 = phi i32 [ undef, %while.body.preheader.i.lr.ph ], [ %CheckTy.2, %while.cond.backedge ]
   %agg.tmp.sroa.0.0.copyload.pre.i = load ptr, ptr %Buffer, align 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZL8SkipWordN4llvh9StringRefEm.exit.i, %while.body.preheader.i
-  %CheckTy.1 = phi i32 [ %CheckTy.0587, %while.body.preheader.i ], [ %CheckTy.2, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ]
+  %CheckTy.1 = phi i32 [ %CheckTy.0587, %while.body.preheader.i ], [ %CheckTy.3, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ]
   %LineNumber.1 = phi i32 [ %LineNumber.0588, %while.body.preheader.i ], [ %LineNumber.3, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ]
   %agg.tmp.sroa.0.0.copyload.i = phi ptr [ %agg.tmp.sroa.0.0.copyload.pre.i, %while.body.preheader.i ], [ %add.ptr.i.i.i93, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ]
   %39 = phi i64 [ %38, %while.body.preheader.i ], [ %sub.i.i.i, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ]
@@ -2727,7 +2727,7 @@ switch.early.test.i:                              ; preds = %lor.lhs.false.i
   ]
 
 if.then12.i:                                      ; preds = %switch.early.test.i, %if.end.i
-  %LineNumber.2 = phi i32 [ %LineNumber.1, %if.end.i ], [ %conv8.i, %switch.early.test.i ]
+  %LineNumber.4 = phi i32 [ %LineNumber.1, %if.end.i ], [ %conv8.i, %switch.early.test.i ]
   %cmp.not.i54.i = icmp ugt i64 %sub.i.i65.i, %retval.sroa.7.0.copyload.i
   br i1 %cmp.not.i54.i, label %if.end.i.i, label %if.end18.i
 
@@ -2837,8 +2837,8 @@ if.end.i467.i.i:                                  ; preds = %if.end.i458.i.i
   br i1 %48, label %cleanup.i, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then12.i, %if.end.i.i, %_ZN4llvh9StringRefC2EPKc.exit91.i.i, %_ZN4llvh9StringRefC2EPKc.exit111.i.i, %_ZN4llvh9StringRefC2EPKc.exit131.i.i, %_ZN4llvh9StringRefC2EPKc.exit151.i.i, %_ZN4llvh9StringRefC2EPKc.exit191.i.i, %if.end.i467.i.i, %switch.early.test.i, %switch.early.test.i, %lor.lhs.false.i
-  %CheckTy.2 = phi i32 [ %CheckTy.1, %switch.early.test.i ], [ %CheckTy.1, %switch.early.test.i ], [ %CheckTy.1, %lor.lhs.false.i ], [ 0, %if.end.i467.i.i ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit191.i.i ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit151.i.i ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit131.i.i ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit111.i.i ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit91.i.i ], [ 0, %if.end.i.i ], [ 0, %if.then12.i ]
-  %LineNumber.3 = phi i32 [ %conv8.i, %switch.early.test.i ], [ %conv8.i, %switch.early.test.i ], [ %conv8.i, %lor.lhs.false.i ], [ %LineNumber.2, %if.end.i467.i.i ], [ %LineNumber.2, %_ZN4llvh9StringRefC2EPKc.exit191.i.i ], [ %LineNumber.2, %_ZN4llvh9StringRefC2EPKc.exit151.i.i ], [ %LineNumber.2, %_ZN4llvh9StringRefC2EPKc.exit131.i.i ], [ %LineNumber.2, %_ZN4llvh9StringRefC2EPKc.exit111.i.i ], [ %LineNumber.2, %_ZN4llvh9StringRefC2EPKc.exit91.i.i ], [ %LineNumber.2, %if.end.i.i ], [ %LineNumber.2, %if.then12.i ]
+  %CheckTy.3 = phi i32 [ %CheckTy.1, %switch.early.test.i ], [ %CheckTy.1, %switch.early.test.i ], [ %CheckTy.1, %lor.lhs.false.i ], [ 0, %if.end.i467.i.i ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit191.i.i ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit151.i.i ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit131.i.i ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit111.i.i ], [ 0, %_ZN4llvh9StringRefC2EPKc.exit91.i.i ], [ 0, %if.end.i.i ], [ 0, %if.then12.i ]
+  %LineNumber.3 = phi i32 [ %conv8.i, %switch.early.test.i ], [ %conv8.i, %switch.early.test.i ], [ %conv8.i, %lor.lhs.false.i ], [ %LineNumber.4, %if.end.i467.i.i ], [ %LineNumber.4, %_ZN4llvh9StringRefC2EPKc.exit191.i.i ], [ %LineNumber.4, %_ZN4llvh9StringRefC2EPKc.exit151.i.i ], [ %LineNumber.4, %_ZN4llvh9StringRefC2EPKc.exit131.i.i ], [ %LineNumber.4, %_ZN4llvh9StringRefC2EPKc.exit111.i.i ], [ %LineNumber.4, %_ZN4llvh9StringRefC2EPKc.exit91.i.i ], [ %LineNumber.4, %if.end.i.i ], [ %LineNumber.4, %if.then12.i ]
   %cmp4.i.i = icmp ult i64 %retval.sroa.7.0.copyload.i, %sub.i.i65.i
   br i1 %cmp4.i.i, label %land.rhs.i.i, label %_ZL8SkipWordN4llvh9StringRefEm.exit.i
 
@@ -2874,8 +2874,8 @@ _ZL8SkipWordN4llvh9StringRefEm.exit.i:            ; preds = %while.body.i.i, %sw
   br i1 %cmp.i31.not.i, label %cleanup.i, label %while.body.i, !llvm.loop !68
 
 cleanup.i:                                        ; preds = %if.end.i.i, %if.end.i.i.i, %if.end.i359.i.i, %if.end.i368.i.i, %if.end.i377.i.i, %if.end.i386.i.i, %if.end.i395.i.i, %if.end.i404.i.i, %if.end.i413.i.i, %if.end.i422.i.i, %if.end.i431.i.i, %if.end.i440.i.i, %if.end.i449.i.i, %if.end.i458.i.i, %if.end.i467.i.i, %_ZL8SkipWordN4llvh9StringRefEm.exit.i, %while.body.i
-  %CheckTy.3 = phi i32 [ %CheckTy.2, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ %CheckTy.1, %while.body.i ], [ 9, %if.end.i404.i.i ], [ 9, %if.end.i413.i.i ], [ 9, %if.end.i422.i.i ], [ 9, %if.end.i431.i.i ], [ 9, %if.end.i440.i.i ], [ 9, %if.end.i449.i.i ], [ 9, %if.end.i458.i.i ], [ 9, %if.end.i467.i.i ], [ 7, %if.end.i395.i.i ], [ 6, %if.end.i386.i.i ], [ 5, %if.end.i377.i.i ], [ 4, %if.end.i368.i.i ], [ 3, %if.end.i359.i.i ], [ 2, %if.end.i.i.i ], [ 1, %if.end.i.i ]
-  %LineNumber.4 = phi i32 [ %LineNumber.3, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ %LineNumber.1, %while.body.i ], [ %LineNumber.2, %if.end.i404.i.i ], [ %LineNumber.2, %if.end.i413.i.i ], [ %LineNumber.2, %if.end.i422.i.i ], [ %LineNumber.2, %if.end.i431.i.i ], [ %LineNumber.2, %if.end.i440.i.i ], [ %LineNumber.2, %if.end.i449.i.i ], [ %LineNumber.2, %if.end.i458.i.i ], [ %LineNumber.2, %if.end.i467.i.i ], [ %LineNumber.2, %if.end.i395.i.i ], [ %LineNumber.2, %if.end.i386.i.i ], [ %LineNumber.2, %if.end.i377.i.i ], [ %LineNumber.2, %if.end.i368.i.i ], [ %LineNumber.2, %if.end.i359.i.i ], [ %LineNumber.2, %if.end.i.i.i ], [ %LineNumber.2, %if.end.i.i ]
+  %CheckTy.2 = phi i32 [ %CheckTy.3, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ %CheckTy.1, %while.body.i ], [ 9, %if.end.i404.i.i ], [ 9, %if.end.i413.i.i ], [ 9, %if.end.i422.i.i ], [ 9, %if.end.i431.i.i ], [ 9, %if.end.i440.i.i ], [ 9, %if.end.i449.i.i ], [ 9, %if.end.i458.i.i ], [ 9, %if.end.i467.i.i ], [ 7, %if.end.i395.i.i ], [ 6, %if.end.i386.i.i ], [ 5, %if.end.i377.i.i ], [ 4, %if.end.i368.i.i ], [ 3, %if.end.i359.i.i ], [ 2, %if.end.i.i.i ], [ 1, %if.end.i.i ]
+  %LineNumber.2 = phi i32 [ %LineNumber.3, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ %LineNumber.1, %while.body.i ], [ %LineNumber.4, %if.end.i404.i.i ], [ %LineNumber.4, %if.end.i413.i.i ], [ %LineNumber.4, %if.end.i422.i.i ], [ %LineNumber.4, %if.end.i431.i.i ], [ %LineNumber.4, %if.end.i440.i.i ], [ %LineNumber.4, %if.end.i449.i.i ], [ %LineNumber.4, %if.end.i458.i.i ], [ %LineNumber.4, %if.end.i467.i.i ], [ %LineNumber.4, %if.end.i395.i.i ], [ %LineNumber.4, %if.end.i386.i.i ], [ %LineNumber.4, %if.end.i377.i.i ], [ %LineNumber.4, %if.end.i368.i.i ], [ %LineNumber.4, %if.end.i359.i.i ], [ %LineNumber.4, %if.end.i.i.i ], [ %LineNumber.4, %if.end.i.i ]
   %retval.sroa.7.1.i = phi i64 [ 0, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ 0, %while.body.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i404.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i413.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i422.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i431.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i440.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i449.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i458.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i467.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i395.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i386.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i377.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i368.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i359.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i.i.i ], [ %retval.sroa.7.0.copyload.i, %if.end.i.i ]
   %retval.sroa.0.1.i = phi ptr [ null, %_ZL8SkipWordN4llvh9StringRefEm.exit.i ], [ null, %while.body.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i404.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i413.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i422.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i431.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i440.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i449.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i458.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i467.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i395.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i386.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i377.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i368.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i359.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i.i.i ], [ %retval.sroa.0.0.copyload.i, %if.end.i.i ]
   %cmp.i.i.i.i = icmp eq ptr %.pre.pre.i, %add.ptr.i.i.i.i.i.i
@@ -2893,7 +2893,7 @@ _ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheck
   br i1 %cmp.i, label %while.end, label %switch.lookup
 
 switch.lookup:                                    ; preds = %_ZL23FindFirstMatchingPrefixRN4llvh5RegexERNS_9StringRefERjRNS_5Check13FileCheckTypeE.exit
-  %50 = sext i32 %CheckTy.3 to i64
+  %50 = sext i32 %CheckTy.2 to i64
   %switch.gep = getelementptr inbounds [10 x i64], ptr @switch.table._ZN4llvh9FileCheck13ReadCheckFileERNS_9SourceMgrENS_9StringRefERNS_5RegexERSt6vectorINS_15FileCheckStringESaIS7_EE, i64 0, i64 %50
   %switch.load = load i64, ptr %switch.gep, align 8
   %add = add i64 %switch.load, %retval.sroa.7.1.i
@@ -2904,7 +2904,7 @@ switch.lookup:                                    ; preds = %_ZL23FindFirstMatch
   %sub.i.i = sub i64 %51, %.sroa.speculated561
   store ptr %add.ptr.i.i, ptr %Buffer, align 8
   store i64 %sub.i.i, ptr %0, align 8
-  %cmp = icmp eq i32 %CheckTy.3, 9
+  %cmp = icmp eq i32 %CheckTy.2, 9
   br i1 %cmp, label %_ZN4llvhplERKNS_5TwineES2_.exit, label %if.end45
 
 _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %switch.lookup
@@ -2960,17 +2960,17 @@ _ZN4llvh9StringRefC2EPKc.exit251:                 ; preds = %_ZN4llvh9StringRefC
   store ptr %37, ptr %_M_left.i.i.i.i.i.i111, align 8
   store ptr %37, ptr %_M_right.i.i.i.i.i.i112, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i113, align 8
-  store i32 %CheckTy.3, ptr %CheckTy.i114, align 8
+  store i32 %CheckTy.2, ptr %CheckTy.i114, align 8
   %58 = load i64, ptr %0, align 8
   %59 = load ptr, ptr %Buffer, align 8
   %.sroa.speculated534 = call i64 @llvm.umin.i64(i64 %58, i64 %call56)
   %agg.tmp62.sroa.0.0.copyload = load ptr, ptr %UsedPrefix, align 8
   %agg.tmp62.sroa.2.0.copyload = load i64, ptr %36, align 8
-  %call64 = call noundef zeroext i1 @_ZN4llvh16FileCheckPattern12ParsePatternENS_9StringRefES1_RNS_9SourceMgrEjRKNS_16FileCheckRequestE(ptr noundef nonnull align 8 dereferenceable(136) %P, ptr %59, i64 %.sroa.speculated534, ptr %agg.tmp62.sroa.0.0.copyload, i64 %agg.tmp62.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(120) %SM, i32 noundef %LineNumber.4, ptr noundef nonnull align 8 dereferenceable(86) %this)
+  %call64 = call noundef zeroext i1 @_ZN4llvh16FileCheckPattern12ParsePatternENS_9StringRefES1_RNS_9SourceMgrEjRKNS_16FileCheckRequestE(ptr noundef nonnull align 8 dereferenceable(136) %P, ptr %59, i64 %.sroa.speculated534, ptr %agg.tmp62.sroa.0.0.copyload, i64 %agg.tmp62.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(120) %SM, i32 noundef %LineNumber.2, ptr noundef nonnull align 8 dereferenceable(86) %this)
   br i1 %call64, label %cleanup, label %if.end66
 
 if.end66:                                         ; preds = %_ZN4llvh9StringRefC2EPKc.exit251
-  %cmp67 = icmp eq i32 %CheckTy.3, 6
+  %cmp67 = icmp eq i32 %CheckTy.2, 6
   br i1 %cmp67, label %land.lhs.true68, label %if.end80
 
 land.lhs.true68:                                  ; preds = %if.end66
@@ -3013,7 +3013,7 @@ if.end80:                                         ; preds = %if.end66
   %sub.i = sub i64 %65, %.sroa.speculated530
   store ptr %add.ptr.i, ptr %Buffer, align 8
   store i64 %sub.i, ptr %0, align 8
-  switch i32 %CheckTy.3, label %if.end110 [
+  switch i32 %CheckTy.2, label %if.end110 [
     i32 7, label %land.lhs.true87
     i32 3, label %land.lhs.true87
     i32 2, label %land.lhs.true87
@@ -3026,8 +3026,8 @@ land.lhs.true87:                                  ; preds = %if.end80, %if.end80
   br i1 %cmp.i.i, label %_ZN4llvhplERKNS_5TwineES2_.exit322, label %if.end110
 
 _ZN4llvhplERKNS_5TwineES2_.exit322:               ; preds = %land.lhs.true87
-  %cmp90 = icmp eq i32 %CheckTy.3, 2
-  %cmp91 = icmp eq i32 %CheckTy.3, 7
+  %cmp90 = icmp eq i32 %CheckTy.2, 2
+  %cmp91 = icmp eq i32 %CheckTy.2, 7
   %cond = select i1 %cmp91, ptr @.str.36, ptr @.str.37
   %cond92 = select i1 %cmp90, ptr @.str.35, ptr %cond
   store ptr %cond92, ptr %Type, align 8
@@ -3062,7 +3062,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit322:               ; preds = %land.lhs.true87
   br label %cleanup
 
 if.end110:                                        ; preds = %if.end80, %land.lhs.true87
-  %69 = and i32 %CheckTy.3, -2
+  %69 = and i32 %CheckTy.2, -2
   %or.cond2 = icmp eq i32 %69, 4
   br i1 %or.cond2, label %if.then114, label %if.end115
 
@@ -3448,7 +3448,7 @@ if.end.i481:                                      ; preds = %for.end172
   br label %cleanup176
 
 cleanup176:                                       ; preds = %_ZN4llvh16FileCheckPatternD2Ev.exit344, %if.end.i481, %if.then.i478, %if.end134, %_ZN4llvhplERKNS_5TwineES2_.exit
-  %retval.2 = phi i1 [ true, %_ZN4llvhplERKNS_5TwineES2_.exit ], [ false, %if.end134 ], [ true, %if.then.i478 ], [ true, %if.end.i481 ], [ true, %_ZN4llvh16FileCheckPatternD2Ev.exit344 ]
+  %retval.1 = phi i1 [ true, %_ZN4llvhplERKNS_5TwineES2_.exit ], [ false, %if.end134 ], [ true, %if.then.i478 ], [ true, %if.end.i481 ], [ true, %_ZN4llvh16FileCheckPatternD2Ev.exit344 ]
   %129 = load ptr, ptr %DagNotMatches, align 8
   %130 = load ptr, ptr %_M_finish.i.i.i86567, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %129, %130
@@ -3531,7 +3531,7 @@ if.then.i.i.i504:                                 ; preds = %_ZSt8_DestroyIPN4ll
   br label %_ZNSt6vectorIN4llvh16FileCheckPatternESaIS1_EED2Ev.exit505
 
 _ZNSt6vectorIN4llvh16FileCheckPatternESaIS1_EED2Ev.exit505: ; preds = %_ZSt8_DestroyIPN4llvh16FileCheckPatternES1_EvT_S3_RSaIT0_E.exit.i502, %if.then.i.i.i504
-  ret i1 %retval.2
+  ret i1 %retval.1
 }
 
 declare void @_ZN4llvh12MemoryBuffer16getMemBufferCopyENS_9StringRefERKNS_5TwineE(ptr sret(%"class.std::unique_ptr") align 8, ptr, i64, ptr noundef nonnull align 8 dereferenceable(18)) local_unnamed_addr #2
@@ -4181,7 +4181,7 @@ for.inc164:                                       ; preds = %_ZNSt6vectorIPKN4ll
   br i1 %cmp.i.not, label %cleanup, label %for.body, !llvm.loop !123
 
 cleanup:                                          ; preds = %for.inc164, %if.then148, %if.then21
-  %retval.0 = phi i64 [ -1, %if.then21 ], [ %StartPos.1, %for.inc164 ], [ -1, %if.then148 ]
+  %retval.1 = phi i64 [ -1, %if.then21 ], [ %StartPos.1, %for.inc164 ], [ -1, %if.then148 ]
   %34 = load ptr, ptr %MatchRanges, align 8
   %cmp.not4.i.i.i = icmp eq ptr %34, %MatchRanges
   br i1 %cmp.not4.i.i.i, label %return, label %while.body.i.i.i
@@ -4194,8 +4194,8 @@ while.body.i.i.i:                                 ; preds = %cleanup, %while.bod
   br i1 %cmp.not.i.i.i, label %return, label %while.body.i.i.i, !llvm.loop !122
 
 return:                                           ; preds = %while.body.i.i.i, %cleanup, %entry
-  %retval.1 = phi i64 [ 0, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %while.body.i.i.i ]
-  ret i64 %retval.1
+  %retval.0 = phi i64 [ 0, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %while.body.i.i.i ]
+  ret i64 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

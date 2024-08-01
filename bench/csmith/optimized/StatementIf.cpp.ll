@@ -476,7 +476,7 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
   br label %176
 
 175:                                              ; preds = %172, %157, %159, %122, %124
-  %.0 = phi ptr [ null, %124 ], [ null, %122 ], [ null, %159 ], [ null, %157 ], [ %164, %172 ]
+  %.2 = phi ptr [ null, %124 ], [ null, %122 ], [ null, %159 ], [ null, %157 ], [ %164, %172 ]
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %8) #14
   br label %177
 
@@ -486,7 +486,7 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
   br label %.body
 
 177:                                              ; preds = %85, %175
-  %.1 = phi ptr [ %.0, %175 ], [ null, %85 ]
+  %.1 = phi ptr [ %.2, %175 ], [ null, %85 ]
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #14
   %178 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %178, null
@@ -515,8 +515,8 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit66:          ; preds = %180, %182
   resume { ptr, i32 } %.pn.pn.pn
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %179, %177, %1
-  %.2 = phi ptr [ null, %1 ], [ %.1, %177 ], [ %.1, %179 ]
-  ret ptr %.2
+  %.0 = phi ptr [ null, %1 ], [ %.1, %177 ], [ %.1, %179 ]
+  ret ptr %.0
 }
 
 declare noundef i32 @_ZN9DepthSpec19depth_guard_by_typeE5dTypei(i32 noundef, i32 noundef) local_unnamed_addr #0
@@ -1215,7 +1215,7 @@ _ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i50: ; preds = %1
           to label %153 unwind label %124
 
 153:                                              ; preds = %.invoke, %151, %123
-  %.0 = phi i1 [ %122, %123 ], [ true, %151 ], [ true, %.invoke ]
+  %.2 = phi i1 [ %122, %123 ], [ true, %151 ], [ true, %.invoke ]
   %154 = load ptr, ptr %11, align 8
   %.not.i.i.i = icmp eq ptr %154, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, label %155
@@ -1235,7 +1235,7 @@ _ZNSt16allocator_traitsISaIPK4FactEE8allocateERS3_m.exit.i.i.i.i50: ; preds = %1
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit57
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %155, %153, %83
-  %.1 = phi i1 [ %82, %83 ], [ %.0, %153 ], [ %.0, %155 ]
+  %.1 = phi i1 [ %82, %83 ], [ %.2, %153 ], [ %.2, %155 ]
   %159 = load ptr, ptr %8, align 8
   %.not.i.i.i58 = icmp eq ptr %159, null
   br i1 %.not.i.i.i58, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit59, label %160
@@ -1267,7 +1267,7 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit61:          ; preds = %162, %_ZNSt6vectorI
 
 163:                                              ; preds = %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit59, %43
   %164 = phi ptr [ %.pre66, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit59 ], [ %31, %43 ]
-  %.2 = phi i1 [ %.1, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit59 ], [ %42, %43 ]
+  %.0 = phi i1 [ %.1, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit59 ], [ %42, %43 ]
   %.not.i.i.i62 = icmp eq ptr %164, null
   br i1 %.not.i.i.i62, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit63, label %165
 
@@ -1276,7 +1276,7 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit61:          ; preds = %162, %_ZNSt6vectorI
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit63
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit63:          ; preds = %163, %165
-  ret i1 %.2
+  ret i1 %.0
 
 166:                                              ; preds = %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit61, %50, %44
   %167 = phi ptr [ %.pre, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit61 ], [ %31, %44 ], [ %31, %50 ]

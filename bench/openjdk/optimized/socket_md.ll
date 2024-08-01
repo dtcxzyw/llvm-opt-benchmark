@@ -68,10 +68,10 @@ define hidden range(i32 -2147483648, 1) i32 @dbgsysFinishConnect(i32 noundef %0,
   br label %dbgsysPoll.exit
 
 dbgsysPoll.exit:                                  ; preds = %2, %8
-  %.1.i = phi i32 [ %6, %2 ], [ %spec.select13.i, %8 ]
+  %.0.i = phi i32 [ %6, %2 ], [ %spec.select13.i, %8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %13 = icmp eq i32 %.1.i, 0
-  %. = call i32 @llvm.smin.i32(i32 %.1.i, i32 0)
+  %13 = icmp eq i32 %.0.i, 0
+  %. = call i32 @llvm.smin.i32(i32 %.0.i, i32 0)
   %.0 = select i1 %13, i32 -200, i32 %.
   ret i32 %.0
 }
@@ -104,8 +104,8 @@ define hidden range(i32 -2147483648, 4) i32 @dbgsysPoll(i32 noundef %0, i8 nound
   br label %17
 
 17:                                               ; preds = %12, %4
-  %.1 = phi i32 [ %10, %4 ], [ %spec.select13, %12 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %10, %4 ], [ %spec.select13, %12 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

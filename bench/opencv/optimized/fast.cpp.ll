@@ -481,7 +481,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv237 = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next238, %.loopexit ]
   %.0154214 = phi ptr [ %97, %.lr.ph.preheader ], [ %284, %.loopexit ]
-  %.0155213 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2157, %.loopexit ]
+  %.1156213 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2157, %.loopexit ]
   %98 = load i8, ptr %.0154214, align 1
   %99 = zext i8 %98 to i32
   %100 = zext i8 %98 to i64
@@ -649,8 +649,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %247, label %248, label %258
 
 248:                                              ; preds = %245
-  %249 = add nsw i32 %.0155213, 1
-  %250 = sext i32 %.0155213 to i64
+  %249 = add nsw i32 %.1156213, 1
+  %250 = sext i32 %.1156213 to i64
   %251 = getelementptr inbounds i32, ptr %86, i64 %250
   %252 = trunc nuw nsw i64 %indvars.iv237 to i32
   store i32 %252, ptr %251, align 4
@@ -673,7 +673,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %exitcond232.not, label %.loopexit194, label %237, !llvm.loop !14
 
 .loopexit194:                                     ; preds = %258, %255, %248, %168
-  %.1156 = phi i32 [ %249, %255 ], [ %249, %248 ], [ %.0155213, %168 ], [ %.0155213, %258 ]
+  %.3 = phi i32 [ %249, %255 ], [ %249, %248 ], [ %.1156213, %168 ], [ %.1156213, %258 ]
   %259 = and i32 %233, 2
   %.not163 = icmp eq i32 %259, 0
   br i1 %.not163, label %.loopexit, label %260
@@ -700,8 +700,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %272, label %273, label %283
 
 273:                                              ; preds = %270
-  %274 = add nsw i32 %.1156, 1
-  %275 = sext i32 %.1156 to i64
+  %274 = add nsw i32 %.3, 1
+  %275 = sext i32 %.3 to i64
   %276 = getelementptr inbounds i32, ptr %86, i64 %275
   %277 = trunc nuw nsw i64 %indvars.iv237 to i32
   store i32 %277, ptr %276, align 4
@@ -724,7 +724,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %exitcond236.not, label %.loopexit, label %262, !llvm.loop !15
 
 .loopexit:                                        ; preds = %283, %.loopexit194, %273, %280, %118, %.lr.ph
-  %.2157 = phi i32 [ %.0155213, %.lr.ph ], [ %.0155213, %118 ], [ %274, %280 ], [ %274, %273 ], [ %.1156, %.loopexit194 ], [ %.1156, %283 ]
+  %.2157 = phi i32 [ %.1156213, %.lr.ph ], [ %.1156213, %118 ], [ %274, %280 ], [ %274, %273 ], [ %.3, %.loopexit194 ], [ %.3, %283 ]
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %284 = getelementptr inbounds i8, ptr %.0154214, i64 1
   %285 = load i32, ptr %39, align 4
@@ -734,8 +734,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %288, label %.lr.ph, label %.loopexit197, !llvm.loop !16
 
 .loopexit197:                                     ; preds = %.loopexit, %75
-  %.3 = phi i32 [ 0, %75 ], [ %.2157, %.loopexit ]
-  store i32 %.3, ptr %85, align 4
+  %.0155 = phi i32 [ 0, %75 ], [ %.2157, %.loopexit ]
+  store i32 %.0155, ptr %85, align 4
   %289 = icmp eq i64 %indvars.iv246, 3
   br i1 %289, label %.loopexit195, label %290
 
@@ -1147,7 +1147,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv237 = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next238, %.loopexit ]
   %.0154214 = phi ptr [ %97, %.lr.ph.preheader ], [ %284, %.loopexit ]
-  %.0155213 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2157, %.loopexit ]
+  %.1156213 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2157, %.loopexit ]
   %98 = load i8, ptr %.0154214, align 1
   %99 = zext i8 %98 to i32
   %100 = zext i8 %98 to i64
@@ -1315,8 +1315,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %247, label %248, label %258
 
 248:                                              ; preds = %245
-  %249 = add nsw i32 %.0155213, 1
-  %250 = sext i32 %.0155213 to i64
+  %249 = add nsw i32 %.1156213, 1
+  %250 = sext i32 %.1156213 to i64
   %251 = getelementptr inbounds i32, ptr %86, i64 %250
   %252 = trunc nuw nsw i64 %indvars.iv237 to i32
   store i32 %252, ptr %251, align 4
@@ -1339,7 +1339,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %exitcond232.not, label %.loopexit194, label %237, !llvm.loop !30
 
 .loopexit194:                                     ; preds = %258, %255, %248, %168
-  %.1156 = phi i32 [ %249, %255 ], [ %249, %248 ], [ %.0155213, %168 ], [ %.0155213, %258 ]
+  %.3 = phi i32 [ %249, %255 ], [ %249, %248 ], [ %.1156213, %168 ], [ %.1156213, %258 ]
   %259 = and i32 %233, 2
   %.not163 = icmp eq i32 %259, 0
   br i1 %.not163, label %.loopexit, label %260
@@ -1366,8 +1366,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %272, label %273, label %283
 
 273:                                              ; preds = %270
-  %274 = add nsw i32 %.1156, 1
-  %275 = sext i32 %.1156 to i64
+  %274 = add nsw i32 %.3, 1
+  %275 = sext i32 %.3 to i64
   %276 = getelementptr inbounds i32, ptr %86, i64 %275
   %277 = trunc nuw nsw i64 %indvars.iv237 to i32
   store i32 %277, ptr %276, align 4
@@ -1390,7 +1390,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %exitcond236.not, label %.loopexit, label %262, !llvm.loop !31
 
 .loopexit:                                        ; preds = %283, %.loopexit194, %273, %280, %118, %.lr.ph
-  %.2157 = phi i32 [ %.0155213, %.lr.ph ], [ %.0155213, %118 ], [ %274, %280 ], [ %274, %273 ], [ %.1156, %.loopexit194 ], [ %.1156, %283 ]
+  %.2157 = phi i32 [ %.1156213, %.lr.ph ], [ %.1156213, %118 ], [ %274, %280 ], [ %274, %273 ], [ %.3, %.loopexit194 ], [ %.3, %283 ]
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %284 = getelementptr inbounds i8, ptr %.0154214, i64 1
   %285 = load i32, ptr %39, align 4
@@ -1400,8 +1400,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %288, label %.lr.ph, label %.loopexit197, !llvm.loop !32
 
 .loopexit197:                                     ; preds = %.loopexit, %75
-  %.3 = phi i32 [ 0, %75 ], [ %.2157, %.loopexit ]
-  store i32 %.3, ptr %85, align 4
+  %.0155 = phi i32 [ 0, %75 ], [ %.2157, %.loopexit ]
+  store i32 %.0155, ptr %85, align 4
   %289 = icmp eq i64 %indvars.iv246, 3
   br i1 %289, label %.loopexit195, label %290
 
@@ -1813,7 +1813,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %indvars.iv237 = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next238, %.loopexit ]
   %.0154214 = phi ptr [ %97, %.lr.ph.preheader ], [ %284, %.loopexit ]
-  %.0155213 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2157, %.loopexit ]
+  %.1156213 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2157, %.loopexit ]
   %98 = load i8, ptr %.0154214, align 1
   %99 = zext i8 %98 to i32
   %100 = zext i8 %98 to i64
@@ -1981,8 +1981,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %247, label %248, label %258
 
 248:                                              ; preds = %245
-  %249 = add nsw i32 %.0155213, 1
-  %250 = sext i32 %.0155213 to i64
+  %249 = add nsw i32 %.1156213, 1
+  %250 = sext i32 %.1156213 to i64
   %251 = getelementptr inbounds i32, ptr %86, i64 %250
   %252 = trunc nuw nsw i64 %indvars.iv237 to i32
   store i32 %252, ptr %251, align 4
@@ -2005,7 +2005,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %exitcond232.not, label %.loopexit194, label %237, !llvm.loop !45
 
 .loopexit194:                                     ; preds = %258, %255, %248, %168
-  %.1156 = phi i32 [ %249, %255 ], [ %249, %248 ], [ %.0155213, %168 ], [ %.0155213, %258 ]
+  %.3 = phi i32 [ %249, %255 ], [ %249, %248 ], [ %.1156213, %168 ], [ %.1156213, %258 ]
   %259 = and i32 %233, 2
   %.not163 = icmp eq i32 %259, 0
   br i1 %.not163, label %.loopexit, label %260
@@ -2032,8 +2032,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %272, label %273, label %283
 
 273:                                              ; preds = %270
-  %274 = add nsw i32 %.1156, 1
-  %275 = sext i32 %.1156 to i64
+  %274 = add nsw i32 %.3, 1
+  %275 = sext i32 %.3 to i64
   %276 = getelementptr inbounds i32, ptr %86, i64 %275
   %277 = trunc nuw nsw i64 %indvars.iv237 to i32
   store i32 %277, ptr %276, align 4
@@ -2056,7 +2056,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %exitcond236.not, label %.loopexit, label %262, !llvm.loop !46
 
 .loopexit:                                        ; preds = %283, %.loopexit194, %273, %280, %118, %.lr.ph
-  %.2157 = phi i32 [ %.0155213, %.lr.ph ], [ %.0155213, %118 ], [ %274, %280 ], [ %274, %273 ], [ %.1156, %.loopexit194 ], [ %.1156, %283 ]
+  %.2157 = phi i32 [ %.1156213, %.lr.ph ], [ %.1156213, %118 ], [ %274, %280 ], [ %274, %273 ], [ %.3, %.loopexit194 ], [ %.3, %283 ]
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %284 = getelementptr inbounds i8, ptr %.0154214, i64 1
   %285 = load i32, ptr %39, align 4
@@ -2066,8 +2066,8 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE5clearEv.exit: ; preds = %21, %25
   br i1 %288, label %.lr.ph, label %.loopexit197, !llvm.loop !47
 
 .loopexit197:                                     ; preds = %.loopexit, %75
-  %.3 = phi i32 [ 0, %75 ], [ %.2157, %.loopexit ]
-  store i32 %.3, ptr %85, align 4
+  %.0155 = phi i32 [ 0, %75 ], [ %.2157, %.loopexit ]
+  store i32 %.0155, ptr %85, align 4
   %289 = icmp eq i64 %indvars.iv246, 3
   br i1 %289, label %.loopexit195, label %290
 

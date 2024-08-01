@@ -527,13 +527,13 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   br label %100
 
 100:                                              ; preds = %100, %94
-  %.0126 = phi ptr [ null, %94 ], [ %.0125, %100 ]
-  %.0125.in = phi ptr [ %99, %94 ], [ %104, %100 ]
-  %.0125 = load ptr, ptr %.0125.in, align 8
-  %101 = icmp ne ptr %.0125, null
-  %102 = icmp ne ptr %.0125, %98
+  %.0126 = phi ptr [ null, %94 ], [ %.1, %100 ]
+  %.1.in = phi ptr [ %99, %94 ], [ %104, %100 ]
+  %.1 = load ptr, ptr %.1.in, align 8
+  %101 = icmp ne ptr %.1, null
+  %102 = icmp ne ptr %.1, %98
   %103 = select i1 %101, i1 %102, i1 false
-  %104 = getelementptr inbounds i8, ptr %.0125, i64 96
+  %104 = getelementptr inbounds i8, ptr %.1, i64 96
   br i1 %103, label %100, label %105, !llvm.loop !8
 
 105:                                              ; preds = %100
@@ -565,11 +565,11 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   %117 = add i32 %112, %113
   %118 = lshr i32 %4, %117
   %119 = and i32 %118, %116
-  store i32 %119, ptr %.0125, align 8
+  store i32 %119, ptr %.1, align 8
   br label %120
 
 120:                                              ; preds = %111, %83
-  %.1.ph = phi ptr [ %82, %83 ], [ %.0125, %111 ]
+  %.0125.ph = phi ptr [ %82, %83 ], [ %.1, %111 ]
   %121 = load i32, ptr %48, align 4
   %122 = load i32, ptr %50, align 4
   %123 = load i32, ptr %54, align 8
@@ -581,11 +581,11 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   %129 = sext i32 %127 to i64
   %130 = getelementptr inbounds ptr, ptr %128, i64 %129
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %.1.ph, i64 96
+  %132 = getelementptr inbounds i8, ptr %.0125.ph, i64 96
   store ptr %131, ptr %132, align 8
   %133 = load ptr, ptr %60, align 8
   %134 = getelementptr inbounds ptr, ptr %133, i64 %129
-  store ptr %.1.ph, ptr %134, align 8
+  store ptr %.0125.ph, ptr %134, align 8
   %135 = getelementptr inbounds i8, ptr %1, i64 28
   %136 = load i32, ptr %135, align 4
   %137 = mul i32 %136, 12
@@ -609,33 +609,33 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   %155 = getelementptr inbounds i8, ptr %1, i64 100
   %156 = sext i32 %137 to i64
   %157 = getelementptr inbounds i8, ptr %155, i64 %156
-  %158 = getelementptr inbounds i8, ptr %.1.ph, i64 24
+  %158 = getelementptr inbounds i8, ptr %.0125.ph, i64 24
   store ptr %155, ptr %158, align 8
   %159 = sext i32 %139 to i64
   %160 = getelementptr inbounds i8, ptr %157, i64 %159
-  %161 = getelementptr inbounds i8, ptr %.1.ph, i64 16
+  %161 = getelementptr inbounds i8, ptr %.0125.ph, i64 16
   store ptr %157, ptr %161, align 8
   %162 = sext i32 %142 to i64
   %163 = getelementptr inbounds i8, ptr %160, i64 %162
-  %164 = getelementptr inbounds i8, ptr %.1.ph, i64 32
+  %164 = getelementptr inbounds i8, ptr %.0125.ph, i64 32
   store ptr %160, ptr %164, align 8
   %165 = sext i32 %145 to i64
   %166 = getelementptr inbounds i8, ptr %163, i64 %165
-  %167 = getelementptr inbounds i8, ptr %.1.ph, i64 40
+  %167 = getelementptr inbounds i8, ptr %.0125.ph, i64 40
   store ptr %163, ptr %167, align 8
   %168 = sext i32 %148 to i64
   %169 = getelementptr inbounds i8, ptr %166, i64 %168
-  %170 = getelementptr inbounds i8, ptr %.1.ph, i64 48
+  %170 = getelementptr inbounds i8, ptr %.0125.ph, i64 48
   store ptr %166, ptr %170, align 8
   %171 = sext i32 %151 to i64
   %172 = getelementptr inbounds i8, ptr %169, i64 %171
-  %173 = getelementptr inbounds i8, ptr %.1.ph, i64 56
+  %173 = getelementptr inbounds i8, ptr %.0125.ph, i64 56
   store ptr %169, ptr %173, align 8
   %174 = sext i32 %154 to i64
   %175 = getelementptr inbounds i8, ptr %172, i64 %174
-  %176 = getelementptr inbounds i8, ptr %.1.ph, i64 64
+  %176 = getelementptr inbounds i8, ptr %.0125.ph, i64 64
   store ptr %172, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %.1.ph, i64 72
+  %177 = getelementptr inbounds i8, ptr %.0125.ph, i64 72
   store ptr %175, ptr %177, align 8
   %.not139 = icmp eq i32 %154, 0
   br i1 %.not139, label %178, label %179
@@ -645,7 +645,7 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   br label %179
 
 179:                                              ; preds = %178, %120
-  %180 = getelementptr inbounds i8, ptr %.1.ph, i64 4
+  %180 = getelementptr inbounds i8, ptr %.0125.ph, i64 4
   store i32 0, ptr %180, align 4
   %181 = load i32, ptr %140, align 4
   %182 = sext i32 %181 to i64
@@ -670,17 +670,17 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   br i1 %193, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %179
-  %194 = getelementptr inbounds i8, ptr %.1.ph, i64 8
+  %194 = getelementptr inbounds i8, ptr %.0125.ph, i64 8
   store ptr %1, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %.1.ph, i64 80
+  %195 = getelementptr inbounds i8, ptr %.0125.ph, i64 80
   store ptr %1, ptr %195, align 8
-  %196 = getelementptr inbounds i8, ptr %.1.ph, i64 88
+  %196 = getelementptr inbounds i8, ptr %.0125.ph, i64 88
   store i32 %2, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %.1.ph, i64 92
+  %197 = getelementptr inbounds i8, ptr %.0125.ph, i64 92
   store i32 %3, ptr %197, align 4
-  tail call void @_ZN9dtNavMesh15connectIntLinksEP10dtMeshTile(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.1.ph)
-  tail call void @_ZN9dtNavMesh16baseOffMeshLinksEP10dtMeshTile(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.1.ph)
-  tail call void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.1.ph, ptr noundef nonnull %.1.ph, i32 noundef -1)
+  tail call void @_ZN9dtNavMesh15connectIntLinksEP10dtMeshTile(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.0125.ph)
+  tail call void @_ZN9dtNavMesh16baseOffMeshLinksEP10dtMeshTile(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.0125.ph)
+  tail call void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.0125.ph, ptr noundef nonnull %.0125.ph, i32 noundef -1)
   %198 = load i32, ptr %48, align 4
   %199 = load i32, ptr %50, align 4
   %200 = call noundef i32 @_ZNK9dtNavMesh10getTilesAtEiiPP10dtMeshTilei(ptr noundef nonnull align 8 dereferenceable(100) %0, i32 noundef %198, i32 noundef %199, ptr noundef nonnull %7, i32 noundef 32)
@@ -695,14 +695,14 @@ define noundef range(i32 1073741824, -2147483519) i32 @_ZN9dtNavMesh7addTileEPhi
   %indvars.iv167 = phi i64 [ 0, %.lr.ph161.preheader ], [ %indvars.iv.next168, %206 ]
   %202 = getelementptr inbounds [32 x ptr], ptr %7, i64 0, i64 %indvars.iv167
   %203 = load ptr, ptr %202, align 8
-  %204 = icmp eq ptr %203, %.1.ph
+  %204 = icmp eq ptr %203, %.0125.ph
   br i1 %204, label %206, label %205
 
 205:                                              ; preds = %.lr.ph161
-  tail call void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.1.ph, ptr noundef %203, i32 noundef -1)
-  tail call void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %203, ptr noundef nonnull %.1.ph, i32 noundef -1)
-  tail call void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.1.ph, ptr noundef %203, i32 noundef -1)
-  tail call void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %203, ptr noundef nonnull %.1.ph, i32 noundef -1)
+  tail call void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.0125.ph, ptr noundef %203, i32 noundef -1)
+  tail call void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %203, ptr noundef nonnull %.0125.ph, i32 noundef -1)
+  tail call void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.0125.ph, ptr noundef %203, i32 noundef -1)
+  tail call void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %203, ptr noundef nonnull %.0125.ph, i32 noundef -1)
   br label %206
 
 206:                                              ; preds = %.lr.ph161, %205
@@ -831,10 +831,10 @@ _ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit: ; preds = %253
   %indvars.iv170 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next171, %257 ]
   %258 = getelementptr inbounds [32 x ptr], ptr %7, i64 0, i64 %indvars.iv170
   %259 = load ptr, ptr %258, align 8
-  tail call void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.1.ph, ptr noundef %259, i32 noundef %.0121165)
-  tail call void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %259, ptr noundef nonnull %.1.ph, i32 noundef %256)
-  tail call void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.1.ph, ptr noundef %259, i32 noundef %.0121165)
-  tail call void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %259, ptr noundef nonnull %.1.ph, i32 noundef %256)
+  tail call void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.0125.ph, ptr noundef %259, i32 noundef %.0121165)
+  tail call void @_ZN9dtNavMesh15connectExtLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %259, ptr noundef nonnull %.0125.ph, i32 noundef %256)
+  tail call void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull %.0125.ph, ptr noundef %259, i32 noundef %.0121165)
+  tail call void @_ZN9dtNavMesh22connectExtOffMeshLinksEP10dtMeshTileS1_i(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %259, ptr noundef nonnull %.0125.ph, i32 noundef %256)
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
   br i1 %exitcond174.not, label %._crit_edge164, label %257, !llvm.loop !12
@@ -851,12 +851,12 @@ _ZNK9dtNavMesh19getNeighbourTilesAtEiiiPP10dtMeshTilei.exit: ; preds = %253
 _ZNK9dtNavMesh10getTileRefEPK10dtMeshTile.exit:   ; preds = %261
   %262 = getelementptr inbounds i8, ptr %0, i64 80
   %263 = load ptr, ptr %262, align 8
-  %264 = ptrtoint ptr %.1.ph to i64
+  %264 = ptrtoint ptr %.0125.ph to i64
   %265 = ptrtoint ptr %263 to i64
   %266 = sub i64 %264, %265
   %267 = sdiv exact i64 %266, 104
   %268 = trunc i64 %267 to i32
-  %269 = load i32, ptr %.1.ph, align 8
+  %269 = load i32, ptr %.0125.ph, align 8
   %270 = load i32, ptr %13, align 8
   %271 = getelementptr inbounds i8, ptr %0, i64 92
   %272 = load i32, ptr %271, align 4
@@ -972,10 +972,10 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %_ZL17calcSlabEndP
   %57 = phi ptr [ %41, %.lr.ph111 ], [ %148, %.loopexit ]
   %indvars.iv115 = phi i64 [ 0, %.lr.ph111 ], [ %indvars.iv.next116, %.loopexit ]
   %.048110 = phi i32 [ 0, %.lr.ph111 ], [ %.1, %.loopexit ]
-  %.sroa.0.0107 = phi float [ undef, %.lr.ph111 ], [ %.sroa.0.4, %.loopexit ]
-  %.sroa.3.0106 = phi float [ undef, %.lr.ph111 ], [ %.sroa.3.4, %.loopexit ]
-  %.sroa.079.0105 = phi float [ undef, %.lr.ph111 ], [ %.sroa.079.4, %.loopexit ]
-  %.sroa.381.0104 = phi float [ undef, %.lr.ph111 ], [ %.sroa.381.4, %.loopexit ]
+  %.sroa.0.0107 = phi float [ undef, %.lr.ph111 ], [ %.sroa.0.3, %.loopexit ]
+  %.sroa.3.0106 = phi float [ undef, %.lr.ph111 ], [ %.sroa.3.3, %.loopexit ]
+  %.sroa.079.0105 = phi float [ undef, %.lr.ph111 ], [ %.sroa.079.3, %.loopexit ]
+  %.sroa.381.0104 = phi float [ undef, %.lr.ph111 ], [ %.sroa.381.3, %.loopexit ]
   %58 = load ptr, ptr %45, align 8
   %59 = getelementptr inbounds %struct.dtPoly, ptr %58, i64 %indvars.iv115
   %60 = getelementptr inbounds i8, ptr %59, i64 30
@@ -992,10 +992,10 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %_ZL17calcSlabEndP
 
 66:                                               ; preds = %.lr.ph, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.pre-phi, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
-  %.sroa.0.199 = phi float [ %.sroa.0.0107, %.lr.ph ], [ %.sroa.0.3, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
-  %.sroa.3.198 = phi float [ %.sroa.3.0106, %.lr.ph ], [ %.sroa.3.3, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
-  %.sroa.079.197 = phi float [ %.sroa.079.0105, %.lr.ph ], [ %.sroa.079.3, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
-  %.sroa.381.196 = phi float [ %.sroa.381.0104, %.lr.ph ], [ %.sroa.381.3, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
+  %.sroa.0.199 = phi float [ %.sroa.0.0107, %.lr.ph ], [ %.sroa.0.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
+  %.sroa.3.198 = phi float [ %.sroa.3.0106, %.lr.ph ], [ %.sroa.3.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
+  %.sroa.079.197 = phi float [ %.sroa.079.0105, %.lr.ph ], [ %.sroa.079.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
+  %.sroa.381.196 = phi float [ %.sroa.381.0104, %.lr.ph ], [ %.sroa.381.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
   %67 = getelementptr inbounds [6 x i16], ptr %62, i64 0, i64 %indvars.iv
   %68 = load i16, ptr %67, align 2
   %69 = zext i16 %68 to i32
@@ -1073,26 +1073,26 @@ _ZL12getSlabCoordPKfi.exit61:                     ; preds = %70, %.sink.split.i5
   br label %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit76
 
 _ZL17calcSlabEndPointsPKfS0_PfS1_i.exit76:        ; preds = %90, %.sink.split.i65
-  %.sroa.381.2 = phi float [ %.sroa.381.196, %90 ], [ %100, %.sink.split.i65 ]
-  %.sroa.079.2 = phi float [ %.sroa.079.197, %90 ], [ %.58.i62, %.sink.split.i65 ]
-  %.sroa.3.2 = phi float [ %.sroa.3.198, %90 ], [ %102, %.sink.split.i65 ]
-  %.sroa.0.2 = phi float [ %.sroa.0.199, %90 ], [ %98, %.sink.split.i65 ]
+  %.sroa.381.4 = phi float [ %.sroa.381.196, %90 ], [ %100, %.sink.split.i65 ]
+  %.sroa.079.4 = phi float [ %.sroa.079.197, %90 ], [ %.58.i62, %.sink.split.i65 ]
+  %.sroa.3.4 = phi float [ %.sroa.3.198, %90 ], [ %102, %.sink.split.i65 ]
+  %.sroa.0.4 = phi float [ %.sroa.0.199, %90 ], [ %98, %.sink.split.i65 ]
   %103 = load float, ptr %64, align 4
-  %104 = fadd float %.sroa.079.2, 0x3F847AE140000000
+  %104 = fadd float %.sroa.079.4, 0x3F847AE140000000
   %105 = fcmp ogt float %49, %104
   %106 = select i1 %105, float %49, float %104
-  %107 = fadd float %.sroa.0.2, 0xBF847AE140000000
+  %107 = fadd float %.sroa.0.4, 0xBF847AE140000000
   %108 = fcmp olt float %50, %107
   %109 = select i1 %108, float %50, float %107
   %110 = fcmp ogt float %106, %109
   br i1 %110, label %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89, label %111
 
 111:                                              ; preds = %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit76
-  %112 = fsub float %.sroa.3.2, %.sroa.381.2
-  %113 = fsub float %.sroa.0.2, %.sroa.079.2
+  %112 = fsub float %.sroa.3.4, %.sroa.381.4
+  %113 = fsub float %.sroa.0.4, %.sroa.079.4
   %114 = fdiv float %112, %113
   %115 = fneg float %114
-  %116 = tail call float @llvm.fmuladd.f32(float %115, float %.sroa.079.2, float %.sroa.381.2)
+  %116 = tail call float @llvm.fmuladd.f32(float %115, float %.sroa.079.4, float %.sroa.381.4)
   %117 = tail call float @llvm.fmuladd.f32(float %53, float %106, float %55)
   %118 = tail call float @llvm.fmuladd.f32(float %53, float %109, float %55)
   %119 = tail call float @llvm.fmuladd.f32(float %114, float %106, float %116)
@@ -1118,14 +1118,14 @@ _Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread:       ; preds = %111, %_Z12overlapSl
   br i1 %131, label %132, label %.loopexit
 
 132:                                              ; preds = %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread
-  %133 = fcmp ogt float %.sroa.085.0, %.sroa.079.2
-  %134 = select i1 %133, float %.sroa.085.0, float %.sroa.079.2
+  %133 = fcmp ogt float %.sroa.085.0, %.sroa.079.4
+  %134 = select i1 %133, float %.sroa.085.0, float %.sroa.079.4
   %135 = shl nsw i32 %.048110, 1
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds float, ptr %6, i64 %136
   store float %134, ptr %137, align 4
-  %138 = fcmp olt float %.sroa.082.0, %.sroa.0.2
-  %139 = select i1 %138, float %.sroa.082.0, float %.sroa.0.2
+  %138 = fcmp olt float %.sroa.082.0, %.sroa.0.4
+  %139 = select i1 %138, float %.sroa.082.0, float %.sroa.0.4
   %140 = or disjoint i32 %135, 1
   %141 = sext i32 %140 to i64
   %142 = getelementptr inbounds float, ptr %6, i64 %141
@@ -1141,19 +1141,19 @@ _Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread:       ; preds = %111, %_Z12overlapSl
 
 _Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89:     ; preds = %._Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89_crit_edge, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit76, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit, %_ZL12getSlabCoordPKfi.exit61
   %indvars.iv.next.pre-phi = phi i64 [ %.pre118, %._Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89_crit_edge ], [ %76, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit76 ], [ %76, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit ], [ %76, %_ZL12getSlabCoordPKfi.exit61 ]
-  %.sroa.381.3 = phi float [ %.sroa.381.196, %._Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89_crit_edge ], [ %.sroa.381.2, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit76 ], [ %.sroa.381.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit ], [ %.sroa.381.196, %_ZL12getSlabCoordPKfi.exit61 ]
-  %.sroa.079.3 = phi float [ %.sroa.079.197, %._Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89_crit_edge ], [ %.sroa.079.2, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit76 ], [ %.sroa.079.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit ], [ %.sroa.079.197, %_ZL12getSlabCoordPKfi.exit61 ]
-  %.sroa.3.3 = phi float [ %.sroa.3.198, %._Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89_crit_edge ], [ %.sroa.3.2, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit76 ], [ %.sroa.3.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit ], [ %.sroa.3.198, %_ZL12getSlabCoordPKfi.exit61 ]
-  %.sroa.0.3 = phi float [ %.sroa.0.199, %._Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89_crit_edge ], [ %.sroa.0.2, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit76 ], [ %.sroa.0.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit ], [ %.sroa.0.199, %_ZL12getSlabCoordPKfi.exit61 ]
+  %.sroa.381.2 = phi float [ %.sroa.381.196, %._Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89_crit_edge ], [ %.sroa.381.4, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit76 ], [ %.sroa.381.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit ], [ %.sroa.381.196, %_ZL12getSlabCoordPKfi.exit61 ]
+  %.sroa.079.2 = phi float [ %.sroa.079.197, %._Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89_crit_edge ], [ %.sroa.079.4, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit76 ], [ %.sroa.079.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit ], [ %.sroa.079.197, %_ZL12getSlabCoordPKfi.exit61 ]
+  %.sroa.3.2 = phi float [ %.sroa.3.198, %._Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89_crit_edge ], [ %.sroa.3.4, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit76 ], [ %.sroa.3.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit ], [ %.sroa.3.198, %_ZL12getSlabCoordPKfi.exit61 ]
+  %.sroa.0.2 = phi float [ %.sroa.0.199, %._Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89_crit_edge ], [ %.sroa.0.4, %_ZL17calcSlabEndPointsPKfS0_PfS1_i.exit76 ], [ %.sroa.0.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit ], [ %.sroa.0.199, %_ZL12getSlabCoordPKfi.exit61 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %65
   br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !14
 
 .loopexit:                                        ; preds = %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89, %56, %132, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread
   %148 = phi ptr [ %.pre, %132 ], [ %57, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %57, %56 ], [ %57, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
-  %.sroa.381.4 = phi float [ %.sroa.381.2, %132 ], [ %.sroa.381.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.381.0104, %56 ], [ %.sroa.381.3, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
-  %.sroa.079.4 = phi float [ %.sroa.079.2, %132 ], [ %.sroa.079.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.079.0105, %56 ], [ %.sroa.079.3, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
-  %.sroa.3.4 = phi float [ %.sroa.3.2, %132 ], [ %.sroa.3.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.3.0106, %56 ], [ %.sroa.3.3, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
-  %.sroa.0.4 = phi float [ %.sroa.0.2, %132 ], [ %.sroa.0.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.0.0107, %56 ], [ %.sroa.0.3, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
+  %.sroa.381.3 = phi float [ %.sroa.381.4, %132 ], [ %.sroa.381.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.381.0104, %56 ], [ %.sroa.381.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
+  %.sroa.079.3 = phi float [ %.sroa.079.4, %132 ], [ %.sroa.079.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.079.0105, %56 ], [ %.sroa.079.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
+  %.sroa.3.3 = phi float [ %.sroa.3.4, %132 ], [ %.sroa.3.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.3.0106, %56 ], [ %.sroa.3.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
+  %.sroa.0.3 = phi float [ %.sroa.0.4, %132 ], [ %.sroa.0.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.0.0107, %56 ], [ %.sroa.0.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
   %.1 = phi i32 [ %147, %132 ], [ %.048110, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.048110, %56 ], [ %.048110, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread89 ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %149 = getelementptr inbounds i8, ptr %148, i64 24
@@ -2520,11 +2520,11 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
 
 91:                                               ; preds = %.loopexit.i, %71
   %92 = phi i8 [ %83, %71 ], [ %143, %.loopexit.i ]
-  %.073.i = phi float [ 0x47EFFFFFE0000000, %71 ], [ %.3.i, %.loopexit.i ]
-  %.04572.i = phi float [ 0.000000e+00, %71 ], [ %.348.i, %.loopexit.i ]
-  %.04971.i = phi ptr [ null, %71 ], [ %.352.i, %.loopexit.i ]
+  %.073.i = phi float [ 0x47EFFFFFE0000000, %71 ], [ %.1.i, %.loopexit.i ]
+  %.04572.i = phi float [ 0.000000e+00, %71 ], [ %.146.i, %.loopexit.i ]
+  %.04971.i = phi ptr [ null, %71 ], [ %.150.i, %.loopexit.i ]
   %.05370.i = phi i32 [ 0, %71 ], [ %144, %.loopexit.i ]
-  %.05469.i = phi ptr [ null, %71 ], [ %.357.i, %.loopexit.i ]
+  %.05469.i = phi ptr [ null, %71 ], [ %.155.i, %.loopexit.i ]
   %93 = load ptr, ptr %85, align 8
   %94 = load i32, ptr %86, align 4
   %95 = add i32 %94, %.05370.i
@@ -2579,11 +2579,11 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
 
 .preheader.i:                                     ; preds = %123, %141
   %indvars.iv77.i = phi i64 [ %indvars.iv.next78.i, %141 ], [ 0, %123 ]
-  %.168.i = phi float [ %.2.i, %141 ], [ %.073.i, %123 ]
+  %.268.i = phi float [ %.3.i, %141 ], [ %.073.i, %123 ]
   %.04267.i = phi i32 [ %142, %141 ], [ 2, %123 ]
-  %.14665.i = phi float [ %.247.i, %141 ], [ %.04572.i, %123 ]
-  %.15064.i = phi ptr [ %.251.i, %141 ], [ %.04971.i, %123 ]
-  %.15563.i = phi ptr [ %.256.i, %141 ], [ %.05469.i, %123 ]
+  %.24765.i = phi float [ %.348.i, %141 ], [ %.04572.i, %123 ]
+  %.25164.i = phi ptr [ %.352.i, %141 ], [ %.04971.i, %123 ]
+  %.25663.i = phi ptr [ %.357.i, %141 ], [ %.05469.i, %123 ]
   %125 = load i8, ptr %99, align 1
   %126 = zext i8 %125 to i32
   %127 = shl nuw nsw i32 %.04267.i, 1
@@ -2599,7 +2599,7 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
   %135 = getelementptr inbounds [3 x ptr], ptr %6, i64 0, i64 %indvars.iv77.i
   %136 = load ptr, ptr %135, align 8
   %137 = call noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef nonnull %2, ptr noundef %134, ptr noundef %136, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  %138 = fcmp olt float %137, %.168.i
+  %138 = fcmp olt float %137, %.268.i
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %131
@@ -2607,10 +2607,10 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
   br label %141
 
 141:                                              ; preds = %139, %131, %.preheader.i
-  %.256.i = phi ptr [ %.15563.i, %.preheader.i ], [ %136, %139 ], [ %.15563.i, %131 ]
-  %.251.i = phi ptr [ %.15064.i, %.preheader.i ], [ %134, %139 ], [ %.15064.i, %131 ]
-  %.247.i = phi float [ %.14665.i, %.preheader.i ], [ %140, %139 ], [ %.14665.i, %131 ]
-  %.2.i = phi float [ %.168.i, %.preheader.i ], [ %137, %139 ], [ %.168.i, %131 ]
+  %.357.i = phi ptr [ %.25663.i, %.preheader.i ], [ %136, %139 ], [ %.25663.i, %131 ]
+  %.352.i = phi ptr [ %.25164.i, %.preheader.i ], [ %134, %139 ], [ %.25164.i, %131 ]
+  %.348.i = phi float [ %.24765.i, %.preheader.i ], [ %140, %139 ], [ %.24765.i, %131 ]
+  %.3.i = phi float [ %.268.i, %.preheader.i ], [ %137, %139 ], [ %.268.i, %131 ]
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %142 = trunc nuw nsw i64 %indvars.iv77.i to i32
   %exitcond80.not.i = icmp eq i64 %indvars.iv.next78.i, 3
@@ -2622,34 +2622,34 @@ define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef n
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %91
   %143 = phi i8 [ %92, %91 ], [ %.pre.i, %.loopexit.loopexit.i ]
-  %.357.i = phi ptr [ %.05469.i, %91 ], [ %.256.i, %.loopexit.loopexit.i ]
-  %.352.i = phi ptr [ %.04971.i, %91 ], [ %.251.i, %.loopexit.loopexit.i ]
-  %.348.i = phi float [ %.04572.i, %91 ], [ %.247.i, %.loopexit.loopexit.i ]
-  %.3.i = phi float [ %.073.i, %91 ], [ %.2.i, %.loopexit.loopexit.i ]
+  %.155.i = phi ptr [ %.05469.i, %91 ], [ %.357.i, %.loopexit.loopexit.i ]
+  %.150.i = phi ptr [ %.04971.i, %91 ], [ %.352.i, %.loopexit.loopexit.i ]
+  %.146.i = phi float [ %.04572.i, %91 ], [ %.348.i, %.loopexit.loopexit.i ]
+  %.1.i = phi float [ %.073.i, %91 ], [ %.3.i, %.loopexit.loopexit.i ]
   %144 = add nuw nsw i32 %.05370.i, 1
   %145 = zext i8 %143 to i32
   %146 = icmp ult i32 %144, %145
   br i1 %146, label %91, label %_ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb1EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit, !llvm.loop !35
 
 _ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb1EEEvPK10dtMeshTilePK6dtPolyPKfPf.exit: ; preds = %.loopexit.i
-  %147 = load float, ptr %.352.i, align 4
-  %148 = load float, ptr %.357.i, align 4
+  %147 = load float, ptr %.150.i, align 4
+  %148 = load float, ptr %.155.i, align 4
   %149 = fsub float %148, %147
-  %150 = call float @llvm.fmuladd.f32(float %149, float %.348.i, float %147)
+  %150 = call float @llvm.fmuladd.f32(float %149, float %.146.i, float %147)
   store float %150, ptr %3, align 4
-  %151 = getelementptr inbounds i8, ptr %.352.i, i64 4
+  %151 = getelementptr inbounds i8, ptr %.150.i, i64 4
   %152 = load float, ptr %151, align 4
-  %153 = getelementptr inbounds i8, ptr %.357.i, i64 4
+  %153 = getelementptr inbounds i8, ptr %.155.i, i64 4
   %154 = load float, ptr %153, align 4
   %155 = fsub float %154, %152
-  %156 = call float @llvm.fmuladd.f32(float %155, float %.348.i, float %152)
+  %156 = call float @llvm.fmuladd.f32(float %155, float %.146.i, float %152)
   store float %156, ptr %29, align 4
-  %157 = getelementptr inbounds i8, ptr %.352.i, i64 8
+  %157 = getelementptr inbounds i8, ptr %.150.i, i64 8
   %158 = load float, ptr %157, align 4
-  %159 = getelementptr inbounds i8, ptr %.357.i, i64 8
+  %159 = getelementptr inbounds i8, ptr %.155.i, i64 8
   %160 = load float, ptr %159, align 4
   %161 = fsub float %160, %158
-  %162 = call float @llvm.fmuladd.f32(float %161, float %.348.i, float %158)
+  %162 = call float @llvm.fmuladd.f32(float %161, float %.146.i, float %158)
   store float %162, ptr %32, align 4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)

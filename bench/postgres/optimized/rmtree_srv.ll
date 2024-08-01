@@ -37,8 +37,8 @@ define dso_local zeroext i1 @rmtree(ptr noundef %0, i1 noundef zeroext %1) local
 
 sub_0.lr.ph:                                      ; preds = %10, %.outer
   %14 = phi ptr [ %56, %.outer ], [ %13, %10 ]
-  %.031.ph67 = phi ptr [ %.2, %.outer ], [ %11, %10 ]
-  %.032.ph66 = phi i64 [ %.234, %.outer ], [ 8, %10 ]
+  %.031.ph67 = phi ptr [ %.1, %.outer ], [ %11, %10 ]
+  %.032.ph66 = phi i64 [ %.133, %.outer ], [ 8, %10 ]
   %.035.ph65 = phi i64 [ %.136, %.outer ], [ 0, %10 ]
   %.037.ph64 = phi i1 [ %.138, %.outer ], [ true, %10 ]
   br label %sub_0
@@ -103,11 +103,11 @@ sub_2:                                            ; preds = %sub_149
   br label %44
 
 44:                                               ; preds = %40, %38
-  %.133 = phi i64 [ %43, %40 ], [ %.032.ph66, %38 ]
-  %.1 = phi ptr [ %42, %40 ], [ %.031.ph67, %38 ]
+  %.234 = phi i64 [ %43, %40 ], [ %.032.ph66, %38 ]
+  %.2 = phi ptr [ %42, %40 ], [ %.031.ph67, %38 ]
   %45 = call ptr @pstrdup(ptr noundef nonnull %3) #4
   %46 = add i64 %.035.ph65, 1
-  %47 = getelementptr ptr, ptr %.1, i64 %.035.ph65
+  %47 = getelementptr ptr, ptr %.2, i64 %.035.ph65
   store ptr %45, ptr %47, align 8
   br label %.outer
 
@@ -133,8 +133,8 @@ sub_2:                                            ; preds = %sub_149
 .outer:                                           ; preds = %54, %52, %48, %50, %34, %44
   %.138 = phi i1 [ %.037.ph64, %50 ], [ %.037.ph64, %48 ], [ %.037.ph64, %44 ], [ %.037.ph64, %34 ], [ false, %52 ], [ false, %54 ]
   %.136 = phi i64 [ %.035.ph65, %50 ], [ %.035.ph65, %48 ], [ %46, %44 ], [ %.035.ph65, %34 ], [ %.035.ph65, %52 ], [ %.035.ph65, %54 ]
-  %.234 = phi i64 [ %.032.ph66, %50 ], [ %.032.ph66, %48 ], [ %.133, %44 ], [ %.032.ph66, %34 ], [ %.032.ph66, %52 ], [ %.032.ph66, %54 ]
-  %.2 = phi ptr [ %.031.ph67, %50 ], [ %.031.ph67, %48 ], [ %.1, %44 ], [ %.031.ph67, %34 ], [ %.031.ph67, %52 ], [ %.031.ph67, %54 ]
+  %.133 = phi i64 [ %.032.ph66, %50 ], [ %.032.ph66, %48 ], [ %.234, %44 ], [ %.032.ph66, %34 ], [ %.032.ph66, %52 ], [ %.032.ph66, %54 ]
+  %.1 = phi ptr [ %.031.ph67, %50 ], [ %.031.ph67, %48 ], [ %.2, %44 ], [ %.031.ph67, %34 ], [ %.031.ph67, %52 ], [ %.031.ph67, %54 ]
   store i32 0, ptr %12, align 4
   %56 = call ptr @readdir(ptr noundef nonnull %4) #4
   %.not55 = icmp eq ptr %56, null
@@ -143,7 +143,7 @@ sub_2:                                            ; preds = %sub_149
 .outer._crit_edge:                                ; preds = %.outer, %32, %10
   %.037.ph.lcssa = phi i1 [ true, %10 ], [ %.037.ph64, %32 ], [ %.138, %.outer ]
   %.035.ph.lcssa = phi i64 [ 0, %10 ], [ %.035.ph65, %32 ], [ %.136, %.outer ]
-  %.031.ph.lcssa = phi ptr [ %11, %10 ], [ %.031.ph67, %32 ], [ %.2, %.outer ]
+  %.031.ph.lcssa = phi ptr [ %11, %10 ], [ %.031.ph67, %32 ], [ %.1, %.outer ]
   %57 = load i32, ptr %12, align 4
   %.not43 = icmp eq i32 %57, 0
   br i1 %.not43, label %62, label %58

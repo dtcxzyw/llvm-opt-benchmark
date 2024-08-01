@@ -39,9 +39,9 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 16:                                               ; preds = %.lr.ph, %189
   %.01751 = phi ptr [ %11, %.lr.ph ], [ %190, %189 ]
-  %.sroa.22.050 = phi i64 [ 0, %.lr.ph ], [ %.sroa.22.10, %189 ]
-  %.sroa.10.049 = phi i64 [ 0, %.lr.ph ], [ %.sroa.10.7, %189 ]
-  %.sroa.0.048 = phi ptr [ null, %.lr.ph ], [ %.sroa.0.10, %189 ]
+  %.sroa.22.050 = phi i64 [ 0, %.lr.ph ], [ %.sroa.22.1, %189 ]
+  %.sroa.10.049 = phi i64 [ 0, %.lr.ph ], [ %.sroa.10.1, %189 ]
+  %.sroa.0.048 = phi ptr [ null, %.lr.ph ], [ %.sroa.0.1, %189 ]
   br i1 %12, label %17, label %32
 
 17:                                               ; preds = %16
@@ -122,18 +122,18 @@ define void @decompose(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   unreachable
 
 push.exit:                                        ; preds = %40, %53
-  %.sroa.0.1 = phi ptr [ %51, %53 ], [ %.sroa.0.048, %40 ]
-  %.sroa.22.1 = phi i64 [ %spec.select.i.i.i.i.i, %53 ], [ %.sroa.22.050, %40 ]
-  %62 = getelementptr inbounds ptr, ptr %.sroa.0.1, i64 %.sroa.10.049
+  %.sroa.0.10 = phi ptr [ %51, %53 ], [ %.sroa.0.048, %40 ]
+  %.sroa.22.10 = phi i64 [ %spec.select.i.i.i.i.i, %53 ], [ %.sroa.22.050, %40 ]
+  %62 = getelementptr inbounds ptr, ptr %.sroa.0.10, i64 %.sroa.10.049
   store ptr %.0, ptr %62, align 8
   %63 = add i64 %.sroa.10.049, 1
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %search_component.exit, label %pop.exit.i
 
 pop.exit.i:                                       ; preds = %push.exit, %.backedge.i
-  %.sroa.0.2 = phi ptr [ %.sroa.0.3, %.backedge.i ], [ %.sroa.0.1, %push.exit ]
-  %.sroa.22.2 = phi i64 [ %.sroa.22.3, %.backedge.i ], [ %.sroa.22.1, %push.exit ]
-  %.val.i51.i = phi i64 [ %.sroa.10.1, %.backedge.i ], [ %63, %push.exit ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.7, %.backedge.i ], [ %.sroa.0.10, %push.exit ]
+  %.sroa.22.2 = phi i64 [ %.sroa.22.7, %.backedge.i ], [ %.sroa.22.10, %push.exit ]
+  %.val.i51.i = phi i64 [ %.sroa.10.6, %.backedge.i ], [ %63, %push.exit ]
   %65 = getelementptr ptr, ptr %.sroa.0.2, i64 %.val.i51.i
   %66 = getelementptr i8, ptr %65, i64 -8
   %67 = load ptr, ptr %66, align 8
@@ -151,10 +151,10 @@ pop.exit.i:                                       ; preds = %push.exit, %.backed
   br i1 %75, label %.backedge.i, label %add_to_component.exit.i
 
 .backedge.i:                                      ; preds = %.loopexit.i, %69
-  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %69 ], [ %.sroa.0.8, %.loopexit.i ]
-  %.sroa.10.1 = phi i64 [ %68, %69 ], [ %.sroa.10.5, %.loopexit.i ]
-  %.sroa.22.3 = phi i64 [ %.sroa.22.2, %69 ], [ %.sroa.22.8, %.loopexit.i ]
-  %76 = icmp eq i64 %.sroa.10.1, 0
+  %.sroa.0.7 = phi ptr [ %.sroa.0.2, %69 ], [ %.sroa.0.6, %.loopexit.i ]
+  %.sroa.10.6 = phi i64 [ %68, %69 ], [ %.sroa.10.5, %.loopexit.i ]
+  %.sroa.22.7 = phi i64 [ %.sroa.22.2, %69 ], [ %.sroa.22.6, %.loopexit.i ]
+  %76 = icmp eq i64 %.sroa.10.6, 0
   br i1 %76, label %search_component.exit, label %pop.exit.i
 
 add_to_component.exit.i:                          ; preds = %69
@@ -193,9 +193,9 @@ add_to_component.exit.i:                          ; preds = %69
   br label %96
 
 96:                                               ; preds = %.loopexit.i, %add_to_component.exit.i
-  %.sroa.0.4 = phi ptr [ %.sroa.0.2, %add_to_component.exit.i ], [ %.sroa.0.8, %.loopexit.i ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %add_to_component.exit.i ], [ %.sroa.0.6, %.loopexit.i ]
   %.sroa.10.2 = phi i64 [ %68, %add_to_component.exit.i ], [ %.sroa.10.5, %.loopexit.i ]
-  %.sroa.22.4 = phi i64 [ %.sroa.22.2, %add_to_component.exit.i ], [ %.sroa.22.8, %.loopexit.i ]
+  %.sroa.22.3 = phi i64 [ %.sroa.22.2, %add_to_component.exit.i ], [ %.sroa.22.6, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 3, %add_to_component.exit.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %97 = getelementptr inbounds [4 x %struct.elist], ptr %3, i64 0, i64 %indvars.iv.i
   %98 = load ptr, ptr %97, align 16
@@ -214,9 +214,9 @@ add_to_component.exit.i:                          ; preds = %69
   br label %105
 
 105:                                              ; preds = %152, %102
-  %.sroa.0.5 = phi ptr [ %.sroa.0.4, %102 ], [ %.sroa.0.7, %152 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.3, %102 ], [ %.sroa.0.5, %152 ]
   %.sroa.10.3 = phi i64 [ %.sroa.10.2, %102 ], [ %.sroa.10.4, %152 ]
-  %.sroa.22.5 = phi i64 [ %.sroa.22.4, %102 ], [ %.sroa.22.7, %152 ]
+  %.sroa.22.4 = phi i64 [ %.sroa.22.3, %102 ], [ %.sroa.22.5, %152 ]
   %.048.i = phi i64 [ %103, %102 ], [ %153, %152 ]
   %.03247.i = phi ptr [ %104, %102 ], [ %154, %152 ]
   %106 = load ptr, ptr %.03247.i, align 8
@@ -259,7 +259,7 @@ add_to_component.exit.i:                          ; preds = %69
   %131 = load ptr, ptr %120, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 224
   store i64 %130, ptr %132, align 8
-  %133 = icmp eq i64 %.sroa.10.3, %.sroa.22.5
+  %133 = icmp eq i64 %.sroa.10.3, %.sroa.22.4
   br i1 %133, label %134, label %push.exit.i
 
 134:                                              ; preds = %128
@@ -271,7 +271,7 @@ add_to_component.exit.i:                          ; preds = %69
 
 137:                                              ; preds = %134
   %138 = shl nuw i64 %spec.select.i.i.i.i.i.i, 3
-  %139 = tail call ptr @realloc(ptr noundef %.sroa.0.5, i64 noundef %138) #13
+  %139 = tail call ptr @realloc(ptr noundef %.sroa.0.4, i64 noundef %138) #13
   %140 = icmp eq ptr %139, null
   br i1 %140, label %146, label %141
 
@@ -292,34 +292,34 @@ add_to_component.exit.i:                          ; preds = %69
   unreachable
 
 push.exit.i:                                      ; preds = %128, %141
-  %.sroa.0.6 = phi ptr [ %139, %141 ], [ %.sroa.0.5, %128 ]
-  %.sroa.22.6 = phi i64 [ %spec.select.i.i.i.i.i.i, %141 ], [ %.sroa.22.5, %128 ]
-  %150 = getelementptr inbounds ptr, ptr %.sroa.0.6, i64 %.sroa.10.3
+  %.sroa.0.8 = phi ptr [ %139, %141 ], [ %.sroa.0.4, %128 ]
+  %.sroa.22.8 = phi i64 [ %spec.select.i.i.i.i.i.i, %141 ], [ %.sroa.22.4, %128 ]
+  %150 = getelementptr inbounds ptr, ptr %.sroa.0.8, i64 %.sroa.10.3
   store ptr %.033.i, ptr %150, align 8
   %151 = add i64 %.sroa.10.3, 1
   br label %152
 
 152:                                              ; preds = %push.exit.i, %125, %119
-  %.sroa.0.7 = phi ptr [ %.sroa.0.5, %119 ], [ %.sroa.0.6, %push.exit.i ], [ %.sroa.0.5, %125 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.4, %119 ], [ %.sroa.0.8, %push.exit.i ], [ %.sroa.0.4, %125 ]
   %.sroa.10.4 = phi i64 [ %.sroa.10.3, %119 ], [ %151, %push.exit.i ], [ %.sroa.10.3, %125 ]
-  %.sroa.22.7 = phi i64 [ %.sroa.22.5, %119 ], [ %.sroa.22.6, %push.exit.i ], [ %.sroa.22.5, %125 ]
+  %.sroa.22.5 = phi i64 [ %.sroa.22.4, %119 ], [ %.sroa.22.8, %push.exit.i ], [ %.sroa.22.4, %125 ]
   %153 = add i64 %.048.i, -1
   %154 = getelementptr inbounds i8, ptr %.03247.i, i64 -8
   %.not41.i = icmp eq i64 %.048.i, 0
   br i1 %.not41.i, label %.loopexit.i, label %105
 
 .loopexit.i:                                      ; preds = %152, %99, %96
-  %.sroa.0.8 = phi ptr [ %.sroa.0.4, %96 ], [ %.sroa.0.4, %99 ], [ %.sroa.0.7, %152 ]
+  %.sroa.0.6 = phi ptr [ %.sroa.0.3, %96 ], [ %.sroa.0.3, %99 ], [ %.sroa.0.5, %152 ]
   %.sroa.10.5 = phi i64 [ %.sroa.10.2, %96 ], [ %.sroa.10.2, %99 ], [ %.sroa.10.4, %152 ]
-  %.sroa.22.8 = phi i64 [ %.sroa.22.4, %96 ], [ %.sroa.22.4, %99 ], [ %.sroa.22.7, %152 ]
+  %.sroa.22.6 = phi i64 [ %.sroa.22.3, %96 ], [ %.sroa.22.3, %99 ], [ %.sroa.22.5, %152 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not54.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not54.i, label %.backedge.i, label %96
 
 search_component.exit:                            ; preds = %pop.exit.i, %.backedge.i, %push.exit
-  %.sroa.0.9 = phi ptr [ %.sroa.0.1, %push.exit ], [ %.sroa.0.3, %.backedge.i ], [ %.sroa.0.2, %pop.exit.i ]
-  %.sroa.10.6 = phi i64 [ 0, %push.exit ], [ 0, %.backedge.i ], [ %68, %pop.exit.i ]
-  %.sroa.22.9 = phi i64 [ %.sroa.22.1, %push.exit ], [ %.sroa.22.3, %.backedge.i ], [ %.sroa.22.2, %pop.exit.i ]
+  %.sroa.0.9 = phi ptr [ %.sroa.0.10, %push.exit ], [ %.sroa.0.7, %.backedge.i ], [ %.sroa.0.2, %pop.exit.i ]
+  %.sroa.10.7 = phi i64 [ 0, %push.exit ], [ 0, %.backedge.i ], [ %68, %pop.exit.i ]
+  %.sroa.22.9 = phi i64 [ %.sroa.22.10, %push.exit ], [ %.sroa.22.7, %.backedge.i ], [ %.sroa.22.2, %pop.exit.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %155 = load ptr, ptr %6, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 312
@@ -381,15 +381,15 @@ end_component.exit:                               ; preds = %171, %178
   br label %189
 
 189:                                              ; preds = %34, %end_component.exit, %32
-  %.sroa.0.10 = phi ptr [ %.sroa.0.048, %34 ], [ %.sroa.0.9, %end_component.exit ], [ %.sroa.0.048, %32 ]
-  %.sroa.10.7 = phi i64 [ %.sroa.10.049, %34 ], [ %.sroa.10.6, %end_component.exit ], [ %.sroa.10.049, %32 ]
-  %.sroa.22.10 = phi i64 [ %.sroa.22.050, %34 ], [ %.sroa.22.9, %end_component.exit ], [ %.sroa.22.050, %32 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.048, %34 ], [ %.sroa.0.9, %end_component.exit ], [ %.sroa.0.048, %32 ]
+  %.sroa.10.1 = phi i64 [ %.sroa.10.049, %34 ], [ %.sroa.10.7, %end_component.exit ], [ %.sroa.10.049, %32 ]
+  %.sroa.22.1 = phi i64 [ %.sroa.22.050, %34 ], [ %.sroa.22.9, %end_component.exit ], [ %.sroa.22.050, %32 ]
   %190 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01751) #12
   %.not = icmp eq ptr %190, null
   br i1 %.not, label %._crit_edge, label %16
 
 ._crit_edge:                                      ; preds = %189, %2
-  %.sroa.0.0.lcssa = phi ptr [ null, %2 ], [ %.sroa.0.10, %189 ]
+  %.sroa.0.0.lcssa = phi ptr [ null, %2 ], [ %.sroa.0.1, %189 ]
   tail call void @free(ptr noundef %.sroa.0.0.lcssa) #12
   ret void
 }

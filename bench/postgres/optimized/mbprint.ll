@@ -185,7 +185,7 @@ define dso_local void @pg_wcsformat(ptr noundef %0, i64 noundef %1, i32 noundef 
   br i1 %10, label %.lr.ph92, label %._crit_edge93
 
 .lr.ph92:                                         ; preds = %5, %.loopexit
-  %.05990 = phi ptr [ %.3, %.loopexit ], [ %6, %5 ]
+  %.05990 = phi ptr [ %.2, %.loopexit ], [ %6, %5 ]
   %.06089 = phi i32 [ %.262, %.loopexit ], [ 0, %5 ]
   %.06386 = phi ptr [ %113, %.loopexit ], [ %0, %5 ]
   %.06485 = phi i32 [ %.165, %.loopexit ], [ %4, %5 ]
@@ -370,17 +370,17 @@ utf8_to_unicode.exit:                             ; preds = %57, %79, %.sink.spl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.281 = phi ptr [ %.05990, %.lr.ph.preheader ], [ %110, %.lr.ph ]
+  %.381 = phi ptr [ %.05990, %.lr.ph.preheader ], [ %110, %.lr.ph ]
   %108 = getelementptr i8, ptr %.06386, i64 %indvars.iv
   %109 = load i8, ptr %108, align 1
-  %110 = getelementptr i8, ptr %.281, i64 1
-  store i8 %109, ptr %.281, align 1
+  %110 = getelementptr i8, ptr %.381, i64 1
+  store i8 %109, ptr %.381, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader75
-  %.2.lcssa = phi ptr [ %.05990, %.preheader75 ], [ %110, %.lr.ph ]
+  %.3.lcssa = phi ptr [ %.05990, %.preheader75 ], [ %110, %.lr.ph ]
   %111 = add i32 %15, %.06089
   br label %.loopexit
 
@@ -388,7 +388,7 @@ utf8_to_unicode.exit:                             ; preds = %57, %79, %.sink.spl
   %.167 = phi ptr [ %33, %32 ], [ %.06684, %35 ], [ %.06684, %40 ], [ %.06684, %44 ], [ %.06684, %105 ], [ %.06684, %._crit_edge ], [ %.06684, %.preheader.preheader ]
   %.165 = phi i32 [ %29, %32 ], [ %.06485, %35 ], [ %.06485, %40 ], [ %.06485, %44 ], [ %.06485, %105 ], [ %.06485, %._crit_edge ], [ %.06485, %.preheader.preheader ]
   %.262 = phi i32 [ 0, %32 ], [ %36, %35 ], [ %42, %40 ], [ %45, %44 ], [ %107, %105 ], [ %111, %._crit_edge ], [ %26, %.preheader.preheader ]
-  %.3 = phi ptr [ %34, %32 ], [ %37, %35 ], [ %43, %40 ], [ %46, %44 ], [ %106, %105 ], [ %.2.lcssa, %._crit_edge ], [ %scevgep106, %.preheader.preheader ]
+  %.2 = phi ptr [ %34, %32 ], [ %37, %35 ], [ %43, %40 ], [ %46, %44 ], [ %106, %105 ], [ %.3.lcssa, %._crit_edge ], [ %scevgep106, %.preheader.preheader ]
   %112 = sub i64 %.06883, %12
   %113 = getelementptr i8, ptr %.06386, i64 %12
   %114 = load i8, ptr %113, align 1
@@ -401,7 +401,7 @@ utf8_to_unicode.exit:                             ; preds = %57, %79, %.sink.spl
   %.066.lcssa = phi ptr [ %3, %5 ], [ %.06684, %.lr.ph92 ], [ %.167, %.loopexit ]
   %.064.lcssa = phi i32 [ %4, %5 ], [ %.06485, %.lr.ph92 ], [ %.165, %.loopexit ]
   %.060.lcssa = phi i32 [ 0, %5 ], [ %.06089, %.lr.ph92 ], [ %.262, %.loopexit ]
-  %.059.lcssa = phi ptr [ %6, %5 ], [ %.05990, %.lr.ph92 ], [ %.3, %.loopexit ]
+  %.059.lcssa = phi ptr [ %6, %5 ], [ %.05990, %.lr.ph92 ], [ %.2, %.loopexit ]
   %118 = getelementptr inbounds i8, ptr %.066.lcssa, i64 8
   store i32 %.060.lcssa, ptr %118, align 8
   store i8 0, ptr %.059.lcssa, align 1

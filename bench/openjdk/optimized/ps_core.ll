@@ -501,7 +501,7 @@ define internal fastcc i64 @read_exec_segments(ptr noundef %0, ptr noundef %1) u
   br label %14
 
 14:                                               ; preds = %.lr.ph, %72
-  %.050 = phi i64 [ 0, %.lr.ph ], [ %.2, %72 ]
+  %.050 = phi i64 [ 0, %.lr.ph ], [ %.1, %72 ]
   %.03649 = phi ptr [ %8, %.lr.ph ], [ %73, %72 ]
   %.03748 = phi i32 [ 0, %.lr.ph ], [ %74, %72 ]
   %15 = load i32, ptr %.03649, align 8
@@ -590,7 +590,7 @@ define internal fastcc i64 @read_exec_segments(ptr noundef %0, ptr noundef %1) u
   br label %68
 
 68:                                               ; preds = %59, %54
-  %.1 = phi i64 [ %56, %54 ], [ %64, %59 ]
+  %.2 = phi i64 [ %56, %54 ], [ %64, %59 ]
   %69 = load ptr, ptr %4, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 16
   %71 = load i64, ptr %70, align 8
@@ -598,7 +598,7 @@ define internal fastcc i64 @read_exec_segments(ptr noundef %0, ptr noundef %1) u
   br label %72
 
 72:                                               ; preds = %45, %16, %20, %23, %68, %14
-  %.2 = phi i64 [ %.050, %14 ], [ %.1, %68 ], [ %.050, %45 ], [ %.050, %16 ], [ %.050, %23 ], [ %.050, %20 ]
+  %.1 = phi i64 [ %.050, %14 ], [ %.2, %68 ], [ %.050, %45 ], [ %.050, %16 ], [ %.050, %23 ], [ %.050, %20 ]
   %73 = getelementptr inbounds i8, ptr %.03649, i64 56
   %74 = add nuw nsw i32 %.03748, 1
   %75 = load i16, ptr %10, align 8
@@ -612,7 +612,7 @@ define internal fastcc i64 @read_exec_segments(ptr noundef %0, ptr noundef %1) u
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %33, %72, %.loopexit.sink.split, %.preheader
-  %.038.ph = phi i64 [ 0, %.preheader ], [ 0, %.loopexit.sink.split ], [ %.2, %72 ], [ 0, %33 ], [ 0, %23 ]
+  %.038.ph = phi i64 [ 0, %.preheader ], [ 0, %.loopexit.sink.split ], [ %.1, %72 ], [ 0, %33 ], [ 0, %23 ]
   call void @free(ptr noundef %8) #15
   br label %78
 

@@ -30806,8 +30806,8 @@ lpad2650:                                         ; preds = %for.end2667
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i5433: ; preds = %lpad2650, %lpad2650.thread7748
   %2103 = phi { ptr, i32 } [ %2076, %lpad2650.thread7748 ], [ %2102, %lpad2650 ]
-  %floatVector2648.sroa.0.27751 = phi ptr [ %call.i.i.i.i.i5379, %lpad2650.thread7748 ], [ %call.i.i.i.i.i5412, %lpad2650 ]
-  call void @_ZdaPv(ptr noundef nonnull %floatVector2648.sroa.0.27751) #17
+  %floatVector2648.sroa.0.07751 = phi ptr [ %call.i.i.i.i.i5379, %lpad2650.thread7748 ], [ %call.i.i.i.i.i5412, %lpad2650 ]
+  call void @_ZdaPv(ptr noundef nonnull %floatVector2648.sroa.0.07751) #17
   br label %common.resume
 
 for.end2667:                                      ; preds = %for.body2661
@@ -32606,10 +32606,10 @@ _ZN5eastl6vectorI17CopyConstructibleNS_9allocatorEED2Ev.exit6855: ; preds = %lpa
   br label %common.resume
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i6858: ; preds = %land.end3008, %land.end3023, %for.body.i.i.i.preheader.i.i.i.i6194
-  %v5.sroa.0.3 = phi ptr [ %call.i.i.i.i.i1.i.i6206, %land.end3023 ], [ %call.i.i.i.i.i60926106, %for.body.i.i.i.preheader.i.i.i.i6194 ], [ %call.i.i.i.i.i60926106, %land.end3008 ]
+  %v5.sroa.0.0 = phi ptr [ %call.i.i.i.i.i1.i.i6206, %land.end3023 ], [ %call.i.i.i.i.i60926106, %for.body.i.i.i.preheader.i.i.i.i6194 ], [ %call.i.i.i.i.i60926106, %land.end3008 ]
   %2338 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdaPv(ptr noundef nonnull %v5.sroa.0.3) #17
+  call void @_ZdaPv(ptr noundef nonnull %v5.sroa.0.0) #17
   br label %common.resume
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i6863: ; preds = %for.body.i.i.i.preheader.i.i.i

@@ -237,7 +237,7 @@ define hidden void @zend_dump_ht(ptr nocapture noundef readonly %0) local_unname
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
-  %.042 = phi i1 [ %.2, %37 ], [ true, %.lr.ph.preheader ]
+  %.042 = phi i1 [ %.1, %37 ], [ true, %.lr.ph.preheader ]
   %.02841 = phi i32 [ %38, %37 ], [ %4, %.lr.ph.preheader ]
   %.02940 = phi ptr [ %.130, %37 ], [ %6, %.lr.ph.preheader ]
   %.03139 = phi ptr [ %.132, %37 ], [ null, %.lr.ph.preheader ]
@@ -300,7 +300,7 @@ define hidden void @zend_dump_ht(ptr nocapture noundef readonly %0) local_unname
   br label %37
 
 37:                                               ; preds = %19, %34
-  %.2 = phi i1 [ %.042, %19 ], [ false, %34 ]
+  %.1 = phi i1 [ %.042, %19 ], [ false, %34 ]
   %38 = add i32 %.02841, -1
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1887,13 +1887,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %15
 
 15:                                               ; preds = %12, %10
-  %.194 = phi i8 [ 0, %12 ], [ 1, %10 ]
+  %.093 = phi i8 [ 0, %12 ], [ 1, %10 ]
   %16 = and i32 %0, 33554432
   %.not116 = icmp eq i32 %16, 0
   br i1 %.not116, label %25, label %17
 
 17:                                               ; preds = %15
-  %18 = trunc nuw i8 %.194 to i1
+  %18 = trunc nuw i8 %.093 to i1
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %17
@@ -1902,19 +1902,19 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %22
 
 22:                                               ; preds = %17, %19
-  %.295 = phi i8 [ %.194, %19 ], [ 0, %17 ]
+  %.396 = phi i8 [ %.093, %19 ], [ 0, %17 ]
   %23 = load ptr, ptr @stderr, align 8
   %24 = tail call i64 @fwrite(ptr nonnull @.str.131, i64 3, i64 1, ptr %23) #7
   br label %25
 
 25:                                               ; preds = %22, %15
-  %.396 = phi i8 [ %.295, %22 ], [ %.194, %15 ]
+  %.295 = phi i8 [ %.396, %22 ], [ %.093, %15 ]
   %26 = and i32 %0, 1024
   %.not117 = icmp eq i32 %26, 0
   br i1 %.not117, label %35, label %27
 
 27:                                               ; preds = %25
-  %28 = trunc nuw i8 %.396 to i1
+  %28 = trunc nuw i8 %.295 to i1
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %27
@@ -1923,13 +1923,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %32
 
 32:                                               ; preds = %27, %29
-  %.497 = phi i8 [ %.396, %29 ], [ 0, %27 ]
+  %.598 = phi i8 [ %.295, %29 ], [ 0, %27 ]
   %33 = load ptr, ptr @stderr, align 8
   %34 = tail call i64 @fwrite(ptr nonnull @.str.132, i64 3, i64 1, ptr %33) #7
   br label %35
 
 35:                                               ; preds = %32, %25
-  %.598 = phi i8 [ %.497, %32 ], [ %.396, %25 ]
+  %.497 = phi i8 [ %.598, %32 ], [ %.295, %25 ]
   %36 = and i32 %3, 2
   %.not118 = icmp eq i32 %36, 0
   br i1 %.not118, label %56, label %37
@@ -1940,7 +1940,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not119, label %47, label %39
 
 39:                                               ; preds = %37
-  %40 = trunc nuw i8 %.598 to i1
+  %40 = trunc nuw i8 %.497 to i1
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %39
@@ -1949,13 +1949,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %44
 
 44:                                               ; preds = %39, %41
-  %.699 = phi i8 [ %.598, %41 ], [ 0, %39 ]
+  %.8101 = phi i8 [ %.497, %41 ], [ 0, %39 ]
   %45 = load ptr, ptr @stderr, align 8
   %46 = tail call i64 @fwrite(ptr nonnull @.str.133, i64 3, i64 1, ptr %45) #7
   br label %47
 
 47:                                               ; preds = %44, %37
-  %.7100 = phi i8 [ %.699, %44 ], [ %.598, %37 ]
+  %.7100 = phi i8 [ %.8101, %44 ], [ %.497, %37 ]
   %.not120 = icmp sgt i32 %0, -1
   br i1 %.not120, label %56, label %48
 
@@ -1969,19 +1969,19 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %53
 
 53:                                               ; preds = %48, %50
-  %.8101 = phi i8 [ %.7100, %50 ], [ 0, %48 ]
+  %.9102 = phi i8 [ %.7100, %50 ], [ 0, %48 ]
   %54 = load ptr, ptr @stderr, align 8
   %55 = tail call i64 @fwrite(ptr nonnull @.str.134, i64 3, i64 1, ptr %54) #7
   br label %56
 
 56:                                               ; preds = %47, %53, %35
-  %.9102 = phi i8 [ %.8101, %53 ], [ %.7100, %47 ], [ %.598, %35 ]
+  %.699 = phi i8 [ %.9102, %53 ], [ %.7100, %47 ], [ %.497, %35 ]
   %57 = and i32 %0, 16777216
   %.not121 = icmp eq i32 %57, 0
   br i1 %.not121, label %75, label %58
 
 58:                                               ; preds = %56
-  %59 = trunc nuw i8 %.9102 to i1
+  %59 = trunc nuw i8 %.699 to i1
   br i1 %59, label %63, label %60
 
 60:                                               ; preds = %58
@@ -2017,7 +2017,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %77, label %78, label %86
 
 78:                                               ; preds = %75
-  %79 = trunc nuw i8 %.9102 to i1
+  %79 = trunc nuw i8 %.699 to i1
   br i1 %79, label %83, label %80
 
 80:                                               ; preds = %78
@@ -2036,7 +2036,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not122, label %96, label %88
 
 88:                                               ; preds = %86
-  %89 = trunc nuw i8 %.9102 to i1
+  %89 = trunc nuw i8 %.699 to i1
   br i1 %89, label %93, label %90
 
 90:                                               ; preds = %88
@@ -2045,13 +2045,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %93
 
 93:                                               ; preds = %88, %90
-  %.10103 = phi i8 [ %.9102, %90 ], [ 0, %88 ]
+  %.11104 = phi i8 [ %.699, %90 ], [ 0, %88 ]
   %94 = load ptr, ptr @stderr, align 8
   %95 = tail call i64 @fwrite(ptr nonnull @.str.138, i64 4, i64 1, ptr %94) #7
   br label %96
 
 96:                                               ; preds = %93, %86
-  %.11104 = phi i8 [ %.10103, %93 ], [ %.9102, %86 ]
+  %.10103 = phi i8 [ %.11104, %93 ], [ %.699, %86 ]
   %97 = and i32 %0, 8
   %.not124 = icmp eq i32 %97, 0
   %98 = and i32 %0, 12
@@ -2059,7 +2059,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %or.cond.not, label %99, label %107
 
 99:                                               ; preds = %96
-  %100 = trunc nuw i8 %.11104 to i1
+  %100 = trunc nuw i8 %.10103 to i1
   br i1 %100, label %104, label %101
 
 101:                                              ; preds = %99
@@ -2068,7 +2068,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %104
 
 104:                                              ; preds = %99, %101
-  %.12105 = phi i8 [ %.11104, %101 ], [ 0, %99 ]
+  %.12105 = phi i8 [ %.10103, %101 ], [ 0, %99 ]
   %105 = load ptr, ptr @stderr, align 8
   %106 = tail call i64 @fwrite(ptr nonnull @.str.139, i64 4, i64 1, ptr %105) #7
   br label %126
@@ -2079,7 +2079,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not123, label %117, label %109
 
 109:                                              ; preds = %107
-  %110 = trunc nuw i8 %.11104 to i1
+  %110 = trunc nuw i8 %.10103 to i1
   br i1 %110, label %114, label %111
 
 111:                                              ; preds = %109
@@ -2088,7 +2088,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %114
 
 114:                                              ; preds = %109, %111
-  %.13106 = phi i8 [ %.11104, %111 ], [ 0, %109 ]
+  %.14107 = phi i8 [ %.10103, %111 ], [ 0, %109 ]
   %115 = load ptr, ptr @stderr, align 8
   %116 = tail call i64 @fwrite(ptr nonnull @.str.140, i64 5, i64 1, ptr %115) #7
   br label %126
@@ -2097,7 +2097,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br i1 %.not124, label %126, label %118
 
 118:                                              ; preds = %117
-  %119 = trunc nuw i8 %.11104 to i1
+  %119 = trunc nuw i8 %.10103 to i1
   br i1 %119, label %123, label %120
 
 120:                                              ; preds = %118
@@ -2106,19 +2106,19 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %123
 
 123:                                              ; preds = %118, %120
-  %.14107 = phi i8 [ %.11104, %120 ], [ 0, %118 ]
+  %.15108 = phi i8 [ %.10103, %120 ], [ 0, %118 ]
   %124 = load ptr, ptr @stderr, align 8
   %125 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 4, i64 1, ptr %124) #7
   br label %126
 
 126:                                              ; preds = %114, %123, %117, %104
-  %.15108 = phi i8 [ %.12105, %104 ], [ %.13106, %114 ], [ %.14107, %123 ], [ %.11104, %117 ]
+  %.13106 = phi i8 [ %.12105, %104 ], [ %.14107, %114 ], [ %.15108, %123 ], [ %.10103, %117 ]
   %127 = and i32 %0, 16
   %.not126 = icmp eq i32 %127, 0
   br i1 %.not126, label %136, label %128
 
 128:                                              ; preds = %126
-  %129 = trunc nuw i8 %.15108 to i1
+  %129 = trunc nuw i8 %.13106 to i1
   br i1 %129, label %133, label %130
 
 130:                                              ; preds = %128
@@ -2127,19 +2127,19 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %133
 
 133:                                              ; preds = %128, %130
-  %.16109 = phi i8 [ %.15108, %130 ], [ 0, %128 ]
+  %.17110 = phi i8 [ %.13106, %130 ], [ 0, %128 ]
   %134 = load ptr, ptr @stderr, align 8
   %135 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 4, i64 1, ptr %134) #7
   br label %136
 
 136:                                              ; preds = %133, %126
-  %.17110 = phi i8 [ %.16109, %133 ], [ %.15108, %126 ]
+  %.16109 = phi i8 [ %.17110, %133 ], [ %.13106, %126 ]
   %137 = and i32 %0, 32
   %.not127 = icmp eq i32 %137, 0
   br i1 %.not127, label %146, label %138
 
 138:                                              ; preds = %136
-  %139 = trunc nuw i8 %.17110 to i1
+  %139 = trunc nuw i8 %.16109 to i1
   br i1 %139, label %143, label %140
 
 140:                                              ; preds = %138
@@ -2148,19 +2148,19 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %143
 
 143:                                              ; preds = %138, %140
-  %.18111 = phi i8 [ %.17110, %140 ], [ 0, %138 ]
+  %.19 = phi i8 [ %.16109, %140 ], [ 0, %138 ]
   %144 = load ptr, ptr @stderr, align 8
   %145 = tail call i64 @fwrite(ptr nonnull @.str.143, i64 6, i64 1, ptr %144) #7
   br label %146
 
 146:                                              ; preds = %143, %136
-  %.19 = phi i8 [ %.18111, %143 ], [ %.17110, %136 ]
+  %.18111 = phi i8 [ %.19, %143 ], [ %.16109, %136 ]
   %147 = and i32 %0, 64
   %.not128 = icmp eq i32 %147, 0
   br i1 %.not128, label %156, label %148
 
 148:                                              ; preds = %146
-  %149 = trunc nuw i8 %.19 to i1
+  %149 = trunc nuw i8 %.18111 to i1
   br i1 %149, label %153, label %150
 
 150:                                              ; preds = %148
@@ -2169,19 +2169,19 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %153
 
 153:                                              ; preds = %148, %150
-  %.20 = phi i8 [ %.19, %150 ], [ 0, %148 ]
+  %.21 = phi i8 [ %.18111, %150 ], [ 0, %148 ]
   %154 = load ptr, ptr @stderr, align 8
   %155 = tail call i64 @fwrite(ptr nonnull @.str.144, i64 6, i64 1, ptr %154) #7
   br label %156
 
 156:                                              ; preds = %153, %146
-  %.21 = phi i8 [ %.20, %153 ], [ %.19, %146 ]
+  %.20 = phi i8 [ %.21, %153 ], [ %.18111, %146 ]
   %157 = and i32 %0, 128
   %.not129 = icmp eq i32 %157, 0
   br i1 %.not129, label %340, label %158
 
 158:                                              ; preds = %156
-  %159 = trunc nuw i8 %.21 to i1
+  %159 = trunc nuw i8 %.20 to i1
   br i1 %159, label %163, label %160
 
 160:                                              ; preds = %158
@@ -2190,7 +2190,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %163
 
 163:                                              ; preds = %158, %160
-  %.22 = phi i8 [ %.21, %160 ], [ 0, %158 ]
+  %.23 = phi i8 [ %.20, %160 ], [ 0, %158 ]
   %164 = and i32 %0, 134217728
   %.not130 = icmp eq i32 %164, 0
   br i1 %.not130, label %167, label %165
@@ -2249,13 +2249,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %188
 
 188:                                              ; preds = %185, %182
-  %.190 = phi i8 [ 0, %185 ], [ 1, %182 ]
+  %.089 = phi i8 [ 0, %185 ], [ 1, %182 ]
   %189 = and i32 %0, 2097152
   %.not138 = icmp eq i32 %189, 0
   br i1 %.not138, label %198, label %190
 
 190:                                              ; preds = %188
-  %191 = trunc nuw i8 %.190 to i1
+  %191 = trunc nuw i8 %.089 to i1
   br i1 %191, label %195, label %192
 
 192:                                              ; preds = %190
@@ -2264,17 +2264,17 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %195
 
 195:                                              ; preds = %190, %192
-  %.291 = phi i8 [ %.190, %192 ], [ 0, %190 ]
+  %.392 = phi i8 [ %.089, %192 ], [ 0, %190 ]
   %196 = load ptr, ptr @stderr, align 8
   %197 = tail call i64 @fwrite(ptr nonnull @.str.150, i64 6, i64 1, ptr %196) #7
   br label %198
 
 198:                                              ; preds = %195, %188
-  %.392 = phi i8 [ %.291, %195 ], [ %.190, %188 ]
+  %.291 = phi i8 [ %.392, %195 ], [ %.089, %188 ]
   br i1 %.not132, label %199, label %207
 
 199:                                              ; preds = %198
-  %200 = trunc nuw i8 %.392 to i1
+  %200 = trunc nuw i8 %.291 to i1
   br i1 %200, label %204, label %201
 
 201:                                              ; preds = %199
@@ -2378,13 +2378,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %255
 
 255:                                              ; preds = %250, %252
-  %.3 = phi i8 [ %.2, %252 ], [ 0, %250 ]
+  %.5 = phi i8 [ %.2, %252 ], [ 0, %250 ]
   %256 = load ptr, ptr @stderr, align 8
   %257 = tail call i64 @fwrite(ptr nonnull @.str.140, i64 5, i64 1, ptr %256) #7
   br label %258
 
 258:                                              ; preds = %255, %248
-  %.4 = phi i8 [ %.3, %255 ], [ %.2, %248 ]
+  %.4 = phi i8 [ %.5, %255 ], [ %.2, %248 ]
   %259 = and i32 %0, 8192
   %.not146 = icmp eq i32 %259, 0
   br i1 %.not146, label %268, label %260
@@ -2399,13 +2399,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %265
 
 265:                                              ; preds = %260, %262
-  %.5 = phi i8 [ %.4, %262 ], [ 0, %260 ]
+  %.7 = phi i8 [ %.4, %262 ], [ 0, %260 ]
   %266 = load ptr, ptr @stderr, align 8
   %267 = tail call i64 @fwrite(ptr nonnull @.str.141, i64 4, i64 1, ptr %266) #7
   br label %268
 
 268:                                              ; preds = %265, %258
-  %.6 = phi i8 [ %.5, %265 ], [ %.4, %258 ]
+  %.6 = phi i8 [ %.7, %265 ], [ %.4, %258 ]
   %269 = and i32 %0, 16384
   %.not147 = icmp eq i32 %269, 0
   br i1 %.not147, label %278, label %270
@@ -2420,13 +2420,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %275
 
 275:                                              ; preds = %270, %272
-  %.7 = phi i8 [ %.6, %272 ], [ 0, %270 ]
+  %.9 = phi i8 [ %.6, %272 ], [ 0, %270 ]
   %276 = load ptr, ptr @stderr, align 8
   %277 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 4, i64 1, ptr %276) #7
   br label %278
 
 278:                                              ; preds = %275, %268
-  %.8 = phi i8 [ %.7, %275 ], [ %.6, %268 ]
+  %.8 = phi i8 [ %.9, %275 ], [ %.6, %268 ]
   %279 = and i32 %0, 32768
   %.not148 = icmp eq i32 %279, 0
   br i1 %.not148, label %288, label %280
@@ -2441,13 +2441,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %285
 
 285:                                              ; preds = %280, %282
-  %.9 = phi i8 [ %.8, %282 ], [ 0, %280 ]
+  %.11 = phi i8 [ %.8, %282 ], [ 0, %280 ]
   %286 = load ptr, ptr @stderr, align 8
   %287 = tail call i64 @fwrite(ptr nonnull @.str.143, i64 6, i64 1, ptr %286) #7
   br label %288
 
 288:                                              ; preds = %285, %278
-  %.10 = phi i8 [ %.9, %285 ], [ %.8, %278 ]
+  %.10 = phi i8 [ %.11, %285 ], [ %.8, %278 ]
   %289 = and i32 %0, 65536
   %.not149 = icmp eq i32 %289, 0
   br i1 %.not149, label %298, label %290
@@ -2462,13 +2462,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %295
 
 295:                                              ; preds = %290, %292
-  %.11 = phi i8 [ %.10, %292 ], [ 0, %290 ]
+  %.13 = phi i8 [ %.10, %292 ], [ 0, %290 ]
   %296 = load ptr, ptr @stderr, align 8
   %297 = tail call i64 @fwrite(ptr nonnull @.str.144, i64 6, i64 1, ptr %296) #7
   br label %298
 
 298:                                              ; preds = %295, %288
-  %.12 = phi i8 [ %.11, %295 ], [ %.10, %288 ]
+  %.12 = phi i8 [ %.13, %295 ], [ %.10, %288 ]
   %299 = and i32 %0, 131072
   %.not150 = icmp eq i32 %299, 0
   br i1 %.not150, label %308, label %300
@@ -2483,13 +2483,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %305
 
 305:                                              ; preds = %300, %302
-  %.13 = phi i8 [ %.12, %302 ], [ 0, %300 ]
+  %.15 = phi i8 [ %.12, %302 ], [ 0, %300 ]
   %306 = load ptr, ptr @stderr, align 8
   %307 = tail call i64 @fwrite(ptr nonnull @.str.153, i64 5, i64 1, ptr %306) #7
   br label %308
 
 308:                                              ; preds = %305, %298
-  %.14 = phi i8 [ %.13, %305 ], [ %.12, %298 ]
+  %.14 = phi i8 [ %.15, %305 ], [ %.12, %298 ]
   %309 = and i32 %0, 262144
   %.not151 = icmp eq i32 %309, 0
   br i1 %.not151, label %318, label %310
@@ -2504,13 +2504,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %315
 
 315:                                              ; preds = %310, %312
-  %.15 = phi i8 [ %.14, %312 ], [ 0, %310 ]
+  %.17 = phi i8 [ %.14, %312 ], [ 0, %310 ]
   %316 = load ptr, ptr @stderr, align 8
   %317 = tail call i64 @fwrite(ptr nonnull @.str.156, i64 6, i64 1, ptr %316) #7
   br label %318
 
 318:                                              ; preds = %315, %308
-  %.16 = phi i8 [ %.15, %315 ], [ %.14, %308 ]
+  %.16 = phi i8 [ %.17, %315 ], [ %.14, %308 ]
   %319 = and i32 %0, 524288
   %.not152 = icmp eq i32 %319, 0
   br i1 %.not152, label %328, label %320
@@ -2525,19 +2525,19 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %325
 
 325:                                              ; preds = %320, %322
-  %.17 = phi i8 [ %.16, %322 ], [ 0, %320 ]
+  %.18 = phi i8 [ %.16, %322 ], [ 0, %320 ]
   %326 = load ptr, ptr @stderr, align 8
   %327 = tail call i64 @fwrite(ptr nonnull @.str.157, i64 8, i64 1, ptr %326) #7
   br label %328
 
 328:                                              ; preds = %318, %325, %240
-  %.18 = phi i8 [ 0, %240 ], [ %.17, %325 ], [ %.16, %318 ]
+  %.1 = phi i8 [ 0, %240 ], [ %.18, %325 ], [ %.16, %318 ]
   %329 = and i32 %0, 1048576
   %.not153 = icmp eq i32 %329, 0
   br i1 %.not153, label %338, label %330
 
 330:                                              ; preds = %328
-  %331 = trunc nuw i8 %.18 to i1
+  %331 = trunc nuw i8 %.1 to i1
   br i1 %331, label %335, label %332
 
 332:                                              ; preds = %330
@@ -2556,13 +2556,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %340
 
 340:                                              ; preds = %233, %338, %156
-  %.23 = phi i8 [ %.22, %338 ], [ %.22, %233 ], [ %.21, %156 ]
+  %.22 = phi i8 [ %.23, %338 ], [ %.23, %233 ], [ %.20, %156 ]
   %341 = and i32 %0, 256
   %.not155 = icmp eq i32 %341, 0
   br i1 %.not155, label %355, label %342
 
 342:                                              ; preds = %340
-  %343 = trunc nuw i8 %.23 to i1
+  %343 = trunc nuw i8 %.22 to i1
   br i1 %343, label %347, label %344
 
 344:                                              ; preds = %342
@@ -2571,7 +2571,7 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %347
 
 347:                                              ; preds = %342, %344
-  %.24 = phi i8 [ %.23, %344 ], [ 0, %342 ]
+  %.25 = phi i8 [ %.22, %344 ], [ 0, %342 ]
   %348 = load ptr, ptr @stderr, align 8
   %349 = tail call i64 @fwrite(ptr nonnull @.str.156, i64 6, i64 1, ptr %348) #7
   %.not156 = icmp eq ptr %1, null
@@ -2588,13 +2588,13 @@ define internal fastcc void @zend_dump_type_info(i32 noundef %0, ptr noundef rea
   br label %355
 
 355:                                              ; preds = %.sink.split, %347, %340
-  %.25 = phi i8 [ %.24, %347 ], [ %.23, %340 ], [ %.24, %.sink.split ]
+  %.24 = phi i8 [ %.25, %347 ], [ %.22, %340 ], [ %.25, %.sink.split ]
   %356 = and i32 %0, 512
   %.not158 = icmp eq i32 %356, 0
   br i1 %.not158, label %365, label %357
 
 357:                                              ; preds = %355
-  %358 = trunc nuw i8 %.25 to i1
+  %358 = trunc nuw i8 %.24 to i1
   br i1 %358, label %362, label %359
 
 359:                                              ; preds = %357

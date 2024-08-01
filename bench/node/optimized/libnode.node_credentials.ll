@@ -392,8 +392,8 @@ fail:                                             ; preds = %fail.sink.split, %_
   br label %return
 
 return:                                           ; preds = %if.end41, %_ZN4node16MaybeStackBufferIcLm256EED2Ev.exit, %fail
-  %retval.3 = phi i1 [ false, %fail ], [ true, %if.end41 ], [ true, %_ZN4node16MaybeStackBufferIcLm256EED2Ev.exit ]
-  ret i1 %retval.3
+  %retval.2 = phi i1 [ false, %fail ], [ true, %if.end41 ], [ true, %_ZN4node16MaybeStackBufferIcLm256EED2Ev.exit ]
+  ret i1 %retval.2
 }
 
 ; Function Attrs: nounwind

@@ -215,7 +215,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %132 unwind label %.loopexit.split-lp321
 
 130:                                              ; preds = %805, %802
-  %131 = trunc nuw i8 %.sroa.058.1 to i1
+  %131 = trunc nuw i8 %.sroa.058.2 to i1
   br i1 %131, label %.thread, label %806
 
 .loopexit320:                                     ; preds = %147, %156
@@ -295,15 +295,15 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %147 unwind label %.loopexit320
 
 157:                                              ; preds = %163, %159
-  %.sroa.056.0 = phi i8 [ %.sroa.056.2, %163 ], [ %.sroa.058.2, %159 ]
-  %.sroa.057.0 = phi i8 [ %.sroa.057.2, %163 ], [ %.sroa.058.2, %159 ]
-  %.sroa.058.1 = phi i8 [ %.sroa.058.3, %163 ], [ %.sroa.058.2, %159 ]
+  %.sroa.056.1 = phi i8 [ %.sroa.056.3, %163 ], [ %.sroa.058.1, %159 ]
+  %.sroa.057.1 = phi i8 [ %.sroa.057.3, %163 ], [ %.sroa.058.1, %159 ]
+  %.sroa.058.2 = phi i8 [ %.sroa.058.4, %163 ], [ %.sroa.058.1, %159 ]
   %.pn182.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn182.pn.pn.pn.pn.pn.pn.pn, %163 ], [ %160, %159 ]
-  %158 = trunc nuw i8 %.sroa.056.0 to i1
+  %158 = trunc nuw i8 %.sroa.056.1 to i1
   br i1 %158, label %804, label %802
 
 159:                                              ; preds = %520, %357, %151
-  %.sroa.058.2 = phi i8 [ 0, %357 ], [ 0, %520 ], [ 1, %151 ]
+  %.sroa.058.1 = phi i8 [ 0, %357 ], [ 0, %520 ], [ 1, %151 ]
   %160 = landingpad { ptr, i32 }
           cleanup
   br label %157
@@ -313,9 +313,9 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %164 unwind label %.loopexit.split-lp315
 
 163:                                              ; preds = %.loopexit314, %.loopexit.split-lp315, %796, %782, %224, %800, %.thread284, %581, %223, %211
-  %.sroa.056.2 = phi i8 [ %.sroa.056.4200, %581 ], [ %.sroa.056.6, %223 ], [ 1, %211 ], [ 1, %.thread284 ], [ 1, %782 ], [ 1, %800 ], [ 1, %796 ], [ 0, %224 ], [ 1, %.loopexit314 ], [ %.sroa.058.4.ph, %.loopexit.split-lp315 ]
-  %.sroa.057.2 = phi i8 [ %.sroa.057.4201, %581 ], [ %.sroa.057.6, %223 ], [ 1, %211 ], [ 1, %.thread284 ], [ 1, %782 ], [ 1, %800 ], [ 1, %796 ], [ 0, %224 ], [ 1, %.loopexit314 ], [ %.sroa.058.4.ph, %.loopexit.split-lp315 ]
-  %.sroa.058.3 = phi i8 [ %.sroa.058.5202, %581 ], [ %.sroa.058.7, %223 ], [ 1, %211 ], [ 1, %.thread284 ], [ 1, %782 ], [ 1, %800 ], [ 1, %796 ], [ 0, %224 ], [ 1, %.loopexit314 ], [ %.sroa.058.4.ph, %.loopexit.split-lp315 ]
+  %.sroa.056.3 = phi i8 [ %.sroa.056.5200, %581 ], [ %.sroa.056.7, %223 ], [ 1, %211 ], [ 1, %.thread284 ], [ 1, %782 ], [ 1, %800 ], [ 1, %796 ], [ 0, %224 ], [ 1, %.loopexit314 ], [ %.sroa.058.3.ph, %.loopexit.split-lp315 ]
+  %.sroa.057.3 = phi i8 [ %.sroa.057.5201, %581 ], [ %.sroa.057.7, %223 ], [ 1, %211 ], [ 1, %.thread284 ], [ 1, %782 ], [ 1, %800 ], [ 1, %796 ], [ 0, %224 ], [ 1, %.loopexit314 ], [ %.sroa.058.3.ph, %.loopexit.split-lp315 ]
+  %.sroa.058.4 = phi i8 [ %.sroa.058.6202, %581 ], [ %.sroa.058.8, %223 ], [ 1, %211 ], [ 1, %.thread284 ], [ 1, %782 ], [ 1, %800 ], [ 1, %796 ], [ 0, %224 ], [ 1, %.loopexit314 ], [ %.sroa.058.3.ph, %.loopexit.split-lp315 ]
   %.pn182.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn182.pn.pn.pn.pn.pn.pn203, %581 ], [ %.pn182.pn.pn.pn.pn.pn, %223 ], [ %.pn136, %211 ], [ %.pn287, %.thread284 ], [ %lpad.thr_comm.split-lp291, %782 ], [ %801, %800 ], [ %797, %796 ], [ %lpad.thr_comm.split-lp, %224 ], [ %lpad.loopexit316, %.loopexit314 ], [ %lpad.loopexit.split-lp317, %.loopexit.split-lp315 ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$logos_codegen..graph..Graph$LT$logos_codegen..leaf..Leaf$GT$$GT$17h1330d9a4f9ae4aa3E"(ptr nonnull align 8 %108) #6
           to label %157 unwind label %250
@@ -326,7 +326,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   br label %163
 
 .loopexit.split-lp315:                            ; preds = %161, %174, %214, %217, %356
-  %.sroa.058.4.ph = phi i8 [ 1, %161 ], [ 1, %174 ], [ 1, %214 ], [ 1, %217 ], [ 0, %356 ]
+  %.sroa.058.3.ph = phi i8 [ 1, %161 ], [ 1, %174 ], [ 1, %214 ], [ 1, %217 ], [ 0, %356 ]
   %lpad.loopexit.split-lp317 = landingpad { ptr, i32 }
           cleanup
   br label %163
@@ -448,10 +448,10 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %225 unwind label %.thread205
 
 223:                                              ; preds = %226
-  br i1 %.sroa.043.2, label %581, label %163
+  br i1 %.sroa.043.3, label %581, label %163
 
 .thread205:                                       ; preds = %355, %219
-  %.sroa.058.6.ph = phi i8 [ 1, %219 ], [ 0, %355 ]
+  %.sroa.058.5.ph = phi i8 [ 1, %219 ], [ 0, %355 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %581
@@ -466,17 +466,17 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %229 unwind label %227
 
 226:                                              ; preds = %237, %227
-  %.sroa.043.2 = phi i1 [ %.sroa.043.4, %237 ], [ %.sroa.043.3, %227 ]
-  %.sroa.056.6 = phi i8 [ %.sroa.056.8, %237 ], [ %.sroa.058.8, %227 ]
-  %.sroa.057.6 = phi i8 [ %.sroa.057.8, %237 ], [ %.sroa.058.8, %227 ]
-  %.sroa.058.7 = phi i8 [ %.sroa.058.9, %237 ], [ %.sroa.058.8, %227 ]
+  %.sroa.043.3 = phi i1 [ %.sroa.043.5, %237 ], [ %.sroa.043.2, %227 ]
+  %.sroa.056.7 = phi i8 [ %.sroa.056.9, %237 ], [ %.sroa.058.7, %227 ]
+  %.sroa.057.7 = phi i8 [ %.sroa.057.9, %237 ], [ %.sroa.058.7, %227 ]
+  %.sroa.058.8 = phi i8 [ %.sroa.058.10, %237 ], [ %.sroa.058.7, %227 ]
   %.pn182.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn182.pn.pn.pn.pn, %237 ], [ %228, %227 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$logos_codegen..util..MaybeVoid$GT$17hc2221d2e905299a1E"(ptr nonnull align 8 %58) #6
           to label %223 unwind label %250
 
 227:                                              ; preds = %518, %354, %225
-  %.sroa.043.3 = phi i1 [ true, %354 ], [ false, %518 ], [ true, %225 ]
-  %.sroa.058.8 = phi i8 [ 0, %354 ], [ 0, %518 ], [ 1, %225 ]
+  %.sroa.043.2 = phi i1 [ true, %354 ], [ false, %518 ], [ true, %225 ]
+  %.sroa.058.7 = phi i8 [ 0, %354 ], [ 0, %518 ], [ 1, %225 ]
   %228 = landingpad { ptr, i32 }
           cleanup
   br label %226
@@ -509,17 +509,17 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   br i1 %236, label %241, label %242
 
 237:                                              ; preds = %243, %.thread210, %266, %238
-  %.sroa.043.4 = phi i1 [ %.sroa.043.6, %266 ], [ %.sroa.043.5, %238 ], [ true, %.thread210 ], [ true, %243 ]
-  %.sroa.056.8 = phi i8 [ %.sroa.056.10, %266 ], [ %.sroa.058.10, %238 ], [ 1, %.thread210 ], [ 1, %243 ]
-  %.sroa.057.8 = phi i8 [ %.sroa.057.10, %266 ], [ %.sroa.058.10, %238 ], [ 1, %.thread210 ], [ 1, %243 ]
-  %.sroa.058.9 = phi i8 [ %.sroa.058.11, %266 ], [ %.sroa.058.10, %238 ], [ 1, %.thread210 ], [ 1, %243 ]
+  %.sroa.043.5 = phi i1 [ %.sroa.043.7, %266 ], [ %.sroa.043.4, %238 ], [ true, %.thread210 ], [ true, %243 ]
+  %.sroa.056.9 = phi i8 [ %.sroa.056.11, %266 ], [ %.sroa.058.9, %238 ], [ 1, %.thread210 ], [ 1, %243 ]
+  %.sroa.057.9 = phi i8 [ %.sroa.057.11, %266 ], [ %.sroa.058.9, %238 ], [ 1, %.thread210 ], [ 1, %243 ]
+  %.sroa.058.10 = phi i8 [ %.sroa.058.12, %266 ], [ %.sroa.058.9, %238 ], [ 1, %.thread210 ], [ 1, %243 ]
   %.pn182.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn182.pn.pn.pn, %266 ], [ %239, %238 ], [ %.pn140213, %.thread210 ], [ %lpad.thr_comm.split-lp217, %243 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$logos_codegen..util..MaybeVoid$GT$17hc2221d2e905299a1E"(ptr nonnull align 8 %57) #6
           to label %226 unwind label %250
 
 238:                                              ; preds = %517, %353, %232
-  %.sroa.043.5 = phi i1 [ true, %353 ], [ false, %517 ], [ true, %232 ]
-  %.sroa.058.10 = phi i8 [ 0, %353 ], [ 0, %517 ], [ 1, %232 ]
+  %.sroa.043.4 = phi i1 [ true, %353 ], [ false, %517 ], [ true, %232 ]
+  %.sroa.058.9 = phi i8 [ 0, %353 ], [ 0, %517 ], [ 1, %232 ]
   %239 = landingpad { ptr, i32 }
           cleanup
   br label %237
@@ -626,17 +626,17 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   br label %269
 
 266:                                              ; preds = %270, %267
-  %.sroa.043.6 = phi i1 [ %.sroa.043.8, %270 ], [ %.sroa.043.7, %267 ]
-  %.sroa.056.10 = phi i8 [ %.sroa.056.12, %270 ], [ %.sroa.058.12, %267 ]
-  %.sroa.057.10 = phi i8 [ %.sroa.057.12, %270 ], [ %.sroa.058.12, %267 ]
-  %.sroa.058.11 = phi i8 [ %.sroa.058.13, %270 ], [ %.sroa.058.12, %267 ]
+  %.sroa.043.7 = phi i1 [ %.sroa.043.9, %270 ], [ %.sroa.043.6, %267 ]
+  %.sroa.056.11 = phi i8 [ %.sroa.056.13, %270 ], [ %.sroa.058.11, %267 ]
+  %.sroa.057.11 = phi i8 [ %.sroa.057.13, %270 ], [ %.sroa.058.11, %267 ]
+  %.sroa.058.12 = phi i8 [ %.sroa.058.14, %270 ], [ %.sroa.058.11, %267 ]
   %.pn182.pn.pn.pn = phi { ptr, i32 } [ %.pn182.pn.pn, %270 ], [ %268, %267 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %56) #6
           to label %237 unwind label %250
 
 267:                                              ; preds = %516, %352, %264
-  %.sroa.043.7 = phi i1 [ true, %352 ], [ false, %516 ], [ true, %264 ]
-  %.sroa.058.12 = phi i8 [ 0, %352 ], [ 0, %516 ], [ 1, %264 ]
+  %.sroa.043.6 = phi i1 [ true, %352 ], [ false, %516 ], [ true, %264 ]
+  %.sroa.058.11 = phi i8 [ 0, %352 ], [ 0, %516 ], [ 1, %264 ]
   %268 = landingpad { ptr, i32 }
           cleanup
   br label %266
@@ -646,17 +646,17 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %273 unwind label %271
 
 270:                                              ; preds = %274, %271
-  %.sroa.043.8 = phi i1 [ %.sroa.043.10, %274 ], [ %.sroa.043.9, %271 ]
-  %.sroa.056.12 = phi i8 [ %.sroa.056.14, %274 ], [ %.sroa.058.14, %271 ]
-  %.sroa.057.12 = phi i8 [ %.sroa.057.14, %274 ], [ %.sroa.058.14, %271 ]
-  %.sroa.058.13 = phi i8 [ %.sroa.058.15, %274 ], [ %.sroa.058.14, %271 ]
+  %.sroa.043.9 = phi i1 [ %.sroa.043.11, %274 ], [ %.sroa.043.8, %271 ]
+  %.sroa.056.13 = phi i8 [ %.sroa.056.15, %274 ], [ %.sroa.058.13, %271 ]
+  %.sroa.057.13 = phi i8 [ %.sroa.057.15, %274 ], [ %.sroa.058.13, %271 ]
+  %.sroa.058.14 = phi i8 [ %.sroa.058.16, %274 ], [ %.sroa.058.13, %271 ]
   %.pn182.pn.pn = phi { ptr, i32 } [ %.pn182.pn, %274 ], [ %272, %271 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %49) #6
           to label %266 unwind label %250
 
 271:                                              ; preds = %515, %351, %269
-  %.sroa.043.9 = phi i1 [ true, %351 ], [ false, %515 ], [ true, %269 ]
-  %.sroa.058.14 = phi i8 [ 0, %351 ], [ 0, %515 ], [ 1, %269 ]
+  %.sroa.043.8 = phi i1 [ true, %351 ], [ false, %515 ], [ true, %269 ]
+  %.sroa.058.13 = phi i8 [ 0, %351 ], [ 0, %515 ], [ 1, %269 ]
   %272 = landingpad { ptr, i32 }
           cleanup
   br label %270
@@ -666,17 +666,17 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %277 unwind label %275
 
 274:                                              ; preds = %.loopexit.split-lp, %278, %275
-  %.sroa.043.10 = phi i1 [ %.sroa.043.12, %.loopexit.split-lp ], [ %.sroa.043.11, %275 ], [ true, %278 ]
-  %.sroa.056.14 = phi i8 [ 0, %.loopexit.split-lp ], [ %.sroa.058.16, %275 ], [ 1, %278 ]
-  %.sroa.057.14 = phi i8 [ %.sroa.057.16, %.loopexit.split-lp ], [ %.sroa.058.16, %275 ], [ 1, %278 ]
-  %.sroa.058.15 = phi i8 [ %.sroa.058.17, %.loopexit.split-lp ], [ %.sroa.058.16, %275 ], [ 1, %278 ]
+  %.sroa.043.11 = phi i1 [ %.sroa.043.13, %.loopexit.split-lp ], [ %.sroa.043.10, %275 ], [ true, %278 ]
+  %.sroa.056.15 = phi i8 [ 0, %.loopexit.split-lp ], [ %.sroa.058.15, %275 ], [ 1, %278 ]
+  %.sroa.057.15 = phi i8 [ %.sroa.057.17, %.loopexit.split-lp ], [ %.sroa.058.15, %275 ], [ 1, %278 ]
+  %.sroa.058.16 = phi i8 [ %.sroa.058.18, %.loopexit.split-lp ], [ %.sroa.058.15, %275 ], [ 1, %278 ]
   %.pn182.pn = phi { ptr, i32 } [ %.pn182, %.loopexit.split-lp ], [ %276, %275 ], [ %279, %278 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h5ffc465f52a5866eE"(ptr nonnull align 8 %48) #6
           to label %270 unwind label %250
 
 275:                                              ; preds = %514, %350, %273
-  %.sroa.043.11 = phi i1 [ true, %350 ], [ false, %514 ], [ true, %273 ]
-  %.sroa.058.16 = phi i8 [ 0, %350 ], [ 0, %514 ], [ 1, %273 ]
+  %.sroa.043.10 = phi i1 [ true, %350 ], [ false, %514 ], [ true, %273 ]
+  %.sroa.058.15 = phi i8 [ 0, %350 ], [ 0, %514 ], [ 1, %273 ]
   %276 = landingpad { ptr, i32 }
           cleanup
   br label %274
@@ -711,9 +711,9 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %286 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %324, %414, %335, %299, %289
-  %.sroa.043.12 = phi i1 [ true, %335 ], [ true, %324 ], [ false, %414 ], [ true, %299 ], [ true, %289 ], [ true, %.loopexit ], [ true, %.loopexit.split-lp.loopexit ], [ %.sroa.043.13.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.057.16 = phi i8 [ 0, %335 ], [ 0, %324 ], [ 0, %414 ], [ 0, %299 ], [ 1, %289 ], [ 0, %.loopexit ], [ 0, %.loopexit.split-lp.loopexit ], [ %.sroa.057.17.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.sroa.058.17 = phi i8 [ 1, %335 ], [ 1, %324 ], [ 0, %414 ], [ 1, %299 ], [ 1, %289 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.058.18.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.043.13 = phi i1 [ true, %335 ], [ true, %324 ], [ false, %414 ], [ true, %299 ], [ true, %289 ], [ true, %.loopexit ], [ true, %.loopexit.split-lp.loopexit ], [ %.sroa.043.12.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.057.17 = phi i8 [ 0, %335 ], [ 0, %324 ], [ 0, %414 ], [ 0, %299 ], [ 1, %289 ], [ 0, %.loopexit ], [ 0, %.loopexit.split-lp.loopexit ], [ %.sroa.057.16.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.sroa.058.18 = phi i8 [ 1, %335 ], [ 1, %324 ], [ 0, %414 ], [ 1, %299 ], [ 1, %289 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.sroa.058.17.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn182 = phi { ptr, i32 } [ %lpad.thr_comm223, %335 ], [ %lpad.thr_comm.split-lp224, %324 ], [ %.pn148, %414 ], [ %300, %299 ], [ %290, %289 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit300, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp301, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr nonnull align 8 %47) #6
           to label %274 unwind label %250
@@ -729,9 +729,9 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %513, %412, %411, %410, %406, %349, %348, %340, %334, %304, %296, %293, %281
-  %.sroa.043.13.ph.ph = phi i1 [ true, %348 ], [ false, %513 ], [ false, %412 ], [ false, %411 ], [ false, %410 ], [ false, %406 ], [ true, %349 ], [ true, %340 ], [ true, %334 ], [ true, %304 ], [ true, %296 ], [ true, %293 ], [ true, %281 ]
-  %.sroa.057.17.ph.ph = phi i8 [ 0, %348 ], [ 0, %513 ], [ 0, %412 ], [ 0, %411 ], [ 0, %410 ], [ 0, %406 ], [ 0, %349 ], [ 0, %340 ], [ 0, %334 ], [ 0, %304 ], [ 0, %296 ], [ 1, %293 ], [ 1, %281 ]
-  %.sroa.058.18.ph.ph = phi i8 [ 0, %348 ], [ 0, %513 ], [ 0, %412 ], [ 0, %411 ], [ 0, %410 ], [ 0, %406 ], [ 0, %349 ], [ 0, %340 ], [ 1, %334 ], [ 1, %304 ], [ 1, %296 ], [ 1, %293 ], [ 1, %281 ]
+  %.sroa.043.12.ph.ph = phi i1 [ true, %348 ], [ false, %513 ], [ false, %412 ], [ false, %411 ], [ false, %410 ], [ false, %406 ], [ true, %349 ], [ true, %340 ], [ true, %334 ], [ true, %304 ], [ true, %296 ], [ true, %293 ], [ true, %281 ]
+  %.sroa.057.16.ph.ph = phi i8 [ 0, %348 ], [ 0, %513 ], [ 0, %412 ], [ 0, %411 ], [ 0, %410 ], [ 0, %406 ], [ 0, %349 ], [ 0, %340 ], [ 0, %334 ], [ 0, %304 ], [ 0, %296 ], [ 1, %293 ], [ 1, %281 ]
+  %.sroa.058.17.ph.ph = phi i8 [ 0, %348 ], [ 0, %513 ], [ 0, %412 ], [ 0, %411 ], [ 0, %410 ], [ 0, %406 ], [ 0, %349 ], [ 0, %340 ], [ 1, %334 ], [ 1, %304 ], [ 1, %296 ], [ 1, %293 ], [ 1, %281 ]
   %lpad.loopexit.split-lp301 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -1713,9 +1713,9 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 581:                                              ; preds = %.thread205, %223
   %.pn182.pn.pn.pn.pn.pn.pn203 = phi { ptr, i32 } [ %.pn182.pn.pn.pn.pn.pn, %223 ], [ %lpad.thr_comm, %.thread205 ]
-  %.sroa.058.5202 = phi i8 [ %.sroa.058.7, %223 ], [ %.sroa.058.6.ph, %.thread205 ]
-  %.sroa.057.4201 = phi i8 [ %.sroa.057.6, %223 ], [ %.sroa.058.6.ph, %.thread205 ]
-  %.sroa.056.4200 = phi i8 [ %.sroa.056.6, %223 ], [ %.sroa.058.6.ph, %.thread205 ]
+  %.sroa.058.6202 = phi i8 [ %.sroa.058.8, %223 ], [ %.sroa.058.5.ph, %.thread205 ]
+  %.sroa.057.5201 = phi i8 [ %.sroa.057.7, %223 ], [ %.sroa.058.5.ph, %.thread205 ]
+  %.sroa.056.5200 = phi i8 [ %.sroa.056.7, %223 ], [ %.sroa.058.5.ph, %.thread205 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$logos_codegen..graph..fork..Fork$GT$17h15fe55c144e34302E"(ptr nonnull align 8 %59) #6
           to label %163 unwind label %250
 
@@ -1951,7 +1951,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %.invoke328.invoke unwind label %638
 
 660:                                              ; preds = %691, %671, %696, %.thread238, %661
-  %.sroa.047.0 = phi i1 [ %.sroa.047.1242, %.thread238 ], [ false, %671 ], [ true, %696 ], [ true, %691 ], [ true, %661 ]
+  %.sroa.047.0 = phi i1 [ %.sroa.047.2242, %.thread238 ], [ false, %671 ], [ true, %696 ], [ true, %691 ], [ true, %661 ]
   %.pn125.pn = phi { ptr, i32 } [ %.pn125243, %.thread238 ], [ %lpad.thr_comm.split-lp247, %671 ], [ %697, %696 ], [ %692, %691 ], [ %662, %661 ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$logos_codegen..parser..definition..Literal$GT$17h4114305ab5e0b3e4E"(ptr nonnull align 8 %69) #6
           to label %698 unwind label %250
@@ -1980,7 +1980,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %693 unwind label %696
 
 .thread248:                                       ; preds = %684, %683, %672, %665
-  %.sroa.047.2.ph = phi i1 [ true, %665 ], [ true, %672 ], [ false, %683 ], [ false, %684 ]
+  %.sroa.047.1.ph = phi i1 [ true, %665 ], [ true, %672 ], [ false, %683 ], [ false, %684 ]
   %lpad.thr_comm246 = landingpad { ptr, i32 }
           cleanup
   br label %.thread238
@@ -2043,7 +2043,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
 
 .thread238:                                       ; preds = %680, %689, %.thread248
   %.pn125243 = phi { ptr, i32 } [ %lpad.thr_comm246, %.thread248 ], [ %681, %680 ], [ %690, %689 ]
-  %.sroa.047.1242 = phi i1 [ %.sroa.047.2.ph, %.thread248 ], [ true, %680 ], [ true, %689 ]
+  %.sroa.047.2242 = phi i1 [ %.sroa.047.1.ph, %.thread248 ], [ true, %680 ], [ true, %689 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$logos_codegen..mir..Mir$GT$17h6cee15723dba3ec3E"(ptr nonnull align 8 %67) #6
           to label %660 unwind label %250
 
@@ -2385,7 +2385,7 @@ define void @_ZN13logos_codegen8generate17h972d5cb0c23bd969E(ptr sret([32 x i8])
           to label %163 unwind label %250
 
 802:                                              ; preds = %804, %157
-  %803 = trunc nuw i8 %.sroa.057.0 to i1
+  %803 = trunc nuw i8 %.sroa.057.1 to i1
   br i1 %803, label %805, label %130
 
 804:                                              ; preds = %157

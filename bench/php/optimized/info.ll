@@ -1511,7 +1511,7 @@ define internal fastcc void @php_info_print_stream_hash(ptr noundef %0, ptr noun
   br i1 %.not3641, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %php_info_print_html_esc.exit
-  %.043 = phi i32 [ %.2, %php_info_print_html_esc.exit ], [ 1, %12 ]
+  %.043 = phi i32 [ %.1, %php_info_print_html_esc.exit ], [ 1, %12 ]
   %.03042 = phi ptr [ %49, %php_info_print_html_esc.exit ], [ %14, %12 ]
   %19 = getelementptr inbounds i8, ptr %.03042, i64 8
   %20 = load i8, ptr %19, align 8
@@ -1571,7 +1571,7 @@ define internal fastcc void @php_info_print_stream_hash(ptr noundef %0, ptr noun
   br label %php_info_print_html_esc.exit
 
 php_info_print_html_esc.exit:                     ; preds = %45, %44, %31, %22, %46, %.lr.ph
-  %.2 = phi i32 [ %.043, %.lr.ph ], [ 0, %46 ], [ %.043, %22 ], [ 0, %31 ], [ 0, %44 ], [ 0, %45 ]
+  %.1 = phi i32 [ %.043, %.lr.ph ], [ 0, %46 ], [ %.043, %22 ], [ 0, %31 ], [ 0, %44 ], [ 0, %45 ]
   %49 = getelementptr inbounds i8, ptr %.03042, i64 32
   %.not36 = icmp eq ptr %49, %18
   br i1 %.not36, label %.loopexit, label %.lr.ph
@@ -2317,8 +2317,8 @@ define hidden void @zif_phpversion(ptr noundef %0, ptr nocapture noundef writeon
 
 .thread246:                                       ; preds = %.thread241, %17
   %.pn = phi ptr [ %18, %17 ], [ %13, %.thread241 ]
-  %.2223249 = getelementptr inbounds i8, ptr %.pn, i64 24
-  %26 = call ptr @zend_get_module_version(ptr noundef nonnull %.2223249) #14
+  %.0188223249 = getelementptr inbounds i8, ptr %.pn, i64 24
+  %26 = call ptr @zend_get_module_version(ptr noundef nonnull %.0188223249) #14
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %30
 
@@ -2503,8 +2503,8 @@ define hidden void @zif_php_uname(ptr noundef %0, ptr nocapture noundef writeonl
   br label %30
 
 22:                                               ; preds = %17, %8, %.thread
-  %.2.ph = phi ptr [ %16, %.thread ], [ @.str.128, %8 ], [ %20, %17 ]
-  %23 = load i8, ptr %.2.ph, align 1
+  %.070.ph = phi ptr [ %16, %.thread ], [ @.str.128, %8 ], [ %20, %17 ]
+  %23 = load i8, ptr %.070.ph, align 1
   %24 = call ptr @php_get_uname(i8 noundef signext %23)
   store ptr %24, ptr %1, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 4

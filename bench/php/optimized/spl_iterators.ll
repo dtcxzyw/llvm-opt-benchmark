@@ -3554,19 +3554,19 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   br label %210
 
 94:                                               ; preds = %.critedge2, %81
-  %.0110 = phi ptr [ %76, %81 ], [ %84, %.critedge2 ]
+  %.1 = phi ptr [ %76, %81 ], [ %84, %.critedge2 ]
   %95 = load ptr, ptr @zend_ce_aggregate, align 8
-  %96 = icmp eq ptr %.0110, %95
+  %96 = icmp eq ptr %.1, %95
   br i1 %96, label %.critedge4, label %97
 
 97:                                               ; preds = %94
-  %98 = call zeroext i1 @instanceof_function_slow(ptr noundef %.0110, ptr noundef %95) #10
+  %98 = call zeroext i1 @instanceof_function_slow(ptr noundef %.1, ptr noundef %95) #10
   br i1 %98, label %.critedge4, label %184
 
 .critedge4:                                       ; preds = %94, %97
   %99 = load ptr, ptr %5, align 8
   %100 = load ptr, ptr %99, align 8
-  %101 = call fastcc i32 @spl_get_iterator_from_aggregate(ptr noundef nonnull %6, ptr noundef %.0110, ptr noundef %100)
+  %101 = call fastcc i32 @spl_get_iterator_from_aggregate(ptr noundef nonnull %6, ptr noundef %.1, ptr noundef %100)
   %102 = icmp eq i32 %101, -1
   br i1 %102, label %210, label %.thread
 
@@ -3720,7 +3720,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
   br label %200
 
 184:                                              ; preds = %36, %59, %97, %79, %72, %147, %169, %172, %175
-  %.1.ph = phi ptr [ null, %36 ], [ null, %59 ], [ %.0110, %97 ], [ %76, %79 ], [ %76, %72 ], [ null, %147 ], [ null, %169 ], [ null, %172 ], [ null, %175 ]
+  %.0110.ph = phi ptr [ null, %36 ], [ null, %59 ], [ %.1, %97 ], [ %76, %79 ], [ %76, %72 ], [ null, %147 ], [ null, %169 ], [ null, %172 ], [ null, %175 ]
   store i32 %3, ptr %16, align 8
   %185 = load ptr, ptr %5, align 8
   %186 = getelementptr inbounds i8, ptr %185, i64 9
@@ -3747,7 +3747,7 @@ define internal fastcc void @spl_dual_it_construct(ptr nocapture noundef readonl
 
 200:                                              ; preds = %.thread, %184, %196
   %201 = phi ptr [ %192, %196 ], [ %192, %184 ], [ %6, %.thread ]
-  %202 = phi ptr [ %199, %196 ], [ %.1.ph, %184 ], [ %182, %.thread ]
+  %202 = phi ptr [ %199, %196 ], [ %.0110.ph, %184 ], [ %182, %.thread ]
   %203 = getelementptr inbounds i8, ptr %14, i64 -120
   store ptr %202, ptr %203, align 8
   %204 = load ptr, ptr %201, align 8
@@ -9916,7 +9916,7 @@ define hidden void @zif_iterator_count(ptr noundef %0, ptr nocapture noundef wri
   br label %34
 
 34:                                               ; preds = %.preheader, %43
-  %.0 = phi i64 [ %44, %43 ], [ 0, %.preheader ]
+  %.2 = phi i64 [ %44, %43 ], [ 0, %.preheader ]
   %35 = load ptr, ptr %28, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
@@ -9928,11 +9928,11 @@ define hidden void @zif_iterator_count(ptr noundef %0, ptr nocapture noundef wri
   br i1 %or.cond.i, label %41, label %spl_iterator_apply.exit
 
 41:                                               ; preds = %34
-  %42 = icmp eq i64 %.0, 9223372036854775807
+  %42 = icmp eq i64 %.2, 9223372036854775807
   br i1 %42, label %spl_iterator_apply.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = add nuw nsw i64 %.0, 1
+  %44 = add nuw nsw i64 %.2, 1
   %45 = load i64, ptr %27, align 8
   %46 = add i64 %45, 1
   store i64 %46, ptr %27, align 8
@@ -9949,15 +9949,15 @@ define hidden void @zif_iterator_count(ptr noundef %0, ptr nocapture noundef wri
   br i1 %.not24.i, label %spl_iterator_apply.exit.thread, label %spl_iterator_apply.exit
 
 spl_iterator_apply.exit:                          ; preds = %34, %43, %41, %32, %.loopexit.i
-  %.2 = phi i64 [ 0, %32 ], [ 0, %.loopexit.i ], [ 9223372036854775807, %41 ], [ %.0, %34 ], [ %44, %43 ]
+  %.1 = phi i64 [ 0, %32 ], [ 0, %.loopexit.i ], [ 9223372036854775807, %41 ], [ %.2, %34 ], [ %44, %43 ]
   tail call void @zend_iterator_dtor(ptr noundef nonnull %24) #10
   %.pre.i = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %.not = icmp eq ptr %.pre.i, null
   br i1 %.not, label %51, label %spl_iterator_apply.exit.thread
 
 51:                                               ; preds = %spl_iterator_apply.exit, %15
-  %.4 = phi i64 [ %18, %15 ], [ %.2, %spl_iterator_apply.exit ]
-  store i64 %.4, ptr %1, align 8
+  %.0 = phi i64 [ %18, %15 ], [ %.1, %spl_iterator_apply.exit ]
+  store i64 %.0, ptr %1, align 8
   %52 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %52, align 8
   br label %spl_iterator_apply.exit.thread

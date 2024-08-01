@@ -1172,12 +1172,12 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 .sink.split:                                      ; preds = %.invoke169, %363, %.invoke168
   %.sink = phi ptr [ %15, %.invoke168 ], [ %15, %363 ], [ %16, %.invoke169 ]
-  %.3.ph = phi i32 [ 1, %.invoke168 ], [ 2, %363 ], [ 1, %.invoke169 ]
+  %.2.ph = phi i32 [ 1, %.invoke168 ], [ 2, %363 ], [ 1, %.invoke169 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #15
   br label %399
 
 399:                                              ; preds = %.sink.split, %.invoke, %.loopexit
-  %.3 = phi i32 [ 0, %.loopexit ], [ 1, %.invoke ], [ %.3.ph, %.sink.split ]
+  %.2 = phi i32 [ 0, %.loopexit ], [ 1, %.invoke ], [ %.2.ph, %.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #15
   br label %401
 
@@ -1187,7 +1187,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %.body
 
 401:                                              ; preds = %310, %399
-  %.4 = phi i32 [ %.3, %399 ], [ %297, %310 ]
+  %.0 = phi i32 [ %.2, %399 ], [ %297, %310 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #15
   %402 = load ptr, ptr %12, align 8
   %403 = getelementptr inbounds i8, ptr %12, i64 8
@@ -1222,14 +1222,14 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 408:                                              ; preds = %.body, %311
   %.pn70.pn = phi { ptr, i32 } [ %.pn70, %.body ], [ %312, %311 ]
-  %.258 = extractvalue { ptr, i32 } %.pn70.pn, 0
-  %.262 = extractvalue { ptr, i32 } %.pn70.pn, 1
+  %.056 = extractvalue { ptr, i32 } %.pn70.pn, 0
+  %.060 = extractvalue { ptr, i32 } %.pn70.pn, 1
   %409 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #15
-  %410 = icmp eq i32 %.262, %409
+  %410 = icmp eq i32 %.060, %409
   br i1 %410, label %411, label %415
 
 411:                                              ; preds = %408
-  %412 = call ptr @__cxa_begin_catch(ptr %.258) #15
+  %412 = call ptr @__cxa_begin_catch(ptr %.056) #15
   %413 = load ptr, ptr @stderr, align 8
   %414 = call i64 @fwrite(ptr nonnull @.str.30, i64 50, i64 1, ptr %413) #17
   call void @__cxa_end_catch()
@@ -1237,8 +1237,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 415:                                              ; preds = %408
   %416 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #15
-  %417 = icmp eq i32 %.262, %416
-  %418 = call ptr @__cxa_begin_catch(ptr %.258) #15
+  %417 = icmp eq i32 %.060, %416
+  %418 = call ptr @__cxa_begin_catch(ptr %.056) #15
   br i1 %417, label %419, label %430
 
 419:                                              ; preds = %415
@@ -1286,7 +1286,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
           to label %439 unwind label %440
 
 _ZN13JsonnetConfigD2Ev.exit:                      ; preds = %407, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i81, %411, %429, %434
-  %.5 = phi i32 [ 1, %434 ], [ 1, %429 ], [ 1, %411 ], [ %.4, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i81 ], [ %.4, %407 ]
+  %.5 = phi i32 [ 1, %434 ], [ 1, %429 ], [ 1, %411 ], [ %.0, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i81 ], [ %.0, %407 ]
   ret i32 %.5
 
 439:                                              ; preds = %437, %435

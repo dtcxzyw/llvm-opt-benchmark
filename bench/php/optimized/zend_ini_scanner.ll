@@ -6254,14 +6254,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 2642:                                             ; preds = %2640, %2640, %2639, %2629, %.lr.ph4123
-  %.23248 = phi ptr [ %2636, %2639 ], [ %2636, %2640 ], [ %2625, %2629 ], [ %2625, %.lr.ph4123 ], [ %2636, %2640 ]
-  %2643 = getelementptr inbounds i8, ptr %.23248, i64 -1
+  %.33249 = phi ptr [ %2636, %2639 ], [ %2636, %2640 ], [ %2625, %2629 ], [ %2625, %.lr.ph4123 ], [ %2636, %2640 ]
+  %2643 = getelementptr inbounds i8, ptr %.33249, i64 -1
   br label %.loopexit3813
 
 .loopexit3813:                                    ; preds = %.backedge3814, %.preheader3812, %2642
-  %.33249 = phi ptr [ %2643, %2642 ], [ %.promoted4205, %.preheader3812 ], [ %.03246.be, %.backedge3814 ]
-  store ptr %.33249, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
-  %2644 = ptrtoint ptr %.33249 to i64
+  %.13247 = phi ptr [ %2643, %2642 ], [ %.promoted4205, %.preheader3812 ], [ %.03246.be, %.backedge3814 ]
+  store ptr %.13247, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
+  %2644 = ptrtoint ptr %.13247 to i64
   %2645 = sub i64 %2644, %2620
   %2646 = trunc i64 %2645 to i32
   store i32 %2646, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 16), align 8
@@ -7313,7 +7313,7 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3083, label %.lr.ph4086, label %._crit_edge4087
 
 .lr.ph4086:                                       ; preds = %._crit_edge4081, %3091
-  %.032364084 = phi ptr [ %.33239, %3091 ], [ null, %._crit_edge4081 ]
+  %.032364084 = phi ptr [ %.23238, %3091 ], [ null, %._crit_edge4081 ]
   %3084 = phi ptr [ %3092, %3091 ], [ %.promoted4083, %._crit_edge4081 ]
   %3085 = load i8, ptr %3084, align 1
   switch i8 %3085, label %3091 [
@@ -7335,14 +7335,14 @@ define hidden i32 @ini_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %3091
 
 3091:                                             ; preds = %.lr.ph4086, %3088, %3086
-  %.33239 = phi ptr [ %spec.select3701, %3088 ], [ %spec.select, %3086 ], [ %.032364084, %.lr.ph4086 ]
+  %.23238 = phi ptr [ %spec.select3701, %3088 ], [ %spec.select, %3086 ], [ %.032364084, %.lr.ph4086 ]
   %3092 = getelementptr inbounds i8, ptr %3084, i64 1
   store ptr %3092, ptr getelementptr inbounds (i8, ptr @ini_scanner_globals, i64 40), align 8
   %3093 = icmp ult ptr %3092, %2
   br i1 %3093, label %.lr.ph4086, label %._crit_edge4087.loopexit
 
 ._crit_edge4087.loopexit:                         ; preds = %3091, %.lr.ph4086, %.lr.ph4086
-  %.03236.lcssa.ph = phi ptr [ %.032364084, %.lr.ph4086 ], [ %.032364084, %.lr.ph4086 ], [ %.33239, %3091 ]
+  %.03236.lcssa.ph = phi ptr [ %.032364084, %.lr.ph4086 ], [ %.032364084, %.lr.ph4086 ], [ %.23238, %3091 ]
   %.lcssa3932.ph = phi ptr [ %3084, %.lr.ph4086 ], [ %3084, %.lr.ph4086 ], [ %3092, %3091 ]
   %.pre4474 = ptrtoint ptr %.lcssa3932.ph to i64
   br label %._crit_edge4087

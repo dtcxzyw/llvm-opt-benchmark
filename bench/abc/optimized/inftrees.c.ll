@@ -204,7 +204,7 @@ define hidden range(i32 -1, 2) i32 @inflate_table(i32 noundef %0, ptr nocapture 
 .outer:                                           ; preds = %152, %.preheader
   %.3228.ph = phi i32 [ %.4229, %152 ], [ %.0221.lcssa, %.preheader ]
   %.2224.ph = phi i32 [ %108, %152 ], [ 0, %.preheader ]
-  %.0215.ph = phi i32 [ %.1216.lcssa, %152 ], [ %spec.select249, %.preheader ]
+  %.0215.ph = phi i32 [ %.2217.lcssa, %152 ], [ %spec.select249, %.preheader ]
   %.0211.ph = phi i32 [ %spec.select250, %152 ], [ 0, %.preheader ]
   %.0207.ph = phi i32 [ %149, %152 ], [ %70, %.preheader ]
   %.0203.ph = phi i32 [ %.1204, %152 ], [ 0, %.preheader ]
@@ -337,7 +337,7 @@ select.unfold.preheader:                          ; preds = %114
 136:                                              ; preds = %.lr.ph293, %144
   %137 = phi i32 [ %.4229, %.lr.ph293 ], [ %.reass299, %144 ]
   %.1210291 = phi i32 [ %134, %.lr.ph293 ], [ %146, %144 ]
-  %.1216290 = phi i32 [ %132, %.lr.ph293 ], [ %145, %144 ]
+  %.2217290 = phi i32 [ %132, %.lr.ph293 ], [ %145, %144 ]
   %138 = zext i32 %137 to i64
   %139 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %138
   %140 = load i16, ptr %139, align 2
@@ -347,15 +347,15 @@ select.unfold.preheader:                          ; preds = %114
   br i1 %143, label %._crit_edge294, label %144
 
 144:                                              ; preds = %136
-  %145 = add i32 %.1216290, 1
+  %145 = add i32 %.2217290, 1
   %146 = shl nuw i32 %142, 1
-  %.reass299 = add i32 %.1216290, %invariant.op298
+  %.reass299 = add i32 %.2217290, %invariant.op298
   %147 = icmp ult i32 %.reass299, %.0220277
   br i1 %147, label %136, label %._crit_edge294, !llvm.loop !13
 
 ._crit_edge294:                                   ; preds = %144, %136, %128
-  %.1216.lcssa = phi i32 [ %132, %128 ], [ %.1216290, %136 ], [ %135, %144 ]
-  %148 = shl nuw i32 1, %.1216.lcssa
+  %.2217.lcssa = phi i32 [ %132, %128 ], [ %.2217290, %136 ], [ %135, %144 ]
+  %148 = shl nuw i32 1, %.2217.lcssa
   %149 = add i32 %148, %.0207.ph
   %150 = icmp ugt i32 %149, 851
   %or.cond7 = select i1 %69, i1 %150, i1 false
@@ -365,7 +365,7 @@ select.unfold.preheader:                          ; preds = %114
   br i1 %or.cond251, label %.loopexit, label %152
 
 152:                                              ; preds = %._crit_edge294
-  %153 = trunc i32 %.1216.lcssa to i8
+  %153 = trunc i32 %.2217.lcssa to i8
   %154 = load ptr, ptr %3, align 8
   %155 = zext i32 %127 to i64
   %156 = getelementptr inbounds %struct.code, ptr %154, i64 %155

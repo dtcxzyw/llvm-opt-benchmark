@@ -1451,8 +1451,8 @@ define noundef i32 @_ZN7glslang10TPpContext7CPPelseEiPNS_8TPpTokenE(ptr noundef 
   ]
 
 .preheader:                                       ; preds = %.backedge, %12
-  %.1 = phi i32 [ %13, %12 ], [ %.045, %.backedge ]
-  switch i32 %.1, label %12 [
+  %.2 = phi i32 [ %13, %12 ], [ %.045, %.backedge ]
+  switch i32 %.2, label %12 [
     i32 -1, label %.loopexit
     i32 10, label %14
   ]
@@ -1531,8 +1531,8 @@ define noundef i32 @_ZN7glslang10TPpContext7CPPelseEiPNS_8TPpTokenE(ptr noundef 
   br label %48
 
 48:                                               ; preds = %49, %40
-  %.016.i = phi i32 [ %39, %40 ], [ %50, %49 ]
-  switch i32 %.016.i, label %49 [
+  %.1.i = phi i32 [ %39, %40 ], [ %50, %49 ]
+  switch i32 %.1.i, label %49 [
     i32 -1, label %_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit
     i32 10, label %_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit
   ]
@@ -1542,7 +1542,7 @@ define noundef i32 @_ZN7glslang10TPpContext7CPPelseEiPNS_8TPpTokenE(ptr noundef 
   br label %48, !llvm.loop !16
 
 _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %48, %38, %38
-  %.1.i = phi i32 [ %39, %38 ], [ %39, %38 ], [ %.016.i, %48 ], [ %.016.i, %48 ]
+  %.016.i = phi i32 [ %39, %38 ], [ %39, %38 ], [ %.1.i, %48 ], [ %.1.i, %48 ]
   %51 = load i32, ptr %9, align 8
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds [65 x i8], ptr %8, i64 0, i64 %52
@@ -1662,7 +1662,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
 
 .outer.backedge:                                  ; preds = %121, %121, %111, %111, %98, %68, %62, %124, %130, %33
   %.046.ph.be = phi i32 [ %22, %33 ], [ %63, %62 ], [ %.046.ph, %130 ], [ %.046.ph, %124 ], [ 0, %68 ], [ %.046.ph, %98 ], [ %.046.ph, %111 ], [ %.046.ph, %111 ], [ %.046.ph, %121 ], [ %.046.ph, %121 ]
-  %.045.ph.be = phi i32 [ 162, %33 ], [ %.1.i, %62 ], [ 162, %130 ], [ 162, %124 ], [ 162, %68 ], [ 162, %98 ], [ %112, %111 ], [ %112, %111 ], [ %.016.i59, %121 ], [ %.016.i59, %121 ]
+  %.045.ph.be = phi i32 [ 162, %33 ], [ %.016.i, %62 ], [ 162, %130 ], [ 162, %124 ], [ 162, %68 ], [ 162, %98 ], [ %112, %111 ], [ %112, %111 ], [ %.1.i59, %121 ], [ %.1.i59, %121 ]
   br label %.outer, !llvm.loop !15
 
 113:                                              ; preds = %111
@@ -1679,8 +1679,8 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
   br label %121
 
 121:                                              ; preds = %122, %113
-  %.016.i59 = phi i32 [ %112, %113 ], [ %123, %122 ]
-  switch i32 %.016.i59, label %122 [
+  %.1.i59 = phi i32 [ %112, %113 ], [ %123, %122 ]
+  switch i32 %.1.i59, label %122 [
     i32 -1, label %.outer.backedge
     i32 10, label %.outer.backedge
   ], !llvm.loop !15
@@ -1706,7 +1706,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %48, %
   br label %.outer.backedge
 
 .loopexit:                                        ; preds = %.backedge, %.preheader, %69, %60, %57, %96, %28
-  %.0 = phi i32 [ -1, %28 ], [ %97, %96 ], [ %.1.i, %60 ], [ %.1.i, %57 ], [ %74, %69 ], [ %.1, %.preheader ], [ %.045, %.backedge ]
+  %.0 = phi i32 [ -1, %28 ], [ %97, %96 ], [ %.016.i, %60 ], [ %.016.i, %57 ], [ %74, %69 ], [ %.2, %.preheader ], [ %.045, %.backedge ]
   ret i32 %.0
 }
 
@@ -1744,8 +1744,8 @@ switch.lookup:                                    ; preds = %5
   br label %17
 
 17:                                               ; preds = %18, %8
-  %.016 = phi i32 [ %3, %8 ], [ %19, %18 ]
-  switch i32 %.016, label %18 [
+  %.1 = phi i32 [ %3, %8 ], [ %19, %18 ]
+  switch i32 %.1, label %18 [
     i32 -1, label %.loopexit
     i32 10, label %.loopexit
   ]
@@ -1755,8 +1755,8 @@ switch.lookup:                                    ; preds = %5
   br label %17, !llvm.loop !16
 
 .loopexit:                                        ; preds = %17, %17, %4, %4
-  %.1 = phi i32 [ %3, %4 ], [ %3, %4 ], [ %.016, %17 ], [ %.016, %17 ]
-  ret i32 %.1
+  %.016 = phi i32 [ %3, %4 ], [ %3, %4 ], [ %.1, %17 ], [ %.1, %17 ]
+  ret i32 %.016
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1812,8 +1812,8 @@ define noundef i32 @_ZN7glslang10TPpContext5CPPifEPNS_8TPpTokenE(ptr noundef non
   br label %32
 
 32:                                               ; preds = %33, %23
-  %.016.i = phi i32 [ %22, %23 ], [ %34, %33 ]
-  switch i32 %.016.i, label %33 [
+  %.1.i = phi i32 [ %22, %23 ], [ %34, %33 ]
+  switch i32 %.1.i, label %33 [
     i32 -1, label %_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit
     i32 10, label %_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit
   ]
@@ -1823,7 +1823,7 @@ define noundef i32 @_ZN7glslang10TPpContext5CPPifEPNS_8TPpTokenE(ptr noundef non
   br label %32, !llvm.loop !16
 
 _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %32, %32, %19, %19
-  %.1.i = phi i32 [ %22, %19 ], [ %22, %19 ], [ %.016.i, %32 ], [ %.016.i, %32 ]
+  %.016.i = phi i32 [ %22, %19 ], [ %22, %19 ], [ %.1.i, %32 ], [ %.1.i, %32 ]
   %35 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %36, label %41
@@ -1838,7 +1838,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %32, %
   br label %41
 
 41:                                               ; preds = %_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit, %36, %39, %13
-  %.09 = phi i32 [ -1, %13 ], [ %.1.i, %_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit ], [ %.1.i, %36 ], [ %40, %39 ]
+  %.09 = phi i32 [ -1, %13 ], [ %.016.i, %_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit ], [ %.016.i, %36 ], [ %40, %39 ]
   ret i32 %.09
 }
 
@@ -2737,9 +2737,9 @@ _ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit: ; preds = %138, %_ZNSt6vec
   br label %.outer
 
 .outer:                                           ; preds = %391, %247
-  %.sroa.11.1.ph = phi ptr [ %.sroa.11.4, %391 ], [ null, %247 ]
-  %.sroa.24.1.ph = phi ptr [ %.sroa.24.4, %391 ], [ null, %247 ]
-  %.sroa.4.1.ph = phi ptr [ %.sroa.4.4, %391 ], [ null, %247 ]
+  %.sroa.11.1.ph = phi ptr [ %.sroa.11.2, %391 ], [ null, %247 ]
+  %.sroa.24.1.ph = phi ptr [ %.sroa.24.2, %391 ], [ null, %247 ]
+  %.sroa.4.1.ph = phi ptr [ %.sroa.4.2, %391 ], [ null, %247 ]
   %.1132.ph = phi i1 [ true, %391 ], [ %.0131, %247 ]
   %249 = call noundef i32 @_ZN7glslang10TPpContext9scanTokenEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1)
   %250 = and i32 %249, -3
@@ -2994,9 +2994,9 @@ _ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cx
   br label %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE9push_backEOc.exit
 
 _ZNSt6vectorIcN7glslang14pool_allocatorIcEEE9push_backEOc.exit: ; preds = %332, %.thread223, %311, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i180, %342, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i, %314
-  %.sroa.11.4 = phi ptr [ %330, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i ], [ %315, %314 ], [ %358, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i180 ], [ %343, %342 ], [ %.sroa.11.1.ph, %311 ], [ %spec.select, %.thread223 ], [ %.sroa.11.1.ph, %332 ]
-  %.sroa.24.4 = phi ptr [ %331, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i ], [ %.sroa.24.1.ph, %314 ], [ %359, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i180 ], [ %.sroa.24.1.ph, %342 ], [ %.sroa.24.1.ph, %311 ], [ %.sroa.24.1.ph, %.thread223 ], [ %.sroa.24.1.ph, %332 ]
-  %.sroa.4.4 = phi ptr [ %325, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i ], [ %.sroa.4.1.ph, %314 ], [ %353, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i180 ], [ %.sroa.4.1.ph, %342 ], [ %.sroa.4.1.ph, %311 ], [ %.sroa.4.1.ph, %.thread223 ], [ %.sroa.4.1.ph, %332 ]
+  %.sroa.11.2 = phi ptr [ %330, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i ], [ %315, %314 ], [ %358, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i180 ], [ %343, %342 ], [ %.sroa.11.1.ph, %311 ], [ %spec.select, %.thread223 ], [ %.sroa.11.1.ph, %332 ]
+  %.sroa.24.2 = phi ptr [ %331, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i ], [ %.sroa.24.1.ph, %314 ], [ %359, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i180 ], [ %.sroa.24.1.ph, %342 ], [ %.sroa.24.1.ph, %311 ], [ %.sroa.24.1.ph, %.thread223 ], [ %.sroa.24.1.ph, %332 ]
+  %.sroa.4.2 = phi ptr [ %325, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i ], [ %.sroa.4.1.ph, %314 ], [ %353, %_ZNSt6vectorIcN7glslang14pool_allocatorIcEEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS3_EEDpOT_.exit.i.i180 ], [ %.sroa.4.1.ph, %342 ], [ %.sroa.4.1.ph, %311 ], [ %.sroa.4.1.ph, %.thread223 ], [ %.sroa.4.1.ph, %332 ]
   %364 = call noundef i32 @_ZNK7glslang14TStringAtomMap7getAtomEPKc(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull %10)
   %365 = icmp eq i32 %364, 179
   br i1 %365, label %366, label %391
@@ -3262,8 +3262,8 @@ _ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit194: ; preds = %474, %_ZNSt6
   br label %.thread226
 
 .thread226:                                       ; preds = %.split276.us, %270, %.split.us, %select.unfold, %126, %4, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit194, %._crit_edge287, %188, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit, %125, %103, %_ZNK7glslang14TParseVersions13getCurrentLocEv.exit165, %46
-  %.2141 = phi i32 [ 0, %125 ], [ 3, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit ], [ 0, %188 ], [ 2, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit194 ], [ 1, %._crit_edge287 ], [ 2, %103 ], [ 2, %_ZNK7glslang14TParseVersions13getCurrentLocEv.exit165 ], [ 2, %46 ], [ 0, %4 ], [ 0, %126 ], [ 0, %select.unfold ], [ 1, %.split.us ], [ 1, %270 ], [ 1, %.split276.us ]
-  ret i32 %.2141
+  %.0139 = phi i32 [ 0, %125 ], [ 3, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit ], [ 0, %188 ], [ 2, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit194 ], [ 1, %._crit_edge287 ], [ 2, %103 ], [ 2, %_ZNK7glslang14TParseVersions13getCurrentLocEv.exit165 ], [ 2, %46 ], [ 0, %4 ], [ 0, %126 ], [ 0, %select.unfold ], [ 1, %.split.us ], [ 1, %270 ], [ 1, %.split276.us ]
+  ret i32 %.0139
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3365,8 +3365,8 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit:   ; preds = %29, %_ZNSt8_Rb_tree
   br label %52
 
 52:                                               ; preds = %53, %46
-  %.019 = phi i32 [ %45, %46 ], [ %54, %53 ]
-  switch i32 %.019, label %53 [
+  %.2 = phi i32 [ %45, %46 ], [ %54, %53 ]
+  switch i32 %.2, label %53 [
     i32 -1, label %.loopexit
     i32 10, label %.loopexit
   ]
@@ -3376,7 +3376,7 @@ _ZN7glslang10TPpContext14lookupMacroDefEi.exit:   ; preds = %29, %_ZNSt8_Rb_tree
   br label %52, !llvm.loop !28
 
 .loopexit:                                        ; preds = %52, %52, %_ZN7glslang10TPpContext14lookupMacroDefEi.exit
-  %.1 = phi i32 [ 10, %_ZN7glslang10TPpContext14lookupMacroDefEi.exit ], [ %.019, %52 ], [ %.019, %52 ]
+  %.1 = phi i32 [ 10, %_ZN7glslang10TPpContext14lookupMacroDefEi.exit ], [ %.2, %52 ], [ %.2, %52 ]
   %.not26 = icmp eq ptr %44, null
   br i1 %.not26, label %60, label %55
 
@@ -3949,8 +3949,8 @@ _ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit: ; preds = %267, %_ZNSt6vec
   br label %338
 
 338:                                              ; preds = %337, %_ZN7glslang10TPpContext14scanHeaderNameEPNS_8TPpTokenEc.exit.thread71
-  %.1 = phi i32 [ %.04874, %_ZN7glslang10TPpContext14scanHeaderNameEPNS_8TPpTokenEc.exit.thread71 ], [ %124, %337 ]
-  ret i32 %.1
+  %.044 = phi i32 [ %.04874, %_ZN7glslang10TPpContext14scanHeaderNameEPNS_8TPpTokenEc.exit.thread71 ], [ %124, %337 ]
+  ret i32 %.044
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4686,8 +4686,8 @@ _ZN7glslang14TStringAtomMap10getAddAtomEPKc.exit: ; preds = %50, %59
   br label %134
 
 134:                                              ; preds = %135, %125
-  %.016.i = phi i32 [ %.02437, %125 ], [ %136, %135 ]
-  switch i32 %.016.i, label %135 [
+  %.1.i = phi i32 [ %.02437, %125 ], [ %136, %135 ]
+  switch i32 %.1.i, label %135 [
     i32 -1, label %_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit
     i32 10, label %_ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit
   ]
@@ -4697,7 +4697,7 @@ _ZN7glslang14TStringAtomMap10getAddAtomEPKc.exit: ; preds = %50, %59
   br label %134, !llvm.loop !16
 
 _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %134, %134, %124, %124, %10
-  %.025 = phi i32 [ 10, %10 ], [ %.02437, %124 ], [ %.02437, %124 ], [ %.016.i, %134 ], [ %.016.i, %134 ]
+  %.025 = phi i32 [ 10, %10 ], [ %.02437, %124 ], [ %.02437, %124 ], [ %.1.i, %134 ], [ %.1.i, %134 ]
   ret i32 %.025
 }
 
@@ -5619,8 +5619,8 @@ _ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit: ; preds = %16, %_ZNSt6vect
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %.loopexit, %.preheader, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit
-  %.1 = phi i32 [ %45, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit ], [ %52, %.preheader ], [ %48, %.loopexit ], [ %54, %.backedge ]
-  %.not24 = icmp eq i32 %.1, -3
+  %.0 = phi i32 [ %45, %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit ], [ %52, %.preheader ], [ %48, %.loopexit ], [ %54, %.backedge ]
+  %.not24 = icmp eq i32 %.0, -3
   br i1 %.not24, label %57, label %56
 
 56:                                               ; preds = %._crit_edge
@@ -9154,14 +9154,14 @@ _ZN7glslang13TInputScanner4peekEv.exit.i54:       ; preds = %240
 
 _ZN7glslang13TInputScanner3getEv.exit55:          ; preds = %_ZN7glslang13TInputScanner4peekEv.exit.i54, %259, %_ZN7glslang13TInputScanner4peekEv.exit.i44
   %.sink = phi ptr [ %180, %_ZN7glslang13TInputScanner4peekEv.exit.i44 ], [ %227, %259 ], [ %227, %_ZN7glslang13TInputScanner4peekEv.exit.i54 ]
-  %.014.in = phi i8 [ %202, %_ZN7glslang13TInputScanner4peekEv.exit.i44 ], [ %249, %259 ], [ %249, %_ZN7glslang13TInputScanner4peekEv.exit.i54 ]
+  %.1.in = phi i8 [ %202, %_ZN7glslang13TInputScanner4peekEv.exit.i44 ], [ %249, %259 ], [ %249, %_ZN7glslang13TInputScanner4peekEv.exit.i54 ]
   tail call void @_ZN7glslang13TInputScanner7advanceEv(ptr noundef nonnull align 8 dereferenceable(90) %.sink)
-  %273 = icmp eq i8 %.014.in, 92
+  %273 = icmp eq i8 %.1.in, 92
   br i1 %273, label %50, label %.loopexit, !llvm.loop !114
 
 .loopexit:                                        ; preds = %_ZN7glslang13TInputScanner3getEv.exit55, %_ZN7glslang13TInputScanner3getEv.exit
-  %.1.in = phi i8 [ %25, %_ZN7glslang13TInputScanner3getEv.exit ], [ %.014.in, %_ZN7glslang13TInputScanner3getEv.exit55 ]
-  switch i8 %.1.in, label %330 [
+  %.014.in = phi i8 [ %25, %_ZN7glslang13TInputScanner3getEv.exit ], [ %.1.in, %_ZN7glslang13TInputScanner3getEv.exit55 ]
+  switch i8 %.014.in, label %330 [
     i8 13, label %274
     i8 10, label %_ZN7glslang13TInputScanner3getEv.exit74
   ]
@@ -9268,11 +9268,11 @@ _ZN7glslang13TInputScanner4peekEv.exit.i73:       ; preds = %.preheader184
   br label %_ZN7glslang13TInputScanner3getEv.exit74
 
 330:                                              ; preds = %.loopexit
-  %.1 = zext i8 %.1.in to i32
+  %.014 = zext i8 %.014.in to i32
   br label %_ZN7glslang13TInputScanner3getEv.exit74
 
 _ZN7glslang13TInputScanner3getEv.exit74:          ; preds = %19, %_ZN7glslang13TInputScanner3getEv.exit45, %_ZN7glslang13TInputScanner4peekEv.exit24, %126, %89, %196, %243, %291, %301, %280, %185, %232, %8, %78, %329, %.thread84, %_ZN7glslang13TInputScanner4peekEv.exit64, %.loopexit, %330
-  %.0 = phi i32 [ 10, %.loopexit ], [ 10, %_ZN7glslang13TInputScanner4peekEv.exit64 ], [ 10, %.thread84 ], [ 10, %329 ], [ %.1, %330 ], [ 92, %78 ], [ -1, %8 ], [ -1, %232 ], [ -1, %185 ], [ 10, %280 ], [ 10, %301 ], [ 10, %291 ], [ -1, %243 ], [ -1, %196 ], [ 92, %89 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit45 ], [ 92, %_ZN7glslang13TInputScanner4peekEv.exit24 ], [ 92, %126 ], [ -1, %19 ]
+  %.0 = phi i32 [ 10, %.loopexit ], [ 10, %_ZN7glslang13TInputScanner4peekEv.exit64 ], [ 10, %.thread84 ], [ 10, %329 ], [ %.014, %330 ], [ 92, %78 ], [ -1, %8 ], [ -1, %232 ], [ -1, %185 ], [ 10, %280 ], [ 10, %301 ], [ 10, %291 ], [ -1, %243 ], [ -1, %196 ], [ 92, %89 ], [ 10, %_ZN7glslang13TInputScanner3getEv.exit45 ], [ 92, %_ZN7glslang13TInputScanner4peekEv.exit24 ], [ 92, %126 ], [ -1, %19 ]
   ret i32 %.0
 }
 

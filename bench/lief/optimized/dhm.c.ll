@@ -817,25 +817,25 @@ define hidden i32 @mbedtls_dhm_parse_dhm(ptr noundef %0, ptr noundef %1, i64 nou
   br label %40
 
 .thread47:                                        ; preds = %14, %36
-  %.2.ph = phi i32 [ -13286, %36 ], [ %15, %14 ]
+  %.1.ph = phi i32 [ -13286, %36 ], [ %15, %14 ]
   call void @mbedtls_pem_free(ptr noundef nonnull %7) #10
   br label %39
 
 38:                                               ; preds = %34, %24, %29, %.thread40
-  %.2.in = phi i32 [ %23, %.thread40 ], [ %28, %24 ], [ %31, %29 ], [ %35, %34 ]
-  %.2 = add nsw i32 %.2.in, -13184
+  %.1.in = phi i32 [ %23, %.thread40 ], [ %28, %24 ], [ %31, %29 ], [ %35, %34 ]
+  %.1 = add nsw i32 %.1.in, -13184
   call void @mbedtls_pem_free(ptr noundef nonnull %7) #10
-  %.not33 = icmp eq i32 %.2, 0
+  %.not33 = icmp eq i32 %.1, 0
   br i1 %.not33, label %40, label %39
 
 39:                                               ; preds = %.thread47, %38
-  %.250 = phi i32 [ %.2.ph, %.thread47 ], [ %.2, %38 ]
+  %.150 = phi i32 [ %.1.ph, %.thread47 ], [ %.1, %38 ]
   call void @mbedtls_dhm_free(ptr noundef %0)
   br label %40
 
 40:                                               ; preds = %.thread42, %39, %38
-  %.245 = phi i32 [ 0, %.thread42 ], [ %.250, %39 ], [ 0, %38 ]
-  ret i32 %.245
+  %.145 = phi i32 [ 0, %.thread42 ], [ %.150, %39 ], [ 0, %38 ]
+  ret i32 %.145
 }
 
 declare void @mbedtls_pem_init(ptr noundef) local_unnamed_addr #3

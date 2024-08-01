@@ -150,8 +150,8 @@ generic_asn1.exit:                                ; preds = %if.then4, %if.end.i
   br label %if.end7
 
 if.end7:                                          ; preds = %generic_asn1.exit, %if.then1
-  %ext_der.0 = phi ptr [ %call2, %if.then1 ], [ %retval.0.i, %generic_asn1.exit ]
-  %cmp8 = icmp eq ptr %ext_der.0, null
+  %ext_der.1 = phi ptr [ %call2, %if.then1 ], [ %retval.0.i, %generic_asn1.exit ]
+  %cmp8 = icmp eq ptr %ext_der.1, null
   br i1 %cmp8, label %if.then9, label %if.end10
 
 if.then9:                                         ; preds = %if.end, %if.end7
@@ -170,7 +170,7 @@ if.then13:                                        ; preds = %if.end10
 
 if.end14:                                         ; preds = %if.end10
   %data = getelementptr inbounds i8, ptr %call11, i64 8
-  store ptr %ext_der.0, ptr %data, align 8
+  store ptr %ext_der.1, ptr %data, align 8
   %1 = load i64, ptr %ext_len, align 8
   %conv = trunc i64 %1 to i32
   store i32 %conv, ptr %call11, align 8
@@ -178,16 +178,16 @@ if.end14:                                         ; preds = %if.end10
   br label %err
 
 err:                                              ; preds = %if.end14, %if.then13, %if.then9, %if.then
-  %ext_der.1 = phi ptr [ null, %if.then9 ], [ null, %if.end14 ], [ %ext_der.0, %if.then13 ], [ null, %if.then ]
+  %ext_der.0 = phi ptr [ null, %if.then9 ], [ null, %if.end14 ], [ %ext_der.1, %if.then13 ], [ null, %if.then ]
   %oct.0 = phi ptr [ null, %if.then9 ], [ %call11, %if.end14 ], [ null, %if.then13 ], [ null, %if.then ]
   %extension.0 = phi ptr [ null, %if.then9 ], [ %call15, %if.end14 ], [ null, %if.then13 ], [ null, %if.then ]
   call void @ASN1_OBJECT_free(ptr noundef %call) #10
   call void @ASN1_STRING_free(ptr noundef %oct.0) #10
-  %tobool16.not = icmp eq ptr %ext_der.1, null
+  %tobool16.not = icmp eq ptr %ext_der.0, null
   br i1 %tobool16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %err
-  call void @free(ptr noundef nonnull %ext_der.1) #10
+  call void @free(ptr noundef nonnull %ext_der.0) #10
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then17, %err

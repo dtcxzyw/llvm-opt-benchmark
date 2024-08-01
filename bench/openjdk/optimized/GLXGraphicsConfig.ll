@@ -300,7 +300,7 @@ define internal fastcc ptr @GLXGC_InitFBConfig(i32 noundef %0, i64 noundef %1) u
 
 22:                                               ; preds = %.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
-  %.0324 = phi ptr [ null, %.lr.ph ], [ %.1, %77 ]
+  %.0324 = phi ptr [ null, %.lr.ph ], [ %.2, %77 ]
   %.0342 = phi i32 [ 512, %.lr.ph ], [ %.135, %77 ]
   %23 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
@@ -386,7 +386,7 @@ define internal fastcc ptr @GLXGC_InitFBConfig(i32 noundef %0, i64 noundef %1) u
 
 77:                                               ; preds = %29, %76, %70, %74, %22
   %.135 = phi i32 [ %.0342, %22 ], [ %73, %70 ], [ %.0342, %74 ], [ %.0342, %76 ], [ %.0342, %29 ]
-  %.1 = phi ptr [ %.0324, %22 ], [ %24, %70 ], [ %.0324, %74 ], [ %.0324, %76 ], [ %.0324, %29 ]
+  %.2 = phi ptr [ %.0324, %22 ], [ %24, %70 ], [ %.0324, %74 ], [ %.0324, %76 ], [ %.0324, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = load i32, ptr %3, align 4
   %79 = sext i32 %78 to i64
@@ -394,9 +394,9 @@ define internal fastcc ptr @GLXGC_InitFBConfig(i32 noundef %0, i64 noundef %1) u
   br i1 %80, label %22, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %77, %75
-  %.2 = phi ptr [ %24, %75 ], [ %.1, %77 ]
+  %.1 = phi ptr [ %24, %75 ], [ %.2, %77 ]
   %81 = call i32 @XFree(ptr noundef nonnull %13) #8
-  %82 = icmp eq ptr %.2, null
+  %82 = icmp eq ptr %.1, null
   br i1 %82, label %.sink.split, label %83
 
 .sink.split:                                      ; preds = %.loopexit, %.loopexit.thread, %2
@@ -405,7 +405,7 @@ define internal fastcc ptr @GLXGC_InitFBConfig(i32 noundef %0, i64 noundef %1) u
   br label %83
 
 83:                                               ; preds = %.sink.split, %.loopexit
-  %.0 = phi ptr [ %.2, %.loopexit ], [ null, %.sink.split ]
+  %.0 = phi ptr [ %.1, %.loopexit ], [ null, %.sink.split ]
   ret ptr %.0
 }
 

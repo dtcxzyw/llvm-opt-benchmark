@@ -257,12 +257,12 @@ _set_usage_column_width.exit:                     ; preds = %61, %52
 
 .lr.ph69:                                         ; preds = %_set_usage_column_width.exit, %._crit_edge
   %68 = phi ptr [ %202, %._crit_edge ], [ %67, %_set_usage_column_width.exit ]
-  %.068 = phi ptr [ %.1, %._crit_edge ], [ null, %_set_usage_column_width.exit ]
-  %.not56 = icmp eq ptr %.068, null
+  %.168 = phi ptr [ %.2, %._crit_edge ], [ null, %_set_usage_column_width.exit ]
+  %.not56 = icmp eq ptr %.168, null
   br i1 %.not56, label %71, label %69
 
 69:                                               ; preds = %.lr.ph69
-  %70 = call i32 @list_flush(ptr noundef nonnull %.068) #10
+  %70 = call i32 @list_flush(ptr noundef nonnull %.168) #10
   br label %73
 
 71:                                               ; preds = %.lr.ph69
@@ -270,7 +270,7 @@ _set_usage_column_width.exit:                     ; preds = %61, %52
   br label %73
 
 73:                                               ; preds = %71, %69
-  %.1 = phi ptr [ %.068, %69 ], [ %72, %71 ]
+  %.2 = phi ptr [ %.168, %69 ], [ %72, %71 ]
   %74 = getelementptr inbounds i8, ptr %68, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = call ptr @list_iterator_create(ptr noundef %75) #10
@@ -335,8 +335,8 @@ _set_usage_column_width.exit:                     ; preds = %61, %52
 
 102:                                              ; preds = %198, %.lr.ph.i59
   %103 = phi ptr [ %99, %.lr.ph.i59 ], [ %200, %198 ]
-  %.06692.i = phi i64 [ 0, %.lr.ph.i59 ], [ %.2.i, %198 ]
-  %.06791.i = phi i64 [ 0, %.lr.ph.i59 ], [ %.269.i, %198 ]
+  %.06692.i = phi i64 [ 0, %.lr.ph.i59 ], [ %.1.i60, %198 ]
+  %.06791.i = phi i64 [ 0, %.lr.ph.i59 ], [ %.168.i, %198 ]
   %.07090.i = phi i32 [ 1, %.lr.ph.i59 ], [ %199, %198 ]
   %104 = getelementptr inbounds i8, ptr %103, i64 24
   %105 = load i16, ptr %104, align 8
@@ -375,7 +375,7 @@ _set_usage_column_width.exit:                     ; preds = %61, %52
   %.0.in.i = phi ptr [ %82, %112 ], [ %86, %114 ]
   store ptr %storemerge.i, ptr %8, align 8
   %.0.i = load ptr, ptr %.0.in.i, align 8
-  %117 = call ptr @slurmdb_tree_name_get(ptr noundef %storemerge.i, ptr noundef %.0.i, ptr noundef %.1) #10
+  %117 = call ptr @slurmdb_tree_name_get(ptr noundef %storemerge.i, ptr noundef %.0.i, ptr noundef %.2) #10
   call void @slurm_xfree(ptr noundef nonnull %8) #10
   br label %120
 
@@ -485,7 +485,7 @@ _set_usage_column_width.exit:                     ; preds = %61, %52
   br label %173
 
 173:                                              ; preds = %171, %168
-  %.168.i = phi i64 [ %172, %171 ], [ %.06791.i, %168 ]
+  %.269.i = phi i64 [ %172, %171 ], [ %.06791.i, %168 ]
   %174 = load ptr, ptr %84, align 8
   %175 = call ptr @list_find_first(ptr noundef %174, ptr noundef nonnull @slurmdb_find_tres_in_list, ptr noundef nonnull %6) #10
   %.not80.i = icmp eq ptr %175, null
@@ -496,8 +496,8 @@ _set_usage_column_width.exit:                     ; preds = %61, %52
   br label %178
 
 178:                                              ; preds = %176, %173
-  %.1.i61 = phi i64 [ %177, %176 ], [ %.06692.i, %173 ]
-  %179 = call ptr @sreport_get_time_str(i64 noundef %.1.i61, i64 noundef %.168.i) #10
+  %.2.i = phi i64 [ %177, %176 ], [ %.06692.i, %173 ]
+  %179 = call ptr @sreport_get_time_str(i64 noundef %.2.i, i64 noundef %.269.i) #10
   store ptr %179, ptr %5, align 8
   %180 = getelementptr inbounds i8, ptr %103, i64 16
   %181 = load ptr, ptr %180, align 8
@@ -532,12 +532,12 @@ _set_usage_column_width.exit:                     ; preds = %61, %52
   br label %198
 
 198:                                              ; preds = %193, %184, %178, %161, %.thread.i, %131, %125, %120
-  %.269.i = phi i64 [ %.06791.i, %193 ], [ %.06791.i, %184 ], [ %.168.i, %178 ], [ %.06791.i, %161 ], [ %.06791.i, %.thread.i ], [ %.06791.i, %131 ], [ %.06791.i, %125 ], [ %.06791.i, %120 ]
-  %.2.i = phi i64 [ %.06692.i, %193 ], [ %.06692.i, %184 ], [ %.1.i61, %178 ], [ %.06692.i, %161 ], [ %.06692.i, %.thread.i ], [ %.06692.i, %131 ], [ %.06692.i, %125 ], [ %.06692.i, %120 ]
+  %.168.i = phi i64 [ %.06791.i, %193 ], [ %.06791.i, %184 ], [ %.269.i, %178 ], [ %.06791.i, %161 ], [ %.06791.i, %.thread.i ], [ %.06791.i, %131 ], [ %.06791.i, %125 ], [ %.06791.i, %120 ]
+  %.1.i60 = phi i64 [ %.06692.i, %193 ], [ %.06692.i, %184 ], [ %.2.i, %178 ], [ %.06692.i, %161 ], [ %.06692.i, %.thread.i ], [ %.06692.i, %131 ], [ %.06692.i, %125 ], [ %.06692.i, %120 ]
   %199 = add nuw nsw i32 %.07090.i, 1
   %200 = call ptr @list_next(ptr noundef %98) #10
-  %.not.i60 = icmp eq ptr %200, null
-  br i1 %.not.i60, label %_cluster_account_by_user_tres_report.exit, label %102, !llvm.loop !10
+  %.not.i61 = icmp eq ptr %200, null
+  br i1 %.not.i61, label %_cluster_account_by_user_tres_report.exit, label %102, !llvm.loop !10
 
 _cluster_account_by_user_tres_report.exit:        ; preds = %198, %92
   call void @list_iterator_destroy(ptr noundef %98) #10
@@ -562,7 +562,7 @@ _cluster_account_by_user_tres_report.exit:        ; preds = %198, %92
   br i1 %.not53, label %._crit_edge70, label %.lr.ph69, !llvm.loop !12
 
 ._crit_edge70:                                    ; preds = %._crit_edge, %_set_usage_column_width.exit
-  %.0.lcssa = phi ptr [ null, %_set_usage_column_width.exit ], [ %.1, %._crit_edge ]
+  %.1.lcssa = phi ptr [ null, %_set_usage_column_width.exit ], [ %.2, %._crit_edge ]
   call void @list_iterator_destroy(ptr noundef %66) #10
   call void @list_iterator_destroy(ptr noundef %65) #10
   call void @slurmdb_destroy_assoc_cond(ptr noundef %15) #10
@@ -570,7 +570,7 @@ _cluster_account_by_user_tres_report.exit:        ; preds = %198, %92
   br label %203
 
 203:                                              ; preds = %.thread, %._crit_edge70
-  %.263 = phi ptr [ null, %.thread ], [ %.0.lcssa, %._crit_edge70 ]
+  %.063 = phi ptr [ null, %.thread ], [ %.1.lcssa, %._crit_edge70 ]
   %204 = load ptr, ptr @print_fields_list, align 8
   %.not54 = icmp eq ptr %204, null
   br i1 %.not54, label %206, label %205
@@ -581,11 +581,11 @@ _cluster_account_by_user_tres_report.exit:        ; preds = %198, %92
 
 206:                                              ; preds = %205, %203
   store ptr null, ptr @print_fields_list, align 8
-  %.not55 = icmp eq ptr %.263, null
+  %.not55 = icmp eq ptr %.063, null
   br i1 %.not55, label %208, label %207
 
 207:                                              ; preds = %206
-  call void @list_destroy(ptr noundef nonnull %.263) #10
+  call void @list_destroy(ptr noundef nonnull %.063) #10
   br label %208
 
 208:                                              ; preds = %207, %206
@@ -1623,8 +1623,8 @@ _set_usage_column_width.exit:                     ; preds = %59, %50
 
 93:                                               ; preds = %176, %.lr.ph.i47
   %94 = phi ptr [ %90, %.lr.ph.i47 ], [ %178, %176 ]
-  %.076.i = phi i64 [ 0, %.lr.ph.i47 ], [ %.2.i, %176 ]
-  %.05575.i = phi i64 [ 0, %.lr.ph.i47 ], [ %.257.i, %176 ]
+  %.076.i = phi i64 [ 0, %.lr.ph.i47 ], [ %.1.i48, %176 ]
+  %.05575.i = phi i64 [ 0, %.lr.ph.i47 ], [ %.156.i, %176 ]
   %.05874.i = phi i32 [ 1, %.lr.ph.i47 ], [ %177, %176 ]
   %95 = getelementptr inbounds i8, ptr %94, i64 24
   %96 = load i16, ptr %95, align 8
@@ -1740,7 +1740,7 @@ _set_usage_column_width.exit:                     ; preds = %59, %50
   br label %151
 
 151:                                              ; preds = %149, %146
-  %.156.i = phi i64 [ %150, %149 ], [ %.05575.i, %146 ]
+  %.257.i = phi i64 [ %150, %149 ], [ %.05575.i, %146 ]
   %152 = load ptr, ptr %76, align 8
   %153 = call ptr @list_find_first(ptr noundef %152, ptr noundef nonnull @slurmdb_find_tres_in_list, ptr noundef nonnull %6) #10
   %.not68.i = icmp eq ptr %153, null
@@ -1751,8 +1751,8 @@ _set_usage_column_width.exit:                     ; preds = %59, %50
   br label %156
 
 156:                                              ; preds = %154, %151
-  %.1.i49 = phi i64 [ %155, %154 ], [ %.076.i, %151 ]
-  %157 = call ptr @sreport_get_time_str(i64 noundef %.1.i49, i64 noundef %.156.i) #10
+  %.2.i = phi i64 [ %155, %154 ], [ %.076.i, %151 ]
+  %157 = call ptr @sreport_get_time_str(i64 noundef %.2.i, i64 noundef %.257.i) #10
   store ptr %157, ptr %5, align 8
   %158 = getelementptr inbounds i8, ptr %94, i64 16
   %159 = load ptr, ptr %158, align 8
@@ -1787,12 +1787,12 @@ _set_usage_column_width.exit:                     ; preds = %59, %50
   br label %176
 
 176:                                              ; preds = %171, %162, %156, %139, %124, %109, %103, %97
-  %.257.i = phi i64 [ %.05575.i, %171 ], [ %.05575.i, %162 ], [ %.156.i, %156 ], [ %.05575.i, %139 ], [ %.05575.i, %124 ], [ %.05575.i, %109 ], [ %.05575.i, %103 ], [ %.05575.i, %97 ]
-  %.2.i = phi i64 [ %.076.i, %171 ], [ %.076.i, %162 ], [ %.1.i49, %156 ], [ %.076.i, %139 ], [ %.076.i, %124 ], [ %.076.i, %109 ], [ %.076.i, %103 ], [ %.076.i, %97 ]
+  %.156.i = phi i64 [ %.05575.i, %171 ], [ %.05575.i, %162 ], [ %.257.i, %156 ], [ %.05575.i, %139 ], [ %.05575.i, %124 ], [ %.05575.i, %109 ], [ %.05575.i, %103 ], [ %.05575.i, %97 ]
+  %.1.i48 = phi i64 [ %.076.i, %171 ], [ %.076.i, %162 ], [ %.2.i, %156 ], [ %.076.i, %139 ], [ %.076.i, %124 ], [ %.076.i, %109 ], [ %.076.i, %103 ], [ %.076.i, %97 ]
   %177 = add nuw nsw i32 %.05874.i, 1
   %178 = call ptr @list_next(ptr noundef %89) #10
-  %.not.i48 = icmp eq ptr %178, null
-  br i1 %.not.i48, label %_cluster_user_by_account_tres_report.exit, label %93, !llvm.loop !16
+  %.not.i49 = icmp eq ptr %178, null
+  br i1 %.not.i49, label %_cluster_user_by_account_tres_report.exit, label %93, !llvm.loop !16
 
 _cluster_user_by_account_tres_report.exit:        ; preds = %176, %83
   call void @list_iterator_destroy(ptr noundef %89) #10
@@ -2046,8 +2046,8 @@ _set_usage_column_width.exit:                     ; preds = %59, %50
 
 93:                                               ; preds = %176, %.lr.ph.i47
   %94 = phi ptr [ %90, %.lr.ph.i47 ], [ %178, %176 ]
-  %.076.i = phi i64 [ 0, %.lr.ph.i47 ], [ %.2.i, %176 ]
-  %.05575.i = phi i64 [ 0, %.lr.ph.i47 ], [ %.257.i, %176 ]
+  %.076.i = phi i64 [ 0, %.lr.ph.i47 ], [ %.1.i48, %176 ]
+  %.05575.i = phi i64 [ 0, %.lr.ph.i47 ], [ %.156.i, %176 ]
   %.05874.i = phi i32 [ 1, %.lr.ph.i47 ], [ %177, %176 ]
   %95 = getelementptr inbounds i8, ptr %94, i64 24
   %96 = load i16, ptr %95, align 8
@@ -2163,7 +2163,7 @@ _set_usage_column_width.exit:                     ; preds = %59, %50
   br label %151
 
 151:                                              ; preds = %149, %146
-  %.156.i = phi i64 [ %150, %149 ], [ %.05575.i, %146 ]
+  %.257.i = phi i64 [ %150, %149 ], [ %.05575.i, %146 ]
   %152 = load ptr, ptr %76, align 8
   %153 = call ptr @list_find_first(ptr noundef %152, ptr noundef nonnull @slurmdb_find_tres_in_list, ptr noundef nonnull %6) #10
   %.not68.i = icmp eq ptr %153, null
@@ -2174,8 +2174,8 @@ _set_usage_column_width.exit:                     ; preds = %59, %50
   br label %156
 
 156:                                              ; preds = %154, %151
-  %.1.i49 = phi i64 [ %155, %154 ], [ %.076.i, %151 ]
-  %157 = call ptr @sreport_get_time_str(i64 noundef %.1.i49, i64 noundef %.156.i) #10
+  %.2.i = phi i64 [ %155, %154 ], [ %.076.i, %151 ]
+  %157 = call ptr @sreport_get_time_str(i64 noundef %.2.i, i64 noundef %.257.i) #10
   store ptr %157, ptr %5, align 8
   %158 = getelementptr inbounds i8, ptr %94, i64 16
   %159 = load ptr, ptr %158, align 8
@@ -2210,12 +2210,12 @@ _set_usage_column_width.exit:                     ; preds = %59, %50
   br label %176
 
 176:                                              ; preds = %171, %162, %156, %139, %124, %109, %103, %97
-  %.257.i = phi i64 [ %.05575.i, %171 ], [ %.05575.i, %162 ], [ %.156.i, %156 ], [ %.05575.i, %139 ], [ %.05575.i, %124 ], [ %.05575.i, %109 ], [ %.05575.i, %103 ], [ %.05575.i, %97 ]
-  %.2.i = phi i64 [ %.076.i, %171 ], [ %.076.i, %162 ], [ %.1.i49, %156 ], [ %.076.i, %139 ], [ %.076.i, %124 ], [ %.076.i, %109 ], [ %.076.i, %103 ], [ %.076.i, %97 ]
+  %.156.i = phi i64 [ %.05575.i, %171 ], [ %.05575.i, %162 ], [ %.257.i, %156 ], [ %.05575.i, %139 ], [ %.05575.i, %124 ], [ %.05575.i, %109 ], [ %.05575.i, %103 ], [ %.05575.i, %97 ]
+  %.1.i48 = phi i64 [ %.076.i, %171 ], [ %.076.i, %162 ], [ %.2.i, %156 ], [ %.076.i, %139 ], [ %.076.i, %124 ], [ %.076.i, %109 ], [ %.076.i, %103 ], [ %.076.i, %97 ]
   %177 = add nuw nsw i32 %.05874.i, 1
   %178 = call ptr @list_next(ptr noundef %89) #10
-  %.not.i48 = icmp eq ptr %178, null
-  br i1 %.not.i48, label %_cluster_user_by_wckey_tres_report.exit, label %93, !llvm.loop !20
+  %.not.i49 = icmp eq ptr %178, null
+  br i1 %.not.i49, label %_cluster_user_by_wckey_tres_report.exit, label %93, !llvm.loop !20
 
 _cluster_user_by_wckey_tres_report.exit:          ; preds = %176, %83
   call void @list_iterator_destroy(ptr noundef %89) #10
@@ -3220,7 +3220,7 @@ _get_cluster_list.exit:                           ; preds = %136, %151
 
 296:                                              ; preds = %385, %.lr.ph.i
   %297 = phi ptr [ %288, %.lr.ph.i ], [ %387, %385 ]
-  %.0103.i = phi i64 [ 0, %.lr.ph.i ], [ %.2.i, %385 ]
+  %.0103.i = phi i64 [ 0, %.lr.ph.i ], [ %.1.i, %385 ]
   %.089102.i = phi i32 [ 1, %.lr.ph.i ], [ %386, %385 ]
   %298 = getelementptr inbounds i8, ptr %297, i64 24
   %299 = load i16, ptr %298, align 8
@@ -3351,8 +3351,8 @@ _get_cluster_list.exit:                           ; preds = %136, %151
   br label %365
 
 365:                                              ; preds = %362, %359
-  %.1.i = phi i64 [ %364, %362 ], [ %.0103.i, %359 ]
-  %366 = call ptr @sreport_get_time_str(i64 noundef %.1.i, i64 noundef %.1.i) #10
+  %.2.i = phi i64 [ %364, %362 ], [ %.0103.i, %359 ]
+  %366 = call ptr @sreport_get_time_str(i64 noundef %.2.i, i64 noundef %.2.i) #10
   store ptr %366, ptr %3, align 8
   %367 = getelementptr inbounds i8, ptr %297, i64 16
   %368 = load ptr, ptr %367, align 8
@@ -3387,7 +3387,7 @@ _get_cluster_list.exit:                           ; preds = %136, %151
   br label %385
 
 385:                                              ; preds = %380, %371, %365, %353, %346, %339, %332, %325, %318, %311, %306, %300
-  %.2.i = phi i64 [ %.0103.i, %380 ], [ %.0103.i, %371 ], [ %.1.i, %365 ], [ %.0103.i, %353 ], [ %.0103.i, %346 ], [ %.0103.i, %339 ], [ %.0103.i, %332 ], [ %.0103.i, %325 ], [ %.0103.i, %318 ], [ %.0103.i, %311 ], [ %.0103.i, %306 ], [ %.0103.i, %300 ]
+  %.1.i = phi i64 [ %.0103.i, %380 ], [ %.0103.i, %371 ], [ %.2.i, %365 ], [ %.0103.i, %353 ], [ %.0103.i, %346 ], [ %.0103.i, %339 ], [ %.0103.i, %332 ], [ %.0103.i, %325 ], [ %.0103.i, %318 ], [ %.0103.i, %311 ], [ %.0103.i, %306 ], [ %.0103.i, %300 ]
   %386 = add nuw nsw i32 %.089102.i, 1
   %387 = call ptr @list_next(ptr noundef %287) #10
   %.not97.i = icmp eq ptr %387, null

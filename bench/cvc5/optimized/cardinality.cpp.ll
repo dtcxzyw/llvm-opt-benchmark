@@ -2257,14 +2257,14 @@ terminate.lpad.i.i115:                            ; preds = %ehcleanup128
 
 catch.dispatch:                                   ; preds = %ehcleanup128, %ehcleanup96, %lpad54
   %.pn24 = phi { ptr, i32 } [ %58, %lpad54 ], [ %.pn13.pn.pn.pn.pn, %ehcleanup96 ], [ %.pn19.pn.pn.pn, %ehcleanup128 ]
-  %ehselector.slot.9 = extractvalue { ptr, i32 } %.pn24, 1
+  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn24, 1
   %102 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal24IllegalArgumentExceptionE) #10
-  %matches = icmp eq i32 %ehselector.slot.9, %102
+  %matches = icmp eq i32 %ehselector.slot.1, %102
   br i1 %matches, label %catch, label %common.resume
 
 catch:                                            ; preds = %catch.dispatch
-  %exn.slot.9 = extractvalue { ptr, i32 } %.pn24, 0
-  %103 = call ptr @__cxa_begin_catch(ptr %exn.slot.9) #10
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn24, 0
+  %103 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #10
   %call133 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) @_ZN4cvc58internal11Cardinality17s_largeFiniteCardE)
           to label %invoke.cont132 unwind label %lpad131
 

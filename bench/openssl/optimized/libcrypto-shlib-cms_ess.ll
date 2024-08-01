@@ -127,18 +127,18 @@ if.end4.i5:                                       ; preds = %land.lhs.true
   br i1 %cmp7.i8, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end4.i5, %land.lhs.true
-  %ssv2.0.ph = phi ptr [ null, %land.lhs.true ], [ %call6.i7, %if.end4.i5 ]
-  %call3 = tail call i32 @OSSL_ESS_check_signing_certs(ptr noundef %ss.0.ph, ptr noundef %ssv2.0.ph, ptr noundef %chain, i32 noundef 1) #4
+  %ssv2.1.ph = phi ptr [ null, %land.lhs.true ], [ %call6.i7, %if.end4.i5 ]
+  %call3 = tail call i32 @OSSL_ESS_check_signing_certs(ptr noundef %ss.0.ph, ptr noundef %ssv2.1.ph, ptr noundef %chain, i32 noundef 1) #4
   %cmp4 = icmp sgt i32 %call3, 0
   %0 = zext i1 %cmp4 to i32
   br label %land.end
 
 land.end:                                         ; preds = %if.end4.i5, %if.end4.i, %land.rhs
   %ss.017 = phi ptr [ %ss.0.ph, %land.rhs ], [ null, %if.end4.i ], [ %ss.0.ph, %if.end4.i5 ]
-  %ssv2.1 = phi ptr [ %ssv2.0.ph, %land.rhs ], [ null, %if.end4.i ], [ null, %if.end4.i5 ]
+  %ssv2.0 = phi ptr [ %ssv2.1.ph, %land.rhs ], [ null, %if.end4.i ], [ null, %if.end4.i5 ]
   %land.ext = phi i32 [ %0, %land.rhs ], [ 0, %if.end4.i ], [ 0, %if.end4.i5 ]
   tail call void @ESS_SIGNING_CERT_free(ptr noundef %ss.017) #4
-  tail call void @ESS_SIGNING_CERT_V2_free(ptr noundef %ssv2.1) #4
+  tail call void @ESS_SIGNING_CERT_V2_free(ptr noundef %ssv2.0) #4
   ret i32 %land.ext
 }
 

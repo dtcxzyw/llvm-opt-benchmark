@@ -1697,12 +1697,12 @@ if.then152:                                       ; preds = %if.then145
   br label %if.end158
 
 if.end158:                                        ; preds = %lor.lhs.false127, %land.lhs.true135, %if.then152, %if.then145, %for.end
-  %nextDY.4 = phi i32 [ 1, %if.then152 ], [ %nextDY.1.lcssa, %if.then145 ], [ %spec.select, %land.lhs.true135 ], [ %spec.select, %lor.lhs.false127 ], [ %nextDY.1.lcssa, %for.end ]
-  %total.4 = phi i32 [ %inc153, %if.then152 ], [ %spec.select53, %if.then145 ], [ %spec.select53, %land.lhs.true135 ], [ %spec.select53, %lor.lhs.false127 ], [ %total.1.lcssa, %for.end ]
+  %nextDY.3 = phi i32 [ 1, %if.then152 ], [ %nextDY.1.lcssa, %if.then145 ], [ %spec.select, %land.lhs.true135 ], [ %spec.select, %lor.lhs.false127 ], [ %nextDY.1.lcssa, %for.end ]
+  %total.3 = phi i32 [ %inc153, %if.then152 ], [ %spec.select53, %if.then145 ], [ %spec.select53, %land.lhs.true135 ], [ %spec.select53, %lor.lhs.false127 ], [ %total.1.lcssa, %for.end ]
   %18 = load double, ptr %agg.tmp42.sroa.2.0.arrayidx44.sroa_idx, align 8
   %cmp162 = fcmp ole double %18, %y
   %cond163 = select i1 %cmp162, i32 1, i32 -1
-  %cmp164.not = icmp eq i32 %nextDY.4, %cond163
+  %cmp164.not = icmp eq i32 %nextDY.3, %cond163
   br i1 %cmp164.not, label %if.end190, label %if.then165
 
 if.end158.thread:                                 ; preds = %land.lhs.true143
@@ -1713,12 +1713,12 @@ if.end158.thread:                                 ; preds = %land.lhs.true143
   br i1 %cmp164.not75, label %if.end190, label %if.then167
 
 if.then165:                                       ; preds = %if.end158
-  %cmp166 = icmp sgt i32 %total.4, 0
+  %cmp166 = icmp sgt i32 %total.3, 0
   br i1 %cmp166, label %if.then167, label %if.else169
 
 if.then167:                                       ; preds = %if.end158.thread, %if.then165
-  %total.47781 = phi i32 [ %total.4, %if.then165 ], [ 2, %if.end158.thread ]
-  %dec168 = add nsw i32 %total.47781, -1
+  %total.37781 = phi i32 [ %total.3, %if.then165 ], [ 2, %if.end158.thread ]
+  %dec168 = add nsw i32 %total.37781, -1
   br label %if.end190
 
 if.else169:                                       ; preds = %if.then165
@@ -1735,25 +1735,25 @@ if.else169:                                       ; preds = %if.then165
   br i1 %cmp178, label %if.then179, label %if.else169.if.end185_crit_edge
 
 if.else169.if.end185_crit_edge:                   ; preds = %if.else169
-  %.pre = sext i32 %total.4 to i64
+  %.pre = sext i32 %total.3 to i64
   br label %if.end185
 
 if.then179:                                       ; preds = %if.else169
   %29 = load double, ptr %arrayidx44, align 8
-  %idxprom183 = sext i32 %total.4 to i64
+  %idxprom183 = sext i32 %total.3 to i64
   %arrayidx184 = getelementptr inbounds double, ptr %x, i64 %idxprom183
   store double %29, ptr %arrayidx184, align 8
   br label %if.end185
 
 if.end185:                                        ; preds = %if.else169.if.end185_crit_edge, %if.then179
   %idxprom187.pre-phi = phi i64 [ %.pre, %if.else169.if.end185_crit_edge ], [ %idxprom183, %if.then179 ]
-  %inc186 = add nsw i32 %total.4, 1
+  %inc186 = add nsw i32 %total.3, 1
   %arrayidx188 = getelementptr inbounds i32, ptr %dy, i64 %idxprom187.pre-phi
-  store i32 %nextDY.4, ptr %arrayidx188, align 4
+  store i32 %nextDY.3, ptr %arrayidx188, align 4
   br label %if.end190
 
 if.end190:                                        ; preds = %if.end158.thread, %if.then167, %if.end185, %if.end158
-  %total.5 = phi i32 [ %dec168, %if.then167 ], [ %inc186, %if.end185 ], [ %total.4, %if.end158 ], [ 2, %if.end158.thread ]
+  %total.5 = phi i32 [ %dec168, %if.then167 ], [ %inc186, %if.end185 ], [ %total.3, %if.end158 ], [ 2, %if.end158.thread ]
   ret i32 %total.5
 }
 
@@ -1987,12 +1987,12 @@ if.then246:                                       ; preds = %if.then239
   br label %if.end252
 
 if.end252:                                        ; preds = %lor.lhs.false205, %lor.lhs.false221, %land.lhs.true229, %if.then246, %if.then239, %for.end
-  %nextDY.4 = phi i32 [ 1, %if.then246 ], [ %nextDY.1.lcssa, %if.then239 ], [ %spec.select, %land.lhs.true229 ], [ %spec.select, %lor.lhs.false221 ], [ %spec.select, %lor.lhs.false205 ], [ %nextDY.1.lcssa, %for.end ]
-  %total.4 = phi i32 [ %inc247, %if.then246 ], [ %spec.select68, %if.then239 ], [ %spec.select68, %land.lhs.true229 ], [ %spec.select68, %lor.lhs.false221 ], [ %spec.select68, %lor.lhs.false205 ], [ %total.1.lcssa, %for.end ]
+  %nextDY.3 = phi i32 [ 1, %if.then246 ], [ %nextDY.1.lcssa, %if.then239 ], [ %spec.select, %land.lhs.true229 ], [ %spec.select, %lor.lhs.false221 ], [ %spec.select, %lor.lhs.false205 ], [ %nextDY.1.lcssa, %for.end ]
+  %total.3 = phi i32 [ %inc247, %if.then246 ], [ %spec.select68, %if.then239 ], [ %spec.select68, %land.lhs.true229 ], [ %spec.select68, %lor.lhs.false221 ], [ %spec.select68, %lor.lhs.false205 ], [ %total.1.lcssa, %for.end ]
   %25 = load double, ptr %agg.tmp69.sroa.2.0.arrayidx71.sroa_idx, align 8
   %cmp256 = fcmp ole double %25, %y
   %cond257 = select i1 %cmp256, i32 1, i32 -1
-  %cmp258.not = icmp eq i32 %nextDY.4, %cond257
+  %cmp258.not = icmp eq i32 %nextDY.3, %cond257
   br i1 %cmp258.not, label %if.end284, label %if.then259
 
 if.end252.thread:                                 ; preds = %land.lhs.true237
@@ -2003,12 +2003,12 @@ if.end252.thread:                                 ; preds = %land.lhs.true237
   br i1 %cmp258.not106, label %if.end284, label %if.then261
 
 if.then259:                                       ; preds = %if.end252
-  %cmp260 = icmp sgt i32 %total.4, 0
+  %cmp260 = icmp sgt i32 %total.3, 0
   br i1 %cmp260, label %if.then261, label %if.else263
 
 if.then261:                                       ; preds = %if.end252.thread, %if.then259
-  %total.4108112 = phi i32 [ %total.4, %if.then259 ], [ 3, %if.end252.thread ]
-  %dec262 = add nsw i32 %total.4108112, -1
+  %total.3108112 = phi i32 [ %total.3, %if.then259 ], [ 3, %if.end252.thread ]
+  %dec262 = add nsw i32 %total.3108112, -1
   br label %if.end284
 
 if.else263:                                       ; preds = %if.then259
@@ -2025,25 +2025,25 @@ if.else263:                                       ; preds = %if.then259
   br i1 %cmp272, label %if.then273, label %if.else263.if.end279_crit_edge
 
 if.else263.if.end279_crit_edge:                   ; preds = %if.else263
-  %.pre = sext i32 %total.4 to i64
+  %.pre = sext i32 %total.3 to i64
   br label %if.end279
 
 if.then273:                                       ; preds = %if.else263
   %36 = load double, ptr %arrayidx71, align 8
-  %idxprom277 = sext i32 %total.4 to i64
+  %idxprom277 = sext i32 %total.3 to i64
   %arrayidx278 = getelementptr inbounds double, ptr %x, i64 %idxprom277
   store double %36, ptr %arrayidx278, align 8
   br label %if.end279
 
 if.end279:                                        ; preds = %if.else263.if.end279_crit_edge, %if.then273
   %idxprom281.pre-phi = phi i64 [ %.pre, %if.else263.if.end279_crit_edge ], [ %idxprom277, %if.then273 ]
-  %inc280 = add nsw i32 %total.4, 1
+  %inc280 = add nsw i32 %total.3, 1
   %arrayidx282 = getelementptr inbounds i32, ptr %dy, i64 %idxprom281.pre-phi
-  store i32 %nextDY.4, ptr %arrayidx282, align 4
+  store i32 %nextDY.3, ptr %arrayidx282, align 4
   br label %if.end284
 
 if.end284:                                        ; preds = %if.end252.thread, %if.then261, %if.end279, %if.end252
-  %total.5 = phi i32 [ %dec262, %if.then261 ], [ %inc280, %if.end279 ], [ %total.4, %if.end252 ], [ 3, %if.end252.thread ]
+  %total.5 = phi i32 [ %dec262, %if.then261 ], [ %inc280, %if.end279 ], [ %total.3, %if.end252 ], [ 3, %if.end252.thread ]
   ret i32 %total.5
 }
 

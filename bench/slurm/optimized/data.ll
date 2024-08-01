@@ -2018,24 +2018,24 @@ data_get_string_const.exit:                       ; preds = %29, %31
   br label %36
 
 36:                                               ; preds = %34, %28
-  %.2 = phi ptr [ %.024, %28 ], [ %35, %34 ]
+  %.1 = phi ptr [ %.024, %28 ], [ %35, %34 ]
   %.0 = phi ptr [ @.str.23, %28 ], [ @.str.16, %34 ]
-  %.not34 = icmp eq ptr %.2, null
+  %.not34 = icmp eq ptr %.1, null
   br i1 %.not34, label %42, label %.thread
 
 .thread:                                          ; preds = %data_get_string_const.exit, %36
   %.044 = phi ptr [ %.0, %36 ], [ @.str.16, %data_get_string_const.exit ]
-  %.243 = phi ptr [ %.2, %36 ], [ %33, %data_get_string_const.exit ]
-  store ptr %.243, ptr %1, align 8
+  %.143 = phi ptr [ %.1, %36 ], [ %33, %data_get_string_const.exit ]
+  store ptr %.143, ptr %1, align 8
   %37 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %38 = and i64 %37, 256
   %.not36 = icmp eq i64 %38, 0
   br i1 %.not36, label %49, label %39
 
 39:                                               ; preds = %.thread
-  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.243) #17
-  %41 = ptrtoint ptr %.243 to i64
-  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.243, i64 noundef %40, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.data_get_string_converted, ptr noundef nonnull %.044, ptr noundef nonnull %0, i64 noundef %41, i64 noundef %40) #16
+  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.143) #17
+  %41 = ptrtoint ptr %.143 to i64
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.143, i64 noundef %40, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.data_get_string_converted, ptr noundef nonnull %.044, ptr noundef nonnull %0, i64 noundef %41, i64 noundef %40) #16
   br label %49
 
 42:                                               ; preds = %36
@@ -4137,12 +4137,12 @@ data_get_type.exit.thread.i:                      ; preds = %6, %data_get_type.e
   br i1 %.not2833.i, label %data_dict_for_each.exit, label %.preheader
 
 .preheader:                                       ; preds = %13, %.preheader
-  %.sroa.0.0 = phi i64 [ %21, %.preheader ], [ 0, %13 ]
+  %.sroa.0.1 = phi i64 [ %21, %.preheader ], [ 0, %13 ]
   %.02434.i = phi ptr [ %23, %.preheader ], [ %17, %13 ]
   %18 = getelementptr inbounds i8, ptr %.02434.i, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = tail call fastcc i64 @_convert_tree(ptr noundef %19, i32 noundef %1)
-  %21 = add i64 %20, %.sroa.0.0
+  %21 = add i64 %20, %.sroa.0.1
   %22 = getelementptr inbounds i8, ptr %.02434.i, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not28.i = icmp eq ptr %23, null
@@ -4157,12 +4157,12 @@ data_get_type.exit.thread.i:                      ; preds = %6, %data_get_type.e
   br i1 %.not2729.i, label %data_dict_for_each.exit, label %.preheader18
 
 .preheader18:                                     ; preds = %24, %.preheader18
-  %.sroa.0.2 = phi i64 [ %32, %.preheader18 ], [ 0, %24 ]
+  %.sroa.0.3 = phi i64 [ %32, %.preheader18 ], [ 0, %24 ]
   %.02330.i = phi ptr [ %34, %.preheader18 ], [ %28, %24 ]
   %29 = getelementptr inbounds i8, ptr %.02330.i, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = tail call fastcc i64 @_convert_tree(ptr noundef %30, i32 noundef %1)
-  %32 = add i64 %31, %.sroa.0.2
+  %32 = add i64 %31, %.sroa.0.3
   %33 = getelementptr inbounds i8, ptr %.02330.i, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not27.i13 = icmp eq ptr %34, null

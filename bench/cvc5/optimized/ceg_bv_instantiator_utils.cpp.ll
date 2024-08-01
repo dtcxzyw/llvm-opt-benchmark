@@ -801,17 +801,17 @@ invoke.cont21:                                    ; preds = %if.then19
   br label %if.end25
 
 if.end25:                                         ; preds = %invoke.cont21, %invoke.cont17
-  %nc.sroa.0.1 = phi ptr [ %2, %invoke.cont17 ], [ %12, %invoke.cont21 ]
+  %nc.sroa.0.0 = phi ptr [ %2, %invoke.cont17 ], [ %12, %invoke.cont21 ]
   %tobool26 = trunc nuw i8 %found_pv.0332 to i1
   br i1 %tobool26, label %if.end48, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end25
   %13 = load ptr, ptr %pv, align 8
-  %cmp.i32 = icmp eq ptr %nc.sroa.0.1, %13
+  %cmp.i32 = icmp eq ptr %nc.sroa.0.0, %13
   br i1 %cmp.i32, label %for.inc, label %invoke.cont33
 
 invoke.cont33:                                    ; preds = %land.lhs.true
-  %d_kind.i33 = getelementptr inbounds i8, ptr %nc.sroa.0.1, i64 8
+  %d_kind.i33 = getelementptr inbounds i8, ptr %nc.sroa.0.0, i64 8
   %bf.load.i34 = load i16, ptr %d_kind.i33, align 8
   %bf.clear.i35 = and i16 %bf.load.i34, 1023
   %cmp35 = icmp eq i16 %bf.clear.i35, 94
@@ -843,12 +843,12 @@ for.cond.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 for.body.i.i.i.i.i.i:                             ; preds = %for.cond.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i, i64 8
   %17 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %17, %nc.sroa.0.1
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %17, %nc.sroa.0.0
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont37, label %for.cond.i.i.i.i.i.i, !llvm.loop !8
 
 if.end15.i.i.i.i.i.i:                             ; preds = %call.i.noexc
   %d_bools.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
-  %bf.load.i.i.i.i.i.i.i.i.i = load i64, ptr %nc.sroa.0.1, align 8
+  %bf.load.i.i.i.i.i.i.i.i.i = load i64, ptr %nc.sroa.0.0, align 8
   %bf.clear.i.i.i.i.i.i.i.i.i = and i64 %bf.load.i.i.i.i.i.i.i.i.i, 1099511627775
   %_M_bucket_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %18 = load i64, ptr %_M_bucket_count.i.i.i.i.i.i.i, align 8
@@ -866,7 +866,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end15.i.i.i.i.i.
   %22 = load i64, ptr %add.ptr.i9.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i10.i.i.i.i.i.i.i.i = icmp eq i64 %22, %bf.clear.i.i.i.i.i.i.i.i.i
   %23 = load ptr, ptr %add.ptr8.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i11.i.i.i.i.i.i.i.i = icmp eq ptr %23, %nc.sroa.0.1
+  %cmp.i.i.i11.i.i.i.i.i.i.i.i = icmp eq ptr %23, %nc.sroa.0.0
   %24 = select i1 %cmp.i.i10.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i11.i.i.i.i.i.i.i.i, i1 false
   br i1 %24, label %invoke.cont37, label %if.end3.i.i.i.i.i.i.i.i
 
@@ -874,7 +874,7 @@ for.cond.i.i.i.i.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %28, %bf.clear.i.i.i.i.i.i.i.i.i
   %25 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, %nc.sroa.0.1
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, %nc.sroa.0.0
   %26 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %26, label %invoke.cont37, label %if.end3.i.i.i.i.i.i.i.i, !llvm.loop !10
 
@@ -913,7 +913,7 @@ if.then39:                                        ; preds = %invoke.cont37
 invoke.cont43:                                    ; preds = %if.then39
   %cmp.i.i44 = icmp eq i32 %call2.i.i.i49, 2
   %spec.select.i.i = select i1 %cmp.i.i44, i64 2, i64 1
-  %d_children.i.i46 = getelementptr inbounds i8, ptr %nc.sroa.0.1, i64 16
+  %d_children.i.i46 = getelementptr inbounds i8, ptr %nc.sroa.0.0, i64 16
   %arrayidx.i.i48 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i46, i64 0, i64 %spec.select.i.i
   %32 = load ptr, ptr %arrayidx.i.i48, align 8, !noalias !23
   store ptr %32, ptr %agg.tmp42, align 8, !alias.scope !23
@@ -2117,13 +2117,13 @@ invoke.cont23:                                    ; preds = %if.then21
   br label %if.end27
 
 if.end27:                                         ; preds = %invoke.cont23, %invoke.cont19
-  %nc.sroa.0.1 = phi ptr [ %2, %invoke.cont19 ], [ %13, %invoke.cont23 ]
+  %nc.sroa.0.0 = phi ptr [ %2, %invoke.cont19 ], [ %13, %invoke.cont23 ]
   %14 = load ptr, ptr %pv, align 8
-  %cmp.i51 = icmp eq ptr %nc.sroa.0.1, %14
+  %cmp.i51 = icmp eq ptr %nc.sroa.0.0, %14
   br i1 %cmp.i51, label %if.then35, label %invoke.cont30
 
 invoke.cont30:                                    ; preds = %if.end27
-  %d_kind.i52 = getelementptr inbounds i8, ptr %nc.sroa.0.1, i64 8
+  %d_kind.i52 = getelementptr inbounds i8, ptr %nc.sroa.0.0, i64 8
   %bf.load.i53 = load i16, ptr %d_kind.i52, align 8
   %bf.clear.i54 = and i16 %bf.load.i53, 1023
   %cmp32 = icmp eq i16 %bf.clear.i54, 94
@@ -2155,12 +2155,12 @@ for.cond.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 for.body.i.i.i.i.i.i:                             ; preds = %for.cond.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i, i64 8
   %18 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %18, %nc.sroa.0.1
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %18, %nc.sroa.0.0
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont33, label %for.cond.i.i.i.i.i.i, !llvm.loop !8
 
 if.end15.i.i.i.i.i.i:                             ; preds = %call.i.noexc
   %d_bools.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  %bf.load.i.i.i.i.i.i.i.i.i = load i64, ptr %nc.sroa.0.1, align 8
+  %bf.load.i.i.i.i.i.i.i.i.i = load i64, ptr %nc.sroa.0.0, align 8
   %bf.clear.i.i.i.i.i.i.i.i.i = and i64 %bf.load.i.i.i.i.i.i.i.i.i, 1099511627775
   %_M_bucket_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 16
   %19 = load i64, ptr %_M_bucket_count.i.i.i.i.i.i.i, align 8
@@ -2178,7 +2178,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end15.i.i.i.i.i.
   %23 = load i64, ptr %add.ptr.i9.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i10.i.i.i.i.i.i.i.i = icmp eq i64 %23, %bf.clear.i.i.i.i.i.i.i.i.i
   %24 = load ptr, ptr %add.ptr8.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i11.i.i.i.i.i.i.i.i = icmp eq ptr %24, %nc.sroa.0.1
+  %cmp.i.i.i11.i.i.i.i.i.i.i.i = icmp eq ptr %24, %nc.sroa.0.0
   %25 = select i1 %cmp.i.i10.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i11.i.i.i.i.i.i.i.i, i1 false
   br i1 %25, label %invoke.cont33, label %if.end3.i.i.i.i.i.i.i.i
 
@@ -2186,7 +2186,7 @@ for.cond.i.i.i.i.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %29, %bf.clear.i.i.i.i.i.i.i.i.i
   %26 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %26, %nc.sroa.0.1
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %26, %nc.sroa.0.0
   %27 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %27, label %invoke.cont33, label %if.end3.i.i.i.i.i.i.i.i, !llvm.loop !10
 
@@ -2219,7 +2219,7 @@ invoke.cont33.if.then35_crit_edge:                ; preds = %invoke.cont33
 if.then35:                                        ; preds = %invoke.cont33.if.then35_crit_edge, %if.end27
   %33 = phi ptr [ %.pre, %invoke.cont33.if.then35_crit_edge ], [ %14, %if.end27 ]
   store ptr %33, ptr %agg.tmp36, align 8
-  store ptr %nc.sroa.0.1, ptr %agg.tmp38, align 8
+  store ptr %nc.sroa.0.0, ptr %agg.tmp38, align 8
   invoke void @_ZNK4cvc58internal6theory11quantifiers18BvInstantiatorUtil10getPvCoeffENS0_12NodeTemplateILb0EEES5_(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %coeff, ptr nonnull align 8 poison, ptr noundef nonnull %agg.tmp36, ptr noundef nonnull %agg.tmp38)
           to label %invoke.cont42 unwind label %lpad41
 
@@ -2431,12 +2431,12 @@ for.cond.i.i.i.i.i.i137:                          ; preds = %for.body.i.i.i.i.i.
 for.body.i.i.i.i.i.i141:                          ; preds = %for.cond.i.i.i.i.i.i137
   %add.ptr.i.i.i.i.i.i142 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i139, i64 8
   %58 = load ptr, ptr %add.ptr.i.i.i.i.i.i142, align 8
-  %cmp.i.i.i.i.i.i.i.i143 = icmp eq ptr %58, %nc.sroa.0.1
+  %cmp.i.i.i.i.i.i.i.i143 = icmp eq ptr %58, %nc.sroa.0.0
   br i1 %cmp.i.i.i.i.i.i.i.i143, label %invoke.cont68, label %for.cond.i.i.i.i.i.i137, !llvm.loop !8
 
 if.end15.i.i.i.i.i.i106:                          ; preds = %call.i102.noexc
   %d_bools.i.i.i.i107 = getelementptr inbounds i8, ptr %55, i64 8
-  %bf.load.i.i.i.i.i.i.i.i.i108 = load i64, ptr %nc.sroa.0.1, align 8
+  %bf.load.i.i.i.i.i.i.i.i.i108 = load i64, ptr %nc.sroa.0.0, align 8
   %bf.clear.i.i.i.i.i.i.i.i.i109 = and i64 %bf.load.i.i.i.i.i.i.i.i.i108, 1099511627775
   %_M_bucket_count.i.i.i.i.i.i.i110 = getelementptr inbounds i8, ptr %55, i64 16
   %59 = load i64, ptr %_M_bucket_count.i.i.i.i.i.i.i110, align 8
@@ -2454,7 +2454,7 @@ if.end.i.i.i.i.i.i.i.i114:                        ; preds = %if.end15.i.i.i.i.i.
   %63 = load i64, ptr %add.ptr.i9.i.i.i.i.i.i.i.i116, align 8
   %cmp.i.i10.i.i.i.i.i.i.i.i117 = icmp eq i64 %63, %bf.clear.i.i.i.i.i.i.i.i.i109
   %64 = load ptr, ptr %add.ptr8.i.i.i.i.i.i.i.i115, align 8
-  %cmp.i.i.i11.i.i.i.i.i.i.i.i118 = icmp eq ptr %64, %nc.sroa.0.1
+  %cmp.i.i.i11.i.i.i.i.i.i.i.i118 = icmp eq ptr %64, %nc.sroa.0.0
   %65 = select i1 %cmp.i.i10.i.i.i.i.i.i.i.i117, i1 %cmp.i.i.i11.i.i.i.i.i.i.i.i118, i1 false
   br i1 %65, label %invoke.cont68, label %if.end3.i.i.i.i.i.i.i.i119
 
@@ -2462,7 +2462,7 @@ for.cond.i.i.i.i.i.i.i.i127:                      ; preds = %lor.lhs.false.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i128 = getelementptr inbounds i8, ptr %68, i64 8
   %cmp.i.i.i.i.i.i.i.i.i.i129 = icmp eq i64 %69, %bf.clear.i.i.i.i.i.i.i.i.i109
   %66 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i128, align 8
-  %cmp.i.i.i.i.i.i.i.i.i.i.i130 = icmp eq ptr %66, %nc.sroa.0.1
+  %cmp.i.i.i.i.i.i.i.i.i.i.i130 = icmp eq ptr %66, %nc.sroa.0.0
   %67 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i129, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i130, i1 false
   br i1 %67, label %invoke.cont68, label %if.end3.i.i.i.i.i.i.i.i119, !llvm.loop !10
 
@@ -2502,7 +2502,7 @@ if.then70:                                        ; preds = %invoke.cont68
 
 invoke.cont76:                                    ; preds = %if.then70
   %cmp.i.i152 = icmp eq i32 %call2.i.i.i157, 2
-  %d_children.i.i154 = getelementptr inbounds i8, ptr %nc.sroa.0.1, i64 16
+  %d_children.i.i154 = getelementptr inbounds i8, ptr %nc.sroa.0.0, i64 16
   %idxprom.i.i155 = zext i1 %cmp.i.i152 to i64
   %arrayidx.i.i156 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i154, i64 0, i64 %idxprom.i.i155
   %74 = load ptr, ptr %arrayidx.i.i156, align 8, !noalias !47
@@ -4284,7 +4284,7 @@ lpad21.loopexit.split-lp:                         ; preds = %if.then13.i.i.i
   br label %ehcleanup288
 
 if.end:                                           ; preds = %invoke.cont27, %for.body
-  %child.sroa.0.3 = phi ptr [ %12, %for.body ], [ %13, %invoke.cont27 ]
+  %child.sroa.0.1 = phi ptr [ %12, %for.body ], [ %13, %invoke.cont27 ]
   %call.i68 = invoke noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv()
           to label %call.i.noexc unwind label %lpad21.loopexit
 
@@ -4310,12 +4310,12 @@ for.cond.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 for.body.i.i.i.i.i.i:                             ; preds = %for.cond.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i.i.i.i.i, i64 8
   %17 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %17, %child.sroa.0.3
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %17, %child.sroa.0.1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont31, label %for.cond.i.i.i.i.i.i, !llvm.loop !8
 
 if.end15.i.i.i.i.i.i:                             ; preds = %call.i.noexc
   %d_bools.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
-  %bf.load.i.i.i.i.i.i.i.i.i = load i64, ptr %child.sroa.0.3, align 8
+  %bf.load.i.i.i.i.i.i.i.i.i = load i64, ptr %child.sroa.0.1, align 8
   %bf.clear.i.i.i.i.i.i.i.i.i = and i64 %bf.load.i.i.i.i.i.i.i.i.i, 1099511627775
   %_M_bucket_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 16
   %18 = load i64, ptr %_M_bucket_count.i.i.i.i.i.i.i, align 8
@@ -4333,7 +4333,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.end15.i.i.i.i.i.
   %22 = load i64, ptr %add.ptr.i9.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i10.i.i.i.i.i.i.i.i = icmp eq i64 %22, %bf.clear.i.i.i.i.i.i.i.i.i
   %23 = load ptr, ptr %add.ptr8.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i11.i.i.i.i.i.i.i.i = icmp eq ptr %23, %child.sroa.0.3
+  %cmp.i.i.i11.i.i.i.i.i.i.i.i = icmp eq ptr %23, %child.sroa.0.1
   %24 = select i1 %cmp.i.i10.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i11.i.i.i.i.i.i.i.i, i1 false
   br i1 %24, label %invoke.cont31, label %if.end3.i.i.i.i.i.i.i.i
 
@@ -4341,7 +4341,7 @@ for.cond.i.i.i.i.i.i.i.i:                         ; preds = %lor.lhs.false.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 8
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %28, %bf.clear.i.i.i.i.i.i.i.i.i
   %25 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, %child.sroa.0.3
+  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %25, %child.sroa.0.1
   %26 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %26, label %invoke.cont31, label %if.end3.i.i.i.i.i.i.i.i, !llvm.loop !10
 
@@ -4369,11 +4369,11 @@ invoke.cont31:                                    ; preds = %for.cond.i.i.i.i.i.
 
 lor.lhs.false:                                    ; preds = %lor.lhs.false.i.i.i.i.i.i.i.i, %if.end3.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i, %if.end15.i.i.i.i.i.i, %invoke.cont31
   %32 = load ptr, ptr %pv, align 8
-  %cmp.i = icmp eq ptr %child.sroa.0.3, %32
+  %cmp.i = icmp eq ptr %child.sroa.0.1, %32
   br i1 %cmp.i, label %invoke.cont36, label %if.end76
 
 invoke.cont36:                                    ; preds = %invoke.cont31, %lor.lhs.false
-  %d_kind.i69 = getelementptr inbounds i8, ptr %child.sroa.0.3, i64 8
+  %d_kind.i69 = getelementptr inbounds i8, ptr %child.sroa.0.1, i64 8
   %bf.load.i70 = load i16, ptr %d_kind.i69, align 8
   %bf.clear.i71 = and i16 %bf.load.i70, 1023
   %cmp38 = icmp eq i16 %bf.clear.i71, 96
@@ -4388,7 +4388,7 @@ if.then39:                                        ; preds = %invoke.cont36
 
 invoke.cont44:                                    ; preds = %if.then39
   %cmp.i.i79 = icmp eq i32 %call2.i.i.i84, 2
-  %d_children.i.i81 = getelementptr inbounds i8, ptr %child.sroa.0.3, i64 16
+  %d_children.i.i81 = getelementptr inbounds i8, ptr %child.sroa.0.1, i64 16
   %idxprom.i.i82 = zext i1 %cmp.i.i79 to i64
   %arrayidx.i.i83 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i81, i64 0, i64 %idxprom.i.i82
   %34 = load ptr, ptr %arrayidx.i.i83, align 8, !noalias !69
@@ -4563,7 +4563,7 @@ lpad55:                                           ; preds = %if.then13.i4.i129, 
 
 if.else:                                          ; preds = %invoke.cont36
   store ptr %33, ptr %agg.tmp60, align 8
-  store ptr %child.sroa.0.3, ptr %agg.tmp62, align 8
+  store ptr %child.sroa.0.1, ptr %agg.tmp62, align 8
   invoke void @_ZNK4cvc58internal6theory11quantifiers18BvInstantiatorUtil10getPvCoeffENS0_12NodeTemplateILb0EEES5_(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp59, ptr nonnull align 8 poison, ptr noundef nonnull %agg.tmp60, ptr noundef nonnull %agg.tmp62)
           to label %invoke.cont66 unwind label %lpad65
 

@@ -434,7 +434,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
   br i1 %exitcond.not.i.i.i, label %xia_are_edges_valid.exit.i.i, label %.preheader.split.us.i.i.i, !llvm.loop !8
 
 .preheader.split.i.i.i:                           ; preds = %.preheader.i.i.i, %65
-  %.2.i.i = phi i32 [ %68, %65 ], [ %.03665.i.i, %.preheader.i.i.i ]
+  %.4.i.i = phi i32 [ %68, %65 ], [ %.03665.i.i, %.preheader.i.i.i ]
   %.02337.i.i.i = phi i32 [ %69, %65 ], [ 0, %.preheader.i.i.i ]
   %.02436.i.i.i = phi i32 [ %66, %65 ], [ -1, %.preheader.i.i.i ]
   %.02535.i.i.i = phi ptr [ %70, %65 ], [ %44, %.preheader.i.i.i ]
@@ -444,7 +444,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
   br i1 %60, label %.split.us.i.i.i, label %64
 
 .split.us.i.i.i:                                  ; preds = %.preheader.split.us.i.i.i, %.preheader.split.i.i.i
-  %.3.i.i = phi i32 [ %.2.i.i, %.preheader.split.i.i.i ], [ %.137.i.i, %.preheader.split.us.i.i.i ]
+  %.3.i.i = phi i32 [ %.4.i.i, %.preheader.split.i.i.i ], [ %.137.i.i, %.preheader.split.us.i.i.i ]
   %.us-phi.i.i.i = phi i32 [ %.02436.i.i.i, %.preheader.split.i.i.i ], [ %.02436.us.i.i.i, %.preheader.split.us.i.i.i ]
   %61 = xor i32 %.val.i.i.i, 2139062143
   %62 = call i32 @llvm.bswap.i32(i32 %61)
@@ -461,7 +461,7 @@ define internal fastcc void @construct_dag(ptr noundef %0, ptr nocapture noundef
 65:                                               ; preds = %64
   %66 = lshr i32 %.02436.i.i.i, 8
   %67 = shl nuw i32 1, %59
-  %68 = or i32 %67, %.2.i.i
+  %68 = or i32 %67, %.4.i.i
   %69 = add nuw nsw i32 %.02337.i.i.i, 1
   %70 = getelementptr i8, ptr %.02535.i.i.i, i64 1
   %exitcond48.not.i.i.i = icmp eq i32 %69, 4

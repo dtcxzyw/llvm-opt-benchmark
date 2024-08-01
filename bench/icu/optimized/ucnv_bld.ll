@@ -948,9 +948,9 @@ if.then70:                                        ; preds = %if.else67
   br label %while.cond13.backedge
 
 while.cond76:                                     ; preds = %if.else67, %while.cond76
-  %inName.addr.4 = phi ptr [ %incdec.ptr77, %while.cond76 ], [ %inName.addr.2, %if.else67 ]
-  %incdec.ptr77 = getelementptr inbounds i8, ptr %inName.addr.4, i64 1
-  %8 = load i8, ptr %inName.addr.4, align 1
+  %inName.addr.5 = phi ptr [ %incdec.ptr77, %while.cond76 ], [ %inName.addr.2, %if.else67 ]
+  %incdec.ptr77 = getelementptr inbounds i8, ptr %inName.addr.5, i64 1
+  %8 = load i8, ptr %inName.addr.5, align 1
   switch i8 %8, label %while.cond76 [
     i8 0, label %while.end93
     i8 44, label %while.cond13.backedge

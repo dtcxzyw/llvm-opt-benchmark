@@ -103,12 +103,12 @@ define i32 @nx_umount2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %.not38, label %56, label %.sink.split
 
 50:                                               ; preds = %32, %24
-  %.0 = phi i32 [ %30, %24 ], [ -16, %32 ]
+  %.2 = phi i32 [ %30, %24 ], [ -16, %32 ]
   call void @inode_unlock() #4
   br label %51
 
 51:                                               ; preds = %42, %16, %10, %21, %50
-  %.1 = phi i32 [ %22, %21 ], [ %.0, %50 ], [ %43, %42 ], [ -22, %10 ], [ -22, %16 ]
+  %.1 = phi i32 [ %22, %21 ], [ %.2, %50 ], [ %43, %42 ], [ -22, %10 ], [ -22, %16 ]
   call void @inode_release(ptr noundef nonnull %11) #4
   %52 = load ptr, ptr %3, align 8
   %.not39 = icmp eq ptr %52, null
@@ -119,19 +119,19 @@ define i32 @nx_umount2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %54
 
 54:                                               ; preds = %5, %53, %51
-  %.2 = phi i32 [ %8, %5 ], [ %.1, %53 ], [ %.1, %51 ]
+  %.3 = phi i32 [ %8, %5 ], [ %.1, %53 ], [ %.1, %51 ]
   %55 = load ptr, ptr %7, align 8
   %.not40 = icmp eq ptr %55, null
   br i1 %.not40, label %56, label %.sink.split
 
 .sink.split:                                      ; preds = %54, %48
   %.sink = phi ptr [ %49, %48 ], [ %55, %54 ]
-  %.023.ph = phi i32 [ 0, %48 ], [ %.2, %54 ]
+  %.023.ph = phi i32 [ 0, %48 ], [ %.3, %54 ]
   call void @free(ptr noundef nonnull %.sink)
   br label %56
 
 56:                                               ; preds = %.sink.split, %54, %2, %48
-  %.023 = phi i32 [ 0, %48 ], [ %.2, %54 ], [ -14, %2 ], [ %.023.ph, %.sink.split ]
+  %.023 = phi i32 [ 0, %48 ], [ %.3, %54 ], [ -14, %2 ], [ %.023.ph, %.sink.split ]
   ret i32 %.023
 }
 

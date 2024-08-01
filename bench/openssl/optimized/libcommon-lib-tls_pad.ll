@@ -278,7 +278,7 @@ if.end11:                                         ; preds = %if.then5
   br i1 %cmp1733.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end11, %for.body
-  %good.035 = phi i64 [ %and25, %for.body ], [ %not.i, %if.end11 ]
+  %good.135 = phi i64 [ %and25, %for.body ], [ %not.i, %if.end11 ]
   %i.034 = phi i64 [ %inc, %for.body ], [ 0, %if.end11 ]
   %isnotneg.i.i.not = icmp ugt i64 %i.034, %conv6
   %4 = xor i64 %i.034, -1
@@ -288,14 +288,14 @@ for.body:                                         ; preds = %if.end11, %for.body
   %6 = zext i8 %xor30 to i64
   %7 = xor i64 %6, -1
   %not = select i1 %isnotneg.i.i.not, i64 -1, i64 %7
-  %and25 = and i64 %not, %good.035
+  %and25 = and i64 %not, %good.135
   %inc = add nuw nsw i64 %i.034, 1
   %exitcond.not = icmp eq i64 %inc, %spec.select
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %if.end11
-  %good.0.lcssa = phi i64 [ %not.i, %if.end11 ], [ %and25, %for.body ]
-  %and26 = and i64 %good.0.lcssa, 255
+  %good.1.lcssa = phi i64 [ %not.i, %if.end11 ], [ %and25, %for.body ]
+  %and26 = and i64 %good.1.lcssa, 255
   %8 = icmp eq i64 %and26, 255
   %shr.neg.i.i.i = sext i1 %8 to i64
   %add28.neg = xor i64 %conv6, -1

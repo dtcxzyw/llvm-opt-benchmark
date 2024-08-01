@@ -3362,14 +3362,14 @@ invoke.cont104:                                   ; preds = %invoke.cont101
           to label %cleanup unwind label %lpad71
 
 cleanup:                                          ; preds = %invoke.cont104, %if.then90
-  %retval.0 = phi i8 [ %call94, %if.then90 ], [ 1, %invoke.cont104 ]
+  %retval.1 = phi i8 [ %call94, %if.then90 ], [ 1, %invoke.cont104 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %toName) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fromName) #16
   br label %return
 
 return:                                           ; preds = %if.else.i.i, %if.end23, %if.then42, %if.then12, %_ZNK6icu_7513OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit, %cleanup, %if.then54, %if.then45, %if.then16, %if.then6
-  %retval.1 = phi i8 [ 1, %if.then6 ], [ %call19, %if.then16 ], [ 1, %if.then45 ], [ 1, %if.then54 ], [ %retval.0, %cleanup ], [ 0, %_ZNK6icu_7513OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit ], [ 0, %if.then12 ], [ 0, %if.then42 ], [ 0, %if.end23 ], [ 0, %if.else.i.i ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ 1, %if.then6 ], [ %call19, %if.then16 ], [ 1, %if.then45 ], [ 1, %if.then54 ], [ %retval.1, %cleanup ], [ 0, %_ZNK6icu_7513OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit ], [ 0, %if.then12 ], [ 0, %if.then42 ], [ 0, %if.end23 ], [ 0, %if.else.i.i ]
+  ret i8 %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6icu_7518TimeZoneTransitionaSERKS0_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
@@ -3822,14 +3822,14 @@ invoke.cont98:                                    ; preds = %invoke.cont95
           to label %cleanup unwind label %lpad65
 
 cleanup:                                          ; preds = %invoke.cont98, %if.then84
-  %retval.0 = phi i8 [ %call88, %if.then84 ], [ 1, %invoke.cont98 ]
+  %retval.1 = phi i8 [ %call88, %if.then84 ], [ 1, %invoke.cont98 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %toName) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fromName) #16
   br label %return
 
 return:                                           ; preds = %for.cond, %for.cond.us, %if.else.i.i, %if.then27.split.us, %if.end25, %_ZNK6icu_7513OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit, %cleanup, %if.then50, %if.else20, %if.then16, %if.then6
-  %retval.1 = phi i8 [ 1, %if.then6 ], [ %call19, %if.then16 ], [ 1, %if.else20 ], [ 1, %if.then50 ], [ %retval.0, %cleanup ], [ 0, %_ZNK6icu_7513OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit ], [ 0, %if.end25 ], [ 0, %if.then27.split.us ], [ 0, %if.else.i.i ], [ 0, %for.cond.us ], [ 0, %for.cond ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ 1, %if.then6 ], [ %call19, %if.then16 ], [ 1, %if.else20 ], [ 1, %if.then50 ], [ %retval.1, %cleanup ], [ 0, %_ZNK6icu_7513OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit ], [ 0, %if.end25 ], [ 0, %if.then27.split.us ], [ 0, %if.else.i.i ], [ 0, %for.cond.us ], [ 0, %for.cond ]
+  ret i8 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3891,18 +3891,18 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %count.011 = phi i32 [ 0, %for.body.preheader ], [ %spec.select, %for.body ]
+  %count.111 = phi i32 [ 0, %for.body.preheader ], [ %spec.select, %for.body ]
   %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx, align 8
   %cmp9.not = icmp ne ptr %6, null
   %inc = zext i1 %cmp9.not to i32
-  %spec.select = add nuw nsw i32 %count.011, %inc
+  %spec.select = add nuw nsw i32 %count.111, %inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %if.end13, label %for.body, !llvm.loop !15
 
 if.end13:                                         ; preds = %for.body, %for.cond.preheader, %if.end5
-  %count.2 = phi i32 [ 0, %if.end5 ], [ 0, %for.cond.preheader ], [ %spec.select, %for.body ]
+  %count.0 = phi i32 [ 0, %if.end5 ], [ 0, %for.cond.preheader ], [ %spec.select, %for.body ]
   %finalZone = getelementptr inbounds i8, ptr %this, i64 128
   %7 = load ptr, ptr %finalZone, align 8
   %cmp14.not = icmp eq ptr %7, null
@@ -3917,15 +3917,15 @@ if.then15:                                        ; preds = %if.end13
   br i1 %tobool18.not, label %if.else, label %if.then19
 
 if.then19:                                        ; preds = %if.then15
-  %add = add nsw i32 %count.2, 2
+  %add = add nsw i32 %count.0, 2
   br label %return
 
 if.else:                                          ; preds = %if.then15
-  %inc20 = add nsw i32 %count.2, 1
+  %inc20 = add nsw i32 %count.0, 1
   br label %return
 
 return:                                           ; preds = %_ZNK6icu_7513OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit.thread, %if.end13, %if.else, %if.then19, %_ZNK6icu_7513OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %_ZNK6icu_7513OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit ], [ %add, %if.then19 ], [ %inc20, %if.else ], [ %count.2, %if.end13 ], [ 0, %_ZNK6icu_7513OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit.thread ]
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %_ZNK6icu_7513OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit ], [ %add, %if.then19 ], [ %inc20, %if.else ], [ %count.0, %if.end13 ], [ 0, %_ZNK6icu_7513OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -3994,7 +3994,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %8 = phi i32 [ %13, %for.inc ], [ %6, %for.cond.preheader ]
   %9 = phi i16 [ %14, %for.inc ], [ %7, %for.cond.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
-  %cnt.027 = phi i32 [ %cnt.1, %for.inc ], [ 0, %for.cond.preheader ]
+  %cnt.127 = phi i32 [ %cnt.2, %for.inc ], [ 0, %for.cond.preheader ]
   %10 = load ptr, ptr %historicRules, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
   %11 = load ptr, ptr %arrayidx, align 8
@@ -4002,8 +4002,8 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp10.not, label %for.inc, label %if.then11
 
 if.then11:                                        ; preds = %for.body
-  %inc = add nsw i32 %cnt.027, 1
-  %idxprom15 = sext i32 %cnt.027 to i64
+  %inc = add nsw i32 %cnt.127, 1
+  %idxprom15 = sext i32 %cnt.127 to i64
   %arrayidx16 = getelementptr inbounds ptr, ptr %trsrules, i64 %idxprom15
   store ptr %11, ptr %arrayidx16, align 8
   %12 = load i32, ptr %trscount, align 4
@@ -4017,7 +4017,7 @@ if.then11.for.inc_crit_edge:                      ; preds = %if.then11
 for.inc:                                          ; preds = %if.then11.for.inc_crit_edge, %for.body
   %13 = phi i32 [ %12, %if.then11.for.inc_crit_edge ], [ %8, %for.body ]
   %14 = phi i16 [ %.pre, %if.then11.for.inc_crit_edge ], [ %9, %for.body ]
-  %cnt.1 = phi i32 [ %inc, %if.then11.for.inc_crit_edge ], [ %cnt.027, %for.body ]
+  %cnt.2 = phi i32 [ %inc, %if.then11.for.inc_crit_edge ], [ %cnt.127, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = sext i16 %14 to i64
   %cmp8 = icmp slt i64 %indvars.iv.next, %15
@@ -4025,18 +4025,18 @@ for.inc:                                          ; preds = %if.then11.for.inc_c
 
 if.end22:                                         ; preds = %if.then11, %for.inc, %for.cond.preheader, %if.end5
   %16 = phi i32 [ %6, %if.end5 ], [ %6, %for.cond.preheader ], [ %12, %if.then11 ], [ %13, %for.inc ]
-  %cnt.2 = phi i32 [ 0, %if.end5 ], [ 0, %for.cond.preheader ], [ %inc, %if.then11 ], [ %cnt.1, %for.inc ]
+  %cnt.0 = phi i32 [ 0, %if.end5 ], [ 0, %for.cond.preheader ], [ %inc, %if.then11 ], [ %cnt.2, %for.inc ]
   %finalZoneWithStartYear = getelementptr inbounds i8, ptr %this, i64 208
   %17 = load ptr, ptr %finalZoneWithStartYear, align 8
   %cmp23.not = icmp ne ptr %17, null
-  %cmp25 = icmp sgt i32 %16, %cnt.2
+  %cmp25 = icmp sgt i32 %16, %cnt.0
   %or.cond32 = select i1 %cmp23.not, i1 %cmp25, i1 false
   br i1 %or.cond32, label %if.then26, label %if.end34
 
 if.then26:                                        ; preds = %if.end22
-  %sub = sub nsw i32 %16, %cnt.2
+  %sub = sub nsw i32 %16, %cnt.0
   store i32 %sub, ptr %tmpcnt, align 4
-  %idxprom28 = sext i32 %cnt.2 to i64
+  %idxprom28 = sext i32 %cnt.0 to i64
   %arrayidx29 = getelementptr inbounds ptr, ptr %trsrules, i64 %idxprom28
   %vtable = load ptr, ptr %17, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 144
@@ -4048,11 +4048,11 @@ if.then26:                                        ; preds = %if.end22
 
 if.end33:                                         ; preds = %if.then26
   %20 = load i32, ptr %tmpcnt, align 4
-  %add = add nsw i32 %20, %cnt.2
+  %add = add nsw i32 %20, %cnt.0
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end33, %if.end22
-  %cnt.3 = phi i32 [ %add, %if.end33 ], [ %cnt.2, %if.end22 ]
+  %cnt.3 = phi i32 [ %add, %if.end33 ], [ %cnt.0, %if.end22 ]
   store i32 %cnt.3, ptr %trscount, align 4
   br label %return
 

@@ -421,61 +421,61 @@ sw.bb:                                            ; preds = %for.end67
   br label %sw.bb74
 
 sw.bb74:                                          ; preds = %sw.bb, %for.end67
-  %data.0 = phi i64 [ %shl68, %for.end67 ], [ %or73, %sw.bb ]
+  %data.1 = phi i64 [ %shl68, %for.end67 ], [ %or73, %sw.bb ]
   %arrayidx75 = getelementptr inbounds i8, ptr %d.0.lcssa, i64 5
   %5 = load i8, ptr %arrayidx75, align 1
   %conv76 = zext i8 %5 to i64
   %shl77 = shl nuw nsw i64 %conv76, 40
-  %or79 = or i64 %shl77, %data.0
+  %or79 = or i64 %shl77, %data.1
   br label %sw.bb80
 
 sw.bb80:                                          ; preds = %sw.bb74, %for.end67
-  %data.1 = phi i64 [ %shl68, %for.end67 ], [ %or79, %sw.bb74 ]
+  %data.2 = phi i64 [ %shl68, %for.end67 ], [ %or79, %sw.bb74 ]
   %arrayidx81 = getelementptr inbounds i8, ptr %d.0.lcssa, i64 4
   %6 = load i8, ptr %arrayidx81, align 1
   %conv82 = zext i8 %6 to i64
   %shl83 = shl nuw nsw i64 %conv82, 32
-  %or85 = or i64 %shl83, %data.1
+  %or85 = or i64 %shl83, %data.2
   br label %sw.bb86
 
 sw.bb86:                                          ; preds = %sw.bb80, %for.end67
-  %data.2 = phi i64 [ %shl68, %for.end67 ], [ %or85, %sw.bb80 ]
+  %data.3 = phi i64 [ %shl68, %for.end67 ], [ %or85, %sw.bb80 ]
   %arrayidx87 = getelementptr inbounds i8, ptr %d.0.lcssa, i64 3
   %7 = load i8, ptr %arrayidx87, align 1
   %conv88 = zext i8 %7 to i32
   %shl89 = shl nuw i32 %conv88, 24
   %conv90 = sext i32 %shl89 to i64
-  %or91 = or i64 %data.2, %conv90
+  %or91 = or i64 %data.3, %conv90
   br label %sw.bb92
 
 sw.bb92:                                          ; preds = %sw.bb86, %for.end67
-  %data.3 = phi i64 [ %shl68, %for.end67 ], [ %or91, %sw.bb86 ]
+  %data.4 = phi i64 [ %shl68, %for.end67 ], [ %or91, %sw.bb86 ]
   %arrayidx93 = getelementptr inbounds i8, ptr %d.0.lcssa, i64 2
   %8 = load i8, ptr %arrayidx93, align 1
   %conv94 = zext i8 %8 to i64
   %shl95 = shl nuw nsw i64 %conv94, 16
-  %or97 = or i64 %shl95, %data.3
+  %or97 = or i64 %shl95, %data.4
   br label %sw.bb98
 
 sw.bb98:                                          ; preds = %sw.bb92, %for.end67
-  %data.4 = phi i64 [ %shl68, %for.end67 ], [ %or97, %sw.bb92 ]
+  %data.5 = phi i64 [ %shl68, %for.end67 ], [ %or97, %sw.bb92 ]
   %arrayidx99 = getelementptr inbounds i8, ptr %d.0.lcssa, i64 1
   %9 = load i8, ptr %arrayidx99, align 1
   %conv100 = zext i8 %9 to i64
   %shl101 = shl nuw nsw i64 %conv100, 8
-  %or103 = or i64 %shl101, %data.4
+  %or103 = or i64 %shl101, %data.5
   br label %sw.bb104
 
 sw.bb104:                                         ; preds = %sw.bb98, %for.end67
-  %data.5 = phi i64 [ %shl68, %for.end67 ], [ %or103, %sw.bb98 ]
+  %data.6 = phi i64 [ %shl68, %for.end67 ], [ %or103, %sw.bb98 ]
   %10 = load i8, ptr %d.0.lcssa, align 1
   %conv106 = zext i8 %10 to i64
-  %or107 = or i64 %data.5, %conv106
+  %or107 = or i64 %data.6, %conv106
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb104, %for.end67
-  %data.6 = phi i64 [ %shl68, %for.end67 ], [ %or107, %sw.bb104 ]
-  %xor109 = xor i64 %data.6, %v3.0.lcssa
+  %data.0 = phi i64 [ %shl68, %for.end67 ], [ %or107, %sw.bb104 ]
+  %xor109 = xor i64 %data.0, %v3.0.lcssa
   %add115 = add i64 %v1.0.lcssa, %v0.0.lcssa
   %or118 = tail call i64 @llvm.fshl.i64(i64 %v1.0.lcssa, i64 %v1.0.lcssa, i64 13)
   %xor119 = xor i64 %or118, %add115
@@ -490,7 +490,7 @@ sw.epilog:                                        ; preds = %sw.bb104, %for.end6
   %add136 = add i64 %xor127, %or122
   %or139 = tail call i64 @llvm.fshl.i64(i64 %xor127, i64 %xor127, i64 21)
   %xor140 = xor i64 %or139, %add136
-  %xor145 = xor i64 %add136, %data.6
+  %xor145 = xor i64 %add136, %data.0
   %xor146 = xor i64 %or135, 255
   %add152 = add i64 %xor132, %xor145
   %or155 = tail call i64 @llvm.fshl.i64(i64 %xor132, i64 %xor132, i64 13)
@@ -1354,7 +1354,7 @@ cond.end25:                                       ; preds = %if.else89.i, %if.th
 for.cond:                                         ; preds = %for.end131, %cond.end25
   %step.0 = phi i64 [ 8, %cond.end25 ], [ %add133, %for.end131 ]
   %pos.0 = phi i64 [ %and.i146, %cond.end25 ], [ %and135, %for.end131 ]
-  %tombstone.0 = phi i64 [ -1, %cond.end25 ], [ %tombstone.3.lcssa, %for.end131 ]
+  %tombstone.0 = phi i64 [ -1, %cond.end25 ], [ %tombstone.4.lcssa, %for.end131 ]
   %shr = lshr i64 %pos.0, 3
   %arrayidx = getelementptr inbounds %struct.stbds_hash_bucket, ptr %22, i64 %shr
   %and = and i64 %pos.0, 7
@@ -1364,7 +1364,7 @@ for.cond:                                         ; preds = %for.end131, %cond.e
 
 for.body.us:                                      ; preds = %for.cond, %for.inc.us
   %i.0246.us = phi i64 [ %inc.us, %for.inc.us ], [ %and, %for.cond ]
-  %tombstone.1245.us = phi i64 [ %tombstone.2.us, %for.inc.us ], [ %tombstone.0, %for.cond ]
+  %tombstone.1245.us = phi i64 [ %tombstone.3.us, %for.inc.us ], [ %tombstone.0, %for.cond ]
   %arrayidx38.us = getelementptr inbounds [8 x i64], ptr %arrayidx, i64 0, i64 %i.0246.us
   %23 = load i64, ptr %arrayidx38.us, align 8
   %cmp39.us = icmp eq i64 %23, %spec.select
@@ -1397,19 +1397,19 @@ if.then41.us:                                     ; preds = %for.body.us
   br i1 %retval.0.in.i.not.us, label %if.then51, label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.then73.us, %if.then41.us, %if.else70.us
-  %tombstone.2.us = phi i64 [ %tombstone.1245.us, %if.then41.us ], [ %tombstone.1245.us, %if.else70.us ], [ %spec.select259, %if.then73.us ]
+  %tombstone.3.us = phi i64 [ %tombstone.1245.us, %if.then41.us ], [ %tombstone.1245.us, %if.else70.us ], [ %spec.select259, %if.then73.us ]
   %inc.us = add nuw nsw i64 %i.0246.us, 1
   %exitcond288.not = icmp eq i64 %inc.us, 8
   br i1 %exitcond288.not, label %for.cond86.preheader, label %for.body.us, !llvm.loop !17
 
 for.cond86.preheader:                             ; preds = %for.inc, %for.inc.us
-  %.us-phi253 = phi i64 [ %tombstone.2.us, %for.inc.us ], [ %tombstone.2, %for.inc ]
+  %.us-phi253 = phi i64 [ %tombstone.3.us, %for.inc.us ], [ %tombstone.3, %for.inc ]
   %cmp87254.not = icmp eq i64 %and, 0
   br i1 %cmp87254.not, label %for.end131, label %for.body89
 
 for.body:                                         ; preds = %for.cond, %for.inc
   %i.0246 = phi i64 [ %inc, %for.inc ], [ %and, %for.cond ]
-  %tombstone.1245 = phi i64 [ %tombstone.2, %for.inc ], [ %tombstone.0, %for.cond ]
+  %tombstone.1245 = phi i64 [ %tombstone.3, %for.inc ], [ %tombstone.0, %for.cond ]
   %arrayidx38 = getelementptr inbounds [8 x i64], ptr %arrayidx, i64 0, i64 %i.0246
   %27 = load i64, ptr %arrayidx38, align 8
   %cmp39 = icmp eq i64 %27, %spec.select
@@ -1463,14 +1463,14 @@ if.then73:                                        ; preds = %if.else70
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then73, %if.then41, %if.else70
-  %tombstone.2 = phi i64 [ %tombstone.1245, %if.else70 ], [ %tombstone.1245, %if.then41 ], [ %spec.select260, %if.then73 ]
+  %tombstone.3 = phi i64 [ %tombstone.1245, %if.else70 ], [ %tombstone.1245, %if.then41 ], [ %spec.select260, %if.then73 ]
   %inc = add nuw nsw i64 %i.0246, 1
   %exitcond.not = icmp eq i64 %inc, 8
   br i1 %exitcond.not, label %for.cond86.preheader, label %for.body, !llvm.loop !17
 
 for.body89:                                       ; preds = %for.cond86.preheader, %for.inc129
   %i.1256 = phi i64 [ %inc130, %for.inc129 ], [ 0, %for.cond86.preheader ]
-  %tombstone.3255 = phi i64 [ %tombstone.4, %for.inc129 ], [ %.us-phi253, %for.cond86.preheader ]
+  %tombstone.4255 = phi i64 [ %tombstone.5, %for.inc129 ], [ %.us-phi253, %for.cond86.preheader ]
   %arrayidx91 = getelementptr inbounds [8 x i64], ptr %arrayidx, i64 0, i64 %i.1256
   %32 = load i64, ptr %arrayidx91, align 8
   %cmp92 = icmp eq i64 %32, %spec.select
@@ -1511,7 +1511,7 @@ if.then111:                                       ; preds = %if.else106
   br label %found_empty_slot
 
 if.else114:                                       ; preds = %if.else106
-  %cmp115 = icmp slt i64 %tombstone.3255, 0
+  %cmp115 = icmp slt i64 %tombstone.4255, 0
   br i1 %cmp115, label %if.then117, label %for.inc129
 
 if.then117:                                       ; preds = %if.else114
@@ -1519,17 +1519,17 @@ if.then117:                                       ; preds = %if.else114
   %35 = load i64, ptr %arrayidx119, align 8
   %cmp120 = icmp eq i64 %35, -2
   %add124 = add nuw nsw i64 %i.1256, %and79
-  %spec.select261 = select i1 %cmp120, i64 %add124, i64 %tombstone.3255
+  %spec.select261 = select i1 %cmp120, i64 %add124, i64 %tombstone.4255
   br label %for.inc129
 
 for.inc129:                                       ; preds = %if.then117, %stbds_is_key_equal.exit162, %if.else114
-  %tombstone.4 = phi i64 [ %tombstone.3255, %stbds_is_key_equal.exit162 ], [ %tombstone.3255, %if.else114 ], [ %spec.select261, %if.then117 ]
+  %tombstone.5 = phi i64 [ %tombstone.4255, %stbds_is_key_equal.exit162 ], [ %tombstone.4255, %if.else114 ], [ %spec.select261, %if.then117 ]
   %inc130 = add nuw nsw i64 %i.1256, 1
   %exitcond289.not = icmp eq i64 %inc130, %and
   br i1 %exitcond289.not, label %for.end131, label %for.body89, !llvm.loop !18
 
 for.end131:                                       ; preds = %for.inc129, %for.cond86.preheader
-  %tombstone.3.lcssa = phi i64 [ %.us-phi253, %for.cond86.preheader ], [ %tombstone.4, %for.inc129 ]
+  %tombstone.4.lcssa = phi i64 [ %.us-phi253, %for.cond86.preheader ], [ %tombstone.5, %for.inc129 ]
   %add132 = add i64 %pos.0, %step.0
   %add133 = add i64 %step.0, 8
   %and135 = and i64 %add132, %sub.i
@@ -1537,8 +1537,8 @@ for.end131:                                       ; preds = %for.inc129, %for.co
 
 found_empty_slot:                                 ; preds = %if.then111, %if.then67
   %pos.1 = phi i64 [ %add69, %if.then67 ], [ %add113, %if.then111 ]
-  %tombstone.5 = phi i64 [ %.us-phi248, %if.then67 ], [ %tombstone.3255, %if.then111 ]
-  %cmp136 = icmp sgt i64 %tombstone.5, -1
+  %tombstone.2 = phi i64 [ %.us-phi248, %if.then67 ], [ %tombstone.4255, %if.then111 ]
+  %cmp136 = icmp sgt i64 %tombstone.2, -1
   br i1 %cmp136, label %if.then138, label %if.end139
 
 if.then138:                                       ; preds = %found_empty_slot
@@ -1549,7 +1549,7 @@ if.then138:                                       ; preds = %found_empty_slot
   br label %if.end139
 
 if.end139:                                        ; preds = %if.then138, %found_empty_slot
-  %pos.2 = phi i64 [ %tombstone.5, %if.then138 ], [ %pos.1, %found_empty_slot ]
+  %pos.2 = phi i64 [ %tombstone.2, %if.then138 ], [ %pos.1, %found_empty_slot ]
   %used_count140 = getelementptr inbounds i8, ptr %8, i64 16
   %37 = load i64, ptr %used_count140, align 8
   %inc141 = add i64 %37, 1

@@ -122,7 +122,7 @@ gz_skip.exit.thread:                              ; preds = %42, %48, %18, %15
 
 59:                                               ; preds = %113, %gz_skip.exit.thread
   %.047 = phi i32 [ %2, %gz_skip.exit.thread ], [ %.148, %113 ]
-  %.045 = phi i32 [ 0, %gz_skip.exit.thread ], [ %.146, %113 ]
+  %.045 = phi i32 [ 0, %gz_skip.exit.thread ], [ %.2, %113 ]
   %.044 = phi ptr [ %1, %gz_skip.exit.thread ], [ %.1, %113 ]
   %60 = load i32, ptr %49, align 8
   %.not55 = icmp eq i32 %60, 0
@@ -172,11 +172,11 @@ gz_skip.exit.thread:                              ; preds = %42, %48, %18, %15
   br i1 %84, label %.preheader, label %102
 
 .preheader:                                       ; preds = %83, %93
-  %.061 = phi i32 [ %94, %93 ], [ 0, %83 ]
+  %.162 = phi i32 [ %94, %93 ], [ 0, %83 ]
   %85 = load i32, ptr %57, align 4
-  %86 = zext i32 %.061 to i64
+  %86 = zext i32 %.162 to i64
   %87 = getelementptr inbounds i8, ptr %.044, i64 %86
-  %88 = sub i32 %.047, %.061
+  %88 = sub i32 %.047, %.162
   %89 = zext i32 %88 to i64
   %90 = tail call i64 @read(i32 noundef %85, ptr noundef %87, i64 noundef %89) #11
   %91 = trunc i64 %90 to i32
@@ -184,7 +184,7 @@ gz_skip.exit.thread:                              ; preds = %42, %48, %18, %15
   br i1 %92, label %96, label %93
 
 93:                                               ; preds = %.preheader
-  %94 = add i32 %.061, %91
+  %94 = add i32 %.162, %91
   %95 = icmp ult i32 %94, %.047
   br i1 %95, label %.preheader, label %gz_load.exit.thread, !llvm.loop !6
 
@@ -216,11 +216,11 @@ gz_load.exit:                                     ; preds = %96
   br label %gz_load.exit.thread
 
 gz_load.exit.thread:                              ; preds = %93, %98, %105, %61
-  %.2 = phi i32 [ %106, %105 ], [ %.047., %61 ], [ %.061, %98 ], [ %94, %93 ]
-  %107 = sub i32 %.047, %.2
-  %108 = zext i32 %.2 to i64
+  %.061 = phi i32 [ %106, %105 ], [ %.047., %61 ], [ %.162, %98 ], [ %94, %93 ]
+  %107 = sub i32 %.047, %.061
+  %108 = zext i32 %.061 to i64
   %109 = getelementptr inbounds i8, ptr %.044, i64 %108
-  %110 = add i32 %.2, %.045
+  %110 = add i32 %.061, %.045
   %111 = load i64, ptr %58, align 8
   %112 = add nsw i64 %111, %108
   store i64 %112, ptr %58, align 8
@@ -228,13 +228,13 @@ gz_load.exit.thread:                              ; preds = %93, %98, %105, %61
 
 113:                                              ; preds = %80, %gz_load.exit.thread
   %.148 = phi i32 [ %107, %gz_load.exit.thread ], [ %.047, %80 ]
-  %.146 = phi i32 [ %110, %gz_load.exit.thread ], [ %.045, %80 ]
+  %.2 = phi i32 [ %110, %gz_load.exit.thread ], [ %.045, %80 ]
   %.1 = phi ptr [ %109, %gz_load.exit.thread ], [ %.044, %80 ]
   %.not57 = icmp eq i32 %.148, 0
   br i1 %.not57, label %gz_skip.exit, label %59, !llvm.loop !7
 
 gz_skip.exit:                                     ; preds = %45, %113, %70, %102, %80, %gz_load.exit, %13, %5, %7, %3, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %3 ], [ -1, %7 ], [ -1, %5 ], [ 0, %13 ], [ -1, %gz_load.exit ], [ %.045, %70 ], [ %.146, %113 ], [ -1, %102 ], [ -1, %80 ], [ -1, %45 ]
+  %.0 = phi i32 [ -1, %12 ], [ -1, %3 ], [ -1, %7 ], [ -1, %5 ], [ 0, %13 ], [ -1, %gz_load.exit ], [ %.045, %70 ], [ %.2, %113 ], [ -1, %102 ], [ -1, %80 ], [ -1, %45 ]
   ret i32 %.0
 }
 
@@ -850,7 +850,7 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %15, %12
 50:                                               ; preds = %.preheader, %61
   %51 = phi i32 [ %73, %61 ], [ %.pre, %.preheader ]
   %.048 = phi i32 [ %78, %61 ], [ %46, %.preheader ]
-  %.047 = phi ptr [ %79, %61 ], [ %1, %.preheader ]
+  %.1 = phi ptr [ %79, %61 ], [ %1, %.preheader ]
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %61
 
@@ -865,7 +865,7 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %15, %12
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
-  %60 = icmp eq ptr %.047, %1
+  %60 = icmp eq ptr %.1, %1
   br i1 %60, label %gz_skip.exit, label %.loopexit
 
 61:                                               ; preds = %56, %50
@@ -882,7 +882,7 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %15, %12
   %70 = add i32 %69, 1
   %.049 = select i1 %.not60, i32 %.048., i32 %70
   %71 = zext i32 %.049 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.047, ptr align 1 %63, i64 %71, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1, ptr align 1 %63, i64 %71, i1 false)
   %72 = load i32, ptr %47, align 8
   %73 = sub i32 %72, %.049
   store i32 %73, ptr %47, align 8
@@ -893,14 +893,14 @@ gz_skip.exit.thread:                              ; preds = %39, %45, %15, %12
   %77 = add nsw i64 %76, %71
   store i64 %77, ptr %49, align 8
   %78 = sub i32 %.048, %.049
-  %79 = getelementptr inbounds i8, ptr %.047, i64 %71
+  %79 = getelementptr inbounds i8, ptr %.1, i64 %71
   %80 = icmp ne i32 %78, 0
   %81 = and i1 %.not60, %80
   br i1 %81, label %50, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %61, %59, %gz_skip.exit.thread
-  %.1 = phi ptr [ %.047, %59 ], [ %1, %gz_skip.exit.thread ], [ %79, %61 ]
-  store i8 0, ptr %.1, align 1
+  %.047 = phi ptr [ %.1, %59 ], [ %1, %gz_skip.exit.thread ], [ %79, %61 ]
+  store i8 0, ptr %.047, align 1
   br label %gz_skip.exit
 
 gz_skip.exit:                                     ; preds = %42, %53, %59, %7, %9, %3, %.loopexit

@@ -1979,7 +1979,7 @@ if.then20:                                        ; preds = %if.then17
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then20, %if.then17
-  %req_size.addr.0 = phi i32 [ %conv23, %if.then20 ], [ %req_size, %if.then17 ]
+  %req_size.addr.1 = phi i32 [ %conv23, %if.then20 ], [ %req_size, %if.then17 ]
   %8 = load i32, ptr %in_num, align 8
   %tobool27.not = icmp eq i32 %8, 0
   br i1 %tobool27.not, label %if.end35, label %if.then28
@@ -1993,8 +1993,8 @@ if.then28:                                        ; preds = %if.end24
 
 if.end35:                                         ; preds = %if.end24, %if.then28, %if.end13
   %resp_size.addr.0 = phi i32 [ %resp_size, %if.end13 ], [ %conv33, %if.then28 ], [ %resp_size, %if.end24 ]
-  %req_size.addr.1 = phi i32 [ %req_size, %if.end13 ], [ %req_size.addr.0, %if.then28 ], [ %req_size.addr.0, %if.end24 ]
-  %conv42 = zext i32 %req_size.addr.1 to i64
+  %req_size.addr.0 = phi i32 [ %req_size, %if.end13 ], [ %req_size.addr.1, %if.then28 ], [ %req_size.addr.1, %if.end24 ]
+  %conv42 = zext i32 %req_size.addr.0 to i64
   %qsgl1.i = getelementptr inbounds i8, ptr %req, i64 72
   %tobool.not13.i = icmp eq i32 %.pre, 0
   br i1 %tobool.not13.i, label %while.end.i, label %while.body.i.preheader

@@ -765,7 +765,7 @@ define void @_ZN15actix_multipart4test50create_form_data_payload_and_headers_wit
           to label %65 unwind label %.thread
 
 "_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit": ; preds = %489, %81
-  %63 = trunc nuw i8 %.1 to i1
+  %63 = trunc nuw i8 %.2 to i1
   br i1 %63, label %491, label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit"
 
 .thread:                                          ; preds = %8
@@ -806,18 +806,18 @@ define void @_ZN15actix_multipart4test50create_form_data_payload_and_headers_wit
           to label %85 unwind label %83
 
 81:                                               ; preds = %102, %83
-  %.153 = phi i8 [ %.254, %83 ], [ %.355, %102 ]
-  %.148 = phi i8 [ %.249, %83 ], [ %.350, %102 ]
-  %.041 = phi i8 [ %.2, %83 ], [ %.243, %102 ]
-  %.1 = phi i8 [ %.2, %83 ], [ %.3, %102 ]
+  %.254 = phi i8 [ %.153, %83 ], [ %.456, %102 ]
+  %.249 = phi i8 [ %.148, %83 ], [ %.451, %102 ]
+  %.142 = phi i8 [ %.1, %83 ], [ %.243, %102 ]
+  %.2 = phi i8 [ %.1, %83 ], [ %.4, %102 ]
   %.pn67 = phi { ptr, i32 } [ %84, %83 ], [ %.pn64.pn, %102 ]
-  %82 = trunc nuw i8 %.041 to i1
+  %82 = trunc nuw i8 %.142 to i1
   br i1 %82, label %489, label %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit"
 
 83:                                               ; preds = %452, %448, %65
-  %.254 = phi i8 [ 1, %65 ], [ %.557, %448 ], [ %.557, %452 ]
-  %.249 = phi i8 [ 1, %65 ], [ %.5, %448 ], [ %.5, %452 ]
-  %.2 = phi i8 [ 1, %65 ], [ 0, %448 ], [ 0, %452 ]
+  %.153 = phi i8 [ 1, %65 ], [ %.557, %448 ], [ %.557, %452 ]
+  %.148 = phi i8 [ 1, %65 ], [ %.5, %448 ], [ %.5, %452 ]
+  %.1 = phi i8 [ 1, %65 ], [ 0, %448 ], [ 0, %452 ]
   %84 = landingpad { ptr, i32 }
           cleanup
   br label %81
@@ -856,18 +856,18 @@ define void @_ZN15actix_multipart4test50create_form_data_payload_and_headers_wit
   br i1 %101, label %.split.us.i87.invoke, label %105
 
 102:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h2b8930224ab59f8dE.exit", %284, %219, %175, %152, %103
-  %.355 = phi i8 [ %.557, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h2b8930224ab59f8dE.exit" ], [ %.456, %103 ], [ %.557, %284 ], [ 0, %219 ], [ 1, %175 ], [ 1, %152 ]
-  %.350 = phi i8 [ %.5, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h2b8930224ab59f8dE.exit" ], [ %.451, %103 ], [ %.5, %284 ], [ %.5, %219 ], [ 0, %175 ], [ 1, %152 ]
+  %.456 = phi i8 [ %.557, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h2b8930224ab59f8dE.exit" ], [ %.355, %103 ], [ %.557, %284 ], [ 0, %219 ], [ 1, %175 ], [ 1, %152 ]
+  %.451 = phi i8 [ %.5, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h2b8930224ab59f8dE.exit" ], [ %.350, %103 ], [ %.5, %284 ], [ %.5, %219 ], [ 0, %175 ], [ 1, %152 ]
   %.243 = phi i8 [ %.344, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h2b8930224ab59f8dE.exit" ], [ 1, %103 ], [ 1, %284 ], [ 1, %219 ], [ 1, %175 ], [ 1, %152 ]
-  %.3 = phi i8 [ 0, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h2b8930224ab59f8dE.exit" ], [ %.4, %103 ], [ 1, %284 ], [ 1, %219 ], [ 1, %175 ], [ 1, %152 ]
+  %.4 = phi i8 [ 0, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h2b8930224ab59f8dE.exit" ], [ %.3, %103 ], [ 1, %284 ], [ 1, %219 ], [ 1, %175 ], [ 1, %152 ]
   %.pn64.pn = phi { ptr, i32 } [ %.pn64, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h2b8930224ab59f8dE.exit" ], [ %104, %103 ], [ %285, %284 ], [ %.pn60, %219 ], [ %.pn, %175 ], [ %153, %152 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8b0b401650d5ef36E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %55) #14
           to label %81 unwind label %214
 
 103:                                              ; preds = %.split.us.i87.invoke, %.split.us.i229.invoke, %360, %348, %335, %323, %311, %.split.us.i188, %296, %288, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit180", %265, %208, %205, %.split.us.i108, %166, %156, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit102", %132, %121, %108, %93, %371, %305, %262
-  %.456 = phi i8 [ %.557, %371 ], [ %.557, %305 ], [ 0, %262 ], [ 1, %93 ], [ 1, %108 ], [ 1, %121 ], [ 1, %132 ], [ 1, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit102" ], [ 1, %156 ], [ 1, %166 ], [ 1, %.split.us.i108 ], [ 1, %205 ], [ 1, %208 ], [ %.557, %265 ], [ %.557, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit180" ], [ %.557, %288 ], [ %.557, %296 ], [ %.557, %.split.us.i188 ], [ %.557, %311 ], [ %.557, %323 ], [ %.557, %335 ], [ %.557, %348 ], [ %.557, %360 ], [ %.557, %.split.us.i229.invoke ], [ 1, %.split.us.i87.invoke ]
-  %.451 = phi i8 [ %.5, %371 ], [ %.5, %305 ], [ %.5, %262 ], [ 1, %93 ], [ 1, %108 ], [ 1, %121 ], [ 1, %132 ], [ 1, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit102" ], [ 1, %156 ], [ %.5, %166 ], [ %.5, %.split.us.i108 ], [ 0, %205 ], [ 0, %208 ], [ %.5, %265 ], [ %.5, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit180" ], [ %.5, %288 ], [ %.5, %296 ], [ %.5, %.split.us.i188 ], [ %.5, %311 ], [ %.5, %323 ], [ %.5, %335 ], [ %.5, %348 ], [ %.5, %360 ], [ %.5, %.split.us.i229.invoke ], [ 1, %.split.us.i87.invoke ]
-  %.4 = phi i8 [ 0, %371 ], [ 0, %305 ], [ 1, %262 ], [ 1, %93 ], [ 1, %108 ], [ 1, %121 ], [ 1, %132 ], [ 1, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit102" ], [ 1, %156 ], [ 1, %166 ], [ 1, %.split.us.i108 ], [ 1, %205 ], [ 1, %208 ], [ 1, %265 ], [ 1, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit180" ], [ 1, %288 ], [ 1, %296 ], [ 1, %.split.us.i188 ], [ 0, %311 ], [ 0, %323 ], [ 0, %335 ], [ 0, %348 ], [ 0, %360 ], [ 0, %.split.us.i229.invoke ], [ 1, %.split.us.i87.invoke ]
+  %.355 = phi i8 [ %.557, %371 ], [ %.557, %305 ], [ 0, %262 ], [ 1, %93 ], [ 1, %108 ], [ 1, %121 ], [ 1, %132 ], [ 1, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit102" ], [ 1, %156 ], [ 1, %166 ], [ 1, %.split.us.i108 ], [ 1, %205 ], [ 1, %208 ], [ %.557, %265 ], [ %.557, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit180" ], [ %.557, %288 ], [ %.557, %296 ], [ %.557, %.split.us.i188 ], [ %.557, %311 ], [ %.557, %323 ], [ %.557, %335 ], [ %.557, %348 ], [ %.557, %360 ], [ %.557, %.split.us.i229.invoke ], [ 1, %.split.us.i87.invoke ]
+  %.350 = phi i8 [ %.5, %371 ], [ %.5, %305 ], [ %.5, %262 ], [ 1, %93 ], [ 1, %108 ], [ 1, %121 ], [ 1, %132 ], [ 1, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit102" ], [ 1, %156 ], [ %.5, %166 ], [ %.5, %.split.us.i108 ], [ 0, %205 ], [ 0, %208 ], [ %.5, %265 ], [ %.5, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit180" ], [ %.5, %288 ], [ %.5, %296 ], [ %.5, %.split.us.i188 ], [ %.5, %311 ], [ %.5, %323 ], [ %.5, %335 ], [ %.5, %348 ], [ %.5, %360 ], [ %.5, %.split.us.i229.invoke ], [ 1, %.split.us.i87.invoke ]
+  %.3 = phi i8 [ 0, %371 ], [ 0, %305 ], [ 1, %262 ], [ 1, %93 ], [ 1, %108 ], [ 1, %121 ], [ 1, %132 ], [ 1, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit102" ], [ 1, %156 ], [ 1, %166 ], [ 1, %.split.us.i108 ], [ 1, %205 ], [ 1, %208 ], [ 1, %265 ], [ 1, %"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$3put17h382c2f98c6a1aa88E.exit180" ], [ 1, %288 ], [ 1, %296 ], [ 1, %.split.us.i188 ], [ 0, %311 ], [ 0, %323 ], [ 0, %335 ], [ 0, %348 ], [ 0, %360 ], [ 0, %.split.us.i229.invoke ], [ 1, %.split.us.i87.invoke ]
   %104 = landingpad { ptr, i32 }
           cleanup
   br label %102
@@ -2032,16 +2032,16 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit241: ; preds = %385
 
 "_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h9ea36324aa321c77E.exit": ; preds = %491, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit"
   %.pn67.pn309 = phi { ptr, i32 } [ %.pn67, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ], [ %.pn67.pn310, %491 ]
-  %.047307 = phi i8 [ %.148, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ], [ %.047308, %491 ]
-  %.052305 = phi i8 [ %.153, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ], [ %.052306, %491 ]
+  %.047307 = phi i8 [ %.249, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ], [ %.047308, %491 ]
+  %.052305 = phi i8 [ %.254, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ], [ %.052306, %491 ]
   %490 = load i64, ptr %6, align 8, !range !90, !noundef !4
   %.not70 = icmp eq i64 %490, 2
   br i1 %.not70, label %463, label %498
 
 491:                                              ; preds = %.thread, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit"
   %.pn67.pn310 = phi { ptr, i32 } [ %64, %.thread ], [ %.pn67, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
-  %.047308 = phi i8 [ 1, %.thread ], [ %.148, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
-  %.052306 = phi i8 [ 1, %.thread ], [ %.153, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
+  %.047308 = phi i8 [ 1, %.thread ], [ %.249, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
+  %.052306 = phi i8 [ 1, %.thread ], [ %.254, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !463)
   call void @llvm.experimental.noalias.scope.decl(metadata !466)
   %492 = load ptr, ptr %7, align 8, !alias.scope !469, !nonnull !4, !align !19, !noundef !4

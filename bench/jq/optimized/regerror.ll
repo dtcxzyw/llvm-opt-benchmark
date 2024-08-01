@@ -498,7 +498,7 @@ to_ascii.exit.thread:                             ; preds = %18
 
 32:                                               ; preds = %75, %.preheader.i
   %.059.i = phi ptr [ %79, %75 ], [ %23, %.preheader.i ]
-  %.0.i = phi i32 [ %.1.i, %75 ], [ 0, %.preheader.i ]
+  %.1.i = phi i32 [ %.3.i, %75 ], [ 0, %.preheader.i ]
   %33 = icmp ult ptr %.059.i, %25
   br i1 %33, label %34, label %81
 
@@ -510,13 +510,13 @@ to_ascii.exit.thread:                             ; preds = %18
 
 38:                                               ; preds = %34
   %39 = icmp ugt i32 %36, 65535
-  %40 = icmp slt i32 %.0.i, 18
+  %40 = icmp slt i32 %.1.i, 18
   %or.cond.i = select i1 %39, i1 %40, i1 false
   br i1 %or.cond.i, label %41, label %58
 
 41:                                               ; preds = %38
-  %42 = add nsw i32 %.0.i, 10
-  %43 = sext i32 %.0.i to i64
+  %42 = add nsw i32 %.1.i, 10
+  %43 = sext i32 %.1.i to i64
   %44 = getelementptr inbounds i8, ptr %3, i64 %43
   %45 = lshr i32 %36, 24
   %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %44, i64 noundef 5, ptr noundef nonnull @.str.83, i32 noundef %45) #8
@@ -534,12 +534,12 @@ to_ascii.exit.thread:                             ; preds = %18
   br label %75
 
 58:                                               ; preds = %38
-  %59 = icmp slt i32 %.0.i, 22
+  %59 = icmp slt i32 %.1.i, 22
   br i1 %59, label %60, label %81
 
 60:                                               ; preds = %58
-  %61 = add nsw i32 %.0.i, 6
-  %62 = sext i32 %.0.i to i64
+  %61 = add nsw i32 %.1.i, 6
+  %62 = sext i32 %.1.i to i64
   %63 = getelementptr inbounds i8, ptr %3, i64 %62
   %64 = lshr i32 %36, 8
   %65 = and i32 %64, 255
@@ -551,24 +551,24 @@ to_ascii.exit.thread:                             ; preds = %18
 
 70:                                               ; preds = %34
   %71 = trunc nuw nsw i32 %36 to i8
-  %72 = add nsw i32 %.0.i, 1
-  %73 = sext i32 %.0.i to i64
+  %72 = add nsw i32 %.1.i, 1
+  %73 = sext i32 %.1.i to i64
   %74 = getelementptr inbounds i8, ptr %3, i64 %73
   store i8 %71, ptr %74, align 1
   br label %75
 
 75:                                               ; preds = %70, %60, %41
-  %.1.i = phi i32 [ %42, %41 ], [ %61, %60 ], [ %72, %70 ]
+  %.3.i = phi i32 [ %42, %41 ], [ %61, %60 ], [ %72, %70 ]
   %76 = load ptr, ptr %21, align 8
   %77 = call i32 %76(ptr noundef %.059.i) #8
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr %.059.i, i64 %78
-  %80 = icmp sgt i32 %.1.i, 26
+  %80 = icmp sgt i32 %.3.i, 26
   br i1 %80, label %81, label %32, !llvm.loop !4
 
 81:                                               ; preds = %75, %58, %32
   %.160.i = phi ptr [ %79, %75 ], [ %.059.i, %58 ], [ %.059.i, %32 ]
-  %.2.i = phi i32 [ %.1.i, %75 ], [ %.0.i, %58 ], [ %.0.i, %32 ]
+  %.2.i = phi i32 [ %.3.i, %75 ], [ %.1.i, %58 ], [ %.1.i, %32 ]
   %82 = icmp ult ptr %.160.i, %25
   %83 = call ptr @onig_error_code_to_format(i32 noundef %1)
   %84 = sext i32 %.2.i to i64
@@ -734,8 +734,8 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   br label %26
 
 26:                                               ; preds = %.lr.ph98, %.loopexit65
-  %.05197 = phi ptr [ %22, %.lr.ph98 ], [ %.6, %.loopexit65 ]
-  %.05396 = phi ptr [ %3, %.lr.ph98 ], [ %.457, %.loopexit65 ]
+  %.05197 = phi ptr [ %22, %.lr.ph98 ], [ %.4, %.loopexit65 ]
+  %.05396 = phi ptr [ %3, %.lr.ph98 ], [ %.356, %.loopexit65 ]
   %27 = load ptr, ptr %2, align 8
   %28 = call i32 %27(ptr noundef %.05396) #8
   %.not = icmp eq i32 %28, 1
@@ -812,19 +812,19 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   store i8 92, ptr %.05197, align 1
   %56 = load ptr, ptr %2, align 8
   %57 = call i32 %56(ptr noundef nonnull %55) #8
-  %.484 = getelementptr i8, ptr %.05197, i64 1
+  %.584 = getelementptr i8, ptr %.05197, i64 1
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph88, label %.loopexit65
 
 .lr.ph88:                                         ; preds = %54, %.lr.ph88
-  %.487 = phi ptr [ %.4, %.lr.ph88 ], [ %.484, %54 ]
-  %.35686 = phi ptr [ %60, %.lr.ph88 ], [ %55, %54 ]
+  %.587 = phi ptr [ %.5, %.lr.ph88 ], [ %.584, %54 ]
+  %.45786 = phi ptr [ %60, %.lr.ph88 ], [ %55, %54 ]
   %.26085 = phi i32 [ %59, %.lr.ph88 ], [ %57, %54 ]
   %59 = add nsw i32 %.26085, -1
-  %60 = getelementptr inbounds i8, ptr %.35686, i64 1
-  %61 = load i8, ptr %.35686, align 1
-  store i8 %61, ptr %.487, align 1
-  %.4 = getelementptr inbounds i8, ptr %.487, i64 1
+  %60 = getelementptr inbounds i8, ptr %.45786, i64 1
+  %61 = load i8, ptr %.45786, align 1
+  store i8 %61, ptr %.587, align 1
+  %.5 = getelementptr inbounds i8, ptr %.587, i64 1
   %62 = icmp ugt i32 %.26085, 1
   br i1 %62, label %.lr.ph88, label %.loopexit65, !llvm.loop !10
 
@@ -864,11 +864,11 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
 
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.lr.ph94
   %.193 = phi ptr [ %82, %.lr.ph94 ], [ %7, %.lr.ph94.preheader ]
-  %.592 = phi ptr [ %84, %.lr.ph94 ], [ %.05197, %.lr.ph94.preheader ]
+  %.692 = phi ptr [ %84, %.lr.ph94 ], [ %.05197, %.lr.ph94.preheader ]
   %82 = getelementptr inbounds i8, ptr %.193, i64 1
   %83 = load i8, ptr %.193, align 1
-  %84 = getelementptr inbounds i8, ptr %.592, i64 1
-  store i8 %83, ptr %.592, align 1
+  %84 = getelementptr inbounds i8, ptr %.692, i64 1
+  store i8 %83, ptr %.692, align 1
   %exitcond109.not = icmp eq ptr %.193, %gep141
   br i1 %exitcond109.not, label %.loopexit65, label %.lr.ph94, !llvm.loop !11
 
@@ -882,13 +882,13 @@ define void @onig_snprintf_with_pattern(ptr noundef %0, i32 noundef %1, ptr noca
   br label %.loopexit65
 
 .loopexit65:                                      ; preds = %.loopexit, %.lr.ph81, %.lr.ph88, %.lr.ph94, %.loopexit65.sink.split, %.preheader68, %.preheader, %54, %74
-  %.457 = phi ptr [ %75, %74 ], [ %55, %54 ], [ %.05396, %.preheader ], [ %.05396, %.preheader68 ], [ %85, %.loopexit65.sink.split ], [ %75, %.lr.ph94 ], [ %60, %.lr.ph88 ], [ %36, %.lr.ph81 ], [ %42, %.loopexit ]
-  %.6 = phi ptr [ %.05197, %74 ], [ %.484, %54 ], [ %.05197, %.preheader ], [ %.05197, %.preheader68 ], [ %87, %.loopexit65.sink.split ], [ %84, %.lr.ph94 ], [ %.4, %.lr.ph88 ], [ %38, %.lr.ph81 ], [ %.3.lcssa, %.loopexit ]
-  %88 = icmp ult ptr %.457, %4
+  %.356 = phi ptr [ %75, %74 ], [ %55, %54 ], [ %.05396, %.preheader ], [ %.05396, %.preheader68 ], [ %85, %.loopexit65.sink.split ], [ %75, %.lr.ph94 ], [ %60, %.lr.ph88 ], [ %36, %.lr.ph81 ], [ %42, %.loopexit ]
+  %.4 = phi ptr [ %.05197, %74 ], [ %.584, %54 ], [ %.05197, %.preheader ], [ %.05197, %.preheader68 ], [ %87, %.loopexit65.sink.split ], [ %84, %.lr.ph94 ], [ %.5, %.lr.ph88 ], [ %38, %.lr.ph81 ], [ %.3.lcssa, %.loopexit ]
+  %88 = icmp ult ptr %.356, %4
   br i1 %88, label %26, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.loopexit65, %19
-  %.051.lcssa = phi ptr [ %22, %19 ], [ %.6, %.loopexit65 ]
+  %.051.lcssa = phi ptr [ %22, %19 ], [ %.4, %.loopexit65 ]
   %89 = getelementptr inbounds i8, ptr %.051.lcssa, i64 1
   store i8 47, ptr %.051.lcssa, align 1
   store i8 0, ptr %89, align 1

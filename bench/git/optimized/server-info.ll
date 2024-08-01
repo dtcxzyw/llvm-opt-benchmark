@@ -45,7 +45,7 @@ entry:
   br i1 %tobool.not28.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %entry, %for.inc.i.i
-  %alloc.030.i.i = phi i64 [ %alloc.3.i.i, %for.inc.i.i ], [ 0, %entry ]
+  %alloc.030.i.i = phi i64 [ %alloc.1.i.i, %for.inc.i.i ], [ 0, %entry ]
   %p.029.i.i = phi ptr [ %6, %for.inc.i.i ], [ %call.i.i, %entry ]
   %pack_local.i.i = getelementptr inbounds i8, ptr %p.029.i.i, i64 152
   %bf.load.i.i = load i8, ptr %pack_local.i.i, align 8
@@ -87,7 +87,7 @@ st_mult.exit.i.i:                                 ; preds = %if.then5.i.i
   br label %do.end.i.i
 
 do.end.i.i:                                       ; preds = %st_mult.exit.i.i, %if.end.i.i
-  %alloc.2.i.i = phi i64 [ %conv.div18.i.i, %st_mult.exit.i.i ], [ %alloc.030.i.i, %if.end.i.i ]
+  %alloc.3.i.i = phi i64 [ %conv.div18.i.i, %st_mult.exit.i.i ], [ %alloc.030.i.i, %if.end.i.i ]
   %call18.i.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #13
   %4 = load ptr, ptr @info, align 8
   %idxprom.i.i = sext i32 %1 to i64
@@ -100,7 +100,7 @@ do.end.i.i:                                       ; preds = %st_mult.exit.i.i, %
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %do.end.i.i, %lor.lhs.false.i.i, %for.body.i.i
-  %alloc.3.i.i = phi i64 [ %alloc.2.i.i, %do.end.i.i ], [ %alloc.030.i.i, %lor.lhs.false.i.i ], [ %alloc.030.i.i, %for.body.i.i ]
+  %alloc.1.i.i = phi i64 [ %alloc.3.i.i, %do.end.i.i ], [ %alloc.030.i.i, %lor.lhs.false.i.i ], [ %alloc.030.i.i, %for.body.i.i ]
   %next.i.i = getelementptr inbounds i8, ptr %p.029.i.i, i64 16
   %6 = load ptr, ptr %next.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %6, null

@@ -449,8 +449,8 @@ _ZN8tstrings3anylsIPKcEERS0_T_.exit:              ; preds = %_ZN8tstrings3anyC2E
           to label %95 unwind label %109
 
 95:                                               ; preds = %91, %80, %76, %72
-  %.117 = phi i32 [ %75, %72 ], [ %94, %91 ], [ %83, %80 ], [ %79, %76 ]
-  %.1 = phi ptr [ %74, %72 ], [ %93, %91 ], [ %82, %80 ], [ %78, %76 ]
+  %.319 = phi i32 [ %75, %72 ], [ %94, %91 ], [ %83, %80 ], [ %79, %76 ]
+  %.3 = phi ptr [ %74, %72 ], [ %93, %91 ], [ %82, %80 ], [ %78, %76 ]
   invoke void @__cxa_end_catch()
           to label %101 unwind label %109
 
@@ -475,8 +475,8 @@ _ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit: ; pre
   ret i32 %.0
 
 101:                                              ; preds = %95, %68, %60, %64
-  %.218 = phi i32 [ %67, %64 ], [ %.117, %95 ], [ %71, %68 ], [ %63, %60 ]
-  %.2 = phi ptr [ %66, %64 ], [ %.1, %95 ], [ %70, %68 ], [ %62, %60 ]
+  %.218 = phi i32 [ %67, %64 ], [ %.319, %95 ], [ %71, %68 ], [ %63, %60 ]
+  %.2 = phi ptr [ %66, %64 ], [ %.3, %95 ], [ %70, %68 ], [ %62, %60 ]
   store ptr null, ptr @_ZN12_GLOBAL__N_115theLastErrorMsgB5cxx11E, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
   %102 = load ptr, ptr %7, align 8
@@ -496,10 +496,10 @@ _ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26: ; p
   br label %106
 
 106:                                              ; preds = %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26, %30
-  %.319 = phi i32 [ %.218, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26 ], [ %.016, %30 ]
-  %.3 = phi ptr [ %.2, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26 ], [ %.015, %30 ]
-  %107 = insertvalue { ptr, i32 } poison, ptr %.3, 0
-  %108 = insertvalue { ptr, i32 } %107, i32 %.319, 1
+  %.117 = phi i32 [ %.218, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26 ], [ %.016, %30 ]
+  %.1 = phi ptr [ %.2, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26 ], [ %.015, %30 ]
+  %107 = insertvalue { ptr, i32 } poison, ptr %.1, 0
+  %108 = insertvalue { ptr, i32 } %107, i32 %.117, 1
   resume { ptr, i32 } %108
 
 109:                                              ; preds = %95, %91, %68, %60

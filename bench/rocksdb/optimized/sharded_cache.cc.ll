@@ -177,8 +177,8 @@ if.else.i:                                        ; preds = %invoke.cont7.i
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.else.i, %if.then9.i
-  %retval.0.in.i = phi i32 [ %16, %if.else.i ], [ %call2.i910.i, %if.then9.i ]
-  %retval.0.i = and i32 %retval.0.in.i, 2147483647
+  %retval.1.in.i = phi i32 [ %16, %if.else.i ], [ %call2.i910.i, %if.then9.i ]
+  %retval.1.i = and i32 %retval.1.in.i, 2147483647
   %state_.i11.i = getelementptr inbounds i8, ptr %s.i, i64 8
   %17 = load ptr, ptr %state_.i11.i, align 8
   %cmp.not.i.i12.i = icmp eq ptr %17, null
@@ -218,11 +218,11 @@ if.else18.i:                                      ; preds = %init.end.i
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %.noexc, %_ZN7rocksdb6StatusD2Ev.exit14.i, %_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev.exit
-  %retval.1.i = phi i32 [ %retval.0.i, %_ZN7rocksdb6StatusD2Ev.exit14.i ], [ %and23.i, %.noexc ], [ %6, %_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev.exit ]
+  %retval.0.i = phi i32 [ %retval.1.i, %_ZN7rocksdb6StatusD2Ev.exit14.i ], [ %and23.i, %.noexc ], [ %6, %_ZNSt10shared_ptrIN7rocksdb15MemoryAllocatorEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %hostname.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %s.i)
   %hash_seed_ = getelementptr inbounds i8, ptr %this, i64 68
-  store i32 %retval.1.i, ptr %hash_seed_, align 4
+  store i32 %retval.0.i, ptr %hash_seed_, align 4
   %strict_capacity_limit_ = getelementptr inbounds i8, ptr %this, i64 72
   %strict_capacity_limit = getelementptr inbounds i8, ptr %opts, i64 20
   %19 = load i8, ptr %strict_capacity_limit, align 4

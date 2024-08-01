@@ -174,7 +174,7 @@ define i32 @H5T_get_order(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %.02941 = phi i32 [ 4, %.lr.ph.preheader ], [ %spec.select, %23 ]
+  %.141 = phi i32 [ 4, %.lr.ph.preheader ], [ %spec.select, %23 ]
   %24 = load ptr, ptr %8, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 64
   %26 = load ptr, ptr %25, align 8
@@ -192,9 +192,9 @@ define i32 @H5T_get_order(ptr noundef %0) local_unnamed_addr #0 {
 
 35:                                               ; preds = %.lr.ph
   %36 = icmp ne i32 %29, 4
-  %37 = icmp eq i32 %.02941, 4
+  %37 = icmp eq i32 %.141, 4
   %or.cond = select i1 %36, i1 %37, i1 false
-  %spec.select = select i1 %or.cond, i32 %29, i32 %.02941
+  %spec.select = select i1 %or.cond, i32 %29, i32 %.141
   %38 = icmp ne i32 %spec.select, 4
   %.not34 = icmp ne i32 %29, %spec.select
   %.not38 = and i1 %38, %.not34
@@ -202,8 +202,8 @@ define i32 @H5T_get_order(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond35.not, label %.loopexit, label %23
 
 .loopexit:                                        ; preds = %23, %35, %.preheader, %11, %14, %31, %19
-  %.2 = phi i32 [ -1, %19 ], [ -1, %31 ], [ 4, %14 ], [ %13, %11 ], [ 4, %.preheader ], [ %spec.select, %23 ], [ 3, %35 ]
-  ret i32 %.2
+  %.029 = phi i32 [ -1, %19 ], [ -1, %31 ], [ 4, %14 ], [ %13, %11 ], [ 4, %.preheader ], [ %spec.select, %23 ], [ 3, %35 ]
+  ret i32 %.029
 }
 
 declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #1

@@ -365,7 +365,7 @@ if.end113.lr.ph:                                  ; preds = %if.end103
   br label %if.end113
 
 if.end113:                                        ; preds = %if.end113.lr.ph, %if.end158
-  %bytes_read.0176 = phi i64 [ 0, %if.end113.lr.ph ], [ %bytes_read.2, %if.end158 ]
+  %bytes_read.0176 = phi i64 [ 0, %if.end113.lr.ph ], [ %bytes_read.1, %if.end158 ]
   %nConn.0175 = phi i32 [ 0, %if.end113.lr.ph ], [ %add143, %if.end158 ]
   %call114 = call fastcc ptr @doConnection(ptr noundef null, ptr noundef %host.0, ptr noundef %call61)
   %cmp115 = icmp eq ptr %call114, null
@@ -385,15 +385,15 @@ lor.lhs.false:                                    ; preds = %if.then121
   br i1 %cmp127, label %end, label %while.cond131
 
 while.cond131:                                    ; preds = %lor.lhs.false, %while.cond131
-  %bytes_read.1 = phi i64 [ %add138, %while.cond131 ], [ %bytes_read.0176, %lor.lhs.false ]
+  %bytes_read.2 = phi i64 [ %add138, %while.cond131 ], [ %bytes_read.0176, %lor.lhs.false ]
   %call133 = call i32 @SSL_read(ptr noundef nonnull %call114, ptr noundef nonnull %buf, i32 noundef 8192) #7
   %cmp134 = icmp sgt i32 %call133, 0
   %conv137 = zext nneg i32 %call133 to i64
-  %add138 = add nsw i64 %bytes_read.1, %conv137
+  %add138 = add nsw i64 %bytes_read.2, %conv137
   br i1 %cmp134, label %while.cond131, label %if.end140, !llvm.loop !7
 
 if.end140:                                        ; preds = %while.cond131, %if.end118
-  %bytes_read.2 = phi i64 [ %bytes_read.0176, %if.end118 ], [ %bytes_read.1, %while.cond131 ]
+  %bytes_read.1 = phi i64 [ %bytes_read.0176, %if.end118 ], [ %bytes_read.2, %while.cond131 ]
   call void @SSL_set_shutdown(ptr noundef nonnull %call114, i32 noundef 3) #7
   %call141 = call i32 @SSL_get_fd(ptr noundef nonnull %call114) #7
   %call142 = call i32 @BIO_closesocket(i32 noundef %call141) #7
@@ -423,7 +423,7 @@ if.end158:                                        ; preds = %if.else, %if.end140
 
 for.end:                                          ; preds = %if.end158, %if.end103
   %nConn.0.lcssa = phi i32 [ 0, %if.end103 ], [ %add143, %if.end158 ]
-  %bytes_read.0.lcssa = phi i64 [ 0, %if.end103 ], [ %bytes_read.2, %if.end158 ]
+  %bytes_read.0.lcssa = phi i64 [ 0, %if.end103 ], [ %bytes_read.1, %if.end158 ]
   %call.i96 = call double @app_tminterval(i32 noundef 1, i32 noundef 1) #7
   %add162 = fadd double %call.i96, 0.000000e+00
   %call163 = call i64 @time(ptr noundef null) #7
@@ -500,7 +500,7 @@ if.end216:                                        ; preds = %if.then214, %if.end
   br i1 %cmp224179, label %for.end282, label %if.end227
 
 if.end227:                                        ; preds = %if.end216, %if.end279
-  %bytes_read.3181 = phi i64 [ %bytes_read.5, %if.end279 ], [ 0, %if.end216 ]
+  %bytes_read.3181 = phi i64 [ %bytes_read.4, %if.end279 ], [ 0, %if.end216 ]
   %nConn.1180 = phi i32 [ %add263, %if.end279 ], [ 0, %if.end216 ]
   %call228 = call fastcc ptr @doConnection(ptr noundef nonnull %call183, ptr noundef %host.0, ptr noundef %call61)
   %cmp229 = icmp eq ptr %call228, null
@@ -520,15 +520,15 @@ lor.lhs.false240:                                 ; preds = %if.then235
   br i1 %cmp243, label %end, label %while.cond247
 
 while.cond247:                                    ; preds = %lor.lhs.false240, %while.cond247
-  %bytes_read.4 = phi i64 [ %add254, %while.cond247 ], [ %bytes_read.3181, %lor.lhs.false240 ]
+  %bytes_read.5 = phi i64 [ %add254, %while.cond247 ], [ %bytes_read.3181, %lor.lhs.false240 ]
   %call249 = call i32 @SSL_read(ptr noundef nonnull %call183, ptr noundef nonnull %buf, i32 noundef 8192) #7
   %cmp250 = icmp sgt i32 %call249, 0
   %conv253 = zext nneg i32 %call249 to i64
-  %add254 = add nsw i64 %bytes_read.4, %conv253
+  %add254 = add nsw i64 %bytes_read.5, %conv253
   br i1 %cmp250, label %while.cond247, label %if.end256, !llvm.loop !9
 
 if.end256:                                        ; preds = %while.cond247, %if.end232
-  %bytes_read.5 = phi i64 [ %bytes_read.3181, %if.end232 ], [ %bytes_read.4, %while.cond247 ]
+  %bytes_read.4 = phi i64 [ %bytes_read.3181, %if.end232 ], [ %bytes_read.5, %while.cond247 ]
   call void @SSL_set_shutdown(ptr noundef nonnull %call183, i32 noundef 3) #7
   %call257 = call i32 @SSL_get_fd(ptr noundef nonnull %call183) #7
   %cmp258 = icmp sgt i32 %call257, -1
@@ -564,7 +564,7 @@ if.end279:                                        ; preds = %if.else267, %if.end
 
 for.end282:                                       ; preds = %if.end279, %if.end216
   %nConn.1.lcssa = phi i32 [ 0, %if.end216 ], [ %add263, %if.end279 ]
-  %bytes_read.3.lcssa = phi i64 [ 0, %if.end216 ], [ %bytes_read.5, %if.end279 ]
+  %bytes_read.3.lcssa = phi i64 [ 0, %if.end216 ], [ %bytes_read.4, %if.end279 ]
   %call.i98 = call double @app_tminterval(i32 noundef 1, i32 noundef 1) #7
   %add284 = fadd double %call.i98, 0.000000e+00
   %conv285 = uitofp nneg i32 %nConn.1.lcssa to double
@@ -588,8 +588,8 @@ if.else298:                                       ; preds = %for.end282
 end:                                              ; preds = %sw.bb48, %sw.bb14, %if.then121, %lor.lhs.false, %if.end113, %if.then235, %lor.lhs.false240, %if.end227, %if.then290, %if.else298, %if.then191, %lor.lhs.false196, %next, %if.end92, %land.lhs.true88, %land.lhs.true, %if.end69, %if.end64, %if.end60, %if.then186, %if.then99, %if.then39, %sw.bb4, %opthelp
   %ret.0 = phi i32 [ 1, %if.then39 ], [ 0, %sw.bb4 ], [ 1, %opthelp ], [ 1, %if.end60 ], [ 1, %if.end64 ], [ 1, %if.end69 ], [ 1, %if.then186 ], [ 1, %if.then191 ], [ 1, %lor.lhs.false196 ], [ 1, %next ], [ 1, %if.then99 ], [ 1, %if.end92 ], [ 1, %land.lhs.true88 ], [ 1, %land.lhs.true ], [ 0, %if.else298 ], [ 0, %if.then290 ], [ 1, %if.end227 ], [ 1, %lor.lhs.false240 ], [ 1, %if.then235 ], [ 1, %if.end113 ], [ 1, %lor.lhs.false ], [ 1, %if.then121 ], [ 1, %sw.bb14 ], [ 1, %sw.bb48 ]
   %ctx.0 = phi ptr [ null, %if.then39 ], [ null, %sw.bb4 ], [ null, %opthelp ], [ null, %if.end60 ], [ %call61, %if.end64 ], [ %call61, %if.end69 ], [ %call61, %if.then186 ], [ %call61, %if.then191 ], [ %call61, %lor.lhs.false196 ], [ %call61, %next ], [ %call61, %if.then99 ], [ %call61, %if.end92 ], [ %call61, %land.lhs.true88 ], [ %call61, %land.lhs.true ], [ %call61, %if.else298 ], [ %call61, %if.then290 ], [ %call61, %if.end227 ], [ %call61, %lor.lhs.false240 ], [ %call61, %if.then235 ], [ %call61, %if.end113 ], [ %call61, %lor.lhs.false ], [ %call61, %if.then121 ], [ null, %sw.bb14 ], [ null, %sw.bb48 ]
-  %scon.2 = phi ptr [ null, %if.then39 ], [ null, %sw.bb4 ], [ null, %opthelp ], [ null, %if.end60 ], [ null, %if.end64 ], [ null, %if.end69 ], [ null, %if.then186 ], [ %call183, %if.then191 ], [ %call183, %lor.lhs.false196 ], [ null, %next ], [ null, %if.then99 ], [ null, %if.end92 ], [ null, %land.lhs.true88 ], [ null, %land.lhs.true ], [ %call183, %if.else298 ], [ %call183, %if.then290 ], [ %call183, %if.end227 ], [ %call183, %lor.lhs.false240 ], [ %call183, %if.then235 ], [ %call114, %if.then121 ], [ %call114, %lor.lhs.false ], [ null, %if.end113 ], [ null, %sw.bb14 ], [ null, %sw.bb48 ]
-  call void @SSL_free(ptr noundef %scon.2) #7
+  %scon.0 = phi ptr [ null, %if.then39 ], [ null, %sw.bb4 ], [ null, %opthelp ], [ null, %if.end60 ], [ null, %if.end64 ], [ null, %if.end69 ], [ null, %if.then186 ], [ %call183, %if.then191 ], [ %call183, %lor.lhs.false196 ], [ null, %next ], [ null, %if.then99 ], [ null, %if.end92 ], [ null, %land.lhs.true88 ], [ null, %land.lhs.true ], [ %call183, %if.else298 ], [ %call183, %if.then290 ], [ %call183, %if.end227 ], [ %call183, %lor.lhs.false240 ], [ %call183, %if.then235 ], [ %call114, %if.then121 ], [ %call114, %lor.lhs.false ], [ null, %if.end113 ], [ null, %sw.bb14 ], [ null, %sw.bb48 ]
+  call void @SSL_free(ptr noundef %scon.0) #7
   call void @SSL_CTX_free(ptr noundef %ctx.0) #7
   ret i32 %ret.0
 }

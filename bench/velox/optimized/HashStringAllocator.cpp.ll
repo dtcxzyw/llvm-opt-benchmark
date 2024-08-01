@@ -3512,52 +3512,52 @@ _ZN8facebook5velox4simd6detail12copyNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2E
   br i1 %cmp.not.i50, label %while.cond2.preheader.i, label %if.then.i.i, !llvm.loop !35
 
 if.then.i3.i:                                     ; preds = %while.cond2.preheader.i, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i
-  %bytes.addr.2104.i = phi i32 [ %sub.i4.i, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i ], [ %bytes.addr.0.lcssa.i, %while.cond2.preheader.i ]
-  %from.addr.2103.i = phi ptr [ %33, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i ], [ %from.addr.0.lcssa.i, %while.cond2.preheader.i ]
-  %to.addr.2102.i = phi ptr [ %35, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i ], [ %to.addr.0.lcssa.i, %while.cond2.preheader.i ]
-  %31 = load i64, ptr %from.addr.2103.i, align 8
-  store i64 %31, ptr %to.addr.2102.i, align 8
-  %sub.i4.i = add i32 %bytes.addr.2104.i, -8
+  %bytes.addr.1104.i = phi i32 [ %sub.i4.i, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i ], [ %bytes.addr.0.lcssa.i, %while.cond2.preheader.i ]
+  %from.addr.1103.i = phi ptr [ %33, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i ], [ %from.addr.0.lcssa.i, %while.cond2.preheader.i ]
+  %to.addr.1102.i = phi ptr [ %35, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i ], [ %to.addr.0.lcssa.i, %while.cond2.preheader.i ]
+  %31 = load i64, ptr %from.addr.1103.i, align 8
+  store i64 %31, ptr %to.addr.1102.i, align 8
+  %sub.i4.i = add i32 %bytes.addr.1104.i, -8
   %tobool.not.i5.i = icmp eq i32 %sub.i4.i, 0
   br i1 %tobool.not.i5.i, label %_ZN8facebook5velox4simd6memcpyIN5xsimd4fma3INS3_4avx2EEEEEvPvPKviRKT_.exit, label %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i
 
 _ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i: ; preds = %if.then.i3.i
-  %32 = ptrtoint ptr %from.addr.2103.i to i64
+  %32 = ptrtoint ptr %from.addr.1103.i to i64
   %add.i.i7.i = add i64 %32, 8
   %33 = inttoptr i64 %add.i.i7.i to ptr
-  %34 = ptrtoint ptr %to.addr.2102.i to i64
+  %34 = ptrtoint ptr %to.addr.1102.i to i64
   %add.i7.i8.i = add i64 %34, 8
   %35 = inttoptr i64 %add.i7.i8.i to ptr
   %cmp3.i = icmp ugt i32 %sub.i4.i, 7
   br i1 %cmp3.i, label %if.then.i3.i, label %while.end8.i, !llvm.loop !36
 
 while.end8.i:                                     ; preds = %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i, %while.cond2.preheader.i
-  %to.addr.2.lcssa.i = phi ptr [ %to.addr.0.lcssa.i, %while.cond2.preheader.i ], [ %35, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i ]
-  %from.addr.2.lcssa.i = phi ptr [ %from.addr.0.lcssa.i, %while.cond2.preheader.i ], [ %33, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i ]
-  %bytes.addr.2.lcssa.i = phi i32 [ %bytes.addr.0.lcssa.i, %while.cond2.preheader.i ], [ %sub.i4.i, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i ]
-  %cmp.i9.i = icmp ugt i32 %bytes.addr.2.lcssa.i, 3
+  %to.addr.1.lcssa.i = phi ptr [ %to.addr.0.lcssa.i, %while.cond2.preheader.i ], [ %35, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i ]
+  %from.addr.1.lcssa.i = phi ptr [ %from.addr.0.lcssa.i, %while.cond2.preheader.i ], [ %33, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i ]
+  %bytes.addr.1.lcssa.i = phi i32 [ %bytes.addr.0.lcssa.i, %while.cond2.preheader.i ], [ %sub.i4.i, %_ZN8facebook5velox4simd6detail12copyNextWordIlN5xsimd4fma3INS4_4avx2EEEEEbRPvRPKvRi.exit.i ]
+  %cmp.i9.i = icmp ugt i32 %bytes.addr.1.lcssa.i, 3
   br i1 %cmp.i9.i, label %if.then.i11.i, label %if.end11.i
 
 if.then.i11.i:                                    ; preds = %while.end8.i
-  %36 = load i32, ptr %from.addr.2.lcssa.i, align 4
-  store i32 %36, ptr %to.addr.2.lcssa.i, align 4
-  %sub.i12.i = add nsw i32 %bytes.addr.2.lcssa.i, -4
+  %36 = load i32, ptr %from.addr.1.lcssa.i, align 4
+  store i32 %36, ptr %to.addr.1.lcssa.i, align 4
+  %sub.i12.i = add nsw i32 %bytes.addr.1.lcssa.i, -4
   %tobool.not.i13.i = icmp eq i32 %sub.i12.i, 0
   br i1 %tobool.not.i13.i, label %_ZN8facebook5velox4simd6memcpyIN5xsimd4fma3INS3_4avx2EEEEEvPvPKviRKT_.exit, label %if.end.i14.i
 
 if.end.i14.i:                                     ; preds = %if.then.i11.i
-  %37 = ptrtoint ptr %from.addr.2.lcssa.i to i64
+  %37 = ptrtoint ptr %from.addr.1.lcssa.i to i64
   %add.i.i15.i = add i64 %37, 4
   %38 = inttoptr i64 %add.i.i15.i to ptr
-  %39 = ptrtoint ptr %to.addr.2.lcssa.i to i64
+  %39 = ptrtoint ptr %to.addr.1.lcssa.i to i64
   %add.i7.i16.i = add i64 %39, 4
   %40 = inttoptr i64 %add.i7.i16.i to ptr
   br label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end.i14.i, %while.end8.i
-  %to.addr.4.ph.i = phi ptr [ %to.addr.2.lcssa.i, %while.end8.i ], [ %40, %if.end.i14.i ]
-  %from.addr.4.ph.i = phi ptr [ %from.addr.2.lcssa.i, %while.end8.i ], [ %38, %if.end.i14.i ]
-  %bytes.addr.4.ph.i = phi i32 [ %bytes.addr.2.lcssa.i, %while.end8.i ], [ %sub.i12.i, %if.end.i14.i ]
+  %to.addr.4.ph.i = phi ptr [ %to.addr.1.lcssa.i, %while.end8.i ], [ %40, %if.end.i14.i ]
+  %from.addr.4.ph.i = phi ptr [ %from.addr.1.lcssa.i, %while.end8.i ], [ %38, %if.end.i14.i ]
+  %bytes.addr.4.ph.i = phi i32 [ %bytes.addr.1.lcssa.i, %while.end8.i ], [ %sub.i12.i, %if.end.i14.i ]
   %cmp.i17.i = icmp ugt i32 %bytes.addr.4.ph.i, 1
   br i1 %cmp.i17.i, label %if.then.i19.i, label %if.end14.i
 
@@ -4633,9 +4633,9 @@ if.then12:                                        ; preds = %_ZN5folly3f146detai
 do.body:                                          ; preds = %_ZN5folly3f146detail8F14ChunkISt4pairIKPvmEE25incrOutboundOverflowCountEv.exit, %if.then12
   %21 = phi i64 [ %15, %if.then12 ], [ %24, %_ZN5folly3f146detail8F14ChunkISt4pairIKPvmEE25incrOutboundOverflowCountEv.exit ]
   %22 = phi ptr [ %16, %if.then12 ], [ %25, %_ZN5folly3f146detail8F14ChunkISt4pairIKPvmEE25incrOutboundOverflowCountEv.exit ]
-  %chunk.0 = phi ptr [ %add.ptr, %if.then12 ], [ %add.ptr18, %_ZN5folly3f146detail8F14ChunkISt4pairIKPvmEE25incrOutboundOverflowCountEv.exit ]
+  %chunk.1 = phi ptr [ %add.ptr, %if.then12 ], [ %add.ptr18, %_ZN5folly3f146detail8F14ChunkISt4pairIKPvmEE25incrOutboundOverflowCountEv.exit ]
   %index.0 = phi i64 [ %hp.coerce0, %if.then12 ], [ %add, %_ZN5folly3f146detail8F14ChunkISt4pairIKPvmEE25incrOutboundOverflowCountEv.exit ]
-  %outboundOverflowCount_.i39 = getelementptr inbounds i8, ptr %chunk.0, i64 15
+  %outboundOverflowCount_.i39 = getelementptr inbounds i8, ptr %chunk.1, i64 15
   %23 = load i8, ptr %outboundOverflowCount_.i39, align 1
   %cmp.not.i40 = icmp eq i8 %23, -1
   br i1 %cmp.not.i40, label %_ZN5folly3f146detail8F14ChunkISt4pairIKPvmEE25incrOutboundOverflowCountEv.exit, label %if.then.i41
@@ -4669,11 +4669,11 @@ do.end:                                           ; preds = %_ZN5folly3f146detai
 
 if.end23:                                         ; preds = %do.end, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE16reserveForInsertEm.exit
   %firstEmpty.sroa.0.0.in.in = phi i16 [ %20, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE16reserveForInsertEm.exit ], [ %29, %do.end ]
-  %chunk.1 = phi ptr [ %add.ptr, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE16reserveForInsertEm.exit ], [ %add.ptr18, %do.end ]
+  %chunk.0 = phi ptr [ %add.ptr, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE16reserveForInsertEm.exit ], [ %add.ptr18, %do.end ]
   %firstEmpty.sroa.0.0.in = xor i16 %firstEmpty.sroa.0.0.in.in, 16383
   %31 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true)
   %conv = zext nneg i16 %31 to i64
-  %arrayidx.i.i.i47 = getelementptr inbounds [14 x i8], ptr %chunk.1, i64 0, i64 %conv
+  %arrayidx.i.i.i47 = getelementptr inbounds [14 x i8], ptr %chunk.0, i64 0, i64 %conv
   %32 = load i8, ptr %arrayidx.i.i.i47, align 1
   %cmp.i48 = icmp eq i8 %32, 0
   br i1 %cmp.i48, label %_ZN5folly3f146detail8F14ChunkISt4pairIKPvmEE6setTagEmm.exit, label %if.then.i49
@@ -4685,7 +4685,7 @@ if.then.i49:                                      ; preds = %if.end23
 _ZN5folly3f146detail8F14ChunkISt4pairIKPvmEE6setTagEmm.exit: ; preds = %if.end23
   %conv4.i = trunc i64 %hp.coerce1 to i8
   store i8 %conv4.i, ptr %arrayidx.i.i.i47, align 1
-  %rawItems_.i.i.i50 = getelementptr inbounds i8, ptr %chunk.1, i64 16
+  %rawItems_.i.i.i50 = getelementptr inbounds i8, ptr %chunk.0, i64 16
   %arrayidx.i.i.i.i.i51 = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i.i50, i64 0, i64 %conv
   %33 = load i64, ptr %args1, align 8
   %34 = inttoptr i64 %33 to ptr
@@ -5288,12 +5288,12 @@ if.then23.i.i.i:                                  ; preds = %for.cond.i.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i.i.i, %if.then23.i.i.i, %if.then.i
-  %iter.sroa.0.1.i = phi ptr [ null, %if.then.i ], [ %arrayidx.i.i.i.i.i.i, %if.then23.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %iter.sroa.7.1.i = phi i64 [ 0, %if.then.i ], [ %conv.i.i.i, %if.then23.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
-  %conv2.i2.i = and i64 %iter.sroa.7.1.i, 255
+  %iter.sroa.0.0.i = phi ptr [ null, %if.then.i ], [ %arrayidx.i.i.i.i.i.i, %if.then23.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
+  %iter.sroa.7.0.i = phi i64 [ 0, %if.then.i ], [ %conv.i.i.i, %if.then23.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
+  %conv2.i2.i = and i64 %iter.sroa.7.0.i, 255
   %cmp.i.i3.i = icmp ult i64 %conv2.i2.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i3.i)
-  %10 = ptrtoint ptr %iter.sroa.0.1.i to i64
+  %10 = ptrtoint ptr %iter.sroa.0.0.i to i64
   %or.i.i4.i = or i64 %conv2.i2.i, %10
   store i64 %or.i.i4.i, ptr %packedBegin_.i.i, align 8
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPvmvvvEEE29adjustSizeAndBeginBeforeEraseENS1_11F14ItemIterIPNS1_8F14ChunkISt4pairIKS4_mEEEEE.exit

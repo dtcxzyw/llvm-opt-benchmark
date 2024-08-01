@@ -171,11 +171,11 @@ define void @_ZN4core4iter8adapters11try_process17h3ce9858814b74222E(ptr sret({ 
           to label %15 unwind label %12
 
 10:                                               ; preds = %.thread, %12
-  %.0 = phi i1 [ %13, %12 ], [ false, %.thread ]
+  %.1 = phi i1 [ %13, %12 ], [ false, %.thread ]
   %.pn = phi { ptr, i32 } [ %14, %12 ], [ %18, %.thread ]
   %11 = load ptr, ptr %8, align 8, !noundef !3
   %.not = icmp eq ptr %11, null
-  %brmerge = or i1 %.0, %.not
+  %brmerge = or i1 %.1, %.not
   br i1 %brmerge, label %.thread11, label %25
 
 12:                                               ; preds = %20, %3

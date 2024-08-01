@@ -431,7 +431,7 @@ define hidden noundef zeroext i1 @_ZN11klassVtable22needs_new_vtable_entryEP6Met
 
 .split.us.split.us:                               ; preds = %.split.us, %64
   %.03256.us.us = phi ptr [ %66, %64 ], [ %1, %.split.us ]
-  %.03355.us.us = phi i1 [ %.1.us.us, %64 ], [ false, %.split.us ]
+  %.03355.us.us = phi i1 [ %.2.us.us, %64 ], [ false, %.split.us ]
   %47 = load ptr, ptr %.03256.us.us, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 192
   %49 = load ptr, ptr %48, align 8
@@ -462,7 +462,7 @@ _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us: ; preds = %61
   br i1 %63, label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread, label %64
 
 64:                                               ; preds = %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us, %52
-  %.1.us.us = phi i1 [ %.03355.us.us, %52 ], [ true, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us ]
+  %.2.us.us = phi i1 [ %.03355.us.us, %52 ], [ true, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us ]
   %65 = getelementptr inbounds i8, ptr %58, i64 120
   %66 = load ptr, ptr %65, align 8
   %.not36.us.us = icmp eq ptr %66, null
@@ -470,7 +470,7 @@ _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us.us: ; preds = %61
 
 .split.us.split:                                  ; preds = %.split.us, %85
   %.03256.us = phi ptr [ %87, %85 ], [ %1, %.split.us ]
-  %.03355.us = phi i1 [ %.1.us, %85 ], [ false, %.split.us ]
+  %.03355.us = phi i1 [ %.2.us, %85 ], [ false, %.split.us ]
   %67 = load ptr, ptr %.03256.us, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 192
   %69 = load ptr, ptr %68, align 8
@@ -502,7 +502,7 @@ _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us: ; preds = %81
   br i1 %84, label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread, label %85
 
 85:                                               ; preds = %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us, %72
-  %.1.us = phi i1 [ %.03355.us, %72 ], [ true, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us ]
+  %.2.us = phi i1 [ %.03355.us, %72 ], [ true, %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.us ]
   %86 = getelementptr inbounds i8, ptr %78, i64 120
   %87 = load ptr, ptr %86, align 8
   %.not36.us = icmp eq ptr %87, null
@@ -548,7 +548,7 @@ _ZL17can_be_overriddenP6Method6HandleP6Symbol.exit: ; preds = %104, %105
   br label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread
 
 .split58.us:                                      ; preds = %85, %.split.us.split, %64, %.split.us.split.us
-  %.us-phi = phi i1 [ %.03355.us.us, %.split.us.split.us ], [ %.1.us.us, %64 ], [ %.03355.us, %.split.us.split ], [ %.1.us, %85 ]
+  %.us-phi = phi i1 [ %.03355.us.us, %.split.us.split.us ], [ %.2.us.us, %64 ], [ %.03355.us, %.split.us.split ], [ %.2.us, %85 ]
   br i1 %.us-phi, label %_ZL17can_be_overriddenP6Method6HandleP6Symbol.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %.split, %93, %.split58.us
@@ -1141,7 +1141,7 @@ _ZN11klassVtable13put_method_atEP6Methodi.exit:   ; preds = %145, %_ZN11klassVta
 
 172:                                              ; preds = %164, %223
   %indvars.iv84 = phi i64 [ 0, %164 ], [ %indvars.iv.next85, %223 ]
-  %.276 = phi i32 [ %.066.lcssa, %164 ], [ %.3, %223 ]
+  %.376 = phi i32 [ %.066.lcssa, %164 ], [ %.4, %223 ]
   %173 = getelementptr inbounds ptr, ptr %167, i64 %indvars.iv84
   %174 = load ptr, ptr %173, align 8
   store ptr %174, ptr %4, align 8
@@ -1210,7 +1210,7 @@ _ZN11klassVtable13put_method_atEP6Methodi.exit52: ; preds = %199, %205
   %210 = load i32, ptr %170, align 8
   %211 = sext i32 %210 to i64
   %212 = getelementptr inbounds i8, ptr %201, i64 %211
-  %213 = sext i32 %.276 to i64
+  %213 = sext i32 %.376 to i64
   %214 = getelementptr inbounds %class.vtableEntry, ptr %212, i64 %213
   store ptr %200, ptr %214, align 8
   %.pre97 = load ptr, ptr %0, align 8
@@ -1231,15 +1231,15 @@ _ZN11klassVtable13put_method_atEP6Methodi.exit52.thread: ; preds = %205, %_ZN11k
 
 _ZN11klassVtable24is_preinitialized_vtableEv.exit.thread: ; preds = %_ZN11klassVtable13put_method_atEP6Methodi.exit52, %_ZN11klassVtable13put_method_atEP6Methodi.exit52.thread
   %220 = getelementptr inbounds i32, ptr %171, i64 %indvars.iv84
-  store i32 %.276, ptr %220, align 4
+  store i32 %.376, ptr %220, align 4
   br label %221
 
 221:                                              ; preds = %_ZN11klassVtable13put_method_atEP6Methodi.exit52.thread, %_ZN11klassVtable24is_preinitialized_vtableEv.exit.thread
-  %222 = add nsw i32 %.276, 1
+  %222 = add nsw i32 %.376, 1
   br label %223
 
 223:                                              ; preds = %_ZN12methodHandleC2EP6ThreadP6Method.exit48, %221
-  %.3 = phi i32 [ %222, %221 ], [ %.276, %_ZN12methodHandleC2EP6ThreadP6Method.exit48 ]
+  %.4 = phi i32 [ %222, %221 ], [ %.376, %_ZN12methodHandleC2EP6ThreadP6Method.exit48 ]
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
   br i1 %exitcond88.not, label %.loopexit73.loopexit, label %172, !llvm.loop !13
@@ -1250,7 +1250,7 @@ _ZN11klassVtable24is_preinitialized_vtableEv.exit.thread: ; preds = %_ZN11klassV
 
 .loopexit73:                                      ; preds = %.loopexit73.loopexit, %161, %._crit_edge
   %224 = phi ptr [ %158, %._crit_edge ], [ %158, %161 ], [ %.pre99, %.loopexit73.loopexit ]
-  %.4 = phi i32 [ %.066.lcssa, %._crit_edge ], [ %.066.lcssa, %161 ], [ %.3, %.loopexit73.loopexit ]
+  %.2 = phi i32 [ %.066.lcssa, %._crit_edge ], [ %.066.lcssa, %161 ], [ %.4, %.loopexit73.loopexit ]
   %225 = getelementptr inbounds i8, ptr %224, i64 164
   %226 = load i32, ptr %225, align 4
   %227 = and i32 %226, 512
@@ -1258,13 +1258,13 @@ _ZN11klassVtable24is_preinitialized_vtableEv.exit.thread: ; preds = %_ZN11klassV
   br i1 %.not70, label %228, label %230
 
 228:                                              ; preds = %.loopexit73
-  %229 = call noundef i32 @_ZN11klassVtable16fill_in_mirandasEP6Threadi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %12, i32 noundef %.4)
+  %229 = call noundef i32 @_ZN11klassVtable16fill_in_mirandasEP6Threadi(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %12, i32 noundef %.2)
   %.pre100 = load ptr, ptr %0, align 8
   br label %230
 
 230:                                              ; preds = %228, %.loopexit73
   %231 = phi ptr [ %224, %.loopexit73 ], [ %.pre100, %228 ]
-  %.5 = phi i32 [ %.4, %.loopexit73 ], [ %229, %228 ]
+  %.5 = phi i32 [ %.2, %.loopexit73 ], [ %229, %228 ]
   %232 = call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %231) #14
   %233 = icmp ugt i16 %232, 50
   br i1 %233, label %.loopexit, label %.preheader71
@@ -4577,7 +4577,7 @@ define hidden noundef i32 @_ZN11klassItable19compute_itable_sizeEP5ArrayIP13Inst
 
 16:                                               ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i, %.preheader.i
   %indvars.iv.i = phi i64 [ %15, %.preheader.i ], [ %indvars.iv.next.i, %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i ]
-  %.01724.i = phi i32 [ 0, %.preheader.i ], [ %26, %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i ]
+  %.124.i = phi i32 [ 0, %.preheader.i ], [ %26, %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %17 = getelementptr ptr, ptr %12, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
@@ -4597,11 +4597,11 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i: ; preds = %21
   %23 = lshr i32 %.sroa.0.0.copyload.i.i4.i.fr.i, 1
   %24 = and i32 %23, 1
   %25 = xor i32 %24, 1
-  %spec.select.i = add i32 %25, %.01724.i
+  %spec.select.i = add i32 %25, %.124.i
   br label %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i
 
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i, %21, %16
-  %26 = phi i32 [ %.01724.i, %16 ], [ %.01724.i, %21 ], [ %spec.select.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ]
+  %26 = phi i32 [ %.124.i, %16 ], [ %.124.i, %21 ], [ %spec.select.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ]
   %27 = icmp ugt i64 %indvars.iv.i, 1
   br i1 %27, label %16, label %28, !llvm.loop !37
 
@@ -4610,7 +4610,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35in
   br i1 %29, label %34, label %.thread.i
 
 .thread.i:                                        ; preds = %28, %8
-  %.222.i = phi i32 [ %26, %28 ], [ 0, %8 ]
+  %.01722.i = phi i32 [ %26, %28 ], [ 0, %8 ]
   %30 = getelementptr inbounds i8, ptr %10, i64 424
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 8
@@ -4618,10 +4618,10 @@ _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35in
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %.thread.i, %28
-  %.223.i = phi i32 [ %.222.i, %.thread.i ], [ %26, %28 ]
+  %.01723.i = phi i32 [ %.01722.i, %.thread.i ], [ %26, %28 ]
   %35 = load ptr, ptr %2, align 8
   %36 = load ptr, ptr %35, align 8
-  call void %36(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %10, i32 noundef %.223.i) #14
+  call void %36(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %10, i32 noundef %.01723.i) #14
   br label %37
 
 37:                                               ; preds = %34, %.thread.i
@@ -4685,7 +4685,7 @@ define hidden void @_ZN11klassItable25setup_itable_offset_tableEP13InstanceKlass
 
 23:                                               ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i, %.preheader.i
   %indvars.iv.i = phi i64 [ %22, %.preheader.i ], [ %indvars.iv.next.i, %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i ]
-  %.01724.i = phi i32 [ 0, %.preheader.i ], [ %33, %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i ]
+  %.124.i = phi i32 [ 0, %.preheader.i ], [ %33, %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %24 = getelementptr ptr, ptr %19, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
@@ -4705,11 +4705,11 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i: ; preds = %28
   %30 = lshr i32 %.sroa.0.0.copyload.i.i4.i.fr.i, 1
   %31 = and i32 %30, 1
   %32 = xor i32 %31, 1
-  %spec.select.i = add i32 %32, %.01724.i
+  %spec.select.i = add i32 %32, %.124.i
   br label %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i
 
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i, %28, %23
-  %33 = phi i32 [ %.01724.i, %23 ], [ %.01724.i, %28 ], [ %spec.select.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ]
+  %33 = phi i32 [ %.124.i, %23 ], [ %.124.i, %28 ], [ %spec.select.i, %_Z35interface_method_needs_itable_indexP6Method.exit.i ]
   %34 = icmp ugt i64 %indvars.iv.i, 1
   br i1 %34, label %23, label %35, !llvm.loop !37
 
@@ -4718,7 +4718,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35in
   br i1 %36, label %41, label %.thread.i
 
 .thread.i:                                        ; preds = %35, %15
-  %.222.i = phi i32 [ %33, %35 ], [ 0, %15 ]
+  %.01722.i = phi i32 [ %33, %35 ], [ 0, %15 ]
   %37 = getelementptr inbounds i8, ptr %17, i64 424
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %38, align 8
@@ -4726,10 +4726,10 @@ _Z35interface_method_needs_itable_indexP6Method.exit.thread.i: ; preds = %_Z35in
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %.thread.i, %35
-  %.223.i = phi i32 [ %.222.i, %.thread.i ], [ %33, %35 ]
+  %.01723.i = phi i32 [ %.01722.i, %.thread.i ], [ %33, %35 ]
   %42 = load ptr, ptr %2, align 8
   %43 = load ptr, ptr %42, align 8
-  call void %43(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %17, i32 noundef %.223.i) #14
+  call void %43(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %17, i32 noundef %.01723.i) #14
   br label %44
 
 44:                                               ; preds = %41, %.thread.i
@@ -4781,7 +4781,7 @@ _ZL20visit_all_interfacesP5ArrayIP13InstanceKlassEP23InterfaceVisiterClosure.exi
 
 69:                                               ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i22, %.preheader.i16
   %indvars.iv.i17 = phi i64 [ %68, %.preheader.i16 ], [ %indvars.iv.next.i19, %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i22 ]
-  %.01724.i18 = phi i32 [ 0, %.preheader.i16 ], [ %79, %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i22 ]
+  %.124.i18 = phi i32 [ 0, %.preheader.i16 ], [ %79, %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i22 ]
   %indvars.iv.next.i19 = add nsw i64 %indvars.iv.i17, -1
   %70 = getelementptr ptr, ptr %65, i64 %indvars.iv.i17
   %71 = load ptr, ptr %70, align 8
@@ -4801,11 +4801,11 @@ _Z35interface_method_needs_itable_indexP6Method.exit.i23: ; preds = %74
   %76 = lshr i32 %.sroa.0.0.copyload.i.i4.i.fr.i25, 1
   %77 = and i32 %76, 1
   %78 = xor i32 %77, 1
-  %spec.select.i26 = add i32 %78, %.01724.i18
+  %spec.select.i26 = add i32 %78, %.124.i18
   br label %_Z35interface_method_needs_itable_indexP6Method.exit.thread.i22
 
 _Z35interface_method_needs_itable_indexP6Method.exit.thread.i22: ; preds = %_Z35interface_method_needs_itable_indexP6Method.exit.i23, %74, %69
-  %79 = phi i32 [ %.01724.i18, %69 ], [ %.01724.i18, %74 ], [ %spec.select.i26, %_Z35interface_method_needs_itable_indexP6Method.exit.i23 ]
+  %79 = phi i32 [ %.124.i18, %69 ], [ %.124.i18, %74 ], [ %spec.select.i26, %_Z35interface_method_needs_itable_indexP6Method.exit.i23 ]
   %80 = icmp ugt i64 %indvars.iv.i17, 1
   br i1 %80, label %69, label %81, !llvm.loop !37
 
@@ -4814,7 +4814,7 @@ _Z35interface_method_needs_itable_indexP6Method.exit.thread.i22: ; preds = %_Z35
   br i1 %82, label %87, label %.thread.i12
 
 .thread.i12:                                      ; preds = %81, %61
-  %.222.i13 = phi i32 [ %79, %81 ], [ 0, %61 ]
+  %.01722.i13 = phi i32 [ %79, %81 ], [ 0, %61 ]
   %83 = getelementptr inbounds i8, ptr %63, i64 424
   %84 = load ptr, ptr %83, align 8
   %85 = load i32, ptr %84, align 8
@@ -4822,10 +4822,10 @@ _Z35interface_method_needs_itable_indexP6Method.exit.thread.i22: ; preds = %_Z35
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %.thread.i12, %81
-  %.223.i15 = phi i32 [ %.222.i13, %.thread.i12 ], [ %79, %81 ]
+  %.01723.i15 = phi i32 [ %.01722.i13, %.thread.i12 ], [ %79, %81 ]
   %88 = load ptr, ptr %3, align 8
   %89 = load ptr, ptr %88, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %63, i32 noundef %.223.i15) #14
+  call void %89(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %63, i32 noundef %.01723.i15) #14
   br label %90
 
 90:                                               ; preds = %87, %.thread.i12

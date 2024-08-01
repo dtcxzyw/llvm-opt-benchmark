@@ -674,9 +674,9 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %entry, %sw.epilog19
-  %state.097 = phi i32 [ 0, %entry ], [ %state.4, %sw.epilog19 ]
-  %len.096 = phi i32 [ 0, %entry ], [ %len.5, %sw.epilog19 ]
-  %list.addr.094 = phi ptr [ %list, %entry ], [ %list.addr.4, %sw.epilog19 ]
+  %state.097 = phi i32 [ 0, %entry ], [ %state.2, %sw.epilog19 ]
+  %len.096 = phi i32 [ 0, %entry ], [ %len.2, %sw.epilog19 ]
+  %list.addr.094 = phi ptr [ %list, %entry ], [ %list.addr.1, %sw.epilog19 ]
   %call = call i32 @packet_reader_read(ptr noundef %reader) #23
   switch i32 %call, label %sw.epilog [
     i32 0, label %sw.bb
@@ -805,7 +805,7 @@ if.else.i:                                        ; preds = %if.end47.i.i.i, %wh
   br label %process_capabilities.exit
 
 process_capabilities.exit:                        ; preds = %sw.bb5, %if.end13.i, %if.else.i
-  %len.2 = phi i32 [ %len.1, %sw.bb5 ], [ %conv.i, %if.else.i ], [ %conv.i, %if.end13.i ]
+  %len.5 = phi i32 [ %len.1, %sw.bb5 ], [ %conv.i, %if.else.i ], [ %conv.i, %if.end13.i ]
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %name.i)
   %10 = load ptr, ptr %line1.i, align 8
@@ -875,7 +875,7 @@ process_dummy_ref.exit:                           ; preds = %oideq.exit.i
   br i1 %tobool9.not.i.not, label %sw.epilog19, label %sw.bb7
 
 sw.bb7:                                           ; preds = %process_dummy_ref.exit.thread, %process_dummy_ref.exit, %sw.epilog
-  %len.3 = phi i32 [ %len.1, %sw.epilog ], [ %len.2, %process_dummy_ref.exit ], [ %len.2, %process_dummy_ref.exit.thread ]
+  %len.3 = phi i32 [ %len.1, %sw.epilog ], [ %len.5, %process_dummy_ref.exit ], [ %len.5, %process_dummy_ref.exit.thread ]
   %reader.val = load ptr, ptr %line1.i, align 8
   %reader.val8 = load ptr, ptr %hash_algo12.i, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %old_oid.i)
@@ -975,7 +975,7 @@ if.then16.i:                                      ; preds = %check_ref.exit.i, %
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %do.cond.i.i.i, %if.then16.i, %check_ref.exit.i, %land.lhs.true17.i.i, %land.lhs.true.i.i, %if.then8.i
-  %list.addr.1 = phi ptr [ %call17.i, %if.then16.i ], [ %list.addr.094, %check_ref.exit.i ], [ %list.addr.094, %land.lhs.true17.i.i ], [ %list.addr.094, %land.lhs.true.i.i ], [ %list.addr.094, %if.then8.i ], [ %list.addr.094, %do.cond.i.i.i ]
+  %list.addr.3 = phi ptr [ %call17.i, %if.then16.i ], [ %list.addr.094, %check_ref.exit.i ], [ %list.addr.094, %land.lhs.true17.i.i ], [ %list.addr.094, %land.lhs.true.i.i ], [ %list.addr.094, %if.then8.i ], [ %list.addr.094, %do.cond.i.i.i ]
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reader.val) #25
   %conv.i.i = sext i32 %len.3 to i64
   %cmp.not.i.i = icmp eq i64 %call.i.i, %conv.i.i
@@ -1083,14 +1083,14 @@ if.end16:                                         ; preds = %do.cond.i.i
   unreachable
 
 sw.epilog19:                                      ; preds = %process_shallow.exit.thread, %process_ref.exit, %process_dummy_ref.exit, %sw.epilog
-  %list.addr.4 = phi ptr [ %list.addr.094, %sw.epilog ], [ %list.addr.1, %process_ref.exit ], [ %list.addr.094, %process_dummy_ref.exit ], [ %list.addr.094, %process_shallow.exit.thread ]
-  %len.5 = phi i32 [ %len.1, %sw.epilog ], [ %len.3, %process_ref.exit ], [ %len.2, %process_dummy_ref.exit ], [ %len.4, %process_shallow.exit.thread ]
-  %state.4 = phi i32 [ %state.097, %sw.epilog ], [ 1, %process_ref.exit ], [ 2, %process_dummy_ref.exit ], [ 2, %process_shallow.exit.thread ]
-  %cmp.not = icmp eq i32 %state.4, 3
+  %list.addr.1 = phi ptr [ %list.addr.094, %sw.epilog ], [ %list.addr.3, %process_ref.exit ], [ %list.addr.094, %process_dummy_ref.exit ], [ %list.addr.094, %process_shallow.exit.thread ]
+  %len.2 = phi i32 [ %len.1, %sw.epilog ], [ %len.3, %process_ref.exit ], [ %len.5, %process_dummy_ref.exit ], [ %len.4, %process_shallow.exit.thread ]
+  %state.2 = phi i32 [ %state.097, %sw.epilog ], [ 1, %process_ref.exit ], [ 2, %process_dummy_ref.exit ], [ 2, %process_shallow.exit.thread ]
+  %cmp.not = icmp eq i32 %state.2, 3
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end:                                        ; preds = %while.body, %sw.epilog19
-  %list.addr.4109 = phi ptr [ %list.addr.4, %sw.epilog19 ], [ %list.addr.094, %while.body ]
+  %list.addr.1109 = phi ptr [ %list.addr.1, %sw.epilog19 ], [ %list.addr.094, %while.body ]
   %33 = load ptr, ptr %list, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %symref.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %symref.i, i8 0, i64 40, i1 false)
@@ -1234,7 +1234,7 @@ for.inc.i:                                        ; preds = %if.end5.i55, %for.b
 annotate_refs_with_symref_info.exit:              ; preds = %for.inc.i, %while.end.i
   call void @string_list_clear(ptr noundef nonnull %symref.i, i32 noundef 0) #23
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %symref.i)
-  ret ptr %list.addr.4109
+  ret ptr %list.addr.1109
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2125,7 +2125,7 @@ return.sink.split.i.loopexit:                     ; preds = %lor.lhs.false15.i, 
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %return.sink.split.i.loopexit, %if.then33.i
-  %len.0 = phi i64 [ %call34.i, %if.then33.i ], [ 0, %return.sink.split.i.loopexit ]
+  %len.2 = phi i64 [ %call34.i, %if.then33.i ], [ 0, %return.sink.split.i.loopexit ]
   %add.ptr40.sink.i = phi ptr [ %add.ptr40.i, %if.then33.i ], [ %add.ptr13.i.le, %return.sink.split.i.loopexit ]
   %retval.0.ph.i = phi ptr [ %incdec.ptr.i, %if.then33.i ], [ %add.ptr13.i.le, %return.sink.split.i.loopexit ]
   %sub.ptr.lhs.cast41.i = ptrtoint ptr %add.ptr40.sink.i to i64
@@ -2134,8 +2134,8 @@ return.sink.split.i:                              ; preds = %return.sink.split.i
   br label %parse_feature_value.exit
 
 parse_feature_value.exit:                         ; preds = %while.body.i, %if.end47.i, %entry, %if.end.i, %return.sink.split.i
-  %offset.0 = phi i64 [ 0, %entry ], [ 0, %if.end.i ], [ %sub.ptr.sub43.i, %return.sink.split.i ], [ 0, %if.end47.i ], [ 0, %while.body.i ]
-  %len.1 = phi i64 [ undef, %entry ], [ undef, %if.end.i ], [ %len.0, %return.sink.split.i ], [ undef, %if.end47.i ], [ undef, %while.body.i ]
+  %offset.1 = phi i64 [ 0, %entry ], [ 0, %if.end.i ], [ %sub.ptr.sub43.i, %return.sink.split.i ], [ 0, %if.end47.i ], [ 0, %while.body.i ]
+  %len.3 = phi i64 [ undef, %entry ], [ undef, %if.end.i ], [ %len.2, %return.sink.split.i ], [ undef, %if.end47.i ], [ undef, %while.body.i ]
   %retval.0.i = phi ptr [ null, %entry ], [ null, %if.end.i ], [ %retval.0.ph.i, %return.sink.split.i ], [ null, %if.end47.i ], [ null, %while.body.i ]
   %tobool.not = icmp eq ptr %feature_supported, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2158,19 +2158,19 @@ if.end6:                                          ; preds = %if.end
 
 while.body.preheader:                             ; preds = %if.end, %if.end6
   %hash.070 = phi ptr [ %9, %if.end6 ], [ %retval.0.i, %if.end ]
-  %len.269 = phi i64 [ %call5, %if.end6 ], [ %len.1, %if.end ]
-  %call887 = tail call i32 @xstrncmpz(ptr noundef %desired, ptr noundef nonnull %hash.070, i64 noundef %len.269) #23
+  %len.069 = phi i64 [ %call5, %if.end6 ], [ %len.3, %if.end ]
+  %call887 = tail call i32 @xstrncmpz(ptr noundef %desired, ptr noundef nonnull %hash.070, i64 noundef %len.069) #23
   %tobool9.not88 = icmp eq i32 %call887, 0
   br i1 %tobool9.not88, label %return, label %if.end11
 
 if.end11:                                         ; preds = %while.body.preheader, %parse_feature_value.exit49
-  %offset.15889 = phi i64 [ %sub.ptr.sub43.i37, %parse_feature_value.exit49 ], [ %offset.0, %while.body.preheader ]
+  %offset.05889 = phi i64 [ %sub.ptr.sub43.i37, %parse_feature_value.exit49 ], [ %offset.1, %while.body.preheader ]
   %10 = load ptr, ptr @server_capabilities_v1, align 8
   %tobool.not.i8 = icmp eq ptr %10, null
   br i1 %tobool.not.i8, label %return, label %if.end.i9
 
 if.end.i9:                                        ; preds = %if.end11
-  %add.ptr.i10 = getelementptr inbounds i8, ptr %10, i64 %offset.15889
+  %add.ptr.i10 = getelementptr inbounds i8, ptr %10, i64 %offset.05889
   %11 = load i8, ptr %add.ptr.i10, align 1
   %tobool4.not33.i11 = icmp eq i8 %11, 0
   br i1 %tobool4.not33.i11, label %return, label %while.body.i12
@@ -3757,7 +3757,7 @@ if.else17.i:                                      ; preds = %if.else13.i
   br label %override_ssh_variant.exit.thread
 
 override_ssh_variant.exit.thread:                 ; preds = %if.else.i, %if.else9.i, %if.else13.i, %if.else17.i
-  %ssh_variant.0.ph = phi i32 [ %..i, %if.else17.i ], [ 5, %if.else13.i ], [ 4, %if.else9.i ], [ 3, %if.else.i ]
+  %ssh_variant.1.ph = phi i32 [ %..i, %if.else17.i ], [ 5, %if.else13.i ], [ 4, %if.else9.i ], [ 3, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %variant.i)
   br label %return
 
@@ -3823,12 +3823,12 @@ if.then29:                                        ; preds = %lor.lhs.false26, %i
   br label %if.end32
 
 if.end32:                                         ; preds = %if.else16, %lor.lhs.false19, %if.end10, %lor.lhs.false, %if.then29, %lor.lhs.false26
-  %ssh_variant.1 = phi i32 [ 5, %if.then29 ], [ 0, %lor.lhs.false26 ], [ 2, %lor.lhs.false ], [ 2, %if.end10 ], [ 3, %lor.lhs.false19 ], [ 3, %if.else16 ]
+  %ssh_variant.0 = phi i32 [ 5, %if.then29 ], [ 0, %lor.lhs.false26 ], [ 2, %lor.lhs.false ], [ 2, %if.end10 ], [ 3, %lor.lhs.false19 ], [ 3, %if.else16 ]
   call void @free(ptr noundef %call) #23
   br label %return
 
 return:                                           ; preds = %override_ssh_variant.exit.thread, %if.end32, %if.else8
-  %retval.0 = phi i32 [ %ssh_variant.1, %if.end32 ], [ 0, %if.else8 ], [ %ssh_variant.0.ph, %override_ssh_variant.exit.thread ]
+  %retval.0 = phi i32 [ %ssh_variant.0, %if.end32 ], [ 0, %if.else8 ], [ %ssh_variant.1.ph, %override_ssh_variant.exit.thread ]
   ret i32 %retval.0
 }
 

@@ -507,10 +507,10 @@ _ZNK7mitsuba10filesystem4path6nativeEv.exit:      ; preds = %1
 
 31:                                               ; preds = %27, %29
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
-  %.1 = phi i1 [ %.0, %29 ], [ true, %27 ]
+  %.3 = phi i1 [ %.0, %29 ], [ true, %27 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #17
-  br i1 %.1, label %32, label %36
+  br i1 %.3, label %32, label %36
 
 32:                                               ; preds = %.thread17, %.thread, %31
   %.pn.pn.pn16 = phi { ptr, i32 } [ %25, %.thread ], [ %.pn, %31 ], [ %26, %.thread17 ]
@@ -633,10 +633,10 @@ _ZNK7mitsuba10filesystem4path6nativeEv.exit:      ; preds = %2
 
 37:                                               ; preds = %33, %35
   %.pn26 = phi { ptr, i32 } [ %36, %35 ], [ %34, %33 ]
-  %.18 = phi i1 [ %.07, %35 ], [ true, %33 ]
+  %.310 = phi i1 [ %.07, %35 ], [ true, %33 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #17
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #17
-  br i1 %.18, label %.sink.split, label %71
+  br i1 %.310, label %.sink.split, label %71
 
 38:                                               ; preds = %_ZNK7mitsuba10filesystem4path6nativeEv.exit
   invoke void @_ZNK7mitsuba10filesystem4path3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(25) %1)
@@ -712,10 +712,10 @@ _ZNK7mitsuba10filesystem4path6nativeEv.exit31:    ; preds = %38
 
 63:                                               ; preds = %59, %61
   %.pn = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ]
-  %.1 = phi i1 [ %.0, %61 ], [ true, %59 ]
+  %.3 = phi i1 [ %.0, %61 ], [ true, %59 ]
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #17
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #17
-  br i1 %.1, label %.sink.split, label %71
+  br i1 %.3, label %.sink.split, label %71
 
 64:                                               ; preds = %_ZNK7mitsuba10filesystem4path6nativeEv.exit31
   %65 = load <2 x i64>, ptr %3, align 16
@@ -3467,8 +3467,8 @@ _ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit: ; p
   br label %49
 
 49:                                               ; preds = %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit, %43, %20, %6, %48
-  %.sroa.034.1 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
-  ret ptr %.sroa.034.1
+  %.sroa.034.0 = phi ptr [ null, %_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEE5sputnB8ne190000EPKcl.exit ], [ %0, %48 ], [ null, %6 ], [ null, %20 ], [ null, %43 ]
+  ret ptr %.sroa.034.0
 }
 
 ; Function Attrs: nounwind

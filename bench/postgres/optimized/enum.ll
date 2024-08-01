@@ -654,8 +654,8 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
   %12 = phi ptr [ %35, %34 ], [ %11, %.split.us ]
   %.0.us54 = phi ptr [ %.2.us, %34 ], [ %9, %.split.us ]
   %.031.us53 = phi i8 [ %.132.us, %34 ], [ %10, %.split.us ]
-  %.033.us52 = phi i32 [ %.134.us, %34 ], [ 0, %.split.us ]
-  %.036.us51 = phi i32 [ %.238.us, %34 ], [ 64, %.split.us ]
+  %.033.us52 = phi i32 [ %.235.us, %34 ], [ 0, %.split.us ]
+  %.036.us51 = phi i32 [ %.137.us, %34 ], [ 64, %.split.us ]
   %13 = getelementptr inbounds i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 22
@@ -683,26 +683,26 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
   br label %29
 
 29:                                               ; preds = %24, %23
-  %.137.us = phi i32 [ %25, %24 ], [ %.036.us51, %23 ]
-  %.1.us = phi ptr [ %28, %24 ], [ %.0.us54, %23 ]
+  %.238.us = phi i32 [ %25, %24 ], [ %.036.us51, %23 ]
+  %.3.us = phi ptr [ %28, %24 ], [ %.0.us54, %23 ]
   %30 = zext i32 %19 to i64
   %31 = add i32 %.033.us52, 1
   %32 = sext i32 %.033.us52 to i64
-  %33 = getelementptr i64, ptr %.1.us, i64 %32
+  %33 = getelementptr i64, ptr %.3.us, i64 %32
   store i64 %30, ptr %33, align 8
   br label %34
 
 34:                                               ; preds = %29, %.lr.ph
-  %.238.us = phi i32 [ %.137.us, %29 ], [ %.036.us51, %.lr.ph ]
-  %.134.us = phi i32 [ %31, %29 ], [ %.033.us52, %.lr.ph ]
-  %.2.us = phi ptr [ %.1.us, %29 ], [ %.0.us54, %.lr.ph ]
+  %.137.us = phi i32 [ %.238.us, %29 ], [ %.036.us51, %.lr.ph ]
+  %.235.us = phi i32 [ %31, %29 ], [ %.033.us52, %.lr.ph ]
+  %.2.us = phi ptr [ %.3.us, %29 ], [ %.0.us54, %.lr.ph ]
   %35 = call ptr @systable_getnext_ordered(ptr noundef %8, i32 noundef 1) #7
   %.not41.us = icmp eq ptr %35, null
   br i1 %.not41.us, label %.split48.us, label %.lr.ph
 
 .split:                                           ; preds = %3, %59
-  %.036 = phi i32 [ %.238, %59 ], [ 64, %3 ]
-  %.033 = phi i32 [ %.134, %59 ], [ 0, %3 ]
+  %.036 = phi i32 [ %.137, %59 ], [ 64, %3 ]
+  %.033 = phi i32 [ %.235, %59 ], [ 0, %3 ]
   %.031 = phi i8 [ %.132, %59 ], [ %10, %3 ]
   %.0 = phi ptr [ %.2, %59 ], [ %9, %3 ]
   %36 = call ptr @systable_getnext_ordered(ptr noundef %8, i32 noundef 1) #7
@@ -737,24 +737,24 @@ define internal fastcc ptr @enum_range_internal(i32 noundef %0, i32 noundef %1, 
   br label %54
 
 54:                                               ; preds = %49, %48
-  %.137 = phi i32 [ %50, %49 ], [ %.036, %48 ]
-  %.1 = phi ptr [ %53, %49 ], [ %.0, %48 ]
+  %.238 = phi i32 [ %50, %49 ], [ %.036, %48 ]
+  %.3 = phi ptr [ %53, %49 ], [ %.0, %48 ]
   %55 = zext i32 %44 to i64
   %56 = add i32 %.033, 1
   %57 = sext i32 %.033 to i64
-  %58 = getelementptr i64, ptr %.1, i64 %57
+  %58 = getelementptr i64, ptr %.3, i64 %57
   store i64 %55, ptr %58, align 8
   br label %59
 
 59:                                               ; preds = %54, %37
-  %.238 = phi i32 [ %.137, %54 ], [ %.036, %37 ]
-  %.134 = phi i32 [ %56, %54 ], [ %.033, %37 ]
-  %.2 = phi ptr [ %.1, %54 ], [ %.0, %37 ]
+  %.137 = phi i32 [ %.238, %54 ], [ %.036, %37 ]
+  %.235 = phi i32 [ %56, %54 ], [ %.033, %37 ]
+  %.2 = phi ptr [ %.3, %54 ], [ %.0, %37 ]
   %60 = icmp eq i32 %44, %2
   br i1 %60, label %.split48.us, label %.split, !llvm.loop !5
 
 .split48.us:                                      ; preds = %.split, %59, %34, %.split.us
-  %.us-phi = phi i32 [ 0, %.split.us ], [ %.134.us, %34 ], [ %.033, %.split ], [ %.134, %59 ]
+  %.us-phi = phi i32 [ 0, %.split.us ], [ %.235.us, %34 ], [ %.033, %.split ], [ %.235, %59 ]
   %.us-phi49 = phi ptr [ %9, %.split.us ], [ %.2.us, %34 ], [ %.0, %.split ], [ %.2, %59 ]
   call void @systable_endscan_ordered(ptr noundef %8) #7
   call void @index_close(ptr noundef %7, i32 noundef 1) #7

@@ -156,7 +156,7 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   br label %59
 
 59:                                               ; preds = %56, %.fold.split
-  %.1 = phi i8 [ 0, %56 ], [ 1, %.fold.split ]
+  %.2 = phi i8 [ 0, %56 ], [ 1, %.fold.split ]
   %60 = load ptr, ptr %21, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 40
   %62 = load i32, ptr %61, align 8
@@ -164,7 +164,7 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   br i1 %.not98, label %63, label %67
 
 63:                                               ; preds = %59
-  %64 = trunc nuw i8 %.1 to i1
+  %64 = trunc nuw i8 %.2 to i1
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %63
@@ -180,8 +180,8 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   br i1 %.not86, label %.thread121, label %26
 
 69:                                               ; preds = %56, %65
-  %.272 = phi i32 [ %58, %56 ], [ 10, %65 ]
-  %.2 = phi i8 [ 1, %56 ], [ %.1, %65 ]
+  %.070 = phi i32 [ %58, %56 ], [ 10, %65 ]
+  %.064 = phi i8 [ 1, %56 ], [ %.2, %65 ]
   %70 = load ptr, ptr %21, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 40
   %72 = load i32, ptr %71, align 8
@@ -189,7 +189,7 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   br i1 %.not101, label %73, label %.thread114
 
 73:                                               ; preds = %69
-  %74 = trunc nuw i8 %.2 to i1
+  %74 = trunc nuw i8 %.064 to i1
   br i1 %74, label %75, label %.thread114
 
 75:                                               ; preds = %73
@@ -205,20 +205,20 @@ define i32 @cli_scanmscab(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 
   br label %81
 
 .thread121:                                       ; preds = %49, %37, %67, %26, %19, %.thread114
-  %.272112118 = phi i32 [ %.272, %.thread114 ], [ 0, %19 ], [ 20, %49 ], [ 0, %37 ], [ 0, %67 ], [ %32, %26 ]
+  %.070112118 = phi i32 [ %.070, %.thread114 ], [ 0, %19 ], [ 20, %49 ], [ 0, %37 ], [ 0, %67 ], [ %32, %26 ]
   %78 = getelementptr inbounds i8, ptr %9, i64 8
   %79 = load ptr, ptr %78, align 8
   call void %79(ptr noundef nonnull %9, ptr noundef nonnull %17) #14
   br label %80
 
 80:                                               ; preds = %.thread121.thread, %.thread121
-  %.272112118127 = phi i32 [ 26, %.thread121.thread ], [ %.272112118, %.thread121 ]
+  %.070112118127 = phi i32 [ 26, %.thread121.thread ], [ %.070112118, %.thread121 ]
   call void @mspack_destroy_cab_decompressor(ptr noundef nonnull %9) #14
   br label %81
 
 81:                                               ; preds = %77, %80
-  %.272112119 = phi i32 [ %.272112118127, %80 ], [ 7, %77 ]
-  ret i32 %.272112119
+  %.070112119 = phi i32 [ %.070112118127, %80 ], [ 7, %77 ]
+  ret i32 %.070112119
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -363,7 +363,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   br label %51
 
 51:                                               ; preds = %48, %.fold.split
-  %.1 = phi i8 [ 0, %48 ], [ 1, %.fold.split ]
+  %.2 = phi i8 [ 0, %48 ], [ 1, %.fold.split ]
   %52 = load ptr, ptr %14, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 40
   %54 = load i32, ptr %53, align 8
@@ -371,7 +371,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not94, label %55, label %59
 
 55:                                               ; preds = %51
-  %56 = trunc nuw i8 %.1 to i1
+  %56 = trunc nuw i8 %.2 to i1
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %55
@@ -387,8 +387,8 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not82, label %.thread117, label %19
 
 61:                                               ; preds = %48, %57
-  %.267 = phi i32 [ %50, %48 ], [ 10, %57 ]
-  %.2 = phi i8 [ 1, %48 ], [ %.1, %57 ]
+  %.065 = phi i32 [ %50, %48 ], [ 10, %57 ]
+  %.059 = phi i8 [ 1, %48 ], [ %.2, %57 ]
   %62 = load ptr, ptr %14, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 40
   %64 = load i32, ptr %63, align 8
@@ -396,7 +396,7 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not97, label %65, label %.thread110
 
 65:                                               ; preds = %61
-  %66 = trunc nuw i8 %.2 to i1
+  %66 = trunc nuw i8 %.059 to i1
   br i1 %66, label %67, label %.thread110
 
 67:                                               ; preds = %65
@@ -412,20 +412,20 @@ define i32 @cli_scanmschm(ptr noundef %0) local_unnamed_addr #0 {
   br label %73
 
 .thread117:                                       ; preds = %41, %29, %59, %19, %12, %.thread110
-  %.267108114 = phi i32 [ %.267, %.thread110 ], [ 0, %12 ], [ 20, %41 ], [ 0, %29 ], [ 0, %59 ], [ %24, %19 ]
+  %.065108114 = phi i32 [ %.065, %.thread110 ], [ 0, %12 ], [ 20, %41 ], [ 0, %29 ], [ 0, %59 ], [ %24, %19 ]
   %70 = getelementptr inbounds i8, ptr %8, i64 8
   %71 = load ptr, ptr %70, align 8
   call void %71(ptr noundef nonnull %8, ptr noundef nonnull %11) #14
   br label %72
 
 72:                                               ; preds = %.thread117.thread, %.thread117
-  %.267108114123 = phi i32 [ 26, %.thread117.thread ], [ %.267108114, %.thread117 ]
+  %.065108114123 = phi i32 [ 26, %.thread117.thread ], [ %.065108114, %.thread117 ]
   call void @mspack_destroy_chm_decompressor(ptr noundef nonnull %8) #14
   br label %73
 
 73:                                               ; preds = %69, %72
-  %.267108115 = phi i32 [ %.267108114123, %72 ], [ 7, %69 ]
-  ret i32 %.267108115
+  %.065108115 = phi i32 [ %.065108114123, %72 ], [ 7, %69 ]
+  ret i32 %.065108115
 }
 
 declare ptr @mspack_create_chm_decompressor(ptr noundef) local_unnamed_addr #3

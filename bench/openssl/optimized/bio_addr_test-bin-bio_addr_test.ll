@@ -132,27 +132,27 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool16.not, label %err, label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.end8
-  %dst.0 = phi ptr [ %call4, %if.end8 ], [ %call14, %if.else ]
+  %dst.1 = phi ptr [ %call4, %if.end8 ], [ %call14, %if.else ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %alen.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %blen.i)
-  %cmp.i11 = icmp eq ptr %retval.0.i, %dst.0
+  %cmp.i11 = icmp eq ptr %retval.0.i, %dst.1
   br i1 %cmp.i11, label %bio_addr_is_eq.exit, label %if.end.i12
 
 if.end.i12:                                       ; preds = %if.end19
   %cmp1.i = icmp eq ptr %retval.0.i, null
-  %cmp2.i = icmp eq ptr %dst.0, null
+  %cmp2.i = icmp eq ptr %dst.1, null
   %or.cond.i = or i1 %cmp1.i, %cmp2.i
   br i1 %or.cond.i, label %bio_addr_is_eq.exit, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i12
   %call.i13 = call i32 @BIO_ADDR_family(ptr noundef nonnull %retval.0.i) #5
-  %call5.i14 = call i32 @BIO_ADDR_family(ptr noundef nonnull %dst.0) #5
+  %call5.i14 = call i32 @BIO_ADDR_family(ptr noundef nonnull %dst.1) #5
   %cmp6.not.i = icmp eq i32 %call.i13, %call5.i14
   br i1 %cmp6.not.i, label %if.end8.i, label %bio_addr_is_eq.exit
 
 if.end8.i:                                        ; preds = %if.end4.i
   %call9.i = call zeroext i16 @BIO_ADDR_rawport(ptr noundef nonnull %retval.0.i) #5
-  %call10.i = call zeroext i16 @BIO_ADDR_rawport(ptr noundef nonnull %dst.0) #5
+  %call10.i = call zeroext i16 @BIO_ADDR_rawport(ptr noundef nonnull %dst.1) #5
   %cmp12.not.i = icmp eq i16 %call9.i, %call10.i
   br i1 %cmp12.not.i, label %if.end15.i, label %bio_addr_is_eq.exit
 
@@ -162,7 +162,7 @@ if.end15.i:                                       ; preds = %if.end8.i
   br i1 %tobool.not.i16, label %bio_addr_is_eq.exit, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end15.i
-  %call19.i = call i32 @BIO_ADDR_rawaddress(ptr noundef nonnull %dst.0, ptr noundef null, ptr noundef nonnull %blen.i) #5
+  %call19.i = call i32 @BIO_ADDR_rawaddress(ptr noundef nonnull %dst.1, ptr noundef null, ptr noundef nonnull %blen.i) #5
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   br i1 %tobool20.not.i, label %err.i, label %if.end22.i
 
@@ -195,7 +195,7 @@ if.end38.i:                                       ; preds = %lor.lhs.false34.i
   br i1 %tobool41.not.i, label %err.i, label %lor.lhs.false42.i
 
 lor.lhs.false42.i:                                ; preds = %if.end38.i
-  %call43.i = call i32 @BIO_ADDR_rawaddress(ptr noundef nonnull %dst.0, ptr noundef %call39.i, ptr noundef nonnull %blen.i) #5
+  %call43.i = call i32 @BIO_ADDR_rawaddress(ptr noundef nonnull %dst.1, ptr noundef %call39.i, ptr noundef nonnull %blen.i) #5
   %tobool44.not.i = icmp eq i32 %call43.i, 0
   br i1 %tobool44.not.i, label %err.i, label %if.end46.i
 
@@ -224,10 +224,10 @@ bio_addr_is_eq.exit:                              ; preds = %if.end19, %if.end.i
   br label %err
 
 err:                                              ; preds = %bio_addr_is_eq.exit, %if.else, %if.end8, %if.then3
-  %dst.1 = phi ptr [ %call4, %if.end8 ], [ %call4, %if.then3 ], [ %call14, %if.else ], [ %dst.0, %bio_addr_is_eq.exit ]
+  %dst.0 = phi ptr [ %call4, %if.end8 ], [ %call4, %if.then3 ], [ %call14, %if.else ], [ %dst.1, %bio_addr_is_eq.exit ]
   %ret.0 = phi i32 [ 0, %if.end8 ], [ 0, %if.then3 ], [ 0, %if.else ], [ %spec.select, %bio_addr_is_eq.exit ]
   call void @BIO_ADDR_free(ptr noundef %retval.0.i) #5
-  call void @BIO_ADDR_free(ptr noundef %dst.1) #5
+  call void @BIO_ADDR_free(ptr noundef %dst.0) #5
   br label %return
 
 return:                                           ; preds = %make_dummy_addr.exit, %err

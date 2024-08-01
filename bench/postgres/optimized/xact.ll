@@ -3605,8 +3605,8 @@ define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) 
 
 .lr.ph41:                                         ; preds = %.preheader, %28
   %24 = phi ptr [ %30, %28 ], [ %9, %.preheader ]
-  %.02940 = phi ptr [ %24, %28 ], [ %2, %.preheader ]
-  %25 = getelementptr inbounds i8, ptr %.02940, i64 32
+  %.140 = phi ptr [ %24, %28 ], [ %2, %.preheader ]
+  %25 = getelementptr inbounds i8, ptr %.140, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 12
   br i1 %27, label %28, label %31
@@ -3650,8 +3650,8 @@ define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) 
 
 .lr.ph:                                           ; preds = %.preheader33, %54
   %45 = phi ptr [ %56, %54 ], [ %6, %.preheader33 ]
-  %.138 = phi ptr [ %45, %54 ], [ %2, %.preheader33 ]
-  %46 = getelementptr inbounds i8, ptr %.138, i64 32
+  %.238 = phi ptr [ %45, %54 ], [ %2, %.preheader33 ]
+  %46 = getelementptr inbounds i8, ptr %.238, i64 32
   %47 = load i32, ptr %46, align 8
   switch i32 %47, label %49 [
     i32 12, label %54
@@ -3744,10 +3744,10 @@ define dso_local noundef zeroext i1 @EndTransactionBlock(i1 noundef zeroext %0) 
   unreachable
 
 85:                                               ; preds = %71, %73, %58, %59, %38, %23, %22, %11, %1
-  %.2 = phi ptr [ %2, %1 ], [ %45, %58 ], [ %45, %59 ], [ %24, %38 ], [ %2, %23 ], [ %2, %22 ], [ %2, %11 ], [ %2, %73 ], [ %2, %71 ]
+  %.029 = phi ptr [ %2, %1 ], [ %45, %58 ], [ %45, %59 ], [ %24, %38 ], [ %2, %23 ], [ %2, %22 ], [ %2, %11 ], [ %2, %73 ], [ %2, %71 ]
   %.0 = phi i1 [ false, %1 ], [ false, %58 ], [ false, %59 ], [ true, %38 ], [ false, %23 ], [ true, %22 ], [ true, %11 ], [ true, %73 ], [ true, %71 ]
   %86 = zext i1 %0 to i8
-  %87 = getelementptr inbounds i8, ptr %.2, i64 96
+  %87 = getelementptr inbounds i8, ptr %.029, i64 96
   store i8 %86, ptr %87, align 8
   ret i1 %.0
 }
@@ -3798,8 +3798,8 @@ define dso_local void @UserAbortTransactionBlock(i1 noundef zeroext %0) local_un
 
 .lr.ph:                                           ; preds = %7, %19
   %10 = phi ptr [ %21, %19 ], [ %9, %7 ]
-  %.023 = phi ptr [ %10, %19 ], [ %2, %7 ]
-  %11 = getelementptr inbounds i8, ptr %.023, i64 32
+  %.123 = phi ptr [ %10, %19 ], [ %2, %7 ]
+  %11 = getelementptr inbounds i8, ptr %.123, i64 32
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %14 [
     i32 12, label %19
@@ -3833,8 +3833,8 @@ define dso_local void @UserAbortTransactionBlock(i1 noundef zeroext %0) local_un
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7
   %22 = phi i32 [ %4, %7 ], [ %.pre, %._crit_edge.loopexit ]
-  %.0.lcssa = phi ptr [ %2, %7 ], [ %10, %._crit_edge.loopexit ]
-  %23 = getelementptr inbounds i8, ptr %.0.lcssa, i64 32
+  %.1.lcssa = phi ptr [ %2, %7 ], [ %10, %._crit_edge.loopexit ]
+  %23 = getelementptr inbounds i8, ptr %.1.lcssa, i64 32
   switch i32 %22, label %26 [
     i32 3, label %24
     i32 7, label %25
@@ -3900,9 +3900,9 @@ define dso_local void @UserAbortTransactionBlock(i1 noundef zeroext %0) local_un
   unreachable
 
 51:                                               ; preds = %24, %25, %41, %6, %5, %1
-  %.1 = phi ptr [ %2, %1 ], [ %2, %41 ], [ %.0.lcssa, %24 ], [ %.0.lcssa, %25 ], [ %2, %6 ], [ %2, %5 ]
+  %.0 = phi ptr [ %2, %1 ], [ %2, %41 ], [ %.1.lcssa, %24 ], [ %.1.lcssa, %25 ], [ %2, %6 ], [ %2, %5 ]
   %52 = zext i1 %0 to i8
-  %53 = getelementptr inbounds i8, ptr %.1, i64 96
+  %53 = getelementptr inbounds i8, ptr %.0, i64 96
   store i8 %52, ptr %53, align 8
   ret void
 }

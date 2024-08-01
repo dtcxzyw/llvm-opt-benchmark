@@ -144,8 +144,8 @@ define dso_local i64 @ZSTD_compressSuperBlock(ptr noundef %0, ptr noundef %1, i6
   br label %101
 
 101:                                              ; preds = %97, %83
-  %.sroa.0.1.i.i = phi i32 [ %88, %83 ], [ %spec.select.i.i, %97 ]
-  %.sroa.0.0.insert.ext.i.i = zext nneg i32 %.sroa.0.1.i.i to i64
+  %.sroa.0.0.i.i = phi i32 [ %88, %83 ], [ %spec.select.i.i, %97 ]
+  %.sroa.0.0.insert.ext.i.i = zext nneg i32 %.sroa.0.0.i.i to i64
   %102 = add i64 %.0139.i, %.sroa.0.0.insert.ext.i.i
   %103 = add i64 %.0142.i, 1
   %spec.select273.i = select i1 %cond.fr.i, i64 %70, i64 %102
@@ -843,7 +843,7 @@ ZSTD_noCompressBlock.exit.i:                      ; preds = %384
   br label %ZSTD_getSequenceLength.exit178.i
 
 ZSTD_getSequenceLength.exit178.i:                 ; preds = %422, %411
-  %.sroa.0.1.i170.i = phi i32 [ %416, %411 ], [ %spec.select.i176.i, %422 ]
+  %.sroa.0.0.i170.i = phi i32 [ %416, %411 ], [ %spec.select.i176.i, %422 ]
   %426 = icmp ugt i32 %413, 3
   br i1 %426, label %427, label %429
 
@@ -854,7 +854,7 @@ ZSTD_getSequenceLength.exit178.i:                 ; preds = %422, %411
   br label %.sink.split.i.i
 
 429:                                              ; preds = %ZSTD_getSequenceLength.exit178.i
-  %430 = icmp eq i32 %.sroa.0.1.i170.i, 0
+  %430 = icmp eq i32 %.sroa.0.0.i170.i, 0
   %431 = zext i1 %430 to i32
   %432 = add nsw i32 %413, -1
   %433 = add nsw i32 %432, %431

@@ -47529,40 +47529,40 @@ while.body.lr.ph.i:                               ; preds = %if.then2.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i, %while.body.lr.ph.i
-  %offset56.0 = phi i64 [ 0, %while.body.lr.ph.i ], [ %inc.i.i, %while.body.i ]
-  %remaining.034.i = phi i64 [ %68, %while.body.lr.ph.i ], [ %dec.i, %while.body.i ]
+  %offset56.6 = phi i64 [ 0, %while.body.lr.ph.i ], [ %inc.i.i, %while.body.i ]
+  %remaining.134.i = phi i64 [ %68, %while.body.lr.ph.i ], [ %dec.i, %while.body.i ]
   %bit_mask.033.i = phi i8 [ %72, %while.body.lr.ph.i ], [ %shl.i, %while.body.i ]
   %current_byte.032.i = phi i8 [ %and23.i, %while.body.lr.ph.i ], [ %or.i, %while.body.i ]
-  %inc.i.i = add nuw nsw i64 %offset56.0, 1
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i37, i64 %offset56.0
+  %inc.i.i = add nuw nsw i64 %offset56.6, 1
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i37, i64 %offset56.6
   %73 = load i8, ptr %arrayidx.i.i, align 1
   %cmp.i.i40 = icmp eq i8 %73, %60
   %mul.i = select i1 %cmp.i.i40, i8 %bit_mask.033.i, i8 0
   %or.i = or i8 %mul.i, %current_byte.032.i
   %shl.i = shl i8 %bit_mask.033.i, 1
-  %dec.i = add nsw i64 %remaining.034.i, -1
+  %dec.i = add nsw i64 %remaining.134.i, -1
   %cmp8.i = icmp ne i8 %shl.i, 0
-  %cmp9.i = icmp ugt i64 %remaining.034.i, 1
+  %cmp9.i = icmp ugt i64 %remaining.134.i, 1
   %74 = select i1 %cmp8.i, i1 %cmp9.i, i1 false
   br i1 %74, label %while.body.i, label %while.end.i, !llvm.loop !447
 
 while.end.i:                                      ; preds = %while.body.i, %if.then2.i
-  %offset56.1 = phi i64 [ 0, %if.then2.i ], [ %inc.i.i, %while.body.i ]
+  %offset56.0 = phi i64 [ 0, %if.then2.i ], [ %inc.i.i, %while.body.i ]
   %current_byte.0.lcssa.i = phi i8 [ %and23.i, %if.then2.i ], [ %or.i, %while.body.i ]
-  %remaining.0.lcssa.i = phi i64 [ %68, %if.then2.i ], [ %dec.i, %while.body.i ]
+  %remaining.1.lcssa.i = phi i64 [ %68, %if.then2.i ], [ %dec.i, %while.body.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i39, i64 1
   store i8 %current_byte.0.lcssa.i, ptr %add.ptr.i39, align 1
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %while.end.i, %if.end.i
-  %offset56.2 = phi i64 [ 0, %if.end.i ], [ %offset56.1, %while.end.i ]
+  %offset56.1 = phi i64 [ 0, %if.end.i ], [ %offset56.0, %while.end.i ]
   %cur.0.i = phi ptr [ %add.ptr.i39, %if.end.i ], [ %incdec.ptr.i, %while.end.i ]
-  %remaining.1.i = phi i64 [ %68, %if.end.i ], [ %remaining.0.lcssa.i, %while.end.i ]
-  %cmp2038.i = icmp sgt i64 %remaining.1.i, 7
+  %remaining.0.i = phi i64 [ %68, %if.end.i ], [ %remaining.1.lcssa.i, %while.end.i ]
+  %cmp2038.i = icmp sgt i64 %remaining.0.i, 7
   br i1 %cmp2038.i, label %for.cond.preheader.lr.ph.i, label %while.end58.i
 
 for.cond.preheader.lr.ph.i:                       ; preds = %if.end16.i
-  %div1747.i = lshr i64 %remaining.1.i, 3
+  %div1747.i = lshr i64 %remaining.0.i, 3
   %arrayidx28.i = getelementptr inbounds i8, ptr %out_results.i, i64 1
   %arrayidx32.i = getelementptr inbounds i8, ptr %out_results.i, i64 2
   %arrayidx36.i = getelementptr inbounds i8, ptr %out_results.i, i64 3
@@ -47573,16 +47573,16 @@ for.cond.preheader.lr.ph.i:                       ; preds = %if.end16.i
   br label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %for.end.i, %for.cond.preheader.lr.ph.i
-  %offset56.3 = phi i64 [ %offset56.2, %for.cond.preheader.lr.ph.i ], [ %inc.i24.i, %for.end.i ]
+  %offset56.4 = phi i64 [ %offset56.1, %for.cond.preheader.lr.ph.i ], [ %inc.i24.i, %for.end.i ]
   %dec1940.in.i = phi i64 [ %div1747.i, %for.cond.preheader.lr.ph.i ], [ %dec1940.i, %for.end.i ]
   %cur.139.i = phi ptr [ %cur.0.i, %for.cond.preheader.lr.ph.i ], [ %incdec.ptr57.i, %for.end.i ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
-  %offset56.4 = phi i64 [ %offset56.3, %for.cond.preheader.i ], [ %inc.i24.i, %for.body.i ]
+  %offset56.5 = phi i64 [ %offset56.4, %for.cond.preheader.i ], [ %inc.i24.i, %for.body.i ]
   %indvars.iv.i = phi i64 [ 0, %for.cond.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %inc.i24.i = add nsw i64 %offset56.4, 1
-  %arrayidx.i25.i = getelementptr inbounds i8, ptr %add.ptr.i37, i64 %offset56.4
+  %inc.i24.i = add nsw i64 %offset56.5, 1
+  %arrayidx.i25.i = getelementptr inbounds i8, ptr %add.ptr.i37, i64 %offset56.5
   %75 = load i8, ptr %arrayidx.i25.i, align 1
   %cmp.i26.i = icmp eq i8 %75, %60
   %conv24.i = zext i1 %cmp.i26.i to i8
@@ -47622,9 +47622,9 @@ for.end.i:                                        ; preds = %for.body.i
   br i1 %cmp20.i, label %for.cond.preheader.i, label %while.end58.i, !llvm.loop !449
 
 while.end58.i:                                    ; preds = %for.end.i, %if.end16.i
-  %offset56.5 = phi i64 [ %offset56.2, %if.end16.i ], [ %inc.i24.i, %for.end.i ]
+  %offset56.2 = phi i64 [ %offset56.1, %if.end16.i ], [ %inc.i24.i, %for.end.i ]
   %cur.1.lcssa.i = phi ptr [ %cur.0.i, %if.end16.i ], [ %incdec.ptr57.i, %for.end.i ]
-  %rem59.i = srem i64 %remaining.1.i, 8
+  %rem59.i = srem i64 %remaining.0.i, 8
   %tobool.not.i = icmp eq i64 %rem59.i, 0
   br i1 %tobool.not.i, label %invoke.cont64, label %while.cond61.preheader.i
 
@@ -47633,13 +47633,13 @@ while.cond61.preheader.i:                         ; preds = %while.end58.i
   br i1 %cmp6342.i, label %while.body64.i, label %while.end75.i
 
 while.body64.i:                                   ; preds = %while.cond61.preheader.i, %while.body64.i
-  %offset56.6 = phi i64 [ %inc.i27.i, %while.body64.i ], [ %offset56.5, %while.cond61.preheader.i ]
+  %offset56.3 = phi i64 [ %inc.i27.i, %while.body64.i ], [ %offset56.2, %while.cond61.preheader.i ]
   %remaining_bits.045.i = phi i64 [ %dec62.i, %while.body64.i ], [ %rem59.i, %while.cond61.preheader.i ]
   %bit_mask.144.i = phi i8 [ %conv67.i, %while.body64.i ], [ 1, %while.cond61.preheader.i ]
   %current_byte.143.i = phi i8 [ %conv71.i, %while.body64.i ], [ 0, %while.cond61.preheader.i ]
   %dec62.i = add nsw i64 %remaining_bits.045.i, -1
-  %inc.i27.i = add nsw i64 %offset56.6, 1
-  %arrayidx.i28.i = getelementptr inbounds i8, ptr %add.ptr.i37, i64 %offset56.6
+  %inc.i27.i = add nsw i64 %offset56.3, 1
+  %arrayidx.i28.i = getelementptr inbounds i8, ptr %add.ptr.i37, i64 %offset56.3
   %84 = load i8, ptr %arrayidx.i28.i, align 1
   %cmp.i29.i = icmp eq i8 %84, %60
   %85 = select i1 %cmp.i29.i, i8 %bit_mask.144.i, i8 0
@@ -61393,7 +61393,7 @@ while.body.lr.ph:                                 ; preds = %if.then2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %remaining.042 = phi i64 [ %length, %while.body.lr.ph ], [ %dec, %while.body ]
+  %remaining.142 = phi i64 [ %length, %while.body.lr.ph ], [ %dec, %while.body ]
   %bit_mask.041 = phi i8 [ %2, %while.body.lr.ph ], [ %shl, %while.body ]
   %current_byte.040 = phi i8 [ %and23, %while.body.lr.ph ], [ %or, %while.body ]
   %5 = load ptr, ptr %3, align 8
@@ -61414,27 +61414,27 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %mul = select i1 %tobool.i.not, i8 0, i8 %bit_mask.041
   %or = or i8 %mul, %current_byte.040
   %shl = shl i8 %bit_mask.041, 1
-  %dec = add nsw i64 %remaining.042, -1
+  %dec = add nsw i64 %remaining.142, -1
   %cmp8 = icmp ne i8 %shl, 0
-  %cmp9 = icmp ugt i64 %remaining.042, 1
+  %cmp9 = icmp ugt i64 %remaining.142, 1
   %12 = select i1 %cmp8, i1 %cmp9, i1 false
   br i1 %12, label %while.body, label %while.end, !llvm.loop !694
 
 while.end:                                        ; preds = %while.body, %if.then2
   %current_byte.0.lcssa = phi i8 [ %and23, %if.then2 ], [ %or, %while.body ]
-  %remaining.0.lcssa = phi i64 [ %length, %if.then2 ], [ %dec, %while.body ]
+  %remaining.1.lcssa = phi i64 [ %length, %if.then2 ], [ %dec, %while.body ]
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 %current_byte.0.lcssa, ptr %add.ptr, align 1
   br label %if.end16
 
 if.end16:                                         ; preds = %while.end, %if.end
   %cur.0 = phi ptr [ %incdec.ptr, %while.end ], [ %add.ptr, %if.end ]
-  %remaining.1 = phi i64 [ %remaining.0.lcssa, %while.end ], [ %length, %if.end ]
-  %cmp2046 = icmp sgt i64 %remaining.1, 7
+  %remaining.0 = phi i64 [ %remaining.1.lcssa, %while.end ], [ %length, %if.end ]
+  %cmp2046 = icmp sgt i64 %remaining.0, 7
   br i1 %cmp2046, label %for.cond.preheader.lr.ph, label %while.end58
 
 for.cond.preheader.lr.ph:                         ; preds = %if.end16
-  %div1755 = lshr i64 %remaining.1, 3
+  %div1755 = lshr i64 %remaining.0, 3
   %13 = getelementptr inbounds i8, ptr %g, i64 16
   %14 = getelementptr inbounds i8, ptr %g, i64 8
   %arrayidx28 = getelementptr inbounds i8, ptr %out_results, i64 1
@@ -61507,7 +61507,7 @@ for.end:                                          ; preds = %for.body
 
 while.end58:                                      ; preds = %for.end, %if.end16
   %cur.1.lcssa = phi ptr [ %cur.0, %if.end16 ], [ %incdec.ptr57, %for.end ]
-  %rem59 = srem i64 %remaining.1, 8
+  %rem59 = srem i64 %remaining.0, 8
   %tobool.not = icmp eq i64 %rem59, 0
   br i1 %tobool.not, label %if.end77, label %while.cond61.preheader
 

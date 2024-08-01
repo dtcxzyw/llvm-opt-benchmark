@@ -954,8 +954,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc47
-  %len.081 = phi i64 [ %args.val, %for.body.lr.ph ], [ %len.3, %for.inc47 ]
-  %iparam.080 = phi i64 [ 0, %for.body.lr.ph ], [ %iparam.3, %for.inc47 ]
+  %len.081 = phi i64 [ %args.val, %for.body.lr.ph ], [ %len.1, %for.inc47 ]
+  %iparam.080 = phi i64 [ 0, %for.body.lr.ph ], [ %iparam.1, %for.inc47 ]
   %iarg.078 = phi i64 [ 0, %for.body.lr.ph ], [ %inc48, %for.inc47 ]
   %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %iarg.078
   %1 = load ptr, ptr %arrayidx, align 8
@@ -1117,20 +1117,20 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 if.end35:                                         ; preds = %if.then28, %if.then22
-  %len.1 = phi i64 [ %add29, %if.then28 ], [ %len.081, %if.then22 ]
+  %len.3 = phi i64 [ %add29, %if.then28 ], [ %len.081, %if.then22 ]
   %cmp3774 = icmp sgt i64 %.val, 0
   br i1 %cmp3774, label %for.body39, label %if.end45
 
 for.body39:                                       ; preds = %if.end35, %tuple_add.exit50
   %j.076 = phi i64 [ %inc, %tuple_add.exit50 ], [ 0, %if.end35 ]
-  %iparam.175 = phi i64 [ %add44, %tuple_add.exit50 ], [ %iparam.080, %if.end35 ]
+  %iparam.375 = phi i64 [ %add44, %tuple_add.exit50 ], [ %iparam.080, %if.end35 ]
   %25 = load ptr, ptr %subparams, align 8
   %ob_item40 = getelementptr inbounds i8, ptr %25, i64 24
   %arrayidx41 = getelementptr [1 x ptr], ptr %ob_item40, i64 0, i64 %j.076
   %26 = load ptr, ptr %arrayidx41, align 8
   %27 = load ptr, ptr %parameters, align 8
   %ob_item.i.i34 = getelementptr inbounds i8, ptr %27, i64 24
-  %cmp4.i.i35 = icmp sgt i64 %iparam.175, 0
+  %cmp4.i.i35 = icmp sgt i64 %iparam.375, 0
   br i1 %cmp4.i.i35, label %for.body.i.i43, label %if.then.i36
 
 for.body.i.i43:                                   ; preds = %for.body39, %for.inc.i.i47
@@ -1142,7 +1142,7 @@ for.body.i.i43:                                   ; preds = %for.body39, %for.in
 
 for.inc.i.i47:                                    ; preds = %for.body.i.i43
   %inc.i.i48 = add nuw nsw i64 %i.05.i.i44, 1
-  %exitcond.not.i.i49 = icmp eq i64 %inc.i.i48, %iparam.175
+  %exitcond.not.i.i49 = icmp eq i64 %inc.i.i48, %iparam.375
   br i1 %exitcond.not.i.i49, label %if.then.i36, label %for.body.i.i43, !llvm.loop !5
 
 if.then.i36:                                      ; preds = %for.inc.i.i47, %for.body39
@@ -1156,20 +1156,20 @@ if.end.i.i.i39:                                   ; preds = %if.then.i36
   br label %_Py_NewRef.exit.i40
 
 _Py_NewRef.exit.i40:                              ; preds = %if.end.i.i.i39, %if.then.i36
-  %arrayidx.i5.i41 = getelementptr [1 x ptr], ptr %ob_item.i.i34, i64 0, i64 %iparam.175
+  %arrayidx.i5.i41 = getelementptr [1 x ptr], ptr %ob_item.i.i34, i64 0, i64 %iparam.375
   store ptr %26, ptr %arrayidx.i5.i41, align 8
   br label %tuple_add.exit50
 
 tuple_add.exit50:                                 ; preds = %for.body.i.i43, %_Py_NewRef.exit.i40
   %retval.0.i42 = phi i64 [ 1, %_Py_NewRef.exit.i40 ], [ 0, %for.body.i.i43 ]
-  %add44 = add i64 %retval.0.i42, %iparam.175
+  %add44 = add i64 %retval.0.i42, %iparam.375
   %inc = add nuw nsw i64 %j.076, 1
   %exitcond.not = icmp eq i64 %inc, %.val
   br i1 %exitcond.not, label %if.end45, label %for.body39, !llvm.loop !7
 
 if.end45:                                         ; preds = %tuple_add.exit50, %if.end35, %land.lhs.true
   %iparam.2.ph = phi i64 [ %iparam.080, %land.lhs.true ], [ %iparam.080, %if.end35 ], [ %add44, %tuple_add.exit50 ]
-  %len.2.ph = phi i64 [ %len.081, %land.lhs.true ], [ %len.1, %if.end35 ], [ %len.1, %tuple_add.exit50 ]
+  %len.2.ph = phi i64 [ %len.081, %land.lhs.true ], [ %len.3, %if.end35 ], [ %len.3, %tuple_add.exit50 ]
   %.pr = load ptr, ptr %subparams, align 8
   %cmp.not.i = icmp eq ptr %.pr, null
   br i1 %cmp.not.i, label %for.inc47, label %if.then.i51
@@ -1191,15 +1191,15 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %for.inc47
 
 for.inc47:                                        ; preds = %if.end17, %if.then1.i.i, %if.end.i.i, %if.then.i51, %if.end45, %tuple_add.exit, %for.body
-  %iparam.3 = phi i64 [ %iparam.080, %for.body ], [ %add, %tuple_add.exit ], [ %iparam.2.ph, %if.end45 ], [ %iparam.2.ph, %if.then.i51 ], [ %iparam.2.ph, %if.end.i.i ], [ %iparam.2.ph, %if.then1.i.i ], [ %iparam.080, %if.end17 ]
-  %len.3 = phi i64 [ %len.081, %for.body ], [ %len.081, %tuple_add.exit ], [ %len.2.ph, %if.end45 ], [ %len.2.ph, %if.then.i51 ], [ %len.2.ph, %if.end.i.i ], [ %len.2.ph, %if.then1.i.i ], [ %len.081, %if.end17 ]
+  %iparam.1 = phi i64 [ %iparam.080, %for.body ], [ %add, %tuple_add.exit ], [ %iparam.2.ph, %if.end45 ], [ %iparam.2.ph, %if.then.i51 ], [ %iparam.2.ph, %if.end.i.i ], [ %iparam.2.ph, %if.then1.i.i ], [ %iparam.080, %if.end17 ]
+  %len.1 = phi i64 [ %len.081, %for.body ], [ %len.081, %tuple_add.exit ], [ %len.2.ph, %if.end45 ], [ %len.2.ph, %if.then.i51 ], [ %len.2.ph, %if.end.i.i ], [ %len.2.ph, %if.then1.i.i ], [ %len.081, %if.end17 ]
   %inc48 = add nuw nsw i64 %iarg.078, 1
   %exitcond84.not = icmp eq i64 %inc48, %args.val
   br i1 %exitcond84.not, label %for.end49, label %for.body, !llvm.loop !8
 
 for.end49:                                        ; preds = %for.inc47, %for.cond.preheader
-  %iparam.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %iparam.3, %for.inc47 ]
-  %len.0.lcssa = phi i64 [ %args.val, %for.cond.preheader ], [ %len.3, %for.inc47 ]
+  %iparam.0.lcssa = phi i64 [ 0, %for.cond.preheader ], [ %iparam.1, %for.inc47 ]
+  %len.0.lcssa = phi i64 [ %args.val, %for.cond.preheader ], [ %len.1, %for.inc47 ]
   %cmp50 = icmp slt i64 %iparam.0.lcssa, %len.0.lcssa
   br i1 %cmp50, label %if.then52, label %for.end49.if.end58_crit_edge
 

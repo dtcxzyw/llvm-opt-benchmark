@@ -1640,11 +1640,11 @@ define internal void @Intra16Preds_C(ptr nocapture noundef writeonly %0, ptr nou
 
 .lr.ph52.i:                                       ; preds = %16, %.lr.ph52.i
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %.lr.ph52.i ], [ 0, %16 ]
-  %.350.i = phi i32 [ %20, %.lr.ph52.i ], [ 0, %16 ]
+  %.450.i = phi i32 [ %20, %.lr.ph52.i ], [ 0, %16 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv63.i
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
-  %20 = add nuw nsw i32 %.350.i, %19
+  %20 = add nuw nsw i32 %.450.i, %19
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, 16
   br i1 %exitcond67.not.i, label %._crit_edge53.loopexit.i, label %.lr.ph52.i, !llvm.loop !27
@@ -1656,8 +1656,8 @@ define internal void @Intra16Preds_C(ptr nocapture noundef writeonly %0, ptr nou
   br label %24
 
 24:                                               ; preds = %._crit_edge53.loopexit.i, %16, %.loopexit.i
-  %.4.i = phi i32 [ %15, %.loopexit.i ], [ %23, %._crit_edge53.loopexit.i ], [ 128, %16 ]
-  %25 = trunc i32 %.4.i to i8
+  %.3.i = phi i32 [ %15, %.loopexit.i ], [ %23, %._crit_edge53.loopexit.i ], [ 128, %16 ]
+  %25 = trunc i32 %.3.i to i8
   br label %26
 
 26:                                               ; preds = %26, %24
@@ -1841,11 +1841,11 @@ define internal void @IntraChromaPreds_C(ptr nocapture noundef writeonly %0, ptr
 
 .lr.ph52.i:                                       ; preds = %17, %.lr.ph52.i
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %.lr.ph52.i ], [ 0, %17 ]
-  %.350.i = phi i32 [ %21, %.lr.ph52.i ], [ 0, %17 ]
+  %.450.i = phi i32 [ %21, %.lr.ph52.i ], [ 0, %17 ]
   %18 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv63.i
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
-  %21 = add nuw nsw i32 %.350.i, %20
+  %21 = add nuw nsw i32 %.450.i, %20
   %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next64.i, 8
   br i1 %exitcond67.not.i, label %._crit_edge53.loopexit.i, label %.lr.ph52.i, !llvm.loop !27
@@ -1857,8 +1857,8 @@ define internal void @IntraChromaPreds_C(ptr nocapture noundef writeonly %0, ptr
   br label %25
 
 25:                                               ; preds = %._crit_edge53.loopexit.i, %17, %.loopexit.i
-  %.4.i = phi i32 [ %16, %.loopexit.i ], [ %24, %._crit_edge53.loopexit.i ], [ 128, %17 ]
-  %26 = trunc i32 %.4.i to i8
+  %.3.i = phi i32 [ %16, %.loopexit.i ], [ %24, %._crit_edge53.loopexit.i ], [ 128, %17 ]
+  %26 = trunc i32 %.3.i to i8
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -2054,11 +2054,11 @@ TrueMotion.exit:                                  ; preds = %.preheader.i.i, %.p
 
 .lr.ph52.i78:                                     ; preds = %91, %.lr.ph52.i78
   %indvars.iv63.i79 = phi i64 [ %indvars.iv.next64.i81, %.lr.ph52.i78 ], [ 0, %91 ]
-  %.350.i80 = phi i32 [ %95, %.lr.ph52.i78 ], [ 0, %91 ]
+  %.450.i80 = phi i32 [ %95, %.lr.ph52.i78 ], [ 0, %91 ]
   %92 = getelementptr inbounds i8, ptr %.025, i64 %indvars.iv63.i79
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
-  %95 = add nuw nsw i32 %.350.i80, %94
+  %95 = add nuw nsw i32 %.450.i80, %94
   %indvars.iv.next64.i81 = add nuw nsw i64 %indvars.iv63.i79, 1
   %exitcond67.not.i82 = icmp eq i64 %indvars.iv.next64.i81, 8
   br i1 %exitcond67.not.i82, label %._crit_edge53.loopexit.i83, label %.lr.ph52.i78, !llvm.loop !27
@@ -2073,8 +2073,8 @@ TrueMotion.exit:                                  ; preds = %.preheader.i.i, %.p
   %100 = phi ptr [ %78, %.loopexit.i70 ], [ %77, %._crit_edge53.loopexit.i83 ], [ %77, %91 ]
   %.025133 = phi ptr [ %.025132, %.loopexit.i70 ], [ %76, %._crit_edge53.loopexit.i83 ], [ null, %91 ]
   %spec.select131 = phi ptr [ %spec.select130, %.loopexit.i70 ], [ %spec.select, %._crit_edge53.loopexit.i83 ], [ null, %91 ]
-  %.4.i72 = phi i32 [ %90, %.loopexit.i70 ], [ %98, %._crit_edge53.loopexit.i83 ], [ 128, %91 ]
-  %101 = trunc i32 %.4.i72 to i8
+  %.3.i72 = phi i32 [ %90, %.loopexit.i70 ], [ %98, %._crit_edge53.loopexit.i83 ], [ 128, %91 ]
+  %101 = trunc i32 %.3.i72 to i8
   br label %102
 
 102:                                              ; preds = %102, %99

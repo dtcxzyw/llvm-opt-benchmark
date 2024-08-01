@@ -3641,7 +3641,7 @@ invoke.cont75:                                    ; preds = %if.end74
           to label %cleanup unwind label %lpad28.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont75, %invoke.cont70
-  %retval.0 = phi ptr [ null, %invoke.cont70 ], [ %call76, %invoke.cont75 ]
+  %retval.1 = phi ptr [ null, %invoke.cont70 ], [ %call76, %invoke.cont75 ]
   %36 = load ptr, ptr %inner_cols2, align 8
   %tobool.not.i.i.i = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i
@@ -3676,8 +3676,8 @@ terminate.lpad.i.i72:                             ; preds = %if.then.i.i.i70
   unreachable
 
 return:                                           ; preds = %entry, %if.then.i.i.i70, %_ZN7svectorIjjED2Ev.exit
-  %retval.1 = phi ptr [ %retval.0, %_ZN7svectorIjjED2Ev.exit ], [ %retval.0, %if.then.i.i.i70 ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %_ZN7svectorIjjED2Ev.exit ], [ %retval.1, %if.then.i.i.i70 ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4311,7 +4311,7 @@ invoke.cont32:                                    ; preds = %if.end31
           to label %cleanup unwind label %lpad14
 
 cleanup:                                          ; preds = %invoke.cont32, %if.end29
-  %retval.0 = phi ptr [ null, %if.end29 ], [ %call33, %invoke.cont32 ]
+  %retval.1 = phi ptr [ null, %if.end29 ], [ %call33, %invoke.cont32 ]
   %40 = load ptr, ptr %result_sig, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7datalog18relation_signatureD2Ev.exit, label %if.then.i.i.i.i.i
@@ -4373,8 +4373,8 @@ ehcleanup39:                                      ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn15
 
 return:                                           ; preds = %if.then.i.i.i34, %_ZN7svectorIbjED2Ev.exit, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %retval.0, %_ZN7svectorIbjED2Ev.exit ], [ %retval.0, %if.then.i.i.i34 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.1, %_ZN7svectorIbjED2Ev.exit ], [ %retval.1, %if.then.i.i.i34 ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4997,7 +4997,7 @@ invoke.cont24:                                    ; preds = %if.end23
           to label %cleanup unwind label %lpad12
 
 cleanup:                                          ; preds = %invoke.cont24, %invoke.cont20
-  %retval.0 = phi ptr [ null, %invoke.cont20 ], [ %call25, %invoke.cont24 ]
+  %retval.1 = phi ptr [ null, %invoke.cont20 ], [ %call25, %invoke.cont24 ]
   %47 = load ptr, ptr %result_sig, align 8
   %tobool.not.i.i.i.i.i40 = icmp eq ptr %47, null
   br i1 %tobool.not.i.i.i.i.i40, label %_ZN7datalog18relation_signatureD2Ev.exit, label %if.then.i.i.i.i.i
@@ -5075,8 +5075,8 @@ ehcleanup33:                                      ; preds = %ehcleanup31, %lpad
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %if.then.i.i.i46, %_ZN7svectorIjjED2Ev.exit, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %retval.0, %_ZN7svectorIjjED2Ev.exit ], [ %retval.0, %if.then.i.i.i46 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.1, %_ZN7svectorIjjED2Ev.exit ], [ %retval.1, %if.then.i.i.i46 ]
+  ret ptr %retval.0
 }
 
 declare void @_ZN7datalog12add_sequenceEjjR7svectorIjjE(i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
@@ -5554,7 +5554,7 @@ invoke.cont25:                                    ; preds = %if.end24
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont25, %invoke.cont21, %invoke.cont14
-  %retval.0 = phi ptr [ %call15, %invoke.cont14 ], [ null, %invoke.cont21 ], [ %call26, %invoke.cont25 ]
+  %retval.1 = phi ptr [ %call15, %invoke.cont14 ], [ null, %invoke.cont21 ], [ %call26, %invoke.cont25 ]
   %14 = load ptr, ptr %inner_icols, align 8
   %tobool.not.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
@@ -5572,8 +5572,8 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5893,7 +5893,7 @@ invoke.cont58:                                    ; preds = %if.end57
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont58, %invoke.cont54
-  %retval.0 = phi ptr [ null, %invoke.cont54 ], [ %call59, %invoke.cont58 ]
+  %retval.2 = phi ptr [ null, %invoke.cont54 ], [ %call59, %invoke.cont58 ]
   %39 = load ptr, ptr %inner_cond, align 8
   %tobool.not.i.i49 = icmp eq ptr %39, null
   br i1 %tobool.not.i.i49, label %cleanup61, label %if.then.i.i.i50
@@ -5920,7 +5920,7 @@ terminate.lpad.i:                                 ; preds = %if.then2.i.i.i
   unreachable
 
 cleanup61:                                        ; preds = %if.then2.i.i.i, %if.then.i.i.i50, %cleanup, %invoke.cont22
-  %retval.1 = phi ptr [ %call23, %invoke.cont22 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i50 ], [ %retval.0, %if.then2.i.i.i ]
+  %retval.1 = phi ptr [ %call23, %invoke.cont22 ], [ %retval.2, %cleanup ], [ %retval.2, %if.then.i.i.i50 ], [ %retval.2, %if.then2.i.i.i ]
   %44 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i53 = icmp eq ptr %44, null
   br i1 %cmp.i.i.i53, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i54
@@ -6014,8 +6014,8 @@ ehcleanup63:                                      ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.then.i.i.i.i.i60, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, %entry
-  %retval.2 = phi ptr [ null, %entry ], [ %retval.1, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ], [ %retval.1, %if.then.i.i.i.i.i60 ]
-  ret ptr %retval.2
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.1, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ], [ %retval.1, %if.then.i.i.i.i.i60 ]
+  ret ptr %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7datalog12rule_manager12collect_varsEP4expr(ptr noundef nonnull align 8 dereferenceable(1368), ptr noundef) local_unnamed_addr #0
@@ -6258,7 +6258,7 @@ invoke.cont78:                                    ; preds = %if.end77
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont78, %invoke.cont73, %invoke.cont67
-  %retval.0 = phi ptr [ %call68, %invoke.cont67 ], [ null, %invoke.cont73 ], [ %call79, %invoke.cont78 ]
+  %retval.1 = phi ptr [ %call68, %invoke.cont67 ], [ null, %invoke.cont73 ], [ %call79, %invoke.cont78 ]
   %40 = load ptr, ptr %ineg_cols, align 8
   %tobool.not.i.i.i = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i, label %_ZN7svectorIjjED2Ev.exit, label %if.then.i.i.i
@@ -6293,8 +6293,8 @@ terminate.lpad.i.i68:                             ; preds = %if.then.i.i.i66
   unreachable
 
 return:                                           ; preds = %entry, %if.then.i.i.i66, %_ZN7svectorIjjED2Ev.exit
-  %retval.1 = phi ptr [ %retval.0, %_ZN7svectorIjjED2Ev.exit ], [ %retval.0, %if.then.i.i.i66 ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %_ZN7svectorIjjED2Ev.exit ], [ %retval.1, %if.then.i.i.i66 ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10368,7 +10368,7 @@ sw.bb202:                                         ; preds = %while.end
 
 sw.bb205:                                         ; preds = %while.end.sw.bb205_crit_edge, %sw.bb202
   %73 = phi ptr [ %.pre, %while.end.sw.bb205_crit_edge ], [ %70, %sw.bb202 ]
-  %b.1 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
+  %b.2 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
   %74 = load ptr, ptr %73, align 8
   %m_hash.i.i381 = getelementptr inbounds i8, ptr %74, i64 12
   %75 = load i32, ptr %m_hash.i.i381, align 4
@@ -10376,14 +10376,14 @@ sw.bb205:                                         ; preds = %while.end.sw.bb205_
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb205, %while.end
-  %b.2 = phi i32 [ %xor196, %while.end ], [ %b.1, %sw.bb205 ]
+  %b.1 = phi i32 [ %xor196, %while.end ], [ %b.2, %sw.bb205 ]
   %c.1 = phi i32 [ %xor200, %while.end ], [ %add207, %sw.bb205 ]
-  %76 = add i32 %b.2, %c.1
+  %76 = add i32 %b.1, %c.1
   %sub209 = sub i32 %69, %76
   %shr210 = lshr i32 %c.1, 13
   %xor211 = xor i32 %sub209, %shr210
   %77 = add i32 %c.1, %xor211
-  %sub213 = sub i32 %b.2, %77
+  %sub213 = sub i32 %b.1, %77
   %shl214 = shl i32 %xor211, 8
   %xor215 = xor i32 %sub213, %shl214
   %78 = add i32 %xor211, %xor215
@@ -12348,7 +12348,7 @@ sw.bb202:                                         ; preds = %while.end
 
 sw.bb205:                                         ; preds = %while.end.sw.bb205_crit_edge, %sw.bb202
   %69 = phi ptr [ %.pre, %while.end.sw.bb205_crit_edge ], [ %66, %sw.bb202 ]
-  %b.1 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
+  %b.2 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
   %70 = load i8, ptr %69, align 1
   %71 = and i8 %70, 1
   %conv.i.i381 = zext nneg i8 %71 to i32
@@ -12356,14 +12356,14 @@ sw.bb205:                                         ; preds = %while.end.sw.bb205_
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb205, %while.end
-  %b.2 = phi i32 [ %xor196, %while.end ], [ %b.1, %sw.bb205 ]
+  %b.1 = phi i32 [ %xor196, %while.end ], [ %b.2, %sw.bb205 ]
   %c.1 = phi i32 [ %xor200, %while.end ], [ %add207, %sw.bb205 ]
-  %72 = add i32 %b.2, %c.1
+  %72 = add i32 %b.1, %c.1
   %sub209 = sub i32 %65, %72
   %shr210 = lshr i32 %c.1, 13
   %xor211 = xor i32 %sub209, %shr210
   %73 = add i32 %c.1, %xor211
-  %sub213 = sub i32 %b.2, %73
+  %sub213 = sub i32 %b.1, %73
   %shl214 = shl i32 %xor211, 8
   %xor215 = xor i32 %sub213, %shl214
   %74 = add i32 %xor211, %xor215

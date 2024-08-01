@@ -2766,7 +2766,7 @@ tstoken_list_member.exit.us.loopexit:             ; preds = %.split.us
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %.split.preheader, %tstoken_list_member.exit.thread
-  %.0336693 = phi ptr [ %.2, %tstoken_list_member.exit.thread ], [ null, %.split.preheader ]
+  %.0336693 = phi ptr [ %.1, %tstoken_list_member.exit.thread ], [ null, %.split.preheader ]
   %indvars.iv92 = phi i64 [ %indvars.iv.next, %tstoken_list_member.exit.thread ], [ 0, %.split.preheader ]
   %22 = load ptr, ptr %16, align 8
   %23 = getelementptr %union.ListCell, ptr %22, i64 %indvars.iv92
@@ -2847,7 +2847,7 @@ tstoken_list_member.exit.us.loopexit:             ; preds = %.split.us
   unreachable
 
 tstoken_list_member.exit.thread:                  ; preds = %33, %.critedge
-  %.2 = phi ptr [ %56, %.critedge ], [ %.0336693, %33 ]
+  %.1 = phi ptr [ %56, %.critedge ], [ %.0336693, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv92, 1
   %61 = load i32, ptr %4, align 4
   %62 = sext i32 %61 to i64
@@ -2855,7 +2855,7 @@ tstoken_list_member.exit.thread:                  ; preds = %33, %.critedge
   br i1 %63, label %.lr.ph, label %list_length.exit.thread, !llvm.loop !20
 
 list_length.exit.thread:                          ; preds = %tstoken_list_member.exit.thread, %.split.preheader, %.split.us, %2, %list_length.exit
-  %.0 = phi ptr [ null, %list_length.exit ], [ null, %2 ], [ null, %.split.us ], [ null, %.split.preheader ], [ %.2, %tstoken_list_member.exit.thread ]
+  %.0 = phi ptr [ null, %list_length.exit ], [ null, %2 ], [ null, %.split.us ], [ null, %.split.preheader ], [ %.1, %tstoken_list_member.exit.thread ]
   ret ptr %.0
 }
 

@@ -2150,7 +2150,7 @@ _ZN7rocksdb6StatusD2Ev.exit35:                    ; preds = %nrvo.unused27, %_ZN
   br label %nrvo.skipdtor28
 
 nrvo.skipdtor28:                                  ; preds = %invoke.cont18, %_ZN7rocksdb6StatusD2Ev.exit35
-  %batch_cnt.addr.088 = phi i64 [ %23, %_ZN7rocksdb6StatusD2Ev.exit35 ], [ 0, %invoke.cont18 ]
+  %batch_cnt.addr.188 = phi i64 [ %23, %_ZN7rocksdb6StatusD2Ev.exit35 ], [ 0, %invoke.cont18 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15SubBatchCounterE, i64 16), ptr %counter, align 8
   %keys_.i = getelementptr inbounds i8, ptr %counter, i64 16
   %28 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
@@ -2174,7 +2174,7 @@ ehcleanup:                                        ; preds = %_ZN7rocksdb6StatusD
   br label %eh.resume
 
 if.end32:                                         ; preds = %_ZN7rocksdb15SubBatchCounterD2Ev.exit, %if.end8
-  %batch_cnt.addr.1 = phi i64 [ %batch_cnt.addr.088, %_ZN7rocksdb15SubBatchCounterD2Ev.exit ], [ %batch_cnt, %if.end8 ]
+  %batch_cnt.addr.0 = phi i64 [ %batch_cnt.addr.188, %_ZN7rocksdb15SubBatchCounterD2Ev.exit ], [ %batch_cnt, %if.end8 ]
   %db_impl_ = getelementptr inbounds i8, ptr %this, i64 32
   %31 = load ptr, ptr %db_impl_, align 8
   %two_write_queues = getelementptr inbounds i8, ptr %31, i64 1252
@@ -2193,7 +2193,7 @@ if.end32:                                         ; preds = %_ZN7rocksdb15SubBat
   %db_impl_.i37 = getelementptr inbounds i8, ptr %add_prepared_callback, i64 16
   store ptr %33, ptr %db_impl_.i37, align 8
   %sub_batch_cnt_.i = getelementptr inbounds i8, ptr %add_prepared_callback, i64 24
-  store i64 %batch_cnt.addr.1, ptr %sub_batch_cnt_.i, align 8
+  store i64 %batch_cnt.addr.0, ptr %sub_batch_cnt_.i, align 8
   %two_write_queues_.i = getelementptr inbounds i8, ptr %add_prepared_callback, i64 32
   store i8 %frombool.i, ptr %two_write_queues_.i, align 8
   %first_prepare_batch_.i = getelementptr inbounds i8, ptr %add_prepared_callback, i64 33
@@ -2208,9 +2208,9 @@ if.end32:                                         ; preds = %_ZN7rocksdb15SubBat
   %prep_batch_cnt_.i = getelementptr inbounds i8, ptr %update_commit_map, i64 32
   store i64 0, ptr %prep_batch_cnt_.i, align 8
   %data_batch_cnt_.i = getelementptr inbounds i8, ptr %update_commit_map, i64 40
-  store i64 %batch_cnt.addr.1, ptr %data_batch_cnt_.i, align 8
+  store i64 %batch_cnt.addr.0, ptr %data_batch_cnt_.i, align 8
   %includes_data_.i = getelementptr inbounds i8, ptr %update_commit_map, i64 48
-  %cmp.i40 = icmp ne i64 %batch_cnt.addr.1, 0
+  %cmp.i40 = icmp ne i64 %batch_cnt.addr.0, 0
   %frombool.i41 = zext i1 %cmp.i40 to i8
   store i8 %frombool.i41, ptr %includes_data_.i, align 8
   %aux_seq_.i = getelementptr inbounds i8, ptr %update_commit_map, i64 56
@@ -2220,7 +2220,7 @@ if.end32:                                         ; preds = %_ZN7rocksdb15SubBat
   %includes_aux_batch_.i = getelementptr inbounds i8, ptr %update_commit_map, i64 72
   store i8 0, ptr %includes_aux_batch_.i, align 8
   %add_prepared_callback.update_commit_map = select i1 %tobool, ptr %add_prepared_callback, ptr %update_commit_map
-  invoke void @_ZN7rocksdb6DBImpl9WriteImplERKNS_12WriteOptionsEPNS_10WriteBatchEPNS_13WriteCallbackEPmmbS8_mPNS_18PreReleaseCallbackEPNS_20PostMemTableCallbackE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp49, ptr noundef nonnull align 64 dereferenceable(6660) %33, ptr noundef nonnull align 8 dereferenceable(24) %write_options, ptr noundef nonnull %batch, ptr noundef null, ptr noundef null, i64 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %seq_used, i64 noundef %batch_cnt.addr.1, ptr noundef nonnull %add_prepared_callback.update_commit_map, ptr noundef null)
+  invoke void @_ZN7rocksdb6DBImpl9WriteImplERKNS_12WriteOptionsEPNS_10WriteBatchEPNS_13WriteCallbackEPmmbS8_mPNS_18PreReleaseCallbackEPNS_20PostMemTableCallbackE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %ref.tmp49, ptr noundef nonnull align 64 dereferenceable(6660) %33, ptr noundef nonnull align 8 dereferenceable(24) %write_options, ptr noundef nonnull %batch, ptr noundef null, ptr noundef null, i64 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %seq_used, i64 noundef %batch_cnt.addr.0, ptr noundef nonnull %add_prepared_callback.update_commit_map, ptr noundef null)
           to label %invoke.cont52 unwind label %lpad51
 
 invoke.cont52:                                    ; preds = %if.end32
@@ -2312,7 +2312,7 @@ if.end64:                                         ; preds = %invoke.cont58
   %prep_seq_.i51 = getelementptr inbounds i8, ptr %update_commit_map_with_prepare, i64 24
   store i64 %44, ptr %prep_seq_.i51, align 8
   %prep_batch_cnt_.i52 = getelementptr inbounds i8, ptr %update_commit_map_with_prepare, i64 32
-  store i64 %batch_cnt.addr.1, ptr %prep_batch_cnt_.i52, align 8
+  store i64 %batch_cnt.addr.0, ptr %prep_batch_cnt_.i52, align 8
   %data_batch_cnt_.i53 = getelementptr inbounds i8, ptr %update_commit_map_with_prepare, i64 40
   store i64 0, ptr %data_batch_cnt_.i53, align 8
   %includes_data_.i54 = getelementptr inbounds i8, ptr %update_commit_map_with_prepare, i64 48
@@ -6291,7 +6291,7 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.body, %entry
-  %search_larger_list.0 = phi i1 [ false, %entry ], [ %search_larger_list.1, %for.body ]
+  %search_larger_list.0 = phi i1 [ false, %entry ], [ %search_larger_list.2, %for.body ]
   %ip1.0 = phi i64 [ %.sroa.speculated, %entry ], [ %sub, %for.body ]
   %cmp.not = icmp eq i64 %ip1.0, 0
   br i1 %cmp.not, label %for.end, label %for.body
@@ -6306,15 +6306,15 @@ for.body:                                         ; preds = %for.cond
   %cmp6 = icmp eq i64 %ip1.0, %4
   %5 = load i64, ptr %commit_seq, align 8
   %cmp7 = icmp ult i64 %3, %5
-  %search_larger_list.1 = select i1 %cmp6, i1 %cmp7, i1 %search_larger_list.0
+  %search_larger_list.2 = select i1 %cmp6, i1 %cmp7, i1 %search_larger_list.0
   %call9 = call noundef zeroext i1 @_ZN7rocksdb18WritePreparedTxnDB23MaybeUpdateOldCommitMapERKmS2_S2_b(ptr noundef nonnull align 8 dereferenceable(1352) %this, ptr noundef nonnull align 8 dereferenceable(8) %evicted, ptr noundef nonnull align 8 dereferenceable(8) %commit_seq, ptr noundef nonnull align 8 dereferenceable(8) %snapshot_seq, i1 noundef zeroext false)
   br i1 %call9, label %for.cond, label %for.end, !llvm.loop !52
 
 for.end:                                          ; preds = %for.body, %for.cond
-  %search_larger_list.2 = phi i1 [ %search_larger_list.1, %for.body ], [ %search_larger_list.0, %for.cond ]
+  %search_larger_list.1 = phi i1 [ %search_larger_list.2, %for.body ], [ %search_larger_list.0, %for.cond ]
   %6 = load i64, ptr %SNAPSHOT_CACHE_SIZE, align 8
   %cmp13 = icmp ult i64 %6, %0
-  %7 = select i1 %cmp13, i1 %search_larger_list.2, i1 false
+  %7 = select i1 %cmp13, i1 %search_larger_list.1, i1 false
   br i1 %7, label %if.then14, label %if.end50
 
 if.then14:                                        ; preds = %for.end
@@ -7240,24 +7240,24 @@ land.lhs.true.lr.ph:                              ; preds = %while.cond.preheade
 land.lhs.true:                                    ; preds = %land.lhs.true.lr.ph, %while.body
   %13 = phi i64 [ %12, %land.lhs.true.lr.ph ], [ %18, %while.body ]
   %retry.039 = phi i64 [ 0, %land.lhs.true.lr.ph ], [ %inc, %while.body ]
-  %snap_impl.038 = phi ptr [ %call2, %land.lhs.true.lr.ph ], [ %call24, %while.body ]
-  %vtable9 = load ptr, ptr %snap_impl.038, align 8
+  %snap_impl.138 = phi ptr [ %call2, %land.lhs.true.lr.ph ], [ %call24, %while.body ]
+  %vtable9 = load ptr, ptr %snap_impl.138, align 8
   %14 = load ptr, ptr %vtable9, align 8
-  %call11 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(65) %snap_impl.038)
+  %call11 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(65) %snap_impl.138)
   %cmp12 = icmp ule i64 %call11, %13
   %cmp14 = icmp ult i64 %retry.039, 100
   %or.cond = select i1 %cmp12, i1 %cmp14, i1 false
   br i1 %or.cond, label %while.body, label %while.end
 
 while.body:                                       ; preds = %land.lhs.true
-  %vtable17 = load ptr, ptr %snap_impl.038, align 8
+  %vtable17 = load ptr, ptr %snap_impl.138, align 8
   %15 = load ptr, ptr %vtable17, align 8
-  %call19 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(65) %snap_impl.038)
+  %call19 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(65) %snap_impl.138)
   tail call void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelERKSt10shared_ptrINS_6LoggerEEPKcz(i8 noundef zeroext 2, ptr noundef nonnull align 8 dereferenceable(16) %info_log_, ptr noundef nonnull @.str.10, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.5, i64 93), i64 noundef %call19, i64 noundef %13, i64 noundef %retry.039)
   %vtable20 = load ptr, ptr %this, align 8
   %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 480
   %16 = load ptr, ptr %vfn21, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %snap_impl.038)
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %snap_impl.138)
   tail call void @_ZN7rocksdb18WritePreparedTxnDB15AdvanceSeqByOneEv(ptr noundef nonnull align 8 dereferenceable(1352) %this)
   %17 = load ptr, ptr %db_impl_.i, align 8
   %call24 = tail call noundef ptr @_ZN7rocksdb6DBImpl15GetSnapshotImplEbb(ptr noundef nonnull align 64 dereferenceable(6660) %17, i1 noundef zeroext %for_ww_conflict_check, i1 noundef zeroext true)
@@ -7267,20 +7267,20 @@ while.body:                                       ; preds = %land.lhs.true
   br i1 %cmp8.not, label %while.end, label %land.lhs.true, !llvm.loop !63
 
 while.end:                                        ; preds = %while.body, %land.lhs.true, %while.cond.preheader
-  %snap_impl.0.lcssa = phi ptr [ %call2, %while.cond.preheader ], [ %snap_impl.038, %land.lhs.true ], [ %call24, %while.body ]
+  %snap_impl.1.lcssa = phi ptr [ %call2, %while.cond.preheader ], [ %snap_impl.138, %land.lhs.true ], [ %call24, %while.body ]
   %retry.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %retry.039, %land.lhs.true ], [ %inc, %while.body ]
   %.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %13, %land.lhs.true ], [ 0, %while.body ]
-  %vtable25 = load ptr, ptr %snap_impl.0.lcssa, align 8
+  %vtable25 = load ptr, ptr %snap_impl.1.lcssa, align 8
   %19 = load ptr, ptr %vtable25, align 8
-  %call27 = tail call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(65) %snap_impl.0.lcssa)
+  %call27 = tail call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(65) %snap_impl.1.lcssa)
   %cmp28.not = icmp ugt i64 %call27, %.lcssa
   br i1 %cmp28.not, label %if.end64, label %if.then29
 
 if.then29:                                        ; preds = %while.end
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  %vtable35 = load ptr, ptr %snap_impl.0.lcssa, align 8
+  %vtable35 = load ptr, ptr %snap_impl.1.lcssa, align 8
   %20 = load ptr, ptr %vtable35, align 8
-  %call37 = invoke noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(65) %snap_impl.0.lcssa)
+  %call37 = invoke noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(65) %snap_impl.1.lcssa)
           to label %invoke.cont unwind label %ehcleanup63.thread
 
 invoke.cont:                                      ; preds = %if.then29
@@ -7376,40 +7376,40 @@ lpad55:                                           ; preds = %invoke.cont56, %inv
 
 ehcleanup:                                        ; preds = %lpad55, %lpad53
   %.pn = phi { ptr, i32 } [ %29, %lpad55 ], [ %28, %lpad53 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad55 ], [ true, %lpad53 ]
+  %cleanup.isactive.8 = phi i1 [ %cleanup.isactive.0, %lpad55 ], [ true, %lpad53 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp50) #23
   br label %ehcleanup57
 
 ehcleanup57:                                      ; preds = %ehcleanup, %lpad51
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %27, %lpad51 ]
-  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.1, %ehcleanup ], [ true, %lpad51 ]
+  %cleanup.isactive.7 = phi i1 [ %cleanup.isactive.8, %ehcleanup ], [ true, %lpad51 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp30) #23
   br label %ehcleanup58
 
 ehcleanup58:                                      ; preds = %ehcleanup57, %lpad48
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup57 ], [ %26, %lpad48 ]
-  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.2, %ehcleanup57 ], [ true, %lpad48 ]
+  %cleanup.isactive.6 = phi i1 [ %cleanup.isactive.7, %ehcleanup57 ], [ true, %lpad48 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #23
   br label %ehcleanup59
 
 ehcleanup59:                                      ; preds = %ehcleanup58, %lpad46
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup58 ], [ %25, %lpad46 ]
-  %cleanup.isactive.4 = phi i1 [ %cleanup.isactive.3, %ehcleanup58 ], [ true, %lpad46 ]
+  %cleanup.isactive.5 = phi i1 [ %cleanup.isactive.6, %ehcleanup58 ], [ true, %lpad46 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #23
   br label %ehcleanup60
 
 ehcleanup60:                                      ; preds = %ehcleanup59, %lpad44
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup59 ], [ %24, %lpad44 ]
-  %cleanup.isactive.5 = phi i1 [ %cleanup.isactive.4, %ehcleanup59 ], [ true, %lpad44 ]
+  %cleanup.isactive.4 = phi i1 [ %cleanup.isactive.5, %ehcleanup59 ], [ true, %lpad44 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp32) #23
   br label %ehcleanup63
 
 ehcleanup63:                                      ; preds = %lpad41, %ehcleanup60
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup60 ], [ %23, %lpad41 ]
-  %cleanup.isactive.6 = phi i1 [ %cleanup.isactive.5, %ehcleanup60 ], [ true, %lpad41 ]
+  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.4, %ehcleanup60 ], [ true, %lpad41 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34) #23
-  br i1 %cleanup.isactive.6, label %cleanup.action, label %eh.resume
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup63.thread34, %ehcleanup63.thread, %ehcleanup63
   %.pn.pn.pn.pn.pn.pn.pn.pn33 = phi { ptr, i32 } [ %21, %ehcleanup63.thread ], [ %.pn.pn.pn.pn.pn.pn, %ehcleanup63 ], [ %22, %ehcleanup63.thread34 ]
@@ -7417,10 +7417,10 @@ cleanup.action:                                   ; preds = %ehcleanup63.thread3
   br label %eh.resume
 
 if.end64:                                         ; preds = %_ZN7rocksdb18WritePreparedTxnDB22SmallestUnCommittedSeqEv.exit, %while.end, %land.rhs
-  %snap_impl.1 = phi ptr [ %snap_impl.0.lcssa, %while.end ], [ %call2, %land.rhs ], [ %call2, %_ZN7rocksdb18WritePreparedTxnDB22SmallestUnCommittedSeqEv.exit ]
-  %min_uncommitted_.i = getelementptr inbounds i8, ptr %snap_impl.1, i64 16
+  %snap_impl.0 = phi ptr [ %snap_impl.1.lcssa, %while.end ], [ %call2, %land.rhs ], [ %call2, %_ZN7rocksdb18WritePreparedTxnDB22SmallestUnCommittedSeqEv.exit ]
+  %min_uncommitted_.i = getelementptr inbounds i8, ptr %snap_impl.0, i64 16
   store i64 %retval.1.i, ptr %min_uncommitted_.i, align 8
-  ret ptr %snap_impl.1
+  ret ptr %snap_impl.0
 
 eh.resume:                                        ; preds = %ehcleanup63, %cleanup.action
   %.pn.pn.pn.pn.pn.pn.pn.pn32 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup63 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn33, %cleanup.action ]
@@ -13824,7 +13824,7 @@ if.end7:                                          ; preds = %if.end4
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end7
-  %retval.0 = phi i1 [ undef, %if.end7 ], [ %retval.2, %do.cond ]
+  %retval.1 = phi i1 [ undef, %if.end7 ], [ %retval.2, %do.cond ]
   %repeats.0 = phi i64 [ 0, %if.end7 ], [ %inc, %do.cond ]
   %inc = add nuw nsw i64 %repeats.0, 1
   %exitcond = icmp eq i64 %repeats.0, 99
@@ -14034,8 +14034,8 @@ if.end67:                                         ; preds = %if.else56, %land.lh
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %for.cond.i.i, %if.end15.i.i, %if.end67, %if.then64, %if.else
-  %max_evicted_seq_ub.0 = phi i64 [ %2, %if.else ], [ %2, %if.then64 ], [ %36, %if.end67 ], [ %2, %if.end15.i.i ], [ %2, %for.cond.i.i ], [ %2, %lor.lhs.false.i.i.i.i ], [ %2, %if.end3.i.i.i.i ]
-  %retval.1 = phi i1 [ %cmp55, %if.else ], [ %cmp66, %if.then64 ], [ %retval.0, %if.end67 ], [ false, %if.end15.i.i ], [ false, %for.cond.i.i ], [ false, %lor.lhs.false.i.i.i.i ], [ false, %if.end3.i.i.i.i ]
+  %max_evicted_seq_ub.1 = phi i64 [ %2, %if.else ], [ %2, %if.then64 ], [ %36, %if.end67 ], [ %2, %if.end15.i.i ], [ %2, %for.cond.i.i ], [ %2, %lor.lhs.false.i.i.i.i ], [ %2, %if.end3.i.i.i.i ]
+  %retval.3 = phi i1 [ %cmp55, %if.else ], [ %cmp66, %if.then64 ], [ %retval.1, %if.end67 ], [ false, %if.end15.i.i ], [ false, %for.cond.i.i ], [ false, %lor.lhs.false.i.i.i.i ], [ false, %if.end3.i.i.i.i ]
   %switch = phi i1 [ false, %if.else ], [ false, %if.then64 ], [ true, %if.end67 ], [ false, %if.end15.i.i ], [ false, %for.cond.i.i ], [ false, %lor.lhs.false.i.i.i.i ], [ false, %if.end3.i.i.i.i ]
   invoke void @_ZN7rocksdb4port7RWMutex10ReadUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %prepared_mutex_)
           to label %_ZN7rocksdb8ReadLockD2Ev.exit38 unwind label %terminate.lpad.i37
@@ -14051,9 +14051,9 @@ _ZN7rocksdb8ReadLockD2Ev.exit38:                  ; preds = %cleanup
   br i1 %switch, label %do.cond, label %return
 
 do.cond:                                          ; preds = %_ZN7rocksdb8ReadLockD2Ev.exit38, %if.end18
-  %max_evicted_seq_ub.1 = phi i64 [ %9, %if.end18 ], [ %max_evicted_seq_ub.0, %_ZN7rocksdb8ReadLockD2Ev.exit38 ]
-  %retval.2 = phi i1 [ %retval.0, %if.end18 ], [ %retval.1, %_ZN7rocksdb8ReadLockD2Ev.exit38 ]
-  %cmp72.not = icmp eq i64 %2, %max_evicted_seq_ub.1
+  %max_evicted_seq_ub.0 = phi i64 [ %9, %if.end18 ], [ %max_evicted_seq_ub.1, %_ZN7rocksdb8ReadLockD2Ev.exit38 ]
+  %retval.2 = phi i1 [ %retval.1, %if.end18 ], [ %retval.3, %_ZN7rocksdb8ReadLockD2Ev.exit38 ]
+  %cmp72.not = icmp eq i64 %2, %max_evicted_seq_ub.0
   br i1 %cmp72.not, label %do.end, label %do.body, !llvm.loop !144
 
 do.end:                                           ; preds = %if.end26, %do.cond
@@ -14158,8 +14158,8 @@ terminate.lpad.i71:                               ; preds = %cleanup109
   unreachable
 
 return:                                           ; preds = %_ZN7rocksdb8ReadLockD2Ev.exit38, %if.end23, %cleanup109, %do.end, %if.end4, %if.end, %entry, %if.then77, %if.then16
-  %retval.4 = phi i1 [ %cmp17, %if.then16 ], [ true, %if.then77 ], [ true, %entry ], [ false, %if.end ], [ true, %if.end4 ], [ true, %do.end ], [ %switch16, %cleanup109 ], [ false, %if.end23 ], [ %retval.1, %_ZN7rocksdb8ReadLockD2Ev.exit38 ]
-  ret i1 %retval.4
+  %retval.0 = phi i1 [ %cmp17, %if.then16 ], [ true, %if.then77 ], [ true, %entry ], [ false, %if.end ], [ true, %if.end4 ], [ true, %do.end ], [ %switch16, %cleanup109 ], [ false, %if.end23 ], [ %retval.3, %_ZN7rocksdb8ReadLockD2Ev.exit38 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad80, %lpad29, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad ], [ %27, %lpad29 ], [ %48, %lpad80 ]
@@ -14922,40 +14922,40 @@ lpad24:                                           ; preds = %invoke.cont25, %inv
 
 ehcleanup:                                        ; preds = %lpad24, %lpad22
   %.pn = phi { ptr, i32 } [ %10, %lpad24 ], [ %9, %lpad22 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad24 ], [ true, %lpad22 ]
+  %cleanup.isactive.8 = phi i1 [ %cleanup.isactive.0, %lpad24 ], [ true, %lpad22 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp19) #23
   br label %ehcleanup26
 
 ehcleanup26:                                      ; preds = %ehcleanup, %lpad20
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %8, %lpad20 ]
-  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.1, %ehcleanup ], [ true, %lpad20 ]
+  %cleanup.isactive.7 = phi i1 [ %cleanup.isactive.8, %ehcleanup ], [ true, %lpad20 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #23
   br label %ehcleanup27
 
 ehcleanup27:                                      ; preds = %ehcleanup26, %lpad17
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup26 ], [ %7, %lpad17 ]
-  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.2, %ehcleanup26 ], [ true, %lpad17 ]
+  %cleanup.isactive.6 = phi i1 [ %cleanup.isactive.7, %ehcleanup26 ], [ true, %lpad17 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #23
   br label %ehcleanup28
 
 ehcleanup28:                                      ; preds = %ehcleanup27, %lpad15
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup27 ], [ %6, %lpad15 ]
-  %cleanup.isactive.4 = phi i1 [ %cleanup.isactive.3, %ehcleanup27 ], [ true, %lpad15 ]
+  %cleanup.isactive.5 = phi i1 [ %cleanup.isactive.6, %ehcleanup27 ], [ true, %lpad15 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #23
   br label %ehcleanup29
 
 ehcleanup29:                                      ; preds = %ehcleanup28, %lpad13
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %ehcleanup28 ], [ %5, %lpad13 ]
-  %cleanup.isactive.5 = phi i1 [ %cleanup.isactive.4, %ehcleanup28 ], [ true, %lpad13 ]
+  %cleanup.isactive.4 = phi i1 [ %cleanup.isactive.5, %ehcleanup28 ], [ true, %lpad13 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #23
   br label %ehcleanup32
 
 ehcleanup32:                                      ; preds = %lpad10, %ehcleanup29
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup29 ], [ %4, %lpad10 ]
-  %cleanup.isactive.6 = phi i1 [ %cleanup.isactive.5, %ehcleanup29 ], [ true, %lpad10 ]
+  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.4, %ehcleanup29 ], [ true, %lpad10 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #23
-  br i1 %cleanup.isactive.6, label %cleanup.action, label %eh.resume
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup32.thread24, %ehcleanup32.thread, %ehcleanup32
   %.pn.pn.pn.pn.pn.pn.pn.pn23 = phi { ptr, i32 } [ %2, %ehcleanup32.thread ], [ %.pn.pn.pn.pn.pn.pn, %ehcleanup32 ], [ %3, %ehcleanup32.thread24 ]

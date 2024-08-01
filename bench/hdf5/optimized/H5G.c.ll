@@ -1634,7 +1634,7 @@ define range(i32 -1, 1) i32 @H5Gclose_async(ptr noundef %0, ptr noundef %1, i32 
 
 45:                                               ; preds = %41, %33
   %.031 = phi ptr [ %35, %41 ], [ null, %33 ]
-  %.029 = phi ptr [ %43, %41 ], [ null, %33 ]
+  %.130 = phi ptr [ %43, %41 ], [ null, %33 ]
   %.028 = phi ptr [ %6, %41 ], [ null, %33 ]
   %46 = call i32 @H5I_dec_app_ref_async(i64 noundef %3, ptr noundef %.028) #2
   %47 = icmp slt i32 %46, 0
@@ -1667,11 +1667,11 @@ define range(i32 -1, 1) i32 @H5Gclose_async(ptr noundef %0, ptr noundef %1, i32 
 63:                                               ; preds = %52, %54, %59, %48
   %.026 = phi i32 [ -1, %48 ], [ -1, %59 ], [ 0, %54 ], [ 0, %52 ]
   %.0 = phi i1 [ true, %48 ], [ true, %59 ], [ false, %54 ], [ false, %52 ]
-  %.not36 = icmp eq ptr %.029, null
+  %.not36 = icmp eq ptr %.130, null
   br i1 %.not36, label %72, label %64
 
 64:                                               ; preds = %63
-  %65 = call i64 @H5VL_conn_dec_rc(ptr noundef nonnull %.029) #2
+  %65 = call i64 @H5VL_conn_dec_rc(ptr noundef nonnull %.130) #2
   %66 = icmp slt i64 %65, 0
   br i1 %66, label %.thread64, label %72
 

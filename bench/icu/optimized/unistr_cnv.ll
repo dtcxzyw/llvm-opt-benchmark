@@ -655,7 +655,7 @@ if.then19:                                        ; preds = %if.end17
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then19
-  %length.addr.0 = phi i32 [ %conv, %if.then19 ], [ %add27, %do.body ]
+  %length.addr.1 = phi i32 [ %conv, %if.then19 ], [ %add27, %do.body ]
   store ptr %buffer, ptr %dest.addr, align 8
   store i32 0, ptr %errorCode, align 4
   call void @ucnv_fromUnicode_75(ptr noundef %cnv, ptr noundef nonnull %dest.addr, ptr noundef nonnull %add.ptr20, ptr noundef nonnull %src, ptr noundef %add.ptr6, ptr noundef null, i8 noundef signext 1, ptr noundef nonnull %errorCode)
@@ -663,14 +663,14 @@ do.body:                                          ; preds = %do.body, %if.then19
   %sub.ptr.lhs.cast23 = ptrtoint ptr %9 to i64
   %sub.ptr.sub25 = sub i64 %sub.ptr.lhs.cast23, %sub.ptr.rhs.cast24
   %conv26 = trunc i64 %sub.ptr.sub25 to i32
-  %add27 = add nsw i32 %length.addr.0, %conv26
+  %add27 = add nsw i32 %length.addr.1, %conv26
   %10 = load i32, ptr %errorCode, align 4
   %cmp28 = icmp eq i32 %10, 15
   br i1 %cmp28, label %do.body, label %if.end29, !llvm.loop !6
 
 if.end29:                                         ; preds = %do.body, %if.end17
-  %length.addr.1 = phi i32 [ %conv, %if.end17 ], [ %add27, %do.body ]
-  %call30 = call i32 @u_terminateChars_75(ptr noundef %dest, i32 noundef %destCapacity.addr.0, i32 noundef %length.addr.1, ptr noundef nonnull %errorCode)
+  %length.addr.0 = phi i32 [ %conv, %if.end17 ], [ %add27, %do.body ]
+  %call30 = call i32 @u_terminateChars_75(ptr noundef %dest, i32 noundef %destCapacity.addr.0, i32 noundef %length.addr.0, ptr noundef nonnull %errorCode)
   br label %return
 
 return:                                           ; preds = %if.then, %if.then2, %if.end29

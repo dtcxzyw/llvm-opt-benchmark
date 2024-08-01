@@ -2226,21 +2226,21 @@ determine_best_coding_stop_bits.exit161:          ; preds = %76
   store i32 %85, ptr %19, align 4
   %86 = icmp slt i32 %85, %.2115
   %.3116 = call i32 @llvm.smin.i32(i32 %85, i32 %.2115)
-  %.3 = select i1 %86, i32 8, i32 %.2
+  %.4 = select i1 %86, i32 8, i32 %.2
   call fastcc void @compress_quantized_vel(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 5, i32 noundef 9, i32 noundef 0, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %19, ptr noundef null)
   %87 = load i32, ptr %19, align 4
   %88 = add nsw i32 %87, -40
   %89 = icmp slt i32 %88, %.3116
   %90 = or i1 %86, %89
   %spec.select = select i1 %90, i32 0, i32 %.2110
-  %spec.select126 = select i1 %89, i32 9, i32 %.3
+  %spec.select126 = select i1 %89, i32 9, i32 %.4
   br label %91
 
 91:                                               ; preds = %83, %81
-  %.4112 = phi i32 [ %.2110, %81 ], [ %spec.select, %83 ]
-  %.4 = phi i32 [ %.2, %81 ], [ %spec.select126, %83 ]
-  store i32 %.4, ptr %7, align 4
-  store i32 %.4112, ptr %8, align 4
+  %.3111 = phi i32 [ %.2110, %81 ], [ %spec.select, %83 ]
+  %.3 = phi i32 [ %.2, %81 ], [ %spec.select126, %83 ]
+  store i32 %.3, ptr %7, align 4
+  store i32 %.3111, ptr %8, align 4
   br label %169
 
 92:                                               ; preds = %9

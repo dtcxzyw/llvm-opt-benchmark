@@ -1786,7 +1786,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %34
 
 33:                                               ; preds = %14, %32
-  %.07 = phi i32 [ %31, %32 ], [ 0, %14 ]
+  %.18 = phi i32 [ %31, %32 ], [ 0, %14 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #19
   br label %35
 
@@ -1796,8 +1796,8 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   resume { ptr, i32 } %.pn.pn
 
 35:                                               ; preds = %2, %33
-  %.18 = phi i32 [ %.07, %33 ], [ 0, %2 ]
-  ret i32 %.18
+  %.07 = phi i32 [ %.18, %33 ], [ 0, %2 ]
+  ret i32 %.07
 }
 
 declare noundef zeroext i1 @_ZN5cmsys11SystemTools10FileExistsEPKc(ptr noundef) local_unnamed_addr #0

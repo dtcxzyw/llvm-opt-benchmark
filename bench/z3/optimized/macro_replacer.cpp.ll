@@ -4774,8 +4774,8 @@ ehcleanup59:                                      ; preds = %ehcleanup57, %lpad8
   resume { ptr, i32 } %.pn12.pn
 
 return:                                           ; preds = %if.then2.i.i.i80, %if.then.i.i.i75, %_ZN7obj_refI4expr11ast_managerED2Ev.exit73, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %call10, %_ZN7obj_refI4expr11ast_managerED2Ev.exit73 ], [ %call10, %if.then.i.i.i75 ], [ %call10, %if.then2.i.i.i80 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %call10, %_ZN7obj_refI4expr11ast_managerED2Ev.exit73 ], [ %call10, %if.then.i.i.i75 ], [ %call10, %if.then2.i.i.i80 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

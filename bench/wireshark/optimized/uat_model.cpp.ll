@@ -1687,8 +1687,8 @@ define i32 @_ZNK8UatModel5flagsERK11QModelIndex(ptr noundef nonnull align 8 dere
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %2, %11
-  %.sroa.0.1 = phi i32 [ %22, %11 ], [ 0, %2 ]
-  ret i32 %.sroa.0.1
+  %.sroa.0.0 = phi i32 [ %22, %11 ], [ 0, %2 ]
+  ret i32 %.sroa.0.0
 }
 
 declare i32 @_ZNK19QAbstractTableModel5flagsERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
@@ -8549,8 +8549,8 @@ _ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_lik
 .lr.ph:                                           ; preds = %57, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit52
   %.076 = phi i64 [ %86, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit52 ], [ 0, %57 ]
   %.03575 = phi ptr [ %63, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit52 ], [ %58, %57 ]
-  %.274 = phi ptr [ %62, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit52 ], [ %60, %57 ]
-  %62 = getelementptr i8, ptr %.274, i64 -8
+  %.374 = phi ptr [ %62, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit52 ], [ %60, %57 ]
+  %62 = getelementptr i8, ptr %.374, i64 -8
   %63 = getelementptr i8, ptr %.03575, i64 -8
   %64 = load ptr, ptr %62, align 8
   store ptr null, ptr %62, align 8
@@ -8619,7 +8619,7 @@ _ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_lik
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit52, %57
-  %.2.lcssa = phi ptr [ %60, %57 ], [ %.039, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit52 ]
+  %.3.lcssa = phi ptr [ %60, %57 ], [ %.039, %_ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit52 ]
   %87 = srem i64 %.067, %23
   %88 = icmp eq i64 %87, 0
   br i1 %88, label %_ZSt11swap_rangesIP4QMapIi7QStringES3_ET0_T_S5_S4_.exit, label %.backedge
@@ -8627,7 +8627,7 @@ _ZSt4swapI4QMapIi7QStringEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_lik
 .backedge:                                        ; preds = %._crit_edge, %55
   %.067.be = phi i64 [ %.065, %55 ], [ %23, %._crit_edge ]
   %.065.be = phi i64 [ %56, %55 ], [ %87, %._crit_edge ]
-  %.039.be = phi ptr [ %.1.lcssa, %55 ], [ %.2.lcssa, %._crit_edge ]
+  %.039.be = phi ptr [ %.1.lcssa, %55 ], [ %.3.lcssa, %._crit_edge ]
   br label %22, !llvm.loop !47
 
 _ZSt11swap_rangesIP4QMapIi7QStringES3_ET0_T_S5_S4_.exit: ; preds = %._crit_edge, %._crit_edge82, %.lr.ph.i, %5, %3
@@ -8838,8 +8838,8 @@ _ZSt13move_backwardIPbS0_ET0_T_S2_S1_.exit:       ; preds = %53, %57
 .lr.ph:                                           ; preds = %62, %.lr.ph
   %.085 = phi i64 [ %72, %.lr.ph ], [ 0, %62 ]
   %.04984 = phi ptr [ %67, %.lr.ph ], [ %52, %62 ]
-  %.283 = phi ptr [ %66, %.lr.ph ], [ %64, %62 ]
-  %66 = getelementptr i8, ptr %.283, i64 -1
+  %.383 = phi ptr [ %66, %.lr.ph ], [ %64, %62 ]
+  %66 = getelementptr i8, ptr %.383, i64 -1
   %67 = getelementptr i8, ptr %.04984, i64 -1
   %68 = load i8, ptr %66, align 1
   %69 = and i8 %68, 1
@@ -8852,7 +8852,7 @@ _ZSt13move_backwardIPbS0_ET0_T_S2_S1_.exit:       ; preds = %53, %57
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph, %62
-  %.2.lcssa = phi ptr [ %64, %62 ], [ %.053, %.lr.ph ]
+  %.3.lcssa = phi ptr [ %64, %62 ], [ %.053, %.lr.ph ]
   %73 = srem i64 %.076, %25
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %_ZSt11swap_rangesIPbS0_ET0_T_S2_S1_.exit, label %.backedge
@@ -8860,7 +8860,7 @@ _ZSt13move_backwardIPbS0_ET0_T_S2_S1_.exit:       ; preds = %53, %57
 .backedge:                                        ; preds = %._crit_edge, %48
   %.076.be = phi i64 [ %.074, %48 ], [ %25, %._crit_edge ]
   %.074.be = phi i64 [ %49, %48 ], [ %73, %._crit_edge ]
-  %.053.be = phi ptr [ %.1.lcssa, %48 ], [ %.2.lcssa, %._crit_edge ]
+  %.053.be = phi ptr [ %.1.lcssa, %48 ], [ %.3.lcssa, %._crit_edge ]
   br label %24, !llvm.loop !51
 
 _ZSt11swap_rangesIPbS0_ET0_T_S2_S1_.exit:         ; preds = %._crit_edge, %._crit_edge91, %.lr.ph.i, %5, %3, %_ZSt13move_backwardIPbS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPbS0_ET0_T_S2_S1_.exit

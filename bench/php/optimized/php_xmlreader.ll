@@ -4412,7 +4412,7 @@ xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
   br label %63
 
 63:                                               ; preds = %61, %48
-  %.047 = phi ptr [ %62, %61 ], [ null, %48 ]
+  %.148 = phi ptr [ %62, %61 ], [ null, %48 ]
   %64 = call ptr @__xmlLoadExtDtdDefaultValue() #11
   %65 = load i32, ptr %64, align 4
   %66 = call ptr @__xmlLoadExtDtdDefaultValue() #11
@@ -4425,7 +4425,7 @@ xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
   %71 = call i32 @xmlSubstituteEntitiesDefault(i32 noundef 0) #11
   %72 = call i32 @xmlLineNumbersDefault(i32 noundef 0) #11
   %73 = call i32 @xmlKeepBlanksDefault(i32 noundef 1) #11
-  %74 = call ptr @xmlNewTextReader(ptr noundef nonnull %47, ptr noundef %.047) #11
+  %74 = call ptr @xmlNewTextReader(ptr noundef nonnull %47, ptr noundef %.148) #11
   %.not60 = icmp eq ptr %74, null
   br i1 %.not60, label %100, label %75
 
@@ -4433,7 +4433,7 @@ xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
   %76 = load ptr, ptr %7, align 8
   %77 = load i64, ptr %5, align 8
   %78 = trunc i64 %77 to i32
-  %79 = call i32 @xmlTextReaderSetup(ptr noundef nonnull %74, ptr noundef null, ptr noundef %.047, ptr noundef %76, i32 noundef %78) #11
+  %79 = call i32 @xmlTextReaderSetup(ptr noundef nonnull %74, ptr noundef null, ptr noundef %.148, ptr noundef %76, i32 noundef %78) #11
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %100
 
@@ -4457,12 +4457,12 @@ xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
   %90 = getelementptr inbounds i8, ptr %.1, i64 8
   store ptr %47, ptr %90, align 8
   store ptr %74, ptr %.1, align 8
-  %.not63 = icmp eq ptr %.047, null
+  %.not63 = icmp eq ptr %.148, null
   br i1 %.not63, label %93, label %91
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr @xmlFree, align 8
-  call void %92(ptr noundef nonnull %.047) #11
+  call void %92(ptr noundef nonnull %.148) #11
   br label %93
 
 93:                                               ; preds = %91, %89
@@ -4485,12 +4485,12 @@ xmlreader_free_resources.exit:                    ; preds = %32, %29, %16
   %104 = call i32 @xmlSubstituteEntitiesDefault(i32 noundef %71) #11
   %105 = call i32 @xmlLineNumbersDefault(i32 noundef %72) #11
   %106 = call i32 @xmlKeepBlanksDefault(i32 noundef %73) #11
-  %.not61 = icmp eq ptr %.047, null
+  %.not61 = icmp eq ptr %.148, null
   br i1 %.not61, label %109, label %107
 
 107:                                              ; preds = %100
   %108 = load ptr, ptr @xmlFree, align 8
-  call void %108(ptr noundef nonnull %.047) #11
+  call void %108(ptr noundef nonnull %.148) #11
   br label %109
 
 109:                                              ; preds = %107, %100

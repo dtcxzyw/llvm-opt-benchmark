@@ -662,7 +662,7 @@ _ZN2cv3PtrINS_3MatEED2Ev.exit:                    ; preds = %136, %148, %_ZNSt16
   br label %.body44
 
 180:                                              ; preds = %163, %60, %43
-  %.019 = phi i32 [ -2, %43 ], [ -3, %60 ], [ 0, %163 ]
+  %.120 = phi i32 [ -2, %43 ], [ -3, %60 ], [ 0, %163 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #12
   br label %181
 
@@ -672,9 +672,9 @@ _ZN2cv3PtrINS_3MatEED2Ev.exit:                    ; preds = %136, %148, %_ZNSt16
   br label %182
 
 181:                                              ; preds = %25, %180
-  %.120 = phi i32 [ %.019, %180 ], [ -1, %25 ]
+  %.019 = phi i32 [ %.120, %180 ], [ -1, %25 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
-  ret i32 %.120
+  ret i32 %.019
 
 182:                                              ; preds = %.body44, %46, %36, %35
   %.pn35 = phi { ptr, i32 } [ %37, %36 ], [ %.pn33, %.body44 ], [ %.pn24, %46 ], [ %.pn22, %35 ]
@@ -1152,12 +1152,12 @@ define internal fastcc void @_ZL12DisplayImageN2cv3MatENSt7__cxx1112basic_string
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
   %50 = phi double [ %53, %.lr.ph.i.i ], [ %.ph, %.lr.ph.i.i.preheader ]
   %.idx = phi i64 [ %.add, %.lr.ph.i.i ], [ 8, %.lr.ph.i.i.preheader ]
-  %.sroa.02.010.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %18, %.lr.ph.i.i.preheader ]
+  %.sroa.02.110.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %18, %.lr.ph.i.i.preheader ]
   %.ptr = getelementptr inbounds i8, ptr %18, i64 %.idx
   %51 = load double, ptr %.ptr, align 8
   %52 = fcmp olt double %50, %51
   %53 = select i1 %52, double %51, double %50
-  %spec.select.i.i = select i1 %52, ptr %.ptr, ptr %.sroa.02.010.i.i
+  %spec.select.i.i = select i1 %52, ptr %.ptr, ptr %.sroa.02.110.i.i
   %.add = add nuw nsw i64 %.idx, 8
   %.not.i.i = icmp eq i64 %.add, 24
   br i1 %.not.i.i, label %.lr.ph.preheader.i.i25, label %.lr.ph.i.i, !llvm.loop !7
@@ -1171,12 +1171,12 @@ define internal fastcc void @_ZL12DisplayImageN2cv3MatENSt7__cxx1112basic_string
 .lr.ph.i.i27:                                     ; preds = %.lr.ph.i.i27, %.lr.ph.preheader.i.i25
   %55 = phi double [ %58, %.lr.ph.i.i27 ], [ %.pre.i.i26, %.lr.ph.preheader.i.i25 ]
   %.idx57 = phi i64 [ %.add58, %.lr.ph.i.i27 ], [ 8, %.lr.ph.preheader.i.i25 ]
-  %.sroa.02.010.i.i28 = phi ptr [ %spec.select.i.i29, %.lr.ph.i.i27 ], [ %16, %.lr.ph.preheader.i.i25 ]
+  %.sroa.02.110.i.i28 = phi ptr [ %spec.select.i.i29, %.lr.ph.i.i27 ], [ %16, %.lr.ph.preheader.i.i25 ]
   %.ptr59 = getelementptr inbounds i8, ptr %16, i64 %.idx57
   %56 = load double, ptr %.ptr59, align 8
   %57 = fcmp olt double %56, %55
   %58 = select i1 %57, double %56, double %55
-  %spec.select.i.i29 = select i1 %57, ptr %.ptr59, ptr %.sroa.02.010.i.i28
+  %spec.select.i.i29 = select i1 %57, ptr %.ptr59, ptr %.sroa.02.110.i.i28
   %.add58 = add nuw nsw i64 %.idx57, 8
   %.not.i.i30 = icmp eq i64 %.add58, 24
   br i1 %.not.i.i30, label %59, label %.lr.ph.i.i27, !llvm.loop !8

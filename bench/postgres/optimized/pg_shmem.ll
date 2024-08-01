@@ -210,14 +210,14 @@ define dso_local void @GetHugePageSize(ptr noundef writeonly %0, ptr noundef wri
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %.loopexit.thread, %2
-  %.132 = phi i64 [ 0, %2 ], [ 0, %.loopexit.thread ], [ %16, %.loopexit ]
+  %.032 = phi i64 [ 0, %2 ], [ 0, %.loopexit.thread ], [ %16, %.loopexit ]
   %18 = phi i64 [ 2097152, %2 ], [ 2097152, %.loopexit.thread ], [ %spec.select, %.loopexit ]
   %.in.in = load i32, ptr @huge_page_size, align 4
   %.not2334 = icmp eq i32 %.in.in, 0
   %.in = sext i32 %.in.in to i64
   %19 = shl nsw i64 %.in, 10
   %.017 = select i1 %.not2334, i64 %18, i64 %19
-  %.not25 = icmp eq i64 %.017, %.132
+  %.not25 = icmp eq i64 %.017, %.032
   br i1 %.not25, label %27, label %20
 
 20:                                               ; preds = %.thread
@@ -321,10 +321,10 @@ define dso_local ptr @PGSharedMemoryCreate(i64 noundef %0, ptr nocapture noundef
   %.not.i = icmp eq i64 %31, 0
   %32 = sub i64 %30, %31
   %33 = select i1 %.not.i, i64 0, i64 %32
-  %.025.i = add i64 %33, %0
+  %.126.i = add i64 %33, %0
   %34 = load i32, ptr %5, align 4
   %35 = or i32 %34, 33
-  %36 = call ptr @mmap(ptr noundef null, i64 noundef %.025.i, i32 noundef 3, i32 noundef %35, i32 noundef -1, i64 noundef 0) #11
+  %36 = call ptr @mmap(ptr noundef null, i64 noundef %.126.i, i32 noundef 3, i32 noundef %35, i32 noundef -1, i64 noundef 0) #11
   %37 = tail call ptr @__errno_location() #12
   %38 = load i32, ptr %37, align 4
   %39 = load i32, ptr @huge_pages, align 4
@@ -338,12 +338,12 @@ define dso_local ptr @PGSharedMemoryCreate(i64 noundef %0, ptr nocapture noundef
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i64 noundef %.025.i) #11
+  %45 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, i64 noundef %.126.i) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 626, ptr noundef nonnull @__func__.CreateAnonymousSegment) #11
   br label %46
 
 46:                                               ; preds = %44, %42, %29, %27
-  %.126.i = phi i64 [ %.025.i, %44 ], [ %.025.i, %42 ], [ %.025.i, %29 ], [ %0, %27 ]
+  %.025.i = phi i64 [ %.126.i, %44 ], [ %.126.i, %42 ], [ %.126.i, %29 ], [ %0, %27 ]
   %.023.i = phi ptr [ inttoptr (i64 -1 to ptr), %44 ], [ inttoptr (i64 -1 to ptr), %42 ], [ %36, %29 ], [ inttoptr (i64 -1 to ptr), %27 ]
   %.0.i = phi i32 [ %38, %44 ], [ %38, %42 ], [ %38, %29 ], [ 0, %27 ]
   %47 = icmp eq ptr %.023.i, inttoptr (i64 -1 to ptr)
@@ -361,7 +361,7 @@ define dso_local ptr @PGSharedMemoryCreate(i64 noundef %0, ptr nocapture noundef
   br label %55
 
 55:                                               ; preds = %51, %46
-  %.2.i = phi i64 [ %0, %51 ], [ %.126.i, %46 ]
+  %.2.i = phi i64 [ %0, %51 ], [ %.025.i, %46 ]
   %.124.i = phi ptr [ %52, %51 ], [ %.023.i, %46 ]
   %.1.i = phi i32 [ %54, %51 ], [ %.0.i, %46 ]
   %56 = icmp eq ptr %.124.i, inttoptr (i64 -1 to ptr)

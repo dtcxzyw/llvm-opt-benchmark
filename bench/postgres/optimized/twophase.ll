@@ -3270,7 +3270,7 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly %0, ptr 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %28
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %28 ], [ 0, %.lr.ph ]
   %13 = phi ptr [ %29, %28 ], [ %9, %.lr.ph ]
-  %.047.us = phi i32 [ %.2.us, %28 ], [ %5, %.lr.ph ]
+  %.047.us = phi i32 [ %.1.us, %28 ], [ %5, %.lr.ph ]
   %14 = getelementptr inbounds i8, ptr %13, i64 16
   %15 = getelementptr [0 x ptr], ptr %14, i64 0, i64 %indvars.iv54
   %16 = load ptr, ptr %15, align 8
@@ -3292,7 +3292,7 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly %0, ptr 
   br label %28
 
 28:                                               ; preds = %26, %.lr.ph.split.us
-  %.2.us = phi i32 [ %.047.us, %.lr.ph.split.us ], [ %spec.select.us, %26 ]
+  %.1.us = phi i32 [ %.047.us, %.lr.ph.split.us ], [ %spec.select.us, %26 ]
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %29 = load ptr, ptr @TwoPhaseState, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 8
@@ -3304,10 +3304,10 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly %0, ptr 
 .lr.ph.split:                                     ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.lr.ph ]
   %34 = phi ptr [ %64, %63 ], [ %9, %.lr.ph ]
-  %.047 = phi i32 [ %.2, %63 ], [ %5, %.lr.ph ]
-  %.02946 = phi ptr [ %.3, %63 ], [ null, %.lr.ph ]
-  %.03245 = phi i32 [ %.234, %63 ], [ 0, %.lr.ph ]
-  %.03643 = phi i32 [ %.339, %63 ], [ 0, %.lr.ph ]
+  %.047 = phi i32 [ %.1, %63 ], [ %5, %.lr.ph ]
+  %.02946 = phi ptr [ %.130, %63 ], [ null, %.lr.ph ]
+  %.03245 = phi i32 [ %.133, %63 ], [ 0, %.lr.ph ]
+  %.03643 = phi i32 [ %.137, %63 ], [ 0, %.lr.ph ]
   %35 = getelementptr inbounds i8, ptr %34, i64 16
   %36 = getelementptr [0 x ptr], ptr %35, i64 0, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
@@ -3344,20 +3344,20 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly %0, ptr 
   br label %59
 
 59:                                               ; preds = %52, %54, %47
-  %.137 = phi i32 [ 10, %52 ], [ %55, %54 ], [ %.03643, %47 ]
-  %.130 = phi ptr [ %53, %52 ], [ %58, %54 ], [ %.02946, %47 ]
+  %.339 = phi i32 [ 10, %52 ], [ %55, %54 ], [ %.03643, %47 ]
+  %.3 = phi ptr [ %53, %52 ], [ %58, %54 ], [ %.02946, %47 ]
   %60 = add i32 %.03245, 1
   %61 = sext i32 %.03245 to i64
-  %62 = getelementptr i32, ptr %.130, i64 %61
+  %62 = getelementptr i32, ptr %.3, i64 %61
   store i32 %39, ptr %62, align 4
   tail call void @pfree(ptr noundef nonnull %45) #15
   br label %63
 
 63:                                               ; preds = %.lr.ph.split, %59
-  %.339 = phi i32 [ %.03643, %.lr.ph.split ], [ %.137, %59 ]
-  %.234 = phi i32 [ %.03245, %.lr.ph.split ], [ %60, %59 ]
-  %.3 = phi ptr [ %.02946, %.lr.ph.split ], [ %.130, %59 ]
-  %.2 = phi i32 [ %.047, %.lr.ph.split ], [ %spec.select, %59 ]
+  %.137 = phi i32 [ %.03643, %.lr.ph.split ], [ %.339, %59 ]
+  %.133 = phi i32 [ %.03245, %.lr.ph.split ], [ %60, %59 ]
+  %.130 = phi ptr [ %.02946, %.lr.ph.split ], [ %.3, %59 ]
+  %.1 = phi i32 [ %.047, %.lr.ph.split ], [ %spec.select, %59 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load ptr, ptr @TwoPhaseState, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 8
@@ -3367,9 +3367,9 @@ define dso_local i32 @PrescanPreparedTransactions(ptr noundef writeonly %0, ptr 
   br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %63, %28, %2
-  %.032.lcssa = phi i32 [ 0, %2 ], [ 0, %28 ], [ %.234, %63 ]
-  %.029.lcssa = phi ptr [ null, %2 ], [ null, %28 ], [ %.3, %63 ]
-  %.0.lcssa = phi i32 [ %5, %2 ], [ %.2.us, %28 ], [ %.2, %63 ]
+  %.032.lcssa = phi i32 [ 0, %2 ], [ 0, %28 ], [ %.133, %63 ]
+  %.029.lcssa = phi ptr [ null, %2 ], [ null, %28 ], [ %.130, %63 ]
+  %.0.lcssa = phi i32 [ %5, %2 ], [ %.1.us, %28 ], [ %.1, %63 ]
   %69 = load ptr, ptr @MainLWLockArray, align 8
   %70 = getelementptr i8, ptr %69, i64 2304
   tail call void @LWLockRelease(ptr noundef %70) #15

@@ -4323,9 +4323,9 @@ if.then12.i.i.i.i.i:                              ; preds = %.noexc53.i
 do.body.i.i.i.i.i:                                ; preds = %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i.i, %if.then12.i.i.i.i.i
   %422 = phi i32 [ %417, %if.then12.i.i.i.i.i ], [ %425, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i.i ]
   %423 = phi ptr [ %416, %if.then12.i.i.i.i.i ], [ %426, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i.i ]
-  %chunk.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i1027, %if.then12.i.i.i.i.i ], [ %add.ptr19.i.i.i.i.i, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i.i ]
+  %chunk.1.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i1027, %if.then12.i.i.i.i.i ], [ %add.ptr19.i.i.i.i.i, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i.i ]
   %index.0.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i1015, %if.then12.i.i.i.i.i ], [ %add.i2.i.i.i.i, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i.i ]
-  %outboundOverflowCount_.i35.i.i.i.i.i = getelementptr inbounds i8, ptr %chunk.0.i.i.i.i.i, i64 15
+  %outboundOverflowCount_.i35.i.i.i.i.i = getelementptr inbounds i8, ptr %chunk.1.i.i.i.i.i, i64 15
   %424 = load i8, ptr %outboundOverflowCount_.i35.i.i.i.i.i, align 1, !noalias !78
   %cmp.not.i.i.i.i.i.i1030 = icmp eq i8 %424, -1
   br i1 %cmp.not.i.i.i.i.i.i1030, label %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i.i, label %if.then.i.i.i.i.i50.i1031
@@ -4360,11 +4360,11 @@ do.end.i.i.i.i.i:                                 ; preds = %_ZN5folly3f146detai
 
 if.end24.i.i.i.i.i:                               ; preds = %do.end.i.i.i.i.i, %.noexc53.i
   %firstEmpty.sroa.0.0.in.in.i.i.i.i.i = phi i16 [ %421, %.noexc53.i ], [ %430, %do.end.i.i.i.i.i ]
-  %chunk.1.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i1027, %.noexc53.i ], [ %add.ptr19.i.i.i.i.i, %do.end.i.i.i.i.i ]
+  %chunk.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i.i1027, %.noexc53.i ], [ %add.ptr19.i.i.i.i.i, %do.end.i.i.i.i.i ]
   %firstEmpty.sroa.0.0.in.i.i.i.i.i = xor i16 %firstEmpty.sroa.0.0.in.in.i.i.i.i.i, 4095
   %432 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in.i.i.i.i.i, i1 true)
   %conv26.i.i.i.i.i = zext nneg i16 %432 to i64
-  %arrayidx.i.i.i.i.i.i.i.i1028 = getelementptr inbounds [14 x i8], ptr %chunk.1.i.i.i.i.i, i64 0, i64 %conv26.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i.i1028 = getelementptr inbounds [14 x i8], ptr %chunk.0.i.i.i.i.i, i64 0, i64 %conv26.i.i.i.i.i
   %433 = load i8, ptr %arrayidx.i.i.i.i.i.i.i.i1028, align 1, !noalias !78
   %cmp.i41.i.i.i.i.i = icmp eq i8 %433, 0
   br i1 %cmp.i41.i.i.i.i.i, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i.i.i.i.i, label %if.then.i42.i.i.i.i.i
@@ -4376,7 +4376,7 @@ if.then.i42.i.i.i.i.i:                            ; preds = %if.end24.i.i.i.i.i
 _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i.i.i.i.i: ; preds = %if.end24.i.i.i.i.i
   %conv4.i.i.i.i.i.i = trunc nuw i64 %or.i.i.i.i.i to i8
   store i8 %conv4.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i.i1028, align 1, !noalias !78
-  %rawItems_.i.i.i43.i.i.i.i.i = getelementptr inbounds i8, ptr %chunk.1.i.i.i.i.i, i64 16
+  %rawItems_.i.i.i43.i.i.i.i.i = getelementptr inbounds i8, ptr %chunk.0.i.i.i.i.i, i64 16
   %arrayidx.i.i.i.i.i44.i.i.i.i.i = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i.i43.i.i.i.i.i, i64 0, i64 %conv26.i.i.i.i.i
   %this.val.i.i.i.i.i.i = load i32, ptr %373, align 4, !noalias !78
   store i32 %this.val.i.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i44.i.i.i.i.i, align 4, !noalias !78
@@ -6499,14 +6499,14 @@ ehcleanup30.i:                                    ; preds = %ehcleanup29.i, %lpa
 
 catch.dispatch.i:                                 ; preds = %ehcleanup30.i, %lpad.i219
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %ehcleanup30.i ], [ %655, %lpad.i219 ]
-  %ehselector.slot.4.i = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.i, 1
+  %ehselector.slot.0.i = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.i, 1
   %728 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8facebook5velox14VeloxUserErrorE) #26
-  %matches.i = icmp eq i32 %ehselector.slot.4.i, %728
+  %matches.i = icmp eq i32 %ehselector.slot.0.i, %728
   br i1 %matches.i, label %catch.i, label %ehcleanup318.i
 
 catch.i:                                          ; preds = %catch.dispatch.i
-  %exn.slot.4.i = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.i, 0
-  %729 = call ptr @__cxa_begin_catch(ptr %exn.slot.4.i) #26
+  %exn.slot.0.i = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.i, 0
+  %729 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i) #26
   invoke void @__cxa_end_catch()
           to label %if.end.i216 unwind label %lpad48.i
 
@@ -6677,9 +6677,9 @@ if.then12.i.i.i.i:                                ; preds = %.noexc199
 do.body.i.i.i.i:                                  ; preds = %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i, %if.then12.i.i.i.i
   %759 = phi i32 [ %754, %if.then12.i.i.i.i ], [ %762, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i ]
   %760 = phi ptr [ %753, %if.then12.i.i.i.i ], [ %763, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i ]
-  %chunk.0.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.then12.i.i.i.i ], [ %add.ptr19.i.i.i.i, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i ]
+  %chunk.1.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %if.then12.i.i.i.i ], [ %add.ptr19.i.i.i.i, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i ]
   %index.0.i.i.i.i = phi i64 [ %add.i.i.i.i, %if.then12.i.i.i.i ], [ %add.i2.i.i.i, %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i ]
-  %outboundOverflowCount_.i35.i.i.i.i = getelementptr inbounds i8, ptr %chunk.0.i.i.i.i, i64 15
+  %outboundOverflowCount_.i35.i.i.i.i = getelementptr inbounds i8, ptr %chunk.1.i.i.i.i, i64 15
   %761 = load i8, ptr %outboundOverflowCount_.i35.i.i.i.i, align 1, !noalias !120
   %cmp.not.i.i.i.i.i = icmp eq i8 %761, -1
   br i1 %cmp.not.i.i.i.i.i, label %_ZN5folly3f146detail8F14ChunkIjE25incrOutboundOverflowCountEv.exit.i.i.i.i, label %if.then.i.i.i.i.i196
@@ -6714,11 +6714,11 @@ do.end.i.i.i.i:                                   ; preds = %_ZN5folly3f146detai
 
 if.end24.i.i.i.i:                                 ; preds = %do.end.i.i.i.i, %.noexc199
   %firstEmpty.sroa.0.0.in.in.i.i.i.i = phi i16 [ %758, %.noexc199 ], [ %767, %do.end.i.i.i.i ]
-  %chunk.1.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %.noexc199 ], [ %add.ptr19.i.i.i.i, %do.end.i.i.i.i ]
+  %chunk.0.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %.noexc199 ], [ %add.ptr19.i.i.i.i, %do.end.i.i.i.i ]
   %firstEmpty.sroa.0.0.in.i.i.i.i = xor i16 %firstEmpty.sroa.0.0.in.in.i.i.i.i, 4095
   %769 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in.i.i.i.i, i1 true)
   %conv26.i.i.i.i = zext nneg i16 %769 to i64
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [14 x i8], ptr %chunk.1.i.i.i.i, i64 0, i64 %conv26.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [14 x i8], ptr %chunk.0.i.i.i.i, i64 0, i64 %conv26.i.i.i.i
   %770 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !120
   %cmp.i41.i.i.i.i = icmp eq i8 %770, 0
   br i1 %cmp.i41.i.i.i.i, label %_ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i.i.i.i, label %if.then.i42.i.i.i.i
@@ -6730,7 +6730,7 @@ if.then.i42.i.i.i.i:                              ; preds = %if.end24.i.i.i.i
 _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit.i.i.i.i: ; preds = %if.end24.i.i.i.i
   %conv4.i.i.i.i.i = trunc nuw i64 %or.i.i.i.i to i8
   store i8 %conv4.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !noalias !120
-  %rawItems_.i.i.i43.i.i.i.i = getelementptr inbounds i8, ptr %chunk.1.i.i.i.i, i64 16
+  %rawItems_.i.i.i43.i.i.i.i = getelementptr inbounds i8, ptr %chunk.0.i.i.i.i, i64 16
   %arrayidx.i.i.i.i.i44.i.i.i.i = getelementptr inbounds [12 x %"union.std::aligned_storage<4, 4>::type"], ptr %rawItems_.i.i.i43.i.i.i.i, i64 0, i64 %conv26.i.i.i.i
   %this.val.i.i.i.i.i = load i32, ptr %742, align 4, !noalias !120
   store i32 %this.val.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i44.i.i.i.i, align 4, !noalias !120

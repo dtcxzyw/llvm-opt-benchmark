@@ -757,7 +757,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 .preheader252:                                    ; preds = %184, %435
   %.1303 = phi ptr [ %.3, %435 ], [ %.0, %184 ]
   %.0164302 = phi ptr [ %436, %435 ], [ %185, %184 ]
-  %.0241301 = phi i64 [ %.4245, %435 ], [ 0, %184 ]
+  %.0241301 = phi i64 [ %.1242, %435 ], [ 0, %184 ]
   %191 = getelementptr inbounds i8, ptr %.0164302, i64 8
   %192 = load ptr, ptr %191, align 8
   %193 = load ptr, ptr %192, align 8
@@ -1120,7 +1120,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %356, label %.lr.ph.i, label %compile_relation_list_one_db.exit
 
 .lr.ph.i:                                         ; preds = %354, %433
-  %.1242 = phi i64 [ %.2243, %433 ], [ %.0241301, %354 ]
+  %.2243 = phi i64 [ %.3244, %433 ], [ %.0241301, %354 ]
   %.090.i = phi i32 [ %434, %433 ], [ 0, %354 ]
   %357 = call i32 @PQgetisnull(ptr noundef %349, i32 noundef %.090.i, i32 noundef 0) #12
   %.not80.i = icmp eq i32 %357, 0
@@ -1276,24 +1276,24 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 429:                                              ; preds = %.sink.split.i, %421, %410, %399
   %430 = phi i32 [ %422, %421 ], [ %.070.i, %410 ], [ %.070.i, %399 ], [ %.sink.i, %.sink.split.i ]
   %431 = sext i32 %430 to i64
-  %432 = add i64 %.1242, %431
+  %432 = add i64 %.2243, %431
   call void @simple_ptr_list_append(ptr noundef nonnull %5, ptr noundef nonnull %400) #12
   br label %433
 
 433:                                              ; preds = %429, %396
-  %.2243 = phi i64 [ %.1242, %396 ], [ %432, %429 ]
+  %.3244 = phi i64 [ %.2243, %396 ], [ %432, %429 ]
   %434 = add nuw nsw i32 %.090.i, 1
   %exitcond.not.i = icmp eq i32 %434, %355
   br i1 %exitcond.not.i, label %compile_relation_list_one_db.exit, label %.lr.ph.i, !llvm.loop !7
 
 compile_relation_list_one_db.exit:                ; preds = %433, %354
-  %.3244 = phi i64 [ %.0241301, %354 ], [ %.2243, %433 ]
+  %.4245 = phi i64 [ %.0241301, %354 ], [ %.3244, %433 ]
   call void @PQclear(ptr noundef %349) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %435
 
 435:                                              ; preds = %compile_relation_list_one_db.exit, %225
-  %.4245 = phi i64 [ %.0241301, %225 ], [ %.3244, %compile_relation_list_one_db.exit ]
+  %.1242 = phi i64 [ %.0241301, %225 ], [ %.4245, %compile_relation_list_one_db.exit ]
   %.3 = phi ptr [ null, %225 ], [ %.2, %compile_relation_list_one_db.exit ]
   %436 = load ptr, ptr %.0164302, align 8
   %.not212 = icmp eq ptr %436, null
@@ -1453,7 +1453,7 @@ compile_relation_list_one_db.exit:                ; preds = %433, %354
   unreachable
 
 495:                                              ; preds = %._crit_edge312
-  call fastcc void @progress_report(i64 noundef %489, i64 noundef 0, i64 noundef %.4245, i64 noundef 0, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false)
+  call fastcc void @progress_report(i64 noundef %489, i64 noundef 0, i64 noundef %.1242, i64 noundef 0, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false)
   %496 = load ptr, ptr @progname, align 8
   %497 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 2), align 2
   %498 = trunc i8 %497 to i1
@@ -1484,7 +1484,7 @@ compile_relation_list_one_db.exit:                ; preds = %433, %354
 505:                                              ; preds = %.lr.ph321
   %506 = load ptr, ptr %503, align 8
   %507 = load ptr, ptr %506, align 8
-  call fastcc void @progress_report(i64 noundef %489, i64 noundef %.0176317, i64 noundef %.4245, i64 noundef %.0174318, ptr noundef %507, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @progress_report(i64 noundef %489, i64 noundef %.0176317, i64 noundef %.1242, i64 noundef %.0174318, ptr noundef %507, i1 noundef zeroext false, i1 noundef zeroext false)
   %508 = add i64 %.0176317, 1
   %509 = getelementptr inbounds i8, ptr %503, i64 36
   %510 = load i32, ptr %509, align 4
@@ -1674,13 +1674,13 @@ prepare_btree_command.exit:                       ; preds = %597, %587, %prepare
   br label %611
 
 611:                                              ; preds = %609, %.loopexit
-  %.3170 = phi i8 [ %.0167.lcssa375, %.loopexit ], [ %spec.select237, %609 ]
-  call fastcc void @progress_report(i64 noundef %489, i64 noundef %.0176.lcssa, i64 noundef %.4245, i64 noundef %.0174.lcssa, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true)
-  %612 = trunc i8 %.3170 to i1
+  %.4 = phi i8 [ %.0167.lcssa375, %.loopexit ], [ %spec.select237, %609 ]
+  call fastcc void @progress_report(i64 noundef %489, i64 noundef %.0176.lcssa, i64 noundef %.1242, i64 noundef %.0174.lcssa, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true)
+  %612 = trunc i8 %.4 to i1
   br label %613
 
 613:                                              ; preds = %.thread247, %611
-  %.4 = phi i1 [ %612, %611 ], [ true, %.thread247 ]
+  %.3170 = phi i1 [ %612, %611 ], [ true, %.thread247 ]
   %.not221 = icmp eq ptr %499, null
   br i1 %.not221, label %615, label %614
 
@@ -1690,7 +1690,7 @@ prepare_btree_command.exit:                       ; preds = %597, %587, %prepare
   br label %615
 
 615:                                              ; preds = %614, %613
-  br i1 %.4, label %616, label %617
+  br i1 %.3170, label %616, label %617
 
 616:                                              ; preds = %615
   call void @exit(i32 noundef 1) #13

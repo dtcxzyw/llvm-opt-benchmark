@@ -1547,11 +1547,11 @@ if.end5.sink.split.i24:                           ; preds = %if.else.i21, %if.el
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end5.sink.split.i24, %if.else.i21, %if.end5.sink.split.i, %if.else.i
-  %blocks.2 = phi double [ %div3.i, %if.end5.sink.split.i ], [ %mul, %if.else.i ], [ %div3.i27, %if.end5.sink.split.i24 ], [ %mul, %if.else.i21 ]
+  %blocks.0 = phi double [ %div3.i, %if.end5.sink.split.i ], [ %mul, %if.else.i ], [ %div3.i27, %if.end5.sink.split.i24 ], [ %mul, %if.else.i21 ]
   %blockType.0 = phi ptr [ %rt.0.ph.i, %if.end5.sink.split.i ], [ @.str.120, %if.else.i ], [ %rt.0.ph.i26, %if.end5.sink.split.i24 ], [ @.str.120, %if.else.i21 ]
   %cmp17 = fcmp ogt double %sub3, 0.000000e+00
   %div = fdiv double 1.000000e+00, %sub3
-  %mul20 = fmul double %div, %blocks.2
+  %mul20 = fmul double %div, %blocks.0
   %persec.0 = select i1 %cmp17, double %mul20, double 0.000000e+00
   %.b = load i1, ptr @csv_format, align 4
   br i1 %.b, label %if.then24, label %if.else42
@@ -1583,7 +1583,7 @@ if.else42:                                        ; preds = %if.end16
   %10 = load ptr, ptr %arrayidx, align 16
   %arrayidx45 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %11 = load ptr, ptr %arrayidx45, align 8
-  %call46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg, i64 noundef 150, ptr noundef nonnull @.str.107, ptr noundef %desc, ptr noundef nonnull @.str.108, i32 noundef 5, i32 noundef 0, double noundef %blocks.2, ptr noundef nonnull %blockType.0, ptr noundef %10, i32 noundef 5, i32 noundef 3, double noundef %sub3, ptr noundef %11, i32 noundef 8, i32 noundef 3, double noundef %persec.0, ptr noundef nonnull %blockType.0) #16
+  %call46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %msg, i64 noundef 150, ptr noundef nonnull @.str.107, ptr noundef %desc, ptr noundef nonnull @.str.108, i32 noundef 5, i32 noundef 0, double noundef %blocks.0, ptr noundef nonnull %blockType.0, ptr noundef %10, i32 noundef 5, i32 noundef 3, double noundef %sub3, ptr noundef %11, i32 noundef 8, i32 noundef 3, double noundef %persec.0, ptr noundef nonnull %blockType.0) #16
   %call49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #19
   %add.ptr50 = getelementptr inbounds i8, ptr %msg, i64 %call49
   %sub53 = sub i64 150, %call49
@@ -1822,7 +1822,7 @@ do.body57:                                        ; preds = %bench_stats_check.e
   br i1 %cmp59114, label %for.body69, label %for.end87
 
 for.body69:                                       ; preds = %do.body57, %bench_async_handle.exit59
-  %times.2115 = phi i32 [ %inc.i58, %bench_async_handle.exit59 ], [ 0, %do.body57 ]
+  %times.1115 = phi i32 [ %inc.i58, %bench_async_handle.exit59 ], [ 0, %do.body57 ]
   %25 = load ptr, ptr %7, align 8
   %26 = load ptr, ptr %6, align 8
   %27 = load i32, ptr @bench_size, align 4
@@ -1831,13 +1831,13 @@ for.body69:                                       ; preds = %do.body57, %bench_a
   br i1 %cmp.i55, label %bench_async_handle.exit59, label %exit_aes_dec
 
 bench_async_handle.exit59:                        ; preds = %for.body69
-  %inc.i58 = add nuw nsw i32 %times.2115, 1
+  %inc.i58 = add nuw nsw i32 %times.1115, 1
   %28 = load i32, ptr @numBlocks, align 4
   %cmp59 = icmp slt i32 %inc.i58, %28
   br i1 %cmp59, label %for.body69, label %for.end87
 
 for.end87:                                        ; preds = %bench_async_handle.exit59, %do.body57
-  %times.2.lcssa = phi i32 [ 0, %do.body57 ], [ %inc.i58, %bench_async_handle.exit59 ]
+  %times.1.lcssa = phi i32 [ 0, %do.body57 ], [ %inc.i58, %bench_async_handle.exit59 ]
   %ret.4.lcssa = phi i32 [ %ret.3, %do.body57 ], [ %call75, %bench_async_handle.exit59 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i60)
   %call.i.i61 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i60) #16
@@ -1854,7 +1854,7 @@ if.then.i.i71:                                    ; preds = %for.end87
   unreachable
 
 bench_stats_check.exit75:                         ; preds = %for.end87
-  %add88 = add nuw nsw i32 %times.2.lcssa, %count.2
+  %add88 = add nuw nsw i32 %times.1.lcssa, %count.2
   %31 = load i64, ptr %tv.i.i60, align 8
   %conv.i.i63 = sitofp i64 %31 to double
   %32 = load i64, ptr %tv_nsec.i.i64, align 8
@@ -1989,7 +1989,7 @@ bench_stats_start.exit:                           ; preds = %for.end
 
 do.body:                                          ; preds = %bench_stats_check.exit, %bench_stats_start.exit
   %add72 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
-  %ret.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %ret.1.lcssa, %bench_stats_check.exit ]
+  %ret.1 = phi i32 [ 0, %bench_stats_start.exit ], [ %ret.2.lcssa, %bench_stats_check.exit ]
   %8 = load i32, ptr @numBlocks, align 4
   %cmp1369 = icmp sgt i32 %8, 0
   br i1 %cmp1369, label %for.body19, label %for.end38
@@ -2012,7 +2012,7 @@ bench_async_handle.exit:                          ; preds = %for.body19
 
 for.end38:                                        ; preds = %bench_async_handle.exit, %do.body
   %times.0.lcssa = phi i32 [ 0, %do.body ], [ %inc.i, %bench_async_handle.exit ]
-  %ret.1.lcssa = phi i32 [ %ret.0, %do.body ], [ %call27, %bench_async_handle.exit ]
+  %ret.2.lcssa = phi i32 [ %ret.1, %do.body ], [ %call27, %bench_async_handle.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i30)
   %call.i.i31 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i30) #16
   %cmp.i.i32 = icmp slt i32 %call.i.i31, 0
@@ -2042,10 +2042,10 @@ bench_stats_check.exit:                           ; preds = %for.end38
 
 exit_aes_gcm:                                     ; preds = %bench_stats_check.exit, %for.body19
   %storemerge = phi i32 [ %add72, %for.body19 ], [ %add, %bench_stats_check.exit ]
-  %ret.2 = phi i32 [ %call27, %for.body19 ], [ %ret.1.lcssa, %bench_stats_check.exit ]
+  %ret.3 = phi i32 [ %call27, %for.body19 ], [ %ret.2.lcssa, %bench_stats_check.exit ]
   store i32 %storemerge, ptr %count, align 4
   %18 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %storemerge, i32 noundef %18, double noundef %add.i.i, i32 noundef %ret.2)
+  call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %storemerge, i32 noundef %18, double noundef %add.i.i, i32 noundef %ret.3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1696) %dec, i8 0, i64 1696, i1 false)
   %call56 = call i32 @wc_AesInit(ptr noundef nonnull %dec, ptr noundef null, i32 noundef -2) #16
   %cmp57.not = icmp eq i32 %call56, 0
@@ -2072,13 +2072,13 @@ for.end70:                                        ; preds = %if.end60
 
 do.body71:                                        ; preds = %for.end103, %for.end70
   %add10479 = phi i32 [ %count.promoted78, %for.end70 ], [ %add104, %for.end103 ]
-  %ret.3 = phi i32 [ 0, %for.end70 ], [ %ret.4.lcssa, %for.end103 ]
+  %ret.4 = phi i32 [ 0, %for.end70 ], [ %ret.5.lcssa, %for.end103 ]
   %20 = load i32, ptr @numBlocks, align 4
   %cmp7374 = icmp sgt i32 %20, 0
   br i1 %cmp7374, label %for.body83, label %for.end103
 
 for.body83:                                       ; preds = %do.body71, %bench_async_handle.exit47
-  %times.275 = phi i32 [ %inc.i46, %bench_async_handle.exit47 ], [ 0, %do.body71 ]
+  %times.175 = phi i32 [ %inc.i46, %bench_async_handle.exit47 ], [ 0, %do.body71 ]
   %21 = load ptr, ptr %7, align 8
   %22 = load ptr, ptr %6, align 8
   %23 = load i32, ptr @bench_size, align 4
@@ -2088,33 +2088,33 @@ for.body83:                                       ; preds = %do.body71, %bench_a
   br i1 %cmp.i43, label %bench_async_handle.exit47, label %exit_aes_gcm_dec
 
 bench_async_handle.exit47:                        ; preds = %for.body83
-  %inc.i46 = add nuw nsw i32 %times.275, 1
+  %inc.i46 = add nuw nsw i32 %times.175, 1
   %25 = load i32, ptr @numBlocks, align 4
   %cmp73 = icmp slt i32 %inc.i46, %25
   br i1 %cmp73, label %for.body83, label %for.end103
 
 for.end103:                                       ; preds = %bench_async_handle.exit47, %do.body71
-  %times.2.lcssa = phi i32 [ 0, %do.body71 ], [ %inc.i46, %bench_async_handle.exit47 ]
-  %ret.4.lcssa = phi i32 [ %ret.3, %do.body71 ], [ %call91, %bench_async_handle.exit47 ]
-  %add104 = add nsw i32 %add10479, %times.2.lcssa
+  %times.1.lcssa = phi i32 [ 0, %do.body71 ], [ %inc.i46, %bench_async_handle.exit47 ]
+  %ret.5.lcssa = phi i32 [ %ret.4, %do.body71 ], [ %call91, %bench_async_handle.exit47 ]
+  %add104 = add nsw i32 %add10479, %times.1.lcssa
   %call106 = call fastcc i32 @bench_stats_check(double noundef %19)
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %exit_aes_gcm_dec, label %do.body71, !llvm.loop !15
 
 exit_aes_gcm_dec:                                 ; preds = %for.end103, %for.body83
   %storemerge80 = phi i32 [ %add10479, %for.body83 ], [ %add104, %for.end103 ]
-  %ret.5 = phi i32 [ %call91, %for.body83 ], [ %ret.4.lcssa, %for.end103 ]
+  %ret.6 = phi i32 [ %call91, %for.body83 ], [ %ret.5.lcssa, %for.end103 ]
   %26 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %decLabel, i32 noundef %storemerge80, i32 noundef %26, double noundef %19, i32 noundef %ret.5)
+  call fastcc void @bench_stats_sym_finish(ptr noundef %decLabel, i32 noundef %storemerge80, i32 noundef %26, double noundef %19, i32 noundef %ret.6)
   br label %exit
 
 exit:                                             ; preds = %exit_aes_gcm_dec, %if.then65, %if.then58, %if.then9, %if.then
-  %ret.6 = phi i32 [ %ret.5, %exit_aes_gcm_dec ], [ %call63, %if.then65 ], [ %call56, %if.then58 ], [ %call7, %if.then9 ], [ %call, %if.then ]
-  %cmp109 = icmp slt i32 %ret.6, 0
+  %ret.0 = phi i32 [ %ret.6, %exit_aes_gcm_dec ], [ %call63, %if.then65 ], [ %call56, %if.then58 ], [ %call7, %if.then9 ], [ %call, %if.then ]
+  %cmp109 = icmp slt i32 %ret.0, 0
   br i1 %cmp109, label %if.then110, label %if.end112
 
 if.then110:                                       ; preds = %exit
-  %call111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.126, i32 noundef %ret.6)
+  %call111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.126, i32 noundef %ret.0)
   br label %if.end112
 
 if.end112:                                        ; preds = %if.then110, %exit
@@ -2383,8 +2383,8 @@ bench_stats_start.exit44:                         ; preds = %if.else
   br label %do.body14
 
 do.body14:                                        ; preds = %bench_stats_check.exit60, %bench_stats_start.exit44
-  %count.1 = phi i32 [ 0, %bench_stats_start.exit44 ], [ %add36, %bench_stats_check.exit60 ]
-  %ret.3 = phi i32 [ 0, %bench_stats_start.exit44 ], [ %ret.5, %bench_stats_check.exit60 ]
+  %count.2 = phi i32 [ 0, %bench_stats_start.exit44 ], [ %add36, %bench_stats_check.exit60 ]
+  %ret.4 = phi i32 [ 0, %bench_stats_start.exit44 ], [ %ret.6, %bench_stats_check.exit60 ]
   %25 = load i32, ptr @numBlocks, align 4
   %cmp1680 = icmp sgt i32 %25, 0
   br i1 %cmp1680, label %for.body17, label %for.end35
@@ -2420,7 +2420,7 @@ if.end27:                                         ; preds = %if.end22
 
 for.end35:                                        ; preds = %if.end27, %do.body14, %if.then25
   %i.168 = phi i32 [ %i.181, %if.then25 ], [ 0, %do.body14 ], [ %inc34, %if.end27 ]
-  %ret.5 = phi i32 [ %call23, %if.then25 ], [ %ret.3, %do.body14 ], [ 0, %if.end27 ]
+  %ret.6 = phi i32 [ %call23, %if.then25 ], [ %ret.4, %do.body14 ], [ 0, %if.end27 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i45)
   %call.i.i46 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i45) #16
   %cmp.i.i47 = icmp slt i32 %call.i.i46, 0
@@ -2436,7 +2436,7 @@ if.then.i.i56:                                    ; preds = %for.end35
   unreachable
 
 bench_stats_check.exit60:                         ; preds = %for.end35
-  %add36 = add nuw nsw i32 %i.168, %count.1
+  %add36 = add nuw nsw i32 %i.168, %count.2
   %32 = load i64, ptr %tv.i.i45, align 8
   %conv.i.i48 = sitofp i64 %32 to double
   %33 = load i64, ptr %tv_nsec.i.i49, align 8
@@ -2450,10 +2450,10 @@ bench_stats_check.exit60:                         ; preds = %for.end35
 
 if.end41:                                         ; preds = %bench_stats_check.exit, %bench_stats_check.exit60
   %start.0 = phi double [ %add.i.i33, %bench_stats_check.exit60 ], [ %add.i.i, %bench_stats_check.exit ]
-  %count.2 = phi i32 [ %add36, %bench_stats_check.exit60 ], [ %add, %bench_stats_check.exit ]
-  %ret.6 = phi i32 [ %ret.5, %bench_stats_check.exit60 ], [ %ret.2, %bench_stats_check.exit ]
+  %count.1 = phi i32 [ %add36, %bench_stats_check.exit60 ], [ %add, %bench_stats_check.exit ]
+  %ret.3 = phi i32 [ %ret.6, %bench_stats_check.exit60 ], [ %ret.2, %bench_stats_check.exit ]
   %34 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.34, i32 noundef %count.2, i32 noundef %34, double noundef %start.0, i32 noundef %ret.6)
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.34, i32 noundef %count.1, i32 noundef %34, double noundef %start.0, i32 noundef %ret.3)
   br label %return
 
 return:                                           ; preds = %if.end41, %if.then20, %if.then1
@@ -2837,7 +2837,7 @@ bench_stats_start.exit49:                         ; preds = %if.else
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit65, %bench_stats_start.exit49
-  %count.1 = phi i32 [ 0, %bench_stats_start.exit49 ], [ %add88, %bench_stats_check.exit65 ]
+  %count.2 = phi i32 [ 0, %bench_stats_start.exit49 ], [ %add88, %bench_stats_check.exit65 ]
   %22 = load i32, ptr @numBlocks, align 4
   %cmp63101 = icmp sgt i32 %22, 0
   br i1 %cmp63101, label %for.body64, label %for.end87
@@ -2883,7 +2883,7 @@ if.then.i.i61:                                    ; preds = %for.end87
   unreachable
 
 bench_stats_check.exit65:                         ; preds = %for.end87
-  %add88 = add nuw nsw i32 %storemerge.lcssa, %count.1
+  %add88 = add nuw nsw i32 %storemerge.lcssa, %count.2
   %28 = load i64, ptr %tv.i.i50, align 8
   %conv.i.i53 = sitofp i64 %28 to double
   %29 = load i64, ptr %tv_nsec.i.i54, align 8
@@ -2896,11 +2896,11 @@ bench_stats_check.exit65:                         ; preds = %for.end87
   br i1 %cmp.i59, label %exit_md5, label %do.body61, !llvm.loop !27
 
 exit_md5:                                         ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit65, %for.body64, %if.end71, %if.end78
-  %ret.4 = phi i32 [ %call66, %for.body64 ], [ %call70, %if.end71 ], [ %call77, %if.end78 ], [ 0, %bench_stats_check.exit65 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1, %if.end78 ], [ %count.1, %if.end71 ], [ %count.1, %for.body64 ], [ %add88, %bench_stats_check.exit65 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %ret.0 = phi i32 [ %call66, %for.body64 ], [ %call70, %if.end71 ], [ %call77, %if.end78 ], [ 0, %bench_stats_check.exit65 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.1 = phi i32 [ %count.2, %if.end78 ], [ %count.2, %if.end71 ], [ %count.2, %for.body64 ], [ %add88, %bench_stats_check.exit65 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i38, %if.end78 ], [ %add.i.i38, %if.end71 ], [ %add.i.i38, %for.body64 ], [ %add.i.i38, %bench_stats_check.exit65 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.39, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.39, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %do.end96
 
 do.end96:                                         ; preds = %exit_md5, %if.then3
@@ -3064,7 +3064,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
-  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %count.2 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
   %22 = load i32, ptr @numBlocks, align 4
   %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
@@ -3110,7 +3110,7 @@ if.then.i.i65:                                    ; preds = %for.end92
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
-  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
+  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.2
   %28 = load i64, ptr %tv.i.i54, align 8
   %conv.i.i57 = sitofp i64 %28 to double
   %29 = load i64, ptr %tv_nsec.i.i58, align 8
@@ -3123,11 +3123,11 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   br i1 %cmp.i63, label %exit_sha, label %do.body61, !llvm.loop !30
 
 exit_sha:                                         ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
-  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %ret.0 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.41, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.41, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha, %if.then3
@@ -3294,7 +3294,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
-  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add90, %bench_stats_check.exit69 ]
+  %count.2 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add90, %bench_stats_check.exit69 ]
   %22 = load i32, ptr @numBlocks, align 4
   %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end89
@@ -3340,7 +3340,7 @@ if.then.i.i65:                                    ; preds = %for.end89
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end89
-  %add90 = add nuw nsw i32 %storemerge.lcssa, %count.1
+  %add90 = add nuw nsw i32 %storemerge.lcssa, %count.2
   %28 = load i64, ptr %tv.i.i54, align 8
   %conv.i.i57 = sitofp i64 %28 to double
   %29 = load i64, ptr %tv_nsec.i.i58, align 8
@@ -3353,11 +3353,11 @@ bench_stats_check.exit69:                         ; preds = %for.end89
   br i1 %cmp.i63, label %exit_sha224, label %do.body61, !llvm.loop !33
 
 exit_sha224:                                      ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
-  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add90, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %ret.0 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add90, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.43, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.43, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha224, %if.then3
@@ -3524,7 +3524,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
-  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %count.2 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
   %22 = load i32, ptr @numBlocks, align 4
   %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
@@ -3570,7 +3570,7 @@ if.then.i.i65:                                    ; preds = %for.end92
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
-  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
+  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.2
   %28 = load i64, ptr %tv.i.i54, align 8
   %conv.i.i57 = sitofp i64 %28 to double
   %29 = load i64, ptr %tv_nsec.i.i58, align 8
@@ -3583,11 +3583,11 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   br i1 %cmp.i63, label %exit_sha256, label %do.body61, !llvm.loop !36
 
 exit_sha256:                                      ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
-  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %ret.0 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.45, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.45, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha256, %if.then3
@@ -3754,7 +3754,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
-  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %count.2 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
   %22 = load i32, ptr @numBlocks, align 4
   %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
@@ -3800,7 +3800,7 @@ if.then.i.i65:                                    ; preds = %for.end92
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
-  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
+  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.2
   %28 = load i64, ptr %tv.i.i54, align 8
   %conv.i.i57 = sitofp i64 %28 to double
   %29 = load i64, ptr %tv_nsec.i.i58, align 8
@@ -3813,11 +3813,11 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   br i1 %cmp.i63, label %exit_sha384, label %do.body61, !llvm.loop !39
 
 exit_sha384:                                      ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
-  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %ret.0 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.47, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.47, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha384, %if.then3
@@ -3984,7 +3984,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
-  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %count.2 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
   %22 = load i32, ptr @numBlocks, align 4
   %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
@@ -4030,7 +4030,7 @@ if.then.i.i65:                                    ; preds = %for.end92
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
-  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
+  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.2
   %28 = load i64, ptr %tv.i.i54, align 8
   %conv.i.i57 = sitofp i64 %28 to double
   %29 = load i64, ptr %tv_nsec.i.i58, align 8
@@ -4043,11 +4043,11 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   br i1 %cmp.i63, label %exit_sha512, label %do.body61, !llvm.loop !42
 
 exit_sha512:                                      ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
-  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %ret.0 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.49, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.49, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha512, %if.then3
@@ -4214,7 +4214,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
-  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %count.2 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
   %22 = load i32, ptr @numBlocks, align 4
   %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
@@ -4260,7 +4260,7 @@ if.then.i.i65:                                    ; preds = %for.end92
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
-  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
+  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.2
   %28 = load i64, ptr %tv.i.i54, align 8
   %conv.i.i57 = sitofp i64 %28 to double
   %29 = load i64, ptr %tv_nsec.i.i58, align 8
@@ -4273,11 +4273,11 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   br i1 %cmp.i63, label %exit_sha512_224, label %do.body61, !llvm.loop !45
 
 exit_sha512_224:                                  ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
-  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %ret.0 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.51, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.51, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha512_224, %if.then3
@@ -4444,7 +4444,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
-  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %count.2 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
   %22 = load i32, ptr @numBlocks, align 4
   %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
@@ -4490,7 +4490,7 @@ if.then.i.i65:                                    ; preds = %for.end92
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
-  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
+  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.2
   %28 = load i64, ptr %tv.i.i54, align 8
   %conv.i.i57 = sitofp i64 %28 to double
   %29 = load i64, ptr %tv_nsec.i.i58, align 8
@@ -4503,11 +4503,11 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   br i1 %cmp.i63, label %exit_sha512_256, label %do.body61, !llvm.loop !48
 
 exit_sha512_256:                                  ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
-  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %ret.0 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.53, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.53, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha512_256, %if.then3
@@ -4674,7 +4674,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
-  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %count.2 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
   %22 = load i32, ptr @numBlocks, align 4
   %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
@@ -4720,7 +4720,7 @@ if.then.i.i65:                                    ; preds = %for.end92
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
-  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
+  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.2
   %28 = load i64, ptr %tv.i.i54, align 8
   %conv.i.i57 = sitofp i64 %28 to double
   %29 = load i64, ptr %tv_nsec.i.i58, align 8
@@ -4733,11 +4733,11 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   br i1 %cmp.i63, label %exit_sha3_224, label %do.body61, !llvm.loop !51
 
 exit_sha3_224:                                    ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
-  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %ret.0 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.55, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.55, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha3_224, %if.then3
@@ -4904,7 +4904,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
-  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %count.2 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
   %22 = load i32, ptr @numBlocks, align 4
   %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
@@ -4950,7 +4950,7 @@ if.then.i.i65:                                    ; preds = %for.end92
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
-  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
+  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.2
   %28 = load i64, ptr %tv.i.i54, align 8
   %conv.i.i57 = sitofp i64 %28 to double
   %29 = load i64, ptr %tv_nsec.i.i58, align 8
@@ -4963,11 +4963,11 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   br i1 %cmp.i63, label %exit_sha3_256, label %do.body61, !llvm.loop !54
 
 exit_sha3_256:                                    ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
-  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %ret.0 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.57, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.57, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha3_256, %if.then3
@@ -5134,7 +5134,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
-  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %count.2 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
   %22 = load i32, ptr @numBlocks, align 4
   %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
@@ -5180,7 +5180,7 @@ if.then.i.i65:                                    ; preds = %for.end92
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
-  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
+  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.2
   %28 = load i64, ptr %tv.i.i54, align 8
   %conv.i.i57 = sitofp i64 %28 to double
   %29 = load i64, ptr %tv_nsec.i.i58, align 8
@@ -5193,11 +5193,11 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   br i1 %cmp.i63, label %exit_sha3_384, label %do.body61, !llvm.loop !57
 
 exit_sha3_384:                                    ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
-  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %ret.0 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.59, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.59, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha3_384, %if.then3
@@ -5364,7 +5364,7 @@ bench_stats_start.exit53:                         ; preds = %if.else
   br label %do.body61
 
 do.body61:                                        ; preds = %bench_stats_check.exit69, %bench_stats_start.exit53
-  %count.1 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
+  %count.2 = phi i32 [ 0, %bench_stats_start.exit53 ], [ %add93, %bench_stats_check.exit69 ]
   %22 = load i32, ptr @numBlocks, align 4
   %cmp63105 = icmp sgt i32 %22, 0
   br i1 %cmp63105, label %for.body64, label %for.end92
@@ -5410,7 +5410,7 @@ if.then.i.i65:                                    ; preds = %for.end92
   unreachable
 
 bench_stats_check.exit69:                         ; preds = %for.end92
-  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.1
+  %add93 = add nuw nsw i32 %storemerge.lcssa, %count.2
   %28 = load i64, ptr %tv.i.i54, align 8
   %conv.i.i57 = sitofp i64 %28 to double
   %29 = load i64, ptr %tv_nsec.i.i58, align 8
@@ -5423,11 +5423,11 @@ bench_stats_check.exit69:                         ; preds = %for.end92
   br i1 %cmp.i63, label %exit_sha3_512, label %do.body61, !llvm.loop !60
 
 exit_sha3_512:                                    ; preds = %do.body32, %bench_stats_check.exit, %for.body14, %bench_stats_check.exit69, %for.body64, %if.end76, %if.end83
-  %ret.4 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
-  %count.2 = phi i32 [ %count.1, %if.end83 ], [ %count.1, %if.end76 ], [ %count.1, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
+  %ret.0 = phi i32 [ %call71, %for.body64 ], [ %call75, %if.end76 ], [ %call82, %if.end83 ], [ 0, %bench_stats_check.exit69 ], [ %call20, %for.body14 ], [ %call46, %bench_stats_check.exit ], [ %call46, %do.body32 ]
+  %count.1 = phi i32 [ %count.2, %if.end83 ], [ %count.2, %if.end76 ], [ %count.2, %for.body64 ], [ %add93, %bench_stats_check.exit69 ], [ %count.0, %for.body14 ], [ %add, %bench_stats_check.exit ], [ %add, %do.body32 ]
   %start.0 = phi double [ %add.i.i42, %if.end83 ], [ %add.i.i42, %if.end76 ], [ %add.i.i42, %for.body64 ], [ %add.i.i42, %bench_stats_check.exit69 ], [ %add.i.i, %for.body14 ], [ %add.i.i, %bench_stats_check.exit ], [ %add.i.i, %do.body32 ]
   %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.61, i32 noundef %count.2, i32 noundef %30, double noundef %start.0, i32 noundef %ret.4)
+  call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.61, i32 noundef %count.1, i32 noundef %30, double noundef %start.0, i32 noundef %ret.0)
   br label %exit
 
 exit:                                             ; preds = %exit_sha3_512, %if.then3
@@ -5891,13 +5891,13 @@ do.body128.i:                                     ; preds = %bench_stats_check.e
   br label %for.body143.i
 
 for.body143.i:                                    ; preds = %bench_async_handle.exit117.i, %do.body128.i
-  %times.2300.i = phi i32 [ 0, %do.body128.i ], [ %inc.i116.i, %bench_async_handle.exit117.i ]
+  %times.1300.i = phi i32 [ 0, %do.body128.i ], [ %inc.i116.i, %bench_async_handle.exit117.i ]
   %call154.i = call i32 @wc_RsaPrivateDecrypt(ptr noundef nonnull %call.i, i32 noundef 256, ptr noundef nonnull %call34.i, i32 noundef 256, ptr noundef nonnull %rsaKey) #16
   %cmp.i113.i = icmp sgt i32 %call154.i, -1
   br i1 %cmp.i113.i, label %bench_async_handle.exit117.i, label %exit_rsa_pub.i
 
 bench_async_handle.exit117.i:                     ; preds = %for.body143.i
-  %inc.i116.i = add nuw nsw i32 %times.2300.i, 1
+  %inc.i116.i = add nuw nsw i32 %times.1300.i, 1
   %exitcond323.not.i = icmp eq i32 %inc.i116.i, 100
   br i1 %exitcond323.not.i, label %for.end166.i, label %for.body143.i
 
@@ -5977,7 +5977,7 @@ do.body173.i:                                     ; preds = %bench_stats_check.e
   br label %for.body188.i
 
 for.body188.i:                                    ; preds = %bench_async_handle.exit157.i, %do.body173.i
-  %times.4301.i = phi i32 [ 0, %do.body173.i ], [ %inc.i156.i, %bench_async_handle.exit157.i ]
+  %times.2301.i = phi i32 [ 0, %do.body173.i ], [ %inc.i156.i, %bench_async_handle.exit157.i ]
   %call198.i = call i32 @wc_RsaSSL_Sign(ptr noundef nonnull %message.i, i32 noundef 25, ptr noundef nonnull %call.i, i32 noundef 256, ptr noundef nonnull %rsaKey, ptr noundef nonnull %0) #16
   %cmp.i153.i = icmp sgt i32 %call198.i, -1
   br i1 %cmp.i153.i, label %bench_async_handle.exit157.i, label %exit_rsa_sign.thread.i
@@ -5989,7 +5989,7 @@ exit_rsa_sign.thread.i:                           ; preds = %for.body188.i
   br label %exit.i
 
 bench_async_handle.exit157.i:                     ; preds = %for.body188.i
-  %inc.i156.i = add nuw nsw i32 %times.4301.i, 1
+  %inc.i156.i = add nuw nsw i32 %times.2301.i, 1
   %exitcond324.not.i = icmp eq i32 %inc.i156.i, 100
   br i1 %exitcond324.not.i, label %for.end210.i, label %for.body188.i
 
@@ -6064,13 +6064,13 @@ do.body225.i:                                     ; preds = %bench_stats_check.e
   br label %for.body240.i
 
 for.body240.i:                                    ; preds = %bench_async_handle.exit197.i, %do.body225.i
-  %times.6302.i = phi i32 [ 0, %do.body225.i ], [ %inc.i196.i, %bench_async_handle.exit197.i ]
+  %times.3302.i = phi i32 [ 0, %do.body225.i ], [ %inc.i196.i, %bench_async_handle.exit197.i ]
   %call251.i = call i32 @wc_RsaSSL_Verify(ptr noundef nonnull %call.i, i32 noundef 256, ptr noundef nonnull %call34.i, i32 noundef 256, ptr noundef nonnull %rsaKey) #16
   %cmp.i193.i = icmp sgt i32 %call251.i, -1
   br i1 %cmp.i193.i, label %bench_async_handle.exit197.i, label %exit_rsa_verifyinline.i
 
 bench_async_handle.exit197.i:                     ; preds = %for.body240.i
-  %inc.i196.i = add nuw nsw i32 %times.6302.i, 1
+  %inc.i196.i = add nuw nsw i32 %times.3302.i, 1
   %exitcond325.not.i = icmp eq i32 %inc.i196.i, 100
   br i1 %exitcond325.not.i, label %for.end263.i, label %for.body240.i
 
@@ -6206,12 +6206,12 @@ if.then24:                                        ; preds = %if.else21
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then24, %if.then17
-  %ret.0 = phi i32 [ %call27, %if.then24 ], [ %call20, %if.then17 ]
-  %cmp30.not = icmp eq i32 %ret.0, 0
+  %ret.1 = phi i32 [ %call27, %if.then24 ], [ %call20, %if.then17 ]
+  %cmp30.not = icmp eq i32 %ret.1, 0
   br i1 %cmp30.not, label %for.end, label %if.then32
 
 if.then32:                                        ; preds = %if.end29
-  %call33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, i32 noundef %ret.0)
+  %call33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.71, i32 noundef %ret.1)
   br label %exit
 
 for.end:                                          ; preds = %if.else21, %if.end29
@@ -6252,7 +6252,7 @@ bench_stats_start.exit:                           ; preds = %for.end
   br label %do.body37
 
 do.body37:                                        ; preds = %bench_stats_check.exit, %bench_stats_start.exit
-  %count.0 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
+  %count.1 = phi i32 [ 0, %bench_stats_start.exit ], [ %add, %bench_stats_check.exit ]
   store i32 48, ptr %privSz, align 4
   store i32 384, ptr %pubSz, align 4
   %call69 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %dhKey, ptr noundef nonnull %11, ptr noundef nonnull %priv, ptr noundef nonnull %privSz, ptr noundef nonnull %pub, ptr noundef nonnull %pubSz) #16
@@ -6262,7 +6262,7 @@ do.body37:                                        ; preds = %bench_stats_check.e
 exit_dh_gen.thread:                               ; preds = %do.body37
   %arrayidx87113 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %12 = load ptr, ptr %arrayidx87113, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %12, i32 noundef %count.0, double noundef %add.i.i, i32 noundef %call69)
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %12, i32 noundef %count.1, double noundef %add.i.i, i32 noundef %call69)
   br label %exit
 
 for.end80:                                        ; preds = %do.body37
@@ -6281,7 +6281,7 @@ if.then.i.i46:                                    ; preds = %for.end80
   unreachable
 
 bench_stats_check.exit:                           ; preds = %for.end80
-  %add = add nuw nsw i32 %count.0, 1
+  %add = add nuw nsw i32 %count.1, 1
   %15 = load i64, ptr %tv.i.i37, align 8
   %conv.i.i40 = sitofp i64 %15 to double
   %16 = load i64, ptr %tv_nsec.i.i41, align 8
@@ -6333,11 +6333,11 @@ bench_stats_start.exit68:                         ; preds = %do.end97
   br label %do.body108
 
 do.body108:                                       ; preds = %bench_stats_check.exit89, %bench_stats_start.exit68
-  %count.2 = phi i32 [ 0, %bench_stats_start.exit68 ], [ %add153, %bench_stats_check.exit89 ]
+  %count.3 = phi i32 [ 0, %bench_stats_start.exit68 ], [ %add153, %bench_stats_check.exit89 ]
   br label %for.body123
 
 for.body123:                                      ; preds = %do.body108, %bench_async_handle.exit73
-  %times.2130 = phi i32 [ 0, %do.body108 ], [ %inc.i72, %bench_async_handle.exit73 ]
+  %times.1130 = phi i32 [ 0, %do.body108 ], [ %inc.i72, %bench_async_handle.exit73 ]
   %23 = load i32, ptr %privSz, align 4
   %24 = load i32, ptr %pubSz2, align 4
   %call140 = call i32 @wc_DhAgree(ptr noundef nonnull %dhKey, ptr noundef nonnull %agree, ptr noundef nonnull %agreeSz, ptr noundef nonnull %priv, i32 noundef %23, ptr noundef nonnull %pub2, i32 noundef %24) #16
@@ -6345,7 +6345,7 @@ for.body123:                                      ; preds = %do.body108, %bench_
   br i1 %cmp.i69, label %bench_async_handle.exit73, label %exit
 
 bench_async_handle.exit73:                        ; preds = %for.body123
-  %inc.i72 = add nuw nsw i32 %times.2130, 1
+  %inc.i72 = add nuw nsw i32 %times.1130, 1
   %exitcond.not = icmp eq i32 %inc.i72, 100
   br i1 %exitcond.not, label %for.end152, label %for.body123
 
@@ -6365,7 +6365,7 @@ if.then.i.i85:                                    ; preds = %for.end152
   unreachable
 
 bench_stats_check.exit89:                         ; preds = %for.end152
-  %add153 = add nuw nsw i32 %count.2, 100
+  %add153 = add nuw nsw i32 %count.3, 100
   %27 = load i64, ptr %tv.i.i74, align 8
   %conv.i.i77 = sitofp i64 %27 to double
   %28 = load i64, ptr %tv_nsec.i.i78, align 8
@@ -6378,12 +6378,12 @@ bench_stats_check.exit89:                         ; preds = %for.end152
   br i1 %cmp.i83, label %exit, label %do.body108, !llvm.loop !68
 
 exit:                                             ; preds = %bench_stats_check.exit89, %for.body123, %exit_dh_gen.thread, %if.end6, %if.then32
-  %count.3 = phi i32 [ 0, %if.then32 ], [ 0, %if.end6 ], [ %count.0, %exit_dh_gen.thread ], [ %count.2, %for.body123 ], [ %add153, %bench_stats_check.exit89 ]
-  %ret.6 = phi i32 [ %ret.0, %if.then32 ], [ %call12, %if.end6 ], [ %call69, %exit_dh_gen.thread ], [ %call140, %for.body123 ], [ %call140, %bench_stats_check.exit89 ]
+  %count.0 = phi i32 [ 0, %if.then32 ], [ 0, %if.end6 ], [ %count.1, %exit_dh_gen.thread ], [ %count.3, %for.body123 ], [ %add153, %bench_stats_check.exit89 ]
+  %ret.0 = phi i32 [ %ret.1, %if.then32 ], [ %call12, %if.end6 ], [ %call69, %exit_dh_gen.thread ], [ %call140, %for.body123 ], [ %call140, %bench_stats_check.exit89 ]
   %start.0 = phi double [ 0.000000e+00, %if.then32 ], [ 0.000000e+00, %if.end6 ], [ %add.i.i, %exit_dh_gen.thread ], [ %add.i.i57, %for.body123 ], [ %add.i.i57, %bench_stats_check.exit89 ]
   %arrayidx161 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %29 = load ptr, ptr %arrayidx161, align 8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %29, i32 noundef %count.3, double noundef %start.0, i32 noundef %ret.6)
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %29, i32 noundef %count.0, double noundef %start.0, i32 noundef %ret.0)
   %call168 = call i32 @wc_FreeDhKey(ptr noundef nonnull %dhKey) #16
   ret void
 }
@@ -6828,7 +6828,7 @@ do.body109:                                       ; preds = %bench_stats_check.e
   br label %for.body124
 
 for.body124:                                      ; preds = %do.body109, %bench_async_handle.exit100
-  %times.2212 = phi i32 [ 0, %do.body109 ], [ %inc.i99, %bench_async_handle.exit100 ]
+  %times.1212 = phi i32 [ 0, %do.body109 ], [ %inc.i99, %bench_async_handle.exit100 ]
   %18 = load i32, ptr %state, align 8
   %cmp130 = icmp eq i32 %18, 0
   br i1 %cmp130, label %if.then132, label %if.end135
@@ -6843,7 +6843,7 @@ if.end135:                                        ; preds = %if.then132, %for.bo
   br i1 %cmp.i96, label %bench_async_handle.exit100, label %exit_ecdsa_sign
 
 bench_async_handle.exit100:                       ; preds = %if.end135
-  %inc.i99 = add nuw nsw i32 %times.2212, 1
+  %inc.i99 = add nuw nsw i32 %times.1212, 1
   %exitcond234.not = icmp eq i32 %inc.i99, 100
   br i1 %exitcond234.not, label %for.end158, label %for.body124
 
@@ -6925,7 +6925,7 @@ do.body177:                                       ; preds = %bench_stats_check.e
   br label %for.body192
 
 for.body192:                                      ; preds = %do.body177, %bench_async_handle.exit140
-  %times.4213 = phi i32 [ 0, %do.body177 ], [ %inc.i139, %bench_async_handle.exit140 ]
+  %times.2213 = phi i32 [ 0, %do.body177 ], [ %inc.i139, %bench_async_handle.exit140 ]
   %29 = load i32, ptr %state, align 8
   %cmp199 = icmp eq i32 %29, 0
   br i1 %cmp199, label %if.then201, label %if.end204
@@ -6941,7 +6941,7 @@ if.end204:                                        ; preds = %if.then201, %for.bo
   br i1 %cmp.i136, label %bench_async_handle.exit140, label %exit_ecdsa_verify
 
 bench_async_handle.exit140:                       ; preds = %if.end204
-  %inc.i139 = add nuw nsw i32 %times.4213, 1
+  %inc.i139 = add nuw nsw i32 %times.2213, 1
   %exitcond235.not = icmp eq i32 %inc.i139, 100
   br i1 %exitcond235.not, label %for.end229, label %for.body192
 
@@ -7560,7 +7560,7 @@ entry:
 for.body:                                         ; preds = %entry, %print_alg.exit
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %print_alg.exit ]
   %20 = phi ptr [ @.str.210, %entry ], [ %21, %print_alg.exit ]
-  %line.0127 = phi i32 [ 0, %entry ], [ %line.2, %print_alg.exit ]
+  %line.0127 = phi i32 [ 0, %entry ], [ %line.7, %print_alg.exit ]
   %cmp.i = icmp eq i32 %line.0127, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -7569,11 +7569,11 @@ if.then.i:                                        ; preds = %for.body
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.body
-  %line.1 = phi i32 [ 13, %if.then.i ], [ %line.0127, %for.body ]
+  %line.6 = phi i32 [ 13, %if.then.i ], [ %line.0127, %for.body ]
   %call1.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.209, ptr noundef nonnull %20)
   %call2.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #19
   %conv.i = trunc i64 %call2.i to i32
-  %add.i = add i32 %line.1, 1
+  %add.i = add i32 %line.6, 1
   %add3.i = add i32 %add.i, %conv.i
   %cmp4.i = icmp sgt i32 %add3.i, 80
   br i1 %cmp4.i, label %if.then6.i, label %print_alg.exit
@@ -7583,7 +7583,7 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %print_alg.exit
 
 print_alg.exit:                                   ; preds = %if.end.i, %if.then6.i
-  %line.2 = phi i32 [ 0, %if.then6.i ], [ %add3.i, %if.end.i ]
+  %line.7 = phi i32 [ 0, %if.then6.i ], [ %add3.i, %if.end.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx80 = getelementptr inbounds [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv.next
   %21 = load ptr, ptr %arrayidx80, align 16
@@ -7593,8 +7593,8 @@ print_alg.exit:                                   ; preds = %if.end.i, %if.then6
 for.body90:                                       ; preds = %print_alg.exit, %print_alg.exit63
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %print_alg.exit63 ], [ 0, %print_alg.exit ]
   %22 = phi ptr [ %23, %print_alg.exit63 ], [ @.str.215, %print_alg.exit ]
-  %line.3129 = phi i32 [ %line.5, %print_alg.exit63 ], [ %line.2, %print_alg.exit ]
-  %cmp.i51 = icmp eq i32 %line.3129, 0
+  %line.1129 = phi i32 [ %line.9, %print_alg.exit63 ], [ %line.7, %print_alg.exit ]
+  %cmp.i51 = icmp eq i32 %line.1129, 0
   br i1 %cmp.i51, label %if.then.i61, label %if.end.i52
 
 if.then.i61:                                      ; preds = %for.body90
@@ -7602,11 +7602,11 @@ if.then.i61:                                      ; preds = %for.body90
   br label %if.end.i52
 
 if.end.i52:                                       ; preds = %if.then.i61, %for.body90
-  %line.4 = phi i32 [ 13, %if.then.i61 ], [ %line.3129, %for.body90 ]
+  %line.8 = phi i32 [ 13, %if.then.i61 ], [ %line.1129, %for.body90 ]
   %call1.i53 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.209, ptr noundef nonnull %22)
   %call2.i54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #19
   %conv.i55 = trunc i64 %call2.i54 to i32
-  %add.i56 = add i32 %line.4, 1
+  %add.i56 = add i32 %line.8, 1
   %add3.i57 = add i32 %add.i56, %conv.i55
   %cmp4.i58 = icmp sgt i32 %add3.i57, 80
   br i1 %cmp4.i58, label %if.then6.i59, label %print_alg.exit63
@@ -7616,7 +7616,7 @@ if.then6.i59:                                     ; preds = %if.end.i52
   br label %print_alg.exit63
 
 print_alg.exit63:                                 ; preds = %if.end.i52, %if.then6.i59
-  %line.5 = phi i32 [ 0, %if.then6.i59 ], [ %add3.i57, %if.end.i52 ]
+  %line.9 = phi i32 [ 0, %if.then6.i59 ], [ %add3.i57, %if.end.i52 ]
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %arrayidx87 = getelementptr inbounds [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv.next146
   %23 = load ptr, ptr %arrayidx87, align 16
@@ -7626,8 +7626,8 @@ print_alg.exit63:                                 ; preds = %if.end.i52, %if.the
 for.body102:                                      ; preds = %print_alg.exit63, %for.body102.backedge
   %indvars.iv149 = phi i64 [ %indvars.iv149.be, %for.body102.backedge ], [ 0, %print_alg.exit63 ]
   %24 = phi ptr [ %.be, %for.body102.backedge ], [ @.str.229, %print_alg.exit63 ]
-  %line.6131 = phi i32 [ %line.6131.be, %for.body102.backedge ], [ %line.5, %print_alg.exit63 ]
-  %cmp.i64 = icmp eq i32 %line.6131, 0
+  %line.2131 = phi i32 [ %line.2131.be, %for.body102.backedge ], [ %line.9, %print_alg.exit63 ]
+  %cmp.i64 = icmp eq i32 %line.2131, 0
   br i1 %cmp.i64, label %if.then.i74, label %if.end.i65
 
 if.then.i74:                                      ; preds = %for.body102
@@ -7635,11 +7635,11 @@ if.then.i74:                                      ; preds = %for.body102
   br label %if.end.i65
 
 if.end.i65:                                       ; preds = %if.then.i74, %for.body102
-  %line.7 = phi i32 [ 13, %if.then.i74 ], [ %line.6131, %for.body102 ]
+  %line.10 = phi i32 [ 13, %if.then.i74 ], [ %line.2131, %for.body102 ]
   %call1.i66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.209, ptr noundef nonnull %24)
   %call2.i67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #19
   %conv.i68 = trunc i64 %call2.i67 to i32
-  %add.i69 = add i32 %line.7, 1
+  %add.i69 = add i32 %line.10, 1
   %add3.i70 = add i32 %add.i69, %conv.i68
   %cmp4.i71 = icmp sgt i32 %add3.i70, 80
   br i1 %cmp4.i71, label %print_alg.exit76.thread, label %print_alg.exit76
@@ -7651,7 +7651,7 @@ print_alg.exit76:                                 ; preds = %if.end.i65
 
 for.body102.backedge:                             ; preds = %print_alg.exit76, %print_alg.exit76.thread
   %indvars.iv149.be = phi i64 [ %indvars.iv.next150, %print_alg.exit76 ], [ %indvars.iv.next150165, %print_alg.exit76.thread ]
-  %line.6131.be = phi i32 [ %add3.i70, %print_alg.exit76 ], [ 0, %print_alg.exit76.thread ]
+  %line.2131.be = phi i32 [ %add3.i70, %print_alg.exit76 ], [ 0, %print_alg.exit76.thread ]
   %.be.in = getelementptr inbounds [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv149.be
   %.be = load ptr, ptr %.be.in, align 16
   br label %for.body102, !llvm.loop !82
@@ -7682,14 +7682,14 @@ if.then6.i85:                                     ; preds = %if.end.i78
   br label %for.body126.preheader
 
 for.body126.preheader:                            ; preds = %if.end.i78.thread, %if.end.i78, %if.then6.i85
-  %line.12135.ph = phi i32 [ 0, %if.then6.i85 ], [ %add3.i83, %if.end.i78 ], [ 18, %if.end.i78.thread ]
+  %line.4135.ph = phi i32 [ 0, %if.then6.i85 ], [ %add3.i83, %if.end.i78 ], [ 18, %if.end.i78.thread ]
   br label %for.body126
 
 for.body126:                                      ; preds = %for.body126.preheader, %print_alg.exit102
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %print_alg.exit102 ], [ 0, %for.body126.preheader ]
   %25 = phi ptr [ %26, %print_alg.exit102 ], [ @.str.239, %for.body126.preheader ]
-  %line.12135 = phi i32 [ %line.14, %print_alg.exit102 ], [ %line.12135.ph, %for.body126.preheader ]
-  %cmp.i90 = icmp eq i32 %line.12135, 0
+  %line.4135 = phi i32 [ %line.15, %print_alg.exit102 ], [ %line.4135.ph, %for.body126.preheader ]
+  %cmp.i90 = icmp eq i32 %line.4135, 0
   br i1 %cmp.i90, label %if.then.i100, label %if.end.i91
 
 if.then.i100:                                     ; preds = %for.body126
@@ -7697,11 +7697,11 @@ if.then.i100:                                     ; preds = %for.body126
   br label %if.end.i91
 
 if.end.i91:                                       ; preds = %if.then.i100, %for.body126
-  %line.13 = phi i32 [ 13, %if.then.i100 ], [ %line.12135, %for.body126 ]
+  %line.14 = phi i32 [ 13, %if.then.i100 ], [ %line.4135, %for.body126 ]
   %call1.i92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.209, ptr noundef nonnull %25)
   %call2.i93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #19
   %conv.i94 = trunc i64 %call2.i93 to i32
-  %add.i95 = add i32 %line.13, 1
+  %add.i95 = add i32 %line.14, 1
   %add3.i96 = add i32 %add.i95, %conv.i94
   %cmp4.i97 = icmp sgt i32 %add3.i96, 80
   br i1 %cmp4.i97, label %if.then6.i98, label %print_alg.exit102
@@ -7711,7 +7711,7 @@ if.then6.i98:                                     ; preds = %if.end.i91
   br label %print_alg.exit102
 
 print_alg.exit102:                                ; preds = %if.end.i91, %if.then6.i98
-  %line.14 = phi i32 [ 0, %if.then6.i98 ], [ %add3.i96, %if.end.i91 ]
+  %line.15 = phi i32 [ 0, %if.then6.i98 ], [ %add3.i96, %if.end.i91 ]
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %arrayidx123 = getelementptr inbounds [8 x %struct.bench_alg], ptr @bench_asym_opt, i64 0, i64 %indvars.iv.next157
   %26 = load ptr, ptr %arrayidx123, align 16
@@ -7721,8 +7721,8 @@ print_alg.exit102:                                ; preds = %if.end.i91, %if.the
 for.body138:                                      ; preds = %print_alg.exit102, %print_alg.exit115
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %print_alg.exit115 ], [ 0, %print_alg.exit102 ]
   %27 = phi ptr [ %28, %print_alg.exit115 ], [ @.str.246, %print_alg.exit102 ]
-  %line.15137 = phi i32 [ %line.17, %print_alg.exit115 ], [ %line.14, %print_alg.exit102 ]
-  %cmp.i103 = icmp eq i32 %line.15137, 0
+  %line.5137 = phi i32 [ %line.17, %print_alg.exit115 ], [ %line.15, %print_alg.exit102 ]
+  %cmp.i103 = icmp eq i32 %line.5137, 0
   br i1 %cmp.i103, label %if.then.i113, label %if.end.i104
 
 if.then.i113:                                     ; preds = %for.body138
@@ -7730,7 +7730,7 @@ if.then.i113:                                     ; preds = %for.body138
   br label %if.end.i104
 
 if.end.i104:                                      ; preds = %if.then.i113, %for.body138
-  %line.16 = phi i32 [ 13, %if.then.i113 ], [ %line.15137, %for.body138 ]
+  %line.16 = phi i32 [ 13, %if.then.i113 ], [ %line.5137, %for.body138 ]
   %call1.i105 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.209, ptr noundef nonnull %27)
   %call2.i106 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #19
   %conv.i107 = trunc i64 %call2.i106 to i32

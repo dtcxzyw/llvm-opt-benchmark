@@ -6809,7 +6809,7 @@ while.body.i.preheader.i.i.i:                     ; preds = %_ZN19grpc_java_gene
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end.i.i.i.i, %while.body.i.preheader.i.i.i
-  %p.02.i.i.i.i = phi ptr [ %p.2.i.i.i.i, %if.end.i.i.i.i ], [ %call.i.i.i.i, %while.body.i.preheader.i.i.i ]
+  %p.02.i.i.i.i = phi ptr [ %p.1.i.i.i.i, %if.end.i.i.i.i ], [ %call.i.i.i.i, %while.body.i.preheader.i.i.i ]
   %4 = load i8, ptr %p.02.i.i.i.i, align 1
   %cmp9.i.i.i.i = icmp eq i8 %4, 10
   br i1 %cmp9.i.i.i.i, label %if.then10.i.i.i.i, label %while.cond11.i.i.i.i
@@ -6819,8 +6819,8 @@ if.then10.i.i.i.i:                                ; preds = %while.body.i.i.i.i
   br label %if.end.i.i.i.i
 
 while.cond11.i.i.i.i:                             ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i
-  %p.1.i.i.i.i = phi ptr [ %incdec.ptr12.i.i.i.i, %land.rhs.i.i.i.i ], [ %p.02.i.i.i.i, %while.body.i.i.i.i ]
-  %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %p.1.i.i.i.i, i64 1
+  %p.2.i.i.i.i = phi ptr [ %incdec.ptr12.i.i.i.i, %land.rhs.i.i.i.i ], [ %p.02.i.i.i.i, %while.body.i.i.i.i ]
+  %incdec.ptr12.i.i.i.i = getelementptr inbounds i8, ptr %p.2.i.i.i.i, i64 1
   %cmp13.not.i.i.i.i = icmp eq ptr %incdec.ptr12.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp13.not.i.i.i.i, label %while.end.i.i.i.i, label %land.rhs.i.i.i.i
 
@@ -6878,8 +6878,8 @@ ehcleanup.i.i.i.i:                                ; preds = %lpad20.i.i.i.i, %lp
   br label %common.resume.i
 
 if.end.i.i.i.i:                                   ; preds = %invoke.cont25.i.i.i.i, %if.then10.i.i.i.i
-  %p.2.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.then10.i.i.i.i ], [ %incdec.ptr12.lcssa.i.i.i.i, %invoke.cont25.i.i.i.i ]
-  %cmp6.not.i.i.i.i = icmp eq ptr %p.2.i.i.i.i, %add.ptr.i.i.i.i
+  %p.1.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.then10.i.i.i.i ], [ %incdec.ptr12.lcssa.i.i.i.i, %invoke.cont25.i.i.i.i ]
+  %cmp6.not.i.i.i.i = icmp eq ptr %p.1.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp6.not.i.i.i.i, label %_ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.i, label %while.body.i.i.i.i, !llvm.loop !48
 
 _ZN19grpc_java_generator12_GLOBAL__N_19GrpcSplitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit.i: ; preds = %if.end.i.i.i.i
@@ -11472,8 +11472,8 @@ if.else38.i.i:                                    ; preds = %for.cond.i.i
 for.body49.i.i:                                   ; preds = %if.else38.i.i, %for.body49.i.i
   %__i45.049.i.i = phi i64 [ %inc57.i.i, %for.body49.i.i ], [ 0, %if.else38.i.i ]
   %__q40.sroa.0.048.i.i = phi ptr [ %incdec.ptr.i19.i.i, %for.body49.i.i ], [ %add.ptr.i16.i.i, %if.else38.i.i ]
-  %__p.sroa.0.247.i.i = phi ptr [ %incdec.ptr.i18.i.i, %for.body49.i.i ], [ %add.ptr.i17.i.i, %if.else38.i.i ]
-  %incdec.ptr.i18.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.247.i.i, i64 -8
+  %__p.sroa.0.347.i.i = phi ptr [ %incdec.ptr.i18.i.i, %for.body49.i.i ], [ %add.ptr.i17.i.i, %if.else38.i.i ]
+  %incdec.ptr.i18.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.347.i.i, i64 -8
   %incdec.ptr.i19.i.i = getelementptr inbounds i8, ptr %__q40.sroa.0.048.i.i, i64 -8
   %8 = load ptr, ptr %incdec.ptr.i18.i.i, align 8
   %9 = load ptr, ptr %incdec.ptr.i19.i.i, align 8
@@ -11484,7 +11484,7 @@ for.body49.i.i:                                   ; preds = %if.else38.i.i, %for
   br i1 %exitcond.not.i.i, label %for.end58.i.i, label %for.body49.i.i, !llvm.loop !79
 
 for.end58.i.i:                                    ; preds = %for.body49.i.i, %if.else38.i.i
-  %__p.sroa.0.2.lcssa.i.i = phi ptr [ %add.ptr.i17.i.i, %if.else38.i.i ], [ %__p.sroa.0.0.i.i, %for.body49.i.i ]
+  %__p.sroa.0.3.lcssa.i.i = phi ptr [ %add.ptr.i17.i.i, %if.else38.i.i ], [ %__p.sroa.0.0.i.i, %for.body49.i.i ]
   %rem59.i.i = srem i64 %__n.0.i.i, %sub20.i.i
   %cmp60.i.i = icmp eq i64 %rem59.i.i, 0
   br i1 %cmp60.i.i, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit, label %for.cond.i.i.backedge
@@ -11492,7 +11492,7 @@ for.end58.i.i:                                    ; preds = %for.body49.i.i, %if
 for.cond.i.i.backedge:                            ; preds = %for.end58.i.i, %if.end36.i.i
   %__n.0.i.i.be = phi i64 [ %__k.0.i.i, %if.end36.i.i ], [ %sub20.i.i, %for.end58.i.i ]
   %__k.0.i.i.be = phi i64 [ %sub37.i.i, %if.end36.i.i ], [ %rem59.i.i, %for.end58.i.i ]
-  %__p.sroa.0.0.i.i.be = phi ptr [ %__p.sroa.0.1.lcssa.i.i, %if.end36.i.i ], [ %__p.sroa.0.2.lcssa.i.i, %for.end58.i.i ]
+  %__p.sroa.0.0.i.i.be = phi ptr [ %__p.sroa.0.1.lcssa.i.i, %if.end36.i.i ], [ %__p.sroa.0.3.lcssa.i.i, %for.end58.i.i ]
   br label %for.cond.i.i, !llvm.loop !80
 
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEEEET_SF_SF_SF_.exit: ; preds = %for.end.i.i, %for.end58.i.i, %for.body.i.i.i, %if.end57, %if.else.i.i52
@@ -12881,8 +12881,8 @@ if.else38.i.i:                                    ; preds = %for.cond.i.i
 for.body49.i.i:                                   ; preds = %if.else38.i.i, %for.body49.i.i
   %__i45.049.i.i = phi i64 [ %inc57.i.i, %for.body49.i.i ], [ 0, %if.else38.i.i ]
   %__q40.sroa.0.048.i.i = phi ptr [ %incdec.ptr.i19.i.i, %for.body49.i.i ], [ %add.ptr.i16.i.i, %if.else38.i.i ]
-  %__p.sroa.0.247.i.i = phi ptr [ %incdec.ptr.i18.i.i, %for.body49.i.i ], [ %add.ptr.i17.i.i, %if.else38.i.i ]
-  %incdec.ptr.i18.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.247.i.i, i64 -8
+  %__p.sroa.0.347.i.i = phi ptr [ %incdec.ptr.i18.i.i, %for.body49.i.i ], [ %add.ptr.i17.i.i, %if.else38.i.i ]
+  %incdec.ptr.i18.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.347.i.i, i64 -8
   %incdec.ptr.i19.i.i = getelementptr inbounds i8, ptr %__q40.sroa.0.048.i.i, i64 -8
   %22 = load ptr, ptr %incdec.ptr.i18.i.i, align 8
   %23 = load ptr, ptr %incdec.ptr.i19.i.i, align 8
@@ -12893,7 +12893,7 @@ for.body49.i.i:                                   ; preds = %if.else38.i.i, %for
   br i1 %exitcond.not.i.i, label %for.end58.i.i, label %for.body49.i.i, !llvm.loop !79
 
 for.end58.i.i:                                    ; preds = %for.body49.i.i, %if.else38.i.i
-  %__p.sroa.0.2.lcssa.i.i = phi ptr [ %add.ptr.i17.i.i, %if.else38.i.i ], [ %__p.sroa.0.0.i.i, %for.body49.i.i ]
+  %__p.sroa.0.3.lcssa.i.i = phi ptr [ %add.ptr.i17.i.i, %if.else38.i.i ], [ %__p.sroa.0.0.i.i, %for.body49.i.i ]
   %rem59.i.i = srem i64 %__n.0.i.i, %sub20.i.i
   %cmp60.i.i = icmp eq i64 %rem59.i.i, 0
   br i1 %cmp60.i.i, label %return, label %for.cond.i.i.backedge
@@ -12901,7 +12901,7 @@ for.end58.i.i:                                    ; preds = %for.body49.i.i, %if
 for.cond.i.i.backedge:                            ; preds = %for.end58.i.i, %if.end36.i.i
   %__n.0.i.i.be = phi i64 [ %__k.0.i.i, %if.end36.i.i ], [ %sub20.i.i, %for.end58.i.i ]
   %__k.0.i.i.be = phi i64 [ %sub37.i.i, %if.end36.i.i ], [ %rem59.i.i, %for.end58.i.i ]
-  %__p.sroa.0.0.i.i.be = phi ptr [ %__p.sroa.0.1.lcssa.i.i, %if.end36.i.i ], [ %__p.sroa.0.2.lcssa.i.i, %for.end58.i.i ]
+  %__p.sroa.0.0.i.i.be = phi ptr [ %__p.sroa.0.1.lcssa.i.i, %if.end36.i.i ], [ %__p.sroa.0.3.lcssa.i.i, %for.end58.i.i ]
   br label %for.cond.i.i, !llvm.loop !80
 
 return:                                           ; preds = %for.end58.i.i, %for.end.i.i, %for.body.i.i.i, %if.else.i.i, %if.else44, %if.then22, %if.then, %_ZSt13move_backwardIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit, %_ZSt4moveIPSt10unique_ptrIKN14grpc_generator6MethodESt14default_deleteIS3_EEN9__gnu_cxx17__normal_iteratorIS7_St6vectorIS6_SaIS6_EEEEET0_T_SF_SE_.exit

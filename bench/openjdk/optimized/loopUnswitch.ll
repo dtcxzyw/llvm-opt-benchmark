@@ -563,8 +563,8 @@ define hidden void @_ZN14PhaseIdealLoop27hoist_invariant_check_castsEPK13IdealLo
 
 .lr.ph:                                           ; preds = %31, %78
   %.02776 = phi ptr [ %79, %78 ], [ %34, %31 ]
-  %.sroa.18.175 = phi ptr [ %.sroa.18.3, %78 ], [ %.sroa.18.086, %31 ]
-  %.sroa.11.174 = phi i32 [ %.sroa.11.3, %78 ], [ %.sroa.11.085, %31 ]
+  %.sroa.18.175 = phi ptr [ %.sroa.18.2, %78 ], [ %.sroa.18.086, %31 ]
+  %.sroa.11.174 = phi i32 [ %.sroa.11.2, %78 ], [ %.sroa.11.085, %31 ]
   %.sroa.0.172 = phi i32 [ %.sroa.0.2, %78 ], [ %.sroa.0.084, %31 ]
   %39 = load ptr, ptr %.02776, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 44
@@ -634,26 +634,26 @@ _ZN13GrowableArrayIP15CheckCastPPNodeE8allocateEv.exit.i: ; preds = %50
   br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i, !llvm.loop !9
 
 _ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %.lr.ph19.preheader.i, %.preheader16.i, %50
-  %.sroa.11.2 = phi i32 [ %.sroa.11.174, %50 ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ]
-  %.sroa.18.2 = phi ptr [ %.sroa.18.175, %50 ], [ %61, %.preheader16.i ], [ %61, %.lr.ph19.preheader.i ]
+  %.sroa.11.3 = phi i32 [ %.sroa.11.174, %50 ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ]
+  %.sroa.18.3 = phi ptr [ %.sroa.18.175, %50 ], [ %61, %.preheader16.i ], [ %61, %.lr.ph19.preheader.i ]
   %75 = add nsw i32 %.sroa.0.172, 1
   %76 = sext i32 %.sroa.0.172 to i64
-  %77 = getelementptr inbounds ptr, ptr %.sroa.18.2, i64 %76
+  %77 = getelementptr inbounds ptr, ptr %.sroa.18.3, i64 %76
   store ptr %39, ptr %77, align 8
   br label %78
 
 78:                                               ; preds = %.lr.ph, %44, %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit
   %.sroa.0.2 = phi i32 [ %.sroa.0.172, %.lr.ph ], [ %75, %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.0.172, %44 ]
-  %.sroa.11.3 = phi i32 [ %.sroa.11.174, %.lr.ph ], [ %.sroa.11.2, %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.11.174, %44 ]
-  %.sroa.18.3 = phi ptr [ %.sroa.18.175, %.lr.ph ], [ %.sroa.18.2, %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.18.175, %44 ]
+  %.sroa.11.2 = phi i32 [ %.sroa.11.174, %.lr.ph ], [ %.sroa.11.3, %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.11.174, %44 ]
+  %.sroa.18.2 = phi ptr [ %.sroa.18.175, %.lr.ph ], [ %.sroa.18.3, %_ZN26GrowableArrayWithAllocatorIP15CheckCastPPNode13GrowableArrayIS1_EE4pushERKS1_.exit ], [ %.sroa.18.175, %44 ]
   %79 = getelementptr inbounds i8, ptr %.02776, i64 8
   %80 = icmp ult ptr %79, %38
   br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %78, %31
   %.sroa.0.1.lcssa = phi i32 [ %.sroa.0.084, %31 ], [ %.sroa.0.2, %78 ]
-  %.sroa.11.1.lcssa = phi i32 [ %.sroa.11.085, %31 ], [ %.sroa.11.3, %78 ]
-  %.sroa.18.1.lcssa = phi ptr [ %.sroa.18.086, %31 ], [ %.sroa.18.3, %78 ]
+  %.sroa.11.1.lcssa = phi i32 [ %.sroa.11.085, %31 ], [ %.sroa.11.2, %78 ]
+  %.sroa.18.1.lcssa = phi ptr [ %.sroa.18.086, %31 ], [ %.sroa.18.2, %78 ]
   %81 = getelementptr inbounds i8, ptr %32, i64 52
   %82 = load i32, ptr %81, align 4
   %83 = tail call noundef ptr @_ZNK9MultiNode8proj_outEj(ptr noundef nonnull align 8 dereferenceable(52) %8, i32 noundef %82) #9

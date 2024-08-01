@@ -471,9 +471,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1169,7 +1169,7 @@ for.cond:                                         ; preds = %_ZN6icu_7516MaybeSt
 
 invoke.cont4:                                     ; preds = %invoke.cont4.lr.ph, %for.cond
   %indvars.iv63 = phi i64 [ 0, %invoke.cont4.lr.ph ], [ %indvars.iv.next64, %for.cond ]
-  %nrvo.061 = phi i1 [ false, %invoke.cont4.lr.ph ], [ %nrvo.171, %for.cond ]
+  %nrvo.161 = phi i1 [ false, %invoke.cont4.lr.ph ], [ %nrvo.271, %for.cond ]
   %6 = load ptr, ptr %fPool.i, align 8
   %arrayidx.i.i = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv63
   %7 = load ptr, ptr %arrayidx.i.i, align 8
@@ -1324,7 +1324,7 @@ lpad25:                                           ; preds = %for.body30
 
 cleanup:                                          ; preds = %invoke.cont38, %for.cond28
   %cmp29.not.lcssa.ph = phi i1 [ %cmp29.not55, %invoke.cont38 ], [ %cmp29.not, %for.cond28 ]
-  %nrvo.1.ph = phi i1 [ true, %invoke.cont38 ], [ %nrvo.061, %for.cond28 ]
+  %nrvo.2.ph = phi i1 [ true, %invoke.cont38 ], [ %nrvo.161, %for.cond28 ]
   %.pre = load i32, ptr %baseUnits, align 8
   %cmp3.i.i = icmp sgt i32 %.pre, 0
   br i1 %cmp3.i.i, label %for.body.i.i, label %for.end.i.i
@@ -1351,7 +1351,7 @@ for.inc.i.i:                                      ; preds = %delete.notnull.i.i,
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !10
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %_ZN6icu_7515MeasureUnitImplD2Ev.exit, %cleanup
-  %nrvo.171 = phi i1 [ %nrvo.1.ph, %cleanup ], [ %nrvo.061, %_ZN6icu_7515MeasureUnitImplD2Ev.exit ], [ %nrvo.1.ph, %for.inc.i.i ]
+  %nrvo.271 = phi i1 [ %nrvo.2.ph, %cleanup ], [ %nrvo.161, %_ZN6icu_7515MeasureUnitImplD2Ev.exit ], [ %nrvo.2.ph, %for.inc.i.i ]
   %cmp29.not.lcssa70 = phi i1 [ %cmp29.not.lcssa.ph, %cleanup ], [ false, %_ZN6icu_7515MeasureUnitImplD2Ev.exit ], [ %cmp29.not.lcssa.ph, %for.inc.i.i ]
   %42 = load i8, ptr %needToRelease.i.i.i, align 4
   %tobool.not.i.i.i.i = icmp eq i8 %42, 0
@@ -1373,7 +1373,7 @@ _ZN6icu_7516MaybeStackVectorINS_14SingleUnitImplELi8EED2Ev.exit: ; preds = %for.
   br i1 %cmp29.not.lcssa70, label %cleanup48, label %for.cond
 
 cleanup48:                                        ; preds = %_ZN6icu_7516MaybeStackVectorINS_14SingleUnitImplELi8EED2Ev.exit
-  br i1 %nrvo.171, label %nrvo.skipdtor, label %nrvo.unused
+  br i1 %nrvo.271, label %nrvo.skipdtor, label %nrvo.unused
 
 nrvo.unused:                                      ; preds = %cleanup48
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #16
@@ -1671,7 +1671,7 @@ for.body.i20:                                     ; preds = %for.cond.i25, %for.
   br i1 %cmp2.not.i24, label %for.cond.i25, label %cleanup
 
 cleanup:                                          ; preds = %for.cond.i, %for.cond.i25, %for.body.i20, %invoke.cont14
-  %retval.0.ph = phi i32 [ 1, %invoke.cont14 ], [ 2, %for.body.i20 ], [ 0, %for.cond.i25 ], [ 1, %for.cond.i ]
+  %retval.2.ph = phi i32 [ 1, %invoke.cont14 ], [ 2, %for.body.i20 ], [ 0, %for.cond.i25 ], [ 1, %for.cond.i ]
   %.pr = load i32, ptr %reciprocal, align 8
   %cmp4.i.i = icmp sgt i32 %.pr, 0
   br i1 %cmp4.i.i, label %for.body.i.i, label %for.end.i.i
@@ -1698,7 +1698,7 @@ for.inc.i.i:                                      ; preds = %delete.notnull.i.i,
   br i1 %cmp.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !13
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %if.end19, %cleanup
-  %retval.079 = phi i32 [ %retval.0.ph, %cleanup ], [ 0, %if.end19 ], [ %retval.0.ph, %for.inc.i.i ]
+  %retval.279 = phi i32 [ %retval.2.ph, %cleanup ], [ 0, %if.end19 ], [ %retval.2.ph, %for.inc.i.i ]
   %fPool2.val3.i.i = load i8, ptr %needToRelease.i.i.i15, align 4
   %tobool.not.i.i.i.i = icmp eq i8 %fPool2.val3.i.i, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6icu_7516MaybeStackVectorINS_5units12_GLOBAL__N_121UnitIndexAndDimensionELi8EED2Ev.exit, label %if.then.i.i.i.i
@@ -1759,7 +1759,7 @@ terminate.lpad.i.i.i38:                           ; preds = %if.then.i.i.i.i35
   unreachable
 
 cleanup26:                                        ; preds = %if.then.i.i.i.i35, %for.end.i.i32, %invoke.cont
-  %retval.1 = phi i32 [ 2, %invoke.cont ], [ %retval.079, %for.end.i.i32 ], [ %retval.079, %if.then.i.i.i.i35 ]
+  %retval.1 = phi i32 [ 2, %invoke.cont ], [ %retval.279, %for.end.i.i32 ], [ %retval.279, %if.then.i.i.i.i35 ]
   %identifier.i = getelementptr inbounds i8, ptr %targetBaseUnit, i64 96
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %identifier.i) #16
   %singleUnits.i = getelementptr inbounds i8, ptr %targetBaseUnit, i64 8
@@ -1869,8 +1869,8 @@ ehcleanup29:                                      ; preds = %lpad10, %lpad
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %if.then.i.i.i.i.i58, %for.end.i.i.i55, %if.then
-  %retval.2 = phi i32 [ 2, %if.then ], [ %retval.1, %for.end.i.i.i55 ], [ %retval.1, %if.then.i.i.i.i.i58 ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ 2, %if.then ], [ %retval.1, %for.end.i.i.i55 ], [ %retval.1, %if.then.i.i.i.i.i58 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

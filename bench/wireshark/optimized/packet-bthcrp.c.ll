@@ -423,7 +423,7 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
 
 .thread:                                          ; preds = %106, %82, %85, %125, %123, %115, %113, %.thread101, %121, %100, %96, %92, %90, %72, %67, %63, %37
   %.178 = phi i32 [ 0, %100 ], [ 0, %96 ], [ 0, %92 ], [ 0, %90 ], [ 0, %72 ], [ 0, %67 ], [ 0, %63 ], [ 0, %37 ], [ 1, %125 ], [ 0, %123 ], [ 1, %115 ], [ 1, %113 ], [ 0, %.thread101 ], [ 0, %121 ], [ 0, %85 ], [ 0, %82 ], [ 0, %106 ]
-  %.076 = phi i32 [ -1, %100 ], [ -1, %96 ], [ -1, %92 ], [ -1, %90 ], [ -1, %72 ], [ -1, %67 ], [ -1, %63 ], [ -1, %37 ], [ 22, %125 ], [ 22, %123 ], [ %108, %115 ], [ %108, %113 ], [ %108, %.thread101 ], [ 22, %121 ], [ -1, %85 ], [ -1, %82 ], [ %108, %106 ]
+  %.1 = phi i32 [ -1, %100 ], [ -1, %96 ], [ -1, %92 ], [ -1, %90 ], [ -1, %72 ], [ -1, %67 ], [ -1, %63 ], [ -1, %37 ], [ 22, %125 ], [ 22, %123 ], [ %108, %115 ], [ %108, %113 ], [ %108, %.thread101 ], [ 22, %121 ], [ -1, %85 ], [ -1, %82 ], [ %108, %106 ]
   %126 = load i32, ptr @psm_control, align 4
   %.not91 = icmp eq i32 %126, 0
   br i1 %.not91, label %131, label %127
@@ -454,12 +454,12 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   %140 = load i16, ptr %38, align 8
   %141 = zext i16 %140 to i32
   %142 = icmp eq i32 %138, %141
-  %spec.select = select i1 %142, i32 22, i32 %.076
+  %spec.select = select i1 %142, i32 22, i32 %.1
   br label %143
 
 143:                                              ; preds = %139, %133, %127, %137, %4
-  %.2 = phi i32 [ %.178, %137 ], [ 0, %4 ], [ %.178, %127 ], [ %.178, %133 ], [ %.178, %139 ]
-  %.1 = phi i32 [ %.076, %137 ], [ -1, %4 ], [ 18, %127 ], [ 20, %133 ], [ %spec.select, %139 ]
+  %.077 = phi i32 [ %.178, %137 ], [ 0, %4 ], [ %.178, %127 ], [ %.178, %133 ], [ %.178, %139 ]
+  %.076 = phi i32 [ %.1, %137 ], [ -1, %4 ], [ 18, %127 ], [ 20, %133 ], [ %spec.select, %139 ]
   %144 = load i32, ptr @proto_bthcrp, align 4
   %145 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %144, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   %146 = load i32, ptr @ett_bthcrp, align 4
@@ -492,8 +492,8 @@ define internal noundef i32 @dissect_bthcrp(ptr noundef %0, ptr noundef %1, ptr 
   br label %.thread103
 
 .thread103:                                       ; preds = %.thread103.sink.split, %143
-  %.3 = phi i32 [ %.2, %143 ], [ %spec.select105, %.thread103.sink.split ]
-  switch i32 %.1, label %343 [
+  %.3 = phi i32 [ %.077, %143 ], [ %spec.select105, %.thread103.sink.split ]
+  switch i32 %.076, label %343 [
     i32 18, label %157
     i32 20, label %312
     i32 22, label %317

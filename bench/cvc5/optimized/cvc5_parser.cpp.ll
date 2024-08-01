@@ -4904,14 +4904,14 @@ ehcleanup:                                        ; preds = %lpad26, %lpad.i, %l
 
 catch.dispatch:                                   ; preds = %ehcleanup, %_ZNSt10unique_ptrIN4cvc56parser6ParserESt14default_deleteIS2_EED2Ev.exit167, %lpad
   %.pn4 = phi { ptr, i32 } [ %20, %lpad ], [ %.pn, %ehcleanup ], [ %21, %_ZNSt10unique_ptrIN4cvc56parser6ParserESt14default_deleteIS2_EED2Ev.exit167 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn4, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn4, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn4, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn4, 1
   %26 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal15OptionExceptionE) #22
-  %matches = icmp eq i32 %ehselector.slot.1, %26
+  %matches = icmp eq i32 %ehselector.slot.0, %26
   br i1 %matches, label %catch85, label %catch.fallthrough
 
 catch85:                                          ; preds = %catch.dispatch
-  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #22
+  %27 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %exception88 = call ptr @__cxa_allocate_exception(i64 40) #22
   %d_msg.i = getelementptr inbounds i8, ptr %27, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)
@@ -4933,11 +4933,11 @@ invoke.cont93:                                    ; preds = %invoke.cont91
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %29 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal25RecoverableModalExceptionE) #22
-  %matches34 = icmp eq i32 %ehselector.slot.1, %29
+  %matches34 = icmp eq i32 %ehselector.slot.0, %29
   br i1 %matches34, label %catch68, label %catch.fallthrough35
 
 catch68:                                          ; preds = %catch.fallthrough
-  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #22
+  %30 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %exception71 = call ptr @__cxa_allocate_exception(i64 40) #22
   %d_msg.i169 = getelementptr inbounds i8, ptr %30, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp72, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i169)
@@ -4959,11 +4959,11 @@ invoke.cont76:                                    ; preds = %invoke.cont74
 
 catch.fallthrough35:                              ; preds = %catch.fallthrough
   %32 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal9ExceptionE) #22
-  %matches36 = icmp eq i32 %ehselector.slot.1, %32
+  %matches36 = icmp eq i32 %ehselector.slot.0, %32
   br i1 %matches36, label %catch51, label %catch.fallthrough37
 
 catch51:                                          ; preds = %catch.fallthrough35
-  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #22
+  %33 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %exception54 = call ptr @__cxa_allocate_exception(i64 40) #22
   %d_msg.i172 = getelementptr inbounds i8, ptr %33, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp55, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i172)
@@ -4985,11 +4985,11 @@ invoke.cont59:                                    ; preds = %invoke.cont57
 
 catch.fallthrough37:                              ; preds = %catch.fallthrough35
   %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt16invalid_argument) #22
-  %matches38 = icmp eq i32 %ehselector.slot.1, %35
+  %matches38 = icmp eq i32 %ehselector.slot.0, %35
   br i1 %matches38, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.fallthrough37
-  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #22
+  %36 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #22
   %exception = call ptr @__cxa_allocate_exception(i64 40) #22
   %vtable = load ptr, ptr %36, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16

@@ -322,7 +322,7 @@ if.end30:                                         ; preds = %lor.lhs.false25
 
 if.end33:                                         ; preds = %if.end10, %if.end30
   %idx.addr.0 = phi i32 [ %sub, %if.end30 ], [ %idx, %if.end10 ]
-  %sess.0 = phi ptr [ %call26, %if.end30 ], [ null, %if.end10 ]
+  %sess.1 = phi ptr [ %call26, %if.end30 ], [ null, %if.end10 ]
   %cli_to_srv_cookie.0 = phi i32 [ 5, %if.end30 ], [ 4, %if.end10 ]
   %srv_to_cli_epoch0.0 = phi i32 [ 3, %if.end30 ], [ 11, %if.end10 ]
   %call34 = call ptr @bio_f_tls_dump_filter() #7
@@ -342,12 +342,12 @@ if.end39:                                         ; preds = %if.end33
   br i1 %tobool44.not, label %end, label %if.end46
 
 if.end46:                                         ; preds = %if.end39
-  %cmp47.not = icmp eq ptr %sess.0, null
+  %cmp47.not = icmp eq ptr %sess.1, null
   br i1 %cmp47.not, label %if.end57, label %if.then49
 
 if.then49:                                        ; preds = %if.end46
   %17 = load ptr, ptr %clientssl, align 8
-  %call50 = call i32 @SSL_set_session(ptr noundef %17, ptr noundef nonnull %sess.0) #7
+  %call50 = call i32 @SSL_set_session(ptr noundef %17, ptr noundef nonnull %sess.1) #7
   %cmp51 = icmp ne i32 %call50, 0
   %conv52 = zext i1 %cmp51 to i32
   %call53 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 260, ptr noundef nonnull @.str.37, i32 noundef %conv52) #7
@@ -382,12 +382,12 @@ if.else73:                                        ; preds = %if.end57
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then61, %if.else73
-  %idx.addr.2 = phi i32 [ %spec.select25, %if.else73 ], [ %spec.select, %if.then61 ]
+  %idx.addr.1 = phi i32 [ %spec.select25, %if.else73 ], [ %spec.select, %if.then61 ]
   %mempackbio.0 = phi ptr [ %call82, %if.else73 ], [ %call62, %if.then61 ]
-  %epoch.1.in = phi i1 [ %cmp76.not, %if.else73 ], [ %cmp67.not, %if.then61 ]
-  %epoch.1 = zext i1 %epoch.1.in to i64
-  %call85 = call i64 @BIO_ctrl(ptr noundef %mempackbio.0, i32 noundef 32768, i64 noundef %epoch.1, ptr noundef null) #7
-  %conv86 = sext i32 %idx.addr.2 to i64
+  %epoch.0.in = phi i1 [ %cmp76.not, %if.else73 ], [ %cmp67.not, %if.then61 ]
+  %epoch.0 = zext i1 %epoch.0.in to i64
+  %call85 = call i64 @BIO_ctrl(ptr noundef %mempackbio.0, i32 noundef 32768, i64 noundef %epoch.0, ptr noundef null) #7
+  %conv86 = sext i32 %idx.addr.1 to i64
   %call87 = call i64 @BIO_ctrl(ptr noundef %mempackbio.0, i32 noundef 65536, i64 noundef %conv86, ptr noundef null) #7
   %22 = load ptr, ptr %serverssl, align 8
   %23 = load ptr, ptr %clientssl, align 8
@@ -420,8 +420,8 @@ if.end103:                                        ; preds = %land.lhs.true, %if.
 
 end:                                              ; preds = %if.end103, %land.lhs.true, %if.end83, %if.then49, %if.end39, %if.end33, %if.then14, %lor.lhs.false, %lor.lhs.false25, %if.end
   %testresult.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.end83 ], [ 0, %if.then49 ], [ 0, %if.end39 ], [ 0, %if.end33 ], [ 0, %lor.lhs.false25 ], [ 0, %lor.lhs.false ], [ 0, %if.then14 ], [ 0, %if.end ], [ %spec.select27, %if.end103 ]
-  %sess.1 = phi ptr [ %sess.0, %land.lhs.true ], [ %sess.0, %if.end83 ], [ %sess.0, %if.then49 ], [ %sess.0, %if.end39 ], [ %sess.0, %if.end33 ], [ %call26, %lor.lhs.false25 ], [ null, %lor.lhs.false ], [ null, %if.then14 ], [ null, %if.end ], [ %sess.0, %if.end103 ]
-  call void @SSL_SESSION_free(ptr noundef %sess.1) #7
+  %sess.0 = phi ptr [ %sess.1, %land.lhs.true ], [ %sess.1, %if.end83 ], [ %sess.1, %if.then49 ], [ %sess.1, %if.end39 ], [ %sess.1, %if.end33 ], [ %call26, %lor.lhs.false25 ], [ null, %lor.lhs.false ], [ null, %if.then14 ], [ null, %if.end ], [ %sess.1, %if.end103 ]
+  call void @SSL_SESSION_free(ptr noundef %sess.0) #7
   %25 = load ptr, ptr %serverssl, align 8
   call void @SSL_free(ptr noundef %25) #7
   %26 = load ptr, ptr %clientssl, align 8

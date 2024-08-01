@@ -280,7 +280,7 @@ _ZL26read_dissociation_energiesPi.exit:           ; preds = %46, %48
   %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i69, %201 ]
   %.061137.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i68, %201 ]
   %.062136.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.163.i, %201 ]
-  %.064135.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %.165.i, %201 ]
+  %.064135.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %.2.i, %201 ]
   %98 = getelementptr inbounds %struct.t_2morse, ptr %.0.i, i64 %indvars.iv.i66
   %99 = load ptr, ptr %98, align 8
   %100 = invoke noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef %99, ptr noundef %91)
@@ -549,7 +549,7 @@ _ZL6nequalPKcS0_.exit125.i:                       ; preds = %.critedge.thread.lo
   br label %201
 
 201:                                              ; preds = %200, %197, %195, %160, %157
-  %.165.i = phi i32 [ %102, %160 ], [ %.064135.i, %157 ], [ %102, %200 ], [ %.064135.i, %197 ], [ %.064135.i, %195 ]
+  %.2.i = phi i32 [ %102, %160 ], [ %.064135.i, %157 ], [ %102, %200 ], [ %.064135.i, %197 ], [ %.064135.i, %195 ]
   %.163.i = phi i32 [ %.1.i.i, %160 ], [ %.062136.i, %157 ], [ %.1.i101.i, %200 ], [ %.062136.i, %197 ], [ %.062136.i, %195 ]
   %.1.i68 = phi i32 [ %.1.i85.i, %160 ], [ %.061137.i, %157 ], [ %.1.i117.i, %200 ], [ %.061137.i, %197 ], [ %.061137.i, %195 ]
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i66, 1
@@ -557,12 +557,12 @@ _ZL6nequalPKcS0_.exit125.i:                       ; preds = %.critedge.thread.lo
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %201
-  %202 = icmp eq i32 %.165.i, -1
+  %202 = icmp eq i32 %.2.i, -1
   br i1 %202, label %_ZL13search_e_dissiP8t_2morsePKcS2_.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %.noexc73, %.noexc71, %._crit_edge.i
-  %.2127.i = phi i32 [ %.165.i, %._crit_edge.i ], [ %102, %.noexc71 ], [ %102, %.noexc73 ]
-  %203 = sext i32 %.2127.i to i64
+  %.165127.i = phi i32 [ %.2.i, %._crit_edge.i ], [ %102, %.noexc71 ], [ %102, %.noexc73 ]
+  %203 = sext i32 %.165127.i to i64
   %204 = getelementptr inbounds %struct.t_2morse, ptr %.0.i, i64 %203, i32 2
   %205 = load float, ptr %204, align 8
   br label %_ZL13search_e_dissiP8t_2morsePKcS2_.exit

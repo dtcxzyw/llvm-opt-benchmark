@@ -72,8 +72,8 @@ while.body.lr.ph.i:                               ; preds = %if.then19
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end88.i, %while.body.lr.ph.i
-  %guardot.053.i = phi i16 [ %conv1.i, %while.body.lr.ph.i ], [ %guardot.2.i, %if.end88.i ]
-  %next.052.i = phi ptr [ %stack, %while.body.lr.ph.i ], [ %next.2.i, %if.end88.i ]
+  %guardot.053.i = phi i16 [ %conv1.i, %while.body.lr.ph.i ], [ %guardot.1.i, %if.end88.i ]
+  %next.052.i = phi ptr [ %stack, %while.body.lr.ph.i ], [ %next.1.i, %if.end88.i ]
   %sp6.051.i = phi ptr [ %stack, %while.body.lr.ph.i ], [ %sp6.1.i, %if.end88.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %next.052.i, i64 4
   %11 = load i32, ptr %next.052.i, align 4
@@ -131,7 +131,7 @@ cond.false.i:                                     ; preds = %if.then33.i
 
 cond.end.i:                                       ; preds = %cond.false.i, %cond.true.i
   %cond42.i = phi i32 [ %call39.i, %cond.true.i ], [ %call41.i, %cond.false.i ]
-  %next.1.i = getelementptr inbounds i8, ptr %next.052.i, i64 8
+  %next.2.i = getelementptr inbounds i8, ptr %next.052.i, i64 8
   %incdec.ptr43.i = getelementptr inbounds i8, ptr %sp6.051.i, i64 4
   store i32 %cond42.i, ptr %sp6.051.i, align 4
   br label %if.end88.i
@@ -168,9 +168,9 @@ if.else65.i:                                      ; preds = %land.lhs.true58.i, 
   br label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.else65.i, %land.lhs.true58.i, %if.else44.i
-  %guardot.1.i = phi i16 [ %guardot.053.i, %if.else65.i ], [ %guardot.053.i, %if.else44.i ], [ 0, %land.lhs.true58.i ]
+  %guardot.2.i = phi i16 [ %guardot.053.i, %if.else65.i ], [ %guardot.053.i, %if.else44.i ], [ 0, %land.lhs.true58.i ]
   %mode.0.i = phi i32 [ %add66.i, %if.else65.i ], [ %15, %if.else44.i ], [ %15, %land.lhs.true58.i ]
-  %conv71.i = add i16 %guardot.1.i, %trunc.i
+  %conv71.i = add i16 %guardot.2.i, %trunc.i
   %arrayidx72.i = getelementptr inbounds i8, ptr %sp6.051.i, i64 -8
   %20 = load <2 x i32>, ptr %arrayidx72.i, align 4
   %21 = trunc <2 x i32> %20 to <2 x i16>
@@ -199,9 +199,9 @@ if.then80.i:                                      ; preds = %if.end67.i
 
 if.end88.i:                                       ; preds = %if.then80.i, %if.end67.i, %cond.end.i, %if.then25.i, %if.then18.i, %if.then.i
   %sp6.1.i = phi ptr [ %incdec.ptr14.i, %if.then.i ], [ %incdec.ptr20.i, %if.then18.i ], [ %sp6.051.i, %if.then25.i ], [ %incdec.ptr43.i, %cond.end.i ], [ %incdec.ptr46.i, %if.then80.i ], [ %incdec.ptr46.i, %if.end67.i ]
-  %next.2.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i, %if.then18.i ], [ %incdec.ptr.i, %if.then25.i ], [ %next.1.i, %cond.end.i ], [ %incdec.ptr.i, %if.then80.i ], [ %incdec.ptr.i, %if.end67.i ]
-  %guardot.2.i = phi i16 [ %guardot.053.i, %if.then.i ], [ %guardot.053.i, %if.then18.i ], [ %guardot.053.i, %if.then25.i ], [ %guardot.053.i, %cond.end.i ], [ %guardot.1.i, %if.then80.i ], [ %guardot.1.i, %if.end67.i ]
-  %cmp.i = icmp ult ptr %next.2.i, %8
+  %next.1.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ %incdec.ptr.i, %if.then18.i ], [ %incdec.ptr.i, %if.then25.i ], [ %next.2.i, %cond.end.i ], [ %incdec.ptr.i, %if.then80.i ], [ %incdec.ptr.i, %if.end67.i ]
+  %guardot.1.i = phi i16 [ %guardot.053.i, %if.then.i ], [ %guardot.053.i, %if.then18.i ], [ %guardot.053.i, %if.then25.i ], [ %guardot.053.i, %cond.end.i ], [ %guardot.2.i, %if.then80.i ], [ %guardot.2.i, %if.end67.i ]
+  %cmp.i = icmp ult ptr %next.1.i, %8
   br i1 %cmp.i, label %while.body.i, label %narrow_conv_emit.exit, !llvm.loop !4
 
 narrow_conv_emit.exit:                            ; preds = %if.end88.i, %if.then19

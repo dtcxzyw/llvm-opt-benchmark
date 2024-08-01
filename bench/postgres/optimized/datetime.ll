@@ -390,10 +390,10 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   %or.cond = and i1 %7, %8
   %9 = icmp ne ptr %1, null
   %or.cond3 = and i1 %9, %or.cond
-  %.3195.sroa.gep270 = getelementptr inbounds i8, ptr %5, i64 4
-  %.3195.sroa.gep271 = getelementptr inbounds i8, ptr %5, i64 8
-  %.3195.sroa.gep278 = getelementptr inbounds i8, ptr %4, i64 8
-  %.3195.sroa.gep279 = getelementptr inbounds i8, ptr %4, i64 16
+  %.4196.sroa.gep270 = getelementptr inbounds i8, ptr %5, i64 4
+  %.4196.sroa.gep271 = getelementptr inbounds i8, ptr %5, i64 8
+  %.4196.sroa.gep278 = getelementptr inbounds i8, ptr %4, i64 8
+  %.4196.sroa.gep279 = getelementptr inbounds i8, ptr %4, i64 16
   br i1 %or.cond3, label %12, label %10
 
 10:                                               ; preds = %3
@@ -714,16 +714,16 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   %157 = trunc i64 %156 to i32
   %158 = load i32, ptr %4, align 16
   %159 = icmp sgt i32 %158, %157
-  %160 = load i32, ptr %.3195.sroa.gep278, align 8
+  %160 = load i32, ptr %.4196.sroa.gep278, align 8
   br i1 %159, label %161, label %167
 
 161:                                              ; preds = %153
-  store i32 %160, ptr %.3195.sroa.gep279, align 16
+  store i32 %160, ptr %.4196.sroa.gep279, align 16
   %162 = getelementptr inbounds i8, ptr %4, i64 12
   %163 = load i32, ptr %162, align 4
   %164 = getelementptr inbounds i8, ptr %4, i64 20
   store i32 %163, ptr %164, align 4
-  store i32 %158, ptr %.3195.sroa.gep278, align 8
+  store i32 %158, ptr %.4196.sroa.gep278, align 8
   %165 = getelementptr inbounds i8, ptr %4, i64 4
   %166 = load i32, ptr %165, align 4
   store i32 %166, ptr %162, align 4
@@ -734,7 +734,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br i1 %168, label %169, label %186
 
 169:                                              ; preds = %167
-  store i32 %160, ptr %.3195.sroa.gep279, align 16
+  store i32 %160, ptr %.4196.sroa.gep279, align 16
   %170 = getelementptr inbounds i8, ptr %4, i64 12
   %171 = load i32, ptr %170, align 4
   %172 = getelementptr inbounds i8, ptr %4, i64 20
@@ -766,23 +766,23 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   br i1 %.not223, label %.thread, label %.preheader, !llvm.loop !11
 
 186:                                              ; preds = %161, %169, %167
-  %.3195.sroa.phi = phi ptr [ %5, %161 ], [ %.3195.sroa.gep270, %169 ], [ %.3195.sroa.gep271, %167 ]
-  %.3195.sroa.phi276 = phi ptr [ %4, %161 ], [ %.3195.sroa.gep278, %169 ], [ %.3195.sroa.gep279, %167 ]
-  %.3195 = phi i64 [ 0, %161 ], [ 1, %169 ], [ 2, %167 ]
-  store i32 %157, ptr %.3195.sroa.phi276, align 8
+  %.4196.sroa.phi = phi ptr [ %5, %161 ], [ %.4196.sroa.gep270, %169 ], [ %.4196.sroa.gep271, %167 ]
+  %.4196.sroa.phi276 = phi ptr [ %4, %161 ], [ %.4196.sroa.gep278, %169 ], [ %.4196.sroa.gep279, %167 ]
+  %.4196 = phi i64 [ 0, %161 ], [ 1, %169 ], [ 2, %167 ]
+  store i32 %157, ptr %.4196.sroa.phi276, align 8
   %187 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %140) #13
   %188 = add i64 %187, %156
   %189 = trunc i64 %188 to i32
   %190 = add i32 %189, -1
-  %191 = getelementptr i8, ptr %.3195.sroa.phi276, i64 4
+  %191 = getelementptr i8, ptr %.4196.sroa.phi276, i64 4
   store i32 %190, ptr %191, align 4
   %192 = add i32 %.4252, 1
-  store i32 %192, ptr %.3195.sroa.phi, align 4
-  %193 = getelementptr i8, ptr %.0184, i64 %.3195
+  store i32 %192, ptr %.4196.sroa.phi, align 4
+  %193 = getelementptr i8, ptr %.0184, i64 %.4196
   %194 = load i8, ptr %193, align 1
   %.not227 = icmp eq i8 %194, 109
   %spec.store.select294 = select i1 %.not227, i32 %192, i32 -1
-  store i32 %spec.store.select294, ptr %.3195.sroa.phi, align 4
+  store i32 %spec.store.select294, ptr %.4196.sroa.phi, align 4
   tail call void @free(ptr noundef nonnull %140) #11
   br label %196
 

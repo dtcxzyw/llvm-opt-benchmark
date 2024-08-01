@@ -884,8 +884,8 @@ lpad10:                                           ; preds = %invoke.cont17, %inv
 
 catch:                                            ; preds = %lpad10, %lpad8
   %.pn = phi { ptr, i32 } [ %7, %lpad10 ], [ %6, %lpad8 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #10
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
+  %8 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #10
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad22
 
@@ -1242,8 +1242,8 @@ lpad6:                                            ; preds = %invoke.cont25, %inv
 
 catch:                                            ; preds = %lpad6, %lpad4
   %.pn = phi { ptr, i32 } [ %4, %lpad6 ], [ %3, %lpad4 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %5 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #10
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
+  %5 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #10
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad29
 

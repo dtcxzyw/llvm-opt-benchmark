@@ -679,7 +679,7 @@ define internal i64 @iommu_v1_unmap_pages(ptr nocapture noundef readonly %0, i64
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %49
-  %.0 = phi i64 [ %60, %49 ], [ %35, %.preheader.i.preheader ]
+  %.1 = phi i64 [ %60, %49 ], [ %35, %.preheader.i.preheader ]
   %38 = phi ptr [ %59, %49 ], [ %34, %.preheader.i.preheader ]
   %39 = phi i32 [ %50, %49 ], [ %27, %.preheader.i.preheader ]
   %40 = load i64, ptr %38, align 8
@@ -716,7 +716,7 @@ define internal i64 @iommu_v1_unmap_pages(ptr nocapture noundef readonly %0, i64
   br i1 %61, label %.preheader.i, label %.loopexit2.i, !llvm.loop !37
 
 .loopexit2.i:                                     ; preds = %49, %43, %43, %26
-  %.1 = phi i64 [ %35, %26 ], [ %.0, %43 ], [ %.0, %43 ], [ %60, %49 ]
+  %.0 = phi i64 [ %35, %26 ], [ %.1, %43 ], [ %.1, %43 ], [ %60, %49 ]
   %62 = phi ptr [ %34, %26 ], [ %38, %43 ], [ %38, %43 ], [ %59, %49 ]
   %63 = load i64, ptr %62, align 8
   %64 = and i64 %63, 3584
@@ -739,7 +739,7 @@ define internal i64 @iommu_v1_unmap_pages(ptr nocapture noundef readonly %0, i64
   br label %fetch_pte.exit
 
 fetch_pte.exit:                                   ; preds = %.loopexit2.i, %66
-  %.2 = phi i64 [ %71, %66 ], [ %.1, %.loopexit2.i ]
+  %.2 = phi i64 [ %71, %66 ], [ %.0, %.loopexit2.i ]
   %79 = phi ptr [ %78, %66 ], [ %62, %.loopexit2.i ]
   %80 = icmp eq ptr %79, null
   br i1 %80, label %fetch_pte.exit.thread, label %81
@@ -794,7 +794,7 @@ define internal i64 @iommu_v1_iova_to_phys(ptr nocapture noundef readonly %0, i6
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %36
-  %.0 = phi i64 [ %47, %36 ], [ %22, %.preheader.i.preheader ]
+  %.1 = phi i64 [ %47, %36 ], [ %22, %.preheader.i.preheader ]
   %25 = phi ptr [ %46, %36 ], [ %21, %.preheader.i.preheader ]
   %26 = phi i32 [ %37, %36 ], [ %13, %.preheader.i.preheader ]
   %27 = load i64, ptr %25, align 8
@@ -831,7 +831,7 @@ define internal i64 @iommu_v1_iova_to_phys(ptr nocapture noundef readonly %0, i6
   br i1 %48, label %.preheader.i, label %.loopexit2.i, !llvm.loop !37
 
 .loopexit2.i:                                     ; preds = %36, %30, %30, %12
-  %.1 = phi i64 [ %22, %12 ], [ %.0, %30 ], [ %.0, %30 ], [ %47, %36 ]
+  %.0 = phi i64 [ %22, %12 ], [ %.1, %30 ], [ %.1, %30 ], [ %47, %36 ]
   %49 = phi ptr [ %21, %12 ], [ %25, %30 ], [ %25, %30 ], [ %46, %36 ]
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, 3584
@@ -854,7 +854,7 @@ define internal i64 @iommu_v1_iova_to_phys(ptr nocapture noundef readonly %0, i6
   br label %fetch_pte.exit
 
 fetch_pte.exit:                                   ; preds = %.loopexit2.i, %53
-  %.2 = phi i64 [ %58, %53 ], [ %.1, %.loopexit2.i ]
+  %.2 = phi i64 [ %58, %53 ], [ %.0, %.loopexit2.i ]
   %66 = phi ptr [ %65, %53 ], [ %49, %.loopexit2.i ]
   %67 = icmp eq ptr %66, null
   br i1 %67, label %fetch_pte.exit.thread, label %68
@@ -922,7 +922,7 @@ define internal noundef i32 @iommu_v1_read_and_clear_dirty(ptr nocapture noundef
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %44
   %indvars.iv = phi i64 [ %34, %.preheader.i.preheader ], [ %indvars.iv.next, %44 ]
-  %.0 = phi i64 [ %31, %.preheader.i.preheader ], [ %53, %44 ]
+  %.1 = phi i64 [ %31, %.preheader.i.preheader ], [ %53, %44 ]
   %35 = phi ptr [ %30, %.preheader.i.preheader ], [ %52, %44 ]
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 1
@@ -956,7 +956,7 @@ define internal noundef i32 @iommu_v1_read_and_clear_dirty(ptr nocapture noundef
   br i1 %54, label %.preheader.i, label %.loopexit2.i, !llvm.loop !37
 
 .loopexit2.i:                                     ; preds = %44, %39, %39, %22
-  %.1 = phi i64 [ %31, %22 ], [ %.0, %39 ], [ %.0, %39 ], [ %53, %44 ]
+  %.0 = phi i64 [ %31, %22 ], [ %.1, %39 ], [ %.1, %39 ], [ %53, %44 ]
   %55 = phi ptr [ %30, %22 ], [ %35, %39 ], [ %35, %39 ], [ %52, %44 ]
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, 3584
@@ -979,7 +979,7 @@ define internal noundef i32 @iommu_v1_read_and_clear_dirty(ptr nocapture noundef
   br label %fetch_pte.exit
 
 fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
-  %.2 = phi i64 [ %64, %59 ], [ %.1, %.loopexit2.i ]
+  %.2 = phi i64 [ %64, %59 ], [ %.0, %.loopexit2.i ]
   %72 = phi ptr [ %71, %59 ], [ %55, %.loopexit2.i ]
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.thread, label %74
@@ -1055,7 +1055,7 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
   br label %.thread
 
 .thread:                                          ; preds = %.preheader.i, %42, %88, %fetch_pte.exit, %74, %12, %.split, %.thread15, %108, %112
-  %113 = phi i64 [ %.2, %112 ], [ %.2, %108 ], [ %.2, %.thread15 ], [ %.2, %.split ], [ 4096, %12 ], [ %.2, %fetch_pte.exit ], [ %.2, %74 ], [ %.2, %88 ], [ %.0, %42 ], [ %.0, %.preheader.i ]
+  %113 = phi i64 [ %.2, %112 ], [ %.2, %108 ], [ %.2, %.thread15 ], [ %.2, %.split ], [ 4096, %12 ], [ %.2, %fetch_pte.exit ], [ %.2, %74 ], [ %.2, %88 ], [ %.1, %42 ], [ %.1, %.preheader.i ]
   %114 = add i64 %113, %13
   %115 = icmp ult i64 %114, %7
   br i1 %115, label %12, label %116, !llvm.loop !42

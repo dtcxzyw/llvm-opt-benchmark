@@ -2140,9 +2140,9 @@ _ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic
   br label %cleanup29.i
 
 cleanup29.i:                                      ; preds = %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit.i, %if.then24.i
-  %optional_sv_code_cache.sroa.0.0.i = phi i64 [ %.sink2.i.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit.i ], [ undef, %if.then24.i ]
-  %optional_sv_code_cache.sroa.2.0.i = phi ptr [ %.sink.i.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit.i ], [ undef, %if.then24.i ]
-  %retval.2.i = phi i32 [ 0, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit.i ], [ 1, %if.then24.i ]
+  %optional_sv_code_cache.sroa.0.1.i = phi i64 [ %.sink2.i.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit.i ], [ undef, %if.then24.i ]
+  %optional_sv_code_cache.sroa.2.1.i = phi ptr [ %.sink.i.i, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit.i ], [ undef, %if.then24.i ]
+  %retval.4.i = phi i32 [ 0, %_ZNSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEEaSIRNSt7__cxx1112basic_stringIcS2_SaIcEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS4_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESC_ISt6__and_IJSt9is_scalarIS3_ESD_IS3_NSt5decayISG_E4typeEEEEESt16is_constructibleIS3_JSG_EESt13is_assignableIRS3_SG_EEERS4_E4typeEOSG_.exit.i ], [ 1, %if.then24.i ]
   %57 = load i8, ptr %_M_engaged.i.i32.i, align 8
   %tobool.i.i.i.i.i17 = trunc i8 %57 to i1
   br i1 %tobool.i.i.i.i.i17, label %if.then.i.i.i.i43.i, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i18
@@ -2184,8 +2184,8 @@ cond.false.i:                                     ; preds = %if.end33.i, %if.end
   %68 = phi ptr [ %60, %if.end33.thread.i ], [ %62, %if.end33.i ]
   %69 = phi i64 [ %59, %if.end33.thread.i ], [ %61, %if.end33.i ]
   %70 = phi i32 [ %58, %if.end33.thread.i ], [ %42, %if.end33.i ]
-  %optional_sv_code_cache.sroa.2.179.i = phi ptr [ %optional_sv_code_cache.sroa.2.0.i, %if.end33.thread.i ], [ undef, %if.end33.i ]
-  %optional_sv_code_cache.sroa.0.177.i = phi i64 [ %optional_sv_code_cache.sroa.0.0.i, %if.end33.thread.i ], [ undef, %if.end33.i ]
+  %optional_sv_code_cache.sroa.2.079.i = phi ptr [ %optional_sv_code_cache.sroa.2.1.i, %if.end33.thread.i ], [ undef, %if.end33.i ]
+  %optional_sv_code_cache.sroa.0.077.i = phi i64 [ %optional_sv_code_cache.sroa.0.1.i, %if.end33.thread.i ], [ undef, %if.end33.i ]
   %call41.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %main_script.i) #22
   %call42.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %main_script.i) #22
   br label %cond.end.i
@@ -2194,9 +2194,9 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
   %71 = phi ptr [ %68, %cond.false.i ], [ %63, %cond.true.i ]
   %72 = phi i64 [ %69, %cond.false.i ], [ %64, %cond.true.i ]
   %73 = phi i32 [ %70, %cond.false.i ], [ %65, %cond.true.i ]
-  %optional_sv_code_cache.sroa.4.280.i = phi i1 [ %tobool15.not.i, %cond.false.i ], [ false, %cond.true.i ]
-  %optional_sv_code_cache.sroa.2.178.i = phi ptr [ %optional_sv_code_cache.sroa.2.179.i, %cond.false.i ], [ undef, %cond.true.i ]
-  %optional_sv_code_cache.sroa.0.176.i = phi i64 [ %optional_sv_code_cache.sroa.0.177.i, %cond.false.i ], [ undef, %cond.true.i ]
+  %optional_sv_code_cache.sroa.4.080.i = phi i1 [ %tobool15.not.i, %cond.false.i ], [ false, %cond.true.i ]
+  %optional_sv_code_cache.sroa.2.078.i = phi ptr [ %optional_sv_code_cache.sroa.2.079.i, %cond.false.i ], [ undef, %cond.true.i ]
+  %optional_sv_code_cache.sroa.0.076.i = phi i64 [ %optional_sv_code_cache.sroa.0.077.i, %cond.false.i ], [ undef, %cond.true.i ]
   %sea.sroa.15.0.i = phi ptr [ %call41.i, %cond.false.i ], [ %66, %cond.true.i ]
   %sea.sroa.10.0.i = phi i64 [ %call42.i, %cond.false.i ], [ %sub.ptr.sub.i.i, %cond.true.i ]
   %74 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN4node11per_process18enabled_debug_listE, i64 70), align 1
@@ -2292,11 +2292,11 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i.i: ; pre
   %and.i.i31.lobit.i.i = and i32 %and.i.i31.i.i, 1
   %cond24.i.i = xor i32 %and.i.i31.lobit.i.i, 1
   call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, i64 %sea.sroa.10.0.i, ptr %sea.sroa.15.0.i, i32 noundef %cond24.i.i)
-  br i1 %optional_sv_code_cache.sroa.4.280.i, label %if.then.i54.i, label %_ZN4node3sea12_GLOBAL__N_113SeaSerializer5WriteINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEEmRKS6_.exit.i
+  br i1 %optional_sv_code_cache.sroa.4.080.i, label %if.then.i54.i, label %_ZN4node3sea12_GLOBAL__N_113SeaSerializer5WriteINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEEmRKS6_.exit.i
 
 if.then.i54.i:                                    ; preds = %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i.i
-  store ptr %optional_sv_code_cache.sroa.2.178.i, ptr %ref.tmp28.i.i, align 8
-  store i64 %optional_sv_code_cache.sroa.0.176.i, ptr %ref.tmp32.i.i, align 8
+  store ptr %optional_sv_code_cache.sroa.2.078.i, ptr %ref.tmp28.i.i, align 8
+  store i64 %optional_sv_code_cache.sroa.0.076.i, ptr %ref.tmp32.i.i, align 8
   %83 = load i8, ptr %serializer.i, align 8
   %tobool.i34.i.i = trunc i8 %83 to i1
   br i1 %tobool.i34.i.i, label %if.then.i36.i.i, label %_ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i
@@ -2307,7 +2307,7 @@ if.then.i36.i.i:                                  ; preds = %if.then.i54.i
   br label %_ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i
 
 _ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i: ; preds = %if.then.i36.i.i, %if.then.i54.i
-  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, i64 %optional_sv_code_cache.sroa.0.176.i, ptr %optional_sv_code_cache.sroa.2.178.i, i32 noundef 0)
+  call fastcc void @_ZN4node14BlobSerializerINS_3sea12_GLOBAL__N_113SeaSerializerEE15WriteStringViewESt17basic_string_viewIcSt11char_traitsIcEENS_13StringLogModeE(ptr noundef nonnull align 8 dereferenceable(32) %serializer.i, i64 %optional_sv_code_cache.sroa.0.076.i, ptr %optional_sv_code_cache.sroa.2.078.i, i32 noundef 0)
   br label %_ZN4node3sea12_GLOBAL__N_113SeaSerializer5WriteINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEEmRKS6_.exit.i
 
 _ZN4node3sea12_GLOBAL__N_113SeaSerializer5WriteINS0_11SeaResourceETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEEmRKS6_.exit.i: ; preds = %_ZNKRSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE5valueEv.exit.i.i, %_ZNK4node26BlobSerializerDeserializer5DebugIJPKcS3_mEEEvS3_DpOT_.exit.i.i
@@ -2348,7 +2348,7 @@ if.end57.i:                                       ; preds = %_ZN4node3sea12_GLOB
   br label %cleanup59.i
 
 cleanup59.i:                                      ; preds = %if.end57.i, %if.then53.i
-  %retval.3.i = phi i32 [ 1, %if.then53.i ], [ 0, %if.end57.i ]
+  %retval.6.i = phi i32 [ 1, %if.then53.i ], [ 0, %if.end57.i ]
   %91 = load ptr, ptr %sink.i.i.i, align 8
   %tobool.not.i.i.i.i.i62.i = icmp eq ptr %91, null
   br i1 %tobool.not.i.i.i.i.i62.i, label %_ZN4node3sea12_GLOBAL__N_113SeaSerializerD2Ev.exit.i, label %if.then.i.i.i.i.i63.i
@@ -2362,12 +2362,12 @@ _ZN4node3sea12_GLOBAL__N_113SeaSerializerD2Ev.exit.i: ; preds = %if.then.i.i.i.i
   br label %cleanup60.i
 
 cleanup60.i:                                      ; preds = %_ZN4node3sea12_GLOBAL__N_113SeaSerializerD2Ev.exit.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i18
-  %retval.4.i = phi i32 [ %retval.3.i, %_ZN4node3sea12_GLOBAL__N_113SeaSerializerD2Ev.exit.i ], [ %retval.2.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i18 ]
+  %retval.5.i = phi i32 [ %retval.6.i, %_ZN4node3sea12_GLOBAL__N_113SeaSerializerD2Ev.exit.i ], [ %retval.4.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %code_cache.i) #22
   br label %cleanup61.i
 
 cleanup61.i:                                      ; preds = %cleanup60.i, %_ZN4node14SnapshotConfigD2Ev.exit.i
-  %retval.5.i = phi i32 [ %retval.4.i, %cleanup60.i ], [ %retval.0.i.i, %_ZN4node14SnapshotConfigD2Ev.exit.i ]
+  %retval.3.i = phi i32 [ %retval.5.i, %cleanup60.i ], [ %retval.0.i.i, %_ZN4node14SnapshotConfigD2Ev.exit.i ]
   %92 = load ptr, ptr %snapshot_blob.i, align 16
   %tobool.not.i.i.i64.i = icmp eq ptr %92, null
   br i1 %tobool.not.i.i.i64.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit.i, label %if.then.i.i.i65.i
@@ -2381,7 +2381,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit.i:                  ; preds = %if.then.i.i.i65.i, 
   br label %_ZN4node3sea12_GLOBAL__N_128GenerateSingleExecutableBlobERKNS1_9SeaConfigERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESF_.exit
 
 _ZN4node3sea12_GLOBAL__N_128GenerateSingleExecutableBlobERKNS1_9SeaConfigERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESF_.exit: ; preds = %if.then.i9, %_ZNSt6vectorIcSaIcEED2Ev.exit.i
-  %retval.6.i = phi i32 [ 1, %if.then.i9 ], [ %retval.5.i, %_ZNSt6vectorIcSaIcEED2Ev.exit.i ]
+  %retval.0.i = phi i32 [ 1, %if.then.i9 ], [ %retval.3.i, %_ZNSt6vectorIcSaIcEED2Ev.exit.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %main_script.i) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %main_script.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i5)
@@ -2396,7 +2396,7 @@ _ZN4node3sea12_GLOBAL__N_128GenerateSingleExecutableBlobERKNS1_9SeaConfigERKSt6v
 
 cleanup:                                          ; preds = %_ZN4node3sea12_GLOBAL__N_127ParseSingleExecutableConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN4node3sea12_GLOBAL__N_128GenerateSingleExecutableBlobERKNS1_9SeaConfigERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESF_.exit
   %93 = phi i8 [ %.pre, %_ZN4node3sea12_GLOBAL__N_128GenerateSingleExecutableBlobERKNS1_9SeaConfigERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESF_.exit ], [ %config_opt.val, %_ZN4node3sea12_GLOBAL__N_127ParseSingleExecutableConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
-  %retval.0 = phi i32 [ %retval.6.i, %_ZN4node3sea12_GLOBAL__N_128GenerateSingleExecutableBlobERKNS1_9SeaConfigERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESF_.exit ], [ 1, %_ZN4node3sea12_GLOBAL__N_127ParseSingleExecutableConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %retval.0 = phi i32 [ %retval.0.i, %_ZN4node3sea12_GLOBAL__N_128GenerateSingleExecutableBlobERKNS1_9SeaConfigERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESF_.exit ], [ 1, %_ZN4node3sea12_GLOBAL__N_127ParseSingleExecutableConfigERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %tobool.i.i.i.i = trunc i8 %93 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt8optionalIN4node3sea12_GLOBAL__N_19SeaConfigEED2Ev.exit
 

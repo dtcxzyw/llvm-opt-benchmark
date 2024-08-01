@@ -641,7 +641,7 @@ if.end44:                                         ; preds = %if.then32, %if.else
 
 for.body:                                         ; preds = %if.end44, %for.inc
   %twrap.0111 = phi i32 [ %inc, %for.inc ], [ %start.0, %if.end44 ]
-  %ok.0110 = phi i32 [ %ok.2, %for.inc ], [ 1, %if.end44 ]
+  %ok.1110 = phi i32 [ %ok.3, %for.inc ], [ 1, %if.end44 ]
   %sub46 = add i32 %twrap.0111, -1
   %15 = load ptr, ptr %private_27, align 8
   %num_threadtasks48 = getelementptr inbounds i8, ptr %15, i64 2796
@@ -660,7 +660,7 @@ for.body:                                         ; preds = %if.end44, %for.inc
   %returnvalue = getelementptr inbounds i8, ptr %19, i64 15040
   %20 = load i32, ptr %returnvalue, align 8
   %tobool57.not = icmp eq i32 %20, 0
-  %tobool60.not104 = icmp eq i32 %ok.0110, 0
+  %tobool60.not104 = icmp eq i32 %ok.1110, 0
   %tobool60.not = select i1 %tobool57.not, i1 true, i1 %tobool60.not104
   br i1 %tobool60.not, label %for.inc, label %land.lhs.true61
 
@@ -672,7 +672,7 @@ land.lhs.true61:                                  ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true61, %for.body
-  %ok.2 = phi i32 [ 0, %for.body ], [ %call67, %land.lhs.true61 ]
+  %ok.3 = phi i32 [ 0, %for.body ], [ %call67, %land.lhs.true61 ]
   %inc = add i32 %twrap.0111, 1
   %exitcond.not = icmp eq i32 %inc, %end.0
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !11
@@ -683,7 +683,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end44
   %23 = phi ptr [ %9, %if.end44 ], [ %.pre, %for.end.loopexit ]
-  %ok.0.lcssa = phi i32 [ 1, %if.end44 ], [ %ok.2, %for.end.loopexit ]
+  %ok.1.lcssa = phi i32 [ 1, %if.end44 ], [ %ok.3, %for.end.loopexit ]
   %mutex_work_queue = getelementptr inbounds i8, ptr %23, i64 2864
   %call72 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex_work_queue) #24
   br label %while.cond
@@ -710,7 +710,7 @@ while.body:                                       ; preds = %while.cond, %lor.rh
 if.end84:                                         ; preds = %lor.rhs
   %mutex_work_queue82 = getelementptr inbounds i8, ptr %24, i64 2864
   %call83 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_work_queue82) #24
-  %tobool85.not = icmp eq i32 %ok.0.lcssa, 0
+  %tobool85.not = icmp eq i32 %ok.1.lcssa, 0
   br i1 %tobool85.not, label %if.end105, label %if.end84.land.lhs.true86_crit_edge
 
 if.end84.land.lhs.true86_crit_edge:               ; preds = %if.end84
@@ -1024,7 +1024,7 @@ if.end163:                                        ; preds = %if.else162, %update
 if.end169:                                        ; preds = %if.end163, %if.then155
   %102 = phi ptr [ %54, %if.then155 ], [ %100, %if.end163 ]
   %103 = phi ptr [ %52, %if.then155 ], [ %.pre126, %if.end163 ]
-  %error.1 = phi i32 [ %error.0, %if.then155 ], [ %spec.select95, %if.end163 ]
+  %error.3 = phi i32 [ %error.0, %if.then155 ], [ %spec.select95, %if.end163 ]
   %metadata_callback = getelementptr inbounds i8, ptr %103, i64 2592
   %104 = load ptr, ptr %metadata_callback, align 8
   %tobool171.not = icmp eq ptr %104, null
@@ -1040,7 +1040,7 @@ if.then172:                                       ; preds = %if.end169
 
 if.end179:                                        ; preds = %if.end169, %if.then172, %if.then151
   %106 = phi ptr [ %.pre127, %if.then172 ], [ %102, %if.end169 ], [ %54, %if.then151 ]
-  %error.2 = phi i32 [ %error.1, %if.then172 ], [ %error.1, %if.end169 ], [ %error.0, %if.then151 ]
+  %error.2 = phi i32 [ %error.3, %if.then172 ], [ %error.3, %if.end169 ], [ %error.0, %if.then151 ]
   %verify = getelementptr inbounds i8, ptr %106, i64 4
   %107 = load i32, ptr %verify, align 4
   %tobool181.not = icmp eq i32 %107, 0
@@ -1068,7 +1068,7 @@ if.then194:                                       ; preds = %if.then192
   br label %if.end199
 
 if.end199:                                        ; preds = %if.then192, %if.then194, %if.end179, %land.lhs.true182, %land.lhs.true186, %if.end147
-  %error.3 = phi i32 [ %error.0, %if.end147 ], [ %error.2, %land.lhs.true186 ], [ %error.2, %land.lhs.true182 ], [ %error.2, %if.end179 ], [ 1, %if.then194 ], [ 1, %if.then192 ]
+  %error.1 = phi i32 [ %error.0, %if.end147 ], [ %error.2, %land.lhs.true186 ], [ %error.2, %land.lhs.true182 ], [ %error.2, %if.end179 ], [ 1, %if.then194 ], [ 1, %if.then192 ]
   %111 = load ptr, ptr %private_148, align 8
   %file201 = getelementptr inbounds i8, ptr %111, i64 2624
   %112 = load ptr, ptr %file201, align 8
@@ -1595,7 +1595,7 @@ for.inc390.i:                                     ; preds = %if.then376.i, %for.
 
 free_.exit:                                       ; preds = %for.inc390.i, %if.end361.i, %for.cond365.preheader.i
   call fastcc void @set_defaults_(ptr noundef nonnull %encoder)
-  %tobool221.not = icmp eq i32 %error.3, 0
+  %tobool221.not = icmp eq i32 %error.1, 0
   br i1 %tobool221.not, label %if.then222, label %if.end225
 
 if.then222:                                       ; preds = %free_.exit
@@ -4307,8 +4307,8 @@ for.cond19.preheader.lr.ph:                       ; preds = %if.end
 
 for.cond19.preheader:                             ; preds = %for.cond19.preheader.lr.ph, %for.inc403
   %indvars.iv317 = phi i64 [ 0, %for.cond19.preheader.lr.ph ], [ %indvars.iv.next318, %for.inc403 ]
-  %ok.2277 = phi i32 [ %ok.1, %for.cond19.preheader.lr.ph ], [ %ok.15, %for.inc403 ]
-  %tobool20.not245 = icmp eq i32 %ok.2277, 0
+  %ok.3277 = phi i32 [ %ok.1, %for.cond19.preheader.lr.ph ], [ %ok.16, %for.inc403 ]
+  %tobool20.not245 = icmp eq i32 %ok.3277, 0
   br i1 %tobool20.not245, label %for.inc403.sink.split, label %land.rhs21.preheader
 
 land.rhs21.preheader:                             ; preds = %for.cond19.preheader
@@ -4590,14 +4590,14 @@ land.rhs387:                                      ; preds = %land.end381
   br label %for.inc403.sink.split
 
 for.inc403.sink.split:                            ; preds = %land.rhs29, %land.rhs76, %for.inc201, %for.inc257, %land.rhs223, %if.end156, %land.end132, %for.cond19.preheader, %for.cond305.preheader, %for.cond343.preheader, %land.rhs387
-  %ok.15.in.ph = phi i1 [ %tobool399, %land.rhs387 ], [ false, %for.cond343.preheader ], [ false, %for.cond305.preheader ], [ false, %for.cond19.preheader ], [ false, %land.end132 ], [ false, %if.end156 ], [ false, %land.rhs223 ], [ false, %for.inc257 ], [ false, %for.inc201 ], [ false, %land.rhs76 ], [ false, %land.rhs29 ]
+  %ok.16.in.ph = phi i1 [ %tobool399, %land.rhs387 ], [ false, %for.cond343.preheader ], [ false, %for.cond305.preheader ], [ false, %for.cond19.preheader ], [ false, %land.end132 ], [ false, %if.end156 ], [ false, %land.rhs223 ], [ false, %for.inc257 ], [ false, %for.inc201 ], [ false, %land.rhs76 ], [ false, %land.rhs29 ]
   %.pre324352 = load ptr, ptr %private_, align 8
   br label %for.inc403
 
 for.inc403:                                       ; preds = %for.inc403.sink.split, %for.end367, %land.end381
   %74 = phi ptr [ %.pre325, %land.end381 ], [ %.pre324, %for.end367 ], [ %.pre324352, %for.inc403.sink.split ]
-  %ok.15.in = phi i1 [ %.mux, %land.end381 ], [ false, %for.end367 ], [ %ok.15.in.ph, %for.inc403.sink.split ]
-  %ok.15 = zext i1 %ok.15.in to i32
+  %ok.16.in = phi i1 [ %.mux, %land.end381 ], [ false, %for.end367 ], [ %ok.16.in.ph, %for.inc403.sink.split ]
+  %ok.16 = zext i1 %ok.16.in to i32
   %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
   %num_threadtasks = getelementptr inbounds i8, ptr %74, i64 2796
   %75 = load i32, ptr %num_threadtasks, align 4
@@ -4607,8 +4607,8 @@ for.inc403:                                       ; preds = %for.inc403.sink.spl
 
 if.end406:                                        ; preds = %for.inc403, %if.end
   %77 = phi ptr [ %7, %if.end ], [ %74, %for.inc403 ]
-  %ok.2.lcssa = phi i32 [ %ok.1, %if.end ], [ %ok.15, %for.inc403 ]
-  %tobool407.not = icmp eq i32 %ok.2.lcssa, 0
+  %ok.3.lcssa = phi i32 [ %ok.1, %if.end ], [ %ok.16, %for.inc403 ]
+  %tobool407.not = icmp eq i32 %ok.3.lcssa, 0
   br i1 %tobool407.not, label %if.else, label %if.then408
 
 if.then408:                                       ; preds = %entry, %if.end406
@@ -8064,9 +8064,9 @@ for.end.i:                                        ; preds = %for.body.i
 
 for.body6.i:                                      ; preds = %for.end.i, %for.body6.i
   %x.124.i = phi i32 [ %shr.i, %for.body6.i ], [ %or.i, %for.end.i ]
-  %shift.023.i = phi i32 [ %inc8.i, %for.body6.i ], [ 0, %for.end.i ]
+  %shift.123.i = phi i32 [ %inc8.i, %for.body6.i ], [ 0, %for.end.i ]
   %shr.i = ashr exact i32 %x.124.i, 1
-  %inc8.i = add i32 %shift.023.i, 1
+  %inc8.i = add i32 %shift.123.i, 1
   %52 = and i32 %x.124.i, 2
   %tobool4.not.i = icmp eq i32 %52, 0
   br i1 %tobool4.not.i, label %for.body6.i, label %if.end.i, !llvm.loop !89
@@ -8091,10 +8091,10 @@ get_wasted_bits_.exit.loopexit:                   ; preds = %for.body14.i
 
 get_wasted_bits_.exit:                            ; preds = %get_wasted_bits_.exit.loopexit, %for.body114, %for.end.i, %if.end.i
   %54 = phi ptr [ %46, %if.end.i ], [ %46, %for.end.i ], [ %46, %for.body114 ], [ %.pre, %get_wasted_bits_.exit.loopexit ]
-  %shift.117.i = phi i32 [ 0, %if.end.i ], [ 0, %for.end.i ], [ 0, %for.body114 ], [ %inc8.i, %get_wasted_bits_.exit.loopexit ]
+  %shift.017.i = phi i32 [ 0, %if.end.i ], [ 0, %for.end.i ], [ 0, %for.body114 ], [ %inc8.i, %get_wasted_bits_.exit.loopexit ]
   %bits_per_sample122 = getelementptr inbounds i8, ptr %54, i64 28
   %55 = load i32, ptr %bits_per_sample122, align 4
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %shift.117.i, i32 %55)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %shift.017.i, i32 %55)
   %arrayidx130 = getelementptr inbounds [8 x [2 x %struct.FLAC__Subframe]], ptr %subframe_workspace, i64 0, i64 %indvars.iv330
   %wasted_bits = getelementptr inbounds i8, ptr %arrayidx130, i64 888
   store i32 %spec.select, ptr %wasted_bits, align 8
@@ -8168,9 +8168,9 @@ for.end.i232:                                     ; preds = %for.body.i223
 
 for.body6.i238:                                   ; preds = %for.end.i232, %for.body6.i238
   %x.124.i239 = phi i32 [ %shr.i241, %for.body6.i238 ], [ %or.i227, %for.end.i232 ]
-  %shift.023.i240 = phi i32 [ %inc8.i242, %for.body6.i238 ], [ 0, %for.end.i232 ]
+  %shift.123.i240 = phi i32 [ %inc8.i242, %for.body6.i238 ], [ 0, %for.end.i232 ]
   %shr.i241 = ashr exact i32 %x.124.i239, 1
-  %inc8.i242 = add i32 %shift.023.i240, 1
+  %inc8.i242 = add i32 %shift.123.i240, 1
   %68 = and i32 %x.124.i239, 2
   %tobool4.not.i243 = icmp eq i32 %68, 0
   br i1 %tobool4.not.i243, label %for.body6.i238, label %if.end.i244, !llvm.loop !89
@@ -8220,9 +8220,9 @@ for.cond2.preheader.i:                            ; preds = %for.end.i265
 
 for.body6.i267:                                   ; preds = %for.cond2.preheader.i, %for.body6.i267
   %x.122.i = phi i64 [ %shr.i268, %for.body6.i267 ], [ %or.i260, %for.cond2.preheader.i ]
-  %shift.021.i = phi i32 [ %inc8.i269, %for.body6.i267 ], [ 0, %for.cond2.preheader.i ]
+  %shift.121.i = phi i32 [ %inc8.i269, %for.body6.i267 ], [ 0, %for.cond2.preheader.i ]
   %shr.i268 = ashr exact i64 %x.122.i, 1
-  %inc8.i269 = add i32 %shift.021.i, 1
+  %inc8.i269 = add i32 %shift.121.i, 1
   %75 = and i64 %x.122.i, 2
   %tobool4.not.i270 = icmp eq i64 %75, 0
   br i1 %tobool4.not.i270, label %for.body6.i267, label %if.end.i271, !llvm.loop !93
@@ -8232,8 +8232,8 @@ if.end.i271:                                      ; preds = %for.body6.i267
   br i1 %cmp10.not.not.i, label %if.end174, label %for.body14.lr.ph.i
 
 for.body14.lr.ph.i:                               ; preds = %for.end.i265, %if.end.i271
-  %shift.1.i288 = phi i32 [ %inc8.i269, %if.end.i271 ], [ 1, %for.end.i265 ]
-  %sh_prom.i = zext nneg i32 %shift.1.i288 to i64
+  %shift.0.i288 = phi i32 [ %inc8.i269, %if.end.i271 ], [ 1, %for.end.i265 ]
+  %sh_prom.i = zext nneg i32 %shift.0.i288 to i64
   br label %for.body14.i273
 
 for.body14.i273:                                  ; preds = %for.body14.i273, %for.body14.lr.ph.i
@@ -8249,7 +8249,7 @@ for.body14.i273:                                  ; preds = %for.body14.i273, %f
   br i1 %exitcond.not.i276, label %if.end174, label %for.body14.i273, !llvm.loop !94
 
 if.end174:                                        ; preds = %for.body14.i273, %for.body14.i249, %if.end.i271, %for.cond2.preheader.i, %if.else166, %if.end.i244, %for.end.i232, %if.then159
-  %w152.0 = phi i32 [ 0, %if.end.i244 ], [ 0, %for.end.i232 ], [ 0, %if.then159 ], [ 0, %if.end.i271 ], [ 0, %for.cond2.preheader.i ], [ 1, %if.else166 ], [ %inc8.i242, %for.body14.i249 ], [ %shift.1.i288, %for.body14.i273 ]
+  %w152.0 = phi i32 [ 0, %if.end.i244 ], [ 0, %for.end.i232 ], [ 0, %if.then159 ], [ 0, %if.end.i271 ], [ 0, %for.cond2.preheader.i ], [ 1, %if.else166 ], [ %inc8.i242, %for.body14.i249 ], [ %shift.0.i288, %for.body14.i273 ]
   %77 = load ptr, ptr %encoder, align 8
   %bits_per_sample176 = getelementptr inbounds i8, ptr %77, i64 28
   %78 = load i32, ptr %bits_per_sample176, align 4
@@ -8412,20 +8412,20 @@ if.else324:                                       ; preds = %land.lhs.true313, %
 for.body358:                                      ; preds = %if.else324, %for.body358
   %indvars.iv342 = phi i64 [ %cond354, %if.else324 ], [ %indvars.iv.next343, %for.body358 ]
   %min_bits.0322 = phi i32 [ %add329, %if.else324 ], [ %spec.select220, %for.body358 ]
-  %channel_assignment309.0321 = phi i32 [ 0, %if.else324 ], [ %spec.select219, %for.body358 ]
+  %channel_assignment309.1321 = phi i32 [ 0, %if.else324 ], [ %spec.select219, %for.body358 ]
   %arrayidx360 = getelementptr inbounds [4 x i32], ptr %bits, i64 0, i64 %indvars.iv342
   %104 = load i32, ptr %arrayidx360, align 4
   %cmp361 = icmp ult i32 %104, %min_bits.0322
   %105 = trunc nuw nsw i64 %indvars.iv342 to i32
-  %spec.select219 = select i1 %cmp361, i32 %105, i32 %channel_assignment309.0321
+  %spec.select219 = select i1 %cmp361, i32 %105, i32 %channel_assignment309.1321
   %spec.select220 = tail call i32 @llvm.umin.i32(i32 %104, i32 %min_bits.0322)
   %indvars.iv.next343 = add nuw nsw i64 %indvars.iv342, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next343, 4
   br i1 %exitcond.not, label %if.end370, label %for.body358, !llvm.loop !98
 
 if.end370:                                        ; preds = %for.body358, %if.then318
-  %channel_assignment309.2 = phi i32 [ %cond323, %if.then318 ], [ %spec.select219, %for.body358 ]
-  store i32 %channel_assignment309.2, ptr %channel_assignment, align 4
+  %channel_assignment309.0 = phi i32 [ %cond323, %if.then318 ], [ %spec.select219, %for.body358 ]
+  store i32 %channel_assignment309.0, ptr %channel_assignment, align 4
   %frame = getelementptr inbounds i8, ptr %threadtask, i64 10536
   %106 = load ptr, ptr %frame, align 8
   %call372 = call i32 @FLAC__frame_add_header(ptr noundef nonnull %frame_header, ptr noundef %106) #24
@@ -8438,7 +8438,7 @@ if.then374:                                       ; preds = %if.end370
   br label %return
 
 if.end376:                                        ; preds = %if.end370
-  switch i32 %channel_assignment309.2, label %default.unreachable [
+  switch i32 %channel_assignment309.0, label %default.unreachable [
     i32 0, label %sw.bb428
     i32 1, label %sw.bb433
     i32 2, label %sw.bb438
@@ -9525,8 +9525,8 @@ for.body134.lr.ph:                                ; preds = %if.then118
   br label %for.body134
 
 for.body134:                                      ; preds = %for.body134.lr.ph, %for.inc168
-  %_best_subframe.0236 = phi i32 [ 0, %for.body134.lr.ph ], [ %_best_subframe.1, %for.inc168 ]
-  %_best_bits.1235 = phi i32 [ %_best_bits.0, %for.body134.lr.ph ], [ %_best_bits.2, %for.inc168 ]
+  %_best_subframe.2236 = phi i32 [ 0, %for.body134.lr.ph ], [ %_best_subframe.3, %for.inc168 ]
+  %_best_bits.3235 = phi i32 [ %_best_bits.0, %for.body134.lr.ph ], [ %_best_bits.4, %for.inc168 ]
   %fixed_order.0234 = phi i32 [ %guess_fixed_order.0., %for.body134.lr.ph ], [ %inc169, %for.inc168 ]
   %idxprom135 = zext i32 %fixed_order.0234 to i64
   %arrayidx136 = getelementptr inbounds [5 x float], ptr %fixed_residual_bits_per_sample, i64 0, i64 %idxprom135
@@ -9535,7 +9535,7 @@ for.body134:                                      ; preds = %for.body134.lr.ph, 
   br i1 %cmp138, label %if.end141, label %for.inc168
 
 if.end141:                                        ; preds = %for.body134
-  %tobool142.not = icmp eq i32 %_best_subframe.0236, 0
+  %tobool142.not = icmp eq i32 %_best_subframe.2236, 0
   %idxprom145 = zext i1 %tobool142.not to i64
   %arrayidx146 = getelementptr inbounds ptr, ptr %residual, i64 %idxprom145
   %44 = load ptr, ptr %arrayidx146, align 8
@@ -9630,15 +9630,15 @@ evaluate_fixed_subframe_.exit:                    ; preds = %for.body29.i, %for.
   %add42.i.reass = add i32 %add40.i, %invariant.op
   %add43.i = add i32 %add42.i.reass, %55
   %estimate.0.i = call i32 @llvm.uadd.sat.i32(i32 %add43.i, i32 %call.i)
-  %cmp161 = icmp ult i32 %estimate.0.i, %_best_bits.1235
+  %cmp161 = icmp ult i32 %estimate.0.i, %_best_bits.3235
   %lnot.ext144 = zext i1 %tobool142.not to i32
-  %spec.select149 = call i32 @llvm.umin.i32(i32 %estimate.0.i, i32 %_best_bits.1235)
-  %spec.select150 = select i1 %cmp161, i32 %lnot.ext144, i32 %_best_subframe.0236
+  %spec.select149 = call i32 @llvm.umin.i32(i32 %estimate.0.i, i32 %_best_bits.3235)
+  %spec.select150 = select i1 %cmp161, i32 %lnot.ext144, i32 %_best_subframe.2236
   br label %for.inc168
 
 for.inc168:                                       ; preds = %evaluate_fixed_subframe_.exit, %for.body134
-  %_best_bits.2 = phi i32 [ %_best_bits.1235, %for.body134 ], [ %spec.select149, %evaluate_fixed_subframe_.exit ]
-  %_best_subframe.1 = phi i32 [ %_best_subframe.0236, %for.body134 ], [ %spec.select150, %evaluate_fixed_subframe_.exit ]
+  %_best_bits.4 = phi i32 [ %_best_bits.3235, %for.body134 ], [ %spec.select149, %evaluate_fixed_subframe_.exit ]
+  %_best_subframe.3 = phi i32 [ %_best_subframe.2236, %for.body134 ], [ %spec.select150, %evaluate_fixed_subframe_.exit ]
   %inc169 = add i32 %fixed_order.0234, 1
   %cmp132.not = icmp ugt i32 %inc169, %max_fixed_order.1
   br i1 %cmp132.not, label %if.end171.loopexit, label %for.body134, !llvm.loop !113
@@ -9649,8 +9649,8 @@ if.end171.loopexit:                               ; preds = %for.inc168
 
 if.end171:                                        ; preds = %if.end171.loopexit, %if.then118, %lor.lhs.false
   %56 = phi ptr [ %.pre282, %lor.lhs.false ], [ %.pre282, %if.then118 ], [ %.pre283, %if.end171.loopexit ]
-  %_best_bits.3 = phi i32 [ %_best_bits.0, %lor.lhs.false ], [ %_best_bits.0, %if.then118 ], [ %_best_bits.2, %if.end171.loopexit ]
-  %_best_subframe.2 = phi i32 [ 0, %lor.lhs.false ], [ 0, %if.then118 ], [ %_best_subframe.1, %if.end171.loopexit ]
+  %_best_bits.2 = phi i32 [ %_best_bits.0, %lor.lhs.false ], [ %_best_bits.0, %if.then118 ], [ %_best_bits.4, %if.end171.loopexit ]
+  %_best_subframe.1 = phi i32 [ 0, %lor.lhs.false ], [ 0, %if.then118 ], [ %_best_subframe.3, %if.end171.loopexit ]
   %max_lpc_order173 = getelementptr inbounds i8, ptr %56, i64 556
   %57 = load i32, ptr %max_lpc_order173, align 4
   %cmp174.not = icmp eq i32 %57, 0
@@ -9703,8 +9703,8 @@ while.cond.loopexit.loopexit:                     ; preds = %for.inc298
 
 while.cond.loopexit:                              ; preds = %while.cond.loopexit.loopexit, %if.end207
   %66 = phi ptr [ %115, %if.end207 ], [ %.pre285, %while.cond.loopexit.loopexit ]
-  %_best_bits.5.lcssa = phi i32 [ %_best_bits.4.ph261, %if.end207 ], [ %_best_bits.8, %while.cond.loopexit.loopexit ]
-  %_best_subframe.4.lcssa = phi i32 [ %_best_subframe.3.ph262, %if.end207 ], [ %_best_subframe.7, %while.cond.loopexit.loopexit ]
+  %_best_bits.6.lcssa = phi i32 [ %_best_bits.5.ph261, %if.end207 ], [ %_best_bits.7, %while.cond.loopexit.loopexit ]
+  %_best_subframe.5.lcssa = phi i32 [ %_best_subframe.4.ph262, %if.end207 ], [ %_best_subframe.6, %while.cond.loopexit.loopexit ]
   %67 = load i32, ptr %apply_apodization_state, align 8
   %num_apodizations238 = getelementptr inbounds i8, ptr %66, i64 40
   %68 = load i32, ptr %num_apodizations238, align 8
@@ -9714,8 +9714,8 @@ while.cond.loopexit:                              ; preds = %while.cond.loopexit
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %while.cond.loopexit
   %69 = phi ptr [ %56, %while.body.lr.ph.lr.ph ], [ %66, %while.cond.loopexit ]
   %70 = phi i32 [ 0, %while.body.lr.ph.lr.ph ], [ %67, %while.cond.loopexit ]
-  %_best_subframe.3.ph262 = phi i32 [ %_best_subframe.2, %while.body.lr.ph.lr.ph ], [ %_best_subframe.4.lcssa, %while.cond.loopexit ]
-  %_best_bits.4.ph261 = phi i32 [ %_best_bits.3, %while.body.lr.ph.lr.ph ], [ %_best_bits.5.lcssa, %while.cond.loopexit ]
+  %_best_subframe.4.ph262 = phi i32 [ %_best_subframe.1, %while.body.lr.ph.lr.ph ], [ %_best_subframe.5.lcssa, %while.cond.loopexit ]
+  %_best_bits.5.ph261 = phi i32 [ %_best_bits.2, %while.body.lr.ph.lr.ph ], [ %_best_bits.6.lcssa, %while.cond.loopexit ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %apply_apodization_.exit
@@ -10005,8 +10005,8 @@ for.body211.preheader:                            ; preds = %if.end207.thread, %
 
 for.body211:                                      ; preds = %for.body211.preheader, %for.inc298
   %lpc_order.0255 = phi i32 [ %inc299, %for.inc298 ], [ %lpc_order.0255.ph, %for.body211.preheader ]
-  %_best_subframe.4254 = phi i32 [ %_best_subframe.7, %for.inc298 ], [ %_best_subframe.3.ph262, %for.body211.preheader ]
-  %_best_bits.5253 = phi i32 [ %_best_bits.8, %for.inc298 ], [ %_best_bits.4.ph261, %for.body211.preheader ]
+  %_best_subframe.5254 = phi i32 [ %_best_subframe.6, %for.inc298 ], [ %_best_subframe.4.ph262, %for.body211.preheader ]
+  %_best_bits.6253 = phi i32 [ %_best_bits.7, %for.inc298 ], [ %_best_bits.5.ph261, %for.body211.preheader ]
   %sub212 = add i32 %lpc_order.0255, -1
   %idxprom213 = zext i32 %sub212 to i64
   %arrayidx214 = getelementptr inbounds [32 x double], ptr %lpc_error, i64 0, i64 %idxprom213
@@ -10054,10 +10054,10 @@ for.body256.lr.ph:                                ; preds = %if.else249, %if.the
   br label %for.body256
 
 for.body256:                                      ; preds = %for.body256.lr.ph, %evaluate_lpc_subframe_.exit
-  %_best_subframe.5247 = phi i32 [ %_best_subframe.4254, %for.body256.lr.ph ], [ %_best_subframe.6, %evaluate_lpc_subframe_.exit ]
-  %_best_bits.6246 = phi i32 [ %_best_bits.5253, %for.body256.lr.ph ], [ %_best_bits.7, %evaluate_lpc_subframe_.exit ]
+  %_best_subframe.7247 = phi i32 [ %_best_subframe.5254, %for.body256.lr.ph ], [ %_best_subframe.8, %evaluate_lpc_subframe_.exit ]
+  %_best_bits.8246 = phi i32 [ %_best_bits.6253, %for.body256.lr.ph ], [ %_best_bits.9, %evaluate_lpc_subframe_.exit ]
   %qlp_coeff_precision.0245 = phi i32 [ %min_qlp_coeff_precision.0, %for.body256.lr.ph ], [ %inc296, %evaluate_lpc_subframe_.exit ]
-  %tobool257.not = icmp eq i32 %_best_subframe.5247, 0
+  %tobool257.not = icmp eq i32 %_best_subframe.7247, 0
   %lnot.ext259 = zext i1 %tobool257.not to i32
   %idxprom260 = zext i1 %tobool257.not to i64
   %arrayidx261 = getelementptr inbounds ptr, ptr %residual, i64 %idxprom260
@@ -10205,31 +10205,31 @@ evaluate_lpc_subframe_.exit:                      ; preds = %for.body256, %if.th
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %qlp_coeff.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %quantization.i)
   %cmp284.not = icmp ne i32 %retval.0.i187, 0
-  %cmp287 = icmp ult i32 %retval.0.i187, %_best_bits.6246
+  %cmp287 = icmp ult i32 %retval.0.i187, %_best_bits.8246
   %or.cond151 = select i1 %cmp284.not, i1 %cmp287, i1 false
-  %_best_bits.7 = select i1 %or.cond151, i32 %retval.0.i187, i32 %_best_bits.6246
-  %_best_subframe.6 = select i1 %or.cond151, i32 %lnot.ext259, i32 %_best_subframe.5247
+  %_best_bits.9 = select i1 %or.cond151, i32 %retval.0.i187, i32 %_best_bits.8246
+  %_best_subframe.8 = select i1 %or.cond151, i32 %lnot.ext259, i32 %_best_subframe.7247
   %inc296 = add i32 %qlp_coeff_precision.0245, 1
   %cmp254.not = icmp ugt i32 %inc296, %max_qlp_coeff_precision.0
   br i1 %cmp254.not, label %for.inc298, label %for.body256, !llvm.loop !119
 
 for.inc298:                                       ; preds = %evaluate_lpc_subframe_.exit, %for.body211
-  %_best_bits.8 = phi i32 [ %_best_bits.5253, %for.body211 ], [ %_best_bits.7, %evaluate_lpc_subframe_.exit ]
-  %_best_subframe.7 = phi i32 [ %_best_subframe.4254, %for.body211 ], [ %_best_subframe.6, %evaluate_lpc_subframe_.exit ]
+  %_best_bits.7 = phi i32 [ %_best_bits.6253, %for.body211 ], [ %_best_bits.9, %evaluate_lpc_subframe_.exit ]
+  %_best_subframe.6 = phi i32 [ %_best_subframe.5254, %for.body211 ], [ %_best_subframe.8, %evaluate_lpc_subframe_.exit ]
   %inc299 = add i32 %lpc_order.0255, 1
   %144 = load i32, ptr %max_lpc_order_this_apodization, align 4
   %cmp209.not = icmp ugt i32 %inc299, %144
   br i1 %cmp209.not, label %while.cond.loopexit.loopexit, label %for.body211, !llvm.loop !120
 
 if.end304:                                        ; preds = %while.cond.loopexit, %apply_apodization_.exit, %if.then191, %if.end101, %if.then176, %if.end171, %if.end
-  %_best_bits.9 = phi i32 [ %_best_bits.3, %if.then176 ], [ %_best_bits.3, %if.end171 ], [ %_best_bits.0, %if.end ], [ %spec.select, %if.end101 ], [ %_best_bits.3, %if.then191 ], [ %_best_bits.4.ph261, %apply_apodization_.exit ], [ %_best_bits.5.lcssa, %while.cond.loopexit ]
-  %_best_subframe.8 = phi i32 [ %_best_subframe.2, %if.then176 ], [ %_best_subframe.2, %if.end171 ], [ 0, %if.end ], [ %spec.select147, %if.end101 ], [ %_best_subframe.2, %if.then191 ], [ %_best_subframe.3.ph262, %apply_apodization_.exit ], [ %_best_subframe.4.lcssa, %while.cond.loopexit ]
-  %cmp305 = icmp eq i32 %_best_bits.9, -1
+  %_best_bits.1 = phi i32 [ %_best_bits.2, %if.then176 ], [ %_best_bits.2, %if.end171 ], [ %_best_bits.0, %if.end ], [ %spec.select, %if.end101 ], [ %_best_bits.2, %if.then191 ], [ %_best_bits.5.ph261, %apply_apodization_.exit ], [ %_best_bits.6.lcssa, %while.cond.loopexit ]
+  %_best_subframe.0 = phi i32 [ %_best_subframe.1, %if.then176 ], [ %_best_subframe.1, %if.end171 ], [ 0, %if.end ], [ %spec.select147, %if.end101 ], [ %_best_subframe.1, %if.then191 ], [ %_best_subframe.4.ph262, %apply_apodization_.exit ], [ %_best_subframe.5.lcssa, %while.cond.loopexit ]
+  %cmp305 = icmp eq i32 %_best_bits.1, -1
   br i1 %cmp305, label %if.then307, label %if.end312
 
 if.then307:                                       ; preds = %if.end304
   %145 = load i32, ptr %frame_header, align 8
-  %idxprom309 = zext nneg i32 %_best_subframe.8 to i64
+  %idxprom309 = zext nneg i32 %_best_subframe.0 to i64
   %arrayidx310 = getelementptr inbounds ptr, ptr %subframe, i64 %idxprom309
   %146 = load ptr, ptr %arrayidx310, align 8
   store i32 1, ptr %146, align 8
@@ -10252,8 +10252,8 @@ if.then307:                                       ; preds = %if.end304
   br label %if.end312
 
 if.end312:                                        ; preds = %if.then307, %if.end304
-  %_best_bits.10 = phi i32 [ %add9.i219, %if.then307 ], [ %_best_bits.9, %if.end304 ]
-  store i32 %_best_subframe.8, ptr %best_subframe, align 4
+  %_best_bits.10 = phi i32 [ %add9.i219, %if.then307 ], [ %_best_bits.1, %if.end304 ]
+  store i32 %_best_subframe.0, ptr %best_subframe, align 4
   store i32 %_best_bits.10, ptr %best_bits, align 4
   ret void
 }

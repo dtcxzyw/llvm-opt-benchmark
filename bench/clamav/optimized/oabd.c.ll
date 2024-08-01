@@ -274,7 +274,7 @@ copy_fh.exit.thread:                              ; preds = %104, %93, %.loopexi
   br i1 %.not120, label %copy_fh.exit.thread145.thread160, label %52
 
 copy_fh.exit.thread145.thread160:                 ; preds = %.loopexit, %112, %92, %55, %88, %52, %copy_fh.exit.thread, %117, %.lr.ph.split.us.i133, %.lr.ph.split.i, %101, %35, %28
-  %.2151167 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 4, %101 ], [ 3, %.lr.ph.split.i ], [ 3, %.lr.ph.split.us.i133 ], [ 9, %.loopexit ], [ 6, %112 ], [ 8, %92 ], [ 8, %55 ], [ 8, %88 ], [ 3, %52 ], [ 0, %copy_fh.exit.thread ], [ %118, %117 ]
+  %.092151167 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 4, %101 ], [ 3, %.lr.ph.split.i ], [ 3, %.lr.ph.split.us.i133 ], [ 9, %.loopexit ], [ 6, %112 ], [ 8, %92 ], [ 8, %55 ], [ 8, %88 ], [ 3, %52 ], [ 0, %copy_fh.exit.thread ], [ %118, %117 ]
   %132 = getelementptr inbounds i8, ptr %10, i64 8
   %133 = load ptr, ptr %132, align 8
   call void %133(ptr noundef nonnull %27) #5
@@ -282,7 +282,7 @@ copy_fh.exit.thread145.thread160:                 ; preds = %.loopexit, %112, %9
 
 copy_fh.exit.thread145.thread.thread:             ; preds = %copy_fh.exit.thread145.thread160, %21, %17, %13
   %.091152158172 = phi ptr [ %34, %copy_fh.exit.thread145.thread160 ], [ null, %13 ], [ null, %17 ], [ null, %21 ]
-  %.2151159170 = phi i32 [ %.2151167, %copy_fh.exit.thread145.thread160 ], [ 3, %13 ], [ 7, %17 ], [ 2, %21 ]
+  %.092151159170 = phi i32 [ %.092151167, %copy_fh.exit.thread145.thread160 ], [ 3, %13 ], [ 7, %17 ], [ 2, %21 ]
   %134 = getelementptr inbounds i8, ptr %10, i64 8
   %135 = load ptr, ptr %134, align 8
   call void %135(ptr noundef nonnull %12) #5
@@ -290,14 +290,14 @@ copy_fh.exit.thread145.thread.thread:             ; preds = %copy_fh.exit.thread
 
 copy_fh.exit.thread145.thread.thread174:          ; preds = %8, %copy_fh.exit.thread145.thread.thread
   %.091152158173 = phi ptr [ %.091152158172, %copy_fh.exit.thread145.thread.thread ], [ null, %8 ]
-  %.2151159171 = phi i32 [ %.2151159170, %copy_fh.exit.thread145.thread.thread ], [ 2, %8 ]
+  %.092151159171 = phi i32 [ %.092151159170, %copy_fh.exit.thread145.thread.thread ], [ 2, %8 ]
   %136 = getelementptr inbounds i8, ptr %10, i64 64
   %137 = load ptr, ptr %136, align 8
   call void %137(ptr noundef %.091152158173) #5
   br label %138
 
 138:                                              ; preds = %3, %copy_fh.exit.thread145.thread.thread174
-  %.0 = phi i32 [ %.2151159171, %copy_fh.exit.thread145.thread.thread174 ], [ 1, %3 ]
+  %.0 = phi i32 [ %.092151159171, %copy_fh.exit.thread145.thread.thread174 ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -494,19 +494,19 @@ define internal i32 @oabd_decompress_incremental(ptr noundef readonly %0, ptr no
   br i1 %.not133, label %53, label %copy_fh.exit.thread141.thread160
 
 copy_fh.exit:                                     ; preds = %98, %100
-  %.1 = phi i32 [ %99, %98 ], [ %101, %100 ]
+  %.097 = phi i32 [ %99, %98 ], [ %101, %100 ]
   call void @lzxd_free(ptr noundef nonnull %97) #5
   br label %copy_fh.exit.thread141.thread160
 
 copy_fh.exit.thread141.thread160:                 ; preds = %.loopexit, %95, %58, %55, %53, %.lr.ph.split.us.i, %39, %copy_fh.exit, %32
-  %.1149168 = phi i32 [ 6, %32 ], [ %.1, %copy_fh.exit ], [ 0, %39 ], [ 3, %.lr.ph.split.us.i ], [ 0, %53 ], [ 3, %55 ], [ 8, %58 ], [ 6, %95 ], [ 9, %.loopexit ]
+  %.097149168 = phi i32 [ 6, %32 ], [ %.097, %copy_fh.exit ], [ 0, %39 ], [ 3, %.lr.ph.split.us.i ], [ 0, %53 ], [ 3, %55 ], [ 8, %58 ], [ 6, %95 ], [ 9, %.loopexit ]
   %114 = getelementptr inbounds i8, ptr %11, i64 8
   %115 = load ptr, ptr %114, align 8
   call void %115(ptr noundef nonnull %31) #5
   br label %copy_fh.exit.thread141.thread.thread176
 
 copy_fh.exit.thread141.thread.thread176:          ; preds = %copy_fh.exit.thread141.thread160, %29
-  %.1149158182 = phi i32 [ %.1149168, %copy_fh.exit.thread141.thread160 ], [ 2, %29 ]
+  %.097149158182 = phi i32 [ %.097149168, %copy_fh.exit.thread141.thread160 ], [ 2, %29 ]
   %.0102148159181 = phi ptr [ %38, %copy_fh.exit.thread141.thread160 ], [ null, %29 ]
   %116 = getelementptr inbounds i8, ptr %11, i64 8
   %117 = load ptr, ptr %116, align 8
@@ -515,7 +515,7 @@ copy_fh.exit.thread141.thread.thread176:          ; preds = %copy_fh.exit.thread
 
 copy_fh.exit.thread141.thread.thread.thread:      ; preds = %copy_fh.exit.thread141.thread.thread176, %14, %18, %22
   %.0102148159174188 = phi ptr [ %.0102148159181, %copy_fh.exit.thread141.thread.thread176 ], [ null, %22 ], [ null, %18 ], [ null, %14 ]
-  %.1149158175186 = phi i32 [ %.1149158182, %copy_fh.exit.thread141.thread.thread176 ], [ 2, %22 ], [ 7, %18 ], [ 3, %14 ]
+  %.097149158175186 = phi i32 [ %.097149158182, %copy_fh.exit.thread141.thread.thread176 ], [ 2, %22 ], [ 7, %18 ], [ 3, %14 ]
   %118 = getelementptr inbounds i8, ptr %11, i64 8
   %119 = load ptr, ptr %118, align 8
   call void %119(ptr noundef nonnull %13) #5
@@ -523,14 +523,14 @@ copy_fh.exit.thread141.thread.thread.thread:      ; preds = %copy_fh.exit.thread
 
 copy_fh.exit.thread141.thread.thread.thread190:   ; preds = %9, %copy_fh.exit.thread141.thread.thread.thread
   %.0102148159174189 = phi ptr [ %.0102148159174188, %copy_fh.exit.thread141.thread.thread.thread ], [ null, %9 ]
-  %.1149158175187 = phi i32 [ %.1149158175186, %copy_fh.exit.thread141.thread.thread.thread ], [ 2, %9 ]
+  %.097149158175187 = phi i32 [ %.097149158175186, %copy_fh.exit.thread141.thread.thread.thread ], [ 2, %9 ]
   %120 = getelementptr inbounds i8, ptr %11, i64 64
   %121 = load ptr, ptr %120, align 8
   call void %121(ptr noundef %.0102148159174189) #5
   br label %122
 
 122:                                              ; preds = %4, %copy_fh.exit.thread141.thread.thread.thread190
-  %.0 = phi i32 [ %.1149158175187, %copy_fh.exit.thread141.thread.thread.thread190 ], [ 1, %4 ]
+  %.0 = phi i32 [ %.097149158175187, %copy_fh.exit.thread141.thread.thread.thread190 ], [ 1, %4 ]
   ret i32 %.0
 }
 

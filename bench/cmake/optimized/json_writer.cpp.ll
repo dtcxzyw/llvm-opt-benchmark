@@ -180,12 +180,12 @@ define dso_local void @_ZN4Json13valueToStringB5cxx11El(ptr dead_on_unwind noali
   br label %8
 
 8:                                                ; preds = %8, %6
-  %.0 = phi ptr [ %7, %6 ], [ %12, %8 ]
+  %.1 = phi ptr [ %7, %6 ], [ %12, %8 ]
   %.0.i = phi i64 [ -9223372036854775808, %6 ], [ %13, %8 ]
   %9 = urem i64 %.0.i, 10
   %10 = trunc nuw nsw i64 %9 to i8
   %11 = or disjoint i8 %10, 48
-  %12 = getelementptr inbounds i8, ptr %.0, i64 -1
+  %12 = getelementptr inbounds i8, ptr %.1, i64 -1
   store i8 %11, ptr %12, align 1
   %13 = udiv i64 %.0.i, 10
   %.not.i = icmp ult i64 %.0.i, 10
@@ -202,12 +202,12 @@ define dso_local void @_ZN4Json13valueToStringB5cxx11El(ptr dead_on_unwind noali
   br label %19
 
 19:                                               ; preds = %19, %16
-  %.1 = phi ptr [ %18, %16 ], [ %23, %19 ]
+  %.2 = phi ptr [ %18, %16 ], [ %23, %19 ]
   %.0.i5 = phi i64 [ %17, %16 ], [ %24, %19 ]
   %20 = urem i64 %.0.i5, 10
   %21 = trunc nuw nsw i64 %20 to i8
   %22 = or disjoint i8 %21, 48
-  %23 = getelementptr inbounds i8, ptr %.1, i64 -1
+  %23 = getelementptr inbounds i8, ptr %.2, i64 -1
   store i8 %22, ptr %23, align 1
   %24 = udiv i64 %.0.i5, 10
   %.not.i6 = icmp ult i64 %.0.i5, 10
@@ -219,25 +219,25 @@ define dso_local void @_ZN4Json13valueToStringB5cxx11El(ptr dead_on_unwind noali
   br label %27
 
 27:                                               ; preds = %27, %25
-  %.2 = phi ptr [ %26, %25 ], [ %31, %27 ]
+  %.3 = phi ptr [ %26, %25 ], [ %31, %27 ]
   %.0.i8 = phi i64 [ %1, %25 ], [ %32, %27 ]
   %28 = urem i64 %.0.i8, 10
   %29 = trunc nuw nsw i64 %28 to i8
   %30 = or disjoint i8 %29, 48
-  %31 = getelementptr inbounds i8, ptr %.2, i64 -1
+  %31 = getelementptr inbounds i8, ptr %.3, i64 -1
   store i8 %30, ptr %31, align 1
   %32 = udiv i64 %.0.i8, 10
   %.not.i9 = icmp ult i64 %.0.i8, 10
   br i1 %.not.i9, label %_ZN4JsonL12uintToStringEmRPc.exit10, label %27, !llvm.loop !5
 
 _ZN4JsonL12uintToStringEmRPc.exit10.sink.split:   ; preds = %19, %8
-  %.1.lcssa.sink = phi ptr [ %.0, %8 ], [ %.1, %19 ]
-  %33 = getelementptr inbounds i8, ptr %.1.lcssa.sink, i64 -2
+  %.2.lcssa.sink = phi ptr [ %.1, %8 ], [ %.2, %19 ]
+  %33 = getelementptr inbounds i8, ptr %.2.lcssa.sink, i64 -2
   store i8 45, ptr %33, align 1
   br label %_ZN4JsonL12uintToStringEmRPc.exit10
 
 _ZN4JsonL12uintToStringEmRPc.exit10:              ; preds = %27, %_ZN4JsonL12uintToStringEmRPc.exit10.sink.split
-  %.3 = phi ptr [ %33, %_ZN4JsonL12uintToStringEmRPc.exit10.sink.split ], [ %31, %27 ]
+  %.0 = phi ptr [ %33, %_ZN4JsonL12uintToStringEmRPc.exit10.sink.split ], [ %31, %27 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
   %34 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %39
@@ -253,9 +253,9 @@ _ZN4JsonL12uintToStringEmRPc.exit10:              ; preds = %27, %_ZN4JsonL12uin
   br label %.body
 
 .noexc11:                                         ; preds = %.noexc
-  %37 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.3) #19
-  %38 = getelementptr inbounds i8, ptr %.3, i64 %37
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.3, ptr noundef nonnull %38)
+  %37 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #19
+  %38 = getelementptr inbounds i8, ptr %.0, i64 %37
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %.0, ptr noundef nonnull %38)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit unwind label %35
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc11
@@ -1171,7 +1171,7 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
   br i1 %174, label %.thread64, label %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
 
 _ZN4JsonL15utf8ToCodepointERPKcS1_.exit:          ; preds = %154, %143, %116, %107
-  %.0 = phi ptr [ %storemerge101, %107 ], [ %119, %116 ], [ %140, %143 ], [ %168, %154 ]
+  %.1 = phi ptr [ %storemerge101, %107 ], [ %119, %116 ], [ %140, %143 ], [ %168, %154 ]
   %.0.i = phi i32 [ %108, %107 ], [ %123, %116 ], [ %147, %143 ], [ %173, %154 ]
   %175 = icmp ult i32 %.0.i, 32
   br i1 %175, label %.invoke145, label %177
@@ -1196,7 +1196,7 @@ _ZN4JsonL15utf8ToCodepointERPKcS1_.exit:          ; preds = %154, %143, %116, %1
 
 .thread64:                                        ; preds = %154, %143, %116, %149, %131, %127, %112, %182
   %.0.i596268 = phi i32 [ %.0.i, %182 ], [ 65533, %112 ], [ 65533, %127 ], [ 65533, %131 ], [ 65533, %149 ], [ 65533, %116 ], [ 65533, %143 ], [ 65533, %154 ]
-  %.0586367 = phi ptr [ %.0, %182 ], [ %storemerge101, %112 ], [ %storemerge101, %127 ], [ %140, %131 ], [ %storemerge101, %149 ], [ %119, %116 ], [ %140, %143 ], [ %168, %154 ]
+  %.1586367 = phi ptr [ %.1, %182 ], [ %storemerge101, %112 ], [ %storemerge101, %127 ], [ %140, %131 ], [ %storemerge101, %149 ], [ %119, %116 ], [ %140, %143 ], [ %168, %154 ]
   invoke fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i596268)
           to label %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit unwind label %.loopexit.split
 
@@ -1214,8 +1214,8 @@ _ZN4JsonL15utf8ToCodepointERPKcS1_.exit:          ; preds = %154, %143, %116, %1
   br label %.invoke145
 
 _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit: ; preds = %.invoke145, %.invoke144, %179, %.thread64
-  %.1 = phi ptr [ %.0586367, %.thread64 ], [ %.0, %179 ], [ %storemerge101, %.invoke144 ], [ %.0, %.invoke145 ]
-  %192 = getelementptr inbounds i8, ptr %.1, i64 1
+  %.0 = phi ptr [ %.1586367, %.thread64 ], [ %.1, %179 ], [ %storemerge101, %.invoke144 ], [ %.1, %.invoke145 ]
+  %192 = getelementptr inbounds i8, ptr %.0, i64 1
   %.not = icmp eq ptr %192, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
@@ -3206,7 +3206,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 .lr.ph36:                                         ; preds = %25, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %25 ]
   %.02633 = phi i32 [ %43, %36 ], [ %29, %25 ]
-  %.132 = phi i1 [ %37, %36 ], [ false, %25 ]
+  %.232 = phi i1 [ %37, %36 ], [ false, %25 ]
   %30 = trunc nuw i64 %indvars.iv to i32
   %31 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %30)
   %32 = tail call noundef zeroext i1 @_ZNK4Json5Value10hasCommentENS_16CommentPlacementE(ptr noundef nonnull align 8 dereferenceable(40) %31, i32 noundef 0)
@@ -3224,7 +3224,7 @@ _ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread: ; preds = %
   br label %36
 
 36:                                               ; preds = %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread
-  %37 = phi i1 [ true, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ %.132, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit ]
+  %37 = phi i1 [ true, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ %.232, %_ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit ]
   %38 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %30)
   tail call void @_ZN4Json12StyledWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(40) %38)
   %39 = load ptr, ptr %8, align 8
@@ -3237,17 +3237,17 @@ _ZN4Json12StyledWriter18hasCommentForValueERKNS_5ValueE.exit.thread: ; preds = %
   br i1 %exitcond.not, label %._crit_edge37, label %.lr.ph36, !llvm.loop !22
 
 ._crit_edge37:                                    ; preds = %36, %25
-  %.1.lcssa = phi i1 [ false, %25 ], [ %37, %36 ]
+  %.2.lcssa = phi i1 [ false, %25 ], [ %37, %36 ]
   %.026.lcssa = phi i32 [ %29, %25 ], [ %43, %36 ]
   store i8 0, ptr %27, align 8
   %44 = load i32, ptr %5, align 8
   %45 = icmp uge i32 %.026.lcssa, %44
-  %46 = select i1 %.1.lcssa, i1 true, i1 %45
+  %46 = select i1 %.2.lcssa, i1 true, i1 %45
   br label %47
 
 47:                                               ; preds = %._crit_edge37, %._crit_edge
-  %.3 = phi i1 [ true, %._crit_edge ], [ %46, %._crit_edge37 ]
-  ret i1 %.3
+  %.1 = phi i1 [ true, %._crit_edge ], [ %46, %._crit_edge37 ]
+  ret i1 %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4854,7 +4854,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 .lr.ph36:                                         ; preds = %24, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %24 ]
   %.02633 = phi i32 [ %44, %37 ], [ %30, %24 ]
-  %.132 = phi i1 [ %38, %37 ], [ false, %24 ]
+  %.232 = phi i1 [ %38, %37 ], [ false, %24 ]
   %31 = trunc nuw i64 %indvars.iv to i32
   %32 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %31)
   %33 = tail call noundef zeroext i1 @_ZNK4Json5Value10hasCommentENS_16CommentPlacementE(ptr noundef nonnull align 8 dereferenceable(40) %32, i32 noundef 0)
@@ -4872,7 +4872,7 @@ _ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread: ; pre
   br label %37
 
 37:                                               ; preds = %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread
-  %38 = phi i1 [ true, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ %.132, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit ]
+  %38 = phi i1 [ true, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ %.232, %_ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit ]
   %39 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %31)
   tail call void @_ZN4Json18StyledStreamWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(40) %39)
   %40 = load ptr, ptr %0, align 8
@@ -4890,18 +4890,18 @@ _ZN4Json18StyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread: ; pre
 
 ._crit_edge37:                                    ; preds = %._crit_edge37.loopexit, %24
   %45 = phi i8 [ %28, %24 ], [ %.pre, %._crit_edge37.loopexit ]
-  %.1.lcssa = phi i1 [ false, %24 ], [ %38, %._crit_edge37.loopexit ]
+  %.2.lcssa = phi i1 [ false, %24 ], [ %38, %._crit_edge37.loopexit ]
   %.026.lcssa = phi i32 [ %30, %24 ], [ %44, %._crit_edge37.loopexit ]
   %46 = and i8 %45, -2
   store i8 %46, ptr %26, align 8
   %47 = load i32, ptr %5, align 8
   %48 = icmp uge i32 %.026.lcssa, %47
-  %49 = select i1 %.1.lcssa, i1 true, i1 %48
+  %49 = select i1 %.2.lcssa, i1 true, i1 %48
   br label %50
 
 50:                                               ; preds = %._crit_edge37, %._crit_edge
-  %.3 = phi i1 [ true, %._crit_edge ], [ %49, %._crit_edge37 ]
-  ret i1 %.3
+  %.1 = phi i1 [ true, %._crit_edge ], [ %49, %._crit_edge37 ]
+  ret i1 %.1
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
@@ -6504,7 +6504,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 .lr.ph36:                                         ; preds = %25, %38
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %25 ]
   %.02633 = phi i32 [ %45, %38 ], [ %31, %25 ]
-  %.132 = phi i1 [ %39, %38 ], [ false, %25 ]
+  %.232 = phi i1 [ %39, %38 ], [ false, %25 ]
   %32 = trunc nuw i64 %indvars.iv to i32
   %33 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %32)
   %34 = tail call noundef zeroext i1 @_ZNK4Json5Value10hasCommentENS_16CommentPlacementE(ptr noundef nonnull align 8 dereferenceable(40) %33, i32 noundef 0)
@@ -6522,7 +6522,7 @@ _ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread: 
   br label %38
 
 38:                                               ; preds = %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread
-  %39 = phi i1 [ true, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ %.132, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit ]
+  %39 = phi i1 [ true, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread ], [ %.232, %_ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit ]
   %40 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %32)
   tail call void @_ZN4Json23BuiltStyledStreamWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(228) %0, ptr noundef nonnull align 8 dereferenceable(40) %40)
   %41 = load ptr, ptr %8, align 8
@@ -6540,18 +6540,18 @@ _ZN4Json23BuiltStyledStreamWriter18hasCommentForValueERKNS_5ValueE.exit.thread: 
 
 ._crit_edge37:                                    ; preds = %._crit_edge37.loopexit, %25
   %46 = phi i8 [ %29, %25 ], [ %.pre, %._crit_edge37.loopexit ]
-  %.1.lcssa = phi i1 [ false, %25 ], [ %39, %._crit_edge37.loopexit ]
+  %.2.lcssa = phi i1 [ false, %25 ], [ %39, %._crit_edge37.loopexit ]
   %.026.lcssa = phi i32 [ %31, %25 ], [ %45, %._crit_edge37.loopexit ]
   %47 = and i8 %46, -2
   store i8 %47, ptr %27, align 8
   %48 = load i32, ptr %5, align 8
   %49 = icmp uge i32 %.026.lcssa, %48
-  %50 = select i1 %.1.lcssa, i1 true, i1 %49
+  %50 = select i1 %.2.lcssa, i1 true, i1 %49
   br label %51
 
 51:                                               ; preds = %._crit_edge37, %._crit_edge
-  %.3 = phi i1 [ true, %._crit_edge ], [ %50, %._crit_edge37 ]
-  ret i1 %.3
+  %.1 = phi i1 [ true, %._crit_edge ], [ %50, %._crit_edge37 ]
+  ret i1 %.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7397,51 +7397,51 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
 
 102:                                              ; preds = %.loopexit73, %90
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.loopexit73 ], [ %91, %90 ]
-  %.013 = phi ptr [ %37, %.loopexit73 ], [ %35, %90 ]
-  %.1 = phi i1 [ %101, %.loopexit73 ], [ false, %90 ]
+  %.619 = phi ptr [ %37, %.loopexit73 ], [ %35, %90 ]
+  %.6 = phi i1 [ %101, %.loopexit73 ], [ false, %90 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #19
   br label %103
 
 103:                                              ; preds = %102, %88
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %102 ], [ %89, %88 ]
-  %.114 = phi ptr [ %.013, %102 ], [ %33, %88 ]
-  %.2 = phi i1 [ %.1, %102 ], [ false, %88 ]
+  %.518 = phi ptr [ %.619, %102 ], [ %33, %88 ]
+  %.5 = phi i1 [ %.6, %102 ], [ false, %88 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
   br label %104
 
 104:                                              ; preds = %103, %86
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %103 ], [ %87, %86 ]
-  %.215 = phi ptr [ %.114, %103 ], [ %31, %86 ]
-  %.3 = phi i1 [ %.2, %103 ], [ false, %86 ]
+  %.417 = phi ptr [ %.518, %103 ], [ %31, %86 ]
+  %.4 = phi i1 [ %.5, %103 ], [ false, %86 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
   br label %105
 
 105:                                              ; preds = %104, %84
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %104 ], [ %85, %84 ]
-  %.316 = phi ptr [ %.215, %104 ], [ %29, %84 ]
-  %.4 = phi i1 [ %.3, %104 ], [ false, %84 ]
+  %.316 = phi ptr [ %.417, %104 ], [ %29, %84 ]
+  %.3 = phi i1 [ %.4, %104 ], [ false, %84 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   br label %106
 
 106:                                              ; preds = %105, %82
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %105 ], [ %83, %82 ]
-  %.417 = phi ptr [ %.316, %105 ], [ %27, %82 ]
-  %.5 = phi i1 [ %.4, %105 ], [ false, %82 ]
+  %.215 = phi ptr [ %.316, %105 ], [ %27, %82 ]
+  %.2 = phi i1 [ %.3, %105 ], [ false, %82 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #19
   br label %107
 
 107:                                              ; preds = %80, %106
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %106 ], [ %81, %80 ]
-  %.518 = phi ptr [ %.417, %106 ], [ %25, %80 ]
-  %.6 = phi i1 [ %.5, %106 ], [ false, %80 ]
+  %.114 = phi ptr [ %.215, %106 ], [ %25, %80 ]
+  %.1 = phi i1 [ %.2, %106 ], [ false, %80 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
-  %108 = icmp eq ptr %3, %.518
-  %or.cond = select i1 %.6, i1 true, i1 %108
+  %108 = icmp eq ptr %3, %.114
+  %or.cond = select i1 %.1, i1 true, i1 %108
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %107, %.preheader
-  %109 = phi ptr [ %110, %.preheader ], [ %.518, %107 ]
+  %109 = phi ptr [ %110, %.preheader ], [ %.114, %107 ]
   %110 = getelementptr inbounds i8, ptr %109, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #19
   %111 = icmp eq ptr %110, %3

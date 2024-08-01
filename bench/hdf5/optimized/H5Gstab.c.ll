@@ -1365,9 +1365,9 @@ define range(i32 -1, 1) i32 @H5G__stab_valid(ptr noundef %0, ptr noundef readonl
   br label %57
 
 57:                                               ; preds = %53, %49, %48
-  %.2 = phi ptr [ %.12435, %53 ], [ %.12435, %49 ], [ %34, %48 ]
+  %.023 = phi ptr [ %.12435, %53 ], [ %.12435, %49 ], [ %34, %48 ]
   %.0 = phi i32 [ -1, %53 ], [ 0, %49 ], [ 0, %48 ]
-  %58 = call i32 @H5HL_unprotect(ptr noundef nonnull %.2) #6
+  %58 = call i32 @H5HL_unprotect(ptr noundef nonnull %.023) #6
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %60, label %.thread36
 

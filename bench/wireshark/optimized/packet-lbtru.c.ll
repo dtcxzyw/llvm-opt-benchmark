@@ -1752,7 +1752,7 @@ lbtru_client_transport_sqn_find.exit157.i:        ; preds = %523
   br label %lbtru_client_transport_frame_add.exit
 
 lbtru_client_transport_frame_add.exit:            ; preds = %605, %602, %601, %598, %594, %460, %lbtru_client_transport_add.exit
-  %.0448 = phi ptr [ %.051.i, %lbtru_client_transport_add.exit ], [ %.051.i, %460 ], [ %.051.i, %594 ], [ %.051.i, %598 ], [ %608, %605 ], [ null, %602 ], [ null, %601 ]
+  %.1449 = phi ptr [ %.051.i, %lbtru_client_transport_add.exit ], [ %.051.i, %460 ], [ %.051.i, %594 ], [ %.051.i, %598 ], [ %608, %605 ], [ null, %602 ], [ null, %601 ]
   %609 = getelementptr inbounds i8, ptr %.0450, i64 24
   %610 = load i16, ptr %609, align 8
   %611 = getelementptr inbounds i8, ptr %.0450, i64 28
@@ -1798,12 +1798,12 @@ lbtru_transport_source_string_transport.exit:     ; preds = %619, %621
   br label %proto_item_set_generated.exit549
 
 proto_item_set_generated.exit549:                 ; preds = %lbtru_transport_source_string_transport.exit, %628, %631
-  %.not490 = icmp eq ptr %.0448, null
+  %.not490 = icmp eq ptr %.1449, null
   br i1 %.not490, label %proto_item_set_generated.exit552, label %635
 
 635:                                              ; preds = %proto_item_set_generated.exit549
   %636 = load i32, ptr @hf_lbtru_channel_client, align 4
-  %637 = getelementptr inbounds i8, ptr %.0448, i64 28
+  %637 = getelementptr inbounds i8, ptr %.1449, i64 28
   %638 = load i32, ptr %637, align 4
   %639 = call ptr @proto_tree_add_uint(ptr noundef %86, i32 noundef %636, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %638) #4
   %.not.i550 = icmp eq ptr %639, null
@@ -1824,7 +1824,7 @@ proto_item_set_generated.exit549:                 ; preds = %lbtru_transport_sou
 
 proto_item_set_generated.exit552:                 ; preds = %367, %383, %643, %640, %635, %proto_item_set_generated.exit549, %lbtru_transport_find.exit
   %647 = phi i1 [ true, %proto_item_set_generated.exit549 ], [ false, %lbtru_transport_find.exit ], [ true, %635 ], [ true, %640 ], [ true, %643 ], [ false, %383 ], [ false, %367 ]
-  %.1449 = phi ptr [ null, %proto_item_set_generated.exit549 ], [ null, %lbtru_transport_find.exit ], [ %.0448, %635 ], [ %.0448, %640 ], [ %.0448, %643 ], [ null, %383 ], [ null, %367 ]
+  %.0448 = phi ptr [ null, %proto_item_set_generated.exit549 ], [ null, %lbtru_transport_find.exit ], [ %.1449, %635 ], [ %.1449, %640 ], [ %.1449, %643 ], [ null, %383 ], [ null, %367 ]
   %.0447 = phi i64 [ %625, %proto_item_set_generated.exit549 ], [ -1, %lbtru_transport_find.exit ], [ %625, %635 ], [ %625, %640 ], [ %625, %643 ], [ -1, %383 ], [ -1, %367 ]
   call void @proto_item_set_len(ptr noundef %.0435640, i32 noundef %.1456.lcssa) #4
   %648 = icmp eq i32 %54, 0
@@ -1840,7 +1840,7 @@ proto_item_set_generated.exit552:                 ; preds = %367, %383, %643, %6
   %.2 = phi i32 [ %652, %649 ], [ %.1456.lcssa, %proto_item_set_generated.exit552 ]
   %654 = load i32, ptr @lbtru_sequence_analysis, align 4
   %.not491 = icmp ne i32 %654, 0
-  %655 = icmp ne ptr %.1449, null
+  %655 = icmp ne ptr %.0448, null
   %656 = and i1 %647, %.not491
   %or.cond = select i1 %656, i1 %655, i1 false
   br i1 %or.cond, label %657, label %proto_item_set_generated.exit610
@@ -1848,9 +1848,9 @@ proto_item_set_generated.exit552:                 ; preds = %367, %383, %643, %6
 657:                                              ; preds = %653
   %658 = getelementptr inbounds i8, ptr %1, i64 20
   %659 = load i32, ptr %658, align 4
-  %660 = getelementptr i8, ptr %.1449, i64 40
-  %.1449.val = load ptr, ptr %660, align 8
-  %661 = call ptr @wmem_tree_lookup32(ptr noundef %.1449.val, i32 noundef %659) #4
+  %660 = getelementptr i8, ptr %.0448, i64 40
+  %.0448.val = load ptr, ptr %660, align 8
+  %661 = call ptr @wmem_tree_lookup32(ptr noundef %.0448.val, i32 noundef %659) #4
   %.not492 = icmp eq ptr %661, null
   br i1 %.not492, label %proto_item_set_generated.exit610, label %662
 
@@ -1966,7 +1966,7 @@ proto_item_set_generated.exit561:                 ; preds = %696, %693, %690, %6
   br label %lbtru_client_transport_sqn_find.exit
 
 lbtru_client_transport_sqn_find.exit:             ; preds = %708, %705, %702, %proto_item_set_generated.exit561
-  %712 = getelementptr inbounds i8, ptr %.1449, i64 112
+  %712 = getelementptr inbounds i8, ptr %.0448, i64 112
   %713 = load ptr, ptr %712, align 8
   %714 = call ptr @wmem_tree_lookup32(ptr noundef %713, i32 noundef %.0445651687) #4
   %.not513 = icmp eq ptr %714, null
@@ -2180,7 +2180,7 @@ proto_item_set_generated.exit585:                 ; preds = %804, %801, %798, %7
   br label %lbtru_client_transport_sqn_find.exit592
 
 lbtru_client_transport_sqn_find.exit592:          ; preds = %proto_item_set_generated.exit585, %810, %813, %816
-  %820 = getelementptr inbounds i8, ptr %.1449, i64 120
+  %820 = getelementptr inbounds i8, ptr %.0448, i64 120
   %821 = load ptr, ptr %820, align 8
   %822 = call ptr @wmem_tree_lookup32(ptr noundef %821, i32 noundef %.0445651687) #4
   %.not507 = icmp eq ptr %822, null

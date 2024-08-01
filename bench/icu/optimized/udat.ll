@@ -270,7 +270,7 @@ lpad34:                                           ; preds = %invoke.cont32
   br label %ehcleanup47
 
 if.end46:                                         ; preds = %if.else24, %if.then20, %new.notnull, %cleanup.action38
-  %fmt.0 = phi ptr [ %call21, %cleanup.action38 ], [ null, %if.then20 ], [ %call21, %new.notnull ], [ null, %if.else24 ]
+  %fmt.1 = phi ptr [ %call21, %cleanup.action38 ], [ null, %if.then20 ], [ %call21, %new.notnull ], [ null, %if.else24 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pat) #7
   br label %if.end48
 
@@ -281,8 +281,8 @@ ehcleanup47:                                      ; preds = %lpad34, %lpad31, %l
   br label %eh.resume
 
 if.end48:                                         ; preds = %if.then10, %invoke.cont, %if.end46
-  %fmt.1 = phi ptr [ %call12, %if.then10 ], [ %call13, %invoke.cont ], [ %fmt.0, %if.end46 ]
-  %cmp49 = icmp eq ptr %fmt.1, null
+  %fmt.0 = phi ptr [ %call12, %if.then10 ], [ %call13, %invoke.cont ], [ %fmt.1, %if.end46 ]
+  %cmp49 = icmp eq ptr %fmt.0, null
   br i1 %cmp49, label %if.then50, label %if.end51
 
 if.then50:                                        ; preds = %if.end48
@@ -295,10 +295,10 @@ if.end51:                                         ; preds = %if.end48
   br i1 %cmp.i36, label %if.end55, label %delete.notnull
 
 delete.notnull:                                   ; preds = %if.end51
-  %vtable = load ptr, ptr %fmt.1, align 8
+  %vtable = load ptr, ptr %fmt.0, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %10 = load ptr, ptr %vfn, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(352) %fmt.1) #7
+  call void %10(ptr noundef nonnull align 8 dereferenceable(352) %fmt.0) #7
   br label %return
 
 if.end55:                                         ; preds = %if.end51
@@ -325,10 +325,10 @@ invoke.cont65:                                    ; preds = %invoke.cont63
 
 if.then70:                                        ; preds = %invoke.cont65
   store i32 7, ptr %status, align 4
-  %vtable73 = load ptr, ptr %fmt.1, align 8
+  %vtable73 = load ptr, ptr %fmt.0, align 8
   %vfn74 = getelementptr inbounds i8, ptr %vtable73, i64 8
   %12 = load ptr, ptr %vfn74, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(352) %fmt.1) #7
+  call void %12(ptr noundef nonnull align 8 dereferenceable(352) %fmt.0) #7
   br label %return
 
 lpad62:                                           ; preds = %if.then57
@@ -349,14 +349,14 @@ ehcleanup68:                                      ; preds = %lpad64, %lpad62
   br label %eh.resume
 
 if.end76:                                         ; preds = %invoke.cont65
-  %vtable77 = load ptr, ptr %fmt.1, align 8
+  %vtable77 = load ptr, ptr %fmt.0, align 8
   %vfn78 = getelementptr inbounds i8, ptr %vtable77, i64 184
   %16 = load ptr, ptr %vfn78, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(352) %fmt.1, ptr noundef nonnull %call66)
+  call void %16(ptr noundef nonnull align 8 dereferenceable(352) %fmt.0, ptr noundef nonnull %call66)
   br label %return
 
 return:                                           ; preds = %if.end55, %if.end76, %if.then1, %entry, %if.then70, %delete.notnull, %if.then50
-  %retval.0 = phi ptr [ null, %if.then50 ], [ null, %delete.notnull ], [ null, %if.then70 ], [ null, %entry ], [ %call2, %if.then1 ], [ %fmt.1, %if.end76 ], [ %fmt.1, %if.end55 ]
+  %retval.0 = phi ptr [ null, %if.then50 ], [ null, %delete.notnull ], [ null, %if.then70 ], [ null, %entry ], [ %call2, %if.then1 ], [ %fmt.0, %if.end76 ], [ %fmt.0, %if.end55 ]
   ret ptr %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup68, %ehcleanup47, %lpad17, %lpad
@@ -1378,7 +1378,7 @@ lpad35:                                           ; preds = %if.end33
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont36, %if.else31
-  %retval.0 = phi i32 [ %call37, %invoke.cont36 ], [ -1, %if.else31 ]
+  %retval.1 = phi i32 [ %call37, %invoke.cont36 ], [ -1, %if.else31 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %res) #7
   br label %return
 
@@ -1388,8 +1388,8 @@ ehcleanup:                                        ; preds = %lpad35, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup, %if.then3
-  %retval.1 = phi i32 [ -1, %if.then3 ], [ %retval.0, %cleanup ], [ -1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then3 ], [ %retval.1, %cleanup ], [ -1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

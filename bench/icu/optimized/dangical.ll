@@ -282,7 +282,7 @@ cleanup.action104.i:                              ; preds = %invoke.cont91.i
   br label %cleanup.action108.i
 
 cleanup.action108.i:                              ; preds = %cleanup.action104.i, %lpad90.i
-  %initialTimeZone.sroa.0.1.i = phi ptr [ null, %cleanup.action104.i ], [ %call.i, %lpad90.i ]
+  %initialTimeZone.sroa.0.4.i = phi ptr [ null, %cleanup.action104.i ], [ %call.i, %lpad90.i ]
   %.pn18.i = phi { ptr, i32 } [ %17, %cleanup.action104.i ], [ %16, %lpad90.i ]
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call84.i) #6
   br label %ehcleanup141.i
@@ -297,12 +297,12 @@ lpad110.thread.i:                                 ; preds = %invoke.cont127.i, %
 lpad110.i:                                        ; preds = %if.end137.i
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  %isnull.i.i = icmp eq ptr %dangiCalZoneAstroCalc.sroa.0.1.i, null
+  %isnull.i.i = icmp eq ptr %dangiCalZoneAstroCalc.sroa.0.2.i, null
   br i1 %isnull.i.i, label %eh.resume.i, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %lpad110.i, %lpad110.thread.i
   %lpad.phi134.i = phi { ptr, i32 } [ %lpad.thr_comm.i, %lpad110.thread.i ], [ %lpad.thr_comm.split-lp.i, %lpad110.i ]
-  %dangiCalZoneAstroCalc.sroa.0.0133.i = phi ptr [ %call84.i, %lpad110.thread.i ], [ %dangiCalZoneAstroCalc.sroa.0.1.i, %lpad110.i ]
+  %dangiCalZoneAstroCalc.sroa.0.0133.i = phi ptr [ %call84.i, %lpad110.thread.i ], [ %dangiCalZoneAstroCalc.sroa.0.2.i, %lpad110.i ]
   %ruleFrom1912.sroa.0.0132.i = phi ptr [ %ruleFrom1912.sroa.0.0.ph.i, %lpad110.thread.i ], [ null, %lpad110.i ]
   %rule1898to1911.sroa.0.0131.i = phi ptr [ %rule1898to1911.sroa.0.0.ph.i, %lpad110.thread.i ], [ null, %lpad110.i ]
   %vtable.i.i = load ptr, ptr %dangiCalZoneAstroCalc.sroa.0.0133.i, align 8
@@ -337,23 +337,23 @@ if.then134.i:                                     ; preds = %invoke.cont130.i
   br label %if.end137.i
 
 if.end137.i:                                      ; preds = %if.then134.i, %invoke.cont130.i
-  %dangiCalZoneAstroCalc.sroa.0.1.i = phi ptr [ %call84.i, %invoke.cont130.i ], [ null, %if.then134.i ]
+  %dangiCalZoneAstroCalc.sroa.0.2.i = phi ptr [ %call84.i, %invoke.cont130.i ], [ null, %if.then134.i ]
   invoke void @ucln_i18n_registerCleanup_75(i32 noundef 12, ptr noundef nonnull @_ZL22calendar_dangi_cleanupv)
           to label %cleanup.i unwind label %lpad110.i
 
 cleanup.i:                                        ; preds = %if.end137.i
-  %isnull.i47.i = icmp eq ptr %dangiCalZoneAstroCalc.sroa.0.1.i, null
+  %isnull.i47.i = icmp eq ptr %dangiCalZoneAstroCalc.sroa.0.2.i, null
   br i1 %isnull.i47.i, label %_ZN6icu_75L25initDangiCalZoneAstroCalcER10UErrorCode.exit, label %delete.notnull.i48.i
 
 delete.notnull.i48.i:                             ; preds = %cleanup.i, %cleanup.done101.i
-  %dangiCalZoneAstroCalc.sroa.0.2156.i = phi ptr [ %dangiCalZoneAstroCalc.sroa.0.1.i, %cleanup.i ], [ %call84.i, %cleanup.done101.i ]
+  %dangiCalZoneAstroCalc.sroa.0.1156.i = phi ptr [ %dangiCalZoneAstroCalc.sroa.0.2.i, %cleanup.i ], [ %call84.i, %cleanup.done101.i ]
   %ruleFrom1912.sroa.0.1155.i = phi ptr [ null, %cleanup.i ], [ %call59.i, %cleanup.done101.i ]
   %rule1898to1911.sroa.0.1154.i = phi ptr [ null, %cleanup.i ], [ %call34.i, %cleanup.done101.i ]
   %rule1897.sroa.0.0153.i = phi ptr [ null, %cleanup.i ], [ %call11.i, %cleanup.done101.i ]
-  %vtable.i49.i = load ptr, ptr %dangiCalZoneAstroCalc.sroa.0.2156.i, align 8
+  %vtable.i49.i = load ptr, ptr %dangiCalZoneAstroCalc.sroa.0.1156.i, align 8
   %vfn.i50.i = getelementptr inbounds i8, ptr %vtable.i49.i, i64 8
   %20 = load ptr, ptr %vfn.i50.i, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(105) %dangiCalZoneAstroCalc.sroa.0.2156.i) #6
+  call void %20(ptr noundef nonnull align 8 dereferenceable(105) %dangiCalZoneAstroCalc.sroa.0.1156.i) #6
   br label %_ZN6icu_7512LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit51.i
 
 _ZN6icu_7512LocalPointerINS_17RuleBasedTimeZoneEED2Ev.exit51.i: ; preds = %delete.notnull.i48.i, %if.then.i43.i, %new.cont97.i
@@ -405,9 +405,9 @@ delete.notnull.i67.i:                             ; preds = %_ZN6icu_7512LocalPo
   br label %_ZN6icu_75L25initDangiCalZoneAstroCalcER10UErrorCode.exit
 
 ehcleanup141.i:                                   ; preds = %delete.notnull.i.i, %cleanup.action108.i
-  %initialTimeZone.sroa.0.2.i = phi ptr [ %initialTimeZone.sroa.0.1.i, %cleanup.action108.i ], [ null, %delete.notnull.i.i ]
-  %rule1897.sroa.0.1.i = phi ptr [ %call11.i, %cleanup.action108.i ], [ null, %delete.notnull.i.i ]
-  %rule1898to1911.sroa.0.2.i = phi ptr [ %call34.i, %cleanup.action108.i ], [ %rule1898to1911.sroa.0.0131.i, %delete.notnull.i.i ]
+  %initialTimeZone.sroa.0.5.i = phi ptr [ %initialTimeZone.sroa.0.4.i, %cleanup.action108.i ], [ null, %delete.notnull.i.i ]
+  %rule1897.sroa.0.3.i = phi ptr [ %call11.i, %cleanup.action108.i ], [ null, %delete.notnull.i.i ]
+  %rule1898to1911.sroa.0.3.i = phi ptr [ %call34.i, %cleanup.action108.i ], [ %rule1898to1911.sroa.0.0131.i, %delete.notnull.i.i ]
   %ruleFrom1912.sroa.0.2.i = phi ptr [ %call59.i, %cleanup.action108.i ], [ %ruleFrom1912.sroa.0.0132.i, %delete.notnull.i.i ]
   %.pn20.i = phi { ptr, i32 } [ %.pn18.i, %cleanup.action108.i ], [ %lpad.phi134.i, %delete.notnull.i.i ]
   %isnull.i70.i = icmp eq ptr %ruleFrom1912.sroa.0.2.i, null
@@ -421,45 +421,45 @@ delete.notnull.i71.i:                             ; preds = %ehcleanup141.i
   br label %ehcleanup143.i
 
 ehcleanup143.i:                                   ; preds = %delete.notnull.i71.i, %ehcleanup141.i, %cleanup.action82.i
-  %initialTimeZone.sroa.0.3.i = phi ptr [ %call.i, %cleanup.action82.i ], [ %initialTimeZone.sroa.0.2.i, %ehcleanup141.i ], [ %initialTimeZone.sroa.0.2.i, %delete.notnull.i71.i ]
-  %rule1897.sroa.0.2.i = phi ptr [ %call11.i, %cleanup.action82.i ], [ %rule1897.sroa.0.1.i, %ehcleanup141.i ], [ %rule1897.sroa.0.1.i, %delete.notnull.i71.i ]
-  %rule1898to1911.sroa.0.3.i = phi ptr [ %call34.i, %cleanup.action82.i ], [ %rule1898to1911.sroa.0.2.i, %ehcleanup141.i ], [ %rule1898to1911.sroa.0.2.i, %delete.notnull.i71.i ]
+  %initialTimeZone.sroa.0.3.i = phi ptr [ %call.i, %cleanup.action82.i ], [ %initialTimeZone.sroa.0.5.i, %ehcleanup141.i ], [ %initialTimeZone.sroa.0.5.i, %delete.notnull.i71.i ]
+  %rule1897.sroa.0.2.i = phi ptr [ %call11.i, %cleanup.action82.i ], [ %rule1897.sroa.0.3.i, %ehcleanup141.i ], [ %rule1897.sroa.0.3.i, %delete.notnull.i71.i ]
+  %rule1898to1911.sroa.0.2.i = phi ptr [ %call34.i, %cleanup.action82.i ], [ %rule1898to1911.sroa.0.3.i, %ehcleanup141.i ], [ %rule1898to1911.sroa.0.3.i, %delete.notnull.i71.i ]
   %.pn20.pn.i = phi { ptr, i32 } [ %.pn16.i, %cleanup.action82.i ], [ %.pn20.i, %ehcleanup141.i ], [ %.pn20.i, %delete.notnull.i71.i ]
-  %isnull.i75.i = icmp eq ptr %rule1898to1911.sroa.0.3.i, null
+  %isnull.i75.i = icmp eq ptr %rule1898to1911.sroa.0.2.i, null
   br i1 %isnull.i75.i, label %ehcleanup145.i, label %delete.notnull.i76.i
 
 delete.notnull.i76.i:                             ; preds = %ehcleanup143.i
-  %vtable.i77.i = load ptr, ptr %rule1898to1911.sroa.0.3.i, align 8
+  %vtable.i77.i = load ptr, ptr %rule1898to1911.sroa.0.2.i, align 8
   %vfn.i78.i = getelementptr inbounds i8, ptr %vtable.i77.i, i64 8
   %26 = load ptr, ptr %vfn.i78.i, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(80) %rule1898to1911.sroa.0.3.i) #6
+  call void %26(ptr noundef nonnull align 8 dereferenceable(80) %rule1898to1911.sroa.0.2.i) #6
   br label %ehcleanup145.i
 
 ehcleanup145.i:                                   ; preds = %delete.notnull.i76.i, %ehcleanup143.i, %cleanup.action57.i
-  %initialTimeZone.sroa.0.4.i = phi ptr [ %call.i, %cleanup.action57.i ], [ %initialTimeZone.sroa.0.3.i, %ehcleanup143.i ], [ %initialTimeZone.sroa.0.3.i, %delete.notnull.i76.i ]
-  %rule1897.sroa.0.3.i = phi ptr [ %call11.i, %cleanup.action57.i ], [ %rule1897.sroa.0.2.i, %ehcleanup143.i ], [ %rule1897.sroa.0.2.i, %delete.notnull.i76.i ]
+  %initialTimeZone.sroa.0.2.i = phi ptr [ %call.i, %cleanup.action57.i ], [ %initialTimeZone.sroa.0.3.i, %ehcleanup143.i ], [ %initialTimeZone.sroa.0.3.i, %delete.notnull.i76.i ]
+  %rule1897.sroa.0.1.i = phi ptr [ %call11.i, %cleanup.action57.i ], [ %rule1897.sroa.0.2.i, %ehcleanup143.i ], [ %rule1897.sroa.0.2.i, %delete.notnull.i76.i ]
   %.pn20.pn.pn.i = phi { ptr, i32 } [ %.pn14.i, %cleanup.action57.i ], [ %.pn20.pn.i, %ehcleanup143.i ], [ %.pn20.pn.i, %delete.notnull.i76.i ]
-  %isnull.i80.i = icmp eq ptr %rule1897.sroa.0.3.i, null
+  %isnull.i80.i = icmp eq ptr %rule1897.sroa.0.1.i, null
   br i1 %isnull.i80.i, label %ehcleanup147.i, label %delete.notnull.i81.i
 
 delete.notnull.i81.i:                             ; preds = %ehcleanup145.i
-  %vtable.i82.i = load ptr, ptr %rule1897.sroa.0.3.i, align 8
+  %vtable.i82.i = load ptr, ptr %rule1897.sroa.0.1.i, align 8
   %vfn.i83.i = getelementptr inbounds i8, ptr %vtable.i82.i, i64 8
   %27 = load ptr, ptr %vfn.i83.i, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(80) %rule1897.sroa.0.3.i) #6
+  call void %27(ptr noundef nonnull align 8 dereferenceable(80) %rule1897.sroa.0.1.i) #6
   br label %ehcleanup147.i
 
 ehcleanup147.i:                                   ; preds = %delete.notnull.i81.i, %ehcleanup145.i, %cleanup.action32.i
-  %initialTimeZone.sroa.0.5.i = phi ptr [ %call.i, %cleanup.action32.i ], [ %initialTimeZone.sroa.0.4.i, %ehcleanup145.i ], [ %initialTimeZone.sroa.0.4.i, %delete.notnull.i81.i ]
+  %initialTimeZone.sroa.0.1.i = phi ptr [ %call.i, %cleanup.action32.i ], [ %initialTimeZone.sroa.0.2.i, %ehcleanup145.i ], [ %initialTimeZone.sroa.0.2.i, %delete.notnull.i81.i ]
   %.pn20.pn.pn.pn.i = phi { ptr, i32 } [ %.pn12.i, %cleanup.action32.i ], [ %.pn20.pn.pn.i, %ehcleanup145.i ], [ %.pn20.pn.pn.i, %delete.notnull.i81.i ]
-  %isnull.i85.i = icmp eq ptr %initialTimeZone.sroa.0.5.i, null
+  %isnull.i85.i = icmp eq ptr %initialTimeZone.sroa.0.1.i, null
   br i1 %isnull.i85.i, label %eh.resume.i, label %delete.notnull.i86.i
 
 delete.notnull.i86.i:                             ; preds = %ehcleanup147.i
-  %vtable.i87.i = load ptr, ptr %initialTimeZone.sroa.0.5.i, align 8
+  %vtable.i87.i = load ptr, ptr %initialTimeZone.sroa.0.1.i, align 8
   %vfn.i88.i = getelementptr inbounds i8, ptr %vtable.i87.i, i64 8
   %28 = load ptr, ptr %vfn.i88.i, align 8
-  call void %28(ptr noundef nonnull align 8 dereferenceable(80) %initialTimeZone.sroa.0.5.i) #6
+  call void %28(ptr noundef nonnull align 8 dereferenceable(80) %initialTimeZone.sroa.0.1.i) #6
   br label %eh.resume.i
 
 eh.resume.i:                                      ; preds = %delete.notnull.i86.i, %ehcleanup147.i, %lpad110.i, %cleanup.action9.i

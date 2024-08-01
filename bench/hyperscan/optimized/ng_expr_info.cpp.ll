@@ -443,7 +443,7 @@ invoke.cont1:
   br i1 %cmp.i.i.i.i.i.i.i.not64, label %for.end41, label %invoke.cont4
 
 for.cond17.preheader:                             ; preds = %for.inc
-  %cmp.i.not73 = icmp eq ptr %victims.sroa.0.2, %victims.sroa.7.2
+  %cmp.i.not73 = icmp eq ptr %victims.sroa.0.1, %victims.sroa.7.1
   br i1 %cmp.i.not73, label %for.end41, label %invoke.cont23.lr.ph
 
 invoke.cont23.lr.ph:                              ; preds = %for.cond17.preheader
@@ -456,9 +456,9 @@ invoke.cont23.lr.ph:                              ; preds = %for.cond17.preheade
 
 invoke.cont4:                                     ; preds = %invoke.cont1, %for.inc
   %__begin1.sroa.0.068 = phi ptr [ %__begin1.sroa.0.0, %for.inc ], [ %__begin1.sroa.0.063, %invoke.cont1 ]
-  %victims.sroa.0.067 = phi ptr [ %victims.sroa.0.2, %for.inc ], [ null, %invoke.cont1 ]
-  %victims.sroa.7.066 = phi ptr [ %victims.sroa.7.2, %for.inc ], [ null, %invoke.cont1 ]
-  %victims.sroa.13.065 = phi ptr [ %victims.sroa.13.2, %for.inc ], [ null, %invoke.cont1 ]
+  %victims.sroa.0.067 = phi ptr [ %victims.sroa.0.1, %for.inc ], [ null, %invoke.cont1 ]
+  %victims.sroa.7.066 = phi ptr [ %victims.sroa.7.1, %for.inc ], [ null, %invoke.cont1 ]
+  %victims.sroa.13.065 = phi ptr [ %victims.sroa.13.1, %for.inc ], [ null, %invoke.cont1 ]
   %target.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.068, i64 40
   %0 = load ptr, ptr %target.i.i.i, align 8
   %serial2.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 96
@@ -558,7 +558,7 @@ lpad.loopexit.split-lp.loopexit.split-lp:         ; preds = %for.end41, %if.then
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.body.i
-  %victims.sroa.0.057 = phi ptr [ %victims.sroa.0.2, %lpad.body.i ], [ %victims.sroa.0.2, %lpad.loopexit ], [ %victims.sroa.0.067, %lpad.loopexit.split-lp.loopexit ], [ %victims.sroa.0.060, %lpad.loopexit.split-lp.loopexit.split-lp ]
+  %victims.sroa.0.057 = phi ptr [ %victims.sroa.0.1, %lpad.body.i ], [ %victims.sroa.0.1, %lpad.loopexit ], [ %victims.sroa.0.067, %lpad.loopexit.split-lp.loopexit ], [ %victims.sroa.0.060, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %eh.lpad-body = phi { ptr, i32 } [ %eh.lpad-body.i, %lpad.body.i ], [ %lpad.loopexit50, %lpad.loopexit ], [ %lpad.loopexit52, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp53, %lpad.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i9 = icmp eq ptr %victims.sroa.0.057, null
   br i1 %tobool.not.i.i.i9, label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit, label %if.then.i.i.i10
@@ -571,15 +571,15 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   resume { ptr, i32 } %eh.lpad-body
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, %if.then.i, %invoke.cont4
-  %victims.sroa.13.2 = phi ptr [ %victims.sroa.13.065, %invoke.cont4 ], [ %add.ptr19.i.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %victims.sroa.13.065, %if.then.i ]
-  %victims.sroa.7.2 = phi ptr [ %victims.sroa.7.066, %invoke.cont4 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
-  %victims.sroa.0.2 = phi ptr [ %victims.sroa.0.067, %invoke.cont4 ], [ %cond.i10.i.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %victims.sroa.0.067, %if.then.i ]
+  %victims.sroa.13.1 = phi ptr [ %victims.sroa.13.065, %invoke.cont4 ], [ %add.ptr19.i.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %victims.sroa.13.065, %if.then.i ]
+  %victims.sroa.7.1 = phi ptr [ %victims.sroa.7.066, %invoke.cont4 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
+  %victims.sroa.0.1 = phi ptr [ %victims.sroa.0.067, %invoke.cont4 ], [ %cond.i10.i.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i ], [ %victims.sroa.0.067, %if.then.i ]
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.068, align 8
   %cmp.i.i.i.i.i.i.i.not = icmp eq ptr %__begin1.sroa.0.0, %m_header.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.not, label %for.cond17.preheader, label %invoke.cont4
 
 invoke.cont23:                                    ; preds = %invoke.cont23.lr.ph, %for.inc39
-  %__begin112.sroa.0.074 = phi ptr [ %victims.sroa.0.2, %invoke.cont23.lr.ph ], [ %incdec.ptr.i26, %for.inc39 ]
+  %__begin112.sroa.0.074 = phi ptr [ %victims.sroa.0.1, %invoke.cont23.lr.ph ], [ %incdec.ptr.i26, %for.inc39 ]
   %u.sroa.0.0.copyload = load ptr, ptr %__begin112.sroa.0.074, align 8
   %m_header.i.i.i.i.i.i13 = getelementptr inbounds i8, ptr %u.sroa.0.0.copyload, i64 136
   %__begin2.sroa.0.070 = load ptr, ptr %m_header.i.i.i.i.i.i13, align 8
@@ -717,12 +717,12 @@ for.inc35:                                        ; preds = %for.body21.i.i.i, %
 
 for.inc39:                                        ; preds = %for.inc35, %invoke.cont23
   %incdec.ptr.i26 = getelementptr inbounds i8, ptr %__begin112.sroa.0.074, i64 16
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i26, %victims.sroa.7.2
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i26, %victims.sroa.7.1
   br i1 %cmp.i.not, label %for.end41, label %invoke.cont23
 
 for.end41:                                        ; preds = %for.inc39, %invoke.cont1, %for.cond17.preheader
-  %victims.sroa.0.0.lcssa83 = phi ptr [ %victims.sroa.0.2, %for.cond17.preheader ], [ null, %invoke.cont1 ], [ %victims.sroa.0.2, %for.inc39 ]
-  %victims.sroa.7.0.lcssa82 = phi ptr [ %victims.sroa.7.2, %for.cond17.preheader ], [ null, %invoke.cont1 ], [ %victims.sroa.7.2, %for.inc39 ]
+  %victims.sroa.0.0.lcssa83 = phi ptr [ %victims.sroa.0.1, %for.cond17.preheader ], [ null, %invoke.cont1 ], [ %victims.sroa.0.1, %for.inc39 ]
+  %victims.sroa.7.0.lcssa82 = phi ptr [ %victims.sroa.7.1, %for.cond17.preheader ], [ null, %invoke.cont1 ], [ %victims.sroa.7.1, %for.inc39 ]
   invoke void @_ZN3ue215remove_verticesIN9__gnu_cxx17__normal_iteratorIPKNS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEEEEvT_SH_RS6_b(ptr %victims.sroa.0.0.lcssa83, ptr %victims.sroa.7.0.lcssa82, ptr noundef nonnull align 8 dereferenceable(136) %g, i1 noundef zeroext true)
           to label %invoke.cont42 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 

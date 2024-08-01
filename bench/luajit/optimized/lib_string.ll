@@ -434,8 +434,8 @@ if.end:                                           ; preds = %entry
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end43, %if.end
-  %n.0 = phi i32 [ 0, %if.end ], [ %n.134, %if.end43 ]
-  %src.0 = phi ptr [ %call, %if.end ], [ %src.1, %if.end43 ]
+  %n.0 = phi i32 [ 0, %if.end ], [ %n.234, %if.end43 ]
+  %src.0 = phi ptr [ %call, %if.end ], [ %src.2, %if.end43 ]
   %cmp19 = icmp slt i32 %n.0, %conv5
   br i1 %cmp19, label %while.body, label %while.end
 
@@ -653,7 +653,7 @@ if.end23:                                         ; preds = %if.end11.i, %add_s.
   br i1 %cmp25, label %if.end43, label %if.else
 
 if.else:                                          ; preds = %while.body, %if.end23
-  %n.133 = phi i32 [ %inc, %if.end23 ], [ %n.0, %while.body ]
+  %n.233 = phi i32 [ %inc, %if.end23 ], [ %n.0, %while.body ]
   %27 = load ptr, ptr %src_end, align 8
   %cmp29 = icmp ult ptr %src.0, %27
   br i1 %cmp29, label %if.then31, label %while.end
@@ -678,20 +678,20 @@ lor.end:                                          ; preds = %lor.rhs, %if.then31
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end23, %lor.end
-  %n.134 = phi i32 [ %n.133, %lor.end ], [ %inc, %if.end23 ]
-  %src.1 = phi ptr [ %incdec.ptr38, %lor.end ], [ %call21, %if.end23 ]
+  %n.234 = phi i32 [ %n.233, %lor.end ], [ %inc, %if.end23 ]
+  %src.2 = phi ptr [ %incdec.ptr38, %lor.end ], [ %call21, %if.end23 ]
   br i1 %cmp.not, label %while.end, label %while.cond, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end43, %if.else, %while.cond
-  %n.2 = phi i32 [ %n.134, %if.end43 ], [ %n.133, %if.else ], [ %n.0, %while.cond ]
-  %src.2 = phi ptr [ %src.1, %if.end43 ], [ %src.0, %if.else ], [ %src.0, %while.cond ]
+  %n.1 = phi i32 [ %n.234, %if.end43 ], [ %n.233, %if.else ], [ %n.0, %while.cond ]
+  %src.1 = phi ptr [ %src.2, %if.end43 ], [ %src.0, %if.else ], [ %src.0, %while.cond ]
   %31 = load ptr, ptr %src_end, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %src.2 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %src.1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  call void @luaL_addlstring(ptr noundef nonnull %b, ptr noundef %src.2, i64 noundef %sub.ptr.sub) #7
+  call void @luaL_addlstring(ptr noundef nonnull %b, ptr noundef %src.1, i64 noundef %sub.ptr.sub) #7
   call void @luaL_pushresult(ptr noundef nonnull %b) #7
-  %conv48 = sext i32 %n.2 to i64
+  %conv48 = sext i32 %n.1 to i64
   call void @lua_pushinteger(ptr noundef %L, i64 noundef %conv48) #7
   ret i32 2
 }

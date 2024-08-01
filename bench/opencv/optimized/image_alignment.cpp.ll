@@ -3248,7 +3248,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit369:                 ; preds = %1196, %1193, %1077,
   br label %1281
 
 1280:                                             ; preds = %875, %1279
-  %.0 = phi i32 [ 0, %1279 ], [ -1, %875 ]
+  %.3 = phi i32 [ 0, %1279 ], [ -1, %875 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %75) #16
   br label %1282
 
@@ -3258,7 +3258,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit369:                 ; preds = %1196, %1193, %1077,
   br label %1283
 
 1282:                                             ; preds = %257, %1280
-  %.1 = phi i32 [ %.0, %1280 ], [ -1, %257 ]
+  %.2 = phi i32 [ %.3, %1280 ], [ -1, %257 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %39) #16
   br label %1284
@@ -3270,7 +3270,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit369:                 ; preds = %1196, %1193, %1077,
   br label %1285
 
 1284:                                             ; preds = %237, %1282
-  %.2 = phi i32 [ %.1, %1282 ], [ -1, %237 ]
+  %.1 = phi i32 [ %.2, %1282 ], [ -1, %237 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #16
   br label %1286
 
@@ -3280,7 +3280,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit369:                 ; preds = %1196, %1193, %1077,
   br label %1287
 
 1286:                                             ; preds = %219, %171, %1284
-  %.3 = phi i32 [ %.2, %1284 ], [ -1, %171 ], [ -1, %219 ]
+  %.0 = phi i32 [ %.1, %1284 ], [ -1, %171 ], [ -1, %219 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #16
@@ -3288,7 +3288,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit369:                 ; preds = %1196, %1193, %1077,
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #16
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #16
-  ret i32 %.3
+  ret i32 %.0
 
 1287:                                             ; preds = %1285, %239, %203
   %.pn186.pn = phi { ptr, i32 } [ %.pn186, %1285 ], [ %240, %239 ], [ %204, %203 ]

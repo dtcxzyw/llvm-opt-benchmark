@@ -64,7 +64,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %22
 
 22:                                               ; preds = %21, %19
-  %.0 = phi i32 [ -1, %21 ], [ 0, %19 ]
+  %.1 = phi i32 [ -1, %21 ], [ 0, %19 ]
   %23 = load i32, ptr @mca_sharedfp_sm_verbose, align 4
   %.not48 = icmp eq i32 %23, 0
   br i1 %.not48, label %.thread54, label %26
@@ -141,7 +141,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
 
 55:                                               ; preds = %43, %40, %51, %53, %54, %26
   %.037.ph = phi i64 [ %14, %54 ], [ %47, %51 ], [ %47, %53 ], [ %41, %40 ], [ %41, %43 ], [ %14, %26 ]
-  %.1.ph = phi i32 [ -1, %54 ], [ 0, %51 ], [ -1, %53 ], [ %29, %40 ], [ -1, %43 ], [ %.0, %26 ]
+  %.2.ph = phi i32 [ -1, %54 ], [ 0, %51 ], [ -1, %53 ], [ %29, %40 ], [ -1, %43 ], [ %.1, %26 ]
   %.pr53 = load i32, ptr @mca_sharedfp_sm_verbose, align 4
   %56 = getelementptr inbounds i8, ptr %7, i64 8
   %57 = load ptr, ptr %56, align 8
@@ -158,7 +158,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
 
 63:                                               ; preds = %.thread54, %58, %55
   %64 = phi ptr [ %25, %.thread54 ], [ %57, %58 ], [ %57, %55 ]
-  %.159 = phi i32 [ %.0, %.thread54 ], [ %.1.ph, %58 ], [ %.1.ph, %55 ]
+  %.259 = phi i32 [ %.1, %.thread54 ], [ %.2.ph, %58 ], [ %.2.ph, %55 ]
   %.03758 = phi i64 [ %14, %.thread54 ], [ %.037.ph, %58 ], [ %.037.ph, %55 ]
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %64, i64 16
@@ -197,7 +197,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %83
 
 83:                                               ; preds = %80, %11
-  %.2 = phi i32 [ %.159, %80 ], [ 0, %11 ]
+  %.0 = phi i32 [ %.259, %80 ], [ 0, %11 ]
   %84 = getelementptr inbounds i8, ptr %0, i64 40
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 328
@@ -210,7 +210,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %93
 
 93:                                               ; preds = %83, %9
-  %.038 = phi i32 [ -1, %9 ], [ %.2, %83 ]
+  %.038 = phi i32 [ -1, %9 ], [ %.0, %83 ]
   ret i32 %.038
 }
 

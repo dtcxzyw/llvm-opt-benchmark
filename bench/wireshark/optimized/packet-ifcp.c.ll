@@ -321,15 +321,15 @@ define internal i32 @dissect_ifcp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %34
 
 34:                                               ; preds = %29, %19
-  %.0144 = phi i8 [ %28, %19 ], [ -128, %29 ]
+  %.1 = phi i8 [ %28, %19 ], [ -128, %29 ]
   %.0143 = phi ptr [ %26, %19 ], [ %33, %29 ]
   %35 = load i32, ptr @ett_ifcp, align 4
   %36 = tail call ptr @proto_item_add_subtree(ptr noundef %.0143, i32 noundef %35) #2
   br label %37
 
 37:                                               ; preds = %34, %8
-  %.1146 = phi i8 [ %18, %34 ], [ 0, %8 ]
-  %.1 = phi i8 [ %.0144, %34 ], [ -128, %8 ]
+  %.0145 = phi i8 [ %18, %34 ], [ 0, %8 ]
+  %.0144 = phi i8 [ %.1, %34 ], [ -128, %8 ]
   %.0142 = phi ptr [ %36, %34 ], [ null, %8 ]
   %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   %39 = load i32, ptr @hf_ifcp_protocol, align 4
@@ -413,7 +413,7 @@ define internal i32 @dissect_ifcp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 106:                                              ; preds = %94, %66
   %107 = getelementptr inbounds i8, ptr %5, i64 4
   store i8 0, ptr %107, align 4
-  switch i8 %.1146, label %109 [
+  switch i8 %.0145, label %109 [
     i8 46, label %.sink.split
     i8 45, label %.sink.split
     i8 41, label %.sink.split
@@ -428,7 +428,7 @@ define internal i32 @dissect_ifcp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %109, %106, %106, %106, %108
-  %.sink = phi i8 [ 2, %108 ], [ 1, %106 ], [ 1, %106 ], [ 1, %106 ], [ %.1, %109 ]
+  %.sink = phi i8 [ 2, %108 ], [ 1, %106 ], [ 1, %106 ], [ 1, %106 ], [ %.0144, %109 ]
   store i8 %.sink, ptr %107, align 4
   br label %110
 

@@ -564,12 +564,12 @@ _ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit: ; preds = %8
   %17 = and i64 %16, 3
   %18 = icmp eq i64 %17, 0
   %spec.select = select i1 %18, ptr %11, ptr null
-  %.sroa.0.024 = select i1 %15, ptr null, ptr %spec.select
+  %.sroa.0.0 = select i1 %15, ptr null, ptr %spec.select
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %.sroa.0.024, %_ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit ], [ null, %8 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit ], [ null, %8 ]
+  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %3, 1
   ret { ptr, i64 } %20
 }
@@ -598,12 +598,12 @@ _ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit: ; preds = %8
   %17 = and i64 %16, 7
   %18 = icmp eq i64 %17, 0
   %spec.select = select i1 %18, ptr %11, ptr null
-  %.sroa.0.024 = select i1 %15, ptr null, ptr %spec.select
+  %.sroa.0.0 = select i1 %15, ptr null, ptr %spec.select
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %.sroa.0.024, %_ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit ], [ null, %8 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit ], [ null, %8 ]
+  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %3, 1
   ret { ptr, i64 } %20
 }
@@ -631,12 +631,12 @@ _ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit: ; preds = %7
   %16 = and i64 %15, 7
   %17 = icmp eq i64 %16, 0
   %spec.select = select i1 %17, ptr %10, ptr null
-  %.sroa.0.023 = select i1 %14, ptr null, ptr %spec.select
+  %.sroa.0.0 = select i1 %14, ptr null, ptr %spec.select
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %7, %_ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %.sroa.0.023, %_ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit ], [ null, %7 ]
-  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit ], [ null, %7 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %3, 1
   ret { ptr, i64 } %19
 }
@@ -665,12 +665,12 @@ _ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit: ; preds = %8
   %17 = and i64 %16, 3
   %18 = icmp eq i64 %17, 0
   %spec.select = select i1 %18, ptr %11, ptr null
-  %.sroa.0.024 = select i1 %15, ptr null, ptr %spec.select
+  %.sroa.0.0 = select i1 %15, ptr null, ptr %spec.select
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %.sroa.0.024, %_ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit ], [ null, %8 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit ], [ null, %8 ]
+  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %3, 1
   ret { ptr, i64 } %20
 }
@@ -698,12 +698,12 @@ _ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit: ; preds = %7
   %16 = and i64 %15, 3
   %17 = icmp eq i64 %16, 0
   %spec.select = select i1 %17, ptr %10, ptr null
-  %.sroa.0.023 = select i1 %14, ptr null, ptr %spec.select
+  %.sroa.0.0 = select i1 %14, ptr null, ptr %spec.select
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %7, %_ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %.sroa.0.023, %_ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit ], [ null, %7 ]
-  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit ], [ null, %7 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %3, 1
   ret { ptr, i64 } %19
 }
@@ -732,8 +732,8 @@ _ZN6object3pod16slice_from_bytes17h81464f075cab7062E.exit: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17h81464f075cab7062E.exit, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %spec.select, %_ZN6object3pod16slice_from_bytes17h81464f075cab7062E.exit ], [ null, %8 ]
-  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %spec.select, %_ZN6object3pod16slice_from_bytes17h81464f075cab7062E.exit ], [ null, %8 ]
+  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %3, 1
   ret { ptr, i64 } %17
 }
@@ -761,12 +761,12 @@ _ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit: ; preds = %7
   %16 = and i64 %15, 3
   %17 = icmp eq i64 %16, 0
   %spec.select = select i1 %17, ptr %10, ptr null
-  %.sroa.0.023 = select i1 %14, ptr null, ptr %spec.select
+  %.sroa.0.0 = select i1 %14, ptr null, ptr %spec.select
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %7, %_ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %.sroa.0.023, %_ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit ], [ null, %7 ]
-  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit ], [ null, %7 ]
+  %18 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %19 = insertvalue { ptr, i64 } %18, i64 %3, 1
   ret { ptr, i64 } %19
 }
@@ -795,12 +795,12 @@ _ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit: ; preds = %8
   %17 = and i64 %16, 3
   %18 = icmp eq i64 %17, 0
   %spec.select = select i1 %18, ptr %11, ptr null
-  %.sroa.0.024 = select i1 %15, ptr null, ptr %spec.select
+  %.sroa.0.0 = select i1 %15, ptr null, ptr %spec.select
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %.sroa.0.024, %_ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit ], [ null, %8 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit ], [ null, %8 ]
+  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %3, 1
   ret { ptr, i64 } %20
 }
@@ -829,12 +829,12 @@ _ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit: ; preds = %8
   %17 = and i64 %16, 7
   %18 = icmp eq i64 %17, 0
   %spec.select = select i1 %18, ptr %11, ptr null
-  %.sroa.0.024 = select i1 %15, ptr null, ptr %spec.select
+  %.sroa.0.0 = select i1 %15, ptr null, ptr %spec.select
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %.sroa.0.024, %_ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit ], [ null, %8 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit ], [ null, %8 ]
+  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %3, 1
   ret { ptr, i64 } %20
 }
@@ -863,8 +863,8 @@ _ZN6object3pod16slice_from_bytes17hab8f599a2cb5378dE.exit: ; preds = %8
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17hab8f599a2cb5378dE.exit, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %spec.select, %_ZN6object3pod16slice_from_bytes17hab8f599a2cb5378dE.exit ], [ null, %8 ]
-  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %spec.select, %_ZN6object3pod16slice_from_bytes17hab8f599a2cb5378dE.exit ], [ null, %8 ]
+  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %3, 1
   ret { ptr, i64 } %17
 }
@@ -893,12 +893,12 @@ _ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit: ; preds = %8
   %17 = and i64 %16, 3
   %18 = icmp eq i64 %17, 0
   %spec.select = select i1 %18, ptr %11, ptr null
-  %.sroa.0.024 = select i1 %15, ptr null, ptr %spec.select
+  %.sroa.0.0 = select i1 %15, ptr null, ptr %spec.select
   br label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
 
 _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; preds = %8, %_ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit, %4
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %.sroa.0.024, %_ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit ], [ null, %8 ]
-  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %4 ], [ %.sroa.0.0, %_ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit ], [ null, %8 ]
+  %19 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %20 = insertvalue { ptr, i64 } %19, i64 %3, 1
   ret { ptr, i64 } %20
 }
@@ -922,12 +922,12 @@ _ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit.i: ; preds = %7
   %14 = and i64 %13, 7
   %15 = icmp eq i64 %14, 0
   %spec.select.i = select i1 %15, ptr %9, ptr null
-  %.sroa.0.023.i = select i1 %12, ptr null, ptr %spec.select.i
+  %.sroa.0.0.i = select i1 %12, ptr null, ptr %spec.select.i
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17h447a9f5b662eb41dE.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17h447a9f5b662eb41dE.llvm.1655692584469633042.exit: ; preds = %4, %7, %_ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit.i
-  %.sroa.0.0.i = phi ptr [ null, %4 ], [ %.sroa.0.023.i, %_ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit.i ], [ null, %7 ]
-  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h48366324a52a6742E.exit.i ], [ null, %7 ]
+  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %3, 1
   ret { ptr, i64 } %17
 }
@@ -952,12 +952,12 @@ _ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit.i: ; preds = %8
   %15 = and i64 %14, 7
   %16 = icmp eq i64 %15, 0
   %spec.select.i = select i1 %16, ptr %10, ptr null
-  %.sroa.0.024.i = select i1 %13, ptr null, ptr %spec.select.i
+  %.sroa.0.0.i = select i1 %13, ptr null, ptr %spec.select.i
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17h3eb7a54b7cc0aafeE.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17h3eb7a54b7cc0aafeE.llvm.1655692584469633042.exit: ; preds = %4, %8, %_ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit.i
-  %.sroa.0.0.i = phi ptr [ null, %4 ], [ %.sroa.0.024.i, %_ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit.i ], [ null, %8 ]
-  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17hb78dc872ea5fea35E.exit.i ], [ null, %8 ]
+  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18
 }
@@ -982,12 +982,12 @@ _ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit.i: ; preds = %8
   %15 = and i64 %14, 3
   %16 = icmp eq i64 %15, 0
   %spec.select.i = select i1 %16, ptr %10, ptr null
-  %.sroa.0.024.i = select i1 %13, ptr null, ptr %spec.select.i
+  %.sroa.0.0.i = select i1 %13, ptr null, ptr %spec.select.i
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17hff0eec0433129923E.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17hff0eec0433129923E.llvm.1655692584469633042.exit: ; preds = %4, %8, %_ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit.i
-  %.sroa.0.0.i = phi ptr [ null, %4 ], [ %.sroa.0.024.i, %_ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit.i ], [ null, %8 ]
-  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17hd0cff61e9bd42270E.exit.i ], [ null, %8 ]
+  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18
 }
@@ -1011,12 +1011,12 @@ _ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit.i: ; preds = %7
   %14 = and i64 %13, 3
   %15 = icmp eq i64 %14, 0
   %spec.select.i = select i1 %15, ptr %9, ptr null
-  %.sroa.0.023.i = select i1 %12, ptr null, ptr %spec.select.i
+  %.sroa.0.0.i = select i1 %12, ptr null, ptr %spec.select.i
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17h6fdd46137a9469d8E.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17h6fdd46137a9469d8E.llvm.1655692584469633042.exit: ; preds = %4, %7, %_ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit.i
-  %.sroa.0.0.i = phi ptr [ null, %4 ], [ %.sroa.0.023.i, %_ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit.i ], [ null, %7 ]
-  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h88d53c4e07c9697bE.exit.i ], [ null, %7 ]
+  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %3, 1
   ret { ptr, i64 } %17
 }
@@ -1041,12 +1041,12 @@ _ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit.i: ; preds = %8
   %15 = and i64 %14, 3
   %16 = icmp eq i64 %15, 0
   %spec.select.i = select i1 %16, ptr %10, ptr null
-  %.sroa.0.024.i = select i1 %13, ptr null, ptr %spec.select.i
+  %.sroa.0.0.i = select i1 %13, ptr null, ptr %spec.select.i
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17hb8eac6abbe167d48E.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17hb8eac6abbe167d48E.llvm.1655692584469633042.exit: ; preds = %4, %8, %_ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit.i
-  %.sroa.0.0.i = phi ptr [ null, %4 ], [ %.sroa.0.024.i, %_ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit.i ], [ null, %8 ]
-  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h7326c41064de43ceE.exit.i ], [ null, %8 ]
+  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18
 }
@@ -1071,12 +1071,12 @@ _ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit.i: ; preds = %8
   %15 = and i64 %14, 3
   %16 = icmp eq i64 %15, 0
   %spec.select.i = select i1 %16, ptr %10, ptr null
-  %.sroa.0.024.i = select i1 %13, ptr null, ptr %spec.select.i
+  %.sroa.0.0.i = select i1 %13, ptr null, ptr %spec.select.i
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17h640ff3e02db74db3E.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17h640ff3e02db74db3E.llvm.1655692584469633042.exit: ; preds = %4, %8, %_ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit.i
-  %.sroa.0.0.i = phi ptr [ null, %4 ], [ %.sroa.0.024.i, %_ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit.i ], [ null, %8 ]
-  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h61a9340fc205ed0bE.exit.i ], [ null, %8 ]
+  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18
 }
@@ -1100,12 +1100,12 @@ _ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit.i: ; preds = %7
   %14 = and i64 %13, 3
   %15 = icmp eq i64 %14, 0
   %spec.select.i = select i1 %15, ptr %9, ptr null
-  %.sroa.0.023.i = select i1 %12, ptr null, ptr %spec.select.i
+  %.sroa.0.0.i = select i1 %12, ptr null, ptr %spec.select.i
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17haa1bced46011c431E.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17haa1bced46011c431E.llvm.1655692584469633042.exit: ; preds = %4, %7, %_ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit.i
-  %.sroa.0.0.i = phi ptr [ null, %4 ], [ %.sroa.0.023.i, %_ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit.i ], [ null, %7 ]
-  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17hdd615f85993ee209E.exit.i ], [ null, %7 ]
+  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %17 = insertvalue { ptr, i64 } %16, i64 %3, 1
   ret { ptr, i64 } %17
 }
@@ -1130,12 +1130,12 @@ _ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit.i: ; preds = %8
   %15 = and i64 %14, 3
   %16 = icmp eq i64 %15, 0
   %spec.select.i = select i1 %16, ptr %10, ptr null
-  %.sroa.0.024.i = select i1 %13, ptr null, ptr %spec.select.i
+  %.sroa.0.0.i = select i1 %13, ptr null, ptr %spec.select.i
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17h336095696dcc11c1E.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17h336095696dcc11c1E.llvm.1655692584469633042.exit: ; preds = %4, %8, %_ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit.i
-  %.sroa.0.0.i = phi ptr [ null, %4 ], [ %.sroa.0.024.i, %_ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit.i ], [ null, %8 ]
-  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17h559b9b6d1929ae37E.exit.i ], [ null, %8 ]
+  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18
 }
@@ -1160,12 +1160,12 @@ _ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit.i: ; preds = %8
   %15 = and i64 %14, 7
   %16 = icmp eq i64 %15, 0
   %spec.select.i = select i1 %16, ptr %10, ptr null
-  %.sroa.0.024.i = select i1 %13, ptr null, ptr %spec.select.i
+  %.sroa.0.0.i = select i1 %13, ptr null, ptr %spec.select.i
   br label %_ZN6object4read8read_ref7ReadRef10read_slice17hc2d6f951a94038bbE.llvm.1655692584469633042.exit
 
 _ZN6object4read8read_ref7ReadRef10read_slice17hc2d6f951a94038bbE.llvm.1655692584469633042.exit: ; preds = %4, %8, %_ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit.i
-  %.sroa.0.0.i = phi ptr [ null, %4 ], [ %.sroa.0.024.i, %_ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit.i ], [ null, %8 ]
-  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
+  %.sroa.0.1.i = phi ptr [ null, %4 ], [ %.sroa.0.0.i, %_ZN6object3pod16slice_from_bytes17hdb50564873ef32eeE.exit.i ], [ null, %8 ]
+  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1.i, 0
   %18 = insertvalue { ptr, i64 } %17, i64 %3, 1
   ret { ptr, i64 } %18
 }

@@ -2573,7 +2573,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
           to label %41 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 41:                                               ; preds = %34, %40
-  %.sroa.017.1 = phi i8 [ %.sroa.017.0, %40 ], [ 0, %34 ]
+  %.sroa.017.2 = phi i8 [ %.sroa.017.0, %40 ], [ 0, %34 ]
   invoke void @_ZN5alloc6string6String4push17h7fe2e37fa72da61fE(ptr nonnull align 8 %9, i32 42)
           to label %42 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -2586,7 +2586,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
           to label %47 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 47:                                               ; preds = %53, %42, %36
-  %.sroa.017.2 = phi i8 [ %.sroa.017.1, %42 ], [ %.sroa.017.0, %36 ], [ %.sroa.017.3, %53 ]
+  %.sroa.017.1 = phi i8 [ %.sroa.017.2, %42 ], [ %.sroa.017.0, %36 ], [ %.sroa.017.3, %53 ]
   %48 = getelementptr inbounds i8, ptr %1, i64 48
   %49 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h99ddd54e2e38fb38E"(ptr nonnull align 8 %48)
           to label %54 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -2615,7 +2615,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %54
-  %.sroa.017.4 = phi i8 [ %.sroa.017.2, %54 ], [ %.sroa.017.5, %.backedge.backedge ]
+  %.sroa.017.4 = phi i8 [ %.sroa.017.1, %54 ], [ %.sroa.017.5, %.backedge.backedge ]
   %60 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h158d5dc8664fe331E"(ptr nonnull align 8 %6)
           to label %61 unwind label %.loopexit
 

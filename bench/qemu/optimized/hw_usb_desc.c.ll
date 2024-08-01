@@ -1548,7 +1548,7 @@ if.then25:                                        ; preds = %sw.bb19
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then25, %sw.bb19
-  %ret.0 = phi i32 [ %call28, %if.then25 ], [ -1, %sw.bb19 ]
+  %ret.1 = phi i32 [ %call28, %if.then25 ], [ -1, %sw.bb19 ]
   %addr30 = getelementptr inbounds i8, ptr %dev, i64 224
   %32 = load i8, ptr %addr30, align 8
   %conv31 = zext i8 %32 to i32
@@ -1578,11 +1578,11 @@ if.then8.i.i68:                                   ; preds = %if.then.i.i65
   %37 = load i64, ptr %_now.i.i58, align 8
   %tv_usec.i.i71 = getelementptr inbounds i8, ptr %_now.i.i58, i64 8
   %38 = load i64, ptr %tv_usec.i.i71, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i70, i64 noundef %37, i64 noundef %38, i32 noundef %conv31, i32 noundef %conv20, i32 noundef %conv33, i32 noundef %ret.0) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i70, i64 noundef %37, i64 noundef %38, i32 noundef %conv31, i32 noundef %conv20, i32 noundef %conv33, i32 noundef %ret.1) #12
   br label %trace_usb_desc_config.exit
 
 if.else.i.i67:                                    ; preds = %if.then.i.i65
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %conv31, i32 noundef %conv20, i32 noundef %conv33, i32 noundef %ret.0) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %conv31, i32 noundef %conv20, i32 noundef %conv33, i32 noundef %ret.1) #12
   br label %trace_usb_desc_config.exit
 
 trace_usb_desc_config.exit:                       ; preds = %if.end29, %land.lhs.true5.i.i62, %if.then8.i.i68, %if.else.i.i67
@@ -1752,7 +1752,7 @@ if.then44:                                        ; preds = %sw.bb41
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then44, %sw.bb41
-  %ret.1 = phi i32 [ 10, %if.then44 ], [ -1, %sw.bb41 ]
+  %ret.2 = phi i32 [ 10, %if.then44 ], [ -1, %sw.bb41 ]
   %addr47 = getelementptr inbounds i8, ptr %dev, i64 224
   %64 = load i8, ptr %addr47, align 8
   %conv48 = zext i8 %64 to i32
@@ -1782,11 +1782,11 @@ if.then8.i.i106:                                  ; preds = %if.then.i.i103
   %69 = load i64, ptr %_now.i.i96, align 8
   %tv_usec.i.i109 = getelementptr inbounds i8, ptr %_now.i.i96, i64 8
   %70 = load i64, ptr %tv_usec.i.i109, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i108, i64 noundef %69, i64 noundef %70, i32 noundef %conv48, i32 noundef %conv49, i32 noundef %ret.1) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.13, i32 noundef %call10.i.i108, i64 noundef %69, i64 noundef %70, i32 noundef %conv48, i32 noundef %conv49, i32 noundef %ret.2) #12
   br label %trace_usb_desc_device_qualifier.exit
 
 if.else.i.i105:                                   ; preds = %if.then.i.i103
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv48, i32 noundef %conv49, i32 noundef %ret.1) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %conv48, i32 noundef %conv49, i32 noundef %ret.2) #12
   br label %trace_usb_desc_device_qualifier.exit
 
 trace_usb_desc_device_qualifier.exit:             ; preds = %if.end46, %land.lhs.true5.i.i100, %if.then8.i.i106, %if.else.i.i105
@@ -1816,7 +1816,7 @@ if.then58:                                        ; preds = %land.lhs.true
   br label %if.end64
 
 if.end64:                                         ; preds = %sw.bb50, %if.then58, %land.lhs.true
-  %ret.2 = phi i32 [ %call63, %if.then58 ], [ -1, %land.lhs.true ], [ -1, %sw.bb50 ]
+  %ret.3 = phi i32 [ %call63, %if.then58 ], [ -1, %land.lhs.true ], [ -1, %sw.bb50 ]
   %addr65 = getelementptr inbounds i8, ptr %dev, i64 224
   %73 = load i8, ptr %addr65, align 8
   %conv66 = zext i8 %73 to i32
@@ -1846,11 +1846,11 @@ if.then8.i.i120:                                  ; preds = %if.then.i.i117
   %78 = load i64, ptr %_now.i.i110, align 8
   %tv_usec.i.i123 = getelementptr inbounds i8, ptr %_now.i.i110, i64 8
   %79 = load i64, ptr %tv_usec.i.i123, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i122, i64 noundef %78, i64 noundef %79, i32 noundef %conv66, i32 noundef %.pre164, i32 noundef %conv68, i32 noundef %ret.2) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15, i32 noundef %call10.i.i122, i64 noundef %78, i64 noundef %79, i32 noundef %conv66, i32 noundef %.pre164, i32 noundef %conv68, i32 noundef %ret.3) #12
   br label %trace_usb_desc_other_speed_config.exit
 
 if.else.i.i119:                                   ; preds = %if.then.i.i117
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %conv66, i32 noundef %.pre164, i32 noundef %conv68, i32 noundef %ret.2) #12
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %conv66, i32 noundef %.pre164, i32 noundef %conv68, i32 noundef %ret.3) #12
   br label %trace_usb_desc_other_speed_config.exit
 
 trace_usb_desc_other_speed_config.exit:           ; preds = %if.end64, %land.lhs.true5.i.i114, %if.then8.i.i120, %if.else.i.i119
@@ -2015,8 +2015,8 @@ sw.default:                                       ; preds = %entry
   br label %if.end89
 
 sw.epilog:                                        ; preds = %trace_usb_desc_other_speed_config.exit, %trace_usb_desc_device_qualifier.exit, %trace_usb_desc_string.exit, %trace_usb_desc_config.exit
-  %ret.3 = phi i32 [ %ret.2, %trace_usb_desc_other_speed_config.exit ], [ %ret.1, %trace_usb_desc_device_qualifier.exit ], [ %retval.0.i, %trace_usb_desc_string.exit ], [ %ret.0, %trace_usb_desc_config.exit ]
-  %cmp79 = icmp sgt i32 %ret.3, 0
+  %ret.0 = phi i32 [ %ret.3, %trace_usb_desc_other_speed_config.exit ], [ %ret.2, %trace_usb_desc_device_qualifier.exit ], [ %retval.0.i, %trace_usb_desc_string.exit ], [ %ret.1, %trace_usb_desc_config.exit ]
+  %cmp79 = icmp sgt i32 %ret.0, 0
   br i1 %cmp79, label %sw.epilog.if.then81_crit_edge, label %if.end89
 
 sw.epilog.if.then81_crit_edge:                    ; preds = %sw.epilog
@@ -2025,10 +2025,10 @@ sw.epilog.if.then81_crit_edge:                    ; preds = %sw.epilog
 
 if.then81:                                        ; preds = %sw.epilog.if.then81_crit_edge, %trace_usb_desc_device.exit, %trace_usb_desc_bos.exit
   %conv86.pre-phi = phi i32 [ %.pre, %sw.epilog.if.then81_crit_edge ], [ %conv18, %trace_usb_desc_device.exit ], [ %conv73, %trace_usb_desc_bos.exit ]
-  %ret.3151 = phi i32 [ %ret.3, %sw.epilog.if.then81_crit_edge ], [ 18, %trace_usb_desc_device.exit ], [ %conv42.i, %trace_usb_desc_bos.exit ]
-  %conv82 = zext nneg i32 %ret.3151 to i64
+  %ret.0151 = phi i32 [ %ret.0, %sw.epilog.if.then81_crit_edge ], [ 18, %trace_usb_desc_device.exit ], [ %conv42.i, %trace_usb_desc_bos.exit ]
+  %conv82 = zext nneg i32 %ret.0151 to i64
   %cmp83 = icmp ugt i64 %conv82, %len
-  %spec.select57 = select i1 %cmp83, i32 %conv86.pre-phi, i32 %ret.3151
+  %spec.select57 = select i1 %cmp83, i32 %conv86.pre-phi, i32 %ret.0151
   %conv88 = zext nneg i32 %spec.select57 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dest, ptr align 1 %call1, i64 %conv88, i1 false)
   %actual_length = getelementptr inbounds i8, ptr %p, i64 88
@@ -2036,9 +2036,9 @@ if.then81:                                        ; preds = %sw.epilog.if.then81
   br label %if.end89
 
 if.end89:                                         ; preds = %entry, %sw.default, %if.then81, %sw.epilog
-  %ret.5 = phi i32 [ 0, %if.then81 ], [ %ret.3, %sw.epilog ], [ -1, %sw.default ], [ -1, %entry ]
+  %ret.4 = phi i32 [ 0, %if.then81 ], [ %ret.0, %sw.epilog ], [ -1, %sw.default ], [ -1, %entry ]
   tail call void @g_free(ptr noundef %call1) #12
-  ret i32 %ret.5
+  ret i32 %ret.4
 }
 
 ; Function Attrs: allocsize(0)
@@ -2663,8 +2663,8 @@ trace_usb_desc_msos.exit190:                      ; preds = %if.then89, %land.lh
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb59, %trace_usb_set_device_feature.exit147, %trace_usb_set_device_feature.exit, %trace_usb_clear_device_feature.exit118, %trace_usb_clear_device_feature.exit, %sw.bb87, %trace_usb_desc_msos.exit190, %sw.bb79, %trace_usb_desc_msos.exit, %sw.bb64, %lor.lhs.false, %trace_usb_set_interface.exit, %if.end70, %if.end40, %trace_usb_set_config.exit, %cond.end, %sw.bb3, %trace_usb_set_addr.exit, %if.end
-  %ret.2 = phi i32 [ -1, %if.end ], [ %call91, %trace_usb_desc_msos.exit190 ], [ -1, %sw.bb87 ], [ %call83, %trace_usb_desc_msos.exit ], [ -1, %sw.bb79 ], [ %call76, %trace_usb_set_interface.exit ], [ -1, %sw.bb64 ], [ -1, %lor.lhs.false ], [ 0, %if.end70 ], [ 0, %if.end40 ], [ 0, %trace_usb_set_config.exit ], [ 0, %cond.end ], [ %call5, %sw.bb3 ], [ 0, %trace_usb_set_addr.exit ], [ 0, %trace_usb_clear_device_feature.exit118 ], [ -1, %trace_usb_clear_device_feature.exit ], [ 0, %trace_usb_set_device_feature.exit147 ], [ -1, %trace_usb_set_device_feature.exit ], [ %spec.select, %sw.bb59 ]
-  ret i32 %ret.2
+  %ret.0 = phi i32 [ -1, %if.end ], [ %call91, %trace_usb_desc_msos.exit190 ], [ -1, %sw.bb87 ], [ %call83, %trace_usb_desc_msos.exit ], [ -1, %sw.bb79 ], [ %call76, %trace_usb_set_interface.exit ], [ -1, %sw.bb64 ], [ -1, %lor.lhs.false ], [ 0, %if.end70 ], [ 0, %if.end40 ], [ 0, %trace_usb_set_config.exit ], [ 0, %cond.end ], [ %call5, %sw.bb3 ], [ 0, %trace_usb_set_addr.exit ], [ 0, %trace_usb_clear_device_feature.exit118 ], [ -1, %trace_usb_clear_device_feature.exit ], [ 0, %trace_usb_set_device_feature.exit147 ], [ -1, %trace_usb_set_device_feature.exit ], [ %spec.select, %sw.bb59 ]
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

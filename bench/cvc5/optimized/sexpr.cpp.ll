@@ -140,13 +140,13 @@ terminate.lpad.i.i21:                             ; preds = %lpad9
 
 catch.dispatch12:                                 ; preds = %lpad9, %lpad7
   %.pn14 = phi { ptr, i32 } [ %10, %lpad7 ], [ %11, %lpad9 ]
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn14, 1
-  %matches14 = icmp eq i32 %ehselector.slot.1, %ehselector.slot.0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn14, 1
+  %matches14 = icmp eq i32 %ehselector.slot.2, %ehselector.slot.0
   br i1 %matches14, label %catch15, label %eh.resume
 
 catch15:                                          ; preds = %catch.dispatch12
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn14, 0
-  %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #7
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn14, 0
+  %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #7
   call void @__cxa_end_catch()
   %call18 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.2)
   %call19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call18, ptr noundef nonnull align 8 dereferenceable(32) %s)

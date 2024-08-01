@@ -870,18 +870,18 @@ proto_item_set_hidden.exit604:                    ; preds = %208, %214, %217
 
 265:                                              ; preds = %255, %263, %235
   %.0534 = phi i32 [ 16, %235 ], [ 12, %263 ], [ 12, %255 ]
-  %.2530 = phi i64 [ %.0528, %235 ], [ %264, %263 ], [ %260, %255 ]
+  %.1529 = phi i64 [ %.0528, %235 ], [ %264, %263 ], [ %260, %255 ]
   %266 = load i32, ptr @dccp_summary_in_tree, align 4
   %.not562 = icmp eq i32 %266, 0
   br i1 %.not562, label %268, label %267
 
 267:                                              ; preds = %265
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.230, i64 noundef %.2530) #10
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.230, i64 noundef %.1529) #10
   br label %268
 
 268:                                              ; preds = %267, %265
   %269 = load ptr, ptr %30, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %269, i32 noundef 25, ptr noundef nonnull @.str.230, i64 noundef %.2530) #10
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %269, i32 noundef 25, ptr noundef nonnull @.str.230, i64 noundef %.1529) #10
   %270 = load i8, ptr %180, align 1
   switch i8 %270, label %605 [
     i8 0, label %271
@@ -1523,16 +1523,16 @@ proto_item_set_hidden.exit619:                    ; preds = %570, %567, %563, %5
   br label %618
 
 618:                                              ; preds = %611, %609
-  %.0532 = phi ptr [ %615, %611 ], [ %37, %609 ]
+  %.1533 = phi ptr [ %615, %611 ], [ %37, %609 ]
   %.0526 = phi ptr [ %617, %611 ], [ null, %609 ]
   call fastcc void @dissect_options(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.0526, i32 noundef %.1535, i32 noundef %95)
   br label %619
 
 619:                                              ; preds = %618, %607
-  %.1533 = phi ptr [ %.0532, %618 ], [ %37, %607 ]
+  %.0532 = phi ptr [ %.1533, %618 ], [ %37, %607 ]
   %.0531 = phi i32 [ %610, %618 ], [ 0, %607 ]
   %620 = add nuw nsw i32 %.0531, %.1535
-  call void @proto_item_set_end(ptr noundef %.1533, ptr noundef %0, i32 noundef %620) #10
+  call void @proto_item_set_end(ptr noundef %.0532, ptr noundef %0, i32 noundef %620) #10
   %621 = load i32, ptr @dccp_tap, align 4
   call void @tap_queue_packet(i32 noundef %621, ptr noundef nonnull %1, ptr noundef nonnull %10) #10
   %622 = getelementptr inbounds i8, ptr %1, i64 276

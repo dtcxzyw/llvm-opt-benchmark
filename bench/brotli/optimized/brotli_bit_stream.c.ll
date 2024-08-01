@@ -66,7 +66,7 @@ for.body6.preheader:                              ; preds = %for.body, %entry
 
 for.body6:                                        ; preds = %for.body6.preheader, %for.inc14
   %code.021 = phi i64 [ %code.1, %for.inc14 ], [ 0, %for.body6.preheader ]
-  %num_codes.020 = phi i32 [ %num_codes.1, %for.inc14 ], [ 0, %for.body6.preheader ]
+  %num_codes.020 = phi i32 [ %num_codes.2, %for.inc14 ], [ 0, %for.body6.preheader ]
   %i.119 = phi i64 [ %inc15, %for.inc14 ], [ 0, %for.body6.preheader ]
   %arrayidx7 = getelementptr inbounds [18 x i32], ptr %huffman_tree_histogram, i64 0, i64 %i.119
   %3 = load i32, ptr %arrayidx7, align 4
@@ -78,7 +78,7 @@ if.then:                                          ; preds = %for.body6
   br i1 %cmp8, label %for.inc14, label %for.end16
 
 for.inc14:                                        ; preds = %if.then, %for.body6
-  %num_codes.1 = phi i32 [ %num_codes.020, %for.body6 ], [ 1, %if.then ]
+  %num_codes.2 = phi i32 [ %num_codes.020, %for.body6 ], [ 1, %if.then ]
   %code.1 = phi i64 [ %code.021, %for.body6 ], [ %i.119, %if.then ]
   %inc15 = add nuw nsw i64 %i.119, 1
   %exitcond22.not = icmp eq i64 %inc15, 18
@@ -86,15 +86,15 @@ for.inc14:                                        ; preds = %if.then, %for.body6
 
 for.end16:                                        ; preds = %if.then, %for.inc14
   %code.0.lcssa = phi i64 [ %code.021, %if.then ], [ %code.1, %for.inc14 ]
-  %num_codes.2 = phi i32 [ 2, %if.then ], [ %num_codes.1, %for.inc14 ]
+  %num_codes.1 = phi i32 [ 2, %if.then ], [ %num_codes.2, %for.inc14 ]
   call void @BrotliCreateHuffmanTree(ptr noundef nonnull %huffman_tree_histogram, i64 noundef 18, i32 noundef 5, ptr noundef %tree, ptr noundef nonnull %code_length_bitdepth) #12
   call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %code_length_bitdepth, i64 noundef 18, ptr noundef nonnull %code_length_bitdepth_symbols) #12
-  %cmp.i = icmp sgt i32 %num_codes.2, 1
+  %cmp.i = icmp sgt i32 %num_codes.1, 1
   br i1 %cmp.i, label %for.body.i, label %if.end6.i
 
 for.body.i:                                       ; preds = %for.end16, %for.inc.i
-  %codes_to_store.0.i = phi i64 [ %sub.i, %for.inc.i ], [ 18, %for.end16 ]
-  %sub.i = add nsw i64 %codes_to_store.0.i, -1
+  %codes_to_store.1.i = phi i64 [ %sub.i, %for.inc.i ], [ 18, %for.end16 ]
+  %sub.i = add nsw i64 %codes_to_store.1.i, -1
   %arrayidx.i = getelementptr inbounds [18 x i8], ptr @BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.kStorageOrder, i64 0, i64 %sub.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %idxprom.i = zext i8 %4 to i64
@@ -108,7 +108,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp1.old.not.i, label %if.end6.i, label %for.body.i
 
 if.end6.i:                                        ; preds = %for.inc.i, %for.body.i, %for.end16
-  %codes_to_store.1.i = phi i64 [ 18, %for.end16 ], [ %codes_to_store.0.i, %for.body.i ], [ 0, %for.inc.i ]
+  %codes_to_store.0.i = phi i64 [ 18, %for.end16 ], [ %codes_to_store.1.i, %for.body.i ], [ 0, %for.inc.i ]
   %arrayidx8.i = getelementptr inbounds i8, ptr %code_length_bitdepth, i64 1
   %6 = load i8, ptr %arrayidx8.i, align 1
   %cmp10.i = icmp eq i8 %6, 0
@@ -133,7 +133,7 @@ if.end6.i:                                        ; preds = %for.inc.i, %for.bod
   %11 = load i64, ptr %storage_ix, align 8
   %add.i52.i = add i64 %11, 2
   store i64 %add.i52.i, ptr %storage_ix, align 8
-  %cmp2723.i = icmp ult i64 %skip_some.0.i, %codes_to_store.1.i
+  %cmp2723.i = icmp ult i64 %skip_some.0.i, %codes_to_store.0.i
   br i1 %cmp2723.i, label %for.body29.i, label %BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.exit
 
 for.body29.i:                                     ; preds = %if.end6.i, %for.body29.i
@@ -163,12 +163,12 @@ for.body29.i:                                     ; preds = %if.end6.i, %for.bod
   %add.i.i = add i64 %18, %conv35.i
   store i64 %add.i.i, ptr %storage_ix, align 8
   %inc.i = add nuw nsw i64 %i.024.i, 1
-  %exitcond.not.i = icmp eq i64 %inc.i, %codes_to_store.1.i
+  %exitcond.not.i = icmp eq i64 %inc.i, %codes_to_store.0.i
   br i1 %exitcond.not.i, label %BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.exit, label %for.body29.i, !llvm.loop !7
 
 BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.exit: ; preds = %for.body29.i, %if.end6.i
   %storage_ix.promoted.i = phi i64 [ %add.i52.i, %if.end6.i ], [ %add.i.i, %for.body29.i ]
-  %cmp22 = icmp eq i32 %num_codes.2, 1
+  %cmp22 = icmp eq i32 %num_codes.1, 1
   br i1 %cmp22, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %BrotliStoreHuffmanTreeOfHuffmanTreeToBitMask.exit
@@ -1615,19 +1615,19 @@ StoreSymbol.exit:                                 ; preds = %for.body63, %GetBlo
   br i1 %cmp61.not, label %if.end92, label %for.body63, !llvm.loop !33
 
 for.body76:                                       ; preds = %for.cond73.preheader, %StoreSymbolWithContext.exit
-  %prev_byte.addr.1519 = phi i8 [ %123, %StoreSymbolWithContext.exit ], [ %prev_byte.addr.0530, %for.cond73.preheader ]
-  %prev_byte2.addr.1518 = phi i8 [ %prev_byte.addr.1519, %StoreSymbolWithContext.exit ], [ %prev_byte2.addr.0529, %for.cond73.preheader ]
-  %pos.2517 = phi i64 [ %inc88, %StoreSymbolWithContext.exit ], [ %pos.0528, %for.cond73.preheader ]
+  %prev_byte.addr.2519 = phi i8 [ %123, %StoreSymbolWithContext.exit ], [ %prev_byte.addr.0530, %for.cond73.preheader ]
+  %prev_byte2.addr.2518 = phi i8 [ %prev_byte.addr.2519, %StoreSymbolWithContext.exit ], [ %prev_byte2.addr.0529, %for.cond73.preheader ]
+  %pos.3517 = phi i64 [ %inc88, %StoreSymbolWithContext.exit ], [ %pos.0528, %for.cond73.preheader ]
   %j70.0516 = phi i64 [ %dec90, %StoreSymbolWithContext.exit ], [ %conv.i172, %for.cond73.preheader ]
-  %idxprom77 = zext i8 %prev_byte.addr.1519 to i64
+  %idxprom77 = zext i8 %prev_byte.addr.2519 to i64
   %arrayidx78 = getelementptr inbounds i8, ptr %arrayidx, i64 %idxprom77
   %121 = load i8, ptr %arrayidx78, align 1
-  %idxprom80 = zext i8 %prev_byte2.addr.1518 to i64
+  %idxprom80 = zext i8 %prev_byte2.addr.2518 to i64
   %arrayidx81 = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom80
   %122 = load i8, ptr %arrayidx81, align 1
   %or210 = or i8 %122, %121
   %conv83 = zext i8 %or210 to i64
-  %and84 = and i64 %pos.2517, %mask
+  %and84 = and i64 %pos.3517, %mask
   %arrayidx85 = getelementptr inbounds i8, ptr %input, i64 %and84
   %123 = load i8, ptr %arrayidx85, align 1
   %conv86 = zext i8 %123 to i64
@@ -1779,17 +1779,17 @@ StoreSymbolWithContext.exit:                      ; preds = %for.body76, %GetBlo
   %159 = load i64, ptr %storage_ix, align 8
   %add.i.i332 = add i64 %159, %conv10.i323
   store i64 %add.i.i332, ptr %storage_ix, align 8
-  %inc88 = add i64 %pos.2517, 1
+  %inc88 = add i64 %pos.3517, 1
   %dec90 = add nsw i64 %j70.0516, -1
   %cmp74.not = icmp eq i64 %dec90, 0
   br i1 %cmp74.not, label %if.end92, label %for.body76, !llvm.loop !34
 
 if.end92:                                         ; preds = %StoreSymbolWithContext.exit, %StoreSymbol.exit, %for.cond73.preheader, %for.cond60.preheader
-  %pos.3 = phi i64 [ %pos.0528, %for.cond60.preheader ], [ %pos.0528, %for.cond73.preheader ], [ %inc66, %StoreSymbol.exit ], [ %inc88, %StoreSymbolWithContext.exit ]
-  %prev_byte2.addr.2 = phi i8 [ %prev_byte2.addr.0529, %for.cond60.preheader ], [ %prev_byte2.addr.0529, %for.cond73.preheader ], [ %prev_byte2.addr.0529, %StoreSymbol.exit ], [ %prev_byte.addr.1519, %StoreSymbolWithContext.exit ]
-  %prev_byte.addr.2 = phi i8 [ %prev_byte.addr.0530, %for.cond60.preheader ], [ %prev_byte.addr.0530, %for.cond73.preheader ], [ %prev_byte.addr.0530, %StoreSymbol.exit ], [ %123, %StoreSymbolWithContext.exit ]
+  %pos.2 = phi i64 [ %pos.0528, %for.cond60.preheader ], [ %pos.0528, %for.cond73.preheader ], [ %inc66, %StoreSymbol.exit ], [ %inc88, %StoreSymbolWithContext.exit ]
+  %prev_byte2.addr.1 = phi i8 [ %prev_byte2.addr.0529, %for.cond60.preheader ], [ %prev_byte2.addr.0529, %for.cond73.preheader ], [ %prev_byte2.addr.0529, %StoreSymbol.exit ], [ %prev_byte.addr.2519, %StoreSymbolWithContext.exit ]
+  %prev_byte.addr.1 = phi i8 [ %prev_byte.addr.0530, %for.cond60.preheader ], [ %prev_byte.addr.0530, %for.cond73.preheader ], [ %prev_byte.addr.0530, %StoreSymbol.exit ], [ %123, %StoreSymbolWithContext.exit ]
   %conv94 = zext nneg i32 %and3.i to i64
-  %add = add i64 %pos.3, %conv94
+  %add = add i64 %pos.2, %conv94
   %tobool.not = icmp eq i32 %and3.i, 0
   br i1 %tobool.not, label %for.inc127, label %if.then96
 
@@ -1999,8 +1999,8 @@ if.end123:                                        ; preds = %StoreSymbolWithCont
   br label %for.inc127
 
 for.inc127:                                       ; preds = %if.end92, %if.end123, %if.then96
-  %prev_byte2.addr.3 = phi i8 [ %160, %if.end123 ], [ %160, %if.then96 ], [ %prev_byte2.addr.2, %if.end92 ]
-  %prev_byte.addr.3 = phi i8 [ %161, %if.end123 ], [ %161, %if.then96 ], [ %prev_byte.addr.2, %if.end92 ]
+  %prev_byte2.addr.3 = phi i8 [ %160, %if.end123 ], [ %160, %if.then96 ], [ %prev_byte2.addr.1, %if.end92 ]
+  %prev_byte.addr.3 = phi i8 [ %161, %if.end123 ], [ %161, %if.then96 ], [ %prev_byte.addr.1, %if.end92 ]
   %inc128 = add nuw i64 %i.1527, 1
   %exitcond.not = icmp eq i64 %inc128, %n_commands
   br i1 %exitcond.not, label %for.end129, label %for.body52, !llvm.loop !35

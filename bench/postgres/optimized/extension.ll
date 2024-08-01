@@ -659,7 +659,7 @@ get_ext_ver_info.exit:                            ; preds = %38, %._crit_edge.i
   br i1 %58, label %.lr.ph46.i, label %find_install_path.exit.thread
 
 .lr.ph46.i:                                       ; preds = %.lr.ph.i114, %84
-  %.0123 = phi ptr [ %.1124, %84 ], [ null, %.lr.ph.i114 ]
+  %.1124 = phi ptr [ %.2, %84 ], [ null, %.lr.ph.i114 ]
   %indvars.iv.i116 = phi i64 [ %indvars.iv.next.i117, %84 ], [ 0, %.lr.ph.i114 ]
   %.0264044.i = phi ptr [ %.1.i, %84 ], [ null, %.lr.ph.i114 ]
   %59 = load ptr, ptr %56, align 8
@@ -682,7 +682,7 @@ get_ext_ver_info.exit:                            ; preds = %38, %._crit_edge.i
 list_length.exit.i:                               ; preds = %68
   %70 = getelementptr inbounds i8, ptr %66, i64 4
   %71 = load i32, ptr %70, align 4
-  %.not.i31.i = icmp eq ptr %.0123, null
+  %.not.i31.i = icmp eq ptr %.1124, null
   br i1 %.not.i31.i, label %list_length.exit32.i, label %list_length.exit32.thread.i
 
 list_length.exit32.i:                             ; preds = %list_length.exit.i
@@ -690,7 +690,7 @@ list_length.exit32.i:                             ; preds = %list_length.exit.i
   br i1 %72, label %83, label %list_length.exit36.i
 
 list_length.exit32.thread.i:                      ; preds = %list_length.exit.i
-  %73 = getelementptr inbounds i8, ptr %.0123, i64 4
+  %73 = getelementptr inbounds i8, ptr %.1124, i64 4
   %74 = load i32, ptr %73, align 4
   %75 = icmp slt i32 %71, %74
   br i1 %75, label %83, label %list_length.exit36.i
@@ -711,7 +711,7 @@ list_length.exit36.i:                             ; preds = %list_length.exit32.
   br label %84
 
 84:                                               ; preds = %83, %78, %list_length.exit36.i, %65, %.lr.ph46.i
-  %.1124 = phi ptr [ %.0123, %65 ], [ %66, %83 ], [ %.0123, %78 ], [ %.0123, %list_length.exit36.i ], [ %.0123, %.lr.ph46.i ]
+  %.2 = phi ptr [ %.1124, %65 ], [ %66, %83 ], [ %.1124, %78 ], [ %.1124, %list_length.exit36.i ], [ %.1124, %.lr.ph46.i ]
   %.1.i = phi ptr [ %.0264044.i, %65 ], [ %61, %83 ], [ %.0264044.i, %78 ], [ %.0264044.i, %list_length.exit36.i ], [ %.0264044.i, %.lr.ph46.i ]
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i116, 1
   %85 = load i32, ptr %55, align 4
@@ -734,12 +734,12 @@ find_install_path.exit.thread:                    ; preds = %.lr.ph.i114, %.preh
 
 find_install_path.exit.thread127:                 ; preds = %get_ext_ver_info.exit, %find_install_path.exit
   %.0.i115131 = phi ptr [ %.1.i, %find_install_path.exit ], [ %.0.i, %get_ext_ver_info.exit ]
-  %.2130 = phi ptr [ %.1124, %find_install_path.exit ], [ null, %get_ext_ver_info.exit ]
+  %.3130 = phi ptr [ %.2, %find_install_path.exit ], [ null, %get_ext_ver_info.exit ]
   %93 = load ptr, ptr %.0.i115131, align 8
   br label %94
 
 94:                                               ; preds = %23, %find_install_path.exit.thread127
-  %.3 = phi ptr [ %.2130, %find_install_path.exit.thread127 ], [ null, %23 ]
+  %.0123 = phi ptr [ %.3130, %find_install_path.exit.thread127 ], [ null, %23 ]
   %.1 = phi ptr [ %93, %find_install_path.exit.thread127 ], [ %.088, %23 ]
   %95 = tail call ptr @palloc(i64 noundef 72) #13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %95, ptr noundef nonnull readonly align 8 dereferenceable(72) %9, i64 72, i1 false)
@@ -994,7 +994,7 @@ get_required_extension.exit:                      ; preds = %.lr.ph156
 
 205:                                              ; preds = %204, %._crit_edge
   tail call fastcc void @execute_extension_script(i32 noundef %.sroa.287.0.extract.trunc, ptr noundef nonnull %95, ptr noundef null, ptr noundef %.1, ptr noundef %.092.lcssa, ptr noundef %.0)
-  tail call fastcc void @ApplyExtensionUpdates(i32 noundef %.sroa.287.0.extract.trunc, ptr noundef nonnull %9, ptr noundef %.1, ptr noundef %.3, ptr noundef %1, i1 noundef zeroext %3, i1 noundef zeroext %5)
+  tail call fastcc void @ApplyExtensionUpdates(i32 noundef %.sroa.287.0.extract.trunc, ptr noundef nonnull %9, ptr noundef %.1, ptr noundef %.0123, ptr noundef %1, i1 noundef zeroext %3, i1 noundef zeroext %5)
   ret { i64, i32 } %201
 }
 
@@ -1965,8 +1965,8 @@ is_extension_control_filename.exit.backedge:      ; preds = %19, %24, %16, %.lr.
   br label %28
 
 28:                                               ; preds = %7, %._crit_edge
-  %.1 = phi i1 [ false, %7 ], [ %.not.lcssa, %._crit_edge ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %7 ], [ %.not.lcssa, %._crit_edge ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind uwtable

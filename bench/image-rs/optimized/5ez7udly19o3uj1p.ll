@@ -21102,7 +21102,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .thread1569:                                      ; preds = %538, %.thread1577
   %.pn13051575 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread1577 ], [ %.pn1303, %538 ]
-  %.21574 = phi i1 [ true, %.thread1577 ], [ %.4, %538 ]
+  %.31574 = phi i1 [ true, %.thread1577 ], [ %.4, %538 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$tiff..tags..SampleFormat$GT$$GT$17h0885c33508ea09f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52) #22
           to label %.thread1527 unwind label %529
 
@@ -21112,7 +21112,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .thread1527:                                      ; preds = %.thread1569, %259, %204
   %.pn13071532 = phi { ptr, i32 } [ %260, %259 ], [ %205, %204 ], [ %.pn13051575, %.thread1569 ]
-  %.11531 = phi i1 [ true, %259 ], [ true, %204 ], [ %.21574, %.thread1569 ]
+  %.11531 = phi i1 [ true, %259 ], [ true, %204 ], [ %.31574, %.thread1569 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2678)
   %542 = load ptr, ptr %59, align 8, !alias.scope !2678, !noundef !19
   %543 = icmp eq ptr %542, null
@@ -23286,7 +23286,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .thread1569:                                      ; preds = %538, %.thread1577
   %.pn13051575 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread1577 ], [ %.pn1303, %538 ]
-  %.21574 = phi i1 [ true, %.thread1577 ], [ %.4, %538 ]
+  %.31574 = phi i1 [ true, %.thread1577 ], [ %.4, %538 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$tiff..tags..SampleFormat$GT$$GT$17h0885c33508ea09f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %52) #22
           to label %.thread1527 unwind label %529
 
@@ -23296,7 +23296,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 .thread1527:                                      ; preds = %.thread1569, %259, %204
   %.pn13071532 = phi { ptr, i32 } [ %260, %259 ], [ %205, %204 ], [ %.pn13051575, %.thread1569 ]
-  %.11531 = phi i1 [ true, %259 ], [ true, %204 ], [ %.21574, %.thread1569 ]
+  %.11531 = phi i1 [ true, %259 ], [ true, %204 ], [ %.31574, %.thread1569 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2742)
   %542 = load ptr, ptr %59, align 8, !alias.scope !2742, !noundef !19
   %543 = icmp eq ptr %542, null
@@ -31485,7 +31485,7 @@ define void @_ZN5image6codecs4jpeg7entropy22derive_codes_and_sizes17h9c7698f7709
 
 .preheader:                                       ; preds = %2, %._crit_edge
   %indvars.iv = phi i64 [ 0, %2 ], [ %.pre60, %._crit_edge ]
-  %.03351 = phi i64 [ 0, %2 ], [ %.2.lcssa, %._crit_edge ]
+  %.03351 = phi i64 [ 0, %2 ], [ %.1.lcssa, %._crit_edge ]
   %5 = getelementptr inbounds [16 x i8], ptr %1, i64 0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1, !noundef !19
   %.not53 = icmp eq i8 %6, 0
@@ -31499,11 +31499,11 @@ define void @_ZN5image6codecs4jpeg7entropy22derive_codes_and_sizes17h9c7698f7709
   br label %34
 
 10:                                               ; preds = %._crit_edge
-  %11 = icmp ult i64 %.2.lcssa, 256
+  %11 = icmp ult i64 %.1.lcssa, 256
   br i1 %11, label %12, label %16, !prof !401
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %.2.lcssa
+  %13 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %.1.lcssa
   store i8 0, ptr %13, align 1
   %14 = load i8, ptr %4, align 1, !noundef !19
   br label %.outer
@@ -31511,17 +31511,17 @@ define void @_ZN5image6codecs4jpeg7entropy22derive_codes_and_sizes17h9c7698f7709
 .outer:                                           ; preds = %29, %12
   %.pre = phi i8 [ %26, %29 ], [ %14, %12 ]
   %.034.ph = phi i16 [ %.135, %29 ], [ 0, %12 ]
-  %.1.ph = phi i64 [ %23, %29 ], [ 0, %12 ]
+  %.2.ph = phi i64 [ %23, %29 ], [ 0, %12 ]
   %15 = icmp eq i8 %.pre, 0
   br label %17
 
 16:                                               ; preds = %10
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.2.lcssa, i64 noundef 256, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dbc83011fcb707429349569d3c6bc524.295) #21
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.1.lcssa, i64 noundef 256, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dbc83011fcb707429349569d3c6bc524.295) #21
   unreachable
 
 17:                                               ; preds = %.outer, %22
   %.034 = phi i16 [ %24, %22 ], [ %.034.ph, %.outer ]
-  %.1 = phi i64 [ %23, %22 ], [ %.1.ph, %.outer ]
+  %.2 = phi i64 [ %23, %22 ], [ %.2.ph, %.outer ]
   br i1 %15, label %18, label %20
 
 18:                                               ; preds = %17
@@ -31531,13 +31531,13 @@ define void @_ZN5image6codecs4jpeg7entropy22derive_codes_and_sizes17h9c7698f7709
   ret void
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds [256 x i16], ptr %3, i64 0, i64 %.1
+  %21 = getelementptr inbounds [256 x i16], ptr %3, i64 0, i64 %.2
   store i16 %.034, ptr %21, align 2
-  %.not = icmp eq i64 %.1, 255
+  %.not = icmp eq i64 %.2, 255
   br i1 %.not, label %28, label %22, !prof !2166
 
 22:                                               ; preds = %20
-  %23 = add nuw nsw i64 %.1, 1
+  %23 = add nuw nsw i64 %.2, 1
   %24 = add i16 %.034, 1
   %25 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %23
   %26 = load i8, ptr %25, align 1, !noundef !19
@@ -31557,25 +31557,25 @@ define void @_ZN5image6codecs4jpeg7entropy22derive_codes_and_sizes17h9c7698f7709
   br label %.outer
 
 ._crit_edge:                                      ; preds = %36, %.preheader
-  %.2.lcssa = phi i64 [ %.03351, %.preheader ], [ %38, %36 ]
+  %.1.lcssa = phi i64 [ %.03351, %.preheader ], [ %38, %36 ]
   %exitcond59.not = icmp eq i64 %.pre60, 16
   br i1 %exitcond59.not, label %10, label %.preheader
 
 34:                                               ; preds = %.lr.ph, %36
-  %.249 = phi i64 [ %.03351, %.lr.ph ], [ %38, %36 ]
-  %35 = icmp ult i64 %.249, 256
+  %.149 = phi i64 [ %.03351, %.lr.ph ], [ %38, %36 ]
+  %35 = icmp ult i64 %.149, 256
   br i1 %35, label %36, label %39, !prof !401
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %.249
+  %37 = getelementptr inbounds [256 x i8], ptr %4, i64 0, i64 %.149
   store i8 %9, ptr %37, align 1
-  %38 = add nuw nsw i64 %.249, 1
+  %38 = add nuw nsw i64 %.149, 1
   %lftr.wideiv = trunc i64 %38 to i8
   %exitcond.not = icmp eq i8 %8, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %34
 
 39:                                               ; preds = %34
-  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.249, i64 noundef 256, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dbc83011fcb707429349569d3c6bc524.301) #21
+  tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %.149, i64 noundef 256, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.dbc83011fcb707429349569d3c6bc524.301) #21
   unreachable
 }
 

@@ -187,8 +187,8 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %exitcond.not, label %.loopexit316, label %74, !llvm.loop !6
 
 .loopexit316:                                     ; preds = %74, %67, %60
-  %.0293 = phi ptr [ null, %60 ], [ %71, %67 ], [ %71, %74 ]
-  %.0283 = phi ptr [ null, %60 ], [ %69, %67 ], [ %69, %74 ]
+  %.1294 = phi ptr [ null, %60 ], [ %71, %67 ], [ %71, %74 ]
+  %.1284 = phi ptr [ null, %60 ], [ %69, %67 ], [ %69, %74 ]
   %80 = load ptr, ptr %52, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 20
   %82 = load i32, ptr %81, align 4
@@ -249,9 +249,9 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 .loopexit315:                                     ; preds = %93, %56
   %116 = phi i32 [ %.pre381, %56 ], [ %113, %93 ]
   %117 = phi ptr [ %.pre380, %56 ], [ %111, %93 ]
-  %.1294 = phi ptr [ null, %56 ], [ %.0293, %93 ]
+  %.0293 = phi ptr [ null, %56 ], [ %.1294, %93 ]
   %.0292 = phi ptr [ null, %56 ], [ %84, %93 ]
-  %.1284 = phi ptr [ %58, %56 ], [ %.0283, %93 ]
+  %.0283 = phi ptr [ %58, %56 ], [ %.1284, %93 ]
   %.0282 = phi ptr [ %59, %56 ], [ %64, %93 ]
   %118 = load i64, ptr %14, align 8
   %119 = mul nsw i64 %118, %39
@@ -341,9 +341,9 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 
 ._crit_edge:                                      ; preds = %161, %.loopexit315.thread, %.loopexit315
   %.0282398 = phi ptr [ %.0282, %.loopexit315 ], [ %64, %.loopexit315.thread ], [ %.0282, %161 ]
-  %.1284397 = phi ptr [ %.1284, %.loopexit315 ], [ %.0283, %.loopexit315.thread ], [ %.1284, %161 ]
+  %.0283397 = phi ptr [ %.0283, %.loopexit315 ], [ %.1284, %.loopexit315.thread ], [ %.0283, %161 ]
   %.0292396 = phi ptr [ %.0292, %.loopexit315 ], [ %84, %.loopexit315.thread ], [ %.0292, %161 ]
-  %.1294394 = phi ptr [ %.1294, %.loopexit315 ], [ %.0293, %.loopexit315.thread ], [ %.1294, %161 ]
+  %.0293394 = phi ptr [ %.0293, %.loopexit315 ], [ %.1294, %.loopexit315.thread ], [ %.0293, %161 ]
   %.lcssa = phi ptr [ %117, %.loopexit315 ], [ %85, %.loopexit315.thread ], [ %162, %161 ]
   %167 = getelementptr inbounds i8, ptr %.lcssa, i64 44
   %168 = load i32, ptr %167, align 4
@@ -353,7 +353,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 169:                                              ; preds = %._crit_edge
   %170 = getelementptr inbounds i8, ptr %3, i64 64
   %171 = load ptr, ptr %170, align 8
-  %172 = call i32 @PMPI_Alltoall(ptr noundef %.0282398, i32 noundef 56, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %.1284397, i32 noundef 56, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %171) #9
+  %172 = call i32 @PMPI_Alltoall(ptr noundef %.0282398, i32 noundef 56, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %.0283397, i32 noundef 56, ptr noundef nonnull @ompi_mpi_byte, ptr noundef %171) #9
   %.not304 = icmp eq i32 %172, 0
   br i1 %.not304, label %186, label %173
 
@@ -369,8 +369,8 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not303, label %181, label %179
 
 179:                                              ; preds = %176
-  %180 = call i32 @PMPI_Waitall(i32 noundef %1, ptr noundef %.1294394, ptr noundef null) #9
-  call void @ADIOI_Free_fn(ptr noundef %.1294394, i32 noundef 222, ptr noundef nonnull @.str.5) #9
+  %180 = call i32 @PMPI_Waitall(i32 noundef %1, ptr noundef %.0293394, ptr noundef null) #9
+  call void @ADIOI_Free_fn(ptr noundef %.0293394, i32 noundef 222, ptr noundef nonnull @.str.5) #9
   %.pre383 = load ptr, ptr %52, align 8
   br label %181
 
@@ -401,18 +401,18 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 
 .lr.ph324:                                        ; preds = %.lr.ph324.preheader, %.lr.ph324
   %indvars.iv357 = phi i64 [ 0, %.lr.ph324.preheader ], [ %indvars.iv.next358, %.lr.ph324 ]
-  %.0285322 = phi i32 [ 0, %.lr.ph324.preheader ], [ %spec.select, %.lr.ph324 ]
+  %.1286322 = phi i32 [ 0, %.lr.ph324.preheader ], [ %spec.select, %.lr.ph324 ]
   %194 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.0282398, i64 %indvars.iv357
   %195 = load i32, ptr %194, align 8
   %196 = icmp sgt i32 %195, 0
   %197 = zext i1 %196 to i32
-  %spec.select = add nuw nsw i32 %.0285322, %197
+  %spec.select = add nuw nsw i32 %.1286322, %197
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count360
   br i1 %exitcond361.not, label %.loopexit314, label %.lr.ph324, !llvm.loop !9
 
 .loopexit314:                                     ; preds = %.lr.ph324, %.preheader313, %186
-  %.2287 = phi i32 [ 0, %186 ], [ 0, %.preheader313 ], [ %spec.select, %.lr.ph324 ]
+  %.0285 = phi i32 [ 0, %186 ], [ 0, %.preheader313 ], [ %spec.select, %.lr.ph324 ]
   %198 = icmp sgt i32 %1, 0
   br i1 %198, label %.lr.ph330, label %._crit_edge331
 
@@ -423,7 +423,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 
 200:                                              ; preds = %.lr.ph330, %240
   %indvars.iv362 = phi i64 [ 0, %.lr.ph330 ], [ %indvars.iv.next363, %240 ]
-  %.3288327 = phi i32 [ %.2287, %.lr.ph330 ], [ %.4289, %240 ]
+  %.3288327 = phi i32 [ %.0285, %.lr.ph330 ], [ %.4289, %240 ]
   %.0290326 = phi i32 [ 0, %.lr.ph330 ], [ %.1291, %240 ]
   %201 = load ptr, ptr %52, align 8
   %202 = getelementptr inbounds i8, ptr %201, i64 44
@@ -446,7 +446,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not307, label %240, label %211
 
 211:                                              ; preds = %209
-  %212 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.1284397, i64 %indvars.iv362
+  %212 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.0283397, i64 %indvars.iv362
   %213 = load i32, ptr %212, align 8
   %214 = icmp sgt i32 %213, 0
   br i1 %214, label %215, label %240
@@ -496,7 +496,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 
 ._crit_edge331:                                   ; preds = %240, %.loopexit314
   %.0290.lcssa = phi i32 [ 0, %.loopexit314 ], [ %.1291, %240 ]
-  %.3288.lcssa = phi i32 [ %.2287, %.loopexit314 ], [ %.4289, %240 ]
+  %.3288.lcssa = phi i32 [ %.0285, %.loopexit314 ], [ %.4289, %240 ]
   %241 = shl nsw i32 %.3288.lcssa, 1
   %242 = or disjoint i32 %241, 1
   %243 = sext i32 %242 to i64
@@ -519,7 +519,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 251:                                              ; preds = %.lr.ph337, %272
   %indvars.iv367 = phi i64 [ 0, %.lr.ph337 ], [ %indvars.iv.next368, %272 ]
   %.0276334 = phi i32 [ 0, %.lr.ph337 ], [ %.1277, %272 ]
-  %252 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.1284397, i64 %indvars.iv367
+  %252 = getelementptr inbounds %struct.amount_and_extra_data_t, ptr %.0283397, i64 %indvars.iv367
   %253 = load i32, ptr %252, align 8
   %254 = icmp sgt i32 %253, 0
   br i1 %254, label %255, label %272
@@ -551,7 +551,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %exitcond371.not, label %.loopexit312, label %251, !llvm.loop !11
 
 .loopexit312:                                     ; preds = %272, %._crit_edge331
-  %.2295 = phi ptr [ %.1294394, %._crit_edge331 ], [ %249, %272 ]
+  %.2295 = phi ptr [ %.0293394, %._crit_edge331 ], [ %249, %272 ]
   %273 = load ptr, ptr %52, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 44
   %275 = load i32, ptr %274, align 4
@@ -680,7 +680,7 @@ define void @ADIOI_Exch_file_views(i32 noundef %0, i32 noundef %1, i32 noundef %
 341:                                              ; preds = %340
   %342 = shl nuw nsw i32 %.0290.lcssa, 1
   %343 = call i32 @PMPI_Waitall(i32 noundef %342, ptr noundef %.2295401, ptr noundef null) #9
-  call void @ADIOI_Free_fn(ptr noundef %.1284397, i32 noundef 360, ptr noundef nonnull @.str.5) #9
+  call void @ADIOI_Free_fn(ptr noundef %.0283397, i32 noundef 360, ptr noundef nonnull @.str.5) #9
   call void @ADIOI_Free_fn(ptr noundef %.2295401, i32 noundef 361, ptr noundef nonnull @.str.5) #9
   br label %344
 

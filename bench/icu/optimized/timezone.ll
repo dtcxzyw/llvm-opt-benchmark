@@ -1197,9 +1197,9 @@ for.body.lr.ph:                                   ; preds = %if.end11
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %filteredMap.0100 = phi ptr [ %call8, %for.body.lr.ph ], [ %filteredMap.2, %for.inc ]
-  %numEntries.099 = phi i32 [ 0, %for.body.lr.ph ], [ %numEntries.1, %for.inc ]
-  %filteredMapSize.098 = phi i32 [ 8, %for.body.lr.ph ], [ %filteredMapSize.2, %for.inc ]
+  %filteredMap.1100 = phi ptr [ %call8, %for.body.lr.ph ], [ %filteredMap.3, %for.inc ]
+  %numEntries.199 = phi i32 [ 0, %for.body.lr.ph ], [ %numEntries.3, %for.inc ]
+  %filteredMapSize.098 = phi i32 [ 8, %for.body.lr.ph ], [ %filteredMapSize.1, %for.inc ]
   %arrayidx = getelementptr inbounds i32, ptr %call1, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -1315,14 +1315,14 @@ delete.notnull:                                   ; preds = %if.end40
   br i1 %cmp45.not, label %if.end48, label %for.inc
 
 if.end48:                                         ; preds = %delete.notnull, %if.end32
-  %cmp49.not = icmp sgt i32 %filteredMapSize.098, %numEntries.099
+  %cmp49.not = icmp sgt i32 %filteredMapSize.098, %numEntries.199
   br i1 %cmp49.not, label %if.end58, label %if.then50
 
 if.then50:                                        ; preds = %if.end48
   %add = add nsw i32 %filteredMapSize.098, 8
   %conv51 = sext i32 %add to i64
   %mul52 = shl nsw i64 %conv51, 2
-  %call54 = invoke ptr @uprv_realloc_75(ptr noundef %filteredMap.0100, i64 noundef %mul52) #21
+  %call54 = invoke ptr @uprv_realloc_75(ptr noundef %filteredMap.1100, i64 noundef %mul52) #21
           to label %invoke.cont53 unwind label %lpad
 
 invoke.cont53:                                    ; preds = %if.then50
@@ -1334,11 +1334,11 @@ if.then56:                                        ; preds = %invoke.cont53
   br label %cleanup.thread
 
 if.end58:                                         ; preds = %invoke.cont53, %if.end48
-  %filteredMapSize.1 = phi i32 [ %filteredMapSize.098, %if.end48 ], [ %add, %invoke.cont53 ]
-  %filteredMap.1 = phi ptr [ %filteredMap.0100, %if.end48 ], [ %call54, %invoke.cont53 ]
-  %inc = add nsw i32 %numEntries.099, 1
-  %idxprom59 = sext i32 %numEntries.099 to i64
-  %arrayidx60 = getelementptr inbounds i32, ptr %filteredMap.1, i64 %idxprom59
+  %filteredMapSize.2 = phi i32 [ %filteredMapSize.098, %if.end48 ], [ %add, %invoke.cont53 ]
+  %filteredMap.4 = phi ptr [ %filteredMap.1100, %if.end48 ], [ %call54, %invoke.cont53 ]
+  %inc = add nsw i32 %numEntries.199, 1
+  %idxprom59 = sext i32 %numEntries.199 to i64
+  %arrayidx60 = getelementptr inbounds i32, ptr %filteredMap.4, i64 %idxprom59
   store i32 %3, ptr %arrayidx60, align 4
   br label %for.inc
 
@@ -1347,9 +1347,9 @@ cleanup.thread:                                   ; preds = %_ZN6icu_7528ures_ge
   br label %for.end
 
 for.inc:                                          ; preds = %if.end58, %invoke.cont27, %delete.notnull
-  %filteredMapSize.2 = phi i32 [ %filteredMapSize.1, %if.end58 ], [ %filteredMapSize.098, %invoke.cont27 ], [ %filteredMapSize.098, %delete.notnull ]
-  %numEntries.1 = phi i32 [ %inc, %if.end58 ], [ %numEntries.099, %invoke.cont27 ], [ %numEntries.099, %delete.notnull ]
-  %filteredMap.2 = phi ptr [ %filteredMap.1, %if.end58 ], [ %filteredMap.0100, %invoke.cont27 ], [ %filteredMap.0100, %delete.notnull ]
+  %filteredMapSize.1 = phi i32 [ %filteredMapSize.2, %if.end58 ], [ %filteredMapSize.098, %invoke.cont27 ], [ %filteredMapSize.098, %delete.notnull ]
+  %numEntries.3 = phi i32 [ %inc, %if.end58 ], [ %numEntries.199, %invoke.cont27 ], [ %numEntries.199, %delete.notnull ]
+  %filteredMap.3 = phi ptr [ %filteredMap.4, %if.end58 ], [ %filteredMap.1100, %invoke.cont27 ], [ %filteredMap.1100, %delete.notnull ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %id) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %baseLen, align 4
@@ -1358,22 +1358,22 @@ for.inc:                                          ; preds = %if.end58, %invoke.c
   br i1 %cmp14, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %if.end11, %cleanup.thread
-  %numEntries.094 = phi i32 [ %numEntries.099, %cleanup.thread ], [ 0, %if.end11 ], [ %numEntries.1, %for.inc ]
-  %filteredMap.087 = phi ptr [ %filteredMap.0100, %cleanup.thread ], [ %call8, %if.end11 ], [ %filteredMap.2, %for.inc ]
+  %numEntries.194 = phi i32 [ %numEntries.199, %cleanup.thread ], [ 0, %if.end11 ], [ %numEntries.3, %for.inc ]
+  %filteredMap.187 = phi ptr [ %filteredMap.1100, %cleanup.thread ], [ %call8, %if.end11 ], [ %filteredMap.3, %for.inc ]
   %19 = load i32, ptr %ec, align 4
   %cmp.i51 = icmp slt i32 %19, 1
   br i1 %cmp.i51, label %if.end66, label %if.then64
 
 if.then64:                                        ; preds = %for.end
-  call void @uprv_free_75(ptr noundef %filteredMap.087)
+  call void @uprv_free_75(ptr noundef %filteredMap.187)
   br label %if.end66
 
 if.end66:                                         ; preds = %for.end, %if.then64
-  %filteredMap.4 = phi ptr [ null, %if.then64 ], [ %filteredMap.087, %for.end ]
+  %filteredMap.5 = phi ptr [ null, %if.then64 ], [ %filteredMap.187, %for.end ]
   call void @ures_close_75(ptr noundef %call13)
   %20 = load i32, ptr %ec, align 4
   %cmp.i53 = icmp sgt i32 %20, 0
-  %cmp92.not = icmp eq ptr %filteredMap.4, null
+  %cmp92.not = icmp eq ptr %filteredMap.5, null
   br i1 %cmp.i53, label %if.end91, label %if.then69
 
 if.then69:                                        ; preds = %if.end66
@@ -1421,11 +1421,11 @@ _ZN6icu_7513TZEnumerationC2EPiia.exit60:          ; preds = %new.notnull78
   %pos.i56 = getelementptr inbounds i8, ptr %call76, i64 140
   store i32 0, ptr %pos.i56, align 4
   %map.i57 = getelementptr inbounds i8, ptr %call76, i64 120
-  store ptr %filteredMap.4, ptr %map.i57, align 8
+  store ptr %filteredMap.5, ptr %map.i57, align 8
   %localMap.i58 = getelementptr inbounds i8, ptr %call76, i64 128
-  store ptr %filteredMap.4, ptr %localMap.i58, align 8
+  store ptr %filteredMap.5, ptr %localMap.i58, align 8
   %len.i59 = getelementptr inbounds i8, ptr %call76, i64 136
-  store i32 %numEntries.094, ptr %len.i59, align 8
+  store i32 %numEntries.194, ptr %len.i59, align 8
   br label %return
 
 lpad81:                                           ; preds = %new.notnull78
@@ -1442,7 +1442,7 @@ if.end91:                                         ; preds = %if.end66
   br i1 %cmp92.not, label %return, label %if.then93
 
 if.then93:                                        ; preds = %if.end91
-  call void @uprv_free_75(ptr noundef nonnull %filteredMap.4)
+  call void @uprv_free_75(ptr noundef nonnull %filteredMap.5)
   br label %return
 
 return:                                           ; preds = %_ZN6icu_7513TZEnumerationC2EPiia.exit, %_ZN6icu_7513TZEnumerationC2EPiia.exit60, %if.then89, %if.end91, %if.then93, %if.end, %entry, %if.then10
@@ -2959,12 +2959,12 @@ delete.end174:                                    ; preds = %if.end162, %sw.bb16
   br label %cleanup
 
 cleanup:                                          ; preds = %delete.end174, %delete.notnull158, %delete.notnull72, %delete.notnull, %delete.notnull141, %delete.notnull114, %delete.notnull93
-  %retval.0 = phi i8 [ 0, %delete.notnull93 ], [ 0, %delete.notnull114 ], [ 0, %delete.notnull141 ], [ 0, %delete.notnull ], [ 0, %delete.notnull72 ], [ 0, %delete.notnull158 ], [ %spec.select, %delete.end174 ]
+  %retval.1 = phi i8 [ 0, %delete.notnull93 ], [ 0, %delete.notnull114 ], [ 0, %delete.notnull141 ], [ 0, %delete.notnull ], [ 0, %delete.notnull72 ], [ 0, %delete.notnull158 ], [ %spec.select, %delete.end174 ]
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %n) #18
   br label %cleanup182
 
 cleanup182:                                       ; preds = %invoke.cont16, %if.then, %invoke.cont31, %cleanup
-  %retval.1 = phi i8 [ %retval.0, %cleanup ], [ 0, %invoke.cont31 ], [ 0, %if.then ], [ 0, %invoke.cont16 ]
+  %retval.0 = phi i8 [ %retval.1, %cleanup ], [ 0, %invoke.cont31 ], [ 0, %if.then ], [ 0, %invoke.cont16 ]
   call void @_ZN6icu_7513ParsePositionD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %pos) #18
   br label %cleanup184
 
@@ -2974,7 +2974,7 @@ ehcleanup:                                        ; preds = %lpad44, %lpad13
   br label %ehcleanup185
 
 cleanup184:                                       ; preds = %invoke.cont3, %cleanup.done, %cleanup182
-  %retval.2 = phi i8 [ %retval.1, %cleanup182 ], [ 0, %cleanup.done ], [ 0, %invoke.cont3 ]
+  %retval.2 = phi i8 [ %retval.0, %cleanup182 ], [ 0, %cleanup.done ], [ 0, %invoke.cont3 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %idUppercase) #18
   ret i8 %retval.2
 
@@ -4267,7 +4267,7 @@ if.then5:                                         ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.074 = phi i32 [ 0, %for.body.lr.ph ], [ %inc50, %for.inc ]
-  %numEntries.073 = phi i32 [ 0, %for.body.lr.ph ], [ %numEntries.162, %for.inc ]
+  %numEntries.073 = phi i32 [ 0, %for.body.lr.ph ], [ %numEntries.262, %for.inc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -4448,14 +4448,14 @@ cleanup47.critedge:                               ; preds = %if.else.i.i
   br label %for.inc
 
 for.inc:                                          ; preds = %cleanup, %cleanup47.critedge, %if.then.i.i, %invoke.cont41, %invoke.cont11, %if.end46
-  %numEntries.162 = phi i32 [ %numEntries.073, %invoke.cont41 ], [ %numEntries.073, %invoke.cont11 ], [ %inc, %if.end46 ], [ %numEntries.073, %if.then.i.i ], [ %numEntries.073, %cleanup47.critedge ], [ %numEntries.073, %cleanup ]
+  %numEntries.262 = phi i32 [ %numEntries.073, %invoke.cont41 ], [ %numEntries.073, %invoke.cont11 ], [ %inc, %if.end46 ], [ %numEntries.073, %if.then.i.i ], [ %numEntries.073, %cleanup47.critedge ], [ %numEntries.073, %cleanup ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %id) #18
   %inc50 = add nuw nsw i32 %i.074, 1
   %exitcond.not = icmp eq i32 %inc50, %call3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader, %cleanup47.thread
-  %numEntries.070 = phi i32 [ %numEntries.073, %cleanup47.thread ], [ 0, %for.cond.preheader ], [ %numEntries.162, %for.inc ]
+  %numEntries.070 = phi i32 [ %numEntries.073, %cleanup47.thread ], [ 0, %for.cond.preheader ], [ %numEntries.262, %for.inc ]
   %24 = load i32, ptr %ec, align 4
   %cmp.i46 = icmp sgt i32 %24, 0
   br i1 %cmp.i46, label %if.end64, label %if.then53

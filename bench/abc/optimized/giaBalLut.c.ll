@@ -428,14 +428,14 @@ Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loo
 
 .preheader262.us:                                 ; preds = %.preheader262.lr.ph, %._crit_edge301.us
   %.1303.us = phi ptr [ %313, %._crit_edge301.us ], [ %.0228, %.preheader262.lr.ph ]
-  %.4302.us = phi i32 [ %.6.us, %._crit_edge301.us ], [ 0, %.preheader262.lr.ph ]
+  %.5302.us = phi i32 [ %.7.us, %._crit_edge301.us ], [ 0, %.preheader262.lr.ph ]
   %82 = getelementptr inbounds i8, ptr %.1303.us, i64 12
   %83 = getelementptr inbounds i8, ptr %.1303.us, i64 16
   %84 = getelementptr inbounds i8, ptr %.1303.us, i64 8
   br label %85
 
 85:                                               ; preds = %.preheader262.us, %Bal_SetAddCut.exit213.us
-  %.5299.us = phi i32 [ %.4302.us, %.preheader262.us ], [ %.6.us, %Bal_SetAddCut.exit213.us ]
+  %.6299.us = phi i32 [ %.5302.us, %.preheader262.us ], [ %.7.us, %Bal_SetAddCut.exit213.us ]
   %.179298.us = phi ptr [ %.0227, %.preheader262.us ], [ %311, %Bal_SetAddCut.exit213.us ]
   %86 = load i64, ptr %.1303.us, align 8
   %87 = load i64, ptr %.179298.us, align 8
@@ -447,7 +447,7 @@ Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loo
   br i1 %92, label %Bal_SetAddCut.exit213.us, label %93
 
 93:                                               ; preds = %85
-  %94 = sext i32 %.5299.us to i64
+  %94 = sext i32 %.6299.us to i64
   %95 = getelementptr inbounds [8 x ptr], ptr %15, i64 0, i64 %94
   %96 = load ptr, ptr %95, align 8
   %97 = load i32, ptr %82, align 4
@@ -473,7 +473,7 @@ Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loo
 .lr.ph.i130.us:                                   ; preds = %.lr.ph.i130.us.preheader, %150
   %indvars.iv386 = phi i64 [ 0, %.lr.ph.i130.us.preheader ], [ %indvars.iv.next387, %150 ]
   %.1100128.i.us = phi i32 [ 0, %.lr.ph.i130.us.preheader ], [ %.2101.i.us, %150 ]
-  %.0104127.i.us = phi i32 [ 0, %.lr.ph.i130.us.preheader ], [ %.1105.i.us, %150 ]
+  %.0104127.i.us = phi i32 [ 0, %.lr.ph.i130.us.preheader ], [ %.2106.i.us, %150 ]
   %108 = sext i32 %.1100128.i.us to i64
   %109 = getelementptr inbounds i32, ptr %83, i64 %108
   %110 = load i32, ptr %109, align 4
@@ -547,20 +547,20 @@ Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loo
   br i1 %.not121.i.us, label %150, label %138
 
 138:                                              ; preds = %136, %118
-  %.2106.i.us = phi i32 [ %.0104127.i.us, %136 ], [ %120, %118 ]
+  %.1105.i.us = phi i32 [ %.0104127.i.us, %136 ], [ %120, %118 ]
   %139 = trunc nuw nsw i64 %indvars.iv.next387 to i32
   %140 = add nuw nsw i32 %101, %139
-  %141 = add nsw i32 %.2106.i.us, %91
+  %141 = add nsw i32 %.1105.i.us, %91
   %142 = icmp sgt i32 %140, %141
   br i1 %142, label %Bal_SetAddCut.exit213.us, label %.preheader123.i.us
 
 .preheader123.i.us:                               ; preds = %138
-  %143 = icmp slt i32 %.2106.i.us, %101
+  %143 = icmp slt i32 %.1105.i.us, %101
   br i1 %143, label %.lr.ph135.preheader.i.us, label %.loopexit260.us
 
 .lr.ph135.preheader.i.us:                         ; preds = %.preheader123.i.us
   %144 = and i64 %indvars.iv.next387, 4294967295
-  %145 = sext i32 %.2106.i.us to i64
+  %145 = sext i32 %.1105.i.us to i64
   %wide.trip.count158.i.us = zext nneg i32 %101 to i64
   br label %.lr.ph135.i.us
 
@@ -581,7 +581,7 @@ Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loo
   br label %.loopexit260.us
 
 150:                                              ; preds = %136, %122, %121
-  %.1105.i.us = phi i32 [ %.0104127.i.us, %136 ], [ %123, %122 ], [ %120, %121 ]
+  %.2106.i.us = phi i32 [ %.0104127.i.us, %136 ], [ %123, %122 ], [ %120, %121 ]
   %.2101.i.us = phi i32 [ %137, %136 ], [ %.1100128.i.us, %122 ], [ %119, %121 ]
   %151 = icmp eq i64 %indvars.iv.next387, %107
   br i1 %151, label %Bal_SetAddCut.exit213.us, label %.lr.ph.i130.us
@@ -627,16 +627,16 @@ Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loo
   %167 = call noundef i32 @llvm.smax.i32(i32 %164, i32 %166)
   %168 = getelementptr inbounds i8, ptr %96, i64 8
   store i32 %167, ptr %168, align 8
-  %169 = icmp sgt i32 %.5299.us, 0
+  %169 = icmp sgt i32 %.6299.us, 0
   br i1 %169, label %.lr.ph.i138.us, label %Bal_SetLastCutIsContained.exit166.thread239.us
 
 Bal_SetLastCutIsContained.exit166.thread239.us:   ; preds = %.loopexit260.us
   %170 = load i32, ptr %72, align 4
-  %171 = icmp eq i32 %.5299.us, 0
+  %171 = icmp eq i32 %.6299.us, 0
   br i1 %171, label %Bal_SetAddCut.exit213.us, label %Bal_SetSortByDelay.exit.i167.us
 
 .lr.ph.i138.us:                                   ; preds = %.loopexit260.us
-  %172 = zext nneg i32 %.5299.us to i64
+  %172 = zext nneg i32 %.6299.us to i64
   %173 = getelementptr inbounds ptr, ptr %15, i64 %172
   %174 = and i32 %.5.lcssa.sink.i.us.fr, 31
   %.not48.i.i140.us = icmp eq i32 %159, 0
@@ -857,7 +857,7 @@ Bal_SetCutIsContainedOrder.exit.thread.thread.i.i203.us: ; preds = %260, %250
   br i1 %exitcond.not67.i.i207.us, label %.preheader.i.i180.us, label %.outer.i.i171.us, !llvm.loop !16
 
 .preheader.i.i180.us:                             ; preds = %Bal_SetCutIsContainedOrder.exit.thread.thread.i.i203.us, %._crit_edge.i.i179.us
-  %268 = add nuw i32 %.5299.us, 1
+  %268 = add nuw i32 %.6299.us, 1
   %wide.trip.count62.i.i181.us = zext i32 %268 to i64
   br label %.lr.ph55.i.i182.us
 
@@ -898,7 +898,7 @@ Bal_SetCutIsContainedOrder.exit.thread.thread.i.i203.us: ; preds = %260, %250
   br label %Bal_SetLastCutContains.exit.i189.us
 
 Bal_SetLastCutContains.exit.i189.us:              ; preds = %._crit_edge56.loopexit.i.i188.us, %._crit_edge.i.i179.us
-  %.0.i.i190.us = phi i32 [ %.5299.us, %._crit_edge.i.i179.us ], [ %283, %._crit_edge56.loopexit.i.i188.us ]
+  %.0.i.i190.us = phi i32 [ %.6299.us, %._crit_edge.i.i179.us ], [ %283, %._crit_edge56.loopexit.i.i188.us ]
   %284 = icmp sgt i32 %.0.i.i190.us, 0
   br i1 %284, label %.lr.ph.i8.i191.us, label %Bal_SetSortByDelay.exit.i167.us
 
@@ -939,14 +939,14 @@ Bal_CutCompareArea.exit.i.i193.us:                ; preds = %297, %295
 
 Bal_SetSortByDelay.exit.i167.us:                  ; preds = %.lr.ph.i8.i191.us, %297, %Bal_CutCompareArea.exit.i.i193.us, %Bal_SetLastCutContains.exit.i189.us, %Bal_SetLastCutIsContained.exit166.thread239.us
   %307 = phi i32 [ %221, %Bal_SetLastCutContains.exit.i189.us ], [ %170, %Bal_SetLastCutIsContained.exit166.thread239.us ], [ %221, %Bal_CutCompareArea.exit.i.i193.us ], [ %221, %297 ], [ %221, %.lr.ph.i8.i191.us ]
-  %.0.i10.i168.us = phi i32 [ %.0.i.i190.us, %Bal_SetLastCutContains.exit.i189.us ], [ %.5299.us, %Bal_SetLastCutIsContained.exit166.thread239.us ], [ %.0.i.i190.us, %Bal_CutCompareArea.exit.i.i193.us ], [ %.0.i.i190.us, %297 ], [ %.0.i.i190.us, %.lr.ph.i8.i191.us ]
+  %.0.i10.i168.us = phi i32 [ %.0.i.i190.us, %Bal_SetLastCutContains.exit.i189.us ], [ %.6299.us, %Bal_SetLastCutIsContained.exit166.thread239.us ], [ %.0.i.i190.us, %Bal_CutCompareArea.exit.i.i193.us ], [ %.0.i.i190.us, %297 ], [ %.0.i.i190.us, %.lr.ph.i8.i191.us ]
   %308 = add nsw i32 %.0.i10.i168.us, 1
   %309 = add nsw i32 %307, -1
   %310 = call noundef i32 @llvm.smin.i32(i32 %308, i32 %309)
   br label %Bal_SetAddCut.exit213.us
 
 Bal_SetAddCut.exit213.us:                         ; preds = %150, %.lr.ph139.i.us, %186, %218, %198, %208, %Bal_SetSortByDelay.exit.i167.us, %Bal_SetLastCutIsContained.exit166.thread239.us, %138, %124, %.preheader125.i.us, %85
-  %.6.us = phi i32 [ %.5299.us, %85 ], [ %310, %Bal_SetSortByDelay.exit.i167.us ], [ 1, %Bal_SetLastCutIsContained.exit166.thread239.us ], [ %.5299.us, %124 ], [ %.5299.us, %138 ], [ %.5299.us, %.preheader125.i.us ], [ %.5299.us, %208 ], [ %.5299.us, %198 ], [ %.5299.us, %218 ], [ %.5299.us, %186 ], [ %.5299.us, %.lr.ph139.i.us ], [ %.5299.us, %150 ]
+  %.7.us = phi i32 [ %.6299.us, %85 ], [ %310, %Bal_SetSortByDelay.exit.i167.us ], [ 1, %Bal_SetLastCutIsContained.exit166.thread239.us ], [ %.6299.us, %124 ], [ %.6299.us, %138 ], [ %.6299.us, %.preheader125.i.us ], [ %.6299.us, %208 ], [ %.6299.us, %198 ], [ %.6299.us, %218 ], [ %.6299.us, %186 ], [ %.6299.us, %.lr.ph139.i.us ], [ %.6299.us, %150 ]
   %311 = getelementptr inbounds i8, ptr %.179298.us, i64 40
   %312 = icmp ult ptr %311, %71
   br i1 %312, label %85, label %._crit_edge301.us, !llvm.loop !19
@@ -1487,8 +1487,8 @@ Bal_SetAddCut.exit.us.us.us:                      ; preds = %400, %443, %475, %4
   br i1 %573, label %.preheader251.us.us, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %._crit_edge301.us, %._crit_edge311.split.us.us.us
-  %.7 = phi i32 [ %.3.us.us.us, %._crit_edge311.split.us.us.us ], [ %.6.us, %._crit_edge301.us ]
-  %574 = icmp eq i32 %.7, 0
+  %.4 = phi i32 [ %.3.us.us.us, %._crit_edge311.split.us.us.us ], [ %.7.us, %._crit_edge301.us ]
+  %574 = icmp eq i32 %.4, 0
   br i1 %574, label %.loopexit.thread, label %575
 
 575:                                              ; preds = %.loopexit
@@ -1576,15 +1576,15 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %620 = sext i32 %618 to i64
   %621 = getelementptr inbounds ptr, ptr %617, i64 %620
   store ptr %589, ptr %621, align 8
-  %622 = icmp sgt i32 %.7, 0
+  %622 = icmp sgt i32 %.4, 0
   br i1 %622, label %.lr.ph326.preheader, label %.preheader
 
 .lr.ph326.preheader:                              ; preds = %Vec_PtrPush.exit
-  %wide.trip.count400 = zext nneg i32 %.7 to i64
+  %wide.trip.count400 = zext nneg i32 %.4 to i64
   br label %.lr.ph326
 
 .preheader:                                       ; preds = %.lr.ph326, %Vec_PtrPush.exit
-  %.181.lcssa = phi i32 [ 0, %Vec_PtrPush.exit ], [ %.7, %.lr.ph326 ]
+  %.181.lcssa = phi i32 [ 0, %Vec_PtrPush.exit ], [ %.4, %.lr.ph326 ]
   %623 = load i32, ptr %72, align 4
   %624 = icmp slt i32 %.181.lcssa, %623
   br i1 %624, label %.lr.ph329.preheader, label %._crit_edge330

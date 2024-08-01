@@ -1848,12 +1848,12 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br label %37
 
 37:                                               ; preds = %._crit_edge, %.loopexit
-  %.088149 = phi i64 [ %1, %._crit_edge ], [ %.2, %.loopexit ]
+  %.088149 = phi i64 [ %1, %._crit_edge ], [ %.1, %.loopexit ]
   %.089148 = phi i64 [ %3, %._crit_edge ], [ %.190, %.loopexit ]
   %.096146 = phi i64 [ %1, %._crit_edge ], [ %119, %.loopexit ]
   %.198145 = phi i64 [ 0, %._crit_edge ], [ %118, %.loopexit ]
-  %.099144 = phi ptr [ null, %._crit_edge ], [ %.3, %.loopexit ]
-  %.0103143 = phi i64 [ 0, %._crit_edge ], [ %.3106, %.loopexit ]
+  %.099144 = phi ptr [ null, %._crit_edge ], [ %.1100, %.loopexit ]
+  %.0103143 = phi i64 [ 0, %._crit_edge ], [ %.1104, %.loopexit ]
   %.not111 = icmp eq i64 %.089148, 0
   %.190 = tail call i64 @llvm.usub.sat.i64(i64 %.089148, i64 1)
   %38 = icmp eq i64 %.198145, %2
@@ -1960,9 +1960,9 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br i1 %.not125139, label %.loopexit, label %.outer.split
 
 .outer.split:                                     ; preds = %.loopexit128, %.outer
-  %.1100.ph142 = phi ptr [ %97, %.outer ], [ %.099144, %.loopexit128 ]
+  %.2101.ph142 = phi ptr [ %97, %.outer ], [ %.099144, %.loopexit128 ]
   %.0102.ph141 = phi i64 [ %98, %.outer ], [ 0, %.loopexit128 ]
-  %.1104.ph140 = phi i64 [ %99, %.outer ], [ %.0103143, %.loopexit128 ]
+  %.2105.ph140 = phi i64 [ %99, %.outer ], [ %.0103143, %.loopexit128 ]
   br label %82
 
 82:                                               ; preds = %.outer.split, %92
@@ -1973,7 +1973,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   %87 = add i64 %84, %86
   %88 = load ptr, ptr %36, align 8
   %89 = load ptr, ptr %0, align 8
-  %90 = tail call i64 %88(ptr noundef %89, ptr noundef %.1100.ph142, i64 noundef %.1104.ph140, i64 noundef %87) #18
+  %90 = tail call i64 %88(ptr noundef %89, ptr noundef %.2101.ph142, i64 noundef %.2105.ph140, i64 noundef %87) #18
   %91 = icmp slt i64 %90, 0
   br i1 %91, label %92, label %96
 
@@ -1988,9 +1988,9 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br i1 %.not127, label %102, label %.outer
 
 .outer:                                           ; preds = %96
-  %97 = getelementptr inbounds i8, ptr %.1100.ph142, i64 %90
+  %97 = getelementptr inbounds i8, ptr %.2101.ph142, i64 %90
   %98 = add i64 %90, %.0102.ph141
-  %99 = sub i64 %.1104.ph140, %90
+  %99 = sub i64 %.2105.ph140, %90
   %.not125 = icmp eq i64 %99, 0
   br i1 %.not125, label %.loopexit, label %.outer.split
 
@@ -2000,7 +2000,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br label %.loopexit129
 
 102:                                              ; preds = %96
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.37, i64 noundef %.1104.ph140, i64 noundef %87, i64 noundef 0) #18
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.37, i64 noundef %.2105.ph140, i64 noundef %87, i64 noundef 0) #18
   br label %.loopexit129
 
 .critedge:                                        ; preds = %40
@@ -2015,8 +2015,8 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br label %107
 
 107:                                              ; preds = %103, %.critedge
-  %.2101 = phi ptr [ %.099144, %.critedge ], [ %106, %103 ]
-  %.1 = phi i64 [ %.088149, %.critedge ], [ %.096146, %103 ]
+  %.3 = phi ptr [ %.099144, %.critedge ], [ %106, %103 ]
+  %.2 = phi i64 [ %.088149, %.critedge ], [ %.096146, %103 ]
   %108 = load i64, ptr %10, align 8
   %109 = add i64 %108, -1
   %110 = icmp eq i64 %.096146, %109
@@ -2033,7 +2033,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
 
 115:                                              ; preds = %111, %114
   %.pn = phi i64 [ %.pre.pre, %114 ], [ %113, %111 ]
-  %.2105 = add i64 %.pn, %.0103143
+  %.3106 = add i64 %.pn, %.0103143
   %. = select i1 %.not111, i64 2147483647, i64 3221225473
   store i64 %., ptr %42, align 8
   %116 = load i64, ptr %31, align 8
@@ -2042,9 +2042,9 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr nocapture noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.outer, %.loopexit128, %55, %115
-  %.3106 = phi i64 [ %.2105, %115 ], [ %.0103143, %55 ], [ 0, %.loopexit128 ], [ 0, %.outer ]
-  %.3 = phi ptr [ %.2101, %115 ], [ null, %55 ], [ null, %.loopexit128 ], [ null, %.outer ]
-  %.2 = phi i64 [ %.1, %115 ], [ %.088149, %55 ], [ %.088149, %.loopexit128 ], [ %.088149, %.outer ]
+  %.1104 = phi i64 [ %.3106, %115 ], [ %.0103143, %55 ], [ 0, %.loopexit128 ], [ 0, %.outer ]
+  %.1100 = phi ptr [ %.3, %115 ], [ null, %55 ], [ null, %.loopexit128 ], [ null, %.outer ]
+  %.1 = phi i64 [ %.2, %115 ], [ %.088149, %55 ], [ %.088149, %.loopexit128 ], [ %.088149, %.outer ]
   %118 = add i64 %.198145, 1
   %119 = add i64 %.096146, 1
   %.not = icmp ugt i64 %118, %2

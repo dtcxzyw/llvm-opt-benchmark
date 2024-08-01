@@ -3418,25 +3418,25 @@ sw.bb:                                            ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i, %sw.bb
-  %q.sroa.10.0 = phi ptr [ %call.i, %sw.bb ], [ %retval.0.i.i.i, %_ZN10spsc_queueIiE7enqueueEi.exit.i ]
-  %q.sroa.15.0 = phi ptr [ %call.i, %sw.bb ], [ %q.sroa.15.1, %_ZN10spsc_queueIiE7enqueueEi.exit.i ]
-  %q.sroa.26.0 = phi ptr [ %call.i, %sw.bb ], [ %q.sroa.26.1, %_ZN10spsc_queueIiE7enqueueEi.exit.i ]
+  %q.sroa.10.1 = phi ptr [ %call.i, %sw.bb ], [ %retval.0.i.i.i, %_ZN10spsc_queueIiE7enqueueEi.exit.i ]
+  %q.sroa.15.2 = phi ptr [ %call.i, %sw.bb ], [ %q.sroa.15.3, %_ZN10spsc_queueIiE7enqueueEi.exit.i ]
+  %q.sroa.26.1 = phi ptr [ %call.i, %sw.bb ], [ %q.sroa.26.2, %_ZN10spsc_queueIiE7enqueueEi.exit.i ]
   %i.07.i = phi i64 [ 0, %sw.bb ], [ %inc.i, %_ZN10spsc_queueIiE7enqueueEi.exit.i ]
-  %cmp.not.i.i.i = icmp eq ptr %q.sroa.15.0, %q.sroa.26.0
+  %cmp.not.i.i.i = icmp eq ptr %q.sroa.15.2, %q.sroa.26.1
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  %0 = load ptr, ptr %q.sroa.15.0, align 8
+  %0 = load ptr, ptr %q.sroa.15.2, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i
 
 if.end.i.i.i:                                     ; preds = %for.body.i
   %q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.425 = load volatile ptr, ptr %q.sroa.0, align 8
   fence syncscope("singlethread") seq_cst
-  %cmp8.not.i.i.i = icmp eq ptr %q.sroa.15.0, %q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.425
+  %cmp8.not.i.i.i = icmp eq ptr %q.sroa.15.2, %q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.425
   br i1 %cmp8.not.i.i.i, label %if.end15.i.i.i, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end.i.i.i
-  %1 = load ptr, ptr %q.sroa.15.0, align 8
+  %1 = load ptr, ptr %q.sroa.15.2, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i
 
 if.end15.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -3444,14 +3444,14 @@ if.end15.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i
 
 _ZN10spsc_queueIiE7enqueueEi.exit.i:              ; preds = %if.end15.i.i.i, %if.then9.i.i.i, %if.then.i.i.i
-  %q.sroa.15.1 = phi ptr [ %q.sroa.15.0, %if.end15.i.i.i ], [ %1, %if.then9.i.i.i ], [ %0, %if.then.i.i.i ]
-  %q.sroa.26.1 = phi ptr [ %q.sroa.15.0, %if.end15.i.i.i ], [ %q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.425, %if.then9.i.i.i ], [ %q.sroa.26.0, %if.then.i.i.i ]
-  %retval.0.i.i.i = phi ptr [ %call17.i.i.i, %if.end15.i.i.i ], [ %q.sroa.15.0, %if.then9.i.i.i ], [ %q.sroa.15.0, %if.then.i.i.i ]
+  %q.sroa.15.3 = phi ptr [ %q.sroa.15.2, %if.end15.i.i.i ], [ %1, %if.then9.i.i.i ], [ %0, %if.then.i.i.i ]
+  %q.sroa.26.2 = phi ptr [ %q.sroa.15.2, %if.end15.i.i.i ], [ %q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.425, %if.then9.i.i.i ], [ %q.sroa.26.1, %if.then.i.i.i ]
+  %retval.0.i.i.i = phi ptr [ %call17.i.i.i, %if.end15.i.i.i ], [ %q.sroa.15.2, %if.then9.i.i.i ], [ %q.sroa.15.2, %if.then.i.i.i ]
   store ptr null, ptr %retval.0.i.i.i, align 8
   %value_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
   store i32 0, ptr %value_.i.i, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %retval.0.i.i.i, ptr %q.sroa.10.0, align 8
+  store volatile ptr %retval.0.i.i.i, ptr %q.sroa.10.1, align 8
   %inc.i = add nuw nsw i64 %i.07.i, 1
   %cmp.not.i = icmp eq i64 %inc.i, 100000
   br i1 %cmp.not.i, label %for.body5.i, label %for.body.i, !llvm.loop !26
@@ -3487,17 +3487,17 @@ invoke.cont:                                      ; preds = %_ZN10spsc_queueIiEC
 
 for.body:                                         ; preds = %invoke.cont, %invoke.cont1
   %i.0482 = phi i64 [ 0, %invoke.cont ], [ %inc2, %invoke.cont1 ]
-  %q.sroa.26.2481 = phi ptr [ %q.sroa.26.1, %invoke.cont ], [ %q.sroa.26.3, %invoke.cont1 ]
-  %q.sroa.15.2480 = phi ptr [ %q.sroa.15.1, %invoke.cont ], [ %q.sroa.15.3, %invoke.cont1 ]
-  %q.sroa.10.1479 = phi ptr [ %retval.0.i.i.i, %invoke.cont ], [ %retval.0.i.i, %invoke.cont1 ]
+  %q.sroa.26.0481 = phi ptr [ %q.sroa.26.2, %invoke.cont ], [ %q.sroa.26.3, %invoke.cont1 ]
+  %q.sroa.15.1480 = phi ptr [ %q.sroa.15.3, %invoke.cont ], [ %q.sroa.15.4, %invoke.cont1 ]
+  %q.sroa.10.0479 = phi ptr [ %retval.0.i.i.i, %invoke.cont ], [ %retval.0.i.i, %invoke.cont1 ]
   %indvars502 = trunc i64 %i.0482 to i32
-  %cmp.not.i.i = icmp eq ptr %q.sroa.15.2480, %q.sroa.26.2481
+  %cmp.not.i.i = icmp eq ptr %q.sroa.15.1480, %q.sroa.26.0481
   br i1 %cmp.not.i.i, label %if.end.i.i, label %invoke.cont1.sink.split
 
 if.end.i.i:                                       ; preds = %for.body
   %q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.426 = load volatile ptr, ptr %q.sroa.0, align 8
   fence syncscope("singlethread") seq_cst
-  %cmp8.not.i.i = icmp eq ptr %q.sroa.26.2481, %q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.426
+  %cmp8.not.i.i = icmp eq ptr %q.sroa.26.0481, %q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.426
   br i1 %cmp8.not.i.i, label %if.end15.i.i, label %invoke.cont1.sink.split
 
 if.end15.i.i:                                     ; preds = %if.end.i.i
@@ -3505,19 +3505,19 @@ if.end15.i.i:                                     ; preds = %if.end.i.i
           to label %invoke.cont1 unwind label %lpad.loopexit
 
 invoke.cont1.sink.split:                          ; preds = %if.end.i.i, %for.body
-  %q.sroa.26.3.ph = phi ptr [ %q.sroa.26.2481, %for.body ], [ %q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.426, %if.end.i.i ]
-  %6 = load ptr, ptr %q.sroa.15.2480, align 8
+  %q.sroa.26.3.ph = phi ptr [ %q.sroa.26.0481, %for.body ], [ %q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.q.sroa.0.0.426, %if.end.i.i ]
+  %6 = load ptr, ptr %q.sroa.15.1480, align 8
   br label %invoke.cont1
 
 invoke.cont1:                                     ; preds = %invoke.cont1.sink.split, %if.end15.i.i
-  %q.sroa.15.3 = phi ptr [ %q.sroa.15.2480, %if.end15.i.i ], [ %6, %invoke.cont1.sink.split ]
-  %q.sroa.26.3 = phi ptr [ %q.sroa.26.2481, %if.end15.i.i ], [ %q.sroa.26.3.ph, %invoke.cont1.sink.split ]
-  %retval.0.i.i = phi ptr [ %call17.i.i50, %if.end15.i.i ], [ %q.sroa.15.2480, %invoke.cont1.sink.split ]
+  %q.sroa.15.4 = phi ptr [ %q.sroa.15.1480, %if.end15.i.i ], [ %6, %invoke.cont1.sink.split ]
+  %q.sroa.26.3 = phi ptr [ %q.sroa.26.0481, %if.end15.i.i ], [ %q.sroa.26.3.ph, %invoke.cont1.sink.split ]
+  %retval.0.i.i = phi ptr [ %call17.i.i50, %if.end15.i.i ], [ %q.sroa.15.1480, %invoke.cont1.sink.split ]
   store ptr null, ptr %retval.0.i.i, align 8
   %value_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
   store i32 %indvars502, ptr %value_.i, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %retval.0.i.i, ptr %q.sroa.10.1479, align 8
+  store volatile ptr %retval.0.i.i, ptr %q.sroa.10.0479, align 8
   %inc2 = add nuw nsw i64 %i.0482, 1
   %cmp.not = icmp eq i64 %inc2, 100000
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !28
@@ -3528,18 +3528,18 @@ lpad.loopexit:                                    ; preds = %if.end15.i.i
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %_ZN10spsc_queueIiEC2Em.exit, %for.end
-  %q.sroa.15.4.ph = phi ptr [ %q.sroa.15.1, %_ZN10spsc_queueIiEC2Em.exit ], [ %q.sroa.15.3, %for.end ]
+  %q.sroa.15.0.ph = phi ptr [ %q.sroa.15.3, %_ZN10spsc_queueIiEC2Em.exit ], [ %q.sroa.15.4, %for.end ]
   %lpad.loopexit.split-lp441 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %q.sroa.15.4 = phi ptr [ %q.sroa.15.2480, %lpad.loopexit ], [ %q.sroa.15.4.ph, %lpad.loopexit.split-lp ]
+  %q.sroa.15.0 = phi ptr [ %q.sroa.15.1480, %lpad.loopexit ], [ %q.sroa.15.0.ph, %lpad.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit440, %lpad.loopexit ], [ %lpad.loopexit.split-lp441, %lpad.loopexit.split-lp ]
   br label %do.body.i
 
 do.body.i:                                        ; preds = %do.body.i, %lpad
-  %n.0.i = phi ptr [ %q.sroa.15.4, %lpad ], [ %7, %do.body.i ]
+  %n.0.i = phi ptr [ %q.sroa.15.0, %lpad ], [ %7, %do.body.i ]
   %7 = load ptr, ptr %n.0.i, align 8
   tail call void @_ZdlPv(ptr noundef %n.0.i) #20
   %tobool.not.i = icmp eq ptr %7, null
@@ -3571,7 +3571,7 @@ _ZN10spsc_queueIiE11try_dequeueERi.exit:          ; preds = %invoke.cont3, %if.t
   br label %do.body.i55
 
 do.body.i55:                                      ; preds = %do.body.i55, %_ZN10spsc_queueIiE11try_dequeueERi.exit
-  %n.0.i56 = phi ptr [ %q.sroa.15.3, %_ZN10spsc_queueIiE11try_dequeueERi.exit ], [ %11, %do.body.i55 ]
+  %n.0.i56 = phi ptr [ %q.sroa.15.4, %_ZN10spsc_queueIiE11try_dequeueERi.exit ], [ %11, %do.body.i55 ]
   %11 = load ptr, ptr %n.0.i56, align 8
   tail call void @_ZdlPv(ptr noundef %n.0.i56) #20
   %tobool.not.i57 = icmp eq ptr %11, null
@@ -3585,25 +3585,25 @@ sw.bb7:                                           ; preds = %entry
   br label %for.body.i63
 
 for.body.i63:                                     ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i67, %sw.bb7
-  %q9.sroa.10.0 = phi ptr [ %call.i59, %sw.bb7 ], [ %retval.0.i.i.i68, %_ZN10spsc_queueIiE7enqueueEi.exit.i67 ]
-  %q9.sroa.15.0 = phi ptr [ %call.i59, %sw.bb7 ], [ %q9.sroa.15.1, %_ZN10spsc_queueIiE7enqueueEi.exit.i67 ]
-  %q9.sroa.26.0 = phi ptr [ %call.i59, %sw.bb7 ], [ %q9.sroa.26.1, %_ZN10spsc_queueIiE7enqueueEi.exit.i67 ]
+  %q9.sroa.10.1 = phi ptr [ %call.i59, %sw.bb7 ], [ %retval.0.i.i.i68, %_ZN10spsc_queueIiE7enqueueEi.exit.i67 ]
+  %q9.sroa.15.1 = phi ptr [ %call.i59, %sw.bb7 ], [ %q9.sroa.15.2, %_ZN10spsc_queueIiE7enqueueEi.exit.i67 ]
+  %q9.sroa.26.1 = phi ptr [ %call.i59, %sw.bb7 ], [ %q9.sroa.26.2, %_ZN10spsc_queueIiE7enqueueEi.exit.i67 ]
   %i.07.i64 = phi i64 [ 0, %sw.bb7 ], [ %inc.i70, %_ZN10spsc_queueIiE7enqueueEi.exit.i67 ]
-  %cmp.not.i.i.i65 = icmp eq ptr %q9.sroa.15.0, %q9.sroa.26.0
+  %cmp.not.i.i.i65 = icmp eq ptr %q9.sroa.15.1, %q9.sroa.26.1
   br i1 %cmp.not.i.i.i65, label %if.end.i.i.i79, label %if.then.i.i.i66
 
 if.then.i.i.i66:                                  ; preds = %for.body.i63
-  %12 = load ptr, ptr %q9.sroa.15.0, align 8
+  %12 = load ptr, ptr %q9.sroa.15.1, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i67
 
 if.end.i.i.i79:                                   ; preds = %for.body.i63
   %q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.412 = load volatile ptr, ptr %q9.sroa.0, align 8
   fence syncscope("singlethread") seq_cst
-  %cmp8.not.i.i.i80 = icmp eq ptr %q9.sroa.15.0, %q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.412
+  %cmp8.not.i.i.i80 = icmp eq ptr %q9.sroa.15.1, %q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.412
   br i1 %cmp8.not.i.i.i80, label %if.end15.i.i.i82, label %if.then9.i.i.i81
 
 if.then9.i.i.i81:                                 ; preds = %if.end.i.i.i79
-  %13 = load ptr, ptr %q9.sroa.15.0, align 8
+  %13 = load ptr, ptr %q9.sroa.15.1, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i67
 
 if.end15.i.i.i82:                                 ; preds = %if.end.i.i.i79
@@ -3611,14 +3611,14 @@ if.end15.i.i.i82:                                 ; preds = %if.end.i.i.i79
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i67
 
 _ZN10spsc_queueIiE7enqueueEi.exit.i67:            ; preds = %if.end15.i.i.i82, %if.then9.i.i.i81, %if.then.i.i.i66
-  %q9.sroa.15.1 = phi ptr [ %q9.sroa.15.0, %if.end15.i.i.i82 ], [ %13, %if.then9.i.i.i81 ], [ %12, %if.then.i.i.i66 ]
-  %q9.sroa.26.1 = phi ptr [ %q9.sroa.15.0, %if.end15.i.i.i82 ], [ %q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.412, %if.then9.i.i.i81 ], [ %q9.sroa.26.0, %if.then.i.i.i66 ]
-  %retval.0.i.i.i68 = phi ptr [ %call17.i.i.i83, %if.end15.i.i.i82 ], [ %q9.sroa.15.0, %if.then9.i.i.i81 ], [ %q9.sroa.15.0, %if.then.i.i.i66 ]
+  %q9.sroa.15.2 = phi ptr [ %q9.sroa.15.1, %if.end15.i.i.i82 ], [ %13, %if.then9.i.i.i81 ], [ %12, %if.then.i.i.i66 ]
+  %q9.sroa.26.2 = phi ptr [ %q9.sroa.15.1, %if.end15.i.i.i82 ], [ %q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.412, %if.then9.i.i.i81 ], [ %q9.sroa.26.1, %if.then.i.i.i66 ]
+  %retval.0.i.i.i68 = phi ptr [ %call17.i.i.i83, %if.end15.i.i.i82 ], [ %q9.sroa.15.1, %if.then9.i.i.i81 ], [ %q9.sroa.15.1, %if.then.i.i.i66 ]
   store ptr null, ptr %retval.0.i.i.i68, align 8
   %value_.i.i69 = getelementptr inbounds i8, ptr %retval.0.i.i.i68, i64 8
   store i32 0, ptr %value_.i.i69, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %retval.0.i.i.i68, ptr %q9.sroa.10.0, align 8
+  store volatile ptr %retval.0.i.i.i68, ptr %q9.sroa.10.1, align 8
   %inc.i70 = add nuw nsw i64 %i.07.i64, 1
   %cmp.not.i71 = icmp eq i64 %inc.i70, 100000
   br i1 %cmp.not.i71, label %for.body5.i72, label %for.body.i63, !llvm.loop !26
@@ -3645,17 +3645,17 @@ _ZN10spsc_queueIiE11try_dequeueERi.exit.i76:      ; preds = %if.then.i.i75, %for
 
 for.body14:                                       ; preds = %_ZN10spsc_queueIiE11try_dequeueERi.exit.i76, %invoke.cont16
   %i11.0474 = phi i64 [ %inc19, %invoke.cont16 ], [ 0, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i76 ]
-  %q9.sroa.26.2473 = phi ptr [ %q9.sroa.26.3, %invoke.cont16 ], [ %q9.sroa.26.1, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i76 ]
-  %q9.sroa.15.2472 = phi ptr [ %q9.sroa.15.3, %invoke.cont16 ], [ %q9.sroa.15.1, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i76 ]
-  %q9.sroa.10.1471 = phi ptr [ %retval.0.i.i89, %invoke.cont16 ], [ %retval.0.i.i.i68, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i76 ]
+  %q9.sroa.26.0473 = phi ptr [ %q9.sroa.26.3, %invoke.cont16 ], [ %q9.sroa.26.2, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i76 ]
+  %q9.sroa.15.0472 = phi ptr [ %q9.sroa.15.3, %invoke.cont16 ], [ %q9.sroa.15.2, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i76 ]
+  %q9.sroa.10.0471 = phi ptr [ %retval.0.i.i89, %invoke.cont16 ], [ %retval.0.i.i.i68, %_ZN10spsc_queueIiE11try_dequeueERi.exit.i76 ]
   %indvars501 = trunc i64 %i11.0474 to i32
-  %cmp.not.i.i87 = icmp eq ptr %q9.sroa.15.2472, %q9.sroa.26.2473
+  %cmp.not.i.i87 = icmp eq ptr %q9.sroa.15.0472, %q9.sroa.26.0473
   br i1 %cmp.not.i.i87, label %if.end.i.i92, label %invoke.cont16.sink.split
 
 if.end.i.i92:                                     ; preds = %for.body14
   %q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.413 = load volatile ptr, ptr %q9.sroa.0, align 8
   fence syncscope("singlethread") seq_cst
-  %cmp8.not.i.i93 = icmp eq ptr %q9.sroa.26.2473, %q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.413
+  %cmp8.not.i.i93 = icmp eq ptr %q9.sroa.26.0473, %q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.413
   br i1 %cmp8.not.i.i93, label %if.end15.i.i95, label %invoke.cont16.sink.split
 
 if.end15.i.i95:                                   ; preds = %if.end.i.i92
@@ -3663,19 +3663,19 @@ if.end15.i.i95:                                   ; preds = %if.end.i.i92
           to label %invoke.cont16 unwind label %lpad15.loopexit
 
 invoke.cont16.sink.split:                         ; preds = %if.end.i.i92, %for.body14
-  %q9.sroa.26.3.ph = phi ptr [ %q9.sroa.26.2473, %for.body14 ], [ %q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.413, %if.end.i.i92 ]
-  %16 = load ptr, ptr %q9.sroa.15.2472, align 8
+  %q9.sroa.26.3.ph = phi ptr [ %q9.sroa.26.0473, %for.body14 ], [ %q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.q9.sroa.0.0.413, %if.end.i.i92 ]
+  %16 = load ptr, ptr %q9.sroa.15.0472, align 8
   br label %invoke.cont16
 
 invoke.cont16:                                    ; preds = %invoke.cont16.sink.split, %if.end15.i.i95
-  %q9.sroa.15.3 = phi ptr [ %q9.sroa.15.2472, %if.end15.i.i95 ], [ %16, %invoke.cont16.sink.split ]
-  %q9.sroa.26.3 = phi ptr [ %q9.sroa.26.2473, %if.end15.i.i95 ], [ %q9.sroa.26.3.ph, %invoke.cont16.sink.split ]
-  %retval.0.i.i89 = phi ptr [ %call17.i.i97, %if.end15.i.i95 ], [ %q9.sroa.15.2472, %invoke.cont16.sink.split ]
+  %q9.sroa.15.3 = phi ptr [ %q9.sroa.15.0472, %if.end15.i.i95 ], [ %16, %invoke.cont16.sink.split ]
+  %q9.sroa.26.3 = phi ptr [ %q9.sroa.26.0473, %if.end15.i.i95 ], [ %q9.sroa.26.3.ph, %invoke.cont16.sink.split ]
+  %retval.0.i.i89 = phi ptr [ %call17.i.i97, %if.end15.i.i95 ], [ %q9.sroa.15.0472, %invoke.cont16.sink.split ]
   store ptr null, ptr %retval.0.i.i89, align 8
   %value_.i90 = getelementptr inbounds i8, ptr %retval.0.i.i89, i64 8
   store i32 %indvars501, ptr %value_.i90, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %retval.0.i.i89, ptr %q9.sroa.10.1471, align 8
+  store volatile ptr %retval.0.i.i89, ptr %q9.sroa.10.0471, align 8
   %inc19 = add nuw nsw i64 %i11.0474, 1
   %cmp13.not = icmp eq i64 %inc19, 100000
   br i1 %cmp13.not, label %for.end20, label %for.body14, !llvm.loop !30
@@ -3691,12 +3691,12 @@ lpad15.loopexit.split-lp:                         ; preds = %for.end20, %for.end
   br label %lpad15
 
 lpad15:                                           ; preds = %lpad15.loopexit.split-lp, %lpad15.loopexit
-  %q9.sroa.15.2464 = phi ptr [ %q9.sroa.15.2472, %lpad15.loopexit ], [ %q9.sroa.15.3, %lpad15.loopexit.split-lp ]
+  %q9.sroa.15.0464 = phi ptr [ %q9.sroa.15.0472, %lpad15.loopexit ], [ %q9.sroa.15.3, %lpad15.loopexit.split-lp ]
   %lpad.phi446 = phi { ptr, i32 } [ %lpad.loopexit444, %lpad15.loopexit ], [ %lpad.loopexit.split-lp445, %lpad15.loopexit.split-lp ]
   br label %do.body.i100
 
 do.body.i100:                                     ; preds = %do.body.i100, %lpad15
-  %n.0.i101 = phi ptr [ %q9.sroa.15.2464, %lpad15 ], [ %17, %do.body.i100 ]
+  %n.0.i101 = phi ptr [ %q9.sroa.15.0464, %lpad15 ], [ %17, %do.body.i100 ]
   %17 = load ptr, ptr %n.0.i101, align 8
   tail call void @_ZdlPv(ptr noundef %n.0.i101) #20
   %tobool.not.i102 = icmp eq ptr %17, null
@@ -3930,25 +3930,25 @@ sw.bb56:                                          ; preds = %entry
   br label %for.body.i157
 
 for.body.i157:                                    ; preds = %_ZN10spsc_queueIiE7enqueueEi.exit.i161, %sw.bb56
-  %q58.sroa.14.0 = phi ptr [ %call.i153, %sw.bb56 ], [ %retval.0.i.i.i162, %_ZN10spsc_queueIiE7enqueueEi.exit.i161 ]
-  %q58.sroa.19.0 = phi ptr [ %call.i153, %sw.bb56 ], [ %q58.sroa.19.1, %_ZN10spsc_queueIiE7enqueueEi.exit.i161 ]
-  %q58.sroa.30.0 = phi ptr [ %call.i153, %sw.bb56 ], [ %q58.sroa.30.1, %_ZN10spsc_queueIiE7enqueueEi.exit.i161 ]
+  %q58.sroa.14.2 = phi ptr [ %call.i153, %sw.bb56 ], [ %retval.0.i.i.i162, %_ZN10spsc_queueIiE7enqueueEi.exit.i161 ]
+  %q58.sroa.19.3 = phi ptr [ %call.i153, %sw.bb56 ], [ %q58.sroa.19.4, %_ZN10spsc_queueIiE7enqueueEi.exit.i161 ]
+  %q58.sroa.30.2 = phi ptr [ %call.i153, %sw.bb56 ], [ %q58.sroa.30.3, %_ZN10spsc_queueIiE7enqueueEi.exit.i161 ]
   %i.07.i158 = phi i64 [ 0, %sw.bb56 ], [ %inc.i164, %_ZN10spsc_queueIiE7enqueueEi.exit.i161 ]
-  %cmp.not.i.i.i159 = icmp eq ptr %q58.sroa.19.0, %q58.sroa.30.0
+  %cmp.not.i.i.i159 = icmp eq ptr %q58.sroa.19.3, %q58.sroa.30.2
   br i1 %cmp.not.i.i.i159, label %if.end.i.i.i173, label %if.then.i.i.i160
 
 if.then.i.i.i160:                                 ; preds = %for.body.i157
-  %47 = load ptr, ptr %q58.sroa.19.0, align 8
+  %47 = load ptr, ptr %q58.sroa.19.3, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i161
 
 if.end.i.i.i173:                                  ; preds = %for.body.i157
   %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.396 = load volatile ptr, ptr %q58.sroa.0, align 8
   fence syncscope("singlethread") seq_cst
-  %cmp8.not.i.i.i174 = icmp eq ptr %q58.sroa.19.0, %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.396
+  %cmp8.not.i.i.i174 = icmp eq ptr %q58.sroa.19.3, %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.396
   br i1 %cmp8.not.i.i.i174, label %if.end15.i.i.i176, label %if.then9.i.i.i175
 
 if.then9.i.i.i175:                                ; preds = %if.end.i.i.i173
-  %48 = load ptr, ptr %q58.sroa.19.0, align 8
+  %48 = load ptr, ptr %q58.sroa.19.3, align 8
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i161
 
 if.end15.i.i.i176:                                ; preds = %if.end.i.i.i173
@@ -3956,14 +3956,14 @@ if.end15.i.i.i176:                                ; preds = %if.end.i.i.i173
   br label %_ZN10spsc_queueIiE7enqueueEi.exit.i161
 
 _ZN10spsc_queueIiE7enqueueEi.exit.i161:           ; preds = %if.end15.i.i.i176, %if.then9.i.i.i175, %if.then.i.i.i160
-  %q58.sroa.19.1 = phi ptr [ %q58.sroa.19.0, %if.end15.i.i.i176 ], [ %48, %if.then9.i.i.i175 ], [ %47, %if.then.i.i.i160 ]
-  %q58.sroa.30.1 = phi ptr [ %q58.sroa.19.0, %if.end15.i.i.i176 ], [ %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.396, %if.then9.i.i.i175 ], [ %q58.sroa.30.0, %if.then.i.i.i160 ]
-  %retval.0.i.i.i162 = phi ptr [ %call17.i.i.i177, %if.end15.i.i.i176 ], [ %q58.sroa.19.0, %if.then9.i.i.i175 ], [ %q58.sroa.19.0, %if.then.i.i.i160 ]
+  %q58.sroa.19.4 = phi ptr [ %q58.sroa.19.3, %if.end15.i.i.i176 ], [ %48, %if.then9.i.i.i175 ], [ %47, %if.then.i.i.i160 ]
+  %q58.sroa.30.3 = phi ptr [ %q58.sroa.19.3, %if.end15.i.i.i176 ], [ %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.396, %if.then9.i.i.i175 ], [ %q58.sroa.30.2, %if.then.i.i.i160 ]
+  %retval.0.i.i.i162 = phi ptr [ %call17.i.i.i177, %if.end15.i.i.i176 ], [ %q58.sroa.19.3, %if.then9.i.i.i175 ], [ %q58.sroa.19.3, %if.then.i.i.i160 ]
   store ptr null, ptr %retval.0.i.i.i162, align 8
   %value_.i.i163 = getelementptr inbounds i8, ptr %retval.0.i.i.i162, i64 8
   store i32 0, ptr %value_.i.i163, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %retval.0.i.i.i162, ptr %q58.sroa.14.0, align 8
+  store volatile ptr %retval.0.i.i.i162, ptr %q58.sroa.14.2, align 8
   %inc.i164 = add nuw nsw i64 %i.07.i158, 1
   %cmp.not.i165 = icmp eq i64 %inc.i164, 200000
   br i1 %cmp.not.i165, label %for.body5.i166, label %for.body.i157, !llvm.loop !26
@@ -4000,9 +4000,9 @@ invoke.cont63:                                    ; preds = %_ZN10spsc_queueIiEC
 for.body68:                                       ; preds = %invoke.cont63, %for.inc76
   %num59.0470 = phi i32 [ 0, %invoke.cont63 ], [ %num59.1, %for.inc76 ]
   %i65.0469 = phi i64 [ 0, %invoke.cont63 ], [ %inc77, %for.inc76 ]
-  %q58.sroa.30.2468 = phi ptr [ %q58.sroa.30.1, %invoke.cont63 ], [ %q58.sroa.30.4, %for.inc76 ]
-  %q58.sroa.19.2467 = phi ptr [ %q58.sroa.19.1, %invoke.cont63 ], [ %q58.sroa.19.5, %for.inc76 ]
-  %q58.sroa.14.1466 = phi ptr [ %retval.0.i.i.i162, %invoke.cont63 ], [ %q58.sroa.14.2, %for.inc76 ]
+  %q58.sroa.30.0468 = phi ptr [ %q58.sroa.30.3, %invoke.cont63 ], [ %q58.sroa.30.1, %for.inc76 ]
+  %q58.sroa.19.1467 = phi ptr [ %q58.sroa.19.4, %invoke.cont63 ], [ %q58.sroa.19.2, %for.inc76 ]
+  %q58.sroa.14.0466 = phi ptr [ %retval.0.i.i.i162, %invoke.cont63 ], [ %q58.sroa.14.1, %for.inc76 ]
   %call.i179180 = invoke noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %rand, ptr noundef nonnull align 8 dereferenceable(8) %rng, ptr noundef nonnull align 4 dereferenceable(8) %rand)
           to label %invoke.cont69 unwind label %lpad62.loopexit
 
@@ -4011,13 +4011,13 @@ invoke.cont69:                                    ; preds = %for.body68
   br i1 %cmp71, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont69
-  %cmp.not.i.i183 = icmp eq ptr %q58.sroa.19.2467, %q58.sroa.30.2468
+  %cmp.not.i.i183 = icmp eq ptr %q58.sroa.19.1467, %q58.sroa.30.0468
   br i1 %cmp.not.i.i183, label %if.end.i.i188, label %invoke.cont72.sink.split
 
 if.end.i.i188:                                    ; preds = %if.then
   %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.397 = load volatile ptr, ptr %q58.sroa.0, align 8
   fence syncscope("singlethread") seq_cst
-  %cmp8.not.i.i189 = icmp eq ptr %q58.sroa.30.2468, %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.397
+  %cmp8.not.i.i189 = icmp eq ptr %q58.sroa.30.0468, %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.397
   br i1 %cmp8.not.i.i189, label %if.end15.i.i191, label %invoke.cont72.sink.split
 
 if.end15.i.i191:                                  ; preds = %if.end.i.i188
@@ -4025,19 +4025,19 @@ if.end15.i.i191:                                  ; preds = %if.end.i.i188
           to label %invoke.cont72 unwind label %lpad62.loopexit
 
 invoke.cont72.sink.split:                         ; preds = %if.end.i.i188, %if.then
-  %q58.sroa.30.3.ph = phi ptr [ %q58.sroa.30.2468, %if.then ], [ %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.397, %if.end.i.i188 ]
-  %53 = load ptr, ptr %q58.sroa.19.2467, align 8
+  %q58.sroa.30.4.ph = phi ptr [ %q58.sroa.30.0468, %if.then ], [ %q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.q58.sroa.0.0.397, %if.end.i.i188 ]
+  %53 = load ptr, ptr %q58.sroa.19.1467, align 8
   br label %invoke.cont72
 
 invoke.cont72:                                    ; preds = %invoke.cont72.sink.split, %if.end15.i.i191
-  %q58.sroa.19.3 = phi ptr [ %q58.sroa.19.2467, %if.end15.i.i191 ], [ %53, %invoke.cont72.sink.split ]
-  %q58.sroa.30.3 = phi ptr [ %q58.sroa.30.2468, %if.end15.i.i191 ], [ %q58.sroa.30.3.ph, %invoke.cont72.sink.split ]
-  %retval.0.i.i185 = phi ptr [ %call17.i.i193, %if.end15.i.i191 ], [ %q58.sroa.19.2467, %invoke.cont72.sink.split ]
+  %q58.sroa.19.5 = phi ptr [ %q58.sroa.19.1467, %if.end15.i.i191 ], [ %53, %invoke.cont72.sink.split ]
+  %q58.sroa.30.4 = phi ptr [ %q58.sroa.30.0468, %if.end15.i.i191 ], [ %q58.sroa.30.4.ph, %invoke.cont72.sink.split ]
+  %retval.0.i.i185 = phi ptr [ %call17.i.i193, %if.end15.i.i191 ], [ %q58.sroa.19.1467, %invoke.cont72.sink.split ]
   store ptr null, ptr %retval.0.i.i185, align 8
   %value_.i186 = getelementptr inbounds i8, ptr %retval.0.i.i185, i64 8
   store i32 %num59.0470, ptr %value_.i186, align 8
   fence syncscope("singlethread") seq_cst
-  store volatile ptr %retval.0.i.i185, ptr %q58.sroa.14.1466, align 8
+  store volatile ptr %retval.0.i.i185, ptr %q58.sroa.14.0466, align 8
   %inc73 = add nsw i32 %num59.0470, 1
   br label %for.inc76
 
@@ -4047,18 +4047,18 @@ lpad62.loopexit:                                  ; preds = %for.body68, %if.end
   br label %lpad62
 
 lpad62.loopexit.split-lp:                         ; preds = %_ZN10spsc_queueIiEC2Em.exit178, %for.end78
-  %q58.sroa.19.4.ph = phi ptr [ %q58.sroa.19.1, %_ZN10spsc_queueIiEC2Em.exit178 ], [ %q58.sroa.19.5, %for.end78 ]
+  %q58.sroa.19.0.ph = phi ptr [ %q58.sroa.19.4, %_ZN10spsc_queueIiEC2Em.exit178 ], [ %q58.sroa.19.2, %for.end78 ]
   %lpad.loopexit.split-lp452 = landingpad { ptr, i32 }
           cleanup
   br label %lpad62
 
 lpad62:                                           ; preds = %lpad62.loopexit.split-lp, %lpad62.loopexit
-  %q58.sroa.19.4 = phi ptr [ %q58.sroa.19.2467, %lpad62.loopexit ], [ %q58.sroa.19.4.ph, %lpad62.loopexit.split-lp ]
+  %q58.sroa.19.0 = phi ptr [ %q58.sroa.19.1467, %lpad62.loopexit ], [ %q58.sroa.19.0.ph, %lpad62.loopexit.split-lp ]
   %lpad.phi453 = phi { ptr, i32 } [ %lpad.loopexit451, %lpad62.loopexit ], [ %lpad.loopexit.split-lp452, %lpad62.loopexit.split-lp ]
   br label %do.body.i196
 
 do.body.i196:                                     ; preds = %do.body.i196, %lpad62
-  %n.0.i197 = phi ptr [ %q58.sroa.19.4, %lpad62 ], [ %54, %do.body.i196 ]
+  %n.0.i197 = phi ptr [ %q58.sroa.19.0, %lpad62 ], [ %54, %do.body.i196 ]
   %54 = load ptr, ptr %n.0.i197, align 8
   call void @_ZdlPv(ptr noundef %n.0.i197) #20
   %tobool.not.i198 = icmp eq ptr %54, null
@@ -4079,9 +4079,9 @@ if.then.i201:                                     ; preds = %if.else
   br label %for.inc76
 
 for.inc76:                                        ; preds = %if.then.i201, %if.else, %invoke.cont72
-  %q58.sroa.14.2 = phi ptr [ %retval.0.i.i185, %invoke.cont72 ], [ %q58.sroa.14.1466, %if.else ], [ %q58.sroa.14.1466, %if.then.i201 ]
-  %q58.sroa.19.5 = phi ptr [ %q58.sroa.19.3, %invoke.cont72 ], [ %q58.sroa.19.2467, %if.else ], [ %q58.sroa.19.2467, %if.then.i201 ]
-  %q58.sroa.30.4 = phi ptr [ %q58.sroa.30.3, %invoke.cont72 ], [ %q58.sroa.30.2468, %if.else ], [ %q58.sroa.30.2468, %if.then.i201 ]
+  %q58.sroa.14.1 = phi ptr [ %retval.0.i.i185, %invoke.cont72 ], [ %q58.sroa.14.0466, %if.else ], [ %q58.sroa.14.0466, %if.then.i201 ]
+  %q58.sroa.19.2 = phi ptr [ %q58.sroa.19.5, %invoke.cont72 ], [ %q58.sroa.19.1467, %if.else ], [ %q58.sroa.19.1467, %if.then.i201 ]
+  %q58.sroa.30.1 = phi ptr [ %q58.sroa.30.4, %invoke.cont72 ], [ %q58.sroa.30.0468, %if.else ], [ %q58.sroa.30.0468, %if.then.i201 ]
   %num59.1 = phi i32 [ %inc73, %invoke.cont72 ], [ %num59.0470, %if.else ], [ %num59.0470, %if.then.i201 ]
   %inc77 = add nuw nsw i64 %i65.0469, 1
   %cmp67.not = icmp eq i64 %inc77, 200000
@@ -4111,7 +4111,7 @@ _ZN10spsc_queueIiE11try_dequeueERi.exit207:       ; preds = %invoke.cont80, %if.
   br label %do.body.i209
 
 do.body.i209:                                     ; preds = %do.body.i209, %_ZN10spsc_queueIiE11try_dequeueERi.exit207
-  %n.0.i210 = phi ptr [ %q58.sroa.19.5, %_ZN10spsc_queueIiE11try_dequeueERi.exit207 ], [ %59, %do.body.i209 ]
+  %n.0.i210 = phi ptr [ %q58.sroa.19.2, %_ZN10spsc_queueIiE11try_dequeueERi.exit207 ], [ %59, %do.body.i209 ]
   %59 = load ptr, ptr %n.0.i210, align 8
   call void @_ZdlPv(ptr noundef %n.0.i210) #20
   %tobool.not.i211 = icmp eq ptr %59, null
@@ -5213,8 +5213,8 @@ sw.bb58:                                          ; preds = %entry
 
 for.body70:                                       ; preds = %sw.bb58, %for.inc79
   %i67.0293 = phi i64 [ 0, %sw.bb58 ], [ %inc80, %for.inc79 ]
-  %q60.sroa.16.0292 = phi i32 [ 0, %sw.bb58 ], [ %q60.sroa.16.2, %for.inc79 ]
-  %q60.sroa.10.0291 = phi i32 [ 0, %sw.bb58 ], [ %q60.sroa.10.2, %for.inc79 ]
+  %q60.sroa.16.0292 = phi i32 [ 0, %sw.bb58 ], [ %q60.sroa.16.1, %for.inc79 ]
+  %q60.sroa.10.0291 = phi i32 [ 0, %sw.bb58 ], [ %q60.sroa.10.1, %for.inc79 ]
   %call.i115116 = call noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %rand, ptr noundef nonnull align 8 dereferenceable(8) %rng, ptr noundef nonnull align 4 dereferenceable(8) %rand)
   %cmp73 = icmp eq i32 %call.i115116, 1
   br i1 %cmp73, label %if.then, label %if.else
@@ -5238,8 +5238,8 @@ if.end.i132:                                      ; preds = %if.else
   br label %for.inc79
 
 for.inc79:                                        ; preds = %if.end.i132, %if.else, %if.then
-  %q60.sroa.10.2 = phi i32 [ %q60.sroa.10.0291, %if.then ], [ %q60.sroa.16.0292, %if.else ], [ %spec.store.select.i138, %if.end.i132 ]
-  %q60.sroa.16.2 = phi i32 [ %spec.select, %if.then ], [ %q60.sroa.16.0292, %if.else ], [ %q60.sroa.16.0292, %if.end.i132 ]
+  %q60.sroa.10.1 = phi i32 [ %q60.sroa.10.0291, %if.then ], [ %q60.sroa.16.0292, %if.else ], [ %spec.store.select.i138, %if.end.i132 ]
+  %q60.sroa.16.1 = phi i32 [ %spec.select, %if.then ], [ %q60.sroa.16.0292, %if.else ], [ %q60.sroa.16.0292, %if.end.i132 ]
   %inc80 = add nuw nsw i64 %i67.0293, 1
   %cmp69.not = icmp eq i64 %inc80, 200000
   br i1 %cmp69.not, label %for.end81, label %for.body70, !llvm.loop !36
@@ -5247,7 +5247,7 @@ for.inc79:                                        ; preds = %if.end.i132, %if.el
 for.end81:                                        ; preds = %for.inc79
   %19 = extractvalue { i64, i64 } %call66, 1
   %call84 = call noundef double @_ZN10moodycamel12getTimeDeltaE8timespec(i64 %18, i64 %19)
-  %cmp.i142 = icmp ne i32 %q60.sroa.10.2, %q60.sroa.16.2
+  %cmp.i142 = icmp ne i32 %q60.sroa.10.1, %q60.sroa.16.1
   %conv87 = zext i1 %cmp.i142 to i32
   store volatile i32 %conv87, ptr %forceNoOptimizeDummy, align 4
   br label %sw.epilog

@@ -283,7 +283,7 @@ lor.lhs.false32:                                  ; preds = %if.then27
   br i1 %tobool37.not, label %err, label %if.end40
 
 if.end40:                                         ; preds = %lor.lhs.false32, %if.end24
-  %server2_ctx.0 = phi ptr [ %call29, %lor.lhs.false32 ], [ null, %if.end24 ]
+  %server2_ctx.2 = phi ptr [ %call29, %lor.lhs.false32 ], [ null, %if.end24 ]
   %8 = load ptr, ptr @libctx, align 8
   %call41 = call ptr @DTLS_client_method() #3
   %call42 = call ptr @SSL_CTX_new_ex(ptr noundef %8, ptr noundef null, ptr noundef %call41) #3
@@ -341,18 +341,18 @@ lor.lhs.false79:                                  ; preds = %if.end76
   br i1 %tobool81.not, label %err, label %if.end85thread-pre-split
 
 if.end85thread-pre-split:                         ; preds = %lor.lhs.false79, %if.end49
-  %resume_server_ctx.0.ph = phi ptr [ null, %if.end49 ], [ %call54, %lor.lhs.false79 ]
-  %resume_client_ctx.0.ph = phi ptr [ null, %if.end49 ], [ %call69, %lor.lhs.false79 ]
+  %resume_server_ctx.1.ph = phi ptr [ null, %if.end49 ], [ %call54, %lor.lhs.false79 ]
+  %resume_client_ctx.1.ph = phi ptr [ null, %if.end49 ], [ %call69, %lor.lhs.false79 ]
   %.pr = load i32, ptr %call2, align 8
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end85thread-pre-split, %if.end9
   %12 = phi i32 [ %.pr, %if.end85thread-pre-split ], [ %4, %if.end9 ]
-  %server_ctx.0 = phi ptr [ %call13, %if.end85thread-pre-split ], [ null, %if.end9 ]
-  %server2_ctx.1 = phi ptr [ %server2_ctx.0, %if.end85thread-pre-split ], [ null, %if.end9 ]
-  %client_ctx.0 = phi ptr [ %call42, %if.end85thread-pre-split ], [ null, %if.end9 ]
-  %resume_server_ctx.0 = phi ptr [ %resume_server_ctx.0.ph, %if.end85thread-pre-split ], [ null, %if.end9 ]
-  %resume_client_ctx.0 = phi ptr [ %resume_client_ctx.0.ph, %if.end85thread-pre-split ], [ null, %if.end9 ]
+  %server_ctx.1 = phi ptr [ %call13, %if.end85thread-pre-split ], [ null, %if.end9 ]
+  %server2_ctx.1 = phi ptr [ %server2_ctx.2, %if.end85thread-pre-split ], [ null, %if.end9 ]
+  %client_ctx.1 = phi ptr [ %call42, %if.end85thread-pre-split ], [ null, %if.end9 ]
+  %resume_server_ctx.1 = phi ptr [ %resume_server_ctx.1.ph, %if.end85thread-pre-split ], [ null, %if.end9 ]
+  %resume_client_ctx.1 = phi ptr [ %resume_client_ctx.1.ph, %if.end85thread-pre-split ], [ null, %if.end9 ]
   %cmp87 = icmp eq i32 %12, 0
   br i1 %cmp87, label %if.then89, label %if.end181
 
@@ -406,7 +406,7 @@ if.end123:                                        ; preds = %lor.lhs.false116
   br i1 %tobool129.not, label %err, label %if.end132
 
 if.end132:                                        ; preds = %if.end123, %if.end105
-  %server2_ctx.2 = phi ptr [ %call113, %if.end123 ], [ %server2_ctx.1, %if.end105 ]
+  %server2_ctx.4 = phi ptr [ %call113, %if.end123 ], [ %server2_ctx.1, %if.end105 ]
   %16 = load ptr, ptr @libctx, align 8
   %call133 = call ptr @TLS_client_method() #3
   %call134 = call ptr @SSL_CTX_new_ex(ptr noundef %16, ptr noundef null, ptr noundef %call133) #3
@@ -464,17 +464,17 @@ lor.lhs.false175:                                 ; preds = %if.end172
   br i1 %tobool177.not, label %err, label %if.end181
 
 if.end181:                                        ; preds = %if.end142, %lor.lhs.false175, %if.end85
-  %server_ctx.1 = phi ptr [ %call91, %lor.lhs.false175 ], [ %call91, %if.end142 ], [ %server_ctx.0, %if.end85 ]
-  %server2_ctx.3 = phi ptr [ %server2_ctx.2, %lor.lhs.false175 ], [ %server2_ctx.2, %if.end142 ], [ %server2_ctx.1, %if.end85 ]
-  %client_ctx.1 = phi ptr [ %call134, %lor.lhs.false175 ], [ %call134, %if.end142 ], [ %client_ctx.0, %if.end85 ]
-  %resume_server_ctx.1 = phi ptr [ %call148, %lor.lhs.false175 ], [ %resume_server_ctx.0, %if.end142 ], [ %resume_server_ctx.0, %if.end85 ]
-  %resume_client_ctx.1 = phi ptr [ %call164, %lor.lhs.false175 ], [ %resume_client_ctx.0, %if.end142 ], [ %resume_client_ctx.0, %if.end85 ]
-  %call182 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 506, ptr noundef nonnull @.str.43, ptr noundef %server_ctx.1) #3
+  %server_ctx.2 = phi ptr [ %call91, %lor.lhs.false175 ], [ %call91, %if.end142 ], [ %server_ctx.1, %if.end85 ]
+  %server2_ctx.3 = phi ptr [ %server2_ctx.4, %lor.lhs.false175 ], [ %server2_ctx.4, %if.end142 ], [ %server2_ctx.1, %if.end85 ]
+  %client_ctx.2 = phi ptr [ %call134, %lor.lhs.false175 ], [ %call134, %if.end142 ], [ %client_ctx.1, %if.end85 ]
+  %resume_server_ctx.2 = phi ptr [ %call148, %lor.lhs.false175 ], [ %resume_server_ctx.1, %if.end142 ], [ %resume_server_ctx.1, %if.end85 ]
+  %resume_client_ctx.2 = phi ptr [ %call164, %lor.lhs.false175 ], [ %resume_client_ctx.1, %if.end142 ], [ %resume_client_ctx.1, %if.end85 ]
+  %call182 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 506, ptr noundef nonnull @.str.43, ptr noundef %server_ctx.2) #3
   %tobool183.not = icmp eq i32 %call182, 0
   br i1 %tobool183.not, label %err, label %lor.lhs.false184
 
 lor.lhs.false184:                                 ; preds = %if.end181
-  %call185 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 507, ptr noundef nonnull @.str.44, ptr noundef %client_ctx.1) #3
+  %call185 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 507, ptr noundef nonnull @.str.44, ptr noundef %client_ctx.2) #3
   %tobool186.not = icmp eq i32 %call185, 0
   br i1 %tobool186.not, label %err, label %lor.lhs.false187
 
@@ -486,12 +486,12 @@ lor.lhs.false187:                                 ; preds = %lor.lhs.false184
   br i1 %tobool191.not, label %err, label %if.end193
 
 if.end193:                                        ; preds = %lor.lhs.false187
-  %call194 = call i32 @SSL_CTX_config(ptr noundef %server_ctx.1, ptr noundef nonnull @.str.46) #3
+  %call194 = call i32 @SSL_CTX_config(ptr noundef %server_ctx.2, ptr noundef nonnull @.str.46) #3
   %tobool195.not = icmp eq i32 %call194, 0
   br i1 %tobool195.not, label %err, label %lor.lhs.false196
 
 lor.lhs.false196:                                 ; preds = %if.end193
-  %call197 = call i32 @SSL_CTX_config(ptr noundef %client_ctx.1, ptr noundef nonnull @.str.47) #3
+  %call197 = call i32 @SSL_CTX_config(ptr noundef %client_ctx.2, ptr noundef nonnull @.str.47) #3
   %tobool198.not = icmp eq i32 %call197, 0
   br i1 %tobool198.not, label %err, label %if.end200
 
@@ -505,25 +505,25 @@ land.lhs.true203:                                 ; preds = %if.end200
   br i1 %tobool205.not, label %err, label %if.end207
 
 if.end207:                                        ; preds = %land.lhs.true203, %if.end200
-  %cmp208.not = icmp eq ptr %resume_server_ctx.1, null
+  %cmp208.not = icmp eq ptr %resume_server_ctx.2, null
   br i1 %cmp208.not, label %if.end214, label %land.lhs.true210
 
 land.lhs.true210:                                 ; preds = %if.end207
-  %call211 = call i32 @SSL_CTX_config(ptr noundef nonnull %resume_server_ctx.1, ptr noundef nonnull @.str.49) #3
+  %call211 = call i32 @SSL_CTX_config(ptr noundef nonnull %resume_server_ctx.2, ptr noundef nonnull @.str.49) #3
   %tobool212.not = icmp eq i32 %call211, 0
   br i1 %tobool212.not, label %err, label %if.end214
 
 if.end214:                                        ; preds = %land.lhs.true210, %if.end207
-  %cmp215.not = icmp eq ptr %resume_client_ctx.1, null
+  %cmp215.not = icmp eq ptr %resume_client_ctx.2, null
   br i1 %cmp215.not, label %if.end221, label %land.lhs.true217
 
 land.lhs.true217:                                 ; preds = %if.end214
-  %call218 = call i32 @SSL_CTX_config(ptr noundef nonnull %resume_client_ctx.1, ptr noundef nonnull @.str.50) #3
+  %call218 = call i32 @SSL_CTX_config(ptr noundef nonnull %resume_client_ctx.2, ptr noundef nonnull @.str.50) #3
   %tobool219.not = icmp eq i32 %call218, 0
   br i1 %tobool219.not, label %err, label %if.end221
 
 if.end221:                                        ; preds = %land.lhs.true217, %if.end214
-  %call222 = call ptr @do_handshake(ptr noundef %server_ctx.1, ptr noundef %server2_ctx.3, ptr noundef %client_ctx.1, ptr noundef %resume_server_ctx.1, ptr noundef %resume_client_ctx.1, ptr noundef nonnull %call2) #3
+  %call222 = call ptr @do_handshake(ptr noundef %server_ctx.2, ptr noundef %server2_ctx.3, ptr noundef %client_ctx.2, ptr noundef %resume_server_ctx.2, ptr noundef %resume_client_ctx.2, ptr noundef nonnull %call2) #3
   %cmp223.not = icmp eq ptr %call222, null
   br i1 %cmp223.not, label %err, label %if.then225
 
@@ -532,19 +532,19 @@ if.then225:                                       ; preds = %if.end221
   br label %err
 
 err:                                              ; preds = %if.end221, %if.then225, %land.lhs.true217, %land.lhs.true210, %land.lhs.true203, %if.end193, %lor.lhs.false196, %if.end181, %lor.lhs.false184, %lor.lhs.false187, %if.end172, %lor.lhs.false175, %if.end162, %if.then146, %lor.lhs.false155, %if.end132, %if.end123, %if.then111, %lor.lhs.false116, %if.then89, %lor.lhs.false98, %if.end76, %lor.lhs.false79, %if.end67, %if.then52, %lor.lhs.false60, %if.end40, %if.then27, %lor.lhs.false32, %if.then11, %lor.lhs.false, %entry, %if.then7
-  %server_ctx.2 = phi ptr [ %server_ctx.1, %if.then225 ], [ %server_ctx.1, %if.end221 ], [ %server_ctx.1, %land.lhs.true217 ], [ %server_ctx.1, %land.lhs.true210 ], [ %server_ctx.1, %land.lhs.true203 ], [ %server_ctx.1, %lor.lhs.false196 ], [ %server_ctx.1, %if.end193 ], [ %server_ctx.1, %lor.lhs.false187 ], [ %server_ctx.1, %lor.lhs.false184 ], [ %server_ctx.1, %if.end181 ], [ %call91, %lor.lhs.false175 ], [ %call91, %if.end172 ], [ %call91, %if.end162 ], [ %call91, %lor.lhs.false155 ], [ %call91, %if.then146 ], [ %call91, %if.end132 ], [ %call91, %if.end123 ], [ %call91, %lor.lhs.false116 ], [ %call91, %if.then111 ], [ %call91, %lor.lhs.false98 ], [ %call91, %if.then89 ], [ %call13, %lor.lhs.false79 ], [ %call13, %if.end76 ], [ %call13, %if.end67 ], [ %call13, %lor.lhs.false60 ], [ %call13, %if.then52 ], [ %call13, %if.end40 ], [ %call13, %lor.lhs.false32 ], [ %call13, %if.then27 ], [ %call13, %lor.lhs.false ], [ %call13, %if.then11 ], [ null, %if.then7 ], [ null, %entry ]
-  %server2_ctx.4 = phi ptr [ %server2_ctx.3, %if.then225 ], [ %server2_ctx.3, %if.end221 ], [ %server2_ctx.3, %land.lhs.true217 ], [ %server2_ctx.3, %land.lhs.true210 ], [ %server2_ctx.3, %land.lhs.true203 ], [ %server2_ctx.3, %lor.lhs.false196 ], [ %server2_ctx.3, %if.end193 ], [ %server2_ctx.3, %lor.lhs.false187 ], [ %server2_ctx.3, %lor.lhs.false184 ], [ %server2_ctx.3, %if.end181 ], [ %server2_ctx.2, %lor.lhs.false175 ], [ %server2_ctx.2, %if.end172 ], [ %server2_ctx.2, %if.end162 ], [ %server2_ctx.2, %lor.lhs.false155 ], [ %server2_ctx.2, %if.then146 ], [ %server2_ctx.2, %if.end132 ], [ %call113, %if.end123 ], [ %call113, %lor.lhs.false116 ], [ %call113, %if.then111 ], [ %server2_ctx.1, %lor.lhs.false98 ], [ %server2_ctx.1, %if.then89 ], [ %server2_ctx.0, %lor.lhs.false79 ], [ %server2_ctx.0, %if.end76 ], [ %server2_ctx.0, %if.end67 ], [ %server2_ctx.0, %lor.lhs.false60 ], [ %server2_ctx.0, %if.then52 ], [ %server2_ctx.0, %if.end40 ], [ %call29, %lor.lhs.false32 ], [ %call29, %if.then27 ], [ null, %lor.lhs.false ], [ null, %if.then11 ], [ null, %if.then7 ], [ null, %entry ]
-  %client_ctx.2 = phi ptr [ %client_ctx.1, %if.then225 ], [ %client_ctx.1, %if.end221 ], [ %client_ctx.1, %land.lhs.true217 ], [ %client_ctx.1, %land.lhs.true210 ], [ %client_ctx.1, %land.lhs.true203 ], [ %client_ctx.1, %lor.lhs.false196 ], [ %client_ctx.1, %if.end193 ], [ %client_ctx.1, %lor.lhs.false187 ], [ %client_ctx.1, %lor.lhs.false184 ], [ %client_ctx.1, %if.end181 ], [ %call134, %lor.lhs.false175 ], [ %call134, %if.end172 ], [ %call134, %if.end162 ], [ %call134, %lor.lhs.false155 ], [ %call134, %if.then146 ], [ %call134, %if.end132 ], [ %client_ctx.0, %if.end123 ], [ %client_ctx.0, %lor.lhs.false116 ], [ %client_ctx.0, %if.then111 ], [ %client_ctx.0, %lor.lhs.false98 ], [ %client_ctx.0, %if.then89 ], [ %call42, %lor.lhs.false79 ], [ %call42, %if.end76 ], [ %call42, %if.end67 ], [ %call42, %lor.lhs.false60 ], [ %call42, %if.then52 ], [ %call42, %if.end40 ], [ null, %lor.lhs.false32 ], [ null, %if.then27 ], [ null, %lor.lhs.false ], [ null, %if.then11 ], [ null, %if.then7 ], [ null, %entry ]
-  %resume_server_ctx.2 = phi ptr [ %resume_server_ctx.1, %if.then225 ], [ %resume_server_ctx.1, %if.end221 ], [ %resume_server_ctx.1, %land.lhs.true217 ], [ %resume_server_ctx.1, %land.lhs.true210 ], [ %resume_server_ctx.1, %land.lhs.true203 ], [ %resume_server_ctx.1, %lor.lhs.false196 ], [ %resume_server_ctx.1, %if.end193 ], [ %resume_server_ctx.1, %lor.lhs.false187 ], [ %resume_server_ctx.1, %lor.lhs.false184 ], [ %resume_server_ctx.1, %if.end181 ], [ %call148, %lor.lhs.false175 ], [ %call148, %if.end172 ], [ %call148, %if.end162 ], [ %call148, %lor.lhs.false155 ], [ %call148, %if.then146 ], [ %resume_server_ctx.0, %if.end132 ], [ %resume_server_ctx.0, %if.end123 ], [ %resume_server_ctx.0, %lor.lhs.false116 ], [ %resume_server_ctx.0, %if.then111 ], [ %resume_server_ctx.0, %lor.lhs.false98 ], [ %resume_server_ctx.0, %if.then89 ], [ %call54, %lor.lhs.false79 ], [ %call54, %if.end76 ], [ %call54, %if.end67 ], [ %call54, %lor.lhs.false60 ], [ %call54, %if.then52 ], [ null, %if.end40 ], [ null, %lor.lhs.false32 ], [ null, %if.then27 ], [ null, %lor.lhs.false ], [ null, %if.then11 ], [ null, %if.then7 ], [ null, %entry ]
-  %resume_client_ctx.2 = phi ptr [ %resume_client_ctx.1, %if.then225 ], [ %resume_client_ctx.1, %if.end221 ], [ %resume_client_ctx.1, %land.lhs.true217 ], [ %resume_client_ctx.1, %land.lhs.true210 ], [ %resume_client_ctx.1, %land.lhs.true203 ], [ %resume_client_ctx.1, %lor.lhs.false196 ], [ %resume_client_ctx.1, %if.end193 ], [ %resume_client_ctx.1, %lor.lhs.false187 ], [ %resume_client_ctx.1, %lor.lhs.false184 ], [ %resume_client_ctx.1, %if.end181 ], [ %call164, %lor.lhs.false175 ], [ %call164, %if.end172 ], [ %call164, %if.end162 ], [ %resume_client_ctx.0, %lor.lhs.false155 ], [ %resume_client_ctx.0, %if.then146 ], [ %resume_client_ctx.0, %if.end132 ], [ %resume_client_ctx.0, %if.end123 ], [ %resume_client_ctx.0, %lor.lhs.false116 ], [ %resume_client_ctx.0, %if.then111 ], [ %resume_client_ctx.0, %lor.lhs.false98 ], [ %resume_client_ctx.0, %if.then89 ], [ %call69, %lor.lhs.false79 ], [ %call69, %if.end76 ], [ %call69, %if.end67 ], [ null, %lor.lhs.false60 ], [ null, %if.then52 ], [ null, %if.end40 ], [ null, %lor.lhs.false32 ], [ null, %if.then27 ], [ null, %lor.lhs.false ], [ null, %if.then11 ], [ null, %if.then7 ], [ null, %entry ]
+  %server_ctx.0 = phi ptr [ %server_ctx.2, %if.then225 ], [ %server_ctx.2, %if.end221 ], [ %server_ctx.2, %land.lhs.true217 ], [ %server_ctx.2, %land.lhs.true210 ], [ %server_ctx.2, %land.lhs.true203 ], [ %server_ctx.2, %lor.lhs.false196 ], [ %server_ctx.2, %if.end193 ], [ %server_ctx.2, %lor.lhs.false187 ], [ %server_ctx.2, %lor.lhs.false184 ], [ %server_ctx.2, %if.end181 ], [ %call91, %lor.lhs.false175 ], [ %call91, %if.end172 ], [ %call91, %if.end162 ], [ %call91, %lor.lhs.false155 ], [ %call91, %if.then146 ], [ %call91, %if.end132 ], [ %call91, %if.end123 ], [ %call91, %lor.lhs.false116 ], [ %call91, %if.then111 ], [ %call91, %lor.lhs.false98 ], [ %call91, %if.then89 ], [ %call13, %lor.lhs.false79 ], [ %call13, %if.end76 ], [ %call13, %if.end67 ], [ %call13, %lor.lhs.false60 ], [ %call13, %if.then52 ], [ %call13, %if.end40 ], [ %call13, %lor.lhs.false32 ], [ %call13, %if.then27 ], [ %call13, %lor.lhs.false ], [ %call13, %if.then11 ], [ null, %if.then7 ], [ null, %entry ]
+  %server2_ctx.0 = phi ptr [ %server2_ctx.3, %if.then225 ], [ %server2_ctx.3, %if.end221 ], [ %server2_ctx.3, %land.lhs.true217 ], [ %server2_ctx.3, %land.lhs.true210 ], [ %server2_ctx.3, %land.lhs.true203 ], [ %server2_ctx.3, %lor.lhs.false196 ], [ %server2_ctx.3, %if.end193 ], [ %server2_ctx.3, %lor.lhs.false187 ], [ %server2_ctx.3, %lor.lhs.false184 ], [ %server2_ctx.3, %if.end181 ], [ %server2_ctx.4, %lor.lhs.false175 ], [ %server2_ctx.4, %if.end172 ], [ %server2_ctx.4, %if.end162 ], [ %server2_ctx.4, %lor.lhs.false155 ], [ %server2_ctx.4, %if.then146 ], [ %server2_ctx.4, %if.end132 ], [ %call113, %if.end123 ], [ %call113, %lor.lhs.false116 ], [ %call113, %if.then111 ], [ %server2_ctx.1, %lor.lhs.false98 ], [ %server2_ctx.1, %if.then89 ], [ %server2_ctx.2, %lor.lhs.false79 ], [ %server2_ctx.2, %if.end76 ], [ %server2_ctx.2, %if.end67 ], [ %server2_ctx.2, %lor.lhs.false60 ], [ %server2_ctx.2, %if.then52 ], [ %server2_ctx.2, %if.end40 ], [ %call29, %lor.lhs.false32 ], [ %call29, %if.then27 ], [ null, %lor.lhs.false ], [ null, %if.then11 ], [ null, %if.then7 ], [ null, %entry ]
+  %client_ctx.0 = phi ptr [ %client_ctx.2, %if.then225 ], [ %client_ctx.2, %if.end221 ], [ %client_ctx.2, %land.lhs.true217 ], [ %client_ctx.2, %land.lhs.true210 ], [ %client_ctx.2, %land.lhs.true203 ], [ %client_ctx.2, %lor.lhs.false196 ], [ %client_ctx.2, %if.end193 ], [ %client_ctx.2, %lor.lhs.false187 ], [ %client_ctx.2, %lor.lhs.false184 ], [ %client_ctx.2, %if.end181 ], [ %call134, %lor.lhs.false175 ], [ %call134, %if.end172 ], [ %call134, %if.end162 ], [ %call134, %lor.lhs.false155 ], [ %call134, %if.then146 ], [ %call134, %if.end132 ], [ %client_ctx.1, %if.end123 ], [ %client_ctx.1, %lor.lhs.false116 ], [ %client_ctx.1, %if.then111 ], [ %client_ctx.1, %lor.lhs.false98 ], [ %client_ctx.1, %if.then89 ], [ %call42, %lor.lhs.false79 ], [ %call42, %if.end76 ], [ %call42, %if.end67 ], [ %call42, %lor.lhs.false60 ], [ %call42, %if.then52 ], [ %call42, %if.end40 ], [ null, %lor.lhs.false32 ], [ null, %if.then27 ], [ null, %lor.lhs.false ], [ null, %if.then11 ], [ null, %if.then7 ], [ null, %entry ]
+  %resume_server_ctx.0 = phi ptr [ %resume_server_ctx.2, %if.then225 ], [ %resume_server_ctx.2, %if.end221 ], [ %resume_server_ctx.2, %land.lhs.true217 ], [ %resume_server_ctx.2, %land.lhs.true210 ], [ %resume_server_ctx.2, %land.lhs.true203 ], [ %resume_server_ctx.2, %lor.lhs.false196 ], [ %resume_server_ctx.2, %if.end193 ], [ %resume_server_ctx.2, %lor.lhs.false187 ], [ %resume_server_ctx.2, %lor.lhs.false184 ], [ %resume_server_ctx.2, %if.end181 ], [ %call148, %lor.lhs.false175 ], [ %call148, %if.end172 ], [ %call148, %if.end162 ], [ %call148, %lor.lhs.false155 ], [ %call148, %if.then146 ], [ %resume_server_ctx.1, %if.end132 ], [ %resume_server_ctx.1, %if.end123 ], [ %resume_server_ctx.1, %lor.lhs.false116 ], [ %resume_server_ctx.1, %if.then111 ], [ %resume_server_ctx.1, %lor.lhs.false98 ], [ %resume_server_ctx.1, %if.then89 ], [ %call54, %lor.lhs.false79 ], [ %call54, %if.end76 ], [ %call54, %if.end67 ], [ %call54, %lor.lhs.false60 ], [ %call54, %if.then52 ], [ null, %if.end40 ], [ null, %lor.lhs.false32 ], [ null, %if.then27 ], [ null, %lor.lhs.false ], [ null, %if.then11 ], [ null, %if.then7 ], [ null, %entry ]
+  %resume_client_ctx.0 = phi ptr [ %resume_client_ctx.2, %if.then225 ], [ %resume_client_ctx.2, %if.end221 ], [ %resume_client_ctx.2, %land.lhs.true217 ], [ %resume_client_ctx.2, %land.lhs.true210 ], [ %resume_client_ctx.2, %land.lhs.true203 ], [ %resume_client_ctx.2, %lor.lhs.false196 ], [ %resume_client_ctx.2, %if.end193 ], [ %resume_client_ctx.2, %lor.lhs.false187 ], [ %resume_client_ctx.2, %lor.lhs.false184 ], [ %resume_client_ctx.2, %if.end181 ], [ %call164, %lor.lhs.false175 ], [ %call164, %if.end172 ], [ %call164, %if.end162 ], [ %resume_client_ctx.1, %lor.lhs.false155 ], [ %resume_client_ctx.1, %if.then146 ], [ %resume_client_ctx.1, %if.end132 ], [ %resume_client_ctx.1, %if.end123 ], [ %resume_client_ctx.1, %lor.lhs.false116 ], [ %resume_client_ctx.1, %if.then111 ], [ %resume_client_ctx.1, %lor.lhs.false98 ], [ %resume_client_ctx.1, %if.then89 ], [ %call69, %lor.lhs.false79 ], [ %call69, %if.end76 ], [ %call69, %if.end67 ], [ null, %lor.lhs.false60 ], [ null, %if.then52 ], [ null, %if.end40 ], [ null, %lor.lhs.false32 ], [ null, %if.then27 ], [ null, %lor.lhs.false ], [ null, %if.then11 ], [ null, %if.then7 ], [ null, %entry ]
   %result.0 = phi ptr [ %call222, %if.then225 ], [ null, %if.end221 ], [ null, %land.lhs.true217 ], [ null, %land.lhs.true210 ], [ null, %land.lhs.true203 ], [ null, %lor.lhs.false196 ], [ null, %if.end193 ], [ null, %lor.lhs.false187 ], [ null, %lor.lhs.false184 ], [ null, %if.end181 ], [ null, %lor.lhs.false175 ], [ null, %if.end172 ], [ null, %if.end162 ], [ null, %lor.lhs.false155 ], [ null, %if.then146 ], [ null, %if.end132 ], [ null, %if.end123 ], [ null, %lor.lhs.false116 ], [ null, %if.then111 ], [ null, %lor.lhs.false98 ], [ null, %if.then89 ], [ null, %lor.lhs.false79 ], [ null, %if.end76 ], [ null, %if.end67 ], [ null, %lor.lhs.false60 ], [ null, %if.then52 ], [ null, %if.end40 ], [ null, %lor.lhs.false32 ], [ null, %if.then27 ], [ null, %lor.lhs.false ], [ null, %if.then11 ], [ null, %if.then7 ], [ null, %entry ]
   %ret.0 = phi i32 [ %call226, %if.then225 ], [ 0, %if.end221 ], [ 0, %land.lhs.true217 ], [ 0, %land.lhs.true210 ], [ 0, %land.lhs.true203 ], [ 0, %lor.lhs.false196 ], [ 0, %if.end193 ], [ 0, %lor.lhs.false187 ], [ 0, %lor.lhs.false184 ], [ 0, %if.end181 ], [ 0, %lor.lhs.false175 ], [ 0, %if.end172 ], [ 0, %if.end162 ], [ 0, %lor.lhs.false155 ], [ 0, %if.then146 ], [ 0, %if.end132 ], [ 0, %if.end123 ], [ 0, %lor.lhs.false116 ], [ 0, %if.then111 ], [ 0, %lor.lhs.false98 ], [ 0, %if.then89 ], [ 0, %lor.lhs.false79 ], [ 0, %if.end76 ], [ 0, %if.end67 ], [ 0, %lor.lhs.false60 ], [ 0, %if.then52 ], [ 0, %if.end40 ], [ 0, %lor.lhs.false32 ], [ 0, %if.then27 ], [ 0, %lor.lhs.false ], [ 0, %if.then11 ], [ %call8, %if.then7 ], [ 0, %entry ]
   call void @CONF_modules_unload(i32 noundef 0) #3
-  call void @SSL_CTX_free(ptr noundef %server_ctx.2) #3
-  call void @SSL_CTX_free(ptr noundef %server2_ctx.4) #3
-  call void @SSL_CTX_free(ptr noundef %client_ctx.2) #3
-  call void @SSL_CTX_free(ptr noundef %resume_server_ctx.2) #3
-  call void @SSL_CTX_free(ptr noundef %resume_client_ctx.2) #3
+  call void @SSL_CTX_free(ptr noundef %server_ctx.0) #3
+  call void @SSL_CTX_free(ptr noundef %server2_ctx.0) #3
+  call void @SSL_CTX_free(ptr noundef %client_ctx.0) #3
+  call void @SSL_CTX_free(ptr noundef %resume_server_ctx.0) #3
+  call void @SSL_CTX_free(ptr noundef %resume_client_ctx.0) #3
   call void @SSL_TEST_CTX_free(ptr noundef %call2) #3
   call void @HANDSHAKE_RESULT_free(ptr noundef %result.0) #3
   ret i32 %ret.0

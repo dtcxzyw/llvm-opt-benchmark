@@ -2908,7 +2908,7 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc49
   br i1 %132, label %.lr.ph96.preheader, label %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit
 
 .lr.ph96.preheader:                               ; preds = %.preheader82.thread, %.preheader82
-  %.sroa.0.1129132 = phi ptr [ null, %.preheader82.thread ], [ %127, %.preheader82 ]
+  %.sroa.0.2129132 = phi ptr [ null, %.preheader82.thread ], [ %127, %.preheader82 ]
   br label %.lr.ph96
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2927,9 +2927,9 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc49
           to label %138 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 138:                                              ; preds = %.lr.ph96
-  %139 = getelementptr inbounds i64, ptr %.sroa.0.1129132, i64 %indvars.iv
+  %139 = getelementptr inbounds i64, ptr %.sroa.0.2129132, i64 %indvars.iv
   %140 = sext i32 %137 to i64
-  %141 = getelementptr inbounds i64, ptr %.sroa.0.1129132, i64 %140
+  %141 = getelementptr inbounds i64, ptr %.sroa.0.2129132, i64 %140
   %142 = load i64, ptr %139, align 8
   %143 = load i64, ptr %141, align 8
   store i64 %143, ptr %139, align 8
@@ -2943,8 +2943,8 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc49
   br i1 %147, label %.lr.ph96, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %138, %.preheader82
-  %.sroa.0.1129133 = phi ptr [ %127, %.preheader82 ], [ %.sroa.0.1129132, %138 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1129133) #20
+  %.sroa.0.2129133 = phi ptr [ %127, %.preheader82 ], [ %.sroa.0.2129132, %138 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2129133) #20
   br label %_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit
 
 _ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEED2Ev.exit: ; preds = %.preheader82.thread, %._crit_edge, %121, %_ZNSt10_HashtableIllSaIlENSt8__detail9_IdentityESt8equal_toIlESt4hashIlENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i

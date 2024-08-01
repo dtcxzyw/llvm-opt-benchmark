@@ -504,10 +504,10 @@ invoke.cont17:                                    ; preds = %invoke.cont11
 
 if.end19:                                         ; preds = %invoke.cont17, %invoke.cont15
   %.val = phi i64 [ %.val.pre, %invoke.cont15 ], [ %4, %invoke.cont17 ]
-  %v_cr.sroa.0.1.in = phi ptr [ %ref.tmp13, %invoke.cont15 ], [ %props.i, %invoke.cont17 ]
-  %v_cr.sroa.6.1 = phi i64 [ %v_cr.sroa.6.0.copyload, %invoke.cont15 ], [ %v_cr.sroa.6.0.copyload50, %invoke.cont17 ]
+  %v_cr.sroa.0.2.in = phi ptr [ %ref.tmp13, %invoke.cont15 ], [ %props.i, %invoke.cont17 ]
+  %v_cr.sroa.6.2 = phi i64 [ %v_cr.sroa.6.0.copyload, %invoke.cont15 ], [ %v_cr.sroa.6.0.copyload50, %invoke.cont17 ]
   %8 = phi <2 x i64> [ %6, %invoke.cont15 ], [ %7, %invoke.cont17 ]
-  %v_cr.sroa.0.1 = load i64, ptr %v_cr.sroa.0.1.in, align 8
+  %v_cr.sroa.0.2 = load i64, ptr %v_cr.sroa.0.2.in, align 8
   %conv2.i = and i64 %.val, 4294967295
   %9 = load ptr, ptr %_M_finish.i.i.i.i, align 8
   %10 = load ptr, ptr %depths, align 8
@@ -572,7 +572,7 @@ for.inc:                                          ; preds = %for.inc.preheader, 
   %indvars.iv = phi i64 [ 0, %for.inc.preheader ], [ %indvars.iv.next, %for.inc ]
   %add.ptr.i = getelementptr inbounds %"class.ue2::CharReach", ptr %call5.i.i.i.i2.i.i19, i64 %indvars.iv
   %16 = load i64, ptr %add.ptr.i, align 8
-  %or.i.i = or i64 %16, %v_cr.sroa.0.1
+  %or.i.i = or i64 %16, %v_cr.sroa.0.2
   store i64 %or.i.i, ptr %add.ptr.i, align 8
   %arrayidx.i.i20.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   %17 = load <2 x i64>, ptr %arrayidx.i.i20.i.i, align 8
@@ -580,7 +580,7 @@ for.inc:                                          ; preds = %for.inc.preheader, 
   store <2 x i64> %18, ptr %arrayidx.i.i20.i.i, align 8
   %arrayidx.i.i24.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 24
   %19 = load i64, ptr %arrayidx.i.i24.i.i, align 8
-  %or24.i.i = or i64 %19, %v_cr.sroa.6.1
+  %or24.i.i = or i64 %19, %v_cr.sroa.6.2
   store i64 %or24.i.i, ptr %arrayidx.i.i24.i.i, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -2036,7 +2036,7 @@ define internal i64 @ossl_bn_s_rand(i32 noundef %0, ptr noundef %1, i64 noundef 
   br label %12
 
 12:                                               ; preds = %8, %3
-  %.0 = phi i32 [ 0, %3 ], [ %11, %8 ]
+  %.1 = phi i32 [ 0, %3 ], [ %11, %8 ]
   %13 = load i64, ptr %5, align 8
   %14 = and i64 %13, 1
   %.not.i = icmp eq i64 %14, 0
@@ -2057,7 +2057,7 @@ rb_num2int_inline.exit:                           ; preds = %15, %17
 
 20:                                               ; preds = %rb_num2int_inline.exit, %3
   %.011 = phi i32 [ 0, %3 ], [ %19, %rb_num2int_inline.exit ]
-  %.1 = phi i32 [ 0, %3 ], [ %.0, %rb_num2int_inline.exit ]
+  %.0 = phi i32 [ 0, %3 ], [ %.1, %rb_num2int_inline.exit ]
   %21 = load i64, ptr %4, align 8
   %22 = and i64 %21, 1
   %.not.i13 = icmp eq i64 %22, 0
@@ -2085,7 +2085,7 @@ rb_num2int_inline.exit15:                         ; preds = %23, %25
 
 31:                                               ; preds = %rb_num2int_inline.exit15
   %32 = trunc i64 %.0.i14 to i32
-  %33 = call i32 @BN_rand(ptr noundef nonnull %28, i32 noundef %32, i32 noundef %.011, i32 noundef %.1) #10
+  %33 = call i32 @BN_rand(ptr noundef nonnull %28, i32 noundef %32, i32 noundef %.011, i32 noundef %.0) #10
   %34 = icmp slt i32 %33, 1
   br i1 %34, label %35, label %37
 

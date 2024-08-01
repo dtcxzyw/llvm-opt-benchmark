@@ -1769,8 +1769,8 @@ _ZL19is_directory_securePKc.exit:                 ; preds = %.critedge3.i
 
 .lr.ph79:                                         ; preds = %66, %.outer
   %68 = phi ptr [ %116, %.outer ], [ %67, %66 ]
-  %.1.ph87 = phi ptr [ %.3, %.outer ], [ %.052.ph92, %66 ]
-  %.154.ph86 = phi i64 [ %.356, %.outer ], [ %.053.ph91, %66 ]
+  %.1.ph87 = phi ptr [ %.2, %.outer ], [ %.052.ph92, %66 ]
+  %.154.ph86 = phi i64 [ %.255, %.outer ], [ %.053.ph91, %66 ]
   br label %69
 
 69:                                               ; preds = %.lr.ph79, %.backedge
@@ -1866,21 +1866,21 @@ _ZL15filename_to_pidPKc.exit:                     ; preds = %69, %74, %80, %82
   br label %115
 
 115:                                              ; preds = %107, %102
-  %.255 = phi i64 [ %114, %107 ], [ %.154.ph86, %102 ]
-  %.2 = phi ptr [ %112, %107 ], [ %.1.ph87, %102 ]
+  %.356 = phi i64 [ %114, %107 ], [ %.154.ph86, %102 ]
+  %.3 = phi ptr [ %112, %107 ], [ %.1.ph87, %102 ]
   call void @_Z8FreeHeapPv(ptr noundef %89) #13
   br label %.outer
 
 .outer:                                           ; preds = %_ZL15filename_to_pidPKc.exit, %115
-  %.356 = phi i64 [ %.255, %115 ], [ %.154.ph86, %_ZL15filename_to_pidPKc.exit ]
-  %.3 = phi ptr [ %.2, %115 ], [ %.1.ph87, %_ZL15filename_to_pidPKc.exit ]
+  %.255 = phi i64 [ %.356, %115 ], [ %.154.ph86, %_ZL15filename_to_pidPKc.exit ]
+  %.2 = phi ptr [ %.3, %115 ], [ %.1.ph87, %_ZL15filename_to_pidPKc.exit ]
   %116 = call noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef nonnull %49) #13
   %.not6578 = icmp eq ptr %116, null
   br i1 %.not6578, label %.outer71, label %.lr.ph79, !llvm.loop !27
 
 .outer71:                                         ; preds = %.outer, %.backedge, %66
-  %.154.ph.lcssa = phi i64 [ %.053.ph91, %66 ], [ %.154.ph86, %.backedge ], [ %.356, %.outer ]
-  %.1.ph.lcssa = phi ptr [ %.052.ph92, %66 ], [ %.1.ph87, %.backedge ], [ %.3, %.outer ]
+  %.154.ph.lcssa = phi i64 [ %.053.ph91, %66 ], [ %.154.ph86, %.backedge ], [ %.255, %.outer ]
+  %.1.ph.lcssa = phi ptr [ %.052.ph92, %66 ], [ %.1.ph87, %.backedge ], [ %.2, %.outer ]
   %117 = call noundef i32 @_ZN2os8closedirEP11__dirstream(ptr noundef nonnull %49) #13
   call void @_Z8FreeHeapPv(ptr noundef %46) #13
   %118 = call noundef ptr @_ZN2os7readdirEP11__dirstream(ptr noundef nonnull %25) #13

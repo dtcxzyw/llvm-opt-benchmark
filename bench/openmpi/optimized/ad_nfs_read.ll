@@ -42,15 +42,15 @@ define void @ADIOI_NFS_ReadContig(ptr noundef %0, ptr nocapture noundef %1, i32 
 
 25:                                               ; preds = %.lr.ph, %47
   %.061 = phi ptr [ %1, %.lr.ph ], [ %49, %47 ]
-  %.05160 = phi i64 [ 0, %.lr.ph ], [ %48, %47 ]
-  %26 = sub nsw i64 %15, %.05160
+  %.160 = phi i64 [ 0, %.lr.ph ], [ %48, %47 ]
+  %26 = sub nsw i64 %15, %.160
   %spec.store.select = call i64 @llvm.umin.i64(i64 %26, i64 2147483647)
   %27 = load i32, ptr %22, align 8
   %.not = icmp ne i32 %27, 0
   %28 = load ptr, ptr %23, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 216
   %30 = load ptr, ptr %29, align 8
-  %31 = add nsw i64 %.05160, %.052
+  %31 = add nsw i64 %.160, %.052
   %. = zext i1 %.not to i32
   %32 = call i32 %30(ptr noundef nonnull %0, i32 noundef 7, i32 noundef %., i64 noundef %31, i32 noundef 0, i64 noundef %spec.store.select) #8
   %33 = load i32, ptr %24, align 4
@@ -75,15 +75,15 @@ define void @ADIOI_NFS_ReadContig(ptr noundef %0, ptr nocapture noundef %1, i32 
   br i1 %46, label %._crit_edge, label %47
 
 47:                                               ; preds = %41
-  %48 = add nsw i64 %34, %.05160
+  %48 = add nsw i64 %34, %.160
   %49 = getelementptr inbounds i8, ptr %.061, i64 %34
   %50 = icmp slt i64 %48, %15
   br i1 %50, label %25, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %47, %41, %20
-  %.051.lcssa = phi i64 [ 0, %20 ], [ %.05160, %41 ], [ %48, %47 ]
-  %.154 = phi i64 [ -1, %20 ], [ 0, %41 ], [ %34, %47 ]
-  %51 = add nsw i64 %.051.lcssa, %.052
+  %.1.lcssa = phi i64 [ 0, %20 ], [ %.160, %41 ], [ %48, %47 ]
+  %.2 = phi i64 [ -1, %20 ], [ 0, %41 ], [ %34, %47 ]
+  %51 = add nsw i64 %.1.lcssa, %.052
   %52 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %51, ptr %52, align 8
   br i1 %16, label %53, label %57
@@ -91,20 +91,20 @@ define void @ADIOI_NFS_ReadContig(ptr noundef %0, ptr nocapture noundef %1, i32 
 53:                                               ; preds = %._crit_edge
   %54 = getelementptr inbounds i8, ptr %0, i64 40
   %55 = load i64, ptr %54, align 8
-  %56 = add nsw i64 %55, %.051.lcssa
+  %56 = add nsw i64 %55, %.1.lcssa
   store i64 %56, ptr %54, align 8
   br label %57
 
 57:                                               ; preds = %8, %._crit_edge, %53
-  %.2 = phi i64 [ %.154, %53 ], [ %.154, %._crit_edge ], [ 0, %8 ]
-  %.1 = phi i64 [ %.051.lcssa, %53 ], [ %.051.lcssa, %._crit_edge ], [ 0, %8 ]
+  %.053 = phi i64 [ %.2, %53 ], [ %.2, %._crit_edge ], [ 0, %8 ]
+  %.051 = phi i64 [ %.1.lcssa, %53 ], [ %.1.lcssa, %._crit_edge ], [ 0, %8 ]
   %58 = icmp ne ptr %6, null
-  %59 = icmp ne i64 %.2, -1
+  %59 = icmp ne i64 %.053, -1
   %or.cond = and i1 %58, %59
   br i1 %or.cond, label %60, label %62
 
 60:                                               ; preds = %57
-  %61 = call i32 @mca_io_romio_dist_MPIR_Status_set_bytes(ptr noundef nonnull %6, ptr noundef %3, i64 noundef %.1) #8
+  %61 = call i32 @mca_io_romio_dist_MPIR_Status_set_bytes(ptr noundef nonnull %6, ptr noundef %3, i64 noundef %.051) #8
   br label %62
 
 62:                                               ; preds = %60, %57
@@ -613,9 +613,9 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %exitcond.not, label %.loopexit843, label %265, !llvm.loop !11
 
 .loopexit843:                                     ; preds = %279, %253, %270
-  %.0716 = phi i32 [ %271, %270 ], [ 0, %253 ], [ 0, %279 ]
+  %.1717 = phi i32 [ %271, %270 ], [ 0, %253 ], [ 0, %279 ]
   %.0681 = phi i64 [ %278, %270 ], [ 0, %253 ], [ 0, %279 ]
-  %.1673 = phi i64 [ %272, %270 ], [ 0, %253 ], [ 0, %279 ]
+  %.2674 = phi i64 [ %272, %270 ], [ 0, %253 ], [ 0, %279 ]
   %280 = load i64, ptr %12, align 8
   %281 = mul nsw i64 %280, %257
   br label %.loopexit842
@@ -625,14 +625,14 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %.sink1096 = phi i64 [ %281, %.loopexit843 ], [ %226, %.loopexit842.loopexit ], [ %226, %215 ], [ %247, %242 ]
   %282 = phi i64 [ %280, %.loopexit843 ], [ %223, %.loopexit842.loopexit ], [ %223, %215 ], [ %223, %242 ]
   %283 = phi i64 [ %261, %.loopexit843 ], [ %228, %.loopexit842.loopexit ], [ %228, %215 ], [ %228, %242 ]
-  %.1717 = phi i32 [ %.0716, %.loopexit843 ], [ %.2670.ph, %.loopexit842.loopexit ], [ 0, %215 ], [ %244, %242 ]
+  %.0716 = phi i32 [ %.1717, %.loopexit843 ], [ %.2670.ph, %.loopexit842.loopexit ], [ 0, %215 ], [ %244, %242 ]
   %.0693 = phi i64 [ %257, %.loopexit843 ], [ %224, %.loopexit842.loopexit ], [ %224, %215 ], [ %224, %242 ]
-  %.2674 = phi i64 [ %.1673, %.loopexit843 ], [ %.0672.ph, %.loopexit842.loopexit ], [ 0, %215 ], [ %249, %242 ]
+  %.1673 = phi i64 [ %.2674, %.loopexit843 ], [ %.0672.ph, %.loopexit842.loopexit ], [ 0, %215 ], [ %249, %242 ]
   %284 = add i64 %.0681.sink, %213
   %285 = add i64 %284, %.sink1096
   %286 = load i32, ptr %14, align 4
   %.not761 = icmp eq i32 %286, 0
-  %.not762 = icmp sgt i64 %33, %.2674
+  %.not762 = icmp sgt i64 %33, %.1673
   %or.cond806 = select i1 %.not761, i1 true, i1 %.not762
   br i1 %or.cond806, label %321, label %287
 
@@ -648,7 +648,7 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %293 = add nsw i64 %285, %33
   %294 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %293, ptr %294, align 8
-  %295 = icmp eq i64 %33, %.2674
+  %295 = icmp eq i64 %33, %.1673
   br i1 %295, label %.preheader841, label %318
 
 .preheader841:                                    ; preds = %292
@@ -659,7 +659,7 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %300
 
 300:                                              ; preds = %.preheader841, %300
-  %.2718 = phi i32 [ %spec.select807, %300 ], [ %.1717, %.preheader841 ]
+  %.2718 = phi i32 [ %spec.select807, %300 ], [ %.0716, %.preheader841 ]
   %.1694 = phi i64 [ %spec.select808, %300 ], [ %.0693, %.preheader841 ]
   %301 = add nsw i32 %.2718, 1
   %302 = sext i32 %301 to i64
@@ -692,7 +692,7 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %694
 
 321:                                              ; preds = %.loopexit842
-  %322 = call i64 @llvm.smin.i64(i64 %.2674, i64 %33)
+  %322 = call i64 @llvm.smin.i64(i64 %.1673, i64 %33)
   %323 = icmp sgt i64 %33, 0
   br i1 %323, label %.lr.ph874, label %357
 
@@ -707,7 +707,7 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %.0625872 = phi i64 [ 0, %.lr.ph874 ], [ %329, %._crit_edge ]
   %.2657871 = phi i64 [ %285, %.lr.ph874 ], [ %352, %._crit_edge ]
   %.3675870 = phi i64 [ %322, %.lr.ph874 ], [ %.809, %._crit_edge ]
-  %.1683869 = phi i32 [ %.1717, %.lr.ph874 ], [ %.2684, %._crit_edge ]
+  %.1683869 = phi i32 [ %.0716, %.lr.ph874 ], [ %.2684, %._crit_edge ]
   %.3696868 = phi i64 [ %.0693, %.lr.ph874 ], [ %.4697.lcssa, %._crit_edge ]
   %329 = add nsw i64 %.0625872, %.3675870
   %330 = add nsw i32 %.1683869, 1
@@ -844,15 +844,15 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %403
 
 403:                                              ; preds = %.lr.ph905, %525
-  %.4904 = phi i32 [ %370, %.lr.ph905 ], [ %.7, %525 ]
+  %.4904 = phi i32 [ %370, %.lr.ph905 ], [ %.5, %525 ]
   %.1626903 = phi i64 [ 0, %.lr.ph905 ], [ %484, %525 ]
-  %.3633902 = phi ptr [ %369, %.lr.ph905 ], [ %.5635, %525 ]
-  %.4644901 = phi i64 [ %285, %.lr.ph905 ], [ %.7647, %525 ]
+  %.3633902 = phi ptr [ %369, %.lr.ph905 ], [ %.4634, %525 ]
+  %.4644901 = phi i64 [ %285, %.lr.ph905 ], [ %.5645, %525 ]
   %.3658900 = phi i64 [ %285, %.lr.ph905 ], [ %.4659, %525 ]
   %.4676899 = phi i64 [ %322, %.lr.ph905 ], [ %.5677, %525 ]
-  %.3685898 = phi i32 [ %.1717, %.lr.ph905 ], [ %.5687, %525 ]
-  %.5698897 = phi i64 [ %.0693, %.lr.ph905 ], [ %.7700, %525 ]
-  %.7711896 = phi i32 [ %spec.select811, %.lr.ph905 ], [ %.11715, %525 ]
+  %.3685898 = phi i32 [ %.0716, %.lr.ph905 ], [ %.4686, %525 ]
+  %.5698897 = phi i64 [ %.0693, %.lr.ph905 ], [ %.6699, %525 ]
+  %.7711896 = phi i32 [ %spec.select811, %.lr.ph905 ], [ %.8712, %525 ]
   %.not767 = icmp eq i64 %.4676899, 0
   br i1 %.not767, label %483, label %404
 
@@ -912,9 +912,9 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
 433:                                              ; preds = %430, %404
   %.pre-phi1033 = phi i64 [ %.pre1032, %430 ], [ %406, %404 ]
   %.pre-phi1031 = phi i64 [ %.pre1030, %430 ], [ %405, %404 ]
-  %.8712 = phi i32 [ %spec.select812, %430 ], [ %.7711896, %404 ]
-  %.5645 = phi i64 [ %.3658900, %430 ], [ %.4644901, %404 ]
-  %.5 = phi i32 [ %411, %430 ], [ %.4904, %404 ]
+  %.9713 = phi i32 [ %spec.select812, %430 ], [ %.7711896, %404 ]
+  %.6646 = phi i64 [ %.3658900, %430 ], [ %.4644901, %404 ]
+  %.6 = phi i32 [ %411, %430 ], [ %.4904, %404 ]
   %434 = sub nsw i64 %.pre-phi1033, %.3658900
   %435 = icmp sgt i64 %.4676899, %434
   br i1 %435, label %.lr.ph882, label %._crit_edge883
@@ -923,23 +923,23 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %436 = phi i64 [ %476, %472 ], [ %434, %433 ]
   %437 = phi i64 [ %475, %472 ], [ %.pre-phi1033, %433 ]
   %438 = phi i64 [ %.pre-phi1061, %472 ], [ %.pre-phi1031, %433 ]
-  %.4634880 = phi ptr [ %445, %472 ], [ %.3633902, %433 ]
-  %.6646879 = phi i64 [ %447, %472 ], [ %.5645, %433 ]
-  %.9713878 = phi i32 [ %spec.select813, %472 ], [ %.8712, %433 ]
+  %.5635880 = phi ptr [ %445, %472 ], [ %.3633902, %433 ]
+  %.7647879 = phi i64 [ %447, %472 ], [ %.6646, %433 ]
+  %.10714878 = phi i32 [ %spec.select813, %472 ], [ %.9713, %433 ]
   %sext772 = shl i64 %436, 32
   %439 = ashr exact i64 %sext772, 32
   %440 = call ptr @ADIOI_Malloc_fn(i64 noundef %439, i32 noundef 435, ptr noundef nonnull @.str.2) #8
-  %441 = getelementptr inbounds i8, ptr %.4634880, i64 %438
+  %441 = getelementptr inbounds i8, ptr %.5635880, i64 %438
   %442 = sub nsw i64 0, %439
   %443 = getelementptr inbounds i8, ptr %441, i64 %442
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %440, ptr align 1 %443, i64 %439, i1 false)
-  call void @ADIOI_Free_fn(ptr noundef %.4634880, i32 noundef 435, ptr noundef nonnull @.str.2) #8
+  call void @ADIOI_Free_fn(ptr noundef %.5635880, i32 noundef 435, ptr noundef nonnull @.str.2) #8
   %444 = add nsw i64 %439, %368
   %445 = call ptr @ADIOI_Malloc_fn(i64 noundef %444, i32 noundef 435, ptr noundef nonnull @.str.2) #8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %445, ptr align 1 %440, i64 %439, i1 false)
   call void @ADIOI_Free_fn(ptr noundef %440, i32 noundef 435, ptr noundef nonnull @.str.2) #8
   %446 = sub nsw i64 %438, %439
-  %447 = add nsw i64 %446, %.6646879
+  %447 = add nsw i64 %446, %.7647879
   %448 = sub nsw i64 %.0652.lcssa, %447
   %.not773 = icmp slt i64 %448, %368
   %449 = add nsw i64 %448, 1
@@ -985,7 +985,7 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
 472:                                              ; preds = %467, %462
   %473 = and i64 %465, 4294967295
   %474 = icmp eq i64 %473, 4294967295
-  %spec.select813 = select i1 %474, i32 1, i32 %.9713878
+  %spec.select813 = select i1 %474, i32 1, i32 %.10714878
   %475 = add nsw i64 %.pre-phi1061, %447
   %476 = sub nsw i64 %475, %.3658900
   %477 = icmp sgt i64 %.4676899, %476
@@ -996,22 +996,22 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %._crit_edge883
 
 ._crit_edge883:                                   ; preds = %._crit_edge883.loopexit, %433
-  %.9713.lcssa = phi i32 [ %.8712, %433 ], [ %spec.select813, %._crit_edge883.loopexit ]
-  %.6646.lcssa = phi i64 [ %.5645, %433 ], [ %447, %._crit_edge883.loopexit ]
-  %.4634.lcssa = phi ptr [ %.3633902, %433 ], [ %445, %._crit_edge883.loopexit ]
-  %.6.lcssa = phi i32 [ %.5, %433 ], [ %478, %._crit_edge883.loopexit ]
+  %.10714.lcssa = phi i32 [ %.9713, %433 ], [ %spec.select813, %._crit_edge883.loopexit ]
+  %.7647.lcssa = phi i64 [ %.6646, %433 ], [ %447, %._crit_edge883.loopexit ]
+  %.5635.lcssa = phi ptr [ %.3633902, %433 ], [ %445, %._crit_edge883.loopexit ]
+  %.7.lcssa = phi i32 [ %.6, %433 ], [ %478, %._crit_edge883.loopexit ]
   %479 = getelementptr inbounds i8, ptr %1, i64 %.1626903
-  %480 = getelementptr inbounds i8, ptr %.4634.lcssa, i64 %.3658900
-  %481 = sub i64 0, %.6646.lcssa
+  %480 = getelementptr inbounds i8, ptr %.5635.lcssa, i64 %.3658900
+  %481 = sub i64 0, %.7647.lcssa
   %482 = getelementptr inbounds i8, ptr %480, i64 %481
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %479, ptr align 1 %482, i64 %.4676899, i1 false)
   br label %483
 
 483:                                              ; preds = %._crit_edge883, %403
-  %.11715 = phi i32 [ %.9713.lcssa, %._crit_edge883 ], [ %.7711896, %403 ]
-  %.7647 = phi i64 [ %.6646.lcssa, %._crit_edge883 ], [ %.4644901, %403 ]
-  %.5635 = phi ptr [ %.4634.lcssa, %._crit_edge883 ], [ %.3633902, %403 ]
-  %.7 = phi i32 [ %.6.lcssa, %._crit_edge883 ], [ %.4904, %403 ]
+  %.8712 = phi i32 [ %.10714.lcssa, %._crit_edge883 ], [ %.7711896, %403 ]
+  %.5645 = phi i64 [ %.7647.lcssa, %._crit_edge883 ], [ %.4644901, %403 ]
+  %.4634 = phi ptr [ %.5635.lcssa, %._crit_edge883 ], [ %.3633902, %403 ]
+  %.5 = phi i32 [ %.7.lcssa, %._crit_edge883 ], [ %.4904, %403 ]
   %484 = add nsw i64 %.1626903, %.4676899
   %485 = add nsw i64 %.3658900, %.4676899
   %486 = load ptr, ptr %400, align 8
@@ -1043,28 +1043,28 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %509, label %.lr.ph891, label %._crit_edge892
 
 .lr.ph891:                                        ; preds = %499, %.lr.ph891
-  %.4686.in889 = phi i64 [ %512, %.lr.ph891 ], [ %503, %499 ]
-  %.6699888 = phi i64 [ %515, %.lr.ph891 ], [ %506, %499 ]
-  %510 = shl nsw i64 %.4686.in889, 32
+  %.5687.in889 = phi i64 [ %512, %.lr.ph891 ], [ %503, %499 ]
+  %.7700888 = phi i64 [ %515, %.lr.ph891 ], [ %506, %499 ]
+  %510 = shl nsw i64 %.5687.in889, 32
   %sext836 = add i64 %510, 4294967296
   %511 = ashr exact i64 %sext836, 32
   %512 = srem i64 %511, %502
   %513 = icmp eq i64 %512, 0
   %514 = zext i1 %513 to i64
-  %515 = add nsw i64 %.6699888, %514
+  %515 = add nsw i64 %.7700888, %514
   %516 = getelementptr inbounds i64, ptr %491, i64 %512
   %517 = load i64, ptr %516, align 8
   %518 = icmp eq i64 %517, 0
   br i1 %518, label %.lr.ph891, label %._crit_edge892, !llvm.loop !16
 
 ._crit_edge892:                                   ; preds = %.lr.ph891, %499
-  %.6699.lcssa = phi i64 [ %506, %499 ], [ %515, %.lr.ph891 ]
-  %.4686.in.lcssa = phi i64 [ %503, %499 ], [ %512, %.lr.ph891 ]
+  %.7700.lcssa = phi i64 [ %506, %499 ], [ %515, %.lr.ph891 ]
+  %.5687.in.lcssa = phi i64 [ %503, %499 ], [ %512, %.lr.ph891 ]
   %.lcssa844 = phi i64 [ %508, %499 ], [ %517, %.lr.ph891 ]
-  %.4686 = trunc nsw i64 %.4686.in.lcssa to i32
-  %519 = getelementptr inbounds i64, ptr %486, i64 %.4686.in.lcssa
+  %.5687 = trunc nsw i64 %.5687.in.lcssa to i32
+  %519 = getelementptr inbounds i64, ptr %486, i64 %.5687.in.lcssa
   %520 = load i64, ptr %519, align 8
-  %521 = mul nsw i64 %.6699.lcssa, %495
+  %521 = mul nsw i64 %.7700.lcssa, %495
   %522 = add i64 %521, %213
   %523 = add i64 %522, %520
   %524 = sub nsw i64 %33, %484
@@ -1072,8 +1072,8 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %525
 
 525:                                              ; preds = %483, %._crit_edge892
-  %.7700 = phi i64 [ %.6699.lcssa, %._crit_edge892 ], [ %.5698897, %483 ]
-  %.5687 = phi i32 [ %.4686, %._crit_edge892 ], [ %.3685898, %483 ]
+  %.6699 = phi i64 [ %.7700.lcssa, %._crit_edge892 ], [ %.5698897, %483 ]
+  %.4686 = phi i32 [ %.5687, %._crit_edge892 ], [ %.3685898, %483 ]
   %.5677 = phi i64 [ %.814, %._crit_edge892 ], [ %.4676899, %483 ]
   %.4659 = phi i64 [ %523, %._crit_edge892 ], [ %485, %483 ]
   %526 = icmp slt i64 %484, %33
@@ -1098,18 +1098,18 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %540
 
 540:                                              ; preds = %.lr.ph943, %673
-  %.8941 = phi i32 [ %370, %.lr.ph943 ], [ %.11, %673 ]
+  %.8941 = phi i32 [ %370, %.lr.ph943 ], [ %.9, %673 ]
   %.2627940 = phi i64 [ %534, %.lr.ph943 ], [ %.4629, %673 ]
-  %.6636939 = phi ptr [ %369, %.lr.ph943 ], [ %.8638, %673 ]
-  %.8648938 = phi i64 [ %285, %.lr.ph943 ], [ %.11651, %673 ]
-  %.5660937 = phi i64 [ %285, %.lr.ph943 ], [ %.7662, %673 ]
+  %.7637939 = phi ptr [ %369, %.lr.ph943 ], [ %.8638, %673 ]
+  %.8648938 = phi i64 [ %285, %.lr.ph943 ], [ %.9649, %673 ]
+  %.6661937 = phi i64 [ %285, %.lr.ph943 ], [ %.8663, %673 ]
   %.0665936 = phi i32 [ 0, %.lr.ph943 ], [ %.1666, %673 ]
   %.0667935 = phi i64 [ %532, %.lr.ph943 ], [ %.1654, %673 ]
-  %.6678934 = phi i64 [ %.2674, %.lr.ph943 ], [ %.1680, %673 ]
-  %.6688933 = phi i32 [ %.1717, %.lr.ph943 ], [ %.8690824, %673 ]
+  %.6678934 = phi i64 [ %.1673, %.lr.ph943 ], [ %.1680, %673 ]
+  %.6688933 = phi i32 [ %.0716, %.lr.ph943 ], [ %.7689824, %673 ]
   %.0691932 = phi i32 [ 0, %.lr.ph943 ], [ %.1692, %673 ]
-  %.8701931 = phi i64 [ %.0693, %.lr.ph943 ], [ %.10703823, %673 ]
-  %.12930 = phi i32 [ %spec.select811, %.lr.ph943 ], [ %.16, %673 ]
+  %.8701931 = phi i64 [ %.0693, %.lr.ph943 ], [ %.9702823, %673 ]
+  %.13930 = phi i32 [ %spec.select811, %.lr.ph943 ], [ %.14, %673 ]
   %.0720929 = phi i64 [ 0, %.lr.ph943 ], [ %674, %673 ]
   %541 = icmp slt i64 %.6678934, %.0667935
   %542 = call i64 @llvm.smin.i64(i64 %.6678934, i64 %.0667935)
@@ -1119,17 +1119,17 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
 543:                                              ; preds = %540
   %544 = zext i32 %.8941 to i64
   %545 = add nsw i64 %.8648938, %544
-  %.not779 = icmp slt i64 %.5660937, %545
+  %.not779 = icmp slt i64 %.6661937, %545
   br i1 %.not779, label %572, label %546
 
 546:                                              ; preds = %543
-  %547 = sub nsw i64 %.0652.lcssa, %.5660937
+  %547 = sub nsw i64 %.0652.lcssa, %.6661937
   %.not780 = icmp slt i64 %547, %368
   %548 = add nsw i64 %547, 1
   %549 = select i1 %.not780, i64 %548, i64 %368
   %550 = trunc i64 %549 to i32
   %551 = load i32, ptr %371, align 4
-  %552 = call i64 @lseek(i32 noundef %551, i64 noundef %.5660937, i32 noundef 0) #8
+  %552 = call i64 @lseek(i32 noundef %551, i64 noundef %.6661937, i32 noundef 0) #8
   %553 = load i32, ptr %358, align 8
   %.not781 = icmp eq i32 %553, 0
   br i1 %.not781, label %554, label %._crit_edge1035
@@ -1143,13 +1143,13 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %556 = getelementptr inbounds i8, ptr %555, i64 216
   %557 = load ptr, ptr %556, align 8
   %558 = and i64 %549, 4294967295
-  %559 = call i32 %557(ptr noundef nonnull %0, i32 noundef 7, i32 noundef 0, i64 noundef %.5660937, i32 noundef 0, i64 noundef %558) #8
+  %559 = call i32 %557(ptr noundef nonnull %0, i32 noundef 7, i32 noundef 0, i64 noundef %.6661937, i32 noundef 0, i64 noundef %558) #8
   br label %560
 
 560:                                              ; preds = %._crit_edge1035, %554
   %.pre-phi1059 = phi i64 [ %.pre1058, %._crit_edge1035 ], [ %558, %554 ]
   %561 = load i32, ptr %371, align 4
-  %562 = call i64 @read(i32 noundef %561, ptr noundef %.6636939, i64 noundef %.pre-phi1059) #8
+  %562 = call i64 @read(i32 noundef %561, ptr noundef %.7637939, i64 noundef %.pre-phi1059) #8
   %563 = load i32, ptr %358, align 8
   %.not782 = icmp eq i32 %563, 0
   br i1 %.not782, label %564, label %569
@@ -1158,24 +1158,24 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %565 = load ptr, ptr %535, align 8
   %566 = getelementptr inbounds i8, ptr %565, i64 216
   %567 = load ptr, ptr %566, align 8
-  %568 = call i32 %567(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 2, i64 noundef %.5660937, i32 noundef 0, i64 noundef %.pre-phi1059) #8
+  %568 = call i32 %567(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 2, i64 noundef %.6661937, i32 noundef 0, i64 noundef %.pre-phi1059) #8
   br label %569
 
 569:                                              ; preds = %564, %560
   %570 = and i64 %562, 4294967295
   %571 = icmp eq i64 %570, 4294967295
-  %spec.select815 = select i1 %571, i32 1, i32 %.12930
+  %spec.select815 = select i1 %571, i32 1, i32 %.13930
   %.pre1026 = and i64 %549, 4294967295
-  %.pre1028 = add nsw i64 %.5660937, %.pre1026
+  %.pre1028 = add nsw i64 %.6661937, %.pre1026
   br label %572
 
 572:                                              ; preds = %569, %543
   %.pre-phi1029 = phi i64 [ %.pre1028, %569 ], [ %545, %543 ]
   %.pre-phi1027 = phi i64 [ %.pre1026, %569 ], [ %544, %543 ]
-  %.13 = phi i32 [ %spec.select815, %569 ], [ %.12930, %543 ]
-  %.9649 = phi i64 [ %.5660937, %569 ], [ %.8648938, %543 ]
-  %.9 = phi i32 [ %550, %569 ], [ %.8941, %543 ]
-  %573 = sub nsw i64 %.pre-phi1029, %.5660937
+  %.15 = phi i32 [ %spec.select815, %569 ], [ %.13930, %543 ]
+  %.10650 = phi i64 [ %.6661937, %569 ], [ %.8648938, %543 ]
+  %.10 = phi i32 [ %550, %569 ], [ %.8941, %543 ]
+  %573 = sub nsw i64 %.pre-phi1029, %.6661937
   %574 = icmp sgt i64 %542, %573
   br i1 %574, label %.lr.ph913, label %._crit_edge914
 
@@ -1183,23 +1183,23 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   %575 = phi i64 [ %615, %611 ], [ %573, %572 ]
   %576 = phi i64 [ %614, %611 ], [ %.pre-phi1029, %572 ]
   %577 = phi i64 [ %.pre-phi1055, %611 ], [ %.pre-phi1027, %572 ]
-  %.7637911 = phi ptr [ %584, %611 ], [ %.6636939, %572 ]
-  %.10650910 = phi i64 [ %586, %611 ], [ %.9649, %572 ]
-  %.14909 = phi i32 [ %spec.select816, %611 ], [ %.13, %572 ]
+  %.9639911 = phi ptr [ %584, %611 ], [ %.7637939, %572 ]
+  %.11651910 = phi i64 [ %586, %611 ], [ %.10650, %572 ]
+  %.16909 = phi i32 [ %spec.select816, %611 ], [ %.15, %572 ]
   %sext786 = shl i64 %575, 32
   %578 = ashr exact i64 %sext786, 32
   %579 = call ptr @ADIOI_Malloc_fn(i64 noundef %578, i32 noundef 477, ptr noundef nonnull @.str.2) #8
-  %580 = getelementptr inbounds i8, ptr %.7637911, i64 %577
+  %580 = getelementptr inbounds i8, ptr %.9639911, i64 %577
   %581 = sub nsw i64 0, %578
   %582 = getelementptr inbounds i8, ptr %580, i64 %581
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %579, ptr align 1 %582, i64 %578, i1 false)
-  call void @ADIOI_Free_fn(ptr noundef %.7637911, i32 noundef 477, ptr noundef nonnull @.str.2) #8
+  call void @ADIOI_Free_fn(ptr noundef %.9639911, i32 noundef 477, ptr noundef nonnull @.str.2) #8
   %583 = add nsw i64 %578, %368
   %584 = call ptr @ADIOI_Malloc_fn(i64 noundef %583, i32 noundef 477, ptr noundef nonnull @.str.2) #8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %584, ptr align 1 %579, i64 %578, i1 false)
   call void @ADIOI_Free_fn(ptr noundef %579, i32 noundef 477, ptr noundef nonnull @.str.2) #8
   %585 = sub nsw i64 %577, %578
-  %586 = add nsw i64 %585, %.10650910
+  %586 = add nsw i64 %585, %.11651910
   %587 = sub nsw i64 %.0652.lcssa, %586
   %.not787 = icmp slt i64 %587, %368
   %588 = add nsw i64 %587, 1
@@ -1245,9 +1245,9 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
 611:                                              ; preds = %606, %601
   %612 = and i64 %604, 4294967295
   %613 = icmp eq i64 %612, 4294967295
-  %spec.select816 = select i1 %613, i32 1, i32 %.14909
+  %spec.select816 = select i1 %613, i32 1, i32 %.16909
   %614 = add nsw i64 %.pre-phi1055, %586
-  %615 = sub nsw i64 %614, %.5660937
+  %615 = sub nsw i64 %614, %.6661937
   %616 = icmp sgt i64 %542, %615
   br i1 %616, label %.lr.ph913, label %._crit_edge914.loopexit, !llvm.loop !18
 
@@ -1256,22 +1256,22 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %._crit_edge914
 
 ._crit_edge914:                                   ; preds = %._crit_edge914.loopexit, %572
-  %.14.lcssa = phi i32 [ %.13, %572 ], [ %spec.select816, %._crit_edge914.loopexit ]
-  %.10650.lcssa = phi i64 [ %.9649, %572 ], [ %586, %._crit_edge914.loopexit ]
-  %.7637.lcssa = phi ptr [ %.6636939, %572 ], [ %584, %._crit_edge914.loopexit ]
-  %.10.lcssa = phi i32 [ %.9, %572 ], [ %617, %._crit_edge914.loopexit ]
+  %.16.lcssa = phi i32 [ %.15, %572 ], [ %spec.select816, %._crit_edge914.loopexit ]
+  %.11651.lcssa = phi i64 [ %.10650, %572 ], [ %586, %._crit_edge914.loopexit ]
+  %.9639.lcssa = phi ptr [ %.7637939, %572 ], [ %584, %._crit_edge914.loopexit ]
+  %.11.lcssa = phi i32 [ %.10, %572 ], [ %617, %._crit_edge914.loopexit ]
   %618 = getelementptr inbounds i8, ptr %1, i64 %.2627940
-  %619 = getelementptr inbounds i8, ptr %.7637.lcssa, i64 %.5660937
-  %620 = sub i64 0, %.10650.lcssa
+  %619 = getelementptr inbounds i8, ptr %.9639.lcssa, i64 %.6661937
+  %620 = sub i64 0, %.11651.lcssa
   %621 = getelementptr inbounds i8, ptr %619, i64 %620
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %618, ptr align 1 %621, i64 %542, i1 false)
   br label %622
 
 622:                                              ; preds = %._crit_edge914, %540
-  %.16 = phi i32 [ %.14.lcssa, %._crit_edge914 ], [ %.12930, %540 ]
-  %.11651 = phi i64 [ %.10650.lcssa, %._crit_edge914 ], [ %.8648938, %540 ]
-  %.8638 = phi ptr [ %.7637.lcssa, %._crit_edge914 ], [ %.6636939, %540 ]
-  %.11 = phi i32 [ %.10.lcssa, %._crit_edge914 ], [ %.8941, %540 ]
+  %.14 = phi i32 [ %.16.lcssa, %._crit_edge914 ], [ %.13930, %540 ]
+  %.9649 = phi i64 [ %.11651.lcssa, %._crit_edge914 ], [ %.8648938, %540 ]
+  %.8638 = phi ptr [ %.9639.lcssa, %._crit_edge914 ], [ %.7637939, %540 ]
+  %.9 = phi i32 [ %.11.lcssa, %._crit_edge914 ], [ %.8941, %540 ]
   %.not783 = icmp sgt i64 %.6678934, %.0667935
   br i1 %.not783, label %.thread825, label %623
 
@@ -1290,31 +1290,31 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %634, label %.lr.ph923, label %._crit_edge924
 
 .lr.ph923:                                        ; preds = %623, %.lr.ph923
-  %.7689.in921 = phi i64 [ %637, %.lr.ph923 ], [ %627, %623 ]
-  %.9702920 = phi i64 [ %640, %.lr.ph923 ], [ %630, %623 ]
-  %635 = shl nsw i64 %.7689.in921, 32
+  %.8690.in921 = phi i64 [ %637, %.lr.ph923 ], [ %627, %623 ]
+  %.10703920 = phi i64 [ %640, %.lr.ph923 ], [ %630, %623 ]
+  %635 = shl nsw i64 %.8690.in921, 32
   %sext837 = add i64 %635, 4294967296
   %636 = ashr exact i64 %sext837, 32
   %637 = srem i64 %636, %626
   %638 = icmp eq i64 %637, 0
   %639 = zext i1 %638 to i64
-  %640 = add nsw i64 %.9702920, %639
+  %640 = add nsw i64 %.10703920, %639
   %641 = getelementptr inbounds i64, ptr %631, i64 %637
   %642 = load i64, ptr %641, align 8
   %643 = icmp eq i64 %642, 0
   br i1 %643, label %.lr.ph923, label %._crit_edge924, !llvm.loop !19
 
 ._crit_edge924:                                   ; preds = %.lr.ph923, %623
-  %.7689.in.lcssa919 = phi i64 [ %627, %623 ], [ %637, %.lr.ph923 ]
-  %.9702.lcssa = phi i64 [ %630, %623 ], [ %640, %.lr.ph923 ]
+  %.8690.in.lcssa919 = phi i64 [ %627, %623 ], [ %637, %.lr.ph923 ]
+  %.10703.lcssa = phi i64 [ %630, %623 ], [ %640, %.lr.ph923 ]
   %.lcssa = phi i64 [ %633, %623 ], [ %642, %.lr.ph923 ]
-  %.7689.le = trunc nsw i64 %.7689.in.lcssa919 to i32
+  %.8690.le = trunc nsw i64 %.8690.in.lcssa919 to i32
   %644 = load ptr, ptr %538, align 8
-  %645 = getelementptr inbounds i64, ptr %644, i64 %.7689.in.lcssa919
+  %645 = getelementptr inbounds i64, ptr %644, i64 %.8690.in.lcssa919
   %646 = load i64, ptr %645, align 8
   %647 = add nsw i64 %646, %213
   %648 = load i64, ptr %12, align 8
-  %649 = mul nsw i64 %648, %.9702.lcssa
+  %649 = mul nsw i64 %648, %.10703.lcssa
   %650 = add nsw i64 %647, %649
   br i1 %541, label %.thread, label %.thread825
 
@@ -1324,10 +1324,10 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %673
 
 .thread825:                                       ; preds = %._crit_edge924, %622
-  %.6661835 = phi i64 [ %.5660937, %622 ], [ %650, %._crit_edge924 ]
+  %.7662835 = phi i64 [ %.6661937, %622 ], [ %650, %._crit_edge924 ]
   %.0679834 = phi i64 [ %.6678934, %622 ], [ %.lcssa, %._crit_edge924 ]
-  %.8690833 = phi i32 [ %.6688933, %622 ], [ %.7689.le, %._crit_edge924 ]
-  %.10703832 = phi i64 [ %.8701931, %622 ], [ %.9702.lcssa, %._crit_edge924 ]
+  %.7689833 = phi i32 [ %.6688933, %622 ], [ %.8690.le, %._crit_edge924 ]
+  %.9702832 = phi i64 [ %.8701931, %622 ], [ %.10703.lcssa, %._crit_edge924 ]
   %653 = add nsw i32 %.0691932, 1
   %654 = sext i32 %653 to i64
   %655 = load i64, ptr %539, align 8
@@ -1348,17 +1348,17 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not783, label %670, label %673
 
 670:                                              ; preds = %.thread825
-  %671 = add nsw i64 %.6661835, %542
+  %671 = add nsw i64 %.7662835, %542
   %672 = sub nsw i64 %.0679834, %542
   br label %673
 
 673:                                              ; preds = %.thread, %.thread825, %670
-  %.8690824 = phi i32 [ %.8690833, %670 ], [ %.8690833, %.thread825 ], [ %.7689.le, %.thread ]
-  %.10703823 = phi i64 [ %.10703832, %670 ], [ %.10703832, %.thread825 ], [ %.9702.lcssa, %.thread ]
+  %.7689824 = phi i32 [ %.7689833, %670 ], [ %.7689833, %.thread825 ], [ %.8690.le, %.thread ]
+  %.9702823 = phi i64 [ %.9702832, %670 ], [ %.9702832, %.thread825 ], [ %.10703.lcssa, %.thread ]
   %.1692 = phi i32 [ %657, %670 ], [ %657, %.thread825 ], [ %.0691932, %.thread ]
   %.1680 = phi i64 [ %672, %670 ], [ %.0679834, %.thread825 ], [ %.lcssa, %.thread ]
   %.1666 = phi i32 [ %658, %670 ], [ %658, %.thread825 ], [ %.0665936, %.thread ]
-  %.7662 = phi i64 [ %671, %670 ], [ %.6661835, %.thread825 ], [ %650, %.thread ]
+  %.8663 = phi i64 [ %671, %670 ], [ %.7662835, %.thread825 ], [ %650, %.thread ]
   %.1654 = phi i64 [ %669, %670 ], [ %669, %.thread825 ], [ %652, %.thread ]
   %.4629 = phi i64 [ %666, %670 ], [ %666, %.thread825 ], [ %651, %.thread ]
   %674 = add nsw i64 %542, %.0720929
@@ -1366,9 +1366,9 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %675, label %540, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %525, %673, %.preheader839, %527
-  %.17 = phi i32 [ %spec.select811, %527 ], [ %spec.select811, %.preheader839 ], [ %.16, %673 ], [ %.11715, %525 ]
-  %.8663 = phi i64 [ %285, %527 ], [ %285, %.preheader839 ], [ %.7662, %673 ], [ %.4659, %525 ]
-  %.9639 = phi ptr [ %369, %527 ], [ %369, %.preheader839 ], [ %.8638, %673 ], [ %.5635, %525 ]
+  %.12 = phi i32 [ %spec.select811, %527 ], [ %spec.select811, %.preheader839 ], [ %.14, %673 ], [ %.8712, %525 ]
+  %.5660 = phi i64 [ %285, %527 ], [ %285, %.preheader839 ], [ %.8663, %673 ], [ %.4659, %525 ]
+  %.6636 = phi ptr [ %369, %527 ], [ %369, %.preheader839 ], [ %.8638, %673 ], [ %.4634, %525 ]
   %676 = load i32, ptr %358, align 8
   %.not776 = icmp eq i32 %676, 0
   br i1 %.not776, label %683, label %677
@@ -1386,12 +1386,12 @@ define void @ADIOI_NFS_ReadStrided(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 684:                                              ; preds = %683
   %685 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.8663, ptr %685, align 8
+  store i64 %.5660, ptr %685, align 8
   br label %686
 
 686:                                              ; preds = %684, %683
-  call void @ADIOI_Free_fn(ptr noundef %.9639, i32 noundef 525, ptr noundef nonnull @.str.2) #8
-  %.not777 = icmp eq i32 %.17, 0
+  call void @ADIOI_Free_fn(ptr noundef %.6636, i32 noundef 525, ptr noundef nonnull @.str.2) #8
+  %.not777 = icmp eq i32 %.12, 0
   br i1 %.not777, label %691, label %.sink.split
 
 .sink.split:                                      ; preds = %686, %208

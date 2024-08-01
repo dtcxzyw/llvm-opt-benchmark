@@ -8979,7 +8979,7 @@ terminate.lpad.i.i979:                            ; preds = %ehcleanup240
 
 ehcleanup241:                                     ; preds = %ehcleanup240, %lpad206
   %cleanup.isactive.1 = phi i1 [ false, %lpad206 ], [ %288, %ehcleanup240 ]
-  %arrayinit.endOfInit202.1 = phi ptr [ %arrayinit.endOfInit202.0, %lpad206 ], [ %arrayinit.element208, %ehcleanup240 ]
+  %arrayinit.endOfInit202.2 = phi ptr [ %arrayinit.endOfInit202.0, %lpad206 ], [ %arrayinit.element208, %ehcleanup240 ]
   %.pn13.pn.pn.pn = phi { ptr, i32 } [ %284, %lpad206 ], [ %.pn13.pn.pn, %ehcleanup240 ]
   invoke void @__gmpq_clear(ptr noundef nonnull %ref.tmp203)
           to label %ehcleanup242 unwind label %terminate.lpad.i.i981
@@ -8992,12 +8992,12 @@ terminate.lpad.i.i981:                            ; preds = %ehcleanup241
   unreachable
 
 ehcleanup242:                                     ; preds = %ehcleanup241
-  %arraydestroy.isempty245 = icmp eq ptr %ref.tmp200, %arrayinit.endOfInit202.1
+  %arraydestroy.isempty245 = icmp eq ptr %ref.tmp200, %arrayinit.endOfInit202.2
   %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty245
   br i1 %or.cond, label %cleanup.done251, label %arraydestroy.body246
 
 arraydestroy.body246:                             ; preds = %ehcleanup242, %arraydestroy.body246
-  %arraydestroy.elementPast247 = phi ptr [ %arraydestroy.element248, %arraydestroy.body246 ], [ %arrayinit.endOfInit202.1, %ehcleanup242 ]
+  %arraydestroy.elementPast247 = phi ptr [ %arraydestroy.element248, %arraydestroy.body246 ], [ %arrayinit.endOfInit202.2, %ehcleanup242 ]
   %arraydestroy.element248 = getelementptr inbounds i8, ptr %arraydestroy.elementPast247, i64 -8
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %arraydestroy.element248) #22
   %arraydestroy.done249 = icmp eq ptr %arraydestroy.element248, %ref.tmp200
@@ -11743,7 +11743,7 @@ lpad361:                                          ; preds = %if.else358
   br label %ehcleanup369
 
 cleanup:                                          ; preds = %if.else358, %if.then352, %if.then13.i.i.i1060, %if.then.i.i.i1054, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1050, %if.then13.i.i.i529, %if.then.i.i.i523, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit520, %invoke.cont312, %land.lhs.true307, %invoke.cont304, %land.lhs.true346, %if.end341, %invoke.cont16
-  %retval.0 = phi i1 [ true, %invoke.cont16 ], [ true, %if.end341 ], [ true, %land.lhs.true346 ], [ true, %invoke.cont304 ], [ true, %land.lhs.true307 ], [ true, %invoke.cont312 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit520 ], [ false, %if.then.i.i.i523 ], [ false, %if.then13.i.i.i529 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1050 ], [ false, %if.then.i.i.i1054 ], [ false, %if.then13.i.i.i1060 ], [ true, %if.then352 ], [ true, %if.else358 ]
+  %retval.1 = phi i1 [ true, %invoke.cont16 ], [ true, %if.end341 ], [ true, %land.lhs.true346 ], [ true, %invoke.cont304 ], [ true, %land.lhs.true307 ], [ true, %invoke.cont312 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit520 ], [ false, %if.then.i.i.i523 ], [ false, %if.then13.i.i.i529 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1050 ], [ false, %if.then.i.i.i1054 ], [ false, %if.then13.i.i.i1060 ], [ true, %if.then352 ], [ true, %if.else358 ]
   %211 = load ptr, ptr %rewritten, align 8
   %bf.load.i.i1087 = load i64, ptr %211, align 8
   %212 = and i64 %bf.load.i.i1087, 1152920405095219200
@@ -11776,8 +11776,8 @@ ehcleanup369:                                     ; preds = %lpad331, %lpad288, 
   resume { ptr, i32 } %.pn35.pn.pn.pn.pn
 
 return:                                           ; preds = %if.then13.i.i1096, %if.then.i.i1089, %cleanup, %cond.end
-  %retval.1 = phi i1 [ true, %cond.end ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i1089 ], [ %retval.0, %if.then13.i.i1096 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %cond.end ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i1089 ], [ %retval.1, %if.then13.i.i1096 ]
+  ret i1 %retval.0
 }
 
 declare void @_ZNK4cvc58internal6EnvObj7rewriteENS0_12NodeTemplateILb0EEE(ptr sret(%"class.cvc5::internal::NodeTemplate.0") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0

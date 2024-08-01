@@ -4239,7 +4239,7 @@ if.then5:                                         ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %add31 = phi i64 [ 2, %for.body.lr.ph ], [ %add.reass, %for.inc ]
-  %first_percent.030 = phi i64 [ -1, %for.body.lr.ph ], [ %first_percent.2, %for.inc ]
+  %first_percent.030 = phi i64 [ -1, %for.body.lr.ph ], [ %first_percent.1, %for.inc ]
   %i.029 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %i.029
   %7 = load i8, ptr %add.ptr.i, align 1
@@ -4271,14 +4271,14 @@ if.then27:                                        ; preds = %land.lhs.true
   br label %return
 
 for.inc:                                          ; preds = %if.end15, %land.lhs.true, %for.body
-  %first_percent.2 = phi i64 [ %first_percent.030, %for.body ], [ %spec.select, %land.lhs.true ], [ %spec.select, %if.end15 ]
+  %first_percent.1 = phi i64 [ %first_percent.030, %for.body ], [ %spec.select, %land.lhs.true ], [ %spec.select, %if.end15 ]
   %inc = add nuw i64 %i.029, 1
   %add.reass = add nuw i64 %i.029, 3
   %exitcond.not = icmp eq i64 %i.029, %5
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !36
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %first_percent.0.lcssa = phi i64 [ -1, %for.cond.preheader ], [ %first_percent.2, %for.inc ]
+  %first_percent.0.lcssa = phi i64 [ -1, %for.cond.preheader ], [ %first_percent.1, %for.inc ]
   call void @_ZN3ada7unicode14percent_decodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp31, i64 %2, ptr %3, i64 noundef %first_percent.0.lcssa) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp31) #22
   %_M_engaged.i.i.i.i.i23 = getelementptr inbounds i8, ptr %agg.result, i64 32

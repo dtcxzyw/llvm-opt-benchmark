@@ -979,7 +979,7 @@ define range(i32 0, 2) i32 @Abc_CommandCS_kLiveness(ptr noundef %0, i32 noundef 
   br label %15
 
 15:                                               ; preds = %.backedge, %14
-  %.067 = phi i32 [ -1, %14 ], [ %.067.be, %.backedge ]
+  %.168 = phi i32 [ -1, %14 ], [ %.168.be, %.backedge ]
   %16 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.9) #16
   switch i32 %16, label %178 [
     i32 -1, label %.loopexit154
@@ -990,7 +990,7 @@ define range(i32 0, 2) i32 @Abc_CommandCS_kLiveness(ptr noundef %0, i32 noundef 
   ]
 
 .backedge:                                        ; preds = %15, %19, %18, %17
-  %.067.be = phi i32 [ 4, %19 ], [ 3, %18 ], [ 2, %17 ], [ 1, %15 ]
+  %.168.be = phi i32 [ 4, %19 ], [ 3, %18 ], [ 2, %17 ], [ 1, %15 ]
   br label %15, !llvm.loop !19
 
 17:                                               ; preds = %15
@@ -1003,7 +1003,7 @@ define range(i32 0, 2) i32 @Abc_CommandCS_kLiveness(ptr noundef %0, i32 noundef 
   br label %.backedge
 
 .loopexit154:                                     ; preds = %15, %3
-  %.269 = phi i32 [ 0, %3 ], [ %.067, %15 ]
+  %.067 = phi i32 [ 0, %3 ], [ %.168, %15 ]
   %.val = load i32, ptr %12, align 8
   %.not = icmp eq i32 %.val, 3
   br i1 %.not, label %23, label %20
@@ -1021,7 +1021,7 @@ define range(i32 0, 2) i32 @Abc_CommandCS_kLiveness(ptr noundef %0, i32 noundef 
 25:                                               ; preds = %23, %20
   %.071 = phi ptr [ %24, %23 ], [ %22, %20 ]
   %.070 = phi ptr [ %12, %23 ], [ %21, %20 ]
-  %26 = icmp eq i32 %.269, 1
+  %26 = icmp eq i32 %.067, 1
   br i1 %26, label %27, label %collectSafetyInvariantPOIndex.exit
 
 27:                                               ; preds = %25
@@ -1059,7 +1059,7 @@ define range(i32 0, 2) i32 @Abc_CommandCS_kLiveness(ptr noundef %0, i32 noundef 
 
 collectSafetyInvariantPOIndex.exit:               ; preds = %36, %.critedge.loopexit.split.loop.exit16.i, %25
   %.064 = phi i32 [ -1, %25 ], [ %40, %.critedge.loopexit.split.loop.exit16.i ], [ -1, %36 ]
-  switch i32 %.269, label %96 [
+  switch i32 %.067, label %96 [
     i32 2, label %41
     i32 3, label %62
   ]
@@ -1185,7 +1185,7 @@ Abc_Clock.exit98:                                 ; preds = %Abc_Clock.exit96, %
 96:                                               ; preds = %collectSafetyInvariantPOIndex.exit, %Abc_Clock.exit98
   %.165 = phi i32 [ %.07.i84, %Abc_Clock.exit98 ], [ %.064, %collectSafetyInvariantPOIndex.exit ]
   %.063 = phi ptr [ %82, %Abc_Clock.exit98 ], [ null, %collectSafetyInvariantPOIndex.exit ]
-  %97 = icmp eq i32 %.269, 4
+  %97 = icmp eq i32 %.067, 4
   br i1 %97, label %98, label %132
 
 98:                                               ; preds = %96
@@ -1267,7 +1267,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
 132:                                              ; preds = %Abc_Clock.exit115, %96
   %.2 = phi i32 [ %.07.i101, %Abc_Clock.exit115 ], [ %.165, %96 ]
   %.1 = phi ptr [ %118, %Abc_Clock.exit115 ], [ %.063, %96 ]
-  %133 = add nsw i32 %.269, -3
+  %133 = add nsw i32 %.067, -3
   %or.cond = icmp ult i32 %133, 2
   br i1 %or.cond, label %134, label %.thread138
 
@@ -1295,7 +1295,7 @@ Abc_Clock.exit115:                                ; preds = %Abc_Clock.exit113, 
   %.173163 = phi ptr [ %140, %138 ], [ %146, %145 ]
   %.074162 = phi i32 [ 1, %138 ], [ %147, %145 ]
   %142 = load i32, ptr %11, align 4
-  %143 = call i32 @flipConePdr(ptr noundef %.173163, i32 noundef %.269, i32 noundef %142, i32 noundef %.2142, i32 noundef %.074162)
+  %143 = call i32 @flipConePdr(ptr noundef %.173163, i32 noundef %.067, i32 noundef %142, i32 noundef %.2142, i32 noundef %.074162)
   %.not79 = icmp eq i32 %143, 0
   br i1 %.not79, label %145, label %144
 

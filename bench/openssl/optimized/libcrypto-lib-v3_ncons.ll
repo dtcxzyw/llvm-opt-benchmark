@@ -158,9 +158,9 @@ if.then49:                                        ; preds = %lor.lhs.false, %if.
   br label %err
 
 err:                                              ; preds = %if.then49, %if.then36, %if.then32, %if.else25, %if.then
-  %sub.1 = phi ptr [ null, %if.then ], [ null, %if.then32 ], [ %call1.i20, %if.then49 ], [ %call1.i20, %if.then36 ], [ null, %if.else25 ]
+  %sub.0 = phi ptr [ null, %if.then ], [ null, %if.then32 ], [ %call1.i20, %if.then49 ], [ %call1.i20, %if.then36 ], [ null, %if.else25 ]
   call void @ASN1_item_free(ptr noundef %call1.i, ptr noundef nonnull @NAME_CONSTRAINTS_it.local_it) #9
-  call void @ASN1_item_free(ptr noundef %sub.1, ptr noundef nonnull @GENERAL_SUBTREE_it.local_it) #9
+  call void @ASN1_item_free(ptr noundef %sub.0, ptr noundef nonnull @GENERAL_SUBTREE_it.local_it) #9
   br label %return
 
 return:                                           ; preds = %for.cond, %for.cond.preheader, %err
@@ -415,13 +415,13 @@ if.then6.i:                                       ; preds = %lor.lhs.false.i, %i
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.then6.i, %lor.lhs.false.i
-  %ok.0.i = phi i32 [ 0, %if.then6.i ], [ %spec.store.select.i, %lor.lhs.false.i ]
+  %ok.1.i = phi i32 [ 0, %if.then6.i ], [ %spec.store.select.i, %lor.lhs.false.i ]
   tail call void @BN_free(ptr noundef %call.i) #9
   br label %nc_minmax_valid.exit
 
 nc_minmax_valid.exit:                             ; preds = %if.end20, %if.end7.i
-  %ok.1.i = phi i32 [ %ok.0.i, %if.end7.i ], [ %spec.store.select.i, %if.end20 ]
-  %tobool.not = icmp eq i32 %ok.1.i, 0
+  %ok.0.i = phi i32 [ %ok.1.i, %if.end7.i ], [ %spec.store.select.i, %if.end20 ]
+  %tobool.not = icmp eq i32 %ok.0.i, 0
   br i1 %tobool.not, label %return, label %if.end23
 
 if.end23:                                         ; preds = %nc_minmax_valid.exit
@@ -506,13 +506,13 @@ if.then6.i48.us:                                  ; preds = %lor.lhs.false.i42.u
   br label %if.end7.i45.us
 
 if.end7.i45.us:                                   ; preds = %if.then6.i48.us, %lor.lhs.false.i42.us
-  %ok.0.i46.us = phi i32 [ 0, %if.then6.i48.us ], [ %spec.store.select.i37.us, %lor.lhs.false.i42.us ]
+  %ok.1.i46.us = phi i32 [ 0, %if.then6.i48.us ], [ %spec.store.select.i37.us, %lor.lhs.false.i42.us ]
   tail call void @BN_free(ptr noundef %call.i40.us) #9
   br label %nc_minmax_valid.exit49.us
 
 nc_minmax_valid.exit49.us:                        ; preds = %if.end7.i45.us, %if.end63.us
-  %ok.1.i47.us = phi i32 [ %ok.0.i46.us, %if.end7.i45.us ], [ %spec.store.select.i37.us, %if.end63.us ]
-  %tobool65.not.us = icmp eq i32 %ok.1.i47.us, 0
+  %ok.0.i47.us = phi i32 [ %ok.1.i46.us, %if.end7.i45.us ], [ %spec.store.select.i37.us, %if.end63.us ]
+  %tobool65.not.us = icmp eq i32 %ok.0.i47.us, 0
   br i1 %tobool65.not.us, label %return, label %if.end67.us
 
 if.end67.us:                                      ; preds = %nc_minmax_valid.exit49.us
@@ -563,13 +563,13 @@ if.then6.i48:                                     ; preds = %lor.lhs.false.i42, 
   br label %if.end7.i45
 
 if.end7.i45:                                      ; preds = %if.then6.i48, %lor.lhs.false.i42
-  %ok.0.i46 = phi i32 [ 0, %if.then6.i48 ], [ %spec.store.select.i37, %lor.lhs.false.i42 ]
+  %ok.1.i46 = phi i32 [ 0, %if.then6.i48 ], [ %spec.store.select.i37, %lor.lhs.false.i42 ]
   tail call void @BN_free(ptr noundef %call.i40) #9
   br label %nc_minmax_valid.exit49
 
 nc_minmax_valid.exit49:                           ; preds = %lor.lhs.false52, %if.end7.i45
-  %ok.1.i47 = phi i32 [ %ok.0.i46, %if.end7.i45 ], [ %spec.store.select.i37, %lor.lhs.false52 ]
-  %tobool65.not = icmp eq i32 %ok.1.i47, 0
+  %ok.0.i47 = phi i32 [ %ok.1.i46, %if.end7.i45 ], [ %spec.store.select.i37, %lor.lhs.false52 ]
+  %tobool65.not = icmp eq i32 %ok.0.i47, 0
   br i1 %tobool65.not, label %return, label %if.end67
 
 if.end67:                                         ; preds = %nc_minmax_valid.exit49

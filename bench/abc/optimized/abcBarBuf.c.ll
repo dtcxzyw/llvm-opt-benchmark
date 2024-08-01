@@ -74,7 +74,7 @@ define range(i32 0, 2) i32 @Abc_NtkCheckSingleInstance(ptr nocapture noundef rea
 .lr.ph63:                                         ; preds = %23, %53
   %33 = phi ptr [ %54, %53 ], [ %30, %23 ]
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %53 ], [ 0, %23 ]
-  %.162 = phi i32 [ %.4, %53 ], [ %.066, %23 ]
+  %.162 = phi i32 [ %.2, %53 ], [ %.066, %23 ]
   %34 = getelementptr i8, ptr %33, i64 8
   %.val52.val = load ptr, ptr %34, align 8
   %35 = getelementptr inbounds ptr, ptr %.val52.val, i64 %indvars.iv74
@@ -96,7 +96,7 @@ define range(i32 0, 2) i32 @Abc_NtkCheckSingleInstance(ptr nocapture noundef rea
   br label %45
 
 45:                                               ; preds = %43, %40
-  %.2 = phi i32 [ 0, %43 ], [ %.162, %40 ]
+  %.3 = phi i32 [ 0, %43 ], [ %.162, %40 ]
   %46 = getelementptr inbounds i8, ptr %38, i64 192
   %47 = load i32, ptr %46, align 8
   %.not = icmp eq i32 %47, 0
@@ -111,14 +111,14 @@ define range(i32 0, 2) i32 @Abc_NtkCheckSingleInstance(ptr nocapture noundef rea
   br label %52
 
 52:                                               ; preds = %48, %45
-  %.3 = phi i32 [ 0, %48 ], [ %.2, %45 ]
+  %.4 = phi i32 [ 0, %48 ], [ %.3, %45 ]
   store i32 1, ptr %46, align 8
   %.pre = load ptr, ptr %29, align 8
   br label %53
 
 53:                                               ; preds = %.lr.ph63, %52
   %54 = phi ptr [ %33, %.lr.ph63 ], [ %.pre, %52 ]
-  %.4 = phi i32 [ %.162, %.lr.ph63 ], [ %.3, %52 ]
+  %.2 = phi i32 [ %.162, %.lr.ph63 ], [ %.4, %52 ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %55 = getelementptr i8, ptr %54, i64 4
   %.val47 = load i32, ptr %55, align 4
@@ -132,7 +132,7 @@ define range(i32 0, 2) i32 @Abc_NtkCheckSingleInstance(ptr nocapture noundef rea
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %23
   %58 = phi ptr [ %24, %23 ], [ %.pre84, %.critedge4.loopexit ]
-  %.1.lcssa = phi i32 [ %.066, %23 ], [ %.4, %.critedge4.loopexit ]
+  %.1.lcssa = phi i32 [ %.066, %23 ], [ %.2, %.critedge4.loopexit ]
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %59 = getelementptr inbounds i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
@@ -229,7 +229,7 @@ define i32 @Abc_NtkCollectPiPos_rec(ptr nocapture noundef readonly %0, ptr nocap
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %.080 = phi i32 [ 0, %.lr.ph ], [ %39, %30 ]
+  %.180 = phi i32 [ 0, %.lr.ph ], [ %39, %30 ]
   %.val62 = load ptr, ptr %24, align 8
   %.val63 = load ptr, ptr %29, align 8
   %31 = getelementptr i8, ptr %.val62, i64 32
@@ -242,7 +242,7 @@ define i32 @Abc_NtkCollectPiPos_rec(ptr nocapture noundef readonly %0, ptr nocap
   %36 = getelementptr inbounds ptr, ptr %.val62.val.val, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 @Abc_NtkCollectPiPos_rec(ptr noundef %37, ptr noundef %1, ptr noundef %2)
-  %39 = add nsw i32 %38, %.080
+  %39 = add nsw i32 %38, %.180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val61 = load i32, ptr %27, align 4
   %40 = sext i32 %.val61 to i64
@@ -255,7 +255,7 @@ define i32 @Abc_NtkCollectPiPos_rec(ptr nocapture noundef readonly %0, ptr nocap
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader, %13
   %.val60 = phi i32 [ %.val59, %13 ], [ %.val59, %.preheader ], [ %.val60.pre, %.critedge.loopexit ]
-  %.1 = phi i32 [ 0, %13 ], [ 0, %.preheader ], [ %39, %.critedge.loopexit ]
+  %.0 = phi i32 [ 0, %13 ], [ 0, %.preheader ], [ %39, %.critedge.loopexit ]
   %42 = and i32 %.val60, 15
   switch i32 %42, label %50 [
     i32 7, label %101
@@ -342,7 +342,7 @@ define i32 @Abc_NtkCollectPiPos_rec(ptr nocapture noundef readonly %0, ptr nocap
 
 .critedge2:                                       ; preds = %.lr.ph87, %.critedge2
   %indvars.iv94 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next95, %.critedge2 ]
-  %.286 = phi i32 [ %.1, %.lr.ph87 ], [ %95, %.critedge2 ]
+  %.286 = phi i32 [ %.0, %.lr.ph87 ], [ %95, %.critedge2 ]
   %.045.val64 = load ptr, ptr %.045, align 8
   %.045.val65 = load ptr, ptr %56, align 8
   %81 = getelementptr i8, ptr %.045.val64, i64 32
@@ -374,7 +374,7 @@ define i32 @Abc_NtkCollectPiPos_rec(ptr nocapture noundef readonly %0, ptr nocap
   br i1 %97, label %.critedge2, label %.critedge4, !llvm.loop !11
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
-  %.2.lcssa = phi i32 [ %.1, %.critedge2.preheader ], [ %95, %.critedge2 ]
+  %.2.lcssa = phi i32 [ %.0, %.critedge2.preheader ], [ %95, %.critedge2 ]
   %98 = getelementptr i8, ptr %.045, i64 56
   %.045.val72 = load ptr, ptr %98, align 8
   %99 = tail call i32 @Abc_NtkCollectPiPos_int(ptr noundef nonnull %.045, ptr noundef %.045.val72, ptr noundef %1, ptr noundef %2)
@@ -382,7 +382,7 @@ define i32 @Abc_NtkCollectPiPos_rec(ptr nocapture noundef readonly %0, ptr nocap
   br label %101
 
 101:                                              ; preds = %.critedge, %3, %.critedge4
-  %.046 = phi i32 [ %100, %.critedge4 ], [ 0, %3 ], [ %.1, %.critedge ]
+  %.046 = phi i32 [ %100, %.critedge4 ], [ 0, %3 ], [ %.0, %.critedge ]
   ret i32 %.046
 }
 

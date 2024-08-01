@@ -2138,9 +2138,9 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %27, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %30, %.preheader.i.i ], [ %23, %27 ]
-  %28 = lshr i32 %.01542.i.i, 1
-  %29 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %30, %.preheader.i.i ], [ %23, %27 ]
+  %28 = lshr i32 %.142.i.i, 1
+  %29 = add i32 %.142.i.i, 8
   %30 = add i32 %29, %28
   %31 = icmp ult i32 %30, %25
   br i1 %31, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !92
@@ -2166,9 +2166,9 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vec
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread9.i: ; preds = %36, %.thread.i.i
-  %.138.sink.i.ph.in.i = phi i32 [ %23, %.thread.i.i ], [ %37, %36 ]
-  %.138.sink.i.ph.i = xor i32 %.138.sink.i.ph.in.i, -1
-  store i32 %.138.sink.i.ph.i, ptr %0, align 8
+  %.01538.sink.i.ph.in.i = phi i32 [ %23, %.thread.i.i ], [ %37, %36 ]
+  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
+  store i32 %.01538.sink.i.ph.i, ptr %0, align 8
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
@@ -2602,20 +2602,20 @@ define linkonce_odr hidden noundef ptr @_ZN12hb_bit_set_t8page_forEjb(ptr nounde
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %58, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %61, %.preheader.i.i ], [ %52, %58 ]
-  %59 = lshr i32 %.01542.i.i, 1
-  %60 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %61, %.preheader.i.i ], [ %52, %58 ]
+  %59 = lshr i32 %.142.i.i, 1
+  %60 = add i32 %.142.i.i, 8
   %61 = add i32 %60, %59
   %62 = icmp ult i32 %61, %51
   br i1 %62, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !95
 
 .thread.i.i:                                      ; preds = %.preheader.i.i, %55
-  %.138.i.i = phi i32 [ %.sroa.speculated.i.i, %55 ], [ %61, %.preheader.i.i ]
-  %63 = icmp ugt i32 %.138.i.i, 536870911
+  %.01538.i.i = phi i32 [ %.sroa.speculated.i.i, %55 ], [ %61, %.preheader.i.i ]
+  %63 = icmp ugt i32 %.01538.i.i, 536870911
   br i1 %63, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread21.i, label %64
 
 64:                                               ; preds = %.thread.i.i
-  %.not.i25.i.i = icmp eq i32 %.138.i.i, 0
+  %.not.i25.i.i = icmp eq i32 %.01538.i.i, 0
   %65 = load ptr, ptr %27, align 8
   br i1 %.not.i25.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
 
@@ -2624,7 +2624,7 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_e
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %64
-  %66 = shl nuw i32 %.138.i.i, 3
+  %66 = shl nuw i32 %.01538.i.i, 3
   %67 = zext i32 %66 to i64
   %68 = tail call ptr @realloc(ptr noundef %65, i64 noundef %67) #26
   %.not43.i.i = icmp eq ptr %68, null
@@ -2632,19 +2632,19 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_e
 
 69:                                               ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
   %70 = load i32, ptr %7, align 8
-  %.not21.i.i = icmp ugt i32 %.138.i.i, %70
+  %.not21.i.i = icmp ugt i32 %.01538.i.i, %70
   br i1 %.not21.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread21.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread21.i: ; preds = %69, %.thread.i.i
-  %.138.sink.i.ph.in.i = phi i32 [ %52, %.thread.i.i ], [ %70, %69 ]
-  %.138.sink.i.ph.i = xor i32 %.138.sink.i.ph.in.i, -1
-  store i32 %.138.sink.i.ph.i, ptr %7, align 8
+  %.01538.sink.i.ph.in.i = phi i32 [ %52, %.thread.i.i ], [ %70, %69 ]
+  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
+  store i32 %.01538.sink.i.ph.i, ptr %7, align 8
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE6resizeEibb.exit.thread
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i
   %.0.i41.i.i = phi ptr [ null, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i ], [ %68, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i ]
   store ptr %.0.i41.i.i, ptr %27, align 8
-  store i32 %.138.i.i, ptr %7, align 8
+  store i32 %.01538.i.i, ptr %7, align 8
   br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread.i: ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i, %69, %58, %55
@@ -2746,20 +2746,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11hb_vector_tI13hb_bit_page_tL
   br i1 %.not.i, label %.preheader.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread
 
 .preheader.i:                                     ; preds = %13, %.preheader.i
-  %.01542.i = phi i32 [ %16, %.preheader.i ], [ %6, %13 ]
-  %14 = lshr i32 %.01542.i, 1
-  %15 = add i32 %.01542.i, 8
+  %.142.i = phi i32 [ %16, %.preheader.i ], [ %6, %13 ]
+  %14 = lshr i32 %.142.i, 1
+  %15 = add i32 %.142.i, 8
   %16 = add i32 %15, %14
   %17 = icmp ult i32 %16, %5
   br i1 %17, label %.preheader.i, label %.thread.i, !llvm.loop !96
 
 .thread.i:                                        ; preds = %.preheader.i, %9
-  %.138.i = phi i32 [ %.sroa.speculated.i, %9 ], [ %16, %.preheader.i ]
-  %18 = icmp ugt i32 %.138.i, 59652323
+  %.01538.i = phi i32 [ %.sroa.speculated.i, %9 ], [ %16, %.preheader.i ]
+  %18 = icmp ugt i32 %.01538.i, 59652323
   br i1 %18, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread21, label %19
 
 19:                                               ; preds = %.thread.i
-  %.not.i25.i = icmp eq i32 %.138.i, 0
+  %.not.i25.i = icmp eq i32 %.01538.i, 0
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
   br i1 %.not.i25.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i
@@ -2769,7 +2769,7 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3
   br label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i: ; preds = %19
-  %22 = zext nneg i32 %.138.i to i64
+  %22 = zext nneg i32 %.01538.i to i64
   %23 = mul nuw nsw i64 %22, 72
   %24 = tail call ptr @realloc(ptr noundef %21, i64 noundef %23) #26
   %.not43.i = icmp eq ptr %24, null
@@ -2777,19 +2777,19 @@ _ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3
 
 25:                                               ; preds = %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i
   %26 = load i32, ptr %0, align 8
-  %.not21.i = icmp ugt i32 %.138.i, %26
+  %.not21.i = icmp ugt i32 %.01538.i, %26
   br i1 %.not21.i, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread21, label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread21: ; preds = %25, %.thread.i
-  %.138.sink.i.ph.in = phi i32 [ %6, %.thread.i ], [ %26, %25 ]
-  %.138.sink.i.ph = xor i32 %.138.sink.i.ph.in, -1
-  store i32 %.138.sink.i.ph, ptr %0, align 8
+  %.01538.sink.i.ph.in = phi i32 [ %6, %.thread.i ], [ %26, %25 ]
+  %.01538.sink.i.ph = xor i32 %.01538.sink.i.ph.in, -1
+  store i32 %.01538.sink.i.ph, ptr %0, align 8
   br label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread18
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit: ; preds = %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i, %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i
   %.0.i41.i = phi ptr [ null, %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.thread.i ], [ %24, %_ZN11hb_vector_tI13hb_bit_page_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i ]
   store ptr %.0.i41.i, ptr %20, align 8
-  store i32 %.138.i, ptr %0, align 8
+  store i32 %.01538.i, ptr %0, align 8
   br label %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread
 
 _ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit.thread: ; preds = %25, %13, %9, %_ZN11hb_vector_tI13hb_bit_page_tLb0EE5allocEjb.exit

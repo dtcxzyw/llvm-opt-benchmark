@@ -112,9 +112,9 @@ if.then22:                                        ; preds = %if.then19
 if.end34:                                         ; preds = %if.then22, %if.then19
   %.pre = phi i32 [ %.pre.pre, %if.then22 ], [ %.pre114, %if.then19 ]
   %12 = phi i32 [ %add33, %if.then22 ], [ %9, %if.then19 ]
-  %in.addr.1 = phi ptr [ %add.ptr, %if.then22 ], [ %in.addr.095, %if.then19 ]
-  %inl.addr.1 = phi i32 [ %sub30, %if.then22 ], [ %inl.addr.096, %if.then19 ]
-  %num.1 = phi i32 [ %add31, %if.then22 ], [ %num.097, %if.then19 ]
+  %in.addr.2 = phi ptr [ %add.ptr, %if.then22 ], [ %in.addr.095, %if.then19 ]
+  %inl.addr.2 = phi i32 [ %sub30, %if.then22 ], [ %inl.addr.096, %if.then19 ]
+  %num.2 = phi i32 [ %add31, %if.then22 ], [ %num.097, %if.then19 ]
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end54, %if.end34
@@ -134,8 +134,8 @@ if.then43:                                        ; preds = %for.cond
   br i1 %cmp44, label %if.then46, label %return
 
 if.then46:                                        ; preds = %if.then43
-  %cmp47 = icmp sgt i32 %num.1, 0
-  %cond = select i1 %cmp47, i32 %num.1, i32 %call
+  %cmp47 = icmp sgt i32 %num.2, 0
+  %cond = select i1 %cmp47, i32 %num.2, i32 %call
   br label %return
 
 if.end54:                                         ; preds = %for.cond
@@ -149,16 +149,16 @@ if.end54:                                         ; preds = %for.cond
   br i1 %cmp60, label %if.end64, label %for.cond
 
 if.end64:                                         ; preds = %if.end54, %if.end15
-  %in.addr.2 = phi ptr [ %in.addr.095, %if.end15 ], [ %in.addr.1, %if.end54 ]
-  %inl.addr.2 = phi i32 [ %inl.addr.096, %if.end15 ], [ %inl.addr.1, %if.end54 ]
-  %num.2 = phi i32 [ %num.097, %if.end15 ], [ %num.1, %if.end54 ]
+  %in.addr.1 = phi ptr [ %in.addr.095, %if.end15 ], [ %in.addr.2, %if.end54 ]
+  %inl.addr.1 = phi i32 [ %inl.addr.096, %if.end15 ], [ %inl.addr.2, %if.end54 ]
+  %num.1 = phi i32 [ %num.097, %if.end15 ], [ %num.2, %if.end54 ]
   store i32 0, ptr %obuf_off, align 4
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end88, %if.end64
-  %in.addr.3 = phi ptr [ %in.addr.2, %if.end64 ], [ %add.ptr91, %if.end88 ]
-  %inl.addr.3 = phi i32 [ %inl.addr.2, %if.end64 ], [ %sub92, %if.end88 ]
-  %num.3 = phi i32 [ %num.2, %if.end64 ], [ %add89, %if.end88 ]
+  %in.addr.3 = phi ptr [ %in.addr.1, %if.end64 ], [ %add.ptr91, %if.end88 ]
+  %inl.addr.3 = phi i32 [ %inl.addr.1, %if.end64 ], [ %sub92, %if.end88 ]
+  %num.3 = phi i32 [ %num.1, %if.end64 ], [ %add89, %if.end88 ]
   %19 = load i32, ptr %obuf_size, align 4
   %cmp67.not = icmp slt i32 %inl.addr.3, %19
   br i1 %cmp67.not, label %start.loopexit, label %while.body
@@ -188,7 +188,7 @@ if.end88:                                         ; preds = %while.body
   br i1 %cmp93, label %return, label %while.cond, !llvm.loop !4
 
 return:                                           ; preds = %if.end88, %if.then73, %if.then43, %if.end, %lor.lhs.false3, %entry, %if.then76, %if.then46, %if.then8
-  %retval.0 = phi i32 [ %add14, %if.then8 ], [ %cond, %if.then46 ], [ %cond82, %if.then76 ], [ 0, %entry ], [ 0, %lor.lhs.false3 ], [ 0, %if.end ], [ %num.1, %if.then43 ], [ %num.3, %if.then73 ], [ %add89, %if.end88 ]
+  %retval.0 = phi i32 [ %add14, %if.then8 ], [ %cond, %if.then46 ], [ %cond82, %if.then76 ], [ 0, %entry ], [ 0, %lor.lhs.false3 ], [ 0, %if.end ], [ %num.2, %if.then43 ], [ %num.3, %if.then73 ], [ %add89, %if.end88 ]
   ret i32 %retval.0
 }
 
@@ -521,12 +521,12 @@ for.body.lr.ph:                                   ; preds = %sw.bb12
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %ret.0147 = phi i64 [ 0, %for.body.lr.ph ], [ %spec.select, %for.body ]
+  %ret.1147 = phi i64 [ 0, %for.body.lr.ph ], [ %spec.select, %for.body ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %9 = load i8, ptr %gep, align 1
   %cmp18 = icmp eq i8 %9, 10
   %inc = zext i1 %cmp18 to i64
-  %spec.select = add nuw nsw i64 %ret.0147, %inc
+  %spec.select = add nuw nsw i64 %ret.1147, %inc
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !7

@@ -565,12 +565,12 @@ if.end39:                                         ; preds = %_ZN4llvh9StringRefC
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end39, %_ZN4llvh11raw_ostreamlsEc.exit130
-  %retval.0 = phi i32 [ -1, %_ZN4llvh11raw_ostreamlsEc.exit130 ], [ 0, %if.end39 ]
+  %retval.2 = phi i32 [ -1, %_ZN4llvh11raw_ostreamlsEc.exit130 ], [ 0, %if.end39 ]
   call void @_ZN4llvh14raw_fd_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %fileOS) #18
   br label %cleanup43
 
 cleanup43:                                        ; preds = %if.end.i, %if.then.i, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ -1, %if.then.i ], [ -1, %if.end.i ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup ], [ -1, %if.then.i ], [ -1, %if.end.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error) #18
   %tobool.not.i.i.i = icmp eq ptr %mutableBytes.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %cleanup45, label %if.then.i.i.i131
@@ -580,7 +580,7 @@ if.then.i.i.i131:                                 ; preds = %cleanup43
   br label %cleanup45
 
 cleanup45:                                        ; preds = %if.then.i.i.i131, %cleanup43, %_ZN4llvh11raw_ostreamlsEPKc.exit41
-  %retval.2 = phi i32 [ -1, %_ZN4llvh11raw_ostreamlsEPKc.exit41 ], [ %retval.1, %cleanup43 ], [ %retval.1, %if.then.i.i.i131 ]
+  %retval.0 = phi i32 [ -1, %_ZN4llvh11raw_ostreamlsEPKc.exit41 ], [ %retval.1, %cleanup43 ], [ %retval.1, %if.then.i.i.i131 ]
   %bf.load.i133 = load i8, ptr %HasError.i, align 8
   %bf.cast.i134 = trunc i8 %bf.load.i133 to i1
   br i1 %bf.cast.i134, label %_ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit, label %if.then.i135
@@ -603,7 +603,7 @@ _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i: ; pr
 
 _ZN4llvh7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit: ; preds = %cleanup45, %_ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i
   call void @_ZN4llvh8InitLLVMD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %initLLVM) #18
-  ret i32 %retval.2
+  ret i32 %retval.0
 }
 
 declare noundef zeroext i1 @_ZN4llvh2cl23ParseCommandLineOptionsEiPKPKcNS_9StringRefEPNS_11raw_ostreamE(i32 noundef, ptr noundef, ptr, i64, ptr noundef) local_unnamed_addr #3

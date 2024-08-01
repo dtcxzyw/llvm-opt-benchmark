@@ -293,30 +293,30 @@ clone_graph.exit.i:                               ; preds = %._crit_edge66.i.i, 
   br i1 %.not6.i.i, label %getList.exit.i, label %.lr.ph.i45.i
 
 .lr.ph.i45.i:                                     ; preds = %clone_graph.exit.i, %deglist_append.exit63.i
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.1.i, %deglist_append.exit63.i ], [ null, %clone_graph.exit.i ]
-  %.sroa.13.0.i = phi i64 [ %148, %deglist_append.exit63.i ], [ 0, %clone_graph.exit.i ]
-  %.sroa.30.0.i = phi i64 [ %.sroa.30.1.i, %deglist_append.exit63.i ], [ 0, %clone_graph.exit.i ]
+  %.sroa.0.2.i = phi ptr [ %.sroa.0.5.i, %deglist_append.exit63.i ], [ null, %clone_graph.exit.i ]
+  %.sroa.13.4.i = phi i64 [ %148, %deglist_append.exit63.i ], [ 0, %clone_graph.exit.i ]
+  %.sroa.30.2.i = phi i64 [ %.sroa.30.5.i, %deglist_append.exit63.i ], [ 0, %clone_graph.exit.i ]
   %.07.i.i = phi ptr [ %149, %deglist_append.exit63.i ], [ %129, %clone_graph.exit.i ]
-  %130 = icmp eq i64 %.sroa.13.0.i, %.sroa.30.0.i
+  %130 = icmp eq i64 %.sroa.13.4.i, %.sroa.30.2.i
   br i1 %130, label %131, label %deglist_append.exit63.i
 
 131:                                              ; preds = %.lr.ph.i45.i
-  %132 = icmp eq i64 %.sroa.13.0.i, 0
-  %133 = shl i64 %.sroa.13.0.i, 1
+  %132 = icmp eq i64 %.sroa.13.4.i, 0
+  %133 = shl i64 %.sroa.13.4.i, 1
   %spec.select.i.i59.i = select i1 %132, i64 1, i64 %133
   %mul.ov.i.i60.i = icmp ugt i64 %spec.select.i.i59.i, 2305843009213693951
   br i1 %mul.ov.i.i60.i, label %143, label %134
 
 134:                                              ; preds = %131
   %135 = shl nuw i64 %spec.select.i.i59.i, 3
-  %136 = call ptr @realloc(ptr noundef %.sroa.0.0.i, i64 noundef %135) #20
+  %136 = call ptr @realloc(ptr noundef %.sroa.0.2.i, i64 noundef %135) #20
   %137 = icmp eq ptr %136, null
   br i1 %137, label %143, label %138
 
 138:                                              ; preds = %134
-  %139 = shl i64 %.sroa.13.0.i, 3
+  %139 = shl i64 %.sroa.13.4.i, 3
   %140 = getelementptr inbounds i8, ptr %136, i64 %139
-  %141 = sub i64 %spec.select.i.i59.i, %.sroa.13.0.i
+  %141 = sub i64 %spec.select.i.i59.i, %.sroa.13.4.i
   %142 = shl i64 %141, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %140, i8 0, i64 %142, i1 false)
   br label %deglist_append.exit63.i
@@ -330,11 +330,11 @@ clone_graph.exit.i:                               ; preds = %._crit_edge66.i.i, 
   unreachable
 
 deglist_append.exit63.i:                          ; preds = %138, %.lr.ph.i45.i
-  %.sroa.0.1.i = phi ptr [ %136, %138 ], [ %.sroa.0.0.i, %.lr.ph.i45.i ]
-  %.sroa.30.1.i = phi i64 [ %spec.select.i.i59.i, %138 ], [ %.sroa.30.0.i, %.lr.ph.i45.i ]
-  %147 = getelementptr inbounds ptr, ptr %.sroa.0.1.i, i64 %.sroa.13.0.i
+  %.sroa.0.5.i = phi ptr [ %136, %138 ], [ %.sroa.0.2.i, %.lr.ph.i45.i ]
+  %.sroa.30.5.i = phi i64 [ %spec.select.i.i59.i, %138 ], [ %.sroa.30.2.i, %.lr.ph.i45.i ]
+  %147 = getelementptr inbounds ptr, ptr %.sroa.0.5.i, i64 %.sroa.13.4.i
   store ptr %.07.i.i, ptr %147, align 8
-  %148 = add i64 %.sroa.13.0.i, 1
+  %148 = add i64 %.sroa.13.4.i, 1
   %149 = call ptr @agnxtnode(ptr noundef %75, ptr noundef nonnull %.07.i.i) #19, !noalias !4
   %.not.i46.i = icmp eq ptr %149, null
   br i1 %.not.i46.i, label %._crit_edge.i47.i, label %.lr.ph.i45.i
@@ -344,13 +344,13 @@ deglist_append.exit63.i:                          ; preds = %138, %.lr.ph.i45.i
   br i1 %.not.i.i.i, label %getList.exit.i, label %150
 
 150:                                              ; preds = %._crit_edge.i47.i
-  call void @qsort(ptr noundef nonnull %.sroa.0.1.i, i64 noundef %148, i64 noundef 8, ptr noundef nonnull @cmpDegree) #19, !noalias !4
+  call void @qsort(ptr noundef nonnull %.sroa.0.5.i, i64 noundef %148, i64 noundef 8, ptr noundef nonnull @cmpDegree) #19, !noalias !4
   br label %getList.exit.i
 
 getList.exit.i:                                   ; preds = %150, %._crit_edge.i47.i, %clone_graph.exit.i
-  %.sroa.0.2.i = phi ptr [ null, %clone_graph.exit.i ], [ %.sroa.0.1.i, %._crit_edge.i47.i ], [ %.sroa.0.1.i, %150 ]
-  %.sroa.13.1.i = phi i64 [ 0, %clone_graph.exit.i ], [ 0, %._crit_edge.i47.i ], [ %148, %150 ]
-  %.sroa.30.2.i = phi i64 [ 0, %clone_graph.exit.i ], [ %.sroa.30.1.i, %._crit_edge.i47.i ], [ %.sroa.30.1.i, %150 ]
+  %.sroa.0.3.i = phi ptr [ null, %clone_graph.exit.i ], [ %.sroa.0.5.i, %._crit_edge.i47.i ], [ %.sroa.0.5.i, %150 ]
+  %.sroa.13.5.i = phi i64 [ 0, %clone_graph.exit.i ], [ 0, %._crit_edge.i47.i ], [ %148, %150 ]
+  %.sroa.30.3.i = phi i64 [ 0, %clone_graph.exit.i ], [ %.sroa.30.5.i, %._crit_edge.i47.i ], [ %.sroa.30.5.i, %150 ]
   %151 = icmp sgt i32 %128, 3
   br i1 %151, label %.lr.ph124.preheader.i, label %remove_pair_edges.exit
 
@@ -360,21 +360,21 @@ getList.exit.i:                                   ; preds = %150, %._crit_edge.i
 
 .lr.ph124.i:                                      ; preds = %deglist_sort.exit.i, %.lr.ph124.preheader.i
   %.036123.i = phi i32 [ %351, %deglist_sort.exit.i ], [ 0, %.lr.ph124.preheader.i ]
-  %.sroa.30.3122.i = phi i64 [ %.sroa.30.4.lcssa.i, %deglist_sort.exit.i ], [ %.sroa.30.2.i, %.lr.ph124.preheader.i ]
-  %.sroa.13.2121.i = phi i64 [ %.sroa.13.6.lcssa.i, %deglist_sort.exit.i ], [ %.sroa.13.1.i, %.lr.ph124.preheader.i ]
-  %.sroa.0.3120.i = phi ptr [ %.sroa.0.4.lcssa.i, %deglist_sort.exit.i ], [ %.sroa.0.2.i, %.lr.ph124.preheader.i ]
-  %153 = icmp eq i64 %.sroa.13.2121.i, 0
+  %.sroa.30.0122.i = phi i64 [ %.sroa.30.1.lcssa.i, %deglist_sort.exit.i ], [ %.sroa.30.3.i, %.lr.ph124.preheader.i ]
+  %.sroa.13.0121.i = phi i64 [ %.sroa.13.3.lcssa.i, %deglist_sort.exit.i ], [ %.sroa.13.5.i, %.lr.ph124.preheader.i ]
+  %.sroa.0.0120.i = phi ptr [ %.sroa.0.1.lcssa.i, %deglist_sort.exit.i ], [ %.sroa.0.3.i, %.lr.ph124.preheader.i ]
+  %153 = icmp eq i64 %.sroa.13.0121.i, 0
   br i1 %153, label %159, label %154
 
 154:                                              ; preds = %.lr.ph124.i
-  %155 = getelementptr ptr, ptr %.sroa.0.3120.i, i64 %.sroa.13.2121.i
+  %155 = getelementptr ptr, ptr %.sroa.0.0120.i, i64 %.sroa.13.0121.i
   %156 = getelementptr i8, ptr %155, i64 -8
   %157 = load ptr, ptr %156, align 8
-  %158 = add i64 %.sroa.13.2121.i, -1
+  %158 = add i64 %.sroa.13.0121.i, -1
   br label %159
 
 159:                                              ; preds = %154, %.lr.ph124.i
-  %.sroa.13.3.i = phi i64 [ 0, %.lr.ph124.i ], [ %158, %154 ]
+  %.sroa.13.1.i = phi i64 [ 0, %.lr.ph124.i ], [ %158, %154 ]
   %160 = phi ptr [ null, %.lr.ph124.i ], [ %157, %154 ]
   %161 = call ptr @agfstedge(ptr noundef %75, ptr noundef %160) #19
   %.not107.i = icmp eq ptr %161, null
@@ -382,7 +382,7 @@ getList.exit.i:                                   ; preds = %150, %._crit_edge.i
 
 .lr.ph.i58:                                       ; preds = %159, %deglist_remove.exit.i
   %.0109.i = phi ptr [ %185, %deglist_remove.exit.i ], [ %161, %159 ]
-  %.sroa.13.4108.i = phi i64 [ %.sroa.13.5.i, %deglist_remove.exit.i ], [ %.sroa.13.3.i, %159 ]
+  %.sroa.13.2108.i = phi i64 [ %.sroa.13.6.i, %deglist_remove.exit.i ], [ %.sroa.13.1.i, %159 ]
   %162 = load i32, ptr %.0109.i, align 8
   %163 = and i32 %162, 3
   %164 = icmp eq i32 %163, 2
@@ -405,39 +405,39 @@ getList.exit.i:                                   ; preds = %150, %._crit_edge.i
   %.034.i = phi ptr [ %173, %169 ], [ %167, %.lr.ph.i58 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %.034.i, ptr %5, align 8
-  %.not.i49.i = icmp eq i64 %.sroa.13.4108.i, 0
+  %.not.i49.i = icmp eq i64 %.sroa.13.2108.i, 0
   br i1 %.not.i49.i, label %deglist_remove.exit.i, label %.lr.ph.i50.i
 
 .lr.ph.i50.i:                                     ; preds = %174, %183
   %.021.i.i = phi i64 [ %184, %183 ], [ 0, %174 ]
-  %175 = getelementptr inbounds ptr, ptr %.sroa.0.3120.i, i64 %.021.i.i
+  %175 = getelementptr inbounds ptr, ptr %.sroa.0.0120.i, i64 %.021.i.i
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %175, ptr noundef nonnull dereferenceable(8) %5, i64 8)
   %176 = icmp eq i32 %bcmp.i.i, 0
   br i1 %176, label %177, label %183
 
 177:                                              ; preds = %.lr.ph.i50.i
   %178 = xor i64 %.021.i.i, -1
-  %179 = add i64 %.sroa.13.4108.i, %178
+  %179 = add i64 %.sroa.13.2108.i, %178
   %180 = shl i64 %179, 3
   %181 = getelementptr i8, ptr %175, i64 8
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %175, ptr align 8 %181, i64 %180, i1 false)
-  %182 = add i64 %.sroa.13.4108.i, -1
+  %182 = add i64 %.sroa.13.2108.i, -1
   br label %deglist_remove.exit.i
 
 183:                                              ; preds = %.lr.ph.i50.i
   %184 = add nuw i64 %.021.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %184, %.sroa.13.4108.i
+  %exitcond.not.i.i = icmp eq i64 %184, %.sroa.13.2108.i
   br i1 %exitcond.not.i.i, label %deglist_remove.exit.i, label %.lr.ph.i50.i
 
 deglist_remove.exit.i:                            ; preds = %183, %177, %174
-  %.sroa.13.5.i = phi i64 [ 0, %174 ], [ %182, %177 ], [ %.sroa.13.4108.i, %183 ]
+  %.sroa.13.6.i = phi i64 [ 0, %174 ], [ %182, %177 ], [ %.sroa.13.2108.i, %183 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %185 = call ptr @agnxtedge(ptr noundef %75, ptr noundef nonnull %.0109.i, ptr noundef %160) #19
   %.not.i59 = icmp eq ptr %185, null
   br i1 %.not.i59, label %._crit_edge.i60, label %.lr.ph.i58
 
 ._crit_edge.i60:                                  ; preds = %deglist_remove.exit.i, %159
-  %.sroa.13.4.lcssa.i = phi i64 [ %.sroa.13.3.i, %159 ], [ %.sroa.13.5.i, %deglist_remove.exit.i ]
+  %.sroa.13.2.lcssa.i = phi i64 [ %.sroa.13.1.i, %159 ], [ %.sroa.13.6.i, %deglist_remove.exit.i ]
   %186 = getelementptr inbounds i8, ptr %160, i64 16
   %187 = load ptr, ptr %186, align 8
   %188 = getelementptr inbounds i8, ptr %187, i64 364
@@ -688,9 +688,9 @@ find_pair_edges.exit.i:                           ; preds = %296, %278, %292, %.
 
 .lr.ph115.i:                                      ; preds = %find_pair_edges.exit.i, %deglist_append.exit.i
   %.1114.i = phi ptr [ %348, %deglist_append.exit.i ], [ %310, %find_pair_edges.exit.i ]
-  %.sroa.30.4113.i = phi i64 [ %.sroa.30.5.i, %deglist_append.exit.i ], [ %.sroa.30.3122.i, %find_pair_edges.exit.i ]
-  %.sroa.13.6112.i = phi i64 [ %347, %deglist_append.exit.i ], [ %.sroa.13.4.lcssa.i, %find_pair_edges.exit.i ]
-  %.sroa.0.4111.i = phi ptr [ %.sroa.0.5.i, %deglist_append.exit.i ], [ %.sroa.0.3120.i, %find_pair_edges.exit.i ]
+  %.sroa.30.1113.i = phi i64 [ %.sroa.30.4.i, %deglist_append.exit.i ], [ %.sroa.30.0122.i, %find_pair_edges.exit.i ]
+  %.sroa.13.3112.i = phi i64 [ %347, %deglist_append.exit.i ], [ %.sroa.13.2.lcssa.i, %find_pair_edges.exit.i ]
+  %.sroa.0.1111.i = phi ptr [ %.sroa.0.4.i, %deglist_append.exit.i ], [ %.sroa.0.0120.i, %find_pair_edges.exit.i ]
   %311 = load i32, ptr %.1114.i, align 8
   %312 = and i32 %311, 3
   %313 = icmp eq i32 %312, 2
@@ -717,26 +717,26 @@ find_pair_edges.exit.i:                           ; preds = %296, %278, %292, %.
   %327 = load i32, ptr %326, align 4
   %328 = add nsw i32 %327, -1
   store i32 %328, ptr %326, align 4
-  %329 = icmp eq i64 %.sroa.13.6112.i, %.sroa.30.4113.i
+  %329 = icmp eq i64 %.sroa.13.3112.i, %.sroa.30.1113.i
   br i1 %329, label %330, label %deglist_append.exit.i
 
 330:                                              ; preds = %323
-  %331 = icmp eq i64 %.sroa.30.4113.i, 0
-  %332 = shl i64 %.sroa.30.4113.i, 1
+  %331 = icmp eq i64 %.sroa.30.1113.i, 0
+  %332 = shl i64 %.sroa.30.1113.i, 1
   %spec.select.i.i.i = select i1 %331, i64 1, i64 %332
   %mul.ov.i.i.i = icmp ugt i64 %spec.select.i.i.i, 2305843009213693951
   br i1 %mul.ov.i.i.i, label %342, label %333
 
 333:                                              ; preds = %330
   %334 = shl nuw i64 %spec.select.i.i.i, 3
-  %335 = call ptr @realloc(ptr noundef %.sroa.0.4111.i, i64 noundef %334) #20
+  %335 = call ptr @realloc(ptr noundef %.sroa.0.1111.i, i64 noundef %334) #20
   %336 = icmp eq ptr %335, null
   br i1 %336, label %342, label %337
 
 337:                                              ; preds = %333
-  %338 = shl i64 %.sroa.30.4113.i, 3
+  %338 = shl i64 %.sroa.30.1113.i, 3
   %339 = getelementptr inbounds i8, ptr %335, i64 %338
-  %340 = sub i64 %spec.select.i.i.i, %.sroa.30.4113.i
+  %340 = sub i64 %spec.select.i.i.i, %.sroa.30.1113.i
   %341 = shl i64 %340, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %339, i8 0, i64 %341, i1 false)
   br label %deglist_append.exit.i
@@ -750,24 +750,24 @@ find_pair_edges.exit.i:                           ; preds = %296, %278, %292, %.
   unreachable
 
 deglist_append.exit.i:                            ; preds = %337, %323
-  %.sroa.0.5.i = phi ptr [ %335, %337 ], [ %.sroa.0.4111.i, %323 ]
-  %.sroa.30.5.i = phi i64 [ %spec.select.i.i.i, %337 ], [ %.sroa.30.4113.i, %323 ]
-  %346 = getelementptr inbounds ptr, ptr %.sroa.0.5.i, i64 %.sroa.13.6112.i
+  %.sroa.0.4.i = phi ptr [ %335, %337 ], [ %.sroa.0.1111.i, %323 ]
+  %.sroa.30.4.i = phi i64 [ %spec.select.i.i.i, %337 ], [ %.sroa.30.1113.i, %323 ]
+  %346 = getelementptr inbounds ptr, ptr %.sroa.0.4.i, i64 %.sroa.13.3112.i
   store ptr %.135.i, ptr %346, align 8
-  %347 = add i64 %.sroa.13.6112.i, 1
+  %347 = add i64 %.sroa.13.3112.i, 1
   %348 = call ptr @agnxtedge(ptr noundef %75, ptr noundef nonnull %.1114.i, ptr noundef %160) #19
   %.not39.i = icmp eq ptr %348, null
   br i1 %.not39.i, label %._crit_edge116.i, label %.lr.ph115.i
 
 ._crit_edge116.i:                                 ; preds = %deglist_append.exit.i, %find_pair_edges.exit.i
-  %.sroa.0.4.lcssa.i = phi ptr [ %.sroa.0.3120.i, %find_pair_edges.exit.i ], [ %.sroa.0.5.i, %deglist_append.exit.i ]
-  %.sroa.13.6.lcssa.i = phi i64 [ %.sroa.13.4.lcssa.i, %find_pair_edges.exit.i ], [ %347, %deglist_append.exit.i ]
-  %.sroa.30.4.lcssa.i = phi i64 [ %.sroa.30.3122.i, %find_pair_edges.exit.i ], [ %.sroa.30.5.i, %deglist_append.exit.i ]
-  %.not.i56.i = icmp eq i64 %.sroa.13.6.lcssa.i, 0
+  %.sroa.0.1.lcssa.i = phi ptr [ %.sroa.0.0120.i, %find_pair_edges.exit.i ], [ %.sroa.0.4.i, %deglist_append.exit.i ]
+  %.sroa.13.3.lcssa.i = phi i64 [ %.sroa.13.2.lcssa.i, %find_pair_edges.exit.i ], [ %347, %deglist_append.exit.i ]
+  %.sroa.30.1.lcssa.i = phi i64 [ %.sroa.30.0122.i, %find_pair_edges.exit.i ], [ %.sroa.30.4.i, %deglist_append.exit.i ]
+  %.not.i56.i = icmp eq i64 %.sroa.13.3.lcssa.i, 0
   br i1 %.not.i56.i, label %deglist_sort.exit.i, label %349
 
 349:                                              ; preds = %._crit_edge116.i
-  call void @qsort(ptr noundef %.sroa.0.4.lcssa.i, i64 noundef %.sroa.13.6.lcssa.i, i64 noundef 8, ptr noundef nonnull @cmpDegree) #19
+  call void @qsort(ptr noundef %.sroa.0.1.lcssa.i, i64 noundef %.sroa.13.3.lcssa.i, i64 noundef 8, ptr noundef nonnull @cmpDegree) #19
   br label %deglist_sort.exit.i
 
 deglist_sort.exit.i:                              ; preds = %349, %._crit_edge116.i
@@ -777,9 +777,9 @@ deglist_sort.exit.i:                              ; preds = %349, %._crit_edge11
   br i1 %exitcond.not.i, label %remove_pair_edges.exit, label %.lr.ph124.i
 
 remove_pair_edges.exit:                           ; preds = %deglist_sort.exit.i, %getList.exit.i
-  %.sroa.0.3.lcssa.i = phi ptr [ %.sroa.0.2.i, %getList.exit.i ], [ %.sroa.0.4.lcssa.i, %deglist_sort.exit.i ]
+  %.sroa.0.0.lcssa.i = phi ptr [ %.sroa.0.3.i, %getList.exit.i ], [ %.sroa.0.1.lcssa.i, %deglist_sort.exit.i ]
   %352 = call i32 @agclose(ptr noundef %75) #19
-  call void @free(ptr noundef %.sroa.0.3.lcssa.i) #19
+  call void @free(ptr noundef %.sroa.0.0.lcssa.i) #19
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %353 = load i32, ptr @spanning_tree.id, align 4
@@ -961,7 +961,7 @@ spanning_tree.exit:                               ; preds = %406, %._crit_edge.i
 
 .lr.ph.i.i70:                                     ; preds = %426, %tailrecurse.i.i
   %434 = phi ptr [ %480, %tailrecurse.i.i ], [ %432, %426 ]
-  %.tr4550.i.i = phi ptr [ %.2.i.i, %tailrecurse.i.i ], [ null, %426 ]
+  %.tr4550.i.i = phi ptr [ %.0.i.i, %tailrecurse.i.i ], [ null, %426 ]
   %.tr4449.i.i = phi i32 [ %435, %tailrecurse.i.i ], [ 0, %426 ]
   %435 = add nuw nsw i32 %.tr4449.i.i, 1
   %436 = getelementptr inbounds i8, ptr %434, i64 16
@@ -999,7 +999,7 @@ spanning_tree.exit:                               ; preds = %406, %._crit_edge.i
   br label %454
 
 454:                                              ; preds = %453, %450
-  %.0.i.i = phi ptr [ %446, %453 ], [ %.tr4550.i.i, %450 ]
+  %.2.i.i = phi ptr [ %446, %453 ], [ %.tr4550.i.i, %450 ]
   %455 = getelementptr inbounds i8, ptr %439, i64 48
   store ptr %446, ptr %455, align 8
   %456 = load ptr, ptr %436, align 8
@@ -1032,7 +1032,7 @@ spanning_tree.exit:                               ; preds = %406, %._crit_edge.i
 
 tailrecurse.i.i:                                  ; preds = %454, %444, %.lr.ph.i.i70
   %.sink66.i.i = phi ptr [ %439, %.lr.ph.i.i70 ], [ %.pre57.i.i, %454 ], [ %439, %444 ]
-  %.2.i.i = phi ptr [ %.tr4550.i.i, %.lr.ph.i.i70 ], [ %.0.i.i, %454 ], [ %.tr4550.i.i, %444 ]
+  %.0.i.i = phi ptr [ %.tr4550.i.i, %.lr.ph.i.i70 ], [ %.2.i.i, %454 ], [ %.tr4550.i.i, %444 ]
   %471 = getelementptr inbounds i8, ptr %.sink66.i.i, i64 40
   store ptr %.05275.i, ptr %471, align 8
   %472 = load ptr, ptr %436, align 8

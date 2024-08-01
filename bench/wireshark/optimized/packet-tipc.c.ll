@@ -2157,19 +2157,19 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   br label %136
 
 136:                                              ; preds = %.lr.ph, %136
-  %.3854 = phi i32 [ 40, %.lr.ph ], [ %155, %136 ]
+  %.4854 = phi i32 [ 40, %.lr.ph ], [ %155, %136 ]
   %.0825853 = phi i32 [ 0, %.lr.ph ], [ %137, %136 ]
   %137 = add i32 %.0825853, 1
-  %138 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.3854) #7
+  %138 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.4854) #7
   %139 = and i32 %138, 131071
   %140 = lshr i32 %138, 25
   %141 = and i32 %140, 15
   %142 = load ptr, ptr @top_tree, align 8
   %143 = load i32, ptr @hf_tipc_msg_no_bundle, align 4
   %144 = tail call ptr @val_to_str_const(i32 noundef %141, ptr noundef nonnull @tipcv2_user_short_str_vals, ptr noundef nonnull @.str.413) #7
-  %145 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %142, i32 noundef %143, ptr noundef %0, i32 noundef %.3854, i32 noundef 1, i32 noundef %137, ptr noundef nonnull @.str.454, i32 noundef %137, i32 noundef %134, ptr noundef %144) #7
+  %145 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %142, i32 noundef %143, ptr noundef %0, i32 noundef %.4854, i32 noundef 1, i32 noundef %137, ptr noundef nonnull @.str.454, i32 noundef %137, i32 noundef %134, ptr noundef %144) #7
   tail call void @proto_item_set_len(ptr noundef %145, i32 noundef %139) #7
-  %146 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.3854, i32 noundef %139) #7
+  %146 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.4854, i32 noundef %139) #7
   %147 = load ptr, ptr %135, align 8
   tail call void @col_append_str(ptr noundef %147, i32 noundef 25, ptr noundef nonnull @.str.455) #7
   %148 = load ptr, ptr %135, align 8
@@ -2180,7 +2180,7 @@ define internal fastcc void @dissect_tipc_v2_internal_msg(ptr noundef %0, ptr no
   %.not849 = icmp eq i32 %151, 0
   %152 = sub nuw nsw i32 4, %151
   %153 = select i1 %.not849, i32 0, i32 %152
-  %154 = add nuw nsw i32 %139, %.3854
+  %154 = add nuw nsw i32 %139, %.4854
   %155 = add nuw nsw i32 %154, %153
   %156 = icmp ult i32 %155, %4
   br i1 %156, label %136, label %.loopexit, !llvm.loop !8

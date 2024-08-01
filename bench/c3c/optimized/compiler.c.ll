@@ -424,7 +424,7 @@ define dso_local void @compiler_parse() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %.01322 = phi i1 [ false, %.lr.ph.preheader ], [ %.2, %37 ]
+  %.01322 = phi i1 [ false, %.lr.ph.preheader ], [ %.1, %37 ]
   store i8 0, ptr %1, align 1
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 64), align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
@@ -458,13 +458,13 @@ define dso_local void @compiler_parse() local_unnamed_addr #0 {
   br label %37
 
 37:                                               ; preds = %29, %33, %26
-  %.2 = phi i1 [ %.01322, %26 ], [ %spec.select, %33 ], [ %spec.select, %29 ]
+  %.1 = phi i1 [ %.01322, %26 ], [ %spec.select, %33 ], [ %spec.select, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %37, %15, %17
-  %.013.lcssa = phi i1 [ false, %17 ], [ false, %15 ], [ %.2, %37 ]
+  %.013.lcssa = phi i1 [ false, %17 ], [ false, %15 ], [ %.1, %37 ]
   %38 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 169), align 1
   %39 = trunc i8 %38 to i1
   br i1 %39, label %40, label %42

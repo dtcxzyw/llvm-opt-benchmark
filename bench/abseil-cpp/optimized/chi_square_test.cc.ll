@@ -1964,11 +1964,11 @@ if.then.i.i.i149:                                 ; preds = %entry
 
 ehcleanup128:                                     ; preds = %lpad.i111, %lpad.i89, %lpad.i67, %lpad.i45, %if.then.i.i.i, %if.then.i.i.i137, %if.then.i.i.i141, %if.then.i.i.i145
   %.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %12, %if.then.i.i.i145 ], [ %0, %lpad.i45 ], [ %11, %if.then.i.i.i141 ], [ %1, %lpad.i67 ], [ %10, %if.then.i.i.i137 ], [ %2, %lpad.i89 ], [ %9, %if.then.i.i.i ], [ %3, %lpad.i111 ]
-  %arrayinit.endOfInit.6.ph = phi ptr [ %arrayinit.element, %if.then.i.i.i145 ], [ %arrayinit.element, %lpad.i45 ], [ %arrayinit.element35, %if.then.i.i.i141 ], [ %arrayinit.element35, %lpad.i67 ], [ %arrayinit.element58, %if.then.i.i.i137 ], [ %arrayinit.element58, %lpad.i89 ], [ %arrayinit.element81, %if.then.i.i.i ], [ %arrayinit.element81, %lpad.i111 ]
+  %arrayinit.endOfInit.1.ph = phi ptr [ %arrayinit.element, %if.then.i.i.i145 ], [ %arrayinit.element, %lpad.i45 ], [ %arrayinit.element35, %if.then.i.i.i141 ], [ %arrayinit.element35, %lpad.i67 ], [ %arrayinit.element58, %if.then.i.i.i137 ], [ %arrayinit.element58, %lpad.i89 ], [ %arrayinit.element81, %if.then.i.i.i ], [ %arrayinit.element81, %lpad.i111 ]
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %ehcleanup128, %arraydestroy.body
-  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %arrayinit.endOfInit.6.ph, %ehcleanup128 ]
+  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %arrayinit.endOfInit.1.ph, %ehcleanup128 ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -56
   call fastcc void @"_ZZN12_GLOBAL__N_132ChiSquareTest_CalcChiSquare_Test8TestBodyEvEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(56) %arraydestroy.element) #15
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %specs

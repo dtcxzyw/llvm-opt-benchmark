@@ -1404,7 +1404,7 @@ _ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit:        ; preds = %.lr.ph537.split
   br i1 %631, label %.lr.ph537.split, label %.loopexit462, !llvm.loop !16
 
 .loopexit462:                                     ; preds = %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit, %._crit_edge534.us, %606, %584
-  %.6262 = phi i32 [ %.3259541, %584 ], [ %.3259541, %606 ], [ %smax, %._crit_edge534.us ], [ %.5229542, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit ]
+  %.4260 = phi i32 [ %.3259541, %584 ], [ %.3259541, %606 ], [ %smax, %._crit_edge534.us ], [ %.5229542, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit ]
   %.6230 = phi i32 [ %.5229542, %584 ], [ %609, %606 ], [ %609, %._crit_edge534.us ], [ %609, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit ]
   %632 = load ptr, ptr %583, align 8
   %633 = sext i32 %605 to i64
@@ -1412,7 +1412,7 @@ _ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit:        ; preds = %.lr.ph537.split
   %635 = load i32, ptr %634, align 4
   %636 = add nsw i32 %635, 1
   store i32 %636, ptr %634, align 4
-  %637 = add nsw i32 %.6262, 1
+  %637 = add nsw i32 %.4260, 1
   %638 = load i32, ptr %21, align 4
   %639 = icmp slt i32 %637, %638
   br i1 %639, label %584, label %._crit_edge544, !llvm.loop !17

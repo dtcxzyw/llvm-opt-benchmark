@@ -950,7 +950,7 @@ new.notnull:                                      ; preds = %if.then54
 
 cleanup:                                          ; preds = %if.then25.invoke, %new.notnull, %invoke.cont49, %if.then54
   %switch = phi i1 [ false, %new.notnull ], [ false, %if.then54 ], [ true, %invoke.cont49 ], [ false, %if.then25.invoke ]
-  %retval.0 = phi ptr [ %call59, %new.notnull ], [ null, %if.then54 ], [ undef, %invoke.cont49 ], [ null, %if.then25.invoke ]
+  %retval.1 = phi ptr [ %call59, %new.notnull ], [ null, %if.then54 ], [ undef, %invoke.cont49 ], [ null, %if.then25.invoke ]
   %59 = load ptr, ptr %deleter.i, align 8
   %tobool.not.i146 = icmp eq ptr %59, null
   br i1 %tobool.not.i146, label %cleanup.if.end.i_crit_edge, label %for.cond.preheader.i
@@ -1010,8 +1010,8 @@ return.sink.split:                                ; preds = %_ZN6icu_756VArrayD2
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZN6icu_756VArrayD2Ev.exit
-  %retval.1 = phi ptr [ %retval.0, %_ZN6icu_756VArrayD2Ev.exit ], [ null, %return.sink.split ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %_ZN6icu_756VArrayD2Ev.exit ], [ null, %return.sink.split ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1555,7 +1555,7 @@ if.end67:                                         ; preds = %if.else56, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %do.body21.invoke, %if.end67
-  %retval.0 = phi ptr [ %55, %if.end67 ], [ null, %do.body21.invoke ]
+  %retval.1 = phi ptr [ %55, %if.end67 ], [ null, %do.body21.invoke ]
   %deleter.i = getelementptr inbounds i8, ptr %array, i64 16
   %56 = load ptr, ptr %deleter.i, align 8
   %tobool.not.i130 = icmp eq ptr %56, null
@@ -1609,8 +1609,8 @@ terminate.lpad.i:                                 ; preds = %terminate.lpad.loop
   unreachable
 
 return:                                           ; preds = %if.end.i, %entry, %do.body
-  %retval.1 = phi ptr [ null, %do.body ], [ null, %entry ], [ %retval.0, %if.end.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %do.body ], [ null, %entry ], [ %retval.1, %if.end.i ]
+  ret ptr %retval.0
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -1832,7 +1832,7 @@ if.then25:                                        ; preds = %if.end21
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then25, %if.end21
-  %result.0 = phi ptr [ %p.i.promoted, %if.then25 ], [ null, %if.end21 ]
+  %result.1 = phi ptr [ %p.i.promoted, %if.then25 ], [ null, %if.end21 ]
   switch i16 %7, label %if.else44 [
     i16 39, label %if.then29
     i16 34, label %if.then29
@@ -1874,7 +1874,7 @@ do.body53:                                        ; preds = %if.else44, %if.else
   br label %return
 
 return:                                           ; preds = %_ZN6icu_7513LocDataParser14skipWhitespaceEv.exit, %if.end43, %if.else44, %do.body53, %do.body40, %do.body34, %do.body
-  %retval.0 = phi ptr [ null, %do.body ], [ null, %do.body34 ], [ null, %do.body40 ], [ null, %do.body53 ], [ %result.0, %if.end43 ], [ %result.0, %if.else44 ], [ null, %_ZN6icu_7513LocDataParser14skipWhitespaceEv.exit ]
+  %retval.0 = phi ptr [ null, %do.body ], [ null, %do.body34 ], [ null, %do.body40 ], [ null, %do.body53 ], [ %result.1, %if.end43 ], [ %result.1, %if.else44 ], [ null, %_ZN6icu_7513LocDataParser14skipWhitespaceEv.exit ]
   ret ptr %retval.0
 }
 
@@ -4171,20 +4171,20 @@ for.cond.preheader:                               ; preds = %if.else
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %4 = phi ptr [ %6, %for.body ], [ %3, %for.cond.preheader ]
   %p.08 = phi ptr [ %incdec.ptr, %for.body ], [ %2, %for.cond.preheader ]
-  %result.07 = phi i32 [ %spec.select, %for.body ], [ 0, %for.cond.preheader ]
+  %result.17 = phi i32 [ %spec.select, %for.body ], [ 0, %for.cond.preheader ]
   %fIsPublic.i = getelementptr inbounds i8, ptr %4, i64 161
   %5 = load i8, ptr %fIsPublic.i, align 1
   %tobool8.not = icmp ne i8 %5, 0
   %inc = zext i1 %tobool8.not to i32
-  %spec.select = add nuw nsw i32 %result.07, %inc
+  %spec.select = add nuw nsw i32 %result.17, %inc
   %incdec.ptr = getelementptr inbounds i8, ptr %p.08, i64 8
   %6 = load ptr, ptr %incdec.ptr, align 8
   %tobool6.not = icmp eq ptr %6, null
   br i1 %tobool6.not, label %if.end11, label %for.body, !llvm.loop !34
 
 if.end11:                                         ; preds = %for.body, %for.cond.preheader, %if.else, %if.then
-  %result.2 = phi i32 [ %call, %if.then ], [ 0, %if.else ], [ 0, %for.cond.preheader ], [ %spec.select, %for.body ]
-  ret i32 %result.2
+  %result.0 = phi i32 [ %call, %if.then ], [ 0, %if.else ], [ 0, %for.cond.preheader ], [ %spec.select, %for.body ]
+  ret i32 %result.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7038,7 +7038,7 @@ if.end20:                                         ; preds = %new.notnull
 
 if.then23:                                        ; preds = %if.then8, %if.end20
   %newCollator.023 = phi ptr [ %call14, %if.end20 ], [ %5, %if.then8 ]
-  %temp.022 = phi ptr [ %call, %if.end20 ], [ null, %if.then8 ]
+  %temp.122 = phi ptr [ %call, %if.end20 ], [ null, %if.then8 ]
   call void @_ZN6icu_7517RuleBasedCollator12setAttributeE13UColAttribute18UColAttributeValueR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272) %newCollator.023, i32 noundef 4, i32 noundef 17, ptr noundef nonnull align 4 dereferenceable(4) %status)
   store ptr %newCollator.023, ptr %collator, align 8
   br label %if.end27
@@ -7049,16 +7049,16 @@ if.end27.thread:                                  ; preds = %if.end20
   br label %delete.notnull29
 
 if.end27:                                         ; preds = %if.then23, %if.then3
-  %temp.1 = phi ptr [ %temp.022, %if.then23 ], [ %call, %if.then3 ]
-  %isnull28 = icmp eq ptr %temp.1, null
+  %temp.0 = phi ptr [ %temp.122, %if.then23 ], [ %call, %if.then3 ]
+  %isnull28 = icmp eq ptr %temp.0, null
   br i1 %isnull28, label %if.end31, label %delete.notnull29
 
 delete.notnull29:                                 ; preds = %if.end27.thread, %dynamic_cast.end, %if.end27
-  %temp.118 = phi ptr [ %temp.1, %if.end27 ], [ %call, %dynamic_cast.end ], [ %call, %if.end27.thread ]
-  %vtable = load ptr, ptr %temp.118, align 8
+  %temp.018 = phi ptr [ %temp.0, %if.end27 ], [ %call, %dynamic_cast.end ], [ %call, %if.end27.thread ]
+  %vtable = load ptr, ptr %temp.018, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %13 = load ptr, ptr %vfn, align 8
-  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %temp.118) #21
+  call void %13(ptr noundef nonnull align 8 dereferenceable(8) %temp.018) #21
   br label %if.end31
 
 if.end31:                                         ; preds = %land.lhs.true6, %if.end27, %delete.notnull29, %if.end
@@ -7066,8 +7066,8 @@ if.end31:                                         ; preds = %land.lhs.true6, %if
   br label %return
 
 return:                                           ; preds = %new.cont, %entry, %if.end31
-  %retval.1 = phi ptr [ null, %new.cont ], [ %14, %if.end31 ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %new.cont ], [ %14, %if.end31 ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 declare noundef ptr @_ZN6icu_758Collator14createInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4

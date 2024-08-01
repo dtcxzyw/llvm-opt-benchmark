@@ -2356,8 +2356,8 @@ define hidden void @zif_posix_getgrnam(ptr noundef %0, ptr noundef %1) #0 {
 
 17:                                               ; preds = %13, %.thread82
   %.pn = phi ptr [ %12, %.thread82 ], [ %15, %13 ]
-  %.2.ph = getelementptr inbounds i8, ptr %.pn, i64 24
-  %18 = call ptr @getgrnam(ptr noundef nonnull %.2.ph) #11
+  %.073.ph = getelementptr inbounds i8, ptr %.pn, i64 24
+  %18 = call ptr @getgrnam(ptr noundef nonnull %.073.ph) #11
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %24
 
@@ -2552,8 +2552,8 @@ define hidden void @zif_posix_getpwnam(ptr noundef %0, ptr noundef %1) #0 {
 
 17:                                               ; preds = %13, %.thread82
   %.pn = phi ptr [ %12, %.thread82 ], [ %15, %13 ]
-  %.2.ph = getelementptr inbounds i8, ptr %.pn, i64 24
-  %18 = call ptr @getpwnam(ptr noundef nonnull %.2.ph)
+  %.073.ph = getelementptr inbounds i8, ptr %.pn, i64 24
+  %18 = call ptr @getpwnam(ptr noundef nonnull %.073.ph)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %24
 

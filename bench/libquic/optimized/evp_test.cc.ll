@@ -538,7 +538,7 @@ invoke.cont132:                                   ; preds = %if.end131
           to label %cleanup unwind label %lpad116
 
 cleanup:                                          ; preds = %invoke.cont132, %invoke.cont127, %invoke.cont117
-  %retval.0 = phi i1 [ false, %invoke.cont117 ], [ false, %invoke.cont127 ], [ %call137, %invoke.cont132 ]
+  %retval.3 = phi i1 [ false, %invoke.cont117 ], [ false, %invoke.cont127 ], [ %call137, %invoke.cont132 ]
   %33 = load ptr, ptr %actual, align 8
   %tobool.not.i.i.i62 = icmp eq ptr %33, null
   br i1 %tobool.not.i.i.i62, label %if.then.i, label %if.then.i.i.i63
@@ -548,7 +548,7 @@ if.then.i.i.i63:                                  ; preds = %cleanup
   br label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont62, %invoke.cont90, %invoke.cont83, %if.then109, %invoke.cont106, %cleanup, %if.then.i.i.i63
-  %retval.1.ph = phi i1 [ %retval.0, %if.then.i.i.i63 ], [ %retval.0, %cleanup ], [ true, %invoke.cont106 ], [ false, %if.then109 ], [ false, %invoke.cont83 ], [ false, %invoke.cont90 ], [ false, %invoke.cont62 ]
+  %retval.2.ph = phi i1 [ %retval.3, %if.then.i.i.i63 ], [ %retval.3, %cleanup ], [ true, %invoke.cont106 ], [ false, %if.then109 ], [ false, %invoke.cont83 ], [ false, %invoke.cont90 ], [ false, %invoke.cont62 ]
   invoke void @EVP_PKEY_CTX_free(ptr noundef nonnull %call58)
           to label %cleanup143 unwind label %terminate.lpad.i
 
@@ -570,7 +570,7 @@ cleanup143.critedge:                              ; preds = %invoke.cont33
   br label %cleanup143
 
 cleanup143:                                       ; preds = %if.then.i, %invoke.cont57, %cleanup143.critedge, %cleanup.action
-  %retval.2 = phi i1 [ false, %cleanup.action ], [ false, %cleanup143.critedge ], [ %retval.1.ph, %if.then.i ], [ false, %invoke.cont57 ]
+  %retval.1 = phi i1 [ false, %cleanup.action ], [ false, %cleanup143.critedge ], [ %retval.2.ph, %if.then.i ], [ false, %invoke.cont57 ]
   %36 = load ptr, ptr %output, align 8
   %tobool.not.i.i.i65 = icmp eq ptr %36, null
   br i1 %tobool.not.i.i.i65, label %_ZNSt6vectorIhSaIhEED2Ev.exit67, label %if.then.i.i.i66
@@ -611,8 +611,8 @@ _ZNSt6vectorIhSaIhEED2Ev.exit76:                  ; preds = %_ZNSt6vectorIhSaIhE
   resume { ptr, i32 } %.pn32.pn
 
 return:                                           ; preds = %if.then.i.i.i69, %_ZNSt6vectorIhSaIhEED2Ev.exit67, %if.then26, %if.else18, %if.then5, %if.then
-  %retval.3 = phi i1 [ %call2, %if.then ], [ %call6, %if.then5 ], [ false, %if.then26 ], [ false, %if.else18 ], [ %retval.2, %_ZNSt6vectorIhSaIhEED2Ev.exit67 ], [ %retval.2, %if.then.i.i.i69 ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ %call2, %if.then ], [ %call6, %if.then5 ], [ false, %if.then26 ], [ false, %if.else18 ], [ %retval.1, %_ZNSt6vectorIhSaIhEED2Ev.exit67 ], [ %retval.1, %if.then.i.i.i69 ]
+  ret i1 %retval.0
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -957,7 +957,7 @@ invoke.cont104:                                   ; preds = %if.end103
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then100, %if.then92, %cleanup.action, %invoke.cont104
-  %retval.0 = phi i1 [ true, %invoke.cont104 ], [ false, %cleanup.action ], [ false, %if.then92 ], [ false, %if.then100 ]
+  %retval.4 = phi i1 [ true, %invoke.cont104 ], [ false, %cleanup.action ], [ false, %if.then92 ], [ false, %if.then100 ]
   %22 = load ptr, ptr %output, align 8
   %tobool.not.i.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
@@ -994,7 +994,7 @@ if.then.i37:                                      ; preds = %ehcleanup109
   br label %ehcleanup111
 
 cleanup110:                                       ; preds = %if.then.i, %_ZNSt6vectorIhSaIhEED2Ev.exit, %invoke.cont38, %invoke.cont43, %invoke.cont49
-  %retval.1 = phi i1 [ false, %invoke.cont49 ], [ false, %invoke.cont43 ], [ false, %invoke.cont38 ], [ %retval.0, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %retval.0, %if.then.i ]
+  %retval.3 = phi i1 [ false, %invoke.cont49 ], [ false, %invoke.cont43 ], [ false, %invoke.cont38 ], [ %retval.4, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %retval.4, %if.then.i ]
   invoke void @CBB_cleanup(ptr noundef nonnull %cbb)
           to label %cleanup114 unwind label %terminate.lpad.i
 
@@ -1024,7 +1024,7 @@ ehcleanup113:                                     ; preds = %ehcleanup111, %lpad
   br label %ehcleanup117
 
 cleanup114:                                       ; preds = %invoke.cont18, %if.then31, %cleanup110
-  %retval.2 = phi i1 [ false, %invoke.cont18 ], [ false, %if.then31 ], [ %retval.1, %cleanup110 ]
+  %retval.2 = phi i1 [ false, %invoke.cont18 ], [ false, %if.then31 ], [ %retval.3, %cleanup110 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key_type) #18
   %.pr = load ptr, ptr %pkey, align 8
   %cmp.not.i42 = icmp eq ptr %.pr, null
@@ -1042,12 +1042,12 @@ terminate.lpad.i44:                               ; preds = %if.then.i43
   unreachable
 
 _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit: ; preds = %invoke.cont8, %cleanup114, %if.then.i43
-  %retval.355 = phi i1 [ %retval.2, %cleanup114 ], [ %retval.2, %if.then.i43 ], [ false, %invoke.cont8 ]
+  %retval.155 = phi i1 [ %retval.2, %cleanup114 ], [ %retval.2, %if.then.i43 ], [ false, %invoke.cont8 ]
   store ptr null, ptr %pkey, align 8
   br label %cleanup116
 
 cleanup116:                                       ; preds = %invoke.cont3, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit
-  %retval.4 = phi i1 [ %retval.355, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit ], [ false, %invoke.cont3 ]
+  %retval.0 = phi i1 [ %retval.155, %_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev.exit ], [ false, %invoke.cont3 ]
   %30 = load ptr, ptr %input, align 8
   %tobool.not.i.i.i46 = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i46, label %_ZNSt6vectorIhSaIhEED2Ev.exit48, label %if.then.i.i.i47
@@ -1057,7 +1057,7 @@ if.then.i.i.i47:                                  ; preds = %cleanup116
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit48
 
 _ZNSt6vectorIhSaIhEED2Ev.exit48:                  ; preds = %cleanup116, %if.then.i.i.i47
-  ret i1 %retval.4
+  ret i1 %retval.0
 
 ehcleanup117:                                     ; preds = %ehcleanup113, %lpad6, %ehcleanup
   %.pn24.pn = phi { ptr, i32 } [ %.pn24, %ehcleanup113 ], [ %4, %lpad6 ], [ %.pn, %ehcleanup ]

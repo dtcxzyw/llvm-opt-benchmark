@@ -490,26 +490,26 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr nocapture noundef %1, i
   br i1 %.not100108, label %.loopexit, label %.lr.ph112
 
 .lr.ph112:                                        ; preds = %35, %.lr.ph112
-  %.190111 = phi ptr [ %51, %.lr.ph112 ], [ %.089, %35 ]
+  %.2111 = phi ptr [ %51, %.lr.ph112 ], [ %.089, %35 ]
   %.091110 = phi i32 [ %53, %.lr.ph112 ], [ %37, %35 ]
   %.095109 = phi ptr [ %52, %.lr.ph112 ], [ %23, %35 ]
   %38 = load i16, ptr %.095109, align 2
   %39 = trunc i16 %38 to i8
   %40 = shl i8 %39, 3
-  store i8 %40, ptr %.190111, align 1
+  store i8 %40, ptr %.2111, align 1
   %41 = load i16, ptr %.095109, align 2
   %42 = lshr i16 %41, 3
   %43 = trunc i16 %42 to i8
   %44 = and i8 %43, -4
-  %45 = getelementptr inbounds i8, ptr %.190111, i64 1
+  %45 = getelementptr inbounds i8, ptr %.2111, i64 1
   store i8 %44, ptr %45, align 1
   %46 = load i16, ptr %.095109, align 2
   %47 = lshr i16 %46, 8
   %48 = trunc nuw i16 %47 to i8
   %49 = and i8 %48, -8
-  %50 = getelementptr inbounds i8, ptr %.190111, i64 2
+  %50 = getelementptr inbounds i8, ptr %.2111, i64 2
   store i8 %49, ptr %50, align 1
-  %51 = getelementptr inbounds i8, ptr %.190111, i64 3
+  %51 = getelementptr inbounds i8, ptr %.2111, i64 3
   %52 = getelementptr inbounds i8, ptr %.095109, i64 2
   %53 = add i32 %.091110, -1
   %.not100 = icmp eq i32 %53, 0
@@ -523,7 +523,7 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr nocapture noundef %1, i
 
 .lr.ph:                                           ; preds = %54, %.lr.ph
   %.088107 = phi ptr [ %63, %.lr.ph ], [ %23, %54 ]
-  %.2106 = phi ptr [ %83, %.lr.ph ], [ %.089, %54 ]
+  %.3106 = phi ptr [ %83, %.lr.ph ], [ %.089, %54 ]
   %.192105 = phi i32 [ %84, %.lr.ph ], [ %56, %54 ]
   %57 = getelementptr inbounds i8, ptr %.088107, i64 1
   %58 = load i8, ptr %.088107, align 1
@@ -533,8 +533,8 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr nocapture noundef %1, i
   %62 = load i8, ptr %59, align 1
   %63 = getelementptr inbounds i8, ptr %.088107, i64 4
   %64 = load i8, ptr %61, align 1
-  %65 = getelementptr inbounds i8, ptr %.2106, i64 2
-  %66 = getelementptr inbounds i8, ptr %.2106, i64 1
+  %65 = getelementptr inbounds i8, ptr %.3106, i64 2
+  %66 = getelementptr inbounds i8, ptr %.3106, i64 1
   %67 = uitofp i8 %58 to double
   %68 = uitofp i8 %64 to double
   %69 = fmul double %67, %68
@@ -553,8 +553,8 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr nocapture noundef %1, i
   %80 = fdiv double %79, 2.550000e+02
   %81 = fadd double %80, 5.000000e-01
   %82 = fptoui double %81 to i8
-  store i8 %82, ptr %.2106, align 1
-  %83 = getelementptr inbounds i8, ptr %.2106, i64 3
+  store i8 %82, ptr %.3106, align 1
+  %83 = getelementptr inbounds i8, ptr %.3106, i64 3
   %84 = add i32 %.192105, -1
   %.not99 = icmp eq i32 %84, 0
   br i1 %.not99, label %.loopexit, label %.lr.ph, !llvm.loop !8
@@ -583,27 +583,27 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr nocapture noundef %1, i
 
 101:                                              ; preds = %.lr.ph118, %101
   %.1117 = phi ptr [ %23, %.lr.ph118 ], [ %111, %101 ]
-  %.3116 = phi ptr [ %.089, %.lr.ph118 ], [ %110, %101 ]
+  %.4116 = phi ptr [ %.089, %.lr.ph118 ], [ %110, %101 ]
   %.293115 = phi i32 [ %87, %.lr.ph118 ], [ %112, %101 ]
   %102 = getelementptr inbounds i8, ptr %.1117, i64 %97
   %103 = load i8, ptr %102, align 1
-  store i8 %103, ptr %.3116, align 1
+  store i8 %103, ptr %.4116, align 1
   %104 = getelementptr inbounds i8, ptr %.1117, i64 %98
   %105 = load i8, ptr %104, align 1
-  %106 = getelementptr inbounds i8, ptr %.3116, i64 1
+  %106 = getelementptr inbounds i8, ptr %.4116, i64 1
   store i8 %105, ptr %106, align 1
   %107 = getelementptr inbounds i8, ptr %.1117, i64 %99
   %108 = load i8, ptr %107, align 1
-  %109 = getelementptr inbounds i8, ptr %.3116, i64 2
+  %109 = getelementptr inbounds i8, ptr %.4116, i64 2
   store i8 %108, ptr %109, align 1
-  %110 = getelementptr inbounds i8, ptr %.3116, i64 3
+  %110 = getelementptr inbounds i8, ptr %.4116, i64 3
   %111 = getelementptr inbounds i8, ptr %.1117, i64 %100
   %112 = add i32 %.293115, -1
   %.not98 = icmp eq i32 %112, 0
   br i1 %.not98, label %.loopexit, label %101, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph112, %101, %54, %35, %85, %26
-  %.4 = phi ptr [ %34, %26 ], [ %.089, %85 ], [ %.089, %35 ], [ %.089, %54 ], [ %110, %101 ], [ %51, %.lr.ph112 ], [ %83, %.lr.ph ]
+  %.190 = phi ptr [ %34, %26 ], [ %.089, %85 ], [ %.089, %35 ], [ %.089, %54 ], [ %110, %101 ], [ %51, %.lr.ph112 ], [ %83, %.lr.ph ]
   %113 = getelementptr inbounds i8, ptr %1, i64 96
   %114 = load i32, ptr %113, align 8
   %115 = icmp sgt i32 %114, 0
@@ -611,7 +611,7 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr nocapture noundef %1, i
 
 .lr.ph122.preheader:                              ; preds = %.loopexit
   %116 = zext nneg i32 %114 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.4, i8 0, i64 %116, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.190, i8 0, i64 %116, i1 false)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph122.preheader, %.loopexit
@@ -1006,12 +1006,12 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.v
   br i1 %8, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
-  %.210.us = phi i32 [ %13, %.preheader.split.us ], [ 0, %.preheader ]
-  %9 = tail call i32 @putc(i32 noundef %.210.us, ptr noundef %.32.val)
-  %10 = tail call i32 @putc(i32 noundef %.210.us, ptr noundef %.32.val)
-  %11 = tail call i32 @putc(i32 noundef %.210.us, ptr noundef %.32.val)
+  %.310.us = phi i32 [ %13, %.preheader.split.us ], [ 0, %.preheader ]
+  %9 = tail call i32 @putc(i32 noundef %.310.us, ptr noundef %.32.val)
+  %10 = tail call i32 @putc(i32 noundef %.310.us, ptr noundef %.32.val)
+  %11 = tail call i32 @putc(i32 noundef %.310.us, ptr noundef %.32.val)
   %12 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
-  %13 = add nuw nsw i32 %.210.us, 1
+  %13 = add nuw nsw i32 %.310.us, 1
   %exitcond42.not = icmp eq i32 %13, 256
   br i1 %exitcond42.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !10
 
@@ -1127,17 +1127,17 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.v
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !11
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
-  %.210 = phi i32 [ %88, %.preheader.split ], [ 0, %.preheader ]
-  %85 = tail call i32 @putc(i32 noundef %.210, ptr noundef %.32.val)
-  %86 = tail call i32 @putc(i32 noundef %.210, ptr noundef %.32.val)
-  %87 = tail call i32 @putc(i32 noundef %.210, ptr noundef %.32.val)
-  %88 = add nuw nsw i32 %.210, 1
+  %.310 = phi i32 [ %88, %.preheader.split ], [ 0, %.preheader ]
+  %85 = tail call i32 @putc(i32 noundef %.310, ptr noundef %.32.val)
+  %86 = tail call i32 @putc(i32 noundef %.310, ptr noundef %.32.val)
+  %87 = tail call i32 @putc(i32 noundef %.310, ptr noundef %.32.val)
+  %88 = add nuw nsw i32 %.310, 1
   %exitcond41.not = icmp eq i32 %88, 256
   br i1 %exitcond41.not, label %.loopexit, label %.preheader.split, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph7.split, %.lr.ph7.split.us, %.preheader.split, %.preheader.split.us, %.preheader3, %.preheader1
-  %.3 = phi i32 [ 0, %.preheader1 ], [ 0, %.preheader3 ], [ 256, %.preheader.split.us ], [ 256, %.preheader.split ], [ %7, %.lr.ph7.split.us ], [ %7, %.lr.ph7.split ], [ %7, %.lr.ph.split.us ], [ %7, %.lr.ph.split ]
-  %89 = icmp sgt i32 %.3, %1
+  %.2 = phi i32 [ 0, %.preheader1 ], [ 0, %.preheader3 ], [ 256, %.preheader.split.us ], [ 256, %.preheader.split ], [ %7, %.lr.ph7.split.us ], [ %7, %.lr.ph7.split ], [ %7, %.lr.ph.split.us ], [ %7, %.lr.ph.split ]
+  %89 = icmp sgt i32 %.2, %1
   br i1 %89, label %90, label %97
 
 90:                                               ; preds = %.loopexit
@@ -1146,14 +1146,14 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.v
   store i32 1044, ptr %92, align 8
   %93 = load ptr, ptr %0, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 44
-  store i32 %.3, ptr %94, align 4
+  store i32 %.2, ptr %94, align 4
   %95 = load ptr, ptr %0, align 8
   %96 = load ptr, ptr %95, align 8
   tail call void %96(ptr noundef nonnull %0) #6
   br label %97
 
 97:                                               ; preds = %90, %.loopexit
-  %98 = icmp slt i32 %.3, %1
+  %98 = icmp slt i32 %.2, %1
   br i1 %98, label %.lr.ph13, label %._crit_edge
 
 .lr.ph13:                                         ; preds = %97
@@ -1161,7 +1161,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.v
   br i1 %99, label %.lr.ph13.split.us, label %.lr.ph13.split
 
 .lr.ph13.split.us:                                ; preds = %.lr.ph13, %.lr.ph13.split.us
-  %.412.us = phi i32 [ %104, %.lr.ph13.split.us ], [ %.3, %.lr.ph13 ]
+  %.412.us = phi i32 [ %104, %.lr.ph13.split.us ], [ %.2, %.lr.ph13 ]
   %100 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
   %101 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
   %102 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
@@ -1171,7 +1171,7 @@ define internal fastcc void @write_colormap(ptr noundef %0, ptr nocapture %.32.v
   br i1 %exitcond44.not, label %._crit_edge, label %.lr.ph13.split.us, !llvm.loop !13
 
 .lr.ph13.split:                                   ; preds = %.lr.ph13, %.lr.ph13.split
-  %.412 = phi i32 [ %108, %.lr.ph13.split ], [ %.3, %.lr.ph13 ]
+  %.412 = phi i32 [ %108, %.lr.ph13.split ], [ %.2, %.lr.ph13 ]
   %105 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
   %106 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)
   %107 = tail call i32 @putc(i32 noundef 0, ptr noundef %.32.val)

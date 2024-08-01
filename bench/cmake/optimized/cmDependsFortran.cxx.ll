@@ -2823,8 +2823,8 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %common.resume
 
 _ZN6cmListD2Ev.exit:                              ; preds = %212, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %._crit_edge110
-  %.3 = phi i1 [ true, %._crit_edge110 ], [ %.not91.lcssa128, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ %.not91.lcssa128, %212 ]
-  ret i1 %.3
+  %.023 = phi i1 [ true, %._crit_edge110 ], [ %.not91.lcssa128, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i ], [ %.not91.lcssa128, %212 ]
+  ret i1 %.023
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK16cmLocalGenerator25GetCurrentBinaryDirectoryB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(824)) local_unnamed_addr #0
@@ -4980,7 +4980,7 @@ define dso_local noundef zeroext i1 @_ZN16cmDependsFortran13ModulesDifferERKNSt7
   br i1 %or.cond.not.i, label %_ZL22cmFortranStreamsDifferRSiS_.exit, label %.thread52, !llvm.loop !155
 
 _ZL22cmFortranStreamsDifferRSiS_.exit:            ; preds = %.noexc40, %.noexc48, %.noexc47, %.noexc46, %.invoke, %63, %22, %29
-  %.0 = phi i1 [ true, %29 ], [ true, %22 ], [ true, %63 ], [ true, %.invoke ], [ true, %.noexc48 ], [ true, %.noexc47 ], [ false, %.noexc46 ], [ true, %.noexc40 ]
+  %.1 = phi i1 [ true, %29 ], [ true, %22 ], [ true, %63 ], [ true, %.invoke ], [ true, %.noexc48 ], [ true, %.noexc47 ], [ false, %.noexc46 ], [ true, %.noexc40 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %5) #15
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %4) #15
   br label %131
@@ -4991,8 +4991,8 @@ _ZL22cmFortranStreamsDifferRSiS_.exit:            ; preds = %.noexc40, %.noexc48
   resume { ptr, i32 } %.pn
 
 131:                                              ; preds = %_ZL22cmFortranStreamsDifferRSiS_.exit, %11
-  %.1 = phi i1 [ %12, %11 ], [ %.0, %_ZL22cmFortranStreamsDifferRSiS_.exit ]
-  ret i1 %.1
+  %.0 = phi i1 [ %12, %11 ], [ %.1, %_ZL22cmFortranStreamsDifferRSiS_.exit ]
+  ret i1 %.0
 }
 
 declare { i64, i32 } @_ZN5cmsys11SystemTools14CopyFileAlwaysERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0

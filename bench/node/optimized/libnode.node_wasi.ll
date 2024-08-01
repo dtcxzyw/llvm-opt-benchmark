@@ -3463,7 +3463,7 @@ if.then23:                                        ; preds = %if.end18
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end18, %if.then23, %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit
-  %retval.0.in = phi i16 [ %call14, %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %if.then23 ], [ %call20, %if.end18 ]
+  %retval.1.in = phi i16 [ %call14, %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %if.then23 ], [ %call20, %if.end18 ]
   %tobool.not.i.i.i = icmp eq ptr %iovs.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
@@ -3472,9 +3472,9 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %do.body2, %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.1.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.0.in, %cleanup ], [ %retval.0.in, %if.then.i.i.i ]
-  %retval.1 = zext i16 %retval.1.shrunk to i32
-  ret i32 %retval.1
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA37_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
+  %retval.0 = zext i16 %retval.0.shrunk to i32
+  ret i32 %retval.0
 }
 
 declare zeroext i16 @uvwasi_serdes_readv_iovec_t(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -3683,7 +3683,7 @@ if.then23:                                        ; preds = %if.end18
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end18, %if.then23, %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit
-  %retval.0.in = phi i16 [ %call14, %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %if.then23 ], [ %call20, %if.end18 ]
+  %retval.1.in = phi i16 [ %call14, %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %if.then23 ], [ %call20, %if.end18 ]
   %tobool.not.i.i.i = icmp eq ptr %iovs.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
@@ -3692,9 +3692,9 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %do.body2, %_ZN4node4wasi5DebugIJRA38_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.1.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA38_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.0.in, %cleanup ], [ %retval.0.in, %if.then.i.i.i ]
-  %retval.1 = zext i16 %retval.1.shrunk to i32
-  ret i32 %retval.1
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA38_KcRjS5_S5_RmS5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
+  %retval.0 = zext i16 %retval.0.shrunk to i32
+  ret i32 %retval.0
 }
 
 declare zeroext i16 @uvwasi_serdes_readv_ciovec_t(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -3795,7 +3795,7 @@ if.then23:                                        ; preds = %if.end18
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end18, %if.then23, %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit
-  %retval.0.in = phi i16 [ %call14, %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %if.then23 ], [ %call20, %if.end18 ]
+  %retval.1.in = phi i16 [ %call14, %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %if.then23 ], [ %call20, %if.end18 ]
   %tobool.not.i.i.i = icmp eq ptr %iovs.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
@@ -3804,9 +3804,9 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %do.body2, %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.1.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.0.in, %cleanup ], [ %retval.0.in, %if.then.i.i.i ]
-  %retval.1 = zext i16 %retval.1.shrunk to i32
-  ret i32 %retval.1
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA25_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
+  %retval.0 = zext i16 %retval.0.shrunk to i32
+  ret i32 %retval.0
 }
 
 declare zeroext i16 @uvwasi_fd_read(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
@@ -4155,7 +4155,7 @@ if.then23:                                        ; preds = %if.end18
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end18, %if.then23, %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit
-  %retval.0.in = phi i16 [ %call14, %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %if.then23 ], [ %call20, %if.end18 ]
+  %retval.1.in = phi i16 [ %call14, %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %if.then23 ], [ %call20, %if.end18 ]
   %tobool.not.i.i.i = icmp eq ptr %iovs.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
@@ -4164,9 +4164,9 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %do.body2, %_ZN4node4wasi5DebugIJRA26_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.1.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA26_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.0.in, %cleanup ], [ %retval.0.in, %if.then.i.i.i ]
-  %retval.1 = zext i16 %retval.1.shrunk to i32
-  ret i32 %retval.1
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA26_KcRjS5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
+  %retval.0 = zext i16 %retval.0.shrunk to i32
+  ret i32 %retval.0
 }
 
 declare zeroext i16 @uvwasi_fd_write(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
@@ -5331,7 +5331,7 @@ if.then32:                                        ; preds = %if.end26
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end26, %if.then32, %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit
-  %retval.0.in = phi i16 [ %call22, %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %if.then32 ], [ %call29, %if.end26 ]
+  %retval.1.in = phi i16 [ %call22, %_ZNSt6vectorI14uvwasi_iovec_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %if.then32 ], [ %call29, %if.end26 ]
   %tobool.not.i.i.i = icmp eq ptr %ri_data.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
@@ -5340,9 +5340,9 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %do.body10, %do.body2, %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.1.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ 61, %do.body10 ], [ %retval.0.in, %cleanup ], [ %retval.0.in, %if.then.i.i.i ]
-  %retval.1 = zext i16 %retval.1.shrunk to i32
-  ret i32 %retval.1
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA35_KcRjS5_S5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ 61, %do.body10 ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
+  %retval.0 = zext i16 %retval.0.shrunk to i32
+  ret i32 %retval.0
 }
 
 declare zeroext i16 @uvwasi_sock_recv(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i16 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -5447,7 +5447,7 @@ if.then24:                                        ; preds = %if.end18
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end18, %if.then24, %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit
-  %retval.0.in = phi i16 [ %call14, %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %if.then24 ], [ %call21, %if.end18 ]
+  %retval.1.in = phi i16 [ %call14, %_ZNSt6vectorI15uvwasi_ciovec_sSaIS0_EEC2EmRKS1_.exit ], [ 0, %if.then24 ], [ %call21, %if.end18 ]
   %tobool.not.i.i.i = icmp eq ptr %si_data.sroa.0.0, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
@@ -5456,9 +5456,9 @@ if.then.i.i.i:                                    ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %do.body2, %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit
-  %retval.1.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.0.in, %cleanup ], [ %retval.0.in, %if.then.i.i.i ]
-  %retval.1 = zext i16 %retval.1.shrunk to i32
-  ret i32 %retval.1
+  %retval.0.shrunk = phi i16 [ 61, %_ZN4node4wasi5DebugIJRA31_KcRjS5_S5_S5_S5_EEEvRKNS0_4WASIEDpOT_.exit ], [ 61, %do.body2 ], [ %retval.1.in, %cleanup ], [ %retval.1.in, %if.then.i.i.i ]
+  %retval.0 = zext i16 %retval.0.shrunk to i32
+  ret i32 %retval.0
 }
 
 declare zeroext i16 @uvwasi_sock_send(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #0

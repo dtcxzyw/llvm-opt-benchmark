@@ -4569,14 +4569,14 @@ define internal i64 @name_err_local_variables(i64 noundef %0) #0 {
   br label %13
 
 13:                                               ; preds = %.thread, %9
-  %.1 = phi i64 [ %12, %.thread ], [ %10, %9 ]
+  %.2 = phi i64 [ %12, %.thread ], [ %10, %9 ]
   %14 = load i64, ptr @id_local_variables, align 8
-  %15 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef %14, i64 noundef %.1) #28
+  %15 = tail call i64 @rb_ivar_set(i64 noundef %0, i64 noundef %14, i64 noundef %.2) #28
   br label %16
 
 16:                                               ; preds = %13, %1
-  %.2 = phi i64 [ %.1, %13 ], [ %3, %1 ]
-  ret i64 %.2
+  %.0 = phi i64 [ %.2, %13 ], [ %3, %1 ]
+  ret i64 %.0
 }
 
 declare i64 @rb_define_class_under(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -4779,8 +4779,8 @@ RSTRING_PTR.exit:                                 ; preds = %21, %26
   br label %.thread
 
 .thread:                                          ; preds = %28, %35, %33
-  %.06479 = phi i64 [ %34, %35 ], [ %34, %33 ], [ %29, %28 ]
-  %36 = call i64 @rb_check_string_type(i64 noundef %.06479) #28
+  %.279 = phi i64 [ %34, %35 ], [ %34, %33 ], [ %29, %28 ]
+  %36 = call i64 @rb_check_string_type(i64 noundef %.279) #28
   %37 = icmp eq i64 %36, 4
   br i1 %37, label %38, label %40
 
@@ -4872,9 +4872,9 @@ rb_class_of.exit:                                 ; preds = %53, %51, %54, %55, 
   br label %78
 
 78:                                               ; preds = %47, %49, %.critedge
-  %.068 = phi i64 [ %77, %.critedge ], [ %14, %49 ], [ %14, %47 ]
-  %.066 = phi i64 [ %76, %.critedge ], [ %50, %49 ], [ %48, %47 ]
-  %79 = call i64 @rb_protect(ptr noundef nonnull @name_err_mesg_receiver_name, i64 noundef %.068, ptr noundef nonnull %6) #28
+  %.169 = phi i64 [ %77, %.critedge ], [ %14, %49 ], [ %14, %47 ]
+  %.167 = phi i64 [ %76, %.critedge ], [ %50, %49 ], [ %48, %47 ]
+  %79 = call i64 @rb_protect(ptr noundef nonnull @name_err_mesg_receiver_name, i64 noundef %.169, ptr noundef nonnull %6) #28
   %80 = load i32, ptr %6, align 4
   %.not74 = icmp ne i32 %80, 0
   %81 = and i64 %79, -33
@@ -4883,7 +4883,7 @@ rb_class_of.exit:                                 ; preds = %53, %51, %54, %55, 
   br i1 %or.cond88, label %83, label %.thread82
 
 83:                                               ; preds = %78
-  %84 = call i64 @rb_protect(ptr noundef nonnull @rb_inspect, i64 noundef %.068, ptr noundef nonnull %6) #28
+  %84 = call i64 @rb_protect(ptr noundef nonnull @rb_inspect, i64 noundef %.169, ptr noundef nonnull %6) #28
   %.pr81 = load i32, ptr %6, align 4
   %.not75 = icmp eq i32 %.pr81, 0
   br i1 %.not75, label %.thread82, label %85
@@ -4899,23 +4899,23 @@ rb_class_of.exit:                                 ; preds = %53, %51, %54, %55, 
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %.thread82
-  %89 = call i64 @rb_any_to_s(i64 noundef %.068) #28
+  %89 = call i64 @rb_any_to_s(i64 noundef %.169) #28
   br label %90
 
 90:                                               ; preds = %.thread82, %88, %72, %74, %19, %17, %15
-  %.169 = phi i64 [ %73, %72 ], [ %75, %74 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %89, %88 ], [ %86, %.thread82 ]
-  %.167 = phi i64 [ %69, %72 ], [ %69, %74 ], [ %12, %19 ], [ %12, %17 ], [ %12, %15 ], [ %.066, %88 ], [ %.066, %.thread82 ]
-  %.2 = phi i64 [ %.165, %72 ], [ %.165, %74 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %.165, %88 ], [ %.165, %.thread82 ]
+  %.068 = phi i64 [ %73, %72 ], [ %75, %74 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %89, %88 ], [ %86, %.thread82 ]
+  %.066 = phi i64 [ %69, %72 ], [ %69, %74 ], [ %12, %19 ], [ %12, %17 ], [ %12, %15 ], [ %.167, %88 ], [ %.167, %.thread82 ]
+  %.064 = phi i64 [ %.165, %72 ], [ %.165, %74 ], [ %20, %19 ], [ %18, %17 ], [ %16, %15 ], [ %.165, %88 ], [ %.165, %.thread82 ]
   %91 = getelementptr inbounds i8, ptr %7, i64 16
   %92 = load i64, ptr %91, align 8
   %93 = call i64 @rb_obj_as_string(i64 noundef %92) #28
   store i64 %93, ptr %5, align 16
   %94 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %.2, ptr %94, align 8
+  store i64 %.064, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %.167, ptr %95, align 16
+  store i64 %.066, ptr %95, align 16
   %96 = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 %.169, ptr %96, align 8
+  store i64 %.068, ptr %96, align 8
   %97 = call i64 @rb_str_format(i32 noundef 4, ptr noundef nonnull %5, i64 noundef %8) #28
   br label %98
 
@@ -9744,9 +9744,9 @@ rb_num2long_inline.exit52:                        ; preds = %71, %73
   br label %76
 
 76:                                               ; preds = %.thread68, %rb_num2long_inline.exit52, %end_with_asciichar.exit.thread
-  %.035 = phi i64 [ %57, %end_with_asciichar.exit.thread ], [ %65, %.thread68 ], [ %75, %rb_num2long_inline.exit52 ]
+  %.1 = phi i64 [ %57, %end_with_asciichar.exit.thread ], [ %65, %.thread68 ], [ %75, %rb_num2long_inline.exit52 ]
   %77 = load i64, ptr @rb_cWarningBuffer, align 8
-  %78 = inttoptr i64 %.035 to ptr
+  %78 = inttoptr i64 %.1 to ptr
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   store i64 %77, ptr %79, align 8
   %80 = and i64 %77, 7
@@ -9756,11 +9756,11 @@ rb_num2long_inline.exit52:                        ; preds = %71, %73
   br i1 %83, label %RBASIC_SET_CLASS.exit, label %84
 
 84:                                               ; preds = %76
-  call void @rb_gc_writebarrier(i64 noundef %.035, i64 noundef %77) #28
+  call void @rb_gc_writebarrier(i64 noundef %.1, i64 noundef %77) #28
   br label %RBASIC_SET_CLASS.exit
 
 RBASIC_SET_CLASS.exit:                            ; preds = %76, %84
-  %85 = call i64 @rb_io_puts(i32 noundef %24, ptr noundef nonnull %.0.i, i64 noundef %.035) #28
+  %85 = call i64 @rb_io_puts(i32 noundef %24, ptr noundef nonnull %.0.i, i64 noundef %.1) #28
   %86 = load i64, ptr @rb_cString, align 8
   store i64 %86, ptr %79, align 8
   %87 = and i64 %86, 7
@@ -9770,11 +9770,11 @@ RBASIC_SET_CLASS.exit:                            ; preds = %76, %84
   br i1 %90, label %RBASIC_SET_CLASS.exit53, label %91
 
 91:                                               ; preds = %RBASIC_SET_CLASS.exit
-  call void @rb_gc_writebarrier(i64 noundef %.035, i64 noundef %86) #28
+  call void @rb_gc_writebarrier(i64 noundef %.1, i64 noundef %86) #28
   br label %RBASIC_SET_CLASS.exit53
 
 RBASIC_SET_CLASS.exit53:                          ; preds = %91, %RBASIC_SET_CLASS.exit, %end_with_asciichar.exit
-  %.1 = phi i64 [ %30, %end_with_asciichar.exit ], [ %.035, %RBASIC_SET_CLASS.exit ], [ %.035, %91 ]
+  %.035 = phi i64 [ %30, %end_with_asciichar.exit ], [ %.1, %RBASIC_SET_CLASS.exit ], [ %.1, %91 ]
   %92 = icmp eq i64 %4, 4
   br i1 %92, label %114, label %93
 
@@ -9834,12 +9834,12 @@ rb_warning_category_from_name.exit:               ; preds = %108
   br i1 %116, label %117, label %118
 
 117:                                              ; preds = %114
-  call void @rb_must_asciicompat(i64 noundef %.1) #28
-  call void @rb_write_error_str(i64 noundef %.1) #28
+  call void @rb_must_asciicompat(i64 noundef %.035) #28
+  call void @rb_write_error_str(i64 noundef %.035) #28
   br label %119
 
 118:                                              ; preds = %114
-  call fastcc void @rb_warn_category(i64 noundef %.1, i64 noundef %.0)
+  call fastcc void @rb_warn_category(i64 noundef %.035, i64 noundef %.0)
   br label %119
 
 119:                                              ; preds = %117, %118, %rb_array_const_ptr.exit
@@ -9911,9 +9911,9 @@ define internal fastcc noundef ptr @expand_report_argument(ptr nocapture noundef
 
 16:                                               ; preds = %.preheader, %append_pathname.exit
   %17 = phi i8 [ %214, %append_pathname.exit ], [ %11, %.preheader ]
-  %.060 = phi ptr [ %.161, %append_pathname.exit ], [ %2, %.preheader ]
+  %.060 = phi ptr [ %.262, %append_pathname.exit ], [ %2, %.preheader ]
   %.056 = phi ptr [ %.258, %append_pathname.exit ], [ %10, %.preheader ]
-  %.055 = phi i1 [ %.2, %append_pathname.exit ], [ true, %.preheader ]
+  %.055 = phi i1 [ %.1, %append_pathname.exit ], [ true, %.preheader ]
   %18 = getelementptr i8, ptr %.056, i64 1
   br i1 %4, label %19, label %24
 
@@ -10345,8 +10345,8 @@ RSTRING_PTR.exit.i92:                             ; preds = %142, %134
   br label %210
 
 210:                                              ; preds = %204, %202, %25
-  %.157 = phi ptr [ %28, %202 ], [ %18, %25 ], [ %209, %204 ]
-  %.1 = phi i1 [ true, %202 ], [ true, %25 ], [ %.not71, %204 ]
+  %.3 = phi ptr [ %28, %202 ], [ %18, %25 ], [ %209, %204 ]
+  %.2 = phi i1 [ true, %202 ], [ true, %25 ], [ %.not71, %204 ]
   %.0 = phi i8 [ %29, %202 ], [ %17, %25 ], [ %206, %204 ]
   %211 = icmp ult ptr %.060, %8
   br i1 %211, label %212, label %append_pathname.exit
@@ -10357,19 +10357,19 @@ RSTRING_PTR.exit.i92:                             ; preds = %142, %134
   br label %append_pathname.exit
 
 append_pathname.exit:                             ; preds = %.backedge.i101, %.lr.ph62.i96, %.backedge.i, %.lr.ph62.i, %RSTRING_PTR.exit.i92, %RSTRING_PTR.exit.i, %210, %212, %24, %195, %184, %append_basename.exit89, %append_basename.exit
-  %.161 = phi ptr [ %213, %212 ], [ %.060, %210 ], [ %201, %195 ], [ %190, %184 ], [ %133, %append_basename.exit89 ], [ %58, %append_basename.exit ], [ %.060, %24 ], [ %.060, %RSTRING_PTR.exit.i ], [ %.060, %RSTRING_PTR.exit.i92 ], [ %.0.be.i, %.backedge.i ], [ %.061.i, %.lr.ph62.i ], [ %.0.be.i103, %.backedge.i101 ], [ %.061.i97, %.lr.ph62.i96 ]
-  %.258 = phi ptr [ %.157, %212 ], [ %.157, %210 ], [ %28, %195 ], [ %28, %184 ], [ %28, %append_basename.exit89 ], [ %28, %append_basename.exit ], [ %18, %24 ], [ %28, %RSTRING_PTR.exit.i ], [ %28, %RSTRING_PTR.exit.i92 ], [ %28, %.lr.ph62.i ], [ %28, %.backedge.i ], [ %28, %.lr.ph62.i96 ], [ %28, %.backedge.i101 ]
-  %.2 = phi i1 [ %.1, %212 ], [ %.1, %210 ], [ true, %195 ], [ true, %184 ], [ true, %append_basename.exit89 ], [ true, %append_basename.exit ], [ false, %24 ], [ true, %RSTRING_PTR.exit.i ], [ true, %RSTRING_PTR.exit.i92 ], [ true, %.lr.ph62.i ], [ true, %.backedge.i ], [ true, %.lr.ph62.i96 ], [ true, %.backedge.i101 ]
+  %.262 = phi ptr [ %213, %212 ], [ %.060, %210 ], [ %201, %195 ], [ %190, %184 ], [ %133, %append_basename.exit89 ], [ %58, %append_basename.exit ], [ %.060, %24 ], [ %.060, %RSTRING_PTR.exit.i ], [ %.060, %RSTRING_PTR.exit.i92 ], [ %.0.be.i, %.backedge.i ], [ %.061.i, %.lr.ph62.i ], [ %.0.be.i103, %.backedge.i101 ], [ %.061.i97, %.lr.ph62.i96 ]
+  %.258 = phi ptr [ %.3, %212 ], [ %.3, %210 ], [ %28, %195 ], [ %28, %184 ], [ %28, %append_basename.exit89 ], [ %28, %append_basename.exit ], [ %18, %24 ], [ %28, %RSTRING_PTR.exit.i ], [ %28, %RSTRING_PTR.exit.i92 ], [ %28, %.lr.ph62.i ], [ %28, %.backedge.i ], [ %28, %.lr.ph62.i96 ], [ %28, %.backedge.i101 ]
+  %.1 = phi i1 [ %.2, %212 ], [ %.2, %210 ], [ true, %195 ], [ true, %184 ], [ true, %append_basename.exit89 ], [ true, %append_basename.exit ], [ false, %24 ], [ true, %RSTRING_PTR.exit.i ], [ true, %RSTRING_PTR.exit.i92 ], [ true, %.lr.ph62.i ], [ true, %.backedge.i ], [ true, %.lr.ph62.i96 ], [ true, %.backedge.i101 ]
   %214 = load i8, ptr %.258, align 1
   %.not72 = icmp eq i8 %214, 0
   br i1 %.not72, label %215, label %16, !llvm.loop !46
 
 215:                                              ; preds = %19, %append_pathname.exit
-  %.262 = phi ptr [ %.060, %19 ], [ %.161, %append_pathname.exit ]
-  %.3 = phi ptr [ %18, %19 ], [ %.258, %append_pathname.exit ]
-  store ptr %.3, ptr %0, align 8
-  store i8 0, ptr %.262, align 1
-  %216 = getelementptr i8, ptr %.262, i64 1
+  %.161 = phi ptr [ %.060, %19 ], [ %.262, %append_pathname.exit ]
+  %.157 = phi ptr [ %18, %19 ], [ %.258, %append_pathname.exit ]
+  store ptr %.157, ptr %0, align 8
+  store i8 0, ptr %.161, align 1
+  %216 = getelementptr i8, ptr %.161, i64 1
   br label %217
 
 217:                                              ; preds = %5, %9, %215

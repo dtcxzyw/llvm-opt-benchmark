@@ -374,16 +374,16 @@ if.then26:                                        ; preds = %if.end23
   br i1 %cmp28, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.then26, %if.end23
-  %new_ctx.0 = phi ptr [ %call27, %if.then26 ], [ null, %if.end23 ]
-  %ctx.addr.0 = phi ptr [ %call27, %if.then26 ], [ %ctx, %if.end23 ]
-  tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.0) #3
-  %call33 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #3
-  %call34 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.0) #3
+  %new_ctx.2 = phi ptr [ %call27, %if.then26 ], [ null, %if.end23 ]
+  %ctx.addr.2 = phi ptr [ %call27, %if.then26 ], [ %ctx, %if.end23 ]
+  tail call void @BN_CTX_start(ptr noundef nonnull %ctx.addr.2) #3
+  %call33 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.2) #3
+  %call34 = tail call ptr @BN_CTX_get(ptr noundef nonnull %ctx.addr.2) #3
   %cmp35 = icmp eq ptr %call34, null
   br i1 %cmp35, label %if.then113, label %if.end38
 
 if.end38:                                         ; preds = %if.end32
-  %call39 = tail call i32 @EC_POINT_get_affine_coordinates(ptr noundef nonnull %group, ptr noundef %point, ptr noundef %call33, ptr noundef nonnull %call34, ptr noundef nonnull %ctx.addr.0) #3
+  %call39 = tail call i32 @EC_POINT_get_affine_coordinates(ptr noundef nonnull %group, ptr noundef %point, ptr noundef %call33, ptr noundef nonnull %call34, ptr noundef nonnull %ctx.addr.2) #3
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then113, label %if.end42
 
@@ -461,24 +461,24 @@ while.body94.preheader:                           ; preds = %while.cond91.prehea
   br label %while.end98
 
 while.end98:                                      ; preds = %while.body94.preheader, %while.cond91.preheader
-  %i.1.lcssa = phi i64 [ %add15, %while.cond91.preheader ], [ %6, %while.body94.preheader ]
-  %add.ptr99 = getelementptr inbounds i8, ptr %buf, i64 %i.1.lcssa
+  %i.2.lcssa = phi i64 [ %add15, %while.cond91.preheader ], [ %6, %while.body94.preheader ]
+  %add.ptr99 = getelementptr inbounds i8, ptr %buf, i64 %i.2.lcssa
   %call100 = tail call i32 @BN_bn2bin(ptr noundef nonnull %call34, ptr noundef nonnull %add.ptr99) #3
   %conv101 = sext i32 %call100 to i64
-  %add102 = add nsw i64 %i.1.lcssa, %conv101
+  %add102 = add nsw i64 %i.2.lcssa, %conv101
   br label %if.end103
 
 if.end103:                                        ; preds = %if.end75, %while.end98
-  %i.2 = phi i64 [ %add102, %while.end98 ], [ %add15, %if.end75 ]
-  %cmp104.not = icmp eq i64 %i.2, %cond
+  %i.1 = phi i64 [ %add102, %while.end98 ], [ %add15, %if.end75 ]
+  %cmp104.not = icmp eq i64 %i.1, %cond
   br i1 %cmp104.not, label %if.then110, label %if.then113.sink.split
 
 if.then110:                                       ; preds = %if.end103
-  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.0) #3
+  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.2) #3
   br label %if.end111
 
 if.end111:                                        ; preds = %if.end11, %if.then110
-  %new_ctx.166 = phi ptr [ %new_ctx.0, %if.then110 ], [ null, %if.end11 ]
+  %new_ctx.166 = phi ptr [ %new_ctx.2, %if.then110 ], [ null, %if.end11 ]
   tail call void @BN_CTX_free(ptr noundef %new_ctx.166) #3
   br label %return
 
@@ -490,12 +490,12 @@ if.then113.sink.split:                            ; preds = %if.end103, %if.then
   br label %if.then113
 
 if.then113:                                       ; preds = %if.then113.sink.split, %if.end32, %if.end38
-  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.0) #3
+  tail call void @BN_CTX_end(ptr noundef nonnull %ctx.addr.2) #3
   br label %if.end114
 
 if.end114:                                        ; preds = %if.then, %if.then22, %if.then113
-  %new_ctx.271 = phi ptr [ %new_ctx.0, %if.then113 ], [ null, %if.then ], [ null, %if.then22 ]
-  tail call void @BN_CTX_free(ptr noundef %new_ctx.271) #3
+  %new_ctx.071 = phi ptr [ %new_ctx.2, %if.then113 ], [ null, %if.then ], [ null, %if.then22 ]
+  tail call void @BN_CTX_free(ptr noundef %new_ctx.071) #3
   br label %return
 
 return:                                           ; preds = %if.then26, %if.then4, %if.end9, %if.end114, %if.end111, %if.then8

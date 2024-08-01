@@ -3053,7 +3053,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4has
   br label %42
 
 42:                                               ; preds = %23, %39, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEixERSB_.exit
-  %.04 = xor i1 %24, true
+  %.1 = xor i1 %24, true
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   %43 = getelementptr inbounds i8, ptr %4, i64 24
   call void @_ZN5draco13DecoderBuffer10BitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %43) #17
@@ -3066,8 +3066,8 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4has
   resume { ptr, i32 } %.pn
 
 _ZN5draco13DecoderBuffer4PeekISt5arrayIcLm6EEEEbPT_.exit: ; preds = %11, %18, %2, %42
-  %.1 = phi i1 [ %.04, %42 ], [ false, %2 ], [ false, %18 ], [ false, %11 ]
-  ret i1 %.1
+  %.04 = phi i1 [ %.1, %42 ], [ false, %2 ], [ false, %18 ], [ false, %11 ]
+  ret i1 %.04
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3218,8 +3218,8 @@ _ZN5draco6StatusaSERKS0_.exit:                    ; preds = %_ZN5draco6StatusC2E
   resume { ptr, i32 } %.pn14
 
 _ZN5draco13DecoderBuffer4PeekISt5arrayIcLm6EEEEbPT_.exit: ; preds = %11, %18, %2, %52
-  %.19 = phi i1 [ true, %52 ], [ false, %2 ], [ false, %18 ], [ false, %11 ]
-  ret i1 %.19
+  %.08 = phi i1 [ true, %52 ], [ false, %2 ], [ false, %18 ], [ false, %11 ]
+  ret i1 %.08
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3316,8 +3316,8 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4has
   resume { ptr, i32 } %.pn
 
 _ZN5draco13DecoderBuffer4PeekISt5arrayIcLm2EEEEbPT_.exit: ; preds = %2, %11, %39
-  %.1 = phi i1 [ %18, %39 ], [ false, %11 ], [ false, %2 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %18, %39 ], [ false, %11 ], [ false, %2 ]
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_ZN5draco6parser10ParseFloatEPNS_13DecoderBufferEPf(ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -3782,13 +3782,13 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4has
   br label %34
 
 34:                                               ; preds = %21, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEixERSB_.exit, %26, %18
-  %.0 = phi i1 [ false, %18 ], [ false, %26 ], [ true, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEixERSB_.exit ], [ true, %21 ]
+  %.1 = phi i1 [ false, %18 ], [ false, %26 ], [ true, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEixERSB_.exit ], [ true, %21 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
   br label %_ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit
 
 _ZN5draco13DecoderBuffer4PeekIcEEbPT_.exit:       ; preds = %2, %34, %15
-  %.1 = phi i1 [ true, %15 ], [ %.0, %34 ], [ false, %2 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %15 ], [ %.1, %34 ], [ false, %2 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: noreturn nounwind uwtable

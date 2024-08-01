@@ -2270,7 +2270,7 @@ addlit.exit807:                                   ; preds = %1136, %1145
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph1454, %.lr.ph1454, %.lr.ph1454, %.lr.ph1454, %.lr.ph1454, %.lr.ph1454, %.lr.ph1454, %.lr.ph1454, %.lr.ph1454, %.lr.ph1454, %.critedge30.backedge, %.critedge.loopexit.split.loop.exit, %.critedge30.preheader, %1287, %1273
-  %.2693 = phi i32 [ %.0691, %1273 ], [ %.0691, %1287 ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit ], [ 1, %.critedge30.backedge ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ]
+  %.1692 = phi i32 [ %.0691, %1273 ], [ %.0691, %1287 ], [ 1, %.critedge30.preheader ], [ %indvars.le, %.critedge.loopexit.split.loop.exit ], [ 1, %.critedge30.backedge ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ], [ %.0691, %.lr.ph1454 ]
   %1302 = load ptr, ptr %2, align 8
   %1303 = load ptr, ptr %1302, align 8
   %1304 = ptrtoint ptr %1303 to i64
@@ -2279,22 +2279,22 @@ addlit.exit807:                                   ; preds = %1136, %1145
   %1307 = load ptr, ptr %10, align 8
   store i32 %1306, ptr %1307, align 4
   %1308 = load i32, ptr %80, align 8
-  %1309 = icmp slt i32 %.2693, %1308
+  %1309 = icmp slt i32 %.1692, %1308
   br i1 %1309, label %1310, label %1337
 
 1310:                                             ; preds = %.critedge
   %1311 = load i8, ptr %77, align 8
   store i8 %1311, ptr %.2685, align 1
-  %1312 = sext i32 %.2693 to i64
+  %1312 = sext i32 %.1692 to i64
   %1313 = getelementptr i8, ptr %.1687, i64 %1312
   store ptr %1313, ptr %76, align 8
   store ptr %.1687, ptr %79, align 8
-  store i32 %.2693, ptr %80, align 8
+  store i32 %.1692, ptr %80, align 8
   %1314 = load i8, ptr %1313, align 1
   store i8 %1314, ptr %77, align 8
   store i8 0, ptr %1313, align 1
   store ptr %1313, ptr %76, align 8
-  switch i32 %.2693, label %1337 [
+  switch i32 %.1692, label %1337 [
     i32 1, label %1315
     i32 2, label %1319
   ]
@@ -2344,7 +2344,7 @@ addlit.exit807:                                   ; preds = %1136, %1145
   br i1 %1336, label %1945, label %.thread853
 
 1337:                                             ; preds = %1310, %.critedge
-  %1338 = icmp sgt i32 %.2693, 63
+  %1338 = icmp sgt i32 %.1692, 63
   br i1 %1338, label %1339, label %..thread853_crit_edge
 
 ..thread853_crit_edge:                            ; preds = %1337

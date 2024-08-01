@@ -2066,7 +2066,7 @@ if.else.i267:                                     ; preds = %_ZNSt6vectorINSt7__
           to label %cleanup557 unwind label %lpad543
 
 cleanup557:                                       ; preds = %if.else.i267, %.noexc268, %invoke.cont548
-  %dir.0 = phi i8 [ 1, %invoke.cont548 ], [ 0, %.noexc268 ], [ 0, %if.else.i267 ]
+  %dir.1 = phi i8 [ 1, %invoke.cont548 ], [ 0, %.noexc268 ], [ 0, %if.else.i267 ]
   %state_.i270 = getelementptr inbounds i8, ptr %s532, i64 8
   %131 = load ptr, ptr %state_.i270, align 8
   %cmp.not.i.i271 = icmp eq ptr %131, null
@@ -2089,7 +2089,7 @@ _ZN7rocksdb6StatusD2Ev.exit273.if.end559_crit_edge: ; preds = %_ZN7rocksdb6Statu
 if.end559:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit273.if.end559_crit_edge, %lor.lhs.false529
   %132 = phi ptr [ %.pre1893, %_ZN7rocksdb6StatusD2Ev.exit273.if.end559_crit_edge ], [ %112, %lor.lhs.false529 ]
   %133 = phi ptr [ %.pre, %_ZN7rocksdb6StatusD2Ev.exit273.if.end559_crit_edge ], [ %113, %lor.lhs.false529 ]
-  %dir.1 = phi i8 [ %dir.0, %_ZN7rocksdb6StatusD2Ev.exit273.if.end559_crit_edge ], [ 1, %lor.lhs.false529 ]
+  %dir.0 = phi i8 [ %dir.1, %_ZN7rocksdb6StatusD2Ev.exit273.if.end559_crit_edge ], [ 1, %lor.lhs.false529 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %valid_sst_files, i8 0, i64 24, i1 false)
   %_M_finish.i274 = getelementptr inbounds i8, ptr %filenames, i64 8
   %cmp5631693.not = icmp eq ptr %133, %132
@@ -2100,7 +2100,7 @@ if.end559.for.end879_crit_edge:                   ; preds = %if.end559
   br i1 %.pre1897, label %if.then881, label %if.end892
 
 invoke.cont566.lr.ph:                             ; preds = %if.end559
-  %tobool579 = trunc nuw i8 %dir.1 to i1
+  %tobool579 = trunc nuw i8 %dir.0 to i1
   %init_result_.i = getelementptr inbounds i8, ptr %dumper, i64 1624
   %subcode_3.i = getelementptr inbounds i8, ptr %dumper, i64 1625
   %sev_4.i = getelementptr inbounds i8, ptr %dumper, i64 1626
@@ -2162,14 +2162,14 @@ invoke.cont566.lr.ph:                             ; preds = %if.end559
 
 invoke.cont566:                                   ; preds = %invoke.cont566.lr.ph, %for.inc877
   %136 = phi ptr [ %132, %invoke.cont566.lr.ph ], [ %255, %for.inc877 ]
-  %verify_checksum.21701 = phi i1 [ %verify_checksum.0.lcssa195520012057, %invoke.cont566.lr.ph ], [ %verify_checksum.4665, %for.inc877 ]
+  %verify_checksum.21701 = phi i1 [ %verify_checksum.0.lcssa195520012057, %invoke.cont566.lr.ph ], [ %verify_checksum.3665, %for.inc877 ]
   %i560.01700 = phi i64 [ 0, %invoke.cont566.lr.ph ], [ %inc878, %for.inc877 ]
-  %total_read.01699 = phi i64 [ 0, %invoke.cont566.lr.ph ], [ %total_read.3664, %for.inc877 ]
-  %total_filter_block_size.01698 = phi i64 [ 0, %invoke.cont566.lr.ph ], [ %total_filter_block_size.4663, %for.inc877 ]
-  %total_index_block_size.01697 = phi i64 [ 0, %invoke.cont566.lr.ph ], [ %total_index_block_size.4662, %for.inc877 ]
-  %total_data_block_size.01696 = phi i64 [ 0, %invoke.cont566.lr.ph ], [ %total_data_block_size.4661, %for.inc877 ]
-  %total_num_data_blocks.01695 = phi i64 [ 0, %invoke.cont566.lr.ph ], [ %total_num_data_blocks.4660, %for.inc877 ]
-  %total_num_files.01694 = phi i64 [ 0, %invoke.cont566.lr.ph ], [ %total_num_files.4659, %for.inc877 ]
+  %total_read.01699 = phi i64 [ 0, %invoke.cont566.lr.ph ], [ %total_read.1664, %for.inc877 ]
+  %total_filter_block_size.01698 = phi i64 [ 0, %invoke.cont566.lr.ph ], [ %total_filter_block_size.2663, %for.inc877 ]
+  %total_index_block_size.01697 = phi i64 [ 0, %invoke.cont566.lr.ph ], [ %total_index_block_size.2662, %for.inc877 ]
+  %total_data_block_size.01696 = phi i64 [ 0, %invoke.cont566.lr.ph ], [ %total_data_block_size.2661, %for.inc877 ]
+  %total_num_data_blocks.01695 = phi i64 [ 0, %invoke.cont566.lr.ph ], [ %total_num_data_blocks.2660, %for.inc877 ]
+  %total_num_files.01694 = phi i64 [ 0, %invoke.cont566.lr.ph ], [ %total_num_files.2659, %for.inc877 ]
   %add.ptr.i.i280 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %136, i64 %i560.01700
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i280)
           to label %invoke.cont568 unwind label %lpad565
@@ -2778,7 +2778,7 @@ if.end750:                                        ; preds = %invoke.cont744, %in
   br i1 %or.cond, label %cleanup873, label %if.end758
 
 if.end758:                                        ; preds = %if.end750, %lor.lhs.false720
-  %total_read.1 = phi i64 [ %add, %if.end750 ], [ %total_read.01699, %lor.lhs.false720 ]
+  %total_read.3 = phi i64 [ %add, %if.end750 ], [ %total_read.01699, %lor.lhs.false720 ]
   %call.i420 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %command, ptr noundef nonnull @.str.63) #19
   %cmp.i421 = icmp eq i32 %call.i420, 0
   br i1 %cmp.i421, label %if.then761, label %if.end780
@@ -3074,11 +3074,11 @@ if.else865:                                       ; preds = %if.end806
   br label %if.end868
 
 if.end868:                                        ; preds = %invoke.cont853, %if.then838, %if.end831, %if.else865
-  %total_num_files.1 = phi i64 [ %add832, %if.end831 ], [ %total_num_files.01694, %if.else865 ], [ %add832, %if.then838 ], [ %add832, %invoke.cont853 ]
-  %total_num_data_blocks.1 = phi i64 [ %add833, %if.end831 ], [ %total_num_data_blocks.01695, %if.else865 ], [ %add833, %if.then838 ], [ %add833, %invoke.cont853 ]
-  %total_data_block_size.1 = phi i64 [ %add834, %if.end831 ], [ %total_data_block_size.01696, %if.else865 ], [ %add834, %if.then838 ], [ %add834, %invoke.cont853 ]
-  %total_index_block_size.1 = phi i64 [ %add835, %if.end831 ], [ %total_index_block_size.01697, %if.else865 ], [ %add835, %if.then838 ], [ %add835, %invoke.cont853 ]
-  %total_filter_block_size.1 = phi i64 [ %add836, %if.end831 ], [ %total_filter_block_size.01698, %if.else865 ], [ %add836, %if.then838 ], [ %add836, %invoke.cont853 ]
+  %total_num_files.5 = phi i64 [ %add832, %if.end831 ], [ %total_num_files.01694, %if.else865 ], [ %add832, %if.then838 ], [ %add832, %invoke.cont853 ]
+  %total_num_data_blocks.5 = phi i64 [ %add833, %if.end831 ], [ %total_num_data_blocks.01695, %if.else865 ], [ %add833, %if.then838 ], [ %add833, %invoke.cont853 ]
+  %total_data_block_size.5 = phi i64 [ %add834, %if.end831 ], [ %total_data_block_size.01696, %if.else865 ], [ %add834, %if.then838 ], [ %add834, %invoke.cont853 ]
+  %total_index_block_size.5 = phi i64 [ %add835, %if.end831 ], [ %total_index_block_size.01697, %if.else865 ], [ %add835, %if.then838 ], [ %add835, %invoke.cont853 ]
+  %total_filter_block_size.5 = phi i64 [ %add836, %if.end831 ], [ %total_filter_block_size.01698, %if.else865 ], [ %add836, %if.then838 ], [ %add836, %invoke.cont853 ]
   %243 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i496 = icmp eq ptr %243, null
   br i1 %cmp.not.i.i.i496, label %cleanup873.thread668, label %if.then.i.i.i497
@@ -3157,12 +3157,12 @@ ehcleanup869:                                     ; preds = %lpad786.loopexit, %
   br label %ehcleanup872
 
 cleanup873.thread668:                             ; preds = %if.end780, %_ZN7rocksdb6StatusD2Ev.exit312, %if.else707, %if.else776, %invoke.cont770, %if.end868, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  %total_num_files.3.ph = phi i64 [ %total_num_files.1, %if.end8.sink.split.i.i.i.i ], [ %total_num_files.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %total_num_files.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %total_num_files.1, %if.end868 ], [ %total_num_files.01694, %invoke.cont770 ], [ %total_num_files.01694, %if.else776 ], [ %total_num_files.01694, %if.else707 ], [ %total_num_files.01694, %_ZN7rocksdb6StatusD2Ev.exit312 ], [ %total_num_files.01694, %if.end780 ]
-  %total_num_data_blocks.3.ph = phi i64 [ %total_num_data_blocks.1, %if.end8.sink.split.i.i.i.i ], [ %total_num_data_blocks.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %total_num_data_blocks.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %total_num_data_blocks.1, %if.end868 ], [ %total_num_data_blocks.01695, %invoke.cont770 ], [ %total_num_data_blocks.01695, %if.else776 ], [ %total_num_data_blocks.01695, %if.else707 ], [ %total_num_data_blocks.01695, %_ZN7rocksdb6StatusD2Ev.exit312 ], [ %total_num_data_blocks.01695, %if.end780 ]
-  %total_data_block_size.3.ph = phi i64 [ %total_data_block_size.1, %if.end8.sink.split.i.i.i.i ], [ %total_data_block_size.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %total_data_block_size.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %total_data_block_size.1, %if.end868 ], [ %total_data_block_size.01696, %invoke.cont770 ], [ %total_data_block_size.01696, %if.else776 ], [ %total_data_block_size.01696, %if.else707 ], [ %total_data_block_size.01696, %_ZN7rocksdb6StatusD2Ev.exit312 ], [ %total_data_block_size.01696, %if.end780 ]
-  %total_index_block_size.3.ph = phi i64 [ %total_index_block_size.1, %if.end8.sink.split.i.i.i.i ], [ %total_index_block_size.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %total_index_block_size.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %total_index_block_size.1, %if.end868 ], [ %total_index_block_size.01697, %invoke.cont770 ], [ %total_index_block_size.01697, %if.else776 ], [ %total_index_block_size.01697, %if.else707 ], [ %total_index_block_size.01697, %_ZN7rocksdb6StatusD2Ev.exit312 ], [ %total_index_block_size.01697, %if.end780 ]
-  %total_filter_block_size.3.ph = phi i64 [ %total_filter_block_size.1, %if.end8.sink.split.i.i.i.i ], [ %total_filter_block_size.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %total_filter_block_size.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %total_filter_block_size.1, %if.end868 ], [ %total_filter_block_size.01698, %invoke.cont770 ], [ %total_filter_block_size.01698, %if.else776 ], [ %total_filter_block_size.01698, %if.else707 ], [ %total_filter_block_size.01698, %_ZN7rocksdb6StatusD2Ev.exit312 ], [ %total_filter_block_size.01698, %if.end780 ]
-  %total_read.2.ph = phi i64 [ %total_read.1, %if.end8.sink.split.i.i.i.i ], [ %total_read.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %total_read.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %total_read.1, %if.end868 ], [ %total_read.1, %invoke.cont770 ], [ %total_read.1, %if.else776 ], [ %total_read.01699, %if.else707 ], [ %total_read.01699, %_ZN7rocksdb6StatusD2Ev.exit312 ], [ %total_read.1, %if.end780 ]
+  %total_num_files.3.ph = phi i64 [ %total_num_files.5, %if.end8.sink.split.i.i.i.i ], [ %total_num_files.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %total_num_files.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %total_num_files.5, %if.end868 ], [ %total_num_files.01694, %invoke.cont770 ], [ %total_num_files.01694, %if.else776 ], [ %total_num_files.01694, %if.else707 ], [ %total_num_files.01694, %_ZN7rocksdb6StatusD2Ev.exit312 ], [ %total_num_files.01694, %if.end780 ]
+  %total_num_data_blocks.3.ph = phi i64 [ %total_num_data_blocks.5, %if.end8.sink.split.i.i.i.i ], [ %total_num_data_blocks.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %total_num_data_blocks.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %total_num_data_blocks.5, %if.end868 ], [ %total_num_data_blocks.01695, %invoke.cont770 ], [ %total_num_data_blocks.01695, %if.else776 ], [ %total_num_data_blocks.01695, %if.else707 ], [ %total_num_data_blocks.01695, %_ZN7rocksdb6StatusD2Ev.exit312 ], [ %total_num_data_blocks.01695, %if.end780 ]
+  %total_data_block_size.3.ph = phi i64 [ %total_data_block_size.5, %if.end8.sink.split.i.i.i.i ], [ %total_data_block_size.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %total_data_block_size.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %total_data_block_size.5, %if.end868 ], [ %total_data_block_size.01696, %invoke.cont770 ], [ %total_data_block_size.01696, %if.else776 ], [ %total_data_block_size.01696, %if.else707 ], [ %total_data_block_size.01696, %_ZN7rocksdb6StatusD2Ev.exit312 ], [ %total_data_block_size.01696, %if.end780 ]
+  %total_index_block_size.3.ph = phi i64 [ %total_index_block_size.5, %if.end8.sink.split.i.i.i.i ], [ %total_index_block_size.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %total_index_block_size.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %total_index_block_size.5, %if.end868 ], [ %total_index_block_size.01697, %invoke.cont770 ], [ %total_index_block_size.01697, %if.else776 ], [ %total_index_block_size.01697, %if.else707 ], [ %total_index_block_size.01697, %_ZN7rocksdb6StatusD2Ev.exit312 ], [ %total_index_block_size.01697, %if.end780 ]
+  %total_filter_block_size.3.ph = phi i64 [ %total_filter_block_size.5, %if.end8.sink.split.i.i.i.i ], [ %total_filter_block_size.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %total_filter_block_size.5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %total_filter_block_size.5, %if.end868 ], [ %total_filter_block_size.01698, %invoke.cont770 ], [ %total_filter_block_size.01698, %if.else776 ], [ %total_filter_block_size.01698, %if.else707 ], [ %total_filter_block_size.01698, %_ZN7rocksdb6StatusD2Ev.exit312 ], [ %total_filter_block_size.01698, %if.end780 ]
+  %total_read.2.ph = phi i64 [ %total_read.3, %if.end8.sink.split.i.i.i.i ], [ %total_read.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %total_read.3, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %total_read.3, %if.end868 ], [ %total_read.3, %invoke.cont770 ], [ %total_read.3, %if.else776 ], [ %total_read.01699, %if.else707 ], [ %total_read.01699, %_ZN7rocksdb6StatusD2Ev.exit312 ], [ %total_read.3, %if.end780 ]
   call void @_ZN7rocksdb13SstFileDumperD2Ev(ptr noundef nonnull align 8 dereferenceable(3264) %dumper) #19
   br label %for.inc877
 
@@ -3172,13 +3172,13 @@ cleanup873:                                       ; preds = %if.end750
   br i1 %tobool783, label %if.then881, label %if.end892
 
 for.inc877:                                       ; preds = %invoke.cont568, %invoke.cont573, %cleanup873.thread668
-  %verify_checksum.4665 = phi i1 [ %spec.select, %cleanup873.thread668 ], [ %verify_checksum.21701, %invoke.cont573 ], [ %verify_checksum.21701, %invoke.cont568 ]
-  %total_read.3664 = phi i64 [ %total_read.2.ph, %cleanup873.thread668 ], [ %total_read.01699, %invoke.cont573 ], [ %total_read.01699, %invoke.cont568 ]
-  %total_filter_block_size.4663 = phi i64 [ %total_filter_block_size.3.ph, %cleanup873.thread668 ], [ %total_filter_block_size.01698, %invoke.cont573 ], [ %total_filter_block_size.01698, %invoke.cont568 ]
-  %total_index_block_size.4662 = phi i64 [ %total_index_block_size.3.ph, %cleanup873.thread668 ], [ %total_index_block_size.01697, %invoke.cont573 ], [ %total_index_block_size.01697, %invoke.cont568 ]
-  %total_data_block_size.4661 = phi i64 [ %total_data_block_size.3.ph, %cleanup873.thread668 ], [ %total_data_block_size.01696, %invoke.cont573 ], [ %total_data_block_size.01696, %invoke.cont568 ]
-  %total_num_data_blocks.4660 = phi i64 [ %total_num_data_blocks.3.ph, %cleanup873.thread668 ], [ %total_num_data_blocks.01695, %invoke.cont573 ], [ %total_num_data_blocks.01695, %invoke.cont568 ]
-  %total_num_files.4659 = phi i64 [ %total_num_files.3.ph, %cleanup873.thread668 ], [ %total_num_files.01694, %invoke.cont573 ], [ %total_num_files.01694, %invoke.cont568 ]
+  %verify_checksum.3665 = phi i1 [ %spec.select, %cleanup873.thread668 ], [ %verify_checksum.21701, %invoke.cont573 ], [ %verify_checksum.21701, %invoke.cont568 ]
+  %total_read.1664 = phi i64 [ %total_read.2.ph, %cleanup873.thread668 ], [ %total_read.01699, %invoke.cont573 ], [ %total_read.01699, %invoke.cont568 ]
+  %total_filter_block_size.2663 = phi i64 [ %total_filter_block_size.3.ph, %cleanup873.thread668 ], [ %total_filter_block_size.01698, %invoke.cont573 ], [ %total_filter_block_size.01698, %invoke.cont568 ]
+  %total_index_block_size.2662 = phi i64 [ %total_index_block_size.3.ph, %cleanup873.thread668 ], [ %total_index_block_size.01697, %invoke.cont573 ], [ %total_index_block_size.01697, %invoke.cont568 ]
+  %total_data_block_size.2661 = phi i64 [ %total_data_block_size.3.ph, %cleanup873.thread668 ], [ %total_data_block_size.01696, %invoke.cont573 ], [ %total_data_block_size.01696, %invoke.cont568 ]
+  %total_num_data_blocks.2660 = phi i64 [ %total_num_data_blocks.3.ph, %cleanup873.thread668 ], [ %total_num_data_blocks.01695, %invoke.cont573 ], [ %total_num_data_blocks.01695, %invoke.cont568 ]
+  %total_num_files.2659 = phi i64 [ %total_num_files.3.ph, %cleanup873.thread668 ], [ %total_num_files.01694, %invoke.cont573 ], [ %total_num_files.01694, %invoke.cont568 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename) #19
   %inc878 = add nuw i64 %i560.01700, 1
   %254 = load ptr, ptr %_M_finish.i274, align 8
@@ -3204,11 +3204,11 @@ for.end879:                                       ; preds = %for.inc877
   br i1 %tobool783, label %if.then881, label %if.end892
 
 if.then881:                                       ; preds = %cleanup873, %if.end559.for.end879_crit_edge, %for.end879
-  %total_filter_block_size.07312063 = phi i64 [ 0, %if.end559.for.end879_crit_edge ], [ %total_filter_block_size.4663, %for.end879 ], [ %total_filter_block_size.01698, %cleanup873 ]
-  %total_index_block_size.07562062 = phi i64 [ 0, %if.end559.for.end879_crit_edge ], [ %total_index_block_size.4662, %for.end879 ], [ %total_index_block_size.01697, %cleanup873 ]
-  %total_data_block_size.07812061 = phi i64 [ 0, %if.end559.for.end879_crit_edge ], [ %total_data_block_size.4661, %for.end879 ], [ %total_data_block_size.01696, %cleanup873 ]
-  %total_num_data_blocks.08062060 = phi i64 [ 0, %if.end559.for.end879_crit_edge ], [ %total_num_data_blocks.4660, %for.end879 ], [ %total_num_data_blocks.01695, %cleanup873 ]
-  %total_num_files.08312059 = phi i64 [ 0, %if.end559.for.end879_crit_edge ], [ %total_num_files.4659, %for.end879 ], [ %total_num_files.01694, %cleanup873 ]
+  %total_filter_block_size.07312063 = phi i64 [ 0, %if.end559.for.end879_crit_edge ], [ %total_filter_block_size.2663, %for.end879 ], [ %total_filter_block_size.01698, %cleanup873 ]
+  %total_index_block_size.07562062 = phi i64 [ 0, %if.end559.for.end879_crit_edge ], [ %total_index_block_size.2662, %for.end879 ], [ %total_index_block_size.01697, %cleanup873 ]
+  %total_data_block_size.07812061 = phi i64 [ 0, %if.end559.for.end879_crit_edge ], [ %total_data_block_size.2661, %for.end879 ], [ %total_data_block_size.01696, %cleanup873 ]
+  %total_num_data_blocks.08062060 = phi i64 [ 0, %if.end559.for.end879_crit_edge ], [ %total_num_data_blocks.2660, %for.end879 ], [ %total_num_data_blocks.01695, %cleanup873 ]
+  %total_num_files.08312059 = phi i64 [ 0, %if.end559.for.end879_crit_edge ], [ %total_num_files.2659, %for.end879 ], [ %total_num_files.01694, %cleanup873 ]
   %256 = load ptr, ptr @stdout, align 8
   %call883 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %256, ptr noundef nonnull @.str.83, i64 noundef %total_num_files.08312059)
   %257 = load ptr, ptr @stdout, align 8
@@ -3229,7 +3229,7 @@ if.end892:                                        ; preds = %cleanup873, %if.end
   br i1 %cmp.i.i502, label %if.then894, label %if.else905
 
 if.then894:                                       ; preds = %if.end892
-  %tobool895 = trunc nuw i8 %dir.1 to i1
+  %tobool895 = trunc nuw i8 %dir.0 to i1
   br i1 %tobool895, label %if.then896, label %if.else901
 
 if.then896:                                       ; preds = %if.then894
@@ -3252,7 +3252,7 @@ if.else905:                                       ; preds = %if.end892
   br i1 %cmp.i504, label %if.then908, label %cleanup937
 
 if.then908:                                       ; preds = %if.else905
-  %tobool909 = trunc nuw i8 %dir.1 to i1
+  %tobool909 = trunc nuw i8 %dir.0 to i1
   %269 = load ptr, ptr @stdout, align 8
   br i1 %tobool909, label %if.then910, label %if.else932
 
@@ -3297,7 +3297,7 @@ if.else932:                                       ; preds = %if.then908
   br label %cleanup937
 
 cleanup937:                                       ; preds = %cleanup873.thread677, %if.else905, %if.else932, %for.end928, %if.then896, %if.else901
-  %retval.6 = phi i32 [ 1, %if.else901 ], [ 1, %if.then896 ], [ 0, %for.end928 ], [ 0, %if.else932 ], [ 0, %if.else905 ], [ 0, %cleanup873.thread677 ]
+  %retval.8 = phi i32 [ 1, %if.else901 ], [ 1, %if.then896 ], [ 0, %for.end928 ], [ 0, %if.else932 ], [ 0, %if.else905 ], [ 0, %cleanup873.thread677 ]
   %280 = load ptr, ptr %valid_sst_files, align 8
   %_M_finish.i513 = getelementptr inbounds i8, ptr %valid_sst_files, i64 8
   %281 = load ptr, ptr %_M_finish.i513, align 8
@@ -3330,7 +3330,7 @@ ehcleanup938:                                     ; preds = %ehcleanup876, %lpad
   br label %ehcleanup940
 
 cleanup939:                                       ; preds = %if.then.i.i.i517, %invoke.cont.i515, %_ZN7rocksdb6StatusD2Ev.exit273
-  %retval.7 = phi i32 [ 1, %_ZN7rocksdb6StatusD2Ev.exit273 ], [ %retval.6, %invoke.cont.i515 ], [ %retval.6, %if.then.i.i.i517 ]
+  %retval.4 = phi i32 [ 1, %_ZN7rocksdb6StatusD2Ev.exit273 ], [ %retval.8, %invoke.cont.i515 ], [ %retval.8, %if.then.i.i.i517 ]
   %state_.i518 = getelementptr inbounds i8, ptr %st, i64 8
   %283 = load ptr, ptr %state_.i518, align 8
   %cmp.not.i.i519 = icmp eq ptr %283, null
@@ -3468,7 +3468,7 @@ ehcleanup944:                                     ; preds = %ehcleanup942, %ehcl
   br label %ehcleanup946
 
 cleanup945:                                       ; preds = %if.then312.invoke, %if.end8.sink.split.i.i.i.i556, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i553, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i543, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit533, %if.then390, %invoke.cont404, %cleanup
-  %retval.8 = phi i32 [ %retval.0, %cleanup ], [ 0, %invoke.cont404 ], [ 0, %if.then390 ], [ %retval.7, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit533 ], [ %retval.7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i543 ], [ %retval.7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i553 ], [ %retval.7, %if.end8.sink.split.i.i.i.i556 ], [ 1, %if.then312.invoke ]
+  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %invoke.cont404 ], [ 0, %if.then390 ], [ %retval.4, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit533 ], [ %retval.4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i543 ], [ %retval.4, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i553 ], [ %retval.4, %if.end8.sink.split.i.i.i.i556 ], [ 1, %if.then312.invoke ]
   %299 = load ptr, ptr %compression_types, align 8
   %tobool.not.i.i.i570 = icmp eq ptr %299, null
   br i1 %tobool.not.i.i.i570, label %_ZNSt6vectorISt4pairIN7rocksdb15CompressionTypeEPKcESaIS5_EED2Ev.exit, label %if.then.i.i.i571
@@ -3486,7 +3486,7 @@ _ZNSt6vectorISt4pairIN7rocksdb15CompressionTypeEPKcESaIS5_EED2Ev.exit: ; preds =
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %command) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fs_uri) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %env_uri) #19
-  ret i32 %retval.8
+  ret i32 %retval.1
 
 ehcleanup946:                                     ; preds = %lpad.loopexit701, %lpad.loopexit.split-lp702, %ehcleanup944, %ehcleanup411, %ehcleanup369, %ehcleanup337, %ehcleanup306, %ehcleanup286, %ehcleanup267, %ehcleanup249, %lpad207, %ehcleanup196, %lpad160, %ehcleanup148, %ehcleanup129
   %.pn166 = phi { ptr, i32 } [ %.pn164, %ehcleanup196 ], [ %22, %lpad160 ], [ %.pn162, %ehcleanup249 ], [ %29, %lpad207 ], [ %.pn160, %ehcleanup411 ], [ %.pn157.pn, %ehcleanup369 ], [ %.pn154.pn, %ehcleanup337 ], [ %.pn151.pn, %ehcleanup306 ], [ %.pn148.pn, %ehcleanup286 ], [ %.pn145.pn, %ehcleanup267 ], [ %.pn142.pn, %ehcleanup148 ], [ %.pn139.pn, %ehcleanup129 ], [ %.pn132.pn.pn.pn.pn.pn, %ehcleanup944 ], [ %lpad.loopexit703, %lpad.loopexit701 ], [ %lpad.loopexit.split-lp704, %lpad.loopexit.split-lp702 ]

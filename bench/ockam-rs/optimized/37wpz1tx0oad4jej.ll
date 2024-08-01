@@ -60289,11 +60289,11 @@ define hidden void @"_ZN126_$LT$ockam_identity..models..purpose_key_attestation.
           to label %29 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %205, %199, %189, %143, %97, %89, %80
-  %.0144 = phi i1 [ false, %89 ], [ false, %97 ], [ false, %80 ], [ false, %143 ], [ false, %199 ], [ false, %205 ], [ false, %189 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ %.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.1145 = phi i1 [ false, %89 ], [ false, %97 ], [ false, %80 ], [ false, %143 ], [ false, %199 ], [ false, %205 ], [ false, %189 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ %.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %90, %97 ], [ %81, %80 ], [ %144, %143 ], [ %200, %199 ], [ %200, %205 ], [ %190, %189 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit281, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp282, %.loopexit.split-lp.loopexit.split-lp ]
   %28 = load ptr, ptr %26, align 8, !noundef !5
   %.not159 = icmp eq ptr %28, null
-  %brmerge166 = or i1 %.0144, %.not159
+  %brmerge166 = or i1 %.1145, %.not159
   br i1 %brmerge166, label %.thread, label %223
 
 .loopexit:                                        ; preds = %105, %163, %164, %165, %171
@@ -60371,7 +60371,7 @@ define hidden void @"_ZN126_$LT$ockam_identity..models..purpose_key_attestation.
 
 51:                                               ; preds = %.lr.ph, %82
   %.sroa.012.0313 = phi i64 [ 0, %.lr.ph ], [ %52, %82 ]
-  %.sroa.045.0312 = phi i8 [ 2, %.lr.ph ], [ %.sroa.045.2, %82 ]
+  %.sroa.045.0312 = phi i8 [ 2, %.lr.ph ], [ %.sroa.045.3, %82 ]
   %52 = add nuw i64 %.sroa.012.0313, 1
   switch i64 %.sroa.012.0313, label %54 [
     i64 0, label %55
@@ -60379,7 +60379,7 @@ define hidden void @"_ZN126_$LT$ockam_identity..models..purpose_key_attestation.
   ]
 
 .thread250:                                       ; preds = %82, %.preheader280, %118
-  %.sroa.045.1 = phi i8 [ %.sroa.045.4, %118 ], [ 2, %.preheader280 ], [ %.sroa.045.2, %82 ]
+  %.sroa.045.2 = phi i8 [ %.sroa.045.1, %118 ], [ 2, %.preheader280 ], [ %.sroa.045.3, %82 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   %53 = load ptr, ptr %26, align 8, !noundef !5
   %.not156 = icmp ne ptr %53, null
@@ -60482,7 +60482,7 @@ define hidden void @"_ZN126_$LT$ockam_identity..models..purpose_key_attestation.
   br label %82
 
 82:                                               ; preds = %101, %85, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit"
-  %.sroa.045.2 = phi i8 [ %.sroa.045.0312, %101 ], [ %.sroa.053.0.copyload, %85 ], [ %.sroa.045.0312, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit" ]
+  %.sroa.045.3 = phi i8 [ %.sroa.045.0312, %101 ], [ %.sroa.053.0.copyload, %85 ], [ %.sroa.045.0312, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit" ]
   %exitcond.not = icmp eq i64 %52, %35
   br i1 %exitcond.not, label %.thread250, label %51
 
@@ -60549,7 +60549,7 @@ define hidden void @"_ZN126_$LT$ockam_identity..models..purpose_key_attestation.
 
 105:                                              ; preds = %.preheader, %191
   %.0146 = phi i32 [ %192, %191 ], [ 0, %.preheader ]
-  %.sroa.045.4 = phi i8 [ %.sroa.045.5, %191 ], [ 2, %.preheader ]
+  %.sroa.045.1 = phi i8 [ %.sroa.045.5, %191 ], [ 2, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22)
   invoke void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %106 unwind label %.loopexit
@@ -60617,7 +60617,7 @@ define hidden void @"_ZN126_$LT$ockam_identity..models..purpose_key_attestation.
 
 122:                                              ; preds = %.thread250
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
-  %.not157 = icmp eq i8 %.sroa.045.1, 2
+  %.not157 = icmp eq i8 %.sroa.045.2, 2
   br i1 %.not157, label %125, label %124
 
 123:                                              ; preds = %.thread250
@@ -60633,7 +60633,7 @@ define hidden void @"_ZN126_$LT$ockam_identity..models..purpose_key_attestation.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   %.sroa.578.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %.sroa.045.1, ptr %.sroa.578.0..sroa_idx, align 8
+  store i8 %.sroa.045.2, ptr %.sroa.578.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(64) %.sroa.548, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
@@ -60758,10 +60758,10 @@ define hidden void @"_ZN126_$LT$ockam_identity..models..purpose_key_attestation.
   br label %142
 
 161:                                              ; preds = %48, %119, %102, %92, %77, %210, %202, %186, %111, %142
-  %.9 = phi i1 [ %.not156, %142 ], [ false, %111 ], [ false, %186 ], [ false, %202 ], [ false, %210 ], [ false, %77 ], [ false, %92 ], [ false, %102 ], [ false, %119 ], [ false, %48 ]
+  %.7 = phi i1 [ %.not156, %142 ], [ false, %111 ], [ false, %186 ], [ false, %202 ], [ false, %210 ], [ false, %77 ], [ false, %92 ], [ false, %102 ], [ false, %119 ], [ false, %48 ]
   %162 = load ptr, ptr %26, align 8, !noundef !5
   %.not160 = icmp eq ptr %162, null
-  %brmerge = or i1 %.9, %.not160
+  %brmerge = or i1 %.7, %.not160
   br i1 %brmerge, label %213, label %214
 
 163:                                              ; preds = %.critedge
@@ -60861,7 +60861,7 @@ define hidden void @"_ZN126_$LT$ockam_identity..models..purpose_key_attestation.
   br label %191
 
 191:                                              ; preds = %209, %195, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit180"
-  %.sroa.045.5 = phi i8 [ %.sroa.045.4, %209 ], [ %.sroa.051.0.copyload, %195 ], [ %.sroa.045.4, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit180" ]
+  %.sroa.045.5 = phi i8 [ %.sroa.045.1, %209 ], [ %.sroa.051.0.copyload, %195 ], [ %.sroa.045.1, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit180" ]
   %192 = add i32 %.0146, 1
   br label %105
 
@@ -64922,13 +64922,13 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
 
 83:                                               ; preds = %.lr.ph482, %98
   %.sroa.039.0481 = phi i64 [ 0, %.lr.ph482 ], [ %84, %98 ]
-  %.sroa.077.0480 = phi i1 [ false, %.lr.ph482 ], [ %.sroa.077.3, %98 ]
+  %.sroa.077.0480 = phi i1 [ false, %.lr.ph482 ], [ %.sroa.077.4, %98 ]
   %84 = add nuw i64 %.sroa.039.0481, 1
   %85 = icmp eq i64 %.sroa.039.0481, 0
   br i1 %85, label %86, label %88
 
 .thread400:                                       ; preds = %98
-  br i1 %.sroa.077.3, label %117, label %.critedge489
+  br i1 %.sroa.077.4, label %117, label %.critedge489
 
 86:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %28)
@@ -64983,7 +64983,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
   br label %206
 
 98:                                               ; preds = %104, %91
-  %.sroa.077.3 = phi i1 [ true, %91 ], [ %.sroa.077.0480, %104 ]
+  %.sroa.077.4 = phi i1 [ true, %91 ], [ %.sroa.077.0480, %104 ]
   %exitcond504.not = icmp eq i64 %84, %65
   br i1 %exitcond504.not, label %.thread400, label %83
 
@@ -65020,7 +65020,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
 
 107:                                              ; preds = %.lr.ph486, %132
   %.0329485 = phi i32 [ 0, %.lr.ph486 ], [ %133, %132 ]
-  %.sroa.077.4484 = phi i1 [ false, %.lr.ph486 ], [ %.sroa.077.6, %132 ]
+  %.sroa.077.1484 = phi i1 [ false, %.lr.ph486 ], [ %.sroa.077.6, %132 ]
   %108 = load i8, ptr %78, align 8, !range !8539, !noundef !5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26)
   %.not348 = icmp eq i8 %108, 25
@@ -65059,7 +65059,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
 
 114:                                              ; preds = %110
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23)
-  br i1 %.sroa.077.4484, label %117, label %.critedge489
+  br i1 %.sroa.077.1484, label %117, label %.critedge489
 
 115:                                              ; preds = %110
   %.sroa.4260.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
@@ -65148,7 +65148,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
   br label %206
 
 132:                                              ; preds = %138, %125
-  %.sroa.077.6 = phi i1 [ true, %125 ], [ %.sroa.077.4484, %138 ]
+  %.sroa.077.6 = phi i1 [ true, %125 ], [ %.sroa.077.1484, %138 ]
   %133 = add i32 %.0329485, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26)
   call void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
@@ -65220,14 +65220,14 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
   br label %206
 
 151:                                              ; preds = %.lr.ph, %166
-  %.sroa.0158.0475 = phi i1 [ false, %.lr.ph ], [ %.sroa.0158.3, %166 ]
+  %.sroa.0158.0475 = phi i1 [ false, %.lr.ph ], [ %.sroa.0158.4, %166 ]
   %.sroa.0118.0474 = phi i64 [ 0, %.lr.ph ], [ %152, %166 ]
   %152 = add nuw i64 %.sroa.0118.0474, 1
   %153 = icmp eq i64 %.sroa.0118.0474, 0
   br i1 %153, label %154, label %156
 
 .thread427:                                       ; preds = %166
-  br i1 %.sroa.0158.3, label %182, label %.critedge490
+  br i1 %.sroa.0158.4, label %182, label %.critedge490
 
 154:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %18)
@@ -65282,7 +65282,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
   br label %206
 
 166:                                              ; preds = %169, %159
-  %.sroa.0158.3 = phi i1 [ true, %159 ], [ %.sroa.0158.0475, %169 ]
+  %.sroa.0158.4 = phi i1 [ true, %159 ], [ %.sroa.0158.0475, %169 ]
   %exitcond.not = icmp eq i64 %152, %72
   br i1 %exitcond.not, label %.thread427, label %151
 
@@ -65308,7 +65308,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
   br label %206
 
 172:                                              ; preds = %.lr.ph478, %197
-  %.sroa.0158.4477 = phi i1 [ false, %.lr.ph478 ], [ %.sroa.0158.6, %197 ]
+  %.sroa.0158.1477 = phi i1 [ false, %.lr.ph478 ], [ %.sroa.0158.6, %197 ]
   %.0328476 = phi i32 [ 0, %.lr.ph478 ], [ %198, %197 ]
   %173 = load i8, ptr %146, align 8, !range !8539, !noundef !5
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
@@ -65348,7 +65348,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
 
 179:                                              ; preds = %175
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
-  br i1 %.sroa.0158.4477, label %182, label %.critedge490
+  br i1 %.sroa.0158.1477, label %182, label %.critedge490
 
 180:                                              ; preds = %175
   %.sroa.4315.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
@@ -65437,7 +65437,7 @@ define internal fastcc void @"_ZN135_$LT$ockam_identity..models..purpose_key_att
   br label %206
 
 197:                                              ; preds = %203, %190
-  %.sroa.0158.6 = phi i1 [ true, %190 ], [ %.sroa.0158.4477, %203 ]
+  %.sroa.0158.6 = phi i1 [ true, %190 ], [ %.sroa.0158.1477, %203 ]
   %198 = add i32 %.0328476, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
   call void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
@@ -133395,7 +133395,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
           to label %40 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %265, %131, %271, %251, %241, %184, %162, %137, %117, %104
-  %.0195 = phi i8 [ 1, %131 ], [ 1, %137 ], [ 1, %104 ], [ 1, %117 ], [ 0, %162 ], [ 1, %184 ], [ 1, %265 ], [ 1, %271 ], [ 1, %241 ], [ 1, %251 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.1196.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.1196 = phi i8 [ 1, %131 ], [ 1, %137 ], [ 1, %104 ], [ 1, %117 ], [ 0, %162 ], [ 1, %184 ], [ 1, %265 ], [ 1, %271 ], [ 1, %241 ], [ 1, %251 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.0195.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn232 = phi { ptr, i32 } [ %.pn222, %131 ], [ %.pn222, %137 ], [ %.pn225, %104 ], [ %.pn225, %117 ], [ %.pn230, %162 ], [ %185, %184 ], [ %.pn, %265 ], [ %.pn, %271 ], [ %.pn219, %241 ], [ %.pn219, %251 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit315, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp316, %.loopexit.split-lp.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaDirectRequest$GT$$GT$17h8c40d316dd949257E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %37) #31
           to label %168 unwind label %114
@@ -133411,7 +133411,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %192, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaDirectRequest$GT$$GT$17h8c40d316dd949257E.exit250", %152, %3
-  %.1196.ph.ph = phi i8 [ 0, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaDirectRequest$GT$$GT$17h8c40d316dd949257E.exit250" ], [ 1, %152 ], [ 1, %3 ], [ 1, %192 ]
+  %.0195.ph.ph = phi i8 [ 0, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaDirectRequest$GT$$GT$17h8c40d316dd949257E.exit250" ], [ 1, %152 ], [ 1, %3 ], [ 1, %192 ]
   %lpad.loopexit.split-lp316 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -133841,7 +133841,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br label %172
 
 168:                                              ; preds = %170, %.loopexit.split-lp
-  %.10 = phi i8 [ %.13, %170 ], [ %.0195, %.loopexit.split-lp ]
+  %.2 = phi i8 [ %.10, %170 ], [ %.1196, %.loopexit.split-lp ]
   %.pn236 = phi { ptr, i32 } [ %171, %170 ], [ %.pn232, %.loopexit.split-lp ]
   %169 = load ptr, ptr %38, align 8, !noundef !5
   %.not238 = icmp eq ptr %169, null
@@ -133891,7 +133891,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
           to label %183 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 183:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.llvm.6545128362769768385.exit254", %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaDirectRequest$GT$$GT$17h8c40d316dd949257E.exit250"
-  %.12 = phi i8 [ 0, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaDirectRequest$GT$$GT$17h8c40d316dd949257E.exit250" ], [ 1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.llvm.6545128362769768385.exit254" ]
+  %.13 = phi i8 [ 0, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaDirectRequest$GT$$GT$17h8c40d316dd949257E.exit250" ], [ 1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.llvm.6545128362769768385.exit254" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %19)
   br label %201
@@ -133953,7 +133953,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br label %183
 
 201:                                              ; preds = %211, %248, %269, %277, %63, %157, %150, %143, %135, %111, %74, %183
-  %.13 = phi i8 [ %.12, %183 ], [ 1, %74 ], [ 1, %111 ], [ 1, %135 ], [ 1, %143 ], [ 1, %150 ], [ 1, %157 ], [ 1, %63 ], [ 1, %277 ], [ 1, %269 ], [ 1, %248 ], [ 1, %211 ]
+  %.10 = phi i8 [ %.13, %183 ], [ 1, %74 ], [ 1, %111 ], [ 1, %135 ], [ 1, %143 ], [ 1, %150 ], [ 1, %157 ], [ 1, %63 ], [ 1, %277 ], [ 1, %269 ], [ 1, %248 ], [ 1, %211 ]
   %202 = load i16, ptr %37, align 8, !range !9094, !alias.scope !17828, !noundef !5
   %203 = icmp eq i16 %202, 2
   br i1 %203, label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaDirectRequest$GT$$GT$17h8c40d316dd949257E.exit256", label %204
@@ -134207,7 +134207,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br i1 %.not234, label %282, label %280
 
 280:                                              ; preds = %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaDirectRequest$GT$$GT$17h8c40d316dd949257E.exit256"
-  %281 = trunc nuw i8 %.13 to i1
+  %281 = trunc nuw i8 %.10 to i1
   br i1 %281, label %283, label %282
 
 282:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit", %280, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaDirectRequest$GT$$GT$17h8c40d316dd949257E.exit256"
@@ -134238,7 +134238,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br label %282
 
 292:                                              ; preds = %168
-  %293 = trunc nuw i8 %.10 to i1
+  %293 = trunc nuw i8 %.2 to i1
   br i1 %293, label %295, label %294
 
 294:                                              ; preds = %295, %292, %168
@@ -134980,10 +134980,10 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br label %220
 
 220:                                              ; preds = %168, %204, %213, %219, %58, %134, %128, %122, %116, %104, %68, %146
-  %.13 = phi i1 [ %.not236, %146 ], [ false, %68 ], [ false, %104 ], [ false, %116 ], [ false, %122 ], [ false, %128 ], [ false, %134 ], [ false, %58 ], [ false, %219 ], [ false, %213 ], [ false, %204 ], [ false, %168 ]
+  %.11 = phi i1 [ %.not236, %146 ], [ false, %68 ], [ false, %104 ], [ false, %116 ], [ false, %122 ], [ false, %128 ], [ false, %134 ], [ false, %58 ], [ false, %219 ], [ false, %213 ], [ false, %204 ], [ false, %168 ]
   %221 = load ptr, ptr %33, align 8, !noundef !5
   %.not244 = icmp eq ptr %221, null
-  %brmerge247 = or i1 %.13, %.not244
+  %brmerge247 = or i1 %.11, %.not244
   br i1 %brmerge247, label %222, label %223
 
 222:                                              ; preds = %220, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit"
@@ -135014,11 +135014,11 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br label %222
 
 .loopexit.split-lp:                               ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %97, %109, %117, %147, %197, %206, %214
-  %.14 = phi i1 [ false, %117 ], [ false, %97 ], [ false, %109 ], [ false, %147 ], [ false, %214 ], [ false, %197 ], [ false, %206 ], [ false, %.loopexit.split-lp.loopexit ], [ %.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ false, %.loopexit.loopexit.split-lp ], [ false, %.loopexit.loopexit ]
+  %.1215 = phi i1 [ false, %117 ], [ false, %97 ], [ false, %109 ], [ false, %147 ], [ false, %214 ], [ false, %197 ], [ false, %206 ], [ false, %.loopexit.split-lp.loopexit ], [ %.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ false, %.loopexit.loopexit.split-lp ], [ false, %.loopexit.loopexit ]
   %.pn241 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %117 ], [ %.pn234, %97 ], [ %.pn234, %109 ], [ %148, %147 ], [ %lpad.thr_comm.split-lp311, %214 ], [ %.pn229, %197 ], [ %.pn229, %206 ], [ %lpad.loopexit328, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp329, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit444, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.loopexit.split-lp ]
   %232 = load ptr, ptr %33, align 8, !noundef !5
   %.not243 = icmp eq ptr %232, null
-  %brmerge248 = or i1 %.14, %.not243
+  %brmerge248 = or i1 %.1215, %.not243
   br i1 %brmerge248, label %.thread319, label %233
 
 .thread319:                                       ; preds = %141, %.loopexit.split-lp, %233
@@ -135086,7 +135086,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
           to label %42 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %254, %128, %263, %243, %233, %180, %162, %137, %117, %104
-  %.0195 = phi i8 [ 1, %128 ], [ 1, %137 ], [ 1, %104 ], [ 1, %117 ], [ 0, %162 ], [ 1, %180 ], [ 1, %254 ], [ 1, %263 ], [ 1, %233 ], [ 1, %243 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.1196.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.1196 = phi i8 [ 1, %128 ], [ 1, %137 ], [ 1, %104 ], [ 1, %117 ], [ 0, %162 ], [ 1, %180 ], [ 1, %254 ], [ 1, %263 ], [ 1, %233 ], [ 1, %243 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.0195.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn232 = phi { ptr, i32 } [ %.pn222, %128 ], [ %.pn222, %137 ], [ %.pn225, %104 ], [ %.pn225, %117 ], [ %.pn230, %162 ], [ %181, %180 ], [ %.pn, %254 ], [ %.pn, %263 ], [ %.pn219, %233 ], [ %.pn219, %243 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit300, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp301, %.loopexit.split-lp.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaRequest$GT$$GT$17h0459408f39a56c59E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %39) #31
           to label %168 unwind label %114
@@ -135102,7 +135102,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %188, %178, %152, %3
-  %.1196.ph.ph = phi i8 [ 0, %178 ], [ 1, %152 ], [ 1, %3 ], [ 1, %188 ]
+  %.0195.ph.ph = phi i8 [ 0, %178 ], [ 1, %152 ], [ 1, %3 ], [ 1, %188 ]
   %lpad.loopexit.split-lp301 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -135538,7 +135538,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br label %171
 
 168:                                              ; preds = %.body, %.loopexit.split-lp
-  %.10 = phi i8 [ %.13, %.body ], [ %.0195, %.loopexit.split-lp ]
+  %.2 = phi i8 [ %.10, %.body ], [ %.1196, %.loopexit.split-lp ]
   %.pn236 = phi { ptr, i32 } [ %170, %.body ], [ %.pn232, %.loopexit.split-lp ]
   %169 = load ptr, ptr %40, align 8, !noundef !5
   %.not238 = icmp eq ptr %169, null
@@ -135582,7 +135582,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
           to label %179 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 179:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.llvm.6545128362769768385.exit247", %178
-  %.12 = phi i8 [ 0, %178 ], [ 1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.llvm.6545128362769768385.exit247" ]
+  %.13 = phi i8 [ 0, %178 ], [ 1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.llvm.6545128362769768385.exit247" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %19)
   br label %197
@@ -135644,7 +135644,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br label %179
 
 197:                                              ; preds = %203, %240, %260, %269, %63, %157, %150, %143, %134, %111, %74, %179
-  %.13 = phi i8 [ %.12, %179 ], [ 1, %74 ], [ 1, %111 ], [ 1, %134 ], [ 1, %143 ], [ 1, %150 ], [ 1, %157 ], [ 1, %63 ], [ 1, %269 ], [ 1, %260 ], [ 1, %240 ], [ 1, %203 ]
+  %.10 = phi i8 [ %.13, %179 ], [ 1, %74 ], [ 1, %111 ], [ 1, %134 ], [ 1, %143 ], [ 1, %150 ], [ 1, %157 ], [ 1, %63 ], [ 1, %269 ], [ 1, %260 ], [ 1, %240 ], [ 1, %203 ]
   invoke fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$ockam_api..nodes..models..services..StartKafkaRequest$GT$$GT$17h0459408f39a56c59E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %39)
           to label %271 unwind label %.body
 
@@ -135900,7 +135900,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br i1 %.not234, label %275, label %273
 
 273:                                              ; preds = %271
-  %274 = trunc nuw i8 %.13 to i1
+  %274 = trunc nuw i8 %.10 to i1
   br i1 %274, label %276, label %275
 
 275:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit", %273, %271
@@ -135931,7 +135931,7 @@ define hidden void @"_ZN120_$LT$ockam_api..nodes..models..services..StartService
   br label %275
 
 285:                                              ; preds = %168
-  %286 = trunc nuw i8 %.10 to i1
+  %286 = trunc nuw i8 %.2 to i1
   br i1 %286, label %288, label %287
 
 287:                                              ; preds = %288, %285, %168
@@ -138078,11 +138078,11 @@ define internal fastcc void @"_ZN115_$LT$ockam_api..nodes..models..services..Sta
   br label %82
 
 121:                                              ; preds = %.loopexit390, %118
-  %.0285 = phi i1 [ false, %118 ], [ %.ph391, %.loopexit390 ]
+  %.1286 = phi i1 [ false, %118 ], [ %.ph391, %.loopexit390 ]
   %.pn316 = phi { ptr, i32 } [ %119, %118 ], [ %lpad.loopexit393, %.loopexit390 ]
   %122 = load i64, ptr %28, align 8, !range !7479, !noundef !5
   %123 = icmp eq i64 %122, 2
-  %brmerge = or i1 %.0285, %123
+  %brmerge = or i1 %.1286, %123
   br i1 %brmerge, label %.thread345, label %139
 
 .loopexit390:                                     ; preds = %116, %134
@@ -138540,11 +138540,11 @@ define internal fastcc void @"_ZN115_$LT$ockam_api..nodes..models..services..Sta
   br label %.backedge
 
 241:                                              ; preds = %.loopexit381, %238
-  %.0293 = phi i1 [ false, %238 ], [ %.ph, %.loopexit381 ]
+  %.1294 = phi i1 [ false, %238 ], [ %.ph, %.loopexit381 ]
   %.pn = phi { ptr, i32 } [ %239, %238 ], [ %lpad.loopexit383, %.loopexit381 ]
   %242 = load i64, ptr %18, align 8, !range !7479, !noundef !5
   %243 = icmp eq i64 %242, 2
-  %brmerge326 = or i1 %.0293, %243
+  %brmerge326 = or i1 %.1294, %243
   br i1 %brmerge326, label %.thread345, label %259
 
 .loopexit381:                                     ; preds = %236, %254
@@ -140962,7 +140962,7 @@ define hidden void @"_ZN104_$LT$ockam_api..nodes..service..messages..SendMessage
           to label %47 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %308, %299, %281, %272, %210, %198, %152, %143, %125, %113
-  %.0195 = phi i8 [ 1, %143 ], [ 1, %152 ], [ 1, %113 ], [ 1, %125 ], [ 0, %198 ], [ 1, %210 ], [ 1, %299 ], [ 1, %308 ], [ 1, %272 ], [ 1, %281 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.1196.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.1196 = phi i8 [ 1, %143 ], [ 1, %152 ], [ 1, %113 ], [ 1, %125 ], [ 0, %198 ], [ 1, %210 ], [ 1, %299 ], [ 1, %308 ], [ 1, %272 ], [ 1, %281 ], [ 1, %.loopexit ], [ 1, %.loopexit.split-lp.loopexit ], [ %.0195.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn227 = phi { ptr, i32 } [ %.pn219, %143 ], [ %.pn219, %152 ], [ %.pn221, %113 ], [ %.pn221, %125 ], [ %.pn225, %198 ], [ %211, %210 ], [ %.pn, %299 ], [ %.pn, %308 ], [ %.pn217, %272 ], [ %.pn217, %281 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit297, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp298, %.loopexit.split-lp.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %44) #31
           to label %177 unwind label %122
@@ -140978,7 +140978,7 @@ define hidden void @"_ZN104_$LT$ockam_api..nodes..service..messages..SendMessage
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %217, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit240", %164, %3
-  %.1196.ph.ph = phi i8 [ 1, %164 ], [ 1, %3 ], [ 0, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit240" ], [ 1, %217 ]
+  %.0195.ph.ph = phi i8 [ 1, %164 ], [ 1, %3 ], [ 0, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit240" ], [ 1, %217 ]
   %lpad.loopexit.split-lp298 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -141422,7 +141422,7 @@ define hidden void @"_ZN104_$LT$ockam_api..nodes..service..messages..SendMessage
           to label %184 unwind label %182
 
 177:                                              ; preds = %179, %.loopexit.split-lp
-  %.10 = phi i8 [ %.13, %179 ], [ %.0195, %.loopexit.split-lp ]
+  %.2 = phi i8 [ %.10, %179 ], [ %.1196, %.loopexit.split-lp ]
   %.pn229 = phi { ptr, i32 } [ %180, %179 ], [ %.pn227, %.loopexit.split-lp ]
   %178 = load ptr, ptr %45, align 8, !noundef !5
   %.not231 = icmp eq ptr %178, null
@@ -141524,7 +141524,7 @@ define hidden void @"_ZN104_$LT$ockam_api..nodes..service..messages..SendMessage
   br label %209
 
 209:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.llvm.6545128362769768385.exit247"
-  %.12 = phi i8 [ 0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit" ], [ 1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.llvm.6545128362769768385.exit247" ]
+  %.13 = phi i8 [ 0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit" ], [ 1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hec2950d81ee2acb5E.llvm.6545128362769768385.exit247" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %24)
   br label %226
@@ -141584,7 +141584,7 @@ define hidden void @"_ZN104_$LT$ockam_api..nodes..service..messages..SendMessage
   br label %209
 
 226:                                              ; preds = %243, %279, %306, %313, %74, %169, %163, %157, %150, %120, %84, %209
-  %.13 = phi i8 [ %.12, %209 ], [ 1, %84 ], [ 1, %120 ], [ 1, %150 ], [ 1, %157 ], [ 1, %163 ], [ 1, %169 ], [ 1, %74 ], [ 1, %313 ], [ 1, %306 ], [ 1, %279 ], [ 1, %243 ]
+  %.10 = phi i8 [ %.13, %209 ], [ 1, %84 ], [ 1, %120 ], [ 1, %150 ], [ 1, %157 ], [ 1, %163 ], [ 1, %169 ], [ 1, %74 ], [ 1, %313 ], [ 1, %306 ], [ 1, %279 ], [ 1, %243 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !18372)
   %227 = load ptr, ptr %44, align 8, !alias.scope !18372, !noundef !5
   %228 = icmp eq ptr %227, null
@@ -141884,7 +141884,7 @@ define hidden void @"_ZN104_$LT$ockam_api..nodes..service..messages..SendMessage
   br i1 %.not232, label %317, label %315
 
 315:                                              ; preds = %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit251"
-  %316 = trunc nuw i8 %.13 to i1
+  %316 = trunc nuw i8 %.10 to i1
   br i1 %316, label %318, label %317
 
 317:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE.exit266", %315, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h6efece2e510a2b43E.exit251"
@@ -141915,7 +141915,7 @@ define hidden void @"_ZN104_$LT$ockam_api..nodes..service..messages..SendMessage
   br label %317
 
 327:                                              ; preds = %177
-  %328 = trunc nuw i8 %.10 to i1
+  %328 = trunc nuw i8 %.2 to i1
   br i1 %328, label %330, label %329
 
 329:                                              ; preds = %330, %327, %177

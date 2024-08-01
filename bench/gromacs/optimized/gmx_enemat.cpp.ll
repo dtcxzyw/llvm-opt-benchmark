@@ -593,7 +593,7 @@ _ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader: ; preds = %_ZL13gm
 
 _ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit: ; preds = %242, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader
   %indvars.iv742 = phi i64 [ 0, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader ], [ %indvars.iv.next743, %242 ]
-  %.0 = phi ptr [ null, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader ], [ %.1903, %242 ]
+  %.0 = phi ptr [ null, %_ZL13gmx_snew_implI10t_enxframeEvPKcS2_iRPT_m.exit.preheader ], [ %.2903, %242 ]
   %indvars746 = trunc i64 %indvars.iv742 to i32
   br label %191
 
@@ -657,10 +657,10 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit:        ; preds = %.lr.ph637
   br i1 %exitcond736.not, label %.loopexit600, label %.lr.ph637, !llvm.loop !11
 
 .loopexit600:                                     ; preds = %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit, %202
-  %.1 = phi ptr [ %.0, %202 ], [ %212, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit ]
+  %.2 = phi ptr [ %.0, %202 ], [ %212, %_ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit ]
   %219 = load double, ptr %186, align 8
   %220 = fptrunc double %219 to float
-  %221 = getelementptr inbounds float, ptr %.1, i64 %indvars.iv742
+  %221 = getelementptr inbounds float, ptr %.2, i64 %indvars.iv742
   store float %220, ptr %221, align 4
   br i1 %187, label %.lr.ph641.preheader, label %._crit_edge642
 
@@ -692,7 +692,7 @@ _ZL15gmx_srenew_implIfEvPKcS1_iRPT_m.exit:        ; preds = %.lr.ph637
   br i1 %exitcond741.not, label %._crit_edge642, label %.lr.ph641, !llvm.loop !12
 
 ._crit_edge642:                                   ; preds = %.lr.ph641, %.loopexit600.thread, %.loopexit600
-  %.1903 = phi ptr [ %.1, %.loopexit600 ], [ %212, %.loopexit600.thread ], [ %.1, %.lr.ph641 ]
+  %.2903 = phi ptr [ %.2, %.loopexit600 ], [ %212, %.loopexit600.thread ], [ %.2, %.lr.ph641 ]
   %.0351.lcssa = phi float [ 0.000000e+00, %.loopexit600 ], [ 0.000000e+00, %.loopexit600.thread ], [ %236, %.lr.ph641 ]
   %237 = load i8, ptr @_ZZ10gmx_enematiPPcE4bSum, align 1
   %238 = trunc i8 %237 to i1

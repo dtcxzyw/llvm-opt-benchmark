@@ -87,7 +87,7 @@ define noundef ptr @tvb_uncompress_lz77(ptr noundef %0, i32 noundef %1, i32 noun
 
 .loopexit.i.outer:                                ; preds = %97, %.preheader.i
   %.079.i.ph = phi i32 [ 0, %.preheader.i ], [ %38, %97 ]
-  %.074.i.ph = phi i32 [ 0, %.preheader.i ], [ %.6.i, %97 ]
+  %.074.i.ph = phi i32 [ 0, %.preheader.i ], [ %.377.i, %97 ]
   %.070.i.ph = phi i32 [ 0, %.preheader.i ], [ %.272.i, %97 ]
   %.068.i.ph = phi i32 [ 0, %.preheader.i ], [ %.169.i, %97 ]
   br label %.loopexit.i
@@ -156,62 +156,62 @@ define noundef ptr @tvb_uncompress_lz77(ptr noundef %0, i32 noundef %1, i32 noun
   br label %66
 
 66:                                               ; preds = %62, %58
-  %.276.i = phi i32 [ %61, %58 ], [ %52, %62 ]
-  %.171.i = phi i32 [ %52, %58 ], [ 0, %62 ]
-  %.067.in.i = phi i8 [ %60, %58 ], [ %65, %62 ]
-  %.067.i = zext nneg i8 %.067.in.i to i32
-  %67 = icmp eq i8 %.067.in.i, 15
+  %.478.i = phi i32 [ %61, %58 ], [ %52, %62 ]
+  %.373.i = phi i32 [ %52, %58 ], [ 0, %62 ]
+  %.1.in.i = phi i8 [ %60, %58 ], [ %65, %62 ]
+  %.1.i = zext nneg i8 %.1.in.i to i32
+  %67 = icmp eq i8 %.1.in.i, 15
   br i1 %67, label %68, label %87
 
 68:                                               ; preds = %66
-  %69 = add i32 %.276.i, %1
+  %69 = add i32 %.478.i, %1
   %70 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %69) #7
   %71 = zext i8 %70 to i32
-  %72 = add i32 %.276.i, 1
+  %72 = add i32 %.478.i, 1
   %73 = icmp eq i8 %70, -1
   br i1 %73, label %74, label %85
 
 74:                                               ; preds = %68
-  %.reass92.i = add i32 %invariant.op91.i, %.276.i
+  %.reass92.i = add i32 %invariant.op91.i, %.478.i
   %75 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %.reass92.i) #7
-  %76 = add i32 %.276.i, 3
+  %76 = add i32 %.478.i, 3
   %77 = icmp eq i16 %75, 0
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %74
-  %.reass94.i = add i32 %invariant.op93.i, %.276.i
+  %.reass94.i = add i32 %invariant.op93.i, %.478.i
   %79 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %.reass94.i) #7
-  %80 = add i32 %.276.i, 7
+  %80 = add i32 %.478.i, 7
   br label %81
 
 81:                                               ; preds = %78, %74
-  %.377.i = phi i32 [ %80, %78 ], [ %76, %74 ]
-  %.1.in.i = phi i16 [ %79, %78 ], [ %75, %74 ]
-  %82 = icmp ult i16 %.1.in.i, 22
+  %.7.i = phi i32 [ %80, %78 ], [ %76, %74 ]
+  %.4.in.i = phi i16 [ %79, %78 ], [ %75, %74 ]
+  %82 = icmp ult i16 %.4.in.i, 22
   br i1 %82, label %do_uncompress.exit, label %83
 
 83:                                               ; preds = %81
-  %.1.i = zext i16 %.1.in.i to i32
-  %84 = add nsw i32 %.1.i, -22
+  %.4.i = zext i16 %.4.in.i to i32
+  %84 = add nsw i32 %.4.i, -22
   br label %85
 
 85:                                               ; preds = %83, %68
-  %.478.i = phi i32 [ %.377.i, %83 ], [ %72, %68 ]
-  %.2.i = phi i32 [ %84, %83 ], [ %71, %68 ]
-  %86 = add nuw nsw i32 %.2.i, 15
+  %.6.i = phi i32 [ %.7.i, %83 ], [ %72, %68 ]
+  %.3.i = phi i32 [ %84, %83 ], [ %71, %68 ]
+  %86 = add nuw nsw i32 %.3.i, 15
   br label %87
 
 87:                                               ; preds = %85, %66
-  %.5.i = phi i32 [ %.478.i, %85 ], [ %.276.i, %66 ]
-  %.3.i = phi i32 [ %86, %85 ], [ %.067.i, %66 ]
-  %88 = add nuw nsw i32 %.3.i, 7
+  %.5.i = phi i32 [ %.6.i, %85 ], [ %.478.i, %66 ]
+  %.2.i = phi i32 [ %86, %85 ], [ %.1.i, %66 ]
+  %88 = add nuw nsw i32 %.2.i, 7
   br label %89
 
 89:                                               ; preds = %87, %48
-  %.6.i = phi i32 [ %.5.i, %87 ], [ %52, %48 ]
-  %.272.i = phi i32 [ %.171.i, %87 ], [ %.070.i.ph, %48 ]
-  %.4.i = phi i32 [ %88, %87 ], [ %53, %48 ]
-  %90 = add nuw nsw i32 %.4.i, 2
+  %.377.i = phi i32 [ %.5.i, %87 ], [ %52, %48 ]
+  %.272.i = phi i32 [ %.373.i, %87 ], [ %.070.i.ph, %48 ]
+  %.067.i = phi i32 [ %88, %87 ], [ %53, %48 ]
+  %90 = add nuw nsw i32 %.067.i, 2
   br label %91
 
 91:                                               ; preds = %97, %89

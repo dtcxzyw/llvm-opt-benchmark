@@ -4660,7 +4660,7 @@ lpad14:                                           ; preds = %invoke.cont13
   br label %ehcleanup
 
 cleanup:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_6theory2uf15UfModelTreeNodeEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, %if.then13.i.i34, %if.then.i.i28, %invoke.cont15, %invoke.cont4
-  %retval.0 = phi i1 [ false, %invoke.cont4 ], [ %call16, %invoke.cont15 ], [ %call16, %if.then.i.i28 ], [ %call16, %if.then13.i.i34 ], [ false, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_6theory2uf15UfModelTreeNodeEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ]
+  %retval.1 = phi i1 [ false, %invoke.cont4 ], [ %call16, %invoke.cont15 ], [ %call16, %if.then.i.i28 ], [ %call16, %if.then13.i.i34 ], [ false, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_6theory2uf15UfModelTreeNodeEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS9_EPSt18_Rb_tree_node_baseRS5_.exit.i.i ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EEC2Ev.exit ]
   %26 = load ptr, ptr %r, align 8
   %bf.load.i.i36 = load i64, ptr %26, align 8
   %27 = and i64 %bf.load.i.i36, 1152920405095219200
@@ -4693,8 +4693,8 @@ ehcleanup:                                        ; preds = %lpad14, %lpad3
   br label %common.resume
 
 return:                                           ; preds = %if.then13.i.i44, %if.then.i.i38, %cleanup, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit
-  %retval.1 = phi i1 [ %cmp.i, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i38 ], [ %retval.0, %if.then13.i.i44 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %cmp.i, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i38 ], [ %retval.1, %if.then13.i.i44 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

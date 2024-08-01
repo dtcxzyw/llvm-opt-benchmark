@@ -441,14 +441,14 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr nocaptur
 
 .lr.ph:                                           ; preds = %61, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %61 ]
-  %.02932 = phi ptr [ %74, %.lr.ph ], [ null, %61 ]
+  %.132 = phi ptr [ %74, %.lr.ph ], [ null, %61 ]
   %68 = load ptr, ptr %2, align 8
   %69 = getelementptr i64, ptr %68, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8
   %71 = inttoptr i64 %70 to ptr
   %72 = call ptr @text_to_cstring(ptr noundef %71) #5
   %73 = call i32 @get_extension_oid(ptr noundef %72, i1 noundef zeroext false) #5
-  %74 = call ptr @lappend_oid(ptr noundef %.02932, i32 noundef %73) #5
+  %74 = call ptr @lappend_oid(ptr noundef %.132, i32 noundef %73) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %3, align 4
   %76 = sext i32 %75 to i64
@@ -456,14 +456,14 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr nocaptur
   br i1 %77, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.lr.ph, %61, %57
-  %.1 = phi ptr [ null, %57 ], [ null, %61 ], [ %74, %.lr.ph ]
+  %.029 = phi ptr [ null, %57 ], [ null, %61 ], [ %74, %.lr.ph ]
   %78 = icmp ne i64 %40, 0
   %79 = call ptr @text_to_cstring(ptr noundef %36) #5
   %80 = call i32 @GetUserId() #5
   %81 = call ptr @text_to_cstring(ptr noundef %39) #5
   %82 = call i32 @get_namespace_oid(ptr noundef %81, i1 noundef zeroext false) #5
   %83 = call ptr @text_to_cstring(ptr noundef %43) #5
-  %84 = call { i64, i32 } @InsertExtensionTuple(ptr noundef %79, i32 noundef %80, i32 noundef %82, i1 noundef zeroext %78, ptr noundef %83, i64 noundef %.0, i64 noundef %.028, ptr noundef %.1) #5
+  %84 = call { i64, i32 } @InsertExtensionTuple(ptr noundef %79, i32 noundef %80, i32 noundef %82, i1 noundef zeroext %78, ptr noundef %83, i64 noundef %.0, i64 noundef %.028, ptr noundef %.029) #5
   ret i64 0
 }
 

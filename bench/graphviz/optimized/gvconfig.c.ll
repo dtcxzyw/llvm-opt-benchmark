@@ -971,7 +971,7 @@ gv_alloc.exit:                                    ; preds = %328
   br label %.backedge.i.i.outer
 
 .backedge.i.i.outer:                              ; preds = %.backedge.i.i.outer.backedge, %342
-  %.069.i.ph = phi i32 [ 0, %342 ], [ %.069.i.ph.be, %.backedge.i.i.outer.backedge ]
+  %.6.i.ph = phi i32 [ 0, %342 ], [ %.6.i.ph.be, %.backedge.i.i.outer.backedge ]
   %.0.i.i.ph180 = phi ptr [ %330, %342 ], [ %.0.i.i.ph180.be, %.backedge.i.i.outer.backedge ]
   br label %.backedge.i.i
 
@@ -1004,15 +1004,15 @@ gv_alloc.exit:                                    ; preds = %328
   br i1 %351, label %.backedge.i.i.backedge, label %347
 
 352:                                              ; preds = %.backedge.i.i
-  %353 = add nsw i32 %.069.i.ph, 1
+  %353 = add nsw i32 %.6.i.ph, 1
   br label %.backedge.i.i.outer.backedge
 
 354:                                              ; preds = %.backedge.i.i
-  %355 = add nsw i32 %.069.i.ph, -1
+  %355 = add nsw i32 %.6.i.ph, -1
   br label %.backedge.i.i.outer.backedge
 
 .backedge.i.i.outer.backedge:                     ; preds = %354, %352
-  %.069.i.ph.be = phi i32 [ %353, %352 ], [ %355, %354 ]
+  %.6.i.ph.be = phi i32 [ %353, %352 ], [ %355, %354 ]
   %.0.i.i.ph180.be = getelementptr inbounds i8, ptr %.0.i.i, i64 1
   br label %.backedge.i.i.outer
 
@@ -1031,7 +1031,7 @@ thread-pre-split.i:                               ; preds = %475
 
 .preheader79.i:                                   ; preds = %.backedge.i.i, %thread-pre-split.i
   %358 = phi i8 [ %.pr.i, %thread-pre-split.i ], [ %344, %.backedge.i.i ]
-  %.291.i = phi i32 [ %.17.i, %thread-pre-split.i ], [ %.069.i.ph, %.backedge.i.i ]
+  %.06991.i = phi i32 [ %.5.i, %thread-pre-split.i ], [ %.6.i.ph, %.backedge.i.i ]
   %.07090.i = phi ptr [ %.575.i, %thread-pre-split.i ], [ %.0.i.i, %.backedge.i.i ]
   br label %359
 
@@ -1058,7 +1058,7 @@ thread-pre-split.i:                               ; preds = %475
 
 363:                                              ; preds = %.preheader165, %.backedge.i.i.i
   %364 = phi i8 [ %.pre100.i, %.backedge.i.i.i ], [ %360, %.preheader165 ]
-  %.3.i = phi i32 [ %.4.i, %.backedge.i.i.i ], [ %.291.i, %.preheader165 ]
+  %.8.i = phi i32 [ %.9.i, %.backedge.i.i.i ], [ %.06991.i, %.preheader165 ]
   %.0.i.i.i = phi ptr [ %.0.be.i.i.i, %.backedge.i.i.i ], [ %.0.i19.i, %.preheader165 ]
   switch i8 %364, label %token.exit.i [
     i8 9, label %378
@@ -1085,18 +1085,18 @@ thread-pre-split.i:                               ; preds = %475
   br i1 %371, label %.backedge.i.i.i, label %367
 
 .backedge.i.i.i:                                  ; preds = %369, %367, %378, %375, %372
-  %.4.i = phi i32 [ %376, %375 ], [ %373, %372 ], [ %.3.i, %378 ], [ %.3.i, %367 ], [ %.3.i, %369 ]
+  %.9.i = phi i32 [ %376, %375 ], [ %373, %372 ], [ %.8.i, %378 ], [ %.8.i, %367 ], [ %.8.i, %369 ]
   %.0.be.i.i.i = phi ptr [ %377, %375 ], [ %374, %372 ], [ %379, %378 ], [ %370, %369 ], [ %.1.i.i.i, %367 ]
   %.pre100.i = load i8, ptr %.0.be.i.i.i, align 1
   br label %363
 
 372:                                              ; preds = %363
-  %373 = add nsw i32 %.3.i, 1
+  %373 = add nsw i32 %.8.i, 1
   %374 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
   br label %.backedge.i.i.i
 
 375:                                              ; preds = %363
-  %376 = add nsw i32 %.3.i, -1
+  %376 = add nsw i32 %.8.i, -1
   %377 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 1
   br label %.backedge.i.i.i
 
@@ -1106,7 +1106,7 @@ thread-pre-split.i:                               ; preds = %475
 
 token.exit.i:                                     ; preds = %363
   store i8 0, ptr %.0.i19.i, align 1
-  %380 = icmp eq i32 %.3.i, 0
+  %380 = icmp eq i32 %.8.i, 0
   br i1 %380, label %.preheader78.i, label %401
 
 .preheader78.i:                                   ; preds = %token.exit.i, %382
@@ -1131,7 +1131,7 @@ token.exit.i:                                     ; preds = %363
 
 384:                                              ; preds = %.preheader164, %.backedge.i.i22.i
   %385 = phi i8 [ %.pre101.i, %.backedge.i.i22.i ], [ %381, %.preheader164 ]
-  %.5.i = phi i32 [ %.6.i, %.backedge.i.i22.i ], [ 0, %.preheader164 ]
+  %.10.i = phi i32 [ %.11.i, %.backedge.i.i22.i ], [ 0, %.preheader164 ]
   %.0.i.i21.i = phi ptr [ %.0.be.i.i23.i, %.backedge.i.i22.i ], [ %.0.i20.i, %.preheader164 ]
   switch i8 %385, label %token.exit26.i [
     i8 9, label %399
@@ -1158,18 +1158,18 @@ token.exit.i:                                     ; preds = %363
   br i1 %392, label %.backedge.i.i22.i, label %388
 
 .backedge.i.i22.i:                                ; preds = %390, %388, %399, %396, %393
-  %.6.i = phi i32 [ %397, %396 ], [ %394, %393 ], [ %.5.i, %399 ], [ %.5.i, %388 ], [ %.5.i, %390 ]
+  %.11.i = phi i32 [ %397, %396 ], [ %394, %393 ], [ %.10.i, %399 ], [ %.10.i, %388 ], [ %.10.i, %390 ]
   %.0.be.i.i23.i = phi ptr [ %398, %396 ], [ %395, %393 ], [ %400, %399 ], [ %391, %390 ], [ %.1.i.i24.i, %388 ]
   %.pre101.i = load i8, ptr %.0.be.i.i23.i, align 1
   br label %384
 
 393:                                              ; preds = %384
-  %394 = add nsw i32 %.5.i, 1
+  %394 = add nsw i32 %.10.i, 1
   %395 = getelementptr inbounds i8, ptr %.0.i.i21.i, i64 1
   br label %.backedge.i.i22.i
 
 396:                                              ; preds = %384
-  %397 = add nsw i32 %.5.i, -1
+  %397 = add nsw i32 %.10.i, -1
   %398 = getelementptr inbounds i8, ptr %.0.i.i21.i, i64 1
   br label %.backedge.i.i22.i
 
@@ -1183,14 +1183,14 @@ token.exit26.i:                                   ; preds = %384
 
 401:                                              ; preds = %token.exit26.i, %token.exit.i
   %.171.i = phi ptr [ %.0.i.i21.i, %token.exit26.i ], [ %.0.i.i.i, %token.exit.i ]
-  %.7.i = phi i32 [ %.5.i, %token.exit26.i ], [ %.3.i, %token.exit.i ]
+  %.1.i = phi i32 [ %.10.i, %token.exit26.i ], [ %.8.i, %token.exit.i ]
   %.016.i = phi ptr [ %.0.i.i.i, %token.exit26.i ], [ @.str.31, %token.exit.i ]
   %402 = tail call fastcc ptr @gvplugin_package_record(ptr noundef %0, ptr noundef nonnull %.07090.i, ptr noundef nonnull %.016.i)
   br label %.loopexit.i56
 
 .loopexit.i56:                                    ; preds = %475, %401
   %.272.i = phi ptr [ %.171.i, %401 ], [ %.575.i, %475 ]
-  %.8.i = phi i32 [ %.7.i, %401 ], [ %.17.i, %475 ]
+  %.2.i = phi i32 [ %.1.i, %401 ], [ %.5.i, %475 ]
   br label %403
 
 403:                                              ; preds = %405, %.loopexit.i56
@@ -1215,7 +1215,7 @@ token.exit26.i:                                   ; preds = %384
 
 407:                                              ; preds = %.preheader163, %.backedge.i.i29.i
   %408 = phi i8 [ %.pre102.i, %.backedge.i.i29.i ], [ %404, %.preheader163 ]
-  %.9.i = phi i32 [ %.10.i, %.backedge.i.i29.i ], [ %.8.i, %.preheader163 ]
+  %.12.i = phi i32 [ %.13.i, %.backedge.i.i29.i ], [ %.2.i, %.preheader163 ]
   %.0.i.i28.i = phi ptr [ %.0.be.i.i30.i, %.backedge.i.i29.i ], [ %.0.i27.i, %.preheader163 ]
   switch i8 %408, label %token.exit33.i [
     i8 9, label %422
@@ -1242,18 +1242,18 @@ token.exit26.i:                                   ; preds = %384
   br i1 %415, label %.backedge.i.i29.i, label %411
 
 .backedge.i.i29.i:                                ; preds = %413, %411, %422, %419, %416
-  %.10.i = phi i32 [ %420, %419 ], [ %417, %416 ], [ %.9.i, %422 ], [ %.9.i, %411 ], [ %.9.i, %413 ]
+  %.13.i = phi i32 [ %420, %419 ], [ %417, %416 ], [ %.12.i, %422 ], [ %.12.i, %411 ], [ %.12.i, %413 ]
   %.0.be.i.i30.i = phi ptr [ %421, %419 ], [ %418, %416 ], [ %423, %422 ], [ %414, %413 ], [ %.1.i.i31.i, %411 ]
   %.pre102.i = load i8, ptr %.0.be.i.i30.i, align 1
   br label %407
 
 416:                                              ; preds = %407
-  %417 = add nsw i32 %.9.i, 1
+  %417 = add nsw i32 %.12.i, 1
   %418 = getelementptr inbounds i8, ptr %.0.i.i28.i, i64 1
   br label %.backedge.i.i29.i
 
 419:                                              ; preds = %407
-  %420 = add nsw i32 %.9.i, -1
+  %420 = add nsw i32 %.12.i, -1
   %421 = getelementptr inbounds i8, ptr %.0.i.i28.i, i64 1
   br label %.backedge.i.i29.i
 
@@ -1273,8 +1273,8 @@ token.exit33.i:                                   ; preds = %407
 
 .preheader77.i:                                   ; preds = %token.exit33.i, %475
   %.373.i = phi ptr [ %.575.i, %475 ], [ %.0.i.i28.i, %token.exit33.i ]
-  %.11.i = phi i32 [ %.17.i, %475 ], [ %.9.i, %token.exit33.i ]
-  %428 = icmp eq i32 %.11.i, 2
+  %.3.i = phi i32 [ %.5.i, %475 ], [ %.12.i, %token.exit33.i ]
+  %428 = icmp eq i32 %.3.i, 2
   br i1 %428, label %.preheader76.i, label %475
 
 .preheader76.i:                                   ; preds = %.preheader77.i, %430
@@ -1299,7 +1299,7 @@ token.exit33.i:                                   ; preds = %407
 
 432:                                              ; preds = %.preheader162, %.backedge.i.i36.i
   %433 = phi i8 [ %.pre103.i, %.backedge.i.i36.i ], [ %429, %.preheader162 ]
-  %.12.i = phi i32 [ %.13.i, %.backedge.i.i36.i ], [ 2, %.preheader162 ]
+  %.14.i = phi i32 [ %.15.i, %.backedge.i.i36.i ], [ 2, %.preheader162 ]
   %.0.i.i35.i = phi ptr [ %.0.be.i.i37.i, %.backedge.i.i36.i ], [ %.0.i34.i, %.preheader162 ]
   switch i8 %433, label %token.exit40.i [
     i8 9, label %447
@@ -1326,18 +1326,18 @@ token.exit33.i:                                   ; preds = %407
   br i1 %440, label %.backedge.i.i36.i, label %436
 
 .backedge.i.i36.i:                                ; preds = %438, %436, %447, %444, %441
-  %.13.i = phi i32 [ %445, %444 ], [ %442, %441 ], [ %.12.i, %447 ], [ %.12.i, %436 ], [ %.12.i, %438 ]
+  %.15.i = phi i32 [ %445, %444 ], [ %442, %441 ], [ %.14.i, %447 ], [ %.14.i, %436 ], [ %.14.i, %438 ]
   %.0.be.i.i37.i = phi ptr [ %446, %444 ], [ %443, %441 ], [ %448, %447 ], [ %439, %438 ], [ %.1.i.i38.i, %436 ]
   %.pre103.i = load i8, ptr %.0.be.i.i37.i, align 1
   br label %432
 
 441:                                              ; preds = %432
-  %442 = add nsw i32 %.12.i, 1
+  %442 = add nsw i32 %.14.i, 1
   %443 = getelementptr inbounds i8, ptr %.0.i.i35.i, i64 1
   br label %.backedge.i.i36.i
 
 444:                                              ; preds = %432
-  %445 = add nsw i32 %.12.i, -1
+  %445 = add nsw i32 %.14.i, -1
   %446 = getelementptr inbounds i8, ptr %.0.i.i35.i, i64 1
   br label %.backedge.i.i36.i
 
@@ -1347,7 +1347,7 @@ token.exit33.i:                                   ; preds = %407
 
 token.exit40.i:                                   ; preds = %432
   store i8 0, ptr %.0.i34.i, align 1
-  %449 = icmp eq i32 %.12.i, 2
+  %449 = icmp eq i32 %.14.i, 2
   br i1 %449, label %.preheader.i59, label %471
 
 .preheader.i59:                                   ; preds = %token.exit40.i, %451
@@ -1372,7 +1372,7 @@ token.exit40.i:                                   ; preds = %432
 
 453:                                              ; preds = %.preheader, %.backedge.i.i43.i
   %454 = phi i8 [ %.pre104.i, %.backedge.i.i43.i ], [ %450, %.preheader ]
-  %.14.i = phi i32 [ %.15.i, %.backedge.i.i43.i ], [ 2, %.preheader ]
+  %.16.i = phi i32 [ %.17.i, %.backedge.i.i43.i ], [ 2, %.preheader ]
   %.0.i.i42.i = phi ptr [ %.0.be.i.i44.i, %.backedge.i.i43.i ], [ %.0.i41.i, %.preheader ]
   switch i8 %454, label %token.exit47.i [
     i8 9, label %468
@@ -1399,18 +1399,18 @@ token.exit40.i:                                   ; preds = %432
   br i1 %461, label %.backedge.i.i43.i, label %457
 
 .backedge.i.i43.i:                                ; preds = %459, %457, %468, %465, %462
-  %.15.i = phi i32 [ %466, %465 ], [ %463, %462 ], [ %.14.i, %468 ], [ %.14.i, %457 ], [ %.14.i, %459 ]
+  %.17.i = phi i32 [ %466, %465 ], [ %463, %462 ], [ %.16.i, %468 ], [ %.16.i, %457 ], [ %.16.i, %459 ]
   %.0.be.i.i44.i = phi ptr [ %467, %465 ], [ %464, %462 ], [ %469, %468 ], [ %460, %459 ], [ %.1.i.i45.i, %457 ]
   %.pre104.i = load i8, ptr %.0.be.i.i44.i, align 1
   br label %453
 
 462:                                              ; preds = %453
-  %463 = add nsw i32 %.14.i, 1
+  %463 = add nsw i32 %.16.i, 1
   %464 = getelementptr inbounds i8, ptr %.0.i.i42.i, i64 1
   br label %.backedge.i.i43.i
 
 465:                                              ; preds = %453
-  %466 = add nsw i32 %.14.i, -1
+  %466 = add nsw i32 %.16.i, -1
   %467 = getelementptr inbounds i8, ptr %.0.i.i42.i, i64 1
   br label %.backedge.i.i43.i
 
@@ -1425,7 +1425,7 @@ token.exit47.i:                                   ; preds = %453
 
 471:                                              ; preds = %token.exit47.i, %token.exit40.i
   %.474.i = phi ptr [ %.0.i.i42.i, %token.exit47.i ], [ %.0.i.i35.i, %token.exit40.i ]
-  %.16.i = phi i32 [ %.14.i, %token.exit47.i ], [ %.12.i, %token.exit40.i ]
+  %.4.i = phi i32 [ %.16.i, %token.exit47.i ], [ %.14.i, %token.exit40.i ]
   %.017.i = phi i32 [ %470, %token.exit47.i ], [ 0, %token.exit40.i ]
   %472 = tail call zeroext i1 @gvplugin_install(ptr noundef %0, i32 noundef %424, ptr noundef %.373.i, i32 noundef %.017.i, ptr noundef %402, ptr noundef null) #20
   br i1 %472, label %475, label %473
@@ -1436,8 +1436,8 @@ token.exit47.i:                                   ; preds = %453
 
 475:                                              ; preds = %471, %.preheader77.i
   %.575.i = phi ptr [ %.474.i, %471 ], [ %.373.i, %.preheader77.i ]
-  %.17.i = phi i32 [ %.16.i, %471 ], [ %.11.i, %.preheader77.i ]
-  switch i32 %.17.i, label %thread-pre-split.i [
+  %.5.i = phi i32 [ %.4.i, %471 ], [ %.3.i, %.preheader77.i ]
+  switch i32 %.5.i, label %thread-pre-split.i [
     i32 2, label %.preheader77.i
     i32 1, label %.loopexit.i56
   ]

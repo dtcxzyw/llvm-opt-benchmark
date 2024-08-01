@@ -72,7 +72,7 @@ if.end32.lr.ph:                                   ; preds = %for.cond.preheader
   br label %if.end32
 
 if.then17:                                        ; preds = %if.end41, %for.cond.preheader
-  %count.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %inc, %if.end41 ]
+  %count.1.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %inc, %if.end41 ]
   %call18 = call i64 @ERR_peek_last_error() #3
   %and.i = and i64 %call18, 2147483648
   %cmp.not.i = icmp eq i64 %and.i, 0
@@ -80,7 +80,7 @@ if.then17:                                        ; preds = %if.end41, %for.cond
   %retval.0.v.i = select i1 %cmp.not.i, i32 8388607, i32 2147483647
   %retval.0.i = and i32 %retval.0.v.i, %0
   %cmp20 = icmp eq i32 %retval.0.i, 108
-  %cmp22 = icmp ne i32 %count.0.lcssa, 0
+  %cmp22 = icmp ne i32 %count.1.lcssa, 0
   %or.cond = select i1 %cmp20, i1 %cmp22, i1 false
   br i1 %or.cond, label %if.then24, label %if.else
 
@@ -90,7 +90,7 @@ if.then24:                                        ; preds = %if.then17
 
 if.else:                                          ; preds = %if.then17
   %call26 = call i32 @ERR_clear_last_mark() #3
-  %cmp27 = icmp eq i32 %count.0.lcssa, 0
+  %cmp27 = icmp eq i32 %count.1.lcssa, 0
   call void @ERR_new() #3
   br i1 %cmp27, label %if.then29, label %if.else30
 
@@ -105,7 +105,7 @@ if.else30:                                        ; preds = %if.else
   br label %err
 
 if.end32:                                         ; preds = %if.end32.lr.ph, %if.end41
-  %count.017 = phi i32 [ 0, %if.end32.lr.ph ], [ %inc, %if.end41 ]
+  %count.117 = phi i32 [ 0, %if.end32.lr.ph ], [ %inc, %if.end41 ]
   %call33 = call i32 @ERR_clear_last_mark() #3
   %1 = load ptr, ptr %store_ctx, align 8
   %2 = load ptr, ptr %x, align 8
@@ -128,7 +128,7 @@ if.then40:                                        ; preds = %if.end36
   br label %err
 
 if.end41:                                         ; preds = %if.end36
-  %inc = add nuw nsw i32 %count.017, 1
+  %inc = add nuw nsw i32 %count.117, 1
   %call13 = call i32 @ERR_set_mark() #3
   %call14 = call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %call1, ptr noundef nonnull %x, ptr noundef null, ptr noundef nonnull @.str.1) #3
   %cmp15 = icmp eq ptr %call14, null
@@ -159,11 +159,11 @@ if.else53:                                        ; preds = %if.end9
   br label %err
 
 err:                                              ; preds = %if.end32, %if.then24, %if.end50, %if.then29, %if.else30, %if.else53, %if.then49, %if.then40, %if.then8, %if.then
-  %count.1 = phi i32 [ 0, %if.then ], [ 0, %if.then8 ], [ %count.0.lcssa, %if.then24 ], [ 0, %if.then29 ], [ 0, %if.else30 ], [ 0, %if.then40 ], [ 0, %if.then49 ], [ %call52, %if.end50 ], [ 0, %if.else53 ], [ 0, %if.end32 ]
+  %count.0 = phi i32 [ 0, %if.then ], [ 0, %if.then8 ], [ %count.1.lcssa, %if.then24 ], [ 0, %if.then29 ], [ 0, %if.else30 ], [ 0, %if.then40 ], [ 0, %if.then49 ], [ %call52, %if.end50 ], [ 0, %if.else53 ], [ 0, %if.end32 ]
   %6 = load ptr, ptr %x, align 8
   call void @X509_free(ptr noundef %6) #3
   %call56 = call i32 @BIO_free(ptr noundef %call1) #3
-  ret i32 %count.1
+  ret i32 %count.0
 }
 
 declare ptr @BIO_new(ptr noundef) local_unnamed_addr #2
@@ -241,7 +241,7 @@ if.end24.lr.ph:                                   ; preds = %for.cond.preheader
   br label %if.end24
 
 if.then11:                                        ; preds = %if.end27, %for.cond.preheader
-  %count.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %inc, %if.end27 ]
+  %count.1.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %inc, %if.end27 ]
   %call12 = tail call i64 @ERR_peek_last_error() #3
   %and.i = and i64 %call12, 2147483648
   %cmp.not.i = icmp eq i64 %and.i, 0
@@ -249,7 +249,7 @@ if.then11:                                        ; preds = %if.end27, %for.cond
   %retval.0.v.i = select i1 %cmp.not.i, i32 8388607, i32 2147483647
   %retval.0.i = and i32 %retval.0.v.i, %0
   %cmp14 = icmp eq i32 %retval.0.i, 108
-  %cmp16 = icmp ne i32 %count.0.lcssa, 0
+  %cmp16 = icmp ne i32 %count.1.lcssa, 0
   %or.cond = select i1 %cmp14, i1 %cmp16, i1 false
   br i1 %or.cond, label %if.then18, label %if.else
 
@@ -258,7 +258,7 @@ if.then18:                                        ; preds = %if.then11
   br label %err
 
 if.else:                                          ; preds = %if.then11
-  %cmp19 = icmp eq i32 %count.0.lcssa, 0
+  %cmp19 = icmp eq i32 %count.1.lcssa, 0
   tail call void @ERR_new() #3
   br i1 %cmp19, label %if.then21, label %if.else22
 
@@ -274,14 +274,14 @@ if.else22:                                        ; preds = %if.else
 
 if.end24:                                         ; preds = %if.end24.lr.ph, %if.end27
   %call819 = phi ptr [ %call816, %if.end24.lr.ph ], [ %call8, %if.end27 ]
-  %count.018 = phi i32 [ 0, %if.end24.lr.ph ], [ %inc, %if.end27 ]
+  %count.118 = phi i32 [ 0, %if.end24.lr.ph ], [ %inc, %if.end27 ]
   %1 = load ptr, ptr %store_ctx, align 8
   %call25 = tail call i32 @X509_STORE_add_crl(ptr noundef %1, ptr noundef nonnull %call819) #3
   %tobool.not = icmp eq i32 %call25, 0
   br i1 %tobool.not, label %err, label %if.end27
 
 if.end27:                                         ; preds = %if.end24
-  %inc = add nuw nsw i32 %count.018, 1
+  %inc = add nuw nsw i32 %count.118, 1
   %call8 = tail call ptr @PEM_read_bio_X509_CRL(ptr noundef nonnull %call1, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.1) #3
   %cmp9 = icmp eq ptr %call8, null
   br i1 %cmp9, label %if.then11, label %if.end24
@@ -310,11 +310,11 @@ if.else39:                                        ; preds = %if.end
   br label %err
 
 err:                                              ; preds = %if.end24, %if.then18, %if.end36, %if.then21, %if.else22, %if.else39, %if.then35, %if.then
-  %count.1 = phi i32 [ 0, %if.then ], [ %count.0.lcssa, %if.then18 ], [ 0, %if.then21 ], [ 0, %if.else22 ], [ 0, %if.then35 ], [ %call38, %if.end36 ], [ 0, %if.else39 ], [ 0, %if.end24 ]
+  %count.0 = phi i32 [ 0, %if.then ], [ %count.1.lcssa, %if.then18 ], [ 0, %if.then21 ], [ 0, %if.else22 ], [ 0, %if.then35 ], [ %call38, %if.end36 ], [ 0, %if.else39 ], [ 0, %if.end24 ]
   %x.0 = phi ptr [ null, %if.then ], [ null, %if.then18 ], [ null, %if.then21 ], [ null, %if.else22 ], [ null, %if.then35 ], [ %call32, %if.end36 ], [ null, %if.else39 ], [ %call819, %if.end24 ]
   tail call void @X509_CRL_free(ptr noundef %x.0) #3
   %call42 = tail call i32 @BIO_free(ptr noundef %call1) #3
-  ret i32 %count.1
+  ret i32 %count.0
 }
 
 declare ptr @PEM_read_bio_X509_CRL(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -370,7 +370,7 @@ if.then8:                                         ; preds = %if.end4
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %count.025 = phi i32 [ 0, %for.body.lr.ph ], [ %count.2, %for.inc ]
+  %count.025 = phi i32 [ 0, %for.body.lr.ph ], [ %count.3, %for.inc ]
   %i.024 = phi i32 [ 0, %for.body.lr.ph ], [ %inc32, %for.inc ]
   %call14 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call5, i32 noundef %i.024) #3
   %0 = load ptr, ptr %call14, align 8
@@ -405,14 +405,14 @@ if.end29:                                         ; preds = %if.then23
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end21, %if.end29
-  %count.2 = phi i32 [ %inc30, %if.end29 ], [ %count.1, %if.end21 ]
+  %count.3 = phi i32 [ %inc30, %if.end29 ], [ %count.1, %if.end21 ]
   %inc32 = add nuw nsw i32 %i.024, 1
   %call11 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call5) #3
   %cmp12 = icmp slt i32 %inc32, %call11
   br i1 %cmp12, label %for.body, label %for.end, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc
-  %cmp33 = icmp eq i32 %count.2, 0
+  %cmp33 = icmp eq i32 %count.3, 0
   br i1 %cmp33, label %if.then34, label %err
 
 if.then34:                                        ; preds = %for.cond.preheader, %for.end
@@ -422,12 +422,12 @@ if.then34:                                        ; preds = %for.cond.preheader,
   br label %err
 
 err:                                              ; preds = %if.then23, %if.then15, %for.end, %if.then34
-  %count.3 = phi i32 [ 0, %if.then34 ], [ %count.2, %for.end ], [ 0, %if.then15 ], [ 0, %if.then23 ]
+  %count.2 = phi i32 [ 0, %if.then34 ], [ %count.3, %for.end ], [ 0, %if.then15 ], [ 0, %if.then23 ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call5, ptr noundef nonnull @X509_INFO_free) #3
   br label %return
 
 return:                                           ; preds = %err, %if.then8, %if.then3, %if.then
-  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %if.then3 ], [ 0, %if.then8 ], [ %count.3, %err ]
+  %retval.0 = phi i32 [ %call, %if.then ], [ 0, %if.then3 ], [ 0, %if.then8 ], [ %count.2, %err ]
   ret i32 %retval.0
 }
 
@@ -485,9 +485,9 @@ if.else:                                          ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then2
-  %ok.0.in.in = phi i32 [ %call3, %if.then2 ], [ %call6, %if.else ]
-  %ok.0.in.not = icmp eq i32 %ok.0.in.in, 0
-  br i1 %ok.0.in.not, label %if.then10, label %sw.epilog
+  %ok.1.in.in = phi i32 [ %call3, %if.then2 ], [ %call6, %if.else ]
+  %ok.1.in.not = icmp eq i32 %ok.1.in.in, 0
+  br i1 %ok.1.in.not, label %if.then10, label %sw.epilog
 
 if.then10:                                        ; preds = %if.end
   tail call void @ERR_new() #3
@@ -507,9 +507,9 @@ if.else19:                                        ; preds = %sw.bb
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then10, %if.end, %if.else19, %if.then15, %entry
-  %ok.1.shrunk = phi i1 [ true, %if.end ], [ false, %if.then10 ], [ %cmp17, %if.then15 ], [ %cmp22, %if.else19 ], [ false, %entry ]
-  %ok.1 = zext i1 %ok.1.shrunk to i32
-  ret i32 %ok.1
+  %ok.0.shrunk = phi i1 [ true, %if.end ], [ false, %if.then10 ], [ %cmp17, %if.then15 ], [ %cmp22, %if.else19 ], [ false, %entry ]
+  %ok.0 = zext i1 %ok.0.shrunk to i32
+  ret i32 %ok.0
 }
 
 declare ptr @ossl_safe_getenv(ptr noundef) local_unnamed_addr #2

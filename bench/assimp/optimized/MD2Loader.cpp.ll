@@ -1174,7 +1174,7 @@ if.else197:                                       ; preds = %arrayctor.cont188
 
 if.end201:                                        ; preds = %invoke.cont194.if.end201_crit_edge, %if.else197
   %52 = phi ptr [ %43, %if.else197 ], [ %.pre, %invoke.cont194.if.end201_crit_edge ]
-  %fDivisorU.0 = phi float [ %conv200, %if.else197 ], [ 1.000000e+00, %invoke.cont194.if.end201_crit_edge ]
+  %fDivisorU.1 = phi float [ %conv200, %if.else197 ], [ 1.000000e+00, %invoke.cont194.if.end201_crit_edge ]
   %skinHeight = getelementptr inbounds i8, ptr %52, i64 12
   %53 = load i32, ptr %skinHeight, align 1
   %tobool203.not = icmp eq i32 %53, 0
@@ -1198,7 +1198,7 @@ if.else208:                                       ; preds = %if.end201
 
 if.end213:                                        ; preds = %invoke.cont205.if.end213_crit_edge, %if.else208, %if.end172
   %54 = phi ptr [ %52, %if.else208 ], [ %.pre174, %invoke.cont205.if.end213_crit_edge ], [ %43, %if.end172 ]
-  %fDivisorU.1 = phi float [ %fDivisorU.0, %if.else208 ], [ %fDivisorU.0, %invoke.cont205.if.end213_crit_edge ], [ 1.000000e+00, %if.end172 ]
+  %fDivisorU.0 = phi float [ %fDivisorU.1, %if.else208 ], [ %fDivisorU.1, %invoke.cont205.if.end213_crit_edge ], [ 1.000000e+00, %if.end172 ]
   %fDivisorV.0 = phi float [ %conv211, %if.else208 ], [ 1.000000e+00, %invoke.cont205.if.end213_crit_edge ], [ 1.000000e+00, %if.end172 ]
   %numTriangles215166 = getelementptr inbounds i8, ptr %54, i64 32
   %55 = load i32, ptr %numTriangles215166, align 1
@@ -1355,7 +1355,7 @@ if.end306:                                        ; preds = %invoke.cont302, %if
   %arrayidx312 = getelementptr inbounds %"struct.Assimp::MD2::TexCoord", ptr %add.ptr79, i64 %idxprom311
   %85 = load i16, ptr %arrayidx312, align 1
   %conv314 = uitofp i16 %85 to float
-  %div = fdiv float %conv314, %fDivisorU.1
+  %div = fdiv float %conv314, %fDivisorU.0
   store float %div, ptr %arrayidx310, align 4
   %t = getelementptr inbounds i8, ptr %arrayidx312, i64 2
   %86 = load i16, ptr %t, align 1

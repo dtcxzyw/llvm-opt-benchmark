@@ -5025,7 +5025,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.ba
   %.0118 = phi i32 [ 0, %Wln_RetMarkChanges.exit ], [ %.1119, %Vec_IntGrow.exit.backedge ]
   %.0116 = phi i32 [ 0, %Wln_RetMarkChanges.exit ], [ %.1117, %Vec_IntGrow.exit.backedge ]
   %.0114 = phi i32 [ %46, %Wln_RetMarkChanges.exit ], [ %207, %Vec_IntGrow.exit.backedge ]
-  %.0112 = phi i32 [ 0, %Wln_RetMarkChanges.exit ], [ %.2, %Vec_IntGrow.exit.backedge ]
+  %.0112 = phi i32 [ 0, %Wln_RetMarkChanges.exit ], [ %.1113, %Vec_IntGrow.exit.backedge ]
   %.0111 = phi i32 [ 0, %Wln_RetMarkChanges.exit ], [ %186, %Vec_IntGrow.exit.backedge ]
   %.val141 = load i32, ptr %51, align 4
   %.not = icmp eq i32 %.val141, 0
@@ -5448,9 +5448,9 @@ Vec_IntPrint.exit231:                             ; preds = %.lr.ph.i226, %Vec_I
   %.1117 = select i1 %.not130, i32 0, i32 %228
   %narrow = and i1 %229, %.not130
   %spec.select = zext i1 %narrow to i32
-  %.2 = add nuw nsw i32 %.0112, %spec.select
+  %.1113 = add nuw nsw i32 %.0112, %spec.select
   %230 = icmp sgt i32 %.1117, 3
-  %231 = icmp ugt i32 %.2, 5
+  %231 = icmp ugt i32 %.1113, 5
   %or.cond11 = select i1 %230, i1 true, i1 %231
   br i1 %or.cond11, label %.loopexit, label %232
 

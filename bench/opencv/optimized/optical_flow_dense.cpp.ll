@@ -525,7 +525,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %154
           to label %197 unwind label %180
 
 197:                                              ; preds = %195, %167, %167
-  %.030 = phi i32 [ 3, %167 ], [ 3, %167 ], [ 0, %195 ]
+  %.131 = phi i32 [ 3, %167 ], [ 3, %167 ], [ 0, %195 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #7
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #7
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %29) #7
@@ -556,10 +556,10 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %154
   br label %208
 
 208:                                              ; preds = %123, %207
-  %.131 = phi i32 [ %.030, %207 ], [ 3, %123 ]
+  %.030 = phi i32 [ %.131, %207 ], [ 3, %123 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #7
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #7
-  %switch = icmp eq i32 %.131, 0
+  %switch = icmp eq i32 %.030, 0
   br i1 %switch, label %119, label %220
 
 209:                                              ; preds = %188, %194, %186, %184, %182, %180

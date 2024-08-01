@@ -73,7 +73,7 @@ define hidden noundef zeroext i1 @_ZN27ShenandoahBarrierSetNMethod21nmethod_entr
   br label %_ZN25ShenandoahReentrantLockerD2Ev.exit
 
 _ZN25ShenandoahReentrantLockerD2Ev.exit:          ; preds = %19, %14, %4, %13
-  %.0 = phi i1 [ false, %13 ], [ true, %4 ], [ true, %14 ], [ true, %19 ]
+  %.1 = phi i1 [ false, %13 ], [ true, %4 ], [ true, %14 ], [ true, %19 ]
   %20 = load ptr, ptr %7, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
@@ -81,8 +81,8 @@ _ZN25ShenandoahReentrantLockerD2Ev.exit:          ; preds = %19, %14, %4, %13
   br label %23
 
 23:                                               ; preds = %2, %_ZN25ShenandoahReentrantLockerD2Ev.exit
-  %.1 = phi i1 [ %.0, %_ZN25ShenandoahReentrantLockerD2Ev.exit ], [ true, %2 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %_ZN25ShenandoahReentrantLockerD2Ev.exit ], [ true, %2 ]
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_ZN17BarrierSetNMethod8is_armedEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #1

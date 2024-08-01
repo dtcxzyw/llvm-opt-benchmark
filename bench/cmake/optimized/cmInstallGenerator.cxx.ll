@@ -1537,13 +1537,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %25
 
 25:                                               ; preds = %22, %19, %12
-  %.05 = phi i32 [ 1, %12 ], [ 2, %19 ], [ %., %22 ]
+  %.1 = phi i32 [ 1, %12 ], [ 2, %19 ], [ %., %22 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #14
   br label %26
 
 26:                                               ; preds = %2, %25
-  %.1 = phi i32 [ %.05, %25 ], [ 3, %2 ]
-  ret i32 %.1
+  %.05 = phi i32 [ %.1, %25 ], [ 3, %2 ]
+  ret i32 %.05
 }
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10cmMakefile17GetSafeDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0

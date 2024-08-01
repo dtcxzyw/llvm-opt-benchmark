@@ -284,7 +284,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc
 
 83:                                               ; preds = %223, %.preheader.i
   %.035188.i = phi i32 [ 1, %.preheader.i ], [ %224, %223 ]
-  %.sroa.0114.0187.i = phi i64 [ 4294967295, %.preheader.i ], [ %.sroa.0114.12.i, %223 ]
+  %.sroa.0114.0187.i = phi i64 [ 4294967295, %.preheader.i ], [ %.sroa.0114.1.i, %223 ]
   %84 = and i64 %.sroa.0114.0187.i, 4294967295
   %85 = mul nuw i64 %84, 4164903690
   %86 = lshr i64 %.sroa.0114.0187.i, 32
@@ -314,16 +314,16 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc
   br label %_ZN2cv3RNG7uniformEii.exit.i
 
 _ZN2cv3RNG7uniformEii.exit.i:                     ; preds = %93, %92
-  %.sroa.0114.1.i = phi i64 [ %87, %92 ], [ %97, %93 ]
+  %.sroa.0114.2.i = phi i64 [ %87, %92 ], [ %97, %93 ]
   %102 = phi i32 [ 50, %92 ], [ %101, %93 ]
   %103 = load i32, ptr %65, align 8, !alias.scope !5
   %104 = icmp eq i32 %103, 100
   br i1 %104, label %114, label %105
 
 105:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit.i
-  %106 = and i64 %.sroa.0114.1.i, 4294967295
+  %106 = and i64 %.sroa.0114.2.i, 4294967295
   %107 = mul nuw i64 %106, 4164903690
-  %108 = lshr i64 %.sroa.0114.1.i, 32
+  %108 = lshr i64 %.sroa.0114.2.i, 32
   %109 = add nuw i64 %107, %108
   %110 = trunc i64 %109 to i32
   %111 = add nsw i32 %103, -100
@@ -332,11 +332,11 @@ _ZN2cv3RNG7uniformEii.exit.i:                     ; preds = %93, %92
   br label %114
 
 114:                                              ; preds = %105, %_ZN2cv3RNG7uniformEii.exit.i
-  %.sroa.0114.2.i = phi i64 [ %.sroa.0114.1.i, %_ZN2cv3RNG7uniformEii.exit.i ], [ %109, %105 ]
+  %.sroa.0114.3.i = phi i64 [ %.sroa.0114.2.i, %_ZN2cv3RNG7uniformEii.exit.i ], [ %109, %105 ]
   %115 = phi i32 [ 75, %_ZN2cv3RNG7uniformEii.exit.i ], [ %113, %105 ]
-  %116 = and i64 %.sroa.0114.2.i, 4294967295
+  %116 = and i64 %.sroa.0114.3.i, 4294967295
   %117 = mul nuw i64 %116, 4164903690
-  %118 = lshr i64 %.sroa.0114.2.i, 32
+  %118 = lshr i64 %.sroa.0114.3.i, 32
   %119 = add nuw i64 %117, %118
   %120 = trunc i64 %119 to i32
   %121 = urem i32 %120, 24
@@ -374,16 +374,16 @@ _ZN2cv3RNG7uniformEii.exit.i:                     ; preds = %93, %92
   br label %_ZN2cv3RNG7uniformEii.exit49.i
 
 _ZN2cv3RNG7uniformEii.exit49.i:                   ; preds = %127, %126
-  %.sroa.0114.4.i = phi i64 [ %87, %126 ], [ %131, %127 ]
+  %.sroa.0114.5.i = phi i64 [ %87, %126 ], [ %131, %127 ]
   %136 = phi i32 [ 50, %126 ], [ %135, %127 ]
   %137 = load i32, ptr %65, align 8, !alias.scope !5
   %138 = icmp eq i32 %137, 100
   br i1 %138, label %148, label %139
 
 139:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit49.i
-  %140 = and i64 %.sroa.0114.4.i, 4294967295
+  %140 = and i64 %.sroa.0114.5.i, 4294967295
   %141 = mul nuw i64 %140, 4164903690
-  %142 = lshr i64 %.sroa.0114.4.i, 32
+  %142 = lshr i64 %.sroa.0114.5.i, 32
   %143 = add nuw i64 %141, %142
   %144 = trunc i64 %143 to i32
   %145 = add nsw i32 %137, -100
@@ -392,11 +392,11 @@ _ZN2cv3RNG7uniformEii.exit49.i:                   ; preds = %127, %126
   br label %148
 
 148:                                              ; preds = %139, %_ZN2cv3RNG7uniformEii.exit49.i
-  %.sroa.0114.5.i = phi i64 [ %.sroa.0114.4.i, %_ZN2cv3RNG7uniformEii.exit49.i ], [ %143, %139 ]
+  %.sroa.0114.6.i = phi i64 [ %.sroa.0114.5.i, %_ZN2cv3RNG7uniformEii.exit49.i ], [ %143, %139 ]
   %149 = phi i32 [ 75, %_ZN2cv3RNG7uniformEii.exit49.i ], [ %147, %139 ]
-  %150 = and i64 %.sroa.0114.5.i, 4294967295
+  %150 = and i64 %.sroa.0114.6.i, 4294967295
   %151 = mul nuw i64 %150, 4164903690
-  %152 = lshr i64 %.sroa.0114.5.i, 32
+  %152 = lshr i64 %.sroa.0114.6.i, 32
   %153 = add nuw i64 %151, %152
   %154 = trunc i64 %153 to i32
   %155 = urem i32 %154, 24
@@ -457,16 +457,16 @@ _ZN2cv3RNG7uniformEii.exit49.i:                   ; preds = %127, %126
   br label %_ZN2cv3RNG7uniformEii.exit68.i
 
 _ZN2cv3RNG7uniformEii.exit68.i:                   ; preds = %178, %177
-  %.sroa.0114.8.i = phi i64 [ %87, %177 ], [ %182, %178 ]
+  %.sroa.0114.9.i = phi i64 [ %87, %177 ], [ %182, %178 ]
   %187 = phi i32 [ 50, %177 ], [ %186, %178 ]
   %188 = load i32, ptr %65, align 8, !alias.scope !5
   %189 = icmp eq i32 %188, 100
   br i1 %189, label %199, label %190
 
 190:                                              ; preds = %_ZN2cv3RNG7uniformEii.exit68.i
-  %191 = and i64 %.sroa.0114.8.i, 4294967295
+  %191 = and i64 %.sroa.0114.9.i, 4294967295
   %192 = mul nuw i64 %191, 4164903690
-  %193 = lshr i64 %.sroa.0114.8.i, 32
+  %193 = lshr i64 %.sroa.0114.9.i, 32
   %194 = add nuw i64 %192, %193
   %195 = trunc i64 %194 to i32
   %196 = add nsw i32 %188, -100
@@ -475,11 +475,11 @@ _ZN2cv3RNG7uniformEii.exit68.i:                   ; preds = %178, %177
   br label %199
 
 199:                                              ; preds = %190, %_ZN2cv3RNG7uniformEii.exit68.i
-  %.sroa.0114.9.i = phi i64 [ %.sroa.0114.8.i, %_ZN2cv3RNG7uniformEii.exit68.i ], [ %194, %190 ]
+  %.sroa.0114.10.i = phi i64 [ %.sroa.0114.9.i, %_ZN2cv3RNG7uniformEii.exit68.i ], [ %194, %190 ]
   %200 = phi i32 [ 75, %_ZN2cv3RNG7uniformEii.exit68.i ], [ %198, %190 ]
-  %201 = and i64 %.sroa.0114.9.i, 4294967295
+  %201 = and i64 %.sroa.0114.10.i, 4294967295
   %202 = mul nuw i64 %201, 4164903690
-  %203 = lshr i64 %.sroa.0114.9.i, 32
+  %203 = lshr i64 %.sroa.0114.10.i, 32
   %204 = add nuw i64 %202, %203
   %205 = trunc i64 %204 to i32
   %206 = urem i32 %205, 24
@@ -526,7 +526,7 @@ default.unreachable:                              ; preds = %83
   unreachable
 
 223:                                              ; preds = %199, %148, %114
-  %.sroa.0114.12.i = phi i64 [ %119, %114 ], [ %160, %148 ], [ %216, %199 ]
+  %.sroa.0114.1.i = phi i64 [ %119, %114 ], [ %160, %148 ], [ %216, %199 ]
   %224 = add nuw nsw i32 %.035188.i, 1
   %exitcond190.not.i = icmp eq i32 %224, 257
   br i1 %exitcond190.not.i, label %226, label %83, !llvm.loop !13
@@ -1345,135 +1345,135 @@ __cxx_global_var_init.1.exit:                     ; preds = %0
   br label %96
 
 96:                                               ; preds = %94, %92
-  %.031.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 704), %94 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 672), %92 ]
+  %.2152.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 704), %94 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 672), %92 ]
   %.pn.i = phi { ptr, i32 } [ %95, %94 ], [ %93, %92 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #13
   br label %97
 
 97:                                               ; preds = %96, %90
-  %.132.i = phi ptr [ %.031.i, %96 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 640), %90 ]
+  %.2051.i = phi ptr [ %.2152.i, %96 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 640), %90 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %96 ], [ %91, %90 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #13
   br label %98
 
 98:                                               ; preds = %97, %88
-  %.233.i = phi ptr [ %.132.i, %97 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 608), %88 ]
+  %.1950.i = phi ptr [ %.2051.i, %97 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 608), %88 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %97 ], [ %89, %88 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #13
   br label %99
 
 99:                                               ; preds = %98, %86
-  %.334.i = phi ptr [ %.233.i, %98 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 576), %86 ]
+  %.1849.i = phi ptr [ %.1950.i, %98 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 576), %86 ]
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %98 ], [ %87, %86 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #13
   br label %100
 
 100:                                              ; preds = %99, %84
-  %.435.i = phi ptr [ %.334.i, %99 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 544), %84 ]
+  %.1748.i = phi ptr [ %.1849.i, %99 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 544), %84 ]
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.i, %99 ], [ %85, %84 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #13
   br label %101
 
 101:                                              ; preds = %100, %82
-  %.536.i = phi ptr [ %.435.i, %100 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 512), %82 ]
+  %.1647.i = phi ptr [ %.1748.i, %100 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 512), %82 ]
   %.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.i, %100 ], [ %83, %82 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #13
   br label %102
 
 102:                                              ; preds = %101, %80
-  %.637.i = phi ptr [ %.536.i, %101 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 480), %80 ]
+  %.1546.i = phi ptr [ %.1647.i, %101 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 480), %80 ]
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.i, %101 ], [ %81, %80 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #13
   br label %103
 
 103:                                              ; preds = %102, %78
-  %.738.i = phi ptr [ %.637.i, %102 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 448), %78 ]
+  %.1445.i = phi ptr [ %.1546.i, %102 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 448), %78 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %102 ], [ %79, %78 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #13
   br label %104
 
 104:                                              ; preds = %103, %76
-  %.839.i = phi ptr [ %.738.i, %103 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 416), %76 ]
+  %.1344.i = phi ptr [ %.1445.i, %103 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 416), %76 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.i, %103 ], [ %77, %76 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #13
   br label %105
 
 105:                                              ; preds = %104, %74
-  %.940.i = phi ptr [ %.839.i, %104 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 384), %74 ]
+  %.1243.i = phi ptr [ %.1344.i, %104 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 384), %74 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %104 ], [ %75, %74 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #13
   br label %106
 
 106:                                              ; preds = %105, %72
-  %.1041.i = phi ptr [ %.940.i, %105 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 352), %72 ]
+  %.1142.i = phi ptr [ %.1243.i, %105 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 352), %72 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %105 ], [ %73, %72 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #13
   br label %107
 
 107:                                              ; preds = %106, %70
-  %.1142.i = phi ptr [ %.1041.i, %106 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 320), %70 ]
+  %.1041.i = phi ptr [ %.1142.i, %106 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 320), %70 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %106 ], [ %71, %70 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #13
   br label %108
 
 108:                                              ; preds = %107, %68
-  %.1243.i = phi ptr [ %.1142.i, %107 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 288), %68 ]
+  %.940.i = phi ptr [ %.1041.i, %107 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 288), %68 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %107 ], [ %69, %68 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #13
   br label %109
 
 109:                                              ; preds = %108, %66
-  %.1344.i = phi ptr [ %.1243.i, %108 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 256), %66 ]
+  %.839.i = phi ptr [ %.940.i, %108 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 256), %66 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %108 ], [ %67, %66 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #13
   br label %110
 
 110:                                              ; preds = %109, %64
-  %.1445.i = phi ptr [ %.1344.i, %109 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 224), %64 ]
+  %.738.i = phi ptr [ %.839.i, %109 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 224), %64 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %109 ], [ %65, %64 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   br label %111
 
 111:                                              ; preds = %110, %62
-  %.1546.i = phi ptr [ %.1445.i, %110 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 192), %62 ]
+  %.637.i = phi ptr [ %.738.i, %110 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 192), %62 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %110 ], [ %63, %62 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   br label %112
 
 112:                                              ; preds = %111, %60
-  %.1647.i = phi ptr [ %.1546.i, %111 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 160), %60 ]
+  %.536.i = phi ptr [ %.637.i, %111 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 160), %60 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %111 ], [ %61, %60 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #13
   br label %113
 
 113:                                              ; preds = %112, %58
-  %.1748.i = phi ptr [ %.1647.i, %112 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 128), %58 ]
+  %.435.i = phi ptr [ %.536.i, %112 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 128), %58 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %112 ], [ %59, %58 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
   br label %114
 
 114:                                              ; preds = %113, %56
-  %.1849.i = phi ptr [ %.1748.i, %113 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 96), %56 ]
+  %.334.i = phi ptr [ %.435.i, %113 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 96), %56 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %113 ], [ %57, %56 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
   br label %115
 
 115:                                              ; preds = %114, %54
-  %.1950.i = phi ptr [ %.1849.i, %114 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 64), %54 ]
+  %.233.i = phi ptr [ %.334.i, %114 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 64), %54 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %114 ], [ %55, %54 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #13
   br label %116
 
 116:                                              ; preds = %115, %52
-  %.2051.i = phi ptr [ %.1950.i, %115 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 32), %52 ]
+  %.132.i = phi ptr [ %.233.i, %115 ], [ getelementptr inbounds (i8, ptr @_ZL9ColorMapsB5cxx11, i64 32), %52 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i, %115 ], [ %53, %52 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #13
-  %117 = icmp eq ptr %.2051.i, @_ZL9ColorMapsB5cxx11
+  %117 = icmp eq ptr %.132.i, @_ZL9ColorMapsB5cxx11
   br i1 %117, label %common.resume, label %.preheader.i
 
 .preheader.i:                                     ; preds = %116, %.preheader.i
-  %118 = phi ptr [ %119, %.preheader.i ], [ %.2051.i, %116 ]
+  %118 = phi ptr [ %119, %.preheader.i ], [ %.132.i, %116 ]
   %119 = getelementptr inbounds i8, ptr %118, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %119) #13
   %120 = icmp eq ptr %119, @_ZL9ColorMapsB5cxx11

@@ -790,8 +790,8 @@ _ZN4core3str11validations15next_code_point17h522cad751057f756E.exit.thread.i.i.i
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h865436685282ff27E.exit.i"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h865436685282ff27E.exit.i": ; preds = %113, %108, %103, %96
-  %.sroa.4.0.i = phi i64 [ %121, %113 ], [ %112, %108 ], [ undef, %103 ], [ undef, %96 ]
-  %.sroa.0.0.i = phi ptr [ %120, %113 ], [ %111, %108 ], [ null, %103 ], [ null, %96 ]
+  %.sroa.4.1.i = phi i64 [ %121, %113 ], [ %112, %108 ], [ undef, %103 ], [ undef, %96 ]
+  %.sroa.0.1.i = phi ptr [ %120, %113 ], [ %111, %108 ], [ null, %103 ], [ null, %96 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !57
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h366d97b034e7c297E.exit"
 
@@ -834,8 +834,8 @@ _ZN4core3str11validations15next_code_point17h522cad751057f756E.exit.thread.i.i.i
   br label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h366d97b034e7c297E.exit"
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17h366d97b034e7c297E.exit": ; preds = %135, %130, %122, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h865436685282ff27E.exit.i", %5, %1
-  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %.sroa.4.0.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h865436685282ff27E.exit.i" ], [ undef, %5 ], [ %140, %135 ], [ undef, %130 ], [ undef, %122 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.0.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h865436685282ff27E.exit.i" ], [ null, %5 ], [ %139, %135 ], [ null, %130 ], [ null, %122 ]
+  %.sroa.4.0 = phi i64 [ undef, %1 ], [ %.sroa.4.1.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h865436685282ff27E.exit.i" ], [ undef, %5 ], [ %140, %135 ], [ undef, %130 ], [ undef, %122 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %.sroa.0.1.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h865436685282ff27E.exit.i" ], [ null, %5 ], [ %139, %135 ], [ null, %130 ], [ null, %122 ]
   %141 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %142 = insertvalue { ptr, i64 } %141, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %142
@@ -3513,13 +3513,13 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
 
 9:                                                ; preds = %15, %11
   %.pn18 = phi { ptr, i32 } [ %12, %11 ], [ %.pn16, %15 ]
-  %.04 = phi i1 [ %.1, %11 ], [ %.2, %15 ]
+  %.1 = phi i1 [ %.04, %11 ], [ %.3, %15 ]
   %10 = getelementptr inbounds i8, ptr %8, i64 288
   invoke void @"_ZN4core3ptr119drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_cli_flags..opt..CommaSeparated$LT$wasmtime_cli_flags..Optimize$GT$$GT$$GT$17h4a2ef5225975e41cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #18
           to label %846 unwind label %843
 
 11:                                               ; preds = %817, %13, %2
-  %.1 = phi i1 [ false, %817 ], [ true, %13 ], [ true, %2 ]
+  %.04 = phi i1 [ false, %817 ], [ true, %13 ], [ true, %2 ]
   %12 = landingpad { ptr, i32 }
           cleanup
   br label %9
@@ -3535,12 +3535,12 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
 
 15:                                               ; preds = %814, %16
   %.pn16 = phi { ptr, i32 } [ %17, %16 ], [ %.pn14, %814 ]
-  %.2 = phi i1 [ %.3, %16 ], [ false, %814 ]
+  %.3 = phi i1 [ %.2, %16 ], [ false, %814 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$wasmtime_cli_flags..CommonOptions$GT$17hd29df6720412d88aE"(ptr noalias noundef nonnull align 8 dereferenceable(568) %7) #18
           to label %9 unwind label %843
 
 16:                                               ; preds = %"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E.exit", %14
-  %.3 = phi i1 [ false, %"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E.exit" ], [ true, %14 ]
+  %.2 = phi i1 [ false, %"_ZN4core3ptr53drop_in_place$LT$wasmtime_cli_flags..DebugOptions$GT$17h276cdd7227d3a930E.exit" ], [ true, %14 ]
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %15
@@ -5302,7 +5302,7 @@ define noundef zeroext i1 @"_ZN74_$LT$wasmtime_cli_flags..CommonOptions$u20$as$u
           to label %854 unwind label %843
 
 854:                                              ; preds = %852
-  br i1 %.04, label %855, label %845
+  br i1 %.1, label %855, label %845
 
 855:                                              ; preds = %854
   %856 = getelementptr inbounds i8, ptr %8, i64 408

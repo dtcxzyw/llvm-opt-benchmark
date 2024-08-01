@@ -232,18 +232,18 @@ softfloat_le128.exit.thread:                      ; preds = %117, %softfloat_le1
   br label %126
 
 126:                                              ; preds = %softfloat_le128.exit, %softfloat_le128.exit.thread, %110
-  %.1 = phi i64 [ %111, %110 ], [ %91, %softfloat_le128.exit.thread ], [ %88, %softfloat_le128.exit ]
+  %.2 = phi i64 [ %111, %110 ], [ %91, %softfloat_le128.exit.thread ], [ %88, %softfloat_le128.exit ]
   %.sroa.049.3 = phi i64 [ %112, %110 ], [ %122, %softfloat_le128.exit.thread ], [ %105, %softfloat_le128.exit ]
   %.sroa.18.3 = phi i64 [ %116, %110 ], [ %125, %softfloat_le128.exit.thread ], [ %109, %softfloat_le128.exit ]
   %127 = or i64 %.sroa.18.3, %.sroa.049.3
   %.not168 = icmp ne i64 %127, 0
   %128 = zext i1 %.not168 to i64
-  %spec.select = or i64 %.1, %128
+  %spec.select = or i64 %.2, %128
   br label %129
 
 129:                                              ; preds = %126, %90
-  %.2 = phi i64 [ %88, %90 ], [ %spec.select, %126 ]
-  %130 = shl i64 %.2, 60
+  %.1 = phi i64 [ %88, %90 ], [ %spec.select, %126 ]
+  %130 = shl i64 %.1, 60
   %131 = getelementptr inbounds i8, ptr %5, i64 8
   %132 = load i64, ptr %131, align 8
   %133 = lshr i64 %132, 10
@@ -253,7 +253,7 @@ softfloat_le128.exit.thread:                      ; preds = %117, %softfloat_le1
   %137 = shl i64 %136, 19
   %138 = load i64, ptr %5, align 16
   %139 = shl i64 %138, 25
-  %140 = lshr i64 %.2, 4
+  %140 = lshr i64 %.1, 4
   %141 = add i64 %139, %140
   %142 = add i64 %141, %134
   %143 = add i64 %137, %133

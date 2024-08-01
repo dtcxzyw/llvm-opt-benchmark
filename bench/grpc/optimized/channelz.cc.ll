@@ -3175,37 +3175,37 @@ arraydestroy.body156:                             ; preds = %arraydestroy.body15
 
 ehcleanup161:                                     ; preds = %arraydestroy.body156, %lpad137
   %.pn15 = phi { ptr, i32 } [ %108, %lpad137 ], [ %77, %arraydestroy.body156 ]
-  %cleanup.isactive139.0 = phi i1 [ true, %lpad137 ], [ false, %arraydestroy.body156 ]
+  %cleanup.isactive139.4 = phi i1 [ true, %lpad137 ], [ false, %arraydestroy.body156 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp135) #22
   br label %ehcleanup162
 
 ehcleanup162:                                     ; preds = %ehcleanup161, %lpad133
-  %arrayinit.endOfInit104.0 = phi ptr [ %arrayinit.element, %ehcleanup161 ], [ %ref.tmp102, %lpad133 ]
+  %arrayinit.endOfInit104.3 = phi ptr [ %arrayinit.element, %ehcleanup161 ], [ %ref.tmp102, %lpad133 ]
   %.pn15.pn = phi { ptr, i32 } [ %.pn15, %ehcleanup161 ], [ %107, %lpad133 ]
-  %cleanup.isactive139.1 = phi i1 [ %cleanup.isactive139.0, %ehcleanup161 ], [ true, %lpad133 ]
+  %cleanup.isactive139.3 = phi i1 [ %cleanup.isactive139.4, %ehcleanup161 ], [ true, %lpad133 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp105) #22
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp106) #22
   br label %ehcleanup164
 
 ehcleanup164:                                     ; preds = %lpad4.i99, %ehcleanup162
-  %arrayinit.endOfInit104.1 = phi ptr [ %arrayinit.endOfInit104.0, %ehcleanup162 ], [ %ref.tmp102, %lpad4.i99 ]
+  %arrayinit.endOfInit104.2 = phi ptr [ %arrayinit.endOfInit104.3, %ehcleanup162 ], [ %ref.tmp102, %lpad4.i99 ]
   %.pn15.pn.pn = phi { ptr, i32 } [ %.pn15.pn, %ehcleanup162 ], [ %69, %lpad4.i99 ]
-  %cleanup.isactive139.2 = phi i1 [ %cleanup.isactive139.1, %ehcleanup162 ], [ true, %lpad4.i99 ]
+  %cleanup.isactive139.2 = phi i1 [ %cleanup.isactive139.3, %ehcleanup162 ], [ true, %lpad4.i99 ]
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp108) #22
   br label %cleanup.done189
 
 cleanup.done189:                                  ; preds = %ehcleanup164, %lpad121
-  %arrayinit.endOfInit104.2 = phi ptr [ %ref.tmp102, %lpad121 ], [ %arrayinit.endOfInit104.1, %ehcleanup164 ]
+  %arrayinit.endOfInit104.1 = phi ptr [ %ref.tmp102, %lpad121 ], [ %arrayinit.endOfInit104.2, %ehcleanup164 ]
   %.pn15.pn.pn.pn = phi { ptr, i32 } [ %106, %lpad121 ], [ %.pn15.pn.pn, %ehcleanup164 ]
-  %cleanup.isactive139.3 = phi i1 [ true, %lpad121 ], [ %cleanup.isactive139.2, %ehcleanup164 ]
+  %cleanup.isactive139.1 = phi i1 [ true, %lpad121 ], [ %cleanup.isactive139.2, %ehcleanup164 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp111) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp112) #22
-  %arraydestroy.isempty193 = icmp ne ptr %ref.tmp102, %arrayinit.endOfInit104.2
-  %or.cond3.not = select i1 %cleanup.isactive139.3, i1 %arraydestroy.isempty193, i1 false
+  %arraydestroy.isempty193 = icmp ne ptr %ref.tmp102, %arrayinit.endOfInit104.1
+  %or.cond3.not = select i1 %cleanup.isactive139.1, i1 %arraydestroy.isempty193, i1 false
   br i1 %or.cond3.not, label %arraydestroy.body194, label %ehcleanup204
 
 arraydestroy.body194:                             ; preds = %cleanup.done189, %arraydestroy.body194
-  %arraydestroy.elementPast195 = phi ptr [ %arraydestroy.element196, %arraydestroy.body194 ], [ %arrayinit.endOfInit104.2, %cleanup.done189 ]
+  %arraydestroy.elementPast195 = phi ptr [ %arraydestroy.element196, %arraydestroy.body194 ], [ %arrayinit.endOfInit104.1, %cleanup.done189 ]
   %arraydestroy.element196 = getelementptr inbounds i8, ptr %arraydestroy.elementPast195, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element196) #22
   %arraydestroy.done197 = icmp eq ptr %arraydestroy.element196, %ref.tmp102
@@ -6703,16 +6703,16 @@ ehcleanup57:                                      ; preds = %arraydestroy.body52
 
 ehcleanup60:                                      ; preds = %ehcleanup57, %lpad.i17, %lpad28
   %.pn7.pn.pn = phi { ptr, i32 } [ %.pn7.pn, %ehcleanup57 ], [ %58, %lpad28 ], [ %9, %lpad.i17 ]
-  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element, %ehcleanup57 ], [ %ref.tmp18, %lpad28 ], [ %arrayinit.element, %lpad.i17 ]
+  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.element, %ehcleanup57 ], [ %ref.tmp18, %lpad28 ], [ %arrayinit.element, %lpad.i17 ]
   %cleanup.isactive.1 = phi i1 [ %61, %ehcleanup57 ], [ false, %lpad28 ], [ false, %lpad.i17 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp19) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #22
-  %arraydestroy.isempty = icmp eq ptr %ref.tmp18, %arrayinit.endOfInit.1
+  %arraydestroy.isempty = icmp eq ptr %ref.tmp18, %arrayinit.endOfInit.2
   %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond, label %ehcleanup100, label %arraydestroy.body61
 
 arraydestroy.body61:                              ; preds = %ehcleanup60, %arraydestroy.body61
-  %arraydestroy.elementPast62 = phi ptr [ %arraydestroy.element63, %arraydestroy.body61 ], [ %arrayinit.endOfInit.1, %ehcleanup60 ]
+  %arraydestroy.elementPast62 = phi ptr [ %arraydestroy.element63, %arraydestroy.body61 ], [ %arrayinit.endOfInit.2, %ehcleanup60 ]
   %arraydestroy.element63 = getelementptr inbounds i8, ptr %arraydestroy.elementPast62, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element63) #22
   %arraydestroy.done64 = icmp eq ptr %arraydestroy.element63, %ref.tmp18
@@ -8224,38 +8224,38 @@ arraydestroy.body55:                              ; preds = %arraydestroy.body55
   br i1 %arraydestroy.done58, label %ehcleanup60, label %arraydestroy.body55
 
 ehcleanup60:                                      ; preds = %arraydestroy.body55, %lpad41
-  %cleanup.isactive43.0 = phi i1 [ true, %lpad41 ], [ false, %arraydestroy.body55 ]
+  %cleanup.isactive43.4 = phi i1 [ true, %lpad41 ], [ false, %arraydestroy.body55 ]
   %.pn6 = phi { ptr, i32 } [ %107, %lpad41 ], [ %31, %arraydestroy.body55 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp39) #22
   br label %ehcleanup61
 
 ehcleanup61:                                      ; preds = %ehcleanup60, %lpad37
-  %cleanup.isactive43.1 = phi i1 [ %cleanup.isactive43.0, %ehcleanup60 ], [ true, %lpad37 ]
-  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element, %ehcleanup60 ], [ %ref.tmp12, %lpad37 ]
+  %cleanup.isactive43.3 = phi i1 [ %cleanup.isactive43.4, %ehcleanup60 ], [ true, %lpad37 ]
+  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.element, %ehcleanup60 ], [ %ref.tmp12, %lpad37 ]
   %.pn6.pn = phi { ptr, i32 } [ %.pn6, %ehcleanup60 ], [ %106, %lpad37 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp13) #22
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp14) #22
   br label %ehcleanup63
 
 ehcleanup63:                                      ; preds = %lpad4.i, %ehcleanup61
-  %cleanup.isactive43.2 = phi i1 [ %cleanup.isactive43.1, %ehcleanup61 ], [ true, %lpad4.i ]
-  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.endOfInit.0, %ehcleanup61 ], [ %ref.tmp12, %lpad4.i ]
+  %cleanup.isactive43.2 = phi i1 [ %cleanup.isactive43.3, %ehcleanup61 ], [ true, %lpad4.i ]
+  %arrayinit.endOfInit.2 = phi ptr [ %arrayinit.endOfInit.3, %ehcleanup61 ], [ %ref.tmp12, %lpad4.i ]
   %.pn6.pn.pn = phi { ptr, i32 } [ %.pn6.pn, %ehcleanup61 ], [ %23, %lpad4.i ]
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %ref.tmp16) #22
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %ehcleanup63, %lpad29
-  %cleanup.isactive43.3 = phi i1 [ true, %lpad29 ], [ %cleanup.isactive43.2, %ehcleanup63 ]
-  %arrayinit.endOfInit.2 = phi ptr [ %ref.tmp12, %lpad29 ], [ %arrayinit.endOfInit.1, %ehcleanup63 ]
+  %cleanup.isactive43.1 = phi i1 [ true, %lpad29 ], [ %cleanup.isactive43.2, %ehcleanup63 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %ref.tmp12, %lpad29 ], [ %arrayinit.endOfInit.2, %ehcleanup63 ]
   %.pn6.pn.pn.pn = phi { ptr, i32 } [ %105, %lpad29 ], [ %.pn6.pn.pn, %ehcleanup63 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp19) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp20) #22
-  %arraydestroy.isempty88 = icmp ne ptr %ref.tmp12, %arrayinit.endOfInit.2
-  %or.cond1.not = select i1 %cleanup.isactive43.3, i1 %arraydestroy.isempty88, i1 false
+  %arraydestroy.isempty88 = icmp ne ptr %ref.tmp12, %arrayinit.endOfInit.1
+  %or.cond1.not = select i1 %cleanup.isactive43.1, i1 %arraydestroy.isempty88, i1 false
   br i1 %or.cond1.not, label %arraydestroy.body89, label %ehcleanup192
 
 arraydestroy.body89:                              ; preds = %cleanup.done, %arraydestroy.body89
-  %arraydestroy.elementPast90 = phi ptr [ %arraydestroy.element91, %arraydestroy.body89 ], [ %arrayinit.endOfInit.2, %cleanup.done ]
+  %arraydestroy.elementPast90 = phi ptr [ %arraydestroy.element91, %arraydestroy.body89 ], [ %arrayinit.endOfInit.1, %cleanup.done ]
   %arraydestroy.element91 = getelementptr inbounds i8, ptr %arraydestroy.elementPast90, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element91) #22
   %arraydestroy.done92 = icmp eq ptr %arraydestroy.element91, %ref.tmp12
@@ -8307,16 +8307,16 @@ ehcleanup159:                                     ; preds = %arraydestroy.body15
 
 ehcleanup162:                                     ; preds = %ehcleanup159, %lpad.i97, %lpad119
   %.pn14.pn.pn = phi { ptr, i32 } [ %.pn14.pn, %ehcleanup159 ], [ %110, %lpad119 ], [ %58, %lpad.i97 ]
-  %arrayinit.endOfInit110.1 = phi ptr [ %arrayinit.element121, %ehcleanup159 ], [ %ref.tmp108, %lpad119 ], [ %arrayinit.element121, %lpad.i97 ]
+  %arrayinit.endOfInit110.2 = phi ptr [ %arrayinit.element121, %ehcleanup159 ], [ %ref.tmp108, %lpad119 ], [ %arrayinit.element121, %lpad.i97 ]
   %cleanup.isactive130.1 = phi i1 [ %113, %ehcleanup159 ], [ false, %lpad119 ], [ false, %lpad.i97 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp111) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp112) #22
-  %arraydestroy.isempty165 = icmp eq ptr %ref.tmp108, %arrayinit.endOfInit110.1
+  %arraydestroy.isempty165 = icmp eq ptr %ref.tmp108, %arrayinit.endOfInit110.2
   %or.cond2 = select i1 %cleanup.isactive130.1, i1 true, i1 %arraydestroy.isempty165
   br i1 %or.cond2, label %ehcleanup187, label %arraydestroy.body166
 
 arraydestroy.body166:                             ; preds = %ehcleanup162, %arraydestroy.body166
-  %arraydestroy.elementPast167 = phi ptr [ %arraydestroy.element168, %arraydestroy.body166 ], [ %arrayinit.endOfInit110.1, %ehcleanup162 ]
+  %arraydestroy.elementPast167 = phi ptr [ %arraydestroy.element168, %arraydestroy.body166 ], [ %arrayinit.endOfInit110.2, %ehcleanup162 ]
   %arraydestroy.element168 = getelementptr inbounds i8, ptr %arraydestroy.elementPast167, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element168) #22
   %arraydestroy.done169 = icmp eq ptr %arraydestroy.element168, %ref.tmp108
@@ -11764,16 +11764,16 @@ ehcleanup293:                                     ; preds = %arraydestroy.body28
 
 ehcleanup294:                                     ; preds = %ehcleanup293, %lpad269
   %.pn41.pn = phi { ptr, i32 } [ %.pn41, %ehcleanup293 ], [ %224, %lpad269 ]
-  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element271, %ehcleanup293 ], [ %ref.tmp238, %lpad269 ]
-  %cleanup.isactive276.1 = phi i1 [ %226, %ehcleanup293 ], [ false, %lpad269 ]
+  %arrayinit.endOfInit.4 = phi ptr [ %arrayinit.element271, %ehcleanup293 ], [ %ref.tmp238, %lpad269 ]
+  %cleanup.isactive276.4 = phi i1 [ %226, %ehcleanup293 ], [ false, %lpad269 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp239) #22
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp240) #22
   br label %ehcleanup296
 
 ehcleanup296:                                     ; preds = %lpad4.i, %ehcleanup294
   %.pn41.pn.pn = phi { ptr, i32 } [ %.pn41.pn, %ehcleanup294 ], [ %180, %lpad4.i ]
-  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.endOfInit.0, %ehcleanup294 ], [ %ref.tmp238, %lpad4.i ]
-  %cleanup.isactive276.2 = phi i1 [ %cleanup.isactive276.1, %ehcleanup294 ], [ false, %lpad4.i ]
+  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.4, %ehcleanup294 ], [ %ref.tmp238, %lpad4.i ]
+  %cleanup.isactive276.3 = phi i1 [ %cleanup.isactive276.4, %ehcleanup294 ], [ false, %lpad4.i ]
   br label %arraydestroy.body305
 
 arraydestroy.body305:                             ; preds = %arraydestroy.body305, %ehcleanup296
@@ -11785,38 +11785,38 @@ arraydestroy.body305:                             ; preds = %arraydestroy.body30
 
 ehcleanup310:                                     ; preds = %arraydestroy.body305, %lpad261
   %.pn41.pn.pn.pn = phi { ptr, i32 } [ %223, %lpad261 ], [ %.pn41.pn.pn, %arraydestroy.body305 ]
-  %arrayinit.endOfInit.2 = phi ptr [ %ref.tmp238, %lpad261 ], [ %arrayinit.endOfInit.1, %arraydestroy.body305 ]
+  %arrayinit.endOfInit.2 = phi ptr [ %ref.tmp238, %lpad261 ], [ %arrayinit.endOfInit.3, %arraydestroy.body305 ]
   %227 = phi i1 [ false, %lpad261 ], [ true, %arraydestroy.body305 ]
-  %cleanup.isactive276.3 = phi i1 [ false, %lpad261 ], [ %cleanup.isactive276.2, %arraydestroy.body305 ]
+  %cleanup.isactive276.2 = phi i1 [ false, %lpad261 ], [ %cleanup.isactive276.3, %arraydestroy.body305 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp257) #22
   br label %ehcleanup313
 
 ehcleanup313:                                     ; preds = %ehcleanup310, %lpad.i437, %lpad255
   %.pn41.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn41.pn.pn.pn, %ehcleanup310 ], [ %222, %lpad255 ], [ %172, %lpad.i437 ]
-  %arrayinit.endOfInit.3 = phi ptr [ %arrayinit.endOfInit.2, %ehcleanup310 ], [ %ref.tmp238, %lpad255 ], [ %ref.tmp238, %lpad.i437 ]
-  %arrayinit.endOfInit244.1 = phi ptr [ %arrayinit.element, %ehcleanup310 ], [ %ref.tmp242, %lpad255 ], [ %arrayinit.element, %lpad.i437 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.endOfInit.2, %ehcleanup310 ], [ %ref.tmp238, %lpad255 ], [ %ref.tmp238, %lpad.i437 ]
+  %arrayinit.endOfInit244.2 = phi ptr [ %arrayinit.element, %ehcleanup310 ], [ %ref.tmp242, %lpad255 ], [ %arrayinit.element, %lpad.i437 ]
   %cleanup.isactive.1 = phi i1 [ %227, %ehcleanup310 ], [ false, %lpad255 ], [ false, %lpad.i437 ]
-  %cleanup.isactive276.4 = phi i1 [ %cleanup.isactive276.3, %ehcleanup310 ], [ false, %lpad255 ], [ false, %lpad.i437 ]
+  %cleanup.isactive276.1 = phi i1 [ %cleanup.isactive276.2, %ehcleanup310 ], [ false, %lpad255 ], [ false, %lpad.i437 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp245) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp246) #22
-  %arraydestroy.isempty = icmp eq ptr %ref.tmp242, %arrayinit.endOfInit244.1
+  %arraydestroy.isempty = icmp eq ptr %ref.tmp242, %arrayinit.endOfInit244.2
   %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond, label %cleanup.done, label %arraydestroy.body314
 
 arraydestroy.body314:                             ; preds = %ehcleanup313, %arraydestroy.body314
-  %arraydestroy.elementPast315 = phi ptr [ %arraydestroy.element316, %arraydestroy.body314 ], [ %arrayinit.endOfInit244.1, %ehcleanup313 ]
+  %arraydestroy.elementPast315 = phi ptr [ %arraydestroy.element316, %arraydestroy.body314 ], [ %arrayinit.endOfInit244.2, %ehcleanup313 ]
   %arraydestroy.element316 = getelementptr inbounds i8, ptr %arraydestroy.elementPast315, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element316) #22
   %arraydestroy.done317 = icmp eq ptr %arraydestroy.element316, %ref.tmp242
   br i1 %arraydestroy.done317, label %cleanup.done, label %arraydestroy.body314
 
 cleanup.done:                                     ; preds = %arraydestroy.body314, %ehcleanup313
-  %arraydestroy.isempty322 = icmp eq ptr %ref.tmp238, %arrayinit.endOfInit.3
-  %or.cond1 = select i1 %cleanup.isactive276.4, i1 true, i1 %arraydestroy.isempty322
+  %arraydestroy.isempty322 = icmp eq ptr %ref.tmp238, %arrayinit.endOfInit.1
+  %or.cond1 = select i1 %cleanup.isactive276.1, i1 true, i1 %arraydestroy.isempty322
   br i1 %or.cond1, label %ehcleanup360, label %arraydestroy.body323
 
 arraydestroy.body323:                             ; preds = %cleanup.done, %arraydestroy.body323
-  %arraydestroy.elementPast324 = phi ptr [ %arraydestroy.element325, %arraydestroy.body323 ], [ %arrayinit.endOfInit.3, %cleanup.done ]
+  %arraydestroy.elementPast324 = phi ptr [ %arraydestroy.element325, %arraydestroy.body323 ], [ %arrayinit.endOfInit.1, %cleanup.done ]
   %arraydestroy.element325 = getelementptr inbounds i8, ptr %arraydestroy.elementPast324, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element325) #22
   %arraydestroy.done326 = icmp eq ptr %arraydestroy.element325, %ref.tmp238
@@ -12618,16 +12618,16 @@ ehcleanup110:                                     ; preds = %arraydestroy.body10
 
 ehcleanup114:                                     ; preds = %lpad52, %ehcleanup110
   %cleanup.isactive.1 = phi i1 [ %73, %ehcleanup110 ], [ false, %lpad52 ]
-  %arrayinit.endOfInit41.1 = phi ptr [ %arrayinit.element, %ehcleanup110 ], [ %arrayinit.endOfInit41.0, %lpad52 ]
+  %arrayinit.endOfInit41.2 = phi ptr [ %arrayinit.element, %ehcleanup110 ], [ %arrayinit.endOfInit41.0, %lpad52 ]
   %.pn18.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn18.pn.pn.pn.pn, %ehcleanup110 ], [ %68, %lpad52 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp42) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp43) #22
-  %arraydestroy.isempty = icmp eq ptr %ref.tmp39, %arrayinit.endOfInit41.1
+  %arraydestroy.isempty = icmp eq ptr %ref.tmp39, %arrayinit.endOfInit41.2
   %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond, label %cleanup.done129, label %arraydestroy.body115
 
 arraydestroy.body115:                             ; preds = %ehcleanup114, %arraydestroy.body115
-  %arraydestroy.elementPast116 = phi ptr [ %arraydestroy.element117, %arraydestroy.body115 ], [ %arrayinit.endOfInit41.1, %ehcleanup114 ]
+  %arraydestroy.elementPast116 = phi ptr [ %arraydestroy.element117, %arraydestroy.body115 ], [ %arrayinit.endOfInit41.2, %ehcleanup114 ]
   %arraydestroy.element117 = getelementptr inbounds i8, ptr %arraydestroy.elementPast116, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element117) #22
   %arraydestroy.done118 = icmp eq ptr %arraydestroy.element117, %ref.tmp39
@@ -14038,17 +14038,17 @@ ehcleanup61:                                      ; preds = %arraydestroy.body56
   br label %ehcleanup64
 
 ehcleanup64:                                      ; preds = %ehcleanup61, %lpad.i11, %lpad15
-  %arrayinit.endOfInit7.1 = phi ptr [ %arrayinit.element, %ehcleanup61 ], [ %ref.tmp5, %lpad15 ], [ %arrayinit.element, %lpad.i11 ]
+  %arrayinit.endOfInit7.2 = phi ptr [ %arrayinit.element, %ehcleanup61 ], [ %ref.tmp5, %lpad15 ], [ %arrayinit.element, %lpad.i11 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup61 ], [ %42, %lpad15 ], [ %4, %lpad.i11 ]
   %cleanup.isactive.1 = phi i1 [ %45, %ehcleanup61 ], [ false, %lpad15 ], [ false, %lpad.i11 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp8) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #22
-  %arraydestroy.isempty = icmp eq ptr %ref.tmp5, %arrayinit.endOfInit7.1
+  %arraydestroy.isempty = icmp eq ptr %ref.tmp5, %arrayinit.endOfInit7.2
   %or.cond = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond, label %eh.resume, label %arraydestroy.body65
 
 arraydestroy.body65:                              ; preds = %ehcleanup64, %arraydestroy.body65
-  %arraydestroy.elementPast66 = phi ptr [ %arraydestroy.element67, %arraydestroy.body65 ], [ %arrayinit.endOfInit7.1, %ehcleanup64 ]
+  %arraydestroy.elementPast66 = phi ptr [ %arraydestroy.element67, %arraydestroy.body65 ], [ %arrayinit.endOfInit7.2, %ehcleanup64 ]
   %arraydestroy.element67 = getelementptr inbounds i8, ptr %arraydestroy.elementPast66, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element67) #22
   %arraydestroy.done68 = icmp eq ptr %arraydestroy.element67, %ref.tmp5

@@ -533,12 +533,12 @@ looks_latin1.exit171:                             ; preds = %.lr.ph.i166
   br label %244
 
 244:                                              ; preds = %.loopexit, %looks_latin1.exit171, %.loopexit188
-  %.0 = phi i32 [ 1, %.loopexit188 ], [ 1, %.loopexit ], [ 0, %looks_latin1.exit171 ]
+  %.1 = phi i32 [ 1, %.loopexit188 ], [ 1, %.loopexit ], [ 0, %looks_latin1.exit171 ]
   tail call void @_efree(ptr noundef nonnull %210) #8
   br label %245
 
 245:                                              ; preds = %.thread, %looks_utf7.exit, %74, %182, %181, %.loopexit189, %244, %.loopexit190, %looks_ucs32.exit, %.loopexit193, %70, %212, %22
-  %.1 = phi i32 [ 1, %22 ], [ 1, %looks_utf7.exit ], [ 1, %.thread ], [ 1, %70 ], [ 1, %74 ], [ 1, %looks_ucs32.exit ], [ 1, %.loopexit193 ], [ 1, %181 ], [ 1, %182 ], [ 1, %.loopexit190 ], [ 1, %.loopexit189 ], [ 1, %212 ], [ %.0, %244 ]
+  %.0 = phi i32 [ 1, %22 ], [ 1, %looks_utf7.exit ], [ 1, %.thread ], [ 1, %70 ], [ 1, %74 ], [ 1, %looks_ucs32.exit ], [ 1, %.loopexit193 ], [ 1, %181 ], [ 1, %182 ], [ 1, %.loopexit190 ], [ 1, %.loopexit189 ], [ 1, %212 ], [ %.1, %244 ]
   %246 = icmp eq ptr %spec.store.select, %8
   br i1 %246, label %247, label %249
 
@@ -548,7 +548,7 @@ looks_latin1.exit171:                             ; preds = %.lr.ph.i166
   br label %249
 
 249:                                              ; preds = %247, %245
-  ret i32 %.1
+  ret i32 %.0
 }
 
 ; Function Attrs: allocsize(0,1)

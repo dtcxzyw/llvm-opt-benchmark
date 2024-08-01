@@ -56,49 +56,49 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp683, label %while.body, label %if.end24
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %cur_dest.085 = phi ptr [ %add.ptr22, %while.body ], [ %dest, %while.cond.preheader ]
-  %cur_src.084 = phi ptr [ %add.ptr23, %while.body ], [ %src, %while.cond.preheader ]
-  %t.0.copyload.i.i = load i32, ptr %cur_src.084, align 1
+  %cur_dest.185 = phi ptr [ %add.ptr22, %while.body ], [ %dest, %while.cond.preheader ]
+  %cur_src.184 = phi ptr [ %add.ptr23, %while.body ], [ %src, %while.cond.preheader ]
+  %t.0.copyload.i.i = load i32, ptr %cur_src.184, align 1
   %0 = tail call noundef i32 @llvm.bswap.i32(i32 %t.0.copyload.i.i)
   %shr = lshr i32 %0, 8
   %shr7 = lshr i32 %0, 26
   %idxprom = zext nneg i32 %shr7 to i64
   %arrayidx = getelementptr inbounds i8, ptr %base64, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
-  store i8 %1, ptr %cur_dest.085, align 1
+  store i8 %1, ptr %cur_dest.185, align 1
   %and = lshr i32 %0, 20
   %shr9 = and i32 %and, 63
   %idxprom10 = zext nneg i32 %shr9 to i64
   %arrayidx11 = getelementptr inbounds i8, ptr %base64, i64 %idxprom10
   %2 = load i8, ptr %arrayidx11, align 1
-  %arrayidx12 = getelementptr inbounds i8, ptr %cur_dest.085, i64 1
+  %arrayidx12 = getelementptr inbounds i8, ptr %cur_dest.185, i64 1
   store i8 %2, ptr %arrayidx12, align 1
   %and13 = lshr i32 %0, 14
   %shr14 = and i32 %and13, 63
   %idxprom15 = zext nneg i32 %shr14 to i64
   %arrayidx16 = getelementptr inbounds i8, ptr %base64, i64 %idxprom15
   %3 = load i8, ptr %arrayidx16, align 1
-  %arrayidx17 = getelementptr inbounds i8, ptr %cur_dest.085, i64 2
+  %arrayidx17 = getelementptr inbounds i8, ptr %cur_dest.185, i64 2
   store i8 %3, ptr %arrayidx17, align 1
   %and18 = and i32 %shr, 63
   %idxprom19 = zext nneg i32 %and18 to i64
   %arrayidx20 = getelementptr inbounds i8, ptr %base64, i64 %idxprom19
   %4 = load i8, ptr %arrayidx20, align 1
-  %arrayidx21 = getelementptr inbounds i8, ptr %cur_dest.085, i64 3
+  %arrayidx21 = getelementptr inbounds i8, ptr %cur_dest.185, i64 3
   store i8 %4, ptr %arrayidx21, align 1
-  %add.ptr22 = getelementptr inbounds i8, ptr %cur_dest.085, i64 4
-  %add.ptr23 = getelementptr inbounds i8, ptr %cur_src.084, i64 3
+  %add.ptr22 = getelementptr inbounds i8, ptr %cur_dest.185, i64 4
+  %add.ptr23 = getelementptr inbounds i8, ptr %cur_src.184, i64 3
   %cmp6 = icmp ult ptr %add.ptr23, %add.ptr5
   br i1 %cmp6, label %while.body, label %if.end24, !llvm.loop !5
 
 if.end24:                                         ; preds = %while.body, %while.cond.preheader, %if.end
-  %cur_src.1 = phi ptr [ %src, %if.end ], [ %src, %while.cond.preheader ], [ %add.ptr23, %while.body ]
-  %cur_dest.1 = phi ptr [ %dest, %if.end ], [ %dest, %while.cond.preheader ], [ %add.ptr22, %while.body ]
+  %cur_src.0 = phi ptr [ %src, %if.end ], [ %src, %while.cond.preheader ], [ %add.ptr23, %while.body ]
+  %cur_dest.0 = phi ptr [ %dest, %if.end ], [ %dest, %while.cond.preheader ], [ %add.ptr22, %while.body ]
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %cur_dest.1 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %cur_dest.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %sub.ptr.lhs.cast25 = ptrtoint ptr %add.ptr2 to i64
-  %sub.ptr.rhs.cast26 = ptrtoint ptr %cur_src.1 to i64
+  %sub.ptr.rhs.cast26 = ptrtoint ptr %cur_src.0 to i64
   %sub.ptr.sub27 = sub i64 %sub.ptr.lhs.cast25, %sub.ptr.rhs.cast26
   switch i64 %sub.ptr.sub27, label %do.body [
     i64 0, label %sw.epilog
@@ -112,21 +112,21 @@ sw.bb28:                                          ; preds = %if.end24
   br i1 %cmp29, label %return, label %if.end31
 
 if.end31:                                         ; preds = %sw.bb28
-  %5 = load i8, ptr %cur_src.1, align 1
+  %5 = load i8, ptr %cur_src.0, align 1
   %conv = zext i8 %5 to i32
   %shr34 = lshr i32 %conv, 2
   %idxprom35 = zext nneg i32 %shr34 to i64
   %arrayidx36 = getelementptr inbounds i8, ptr %base64, i64 %idxprom35
   %6 = load i8, ptr %arrayidx36, align 1
-  store i8 %6, ptr %cur_dest.1, align 1
+  store i8 %6, ptr %cur_dest.0, align 1
   %and38 = shl nuw nsw i32 %conv, 4
   %shl = and i32 %and38, 48
   %idxprom39 = zext nneg i32 %shl to i64
   %arrayidx40 = getelementptr inbounds i8, ptr %base64, i64 %idxprom39
   %7 = load i8, ptr %arrayidx40, align 1
-  %arrayidx41 = getelementptr inbounds i8, ptr %cur_dest.1, i64 1
+  %arrayidx41 = getelementptr inbounds i8, ptr %cur_dest.0, i64 1
   store i8 %7, ptr %arrayidx41, align 1
-  %add.ptr42 = getelementptr inbounds i8, ptr %cur_dest.1, i64 2
+  %add.ptr42 = getelementptr inbounds i8, ptr %cur_dest.0, i64 2
   br i1 %do_padding, label %if.then43, label %sw.epilog
 
 if.then43:                                        ; preds = %if.end31
@@ -136,9 +136,9 @@ if.then43:                                        ; preds = %if.end31
 
 if.end46:                                         ; preds = %if.then43
   store i8 61, ptr %add.ptr42, align 1
-  %arrayidx48 = getelementptr inbounds i8, ptr %cur_dest.1, i64 3
+  %arrayidx48 = getelementptr inbounds i8, ptr %cur_dest.0, i64 3
   store i8 61, ptr %arrayidx48, align 1
-  %add.ptr49 = getelementptr inbounds i8, ptr %cur_dest.1, i64 4
+  %add.ptr49 = getelementptr inbounds i8, ptr %cur_dest.0, i64 4
   br label %sw.epilog
 
 sw.bb52:                                          ; preds = %if.end24
@@ -146,29 +146,29 @@ sw.bb52:                                          ; preds = %if.end24
   br i1 %cmp53, label %return, label %if.end55
 
 if.end55:                                         ; preds = %sw.bb52
-  %t.0.copyload.i.i81 = load i16, ptr %cur_src.1, align 1
+  %t.0.copyload.i.i81 = load i16, ptr %cur_src.0, align 1
   %9 = tail call noundef i16 @llvm.bswap.i16(i16 %t.0.copyload.i.i81)
   %conv58 = zext i16 %9 to i32
   %shr59 = lshr i32 %conv58, 10
   %idxprom60 = zext nneg i32 %shr59 to i64
   %arrayidx61 = getelementptr inbounds i8, ptr %base64, i64 %idxprom60
   %10 = load i8, ptr %arrayidx61, align 1
-  store i8 %10, ptr %cur_dest.1, align 1
+  store i8 %10, ptr %cur_dest.0, align 1
   %and63 = lshr i32 %conv58, 4
   %shr64 = and i32 %and63, 63
   %idxprom65 = zext nneg i32 %shr64 to i64
   %arrayidx66 = getelementptr inbounds i8, ptr %base64, i64 %idxprom65
   %11 = load i8, ptr %arrayidx66, align 1
-  %arrayidx67 = getelementptr inbounds i8, ptr %cur_dest.1, i64 1
+  %arrayidx67 = getelementptr inbounds i8, ptr %cur_dest.0, i64 1
   store i8 %11, ptr %arrayidx67, align 1
   %and68 = shl nuw nsw i32 %conv58, 2
   %shl69 = and i32 %and68, 60
   %idxprom70 = zext nneg i32 %shl69 to i64
   %arrayidx71 = getelementptr inbounds i8, ptr %base64, i64 %idxprom70
   %12 = load i8, ptr %arrayidx71, align 1
-  %arrayidx72 = getelementptr inbounds i8, ptr %cur_dest.1, i64 2
+  %arrayidx72 = getelementptr inbounds i8, ptr %cur_dest.0, i64 2
   store i8 %12, ptr %arrayidx72, align 1
-  %add.ptr73 = getelementptr inbounds i8, ptr %cur_dest.1, i64 3
+  %add.ptr73 = getelementptr inbounds i8, ptr %cur_dest.0, i64 3
   br i1 %do_padding, label %if.then76, label %sw.epilog
 
 if.then76:                                        ; preds = %if.end55
@@ -177,7 +177,7 @@ if.then76:                                        ; preds = %if.end55
 
 if.end79:                                         ; preds = %if.then76
   store i8 61, ptr %add.ptr73, align 1
-  %add.ptr81 = getelementptr inbounds i8, ptr %cur_dest.1, i64 4
+  %add.ptr81 = getelementptr inbounds i8, ptr %cur_dest.0, i64 4
   br label %sw.epilog
 
 sw.bb84:                                          ; preds = %if.end24
@@ -185,10 +185,10 @@ sw.bb84:                                          ; preds = %if.end24
   br i1 %cmp85, label %return, label %if.end87
 
 if.end87:                                         ; preds = %sw.bb84
-  %13 = load i8, ptr %cur_src.1, align 1
+  %13 = load i8, ptr %cur_src.0, align 1
   %conv90 = zext i8 %13 to i32
   %shl91 = shl nuw nsw i32 %conv90, 16
-  %add.ptr92 = getelementptr inbounds i8, ptr %cur_src.1, i64 1
+  %add.ptr92 = getelementptr inbounds i8, ptr %cur_src.0, i64 1
   %t.0.copyload.i.i82 = load i16, ptr %add.ptr92, align 1
   %14 = tail call noundef i16 @llvm.bswap.i16(i16 %t.0.copyload.i.i82)
   %conv94 = zext i16 %14 to i32
@@ -196,29 +196,29 @@ if.end87:                                         ; preds = %sw.bb84
   %idxprom96 = zext nneg i32 %shr95 to i64
   %arrayidx97 = getelementptr inbounds i8, ptr %base64, i64 %idxprom96
   %15 = load i8, ptr %arrayidx97, align 1
-  store i8 %15, ptr %cur_dest.1, align 1
+  store i8 %15, ptr %cur_dest.0, align 1
   %shl91.masked = and i32 %shl91, 196608
   %and99 = or disjoint i32 %shl91.masked, %conv94
   %shr100 = lshr i32 %and99, 12
   %idxprom101 = zext nneg i32 %shr100 to i64
   %arrayidx102 = getelementptr inbounds i8, ptr %base64, i64 %idxprom101
   %16 = load i8, ptr %arrayidx102, align 1
-  %arrayidx103 = getelementptr inbounds i8, ptr %cur_dest.1, i64 1
+  %arrayidx103 = getelementptr inbounds i8, ptr %cur_dest.0, i64 1
   store i8 %16, ptr %arrayidx103, align 1
   %and104 = lshr i32 %conv94, 6
   %shr105 = and i32 %and104, 63
   %idxprom106 = zext nneg i32 %shr105 to i64
   %arrayidx107 = getelementptr inbounds i8, ptr %base64, i64 %idxprom106
   %17 = load i8, ptr %arrayidx107, align 1
-  %arrayidx108 = getelementptr inbounds i8, ptr %cur_dest.1, i64 2
+  %arrayidx108 = getelementptr inbounds i8, ptr %cur_dest.0, i64 2
   store i8 %17, ptr %arrayidx108, align 1
   %and109 = and i32 %conv94, 63
   %idxprom110 = zext nneg i32 %and109 to i64
   %arrayidx111 = getelementptr inbounds i8, ptr %base64, i64 %idxprom110
   %18 = load i8, ptr %arrayidx111, align 1
-  %arrayidx112 = getelementptr inbounds i8, ptr %cur_dest.1, i64 3
+  %arrayidx112 = getelementptr inbounds i8, ptr %cur_dest.0, i64 3
   store i8 %18, ptr %arrayidx112, align 1
-  %add.ptr113 = getelementptr inbounds i8, ptr %cur_dest.1, i64 4
+  %add.ptr113 = getelementptr inbounds i8, ptr %cur_dest.0, i64 4
   br label %sw.epilog
 
 do.body:                                          ; preds = %if.end24
@@ -226,7 +226,7 @@ do.body:                                          ; preds = %if.end24
   unreachable
 
 sw.epilog:                                        ; preds = %if.end55, %if.end79, %if.end31, %if.end46, %if.end24, %if.end87
-  %cur_dest.2 = phi ptr [ %add.ptr113, %if.end87 ], [ %add.ptr81, %if.end79 ], [ %add.ptr73, %if.end55 ], [ %add.ptr49, %if.end46 ], [ %add.ptr42, %if.end31 ], [ %cur_dest.1, %if.end24 ]
+  %cur_dest.2 = phi ptr [ %add.ptr113, %if.end87 ], [ %add.ptr81, %if.end79 ], [ %add.ptr73, %if.end55 ], [ %add.ptr49, %if.end46 ], [ %add.ptr42, %if.end31 ], [ %cur_dest.0, %if.end24 ]
   %sub.ptr.lhs.cast117 = ptrtoint ptr %cur_dest.2 to i64
   %sub.ptr.rhs.cast118 = ptrtoint ptr %dest to i64
   %sub.ptr.sub119 = sub i64 %sub.ptr.lhs.cast117, %sub.ptr.rhs.cast118

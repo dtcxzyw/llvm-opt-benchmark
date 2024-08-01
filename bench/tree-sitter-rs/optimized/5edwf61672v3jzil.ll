@@ -92,7 +92,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
   br label %29
 
 26:                                               ; preds = %64, %.thread187, %27
-  %.0 = phi i1 [ %.1191, %.thread187 ], [ false, %64 ], [ true, %27 ]
+  %.0 = phi i1 [ %.2191, %.thread187 ], [ false, %64 ], [ true, %27 ]
   %.pn134.pn = phi { ptr, i32 } [ %.pn134192, %.thread187 ], [ %lpad.thr_comm.split-lp, %64 ], [ %28, %27 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h26eb43a31b673935E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #15
           to label %163 unwind label %128
@@ -649,7 +649,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration3new17h82b
 
 .thread187:                                       ; preds = %.thread194.loopexit, %.thread194.loopexit.split-lp, %.noexc149, %149
   %.pn134192 = phi { ptr, i32 } [ %.pn.pn, %.noexc149 ], [ %.pn132214, %149 ], [ %lpad.loopexit, %.thread194.loopexit ], [ %lpad.loopexit.split-lp, %.thread194.loopexit.split-lp ]
-  %.1191 = phi i1 [ %.4, %.noexc149 ], [ %.3212, %149 ], [ true, %.thread194.loopexit ], [ true, %.thread194.loopexit.split-lp ]
+  %.2191 = phi i1 [ %.4, %.noexc149 ], [ %.3212, %149 ], [ true, %.thread194.loopexit ], [ true, %.thread194.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$tree_sitter..Query$GT$17h4e0e39bae36bfaafE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %22) #15
           to label %26 unwind label %128
 
@@ -1702,13 +1702,13 @@ define hidden void @_ZN5which6finder6Finder4find17h2877b2a63937bdc7E(ptr noalias
 
 22:                                               ; preds = %31, %.thread, %23
   %.060 = phi i1 [ true, %.thread ], [ false, %31 ], [ true, %23 ]
-  %.057 = phi i8 [ %.259103, %.thread ], [ 1, %31 ], [ %.158, %23 ]
+  %.158 = phi i8 [ %.4103, %.thread ], [ 1, %31 ], [ %.057, %23 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn104, %.thread ], [ %lpad.thr_comm.split-lp, %31 ], [ %24, %23 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$which..checker..CompositeChecker$GT$17h077442d1b07a1eceE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #15
           to label %.body unwind label %94
 
 23:                                               ; preds = %59, %56, %7
-  %.158 = phi i8 [ 1, %7 ], [ 0, %56 ], [ 0, %59 ]
+  %.057 = phi i8 [ 1, %7 ], [ 0, %56 ], [ 0, %59 ]
   %24 = landingpad { ptr, i32 }
           cleanup
   br label %22
@@ -1766,9 +1766,9 @@ define hidden void @_ZN5which6finder6Finder4find17h2877b2a63937bdc7E(ptr noalias
   %.sroa.423.sroa.2.0 = phi ptr [ %.sroa.494.0.copyload, %64 ], [ undef, %34 ]
   %.sroa.423.sroa.3.0 = phi ptr [ %65, %64 ], [ undef, %34 ]
   %.sroa.321.sroa.3.0 = phi ptr [ %.sroa.494.0.copyload, %64 ], [ %.sroa.497.0.copyload, %34 ]
-  %.363.not = phi i1 [ false, %64 ], [ true, %34 ]
+  %.464.not = phi i1 [ false, %64 ], [ true, %34 ]
   %.sroa.019.0 = phi i64 [ %.sroa.091.0.copyload, %64 ], [ -9223372036854775808, %34 ]
-  %.4 = phi i8 [ 0, %64 ], [ 1, %34 ]
+  %.5 = phi i8 [ 0, %64 ], [ 1, %34 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %.sroa.236.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.019.0, ptr %.sroa.236.0..sroa_idx, align 8
@@ -1785,7 +1785,7 @@ define hidden void @_ZN5which6finder6Finder4find17h2877b2a63937bdc7E(ptr noalias
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   %36 = load i64, ptr %5, align 8, !range !48, !noundef !11
   %.not69 = icmp eq i64 %36, -9223372036854775808
-  %brmerge = or i1 %.363.not, %.not69
+  %brmerge = or i1 %.464.not, %.not69
   br i1 %brmerge, label %66, label %68
 
 37:                                               ; preds = %29
@@ -1892,7 +1892,7 @@ define hidden void @_ZN5which6finder6Finder4find17h2877b2a63937bdc7E(ptr noalias
   br label %35
 
 66:                                               ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h85ccbc018f035783E.exit81", %35
-  %67 = trunc nuw i8 %.4 to i1
+  %67 = trunc nuw i8 %.5 to i1
   br i1 %67, label %80, label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h535e17c1a6017f95E.exit"
 
 68:                                               ; preds = %35
@@ -1919,13 +1919,13 @@ define hidden void @_ZN5which6finder6Finder4find17h2877b2a63937bdc7E(ptr noalias
   br label %66
 
 76:                                               ; preds = %.body, %125, %78
-  %.5 = phi i8 [ %.6, %78 ], [ %.7, %125 ], [ %.7, %.body ]
+  %.7 = phi i8 [ %.6, %78 ], [ %.259, %125 ], [ %.259, %.body ]
   %.pn70 = phi { ptr, i32 } [ %79, %78 ], [ %.pn.pn.pn, %125 ], [ %.pn.pn.pn, %.body ]
-  %77 = trunc nuw i8 %.5 to i1
+  %77 = trunc nuw i8 %.7 to i1
   br i1 %77, label %126, label %91
 
 78:                                               ; preds = %120, %117, %71, %68
-  %.6 = phi i8 [ %.4, %68 ], [ %.4, %71 ], [ 0, %117 ], [ 0, %120 ]
+  %.6 = phi i8 [ %.5, %68 ], [ %.5, %71 ], [ 0, %117 ], [ 0, %120 ]
   %79 = landingpad { ptr, i32 }
           cleanup
   br label %76
@@ -1976,7 +1976,7 @@ define hidden void @_ZN5which6finder6Finder4find17h2877b2a63937bdc7E(ptr noalias
 
 .thread:                                          ; preds = %39, %92, %.thread106
   %.pn104 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread106 ], [ %40, %39 ], [ %93, %92 ]
-  %.259103 = phi i8 [ %.3.ph, %.thread106 ], [ 0, %39 ], [ 0, %92 ]
+  %.4103 = phi i8 [ %.3.ph, %.thread106 ], [ 0, %39 ], [ 0, %92 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h85ccbc018f035783E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #15
           to label %22 unwind label %94
 
@@ -2023,12 +2023,12 @@ define hidden void @_ZN5which6finder6Finder4find17h2877b2a63937bdc7E(ptr noalias
   unreachable
 
 .body:                                            ; preds = %112, %101, %22
-  %.464 = phi i1 [ %.060, %22 ], [ true, %101 ], [ true, %112 ]
-  %.7 = phi i8 [ %.057, %22 ], [ 0, %101 ], [ 0, %112 ]
+  %.161 = phi i1 [ %.060, %22 ], [ true, %101 ], [ true, %112 ]
+  %.259 = phi i8 [ %.158, %22 ], [ 0, %101 ], [ 0, %112 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %22 ], [ %102, %101 ], [ %113, %112 ]
   %111 = load i64, ptr %5, align 8, !range !48, !noundef !11
   %.not68 = icmp ne i64 %111, -9223372036854775808
-  %brmerge118.not = and i1 %.not68, %.464
+  %brmerge118.not = and i1 %.not68, %.161
   br i1 %brmerge118.not, label %125, label %76
 
 112:                                              ; preds = %105, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc23a68b9505aafb9E.llvm.6766350830065688733.exit.i.i"

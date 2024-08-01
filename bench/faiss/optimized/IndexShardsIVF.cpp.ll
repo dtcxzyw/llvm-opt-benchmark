@@ -701,13 +701,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit86.thread:           ; preds = %96
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit84
 
 130:                                              ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i, %.noexc.i.i
-  %.sroa.091.2 = phi ptr [ %.sroa.091.3, %.noexc.i.i ], [ %.sroa.091.3, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i ]
+  %.sroa.091.1 = phi ptr [ %.sroa.091.0, %.noexc.i.i ], [ %.sroa.091.0, %_ZNSt16allocator_traitsISaIlEE8allocateERS0_m.exit.i.i.i.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i ]
   %131 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZZN5faiss14IndexShardsIVF12add_with_idsElPKfPKlEN3$_0D2Ev.exit82"
 
 .loopexit:                                        ; preds = %123, %113, %106
-  %.sroa.091.3 = phi ptr [ null, %106 ], [ null, %113 ], [ %117, %123 ]
+  %.sroa.091.0 = phi ptr [ null, %106 ], [ null, %113 ], [ %117, %123 ]
   %.035 = phi ptr [ %3, %106 ], [ null, %113 ], [ %117, %123 ]
   %132 = getelementptr inbounds i8, ptr %0, i64 8
   %133 = load i32, ptr %132, align 8
@@ -854,11 +854,11 @@ _ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit:     ; preds = %166, %168
   br label %"_ZZN5faiss14IndexShardsIVF12add_with_idsElPKfPKlEN3$_0D2Ev.exit"
 
 "_ZZN5faiss14IndexShardsIVF12add_with_idsElPKfPKlEN3$_0D2Ev.exit": ; preds = %176, %177
-  %.not.i.i.i = icmp eq ptr %.sroa.091.3, null
+  %.not.i.i.i = icmp eq ptr %.sroa.091.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %178
 
 178:                                              ; preds = %"_ZZN5faiss14IndexShardsIVF12add_with_idsElPKfPKlEN3$_0D2Ev.exit"
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.091.3) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.091.0) #20
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %"_ZZN5faiss14IndexShardsIVF12add_with_idsElPKfPKlEN3$_0D2Ev.exit", %178
@@ -913,13 +913,13 @@ _ZNSt6vectorIlSaIlEED2Ev.exit77:                  ; preds = %180, %_ZNSt6vectorI
   br label %"_ZZN5faiss14IndexShardsIVF12add_with_idsElPKfPKlEN3$_0D2Ev.exit82"
 
 "_ZZN5faiss14IndexShardsIVF12add_with_idsElPKfPKlEN3$_0D2Ev.exit82": ; preds = %191, %.body, %130
-  %.sroa.091.4 = phi ptr [ %.sroa.091.2, %130 ], [ %.sroa.091.3, %.body ], [ %.sroa.091.3, %191 ]
+  %.sroa.091.2 = phi ptr [ %.sroa.091.1, %130 ], [ %.sroa.091.0, %.body ], [ %.sroa.091.0, %191 ]
   %.pn50.pn = phi { ptr, i32 } [ %131, %130 ], [ %.pn50, %.body ], [ %.pn50, %191 ]
-  %.not.i.i.i83 = icmp eq ptr %.sroa.091.4, null
+  %.not.i.i.i83 = icmp eq ptr %.sroa.091.2, null
   br i1 %.not.i.i.i83, label %_ZNSt6vectorIlSaIlEED2Ev.exit84, label %192
 
 192:                                              ; preds = %"_ZZN5faiss14IndexShardsIVF12add_with_idsElPKfPKlEN3$_0D2Ev.exit82"
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.091.4) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.091.2) #20
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit84
 
 _ZNSt6vectorIlSaIlEED2Ev.exit84:                  ; preds = %192, %"_ZZN5faiss14IndexShardsIVF12add_with_idsElPKfPKlEN3$_0D2Ev.exit82", %128

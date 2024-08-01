@@ -2664,9 +2664,9 @@ _ZNSt6vectorISt4pairIfmESaIS1_EEC2EmRKS2_.exit:   ; preds = %.lr.ph.i.i.i.i.i
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %.val.i.i.i = phi float [ %132, %.lr.ph.i.i ], [ %.val.i.pre.i.i, %.lr.ph.preheader.i.i ]
   %125 = phi ptr [ %133, %.lr.ph.i.i ], [ %124, %.lr.ph.preheader.i.i ]
-  %.sroa.02.011.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %122, %.lr.ph.preheader.i.i ]
+  %.sroa.02.111.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %122, %.lr.ph.preheader.i.i ]
   %.sroa.06.010.i.i = phi ptr [ %125, %.lr.ph.i.i ], [ %122, %.lr.ph.preheader.i.i ]
-  %126 = getelementptr i8, ptr %.sroa.02.011.i.i, i64 8
+  %126 = getelementptr i8, ptr %.sroa.02.111.i.i, i64 8
   %.val1.i.i.i = load i64, ptr %126, align 8
   %.val2.i.i.i = load float, ptr %125, align 8
   %127 = getelementptr i8, ptr %.sroa.06.010.i.i, i64 24
@@ -2676,15 +2676,15 @@ _ZNSt6vectorISt4pairIfmESaIS1_EEC2EmRKS2_.exit:   ; preds = %.lr.ph.i.i.i.i.i
   %130 = fcmp olt float %.val.i.i.i, %.val2.i.i.i
   %131 = select i1 %128, i1 %129, i1 %130
   %132 = select i1 %131, float %.val2.i.i.i, float %.val.i.i.i
-  %spec.select.i.i = select i1 %131, ptr %125, ptr %.sroa.02.011.i.i
+  %spec.select.i.i = select i1 %131, ptr %125, ptr %.sroa.02.111.i.i
   %133 = getelementptr inbounds i8, ptr %125, i64 16
   %.not.i.i76 = icmp eq ptr %133, %.0.lcssa.i.i.i.i.i132
   br i1 %.not.i.i76, label %"_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPSt4pairIfmESt6vectorIS3_SaIS3_EEEEZN2cv3dnn14dnn4_v2024052112softNMSBoxesERKS5_INS9_5Rect_IiEESaISD_EERKS5_IfSaIfEERSJ_ffRS5_IiSaIiEEmfNSB_13SoftNMSMethodEE3$_0ET_SS_SS_T0_.exit", label %.lr.ph.i.i, !llvm.loop !31
 
 "_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPSt4pairIfmESt6vectorIS3_SaIS3_EEEEZN2cv3dnn14dnn4_v2024052112softNMSBoxesERKS5_INS9_5Rect_IiEESaISD_EERKS5_IfSaIfEERSJ_ffRS5_IiSaIiEEmfNSB_13SoftNMSMethodEE3$_0ET_SS_SS_T0_.exit": ; preds = %.lr.ph.i.i, %117
-  %.sroa.02.2.i.i = phi ptr [ %122, %117 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %134 = load float, ptr %.sroa.02.2.i.i, align 8
-  %135 = getelementptr inbounds i8, ptr %.sroa.02.2.i.i, i64 8
+  %.sroa.02.0.i.i = phi ptr [ %122, %117 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+  %134 = load float, ptr %.sroa.02.0.i.i, align 8
+  %135 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i, i64 8
   %136 = load i64, ptr %135, align 8
   %137 = fcmp olt float %134, %3
   br i1 %137, label %"_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPSt4pairIfmESt6vectorIS3_SaIS3_EEEEZN2cv3dnn14dnn4_v2024052112softNMSBoxesERKS5_INS9_5Rect_IiEESaISD_EERKS5_IfSaIfEERSJ_ffRS5_IiSaIiEEmfNSB_13SoftNMSMethodEE3$_0ET_SS_SS_T0_.exit._crit_edge", label %138
@@ -2821,9 +2821,9 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i, %163
   %188 = load float, ptr %122, align 4
-  %189 = load float, ptr %.sroa.02.2.i.i, align 4
+  %189 = load float, ptr %.sroa.02.0.i.i, align 4
   store float %189, ptr %122, align 4
-  store float %188, ptr %.sroa.02.2.i.i, align 4
+  store float %188, ptr %.sroa.02.0.i.i, align 4
   %190 = getelementptr inbounds i8, ptr %122, i64 8
   %191 = load i64, ptr %190, align 8
   %192 = load i64, ptr %135, align 8
@@ -3814,14 +3814,14 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPSt4p
 .lr.ph:                                           ; preds = %47, %.lr.ph
   %.01555 = phi i64 [ %60, %.lr.ph ], [ 0, %47 ]
   %.sroa.0.054 = phi ptr [ %53, %.lr.ph ], [ %48, %47 ]
-  %.sroa.020.253 = phi ptr [ %52, %.lr.ph ], [ %50, %47 ]
-  %52 = getelementptr inbounds i8, ptr %.sroa.020.253, i64 -8
+  %.sroa.020.353 = phi ptr [ %52, %.lr.ph ], [ %50, %47 ]
+  %52 = getelementptr inbounds i8, ptr %.sroa.020.353, i64 -8
   %53 = getelementptr inbounds i8, ptr %.sroa.0.054, i64 -8
   %54 = load float, ptr %52, align 4
   %55 = load float, ptr %53, align 4
   store float %55, ptr %52, align 4
   store float %54, ptr %53, align 4
-  %56 = getelementptr inbounds i8, ptr %.sroa.020.253, i64 -4
+  %56 = getelementptr inbounds i8, ptr %.sroa.020.353, i64 -4
   %57 = getelementptr inbounds i8, ptr %.sroa.0.054, i64 -4
   %58 = load i32, ptr %56, align 4
   %59 = load i32, ptr %57, align 4
@@ -3832,7 +3832,7 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPSt4p
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47
-  %.sroa.020.2.lcssa = phi ptr [ %50, %47 ], [ %.sroa.020.0, %.lr.ph ]
+  %.sroa.020.3.lcssa = phi ptr [ %50, %47 ], [ %.sroa.020.0, %.lr.ph ]
   %61 = srem i64 %.050, %29
   %62 = icmp eq i64 %61, 0
   br i1 %62, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %.backedge
@@ -3840,7 +3840,7 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPSt4p
 .backedge:                                        ; preds = %._crit_edge, %45
   %.050.be = phi i64 [ %.049, %45 ], [ %29, %._crit_edge ]
   %.049.be = phi i64 [ %46, %45 ], [ %61, %._crit_edge ]
-  %.sroa.020.0.be = phi ptr [ %.sroa.020.1.lcssa, %45 ], [ %.sroa.020.2.lcssa, %._crit_edge ]
+  %.sroa.020.0.be = phi ptr [ %.sroa.020.1.lcssa, %45 ], [ %.sroa.020.3.lcssa, %._crit_edge ]
   br label %28, !llvm.loop !56
 
 _ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPSt4pairIfiESt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit: ; preds = %._crit_edge, %._crit_edge61, %.lr.ph.i, %5, %3

@@ -12155,7 +12155,7 @@ if.end44:                                         ; preds = %if.then38
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60
   %40 = phi ptr [ %12, %while.body.lr.ph ], [ %59, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60 ]
-  %nbytes.1107 = phi i64 [ 0, %while.body.lr.ph ], [ %nbytes.3, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60 ]
+  %nbytes.2107 = phi i64 [ 0, %while.body.lr.ph ], [ %nbytes.4, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60 ]
   %canSend.0106 = phi i64 [ %.sroa.speculated, %while.body.lr.ph ], [ %sub, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60 ]
   %_M_storage.i.i.i = getelementptr inbounds i8, ptr %40, i64 16
   %headerSent = getelementptr inbounds i8, ptr %40, i64 24
@@ -12170,12 +12170,12 @@ if.then53:                                        ; preds = %while.body
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
   %44 = load ptr, ptr %vfn, align 8
   %call55 = call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull %this, i64 noundef %43) #27
-  %add56 = add i64 %call55, %nbytes.1107
+  %add56 = add i64 %call55, %nbytes.2107
   store i8 1, ptr %headerSent, align 8
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then53, %while.body
-  %nbytes.2 = phi i64 [ %nbytes.1107, %while.body ], [ %add56, %if.then53 ]
+  %nbytes.3 = phi i64 [ %nbytes.2107, %while.body ], [ %add56, %if.then53 ]
   %45 = load i64, ptr %_M_storage.i.i.i, align 8
   %.sroa.speculated89 = call i64 @llvm.umin.i64(i64 %canSend.0106, i64 %45)
   call void @_ZN5folly10IOBufQueue5splitEmb(ptr nonnull sret(%"class.std::unique_ptr.4") align 8 %cur, ptr noundef nonnull align 8 dereferenceable(72) %deferredEgressBody_.i, i64 noundef %.sroa.speculated89, i1 noundef zeroext true)
@@ -12227,7 +12227,7 @@ cleanup.done:                                     ; preds = %cond.false67, %cond
           to label %invoke.cont94 unwind label %lpad93
 
 invoke.cont94:                                    ; preds = %cleanup.done
-  %add96 = add i64 %call95, %nbytes.2
+  %add96 = add i64 %call95, %nbytes.3
   %49 = load ptr, ptr %agg.tmp92, align 8
   %cmp.not.i55 = icmp eq ptr %49, null
   br i1 %cmp.not.i55, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit57, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i56
@@ -12279,7 +12279,7 @@ lpad93:                                           ; preds = %cleanup.done
   br label %ehcleanup
 
 if.end130:                                        ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit57, %if.then101
-  %nbytes.3 = phi i64 [ %add106, %if.then101 ], [ %add96, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit57 ]
+  %nbytes.4 = phi i64 [ %add106, %if.then101 ], [ %add96, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit57 ]
   %58 = load ptr, ptr %cur, align 8
   %cmp.not.i58 = icmp eq ptr %58, null
   br i1 %cmp.not.i58, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i59
@@ -12303,7 +12303,7 @@ ehcleanup:                                        ; preds = %lpad78, %lpad93, %l
   br label %common.resume
 
 while.end131:                                     ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60, %while.cond.preheader
-  %nbytes.1.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %nbytes.3, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60 ]
+  %nbytes.2.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %nbytes.4, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit60 ]
   %egressState_.i.i61 = getelementptr inbounds i8, ptr %this, i64 241
   %60 = load i8, ptr %egressState_.i.i61, align 1
   %cmp.i.i62 = icmp eq i8 %60, 8
@@ -12345,11 +12345,11 @@ if.end134:                                        ; preds = %land.rhs.i63
 
 if.then136:                                       ; preds = %if.end134
   %call137 = call noundef i64 @_ZN8proxygen15HTTPTransaction10sendEOMNowEv(ptr noundef nonnull align 8 dereferenceable(912) %this)
-  %add138 = add i64 %call137, %nbytes.1.lcssa
+  %add138 = add i64 %call137, %nbytes.2.lcssa
   br label %if.end139
 
 if.end139:                                        ; preds = %while.end131, %if.end34, %if.end44, %if.then136, %if.end134
-  %nbytes.5 = phi i64 [ %add138, %if.then136 ], [ %nbytes.1.lcssa, %if.end134 ], [ %nbytes.1.lcssa, %while.end131 ], [ %nbytes.0, %if.end34 ], [ %add, %if.end44 ]
+  %nbytes.5 = phi i64 [ %add138, %if.then136 ], [ %nbytes.2.lcssa, %if.end134 ], [ %nbytes.2.lcssa, %while.end131 ], [ %nbytes.0, %if.end34 ], [ %add, %if.end44 ]
   call void @_ZN8proxygen15HTTPTransaction28notifyTransportPendingEgressEv(ptr noundef nonnull align 8 dereferenceable(912) %this)
   %transportCallback_ = getelementptr inbounds i8, ptr %this, i64 360
   %68 = load ptr, ptr %transportCallback_, align 8

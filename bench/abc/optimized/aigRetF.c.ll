@@ -298,7 +298,7 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %33, label %15, label %.critedge.preheader, !llvm.loop !10
 
 .preheader123:                                    ; preds = %.critedge.preheader, %.critedge2
-  %.083137 = phi i32 [ %.285, %.critedge2 ], [ 0, %.critedge.preheader ]
+  %.083137 = phi i32 [ %.386, %.critedge2 ], [ 0, %.critedge.preheader ]
   %34 = load ptr, ptr %9, align 8
   %35 = getelementptr i8, ptr %34, i64 4
   %.val102128 = load i32, ptr %35, align 4
@@ -324,8 +324,8 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
 .lr.ph132:                                        ; preds = %.preheader123, %109
   %indvars.iv = phi i64 [ %indvars.iv.next, %109 ], [ 0, %.preheader123 ]
   %42 = phi ptr [ %110, %109 ], [ %34, %.preheader123 ]
-  %.1131 = phi i32 [ %.2, %109 ], [ 0, %.preheader123 ]
-  %.184130 = phi i32 [ %.285, %109 ], [ %.083137, %.preheader123 ]
+  %.1131 = phi i32 [ %.3, %109 ], [ 0, %.preheader123 ]
+  %.184130 = phi i32 [ %.386, %109 ], [ %.083137, %.preheader123 ]
   %43 = getelementptr i8, ptr %42, i64 8
   %.val104 = load ptr, ptr %43, align 8
   %44 = getelementptr inbounds ptr, ptr %.val104, i64 %indvars.iv
@@ -426,8 +426,8 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not100, label %109, label %.preheader.loopexit
 
 109:                                              ; preds = %47, %.lr.ph132, %72, %54, %65
-  %.285 = phi i32 [ %.184130, %.lr.ph132 ], [ %108, %72 ], [ %.184130, %65 ], [ %.184130, %54 ], [ %.184130, %47 ]
-  %.2 = phi i32 [ %.1131, %.lr.ph132 ], [ 1, %72 ], [ %.1131, %65 ], [ %.1131, %54 ], [ %.1131, %47 ]
+  %.386 = phi i32 [ %.184130, %.lr.ph132 ], [ %108, %72 ], [ %.184130, %65 ], [ %.184130, %54 ], [ %.184130, %47 ]
+  %.3 = phi i32 [ %.1131, %.lr.ph132 ], [ 1, %72 ], [ %.1131, %65 ], [ %.1131, %54 ], [ %.1131, %47 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load ptr, ptr %9, align 8
   %111 = getelementptr i8, ptr %110, i64 4
@@ -437,7 +437,7 @@ define ptr @Aig_ManRetimeFrontier(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %113, label %.lr.ph132, label %.critedge2, !llvm.loop !11
 
 .critedge2:                                       ; preds = %109
-  %.not = icmp eq i32 %.2, 0
+  %.not = icmp eq i32 %.3, 0
   br i1 %.not, label %.preheader.loopexit, label %.preheader123, !llvm.loop !12
 
 .critedge4.preheader:                             ; preds = %117, %.preheader

@@ -1404,10 +1404,10 @@ emitNode.exit.i:                                  ; preds = %emitAttr.exit20, %4
 
 .lr.ph237.i:                                      ; preds = %.lr.ph249.i, %emitEdge.exit.i
   %.0233.i = phi ptr [ %982, %emitEdge.exit.i ], [ %522, %.lr.ph249.i ]
-  %.1155232.i = phi double [ %.5.i, %emitEdge.exit.i ], [ %.0154246.i, %.lr.ph249.i ]
-  %.1157231.i = phi double [ %.5161.i, %emitEdge.exit.i ], [ %.0156245.i, %.lr.ph249.i ]
-  %.1163230.i = phi double [ %.5167.i, %emitEdge.exit.i ], [ %.0162244.i, %.lr.ph249.i ]
-  %.1169229.i = phi double [ %.5173.i, %emitEdge.exit.i ], [ %.0168243.i, %.lr.ph249.i ]
+  %.1155232.i = phi double [ %.4.i, %emitEdge.exit.i ], [ %.0154246.i, %.lr.ph249.i ]
+  %.1157231.i = phi double [ %.4160.i, %emitEdge.exit.i ], [ %.0156245.i, %.lr.ph249.i ]
+  %.1163230.i = phi double [ %.4166.i, %emitEdge.exit.i ], [ %.0162244.i, %.lr.ph249.i ]
+  %.1169229.i = phi double [ %.4172.i, %emitEdge.exit.i ], [ %.0168243.i, %.lr.ph249.i ]
   %523 = load ptr, ptr @outFile, align 8
   %524 = load i32, ptr %.0233.i, align 8
   %525 = lshr i32 %524, 4
@@ -1859,8 +1859,8 @@ readPoint.exit.i137.i:                            ; preds = %692
   unreachable
 
 arrowEnd.exit139.i:                               ; preds = %readPoint.exit.i137.i, %skipWS.exit.i132.tail.i
-  %.2158.i = phi double [ %.1157231.i, %skipWS.exit.i132.tail.i ], [ %689, %readPoint.exit.i137.i ]
-  %.2.i = phi double [ %.1155232.i, %skipWS.exit.i132.tail.i ], [ %694, %readPoint.exit.i137.i ]
+  %.5161.i = phi double [ %.1157231.i, %skipWS.exit.i132.tail.i ], [ %689, %readPoint.exit.i137.i ]
+  %.5.i = phi double [ %.1155232.i, %skipWS.exit.i132.tail.i ], [ %694, %readPoint.exit.i137.i ]
   %.0.i134.i = phi ptr [ %.0.i.i131.i, %skipWS.exit.i132.tail.i ], [ %695, %readPoint.exit.i137.i ]
   br label %700
 
@@ -1949,8 +1949,8 @@ readPoint.exit.i.i:                               ; preds = %720
   unreachable
 
 arrowEnd.exit.i:                                  ; preds = %readPoint.exit.i.i, %skipWS.exit.i.tail.i
-  %.2170.i = phi double [ %.1169229.i, %skipWS.exit.i.tail.i ], [ %717, %readPoint.exit.i.i ]
-  %.2164.i = phi double [ %.1163230.i, %skipWS.exit.i.tail.i ], [ %722, %readPoint.exit.i.i ]
+  %.5173.i = phi double [ %.1169229.i, %skipWS.exit.i.tail.i ], [ %717, %readPoint.exit.i.i ]
+  %.5167.i = phi double [ %.1163230.i, %skipWS.exit.i.tail.i ], [ %722, %readPoint.exit.i.i ]
   %.0.i.i9 = phi ptr [ %.0.i.i.i, %skipWS.exit.i.tail.i ], [ %723, %readPoint.exit.i.i ]
   br label %.lr.ph.i.i.i.i28.i
 
@@ -1977,7 +1977,7 @@ indent.exit.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i28.i
 
 emitPoint.exit.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i
   %736 = load ptr, ptr @outFile, align 8
-  %737 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %736, ptr noundef nonnull @.str.84, double noundef %.2170.i, double noundef %.2164.i) #16
+  %737 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %736, ptr noundef nonnull @.str.84, double noundef %.5173.i, double noundef %.5167.i) #16
   br label %indent.exit._crit_edge.i.i.i.i.preheader
 
 indent.exit._crit_edge.i.i.i.i.preheader:         ; preds = %emitPoint.exit.i.i.i.i, %indent.exit.i.i.i.i
@@ -2053,7 +2053,7 @@ emitPoint.exit13.i.i.i.i:                         ; preds = %.lr.ph.i.i10.i.i.i.
 
 emitPoint.exit17.i.i.i.i:                         ; preds = %.lr.ph.i.i14.i.i.i.i
   %758 = load ptr, ptr @outFile, align 8
-  %759 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %758, ptr noundef nonnull @.str.84, double noundef %.2158.i, double noundef %.2.i) #16
+  %759 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %758, ptr noundef nonnull @.str.84, double noundef %.5161.i, double noundef %.5.i) #16
   br label %.lr.ph.i18.i.i.i.i.preheader
 
 .lr.ph.i18.i.i.i.i.preheader:                     ; preds = %emitPoint.exit17.i.i.i.i, %.loopexit.i.i.i.i
@@ -2073,10 +2073,10 @@ emitSpline.exit.i.i.i:                            ; preds = %.lr.ph.i18.i.i.i.i
   br label %765
 
 765:                                              ; preds = %emitSpline.exit.i.i.i, %._crit_edge.i.thread.i.i
-  %.3171.i = phi double [ %.1169229.i, %._crit_edge.i.thread.i.i ], [ %.2170.i, %emitSpline.exit.i.i.i ]
-  %.3165.i = phi double [ %.1163230.i, %._crit_edge.i.thread.i.i ], [ %.2164.i, %emitSpline.exit.i.i.i ]
-  %.3159.i = phi double [ %.1157231.i, %._crit_edge.i.thread.i.i ], [ %.2158.i, %emitSpline.exit.i.i.i ]
-  %.3.i = phi double [ %.1155232.i, %._crit_edge.i.thread.i.i ], [ %.2.i, %emitSpline.exit.i.i.i ]
+  %.2170.i = phi double [ %.1169229.i, %._crit_edge.i.thread.i.i ], [ %.5173.i, %emitSpline.exit.i.i.i ]
+  %.2164.i = phi double [ %.1163230.i, %._crit_edge.i.thread.i.i ], [ %.5167.i, %emitSpline.exit.i.i.i ]
+  %.2158.i = phi double [ %.1157231.i, %._crit_edge.i.thread.i.i ], [ %.5161.i, %emitSpline.exit.i.i.i ]
+  %.2.i = phi double [ %.1155232.i, %._crit_edge.i.thread.i.i ], [ %.5.i, %emitSpline.exit.i.i.i ]
   %766 = and i32 %.sroa.0.5.i2467.i.i, 8
   %.not119.i.i.i = icmp eq i32 %766, 0
   br i1 %.not119.i.i.i, label %772, label %.lr.ph.i.i171.i.i.i
@@ -2457,10 +2457,10 @@ emitAttr.exit88.i:                                ; preds = %.loopexit.i87.i, %8
   br label %900
 
 900:                                              ; preds = %emitAttr.exit88.i, %._crit_edge.i.i27.i
-  %.4172.i = phi double [ %.1169229.i, %._crit_edge.i.i27.i ], [ %.3171.i, %emitAttr.exit88.i ]
-  %.4166.i = phi double [ %.1163230.i, %._crit_edge.i.i27.i ], [ %.3165.i, %emitAttr.exit88.i ]
-  %.4160.i = phi double [ %.1157231.i, %._crit_edge.i.i27.i ], [ %.3159.i, %emitAttr.exit88.i ]
-  %.4.i = phi double [ %.1155232.i, %._crit_edge.i.i27.i ], [ %.3.i, %emitAttr.exit88.i ]
+  %.3171.i = phi double [ %.1169229.i, %._crit_edge.i.i27.i ], [ %.2170.i, %emitAttr.exit88.i ]
+  %.3165.i = phi double [ %.1163230.i, %._crit_edge.i.i27.i ], [ %.2164.i, %emitAttr.exit88.i ]
+  %.3159.i = phi double [ %.1157231.i, %._crit_edge.i.i27.i ], [ %.2158.i, %emitAttr.exit88.i ]
+  %.3.i = phi double [ %.1155232.i, %._crit_edge.i.i27.i ], [ %.2.i, %emitAttr.exit88.i ]
   %.sroa.36.1.i3160.i.i = phi ptr [ %.sroa.36.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.36.1.i3159.i.i, %emitAttr.exit88.i ]
   %.sroa.39.1.i3258.i.i = phi ptr [ %.sroa.39.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.39.1.i3257.i.i, %emitAttr.exit88.i ]
   %.sroa.42.1.i3356.i.i = phi ptr [ %.sroa.42.1.i.i.i, %._crit_edge.i.i27.i ], [ %.sroa.42.1.i3355.i.i, %emitAttr.exit88.i ]
@@ -2694,10 +2694,10 @@ emitAttr.exit.i:                                  ; preds = %.loopexit.i56.i, %9
   br label %emitEdge.exit.i
 
 emitEdge.exit.i:                                  ; preds = %emitAttr.exit.i, %900, %.lr.ph237.i
-  %.5173.i = phi double [ %.1169229.i, %.lr.ph237.i ], [ %.4172.i, %900 ], [ %.4172.i, %emitAttr.exit.i ]
-  %.5167.i = phi double [ %.1163230.i, %.lr.ph237.i ], [ %.4166.i, %900 ], [ %.4166.i, %emitAttr.exit.i ]
-  %.5161.i = phi double [ %.1157231.i, %.lr.ph237.i ], [ %.4160.i, %900 ], [ %.4160.i, %emitAttr.exit.i ]
-  %.5.i = phi double [ %.1155232.i, %.lr.ph237.i ], [ %.4.i, %900 ], [ %.4.i, %emitAttr.exit.i ]
+  %.4172.i = phi double [ %.1169229.i, %.lr.ph237.i ], [ %.3171.i, %900 ], [ %.3171.i, %emitAttr.exit.i ]
+  %.4166.i = phi double [ %.1163230.i, %.lr.ph237.i ], [ %.3165.i, %900 ], [ %.3165.i, %emitAttr.exit.i ]
+  %.4160.i = phi double [ %.1157231.i, %.lr.ph237.i ], [ %.3159.i, %900 ], [ %.3159.i, %emitAttr.exit.i ]
+  %.4.i = phi double [ %.1155232.i, %.lr.ph237.i ], [ %.3.i, %900 ], [ %.3.i, %emitAttr.exit.i ]
   %980 = load ptr, ptr @outFile, align 8
   %981 = call i64 @fwrite(ptr nonnull @.str.21, i64 4, i64 1, ptr %980)
   %982 = call ptr @agnxtout(ptr noundef nonnull %86, ptr noundef nonnull %.0233.i) #16
@@ -2705,10 +2705,10 @@ emitEdge.exit.i:                                  ; preds = %emitAttr.exit.i, %9
   br i1 %.not22.i, label %._crit_edge238.i, label %.lr.ph237.i
 
 ._crit_edge238.i:                                 ; preds = %emitEdge.exit.i, %.lr.ph249.i
-  %.1169.lcssa.i = phi double [ %.0168243.i, %.lr.ph249.i ], [ %.5173.i, %emitEdge.exit.i ]
-  %.1163.lcssa.i = phi double [ %.0162244.i, %.lr.ph249.i ], [ %.5167.i, %emitEdge.exit.i ]
-  %.1157.lcssa.i = phi double [ %.0156245.i, %.lr.ph249.i ], [ %.5161.i, %emitEdge.exit.i ]
-  %.1155.lcssa.i = phi double [ %.0154246.i, %.lr.ph249.i ], [ %.5.i, %emitEdge.exit.i ]
+  %.1169.lcssa.i = phi double [ %.0168243.i, %.lr.ph249.i ], [ %.4172.i, %emitEdge.exit.i ]
+  %.1163.lcssa.i = phi double [ %.0162244.i, %.lr.ph249.i ], [ %.4166.i, %emitEdge.exit.i ]
+  %.1157.lcssa.i = phi double [ %.0156245.i, %.lr.ph249.i ], [ %.4160.i, %emitEdge.exit.i ]
+  %.1155.lcssa.i = phi double [ %.0154246.i, %.lr.ph249.i ], [ %.4.i, %emitEdge.exit.i ]
   %983 = call ptr @agnxtnode(ptr noundef nonnull %86, ptr noundef nonnull %.1247.i) #16
   %.not21.i = icmp eq ptr %983, null
   br i1 %.not21.i, label %gv_to_gml.exit, label %.lr.ph249.i

@@ -1507,27 +1507,27 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %114
   br label %.body
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.0.170 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %127, %.lr.ph ]
+  %.sroa.0.270 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %127, %.lr.ph ]
   %142 = mul i32 %120, 12
-  invoke void @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %.sroa.0.170, i32 noundef %142)
+  invoke void @_ZN2cv12WLByteStream8putBytesEPKvi(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %.sroa.0.270, i32 noundef %142)
           to label %143 unwind label %145
 
 143:                                              ; preds = %._crit_edge
-  %.not.i.i.i = icmp eq ptr %.sroa.0.170, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0.270, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %144
 
 144:                                              ; preds = %143
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.170) #19
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.270) #19
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 145:                                              ; preds = %._crit_edge
   %146 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i39 = icmp eq ptr %.sroa.0.170, null
+  %.not.i.i.i39 = icmp eq ptr %.sroa.0.270, null
   br i1 %.not.i.i.i39, label %.body, label %147
 
 147:                                              ; preds = %145
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.170) #19
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.270) #19
   br label %.body
 
 148:                                              ; preds = %110

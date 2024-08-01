@@ -3224,7 +3224,7 @@ invoke.cont423:                                   ; preds = %if.then414
   br i1 %cmp.i1415.not3445, label %if.then470, label %for.body429
 
 for.body429:                                      ; preds = %invoke.cont423, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1508
-  %success.03447 = phi i1 [ %success.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1508 ], [ true, %invoke.cont423 ]
+  %success.03447 = phi i1 [ %success.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1508 ], [ true, %invoke.cont423 ]
   %__begin9417.sroa.0.03446 = phi ptr [ %incdec.ptr.i1509, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1508 ], [ %spec.select.i.i1405, %invoke.cont423 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
   %305 = load ptr, ptr %__begin9417.sroa.0.03446, align 8, !noalias !50
@@ -3417,7 +3417,7 @@ terminate.lpad.i1483:                             ; preds = %if.then13.i.i1482
   unreachable
 
 cleanup457:                                       ; preds = %if.then13.i.i1482, %if.then.i.i1475, %invoke.cont455, %invoke.cont441
-  %success.1 = phi i1 [ false, %invoke.cont441 ], [ %success.03447, %invoke.cont455 ], [ %success.03447, %if.then.i.i1475 ], [ %success.03447, %if.then13.i.i1482 ]
+  %success.2 = phi i1 [ false, %invoke.cont441 ], [ %success.03447, %invoke.cont455 ], [ %success.03447, %if.then.i.i1475 ], [ %success.03447, %if.then13.i.i1482 ]
   %325 = load ptr, ptr %vn433, align 8
   %bf.load.i.i1485 = load i64, ptr %325, align 8
   %326 = and i64 %bf.load.i.i1485, 1152920405095219200
@@ -3494,7 +3494,7 @@ ehcleanup464:                                     ; preds = %ehcleanup460, %lpad
   br label %ehcleanup486
 
 for.end468:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1508
-  br i1 %success.1, label %if.then470, label %if.else477
+  br i1 %success.2, label %if.then470, label %if.else477
 
 if.then470:                                       ; preds = %invoke.cont423, %for.end468
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %nb.i1511)

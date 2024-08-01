@@ -1565,15 +1565,15 @@ trace_usb_ehci_queue_action.exit:                 ; preds = %if.end, %land.lhs.t
 
 do.body:                                          ; preds = %do.body, %trace_usb_ehci_queue_action.exit
   %p.0 = phi ptr [ %0, %trace_usb_ehci_queue_action.exit ], [ %7, %do.body ]
-  %packets.0 = phi i32 [ 0, %trace_usb_ehci_queue_action.exit ], [ %inc, %do.body ]
+  %packets.1 = phi i32 [ 0, %trace_usb_ehci_queue_action.exit ], [ %inc, %do.body ]
   tail call fastcc void @ehci_free_packet(ptr noundef nonnull %p.0)
-  %inc = add i32 %packets.0, 1
+  %inc = add i32 %packets.1, 1
   %7 = load ptr, ptr %packets1, align 8
   %cmp3.not = icmp eq ptr %7, null
   br i1 %cmp3.not, label %leave, label %do.body, !llvm.loop !14
 
 leave:                                            ; preds = %do.body, %entry
-  %packets.1 = phi i32 [ 0, %entry ], [ %inc, %do.body ]
+  %packets.0 = phi i32 [ 0, %entry ], [ %inc, %do.body ]
   %epchar.i = getelementptr inbounds i8, ptr %q, i64 52
   %8 = load i32, ptr %epchar.i, align 4
   %and.i = lshr i32 %8, 8
@@ -1595,7 +1595,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br label %ehci_queue_stopped.exit
 
 ehci_queue_stopped.exit:                          ; preds = %leave, %lor.lhs.false.i, %if.end.i
-  ret i32 %packets.1
+  ret i32 %packets.0
 }
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
@@ -6567,8 +6567,8 @@ if.then9:                                         ; preds = %land.lhs.true
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then9, %land.lhs.true, %if.end
-  %val.addr.0 = phi i64 [ %val, %land.lhs.true ], [ %and13, %if.then9 ], [ %val, %if.end ]
-  %and15 = and i64 %val.addr.0, 64
+  %val.addr.1 = phi i64 [ %val, %land.lhs.true ], [ %and13, %if.then9 ], [ %val, %if.end ]
+  %and15 = and i64 %val.addr.1, 64
   %tobool16.not = icmp eq i64 %and15, 0
   br i1 %tobool16.not, label %if.end18, label %if.then17
 
@@ -6615,7 +6615,7 @@ trace_usb_ehci_doorbell_ring.exit:                ; preds = %if.then17, %land.lh
   br label %if.end18
 
 if.end18:                                         ; preds = %trace_usb_ehci_doorbell_ring.exit, %if.end14
-  %and19 = and i64 %val.addr.0, 49
+  %and19 = and i64 %val.addr.1, 49
   %21 = load i32, ptr %0, align 4
   %and21 = and i32 %21, 49
   %conv22 = zext nneg i32 %and21 to i64
@@ -6635,7 +6635,7 @@ if.then27:                                        ; preds = %if.then24
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then27, %if.then24
-  %conv30 = trunc i64 %val.addr.0 to i32
+  %conv30 = trunc i64 %val.addr.1 to i32
   store i32 %conv30, ptr %0, align 4
   %and.i = and i32 %conv30, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
@@ -6820,8 +6820,8 @@ if.then66:                                        ; preds = %sw.bb64
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %handle_port_owner_write.exit, %sw.bb64, %if.then66, %sw.bb59, %if.then61, %sw.bb52, %sw.bb39, %if.then46, %if.end18, %ehci_update_halt.exit, %sw.bb49, %ehci_clear_usbsts.exit, %if.then, %trace_usb_ehci_opreg_write.exit
-  %val.addr.1 = phi i64 [ %val, %trace_usb_ehci_opreg_write.exit ], [ %val, %if.then66 ], [ %val, %sw.bb64 ], [ %val, %if.then61 ], [ %val, %sw.bb59 ], [ 0, %sw.bb52 ], [ %and50, %sw.bb49 ], [ %and40, %if.then46 ], [ %and40, %sw.bb39 ], [ %conv38, %ehci_clear_usbsts.exit ], [ %conv3, %if.then ], [ %val.addr.0, %ehci_update_halt.exit ], [ %val.addr.0, %if.end18 ], [ 1, %handle_port_owner_write.exit ]
-  %conv69 = trunc i64 %val.addr.1 to i32
+  %val.addr.0 = phi i64 [ %val, %trace_usb_ehci_opreg_write.exit ], [ %val, %if.then66 ], [ %val, %sw.bb64 ], [ %val, %if.then61 ], [ %val, %sw.bb59 ], [ 0, %sw.bb52 ], [ %and50, %sw.bb49 ], [ %and40, %if.then46 ], [ %and40, %sw.bb39 ], [ %conv38, %ehci_clear_usbsts.exit ], [ %conv3, %if.then ], [ %val.addr.1, %ehci_update_halt.exit ], [ %val.addr.1, %if.end18 ], [ 1, %handle_port_owner_write.exit ]
+  %conv69 = trunc i64 %val.addr.0 to i32
   store i32 %conv69, ptr %add.ptr, align 4
   %48 = load i16, ptr %opregbase, align 8
   %conv71 = zext i16 %48 to i64

@@ -1965,16 +1965,16 @@ smooth2.exit:                                     ; preds = %289, %290
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %293
   %indvars.iv154 = phi i64 [ %292, %.lr.ph145.preheader ], [ %indvars.iv.next155, %293 ]
-  %.087144 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.1, %293 ]
-  %.088143 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.189, %293 ]
+  %.087144 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.2, %293 ]
+  %.088143 = phi i32 [ 0, %.lr.ph145.preheader ], [ %.290, %293 ]
   %295 = getelementptr inbounds float, ptr %33, i64 %indvars.iv154
   %296 = load float, ptr %295, align 4
   %297 = fcmp oeq float %296, 0.000000e+00
   %298 = zext i1 %297 to i32
-  %.189 = add i32 %.088143, %298
+  %.290 = add i32 %.088143, %298
   %299 = fcmp oge float %296, 6.553500e+04
   %300 = zext i1 %299 to i32
-  %.1 = add i32 %.087144, %300
+  %.2 = add i32 %.087144, %300
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv154
   %301 = load float, ptr %gep, align 4
   %302 = fcmp olt float %296, %301
@@ -1986,12 +1986,12 @@ smooth2.exit:                                     ; preds = %289, %290
 
 .thread:                                          ; preds = %293
   %304 = udiv i32 %27, 3
-  %305 = icmp ugt i32 %.189, %304
+  %305 = icmp ugt i32 %.290, %304
   br i1 %305, label %308, label %.critedge
 
 .thread129:                                       ; preds = %303
   %306 = udiv i32 %27, 3
-  %307 = icmp ugt i32 %.189, %306
+  %307 = icmp ugt i32 %.290, %306
   br i1 %307, label %.thread134, label %.critedge
 
 .thread134:                                       ; preds = %.thread129
@@ -2004,7 +2004,7 @@ smooth2.exit:                                     ; preds = %289, %290
 
 .critedge:                                        ; preds = %.thread134, %.thread129, %.thread, %308
   %309 = phi i32 [ %306, %.thread129 ], [ %304, %.thread ], [ %304, %308 ], [ %306, %.thread134 ]
-  %310 = icmp ugt i32 %.1, %309
+  %310 = icmp ugt i32 %.2, %309
   br i1 %310, label %.critedge115, label %.critedge116
 
 .critedge115:                                     ; preds = %.critedge

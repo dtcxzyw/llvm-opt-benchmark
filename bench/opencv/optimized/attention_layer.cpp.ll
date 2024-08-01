@@ -2907,8 +2907,8 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i67: ; preds = %61
   br label %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit71
 
 64:                                               ; preds = %44, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
-  %.sroa.14.1.ph = phi ptr [ null, %44 ], [ %51, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ]
-  %.sroa.0188.1.ph = phi ptr [ null, %44 ], [ %50, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ]
+  %.sroa.14.0.ph = phi ptr [ null, %44 ], [ %51, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ]
+  %.sroa.0188.0.ph = phi ptr [ null, %44 ], [ %50, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ]
   %65 = getelementptr i8, ptr %20, i64 -92
   %.val64 = load i32, ptr %65, align 4
   %66 = getelementptr i8, ptr %20, i64 -32
@@ -2943,9 +2943,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i73:              ; preds = %70, %_ZNSt12_Vector
   br label %.body
 
 _ZNSt6vectorIiSaIiEEC2ERKS1_.exit71:              ; preds = %.thread, %64, %.noexc169, %.noexc70
-  %.sroa.0188.1221 = phi ptr [ %52, %.noexc70 ], [ %.sroa.0188.1.ph, %.noexc169 ], [ %.sroa.0188.1.ph, %64 ], [ %52, %.thread ]
-  %.sroa.14.1219 = phi ptr [ %53, %.noexc70 ], [ %.sroa.14.1.ph, %.noexc169 ], [ %.sroa.14.1.ph, %64 ], [ %53, %.thread ]
-  %.sroa.0179.1 = phi ptr [ %63, %.noexc70 ], [ %71, %.noexc169 ], [ null, %64 ], [ null, %.thread ]
+  %.sroa.0188.0221 = phi ptr [ %52, %.noexc70 ], [ %.sroa.0188.0.ph, %.noexc169 ], [ %.sroa.0188.0.ph, %64 ], [ %52, %.thread ]
+  %.sroa.14.0219 = phi ptr [ %53, %.noexc70 ], [ %.sroa.14.0.ph, %.noexc169 ], [ %.sroa.14.0.ph, %64 ], [ %53, %.thread ]
+  %.sroa.0179.0 = phi ptr [ %63, %.noexc70 ], [ %71, %.noexc169 ], [ null, %64 ], [ null, %.thread ]
   %73 = getelementptr inbounds i8, ptr %13, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %13, align 8
@@ -2968,12 +2968,12 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit71:              ; preds = %.thread, %64, %.noe
 .body76:                                          ; preds = %.invoke, %95
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i138 = icmp eq ptr %.sroa.0179.1, null
+  %.not.i.i.i138 = icmp eq ptr %.sroa.0179.0, null
   br i1 %.not.i.i.i138, label %.body, label %.body76.thread
 
 82:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit71
-  %83 = ptrtoint ptr %.sroa.14.1219 to i64
-  %84 = ptrtoint ptr %.sroa.0188.1221 to i64
+  %83 = ptrtoint ptr %.sroa.14.0219 to i64
+  %84 = ptrtoint ptr %.sroa.0188.0221 to i64
   %85 = sub i64 %83, %84
   %86 = icmp eq i64 %85, 8
   br i1 %86, label %90, label %.invoke
@@ -2992,7 +2992,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit71:              ; preds = %.thread, %64, %.noe
 90:                                               ; preds = %82
   %91 = getelementptr inbounds i8, ptr %75, i64 8
   %92 = load i32, ptr %91, align 4
-  %93 = load i32, ptr %.sroa.0188.1221, align 4
+  %93 = load i32, ptr %.sroa.0188.0221, align 4
   %94 = icmp eq i32 %92, %93
   br i1 %94, label %97, label %95
 
@@ -3004,9 +3004,9 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit71:              ; preds = %.thread, %64, %.noe
   unreachable
 
 97:                                               ; preds = %90
-  %98 = getelementptr inbounds i8, ptr %.sroa.0188.1221, i64 4
+  %98 = getelementptr inbounds i8, ptr %.sroa.0188.0221, i64 4
   %99 = load i32, ptr %98, align 4
-  %100 = load i32, ptr %.sroa.0179.1, align 4
+  %100 = load i32, ptr %.sroa.0179.0, align 4
   %101 = icmp eq i32 %99, %100
   br i1 %101, label %104, label %102
 
@@ -3098,7 +3098,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit: ; preds = %121, %_ZNSt6vecto
   %132 = load i32, ptr %131, align 4
   %133 = getelementptr inbounds i8, ptr %131, i64 4
   %134 = load i32, ptr %133, align 4
-  %135 = getelementptr inbounds i8, ptr %.sroa.14.1219, i64 -4
+  %135 = getelementptr inbounds i8, ptr %.sroa.14.0219, i64 -4
   %136 = load i32, ptr %135, align 4
   %137 = getelementptr inbounds i8, ptr %0, i64 104
   %138 = load i64, ptr %137, align 8
@@ -3273,8 +3273,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit119:                 ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit128
 
 _ZNSt6vectorIiSaIiEED2Ev.exit128:                 ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit119, %197
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0179.1) #20
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0188.1221) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0179.0) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0188.0221) #20
   ret i1 false
 
 198:                                              ; preds = %191, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i106, %182, %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i.i, %168
@@ -3310,17 +3310,17 @@ _ZNSt6vectorIiSaIiEED2Ev.exit128:                 ; preds = %_ZNSt6vectorIiSaIiE
 
 .body76.thread:                                   ; preds = %.body76.thread225, %150, %113, %129, %122, %125, %.body91, %205, %.body76
   %.pn.pn.pn206 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body76 ], [ %.pn.pn, %205 ], [ %.pn.pn, %.body91 ], [ %151, %150 ], [ %123, %125 ], [ %123, %122 ], [ %114, %113 ], [ %130, %129 ], [ %lpad.thr_comm, %.body76.thread225 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0179.1) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0179.0) #20
   br label %.body
 
 .body:                                            ; preds = %.body76.thread, %.body76, %80, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i73
-  %.sroa.0188.1224 = phi ptr [ %52, %80 ], [ %.sroa.0188.1.ph, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i73 ], [ %.sroa.0188.1221, %.body76 ], [ %.sroa.0188.1221, %.body76.thread ]
+  %.sroa.0188.0224 = phi ptr [ %52, %80 ], [ %.sroa.0188.0.ph, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i73 ], [ %.sroa.0188.0221, %.body76 ], [ %.sroa.0188.0221, %.body76.thread ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %81, %80 ], [ %72, %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i73 ], [ %lpad.thr_comm.split-lp, %.body76 ], [ %.pn.pn.pn206, %.body76.thread ]
-  %.not.i.i.i141 = icmp eq ptr %.sroa.0188.1224, null
+  %.not.i.i.i141 = icmp eq ptr %.sroa.0188.0224, null
   br i1 %.not.i.i.i141, label %common.resume, label %206
 
 206:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0188.1224) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0188.0224) #20
   br label %common.resume
 }
 

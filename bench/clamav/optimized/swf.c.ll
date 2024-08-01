@@ -270,7 +270,7 @@ fmap_readn.exit.thread:                           ; preds = %18, %1, %fmap_readn
   br label %scancws.exit
 
 58:                                               ; preds = %97, %.preheader.i
-  %.042.i = phi i64 [ %.143.i, %97 ], [ 8, %.preheader.i ]
+  %.042.i = phi i64 [ %.2.i, %97 ], [ 8, %.preheader.i ]
   %.041.i = phi i64 [ %.1.i, %97 ], [ 8, %.preheader.i ]
   %59 = load i32, ptr %45, align 8
   %60 = icmp eq i32 %59, 0
@@ -350,7 +350,7 @@ fmap_readn.exit.thread.i:                         ; preds = %65, %63
   br label %scancws.exit
 
 97:                                               ; preds = %86, %78
-  %.143.i = phi i64 [ %.042.i, %78 ], [ %84, %86 ]
+  %.2.i = phi i64 [ %.042.i, %78 ], [ %84, %86 ]
   store ptr %10, ptr %46, align 8
   store i32 8192, ptr %48, align 8
   %98 = icmp eq i32 %79, 0
@@ -358,7 +358,7 @@ fmap_readn.exit.thread.i:                         ; preds = %65, %63
 
 fmap_readn.exit.thread66.i:                       ; preds = %97, %83, %61
   %.145.ph.i = phi i32 [ 0, %61 ], [ %79, %97 ], [ %79, %83 ]
-  %.2.ph.i = phi i64 [ %.042.i, %61 ], [ %.143.i, %97 ], [ %.042.i, %83 ]
+  %.143.ph.i = phi i64 [ %.042.i, %61 ], [ %.2.i, %97 ], [ %.042.i, %83 ]
   %99 = call i32 @inflateEnd(ptr noundef nonnull %8) #8
   %or.cond.i = icmp ugt i32 %.145.ph.i, 1
   %100 = icmp ne i32 %99, 0
@@ -366,7 +366,7 @@ fmap_readn.exit.thread66.i:                       ; preds = %97, %83, %61
   br i1 %or.cond3.i, label %101, label %110
 
 101:                                              ; preds = %fmap_readn.exit.thread66.i
-  %102 = icmp eq i64 %.2.ph.i, 8
+  %102 = icmp eq i64 %.143.ph.i, 8
   br i1 %102, label %103, label %109
 
 103:                                              ; preds = %101
@@ -387,18 +387,18 @@ fmap_readn.exit.thread66.i:                       ; preds = %97, %83, %61
 
 110:                                              ; preds = %109, %fmap_readn.exit.thread66.i
   %111 = load ptr, ptr %11, align 8
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.39, ptr noundef %111, i64 noundef %.2.ph.i) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.39, ptr noundef %111, i64 noundef %.143.ph.i) #8
   %112 = load i32, ptr %23, align 4
   %113 = zext i32 %112 to i64
-  %.not58.i = icmp eq i64 %.2.ph.i, %113
+  %.not58.i = icmp eq i64 %.143.ph.i, %113
   br i1 %.not58.i, label %115, label %114
 
 114:                                              ; preds = %110
-  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.40, i32 noundef %112, i64 noundef %.2.ph.i) #8
+  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.40, i32 noundef %112, i64 noundef %.143.ph.i) #8
   br label %116
 
 115:                                              ; preds = %110
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.41, i32 noundef %112, i64 noundef %.2.ph.i) #8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.41, i32 noundef %112, i64 noundef %.143.ph.i) #8
   br label %116
 
 116:                                              ; preds = %115, %114

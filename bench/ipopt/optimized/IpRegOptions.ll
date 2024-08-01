@@ -2546,11 +2546,11 @@ define noundef range(i32 0, -1) i32 @_ZNK5Ipopt16RegisteredOption22MapStringSett
 
 42:                                               ; preds = %38, %40
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %39, %38 ]
-  %.111 = phi i1 [ %.010, %40 ], [ true, %38 ]
+  %.2 = phi i1 [ %.010, %40 ], [ true, %38 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
-  br i1 %.111, label %43, label %44
+  br i1 %.2, label %43, label %44
 
 43:                                               ; preds = %.thread, %42
   %.pn.pn46 = phi { ptr, i32 } [ %37, %.thread ], [ %.pn, %42 ]
@@ -6489,7 +6489,7 @@ _ZNK5Ipopt17RegisteredOptions30RegisteredCategoriesByPriorityERSt3setINS_8SmartP
 
 .lr.ph87:                                         ; preds = %72, %123
   %.sroa.056.085 = phi ptr [ %.sroa.056.0, %123 ], [ %.sroa.056.082, %72 ]
-  %.01784 = phi i1 [ %.219, %123 ], [ true, %72 ]
+  %.01784 = phi i1 [ %.118, %123 ], [ true, %72 ]
   %74 = load i8, ptr %10, align 1
   %75 = trunc i8 %74 to i1
   br i1 %75, label %84, label %76
@@ -6595,7 +6595,7 @@ _ZNK5Ipopt17RegisteredOptions30RegisteredCategoriesByPriorityERSt3setINS_8SmartP
           to label %123 unwind label %.loopexit
 
 123:                                              ; preds = %117, %85, %.thread.invoke, %83
-  %.219 = phi i1 [ false, %117 ], [ %.01784, %83 ], [ false, %.thread.invoke ], [ false, %85 ]
+  %.118 = phi i1 [ false, %117 ], [ %.01784, %83 ], [ false, %.thread.invoke ], [ false, %85 ]
   %.sroa.056.0 = load ptr, ptr %.sroa.056.085, align 8
   %124 = load ptr, ptr %55, align 8
   %125 = getelementptr inbounds i8, ptr %124, i64 56

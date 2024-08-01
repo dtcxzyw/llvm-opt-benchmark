@@ -607,8 +607,8 @@ find_biggest_color_pop.exit.i.i:                  ; preds = %29, %.lr.ph.i84.i.i
   br i1 %92, label %.thread.i.i, label %93
 
 93:                                               ; preds = %90, %87
-  %.2.i.i = phi i32 [ %spec.select.i.i, %87 ], [ %spec.select80.i.i, %90 ]
-  switch i32 %.2.i.i, label %default.unreachable [
+  %.172.i.i = phi i32 [ %spec.select.i.i, %87 ], [ %spec.select80.i.i, %90 ]
+  switch i32 %.172.i.i, label %default.unreachable [
     i32 0, label %.thread.i.i
     i32 1, label %95
     i32 2, label %.thread89.i.i

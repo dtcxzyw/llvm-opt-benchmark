@@ -128,12 +128,12 @@ define i32 @H5Iregister_type(i64 noundef %0, i32 noundef %1, ptr noundef %2) loc
 .preheader:                                       ; preds = %23, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 17, %23 ]
   %.02667 = phi i8 [ %spec.select36, %.preheader ], [ 0, %23 ]
-  %.03066 = phi i32 [ %spec.select, %.preheader ], [ -1, %23 ]
+  %.13166 = phi i32 [ %spec.select, %.preheader ], [ -1, %23 ]
   %29 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   %32 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %31, i32 %32, i32 %.03066
+  %spec.select = select i1 %31, i32 %32, i32 %.13166
   %spec.select36 = select i1 %31, i8 1, i8 %.02667
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = icmp ult i64 %indvars.iv, 126
@@ -152,7 +152,7 @@ define i32 @H5Iregister_type(i64 noundef %0, i32 noundef %1, ptr noundef %2) loc
   br label %.thread63
 
 42:                                               ; preds = %37, %27
-  %.2 = phi i32 [ %25, %27 ], [ %spec.select, %37 ]
+  %.030 = phi i32 [ %25, %27 ], [ %spec.select, %37 ]
   %43 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #4
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %49
@@ -164,7 +164,7 @@ define i32 @H5Iregister_type(i64 noundef %0, i32 noundef %1, ptr noundef %2) loc
   br label %.thread63
 
 49:                                               ; preds = %42
-  store i32 %.2, ptr %43, align 8
+  store i32 %.030, ptr %43, align 8
   %50 = getelementptr inbounds i8, ptr %43, i64 4
   store i32 1, ptr %50, align 4
   %51 = getelementptr inbounds i8, ptr %43, i64 8
@@ -182,7 +182,7 @@ define i32 @H5Iregister_type(i64 noundef %0, i32 noundef %1, ptr noundef %2) loc
   br label %62
 
 58:                                               ; preds = %49
-  %59 = icmp slt i32 %.2, 0
+  %59 = icmp slt i32 %.030, 0
   br i1 %59, label %62, label %.thread72
 
 .thread72:                                        ; preds = %58
@@ -194,7 +194,7 @@ define i32 @H5Iregister_type(i64 noundef %0, i32 noundef %1, ptr noundef %2) loc
   br label %.thread58
 
 62:                                               ; preds = %58, %.thread
-  %.02971 = phi i32 [ -1, %.thread ], [ %.2, %58 ]
+  %.02971 = phi i32 [ -1, %.thread ], [ %.030, %58 ]
   %63 = tail call ptr @H5MM_xfree(ptr noundef nonnull %43) #3
   %64 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #3
   br i1 %54, label %.thread58, label %66
@@ -205,7 +205,7 @@ define i32 @H5Iregister_type(i64 noundef %0, i32 noundef %1, ptr noundef %2) loc
   br label %66
 
 66:                                               ; preds = %.thread72, %.thread58, %62
-  %.029425261 = phi i32 [ %.029425262, %.thread58 ], [ %.02971, %62 ], [ %.2, %.thread72 ]
+  %.029425261 = phi i32 [ %.029425262, %.thread58 ], [ %.02971, %62 ], [ %.030, %.thread72 ]
   ret i32 %.029425261
 }
 

@@ -472,7 +472,7 @@ define hidden noundef i64 @_ZN6cvtest8readSeedEPKc(ptr noundef readonly %0) loca
 .lr.ph:                                           ; preds = %.preheader, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %.preheader ]
   %6 = phi i8 [ %17, %10 ], [ %5, %.preheader ]
-  %.01725 = phi i64 [ %15, %10 ], [ 0, %.preheader ]
+  %.125 = phi i64 [ %15, %10 ], [ 0, %.preheader ]
   %7 = sext i8 %6 to i32
   %8 = tail call i32 @tolower(i32 noundef %7) #35
   %9 = tail call i32 @isxdigit(i32 noundef %8) #35
@@ -480,7 +480,7 @@ define hidden noundef i64 @_ZN6cvtest8readSeedEPKc(ptr noundef readonly %0) loca
   br i1 %.not23, label %.loopexit, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = shl nsw i64 %.01725, 4
+  %11 = shl nsw i64 %.125, 4
   %12 = icmp slt i8 %6, 97
   %.v = select i1 %12, i32 -48, i32 -87
   %13 = add nsw i32 %.v, %7
@@ -1513,7 +1513,7 @@ switch.early.test:                                ; preds = %19
           to label %55 unwind label %56
 
 43:                                               ; preds = %switch.early.test, %switch.early.test, %19, %22
-  %.0 = phi i32 [ 0, %switch.early.test ], [ 1, %22 ], [ 0, %19 ], [ 0, %switch.early.test ]
+  %.1 = phi i32 [ 0, %switch.early.test ], [ 1, %22 ], [ 0, %19 ], [ 0, %switch.early.test ]
   tail call void @__cxa_end_catch()
   br label %.thread
 
@@ -1529,7 +1529,7 @@ switch.early.test:                                ; preds = %19
   br label %.thread
 
 .thread:                                          ; preds = %38, %43, %44
-  %.2 = phi i32 [ 1, %44 ], [ 1, %38 ], [ %.0, %43 ]
+  %.2 = phi i32 [ 1, %44 ], [ 1, %38 ], [ %.1, %43 ]
   %52 = getelementptr inbounds i8, ptr %0, i64 56
   %53 = load i32, ptr %52, align 8
   %54 = add nsw i32 %53, 1

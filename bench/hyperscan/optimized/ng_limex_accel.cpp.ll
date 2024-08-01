@@ -4301,7 +4301,7 @@ lpad183:                                          ; preds = %call5.i.i.i.i2.i.i.
   br label %_ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit252
 
 _ZNSt6vectorIN3ue29CharReachESaIS1_EED2Ev.exit:   ; preds = %depth_done, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit, %_ZN3ue211AccelSchemeD2Ev.exit179, %_ZN3ue211AccelSchemeD2Ev.exit143, %invoke.cont95
-  %retval.0 = phi i1 [ true, %invoke.cont95 ], [ true, %_ZN3ue211AccelSchemeD2Ev.exit143 ], [ true, %_ZN3ue211AccelSchemeD2Ev.exit179 ], [ %113, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit ], [ false, %depth_done ]
+  %retval.1 = phi i1 [ true, %invoke.cont95 ], [ true, %_ZN3ue211AccelSchemeD2Ev.exit143 ], [ true, %_ZN3ue211AccelSchemeD2Ev.exit179 ], [ %113, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev.exit ], [ false, %depth_done ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i56) #24
   %116 = load i64, ptr %m_capacity.i.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %116, 0
@@ -4372,8 +4372,8 @@ if.then.i.i.i.i.i.i.i.i.i.i.i.i265:               ; preds = %if.then.i.i.i.i.i.i
   br label %eh.resume
 
 return:                                           ; preds = %for.cond19.i.i.i, %for.cond.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i248, %if.then.i.i.i.i.i.i.i.i.i245, %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit, %_ZN3ue29CharReach4flipEv.exit
-  %retval.1 = phi i1 [ false, %_ZN3ue29CharReach4flipEv.exit ], [ %retval.0, %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit ], [ %retval.0, %if.then.i.i.i.i.i.i.i.i.i245 ], [ %retval.0, %if.then.i.i.i.i.i.i.i.i.i.i.i.i248 ], [ false, %for.cond.i.i.i ], [ false, %for.cond19.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZN3ue29CharReach4flipEv.exit ], [ %retval.1, %_ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev.exit ], [ %retval.1, %if.then.i.i.i.i.i.i.i.i.i245 ], [ %retval.1, %if.then.i.i.i.i.i.i.i.i.i.i.i.i248 ], [ false, %for.cond.i.i.i ], [ false, %for.cond19.i.i.i ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i.i265, %if.then.i.i.i.i.i.i.i.i.i262, %ehcleanup200
   resume { ptr, i32 } %.pn47.pn.pn

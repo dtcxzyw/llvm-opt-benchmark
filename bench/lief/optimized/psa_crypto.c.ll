@@ -3841,8 +3841,8 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, i32 noundef %1, i32 n
   br label %32
 
 32:                                               ; preds = %25, %18
-  %.028 = phi i32 [ %24, %18 ], [ %31, %25 ]
-  %.not40 = icmp eq i32 %.028, 0
+  %.1 = phi i32 [ %24, %18 ], [ %31, %25 ]
+  %.not40 = icmp eq i32 %.1, 0
   br i1 %.not40, label %33, label %..thread48_crit_edge
 
 ..thread48_crit_edge:                             ; preds = %32
@@ -3868,7 +3868,7 @@ define internal fastcc i32 @psa_aead_setup(ptr noundef %0, i32 noundef %1, i32 n
 
 .thread48:                                        ; preds = %..thread48_crit_edge, %15, %33, %8, %10, %.thread
   %38 = phi ptr [ %.pre55, %.thread ], [ null, %10 ], [ null, %8 ], [ %.pre54, %33 ], [ %.pre, %..thread48_crit_edge ], [ %.pre53, %15 ]
-  %.1.ph = phi i32 [ %17, %.thread ], [ -137, %10 ], [ -137, %8 ], [ %34, %33 ], [ %.028, %..thread48_crit_edge ], [ %16, %15 ]
+  %.028.ph = phi i32 [ %17, %.thread ], [ -137, %10 ], [ -137, %8 ], [ %34, %33 ], [ %.1, %..thread48_crit_edge ], [ %16, %15 ]
   %39 = call i32 @psa_unlock_key_slot(ptr noundef %38) #15
   br label %53
 
@@ -3898,7 +3898,7 @@ psa_aead_get_base_algorithm.exit:                 ; preds = %.thread51, %42, %.f
   br label %psa_aead_abort.exit
 
 53:                                               ; preds = %40, %.thread48
-  %.150 = phi i32 [ %.1.ph, %.thread48 ], [ -135, %40 ]
+  %.02850 = phi i32 [ %.028.ph, %.thread48 ], [ -135, %40 ]
   %54 = load i32, ptr %0, align 8
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %psa_aead_abort.exit, label %56
@@ -3909,7 +3909,7 @@ psa_aead_get_base_algorithm.exit:                 ; preds = %.thread51, %42, %.f
   br label %psa_aead_abort.exit
 
 psa_aead_abort.exit:                              ; preds = %56, %53, %psa_aead_get_base_algorithm.exit
-  %.2 = phi i32 [ %36, %psa_aead_get_base_algorithm.exit ], [ %.150, %53 ], [ %.150, %56 ]
+  %.2 = phi i32 [ %36, %psa_aead_get_base_algorithm.exit ], [ %.02850, %53 ], [ %.02850, %56 ]
   ret i32 %.2
 }
 
@@ -5647,20 +5647,20 @@ mbedtls_ecc_group_of_psa.exit.thread.i.i:         ; preds = %mbedtls_ecc_group_o
   br i1 %.not46.i.i, label %psa_generate_derived_ecc_key_weierstrass_helper.exit.i, label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %85, %81, %76, %74, %88, %._crit_edge.i.i, %65, %58, %mbedtls_ecc_group_of_psa.exit.thread.i.i, %56, %54, %51, %46, %41
-  %.060.i = phi ptr [ null, %41 ], [ null, %56 ], [ null, %65 ], [ %66, %88 ], [ %66, %._crit_edge.i.i ], [ null, %58 ], [ null, %mbedtls_ecc_group_of_psa.exit.thread.i.i ], [ null, %54 ], [ null, %51 ], [ null, %46 ], [ %66, %74 ], [ %66, %76 ], [ %66, %81 ], [ %66, %85 ]
-  %.155.i.i = phi i32 [ -104, %41 ], [ -104, %56 ], [ -106, %65 ], [ %89, %88 ], [ %87, %._crit_edge.i.i ], [ %64, %58 ], [ %57, %mbedtls_ecc_group_of_psa.exit.thread.i.i ], [ -104, %54 ], [ -104, %51 ], [ -104, %46 ], [ %77, %76 ], [ %75, %74 ], [ %86, %85 ], [ %84, %81 ]
-  %90 = call i32 @mbedtls_to_psa_error(i32 noundef %.155.i.i)
+  %.2.i = phi ptr [ null, %41 ], [ null, %56 ], [ null, %65 ], [ %66, %88 ], [ %66, %._crit_edge.i.i ], [ null, %58 ], [ null, %mbedtls_ecc_group_of_psa.exit.thread.i.i ], [ null, %54 ], [ null, %51 ], [ null, %46 ], [ %66, %74 ], [ %66, %76 ], [ %66, %81 ], [ %66, %85 ]
+  %.055.i.i = phi i32 [ -104, %41 ], [ -104, %56 ], [ -106, %65 ], [ %89, %88 ], [ %87, %._crit_edge.i.i ], [ %64, %58 ], [ %57, %mbedtls_ecc_group_of_psa.exit.thread.i.i ], [ -104, %54 ], [ -104, %51 ], [ -104, %46 ], [ %77, %76 ], [ %75, %74 ], [ %86, %85 ], [ %84, %81 ]
+  %90 = call i32 @mbedtls_to_psa_error(i32 noundef %.055.i.i)
   %.not47.i.i = icmp eq i32 %90, 0
   br i1 %.not47.i.i, label %psa_generate_derived_ecc_key_weierstrass_helper.exit.i, label %.thread60.i.i
 
 .thread60.i.i:                                    ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %.loopexit.i.i
-  %.1.i = phi ptr [ %.060.i, %.loopexit.i.i ], [ %66, %.lr.ph.split.us.i.i ], [ %66, %.lr.ph.split.i.i ]
+  %.3.i = phi ptr [ %.2.i, %.loopexit.i.i ], [ %66, %.lr.ph.split.us.i.i ], [ %66, %.lr.ph.split.i.i ]
   %.263.i.i = phi i32 [ %90, %.loopexit.i.i ], [ %71, %.lr.ph.split.us.i.i ], [ %80, %.lr.ph.split.i.i ]
-  call void @free(ptr noundef %.1.i) #15
+  call void @free(ptr noundef %.3.i) #15
   br label %psa_generate_derived_ecc_key_weierstrass_helper.exit.i
 
 psa_generate_derived_ecc_key_weierstrass_helper.exit.i: ; preds = %.thread60.i.i, %.loopexit.i.i, %88
-  %.2.i = phi ptr [ %.060.i, %.loopexit.i.i ], [ null, %.thread60.i.i ], [ %66, %88 ]
+  %.4.i = phi ptr [ %.2.i, %.loopexit.i.i ], [ null, %.thread60.i.i ], [ %66, %88 ]
   %.264.i.i = phi i32 [ 0, %.loopexit.i.i ], [ %.263.i.i, %.thread60.i.i ], [ 0, %88 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %5) #15
   call void @mbedtls_mpi_free(ptr noundef nonnull %6) #15
@@ -5756,7 +5756,7 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %100, %99
 
 122:                                              ; preds = %121, %118, %psa_generate_derived_ecc_key_montgomery_helper.exit.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i
   %123 = phi i16 [ %91, %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i ], [ %27, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %27, %121 ], [ %27, %118 ]
-  %.4.i = phi ptr [ %.2.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i ], [ %95, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %114, %121 ], [ %114, %118 ]
+  %.1.i = phi ptr [ %.4.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit._crit_edge.i ], [ %95, %psa_generate_derived_ecc_key_montgomery_helper.exit.i ], [ %114, %121 ], [ %114, %118 ]
   %124 = getelementptr inbounds i8, ptr %26, i64 2
   store i16 %123, ptr %124, align 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull align 8 dereferenceable(28) %26, i64 28, i1 false)
@@ -5788,7 +5788,7 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %100, %99
 138:                                              ; preds = %135
   %139 = getelementptr inbounds i8, ptr %26, i64 48
   store i64 %132, ptr %139, align 8
-  %140 = call i32 @psa_driver_wrapper_import_key(ptr noundef nonnull %10, ptr noundef %.4.i, i64 noundef %30, ptr noundef nonnull %136, i64 noundef %132, ptr noundef nonnull %139, ptr noundef nonnull %8) #15
+  %140 = call i32 @psa_driver_wrapper_import_key(ptr noundef nonnull %10, ptr noundef %.1.i, i64 noundef %30, ptr noundef nonnull %136, i64 noundef %132, ptr noundef nonnull %139, ptr noundef nonnull %8) #15
   %141 = load i64, ptr %8, align 8
   %142 = load i16, ptr %124, align 2
   %143 = zext i16 %142 to i64
@@ -5803,16 +5803,16 @@ psa_generate_derived_ecc_key_montgomery_helper.exit.i: ; preds = %100, %99
   br label %.thread
 
 .thread20:                                        ; preds = %138, %129, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i, %116, %97, %99, %94, %92, %131, %135
-  %.5.i.ph = phi ptr [ %.4.i, %135 ], [ %.4.i, %131 ], [ null, %92 ], [ null, %94 ], [ %95, %99 ], [ %95, %97 ], [ %114, %116 ], [ %.2.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i ], [ %.4.i, %129 ], [ %.4.i, %138 ]
+  %.060.i.ph = phi ptr [ %.1.i, %135 ], [ %.1.i, %131 ], [ null, %92 ], [ null, %94 ], [ %95, %99 ], [ %95, %97 ], [ %114, %116 ], [ %.4.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i ], [ %.1.i, %129 ], [ %.1.i, %138 ]
   %.029.i.ph = phi i32 [ -141, %135 ], [ -139, %131 ], [ -135, %92 ], [ -141, %94 ], [ -151, %99 ], [ %98, %97 ], [ %117, %116 ], [ %.264.i.i, %psa_generate_derived_ecc_key_weierstrass_helper.exit.i ], [ %130, %129 ], [ -135, %138 ]
-  call void @free(ptr noundef %.5.i.ph) #15
+  call void @free(ptr noundef %.060.i.ph) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   br label %.thread
 
 144:                                              ; preds = %138
-  call void @free(ptr noundef %.4.i) #15
+  call void @free(ptr noundef %.1.i) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)

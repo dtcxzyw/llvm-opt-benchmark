@@ -3026,7 +3026,7 @@ _ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EED2Ev.exit163: ; preds = %_ZNSt6vectorIN2cv3
   br label %1108
 
 1108:                                             ; preds = %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EED2Ev.exit163, %440, %287
-  %.0 = phi i32 [ -1, %287 ], [ 0, %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EED2Ev.exit163 ], [ -1, %440 ]
+  %.1 = phi i32 [ -1, %287 ], [ 0, %_ZNSt6vectorIN2cv3VecIdLi3EEESaIS2_EED2Ev.exit163 ], [ -1, %440 ]
   %1109 = load ptr, ptr %123, align 8
   %1110 = getelementptr inbounds i8, ptr %123, i64 8
   %1111 = load ptr, ptr %1110, align 8
@@ -3135,7 +3135,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit199
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit199: ; preds = %1132, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i197, %165, %.thread, %244, %229, %214, %193
-  %.1 = phi i32 [ -1, %193 ], [ -1, %214 ], [ -1, %229 ], [ -1, %244 ], [ -1, %.thread ], [ 1, %165 ], [ %.0, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i197 ], [ %.0, %1132 ]
+  %.0 = phi i32 [ -1, %193 ], [ -1, %214 ], [ -1, %229 ], [ -1, %244 ], [ -1, %.thread ], [ 1, %165 ], [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i197 ], [ %.1, %1132 ]
   %1133 = load ptr, ptr %119, align 8
   %1134 = getelementptr inbounds i8, ptr %119, i64 8
   %1135 = load ptr, ptr %1134, align 8
@@ -3217,7 +3217,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i221: ; preds = %_ZSt8_DestroyIP
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit223
 
 _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit223:       ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i221, %1150
-  ret i32 %.1
+  ret i32 %.0
 
 1151:                                             ; preds = %._crit_edge
   %1152 = landingpad { ptr, i32 }

@@ -350,8 +350,8 @@ define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly %0, i1 noundef zeroex
 
 .lr.ph54.split.us94:                              ; preds = %.lr.ph54.us, %41
   %37 = phi i32 [ %44, %41 ], [ %25, %.lr.ph54.us ]
-  %.153.us82 = phi ptr [ %43, %41 ], [ %.02962.us76, %.lr.ph54.us ]
-  %38 = getelementptr inbounds i8, ptr %.153.us82, i64 16
+  %.253.us82 = phi ptr [ %43, %41 ], [ %.02962.us76, %.lr.ph54.us ]
+  %38 = getelementptr inbounds i8, ptr %.253.us82, i64 16
   %39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %3) #15
   %40 = icmp ne i32 %39, 0
   %.not40.us = icmp eq i32 %37, 1
@@ -359,18 +359,18 @@ define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly %0, i1 noundef zeroex
   br i1 %or.cond174, label %41, label %.split57.us
 
 41:                                               ; preds = %.lr.ph54.split.us94
-  %42 = getelementptr inbounds i8, ptr %.153.us82, i64 8
+  %42 = getelementptr inbounds i8, ptr %.253.us82, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 8
   %.not38.us83 = icmp eq i32 %44, 0
   br i1 %.not38.us83, label %.loopexit.us, label %.lr.ph54.split.us94, !llvm.loop !8
 
 .loopexit.us:                                     ; preds = %41, %51, %._crit_edge.split.us87, %.preheader45.us75
-  %.2.us84 = phi ptr [ %.lcssa209.mux, %._crit_edge.split.us87 ], [ %.02962.us76, %.preheader45.us75 ], [ %53, %51 ], [ %43, %41 ]
+  %.1.us84 = phi ptr [ %.lcssa209.mux, %._crit_edge.split.us87 ], [ %.02962.us76, %.preheader45.us75 ], [ %53, %51 ], [ %43, %41 ]
   br i1 %1, label %._crit_edge63, label %45
 
 45:                                               ; preds = %.loopexit.us
-  %46 = getelementptr inbounds i8, ptr %.2.us84, i64 8
+  %46 = getelementptr inbounds i8, ptr %.1.us84, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not.us85 = icmp eq ptr %47, null
   br i1 %.not.us85, label %._crit_edge63, label %.preheader45.us75, !llvm.loop !7
@@ -379,14 +379,14 @@ define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly %0, i1 noundef zeroex
   br i1 %.not177, label %.lr.ph54.split.us.us, label %.lr.ph54.split.us94
 
 .lr.ph54.split.us.us:                             ; preds = %.lr.ph54.us, %51
-  %.153.us.us = phi ptr [ %53, %51 ], [ %.02962.us76, %.lr.ph54.us ]
-  %48 = getelementptr inbounds i8, ptr %.153.us.us, i64 16
+  %.253.us.us = phi ptr [ %53, %51 ], [ %.02962.us76, %.lr.ph54.us ]
+  %48 = getelementptr inbounds i8, ptr %.253.us.us, i64 16
   %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %3) #15
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.split57.us, label %51
 
 51:                                               ; preds = %.lr.ph54.split.us.us
-  %52 = getelementptr inbounds i8, ptr %.153.us.us, i64 8
+  %52 = getelementptr inbounds i8, ptr %.253.us.us, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %53, align 8
   %.not38.us.us = icmp eq i32 %54, 0
@@ -398,7 +398,7 @@ define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly %0, i1 noundef zeroex
   br i1 %.not43, label %55, label %.sink.split
 
 .split57.us:                                      ; preds = %.lr.ph54.split.us94, %.lr.ph54.split.us.us
-  %.us-phi58 = phi ptr [ %.153.us.us, %.lr.ph54.split.us.us ], [ %.153.us82, %.lr.ph54.split.us94 ]
+  %.us-phi58 = phi ptr [ %.253.us.us, %.lr.ph54.split.us.us ], [ %.253.us82, %.lr.ph54.split.us94 ]
   %.not41 = icmp eq ptr %5, null
   br i1 %.not41, label %55, label %.sink.split
 

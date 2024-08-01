@@ -675,8 +675,8 @@ invoke.cont123:                                   ; preds = %if.then.i3.i, %invo
 
 while.cond.outer:                                 ; preds = %invoke.cont285, %invoke.cont123
   %blueValue.0.ph = phi float [ %blueValue.0.call3.i, %invoke.cont285 ], [ 0x7FF8000000000000, %invoke.cont123 ]
-  %greenValue.0.ph = phi float [ %greenValue.1, %invoke.cont285 ], [ 0x7FF8000000000000, %invoke.cont123 ]
-  %redValue.0.ph = phi float [ %redValue.1, %invoke.cont285 ], [ 0x7FF8000000000000, %invoke.cont123 ]
+  %greenValue.0.ph = phi float [ %greenValue.2, %invoke.cont285 ], [ 0x7FF8000000000000, %invoke.cont123 ]
+  %redValue.0.ph = phi float [ %redValue.2, %invoke.cont285 ], [ 0x7FF8000000000000, %invoke.cont123 ]
   %entriesRemaining.0.ph = phi i32 [ %dec, %invoke.cont285 ], [ %mul114, %invoke.cont123 ]
   %cmp129 = icmp sgt i32 %entriesRemaining.0.ph, 0
   br label %while.cond
@@ -726,7 +726,7 @@ if.else13.i428:                                   ; preds = %if.else.i426
   br label %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit446
 
 _ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit446: ; preds = %if.else13.i428, %if.else.i426, %if.then139
-  %redValue.1 = phi float [ %redValue.0.ph, %if.then139 ], [ %redValue.0.ph, %if.else.i426 ], [ %redValue.0.call3.i423, %if.else13.i428 ]
+  %redValue.2 = phi float [ %redValue.0.ph, %if.then139 ], [ %redValue.0.ph, %if.else.i426 ], [ %redValue.0.call3.i423, %if.else13.i428 ]
   %cmp152 = phi i1 [ true, %if.then139 ], [ true, %if.else.i426 ], [ %cmp14.i429.not, %if.else13.i428 ]
   store i32 0, ptr %call.i414, align 4
   store ptr null, ptr %endptr.i373, align 8
@@ -747,7 +747,7 @@ if.else13.i389:                                   ; preds = %if.else.i387
   br label %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit407
 
 _ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit407: ; preds = %if.else13.i389, %if.else.i387, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit446
-  %greenValue.1 = phi float [ %greenValue.0.ph, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit446 ], [ %greenValue.0.ph, %if.else.i387 ], [ %greenValue.0.call3.i384, %if.else13.i389 ]
+  %greenValue.2 = phi float [ %greenValue.0.ph, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit446 ], [ %greenValue.0.ph, %if.else.i387 ], [ %greenValue.0.call3.i384, %if.else13.i389 ]
   %cmp155 = phi i1 [ true, %_ZN19OpenColorIO_v2_4dev11NumberUtils10from_charsEPKcS2_Rf.exit446 ], [ true, %if.else.i387 ], [ %cmp14.i390.not, %if.else13.i389 ]
   store i32 0, ptr %call.i414, align 4
   store ptr null, ptr %endptr.i, align 8
@@ -1009,12 +1009,12 @@ invoke.cont278:                                   ; preds = %if.end223
   %conv265 = zext nneg i32 %mul3.i to i64
   %52 = load ptr, ptr %m_data.i, align 8
   %add.ptr.i.i110 = getelementptr inbounds float, ptr %52, i64 %conv265
-  store float %redValue.1, ptr %add.ptr.i.i110, align 4
+  store float %redValue.2, ptr %add.ptr.i.i110, align 4
   %53 = load ptr, ptr %m_data.i, align 8
   %54 = zext nneg i32 %mul3.i to i64
   %55 = getelementptr float, ptr %53, i64 %54
   %add.ptr.i.i112 = getelementptr i8, ptr %55, i64 4
-  store float %greenValue.1, ptr %add.ptr.i.i112, align 4
+  store float %greenValue.2, ptr %add.ptr.i.i112, align 4
   %56 = load ptr, ptr %m_data.i, align 8
   %57 = getelementptr float, ptr %56, i64 %54
   %add.ptr.i.i114 = getelementptr i8, ptr %57, i64 8

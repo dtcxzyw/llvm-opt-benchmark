@@ -257,7 +257,7 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread
 
 .thread:                                          ; preds = %53, %57, %35, %67, %70, %78, %.thread154, %18
-  %.1 = phi ptr [ %62, %78 ], [ %81, %.thread154 ], [ null, %18 ], [ %48, %53 ], [ %48, %57 ], [ %37, %35 ], [ %62, %67 ], [ %73, %70 ]
+  %.0 = phi ptr [ %62, %78 ], [ %81, %.thread154 ], [ null, %18 ], [ %48, %53 ], [ %48, %57 ], [ %37, %35 ], [ %62, %67 ], [ %73, %70 ]
   %86 = getelementptr inbounds i8, ptr %1, i64 8
   %87 = load ptr, ptr %86, align 8
   call void @col_set_str(ptr noundef %87, i32 noundef 34, ptr noundef nonnull @.str.29) #3
@@ -290,13 +290,13 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %109 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %108, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648) #3
   %110 = load i32, ptr @hf_msrcp_seq, align 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %110, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef -2147483648) #3
-  %112 = getelementptr inbounds i8, ptr %.1, i64 28
+  %112 = getelementptr inbounds i8, ptr %.0, i64 28
   %113 = load i32, ptr %112, align 4
   %.not147 = icmp eq i32 %113, 0
   br i1 %.not147, label %141, label %114
 
 114:                                              ; preds = %97
-  %115 = load i32, ptr %.1, align 8
+  %115 = load i32, ptr %.0, align 8
   %116 = icmp ne i32 %115, 0
   %or.cond8 = select i1 %116, i1 %27, i1 false
   br i1 %or.cond8, label %117, label %127
@@ -321,7 +321,7 @@ define internal i32 @dissect_msrcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %proto_item_set_generated.exit
 
 127:                                              ; preds = %114
-  %128 = getelementptr inbounds i8, ptr %.1, i64 4
+  %128 = getelementptr inbounds i8, ptr %.0, i64 4
   %129 = load i32, ptr %128, align 4
   %130 = icmp ne i32 %129, 0
   %or.cond11 = select i1 %130, i1 %26, i1 false

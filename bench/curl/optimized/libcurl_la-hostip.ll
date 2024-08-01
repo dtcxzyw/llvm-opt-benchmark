@@ -456,7 +456,7 @@ for.end53.i:                                      ; preds = %for.body44.i
   br label %Curl_shuffle_addr.exit.thread35
 
 Curl_shuffle_addr.exit.thread35:                  ; preds = %if.then15.i, %for.end53.i
-  %addr.addr.0 = phi ptr [ %19, %for.end53.i ], [ %addr, %if.then15.i ]
+  %addr.addr.1 = phi ptr [ %19, %for.end53.i ], [ %addr, %if.then15.i ]
   %20 = load ptr, ptr @Curl_cfree, align 8
   tail call void %20(ptr noundef nonnull %call13.i) #11
   %21 = load ptr, ptr @Curl_cfree, align 8
@@ -469,7 +469,7 @@ Curl_shuffle_addr.exit:                           ; preds = %for.end.i
   br label %return
 
 if.end3:                                          ; preds = %if.then, %num_addresses.exit.i, %Curl_shuffle_addr.exit.thread35, %entry
-  %addr.addr.3 = phi ptr [ %addr, %entry ], [ %addr.addr.0, %Curl_shuffle_addr.exit.thread35 ], [ %addr, %num_addresses.exit.i ], [ null, %if.then ]
+  %addr.addr.0 = phi ptr [ %addr, %entry ], [ %addr.addr.1, %Curl_shuffle_addr.exit.thread35 ], [ %addr, %num_addresses.exit.i ], [ null, %if.then ]
   %tobool4.not = icmp eq i64 %hostlen, 0
   br i1 %tobool4.not, label %if.then5, label %if.end7
 
@@ -527,7 +527,7 @@ create_hostcache_id.exit:                         ; preds = %create_hostcache_id
   %conv.i25 = sext i32 %call5.i to i64
   %inuse = getelementptr inbounds i8, ptr %call8, i64 16
   store i64 1, ptr %inuse, align 8
-  store ptr %addr.addr.3, ptr %call8, align 8
+  store ptr %addr.addr.0, ptr %call8, align 8
   %timestamp = getelementptr inbounds i8, ptr %call8, i64 8
   %call14 = call i64 @time(ptr noundef nonnull %timestamp) #11
   %26 = load i64, ptr %timestamp, align 8
@@ -1594,10 +1594,10 @@ if.then141.loopexit.loopexit:                     ; preds = %lor.lhs.false91, %i
   br label %if.then141
 
 if.then141:                                       ; preds = %if.else, %lor.lhs.false69, %lor.lhs.false66, %if.end59, %err, %if.end106, %if.then141.loopexit.loopexit, %land.lhs.true119, %if.then127
-  %head.2132 = phi ptr [ %tail.0.ph.ph, %land.lhs.true119 ], [ %tail.0.ph.ph, %if.then127 ], [ %tail.0.ph.ph, %if.then141.loopexit.loopexit ], [ %tail.0.ph.ph, %if.end106 ], [ null, %err ], [ null, %if.end59 ], [ null, %lor.lhs.false66 ], [ null, %lor.lhs.false69 ], [ null, %if.else ]
+  %head.0132 = phi ptr [ %tail.0.ph.ph, %land.lhs.true119 ], [ %tail.0.ph.ph, %if.then127 ], [ %tail.0.ph.ph, %if.then141.loopexit.loopexit ], [ %tail.0.ph.ph, %if.end106 ], [ null, %err ], [ null, %if.end59 ], [ null, %lor.lhs.false66 ], [ null, %lor.lhs.false69 ], [ null, %if.else ]
   %15 = load ptr, ptr %hostp.0155, align 8
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.8, ptr noundef %15) #11
-  call void @Curl_freeaddrinfo(ptr noundef %head.2132) #11
+  call void @Curl_freeaddrinfo(ptr noundef %head.0132) #11
   br label %return
 
 if.end143:                                        ; preds = %err

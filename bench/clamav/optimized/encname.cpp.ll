@@ -41,7 +41,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
 18:                                               ; preds = %.lr.ph106, %.critedge
   %19 = phi i32 [ %.pre, %.lr.ph106 ], [ %96, %.critedge ]
   %.1105 = phi i64 [ %.0, %.lr.ph106 ], [ %.3, %.critedge ]
-  %.076104 = phi i64 [ 0, %.lr.ph106 ], [ %.379, %.critedge ]
+  %.076104 = phi i64 [ 0, %.lr.ph106 ], [ %.177, %.critedge ]
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %._crit_edge113
 
@@ -147,16 +147,16 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.07498 = phi i32 [ %78, %.lr.ph ], [ %72, %.lr.ph.preheader ]
-  %.17797 = phi i64 [ %79, %.lr.ph ], [ %.076104, %.lr.ph.preheader ]
-  %73 = getelementptr inbounds i8, ptr %1, i64 %.17797
+  %.27897 = phi i64 [ %79, %.lr.ph ], [ %.076104, %.lr.ph.preheader ]
+  %73 = getelementptr inbounds i8, ptr %1, i64 %.27897
   %74 = load i8, ptr %73, align 1
   %.narrow = add i8 %74, %69
   %75 = zext i8 %.narrow to i32
   %76 = or disjoint i32 %13, %75
-  %77 = getelementptr inbounds i32, ptr %5, i64 %.17797
+  %77 = getelementptr inbounds i32, ptr %5, i64 %.27897
   store i32 %76, ptr %77, align 4
   %78 = add nsw i32 %.07498, -1
-  %79 = add nuw i64 %.17797, 1
+  %79 = add nuw i64 %.27897, 1
   %80 = icmp ugt i32 %.07498, 1
   %81 = icmp ult i64 %79, %invariant.umin
   %or.cond91 = select i1 %80, i1 %81, i1 false
@@ -172,14 +172,14 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
   %.175101 = phi i32 [ %89, %.lr.ph102 ], [ %84, %.lr.ph102.preheader ]
-  %.278100 = phi i64 [ %90, %.lr.ph102 ], [ %.076104, %.lr.ph102.preheader ]
-  %85 = getelementptr inbounds i8, ptr %1, i64 %.278100
+  %.379100 = phi i64 [ %90, %.lr.ph102 ], [ %.076104, %.lr.ph102.preheader ]
+  %85 = getelementptr inbounds i8, ptr %1, i64 %.379100
   %86 = load i8, ptr %85, align 1
   %87 = sext i8 %86 to i32
-  %88 = getelementptr inbounds i32, ptr %5, i64 %.278100
+  %88 = getelementptr inbounds i32, ptr %5, i64 %.379100
   store i32 %87, ptr %88, align 4
   %89 = add nsw i32 %.175101, -1
-  %90 = add nuw i64 %.278100, 1
+  %90 = add nuw i64 %.379100, 1
   %91 = icmp ugt i32 %.175101, 1
   %92 = icmp ult i64 %90, %invariant.umin
   %or.cond93 = select i1 %91, i1 %92, i1 false
@@ -189,7 +189,7 @@ default.unreachable115:                           ; preds = %25
   unreachable
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph102, %66, %82, %65, %59, %45, %36, %28, %47, %37, %29
-  %.379 = phi i64 [ %.076104, %59 ], [ %.076104, %65 ], [ %.076104, %45 ], [ %56, %47 ], [ %.076104, %36 ], [ %43, %37 ], [ %.076104, %28 ], [ %34, %29 ], [ %.076104, %82 ], [ %.076104, %66 ], [ %90, %.lr.ph102 ], [ %79, %.lr.ph ]
+  %.177 = phi i64 [ %.076104, %59 ], [ %.076104, %65 ], [ %.076104, %45 ], [ %56, %47 ], [ %.076104, %36 ], [ %43, %37 ], [ %.076104, %28 ], [ %34, %29 ], [ %.076104, %82 ], [ %.076104, %66 ], [ %90, %.lr.ph102 ], [ %79, %.lr.ph ]
   %.3 = phi i64 [ %.2, %59 ], [ %61, %65 ], [ %.2, %45 ], [ %58, %47 ], [ %.2, %36 ], [ %38, %37 ], [ %.2, %28 ], [ %30, %29 ], [ %61, %82 ], [ %67, %66 ], [ %61, %.lr.ph102 ], [ %67, %.lr.ph ]
   %93 = load i8, ptr %0, align 8
   %94 = shl i8 %93, 2
@@ -198,12 +198,12 @@ default.unreachable115:                           ; preds = %25
   %96 = add i32 %95, -2
   store i32 %96, ptr %17, align 4
   %97 = icmp ult i64 %.3, %4
-  %98 = icmp ult i64 %.379, %6
+  %98 = icmp ult i64 %.177, %6
   %99 = select i1 %97, i1 %98, i1 false
   br i1 %99, label %18, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.critedge, %12
-  %.076.lcssa = phi i64 [ 0, %12 ], [ %.379, %.critedge ]
+  %.076.lcssa = phi i64 [ 0, %12 ], [ %.177, %.critedge ]
   %.lcssa = phi i1 [ %15, %12 ], [ %98, %.critedge ]
   %100 = add i64 %6, -1
   %101 = select i1 %.lcssa, i64 %.076.lcssa, i64 %100

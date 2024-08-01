@@ -1249,14 +1249,14 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN3App15initVideoSourceEv(ptr nound
 
 72:                                               ; preds = %35, %69, %71, %37, %63, %32, %31
   %.pn29.pn.pn = phi { ptr, i32 } [ %.pn29.pn, %63 ], [ %33, %32 ], [ %.pn2750, %71 ], [ %70, %69 ], [ %.pn2538, %37 ], [ %36, %35 ], [ %.pn, %31 ]
-  %.5 = extractvalue { ptr, i32 } %.pn29.pn.pn, 1
+  %.115 = extractvalue { ptr, i32 } %.pn29.pn.pn, 1
   %73 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #19
-  %74 = icmp eq i32 %.5, %73
+  %74 = icmp eq i32 %.115, %73
   br i1 %74, label %75, label %90
 
 75:                                               ; preds = %72
-  %.521 = extractvalue { ptr, i32 } %.pn29.pn.pn, 0
-  %76 = call ptr @__cxa_begin_catch(ptr %.521) #19
+  %.117 = extractvalue { ptr, i32 } %.pn29.pn.pn, 0
+  %76 = call ptr @__cxa_begin_catch(ptr %.117) #19
   %77 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.11)
           to label %78 unwind label %87
 
@@ -2570,7 +2570,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
           to label %74 unwind label %78
 
 73:                                               ; preds = %.invoke, %28
-  %.0 = phi i32 [ 0, %28 ], [ 1, %.invoke ]
+  %.1 = phi i32 [ 0, %28 ], [ 1, %.invoke ]
   call void @_ZN3AppD2Ev(ptr noundef nonnull align 8 dereferenceable(1328) %8) #19
   br label %75
 
@@ -2580,9 +2580,9 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) 
   br label %76
 
 75:                                               ; preds = %14, %73
-  %.1 = phi i32 [ %.0, %73 ], [ 0, %14 ]
+  %.0 = phi i32 [ %.1, %73 ], [ 0, %14 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #19
-  ret i32 %.1
+  ret i32 %.0
 
 76:                                               ; preds = %74, %25, %24
   %.pn24 = phi { ptr, i32 } [ %26, %25 ], [ %.pn22, %74 ], [ %.pn20, %24 ]

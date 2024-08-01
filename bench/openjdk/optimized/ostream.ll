@@ -344,7 +344,7 @@ sub_1:                                            ; preds = %sub_0
 
 46:                                               ; preds = %44, %45
   %47 = phi i64 [ %.pre, %45 ], [ %43, %44 ]
-  %.1 = phi ptr [ %0, %45 ], [ %.047, %44 ]
+  %.2 = phi ptr [ %0, %45 ], [ %.047, %44 ]
   %48 = add i64 %47, 1
   store i64 %48, ptr %5, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 %47
@@ -355,8 +355,8 @@ sub_1:                                            ; preds = %sub_0
   br label %52
 
 52:                                               ; preds = %46, %42
-  %.2 = phi ptr [ %.1, %46 ], [ %.047, %42 ]
-  ret ptr %.2
+  %.1 = phi ptr [ %.2, %46 ], [ %.047, %42 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1870,13 +1870,13 @@ define hidden noundef i64 @_ZN10fileStream8fileSizeEv(ptr nocapture noundef nonn
   br label %14
 
 14:                                               ; preds = %11, %7
-  %.05 = phi i64 [ %13, %11 ], [ -1, %7 ]
+  %.1 = phi i64 [ %13, %11 ], [ -1, %7 ]
   %15 = load ptr, ptr %2, align 8
   %16 = tail call i32 @fseek(ptr noundef %15, i64 noundef %5, i32 noundef 0)
   br label %17
 
 17:                                               ; preds = %1, %14, %4
-  %.0 = phi i64 [ %5, %4 ], [ %.05, %14 ], [ -1, %1 ]
+  %.0 = phi i64 [ %5, %4 ], [ %.1, %14 ], [ -1, %1 ]
   ret i64 %.0
 }
 
@@ -3287,7 +3287,7 @@ define hidden void @_ZN14bufferedStream5writeEPKcm(ptr noundef nonnull align 8 d
 
 31:                                               ; preds = %27, %29, %21
   %.121 = phi i64 [ %25, %29 ], [ %25, %27 ], [ %spec.select, %21 ]
-  %.0 = phi i64 [ %30, %29 ], [ %2, %27 ], [ %2, %21 ]
+  %.1 = phi i64 [ %30, %29 ], [ %2, %27 ], [ %2, %21 ]
   %32 = icmp ult i64 %20, %.121
   br i1 %32, label %33, label %37
 
@@ -3300,8 +3300,8 @@ define hidden void @_ZN14bufferedStream5writeEPKcm(ptr noundef nonnull align 8 d
   br label %37
 
 37:                                               ; preds = %31, %33, %17
-  %.1 = phi i64 [ %.0, %33 ], [ %.0, %31 ], [ %2, %17 ]
-  %.not29 = icmp eq i64 %.1, 0
+  %.0 = phi i64 [ %.1, %33 ], [ %.1, %31 ], [ %2, %17 ]
+  %.not29 = icmp eq i64 %.0, 0
   br i1 %.not29, label %_ZN12outputStream15update_positionEPKcm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %37
@@ -3309,9 +3309,9 @@ define hidden void @_ZN14bufferedStream5writeEPKcm(ptr noundef nonnull align 8 d
   %39 = load ptr, ptr %38, align 8
   %40 = load i64, ptr %8, align 8
   %41 = getelementptr inbounds i8, ptr %39, i64 %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %1, i64 %.1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %1, i64 %.0, i1 false)
   %42 = load i64, ptr %8, align 8
-  %43 = add i64 %42, %.1
+  %43 = add i64 %42, %.0
   store i64 %43, ptr %8, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 16
   %45 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3358,7 +3358,7 @@ define hidden void @_ZN14bufferedStream5writeEPKcm(ptr noundef nonnull align 8 d
   %64 = phi i64 [ %54, %51 ], [ %60, %55 ], [ %47, %61 ]
   %65 = phi i32 [ 0, %51 ], [ %57, %55 ], [ %62, %61 ]
   %66 = add nuw i64 %.01012.i, 1
-  %exitcond.not.i = icmp eq i64 %66, %.1
+  %exitcond.not.i = icmp eq i64 %66, %.0
   br i1 %exitcond.not.i, label %_ZN12outputStream15update_positionEPKcm.exit, label %46, !llvm.loop !6
 
 _ZN12outputStream15update_positionEPKcm.exit:     ; preds = %63, %3, %37

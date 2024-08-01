@@ -5060,18 +5060,18 @@ check_float8_array.exit:                          ; preds = %19
   %100 = tail call double @llvm.fabs.f64(double %10)
   %or.cond108 = fcmp ueq double %100, 0x7FF0000000000000
   %101 = extractelement <2 x double> %32, i64 1
-  %.085 = select i1 %or.cond108, double 0x7FF8000000000000, double %101
-  %.1 = select i1 %or.cond108, double 0x7FF8000000000000, double %28
+  %.186 = select i1 %or.cond108, double 0x7FF8000000000000, double %101
+  %.2 = select i1 %or.cond108, double 0x7FF8000000000000, double %28
   %102 = tail call double @llvm.fabs.f64(double %8)
   %or.cond110 = fcmp ueq double %102, 0x7FF0000000000000
-  %103 = insertelement <2 x double> %32, double %.085, i64 1
+  %103 = insertelement <2 x double> %32, double %.186, i64 1
   br i1 %or.cond110, label %104, label %105
 
 104:                                              ; preds = %99
   br label %105
 
 105:                                              ; preds = %95, %99, %38, %104, %97
-  %.2 = phi double [ %.082111, %97 ], [ %.082, %95 ], [ %.1, %104 ], [ %51, %38 ], [ %.1, %99 ]
+  %.1 = phi double [ %.082111, %97 ], [ %.082, %95 ], [ %.2, %104 ], [ %51, %38 ], [ %.2, %99 ]
   %106 = phi <2 x double> [ %98, %97 ], [ %96, %95 ], [ <double 0x7FF8000000000000, double 0x7FF8000000000000>, %104 ], [ %56, %38 ], [ %103, %99 ]
   %107 = tail call i32 @AggCheckCallContext(ptr noundef nonnull %0, ptr noundef null) #19
   %.not = icmp eq i32 %107, 0
@@ -5079,7 +5079,7 @@ check_float8_array.exit:                          ; preds = %19
 
 108:                                              ; preds = %105
   store <2 x double> %34, ptr %25, align 8
-  store double %.2, ptr %27, align 8
+  store double %.1, ptr %27, align 8
   store double %35, ptr %29, align 8
   store <2 x double> %106, ptr %31, align 8
   br label %114
@@ -5087,7 +5087,7 @@ check_float8_array.exit:                          ; preds = %19
 109:                                              ; preds = %105
   store <2 x double> %34, ptr %2, align 16
   %110 = getelementptr inbounds i8, ptr %2, i64 16
-  store double %.2, ptr %110, align 16
+  store double %.1, ptr %110, align 16
   %111 = getelementptr inbounds i8, ptr %2, i64 24
   store double %35, ptr %111, align 8
   %112 = getelementptr inbounds i8, ptr %2, i64 32

@@ -1794,7 +1794,7 @@ define ptr @vxstrfmt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
 32:                                               ; preds = %.lr.ph212, %239
   %.088210 = phi ptr [ %0, %.lr.ph212 ], [ %240, %239 ]
   %.0102209 = phi i32 [ 0, %.lr.ph212 ], [ %41, %239 ]
-  %.0104208 = phi i1 [ false, %.lr.ph212 ], [ %.2.ph, %239 ]
+  %.0104208 = phi i1 [ false, %.lr.ph212 ], [ %.3.ph, %239 ]
   %33 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.088210, i32 noundef 37) #26
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.loopexit.sink.split, label %.preheader153
@@ -1802,7 +1802,7 @@ define ptr @vxstrfmt(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
 .preheader153:                                    ; preds = %32, %46
   %indvars.iv.in = phi i32 [ %indvars.iv, %46 ], [ %.0102209, %32 ]
   %.0106 = phi ptr [ %48, %46 ], [ %33, %32 ]
-  %.1105 = phi i1 [ true, %46 ], [ %.0104208, %32 ]
+  %.2 = phi i1 [ true, %46 ], [ %.0104208, %32 ]
   %.1103 = phi i32 [ %47, %46 ], [ %.0102209, %32 ]
   %indvars.iv = add i32 %indvars.iv.in, 1
   %35 = getelementptr inbounds i8, ptr %.0106, i64 1
@@ -1829,7 +1829,7 @@ switch.hole_check:                                ; preds = %37
   br i1 %switch.lobit, label %.thread, label %46
 
 .thread:                                          ; preds = %switch.hole_check, %.preheader153, %.preheader153, %.preheader153, %.preheader153
-  %.2.ph = phi i1 [ %.1105, %.preheader153 ], [ %.1105, %.preheader153 ], [ %.1105, %.preheader153 ], [ %.1105, %.preheader153 ], [ true, %switch.hole_check ]
+  %.3.ph = phi i1 [ %.2, %.preheader153 ], [ %.2, %.preheader153 ], [ %.2, %.preheader153 ], [ %.2, %.preheader153 ], [ true, %switch.hole_check ]
   %41 = add nsw i32 %.1103, 1
   store ptr null, ptr %7, align 8
   %42 = ptrtoint ptr %.0106 to i64
@@ -2369,15 +2369,15 @@ thread-pre-split:                                 ; preds = %.thread, %205, %206
   br i1 %.not, label %.loopexit, label %32, !llvm.loop !15
 
 .loopexit.sink.split:                             ; preds = %32, %46
-  %.3.ph = phi i1 [ true, %46 ], [ %.0104208, %32 ]
+  %.1105.ph = phi i1 [ true, %46 ], [ %.0104208, %32 ]
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull %.088210) #19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %239, %.loopexit.sink.split
-  %.3 = phi i1 [ %.3.ph, %.loopexit.sink.split ], [ %.2.ph, %239 ]
+  %.1105 = phi i1 [ %.1105.ph, %.loopexit.sink.split ], [ %.3.ph, %239 ]
   %242 = load ptr, ptr %6, align 8
   %.not138 = icmp ne ptr %242, null
-  %brmerge.not = select i1 %.not138, i1 %.3, i1 false
+  %brmerge.not = select i1 %.not138, i1 %.1105, i1 false
   br i1 %brmerge.not, label %243, label %267
 
 243:                                              ; preds = %.loopexit

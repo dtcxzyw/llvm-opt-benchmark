@@ -139,9 +139,9 @@ if.end31:                                         ; preds = %if.end26
   br i1 %cmp33, label %err, label %if.end36
 
 if.end36:                                         ; preds = %if.end31, %if.end17
-  %pretmp.0 = phi ptr [ %call23, %if.end31 ], [ null, %if.end17 ]
+  %pretmp.1 = phi ptr [ %call23, %if.end31 ], [ null, %if.end17 ]
   %prederlen.0 = phi i32 [ %call32, %if.end31 ], [ 0, %if.end17 ]
-  call void @X509_free(ptr noundef %pretmp.0) #3
+  call void @X509_free(ptr noundef %pretmp.1) #3
   %certder37 = getelementptr inbounds i8, ptr %sctx, i64 40
   %1 = load ptr, ptr %certder37, align 8
   call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 185) #3
@@ -161,12 +161,12 @@ if.end36:                                         ; preds = %if.end31, %if.end17
   br label %return
 
 err:                                              ; preds = %ct_x509_get_ext.exit28, %if.end31, %if.end26, %if.then22, %if.end4, %if.then1, %ct_x509_get_ext.exit
-  %pretmp.1 = phi ptr [ null, %ct_x509_get_ext.exit ], [ null, %if.then1 ], [ null, %if.end4 ], [ null, %ct_x509_get_ext.exit28 ], [ null, %if.then22 ], [ %call23, %if.end31 ], [ %call23, %if.end26 ]
+  %pretmp.0 = phi ptr [ null, %ct_x509_get_ext.exit ], [ null, %if.then1 ], [ null, %if.end4 ], [ null, %ct_x509_get_ext.exit28 ], [ null, %if.then22 ], [ %call23, %if.end31 ], [ %call23, %if.end26 ]
   %5 = load ptr, ptr %certder, align 8
   call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 195) #3
   %6 = load ptr, ptr %preder, align 8
   call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 196) #3
-  call void @X509_free(ptr noundef %pretmp.1) #3
+  call void @X509_free(ptr noundef %pretmp.0) #3
   br label %return
 
 return:                                           ; preds = %err, %if.end36
@@ -322,7 +322,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br i1 %cmp5, label %err, label %if.end8
 
 if.end8:                                          ; preds = %land.lhs.true, %if.else
-  %md.0 = phi ptr [ %call4, %if.else ], [ %0, %land.lhs.true ]
+  %md.1 = phi ptr [ %call4, %if.else ], [ %0, %land.lhs.true ]
   %call9 = call i32 @i2d_X509_PUBKEY(ptr noundef %pkey, ptr noundef nonnull %der) #3
   %cmp10 = icmp slt i32 %call9, 1
   br i1 %cmp10, label %err, label %if.end12
@@ -330,26 +330,26 @@ if.end8:                                          ; preds = %land.lhs.true, %if.
 if.end12:                                         ; preds = %if.end8
   %2 = load ptr, ptr %der, align 8
   %conv = zext nneg i32 %call9 to i64
-  %call13 = call i32 @EVP_Digest(ptr noundef %2, i64 noundef %conv, ptr noundef nonnull %md.0, ptr noundef nonnull %md_len, ptr noundef nonnull %call, ptr noundef null) #3
+  %call13 = call i32 @EVP_Digest(ptr noundef %2, i64 noundef %conv, ptr noundef nonnull %md.1, ptr noundef nonnull %md_len, ptr noundef nonnull %call, ptr noundef null) #3
   %tobool.not = icmp eq i32 %call13, 0
   br i1 %tobool.not, label %err, label %if.end15
 
 if.end15:                                         ; preds = %if.end12
   %3 = load ptr, ptr %hash, align 8
-  %cmp16.not = icmp eq ptr %md.0, %3
+  %cmp16.not = icmp eq ptr %md.1, %3
   br i1 %cmp16.not, label %err, label %if.then18
 
 if.then18:                                        ; preds = %if.end15
   call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 231) #3
-  store ptr %md.0, ptr %hash, align 8
+  store ptr %md.1, ptr %hash, align 8
   store i64 32, ptr %hash_len, align 8
   br label %err
 
 err:                                              ; preds = %if.end15, %if.then18, %if.end12, %if.end8, %if.else, %entry
-  %md.1 = phi ptr [ null, %entry ], [ %md.0, %if.end8 ], [ %md.0, %if.end12 ], [ null, %if.else ], [ null, %if.then18 ], [ null, %if.end15 ]
+  %md.0 = phi ptr [ null, %entry ], [ %md.1, %if.end8 ], [ %md.1, %if.end12 ], [ null, %if.else ], [ null, %if.then18 ], [ null, %if.end15 ]
   %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.end8 ], [ 0, %if.end12 ], [ 0, %if.else ], [ 1, %if.then18 ], [ 1, %if.end15 ]
   call void @EVP_MD_free(ptr noundef %call) #3
-  call void @CRYPTO_free(ptr noundef %md.1, ptr noundef nonnull @.str, i32 noundef 240) #3
+  call void @CRYPTO_free(ptr noundef %md.0, ptr noundef nonnull @.str, i32 noundef 240) #3
   %4 = load ptr, ptr %der, align 8
   call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 241) #3
   ret i32 %ret.0

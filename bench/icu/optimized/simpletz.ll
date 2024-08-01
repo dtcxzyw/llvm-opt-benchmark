@@ -3678,22 +3678,22 @@ if.then8:                                         ; preds = %if.then6
 
 if.end10:                                         ; preds = %if.then8, %if.then6
   %6 = phi i32 [ %.pre, %if.then8 ], [ %5, %if.then6 ]
-  %cnt.0 = phi i32 [ 1, %if.then8 ], [ 0, %if.then6 ]
-  %cmp11 = icmp slt i32 %cnt.0, %6
+  %cnt.1 = phi i32 [ 1, %if.then8 ], [ 0, %if.then6 ]
+  %cmp11 = icmp slt i32 %cnt.1, %6
   br i1 %cmp11, label %if.then12, label %if.end17
 
 if.then12:                                        ; preds = %if.end10
   %dstRule = getelementptr inbounds i8, ptr %this, i64 152
   %7 = load ptr, ptr %dstRule, align 8
-  %inc13 = add nuw nsw i32 %cnt.0, 1
-  %idxprom14 = zext nneg i32 %cnt.0 to i64
+  %inc13 = add nuw nsw i32 %cnt.1, 1
+  %idxprom14 = zext nneg i32 %cnt.1 to i64
   %arrayidx15 = getelementptr inbounds ptr, ptr %trsrules, i64 %idxprom14
   store ptr %7, ptr %arrayidx15, align 8
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end10, %if.then12, %if.end5
-  %cnt.1 = phi i32 [ %inc13, %if.then12 ], [ %cnt.0, %if.end10 ], [ 0, %if.end5 ]
-  store i32 %cnt.1, ptr %trscount, align 4
+  %cnt.0 = phi i32 [ %inc13, %if.then12 ], [ %cnt.1, %if.end10 ], [ 0, %if.end5 ]
+  store i32 %cnt.0, ptr %trscount, align 4
   br label %return
 
 return:                                           ; preds = %if.end4.i, %entry, %if.end17

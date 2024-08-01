@@ -161,7 +161,7 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %43
 
 43:                                               ; preds = %39, %32
-  %.1 = phi ptr [ %42, %39 ], [ @.str.39, %32 ]
+  %.2 = phi ptr [ %42, %39 ], [ @.str.39, %32 ]
   %44 = add i32 %33, -8
   %45 = add i32 %33, -4
   %46 = tail call fastcc ptr @fcoe_get_eof(ptr noundef %0, i32 noundef %45)
@@ -195,7 +195,7 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.0136 = phi i8 [ %17, %30 ], [ %35, %50 ], [ %35, %54 ], [ %35, %43 ], [ %35, %52 ]
   %.1135 = phi i8 [ %.0134, %30 ], [ 0, %50 ], [ %55, %54 ], [ 0, %43 ], [ 0, %52 ]
   %.1133 = phi ptr [ %.0132, %30 ], [ %49, %50 ], [ %59, %54 ], [ %46, %43 ], [ @.str.37, %52 ]
-  %.2 = phi ptr [ %.0130, %30 ], [ %.1, %50 ], [ %.1, %54 ], [ %.1, %43 ], [ %.1, %52 ]
+  %.1 = phi ptr [ %.0130, %30 ], [ %.2, %50 ], [ %.2, %54 ], [ %.2, %43 ], [ %.2, %52 ]
   %.0129 = phi i32 [ %18, %30 ], [ %38, %50 ], [ %38, %54 ], [ %38, %43 ], [ %38, %52 ]
   %.0128 = phi i32 [ 2, %30 ], [ 14, %50 ], [ 14, %54 ], [ 14, %43 ], [ 14, %52 ]
   %.0127 = phi i32 [ %12, %30 ], [ %51, %50 ], [ %34, %54 ], [ %34, %43 ], [ %34, %52 ]
@@ -229,7 +229,7 @@ define internal i32 @dissect_fcoe(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %74 = load i32, ptr @proto_fcoe, align 4
   %75 = zext i8 %.0136 to i32
   %76 = tail call ptr @val_to_str(i32 noundef %75, ptr noundef nonnull @fcoe_sof_vals, ptr noundef nonnull @.str.38) #3
-  %77 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef %.0128, ptr noundef nonnull @.str.43, ptr noundef %.2, ptr noundef %76, ptr noundef %.1133, i32 noundef %.0127, ptr noundef nonnull %.0131, ptr noundef nonnull %spec.store.select) #3
+  %77 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef %.0128, ptr noundef nonnull @.str.43, ptr noundef %.1, ptr noundef %76, ptr noundef %.1133, i32 noundef %.0127, ptr noundef nonnull %.0131, ptr noundef nonnull %spec.store.select) #3
   %78 = load i32, ptr @ett_fcoe, align 4
   %79 = tail call ptr @proto_item_add_subtree(ptr noundef %77, i32 noundef %78) #3
   %80 = load i32, ptr @hf_fcoe_ver, align 4

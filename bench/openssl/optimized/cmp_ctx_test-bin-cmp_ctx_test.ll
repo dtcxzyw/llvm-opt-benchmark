@@ -860,7 +860,7 @@ if.else23.i:                                      ; preds = %if.end.i
   br label %tear_down.exit
 
 tear_down.exit:                                   ; preds = %if.end.i, %if.else23.i
-  %res.2.i = phi i32 [ 0, %if.end.i ], [ %spec.select11.i, %if.else23.i ]
+  %res.1.i = phi i32 [ 0, %if.end.i ], [ %spec.select11.i, %if.else23.i ]
   tail call void @OSSL_CMP_log_close() #6
   tail call void @OSSL_CMP_log_close() #6
   %4 = load ptr, ptr %0, align 8
@@ -869,7 +869,7 @@ tear_down.exit:                                   ; preds = %if.end.i, %if.else2
   br label %return
 
 return:                                           ; preds = %entry, %tear_down.exit
-  %retval.0 = phi i32 [ %res.2.i, %tear_down.exit ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %res.1.i, %tear_down.exit ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -950,14 +950,14 @@ while.end.i:                                      ; preds = %while.body.i
   br label %tear_down.exit
 
 tear_down.exit:                                   ; preds = %if.then2, %while.end.i
-  %res.4.i = phi i32 [ 0, %if.then2 ], [ %spec.select18.i, %while.end.i ]
+  %res.3.i = phi i32 [ 0, %if.then2 ], [ %spec.select18.i, %while.end.i ]
   %8 = load ptr, ptr %0, align 8
   tail call void @OSSL_CMP_CTX_free(ptr noundef %8) #6
   tail call void @CRYPTO_free(ptr noundef nonnull %call, ptr noundef nonnull @.str, i32 noundef 25) #6
   br label %return
 
 return:                                           ; preds = %entry, %tear_down.exit
-  %retval.0 = phi i32 [ %res.4.i, %tear_down.exit ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %res.3.i, %tear_down.exit ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

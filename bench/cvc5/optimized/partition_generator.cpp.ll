@@ -1679,7 +1679,7 @@ ehcleanup33:                                      ; preds = %lpad26, %lpad14, %l
   br label %ehcleanup35
 
 cleanup34:                                        ; preds = %if.then13.i.i75, %if.then.i.i69, %cleanup32, %invoke.cont6
-  %retval.2 = phi i1 [ true, %invoke.cont6 ], [ %retval.1, %cleanup32 ], [ %retval.1, %if.then.i.i69 ], [ %retval.1, %if.then13.i.i75 ]
+  %retval.0 = phi i1 [ true, %invoke.cont6 ], [ %retval.1, %cleanup32 ], [ %retval.1, %if.then.i.i69 ], [ %retval.1, %if.then13.i.i75 ]
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %unusableKinds, i64 16
   %29 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %29, null
@@ -1709,7 +1709,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIN
   br label %_ZNSt13unordered_setIN4cvc58internal4kind6Kind_tENS2_16KindHashFunctionESt8equal_toIS3_ESaIS3_EED2Ev.exit
 
 _ZNSt13unordered_setIN4cvc58internal4kind6Kind_tENS2_16KindHashFunctionESt8equal_toIS3_ESaIS3_EED2Ev.exit: ; preds = %_ZNSt10_HashtableIN4cvc58internal4kind6Kind_tES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ENS2_16KindHashFunctionENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
-  ret i1 %retval.2
+  ret i1 %retval.0
 
 ehcleanup35:                                      ; preds = %ehcleanup33, %lpad9, %lpad5
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup33 ], [ %13, %lpad9 ], [ %0, %lpad5 ]
@@ -11996,8 +11996,8 @@ while.body.i:                                     ; preds = %if.then.i, %while.b
   br i1 %cmp2.i, label %while.body.i, label %_ZNSt24uniform_int_distributionImE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit, !llvm.loop !100
 
 _ZNSt24uniform_int_distributionImE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit: ; preds = %while.body.i, %if.then, %if.then.i
-  %__product.1.i = phi i64 [ %mul.i, %if.then ], [ %mul.i, %if.then.i ], [ %mul5.i, %while.body.i ]
-  %shr.i = lshr i64 %__product.1.i, 32
+  %__product.0.i = phi i64 [ %mul.i, %if.then ], [ %mul.i, %if.then.i ], [ %mul5.i, %while.body.i ]
+  %shr.i = lshr i64 %__product.0.i, 32
   br label %if.end16
 
 if.else:                                          ; preds = %entry

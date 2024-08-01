@@ -1676,21 +1676,21 @@ for.body.preheader.i:                             ; preds = %for.end
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %vmax.sroa.0.1 = phi double [ -1.000000e+10, %for.body.preheader.i ], [ %133, %for.body.i ]
-  %vmin.sroa.0.1 = phi double [ 1.000000e+10, %for.body.preheader.i ], [ %129, %for.body.i ]
+  %vmax.sroa.0.2 = phi double [ -1.000000e+10, %for.body.preheader.i ], [ %133, %for.body.i ]
+  %vmin.sroa.0.2 = phi double [ 1.000000e+10, %for.body.preheader.i ], [ %129, %for.body.i ]
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %126 = phi <2 x double> [ <double 1.000000e+10, double 1.000000e+10>, %for.body.preheader.i ], [ %132, %for.body.i ]
   %127 = phi <2 x double> [ <double -1.000000e+10, double -1.000000e+10>, %for.body.preheader.i ], [ %135, %for.body.i ]
   %arrayidx.i = getelementptr inbounds %class.aiVector3t, ptr %add.ptr.i239, i64 %indvars.iv.i
   %128 = load double, ptr %arrayidx.i, align 8, !noalias !7
-  %cmp.i.i.i240 = fcmp olt double %vmin.sroa.0.1, %128
-  %129 = select i1 %cmp.i.i.i240, double %vmin.sroa.0.1, double %128
+  %cmp.i.i.i240 = fcmp olt double %vmin.sroa.0.2, %128
+  %129 = select i1 %cmp.i.i.i240, double %vmin.sroa.0.2, double %128
   %y.i.i241 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   %130 = load <2 x double>, ptr %y.i.i241, align 8, !noalias !7
   %131 = fcmp olt <2 x double> %126, %130
   %132 = select <2 x i1> %131, <2 x double> %126, <2 x double> %130
-  %cmp.i.i9.i = fcmp olt double %128, %vmax.sroa.0.1
-  %133 = select i1 %cmp.i.i9.i, double %vmax.sroa.0.1, double %128
+  %cmp.i.i9.i = fcmp olt double %128, %vmax.sroa.0.2
+  %133 = select i1 %cmp.i.i9.i, double %vmax.sroa.0.2, double %128
   %134 = fcmp olt <2 x double> %130, %127
   %135 = select <2 x i1> %134, <2 x double> %127, <2 x double> %130
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3265,7 +3265,7 @@ if.end22.i:                                       ; preds = %if.end17.i
   br label %if.then105
 
 if.then105:                                       ; preds = %if.then5.i, %if.end22.i
-  %ei.sroa.10.2 = phi double [ %add5.i.i, %if.end22.i ], [ %e0.sroa.5.0.copyload, %if.then5.i ]
+  %ei.sroa.10.4 = phi double [ %add5.i.i, %if.end22.i ], [ %e0.sroa.5.0.copyload, %if.then5.i ]
   %132 = phi <2 x double> [ %131, %if.end22.i ], [ %90, %if.then5.i ]
   %133 = load ptr, ptr %whiteside.blackside, align 8
   %cmp.i.i = icmp eq ptr %133, %97
@@ -3282,7 +3282,7 @@ invoke.cont109:                                   ; preds = %if.then105
   %sub3.i238 = fsub double %136, %137
   %z.i239 = getelementptr inbounds i8, ptr %97, i64 -8
   %138 = load double, ptr %z.i239, align 8, !noalias !114
-  %sub5.i241 = fsub double %138, %ei.sroa.10.2
+  %sub5.i241 = fsub double %138, %ei.sroa.10.4
   %mul4.i = fmul double %sub3.i238, %sub3.i238
   %139 = call double @llvm.fmuladd.f64(double %sub.i235, double %sub.i235, double %mul4.i)
   %140 = call noundef double @llvm.fmuladd.f64(double %sub5.i241, double %sub5.i241, double %139)
@@ -3297,7 +3297,7 @@ if.then113:                                       ; preds = %if.then105, %invoke
 if.then.i249:                                     ; preds = %if.then113
   store <2 x double> %132, ptr %97, align 8
   %ei.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %97, i64 16
-  store double %ei.sroa.10.2, ptr %ei.sroa.10.0..sroa_idx, align 8
+  store double %ei.sroa.10.4, ptr %ei.sroa.10.0..sroa_idx, align 8
   %142 = load ptr, ptr %whiteside.blackside.sroa.sel, align 8
   %incdec.ptr.i250 = getelementptr inbounds i8, ptr %142, i64 24
   store ptr %incdec.ptr.i250, ptr %whiteside.blackside.sroa.sel, align 8
@@ -3330,7 +3330,7 @@ _ZNSt12_Vector_baseI10aiVector3tIdESaIS1_EE11_M_allocateEm.exit.i.i266: ; preds 
   %add.ptr.i.i268 = getelementptr inbounds %class.aiVector3t, ptr %cond.i10.i.i267, i64 %sub.ptr.div.i.i.i.i258
   store <2 x double> %132, ptr %add.ptr.i.i268, align 8
   %ei.sroa.10.0.add.ptr.i.i268.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i268, i64 16
-  store double %ei.sroa.10.2, ptr %ei.sroa.10.0.add.ptr.i.i268.sroa_idx, align 8
+  store double %ei.sroa.10.4, ptr %ei.sroa.10.0.add.ptr.i.i268.sroa_idx, align 8
   br i1 %cmp.i.i, label %_ZNSt6vectorI10aiVector3tIdESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i276, label %for.body.i.i.i.i.i270
 
 for.body.i.i.i.i.i270:                            ; preds = %_ZNSt12_Vector_baseI10aiVector3tIdESaIS1_EE11_M_allocateEm.exit.i.i266, %for.body.i.i.i.i.i270
@@ -3372,7 +3372,7 @@ if.end115:                                        ; preds = %_ZNSt6vectorI10aiVe
 if.then.i291:                                     ; preds = %if.end115
   store <2 x double> %132, ptr %144, align 8
   %ei.sroa.10.0..sroa_idx1397 = getelementptr inbounds i8, ptr %144, i64 16
-  store double %ei.sroa.10.2, ptr %ei.sroa.10.0..sroa_idx1397, align 8
+  store double %ei.sroa.10.4, ptr %ei.sroa.10.0..sroa_idx1397, align 8
   %146 = load ptr, ptr %whiteside.blackside2.sroa.sel, align 8
   %incdec.ptr.i292 = getelementptr inbounds i8, ptr %146, i64 24
   store ptr %incdec.ptr.i292, ptr %whiteside.blackside2.sroa.sel, align 8
@@ -3413,7 +3413,7 @@ _ZNSt12_Vector_baseI10aiVector3tIdESaIS1_EE11_M_allocateEm.exit.i.i308: ; preds 
   %add.ptr.i.i310 = getelementptr inbounds %class.aiVector3t, ptr %cond.i10.i.i309, i64 %sub.ptr.div.i.i.i.i300
   store <2 x double> %132, ptr %add.ptr.i.i310, align 8
   %ei.sroa.10.0.add.ptr.i.i310.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i.i310, i64 16
-  store double %ei.sroa.10.2, ptr %ei.sroa.10.0.add.ptr.i.i310.sroa_idx, align 8
+  store double %ei.sroa.10.4, ptr %ei.sroa.10.0.add.ptr.i.i310.sroa_idx, align 8
   %cmp.not5.i.i.i.i.i311 = icmp eq ptr %147, %144
   br i1 %cmp.not5.i.i.i.i.i311, label %_ZNSt6vectorI10aiVector3tIdESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i318, label %for.body.i.i.i.i.i312
 
@@ -3521,9 +3521,9 @@ for.body146:                                      ; preds = %for.body146.prehead
   %185 = phi ptr [ %311, %for.end206 ], [ %183, %for.body146.preheader ]
   %isCurrentlyInside.01562 = phi i1 [ %isCurrentlyInside.1, %for.end206 ], [ %call138, %for.body146.preheader ]
   %storemerge1561 = phi i64 [ %add152, %for.end206 ], [ 0, %for.body146.preheader ]
-  %intersections.sroa.0.11560 = phi ptr [ %intersections.sroa.0.3.lcssa, %for.end206 ], [ null, %for.body146.preheader ]
-  %intersections.sroa.36.11559 = phi ptr [ %intersections.sroa.36.2.lcssa, %for.end206 ], [ null, %for.body146.preheader ]
-  %intersections.sroa.68.11558 = phi ptr [ %intersections.sroa.68.2.lcssa, %for.end206 ], [ null, %for.body146.preheader ]
+  %intersections.sroa.0.21560 = phi ptr [ %intersections.sroa.0.6.lcssa, %for.end206 ], [ null, %for.body146.preheader ]
+  %intersections.sroa.36.21559 = phi ptr [ %intersections.sroa.36.3.lcssa, %for.end206 ], [ null, %for.body146.preheader ]
+  %intersections.sroa.68.21558 = phi ptr [ %intersections.sroa.68.3.lcssa, %for.end206 ], [ null, %for.body146.preheader ]
   %add.ptr.i345 = getelementptr inbounds %class.aiVector3t, ptr %185, i64 %storemerge1561
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %186 = load <2 x double>, ptr %proj, align 16
@@ -3696,7 +3696,7 @@ lpad149.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %if.end344, %if.
   br label %ehcleanup
 
 lpad149.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i.i, %if.then.i.i1249
-  %intersections.sroa.0.2.ph.ph.ph = phi ptr [ %intersections.sroa.0.1.lcssa, %if.then.i.i.i.i ], [ %intersections.sroa.0.31548, %if.then.i.i1249 ]
+  %intersections.sroa.0.3.ph.ph.ph = phi ptr [ %intersections.sroa.0.2.lcssa, %if.then.i.i.i.i ], [ %intersections.sroa.0.61548, %if.then.i.i1249 ]
   %lpad.loopexit.split-lp1471 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -3708,9 +3708,9 @@ if.end191:                                        ; preds = %while.cond, %invoke
 for.body196:                                      ; preds = %if.end191, %for.inc204
   %262 = phi ptr [ %306, %for.inc204 ], [ %234, %if.end191 ]
   %b192.01549 = phi i64 [ %inc205, %for.inc204 ], [ 0, %if.end191 ]
-  %intersections.sroa.0.31548 = phi ptr [ %intersections.sroa.0.4, %for.inc204 ], [ %intersections.sroa.0.11560, %if.end191 ]
-  %intersections.sroa.36.21547 = phi ptr [ %intersections.sroa.36.3, %for.inc204 ], [ %intersections.sroa.36.11559, %if.end191 ]
-  %intersections.sroa.68.21546 = phi ptr [ %intersections.sroa.68.3, %for.inc204 ], [ %intersections.sroa.68.11558, %if.end191 ]
+  %intersections.sroa.0.61548 = phi ptr [ %intersections.sroa.0.7, %for.inc204 ], [ %intersections.sroa.0.21560, %if.end191 ]
+  %intersections.sroa.36.31547 = phi ptr [ %intersections.sroa.36.10, %for.inc204 ], [ %intersections.sroa.36.21559, %if.end191 ]
+  %intersections.sroa.68.31546 = phi ptr [ %intersections.sroa.68.4, %for.inc204 ], [ %intersections.sroa.68.21558, %if.end191 ]
   %add.ptr.i439 = getelementptr inbounds %"struct.std::pair", ptr %262, i64 %b192.01549
   %second199 = getelementptr inbounds i8, ptr %add.ptr.i439, i64 8
   %263 = load <2 x double>, ptr %proj_inv, align 16
@@ -3748,23 +3748,23 @@ for.body196:                                      ; preds = %if.end191, %for.inc
   %292 = call double @llvm.fmuladd.f64(double %291, double %268, double %290)
   %293 = load double, ptr %c4.i, align 8, !noalias !143
   %add13.i459 = fadd double %293, %292
-  %cmp.not.i464 = icmp eq ptr %intersections.sroa.36.21547, %intersections.sroa.68.21546
+  %cmp.not.i464 = icmp eq ptr %intersections.sroa.36.31547, %intersections.sroa.68.31546
   br i1 %cmp.not.i464, label %if.else.i468, label %if.then.i465
 
 if.then.i465:                                     ; preds = %for.body196
   %294 = load i64, ptr %add.ptr.i439, align 8
-  store i64 %294, ptr %intersections.sroa.36.21547, align 8
-  %295 = getelementptr inbounds i8, ptr %intersections.sroa.36.21547, i64 8
+  store i64 %294, ptr %intersections.sroa.36.31547, align 8
+  %295 = getelementptr inbounds i8, ptr %intersections.sroa.36.31547, i64 8
   store <2 x double> %287, ptr %295, align 8
-  %ref.tmp197.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %intersections.sroa.36.21547, i64 24
+  %ref.tmp197.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %intersections.sroa.36.31547, i64 24
   store double %add13.i459, ptr %ref.tmp197.sroa.4.0..sroa_idx, align 8
-  %296 = getelementptr inbounds i8, ptr %intersections.sroa.36.21547, i64 32
+  %296 = getelementptr inbounds i8, ptr %intersections.sroa.36.31547, i64 32
   store i64 %storemerge1561, ptr %296, align 8
   br label %for.inc204
 
 if.else.i468:                                     ; preds = %for.body196
-  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %intersections.sroa.36.21547 to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %intersections.sroa.0.31548 to i64
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %intersections.sroa.36.31547 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %intersections.sroa.0.61548 to i64
   %sub.ptr.sub.i.i.i1230 = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp.i.i1231 = icmp eq i64 %sub.ptr.sub.i.i.i1230, 9223372036854775800
   br i1 %cmp.i.i1231, label %if.then.i.i1249, label %_ZNKSt6vectorISt5tupleIJm10aiVector3tIdEmEESaIS3_EE12_M_check_lenEmPKc.exit.i
@@ -3802,12 +3802,12 @@ _ZNSt12_Vector_baseISt5tupleIJm10aiVector3tIdEmEESaIS3_EE11_M_allocateEm.exit.i:
   store double %add13.i459, ptr %ref.tmp197.sroa.4.0..sroa_idx1326, align 8
   %300 = getelementptr inbounds i8, ptr %add.ptr.i1237, i64 32
   store i64 %storemerge1561, ptr %300, align 8
-  %cmp.not5.i.i.i.i1238 = icmp eq ptr %intersections.sroa.0.31548, %intersections.sroa.36.21547
+  %cmp.not5.i.i.i.i1238 = icmp eq ptr %intersections.sroa.0.61548, %intersections.sroa.36.31547
   br i1 %cmp.not5.i.i.i.i1238, label %_ZNSt6vectorISt5tupleIJm10aiVector3tIdEmEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i, label %for.body.i.i.i.i1239
 
 for.body.i.i.i.i1239:                             ; preds = %_ZNSt12_Vector_baseISt5tupleIJm10aiVector3tIdEmEESaIS3_EE11_M_allocateEm.exit.i, %for.body.i.i.i.i1239
   %__cur.07.i.i.i.i1240 = phi ptr [ %incdec.ptr1.i.i.i.i1244, %for.body.i.i.i.i1239 ], [ %cond.i10.i, %_ZNSt12_Vector_baseISt5tupleIJm10aiVector3tIdEmEESaIS3_EE11_M_allocateEm.exit.i ]
-  %__first.addr.06.i.i.i.i1241 = phi ptr [ %incdec.ptr.i.i.i.i1243, %for.body.i.i.i.i1239 ], [ %intersections.sroa.0.31548, %_ZNSt12_Vector_baseISt5tupleIJm10aiVector3tIdEmEESaIS3_EE11_M_allocateEm.exit.i ]
+  %__first.addr.06.i.i.i.i1241 = phi ptr [ %incdec.ptr.i.i.i.i1243, %for.body.i.i.i.i1239 ], [ %intersections.sroa.0.61548, %_ZNSt12_Vector_baseISt5tupleIJm10aiVector3tIdEmEESaIS3_EE11_M_allocateEm.exit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !146)
   call void @llvm.experimental.noalias.scope.decl(metadata !149)
   %301 = load i64, ptr %__first.addr.06.i.i.i.i1241, align 8, !alias.scope !149, !noalias !146
@@ -3821,16 +3821,16 @@ for.body.i.i.i.i1239:                             ; preds = %_ZNSt12_Vector_base
   store i64 %304, ptr %303, align 8, !alias.scope !146, !noalias !149
   %incdec.ptr.i.i.i.i1243 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i1241, i64 40
   %incdec.ptr1.i.i.i.i1244 = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i1240, i64 40
-  %cmp.not.i.i.i.i1245 = icmp eq ptr %incdec.ptr.i.i.i.i1243, %intersections.sroa.36.21547
+  %cmp.not.i.i.i.i1245 = icmp eq ptr %incdec.ptr.i.i.i.i1243, %intersections.sroa.36.31547
   br i1 %cmp.not.i.i.i.i1245, label %_ZNSt6vectorISt5tupleIJm10aiVector3tIdEmEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i, label %for.body.i.i.i.i1239, !llvm.loop !152
 
 _ZNSt6vectorISt5tupleIJm10aiVector3tIdEmEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i: ; preds = %for.body.i.i.i.i1239, %_ZNSt12_Vector_baseISt5tupleIJm10aiVector3tIdEmEESaIS3_EE11_M_allocateEm.exit.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i10.i, %_ZNSt12_Vector_baseISt5tupleIJm10aiVector3tIdEmEESaIS3_EE11_M_allocateEm.exit.i ], [ %incdec.ptr1.i.i.i.i1244, %for.body.i.i.i.i1239 ]
-  %tobool.not.i.i1247 = icmp eq ptr %intersections.sroa.0.31548, null
+  %tobool.not.i.i1247 = icmp eq ptr %intersections.sroa.0.61548, null
   br i1 %tobool.not.i.i1247, label %.noexc469, label %if.then.i22.i
 
 if.then.i22.i:                                    ; preds = %_ZNSt6vectorISt5tupleIJm10aiVector3tIdEmEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i
-  call void @_ZdlPv(ptr noundef nonnull %intersections.sroa.0.31548) #20
+  call void @_ZdlPv(ptr noundef nonnull %intersections.sroa.0.61548) #20
   br label %.noexc469
 
 .noexc469:                                        ; preds = %if.then.i22.i, %_ZNSt6vectorISt5tupleIJm10aiVector3tIdEmEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21.i
@@ -3838,10 +3838,10 @@ if.then.i22.i:                                    ; preds = %_ZNSt6vectorISt5tup
   br label %for.inc204
 
 for.inc204:                                       ; preds = %.noexc469, %if.then.i465
-  %intersections.sroa.68.3 = phi ptr [ %add.ptr23.i, %.noexc469 ], [ %intersections.sroa.68.21546, %if.then.i465 ]
-  %__cur.0.lcssa.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i, %.noexc469 ], [ %intersections.sroa.36.21547, %if.then.i465 ]
-  %intersections.sroa.0.4 = phi ptr [ %cond.i10.i, %.noexc469 ], [ %intersections.sroa.0.31548, %if.then.i465 ]
-  %intersections.sroa.36.3 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.pn, i64 40
+  %intersections.sroa.68.4 = phi ptr [ %add.ptr23.i, %.noexc469 ], [ %intersections.sroa.68.31546, %if.then.i465 ]
+  %__cur.0.lcssa.i.i.i.i.pn = phi ptr [ %__cur.0.lcssa.i.i.i.i, %.noexc469 ], [ %intersections.sroa.36.31547, %if.then.i465 ]
+  %intersections.sroa.0.7 = phi ptr [ %cond.i10.i, %.noexc469 ], [ %intersections.sroa.0.61548, %if.then.i465 ]
+  %intersections.sroa.36.10 = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.pn, i64 40
   %inc205 = add nuw i64 %b192.01549, 1
   %305 = load ptr, ptr %_M_finish.i.i394, align 8
   %306 = load ptr, ptr %intersected_boundary, align 8
@@ -3854,9 +3854,9 @@ for.inc204:                                       ; preds = %.noexc469, %if.then
 
 for.end206:                                       ; preds = %for.inc204, %if.end191
   %307 = phi ptr [ %234, %if.end191 ], [ %306, %for.inc204 ]
-  %intersections.sroa.68.2.lcssa = phi ptr [ %intersections.sroa.68.11558, %if.end191 ], [ %intersections.sroa.68.3, %for.inc204 ]
-  %intersections.sroa.36.2.lcssa = phi ptr [ %intersections.sroa.36.11559, %if.end191 ], [ %intersections.sroa.36.3, %for.inc204 ]
-  %intersections.sroa.0.3.lcssa = phi ptr [ %intersections.sroa.0.11560, %if.end191 ], [ %intersections.sroa.0.4, %for.inc204 ]
+  %intersections.sroa.68.3.lcssa = phi ptr [ %intersections.sroa.68.21558, %if.end191 ], [ %intersections.sroa.68.4, %for.inc204 ]
+  %intersections.sroa.36.3.lcssa = phi ptr [ %intersections.sroa.36.21559, %if.end191 ], [ %intersections.sroa.36.10, %for.inc204 ]
+  %intersections.sroa.0.6.lcssa = phi ptr [ %intersections.sroa.0.21560, %if.end191 ], [ %intersections.sroa.0.7, %for.inc204 ]
   %sub.ptr.sub.i437.lcssa = phi i64 [ 0, %if.end191 ], [ %sub.ptr.sub.i437, %for.inc204 ]
   %308 = and i64 %sub.ptr.sub.i437.lcssa, 32
   %309 = icmp ne i64 %308, 0
@@ -3871,10 +3871,10 @@ for.end206:                                       ; preds = %for.inc204, %if.end
   br i1 %cmp145, label %for.body146, label %for.end216, !llvm.loop !154
 
 for.end216:                                       ; preds = %for.end206, %invoke.cont137
-  %intersections.sroa.36.1.lcssa = phi ptr [ null, %invoke.cont137 ], [ %intersections.sroa.36.2.lcssa, %for.end206 ]
-  %intersections.sroa.0.1.lcssa = phi ptr [ null, %invoke.cont137 ], [ %intersections.sroa.0.3.lcssa, %for.end206 ]
-  %sub.ptr.lhs.cast.i476 = ptrtoint ptr %intersections.sroa.36.1.lcssa to i64
-  %sub.ptr.rhs.cast.i477 = ptrtoint ptr %intersections.sroa.0.1.lcssa to i64
+  %intersections.sroa.36.2.lcssa = phi ptr [ null, %invoke.cont137 ], [ %intersections.sroa.36.3.lcssa, %for.end206 ]
+  %intersections.sroa.0.2.lcssa = phi ptr [ null, %invoke.cont137 ], [ %intersections.sroa.0.6.lcssa, %for.end206 ]
+  %sub.ptr.lhs.cast.i476 = ptrtoint ptr %intersections.sroa.36.2.lcssa to i64
+  %sub.ptr.rhs.cast.i477 = ptrtoint ptr %intersections.sroa.0.2.lcssa to i64
   %sub.ptr.sub.i478 = sub i64 %sub.ptr.lhs.cast.i476, %sub.ptr.rhs.cast.i477
   %sub.ptr.div.i479 = sdiv exact i64 %sub.ptr.sub.i478, 40
   %and218 = and i64 %sub.ptr.div.i479, 1
@@ -3919,10 +3919,10 @@ for.body233.lr.ph:                                ; preds = %if.then225
 
 for.body233:                                      ; preds = %for.body233.lr.ph, %for.body233
   %b228.01568 = phi i64 [ 0, %for.body233.lr.ph ], [ %inc242, %for.body233 ]
-  %add.ptr.i500 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.1.lcssa, i64 %b228.01568
+  %add.ptr.i500 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.2.lcssa, i64 %b228.01568
   %sub237 = add i64 %sub231, %b228.01568
   %rem239 = urem i64 %sub237, %sub.ptr.div.i479
-  %add.ptr.i511 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.1.lcssa, i64 %rem239
+  %add.ptr.i511 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.2.lcssa, i64 %rem239
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i500, i64 32
   %add.ptr.i2.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i511, i64 32
   %312 = load i64, ptr %add.ptr.i.i.i.i, align 8
@@ -3945,13 +3945,13 @@ for.body233:                                      ; preds = %for.body233.lr.ph, 
   br i1 %exitcond1657.not, label %if.end244, label %for.body233, !llvm.loop !155
 
 if.end244:                                        ; preds = %for.body233, %if.then225
-  %cmp248.not1572 = icmp eq ptr %intersections.sroa.36.1.lcssa, %intersections.sroa.0.1.lcssa
+  %cmp248.not1572 = icmp eq ptr %intersections.sroa.36.2.lcssa, %intersections.sroa.0.2.lcssa
   br i1 %cmp248.not1572, label %if.end317, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end244, %if.end291
   %a245.01574 = phi i64 [ %a245.1, %if.end291 ], [ 0, %if.end244 ]
-  %intersections.sroa.36.41573 = phi ptr [ %intersections.sroa.36.6, %if.end291 ], [ %intersections.sroa.36.1.lcssa, %if.end244 ]
-  %sub.ptr.lhs.cast.i5131575 = ptrtoint ptr %intersections.sroa.36.41573 to i64
+  %intersections.sroa.36.51573 = phi ptr [ %intersections.sroa.36.6, %if.end291 ], [ %intersections.sroa.36.2.lcssa, %if.end244 ]
+  %sub.ptr.lhs.cast.i5131575 = ptrtoint ptr %intersections.sroa.36.51573 to i64
   %sub.ptr.div.i5161576.in = sub i64 %sub.ptr.lhs.cast.i5131575, %sub.ptr.rhs.cast.i477
   %sub.ptr.div.i5161576 = sdiv exact i64 %sub.ptr.div.i5161576.in, 40
   %sub250 = add nsw i64 %sub.ptr.div.i5161576, -1
@@ -3959,11 +3959,11 @@ land.rhs:                                         ; preds = %if.end244, %if.end2
   br i1 %cmp251, label %invoke.cont261, label %for.end292
 
 invoke.cont261:                                   ; preds = %land.rhs
-  %add.ptr.i522 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.1.lcssa, i64 %a245.01574
+  %add.ptr.i522 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.2.lcssa, i64 %a245.01574
   %add.ptr.i.i.i523 = getelementptr inbounds i8, ptr %add.ptr.i522, i64 8
   %add256 = add nuw i64 %a245.01574, 1
   %rem258 = urem i64 %add256, %sub.ptr.div.i5161576
-  %add.ptr.i.i.i530 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.1.lcssa, i64 %rem258, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i530 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.2.lcssa, i64 %rem258, i32 0, i32 0, i32 1
   %316 = load double, ptr %add.ptr.i.i.i523, align 8, !noalias !156
   %317 = load double, ptr %add.ptr.i.i.i530, align 8, !noalias !156
   %sub.i531 = fsub double %316, %317
@@ -3985,7 +3985,7 @@ invoke.cont261:                                   ; preds = %land.rhs
 
 if.then.i.i550:                                   ; preds = %invoke.cont261
   %add.ptr.i545 = getelementptr inbounds i8, ptr %add.ptr.i522, i64 80
-  %cmp.i1.not.i.i = icmp eq ptr %intersections.sroa.36.41573, %add.ptr.i545
+  %cmp.i1.not.i.i = icmp eq ptr %intersections.sroa.36.51573, %add.ptr.i545
   br i1 %cmp.i1.not.i.i, label %if.end.i.i, label %if.then6.i.i
 
 if.then6.i.i:                                     ; preds = %if.then.i.i550
@@ -4023,9 +4023,9 @@ if.end.i.i:                                       ; preds = %for.body.i.i.i.i.i.
   br label %if.end291
 
 if.end291:                                        ; preds = %if.end.i.i, %invoke.cont261
-  %intersections.sroa.36.6 = phi ptr [ %intersections.sroa.36.41573, %invoke.cont261 ], [ %add.ptr.i6.i, %if.end.i.i ]
+  %intersections.sroa.36.6 = phi ptr [ %intersections.sroa.36.51573, %invoke.cont261 ], [ %add.ptr.i6.i, %if.end.i.i ]
   %a245.1 = phi i64 [ %add256, %invoke.cont261 ], [ %a245.01574, %if.end.i.i ]
-  %cmp248.not = icmp eq ptr %intersections.sroa.36.6, %intersections.sroa.0.1.lcssa
+  %cmp248.not = icmp eq ptr %intersections.sroa.36.6, %intersections.sroa.0.2.lcssa
   br i1 %cmp248.not, label %if.end317, label %land.rhs, !llvm.loop !160
 
 for.end292:                                       ; preds = %land.rhs
@@ -4033,20 +4033,20 @@ for.end292:                                       ; preds = %land.rhs
   br i1 %cmp294, label %invoke.cont301, label %if.end317
 
 invoke.cont301:                                   ; preds = %for.end292
-  %add.ptr.i.i558 = getelementptr inbounds i8, ptr %intersections.sroa.36.41573, i64 -40
-  %add.ptr.i.i.i559 = getelementptr inbounds i8, ptr %intersections.sroa.36.41573, i64 -32
-  %add.ptr.i.i.i560 = getelementptr inbounds i8, ptr %intersections.sroa.0.1.lcssa, i64 8
+  %add.ptr.i.i558 = getelementptr inbounds i8, ptr %intersections.sroa.36.51573, i64 -40
+  %add.ptr.i.i.i559 = getelementptr inbounds i8, ptr %intersections.sroa.36.51573, i64 -32
+  %add.ptr.i.i.i560 = getelementptr inbounds i8, ptr %intersections.sroa.0.2.lcssa, i64 8
   %326 = load double, ptr %add.ptr.i.i.i559, align 8, !noalias !161
   %327 = load double, ptr %add.ptr.i.i.i560, align 8, !noalias !161
   %sub.i561 = fsub double %326, %327
-  %y.i562 = getelementptr inbounds i8, ptr %intersections.sroa.36.41573, i64 -24
+  %y.i562 = getelementptr inbounds i8, ptr %intersections.sroa.36.51573, i64 -24
   %328 = load double, ptr %y.i562, align 8, !noalias !161
-  %y2.i563 = getelementptr inbounds i8, ptr %intersections.sroa.0.1.lcssa, i64 16
+  %y2.i563 = getelementptr inbounds i8, ptr %intersections.sroa.0.2.lcssa, i64 16
   %329 = load double, ptr %y2.i563, align 8, !noalias !161
   %sub3.i564 = fsub double %328, %329
-  %z.i565 = getelementptr inbounds i8, ptr %intersections.sroa.36.41573, i64 -16
+  %z.i565 = getelementptr inbounds i8, ptr %intersections.sroa.36.51573, i64 -16
   %330 = load double, ptr %z.i565, align 8, !noalias !161
-  %z4.i566 = getelementptr inbounds i8, ptr %intersections.sroa.0.1.lcssa, i64 24
+  %z4.i566 = getelementptr inbounds i8, ptr %intersections.sroa.0.2.lcssa, i64 24
   %331 = load double, ptr %z4.i566, align 8, !noalias !161
   %sub5.i567 = fsub double %330, %331
   %mul4.i571 = fmul double %sub3.i564, %sub3.i564
@@ -4056,7 +4056,7 @@ invoke.cont301:                                   ; preds = %for.end292
   br i1 %cmp304, label %if.then306, label %if.end317
 
 if.then306:                                       ; preds = %invoke.cont301
-  %add.ptr.i.i.i579 = getelementptr inbounds i8, ptr %intersections.sroa.0.1.lcssa, i64 40
+  %add.ptr.i.i.i579 = getelementptr inbounds i8, ptr %intersections.sroa.0.2.lcssa, i64 40
   %cmp.i.not.i.i581 = icmp eq ptr %add.ptr.i.i.i579, %add.ptr.i.i558
   br i1 %cmp.i.not.i.i581, label %_ZNSt6vectorISt5tupleIJm10aiVector3tIdEmEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit, label %if.then.i.i582
 
@@ -4073,7 +4073,7 @@ for.body.preheader.i.i.i.i.i.i.i587:              ; preds = %if.then.i.i582
 
 for.body.i.i.i.i.i.i.i589:                        ; preds = %for.body.i.i.i.i.i.i.i589, %for.body.preheader.i.i.i.i.i.i.i587
   %__n.09.i.i.i.i.i.i.i590 = phi i64 [ %dec.i.i.i.i.i.i.i599, %for.body.i.i.i.i.i.i.i589 ], [ %sub.ptr.div10.i.i.i.i.i.i.i588, %for.body.preheader.i.i.i.i.i.i.i587 ]
-  %__result.addr.08.i.i.i.i.i.i.i591 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i598, %for.body.i.i.i.i.i.i.i589 ], [ %intersections.sroa.0.1.lcssa, %for.body.preheader.i.i.i.i.i.i.i587 ]
+  %__result.addr.08.i.i.i.i.i.i.i591 = phi ptr [ %incdec.ptr1.i.i.i.i.i.i.i598, %for.body.i.i.i.i.i.i.i589 ], [ %intersections.sroa.0.2.lcssa, %for.body.preheader.i.i.i.i.i.i.i587 ]
   %__first.addr.07.i.i.i.i.i.i.i592 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i597, %for.body.i.i.i.i.i.i.i589 ], [ %add.ptr.i.i.i579, %for.body.preheader.i.i.i.i.i.i.i587 ]
   %add.ptr.i.i.i.i.i.i.i.i.i.i593 = getelementptr inbounds i8, ptr %__first.addr.07.i.i.i.i.i.i.i592, i64 32
   %334 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i593, align 8
@@ -4091,12 +4091,12 @@ for.body.i.i.i.i.i.i.i589:                        ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i600, label %for.body.i.i.i.i.i.i.i589, label %_ZNSt6vectorISt5tupleIJm10aiVector3tIdEmEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit, !llvm.loop !159
 
 _ZNSt6vectorISt5tupleIJm10aiVector3tIdEmEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit: ; preds = %for.body.i.i.i.i.i.i.i589, %if.then306, %if.then.i.i582
-  %incdec.ptr.i.i586 = getelementptr inbounds i8, ptr %intersections.sroa.36.41573, i64 -80
+  %incdec.ptr.i.i586 = getelementptr inbounds i8, ptr %intersections.sroa.36.51573, i64 -80
   br label %if.end317
 
 if.end317:                                        ; preds = %if.end291, %if.end244, %_ZNSt6vectorISt5tupleIJm10aiVector3tIdEmEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit, %invoke.cont301, %for.end292, %if.end222
-  %intersections.sroa.36.7 = phi ptr [ %incdec.ptr.i.i586, %_ZNSt6vectorISt5tupleIJm10aiVector3tIdEmEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit ], [ %intersections.sroa.36.41573, %invoke.cont301 ], [ %intersections.sroa.36.41573, %for.end292 ], [ %intersections.sroa.36.1.lcssa, %if.end222 ], [ %intersections.sroa.36.1.lcssa, %if.end244 ], [ %intersections.sroa.0.1.lcssa, %if.end291 ]
-  %cmp.i.i604 = icmp eq ptr %intersections.sroa.0.1.lcssa, %intersections.sroa.36.7
+  %intersections.sroa.36.4 = phi ptr [ %incdec.ptr.i.i586, %_ZNSt6vectorISt5tupleIJm10aiVector3tIdEmEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit ], [ %intersections.sroa.36.51573, %invoke.cont301 ], [ %intersections.sroa.36.51573, %for.end292 ], [ %intersections.sroa.36.2.lcssa, %if.end222 ], [ %intersections.sroa.36.2.lcssa, %if.end244 ], [ %intersections.sroa.0.2.lcssa, %if.end291 ]
+  %cmp.i.i604 = icmp eq ptr %intersections.sroa.0.2.lcssa, %intersections.sroa.36.4
   br i1 %cmp.i.i604, label %if.then319, label %if.end344
 
 if.then319:                                       ; preds = %if.end317
@@ -4244,20 +4244,20 @@ while.body360.lr.ph:                              ; preds = %if.end344
   br label %while.body360
 
 while.body360:                                    ; preds = %while.body360.lr.ph, %_ZNSt6vectorI10aiVector3tIdESaIS1_EED2Ev.exit1151
-  %intersections.sroa.36.81604 = phi ptr [ %intersections.sroa.36.7, %while.body360.lr.ph ], [ %add.ptr.i6.i681, %_ZNSt6vectorI10aiVector3tIdESaIS1_EED2Ev.exit1151 ]
+  %intersections.sroa.36.71604 = phi ptr [ %intersections.sroa.36.4, %while.body360.lr.ph ], [ %add.ptr.i6.i681, %_ZNSt6vectorI10aiVector3tIdESaIS1_EED2Ev.exit1151 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %resultpoly, i8 0, i64 24, i1 false)
   br label %if.then.i.i671
 
 if.then.i.i671:                                   ; preds = %while.body360, %while.end583
   %379 = phi ptr [ null, %while.body360 ], [ %556, %while.end583 ]
-  %intersections.sroa.36.9 = phi ptr [ %intersections.sroa.36.81604, %while.body360 ], [ %add.ptr.i6.i681, %while.end583 ]
-  %currentIntersecIdx.0 = phi i64 [ 0, %while.body360 ], [ %nextIntsecIdx.4, %while.end583 ]
-  %add.ptr.i658 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.1.lcssa, i64 %currentIntersecIdx.0
+  %intersections.sroa.36.8 = phi ptr [ %intersections.sroa.36.71604, %while.body360 ], [ %add.ptr.i6.i681, %while.end583 ]
+  %currentIntersecIdx.0 = phi i64 [ 0, %while.body360 ], [ %nextIntsecIdx.1, %while.end583 ]
+  %add.ptr.i658 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.2.lcssa, i64 %currentIntersecIdx.0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %currintsec.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i658, i64 32, i1 false)
   %currintsec.sroa.3.0.add.ptr.i658.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i658, i64 32
   %currintsec.sroa.3.0.copyload = load i64, ptr %currintsec.sroa.3.0.add.ptr.i658.sroa_idx, align 8
   %add365 = add nuw i64 %currentIntersecIdx.0, 1
-  %add.ptr.i659 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.1.lcssa, i64 %add365
+  %add.ptr.i659 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.2.lcssa, i64 %add365
   %nextintsec.sroa.0.0.copyload = load i64, ptr %add.ptr.i659, align 8
   %nextintsec.sroa.2.0.add.ptr.i659.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i659, i64 8
   %380 = load <2 x double>, ptr %nextintsec.sroa.2.0.add.ptr.i659.sroa_idx, align 8
@@ -4266,12 +4266,12 @@ if.then.i.i671:                                   ; preds = %while.body360, %whi
   %nextintsec.sroa.7.0.add.ptr.i659.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i659, i64 32
   %nextintsec.sroa.7.0.copyload = load i64, ptr %nextintsec.sroa.7.0.add.ptr.i659.sroa_idx, align 8
   %add.ptr.i662 = getelementptr inbounds i8, ptr %add.ptr.i658, i64 80
-  %cmp.i1.not.i.i673 = icmp eq ptr %intersections.sroa.36.9, %add.ptr.i662
+  %cmp.i1.not.i.i673 = icmp eq ptr %intersections.sroa.36.8, %add.ptr.i662
   br i1 %cmp.i1.not.i.i673, label %if.end.i.i678, label %if.then6.i.i674
 
 if.then6.i.i674:                                  ; preds = %if.then.i.i671
   %sub.ptr.lhs.cast.i1.i667 = ptrtoint ptr %add.ptr.i662 to i64
-  %sub.ptr.lhs.cast.i.i.i.i.i.i.i675 = ptrtoint ptr %intersections.sroa.36.9 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i.i.i675 = ptrtoint ptr %intersections.sroa.36.8 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i676 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i675, %sub.ptr.lhs.cast.i1.i667
   %cmp6.i.i.i.i.i.i.i677 = icmp sgt i64 %sub.ptr.sub.i.i.i.i.i.i.i676, 0
   br i1 %cmp6.i.i.i.i.i.i.i677, label %for.body.preheader.i.i.i.i.i.i.i684, label %if.end.i.i678
@@ -4648,7 +4648,7 @@ invoke.cont418:                                   ; preds = %_ZNSt6vectorI10aiVe
   %sub.ptr.lhs.cast.i1011 = ptrtoint ptr %add.ptr.i6.i681 to i64
   %sub.ptr.sub.i1013 = sub i64 %sub.ptr.lhs.cast.i1011, %sub.ptr.rhs.cast.i477
   %sub.ptr.div.i1014 = sdiv exact i64 %sub.ptr.sub.i1013, 40
-  %cmp5401595.not = icmp eq ptr %add.ptr.i6.i681, %intersections.sroa.0.1.lcssa
+  %cmp5401595.not = icmp eq ptr %add.ptr.i6.i681, %intersections.sroa.0.2.lcssa
   br label %while.cond430
 
 while.cond430:                                    ; preds = %if.end572, %invoke.cont418
@@ -4659,7 +4659,7 @@ while.cond430:                                    ; preds = %if.end572, %invoke.
   %433 = phi ptr [ %resultpoly.promoted1600, %invoke.cont418 ], [ %550, %if.end572 ]
   %startingPoint.sroa.14.0 = phi double [ %add13.i868, %invoke.cont418 ], [ %startingPoint.sroa.14.1, %if.end572 ]
   %currentBoundaryEdgeIdx.0 = phi i64 [ %rem429, %invoke.cont418 ], [ %currentBoundaryEdgeIdx.1, %if.end572 ]
-  %nextIntsecIdx.0 = phi i64 [ -1, %invoke.cont418 ], [ %nextIntsecIdx.2.lcssa, %if.end572 ]
+  %nextIntsecIdx.0 = phi i64 [ -1, %invoke.cont418 ], [ %nextIntsecIdx.3.lcssa, %if.end572 ]
   %434 = phi <2 x double> [ %418, %invoke.cont418 ], [ %551, %if.end572 ]
   %cmp431 = icmp eq i64 %nextIntsecIdx.0, -1
   br i1 %cmp431, label %while.body432, label %while.end583
@@ -4855,14 +4855,14 @@ if.then534:                                       ; preds = %invoke.cont529
 
 if.end536:                                        ; preds = %invoke.cont520, %if.then534, %invoke.cont529
   %t.1 = phi double [ %t.0, %invoke.cont520 ], [ %506, %if.then534 ], [ %t.0, %invoke.cont529 ]
-  %nextIntsecIdx.1 = phi i64 [ -1, %invoke.cont520 ], [ %sub.ptr.div.i1014, %if.then534 ], [ -1, %invoke.cont529 ]
+  %nextIntsecIdx.2 = phi i64 [ -1, %invoke.cont520 ], [ %sub.ptr.div.i1014, %if.then534 ], [ -1, %invoke.cont529 ]
   br i1 %cmp5401595.not, label %for.end566, label %invoke.cont547
 
 invoke.cont547:                                   ; preds = %if.end536, %for.inc564
   %a537.01598 = phi i64 [ %add565, %for.inc564 ], [ 0, %if.end536 ]
-  %nextIntsecIdx.21597 = phi i64 [ %nextIntsecIdx.3, %for.inc564 ], [ %nextIntsecIdx.1, %if.end536 ]
+  %nextIntsecIdx.31597 = phi i64 [ %nextIntsecIdx.4, %for.inc564 ], [ %nextIntsecIdx.2, %if.end536 ]
   %t.21596 = phi double [ %t.3, %for.inc564 ], [ %t.1, %if.end536 ]
-  %add.ptr.i.i.i1016 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.1.lcssa, i64 %a537.01598, i32 0, i32 0, i32 1
+  %add.ptr.i.i.i1016 = getelementptr inbounds %"class.std::tuple", ptr %intersections.sroa.0.2.lcssa, i64 %a537.01598, i32 0, i32 0, i32 1
   %509 = load double, ptr %add.ptr.i.i.i1016, align 8, !noalias !189
   %y.i1018 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1016, i64 8
   %510 = load double, ptr %y.i1018, align 8, !noalias !189
@@ -4909,14 +4909,14 @@ if.then562:                                       ; preds = %invoke.cont557
 
 for.inc564:                                       ; preds = %invoke.cont557, %if.then562, %invoke.cont547
   %t.3 = phi double [ %t.21596, %invoke.cont547 ], [ %519, %if.then562 ], [ %t.21596, %invoke.cont557 ]
-  %nextIntsecIdx.3 = phi i64 [ %nextIntsecIdx.21597, %invoke.cont547 ], [ %a537.01598, %if.then562 ], [ %nextIntsecIdx.21597, %invoke.cont557 ]
+  %nextIntsecIdx.4 = phi i64 [ %nextIntsecIdx.31597, %invoke.cont547 ], [ %a537.01598, %if.then562 ], [ %nextIntsecIdx.31597, %invoke.cont557 ]
   %add565 = add nuw i64 %a537.01598, 2
   %cmp540 = icmp ult i64 %add565, %sub.ptr.div.i1014
   br i1 %cmp540, label %invoke.cont547, label %for.end566, !llvm.loop !192
 
 for.end566:                                       ; preds = %for.inc564, %if.end536
-  %nextIntsecIdx.2.lcssa = phi i64 [ %nextIntsecIdx.1, %if.end536 ], [ %nextIntsecIdx.3, %for.inc564 ]
-  %cmp567 = icmp eq i64 %nextIntsecIdx.2.lcssa, -1
+  %nextIntsecIdx.3.lcssa = phi i64 [ %nextIntsecIdx.2, %if.end536 ], [ %nextIntsecIdx.4, %for.inc564 ]
+  %cmp567 = icmp eq i64 %nextIntsecIdx.3.lcssa, -1
   br i1 %cmp567, label %if.then568, label %if.end572
 
 if.then568:                                       ; preds = %for.end566
@@ -5069,8 +5069,8 @@ _ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA81_KcEEEvDpOT_.exit: ; p
 
 while.end583:                                     ; preds = %while.cond430, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA81_KcEEEvDpOT_.exit
   %556 = phi ptr [ %549, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA81_KcEEEvDpOT_.exit ], [ %432, %while.cond430 ]
-  %nextIntsecIdx.4 = phi i64 [ %nextIntsecIdx.2.lcssa, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA81_KcEEEvDpOT_.exit ], [ %nextIntsecIdx.0, %while.cond430 ]
-  %cmp585.not = icmp ult i64 %nextIntsecIdx.4, %sub.ptr.div.i1014
+  %nextIntsecIdx.1 = phi i64 [ %nextIntsecIdx.3.lcssa, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA81_KcEEEvDpOT_.exit ], [ %nextIntsecIdx.0, %while.cond430 ]
+  %cmp585.not = icmp ult i64 %nextIntsecIdx.1, %sub.ptr.div.i1014
   br i1 %cmp585.not, label %if.then.i.i671, label %while.end588, !llvm.loop !201
 
 while.end588:                                     ; preds = %while.end583
@@ -5099,11 +5099,11 @@ if.then.i.i.i1153:                                ; preds = %cleanup
   br label %_ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EED2Ev.exit: ; preds = %cleanup, %if.then.i.i.i1153
-  %tobool.not.i.i.i1154 = icmp eq ptr %intersections.sroa.0.1.lcssa, null
+  %tobool.not.i.i.i1154 = icmp eq ptr %intersections.sroa.0.2.lcssa, null
   br i1 %tobool.not.i.i.i1154, label %cleanup594thread-pre-split, label %cleanup594thread-pre-split.sink.split
 
 ehcleanup:                                        ; preds = %lpad149.loopexit, %lpad149.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad149.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad149.loopexit.split-lp.loopexit, %if.then.i.i.i804, %lpad386
-  %intersections.sroa.0.5 = phi ptr [ %intersections.sroa.0.1.lcssa, %lpad386 ], [ %intersections.sroa.0.1.lcssa, %if.then.i.i.i804 ], [ %intersections.sroa.0.31548, %lpad149.loopexit ], [ %intersections.sroa.0.11560, %lpad149.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.1.lcssa, %lpad149.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.2.ph.ph.ph, %lpad149.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %intersections.sroa.0.5 = phi ptr [ %intersections.sroa.0.2.lcssa, %lpad386 ], [ %intersections.sroa.0.2.lcssa, %if.then.i.i.i804 ], [ %intersections.sroa.0.61548, %lpad149.loopexit ], [ %intersections.sroa.0.21560, %lpad149.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.2.lcssa, %lpad149.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %intersections.sroa.0.3.ph.ph.ph, %lpad149.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad386 ], [ %lpad.phi, %if.then.i.i.i804 ], [ %lpad.loopexit1456, %lpad149.loopexit ], [ %lpad.loopexit1462, %lpad149.loopexit.split-lp.loopexit ], [ %lpad.loopexit1470, %lpad149.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1471, %lpad149.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %559 = load ptr, ptr %intersected_boundary, align 8
   %tobool.not.i.i.i1156 = icmp eq ptr %559, null
@@ -5131,11 +5131,11 @@ if.then.i.i.i1163:                                ; preds = %cleanup594.critedge
   br label %_ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EED2Ev.exit1164
 
 _ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EED2Ev.exit1164: ; preds = %cleanup594.critedge, %if.then.i.i.i1163
-  %tobool.not.i.i.i1165 = icmp eq ptr %intersections.sroa.0.1.lcssa, null
+  %tobool.not.i.i.i1165 = icmp eq ptr %intersections.sroa.0.2.lcssa, null
   br i1 %tobool.not.i.i.i1165, label %cleanup594thread-pre-split, label %cleanup594thread-pre-split.sink.split
 
 cleanup594thread-pre-split.sink.split:            ; preds = %_ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EED2Ev.exit1164, %_ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %intersections.sroa.0.1.lcssa) #20
+  call void @_ZdlPv(ptr noundef nonnull %intersections.sroa.0.2.lcssa) #20
   br label %cleanup594thread-pre-split
 
 cleanup594thread-pre-split:                       ; preds = %cleanup594thread-pre-split.sink.split, %for.body, %_ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EED2Ev.exit, %_ZNSt6vectorISt4pairIm10aiVector3tIdEESaIS3_EED2Ev.exit1164

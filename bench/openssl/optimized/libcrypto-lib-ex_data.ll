@@ -343,7 +343,7 @@ if.end12:                                         ; preds = %if.then8
   br i1 %cmp13.not, label %if.end21, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then8, %if.end12
-  %storage.053 = phi ptr [ %call11, %if.end12 ], [ %stack, %if.then8 ]
+  %storage.153 = phi ptr [ %call11, %if.end12 ], [ %stack, %if.then8 ]
   %wide.trip.count = zext nneg i32 %call.i35 to i64
   br label %for.body
 
@@ -352,17 +352,17 @@ for.body:                                         ; preds = %for.body.preheader,
   %2 = load ptr, ptr %arrayidx.i, align 8
   %3 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i36 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %3) #8
-  %arrayidx = getelementptr inbounds ptr, ptr %storage.053, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds ptr, ptr %storage.153, i64 %indvars.iv
   store ptr %call.i36, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end21, label %for.body, !llvm.loop !6
 
 if.end21:                                         ; preds = %for.body, %if.end12, %if.end4
-  %storage.1 = phi ptr [ null, %if.end12 ], [ null, %if.end4 ], [ %storage.053, %for.body ]
+  %storage.0 = phi ptr [ null, %if.end12 ], [ null, %if.end4 ], [ %storage.153, %for.body ]
   %4 = load ptr, ptr %call, align 8
   %call22 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %4) #8
-  %cmp25 = icmp eq ptr %storage.1, null
+  %cmp25 = icmp eq ptr %storage.0, null
   %or.cond = and i1 %cmp7, %cmp25
   br i1 %or.cond, label %return, label %for.cond29.preheader
 
@@ -375,7 +375,7 @@ for.body32.preheader:                             ; preds = %for.cond29.preheade
 
 for.body32:                                       ; preds = %for.body32.preheader, %for.inc52
   %indvars.iv46 = phi i64 [ 0, %for.body32.preheader ], [ %indvars.iv.next47, %for.inc52 ]
-  %arrayidx34 = getelementptr inbounds ptr, ptr %storage.1, i64 %indvars.iv46
+  %arrayidx34 = getelementptr inbounds ptr, ptr %storage.0, i64 %indvars.iv46
   %5 = load ptr, ptr %arrayidx34, align 8
   %cmp35.not = icmp eq ptr %5, null
   br i1 %cmp35.not, label %for.inc52, label %land.lhs.true37
@@ -421,11 +421,11 @@ for.inc52:                                        ; preds = %for.body32, %land.l
   br i1 %exitcond50.not, label %for.end54, label %for.body32, !llvm.loop !7
 
 for.end54:                                        ; preds = %for.inc52, %for.cond29.preheader
-  %cmp56.not = icmp eq ptr %storage.1, %stack
+  %cmp56.not = icmp eq ptr %storage.0, %stack
   br i1 %cmp56.not, label %return, label %if.then58
 
 if.then58:                                        ; preds = %for.end54
-  call void @CRYPTO_free(ptr noundef %storage.1, ptr noundef nonnull @.str, i32 noundef 260) #8
+  call void @CRYPTO_free(ptr noundef %storage.0, ptr noundef nonnull @.str, i32 noundef 260) #8
   br label %return
 
 return:                                           ; preds = %if.end4.i, %if.end.i, %if.then.i, %for.end54, %if.then58, %if.end21, %entry
@@ -524,7 +524,7 @@ if.end22:                                         ; preds = %if.then18
   br i1 %cmp23.not, label %if.end36.thread, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then18, %if.end22
-  %storage.080 = phi ptr [ %call21, %if.end22 ], [ %stack, %if.then18 ]
+  %storage.180 = phi ptr [ %call21, %if.end22 ], [ %stack, %if.then18 ]
   %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %for.body
 
@@ -538,21 +538,21 @@ for.body:                                         ; preds = %for.body.preheader,
   %6 = load ptr, ptr %arrayidx.i, align 8
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i47 = tail call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %7) #8
-  %arrayidx = getelementptr inbounds ptr, ptr %storage.080, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds ptr, ptr %storage.180, i64 %indvars.iv
   store ptr %call.i47, ptr %arrayidx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end31, label %for.body, !llvm.loop !8
 
 if.end31:                                         ; preds = %for.body, %if.end9
-  %storage.1 = phi ptr [ null, %if.end9 ], [ %storage.080, %for.body ]
+  %storage.0 = phi ptr [ null, %if.end9 ], [ %storage.180, %for.body ]
   %8 = load ptr, ptr %call, align 8
   %call32 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %8) #8
   %cmp33 = icmp eq i32 %spec.select, 0
   br i1 %cmp33, label %return, label %if.end36
 
 if.end36:                                         ; preds = %if.end31
-  %cmp37 = icmp eq ptr %storage.1, null
+  %cmp37 = icmp eq ptr %storage.0, null
   br i1 %cmp37, label %return, label %if.end40
 
 if.end40:                                         ; preds = %if.end36
@@ -606,7 +606,7 @@ if.end.i56:                                       ; preds = %lor.lhs.false.i52
 CRYPTO_get_ex_data.exit58:                        ; preds = %for.body49, %lor.lhs.false.i52, %if.end.i56
   %retval.0.i55 = phi ptr [ %call6.i57, %if.end.i56 ], [ null, %lor.lhs.false.i52 ], [ null, %for.body49 ]
   store ptr %retval.0.i55, ptr %ptr, align 8
-  %arrayidx52 = getelementptr inbounds ptr, ptr %storage.1, i64 %indvars.iv73
+  %arrayidx52 = getelementptr inbounds ptr, ptr %storage.0, i64 %indvars.iv73
   %15 = load ptr, ptr %arrayidx52, align 8
   %cmp53.not = icmp eq ptr %15, null
   br i1 %cmp53.not, label %if.end71, label %land.lhs.true
@@ -640,11 +640,11 @@ if.end71:                                         ; preds = %if.then59.if.end71_
 
 err:                                              ; preds = %if.then59, %if.end71, %CRYPTO_get_ex_data.exit
   %toret.0 = phi i32 [ %.mux, %CRYPTO_get_ex_data.exit ], [ 0, %if.then59 ], [ 1, %if.end71 ]
-  %cmp77.not = icmp eq ptr %storage.1, %stack
+  %cmp77.not = icmp eq ptr %storage.0, %stack
   br i1 %cmp77.not, label %return, label %if.then79
 
 if.then79:                                        ; preds = %err
-  call void @CRYPTO_free(ptr noundef nonnull %storage.1, ptr noundef nonnull @.str, i32 noundef 337) #8
+  call void @CRYPTO_free(ptr noundef nonnull %storage.0, ptr noundef nonnull @.str, i32 noundef 337) #8
   br label %return
 
 return:                                           ; preds = %if.end4.i, %if.end.i, %if.then.i, %if.end36.thread, %err, %if.then79, %if.end36, %if.end31, %if.end, %entry
@@ -755,7 +755,7 @@ if.end11:                                         ; preds = %if.then7
   br i1 %cmp12.not, label %if.end52.thread, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %if.then7, %if.end11
-  %storage.064 = phi ptr [ %call10, %if.end11 ], [ %stack, %if.then7 ]
+  %storage.164 = phi ptr [ %call10, %if.end11 ], [ %stack, %if.then7 ]
   %wide.trip.count = zext nneg i32 %call.i38 to i64
   br label %for.body
 
@@ -764,7 +764,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %3 = load ptr, ptr %arrayidx.i, align 8
   %4 = trunc nuw nsw i64 %indvars.iv to i32
   %call.i39 = tail call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %4) #8
-  %arrayidx = getelementptr inbounds %struct.ex_callback_entry, ptr %storage.064, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds %struct.ex_callback_entry, ptr %storage.164, i64 %indvars.iv
   store ptr %call.i39, ptr %arrayidx, align 8
   %index = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 %4, ptr %index, align 8
@@ -781,7 +781,7 @@ for.body31.lr.ph:                                 ; preds = %for.body
   %6 = load ptr, ptr %call, align 8
   %call23 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %6) #8
   %conv27 = zext nneg i32 %call.i38 to i64
-  call void @qsort(ptr noundef nonnull %storage.064, i64 noundef %conv27, i64 noundef 16, ptr noundef nonnull @ex_callback_compare) #8
+  call void @qsort(ptr noundef nonnull %storage.164, i64 noundef %conv27, i64 noundef 16, ptr noundef nonnull @ex_callback_compare) #8
   %sk.i = getelementptr inbounds i8, ptr %ad, i64 8
   %smax59 = call i32 @llvm.smax.i32(i32 %call.i38, i32 1)
   %wide.trip.count60 = zext nneg i32 %smax59 to i64
@@ -789,7 +789,7 @@ for.body31.lr.ph:                                 ; preds = %for.body
 
 for.body31:                                       ; preds = %for.body31.lr.ph, %for.inc49
   %indvars.iv56 = phi i64 [ 0, %for.body31.lr.ph ], [ %indvars.iv.next57, %for.inc49 ]
-  %arrayidx33 = getelementptr inbounds %struct.ex_callback_entry, ptr %storage.064, i64 %indvars.iv56
+  %arrayidx33 = getelementptr inbounds %struct.ex_callback_entry, ptr %storage.164, i64 %indvars.iv56
   %7 = load ptr, ptr %arrayidx33, align 8
   %cmp35.not = icmp eq ptr %7, null
   br i1 %cmp35.not, label %for.inc49, label %land.lhs.true
@@ -833,12 +833,12 @@ for.inc49:                                        ; preds = %for.body31, %land.l
   br i1 %exitcond61.not, label %if.end52, label %for.body31, !llvm.loop !12
 
 if.end52:                                         ; preds = %for.inc49
-  %cmp54.not = icmp eq ptr %storage.064, %stack
+  %cmp54.not = icmp eq ptr %storage.164, %stack
   br i1 %cmp54.not, label %err, label %if.then56
 
 if.then56:                                        ; preds = %if.end52.thread, %if.end52
-  %storage.14750 = phi ptr [ null, %if.end52.thread ], [ %storage.064, %if.end52 ]
-  call void @CRYPTO_free(ptr noundef %storage.14750, ptr noundef nonnull @.str, i32 noundef 412) #8
+  %storage.04750 = phi ptr [ null, %if.end52.thread ], [ %storage.164, %if.end52 ]
+  call void @CRYPTO_free(ptr noundef %storage.04750, ptr noundef nonnull @.str, i32 noundef 412) #8
   br label %err
 
 err:                                              ; preds = %if.end4.i, %if.end.i, %if.then.i, %if.end52, %if.then56, %entry

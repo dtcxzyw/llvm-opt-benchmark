@@ -407,12 +407,12 @@ writeTimeLineHistoryFile.exit:                    ; preds = %95, %104, %114, %12
   br label %166
 
 thread-pre-split.i:                               ; preds = %CopyStreamReceive.exit, %CopyStreamReceive.exit.thread113
-  %.2106116 = phi ptr [ null, %CopyStreamReceive.exit.thread113 ], [ %.2106, %CopyStreamReceive.exit ]
+  %.3116 = phi ptr [ null, %CopyStreamReceive.exit.thread113 ], [ %.3, %CopyStreamReceive.exit ]
   %.b.i.pr.i = load i1, ptr @still_sending, align 1
   br label %166
 
 166:                                              ; preds = %thread-pre-split.i, %164
-  %.0104 = phi ptr [ null, %164 ], [ %.2106116, %thread-pre-split.i ]
+  %.0104 = phi ptr [ null, %164 ], [ %.3116, %thread-pre-split.i ]
   %.b.i.i = phi i1 [ false, %164 ], [ %.b.i.pr.i, %thread-pre-split.i ]
   %.074.i = phi i64 [ -1, %164 ], [ %.377.i.ph, %thread-pre-split.i ]
   %.073.i = phi i64 [ %165, %164 ], [ %.1.i.ph1095, %thread-pre-split.i ]
@@ -549,20 +549,20 @@ CalculateCopyStreamSleeptime.exit.i:              ; preds = %._crit_edge.i.i, %2
   br label %ProcessKeepaliveMsg.exit.thread.i.outer
 
 ProcessKeepaliveMsg.exit.thread.i.outer:          ; preds = %329, %CalculateCopyStreamSleeptime.exit.i
-  %.1105.ph = phi ptr [ %.2106, %329 ], [ %.0104, %CalculateCopyStreamSleeptime.exit.i ]
+  %.1105.ph = phi ptr [ %.3, %329 ], [ %.0104, %CalculateCopyStreamSleeptime.exit.i ]
   %.sink.i.ph = phi i64 [ 0, %329 ], [ %.0.i47.i, %CalculateCopyStreamSleeptime.exit.i ]
   %.377.i.ph = phi i64 [ %330, %329 ], [ %.276.i, %CalculateCopyStreamSleeptime.exit.i ]
   %.1.i.ph = phi i64 [ %.1.i.ph1095, %329 ], [ %.073.i, %CalculateCopyStreamSleeptime.exit.i ]
   br label %ProcessKeepaliveMsg.exit.thread.i.outer1092
 
 ProcessKeepaliveMsg.exit.thread.i.outer1092:      ; preds = %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge, %ProcessKeepaliveMsg.exit.thread.i.outer
-  %.1105.ph1093 = phi ptr [ %.1105.ph, %ProcessKeepaliveMsg.exit.thread.i.outer ], [ %.2106, %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge ]
+  %.1105.ph1093 = phi ptr [ %.1105.ph, %ProcessKeepaliveMsg.exit.thread.i.outer ], [ %.3, %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge ]
   %.sink.i.ph1094 = phi i64 [ %.sink.i.ph, %ProcessKeepaliveMsg.exit.thread.i.outer ], [ 0, %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge ]
   %.1.i.ph1095 = phi i64 [ %.1.i.ph, %ProcessKeepaliveMsg.exit.thread.i.outer ], [ %.1.i.ph1095.be, %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge ]
   br label %ProcessKeepaliveMsg.exit.thread.i
 
 ProcessKeepaliveMsg.exit.thread.i:                ; preds = %ProcessKeepaliveMsg.exit.thread.i.backedge, %ProcessKeepaliveMsg.exit.thread.i.outer1092
-  %.1105 = phi ptr [ %.1105.ph1093, %ProcessKeepaliveMsg.exit.thread.i.outer1092 ], [ %.2106, %ProcessKeepaliveMsg.exit.thread.i.backedge ]
+  %.1105 = phi ptr [ %.1105.ph1093, %ProcessKeepaliveMsg.exit.thread.i.outer1092 ], [ %.3, %ProcessKeepaliveMsg.exit.thread.i.backedge ]
   %.sink.i = phi i64 [ %.sink.i.ph1094, %ProcessKeepaliveMsg.exit.thread.i.outer1092 ], [ 0, %ProcessKeepaliveMsg.exit.thread.i.backedge ]
   %228 = load i32, ptr %62, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -698,7 +698,7 @@ CopyStreamReceive.exit.thread:                    ; preds = %279, %273
   br label %HandleCopyStream.exit.thread
 
 CopyStreamReceive.exit:                           ; preds = %CopyStreamPoll.exit.thread.i, %281
-  %.2106 = phi ptr [ null, %CopyStreamPoll.exit.thread.i ], [ %282, %281 ]
+  %.3 = phi ptr [ null, %CopyStreamPoll.exit.thread.i ], [ %282, %281 ]
   %.0.i93 = phi i32 [ %.0.i.ph.i, %CopyStreamPoll.exit.thread.i ], [ %.018.i, %281 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   switch i32 %.0.i93, label %301 [
@@ -740,18 +740,18 @@ CopyStreamReceive.exit:                           ; preds = %CopyStreamPoll.exit
   br label %299
 
 299:                                              ; preds = %297, %287
-  %.0.i49.i = phi ptr [ %298, %297 ], [ %280, %287 ]
+  %.1.i.i = phi ptr [ %298, %297 ], [ %280, %287 ]
   store i1 true, ptr @still_sending, align 1
   br label %HandleEndOfCopyStream.exit.i
 
 HandleEndOfCopyStream.exit.i:                     ; preds = %299, %CopyStreamReceive.exit.thread117
-  %.1.i.i = phi ptr [ %.0.i49.i, %299 ], [ %280, %CopyStreamReceive.exit.thread117 ]
+  %.0.i49.i = phi ptr [ %.1.i.i, %299 ], [ %280, %CopyStreamReceive.exit.thread117 ]
   call void @PQfreemem(ptr noundef null) #11
-  %300 = icmp eq ptr %.1.i.i, null
+  %300 = icmp eq ptr %.0.i49.i, null
   br i1 %300, label %HandleCopyStream.exit.thread, label %HandleCopyStream.exit
 
 301:                                              ; preds = %CopyStreamReceive.exit
-  %302 = load i8, ptr %.2106, align 1
+  %302 = load i8, ptr %.3, align 1
   switch i8 %302, label %502 [
     i8 107, label %303
     i8 119, label %332
@@ -766,7 +766,7 @@ HandleEndOfCopyStream.exit.i:                     ; preds = %299, %CopyStreamRec
   br label %HandleCopyStream.exit.thread
 
 306:                                              ; preds = %303
-  %307 = getelementptr i8, ptr %.2106, i64 17
+  %307 = getelementptr i8, ptr %.3, i64 17
   %308 = load i8, ptr %307, align 1
   %.not.i51.i = icmp eq i8 %308, 0
   br i1 %.not.i51.i, label %ProcessKeepaliveMsg.exit.thread.i.backedge, label %309
@@ -831,7 +831,7 @@ ProcessKeepaliveMsg.exit.thread.i.backedge:       ; preds = %332, %309, %306
   br label %HandleCopyStream.exit.thread
 
 336:                                              ; preds = %333
-  %337 = getelementptr i8, ptr %.2106, i64 1
+  %337 = getelementptr i8, ptr %.3, i64 1
   %338 = call i64 @fe_recvint64(ptr noundef %337) #11
   %339 = load i32, ptr @WalSegSz, align 4
   %340 = add i32 %339, -1
@@ -867,11 +867,11 @@ ProcessKeepaliveMsg.exit.thread.i.backedge:       ; preds = %332, %309, %306
   br i1 %.not6092.i.i, label %ProcessXLogDataMsg.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %353
-  %355 = getelementptr i8, ptr %.2106, i64 25
+  %355 = getelementptr i8, ptr %.3, i64 25
   br label %356
 
 356:                                              ; preds = %488, %.lr.ph.i.i
-  %.2.i = phi i64 [ %338, %.lr.ph.i.i ], [ %467, %488 ]
+  %.3.i = phi i64 [ %338, %.lr.ph.i.i ], [ %467, %488 ]
   %.04795.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %465, %488 ]
   %.04894.i.i = phi i32 [ %354, %.lr.ph.i.i ], [ %466, %488 ]
   %.04993.i.i = phi i32 [ %342, %.lr.ph.i.i ], [ %.1.i55.i, %488 ]
@@ -887,7 +887,7 @@ ProcessKeepaliveMsg.exit.thread.i.backedge:       ; preds = %332, %309, %306
 363:                                              ; preds = %356
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8)
   %364 = sext i32 %358 to i64
-  %365 = udiv i64 %.2.i, %364
+  %365 = udiv i64 %.3.i, %364
   %366 = load i32, ptr %56, align 8
   %367 = udiv i64 4294967296, %364
   %368 = udiv i64 %365, %367
@@ -1059,7 +1059,7 @@ open_walfile.exit.i.i:                            ; preds = %447, %424
 464:                                              ; preds = %448
   %465 = add i32 %.0.i54.i, %.04795.i.i
   %466 = sub i32 %.04894.i.i, %.0.i54.i
-  %467 = add i64 %.2.i, %456
+  %467 = add i64 %.3.i, %456
   %468 = add i32 %.0.i54.i, %.04993.i.i
   %469 = load i32, ptr @WalSegSz, align 4
   %470 = add i32 %469, -1
@@ -1103,18 +1103,18 @@ open_walfile.exit.i.i:                            ; preds = %447, %424
   br i1 %.not60.i.i, label %ProcessXLogDataMsg.exit.i, label %356, !llvm.loop !7
 
 ProcessXLogDataMsg.exit.i:                        ; preds = %488, %353
-  %.3.ph.i = phi i64 [ %338, %353 ], [ %467, %488 ]
+  %.4.ph.i = phi i64 [ %338, %353 ], [ %467, %488 ]
   %.b.i58.pr.i = load i1, ptr @still_sending, align 1
   br i1 %.b.i58.pr.i, label %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge, label %489
 
 489:                                              ; preds = %ProcessXLogDataMsg.exit.i
   %490 = load ptr, ptr %59, align 8
   %491 = load i32, ptr %56, align 8
-  %492 = call zeroext i1 %490(i64 noundef %.3.ph.i, i32 noundef %491, i1 noundef zeroext false) #11
+  %492 = call zeroext i1 %490(i64 noundef %.4.ph.i, i32 noundef %491, i1 noundef zeroext false) #11
   br i1 %492, label %493, label %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge
 
 493:                                              ; preds = %489
-  %494 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull readonly %1, i64 noundef %.3.ph.i)
+  %494 = call fastcc zeroext i1 @close_walfile(ptr noundef nonnull readonly %1, i64 noundef %.4.ph.i)
   br i1 %494, label %495, label %HandleCopyStream.exit.thread
 
 495:                                              ; preds = %493
@@ -1138,59 +1138,59 @@ ProcessXLogDataMsg.exit.i:                        ; preds = %488, %353
   br label %HandleCopyStream.exit.thread
 
 ProcessKeepaliveMsg.exit.thread.sink.split.i:     ; preds = %498, %484
-  %.4.ph.i = phi i64 [ %467, %484 ], [ %.3.ph.i, %498 ]
+  %.2.ph.i = phi i64 [ %467, %484 ], [ %.4.ph.i, %498 ]
   store i1 true, ptr @still_sending, align 1
   br label %ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge
 
 ProcessKeepaliveMsg.exit.thread.i.outer1092.backedge: ; preds = %ProcessKeepaliveMsg.exit.thread.sink.split.i, %489, %ProcessXLogDataMsg.exit.i
-  %.1.i.ph1095.be = phi i64 [ %.3.ph.i, %ProcessXLogDataMsg.exit.i ], [ %.3.ph.i, %489 ], [ %.4.ph.i, %ProcessKeepaliveMsg.exit.thread.sink.split.i ]
+  %.1.i.ph1095.be = phi i64 [ %.4.ph.i, %ProcessXLogDataMsg.exit.i ], [ %.4.ph.i, %489 ], [ %.2.ph.i, %ProcessKeepaliveMsg.exit.thread.sink.split.i ]
   br label %ProcessKeepaliveMsg.exit.thread.i.outer1092, !llvm.loop !5
 
 HandleCopyStream.exit.thread:                     ; preds = %HandleEndOfCopyStream.exit.i, %171, %202, %210, %493, %CopyStreamReceive.exit, %329, %474, %178, %286, %295, %305, %335, %346, %351, %open_walfile.exit.thread.i.i, %458, %486, %500, %502, %CopyStreamReceive.exit.thread
-  %.3 = phi ptr [ %.2106, %502 ], [ %.2106, %335 ], [ %.2106, %500 ], [ %.2106, %open_walfile.exit.thread.i.i ], [ %.2106, %486 ], [ %.2106, %458 ], [ %.2106, %346 ], [ %.2106, %351 ], [ %.2106, %305 ], [ null, %295 ], [ null, %286 ], [ %.0104, %178 ], [ null, %CopyStreamReceive.exit.thread ], [ %.2106, %474 ], [ %.2106, %329 ], [ %.2106, %CopyStreamReceive.exit ], [ %.2106, %493 ], [ %.0104, %210 ], [ %.0104, %202 ], [ %.0104, %171 ], [ null, %HandleEndOfCopyStream.exit.i ]
-  call void @PQfreemem(ptr noundef %.3) #11
+  %.2106 = phi ptr [ %.3, %502 ], [ %.3, %335 ], [ %.3, %500 ], [ %.3, %open_walfile.exit.thread.i.i ], [ %.3, %486 ], [ %.3, %458 ], [ %.3, %346 ], [ %.3, %351 ], [ %.3, %305 ], [ null, %295 ], [ null, %286 ], [ %.0104, %178 ], [ null, %CopyStreamReceive.exit.thread ], [ %.3, %474 ], [ %.3, %329 ], [ %.3, %CopyStreamReceive.exit ], [ %.3, %493 ], [ %.0104, %210 ], [ %.0104, %202 ], [ %.0104, %171 ], [ null, %HandleEndOfCopyStream.exit.i ]
+  call void @PQfreemem(ptr noundef %.2106) #11
   br label %560
 
 HandleCopyStream.exit:                            ; preds = %HandleEndOfCopyStream.exit.i
-  %504 = call i32 @PQresultStatus(ptr noundef nonnull %.1.i.i) #11
+  %504 = call i32 @PQresultStatus(ptr noundef nonnull %.0.i49.i) #11
   %505 = icmp eq i32 %504, 2
   br i1 %505, label %506, label %550
 
 506:                                              ; preds = %HandleCopyStream.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %507 = call i32 @PQnfields(ptr noundef nonnull %.1.i.i) #11
+  %507 = call i32 @PQnfields(ptr noundef nonnull %.0.i49.i) #11
   %508 = icmp slt i32 %507, 2
   br i1 %508, label %511, label %509
 
 509:                                              ; preds = %506
-  %510 = call i32 @PQntuples(ptr noundef nonnull %.1.i.i) #11
+  %510 = call i32 @PQntuples(ptr noundef nonnull %.0.i49.i) #11
   %.not.i91 = icmp eq i32 %510, 1
   br i1 %.not.i91, label %514, label %511
 
 511:                                              ; preds = %509, %506
-  %512 = call i32 @PQntuples(ptr noundef nonnull %.1.i.i) #11
-  %513 = call i32 @PQnfields(ptr noundef nonnull %.1.i.i) #11
+  %512 = call i32 @PQntuples(ptr noundef nonnull %.0.i49.i) #11
+  %513 = call i32 @PQnfields(ptr noundef nonnull %.0.i49.i) #11
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.28, i32 noundef %512, i32 noundef %513, i32 noundef 1, i32 noundef 2) #11
   br label %ReadEndOfStreamingResult.exit.thread
 
 514:                                              ; preds = %509
-  %515 = call ptr @PQgetvalue(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef 0) #11
+  %515 = call ptr @PQgetvalue(ptr noundef nonnull %.0.i49.i, i32 noundef 0, i32 noundef 0) #11
   %516 = call i32 @atoi(ptr nocapture noundef %515) #12
-  %517 = call ptr @PQgetvalue(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef 1) #11
+  %517 = call ptr @PQgetvalue(ptr noundef nonnull %.0.i49.i, i32 noundef 0, i32 noundef 1) #11
   %518 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %517, ptr noundef nonnull @.str.29, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   %.not10.i = icmp eq i32 %518, 2
   br i1 %.not10.i, label %521, label %519
 
 519:                                              ; preds = %514
-  %520 = call ptr @PQgetvalue(ptr noundef nonnull %.1.i.i, i32 noundef 0, i32 noundef 1) #11
+  %520 = call ptr @PQgetvalue(ptr noundef nonnull %.0.i49.i, i32 noundef 0, i32 noundef 1) #11
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.30, ptr noundef %520) #11
   br label %ReadEndOfStreamingResult.exit.thread
 
 ReadEndOfStreamingResult.exit.thread:             ; preds = %511, %519
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @PQclear(ptr noundef nonnull %.1.i.i) #11
+  call void @PQclear(ptr noundef nonnull %.0.i49.i) #11
   br label %560
 
 521:                                              ; preds = %514
@@ -1203,7 +1203,7 @@ ReadEndOfStreamingResult.exit.thread:             ; preds = %511, %519
   store i64 %527, ptr %1, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  call void @PQclear(ptr noundef nonnull %.1.i.i) #11
+  call void @PQclear(ptr noundef nonnull %.0.i49.i) #11
   %528 = load i32, ptr %56, align 8
   %.not80 = icmp ugt i32 %516, %528
   br i1 %.not80, label %530, label %529
@@ -1251,12 +1251,12 @@ ReadEndOfStreamingResult.exit.thread:             ; preds = %511, %519
   br label %65
 
 550:                                              ; preds = %HandleCopyStream.exit
-  %551 = call i32 @PQresultStatus(ptr noundef nonnull %.1.i.i) #11
+  %551 = call i32 @PQresultStatus(ptr noundef nonnull %.0.i49.i) #11
   %552 = icmp eq i32 %551, 1
   br i1 %552, label %553, label %558
 
 553:                                              ; preds = %550
-  call void @PQclear(ptr noundef nonnull %.1.i.i) #11
+  call void @PQclear(ptr noundef nonnull %.0.i49.i) #11
   %554 = load ptr, ptr %59, align 8
   %555 = load i32, ptr %56, align 8
   %556 = call zeroext i1 %554(i64 noundef %.1.i.ph1095, i32 noundef %555, i1 noundef zeroext false) #11
@@ -1267,9 +1267,9 @@ ReadEndOfStreamingResult.exit.thread:             ; preds = %511, %519
   br label %560
 
 558:                                              ; preds = %550
-  %559 = call ptr @PQresultErrorMessage(ptr noundef nonnull %.1.i.i) #11
+  %559 = call ptr @PQresultErrorMessage(ptr noundef nonnull %.0.i49.i) #11
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.17, ptr noundef %559) #11
-  call void @PQclear(ptr noundef nonnull %.1.i.i) #11
+  call void @PQclear(ptr noundef nonnull %.0.i49.i) #11
   br label %560
 
 560:                                              ; preds = %ReadEndOfStreamingResult.exit.thread, %HandleCopyStream.exit.thread, %558, %557, %543, %533, %529

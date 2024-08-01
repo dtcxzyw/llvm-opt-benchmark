@@ -3198,7 +3198,7 @@ try.cont:                                         ; preds = %invoke.cont165
   br i1 %cmp209.not, label %if.end218, label %if.then210
 
 if.then210:                                       ; preds = %if.end206, %try.cont
-  %is_sat.059 = phi i32 [ %call173, %try.cont ], [ 0, %if.end206 ]
+  %is_sat.159 = phi i32 [ %call173, %try.cont ], [ 0, %if.end206 ]
   %64 = load ptr, ptr %m_msolver, align 8
   %m_model = getelementptr inbounds i8, ptr %this, i64 144
   %m_labels = getelementptr inbounds i8, ptr %this, i64 152
@@ -3209,7 +3209,7 @@ if.then210:                                       ; preds = %if.end206, %try.con
           to label %if.end218 unwind label %lpad
 
 if.end218:                                        ; preds = %try.cont, %if.then210, %if.end154
-  %is_sat.1 = phi i32 [ %is_sat.059, %if.then210 ], [ -1, %try.cont ], [ 0, %if.end154 ]
+  %is_sat.0 = phi i32 [ %is_sat.159, %if.then210 ], [ -1, %try.cont ], [ 0, %if.end154 ]
   %call220 = invoke noundef i32 @_Z19get_verbosity_levelv()
           to label %invoke.cont219 unwind label %lpad
 
@@ -3237,7 +3237,7 @@ invoke.cont227:                                   ; preds = %invoke.cont226
           to label %invoke.cont229 unwind label %lpad
 
 invoke.cont229:                                   ; preds = %invoke.cont227
-  %call232 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo5lbool(ptr noundef nonnull align 8 dereferenceable(8) %call230, i32 noundef %is_sat.1)
+  %call232 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo5lbool(ptr noundef nonnull align 8 dereferenceable(8) %call230, i32 noundef %is_sat.0)
           to label %invoke.cont231 unwind label %lpad
 
 invoke.cont231:                                   ; preds = %invoke.cont229
@@ -3245,7 +3245,7 @@ invoke.cont231:                                   ; preds = %invoke.cont229
           to label %invoke.cont233 unwind label %lpad
 
 invoke.cont233:                                   ; preds = %invoke.cont231
-  %cmp235 = icmp eq i32 %is_sat.1, 1
+  %cmp235 = icmp eq i32 %is_sat.0, 1
   br i1 %cmp235, label %if.then236, label %if.end244
 
 if.then236:                                       ; preds = %invoke.cont233
@@ -3277,7 +3277,7 @@ invoke.cont247:                                   ; preds = %if.else246
           to label %invoke.cont249 unwind label %lpad
 
 invoke.cont249:                                   ; preds = %invoke.cont247
-  %call252 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo5lbool(ptr noundef nonnull align 8 dereferenceable(8) %call250, i32 noundef %is_sat.1)
+  %call252 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSo5lbool(ptr noundef nonnull align 8 dereferenceable(8) %call250, i32 noundef %is_sat.0)
           to label %invoke.cont251 unwind label %lpad
 
 invoke.cont251:                                   ; preds = %invoke.cont249
@@ -3285,7 +3285,7 @@ invoke.cont251:                                   ; preds = %invoke.cont249
           to label %invoke.cont253 unwind label %lpad
 
 invoke.cont253:                                   ; preds = %invoke.cont251
-  %cmp255 = icmp eq i32 %is_sat.1, 1
+  %cmp255 = icmp eq i32 %is_sat.0, 1
   br i1 %cmp255, label %if.then256, label %if.end266
 
 if.then256:                                       ; preds = %invoke.cont253
@@ -3306,7 +3306,7 @@ invoke.cont261:                                   ; preds = %invoke.cont259
 
 if.end266:                                        ; preds = %if.end244, %invoke.cont261, %invoke.cont253, %invoke.cont219
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #20
-  ret i32 %is_sat.1
+  ret i32 %is_sat.0
 
 ehcleanup:                                        ; preds = %lpad174, %lpad167, %lpad137, %lpad
   %lpad.val269.merged = phi { ptr, i32 } [ %4, %lpad ], [ %62, %lpad174 ], [ %56, %lpad167 ], [ %51, %lpad137 ]

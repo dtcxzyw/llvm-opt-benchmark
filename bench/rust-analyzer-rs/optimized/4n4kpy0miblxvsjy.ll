@@ -6048,7 +6048,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
 21:                                               ; preds = %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i, %.lr.ph32.i.i
   %.01529.i.i = phi i64 [ %17, %.lr.ph32.i.i ], [ %.1.i.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i ]
   %.01628.i.i = phi i1 [ false, %.lr.ph32.i.i ], [ %.117.i.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i ]
-  %.027.i.i = phi i64 [ 0, %.lr.ph32.i.i ], [ %.2.i.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i ]
+  %.027.i.i = phi i64 [ 0, %.lr.ph32.i.i ], [ %.120.i.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i ]
   %22 = and i64 %.01529.i.i, 2251799813685247
   %23 = or disjoint i64 %22, %20
   %24 = cmpxchg ptr %16, i64 %.01529.i.i, i64 %23 acq_rel acquire, align 8, !noalias !413
@@ -6099,7 +6099,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br label %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i
 
 _ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i: ; preds = %39, %37, %21
-  %.2.i.i = phi i64 [ 0, %21 ], [ %.027.i.i, %39 ], [ %38, %37 ]
+  %.120.i.i = phi i64 [ 0, %21 ], [ %.027.i.i, %39 ], [ %38, %37 ]
   %.117.i.i = phi i1 [ %.01628.i.i, %21 ], [ true, %39 ], [ true, %37 ]
   %.1.i.i = phi i64 [ %.sroa.07.0.i.i.i, %21 ], [ %.01529.i.i, %39 ], [ %.01529.i.i, %37 ]
   %40 = lshr i64 %.1.i.i, 51
@@ -6150,7 +6150,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
 24:                                               ; preds = %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i, %.lr.ph33.i
   %.01530.i = phi i64 [ %20, %.lr.ph33.i ], [ %.1.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i ]
   %.01629.i = phi i1 [ false, %.lr.ph33.i ], [ %.117.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i ]
-  %.028.i = phi i64 [ 0, %.lr.ph33.i ], [ %.2.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i ]
+  %.028.i = phi i64 [ 0, %.lr.ph33.i ], [ %.120.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i ]
   %25 = and i64 %.01530.i, 2251799813685247
   %26 = or disjoint i64 %25, %23
   %27 = cmpxchg ptr %19, i64 %.01530.i, i64 %26 acq_rel acquire, align 8
@@ -6212,7 +6212,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br label %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i
 
 _ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i: ; preds = %48, %46, %24
-  %.2.i = phi i64 [ 0, %24 ], [ %.028.i, %48 ], [ %47, %46 ]
+  %.120.i = phi i64 [ 0, %24 ], [ %.028.i, %48 ], [ %47, %46 ]
   %.117.i = phi i1 [ %.01629.i, %24 ], [ true, %48 ], [ true, %46 ]
   %.1.i = phi i64 [ %.sroa.07.0.i.i, %24 ], [ %.01530.i, %48 ], [ %.01530.i, %46 ]
   %49 = lshr i64 %.1.i, 51
@@ -6263,7 +6263,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
 24:                                               ; preds = %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i, %.lr.ph32.i
   %.01529.i = phi i64 [ %20, %.lr.ph32.i ], [ %.1.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i ]
   %.01628.i = phi i1 [ false, %.lr.ph32.i ], [ %.117.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i ]
-  %.027.i = phi i64 [ 0, %.lr.ph32.i ], [ %.2.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i ]
+  %.027.i = phi i64 [ 0, %.lr.ph32.i ], [ %.120.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i ]
   %25 = and i64 %.01529.i, 2251799813685247
   %26 = or disjoint i64 %25, %23
   %27 = cmpxchg ptr %19, i64 %.01529.i, i64 %26 acq_rel acquire, align 8
@@ -6314,7 +6314,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$5c
   br label %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i
 
 _ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i: ; preds = %42, %40, %24
-  %.2.i = phi i64 [ 0, %24 ], [ %.027.i, %42 ], [ %41, %40 ]
+  %.120.i = phi i64 [ 0, %24 ], [ %.027.i, %42 ], [ %41, %40 ]
   %.117.i = phi i1 [ %.01628.i, %24 ], [ true, %42 ], [ true, %40 ]
   %.1.i = phi i64 [ %.sroa.07.0.i.i, %24 ], [ %.01529.i, %42 ], [ %.01529.i, %40 ]
   %43 = lshr i64 %.1.i, 51
@@ -6448,8 +6448,8 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i.i.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i.i.i: ; preds = %41, %37
-  %.sroa.012.2.i.i.pn.i.i.i.i = phi ptr [ %40, %37 ], [ %43, %41 ]
-  %.not.i.i.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i.i.i, null
+  %.sroa.012.1.i.i.pn.i.i.i.i = phi ptr [ %40, %37 ], [ %43, %41 ]
+  %.not.i.i.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i.i.i, null
   br i1 %.not.i.i.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h726cb389de219bb2E.llvm.17769526770162137697.exit.i.i", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha6262a79ebc85b5aE.exit.i"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h726cb389de219bb2E.llvm.17769526770162137697.exit.thread.i.i": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1135e1e38a3da48dE.exit.thread.thread.i.i.i", %_ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162137697.exit.i.i.i, %26
@@ -6467,7 +6467,7 @@ _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i.i.i: ; preds = %41, %3
   unreachable
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha6262a79ebc85b5aE.exit.i": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i.i.i
-  store ptr %.sroa.012.2.i.i.pn.i.i.i.i, ptr %17, align 8, !alias.scope !443, !noalias !435
+  store ptr %.sroa.012.1.i.i.pn.i.i.i.i, ptr %17, align 8, !alias.scope !443, !noalias !435
   store i64 %.0.sroa.speculated.i26.i.i.i, ptr %4, align 8, !alias.scope !443, !noalias !435
   br label %.noexc
 
@@ -6486,7 +6486,7 @@ _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i.i.i: ; preds = %41, %3
 
 .noexc:                                           ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha6262a79ebc85b5aE.exit.i", %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre3.i, %._crit_edge.i ], [ %30, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha6262a79ebc85b5aE.exit.i" ]
-  %49 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.sroa.012.2.i.i.pn.i.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha6262a79ebc85b5aE.exit.i" ]
+  %49 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.sroa.012.1.i.i.pn.i.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17ha6262a79ebc85b5aE.exit.i" ]
   %50 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %49, i64 %23
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %50, ptr noundef nonnull align 8 dereferenceable(96) %3, i64 96, i1 false), !noalias !432
   store i64 %.pre-phi.i, ptr %18, align 8, !alias.scope !432, !noalias !435
@@ -6844,8 +6844,8 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab4page4slot22InitGuard$LT$T$C
   br i1 %.sroa.18.0.in.i13, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h1930172eb6ca2c5fE.llvm.17769526770162137697.exit", %10, %2
-  %.1 = phi i1 [ false, %2 ], [ false, %10 ], [ true, %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h1930172eb6ca2c5fE.llvm.17769526770162137697.exit" ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %2 ], [ false, %10 ], [ true, %"_ZN92_$LT$sharded_slab..page..slot..Lifecycle$LT$C$GT$$u20$as$u20$sharded_slab..Pack$LT$C$GT$$GT$10from_usize17h1930172eb6ca2c5fE.llvm.17769526770162137697.exit" ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6904,7 +6904,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$11
 37:                                               ; preds = %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i.i, %.lr.ph32.i.i.i
   %.01529.i.i.i = phi i64 [ %33, %.lr.ph32.i.i.i ], [ %.1.i.i.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i.i ]
   %.01628.i.i.i = phi i1 [ false, %.lr.ph32.i.i.i ], [ %.117.i.i.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i.i ]
-  %.027.i.i.i = phi i64 [ 0, %.lr.ph32.i.i.i ], [ %.2.i.i.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i.i ]
+  %.027.i.i.i = phi i64 [ 0, %.lr.ph32.i.i.i ], [ %.120.i.i.i, %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i.i ]
   %38 = and i64 %.01529.i.i.i, 2251799813685247
   %39 = or disjoint i64 %38, %36
   %40 = cmpxchg ptr %32, i64 %.01529.i.i.i, i64 %39 acq_rel acquire, align 8, !noalias !465
@@ -6955,7 +6955,7 @@ define hidden noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$11
   br label %_ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i.i
 
 _ZN12sharded_slab4page4slot19exponential_backoff17h2bccdeb35dc8ace9E.exit.i.i.i: ; preds = %55, %53, %37
-  %.2.i.i.i = phi i64 [ 0, %37 ], [ %.027.i.i.i, %55 ], [ %54, %53 ]
+  %.120.i.i.i = phi i64 [ 0, %37 ], [ %.027.i.i.i, %55 ], [ %54, %53 ]
   %.117.i.i.i = phi i1 [ %.01628.i.i.i, %37 ], [ true, %55 ], [ true, %53 ]
   %.1.i.i.i = phi i64 [ %.sroa.07.0.i.i.i.i, %37 ], [ %.01529.i.i.i, %55 ], [ %.01529.i.i.i, %53 ]
   %56 = lshr i64 %.1.i.i.i, 51
@@ -16969,14 +16969,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %15, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %18, %15 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %18, %15 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65: ; preds = %19, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  %25 = phi ptr [ %.sroa.012.2.i.i.pn.i, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ inttoptr (i64 8 to ptr), %19 ]
+  %25 = phi ptr [ %.sroa.012.1.i.i.pn.i, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ inttoptr (i64 8 to ptr), %19 ]
   store ptr %25, ptr %13, align 8
   store i64 %5, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
@@ -17037,14 +17037,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %15, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %18, %15 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %18, %15 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread65: ; preds = %19, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  %25 = phi ptr [ %.sroa.012.2.i.i.pn.i, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ inttoptr (i64 8 to ptr), %19 ]
+  %25 = phi ptr [ %.sroa.012.1.i.i.pn.i, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit ], [ inttoptr (i64 8 to ptr), %19 ]
   store ptr %25, ptr %13, align 8
   store i64 %5, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
@@ -22977,14 +22977,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23042,14 +23042,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23107,14 +23107,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23172,14 +23172,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23237,14 +23237,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23302,14 +23302,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23367,14 +23367,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23432,14 +23432,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23497,14 +23497,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23562,14 +23562,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23627,14 +23627,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23692,14 +23692,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23757,14 +23757,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23822,14 +23822,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23887,14 +23887,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -23952,14 +23952,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24017,14 +24017,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24082,14 +24082,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24147,14 +24147,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24212,14 +24212,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24277,14 +24277,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24342,14 +24342,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24407,14 +24407,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24472,14 +24472,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24537,14 +24537,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24602,14 +24602,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24667,14 +24667,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24732,14 +24732,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24797,14 +24797,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24862,14 +24862,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24927,14 +24927,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -24992,14 +24992,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25057,14 +25057,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25120,14 +25120,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %16, %19
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %18, %16 ], [ %21, %19 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %18, %16 ], [ %21, %19 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %22 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %23
 
 23:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %14, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %14, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25185,14 +25185,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25250,14 +25250,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25315,14 +25315,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25380,14 +25380,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25445,14 +25445,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25510,14 +25510,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25575,14 +25575,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25640,14 +25640,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25705,14 +25705,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25770,14 +25770,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25835,14 +25835,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25900,14 +25900,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -25965,14 +25965,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26030,14 +26030,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26095,14 +26095,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26160,14 +26160,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26225,14 +26225,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26290,14 +26290,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26355,14 +26355,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26420,14 +26420,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26485,14 +26485,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26550,14 +26550,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26615,14 +26615,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26680,14 +26680,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26745,14 +26745,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26810,14 +26810,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26875,14 +26875,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -26940,14 +26940,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27005,14 +27005,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27070,14 +27070,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27135,14 +27135,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27200,14 +27200,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27265,14 +27265,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27330,14 +27330,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27395,14 +27395,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27458,14 +27458,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %16, %19
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %18, %16 ], [ %21, %19 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %18, %16 ], [ %21, %19 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %22 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %23
 
 23:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %14, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %14, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27523,14 +27523,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27588,14 +27588,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27653,14 +27653,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27716,14 +27716,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %16, %19
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %18, %16 ], [ %21, %19 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %18, %16 ], [ %21, %19 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %22 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %23
 
 23:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %14, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %14, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27781,14 +27781,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27846,14 +27846,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27911,14 +27911,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -27976,14 +27976,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28041,14 +28041,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28106,14 +28106,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28171,14 +28171,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28236,14 +28236,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28301,14 +28301,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28366,14 +28366,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28431,14 +28431,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28496,14 +28496,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28561,14 +28561,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28626,14 +28626,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28691,14 +28691,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28756,14 +28756,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28821,14 +28821,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28886,14 +28886,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 4 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -28951,14 +28951,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -29016,14 +29016,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -29081,14 +29081,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -29146,14 +29146,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit: ; preds = %17, %21
-  %.sroa.012.2.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not = icmp eq ptr %.sroa.012.2.i.i.pn.i, null
-  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i
+  %.sroa.012.1.i.i.pn.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not = icmp eq ptr %.sroa.012.1.i.i.pn.i, null
+  %.sink1.i.i = select i1 %.not, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i
   %24 = ptrtoint ptr %.sink1.i.i to i64
   br i1 %.not, label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread, label %25
 
 25:                                               ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit
-  store ptr %.sroa.012.2.i.i.pn.i, ptr %15, align 8
+  store ptr %.sroa.012.1.i.i.pn.i, ptr %15, align 8
   store i64 %.0.sroa.speculated.i26, ptr %0, align 8
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.thread
 
@@ -29210,14 +29210,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %18, %15
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %17, %15 ], [ %20, %18 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
-  %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.2.i.i.pn.i.i
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %17, %15 ], [ %20, %18 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
+  %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i.i
   %21 = ptrtoint ptr %.sink1.i.i.i to i64
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb379184f078cf268E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb379184f078cf268E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb379184f078cf268E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %13, align 8, !alias.scope !2230
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %13, align 8, !alias.scope !2230
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2230
   br label %_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.17769526770162137697.exit
 
@@ -29286,12 +29286,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h755b6903b80d6754E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h755b6903b80d6754E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h755b6903b80d6754E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2237
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2237
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2237
   ret void
 
@@ -29351,12 +29351,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfab54555cd64e4e7E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfab54555cd64e4e7E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfab54555cd64e4e7E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2244
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2244
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2244
   ret void
 
@@ -29422,12 +29422,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd759c906415f459eE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd759c906415f459eE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd759c906415f459eE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2251
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2251
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2251
   ret void
 
@@ -29487,12 +29487,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6c7d63a7f1181a6bE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6c7d63a7f1181a6bE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6c7d63a7f1181a6bE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2258
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2258
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2258
   ret void
 
@@ -29552,12 +29552,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he66b322d09363e92E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he66b322d09363e92E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he66b322d09363e92E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2265
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2265
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2265
   ret void
 
@@ -29617,12 +29617,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9e17594943e64c59E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9e17594943e64c59E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9e17594943e64c59E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2272
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2272
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2272
   ret void
 
@@ -29682,12 +29682,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8b2ad346da66ec8cE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8b2ad346da66ec8cE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8b2ad346da66ec8cE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2279
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2279
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2279
   ret void
 
@@ -29747,12 +29747,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h12bbbb09ec9c8147E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h12bbbb09ec9c8147E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h12bbbb09ec9c8147E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2286
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2286
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2286
   ret void
 
@@ -29812,12 +29812,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1fca93bbd8a7eb2bE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1fca93bbd8a7eb2bE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1fca93bbd8a7eb2bE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2293
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2293
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2293
   ret void
 
@@ -29877,12 +29877,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hcbad01052de9abd3E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hcbad01052de9abd3E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hcbad01052de9abd3E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2300
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2300
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2300
   ret void
 
@@ -29942,12 +29942,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h22723b2524054a54E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h22723b2524054a54E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h22723b2524054a54E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2307
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2307
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2307
   ret void
 
@@ -30007,12 +30007,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h730574ce35329b90E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h730574ce35329b90E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h730574ce35329b90E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2314
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2314
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2314
   ret void
 
@@ -30072,12 +30072,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h694917c471906c69E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h694917c471906c69E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h694917c471906c69E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2321
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2321
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2321
   ret void
 
@@ -30137,12 +30137,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd3a9ebb0e0c30353E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd3a9ebb0e0c30353E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd3a9ebb0e0c30353E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2328
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2328
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2328
   ret void
 
@@ -30202,12 +30202,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h449fdf59f8b299bdE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h449fdf59f8b299bdE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h449fdf59f8b299bdE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2335
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2335
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2335
   ret void
 
@@ -30267,12 +30267,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h47dd344e739c3d5dE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h47dd344e739c3d5dE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h47dd344e739c3d5dE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2342
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2342
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2342
   ret void
 
@@ -30332,12 +30332,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h85060c6bd1aaa627E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h85060c6bd1aaa627E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h85060c6bd1aaa627E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2349
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2349
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2349
   ret void
 
@@ -30397,12 +30397,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3249f2502b1524c1E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3249f2502b1524c1E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3249f2502b1524c1E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2356
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2356
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2356
   ret void
 
@@ -30462,12 +30462,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2503708ec0a84127E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2503708ec0a84127E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2503708ec0a84127E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2363
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2363
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2363
   ret void
 
@@ -30527,12 +30527,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3eecca15fd85e0fcE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3eecca15fd85e0fcE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3eecca15fd85e0fcE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2370
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2370
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2370
   ret void
 
@@ -30592,12 +30592,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0c5e5c4c3497c883E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0c5e5c4c3497c883E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0c5e5c4c3497c883E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2377
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2377
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2377
   ret void
 
@@ -30657,12 +30657,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha7b5b54de816dee3E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha7b5b54de816dee3E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha7b5b54de816dee3E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2384
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2384
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2384
   ret void
 
@@ -30722,12 +30722,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h758df4ebb446c55aE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h758df4ebb446c55aE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h758df4ebb446c55aE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2391
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2391
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2391
   ret void
 
@@ -30787,12 +30787,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h94756a635882ad98E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h94756a635882ad98E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h94756a635882ad98E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2398
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2398
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2398
   ret void
 
@@ -30852,12 +30852,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hde918a2977da4d50E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hde918a2977da4d50E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hde918a2977da4d50E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2405
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2405
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2405
   ret void
 
@@ -30917,12 +30917,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd0a15464b1389fd1E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd0a15464b1389fd1E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd0a15464b1389fd1E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2412
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2412
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2412
   ret void
 
@@ -30982,12 +30982,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc4a30340b1dfabf8E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc4a30340b1dfabf8E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc4a30340b1dfabf8E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2419
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2419
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2419
   ret void
 
@@ -31047,12 +31047,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10f6592bc51b45fdE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10f6592bc51b45fdE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h10f6592bc51b45fdE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2426
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2426
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2426
   ret void
 
@@ -31112,12 +31112,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hac123f0615ea7b0bE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hac123f0615ea7b0bE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hac123f0615ea7b0bE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2433
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2433
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2433
   ret void
 
@@ -31177,12 +31177,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8a07aa62790f05daE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8a07aa62790f05daE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8a07aa62790f05daE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2440
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2440
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2440
   ret void
 
@@ -31242,12 +31242,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h64115f7dbad1e89cE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h64115f7dbad1e89cE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h64115f7dbad1e89cE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2447
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2447
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2447
   ret void
 
@@ -31307,12 +31307,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6f279e63319bb36bE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6f279e63319bb36bE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6f279e63319bb36bE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2454
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2454
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2454
   ret void
 
@@ -31372,12 +31372,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5cf4782ee7553a32E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5cf4782ee7553a32E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5cf4782ee7553a32E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2461
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2461
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2461
   ret void
 
@@ -31437,12 +31437,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1cb29e117a946b16E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1cb29e117a946b16E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1cb29e117a946b16E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2468
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2468
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2468
   ret void
 
@@ -31502,12 +31502,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6e6752c80cd7452cE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6e6752c80cd7452cE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6e6752c80cd7452cE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2475
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2475
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2475
   ret void
 
@@ -31567,12 +31567,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4602920cdc47e011E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4602920cdc47e011E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4602920cdc47e011E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2482
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2482
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2482
   ret void
 
@@ -31632,12 +31632,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h69bdb662f093d308E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h69bdb662f093d308E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h69bdb662f093d308E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2489
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2489
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2489
   ret void
 
@@ -31697,12 +31697,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9293a749726037ddE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9293a749726037ddE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9293a749726037ddE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2496
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2496
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2496
   ret void
 
@@ -31762,12 +31762,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h563f73532794642aE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h563f73532794642aE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h563f73532794642aE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2503
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2503
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2503
   ret void
 
@@ -31827,12 +31827,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he3e5ac6afa80d01dE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he3e5ac6afa80d01dE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he3e5ac6afa80d01dE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2510
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2510
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2510
   ret void
 
@@ -31892,12 +31892,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd2701ed97b5e1d9fE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd2701ed97b5e1d9fE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd2701ed97b5e1d9fE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2517
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2517
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2517
   ret void
 
@@ -31957,12 +31957,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9409ed0b8b28c1b3E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9409ed0b8b28c1b3E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9409ed0b8b28c1b3E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2524
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2524
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2524
   ret void
 
@@ -32022,12 +32022,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4c6db79190f9298bE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4c6db79190f9298bE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4c6db79190f9298bE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2531
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2531
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2531
   ret void
 
@@ -32087,12 +32087,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfc3766680227b5ffE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfc3766680227b5ffE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfc3766680227b5ffE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2538
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2538
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2538
   ret void
 
@@ -32158,12 +32158,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc053bc6420542154E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc053bc6420542154E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc053bc6420542154E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2545
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2545
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2545
   ret void
 
@@ -32223,12 +32223,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h86b368a6c684d84cE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h86b368a6c684d84cE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h86b368a6c684d84cE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2552
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2552
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2552
   ret void
 
@@ -32288,12 +32288,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h290cffab85213d0eE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h290cffab85213d0eE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h290cffab85213d0eE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2559
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2559
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2559
   ret void
 
@@ -32353,12 +32353,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3076baa58228fabeE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3076baa58228fabeE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3076baa58228fabeE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2566
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2566
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2566
   ret void
 
@@ -32418,12 +32418,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9a1dd12d8638131bE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9a1dd12d8638131bE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9a1dd12d8638131bE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2573
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2573
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2573
   ret void
 
@@ -32483,12 +32483,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha5c062858365a143E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha5c062858365a143E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha5c062858365a143E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2580
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2580
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2580
   ret void
 
@@ -32548,12 +32548,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4978f2bfec6267a2E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4978f2bfec6267a2E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4978f2bfec6267a2E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2587
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2587
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2587
   ret void
 
@@ -32613,12 +32613,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1a058eb33406c70fE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1a058eb33406c70fE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1a058eb33406c70fE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2594
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2594
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2594
   ret void
 
@@ -32678,12 +32678,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h050f885d3507ec34E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h050f885d3507ec34E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h050f885d3507ec34E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2601
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2601
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2601
   ret void
 
@@ -32743,12 +32743,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h303176399b19a47dE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h303176399b19a47dE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h303176399b19a47dE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2608
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2608
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2608
   ret void
 
@@ -32808,12 +32808,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf6b3f5fbc7872c1dE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf6b3f5fbc7872c1dE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf6b3f5fbc7872c1dE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2615
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2615
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2615
   ret void
 
@@ -32873,12 +32873,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h18ab3841ae1dc433E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h18ab3841ae1dc433E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h18ab3841ae1dc433E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2622
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2622
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2622
   ret void
 
@@ -32938,12 +32938,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9759adf7fe9717a8E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9759adf7fe9717a8E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9759adf7fe9717a8E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2629
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2629
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2629
   ret void
 
@@ -33003,12 +33003,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0ebf0962207132b3E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0ebf0962207132b3E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0ebf0962207132b3E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2636
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2636
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2636
   ret void
 
@@ -33068,12 +33068,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4947392cec0c1c90E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4947392cec0c1c90E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4947392cec0c1c90E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2643
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2643
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2643
   ret void
 
@@ -33133,12 +33133,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h88ccc63b1f76e239E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h88ccc63b1f76e239E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h88ccc63b1f76e239E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2650
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2650
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2650
   ret void
 
@@ -33198,12 +33198,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1b629e525121a1e7E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1b629e525121a1e7E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1b629e525121a1e7E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2657
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2657
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2657
   ret void
 
@@ -33263,12 +33263,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h22d63f6eea8c3e1fE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h22d63f6eea8c3e1fE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h22d63f6eea8c3e1fE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2664
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2664
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2664
   ret void
 
@@ -33328,12 +33328,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf790bf0fc216da3eE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf790bf0fc216da3eE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf790bf0fc216da3eE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2671
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2671
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2671
   ret void
 
@@ -33393,12 +33393,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7a22c7358a0249c7E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7a22c7358a0249c7E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7a22c7358a0249c7E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2678
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2678
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2678
   ret void
 
@@ -33458,12 +33458,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3a2b531285f57f75E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3a2b531285f57f75E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3a2b531285f57f75E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2685
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2685
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2685
   ret void
 
@@ -33523,12 +33523,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha182f3abc3ea43d1E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha182f3abc3ea43d1E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha182f3abc3ea43d1E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2692
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2692
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2692
   ret void
 
@@ -33588,12 +33588,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68f2d67900fa8b8cE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68f2d67900fa8b8cE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h68f2d67900fa8b8cE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2699
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2699
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2699
   ret void
 
@@ -33653,12 +33653,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h388f359698d7cb69E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h388f359698d7cb69E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h388f359698d7cb69E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2706
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2706
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2706
   ret void
 
@@ -33718,12 +33718,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he82a4f34be3ebe37E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he82a4f34be3ebe37E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he82a4f34be3ebe37E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2713
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2713
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2713
   ret void
 
@@ -33783,12 +33783,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h688757f9473c6faaE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h688757f9473c6faaE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h688757f9473c6faaE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2720
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2720
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2720
   ret void
 
@@ -33848,12 +33848,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd4af071313d67e2dE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd4af071313d67e2dE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd4af071313d67e2dE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2727
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2727
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2727
   ret void
 
@@ -33913,12 +33913,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he2d9db8ba8a25426E.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he2d9db8ba8a25426E.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he2d9db8ba8a25426E.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2734
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2734
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2734
   ret void
 
@@ -33978,12 +33978,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %20, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %19, %16 ], [ %22, %20 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2ed49647a24b305aE.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2ed49647a24b305aE.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2ed49647a24b305aE.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2741
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2741
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2741
   ret void
 
@@ -34048,14 +34048,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %25, %19
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %22, %19 ], [ %27, %25 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
-  %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i.i
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %22, %19 ], [ %27, %25 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
+  %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i.i
   %28 = ptrtoint ptr %.sink1.i.i.i to i64
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h8d891fae49dabd0dE.llvm.17769526770162137697.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h8d891fae49dabd0dE.llvm.17769526770162137697.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h8d891fae49dabd0dE.llvm.17769526770162137697.exit": ; preds = %23, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  %29 = phi ptr [ %.sroa.012.2.i.i.pn.i.i, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i ], [ inttoptr (i64 8 to ptr), %23 ]
+  %29 = phi ptr [ %.sroa.012.1.i.i.pn.i.i, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i ], [ inttoptr (i64 8 to ptr), %23 ]
   store ptr %29, ptr %17, align 8, !alias.scope !2748
   store i64 %9, ptr %0, align 8, !alias.scope !2748
   %.pre = sub i64 %9, %1
@@ -34132,14 +34132,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %25, %19
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %22, %19 ], [ %27, %25 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
-  %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.2.i.i.pn.i.i
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %22, %19 ], [ %27, %25 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
+  %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 8 to ptr), ptr %.sroa.012.1.i.i.pn.i.i
   %28 = ptrtoint ptr %.sink1.i.i.i to i64
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h9d53a07fb6fb2b08E.llvm.17769526770162137697.exit.thread", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h9d53a07fb6fb2b08E.llvm.17769526770162137697.exit"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h9d53a07fb6fb2b08E.llvm.17769526770162137697.exit": ; preds = %23, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  %29 = phi ptr [ %.sroa.012.2.i.i.pn.i.i, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i ], [ inttoptr (i64 8 to ptr), %23 ]
+  %29 = phi ptr [ %.sroa.012.1.i.i.pn.i.i, %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i ], [ inttoptr (i64 8 to ptr), %23 ]
   store ptr %29, ptr %17, align 8, !alias.scope !2755
   store i64 %9, ptr %0, align 8, !alias.scope !2755
   %.pre = sub i64 %9, %1
@@ -35844,12 +35844,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1d916b8a26e5cceaE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1d916b8a26e5cceaE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1d916b8a26e5cceaE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2762
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2762
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2762
   ret void
 
@@ -35909,12 +35909,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h850f84def80b6580E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h850f84def80b6580E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h850f84def80b6580E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2769
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2769
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2769
   ret void
 
@@ -35974,12 +35974,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha9ad4236651ab0e0E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha9ad4236651ab0e0E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha9ad4236651ab0e0E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2776
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2776
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2776
   ret void
 
@@ -36039,12 +36039,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h48f8f46de2ccc912E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h48f8f46de2ccc912E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h48f8f46de2ccc912E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2783
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2783
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2783
   ret void
 
@@ -36104,12 +36104,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h52b3ff906b2f7fb0E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h52b3ff906b2f7fb0E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h52b3ff906b2f7fb0E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2790
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2790
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2790
   ret void
 
@@ -36169,12 +36169,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hed25278ef5c8852fE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hed25278ef5c8852fE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hed25278ef5c8852fE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2797
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2797
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2797
   ret void
 
@@ -36234,12 +36234,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2558472cba024e76E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2558472cba024e76E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2558472cba024e76E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2804
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2804
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2804
   ret void
 
@@ -36299,12 +36299,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h44748ff0cc133835E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h44748ff0cc133835E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h44748ff0cc133835E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2811
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2811
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2811
   ret void
 
@@ -36364,12 +36364,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h42c6334f021f2048E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h42c6334f021f2048E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h42c6334f021f2048E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2818
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2818
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2818
   ret void
 
@@ -36427,14 +36427,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %19, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %18, %16 ], [ %21, %19 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
-  %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.2.i.i.pn.i.i
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %18, %16 ], [ %21, %19 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
+  %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i.i
   %22 = ptrtoint ptr %.sink1.i.i.i to i64
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb379184f078cf268E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb379184f078cf268E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb379184f078cf268E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2825
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !2825
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2825
   br label %_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.17769526770162137697.exit
 
@@ -36503,12 +36503,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb3df9449ac0890f9E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb3df9449ac0890f9E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb3df9449ac0890f9E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2832
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2832
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2832
   ret void
 
@@ -36568,12 +36568,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0fd3852cfedc24c2E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0fd3852cfedc24c2E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0fd3852cfedc24c2E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2839
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2839
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2839
   ret void
 
@@ -36633,12 +36633,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h962f63c75a1f14f9E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h962f63c75a1f14f9E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h962f63c75a1f14f9E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2846
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2846
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2846
   ret void
 
@@ -36698,12 +36698,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4e0b6c0e7c72b29dE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4e0b6c0e7c72b29dE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4e0b6c0e7c72b29dE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2853
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2853
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2853
   ret void
 
@@ -36763,12 +36763,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he3e5ac6afa80d01dE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he3e5ac6afa80d01dE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he3e5ac6afa80d01dE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2860
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2860
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2860
   ret void
 
@@ -36828,12 +36828,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd4af071313d67e2dE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd4af071313d67e2dE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd4af071313d67e2dE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2867
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2867
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2867
   ret void
 
@@ -36893,12 +36893,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6fb29a9b02d0da0aE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6fb29a9b02d0da0aE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6fb29a9b02d0da0aE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2874
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2874
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2874
   ret void
 
@@ -36958,12 +36958,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17haf5c72ededd77bc7E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17haf5c72ededd77bc7E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17haf5c72ededd77bc7E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2881
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2881
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2881
   ret void
 
@@ -37023,12 +37023,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h55579d17806d38e7E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h55579d17806d38e7E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h55579d17806d38e7E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2888
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2888
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2888
   ret void
 
@@ -37088,12 +37088,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h64115f7dbad1e89cE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h64115f7dbad1e89cE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h64115f7dbad1e89cE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2895
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2895
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2895
   ret void
 
@@ -37153,12 +37153,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9a1dd12d8638131bE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9a1dd12d8638131bE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9a1dd12d8638131bE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2902
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2902
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2902
   ret void
 
@@ -37218,12 +37218,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h22d63f6eea8c3e1fE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h22d63f6eea8c3e1fE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h22d63f6eea8c3e1fE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2909
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2909
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2909
   ret void
 
@@ -37283,12 +37283,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h95954a3c18a6caa5E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h95954a3c18a6caa5E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h95954a3c18a6caa5E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2916
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2916
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2916
   ret void
 
@@ -37348,12 +37348,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb5b9faa39018f3abE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb5b9faa39018f3abE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb5b9faa39018f3abE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2923
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2923
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2923
   ret void
 
@@ -37413,12 +37413,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6e0df44c99ee2e30E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6e0df44c99ee2e30E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6e0df44c99ee2e30E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2930
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2930
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2930
   ret void
 
@@ -37478,12 +37478,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9dbc673078771565E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9dbc673078771565E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9dbc673078771565E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2937
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2937
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2937
   ret void
 
@@ -37543,12 +37543,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h449fdf59f8b299bdE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h449fdf59f8b299bdE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h449fdf59f8b299bdE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2944
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2944
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2944
   ret void
 
@@ -37608,12 +37608,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h822f24434cc90856E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h822f24434cc90856E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h822f24434cc90856E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2951
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2951
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2951
   ret void
 
@@ -37673,12 +37673,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2a7c4ca80e12a392E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2a7c4ca80e12a392E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2a7c4ca80e12a392E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2958
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2958
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2958
   ret void
 
@@ -37738,12 +37738,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he044b0fe4e8e4563E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he044b0fe4e8e4563E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he044b0fe4e8e4563E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2965
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2965
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2965
   ret void
 
@@ -37803,12 +37803,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0ebf0962207132b3E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0ebf0962207132b3E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0ebf0962207132b3E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2972
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2972
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2972
   ret void
 
@@ -37868,12 +37868,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4f50466742fe97a7E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4f50466742fe97a7E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4f50466742fe97a7E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2979
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2979
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2979
   ret void
 
@@ -37933,12 +37933,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5f43291115a34f63E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5f43291115a34f63E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5f43291115a34f63E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2986
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2986
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2986
   ret void
 
@@ -37998,12 +37998,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf59609f1e07b3a40E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf59609f1e07b3a40E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf59609f1e07b3a40E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2993
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !2993
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !2993
   ret void
 
@@ -38063,12 +38063,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h453ccb6acf993986E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h453ccb6acf993986E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h453ccb6acf993986E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3000
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3000
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3000
   ret void
 
@@ -38128,12 +38128,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h664583b3e42bfb9bE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h664583b3e42bfb9bE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h664583b3e42bfb9bE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3007
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3007
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3007
   ret void
 
@@ -38193,12 +38193,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3eecca15fd85e0fcE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3eecca15fd85e0fcE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3eecca15fd85e0fcE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3014
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3014
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3014
   ret void
 
@@ -38258,12 +38258,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc60b59ed3e554b17E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc60b59ed3e554b17E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc60b59ed3e554b17E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3021
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3021
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3021
   ret void
 
@@ -38323,12 +38323,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h33acd72cce5ab213E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h33acd72cce5ab213E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h33acd72cce5ab213E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3028
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3028
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3028
   ret void
 
@@ -38388,12 +38388,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h726cb389de219bb2E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h726cb389de219bb2E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h726cb389de219bb2E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3035
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3035
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3035
   ret void
 
@@ -38453,12 +38453,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf6b3f5fbc7872c1dE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf6b3f5fbc7872c1dE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf6b3f5fbc7872c1dE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3042
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3042
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3042
   ret void
 
@@ -38518,12 +38518,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd3a9ebb0e0c30353E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd3a9ebb0e0c30353E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd3a9ebb0e0c30353E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3049
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3049
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3049
   ret void
 
@@ -38583,12 +38583,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc3c4c8dc6b7e21daE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc3c4c8dc6b7e21daE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc3c4c8dc6b7e21daE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3056
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3056
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3056
   ret void
 
@@ -38648,12 +38648,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf61ba9b36208c0a0E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf61ba9b36208c0a0E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf61ba9b36208c0a0E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3063
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3063
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3063
   ret void
 
@@ -38713,12 +38713,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h09ac3de8c93b0147E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h09ac3de8c93b0147E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h09ac3de8c93b0147E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3070
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3070
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3070
   ret void
 
@@ -38778,12 +38778,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h20eeef7078ade08dE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h20eeef7078ade08dE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h20eeef7078ade08dE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3077
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3077
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3077
   ret void
 
@@ -38843,12 +38843,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6a62455849919c4eE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6a62455849919c4eE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6a62455849919c4eE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3084
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3084
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3084
   ret void
 
@@ -38908,12 +38908,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4947392cec0c1c90E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4947392cec0c1c90E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h4947392cec0c1c90E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3091
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3091
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3091
   ret void
 
@@ -38973,12 +38973,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha199646c43e576b3E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha199646c43e576b3E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha199646c43e576b3E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3098
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3098
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3098
   ret void
 
@@ -39038,12 +39038,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1a058eb33406c70fE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1a058eb33406c70fE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1a058eb33406c70fE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3105
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3105
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3105
   ret void
 
@@ -39103,12 +39103,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3129c70921442ba0E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3129c70921442ba0E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3129c70921442ba0E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3112
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3112
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3112
   ret void
 
@@ -39168,12 +39168,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1ce246e38d5886c9E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1ce246e38d5886c9E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1ce246e38d5886c9E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3119
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3119
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3119
   ret void
 
@@ -39233,12 +39233,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha9c8541ca1699e13E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha9c8541ca1699e13E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha9c8541ca1699e13E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3126
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3126
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3126
   ret void
 
@@ -39298,12 +39298,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6f513f96b38082bfE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6f513f96b38082bfE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6f513f96b38082bfE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3133
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3133
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3133
   ret void
 
@@ -39363,12 +39363,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfcc4a66125353a03E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfcc4a66125353a03E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfcc4a66125353a03E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3140
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3140
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3140
   ret void
 
@@ -39428,12 +39428,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h37e20f00a06bc7e5E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h37e20f00a06bc7e5E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h37e20f00a06bc7e5E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3147
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3147
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3147
   ret void
 
@@ -39493,12 +39493,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h326d68dac0675d9dE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h326d68dac0675d9dE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h326d68dac0675d9dE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3154
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3154
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3154
   ret void
 
@@ -39558,12 +39558,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he6e326dd3721006cE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he6e326dd3721006cE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he6e326dd3721006cE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3161
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3161
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3161
   ret void
 
@@ -39623,12 +39623,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hdd3ad13770ed96bfE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hdd3ad13770ed96bfE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hdd3ad13770ed96bfE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3168
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3168
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3168
   ret void
 
@@ -39686,14 +39686,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %19, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %18, %16 ], [ %21, %19 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
-  %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.2.i.i.pn.i.i
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %18, %16 ], [ %21, %19 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
+  %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i.i
   %22 = ptrtoint ptr %.sink1.i.i.i to i64
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hbe6b06c60b8f7e25E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hbe6b06c60b8f7e25E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hbe6b06c60b8f7e25E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !3175
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !3175
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3175
   br label %_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.17769526770162137697.exit
 
@@ -39762,12 +39762,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17haa6debcc905a31a1E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17haa6debcc905a31a1E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17haa6debcc905a31a1E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3182
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3182
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3182
   ret void
 
@@ -39827,12 +39827,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hac1004908c3a15acE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hac1004908c3a15acE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hac1004908c3a15acE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3189
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3189
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3189
   ret void
 
@@ -39892,12 +39892,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17haf38b821690990dcE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17haf38b821690990dcE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17haf38b821690990dcE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3196
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3196
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3196
   ret void
 
@@ -39957,12 +39957,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hde918a2977da4d50E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hde918a2977da4d50E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hde918a2977da4d50E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3203
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3203
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3203
   ret void
 
@@ -40022,12 +40022,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8a85db7e901ee163E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8a85db7e901ee163E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8a85db7e901ee163E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3210
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3210
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3210
   ret void
 
@@ -40087,12 +40087,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb3adec9f34cf152aE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb3adec9f34cf152aE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hb3adec9f34cf152aE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3217
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3217
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3217
   ret void
 
@@ -40152,12 +40152,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha7fbecb865fafc95E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha7fbecb865fafc95E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17ha7fbecb865fafc95E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3224
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3224
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3224
   ret void
 
@@ -40217,12 +40217,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfc6ad22d7967a319E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfc6ad22d7967a319E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfc6ad22d7967a319E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3231
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3231
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3231
   ret void
 
@@ -40282,12 +40282,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h43d03f7d039e8f5dE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h43d03f7d039e8f5dE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h43d03f7d039e8f5dE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3238
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3238
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3238
   ret void
 
@@ -40347,12 +40347,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9e607a6a2fa44f72E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9e607a6a2fa44f72E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9e607a6a2fa44f72E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3245
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3245
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3245
   ret void
 
@@ -40412,12 +40412,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hacef3342841bdbaaE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hacef3342841bdbaaE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hacef3342841bdbaaE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3252
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3252
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3252
   ret void
 
@@ -40477,12 +40477,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h12bbbb09ec9c8147E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h12bbbb09ec9c8147E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h12bbbb09ec9c8147E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3259
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3259
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3259
   ret void
 
@@ -40542,12 +40542,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7a22c7358a0249c7E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7a22c7358a0249c7E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7a22c7358a0249c7E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3266
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3266
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3266
   ret void
 
@@ -40607,12 +40607,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9293a749726037ddE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9293a749726037ddE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9293a749726037ddE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3273
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3273
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3273
   ret void
 
@@ -40672,12 +40672,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he46a61de4cc4b671E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he46a61de4cc4b671E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he46a61de4cc4b671E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3280
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3280
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3280
   ret void
 
@@ -40737,12 +40737,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5cc46eaa3173e21cE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5cc46eaa3173e21cE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h5cc46eaa3173e21cE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3287
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3287
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3287
   ret void
 
@@ -40802,12 +40802,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc16ec3b9a6d50abdE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc16ec3b9a6d50abdE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc16ec3b9a6d50abdE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3294
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3294
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3294
   ret void
 
@@ -40867,12 +40867,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7c2bd6e1aad41773E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7c2bd6e1aad41773E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7c2bd6e1aad41773E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3301
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3301
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3301
   ret void
 
@@ -40932,12 +40932,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8b2ad346da66ec8cE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8b2ad346da66ec8cE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8b2ad346da66ec8cE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3308
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3308
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3308
   ret void
 
@@ -40997,12 +40997,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf80a44b8e2627dc8E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf80a44b8e2627dc8E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf80a44b8e2627dc8E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3315
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3315
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3315
   ret void
 
@@ -41062,12 +41062,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7eabf77a6ca5271cE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7eabf77a6ca5271cE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7eabf77a6ca5271cE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3322
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3322
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3322
   ret void
 
@@ -41127,12 +41127,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h694917c471906c69E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h694917c471906c69E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h694917c471906c69E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3329
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3329
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3329
   ret void
 
@@ -41192,12 +41192,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfc3766680227b5ffE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfc3766680227b5ffE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfc3766680227b5ffE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3336
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3336
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3336
   ret void
 
@@ -41257,12 +41257,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfd9ec8ef5f76b565E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfd9ec8ef5f76b565E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hfd9ec8ef5f76b565E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3343
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3343
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3343
   ret void
 
@@ -41322,12 +41322,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h150f1d1bbebad6c5E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h150f1d1bbebad6c5E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h150f1d1bbebad6c5E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3350
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3350
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3350
   ret void
 
@@ -41387,12 +41387,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h92d4434b2fbcfb08E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h92d4434b2fbcfb08E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h92d4434b2fbcfb08E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3357
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3357
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3357
   ret void
 
@@ -41452,12 +41452,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b136df15e5f8c77E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b136df15e5f8c77E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h6b136df15e5f8c77E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3364
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3364
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3364
   ret void
 
@@ -41517,12 +41517,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7d60b4ef78e48f83E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7d60b4ef78e48f83E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7d60b4ef78e48f83E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3371
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3371
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3371
   ret void
 
@@ -41582,12 +41582,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h755b6903b80d6754E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h755b6903b80d6754E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h755b6903b80d6754E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3378
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3378
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3378
   ret void
 
@@ -41647,12 +41647,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h861bd1782c1c7c53E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h861bd1782c1c7c53E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h861bd1782c1c7c53E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3385
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3385
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3385
   ret void
 
@@ -41712,12 +41712,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9759adf7fe9717a8E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9759adf7fe9717a8E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9759adf7fe9717a8E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3392
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3392
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3392
   ret void
 
@@ -41777,12 +41777,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3d3eb56908435458E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3d3eb56908435458E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3d3eb56908435458E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3399
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3399
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3399
   ret void
 
@@ -41842,12 +41842,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hbe9ffd8d6a12570fE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hbe9ffd8d6a12570fE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hbe9ffd8d6a12570fE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3406
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3406
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3406
   ret void
 
@@ -41907,12 +41907,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd5c20ac2874afd82E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd5c20ac2874afd82E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hd5c20ac2874afd82E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3413
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3413
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3413
   ret void
 
@@ -41972,12 +41972,12 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %21, %17
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %20, %17 ], [ %23, %21 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h916a334fb604a40cE.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h916a334fb604a40cE.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h916a334fb604a40cE.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3420
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %15, align 8, !alias.scope !3420
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3420
   ret void
 
@@ -42035,14 +42035,14 @@ _ZN4core5alloc6layout6Layout5array5inner17he78cc567802aa4daE.llvm.17769526770162
   br label %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
 
 _ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i: ; preds = %19, %16
-  %.sroa.012.2.i.i.pn.i.i = phi ptr [ %18, %16 ], [ %21, %19 ]
-  %.not.i = icmp eq ptr %.sroa.012.2.i.i.pn.i.i, null
-  %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.2.i.i.pn.i.i
+  %.sroa.012.1.i.i.pn.i.i = phi ptr [ %18, %16 ], [ %21, %19 ]
+  %.not.i = icmp eq ptr %.sroa.012.1.i.i.pn.i.i, null
+  %.sink1.i.i.i = select i1 %.not.i, ptr inttoptr (i64 1 to ptr), ptr %.sroa.012.1.i.i.pn.i.i
   %22 = ptrtoint ptr %.sink1.i.i.i to i64
   br i1 %.not.i, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h66bb5086d5c4e837E.llvm.17769526770162137697.exit", label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h66bb5086d5c4e837E.llvm.17769526770162137697.exit.thread3"
 
 "_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h66bb5086d5c4e837E.llvm.17769526770162137697.exit.thread3": ; preds = %_ZN5alloc7raw_vec11finish_grow17h1ea21ddc82365670E.exit.i
-  store ptr %.sroa.012.2.i.i.pn.i.i, ptr %14, align 8, !alias.scope !3427
+  store ptr %.sroa.012.1.i.i.pn.i.i, ptr %14, align 8, !alias.scope !3427
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !3427
   br label %_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.17769526770162137697.exit
 

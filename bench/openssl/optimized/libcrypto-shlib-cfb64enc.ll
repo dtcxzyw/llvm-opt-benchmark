@@ -96,11 +96,11 @@ if.end:                                           ; preds = %if.then2, %while.bo
 
 while.body73:                                     ; preds = %while.body73.lr.ph, %if.end142
   %dec71100.in = phi i64 [ %length, %while.body73.lr.ph ], [ %dec71100, %if.end142 ]
-  %n.199 = phi i32 [ %0, %while.body73.lr.ph ], [ %and154, %if.end142 ]
+  %n.299 = phi i32 [ %0, %while.body73.lr.ph ], [ %and154, %if.end142 ]
   %in.addr.198 = phi ptr [ %in, %while.body73.lr.ph ], [ %incdec.ptr143, %if.end142 ]
   %out.addr.197 = phi ptr [ %out, %while.body73.lr.ph ], [ %incdec.ptr152, %if.end142 ]
   %dec71100 = add nsw i64 %dec71100.in, -1
-  %cmp74 = icmp eq i32 %n.199, 0
+  %cmp74 = icmp eq i32 %n.299, 0
   br i1 %cmp74, label %if.then76, label %if.end142
 
 if.then76:                                        ; preds = %while.body73
@@ -136,21 +136,21 @@ if.then76:                                        ; preds = %while.body73
 if.end142:                                        ; preds = %if.then76, %while.body73
   %incdec.ptr143 = getelementptr inbounds i8, ptr %in.addr.198, i64 1
   %9 = load i8, ptr %in.addr.198, align 1
-  %idxprom144 = sext i32 %n.199 to i64
+  %idxprom144 = sext i32 %n.299 to i64
   %arrayidx145 = getelementptr inbounds i8, ptr %ivec, i64 %idxprom144
   %10 = load i8, ptr %arrayidx145, align 1
   store i8 %9, ptr %arrayidx145, align 1
   %xor15086 = xor i8 %10, %9
   %incdec.ptr152 = getelementptr inbounds i8, ptr %out.addr.197, i64 1
   store i8 %xor15086, ptr %out.addr.197, align 1
-  %add153 = add nsw i32 %n.199, 1
+  %add153 = add nsw i32 %n.299, 1
   %and154 = and i32 %add153, 7
   %tobool72.not = icmp eq i64 %dec71100, 0
   br i1 %tobool72.not, label %if.end156, label %while.body73, !llvm.loop !6
 
 if.end156:                                        ; preds = %if.end, %if.end142, %while.cond.preheader, %while.cond70.preheader
-  %n.2 = phi i32 [ %0, %while.cond70.preheader ], [ %0, %while.cond.preheader ], [ %and154, %if.end142 ], [ %and69, %if.end ]
-  store i32 %n.2, ptr %num, align 4
+  %n.1 = phi i32 [ %0, %while.cond70.preheader ], [ %0, %while.cond.preheader ], [ %and154, %if.end142 ], [ %and69, %if.end ]
+  store i32 %n.1, ptr %num, align 4
   ret void
 }
 

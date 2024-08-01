@@ -382,15 +382,15 @@ do.cond.i14.i:                                    ; preds = %do.body.i10.i
   br i1 %cmp.i17.i, label %do.body.i10.i, label %for.inc, !llvm.loop !13
 
 if.end.i:                                         ; preds = %do.body.i.i, %do.body.i10.i
-  %p.2.i = phi ptr [ %scevgep27.i, %do.body.i10.i ], [ %scevgep.i, %do.body.i.i ]
-  %call2.i = tail call i64 @strcspn(ptr noundef %p.2.i, ptr noundef nonnull @.str.11) #11
-  %arrayidx.i = getelementptr inbounds i8, ptr %p.2.i, i64 %call2.i
+  %p.0.i = phi ptr [ %scevgep27.i, %do.body.i10.i ], [ %scevgep.i, %do.body.i.i ]
+  %call2.i = tail call i64 @strcspn(ptr noundef %p.0.i, ptr noundef nonnull @.str.11) #11
+  %arrayidx.i = getelementptr inbounds i8, ptr %p.0.i, i64 %call2.i
   %6 = load i8, ptr %arrayidx.i, align 1
   %cmp.not.i = icmp eq i8 %6, 64
   br i1 %cmp.not.i, label %if.end5.i, label %for.inc
 
 if.end5.i:                                        ; preds = %if.end.i
-  %call6.i = tail call ptr @memchr(ptr noundef nonnull %p.2.i, i32 noundef 58, i64 noundef %call2.i) #11
+  %call6.i = tail call ptr @memchr(ptr noundef nonnull %p.0.i, i32 noundef 58, i64 noundef %call2.i) #11
   %tobool7.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool7.not.i, label %for.inc, label %redact_arg.exit
 
@@ -511,15 +511,15 @@ do.cond.i14.i56:                                  ; preds = %do.body.i10.i52
   br i1 %cmp.i17.i60, label %do.body.i10.i52, label %redact_arg.exit76, !llvm.loop !13
 
 if.end.i62:                                       ; preds = %do.body.i.i41, %do.body.i10.i52
-  %p.2.i63 = phi ptr [ %scevgep27.i51, %do.body.i10.i52 ], [ %scevgep.i40, %do.body.i.i41 ]
-  %call2.i64 = tail call i64 @strcspn(ptr noundef %p.2.i63, ptr noundef nonnull @.str.11) #11
-  %arrayidx.i65 = getelementptr inbounds i8, ptr %p.2.i63, i64 %call2.i64
+  %p.0.i63 = phi ptr [ %scevgep27.i51, %do.body.i10.i52 ], [ %scevgep.i40, %do.body.i.i41 ]
+  %call2.i64 = tail call i64 @strcspn(ptr noundef %p.0.i63, ptr noundef nonnull @.str.11) #11
+  %arrayidx.i65 = getelementptr inbounds i8, ptr %p.0.i63, i64 %call2.i64
   %16 = load i8, ptr %arrayidx.i65, align 1
   %cmp.not.i66 = icmp eq i8 %16, 64
   br i1 %cmp.not.i66, label %if.end5.i67, label %redact_arg.exit76
 
 if.end5.i67:                                      ; preds = %if.end.i62
-  %call6.i68 = tail call ptr @memchr(ptr noundef nonnull %p.2.i63, i32 noundef 58, i64 noundef %call2.i64) #11
+  %call6.i68 = tail call ptr @memchr(ptr noundef nonnull %p.0.i63, i32 noundef 58, i64 noundef %call2.i64) #11
   %tobool7.not.i69 = icmp eq ptr %call6.i68, null
   br i1 %tobool7.not.i69, label %redact_arg.exit76, label %if.end9.i70
 
@@ -1518,15 +1518,15 @@ do.cond.i14.i:                                    ; preds = %do.body.i10.i
   br i1 %cmp.i17.i, label %do.body.i10.i, label %redact_arg.exit, !llvm.loop !13
 
 if.end.i:                                         ; preds = %do.body.i.i, %do.body.i10.i
-  %p.2.i = phi ptr [ %scevgep27.i, %do.body.i10.i ], [ %scevgep.i, %do.body.i.i ]
-  %call2.i = tail call i64 @strcspn(ptr noundef %p.2.i, ptr noundef nonnull @.str.11) #11
-  %arrayidx.i = getelementptr inbounds i8, ptr %p.2.i, i64 %call2.i
+  %p.0.i = phi ptr [ %scevgep27.i, %do.body.i10.i ], [ %scevgep.i, %do.body.i.i ]
+  %call2.i = tail call i64 @strcspn(ptr noundef %p.0.i, ptr noundef nonnull @.str.11) #11
+  %arrayidx.i = getelementptr inbounds i8, ptr %p.0.i, i64 %call2.i
   %4 = load i8, ptr %arrayidx.i, align 1
   %cmp.not.i = icmp eq i8 %4, 64
   br i1 %cmp.not.i, label %if.end5.i, label %redact_arg.exit
 
 if.end5.i:                                        ; preds = %if.end.i
-  %call6.i = tail call ptr @memchr(ptr noundef nonnull %p.2.i, i32 noundef 58, i64 noundef %call2.i) #11
+  %call6.i = tail call ptr @memchr(ptr noundef nonnull %p.0.i, i32 noundef 58, i64 noundef %call2.i) #11
   %tobool7.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool7.not.i, label %redact_arg.exit, label %if.end9.i
 

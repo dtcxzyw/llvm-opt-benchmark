@@ -1026,7 +1026,7 @@ rethook.exit.i:                                   ; preds = %if.then25.i.i, %if.
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %rethook.exit.i, %if.then10.i
-  %res.addr.0.i = phi ptr [ %add.ptr20.i, %rethook.exit.i ], [ %call.i, %if.then10.i ]
+  %res.addr.1.i = phi ptr [ %add.ptr20.i, %rethook.exit.i ], [ %call.i, %if.then10.i ]
   %sub22.i = sub nuw nsw i32 -3, %conv
   %cmp23.i = icmp eq i16 %0, -2
   %spec.select.i = select i1 %cmp23.i, i32 %nres, i32 %sub22.i
@@ -1034,7 +1034,7 @@ if.end21.i:                                       ; preds = %rethook.exit.i, %if
 
 sw.epilog.i:                                      ; preds = %if.end21.i, %sw.default.i, %if.end
   %wanted.addr.0.i = phi i32 [ %conv, %sw.default.i ], [ %nres, %if.end ], [ %spec.select.i, %if.end21.i ]
-  %res.addr.1.i = phi ptr [ %24, %sw.default.i ], [ %24, %if.end ], [ %res.addr.0.i, %if.end21.i ]
+  %res.addr.0.i = phi ptr [ %24, %sw.default.i ], [ %24, %if.end ], [ %res.addr.1.i, %if.end21.i ]
   %top28.i = getelementptr inbounds i8, ptr %L, i64 16
   %61 = load ptr, ptr %top28.i, align 8
   %idx.ext29.i = sext i32 %nres to i64
@@ -1060,7 +1060,7 @@ for.body51.preheader.i:                           ; preds = %for.cond48.preheade
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %add.ptr40.i = getelementptr inbounds %union.StackValue, ptr %res.addr.1.i, i64 %indvars.iv.i
+  %add.ptr40.i = getelementptr inbounds %union.StackValue, ptr %res.addr.0.i, i64 %indvars.iv.i
   %add.ptr43.i = getelementptr inbounds %union.StackValue, ptr %add.ptr31.i, i64 %indvars.iv.i
   %63 = load i64, ptr %add.ptr43.i, align 8
   store i64 %63, ptr %add.ptr40.i, align 8
@@ -1074,7 +1074,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 for.body51.i:                                     ; preds = %for.body51.i, %for.body51.preheader.i
   %indvars.iv53.i = phi i64 [ %62, %for.body51.preheader.i ], [ %indvars.iv.next54.i, %for.body51.i ]
-  %tt_54.i = getelementptr inbounds %union.StackValue, ptr %res.addr.1.i, i64 %indvars.iv53.i, i32 0, i32 1
+  %tt_54.i = getelementptr inbounds %union.StackValue, ptr %res.addr.0.i, i64 %indvars.iv53.i, i32 0, i32 1
   store i8 0, ptr %tt_54.i, align 8
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count56.i
@@ -1082,7 +1082,7 @@ for.body51.i:                                     ; preds = %for.body51.i, %for.
 
 for.end57.i:                                      ; preds = %for.body51.i, %for.cond48.preheader.i
   %idx.ext58.i = sext i32 %wanted.addr.0.i to i64
-  %add.ptr59.i = getelementptr inbounds %union.StackValue, ptr %res.addr.1.i, i64 %idx.ext58.i
+  %add.ptr59.i = getelementptr inbounds %union.StackValue, ptr %res.addr.0.i, i64 %idx.ext58.i
   store ptr %add.ptr59.i, ptr %top28.i, align 8
   br label %moveresults.exit
 
@@ -1766,13 +1766,13 @@ luaD_growstack.exit:                              ; preds = %if.else.i
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %luaD_growstack.exit
-  %func.addr.0 = phi ptr [ %add.ptr, %luaD_growstack.exit ], [ %func, %if.then ]
+  %func.addr.1 = phi ptr [ %add.ptr, %luaD_growstack.exit ], [ %func, %if.then ]
   tail call void @luaE_checkcstack(ptr noundef nonnull %L) #12
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end, %entry
-  %func.addr.1 = phi ptr [ %func.addr.0, %if.end ], [ %func, %entry ]
-  %call17 = tail call ptr @luaD_precall(ptr noundef nonnull %L, ptr noundef %func.addr.1, i32 noundef %nResults)
+  %func.addr.0 = phi ptr [ %func.addr.1, %if.end ], [ %func, %entry ]
+  %call17 = tail call ptr @luaD_precall(ptr noundef nonnull %L, ptr noundef %func.addr.0, i32 noundef %nResults)
   %cmp18.not = icmp eq ptr %call17, null
   br i1 %cmp18.not, label %if.end21, label %if.then20
 

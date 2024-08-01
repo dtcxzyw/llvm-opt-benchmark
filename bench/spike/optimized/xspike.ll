@@ -125,14 +125,14 @@ _ZL10fork_spikeiPPc.exit:                         ; preds = %38, %53
   br label %62
 
 62:                                               ; preds = %54, %.critedge, %48
-  %.0 = phi i32 [ -1, %48 ], [ %51, %54 ], [ %61, %.critedge ]
+  %.1 = phi i32 [ -1, %48 ], [ %51, %54 ], [ %61, %.critedge ]
   %63 = sub nsw i32 0, %9
   %64 = call i32 @kill(i32 noundef %63, i32 noundef 15) #8
   br label %65
 
 65:                                               ; preds = %62, %31
-  %.1 = phi i32 [ -1, %31 ], [ %.0, %62 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %31 ], [ %.1, %62 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

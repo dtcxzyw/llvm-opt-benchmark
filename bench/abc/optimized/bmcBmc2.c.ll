@@ -2275,11 +2275,11 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   br i1 %.not51, label %.loopexit, label %94, !llvm.loop !21
 
 .loopexit:                                        ; preds = %77, %81, %94, %98
-  %.3.in = phi i64 [ %indvars.iv71, %98 ], [ %indvars.iv71, %94 ], [ %indvars.iv68, %81 ], [ %indvars.iv68, %77 ]
-  %.3 = trunc i64 %.3.in to i32
+  %.2.in = phi i64 [ %indvars.iv71, %98 ], [ %indvars.iv71, %94 ], [ %indvars.iv68, %81 ], [ %indvars.iv68, %77 ]
+  %.2 = trunc i64 %.2.in to i32
   %106 = getelementptr inbounds i8, ptr %1, i64 16
   %107 = load i32, ptr %106, align 8
-  %108 = icmp sgt i32 %107, %.3
+  %108 = icmp sgt i32 %107, %.2
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %.loopexit

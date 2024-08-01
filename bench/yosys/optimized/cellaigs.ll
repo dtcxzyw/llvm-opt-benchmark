@@ -9897,7 +9897,7 @@ _ZN5Yosys8AigMaker9bool_nodeEb.exit60:            ; preds = %.noexc57
   br label %.body
 
 125:                                              ; preds = %.invoke76, %.invoke, %_ZN5Yosys8AigMaker9bool_nodeEb.exit60, %_ZN5Yosys8AigMaker9bool_nodeEb.exit, %114, %105, %122
-  %.0 = phi i32 [ %121, %122 ], [ %53, %_ZN5Yosys8AigMaker9bool_nodeEb.exit ], [ %96, %_ZN5Yosys8AigMaker9bool_nodeEb.exit60 ], [ %2, %105 ], [ %1, %114 ], [ %116, %.invoke ], [ %113, %.invoke76 ]
+  %.1 = phi i32 [ %121, %122 ], [ %53, %_ZN5Yosys8AigMaker9bool_nodeEb.exit ], [ %96, %_ZN5Yosys8AigMaker9bool_nodeEb.exit60 ], [ %2, %105 ], [ %1, %114 ], [ %116, %.invoke ], [ %113, %.invoke76 ]
   call void @_ZN5Yosys7AigNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #23
   br label %126
 
@@ -9907,8 +9907,8 @@ _ZN5Yosys8AigMaker9bool_nodeEb.exit60:            ; preds = %.noexc57
   resume { ptr, i32 } %.pn
 
 126:                                              ; preds = %12, %11, %125
-  %.1 = phi i32 [ %.0, %125 ], [ %13, %12 ], [ %1, %11 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %125 ], [ %13, %12 ], [ %1, %11 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

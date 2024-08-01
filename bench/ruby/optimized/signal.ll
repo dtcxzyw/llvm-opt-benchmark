@@ -1675,15 +1675,15 @@ thread-pre-split.thread.sink.split.i:             ; preds = %75, %73, %67, %65, 
   br label %trap_handler.exit
 
 trap_handler.exit:                                ; preds = %34, %44, %RB_SYMBOL_P.exit.i, %RB_SYMBOL_P.exit.thread.i, %rbimpl_rstring_getmem.exit.i, %65, %71, %73, %75, %thread-pre-split.thread.sink.split.i
-  %.026 = phi i64 [ 4, %34 ], [ %57, %rbimpl_rstring_getmem.exit.i ], [ %.sink.i, %thread-pre-split.thread.sink.split.i ], [ %57, %75 ], [ %57, %73 ], [ %57, %71 ], [ %57, %65 ], [ %36, %RB_SYMBOL_P.exit.thread.i ], [ %36, %44 ], [ %36, %RB_SYMBOL_P.exit.i ]
+  %.2 = phi i64 [ 4, %34 ], [ %57, %rbimpl_rstring_getmem.exit.i ], [ %.sink.i, %thread-pre-split.thread.sink.split.i ], [ %57, %75 ], [ %57, %73 ], [ %57, %71 ], [ %57, %65 ], [ %36, %RB_SYMBOL_P.exit.thread.i ], [ %36, %44 ], [ %36, %RB_SYMBOL_P.exit.i ]
   %.0.i15 = phi ptr [ inttoptr (i64 1 to ptr), %34 ], [ @sighandler, %rbimpl_rstring_getmem.exit.i ], [ %.0.ph.i, %thread-pre-split.thread.sink.split.i ], [ @sighandler, %75 ], [ @sighandler, %73 ], [ @sighandler, %71 ], [ @sighandler, %65 ], [ @sighandler, %RB_SYMBOL_P.exit.thread.i ], [ @sighandler, %44 ], [ @sighandler, %RB_SYMBOL_P.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %77
 
 77:                                               ; preds = %trap_handler.exit, %32
-  %.1 = phi i64 [ %33, %32 ], [ %.026, %trap_handler.exit ]
+  %.026 = phi i64 [ %33, %32 ], [ %.2, %trap_handler.exit ]
   %.0 = phi ptr [ @sighandler, %32 ], [ %.0.i15, %trap_handler.exit ]
-  %78 = call i64 @rb_obj_is_proc(i64 noundef %.1) #16
+  %78 = call i64 @rb_obj_is_proc(i64 noundef %.026) #16
   %.not12 = icmp ne i64 %78, 0
   %79 = load ptr, ptr @ruby_single_main_ractor, align 8
   %.not.i16 = icmp eq ptr %79, null
@@ -1695,29 +1695,29 @@ rb_ractor_main_p.exit:                            ; preds = %77
   br i1 %80, label %rb_ractor_main_p.exit.thread, label %81
 
 81:                                               ; preds = %rb_ractor_main_p.exit
-  %82 = and i64 %.1, 7
+  %82 = and i64 %.026, 7
   %83 = icmp ne i64 %82, 0
-  %84 = icmp eq i64 %.1, 0
+  %84 = icmp eq i64 %.026, 0
   %85 = or i1 %84, %83
   br i1 %85, label %rb_ractor_main_p.exit.thread, label %86
 
 86:                                               ; preds = %81
-  %87 = inttoptr i64 %.1 to ptr
+  %87 = inttoptr i64 %.026 to ptr
   %88 = load i64, ptr %87, align 8
   %89 = and i64 %88, 256
   %.not.i18 = icmp eq i64 %89, 0
   br i1 %.not.i18, label %rb_ractor_shareable_p.exit, label %rb_ractor_main_p.exit.thread
 
 rb_ractor_shareable_p.exit:                       ; preds = %86
-  %90 = call zeroext i1 @rb_ractor_shareable_p_continue(i64 noundef %.1) #16
+  %90 = call zeroext i1 @rb_ractor_shareable_p_continue(i64 noundef %.026) #16
   br i1 %90, label %rb_ractor_main_p.exit.thread, label %91
 
 91:                                               ; preds = %rb_ractor_shareable_p.exit
-  %92 = call i64 @rb_proc_isolate(i64 noundef %.1) #16
+  %92 = call i64 @rb_proc_isolate(i64 noundef %.026) #16
   br label %rb_ractor_main_p.exit.thread
 
 rb_ractor_main_p.exit.thread:                     ; preds = %86, %81, %91, %rb_ractor_shareable_p.exit, %rb_ractor_main_p.exit, %77
-  %.2 = phi i64 [ %.1, %77 ], [ %.1, %rb_ractor_main_p.exit ], [ %.1, %rb_ractor_shareable_p.exit ], [ %92, %91 ], [ %.1, %81 ], [ %.1, %86 ]
+  %.1 = phi i64 [ %.026, %77 ], [ %.026, %rb_ractor_main_p.exit ], [ %.026, %rb_ractor_shareable_p.exit ], [ %92, %91 ], [ %.026, %81 ], [ %.026, %86 ]
   %93 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %94 = icmp eq i32 %.0.i, 0
   br i1 %94, label %116, label %95
@@ -1827,7 +1827,7 @@ ruby_signal.exit.i:                               ; preds = %101
 
 trap.exit:                                        ; preds = %116, %123, %125, %127, %129, %131
   %.015.i = phi i64 [ %120, %116 ], [ %132, %131 ], [ %124, %123 ], [ %126, %125 ], [ %130, %129 ], [ 4, %127 ]
-  store volatile i64 %.2, ptr %119, align 8
+  store volatile i64 %.1, ptr %119, align 8
   ret i64 %.015.i
 }
 

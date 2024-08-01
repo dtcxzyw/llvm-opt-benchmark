@@ -612,9 +612,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -15291,7 +15291,7 @@ for.inc40:                                        ; preds = %for.body36
   br i1 %cmp35, label %for.body36, label %cleanup, !llvm.loop !32
 
 cleanup:                                          ; preds = %if.end31, %for.inc40, %for.cond.preheader, %for.cond34.preheader, %if.then13
-  %retval.0 = phi ptr [ null, %if.then13 ], [ %.ptr, %for.cond34.preheader ], [ %.ptr, %for.cond.preheader ], [ %.ptr, %for.inc40 ], [ %.ptr, %if.end31 ]
+  %retval.1 = phi ptr [ null, %if.then13 ], [ %.ptr, %for.cond34.preheader ], [ %.ptr, %for.cond.preheader ], [ %.ptr, %for.inc40 ], [ %.ptr, %if.end31 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %pathUString) #16
   br label %return
 
@@ -15301,8 +15301,8 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 declare void @_ZN6icu_7511LocaleBased12setLocaleIDsEPKcS2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -15746,7 +15746,7 @@ lpad.loopexit.split-lp288.loopexit:               ; preds = %for.body, %for.cond
   br label %ehcleanup341
 
 for.cond:                                         ; preds = %for.cond.preheader, %for.inc
-  %resourcesToVisitNext.sroa.0.2 = phi ptr [ %resourcesToVisitNext.sroa.0.6.ph, %for.inc ], [ null, %for.cond.preheader ]
+  %resourcesToVisitNext.sroa.0.3 = phi ptr [ %resourcesToVisitNext.sroa.0.5.ph, %for.inc ], [ null, %for.cond.preheader ]
   %i.0 = phi i32 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
   %call7 = invoke noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %calendarData, i32 noundef %i.0, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
           to label %invoke.cont6 unwind label %lpad.loopexit.split-lp288.loopexit
@@ -15776,7 +15776,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   br i1 %cmp.i67, label %if.end16, label %cleanup198
 
 lpad10:                                           ; preds = %if.then118, %land.lhs.true99, %land.lhs.true, %if.then48, %if.then194, %if.then123, %if.then57, %if.end32, %invoke.cont9
-  %resourcesToVisitNext.sroa.0.3 = phi ptr [ %resourcesToVisitNext.sroa.0.2, %if.then123 ], [ %resourcesToVisitNext.sroa.0.2, %if.then118 ], [ %resourcesToVisitNext.sroa.0.2, %if.then194 ], [ %resourcesToVisitNext.sroa.0.2, %land.lhs.true99 ], [ %resourcesToVisitNext.sroa.0.2, %if.then57 ], [ %resourcesToVisitNext.sroa.0.2, %land.lhs.true ], [ %resourcesToVisitNext.sroa.0.2, %if.then48 ], [ %resourcesToVisitNext.sroa.0.5, %if.end32 ], [ %resourcesToVisitNext.sroa.0.2, %invoke.cont9 ]
+  %resourcesToVisitNext.sroa.0.4 = phi ptr [ %resourcesToVisitNext.sroa.0.3, %if.then123 ], [ %resourcesToVisitNext.sroa.0.3, %if.then118 ], [ %resourcesToVisitNext.sroa.0.3, %if.then194 ], [ %resourcesToVisitNext.sroa.0.3, %land.lhs.true99 ], [ %resourcesToVisitNext.sroa.0.3, %if.then57 ], [ %resourcesToVisitNext.sroa.0.3, %land.lhs.true ], [ %resourcesToVisitNext.sroa.0.3, %if.then48 ], [ %resourcesToVisitNext.sroa.0.7, %if.end32 ], [ %resourcesToVisitNext.sroa.0.3, %invoke.cont9 ]
   %8 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup201
@@ -15789,7 +15789,7 @@ if.end16:                                         ; preds = %invoke.cont11
   ]
 
 if.then19:                                        ; preds = %if.end16
-  %cmp.i69.not = icmp eq ptr %resourcesToVisitNext.sroa.0.2, null
+  %cmp.i69.not = icmp eq ptr %resourcesToVisitNext.sroa.0.3, null
   br i1 %cmp.i69.not, label %if.then23, label %if.end32
 
 if.then23:                                        ; preds = %if.then19
@@ -15831,7 +15831,7 @@ lpad25:                                           ; preds = %new.notnull
   br label %ehcleanup201
 
 if.end32:                                         ; preds = %new.cont, %invoke.cont27, %if.then19
-  %resourcesToVisitNext.sroa.0.5 = phi ptr [ %resourcesToVisitNext.sroa.0.2, %if.then19 ], [ null, %invoke.cont27 ], [ %call24, %new.cont ]
+  %resourcesToVisitNext.sroa.0.7 = phi ptr [ %resourcesToVisitNext.sroa.0.3, %if.then19 ], [ null, %invoke.cont27 ], [ %call24, %new.cont ]
   %call34 = invoke noundef ptr @_ZNK6icu_7513UnicodeString5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %aliasRelativePath49)
           to label %invoke.cont33 unwind label %lpad10
 
@@ -15847,7 +15847,7 @@ if.then.i76:                                      ; preds = %invoke.cont33
   br label %invoke.cont35
 
 invoke.cont35:                                    ; preds = %if.then.i76, %invoke.cont33
-  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %resourcesToVisitNext.sroa.0.5, ptr noundef %call34, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  invoke void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %resourcesToVisitNext.sroa.0.7, ptr noundef %call34, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit unwind label %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit89
 
 _ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit: ; preds = %invoke.cont35
@@ -16143,18 +16143,18 @@ if.then194:                                       ; preds = %lor.lhs.false191, %
           to label %for.inc unwind label %lpad10
 
 cleanup198:                                       ; preds = %invoke.cont66, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit112, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit, %invoke.cont27, %invoke.cont11, %_ZN6icu_7510LocalArrayINS_13UnicodeStringEED2Ev.exit, %new.cont.thread, %if.then3.i
-  %resourcesToVisitNext.sroa.0.6 = phi ptr [ null, %if.then3.i ], [ null, %new.cont.thread ], [ %resourcesToVisitNext.sroa.0.2, %invoke.cont66 ], [ %resourcesToVisitNext.sroa.0.2, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit112 ], [ %resourcesToVisitNext.sroa.0.2, %invoke.cont11 ], [ null, %invoke.cont27 ], [ %resourcesToVisitNext.sroa.0.5, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit ], [ %resourcesToVisitNext.sroa.0.2, %_ZN6icu_7510LocalArrayINS_13UnicodeStringEED2Ev.exit ]
+  %resourcesToVisitNext.sroa.0.5 = phi ptr [ null, %if.then3.i ], [ null, %new.cont.thread ], [ %resourcesToVisitNext.sroa.0.3, %invoke.cont66 ], [ %resourcesToVisitNext.sroa.0.3, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit112 ], [ %resourcesToVisitNext.sroa.0.3, %invoke.cont11 ], [ null, %invoke.cont27 ], [ %resourcesToVisitNext.sroa.0.7, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit ], [ %resourcesToVisitNext.sroa.0.3, %_ZN6icu_7510LocalArrayINS_13UnicodeStringEED2Ev.exit ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString) #16
   br label %cleanup338
 
 for.inc:                                          ; preds = %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit, %_ZN6icu_7510LocalArrayINS_13UnicodeStringEED2Ev.exit, %invoke.cont120, %if.then194, %lor.lhs.false191, %if.end16, %land.lhs.true106, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit112, %invoke.cont54, %invoke.cont50
-  %resourcesToVisitNext.sroa.0.6.ph = phi ptr [ %resourcesToVisitNext.sroa.0.2, %invoke.cont50 ], [ %resourcesToVisitNext.sroa.0.2, %invoke.cont54 ], [ %resourcesToVisitNext.sroa.0.2, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit112 ], [ %resourcesToVisitNext.sroa.0.2, %if.end16 ], [ %resourcesToVisitNext.sroa.0.2, %land.lhs.true106 ], [ %resourcesToVisitNext.sroa.0.2, %lor.lhs.false191 ], [ %resourcesToVisitNext.sroa.0.2, %if.then194 ], [ %resourcesToVisitNext.sroa.0.2, %invoke.cont120 ], [ %resourcesToVisitNext.sroa.0.2, %_ZN6icu_7510LocalArrayINS_13UnicodeStringEED2Ev.exit ], [ %resourcesToVisitNext.sroa.0.5, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit ]
+  %resourcesToVisitNext.sroa.0.5.ph = phi ptr [ %resourcesToVisitNext.sroa.0.3, %invoke.cont50 ], [ %resourcesToVisitNext.sroa.0.3, %invoke.cont54 ], [ %resourcesToVisitNext.sroa.0.3, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit112 ], [ %resourcesToVisitNext.sroa.0.3, %if.end16 ], [ %resourcesToVisitNext.sroa.0.3, %land.lhs.true106 ], [ %resourcesToVisitNext.sroa.0.3, %lor.lhs.false191 ], [ %resourcesToVisitNext.sroa.0.3, %if.then194 ], [ %resourcesToVisitNext.sroa.0.3, %invoke.cont120 ], [ %resourcesToVisitNext.sroa.0.3, %_ZN6icu_7510LocalArrayINS_13UnicodeStringEED2Ev.exit ], [ %resourcesToVisitNext.sroa.0.7, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString) #16
   %inc = add nuw nsw i32 %i.0, 1
   br label %for.cond, !llvm.loop !34
 
 ehcleanup201:                                     ; preds = %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit118, %lpad63, %lpad25, %lpad150.body, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit89, %lpad10
-  %resourcesToVisitNext.sroa.0.7 = phi ptr [ %resourcesToVisitNext.sroa.0.2, %lpad150.body ], [ %resourcesToVisitNext.sroa.0.3, %lpad10 ], [ %resourcesToVisitNext.sroa.0.5, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit89 ], [ null, %lpad25 ], [ %resourcesToVisitNext.sroa.0.2, %lpad63 ], [ %resourcesToVisitNext.sroa.0.2, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit118 ]
+  %resourcesToVisitNext.sroa.0.6 = phi ptr [ %resourcesToVisitNext.sroa.0.3, %lpad150.body ], [ %resourcesToVisitNext.sroa.0.4, %lpad10 ], [ %resourcesToVisitNext.sroa.0.7, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit89 ], [ null, %lpad25 ], [ %resourcesToVisitNext.sroa.0.3, %lpad63 ], [ %resourcesToVisitNext.sroa.0.3, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit118 ]
   %.pn61 = phi { ptr, i32 } [ %eh.lpad-body, %lpad150.body ], [ %8, %lpad10 ], [ %15, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit89 ], [ %12, %lpad25 ], [ %20, %lpad63 ], [ %23, %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit118 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %keyUString) #16
   br label %ehcleanup341
@@ -16436,7 +16436,7 @@ do.cond:                                          ; preds = %if.end324
   br i1 %or.cond, label %do.end, label %do.body, !llvm.loop !36
 
 do.end:                                           ; preds = %do.body, %do.cond, %do.body.preheader
-  %cmp.i235.not = icmp eq ptr %resourcesToVisitNext.sroa.0.2, null
+  %cmp.i235.not = icmp eq ptr %resourcesToVisitNext.sroa.0.3, null
   br i1 %cmp.i235.not, label %cleanup.cont340, label %if.then334
 
 if.then334:                                       ; preds = %do.end
@@ -16452,7 +16452,7 @@ delete.notnull.i238:                              ; preds = %if.then334
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEEaSEOS2_.exit
 
 _ZN6icu_7512LocalPointerINS_7UVectorEEaSEOS2_.exit: ; preds = %if.then334, %delete.notnull.i238
-  store ptr %resourcesToVisitNext.sroa.0.2, ptr %resourcesToVisit, align 8
+  store ptr %resourcesToVisitNext.sroa.0.3, ptr %resourcesToVisit, align 8
   br label %cleanup.cont340
 
 cleanup338.critedge:                              ; preds = %invoke.cont263.thread356, %invoke.cont263, %if.then.i176, %new.cont262
@@ -16460,31 +16460,31 @@ cleanup338.critedge:                              ; preds = %invoke.cont263.thre
   br label %cleanup338
 
 cleanup338:                                       ; preds = %if.end308, %if.end284, %cleanup198, %cleanup338.critedge
-  %resourcesToVisitNext.sroa.0.8 = phi ptr [ %resourcesToVisitNext.sroa.0.2, %cleanup338.critedge ], [ %resourcesToVisitNext.sroa.0.6, %cleanup198 ], [ %resourcesToVisitNext.sroa.0.2, %if.end284 ], [ %resourcesToVisitNext.sroa.0.2, %if.end308 ]
-  %isnull.i242 = icmp eq ptr %resourcesToVisitNext.sroa.0.8, null
+  %resourcesToVisitNext.sroa.0.1 = phi ptr [ %resourcesToVisitNext.sroa.0.3, %cleanup338.critedge ], [ %resourcesToVisitNext.sroa.0.5, %cleanup198 ], [ %resourcesToVisitNext.sroa.0.3, %if.end284 ], [ %resourcesToVisitNext.sroa.0.3, %if.end308 ]
+  %isnull.i242 = icmp eq ptr %resourcesToVisitNext.sroa.0.1, null
   br i1 %isnull.i242, label %cleanup.cont340, label %delete.notnull.i243
 
 delete.notnull.i243:                              ; preds = %cleanup338
-  %vtable.i244 = load ptr, ptr %resourcesToVisitNext.sroa.0.8, align 8
+  %vtable.i244 = load ptr, ptr %resourcesToVisitNext.sroa.0.1, align 8
   %vfn.i245 = getelementptr inbounds i8, ptr %vtable.i244, i64 8
   %70 = load ptr, ptr %vfn.i245, align 8
-  call void %70(ptr noundef nonnull align 8 dereferenceable(40) %resourcesToVisitNext.sroa.0.8) #16
+  call void %70(ptr noundef nonnull align 8 dereferenceable(40) %resourcesToVisitNext.sroa.0.1) #16
   br label %cleanup.cont340
 
 cleanup.cont340:                                  ; preds = %do.end, %if.end, %_ZN6icu_7512LocalPointerINS_7UVectorEEaSEOS2_.exit, %delete.notnull.i243, %cleanup338, %entry
   ret void
 
 ehcleanup341:                                     ; preds = %lpad.loopexit287, %lpad.loopexit.split-lp288.loopexit, %lpad.i225, %lpad268.body, %ehcleanup201
-  %resourcesToVisitNext.sroa.0.9 = phi ptr [ %resourcesToVisitNext.sroa.0.2, %lpad268.body ], [ %resourcesToVisitNext.sroa.0.7, %ehcleanup201 ], [ %resourcesToVisitNext.sroa.0.2, %lpad.i225 ], [ %resourcesToVisitNext.sroa.0.2, %lpad.loopexit287 ], [ %resourcesToVisitNext.sroa.0.2, %lpad.loopexit.split-lp288.loopexit ]
+  %resourcesToVisitNext.sroa.0.2 = phi ptr [ %resourcesToVisitNext.sroa.0.3, %lpad268.body ], [ %resourcesToVisitNext.sroa.0.6, %ehcleanup201 ], [ %resourcesToVisitNext.sroa.0.3, %lpad.i225 ], [ %resourcesToVisitNext.sroa.0.3, %lpad.loopexit287 ], [ %resourcesToVisitNext.sroa.0.3, %lpad.loopexit.split-lp288.loopexit ]
   %.pn61.pn = phi { ptr, i32 } [ %eh.lpad-body189, %lpad268.body ], [ %.pn61, %ehcleanup201 ], [ %65, %lpad.i225 ], [ %lpad.loopexit289, %lpad.loopexit287 ], [ %lpad.loopexit292, %lpad.loopexit.split-lp288.loopexit ]
-  %isnull.i247 = icmp eq ptr %resourcesToVisitNext.sroa.0.9, null
+  %isnull.i247 = icmp eq ptr %resourcesToVisitNext.sroa.0.2, null
   br i1 %isnull.i247, label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit252, label %delete.notnull.i248
 
 delete.notnull.i248:                              ; preds = %ehcleanup341
-  %vtable.i249 = load ptr, ptr %resourcesToVisitNext.sroa.0.9, align 8
+  %vtable.i249 = load ptr, ptr %resourcesToVisitNext.sroa.0.2, align 8
   %vfn.i250 = getelementptr inbounds i8, ptr %vtable.i249, i64 8
   %71 = load ptr, ptr %vfn.i250, align 8
-  call void %71(ptr noundef nonnull align 8 dereferenceable(40) %resourcesToVisitNext.sroa.0.9) #16
+  call void %71(ptr noundef nonnull align 8 dereferenceable(40) %resourcesToVisitNext.sroa.0.2) #16
   br label %_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit252
 
 _ZN6icu_7512LocalPointerINS_7UVectorEED2Ev.exit252: ; preds = %ehcleanup341, %delete.notnull.i248
@@ -16672,7 +16672,7 @@ invoke.cont60:                                    ; preds = %if.else58
   br i1 %call61, label %cleanup.thread, label %cleanup
 
 cleanup.thread:                                   ; preds = %invoke.cont32, %invoke.cont46, %if.then54, %invoke.cont60
-  %retval.0.ph = phi i32 [ 1, %invoke.cont60 ], [ 1, %if.then54 ], [ 2, %invoke.cont46 ], [ 0, %invoke.cont32 ]
+  %retval.1.ph = phi i32 [ 1, %invoke.cont60 ], [ 1, %if.then54 ], [ 2, %invoke.cont46 ], [ 0, %invoke.cont32 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %aliasCalendarType) #16
   br label %cleanup70
 
@@ -16694,7 +16694,7 @@ if.end69:                                         ; preds = %cleanup, %invoke.co
   br label %cleanup70
 
 cleanup70:                                        ; preds = %cleanup.thread, %if.end69
-  %retval.1 = phi i32 [ 3, %if.end69 ], [ %retval.0.ph, %cleanup.thread ]
+  %retval.2 = phi i32 [ 3, %if.end69 ], [ %retval.1.ph, %cleanup.thread ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %aliasPath) #16
   br label %return
 
@@ -16704,8 +16704,8 @@ ehcleanup71:                                      ; preds = %ehcleanup, %lpad11,
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %if.end, %if.then3, %entry, %cleanup70
-  %retval.2 = phi i32 [ %retval.1, %cleanup70 ], [ 3, %entry ], [ 3, %if.then3 ], [ 3, %if.end ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ %retval.2, %cleanup70 ], [ 3, %entry ], [ 3, %if.then3 ], [ 3, %if.end ]
+  ret i32 %retval.0
 }
 
 declare noundef ptr @_ZNK6icu_7513UnicodeString5cloneEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #5
@@ -16836,7 +16836,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %stringMap.0266 = phi ptr [ null, %for.body.lr.ph ], [ %stringMap.2257, %for.inc ]
+  %stringMap.0266 = phi ptr [ null, %for.body.lr.ph ], [ %stringMap.1257, %for.inc ]
   %i.0264 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %3 = load ptr, ptr %key.addr, align 8
   call void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %keyUString, ptr noundef %3, i32 noundef -1, i32 noundef 0)
@@ -16925,7 +16925,7 @@ if.end31:                                         ; preds = %invoke.cont26
           to label %if.end34 unwind label %lpad
 
 if.end34:                                         ; preds = %if.end31, %if.then18
-  %stringMap.1 = phi ptr [ %stringMap.0266, %if.then18 ], [ %call22, %if.end31 ]
+  %stringMap.2 = phi ptr [ %stringMap.0266, %if.then18 ], [ %call22, %if.end31 ]
   %vtable35 = load ptr, ptr %value, align 8
   %vfn36 = getelementptr inbounds i8, ptr %vtable35, i64 32
   %14 = load ptr, ptr %vfn36, align 8
@@ -16963,7 +16963,7 @@ cleanup.action:                                   ; preds = %new.notnull
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %new.cont, %if.then.i, %cleanup.action
-  %19 = load ptr, ptr %stringMap.1, align 8
+  %19 = load ptr, ptr %stringMap.2, align 8
   %call.i94 = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #16
   %new.isnull.i95 = icmp eq ptr %call.i94, null
   br i1 %new.isnull.i95, label %new.cont.i98, label %new.notnull.i96
@@ -17419,7 +17419,7 @@ cleanup241:                                       ; preds = %new.cont.i98
   br i1 %cmp.i102.inv, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %cleanup241.thread250, %cleanup241
-  %stringMap.2257 = phi ptr [ %stringMap.0266, %cleanup241.thread250 ], [ %stringMap.1, %cleanup241 ]
+  %stringMap.1257 = phi ptr [ %stringMap.0266, %cleanup241.thread250 ], [ %stringMap.2, %cleanup241 ]
   %inc = add nuw nsw i32 %i.0264, 1
   %call6 = call noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %table, i32 noundef %inc, ptr noundef nonnull align 8 dereferenceable(8) %key.addr, ptr noundef nonnull align 8 dereferenceable(8) %value)
   %tobool7.not = icmp eq i8 %call6, 0

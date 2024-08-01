@@ -4060,9 +4060,9 @@ define internal fastcc void @Io_WriteVerilogPos(ptr nocapture noundef %0, ptr no
   %.val3481 = phi ptr [ %.val34, %96 ], [ %.val3469, %3 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %96 ], [ 0, %3 ]
   %.075 = phi i32 [ %.1, %96 ], [ 0, %3 ]
-  %.02573 = phi i32 [ %.2, %96 ], [ 0, %3 ]
+  %.02573 = phi i32 [ %.126, %96 ], [ 0, %3 ]
   %.02772 = phi ptr [ %.128, %96 ], [ null, %3 ]
-  %.02971 = phi i32 [ %.231, %96 ], [ %2, %3 ]
+  %.02971 = phi i32 [ %.130, %96 ], [ %2, %3 ]
   %7 = getelementptr i8, ptr %.val3481, i64 8
   %.val35.val = load ptr, ptr %7, align 8
   %8 = getelementptr inbounds ptr, ptr %.val35.val, i64 %indvars.iv
@@ -4195,8 +4195,8 @@ Io_WriteVerilogGetName.exit:                      ; preds = %40, %._crit_edge.i,
   br label %61
 
 61:                                               ; preds = %59, %56, %Io_WriteVerilogGetName.exit
-  %.130 = phi i32 [ 3, %59 ], [ %.02971, %56 ], [ %.02971, %Io_WriteVerilogGetName.exit ]
-  %.126 = phi i32 [ 0, %59 ], [ %.02573, %56 ], [ 0, %Io_WriteVerilogGetName.exit ]
+  %.231 = phi i32 [ 3, %59 ], [ %.02971, %56 ], [ %.02971, %Io_WriteVerilogGetName.exit ]
+  %.2 = phi i32 [ 0, %59 ], [ %.02573, %56 ], [ 0, %Io_WriteVerilogGetName.exit ]
   %62 = tail call ptr @Abc_ObjName(ptr noundef nonnull %15) #10
   %63 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %62) #11
   %64 = trunc i64 %63 to i32
@@ -4284,16 +4284,16 @@ Io_WriteVerilogGetName.exit65:                    ; preds = %75, %._crit_edge.i5
   %91 = icmp eq i64 %indvars.iv, %90
   %92 = select i1 %91, ptr @.str.27, ptr @.str.75
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.74, ptr noundef nonnull %.0.i45, ptr noundef nonnull %92) #10
-  %94 = add nsw i32 %.130, %55
-  %95 = add nsw i32 %.126, 1
+  %94 = add nsw i32 %.231, %55
+  %95 = add nsw i32 %.2, 1
   %.val34.pre = load ptr, ptr %4, align 8
   br label %96
 
 96:                                               ; preds = %Io_WriteVerilogGetName.exit65, %24
   %.val34 = phi ptr [ %.val3481, %24 ], [ %.val34.pre, %Io_WriteVerilogGetName.exit65 ]
-  %.231 = phi i32 [ %.02971, %24 ], [ %94, %Io_WriteVerilogGetName.exit65 ]
+  %.130 = phi i32 [ %.02971, %24 ], [ %94, %Io_WriteVerilogGetName.exit65 ]
   %.128 = phi ptr [ %15, %24 ], [ %.02772, %Io_WriteVerilogGetName.exit65 ]
-  %.2 = phi i32 [ %.02573, %24 ], [ %95, %Io_WriteVerilogGetName.exit65 ]
+  %.126 = phi i32 [ %.02573, %24 ], [ %95, %Io_WriteVerilogGetName.exit65 ]
   %.1 = phi i32 [ %25, %24 ], [ %.075, %Io_WriteVerilogGetName.exit65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = getelementptr i8, ptr %.val34, i64 4
@@ -4663,7 +4663,7 @@ define internal fastcc i32 @Io_WriteVerilogWiresCount(ptr nocapture noundef read
 
 44:                                               ; preds = %.lr.ph72, %.critedge4
   %indvars.iv80 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next81, %.critedge4 ]
-  %.271 = phi i32 [ %.0.lcssa, %.lr.ph72 ], [ %.5, %.critedge4 ]
+  %.271 = phi i32 [ %.0.lcssa, %.lr.ph72 ], [ %.3, %.critedge4 ]
   %45 = getelementptr inbounds ptr, ptr %.val51.val, i64 %indvars.iv80
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr i8, ptr %46, i64 20
@@ -4694,7 +4694,7 @@ define internal fastcc i32 @Io_WriteVerilogWiresCount(ptr nocapture noundef read
 
 57:                                               ; preds = %.lr.ph68, %83
   %indvars.iv75 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next76, %83 ]
-  %.367 = phi i32 [ %51, %.lr.ph68 ], [ %.4, %83 ]
+  %.467 = phi i32 [ %51, %.lr.ph68 ], [ %.5, %83 ]
   %58 = getelementptr inbounds i32, ptr %.val62, i64 %indvars.iv75
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
@@ -4736,23 +4736,23 @@ define internal fastcc i32 @Io_WriteVerilogWiresCount(ptr nocapture noundef read
   br i1 %narrow.i63, label %81, label %83
 
 81:                                               ; preds = %71, %57
-  %82 = add nsw i32 %.367, 1
+  %82 = add nsw i32 %.467, 1
   br label %83
 
 83:                                               ; preds = %71, %81
-  %.4 = phi i32 [ %.367, %71 ], [ %82, %81 ]
+  %.5 = phi i32 [ %.467, %71 ], [ %82, %81 ]
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
   br i1 %exitcond79.not, label %.critedge4, label %57, !llvm.loop !34
 
 .critedge4:                                       ; preds = %83, %49, %44
-  %.5 = phi i32 [ %.271, %44 ], [ %51, %49 ], [ %.4, %83 ]
+  %.3 = phi i32 [ %.271, %44 ], [ %51, %49 ], [ %.5, %83 ]
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
   br i1 %exitcond84.not, label %.critedge2, label %44, !llvm.loop !35
 
 .critedge2:                                       ; preds = %.critedge4, %.critedge.preheader
-  %.2.lcssa = phi i32 [ %.0.lcssa, %.critedge.preheader ], [ %.5, %.critedge4 ]
+  %.2.lcssa = phi i32 [ %.0.lcssa, %.critedge.preheader ], [ %.3, %.critedge4 ]
   ret i32 %.2.lcssa
 }
 
@@ -4767,8 +4767,8 @@ define internal fastcc void @Io_WriteVerilogWires(ptr nocapture noundef %0, ptr 
   br i1 %7, label %.lr.ph, label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %109, %2
-  %.0114.lcssa = phi i32 [ 4, %2 ], [ %.2116, %109 ]
-  %.0105.lcssa = phi i32 [ 0, %2 ], [ %.2107, %109 ]
+  %.0114.lcssa = phi i32 [ 4, %2 ], [ %.1115, %109 ]
+  %.0105.lcssa = phi i32 [ 0, %2 ], [ %.1106, %109 ]
   %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %109 ]
   %8 = getelementptr inbounds i8, ptr %1, i64 80
   %9 = load ptr, ptr %8, align 8
@@ -4781,8 +4781,8 @@ define internal fastcc void @Io_WriteVerilogWires(ptr nocapture noundef %0, ptr 
   %12 = phi ptr [ %110, %109 ], [ %5, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %109 ], [ 0, %2 ]
   %.0356 = phi i32 [ %.1, %109 ], [ 0, %2 ]
-  %.0105354 = phi i32 [ %.2107, %109 ], [ 0, %2 ]
-  %.0114353 = phi i32 [ %.2116, %109 ], [ 4, %2 ]
+  %.0105354 = phi i32 [ %.1106, %109 ], [ 0, %2 ]
+  %.0114353 = phi i32 [ %.1115, %109 ], [ 4, %2 ]
   %13 = getelementptr i8, ptr %12, i64 8
   %.val155.val = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds ptr, ptr %.val155.val, i64 %indvars.iv
@@ -4932,8 +4932,8 @@ Io_WriteVerilogGetName.exit:                      ; preds = %56, %._crit_edge.i,
   br label %77
 
 77:                                               ; preds = %75, %72, %Io_WriteVerilogGetName.exit
-  %.1115 = phi i32 [ 3, %75 ], [ %.0114353, %72 ], [ %.0114353, %Io_WriteVerilogGetName.exit ]
-  %.1106 = phi i32 [ 0, %75 ], [ %.0105354, %72 ], [ 0, %Io_WriteVerilogGetName.exit ]
+  %.2116 = phi i32 [ 3, %75 ], [ %.0114353, %72 ], [ %.0114353, %Io_WriteVerilogGetName.exit ]
+  %.2107 = phi i32 [ 0, %75 ], [ %.0105354, %72 ], [ 0, %Io_WriteVerilogGetName.exit ]
   %78 = tail call ptr @Abc_ObjName(ptr noundef %28) #10
   %79 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %78) #11
   %80 = trunc i64 %79 to i32
@@ -5016,15 +5016,15 @@ Io_WriteVerilogGetName.exit191:                   ; preds = %91, %._crit_edge.i1
   %104 = icmp eq i32 %42, %3
   %105 = select i1 %104, ptr @.str.27, ptr @.str.75
   %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.74, ptr noundef nonnull %.0.i171, ptr noundef nonnull %105) #10
-  %107 = add nsw i32 %.1115, %71
-  %108 = add nsw i32 %.1106, 1
+  %107 = add nsw i32 %.2116, %71
+  %108 = add nsw i32 %.2107, 1
   %.pre = load ptr, ptr %4, align 8
   br label %109
 
 109:                                              ; preds = %Io_WriteVerilogGetName.exit191, %17, %.lr.ph, %31
   %110 = phi ptr [ %12, %.lr.ph ], [ %12, %17 ], [ %12, %31 ], [ %.pre, %Io_WriteVerilogGetName.exit191 ]
-  %.2116 = phi i32 [ %.0114353, %.lr.ph ], [ %.0114353, %17 ], [ %.0114353, %31 ], [ %107, %Io_WriteVerilogGetName.exit191 ]
-  %.2107 = phi i32 [ %.0105354, %.lr.ph ], [ %.0105354, %17 ], [ %.0105354, %31 ], [ %108, %Io_WriteVerilogGetName.exit191 ]
+  %.1115 = phi i32 [ %.0114353, %.lr.ph ], [ %.0114353, %17 ], [ %.0114353, %31 ], [ %107, %Io_WriteVerilogGetName.exit191 ]
+  %.1106 = phi i32 [ %.0105354, %.lr.ph ], [ %.0105354, %17 ], [ %.0105354, %31 ], [ %108, %Io_WriteVerilogGetName.exit191 ]
   %.1 = phi i32 [ %.0356, %.lr.ph ], [ %.0356, %17 ], [ %.0356, %31 ], [ %42, %Io_WriteVerilogGetName.exit191 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %111 = getelementptr i8, ptr %110, i64 4
@@ -5276,9 +5276,9 @@ Io_WriteVerilogGetName.exit241:                   ; preds = %183, %._crit_edge.i
 .lr.ph391:                                        ; preds = %.critedge2.preheader, %.critedge8
   %indvars.iv412 = phi i64 [ %indvars.iv.next413, %.critedge8 ], [ 0, %.critedge2.preheader ]
   %205 = phi ptr [ %396, %.critedge8 ], [ %201, %.critedge2.preheader ]
-  %.4390 = phi i32 [ %.8, %.critedge8 ], [ %.3, %.critedge2.preheader ]
-  %.6111388 = phi i32 [ %.12, %.critedge8 ], [ %.5110, %.critedge2.preheader ]
-  %.6120387 = phi i32 [ %.12126, %.critedge8 ], [ %.5119, %.critedge2.preheader ]
+  %.4390 = phi i32 [ %.5, %.critedge8 ], [ %.3, %.critedge2.preheader ]
+  %.6111388 = phi i32 [ %.7112, %.critedge8 ], [ %.5110, %.critedge2.preheader ]
+  %.6120387 = phi i32 [ %.7121, %.critedge8 ], [ %.5119, %.critedge2.preheader ]
   %206 = getelementptr i8, ptr %205, i64 8
   %.val151.val = load ptr, ptr %206, align 8
   %207 = getelementptr inbounds ptr, ptr %.val151.val, i64 %indvars.iv412
@@ -5300,9 +5300,9 @@ Io_WriteVerilogGetName.exit241:                   ; preds = %183, %._crit_edge.i
   br label %217
 
 .critedge6.preheader:                             ; preds = %Io_WriteVerilogGetName.exit291, %.preheader
-  %.7121.lcssa = phi i32 [ %.6120387, %.preheader ], [ %296, %Io_WriteVerilogGetName.exit291 ]
-  %.7112.lcssa = phi i32 [ %.6111388, %.preheader ], [ %297, %Io_WriteVerilogGetName.exit291 ]
-  %.5.lcssa = phi i32 [ %.4390, %.preheader ], [ %231, %Io_WriteVerilogGetName.exit291 ]
+  %.8122.lcssa = phi i32 [ %.6120387, %.preheader ], [ %296, %Io_WriteVerilogGetName.exit291 ]
+  %.8113.lcssa = phi i32 [ %.6111388, %.preheader ], [ %297, %Io_WriteVerilogGetName.exit291 ]
+  %.6.lcssa = phi i32 [ %.4390, %.preheader ], [ %231, %Io_WriteVerilogGetName.exit291 ]
   %214 = getelementptr i8, ptr %208, i64 44
   %.val158377 = load i32, ptr %214, align 4
   %215 = icmp sgt i32 %.val158377, 0
@@ -5314,9 +5314,9 @@ Io_WriteVerilogGetName.exit241:                   ; preds = %183, %._crit_edge.i
 
 217:                                              ; preds = %.lr.ph373, %Io_WriteVerilogGetName.exit291
   %indvars.iv406 = phi i64 [ 0, %.lr.ph373 ], [ %indvars.iv.next407, %Io_WriteVerilogGetName.exit291 ]
-  %.5372 = phi i32 [ %.4390, %.lr.ph373 ], [ %231, %Io_WriteVerilogGetName.exit291 ]
-  %.7112370 = phi i32 [ %.6111388, %.lr.ph373 ], [ %297, %Io_WriteVerilogGetName.exit291 ]
-  %.7121369 = phi i32 [ %.6120387, %.lr.ph373 ], [ %296, %Io_WriteVerilogGetName.exit291 ]
+  %.6372 = phi i32 [ %.4390, %.lr.ph373 ], [ %231, %Io_WriteVerilogGetName.exit291 ]
+  %.8113370 = phi i32 [ %.6111388, %.lr.ph373 ], [ %297, %Io_WriteVerilogGetName.exit291 ]
+  %.8122369 = phi i32 [ %.6120387, %.lr.ph373 ], [ %296, %Io_WriteVerilogGetName.exit291 ]
   %.val165 = load ptr, ptr %208, align 8
   %.val166 = load ptr, ptr %213, align 8
   %218 = getelementptr i8, ptr %.val165, i64 32
@@ -5339,7 +5339,7 @@ Io_WriteVerilogGetName.exit241:                   ; preds = %183, %._crit_edge.i
   %228 = sext i32 %.val146.val to i64
   %229 = getelementptr inbounds ptr, ptr %.val145.val.val, i64 %228
   %230 = load ptr, ptr %229, align 8
-  %231 = add nsw i32 %.5372, 1
+  %231 = add nsw i32 %.6372, 1
   %232 = tail call ptr @Abc_ObjName(ptr noundef %230) #10
   %233 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %232) #11
   %234 = trunc i64 %233 to i32
@@ -5422,11 +5422,11 @@ Io_WriteVerilogGetName.exit266:                   ; preds = %245, %._crit_edge.i
   %258 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i246) #11
   %259 = trunc i64 %258 to i32
   %260 = add i32 %259, 2
-  %.not130 = icmp eq i32 %.7112370, 0
+  %.not130 = icmp eq i32 %.8113370, 0
   br i1 %.not130, label %266, label %261
 
 261:                                              ; preds = %Io_WriteVerilogGetName.exit266
-  %262 = add nsw i32 %260, %.7121369
+  %262 = add nsw i32 %260, %.8122369
   %263 = icmp sgt i32 %262, 75
   br i1 %263, label %264, label %266
 
@@ -5435,8 +5435,8 @@ Io_WriteVerilogGetName.exit266:                   ; preds = %245, %._crit_edge.i
   br label %266
 
 266:                                              ; preds = %264, %261, %Io_WriteVerilogGetName.exit266
-  %.8122 = phi i32 [ 3, %264 ], [ %.7121369, %261 ], [ %.7121369, %Io_WriteVerilogGetName.exit266 ]
-  %.8113 = phi i32 [ 0, %264 ], [ %.7112370, %261 ], [ 0, %Io_WriteVerilogGetName.exit266 ]
+  %.9123 = phi i32 [ 3, %264 ], [ %.8122369, %261 ], [ %.8122369, %Io_WriteVerilogGetName.exit266 ]
+  %.9 = phi i32 [ 0, %264 ], [ %.8113370, %261 ], [ 0, %Io_WriteVerilogGetName.exit266 ]
   %267 = tail call ptr @Abc_ObjName(ptr noundef %230) #10
   %268 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %267) #11
   %269 = trunc i64 %268 to i32
@@ -5519,8 +5519,8 @@ Io_WriteVerilogGetName.exit291:                   ; preds = %280, %._crit_edge.i
   %293 = icmp eq i32 %231, %3
   %294 = select i1 %293, ptr @.str.27, ptr @.str.75
   %295 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.74, ptr noundef nonnull %.0.i271, ptr noundef nonnull %294) #10
-  %296 = add nsw i32 %.8122, %260
-  %297 = add nsw i32 %.8113, 1
+  %296 = add nsw i32 %.9123, %260
+  %297 = add nsw i32 %.9, 1
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %.val162 = load i32, ptr %211, align 4
   %298 = sext i32 %.val162 to i64
@@ -5530,9 +5530,9 @@ Io_WriteVerilogGetName.exit291:                   ; preds = %280, %._crit_edge.i
 300:                                              ; preds = %.lr.ph382, %.critedge6
   %.val158417 = phi i32 [ %.val158377, %.lr.ph382 ], [ %.val158, %.critedge6 ]
   %indvars.iv409 = phi i64 [ 0, %.lr.ph382 ], [ %indvars.iv.next410, %.critedge6 ]
-  %.6381 = phi i32 [ %.5.lcssa, %.lr.ph382 ], [ %.7, %.critedge6 ]
-  %.9379 = phi i32 [ %.7112.lcssa, %.lr.ph382 ], [ %.11, %.critedge6 ]
-  %.9123378 = phi i32 [ %.7121.lcssa, %.lr.ph382 ], [ %.11125, %.critedge6 ]
+  %.7381 = phi i32 [ %.6.lcssa, %.lr.ph382 ], [ %.8, %.critedge6 ]
+  %.10379 = phi i32 [ %.8113.lcssa, %.lr.ph382 ], [ %.11, %.critedge6 ]
+  %.10124378 = phi i32 [ %.8122.lcssa, %.lr.ph382 ], [ %.11125, %.critedge6 ]
   %.val163 = load ptr, ptr %208, align 8
   %.val164 = load ptr, ptr %216, align 8
   %301 = getelementptr i8, ptr %.val163, i64 32
@@ -5580,7 +5580,7 @@ Io_WriteVerilogGetName.exit291:                   ; preds = %280, %._crit_edge.i
   br i1 %narrow.i292, label %326, label %.critedge6
 
 326:                                              ; preds = %316, %300
-  %327 = add nsw i32 %.6381, 1
+  %327 = add nsw i32 %.7381, 1
   %328 = tail call ptr @Abc_ObjName(ptr noundef nonnull %313) #10
   %329 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %328) #11
   %330 = trunc i64 %329 to i32
@@ -5663,11 +5663,11 @@ Io_WriteVerilogGetName.exit317:                   ; preds = %341, %._crit_edge.i
   %354 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i297) #11
   %355 = trunc i64 %354 to i32
   %356 = add i32 %355, 2
-  %.not129 = icmp eq i32 %.9379, 0
+  %.not129 = icmp eq i32 %.10379, 0
   br i1 %.not129, label %362, label %357
 
 357:                                              ; preds = %Io_WriteVerilogGetName.exit317
-  %358 = add nsw i32 %356, %.9123378
+  %358 = add nsw i32 %356, %.10124378
   %359 = icmp sgt i32 %358, 75
   br i1 %359, label %360, label %362
 
@@ -5676,8 +5676,8 @@ Io_WriteVerilogGetName.exit317:                   ; preds = %341, %._crit_edge.i
   br label %362
 
 362:                                              ; preds = %360, %357, %Io_WriteVerilogGetName.exit317
-  %.10124 = phi i32 [ 3, %360 ], [ %.9123378, %357 ], [ %.9123378, %Io_WriteVerilogGetName.exit317 ]
-  %.10 = phi i32 [ 0, %360 ], [ %.9379, %357 ], [ 0, %Io_WriteVerilogGetName.exit317 ]
+  %.12126 = phi i32 [ 3, %360 ], [ %.10124378, %357 ], [ %.10124378, %Io_WriteVerilogGetName.exit317 ]
+  %.12 = phi i32 [ 0, %360 ], [ %.10379, %357 ], [ 0, %Io_WriteVerilogGetName.exit317 ]
   %363 = tail call ptr @Abc_ObjName(ptr noundef %313) #10
   %364 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %363) #11
   %365 = trunc i64 %364 to i32
@@ -5760,25 +5760,25 @@ Io_WriteVerilogGetName.exit342:                   ; preds = %376, %._crit_edge.i
   %389 = icmp eq i32 %327, %3
   %390 = select i1 %389, ptr @.str.27, ptr @.str.75
   %391 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.74, ptr noundef nonnull %.0.i322, ptr noundef nonnull %390) #10
-  %392 = add nsw i32 %.10124, %356
-  %393 = add nsw i32 %.10, 1
+  %392 = add nsw i32 %.12126, %356
+  %393 = add nsw i32 %.12, 1
   %.val158.pre = load i32, ptr %214, align 4
   br label %.critedge6
 
 .critedge6:                                       ; preds = %316, %Io_WriteVerilogGetName.exit342
   %.val158 = phi i32 [ %.val158417, %316 ], [ %.val158.pre, %Io_WriteVerilogGetName.exit342 ]
-  %.11125 = phi i32 [ %.9123378, %316 ], [ %392, %Io_WriteVerilogGetName.exit342 ]
-  %.11 = phi i32 [ %.9379, %316 ], [ %393, %Io_WriteVerilogGetName.exit342 ]
-  %.7 = phi i32 [ %.6381, %316 ], [ %327, %Io_WriteVerilogGetName.exit342 ]
+  %.11125 = phi i32 [ %.10124378, %316 ], [ %392, %Io_WriteVerilogGetName.exit342 ]
+  %.11 = phi i32 [ %.10379, %316 ], [ %393, %Io_WriteVerilogGetName.exit342 ]
+  %.8 = phi i32 [ %.7381, %316 ], [ %327, %Io_WriteVerilogGetName.exit342 ]
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %394 = sext i32 %.val158 to i64
   %395 = icmp slt i64 %indvars.iv.next410, %394
   br i1 %395, label %300, label %.critedge8, !llvm.loop !39
 
 .critedge8:                                       ; preds = %.critedge6, %.critedge6.preheader, %.lr.ph391
-  %.12126 = phi i32 [ %.6120387, %.lr.ph391 ], [ %.7121.lcssa, %.critedge6.preheader ], [ %.11125, %.critedge6 ]
-  %.12 = phi i32 [ %.6111388, %.lr.ph391 ], [ %.7112.lcssa, %.critedge6.preheader ], [ %.11, %.critedge6 ]
-  %.8 = phi i32 [ %.4390, %.lr.ph391 ], [ %.5.lcssa, %.critedge6.preheader ], [ %.7, %.critedge6 ]
+  %.7121 = phi i32 [ %.6120387, %.lr.ph391 ], [ %.8122.lcssa, %.critedge6.preheader ], [ %.11125, %.critedge6 ]
+  %.7112 = phi i32 [ %.6111388, %.lr.ph391 ], [ %.8113.lcssa, %.critedge6.preheader ], [ %.11, %.critedge6 ]
+  %.5 = phi i32 [ %.4390, %.lr.ph391 ], [ %.6.lcssa, %.critedge6.preheader ], [ %.8, %.critedge6 ]
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %396 = load ptr, ptr %8, align 8
   %397 = getelementptr i8, ptr %396, i64 4

@@ -856,7 +856,7 @@ define internal noundef zeroext i1 @uat_sec_record_update_cb(ptr nocapture nound
 
 .split.i:                                         ; preds = %43, %.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.split.preheader.i ], [ %indvars.iv.next.i, %43 ]
-  %.152.i = phi i8 [ %15, %.split.preheader.i ], [ %.3.i, %43 ]
+  %.152.i = phi i8 [ %15, %.split.preheader.i ], [ %.2.i, %43 ]
   %.14149.i = phi ptr [ %14, %.split.preheader.i ], [ %48, %43 ]
   switch i8 %.152.i, label %29 [
     i8 58, label %26
@@ -870,9 +870,9 @@ define internal noundef zeroext i1 @uat_sec_record_update_cb(ptr nocapture nound
   br label %29
 
 29:                                               ; preds = %26, %.split.i
-  %.242.i = phi ptr [ %27, %26 ], [ %.14149.i, %.split.i ]
-  %.2.i = phi i8 [ %28, %26 ], [ %.152.i, %.split.i ]
-  %30 = zext i8 %.2.i to i64
+  %.343.i = phi ptr [ %27, %26 ], [ %.14149.i, %.split.i ]
+  %.3.i = phi i8 [ %28, %26 ], [ %.152.i, %.split.i ]
+  %30 = zext i8 %.3.i to i64
   %31 = getelementptr i16, ptr %16, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 1024
@@ -880,12 +880,12 @@ define internal noundef zeroext i1 @uat_sec_record_update_cb(ptr nocapture nound
   br i1 %.not46.i, label %.loopexit, label %34
 
 34:                                               ; preds = %29
-  %35 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %.2.i) #8
+  %35 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %.3.i) #8
   %.tr.i = trunc i32 %35 to i8
   %36 = shl i8 %.tr.i, 4
   %37 = getelementptr i8, ptr %3, i64 %indvars.iv.i
   store i8 %36, ptr %37, align 1
-  %38 = load i8, ptr %.242.i, align 1
+  %38 = load i8, ptr %.343.i, align 1
   %39 = zext i8 %38 to i64
   %40 = getelementptr i16, ptr %16, i64 %39
   %41 = load i16, ptr %40, align 2
@@ -894,13 +894,13 @@ define internal noundef zeroext i1 @uat_sec_record_update_cb(ptr nocapture nound
   br i1 %.not47.i, label %.loopexit, label %43
 
 43:                                               ; preds = %34
-  %44 = getelementptr i8, ptr %.242.i, i64 1
+  %44 = getelementptr i8, ptr %.343.i, i64 1
   %45 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %38) #8
   %46 = trunc i32 %45 to i8
   %47 = or i8 %36, %46
   store i8 %47, ptr %37, align 1
-  %48 = getelementptr i8, ptr %.242.i, i64 2
-  %.3.i = load i8, ptr %44, align 1
+  %48 = getelementptr i8, ptr %.343.i, i64 2
+  %.2.i = load i8, ptr %44, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %rf4ce_security_parse_sec_str.exit, label %.split.i, !llvm.loop !7
@@ -977,7 +977,7 @@ define internal void @uat_sec_record_free_cb(ptr nocapture noundef readonly %0) 
 
 .split.i:                                         ; preds = %35, %.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.split.preheader.i ], [ %indvars.iv.next.i, %35 ]
-  %.152.i = phi i8 [ %7, %.split.preheader.i ], [ %.3.i, %35 ]
+  %.152.i = phi i8 [ %7, %.split.preheader.i ], [ %.2.i, %35 ]
   %.14149.i = phi ptr [ %6, %.split.preheader.i ], [ %40, %35 ]
   switch i8 %.152.i, label %21 [
     i8 58, label %18
@@ -991,9 +991,9 @@ define internal void @uat_sec_record_free_cb(ptr nocapture noundef readonly %0) 
   br label %21
 
 21:                                               ; preds = %18, %.split.i
-  %.242.i = phi ptr [ %19, %18 ], [ %.14149.i, %.split.i ]
-  %.2.i = phi i8 [ %20, %18 ], [ %.152.i, %.split.i ]
-  %22 = zext i8 %.2.i to i64
+  %.343.i = phi ptr [ %19, %18 ], [ %.14149.i, %.split.i ]
+  %.3.i = phi i8 [ %20, %18 ], [ %.152.i, %.split.i ]
+  %22 = zext i8 %.3.i to i64
   %23 = getelementptr i16, ptr %8, i64 %22
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 1024
@@ -1001,12 +1001,12 @@ define internal void @uat_sec_record_free_cb(ptr nocapture noundef readonly %0) 
   br i1 %.not46.i, label %rf4ce_security_parse_sec_str.exit.thread, label %26
 
 26:                                               ; preds = %21
-  %27 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %.2.i) #8
+  %27 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %.3.i) #8
   %.tr.i = trunc i32 %27 to i8
   %28 = shl i8 %.tr.i, 4
   %29 = getelementptr i8, ptr %2, i64 %indvars.iv.i
   store i8 %28, ptr %29, align 1
-  %30 = load i8, ptr %.242.i, align 1
+  %30 = load i8, ptr %.343.i, align 1
   %31 = zext i8 %30 to i64
   %32 = getelementptr i16, ptr %8, i64 %31
   %33 = load i16, ptr %32, align 2
@@ -1015,13 +1015,13 @@ define internal void @uat_sec_record_free_cb(ptr nocapture noundef readonly %0) 
   br i1 %.not47.i, label %rf4ce_security_parse_sec_str.exit.thread, label %35
 
 35:                                               ; preds = %26
-  %36 = getelementptr i8, ptr %.242.i, i64 1
+  %36 = getelementptr i8, ptr %.343.i, i64 1
   %37 = tail call i32 @g_ascii_xdigit_value(i8 noundef signext %30) #8
   %38 = trunc i32 %37 to i8
   %39 = or i8 %28, %38
   store i8 %39, ptr %29, align 1
-  %40 = getelementptr i8, ptr %.242.i, i64 2
-  %.3.i = load i8, ptr %36, align 1
+  %40 = getelementptr i8, ptr %.343.i, i64 2
+  %.2.i = load i8, ptr %36, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %rf4ce_security_parse_sec_str.exit, label %.split.i, !llvm.loop !7
@@ -1105,7 +1105,7 @@ define internal void @uat_sec_record_post_update() #0 {
 
 .split.i:                                         ; preds = %13, %41
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %13 ]
-  %.152.i = phi i8 [ %.3.i, %41 ], [ %15, %13 ]
+  %.152.i = phi i8 [ %.2.i, %41 ], [ %15, %13 ]
   %.14149.i = phi ptr [ %46, %41 ], [ %14, %13 ]
   switch i8 %.152.i, label %27 [
     i8 58, label %24
@@ -1119,9 +1119,9 @@ define internal void @uat_sec_record_post_update() #0 {
   br label %27
 
 27:                                               ; preds = %24, %.split.i
-  %.242.i = phi ptr [ %25, %24 ], [ %.14149.i, %.split.i ]
-  %.2.i = phi i8 [ %26, %24 ], [ %.152.i, %.split.i ]
-  %28 = zext i8 %.2.i to i64
+  %.343.i = phi ptr [ %25, %24 ], [ %.14149.i, %.split.i ]
+  %.3.i = phi i8 [ %26, %24 ], [ %.152.i, %.split.i ]
+  %28 = zext i8 %.3.i to i64
   %29 = getelementptr i16, ptr %7, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = and i16 %30, 1024
@@ -1129,12 +1129,12 @@ define internal void @uat_sec_record_post_update() #0 {
   br i1 %.not46.i, label %rf4ce_security_parse_sec_str.exit.thread, label %32
 
 32:                                               ; preds = %27
-  %33 = call i32 @g_ascii_xdigit_value(i8 noundef signext %.2.i) #8
+  %33 = call i32 @g_ascii_xdigit_value(i8 noundef signext %.3.i) #8
   %.tr.i = trunc i32 %33 to i8
   %34 = shl i8 %.tr.i, 4
   %35 = getelementptr i8, ptr %1, i64 %indvars.iv.i
   store i8 %34, ptr %35, align 1
-  %36 = load i8, ptr %.242.i, align 1
+  %36 = load i8, ptr %.343.i, align 1
   %37 = zext i8 %36 to i64
   %38 = getelementptr i16, ptr %7, i64 %37
   %39 = load i16, ptr %38, align 2
@@ -1143,13 +1143,13 @@ define internal void @uat_sec_record_post_update() #0 {
   br i1 %.not47.i, label %rf4ce_security_parse_sec_str.exit.thread, label %41
 
 41:                                               ; preds = %32
-  %42 = getelementptr i8, ptr %.242.i, i64 1
+  %42 = getelementptr i8, ptr %.343.i, i64 1
   %43 = call i32 @g_ascii_xdigit_value(i8 noundef signext %36) #8
   %44 = trunc i32 %43 to i8
   %45 = or i8 %34, %44
   store i8 %45, ptr %35, align 1
-  %46 = getelementptr i8, ptr %.242.i, i64 2
-  %.3.i = load i8, ptr %42, align 1
+  %46 = getelementptr i8, ptr %.343.i, i64 2
+  %.2.i = load i8, ptr %42, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %rf4ce_security_parse_sec_str.exit, label %.split.i, !llvm.loop !7

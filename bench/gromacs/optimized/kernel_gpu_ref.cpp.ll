@@ -182,19 +182,19 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
 
 102:                                              ; preds = %.preheader390, %110
   %indvars.iv465 = phi i64 [ 0, %.preheader390 ], [ %indvars.iv.next466, %110 ]
-  %.0319397 = phi float [ 0.000000e+00, %.preheader390 ], [ %109, %110 ]
+  %.1320397 = phi float [ 0.000000e+00, %.preheader390 ], [ %109, %110 ]
   %103 = add nuw nsw i64 %indvars.iv465, %101
   %104 = shl nsw i64 %103, 3
   br label %105
 
 105:                                              ; preds = %102, %105
   %indvars.iv = phi i64 [ 0, %102 ], [ %indvars.iv.next, %105 ]
-  %.1320395 = phi float [ %.0319397, %102 ], [ %109, %105 ]
+  %.2321395 = phi float [ %.1320397, %102 ], [ %109, %105 ]
   %106 = add nuw nsw i64 %indvars.iv, %104
   %107 = mul nsw i64 %106, %100
   %gep = getelementptr float, ptr %invariant.gep, i64 %107
   %108 = load float, ptr %gep, align 4
-  %109 = tail call float @llvm.fmuladd.f32(float %108, float %108, float %.1320395)
+  %109 = tail call float @llvm.fmuladd.f32(float %108, float %108, float %.2321395)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %110, label %105, !llvm.loop !5
@@ -227,7 +227,7 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   br label %127
 
 127:                                              ; preds = %112, %119, %92, %77
-  %.2321 = phi float [ %126, %119 ], [ %118, %112 ], [ 0.000000e+00, %92 ], [ 0.000000e+00, %77 ]
+  %.0319 = phi float [ %126, %119 ], [ %118, %112 ], [ 0.000000e+00, %92 ], [ 0.000000e+00, %77 ]
   %128 = icmp slt i32 %87, %89
   br i1 %128, label %.preheader389.lr.ph, label %._crit_edge
 
@@ -247,7 +247,7 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   %.1298444 = phi i32 [ %.0297455, %.preheader389.lr.ph ], [ %.6303, %353 ]
   %.1305443 = phi i32 [ %.0304454, %.preheader389.lr.ph ], [ %.6310, %353 ]
   %.1312442 = phi i32 [ %.0311453, %.preheader389.lr.ph ], [ %.7318, %353 ]
-  %.3322441 = phi float [ %.2321, %.preheader389.lr.ph ], [ %.10, %353 ]
+  %.3322441 = phi float [ %.0319, %.preheader389.lr.ph ], [ %.10, %353 ]
   %.0328440 = phi float [ 0.000000e+00, %.preheader389.lr.ph ], [ %.7335, %353 ]
   %135 = load ptr, ptr %57, align 8
   %136 = load ptr, ptr %64, align 8
@@ -307,12 +307,12 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
 
 164:                                              ; preds = %160, %351
   %indvars.iv475 = phi i64 [ 0, %160 ], [ %indvars.iv.next476, %351 ]
-  %.4424 = phi float [ %.3431, %160 ], [ %.7, %351 ]
+  %.4424 = phi float [ %.3431, %160 ], [ %.6, %351 ]
   %.4301423 = phi i32 [ %.3300430, %160 ], [ %.5302, %351 ]
   %.4308422 = phi i32 [ %.3307429, %160 ], [ %.5309, %351 ]
   %.4315421 = phi i32 [ %.3314428, %160 ], [ %.6317, %351 ]
-  %.6325420 = phi float [ %.5324427, %160 ], [ %.9, %351 ]
-  %.3331419 = phi float [ %.2330426, %160 ], [ %.6334, %351 ]
+  %.6325420 = phi float [ %.5324427, %160 ], [ %.8327, %351 ]
+  %.3331419 = phi float [ %.2330426, %160 ], [ %.5333, %351 ]
   %.0342418 = phi i8 [ 0, %160 ], [ %.4346, %351 ]
   %.0347417 = phi i32 [ 0, %160 ], [ %.4351, %351 ]
   %165 = add nuw nsw i64 %indvars.iv475, %162
@@ -337,11 +337,11 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
 
 182:                                              ; preds = %164, %330
   %indvars.iv472 = phi i64 [ 0, %164 ], [ %indvars.iv.next473, %330 ]
-  %.5407 = phi float [ %.4424, %164 ], [ %.7, %330 ]
-  %.7326406 = phi float [ %.6325420, %164 ], [ %.9, %330 ]
-  %.4332405 = phi float [ %.3331419, %164 ], [ %.6334, %330 ]
-  %.1343404 = phi i8 [ %.0342418, %164 ], [ %.3345, %330 ]
-  %.1348403 = phi i32 [ %.0347417, %164 ], [ %.3350, %330 ]
+  %.5407 = phi float [ %.4424, %164 ], [ %.6, %330 ]
+  %.7326406 = phi float [ %.6325420, %164 ], [ %.8327, %330 ]
+  %.4332405 = phi float [ %.3331419, %164 ], [ %.5333, %330 ]
+  %.1343404 = phi i8 [ %.0342418, %164 ], [ %.2344, %330 ]
+  %.1348403 = phi i32 [ %.0347417, %164 ], [ %.2349, %330 ]
   %.0357400 = phi float [ 0.000000e+00, %164 ], [ %.1358, %330 ]
   %183 = phi <2 x float> [ zeroinitializer, %164 ], [ %331, %330 ]
   %184 = add nuw nsw i64 %indvars.iv472, %151
@@ -383,7 +383,7 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   %215 = tail call float @llvm.fmuladd.f32(float %214, float %214, float %213)
   %216 = tail call float @llvm.fmuladd.f32(float %211, float %211, float %215)
   %217 = fcmp olt float %216, %43
-  %.2344 = select i1 %217, i8 1, i8 %.1343404
+  %.3345 = select i1 %217, i8 1, i8 %.1343404
   %218 = fcmp ult float %216, %37
   br i1 %218, label %219, label %330
 
@@ -401,7 +401,7 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   br label %225
 
 225:                                              ; preds = %221, %219
-  %.2349 = phi i32 [ %.1348403, %219 ], [ %spec.select, %221 ]
+  %.3350 = phi i32 [ %.1348403, %219 ], [ %spec.select, %221 ]
   %226 = fcmp olt float %216, 0x3E99A2B5C0000000
   %.sroa.speculated = select i1 %226, float 0x3E99A2B5C0000000, float %216
   %sqrt = tail call float @llvm.sqrt.f32(float %.sroa.speculated)
@@ -469,7 +469,7 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   br label %280
 
 280:                                              ; preds = %246, %270, %232, %241
-  %.6 = phi float [ %279, %270 ], [ %.5407, %246 ], [ %245, %241 ], [ %.5407, %232 ]
+  %.7 = phi float [ %279, %270 ], [ %.5407, %246 ], [ %245, %241 ], [ %.5407, %232 ]
   %.0 = phi float [ %267, %270 ], [ %267, %246 ], [ %238, %241 ], [ %238, %232 ]
   %281 = fcmp olt float %.sroa.speculated, %40
   br i1 %281, label %282, label %318
@@ -500,7 +500,7 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   br i1 %303, label %304, label %318
 
 304:                                              ; preds = %282
-  %305 = fadd float %.7326406, %.6
+  %305 = fadd float %.7326406, %.7
   %306 = insertelement <2 x float> poison, float %199, i64 0
   %307 = shufflevector <2 x float> %306, <2 x float> poison, <2 x i32> zeroinitializer
   %308 = fmul <2 x float> %292, %307
@@ -517,8 +517,8 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   br label %318
 
 318:                                              ; preds = %282, %304, %280
-  %.5333 = phi float [ %317, %304 ], [ %.4332405, %282 ], [ %.4332405, %280 ]
-  %.8327 = phi float [ %305, %304 ], [ %.7326406, %282 ], [ %.7326406, %280 ]
+  %.6334 = phi float [ %317, %304 ], [ %.4332405, %282 ], [ %.4332405, %280 ]
+  %.9 = phi float [ %305, %304 ], [ %.7326406, %282 ], [ %.7326406, %280 ]
   %.1 = phi float [ %301, %304 ], [ %301, %282 ], [ %.0, %280 ]
   %319 = insertelement <2 x float> poison, float %.1, i64 0
   %320 = shufflevector <2 x float> %319, <2 x float> poison, <2 x i32> zeroinitializer
@@ -538,11 +538,11 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
 
 330:                                              ; preds = %182, %187, %318
   %.1358 = phi float [ %.0357400, %187 ], [ %324, %318 ], [ %.0357400, %182 ]
-  %.3350 = phi i32 [ %.1348403, %187 ], [ %.2349, %318 ], [ %.1348403, %182 ]
-  %.3345 = phi i8 [ %.2344, %187 ], [ %.2344, %318 ], [ %.1343404, %182 ]
-  %.6334 = phi float [ %.4332405, %187 ], [ %.5333, %318 ], [ %.4332405, %182 ]
-  %.9 = phi float [ %.7326406, %187 ], [ %.8327, %318 ], [ %.7326406, %182 ]
-  %.7 = phi float [ %.5407, %187 ], [ %.6, %318 ], [ %.5407, %182 ]
+  %.2349 = phi i32 [ %.1348403, %187 ], [ %.3350, %318 ], [ %.1348403, %182 ]
+  %.2344 = phi i8 [ %.3345, %187 ], [ %.3345, %318 ], [ %.1343404, %182 ]
+  %.5333 = phi float [ %.4332405, %187 ], [ %.6334, %318 ], [ %.4332405, %182 ]
+  %.8327 = phi float [ %.7326406, %187 ], [ %.9, %318 ], [ %.7326406, %182 ]
+  %.6 = phi float [ %.5407, %187 ], [ %.7, %318 ], [ %.5407, %182 ]
   %331 = phi <2 x float> [ %183, %187 ], [ %323, %318 ], [ %183, %182 ]
   %indvars.iv.next473 = add nuw nsw i64 %indvars.iv472, 1
   %exitcond474.not = icmp eq i64 %indvars.iv.next473, 8
@@ -571,16 +571,16 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   br i1 %345, label %346, label %351
 
 346:                                              ; preds = %332
-  %347 = add nsw i32 %.3350, %.4301423
+  %347 = add nsw i32 %.2349, %.4301423
   %348 = add nsw i32 %.4308422, 1
-  %349 = and i8 %.3345, 1
+  %349 = and i8 %.2344, 1
   %350 = zext nneg i8 %349 to i32
   %spec.select369 = add nsw i32 %.4315421, %350
   br label %351
 
 351:                                              ; preds = %332, %346
-  %.4351 = phi i32 [ 0, %346 ], [ %.3350, %332 ]
-  %.4346 = phi i8 [ 0, %346 ], [ %.3345, %332 ]
+  %.4351 = phi i32 [ 0, %346 ], [ %.2349, %332 ]
+  %.4346 = phi i8 [ 0, %346 ], [ %.2344, %332 ]
   %.6317 = phi i32 [ %spec.select369, %346 ], [ %.4315421, %332 ]
   %.5309 = phi i32 [ %348, %346 ], [ %.4308422, %332 ]
   %.5302 = phi i32 [ %347, %346 ], [ %.4301423, %332 ]
@@ -588,12 +588,12 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   br i1 %exitcond477.not, label %.loopexit, label %164, !llvm.loop !9
 
 .loopexit:                                        ; preds = %351, %152
-  %.7335 = phi float [ %.2330426, %152 ], [ %.6334, %351 ]
-  %.10 = phi float [ %.5324427, %152 ], [ %.9, %351 ]
+  %.7335 = phi float [ %.2330426, %152 ], [ %.5333, %351 ]
+  %.10 = phi float [ %.5324427, %152 ], [ %.8327, %351 ]
   %.7318 = phi i32 [ %.3314428, %152 ], [ %.6317, %351 ]
   %.6310 = phi i32 [ %.3307429, %152 ], [ %.5309, %351 ]
   %.6303 = phi i32 [ %.3300430, %152 ], [ %.5302, %351 ]
-  %.8 = phi float [ %.3431, %152 ], [ %.7, %351 ]
+  %.8 = phi float [ %.3431, %152 ], [ %.6, %351 ]
   %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
   %exitcond481.not = icmp eq i64 %indvars.iv.next479, 8
   br i1 %exitcond481.not, label %352, label %152, !llvm.loop !10
@@ -610,7 +610,7 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
 
 ._crit_edge:                                      ; preds = %353, %127
   %.0328.lcssa = phi float [ 0.000000e+00, %127 ], [ %.7335, %353 ]
-  %.3322.lcssa = phi float [ %.2321, %127 ], [ %.10, %353 ]
+  %.3322.lcssa = phi float [ %.0319, %127 ], [ %.10, %353 ]
   %.1312.lcssa = phi i32 [ %.0311453, %127 ], [ %.7318, %353 ]
   %.1305.lcssa = phi i32 [ %.0304454, %127 ], [ %.6310, %353 ]
   %.1298.lcssa = phi i32 [ %.0297455, %127 ], [ %.6303, %353 ]

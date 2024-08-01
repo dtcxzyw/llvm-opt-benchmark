@@ -212,7 +212,7 @@ define dso_local void @launch_common_set_stdio_fds(ptr nocapture noundef readonl
   br label %11
 
 11:                                               ; preds = %3, %6, %7
-  %.1 = phi i32 [ 1601, %6 ], [ %., %7 ], [ 1089, %3 ]
+  %.048 = phi i32 [ 1601, %6 ], [ %., %7 ], [ 1089, %3 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 232
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8
@@ -308,7 +308,7 @@ _is_local_file.exit68:                            ; preds = %55
   br label %81
 
 62:                                               ; preds = %_is_local_file.exit68
-  %63 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %53, i32 noundef %.1, i32 noundef 420) #18
+  %63 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %53, i32 noundef %.048, i32 noundef 420) #18
   %64 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 %63, ptr %64, align 4
   %65 = tail call ptr @__errno_location() #20
@@ -322,7 +322,7 @@ _is_local_file.exit68:                            ; preds = %55
   %71 = tail call i32 @mkdirpath(ptr noundef %70, i32 noundef 493, i1 noundef zeroext false) #18
   %72 = load ptr, ptr %51, align 8
   %73 = load ptr, ptr %72, align 8
-  %74 = tail call i32 (ptr, i32, ...) @open(ptr noundef %73, i32 noundef %.1, i32 noundef 420) #18
+  %74 = tail call i32 (ptr, i32, ...) @open(ptr noundef %73, i32 noundef %.048, i32 noundef 420) #18
   store i32 %74, ptr %64, align 4
   br label %75
 
@@ -394,7 +394,7 @@ _is_local_file.exit72:                            ; preds = %104
   br i1 %narrow.i71, label %130, label %110
 
 110:                                              ; preds = %_is_local_file.exit72
-  %111 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %102, i32 noundef %.1, i32 noundef 420) #18
+  %111 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %102, i32 noundef %.048, i32 noundef 420) #18
   %112 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %111, ptr %112, align 4
   %113 = tail call ptr @__errno_location() #20
@@ -408,7 +408,7 @@ _is_local_file.exit72:                            ; preds = %104
   %119 = tail call i32 @mkdirpath(ptr noundef %118, i32 noundef 493, i1 noundef zeroext false) #18
   %120 = load ptr, ptr %100, align 8
   %121 = load ptr, ptr %120, align 8
-  %122 = tail call i32 (ptr, i32, ...) @open(ptr noundef %121, i32 noundef %.1, i32 noundef 420) #18
+  %122 = tail call i32 (ptr, i32, ...) @open(ptr noundef %121, i32 noundef %.048, i32 noundef 420) #18
   store i32 %122, ptr %112, align 4
   br label %123
 
@@ -2262,11 +2262,11 @@ define dso_local i32 @launch_g_step_launch(ptr noundef %0, ptr nocapture noundef
   br i1 %.not236.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %227, %240
-  %.08.i = phi i1 [ %spec.select.i, %240 ], [ false, %227 ]
+  %.18.i = phi i1 [ %spec.select.i, %240 ], [ false, %227 ]
   %.0187.i = phi ptr [ %241, %240 ], [ %229, %227 ]
   %230 = call i32 @xstrcasecmp(ptr noundef nonnull %.0187.i, ptr noundef nonnull @.str.51) #18
   %231 = icmp eq i32 %230, 0
-  %spec.select.i = select i1 %231, i1 true, i1 %.08.i
+  %spec.select.i = select i1 %231, i1 true, i1 %.18.i
   %232 = call i32 @xstrcasecmp(ptr noundef nonnull %.0187.i, ptr noundef nonnull @.str.48) #18
   %.not24.i = icmp eq i32 %232, 0
   br i1 %.not24.i, label %._crit_edge.i, label %233
@@ -3260,7 +3260,7 @@ _is_openmpi_port_error.exit.thread:               ; preds = %130, %139, %_is_ope
   br label %176
 
 176:                                              ; preds = %133, %136, %_handle_openmpi_port_error.exit, %174, %171
-  %.067 = phi i32 [ 0, %_handle_openmpi_port_error.exit ], [ 0, %174 ], [ 0, %171 ], [ 1, %136 ], [ 1, %133 ]
+  %.1 = phi i32 [ 0, %_handle_openmpi_port_error.exit ], [ 0, %174 ], [ 0, %171 ], [ 1, %136 ], [ 1, %133 ]
   %177 = load ptr, ptr @local_global_rc, align 8
   %178 = load i32, ptr %177, align 4
   %179 = and i32 %178, 255
@@ -3353,7 +3353,7 @@ _is_openmpi_port_error.exit.thread:               ; preds = %130, %139, %_is_ope
   br label %224
 
 224:                                              ; preds = %217, %190, %186, %180, %176, %212, %223, %192, %124
-  %.1 = phi i32 [ 0, %124 ], [ %.067, %180 ], [ %.067, %190 ], [ %.067, %186 ], [ %.067, %176 ], [ 0, %223 ], [ 0, %212 ], [ 0, %192 ], [ 0, %217 ]
+  %.067 = phi i32 [ 0, %124 ], [ %.1, %180 ], [ %.1, %190 ], [ %.1, %186 ], [ %.1, %176 ], [ 0, %223 ], [ 0, %212 ], [ 0, %192 ], [ 0, %217 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #18
   call void @slurm_xfree(ptr noundef nonnull %6) #18
   %225 = load ptr, ptr @task_state_list, align 8
@@ -3365,7 +3365,7 @@ _is_openmpi_port_error.exit.thread:               ; preds = %130, %139, %_is_ope
   %228 = load i32, ptr %0, align 8
   %229 = getelementptr inbounds i8, ptr %0, i64 8
   %230 = load ptr, ptr %229, align 8
-  %.not95.not = icmp eq i32 %.1, 0
+  %.not95.not = icmp eq i32 %.067, 0
   %231 = select i1 %.not95.not, i32 3, i32 2
   %.not8.i = icmp eq i32 %228, 0
   br i1 %.not8.i, label %_update_task_exit_state.exit, label %.lr.ph.preheader.i
@@ -3532,8 +3532,8 @@ define dso_local range(i32 -1, 1) i32 @launch_g_step_wait(ptr noundef %0, i1 nou
   unreachable
 
 22:                                               ; preds = %15, %11, %8, %3
-  %.1 = phi i32 [ 0, %11 ], [ 0, %8 ], [ 0, %3 ], [ -1, %15 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 0, %11 ], [ 0, %8 ], [ 0, %3 ], [ -1, %15 ]
+  ret i32 %.0
 }
 
 declare i32 @step_ctx_destroy(ptr noundef) local_unnamed_addr #2

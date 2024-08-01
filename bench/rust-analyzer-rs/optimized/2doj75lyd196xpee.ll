@@ -667,8 +667,8 @@ _ZN3vfs8vfs_path7VfsPath3pop17hebf7cd4f97b8f8bbE.exit: ; preds = %43, %53
   br label %94
 
 94:                                               ; preds = %90, %92
-  %.sroa.4.0 = phi i32 [ %93, %92 ], [ undef, %90 ]
-  %.sroa.0.0 = phi i32 [ 1, %92 ], [ 0, %90 ]
+  %.sroa.4.1 = phi i32 [ %93, %92 ], [ undef, %90 ]
+  %.sroa.0.1 = phi i32 [ 1, %92 ], [ 0, %90 ]
   %95 = icmp eq i64 %63, 0
   br i1 %95, label %96, label %105
 
@@ -783,10 +783,10 @@ _ZN3vfs8vfs_path7VfsPath3pop17hebf7cd4f97b8f8bbE.exit: ; preds = %43, %53
   br label %134
 
 134:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$vfs..vfs_path..VfsPath$GT$17h284ed7a6ec451a16E.exit26", %"_ZN4core3ptr43drop_in_place$LT$vfs..vfs_path..VfsPath$GT$17h284ed7a6ec451a16E.exit"
-  %.sroa.4.1 = phi i32 [ undef, %"_ZN4core3ptr43drop_in_place$LT$vfs..vfs_path..VfsPath$GT$17h284ed7a6ec451a16E.exit" ], [ %.sroa.4.0, %"_ZN4core3ptr43drop_in_place$LT$vfs..vfs_path..VfsPath$GT$17h284ed7a6ec451a16E.exit26" ]
-  %.sroa.0.1 = phi i32 [ 0, %"_ZN4core3ptr43drop_in_place$LT$vfs..vfs_path..VfsPath$GT$17h284ed7a6ec451a16E.exit" ], [ %.sroa.0.0, %"_ZN4core3ptr43drop_in_place$LT$vfs..vfs_path..VfsPath$GT$17h284ed7a6ec451a16E.exit26" ]
-  %135 = insertvalue { i32, i32 } poison, i32 %.sroa.0.1, 0
-  %136 = insertvalue { i32, i32 } %135, i32 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i32 [ undef, %"_ZN4core3ptr43drop_in_place$LT$vfs..vfs_path..VfsPath$GT$17h284ed7a6ec451a16E.exit" ], [ %.sroa.4.1, %"_ZN4core3ptr43drop_in_place$LT$vfs..vfs_path..VfsPath$GT$17h284ed7a6ec451a16E.exit26" ]
+  %.sroa.0.0 = phi i32 [ 0, %"_ZN4core3ptr43drop_in_place$LT$vfs..vfs_path..VfsPath$GT$17h284ed7a6ec451a16E.exit" ], [ %.sroa.0.1, %"_ZN4core3ptr43drop_in_place$LT$vfs..vfs_path..VfsPath$GT$17h284ed7a6ec451a16E.exit26" ]
+  %135 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
+  %136 = insertvalue { i32, i32 } %135, i32 %.sroa.4.0, 1
   ret { i32, i32 } %136
 
 137:                                              ; preds = %88, %56

@@ -2715,8 +2715,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 80:                                               ; preds = %77, %75
   %.pn20.i = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn20.i, 0
-  %81 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn20.i, 0
+  %81 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %17)
           to label %82 unwind label %87
 
@@ -2949,9 +2949,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44.i: 
 
 .body42.i:                                        ; preds = %.body45.i, %154, %.body9
   %.pn24.pn.i = phi { ptr, i32 } [ %.pn24.i, %.body45.i ], [ %155, %154 ], [ %113, %.body9 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn24.pn.i, 0
+  %.6.i = extractvalue { ptr, i32 } %.pn24.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #22
-  %160 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %160 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %23)
           to label %161 unwind label %166
 
@@ -3160,9 +3160,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit53.i: 
 
 .body51.i:                                        ; preds = %.body54.i, %226, %.body6
   %.pn27.pn.i = phi { ptr, i32 } [ %.pn27.i, %.body54.i ], [ %227, %226 ], [ %185, %.body6 ]
-  %.8.i = extractvalue { ptr, i32 } %.pn27.pn.i, 0
+  %.9.i = extractvalue { ptr, i32 } %.pn27.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #22
-  %232 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
+  %232 = call ptr @__cxa_begin_catch(ptr %.9.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %28)
           to label %233 unwind label %238
 
@@ -3371,9 +3371,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit63.i: 
 
 .body61.i:                                        ; preds = %.body64.i, %298, %.body3
   %.pn30.pn.i = phi { ptr, i32 } [ %.pn30.i, %.body64.i ], [ %299, %298 ], [ %257, %.body3 ]
-  %.11.i = extractvalue { ptr, i32 } %.pn30.pn.i, 0
+  %.12.i = extractvalue { ptr, i32 } %.pn30.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #22
-  %304 = call ptr @__cxa_begin_catch(ptr %.11.i) #22
+  %304 = call ptr @__cxa_begin_catch(ptr %.12.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %33)
           to label %305 unwind label %310
 
@@ -3582,9 +3582,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit74.i: 
 
 .body72.i:                                        ; preds = %.body75.i, %370, %.body1
   %.pn33.pn.i = phi { ptr, i32 } [ %.pn33.i, %.body75.i ], [ %371, %370 ], [ %329, %.body1 ]
-  %.14.i = extractvalue { ptr, i32 } %.pn33.pn.i, 0
+  %.15.i = extractvalue { ptr, i32 } %.pn33.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #22
-  %376 = call ptr @__cxa_begin_catch(ptr %.14.i) #22
+  %376 = call ptr @__cxa_begin_catch(ptr %.15.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %38)
           to label %377 unwind label %382
 
@@ -3864,8 +3864,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 56:                                               ; preds = %53, %51
   %.pn14.i = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn14.i, 0
-  %57 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn14.i, 0
+  %57 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %8)
           to label %58 unwind label %63
 
@@ -4098,9 +4098,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit29.i: 
 
 .body27.i:                                        ; preds = %.body30.i, %131, %.body1
   %.pn18.pn.i = phi { ptr, i32 } [ %.pn18.i, %.body30.i ], [ %132, %131 ], [ %89, %.body1 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn18.pn.i, 0
+  %.6.i = extractvalue { ptr, i32 } %.pn18.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #22
-  %137 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %137 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %14)
           to label %138 unwind label %143
 
@@ -4363,8 +4363,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 63:                                               ; preds = %60, %58
   %.pn14.i = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn14.i, 0
-  %64 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn14.i, 0
+  %64 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %9)
           to label %65 unwind label %70
 
@@ -4597,9 +4597,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit29.i: 
 
 .body27.i:                                        ; preds = %.body30.i, %138, %.body1
   %.pn18.pn.i = phi { ptr, i32 } [ %.pn18.i, %.body30.i ], [ %139, %138 ], [ %96, %.body1 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn18.pn.i, 0
+  %.6.i = extractvalue { ptr, i32 } %.pn18.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #22
-  %144 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %144 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %15)
           to label %145 unwind label %150
 
@@ -5178,8 +5178,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit36.
 
 .body31.i:                                        ; preds = %183, %143
   %.pn18.i = phi { ptr, i32 } [ %184, %183 ], [ %144, %143 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn18.i, 0
-  %185 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %.5.i = extractvalue { ptr, i32 } %.pn18.i, 0
+  %185 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %19)
           to label %186 unwind label %191
 
@@ -5320,8 +5320,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit36.
 
 .body37.i:                                        ; preds = %236, %219
   %.pn15.i = phi { ptr, i32 } [ %237, %236 ], [ %220, %219 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn15.i, 0
-  %238 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %.7.i = extractvalue { ptr, i32 } %.pn15.i, 0
+  %238 = call ptr @__cxa_begin_catch(ptr %.7.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %22)
           to label %239 unwind label %244
 
@@ -5666,8 +5666,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 .body.i:                                          ; preds = %101, %72
   %.pn.i = phi { ptr, i32 } [ %102, %101 ], [ %73, %72 ]
-  %.0.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %103 = call ptr @__cxa_begin_catch(ptr %.0.i) #22
+  %.2.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %103 = call ptr @__cxa_begin_catch(ptr %.2.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %6)
           to label %104 unwind label %109
 
@@ -6053,9 +6053,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37.i: 
 
 .body35.i:                                        ; preds = %.body38.i, %98, %.body9
   %.pn20.pn.i = phi { ptr, i32 } [ %.pn20.i, %.body38.i ], [ %99, %98 ], [ %53, %.body9 ]
-  %.210.i = extractvalue { ptr, i32 } %.pn20.pn.i, 0
+  %.311.i = extractvalue { ptr, i32 } %.pn20.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #22
-  %104 = call ptr @__cxa_begin_catch(ptr %.210.i) #22
+  %104 = call ptr @__cxa_begin_catch(ptr %.311.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %14)
           to label %105 unwind label %110
 
@@ -6257,9 +6257,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit46.i: 
 
 .body44.i:                                        ; preds = %.body47.i, %166, %.body6
   %.pn17.pn.i = phi { ptr, i32 } [ %.pn17.i, %.body47.i ], [ %167, %166 ], [ %127, %.body6 ]
-  %.513.i = extractvalue { ptr, i32 } %.pn17.pn.i, 0
+  %.614.i = extractvalue { ptr, i32 } %.pn17.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #22
-  %172 = call ptr @__cxa_begin_catch(ptr %.513.i) #22
+  %172 = call ptr @__cxa_begin_catch(ptr %.614.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %19)
           to label %173 unwind label %178
 
@@ -6470,9 +6470,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit56.i: 
 
 .body54.i:                                        ; preds = %244, %238, %.body3
   %.pn26.pn.i = phi { ptr, i32 } [ %.pn26.i, %244 ], [ %239, %238 ], [ %218, %.body3 ]
-  %.8.i = extractvalue { ptr, i32 } %.pn26.pn.i, 0
+  %.10.i = extractvalue { ptr, i32 } %.pn26.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #22
-  %245 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
+  %245 = call ptr @__cxa_begin_catch(ptr %.10.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %25)
           to label %246 unwind label %251
 
@@ -6632,9 +6632,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit64.i: 
 
 .body62.i:                                        ; preds = %292, %286, %.body1
   %.pn23.pn.i = phi { ptr, i32 } [ %.pn23.i, %292 ], [ %287, %286 ], [ %268, %.body1 ]
-  %.11.i = extractvalue { ptr, i32 } %.pn23.pn.i, 0
+  %.13.i = extractvalue { ptr, i32 } %.pn23.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #22
-  %293 = call ptr @__cxa_begin_catch(ptr %.11.i) #22
+  %293 = call ptr @__cxa_begin_catch(ptr %.13.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %30)
           to label %294 unwind label %299
 
@@ -6980,9 +6980,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit26.i: 
 
 .body24.i:                                        ; preds = %87, %81, %.body3
   %.pn15.pn.i = phi { ptr, i32 } [ %.pn15.i, %87 ], [ %82, %81 ], [ %57, %.body3 ]
-  %.27.i = extractvalue { ptr, i32 } %.pn15.pn.i, 0
+  %.49.i = extractvalue { ptr, i32 } %.pn15.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #22
-  %88 = call ptr @__cxa_begin_catch(ptr %.27.i) #22
+  %88 = call ptr @__cxa_begin_catch(ptr %.49.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %9)
           to label %89 unwind label %94
 
@@ -7142,9 +7142,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit33.i: 
 
 .body31.i:                                        ; preds = %135, %129, %.body1
   %.pn12.pn.i = phi { ptr, i32 } [ %.pn12.i, %135 ], [ %130, %129 ], [ %111, %.body1 ]
-  %.510.i = extractvalue { ptr, i32 } %.pn12.pn.i, 0
+  %.7.i = extractvalue { ptr, i32 } %.pn12.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #22
-  %136 = call ptr @__cxa_begin_catch(ptr %.510.i) #22
+  %136 = call ptr @__cxa_begin_catch(ptr %.7.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %14)
           to label %137 unwind label %142
 
@@ -7452,9 +7452,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20.i: 
 
 .body18.i:                                        ; preds = %77, %71, %.body1
   %.pn9.pn.i = phi { ptr, i32 } [ %.pn9.i, %77 ], [ %72, %71 ], [ %46, %.body1 ]
-  %.25.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
+  %.47.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
-  %78 = call ptr @__cxa_begin_catch(ptr %.25.i) #22
+  %78 = call ptr @__cxa_begin_catch(ptr %.47.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %79 unwind label %84
 
@@ -7757,9 +7757,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20.i: 
 
 .body18.i:                                        ; preds = %77, %71, %.body1
   %.pn9.pn.i = phi { ptr, i32 } [ %.pn9.i, %77 ], [ %72, %71 ], [ %46, %.body1 ]
-  %.25.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
+  %.47.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
-  %78 = call ptr @__cxa_begin_catch(ptr %.25.i) #22
+  %78 = call ptr @__cxa_begin_catch(ptr %.47.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %79 unwind label %84
 
@@ -8158,8 +8158,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 .body.i:                                          ; preds = %141, %104
   %.pn12.i = phi { ptr, i32 } [ %142, %141 ], [ %105, %104 ]
-  %.04.i = extractvalue { ptr, i32 } %.pn12.i, 0
-  %143 = call ptr @__cxa_begin_catch(ptr %.04.i) #22
+  %.48.i = extractvalue { ptr, i32 } %.pn12.i, 0
+  %143 = call ptr @__cxa_begin_catch(ptr %.48.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %12)
           to label %144 unwind label %149
 
@@ -8300,8 +8300,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 .body28.i:                                        ; preds = %194, %177
   %.pn.i = phi { ptr, i32 } [ %195, %194 ], [ %178, %177 ]
-  %.26.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %196 = call ptr @__cxa_begin_catch(ptr %.26.i) #22
+  %.6.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %196 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %15)
           to label %197 unwind label %202
 
@@ -8853,8 +8853,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 .body.i:                                          ; preds = %172, %120
   %.pn.i = phi { ptr, i32 } [ %173, %172 ], [ %121, %120 ]
-  %.02.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %174 = call ptr @__cxa_begin_catch(ptr %.02.i) #22
+  %.46.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %174 = call ptr @__cxa_begin_catch(ptr %.46.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %12)
           to label %175 unwind label %180
 
@@ -9235,8 +9235,8 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %39, %38
 
 70:                                               ; preds = %67, %65
   %.pn14.i = phi { ptr, i32 } [ %68, %67 ], [ %66, %65 ]
-  %.2.i = extractvalue { ptr, i32 } %.pn14.i, 0
-  %71 = call ptr @__cxa_begin_catch(ptr %.2.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn14.i, 0
+  %71 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %11)
           to label %72 unwind label %77
 
@@ -9437,9 +9437,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit32.i: 
 
 .body30.i:                                        ; preds = %.body33.i, %136, %.body1
   %.pn17.pn.i = phi { ptr, i32 } [ %.pn17.i, %.body33.i ], [ %137, %136 ], [ %96, %.body1 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn17.pn.i, 0
+  %.6.i = extractvalue { ptr, i32 } %.pn17.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #22
-  %140 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %140 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %16)
           to label %141 unwind label %146
 
@@ -10230,8 +10230,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 .body28.i:                                        ; preds = %73, %53
   %.pn14.i = phi { ptr, i32 } [ %74, %73 ], [ %54, %53 ]
-  %.2.i = extractvalue { ptr, i32 } %.pn14.i, 0
-  %75 = call ptr @__cxa_begin_catch(ptr %.2.i) #22
+  %.5.i = extractvalue { ptr, i32 } %.pn14.i, 0
+  %75 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
           to label %76 unwind label %81
 
@@ -10539,8 +10539,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 .body28.i:                                        ; preds = %73, %53
   %.pn14.i = phi { ptr, i32 } [ %74, %73 ], [ %54, %53 ]
-  %.2.i = extractvalue { ptr, i32 } %.pn14.i, 0
-  %75 = call ptr @__cxa_begin_catch(ptr %.2.i) #22
+  %.5.i = extractvalue { ptr, i32 } %.pn14.i, 0
+  %75 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %5)
           to label %76 unwind label %81
 
@@ -11204,8 +11204,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 .body77.i:                                        ; preds = %232, %156
   %.pn37.i = phi { ptr, i32 } [ %233, %232 ], [ %157, %156 ]
-  %.6.i = extractvalue { ptr, i32 } %.pn37.i, 0
-  %234 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
+  %.13.i = extractvalue { ptr, i32 } %.pn37.i, 0
+  %234 = call ptr @__cxa_begin_catch(ptr %.13.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %19)
           to label %235 unwind label %240
 
@@ -11353,8 +11353,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 .body96.i:                                        ; preds = %289, %270
   %.pn40.i = phi { ptr, i32 } [ %290, %289 ], [ %271, %270 ]
-  %.8.i = extractvalue { ptr, i32 } %.pn40.i, 0
-  %291 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
+  %.15.i = extractvalue { ptr, i32 } %.pn40.i, 0
+  %291 = call ptr @__cxa_begin_catch(ptr %.15.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %22)
           to label %292 unwind label %297
 
@@ -11857,9 +11857,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20.i: 
 
 .body18.i:                                        ; preds = %78, %72, %.body1
   %.pn9.pn.i = phi { ptr, i32 } [ %.pn9.i, %78 ], [ %73, %72 ], [ %47, %.body1 ]
-  %.25.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
+  %.47.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
-  %79 = call ptr @__cxa_begin_catch(ptr %.25.i) #22
+  %79 = call ptr @__cxa_begin_catch(ptr %.47.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %80 unwind label %85
 
@@ -12164,9 +12164,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20.i: 
 
 .body18.i:                                        ; preds = %78, %72, %.body1
   %.pn9.pn.i = phi { ptr, i32 } [ %.pn9.i, %78 ], [ %73, %72 ], [ %47, %.body1 ]
-  %.25.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
+  %.47.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
-  %79 = call ptr @__cxa_begin_catch(ptr %.25.i) #22
+  %79 = call ptr @__cxa_begin_catch(ptr %.47.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %80 unwind label %85
 
@@ -12471,9 +12471,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20.i: 
 
 .body18.i:                                        ; preds = %78, %72, %.body1
   %.pn9.pn.i = phi { ptr, i32 } [ %.pn9.i, %78 ], [ %73, %72 ], [ %47, %.body1 ]
-  %.25.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
+  %.47.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
-  %79 = call ptr @__cxa_begin_catch(ptr %.25.i) #22
+  %79 = call ptr @__cxa_begin_catch(ptr %.47.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %80 unwind label %85
 
@@ -12778,9 +12778,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20.i: 
 
 .body18.i:                                        ; preds = %78, %72, %.body1
   %.pn9.pn.i = phi { ptr, i32 } [ %.pn9.i, %78 ], [ %73, %72 ], [ %47, %.body1 ]
-  %.25.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
+  %.47.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
-  %79 = call ptr @__cxa_begin_catch(ptr %.25.i) #22
+  %79 = call ptr @__cxa_begin_catch(ptr %.47.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %80 unwind label %85
 
@@ -13085,9 +13085,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit20.i: 
 
 .body18.i:                                        ; preds = %78, %72, %.body1
   %.pn9.pn.i = phi { ptr, i32 } [ %.pn9.i, %78 ], [ %73, %72 ], [ %47, %.body1 ]
-  %.25.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
+  %.47.i = extractvalue { ptr, i32 } %.pn9.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
-  %79 = call ptr @__cxa_begin_catch(ptr %.25.i) #22
+  %79 = call ptr @__cxa_begin_catch(ptr %.47.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %80 unwind label %85
 
@@ -13699,8 +13699,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 194:                                              ; preds = %192, %190
   %.pn18.i = phi { ptr, i32 } [ %193, %192 ], [ %191, %190 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn18.i, 0
-  %195 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %.6.i = extractvalue { ptr, i32 } %.pn18.i, 0
+  %195 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %20)
           to label %196 unwind label %201
 
@@ -13804,8 +13804,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 229:                                              ; preds = %227, %225
   %.pn.i = phi { ptr, i32 } [ %228, %227 ], [ %226, %225 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %230 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %.8.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %230 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %23)
           to label %231 unwind label %236
 
@@ -14457,8 +14457,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 194:                                              ; preds = %192, %190
   %.pn18.i = phi { ptr, i32 } [ %193, %192 ], [ %191, %190 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn18.i, 0
-  %195 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %.6.i = extractvalue { ptr, i32 } %.pn18.i, 0
+  %195 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %20)
           to label %196 unwind label %201
 
@@ -14562,8 +14562,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 229:                                              ; preds = %227, %225
   %.pn.i = phi { ptr, i32 } [ %228, %227 ], [ %226, %225 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %230 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %.8.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %230 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %23)
           to label %231 unwind label %236
 
@@ -14951,8 +14951,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 116:                                              ; preds = %113, %111
   %.pn54.i = phi { ptr, i32 } [ %114, %113 ], [ %112, %111 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn54.i, 0
-  %117 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn54.i, 0
+  %117 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %21)
           to label %118 unwind label %123
 
@@ -15179,9 +15179,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit79.i: 
 
 .body77.i:                                        ; preds = %196, %190, %.body21
   %.pn58.pn.i = phi { ptr, i32 } [ %.pn58.i, %196 ], [ %191, %190 ], [ %167, %.body21 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn58.pn.i, 0
+  %.7.i = extractvalue { ptr, i32 } %.pn58.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #22
-  %197 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %197 = call ptr @__cxa_begin_catch(ptr %.7.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %28)
           to label %198 unwind label %203
 
@@ -15348,9 +15348,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit86.i: 
 
 .body84.i:                                        ; preds = %248, %242, %.body18
   %.pn61.pn.i = phi { ptr, i32 } [ %.pn61.i, %248 ], [ %243, %242 ], [ %222, %.body18 ]
-  %.8.i = extractvalue { ptr, i32 } %.pn61.pn.i, 0
+  %.10.i = extractvalue { ptr, i32 } %.pn61.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #22
-  %249 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
+  %249 = call ptr @__cxa_begin_catch(ptr %.10.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %33)
           to label %250 unwind label %255
 
@@ -15517,9 +15517,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit93.i: 
 
 .body91.i:                                        ; preds = %300, %294, %.body15
   %.pn64.pn.i = phi { ptr, i32 } [ %.pn64.i, %300 ], [ %295, %294 ], [ %274, %.body15 ]
-  %.11.i = extractvalue { ptr, i32 } %.pn64.pn.i, 0
+  %.13.i = extractvalue { ptr, i32 } %.pn64.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #22
-  %301 = call ptr @__cxa_begin_catch(ptr %.11.i) #22
+  %301 = call ptr @__cxa_begin_catch(ptr %.13.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %38)
           to label %302 unwind label %307
 
@@ -15685,9 +15685,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit100.i:
 
 .body98.i:                                        ; preds = %351, %345, %.body12
   %.pn67.pn.i = phi { ptr, i32 } [ %.pn67.i, %351 ], [ %346, %345 ], [ %326, %.body12 ]
-  %.14.i = extractvalue { ptr, i32 } %.pn67.pn.i, 0
+  %.16.i = extractvalue { ptr, i32 } %.pn67.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #22
-  %352 = call ptr @__cxa_begin_catch(ptr %.14.i) #22
+  %352 = call ptr @__cxa_begin_catch(ptr %.16.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %43)
           to label %353 unwind label %358
 
@@ -15807,8 +15807,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit100.i:
 
 392:                                              ; preds = %389, %387
   %.pn37.i = phi { ptr, i32 } [ %390, %389 ], [ %388, %387 ]
-  %.17.i = extractvalue { ptr, i32 } %.pn37.i, 0
-  %393 = call ptr @__cxa_begin_catch(ptr %.17.i) #22
+  %.20.i = extractvalue { ptr, i32 } %.pn37.i, 0
+  %393 = call ptr @__cxa_begin_catch(ptr %.20.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %49)
           to label %394 unwind label %399
 
@@ -16035,9 +16035,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit112.i:
 
 .body110.i:                                       ; preds = %472, %466, %.body9
   %.pn41.pn.i = phi { ptr, i32 } [ %.pn41.i, %472 ], [ %467, %466 ], [ %443, %.body9 ]
-  %.21.i = extractvalue { ptr, i32 } %.pn41.pn.i, 0
+  %.23.i = extractvalue { ptr, i32 } %.pn41.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #22
-  %473 = call ptr @__cxa_begin_catch(ptr %.21.i) #22
+  %473 = call ptr @__cxa_begin_catch(ptr %.23.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %56)
           to label %474 unwind label %479
 
@@ -16204,9 +16204,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit120.i:
 
 .body118.i:                                       ; preds = %524, %518, %.body6
   %.pn44.pn.i = phi { ptr, i32 } [ %.pn44.i, %524 ], [ %519, %518 ], [ %498, %.body6 ]
-  %.24.i = extractvalue { ptr, i32 } %.pn44.pn.i, 0
+  %.26.i = extractvalue { ptr, i32 } %.pn44.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #22
-  %525 = call ptr @__cxa_begin_catch(ptr %.24.i) #22
+  %525 = call ptr @__cxa_begin_catch(ptr %.26.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %61)
           to label %526 unwind label %531
 
@@ -16373,9 +16373,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit127.i:
 
 .body125.i:                                       ; preds = %576, %570, %.body3
   %.pn47.pn.i = phi { ptr, i32 } [ %.pn47.i, %576 ], [ %571, %570 ], [ %550, %.body3 ]
-  %.27.i = extractvalue { ptr, i32 } %.pn47.pn.i, 0
+  %.29.i = extractvalue { ptr, i32 } %.pn47.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #22
-  %577 = call ptr @__cxa_begin_catch(ptr %.27.i) #22
+  %577 = call ptr @__cxa_begin_catch(ptr %.29.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %66)
           to label %578 unwind label %583
 
@@ -16541,9 +16541,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit135.i:
 
 .body133.i:                                       ; preds = %627, %621, %.body1
   %.pn50.pn.i = phi { ptr, i32 } [ %.pn50.i, %627 ], [ %622, %621 ], [ %602, %.body1 ]
-  %.30.i = extractvalue { ptr, i32 } %.pn50.pn.i, 0
+  %.32.i = extractvalue { ptr, i32 } %.pn50.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #22
-  %628 = call ptr @__cxa_begin_catch(ptr %.30.i) #22
+  %628 = call ptr @__cxa_begin_catch(ptr %.32.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %71)
           to label %629 unwind label %634
 
@@ -16947,8 +16947,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 116:                                              ; preds = %113, %111
   %.pn54.i = phi { ptr, i32 } [ %114, %113 ], [ %112, %111 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn54.i, 0
-  %117 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn54.i, 0
+  %117 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %21)
           to label %118 unwind label %123
 
@@ -17176,9 +17176,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit79.i: 
 
 .body77.i:                                        ; preds = %196, %190, %.body21
   %.pn58.pn.i = phi { ptr, i32 } [ %.pn58.i, %196 ], [ %191, %190 ], [ %167, %.body21 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn58.pn.i, 0
+  %.7.i = extractvalue { ptr, i32 } %.pn58.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %32) #22
-  %197 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %197 = call ptr @__cxa_begin_catch(ptr %.7.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %28)
           to label %198 unwind label %203
 
@@ -17345,9 +17345,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit86.i: 
 
 .body84.i:                                        ; preds = %248, %242, %.body18
   %.pn61.pn.i = phi { ptr, i32 } [ %.pn61.i, %248 ], [ %243, %242 ], [ %222, %.body18 ]
-  %.8.i = extractvalue { ptr, i32 } %.pn61.pn.i, 0
+  %.10.i = extractvalue { ptr, i32 } %.pn61.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #22
-  %249 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
+  %249 = call ptr @__cxa_begin_catch(ptr %.10.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %33)
           to label %250 unwind label %255
 
@@ -17514,9 +17514,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit93.i: 
 
 .body91.i:                                        ; preds = %300, %294, %.body15
   %.pn64.pn.i = phi { ptr, i32 } [ %.pn64.i, %300 ], [ %295, %294 ], [ %274, %.body15 ]
-  %.11.i = extractvalue { ptr, i32 } %.pn64.pn.i, 0
+  %.13.i = extractvalue { ptr, i32 } %.pn64.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #22
-  %301 = call ptr @__cxa_begin_catch(ptr %.11.i) #22
+  %301 = call ptr @__cxa_begin_catch(ptr %.13.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %38)
           to label %302 unwind label %307
 
@@ -17682,9 +17682,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit100.i:
 
 .body98.i:                                        ; preds = %351, %345, %.body12
   %.pn67.pn.i = phi { ptr, i32 } [ %.pn67.i, %351 ], [ %346, %345 ], [ %326, %.body12 ]
-  %.14.i = extractvalue { ptr, i32 } %.pn67.pn.i, 0
+  %.16.i = extractvalue { ptr, i32 } %.pn67.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #22
-  %352 = call ptr @__cxa_begin_catch(ptr %.14.i) #22
+  %352 = call ptr @__cxa_begin_catch(ptr %.16.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %43)
           to label %353 unwind label %358
 
@@ -17804,8 +17804,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit100.i:
 
 392:                                              ; preds = %389, %387
   %.pn37.i = phi { ptr, i32 } [ %390, %389 ], [ %388, %387 ]
-  %.17.i = extractvalue { ptr, i32 } %.pn37.i, 0
-  %393 = call ptr @__cxa_begin_catch(ptr %.17.i) #22
+  %.20.i = extractvalue { ptr, i32 } %.pn37.i, 0
+  %393 = call ptr @__cxa_begin_catch(ptr %.20.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %49)
           to label %394 unwind label %399
 
@@ -18033,9 +18033,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit112.i:
 
 .body110.i:                                       ; preds = %472, %466, %.body9
   %.pn41.pn.i = phi { ptr, i32 } [ %.pn41.i, %472 ], [ %467, %466 ], [ %443, %.body9 ]
-  %.21.i = extractvalue { ptr, i32 } %.pn41.pn.i, 0
+  %.23.i = extractvalue { ptr, i32 } %.pn41.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %60) #22
-  %473 = call ptr @__cxa_begin_catch(ptr %.21.i) #22
+  %473 = call ptr @__cxa_begin_catch(ptr %.23.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %56)
           to label %474 unwind label %479
 
@@ -18202,9 +18202,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit120.i:
 
 .body118.i:                                       ; preds = %524, %518, %.body6
   %.pn44.pn.i = phi { ptr, i32 } [ %.pn44.i, %524 ], [ %519, %518 ], [ %498, %.body6 ]
-  %.24.i = extractvalue { ptr, i32 } %.pn44.pn.i, 0
+  %.26.i = extractvalue { ptr, i32 } %.pn44.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #22
-  %525 = call ptr @__cxa_begin_catch(ptr %.24.i) #22
+  %525 = call ptr @__cxa_begin_catch(ptr %.26.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %61)
           to label %526 unwind label %531
 
@@ -18371,9 +18371,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit127.i:
 
 .body125.i:                                       ; preds = %576, %570, %.body3
   %.pn47.pn.i = phi { ptr, i32 } [ %.pn47.i, %576 ], [ %571, %570 ], [ %550, %.body3 ]
-  %.27.i = extractvalue { ptr, i32 } %.pn47.pn.i, 0
+  %.29.i = extractvalue { ptr, i32 } %.pn47.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %70) #22
-  %577 = call ptr @__cxa_begin_catch(ptr %.27.i) #22
+  %577 = call ptr @__cxa_begin_catch(ptr %.29.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %66)
           to label %578 unwind label %583
 
@@ -18539,9 +18539,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit135.i:
 
 .body133.i:                                       ; preds = %627, %621, %.body1
   %.pn50.pn.i = phi { ptr, i32 } [ %.pn50.i, %627 ], [ %622, %621 ], [ %602, %.body1 ]
-  %.30.i = extractvalue { ptr, i32 } %.pn50.pn.i, 0
+  %.32.i = extractvalue { ptr, i32 } %.pn50.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #22
-  %628 = call ptr @__cxa_begin_catch(ptr %.30.i) #22
+  %628 = call ptr @__cxa_begin_catch(ptr %.32.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %71)
           to label %629 unwind label %634
 
@@ -19188,8 +19188,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 182:                                              ; preds = %180, %178
   %.pn18.i = phi { ptr, i32 } [ %181, %180 ], [ %179, %178 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn18.i, 0
-  %183 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %.6.i = extractvalue { ptr, i32 } %.pn18.i, 0
+  %183 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %20)
           to label %184 unwind label %189
 
@@ -19293,8 +19293,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 217:                                              ; preds = %215, %213
   %.pn.i = phi { ptr, i32 } [ %216, %215 ], [ %214, %213 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %218 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %.8.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %218 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %23)
           to label %219 unwind label %224
 
@@ -19720,8 +19720,8 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backEOS3_.exit29.i: ; preds = %_ZNSt6ve
 
 .body30.i:                                        ; preds = %124, %104
   %.pn10.i = phi { ptr, i32 } [ %125, %124 ], [ %105, %104 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn10.i, 0
-  %126 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.3.i = extractvalue { ptr, i32 } %.pn10.i, 0
+  %126 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %4)
           to label %127 unwind label %132
 
@@ -20107,8 +20107,8 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE9push_backEOS3_.exit25.i: ; preds = %_ZNSt6ve
 
 .body.i:                                          ; preds = %116, %96
   %.pn.i = phi { ptr, i32 } [ %117, %116 ], [ %97, %96 ]
-  %.0.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %118 = call ptr @__cxa_begin_catch(ptr %.0.i) #22
+  %.2.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %118 = call ptr @__cxa_begin_catch(ptr %.2.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %4)
           to label %119 unwind label %124
 
@@ -20499,8 +20499,8 @@ _ZN4Luau4TypeD2Ev.exit.i:                         ; preds = %_ZNSt8optionalINSt7
 
 _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEED2Ev.exit33.i: ; preds = %126, %120
   %.pn.pn.pn.i = phi { ptr, i32 } [ %121, %120 ], [ %.pn.pn.i, %126 ]
-  %.29.i = extractvalue { ptr, i32 } %.pn.pn.pn.i, 0
-  %134 = call ptr @__cxa_begin_catch(ptr %.29.i) #22
+  %.18.i = extractvalue { ptr, i32 } %.pn.pn.pn.i, 0
+  %134 = call ptr @__cxa_begin_catch(ptr %.18.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %12)
           to label %135 unwind label %139
 
@@ -20983,8 +20983,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit57.
 
 _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEED2Ev.exit58.i: ; preds = %296, %290
   %.pn25.pn.pn.i = phi { ptr, i32 } [ %291, %290 ], [ %.pn25.pn.i, %296 ]
-  %.9.i = extractvalue { ptr, i32 } %.pn25.pn.pn.i, 0
-  %304 = call ptr @__cxa_begin_catch(ptr %.9.i) #22
+  %.8.i = extractvalue { ptr, i32 } %.pn25.pn.pn.i, 0
+  %304 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %26)
           to label %305 unwind label %309
 
@@ -21216,8 +21216,8 @@ _ZN4Luau4TypeD2Ev.exit69.i:                       ; preds = %_ZNSt8optionalINSt7
 
 _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEED2Ev.exit71.i: ; preds = %388, %382
   %.pn22.pn.pn.i = phi { ptr, i32 } [ %383, %382 ], [ %.pn22.pn.i, %388 ]
-  %.13.i = extractvalue { ptr, i32 } %.pn22.pn.pn.i, 0
-  %396 = call ptr @__cxa_begin_catch(ptr %.13.i) #22
+  %.12.i = extractvalue { ptr, i32 } %.pn22.pn.pn.i, 0
+  %396 = call ptr @__cxa_begin_catch(ptr %.12.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %31)
           to label %397 unwind label %401
 
@@ -21479,8 +21479,8 @@ _ZN4Luau4TypeD2Ev.exit83.i:                       ; preds = %_ZNSt8optionalINSt7
 
 _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11GenericTypeENS_13PrimitiveTypeENS_13SingletonTypeENS_11BlockedTypeENS_20PendingExpansionTypeENS_12FunctionTypeENS_9TableTypeENS_13MetatableTypeENS_9ClassTypeENS_7AnyTypeENS_9UnionTypeENS_16IntersectionTypeENS_8LazyTypeENS_11UnknownTypeENS_9NeverTypeENS_12NegationTypeENS_22TypeFamilyInstanceTypeEEED2Ev.exit85.i: ; preds = %491, %485
   %.pn28.pn.pn.i = phi { ptr, i32 } [ %486, %485 ], [ %.pn28.pn.i, %491 ]
-  %.17.i = extractvalue { ptr, i32 } %.pn28.pn.pn.i, 0
-  %499 = call ptr @__cxa_begin_catch(ptr %.17.i) #22
+  %.16.i = extractvalue { ptr, i32 } %.pn28.pn.pn.i, 0
+  %499 = call ptr @__cxa_begin_catch(ptr %.16.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %36)
           to label %500 unwind label %504
 
@@ -21850,8 +21850,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorENS_12FreeT
 
 .body27.i:                                        ; preds = %104, %70
   %.pn14.i = phi { ptr, i32 } [ %105, %104 ], [ %71, %70 ]
-  %.25.i = extractvalue { ptr, i32 } %.pn14.i, 0
-  %106 = call ptr @__cxa_begin_catch(ptr %.25.i) #22
+  %.47.i = extractvalue { ptr, i32 } %.pn14.i, 0
+  %106 = call ptr @__cxa_begin_catch(ptr %.47.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %12)
           to label %107 unwind label %112
 
@@ -22134,8 +22134,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 .body38.i:                                        ; preds = %210, %175
   %.pn20.i = phi { ptr, i32 } [ %211, %210 ], [ %176, %175 ]
-  %.69.i = extractvalue { ptr, i32 } %.pn20.i, 0
-  %212 = call ptr @__cxa_begin_catch(ptr %.69.i) #22
+  %.9.i = extractvalue { ptr, i32 } %.pn20.i, 0
+  %212 = call ptr @__cxa_begin_catch(ptr %.9.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %20)
           to label %213 unwind label %218
 
@@ -22436,8 +22436,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 56:                                               ; preds = %53, %51
   %.pn15.i = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn15.i, 0
-  %57 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn15.i, 0
+  %57 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %58 unwind label %63
 
@@ -22668,9 +22668,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit31.i: 
 
 .body29.i:                                        ; preds = %139, %133, %.body1
   %.pn19.pn.i = phi { ptr, i32 } [ %.pn19.i, %139 ], [ %134, %133 ], [ %110, %.body1 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn19.pn.i, 0
+  %.7.i = extractvalue { ptr, i32 } %.pn19.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #22
-  %140 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %140 = call ptr @__cxa_begin_catch(ptr %.7.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %14)
           to label %141 unwind label %146
 
@@ -22919,8 +22919,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 56:                                               ; preds = %53, %51
   %.pn15.i = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn15.i, 0
-  %57 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn15.i, 0
+  %57 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %58 unwind label %63
 
@@ -23151,9 +23151,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit31.i: 
 
 .body29.i:                                        ; preds = %139, %133, %.body1
   %.pn19.pn.i = phi { ptr, i32 } [ %.pn19.i, %139 ], [ %134, %133 ], [ %110, %.body1 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn19.pn.i, 0
+  %.7.i = extractvalue { ptr, i32 } %.pn19.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #22
-  %140 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %140 = call ptr @__cxa_begin_catch(ptr %.7.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %14)
           to label %141 unwind label %146
 
@@ -23397,8 +23397,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 53:                                               ; preds = %50, %48
   %.pn13.i = phi { ptr, i32 } [ %51, %50 ], [ %49, %48 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn13.i, 0
-  %54 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn13.i, 0
+  %54 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %6)
           to label %55 unwind label %60
 
@@ -23779,8 +23779,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 64:                                               ; preds = %61, %59
   %.pn16.i = phi { ptr, i32 } [ %62, %61 ], [ %60, %59 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn16.i, 0
-  %65 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn16.i, 0
+  %65 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %11)
           to label %66 unwind label %71
 
@@ -24013,9 +24013,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit34.i: 
 
 .body32.i:                                        ; preds = %.body35.i, %139, %.body3
   %.pn20.pn.i = phi { ptr, i32 } [ %.pn20.i, %.body35.i ], [ %140, %139 ], [ %97, %.body3 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn20.pn.i, 0
+  %.6.i = extractvalue { ptr, i32 } %.pn20.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #22
-  %145 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %145 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %17)
           to label %146 unwind label %151
 
@@ -24224,9 +24224,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit43.i: 
 
 .body41.i:                                        ; preds = %.body44.i, %211, %.body1
   %.pn23.pn.i = phi { ptr, i32 } [ %.pn23.i, %.body44.i ], [ %212, %211 ], [ %170, %.body1 ]
-  %.8.i = extractvalue { ptr, i32 } %.pn23.pn.i, 0
+  %.9.i = extractvalue { ptr, i32 } %.pn23.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %26) #22
-  %217 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
+  %217 = call ptr @__cxa_begin_catch(ptr %.9.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %22)
           to label %218 unwind label %223
 
@@ -24549,8 +24549,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 94:                                               ; preds = %91, %89
   %.pn32.i = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn32.i, 0
-  %95 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn32.i, 0
+  %95 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %96 unwind label %101
 
@@ -24782,8 +24782,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69.i: 
 
 175:                                              ; preds = %172, %170
   %.pn38.i = phi { ptr, i32 } [ %173, %172 ], [ %171, %170 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn38.i, 0
-  %176 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %.9.i = extractvalue { ptr, i32 } %.pn38.i, 0
+  %176 = call ptr @__cxa_begin_catch(ptr %.9.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %17)
           to label %177 unwind label %182
 
@@ -24993,8 +24993,8 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %228, %227
 
 250:                                              ; preds = %247, %245
   %.pn43.i = phi { ptr, i32 } [ %248, %247 ], [ %246, %245 ]
-  %.8.i = extractvalue { ptr, i32 } %.pn43.i, 0
-  %251 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
+  %.12.i = extractvalue { ptr, i32 } %.pn43.i, 0
+  %251 = call ptr @__cxa_begin_catch(ptr %.12.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %26)
           to label %252 unwind label %257
 
@@ -25113,8 +25113,8 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
 
 295:                                              ; preds = %292, %290
   %.pn46.i = phi { ptr, i32 } [ %293, %292 ], [ %291, %290 ]
-  %.10.i = extractvalue { ptr, i32 } %.pn46.i, 0
-  %296 = call ptr @__cxa_begin_catch(ptr %.10.i) #22
+  %.15.i = extractvalue { ptr, i32 } %.pn46.i, 0
+  %296 = call ptr @__cxa_begin_catch(ptr %.15.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %33)
           to label %297 unwind label %302
 
@@ -25225,8 +25225,8 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
 
 332:                                              ; preds = %331, %324
   %.pn49.pn.i = phi { ptr, i32 } [ %.pn49.i, %331 ], [ %325, %324 ]
-  %.13.i = extractvalue { ptr, i32 } %.pn49.pn.i, 0
-  %333 = call ptr @__cxa_begin_catch(ptr %.13.i) #22
+  %.17.i = extractvalue { ptr, i32 } %.pn49.pn.i, 0
+  %333 = call ptr @__cxa_begin_catch(ptr %.17.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %39)
           to label %334 unwind label %339
 
@@ -25338,8 +25338,8 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
 
 370:                                              ; preds = %369, %362
   %.pn52.pn.i = phi { ptr, i32 } [ %.pn52.i, %369 ], [ %363, %362 ]
-  %.16.i = extractvalue { ptr, i32 } %.pn52.pn.i, 0
-  %371 = call ptr @__cxa_begin_catch(ptr %.16.i) #22
+  %.20.i = extractvalue { ptr, i32 } %.pn52.pn.i, 0
+  %371 = call ptr @__cxa_begin_catch(ptr %.20.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %45)
           to label %372 unwind label %377
 
@@ -25451,8 +25451,8 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
 
 408:                                              ; preds = %407, %400
   %.pn55.pn.i = phi { ptr, i32 } [ %.pn55.i, %407 ], [ %401, %400 ]
-  %.19.i = extractvalue { ptr, i32 } %.pn55.pn.i, 0
-  %409 = call ptr @__cxa_begin_catch(ptr %.19.i) #22
+  %.23.i = extractvalue { ptr, i32 } %.pn55.pn.i, 0
+  %409 = call ptr @__cxa_begin_catch(ptr %.23.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %51)
           to label %410 unwind label %415
 
@@ -25765,8 +25765,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 47:                                               ; preds = %44, %42
   %.pn12.i = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn12.i, 0
-  %48 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.3.i = extractvalue { ptr, i32 } %.pn12.i, 0
+  %48 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %49 unwind label %54
 
@@ -25975,9 +25975,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit25.i: 
 
 .body23.i:                                        ; preds = %.body26.i, %114, %.body1
   %.pn15.pn.i = phi { ptr, i32 } [ %.pn15.i, %.body26.i ], [ %115, %114 ], [ %73, %.body1 ]
-  %.4.i = extractvalue { ptr, i32 } %.pn15.pn.i, 0
+  %.5.i = extractvalue { ptr, i32 } %.pn15.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #22
-  %120 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
+  %120 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %12)
           to label %121 unwind label %126
 
@@ -26216,8 +26216,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 56:                                               ; preds = %53, %51
   %.pn14.i = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn14.i, 0
-  %57 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn14.i, 0
+  %57 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %8)
           to label %58 unwind label %63
 
@@ -26450,9 +26450,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit29.i: 
 
 .body27.i:                                        ; preds = %.body30.i, %131, %.body1
   %.pn18.pn.i = phi { ptr, i32 } [ %.pn18.i, %.body30.i ], [ %132, %131 ], [ %89, %.body1 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn18.pn.i, 0
+  %.6.i = extractvalue { ptr, i32 } %.pn18.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #22
-  %137 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %137 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %14)
           to label %138 unwind label %143
 
@@ -27820,8 +27820,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit163
 
 .body152.i:                                       ; preds = %476, %380
   %.pn56.i = phi { ptr, i32 } [ %477, %476 ], [ %381, %380 ]
-  %.11.i = extractvalue { ptr, i32 } %.pn56.i, 0
-  %478 = call ptr @__cxa_begin_catch(ptr %.11.i) #22
+  %.16.i = extractvalue { ptr, i32 } %.pn56.i, 0
+  %478 = call ptr @__cxa_begin_catch(ptr %.16.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %52)
           to label %479 unwind label %484
 
@@ -27968,8 +27968,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit163
 
 .body167.i:                                       ; preds = %532, %514
   %.pn59.i = phi { ptr, i32 } [ %533, %532 ], [ %515, %514 ]
-  %.13.i = extractvalue { ptr, i32 } %.pn59.i, 0
-  %534 = call ptr @__cxa_begin_catch(ptr %.13.i) #22
+  %.18.i = extractvalue { ptr, i32 } %.pn59.i, 0
+  %534 = call ptr @__cxa_begin_catch(ptr %.18.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %55)
           to label %535 unwind label %540
 
@@ -28111,8 +28111,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit163
 
 .body173.i:                                       ; preds = %586, %568
   %.pn50.i = phi { ptr, i32 } [ %587, %586 ], [ %569, %568 ]
-  %.15.i = extractvalue { ptr, i32 } %.pn50.i, 0
-  %588 = call ptr @__cxa_begin_catch(ptr %.15.i) #22
+  %.20.i = extractvalue { ptr, i32 } %.pn50.i, 0
+  %588 = call ptr @__cxa_begin_catch(ptr %.20.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %58)
           to label %589 unwind label %594
 
@@ -28259,8 +28259,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit163
 
 .body178.i:                                       ; preds = %642, %624
   %.pn53.i = phi { ptr, i32 } [ %643, %642 ], [ %625, %624 ]
-  %.17.i = extractvalue { ptr, i32 } %.pn53.i, 0
-  %644 = call ptr @__cxa_begin_catch(ptr %.17.i) #22
+  %.22.i = extractvalue { ptr, i32 } %.pn53.i, 0
+  %644 = call ptr @__cxa_begin_catch(ptr %.22.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %61)
           to label %645 unwind label %650
 
@@ -28998,8 +28998,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 56:                                               ; preds = %53, %51
   %.pn14.i = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn14.i, 0
-  %57 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn14.i, 0
+  %57 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %8)
           to label %58 unwind label %63
 
@@ -29232,9 +29232,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit29.i: 
 
 .body27.i:                                        ; preds = %.body30.i, %131, %.body1
   %.pn18.pn.i = phi { ptr, i32 } [ %.pn18.i, %.body30.i ], [ %132, %131 ], [ %89, %.body1 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn18.pn.i, 0
+  %.6.i = extractvalue { ptr, i32 } %.pn18.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #22
-  %137 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %137 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %14)
           to label %138 unwind label %143
 
@@ -29475,8 +29475,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 56:                                               ; preds = %53, %51
   %.pn14.i = phi { ptr, i32 } [ %54, %53 ], [ %52, %51 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn14.i, 0
-  %57 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn14.i, 0
+  %57 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %8)
           to label %58 unwind label %63
 
@@ -29709,9 +29709,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit29.i: 
 
 .body27.i:                                        ; preds = %.body30.i, %131, %.body1
   %.pn18.pn.i = phi { ptr, i32 } [ %.pn18.i, %.body30.i ], [ %132, %131 ], [ %89, %.body1 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn18.pn.i, 0
+  %.6.i = extractvalue { ptr, i32 } %.pn18.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #22
-  %137 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %137 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %14)
           to label %138 unwind label %143
 
@@ -30108,8 +30108,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_4TypeEEENS1_5ErrorENS_8FreeTypeENS_11
 
 .body.i:                                          ; preds = %134, %105
   %.pn.i = phi { ptr, i32 } [ %135, %134 ], [ %106, %105 ]
-  %.0.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %136 = call ptr @__cxa_begin_catch(ptr %.0.i) #22
+  %.2.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %136 = call ptr @__cxa_begin_catch(ptr %.2.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %6)
           to label %137 unwind label %142
 
@@ -30514,9 +30514,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit28.i: 
 
 .body26.i:                                        ; preds = %.body29.i, %97, %.body1
   %.pn13.pn.i = phi { ptr, i32 } [ %.pn13.i, %.body29.i ], [ %98, %97 ], [ %49, %.body1 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn13.pn.i, 0
+  %.4.i = extractvalue { ptr, i32 } %.pn13.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #22
-  %101 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %101 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %10)
           to label %102 unwind label %107
 
@@ -30923,9 +30923,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit35.i: 
 
 .body33.i:                                        ; preds = %.body36.i, %107, %.body3
   %.pn20.pn.i = phi { ptr, i32 } [ %.pn20.i, %.body36.i ], [ %108, %107 ], [ %60, %.body3 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn20.pn.i, 0
+  %.4.i = extractvalue { ptr, i32 } %.pn20.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #22
-  %111 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %111 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %13)
           to label %112 unwind label %117
 
@@ -31118,9 +31118,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit44.i: 
 
 .body42.i:                                        ; preds = %.body45.i, %171, %.body1
   %.pn17.pn.i = phi { ptr, i32 } [ %.pn17.i, %.body45.i ], [ %172, %171 ], [ %134, %.body1 ]
-  %.6.i = extractvalue { ptr, i32 } %.pn17.pn.i, 0
+  %.7.i = extractvalue { ptr, i32 } %.pn17.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #22
-  %175 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
+  %175 = call ptr @__cxa_begin_catch(ptr %.7.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %18)
           to label %176 unwind label %181
 
@@ -31509,9 +31509,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit28.i: 
 
 .body26.i:                                        ; preds = %.body29.i, %97, %.body1
   %.pn13.pn.i = phi { ptr, i32 } [ %.pn13.i, %.body29.i ], [ %98, %97 ], [ %49, %.body1 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn13.pn.i, 0
+  %.4.i = extractvalue { ptr, i32 } %.pn13.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #22
-  %101 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %101 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %10)
           to label %102 unwind label %107
 
@@ -31823,9 +31823,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .body:                                            ; preds = %92, %33, %.body12
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body12 ], [ %93, %92 ], [ %34, %33 ]
-  %.13 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %.35 = extractvalue { ptr, i32 } %.pn.pn, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #22
-  %96 = call ptr @__cxa_begin_catch(ptr %.13) #22
+  %96 = call ptr @__cxa_begin_catch(ptr %.35) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %97 unwind label %102
 
@@ -32230,9 +32230,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit28.i: 
 
 .body26.i:                                        ; preds = %.body29.i, %97, %.body1
   %.pn13.pn.i = phi { ptr, i32 } [ %.pn13.i, %.body29.i ], [ %98, %97 ], [ %49, %.body1 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn13.pn.i, 0
+  %.4.i = extractvalue { ptr, i32 } %.pn13.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #22
-  %101 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %101 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %10)
           to label %102 unwind label %107
 
@@ -32616,9 +32616,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit28.i: 
 
 .body26.i:                                        ; preds = %.body29.i, %97, %.body1
   %.pn13.pn.i = phi { ptr, i32 } [ %.pn13.i, %.body29.i ], [ %98, %97 ], [ %49, %.body1 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn13.pn.i, 0
+  %.4.i = extractvalue { ptr, i32 } %.pn13.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #22
-  %101 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %101 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %10)
           to label %102 unwind label %107
 
@@ -33002,9 +33002,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit28.i: 
 
 .body26.i:                                        ; preds = %.body29.i, %97, %.body1
   %.pn13.pn.i = phi { ptr, i32 } [ %.pn13.i, %.body29.i ], [ %98, %97 ], [ %49, %.body1 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn13.pn.i, 0
+  %.4.i = extractvalue { ptr, i32 } %.pn13.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #22
-  %101 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %101 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %10)
           to label %102 unwind label %107
 
@@ -33388,9 +33388,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit28.i: 
 
 .body26.i:                                        ; preds = %.body29.i, %97, %.body1
   %.pn13.pn.i = phi { ptr, i32 } [ %.pn13.i, %.body29.i ], [ %98, %97 ], [ %49, %.body1 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn13.pn.i, 0
+  %.4.i = extractvalue { ptr, i32 } %.pn13.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #22
-  %101 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %101 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %10)
           to label %102 unwind label %107
 
@@ -33778,9 +33778,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit30.i: 
 
 .body28.i:                                        ; preds = %105, %99, %.body1
   %.pn14.pn.i = phi { ptr, i32 } [ %.pn14.i, %105 ], [ %100, %99 ], [ %70, %.body1 ]
-  %.3.i = extractvalue { ptr, i32 } %.pn14.pn.i, 0
+  %.5.i = extractvalue { ptr, i32 } %.pn14.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #22
-  %106 = call ptr @__cxa_begin_catch(ptr %.3.i) #22
+  %106 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %10)
           to label %107 unwind label %112
 
@@ -34328,14 +34328,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit61.i: 
 
 .body43.i:                                        ; preds = %.body53.i, %138, %.body6
   %.pn25.pn.i = phi { ptr, i32 } [ %.pn25.i, %.body53.i ], [ %139, %138 ], [ %84, %.body6 ]
-  %.08.i = phi ptr [ %85, %.body53.i ], [ %75, %138 ], [ %75, %.body6 ]
+  %.19.i = phi ptr [ %85, %.body53.i ], [ %75, %138 ], [ %75, %.body6 ]
   %.1.i = phi i1 [ %148, %.body53.i ], [ false, %138 ], [ false, %.body6 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #22
   br i1 %.1.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body43.i, %.preheader.i
-  %149 = phi ptr [ %150, %.preheader.i ], [ %.08.i, %.body43.i ]
+  %149 = phi ptr [ %150, %.preheader.i ], [ %.19.i, %.body43.i ]
   %150 = getelementptr inbounds i8, ptr %149, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %150) #22
   %151 = icmp eq ptr %150, %13
@@ -34375,9 +34375,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit61.i: 
 
 .body59.i:                                        ; preds = %162, %156, %.body1
   %.pn29.pn.i = phi { ptr, i32 } [ %.pn29.i, %162 ], [ %157, %156 ], [ %111, %.body1 ]
-  %.6.i = extractvalue { ptr, i32 } %.pn29.pn.i, 0
+  %.8.i = extractvalue { ptr, i32 } %.pn29.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #22
-  %163 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
+  %163 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %17)
           to label %164 unwind label %169
 
@@ -34712,8 +34712,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit18.i: 
 
 80:                                               ; preds = %.body16.i, %68
   %.pn8.pn.pn.pn.i = phi { ptr, i32 } [ %.pn8.pn.pn.i, %.body16.i ], [ %69, %68 ]
-  %.4.i = extractvalue { ptr, i32 } %.pn8.pn.pn.pn.i, 0
-  %81 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
+  %.36.i = extractvalue { ptr, i32 } %.pn8.pn.pn.pn.i, 0
+  %81 = call ptr @__cxa_begin_catch(ptr %.36.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %6)
           to label %82 unwind label %87
 
@@ -35049,8 +35049,8 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %60, %59
 
 91:                                               ; preds = %88, %86
   %.pn21.i = phi { ptr, i32 } [ %89, %88 ], [ %87, %86 ]
-  %.2.i = extractvalue { ptr, i32 } %.pn21.i, 0
-  %92 = call ptr @__cxa_begin_catch(ptr %.2.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn21.i, 0
+  %92 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %15)
           to label %93 unwind label %98
 
@@ -35297,8 +35297,8 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %140, %139
 
 171:                                              ; preds = %168, %166
   %.pn26.i = phi { ptr, i32 } [ %169, %168 ], [ %167, %166 ]
-  %.5.i = extractvalue { ptr, i32 } %.pn26.i, 0
-  %172 = call ptr @__cxa_begin_catch(ptr %.5.i) #22
+  %.8.i = extractvalue { ptr, i32 } %.pn26.i, 0
+  %172 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %25)
           to label %173 unwind label %178
 
@@ -35527,9 +35527,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit58.i: 
 
 .body56.i:                                        ; preds = %.body59.i, %247, %.body3
   %.pn33.pn.i = phi { ptr, i32 } [ %.pn33.i, %.body59.i ], [ %248, %247 ], [ %207, %.body3 ]
-  %.9.i = extractvalue { ptr, i32 } %.pn33.pn.i, 0
+  %.10.i = extractvalue { ptr, i32 } %.pn33.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #22
-  %251 = call ptr @__cxa_begin_catch(ptr %.9.i) #22
+  %251 = call ptr @__cxa_begin_catch(ptr %.10.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %30)
           to label %252 unwind label %257
 
@@ -35723,9 +35723,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit67.i: 
 
 .body65.i:                                        ; preds = %.body68.i, %312, %.body1
   %.pn30.pn.i = phi { ptr, i32 } [ %.pn30.i, %.body68.i ], [ %313, %312 ], [ %274, %.body1 ]
-  %.12.i = extractvalue { ptr, i32 } %.pn30.pn.i, 0
+  %.13.i = extractvalue { ptr, i32 } %.pn30.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #22
-  %316 = call ptr @__cxa_begin_catch(ptr %.12.i) #22
+  %316 = call ptr @__cxa_begin_catch(ptr %.13.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %35)
           to label %317 unwind label %322
 
@@ -36137,8 +36137,8 @@ _ZN4Luau3getINS_9TableTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %81, %80
 
 116:                                              ; preds = %113, %111
   %.pn22.i = phi { ptr, i32 } [ %114, %113 ], [ %112, %111 ]
-  %.29.i = extractvalue { ptr, i32 } %.pn22.i, 0
-  %117 = call ptr @__cxa_begin_catch(ptr %.29.i) #22
+  %.613.i = extractvalue { ptr, i32 } %.pn22.i, 0
+  %117 = call ptr @__cxa_begin_catch(ptr %.613.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %16)
           to label %118 unwind label %123
 
@@ -36410,8 +36410,8 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i: ; preds = %172, %171
 
 203:                                              ; preds = %200, %198
   %.pn28.i = phi { ptr, i32 } [ %201, %200 ], [ %199, %198 ]
-  %.613.i = extractvalue { ptr, i32 } %.pn28.i, 0
-  %204 = call ptr @__cxa_begin_catch(ptr %.613.i) #22
+  %.1017.i = extractvalue { ptr, i32 } %.pn28.i, 0
+  %204 = call ptr @__cxa_begin_catch(ptr %.1017.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %26)
           to label %205 unwind label %210
 
@@ -36603,9 +36603,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit62.i: 
 
 .body60.i:                                        ; preds = %264, %258, %.body3
   %.pn35.pn.i = phi { ptr, i32 } [ %.pn35.i, %264 ], [ %259, %258 ], [ %239, %.body3 ]
-  %.1017.i = extractvalue { ptr, i32 } %.pn35.pn.i, 0
+  %.12.i = extractvalue { ptr, i32 } %.pn35.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #22
-  %265 = call ptr @__cxa_begin_catch(ptr %.1017.i) #22
+  %265 = call ptr @__cxa_begin_catch(ptr %.12.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %31)
           to label %266 unwind label %271
 
@@ -36762,9 +36762,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69.i: 
 
 .body67.i:                                        ; preds = %311, %305, %.body1
   %.pn32.pn.i = phi { ptr, i32 } [ %.pn32.i, %311 ], [ %306, %305 ], [ %288, %.body1 ]
-  %.13.i = extractvalue { ptr, i32 } %.pn32.pn.i, 0
+  %.15.i = extractvalue { ptr, i32 } %.pn32.pn.i, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %40) #22
-  %312 = call ptr @__cxa_begin_catch(ptr %.13.i) #22
+  %312 = call ptr @__cxa_begin_catch(ptr %.15.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %36)
           to label %313 unwind label %318
 
@@ -37033,8 +37033,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 58:                                               ; preds = %55, %53
   %.pn14.i = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn14.i, 0
-  %59 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn14.i, 0
+  %59 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %60 unwind label %65
 
@@ -37279,8 +37279,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit29.i: 
 
 138:                                              ; preds = %.body27.i, %126
   %.pn18.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn18.pn.pn.pn.i, %.body27.i ], [ %127, %126 ]
-  %.8.i = extractvalue { ptr, i32 } %.pn18.pn.pn.pn.pn.i, 0
-  %139 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
+  %.6.i = extractvalue { ptr, i32 } %.pn18.pn.pn.pn.pn.i, 0
+  %139 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %13)
           to label %140 unwind label %145
 
@@ -37534,8 +37534,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 59:                                               ; preds = %56, %54
   %.pn16.i = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn16.i, 0
-  %60 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn16.i, 0
+  %60 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %6)
           to label %61 unwind label %66
 
@@ -37664,8 +37664,8 @@ _ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_122DOCTEST_ANON_CLASS_2391fEvEUl
 
 103:                                              ; preds = %100, %98
   %.pn20.i = phi { ptr, i32 } [ %101, %100 ], [ %99, %98 ]
-  %.4.i = extractvalue { ptr, i32 } %.pn20.i, 0
-  %104 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
+  %.7.i = extractvalue { ptr, i32 } %.pn20.i, 0
+  %104 = call ptr @__cxa_begin_catch(ptr %.7.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %13)
           to label %105 unwind label %110
 
@@ -38005,8 +38005,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit37.i: 
 
 84:                                               ; preds = %81, %79
   %.pn20.i = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ]
-  %.2.i = extractvalue { ptr, i32 } %.pn20.i, 0
-  %85 = call ptr @__cxa_begin_catch(ptr %.2.i) #22
+  %.6.i = extractvalue { ptr, i32 } %.pn20.i, 0
+  %85 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %12)
           to label %86 unwind label %91
 
@@ -38244,8 +38244,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit43.i: 
 
 .body44.i:                                        ; preds = %163, %156, %142
   %.pn26.pn.i = phi { ptr, i32 } [ %.pn26.i, %163 ], [ %157, %156 ], [ %143, %142 ]
-  %.7.i = extractvalue { ptr, i32 } %.pn26.pn.i, 0
-  %164 = call ptr @__cxa_begin_catch(ptr %.7.i) #22
+  %.9.i = extractvalue { ptr, i32 } %.pn26.pn.i, 0
+  %164 = call ptr @__cxa_begin_catch(ptr %.9.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %20)
           to label %165 unwind label %170
 
@@ -38730,8 +38730,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 70:                                               ; preds = %67, %65
   %.pn16.i = phi { ptr, i32 } [ %68, %67 ], [ %66, %65 ]
-  %.1.i = extractvalue { ptr, i32 } %.pn16.i, 0
-  %71 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
+  %.4.i = extractvalue { ptr, i32 } %.pn16.i, 0
+  %71 = call ptr @__cxa_begin_catch(ptr %.4.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %72 unwind label %77
 
@@ -38977,8 +38977,8 @@ _ZN4Luau8toStringB5cxx11EPKNS_4TypeEONS_15ToStringOptionsE.exit.i: ; preds = %10
 
 152:                                              ; preds = %.body32.i, %136
   %.pn20.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn20.pn.pn.pn.i, %.body32.i ], [ %137, %136 ]
-  %.8.i = extractvalue { ptr, i32 } %.pn20.pn.pn.pn.pn.i, 0
-  %153 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
+  %.6.i = extractvalue { ptr, i32 } %.pn20.pn.pn.pn.pn.i, 0
+  %153 = call ptr @__cxa_begin_catch(ptr %.6.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %13)
           to label %154 unwind label %159
 
@@ -39200,8 +39200,8 @@ _ZN4Luau8toStringB5cxx11EPKNS_4TypeEONS_15ToStringOptionsE.exit43.i: ; preds = %
 
 226:                                              ; preds = %.body39.i, %210
   %.pn23.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn23.pn.pn.pn.i, %.body39.i ], [ %211, %210 ]
-  %.14.i = extractvalue { ptr, i32 } %.pn23.pn.pn.pn.pn.i, 0
-  %227 = call ptr @__cxa_begin_catch(ptr %.14.i) #22
+  %.12.i = extractvalue { ptr, i32 } %.pn23.pn.pn.pn.pn.i, 0
+  %227 = call ptr @__cxa_begin_catch(ptr %.12.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %22)
           to label %228 unwind label %233
 
@@ -39463,8 +39463,8 @@ _ZN4Luau10getMutableINS_8TypePackEEEPT_PKNS_11TypePackVarE.exit.i: ; preds = %47
 
 70:                                               ; preds = %67, %65
   %.pn.i = phi { ptr, i32 } [ %68, %67 ], [ %66, %65 ]
-  %.0.i = extractvalue { ptr, i32 } %.pn.i, 0
-  %71 = call ptr @__cxa_begin_catch(ptr %.0.i) #22
+  %.1.i = extractvalue { ptr, i32 } %.pn.i, 0
+  %71 = call ptr @__cxa_begin_catch(ptr %.1.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %7)
           to label %72 unwind label %77
 
@@ -39892,13 +39892,13 @@ _ZN4Luau8PropertyD2Ev.exit63.i:                   ; preds = %172, %_ZSt8_Destroy
   br label %233
 
 233:                                              ; preds = %.loopexit76.i, %224
-  %.132.i = phi i1 [ %232, %.loopexit76.i ], [ false, %224 ]
+  %.334.i = phi i1 [ %232, %.loopexit76.i ], [ false, %224 ]
   %.pn38.pn.i = phi { ptr, i32 } [ %.pn38.i, %.loopexit76.i ], [ %225, %224 ]
   call void @_ZN4Luau12FunctionTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(307) %16) #22
   br label %234
 
 234:                                              ; preds = %233, %222
-  %.233.i = phi i1 [ %.132.i, %233 ], [ false, %222 ]
+  %.233.i = phi i1 [ %.334.i, %233 ], [ false, %222 ]
   %.pn38.pn.pn.i = phi { ptr, i32 } [ %.pn38.pn.i, %233 ], [ %223, %222 ]
   %235 = load i8, ptr %94, align 8
   %236 = trunc i8 %235 to i1
@@ -39917,16 +39917,16 @@ _ZN4Luau8PropertyD2Ev.exit63.i:                   ; preds = %172, %_ZSt8_Destroy
   br label %242
 
 242:                                              ; preds = %241, %237, %234, %220
-  %.334.i = phi i1 [ false, %220 ], [ %.233.i, %234 ], [ %.233.i, %237 ], [ %.233.i, %241 ]
-  %.129.i = phi ptr [ %.028.i, %220 ], [ %91, %234 ], [ %91, %237 ], [ %91, %241 ]
+  %.132.i = phi i1 [ false, %220 ], [ %.233.i, %234 ], [ %.233.i, %237 ], [ %.233.i, %241 ]
+  %.230.i = phi ptr [ %.028.i, %220 ], [ %91, %234 ], [ %91, %237 ], [ %91, %241 ]
   %.pn38.pn.pn.pn.i = phi { ptr, i32 } [ %221, %220 ], [ %.pn38.pn.pn.i, %234 ], [ %.pn38.pn.pn.i, %237 ], [ %.pn38.pn.pn.i, %241 ]
   call void @_ZN4Luau8PropertyD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %14) #22
-  %243 = icmp eq ptr %13, %.129.i
-  %or.cond.i = select i1 %.334.i, i1 true, i1 %243
+  %243 = icmp eq ptr %13, %.230.i
+  %or.cond.i = select i1 %.132.i, i1 true, i1 %243
   br i1 %or.cond.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %242, %.preheader.i
-  %244 = phi ptr [ %245, %.preheader.i ], [ %.129.i, %242 ]
+  %244 = phi ptr [ %245, %.preheader.i ], [ %.230.i, %242 ]
   %245 = getelementptr inbounds i8, ptr %244, i64 -208
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %245) #22
   %246 = icmp eq ptr %245, %13
@@ -39973,8 +39973,8 @@ _ZN4Luau8PropertyD2Ev.exit63.i:                   ; preds = %172, %_ZSt8_Destroy
 
 .body65.i:                                        ; preds = %260, %253, %212
   %.pn47.pn.i = phi { ptr, i32 } [ %.pn47.i, %260 ], [ %254, %253 ], [ %213, %212 ]
-  %.8.i = extractvalue { ptr, i32 } %.pn47.pn.i, 0
-  %261 = call ptr @__cxa_begin_catch(ptr %.8.i) #22
+  %.9.i = extractvalue { ptr, i32 } %.pn47.pn.i, 0
+  %261 = call ptr @__cxa_begin_catch(ptr %.9.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %20)
           to label %262 unwind label %267
 
@@ -40120,8 +40120,8 @@ _ZN4Luau8PropertyD2Ev.exit63.i:                   ; preds = %172, %_ZSt8_Destroy
 
 .body69.i:                                        ; preds = %313, %306, %298
   %.pn44.pn.i = phi { ptr, i32 } [ %.pn44.i, %313 ], [ %307, %306 ], [ %299, %298 ]
-  %.11.i = extractvalue { ptr, i32 } %.pn44.pn.i, 0
-  %314 = call ptr @__cxa_begin_catch(ptr %.11.i) #22
+  %.12.i = extractvalue { ptr, i32 } %.pn44.pn.i, 0
+  %314 = call ptr @__cxa_begin_catch(ptr %.12.i) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %26)
           to label %315 unwind label %320
 
@@ -51089,8 +51089,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 145:                                              ; preds = %142, %140
   %.pn51 = phi { ptr, i32 } [ %143, %142 ], [ %141, %140 ]
-  %.1 = extractvalue { ptr, i32 } %.pn51, 0
-  %146 = call ptr @__cxa_begin_catch(ptr %.1) #22
+  %.4 = extractvalue { ptr, i32 } %.pn51, 0
+  %146 = call ptr @__cxa_begin_catch(ptr %.4) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %9)
           to label %147 unwind label %152
 
@@ -51397,8 +51397,8 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi0EA76_cNSt7__cxx1112basic_str
 
 255:                                              ; preds = %252, %250
   %.pn59 = phi { ptr, i32 } [ %253, %252 ], [ %251, %250 ]
-  %.6 = extractvalue { ptr, i32 } %.pn59, 0
-  %256 = call ptr @__cxa_begin_catch(ptr %.6) #22
+  %.10 = extractvalue { ptr, i32 } %.pn59, 0
+  %256 = call ptr @__cxa_begin_catch(ptr %.10) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %21)
           to label %257 unwind label %262
 
@@ -51510,8 +51510,8 @@ _ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %273, %272
 
 295:                                              ; preds = %292, %290
   %.pn62 = phi { ptr, i32 } [ %293, %292 ], [ %291, %290 ]
-  %.8 = extractvalue { ptr, i32 } %.pn62, 0
-  %296 = call ptr @__cxa_begin_catch(ptr %.8) #22
+  %.12 = extractvalue { ptr, i32 } %.pn62, 0
+  %296 = call ptr @__cxa_begin_catch(ptr %.12) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %28)
           to label %297 unwind label %302
 
@@ -51630,8 +51630,8 @@ _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %317, %.noex
 
 339:                                              ; preds = %336, %334
   %.pn65 = phi { ptr, i32 } [ %337, %336 ], [ %335, %334 ]
-  %.10 = extractvalue { ptr, i32 } %.pn65, 0
-  %340 = call ptr @__cxa_begin_catch(ptr %.10) #22
+  %.14 = extractvalue { ptr, i32 } %.pn65, 0
+  %340 = call ptr @__cxa_begin_catch(ptr %.14) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %34)
           to label %341 unwind label %346
 
@@ -51822,8 +51822,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 400:                                              ; preds = %.body129, %390
   %.pn68.pn.pn = phi { ptr, i32 } [ %.pn68.pn, %.body129 ], [ %391, %390 ]
-  %.14 = extractvalue { ptr, i32 } %.pn68.pn.pn, 0
-  %401 = call ptr @__cxa_begin_catch(ptr %.14) #22
+  %.16 = extractvalue { ptr, i32 } %.pn68.pn.pn, 0
+  %401 = call ptr @__cxa_begin_catch(ptr %.16) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %39)
           to label %402 unwind label %407
 
@@ -51981,8 +51981,8 @@ _ZN4Luau3getINS_13MetatableTypeEEEPKT_PKNS_4TypeE.exit140: ; preds = %426, %425
 
 452:                                              ; preds = %449, %447
   %.pn73 = phi { ptr, i32 } [ %450, %449 ], [ %448, %447 ]
-  %.17 = extractvalue { ptr, i32 } %.pn73, 0
-  %453 = call ptr @__cxa_begin_catch(ptr %.17) #22
+  %.21 = extractvalue { ptr, i32 } %.pn73, 0
+  %453 = call ptr @__cxa_begin_catch(ptr %.21) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %49)
           to label %454 unwind label %459
 
@@ -52101,8 +52101,8 @@ _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit145: ; preds = %474, %.n
 
 496:                                              ; preds = %493, %491
   %.pn76 = phi { ptr, i32 } [ %494, %493 ], [ %492, %491 ]
-  %.19 = extractvalue { ptr, i32 } %.pn76, 0
-  %497 = call ptr @__cxa_begin_catch(ptr %.19) #22
+  %.23 = extractvalue { ptr, i32 } %.pn76, 0
+  %497 = call ptr @__cxa_begin_catch(ptr %.23) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %55)
           to label %498 unwind label %503
 
@@ -52293,8 +52293,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 557:                                              ; preds = %.body150, %547
   %.pn79.pn.pn = phi { ptr, i32 } [ %.pn79.pn, %.body150 ], [ %548, %547 ]
-  %.23 = extractvalue { ptr, i32 } %.pn79.pn.pn, 0
-  %558 = call ptr @__cxa_begin_catch(ptr %.23) #22
+  %.25 = extractvalue { ptr, i32 } %.pn79.pn.pn, 0
+  %558 = call ptr @__cxa_begin_catch(ptr %.25) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %60)
           to label %559 unwind label %564
 
@@ -52456,8 +52456,8 @@ _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit177: ; preds = %584, %.n
 
 610:                                              ; preds = %607, %605
   %.pn84 = phi { ptr, i32 } [ %608, %607 ], [ %606, %605 ]
-  %.26 = extractvalue { ptr, i32 } %.pn84, 0
-  %611 = call ptr @__cxa_begin_catch(ptr %.26) #22
+  %.30 = extractvalue { ptr, i32 } %.pn84, 0
+  %611 = call ptr @__cxa_begin_catch(ptr %.30) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %70)
           to label %612 unwind label %617
 
@@ -52649,8 +52649,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 671:                                              ; preds = %.body182, %661
   %.pn87.pn.pn = phi { ptr, i32 } [ %.pn87.pn, %.body182 ], [ %662, %661 ]
-  %.30 = extractvalue { ptr, i32 } %.pn87.pn.pn, 0
-  %672 = call ptr @__cxa_begin_catch(ptr %.30) #22
+  %.32 = extractvalue { ptr, i32 } %.pn87.pn.pn, 0
+  %672 = call ptr @__cxa_begin_catch(ptr %.32) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %75)
           to label %673 unwind label %678
 
@@ -52768,8 +52768,8 @@ _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit204: ; preds = %692, %.n
 
 714:                                              ; preds = %711, %709
   %.pn90 = phi { ptr, i32 } [ %712, %711 ], [ %710, %709 ]
-  %.32 = extractvalue { ptr, i32 } %.pn90, 0
-  %715 = call ptr @__cxa_begin_catch(ptr %.32) #22
+  %.36 = extractvalue { ptr, i32 } %.pn90, 0
+  %715 = call ptr @__cxa_begin_catch(ptr %.36) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %84)
           to label %716 unwind label %721
 
@@ -52961,8 +52961,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 775:                                              ; preds = %.body209, %765
   %.pn93.pn.pn = phi { ptr, i32 } [ %.pn93.pn, %.body209 ], [ %766, %765 ]
-  %.36 = extractvalue { ptr, i32 } %.pn93.pn.pn, 0
-  %776 = call ptr @__cxa_begin_catch(ptr %.36) #22
+  %.38 = extractvalue { ptr, i32 } %.pn93.pn.pn, 0
+  %776 = call ptr @__cxa_begin_catch(ptr %.38) #22
   invoke void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr noundef nonnull align 8 dereferenceable(144) %89)
           to label %777 unwind label %782
 

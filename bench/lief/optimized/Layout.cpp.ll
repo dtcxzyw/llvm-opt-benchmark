@@ -467,7 +467,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %116, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %85
-  %.0 = phi i64 [ 0, %85 ], [ %111, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %111, %116 ]
+  %.1 = phi i64 [ 0, %85 ], [ %111, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %111, %116 ]
   %117 = load ptr, ptr %41, align 8
   %.not.i.i.i.i10 = icmp eq ptr %117, null
   br i1 %.not.i.i.i.i10, label %_ZN4LIEF15vector_iostreamD2Ev.exit, label %118
@@ -491,8 +491,8 @@ _ZN4LIEF15vector_iostreamD2Ev.exit12:             ; preds = %119, %122
   resume { ptr, i32 } %.pn
 
 _ZN4LIEF15vector_iostreamD2Ev.exit:               ; preds = %118, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %_ZNK4LIEF3ELF6Layout25is_strtab_shared_shstrtabEv.exit, %10
-  %.1 = phi i64 [ %13, %10 ], [ 0, %_ZNK4LIEF3ELF6Layout25is_strtab_shared_shstrtabEv.exit ], [ %.0, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.0, %118 ]
-  ret i64 %.1
+  %.0 = phi i64 [ %13, %10 ], [ 0, %_ZNK4LIEF3ELF6Layout25is_strtab_shared_shstrtabEv.exit ], [ %.1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ %.1, %118 ]
+  ret i64 %.0
 }
 
 declare void @_ZN4LIEF15vector_iostreamC1Ev(ptr noundef nonnull align 8 dereferenceable(41)) unnamed_addr #2

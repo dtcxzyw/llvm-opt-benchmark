@@ -7059,11 +7059,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %496
   unreachable
 
 .body228:                                         ; preds = %579, %573
-  %.1.lpad-body = phi i1 [ false, %573 ], [ %580, %579 ]
+  %.093.lpad-body = phi i1 [ false, %573 ], [ %580, %579 ]
   %eh.lpad-body219 = phi { ptr, i32 } [ %lpad.phi345, %573 ], [ %581, %579 ]
   %578 = load ptr, ptr %54, align 8, !noundef !5
   %.not102 = icmp eq ptr %578, null
-  %brmerge = or i1 %.1.lpad-body, %.not102
+  %brmerge = or i1 %.093.lpad-body, %.not102
   br i1 %brmerge, label %.body244, label %644
 
 579:                                              ; preds = %605, %603, %592, %585, %614, %607
@@ -7515,14 +7515,14 @@ define internal fastcc noundef ptr @_ZN5uu_mv6rename17h600fb01428cf9b2dE(ptr noa
   br i1 %62, label %66, label %75
 
 .body:                                            ; preds = %237, %246, %246, %249, %64, %306, %281, %190, %157
-  %.0124 = phi i8 [ %.4128, %306 ], [ 0, %281 ], [ 1, %190 ], [ 1, %157 ], [ %.1125, %64 ], [ 1, %249 ], [ 1, %246 ], [ 1, %246 ], [ 1, %237 ]
+  %.1125 = phi i8 [ %.4128, %306 ], [ 0, %281 ], [ 1, %190 ], [ 1, %157 ], [ %.0124, %64 ], [ 1, %249 ], [ 1, %246 ], [ 1, %246 ], [ 1, %237 ]
   %.pn = phi { ptr, i32 } [ %307, %306 ], [ %282, %281 ], [ %191, %190 ], [ %158, %157 ], [ %65, %64 ], [ %247, %249 ], [ %247, %246 ], [ %247, %246 ], [ %238, %237 ]
   %63 = load i64, ptr %60, align 8, !range !15, !noundef !5
   %.not141 = icmp eq i64 %63, -9223372036854775808
   br i1 %.not141, label %340, label %338
 
 64:                                               ; preds = %.invoke, %315, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit192, %273, %259, %251, %235, %233, %227, %217, %213, %123, %94, %82, %72, %70, %66, %6, %224, %221, %219, %193, %152, %148, %143, %136, %127, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %116, %114, %99, %87
-  %.1125 = phi i8 [ 1, %219 ], [ 1, %224 ], [ 1, %221 ], [ 1, %193 ], [ 1, %116 ], [ 1, %152 ], [ 1, %148 ], [ 1, %143 ], [ 1, %136 ], [ 1, %127 ], [ 1, %114 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ 1, %99 ], [ 1, %87 ], [ 1, %6 ], [ 1, %66 ], [ 1, %70 ], [ 1, %72 ], [ 1, %82 ], [ 1, %94 ], [ 1, %123 ], [ 1, %213 ], [ 1, %217 ], [ 1, %227 ], [ 1, %233 ], [ 1, %235 ], [ 1, %251 ], [ 1, %259 ], [ 1, %273 ], [ 0, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit192 ], [ %.4128, %315 ], [ 1, %.invoke ]
+  %.0124 = phi i8 [ 1, %219 ], [ 1, %224 ], [ 1, %221 ], [ 1, %193 ], [ 1, %116 ], [ 1, %152 ], [ 1, %148 ], [ 1, %143 ], [ 1, %136 ], [ 1, %127 ], [ 1, %114 ], [ 1, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ 1, %99 ], [ 1, %87 ], [ 1, %6 ], [ 1, %66 ], [ 1, %70 ], [ 1, %72 ], [ 1, %82 ], [ 1, %94 ], [ 1, %123 ], [ 1, %213 ], [ 1, %217 ], [ 1, %227 ], [ 1, %233 ], [ 1, %235 ], [ 1, %251 ], [ 1, %259 ], [ 1, %273 ], [ 0, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit192 ], [ %.4128, %315 ], [ 1, %.invoke ]
   %65 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -7688,12 +7688,12 @@ default.unreachable270:                           ; preds = %110
   ]
 
 112:                                              ; preds = %101, %100
-  %.1 = phi ptr [ %98, %100 ], [ %105, %101 ]
+  %.2 = phi ptr [ %98, %100 ], [ %105, %101 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %56)
   br label %113
 
 113:                                              ; preds = %89, %112, %88
-  %.2 = phi ptr [ %86, %88 ], [ %.1, %112 ], [ %93, %89 ]
+  %.1 = phi ptr [ %86, %88 ], [ %.2, %112 ], [ %93, %89 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %58)
   br label %201
 
@@ -7964,7 +7964,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %123
   br i1 %200, label %72, label %201
 
 201:                                              ; preds = %.invoke, %262, %_ZN3std2fs10remove_dir17h1030028052e5a54eE.exit, %199, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread", %113, %75, %78
-  %.3 = phi ptr [ null, %78 ], [ null, %75 ], [ %.2, %113 ], [ null, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread" ], [ %126, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ %198, %199 ], [ %260, %_ZN3std2fs10remove_dir17h1030028052e5a54eE.exit ], [ %220, %262 ], [ %258, %.invoke ]
+  %.0 = phi ptr [ null, %78 ], [ null, %75 ], [ %.1, %113 ], [ null, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread" ], [ %126, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit ], [ %198, %199 ], [ %260, %_ZN3std2fs10remove_dir17h1030028052e5a54eE.exit ], [ %220, %262 ], [ %258, %.invoke ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1777)
   %202 = load i64, ptr %60, align 8, !range !15, !alias.scope !1777, !noundef !5
   %203 = icmp eq i64 %202, -9223372036854775808
@@ -8430,11 +8430,11 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit192: ; preds = %283
   br label %327
 
 337:                                              ; preds = %327, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hc6d5f62be8da9491E.exit164"
-  %.4 = phi ptr [ null, %327 ], [ %.3, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hc6d5f62be8da9491E.exit164" ]
+  %.4 = phi ptr [ null, %327 ], [ %.0, %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17hc6d5f62be8da9491E.exit164" ]
   ret ptr %.4
 
 338:                                              ; preds = %.body
-  %339 = trunc nuw i8 %.0124 to i1
+  %339 = trunc nuw i8 %.1125 to i1
   br i1 %339, label %341, label %340
 
 340:                                              ; preds = %341, %338, %.body
@@ -8847,11 +8847,11 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
           to label %152 unwind label %149
 
 147:                                              ; preds = %155, %149
-  %.256.lpad-body = phi i1 [ %150, %149 ], [ false, %155 ]
+  %.155.lpad-body = phi i1 [ %150, %149 ], [ false, %155 ]
   %eh.lpad-body = phi { ptr, i32 } [ %151, %149 ], [ %156, %155 ]
   %148 = load i64, ptr %24, align 8, !range !15, !noundef !5
   %.not68 = icmp eq i64 %148, -9223372036854775808
-  %brmerge = or i1 %.256.lpad-body, %.not68
+  %brmerge = or i1 %.155.lpad-body, %.not68
   br i1 %brmerge, label %.body87, label %186
 
 149:                                              ; preds = %169, %145
@@ -8910,7 +8910,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
           to label %.body87 unwind label %112
 
 169:                                              ; preds = %176, %165
-  %.1 = phi ptr [ %166, %165 ], [ %177, %176 ]
+  %.3 = phi ptr [ %166, %165 ], [ %177, %176 ]
   invoke void @"_ZN4core3ptr43drop_in_place$LT$fs_extra..error..Error$GT$17h8119917816c28f55E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %22)
           to label %178 unwind label %149
 
@@ -8999,11 +8999,11 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i.i: 
   br i1 %195, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h5f60904d31375aedE.exit", label %.thread135
 
 "_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h5f60904d31375aedE.exit": ; preds = %5, %193, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$indicatif..progress_bar..ProgressBar$GT$$GT$17h048a67754c9f78f9E.exit92", %_ZN5uu_mv23rename_symlink_fallback17hcea9b2db826f7cb0E.exit, %.thread135
-  %.2 = phi ptr [ %.3, %.thread135 ], [ null, %_ZN5uu_mv23rename_symlink_fallback17hcea9b2db826f7cb0E.exit ], [ null, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$indicatif..progress_bar..ProgressBar$GT$$GT$17h048a67754c9f78f9E.exit92" ], [ null, %193 ], [ null, %5 ]
-  ret ptr %.2
+  %.0 = phi ptr [ %.1, %.thread135 ], [ null, %_ZN5uu_mv23rename_symlink_fallback17hcea9b2db826f7cb0E.exit ], [ null, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$indicatif..progress_bar..ProgressBar$GT$$GT$17h048a67754c9f78f9E.exit92" ], [ null, %193 ], [ null, %5 ]
+  ret ptr %.0
 
 .thread135:                                       ; preds = %.thread132, %190, %_ZN5uu_mv23rename_symlink_fallback17hcea9b2db826f7cb0E.exit.thread, %_ZN3std2fs16symlink_metadata17hedcefd43e96e9177E.exit.thread, %193, %84, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$indicatif..progress_bar..ProgressBar$GT$$GT$17h048a67754c9f78f9E.exit91", %_ZN5uu_mv23rename_symlink_fallback17hcea9b2db826f7cb0E.exit
-  %.3 = phi ptr [ %.1, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$indicatif..progress_bar..ProgressBar$GT$$GT$17h048a67754c9f78f9E.exit91" ], [ %.021.i, %_ZN5uu_mv23rename_symlink_fallback17hcea9b2db826f7cb0E.exit ], [ %85, %84 ], [ %194, %193 ], [ %46, %_ZN3std2fs16symlink_metadata17hedcefd43e96e9177E.exit.thread ], [ %55, %_ZN5uu_mv23rename_symlink_fallback17hcea9b2db826f7cb0E.exit.thread ], [ %189, %.thread132 ], [ %191, %190 ]
+  %.1 = phi ptr [ %.3, %"_ZN4core3ptr85drop_in_place$LT$core..option..Option$LT$indicatif..progress_bar..ProgressBar$GT$$GT$17h048a67754c9f78f9E.exit91" ], [ %.021.i, %_ZN5uu_mv23rename_symlink_fallback17hcea9b2db826f7cb0E.exit ], [ %85, %84 ], [ %194, %193 ], [ %46, %_ZN3std2fs16symlink_metadata17hedcefd43e96e9177E.exit.thread ], [ %55, %_ZN5uu_mv23rename_symlink_fallback17hcea9b2db826f7cb0E.exit.thread ], [ %189, %.thread132 ], [ %191, %190 ]
   br label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h5f60904d31375aedE.exit"
 }
 

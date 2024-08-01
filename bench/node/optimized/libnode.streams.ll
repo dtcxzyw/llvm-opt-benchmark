@@ -1135,7 +1135,7 @@ _ZN2v85MaybeISt10shared_ptrIN4node9DataQueueEEED2Ev.exit: ; preds = %if.end74.i,
 
 do.body:                                          ; preds = %if.then.i28.thread, %if.then.i28, %if.end8.sink.split.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   %dataqueue.sroa.0.0113119 = phi ptr [ %ref.tmp.sroa.9.0.ph, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %ref.tmp.sroa.9.0.ph, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %ref.tmp.sroa.9.0.ph, %if.end8.sink.split.i.i.i.i.i ], [ %ref.tmp.sroa.9.0.ph, %if.then.i28 ], [ null, %if.then.i28.thread ]
-  %dataqueue.sroa.4.1114118 = phi ptr [ %ref.tmp.sroa.17.0.ph, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %ref.tmp.sroa.17.0.ph, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %ref.tmp.sroa.17.0.ph, %if.end8.sink.split.i.i.i.i.i ], [ null, %if.then.i28 ], [ null, %if.then.i28.thread ]
+  %dataqueue.sroa.4.0114118 = phi ptr [ %ref.tmp.sroa.17.0.ph, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %ref.tmp.sroa.17.0.ph, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %ref.tmp.sroa.17.0.ph, %if.end8.sink.split.i.i.i.i.i ], [ null, %if.then.i28 ], [ null, %if.then.i28.thread ]
   %98 = load ptr, ptr %args, align 8
   %99 = load i64, ptr %98, align 8
   %sub.i.i.i.i17 = add i64 %99, -1
@@ -1170,7 +1170,7 @@ _ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit: ; preds = %if.
 do.end:                                           ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
   store ptr %dataqueue.sroa.0.0113119, ptr %agg.tmp22, align 8
   %_M_refcount.i.i21 = getelementptr inbounds i8, ptr %agg.tmp22, i64 8
-  store ptr %dataqueue.sroa.4.1114118, ptr %_M_refcount.i.i21, align 8
+  store ptr %dataqueue.sroa.4.0114118, ptr %_M_refcount.i.i21, align 8
   call void @_ZN4node4quic6Stream12set_outboundESt10shared_ptrINS_9DataQueueEE(ptr noundef nonnull align 8 dereferenceable(256) %retval.i11.0.i, ptr noundef nonnull %agg.tmp22)
   %108 = load ptr, ptr %_M_refcount.i.i21, align 8
   %cmp.not.i.i.i23 = icmp eq ptr %108, null
@@ -1245,11 +1245,11 @@ if.end8.sink.split.i.i.i.i44:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit84
 
 cleanup:                                          ; preds = %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit
-  %cmp.not.i.i.i54 = icmp eq ptr %dataqueue.sroa.4.1114118, null
+  %cmp.not.i.i.i54 = icmp eq ptr %dataqueue.sroa.4.0114118, null
   br i1 %cmp.not.i.i.i54, label %_ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit84, label %if.then.i.i.i55
 
 if.then.i.i.i55:                                  ; preds = %cleanup
-  %_M_use_count.i.i.i.i56 = getelementptr inbounds i8, ptr %dataqueue.sroa.4.1114118, i64 8
+  %_M_use_count.i.i.i.i56 = getelementptr inbounds i8, ptr %dataqueue.sroa.4.0114118, i64 8
   %119 = load atomic i64, ptr %_M_use_count.i.i.i.i56 acquire, align 8
   %cmp.i.i.i.i57 = icmp eq i64 %119, 4294967297
   %120 = trunc i64 %119 to i32
@@ -1257,12 +1257,12 @@ if.then.i.i.i55:                                  ; preds = %cleanup
 
 if.then.i.i.i.i80:                                ; preds = %if.then.i.i.i55
   store i32 0, ptr %_M_use_count.i.i.i.i56, align 8
-  %_M_weak_count.i.i.i.i81 = getelementptr inbounds i8, ptr %dataqueue.sroa.4.1114118, i64 12
+  %_M_weak_count.i.i.i.i81 = getelementptr inbounds i8, ptr %dataqueue.sroa.4.0114118, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i81, align 4
-  %vtable.i.i.i.i82 = load ptr, ptr %dataqueue.sroa.4.1114118, align 8
+  %vtable.i.i.i.i82 = load ptr, ptr %dataqueue.sroa.4.0114118, align 8
   %vfn.i.i.i.i83 = getelementptr inbounds i8, ptr %vtable.i.i.i.i82, i64 16
   %121 = load ptr, ptr %vfn.i.i.i.i83, align 8
-  call void %121(ptr noundef nonnull align 8 dereferenceable(16) %dataqueue.sroa.4.1114118) #26
+  call void %121(ptr noundef nonnull align 8 dereferenceable(16) %dataqueue.sroa.4.0114118) #26
   br label %if.end8.sink.split.i.i.i.i75
 
 if.end.i.i.i.i58:                                 ; preds = %if.then.i.i.i55
@@ -1285,11 +1285,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62: ; preds = %if.els
   br i1 %cmp6.i.i.i.i64, label %if.then7.i.i.i.i65, label %_ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit84
 
 if.then7.i.i.i.i65:                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62
-  %vtable.i.i.i.i.i.i66 = load ptr, ptr %dataqueue.sroa.4.1114118, align 8
+  %vtable.i.i.i.i.i.i66 = load ptr, ptr %dataqueue.sroa.4.0114118, align 8
   %vfn.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i66, i64 16
   %124 = load ptr, ptr %vfn.i.i.i.i.i.i67, align 8
-  call void %124(ptr noundef nonnull align 8 dereferenceable(16) %dataqueue.sroa.4.1114118) #26
-  %_M_weak_count.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %dataqueue.sroa.4.1114118, i64 12
+  call void %124(ptr noundef nonnull align 8 dereferenceable(16) %dataqueue.sroa.4.0114118) #26
+  %_M_weak_count.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %dataqueue.sroa.4.0114118, i64 12
   %125 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i69 = icmp eq i8 %125, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i69, label %if.else.i.i.i.i.i.i.i78, label %if.then.i.i.i.i.i.i.i70
@@ -1310,10 +1310,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i72: ; preds = %if
   br i1 %cmp.i.i.i.i.i.i74, label %if.end8.sink.split.i.i.i.i75, label %_ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit84
 
 if.end8.sink.split.i.i.i.i75:                     ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i72, %if.then.i.i.i.i80
-  %vtable2.i.i.i.i.i.i76 = load ptr, ptr %dataqueue.sroa.4.1114118, align 8
+  %vtable2.i.i.i.i.i.i76 = load ptr, ptr %dataqueue.sroa.4.0114118, align 8
   %vfn3.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i76, i64 24
   %128 = load ptr, ptr %vfn3.i.i.i.i.i.i77, align 8
-  call void %128(ptr noundef nonnull align 8 dereferenceable(16) %dataqueue.sroa.4.1114118) #26
+  call void %128(ptr noundef nonnull align 8 dereferenceable(16) %dataqueue.sroa.4.0114118) #26
   br label %_ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit84
 
 _ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit84:  ; preds = %if.end8.sink.split.i.i.i.i44, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i41, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i31, %do.end, %_ZN2v85MaybeISt10shared_ptrIN4node9DataQueueEEED2Ev.exit, %cleanup, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i72, %if.end8.sink.split.i.i.i.i75

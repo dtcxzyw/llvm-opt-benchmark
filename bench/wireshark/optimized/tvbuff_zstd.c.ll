@@ -46,7 +46,7 @@ define noundef ptr @tvb_uncompress_zstd(ptr noundef %0, i32 noundef %1, i32 noun
 .lr.ph:                                           ; preds = %3, %16
   %.02650 = phi i32 [ %17, %16 ], [ 0, %3 ]
   %.02849 = phi i64 [ %.1, %16 ], [ 0, %3 ]
-  %.02948 = phi ptr [ %.2, %16 ], [ null, %3 ]
+  %.02948 = phi ptr [ %.130, %16 ], [ null, %3 ]
   %21 = call i64 @ZSTD_decompressStream(ptr noundef %10, ptr noundef nonnull %5, ptr noundef nonnull %4) #5
   %22 = call i32 @ZSTD_isError(i64 noundef %21) #5
   %.not34 = icmp eq i32 %22, 0
@@ -79,8 +79,8 @@ define noundef ptr @tvb_uncompress_zstd(ptr noundef %0, i32 noundef %1, i32 noun
   br label %34
 
 34:                                               ; preds = %31, %29
-  %.130 = phi ptr [ %33, %31 ], [ %30, %29 ]
-  %35 = getelementptr i8, ptr %.130, i64 %.02849
+  %.2 = phi ptr [ %33, %31 ], [ %30, %29 ]
+  %35 = getelementptr i8, ptr %.2, i64 %.02849
   %36 = load ptr, ptr %5, align 8
   %37 = load i64, ptr %15, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 1 %36, i64 %37, i1 false)
@@ -90,7 +90,7 @@ define noundef ptr @tvb_uncompress_zstd(ptr noundef %0, i32 noundef %1, i32 noun
   br label %40
 
 40:                                               ; preds = %34, %23
-  %.2 = phi ptr [ %.130, %34 ], [ %.02948, %23 ]
+  %.130 = phi ptr [ %.2, %34 ], [ %.02948, %23 ]
   %.1 = phi i64 [ %39, %34 ], [ %.02849, %23 ]
   %exitcond.not = icmp eq i32 %.02650, 99
   br i1 %exitcond.not, label %41, label %16, !llvm.loop !4
@@ -108,7 +108,7 @@ define noundef ptr @tvb_uncompress_zstd(ptr noundef %0, i32 noundef %1, i32 noun
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %44 = phi ptr [ %12, %3 ], [ %.pre, %._crit_edge.loopexit ]
   %.031.lcssa = phi i1 [ true, %3 ], [ %42, %._crit_edge.loopexit ]
-  %.029.lcssa = phi ptr [ null, %3 ], [ %.2, %._crit_edge.loopexit ]
+  %.029.lcssa = phi ptr [ null, %3 ], [ %.130, %._crit_edge.loopexit ]
   %.028.lcssa = phi i32 [ 0, %3 ], [ %43, %._crit_edge.loopexit ]
   call void @g_free(ptr noundef %44) #5
   %45 = load ptr, ptr %4, align 8

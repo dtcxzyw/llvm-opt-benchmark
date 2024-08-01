@@ -75,8 +75,8 @@ softfloat_shiftRightJam64Extra.exit:              ; preds = %31, %35
 
 43:                                               ; preds = %17, %19, %softfloat_shiftRightJam64Extra.exit
   %.038 = phi i64 [ %27, %19 ], [ %0, %17 ], [ %42, %softfloat_shiftRightJam64Extra.exit ]
-  %.1 = phi i64 [ %26, %19 ], [ %18, %17 ], [ %.sroa.5.0.i, %softfloat_shiftRightJam64Extra.exit ]
-  %44 = tail call i64 @softfloat_roundToUI64(i1 noundef zeroext %5, i64 noundef %.1, i64 noundef %.038, i8 noundef zeroext %2, i1 noundef zeroext %3) #2
+  %.037 = phi i64 [ %26, %19 ], [ %18, %17 ], [ %.sroa.5.0.i, %softfloat_shiftRightJam64Extra.exit ]
+  %44 = tail call i64 @softfloat_roundToUI64(i1 noundef zeroext %5, i64 noundef %.037, i64 noundef %.038, i8 noundef zeroext %2, i1 noundef zeroext %3) #2
   br label %45
 
 45:                                               ; preds = %43, %13

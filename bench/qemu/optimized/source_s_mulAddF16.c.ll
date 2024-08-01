@@ -196,14 +196,14 @@ softfloat_shiftRightJam32.exit114:                ; preds = %if.else, %cond.true
   br label %if.end157
 
 if.end157:                                        ; preds = %softfloat_shiftRightJam32.exit114, %softfloat_shiftRightJam32.exit
-  %expZ.0 = phi i8 [ %expC.0, %softfloat_shiftRightJam32.exit ], [ %expProd.0, %softfloat_shiftRightJam32.exit114 ]
-  %sigZ.0 = phi i64 [ %add144, %softfloat_shiftRightJam32.exit ], [ %or156, %softfloat_shiftRightJam32.exit114 ]
-  %cmp158 = icmp ult i64 %sigZ.0, 16384
+  %expZ.1 = phi i8 [ %expC.0, %softfloat_shiftRightJam32.exit ], [ %expProd.0, %softfloat_shiftRightJam32.exit114 ]
+  %sigZ.1 = phi i64 [ %add144, %softfloat_shiftRightJam32.exit ], [ %or156, %softfloat_shiftRightJam32.exit114 ]
+  %cmp158 = icmp ult i64 %sigZ.1, 16384
   br i1 %cmp158, label %if.then160, label %roundPack
 
 if.then160:                                       ; preds = %if.end157
-  %dec161 = add i8 %expZ.0, -1
-  %shl162 = shl nuw nsw i64 %sigZ.0, 1
+  %dec161 = add i8 %expZ.1, -1
+  %shl162 = shl nuw nsw i64 %sigZ.1, 1
   br label %roundPack
 
 if.else164:                                       ; preds = %if.end120
@@ -282,8 +282,8 @@ softfloat_shiftRightJam32.exit142:                ; preds = %if.else193, %cond.t
   br label %if.end200
 
 if.end200:                                        ; preds = %softfloat_shiftRightJam32.exit142, %if.then188, %if.end185, %softfloat_shiftRightJam32.exit128
-  %signZ.0 = phi i1 [ %tobool25, %softfloat_shiftRightJam32.exit128 ], [ %tobool42, %softfloat_shiftRightJam32.exit142 ], [ %lnot, %if.then188 ], [ %tobool42, %if.end185 ]
-  %expZ.1 = phi i8 [ %expC.0, %softfloat_shiftRightJam32.exit128 ], [ %expProd.0, %softfloat_shiftRightJam32.exit142 ], [ %expProd.0, %if.then188 ], [ %expProd.0, %if.end185 ]
+  %signZ.1 = phi i1 [ %tobool25, %softfloat_shiftRightJam32.exit128 ], [ %tobool42, %softfloat_shiftRightJam32.exit142 ], [ %lnot, %if.then188 ], [ %tobool42, %if.end185 ]
+  %expZ.2 = phi i8 [ %expC.0, %softfloat_shiftRightJam32.exit128 ], [ %expProd.0, %softfloat_shiftRightJam32.exit142 ], [ %expProd.0, %if.then188 ], [ %expProd.0, %if.end185 ]
   %sig32Z.0 = phi i64 [ %sub178, %softfloat_shiftRightJam32.exit128 ], [ %sub198, %softfloat_shiftRightJam32.exit142 ], [ %sub191, %if.then188 ], [ %sub182, %if.end185 ]
   %conv201 = trunc i64 %sig32Z.0 to i32
   %cmp.i143 = icmp ult i32 %conv201, 65536
@@ -300,7 +300,7 @@ if.end200:                                        ; preds = %softfloat_shiftRigh
   %arrayidx.i = getelementptr [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %idxprom.i
   %25 = load i8, ptr %arrayidx.i, align 1
   %add8.i = add i8 %count.1.i, %25
-  %sub204.neg = add i8 %expZ.1, 1
+  %sub204.neg = add i8 %expZ.2, 1
   %sub208 = sub i8 %sub204.neg, %add8.i
   %sub211 = add i8 %add8.i, -17
   %conv213 = sext i8 %sub211 to i32
@@ -326,11 +326,11 @@ if.else229:                                       ; preds = %if.end200
   br label %roundPack
 
 roundPack:                                        ; preds = %if.then160, %if.end157, %if.else229, %if.then216, %if.then105
-  %signZ.1 = phi i1 [ %tobool42, %if.then160 ], [ %tobool42, %if.end157 ], [ %signZ.0, %if.then216 ], [ %signZ.0, %if.else229 ], [ %tobool42, %if.then105 ]
-  %expZ.2 = phi i8 [ %dec161, %if.then160 ], [ %expZ.0, %if.end157 ], [ %sub208, %if.then216 ], [ %sub208, %if.else229 ], [ %sub107, %if.then105 ]
-  %sigZ.1 = phi i64 [ %shl162, %if.then160 ], [ %sigZ.0, %if.end157 ], [ %or228, %if.then216 ], [ %shl232, %if.else229 ], [ %or114, %if.then105 ]
-  %conv236 = sext i8 %expZ.2 to i64
-  %call237 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %signZ.1, i64 noundef %conv236, i64 noundef %sigZ.1) #2
+  %signZ.0 = phi i1 [ %tobool42, %if.then160 ], [ %tobool42, %if.end157 ], [ %signZ.1, %if.then216 ], [ %signZ.1, %if.else229 ], [ %tobool42, %if.then105 ]
+  %expZ.0 = phi i8 [ %dec161, %if.then160 ], [ %expZ.1, %if.end157 ], [ %sub208, %if.then216 ], [ %sub208, %if.else229 ], [ %sub107, %if.then105 ]
+  %sigZ.0 = phi i64 [ %shl162, %if.then160 ], [ %sigZ.1, %if.end157 ], [ %or228, %if.then216 ], [ %shl232, %if.else229 ], [ %or114, %if.then105 ]
+  %conv236 = sext i8 %expZ.0 to i64
+  %call237 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %signZ.0, i64 noundef %conv236, i64 noundef %sigZ.0) #2
   br label %return
 
 propagateNaN_ABC:                                 ; preds = %if.then58, %if.then, %lor.lhs.false

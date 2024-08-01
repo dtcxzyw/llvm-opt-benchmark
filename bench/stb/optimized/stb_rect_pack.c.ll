@@ -380,12 +380,12 @@ while.body46.preheader:                           ; preds = %while.body42, %if.t
   br label %while.body46
 
 while.body46:                                     ; preds = %while.body46.preheader, %if.end76
-  %best.2170 = phi ptr [ %best.3, %if.end76 ], [ %best.0.lcssa180, %while.body46.preheader ]
+  %best.3170 = phi ptr [ %best.4, %if.end76 ], [ %best.0.lcssa180, %while.body46.preheader ]
   %tail.1169 = phi ptr [ %33, %if.end76 ], [ %tail.1169.ph, %while.body46.preheader ]
   %node.1168 = phi ptr [ %node.2, %if.end76 ], [ %node.0104, %while.body46.preheader ]
   %prev.1167 = phi ptr [ %prev.2, %if.end76 ], [ %active_head, %while.body46.preheader ]
-  %best_y.2166 = phi i32 [ %best_y.3, %if.end76 ], [ %best_y.0.lcssa179, %while.body46.preheader ]
-  %best_x.0165 = phi i32 [ %best_x.1, %if.end76 ], [ %cond, %while.body46.preheader ]
+  %best_y.3166 = phi i32 [ %best_y.4, %if.end76 ], [ %best_y.0.lcssa179, %while.body46.preheader ]
+  %best_x.1165 = phi i32 [ %best_x.2, %if.end76 ], [ %cond, %while.body46.preheader ]
   %best_waste.2164 = phi i32 [ %best_waste.3, %if.end76 ], [ %best_waste.0.lcssa178, %while.body46.preheader ]
   %21 = load i32, ptr %tail.1169, align 8
   %sub48 = sub nsw i32 %21, %sub2
@@ -462,19 +462,19 @@ stbrp__skyline_find_min_y.exit100:                ; preds = %if.end31.i84, %whil
   %waste_area.0.lcssa.i67 = phi i32 [ 0, %while.end58 ], [ %waste_area.1.i88, %if.end31.i84 ]
   %add60 = add nsw i32 %min_y.0.lcssa.i66, %height
   %cmp62.not = icmp sgt i32 %add60, %2
-  %cmp64.not = icmp sgt i32 %min_y.0.lcssa.i66, %best_y.2166
+  %cmp64.not = icmp sgt i32 %min_y.0.lcssa.i66, %best_y.3166
   %or.cond62 = select i1 %cmp62.not, i1 true, i1 %cmp64.not
   br i1 %or.cond62, label %if.end76, label %if.then65
 
 if.then65:                                        ; preds = %stbrp__skyline_find_min_y.exit100
-  %cmp66 = icmp slt i32 %min_y.0.lcssa.i66, %best_y.2166
+  %cmp66 = icmp slt i32 %min_y.0.lcssa.i66, %best_y.3166
   %cmp68 = icmp slt i32 %waste_area.0.lcssa.i67, %best_waste.2164
   %or.cond103 = select i1 %cmp66, i1 true, i1 %cmp68
   br i1 %or.cond103, label %if.then73, label %lor.lhs.false69
 
 lor.lhs.false69:                                  ; preds = %if.then65
   %cmp70 = icmp eq i32 %waste_area.0.lcssa.i67, %best_waste.2164
-  %cmp72 = icmp slt i32 %sub48, %best_x.0165
+  %cmp72 = icmp slt i32 %sub48, %best_x.1165
   %or.cond63 = select i1 %cmp70, i1 %cmp72, i1 false
   br i1 %or.cond63, label %if.then73, label %if.end76
 
@@ -483,26 +483,26 @@ if.then73:                                        ; preds = %lor.lhs.false69, %i
 
 if.end76:                                         ; preds = %if.then73, %lor.lhs.false69, %stbrp__skyline_find_min_y.exit100
   %best_waste.3 = phi i32 [ %waste_area.0.lcssa.i67, %if.then73 ], [ %best_waste.2164, %lor.lhs.false69 ], [ %best_waste.2164, %stbrp__skyline_find_min_y.exit100 ]
-  %best_x.1 = phi i32 [ %sub48, %if.then73 ], [ %best_x.0165, %lor.lhs.false69 ], [ %best_x.0165, %stbrp__skyline_find_min_y.exit100 ]
-  %best_y.3 = phi i32 [ %min_y.0.lcssa.i66, %if.then73 ], [ %best_y.2166, %lor.lhs.false69 ], [ %best_y.2166, %stbrp__skyline_find_min_y.exit100 ]
-  %best.3 = phi ptr [ %prev.2, %if.then73 ], [ %best.2170, %lor.lhs.false69 ], [ %best.2170, %stbrp__skyline_find_min_y.exit100 ]
+  %best_x.2 = phi i32 [ %sub48, %if.then73 ], [ %best_x.1165, %lor.lhs.false69 ], [ %best_x.1165, %stbrp__skyline_find_min_y.exit100 ]
+  %best_y.4 = phi i32 [ %min_y.0.lcssa.i66, %if.then73 ], [ %best_y.3166, %lor.lhs.false69 ], [ %best_y.3166, %stbrp__skyline_find_min_y.exit100 ]
+  %best.4 = phi ptr [ %prev.2, %if.then73 ], [ %best.3170, %lor.lhs.false69 ], [ %best.3170, %stbrp__skyline_find_min_y.exit100 ]
   %next77 = getelementptr inbounds i8, ptr %tail.1169, i64 8
   %33 = load ptr, ptr %next77, align 8
   %tobool.not = icmp eq ptr %33, null
   br i1 %tobool.not, label %if.end79, label %while.body46, !llvm.loop !10
 
 if.end79:                                         ; preds = %if.end76, %cond.end
-  %best_x.2 = phi i32 [ %cond, %cond.end ], [ %best_x.1, %if.end76 ]
-  %best_y.4 = phi i32 [ %best_y.0.lcssa179, %cond.end ], [ %best_y.3, %if.end76 ]
-  %best.4 = phi ptr [ %best.0.lcssa180, %cond.end ], [ %best.3, %if.end76 ]
-  %34 = zext i32 %best_y.4 to i64
+  %best_x.0 = phi i32 [ %cond, %cond.end ], [ %best_x.2, %if.end76 ]
+  %best_y.2 = phi i32 [ %best_y.0.lcssa179, %cond.end ], [ %best_y.4, %if.end76 ]
+  %best.2 = phi ptr [ %best.0.lcssa180, %cond.end ], [ %best.4, %if.end76 ]
+  %34 = zext i32 %best_y.2 to i64
   %35 = shl nuw i64 %34, 32
-  %36 = zext i32 %best_x.2 to i64
+  %36 = zext i32 %best_x.0 to i64
   %37 = or disjoint i64 %35, %36
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %if.end79
-  %retval.sroa.5.0 = phi ptr [ %best.4, %if.end79 ], [ null, %lor.lhs.false ], [ null, %entry ]
+  %retval.sroa.5.0 = phi ptr [ %best.2, %if.end79 ], [ null, %lor.lhs.false ], [ null, %entry ]
   %retval.sroa.0.0.insert.insert = phi i64 [ %37, %if.end79 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.5.0, 1

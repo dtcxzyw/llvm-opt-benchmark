@@ -838,7 +838,7 @@ if.end105.loopexit:                               ; preds = %if.end102
   br label %if.end105
 
 if.end105:                                        ; preds = %if.end105.loopexit, %if.end44, %if.end
-  %processed.1 = phi i32 [ 0, %if.end ], [ 0, %if.end44 ], [ %indvars, %if.end105.loopexit ]
+  %processed.0 = phi i32 [ 0, %if.end ], [ 0, %if.end44 ], [ %indvars, %if.end105.loopexit ]
   br i1 %tobool.not.not, label %return, label %if.then108
 
 if.then108:                                       ; preds = %if.end105
@@ -974,11 +974,11 @@ if.end47.i:                                       ; preds = %if.else44.i, %if.th
 
 processTimeEvents.exit:                           ; preds = %if.end47.i, %if.end24.i, %while.cond.backedge.i, %if.then108
   %processed.0.ph.ph.lcssa.i = phi i32 [ 0, %if.then108 ], [ %processed.0.ph.ph53.i, %while.cond.backedge.i ], [ %processed.0.ph.ph53.i, %if.end24.i ], [ %processed.1.i, %if.end47.i ]
-  %add = add nsw i32 %processed.0.ph.ph.lcssa.i, %processed.1
+  %add = add nsw i32 %processed.0.ph.ph.lcssa.i, %processed.0
   br label %return
 
 return:                                           ; preds = %if.end105, %processTimeEvents.exit, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %add, %processTimeEvents.exit ], [ %processed.1, %if.end105 ]
+  %retval.0 = phi i32 [ 0, %entry ], [ %add, %processTimeEvents.exit ], [ %processed.0, %if.end105 ]
   ret i32 %retval.0
 }
 

@@ -175,19 +175,19 @@ define void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr no
   br label %42
 
 42:                                               ; preds = %44, %40
-  %.077 = phi ptr [ %41, %40 ], [ %45, %44 ]
-  %43 = load i8, ptr %.077, align 1
+  %.1 = phi ptr [ %41, %40 ], [ %45, %44 ]
+  %43 = load i8, ptr %.1, align 1
   switch i8 %43, label %44 [
     i8 0, label %.critedge2
     i8 44, label %.critedge2
   ]
 
 44:                                               ; preds = %42
-  %45 = getelementptr i8, ptr %.077, i64 1
+  %45 = getelementptr i8, ptr %.1, i64 1
   br label %42, !llvm.loop !6
 
 .critedge2:                                       ; preds = %42, %42
-  %46 = ptrtoint ptr %.077 to i64
+  %46 = ptrtoint ptr %.1 to i64
   %47 = ptrtoint ptr %41 to i64
   %48 = sub i64 %46, %47
   %49 = trunc i64 %48 to i32
@@ -195,7 +195,7 @@ define void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr no
 
 50:                                               ; preds = %.critedge, %.critedge2
   %.078 = phi ptr [ %41, %.critedge2 ], [ null, %.critedge ]
-  %.1 = phi ptr [ %.077, %.critedge2 ], [ null, %.critedge ]
+  %.077 = phi ptr [ %.1, %.critedge2 ], [ null, %.critedge ]
   %.075 = phi i32 [ %49, %.critedge2 ], [ 0, %.critedge ]
   %51 = and i64 %39, 4294967295
   %52 = icmp eq i64 %51, 0
@@ -385,7 +385,7 @@ expect_boolean_value.exit:                        ; preds = %.thread115, %99, %1
   br i1 %.not92, label %127, label %.loopexit
 
 127:                                              ; preds = %125
-  %128 = icmp eq ptr %.1, null
+  %128 = icmp eq ptr %.077, null
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %127
@@ -394,12 +394,12 @@ expect_boolean_value.exit:                        ; preds = %.thread115, %99, %1
   br i1 %131, label %.loopexit, label %135
 
 132:                                              ; preds = %127
-  %133 = load i8, ptr %.1, align 1
+  %133 = load i8, ptr %.077, align 1
   %134 = icmp eq i8 %133, 0
   br i1 %134, label %.loopexit, label %135
 
 135:                                              ; preds = %132, %129
-  %.v = phi ptr [ %.1, %132 ], [ %.076, %129 ]
+  %.v = phi ptr [ %.077, %132 ], [ %.076, %129 ]
   %136 = getelementptr i8, ptr %.v, i64 1
   br label %32
 

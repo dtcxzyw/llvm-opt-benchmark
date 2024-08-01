@@ -991,8 +991,8 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
 10:                                               ; preds = %4, %98
   %11 = phi i32 [ %5, %4 ], [ %100, %98 ]
   %.0240367 = phi i32 [ 0, %4 ], [ %99, %98 ]
-  %.0242366 = phi i32 [ 0, %4 ], [ %.3331, %98 ]
-  %.0250365 = phi i32 [ 0, %4 ], [ %.2252, %98 ]
+  %.0242366 = phi i32 [ 0, %4 ], [ %.4331, %98 ]
+  %.0250365 = phi i32 [ 0, %4 ], [ %.3253, %98 ]
   %12 = icmp ult i32 %11, 4
   br i1 %12, label %13, label %14
 
@@ -1031,8 +1031,8 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %29
 
 29:                                               ; preds = %27, %23
-  %.1243 = phi i32 [ %28, %27 ], [ %22, %23 ]
-  %30 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1243) #12
+  %.2 = phi i32 [ %28, %27 ], [ %22, %23 ]
+  %30 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #12
   %31 = icmp ult i32 %30, 2
   br i1 %31, label %32, label %34
 
@@ -1041,16 +1041,16 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit316
 
 34:                                               ; preds = %29
-  %35 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1243) #12
-  %36 = add i32 %.1243, 2
+  %35 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2) #12
+  %36 = add i32 %.2, 2
   %37 = zext i16 %35 to i32
   %.not394 = icmp eq i16 %35, 0
   br i1 %.not394, label %.loopexit315, label %.lr.ph
 
 .lr.ph:                                           ; preds = %34, %49
-  %.2358 = phi i32 [ %50, %49 ], [ %36, %34 ]
+  %.3358 = phi i32 [ %50, %49 ], [ %36, %34 ]
   %.0255357 = phi i32 [ %51, %49 ], [ 0, %34 ]
-  %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2358) #12
+  %38 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3358) #12
   %39 = icmp ult i32 %38, 2
   br i1 %39, label %40, label %41
 
@@ -1059,8 +1059,8 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit315
 
 41:                                               ; preds = %.lr.ph
-  %42 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2358) #12
-  %43 = add i32 %.2358, 2
+  %42 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.3358) #12
+  %43 = add i32 %.3358, 2
   %44 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %43) #12
   %45 = zext i16 %42 to i32
   %46 = icmp ult i32 %44, %45
@@ -1077,9 +1077,9 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %exitcond.not, label %.loopexit315, label %.lr.ph, !llvm.loop !4
 
 .loopexit315:                                     ; preds = %49, %34, %40, %47
-  %.2323 = phi i32 [ %.2358, %40 ], [ %.2358, %47 ], [ %36, %34 ], [ %50, %49 ]
-  %.1251 = phi i32 [ %narrow, %40 ], [ %48, %47 ], [ %.0250365, %34 ], [ %.0250365, %49 ]
-  %52 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2323) #12
+  %.3323 = phi i32 [ %.3358, %40 ], [ %.3358, %47 ], [ %36, %34 ], [ %50, %49 ]
+  %.2252 = phi i32 [ %narrow, %40 ], [ %48, %47 ], [ %.0250365, %34 ], [ %.0250365, %49 ]
+  %52 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3323) #12
   %53 = icmp ult i32 %52, 2
   br i1 %53, label %54, label %56
 
@@ -1088,8 +1088,8 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit316
 
 56:                                               ; preds = %.loopexit315
-  %57 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.2323) #12
-  %58 = add i32 %.2323, 2
+  %57 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.3323) #12
+  %58 = add i32 %.3323, 2
   %59 = zext i16 %57 to i32
   %.not395 = icmp eq i16 %57, 0
   br i1 %.not395, label %.loopexit313, label %.lr.ph361
@@ -1098,9 +1098,9 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not267, label %.lr.ph361.split.us, label %.lr.ph361.split
 
 .lr.ph361.split.us:                               ; preds = %.lr.ph361, %65
-  %.3360.us = phi i32 [ %66, %65 ], [ %58, %.lr.ph361 ]
+  %.4360.us = phi i32 [ %66, %65 ], [ %58, %.lr.ph361 ]
   %.0256359.us = phi i32 [ %67, %65 ], [ 0, %.lr.ph361 ]
-  %60 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3360.us) #12
+  %60 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.4360.us) #12
   %61 = tail call fastcc i32 @dissect_jxta_message_element_1(ptr noundef %60, ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef null)
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %.split.us, label %63
@@ -1110,22 +1110,22 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %64, label %.loopexit314, label %65
 
 65:                                               ; preds = %63
-  %66 = add i32 %61, %.3360.us
+  %66 = add i32 %61, %.4360.us
   %67 = add nuw nsw i32 %.0256359.us, 1
   %exitcond459.not = icmp eq i32 %67, %59
   br i1 %exitcond459.not, label %.loopexit313, label %.lr.ph361.split.us, !llvm.loop !6
 
 .lr.ph361.split:                                  ; preds = %.lr.ph361, %74
-  %.3360 = phi i32 [ %75, %74 ], [ %58, %.lr.ph361 ]
+  %.4360 = phi i32 [ %75, %74 ], [ %58, %.lr.ph361 ]
   %.0256359 = phi i32 [ %76, %74 ], [ 0, %.lr.ph361 ]
-  %68 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3360) #12
+  %68 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.4360) #12
   %69 = tail call fastcc i32 @dissect_jxta_message_element_2(ptr noundef %68, ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef null)
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %.split.us, label %72
 
 .split.us:                                        ; preds = %.lr.ph361.split, %.lr.ph361.split.us
   %.us-phi = phi i32 [ %61, %.lr.ph361.split.us ], [ %69, %.lr.ph361.split ]
-  %.us-phi363 = phi i32 [ %.3360.us, %.lr.ph361.split.us ], [ %.3360, %.lr.ph361.split ]
+  %.us-phi363 = phi i32 [ %.4360.us, %.lr.ph361.split.us ], [ %.4360, %.lr.ph361.split ]
   %71 = sub i32 0, %.us-phi
   br label %.loopexit313
 
@@ -1134,14 +1134,14 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %73, label %.loopexit314, label %74
 
 74:                                               ; preds = %72
-  %75 = add i32 %69, %.3360
+  %75 = add i32 %69, %.4360
   %76 = add nuw nsw i32 %.0256359, 1
   %exitcond458.not = icmp eq i32 %76, %59
   br i1 %exitcond458.not, label %.loopexit313, label %.lr.ph361.split, !llvm.loop !6
 
 .loopexit313:                                     ; preds = %74, %65, %56, %.split.us
-  %.3331 = phi i32 [ %.us-phi363, %.split.us ], [ %58, %56 ], [ %66, %65 ], [ %75, %74 ]
-  %.2252 = phi i32 [ %71, %.split.us ], [ %.1251, %56 ], [ %.1251, %65 ], [ %.1251, %74 ]
+  %.4331 = phi i32 [ %.us-phi363, %.split.us ], [ %58, %56 ], [ %66, %65 ], [ %75, %74 ]
+  %.3253 = phi i32 [ %71, %.split.us ], [ %.2252, %56 ], [ %.2252, %65 ], [ %.2252, %74 ]
   %77 = load i32, ptr @uri_address_type, align 4
   %78 = load i32, ptr %6, align 8
   %79 = icmp eq i32 %77, %78
@@ -1170,7 +1170,7 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   store ptr %91, ptr %93, align 8
   %94 = getelementptr inbounds i8, ptr %85, i64 40
   store ptr null, ptr %94, align 8
-  %95 = sub i32 %.3331, %.0242366
+  %95 = sub i32 %.4331, %.0242366
   %96 = getelementptr inbounds i8, ptr %85, i64 48
   store i32 %95, ptr %96, align 8
   %97 = load i32, ptr @jxta_tap, align 4
@@ -1179,7 +1179,7 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
 
 98:                                               ; preds = %83, %80, %.loopexit313
   %99 = add i32 %.0240367, 1
-  %100 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3331) #12
+  %100 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4331) #12
   %101 = icmp eq i32 %100, 0
   %102 = icmp ne i32 %99, 0
   %or.cond = select i1 %101, i1 %102, i1 false
@@ -1187,9 +1187,9 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
 
 .loopexit316:                                     ; preds = %24, %16, %98, %54, %32, %13
   %.0240344 = phi i32 [ %.0240367, %13 ], [ %.0240367, %32 ], [ %.0240367, %54 ], [ %99, %98 ], [ %.0240367, %16 ], [ %.0240367, %24 ]
-  %.3253 = phi i32 [ %narrow268, %13 ], [ %33, %32 ], [ %55, %54 ], [ %.2252, %98 ], [ 1, %16 ], [ 1, %24 ]
-  %.4 = phi i32 [ %.0242366, %13 ], [ %.1243, %32 ], [ %.2323, %54 ], [ %.3331, %98 ], [ %17, %16 ], [ %22, %24 ]
-  %103 = icmp sgt i32 %.3253, 0
+  %.1251 = phi i32 [ %narrow268, %13 ], [ %33, %32 ], [ %55, %54 ], [ %.3253, %98 ], [ 1, %16 ], [ 1, %24 ]
+  %.1243 = phi i32 [ %.0242366, %13 ], [ %.2, %32 ], [ %.3323, %54 ], [ %.4331, %98 ], [ %17, %16 ], [ %22, %24 ]
+  %103 = icmp sgt i32 %.1251, 0
   %104 = load i32, ptr @gDESEGMENT, align 4
   %105 = icmp ne i32 %104, 0
   %or.cond6 = select i1 %103, i1 %105, i1 false
@@ -1205,8 +1205,8 @@ define internal i32 @dissect_jxta_message(ptr noundef %0, ptr noundef %1, ptr no
   %110 = getelementptr inbounds i8, ptr %1, i64 332
   store i32 0, ptr %110, align 4
   %111 = getelementptr inbounds i8, ptr %1, i64 336
-  store i32 %.3253, ptr %111, align 8
-  %112 = sub nsw i32 0, %.3253
+  store i32 %.1251, ptr %111, align 8
+  %112 = sub nsw i32 0, %.1251
   br label %.loopexit314
 
 113:                                              ; preds = %106, %.loopexit316
@@ -1604,7 +1604,7 @@ proto_item_set_generated.exit311:                 ; preds = %254, %261, %257, %p
 
 ._crit_edge391:                                   ; preds = %._crit_edge376, %139
   %.0245.lcssa = phi i32 [ 0, %139 ], [ %.3248.lcssa, %._crit_edge376 ]
-  %309 = icmp ne i32 %.0245.lcssa, %.4
+  %309 = icmp ne i32 %.0245.lcssa, %.1243
   %or.cond273.not = and i1 %141, %309
   br i1 %or.cond273.not, label %310, label %.loopexit314
 
@@ -1613,7 +1613,7 @@ proto_item_set_generated.exit311:                 ; preds = %254, %261, %257, %p
   unreachable
 
 .loopexit314:                                     ; preds = %20, %14, %72, %63, %.lr.ph375.split, %._crit_edge391, %109
-  %.0 = phi i32 [ %112, %109 ], [ %.4, %._crit_edge391 ], [ 0, %.lr.ph375.split ], [ 0, %63 ], [ 0, %72 ], [ 0, %14 ], [ 0, %20 ]
+  %.0 = phi i32 [ %112, %109 ], [ %.1243, %._crit_edge391 ], [ 0, %.lr.ph375.split ], [ 0, %63 ], [ 0, %72 ], [ 0, %14 ], [ 0, %20 ]
   ret i32 %.0
 }
 
@@ -1964,8 +1964,8 @@ define internal fastcc i32 @dissect_media(ptr noundef %0, ptr noundef %1, ptr no
   br label %47
 
 47:                                               ; preds = %44, %34, %37, %26
-  %.0 = phi i32 [ %27, %26 ], [ %38, %37 ], [ %35, %34 ], [ %45, %44 ]
-  %48 = icmp eq i32 %.0, 0
+  %.1 = phi i32 [ %27, %26 ], [ %38, %37 ], [ %35, %34 ], [ %45, %44 ]
+  %48 = icmp eq i32 %.1, 0
   br i1 %48, label %.thread, label %.thread67
 
 .thread67:                                        ; preds = %47
@@ -1984,7 +1984,7 @@ define internal fastcc i32 @dissect_media(ptr noundef %0, ptr noundef %1, ptr no
   br label %53
 
 53:                                               ; preds = %.thread67, %.thread65, %.thread
-  %.3 = phi i32 [ %52, %.thread65 ], [ %50, %.thread ], [ %.0, %.thread67 ]
+  %.3 = phi i32 [ %52, %.thread65 ], [ %50, %.thread ], [ %.1, %.thread67 ]
   %54 = call i32 @tvb_reported_length(ptr noundef %1) #12
   %55 = icmp slt i32 %.3, %54
   br i1 %55, label %56, label %proto_item_set_generated.exit
@@ -2662,13 +2662,13 @@ define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr n
   br label %46
 
 46:                                               ; preds = %44, %27
-  %.0188 = phi i32 [ %45, %44 ], [ %28, %27 ]
+  %.1 = phi i32 [ %45, %44 ], [ %28, %27 ]
   %47 = and i32 %29, 2
   %.not214 = icmp eq i32 %47, 0
   br i1 %.not214, label %63, label %48
 
 48:                                               ; preds = %46
-  %49 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0188) #12
+  %49 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #12
   %50 = icmp ult i32 %49, 2
   br i1 %50, label %51, label %53
 
@@ -2677,8 +2677,8 @@ define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr n
   br label %88
 
 53:                                               ; preds = %48
-  %54 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0188) #12
-  %55 = add nuw nsw i32 %.0188, 2
+  %54 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1) #12
+  %55 = add nuw nsw i32 %.1, 2
   %56 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %55) #12
   %57 = zext i16 %54 to i32
   %58 = icmp ult i32 %56, %57
@@ -2693,8 +2693,8 @@ define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr n
   br label %63
 
 63:                                               ; preds = %61, %46
-  %.1 = phi i32 [ %62, %61 ], [ %.0188, %46 ]
-  %64 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #12
+  %.2 = phi i32 [ %62, %61 ], [ %.1, %46 ]
+  %64 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #12
   %65 = icmp ult i32 %64, 2
   br i1 %65, label %66, label %68
 
@@ -2703,8 +2703,8 @@ define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr n
   br label %88
 
 68:                                               ; preds = %63
-  %69 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.1) #12
-  %70 = add nuw nsw i32 %.1, 4
+  %69 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2) #12
+  %70 = add nuw nsw i32 %.2, 4
   %71 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %70) #12
   %72 = icmp ult i32 %71, %69
   br i1 %72, label %73, label %75
@@ -2741,7 +2741,7 @@ define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr n
 
 88:                                               ; preds = %11, %8, %75, %86, %84, %73, %66, %59, %51, %42, %34, %25, %18
   %.1190 = phi i32 [ %19, %18 ], [ %26, %25 ], [ %35, %34 ], [ %43, %42 ], [ %52, %51 ], [ %60, %59 ], [ %67, %66 ], [ %74, %73 ], [ %85, %84 ], [ %spec.select, %86 ], [ %spec.select, %75 ], [ 1, %8 ], [ 1, %11 ]
-  %.2 = phi i32 [ 6, %18 ], [ 8, %25 ], [ %28, %34 ], [ %38, %42 ], [ %.0188, %51 ], [ %55, %59 ], [ %.1, %66 ], [ %70, %73 ], [ %76, %84 ], [ %87, %86 ], [ %76, %75 ], [ 4, %8 ], [ 5, %11 ]
+  %.0188 = phi i32 [ 6, %18 ], [ 8, %25 ], [ %28, %34 ], [ %38, %42 ], [ %.1, %51 ], [ %55, %59 ], [ %.2, %66 ], [ %70, %73 ], [ %76, %84 ], [ %87, %86 ], [ %76, %75 ], [ 4, %8 ], [ 5, %11 ]
   %89 = icmp sgt i32 %.1190, 0
   %90 = load i32, ptr @gDESEGMENT, align 4
   %91 = icmp ne i32 %90, 0
@@ -2860,7 +2860,7 @@ define internal fastcc i32 @dissect_jxta_message_element_1(ptr noundef %0, ptr n
   br label %163
 
 163:                                              ; preds = %78, %5, %162, %95
-  %.0 = phi i32 [ %98, %95 ], [ %.2, %162 ], [ 0, %5 ], [ %76, %78 ]
+  %.0 = phi i32 [ %98, %95 ], [ %.0188, %162 ], [ 0, %5 ], [ %76, %78 ]
   ret i32 %.0
 }
 
@@ -2925,13 +2925,13 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   br label %38
 
 38:                                               ; preds = %23, %36
-  %.0220 = phi i32 [ %37, %36 ], [ 9, %23 ]
+  %.1 = phi i32 [ %37, %36 ], [ 9, %23 ]
   %39 = and i32 %18, 4
   %.not248 = icmp eq i32 %39, 0
   br i1 %.not248, label %47, label %40
 
 40:                                               ; preds = %38
-  %41 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0220) #12
+  %41 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #12
   %42 = icmp ult i32 %41, 2
   br i1 %42, label %43, label %45
 
@@ -2940,17 +2940,17 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   br label %97
 
 45:                                               ; preds = %40
-  %46 = add nuw nsw i32 %.0220, 2
+  %46 = add nuw nsw i32 %.1, 2
   br label %47
 
 47:                                               ; preds = %45, %38
-  %.1 = phi i32 [ %46, %45 ], [ %.0220, %38 ]
+  %.2 = phi i32 [ %46, %45 ], [ %.1, %38 ]
   %48 = and i32 %18, 16
   %.not249 = icmp eq i32 %48, 0
   br i1 %.not249, label %56, label %49
 
 49:                                               ; preds = %47
-  %50 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #12
+  %50 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #12
   %51 = icmp ult i32 %50, 2
   br i1 %51, label %52, label %54
 
@@ -2959,14 +2959,14 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   br label %97
 
 54:                                               ; preds = %49
-  %55 = add nuw nsw i32 %.1, 2
+  %55 = add nuw nsw i32 %.2, 2
   br label %56
 
 56:                                               ; preds = %54, %47
-  %.2 = phi i32 [ %55, %54 ], [ %.1, %47 ]
+  %.3 = phi i32 [ %55, %54 ], [ %.2, %47 ]
   %57 = and i32 %18, 1
   %.not250 = icmp eq i32 %57, 0
-  %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #12
+  %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3) #12
   br i1 %.not250, label %73, label %59
 
 59:                                               ; preds = %56
@@ -2978,8 +2978,8 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   br label %97
 
 62:                                               ; preds = %59
-  %63 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.2) #12
-  %64 = add nuw nsw i32 %.2, 8
+  %63 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %.3) #12
+  %64 = add nuw nsw i32 %.3, 8
   %65 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %64) #12
   %66 = zext i32 %65 to i64
   %67 = icmp ugt i64 %63, %66
@@ -3003,8 +3003,8 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   br label %97
 
 77:                                               ; preds = %73
-  %78 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.2) #12
-  %79 = add nuw nsw i32 %.2, 4
+  %78 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.3) #12
+  %79 = add nuw nsw i32 %.3, 4
   %80 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %79) #12
   %81 = icmp ult i32 %80, %78
   br i1 %81, label %82, label %83
@@ -3018,13 +3018,13 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   br label %85
 
 85:                                               ; preds = %83, %71
-  %.3 = phi i32 [ %72, %71 ], [ %84, %83 ]
+  %.4 = phi i32 [ %72, %71 ], [ %84, %83 ]
   %86 = and i32 %18, 8
   %.not252 = icmp eq i32 %86, 0
   br i1 %.not252, label %97, label %87
 
 87:                                               ; preds = %85
-  %88 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3) #12
+  %88 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.4) #12
   tail call void @increment_dissection_depth(ptr noundef %1) #12
   %89 = tail call fastcc i32 @dissect_jxta_message_element_2(ptr noundef %88, ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef null)
   tail call void @decrement_dissection_depth(ptr noundef %1) #12
@@ -3040,12 +3040,12 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   br label %97
 
 95:                                               ; preds = %91
-  %96 = add i32 %89, %.3
+  %96 = add i32 %89, %.4
   br label %97
 
 97:                                               ; preds = %8, %85, %95, %93, %82, %75, %69, %61, %52, %43, %34, %27, %24, %15
   %.1222 = phi i32 [ %16, %15 ], [ %25, %24 ], [ %44, %43 ], [ %53, %52 ], [ %narrow253, %61 ], [ %70, %69 ], [ %94, %93 ], [ %spec.select, %95 ], [ %spec.select, %85 ], [ %76, %75 ], [ %narrow251, %82 ], [ %28, %27 ], [ %35, %34 ], [ 1, %8 ]
-  %.4 = phi i32 [ 5, %15 ], [ 7, %24 ], [ %.0220, %43 ], [ %.1, %52 ], [ %.2, %61 ], [ %64, %69 ], [ %.3, %93 ], [ %96, %95 ], [ %.3, %85 ], [ %.2, %75 ], [ %79, %82 ], [ 7, %27 ], [ 9, %34 ], [ 4, %8 ]
+  %.0220 = phi i32 [ 5, %15 ], [ 7, %24 ], [ %.1, %43 ], [ %.2, %52 ], [ %.3, %61 ], [ %64, %69 ], [ %.4, %93 ], [ %96, %95 ], [ %.4, %85 ], [ %.3, %75 ], [ %79, %82 ], [ 7, %27 ], [ 9, %34 ], [ 4, %8 ]
   %98 = icmp sgt i32 %.1222, 0
   %99 = load i32, ptr @gDESEGMENT, align 4
   %100 = icmp ne i32 %99, 0
@@ -3238,7 +3238,7 @@ define internal fastcc i32 @dissect_jxta_message_element_2(ptr noundef %0, ptr n
   br label %209
 
 209:                                              ; preds = %87, %5, %208, %104
-  %.0 = phi i32 [ %107, %104 ], [ %.4, %208 ], [ 0, %5 ], [ %.3, %87 ]
+  %.0 = phi i32 [ %107, %104 ], [ %.0220, %208 ], [ 0, %5 ], [ %.4, %87 ]
   ret i32 %.0
 }
 

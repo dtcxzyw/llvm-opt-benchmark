@@ -1001,7 +1001,7 @@ if.end8:                                          ; preds = %if.end, %if.end7
   br i1 %tobool9.not10, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end8, %if.end25
-  %bookmark_failed.012 = phi i32 [ %bookmark_failed.2, %if.end25 ], [ 0, %if.end8 ]
+  %bookmark_failed.012 = phi i32 [ %bookmark_failed.1, %if.end25 ], [ 0, %if.end8 ]
   %iterations.011 = phi i64 [ %iterations.1, %if.end25 ], [ 0, %if.end8 ]
   %4 = load ptr, ptr %ql, align 8
   call void @activeDefragQuickListNode(ptr noundef %4, ptr noundef nonnull %node)
@@ -1037,7 +1037,7 @@ if.else21:                                        ; preds = %if.then17
 if.end25:                                         ; preds = %while.body.if.end25_crit_edge, %if.then14, %if.then17
   %7 = phi ptr [ %.pre13, %while.body.if.end25_crit_edge ], [ %.pre14, %if.then17 ], [ %.pre14, %if.then14 ]
   %iterations.1 = phi i64 [ %inc11, %while.body.if.end25_crit_edge ], [ 0, %if.then17 ], [ 0, %if.then14 ]
-  %bookmark_failed.2 = phi i32 [ %bookmark_failed.012, %while.body.if.end25_crit_edge ], [ 1, %if.then17 ], [ 0, %if.then14 ]
+  %bookmark_failed.1 = phi i32 [ %bookmark_failed.012, %while.body.if.end25_crit_edge ], [ 1, %if.then17 ], [ 0, %if.then14 ]
   %next26 = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load ptr, ptr %next26, align 8
   store ptr %8, ptr %node, align 8
@@ -1046,7 +1046,7 @@ if.end25:                                         ; preds = %while.body.if.end25
 
 while.end.loopexit:                               ; preds = %if.end25
   %.pre15 = load ptr, ptr %ql, align 8
-  %9 = icmp ne i32 %bookmark_failed.2, 0
+  %9 = icmp ne i32 %bookmark_failed.1, 0
   %10 = zext i1 %9 to i64
   br label %while.end
 
@@ -3101,9 +3101,9 @@ do.body:                                          ; preds = %do.cond139, %if.end
   %13 = phi i32 [ %.pre40, %if.end28 ], [ %60, %do.cond139 ]
   %14 = phi i64 [ %.pre38, %if.end28 ], [ %61, %do.cond139 ]
   %15 = phi i64 [ %.pre36, %if.end28 ], [ %62, %do.cond139 ]
-  %prev_scanned.0 = phi i64 [ %1, %if.end28 ], [ %prev_scanned.3, %do.cond139 ]
-  %prev_defragged.0 = phi i64 [ %0, %if.end28 ], [ %prev_defragged.3, %do.cond139 ]
-  %iterations.0 = phi i32 [ 0, %if.end28 ], [ %iterations.4, %do.cond139 ]
+  %prev_scanned.0 = phi i64 [ %1, %if.end28 ], [ %prev_scanned.1, %do.cond139 ]
+  %prev_defragged.0 = phi i64 [ %0, %if.end28 ], [ %prev_defragged.1, %do.cond139 ]
+  %iterations.0 = phi i32 [ 0, %if.end28 ], [ %iterations.1, %do.cond139 ]
   %tobool29 = icmp eq i64 %15, 0
   %tobool30 = icmp eq i64 %14, 0
   %or.cond.not19 = select i1 %tobool29, i1 %tobool30, i1 false
@@ -3252,9 +3252,9 @@ do.body73.preheader:                              ; preds = %if.end70, %do.body
 
 do.body73:                                        ; preds = %do.body73.preheader, %do.cond
   %34 = phi i32 [ %59, %do.cond ], [ %.ph, %do.body73.preheader ]
-  %prev_scanned.1 = phi i64 [ %prev_scanned.2, %do.cond ], [ %prev_scanned.0, %do.body73.preheader ]
-  %prev_defragged.1 = phi i64 [ %prev_defragged.2, %do.cond ], [ %prev_defragged.0, %do.body73.preheader ]
-  %iterations.1 = phi i32 [ %iterations.3, %do.cond ], [ %iterations.0, %do.body73.preheader ]
+  %prev_scanned.2 = phi i64 [ %prev_scanned.3, %do.cond ], [ %prev_scanned.0, %do.body73.preheader ]
+  %prev_defragged.2 = phi i64 [ %prev_defragged.3, %do.cond ], [ %prev_defragged.0, %do.body73.preheader ]
+  %iterations.2 = phi i32 [ %iterations.3, %do.cond ], [ %iterations.0, %do.body73.preheader ]
   %35 = load ptr, ptr @activeDefragCycle.db, align 8
   %36 = load ptr, ptr %35, align 8
   %idxprom74 = sext i32 %34 to i64
@@ -3345,19 +3345,19 @@ if.end103:                                        ; preds = %if.end92.if.end103_
   br i1 %or.cond4, label %do.end142, label %lor.lhs.false110
 
 lor.lhs.false110:                                 ; preds = %if.end103
-  %inc111 = add i32 %iterations.1, 1
+  %inc111 = add i32 %iterations.2, 1
   %cmp112 = icmp ugt i32 %inc111, 16
   br i1 %cmp112, label %if.then122, label %lor.lhs.false114
 
 lor.lhs.false114:                                 ; preds = %lor.lhs.false110
   %53 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
-  %sub115 = sub i64 %53, %prev_defragged.1
+  %sub115 = sub i64 %53, %prev_defragged.2
   %cmp116 = icmp ugt i64 %sub115, 512
   br i1 %cmp116, label %if.then122, label %lor.lhs.false118
 
 lor.lhs.false118:                                 ; preds = %lor.lhs.false114
   %54 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2088), align 8
-  %sub119 = sub i64 %54, %prev_scanned.1
+  %sub119 = sub i64 %54, %prev_scanned.2
   %cmp120 = icmp ugt i64 %sub119, 64
   br i1 %cmp120, label %if.then122, label %do.cond
 
@@ -3379,9 +3379,9 @@ if.end129:                                        ; preds = %lor.lhs.false124
 do.cond:                                          ; preds = %lor.lhs.false118, %if.end129, %if.then100
   %57 = phi i64 [ %.pre47, %if.end129 ], [ %51, %lor.lhs.false118 ], [ 0, %if.then100 ]
   %58 = phi i64 [ %.pre46, %if.end129 ], [ %52, %lor.lhs.false118 ], [ 0, %if.then100 ]
-  %prev_scanned.2 = phi i64 [ %56, %if.end129 ], [ %prev_scanned.1, %lor.lhs.false118 ], [ %prev_scanned.1, %if.then100 ]
-  %prev_defragged.2 = phi i64 [ %55, %if.end129 ], [ %prev_defragged.1, %lor.lhs.false118 ], [ %prev_defragged.1, %if.then100 ]
-  %iterations.3 = phi i32 [ 0, %if.end129 ], [ %inc111, %lor.lhs.false118 ], [ %iterations.1, %if.then100 ]
+  %prev_scanned.3 = phi i64 [ %56, %if.end129 ], [ %prev_scanned.2, %lor.lhs.false118 ], [ %prev_scanned.2, %if.then100 ]
+  %prev_defragged.3 = phi i64 [ %55, %if.end129 ], [ %prev_defragged.2, %lor.lhs.false118 ], [ %prev_defragged.2, %if.then100 ]
+  %iterations.3 = phi i32 [ 0, %if.end129 ], [ %inc111, %lor.lhs.false118 ], [ %iterations.2, %if.then100 ]
   %tobool131 = icmp ne i64 %58, 0
   %tobool133 = icmp ne i64 %57, 0
   %or.cond5 = select i1 %tobool131, i1 true, i1 %tobool133
@@ -3394,9 +3394,9 @@ do.cond139:                                       ; preds = %do.cond, %land.lhs.
   %60 = phi i32 [ %.pre39, %land.lhs.true58 ], [ %59, %do.cond ]
   %61 = phi i64 [ %.pre37, %land.lhs.true58 ], [ 0, %do.cond ]
   %62 = phi i64 [ %.pre, %land.lhs.true58 ], [ 0, %do.cond ]
-  %prev_scanned.3 = phi i64 [ %prev_scanned.0, %land.lhs.true58 ], [ %prev_scanned.2, %do.cond ]
-  %prev_defragged.3 = phi i64 [ %prev_defragged.0, %land.lhs.true58 ], [ %prev_defragged.2, %do.cond ]
-  %iterations.4 = phi i32 [ %iterations.0, %land.lhs.true58 ], [ %iterations.3, %do.cond ]
+  %prev_scanned.1 = phi i64 [ %prev_scanned.0, %land.lhs.true58 ], [ %prev_scanned.3, %do.cond ]
+  %prev_defragged.1 = phi i64 [ %prev_defragged.0, %land.lhs.true58 ], [ %prev_defragged.3, %do.cond ]
+  %iterations.1 = phi i32 [ %iterations.0, %land.lhs.true58 ], [ %iterations.3, %do.cond ]
   br label %do.body, !llvm.loop !18
 
 do.end142:                                        ; preds = %land.lhs.true36, %do.end, %land.lhs.true58, %if.end103, %if.then122, %lor.lhs.false124, %do.body73

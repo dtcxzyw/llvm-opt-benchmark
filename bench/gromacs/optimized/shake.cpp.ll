@@ -800,7 +800,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %2, %16
 20:                                               ; preds = %.lr.ph, %.loopexit
   %21 = phi ptr [ %17, %.lr.ph ], [ %58, %.loopexit ]
   %.038 = phi ptr [ %5, %.lr.ph ], [ %59, %.loopexit ]
-  %.01837 = phi i32 [ 0, %.lr.ph ], [ %.2, %.loopexit ]
+  %.01837 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
   %.01936 = phi i32 [ 0, %.lr.ph ], [ %60, %.loopexit ]
   %22 = icmp eq i32 %.01936, 0
   br i1 %22, label %26, label %23
@@ -888,7 +888,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %29, %_ZNSt6vectorIi
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit, %23
   %58 = phi ptr [ %21, %23 ], [ %55, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
-  %.2 = phi i32 [ %.01837, %23 ], [ %smax, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
+  %.1 = phi i32 [ %.01837, %23 ], [ %smax, %_ZNSt6vectorIiSaIiEE9push_backEOi.exit ]
   %59 = getelementptr inbounds i8, ptr %.038, i64 12
   %60 = add nuw nsw i32 %.01936, 1
   %exitcond.not = icmp eq i32 %60, %11

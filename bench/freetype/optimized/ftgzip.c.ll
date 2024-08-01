@@ -393,7 +393,7 @@ ft_gzip_file_skip_output.exit:                    ; preds = %29
 46:                                               ; preds = %.preheader, %59
   %.036 = phi ptr [ %60, %59 ], [ %2, %.preheader ]
   %.035 = phi i64 [ %57, %59 ], [ %3, %.preheader ]
-  %.034 = phi i64 [ %52, %59 ], [ 0, %.preheader ]
+  %.1 = phi i64 [ %52, %59 ], [ 0, %.preheader ]
   %47 = load ptr, ptr %44, align 8
   %48 = load ptr, ptr %45, align 8
   %49 = ptrtoint ptr %47 to i64
@@ -401,7 +401,7 @@ ft_gzip_file_skip_output.exit:                    ; preds = %29
   %51 = sub i64 %49, %50
   %spec.select = tail call i64 @llvm.umin.i64(i64 %51, i64 %.035)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.036, ptr align 1 %48, i64 %spec.select, i1 false)
-  %52 = add i64 %spec.select, %.034
+  %52 = add i64 %spec.select, %.1
   %53 = load ptr, ptr %45, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 %spec.select
   store ptr %54, ptr %45, align 8
@@ -419,8 +419,8 @@ ft_gzip_file_skip_output.exit:                    ; preds = %29
   br i1 %.not44, label %46, label %ft_gzip_file_reset.exit
 
 ft_gzip_file_reset.exit:                          ; preds = %40, %46, %59, %8, %43, %ft_gzip_file_skip_output.exit
-  %.1 = phi i64 [ 0, %ft_gzip_file_skip_output.exit ], [ 0, %43 ], [ 0, %8 ], [ %52, %59 ], [ %52, %46 ], [ 0, %40 ]
-  ret i64 %.1
+  %.034 = phi i64 [ 0, %ft_gzip_file_skip_output.exit ], [ 0, %43 ], [ 0, %8 ], [ %52, %59 ], [ %52, %46 ], [ 0, %40 ]
+  ret i64 %.034
 }
 
 ; Function Attrs: nounwind uwtable
@@ -674,8 +674,8 @@ ft_gzip_file_fill_input.exit:                     ; preds = %16, %33
   br label %ft_gzip_file_fill_input.exit.thread
 
 ft_gzip_file_fill_input.exit.thread:              ; preds = %thread-pre-split, %30, %21, %43, %48
-  %.2 = phi i32 [ 85, %48 ], [ %spec.select, %43 ], [ 85, %21 ], [ 85, %30 ], [ 0, %thread-pre-split ]
-  ret i32 %.2
+  %.1 = phi i32 [ 85, %48 ], [ %spec.select, %43 ], [ 85, %21 ], [ 85, %30 ], [ 0, %thread-pre-split ]
+  ret i32 %.1
 }
 
 declare i32 @inflateReset(ptr noundef) local_unnamed_addr #2

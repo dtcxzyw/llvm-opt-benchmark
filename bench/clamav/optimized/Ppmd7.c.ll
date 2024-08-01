@@ -602,12 +602,12 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #5 {
   br label %80
 
 80:                                               ; preds = %80, %78
-  %.185 = phi i32 [ %72, %78 ], [ %83, %80 ]
+  %.2 = phi i32 [ %72, %78 ], [ %83, %80 ]
   %.sroa.2.0 = phi i8 [ %.sroa.2.0.copyload, %78 ], [ %82, %80 ]
   %81 = lshr i8 %.sroa.2.0, 1
   %82 = sub i8 %.sroa.2.0, %81
-  %83 = lshr i32 %.185, 1
-  %84 = icmp ugt i32 %.185, 3
+  %83 = lshr i32 %.2, 1
+  %84 = icmp ugt i32 %.2, 3
   br i1 %84, label %80, label %85
 
 85:                                               ; preds = %80
@@ -783,9 +783,9 @@ ShrinkUnits.exit:                                 ; preds = %.ShrinkUnits.exit_c
 
 196:                                              ; preds = %104, %ShrinkUnits.exit, %58
   %197 = phi ptr [ %.pre117, %ShrinkUnits.exit ], [ %75, %104 ], [ %.pre118, %58 ]
-  %.2 = phi i32 [ %72, %ShrinkUnits.exit ], [ %72, %104 ], [ %39, %58 ]
-  %198 = add i32 %.2, %43
-  %199 = lshr i32 %.2, 1
+  %.185 = phi i32 [ %72, %ShrinkUnits.exit ], [ %72, %104 ], [ %39, %58 ]
+  %198 = add i32 %.185, %43
+  %199 = lshr i32 %.185, 1
   %200 = sub i32 %198, %199
   %201 = trunc i32 %200 to i16
   %202 = getelementptr inbounds i8, ptr %197, i64 2
@@ -1004,16 +1004,16 @@ define internal fastcc void @UpdateModel(ptr nocapture noundef %0) unnamed_addr 
   br i1 %.not175, label %48, label %.preheader
 
 .preheader:                                       ; preds = %33, %.preheader
-  %.0160 = phi ptr [ %40, %.preheader ], [ %37, %33 ]
-  %40 = getelementptr inbounds i8, ptr %.0160, i64 6
+  %.1161 = phi ptr [ %40, %.preheader ], [ %37, %33 ]
+  %40 = getelementptr inbounds i8, ptr %.1161, i64 6
   %41 = load i8, ptr %40, align 2
   %.not176 = icmp eq i8 %41, %39
   br i1 %.not176, label %42, label %.preheader
 
 42:                                               ; preds = %.preheader
-  %43 = getelementptr inbounds i8, ptr %.0160, i64 7
+  %43 = getelementptr inbounds i8, ptr %.1161, i64 7
   %44 = load i8, ptr %43, align 1
-  %45 = getelementptr inbounds i8, ptr %.0160, i64 1
+  %45 = getelementptr inbounds i8, ptr %.1161, i64 1
   %46 = load i8, ptr %45, align 1
   %.not177 = icmp ult i8 %44, %46
   br i1 %.not177, label %48, label %47
@@ -1021,14 +1021,14 @@ define internal fastcc void @UpdateModel(ptr nocapture noundef %0) unnamed_addr 
 47:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %2, ptr noundef nonnull align 2 dereferenceable(6) %40, i64 6, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %40, ptr noundef nonnull align 2 dereferenceable(6) %.0160, i64 6, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.0160, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %40, ptr noundef nonnull align 2 dereferenceable(6) %.1161, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.1161, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %2)
   br label %48
 
 48:                                               ; preds = %42, %47, %33
-  %.1161 = phi ptr [ %.0160, %47 ], [ %40, %42 ], [ %37, %33 ]
-  %49 = getelementptr inbounds i8, ptr %.1161, i64 1
+  %.0160 = phi ptr [ %.1161, %47 ], [ %40, %42 ], [ %37, %33 ]
+  %49 = getelementptr inbounds i8, ptr %.0160, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = icmp ult i8 %50, 115
   br i1 %51, label %52, label %56

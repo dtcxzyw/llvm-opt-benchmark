@@ -448,11 +448,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit: ; preds = %15
   br i1 %31, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread47
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread47: ; preds = %.backedge, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit
-  %.150 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.044, %.backedge ]
-  %32 = load i8, ptr %.150, align 1
+  %.350 = phi ptr [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.044, %.backedge ]
+  %32 = load i8, ptr %.350, align 1
   %33 = zext i8 %32 to i32
   %34 = icmp sgt i8 %32, -1
-  %35 = getelementptr inbounds i8, ptr %.150, i64 1
+  %35 = getelementptr inbounds i8, ptr %.350, i64 1
   br i1 %34, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit, label %36
 
 36:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread47
@@ -465,11 +465,11 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread47: ; preds = %.
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %.150, i64 2
+  %44 = getelementptr inbounds i8, ptr %.350, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 45:                                               ; preds = %36
-  %46 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.150, i32 noundef %41)
+  %46 = call { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(ptr noundef nonnull %.350, i32 noundef %41)
   %47 = extractvalue { ptr, i32 } %46, 0
   %48 = extractvalue { ptr, i32 } %46, 1
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
@@ -683,8 +683,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not15, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit24, %87, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29, %132, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %23, %108, %109
-  %.3 = phi ptr [ %.0.i, %109 ], [ null, %108 ], [ %spec.select, %23 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit24 ], [ null, %87 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29 ], [ null, %132 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  ret ptr %.3
+  %.2 = phi ptr [ %.0.i, %109 ], [ null, %108 ], [ %spec.select, %23 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit24 ], [ null, %87 ], [ null, %_ZN6google8protobuf8internal12ReadVarint32EPPKc.exit29 ], [ null, %132 ], [ %29, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  ret ptr %.2
 }
 
 declare noundef ptr @_ZN6google8protobuf8internal17PackedInt32ParserEPvPKcPNS1_12ParseContextE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0

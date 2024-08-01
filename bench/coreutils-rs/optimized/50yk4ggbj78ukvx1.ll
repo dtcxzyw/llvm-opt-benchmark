@@ -1265,10 +1265,10 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.17982877770584496632.exit.i: ; pre
   br label %180
 
 185:                                              ; preds = %136, %180
-  %.sroa.032.1 = phi i64 [ %144, %180 ], [ -9223372036854775808, %136 ]
+  %.sroa.032.0 = phi i64 [ %144, %180 ], [ -9223372036854775808, %136 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
-  store i64 %.sroa.032.1, ptr %91, align 8
+  store i64 %.sroa.032.0, ptr %91, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.434.0..sroa_idx35, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.434, i64 40, i1 false)
   store i8 1, ptr %92, align 8
   %186 = load i64, ptr %75, align 8, !alias.scope !215, !noalias !218, !noundef !4

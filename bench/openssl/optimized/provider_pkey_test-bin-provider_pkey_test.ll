@@ -195,10 +195,10 @@ if.end56:                                         ; preds = %lor.lhs.false52
 
 end:                                              ; preds = %if.end56, %if.end48, %lor.lhs.false52, %if.end43, %for.body, %if.end16, %lor.lhs.false20, %lor.lhs.false26, %lor.lhs.false32, %if.end6, %lor.lhs.false, %if.end
   %ret.0 = phi i32 [ 0, %lor.lhs.false32 ], [ 0, %lor.lhs.false26 ], [ 0, %lor.lhs.false20 ], [ 0, %if.end16 ], [ 0, %lor.lhs.false ], [ 0, %if.end6 ], [ 0, %if.end ], [ 1, %if.end56 ], [ 0, %for.body ], [ 0, %if.end43 ], [ 0, %if.end48 ], [ 0, %lor.lhs.false52 ]
-  %ctx.1 = phi ptr [ %call17, %lor.lhs.false32 ], [ %call17, %lor.lhs.false26 ], [ %call17, %lor.lhs.false20 ], [ %call17, %if.end16 ], [ null, %lor.lhs.false ], [ null, %if.end6 ], [ null, %if.end ], [ null, %if.end56 ], [ %call39, %for.body ], [ %call39, %if.end43 ], [ %call39, %if.end48 ], [ %call39, %lor.lhs.false52 ]
+  %ctx.0 = phi ptr [ %call17, %lor.lhs.false32 ], [ %call17, %lor.lhs.false26 ], [ %call17, %lor.lhs.false20 ], [ %call17, %if.end16 ], [ null, %lor.lhs.false ], [ null, %if.end6 ], [ null, %if.end ], [ null, %if.end56 ], [ %call39, %for.body ], [ %call39, %if.end43 ], [ %call39, %if.end48 ], [ %call39, %lor.lhs.false52 ]
   call void @fake_rsa_finish(ptr noundef %call) #2
   %call57 = call i32 @OSSL_PROVIDER_unload(ptr noundef %call2) #2
-  call void @EVP_PKEY_CTX_free(ptr noundef %ctx.1) #2
+  call void @EVP_PKEY_CTX_free(ptr noundef %ctx.0) #2
   %9 = load ptr, ptr %pkey, align 8
   call void @EVP_PKEY_free(ptr noundef %9) #2
   br label %return
@@ -463,10 +463,10 @@ while.cond.preheader:                             ; preds = %if.end11
   br i1 %tobool18.not10, label %land.lhs.true, label %while.end
 
 land.lhs.true:                                    ; preds = %while.cond.preheader, %if.end26
-  %pkey.011 = phi ptr [ %pkey.1, %if.end26 ], [ null, %while.cond.preheader ]
+  %pkey.111 = phi ptr [ %pkey.2, %if.end26 ], [ null, %while.cond.preheader ]
   %call19 = tail call ptr @OSSL_STORE_load(ptr noundef %call12) #2
   %cmp20 = icmp ne ptr %call19, null
-  %cmp21 = icmp eq ptr %pkey.011, null
+  %cmp21 = icmp eq ptr %pkey.111, null
   %or.cond = select i1 %cmp20, i1 %cmp21, i1 false
   br i1 %or.cond, label %while.body, label %while.end
 
@@ -480,20 +480,20 @@ if.then24:                                        ; preds = %while.body
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %while.body
-  %pkey.1 = phi ptr [ %call25, %if.then24 ], [ null, %while.body ]
+  %pkey.2 = phi ptr [ %call25, %if.then24 ], [ null, %while.body ]
   tail call void @OSSL_STORE_INFO_free(ptr noundef nonnull %call19) #2
   %call17 = tail call i32 @OSSL_STORE_eof(ptr noundef %call12) #2
   %tobool18.not = icmp eq i32 %call17, 0
   br i1 %tobool18.not, label %land.lhs.true, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end26, %land.lhs.true, %while.cond.preheader
-  %pkey.0.lcssa = phi ptr [ null, %while.cond.preheader ], [ %pkey.011, %land.lhs.true ], [ %pkey.1, %if.end26 ]
-  %call27 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 280, ptr noundef nonnull @.str.18, ptr noundef %pkey.0.lcssa) #2
+  %pkey.1.lcssa = phi ptr [ null, %while.cond.preheader ], [ %pkey.111, %land.lhs.true ], [ %pkey.2, %if.end26 ]
+  %call27 = tail call i32 @test_ptr(ptr noundef nonnull @.str.6, i32 noundef 280, ptr noundef nonnull @.str.18, ptr noundef %pkey.1.lcssa) #2
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.end
-  %call29 = tail call i32 @EVP_PKEY_is_a(ptr noundef %pkey.0.lcssa, ptr noundef nonnull @.str.11) #2
+  %call29 = tail call i32 @EVP_PKEY_is_a(ptr noundef %pkey.1.lcssa, ptr noundef nonnull @.str.11) #2
   %call30 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.6, i32 noundef 280, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.22, i32 noundef %call29, i32 noundef 1) #2
   %tobool31.not = icmp ne i32 %call30, 0
   %spec.select = zext i1 %tobool31.not to i32
@@ -502,12 +502,12 @@ lor.lhs.false:                                    ; preds = %while.end
 end:                                              ; preds = %lor.lhs.false, %while.end, %if.end11, %if.end6, %if.end, %entry
   %fake_rsa.0 = phi ptr [ %call2, %while.end ], [ %call2, %if.end11 ], [ %call2, %if.end6 ], [ %call2, %if.end ], [ null, %entry ], [ %call2, %lor.lhs.false ]
   %ret.0 = phi i32 [ 0, %while.end ], [ 0, %if.end11 ], [ 0, %if.end6 ], [ 0, %if.end ], [ 0, %entry ], [ %spec.select, %lor.lhs.false ]
-  %pkey.2 = phi ptr [ %pkey.0.lcssa, %while.end ], [ null, %if.end11 ], [ null, %if.end6 ], [ null, %if.end ], [ null, %entry ], [ %pkey.0.lcssa, %lor.lhs.false ]
+  %pkey.0 = phi ptr [ %pkey.1.lcssa, %while.end ], [ null, %if.end11 ], [ null, %if.end6 ], [ null, %if.end ], [ null, %entry ], [ %pkey.1.lcssa, %lor.lhs.false ]
   %ctx.0 = phi ptr [ %call12, %while.end ], [ %call12, %if.end11 ], [ null, %if.end6 ], [ null, %if.end ], [ null, %entry ], [ %call12, %lor.lhs.false ]
   tail call void @fake_rsa_finish(ptr noundef %fake_rsa.0) #2
   %call34 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %call) #2
   %call35 = tail call i32 @OSSL_STORE_close(ptr noundef %ctx.0) #2
-  tail call void @EVP_PKEY_free(ptr noundef %pkey.2) #2
+  tail call void @EVP_PKEY_free(ptr noundef %pkey.0) #2
   ret i32 %ret.0
 }
 

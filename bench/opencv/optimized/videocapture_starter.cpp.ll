@@ -431,12 +431,12 @@ _ZN12_GLOBAL__N_17processERN2cv12VideoCaptureE.exit: ; preds = %87, %95, %95, %9
   br label %121
 
 121:                                              ; preds = %_ZN12_GLOBAL__N_17processERN2cv12VideoCaptureE.exit, %66
-  %.013 = phi i32 [ 1, %66 ], [ 0, %_ZN12_GLOBAL__N_17processERN2cv12VideoCaptureE.exit ]
+  %.215 = phi i32 [ 1, %66 ], [ 0, %_ZN12_GLOBAL__N_17processERN2cv12VideoCaptureE.exit ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %20) #10
   br label %122
 
 122:                                              ; preds = %43, %121
-  %.114 = phi i32 [ %.013, %121 ], [ 1, %43 ]
+  %.114 = phi i32 [ %.215, %121 ], [ 1, %43 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #10
   br label %124
 
@@ -446,9 +446,9 @@ _ZN12_GLOBAL__N_17processERN2cv12VideoCaptureE.exit: ; preds = %87, %95, %95, %9
   br label %125
 
 124:                                              ; preds = %26, %122
-  %.215 = phi i32 [ %.114, %122 ], [ 0, %26 ]
+  %.013 = phi i32 [ %.114, %122 ], [ 0, %26 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #10
-  ret i32 %.215
+  ret i32 %.013
 
 125:                                              ; preds = %123, %46, %37, %36
   %.pn23 = phi { ptr, i32 } [ %38, %37 ], [ %.pn21, %123 ], [ %.pn19, %46 ], [ %.pn17, %36 ]

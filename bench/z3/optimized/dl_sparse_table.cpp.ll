@@ -878,8 +878,8 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !4
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.inc34
-  %curr.150 = phi ptr [ %5, %for.body19.lr.ph ], [ %incdec.ptr35, %for.inc34 ]
-  %m_state.i26 = getelementptr inbounds i8, ptr %curr.150, i64 4
+  %curr.250 = phi ptr [ %5, %for.body19.lr.ph ], [ %incdec.ptr35, %for.inc34 ]
+  %m_state.i26 = getelementptr inbounds i8, ptr %curr.250, i64 4
   %16 = load i32, ptr %m_state.i26, align 4
   switch i32 %16, label %for.inc34 [
     i32 2, label %if.then21
@@ -887,12 +887,12 @@ for.body19:                                       ; preds = %for.body19.lr.ph, %
   ]
 
 if.then21:                                        ; preds = %for.body19
-  %17 = load i32, ptr %curr.150, align 8
+  %17 = load i32, ptr %curr.250, align 8
   %cmp23 = icmp eq i32 %17, %call2.i.i
   br i1 %cmp23, label %land.lhs.true24, label %for.inc34
 
 land.lhs.true24:                                  ; preds = %if.then21
-  %m_data.i28 = getelementptr inbounds i8, ptr %curr.150, i64 8
+  %m_data.i28 = getelementptr inbounds i8, ptr %curr.250, i64 8
   %18 = load i64, ptr %m_data.i28, align 8
   %19 = load ptr, ptr %10, align 8
   %add.ptr.i.i30 = getelementptr inbounds i8, ptr %19, i64 %18
@@ -902,19 +902,19 @@ land.lhs.true24:                                  ; preds = %if.then21
   br i1 %cmp.i.i35, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %land.lhs.true24, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.150, i64 16
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.250, i64 16
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !6
 
 end_remove:                                       ; preds = %land.lhs.true, %land.lhs.true24
-  %curr.2 = phi ptr [ %curr.150, %land.lhs.true24 ], [ %curr.048, %land.lhs.true ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 16
+  %curr.1 = phi ptr [ %curr.250, %land.lhs.true24 ], [ %curr.048, %land.lhs.true ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 16
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %5, ptr %add.ptr37
   %m_state.i38 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %20 = load i32, ptr %m_state.i38, align 4
   %cmp.i39 = icmp eq i32 %20, 0
-  %m_state.i40 = getelementptr inbounds i8, ptr %curr.2, i64 4
+  %m_state.i40 = getelementptr inbounds i8, ptr %curr.1, i64 4
   br i1 %cmp.i39, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove
@@ -3121,7 +3121,7 @@ lpad:                                             ; preds = %lor.lhs.false, %inv
   resume { ptr, i32 } %3
 
 cleanup:                                          ; preds = %invoke.cont6, %invoke.cont3
-  %retval.0 = phi i1 [ false, %invoke.cont3 ], [ %cmp8.not, %invoke.cont6 ]
+  %retval.1 = phi i1 [ false, %invoke.cont3 ], [ %cmp8.not, %invoke.cont6 ]
   %4 = load ptr, ptr %ctr, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.i.i.i.i.i.i.i, label %return, label %for.cond.preheader.i.i.i.i.i.i.i
@@ -3138,8 +3138,8 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %for.cond.preheader.
   unreachable
 
 return:                                           ; preds = %for.cond.preheader.i.i.i.i.i.i.i, %cleanup, %_ZNK7datalog15table_signature16first_functionalEv.exit
-  %retval.1 = phi i1 [ false, %_ZNK7datalog15table_signature16first_functionalEv.exit ], [ %retval.0, %cleanup ], [ %retval.0, %for.cond.preheader.i.i.i.i.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZNK7datalog15table_signature16first_functionalEv.exit ], [ %retval.1, %cleanup ], [ %retval.1, %for.cond.preheader.i.i.i.i.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -16996,20 +16996,20 @@ sw.bb202:                                         ; preds = %while.end
 
 sw.bb205:                                         ; preds = %while.end.sw.bb205_crit_edge, %sw.bb202
   %63 = phi ptr [ %.pre, %while.end.sw.bb205_crit_edge ], [ %61, %sw.bb202 ]
-  %b.1 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
+  %b.2 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
   %64 = load i32, ptr %63, align 4
   %add207 = add i32 %64, %xor200
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb205, %while.end
-  %b.2 = phi i32 [ %xor196, %while.end ], [ %b.1, %sw.bb205 ]
+  %b.1 = phi i32 [ %xor196, %while.end ], [ %b.2, %sw.bb205 ]
   %c.1 = phi i32 [ %xor200, %while.end ], [ %add207, %sw.bb205 ]
-  %65 = add i32 %b.2, %c.1
+  %65 = add i32 %b.1, %c.1
   %sub209 = sub i32 %60, %65
   %shr210 = lshr i32 %c.1, 13
   %xor211 = xor i32 %sub209, %shr210
   %66 = add i32 %c.1, %xor211
-  %sub213 = sub i32 %b.2, %66
+  %sub213 = sub i32 %b.1, %66
   %shl214 = shl i32 %xor211, 8
   %xor215 = xor i32 %sub213, %shl214
   %67 = add i32 %xor211, %xor215
@@ -18257,21 +18257,21 @@ sw.bb202:                                         ; preds = %while.end
 
 sw.bb205:                                         ; preds = %while.end.sw.bb205_crit_edge, %sw.bb202
   %63 = phi ptr [ %.pre, %while.end.sw.bb205_crit_edge ], [ %61, %sw.bb202 ]
-  %b.1 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
+  %b.2 = phi i32 [ %xor196, %while.end.sw.bb205_crit_edge ], [ %add204, %sw.bb202 ]
   %64 = load i64, ptr %63, align 8
   %conv.i.i381 = trunc i64 %64 to i32
   %add207 = add i32 %xor200, %conv.i.i381
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb205, %while.end
-  %b.2 = phi i32 [ %xor196, %while.end ], [ %b.1, %sw.bb205 ]
+  %b.1 = phi i32 [ %xor196, %while.end ], [ %b.2, %sw.bb205 ]
   %c.1 = phi i32 [ %xor200, %while.end ], [ %add207, %sw.bb205 ]
-  %65 = add i32 %b.2, %c.1
+  %65 = add i32 %b.1, %c.1
   %sub209 = sub i32 %60, %65
   %shr210 = lshr i32 %c.1, 13
   %xor211 = xor i32 %sub209, %shr210
   %66 = add i32 %c.1, %xor211
-  %sub213 = sub i32 %b.2, %66
+  %sub213 = sub i32 %b.1, %66
   %shl214 = shl i32 %xor211, 8
   %xor215 = xor i32 %sub213, %shl214
   %67 = add i32 %xor211, %xor215

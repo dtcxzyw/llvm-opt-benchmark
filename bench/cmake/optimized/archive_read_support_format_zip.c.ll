@@ -2111,12 +2111,12 @@ zip_deflate_init.exit.i:                          ; preds = %416
 
 430:                                              ; preds = %425, %402, %396
   %.193.i = phi i64 [ %428, %425 ], [ %405, %402 ], [ %.092122.i, %396 ]
-  %.2.i = phi i32 [ %422, %425 ], [ %spec.select110.i, %402 ], [ 0, %396 ]
+  %.187.i = phi i32 [ %422, %425 ], [ %spec.select110.i, %402 ], [ 0, %396 ]
   %.1.i75 = phi ptr [ %429, %425 ], [ %406, %402 ], [ %.085125.i, %396 ]
   %.084.i = phi i64 [ %426, %425 ], [ %404, %402 ], [ 0, %396 ]
   %431 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.084.i) #21
   %432 = sub i64 %.091123.i, %.084.i
-  %.not108.i = icmp eq i32 %.2.i, 0
+  %.not108.i = icmp eq i32 %.187.i, 0
   %433 = icmp ne i64 %432, 0
   %434 = select i1 %.not108.i, i1 %433, i1 false
   br i1 %434, label %388, label %._crit_edge.loopexit.i, !llvm.loop !14
@@ -2681,7 +2681,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   br label %260
 
 260:                                              ; preds = %256, %259, %255
-  %.1 = phi i32 [ %.0237, %255 ], [ %.0237, %256 ], [ -20, %259 ]
+  %.2 = phi i32 [ %.0237, %255 ], [ %.0237, %256 ], [ -20, %259 ]
   %261 = load i64, ptr %.sroa.1.0..sroa_idx, align 8
   %262 = icmp eq i64 %261, 0
   br i1 %262, label %263, label %264
@@ -2699,7 +2699,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   br label %266
 
 266:                                              ; preds = %264, %265, %263
-  %.2 = phi i32 [ %.1, %263 ], [ -20, %265 ], [ %.1, %264 ]
+  %.3 = phi i32 [ %.2, %263 ], [ -20, %265 ], [ %.2, %264 ]
   %267 = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   switch i64 %267, label %269 [
     i64 0, label %268
@@ -2719,7 +2719,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_local_file_header(ptr nou
   br label %271
 
 271:                                              ; preds = %268, %270, %269, %.thread312
-  %.3 = phi i32 [ %.2, %268 ], [ -20, %270 ], [ %.2, %269 ], [ %.0237, %.thread312 ]
+  %.1 = phi i32 [ %.3, %268 ], [ -20, %270 ], [ %.3, %269 ], [ %.0237, %.thread312 ]
   %272 = load i16, ptr %.sroa.9.0..sroa_idx, align 4
   %273 = zext i16 %272 to i32
   call void @archive_entry_set_mode(ptr noundef %1, i32 noundef %273) #21
@@ -2917,7 +2917,7 @@ compression_name.exit:                            ; preds = %310, %315
   br label %363
 
 363:                                              ; preds = %355, %361, %.thread318
-  %.4 = phi i32 [ -20, %361 ], [ %.3, %355 ], [ %.3, %.thread318 ]
+  %.4 = phi i32 [ -20, %361 ], [ %.1, %355 ], [ %.1, %.thread318 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.1.0..sroa_idx, i8 0, i64 16, i1 false)
   %364 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %288) #21
   %365 = icmp slt i64 %364, 0
@@ -2941,7 +2941,7 @@ compression_name.exit:                            ; preds = %310, %315
   br label %373
 
 373:                                              ; preds = %367, %372, %363
-  %.5 = phi i32 [ %.4, %363 ], [ %.3, %372 ], [ %.3, %367 ]
+  %.5 = phi i32 [ %.4, %363 ], [ %.1, %372 ], [ %.1, %367 ]
   %374 = load i64, ptr %.sroa.1.0..sroa_idx, align 8
   %375 = getelementptr inbounds i8, ptr %2, i64 120
   store i64 %374, ptr %375, align 8
@@ -3244,43 +3244,43 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br label %131
 
 131:                                              ; preds = %124, %114
-  %.2241 = phi i16 [ %130, %124 ], [ %120, %114 ]
-  %.3 = phi i32 [ %129, %124 ], [ %119, %114 ]
+  %.3242 = phi i16 [ %130, %124 ], [ %120, %114 ]
+  %.4 = phi i32 [ %129, %124 ], [ %119, %114 ]
   %132 = and i32 %118, 2
   %.not288 = icmp eq i32 %132, 0
   br i1 %.not288, label %142, label %133
 
 133:                                              ; preds = %131
-  %134 = icmp ult i16 %.2241, 4
+  %134 = icmp ult i16 %.3242, 4
   br i1 %134, label %.thread, label %135
 
 135:                                              ; preds = %133
-  %136 = zext i32 %.3 to i64
+  %136 = zext i32 %.4 to i64
   %137 = getelementptr inbounds i8, ptr %2, i64 %136
   %138 = load i32, ptr %137, align 1
   %139 = zext i32 %138 to i64
   store i64 %139, ptr %24, align 8
-  %140 = add i32 %.3, 4
-  %141 = add i16 %.2241, -4
+  %140 = add i32 %.4, 4
+  %141 = add i16 %.3242, -4
   br label %142
 
 142:                                              ; preds = %135, %131
-  %.3242 = phi i16 [ %141, %135 ], [ %.2241, %131 ]
-  %.4 = phi i32 [ %140, %135 ], [ %.3, %131 ]
+  %.4243 = phi i16 [ %141, %135 ], [ %.3242, %131 ]
+  %.5 = phi i32 [ %140, %135 ], [ %.4, %131 ]
   %143 = and i32 %118, 4
   %144 = icmp eq i32 %143, 0
-  %145 = icmp ult i16 %.3242, 4
+  %145 = icmp ult i16 %.4243, 4
   %or.cond7 = or i1 %144, %145
   br i1 %or.cond7, label %.thread, label %146
 
 146:                                              ; preds = %142
-  %147 = zext i32 %.4 to i64
+  %147 = zext i32 %.5 to i64
   %148 = getelementptr inbounds i8, ptr %2, i64 %147
   %149 = load i32, ptr %148, align 1
   %150 = zext i32 %149 to i64
   store i64 %150, ptr %26, align 8
-  %151 = add i32 %.4, 4
-  %152 = add i16 %.3242, -4
+  %151 = add i32 %.5, 4
+  %152 = add i16 %.4243, -4
   br label %.thread
 
 153:                                              ; preds = %54
@@ -3321,75 +3321,75 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   %174 = load i8, ptr %173, align 1
   %175 = zext i8 %174 to i32
   %176 = add i32 %.0237342, 5
-  %.4243333 = add i16 %45, -1
+  %.5244333 = add i16 %45, -1
   %177 = icmp slt i8 %174, 0
-  %178 = icmp ne i16 %.4243333, 0
+  %178 = icmp ne i16 %.5244333, 0
   %179 = and i1 %177, %178
   br i1 %179, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %171, %.lr.ph
-  %.4243335 = phi i16 [ %.4243, %.lr.ph ], [ %.4243333, %171 ]
-  %.5334 = phi i32 [ %183, %.lr.ph ], [ %176, %171 ]
-  %180 = zext i32 %.5334 to i64
+  %.5244335 = phi i16 [ %.5244, %.lr.ph ], [ %.5244333, %171 ]
+  %.6334 = phi i32 [ %183, %.lr.ph ], [ %176, %171 ]
+  %180 = zext i32 %.6334 to i64
   %181 = getelementptr inbounds i8, ptr %2, i64 %180
   %182 = load i8, ptr %181, align 1
-  %183 = add i32 %.5334, 1
-  %.4243 = add i16 %.4243335, -1
+  %183 = add i32 %.6334, 1
+  %.5244 = add i16 %.5244335, -1
   %184 = icmp slt i8 %182, 0
-  %185 = icmp ne i16 %.4243, 0
+  %185 = icmp ne i16 %.5244, 0
   %186 = select i1 %184, i1 %185, i1 false
   br i1 %186, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %171
-  %.4243.in.lcssa = phi i16 [ %45, %171 ], [ %.4243335, %.lr.ph ]
-  %.5.lcssa = phi i32 [ %176, %171 ], [ %183, %.lr.ph ]
-  %.4243.lcssa = phi i16 [ %.4243333, %171 ], [ %.4243, %.lr.ph ]
+  %.5244.in.lcssa = phi i16 [ %45, %171 ], [ %.5244335, %.lr.ph ]
+  %.6.lcssa = phi i32 [ %176, %171 ], [ %183, %.lr.ph ]
+  %.5244.lcssa = phi i16 [ %.5244333, %171 ], [ %.5244, %.lr.ph ]
   %187 = and i32 %175, 1
   %.not282 = icmp eq i32 %187, 0
   br i1 %.not282, label %194, label %188
 
 188:                                              ; preds = %._crit_edge
-  %189 = icmp ult i16 %.4243.in.lcssa, 3
+  %189 = icmp ult i16 %.5244.in.lcssa, 3
   br i1 %189, label %.thread, label %190
 
 190:                                              ; preds = %188
-  %191 = zext i32 %.5.lcssa to i64
+  %191 = zext i32 %.6.lcssa to i64
   %gep341 = getelementptr i8, ptr %invariant.gep340, i64 %191
   %.val304 = load i8, ptr %gep341, align 1
   store i8 %.val304, ptr %22, align 1
-  %192 = add i32 %.5.lcssa, 2
-  %193 = add i16 %.4243.in.lcssa, -3
+  %192 = add i32 %.6.lcssa, 2
+  %193 = add i16 %.5244.in.lcssa, -3
   br label %194
 
 194:                                              ; preds = %190, %._crit_edge
-  %.5244 = phi i16 [ %193, %190 ], [ %.4243.lcssa, %._crit_edge ]
-  %.6 = phi i32 [ %192, %190 ], [ %.5.lcssa, %._crit_edge ]
+  %.6245 = phi i16 [ %193, %190 ], [ %.5244.lcssa, %._crit_edge ]
+  %.7 = phi i32 [ %192, %190 ], [ %.6.lcssa, %._crit_edge ]
   %195 = and i32 %175, 2
   %.not283 = icmp eq i32 %195, 0
   br i1 %.not283, label %201, label %196
 
 196:                                              ; preds = %194
-  %197 = icmp ult i16 %.5244, 2
+  %197 = icmp ult i16 %.6245, 2
   br i1 %197, label %.thread, label %198
 
 198:                                              ; preds = %196
-  %199 = add i32 %.6, 2
-  %200 = add i16 %.5244, -2
+  %199 = add i32 %.7, 2
+  %200 = add i16 %.6245, -2
   br label %201
 
 201:                                              ; preds = %198, %194
-  %.6245 = phi i16 [ %200, %198 ], [ %.5244, %194 ]
-  %.7 = phi i32 [ %199, %198 ], [ %.6, %194 ]
+  %.7246 = phi i16 [ %200, %198 ], [ %.6245, %194 ]
+  %.8 = phi i32 [ %199, %198 ], [ %.7, %194 ]
   %202 = and i32 %175, 4
   %.not284 = icmp eq i32 %202, 0
   br i1 %.not284, label %221, label %203
 
 203:                                              ; preds = %201
-  %204 = icmp ult i16 %.6245, 4
+  %204 = icmp ult i16 %.7246, 4
   br i1 %204, label %.thread, label %205
 
 205:                                              ; preds = %203
-  %206 = zext i32 %.7 to i64
+  %206 = zext i32 %.8 to i64
   %207 = getelementptr inbounds i8, ptr %2, i64 %206
   %208 = load i32, ptr %207, align 1
   %209 = load i8, ptr %22, align 1
@@ -3422,21 +3422,21 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br label %218
 
 218:                                              ; preds = %.sink.split, %213
-  %219 = add i32 %.7, 4
-  %220 = add i16 %.6245, -4
+  %219 = add i32 %.8, 4
+  %220 = add i16 %.7246, -4
   br label %221
 
 221:                                              ; preds = %218, %201
-  %.7246 = phi i16 [ %220, %218 ], [ %.6245, %201 ]
-  %.8 = phi i32 [ %219, %218 ], [ %.7, %201 ]
+  %.8247 = phi i16 [ %220, %218 ], [ %.7246, %201 ]
+  %.9 = phi i32 [ %219, %218 ], [ %.8, %201 ]
   %222 = and i32 %175, 8
   %223 = icmp eq i32 %222, 0
-  %224 = icmp ult i16 %.7246, 2
+  %224 = icmp ult i16 %.8247, 2
   %or.cond10 = select i1 %223, i1 true, i1 %224
   br i1 %or.cond10, label %.thread, label %225
 
 225:                                              ; preds = %221
-  %226 = zext i32 %.8 to i64
+  %226 = zext i32 %.9 to i64
   %227 = getelementptr inbounds i8, ptr %2, i64 %226
   %.val299 = load i8, ptr %227, align 1
   %228 = getelementptr i8, ptr %227, i64 1
@@ -3445,8 +3445,8 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   %230 = zext i8 %.val299 to i16
   %231 = shl nuw i16 %229, 8
   %232 = or disjoint i16 %231, %230
-  %233 = add i32 %.8, 2
-  %234 = add i16 %.7246, -2
+  %233 = add i32 %.9, 2
+  %234 = add i16 %.8247, -2
   %235 = icmp ult i16 %234, %232
   br i1 %235, label %.thread, label %236
 
@@ -3657,10 +3657,10 @@ define internal fastcc range(i32 -25, 1) i32 @process_extra(ptr noundef %0, ptr 
   br label %.thread
 
 .thread:                                          ; preds = %266, %153, %302, %54, %326, %332, %338, %275, %276, %308, %316, %314, %300, %268, %273, %253, %246, %239, %221, %236, %225, %203, %196, %188, %169, %155, %164, %142, %146, %133, %122, %93, %106, %260
-  %.8247 = phi i16 [ %45, %54 ], [ %45, %338 ], [ %45, %332 ], [ %45, %326 ], [ %45, %308 ], [ %45, %316 ], [ %45, %314 ], [ %45, %300 ], [ %45, %276 ], [ 0, %275 ], [ %45, %273 ], [ %45, %268 ], [ %45, %239 ], [ %243, %246 ], [ %243, %260 ], [ %243, %253 ], [ 0, %169 ], [ %.4243.lcssa, %188 ], [ %.5244, %196 ], [ %.6245, %203 ], [ %.7246, %221 ], [ %234, %225 ], [ %narrow, %236 ], [ %45, %164 ], [ %45, %155 ], [ %120, %122 ], [ %.2241, %133 ], [ %.3242, %142 ], [ %152, %146 ], [ %110, %106 ], [ %.1240, %93 ], [ %45, %302 ], [ %45, %153 ], [ %45, %266 ]
-  %.9 = phi i32 [ %46, %54 ], [ %46, %338 ], [ %46, %332 ], [ %46, %326 ], [ %46, %308 ], [ %46, %316 ], [ %46, %314 ], [ %46, %300 ], [ %46, %276 ], [ %46, %275 ], [ %46, %273 ], [ %46, %268 ], [ %46, %239 ], [ %242, %246 ], [ %242, %260 ], [ %242, %253 ], [ %46, %169 ], [ %.5.lcssa, %188 ], [ %.6, %196 ], [ %.7, %203 ], [ %.8, %221 ], [ %233, %225 ], [ %238, %236 ], [ %46, %164 ], [ %46, %155 ], [ %119, %122 ], [ %.3, %133 ], [ %.4, %142 ], [ %151, %146 ], [ %109, %106 ], [ %.2, %93 ], [ %46, %302 ], [ %46, %153 ], [ %46, %266 ]
-  %351 = zext i16 %.8247 to i32
-  %352 = add i32 %.9, %351
+  %.2241 = phi i16 [ %45, %54 ], [ %45, %338 ], [ %45, %332 ], [ %45, %326 ], [ %45, %308 ], [ %45, %316 ], [ %45, %314 ], [ %45, %300 ], [ %45, %276 ], [ 0, %275 ], [ %45, %273 ], [ %45, %268 ], [ %45, %239 ], [ %243, %246 ], [ %243, %260 ], [ %243, %253 ], [ 0, %169 ], [ %.5244.lcssa, %188 ], [ %.6245, %196 ], [ %.7246, %203 ], [ %.8247, %221 ], [ %234, %225 ], [ %narrow, %236 ], [ %45, %164 ], [ %45, %155 ], [ %120, %122 ], [ %.3242, %133 ], [ %.4243, %142 ], [ %152, %146 ], [ %110, %106 ], [ %.1240, %93 ], [ %45, %302 ], [ %45, %153 ], [ %45, %266 ]
+  %.3 = phi i32 [ %46, %54 ], [ %46, %338 ], [ %46, %332 ], [ %46, %326 ], [ %46, %308 ], [ %46, %316 ], [ %46, %314 ], [ %46, %300 ], [ %46, %276 ], [ %46, %275 ], [ %46, %273 ], [ %46, %268 ], [ %46, %239 ], [ %242, %246 ], [ %242, %260 ], [ %242, %253 ], [ %46, %169 ], [ %.6.lcssa, %188 ], [ %.7, %196 ], [ %.8, %203 ], [ %.9, %221 ], [ %233, %225 ], [ %238, %236 ], [ %46, %164 ], [ %46, %155 ], [ %119, %122 ], [ %.4, %133 ], [ %.5, %142 ], [ %151, %146 ], [ %109, %106 ], [ %.2, %93 ], [ %46, %302 ], [ %46, %153 ], [ %46, %266 ]
+  %351 = zext i16 %.2241 to i32
+  %352 = add i32 %.3, %351
   %353 = zext i32 %352 to i64
   %.not = icmp ult i64 %12, %353
   br i1 %.not, label %.loopexit, label %37, !llvm.loop !18
@@ -5242,7 +5242,7 @@ define internal fastcc i32 @zip_read_data_none(ptr noundef %0, ptr nocapture nou
   br i1 %102, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %98, %123
-  %.11075 = phi ptr [ %.2, %123 ], [ %99, %98 ]
+  %.11075 = phi ptr [ %.3, %123 ], [ %99, %98 ]
   %103 = getelementptr inbounds i8, ptr %.11075, i64 3
   %104 = load i8, ptr %103, align 1
   switch i8 %104, label %121 [
@@ -5287,13 +5287,13 @@ define internal fastcc i32 @zip_read_data_none(ptr noundef %0, ptr nocapture nou
   br label %123
 
 123:                                              ; preds = %.lr.ph, %105, %121, %107
-  %.2 = phi ptr [ %106, %105 ], [ %108, %107 ], [ %122, %121 ], [ %103, %.lr.ph ]
-  %124 = icmp ult ptr %.2, %101
+  %.3 = phi ptr [ %106, %105 ], [ %108, %107 ], [ %122, %121 ], [ %103, %.lr.ph ]
+  %124 = icmp ult ptr %.3, %101
   br i1 %124, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %123, %98, %120
-  %.3 = phi ptr [ %spec.select131, %120 ], [ %99, %98 ], [ %.2, %123 ]
-  %125 = ptrtoint ptr %.3 to i64
+  %.2 = phi ptr [ %spec.select131, %120 ], [ %99, %98 ], [ %.3, %123 ]
+  %125 = ptrtoint ptr %.2 to i64
   %126 = ptrtoint ptr %19 to i64
   %127 = sub i64 %125, %126
   store i64 %127, ptr %6, align 8

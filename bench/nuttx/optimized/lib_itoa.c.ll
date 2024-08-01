@@ -16,15 +16,15 @@ define noundef ptr @itoa(i32 noundef %0, ptr noundef returned %1, i32 noundef %2
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %.031 = phi ptr [ %11, %.preheader ], [ %1, %.preheader.preheader ]
+  %.1 = phi ptr [ %11, %.preheader ], [ %1, %.preheader.preheader ]
   %.0 = phi i32 [ %7, %.preheader ], [ %5, %.preheader.preheader ]
   %6 = urem i32 %.0, %2
   %7 = udiv i32 %.0, %2
   %8 = zext nneg i32 %6 to i64
   %9 = getelementptr inbounds i8, ptr @.str, i64 %8
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %.031, i64 1
-  store i8 %10, ptr %.031, align 1
+  %11 = getelementptr inbounds i8, ptr %.1, i64 1
+  store i8 %10, ptr %.1, align 1
   %.not = icmp ult i32 %.0, %2
   br i1 %.not, label %12, label %.preheader, !llvm.loop !6
 
@@ -33,13 +33,13 @@ define noundef ptr @itoa(i32 noundef %0, ptr noundef returned %1, i32 noundef %2
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.031, i64 2
+  %15 = getelementptr inbounds i8, ptr %.1, i64 2
   store i8 45, ptr %11, align 1
   br label %16
 
 16:                                               ; preds = %14, %12
-  %.1 = phi ptr [ %15, %14 ], [ %11, %12 ]
-  %17 = ptrtoint ptr %.1 to i64
+  %.2 = phi ptr [ %15, %14 ], [ %11, %12 ]
+  %17 = ptrtoint ptr %.2 to i64
   %18 = ptrtoint ptr %1 to i64
   %19 = sub i64 %17, %18
   %20 = trunc i64 %19 to i32
@@ -67,8 +67,8 @@ define noundef ptr @itoa(i32 noundef %0, ptr noundef returned %1, i32 noundef %2
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph, %16, %3
-  %.2 = phi ptr [ %1, %3 ], [ %.1, %16 ], [ %.1, %.lr.ph ]
-  store i8 0, ptr %.2, align 1
+  %.031 = phi ptr [ %1, %3 ], [ %.2, %16 ], [ %.2, %.lr.ph ]
+  store i8 0, ptr %.031, align 1
   ret ptr %1
 }
 

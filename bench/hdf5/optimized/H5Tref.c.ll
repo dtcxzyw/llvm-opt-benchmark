@@ -583,7 +583,7 @@ define internal i64 @H5T__ref_mem_getsize(ptr nocapture readnone %0, ptr noundef
   br label %104
 
 89:                                               ; preds = %70, %81
-  %.032 = phi ptr [ %75, %81 ], [ null, %70 ]
+  %.1 = phi ptr [ %75, %81 ], [ null, %70 ]
   %.030 = phi ptr [ %75, %81 ], [ %9, %70 ]
   %90 = call i32 @H5R__encode(ptr noundef nonnull %.030, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull %6, i32 noundef %.03144) #10
   %91 = icmp slt i32 %90, 0
@@ -614,8 +614,8 @@ define internal i64 @H5T__ref_mem_getsize(ptr nocapture readnone %0, ptr noundef
   br label %104
 
 104:                                              ; preds = %101, %89, %92, %85, %77, %66, %50, %40, %24, %17
-  %.1 = phi ptr [ null, %17 ], [ null, %24 ], [ null, %40 ], [ null, %50 ], [ null, %66 ], [ null, %77 ], [ %75, %85 ], [ %.032, %92 ], [ %.032, %89 ], [ null, %101 ]
-  %105 = call ptr @H5MM_xfree(ptr noundef %.1) #10
+  %.032 = phi ptr [ null, %17 ], [ null, %24 ], [ null, %40 ], [ null, %50 ], [ null, %66 ], [ null, %77 ], [ %75, %85 ], [ %.1, %92 ], [ %.1, %89 ], [ null, %101 ]
+  %105 = call ptr @H5MM_xfree(ptr noundef %.032) #10
   %106 = load i64, ptr %6, align 8
   ret i64 %106
 }
@@ -765,7 +765,7 @@ define internal range(i32 -1, 1) i32 @H5T__ref_mem_read(ptr nocapture readnone %
   br label %99
 
 92:                                               ; preds = %73, %84, %60
-  %.032 = phi ptr [ null, %60 ], [ %78, %84 ], [ null, %73 ]
+  %.1 = phi ptr [ null, %60 ], [ %78, %84 ], [ null, %73 ]
   %.0 = phi ptr [ null, %60 ], [ %78, %84 ], [ %9, %73 ]
   %93 = call i32 @H5R__encode(ptr noundef %.0, ptr noundef nonnull %1, ptr noundef %4, ptr noundef nonnull %7, i32 noundef %35) #10
   %94 = icmp slt i32 %93, 0
@@ -778,9 +778,9 @@ define internal range(i32 -1, 1) i32 @H5T__ref_mem_read(ptr nocapture readnone %
   br label %99
 
 99:                                               ; preds = %92, %95, %88, %80, %69, %52, %42, %27, %20, %14
-  %.1 = phi ptr [ null, %14 ], [ null, %20 ], [ null, %27 ], [ null, %42 ], [ null, %52 ], [ null, %69 ], [ null, %80 ], [ %78, %88 ], [ %.032, %95 ], [ %.032, %92 ]
+  %.032 = phi ptr [ null, %14 ], [ null, %20 ], [ null, %27 ], [ null, %42 ], [ null, %52 ], [ null, %69 ], [ null, %80 ], [ %78, %88 ], [ %.1, %95 ], [ %.1, %92 ]
   %.031 = phi i32 [ 0, %14 ], [ 0, %20 ], [ -1, %27 ], [ 0, %42 ], [ 0, %52 ], [ 0, %69 ], [ 0, %80 ], [ 0, %88 ], [ -1, %95 ], [ 0, %92 ]
-  %100 = call ptr @H5MM_xfree(ptr noundef %.1) #10
+  %100 = call ptr @H5MM_xfree(ptr noundef %.032) #10
   ret i32 %.031
 }
 
@@ -907,20 +907,20 @@ define internal range(i32 -1, 1) i32 @H5T__ref_mem_write(ptr noundef %0, ptr nou
   br label %81
 
 79:                                               ; preds = %73, %62
-  %.0 = phi i64 [ %67, %73 ], [ -1, %62 ]
+  %.1 = phi i64 [ %67, %73 ], [ -1, %62 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
   br label %80
 
 80:                                               ; preds = %79, %69
   %.032 = phi i32 [ -1, %69 ], [ 0, %79 ]
-  %.1 = phi i64 [ %67, %69 ], [ %.0, %79 ]
-  %.not = icmp eq i64 %.1, -1
+  %.0 = phi i64 [ %67, %69 ], [ %.1, %79 ]
+  %.not = icmp eq i64 %.0, -1
   br i1 %.not, label %.thread, label %81
 
 81:                                               ; preds = %.thread41, %80
-  %.146 = phi i64 [ %67, %.thread41 ], [ %.1, %80 ]
+  %.046 = phi i64 [ %67, %.thread41 ], [ %.0, %80 ]
   %.03245 = phi i32 [ -1, %.thread41 ], [ %.032, %80 ]
-  %82 = call i32 @H5I_dec_ref(i64 noundef %.146) #10
+  %82 = call i32 @H5I_dec_ref(i64 noundef %.046) #10
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %84, label %.thread
 

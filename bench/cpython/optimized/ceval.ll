@@ -2519,7 +2519,7 @@ if.then5.i.i:                                     ; preds = %if.end.i.i
   br label %resume_with_error
 
 start_frame:                                      ; preds = %if.end, %if.end9976, %if.then9872, %Py_INCREF.exit21320, %_Py_NewRef.exit8227, %if.end5744, %for.end4116, %if.end3104, %if.end2697, %for.end1946, %if.end1729, %Py_INCREF.exit21408
-  %frame.addr.0 = phi ptr [ %frame, %if.end ], [ %gi_iframe9875, %if.then9872 ], [ %gi_iframe9978, %if.end9976 ], [ %call7995, %Py_INCREF.exit21320 ], [ %call7573, %_Py_NewRef.exit8227 ], [ %gi_iframe, %if.end5744 ], [ %call1721, %if.end1729 ], [ %call4085, %for.end4116 ], [ %call1930, %for.end1946 ], [ %call982, %Py_INCREF.exit21408 ], [ %call3081, %if.end3104 ], [ %retval.0.i7678, %if.end2697 ]
+  %frame.addr.2 = phi ptr [ %frame, %if.end ], [ %gi_iframe9875, %if.then9872 ], [ %gi_iframe9978, %if.end9976 ], [ %call7995, %Py_INCREF.exit21320 ], [ %call7573, %_Py_NewRef.exit8227 ], [ %gi_iframe, %if.end5744 ], [ %call1721, %if.end1729 ], [ %call4085, %for.end4116 ], [ %call1930, %for.end1946 ], [ %call982, %Py_INCREF.exit21408 ], [ %call3081, %if.end3104 ], [ %retval.0.i7678, %if.end2697 ]
   %py_recursion_remaining.i7444 = getelementptr inbounds i8, ptr %tstate, i64 36
   %17 = load i32, ptr %py_recursion_remaining.i7444, align 4
   %dec.i7445 = add i32 %17, -1
@@ -2555,18 +2555,18 @@ _Py_EnterRecursivePy.exit7459:                    ; preds = %if.else.i.i7454
   br label %exit_unwind
 
 if.end18:                                         ; preds = %start_frame, %if.else.i.i7454, %if.then.i.i7451
-  %instr_ptr19 = getelementptr inbounds i8, ptr %frame.addr.0, i64 56
+  %instr_ptr19 = getelementptr inbounds i8, ptr %frame.addr.2, i64 56
   %21 = load ptr, ptr %instr_ptr19, align 8
-  %stacktop.i.phi.trans.insert = getelementptr inbounds i8, ptr %frame.addr.0, i64 64
+  %stacktop.i.phi.trans.insert = getelementptr inbounds i8, ptr %frame.addr.2, i64 64
   %.pre11861 = load i32, ptr %stacktop.i.phi.trans.insert, align 8
   br label %resume_frame
 
 resume_frame:                                     ; preds = %TARGET_YIELD_VALUE, %if.end9788, %if.end7086, %if.end7058, %Py_INCREF.exit21352, %if.end18
   %22 = phi i32 [ %.pre11861, %if.end18 ], [ %inc.i8174, %if.end7058 ], [ %inc.i8160, %Py_INCREF.exit21352 ], [ %inc.i8189, %if.end7086 ], [ %inc.i8615, %TARGET_YIELD_VALUE ], [ %inc.i8463, %if.end9788 ]
   %next_instr.0 = phi ptr [ %21, %if.end18 ], [ %add.ptr7068, %if.end7058 ], [ %add.ptr7047, %Py_INCREF.exit21352 ], [ %add.ptr7098, %if.end7086 ], [ %add.ptr11859, %TARGET_YIELD_VALUE ], [ %add.ptr9802, %if.end9788 ]
-  %frame.addr.1 = phi ptr [ %frame.addr.0, %if.end18 ], [ %1412, %if.end7058 ], [ %1405, %Py_INCREF.exit21352 ], [ %1421, %if.end7086 ], [ %2305, %TARGET_YIELD_VALUE ], [ %1939, %if.end9788 ]
-  %localsplus.i = getelementptr inbounds i8, ptr %frame.addr.1, i64 72
-  %stacktop.i = getelementptr inbounds i8, ptr %frame.addr.1, i64 64
+  %frame.addr.3 = phi ptr [ %frame.addr.2, %if.end18 ], [ %1412, %if.end7058 ], [ %1405, %Py_INCREF.exit21352 ], [ %1421, %if.end7086 ], [ %2305, %TARGET_YIELD_VALUE ], [ %1939, %if.end9788 ]
+  %localsplus.i = getelementptr inbounds i8, ptr %frame.addr.3, i64 72
+  %stacktop.i = getelementptr inbounds i8, ptr %frame.addr.3, i64 64
   %idx.ext.i = sext i32 %22 to i64
   %add.ptr.i = getelementptr ptr, ptr %localsplus.i, i64 %idx.ext.i
   store i32 -1, ptr %stacktop.i, align 8
@@ -2576,14 +2576,14 @@ indirectgoto.preheader.loopexit:                  ; preds = %if.end12025, %monit
   br label %indirectgoto.preheader
 
 indirectgoto.preheader:                           ; preds = %indirectgoto.preheader.loopexit, %resume_frame
-  %stack_pointer.17.ph = phi ptr [ %add.ptr.i, %resume_frame ], [ %incdec.ptr12028, %indirectgoto.preheader.loopexit ]
-  %next_instr.27.ph = phi ptr [ %next_instr.0, %resume_frame ], [ %add.ptr12033, %indirectgoto.preheader.loopexit ]
-  %frame.addr.8.ph = phi ptr [ %frame.addr.1, %resume_frame ], [ %frame.addr.3.ph, %indirectgoto.preheader.loopexit ]
-  %opcode.0.ph = load i8, ptr %next_instr.27.ph, align 2
+  %stack_pointer.0.ph = phi ptr [ %add.ptr.i, %resume_frame ], [ %incdec.ptr12028, %indirectgoto.preheader.loopexit ]
+  %next_instr.1.ph = phi ptr [ %next_instr.0, %resume_frame ], [ %add.ptr12033, %indirectgoto.preheader.loopexit ]
+  %frame.addr.4.ph = phi ptr [ %frame.addr.3, %resume_frame ], [ %frame.addr.6.ph, %indirectgoto.preheader.loopexit ]
+  %opcode.0.ph = load i8, ptr %next_instr.1.ph, align 2
   %idxprom12045.pn = zext i8 %opcode.0.ph to i64
-  %oparg.1.ph.in.in = getelementptr inbounds i8, ptr %next_instr.27.ph, i64 1
-  %oparg.1.ph.in = load i8, ptr %oparg.1.ph.in.in, align 1
-  %oparg.1.ph = zext i8 %oparg.1.ph.in to i32
+  %oparg.0.ph.in.in = getelementptr inbounds i8, ptr %next_instr.1.ph, i64 1
+  %oparg.0.ph.in = load i8, ptr %oparg.0.ph.in.in, align 1
+  %oparg.0.ph = zext i8 %oparg.0.ph.in to i32
   %interp10475 = getelementptr i8, ptr %tstate, i64 16
   %23 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %datastack_top.i8264 = getelementptr inbounds i8, ptr %tstate, i64 256
@@ -2609,10 +2609,10 @@ indirectgoto.preheader:                           ; preds = %indirectgoto.prehea
   br label %indirectgoto
 
 TARGET_BEFORE_ASYNC_WITH:                         ; preds = %indirectgoto
-  %instr_ptr21 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr21, align 8
-  %add.ptr = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx22 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr21 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr21, align 8
+  %add.ptr = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx22 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %26 = load ptr, ptr %arrayidx22, align 8
   %call23 = call ptr @_PyObject_LookupSpecial(ptr noundef %26, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26600)) #15
   %cmp = icmp eq ptr %call23, null
@@ -2775,29 +2775,29 @@ if.then100:                                       ; preds = %if.end96
 
 if.end106:                                        ; preds = %do.end87
   store ptr %call33, ptr %arrayidx22, align 8
-  store ptr %retval.0.i.i, ptr %stack_pointer.17, align 8
-  %add.ptr109 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %retval.0.i.i, ptr %stack_pointer.0, align 8
+  %add.ptr109 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word111.sroa.0.0.copyload = load i8, ptr %add.ptr, align 2
-  %word111.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word111.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word111.sroa.2.0.copyload = load i8, ptr %word111.sroa.2.0..sroa_idx, align 1
   %conv114 = zext i8 %word111.sroa.2.0.copyload to i32
   %idxprom116 = zext i8 %word111.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 indirectgoto.backedge:                            ; preds = %if.end106, %if.end213, %if.then236, %if.end283, %do.end340, %if.end398, %if.end456, %if.end507, %do.end571, %if.end629, %do.end694, %if.end752, %if.end809, %if.then836, %if.end881, %if.end941, %do.end1049, %do.end1125, %do.end1195, %if.end1265, %if.end1295, %if.end1353, %if.end1429, %if.end1531, %if.end1590, %if.end1619, %if.then1657, %do.body1852, %for.end2078, %do.body2206, %do.body2316, %do.body2427, %do.body2537, %do.body2787, %if.end2821, %if.end2873, %if.end2978, %do.body3242, %if.end3327, %do.end3403, %do.body3525, %do.body3651, %do.body3770, %do.body3906, %for.end3995, %do.body4213, %do.body4303, %do.end4366, %if.end4463, %do.end4516, %do.end4585, %if.then4616, %if.end4688, %do.end4749, %do.end4823, %do.end4880, %if.end4937, %if.end4976, %_Py_NewRef.exit7868, %do.body5023, %if.end5058, %do.body5094, %do.body5141, %do.body5167, %do.body5194, %if.end5242, %do.end5299, %do.end5359, %if.end5408, %do.end5452, %do.end5481, %if.end5522, %if.end5541, %TARGET_EXTENDED_ARG, %if.end5590, %if.end5640, %if.then5663, %do.end5701, %if.end5714, %do.end5812, %_Py_NewRef.exit7937, %do.end5874, %if.end5899, %do.end5965, %_Py_NewRef.exit7941, %if.end6077, %if.end6164, %if.end6254, %if.end6288, %if.end6312, %if.end6365, %if.end6389, %if.end6445, %do.end6571, %do.end6614, %do.body6676, %if.end6702, %do.body6736, %do.body6760, %do.body6805, %do.body6860, %do.body6915, %do.body6952, %if.then7008, %do.body7019, %do.end7148, %do.body7234, %TARGET_JUMP_BACKWARD_NO_INTERRUPT, %TARGET_JUMP_FORWARD, %if.end7280, %do.end7347, %_Py_NewRef.exit8204, %if.then7385, %if.end7464, %if.end7517, %if.end7648, %_Py_NewRef.exit8242, %_Py_NewRef.exit8246, %_Py_NewRef.exit8252, %if.end7834, %_Py_NewRef.exit8257, %_Py_NewRef.exit8263, %if.end8056, %if.end8173, %if.end8195, %Py_INCREF.exit21296, %Py_INCREF.exit21288, %Py_INCREF.exit21280, %TARGET_LOAD_FAST_AND_CLEAR, %Py_INCREF.exit21272, %Py_INCREF.exit21256, %do.end8366, %do.end8429, %if.then8452, %if.end8527, %if.end8596, %if.end8651, %Py_INCREF.exit21216, %if.end8725, %if.then8753, %if.end8913, %if.end8999, %if.end9111, %do.body9165, %if.end9197, %if.end9221, %if.end9291, %if.end9312, %TARGET_MATCH_MAPPING, %TARGET_MATCH_SEQUENCE, %TARGET_NOP, %do.end9408, %TARGET_POP_JUMP_IF_FALSE, %if.end9470, %if.end9518, %TARGET_POP_JUMP_IF_TRUE, %do.end9584, %_Py_NewRef.exit8363, %TARGET_PUSH_NULL, %do.body9721, %do.body9743, %Py_INCREF.exit21200, %TARGET_RETURN_VALUE, %if.then9843, %do.end9939, %do.body10059, %if.end10095, %TARGET_SET_FUNCTION_ATTRIBUTE, %if.end10159, %if.then10183, %if.end10241, %do.end10324, %do.end10395, %do.end10535, %do.end10576, %do.end10620, %Py_INCREF.exit21192, %do.end10753, %if.end10793, %if.end10861, %if.end10937, %if.then10963, %if.end11024, %if.end11066, %do.end11153, %TARGET_SWAP, %if.then11199, %if.end11230, %do.end11271, %do.body11290, %if.end11326, %do.end11363, %if.end11381, %if.end11420, %if.end11454, %if.end11488, %TARGET_UNARY_NOT, %if.end11549, %if.then11576, %if.end11611, %do.end11666, %do.end11723, %do.end11773, %if.end11826, %do.body11875, %if.end11896, %do.body19371
-  %stack_pointer.17.be = phi ptr [ %add.ptr109, %if.end106 ], [ %add.ptr216, %if.end213 ], [ %stack_pointer.17, %if.then236 ], [ %arrayidx229, %if.end283 ], [ %arrayidx297, %do.end340 ], [ %arrayidx356, %if.end398 ], [ %arrayidx414, %if.end456 ], [ %arrayidx472, %if.end507 ], [ %arrayidx523, %do.end571 ], [ %arrayidx587, %if.end629 ], [ %arrayidx645, %do.end694 ], [ %arrayidx710, %if.end752 ], [ %arrayidx767, %if.end809 ], [ %stack_pointer.17, %if.then836 ], [ %arrayidx827, %if.end881 ], [ %arrayidx896, %if.end941 ], [ %arrayidx998, %do.end1049 ], [ %arrayidx1064, %do.end1125 ], [ %arrayidx1140, %do.end1195 ], [ %add.ptr1271, %if.end1265 ], [ %add.ptr1301, %if.end1295 ], [ %add.ptr1361, %if.end1353 ], [ %add.ptr1435, %if.end1429 ], [ %arrayidx1463, %if.end1531 ], [ %add.ptr1596, %if.end1590 ], [ %add.ptr1625, %if.end1619 ], [ %stack_pointer.17, %if.then1657 ], [ %arrayidx1646, %do.body1852 ], [ %add.ptr.i7626, %for.end2078 ], [ %arrayidx2117, %do.body2206 ], [ %arrayidx2225, %do.body2316 ], [ %arrayidx2335, %do.body2427 ], [ %arrayidx2446, %do.body2537 ], [ %add.ptr2773, %do.body2787 ], [ %stack_pointer.17, %if.end2821 ], [ %arrayidx2834, %if.end2873 ], [ %arrayidx2895, %if.end2978 ], [ %arrayidx3007, %do.body3242 ], [ %arrayidx3261, %if.end3327 ], [ %add.ptr3404, %do.end3403 ], [ %arrayidx3425, %do.body3525 ], [ %arrayidx3544, %do.body3651 ], [ %arrayidx3670, %do.body3770 ], [ %arrayidx3789, %do.body3906 ], [ %add.ptr.i7791, %for.end3995 ], [ %arrayidx4142, %do.body4213 ], [ %arrayidx4232, %do.body4303 ], [ %arrayidx4322, %do.end4366 ], [ %stack_pointer.17, %if.end4463 ], [ %stack_pointer.17, %do.end4516 ], [ %arrayidx4533, %do.end4585 ], [ %stack_pointer.17, %if.then4616 ], [ %arrayidx4607, %if.end4688 ], [ %arrayidx4704, %do.end4749 ], [ %arrayidx4768, %do.end4823 ], [ %arrayidx4842, %do.end4880 ], [ %arrayidx4900, %if.end4937 ], [ %stack_pointer.17, %if.end4976 ], [ %add.ptr4994, %_Py_NewRef.exit7868 ], [ %stack_pointer.17, %do.body5023 ], [ %arrayidx5034, %if.end5058 ], [ %stack_pointer.17, %do.body5094 ], [ %stack_pointer.17, %do.body5141 ], [ %stack_pointer.17, %do.body5167 ], [ %stack_pointer.17, %do.body5194 ], [ %arrayidx5207, %if.end5242 ], [ %arrayidx5256, %do.end5299 ], [ %arrayidx5313, %do.end5359 ], [ %arrayidx5373, %if.end5408 ], [ %arrayidx5437, %do.end5452 ], [ %arrayidx5465, %do.end5481 ], [ %add.ptr.i7900, %if.end5522 ], [ %arrayidx5534, %if.end5541 ], [ %stack_pointer.17, %TARGET_EXTENDED_ARG ], [ %stack_pointer.17, %if.end5590 ], [ %arrayidx5604, %if.end5640 ], [ %stack_pointer.17, %if.then5663 ], [ %arrayidx5655, %do.end5701 ], [ %add.ptr5716, %if.end5714 ], [ %arrayidx5765, %do.end5812 ], [ %add.ptr5835, %_Py_NewRef.exit7937 ], [ %arrayidx5848, %do.end5874 ], [ %add.ptr5901, %if.end5899 ], [ %arrayidx5914, %do.end5965 ], [ %add.ptr5988, %_Py_NewRef.exit7941 ], [ %stack_pointer.17, %if.end6077 ], [ %add.ptr6166, %if.end6164 ], [ %stack_pointer.17, %if.end6254 ], [ %stack_pointer.17, %if.end6288 ], [ %add.ptr6314, %if.end6312 ], [ %stack_pointer.17, %if.end6365 ], [ %add.ptr6391, %if.end6389 ], [ %arrayidx6403, %if.end6445 ], [ %arrayidx6533, %do.end6571 ], [ %arrayidx6586, %do.end6614 ], [ %add.ptr.i8069, %do.body6676 ], [ %stack_pointer.17, %if.end6702 ], [ %add.ptr.i8080, %do.body6736 ], [ %add.ptr.i8091, %do.body6760 ], [ %add.ptr.i8102, %do.body6805 ], [ %add.ptr.i8113, %do.body6860 ], [ %add.ptr.i8124, %do.body6915 ], [ %add.ptr.i8135, %do.body6952 ], [ %add.ptr.i8146, %if.then7008 ], [ %stack_pointer.1, %do.body7019 ], [ %arrayidx7113, %do.end7148 ], [ %stack_pointer.17, %do.body7234 ], [ %stack_pointer.17, %TARGET_JUMP_BACKWARD_NO_INTERRUPT ], [ %stack_pointer.17, %TARGET_JUMP_FORWARD ], [ %arrayidx7271, %if.end7280 ], [ %arrayidx7294, %do.end7347 ], [ %add.ptr7362, %_Py_NewRef.exit8204 ], [ %stack_pointer.17, %if.then7385 ], [ %add.ptr7467, %if.end7464 ], [ %add.ptr7520, %if.end7517 ], [ %add.ptr7651, %if.end7648 ], [ %add.ptr7690, %_Py_NewRef.exit8242 ], [ %add.ptr7722, %_Py_NewRef.exit8246 ], [ %add.ptr7770, %_Py_NewRef.exit8252 ], [ %add.ptr7837, %if.end7834 ], [ %stack_pointer.17, %_Py_NewRef.exit8257 ], [ %stack_pointer.17, %_Py_NewRef.exit8263 ], [ %add.ptr8059, %if.end8056 ], [ %add.ptr8176, %if.end8173 ], [ %add.ptr8197, %if.end8195 ], [ %add.ptr8215, %Py_INCREF.exit21296 ], [ %add.ptr8238, %Py_INCREF.exit21288 ], [ %add.ptr8254, %Py_INCREF.exit21280 ], [ %add.ptr8273, %TARGET_LOAD_FAST_AND_CLEAR ], [ %add.ptr8293, %Py_INCREF.exit21272 ], [ %add.ptr8316, %Py_INCREF.exit21256 ], [ %stack_pointer.17, %do.end8366 ], [ %stack_pointer.17, %do.end8429 ], [ %stack_pointer.17, %if.then8452 ], [ %add.ptr8531, %if.end8527 ], [ %add.ptr8600, %if.end8596 ], [ %add.ptr8655, %if.end8651 ], [ %add.ptr8673, %Py_INCREF.exit21216 ], [ %add.ptr8727, %if.end8725 ], [ %stack_pointer.17, %if.then8753 ], [ %add.ptr8917, %if.end8913 ], [ %arrayidx8933, %if.end8999 ], [ %arrayidx9017, %if.end9111 ], [ %stack_pointer.17, %do.body9165 ], [ %stack_pointer.17, %if.end9197 ], [ %arrayidx9212, %if.end9221 ], [ %arrayidx9235, %if.end9291 ], [ %add.ptr9314, %if.end9312 ], [ %add.ptr9335, %TARGET_MATCH_MAPPING ], [ %add.ptr9357, %TARGET_MATCH_SEQUENCE ], [ %stack_pointer.17, %TARGET_NOP ], [ %arrayidx9379, %do.end9408 ], [ %arrayidx9422, %TARGET_POP_JUMP_IF_FALSE ], [ %arrayidx9450, %if.end9470 ], [ %arrayidx9498, %if.end9518 ], [ %arrayidx9544, %TARGET_POP_JUMP_IF_TRUE ], [ %arrayidx9569, %do.end9584 ], [ %add.ptr9610, %_Py_NewRef.exit8363 ], [ %add.ptr9623, %TARGET_PUSH_NULL ], [ %stack_pointer.17, %do.body9721 ], [ %stack_pointer.17, %do.body9743 ], [ %add.ptr.i8449, %Py_INCREF.exit21200 ], [ %add.ptr.i8481, %TARGET_RETURN_VALUE ], [ %stack_pointer.17, %if.then9843 ], [ %stack_pointer.17, %do.end9939 ], [ %stack_pointer.17, %do.body10059 ], [ %arrayidx10071, %if.end10095 ], [ %arrayidx10109, %TARGET_SET_FUNCTION_ATTRIBUTE ], [ %arrayidx10134, %if.end10159 ], [ %stack_pointer.17, %if.then10183 ], [ %arrayidx10200, %if.end10241 ], [ %arrayidx10274, %do.end10324 ], [ %arrayidx10350, %do.end10395 ], [ %arrayidx10411, %do.end10535 ], [ %arrayidx10548, %do.end10576 ], [ %arrayidx10589, %do.end10620 ], [ %stack_pointer.17, %Py_INCREF.exit21192 ], [ %arrayidx10687, %do.end10753 ], [ %arrayidx10766, %if.end10793 ], [ %arrayidx10806, %if.end10861 ], [ %arrayidx10880, %if.end10937 ], [ %stack_pointer.17, %if.then10963 ], [ %arrayidx10974, %if.end11024 ], [ %arrayidx11041, %if.end11066 ], [ %arrayidx11083, %do.end11153 ], [ %stack_pointer.17, %TARGET_SWAP ], [ %stack_pointer.17, %if.then11199 ], [ %stack_pointer.17, %if.end11230 ], [ %stack_pointer.17, %do.end11271 ], [ %stack_pointer.17, %do.body11290 ], [ %stack_pointer.17, %if.end11326 ], [ %stack_pointer.17, %do.end11363 ], [ %stack_pointer.17, %if.end11381 ], [ %stack_pointer.17, %if.end11420 ], [ %stack_pointer.17, %if.end11454 ], [ %stack_pointer.17, %if.end11488 ], [ %stack_pointer.17, %TARGET_UNARY_NOT ], [ %add.ptr11554, %if.end11549 ], [ %stack_pointer.17, %if.then11576 ], [ %add.ptr11614, %if.end11611 ], [ %add.ptr11669, %do.end11666 ], [ %add.ptr11726, %do.end11723 ], [ %add.ptr11776, %do.end11773 ], [ %add.ptr11828, %if.end11826 ], [ %add.ptr.i8626, %do.body11875 ], [ %add.ptr.i8626, %if.end11896 ], [ %stack_pointer.16, %do.body19371 ]
-  %next_instr.27.be = phi ptr [ %add.ptr, %if.end106 ], [ %add.ptr119, %if.end213 ], [ %next_instr.27, %if.then236 ], [ %next_instr.1, %if.end283 ], [ %add.ptr295, %do.end340 ], [ %add.ptr352, %if.end398 ], [ %add.ptr410, %if.end456 ], [ %add.ptr508, %if.end507 ], [ %add.ptr519, %do.end571 ], [ %add.ptr583, %if.end629 ], [ %add.ptr641, %do.end694 ], [ %add.ptr706, %if.end752 ], [ %add.ptr764, %if.end809 ], [ %next_instr.27, %if.then836 ], [ %next_instr.2, %if.end881 ], [ %add.ptr893, %if.end941 ], [ %add.ptr995, %do.end1049 ], [ %add.ptr1061, %do.end1125 ], [ %add.ptr1137, %do.end1195 ], [ %add.ptr1207, %if.end1265 ], [ %add.ptr1281, %if.end1295 ], [ %add.ptr1311, %if.end1353 ], [ %add.ptr1371, %if.end1429 ], [ %add.ptr1445, %if.end1531 ], [ %add.ptr1553, %if.end1590 ], [ %add.ptr1606, %if.end1619 ], [ %next_instr.27, %if.then1657 ], [ %next_instr.3, %do.body1852 ], [ %407, %for.end2078 ], [ %add.ptr2107, %do.body2206 ], [ %add.ptr2215, %do.body2316 ], [ %add.ptr2325, %do.body2427 ], [ %add.ptr2436, %do.body2537 ], [ %next_instr.4, %do.body2787 ], [ %add.ptr2796, %if.end2821 ], [ %add.ptr2832, %if.end2873 ], [ %add.ptr2885, %if.end2978 ], [ %next_instr.5, %do.body3242 ], [ %add.ptr3251, %if.end3327 ], [ %add.ptr3405, %do.end3403 ], [ %add.ptr3415, %do.body3525 ], [ %add.ptr3534, %do.body3651 ], [ %add.ptr3660, %do.body3770 ], [ %add.ptr3779, %do.body3906 ], [ %769, %for.end3995 ], [ %add.ptr4132, %do.body4213 ], [ %add.ptr4222, %do.body4303 ], [ %add.ptr4312, %do.end4366 ], [ %add.ptr4382, %if.end4463 ], [ %add.ptr4475, %do.end4516 ], [ %add.ptr4530, %do.end4585 ], [ %next_instr.27, %if.then4616 ], [ %next_instr.6, %if.end4688 ], [ %add.ptr4700, %do.end4749 ], [ %add.ptr4764, %do.end4823 ], [ %add.ptr4838, %do.end4880 ], [ %add.ptr4896, %if.end4937 ], [ %add.ptr4951, %if.end4976 ], [ %add.ptr4987, %_Py_NewRef.exit7868 ], [ %add.ptr5004, %do.body5023 ], [ %add.ptr5032, %if.end5058 ], [ %add.ptr5069, %do.body5094 ], [ %add.ptr5103, %do.body5141 ], [ %add.ptr5150, %do.body5167 ], [ %add.ptr5176, %do.body5194 ], [ %add.ptr5203, %if.end5242 ], [ %add.ptr5253, %do.end5299 ], [ %add.ptr5310, %do.end5359 ], [ %add.ptr5371, %if.end5408 ], [ %add.ptr5419, %do.end5452 ], [ %add.ptr5463, %do.end5481 ], [ %call5517, %if.end5522 ], [ %add.ptr5533, %if.end5541 ], [ %add.ptr5552, %TARGET_EXTENDED_ARG ], [ %add.ptr5561, %if.end5590 ], [ %add.ptr5601, %if.end5640 ], [ %next_instr.27, %if.then5663 ], [ %add.ptr5705, %do.end5701 ], [ %next_instr.7, %if.end5714 ], [ %add.ptr5816, %do.end5812 ], [ %add.ptr5762, %_Py_NewRef.exit7937 ], [ %add.ptr5877, %do.end5874 ], [ %add.ptr5845, %if.end5899 ], [ %add.ptr5969, %do.end5965 ], [ %add.ptr5911, %_Py_NewRef.exit7941 ], [ %add.ptr5998, %if.end6077 ], [ %add.ptr6088, %if.end6164 ], [ %add.ptr6176, %if.end6254 ], [ %add.ptr6265, %if.end6288 ], [ %add.ptr6299, %if.end6312 ], [ %add.ptr6324, %if.end6365 ], [ %add.ptr6376, %if.end6389 ], [ %add.ptr6401, %if.end6445 ], [ %add.ptr6529, %do.end6571 ], [ %add.ptr6583, %do.end6614 ], [ %call6668, %do.body6676 ], [ %next_instr.27, %if.end6702 ], [ %call6725, %do.body6736 ], [ %call6750, %do.body6760 ], [ %call6795, %do.body6805 ], [ %call6850, %do.body6860 ], [ %call6905, %do.body6915 ], [ %call6942, %do.body6952 ], [ %next_instr.27, %if.then7008 ], [ %next_instr.8, %do.body7019 ], [ %add.ptr7109, %do.end7148 ], [ %next_instr.9, %do.body7234 ], [ %add.ptr7246, %TARGET_JUMP_BACKWARD_NO_INTERRUPT ], [ %add.ptr7258, %TARGET_JUMP_FORWARD ], [ %add.ptr7268, %if.end7280 ], [ %add.ptr7291, %do.end7347 ], [ %add.ptr7358, %_Py_NewRef.exit8204 ], [ %next_instr.27, %if.then7385 ], [ %next_instr.10, %if.end7464 ], [ %add.ptr7478, %if.end7517 ], [ %add.ptr7592, %if.end7648 ], [ %add.ptr7662, %_Py_NewRef.exit8242 ], [ %add.ptr7701, %_Py_NewRef.exit8246 ], [ %add.ptr7733, %_Py_NewRef.exit8252 ], [ %add.ptr7781, %if.end7834 ], [ %add.ptr7848, %_Py_NewRef.exit8257 ], [ %add.ptr7893, %_Py_NewRef.exit8263 ], [ %add.ptr8011, %if.end8056 ], [ %add.ptr8070, %if.end8173 ], [ %add.ptr8186, %if.end8195 ], [ %add.ptr8207, %Py_INCREF.exit21296 ], [ %add.ptr8225, %Py_INCREF.exit21288 ], [ %add.ptr8248, %Py_INCREF.exit21280 ], [ %add.ptr8264, %TARGET_LOAD_FAST_AND_CLEAR ], [ %add.ptr8283, %Py_INCREF.exit21272 ], [ %add.ptr8303, %Py_INCREF.exit21256 ], [ %add.ptr8326, %do.end8366 ], [ %add.ptr8377, %do.end8429 ], [ %next_instr.27, %if.then8452 ], [ %next_instr.11, %if.end8527 ], [ %add.ptr8542, %if.end8596 ], [ %add.ptr8611, %if.end8651 ], [ %add.ptr8665, %Py_INCREF.exit21216 ], [ %add.ptr8683, %if.end8725 ], [ %next_instr.27, %if.then8753 ], [ %next_instr.12, %if.end8913 ], [ %add.ptr8927, %if.end8999 ], [ %add.ptr9011, %if.end9111 ], [ %add.ptr9124, %do.body9165 ], [ %add.ptr9174, %if.end9197 ], [ %add.ptr9208, %if.end9221 ], [ %add.ptr9232, %if.end9291 ], [ %add.ptr9303, %if.end9312 ], [ %add.ptr9324, %TARGET_MATCH_MAPPING ], [ %add.ptr9345, %TARGET_MATCH_SEQUENCE ], [ %add.ptr9367, %TARGET_NOP ], [ %add.ptr9377, %do.end9408 ], [ %add.ptr9434, %TARGET_POP_JUMP_IF_FALSE ], [ %add.ptr9482, %if.end9470 ], [ %add.ptr9530, %if.end9518 ], [ %add.ptr9556, %TARGET_POP_JUMP_IF_TRUE ], [ %add.ptr9567, %do.end9584 ], [ %add.ptr9595, %_Py_NewRef.exit8363 ], [ %add.ptr9620, %TARGET_PUSH_NULL ], [ %next_instr.14, %do.body9721 ], [ %add.ptr9730, %do.body9743 ], [ %add.ptr9769, %Py_INCREF.exit21200 ], [ %add.ptr9818, %TARGET_RETURN_VALUE ], [ %next_instr.27, %if.then9843 ], [ %next_instr.16, %do.end9939 ], [ %add.ptr10000, %do.body10059 ], [ %add.ptr10068, %if.end10095 ], [ %add.ptr10106, %TARGET_SET_FUNCTION_ATTRIBUTE ], [ %add.ptr10131, %if.end10159 ], [ %next_instr.27, %if.then10183 ], [ %next_instr.17, %if.end10241 ], [ %add.ptr10253, %do.end10324 ], [ %add.ptr10336, %do.end10395 ], [ %add.ptr10407, %do.end10535 ], [ %add.ptr10546, %do.end10576 ], [ %add.ptr10587, %do.end10620 ], [ %add.ptr10631, %Py_INCREF.exit21192 ], [ %add.ptr10683, %do.end10753 ], [ %add.ptr10764, %if.end10793 ], [ %add.ptr10804, %if.end10861 ], [ %add.ptr10872, %if.end10937 ], [ %next_instr.27, %if.then10963 ], [ %next_instr.18, %if.end11024 ], [ %add.ptr11035, %if.end11066 ], [ %add.ptr11077, %do.end11153 ], [ %add.ptr11164, %TARGET_SWAP ], [ %next_instr.27, %if.then11199 ], [ %next_instr.19, %if.end11230 ], [ %add.ptr11244, %do.end11271 ], [ %add.ptr11282, %do.body11290 ], [ %add.ptr11299, %if.end11326 ], [ %add.ptr11337, %do.end11363 ], [ %add.ptr11374, %if.end11381 ], [ %add.ptr11392, %if.end11420 ], [ %add.ptr11431, %if.end11454 ], [ %add.ptr11465, %if.end11488 ], [ %add.ptr11499, %TARGET_UNARY_NOT ], [ %add.ptr11516, %if.end11549 ], [ %next_instr.27, %if.then11576 ], [ %next_instr.20, %if.end11611 ], [ %add.ptr11624, %do.end11666 ], [ %add.ptr11679, %do.end11723 ], [ %add.ptr11736, %do.end11773 ], [ %add.ptr11786, %if.end11826 ], [ %2311, %do.body11875 ], [ %2311, %if.end11896 ], [ %add.ptr19355, %do.body19371 ]
-  %oparg.1.be = phi i32 [ %conv114, %if.end106 ], [ %conv221, %if.end213 ], [ %oparg.1, %if.then236 ], [ %conv290, %if.end283 ], [ %conv347, %do.end340 ], [ %conv405, %if.end398 ], [ %conv463, %if.end456 ], [ %conv514, %if.end507 ], [ %conv578, %do.end571 ], [ %conv636, %if.end629 ], [ %conv701, %do.end694 ], [ %conv759, %if.end752 ], [ %conv816, %if.end809 ], [ %oparg.1, %if.then836 ], [ %conv888, %if.end881 ], [ %conv948, %if.end941 ], [ %conv1056, %do.end1049 ], [ %conv1132, %do.end1125 ], [ %conv1202, %do.end1195 ], [ %conv1276, %if.end1265 ], [ %conv1306, %if.end1295 ], [ %conv1366, %if.end1353 ], [ %conv1440, %if.end1429 ], [ %conv1548, %if.end1531 ], [ %conv1601, %if.end1590 ], [ %conv1630, %if.end1619 ], [ %oparg.1, %if.then1657 ], [ %conv1856, %do.body1852 ], [ %conv2102, %for.end2078 ], [ %conv2210, %do.body2206 ], [ %conv2320, %do.body2316 ], [ %conv2431, %do.body2427 ], [ %conv2541, %do.body2537 ], [ %conv2791, %do.body2787 ], [ %conv2827, %if.end2821 ], [ %conv2880, %if.end2873 ], [ %conv2989, %if.end2978 ], [ %conv3246, %do.body3242 ], [ %conv3338, %if.end3327 ], [ %conv3410, %do.end3403 ], [ %conv3529, %do.body3525 ], [ %conv3655, %do.body3651 ], [ %conv3774, %do.body3770 ], [ %conv3910, %do.body3906 ], [ %conv4019, %for.end3995 ], [ %conv4217, %do.body4213 ], [ %conv4307, %do.body4303 ], [ %conv4377, %do.end4366 ], [ %conv4470, %if.end4463 ], [ %conv4524, %do.end4516 ], [ %conv4596, %do.end4585 ], [ %oparg.1, %if.then4616 ], [ %conv4695, %if.end4688 ], [ %conv4759, %do.end4749 ], [ %conv4833, %do.end4823 ], [ %conv4891, %do.end4880 ], [ %conv4946, %if.end4937 ], [ %conv4982, %if.end4976 ], [ %conv4999, %_Py_NewRef.exit7868 ], [ %conv5027, %do.body5023 ], [ %conv5064, %if.end5058 ], [ %conv5098, %do.body5094 ], [ %conv5145, %do.body5141 ], [ %conv5171, %do.body5167 ], [ %conv5198, %do.body5194 ], [ %conv5248, %if.end5242 ], [ %conv5305, %do.end5299 ], [ %conv5365, %do.end5359 ], [ %conv5414, %if.end5408 ], [ %conv5458, %do.end5452 ], [ %conv5488, %do.end5481 ], [ %conv5528, %if.end5522 ], [ %conv5547, %if.end5541 ], [ %or5557, %TARGET_EXTENDED_ARG ], [ %conv5596, %if.end5590 ], [ %conv5647, %if.end5640 ], [ %oparg.1, %if.then5663 ], [ %conv5710, %do.end5701 ], [ %conv5721, %if.end5714 ], [ %conv5821, %do.end5812 ], [ %conv5840, %_Py_NewRef.exit7937 ], [ %conv5882, %do.end5874 ], [ %conv5906, %if.end5899 ], [ %conv5974, %do.end5965 ], [ %conv5993, %_Py_NewRef.exit7941 ], [ %conv6083, %if.end6077 ], [ %conv6171, %if.end6164 ], [ %conv6260, %if.end6254 ], [ %conv6294, %if.end6288 ], [ %conv6319, %if.end6312 ], [ %conv6371, %if.end6365 ], [ %conv6396, %if.end6389 ], [ %conv6452, %if.end6445 ], [ %conv6577, %do.end6571 ], [ %conv6621, %do.end6614 ], [ %conv6680, %do.body6676 ], [ %oparg.1, %if.end6702 ], [ %conv6740, %do.body6736 ], [ %conv6764, %do.body6760 ], [ %conv6809, %do.body6805 ], [ %conv6864, %do.body6860 ], [ %conv6919, %do.body6915 ], [ %conv6956, %do.body6952 ], [ %conv7013, %if.then7008 ], [ %conv7023, %do.body7019 ], [ %conv7157, %do.end7148 ], [ %conv7238, %do.body7234 ], [ %conv7251, %TARGET_JUMP_BACKWARD_NO_INTERRUPT ], [ %conv7263, %TARGET_JUMP_FORWARD ], [ %conv7286, %if.end7280 ], [ %conv7353, %do.end7347 ], [ %conv7367, %_Py_NewRef.exit8204 ], [ %oparg.1, %if.then7385 ], [ %conv7472, %if.end7464 ], [ %conv7525, %if.end7517 ], [ %conv7656, %if.end7648 ], [ %conv7695, %_Py_NewRef.exit8242 ], [ %conv7727, %_Py_NewRef.exit8246 ], [ %conv7775, %_Py_NewRef.exit8252 ], [ %conv7842, %if.end7834 ], [ %conv7887, %_Py_NewRef.exit8257 ], [ %conv7953, %_Py_NewRef.exit8263 ], [ %conv8064, %if.end8056 ], [ %conv8181, %if.end8173 ], [ %conv8202, %if.end8195 ], [ %conv8220, %Py_INCREF.exit21296 ], [ %conv8243, %Py_INCREF.exit21288 ], [ %conv8259, %Py_INCREF.exit21280 ], [ %conv8278, %TARGET_LOAD_FAST_AND_CLEAR ], [ %conv8298, %Py_INCREF.exit21272 ], [ %conv8321, %Py_INCREF.exit21256 ], [ %conv8372, %do.end8366 ], [ %conv8435, %do.end8429 ], [ %oparg.1, %if.then8452 ], [ %conv8536, %if.end8527 ], [ %conv8605, %if.end8596 ], [ %conv8660, %if.end8651 ], [ %conv8678, %Py_INCREF.exit21216 ], [ %conv8732, %if.end8725 ], [ %oparg.1, %if.then8753 ], [ %conv8922, %if.end8913 ], [ %conv9006, %if.end8999 ], [ %conv9119, %if.end9111 ], [ %conv9169, %do.body9165 ], [ %conv9203, %if.end9197 ], [ %conv9227, %if.end9221 ], [ %conv9298, %if.end9291 ], [ %conv9319, %if.end9312 ], [ %conv9340, %TARGET_MATCH_MAPPING ], [ %conv9362, %TARGET_MATCH_SEQUENCE ], [ %conv9372, %TARGET_NOP ], [ %conv9414, %do.end9408 ], [ %conv9440, %TARGET_POP_JUMP_IF_FALSE ], [ %conv9488, %if.end9470 ], [ %conv9536, %if.end9518 ], [ %conv9562, %TARGET_POP_JUMP_IF_TRUE ], [ %conv9590, %do.end9584 ], [ %conv9615, %_Py_NewRef.exit8363 ], [ %conv9628, %TARGET_PUSH_NULL ], [ %conv9725, %do.body9721 ], [ %conv9747, %do.body9743 ], [ %conv9775, %Py_INCREF.exit21200 ], [ %conv9824, %TARGET_RETURN_VALUE ], [ %oparg.1, %if.then9843 ], [ %conv9945, %do.end9939 ], [ %conv10063, %do.body10059 ], [ %conv10101, %if.end10095 ], [ %conv10126, %TARGET_SET_FUNCTION_ATTRIBUTE ], [ %conv10165, %if.end10159 ], [ %oparg.1, %if.then10183 ], [ %conv10247, %if.end10241 ], [ %conv10330, %do.end10324 ], [ %conv10401, %do.end10395 ], [ %conv10541, %do.end10535 ], [ %conv10582, %do.end10576 ], [ %conv10626, %do.end10620 ], [ %conv10678, %Py_INCREF.exit21192 ], [ %conv10759, %do.end10753 ], [ %conv10799, %if.end10793 ], [ %conv10867, %if.end10861 ], [ %conv10943, %if.end10937 ], [ %oparg.1, %if.then10963 ], [ %conv11030, %if.end11024 ], [ %conv11072, %if.end11066 ], [ %conv11159, %do.end11153 ], [ %conv11181, %TARGET_SWAP ], [ %oparg.1, %if.then11199 ], [ %conv11238, %if.end11230 ], [ %conv11277, %do.end11271 ], [ %conv11294, %do.body11290 ], [ %conv11332, %if.end11326 ], [ %conv11369, %do.end11363 ], [ %conv11387, %if.end11381 ], [ %conv11426, %if.end11420 ], [ %conv11460, %if.end11454 ], [ %conv11494, %if.end11488 ], [ %conv11511, %TARGET_UNARY_NOT ], [ %conv11559, %if.end11549 ], [ %oparg.1, %if.then11576 ], [ %conv11619, %if.end11611 ], [ %conv11674, %do.end11666 ], [ %conv11731, %do.end11723 ], [ %conv11781, %do.end11773 ], [ %conv11833, %if.end11826 ], [ %conv11879, %do.body11875 ], [ %oparg.1, %if.end11896 ], [ %conv19375, %do.body19371 ]
+  %stack_pointer.0.be = phi ptr [ %add.ptr109, %if.end106 ], [ %add.ptr216, %if.end213 ], [ %stack_pointer.0, %if.then236 ], [ %arrayidx229, %if.end283 ], [ %arrayidx297, %do.end340 ], [ %arrayidx356, %if.end398 ], [ %arrayidx414, %if.end456 ], [ %arrayidx472, %if.end507 ], [ %arrayidx523, %do.end571 ], [ %arrayidx587, %if.end629 ], [ %arrayidx645, %do.end694 ], [ %arrayidx710, %if.end752 ], [ %arrayidx767, %if.end809 ], [ %stack_pointer.0, %if.then836 ], [ %arrayidx827, %if.end881 ], [ %arrayidx896, %if.end941 ], [ %arrayidx998, %do.end1049 ], [ %arrayidx1064, %do.end1125 ], [ %arrayidx1140, %do.end1195 ], [ %add.ptr1271, %if.end1265 ], [ %add.ptr1301, %if.end1295 ], [ %add.ptr1361, %if.end1353 ], [ %add.ptr1435, %if.end1429 ], [ %arrayidx1463, %if.end1531 ], [ %add.ptr1596, %if.end1590 ], [ %add.ptr1625, %if.end1619 ], [ %stack_pointer.0, %if.then1657 ], [ %arrayidx1646, %do.body1852 ], [ %add.ptr.i7626, %for.end2078 ], [ %arrayidx2117, %do.body2206 ], [ %arrayidx2225, %do.body2316 ], [ %arrayidx2335, %do.body2427 ], [ %arrayidx2446, %do.body2537 ], [ %add.ptr2773, %do.body2787 ], [ %stack_pointer.0, %if.end2821 ], [ %arrayidx2834, %if.end2873 ], [ %arrayidx2895, %if.end2978 ], [ %arrayidx3007, %do.body3242 ], [ %arrayidx3261, %if.end3327 ], [ %add.ptr3404, %do.end3403 ], [ %arrayidx3425, %do.body3525 ], [ %arrayidx3544, %do.body3651 ], [ %arrayidx3670, %do.body3770 ], [ %arrayidx3789, %do.body3906 ], [ %add.ptr.i7791, %for.end3995 ], [ %arrayidx4142, %do.body4213 ], [ %arrayidx4232, %do.body4303 ], [ %arrayidx4322, %do.end4366 ], [ %stack_pointer.0, %if.end4463 ], [ %stack_pointer.0, %do.end4516 ], [ %arrayidx4533, %do.end4585 ], [ %stack_pointer.0, %if.then4616 ], [ %arrayidx4607, %if.end4688 ], [ %arrayidx4704, %do.end4749 ], [ %arrayidx4768, %do.end4823 ], [ %arrayidx4842, %do.end4880 ], [ %arrayidx4900, %if.end4937 ], [ %stack_pointer.0, %if.end4976 ], [ %add.ptr4994, %_Py_NewRef.exit7868 ], [ %stack_pointer.0, %do.body5023 ], [ %arrayidx5034, %if.end5058 ], [ %stack_pointer.0, %do.body5094 ], [ %stack_pointer.0, %do.body5141 ], [ %stack_pointer.0, %do.body5167 ], [ %stack_pointer.0, %do.body5194 ], [ %arrayidx5207, %if.end5242 ], [ %arrayidx5256, %do.end5299 ], [ %arrayidx5313, %do.end5359 ], [ %arrayidx5373, %if.end5408 ], [ %arrayidx5437, %do.end5452 ], [ %arrayidx5465, %do.end5481 ], [ %add.ptr.i7900, %if.end5522 ], [ %arrayidx5534, %if.end5541 ], [ %stack_pointer.0, %TARGET_EXTENDED_ARG ], [ %stack_pointer.0, %if.end5590 ], [ %arrayidx5604, %if.end5640 ], [ %stack_pointer.0, %if.then5663 ], [ %arrayidx5655, %do.end5701 ], [ %add.ptr5716, %if.end5714 ], [ %arrayidx5765, %do.end5812 ], [ %add.ptr5835, %_Py_NewRef.exit7937 ], [ %arrayidx5848, %do.end5874 ], [ %add.ptr5901, %if.end5899 ], [ %arrayidx5914, %do.end5965 ], [ %add.ptr5988, %_Py_NewRef.exit7941 ], [ %stack_pointer.0, %if.end6077 ], [ %add.ptr6166, %if.end6164 ], [ %stack_pointer.0, %if.end6254 ], [ %stack_pointer.0, %if.end6288 ], [ %add.ptr6314, %if.end6312 ], [ %stack_pointer.0, %if.end6365 ], [ %add.ptr6391, %if.end6389 ], [ %arrayidx6403, %if.end6445 ], [ %arrayidx6533, %do.end6571 ], [ %arrayidx6586, %do.end6614 ], [ %add.ptr.i8069, %do.body6676 ], [ %stack_pointer.0, %if.end6702 ], [ %add.ptr.i8080, %do.body6736 ], [ %add.ptr.i8091, %do.body6760 ], [ %add.ptr.i8102, %do.body6805 ], [ %add.ptr.i8113, %do.body6860 ], [ %add.ptr.i8124, %do.body6915 ], [ %add.ptr.i8135, %do.body6952 ], [ %add.ptr.i8146, %if.then7008 ], [ %stack_pointer.7, %do.body7019 ], [ %arrayidx7113, %do.end7148 ], [ %stack_pointer.0, %do.body7234 ], [ %stack_pointer.0, %TARGET_JUMP_BACKWARD_NO_INTERRUPT ], [ %stack_pointer.0, %TARGET_JUMP_FORWARD ], [ %arrayidx7271, %if.end7280 ], [ %arrayidx7294, %do.end7347 ], [ %add.ptr7362, %_Py_NewRef.exit8204 ], [ %stack_pointer.0, %if.then7385 ], [ %add.ptr7467, %if.end7464 ], [ %add.ptr7520, %if.end7517 ], [ %add.ptr7651, %if.end7648 ], [ %add.ptr7690, %_Py_NewRef.exit8242 ], [ %add.ptr7722, %_Py_NewRef.exit8246 ], [ %add.ptr7770, %_Py_NewRef.exit8252 ], [ %add.ptr7837, %if.end7834 ], [ %stack_pointer.0, %_Py_NewRef.exit8257 ], [ %stack_pointer.0, %_Py_NewRef.exit8263 ], [ %add.ptr8059, %if.end8056 ], [ %add.ptr8176, %if.end8173 ], [ %add.ptr8197, %if.end8195 ], [ %add.ptr8215, %Py_INCREF.exit21296 ], [ %add.ptr8238, %Py_INCREF.exit21288 ], [ %add.ptr8254, %Py_INCREF.exit21280 ], [ %add.ptr8273, %TARGET_LOAD_FAST_AND_CLEAR ], [ %add.ptr8293, %Py_INCREF.exit21272 ], [ %add.ptr8316, %Py_INCREF.exit21256 ], [ %stack_pointer.0, %do.end8366 ], [ %stack_pointer.0, %do.end8429 ], [ %stack_pointer.0, %if.then8452 ], [ %add.ptr8531, %if.end8527 ], [ %add.ptr8600, %if.end8596 ], [ %add.ptr8655, %if.end8651 ], [ %add.ptr8673, %Py_INCREF.exit21216 ], [ %add.ptr8727, %if.end8725 ], [ %stack_pointer.0, %if.then8753 ], [ %add.ptr8917, %if.end8913 ], [ %arrayidx8933, %if.end8999 ], [ %arrayidx9017, %if.end9111 ], [ %stack_pointer.0, %do.body9165 ], [ %stack_pointer.0, %if.end9197 ], [ %arrayidx9212, %if.end9221 ], [ %arrayidx9235, %if.end9291 ], [ %add.ptr9314, %if.end9312 ], [ %add.ptr9335, %TARGET_MATCH_MAPPING ], [ %add.ptr9357, %TARGET_MATCH_SEQUENCE ], [ %stack_pointer.0, %TARGET_NOP ], [ %arrayidx9379, %do.end9408 ], [ %arrayidx9422, %TARGET_POP_JUMP_IF_FALSE ], [ %arrayidx9450, %if.end9470 ], [ %arrayidx9498, %if.end9518 ], [ %arrayidx9544, %TARGET_POP_JUMP_IF_TRUE ], [ %arrayidx9569, %do.end9584 ], [ %add.ptr9610, %_Py_NewRef.exit8363 ], [ %add.ptr9623, %TARGET_PUSH_NULL ], [ %stack_pointer.0, %do.body9721 ], [ %stack_pointer.0, %do.body9743 ], [ %add.ptr.i8449, %Py_INCREF.exit21200 ], [ %add.ptr.i8481, %TARGET_RETURN_VALUE ], [ %stack_pointer.0, %if.then9843 ], [ %stack_pointer.0, %do.end9939 ], [ %stack_pointer.0, %do.body10059 ], [ %arrayidx10071, %if.end10095 ], [ %arrayidx10109, %TARGET_SET_FUNCTION_ATTRIBUTE ], [ %arrayidx10134, %if.end10159 ], [ %stack_pointer.0, %if.then10183 ], [ %arrayidx10200, %if.end10241 ], [ %arrayidx10274, %do.end10324 ], [ %arrayidx10350, %do.end10395 ], [ %arrayidx10411, %do.end10535 ], [ %arrayidx10548, %do.end10576 ], [ %arrayidx10589, %do.end10620 ], [ %stack_pointer.0, %Py_INCREF.exit21192 ], [ %arrayidx10687, %do.end10753 ], [ %arrayidx10766, %if.end10793 ], [ %arrayidx10806, %if.end10861 ], [ %arrayidx10880, %if.end10937 ], [ %stack_pointer.0, %if.then10963 ], [ %arrayidx10974, %if.end11024 ], [ %arrayidx11041, %if.end11066 ], [ %arrayidx11083, %do.end11153 ], [ %stack_pointer.0, %TARGET_SWAP ], [ %stack_pointer.0, %if.then11199 ], [ %stack_pointer.0, %if.end11230 ], [ %stack_pointer.0, %do.end11271 ], [ %stack_pointer.0, %do.body11290 ], [ %stack_pointer.0, %if.end11326 ], [ %stack_pointer.0, %do.end11363 ], [ %stack_pointer.0, %if.end11381 ], [ %stack_pointer.0, %if.end11420 ], [ %stack_pointer.0, %if.end11454 ], [ %stack_pointer.0, %if.end11488 ], [ %stack_pointer.0, %TARGET_UNARY_NOT ], [ %add.ptr11554, %if.end11549 ], [ %stack_pointer.0, %if.then11576 ], [ %add.ptr11614, %if.end11611 ], [ %add.ptr11669, %do.end11666 ], [ %add.ptr11726, %do.end11723 ], [ %add.ptr11776, %do.end11773 ], [ %add.ptr11828, %if.end11826 ], [ %add.ptr.i8626, %do.body11875 ], [ %add.ptr.i8626, %if.end11896 ], [ %stack_pointer.13, %do.body19371 ]
+  %next_instr.1.be = phi ptr [ %add.ptr, %if.end106 ], [ %add.ptr119, %if.end213 ], [ %next_instr.1, %if.then236 ], [ %next_instr.4, %if.end283 ], [ %add.ptr295, %do.end340 ], [ %add.ptr352, %if.end398 ], [ %add.ptr410, %if.end456 ], [ %add.ptr508, %if.end507 ], [ %add.ptr519, %do.end571 ], [ %add.ptr583, %if.end629 ], [ %add.ptr641, %do.end694 ], [ %add.ptr706, %if.end752 ], [ %add.ptr764, %if.end809 ], [ %next_instr.1, %if.then836 ], [ %next_instr.7, %if.end881 ], [ %add.ptr893, %if.end941 ], [ %add.ptr995, %do.end1049 ], [ %add.ptr1061, %do.end1125 ], [ %add.ptr1137, %do.end1195 ], [ %add.ptr1207, %if.end1265 ], [ %add.ptr1281, %if.end1295 ], [ %add.ptr1311, %if.end1353 ], [ %add.ptr1371, %if.end1429 ], [ %add.ptr1445, %if.end1531 ], [ %add.ptr1553, %if.end1590 ], [ %add.ptr1606, %if.end1619 ], [ %next_instr.1, %if.then1657 ], [ %next_instr.8, %do.body1852 ], [ %407, %for.end2078 ], [ %add.ptr2107, %do.body2206 ], [ %add.ptr2215, %do.body2316 ], [ %add.ptr2325, %do.body2427 ], [ %add.ptr2436, %do.body2537 ], [ %next_instr.9, %do.body2787 ], [ %add.ptr2796, %if.end2821 ], [ %add.ptr2832, %if.end2873 ], [ %add.ptr2885, %if.end2978 ], [ %next_instr.10, %do.body3242 ], [ %add.ptr3251, %if.end3327 ], [ %add.ptr3405, %do.end3403 ], [ %add.ptr3415, %do.body3525 ], [ %add.ptr3534, %do.body3651 ], [ %add.ptr3660, %do.body3770 ], [ %add.ptr3779, %do.body3906 ], [ %769, %for.end3995 ], [ %add.ptr4132, %do.body4213 ], [ %add.ptr4222, %do.body4303 ], [ %add.ptr4312, %do.end4366 ], [ %add.ptr4382, %if.end4463 ], [ %add.ptr4475, %do.end4516 ], [ %add.ptr4530, %do.end4585 ], [ %next_instr.1, %if.then4616 ], [ %next_instr.12, %if.end4688 ], [ %add.ptr4700, %do.end4749 ], [ %add.ptr4764, %do.end4823 ], [ %add.ptr4838, %do.end4880 ], [ %add.ptr4896, %if.end4937 ], [ %add.ptr4951, %if.end4976 ], [ %add.ptr4987, %_Py_NewRef.exit7868 ], [ %add.ptr5004, %do.body5023 ], [ %add.ptr5032, %if.end5058 ], [ %add.ptr5069, %do.body5094 ], [ %add.ptr5103, %do.body5141 ], [ %add.ptr5150, %do.body5167 ], [ %add.ptr5176, %do.body5194 ], [ %add.ptr5203, %if.end5242 ], [ %add.ptr5253, %do.end5299 ], [ %add.ptr5310, %do.end5359 ], [ %add.ptr5371, %if.end5408 ], [ %add.ptr5419, %do.end5452 ], [ %add.ptr5463, %do.end5481 ], [ %call5517, %if.end5522 ], [ %add.ptr5533, %if.end5541 ], [ %add.ptr5552, %TARGET_EXTENDED_ARG ], [ %add.ptr5561, %if.end5590 ], [ %add.ptr5601, %if.end5640 ], [ %next_instr.1, %if.then5663 ], [ %add.ptr5705, %do.end5701 ], [ %next_instr.14, %if.end5714 ], [ %add.ptr5816, %do.end5812 ], [ %add.ptr5762, %_Py_NewRef.exit7937 ], [ %add.ptr5877, %do.end5874 ], [ %add.ptr5845, %if.end5899 ], [ %add.ptr5969, %do.end5965 ], [ %add.ptr5911, %_Py_NewRef.exit7941 ], [ %add.ptr5998, %if.end6077 ], [ %add.ptr6088, %if.end6164 ], [ %add.ptr6176, %if.end6254 ], [ %add.ptr6265, %if.end6288 ], [ %add.ptr6299, %if.end6312 ], [ %add.ptr6324, %if.end6365 ], [ %add.ptr6376, %if.end6389 ], [ %add.ptr6401, %if.end6445 ], [ %add.ptr6529, %do.end6571 ], [ %add.ptr6583, %do.end6614 ], [ %call6668, %do.body6676 ], [ %next_instr.1, %if.end6702 ], [ %call6725, %do.body6736 ], [ %call6750, %do.body6760 ], [ %call6795, %do.body6805 ], [ %call6850, %do.body6860 ], [ %call6905, %do.body6915 ], [ %call6942, %do.body6952 ], [ %next_instr.1, %if.then7008 ], [ %next_instr.16, %do.body7019 ], [ %add.ptr7109, %do.end7148 ], [ %next_instr.17, %do.body7234 ], [ %add.ptr7246, %TARGET_JUMP_BACKWARD_NO_INTERRUPT ], [ %add.ptr7258, %TARGET_JUMP_FORWARD ], [ %add.ptr7268, %if.end7280 ], [ %add.ptr7291, %do.end7347 ], [ %add.ptr7358, %_Py_NewRef.exit8204 ], [ %next_instr.1, %if.then7385 ], [ %next_instr.18, %if.end7464 ], [ %add.ptr7478, %if.end7517 ], [ %add.ptr7592, %if.end7648 ], [ %add.ptr7662, %_Py_NewRef.exit8242 ], [ %add.ptr7701, %_Py_NewRef.exit8246 ], [ %add.ptr7733, %_Py_NewRef.exit8252 ], [ %add.ptr7781, %if.end7834 ], [ %add.ptr7848, %_Py_NewRef.exit8257 ], [ %add.ptr7893, %_Py_NewRef.exit8263 ], [ %add.ptr8011, %if.end8056 ], [ %add.ptr8070, %if.end8173 ], [ %add.ptr8186, %if.end8195 ], [ %add.ptr8207, %Py_INCREF.exit21296 ], [ %add.ptr8225, %Py_INCREF.exit21288 ], [ %add.ptr8248, %Py_INCREF.exit21280 ], [ %add.ptr8264, %TARGET_LOAD_FAST_AND_CLEAR ], [ %add.ptr8283, %Py_INCREF.exit21272 ], [ %add.ptr8303, %Py_INCREF.exit21256 ], [ %add.ptr8326, %do.end8366 ], [ %add.ptr8377, %do.end8429 ], [ %next_instr.1, %if.then8452 ], [ %next_instr.19, %if.end8527 ], [ %add.ptr8542, %if.end8596 ], [ %add.ptr8611, %if.end8651 ], [ %add.ptr8665, %Py_INCREF.exit21216 ], [ %add.ptr8683, %if.end8725 ], [ %next_instr.1, %if.then8753 ], [ %next_instr.15, %if.end8913 ], [ %add.ptr8927, %if.end8999 ], [ %add.ptr9011, %if.end9111 ], [ %add.ptr9124, %do.body9165 ], [ %add.ptr9174, %if.end9197 ], [ %add.ptr9208, %if.end9221 ], [ %add.ptr9232, %if.end9291 ], [ %add.ptr9303, %if.end9312 ], [ %add.ptr9324, %TARGET_MATCH_MAPPING ], [ %add.ptr9345, %TARGET_MATCH_SEQUENCE ], [ %add.ptr9367, %TARGET_NOP ], [ %add.ptr9377, %do.end9408 ], [ %add.ptr9434, %TARGET_POP_JUMP_IF_FALSE ], [ %add.ptr9482, %if.end9470 ], [ %add.ptr9530, %if.end9518 ], [ %add.ptr9556, %TARGET_POP_JUMP_IF_TRUE ], [ %add.ptr9567, %do.end9584 ], [ %add.ptr9595, %_Py_NewRef.exit8363 ], [ %add.ptr9620, %TARGET_PUSH_NULL ], [ %next_instr.21, %do.body9721 ], [ %add.ptr9730, %do.body9743 ], [ %add.ptr9769, %Py_INCREF.exit21200 ], [ %add.ptr9818, %TARGET_RETURN_VALUE ], [ %next_instr.1, %if.then9843 ], [ %next_instr.23, %do.end9939 ], [ %add.ptr10000, %do.body10059 ], [ %add.ptr10068, %if.end10095 ], [ %add.ptr10106, %TARGET_SET_FUNCTION_ATTRIBUTE ], [ %add.ptr10131, %if.end10159 ], [ %next_instr.1, %if.then10183 ], [ %next_instr.24, %if.end10241 ], [ %add.ptr10253, %do.end10324 ], [ %add.ptr10336, %do.end10395 ], [ %add.ptr10407, %do.end10535 ], [ %add.ptr10546, %do.end10576 ], [ %add.ptr10587, %do.end10620 ], [ %add.ptr10631, %Py_INCREF.exit21192 ], [ %add.ptr10683, %do.end10753 ], [ %add.ptr10764, %if.end10793 ], [ %add.ptr10804, %if.end10861 ], [ %add.ptr10872, %if.end10937 ], [ %next_instr.1, %if.then10963 ], [ %next_instr.25, %if.end11024 ], [ %add.ptr11035, %if.end11066 ], [ %add.ptr11077, %do.end11153 ], [ %add.ptr11164, %TARGET_SWAP ], [ %next_instr.1, %if.then11199 ], [ %next_instr.26, %if.end11230 ], [ %add.ptr11244, %do.end11271 ], [ %add.ptr11282, %do.body11290 ], [ %add.ptr11299, %if.end11326 ], [ %add.ptr11337, %do.end11363 ], [ %add.ptr11374, %if.end11381 ], [ %add.ptr11392, %if.end11420 ], [ %add.ptr11431, %if.end11454 ], [ %add.ptr11465, %if.end11488 ], [ %add.ptr11499, %TARGET_UNARY_NOT ], [ %add.ptr11516, %if.end11549 ], [ %next_instr.1, %if.then11576 ], [ %next_instr.27, %if.end11611 ], [ %add.ptr11624, %do.end11666 ], [ %add.ptr11679, %do.end11723 ], [ %add.ptr11736, %do.end11773 ], [ %add.ptr11786, %if.end11826 ], [ %2311, %do.body11875 ], [ %2311, %if.end11896 ], [ %add.ptr19355, %do.body19371 ]
+  %oparg.0.be = phi i32 [ %conv114, %if.end106 ], [ %conv221, %if.end213 ], [ %oparg.0, %if.then236 ], [ %conv290, %if.end283 ], [ %conv347, %do.end340 ], [ %conv405, %if.end398 ], [ %conv463, %if.end456 ], [ %conv514, %if.end507 ], [ %conv578, %do.end571 ], [ %conv636, %if.end629 ], [ %conv701, %do.end694 ], [ %conv759, %if.end752 ], [ %conv816, %if.end809 ], [ %oparg.0, %if.then836 ], [ %conv888, %if.end881 ], [ %conv948, %if.end941 ], [ %conv1056, %do.end1049 ], [ %conv1132, %do.end1125 ], [ %conv1202, %do.end1195 ], [ %conv1276, %if.end1265 ], [ %conv1306, %if.end1295 ], [ %conv1366, %if.end1353 ], [ %conv1440, %if.end1429 ], [ %conv1548, %if.end1531 ], [ %conv1601, %if.end1590 ], [ %conv1630, %if.end1619 ], [ %oparg.0, %if.then1657 ], [ %conv1856, %do.body1852 ], [ %conv2102, %for.end2078 ], [ %conv2210, %do.body2206 ], [ %conv2320, %do.body2316 ], [ %conv2431, %do.body2427 ], [ %conv2541, %do.body2537 ], [ %conv2791, %do.body2787 ], [ %conv2827, %if.end2821 ], [ %conv2880, %if.end2873 ], [ %conv2989, %if.end2978 ], [ %conv3246, %do.body3242 ], [ %conv3338, %if.end3327 ], [ %conv3410, %do.end3403 ], [ %conv3529, %do.body3525 ], [ %conv3655, %do.body3651 ], [ %conv3774, %do.body3770 ], [ %conv3910, %do.body3906 ], [ %conv4019, %for.end3995 ], [ %conv4217, %do.body4213 ], [ %conv4307, %do.body4303 ], [ %conv4377, %do.end4366 ], [ %conv4470, %if.end4463 ], [ %conv4524, %do.end4516 ], [ %conv4596, %do.end4585 ], [ %oparg.0, %if.then4616 ], [ %conv4695, %if.end4688 ], [ %conv4759, %do.end4749 ], [ %conv4833, %do.end4823 ], [ %conv4891, %do.end4880 ], [ %conv4946, %if.end4937 ], [ %conv4982, %if.end4976 ], [ %conv4999, %_Py_NewRef.exit7868 ], [ %conv5027, %do.body5023 ], [ %conv5064, %if.end5058 ], [ %conv5098, %do.body5094 ], [ %conv5145, %do.body5141 ], [ %conv5171, %do.body5167 ], [ %conv5198, %do.body5194 ], [ %conv5248, %if.end5242 ], [ %conv5305, %do.end5299 ], [ %conv5365, %do.end5359 ], [ %conv5414, %if.end5408 ], [ %conv5458, %do.end5452 ], [ %conv5488, %do.end5481 ], [ %conv5528, %if.end5522 ], [ %conv5547, %if.end5541 ], [ %or5557, %TARGET_EXTENDED_ARG ], [ %conv5596, %if.end5590 ], [ %conv5647, %if.end5640 ], [ %oparg.0, %if.then5663 ], [ %conv5710, %do.end5701 ], [ %conv5721, %if.end5714 ], [ %conv5821, %do.end5812 ], [ %conv5840, %_Py_NewRef.exit7937 ], [ %conv5882, %do.end5874 ], [ %conv5906, %if.end5899 ], [ %conv5974, %do.end5965 ], [ %conv5993, %_Py_NewRef.exit7941 ], [ %conv6083, %if.end6077 ], [ %conv6171, %if.end6164 ], [ %conv6260, %if.end6254 ], [ %conv6294, %if.end6288 ], [ %conv6319, %if.end6312 ], [ %conv6371, %if.end6365 ], [ %conv6396, %if.end6389 ], [ %conv6452, %if.end6445 ], [ %conv6577, %do.end6571 ], [ %conv6621, %do.end6614 ], [ %conv6680, %do.body6676 ], [ %oparg.0, %if.end6702 ], [ %conv6740, %do.body6736 ], [ %conv6764, %do.body6760 ], [ %conv6809, %do.body6805 ], [ %conv6864, %do.body6860 ], [ %conv6919, %do.body6915 ], [ %conv6956, %do.body6952 ], [ %conv7013, %if.then7008 ], [ %conv7023, %do.body7019 ], [ %conv7157, %do.end7148 ], [ %conv7238, %do.body7234 ], [ %conv7251, %TARGET_JUMP_BACKWARD_NO_INTERRUPT ], [ %conv7263, %TARGET_JUMP_FORWARD ], [ %conv7286, %if.end7280 ], [ %conv7353, %do.end7347 ], [ %conv7367, %_Py_NewRef.exit8204 ], [ %oparg.0, %if.then7385 ], [ %conv7472, %if.end7464 ], [ %conv7525, %if.end7517 ], [ %conv7656, %if.end7648 ], [ %conv7695, %_Py_NewRef.exit8242 ], [ %conv7727, %_Py_NewRef.exit8246 ], [ %conv7775, %_Py_NewRef.exit8252 ], [ %conv7842, %if.end7834 ], [ %conv7887, %_Py_NewRef.exit8257 ], [ %conv7953, %_Py_NewRef.exit8263 ], [ %conv8064, %if.end8056 ], [ %conv8181, %if.end8173 ], [ %conv8202, %if.end8195 ], [ %conv8220, %Py_INCREF.exit21296 ], [ %conv8243, %Py_INCREF.exit21288 ], [ %conv8259, %Py_INCREF.exit21280 ], [ %conv8278, %TARGET_LOAD_FAST_AND_CLEAR ], [ %conv8298, %Py_INCREF.exit21272 ], [ %conv8321, %Py_INCREF.exit21256 ], [ %conv8372, %do.end8366 ], [ %conv8435, %do.end8429 ], [ %oparg.0, %if.then8452 ], [ %conv8536, %if.end8527 ], [ %conv8605, %if.end8596 ], [ %conv8660, %if.end8651 ], [ %conv8678, %Py_INCREF.exit21216 ], [ %conv8732, %if.end8725 ], [ %oparg.0, %if.then8753 ], [ %conv8922, %if.end8913 ], [ %conv9006, %if.end8999 ], [ %conv9119, %if.end9111 ], [ %conv9169, %do.body9165 ], [ %conv9203, %if.end9197 ], [ %conv9227, %if.end9221 ], [ %conv9298, %if.end9291 ], [ %conv9319, %if.end9312 ], [ %conv9340, %TARGET_MATCH_MAPPING ], [ %conv9362, %TARGET_MATCH_SEQUENCE ], [ %conv9372, %TARGET_NOP ], [ %conv9414, %do.end9408 ], [ %conv9440, %TARGET_POP_JUMP_IF_FALSE ], [ %conv9488, %if.end9470 ], [ %conv9536, %if.end9518 ], [ %conv9562, %TARGET_POP_JUMP_IF_TRUE ], [ %conv9590, %do.end9584 ], [ %conv9615, %_Py_NewRef.exit8363 ], [ %conv9628, %TARGET_PUSH_NULL ], [ %conv9725, %do.body9721 ], [ %conv9747, %do.body9743 ], [ %conv9775, %Py_INCREF.exit21200 ], [ %conv9824, %TARGET_RETURN_VALUE ], [ %oparg.0, %if.then9843 ], [ %conv9945, %do.end9939 ], [ %conv10063, %do.body10059 ], [ %conv10101, %if.end10095 ], [ %conv10126, %TARGET_SET_FUNCTION_ATTRIBUTE ], [ %conv10165, %if.end10159 ], [ %oparg.0, %if.then10183 ], [ %conv10247, %if.end10241 ], [ %conv10330, %do.end10324 ], [ %conv10401, %do.end10395 ], [ %conv10541, %do.end10535 ], [ %conv10582, %do.end10576 ], [ %conv10626, %do.end10620 ], [ %conv10678, %Py_INCREF.exit21192 ], [ %conv10759, %do.end10753 ], [ %conv10799, %if.end10793 ], [ %conv10867, %if.end10861 ], [ %conv10943, %if.end10937 ], [ %oparg.0, %if.then10963 ], [ %conv11030, %if.end11024 ], [ %conv11072, %if.end11066 ], [ %conv11159, %do.end11153 ], [ %conv11181, %TARGET_SWAP ], [ %oparg.0, %if.then11199 ], [ %conv11238, %if.end11230 ], [ %conv11277, %do.end11271 ], [ %conv11294, %do.body11290 ], [ %conv11332, %if.end11326 ], [ %conv11369, %do.end11363 ], [ %conv11387, %if.end11381 ], [ %conv11426, %if.end11420 ], [ %conv11460, %if.end11454 ], [ %conv11494, %if.end11488 ], [ %conv11511, %TARGET_UNARY_NOT ], [ %conv11559, %if.end11549 ], [ %oparg.0, %if.then11576 ], [ %conv11619, %if.end11611 ], [ %conv11674, %do.end11666 ], [ %conv11731, %do.end11723 ], [ %conv11781, %do.end11773 ], [ %conv11833, %if.end11826 ], [ %conv11879, %do.body11875 ], [ %oparg.0, %if.end11896 ], [ %conv19375, %do.body19371 ]
   %opcode.0.be = phi i8 [ %word111.sroa.0.0.copyload, %if.end106 ], [ %word218.sroa.0.0.copyload, %if.end213 ], [ %84, %if.then236 ], [ %word287.sroa.0.0.copyload, %if.end283 ], [ %word344.sroa.0.0.copyload, %do.end340 ], [ %word402.sroa.0.0.copyload, %if.end398 ], [ %word460.sroa.0.0.copyload, %if.end456 ], [ %word511.sroa.0.0.copyload, %if.end507 ], [ %word575.sroa.0.0.copyload, %do.end571 ], [ %word633.sroa.0.0.copyload, %if.end629 ], [ %word698.sroa.0.0.copyload, %do.end694 ], [ %word756.sroa.0.0.copyload, %if.end752 ], [ %word813.sroa.0.0.copyload, %if.end809 ], [ %192, %if.then836 ], [ %word885.sroa.0.0.copyload, %if.end881 ], [ %word945.sroa.0.0.copyload, %if.end941 ], [ %word1053.sroa.0.0.copyload, %do.end1049 ], [ %word1129.sroa.0.0.copyload, %do.end1125 ], [ %word1199.sroa.0.0.copyload, %do.end1195 ], [ %word1273.sroa.0.0.copyload, %if.end1265 ], [ %word1303.sroa.0.0.copyload, %if.end1295 ], [ %word1363.sroa.0.0.copyload, %if.end1353 ], [ %word1437.sroa.0.0.copyload, %if.end1429 ], [ %word1545.sroa.0.0.copyload, %if.end1531 ], [ %word1598.sroa.0.0.copyload, %if.end1590 ], [ %word1627.sroa.0.0.copyload, %if.end1619 ], [ %330, %if.then1657 ], [ %word1853.sroa.0.0.copyload, %do.body1852 ], [ %word2099.sroa.0.0.copyload, %for.end2078 ], [ %word2207.sroa.0.0.copyload, %do.body2206 ], [ %word2317.sroa.0.0.copyload, %do.body2316 ], [ %word2428.sroa.0.0.copyload, %do.body2427 ], [ %word2538.sroa.0.0.copyload, %do.body2537 ], [ %word2788.sroa.0.0.copyload, %do.body2787 ], [ %word2824.sroa.0.0.copyload, %if.end2821 ], [ %word2877.sroa.0.0.copyload, %if.end2873 ], [ %word2986.sroa.0.0.copyload, %if.end2978 ], [ %word3243.sroa.0.0.copyload, %do.body3242 ], [ %word3335.sroa.0.0.copyload, %if.end3327 ], [ %word3407.sroa.0.0.copyload, %do.end3403 ], [ %word3526.sroa.0.0.copyload, %do.body3525 ], [ %word3652.sroa.0.0.copyload, %do.body3651 ], [ %word3771.sroa.0.0.copyload, %do.body3770 ], [ %word3907.sroa.0.0.copyload, %do.body3906 ], [ %word4016.sroa.0.0.copyload, %for.end3995 ], [ %word4214.sroa.0.0.copyload, %do.body4213 ], [ %word4304.sroa.0.0.copyload, %do.body4303 ], [ %word4374.sroa.0.0.copyload, %do.end4366 ], [ %word4467.sroa.0.0.copyload, %if.end4463 ], [ %word4521.sroa.0.0.copyload, %do.end4516 ], [ %word4593.sroa.0.0.copyload, %do.end4585 ], [ %894, %if.then4616 ], [ %word4692.sroa.0.0.copyload, %if.end4688 ], [ %word4756.sroa.0.0.copyload, %do.end4749 ], [ %word4830.sroa.0.0.copyload, %do.end4823 ], [ %word4888.sroa.0.0.copyload, %do.end4880 ], [ %word4943.sroa.0.0.copyload, %if.end4937 ], [ %word4979.sroa.0.0.copyload, %if.end4976 ], [ %word4996.sroa.0.0.copyload, %_Py_NewRef.exit7868 ], [ %word5024.sroa.0.0.copyload, %do.body5023 ], [ %word5061.sroa.0.0.copyload, %if.end5058 ], [ %word5095.sroa.0.0.copyload, %do.body5094 ], [ %word5142.sroa.0.0.copyload, %do.body5141 ], [ %word5168.sroa.0.0.copyload, %do.body5167 ], [ %word5195.sroa.0.0.copyload, %do.body5194 ], [ %word5245.sroa.0.0.copyload, %if.end5242 ], [ %word5302.sroa.0.0.copyload, %do.end5299 ], [ %word5362.sroa.0.0.copyload, %do.end5359 ], [ %word5411.sroa.0.0.copyload, %if.end5408 ], [ %word5455.sroa.0.0.copyload, %do.end5452 ], [ %word5485.sroa.0.0.copyload, %do.end5481 ], [ %word5525.sroa.0.0.copyload, %if.end5522 ], [ %word5544.sroa.0.0.copyload, %if.end5541 ], [ %1075, %TARGET_EXTENDED_ARG ], [ %word5593.sroa.0.0.copyload, %if.end5590 ], [ %word5644.sroa.0.0.copyload, %if.end5640 ], [ %1093, %if.then5663 ], [ %word5707.sroa.0.0.copyload, %do.end5701 ], [ %word5718.sroa.0.0.copyload, %if.end5714 ], [ %word5818.sroa.0.0.copyload, %do.end5812 ], [ %word5837.sroa.0.0.copyload, %_Py_NewRef.exit7937 ], [ %word5879.sroa.0.0.copyload, %do.end5874 ], [ %word5903.sroa.0.0.copyload, %if.end5899 ], [ %word5971.sroa.0.0.copyload, %do.end5965 ], [ %word5990.sroa.0.0.copyload, %_Py_NewRef.exit7941 ], [ %word6080.sroa.0.0.copyload, %if.end6077 ], [ %word6168.sroa.0.0.copyload, %if.end6164 ], [ %word6257.sroa.0.0.copyload, %if.end6254 ], [ %word6291.sroa.0.0.copyload, %if.end6288 ], [ %word6316.sroa.0.0.copyload, %if.end6312 ], [ %word6368.sroa.0.0.copyload, %if.end6365 ], [ %word6393.sroa.0.0.copyload, %if.end6389 ], [ %word6449.sroa.0.0.copyload, %if.end6445 ], [ %word6574.sroa.0.0.copyload, %do.end6571 ], [ %word6618.sroa.0.0.copyload, %do.end6614 ], [ %word6677.sroa.0.0.copyload, %do.body6676 ], [ %conv6703, %if.end6702 ], [ %word6737.sroa.0.0.copyload, %do.body6736 ], [ %word6761.sroa.0.0.copyload, %do.body6760 ], [ %word6806.sroa.0.0.copyload, %do.body6805 ], [ %word6861.sroa.0.0.copyload, %do.body6860 ], [ %word6916.sroa.0.0.copyload, %do.body6915 ], [ %word6953.sroa.0.0.copyload, %do.body6952 ], [ %word7010.sroa.0.0.copyload, %if.then7008 ], [ %word7020.sroa.0.0.copyload, %do.body7019 ], [ %word7154.sroa.0.0.copyload, %do.end7148 ], [ %word7235.sroa.0.0.copyload, %do.body7234 ], [ %word7248.sroa.0.0.copyload, %TARGET_JUMP_BACKWARD_NO_INTERRUPT ], [ %word7260.sroa.0.0.copyload, %TARGET_JUMP_FORWARD ], [ %word7283.sroa.0.0.copyload, %if.end7280 ], [ %word7350.sroa.0.0.copyload, %do.end7347 ], [ %word7364.sroa.0.0.copyload, %_Py_NewRef.exit8204 ], [ %1469, %if.then7385 ], [ %word7469.sroa.0.0.copyload, %if.end7464 ], [ %word7522.sroa.0.0.copyload, %if.end7517 ], [ %word7653.sroa.0.0.copyload, %if.end7648 ], [ %word7692.sroa.0.0.copyload, %_Py_NewRef.exit8242 ], [ %word7724.sroa.0.0.copyload, %_Py_NewRef.exit8246 ], [ %word7772.sroa.0.0.copyload, %_Py_NewRef.exit8252 ], [ %word7839.sroa.0.0.copyload, %if.end7834 ], [ %word7884.sroa.0.0.copyload, %_Py_NewRef.exit8257 ], [ %word7950.sroa.0.0.copyload, %_Py_NewRef.exit8263 ], [ %word8061.sroa.0.0.copyload, %if.end8056 ], [ %word8178.sroa.0.0.copyload, %if.end8173 ], [ %word8199.sroa.0.0.copyload, %if.end8195 ], [ %word8217.sroa.0.0.copyload, %Py_INCREF.exit21296 ], [ %word8240.sroa.0.0.copyload, %Py_INCREF.exit21288 ], [ %word8256.sroa.0.0.copyload, %Py_INCREF.exit21280 ], [ %word8275.sroa.0.0.copyload, %TARGET_LOAD_FAST_AND_CLEAR ], [ %word8295.sroa.0.0.copyload, %Py_INCREF.exit21272 ], [ %word8318.sroa.0.0.copyload, %Py_INCREF.exit21256 ], [ %word8369.sroa.0.0.copyload, %do.end8366 ], [ %word8432.sroa.0.0.copyload, %do.end8429 ], [ %1657, %if.then8452 ], [ %word8533.sroa.0.0.copyload, %if.end8527 ], [ %word8602.sroa.0.0.copyload, %if.end8596 ], [ %word8657.sroa.0.0.copyload, %if.end8651 ], [ %word8675.sroa.0.0.copyload, %Py_INCREF.exit21216 ], [ %word8729.sroa.0.0.copyload, %if.end8725 ], [ %1706, %if.then8753 ], [ %word8919.sroa.0.0.copyload, %if.end8913 ], [ %word9003.sroa.0.0.copyload, %if.end8999 ], [ %word9116.sroa.0.0.copyload, %if.end9111 ], [ %word9166.sroa.0.0.copyload, %do.body9165 ], [ %word9200.sroa.0.0.copyload, %if.end9197 ], [ %word9224.sroa.0.0.copyload, %if.end9221 ], [ %word9295.sroa.0.0.copyload, %if.end9291 ], [ %word9316.sroa.0.0.copyload, %if.end9312 ], [ %word9337.sroa.0.0.copyload, %TARGET_MATCH_MAPPING ], [ %word9359.sroa.0.0.copyload, %TARGET_MATCH_SEQUENCE ], [ %word9369.sroa.0.0.copyload, %TARGET_NOP ], [ %word9411.sroa.0.0.copyload, %do.end9408 ], [ %word9437.sroa.0.0.copyload, %TARGET_POP_JUMP_IF_FALSE ], [ %word9485.sroa.0.0.copyload, %if.end9470 ], [ %word9533.sroa.0.0.copyload, %if.end9518 ], [ %word9559.sroa.0.0.copyload, %TARGET_POP_JUMP_IF_TRUE ], [ %word9587.sroa.0.0.copyload, %do.end9584 ], [ %word9612.sroa.0.0.copyload, %_Py_NewRef.exit8363 ], [ %word9625.sroa.0.0.copyload, %TARGET_PUSH_NULL ], [ %word9722.sroa.0.0.copyload, %do.body9721 ], [ %word9744.sroa.0.0.copyload, %do.body9743 ], [ %word9772.sroa.0.0.copyload, %Py_INCREF.exit21200 ], [ %word9821.sroa.0.0.copyload, %TARGET_RETURN_VALUE ], [ %1952, %if.then9843 ], [ %word9942.sroa.0.0.copyload, %do.end9939 ], [ %word10060.sroa.0.0.copyload, %do.body10059 ], [ %word10098.sroa.0.0.copyload, %if.end10095 ], [ %word10123.sroa.0.0.copyload, %TARGET_SET_FUNCTION_ATTRIBUTE ], [ %word10162.sroa.0.0.copyload, %if.end10159 ], [ %2015, %if.then10183 ], [ %word10244.sroa.0.0.copyload, %if.end10241 ], [ %word10327.sroa.0.0.copyload, %do.end10324 ], [ %word10398.sroa.0.0.copyload, %do.end10395 ], [ %word10538.sroa.0.0.copyload, %do.end10535 ], [ %word10579.sroa.0.0.copyload, %do.end10576 ], [ %word10623.sroa.0.0.copyload, %do.end10620 ], [ %word10675.sroa.0.0.copyload, %Py_INCREF.exit21192 ], [ %word10756.sroa.0.0.copyload, %do.end10753 ], [ %word10796.sroa.0.0.copyload, %if.end10793 ], [ %word10864.sroa.0.0.copyload, %if.end10861 ], [ %word10940.sroa.0.0.copyload, %if.end10937 ], [ %2169, %if.then10963 ], [ %word11027.sroa.0.0.copyload, %if.end11024 ], [ %word11069.sroa.0.0.copyload, %if.end11066 ], [ %word11156.sroa.0.0.copyload, %do.end11153 ], [ %word11178.sroa.0.0.copyload, %TARGET_SWAP ], [ %2212, %if.then11199 ], [ %word11235.sroa.0.0.copyload, %if.end11230 ], [ %word11274.sroa.0.0.copyload, %do.end11271 ], [ %word11291.sroa.0.0.copyload, %do.body11290 ], [ %word11329.sroa.0.0.copyload, %if.end11326 ], [ %word11366.sroa.0.0.copyload, %do.end11363 ], [ %word11384.sroa.0.0.copyload, %if.end11381 ], [ %word11423.sroa.0.0.copyload, %if.end11420 ], [ %word11457.sroa.0.0.copyload, %if.end11454 ], [ %word11491.sroa.0.0.copyload, %if.end11488 ], [ %word11508.sroa.0.0.copyload, %TARGET_UNARY_NOT ], [ %word11556.sroa.0.0.copyload, %if.end11549 ], [ %2260, %if.then11576 ], [ %word11616.sroa.0.0.copyload, %if.end11611 ], [ %word11671.sroa.0.0.copyload, %do.end11666 ], [ %word11728.sroa.0.0.copyload, %do.end11723 ], [ %word11778.sroa.0.0.copyload, %do.end11773 ], [ %word11830.sroa.0.0.copyload, %if.end11826 ], [ %word11876.sroa.0.0.copyload, %do.body11875 ], [ %conv11897, %if.end11896 ], [ %word19372.sroa.0.0.copyload, %do.body19371 ]
-  %frame.addr.8.be = phi ptr [ %frame.addr.8, %if.end106 ], [ %frame.addr.8, %if.end213 ], [ %frame.addr.8, %if.then236 ], [ %frame.addr.8, %if.end283 ], [ %frame.addr.8, %do.end340 ], [ %frame.addr.8, %if.end398 ], [ %frame.addr.8, %if.end456 ], [ %frame.addr.8, %if.end507 ], [ %frame.addr.8, %do.end571 ], [ %frame.addr.8, %if.end629 ], [ %frame.addr.8, %do.end694 ], [ %frame.addr.8, %if.end752 ], [ %frame.addr.8, %if.end809 ], [ %frame.addr.8, %if.then836 ], [ %frame.addr.8, %if.end881 ], [ %frame.addr.8, %if.end941 ], [ %frame.addr.8, %do.end1049 ], [ %frame.addr.8, %do.end1125 ], [ %frame.addr.8, %do.end1195 ], [ %frame.addr.8, %if.end1265 ], [ %frame.addr.8, %if.end1295 ], [ %frame.addr.8, %if.end1353 ], [ %frame.addr.8, %if.end1429 ], [ %frame.addr.8, %if.end1531 ], [ %frame.addr.8, %if.end1590 ], [ %frame.addr.8, %if.end1619 ], [ %frame.addr.8, %if.then1657 ], [ %frame.addr.8, %do.body1852 ], [ %call2065, %for.end2078 ], [ %frame.addr.8, %do.body2206 ], [ %frame.addr.8, %do.body2316 ], [ %frame.addr.8, %do.body2427 ], [ %frame.addr.8, %do.body2537 ], [ %frame.addr.8, %do.body2787 ], [ %frame.addr.8, %if.end2821 ], [ %frame.addr.8, %if.end2873 ], [ %frame.addr.8, %if.end2978 ], [ %frame.addr.8, %do.body3242 ], [ %frame.addr.8, %if.end3327 ], [ %frame.addr.8, %do.end3403 ], [ %frame.addr.8, %do.body3525 ], [ %frame.addr.8, %do.body3651 ], [ %frame.addr.8, %do.body3770 ], [ %frame.addr.8, %do.body3906 ], [ %754, %for.end3995 ], [ %frame.addr.8, %do.body4213 ], [ %frame.addr.8, %do.body4303 ], [ %frame.addr.8, %do.end4366 ], [ %frame.addr.8, %if.end4463 ], [ %frame.addr.8, %do.end4516 ], [ %frame.addr.8, %do.end4585 ], [ %frame.addr.8, %if.then4616 ], [ %frame.addr.8, %if.end4688 ], [ %frame.addr.8, %do.end4749 ], [ %frame.addr.8, %do.end4823 ], [ %frame.addr.8, %do.end4880 ], [ %frame.addr.8, %if.end4937 ], [ %frame.addr.8, %if.end4976 ], [ %frame.addr.8, %_Py_NewRef.exit7868 ], [ %frame.addr.8, %do.body5023 ], [ %frame.addr.8, %if.end5058 ], [ %frame.addr.8, %do.body5094 ], [ %frame.addr.8, %do.body5141 ], [ %frame.addr.8, %do.body5167 ], [ %frame.addr.8, %do.body5194 ], [ %frame.addr.8, %if.end5242 ], [ %frame.addr.8, %do.end5299 ], [ %frame.addr.8, %do.end5359 ], [ %frame.addr.8, %if.end5408 ], [ %frame.addr.8, %do.end5452 ], [ %frame.addr.8, %do.end5481 ], [ %1069, %if.end5522 ], [ %frame.addr.8, %if.end5541 ], [ %frame.addr.8, %TARGET_EXTENDED_ARG ], [ %frame.addr.8, %if.end5590 ], [ %frame.addr.8, %if.end5640 ], [ %frame.addr.8, %if.then5663 ], [ %frame.addr.8, %do.end5701 ], [ %frame.addr.8, %if.end5714 ], [ %frame.addr.8, %do.end5812 ], [ %frame.addr.8, %_Py_NewRef.exit7937 ], [ %frame.addr.8, %do.end5874 ], [ %frame.addr.8, %if.end5899 ], [ %frame.addr.8, %do.end5965 ], [ %frame.addr.8, %_Py_NewRef.exit7941 ], [ %frame.addr.8, %if.end6077 ], [ %frame.addr.8, %if.end6164 ], [ %frame.addr.8, %if.end6254 ], [ %frame.addr.8, %if.end6288 ], [ %frame.addr.8, %if.end6312 ], [ %frame.addr.8, %if.end6365 ], [ %frame.addr.8, %if.end6389 ], [ %frame.addr.8, %if.end6445 ], [ %frame.addr.8, %do.end6571 ], [ %frame.addr.8, %do.end6614 ], [ %frame.addr.8, %do.body6676 ], [ %frame.addr.8, %if.end6702 ], [ %frame.addr.8, %do.body6736 ], [ %frame.addr.8, %do.body6760 ], [ %frame.addr.8, %do.body6805 ], [ %frame.addr.8, %do.body6860 ], [ %frame.addr.8, %do.body6915 ], [ %frame.addr.8, %do.body6952 ], [ %frame.addr.8, %if.then7008 ], [ %frame.addr.8, %do.body7019 ], [ %frame.addr.8, %do.end7148 ], [ %frame.addr.8, %do.body7234 ], [ %frame.addr.8, %TARGET_JUMP_BACKWARD_NO_INTERRUPT ], [ %frame.addr.8, %TARGET_JUMP_FORWARD ], [ %frame.addr.8, %if.end7280 ], [ %frame.addr.8, %do.end7347 ], [ %frame.addr.8, %_Py_NewRef.exit8204 ], [ %frame.addr.8, %if.then7385 ], [ %frame.addr.8, %if.end7464 ], [ %frame.addr.8, %if.end7517 ], [ %frame.addr.8, %if.end7648 ], [ %frame.addr.8, %_Py_NewRef.exit8242 ], [ %frame.addr.8, %_Py_NewRef.exit8246 ], [ %frame.addr.8, %_Py_NewRef.exit8252 ], [ %frame.addr.8, %if.end7834 ], [ %frame.addr.8, %_Py_NewRef.exit8257 ], [ %frame.addr.8, %_Py_NewRef.exit8263 ], [ %frame.addr.8, %if.end8056 ], [ %frame.addr.8, %if.end8173 ], [ %frame.addr.8, %if.end8195 ], [ %frame.addr.8, %Py_INCREF.exit21296 ], [ %frame.addr.8, %Py_INCREF.exit21288 ], [ %frame.addr.8, %Py_INCREF.exit21280 ], [ %frame.addr.8, %TARGET_LOAD_FAST_AND_CLEAR ], [ %frame.addr.8, %Py_INCREF.exit21272 ], [ %frame.addr.8, %Py_INCREF.exit21256 ], [ %frame.addr.8, %do.end8366 ], [ %frame.addr.8, %do.end8429 ], [ %frame.addr.8, %if.then8452 ], [ %frame.addr.8, %if.end8527 ], [ %frame.addr.8, %if.end8596 ], [ %frame.addr.8, %if.end8651 ], [ %frame.addr.8, %Py_INCREF.exit21216 ], [ %frame.addr.8, %if.end8725 ], [ %frame.addr.8, %if.then8753 ], [ %frame.addr.8, %if.end8913 ], [ %frame.addr.8, %if.end8999 ], [ %frame.addr.8, %if.end9111 ], [ %frame.addr.8, %do.body9165 ], [ %frame.addr.8, %if.end9197 ], [ %frame.addr.8, %if.end9221 ], [ %frame.addr.8, %if.end9291 ], [ %frame.addr.8, %if.end9312 ], [ %frame.addr.8, %TARGET_MATCH_MAPPING ], [ %frame.addr.8, %TARGET_MATCH_SEQUENCE ], [ %frame.addr.8, %TARGET_NOP ], [ %frame.addr.8, %do.end9408 ], [ %frame.addr.8, %TARGET_POP_JUMP_IF_FALSE ], [ %frame.addr.8, %if.end9470 ], [ %frame.addr.8, %if.end9518 ], [ %frame.addr.8, %TARGET_POP_JUMP_IF_TRUE ], [ %frame.addr.8, %do.end9584 ], [ %frame.addr.8, %_Py_NewRef.exit8363 ], [ %frame.addr.8, %TARGET_PUSH_NULL ], [ %frame.addr.8, %do.body9721 ], [ %frame.addr.8, %do.body9743 ], [ %1932, %Py_INCREF.exit21200 ], [ %1946, %TARGET_RETURN_VALUE ], [ %frame.addr.8, %if.then9843 ], [ %frame.addr.8, %do.end9939 ], [ %frame.addr.8, %do.body10059 ], [ %frame.addr.8, %if.end10095 ], [ %frame.addr.8, %TARGET_SET_FUNCTION_ATTRIBUTE ], [ %frame.addr.8, %if.end10159 ], [ %frame.addr.8, %if.then10183 ], [ %frame.addr.8, %if.end10241 ], [ %frame.addr.8, %do.end10324 ], [ %frame.addr.8, %do.end10395 ], [ %frame.addr.8, %do.end10535 ], [ %frame.addr.8, %do.end10576 ], [ %frame.addr.8, %do.end10620 ], [ %frame.addr.8, %Py_INCREF.exit21192 ], [ %frame.addr.8, %do.end10753 ], [ %frame.addr.8, %if.end10793 ], [ %frame.addr.8, %if.end10861 ], [ %frame.addr.8, %if.end10937 ], [ %frame.addr.8, %if.then10963 ], [ %frame.addr.8, %if.end11024 ], [ %frame.addr.8, %if.end11066 ], [ %frame.addr.8, %do.end11153 ], [ %frame.addr.8, %TARGET_SWAP ], [ %frame.addr.8, %if.then11199 ], [ %frame.addr.8, %if.end11230 ], [ %frame.addr.8, %do.end11271 ], [ %frame.addr.8, %do.body11290 ], [ %frame.addr.8, %if.end11326 ], [ %frame.addr.8, %do.end11363 ], [ %frame.addr.8, %if.end11381 ], [ %frame.addr.8, %if.end11420 ], [ %frame.addr.8, %if.end11454 ], [ %frame.addr.8, %if.end11488 ], [ %frame.addr.8, %TARGET_UNARY_NOT ], [ %frame.addr.8, %if.end11549 ], [ %frame.addr.8, %if.then11576 ], [ %frame.addr.8, %if.end11611 ], [ %frame.addr.8, %do.end11666 ], [ %frame.addr.8, %do.end11723 ], [ %frame.addr.8, %do.end11773 ], [ %frame.addr.8, %if.end11826 ], [ %frame.addr.8, %do.body11875 ], [ %frame.addr.8, %if.end11896 ], [ %frame.addr.6, %do.body19371 ]
+  %frame.addr.4.be = phi ptr [ %frame.addr.4, %if.end106 ], [ %frame.addr.4, %if.end213 ], [ %frame.addr.4, %if.then236 ], [ %frame.addr.4, %if.end283 ], [ %frame.addr.4, %do.end340 ], [ %frame.addr.4, %if.end398 ], [ %frame.addr.4, %if.end456 ], [ %frame.addr.4, %if.end507 ], [ %frame.addr.4, %do.end571 ], [ %frame.addr.4, %if.end629 ], [ %frame.addr.4, %do.end694 ], [ %frame.addr.4, %if.end752 ], [ %frame.addr.4, %if.end809 ], [ %frame.addr.4, %if.then836 ], [ %frame.addr.4, %if.end881 ], [ %frame.addr.4, %if.end941 ], [ %frame.addr.4, %do.end1049 ], [ %frame.addr.4, %do.end1125 ], [ %frame.addr.4, %do.end1195 ], [ %frame.addr.4, %if.end1265 ], [ %frame.addr.4, %if.end1295 ], [ %frame.addr.4, %if.end1353 ], [ %frame.addr.4, %if.end1429 ], [ %frame.addr.4, %if.end1531 ], [ %frame.addr.4, %if.end1590 ], [ %frame.addr.4, %if.end1619 ], [ %frame.addr.4, %if.then1657 ], [ %frame.addr.4, %do.body1852 ], [ %call2065, %for.end2078 ], [ %frame.addr.4, %do.body2206 ], [ %frame.addr.4, %do.body2316 ], [ %frame.addr.4, %do.body2427 ], [ %frame.addr.4, %do.body2537 ], [ %frame.addr.4, %do.body2787 ], [ %frame.addr.4, %if.end2821 ], [ %frame.addr.4, %if.end2873 ], [ %frame.addr.4, %if.end2978 ], [ %frame.addr.4, %do.body3242 ], [ %frame.addr.4, %if.end3327 ], [ %frame.addr.4, %do.end3403 ], [ %frame.addr.4, %do.body3525 ], [ %frame.addr.4, %do.body3651 ], [ %frame.addr.4, %do.body3770 ], [ %frame.addr.4, %do.body3906 ], [ %754, %for.end3995 ], [ %frame.addr.4, %do.body4213 ], [ %frame.addr.4, %do.body4303 ], [ %frame.addr.4, %do.end4366 ], [ %frame.addr.4, %if.end4463 ], [ %frame.addr.4, %do.end4516 ], [ %frame.addr.4, %do.end4585 ], [ %frame.addr.4, %if.then4616 ], [ %frame.addr.4, %if.end4688 ], [ %frame.addr.4, %do.end4749 ], [ %frame.addr.4, %do.end4823 ], [ %frame.addr.4, %do.end4880 ], [ %frame.addr.4, %if.end4937 ], [ %frame.addr.4, %if.end4976 ], [ %frame.addr.4, %_Py_NewRef.exit7868 ], [ %frame.addr.4, %do.body5023 ], [ %frame.addr.4, %if.end5058 ], [ %frame.addr.4, %do.body5094 ], [ %frame.addr.4, %do.body5141 ], [ %frame.addr.4, %do.body5167 ], [ %frame.addr.4, %do.body5194 ], [ %frame.addr.4, %if.end5242 ], [ %frame.addr.4, %do.end5299 ], [ %frame.addr.4, %do.end5359 ], [ %frame.addr.4, %if.end5408 ], [ %frame.addr.4, %do.end5452 ], [ %frame.addr.4, %do.end5481 ], [ %1069, %if.end5522 ], [ %frame.addr.4, %if.end5541 ], [ %frame.addr.4, %TARGET_EXTENDED_ARG ], [ %frame.addr.4, %if.end5590 ], [ %frame.addr.4, %if.end5640 ], [ %frame.addr.4, %if.then5663 ], [ %frame.addr.4, %do.end5701 ], [ %frame.addr.4, %if.end5714 ], [ %frame.addr.4, %do.end5812 ], [ %frame.addr.4, %_Py_NewRef.exit7937 ], [ %frame.addr.4, %do.end5874 ], [ %frame.addr.4, %if.end5899 ], [ %frame.addr.4, %do.end5965 ], [ %frame.addr.4, %_Py_NewRef.exit7941 ], [ %frame.addr.4, %if.end6077 ], [ %frame.addr.4, %if.end6164 ], [ %frame.addr.4, %if.end6254 ], [ %frame.addr.4, %if.end6288 ], [ %frame.addr.4, %if.end6312 ], [ %frame.addr.4, %if.end6365 ], [ %frame.addr.4, %if.end6389 ], [ %frame.addr.4, %if.end6445 ], [ %frame.addr.4, %do.end6571 ], [ %frame.addr.4, %do.end6614 ], [ %frame.addr.4, %do.body6676 ], [ %frame.addr.4, %if.end6702 ], [ %frame.addr.4, %do.body6736 ], [ %frame.addr.4, %do.body6760 ], [ %frame.addr.4, %do.body6805 ], [ %frame.addr.4, %do.body6860 ], [ %frame.addr.4, %do.body6915 ], [ %frame.addr.4, %do.body6952 ], [ %frame.addr.4, %if.then7008 ], [ %frame.addr.4, %do.body7019 ], [ %frame.addr.4, %do.end7148 ], [ %frame.addr.4, %do.body7234 ], [ %frame.addr.4, %TARGET_JUMP_BACKWARD_NO_INTERRUPT ], [ %frame.addr.4, %TARGET_JUMP_FORWARD ], [ %frame.addr.4, %if.end7280 ], [ %frame.addr.4, %do.end7347 ], [ %frame.addr.4, %_Py_NewRef.exit8204 ], [ %frame.addr.4, %if.then7385 ], [ %frame.addr.4, %if.end7464 ], [ %frame.addr.4, %if.end7517 ], [ %frame.addr.4, %if.end7648 ], [ %frame.addr.4, %_Py_NewRef.exit8242 ], [ %frame.addr.4, %_Py_NewRef.exit8246 ], [ %frame.addr.4, %_Py_NewRef.exit8252 ], [ %frame.addr.4, %if.end7834 ], [ %frame.addr.4, %_Py_NewRef.exit8257 ], [ %frame.addr.4, %_Py_NewRef.exit8263 ], [ %frame.addr.4, %if.end8056 ], [ %frame.addr.4, %if.end8173 ], [ %frame.addr.4, %if.end8195 ], [ %frame.addr.4, %Py_INCREF.exit21296 ], [ %frame.addr.4, %Py_INCREF.exit21288 ], [ %frame.addr.4, %Py_INCREF.exit21280 ], [ %frame.addr.4, %TARGET_LOAD_FAST_AND_CLEAR ], [ %frame.addr.4, %Py_INCREF.exit21272 ], [ %frame.addr.4, %Py_INCREF.exit21256 ], [ %frame.addr.4, %do.end8366 ], [ %frame.addr.4, %do.end8429 ], [ %frame.addr.4, %if.then8452 ], [ %frame.addr.4, %if.end8527 ], [ %frame.addr.4, %if.end8596 ], [ %frame.addr.4, %if.end8651 ], [ %frame.addr.4, %Py_INCREF.exit21216 ], [ %frame.addr.4, %if.end8725 ], [ %frame.addr.4, %if.then8753 ], [ %frame.addr.4, %if.end8913 ], [ %frame.addr.4, %if.end8999 ], [ %frame.addr.4, %if.end9111 ], [ %frame.addr.4, %do.body9165 ], [ %frame.addr.4, %if.end9197 ], [ %frame.addr.4, %if.end9221 ], [ %frame.addr.4, %if.end9291 ], [ %frame.addr.4, %if.end9312 ], [ %frame.addr.4, %TARGET_MATCH_MAPPING ], [ %frame.addr.4, %TARGET_MATCH_SEQUENCE ], [ %frame.addr.4, %TARGET_NOP ], [ %frame.addr.4, %do.end9408 ], [ %frame.addr.4, %TARGET_POP_JUMP_IF_FALSE ], [ %frame.addr.4, %if.end9470 ], [ %frame.addr.4, %if.end9518 ], [ %frame.addr.4, %TARGET_POP_JUMP_IF_TRUE ], [ %frame.addr.4, %do.end9584 ], [ %frame.addr.4, %_Py_NewRef.exit8363 ], [ %frame.addr.4, %TARGET_PUSH_NULL ], [ %frame.addr.4, %do.body9721 ], [ %frame.addr.4, %do.body9743 ], [ %1932, %Py_INCREF.exit21200 ], [ %1946, %TARGET_RETURN_VALUE ], [ %frame.addr.4, %if.then9843 ], [ %frame.addr.4, %do.end9939 ], [ %frame.addr.4, %do.body10059 ], [ %frame.addr.4, %if.end10095 ], [ %frame.addr.4, %TARGET_SET_FUNCTION_ATTRIBUTE ], [ %frame.addr.4, %if.end10159 ], [ %frame.addr.4, %if.then10183 ], [ %frame.addr.4, %if.end10241 ], [ %frame.addr.4, %do.end10324 ], [ %frame.addr.4, %do.end10395 ], [ %frame.addr.4, %do.end10535 ], [ %frame.addr.4, %do.end10576 ], [ %frame.addr.4, %do.end10620 ], [ %frame.addr.4, %Py_INCREF.exit21192 ], [ %frame.addr.4, %do.end10753 ], [ %frame.addr.4, %if.end10793 ], [ %frame.addr.4, %if.end10861 ], [ %frame.addr.4, %if.end10937 ], [ %frame.addr.4, %if.then10963 ], [ %frame.addr.4, %if.end11024 ], [ %frame.addr.4, %if.end11066 ], [ %frame.addr.4, %do.end11153 ], [ %frame.addr.4, %TARGET_SWAP ], [ %frame.addr.4, %if.then11199 ], [ %frame.addr.4, %if.end11230 ], [ %frame.addr.4, %do.end11271 ], [ %frame.addr.4, %do.body11290 ], [ %frame.addr.4, %if.end11326 ], [ %frame.addr.4, %do.end11363 ], [ %frame.addr.4, %if.end11381 ], [ %frame.addr.4, %if.end11420 ], [ %frame.addr.4, %if.end11454 ], [ %frame.addr.4, %if.end11488 ], [ %frame.addr.4, %TARGET_UNARY_NOT ], [ %frame.addr.4, %if.end11549 ], [ %frame.addr.4, %if.then11576 ], [ %frame.addr.4, %if.end11611 ], [ %frame.addr.4, %do.end11666 ], [ %frame.addr.4, %do.end11723 ], [ %frame.addr.4, %do.end11773 ], [ %frame.addr.4, %if.end11826 ], [ %frame.addr.4, %do.body11875 ], [ %frame.addr.4, %if.end11896 ], [ %frame.addr.7, %do.body19371 ]
   %idxprom12045.pn.pn.be = phi i64 [ %idxprom116, %if.end106 ], [ %idxprom223, %if.end213 ], [ %idxprom238, %if.then236 ], [ %idxprom292, %if.end283 ], [ %idxprom349, %do.end340 ], [ %idxprom407, %if.end398 ], [ %idxprom465, %if.end456 ], [ %idxprom516, %if.end507 ], [ %idxprom580, %do.end571 ], [ %idxprom638, %if.end629 ], [ %idxprom703, %do.end694 ], [ %idxprom761, %if.end752 ], [ %idxprom818, %if.end809 ], [ %idxprom838, %if.then836 ], [ %idxprom890, %if.end881 ], [ %idxprom950, %if.end941 ], [ %idxprom1058, %do.end1049 ], [ %idxprom1134, %do.end1125 ], [ %idxprom1204, %do.end1195 ], [ %idxprom1278, %if.end1265 ], [ %idxprom1308, %if.end1295 ], [ %idxprom1368, %if.end1353 ], [ %idxprom1442, %if.end1429 ], [ %idxprom1550, %if.end1531 ], [ %idxprom1603, %if.end1590 ], [ %idxprom1632, %if.end1619 ], [ %idxprom1662, %if.then1657 ], [ %idxprom1858, %do.body1852 ], [ %idxprom2104, %for.end2078 ], [ %idxprom2212, %do.body2206 ], [ %idxprom2322, %do.body2316 ], [ %idxprom2433, %do.body2427 ], [ %idxprom2543, %do.body2537 ], [ %idxprom2793, %do.body2787 ], [ %idxprom2829, %if.end2821 ], [ %idxprom2882, %if.end2873 ], [ %idxprom2991, %if.end2978 ], [ %idxprom3248, %do.body3242 ], [ %idxprom3340, %if.end3327 ], [ %idxprom3412, %do.end3403 ], [ %idxprom3531, %do.body3525 ], [ %idxprom3657, %do.body3651 ], [ %idxprom3776, %do.body3770 ], [ %idxprom3912, %do.body3906 ], [ %idxprom4021, %for.end3995 ], [ %idxprom4219, %do.body4213 ], [ %idxprom4309, %do.body4303 ], [ %idxprom4379, %do.end4366 ], [ %idxprom4472, %if.end4463 ], [ %idxprom4526, %do.end4516 ], [ %idxprom4598, %do.end4585 ], [ %idxprom4618, %if.then4616 ], [ %idxprom4697, %if.end4688 ], [ %idxprom4761, %do.end4749 ], [ %idxprom4835, %do.end4823 ], [ %idxprom4893, %do.end4880 ], [ %idxprom4948, %if.end4937 ], [ %idxprom4984, %if.end4976 ], [ %idxprom5001, %_Py_NewRef.exit7868 ], [ %idxprom5029, %do.body5023 ], [ %idxprom5066, %if.end5058 ], [ %idxprom5100, %do.body5094 ], [ %idxprom5147, %do.body5141 ], [ %idxprom5173, %do.body5167 ], [ %idxprom5200, %do.body5194 ], [ %idxprom5250, %if.end5242 ], [ %idxprom5307, %do.end5299 ], [ %idxprom5367, %do.end5359 ], [ %idxprom5416, %if.end5408 ], [ %idxprom5460, %do.end5452 ], [ %idxprom5490, %do.end5481 ], [ %idxprom5530, %if.end5522 ], [ %idxprom5549, %if.end5541 ], [ %idxprom5558, %TARGET_EXTENDED_ARG ], [ %idxprom5598, %if.end5590 ], [ %idxprom5649, %if.end5640 ], [ %idxprom5665, %if.then5663 ], [ %idxprom5712, %do.end5701 ], [ %idxprom5723, %if.end5714 ], [ %idxprom5823, %do.end5812 ], [ %idxprom5842, %_Py_NewRef.exit7937 ], [ %idxprom5884, %do.end5874 ], [ %idxprom5908, %if.end5899 ], [ %idxprom5976, %do.end5965 ], [ %idxprom5995, %_Py_NewRef.exit7941 ], [ %idxprom6085, %if.end6077 ], [ %idxprom6173, %if.end6164 ], [ %idxprom6262, %if.end6254 ], [ %idxprom6296, %if.end6288 ], [ %idxprom6321, %if.end6312 ], [ %idxprom6373, %if.end6365 ], [ %idxprom6398, %if.end6389 ], [ %idxprom6454, %if.end6445 ], [ %idxprom6579, %do.end6571 ], [ %idxprom6623, %do.end6614 ], [ %idxprom6682, %do.body6676 ], [ %idxprom6704, %if.end6702 ], [ %idxprom6742, %do.body6736 ], [ %idxprom6766, %do.body6760 ], [ %idxprom6811, %do.body6805 ], [ %idxprom6866, %do.body6860 ], [ %idxprom6921, %do.body6915 ], [ %idxprom6958, %do.body6952 ], [ %idxprom7015, %if.then7008 ], [ %idxprom7025, %do.body7019 ], [ %idxprom7159, %do.end7148 ], [ %idxprom7240, %do.body7234 ], [ %idxprom7253, %TARGET_JUMP_BACKWARD_NO_INTERRUPT ], [ %idxprom7265, %TARGET_JUMP_FORWARD ], [ %idxprom7288, %if.end7280 ], [ %idxprom7355, %do.end7347 ], [ %idxprom7369, %_Py_NewRef.exit8204 ], [ %idxprom7394, %if.then7385 ], [ %idxprom7474, %if.end7464 ], [ %idxprom7527, %if.end7517 ], [ %idxprom7658, %if.end7648 ], [ %idxprom7697, %_Py_NewRef.exit8242 ], [ %idxprom7729, %_Py_NewRef.exit8246 ], [ %idxprom7777, %_Py_NewRef.exit8252 ], [ %idxprom7844, %if.end7834 ], [ %idxprom7889, %_Py_NewRef.exit8257 ], [ %idxprom7955, %_Py_NewRef.exit8263 ], [ %idxprom8066, %if.end8056 ], [ %idxprom8183, %if.end8173 ], [ %idxprom8204, %if.end8195 ], [ %idxprom8222, %Py_INCREF.exit21296 ], [ %idxprom8245, %Py_INCREF.exit21288 ], [ %idxprom8261, %Py_INCREF.exit21280 ], [ %idxprom8280, %TARGET_LOAD_FAST_AND_CLEAR ], [ %idxprom8300, %Py_INCREF.exit21272 ], [ %idxprom8323, %Py_INCREF.exit21256 ], [ %idxprom8374, %do.end8366 ], [ %idxprom8437, %do.end8429 ], [ %idxprom8463, %if.then8452 ], [ %idxprom8538, %if.end8527 ], [ %idxprom8607, %if.end8596 ], [ %idxprom8662, %if.end8651 ], [ %idxprom8680, %Py_INCREF.exit21216 ], [ %idxprom8734, %if.end8725 ], [ %idxprom8755, %if.then8753 ], [ %idxprom8924, %if.end8913 ], [ %idxprom9008, %if.end8999 ], [ %idxprom9121, %if.end9111 ], [ %idxprom9171, %do.body9165 ], [ %idxprom9205, %if.end9197 ], [ %idxprom9229, %if.end9221 ], [ %idxprom9300, %if.end9291 ], [ %idxprom9321, %if.end9312 ], [ %idxprom9342, %TARGET_MATCH_MAPPING ], [ %idxprom9364, %TARGET_MATCH_SEQUENCE ], [ %idxprom9374, %TARGET_NOP ], [ %idxprom9416, %do.end9408 ], [ %idxprom9442, %TARGET_POP_JUMP_IF_FALSE ], [ %idxprom9490, %if.end9470 ], [ %idxprom9538, %if.end9518 ], [ %idxprom9564, %TARGET_POP_JUMP_IF_TRUE ], [ %idxprom9592, %do.end9584 ], [ %idxprom9617, %_Py_NewRef.exit8363 ], [ %idxprom9630, %TARGET_PUSH_NULL ], [ %idxprom9727, %do.body9721 ], [ %idxprom9749, %do.body9743 ], [ %idxprom9777, %Py_INCREF.exit21200 ], [ %idxprom9826, %TARGET_RETURN_VALUE ], [ %idxprom9845, %if.then9843 ], [ %idxprom9947, %do.end9939 ], [ %idxprom10065, %do.body10059 ], [ %idxprom10103, %if.end10095 ], [ %idxprom10128, %TARGET_SET_FUNCTION_ATTRIBUTE ], [ %idxprom10167, %if.end10159 ], [ %idxprom10191, %if.then10183 ], [ %idxprom10249, %if.end10241 ], [ %idxprom10332, %do.end10324 ], [ %idxprom10403, %do.end10395 ], [ %idxprom10543, %do.end10535 ], [ %idxprom10584, %do.end10576 ], [ %idxprom10628, %do.end10620 ], [ %idxprom10680, %Py_INCREF.exit21192 ], [ %idxprom10761, %do.end10753 ], [ %idxprom10801, %if.end10793 ], [ %idxprom10869, %if.end10861 ], [ %idxprom10945, %if.end10937 ], [ %idxprom10965, %if.then10963 ], [ %idxprom11032, %if.end11024 ], [ %idxprom11074, %if.end11066 ], [ %idxprom11161, %do.end11153 ], [ %idxprom11183, %TARGET_SWAP ], [ %idxprom11201, %if.then11199 ], [ %idxprom11240, %if.end11230 ], [ %idxprom11279, %do.end11271 ], [ %idxprom11296, %do.body11290 ], [ %idxprom11334, %if.end11326 ], [ %idxprom11371, %do.end11363 ], [ %idxprom11389, %if.end11381 ], [ %idxprom11428, %if.end11420 ], [ %idxprom11462, %if.end11454 ], [ %idxprom11496, %if.end11488 ], [ %idxprom11513, %TARGET_UNARY_NOT ], [ %idxprom11561, %if.end11549 ], [ %idxprom11578, %if.then11576 ], [ %idxprom11621, %if.end11611 ], [ %idxprom11676, %do.end11666 ], [ %idxprom11733, %do.end11723 ], [ %idxprom11783, %do.end11773 ], [ %idxprom11835, %if.end11826 ], [ %idxprom11881, %do.body11875 ], [ %idxprom11898, %if.end11896 ], [ %idxprom19377, %do.body19371 ]
   br label %indirectgoto
 
 TARGET_BEFORE_WITH:                               ; preds = %indirectgoto
-  %instr_ptr118 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr118, align 8
-  %add.ptr119 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx123 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr118 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr118, align 8
+  %add.ptr119 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx123 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %54 = load ptr, ptr %arrayidx123, align 8
   %call125 = call ptr @_PyObject_LookupSpecial(ptr noundef %54, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28624)) #15
   %cmp126 = icmp eq ptr %call125, null
@@ -2960,47 +2960,47 @@ if.then207:                                       ; preds = %if.end203
 
 if.end213:                                        ; preds = %do.end194
   store ptr %call137, ptr %arrayidx123, align 8
-  store ptr %retval.0.i.i7491, ptr %stack_pointer.17, align 8
-  %add.ptr216 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %retval.0.i.i7491, ptr %stack_pointer.0, align 8
+  %add.ptr216 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word218.sroa.0.0.copyload = load i8, ptr %add.ptr119, align 2
-  %word218.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word218.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word218.sroa.2.0.copyload = load i8, ptr %word218.sroa.2.0..sroa_idx, align 1
   %conv221 = zext i8 %word218.sroa.2.0.copyload to i32
   %idxprom223 = zext i8 %word218.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_OP:                                 ; preds = %indirectgoto
-  %instr_ptr225 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr225, align 8
-  %add.ptr226 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx229.phi.trans.insert = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr225 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr225, align 8
+  %add.ptr226 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx229.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %.pre11864 = load ptr, ptr %arrayidx229.phi.trans.insert, align 8
-  %arrayidx230.phi.trans.insert = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx230.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %.pre11865 = load ptr, ptr %arrayidx230.phi.trans.insert, align 8
   br label %PRED_45
 
 PRED_45:                                          ; preds = %if.end716, %TARGET_BINARY_OP_SUBTRACT_INT, %if.end651, %TARGET_BINARY_OP_SUBTRACT_FLOAT, %if.end593, %TARGET_BINARY_OP_MULTIPLY_INT, %if.end529, %TARGET_BINARY_OP_MULTIPLY_FLOAT, %if.end482, %if.end477, %TARGET_BINARY_OP_INPLACE_ADD_UNICODE, %if.end420, %TARGET_BINARY_OP_ADD_UNICODE, %if.end362, %TARGET_BINARY_OP_ADD_INT, %if.end302, %TARGET_BINARY_OP_ADD_FLOAT, %TARGET_BINARY_OP
   %82 = phi ptr [ %172, %if.end716 ], [ %172, %TARGET_BINARY_OP_SUBTRACT_INT ], [ %158, %if.end651 ], [ %158, %TARGET_BINARY_OP_SUBTRACT_FLOAT ], [ %150, %if.end593 ], [ %150, %TARGET_BINARY_OP_MULTIPLY_INT ], [ %136, %if.end529 ], [ %136, %TARGET_BINARY_OP_MULTIPLY_FLOAT ], [ %117, %if.end420 ], [ %117, %TARGET_BINARY_OP_ADD_UNICODE ], [ %109, %if.end362 ], [ %109, %TARGET_BINARY_OP_ADD_INT ], [ %95, %if.end302 ], [ %95, %TARGET_BINARY_OP_ADD_FLOAT ], [ %.pre11865, %TARGET_BINARY_OP ], [ %125, %if.end482 ], [ %125, %if.end477 ], [ %125, %TARGET_BINARY_OP_INPLACE_ADD_UNICODE ]
   %83 = phi ptr [ %171, %if.end716 ], [ %171, %TARGET_BINARY_OP_SUBTRACT_INT ], [ %157, %if.end651 ], [ %157, %TARGET_BINARY_OP_SUBTRACT_FLOAT ], [ %149, %if.end593 ], [ %149, %TARGET_BINARY_OP_MULTIPLY_INT ], [ %135, %if.end529 ], [ %135, %TARGET_BINARY_OP_MULTIPLY_FLOAT ], [ %116, %if.end420 ], [ %116, %TARGET_BINARY_OP_ADD_UNICODE ], [ %108, %if.end362 ], [ %108, %TARGET_BINARY_OP_ADD_INT ], [ %94, %if.end302 ], [ %94, %TARGET_BINARY_OP_ADD_FLOAT ], [ %.pre11864, %TARGET_BINARY_OP ], [ %124, %if.end482 ], [ %124, %if.end477 ], [ %124, %TARGET_BINARY_OP_INPLACE_ADD_UNICODE ]
-  %next_instr.1 = phi ptr [ %add.ptr706, %if.end716 ], [ %add.ptr706, %TARGET_BINARY_OP_SUBTRACT_INT ], [ %add.ptr641, %if.end651 ], [ %add.ptr641, %TARGET_BINARY_OP_SUBTRACT_FLOAT ], [ %add.ptr583, %if.end593 ], [ %add.ptr583, %TARGET_BINARY_OP_MULTIPLY_INT ], [ %add.ptr519, %if.end529 ], [ %add.ptr519, %TARGET_BINARY_OP_MULTIPLY_FLOAT ], [ %add.ptr410, %if.end420 ], [ %add.ptr410, %TARGET_BINARY_OP_ADD_UNICODE ], [ %add.ptr352, %if.end362 ], [ %add.ptr352, %TARGET_BINARY_OP_ADD_INT ], [ %add.ptr295, %if.end302 ], [ %add.ptr295, %TARGET_BINARY_OP_ADD_FLOAT ], [ %add.ptr226, %TARGET_BINARY_OP ], [ %add.ptr468, %if.end482 ], [ %add.ptr468, %if.end477 ], [ %add.ptr468, %TARGET_BINARY_OP_INPLACE_ADD_UNICODE ]
-  %arrayidx229 = getelementptr i8, ptr %stack_pointer.17, i64 -8
-  %arrayidx230 = getelementptr i8, ptr %stack_pointer.17, i64 -16
-  %arrayidx231 = getelementptr i8, ptr %next_instr.27, i64 2
+  %next_instr.4 = phi ptr [ %add.ptr706, %if.end716 ], [ %add.ptr706, %TARGET_BINARY_OP_SUBTRACT_INT ], [ %add.ptr641, %if.end651 ], [ %add.ptr641, %TARGET_BINARY_OP_SUBTRACT_FLOAT ], [ %add.ptr583, %if.end593 ], [ %add.ptr583, %TARGET_BINARY_OP_MULTIPLY_INT ], [ %add.ptr519, %if.end529 ], [ %add.ptr519, %TARGET_BINARY_OP_MULTIPLY_FLOAT ], [ %add.ptr410, %if.end420 ], [ %add.ptr410, %TARGET_BINARY_OP_ADD_UNICODE ], [ %add.ptr352, %if.end362 ], [ %add.ptr352, %TARGET_BINARY_OP_ADD_INT ], [ %add.ptr295, %if.end302 ], [ %add.ptr295, %TARGET_BINARY_OP_ADD_FLOAT ], [ %add.ptr226, %TARGET_BINARY_OP ], [ %add.ptr468, %if.end482 ], [ %add.ptr468, %if.end477 ], [ %add.ptr468, %TARGET_BINARY_OP_INPLACE_ADD_UNICODE ]
+  %arrayidx229 = getelementptr i8, ptr %stack_pointer.0, i64 -8
+  %arrayidx230 = getelementptr i8, ptr %stack_pointer.0, i64 -16
+  %arrayidx231 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx231.val = load i16, ptr %arrayidx231, align 2
   %cmp234 = icmp ult i16 %arrayidx231.val, 16
   br i1 %cmp234, label %if.then236, label %do.body241
 
 if.then236:                                       ; preds = %PRED_45
-  %localsplus = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  call void @_Py_Specialize_BinaryOp(ptr noundef %82, ptr noundef %83, ptr noundef nonnull %next_instr.27, i32 noundef %oparg.1, ptr noundef nonnull %localsplus) #15
-  %84 = load i8, ptr %next_instr.27, align 2
+  %localsplus = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  call void @_Py_Specialize_BinaryOp(ptr noundef %82, ptr noundef %83, ptr noundef nonnull %next_instr.1, i32 noundef %oparg.0, ptr noundef nonnull %localsplus) #15
+  %84 = load i8, ptr %next_instr.1, align 2
   %idxprom238 = zext i8 %84 to i64
   br label %indirectgoto.backedge
 
 do.body241:                                       ; preds = %PRED_45
   %sub244 = add i16 %arrayidx231.val, -16
   store i16 %sub244, ptr %arrayidx231, align 2
-  %idxprom247 = sext i32 %oparg.1 to i64
+  %idxprom247 = sext i32 %oparg.0 to i64
   %arrayidx248 = getelementptr [26 x ptr], ptr @_PyEval_BinaryOps, i64 0, i64 %idxprom247
   %85 = load ptr, ptr %arrayidx248, align 8
   %call249 = call ptr %85(ptr noundef %82, ptr noundef %83) #15
@@ -3049,20 +3049,20 @@ do.end279:                                        ; preds = %if.end270, %if.then
 
 if.end283:                                        ; preds = %do.end279
   store ptr %call249, ptr %arrayidx230, align 8
-  %word287.sroa.0.0.copyload = load i8, ptr %next_instr.1, align 2
-  %word287.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word287.sroa.0.0.copyload = load i8, ptr %next_instr.4, align 2
+  %word287.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word287.sroa.2.0.copyload = load i8, ptr %word287.sroa.2.0..sroa_idx, align 1
   %conv290 = zext i8 %word287.sroa.2.0.copyload to i32
   %idxprom292 = zext i8 %word287.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_OP_ADD_FLOAT:                       ; preds = %indirectgoto
-  %instr_ptr294 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr294, align 8
-  %add.ptr295 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx297 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr294 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr294, align 8
+  %add.ptr295 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx297 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %94 = load ptr, ptr %arrayidx297, align 8
-  %arrayidx298 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx298 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %95 = load ptr, ptr %arrayidx298, align 8
   %ob_type = getelementptr inbounds i8, ptr %95, i64 8
   %96 = load ptr, ptr %ob_type, align 8
@@ -3150,19 +3150,19 @@ do.end340:                                        ; preds = %if.end.i7502, %_Py_
   %res296.0 = phi ptr [ %95, %if.end320 ], [ %95, %if.then324 ], [ %95, %if.then313 ], [ %94, %if.then330 ], [ %94, %if.end.i7495 ], [ %call333, %_Py_DECREF_NO_DEALLOC.exit7500 ], [ %call333, %if.end.i7502 ]
   store ptr %res296.0, ptr %arrayidx298, align 8
   %word344.sroa.0.0.copyload = load i8, ptr %add.ptr295, align 2
-  %word344.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word344.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word344.sroa.2.0.copyload = load i8, ptr %word344.sroa.2.0..sroa_idx, align 1
   %conv347 = zext i8 %word344.sroa.2.0.copyload to i32
   %idxprom349 = zext i8 %word344.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_OP_ADD_INT:                         ; preds = %indirectgoto
-  %instr_ptr351 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr351, align 8
-  %add.ptr352 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx356 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr351 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr351, align 8
+  %add.ptr352 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx356 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %108 = load ptr, ptr %arrayidx356, align 8
-  %arrayidx357 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx357 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %109 = load ptr, ptr %arrayidx357, align 8
   %ob_type358 = getelementptr inbounds i8, ptr %109, i64 8
   %110 = load ptr, ptr %ob_type358, align 8
@@ -3215,19 +3215,19 @@ do.end394:                                        ; preds = %if.end387, %if.then
 if.end398:                                        ; preds = %do.end394
   store ptr %call368, ptr %arrayidx357, align 8
   %word402.sroa.0.0.copyload = load i8, ptr %add.ptr352, align 2
-  %word402.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word402.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word402.sroa.2.0.copyload = load i8, ptr %word402.sroa.2.0..sroa_idx, align 1
   %conv405 = zext i8 %word402.sroa.2.0.copyload to i32
   %idxprom407 = zext i8 %word402.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_OP_ADD_UNICODE:                     ; preds = %indirectgoto
-  %instr_ptr409 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr409, align 8
-  %add.ptr410 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx414 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr409 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr409, align 8
+  %add.ptr410 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx414 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %116 = load ptr, ptr %arrayidx414, align 8
-  %arrayidx415 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx415 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %117 = load ptr, ptr %arrayidx415, align 8
   %ob_type416 = getelementptr inbounds i8, ptr %117, i64 8
   %118 = load ptr, ptr %ob_type416, align 8
@@ -3280,19 +3280,19 @@ do.end452:                                        ; preds = %if.end445, %if.then
 if.end456:                                        ; preds = %do.end452
   store ptr %call426, ptr %arrayidx415, align 8
   %word460.sroa.0.0.copyload = load i8, ptr %add.ptr410, align 2
-  %word460.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word460.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word460.sroa.2.0.copyload = load i8, ptr %word460.sroa.2.0..sroa_idx, align 1
   %conv463 = zext i8 %word460.sroa.2.0.copyload to i32
   %idxprom465 = zext i8 %word460.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_OP_INPLACE_ADD_UNICODE:             ; preds = %indirectgoto
-  %instr_ptr467 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr467, align 8
-  %add.ptr468 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx471 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr467 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr467, align 8
+  %add.ptr468 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx471 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %124 = load ptr, ptr %arrayidx471, align 8
-  %arrayidx472 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx472 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %125 = load ptr, ptr %arrayidx472, align 8
   %ob_type473 = getelementptr inbounds i8, ptr %125, i64 8
   %126 = load ptr, ptr %ob_type473, align 8
@@ -3306,8 +3306,8 @@ if.end477:                                        ; preds = %TARGET_BINARY_OP_IN
   br i1 %cmp479, label %if.end482, label %PRED_45
 
 if.end482:                                        ; preds = %if.end477
-  %localsplus483 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %arg484 = getelementptr i8, ptr %next_instr.27, i64 5
+  %localsplus483 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %arg484 = getelementptr i8, ptr %next_instr.1, i64 5
   %128 = load i8, ptr %arg484, align 1
   %idxprom485 = zext i8 %128 to i64
   %arrayidx486 = getelementptr [1 x ptr], ptr %localsplus483, i64 0, i64 %idxprom485
@@ -3349,21 +3349,21 @@ do.end503:                                        ; preds = %if.end496, %if.then
   br i1 %cmp504, label %pop_2_error, label %if.end507
 
 if.end507:                                        ; preds = %do.end503
-  %add.ptr508 = getelementptr i8, ptr %next_instr.27, i64 6
+  %add.ptr508 = getelementptr i8, ptr %next_instr.1, i64 6
   %word511.sroa.0.0.copyload = load i8, ptr %add.ptr508, align 2
-  %word511.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 7
+  %word511.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 7
   %word511.sroa.2.0.copyload = load i8, ptr %word511.sroa.2.0..sroa_idx, align 1
   %conv514 = zext i8 %word511.sroa.2.0.copyload to i32
   %idxprom516 = zext i8 %word511.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_OP_MULTIPLY_FLOAT:                  ; preds = %indirectgoto
-  %instr_ptr518 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr518, align 8
-  %add.ptr519 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx523 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr518 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr518, align 8
+  %add.ptr519 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx523 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %135 = load ptr, ptr %arrayidx523, align 8
-  %arrayidx524 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx524 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %136 = load ptr, ptr %arrayidx524, align 8
   %ob_type525 = getelementptr inbounds i8, ptr %136, i64 8
   %137 = load ptr, ptr %ob_type525, align 8
@@ -3451,19 +3451,19 @@ do.end571:                                        ; preds = %if.end.i7518, %_Py_
   %res522.0 = phi ptr [ %136, %if.end549 ], [ %136, %if.then553 ], [ %136, %if.then542 ], [ %135, %if.then561 ], [ %135, %if.end.i7510 ], [ %call564, %_Py_DECREF_NO_DEALLOC.exit7516 ], [ %call564, %if.end.i7518 ]
   store ptr %res522.0, ptr %arrayidx524, align 8
   %word575.sroa.0.0.copyload = load i8, ptr %add.ptr519, align 2
-  %word575.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word575.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word575.sroa.2.0.copyload = load i8, ptr %word575.sroa.2.0..sroa_idx, align 1
   %conv578 = zext i8 %word575.sroa.2.0.copyload to i32
   %idxprom580 = zext i8 %word575.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_OP_MULTIPLY_INT:                    ; preds = %indirectgoto
-  %instr_ptr582 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr582, align 8
-  %add.ptr583 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx587 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr582 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr582, align 8
+  %add.ptr583 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx587 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %149 = load ptr, ptr %arrayidx587, align 8
-  %arrayidx588 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx588 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %150 = load ptr, ptr %arrayidx588, align 8
   %ob_type589 = getelementptr inbounds i8, ptr %150, i64 8
   %151 = load ptr, ptr %ob_type589, align 8
@@ -3516,19 +3516,19 @@ do.end625:                                        ; preds = %if.end618, %if.then
 if.end629:                                        ; preds = %do.end625
   store ptr %call599, ptr %arrayidx588, align 8
   %word633.sroa.0.0.copyload = load i8, ptr %add.ptr583, align 2
-  %word633.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word633.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word633.sroa.2.0.copyload = load i8, ptr %word633.sroa.2.0..sroa_idx, align 1
   %conv636 = zext i8 %word633.sroa.2.0.copyload to i32
   %idxprom638 = zext i8 %word633.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_OP_SUBTRACT_FLOAT:                  ; preds = %indirectgoto
-  %instr_ptr640 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr640, align 8
-  %add.ptr641 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx645 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr640 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr640, align 8
+  %add.ptr641 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx645 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %157 = load ptr, ptr %arrayidx645, align 8
-  %arrayidx646 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx646 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %158 = load ptr, ptr %arrayidx646, align 8
   %ob_type647 = getelementptr inbounds i8, ptr %158, i64 8
   %159 = load ptr, ptr %ob_type647, align 8
@@ -3616,19 +3616,19 @@ do.end694:                                        ; preds = %if.end.i7530, %_Py_
   %res644.0 = phi ptr [ %158, %if.end672 ], [ %158, %if.then676 ], [ %158, %if.then665 ], [ %157, %if.then684 ], [ %157, %if.end.i7522 ], [ %call687, %_Py_DECREF_NO_DEALLOC.exit7528 ], [ %call687, %if.end.i7530 ]
   store ptr %res644.0, ptr %arrayidx646, align 8
   %word698.sroa.0.0.copyload = load i8, ptr %add.ptr641, align 2
-  %word698.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word698.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word698.sroa.2.0.copyload = load i8, ptr %word698.sroa.2.0..sroa_idx, align 1
   %conv701 = zext i8 %word698.sroa.2.0.copyload to i32
   %idxprom703 = zext i8 %word698.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_OP_SUBTRACT_INT:                    ; preds = %indirectgoto
-  %instr_ptr705 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr705, align 8
-  %add.ptr706 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx710 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr705 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr705, align 8
+  %add.ptr706 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx710 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %171 = load ptr, ptr %arrayidx710, align 8
-  %arrayidx711 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx711 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %172 = load ptr, ptr %arrayidx711, align 8
   %ob_type712 = getelementptr inbounds i8, ptr %172, i64 8
   %173 = load ptr, ptr %ob_type712, align 8
@@ -3681,21 +3681,21 @@ do.end748:                                        ; preds = %if.end741, %if.then
 if.end752:                                        ; preds = %do.end748
   store ptr %call722, ptr %arrayidx711, align 8
   %word756.sroa.0.0.copyload = load i8, ptr %add.ptr706, align 2
-  %word756.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word756.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word756.sroa.2.0.copyload = load i8, ptr %word756.sroa.2.0..sroa_idx, align 1
   %conv759 = zext i8 %word756.sroa.2.0.copyload to i32
   %idxprom761 = zext i8 %word756.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_SLICE:                              ; preds = %indirectgoto
-  %instr_ptr763 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr763, align 8
-  %add.ptr764 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx766 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr763 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr763, align 8
+  %add.ptr764 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx766 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %179 = load ptr, ptr %arrayidx766, align 8
-  %arrayidx767 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx767 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %180 = load ptr, ptr %arrayidx767, align 8
-  %arrayidx768 = getelementptr i8, ptr %stack_pointer.17, i64 -24
+  %arrayidx768 = getelementptr i8, ptr %stack_pointer.0, i64 -24
   %181 = load ptr, ptr %arrayidx768, align 8
   %call769 = call ptr @_PyBuildSlice_ConsumeRefs(ptr noundef %180, ptr noundef %179) #15
   %cmp770 = icmp eq ptr %call769, null
@@ -3750,36 +3750,36 @@ do.end805:                                        ; preds = %if.end796, %if.then
 if.end809:                                        ; preds = %do.end805
   store ptr %res765.0, ptr %arrayidx768, align 8
   %word813.sroa.0.0.copyload = load i8, ptr %add.ptr764, align 2
-  %word813.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word813.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word813.sroa.2.0.copyload = load i8, ptr %word813.sroa.2.0..sroa_idx, align 1
   %conv816 = zext i8 %word813.sroa.2.0.copyload to i32
   %idxprom818 = zext i8 %word813.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_SUBSCR:                             ; preds = %indirectgoto
-  %instr_ptr820 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr820, align 8
-  %add.ptr821 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx827.phi.trans.insert = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr820 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr820, align 8
+  %add.ptr821 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx827.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %.pre11862 = load ptr, ptr %arrayidx827.phi.trans.insert, align 8
-  %arrayidx828.phi.trans.insert = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx828.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %.pre11863 = load ptr, ptr %arrayidx828.phi.trans.insert, align 8
   br label %PRED_5
 
 PRED_5:                                           ; preds = %if.end977, %if.end1155, %if.end1151, %if.end1146, %TARGET_BINARY_SUBSCR_TUPLE_INT, %PyUnicode_READ_CHAR.exit, %if.end1079, %if.end1075, %if.end1070, %TARGET_BINARY_SUBSCR_STR_INT, %if.end1013, %if.end1009, %if.end1004, %TARGET_BINARY_SUBSCR_LIST_INT, %_PyThreadState_HasStackSpace.exit, %if.end971, %if.end967, %if.end962, %TARGET_BINARY_SUBSCR_GETITEM, %TARGET_BINARY_SUBSCR_DICT, %TARGET_BINARY_SUBSCR
   %190 = phi ptr [ %265, %if.end1155 ], [ %265, %if.end1151 ], [ %265, %if.end1146 ], [ %265, %TARGET_BINARY_SUBSCR_TUPLE_INT ], [ %243, %if.end1079 ], [ %243, %PyUnicode_READ_CHAR.exit ], [ %243, %if.end1075 ], [ %243, %if.end1070 ], [ %243, %TARGET_BINARY_SUBSCR_STR_INT ], [ %228, %if.end1013 ], [ %228, %if.end1009 ], [ %228, %if.end1004 ], [ %228, %TARGET_BINARY_SUBSCR_LIST_INT ], [ %213, %TARGET_BINARY_SUBSCR_GETITEM ], [ %213, %if.end967 ], [ %213, %if.end971 ], [ %213, %_PyThreadState_HasStackSpace.exit ], [ %213, %if.end962 ], [ %202, %TARGET_BINARY_SUBSCR_DICT ], [ %.pre11863, %TARGET_BINARY_SUBSCR ], [ %213, %if.end977 ]
   %191 = phi ptr [ %264, %if.end1155 ], [ %264, %if.end1151 ], [ %264, %if.end1146 ], [ %264, %TARGET_BINARY_SUBSCR_TUPLE_INT ], [ %242, %if.end1079 ], [ %242, %PyUnicode_READ_CHAR.exit ], [ %242, %if.end1075 ], [ %242, %if.end1070 ], [ %242, %TARGET_BINARY_SUBSCR_STR_INT ], [ %227, %if.end1013 ], [ %227, %if.end1009 ], [ %227, %if.end1004 ], [ %227, %TARGET_BINARY_SUBSCR_LIST_INT ], [ %212, %TARGET_BINARY_SUBSCR_GETITEM ], [ %212, %if.end967 ], [ %212, %if.end971 ], [ %212, %_PyThreadState_HasStackSpace.exit ], [ %212, %if.end962 ], [ %201, %TARGET_BINARY_SUBSCR_DICT ], [ %.pre11862, %TARGET_BINARY_SUBSCR ], [ %212, %if.end977 ]
-  %next_instr.2 = phi ptr [ %add.ptr1137, %if.end1155 ], [ %add.ptr1137, %if.end1151 ], [ %add.ptr1137, %if.end1146 ], [ %add.ptr1137, %TARGET_BINARY_SUBSCR_TUPLE_INT ], [ %add.ptr1061, %if.end1079 ], [ %add.ptr1061, %PyUnicode_READ_CHAR.exit ], [ %add.ptr1061, %if.end1075 ], [ %add.ptr1061, %if.end1070 ], [ %add.ptr1061, %TARGET_BINARY_SUBSCR_STR_INT ], [ %add.ptr995, %if.end1013 ], [ %add.ptr995, %if.end1009 ], [ %add.ptr995, %if.end1004 ], [ %add.ptr995, %TARGET_BINARY_SUBSCR_LIST_INT ], [ %add.ptr954, %TARGET_BINARY_SUBSCR_GETITEM ], [ %add.ptr954, %if.end967 ], [ %add.ptr954, %if.end971 ], [ %add.ptr954, %_PyThreadState_HasStackSpace.exit ], [ %add.ptr954, %if.end962 ], [ %add.ptr893, %TARGET_BINARY_SUBSCR_DICT ], [ %add.ptr821, %TARGET_BINARY_SUBSCR ], [ %add.ptr954, %if.end977 ]
-  %arrayidx827 = getelementptr i8, ptr %stack_pointer.17, i64 -8
-  %arrayidx828 = getelementptr i8, ptr %stack_pointer.17, i64 -16
-  %arrayidx830 = getelementptr i8, ptr %next_instr.27, i64 2
+  %next_instr.7 = phi ptr [ %add.ptr1137, %if.end1155 ], [ %add.ptr1137, %if.end1151 ], [ %add.ptr1137, %if.end1146 ], [ %add.ptr1137, %TARGET_BINARY_SUBSCR_TUPLE_INT ], [ %add.ptr1061, %if.end1079 ], [ %add.ptr1061, %PyUnicode_READ_CHAR.exit ], [ %add.ptr1061, %if.end1075 ], [ %add.ptr1061, %if.end1070 ], [ %add.ptr1061, %TARGET_BINARY_SUBSCR_STR_INT ], [ %add.ptr995, %if.end1013 ], [ %add.ptr995, %if.end1009 ], [ %add.ptr995, %if.end1004 ], [ %add.ptr995, %TARGET_BINARY_SUBSCR_LIST_INT ], [ %add.ptr954, %TARGET_BINARY_SUBSCR_GETITEM ], [ %add.ptr954, %if.end967 ], [ %add.ptr954, %if.end971 ], [ %add.ptr954, %_PyThreadState_HasStackSpace.exit ], [ %add.ptr954, %if.end962 ], [ %add.ptr893, %TARGET_BINARY_SUBSCR_DICT ], [ %add.ptr821, %TARGET_BINARY_SUBSCR ], [ %add.ptr954, %if.end977 ]
+  %arrayidx827 = getelementptr i8, ptr %stack_pointer.0, i64 -8
+  %arrayidx828 = getelementptr i8, ptr %stack_pointer.0, i64 -16
+  %arrayidx830 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx830.val = load i16, ptr %arrayidx830, align 2
   %cmp834 = icmp ult i16 %arrayidx830.val, 16
   br i1 %cmp834, label %if.then836, label %do.body841
 
 if.then836:                                       ; preds = %PRED_5
-  call void @_Py_Specialize_BinarySubscr(ptr noundef %190, ptr noundef %191, ptr noundef nonnull %next_instr.27) #15
-  %192 = load i8, ptr %next_instr.27, align 2
+  call void @_Py_Specialize_BinarySubscr(ptr noundef %190, ptr noundef %191, ptr noundef nonnull %next_instr.1) #15
+  %192 = load i8, ptr %next_instr.1, align 2
   %idxprom838 = zext i8 %192 to i64
   br label %indirectgoto.backedge
 
@@ -3832,20 +3832,20 @@ do.end877:                                        ; preds = %if.end868, %if.then
 
 if.end881:                                        ; preds = %do.end877
   store ptr %call847, ptr %arrayidx828, align 8
-  %word885.sroa.0.0.copyload = load i8, ptr %next_instr.2, align 2
-  %word885.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word885.sroa.0.0.copyload = load i8, ptr %next_instr.7, align 2
+  %word885.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word885.sroa.2.0.copyload = load i8, ptr %word885.sroa.2.0..sroa_idx, align 1
   %conv888 = zext i8 %word885.sroa.2.0.copyload to i32
   %idxprom890 = zext i8 %word885.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_SUBSCR_DICT:                        ; preds = %indirectgoto
-  %instr_ptr892 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr892, align 8
-  %add.ptr893 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx896 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr892 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr892, align 8
+  %add.ptr893 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx896 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %201 = load ptr, ptr %arrayidx896, align 8
-  %arrayidx897 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx897 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %202 = load ptr, ptr %arrayidx897, align 8
   %ob_type898 = getelementptr inbounds i8, ptr %202, i64 8
   %203 = load ptr, ptr %ob_type898, align 8
@@ -3908,19 +3908,19 @@ if.end941:                                        ; preds = %do.end937
   %211 = load ptr, ptr %res895, align 8
   store ptr %211, ptr %arrayidx897, align 8
   %word945.sroa.0.0.copyload = load i8, ptr %add.ptr893, align 2
-  %word945.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word945.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word945.sroa.2.0.copyload = load i8, ptr %word945.sroa.2.0..sroa_idx, align 1
   %conv948 = zext i8 %word945.sroa.2.0.copyload to i32
   %idxprom950 = zext i8 %word945.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_SUBSCR_GETITEM:                     ; preds = %indirectgoto
-  %instr_ptr953 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr953, align 8
-  %add.ptr954 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx957 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr953 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr953, align 8
+  %add.ptr954 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx957 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %212 = load ptr, ptr %arrayidx957, align 8
-  %arrayidx958 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx958 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %213 = load ptr, ptr %arrayidx958, align 8
   %214 = load ptr, ptr %interp10475, align 8
   %eval_frame = getelementptr inbounds i8, ptr %214, i64 2072
@@ -3971,7 +3971,7 @@ _PyThreadState_HasStackSpace.exit:                ; preds = %if.end977
   br i1 %cmp2.i, label %if.end981, label %PRED_5
 
 if.end981:                                        ; preds = %_PyThreadState_HasStackSpace.exit
-  %arrayidx958.le = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx958.le = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %226 = load i32, ptr %219, align 8
   %add.i21404 = add i32 %226, 1
   %cmp.i21405 = icmp eq i32 %add.i21404, 0
@@ -3987,28 +3987,28 @@ Py_INCREF.exit21408:                              ; preds = %if.end981, %if.end.
   store ptr %213, ptr %localsplus984, align 8
   %arrayidx987 = getelementptr i8, ptr %call982, i64 80
   store ptr %212, ptr %arrayidx987, align 8
-  %return_offset989 = getelementptr inbounds i8, ptr %frame.addr.8, i64 68
+  %return_offset989 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
   store i16 2, ptr %return_offset989, align 4
-  %localsplus.i7536 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i7536 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i7537 = ptrtoint ptr %arrayidx958.le to i64
   %sub.ptr.rhs.cast.i7538 = ptrtoint ptr %localsplus.i7536 to i64
   %sub.ptr.sub.i7539 = sub i64 %sub.ptr.lhs.cast.i7537, %sub.ptr.rhs.cast.i7538
   %sub.ptr.div.i7540 = lshr exact i64 %sub.ptr.sub.i7539, 3
   %conv.i7541 = trunc i64 %sub.ptr.div.i7540 to i32
-  %stacktop.i7542 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i7542 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i7541, ptr %stacktop.i7542, align 8
   %previous991 = getelementptr inbounds i8, ptr %call982, i64 8
-  store ptr %frame.addr.8, ptr %previous991, align 8
+  store ptr %frame.addr.4, ptr %previous991, align 8
   store ptr %call982, ptr %current_frame, align 8
   br label %start_frame
 
 TARGET_BINARY_SUBSCR_LIST_INT:                    ; preds = %indirectgoto
-  %instr_ptr994 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr994, align 8
-  %add.ptr995 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx998 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr994 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr994, align 8
+  %add.ptr995 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx998 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %227 = load ptr, ptr %arrayidx998, align 8
-  %arrayidx999 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx999 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %228 = load ptr, ptr %arrayidx999, align 8
   %ob_type1000 = getelementptr inbounds i8, ptr %227, i64 8
   %229 = load ptr, ptr %ob_type1000, align 8
@@ -4088,19 +4088,19 @@ if.then1044:                                      ; preds = %if.end1040
 do.end1049:                                       ; preds = %if.end1040, %if.then1044, %do.body1035
   store ptr %235, ptr %arrayidx999, align 8
   %word1053.sroa.0.0.copyload = load i8, ptr %add.ptr995, align 2
-  %word1053.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word1053.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word1053.sroa.2.0.copyload = load i8, ptr %word1053.sroa.2.0..sroa_idx, align 1
   %conv1056 = zext i8 %word1053.sroa.2.0.copyload to i32
   %idxprom1058 = zext i8 %word1053.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_SUBSCR_STR_INT:                     ; preds = %indirectgoto
-  %instr_ptr1060 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr1060, align 8
-  %add.ptr1061 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx1064 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr1060 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr1060, align 8
+  %add.ptr1061 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx1064 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %242 = load ptr, ptr %arrayidx1064, align 8
-  %arrayidx1065 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx1065 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %243 = load ptr, ptr %arrayidx1065, align 8
   %ob_type1066 = getelementptr inbounds i8, ptr %242, i64 8
   %244 = load ptr, ptr %ob_type1066, align 8
@@ -4250,19 +4250,19 @@ if.then1120:                                      ; preds = %if.end1116
 do.end1125:                                       ; preds = %if.end1116, %if.then1120, %do.body1111
   store ptr %arrayidx1097, ptr %arrayidx1065, align 8
   %word1129.sroa.0.0.copyload = load i8, ptr %add.ptr1061, align 2
-  %word1129.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word1129.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word1129.sroa.2.0.copyload = load i8, ptr %word1129.sroa.2.0..sroa_idx, align 1
   %conv1132 = zext i8 %word1129.sroa.2.0.copyload to i32
   %idxprom1134 = zext i8 %word1129.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BINARY_SUBSCR_TUPLE_INT:                   ; preds = %indirectgoto
-  %instr_ptr1136 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr1136, align 8
-  %add.ptr1137 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx1140 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr1136 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr1136, align 8
+  %add.ptr1137 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx1140 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %264 = load ptr, ptr %arrayidx1140, align 8
-  %arrayidx1141 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx1141 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %265 = load ptr, ptr %arrayidx1141, align 8
   %ob_type1142 = getelementptr inbounds i8, ptr %264, i64 8
   %266 = load ptr, ptr %ob_type1142, align 8
@@ -4341,21 +4341,21 @@ if.then1190:                                      ; preds = %if.end1186
 do.end1195:                                       ; preds = %if.end1186, %if.then1190, %do.body1181
   store ptr %271, ptr %arrayidx1141, align 8
   %word1199.sroa.0.0.copyload = load i8, ptr %add.ptr1137, align 2
-  %word1199.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word1199.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word1199.sroa.2.0.copyload = load i8, ptr %word1199.sroa.2.0..sroa_idx, align 1
   %conv1202 = zext i8 %word1199.sroa.2.0.copyload to i32
   %idxprom1204 = zext i8 %word1199.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BUILD_CONST_KEY_MAP:                       ; preds = %indirectgoto
-  %instr_ptr1206 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr1206, align 8
-  %add.ptr1207 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx1208 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr1206 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr1206, align 8
+  %add.ptr1207 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx1208 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %278 = load ptr, ptr %arrayidx1208, align 8
-  %sub1209 = xor i32 %oparg.1, -1
+  %sub1209 = xor i32 %oparg.0, -1
   %idxprom1210 = sext i32 %sub1209 to i64
-  %arrayidx1211 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1210
+  %arrayidx1211 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1210
   %ob_type1212 = getelementptr inbounds i8, ptr %278, i64 8
   %279 = load ptr, ptr %ob_type1212, align 8
   %cmp1213 = icmp eq ptr %279, @PyTuple_Type
@@ -4364,7 +4364,7 @@ TARGET_BUILD_CONST_KEY_MAP:                       ; preds = %indirectgoto
 lor.lhs.false:                                    ; preds = %TARGET_BUILD_CONST_KEY_MAP
   %280 = getelementptr i8, ptr %278, i64 16
   %.val6834 = load i64, ptr %280, align 8
-  %conv1216 = sext i32 %oparg.1 to i64
+  %conv1216 = sext i32 %oparg.0 to i64
   %cmp1217.not = icmp eq i64 %.val6834, %conv1216
   br i1 %cmp1217.not, label %if.end1220, label %if.then1219
 
@@ -4376,7 +4376,7 @@ if.then1219:                                      ; preds = %lor.lhs.false, %TAR
 if.end1220:                                       ; preds = %lor.lhs.false
   %ob_item1221 = getelementptr inbounds i8, ptr %278, i64 24
   %call1224 = call ptr @_PyDict_FromItems(ptr noundef nonnull %ob_item1221, i64 noundef 1, ptr noundef %arrayidx1211, i64 noundef 1, i64 noundef %conv1216) #15
-  %dec122510398 = add i32 %oparg.1, -1
+  %dec122510398 = add i32 %oparg.0, -1
   %cmp122610399 = icmp sgt i32 %dec122510398, -1
   br i1 %cmp122610399, label %do.body1228.preheader, label %do.body1245
 
@@ -4437,51 +4437,51 @@ do.end1259:                                       ; preds = %if.end1250, %if.the
 
 if.end1265:                                       ; preds = %do.end1259
   store ptr %call1224, ptr %arrayidx1211, align 8
-  %sub1269 = sub i32 0, %oparg.1
+  %sub1269 = sub i32 0, %oparg.0
   %idx.ext1270 = sext i32 %sub1269 to i64
-  %add.ptr1271 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext1270
+  %add.ptr1271 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext1270
   %word1273.sroa.0.0.copyload = load i8, ptr %add.ptr1207, align 2
-  %word1273.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word1273.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word1273.sroa.2.0.copyload = load i8, ptr %word1273.sroa.2.0..sroa_idx, align 1
   %conv1276 = zext i8 %word1273.sroa.2.0.copyload to i32
   %idxprom1278 = zext i8 %word1273.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BUILD_LIST:                                ; preds = %indirectgoto
-  %instr_ptr1280 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr1280, align 8
-  %add.ptr1281 = getelementptr i8, ptr %next_instr.27, i64 2
-  %sub1284 = sub i32 0, %oparg.1
+  %instr_ptr1280 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr1280, align 8
+  %add.ptr1281 = getelementptr i8, ptr %next_instr.1, i64 2
+  %sub1284 = sub i32 0, %oparg.0
   %idxprom1285 = sext i32 %sub1284 to i64
-  %arrayidx1286 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1285
-  %conv1287 = sext i32 %oparg.1 to i64
+  %arrayidx1286 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1285
+  %conv1287 = sext i32 %oparg.0 to i64
   %call1288 = call ptr @_PyList_FromArraySteal(ptr noundef %arrayidx1286, i64 noundef %conv1287) #15
   %cmp1289 = icmp eq ptr %call1288, null
   br i1 %cmp1289, label %error.loopexit, label %if.end1295
 
 if.end1295:                                       ; preds = %TARGET_BUILD_LIST
   store ptr %call1288, ptr %arrayidx1286, align 8
-  %sub1299 = sub i32 1, %oparg.1
+  %sub1299 = sub i32 1, %oparg.0
   %idx.ext1300 = sext i32 %sub1299 to i64
-  %add.ptr1301 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext1300
+  %add.ptr1301 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext1300
   %word1303.sroa.0.0.copyload = load i8, ptr %add.ptr1281, align 2
-  %word1303.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word1303.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word1303.sroa.2.0.copyload = load i8, ptr %word1303.sroa.2.0..sroa_idx, align 1
   %conv1306 = zext i8 %word1303.sroa.2.0.copyload to i32
   %idxprom1308 = zext i8 %word1303.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BUILD_MAP:                                 ; preds = %indirectgoto
-  %instr_ptr1310 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr1310, align 8
-  %add.ptr1311 = getelementptr i8, ptr %next_instr.27, i64 2
-  %.neg6812 = mul i32 %oparg.1, -2
+  %instr_ptr1310 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr1310, align 8
+  %add.ptr1311 = getelementptr i8, ptr %next_instr.1, i64 2
+  %.neg6812 = mul i32 %oparg.0, -2
   %idxprom1316 = sext i32 %.neg6812 to i64
-  %arrayidx1317 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1316
+  %arrayidx1317 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1316
   %add.ptr1318 = getelementptr i8, ptr %arrayidx1317, i64 8
-  %conv1319 = sext i32 %oparg.1 to i64
+  %conv1319 = sext i32 %oparg.0 to i64
   %call1320 = call ptr @_PyDict_FromItems(ptr noundef %arrayidx1317, i64 noundef 2, ptr noundef %add.ptr1318, i64 noundef 2, i64 noundef %conv1319) #15
-  %mul1322 = shl i32 %oparg.1, 1
+  %mul1322 = shl i32 %oparg.0, 1
   %dec132410395 = add i32 %mul1322, -1
   %cmp132510396 = icmp sgt i32 %dec132410395, -1
   br i1 %cmp132510396, label %do.body1328.preheader, label %for.end1345
@@ -4527,31 +4527,31 @@ if.end1353:                                       ; preds = %for.end1345
   store ptr %call1320, ptr %arrayidx1317, align 8
   %sub1359 = sub i32 1, %mul1322
   %idx.ext1360 = sext i32 %sub1359 to i64
-  %add.ptr1361 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext1360
+  %add.ptr1361 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext1360
   %word1363.sroa.0.0.copyload = load i8, ptr %add.ptr1311, align 2
-  %word1363.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word1363.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word1363.sroa.2.0.copyload = load i8, ptr %word1363.sroa.2.0..sroa_idx, align 1
   %conv1366 = zext i8 %word1363.sroa.2.0.copyload to i32
   %idxprom1368 = zext i8 %word1363.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BUILD_SET:                                 ; preds = %indirectgoto
-  %instr_ptr1370 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr1370, align 8
-  %add.ptr1371 = getelementptr i8, ptr %next_instr.27, i64 2
-  %sub1373 = sub i32 0, %oparg.1
+  %instr_ptr1370 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr1370, align 8
+  %add.ptr1371 = getelementptr i8, ptr %next_instr.1, i64 2
+  %sub1373 = sub i32 0, %oparg.0
   %idxprom1374 = sext i32 %sub1373 to i64
-  %arrayidx1375 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1374
+  %arrayidx1375 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1374
   %call1376 = call ptr @PySet_New(ptr noundef null) #15
   %cmp1377 = icmp eq ptr %call1376, null
   br i1 %cmp1377, label %error.loopexit, label %for.cond1381.preheader
 
 for.cond1381.preheader:                           ; preds = %TARGET_BUILD_SET
-  %cmp138210391 = icmp sgt i32 %oparg.1, 0
+  %cmp138210391 = icmp sgt i32 %oparg.0, 0
   br i1 %cmp138210391, label %for.body1384.preheader, label %if.end1429
 
 for.body1384.preheader:                           ; preds = %for.cond1381.preheader
-  %wide.trip.count11824 = zext nneg i32 %oparg.1 to i64
+  %wide.trip.count11824 = zext nneg i32 %oparg.0 to i64
   br label %for.body1384
 
 for.body1384:                                     ; preds = %for.body1384.preheader, %for.inc
@@ -4618,25 +4618,25 @@ if.then1420:                                      ; preds = %if.end1416
 
 if.end1429:                                       ; preds = %for.cond1381.preheader, %for.end1407
   store ptr %call1376, ptr %arrayidx1375, align 8
-  %sub1433 = sub i32 1, %oparg.1
+  %sub1433 = sub i32 1, %oparg.0
   %idx.ext1434 = sext i32 %sub1433 to i64
-  %add.ptr1435 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext1434
+  %add.ptr1435 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext1434
   %word1437.sroa.0.0.copyload = load i8, ptr %add.ptr1371, align 2
-  %word1437.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word1437.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word1437.sroa.2.0.copyload = load i8, ptr %word1437.sroa.2.0..sroa_idx, align 1
   %conv1440 = zext i8 %word1437.sroa.2.0.copyload to i32
   %idxprom1442 = zext i8 %word1437.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BUILD_SLICE:                               ; preds = %indirectgoto
-  %instr_ptr1444 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr1444, align 8
-  %add.ptr1445 = getelementptr i8, ptr %next_instr.27, i64 2
-  %cmp1449 = icmp eq i32 %oparg.1, 3
+  %instr_ptr1444 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr1444, align 8
+  %add.ptr1445 = getelementptr i8, ptr %next_instr.1, i64 2
+  %cmp1449 = icmp eq i32 %oparg.0, 3
   br i1 %cmp1449, label %if.then1451, label %if.end1457
 
 if.then1451:                                      ; preds = %TARGET_BUILD_SLICE
-  %arrayidx1456 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %arrayidx1456 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %307 = load ptr, ptr %arrayidx1456, align 8
   br label %if.end1457
 
@@ -4645,9 +4645,9 @@ if.end1457:                                       ; preds = %if.then1451, %TARGE
   %step.0 = phi ptr [ %307, %if.then1451 ], [ null, %TARGET_BUILD_SLICE ]
   %cond1460 = zext i1 %cmp1449 to i64
   %sub1461 = xor i64 %cond1460, -1
-  %arrayidx1463 = getelementptr ptr, ptr %stack_pointer.17, i64 %sub1461
+  %arrayidx1463 = getelementptr ptr, ptr %stack_pointer.0, i64 %sub1461
   %308 = load ptr, ptr %arrayidx1463, align 8
-  %arrayidx1469 = getelementptr ptr, ptr %stack_pointer.17, i64 %sub1467
+  %arrayidx1469 = getelementptr ptr, ptr %stack_pointer.0, i64 %sub1467
   %309 = load ptr, ptr %arrayidx1469, align 8
   %call1470 = call ptr @PySlice_New(ptr noundef %309, ptr noundef %308, ptr noundef %step.0) #15
   %310 = load i64, ptr %309, align 8
@@ -4720,22 +4720,22 @@ do.end1521:                                       ; preds = %do.body1501, %if.en
 if.end1531:                                       ; preds = %do.end1521
   store ptr %call1470, ptr %arrayidx1469, align 8
   %word1545.sroa.0.0.copyload = load i8, ptr %add.ptr1445, align 2
-  %word1545.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word1545.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word1545.sroa.2.0.copyload = load i8, ptr %word1545.sroa.2.0..sroa_idx, align 1
   %conv1548 = zext i8 %word1545.sroa.2.0.copyload to i32
   %idxprom1550 = zext i8 %word1545.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BUILD_STRING:                              ; preds = %indirectgoto
-  %instr_ptr1552 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr1552, align 8
-  %add.ptr1553 = getelementptr i8, ptr %next_instr.27, i64 2
-  %sub1555 = sub i32 0, %oparg.1
+  %instr_ptr1552 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr1552, align 8
+  %add.ptr1553 = getelementptr i8, ptr %next_instr.1, i64 2
+  %sub1555 = sub i32 0, %oparg.0
   %idxprom1556 = sext i32 %sub1555 to i64
-  %arrayidx1557 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1556
-  %conv1558 = sext i32 %oparg.1 to i64
+  %arrayidx1557 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1556
+  %conv1558 = sext i32 %oparg.0 to i64
   %call1559 = call ptr @_PyUnicode_JoinArray(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr noundef %arrayidx1557, i64 noundef %conv1558) #15
-  %dec156210388 = add i32 %oparg.1, -1
+  %dec156210388 = add i32 %oparg.0, -1
   %cmp156310389 = icmp sgt i32 %dec156210388, -1
   br i1 %cmp156310389, label %do.body1566.preheader, label %for.end1583
 
@@ -4777,35 +4777,35 @@ for.end1583:                                      ; preds = %do.end1582, %TARGET
 
 if.end1590:                                       ; preds = %for.end1583
   store ptr %call1559, ptr %arrayidx1557, align 8
-  %sub1594 = sub i32 1, %oparg.1
+  %sub1594 = sub i32 1, %oparg.0
   %idx.ext1595 = sext i32 %sub1594 to i64
-  %add.ptr1596 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext1595
+  %add.ptr1596 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext1595
   %word1598.sroa.0.0.copyload = load i8, ptr %add.ptr1553, align 2
-  %word1598.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word1598.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word1598.sroa.2.0.copyload = load i8, ptr %word1598.sroa.2.0..sroa_idx, align 1
   %conv1601 = zext i8 %word1598.sroa.2.0.copyload to i32
   %idxprom1603 = zext i8 %word1598.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_BUILD_TUPLE:                               ; preds = %indirectgoto
-  %instr_ptr1605 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr1605, align 8
-  %add.ptr1606 = getelementptr i8, ptr %next_instr.27, i64 2
-  %sub1608 = sub i32 0, %oparg.1
+  %instr_ptr1605 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr1605, align 8
+  %add.ptr1606 = getelementptr i8, ptr %next_instr.1, i64 2
+  %sub1608 = sub i32 0, %oparg.0
   %idxprom1609 = sext i32 %sub1608 to i64
-  %arrayidx1610 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1609
-  %conv1611 = sext i32 %oparg.1 to i64
+  %arrayidx1610 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1609
+  %conv1611 = sext i32 %oparg.0 to i64
   %call1612 = call ptr @_PyTuple_FromArraySteal(ptr noundef %arrayidx1610, i64 noundef %conv1611) #15
   %cmp1613 = icmp eq ptr %call1612, null
   br i1 %cmp1613, label %error.loopexit, label %if.end1619
 
 if.end1619:                                       ; preds = %TARGET_BUILD_TUPLE
   store ptr %call1612, ptr %arrayidx1610, align 8
-  %sub1623 = sub i32 1, %oparg.1
+  %sub1623 = sub i32 1, %oparg.0
   %idx.ext1624 = sext i32 %sub1623 to i64
-  %add.ptr1625 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext1624
+  %add.ptr1625 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext1624
   %word1627.sroa.0.0.copyload = load i8, ptr %add.ptr1606, align 2
-  %word1627.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word1627.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word1627.sroa.2.0.copyload = load i8, ptr %word1627.sroa.2.0..sroa_idx, align 1
   %conv1630 = zext i8 %word1627.sroa.2.0.copyload to i32
   %idxprom1632 = zext i8 %word1627.sroa.0.0.copyload to i64
@@ -4815,25 +4815,25 @@ TARGET_CACHE:                                     ; preds = %indirectgoto
   unreachable
 
 TARGET_CALL:                                      ; preds = %indirectgoto
-  %instr_ptr1636 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr1636, align 8
-  %add.ptr1637 = getelementptr i8, ptr %next_instr.27, i64 8
+  %instr_ptr1636 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr1636, align 8
+  %add.ptr1637 = getelementptr i8, ptr %next_instr.1, i64 8
   br label %PRED_53
 
 PRED_53:                                          ; preds = %if.end4078, %if.end3955, %if.end2039, %if.end1899, %if.end4329, %TARGET_CALL_TYPE_1, %TARGET_CALL_TUPLE_1, %TARGET_CALL_STR_1, %_PyThreadState_HasStackSpace.exit7803, %if.end4063, %if.end4057, %if.end4045, %TARGET_CALL_PY_WITH_DEFAULTS, %if.end3962, %_PyThreadState_HasStackSpace.exit7775, %if.end3945, %if.end3939, %if.end3925, %TARGET_CALL_PY_EXACT_ARGS, %if.end3816, %if.end3809, %if.end3804, %TARGET_CALL_METHOD_DESCRIPTOR_O, %if.end3701, %if.end3690, %if.end3684, %TARGET_CALL_METHOD_DESCRIPTOR_NOARGS, %if.end3567, %if.end3560, %TARGET_CALL_METHOD_DESCRIPTOR_FAST_WITH_KEYWORDS, %if.end3445, %if.end3441, %TARGET_CALL_METHOD_DESCRIPTOR_FAST, %if.end3362, %TARGET_CALL_LIST_APPEND, %if.end3275, %TARGET_CALL_LEN, %if.end2909, %TARGET_CALL_ISINSTANCE, %if.end2465, %if.end2460, %TARGET_CALL_BUILTIN_O, %if.end2350, %TARGET_CALL_BUILTIN_FAST_WITH_KEYWORDS, %if.end2240, %TARGET_CALL_BUILTIN_FAST, %if.end2131, %TARGET_CALL_BUILTIN_CLASS, %if.end2046, %_PyThreadState_HasStackSpace.exit7615, %if.end2029, %if.end2023, %do.end2015, %if.end1985, %if.end1975, %TARGET_CALL_BOUND_METHOD_EXACT_ARGS, %_PyThreadState_HasStackSpace.exit7584, %if.end1890, %if.end1882, %if.end1878, %TARGET_CALL_ALLOC_AND_ENTER_INIT, %do.body6486, %TARGET_CALL
-  %next_instr.3 = phi ptr [ %add.ptr4312, %TARGET_CALL_TYPE_1 ], [ %add.ptr4312, %if.end4329 ], [ %add.ptr4222, %TARGET_CALL_TUPLE_1 ], [ %add.ptr4132, %TARGET_CALL_STR_1 ], [ %add.ptr4025, %TARGET_CALL_PY_WITH_DEFAULTS ], [ %add.ptr4025, %if.end4057 ], [ %add.ptr4025, %if.end4063 ], [ %add.ptr4025, %_PyThreadState_HasStackSpace.exit7803 ], [ %add.ptr4025, %if.end4045 ], [ %add.ptr3916, %TARGET_CALL_PY_EXACT_ARGS ], [ %add.ptr3916, %if.end3939 ], [ %add.ptr3916, %if.end3945 ], [ %add.ptr3916, %if.end3962 ], [ %add.ptr3916, %_PyThreadState_HasStackSpace.exit7775 ], [ %add.ptr3916, %if.end3925 ], [ %add.ptr3779, %TARGET_CALL_METHOD_DESCRIPTOR_O ], [ %add.ptr3779, %if.end3809 ], [ %add.ptr3779, %if.end3816 ], [ %add.ptr3779, %if.end3804 ], [ %add.ptr3660, %TARGET_CALL_METHOD_DESCRIPTOR_NOARGS ], [ %add.ptr3660, %if.end3701 ], [ %add.ptr3660, %if.end3690 ], [ %add.ptr3660, %if.end3684 ], [ %add.ptr3534, %if.end3560 ], [ %add.ptr3534, %if.end3567 ], [ %add.ptr3534, %TARGET_CALL_METHOD_DESCRIPTOR_FAST_WITH_KEYWORDS ], [ %add.ptr3415, %if.end3441 ], [ %add.ptr3415, %if.end3445 ], [ %add.ptr3415, %TARGET_CALL_METHOD_DESCRIPTOR_FAST ], [ %add.ptr3343, %TARGET_CALL_LIST_APPEND ], [ %add.ptr3343, %if.end3362 ], [ %add.ptr3251, %TARGET_CALL_LEN ], [ %add.ptr3251, %if.end3275 ], [ %add.ptr2885, %TARGET_CALL_ISINSTANCE ], [ %add.ptr2885, %if.end2909 ], [ %add.ptr2436, %TARGET_CALL_BUILTIN_O ], [ %add.ptr2436, %if.end2465 ], [ %add.ptr2436, %if.end2460 ], [ %add.ptr2325, %if.end2350 ], [ %add.ptr2325, %TARGET_CALL_BUILTIN_FAST_WITH_KEYWORDS ], [ %add.ptr2215, %if.end2240 ], [ %add.ptr2215, %TARGET_CALL_BUILTIN_FAST ], [ %add.ptr2107, %if.end2131 ], [ %add.ptr2107, %TARGET_CALL_BUILTIN_CLASS ], [ %add.ptr1964, %TARGET_CALL_BOUND_METHOD_EXACT_ARGS ], [ %add.ptr1964, %if.end1975 ], [ %add.ptr1964, %if.end1985 ], [ %add.ptr1964, %if.end2023 ], [ %add.ptr1964, %if.end2029 ], [ %add.ptr1964, %if.end2046 ], [ %add.ptr1964, %_PyThreadState_HasStackSpace.exit7615 ], [ %add.ptr1964, %do.end2015 ], [ %add.ptr1862, %TARGET_CALL_ALLOC_AND_ENTER_INIT ], [ %add.ptr1862, %if.end1882 ], [ %add.ptr1862, %if.end1890 ], [ %add.ptr1862, %_PyThreadState_HasStackSpace.exit7584 ], [ %add.ptr1862, %if.end1878 ], [ %add.ptr6458, %do.body6486 ], [ %add.ptr1637, %TARGET_CALL ], [ %add.ptr1862, %if.end1899 ], [ %add.ptr1964, %if.end2039 ], [ %add.ptr3916, %if.end3955 ], [ %add.ptr4025, %if.end4078 ]
-  %sub1641 = sub i32 0, %oparg.1
+  %next_instr.8 = phi ptr [ %add.ptr4312, %TARGET_CALL_TYPE_1 ], [ %add.ptr4312, %if.end4329 ], [ %add.ptr4222, %TARGET_CALL_TUPLE_1 ], [ %add.ptr4132, %TARGET_CALL_STR_1 ], [ %add.ptr4025, %TARGET_CALL_PY_WITH_DEFAULTS ], [ %add.ptr4025, %if.end4057 ], [ %add.ptr4025, %if.end4063 ], [ %add.ptr4025, %_PyThreadState_HasStackSpace.exit7803 ], [ %add.ptr4025, %if.end4045 ], [ %add.ptr3916, %TARGET_CALL_PY_EXACT_ARGS ], [ %add.ptr3916, %if.end3939 ], [ %add.ptr3916, %if.end3945 ], [ %add.ptr3916, %if.end3962 ], [ %add.ptr3916, %_PyThreadState_HasStackSpace.exit7775 ], [ %add.ptr3916, %if.end3925 ], [ %add.ptr3779, %TARGET_CALL_METHOD_DESCRIPTOR_O ], [ %add.ptr3779, %if.end3809 ], [ %add.ptr3779, %if.end3816 ], [ %add.ptr3779, %if.end3804 ], [ %add.ptr3660, %TARGET_CALL_METHOD_DESCRIPTOR_NOARGS ], [ %add.ptr3660, %if.end3701 ], [ %add.ptr3660, %if.end3690 ], [ %add.ptr3660, %if.end3684 ], [ %add.ptr3534, %if.end3560 ], [ %add.ptr3534, %if.end3567 ], [ %add.ptr3534, %TARGET_CALL_METHOD_DESCRIPTOR_FAST_WITH_KEYWORDS ], [ %add.ptr3415, %if.end3441 ], [ %add.ptr3415, %if.end3445 ], [ %add.ptr3415, %TARGET_CALL_METHOD_DESCRIPTOR_FAST ], [ %add.ptr3343, %TARGET_CALL_LIST_APPEND ], [ %add.ptr3343, %if.end3362 ], [ %add.ptr3251, %TARGET_CALL_LEN ], [ %add.ptr3251, %if.end3275 ], [ %add.ptr2885, %TARGET_CALL_ISINSTANCE ], [ %add.ptr2885, %if.end2909 ], [ %add.ptr2436, %TARGET_CALL_BUILTIN_O ], [ %add.ptr2436, %if.end2465 ], [ %add.ptr2436, %if.end2460 ], [ %add.ptr2325, %if.end2350 ], [ %add.ptr2325, %TARGET_CALL_BUILTIN_FAST_WITH_KEYWORDS ], [ %add.ptr2215, %if.end2240 ], [ %add.ptr2215, %TARGET_CALL_BUILTIN_FAST ], [ %add.ptr2107, %if.end2131 ], [ %add.ptr2107, %TARGET_CALL_BUILTIN_CLASS ], [ %add.ptr1964, %TARGET_CALL_BOUND_METHOD_EXACT_ARGS ], [ %add.ptr1964, %if.end1975 ], [ %add.ptr1964, %if.end1985 ], [ %add.ptr1964, %if.end2023 ], [ %add.ptr1964, %if.end2029 ], [ %add.ptr1964, %if.end2046 ], [ %add.ptr1964, %_PyThreadState_HasStackSpace.exit7615 ], [ %add.ptr1964, %do.end2015 ], [ %add.ptr1862, %TARGET_CALL_ALLOC_AND_ENTER_INIT ], [ %add.ptr1862, %if.end1882 ], [ %add.ptr1862, %if.end1890 ], [ %add.ptr1862, %_PyThreadState_HasStackSpace.exit7584 ], [ %add.ptr1862, %if.end1878 ], [ %add.ptr6458, %do.body6486 ], [ %add.ptr1637, %TARGET_CALL ], [ %add.ptr1862, %if.end1899 ], [ %add.ptr1964, %if.end2039 ], [ %add.ptr3916, %if.end3955 ], [ %add.ptr4025, %if.end4078 ]
+  %sub1641 = sub i32 0, %oparg.0
   %idxprom1642 = sext i32 %sub1641 to i64
-  %arrayidx1643 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1642
-  %sub1644 = xor i32 %oparg.1, -1
+  %arrayidx1643 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1642
+  %sub1644 = xor i32 %oparg.0, -1
   %idxprom1645 = sext i32 %sub1644 to i64
-  %arrayidx1646 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1645
+  %arrayidx1646 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1645
   %328 = load ptr, ptr %arrayidx1646, align 8
-  %sub1647 = sub i32 -2, %oparg.1
+  %sub1647 = sub i32 -2, %oparg.0
   %idxprom1648 = sext i32 %sub1647 to i64
-  %arrayidx1649 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1648
+  %arrayidx1649 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1648
   %329 = load ptr, ptr %arrayidx1649, align 8
-  %arrayidx1651 = getelementptr i8, ptr %next_instr.27, i64 2
+  %arrayidx1651 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx1651.val = load i16, ptr %arrayidx1651, align 2
   %cmp1655 = icmp ult i16 %arrayidx1651.val, 16
   br i1 %cmp1655, label %if.then1657, label %do.body1665
@@ -4841,9 +4841,9 @@ PRED_53:                                          ; preds = %if.end4078, %if.end
 if.then1657:                                      ; preds = %PRED_53
   %cmp1658 = icmp ne ptr %328, null
   %conv1659 = zext i1 %cmp1658 to i32
-  %add1660 = add i32 %oparg.1, %conv1659
-  call void @_Py_Specialize_Call(ptr noundef %329, ptr noundef nonnull %next_instr.27, i32 noundef %add1660) #15
-  %330 = load i8, ptr %next_instr.27, align 2
+  %add1660 = add i32 %oparg.0, %conv1659
+  call void @_Py_Specialize_Call(ptr noundef %329, ptr noundef nonnull %next_instr.1, i32 noundef %add1660) #15
+  %330 = load i8, ptr %next_instr.1, align 2
   %idxprom1662 = zext i8 %330 to i64
   br label %indirectgoto.backedge
 
@@ -4855,7 +4855,7 @@ do.body1665:                                      ; preds = %PRED_53
 
 if.then1673:                                      ; preds = %do.body1665
   %incdec.ptr = getelementptr i8, ptr %arrayidx1643, i64 -8
-  %inc1674 = add i32 %oparg.1, 1
+  %inc1674 = add i32 %oparg.0, 1
   br label %if.end1702
 
 if.else1675:                                      ; preds = %do.body1665
@@ -4866,7 +4866,7 @@ if.else1675:                                      ; preds = %do.body1665
 
 if.then1679:                                      ; preds = %if.else1675
   %incdec.ptr1680 = getelementptr i8, ptr %arrayidx1643, i64 -8
-  %inc1681 = add i32 %oparg.1, 1
+  %inc1681 = add i32 %oparg.0, 1
   %im_self = getelementptr inbounds i8, ptr %329, i64 24
   %332 = load ptr, ptr %im_self, align 8
   %333 = load i32, ptr %332, align 8
@@ -4913,7 +4913,7 @@ if.then1695:                                      ; preds = %if.end1691
   br label %if.end1702
 
 if.end1702:                                       ; preds = %_Py_NewRef.exit7561, %if.then1695, %if.end1691, %if.else1675, %if.then1673
-  %total_args.0 = phi i32 [ %inc1674, %if.then1673 ], [ %oparg.1, %if.else1675 ], [ %inc1681, %if.end1691 ], [ %inc1681, %if.then1695 ], [ %inc1681, %_Py_NewRef.exit7561 ]
+  %total_args.0 = phi i32 [ %inc1674, %if.then1673 ], [ %oparg.0, %if.else1675 ], [ %inc1681, %if.end1691 ], [ %inc1681, %if.then1695 ], [ %inc1681, %_Py_NewRef.exit7561 ]
   %callable.0 = phi ptr [ %329, %if.then1673 ], [ %329, %if.else1675 ], [ %334, %if.end1691 ], [ %334, %if.then1695 ], [ %334, %_Py_NewRef.exit7561 ]
   %args.0 = phi ptr [ %incdec.ptr, %if.then1673 ], [ %arrayidx1643, %if.else1675 ], [ %incdec.ptr1680, %if.end1691 ], [ %incdec.ptr1680, %if.then1695 ], [ %incdec.ptr1680, %_Py_NewRef.exit7561 ]
   %339 = getelementptr i8, ptr %callable.0, i64 8
@@ -4963,23 +4963,23 @@ cond.end:                                         ; preds = %if.end.i.i7564, %co
   br i1 %cmp1726, label %error, label %if.end1729
 
 if.end1729:                                       ; preds = %cond.end
-  %sub.ptr.lhs.cast1730 = ptrtoint ptr %next_instr.3 to i64
-  %sub.ptr.rhs.cast1731 = ptrtoint ptr %next_instr.27 to i64
+  %sub.ptr.lhs.cast1730 = ptrtoint ptr %next_instr.8 to i64
+  %sub.ptr.rhs.cast1731 = ptrtoint ptr %next_instr.1 to i64
   %sub.ptr.sub1732 = sub i64 %sub.ptr.lhs.cast1730, %sub.ptr.rhs.cast1731
   %sub.ptr.div1733 = lshr exact i64 %sub.ptr.sub1732, 1
   %conv1734 = trunc i64 %sub.ptr.div1733 to i16
-  %return_offset1735 = getelementptr inbounds i8, ptr %frame.addr.8, i64 68
+  %return_offset1735 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
   store i16 %conv1734, ptr %return_offset1735, align 4
-  %localsplus.i7566 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i7566 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i7567 = ptrtoint ptr %arrayidx1649 to i64
   %sub.ptr.rhs.cast.i7568 = ptrtoint ptr %localsplus.i7566 to i64
   %sub.ptr.sub.i7569 = sub i64 %sub.ptr.lhs.cast.i7567, %sub.ptr.rhs.cast.i7568
   %sub.ptr.div.i7570 = lshr exact i64 %sub.ptr.sub.i7569, 3
   %conv.i7571 = trunc i64 %sub.ptr.div.i7570 to i32
-  %stacktop.i7572 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i7572 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i7571, ptr %stacktop.i7572, align 8
   %previous1737 = getelementptr inbounds i8, ptr %call1721, i64 8
-  store ptr %frame.addr.8, ptr %previous1737, align 8
+  store ptr %frame.addr.4, ptr %previous1737, align 8
   store ptr %call1721, ptr %current_frame, align 8
   br label %start_frame
 
@@ -5004,11 +5004,11 @@ cond.end1753:                                     ; preds = %if.then1746, %cond.
   br i1 %cmp1755, label %if.then1757, label %if.else1758
 
 if.then1757:                                      ; preds = %cond.end1753
-  call void @_Py_call_instrumentation_exc2(ptr noundef %tstate, i32 noundef 16, ptr noundef nonnull %frame.addr.8, ptr noundef nonnull %next_instr.27, ptr noundef nonnull %callable.0, ptr noundef %cond1754) #15
+  call void @_Py_call_instrumentation_exc2(ptr noundef %tstate, i32 noundef 16, ptr noundef nonnull %frame.addr.4, ptr noundef nonnull %next_instr.1, ptr noundef nonnull %callable.0, ptr noundef %cond1754) #15
   br label %do.body1788
 
 if.else1758:                                      ; preds = %cond.end1753
-  %call1760 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 15, ptr noundef nonnull %frame.addr.8, ptr noundef nonnull %next_instr.27, ptr noundef nonnull %callable.0, ptr noundef %cond1754) #15
+  %call1760 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 15, ptr noundef nonnull %frame.addr.4, ptr noundef nonnull %next_instr.1, ptr noundef nonnull %callable.0, ptr noundef %cond1754) #15
   %cmp1761 = icmp slt i32 %call1760, 0
   br i1 %cmp1761, label %if.then1767, label %do.body1788
 
@@ -5106,24 +5106,24 @@ if.then1845:                                      ; preds = %if.end1834
   br i1 %cmp1847.not, label %do.body1852, label %error.loopexit
 
 do.body1852:                                      ; preds = %if.end1834, %if.then1845
-  %word1853.sroa.0.0.copyload = load i8, ptr %next_instr.3, align 2
-  %word1853.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word1853.sroa.0.0.copyload = load i8, ptr %next_instr.8, align 2
+  %word1853.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word1853.sroa.2.0.copyload = load i8, ptr %word1853.sroa.2.0..sroa_idx, align 1
   %conv1856 = zext i8 %word1853.sroa.2.0.copyload to i32
   %idxprom1858 = zext i8 %word1853.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_ALLOC_AND_ENTER_INIT:                 ; preds = %indirectgoto
-  %instr_ptr1861 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr1861, align 8
-  %add.ptr1862 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub1868 = xor i32 %oparg.1, -1
+  %instr_ptr1861 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr1861, align 8
+  %add.ptr1862 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub1868 = xor i32 %oparg.0, -1
   %idxprom1869 = sext i32 %sub1868 to i64
-  %arrayidx1870 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1869
+  %arrayidx1870 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1869
   %362 = load ptr, ptr %arrayidx1870, align 8
-  %sub1871 = sub i32 -2, %oparg.1
+  %sub1871 = sub i32 -2, %oparg.0
   %idxprom1872 = sext i32 %sub1871 to i64
-  %arrayidx1873 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1872
+  %arrayidx1873 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1872
   %363 = load ptr, ptr %arrayidx1873, align 8
   %cmp1875.not = icmp eq ptr %362, null
   br i1 %cmp1875.not, label %if.end1878, label %PRED_53
@@ -5140,7 +5140,7 @@ if.end1878:                                       ; preds = %TARGET_CALL_ALLOC_A
 if.end1882:                                       ; preds = %if.end1878
   %tp_version_tag = getelementptr inbounds i8, ptr %363, i64 384
   %366 = load i32, ptr %tp_version_tag, align 8
-  %func_version1884 = getelementptr i8, ptr %next_instr.27, i64 4
+  %func_version1884 = getelementptr i8, ptr %next_instr.1, i64 4
   %func_version1884.val = load i32, ptr %func_version1884, align 2
   %cmp1887.not = icmp eq i32 %366, %func_version1884.val
   br i1 %cmp1887.not, label %if.end1890, label %PRED_53
@@ -5152,7 +5152,7 @@ if.end1890:                                       ; preds = %if.end1882
   %368 = load ptr, ptr %func_code1894, align 8
   %co_argcount = getelementptr inbounds i8, ptr %368, i64 52
   %369 = load i32, ptr %co_argcount, align 4
-  %add1895 = add i32 %oparg.1, 1
+  %add1895 = add i32 %oparg.0, 1
   %cmp1896.not = icmp eq i32 %369, %add1895
   br i1 %cmp1896.not, label %if.end1899, label %PRED_53
 
@@ -5175,11 +5175,11 @@ _PyThreadState_HasStackSpace.exit7584:            ; preds = %if.end1899
   br i1 %cmp2.i7583, label %if.end1904, label %PRED_53
 
 if.end1904:                                       ; preds = %_PyThreadState_HasStackSpace.exit7584
-  %arrayidx1873.le = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1872
+  %arrayidx1873.le = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1872
   %373 = getelementptr i8, ptr %363, i64 8
-  %sub1865.le = sub i32 0, %oparg.1
+  %sub1865.le = sub i32 0, %oparg.0
   %idxprom1866.le = sext i32 %sub1865.le to i64
-  %arrayidx1867.le = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1866.le
+  %arrayidx1867.le = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1866.le
   %call1906 = call ptr @_PyType_NewManagedObject(ptr noundef nonnull %363) #15
   %cmp1907 = icmp eq ptr %call1906, null
   br i1 %cmp1907, label %error, label %do.body1911
@@ -5250,11 +5250,11 @@ Py_INCREF.exit21376:                              ; preds = %Py_INCREF.exit21384
   %call1930 = call fastcc ptr @_PyFrame_PushUnchecked(ptr noundef nonnull %tstate, ptr noundef nonnull %367, i32 noundef %add1895)
   %localsplus1931 = getelementptr inbounds i8, ptr %call1930, i64 72
   store ptr %call1906, ptr %localsplus1931, align 8
-  %cmp193510775 = icmp sgt i32 %oparg.1, 0
+  %cmp193510775 = icmp sgt i32 %oparg.0, 0
   br i1 %cmp193510775, label %for.body1937.preheader, label %for.end1946
 
 for.body1937.preheader:                           ; preds = %Py_INCREF.exit21376
-  %wide.trip.count11843 = zext nneg i32 %oparg.1 to i64
+  %wide.trip.count11843 = zext nneg i32 %oparg.0 to i64
   br label %for.body1937
 
 for.body1937:                                     ; preds = %for.body1937.preheader, %for.body1937
@@ -5268,20 +5268,20 @@ for.body1937:                                     ; preds = %for.body1937.prehea
   br i1 %exitcond11844.not, label %for.end1946, label %for.body1937, !llvm.loop !17
 
 for.end1946:                                      ; preds = %for.body1937, %Py_INCREF.exit21376
-  %return_offset1952 = getelementptr inbounds i8, ptr %frame.addr.8, i64 68
+  %return_offset1952 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
   store i16 4, ptr %return_offset1952, align 4
-  %localsplus.i7590 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i7590 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i7591 = ptrtoint ptr %arrayidx1873.le to i64
   %sub.ptr.rhs.cast.i7592 = ptrtoint ptr %localsplus.i7590 to i64
   %sub.ptr.sub.i7593 = sub i64 %sub.ptr.lhs.cast.i7591, %sub.ptr.rhs.cast.i7592
   %sub.ptr.div.i7594 = lshr exact i64 %sub.ptr.sub.i7593, 3
   %conv.i7595 = trunc i64 %sub.ptr.div.i7594 to i32
-  %stacktop.i7596 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i7596 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i7595, ptr %stacktop.i7596, align 8
   %previous1957 = getelementptr inbounds i8, ptr %call1930, i64 8
   store ptr %377, ptr %previous1957, align 8
   %previous1958 = getelementptr inbounds i8, ptr %377, i64 8
-  store ptr %frame.addr.8, ptr %previous1958, align 8
+  store ptr %frame.addr.4, ptr %previous1958, align 8
   store ptr %call1930, ptr %current_frame, align 8
   %382 = load i32, ptr %py_recursion_remaining3963, align 4
   %dec1961 = add i32 %382, -1
@@ -5289,9 +5289,9 @@ for.end1946:                                      ; preds = %for.body1937, %Py_I
   br label %start_frame
 
 TARGET_CALL_BOUND_METHOD_EXACT_ARGS:              ; preds = %indirectgoto
-  %instr_ptr1963 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr1963, align 8
-  %add.ptr1964 = getelementptr i8, ptr %next_instr.27, i64 8
+  %instr_ptr1963 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr1963, align 8
+  %add.ptr1964 = getelementptr i8, ptr %next_instr.1, i64 8
   %383 = load ptr, ptr %interp10475, align 8
   %eval_frame1972 = getelementptr inbounds i8, ptr %383, i64 2072
   %384 = load ptr, ptr %eval_frame1972, align 8
@@ -5299,13 +5299,13 @@ TARGET_CALL_BOUND_METHOD_EXACT_ARGS:              ; preds = %indirectgoto
   br i1 %tobool1973.not, label %if.end1975, label %PRED_53
 
 if.end1975:                                       ; preds = %TARGET_CALL_BOUND_METHOD_EXACT_ARGS
-  %sub1976 = xor i32 %oparg.1, -1
+  %sub1976 = xor i32 %oparg.0, -1
   %idxprom1977 = sext i32 %sub1976 to i64
-  %arrayidx1978 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1977
+  %arrayidx1978 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1977
   %385 = load ptr, ptr %arrayidx1978, align 8
-  %sub1979 = sub i32 -2, %oparg.1
+  %sub1979 = sub i32 -2, %oparg.0
   %idxprom1980 = sext i32 %sub1979 to i64
-  %arrayidx1981 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom1980
+  %arrayidx1981 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom1980
   %386 = load ptr, ptr %arrayidx1981, align 8
   %cmp1982.not = icmp eq ptr %385, null
   br i1 %cmp1982.not, label %if.end1985, label %PRED_53
@@ -5368,7 +5368,7 @@ do.end2015:                                       ; preds = %if.end2006, %if.the
   br i1 %cmp2020, label %if.end2023, label %PRED_53
 
 if.end2023:                                       ; preds = %do.end2015
-  %arrayidx2017 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx2017 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx2017.val = load i32, ptr %arrayidx2017, align 2
   %func_version2025 = getelementptr inbounds i8, ptr %390, i64 136
   %396 = load i32, ptr %func_version2025, align 8
@@ -5380,7 +5380,7 @@ if.end2029:                                       ; preds = %if.end2023
   %397 = load ptr, ptr %func_code2031, align 8
   %co_argcount2032 = getelementptr inbounds i8, ptr %397, i64 52
   %398 = load i32, ptr %co_argcount2032, align 4
-  %add2035 = add i32 %oparg.1, 1
+  %add2035 = add i32 %oparg.0, 1
   %cmp2036.not = icmp eq i32 %398, %add2035
   br i1 %cmp2036.not, label %if.end2039, label %PRED_53
 
@@ -5407,12 +5407,12 @@ if.end2046:                                       ; preds = %_PyThreadState_HasS
   br i1 %cmp2048, label %PRED_53, label %if.end2051
 
 if.end2051:                                       ; preds = %if.end2046
-  %sub2052 = sub i32 0, %oparg.1
+  %sub2052 = sub i32 0, %oparg.0
   %idxprom2053 = sext i32 %sub2052 to i64
-  %arrayidx2054 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2053
+  %arrayidx2054 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2053
   %403 = load ptr, ptr %arrayidx1978, align 8
   %cmp2058.not = icmp eq ptr %403, null
-  %argcount.0 = select i1 %cmp2058.not, i32 %oparg.1, i32 %add2035
+  %argcount.0 = select i1 %cmp2058.not, i32 %oparg.0, i32 %add2035
   %args1969.0.idx = select i1 %cmp2058.not, i64 0, i64 -8
   %args1969.0 = getelementptr i8, ptr %arrayidx2054, i64 %args1969.0.idx
   %call2065 = call fastcc ptr @_PyFrame_PushUnchecked(ptr noundef nonnull %tstate, ptr noundef nonnull %390, i32 noundef %argcount.0)
@@ -5435,18 +5435,18 @@ for.body2070:                                     ; preds = %for.body2070.lr.ph,
   br i1 %exitcond11741.not, label %for.end2078, label %for.body2070, !llvm.loop !18
 
 for.end2078:                                      ; preds = %for.body2070, %if.end2051
-  %return_offset2084 = getelementptr inbounds i8, ptr %frame.addr.8, i64 68
+  %return_offset2084 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
   store i16 4, ptr %return_offset2084, align 4
-  %localsplus.i7616 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i7616 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i7617 = ptrtoint ptr %arrayidx1981 to i64
   %sub.ptr.rhs.cast.i7618 = ptrtoint ptr %localsplus.i7616 to i64
   %sub.ptr.sub.i7619 = sub i64 %sub.ptr.lhs.cast.i7617, %sub.ptr.rhs.cast.i7618
   %sub.ptr.div.i7620 = lshr exact i64 %sub.ptr.sub.i7619, 3
   %conv.i7621 = trunc i64 %sub.ptr.div.i7620 to i32
-  %stacktop.i7622 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i7622 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i7621, ptr %stacktop.i7622, align 8
   %previous2088 = getelementptr inbounds i8, ptr %call2065, i64 8
-  store ptr %frame.addr.8, ptr %previous2088, align 8
+  store ptr %frame.addr.4, ptr %previous2088, align 8
   store ptr %call2065, ptr %current_frame, align 8
   %405 = load i32, ptr %py_recursion_remaining3963, align 4
   %dec2091 = add i32 %405, -1
@@ -5467,23 +5467,23 @@ for.end2078:                                      ; preds = %for.body2070, %if.e
   br label %indirectgoto.backedge
 
 TARGET_CALL_BUILTIN_CLASS:                        ; preds = %indirectgoto
-  %instr_ptr2106 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr2106, align 8
-  %add.ptr2107 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub2112 = sub i32 0, %oparg.1
+  %instr_ptr2106 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr2106, align 8
+  %add.ptr2107 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub2112 = sub i32 0, %oparg.0
   %idxprom2113 = sext i32 %sub2112 to i64
-  %arrayidx2114 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2113
-  %sub2115 = xor i32 %oparg.1, -1
+  %arrayidx2114 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2113
+  %sub2115 = xor i32 %oparg.0, -1
   %idxprom2116 = sext i32 %sub2115 to i64
-  %arrayidx2117 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2116
+  %arrayidx2117 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2116
   %408 = load ptr, ptr %arrayidx2117, align 8
-  %sub2118 = sub i32 -2, %oparg.1
+  %sub2118 = sub i32 -2, %oparg.0
   %idxprom2119 = sext i32 %sub2118 to i64
-  %arrayidx2120 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2119
+  %arrayidx2120 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2119
   %409 = load ptr, ptr %arrayidx2120, align 8
   %cmp2122.not = icmp ne ptr %408, null
   %inc2126 = zext i1 %cmp2122.not to i32
-  %total_args2121.0 = add i32 %oparg.1, %inc2126
+  %total_args2121.0 = add i32 %oparg.0, %inc2126
   %args2108.0.idx = select i1 %cmp2122.not, i64 -8, i64 0
   %args2108.0 = getelementptr i8, ptr %arrayidx2114, i64 %args2108.0.idx
   %410 = getelementptr i8, ptr %409, i64 8
@@ -5576,30 +5576,30 @@ if.then2199:                                      ; preds = %if.end2186
 
 do.body2206:                                      ; preds = %if.end2186, %if.then2199
   %word2207.sroa.0.0.copyload = load i8, ptr %add.ptr2107, align 2
-  %word2207.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word2207.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word2207.sroa.2.0.copyload = load i8, ptr %word2207.sroa.2.0..sroa_idx, align 1
   %conv2210 = zext i8 %word2207.sroa.2.0.copyload to i32
   %idxprom2212 = zext i8 %word2207.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_BUILTIN_FAST:                         ; preds = %indirectgoto
-  %instr_ptr2214 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr2214, align 8
-  %add.ptr2215 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub2220 = sub i32 0, %oparg.1
+  %instr_ptr2214 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr2214, align 8
+  %add.ptr2215 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub2220 = sub i32 0, %oparg.0
   %idxprom2221 = sext i32 %sub2220 to i64
-  %arrayidx2222 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2221
-  %sub2223 = xor i32 %oparg.1, -1
+  %arrayidx2222 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2221
+  %sub2223 = xor i32 %oparg.0, -1
   %idxprom2224 = sext i32 %sub2223 to i64
-  %arrayidx2225 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2224
+  %arrayidx2225 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2224
   %423 = load ptr, ptr %arrayidx2225, align 8
-  %sub2226 = sub i32 -2, %oparg.1
+  %sub2226 = sub i32 -2, %oparg.0
   %idxprom2227 = sext i32 %sub2226 to i64
-  %arrayidx2228 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2227
+  %arrayidx2228 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2227
   %424 = load ptr, ptr %arrayidx2228, align 8
   %cmp2230.not = icmp ne ptr %423, null
   %inc2234 = zext i1 %cmp2230.not to i32
-  %total_args2229.0 = add i32 %oparg.1, %inc2234
+  %total_args2229.0 = add i32 %oparg.0, %inc2234
   %args2216.0.idx = select i1 %cmp2230.not, i64 -8, i64 0
   %args2216.0 = getelementptr i8, ptr %arrayidx2222, i64 %args2216.0.idx
   %ob_type2236 = getelementptr inbounds i8, ptr %424, i64 8
@@ -5695,30 +5695,30 @@ if.then2309:                                      ; preds = %if.end2296
 
 do.body2316:                                      ; preds = %if.end2296, %if.then2309
   %word2317.sroa.0.0.copyload = load i8, ptr %add.ptr2215, align 2
-  %word2317.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word2317.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word2317.sroa.2.0.copyload = load i8, ptr %word2317.sroa.2.0..sroa_idx, align 1
   %conv2320 = zext i8 %word2317.sroa.2.0.copyload to i32
   %idxprom2322 = zext i8 %word2317.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_BUILTIN_FAST_WITH_KEYWORDS:           ; preds = %indirectgoto
-  %instr_ptr2324 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr2324, align 8
-  %add.ptr2325 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub2330 = sub i32 0, %oparg.1
+  %instr_ptr2324 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr2324, align 8
+  %add.ptr2325 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub2330 = sub i32 0, %oparg.0
   %idxprom2331 = sext i32 %sub2330 to i64
-  %arrayidx2332 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2331
-  %sub2333 = xor i32 %oparg.1, -1
+  %arrayidx2332 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2331
+  %sub2333 = xor i32 %oparg.0, -1
   %idxprom2334 = sext i32 %sub2333 to i64
-  %arrayidx2335 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2334
+  %arrayidx2335 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2334
   %440 = load ptr, ptr %arrayidx2335, align 8
-  %sub2336 = sub i32 -2, %oparg.1
+  %sub2336 = sub i32 -2, %oparg.0
   %idxprom2337 = sext i32 %sub2336 to i64
-  %arrayidx2338 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2337
+  %arrayidx2338 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2337
   %441 = load ptr, ptr %arrayidx2338, align 8
   %cmp2340.not = icmp ne ptr %440, null
   %inc2344 = zext i1 %cmp2340.not to i32
-  %total_args2339.0 = add i32 %oparg.1, %inc2344
+  %total_args2339.0 = add i32 %oparg.0, %inc2344
   %args2326.0.idx = select i1 %cmp2340.not, i64 -8, i64 0
   %args2326.0 = getelementptr i8, ptr %arrayidx2332, i64 %args2326.0.idx
   %ob_type2346 = getelementptr inbounds i8, ptr %441, i64 8
@@ -5814,30 +5814,30 @@ if.then2420:                                      ; preds = %if.end2407
 
 do.body2427:                                      ; preds = %if.end2407, %if.then2420
   %word2428.sroa.0.0.copyload = load i8, ptr %add.ptr2325, align 2
-  %word2428.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word2428.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word2428.sroa.2.0.copyload = load i8, ptr %word2428.sroa.2.0..sroa_idx, align 1
   %conv2431 = zext i8 %word2428.sroa.2.0.copyload to i32
   %idxprom2433 = zext i8 %word2428.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_BUILTIN_O:                            ; preds = %indirectgoto
-  %instr_ptr2435 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr2435, align 8
-  %add.ptr2436 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub2441 = sub i32 0, %oparg.1
+  %instr_ptr2435 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr2435, align 8
+  %add.ptr2436 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub2441 = sub i32 0, %oparg.0
   %idxprom2442 = sext i32 %sub2441 to i64
-  %arrayidx2443 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2442
-  %sub2444 = xor i32 %oparg.1, -1
+  %arrayidx2443 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2442
+  %sub2444 = xor i32 %oparg.0, -1
   %idxprom2445 = sext i32 %sub2444 to i64
-  %arrayidx2446 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2445
+  %arrayidx2446 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2445
   %457 = load ptr, ptr %arrayidx2446, align 8
-  %sub2447 = sub i32 -2, %oparg.1
+  %sub2447 = sub i32 -2, %oparg.0
   %idxprom2448 = sext i32 %sub2447 to i64
-  %arrayidx2449 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2448
+  %arrayidx2449 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2448
   %458 = load ptr, ptr %arrayidx2449, align 8
   %cmp2451.not = icmp ne ptr %457, null
   %inc2455 = zext i1 %cmp2451.not to i32
-  %total_args2450.0 = add i32 %oparg.1, %inc2455
+  %total_args2450.0 = add i32 %oparg.0, %inc2455
   %args2437.0.idx = select i1 %cmp2451.not, i64 -8, i64 0
   %args2437.0 = getelementptr i8, ptr %arrayidx2443, i64 %args2437.0.idx
   %cmp2457.not = icmp eq i32 %total_args2450.0, 1
@@ -5969,22 +5969,22 @@ if.then2530:                                      ; preds = %if.end2517
 
 do.body2537:                                      ; preds = %if.end2517, %if.then2530
   %word2538.sroa.0.0.copyload = load i8, ptr %add.ptr2436, align 2
-  %word2538.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word2538.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word2538.sroa.2.0.copyload = load i8, ptr %word2538.sroa.2.0..sroa_idx, align 1
   %conv2541 = zext i8 %word2538.sroa.2.0.copyload to i32
   %idxprom2543 = zext i8 %word2538.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 PRED_54:                                          ; preds = %indirectgoto
-  %instr_ptr6492 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6492, align 8
-  %next_instr.4 = getelementptr i8, ptr %next_instr.27, i64 2
-  %and2550 = and i32 %oparg.1, 1
+  %instr_ptr6492 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6492, align 8
+  %next_instr.9 = getelementptr i8, ptr %next_instr.1, i64 2
+  %and2550 = and i32 %oparg.0, 1
   %tobool2551.not = icmp eq i32 %and2550, 0
   br i1 %tobool2551.not, label %if.end2557, label %if.then2552
 
 if.then2552:                                      ; preds = %PRED_54
-  %arrayidx2556 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %arrayidx2556 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %482 = load ptr, ptr %arrayidx2556, align 8
   br label %if.end2557
 
@@ -5992,11 +5992,11 @@ if.end2557:                                       ; preds = %if.then2552, %PRED_
   %kwargs.0 = phi ptr [ %482, %if.then2552 ], [ null, %PRED_54 ]
   %sub2559 = xor i32 %and2550, -1
   %idxprom2560 = sext i32 %sub2559 to i64
-  %arrayidx2561 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2560
+  %arrayidx2561 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2560
   %483 = load ptr, ptr %arrayidx2561, align 8
   %sub2563 = sub nuw nsw i32 -3, %and2550
   %idxprom2564 = sext i32 %sub2563 to i64
-  %arrayidx2565 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2564
+  %arrayidx2565 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2564
   %484 = load ptr, ptr %arrayidx2565, align 8
   %ob_type2566 = getelementptr inbounds i8, ptr %483, i64 8
   %485 = load ptr, ptr %ob_type2566, align 8
@@ -6095,7 +6095,7 @@ cond.true2615:                                    ; preds = %if.then2610
 
 cond.end2619:                                     ; preds = %if.then2610, %cond.true2615
   %cond2620 = phi ptr [ %498, %cond.true2615 ], [ @_Py_NoneStruct, %if.then2610 ]
-  %call2622 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 4, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef nonnull %484, ptr noundef %cond2620) #15
+  %call2622 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 4, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef nonnull %484, ptr noundef %cond2620) #15
   %tobool2623.not = icmp eq i32 %call2622, 0
   br i1 %tobool2623.not, label %if.end2625, label %error.loopexit
 
@@ -6105,11 +6105,11 @@ if.end2625:                                       ; preds = %cond.end2619
   br i1 %cmp2627, label %if.then2629, label %if.else2630
 
 if.then2629:                                      ; preds = %if.end2625
-  call void @_Py_call_instrumentation_exc2(ptr noundef %tstate, i32 noundef 16, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef nonnull %484, ptr noundef %cond2620) #15
+  call void @_Py_call_instrumentation_exc2(ptr noundef %tstate, i32 noundef 16, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef nonnull %484, ptr noundef %cond2620) #15
   br label %do.body2706
 
 if.else2630:                                      ; preds = %if.end2625
-  %call2632 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 15, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef nonnull %484, ptr noundef %cond2620) #15
+  %call2632 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 15, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef nonnull %484, ptr noundef %cond2620) #15
   %cmp2633 = icmp slt i32 %call2632, 0
   br i1 %cmp2633, label %if.then2641, label %do.body2706
 
@@ -6330,25 +6330,25 @@ return.sink.split.i:                              ; preds = %if.end78.i, %if.end
 _PyEvalFramePushAndInit_Ex.exit:                  ; preds = %do.body36.i, %do.body39.i, %if.end44.i, %do.body73.i, %if.end78.i, %return.sink.split.i
   %retval.0.i7678 = phi ptr [ %call1843.i, %do.body36.i ], [ %call1843.i, %if.end44.i ], [ %call1843.i, %do.body39.i ], [ null, %if.end78.i ], [ null, %do.body73.i ], [ %retval.0.ph.i, %return.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %kwnames.i)
-  %sub2691 = sub i32 -3, %oparg.1
+  %sub2691 = sub i32 -3, %oparg.0
   %idx.ext2692 = sext i32 %sub2691 to i64
-  %add.ptr2693 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext2692
+  %add.ptr2693 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext2692
   %cmp2694 = icmp eq ptr %retval.0.i7678, null
   br i1 %cmp2694, label %error, label %if.end2697
 
 if.end2697:                                       ; preds = %_PyEvalFramePushAndInit_Ex.exit
-  %return_offset2698 = getelementptr inbounds i8, ptr %frame.addr.8, i64 68
+  %return_offset2698 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
   store i16 1, ptr %return_offset2698, align 4
-  %localsplus.i7688 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i7688 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i7689 = ptrtoint ptr %add.ptr2693 to i64
   %sub.ptr.rhs.cast.i7690 = ptrtoint ptr %localsplus.i7688 to i64
   %sub.ptr.sub.i7691 = sub i64 %sub.ptr.lhs.cast.i7689, %sub.ptr.rhs.cast.i7690
   %sub.ptr.div.i7692 = lshr exact i64 %sub.ptr.sub.i7691, 3
   %conv.i7693 = trunc i64 %sub.ptr.div.i7692 to i32
-  %stacktop.i7694 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i7694 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i7693, ptr %stacktop.i7694, align 8
   %previous2700 = getelementptr inbounds i8, ptr %retval.0.i7678, i64 8
-  store ptr %frame.addr.8, ptr %previous2700, align 8
+  store ptr %frame.addr.4, ptr %previous2700, align 8
   store ptr %retval.0.i7678, ptr %current_frame, align 8
   br label %start_frame
 
@@ -6429,7 +6429,7 @@ if.end2765:                                       ; preds = %do.end2757
   store ptr %result.0, ptr %arrayidx2565, align 8
   %sub2771 = sub nuw nsw i32 -2, %and2550
   %idx.ext2772 = sext i32 %sub2771 to i64
-  %add.ptr2773 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext2772
+  %add.ptr2773 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext2772
   %546 = load ptr, ptr %interp10475, align 8
   %547 = load atomic i64, ptr %546 monotonic, align 8
   %and2778 = and i64 %547, 255
@@ -6442,20 +6442,20 @@ if.then2780:                                      ; preds = %if.end2765
   br i1 %cmp2782.not, label %do.body2787, label %error.loopexit
 
 do.body2787:                                      ; preds = %if.end2765, %if.then2780
-  %word2788.sroa.0.0.copyload = load i8, ptr %next_instr.4, align 2
-  %word2788.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word2788.sroa.0.0.copyload = load i8, ptr %next_instr.9, align 2
+  %word2788.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word2788.sroa.2.0.copyload = load i8, ptr %word2788.sroa.2.0..sroa_idx, align 1
   %conv2791 = zext i8 %word2788.sroa.2.0.copyload to i32
   %idxprom2793 = zext i8 %word2788.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_INTRINSIC_1:                          ; preds = %indirectgoto
-  %instr_ptr2795 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr2795, align 8
-  %add.ptr2796 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx2798 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr2795 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr2795, align 8
+  %add.ptr2796 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx2798 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %548 = load ptr, ptr %arrayidx2798, align 8
-  %idxprom2799 = sext i32 %oparg.1 to i64
+  %idxprom2799 = sext i32 %oparg.0 to i64
   %arrayidx2800 = getelementptr [0 x %struct.intrinsic_func1_info], ptr @_PyIntrinsics_UnaryFunctions, i64 0, i64 %idxprom2799
   %549 = load ptr, ptr %arrayidx2800, align 8
   %call2802 = call ptr %549(ptr noundef %tstate, ptr noundef %548) #15
@@ -6485,21 +6485,21 @@ do.end2817:                                       ; preds = %if.end2808, %if.the
 if.end2821:                                       ; preds = %do.end2817
   store ptr %call2802, ptr %arrayidx2798, align 8
   %word2824.sroa.0.0.copyload = load i8, ptr %add.ptr2796, align 2
-  %word2824.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word2824.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word2824.sroa.2.0.copyload = load i8, ptr %word2824.sroa.2.0..sroa_idx, align 1
   %conv2827 = zext i8 %word2824.sroa.2.0.copyload to i32
   %idxprom2829 = zext i8 %word2824.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_INTRINSIC_2:                          ; preds = %indirectgoto
-  %instr_ptr2831 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr2831, align 8
-  %add.ptr2832 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx2834 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr2831 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr2831, align 8
+  %add.ptr2832 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx2834 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %554 = load ptr, ptr %arrayidx2834, align 8
-  %arrayidx2835 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx2835 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %555 = load ptr, ptr %arrayidx2835, align 8
-  %idxprom2836 = sext i32 %oparg.1 to i64
+  %idxprom2836 = sext i32 %oparg.0 to i64
   %arrayidx2837 = getelementptr [0 x %struct.intrinsic_func2_info], ptr @_PyIntrinsics_BinaryFunctions, i64 0, i64 %idxprom2836
   %556 = load ptr, ptr %arrayidx2837, align 8
   %call2839 = call ptr %556(ptr noundef %tstate, ptr noundef %555, ptr noundef %554) #15
@@ -6549,30 +6549,30 @@ do.end2869:                                       ; preds = %if.end2860, %if.the
 if.end2873:                                       ; preds = %do.end2869
   store ptr %call2839, ptr %arrayidx2835, align 8
   %word2877.sroa.0.0.copyload = load i8, ptr %add.ptr2832, align 2
-  %word2877.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word2877.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word2877.sroa.2.0.copyload = load i8, ptr %word2877.sroa.2.0..sroa_idx, align 1
   %conv2880 = zext i8 %word2877.sroa.2.0.copyload to i32
   %idxprom2882 = zext i8 %word2877.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_ISINSTANCE:                           ; preds = %indirectgoto
-  %instr_ptr2884 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr2884, align 8
-  %add.ptr2885 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub2890 = sub i32 0, %oparg.1
+  %instr_ptr2884 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr2884, align 8
+  %add.ptr2885 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub2890 = sub i32 0, %oparg.0
   %idxprom2891 = sext i32 %sub2890 to i64
-  %arrayidx2892 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2891
-  %sub2893 = xor i32 %oparg.1, -1
+  %arrayidx2892 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2891
+  %sub2893 = xor i32 %oparg.0, -1
   %idxprom2894 = sext i32 %sub2893 to i64
-  %arrayidx2895 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2894
+  %arrayidx2895 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2894
   %565 = load ptr, ptr %arrayidx2895, align 8
-  %sub2896 = sub i32 -2, %oparg.1
+  %sub2896 = sub i32 -2, %oparg.0
   %idxprom2897 = sext i32 %sub2896 to i64
-  %arrayidx2898 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom2897
+  %arrayidx2898 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom2897
   %566 = load ptr, ptr %arrayidx2898, align 8
   %cmp2900.not = icmp ne ptr %565, null
   %inc2904 = zext i1 %cmp2900.not to i32
-  %total_args2899.0 = add i32 %oparg.1, %inc2904
+  %total_args2899.0 = add i32 %oparg.0, %inc2904
   %args2886.0.idx = select i1 %cmp2900.not, i64 -8, i64 0
   %args2886.0 = getelementptr i8, ptr %arrayidx2892, i64 %args2886.0.idx
   %cmp2906.not = icmp eq i32 %total_args2899.0, 2
@@ -6662,38 +6662,38 @@ do.end2971:                                       ; preds = %if.end2962, %if.the
 if.end2978:                                       ; preds = %do.end2971
   store ptr %call2926, ptr %arrayidx2898, align 8
   %word2986.sroa.0.0.copyload = load i8, ptr %add.ptr2885, align 2
-  %word2986.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word2986.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word2986.sroa.2.0.copyload = load i8, ptr %word2986.sroa.2.0..sroa_idx, align 1
   %conv2989 = zext i8 %word2986.sroa.2.0.copyload to i32
   %idxprom2991 = zext i8 %word2986.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_KW:                                   ; preds = %indirectgoto
-  %instr_ptr2993 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr2993, align 8
-  %add.ptr2994 = getelementptr i8, ptr %next_instr.27, i64 2
-  %.pre11866 = sub i32 -2, %oparg.1
+  %instr_ptr2993 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr2993, align 8
+  %add.ptr2994 = getelementptr i8, ptr %next_instr.1, i64 2
+  %.pre11866 = sub i32 -2, %oparg.0
   %.pre11867 = sext i32 %.pre11866 to i64
-  %.pre11868 = sub i32 -3, %oparg.1
+  %.pre11868 = sub i32 -3, %oparg.0
   %.pre11869 = sext i32 %.pre11868 to i64
   br label %PRED_57
 
 PRED_57:                                          ; preds = %cond.end6520, %TARGET_CALL_KW
   %idxprom3009.pre-phi = phi i64 [ %idxprom6509, %cond.end6520 ], [ %.pre11869, %TARGET_CALL_KW ]
   %idxprom3006.pre-phi = phi i64 [ %idxprom6500, %cond.end6520 ], [ %.pre11867, %TARGET_CALL_KW ]
-  %next_instr.5 = phi ptr [ %add.ptr6496, %cond.end6520 ], [ %add.ptr2994, %TARGET_CALL_KW ]
-  %arrayidx3001 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %next_instr.10 = phi ptr [ %add.ptr6496, %cond.end6520 ], [ %add.ptr2994, %TARGET_CALL_KW ]
+  %arrayidx3001 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %583 = load ptr, ptr %arrayidx3001, align 8
-  %sub3002 = xor i32 %oparg.1, -1
+  %sub3002 = xor i32 %oparg.0, -1
   %idxprom3003 = sext i32 %sub3002 to i64
-  %arrayidx3004 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3003
-  %arrayidx3007 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3006.pre-phi
+  %arrayidx3004 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3003
+  %arrayidx3007 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3006.pre-phi
   %584 = load ptr, ptr %arrayidx3007, align 8
-  %arrayidx3010 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3009.pre-phi
+  %arrayidx3010 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3009.pre-phi
   %585 = load ptr, ptr %arrayidx3010, align 8
   %cmp3012.not = icmp eq ptr %584, null
   %incdec.ptr3015 = getelementptr i8, ptr %arrayidx3004, i64 -8
-  %inc3016 = add i32 %oparg.1, 1
+  %inc3016 = add i32 %oparg.0, 1
   br i1 %cmp3012.not, label %land.lhs.true3020, label %if.end3050
 
 land.lhs.true3020:                                ; preds = %PRED_57
@@ -6749,7 +6749,7 @@ if.then3044:                                      ; preds = %if.end3040
   br label %if.end3050
 
 if.end3050:                                       ; preds = %_Py_NewRef.exit7702, %if.then3044, %if.end3040, %land.lhs.true3020, %PRED_57
-  %total_args3011.1 = phi i32 [ %oparg.1, %land.lhs.true3020 ], [ %inc3016, %PRED_57 ], [ %inc3016, %if.end3040 ], [ %inc3016, %if.then3044 ], [ %inc3016, %_Py_NewRef.exit7702 ]
+  %total_args3011.1 = phi i32 [ %oparg.0, %land.lhs.true3020 ], [ %inc3016, %PRED_57 ], [ %inc3016, %if.end3040 ], [ %inc3016, %if.then3044 ], [ %inc3016, %_Py_NewRef.exit7702 ]
   %callable2999.0 = phi ptr [ %585, %land.lhs.true3020 ], [ %585, %PRED_57 ], [ %589, %if.end3040 ], [ %589, %if.then3044 ], [ %589, %_Py_NewRef.exit7702 ]
   %args2997.1 = phi ptr [ %arrayidx3004, %land.lhs.true3020 ], [ %incdec.ptr3015, %PRED_57 ], [ %incdec.ptr3015, %if.end3040 ], [ %incdec.ptr3015, %if.then3044 ], [ %incdec.ptr3015, %_Py_NewRef.exit7702 ]
   %594 = getelementptr i8, ptr %583, i64 16
@@ -6823,18 +6823,18 @@ do.end3096:                                       ; preds = %if.end3087, %if.the
   br i1 %cmp3101, label %error, label %if.end3104
 
 if.end3104:                                       ; preds = %do.end3096
-  %return_offset3105 = getelementptr inbounds i8, ptr %frame.addr.8, i64 68
+  %return_offset3105 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
   store i16 1, ptr %return_offset3105, align 4
-  %localsplus.i7707 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i7707 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i7708 = ptrtoint ptr %arrayidx3010 to i64
   %sub.ptr.rhs.cast.i7709 = ptrtoint ptr %localsplus.i7707 to i64
   %sub.ptr.sub.i7710 = sub i64 %sub.ptr.lhs.cast.i7708, %sub.ptr.rhs.cast.i7709
   %sub.ptr.div.i7711 = lshr exact i64 %sub.ptr.sub.i7710, 3
   %conv.i7712 = trunc i64 %sub.ptr.div.i7711 to i32
-  %stacktop.i7713 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i7713 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i7712, ptr %stacktop.i7713, align 8
   %previous3107 = getelementptr inbounds i8, ptr %call3081, i64 8
-  store ptr %frame.addr.8, ptr %previous3107, align 8
+  store ptr %frame.addr.4, ptr %previous3107, align 8
   store ptr %call3081, ptr %current_frame, align 8
   br label %start_frame
 
@@ -6859,11 +6859,11 @@ cond.end3124:                                     ; preds = %if.then3117, %cond.
   br i1 %cmp3126, label %if.then3128, label %if.else3129
 
 if.then3128:                                      ; preds = %cond.end3124
-  call void @_Py_call_instrumentation_exc2(ptr noundef %tstate, i32 noundef 16, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef nonnull %callable2999.0, ptr noundef %cond3125) #15
+  call void @_Py_call_instrumentation_exc2(ptr noundef %tstate, i32 noundef 16, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef nonnull %callable2999.0, ptr noundef %cond3125) #15
   br label %do.body3161
 
 if.else3129:                                      ; preds = %cond.end3124
-  %call3131 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 15, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef nonnull %callable2999.0, ptr noundef %cond3125) #15
+  %call3131 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 15, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef nonnull %callable2999.0, ptr noundef %cond3125) #15
   %cmp3132 = icmp slt i32 %call3131, 0
   br i1 %cmp3132, label %if.then3140, label %do.body3161
 
@@ -6981,31 +6981,31 @@ if.then3235:                                      ; preds = %if.end3222
   br i1 %cmp3237.not, label %do.body3242, label %error.loopexit
 
 do.body3242:                                      ; preds = %if.end3222, %if.then3235
-  %word3243.sroa.0.0.copyload = load i8, ptr %next_instr.5, align 2
-  %word3243.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word3243.sroa.0.0.copyload = load i8, ptr %next_instr.10, align 2
+  %word3243.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word3243.sroa.2.0.copyload = load i8, ptr %word3243.sroa.2.0..sroa_idx, align 1
   %conv3246 = zext i8 %word3243.sroa.2.0.copyload to i32
   %idxprom3248 = zext i8 %word3243.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_LEN:                                  ; preds = %indirectgoto
-  %instr_ptr3250 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr3250, align 8
-  %add.ptr3251 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub3256 = sub i32 0, %oparg.1
+  %instr_ptr3250 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr3250, align 8
+  %add.ptr3251 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub3256 = sub i32 0, %oparg.0
   %idxprom3257 = sext i32 %sub3256 to i64
-  %arrayidx3258 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3257
-  %sub3259 = xor i32 %oparg.1, -1
+  %arrayidx3258 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3257
+  %sub3259 = xor i32 %oparg.0, -1
   %idxprom3260 = sext i32 %sub3259 to i64
-  %arrayidx3261 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3260
+  %arrayidx3261 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3260
   %626 = load ptr, ptr %arrayidx3261, align 8
-  %sub3262 = sub i32 -2, %oparg.1
+  %sub3262 = sub i32 -2, %oparg.0
   %idxprom3263 = sext i32 %sub3262 to i64
-  %arrayidx3264 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3263
+  %arrayidx3264 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3263
   %627 = load ptr, ptr %arrayidx3264, align 8
   %cmp3266.not = icmp ne ptr %626, null
   %inc3270 = zext i1 %cmp3266.not to i32
-  %total_args3265.0 = add i32 %oparg.1, %inc3270
+  %total_args3265.0 = add i32 %oparg.0, %inc3270
   %args3252.0.idx = select i1 %cmp3266.not, i64 -8, i64 0
   %args3252.0 = getelementptr i8, ptr %arrayidx3258, i64 %args3252.0.idx
   %cmp3272.not = icmp eq i32 %total_args3265.0, 1
@@ -7072,26 +7072,26 @@ do.end3320:                                       ; preds = %if.end3311, %if.the
 if.end3327:                                       ; preds = %do.end3320
   store ptr %call3290, ptr %arrayidx3264, align 8
   %word3335.sroa.0.0.copyload = load i8, ptr %add.ptr3251, align 2
-  %word3335.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word3335.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word3335.sroa.2.0.copyload = load i8, ptr %word3335.sroa.2.0..sroa_idx, align 1
   %conv3338 = zext i8 %word3335.sroa.2.0.copyload to i32
   %idxprom3340 = zext i8 %word3335.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_LIST_APPEND:                          ; preds = %indirectgoto
-  %instr_ptr3342 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr3342, align 8
-  %add.ptr3343 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub3347 = sub i32 0, %oparg.1
+  %instr_ptr3342 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr3342, align 8
+  %add.ptr3343 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub3347 = sub i32 0, %oparg.0
   %idxprom3348 = sext i32 %sub3347 to i64
-  %arrayidx3349 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3348
-  %sub3350 = xor i32 %oparg.1, -1
+  %arrayidx3349 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3348
+  %sub3350 = xor i32 %oparg.0, -1
   %idxprom3351 = sext i32 %sub3350 to i64
-  %arrayidx3352 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3351
+  %arrayidx3352 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3351
   %639 = load ptr, ptr %arrayidx3352, align 8
-  %sub3353 = sub i32 -2, %oparg.1
+  %sub3353 = sub i32 -2, %oparg.0
   %idxprom3354 = sext i32 %sub3353 to i64
-  %arrayidx3355 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3354
+  %arrayidx3355 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3354
   %640 = load ptr, ptr %arrayidx3355, align 8
   %641 = load ptr, ptr %interp10475, align 8
   %list_append = getelementptr inbounds i8, ptr %641, i64 414904
@@ -7171,33 +7171,33 @@ if.then3398:                                      ; preds = %if.end3394
   br label %do.end3403
 
 do.end3403:                                       ; preds = %if.end3394, %if.then3398, %do.body3389
-  %add.ptr3404 = getelementptr i8, ptr %stack_pointer.17, i64 -24
-  %add.ptr3405 = getelementptr i8, ptr %next_instr.27, i64 10
+  %add.ptr3404 = getelementptr i8, ptr %stack_pointer.0, i64 -24
+  %add.ptr3405 = getelementptr i8, ptr %next_instr.1, i64 10
   %word3407.sroa.0.0.copyload = load i8, ptr %add.ptr3405, align 2
-  %word3407.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 11
+  %word3407.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 11
   %word3407.sroa.2.0.copyload = load i8, ptr %word3407.sroa.2.0..sroa_idx, align 1
   %conv3410 = zext i8 %word3407.sroa.2.0.copyload to i32
   %idxprom3412 = zext i8 %word3407.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_METHOD_DESCRIPTOR_FAST:               ; preds = %indirectgoto
-  %instr_ptr3414 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr3414, align 8
-  %add.ptr3415 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub3420 = sub i32 0, %oparg.1
+  %instr_ptr3414 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr3414, align 8
+  %add.ptr3415 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub3420 = sub i32 0, %oparg.0
   %idxprom3421 = sext i32 %sub3420 to i64
-  %arrayidx3422 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3421
-  %sub3423 = xor i32 %oparg.1, -1
+  %arrayidx3422 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3421
+  %sub3423 = xor i32 %oparg.0, -1
   %idxprom3424 = sext i32 %sub3423 to i64
-  %arrayidx3425 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3424
+  %arrayidx3425 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3424
   %657 = load ptr, ptr %arrayidx3425, align 8
-  %sub3426 = sub i32 -2, %oparg.1
+  %sub3426 = sub i32 -2, %oparg.0
   %idxprom3427 = sext i32 %sub3426 to i64
-  %arrayidx3428 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3427
+  %arrayidx3428 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3427
   %658 = load ptr, ptr %arrayidx3428, align 8
   %cmp3430.not = icmp ne ptr %657, null
   %inc3434 = zext i1 %cmp3430.not to i32
-  %total_args3429.0 = add i32 %oparg.1, %inc3434
+  %total_args3429.0 = add i32 %oparg.0, %inc3434
   %args3416.0.idx = select i1 %cmp3430.not, i64 -8, i64 0
   %args3416.0 = getelementptr i8, ptr %arrayidx3422, i64 %args3416.0.idx
   %ob_type3437 = getelementptr inbounds i8, ptr %658, i64 8
@@ -7302,30 +7302,30 @@ if.then3518:                                      ; preds = %if.end3505
 
 do.body3525:                                      ; preds = %if.end3505, %if.then3518
   %word3526.sroa.0.0.copyload = load i8, ptr %add.ptr3415, align 2
-  %word3526.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word3526.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word3526.sroa.2.0.copyload = load i8, ptr %word3526.sroa.2.0..sroa_idx, align 1
   %conv3529 = zext i8 %word3526.sroa.2.0.copyload to i32
   %idxprom3531 = zext i8 %word3526.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_METHOD_DESCRIPTOR_FAST_WITH_KEYWORDS: ; preds = %indirectgoto
-  %instr_ptr3533 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr3533, align 8
-  %add.ptr3534 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub3539 = sub i32 0, %oparg.1
+  %instr_ptr3533 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr3533, align 8
+  %add.ptr3534 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub3539 = sub i32 0, %oparg.0
   %idxprom3540 = sext i32 %sub3539 to i64
-  %arrayidx3541 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3540
-  %sub3542 = xor i32 %oparg.1, -1
+  %arrayidx3541 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3540
+  %sub3542 = xor i32 %oparg.0, -1
   %idxprom3543 = sext i32 %sub3542 to i64
-  %arrayidx3544 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3543
+  %arrayidx3544 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3543
   %676 = load ptr, ptr %arrayidx3544, align 8
-  %sub3545 = sub i32 -2, %oparg.1
+  %sub3545 = sub i32 -2, %oparg.0
   %idxprom3546 = sext i32 %sub3545 to i64
-  %arrayidx3547 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3546
+  %arrayidx3547 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3546
   %677 = load ptr, ptr %arrayidx3547, align 8
   %cmp3549.not = icmp ne ptr %676, null
   %inc3553 = zext i1 %cmp3549.not to i32
-  %total_args3548.0 = add i32 %oparg.1, %inc3553
+  %total_args3548.0 = add i32 %oparg.0, %inc3553
   %args3535.0.idx = select i1 %cmp3549.not, i64 -8, i64 0
   %args3535.0 = getelementptr i8, ptr %arrayidx3541, i64 %args3535.0.idx
   %ob_type3556 = getelementptr inbounds i8, ptr %677, i64 8
@@ -7430,30 +7430,30 @@ if.then3644:                                      ; preds = %if.end3631
 
 do.body3651:                                      ; preds = %if.end3631, %if.then3644
   %word3652.sroa.0.0.copyload = load i8, ptr %add.ptr3534, align 2
-  %word3652.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word3652.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word3652.sroa.2.0.copyload = load i8, ptr %word3652.sroa.2.0..sroa_idx, align 1
   %conv3655 = zext i8 %word3652.sroa.2.0.copyload to i32
   %idxprom3657 = zext i8 %word3652.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_METHOD_DESCRIPTOR_NOARGS:             ; preds = %indirectgoto
-  %instr_ptr3659 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr3659, align 8
-  %add.ptr3660 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub3665 = sub i32 0, %oparg.1
+  %instr_ptr3659 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr3659, align 8
+  %add.ptr3660 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub3665 = sub i32 0, %oparg.0
   %idxprom3666 = sext i32 %sub3665 to i64
-  %arrayidx3667 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3666
-  %sub3668 = xor i32 %oparg.1, -1
+  %arrayidx3667 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3666
+  %sub3668 = xor i32 %oparg.0, -1
   %idxprom3669 = sext i32 %sub3668 to i64
-  %arrayidx3670 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3669
+  %arrayidx3670 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3669
   %695 = load ptr, ptr %arrayidx3670, align 8
-  %sub3671 = sub i32 -2, %oparg.1
+  %sub3671 = sub i32 -2, %oparg.0
   %idxprom3672 = sext i32 %sub3671 to i64
-  %arrayidx3673 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3672
+  %arrayidx3673 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3672
   %696 = load ptr, ptr %arrayidx3673, align 8
   %cmp3675.not = icmp ne ptr %695, null
   %inc3679 = zext i1 %cmp3675.not to i32
-  %total_args3674.0 = add i32 %oparg.1, %inc3679
+  %total_args3674.0 = add i32 %oparg.0, %inc3679
   %args3661.0.idx = select i1 %cmp3675.not, i64 -8, i64 0
   %args3661.0 = getelementptr i8, ptr %arrayidx3667, i64 %args3661.0.idx
   %cmp3681.not = icmp eq i32 %total_args3674.0, 1
@@ -7578,30 +7578,30 @@ if.then3763:                                      ; preds = %if.end3750
 
 do.body3770:                                      ; preds = %if.end3750, %if.then3763
   %word3771.sroa.0.0.copyload = load i8, ptr %add.ptr3660, align 2
-  %word3771.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word3771.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word3771.sroa.2.0.copyload = load i8, ptr %word3771.sroa.2.0..sroa_idx, align 1
   %conv3774 = zext i8 %word3771.sroa.2.0.copyload to i32
   %idxprom3776 = zext i8 %word3771.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_METHOD_DESCRIPTOR_O:                  ; preds = %indirectgoto
-  %instr_ptr3778 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr3778, align 8
-  %add.ptr3779 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub3784 = sub i32 0, %oparg.1
+  %instr_ptr3778 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr3778, align 8
+  %add.ptr3779 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub3784 = sub i32 0, %oparg.0
   %idxprom3785 = sext i32 %sub3784 to i64
-  %arrayidx3786 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3785
-  %sub3787 = xor i32 %oparg.1, -1
+  %arrayidx3786 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3785
+  %sub3787 = xor i32 %oparg.0, -1
   %idxprom3788 = sext i32 %sub3787 to i64
-  %arrayidx3789 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3788
+  %arrayidx3789 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3788
   %718 = load ptr, ptr %arrayidx3789, align 8
-  %sub3790 = sub i32 -2, %oparg.1
+  %sub3790 = sub i32 -2, %oparg.0
   %idxprom3791 = sext i32 %sub3790 to i64
-  %arrayidx3792 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3791
+  %arrayidx3792 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3791
   %719 = load ptr, ptr %arrayidx3792, align 8
   %cmp3794.not = icmp ne ptr %718, null
   %inc3798 = zext i1 %cmp3794.not to i32
-  %total_args3793.0 = add i32 %oparg.1, %inc3798
+  %total_args3793.0 = add i32 %oparg.0, %inc3798
   %args3780.0.idx = select i1 %cmp3794.not, i64 -8, i64 0
   %args3780.0 = getelementptr i8, ptr %arrayidx3786, i64 %args3780.0.idx
   %cmp3801.not = icmp eq i32 %total_args3793.0, 2
@@ -7748,16 +7748,16 @@ if.then3899:                                      ; preds = %if.end3886
 
 do.body3906:                                      ; preds = %if.end3886, %if.then3899
   %word3907.sroa.0.0.copyload = load i8, ptr %add.ptr3779, align 2
-  %word3907.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word3907.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word3907.sroa.2.0.copyload = load i8, ptr %word3907.sroa.2.0..sroa_idx, align 1
   %conv3910 = zext i8 %word3907.sroa.2.0.copyload to i32
   %idxprom3912 = zext i8 %word3907.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_PY_EXACT_ARGS:                        ; preds = %indirectgoto
-  %instr_ptr3915 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr3915, align 8
-  %add.ptr3916 = getelementptr i8, ptr %next_instr.27, i64 8
+  %instr_ptr3915 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr3915, align 8
+  %add.ptr3916 = getelementptr i8, ptr %next_instr.1, i64 8
   %746 = load ptr, ptr %interp10475, align 8
   %eval_frame3922 = getelementptr inbounds i8, ptr %746, i64 2072
   %747 = load ptr, ptr %eval_frame3922, align 8
@@ -7765,13 +7765,13 @@ TARGET_CALL_PY_EXACT_ARGS:                        ; preds = %indirectgoto
   br i1 %tobool3923.not, label %if.end3925, label %PRED_53
 
 if.end3925:                                       ; preds = %TARGET_CALL_PY_EXACT_ARGS
-  %sub3926 = xor i32 %oparg.1, -1
+  %sub3926 = xor i32 %oparg.0, -1
   %idxprom3927 = sext i32 %sub3926 to i64
-  %arrayidx3928 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3927
+  %arrayidx3928 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3927
   %748 = load ptr, ptr %arrayidx3928, align 8
-  %sub3929 = sub i32 -2, %oparg.1
+  %sub3929 = sub i32 -2, %oparg.0
   %idxprom3930 = sext i32 %sub3929 to i64
-  %arrayidx3931 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3930
+  %arrayidx3931 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3930
   %749 = load ptr, ptr %arrayidx3931, align 8
   %ob_type3935 = getelementptr inbounds i8, ptr %749, i64 8
   %750 = load ptr, ptr %ob_type3935, align 8
@@ -7779,7 +7779,7 @@ if.end3925:                                       ; preds = %TARGET_CALL_PY_EXAC
   br i1 %cmp3936, label %if.end3939, label %PRED_53
 
 if.end3939:                                       ; preds = %if.end3925
-  %arrayidx3933 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx3933 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx3933.val = load i32, ptr %arrayidx3933, align 2
   %func_version3941 = getelementptr inbounds i8, ptr %749, i64 136
   %751 = load i32, ptr %func_version3941, align 8
@@ -7793,7 +7793,7 @@ if.end3945:                                       ; preds = %if.end3939
   %753 = load i32, ptr %co_argcount3948, align 4
   %cmp3949 = icmp ne ptr %748, null
   %conv3950 = zext i1 %cmp3949 to i32
-  %add3951 = add i32 %oparg.1, %conv3950
+  %add3951 = add i32 %oparg.0, %conv3950
   %cmp3952.not = icmp eq i32 %753, %add3951
   br i1 %cmp3952.not, label %if.end3955, label %PRED_53
 
@@ -7820,9 +7820,9 @@ if.end3962:                                       ; preds = %_PyThreadState_HasS
   br i1 %cmp3964, label %PRED_53, label %if.end3967
 
 if.end3967:                                       ; preds = %if.end3962
-  %sub3968 = sub i32 0, %oparg.1
+  %sub3968 = sub i32 0, %oparg.0
   %idxprom3969 = sext i32 %sub3968 to i64
-  %arrayidx3970 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom3969
+  %arrayidx3970 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom3969
   %args3919.0.idx = select i1 %cmp3949, i64 -8, i64 0
   %args3919.0 = getelementptr i8, ptr %arrayidx3970, i64 %args3919.0.idx
   %add.ptr.i7778 = getelementptr ptr, ptr %754, i64 %conv.i7767
@@ -7902,18 +7902,18 @@ for.body3987:                                     ; preds = %for.body3987.lr.ph,
   br i1 %exitcond.not, label %for.end3995, label %for.body3987, !llvm.loop !27
 
 for.end3995:                                      ; preds = %for.body3987, %_PyFrame_PushUnchecked.exit
-  %return_offset4001 = getelementptr inbounds i8, ptr %frame.addr.8, i64 68
+  %return_offset4001 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
   store i16 4, ptr %return_offset4001, align 4
-  %localsplus.i7781 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i7781 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i7782 = ptrtoint ptr %arrayidx3931 to i64
   %sub.ptr.rhs.cast.i7783 = ptrtoint ptr %localsplus.i7781 to i64
   %sub.ptr.sub.i7784 = sub i64 %sub.ptr.lhs.cast.i7782, %sub.ptr.rhs.cast.i7783
   %sub.ptr.div.i7785 = lshr exact i64 %sub.ptr.sub.i7784, 3
   %conv.i7786 = trunc i64 %sub.ptr.div.i7785 to i32
-  %stacktop.i7787 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i7787 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i7786, ptr %stacktop.i7787, align 8
   %previous4005 = getelementptr inbounds i8, ptr %754, i64 8
-  store ptr %frame.addr.8, ptr %previous4005, align 8
+  store ptr %frame.addr.4, ptr %previous4005, align 8
   store ptr %754, ptr %current_frame, align 8
   %767 = load i32, ptr %py_recursion_remaining3963, align 4
   %dec4008 = add i32 %767, -1
@@ -7932,14 +7932,14 @@ for.end3995:                                      ; preds = %for.body3987, %_PyF
   br label %indirectgoto.backedge
 
 TARGET_CALL_PY_WITH_DEFAULTS:                     ; preds = %indirectgoto
-  %instr_ptr4024 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4024, align 8
-  %add.ptr4025 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub4035 = sub i32 -2, %oparg.1
+  %instr_ptr4024 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4024, align 8
+  %add.ptr4025 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub4035 = sub i32 -2, %oparg.0
   %idxprom4036 = sext i32 %sub4035 to i64
-  %arrayidx4037 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4036
+  %arrayidx4037 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4036
   %770 = load ptr, ptr %arrayidx4037, align 8
-  %arrayidx4039 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx4039 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx4039.val = load i32, ptr %arrayidx4039, align 2
   %771 = load ptr, ptr %interp10475, align 8
   %eval_frame4042 = getelementptr inbounds i8, ptr %771, i64 2072
@@ -7948,13 +7948,13 @@ TARGET_CALL_PY_WITH_DEFAULTS:                     ; preds = %indirectgoto
   br i1 %tobool4043.not, label %if.end4045, label %PRED_53
 
 if.end4045:                                       ; preds = %TARGET_CALL_PY_WITH_DEFAULTS
-  %sub4032 = xor i32 %oparg.1, -1
+  %sub4032 = xor i32 %oparg.0, -1
   %idxprom4033 = sext i32 %sub4032 to i64
-  %arrayidx4034 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4033
+  %arrayidx4034 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4033
   %773 = load ptr, ptr %arrayidx4034, align 8
   %cmp4047.not = icmp ne ptr %773, null
   %inc4051 = zext i1 %cmp4047.not to i32
-  %argcount4046.0 = add i32 %oparg.1, %inc4051
+  %argcount4046.0 = add i32 %oparg.0, %inc4051
   %ob_type4053 = getelementptr inbounds i8, ptr %770, i64 8
   %774 = load ptr, ptr %ob_type4053, align 8
   %cmp4054 = icmp eq ptr %774, @PyFunction_Type
@@ -8000,12 +8000,12 @@ _PyThreadState_HasStackSpace.exit7803:            ; preds = %if.end4078
   br i1 %cmp2.i7801, label %if.end4082, label %PRED_53
 
 if.end4082:                                       ; preds = %_PyThreadState_HasStackSpace.exit7803
-  %arrayidx4037.le = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4036
+  %arrayidx4037.le = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4036
   %func_defaults.le = getelementptr inbounds i8, ptr %770, i64 56
   %co_argcount4068.le = getelementptr inbounds i8, ptr %776, i64 52
-  %sub4029.le = sub i32 0, %oparg.1
+  %sub4029.le = sub i32 0, %oparg.0
   %idxprom4030.le = sext i32 %sub4029.le to i64
-  %arrayidx4031.le = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4030.le
+  %arrayidx4031.le = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4030.le
   %args4026.0.idx.le = select i1 %cmp4047.not, i64 -8, i64 0
   %args4026.0.le = getelementptr i8, ptr %arrayidx4031.le, i64 %args4026.0.idx.le
   %call4085 = call fastcc ptr @_PyFrame_PushUnchecked(ptr noundef nonnull %tstate, ptr noundef nonnull %770, i32 noundef %779)
@@ -8065,32 +8065,32 @@ _Py_NewRef.exit7807:                              ; preds = %for.body4104, %if.e
   br i1 %cmp4102, label %for.body4104, label %for.end4116, !llvm.loop !29
 
 for.end4116:                                      ; preds = %_Py_NewRef.exit7807, %for.cond4100.preheader
-  %return_offset4126 = getelementptr inbounds i8, ptr %frame.addr.8, i64 68
+  %return_offset4126 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
   store i16 4, ptr %return_offset4126, align 4
-  %localsplus.i7808 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i7808 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i7809 = ptrtoint ptr %arrayidx4037.le to i64
   %sub.ptr.rhs.cast.i7810 = ptrtoint ptr %localsplus.i7808 to i64
   %sub.ptr.sub.i7811 = sub i64 %sub.ptr.lhs.cast.i7809, %sub.ptr.rhs.cast.i7810
   %sub.ptr.div.i7812 = lshr exact i64 %sub.ptr.sub.i7811, 3
   %conv.i7813 = trunc i64 %sub.ptr.div.i7812 to i32
-  %stacktop.i7814 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i7814 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i7813, ptr %stacktop.i7814, align 8
   %previous4128 = getelementptr inbounds i8, ptr %call4085, i64 8
-  store ptr %frame.addr.8, ptr %previous4128, align 8
+  store ptr %frame.addr.4, ptr %previous4128, align 8
   store ptr %call4085, ptr %current_frame, align 8
   br label %start_frame
 
 TARGET_CALL_STR_1:                                ; preds = %indirectgoto
-  %instr_ptr4131 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4131, align 8
-  %add.ptr4132 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub4140 = xor i32 %oparg.1, -1
+  %instr_ptr4131 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4131, align 8
+  %add.ptr4132 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub4140 = xor i32 %oparg.0, -1
   %idxprom4141 = sext i32 %sub4140 to i64
-  %arrayidx4142 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4141
+  %arrayidx4142 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4141
   %792 = load ptr, ptr %arrayidx4142, align 8
-  %sub4143 = sub i32 -2, %oparg.1
+  %sub4143 = sub i32 -2, %oparg.0
   %idxprom4144 = sext i32 %sub4143 to i64
-  %arrayidx4145 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4144
+  %arrayidx4145 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4144
   %793 = load ptr, ptr %arrayidx4145, align 8
   %cmp4146 = icmp ne ptr %792, null
   %cmp4150 = icmp ne ptr %793, @PyUnicode_Type
@@ -8098,9 +8098,9 @@ TARGET_CALL_STR_1:                                ; preds = %indirectgoto
   br i1 %or.cond, label %PRED_53, label %if.end4153
 
 if.end4153:                                       ; preds = %TARGET_CALL_STR_1
-  %sub4137 = sub i32 0, %oparg.1
+  %sub4137 = sub i32 0, %oparg.0
   %idxprom4138 = sext i32 %sub4137 to i64
-  %arrayidx4139 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4138
+  %arrayidx4139 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4138
   %794 = load ptr, ptr %arrayidx4139, align 8
   %call4156 = call ptr @PyObject_Str(ptr noundef %794) #15
   %795 = load i64, ptr %794, align 8
@@ -8160,23 +8160,23 @@ if.then4206:                                      ; preds = %if.end4193
 
 do.body4213:                                      ; preds = %if.end4193, %if.then4206
   %word4214.sroa.0.0.copyload = load i8, ptr %add.ptr4132, align 2
-  %word4214.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word4214.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word4214.sroa.2.0.copyload = load i8, ptr %word4214.sroa.2.0..sroa_idx, align 1
   %conv4217 = zext i8 %word4214.sroa.2.0.copyload to i32
   %idxprom4219 = zext i8 %word4214.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_TUPLE_1:                              ; preds = %indirectgoto
-  %instr_ptr4221 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4221, align 8
-  %add.ptr4222 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub4230 = xor i32 %oparg.1, -1
+  %instr_ptr4221 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4221, align 8
+  %add.ptr4222 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub4230 = xor i32 %oparg.0, -1
   %idxprom4231 = sext i32 %sub4230 to i64
-  %arrayidx4232 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4231
+  %arrayidx4232 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4231
   %804 = load ptr, ptr %arrayidx4232, align 8
-  %sub4233 = sub i32 -2, %oparg.1
+  %sub4233 = sub i32 -2, %oparg.0
   %idxprom4234 = sext i32 %sub4233 to i64
-  %arrayidx4235 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4234
+  %arrayidx4235 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4234
   %805 = load ptr, ptr %arrayidx4235, align 8
   %cmp4236 = icmp ne ptr %804, null
   %cmp4240 = icmp ne ptr %805, @PyTuple_Type
@@ -8184,9 +8184,9 @@ TARGET_CALL_TUPLE_1:                              ; preds = %indirectgoto
   br i1 %or.cond1, label %PRED_53, label %if.end4243
 
 if.end4243:                                       ; preds = %TARGET_CALL_TUPLE_1
-  %sub4227 = sub i32 0, %oparg.1
+  %sub4227 = sub i32 0, %oparg.0
   %idxprom4228 = sext i32 %sub4227 to i64
-  %arrayidx4229 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4228
+  %arrayidx4229 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4228
   %806 = load ptr, ptr %arrayidx4229, align 8
   %call4246 = call ptr @PySequence_Tuple(ptr noundef %806) #15
   %807 = load i64, ptr %806, align 8
@@ -8246,31 +8246,31 @@ if.then4296:                                      ; preds = %if.end4283
 
 do.body4303:                                      ; preds = %if.end4283, %if.then4296
   %word4304.sroa.0.0.copyload = load i8, ptr %add.ptr4222, align 2
-  %word4304.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word4304.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word4304.sroa.2.0.copyload = load i8, ptr %word4304.sroa.2.0..sroa_idx, align 1
   %conv4307 = zext i8 %word4304.sroa.2.0.copyload to i32
   %idxprom4309 = zext i8 %word4304.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CALL_TYPE_1:                               ; preds = %indirectgoto
-  %instr_ptr4311 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4311, align 8
-  %add.ptr4312 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub4320 = xor i32 %oparg.1, -1
+  %instr_ptr4311 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4311, align 8
+  %add.ptr4312 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub4320 = xor i32 %oparg.0, -1
   %idxprom4321 = sext i32 %sub4320 to i64
-  %arrayidx4322 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4321
+  %arrayidx4322 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4321
   %816 = load ptr, ptr %arrayidx4322, align 8
-  %sub4323 = sub i32 -2, %oparg.1
+  %sub4323 = sub i32 -2, %oparg.0
   %idxprom4324 = sext i32 %sub4323 to i64
-  %arrayidx4325 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4324
+  %arrayidx4325 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4324
   %cmp4326.not = icmp eq ptr %816, null
   br i1 %cmp4326.not, label %if.end4329, label %PRED_53
 
 if.end4329:                                       ; preds = %TARGET_CALL_TYPE_1
   %817 = load ptr, ptr %arrayidx4325, align 8
-  %sub4317 = sub i32 0, %oparg.1
+  %sub4317 = sub i32 0, %oparg.0
   %idxprom4318 = sext i32 %sub4317 to i64
-  %arrayidx4319 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4318
+  %arrayidx4319 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4318
   %818 = load ptr, ptr %arrayidx4319, align 8
   %cmp4331.not = icmp eq ptr %817, @PyType_Type
   br i1 %cmp4331.not, label %if.end4334, label %PRED_53
@@ -8328,19 +8328,19 @@ if.then4361:                                      ; preds = %if.end4357
 do.end4366:                                       ; preds = %if.end4357, %if.then4361, %do.body4352
   store ptr %.val7182, ptr %arrayidx4325, align 8
   %word4374.sroa.0.0.copyload = load i8, ptr %add.ptr4312, align 2
-  %word4374.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word4374.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word4374.sroa.2.0.copyload = load i8, ptr %word4374.sroa.2.0..sroa_idx, align 1
   %conv4377 = zext i8 %word4374.sroa.2.0.copyload to i32
   %idxprom4379 = zext i8 %word4374.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CHECK_EG_MATCH:                            ; preds = %indirectgoto
-  %instr_ptr4381 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4381, align 8
-  %add.ptr4382 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx4383 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr4381 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4381, align 8
+  %add.ptr4382 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx4383 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %827 = load ptr, ptr %arrayidx4383, align 8
-  %arrayidx4384 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx4384 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %828 = load ptr, ptr %arrayidx4384, align 8
   %call4385 = call i32 @_PyEval_CheckExceptStarTypeValid(ptr noundef %tstate, ptr noundef %827)
   %cmp4386 = icmp slt i32 %call4385, 0
@@ -8450,19 +8450,19 @@ if.end4463:                                       ; preds = %if.then4462, %if.en
   %847 = load ptr, ptr %match, align 8
   store ptr %847, ptr %arrayidx4383, align 8
   %word4467.sroa.0.0.copyload = load i8, ptr %add.ptr4382, align 2
-  %word4467.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word4467.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word4467.sroa.2.0.copyload = load i8, ptr %word4467.sroa.2.0..sroa_idx, align 1
   %conv4470 = zext i8 %word4467.sroa.2.0.copyload to i32
   %idxprom4472 = zext i8 %word4467.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CHECK_EXC_MATCH:                           ; preds = %indirectgoto
-  %instr_ptr4474 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4474, align 8
-  %add.ptr4475 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx4478 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr4474 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4474, align 8
+  %add.ptr4475 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx4478 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %848 = load ptr, ptr %arrayidx4478, align 8
-  %arrayidx4479 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx4479 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %849 = load ptr, ptr %arrayidx4479, align 8
   %850 = getelementptr i8, ptr %848, i64 8
   %right.val9.i = load ptr, ptr %850, align 8
@@ -8564,21 +8564,21 @@ do.end4516:                                       ; preds = %if.end4507, %if.the
   %cond4518 = select i1 %tobool4517.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   store ptr %cond4518, ptr %arrayidx4478, align 8
   %word4521.sroa.0.0.copyload = load i8, ptr %add.ptr4475, align 2
-  %word4521.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word4521.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word4521.sroa.2.0.copyload = load i8, ptr %word4521.sroa.2.0..sroa_idx, align 1
   %conv4524 = zext i8 %word4521.sroa.2.0.copyload to i32
   %idxprom4526 = zext i8 %word4521.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CLEANUP_THROW:                             ; preds = %indirectgoto
-  %instr_ptr4529 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4529, align 8
-  %add.ptr4530 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx4533 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr4529 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4529, align 8
+  %add.ptr4530 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx4533 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %868 = load ptr, ptr %arrayidx4533, align 8
-  %arrayidx4534 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx4534 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %869 = load ptr, ptr %arrayidx4534, align 8
-  %arrayidx4535 = getelementptr i8, ptr %stack_pointer.17, i64 -24
+  %arrayidx4535 = getelementptr i8, ptr %stack_pointer.0, i64 -24
   %870 = load ptr, ptr %arrayidx4535, align 8
   %871 = load ptr, ptr @PyExc_StopIteration, align 8
   %call4536 = call i32 @PyErr_GivenExceptionMatches(ptr noundef %868, ptr noundef %871) #15
@@ -8661,7 +8661,7 @@ do.end4585:                                       ; preds = %if.end4576, %if.the
   store ptr @_Py_NoneStruct, ptr %arrayidx4535, align 8
   store ptr %872, ptr %arrayidx4534, align 8
   %word4593.sroa.0.0.copyload = load i8, ptr %add.ptr4530, align 2
-  %word4593.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word4593.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word4593.sroa.2.0.copyload = load i8, ptr %word4593.sroa.2.0..sroa_idx, align 1
   %conv4596 = zext i8 %word4593.sroa.2.0.copyload to i32
   %idxprom4598 = zext i8 %word4593.sroa.0.0.copyload to i64
@@ -8687,7 +8687,7 @@ _Py_NewRef.exit7838:                              ; preds = %if.else4586, %if.en
 
 if.end.i7842:                                     ; preds = %_Py_NewRef.exit7838
   %call.i.i7843 = call ptr @PyErr_GetRaisedException() #15
-  %call1.i.i7844 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 14, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %call.i.i7843) #15
+  %call1.i.i7844 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 14, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %call.i.i7843) #15
   %cmp.i2.i7845 = icmp eq i32 %call1.i.i7844, 0
   br i1 %cmp.i2.i7845, label %if.then.i.i7854, label %do.body.i.i7846
 
@@ -8716,36 +8716,36 @@ if.then5.i.i7851:                                 ; preds = %if.end.i.i7848
   br label %exception_unwind.preheader
 
 TARGET_COMPARE_OP:                                ; preds = %indirectgoto
-  %instr_ptr4600 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4600, align 8
-  %add.ptr4601 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx4607.phi.trans.insert = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr4600 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4600, align 8
+  %add.ptr4601 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx4607.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %.pre11856 = load ptr, ptr %arrayidx4607.phi.trans.insert, align 8
-  %arrayidx4608.phi.trans.insert = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx4608.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %.pre11857 = load ptr, ptr %arrayidx4608.phi.trans.insert, align 8
   br label %PRED_58
 
 PRED_58:                                          ; preds = %if.end4848, %TARGET_COMPARE_OP_STR, %if.end4783, %if.end4779, %if.end4774, %TARGET_COMPARE_OP_INT, %if.end4710, %TARGET_COMPARE_OP_FLOAT, %TARGET_COMPARE_OP
   %892 = phi ptr [ %930, %if.end4848 ], [ %930, %TARGET_COMPARE_OP_STR ], [ %918, %if.end4783 ], [ %918, %if.end4779 ], [ %918, %if.end4774 ], [ %918, %TARGET_COMPARE_OP_INT ], [ %908, %if.end4710 ], [ %908, %TARGET_COMPARE_OP_FLOAT ], [ %.pre11857, %TARGET_COMPARE_OP ]
   %893 = phi ptr [ %929, %if.end4848 ], [ %929, %TARGET_COMPARE_OP_STR ], [ %917, %if.end4783 ], [ %917, %if.end4779 ], [ %917, %if.end4774 ], [ %917, %TARGET_COMPARE_OP_INT ], [ %907, %if.end4710 ], [ %907, %TARGET_COMPARE_OP_FLOAT ], [ %.pre11856, %TARGET_COMPARE_OP ]
-  %next_instr.6 = phi ptr [ %add.ptr4838, %if.end4848 ], [ %add.ptr4838, %TARGET_COMPARE_OP_STR ], [ %add.ptr4764, %if.end4783 ], [ %add.ptr4764, %if.end4779 ], [ %add.ptr4764, %if.end4774 ], [ %add.ptr4764, %TARGET_COMPARE_OP_INT ], [ %add.ptr4700, %if.end4710 ], [ %add.ptr4700, %TARGET_COMPARE_OP_FLOAT ], [ %add.ptr4601, %TARGET_COMPARE_OP ]
-  %arrayidx4607 = getelementptr i8, ptr %stack_pointer.17, i64 -8
-  %arrayidx4608 = getelementptr i8, ptr %stack_pointer.17, i64 -16
-  %arrayidx4610 = getelementptr i8, ptr %next_instr.27, i64 2
+  %next_instr.12 = phi ptr [ %add.ptr4838, %if.end4848 ], [ %add.ptr4838, %TARGET_COMPARE_OP_STR ], [ %add.ptr4764, %if.end4783 ], [ %add.ptr4764, %if.end4779 ], [ %add.ptr4764, %if.end4774 ], [ %add.ptr4764, %TARGET_COMPARE_OP_INT ], [ %add.ptr4700, %if.end4710 ], [ %add.ptr4700, %TARGET_COMPARE_OP_FLOAT ], [ %add.ptr4601, %TARGET_COMPARE_OP ]
+  %arrayidx4607 = getelementptr i8, ptr %stack_pointer.0, i64 -8
+  %arrayidx4608 = getelementptr i8, ptr %stack_pointer.0, i64 -16
+  %arrayidx4610 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx4610.val = load i16, ptr %arrayidx4610, align 2
   %cmp4614 = icmp ult i16 %arrayidx4610.val, 16
   br i1 %cmp4614, label %if.then4616, label %do.body4621
 
 if.then4616:                                      ; preds = %PRED_58
-  call void @_Py_Specialize_CompareOp(ptr noundef %892, ptr noundef %893, ptr noundef nonnull %next_instr.27, i32 noundef %oparg.1) #15
-  %894 = load i8, ptr %next_instr.27, align 2
+  call void @_Py_Specialize_CompareOp(ptr noundef %892, ptr noundef %893, ptr noundef nonnull %next_instr.1, i32 noundef %oparg.0) #15
+  %894 = load i8, ptr %next_instr.1, align 2
   %idxprom4618 = zext i8 %894 to i64
   br label %indirectgoto.backedge
 
 do.body4621:                                      ; preds = %PRED_58
   %sub4624 = add i16 %arrayidx4610.val, -16
   store i16 %sub4624, ptr %arrayidx4610, align 2
-  %shr4627 = ashr i32 %oparg.1, 5
+  %shr4627 = ashr i32 %oparg.0, 5
   %call4628 = call ptr @PyObject_RichCompare(ptr noundef %892, ptr noundef %893, i32 noundef %shr4627) #15
   %895 = load i64, ptr %892, align 8
   %896 = and i64 %895, 2147483648
@@ -8791,7 +8791,7 @@ do.end4658:                                       ; preds = %if.end4649, %if.the
   br i1 %cmp4659, label %pop_2_error, label %if.end4662
 
 if.end4662:                                       ; preds = %do.end4658
-  %and4663 = and i32 %oparg.1, 16
+  %and4663 = and i32 %oparg.0, 16
   %tobool4664.not = icmp eq i32 %and4663, 0
   br i1 %tobool4664.not, label %if.end4688, label %if.then4665
 
@@ -8828,20 +8828,20 @@ if.end4685:                                       ; preds = %do.end4681
 if.end4688:                                       ; preds = %if.end4685, %if.end4662
   %res4606.0 = phi ptr [ %cond4687, %if.end4685 ], [ %call4628, %if.end4662 ]
   store ptr %res4606.0, ptr %arrayidx4608, align 8
-  %word4692.sroa.0.0.copyload = load i8, ptr %next_instr.6, align 2
-  %word4692.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word4692.sroa.0.0.copyload = load i8, ptr %next_instr.12, align 2
+  %word4692.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word4692.sroa.2.0.copyload = load i8, ptr %word4692.sroa.2.0..sroa_idx, align 1
   %conv4695 = zext i8 %word4692.sroa.2.0.copyload to i32
   %idxprom4697 = zext i8 %word4692.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_COMPARE_OP_FLOAT:                          ; preds = %indirectgoto
-  %instr_ptr4699 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4699, align 8
-  %add.ptr4700 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx4704 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr4699 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4699, align 8
+  %add.ptr4700 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx4704 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %907 = load ptr, ptr %arrayidx4704, align 8
-  %arrayidx4705 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx4705 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %908 = load ptr, ptr %arrayidx4705, align 8
   %ob_type4706 = getelementptr inbounds i8, ptr %908, i64 8
   %909 = load ptr, ptr %ob_type4706, align 8
@@ -8897,24 +8897,24 @@ if.then4746:                                      ; preds = %if.end4742
   br label %do.end4749
 
 do.end4749:                                       ; preds = %if.end4742, %if.then4746, %do.body4737
-  %and4750 = and i32 %shl, %oparg.1
+  %and4750 = and i32 %shl, %oparg.0
   %tobool4751.not = icmp eq i32 %and4750, 0
   %cond4752 = select i1 %tobool4751.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   store ptr %cond4752, ptr %arrayidx4705, align 8
   %word4756.sroa.0.0.copyload = load i8, ptr %add.ptr4700, align 2
-  %word4756.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word4756.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word4756.sroa.2.0.copyload = load i8, ptr %word4756.sroa.2.0..sroa_idx, align 1
   %conv4759 = zext i8 %word4756.sroa.2.0.copyload to i32
   %idxprom4761 = zext i8 %word4756.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_COMPARE_OP_INT:                            ; preds = %indirectgoto
-  %instr_ptr4763 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4763, align 8
-  %add.ptr4764 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx4768 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr4763 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4763, align 8
+  %add.ptr4764 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx4768 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %917 = load ptr, ptr %arrayidx4768, align 8
-  %arrayidx4769 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx4769 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %918 = load ptr, ptr %arrayidx4769, align 8
   %ob_type4770 = getelementptr inbounds i8, ptr %918, i64 8
   %919 = load ptr, ptr %ob_type4770, align 8
@@ -8990,24 +8990,24 @@ if.then4820:                                      ; preds = %if.end4816
   br label %do.end4823
 
 do.end4823:                                       ; preds = %if.end4816, %if.then4820, %do.body4811
-  %and4824 = and i32 %shl4797, %oparg.1
+  %and4824 = and i32 %shl4797, %oparg.0
   %tobool4825.not = icmp eq i32 %and4824, 0
   %cond4826 = select i1 %tobool4825.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   store ptr %cond4826, ptr %arrayidx4769, align 8
   %word4830.sroa.0.0.copyload = load i8, ptr %add.ptr4764, align 2
-  %word4830.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word4830.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word4830.sroa.2.0.copyload = load i8, ptr %word4830.sroa.2.0..sroa_idx, align 1
   %conv4833 = zext i8 %word4830.sroa.2.0.copyload to i32
   %idxprom4835 = zext i8 %word4830.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_COMPARE_OP_STR:                            ; preds = %indirectgoto
-  %instr_ptr4837 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4837, align 8
-  %add.ptr4838 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx4842 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr4837 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4837, align 8
+  %add.ptr4838 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx4842 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %929 = load ptr, ptr %arrayidx4842, align 8
-  %arrayidx4843 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx4843 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %930 = load ptr, ptr %arrayidx4843, align 8
   %ob_type4844 = getelementptr inbounds i8, ptr %930, i64 8
   %931 = load ptr, ptr %ob_type4844, align 8
@@ -9055,24 +9055,24 @@ if.then4877:                                      ; preds = %if.end4873
 
 do.end4880:                                       ; preds = %if.end4873, %if.then4877, %do.body4868
   %add4881 = add i32 %call4854, 7
-  %and4882 = and i32 %add4881, %oparg.1
+  %and4882 = and i32 %add4881, %oparg.0
   %tobool4883.not = icmp eq i32 %and4882, 0
   %cond4884 = select i1 %tobool4883.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   store ptr %cond4884, ptr %arrayidx4843, align 8
   %word4888.sroa.0.0.copyload = load i8, ptr %add.ptr4838, align 2
-  %word4888.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word4888.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word4888.sroa.2.0.copyload = load i8, ptr %word4888.sroa.2.0..sroa_idx, align 1
   %conv4891 = zext i8 %word4888.sroa.2.0.copyload to i32
   %idxprom4893 = zext i8 %word4888.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CONTAINS_OP:                               ; preds = %indirectgoto
-  %instr_ptr4895 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4895, align 8
-  %add.ptr4896 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx4900 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr4895 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4895, align 8
+  %add.ptr4896 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx4900 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %937 = load ptr, ptr %arrayidx4900, align 8
-  %arrayidx4901 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx4901 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %938 = load ptr, ptr %arrayidx4901, align 8
   %call4903 = call i32 @PySequence_Contains(ptr noundef %937, ptr noundef %938) #15
   %939 = load i64, ptr %938, align 8
@@ -9119,23 +9119,23 @@ do.end4933:                                       ; preds = %if.end4924, %if.the
   br i1 %cmp4934, label %pop_2_error, label %if.end4937
 
 if.end4937:                                       ; preds = %do.end4933
-  %tobool4938.not = icmp eq i32 %call4903, %oparg.1
+  %tobool4938.not = icmp eq i32 %call4903, %oparg.0
   %cond4939 = select i1 %tobool4938.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   store ptr %cond4939, ptr %arrayidx4901, align 8
   %word4943.sroa.0.0.copyload = load i8, ptr %add.ptr4896, align 2
-  %word4943.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word4943.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word4943.sroa.2.0.copyload = load i8, ptr %word4943.sroa.2.0..sroa_idx, align 1
   %conv4946 = zext i8 %word4943.sroa.2.0.copyload to i32
   %idxprom4948 = zext i8 %word4943.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_CONVERT_VALUE:                             ; preds = %indirectgoto
-  %instr_ptr4950 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4950, align 8
-  %add.ptr4951 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx4954 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr4950 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4950, align 8
+  %add.ptr4951 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx4954 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %947 = load ptr, ptr %arrayidx4954, align 8
-  %idxprom4955 = sext i32 %oparg.1 to i64
+  %idxprom4955 = sext i32 %oparg.0 to i64
   %arrayidx4956 = getelementptr [4 x ptr], ptr @CONVERSION_FUNCTIONS, i64 0, i64 %idxprom4955
   %948 = load ptr, ptr %arrayidx4956, align 8
   %call4957 = call ptr %948(ptr noundef %947) #15
@@ -9165,19 +9165,19 @@ do.end4972:                                       ; preds = %if.end4963, %if.the
 if.end4976:                                       ; preds = %do.end4972
   store ptr %call4957, ptr %arrayidx4954, align 8
   %word4979.sroa.0.0.copyload = load i8, ptr %add.ptr4951, align 2
-  %word4979.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word4979.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word4979.sroa.2.0.copyload = load i8, ptr %word4979.sroa.2.0..sroa_idx, align 1
   %conv4982 = zext i8 %word4979.sroa.2.0.copyload to i32
   %idxprom4984 = zext i8 %word4979.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_COPY:                                      ; preds = %indirectgoto
-  %sub4989 = sub i32 0, %oparg.1
-  %instr_ptr4986 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr4986, align 8
-  %add.ptr4987 = getelementptr i8, ptr %next_instr.27, i64 2
+  %sub4989 = sub i32 0, %oparg.0
+  %instr_ptr4986 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr4986, align 8
+  %add.ptr4987 = getelementptr i8, ptr %next_instr.1, i64 2
   %idxprom4990 = sext i32 %sub4989 to i64
-  %arrayidx4991 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom4990
+  %arrayidx4991 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom4990
   %953 = load ptr, ptr %arrayidx4991, align 8
   %954 = load i32, ptr %953, align 8
   %add.i.i7865 = add i32 %954, 1
@@ -9189,34 +9189,34 @@ if.end.i.i7867:                                   ; preds = %TARGET_COPY
   br label %_Py_NewRef.exit7868
 
 _Py_NewRef.exit7868:                              ; preds = %TARGET_COPY, %if.end.i.i7867
-  store ptr %953, ptr %stack_pointer.17, align 8
-  %add.ptr4994 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %953, ptr %stack_pointer.0, align 8
+  %add.ptr4994 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word4996.sroa.0.0.copyload = load i8, ptr %add.ptr4987, align 2
-  %word4996.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word4996.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word4996.sroa.2.0.copyload = load i8, ptr %word4996.sroa.2.0..sroa_idx, align 1
   %conv4999 = zext i8 %word4996.sroa.2.0.copyload to i32
   %idxprom5001 = zext i8 %word4996.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_COPY_FREE_VARS:                            ; preds = %indirectgoto
-  %instr_ptr5003 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5003, align 8
-  %add.ptr5004 = getelementptr i8, ptr %next_instr.27, i64 2
-  %frame.addr.8.val = load ptr, ptr %frame.addr.8, align 8
-  %co_nlocalsplus = getelementptr inbounds i8, ptr %frame.addr.8.val, i64 72
+  %instr_ptr5003 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5003, align 8
+  %add.ptr5004 = getelementptr i8, ptr %next_instr.1, i64 2
+  %frame.addr.4.val = load ptr, ptr %frame.addr.4, align 8
+  %co_nlocalsplus = getelementptr inbounds i8, ptr %frame.addr.4.val, i64 72
   %955 = load i32, ptr %co_nlocalsplus, align 8
-  %sub5006 = sub i32 %955, %oparg.1
-  %cmp500910382 = icmp sgt i32 %oparg.1, 0
+  %sub5006 = sub i32 %955, %oparg.0
+  %cmp500910382 = icmp sgt i32 %oparg.0, 0
   br i1 %cmp500910382, label %for.body5011.lr.ph, label %do.body5023
 
 for.body5011.lr.ph:                               ; preds = %TARGET_COPY_FREE_VARS
-  %f_funcobj = getelementptr inbounds i8, ptr %frame.addr.8, i64 16
+  %f_funcobj = getelementptr inbounds i8, ptr %frame.addr.4, i64 16
   %956 = load ptr, ptr %f_funcobj, align 8
   %func_closure = getelementptr inbounds i8, ptr %956, i64 72
   %957 = load ptr, ptr %func_closure, align 8
   %ob_item5012 = getelementptr inbounds i8, ptr %957, i64 24
-  %localsplus5016 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %wide.trip.count11806 = zext nneg i32 %oparg.1 to i64
+  %localsplus5016 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %wide.trip.count11806 = zext nneg i32 %oparg.0 to i64
   br label %for.body5011
 
 for.body5011:                                     ; preds = %for.body5011.lr.ph, %_Py_NewRef.exit7872
@@ -9244,23 +9244,23 @@ _Py_NewRef.exit7872:                              ; preds = %for.body5011, %if.e
 
 do.body5023:                                      ; preds = %_Py_NewRef.exit7872, %TARGET_COPY_FREE_VARS
   %word5024.sroa.0.0.copyload = load i8, ptr %add.ptr5004, align 2
-  %word5024.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5024.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5024.sroa.2.0.copyload = load i8, ptr %word5024.sroa.2.0..sroa_idx, align 1
   %conv5027 = zext i8 %word5024.sroa.2.0.copyload to i32
   %idxprom5029 = zext i8 %word5024.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_DELETE_ATTR:                               ; preds = %indirectgoto
-  %instr_ptr5031 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5031, align 8
-  %add.ptr5032 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx5034 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5031 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5031, align 8
+  %add.ptr5032 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx5034 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %961 = load ptr, ptr %arrayidx5034, align 8
-  %frame.addr.8.val7292 = load ptr, ptr %frame.addr.8, align 8
-  %co_names = getelementptr inbounds i8, ptr %frame.addr.8.val7292, i64 32
+  %frame.addr.4.val7292 = load ptr, ptr %frame.addr.4, align 8
+  %co_names = getelementptr inbounds i8, ptr %frame.addr.4.val7292, i64 32
   %962 = load ptr, ptr %co_names, align 8
   %ob_item5036 = getelementptr inbounds i8, ptr %962, i64 24
-  %idxprom5037 = sext i32 %oparg.1 to i64
+  %idxprom5037 = sext i32 %oparg.0 to i64
   %arrayidx5038 = getelementptr [1 x ptr], ptr %ob_item5036, i64 0, i64 %idxprom5037
   %963 = load ptr, ptr %arrayidx5038, align 8
   %call5040 = call i32 @PyObject_DelAttr(ptr noundef %961, ptr noundef %963) #15
@@ -9289,18 +9289,18 @@ do.end5055:                                       ; preds = %if.end5046, %if.the
 
 if.end5058:                                       ; preds = %do.end5055
   %word5061.sroa.0.0.copyload = load i8, ptr %add.ptr5032, align 2
-  %word5061.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5061.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5061.sroa.2.0.copyload = load i8, ptr %word5061.sroa.2.0..sroa_idx, align 1
   %conv5064 = zext i8 %word5061.sroa.2.0.copyload to i32
   %idxprom5066 = zext i8 %word5061.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_DELETE_DEREF:                              ; preds = %indirectgoto
-  %instr_ptr5068 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5068, align 8
-  %add.ptr5069 = getelementptr i8, ptr %next_instr.27, i64 2
-  %localsplus5070 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %idxprom5071 = sext i32 %oparg.1 to i64
+  %instr_ptr5068 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5068, align 8
+  %add.ptr5069 = getelementptr i8, ptr %next_instr.1, i64 2
+  %localsplus5070 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %idxprom5071 = sext i32 %oparg.0 to i64
   %arrayidx5072 = getelementptr [1 x ptr], ptr %localsplus5070, i64 0, i64 %idxprom5071
   %968 = load ptr, ptr %arrayidx5072, align 8
   %969 = getelementptr i8, ptr %968, i64 16
@@ -9309,7 +9309,7 @@ TARGET_DELETE_DEREF:                              ; preds = %indirectgoto
   br i1 %cmp5074, label %if.then5076, label %if.end5078
 
 if.then5076:                                      ; preds = %TARGET_DELETE_DEREF
-  %frame.addr.8.val7293 = load ptr, ptr %frame.addr.8, align 8
+  %frame.addr.4.val7293 = load ptr, ptr %frame.addr.4, align 8
   %tstate.val.i7873 = load ptr, ptr %25, align 8
   %cmp.i.i7874 = icmp eq ptr %tstate.val.i7873, null
   br i1 %cmp.i.i7874, label %if.end.i7876, label %_PyErr_Occurred.exit.i
@@ -9321,17 +9321,17 @@ _PyErr_Occurred.exit.i:                           ; preds = %if.then5076
   br i1 %tobool.not.i7875, label %if.end.i7876, label %error
 
 if.end.i7876:                                     ; preds = %_PyErr_Occurred.exit.i, %if.then5076
-  %co_localsplusnames.i = getelementptr inbounds i8, ptr %frame.addr.8.val7293, i64 96
+  %co_localsplusnames.i = getelementptr inbounds i8, ptr %frame.addr.4.val7293, i64 96
   %971 = load ptr, ptr %co_localsplusnames.i, align 8
   %ob_item.i7877 = getelementptr inbounds i8, ptr %971, i64 24
   %arrayidx.i7878 = getelementptr [1 x ptr], ptr %ob_item.i7877, i64 0, i64 %idxprom5071
   %972 = load ptr, ptr %arrayidx.i7878, align 8
-  %973 = getelementptr i8, ptr %frame.addr.8.val7293, i64 72
+  %973 = getelementptr i8, ptr %frame.addr.4.val7293, i64 72
   %co.val.i = load i32, ptr %973, align 8
-  %974 = getelementptr i8, ptr %frame.addr.8.val7293, i64 88
+  %974 = getelementptr i8, ptr %frame.addr.4.val7293, i64 88
   %co.val6.i = load i32, ptr %974, align 8
   %sub.i.i = sub i32 %co.val.i, %co.val6.i
-  %cmp.i7879 = icmp sgt i32 %sub.i.i, %oparg.1
+  %cmp.i7879 = icmp sgt i32 %sub.i.i, %oparg.0
   %.str.35..str.60.i = select i1 %cmp.i7879, ptr @.str.35, ptr @.str.60
   %PyExc_UnboundLocalError.val.i = load ptr, ptr @PyExc_UnboundLocalError, align 8
   %PyExc_NameError.val.i = load ptr, ptr @PyExc_NameError, align 8
@@ -9362,18 +9362,18 @@ if.then5088:                                      ; preds = %if.end5084
 
 do.body5094:                                      ; preds = %if.end5078, %if.then5088, %if.end5084
   %word5095.sroa.0.0.copyload = load i8, ptr %add.ptr5069, align 2
-  %word5095.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5095.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5095.sroa.2.0.copyload = load i8, ptr %word5095.sroa.2.0..sroa_idx, align 1
   %conv5098 = zext i8 %word5095.sroa.2.0.copyload to i32
   %idxprom5100 = zext i8 %word5095.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_DELETE_FAST:                               ; preds = %indirectgoto
-  %instr_ptr5102 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5102, align 8
-  %add.ptr5103 = getelementptr i8, ptr %next_instr.27, i64 2
-  %localsplus5104 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %idxprom5105 = sext i32 %oparg.1 to i64
+  %instr_ptr5102 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5102, align 8
+  %add.ptr5103 = getelementptr i8, ptr %next_instr.1, i64 2
+  %localsplus5104 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %idxprom5105 = sext i32 %oparg.0 to i64
   %arrayidx5106 = getelementptr [1 x ptr], ptr %localsplus5104, i64 0, i64 %idxprom5105
   %980 = load ptr, ptr %arrayidx5106, align 8
   %cmp5107 = icmp eq ptr %980, null
@@ -9402,24 +9402,24 @@ if.then5132:                                      ; preds = %if.end5128
 
 do.body5141:                                      ; preds = %if.end5128, %if.then5132, %do.body5111
   %word5142.sroa.0.0.copyload = load i8, ptr %add.ptr5103, align 2
-  %word5142.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5142.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5142.sroa.2.0.copyload = load i8, ptr %word5142.sroa.2.0..sroa_idx, align 1
   %conv5145 = zext i8 %word5142.sroa.2.0.copyload to i32
   %idxprom5147 = zext i8 %word5142.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_DELETE_GLOBAL:                             ; preds = %indirectgoto
-  %instr_ptr5149 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5149, align 8
-  %add.ptr5150 = getelementptr i8, ptr %next_instr.27, i64 2
-  %frame.addr.8.val7294 = load ptr, ptr %frame.addr.8, align 8
-  %co_names5153 = getelementptr inbounds i8, ptr %frame.addr.8.val7294, i64 32
+  %instr_ptr5149 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5149, align 8
+  %add.ptr5150 = getelementptr i8, ptr %next_instr.1, i64 2
+  %frame.addr.4.val7294 = load ptr, ptr %frame.addr.4, align 8
+  %co_names5153 = getelementptr inbounds i8, ptr %frame.addr.4.val7294, i64 32
   %985 = load ptr, ptr %co_names5153, align 8
   %ob_item5154 = getelementptr inbounds i8, ptr %985, i64 24
-  %idxprom5155 = sext i32 %oparg.1 to i64
+  %idxprom5155 = sext i32 %oparg.0 to i64
   %arrayidx5156 = getelementptr [1 x ptr], ptr %ob_item5154, i64 0, i64 %idxprom5155
   %986 = load ptr, ptr %arrayidx5156, align 8
-  %f_globals = getelementptr inbounds i8, ptr %frame.addr.8, i64 24
+  %f_globals = getelementptr inbounds i8, ptr %frame.addr.4, i64 24
   %987 = load ptr, ptr %f_globals, align 8
   %call5158 = call i32 @PyDict_DelItem(ptr noundef %987, ptr noundef %986) #15
   %cmp5159.not = icmp eq i32 %call5158, 0
@@ -9438,24 +9438,24 @@ if.then5164:                                      ; preds = %if.then5161
 
 do.body5167:                                      ; preds = %TARGET_DELETE_GLOBAL
   %word5168.sroa.0.0.copyload = load i8, ptr %add.ptr5150, align 2
-  %word5168.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5168.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5168.sroa.2.0.copyload = load i8, ptr %word5168.sroa.2.0..sroa_idx, align 1
   %conv5171 = zext i8 %word5168.sroa.2.0.copyload to i32
   %idxprom5173 = zext i8 %word5168.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_DELETE_NAME:                               ; preds = %indirectgoto
-  %instr_ptr5175 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5175, align 8
-  %add.ptr5176 = getelementptr i8, ptr %next_instr.27, i64 2
-  %frame.addr.8.val7295 = load ptr, ptr %frame.addr.8, align 8
-  %co_names5179 = getelementptr inbounds i8, ptr %frame.addr.8.val7295, i64 32
+  %instr_ptr5175 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5175, align 8
+  %add.ptr5176 = getelementptr i8, ptr %next_instr.1, i64 2
+  %frame.addr.4.val7295 = load ptr, ptr %frame.addr.4, align 8
+  %co_names5179 = getelementptr inbounds i8, ptr %frame.addr.4.val7295, i64 32
   %990 = load ptr, ptr %co_names5179, align 8
   %ob_item5180 = getelementptr inbounds i8, ptr %990, i64 24
-  %idxprom5181 = sext i32 %oparg.1 to i64
+  %idxprom5181 = sext i32 %oparg.0 to i64
   %arrayidx5182 = getelementptr [1 x ptr], ptr %ob_item5180, i64 0, i64 %idxprom5181
   %991 = load ptr, ptr %arrayidx5182, align 8
-  %f_locals = getelementptr inbounds i8, ptr %frame.addr.8, i64 40
+  %f_locals = getelementptr inbounds i8, ptr %frame.addr.4, i64 40
   %992 = load ptr, ptr %f_locals, align 8
   %cmp5184 = icmp eq ptr %992, null
   br i1 %cmp5184, label %if.then5186, label %if.end5188
@@ -9477,19 +9477,19 @@ if.then5192:                                      ; preds = %if.end5188
 
 do.body5194:                                      ; preds = %if.end5188
   %word5195.sroa.0.0.copyload = load i8, ptr %add.ptr5176, align 2
-  %word5195.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5195.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5195.sroa.2.0.copyload = load i8, ptr %word5195.sroa.2.0..sroa_idx, align 1
   %conv5198 = zext i8 %word5195.sroa.2.0.copyload to i32
   %idxprom5200 = zext i8 %word5195.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_DELETE_SUBSCR:                             ; preds = %indirectgoto
-  %instr_ptr5202 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5202, align 8
-  %add.ptr5203 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx5206 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5202 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5202, align 8
+  %add.ptr5203 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx5206 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %995 = load ptr, ptr %arrayidx5206, align 8
-  %arrayidx5207 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx5207 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %996 = load ptr, ptr %arrayidx5207, align 8
   %call5209 = call i32 @PyObject_DelItem(ptr noundef %996, ptr noundef %995) #15
   %997 = load i64, ptr %996, align 8
@@ -9537,25 +9537,25 @@ do.end5239:                                       ; preds = %if.end5230, %if.the
 
 if.end5242:                                       ; preds = %do.end5239
   %word5245.sroa.0.0.copyload = load i8, ptr %add.ptr5203, align 2
-  %word5245.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5245.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5245.sroa.2.0.copyload = load i8, ptr %word5245.sroa.2.0..sroa_idx, align 1
   %conv5248 = zext i8 %word5245.sroa.2.0.copyload to i32
   %idxprom5250 = zext i8 %word5245.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_DICT_MERGE:                                ; preds = %indirectgoto
-  %instr_ptr5252 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5252, align 8
-  %add.ptr5253 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx5256 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5252 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5252, align 8
+  %add.ptr5253 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx5256 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1005 = load ptr, ptr %arrayidx5256, align 8
-  %sub5258 = xor i32 %oparg.1, -1
+  %sub5258 = xor i32 %oparg.0, -1
   %idxprom5259 = sext i32 %sub5258 to i64
-  %arrayidx5260 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom5259
+  %arrayidx5260 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom5259
   %1006 = load ptr, ptr %arrayidx5260, align 8
-  %sub5262 = sub i32 -4, %oparg.1
+  %sub5262 = sub i32 -4, %oparg.0
   %idxprom5263 = sext i32 %sub5262 to i64
-  %arrayidx5264 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom5263
+  %arrayidx5264 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom5263
   %1007 = load ptr, ptr %arrayidx5264, align 8
   %call5265 = call i32 @_PyDict_MergeEx(ptr noundef %1006, ptr noundef %1005, i32 noundef 2) #15
   %cmp5266 = icmp slt i32 %call5265, 0
@@ -9604,21 +9604,21 @@ if.then5294:                                      ; preds = %if.end5290
 
 do.end5299:                                       ; preds = %if.end5290, %if.then5294, %do.body5285
   %word5302.sroa.0.0.copyload = load i8, ptr %add.ptr5253, align 2
-  %word5302.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5302.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5302.sroa.2.0.copyload = load i8, ptr %word5302.sroa.2.0..sroa_idx, align 1
   %conv5305 = zext i8 %word5302.sroa.2.0.copyload to i32
   %idxprom5307 = zext i8 %word5302.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_DICT_UPDATE:                               ; preds = %indirectgoto
-  %instr_ptr5309 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5309, align 8
-  %add.ptr5310 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx5313 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5309 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5309, align 8
+  %add.ptr5310 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx5313 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1016 = load ptr, ptr %arrayidx5313, align 8
-  %sub5315 = xor i32 %oparg.1, -1
+  %sub5315 = xor i32 %oparg.0, -1
   %idxprom5316 = sext i32 %sub5315 to i64
-  %arrayidx5317 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom5316
+  %arrayidx5317 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom5316
   %1017 = load ptr, ptr %arrayidx5317, align 8
   %call5318 = call i32 @PyDict_Update(ptr noundef %1017, ptr noundef %1016) #15
   %cmp5319 = icmp slt i32 %call5318, 0
@@ -9681,19 +9681,19 @@ if.then5354:                                      ; preds = %if.end5350
 
 do.end5359:                                       ; preds = %if.end5350, %if.then5354, %do.body5345
   %word5362.sroa.0.0.copyload = load i8, ptr %add.ptr5310, align 2
-  %word5362.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5362.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5362.sroa.2.0.copyload = load i8, ptr %word5362.sroa.2.0..sroa_idx, align 1
   %conv5365 = zext i8 %word5362.sroa.2.0.copyload to i32
   %idxprom5367 = zext i8 %word5362.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_END_ASYNC_FOR:                             ; preds = %indirectgoto
-  %instr_ptr5370 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5370, align 8
-  %add.ptr5371 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx5372 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5370 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5370, align 8
+  %add.ptr5371 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx5372 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1030 = load ptr, ptr %arrayidx5372, align 8
-  %arrayidx5373 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx5373 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1031 = load ptr, ptr %arrayidx5373, align 8
   %1032 = load ptr, ptr @PyExc_StopAsyncIteration, align 8
   %call5374 = call i32 @PyErr_GivenExceptionMatches(ptr noundef %1030, ptr noundef %1032) #15
@@ -9760,7 +9760,7 @@ Py_INCREF.exit21368:                              ; preds = %if.else5407, %if.en
 
 if.end.i7883:                                     ; preds = %Py_INCREF.exit21368
   %call.i.i7884 = call ptr @PyErr_GetRaisedException() #15
-  %call1.i.i7885 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 14, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %call.i.i7884) #15
+  %call1.i.i7885 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 14, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %call.i.i7884) #15
   %cmp.i2.i7886 = icmp eq i32 %call1.i.i7885, 0
   br i1 %cmp.i2.i7886, label %if.then.i.i7895, label %do.body.i.i7887
 
@@ -9790,17 +9790,17 @@ if.then5.i.i7892:                                 ; preds = %if.end.i.i7889
 
 if.end5408:                                       ; preds = %do.body5392, %if.then5401, %if.end5397
   %word5411.sroa.0.0.copyload = load i8, ptr %add.ptr5371, align 2
-  %word5411.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5411.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5411.sroa.2.0.copyload = load i8, ptr %word5411.sroa.2.0..sroa_idx, align 1
   %conv5414 = zext i8 %word5411.sroa.2.0.copyload to i32
   %idxprom5416 = zext i8 %word5411.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_END_FOR:                                   ; preds = %indirectgoto
-  %instr_ptr5418 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5418, align 8
-  %add.ptr5419 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx5421 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5418 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5418, align 8
+  %add.ptr5419 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx5421 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1047 = load ptr, ptr %arrayidx5421, align 8
   %1048 = load i64, ptr %1047, align 8
   %1049 = and i64 %1048, 2147483648
@@ -9822,7 +9822,7 @@ if.then5431:                                      ; preds = %if.end5427
   br label %do.end5436
 
 do.end5436:                                       ; preds = %if.end5427, %if.then5431, %TARGET_END_FOR
-  %arrayidx5437 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx5437 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1052 = load ptr, ptr %arrayidx5437, align 8
   %1053 = load i64, ptr %1052, align 8
   %1054 = and i64 %1053, 2147483648
@@ -9845,19 +9845,19 @@ if.then5447:                                      ; preds = %if.end5443
 
 do.end5452:                                       ; preds = %if.end5443, %if.then5447, %do.end5436
   %word5455.sroa.0.0.copyload = load i8, ptr %add.ptr5419, align 2
-  %word5455.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5455.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5455.sroa.2.0.copyload = load i8, ptr %word5455.sroa.2.0..sroa_idx, align 1
   %conv5458 = zext i8 %word5455.sroa.2.0.copyload to i32
   %idxprom5460 = zext i8 %word5455.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_END_SEND:                                  ; preds = %indirectgoto
-  %instr_ptr5462 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5462, align 8
-  %add.ptr5463 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx5465 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5462 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5462, align 8
+  %add.ptr5463 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx5465 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1057 = load ptr, ptr %arrayidx5465, align 8
-  %arrayidx5466 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx5466 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1058 = load ptr, ptr %arrayidx5466, align 8
   %1059 = load i64, ptr %1058, align 8
   %1060 = and i64 %1059, 2147483648
@@ -9881,15 +9881,15 @@ if.then5476:                                      ; preds = %if.end5472
 do.end5481:                                       ; preds = %if.end5472, %if.then5476, %TARGET_END_SEND
   store ptr %1057, ptr %arrayidx5466, align 8
   %word5485.sroa.0.0.copyload = load i8, ptr %add.ptr5463, align 2
-  %word5485.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5485.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5485.sroa.2.0.copyload = load i8, ptr %word5485.sroa.2.0..sroa_idx, align 1
   %conv5488 = zext i8 %word5485.sroa.2.0.copyload to i32
   %idxprom5490 = zext i8 %word5485.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_ENTER_EXECUTOR:                            ; preds = %indirectgoto
-  %instr_ptr5492 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5492, align 8
+  %instr_ptr5492 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5492, align 8
   %1063 = load ptr, ptr %interp10475, align 8
   %1064 = load atomic i64, ptr %1063 monotonic, align 8
   %and5498 = and i64 %1064, 255
@@ -9902,11 +9902,11 @@ if.then5500:                                      ; preds = %TARGET_ENTER_EXECUT
   br i1 %cmp5502.not, label %if.end5506, label %error.loopexit.split.loop.exit10490
 
 if.end5506:                                       ; preds = %if.then5500, %TARGET_ENTER_EXECUTOR
-  %frame.addr.8.val7296 = load ptr, ptr %frame.addr.8, align 8
-  %co_executors = getelementptr inbounds i8, ptr %frame.addr.8.val7296, i64 152
+  %frame.addr.4.val7296 = load ptr, ptr %frame.addr.4, align 8
+  %co_executors = getelementptr inbounds i8, ptr %frame.addr.4.val7296, i64 152
   %1065 = load ptr, ptr %co_executors, align 8
   %executors = getelementptr inbounds i8, ptr %1065, i64 8
-  %and5509 = and i32 %oparg.1, 255
+  %and5509 = and i32 %oparg.0, 255
   %idxprom5510 = zext nneg i32 %and5509 to i64
   %arrayidx5511 = getelementptr [1 x ptr], ptr %executors, i64 0, i64 %idxprom5510
   %1066 = load ptr, ptr %arrayidx5511, align 8
@@ -9931,7 +9931,7 @@ if.then5514:                                      ; preds = %Py_INCREF.exit21360
   br label %for.cond12062
 
 if.end5515:                                       ; preds = %Py_INCREF.exit21360
-  %call5517 = call ptr %1068(ptr noundef nonnull %1066, ptr noundef nonnull %frame.addr.8, ptr noundef %stack_pointer.17) #15
+  %call5517 = call ptr %1068(ptr noundef nonnull %1066, ptr noundef nonnull %frame.addr.4, ptr noundef %stack_pointer.0) #15
   %1069 = load ptr, ptr %current_frame, align 8
   %cmp5519 = icmp eq ptr %call5517, null
   br i1 %cmp5519, label %resume_with_error, label %if.end5522
@@ -9951,10 +9951,10 @@ if.end5522:                                       ; preds = %if.end5515
   br label %indirectgoto.backedge
 
 TARGET_EXIT_INIT_CHECK:                           ; preds = %indirectgoto
-  %instr_ptr5532 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5532, align 8
-  %add.ptr5533 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx5534 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5532 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5532, align 8
+  %add.ptr5533 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx5534 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1071 = load ptr, ptr %arrayidx5534, align 8
   %cmp5535.not = icmp eq ptr %1071, @_Py_NoneStruct
   br i1 %cmp5535.not, label %if.end5541, label %if.then5537
@@ -9970,19 +9970,19 @@ if.then5537:                                      ; preds = %TARGET_EXIT_INIT_CH
 
 if.end5541:                                       ; preds = %TARGET_EXIT_INIT_CHECK
   %word5544.sroa.0.0.copyload = load i8, ptr %add.ptr5533, align 2
-  %word5544.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5544.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5544.sroa.2.0.copyload = load i8, ptr %word5544.sroa.2.0..sroa_idx, align 1
   %conv5547 = zext i8 %word5544.sroa.2.0.copyload to i32
   %idxprom5549 = zext i8 %word5544.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_EXTENDED_ARG:                              ; preds = %indirectgoto
-  %instr_ptr5551 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5551, align 8
-  %add.ptr5552 = getelementptr i8, ptr %next_instr.27, i64 2
+  %instr_ptr5551 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5551, align 8
+  %add.ptr5552 = getelementptr i8, ptr %next_instr.1, i64 2
   %1075 = load i8, ptr %add.ptr5552, align 2
-  %shl5554 = shl i32 %oparg.1, 8
-  %arg5555 = getelementptr i8, ptr %next_instr.27, i64 3
+  %shl5554 = shl i32 %oparg.0, 8
+  %arg5555 = getelementptr i8, ptr %next_instr.1, i64 3
   %1076 = load i8, ptr %arg5555, align 1
   %conv5556 = zext i8 %1076 to i32
   %or5557 = or disjoint i32 %shl5554, %conv5556
@@ -9990,10 +9990,10 @@ TARGET_EXTENDED_ARG:                              ; preds = %indirectgoto
   br label %indirectgoto.backedge
 
 TARGET_FORMAT_SIMPLE:                             ; preds = %indirectgoto
-  %instr_ptr5560 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5560, align 8
-  %add.ptr5561 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx5564 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5560 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5560, align 8
+  %add.ptr5561 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx5564 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1077 = load ptr, ptr %arrayidx5564, align 8
   %ob_type5565 = getelementptr inbounds i8, ptr %1077, i64 8
   %1078 = load ptr, ptr %ob_type5565, align 8
@@ -10028,19 +10028,19 @@ if.end5590:                                       ; preds = %TARGET_FORMAT_SIMPL
   %res5563.0 = phi ptr [ %call5569, %do.end5584 ], [ %1077, %TARGET_FORMAT_SIMPLE ]
   store ptr %res5563.0, ptr %arrayidx5564, align 8
   %word5593.sroa.0.0.copyload = load i8, ptr %add.ptr5561, align 2
-  %word5593.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5593.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5593.sroa.2.0.copyload = load i8, ptr %word5593.sroa.2.0..sroa_idx, align 1
   %conv5596 = zext i8 %word5593.sroa.2.0.copyload to i32
   %idxprom5598 = zext i8 %word5593.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_FORMAT_WITH_SPEC:                          ; preds = %indirectgoto
-  %instr_ptr5600 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5600, align 8
-  %add.ptr5601 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx5604 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5600 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5600, align 8
+  %add.ptr5601 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx5604 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1082 = load ptr, ptr %arrayidx5604, align 8
-  %arrayidx5605 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx5605 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1083 = load ptr, ptr %arrayidx5605, align 8
   %call5606 = call ptr @PyObject_Format(ptr noundef %1083, ptr noundef %1082) #15
   %1084 = load i64, ptr %1083, align 8
@@ -10089,32 +10089,32 @@ do.end5636:                                       ; preds = %if.end5627, %if.the
 if.end5640:                                       ; preds = %do.end5636
   store ptr %call5606, ptr %arrayidx5605, align 8
   %word5644.sroa.0.0.copyload = load i8, ptr %add.ptr5601, align 2
-  %word5644.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word5644.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word5644.sroa.2.0.copyload = load i8, ptr %word5644.sroa.2.0..sroa_idx, align 1
   %conv5647 = zext i8 %word5644.sroa.2.0.copyload to i32
   %idxprom5649 = zext i8 %word5644.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_FOR_ITER:                                  ; preds = %indirectgoto
-  %instr_ptr5651 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5651, align 8
-  %add.ptr5652 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx5655.phi.trans.insert = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5651 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5651, align 8
+  %add.ptr5652 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx5655.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %.pre11853 = load ptr, ptr %arrayidx5655.phi.trans.insert, align 8
   br label %PRED_72
 
 PRED_72:                                          ; preds = %TARGET_FOR_ITER_TUPLE, %TARGET_FOR_ITER_RANGE, %TARGET_FOR_ITER_LIST, %if.end5739, %if.end5734, %TARGET_FOR_ITER_GEN, %TARGET_FOR_ITER
   %1092 = phi ptr [ %1138, %TARGET_FOR_ITER_TUPLE ], [ %1130, %TARGET_FOR_ITER_RANGE ], [ %1115, %TARGET_FOR_ITER_LIST ], [ %1107, %TARGET_FOR_ITER_GEN ], [ %1107, %if.end5734 ], [ %1107, %if.end5739 ], [ %.pre11853, %TARGET_FOR_ITER ]
-  %next_instr.7 = phi ptr [ %add.ptr5911, %TARGET_FOR_ITER_TUPLE ], [ %add.ptr5845, %TARGET_FOR_ITER_RANGE ], [ %add.ptr5762, %TARGET_FOR_ITER_LIST ], [ %add.ptr5727, %TARGET_FOR_ITER_GEN ], [ %add.ptr5727, %if.end5734 ], [ %add.ptr5727, %if.end5739 ], [ %add.ptr5652, %TARGET_FOR_ITER ]
-  %arrayidx5655 = getelementptr i8, ptr %stack_pointer.17, i64 -8
-  %arrayidx5657 = getelementptr i8, ptr %next_instr.27, i64 2
+  %next_instr.14 = phi ptr [ %add.ptr5911, %TARGET_FOR_ITER_TUPLE ], [ %add.ptr5845, %TARGET_FOR_ITER_RANGE ], [ %add.ptr5762, %TARGET_FOR_ITER_LIST ], [ %add.ptr5727, %TARGET_FOR_ITER_GEN ], [ %add.ptr5727, %if.end5734 ], [ %add.ptr5727, %if.end5739 ], [ %add.ptr5652, %TARGET_FOR_ITER ]
+  %arrayidx5655 = getelementptr i8, ptr %stack_pointer.0, i64 -8
+  %arrayidx5657 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx5657.val = load i16, ptr %arrayidx5657, align 2
   %cmp5661 = icmp ult i16 %arrayidx5657.val, 16
   br i1 %cmp5661, label %if.then5663, label %do.body5668
 
 if.then5663:                                      ; preds = %PRED_72
-  call void @_Py_Specialize_ForIter(ptr noundef %1092, ptr noundef nonnull %next_instr.27, i32 noundef %oparg.1) #15
-  %1093 = load i8, ptr %next_instr.27, align 2
+  call void @_Py_Specialize_ForIter(ptr noundef %1092, ptr noundef nonnull %next_instr.1, i32 noundef %oparg.0) #15
+  %1093 = load i8, ptr %next_instr.1, align 2
   %idxprom5665 = zext i8 %1093 to i64
   br label %indirectgoto.backedge
 
@@ -10155,7 +10155,7 @@ if.end5685:                                       ; preds = %if.then5681
 
 if.end.i7909:                                     ; preds = %if.end5685
   %call.i.i7910 = call ptr @PyErr_GetRaisedException() #15
-  %call1.i.i7911 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 10, ptr noundef nonnull %frame.addr.8, ptr noundef nonnull %next_instr.27, ptr noundef %call.i.i7910) #15
+  %call1.i.i7911 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 10, ptr noundef nonnull %frame.addr.4, ptr noundef nonnull %next_instr.1, ptr noundef %call.i.i7910) #15
   %cmp.i2.i7912 = icmp eq i32 %call1.i.i7911, 0
   br i1 %cmp.i2.i7912, label %if.then.i.i7921, label %do.body.i.i7913
 
@@ -10207,8 +10207,8 @@ if.then5696:                                      ; preds = %if.end5692
   br label %do.end5701
 
 do.end5701:                                       ; preds = %if.end5692, %if.then5696, %do.body5687
-  %1106 = getelementptr i8, ptr %next_instr.27, i64 4
-  %add5703 = add i32 %oparg.1, 1
+  %1106 = getelementptr i8, ptr %next_instr.1, i64 4
+  %add5703 = add i32 %oparg.0, 1
   %idx.ext5704 = sext i32 %add5703 to i64
   %add.ptr5705 = getelementptr %union._Py_CODEUNIT, ptr %1106, i64 %idx.ext5704
   %word5707.sroa.0.0.copyload = load i8, ptr %add.ptr5705, align 2
@@ -10219,20 +10219,20 @@ do.end5701:                                       ; preds = %if.end5692, %if.the
   br label %indirectgoto.backedge
 
 if.end5714:                                       ; preds = %do.body5668
-  store ptr %call5675, ptr %stack_pointer.17, align 8
-  %add.ptr5716 = getelementptr i8, ptr %stack_pointer.17, i64 8
-  %word5718.sroa.0.0.copyload = load i8, ptr %next_instr.7, align 2
-  %word5718.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  store ptr %call5675, ptr %stack_pointer.0, align 8
+  %add.ptr5716 = getelementptr i8, ptr %stack_pointer.0, i64 8
+  %word5718.sroa.0.0.copyload = load i8, ptr %next_instr.14, align 2
+  %word5718.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word5718.sroa.2.0.copyload = load i8, ptr %word5718.sroa.2.0..sroa_idx, align 1
   %conv5721 = zext i8 %word5718.sroa.2.0.copyload to i32
   %idxprom5723 = zext i8 %word5718.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_FOR_ITER_GEN:                              ; preds = %indirectgoto
-  %instr_ptr5726 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5726, align 8
-  %add.ptr5727 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx5729 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5726 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5726, align 8
+  %add.ptr5727 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx5729 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1107 = load ptr, ptr %arrayidx5729, align 8
   %1108 = load ptr, ptr %interp10475, align 8
   %eval_frame5731 = getelementptr inbounds i8, ptr %1108, i64 2072
@@ -10270,28 +10270,28 @@ if.end5744:                                       ; preds = %if.end5739
   %previous_item = getelementptr inbounds i8, ptr %1107, i64 48
   store ptr %1114, ptr %previous_item, align 8
   store ptr %gi_exc_state, ptr %exc_info17215, align 8
-  %conv5753 = trunc i32 %oparg.1 to i16
+  %conv5753 = trunc i32 %oparg.0 to i16
   %add5754 = add i16 %conv5753, 2
-  %return_offset5756 = getelementptr inbounds i8, ptr %frame.addr.8, i64 68
+  %return_offset5756 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
   store i16 %add5754, ptr %return_offset5756, align 4
-  %localsplus.i7927 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %sub.ptr.lhs.cast.i7928 = ptrtoint ptr %stack_pointer.17 to i64
+  %localsplus.i7927 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %sub.ptr.lhs.cast.i7928 = ptrtoint ptr %stack_pointer.0 to i64
   %sub.ptr.rhs.cast.i7929 = ptrtoint ptr %localsplus.i7927 to i64
   %sub.ptr.sub.i7930 = sub i64 %sub.ptr.lhs.cast.i7928, %sub.ptr.rhs.cast.i7929
   %sub.ptr.div.i7931 = lshr exact i64 %sub.ptr.sub.i7930, 3
   %conv.i7932 = trunc i64 %sub.ptr.div.i7931 to i32
-  %stacktop.i7933 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i7933 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i7932, ptr %stacktop.i7933, align 8
   %previous5758 = getelementptr inbounds i8, ptr %1107, i64 80
-  store ptr %frame.addr.8, ptr %previous5758, align 8
+  store ptr %frame.addr.4, ptr %previous5758, align 8
   store ptr %gi_iframe, ptr %current_frame, align 8
   br label %start_frame
 
 TARGET_FOR_ITER_LIST:                             ; preds = %indirectgoto
-  %instr_ptr5761 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5761, align 8
-  %add.ptr5762 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx5765 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5761 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5761, align 8
+  %add.ptr5762 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx5765 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1115 = load ptr, ptr %arrayidx5765, align 8
   %1116 = getelementptr i8, ptr %1115, i64 8
   %.val7144 = load ptr, ptr %1116, align 8
@@ -10353,7 +10353,7 @@ if.then5807:                                      ; preds = %if.end5803
   br label %do.end5812
 
 do.end5812:                                       ; preds = %if.end5803, %if.then5807, %do.body5798
-  %add5814 = add i32 %oparg.1, 1
+  %add5814 = add i32 %oparg.0, 1
   %idx.ext5815 = sext i32 %add5814 to i64
   %add.ptr5816 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr5762, i64 %idx.ext5815
   %word5818.sroa.0.0.copyload = load i8, ptr %add.ptr5816, align 2
@@ -10380,20 +10380,20 @@ if.end.i.i7936:                                   ; preds = %if.end5825
   br label %_Py_NewRef.exit7937
 
 _Py_NewRef.exit7937:                              ; preds = %if.end5825, %if.end.i.i7936
-  store ptr %1128, ptr %stack_pointer.17, align 8
-  %add.ptr5835 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1128, ptr %stack_pointer.0, align 8
+  %add.ptr5835 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word5837.sroa.0.0.copyload = load i8, ptr %add.ptr5762, align 2
-  %word5837.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word5837.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word5837.sroa.2.0.copyload = load i8, ptr %word5837.sroa.2.0..sroa_idx, align 1
   %conv5840 = zext i8 %word5837.sroa.2.0.copyload to i32
   %idxprom5842 = zext i8 %word5837.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_FOR_ITER_RANGE:                            ; preds = %indirectgoto
-  %instr_ptr5844 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5844, align 8
-  %add.ptr5845 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx5848 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5844 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5844, align 8
+  %add.ptr5845 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx5848 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1130 = load ptr, ptr %arrayidx5848, align 8
   %1131 = getelementptr i8, ptr %1130, i64 8
   %.val7141 = load ptr, ptr %1131, align 8
@@ -10424,7 +10424,7 @@ if.then5869:                                      ; preds = %if.end5865
   br label %do.end5874
 
 do.end5874:                                       ; preds = %if.end5865, %if.then5869, %if.then5858
-  %add5875 = add i32 %oparg.1, 1
+  %add5875 = add i32 %oparg.0, 1
   %idx.ext5876 = sext i32 %add5875 to i64
   %add.ptr5877 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr5845, i64 %idx.ext5876
   %word5879.sroa.0.0.copyload = load i8, ptr %add.ptr5877, align 2
@@ -10448,20 +10448,20 @@ if.end5886:                                       ; preds = %if.end5853
   br i1 %cmp5896, label %error.loopexit, label %if.end5899
 
 if.end5899:                                       ; preds = %if.end5886
-  store ptr %call5895, ptr %stack_pointer.17, align 8
-  %add.ptr5901 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %call5895, ptr %stack_pointer.0, align 8
+  %add.ptr5901 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word5903.sroa.0.0.copyload = load i8, ptr %add.ptr5845, align 2
-  %word5903.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word5903.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word5903.sroa.2.0.copyload = load i8, ptr %word5903.sroa.2.0..sroa_idx, align 1
   %conv5906 = zext i8 %word5903.sroa.2.0.copyload to i32
   %idxprom5908 = zext i8 %word5903.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_FOR_ITER_TUPLE:                            ; preds = %indirectgoto
-  %instr_ptr5910 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5910, align 8
-  %add.ptr5911 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx5914 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5910 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5910, align 8
+  %add.ptr5911 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx5914 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1138 = load ptr, ptr %arrayidx5914, align 8
   %1139 = getelementptr i8, ptr %1138, i64 8
   %.val7139 = load ptr, ptr %1139, align 8
@@ -10523,7 +10523,7 @@ if.then5960:                                      ; preds = %if.end5956
   br label %do.end5965
 
 do.end5965:                                       ; preds = %if.end5956, %if.then5960, %do.body5951
-  %add5967 = add i32 %oparg.1, 1
+  %add5967 = add i32 %oparg.0, 1
   %idx.ext5968 = sext i32 %add5967 to i64
   %add.ptr5969 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr5911, i64 %idx.ext5968
   %word5971.sroa.0.0.copyload = load i8, ptr %add.ptr5969, align 2
@@ -10549,20 +10549,20 @@ if.end.i.i7940:                                   ; preds = %if.end5978
   br label %_Py_NewRef.exit7941
 
 _Py_NewRef.exit7941:                              ; preds = %if.end5978, %if.end.i.i7940
-  store ptr %1150, ptr %stack_pointer.17, align 8
-  %add.ptr5988 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1150, ptr %stack_pointer.0, align 8
+  %add.ptr5988 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word5990.sroa.0.0.copyload = load i8, ptr %add.ptr5911, align 2
-  %word5990.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word5990.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word5990.sroa.2.0.copyload = load i8, ptr %word5990.sroa.2.0..sroa_idx, align 1
   %conv5993 = zext i8 %word5990.sroa.2.0.copyload to i32
   %idxprom5995 = zext i8 %word5990.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_GET_AITER:                                 ; preds = %indirectgoto
-  %instr_ptr5997 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr5997, align 8
-  %add.ptr5998 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx6001 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr5997 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr5997, align 8
+  %add.ptr5998 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx6001 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1152 = load ptr, ptr %arrayidx6001, align 8
   %1153 = getelementptr i8, ptr %1152, i64 8
   %.val7136 = load ptr, ptr %1153, align 8
@@ -10665,17 +10665,17 @@ if.then6071:                                      ; preds = %if.end6067
 if.end6077:                                       ; preds = %lor.lhs.false6053
   store ptr %call6029, ptr %arrayidx6001, align 8
   %word6080.sroa.0.0.copyload = load i8, ptr %add.ptr5998, align 2
-  %word6080.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word6080.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word6080.sroa.2.0.copyload = load i8, ptr %word6080.sroa.2.0..sroa_idx, align 1
   %conv6083 = zext i8 %word6080.sroa.2.0.copyload to i32
   %idxprom6085 = zext i8 %word6080.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_GET_ANEXT:                                 ; preds = %indirectgoto
-  %instr_ptr6087 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6087, align 8
-  %add.ptr6088 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx6090 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6087 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6087, align 8
+  %add.ptr6088 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx6090 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1173 = load ptr, ptr %arrayidx6090, align 8
   %1174 = getelementptr i8, ptr %1173, i64 8
   %.val7130 = load ptr, ptr %1174, align 8
@@ -10766,20 +10766,20 @@ if.then6157:                                      ; preds = %if.end6153
 
 if.end6164:                                       ; preds = %if.end6153, %if.then6157, %do.body6148, %if.then6097
   %awaitable6089.0 = phi ptr [ %call6100, %if.then6097 ], [ %call6125, %do.body6148 ], [ %call6125, %if.then6157 ], [ %call6125, %if.end6153 ]
-  store ptr %awaitable6089.0, ptr %stack_pointer.17, align 8
-  %add.ptr6166 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %awaitable6089.0, ptr %stack_pointer.0, align 8
+  %add.ptr6166 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word6168.sroa.0.0.copyload = load i8, ptr %add.ptr6088, align 2
-  %word6168.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word6168.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word6168.sroa.2.0.copyload = load i8, ptr %word6168.sroa.2.0..sroa_idx, align 1
   %conv6171 = zext i8 %word6168.sroa.2.0.copyload to i32
   %idxprom6173 = zext i8 %word6168.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_GET_AWAITABLE:                             ; preds = %indirectgoto
-  %instr_ptr6175 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6175, align 8
-  %add.ptr6176 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx6178 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6175 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6175, align 8
+  %add.ptr6176 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx6178 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1191 = load ptr, ptr %arrayidx6178, align 8
   %call6179 = call ptr @_PyCoro_GetAwaitableIter(ptr noundef %1191) #15
   %cmp6180 = icmp eq ptr %call6179, null
@@ -10799,7 +10799,7 @@ lor.lhs.false.i:                                  ; preds = %if.then6182
   br i1 %cmp2.i7943, label %if.then.i7944, label %do.body6185
 
 if.then.i7944:                                    ; preds = %lor.lhs.false.i, %if.then6182
-  switch i32 %oparg.1, label %do.body6185 [
+  switch i32 %oparg.0, label %do.body6185 [
     i32 1, label %if.end10.sink.split.i
     i32 2, label %if.then6.i
   ]
@@ -10897,17 +10897,17 @@ do.end6248:                                       ; preds = %if.end6237, %if.the
 if.end6254:                                       ; preds = %land.lhs.true6202, %if.then6206
   store ptr %call6179, ptr %arrayidx6178, align 8
   %word6257.sroa.0.0.copyload = load i8, ptr %add.ptr6176, align 2
-  %word6257.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word6257.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word6257.sroa.2.0.copyload = load i8, ptr %word6257.sroa.2.0..sroa_idx, align 1
   %conv6260 = zext i8 %word6257.sroa.2.0.copyload to i32
   %idxprom6262 = zext i8 %word6257.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_GET_ITER:                                  ; preds = %indirectgoto
-  %instr_ptr6264 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6264, align 8
-  %add.ptr6265 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx6268 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6264 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6264, align 8
+  %add.ptr6265 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx6268 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1210 = load ptr, ptr %arrayidx6268, align 8
   %call6269 = call ptr @PyObject_GetIter(ptr noundef %1210) #15
   %1211 = load i64, ptr %1210, align 8
@@ -10936,17 +10936,17 @@ do.end6284:                                       ; preds = %if.end6275, %if.the
 if.end6288:                                       ; preds = %do.end6284
   store ptr %call6269, ptr %arrayidx6268, align 8
   %word6291.sroa.0.0.copyload = load i8, ptr %add.ptr6265, align 2
-  %word6291.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word6291.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word6291.sroa.2.0.copyload = load i8, ptr %word6291.sroa.2.0..sroa_idx, align 1
   %conv6294 = zext i8 %word6291.sroa.2.0.copyload to i32
   %idxprom6296 = zext i8 %word6291.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_GET_LEN:                                   ; preds = %indirectgoto
-  %instr_ptr6298 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6298, align 8
-  %add.ptr6299 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx6301 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6298 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6298, align 8
+  %add.ptr6299 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx6301 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1215 = load ptr, ptr %arrayidx6301, align 8
   %call6303 = call i64 @PyObject_Size(ptr noundef %1215) #15
   %cmp6304 = icmp slt i64 %call6303, 0
@@ -10958,20 +10958,20 @@ if.end6307:                                       ; preds = %TARGET_GET_LEN
   br i1 %cmp6309, label %error.loopexit, label %if.end6312
 
 if.end6312:                                       ; preds = %if.end6307
-  store ptr %call6308, ptr %stack_pointer.17, align 8
-  %add.ptr6314 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %call6308, ptr %stack_pointer.0, align 8
+  %add.ptr6314 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word6316.sroa.0.0.copyload = load i8, ptr %add.ptr6299, align 2
-  %word6316.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word6316.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word6316.sroa.2.0.copyload = load i8, ptr %word6316.sroa.2.0..sroa_idx, align 1
   %conv6319 = zext i8 %word6316.sroa.2.0.copyload to i32
   %idxprom6321 = zext i8 %word6316.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_GET_YIELD_FROM_ITER:                       ; preds = %indirectgoto
-  %instr_ptr6323 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6323, align 8
-  %add.ptr6324 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx6327 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6323 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6323, align 8
+  %add.ptr6324 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx6327 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1216 = load ptr, ptr %arrayidx6327, align 8
   %ob_type6328 = getelementptr inbounds i8, ptr %1216, i64 8
   %1217 = load ptr, ptr %ob_type6328, align 8
@@ -10979,8 +10979,8 @@ TARGET_GET_YIELD_FROM_ITER:                       ; preds = %indirectgoto
   br i1 %cmp6329, label %if.then6331, label %if.else6338
 
 if.then6331:                                      ; preds = %TARGET_GET_YIELD_FROM_ITER
-  %frame.addr.8.val7297 = load ptr, ptr %frame.addr.8, align 8
-  %co_flags6333 = getelementptr inbounds i8, ptr %frame.addr.8.val7297, i64 48
+  %frame.addr.4.val7297 = load ptr, ptr %frame.addr.4, align 8
+  %co_flags6333 = getelementptr inbounds i8, ptr %frame.addr.4.val7297, i64 48
   %1218 = load i32, ptr %co_flags6333, align 8
   %and6334 = and i32 %1218, 384
   %tobool6335.not = icmp eq i32 %and6334, 0
@@ -11023,23 +11023,23 @@ if.end6365:                                       ; preds = %if.else6338, %if.th
   %iter6326.0 = phi ptr [ %call6344, %do.body6349 ], [ %call6344, %if.then6358 ], [ %call6344, %if.end6354 ], [ %1216, %if.then6331 ], [ %1216, %if.else6338 ]
   store ptr %iter6326.0, ptr %arrayidx6327, align 8
   %word6368.sroa.0.0.copyload = load i8, ptr %add.ptr6324, align 2
-  %word6368.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word6368.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word6368.sroa.2.0.copyload = load i8, ptr %word6368.sroa.2.0..sroa_idx, align 1
   %conv6371 = zext i8 %word6368.sroa.2.0.copyload to i32
   %idxprom6373 = zext i8 %word6368.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_IMPORT_FROM:                               ; preds = %indirectgoto
-  %instr_ptr6375 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6375, align 8
-  %add.ptr6376 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx6378 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6375 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6375, align 8
+  %add.ptr6376 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx6378 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1223 = load ptr, ptr %arrayidx6378, align 8
-  %frame.addr.8.val7298 = load ptr, ptr %frame.addr.8, align 8
-  %co_names6381 = getelementptr inbounds i8, ptr %frame.addr.8.val7298, i64 32
+  %frame.addr.4.val7298 = load ptr, ptr %frame.addr.4, align 8
+  %co_names6381 = getelementptr inbounds i8, ptr %frame.addr.4.val7298, i64 32
   %1224 = load ptr, ptr %co_names6381, align 8
   %ob_item6382 = getelementptr inbounds i8, ptr %1224, i64 24
-  %idxprom6383 = sext i32 %oparg.1 to i64
+  %idxprom6383 = sext i32 %oparg.0 to i64
   %arrayidx6384 = getelementptr [1 x ptr], ptr %ob_item6382, i64 0, i64 %idxprom6383
   %1225 = load ptr, ptr %arrayidx6384, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %x.i)
@@ -11421,33 +11421,33 @@ import_from.exit:                                 ; preds = %do.body61.i, %if.en
   br i1 %cmp6386, label %error.loopexit, label %if.end6389
 
 if.end6389:                                       ; preds = %import_from.exit
-  store ptr %retval.0.i7949, ptr %stack_pointer.17, align 8
-  %add.ptr6391 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %retval.0.i7949, ptr %stack_pointer.0, align 8
+  %add.ptr6391 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word6393.sroa.0.0.copyload = load i8, ptr %add.ptr6376, align 2
-  %word6393.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word6393.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word6393.sroa.2.0.copyload = load i8, ptr %word6393.sroa.2.0..sroa_idx, align 1
   %conv6396 = zext i8 %word6393.sroa.2.0.copyload to i32
   %idxprom6398 = zext i8 %word6393.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_IMPORT_NAME:                               ; preds = %indirectgoto
-  %instr_ptr6400 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6400, align 8
-  %add.ptr6401 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx6403 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6400 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6400, align 8
+  %add.ptr6401 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx6403 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1285 = load ptr, ptr %arrayidx6403, align 8
-  %arrayidx6404 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx6404 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1286 = load ptr, ptr %arrayidx6404, align 8
-  %frame.addr.8.val7299 = load ptr, ptr %frame.addr.8, align 8
-  %co_names6407 = getelementptr inbounds i8, ptr %frame.addr.8.val7299, i64 32
+  %frame.addr.4.val7299 = load ptr, ptr %frame.addr.4, align 8
+  %co_names6407 = getelementptr inbounds i8, ptr %frame.addr.4.val7299, i64 32
   %1287 = load ptr, ptr %co_names6407, align 8
   %ob_item6408 = getelementptr inbounds i8, ptr %1287, i64 24
-  %idxprom6409 = sext i32 %oparg.1 to i64
+  %idxprom6409 = sext i32 %oparg.0 to i64
   %arrayidx6410 = getelementptr [1 x ptr], ptr %ob_item6408, i64 0, i64 %idxprom6409
   %1288 = load ptr, ptr %arrayidx6410, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %import_func.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %args.i)
-  %f_builtins.i = getelementptr inbounds i8, ptr %frame.addr.8, i64 32
+  %f_builtins.i = getelementptr inbounds i8, ptr %frame.addr.4, i64 32
   %1289 = load ptr, ptr %f_builtins.i, align 8
   %call.i7965 = call i32 @PyMapping_GetOptionalItem(ptr noundef %1289, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 30008), ptr noundef nonnull %import_func.i) #15
   %cmp.i7966 = icmp slt i32 %call.i7965, 0
@@ -11464,7 +11464,7 @@ if.then2.i:                                       ; preds = %if.end.i7967
   br label %import_name.exit
 
 if.end3.i:                                        ; preds = %if.end.i7967
-  %f_locals.i7969 = getelementptr inbounds i8, ptr %frame.addr.8, i64 40
+  %f_locals.i7969 = getelementptr inbounds i8, ptr %frame.addr.4, i64 40
   %1292 = load ptr, ptr %f_locals.i7969, align 8
   %cmp4.i = icmp eq ptr %1292, null
   %spec.store.select.i = select i1 %cmp4.i, ptr @_Py_NoneStruct, ptr %1292
@@ -11511,14 +11511,14 @@ _PyErr_Occurred.exit.i7978:                       ; preds = %land.lhs.true.i7975
   br i1 %tobool20.not.i, label %if.end22.i7972, label %import_name.exit
 
 if.end22.i7972:                                   ; preds = %_PyErr_Occurred.exit.i7978, %land.lhs.true.i7975, %do.end.i
-  %f_globals.i = getelementptr inbounds i8, ptr %frame.addr.8, i64 24
+  %f_globals.i = getelementptr inbounds i8, ptr %frame.addr.4, i64 24
   %1300 = load ptr, ptr %f_globals.i, align 8
   %call23.i7973 = call ptr @PyImport_ImportModuleLevelObject(ptr noundef %1288, ptr noundef %1300, ptr noundef nonnull %spec.store.select.i, ptr noundef %1285, i32 noundef %call17.i) #15
   br label %import_name.exit
 
 if.end24.i:                                       ; preds = %if.end3.i
   store ptr %1288, ptr %args.i, align 16
-  %f_globals25.i = getelementptr inbounds i8, ptr %frame.addr.8, i64 24
+  %f_globals25.i = getelementptr inbounds i8, ptr %frame.addr.4, i64 24
   %1301 = load ptr, ptr %f_globals25.i, align 8
   store ptr %1301, ptr %arrayinit.element.i, align 8
   store ptr %spec.store.select.i, ptr %arrayinit.element26.i, align 16
@@ -11596,26 +11596,26 @@ do.end6441:                                       ; preds = %if.end6432, %if.the
 if.end6445:                                       ; preds = %do.end6441
   store ptr %retval.0.i7974, ptr %arrayidx6404, align 8
   %word6449.sroa.0.0.copyload = load i8, ptr %add.ptr6401, align 2
-  %word6449.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word6449.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word6449.sroa.2.0.copyload = load i8, ptr %word6449.sroa.2.0..sroa_idx, align 1
   %conv6452 = zext i8 %word6449.sroa.2.0.copyload to i32
   %idxprom6454 = zext i8 %word6449.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_INSTRUMENTED_CALL:                         ; preds = %indirectgoto
-  %instr_ptr6457 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6457, align 8
-  %add.ptr6458 = getelementptr i8, ptr %next_instr.27, i64 8
-  %sub6460 = xor i32 %oparg.1, -1
+  %instr_ptr6457 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6457, align 8
+  %add.ptr6458 = getelementptr i8, ptr %next_instr.1, i64 8
+  %sub6460 = xor i32 %oparg.0, -1
   %idxprom6461 = sext i32 %sub6460 to i64
-  %arrayidx6462 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom6461
+  %arrayidx6462 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom6461
   %1316 = load ptr, ptr %arrayidx6462, align 8
   %cmp6463 = icmp ne ptr %1316, null
   %conv6464 = zext i1 %cmp6463 to i32
-  %add6466 = add i32 %oparg.1, %conv6464
-  %sub6468 = sub i32 -2, %oparg.1
+  %add6466 = add i32 %oparg.0, %conv6464
+  %sub6468 = sub i32 -2, %oparg.0
   %idxprom6469 = sext i32 %sub6468 to i64
-  %arrayidx6470 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom6469
+  %arrayidx6470 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom6469
   %1317 = load ptr, ptr %arrayidx6470, align 8
   %cmp6472 = icmp eq i32 %add6466, 0
   br i1 %cmp6472, label %cond.end6479, label %cond.false6475
@@ -11623,37 +11623,37 @@ TARGET_INSTRUMENTED_CALL:                         ; preds = %indirectgoto
 cond.false6475:                                   ; preds = %TARGET_INSTRUMENTED_CALL
   %sub6476 = sub i32 0, %add6466
   %idxprom6477 = sext i32 %sub6476 to i64
-  %arrayidx6478 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom6477
+  %arrayidx6478 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom6477
   %1318 = load ptr, ptr %arrayidx6478, align 8
   br label %cond.end6479
 
 cond.end6479:                                     ; preds = %TARGET_INSTRUMENTED_CALL, %cond.false6475
   %cond6480 = phi ptr [ %1318, %cond.false6475 ], [ @_PyInstrumentation_MISSING, %TARGET_INSTRUMENTED_CALL ]
-  %call6482 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 4, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %1317, ptr noundef %cond6480) #15
+  %call6482 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 4, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %1317, ptr noundef %cond6480) #15
   %tobool6483.not = icmp eq i32 %call6482, 0
   br i1 %tobool6483.not, label %do.body6486, label %error.loopexit
 
 do.body6486:                                      ; preds = %cond.end6479
-  %arrayidx6487 = getelementptr i8, ptr %next_instr.27, i64 2
+  %arrayidx6487 = getelementptr i8, ptr %next_instr.1, i64 2
   %1319 = load i16, ptr %arrayidx6487, align 2
   %add6489 = add i16 %1319, 16
   store i16 %add6489, ptr %arrayidx6487, align 2
   br label %PRED_53
 
 TARGET_INSTRUMENTED_CALL_KW:                      ; preds = %indirectgoto
-  %instr_ptr6495 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6495, align 8
-  %add.ptr6496 = getelementptr i8, ptr %next_instr.27, i64 2
-  %sub6499 = sub i32 -2, %oparg.1
+  %instr_ptr6495 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6495, align 8
+  %add.ptr6496 = getelementptr i8, ptr %next_instr.1, i64 2
+  %sub6499 = sub i32 -2, %oparg.0
   %idxprom6500 = sext i32 %sub6499 to i64
-  %arrayidx6501 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom6500
+  %arrayidx6501 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom6500
   %1320 = load ptr, ptr %arrayidx6501, align 8
   %cmp6502 = icmp ne ptr %1320, null
   %conv6503 = zext i1 %cmp6502 to i32
-  %add6505 = add i32 %oparg.1, %conv6503
-  %sub6508 = sub i32 -3, %oparg.1
+  %add6505 = add i32 %oparg.0, %conv6503
+  %sub6508 = sub i32 -3, %oparg.0
   %idxprom6509 = sext i32 %sub6508 to i64
-  %arrayidx6510 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom6509
+  %arrayidx6510 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom6509
   %1321 = load ptr, ptr %arrayidx6510, align 8
   %cmp6512 = icmp eq i32 %add6505, 0
   br i1 %cmp6512, label %cond.end6520, label %cond.false6515
@@ -11661,23 +11661,23 @@ TARGET_INSTRUMENTED_CALL_KW:                      ; preds = %indirectgoto
 cond.false6515:                                   ; preds = %TARGET_INSTRUMENTED_CALL_KW
   %sub6517 = xor i32 %add6505, -1
   %idxprom6518 = sext i32 %sub6517 to i64
-  %arrayidx6519 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom6518
+  %arrayidx6519 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom6518
   %1322 = load ptr, ptr %arrayidx6519, align 8
   br label %cond.end6520
 
 cond.end6520:                                     ; preds = %TARGET_INSTRUMENTED_CALL_KW, %cond.false6515
   %cond6521 = phi ptr [ %1322, %cond.false6515 ], [ @_PyInstrumentation_MISSING, %TARGET_INSTRUMENTED_CALL_KW ]
-  %call6523 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 4, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %1321, ptr noundef %cond6521) #15
+  %call6523 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 4, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %1321, ptr noundef %cond6521) #15
   %tobool6524.not = icmp eq i32 %call6523, 0
   br i1 %tobool6524.not, label %PRED_57, label %error.loopexit
 
 TARGET_INSTRUMENTED_END_FOR:                      ; preds = %indirectgoto
-  %instr_ptr6528 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6528, align 8
-  %add.ptr6529 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx6532 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6528 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6528, align 8
+  %add.ptr6529 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx6532 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1323 = load ptr, ptr %arrayidx6532, align 8
-  %arrayidx6533 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx6533 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1324 = load ptr, ptr %arrayidx6533, align 8
   %1325 = getelementptr i8, ptr %1324, i64 8
   %.val7396 = load ptr, ptr %1325, align 8
@@ -11692,7 +11692,7 @@ PyObject_TypeCheck.exit:                          ; preds = %TARGET_INSTRUMENTED
 if.then6536:                                      ; preds = %TARGET_INSTRUMENTED_END_FOR, %PyObject_TypeCheck.exit
   %1326 = load ptr, ptr @PyExc_StopIteration, align 8
   call void @PyErr_SetObject(ptr noundef %1326, ptr noundef %1323) #15
-  %frame.val.i = load ptr, ptr %frame.addr.8, align 8
+  %frame.val.i = load ptr, ptr %frame.addr.4, align 8
   %1327 = getelementptr i8, ptr %frame.val.i, i64 176
   %frame.val.val.i = load ptr, ptr %1327, align 8
   %tobool.not.i.i7986 = icmp eq ptr %frame.val.val.i, null
@@ -11715,7 +11715,7 @@ no_tools_for_local_event.exit.i:                  ; preds = %if.else.i.i8003, %i
 
 if.end.i7990:                                     ; preds = %no_tools_for_local_event.exit.i
   %call.i.i7991 = call ptr @PyErr_GetRaisedException() #15
-  %call1.i.i7992 = call i32 @_Py_call_instrumentation_arg(ptr noundef %tstate, i32 noundef 9, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %call.i.i7991) #15
+  %call1.i.i7992 = call i32 @_Py_call_instrumentation_arg(ptr noundef %tstate, i32 noundef 9, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %call.i.i7991) #15
   %cmp.i.i7993 = icmp eq i32 %call1.i.i7992, 0
   br i1 %cmp.i.i7993, label %if.then.i3.i, label %do.body.i.i7994
 
@@ -11788,19 +11788,19 @@ if.then6566:                                      ; preds = %if.end6562
 
 do.end6571:                                       ; preds = %if.end6562, %if.then6566, %do.body6557
   %word6574.sroa.0.0.copyload = load i8, ptr %add.ptr6529, align 2
-  %word6574.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word6574.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word6574.sroa.2.0.copyload = load i8, ptr %word6574.sroa.2.0..sroa_idx, align 1
   %conv6577 = zext i8 %word6574.sroa.2.0.copyload to i32
   %idxprom6579 = zext i8 %word6574.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_INSTRUMENTED_END_SEND:                     ; preds = %indirectgoto
-  %instr_ptr6582 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6582, align 8
-  %add.ptr6583 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx6586 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6582 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6582, align 8
+  %add.ptr6583 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx6586 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1339 = load ptr, ptr %arrayidx6586, align 8
-  %arrayidx6587 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx6587 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1340 = load ptr, ptr %arrayidx6587, align 8
   %1341 = getelementptr i8, ptr %1340, i64 8
   %.val7397 = load ptr, ptr %1341, align 8
@@ -11820,7 +11820,7 @@ lor.lhs.false6590:                                ; preds = %PyObject_TypeCheck.
 if.then6594:                                      ; preds = %TARGET_INSTRUMENTED_END_SEND, %lor.lhs.false6590, %PyObject_TypeCheck.exit8009
   %1343 = load ptr, ptr @PyExc_StopIteration, align 8
   call void @PyErr_SetObject(ptr noundef %1343, ptr noundef %1339) #15
-  %frame.val.i8010 = load ptr, ptr %frame.addr.8, align 8
+  %frame.val.i8010 = load ptr, ptr %frame.addr.4, align 8
   %1344 = getelementptr i8, ptr %frame.val.i8010, i64 176
   %frame.val.val.i8011 = load ptr, ptr %1344, align 8
   %tobool.not.i.i8012 = icmp eq ptr %frame.val.val.i8011, null
@@ -11843,7 +11843,7 @@ no_tools_for_local_event.exit.i8015:              ; preds = %if.else.i.i8033, %i
 
 if.end.i8019:                                     ; preds = %no_tools_for_local_event.exit.i8015
   %call.i.i8020 = call ptr @PyErr_GetRaisedException() #15
-  %call1.i.i8021 = call i32 @_Py_call_instrumentation_arg(ptr noundef %tstate, i32 noundef 9, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %call.i.i8020) #15
+  %call1.i.i8021 = call i32 @_Py_call_instrumentation_arg(ptr noundef %tstate, i32 noundef 9, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %call.i.i8020) #15
   %cmp.i.i8022 = icmp eq i32 %call1.i.i8021, 0
   br i1 %cmp.i.i8022, label %if.then.i3.i8032, label %do.body.i.i8023
 
@@ -11897,17 +11897,17 @@ if.then6609:                                      ; preds = %if.end6605
 do.end6614:                                       ; preds = %if.end6605, %if.then6609, %do.body6600
   store ptr %1339, ptr %arrayidx6587, align 8
   %word6618.sroa.0.0.copyload = load i8, ptr %add.ptr6583, align 2
-  %word6618.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word6618.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word6618.sroa.2.0.copyload = load i8, ptr %word6618.sroa.2.0..sroa_idx, align 1
   %conv6621 = zext i8 %word6618.sroa.2.0.copyload to i32
   %idxprom6623 = zext i8 %word6618.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_INSTRUMENTED_FOR_ITER:                     ; preds = %indirectgoto
-  %instr_ptr6626 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6626, align 8
-  %add.ptr6627 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx6629 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6626 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6626, align 8
+  %add.ptr6627 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx6629 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1352 = load ptr, ptr %arrayidx6629, align 8
   %1353 = getelementptr i8, ptr %1352, i64 8
   %.val7118 = load ptr, ptr %1353, align 8
@@ -11918,8 +11918,8 @@ TARGET_INSTRUMENTED_FOR_ITER:                     ; preds = %indirectgoto
   br i1 %cmp6634.not, label %if.else6638, label %if.then6636
 
 if.then6636:                                      ; preds = %TARGET_INSTRUMENTED_FOR_ITER
-  %incdec.ptr6637 = getelementptr i8, ptr %stack_pointer.17, i64 8
-  store ptr %call6633, ptr %stack_pointer.17, align 8
+  %incdec.ptr6637 = getelementptr i8, ptr %stack_pointer.0, i64 8
+  store ptr %call6633, ptr %stack_pointer.0, align 8
   br label %do.body6667
 
 if.else6638:                                      ; preds = %TARGET_INSTRUMENTED_FOR_ITER
@@ -11948,7 +11948,7 @@ if.end6645:                                       ; preds = %if.then6641
 
 if.end.i8045:                                     ; preds = %if.end6645
   %call.i.i8046 = call ptr @PyErr_GetRaisedException() #15
-  %call1.i.i8047 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 10, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %call.i.i8046) #15
+  %call1.i.i8047 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 10, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %call.i.i8046) #15
   %cmp.i2.i8048 = icmp eq i32 %call1.i.i8047, 0
   br i1 %cmp.i2.i8048, label %if.then.i.i8057, label %do.body.i.i8049
 
@@ -12000,23 +12000,23 @@ if.then6657:                                      ; preds = %if.end6653
   br label %do.end6662
 
 do.end6662:                                       ; preds = %if.end6653, %if.then6657, %if.end6646
-  %idx.ext6663 = sext i32 %oparg.1 to i64
+  %idx.ext6663 = sext i32 %oparg.0 to i64
   %add.ptr6664 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr6627, i64 %idx.ext6663
   %add.ptr6665 = getelementptr i8, ptr %add.ptr6664, i64 2
   br label %do.body6667
 
 do.body6667:                                      ; preds = %if.then6636, %do.end6662
   %target.0 = phi ptr [ %add.ptr6627, %if.then6636 ], [ %add.ptr6665, %do.end6662 ]
-  %stack_pointer.0 = phi ptr [ %incdec.ptr6637, %if.then6636 ], [ %arrayidx6629, %do.end6662 ]
-  %localsplus.i8059 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %sub.ptr.lhs.cast.i8060 = ptrtoint ptr %stack_pointer.0 to i64
+  %stack_pointer.6 = phi ptr [ %incdec.ptr6637, %if.then6636 ], [ %arrayidx6629, %do.end6662 ]
+  %localsplus.i8059 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %sub.ptr.lhs.cast.i8060 = ptrtoint ptr %stack_pointer.6 to i64
   %sub.ptr.rhs.cast.i8061 = ptrtoint ptr %localsplus.i8059 to i64
   %sub.ptr.sub.i8062 = sub i64 %sub.ptr.lhs.cast.i8060, %sub.ptr.rhs.cast.i8061
   %sub.ptr.div.i8063 = lshr exact i64 %sub.ptr.sub.i8062, 3
   %conv.i8064 = trunc i64 %sub.ptr.div.i8063 to i32
-  %stacktop.i8065 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8065 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8064, ptr %stacktop.i8065, align 8
-  %call6668 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 8, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %target.0) #15
+  %call6668 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 8, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %target.0) #15
   %1365 = load i32, ptr %stacktop.i8065, align 8
   %idx.ext.i8068 = sext i32 %1365 to i64
   %add.ptr.i8069 = getelementptr ptr, ptr %localsplus.i8059, i64 %idx.ext.i8068
@@ -12037,10 +12037,10 @@ do.body6676:                                      ; preds = %do.body6667
   br label %indirectgoto.backedge
 
 TARGET_INSTRUMENTED_INSTRUCTION:                  ; preds = %indirectgoto
-  %instr_ptr6685 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6685, align 8
-  %add.ptr6686 = getelementptr i8, ptr %next_instr.27, i64 2
-  %call6687 = call i32 @_Py_call_instrumentation_instruction(ptr noundef %tstate, ptr noundef %frame.addr.8, ptr noundef %next_instr.27) #15
+  %instr_ptr6685 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6685, align 8
+  %add.ptr6686 = getelementptr i8, ptr %next_instr.1, i64 2
+  %call6687 = call i32 @_Py_call_instrumentation_instruction(ptr noundef %tstate, ptr noundef %frame.addr.4, ptr noundef %next_instr.1) #15
   %cmp6688 = icmp slt i32 %call6687, 0
   br i1 %cmp6688, label %error.loopexit, label %if.end6691
 
@@ -12064,9 +12064,9 @@ if.end6702:                                       ; preds = %do.body6696, %if.en
   br label %indirectgoto.backedge
 
 TARGET_INSTRUMENTED_JUMP_BACKWARD:                ; preds = %indirectgoto
-  %instr_ptr6707 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6707, align 8
-  %add.ptr6708 = getelementptr i8, ptr %next_instr.27, i64 4
+  %instr_ptr6707 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6707, align 8
+  %add.ptr6708 = getelementptr i8, ptr %next_instr.1, i64 4
   %1368 = load ptr, ptr %interp10475, align 8
   %1369 = load atomic i64, ptr %1368 monotonic, align 8
   %and6713 = and i64 %1369, 255
@@ -12079,18 +12079,18 @@ if.then6715:                                      ; preds = %TARGET_INSTRUMENTED
   br i1 %cmp6717.not, label %do.body6722, label %error.loopexit
 
 do.body6722:                                      ; preds = %TARGET_INSTRUMENTED_JUMP_BACKWARD, %if.then6715
-  %localsplus.i8070 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %sub.ptr.lhs.cast.i8071 = ptrtoint ptr %stack_pointer.17 to i64
+  %localsplus.i8070 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %sub.ptr.lhs.cast.i8071 = ptrtoint ptr %stack_pointer.0 to i64
   %sub.ptr.rhs.cast.i8072 = ptrtoint ptr %localsplus.i8070 to i64
   %sub.ptr.sub.i8073 = sub i64 %sub.ptr.lhs.cast.i8071, %sub.ptr.rhs.cast.i8072
   %sub.ptr.div.i8074 = lshr exact i64 %sub.ptr.sub.i8073, 3
   %conv.i8075 = trunc i64 %sub.ptr.div.i8074 to i32
-  %stacktop.i8076 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8076 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8075, ptr %stacktop.i8076, align 8
-  %idx.ext6723 = sext i32 %oparg.1 to i64
+  %idx.ext6723 = sext i32 %oparg.0 to i64
   %idx.neg = sub nsw i64 0, %idx.ext6723
   %add.ptr6724 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr6708, i64 %idx.neg
-  %call6725 = call ptr @_Py_call_instrumentation_jump(ptr noundef nonnull %tstate, i32 noundef 7, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %add.ptr6724) #15
+  %call6725 = call ptr @_Py_call_instrumentation_jump(ptr noundef nonnull %tstate, i32 noundef 7, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %add.ptr6724) #15
   %1370 = load i32, ptr %stacktop.i8076, align 8
   %idx.ext.i8079 = sext i32 %1370 to i64
   %add.ptr.i8080 = getelementptr ptr, ptr %localsplus.i8070, i64 %idx.ext.i8079
@@ -12112,20 +12112,20 @@ do.body6736:                                      ; preds = %do.body6722
   br label %indirectgoto.backedge
 
 TARGET_INSTRUMENTED_JUMP_FORWARD:                 ; preds = %indirectgoto
-  %instr_ptr6745 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6745, align 8
-  %add.ptr6746 = getelementptr i8, ptr %next_instr.27, i64 2
-  %localsplus.i8081 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %sub.ptr.lhs.cast.i8082 = ptrtoint ptr %stack_pointer.17 to i64
+  %instr_ptr6745 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6745, align 8
+  %add.ptr6746 = getelementptr i8, ptr %next_instr.1, i64 2
+  %localsplus.i8081 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %sub.ptr.lhs.cast.i8082 = ptrtoint ptr %stack_pointer.0 to i64
   %sub.ptr.rhs.cast.i8083 = ptrtoint ptr %localsplus.i8081 to i64
   %sub.ptr.sub.i8084 = sub i64 %sub.ptr.lhs.cast.i8082, %sub.ptr.rhs.cast.i8083
   %sub.ptr.div.i8085 = lshr exact i64 %sub.ptr.sub.i8084, 3
   %conv.i8086 = trunc i64 %sub.ptr.div.i8085 to i32
-  %stacktop.i8087 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8087 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8086, ptr %stacktop.i8087, align 8
-  %idx.ext6748 = sext i32 %oparg.1 to i64
+  %idx.ext6748 = sext i32 %oparg.0 to i64
   %add.ptr6749 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr6746, i64 %idx.ext6748
-  %call6750 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 7, ptr noundef %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %add.ptr6749) #15
+  %call6750 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 7, ptr noundef %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %add.ptr6749) #15
   %1371 = load i32, ptr %stacktop.i8087, align 8
   %idx.ext.i8090 = sext i32 %1371 to i64
   %add.ptr.i8091 = getelementptr ptr, ptr %localsplus.i8081, i64 %idx.ext.i8090
@@ -12147,40 +12147,40 @@ do.body6760:                                      ; preds = %TARGET_INSTRUMENTED
   br label %indirectgoto.backedge
 
 TARGET_INSTRUMENTED_LOAD_SUPER_ATTR:              ; preds = %indirectgoto
-  %instr_ptr6769 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6769, align 8
-  %add.ptr6770 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx6772 = getelementptr i8, ptr %next_instr.27, i64 2
+  %instr_ptr6769 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6769, align 8
+  %add.ptr6770 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx6772 = getelementptr i8, ptr %next_instr.1, i64 2
   %1372 = load i16, ptr %arrayidx6772, align 2
   %add6774 = add i16 %1372, 16
   store i16 %add6774, ptr %arrayidx6772, align 2
   br label %PRED_93
 
 TARGET_INSTRUMENTED_POP_JUMP_IF_FALSE:            ; preds = %indirectgoto
-  %instr_ptr6778 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6778, align 8
-  %add.ptr6779 = getelementptr i8, ptr %next_instr.27, i64 4
-  %incdec.ptr6781 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6778 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6778, align 8
+  %add.ptr6779 = getelementptr i8, ptr %next_instr.1, i64 4
+  %incdec.ptr6781 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1373 = load ptr, ptr %incdec.ptr6781, align 8
   %cmp6782 = icmp eq ptr %1373, @_Py_FalseStruct
   %conv6783 = zext i1 %cmp6782 to i16
-  %1374 = sext i32 %oparg.1 to i64
-  %arrayidx6786 = getelementptr i8, ptr %next_instr.27, i64 2
+  %1374 = sext i32 %oparg.0 to i64
+  %arrayidx6786 = getelementptr i8, ptr %next_instr.1, i64 2
   %1375 = load i16, ptr %arrayidx6786, align 2
   %shl6788 = shl i16 %1375, 1
   %or6789 = or disjoint i16 %shl6788, %conv6783
   store i16 %or6789, ptr %arrayidx6786, align 2
-  %localsplus.i8092 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i8092 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i8093 = ptrtoint ptr %incdec.ptr6781 to i64
   %sub.ptr.rhs.cast.i8094 = ptrtoint ptr %localsplus.i8092 to i64
   %sub.ptr.sub.i8095 = sub i64 %sub.ptr.lhs.cast.i8093, %sub.ptr.rhs.cast.i8094
   %sub.ptr.div.i8096 = lshr exact i64 %sub.ptr.sub.i8095, 3
   %conv.i8097 = trunc i64 %sub.ptr.div.i8096 to i32
-  %stacktop.i8098 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8098 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8097, ptr %stacktop.i8098, align 8
   %idx.ext6793 = select i1 %cmp6782, i64 %1374, i64 0
   %add.ptr6794 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr6779, i64 %idx.ext6793
-  %call6795 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 8, ptr noundef %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %add.ptr6794) #15
+  %call6795 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 8, ptr noundef %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %add.ptr6794) #15
   %1376 = load i32, ptr %stacktop.i8098, align 8
   %idx.ext.i8101 = sext i32 %1376 to i64
   %add.ptr.i8102 = getelementptr ptr, ptr %localsplus.i8092, i64 %idx.ext.i8101
@@ -12202,10 +12202,10 @@ do.body6805:                                      ; preds = %TARGET_INSTRUMENTED
   br label %indirectgoto.backedge
 
 TARGET_INSTRUMENTED_POP_JUMP_IF_NONE:             ; preds = %indirectgoto
-  %instr_ptr6814 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6814, align 8
-  %add.ptr6815 = getelementptr i8, ptr %next_instr.27, i64 4
-  %incdec.ptr6817 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6814 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6814, align 8
+  %add.ptr6815 = getelementptr i8, ptr %next_instr.1, i64 4
+  %incdec.ptr6817 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1377 = load ptr, ptr %incdec.ptr6817, align 8
   %cmp6819 = icmp eq ptr %1377, @_Py_NoneStruct
   %conv6820 = zext i1 %cmp6819 to i16
@@ -12232,23 +12232,23 @@ if.then6834:                                      ; preds = %if.end6830
   br label %if.end6840
 
 if.end6840:                                       ; preds = %do.body6825, %if.then6834, %if.end6830, %TARGET_INSTRUMENTED_POP_JUMP_IF_NONE
-  %offset6821.0 = phi i32 [ %oparg.1, %TARGET_INSTRUMENTED_POP_JUMP_IF_NONE ], [ 0, %if.end6830 ], [ 0, %if.then6834 ], [ 0, %do.body6825 ]
-  %arrayidx6841 = getelementptr i8, ptr %next_instr.27, i64 2
+  %offset6821.0 = phi i32 [ %oparg.0, %TARGET_INSTRUMENTED_POP_JUMP_IF_NONE ], [ 0, %if.end6830 ], [ 0, %if.then6834 ], [ 0, %do.body6825 ]
+  %arrayidx6841 = getelementptr i8, ptr %next_instr.1, i64 2
   %1382 = load i16, ptr %arrayidx6841, align 2
   %shl6843 = shl i16 %1382, 1
   %or6844 = or disjoint i16 %shl6843, %conv6820
   store i16 %or6844, ptr %arrayidx6841, align 2
-  %localsplus.i8103 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i8103 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i8104 = ptrtoint ptr %incdec.ptr6817 to i64
   %sub.ptr.rhs.cast.i8105 = ptrtoint ptr %localsplus.i8103 to i64
   %sub.ptr.sub.i8106 = sub i64 %sub.ptr.lhs.cast.i8104, %sub.ptr.rhs.cast.i8105
   %sub.ptr.div.i8107 = lshr exact i64 %sub.ptr.sub.i8106, 3
   %conv.i8108 = trunc i64 %sub.ptr.div.i8107 to i32
-  %stacktop.i8109 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8109 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8108, ptr %stacktop.i8109, align 8
   %idx.ext6848 = sext i32 %offset6821.0 to i64
   %add.ptr6849 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr6815, i64 %idx.ext6848
-  %call6850 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 8, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %add.ptr6849) #15
+  %call6850 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 8, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %add.ptr6849) #15
   %1383 = load i32, ptr %stacktop.i8109, align 8
   %idx.ext.i8112 = sext i32 %1383 to i64
   %add.ptr.i8113 = getelementptr ptr, ptr %localsplus.i8103, i64 %idx.ext.i8112
@@ -12270,10 +12270,10 @@ do.body6860:                                      ; preds = %if.end6840
   br label %indirectgoto.backedge
 
 TARGET_INSTRUMENTED_POP_JUMP_IF_NOT_NONE:         ; preds = %indirectgoto
-  %instr_ptr6869 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6869, align 8
-  %add.ptr6870 = getelementptr i8, ptr %next_instr.27, i64 4
-  %incdec.ptr6872 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6869 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6869, align 8
+  %add.ptr6870 = getelementptr i8, ptr %next_instr.1, i64 4
+  %incdec.ptr6872 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1384 = load ptr, ptr %incdec.ptr6872, align 8
   %cmp6874 = icmp ne ptr %1384, @_Py_NoneStruct
   br i1 %cmp6874, label %do.body6879, label %if.end6894
@@ -12299,24 +12299,24 @@ if.then6888:                                      ; preds = %if.end6884
   br label %if.end6894
 
 if.end6894:                                       ; preds = %do.body6879, %if.then6888, %if.end6884, %TARGET_INSTRUMENTED_POP_JUMP_IF_NOT_NONE
-  %offset6873.0 = phi i32 [ 0, %TARGET_INSTRUMENTED_POP_JUMP_IF_NOT_NONE ], [ %oparg.1, %if.end6884 ], [ %oparg.1, %if.then6888 ], [ %oparg.1, %do.body6879 ]
-  %arrayidx6895 = getelementptr i8, ptr %next_instr.27, i64 2
+  %offset6873.0 = phi i32 [ 0, %TARGET_INSTRUMENTED_POP_JUMP_IF_NOT_NONE ], [ %oparg.0, %if.end6884 ], [ %oparg.0, %if.then6888 ], [ %oparg.0, %do.body6879 ]
+  %arrayidx6895 = getelementptr i8, ptr %next_instr.1, i64 2
   %1389 = load i16, ptr %arrayidx6895, align 2
   %shl6897 = shl i16 %1389, 1
   %lnot.ext = zext i1 %cmp6874 to i16
   %or6899 = or disjoint i16 %shl6897, %lnot.ext
   store i16 %or6899, ptr %arrayidx6895, align 2
-  %localsplus.i8114 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i8114 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i8115 = ptrtoint ptr %incdec.ptr6872 to i64
   %sub.ptr.rhs.cast.i8116 = ptrtoint ptr %localsplus.i8114 to i64
   %sub.ptr.sub.i8117 = sub i64 %sub.ptr.lhs.cast.i8115, %sub.ptr.rhs.cast.i8116
   %sub.ptr.div.i8118 = lshr exact i64 %sub.ptr.sub.i8117, 3
   %conv.i8119 = trunc i64 %sub.ptr.div.i8118 to i32
-  %stacktop.i8120 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8120 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8119, ptr %stacktop.i8120, align 8
   %idx.ext6903 = sext i32 %offset6873.0 to i64
   %add.ptr6904 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr6870, i64 %idx.ext6903
-  %call6905 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 8, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %add.ptr6904) #15
+  %call6905 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 8, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %add.ptr6904) #15
   %1390 = load i32, ptr %stacktop.i8120, align 8
   %idx.ext.i8123 = sext i32 %1390 to i64
   %add.ptr.i8124 = getelementptr ptr, ptr %localsplus.i8114, i64 %idx.ext.i8123
@@ -12338,30 +12338,30 @@ do.body6915:                                      ; preds = %if.end6894
   br label %indirectgoto.backedge
 
 TARGET_INSTRUMENTED_POP_JUMP_IF_TRUE:             ; preds = %indirectgoto
-  %instr_ptr6924 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6924, align 8
-  %add.ptr6925 = getelementptr i8, ptr %next_instr.27, i64 4
-  %incdec.ptr6927 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr6924 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6924, align 8
+  %add.ptr6925 = getelementptr i8, ptr %next_instr.1, i64 4
+  %incdec.ptr6927 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1391 = load ptr, ptr %incdec.ptr6927, align 8
   %cmp6929 = icmp eq ptr %1391, @_Py_TrueStruct
   %conv6930 = zext i1 %cmp6929 to i16
-  %1392 = sext i32 %oparg.1 to i64
-  %arrayidx6933 = getelementptr i8, ptr %next_instr.27, i64 2
+  %1392 = sext i32 %oparg.0 to i64
+  %arrayidx6933 = getelementptr i8, ptr %next_instr.1, i64 2
   %1393 = load i16, ptr %arrayidx6933, align 2
   %shl6935 = shl i16 %1393, 1
   %or6936 = or disjoint i16 %shl6935, %conv6930
   store i16 %or6936, ptr %arrayidx6933, align 2
-  %localsplus.i8125 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i8125 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i8126 = ptrtoint ptr %incdec.ptr6927 to i64
   %sub.ptr.rhs.cast.i8127 = ptrtoint ptr %localsplus.i8125 to i64
   %sub.ptr.sub.i8128 = sub i64 %sub.ptr.lhs.cast.i8126, %sub.ptr.rhs.cast.i8127
   %sub.ptr.div.i8129 = lshr exact i64 %sub.ptr.sub.i8128, 3
   %conv.i8130 = trunc i64 %sub.ptr.div.i8129 to i32
-  %stacktop.i8131 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8131 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8130, ptr %stacktop.i8131, align 8
   %idx.ext6940 = select i1 %cmp6929, i64 %1392, i64 0
   %add.ptr6941 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr6925, i64 %idx.ext6940
-  %call6942 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 8, ptr noundef %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %add.ptr6941) #15
+  %call6942 = call ptr @_Py_call_instrumentation_jump(ptr noundef %tstate, i32 noundef 8, ptr noundef %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %add.ptr6941) #15
   %1394 = load i32, ptr %stacktop.i8131, align 8
   %idx.ext.i8134 = sext i32 %1394 to i64
   %add.ptr.i8135 = getelementptr ptr, ptr %localsplus.i8125, i64 %idx.ext.i8134
@@ -12383,25 +12383,25 @@ do.body6952:                                      ; preds = %TARGET_INSTRUMENTED
   br label %indirectgoto.backedge
 
 TARGET_INSTRUMENTED_RESUME:                       ; preds = %indirectgoto
-  %instr_ptr6961 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr6961, align 8
-  %add.ptr6962 = getelementptr i8, ptr %next_instr.27, i64 2
+  %instr_ptr6961 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr6961, align 8
+  %add.ptr6962 = getelementptr i8, ptr %next_instr.1, i64 2
   %1395 = load ptr, ptr %interp10475, align 8
   %1396 = load atomic i64, ptr %1395 monotonic, align 8
   %and6967 = and i64 %1396, -256
-  %frame.addr.8.val7300 = load ptr, ptr %frame.addr.8, align 8
-  %_co_instrumentation_version = getelementptr inbounds i8, ptr %frame.addr.8.val7300, i64 168
+  %frame.addr.4.val7300 = load ptr, ptr %frame.addr.4, align 8
+  %_co_instrumentation_version = getelementptr inbounds i8, ptr %frame.addr.4.val7300, i64 168
   %1397 = load i64, ptr %_co_instrumentation_version, align 8
   %cmp6969.not = icmp eq i64 %1397, %and6967
   br i1 %cmp6969.not, label %if.else6978, label %if.then6971
 
 if.then6971:                                      ; preds = %TARGET_INSTRUMENTED_RESUME
-  %call6974 = call i32 @_Py_Instrument(ptr noundef nonnull %frame.addr.8.val7300, ptr noundef nonnull %1395) #15
+  %call6974 = call i32 @_Py_Instrument(ptr noundef nonnull %frame.addr.4.val7300, ptr noundef nonnull %1395) #15
   %tobool6975.not = icmp eq i32 %call6974, 0
   br i1 %tobool6975.not, label %do.body7019, label %error.loopexit
 
 if.else6978:                                      ; preds = %TARGET_INSTRUMENTED_RESUME
-  %and6979 = and i32 %oparg.1, 2
+  %and6979 = and i32 %oparg.0, 2
   %cmp6980.not.not = icmp eq i32 %and6979, 0
   br i1 %cmp6980.not.not, label %if.then6982, label %if.end6996
 
@@ -12417,17 +12417,17 @@ if.then6989:                                      ; preds = %if.then6982
   br i1 %cmp6991.not, label %if.end6996, label %error.loopexit
 
 if.end6996:                                       ; preds = %if.then6982, %if.then6989, %if.else6978
-  %localsplus.i8136 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %sub.ptr.lhs.cast.i8137 = ptrtoint ptr %stack_pointer.17 to i64
+  %localsplus.i8136 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %sub.ptr.lhs.cast.i8137 = ptrtoint ptr %stack_pointer.0 to i64
   %sub.ptr.rhs.cast.i8138 = ptrtoint ptr %localsplus.i8136 to i64
   %sub.ptr.sub.i8139 = sub i64 %sub.ptr.lhs.cast.i8137, %sub.ptr.rhs.cast.i8138
   %sub.ptr.div.i8140 = lshr exact i64 %sub.ptr.sub.i8139, 3
   %conv.i8141 = trunc i64 %sub.ptr.div.i8140 to i32
-  %stacktop.i8142 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8142 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8141, ptr %stacktop.i8142, align 8
-  %cmp6998 = icmp sgt i32 %oparg.1, 0
+  %cmp6998 = icmp sgt i32 %oparg.0, 0
   %conv6999 = zext i1 %cmp6998 to i32
-  %call7000 = call i32 @_Py_call_instrumentation(ptr noundef nonnull %tstate, i32 noundef %conv6999, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27) #15
+  %call7000 = call i32 @_Py_call_instrumentation(ptr noundef nonnull %tstate, i32 noundef %conv6999, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1) #15
   %1399 = load i32, ptr %stacktop.i8142, align 8
   %idx.ext.i8145 = sext i32 %1399 to i64
   %add.ptr.i8146 = getelementptr ptr, ptr %localsplus.i8136, i64 %idx.ext.i8145
@@ -12437,39 +12437,39 @@ if.end6996:                                       ; preds = %if.then6982, %if.th
 
 if.end7004:                                       ; preds = %if.end6996
   %1400 = load ptr, ptr %instr_ptr6961, align 8
-  %cmp7006.not = icmp eq ptr %1400, %next_instr.27
+  %cmp7006.not = icmp eq ptr %1400, %next_instr.1
   br i1 %cmp7006.not, label %do.body7019, label %if.then7008
 
 if.then7008:                                      ; preds = %if.end7004
-  %word7010.sroa.0.0.copyload = load i8, ptr %next_instr.27, align 2
-  %word7010.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %next_instr.27, i64 1
+  %word7010.sroa.0.0.copyload = load i8, ptr %next_instr.1, align 2
+  %word7010.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %next_instr.1, i64 1
   %word7010.sroa.2.0.copyload = load i8, ptr %word7010.sroa.2.0..sroa_idx, align 1
   %conv7013 = zext i8 %word7010.sroa.2.0.copyload to i32
   %idxprom7015 = zext i8 %word7010.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 do.body7019:                                      ; preds = %if.then6971, %if.end7004
-  %stack_pointer.1 = phi ptr [ %add.ptr.i8146, %if.end7004 ], [ %stack_pointer.17, %if.then6971 ]
-  %next_instr.8 = phi ptr [ %add.ptr6962, %if.end7004 ], [ %next_instr.27, %if.then6971 ]
-  %word7020.sroa.0.0.copyload = load i8, ptr %next_instr.8, align 2
-  %word7020.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %next_instr.8, i64 1
+  %stack_pointer.7 = phi ptr [ %add.ptr.i8146, %if.end7004 ], [ %stack_pointer.0, %if.then6971 ]
+  %next_instr.16 = phi ptr [ %add.ptr6962, %if.end7004 ], [ %next_instr.1, %if.then6971 ]
+  %word7020.sroa.0.0.copyload = load i8, ptr %next_instr.16, align 2
+  %word7020.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %next_instr.16, i64 1
   %word7020.sroa.2.0.copyload = load i8, ptr %word7020.sroa.2.0..sroa_idx, align 1
   %conv7023 = zext i8 %word7020.sroa.2.0.copyload to i32
   %idxprom7025 = zext i8 %word7020.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_INSTRUMENTED_RETURN_CONST:                 ; preds = %indirectgoto
-  %instr_ptr7028 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7028, align 8
-  %add.ptr7029 = getelementptr i8, ptr %next_instr.27, i64 2
-  %frame.addr.8.val7302 = load ptr, ptr %frame.addr.8, align 8
-  %co_consts = getelementptr inbounds i8, ptr %frame.addr.8.val7302, i64 24
+  %instr_ptr7028 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7028, align 8
+  %add.ptr7029 = getelementptr i8, ptr %next_instr.1, i64 2
+  %frame.addr.4.val7302 = load ptr, ptr %frame.addr.4, align 8
+  %co_consts = getelementptr inbounds i8, ptr %frame.addr.4.val7302, i64 24
   %1401 = load ptr, ptr %co_consts, align 8
   %ob_item7032 = getelementptr inbounds i8, ptr %1401, i64 24
-  %idxprom7033 = sext i32 %oparg.1 to i64
+  %idxprom7033 = sext i32 %oparg.0 to i64
   %arrayidx7034 = getelementptr [1 x ptr], ptr %ob_item7032, i64 0, i64 %idxprom7033
   %1402 = load ptr, ptr %arrayidx7034, align 8
-  %call7036 = call i32 @_Py_call_instrumentation_arg(ptr noundef %tstate, i32 noundef 2, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %1402) #15
+  %call7036 = call i32 @_Py_call_instrumentation_arg(ptr noundef %tstate, i32 noundef 2, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %1402) #15
   %tobool7037.not = icmp eq i32 %call7036, 0
   br i1 %tobool7037.not, label %if.end7039, label %error
 
@@ -12484,21 +12484,21 @@ if.end.i21350:                                    ; preds = %if.end7039
   br label %Py_INCREF.exit21352
 
 Py_INCREF.exit21352:                              ; preds = %if.end7039, %if.end.i21350
-  %localsplus.i8147 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %sub.ptr.lhs.cast.i8148 = ptrtoint ptr %stack_pointer.17 to i64
+  %localsplus.i8147 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %sub.ptr.lhs.cast.i8148 = ptrtoint ptr %stack_pointer.0 to i64
   %sub.ptr.rhs.cast.i8149 = ptrtoint ptr %localsplus.i8147 to i64
   %sub.ptr.sub.i8150 = sub i64 %sub.ptr.lhs.cast.i8148, %sub.ptr.rhs.cast.i8149
   %sub.ptr.div.i8151 = lshr exact i64 %sub.ptr.sub.i8150, 3
   %conv.i8152 = trunc i64 %sub.ptr.div.i8151 to i32
-  %stacktop.i8153 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8153 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8152, ptr %stacktop.i8153, align 8
   %1404 = load i32, ptr %py_recursion_remaining3963, align 4
   %inc.i8155 = add i32 %1404, 1
   store i32 %inc.i8155, ptr %py_recursion_remaining3963, align 4
-  %previous7040 = getelementptr inbounds i8, ptr %frame.addr.8, i64 8
+  %previous7040 = getelementptr inbounds i8, ptr %frame.addr.4, i64 8
   %1405 = load ptr, ptr %previous7040, align 8
   store ptr %1405, ptr %current_frame, align 8
-  call void @_PyEval_FrameClearAndPop(ptr noundef %tstate, ptr noundef nonnull %frame.addr.8)
+  call void @_PyEval_FrameClearAndPop(ptr noundef %tstate, ptr noundef nonnull %frame.addr.4)
   %localsplus.i8156 = getelementptr inbounds i8, ptr %1405, i64 72
   %stacktop.i8157 = getelementptr inbounds i8, ptr %1405, i64 64
   %1406 = load i32, ptr %stacktop.i8157, align 8
@@ -12517,31 +12517,31 @@ Py_INCREF.exit21352:                              ; preds = %if.end7039, %if.end
   br label %resume_frame
 
 TARGET_INSTRUMENTED_RETURN_VALUE:                 ; preds = %indirectgoto
-  %instr_ptr7050 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7050, align 8
-  %add.ptr7051 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx7053 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7050 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7050, align 8
+  %add.ptr7051 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx7053 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1410 = load ptr, ptr %arrayidx7053, align 8
-  %call7055 = call i32 @_Py_call_instrumentation_arg(ptr noundef %tstate, i32 noundef 2, ptr noundef %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %1410) #15
+  %call7055 = call i32 @_Py_call_instrumentation_arg(ptr noundef %tstate, i32 noundef 2, ptr noundef %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %1410) #15
   %tobool7056.not = icmp eq i32 %call7055, 0
   br i1 %tobool7056.not, label %if.end7058, label %error
 
 if.end7058:                                       ; preds = %TARGET_INSTRUMENTED_RETURN_VALUE
-  %localsplus.i8161 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i8161 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i8162 = ptrtoint ptr %arrayidx7053 to i64
   %sub.ptr.rhs.cast.i8163 = ptrtoint ptr %localsplus.i8161 to i64
   %sub.ptr.sub.i8164 = sub i64 %sub.ptr.lhs.cast.i8162, %sub.ptr.rhs.cast.i8163
   %sub.ptr.div.i8165 = lshr exact i64 %sub.ptr.sub.i8164, 3
   %conv.i8166 = trunc i64 %sub.ptr.div.i8165 to i32
-  %stacktop.i8167 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8167 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8166, ptr %stacktop.i8167, align 8
   %1411 = load i32, ptr %py_recursion_remaining3963, align 4
   %inc.i8169 = add i32 %1411, 1
   store i32 %inc.i8169, ptr %py_recursion_remaining3963, align 4
-  %previous7061 = getelementptr inbounds i8, ptr %frame.addr.8, i64 8
+  %previous7061 = getelementptr inbounds i8, ptr %frame.addr.4, i64 8
   %1412 = load ptr, ptr %previous7061, align 8
   store ptr %1412, ptr %current_frame, align 8
-  call void @_PyEval_FrameClearAndPop(ptr noundef %tstate, ptr noundef nonnull %frame.addr.8)
+  call void @_PyEval_FrameClearAndPop(ptr noundef %tstate, ptr noundef nonnull %frame.addr.4)
   %localsplus.i8170 = getelementptr inbounds i8, ptr %1412, i64 72
   %stacktop.i8171 = getelementptr inbounds i8, ptr %1412, i64 64
   %1413 = load i32, ptr %stacktop.i8171, align 8
@@ -12560,37 +12560,37 @@ if.end7058:                                       ; preds = %TARGET_INSTRUMENTED
   br label %resume_frame
 
 TARGET_INSTRUMENTED_YIELD_VALUE:                  ; preds = %indirectgoto
-  %instr_ptr7071 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7071, align 8
-  %add.ptr7072 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx7074 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7071 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7071, align 8
+  %add.ptr7072 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx7074 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1417 = load ptr, ptr %arrayidx7074, align 8
   store ptr %add.ptr7072, ptr %instr_ptr7071, align 8
-  %1418 = trunc i32 %oparg.1 to i8
+  %1418 = trunc i32 %oparg.0 to i8
   %conv7079 = add i8 %1418, -2
-  %gi_frame_state7080 = getelementptr i8, ptr %frame.addr.8, i64 -5
+  %gi_frame_state7080 = getelementptr i8, ptr %frame.addr.4, i64 -5
   store i8 %conv7079, ptr %gi_frame_state7080, align 1
-  %localsplus.i8176 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i8176 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i8177 = ptrtoint ptr %arrayidx7074 to i64
   %sub.ptr.rhs.cast.i8178 = ptrtoint ptr %localsplus.i8176 to i64
   %sub.ptr.sub.i8179 = sub i64 %sub.ptr.lhs.cast.i8177, %sub.ptr.rhs.cast.i8178
   %sub.ptr.div.i8180 = lshr exact i64 %sub.ptr.sub.i8179, 3
   %conv.i8181 = trunc i64 %sub.ptr.div.i8180 to i32
-  %stacktop.i8182 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8182 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8181, ptr %stacktop.i8182, align 8
-  %call7083 = call i32 @_Py_call_instrumentation_arg(ptr noundef %tstate, i32 noundef 3, ptr noundef %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %1417) #15
+  %call7083 = call i32 @_Py_call_instrumentation_arg(ptr noundef %tstate, i32 noundef 3, ptr noundef %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %1417) #15
   %tobool7084.not = icmp eq i32 %call7083, 0
   br i1 %tobool7084.not, label %if.end7086, label %error
 
 if.end7086:                                       ; preds = %TARGET_INSTRUMENTED_YIELD_VALUE
-  %previous_item7088 = getelementptr i8, ptr %frame.addr.8, i64 -24
+  %previous_item7088 = getelementptr i8, ptr %frame.addr.4, i64 -24
   %1419 = load ptr, ptr %previous_item7088, align 8
   store ptr %1419, ptr %exc_info17215, align 8
   store ptr null, ptr %previous_item7088, align 8
   %1420 = load i32, ptr %py_recursion_remaining3963, align 4
   %inc.i8184 = add i32 %1420, 1
   store i32 %inc.i8184, ptr %py_recursion_remaining3963, align 4
-  %previous7093 = getelementptr inbounds i8, ptr %frame.addr.8, i64 8
+  %previous7093 = getelementptr inbounds i8, ptr %frame.addr.4, i64 8
   %1421 = load ptr, ptr %previous7093, align 8
   store ptr %1421, ptr %current_frame, align 8
   store ptr null, ptr %previous7093, align 8
@@ -12609,19 +12609,19 @@ if.end7086:                                       ; preds = %TARGET_INSTRUMENTED
   br label %resume_frame
 
 TARGET_INTERPRETER_EXIT:                          ; preds = %indirectgoto
-  %instr_ptr7100 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7100, align 8
-  %arrayidx7103 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7100 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7100, align 8
+  %arrayidx7103 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1425 = load ptr, ptr %arrayidx7103, align 8
   br label %return
 
 TARGET_IS_OP:                                     ; preds = %indirectgoto
-  %instr_ptr7108 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7108, align 8
-  %add.ptr7109 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx7113 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7108 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7108, align 8
+  %add.ptr7109 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx7113 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1426 = load ptr, ptr %arrayidx7113, align 8
-  %arrayidx7114 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx7114 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1427 = load ptr, ptr %arrayidx7114, align 8
   %cmp7116 = icmp eq ptr %1427, %1426
   %conv7117 = zext i1 %cmp7116 to i32
@@ -12665,20 +12665,20 @@ if.then7143:                                      ; preds = %if.end7139
   br label %do.end7148
 
 do.end7148:                                       ; preds = %if.end7139, %if.then7143, %do.body7134
-  %tobool7149.not = icmp eq i32 %oparg.1, %conv7117
+  %tobool7149.not = icmp eq i32 %oparg.0, %conv7117
   %cond7150 = select i1 %tobool7149.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   store ptr %cond7150, ptr %arrayidx7114, align 8
   %word7154.sroa.0.0.copyload = load i8, ptr %add.ptr7109, align 2
-  %word7154.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word7154.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word7154.sroa.2.0.copyload = load i8, ptr %word7154.sroa.2.0..sroa_idx, align 1
   %conv7157 = zext i8 %word7154.sroa.2.0.copyload to i32
   %idxprom7159 = zext i8 %word7154.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_JUMP_BACKWARD:                             ; preds = %indirectgoto
-  %instr_ptr7162 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7162, align 8
-  %add.ptr7163 = getelementptr i8, ptr %next_instr.27, i64 4
+  %instr_ptr7162 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7162, align 8
+  %add.ptr7163 = getelementptr i8, ptr %next_instr.1, i64 4
   %1436 = load ptr, ptr %interp10475, align 8
   %1437 = load atomic i64, ptr %1436 monotonic, align 8
   %and7168 = and i64 %1437, 255
@@ -12691,10 +12691,10 @@ if.then7170:                                      ; preds = %TARGET_JUMP_BACKWAR
   br i1 %cmp7172.not, label %if.end7176, label %error.loopexit
 
 if.end7176:                                       ; preds = %if.then7170, %TARGET_JUMP_BACKWARD
-  %sub7177 = sub i32 0, %oparg.1
+  %sub7177 = sub i32 0, %oparg.0
   %idx.ext7178 = sext i32 %sub7177 to i64
   %add.ptr7179 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr7163, i64 %idx.ext7178
-  %arrayidx7180 = getelementptr i8, ptr %next_instr.27, i64 2
+  %arrayidx7180 = getelementptr i8, ptr %next_instr.1, i64 2
   %1438 = load i16, ptr %arrayidx7180, align 2
   %add7182 = add i16 %1438, 16
   store i16 %add7182, ptr %arrayidx7180, align 2
@@ -12707,12 +12707,12 @@ if.end7176:                                       ; preds = %if.then7170, %TARGE
   br i1 %cmp7194, label %land.lhs.true7196, label %do.body7234
 
 land.lhs.true7196:                                ; preds = %if.end7176
-  %1441 = load i8, ptr %next_instr.27, align 2
+  %1441 = load i8, ptr %next_instr.1, align 2
   %cmp7199 = icmp eq i8 %1441, 77
   br i1 %cmp7199, label %if.then7201, label %do.body7234
 
 if.then7201:                                      ; preds = %land.lhs.true7196
-  %call7202 = call i32 @_PyOptimizer_BackEdge(ptr noundef nonnull %frame.addr.8, ptr noundef nonnull %next_instr.27, ptr noundef %add.ptr7179, ptr noundef %stack_pointer.17) #15
+  %call7202 = call i32 @_PyOptimizer_BackEdge(ptr noundef nonnull %frame.addr.4, ptr noundef nonnull %next_instr.1, ptr noundef %add.ptr7179, ptr noundef %stack_pointer.0) #15
   %cmp7203 = icmp slt i32 %call7202, 0
   br i1 %cmp7203, label %error.loopexit, label %if.end7206
 
@@ -12736,24 +12736,24 @@ if.else7213:                                      ; preds = %if.end7206
 
 do.body7234.sink.split:                           ; preds = %if.end7206, %if.else7213
   %conv7230.sink = phi i16 [ %conv7230, %if.else7213 ], [ %1443, %if.end7206 ]
-  %next_instr.9.ph = phi ptr [ %add.ptr7179, %if.else7213 ], [ %next_instr.27, %if.end7206 ]
+  %next_instr.17.ph = phi ptr [ %add.ptr7179, %if.else7213 ], [ %next_instr.1, %if.end7206 ]
   store i16 %conv7230.sink, ptr %arrayidx7180, align 2
   br label %do.body7234
 
 do.body7234:                                      ; preds = %do.body7234.sink.split, %if.end7176, %land.lhs.true7196
-  %next_instr.9 = phi ptr [ %add.ptr7179, %land.lhs.true7196 ], [ %add.ptr7179, %if.end7176 ], [ %next_instr.9.ph, %do.body7234.sink.split ]
-  %word7235.sroa.0.0.copyload = load i8, ptr %next_instr.9, align 2
-  %word7235.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %next_instr.9, i64 1
+  %next_instr.17 = phi ptr [ %add.ptr7179, %land.lhs.true7196 ], [ %add.ptr7179, %if.end7176 ], [ %next_instr.17.ph, %do.body7234.sink.split ]
+  %word7235.sroa.0.0.copyload = load i8, ptr %next_instr.17, align 2
+  %word7235.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %next_instr.17, i64 1
   %word7235.sroa.2.0.copyload = load i8, ptr %word7235.sroa.2.0..sroa_idx, align 1
   %conv7238 = zext i8 %word7235.sroa.2.0.copyload to i32
   %idxprom7240 = zext i8 %word7235.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_JUMP_BACKWARD_NO_INTERRUPT:                ; preds = %indirectgoto
-  %instr_ptr7242 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7242, align 8
-  %add.ptr7243 = getelementptr i8, ptr %next_instr.27, i64 2
-  %sub7244 = sub i32 0, %oparg.1
+  %instr_ptr7242 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7242, align 8
+  %add.ptr7243 = getelementptr i8, ptr %next_instr.1, i64 2
+  %sub7244 = sub i32 0, %oparg.0
   %idx.ext7245 = sext i32 %sub7244 to i64
   %add.ptr7246 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr7243, i64 %idx.ext7245
   %word7248.sroa.0.0.copyload = load i8, ptr %add.ptr7246, align 2
@@ -12764,10 +12764,10 @@ TARGET_JUMP_BACKWARD_NO_INTERRUPT:                ; preds = %indirectgoto
   br label %indirectgoto.backedge
 
 TARGET_JUMP_FORWARD:                              ; preds = %indirectgoto
-  %instr_ptr7255 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7255, align 8
-  %add.ptr7256 = getelementptr i8, ptr %next_instr.27, i64 2
-  %idx.ext7257 = sext i32 %oparg.1 to i64
+  %instr_ptr7255 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7255, align 8
+  %add.ptr7256 = getelementptr i8, ptr %next_instr.1, i64 2
+  %idx.ext7257 = sext i32 %oparg.0 to i64
   %add.ptr7258 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr7256, i64 %idx.ext7257
   %word7260.sroa.0.0.copyload = load i8, ptr %add.ptr7258, align 2
   %word7260.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %add.ptr7258, i64 1
@@ -12777,14 +12777,14 @@ TARGET_JUMP_FORWARD:                              ; preds = %indirectgoto
   br label %indirectgoto.backedge
 
 TARGET_LIST_APPEND:                               ; preds = %indirectgoto
-  %instr_ptr7267 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7267, align 8
-  %add.ptr7268 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx7271 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7267 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7267, align 8
+  %add.ptr7268 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx7271 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1444 = load ptr, ptr %arrayidx7271, align 8
-  %sub7273 = xor i32 %oparg.1, -1
+  %sub7273 = xor i32 %oparg.0, -1
   %idxprom7274 = sext i32 %sub7273 to i64
-  %arrayidx7275 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom7274
+  %arrayidx7275 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom7274
   %1445 = load ptr, ptr %arrayidx7275, align 8
   %1446 = getelementptr i8, ptr %1445, i64 16
   %self.val8.i8190 = load i64, ptr %1446, align 8
@@ -12809,21 +12809,21 @@ _PyList_AppendTakeRef.exit8200:                   ; preds = %TARGET_LIST_APPEND
 
 if.end7280:                                       ; preds = %_PyList_AppendTakeRef.exit8200.thread, %_PyList_AppendTakeRef.exit8200
   %word7283.sroa.0.0.copyload = load i8, ptr %add.ptr7268, align 2
-  %word7283.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word7283.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word7283.sroa.2.0.copyload = load i8, ptr %word7283.sroa.2.0..sroa_idx, align 1
   %conv7286 = zext i8 %word7283.sroa.2.0.copyload to i32
   %idxprom7288 = zext i8 %word7283.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LIST_EXTEND:                               ; preds = %indirectgoto
-  %instr_ptr7290 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7290, align 8
-  %add.ptr7291 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx7294 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7290 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7290, align 8
+  %add.ptr7291 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx7294 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1449 = load ptr, ptr %arrayidx7294, align 8
-  %sub7296 = xor i32 %oparg.1, -1
+  %sub7296 = xor i32 %oparg.0, -1
   %idxprom7297 = sext i32 %sub7296 to i64
-  %arrayidx7298 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom7297
+  %arrayidx7298 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom7297
   %1450 = load ptr, ptr %arrayidx7298, align 8
   %call7299 = call ptr @_PyList_Extend(ptr noundef %1450, ptr noundef %1449) #15
   %cmp7300 = icmp eq ptr %call7299, null
@@ -12899,16 +12899,16 @@ if.then7342:                                      ; preds = %if.end7338
 
 do.end7347:                                       ; preds = %if.end7338, %if.then7342, %do.body7333
   %word7350.sroa.0.0.copyload = load i8, ptr %add.ptr7291, align 2
-  %word7350.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word7350.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word7350.sroa.2.0.copyload = load i8, ptr %word7350.sroa.2.0..sroa_idx, align 1
   %conv7353 = zext i8 %word7350.sroa.2.0.copyload to i32
   %idxprom7355 = zext i8 %word7350.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_ASSERTION_ERROR:                      ; preds = %indirectgoto
-  %instr_ptr7357 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7357, align 8
-  %add.ptr7358 = getelementptr i8, ptr %next_instr.27, i64 2
+  %instr_ptr7357 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7357, align 8
+  %add.ptr7358 = getelementptr i8, ptr %next_instr.1, i64 2
   %1464 = load ptr, ptr @PyExc_AssertionError, align 8
   %1465 = load i32, ptr %1464, align 8
   %add.i.i8201 = add i32 %1465, 1
@@ -12920,56 +12920,56 @@ if.end.i.i8203:                                   ; preds = %TARGET_LOAD_ASSERTI
   br label %_Py_NewRef.exit8204
 
 _Py_NewRef.exit8204:                              ; preds = %TARGET_LOAD_ASSERTION_ERROR, %if.end.i.i8203
-  store ptr %1464, ptr %stack_pointer.17, align 8
-  %add.ptr7362 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1464, ptr %stack_pointer.0, align 8
+  %add.ptr7362 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word7364.sroa.0.0.copyload = load i8, ptr %add.ptr7358, align 2
-  %word7364.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word7364.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word7364.sroa.2.0.copyload = load i8, ptr %word7364.sroa.2.0..sroa_idx, align 1
   %conv7367 = zext i8 %word7364.sroa.2.0.copyload to i32
   %idxprom7369 = zext i8 %word7364.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_ATTR:                                 ; preds = %indirectgoto
-  %instr_ptr7371 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7371, align 8
-  %add.ptr7372 = getelementptr i8, ptr %next_instr.27, i64 20
+  %instr_ptr7371 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7371, align 8
+  %add.ptr7372 = getelementptr i8, ptr %next_instr.1, i64 20
   br label %PRED_82
 
 PRED_82:                                          ; preds = %if.end7987, %if.end7558, %if.end8148, %if.else8135, %if.then8123, %if.end8098, %if.end8084, %TARGET_LOAD_ATTR_WITH_HINT, %if.end8025, %TARGET_LOAD_ATTR_SLOT, %_PyThreadState_HasStackSpace.exit8275, %if.end7981, %if.end7974, %TARGET_LOAD_ATTR_PROPERTY, %if.end7915, %land.lhs.true7912, %TARGET_LOAD_ATTR_NONDESCRIPTOR_WITH_VALUES, %TARGET_LOAD_ATTR_NONDESCRIPTOR_NO_DICT, %if.end7799, %if.end7793, %TARGET_LOAD_ATTR_MODULE, %if.end7756, %land.lhs.true7753, %TARGET_LOAD_ATTR_METHOD_WITH_VALUES, %TARGET_LOAD_ATTR_METHOD_NO_DICT, %if.end7676, %TARGET_LOAD_ATTR_METHOD_LAZY_DICT, %if.end7613, %land.lhs.true7610, %TARGET_LOAD_ATTR_INSTANCE_VALUE, %_PyThreadState_HasStackSpace.exit8223, %if.end7553, %if.end7546, %TARGET_LOAD_ATTR_GETATTRIBUTE_OVERRIDDEN, %if.end7488, %TARGET_LOAD_ATTR_CLASS, %TARGET_LOAD_ATTR
-  %next_instr.10 = phi ptr [ %add.ptr8070, %TARGET_LOAD_ATTR_WITH_HINT ], [ %add.ptr8070, %if.end8084 ], [ %add.ptr8070, %if.end8098 ], [ %add.ptr8070, %if.then8123 ], [ %add.ptr8070, %if.end8148 ], [ %add.ptr8070, %if.else8135 ], [ %add.ptr8011, %TARGET_LOAD_ATTR_SLOT ], [ %add.ptr8011, %if.end8025 ], [ %add.ptr7959, %TARGET_LOAD_ATTR_PROPERTY ], [ %add.ptr7959, %if.end7974 ], [ %add.ptr7959, %if.end7981 ], [ %add.ptr7959, %_PyThreadState_HasStackSpace.exit8275 ], [ %add.ptr7893, %TARGET_LOAD_ATTR_NONDESCRIPTOR_WITH_VALUES ], [ %add.ptr7893, %if.end7915 ], [ %add.ptr7893, %land.lhs.true7912 ], [ %add.ptr7848, %TARGET_LOAD_ATTR_NONDESCRIPTOR_NO_DICT ], [ %add.ptr7781, %if.end7793 ], [ %add.ptr7781, %if.end7799 ], [ %add.ptr7781, %TARGET_LOAD_ATTR_MODULE ], [ %add.ptr7733, %TARGET_LOAD_ATTR_METHOD_WITH_VALUES ], [ %add.ptr7733, %if.end7756 ], [ %add.ptr7733, %land.lhs.true7753 ], [ %add.ptr7701, %TARGET_LOAD_ATTR_METHOD_NO_DICT ], [ %add.ptr7662, %TARGET_LOAD_ATTR_METHOD_LAZY_DICT ], [ %add.ptr7662, %if.end7676 ], [ %add.ptr7592, %TARGET_LOAD_ATTR_INSTANCE_VALUE ], [ %add.ptr7592, %if.end7613 ], [ %add.ptr7592, %land.lhs.true7610 ], [ %add.ptr7531, %TARGET_LOAD_ATTR_GETATTRIBUTE_OVERRIDDEN ], [ %add.ptr7531, %if.end7546 ], [ %add.ptr7531, %if.end7553 ], [ %add.ptr7531, %_PyThreadState_HasStackSpace.exit8223 ], [ %add.ptr7478, %if.end7488 ], [ %add.ptr7478, %TARGET_LOAD_ATTR_CLASS ], [ %add.ptr7372, %TARGET_LOAD_ATTR ], [ %add.ptr7531, %if.end7558 ], [ %add.ptr7959, %if.end7987 ]
-  %arrayidx7377 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %next_instr.18 = phi ptr [ %add.ptr8070, %TARGET_LOAD_ATTR_WITH_HINT ], [ %add.ptr8070, %if.end8084 ], [ %add.ptr8070, %if.end8098 ], [ %add.ptr8070, %if.then8123 ], [ %add.ptr8070, %if.end8148 ], [ %add.ptr8070, %if.else8135 ], [ %add.ptr8011, %TARGET_LOAD_ATTR_SLOT ], [ %add.ptr8011, %if.end8025 ], [ %add.ptr7959, %TARGET_LOAD_ATTR_PROPERTY ], [ %add.ptr7959, %if.end7974 ], [ %add.ptr7959, %if.end7981 ], [ %add.ptr7959, %_PyThreadState_HasStackSpace.exit8275 ], [ %add.ptr7893, %TARGET_LOAD_ATTR_NONDESCRIPTOR_WITH_VALUES ], [ %add.ptr7893, %if.end7915 ], [ %add.ptr7893, %land.lhs.true7912 ], [ %add.ptr7848, %TARGET_LOAD_ATTR_NONDESCRIPTOR_NO_DICT ], [ %add.ptr7781, %if.end7793 ], [ %add.ptr7781, %if.end7799 ], [ %add.ptr7781, %TARGET_LOAD_ATTR_MODULE ], [ %add.ptr7733, %TARGET_LOAD_ATTR_METHOD_WITH_VALUES ], [ %add.ptr7733, %if.end7756 ], [ %add.ptr7733, %land.lhs.true7753 ], [ %add.ptr7701, %TARGET_LOAD_ATTR_METHOD_NO_DICT ], [ %add.ptr7662, %TARGET_LOAD_ATTR_METHOD_LAZY_DICT ], [ %add.ptr7662, %if.end7676 ], [ %add.ptr7592, %TARGET_LOAD_ATTR_INSTANCE_VALUE ], [ %add.ptr7592, %if.end7613 ], [ %add.ptr7592, %land.lhs.true7610 ], [ %add.ptr7531, %TARGET_LOAD_ATTR_GETATTRIBUTE_OVERRIDDEN ], [ %add.ptr7531, %if.end7546 ], [ %add.ptr7531, %if.end7553 ], [ %add.ptr7531, %_PyThreadState_HasStackSpace.exit8223 ], [ %add.ptr7478, %if.end7488 ], [ %add.ptr7478, %TARGET_LOAD_ATTR_CLASS ], [ %add.ptr7372, %TARGET_LOAD_ATTR ], [ %add.ptr7531, %if.end7558 ], [ %add.ptr7959, %if.end7987 ]
+  %arrayidx7377 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1466 = load ptr, ptr %arrayidx7377, align 8
-  %arrayidx7379 = getelementptr i8, ptr %next_instr.27, i64 2
+  %arrayidx7379 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx7379.val = load i16, ptr %arrayidx7379, align 2
   %cmp7383 = icmp ult i16 %arrayidx7379.val, 16
   br i1 %cmp7383, label %if.then7385, label %do.body7397
 
 if.then7385:                                      ; preds = %PRED_82
-  %frame.addr.8.val7303 = load ptr, ptr %frame.addr.8, align 8
-  %co_names7388 = getelementptr inbounds i8, ptr %frame.addr.8.val7303, i64 32
+  %frame.addr.4.val7303 = load ptr, ptr %frame.addr.4, align 8
+  %co_names7388 = getelementptr inbounds i8, ptr %frame.addr.4.val7303, i64 32
   %1467 = load ptr, ptr %co_names7388, align 8
   %ob_item7389 = getelementptr inbounds i8, ptr %1467, i64 24
-  %shr7390 = ashr i32 %oparg.1, 1
+  %shr7390 = ashr i32 %oparg.0, 1
   %idxprom7391 = sext i32 %shr7390 to i64
   %arrayidx7392 = getelementptr [1 x ptr], ptr %ob_item7389, i64 0, i64 %idxprom7391
   %1468 = load ptr, ptr %arrayidx7392, align 8
-  call void @_Py_Specialize_LoadAttr(ptr noundef %1466, ptr noundef nonnull %next_instr.27, ptr noundef %1468) #15
-  %1469 = load i8, ptr %next_instr.27, align 2
+  call void @_Py_Specialize_LoadAttr(ptr noundef %1466, ptr noundef nonnull %next_instr.1, ptr noundef %1468) #15
+  %1469 = load i8, ptr %next_instr.1, align 2
   %idxprom7394 = zext i8 %1469 to i64
   br label %indirectgoto.backedge
 
 do.body7397:                                      ; preds = %PRED_82
   %sub7400 = add i16 %arrayidx7379.val, -16
   store i16 %sub7400, ptr %arrayidx7379, align 2
-  %frame.addr.8.val7304 = load ptr, ptr %frame.addr.8, align 8
-  %co_names7405 = getelementptr inbounds i8, ptr %frame.addr.8.val7304, i64 32
+  %frame.addr.4.val7304 = load ptr, ptr %frame.addr.4, align 8
+  %co_names7405 = getelementptr inbounds i8, ptr %frame.addr.4.val7304, i64 32
   %1470 = load ptr, ptr %co_names7405, align 8
   %ob_item7406 = getelementptr inbounds i8, ptr %1470, i64 24
-  %shr7407 = ashr i32 %oparg.1, 1
+  %shr7407 = ashr i32 %oparg.0, 1
   %idxprom7408 = sext i32 %shr7407 to i64
   %arrayidx7409 = getelementptr [1 x ptr], ptr %ob_item7406, i64 0, i64 %idxprom7408
   %1471 = load ptr, ptr %arrayidx7409, align 8
-  %and7410 = and i32 %oparg.1, 1
+  %and7410 = and i32 %oparg.0, 1
   %tobool7411.not = icmp eq i32 %and7410, 0
   br i1 %tobool7411.not, label %if.else7437, label %if.then7412
 
@@ -13047,24 +13047,24 @@ if.then7462:                                      ; preds = %if.then7412.if.then
   %1482 = phi ptr [ %1476, %do.end7431 ], [ %.pre11852, %if.then7412.if.then7462_crit_edge ]
   %self_or_null7376.0.ph = phi ptr [ null, %do.end7431 ], [ %1466, %if.then7412.if.then7462_crit_edge ]
   store ptr %1482, ptr %arrayidx7377, align 8
-  store ptr %self_or_null7376.0.ph, ptr %stack_pointer.17, align 8
+  store ptr %self_or_null7376.0.ph, ptr %stack_pointer.0, align 8
   br label %if.end7464
 
 if.end7464:                                       ; preds = %if.end7458, %if.then7462
   %idx.ext7466 = zext nneg i32 %and7410 to i64
-  %add.ptr7467 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext7466
-  %word7469.sroa.0.0.copyload = load i8, ptr %next_instr.10, align 2
-  %word7469.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 21
+  %add.ptr7467 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext7466
+  %word7469.sroa.0.0.copyload = load i8, ptr %next_instr.18, align 2
+  %word7469.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 21
   %word7469.sroa.2.0.copyload = load i8, ptr %word7469.sroa.2.0..sroa_idx, align 1
   %conv7472 = zext i8 %word7469.sroa.2.0.copyload to i32
   %idxprom7474 = zext i8 %word7469.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_ATTR_CLASS:                           ; preds = %indirectgoto
-  %instr_ptr7477 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7477, align 8
-  %add.ptr7478 = getelementptr i8, ptr %next_instr.27, i64 20
-  %arrayidx7482 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7477 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7477, align 8
+  %add.ptr7478 = getelementptr i8, ptr %next_instr.1, i64 20
+  %arrayidx7482 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1483 = load ptr, ptr %arrayidx7482, align 8
   %1484 = getelementptr i8, ptr %1483, i64 8
   %.val7279 = load ptr, ptr %1484, align 8
@@ -13075,7 +13075,7 @@ TARGET_LOAD_ATTR_CLASS:                           ; preds = %indirectgoto
   br i1 %cmp.i.i8206.not, label %PRED_82, label %if.end7488
 
 if.end7488:                                       ; preds = %TARGET_LOAD_ATTR_CLASS
-  %arrayidx7483 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx7483 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx7483.val = load i32, ptr %arrayidx7483, align 2
   %tp_version_tag7489 = getelementptr inbounds i8, ptr %1483, i64 384
   %1486 = load i32, ptr %tp_version_tag7489, align 8
@@ -13083,7 +13083,7 @@ if.end7488:                                       ; preds = %TARGET_LOAD_ATTR_CL
   br i1 %cmp7490.not, label %if.end7493, label %PRED_82
 
 if.end7493:                                       ; preds = %if.end7488
-  %arrayidx7494 = getelementptr i8, ptr %next_instr.27, i64 12
+  %arrayidx7494 = getelementptr i8, ptr %next_instr.1, i64 12
   %arrayidx7494.val = load ptr, ptr %arrayidx7494, align 2
   %1487 = load i32, ptr %arrayidx7494.val, align 8
   %add.i.i8208 = add i32 %1487, 1
@@ -13115,33 +13115,33 @@ if.then7506:                                      ; preds = %if.end7502
 
 do.end7511:                                       ; preds = %if.end7502, %if.then7506, %_Py_NewRef.exit8211
   store ptr %arrayidx7494.val, ptr %arrayidx7482, align 8
-  %and7513 = and i32 %oparg.1, 1
+  %and7513 = and i32 %oparg.0, 1
   %tobool7514.not = icmp eq i32 %and7513, 0
   br i1 %tobool7514.not, label %if.end7517, label %if.then7515
 
 if.then7515:                                      ; preds = %do.end7511
-  store ptr null, ptr %stack_pointer.17, align 8
+  store ptr null, ptr %stack_pointer.0, align 8
   br label %if.end7517
 
 if.end7517:                                       ; preds = %if.then7515, %do.end7511
   %idx.ext7519 = zext nneg i32 %and7513 to i64
-  %add.ptr7520 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext7519
+  %add.ptr7520 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext7519
   %word7522.sroa.0.0.copyload = load i8, ptr %add.ptr7478, align 2
-  %word7522.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 21
+  %word7522.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 21
   %word7522.sroa.2.0.copyload = load i8, ptr %word7522.sroa.2.0..sroa_idx, align 1
   %conv7525 = zext i8 %word7522.sroa.2.0.copyload to i32
   %idxprom7527 = zext i8 %word7522.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_ATTR_GETATTRIBUTE_OVERRIDDEN:         ; preds = %indirectgoto
-  %instr_ptr7530 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7530, align 8
-  %add.ptr7531 = getelementptr i8, ptr %next_instr.27, i64 20
-  %arrayidx7533 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7530 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7530, align 8
+  %add.ptr7531 = getelementptr i8, ptr %next_instr.1, i64 20
+  %arrayidx7533 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1491 = load ptr, ptr %arrayidx7533, align 8
-  %arrayidx7538 = getelementptr i8, ptr %next_instr.27, i64 8
+  %arrayidx7538 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx7538.val = load i32, ptr %arrayidx7538, align 2
-  %arrayidx7540 = getelementptr i8, ptr %next_instr.27, i64 12
+  %arrayidx7540 = getelementptr i8, ptr %next_instr.1, i64 12
   %arrayidx7540.val = load ptr, ptr %arrayidx7540, align 2
   %1492 = load ptr, ptr %interp10475, align 8
   %eval_frame7543 = getelementptr inbounds i8, ptr %1492, i64 2072
@@ -13150,7 +13150,7 @@ TARGET_LOAD_ATTR_GETATTRIBUTE_OVERRIDDEN:         ; preds = %indirectgoto
   br i1 %tobool7544.not, label %if.end7546, label %PRED_82
 
 if.end7546:                                       ; preds = %TARGET_LOAD_ATTR_GETATTRIBUTE_OVERRIDDEN
-  %arrayidx7535 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx7535 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx7535.val = load i32, ptr %arrayidx7535, align 2
   %1494 = getelementptr i8, ptr %1491, i64 8
   %.val7105 = load ptr, ptr %1494, align 8
@@ -13185,12 +13185,12 @@ _PyThreadState_HasStackSpace.exit8223:            ; preds = %if.end7558
   br i1 %cmp2.i8221, label %if.end7564, label %PRED_82
 
 if.end7564:                                       ; preds = %_PyThreadState_HasStackSpace.exit8223
-  %arrayidx7533.le = getelementptr i8, ptr %stack_pointer.17, i64 -8
-  %frame.addr.8.val7305 = load ptr, ptr %frame.addr.8, align 8
-  %co_names7567 = getelementptr inbounds i8, ptr %frame.addr.8.val7305, i64 32
+  %arrayidx7533.le = getelementptr i8, ptr %stack_pointer.0, i64 -8
+  %frame.addr.4.val7305 = load ptr, ptr %frame.addr.4, align 8
+  %co_names7567 = getelementptr inbounds i8, ptr %frame.addr.4.val7305, i64 32
   %1501 = load ptr, ptr %co_names7567, align 8
   %ob_item7568 = getelementptr inbounds i8, ptr %1501, i64 24
-  %shr7569 = ashr i32 %oparg.1, 1
+  %shr7569 = ashr i32 %oparg.0, 1
   %idxprom7570 = sext i32 %shr7569 to i64
   %arrayidx7571 = getelementptr [1 x ptr], ptr %ob_item7568, i64 0, i64 %idxprom7570
   %1502 = load ptr, ptr %arrayidx7571, align 8
@@ -13219,28 +13219,28 @@ if.end.i.i8226:                                   ; preds = %Py_INCREF.exit21344
 _Py_NewRef.exit8227:                              ; preds = %Py_INCREF.exit21344, %if.end.i.i8226
   %arrayidx7579 = getelementptr i8, ptr %call7573, i64 80
   store ptr %1502, ptr %arrayidx7579, align 8
-  %return_offset7585 = getelementptr inbounds i8, ptr %frame.addr.8, i64 68
+  %return_offset7585 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
   store i16 10, ptr %return_offset7585, align 4
-  %localsplus.i8228 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i8228 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i8229 = ptrtoint ptr %arrayidx7533.le to i64
   %sub.ptr.rhs.cast.i8230 = ptrtoint ptr %localsplus.i8228 to i64
   %sub.ptr.sub.i8231 = sub i64 %sub.ptr.lhs.cast.i8229, %sub.ptr.rhs.cast.i8230
   %sub.ptr.div.i8232 = lshr exact i64 %sub.ptr.sub.i8231, 3
   %conv.i8233 = trunc i64 %sub.ptr.div.i8232 to i32
-  %stacktop.i8234 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8234 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8233, ptr %stacktop.i8234, align 8
   %previous7587 = getelementptr inbounds i8, ptr %call7573, i64 8
-  store ptr %frame.addr.8, ptr %previous7587, align 8
+  store ptr %frame.addr.4, ptr %previous7587, align 8
   store ptr %call7573, ptr %current_frame, align 8
   br label %start_frame
 
 TARGET_LOAD_ATTR_INSTANCE_VALUE:                  ; preds = %indirectgoto
-  %instr_ptr7591 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7591, align 8
-  %add.ptr7592 = getelementptr i8, ptr %next_instr.27, i64 20
-  %arrayidx7596 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7591 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7591, align 8
+  %add.ptr7592 = getelementptr i8, ptr %next_instr.1, i64 20
+  %arrayidx7596 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1505 = load ptr, ptr %arrayidx7596, align 8
-  %arrayidx7598 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx7598 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx7598.val = load i32, ptr %arrayidx7598, align 2
   %1506 = getelementptr i8, ptr %1505, i64 8
   %.val7104 = load ptr, ptr %1506, align 8
@@ -13267,7 +13267,7 @@ land.lhs.true7610.if.end7613_crit_edge:           ; preds = %land.lhs.true7610
 
 if.end7613:                                       ; preds = %land.lhs.true7610.if.end7613_crit_edge, %if.end7606
   %dorv7617.sroa.0.0.copyload = phi ptr [ %dorv7617.sroa.0.0.copyload.pre, %land.lhs.true7610.if.end7613_crit_edge ], [ %1508, %if.end7606 ]
-  %arrayidx7615 = getelementptr i8, ptr %next_instr.27, i64 8
+  %arrayidx7615 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx7615.val = load i16, ptr %arrayidx7615, align 2
   %add.ptr.i8238 = getelementptr i8, ptr %dorv7617.sroa.0.0.copyload, i64 1
   %idxprom7622 = zext i16 %arrayidx7615.val to i64
@@ -13307,31 +13307,31 @@ if.then7637:                                      ; preds = %if.end7633
 
 do.end7642:                                       ; preds = %if.end7633, %if.then7637, %Py_INCREF.exit21336
   store ptr %1510, ptr %arrayidx7596, align 8
-  %and7644 = and i32 %oparg.1, 1
+  %and7644 = and i32 %oparg.0, 1
   %tobool7645.not = icmp eq i32 %and7644, 0
   br i1 %tobool7645.not, label %if.end7648, label %if.then7646
 
 if.then7646:                                      ; preds = %do.end7642
-  store ptr null, ptr %stack_pointer.17, align 8
+  store ptr null, ptr %stack_pointer.0, align 8
   br label %if.end7648
 
 if.end7648:                                       ; preds = %if.then7646, %do.end7642
   %idx.ext7650 = zext nneg i32 %and7644 to i64
-  %add.ptr7651 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext7650
+  %add.ptr7651 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext7650
   %word7653.sroa.0.0.copyload = load i8, ptr %add.ptr7592, align 2
-  %word7653.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 21
+  %word7653.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 21
   %word7653.sroa.2.0.copyload = load i8, ptr %word7653.sroa.2.0..sroa_idx, align 1
   %conv7656 = zext i8 %word7653.sroa.2.0.copyload to i32
   %idxprom7658 = zext i8 %word7653.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_ATTR_METHOD_LAZY_DICT:                ; preds = %indirectgoto
-  %instr_ptr7661 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7661, align 8
-  %add.ptr7662 = getelementptr i8, ptr %next_instr.27, i64 20
-  %arrayidx7666 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7661 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7661, align 8
+  %add.ptr7662 = getelementptr i8, ptr %next_instr.1, i64 20
+  %arrayidx7666 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1515 = load ptr, ptr %arrayidx7666, align 8
-  %arrayidx7668 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx7668 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx7668.val = load i32, ptr %arrayidx7668, align 2
   %1516 = getelementptr i8, ptr %1515, i64 8
   %.val7102 = load ptr, ptr %1516, align 8
@@ -13349,7 +13349,7 @@ if.end7676:                                       ; preds = %TARGET_LOAD_ATTR_ME
   br i1 %cmp7680.not, label %if.end7683, label %PRED_82
 
 if.end7683:                                       ; preds = %if.end7676
-  %arrayidx7685 = getelementptr i8, ptr %next_instr.27, i64 12
+  %arrayidx7685 = getelementptr i8, ptr %next_instr.1, i64 12
   %arrayidx7685.val = load ptr, ptr %arrayidx7685, align 2
   %1520 = load i32, ptr %arrayidx7685.val, align 8
   %add.i.i8239 = add i32 %1520, 1
@@ -13362,22 +13362,22 @@ if.end.i.i8241:                                   ; preds = %if.end7683
 
 _Py_NewRef.exit8242:                              ; preds = %if.end7683, %if.end.i.i8241
   store ptr %arrayidx7685.val, ptr %arrayidx7666, align 8
-  store ptr %1515, ptr %stack_pointer.17, align 8
-  %add.ptr7690 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1515, ptr %stack_pointer.0, align 8
+  %add.ptr7690 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word7692.sroa.0.0.copyload = load i8, ptr %add.ptr7662, align 2
-  %word7692.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 21
+  %word7692.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 21
   %word7692.sroa.2.0.copyload = load i8, ptr %word7692.sroa.2.0..sroa_idx, align 1
   %conv7695 = zext i8 %word7692.sroa.2.0.copyload to i32
   %idxprom7697 = zext i8 %word7692.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_ATTR_METHOD_NO_DICT:                  ; preds = %indirectgoto
-  %instr_ptr7700 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7700, align 8
-  %add.ptr7701 = getelementptr i8, ptr %next_instr.27, i64 20
-  %arrayidx7705 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7700 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7700, align 8
+  %add.ptr7701 = getelementptr i8, ptr %next_instr.1, i64 20
+  %arrayidx7705 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1521 = load ptr, ptr %arrayidx7705, align 8
-  %arrayidx7707 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx7707 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx7707.val = load i32, ptr %arrayidx7707, align 2
   %1522 = getelementptr i8, ptr %1521, i64 8
   %.val7100 = load ptr, ptr %1522, align 8
@@ -13387,7 +13387,7 @@ TARGET_LOAD_ATTR_METHOD_NO_DICT:                  ; preds = %indirectgoto
   br i1 %cmp7712.not, label %if.end7715, label %PRED_82
 
 if.end7715:                                       ; preds = %TARGET_LOAD_ATTR_METHOD_NO_DICT
-  %arrayidx7717 = getelementptr i8, ptr %next_instr.27, i64 12
+  %arrayidx7717 = getelementptr i8, ptr %next_instr.1, i64 12
   %arrayidx7717.val = load ptr, ptr %arrayidx7717, align 2
   %1524 = load i32, ptr %arrayidx7717.val, align 8
   %add.i.i8243 = add i32 %1524, 1
@@ -13400,22 +13400,22 @@ if.end.i.i8245:                                   ; preds = %if.end7715
 
 _Py_NewRef.exit8246:                              ; preds = %if.end7715, %if.end.i.i8245
   store ptr %arrayidx7717.val, ptr %arrayidx7705, align 8
-  store ptr %1521, ptr %stack_pointer.17, align 8
-  %add.ptr7722 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1521, ptr %stack_pointer.0, align 8
+  %add.ptr7722 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word7724.sroa.0.0.copyload = load i8, ptr %add.ptr7701, align 2
-  %word7724.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 21
+  %word7724.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 21
   %word7724.sroa.2.0.copyload = load i8, ptr %word7724.sroa.2.0..sroa_idx, align 1
   %conv7727 = zext i8 %word7724.sroa.2.0.copyload to i32
   %idxprom7729 = zext i8 %word7724.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_ATTR_METHOD_WITH_VALUES:              ; preds = %indirectgoto
-  %instr_ptr7732 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7732, align 8
-  %add.ptr7733 = getelementptr i8, ptr %next_instr.27, i64 20
-  %arrayidx7737 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7732 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7732, align 8
+  %add.ptr7733 = getelementptr i8, ptr %next_instr.1, i64 20
+  %arrayidx7737 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1525 = load ptr, ptr %arrayidx7737, align 8
-  %arrayidx7739 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx7739 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx7739.val = load i32, ptr %arrayidx7739, align 2
   %1526 = getelementptr i8, ptr %1525, i64 8
   %.val7099 = load ptr, ptr %1526, align 8
@@ -13442,7 +13442,7 @@ land.lhs.true7753.if.end7756_crit_edge:           ; preds = %land.lhs.true7753
 
 if.end7756:                                       ; preds = %land.lhs.true7753.if.end7756_crit_edge, %if.end7747
   %.val7098 = phi ptr [ %.val7098.pre, %land.lhs.true7753.if.end7756_crit_edge ], [ %.val7099, %if.end7747 ]
-  %arrayidx7757 = getelementptr i8, ptr %next_instr.27, i64 8
+  %arrayidx7757 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx7757.val = load i32, ptr %arrayidx7757, align 2
   %ht_cached_keys = getelementptr inbounds i8, ptr %.val7098, i64 880
   %1530 = load ptr, ptr %ht_cached_keys, align 8
@@ -13452,7 +13452,7 @@ if.end7756:                                       ; preds = %land.lhs.true7753.i
   br i1 %cmp7760.not, label %if.end7763, label %PRED_82
 
 if.end7763:                                       ; preds = %if.end7756
-  %arrayidx7765 = getelementptr i8, ptr %next_instr.27, i64 12
+  %arrayidx7765 = getelementptr i8, ptr %next_instr.1, i64 12
   %arrayidx7765.val = load ptr, ptr %arrayidx7765, align 2
   %1532 = load i32, ptr %arrayidx7765.val, align 8
   %add.i.i8249 = add i32 %1532, 1
@@ -13465,20 +13465,20 @@ if.end.i.i8251:                                   ; preds = %if.end7763
 
 _Py_NewRef.exit8252:                              ; preds = %if.end7763, %if.end.i.i8251
   store ptr %arrayidx7765.val, ptr %arrayidx7737, align 8
-  store ptr %1525, ptr %stack_pointer.17, align 8
-  %add.ptr7770 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1525, ptr %stack_pointer.0, align 8
+  %add.ptr7770 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word7772.sroa.0.0.copyload = load i8, ptr %add.ptr7733, align 2
-  %word7772.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 21
+  %word7772.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 21
   %word7772.sroa.2.0.copyload = load i8, ptr %word7772.sroa.2.0..sroa_idx, align 1
   %conv7775 = zext i8 %word7772.sroa.2.0.copyload to i32
   %idxprom7777 = zext i8 %word7772.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_ATTR_MODULE:                          ; preds = %indirectgoto
-  %instr_ptr7780 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7780, align 8
-  %add.ptr7781 = getelementptr i8, ptr %next_instr.27, i64 20
-  %arrayidx7785 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7780 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7780, align 8
+  %add.ptr7781 = getelementptr i8, ptr %next_instr.1, i64 20
+  %arrayidx7785 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1533 = load ptr, ptr %arrayidx7785, align 8
   %ob_type7789 = getelementptr inbounds i8, ptr %1533, i64 8
   %1534 = load ptr, ptr %ob_type7789, align 8
@@ -13486,7 +13486,7 @@ TARGET_LOAD_ATTR_MODULE:                          ; preds = %indirectgoto
   br i1 %cmp7790, label %if.end7793, label %PRED_82
 
 if.end7793:                                       ; preds = %TARGET_LOAD_ATTR_MODULE
-  %arrayidx7787 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx7787 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx7787.val = load i32, ptr %arrayidx7787, align 2
   %md_dict = getelementptr inbounds i8, ptr %1533, i64 16
   %1535 = load ptr, ptr %md_dict, align 8
@@ -13498,7 +13498,7 @@ if.end7793:                                       ; preds = %TARGET_LOAD_ATTR_MO
   br i1 %cmp7796.not, label %if.end7799, label %PRED_82
 
 if.end7799:                                       ; preds = %if.end7793
-  %arrayidx7801 = getelementptr i8, ptr %next_instr.27, i64 8
+  %arrayidx7801 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx7801.val = load i16, ptr %arrayidx7801, align 2
   %dk_indices.i.i = getelementptr inbounds i8, ptr %1536, i64 32
   %dk_log2_index_bytes.i.i = getelementptr inbounds i8, ptr %1536, i64 9
@@ -13543,31 +13543,31 @@ if.then7823:                                      ; preds = %if.end7819
 
 do.end7828:                                       ; preds = %if.end7819, %if.then7823, %Py_INCREF.exit21328
   store ptr %1539, ptr %arrayidx7785, align 8
-  %and7830 = and i32 %oparg.1, 1
+  %and7830 = and i32 %oparg.0, 1
   %tobool7831.not = icmp eq i32 %and7830, 0
   br i1 %tobool7831.not, label %if.end7834, label %if.then7832
 
 if.then7832:                                      ; preds = %do.end7828
-  store ptr null, ptr %stack_pointer.17, align 8
+  store ptr null, ptr %stack_pointer.0, align 8
   br label %if.end7834
 
 if.end7834:                                       ; preds = %if.then7832, %do.end7828
   %idx.ext7836 = zext nneg i32 %and7830 to i64
-  %add.ptr7837 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext7836
+  %add.ptr7837 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext7836
   %word7839.sroa.0.0.copyload = load i8, ptr %add.ptr7781, align 2
-  %word7839.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 21
+  %word7839.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 21
   %word7839.sroa.2.0.copyload = load i8, ptr %word7839.sroa.2.0..sroa_idx, align 1
   %conv7842 = zext i8 %word7839.sroa.2.0.copyload to i32
   %idxprom7844 = zext i8 %word7839.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_ATTR_NONDESCRIPTOR_NO_DICT:           ; preds = %indirectgoto
-  %instr_ptr7847 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7847, align 8
-  %add.ptr7848 = getelementptr i8, ptr %next_instr.27, i64 20
-  %arrayidx7851 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7847 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7847, align 8
+  %add.ptr7848 = getelementptr i8, ptr %next_instr.1, i64 20
+  %arrayidx7851 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1544 = load ptr, ptr %arrayidx7851, align 8
-  %arrayidx7853 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx7853 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx7853.val = load i32, ptr %arrayidx7853, align 2
   %1545 = getelementptr i8, ptr %1544, i64 8
   %.val7096 = load ptr, ptr %1545, align 8
@@ -13577,7 +13577,7 @@ TARGET_LOAD_ATTR_NONDESCRIPTOR_NO_DICT:           ; preds = %indirectgoto
   br i1 %cmp7858.not, label %if.end7861, label %PRED_82
 
 if.end7861:                                       ; preds = %TARGET_LOAD_ATTR_NONDESCRIPTOR_NO_DICT
-  %arrayidx7863 = getelementptr i8, ptr %next_instr.27, i64 12
+  %arrayidx7863 = getelementptr i8, ptr %next_instr.1, i64 12
   %arrayidx7863.val = load ptr, ptr %arrayidx7863, align 2
   %1547 = load i64, ptr %1544, align 8
   %1548 = and i64 %1547, 2147483648
@@ -13609,19 +13609,19 @@ if.end.i.i8256:                                   ; preds = %do.end7879
 _Py_NewRef.exit8257:                              ; preds = %do.end7879, %if.end.i.i8256
   store ptr %arrayidx7863.val, ptr %arrayidx7851, align 8
   %word7884.sroa.0.0.copyload = load i8, ptr %add.ptr7848, align 2
-  %word7884.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 21
+  %word7884.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 21
   %word7884.sroa.2.0.copyload = load i8, ptr %word7884.sroa.2.0..sroa_idx, align 1
   %conv7887 = zext i8 %word7884.sroa.2.0.copyload to i32
   %idxprom7889 = zext i8 %word7884.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_ATTR_NONDESCRIPTOR_WITH_VALUES:       ; preds = %indirectgoto
-  %instr_ptr7892 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7892, align 8
-  %add.ptr7893 = getelementptr i8, ptr %next_instr.27, i64 20
-  %arrayidx7896 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7892 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7892, align 8
+  %add.ptr7893 = getelementptr i8, ptr %next_instr.1, i64 20
+  %arrayidx7896 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1551 = load ptr, ptr %arrayidx7896, align 8
-  %arrayidx7898 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx7898 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx7898.val = load i32, ptr %arrayidx7898, align 2
   %1552 = getelementptr i8, ptr %1551, i64 8
   %.val7094 = load ptr, ptr %1552, align 8
@@ -13648,7 +13648,7 @@ land.lhs.true7912.if.end7915_crit_edge:           ; preds = %land.lhs.true7912
 
 if.end7915:                                       ; preds = %land.lhs.true7912.if.end7915_crit_edge, %if.end7906
   %.val7093 = phi ptr [ %.val7093.pre, %land.lhs.true7912.if.end7915_crit_edge ], [ %.val7094, %if.end7906 ]
-  %arrayidx7917 = getelementptr i8, ptr %next_instr.27, i64 8
+  %arrayidx7917 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx7917.val = load i32, ptr %arrayidx7917, align 2
   %ht_cached_keys7922 = getelementptr inbounds i8, ptr %.val7093, i64 880
   %1556 = load ptr, ptr %ht_cached_keys7922, align 8
@@ -13658,7 +13658,7 @@ if.end7915:                                       ; preds = %land.lhs.true7912.i
   br i1 %cmp7924.not, label %if.end7927, label %PRED_82
 
 if.end7927:                                       ; preds = %if.end7915
-  %arrayidx7929 = getelementptr i8, ptr %next_instr.27, i64 12
+  %arrayidx7929 = getelementptr i8, ptr %next_instr.1, i64 12
   %arrayidx7929.val = load ptr, ptr %arrayidx7929, align 2
   %1558 = load i64, ptr %1551, align 8
   %1559 = and i64 %1558, 2147483648
@@ -13690,21 +13690,21 @@ if.end.i.i8262:                                   ; preds = %do.end7945
 _Py_NewRef.exit8263:                              ; preds = %do.end7945, %if.end.i.i8262
   store ptr %arrayidx7929.val, ptr %arrayidx7896, align 8
   %word7950.sroa.0.0.copyload = load i8, ptr %add.ptr7893, align 2
-  %word7950.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 21
+  %word7950.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 21
   %word7950.sroa.2.0.copyload = load i8, ptr %word7950.sroa.2.0..sroa_idx, align 1
   %conv7953 = zext i8 %word7950.sroa.2.0.copyload to i32
   %idxprom7955 = zext i8 %word7950.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_ATTR_PROPERTY:                        ; preds = %indirectgoto
-  %instr_ptr7958 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr7958, align 8
-  %add.ptr7959 = getelementptr i8, ptr %next_instr.27, i64 20
-  %arrayidx7961 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr7958 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr7958, align 8
+  %add.ptr7959 = getelementptr i8, ptr %next_instr.1, i64 20
+  %arrayidx7961 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1562 = load ptr, ptr %arrayidx7961, align 8
-  %arrayidx7966 = getelementptr i8, ptr %next_instr.27, i64 8
+  %arrayidx7966 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx7966.val = load i32, ptr %arrayidx7966, align 2
-  %arrayidx7968 = getelementptr i8, ptr %next_instr.27, i64 12
+  %arrayidx7968 = getelementptr i8, ptr %next_instr.1, i64 12
   %arrayidx7968.val = load ptr, ptr %arrayidx7968, align 2
   %1563 = load ptr, ptr %interp10475, align 8
   %eval_frame7971 = getelementptr inbounds i8, ptr %1563, i64 2072
@@ -13713,7 +13713,7 @@ TARGET_LOAD_ATTR_PROPERTY:                        ; preds = %indirectgoto
   br i1 %tobool7972.not, label %if.end7974, label %PRED_82
 
 if.end7974:                                       ; preds = %TARGET_LOAD_ATTR_PROPERTY
-  %arrayidx7963 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx7963 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx7963.val = load i32, ptr %arrayidx7963, align 2
   %1565 = getelementptr i8, ptr %1562, i64 8
   %.val7091 = load ptr, ptr %1565, align 8
@@ -13748,7 +13748,7 @@ _PyThreadState_HasStackSpace.exit8275:            ; preds = %if.end7987
   br i1 %cmp2.i8273, label %if.end7993, label %PRED_82
 
 if.end7993:                                       ; preds = %_PyThreadState_HasStackSpace.exit8275
-  %arrayidx7961.le = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %arrayidx7961.le = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1572 = load i32, ptr %arrayidx7968.val, align 8
   %add.i21316 = add i32 %1572, 1
   %cmp.i21317 = icmp eq i32 %add.i21316, 0
@@ -13762,28 +13762,28 @@ Py_INCREF.exit21320:                              ; preds = %if.end7993, %if.end
   %call7995 = call fastcc ptr @_PyFrame_PushUnchecked(ptr noundef nonnull %tstate, ptr noundef nonnull %arrayidx7968.val, i32 noundef 1)
   %localsplus7997 = getelementptr inbounds i8, ptr %call7995, i64 72
   store ptr %1562, ptr %localsplus7997, align 8
-  %return_offset8004 = getelementptr inbounds i8, ptr %frame.addr.8, i64 68
+  %return_offset8004 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
   store i16 10, ptr %return_offset8004, align 4
-  %localsplus.i8276 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i8276 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i8277 = ptrtoint ptr %arrayidx7961.le to i64
   %sub.ptr.rhs.cast.i8278 = ptrtoint ptr %localsplus.i8276 to i64
   %sub.ptr.sub.i8279 = sub i64 %sub.ptr.lhs.cast.i8277, %sub.ptr.rhs.cast.i8278
   %sub.ptr.div.i8280 = lshr exact i64 %sub.ptr.sub.i8279, 3
   %conv.i8281 = trunc i64 %sub.ptr.div.i8280 to i32
-  %stacktop.i8282 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8282 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8281, ptr %stacktop.i8282, align 8
   %previous8006 = getelementptr inbounds i8, ptr %call7995, i64 8
-  store ptr %frame.addr.8, ptr %previous8006, align 8
+  store ptr %frame.addr.4, ptr %previous8006, align 8
   store ptr %call7995, ptr %current_frame, align 8
   br label %start_frame
 
 TARGET_LOAD_ATTR_SLOT:                            ; preds = %indirectgoto
-  %instr_ptr8010 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8010, align 8
-  %add.ptr8011 = getelementptr i8, ptr %next_instr.27, i64 20
-  %arrayidx8015 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr8010 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8010, align 8
+  %add.ptr8011 = getelementptr i8, ptr %next_instr.1, i64 20
+  %arrayidx8015 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1573 = load ptr, ptr %arrayidx8015, align 8
-  %arrayidx8017 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx8017 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx8017.val = load i32, ptr %arrayidx8017, align 2
   %1574 = getelementptr i8, ptr %1573, i64 8
   %.val7090 = load ptr, ptr %1574, align 8
@@ -13793,7 +13793,7 @@ TARGET_LOAD_ATTR_SLOT:                            ; preds = %indirectgoto
   br i1 %cmp8022.not, label %if.end8025, label %PRED_82
 
 if.end8025:                                       ; preds = %TARGET_LOAD_ATTR_SLOT
-  %arrayidx8027 = getelementptr i8, ptr %next_instr.27, i64 8
+  %arrayidx8027 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx8027.val = load i16, ptr %arrayidx8027, align 2
   %idx.ext8030 = zext i16 %arrayidx8027.val to i64
   %add.ptr8031 = getelementptr i8, ptr %1573, i64 %idx.ext8030
@@ -13832,31 +13832,31 @@ if.then8045:                                      ; preds = %if.end8041
 
 do.end8050:                                       ; preds = %if.end8041, %if.then8045, %Py_INCREF.exit21312
   store ptr %1576, ptr %arrayidx8015, align 8
-  %and8052 = and i32 %oparg.1, 1
+  %and8052 = and i32 %oparg.0, 1
   %tobool8053.not = icmp eq i32 %and8052, 0
   br i1 %tobool8053.not, label %if.end8056, label %if.then8054
 
 if.then8054:                                      ; preds = %do.end8050
-  store ptr null, ptr %stack_pointer.17, align 8
+  store ptr null, ptr %stack_pointer.0, align 8
   br label %if.end8056
 
 if.end8056:                                       ; preds = %if.then8054, %do.end8050
   %idx.ext8058 = zext nneg i32 %and8052 to i64
-  %add.ptr8059 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext8058
+  %add.ptr8059 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext8058
   %word8061.sroa.0.0.copyload = load i8, ptr %add.ptr8011, align 2
-  %word8061.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 21
+  %word8061.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 21
   %word8061.sroa.2.0.copyload = load i8, ptr %word8061.sroa.2.0..sroa_idx, align 1
   %conv8064 = zext i8 %word8061.sroa.2.0.copyload to i32
   %idxprom8066 = zext i8 %word8061.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_ATTR_WITH_HINT:                       ; preds = %indirectgoto
-  %instr_ptr8069 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8069, align 8
-  %add.ptr8070 = getelementptr i8, ptr %next_instr.27, i64 20
-  %arrayidx8074 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr8069 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8069, align 8
+  %add.ptr8070 = getelementptr i8, ptr %next_instr.1, i64 20
+  %arrayidx8074 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1581 = load ptr, ptr %arrayidx8074, align 8
-  %arrayidx8076 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx8076 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx8076.val = load i32, ptr %arrayidx8076, align 2
   %1582 = getelementptr i8, ptr %1581, i64 8
   %.val7088 = load ptr, ptr %1582, align 8
@@ -13876,7 +13876,7 @@ if.end8084:                                       ; preds = %TARGET_LOAD_ATTR_WI
   br i1 %or.cond9353, label %PRED_82, label %if.end8098
 
 if.end8098:                                       ; preds = %if.end8084
-  %arrayidx8099 = getelementptr i8, ptr %next_instr.27, i64 8
+  %arrayidx8099 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx8099.val = load i16, ptr %arrayidx8099, align 2
   %conv8106 = zext i16 %arrayidx8099.val to i64
   %ma_keys8107 = getelementptr inbounds i8, ptr %dorv8085.sroa.0.0.copyload, i64 32
@@ -13887,11 +13887,11 @@ if.end8098:                                       ; preds = %if.end8084
   br i1 %cmp8108.not, label %if.end8111, label %PRED_82
 
 if.end8111:                                       ; preds = %if.end8098
-  %frame.addr.8.val7306 = load ptr, ptr %frame.addr.8, align 8
-  %co_names8114 = getelementptr inbounds i8, ptr %frame.addr.8.val7306, i64 32
+  %frame.addr.4.val7306 = load ptr, ptr %frame.addr.4, align 8
+  %co_names8114 = getelementptr inbounds i8, ptr %frame.addr.4.val7306, i64 32
   %1587 = load ptr, ptr %co_names8114, align 8
   %ob_item8115 = getelementptr inbounds i8, ptr %1587, i64 24
-  %shr8116 = ashr i32 %oparg.1, 1
+  %shr8116 = ashr i32 %oparg.0, 1
   %idxprom8117 = sext i32 %shr8116 to i64
   %arrayidx8118 = getelementptr [1 x ptr], ptr %ob_item8115, i64 0, i64 %idxprom8117
   %1588 = load ptr, ptr %arrayidx8118, align 8
@@ -13964,29 +13964,29 @@ if.then8162:                                      ; preds = %if.end8158
 
 do.end8167:                                       ; preds = %if.end8158, %if.then8162, %Py_INCREF.exit21304
   store ptr %attr8072.0, ptr %arrayidx8074, align 8
-  %and8169 = and i32 %oparg.1, 1
+  %and8169 = and i32 %oparg.0, 1
   %tobool8170.not = icmp eq i32 %and8169, 0
   br i1 %tobool8170.not, label %if.end8173, label %if.then8171
 
 if.then8171:                                      ; preds = %do.end8167
-  store ptr null, ptr %stack_pointer.17, align 8
+  store ptr null, ptr %stack_pointer.0, align 8
   br label %if.end8173
 
 if.end8173:                                       ; preds = %if.then8171, %do.end8167
   %idx.ext8175 = zext nneg i32 %and8169 to i64
-  %add.ptr8176 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext8175
+  %add.ptr8176 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext8175
   %word8178.sroa.0.0.copyload = load i8, ptr %add.ptr8070, align 2
-  %word8178.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 21
+  %word8178.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 21
   %word8178.sroa.2.0.copyload = load i8, ptr %word8178.sroa.2.0..sroa_idx, align 1
   %conv8181 = zext i8 %word8178.sroa.2.0.copyload to i32
   %idxprom8183 = zext i8 %word8178.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_BUILD_CLASS:                          ; preds = %indirectgoto
-  %instr_ptr8185 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8185, align 8
-  %add.ptr8186 = getelementptr i8, ptr %next_instr.27, i64 2
-  %f_builtins = getelementptr inbounds i8, ptr %frame.addr.8, i64 32
+  %instr_ptr8185 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8185, align 8
+  %add.ptr8186 = getelementptr i8, ptr %next_instr.1, i64 2
+  %f_builtins = getelementptr inbounds i8, ptr %frame.addr.4, i64 32
   %1597 = load ptr, ptr %f_builtins, align 8
   %call8187 = call i32 @PyMapping_GetOptionalItem(ptr noundef %1597, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27328), ptr noundef nonnull %bc) #15
   %cmp8188 = icmp slt i32 %call8187, 0
@@ -14003,24 +14003,24 @@ if.then8194:                                      ; preds = %if.end8191
   br label %error
 
 if.end8195:                                       ; preds = %if.end8191
-  store ptr %1598, ptr %stack_pointer.17, align 8
-  %add.ptr8197 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1598, ptr %stack_pointer.0, align 8
+  %add.ptr8197 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word8199.sroa.0.0.copyload = load i8, ptr %add.ptr8186, align 2
-  %word8199.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word8199.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word8199.sroa.2.0.copyload = load i8, ptr %word8199.sroa.2.0..sroa_idx, align 1
   %conv8202 = zext i8 %word8199.sroa.2.0.copyload to i32
   %idxprom8204 = zext i8 %word8199.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_CONST:                                ; preds = %indirectgoto
-  %instr_ptr8206 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8206, align 8
-  %add.ptr8207 = getelementptr i8, ptr %next_instr.27, i64 2
-  %frame.addr.8.val7307 = load ptr, ptr %frame.addr.8, align 8
-  %co_consts8210 = getelementptr inbounds i8, ptr %frame.addr.8.val7307, i64 24
+  %instr_ptr8206 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8206, align 8
+  %add.ptr8207 = getelementptr i8, ptr %next_instr.1, i64 2
+  %frame.addr.4.val7307 = load ptr, ptr %frame.addr.4, align 8
+  %co_consts8210 = getelementptr inbounds i8, ptr %frame.addr.4.val7307, i64 24
   %1600 = load ptr, ptr %co_consts8210, align 8
   %ob_item8211 = getelementptr inbounds i8, ptr %1600, i64 24
-  %idxprom8212 = sext i32 %oparg.1 to i64
+  %idxprom8212 = sext i32 %oparg.0 to i64
   %arrayidx8213 = getelementptr [1 x ptr], ptr %ob_item8211, i64 0, i64 %idxprom8212
   %1601 = load ptr, ptr %arrayidx8213, align 8
   %1602 = load i32, ptr %1601, align 8
@@ -14033,21 +14033,21 @@ if.end.i21294:                                    ; preds = %TARGET_LOAD_CONST
   br label %Py_INCREF.exit21296
 
 Py_INCREF.exit21296:                              ; preds = %TARGET_LOAD_CONST, %if.end.i21294
-  store ptr %1601, ptr %stack_pointer.17, align 8
-  %add.ptr8215 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1601, ptr %stack_pointer.0, align 8
+  %add.ptr8215 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word8217.sroa.0.0.copyload = load i8, ptr %add.ptr8207, align 2
-  %word8217.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word8217.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word8217.sroa.2.0.copyload = load i8, ptr %word8217.sroa.2.0..sroa_idx, align 1
   %conv8220 = zext i8 %word8217.sroa.2.0.copyload to i32
   %idxprom8222 = zext i8 %word8217.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_DEREF:                                ; preds = %indirectgoto
-  %instr_ptr8224 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8224, align 8
-  %add.ptr8225 = getelementptr i8, ptr %next_instr.27, i64 2
-  %localsplus8228 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %idxprom8229 = sext i32 %oparg.1 to i64
+  %instr_ptr8224 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8224, align 8
+  %add.ptr8225 = getelementptr i8, ptr %next_instr.1, i64 2
+  %localsplus8228 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %idxprom8229 = sext i32 %oparg.0 to i64
   %arrayidx8230 = getelementptr [1 x ptr], ptr %localsplus8228, i64 0, i64 %idxprom8229
   %1603 = load ptr, ptr %arrayidx8230, align 8
   %1604 = getelementptr i8, ptr %1603, i64 16
@@ -14056,7 +14056,7 @@ TARGET_LOAD_DEREF:                                ; preds = %indirectgoto
   br i1 %cmp8232, label %if.then8234, label %if.end8236
 
 if.then8234:                                      ; preds = %TARGET_LOAD_DEREF
-  %frame.addr.8.val7308 = load ptr, ptr %frame.addr.8, align 8
+  %frame.addr.4.val7308 = load ptr, ptr %frame.addr.4, align 8
   %tstate.val.i8296 = load ptr, ptr %25, align 8
   %cmp.i.i8297 = icmp eq ptr %tstate.val.i8296, null
   br i1 %cmp.i.i8297, label %if.end.i8302, label %_PyErr_Occurred.exit.i8298
@@ -14068,17 +14068,17 @@ _PyErr_Occurred.exit.i8298:                       ; preds = %if.then8234
   br i1 %tobool.not.i8300, label %if.end.i8302, label %error
 
 if.end.i8302:                                     ; preds = %_PyErr_Occurred.exit.i8298, %if.then8234
-  %co_localsplusnames.i8303 = getelementptr inbounds i8, ptr %frame.addr.8.val7308, i64 96
+  %co_localsplusnames.i8303 = getelementptr inbounds i8, ptr %frame.addr.4.val7308, i64 96
   %1606 = load ptr, ptr %co_localsplusnames.i8303, align 8
   %ob_item.i8304 = getelementptr inbounds i8, ptr %1606, i64 24
   %arrayidx.i8306 = getelementptr [1 x ptr], ptr %ob_item.i8304, i64 0, i64 %idxprom8229
   %1607 = load ptr, ptr %arrayidx.i8306, align 8
-  %1608 = getelementptr i8, ptr %frame.addr.8.val7308, i64 72
+  %1608 = getelementptr i8, ptr %frame.addr.4.val7308, i64 72
   %co.val.i8307 = load i32, ptr %1608, align 8
-  %1609 = getelementptr i8, ptr %frame.addr.8.val7308, i64 88
+  %1609 = getelementptr i8, ptr %frame.addr.4.val7308, i64 88
   %co.val6.i8308 = load i32, ptr %1609, align 8
   %sub.i.i8309 = sub i32 %co.val.i8307, %co.val6.i8308
-  %cmp.i8310 = icmp sgt i32 %sub.i.i8309, %oparg.1
+  %cmp.i8310 = icmp sgt i32 %sub.i.i8309, %oparg.0
   %.str.35..str.60.i8311 = select i1 %cmp.i8310, ptr @.str.35, ptr @.str.60
   %PyExc_UnboundLocalError.val.i8312 = load ptr, ptr @PyExc_UnboundLocalError, align 8
   %PyExc_NameError.val.i8313 = load ptr, ptr @PyExc_NameError, align 8
@@ -14097,21 +14097,21 @@ if.end.i21286:                                    ; preds = %if.end8236
   br label %Py_INCREF.exit21288
 
 Py_INCREF.exit21288:                              ; preds = %if.end8236, %if.end.i21286
-  store ptr %.val7415, ptr %stack_pointer.17, align 8
-  %add.ptr8238 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %.val7415, ptr %stack_pointer.0, align 8
+  %add.ptr8238 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word8240.sroa.0.0.copyload = load i8, ptr %add.ptr8225, align 2
-  %word8240.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word8240.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word8240.sroa.2.0.copyload = load i8, ptr %word8240.sroa.2.0..sroa_idx, align 1
   %conv8243 = zext i8 %word8240.sroa.2.0.copyload to i32
   %idxprom8245 = zext i8 %word8240.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_FAST:                                 ; preds = %indirectgoto
-  %instr_ptr8247 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8247, align 8
-  %add.ptr8248 = getelementptr i8, ptr %next_instr.27, i64 2
-  %localsplus8250 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %idxprom8251 = sext i32 %oparg.1 to i64
+  %instr_ptr8247 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8247, align 8
+  %add.ptr8248 = getelementptr i8, ptr %next_instr.1, i64 2
+  %localsplus8250 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %idxprom8251 = sext i32 %oparg.0 to i64
   %arrayidx8252 = getelementptr [1 x ptr], ptr %localsplus8250, i64 0, i64 %idxprom8251
   %1612 = load ptr, ptr %arrayidx8252, align 8
   %1613 = load i32, ptr %1612, align 8
@@ -14124,39 +14124,39 @@ if.end.i21278:                                    ; preds = %TARGET_LOAD_FAST
   br label %Py_INCREF.exit21280
 
 Py_INCREF.exit21280:                              ; preds = %TARGET_LOAD_FAST, %if.end.i21278
-  store ptr %1612, ptr %stack_pointer.17, align 8
-  %add.ptr8254 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1612, ptr %stack_pointer.0, align 8
+  %add.ptr8254 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word8256.sroa.0.0.copyload = load i8, ptr %add.ptr8248, align 2
-  %word8256.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word8256.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word8256.sroa.2.0.copyload = load i8, ptr %word8256.sroa.2.0..sroa_idx, align 1
   %conv8259 = zext i8 %word8256.sroa.2.0.copyload to i32
   %idxprom8261 = zext i8 %word8256.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_FAST_AND_CLEAR:                       ; preds = %indirectgoto
-  %instr_ptr8263 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8263, align 8
-  %add.ptr8264 = getelementptr i8, ptr %next_instr.27, i64 2
-  %localsplus8266 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %idxprom8267 = sext i32 %oparg.1 to i64
+  %instr_ptr8263 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8263, align 8
+  %add.ptr8264 = getelementptr i8, ptr %next_instr.1, i64 2
+  %localsplus8266 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %idxprom8267 = sext i32 %oparg.0 to i64
   %arrayidx8268 = getelementptr [1 x ptr], ptr %localsplus8266, i64 0, i64 %idxprom8267
   %1614 = load ptr, ptr %arrayidx8268, align 8
   store ptr null, ptr %arrayidx8268, align 8
-  store ptr %1614, ptr %stack_pointer.17, align 8
-  %add.ptr8273 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1614, ptr %stack_pointer.0, align 8
+  %add.ptr8273 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word8275.sroa.0.0.copyload = load i8, ptr %add.ptr8264, align 2
-  %word8275.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word8275.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word8275.sroa.2.0.copyload = load i8, ptr %word8275.sroa.2.0..sroa_idx, align 1
   %conv8278 = zext i8 %word8275.sroa.2.0.copyload to i32
   %idxprom8280 = zext i8 %word8275.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_FAST_CHECK:                           ; preds = %indirectgoto
-  %instr_ptr8282 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8282, align 8
-  %add.ptr8283 = getelementptr i8, ptr %next_instr.27, i64 2
-  %localsplus8285 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %idxprom8286 = sext i32 %oparg.1 to i64
+  %instr_ptr8282 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8282, align 8
+  %add.ptr8283 = getelementptr i8, ptr %next_instr.1, i64 2
+  %localsplus8285 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %idxprom8286 = sext i32 %oparg.0 to i64
   %arrayidx8287 = getelementptr [1 x ptr], ptr %localsplus8285, i64 0, i64 %idxprom8286
   %1615 = load ptr, ptr %arrayidx8287, align 8
   %cmp8288 = icmp eq ptr %1615, null
@@ -14173,22 +14173,22 @@ if.end.i21270:                                    ; preds = %if.end8291
   br label %Py_INCREF.exit21272
 
 Py_INCREF.exit21272:                              ; preds = %if.end8291, %if.end.i21270
-  store ptr %1615, ptr %stack_pointer.17, align 8
-  %add.ptr8293 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1615, ptr %stack_pointer.0, align 8
+  %add.ptr8293 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word8295.sroa.0.0.copyload = load i8, ptr %add.ptr8283, align 2
-  %word8295.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word8295.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word8295.sroa.2.0.copyload = load i8, ptr %word8295.sroa.2.0..sroa_idx, align 1
   %conv8298 = zext i8 %word8295.sroa.2.0.copyload to i32
   %idxprom8300 = zext i8 %word8295.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_FAST_LOAD_FAST:                       ; preds = %indirectgoto
-  %instr_ptr8302 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8302, align 8
-  %add.ptr8303 = getelementptr i8, ptr %next_instr.27, i64 2
-  %shr8306 = ashr i32 %oparg.1, 4
-  %and8307 = and i32 %oparg.1, 15
-  %localsplus8308 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %instr_ptr8302 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8302, align 8
+  %add.ptr8303 = getelementptr i8, ptr %next_instr.1, i64 2
+  %shr8306 = ashr i32 %oparg.0, 4
+  %and8307 = and i32 %oparg.0, 15
+  %localsplus8308 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %idxprom8309 = zext i32 %shr8306 to i64
   %arrayidx8310 = getelementptr [1 x ptr], ptr %localsplus8308, i64 0, i64 %idxprom8309
   %1617 = load ptr, ptr %arrayidx8310, align 8
@@ -14215,28 +14215,28 @@ if.end.i21254:                                    ; preds = %Py_INCREF.exit21264
   br label %Py_INCREF.exit21256
 
 Py_INCREF.exit21256:                              ; preds = %Py_INCREF.exit21264, %if.end.i21254
-  store ptr %1617, ptr %stack_pointer.17, align 8
-  %arrayidx8315 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1617, ptr %stack_pointer.0, align 8
+  %arrayidx8315 = getelementptr i8, ptr %stack_pointer.0, i64 8
   store ptr %1618, ptr %arrayidx8315, align 8
-  %add.ptr8316 = getelementptr i8, ptr %stack_pointer.17, i64 16
+  %add.ptr8316 = getelementptr i8, ptr %stack_pointer.0, i64 16
   %word8318.sroa.0.0.copyload = load i8, ptr %add.ptr8303, align 2
-  %word8318.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word8318.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word8318.sroa.2.0.copyload = load i8, ptr %word8318.sroa.2.0..sroa_idx, align 1
   %conv8321 = zext i8 %word8318.sroa.2.0.copyload to i32
   %idxprom8323 = zext i8 %word8318.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_FROM_DICT_OR_DEREF:                   ; preds = %indirectgoto
-  %instr_ptr8325 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8325, align 8
-  %add.ptr8326 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx8328 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr8325 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8325, align 8
+  %add.ptr8326 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx8328 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1621 = load ptr, ptr %arrayidx8328, align 8
-  %frame.addr.8.val7309 = load ptr, ptr %frame.addr.8, align 8
-  %co_localsplusnames = getelementptr inbounds i8, ptr %frame.addr.8.val7309, i64 96
+  %frame.addr.4.val7309 = load ptr, ptr %frame.addr.4, align 8
+  %co_localsplusnames = getelementptr inbounds i8, ptr %frame.addr.4.val7309, i64 96
   %1622 = load ptr, ptr %co_localsplusnames, align 8
   %ob_item8331 = getelementptr inbounds i8, ptr %1622, i64 24
-  %idxprom8332 = sext i32 %oparg.1 to i64
+  %idxprom8332 = sext i32 %oparg.0 to i64
   %arrayidx8333 = getelementptr [1 x ptr], ptr %ob_item8331, i64 0, i64 %idxprom8332
   %1623 = load ptr, ptr %arrayidx8333, align 8
   %call8334 = call i32 @PyMapping_GetOptionalItem(ptr noundef %1621, ptr noundef %1623, ptr noundef nonnull %value8327) #15
@@ -14249,7 +14249,7 @@ if.end8338:                                       ; preds = %TARGET_LOAD_FROM_DI
   br i1 %tobool8339.not, label %if.then8340, label %do.body8352
 
 if.then8340:                                      ; preds = %if.end8338
-  %localsplus8342 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus8342 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %arrayidx8344 = getelementptr [1 x ptr], ptr %localsplus8342, i64 0, i64 %idxprom8332
   %1625 = load ptr, ptr %arrayidx8344, align 8
   %1626 = getelementptr i8, ptr %1625, i64 16
@@ -14259,7 +14259,7 @@ if.then8340:                                      ; preds = %if.end8338
   br i1 %cmp8346, label %if.then8348, label %if.end8350
 
 if.then8348:                                      ; preds = %if.then8340
-  %frame.addr.8.val7310 = load ptr, ptr %frame.addr.8, align 8
+  %frame.addr.4.val7310 = load ptr, ptr %frame.addr.4, align 8
   %tstate.val.i8315 = load ptr, ptr %25, align 8
   %cmp.i.i8316 = icmp eq ptr %tstate.val.i8315, null
   br i1 %cmp.i.i8316, label %if.end.i8321, label %_PyErr_Occurred.exit.i8317
@@ -14271,17 +14271,17 @@ _PyErr_Occurred.exit.i8317:                       ; preds = %if.then8348
   br i1 %tobool.not.i8319, label %if.end.i8321, label %error
 
 if.end.i8321:                                     ; preds = %_PyErr_Occurred.exit.i8317, %if.then8348
-  %co_localsplusnames.i8322 = getelementptr inbounds i8, ptr %frame.addr.8.val7310, i64 96
+  %co_localsplusnames.i8322 = getelementptr inbounds i8, ptr %frame.addr.4.val7310, i64 96
   %1628 = load ptr, ptr %co_localsplusnames.i8322, align 8
   %ob_item.i8323 = getelementptr inbounds i8, ptr %1628, i64 24
   %arrayidx.i8325 = getelementptr [1 x ptr], ptr %ob_item.i8323, i64 0, i64 %idxprom8332
   %1629 = load ptr, ptr %arrayidx.i8325, align 8
-  %1630 = getelementptr i8, ptr %frame.addr.8.val7310, i64 72
+  %1630 = getelementptr i8, ptr %frame.addr.4.val7310, i64 72
   %co.val.i8326 = load i32, ptr %1630, align 8
-  %1631 = getelementptr i8, ptr %frame.addr.8.val7310, i64 88
+  %1631 = getelementptr i8, ptr %frame.addr.4.val7310, i64 88
   %co.val6.i8327 = load i32, ptr %1631, align 8
   %sub.i.i8328 = sub i32 %co.val.i8326, %co.val6.i8327
-  %cmp.i8329 = icmp sgt i32 %sub.i.i8328, %oparg.1
+  %cmp.i8329 = icmp sgt i32 %sub.i.i8328, %oparg.0
   %.str.35..str.60.i8330 = select i1 %cmp.i8329, ptr @.str.35, ptr @.str.60
   %PyExc_UnboundLocalError.val.i8331 = load ptr, ptr @PyExc_UnboundLocalError, align 8
   %PyExc_NameError.val.i8332 = load ptr, ptr @PyExc_NameError, align 8
@@ -14323,23 +14323,23 @@ do.end8366:                                       ; preds = %if.end8357, %if.the
   %1638 = load ptr, ptr %value8327, align 8
   store ptr %1638, ptr %arrayidx8328, align 8
   %word8369.sroa.0.0.copyload = load i8, ptr %add.ptr8326, align 2
-  %word8369.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word8369.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word8369.sroa.2.0.copyload = load i8, ptr %word8369.sroa.2.0..sroa_idx, align 1
   %conv8372 = zext i8 %word8369.sroa.2.0.copyload to i32
   %idxprom8374 = zext i8 %word8369.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_FROM_DICT_OR_GLOBALS:                 ; preds = %indirectgoto
-  %instr_ptr8376 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8376, align 8
-  %add.ptr8377 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx8379 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr8376 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8376, align 8
+  %add.ptr8377 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx8379 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1639 = load ptr, ptr %arrayidx8379, align 8
-  %frame.addr.8.val7311 = load ptr, ptr %frame.addr.8, align 8
-  %co_names8382 = getelementptr inbounds i8, ptr %frame.addr.8.val7311, i64 32
+  %frame.addr.4.val7311 = load ptr, ptr %frame.addr.4, align 8
+  %co_names8382 = getelementptr inbounds i8, ptr %frame.addr.4.val7311, i64 32
   %1640 = load ptr, ptr %co_names8382, align 8
   %ob_item8383 = getelementptr inbounds i8, ptr %1640, i64 24
-  %idxprom8384 = sext i32 %oparg.1 to i64
+  %idxprom8384 = sext i32 %oparg.0 to i64
   %arrayidx8385 = getelementptr [1 x ptr], ptr %ob_item8383, i64 0, i64 %idxprom8384
   %1641 = load ptr, ptr %arrayidx8385, align 8
   %call8386 = call i32 @PyMapping_GetOptionalItem(ptr noundef %1639, ptr noundef %1641, ptr noundef nonnull %v8378) #15
@@ -14352,7 +14352,7 @@ if.end8390:                                       ; preds = %TARGET_LOAD_FROM_DI
   br i1 %cmp8391, label %if.then8393, label %do.body8415
 
 if.then8393:                                      ; preds = %if.end8390
-  %f_globals8394 = getelementptr inbounds i8, ptr %frame.addr.8, i64 24
+  %f_globals8394 = getelementptr inbounds i8, ptr %frame.addr.4, i64 24
   %1643 = load ptr, ptr %f_globals8394, align 8
   %call8395 = call i32 @PyDict_GetItemRef(ptr noundef %1643, ptr noundef %1641, ptr noundef nonnull %v8378) #15
   %cmp8396 = icmp slt i32 %call8395, 0
@@ -14364,7 +14364,7 @@ if.end8399:                                       ; preds = %if.then8393
   br i1 %cmp8400, label %if.then8402, label %do.body8415
 
 if.then8402:                                      ; preds = %if.end8399
-  %f_builtins8403 = getelementptr inbounds i8, ptr %frame.addr.8, i64 32
+  %f_builtins8403 = getelementptr inbounds i8, ptr %frame.addr.4, i64 32
   %1645 = load ptr, ptr %f_builtins8403, align 8
   %call8404 = call i32 @PyMapping_GetOptionalItem(ptr noundef %1645, ptr noundef %1641, ptr noundef nonnull %v8378) #15
   %cmp8405 = icmp slt i32 %call8404, 0
@@ -14404,55 +14404,55 @@ do.end8429:                                       ; preds = %if.end8420, %if.the
   %1652 = load ptr, ptr %v8378, align 8
   store ptr %1652, ptr %arrayidx8379, align 8
   %word8432.sroa.0.0.copyload = load i8, ptr %add.ptr8377, align 2
-  %word8432.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word8432.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word8432.sroa.2.0.copyload = load i8, ptr %word8432.sroa.2.0..sroa_idx, align 1
   %conv8435 = zext i8 %word8432.sroa.2.0.copyload to i32
   %idxprom8437 = zext i8 %word8432.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_GLOBAL:                               ; preds = %indirectgoto
-  %instr_ptr8439 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8439, align 8
-  %add.ptr8440 = getelementptr i8, ptr %next_instr.27, i64 10
+  %instr_ptr8439 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8439, align 8
+  %add.ptr8440 = getelementptr i8, ptr %next_instr.1, i64 10
   br label %PRED_91
 
 PRED_91:                                          ; preds = %if.end8630, %if.end8623, %TARGET_LOAD_GLOBAL_MODULE, %if.end8577, %if.end8570, %if.end8560, %if.end8553, %TARGET_LOAD_GLOBAL_BUILTIN, %TARGET_LOAD_GLOBAL
-  %next_instr.11 = phi ptr [ %add.ptr8611, %if.end8623 ], [ %add.ptr8611, %if.end8630 ], [ %add.ptr8611, %TARGET_LOAD_GLOBAL_MODULE ], [ %add.ptr8542, %if.end8553 ], [ %add.ptr8542, %if.end8570 ], [ %add.ptr8542, %if.end8577 ], [ %add.ptr8542, %if.end8560 ], [ %add.ptr8542, %TARGET_LOAD_GLOBAL_BUILTIN ], [ %add.ptr8440, %TARGET_LOAD_GLOBAL ]
-  %arrayidx8446 = getelementptr i8, ptr %next_instr.27, i64 2
+  %next_instr.19 = phi ptr [ %add.ptr8611, %if.end8623 ], [ %add.ptr8611, %if.end8630 ], [ %add.ptr8611, %TARGET_LOAD_GLOBAL_MODULE ], [ %add.ptr8542, %if.end8553 ], [ %add.ptr8542, %if.end8570 ], [ %add.ptr8542, %if.end8577 ], [ %add.ptr8542, %if.end8560 ], [ %add.ptr8542, %TARGET_LOAD_GLOBAL_BUILTIN ], [ %add.ptr8440, %TARGET_LOAD_GLOBAL ]
+  %arrayidx8446 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx8446.val = load i16, ptr %arrayidx8446, align 2
   %cmp8450 = icmp ult i16 %arrayidx8446.val, 16
   br i1 %cmp8450, label %if.then8452, label %do.body8466
 
 if.then8452:                                      ; preds = %PRED_91
-  %frame.addr.8.val7312 = load ptr, ptr %frame.addr.8, align 8
-  %co_names8455 = getelementptr inbounds i8, ptr %frame.addr.8.val7312, i64 32
+  %frame.addr.4.val7312 = load ptr, ptr %frame.addr.4, align 8
+  %co_names8455 = getelementptr inbounds i8, ptr %frame.addr.4.val7312, i64 32
   %1653 = load ptr, ptr %co_names8455, align 8
   %ob_item8456 = getelementptr inbounds i8, ptr %1653, i64 24
-  %shr8457 = ashr i32 %oparg.1, 1
+  %shr8457 = ashr i32 %oparg.0, 1
   %idxprom8458 = sext i32 %shr8457 to i64
   %arrayidx8459 = getelementptr [1 x ptr], ptr %ob_item8456, i64 0, i64 %idxprom8458
   %1654 = load ptr, ptr %arrayidx8459, align 8
-  %f_globals8460 = getelementptr inbounds i8, ptr %frame.addr.8, i64 24
+  %f_globals8460 = getelementptr inbounds i8, ptr %frame.addr.4, i64 24
   %1655 = load ptr, ptr %f_globals8460, align 8
-  %f_builtins8461 = getelementptr inbounds i8, ptr %frame.addr.8, i64 32
+  %f_builtins8461 = getelementptr inbounds i8, ptr %frame.addr.4, i64 32
   %1656 = load ptr, ptr %f_builtins8461, align 8
-  call void @_Py_Specialize_LoadGlobal(ptr noundef %1655, ptr noundef %1656, ptr noundef nonnull %next_instr.27, ptr noundef %1654) #15
-  %1657 = load i8, ptr %next_instr.27, align 2
+  call void @_Py_Specialize_LoadGlobal(ptr noundef %1655, ptr noundef %1656, ptr noundef nonnull %next_instr.1, ptr noundef %1654) #15
+  %1657 = load i8, ptr %next_instr.1, align 2
   %idxprom8463 = zext i8 %1657 to i64
   br label %indirectgoto.backedge
 
 do.body8466:                                      ; preds = %PRED_91
   %sub8469 = add i16 %arrayidx8446.val, -16
   store i16 %sub8469, ptr %arrayidx8446, align 2
-  %frame.addr.8.val7313 = load ptr, ptr %frame.addr.8, align 8
-  %co_names8474 = getelementptr inbounds i8, ptr %frame.addr.8.val7313, i64 32
+  %frame.addr.4.val7313 = load ptr, ptr %frame.addr.4, align 8
+  %co_names8474 = getelementptr inbounds i8, ptr %frame.addr.4.val7313, i64 32
   %1658 = load ptr, ptr %co_names8474, align 8
   %ob_item8475 = getelementptr inbounds i8, ptr %1658, i64 24
-  %shr8476 = ashr i32 %oparg.1, 1
+  %shr8476 = ashr i32 %oparg.0, 1
   %idxprom8477 = sext i32 %shr8476 to i64
   %arrayidx8478 = getelementptr [1 x ptr], ptr %ob_item8475, i64 0, i64 %idxprom8477
   %1659 = load ptr, ptr %arrayidx8478, align 8
-  %f_globals8479 = getelementptr inbounds i8, ptr %frame.addr.8, i64 24
+  %f_globals8479 = getelementptr inbounds i8, ptr %frame.addr.4, i64 24
   %1660 = load ptr, ptr %f_globals8479, align 8
   %ob_type8480 = getelementptr inbounds i8, ptr %1660, i64 8
   %1661 = load ptr, ptr %ob_type8480, align 8
@@ -14460,7 +14460,7 @@ do.body8466:                                      ; preds = %PRED_91
   br i1 %cmp8481, label %land.lhs.true8483, label %if.else8500
 
 land.lhs.true8483:                                ; preds = %do.body8466
-  %f_builtins8484 = getelementptr inbounds i8, ptr %frame.addr.8, i64 32
+  %f_builtins8484 = getelementptr inbounds i8, ptr %frame.addr.4, i64 32
   %1662 = load ptr, ptr %f_builtins8484, align 8
   %ob_type8485 = getelementptr inbounds i8, ptr %1662, i64 8
   %1663 = load ptr, ptr %ob_type8485, align 8
@@ -14511,7 +14511,7 @@ if.end8506:                                       ; preds = %if.else8500
   br i1 %cmp8507, label %if.then8509, label %if.end8521
 
 if.then8509:                                      ; preds = %if.end8506
-  %f_builtins8510 = getelementptr inbounds i8, ptr %frame.addr.8, i64 32
+  %f_builtins8510 = getelementptr inbounds i8, ptr %frame.addr.4, i64 32
   %1668 = load ptr, ptr %f_builtins8510, align 8
   %call8511 = call i32 @PyMapping_GetOptionalItem(ptr noundef %1668, ptr noundef %1659, ptr noundef nonnull %res8443) #15
   %cmp8512 = icmp slt i32 %call8511, 0
@@ -14529,32 +14529,32 @@ if.then8518:                                      ; preds = %if.end8515
 
 if.end8521:                                       ; preds = %if.end8506, %if.end8515, %if.end.i21238, %if.end8499
   %1671 = phi ptr [ %1667, %if.end8506 ], [ %1669, %if.end8515 ], [ %.pre11851, %if.end.i21238 ], [ %call8491, %if.end8499 ]
-  store ptr %1671, ptr %stack_pointer.17, align 8
-  %and8523 = and i32 %oparg.1, 1
+  store ptr %1671, ptr %stack_pointer.0, align 8
+  %and8523 = and i32 %oparg.0, 1
   %tobool8524.not = icmp eq i32 %and8523, 0
   br i1 %tobool8524.not, label %if.end8527, label %if.then8525
 
 if.then8525:                                      ; preds = %if.end8521
-  %arrayidx8526 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  %arrayidx8526 = getelementptr i8, ptr %stack_pointer.0, i64 8
   store ptr null, ptr %arrayidx8526, align 8
   br label %if.end8527
 
 if.end8527:                                       ; preds = %if.then8525, %if.end8521
   %add8529 = add nuw nsw i32 %and8523, 1
   %idx.ext8530 = zext nneg i32 %add8529 to i64
-  %add.ptr8531 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext8530
-  %word8533.sroa.0.0.copyload = load i8, ptr %next_instr.11, align 2
-  %word8533.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 11
+  %add.ptr8531 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext8530
+  %word8533.sroa.0.0.copyload = load i8, ptr %next_instr.19, align 2
+  %word8533.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 11
   %word8533.sroa.2.0.copyload = load i8, ptr %word8533.sroa.2.0..sroa_idx, align 1
   %conv8536 = zext i8 %word8533.sroa.2.0.copyload to i32
   %idxprom8538 = zext i8 %word8533.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_GLOBAL_BUILTIN:                       ; preds = %indirectgoto
-  %instr_ptr8541 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8541, align 8
-  %add.ptr8542 = getelementptr i8, ptr %next_instr.27, i64 10
-  %f_globals8548 = getelementptr inbounds i8, ptr %frame.addr.8, i64 24
+  %instr_ptr8541 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8541, align 8
+  %add.ptr8542 = getelementptr i8, ptr %next_instr.1, i64 10
+  %f_globals8548 = getelementptr inbounds i8, ptr %frame.addr.4, i64 24
   %1672 = load ptr, ptr %f_globals8548, align 8
   %ob_type8549 = getelementptr inbounds i8, ptr %1672, i64 8
   %1673 = load ptr, ptr %ob_type8549, align 8
@@ -14562,7 +14562,7 @@ TARGET_LOAD_GLOBAL_BUILTIN:                       ; preds = %indirectgoto
   br i1 %cmp8550, label %if.end8553, label %PRED_91
 
 if.end8553:                                       ; preds = %TARGET_LOAD_GLOBAL_BUILTIN
-  %arrayidx8545 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx8545 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx8545.val = load i16, ptr %arrayidx8545, align 2
   %ma_keys8554 = getelementptr inbounds i8, ptr %1672, i64 32
   %1674 = load ptr, ptr %ma_keys8554, align 8
@@ -14573,7 +14573,7 @@ if.end8553:                                       ; preds = %TARGET_LOAD_GLOBAL_
   br i1 %cmp8557.not, label %if.end8560, label %PRED_91
 
 if.end8560:                                       ; preds = %if.end8553
-  %f_builtins8565 = getelementptr inbounds i8, ptr %frame.addr.8, i64 32
+  %f_builtins8565 = getelementptr inbounds i8, ptr %frame.addr.4, i64 32
   %1676 = load ptr, ptr %f_builtins8565, align 8
   %ob_type8566 = getelementptr inbounds i8, ptr %1676, i64 8
   %1677 = load ptr, ptr %ob_type8566, align 8
@@ -14581,7 +14581,7 @@ if.end8560:                                       ; preds = %if.end8553
   br i1 %cmp8567, label %if.end8570, label %PRED_91
 
 if.end8570:                                       ; preds = %if.end8560
-  %arrayidx8562 = getelementptr i8, ptr %next_instr.27, i64 6
+  %arrayidx8562 = getelementptr i8, ptr %next_instr.1, i64 6
   %arrayidx8562.val = load i16, ptr %arrayidx8562, align 2
   %ma_keys8571 = getelementptr inbounds i8, ptr %1676, i64 32
   %1678 = load ptr, ptr %ma_keys8571, align 8
@@ -14592,7 +14592,7 @@ if.end8570:                                       ; preds = %if.end8560
   br i1 %cmp8574.not, label %if.end8577, label %PRED_91
 
 if.end8577:                                       ; preds = %if.end8570
-  %arrayidx8579 = getelementptr i8, ptr %next_instr.27, i64 8
+  %arrayidx8579 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx8579.val = load i16, ptr %arrayidx8579, align 2
   %dk_indices.i.i8339 = getelementptr inbounds i8, ptr %1678, i64 32
   %dk_log2_index_bytes.i.i8340 = getelementptr inbounds i8, ptr %1678, i64 9
@@ -14617,32 +14617,32 @@ if.end.i21230:                                    ; preds = %if.end8590
   br label %Py_INCREF.exit21232
 
 Py_INCREF.exit21232:                              ; preds = %if.end8590, %if.end.i21230
-  store ptr %1681, ptr %stack_pointer.17, align 8
-  %and8592 = and i32 %oparg.1, 1
+  store ptr %1681, ptr %stack_pointer.0, align 8
+  %and8592 = and i32 %oparg.0, 1
   %tobool8593.not = icmp eq i32 %and8592, 0
   br i1 %tobool8593.not, label %if.end8596, label %if.then8594
 
 if.then8594:                                      ; preds = %Py_INCREF.exit21232
-  %arrayidx8595 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  %arrayidx8595 = getelementptr i8, ptr %stack_pointer.0, i64 8
   store ptr null, ptr %arrayidx8595, align 8
   br label %if.end8596
 
 if.end8596:                                       ; preds = %if.then8594, %Py_INCREF.exit21232
   %add8598 = add nuw nsw i32 %and8592, 1
   %idx.ext8599 = zext nneg i32 %add8598 to i64
-  %add.ptr8600 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext8599
+  %add.ptr8600 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext8599
   %word8602.sroa.0.0.copyload = load i8, ptr %add.ptr8542, align 2
-  %word8602.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 11
+  %word8602.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 11
   %word8602.sroa.2.0.copyload = load i8, ptr %word8602.sroa.2.0..sroa_idx, align 1
   %conv8605 = zext i8 %word8602.sroa.2.0.copyload to i32
   %idxprom8607 = zext i8 %word8602.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_GLOBAL_MODULE:                        ; preds = %indirectgoto
-  %instr_ptr8610 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8610, align 8
-  %add.ptr8611 = getelementptr i8, ptr %next_instr.27, i64 10
-  %f_globals8618 = getelementptr inbounds i8, ptr %frame.addr.8, i64 24
+  %instr_ptr8610 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8610, align 8
+  %add.ptr8611 = getelementptr i8, ptr %next_instr.1, i64 10
+  %f_globals8618 = getelementptr inbounds i8, ptr %frame.addr.4, i64 24
   %1683 = load ptr, ptr %f_globals8618, align 8
   %ob_type8619 = getelementptr inbounds i8, ptr %1683, i64 8
   %1684 = load ptr, ptr %ob_type8619, align 8
@@ -14650,7 +14650,7 @@ TARGET_LOAD_GLOBAL_MODULE:                        ; preds = %indirectgoto
   br i1 %cmp8620, label %if.end8623, label %PRED_91
 
 if.end8623:                                       ; preds = %TARGET_LOAD_GLOBAL_MODULE
-  %arrayidx8615 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx8615 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx8615.val = load i16, ptr %arrayidx8615, align 2
   %ma_keys8624 = getelementptr inbounds i8, ptr %1683, i64 32
   %1685 = load ptr, ptr %ma_keys8624, align 8
@@ -14661,7 +14661,7 @@ if.end8623:                                       ; preds = %TARGET_LOAD_GLOBAL_
   br i1 %cmp8627.not, label %if.end8630, label %PRED_91
 
 if.end8630:                                       ; preds = %if.end8623
-  %arrayidx8632 = getelementptr i8, ptr %next_instr.27, i64 8
+  %arrayidx8632 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx8632.val = load i16, ptr %arrayidx8632, align 2
   %dk_indices.i.i8344 = getelementptr inbounds i8, ptr %1685, i64 32
   %dk_log2_index_bytes.i.i8345 = getelementptr inbounds i8, ptr %1685, i64 9
@@ -14686,32 +14686,32 @@ if.end.i21222:                                    ; preds = %if.end8645
   br label %Py_INCREF.exit21224
 
 Py_INCREF.exit21224:                              ; preds = %if.end8645, %if.end.i21222
-  store ptr %1688, ptr %stack_pointer.17, align 8
-  %and8647 = and i32 %oparg.1, 1
+  store ptr %1688, ptr %stack_pointer.0, align 8
+  %and8647 = and i32 %oparg.0, 1
   %tobool8648.not = icmp eq i32 %and8647, 0
   br i1 %tobool8648.not, label %if.end8651, label %if.then8649
 
 if.then8649:                                      ; preds = %Py_INCREF.exit21224
-  %arrayidx8650 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  %arrayidx8650 = getelementptr i8, ptr %stack_pointer.0, i64 8
   store ptr null, ptr %arrayidx8650, align 8
   br label %if.end8651
 
 if.end8651:                                       ; preds = %if.then8649, %Py_INCREF.exit21224
   %add8653 = add nuw nsw i32 %and8647, 1
   %idx.ext8654 = zext nneg i32 %add8653 to i64
-  %add.ptr8655 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext8654
+  %add.ptr8655 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext8654
   %word8657.sroa.0.0.copyload = load i8, ptr %add.ptr8611, align 2
-  %word8657.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 11
+  %word8657.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 11
   %word8657.sroa.2.0.copyload = load i8, ptr %word8657.sroa.2.0..sroa_idx, align 1
   %conv8660 = zext i8 %word8657.sroa.2.0.copyload to i32
   %idxprom8662 = zext i8 %word8657.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_LOCALS:                               ; preds = %indirectgoto
-  %instr_ptr8664 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8664, align 8
-  %add.ptr8665 = getelementptr i8, ptr %next_instr.27, i64 2
-  %f_locals8667 = getelementptr inbounds i8, ptr %frame.addr.8, i64 40
+  %instr_ptr8664 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8664, align 8
+  %add.ptr8665 = getelementptr i8, ptr %next_instr.1, i64 2
+  %f_locals8667 = getelementptr inbounds i8, ptr %frame.addr.4, i64 40
   %1690 = load ptr, ptr %f_locals8667, align 8
   %cmp8668 = icmp eq ptr %1690, null
   br i1 %cmp8668, label %if.then8670, label %if.end8671
@@ -14732,20 +14732,20 @@ if.end.i21214:                                    ; preds = %if.end8671
   br label %Py_INCREF.exit21216
 
 Py_INCREF.exit21216:                              ; preds = %if.end8671, %if.end.i21214
-  store ptr %1690, ptr %stack_pointer.17, align 8
-  %add.ptr8673 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1690, ptr %stack_pointer.0, align 8
+  %add.ptr8673 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word8675.sroa.0.0.copyload = load i8, ptr %add.ptr8665, align 2
-  %word8675.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word8675.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word8675.sroa.2.0.copyload = load i8, ptr %word8675.sroa.2.0..sroa_idx, align 1
   %conv8678 = zext i8 %word8675.sroa.2.0.copyload to i32
   %idxprom8680 = zext i8 %word8675.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_NAME:                                 ; preds = %indirectgoto
-  %instr_ptr8682 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8682, align 8
-  %add.ptr8683 = getelementptr i8, ptr %next_instr.27, i64 2
-  %f_locals8686 = getelementptr inbounds i8, ptr %frame.addr.8, i64 40
+  %instr_ptr8682 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8682, align 8
+  %add.ptr8683 = getelementptr i8, ptr %next_instr.1, i64 2
+  %f_locals8686 = getelementptr inbounds i8, ptr %frame.addr.4, i64 40
   %1693 = load ptr, ptr %f_locals8686, align 8
   %cmp8687 = icmp eq ptr %1693, null
   br i1 %cmp8687, label %if.then8689, label %if.end8690
@@ -14756,11 +14756,11 @@ if.then8689:                                      ; preds = %TARGET_LOAD_NAME
   br label %error
 
 if.end8690:                                       ; preds = %TARGET_LOAD_NAME
-  %frame.addr.8.val7314 = load ptr, ptr %frame.addr.8, align 8
-  %co_names8693 = getelementptr inbounds i8, ptr %frame.addr.8.val7314, i64 32
+  %frame.addr.4.val7314 = load ptr, ptr %frame.addr.4, align 8
+  %co_names8693 = getelementptr inbounds i8, ptr %frame.addr.4.val7314, i64 32
   %1695 = load ptr, ptr %co_names8693, align 8
   %ob_item8694 = getelementptr inbounds i8, ptr %1695, i64 24
-  %idxprom8695 = sext i32 %oparg.1 to i64
+  %idxprom8695 = sext i32 %oparg.0 to i64
   %arrayidx8696 = getelementptr [1 x ptr], ptr %ob_item8694, i64 0, i64 %idxprom8695
   %1696 = load ptr, ptr %arrayidx8696, align 8
   %call8697 = call i32 @PyMapping_GetOptionalItem(ptr noundef nonnull %1693, ptr noundef %1696, ptr noundef nonnull %v8684) #15
@@ -14773,7 +14773,7 @@ if.end8701:                                       ; preds = %if.end8690
   br i1 %cmp8702, label %if.then8704, label %if.end8725
 
 if.then8704:                                      ; preds = %if.end8701
-  %f_globals8705 = getelementptr inbounds i8, ptr %frame.addr.8, i64 24
+  %f_globals8705 = getelementptr inbounds i8, ptr %frame.addr.4, i64 24
   %1698 = load ptr, ptr %f_globals8705, align 8
   %call8706 = call i32 @PyDict_GetItemRef(ptr noundef %1698, ptr noundef %1696, ptr noundef nonnull %v8684) #15
   %cmp8707 = icmp slt i32 %call8706, 0
@@ -14785,7 +14785,7 @@ if.end8710:                                       ; preds = %if.then8704
   br i1 %cmp8711, label %if.then8713, label %if.end8725
 
 if.then8713:                                      ; preds = %if.end8710
-  %f_builtins8714 = getelementptr inbounds i8, ptr %frame.addr.8, i64 32
+  %f_builtins8714 = getelementptr inbounds i8, ptr %frame.addr.4, i64 32
   %1700 = load ptr, ptr %f_builtins8714, align 8
   %call8715 = call i32 @PyMapping_GetOptionalItem(ptr noundef %1700, ptr noundef %1696, ptr noundef nonnull %v8684) #15
   %cmp8716 = icmp slt i32 %call8715, 0
@@ -14803,52 +14803,52 @@ if.then8722:                                      ; preds = %if.end8719
 
 if.end8725:                                       ; preds = %if.end8710, %if.end8719, %if.end8701
   %1703 = phi ptr [ %1699, %if.end8710 ], [ %1701, %if.end8719 ], [ %1697, %if.end8701 ]
-  store ptr %1703, ptr %stack_pointer.17, align 8
-  %add.ptr8727 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1703, ptr %stack_pointer.0, align 8
+  %add.ptr8727 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word8729.sroa.0.0.copyload = load i8, ptr %add.ptr8683, align 2
-  %word8729.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word8729.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word8729.sroa.2.0.copyload = load i8, ptr %word8729.sroa.2.0..sroa_idx, align 1
   %conv8732 = zext i8 %word8729.sroa.2.0.copyload to i32
   %idxprom8734 = zext i8 %word8729.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_SUPER_ATTR:                           ; preds = %indirectgoto
-  %instr_ptr8736 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8736, align 8
-  %add.ptr8737 = getelementptr i8, ptr %next_instr.27, i64 4
+  %instr_ptr8736 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8736, align 8
+  %add.ptr8737 = getelementptr i8, ptr %next_instr.1, i64 4
   br label %PRED_93
 
 PRED_93:                                          ; preds = %if.end9023, %TARGET_LOAD_SUPER_ATTR_METHOD, %if.end8938, %TARGET_LOAD_SUPER_ATTR_ATTR, %TARGET_LOAD_SUPER_ATTR, %TARGET_INSTRUMENTED_LOAD_SUPER_ATTR
-  %next_instr.12 = phi ptr [ %add.ptr9011, %TARGET_LOAD_SUPER_ATTR_METHOD ], [ %add.ptr9011, %if.end9023 ], [ %add.ptr8927, %TARGET_LOAD_SUPER_ATTR_ATTR ], [ %add.ptr8927, %if.end8938 ], [ %add.ptr6770, %TARGET_INSTRUMENTED_LOAD_SUPER_ATTR ], [ %add.ptr8737, %TARGET_LOAD_SUPER_ATTR ]
-  %arrayidx8743 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %next_instr.15 = phi ptr [ %add.ptr9011, %TARGET_LOAD_SUPER_ATTR_METHOD ], [ %add.ptr9011, %if.end9023 ], [ %add.ptr8927, %TARGET_LOAD_SUPER_ATTR_ATTR ], [ %add.ptr8927, %if.end8938 ], [ %add.ptr6770, %TARGET_INSTRUMENTED_LOAD_SUPER_ATTR ], [ %add.ptr8737, %TARGET_LOAD_SUPER_ATTR ]
+  %arrayidx8743 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1704 = load ptr, ptr %arrayidx8743, align 8
-  %arrayidx8744 = getelementptr i8, ptr %stack_pointer.17, i64 -24
+  %arrayidx8744 = getelementptr i8, ptr %stack_pointer.0, i64 -24
   %1705 = load ptr, ptr %arrayidx8744, align 8
-  %arrayidx8746 = getelementptr i8, ptr %next_instr.27, i64 2
+  %arrayidx8746 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx8746.val = load i16, ptr %arrayidx8746, align 2
-  %and8748 = and i32 %oparg.1, 1
+  %and8748 = and i32 %oparg.0, 1
   %cmp8751 = icmp ult i16 %arrayidx8746.val, 16
   br i1 %cmp8751, label %if.then8753, label %do.body8758
 
 if.then8753:                                      ; preds = %PRED_93
-  call void @_Py_Specialize_LoadSuperAttr(ptr noundef %1705, ptr noundef %1704, ptr noundef nonnull %next_instr.27, i32 noundef %and8748) #15
-  %1706 = load i8, ptr %next_instr.27, align 2
+  call void @_Py_Specialize_LoadSuperAttr(ptr noundef %1705, ptr noundef %1704, ptr noundef nonnull %next_instr.1, i32 noundef %and8748) #15
+  %1706 = load i8, ptr %next_instr.1, align 2
   %idxprom8755 = zext i8 %1706 to i64
   br label %indirectgoto.backedge
 
 do.body8758:                                      ; preds = %PRED_93
   %sub8761 = add i16 %arrayidx8746.val, -16
   store i16 %sub8761, ptr %arrayidx8746, align 2
-  %arrayidx8764 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %arrayidx8764 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1707 = load ptr, ptr %arrayidx8764, align 8
   %cmp8766 = icmp eq i8 %opcode.0, -14
-  %and8770 = and i32 %oparg.1, 2
+  %and8770 = and i32 %oparg.0, 2
   br i1 %cmp8766, label %if.then8768, label %if.end8781
 
 if.then8768:                                      ; preds = %do.body8758
   %tobool8771.not = icmp eq i32 %and8770, 0
   %cond8775 = select i1 %tobool8771.not, ptr @_PyInstrumentation_MISSING, ptr %1704
-  %call8777 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 4, ptr noundef nonnull %frame.addr.8, ptr noundef nonnull %next_instr.27, ptr noundef %1705, ptr noundef %cond8775) #15
+  %call8777 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 4, ptr noundef nonnull %frame.addr.4, ptr noundef nonnull %next_instr.1, ptr noundef %1705, ptr noundef %cond8775) #15
   %tobool8778.not = icmp eq i32 %call8777, 0
   br i1 %tobool8778.not, label %if.then8789, label %pop_3_error
 
@@ -14870,11 +14870,11 @@ if.then8789:                                      ; preds = %if.then8768
   br i1 %cmp8797, label %if.then8799, label %if.else8800
 
 if.then8799:                                      ; preds = %if.then8789
-  call void @_Py_call_instrumentation_exc2(ptr noundef %tstate, i32 noundef 16, ptr noundef nonnull %frame.addr.8, ptr noundef nonnull %next_instr.27, ptr noundef %1705, ptr noundef %cond8796) #15
+  call void @_Py_call_instrumentation_exc2(ptr noundef %tstate, i32 noundef 16, ptr noundef nonnull %frame.addr.4, ptr noundef nonnull %next_instr.1, ptr noundef %1705, ptr noundef %cond8796) #15
   br label %do.body8832
 
 if.else8800:                                      ; preds = %if.then8789
-  %call8802 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 15, ptr noundef nonnull %frame.addr.8, ptr noundef nonnull %next_instr.27, ptr noundef %1705, ptr noundef %cond8796) #15
+  %call8802 = call i32 @_Py_call_instrumentation_2args(ptr noundef %tstate, i32 noundef 15, ptr noundef nonnull %frame.addr.4, ptr noundef nonnull %next_instr.1, ptr noundef %1705, ptr noundef %cond8796) #15
   %cmp8803 = icmp slt i32 %call8802, 0
   br i1 %cmp8803, label %if.then8811, label %do.body8832
 
@@ -14964,11 +14964,11 @@ do.end8876:                                       ; preds = %if.end8867, %if.the
   br i1 %cmp8877, label %pop_3_error, label %if.end8880
 
 if.end8880:                                       ; preds = %do.end8876
-  %frame.addr.8.val7315 = load ptr, ptr %frame.addr.8, align 8
-  %co_names8883 = getelementptr inbounds i8, ptr %frame.addr.8.val7315, i64 32
+  %frame.addr.4.val7315 = load ptr, ptr %frame.addr.4, align 8
+  %co_names8883 = getelementptr inbounds i8, ptr %frame.addr.4.val7315, i64 32
   %1724 = load ptr, ptr %co_names8883, align 8
   %ob_item8884 = getelementptr inbounds i8, ptr %1724, i64 24
-  %shr8885 = ashr i32 %oparg.1, 2
+  %shr8885 = ashr i32 %oparg.0, 2
   %idxprom8886 = sext i32 %shr8885 to i64
   %arrayidx8887 = getelementptr [1 x ptr], ptr %ob_item8884, i64 0, i64 %idxprom8886
   %1725 = load ptr, ptr %arrayidx8887, align 8
@@ -15006,25 +15006,25 @@ if.then8911:                                      ; preds = %if.end8907
   br label %if.end8913
 
 if.end8913:                                       ; preds = %if.then8911, %if.end8907
-  %add8915 = or i32 %oparg.1, -2
+  %add8915 = or i32 %oparg.0, -2
   %idx.ext8916 = sext i32 %add8915 to i64
-  %add.ptr8917 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext8916
-  %word8919.sroa.0.0.copyload = load i8, ptr %next_instr.12, align 2
-  %word8919.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %add.ptr8917 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext8916
+  %word8919.sroa.0.0.copyload = load i8, ptr %next_instr.15, align 2
+  %word8919.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word8919.sroa.2.0.copyload = load i8, ptr %word8919.sroa.2.0..sroa_idx, align 1
   %conv8922 = zext i8 %word8919.sroa.2.0.copyload to i32
   %idxprom8924 = zext i8 %word8919.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_SUPER_ATTR_ATTR:                      ; preds = %indirectgoto
-  %instr_ptr8926 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr8926, align 8
-  %add.ptr8927 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx8932 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr8926 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr8926, align 8
+  %add.ptr8927 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx8932 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1730 = load ptr, ptr %arrayidx8932, align 8
-  %arrayidx8933 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx8933 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1731 = load ptr, ptr %arrayidx8933, align 8
-  %arrayidx8934 = getelementptr i8, ptr %stack_pointer.17, i64 -24
+  %arrayidx8934 = getelementptr i8, ptr %stack_pointer.0, i64 -24
   %1732 = load ptr, ptr %arrayidx8934, align 8
   %cmp8935.not = icmp eq ptr %1732, @PySuper_Type
   br i1 %cmp8935.not, label %if.end8938, label %PRED_93
@@ -15039,11 +15039,11 @@ if.end8938:                                       ; preds = %TARGET_LOAD_SUPER_A
   br i1 %cmp.i.i8350.not, label %PRED_93, label %if.end8942
 
 if.end8942:                                       ; preds = %if.end8938
-  %frame.addr.8.val7316 = load ptr, ptr %frame.addr.8, align 8
-  %co_names8945 = getelementptr inbounds i8, ptr %frame.addr.8.val7316, i64 32
+  %frame.addr.4.val7316 = load ptr, ptr %frame.addr.4, align 8
+  %co_names8945 = getelementptr inbounds i8, ptr %frame.addr.4.val7316, i64 32
   %1735 = load ptr, ptr %co_names8945, align 8
   %ob_item8946 = getelementptr inbounds i8, ptr %1735, i64 24
-  %shr8947 = ashr i32 %oparg.1, 2
+  %shr8947 = ashr i32 %oparg.0, 2
   %idxprom8948 = sext i32 %shr8947 to i64
   %arrayidx8949 = getelementptr [1 x ptr], ptr %ob_item8946, i64 0, i64 %idxprom8948
   %1736 = load ptr, ptr %arrayidx8949, align 8
@@ -15112,21 +15112,21 @@ do.end8995:                                       ; preds = %if.end8986, %if.the
 if.end8999:                                       ; preds = %do.end8995
   store ptr %call8950, ptr %arrayidx8934, align 8
   %word9003.sroa.0.0.copyload = load i8, ptr %add.ptr8927, align 2
-  %word9003.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word9003.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word9003.sroa.2.0.copyload = load i8, ptr %word9003.sroa.2.0..sroa_idx, align 1
   %conv9006 = zext i8 %word9003.sroa.2.0.copyload to i32
   %idxprom9008 = zext i8 %word9003.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_LOAD_SUPER_ATTR_METHOD:                    ; preds = %indirectgoto
-  %instr_ptr9010 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9010, align 8
-  %add.ptr9011 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx9017 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9010 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9010, align 8
+  %add.ptr9011 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx9017 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1747 = load ptr, ptr %arrayidx9017, align 8
-  %arrayidx9018 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx9018 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1748 = load ptr, ptr %arrayidx9018, align 8
-  %arrayidx9019 = getelementptr i8, ptr %stack_pointer.17, i64 -24
+  %arrayidx9019 = getelementptr i8, ptr %stack_pointer.0, i64 -24
   %1749 = load ptr, ptr %arrayidx9019, align 8
   %cmp9020.not = icmp eq ptr %1749, @PySuper_Type
   br i1 %cmp9020.not, label %if.end9023, label %PRED_93
@@ -15141,11 +15141,11 @@ if.end9023:                                       ; preds = %TARGET_LOAD_SUPER_A
   br i1 %cmp.i.i8353.not, label %PRED_93, label %if.end9027
 
 if.end9027:                                       ; preds = %if.end9023
-  %frame.addr.8.val7317 = load ptr, ptr %frame.addr.8, align 8
-  %co_names9030 = getelementptr inbounds i8, ptr %frame.addr.8.val7317, i64 32
+  %frame.addr.4.val7317 = load ptr, ptr %frame.addr.4, align 8
+  %co_names9030 = getelementptr inbounds i8, ptr %frame.addr.4.val7317, i64 32
   %1752 = load ptr, ptr %co_names9030, align 8
   %ob_item9031 = getelementptr inbounds i8, ptr %1752, i64 24
-  %shr9032 = ashr i32 %oparg.1, 2
+  %shr9032 = ashr i32 %oparg.0, 2
   %idxprom9033 = sext i32 %shr9032 to i64
   %arrayidx9034 = getelementptr [1 x ptr], ptr %ob_item9031, i64 0, i64 %idxprom9033
   %1753 = load ptr, ptr %arrayidx9034, align 8
@@ -15246,18 +15246,18 @@ if.end9111:                                       ; preds = %do.body9096, %if.th
   store ptr %call9043, ptr %arrayidx9019, align 8
   store ptr %self_or_null9016.0, ptr %arrayidx9018, align 8
   %word9116.sroa.0.0.copyload = load i8, ptr %add.ptr9011, align 2
-  %word9116.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word9116.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word9116.sroa.2.0.copyload = load i8, ptr %word9116.sroa.2.0..sroa_idx, align 1
   %conv9119 = zext i8 %word9116.sroa.2.0.copyload to i32
   %idxprom9121 = zext i8 %word9116.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_MAKE_CELL:                                 ; preds = %indirectgoto
-  %instr_ptr9123 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9123, align 8
-  %add.ptr9124 = getelementptr i8, ptr %next_instr.27, i64 2
-  %localsplus9125 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %idxprom9126 = sext i32 %oparg.1 to i64
+  %instr_ptr9123 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9123, align 8
+  %add.ptr9124 = getelementptr i8, ptr %next_instr.1, i64 2
+  %localsplus9125 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %idxprom9126 = sext i32 %oparg.0 to i64
   %arrayidx9127 = getelementptr [1 x ptr], ptr %localsplus9125, i64 0, i64 %idxprom9126
   %1769 = load ptr, ptr %arrayidx9127, align 8
   %call9129 = call ptr @PyCell_New(ptr noundef %1769) #15
@@ -15292,19 +15292,19 @@ if.then9156:                                      ; preds = %if.end9152
 
 do.body9165:                                      ; preds = %do.body9134, %if.end9152, %if.then9156, %do.body9147
   %word9166.sroa.0.0.copyload = load i8, ptr %add.ptr9124, align 2
-  %word9166.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word9166.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word9166.sroa.2.0.copyload = load i8, ptr %word9166.sroa.2.0..sroa_idx, align 1
   %conv9169 = zext i8 %word9166.sroa.2.0.copyload to i32
   %idxprom9171 = zext i8 %word9166.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_MAKE_FUNCTION:                             ; preds = %indirectgoto
-  %instr_ptr9173 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9173, align 8
-  %add.ptr9174 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx9176 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9173 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9173, align 8
+  %add.ptr9174 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx9176 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1775 = load ptr, ptr %arrayidx9176, align 8
-  %f_globals9177 = getelementptr inbounds i8, ptr %frame.addr.8, i64 24
+  %f_globals9177 = getelementptr inbounds i8, ptr %frame.addr.4, i64 24
   %1776 = load ptr, ptr %f_globals9177, align 8
   %call9178 = call ptr @PyFunction_New(ptr noundef %1775, ptr noundef %1776) #15
   %1777 = load i64, ptr %1775, align 8
@@ -15336,23 +15336,23 @@ if.end9197:                                       ; preds = %do.end9193
   call void @_PyFunction_SetVersion(ptr noundef nonnull %call9178, i32 noundef %1781) #15
   store ptr %call9178, ptr %arrayidx9176, align 8
   %word9200.sroa.0.0.copyload = load i8, ptr %add.ptr9174, align 2
-  %word9200.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word9200.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word9200.sroa.2.0.copyload = load i8, ptr %word9200.sroa.2.0..sroa_idx, align 1
   %conv9203 = zext i8 %word9200.sroa.2.0.copyload to i32
   %idxprom9205 = zext i8 %word9200.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_MAP_ADD:                                   ; preds = %indirectgoto
-  %instr_ptr9207 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9207, align 8
-  %add.ptr9208 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx9211 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9207 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9207, align 8
+  %add.ptr9208 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx9211 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1782 = load ptr, ptr %arrayidx9211, align 8
-  %arrayidx9212 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx9212 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1783 = load ptr, ptr %arrayidx9212, align 8
-  %sub9214 = sub i32 -2, %oparg.1
+  %sub9214 = sub i32 -2, %oparg.0
   %idxprom9215 = sext i32 %sub9214 to i64
-  %arrayidx9216 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom9215
+  %arrayidx9216 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom9215
   %1784 = load ptr, ptr %arrayidx9216, align 8
   %call9217 = call i32 @_PyDict_SetItem_Take2(ptr noundef %1784, ptr noundef %1783, ptr noundef %1782) #15
   %cmp9218.not = icmp eq i32 %call9217, 0
@@ -15360,23 +15360,23 @@ TARGET_MAP_ADD:                                   ; preds = %indirectgoto
 
 if.end9221:                                       ; preds = %TARGET_MAP_ADD
   %word9224.sroa.0.0.copyload = load i8, ptr %add.ptr9208, align 2
-  %word9224.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word9224.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word9224.sroa.2.0.copyload = load i8, ptr %word9224.sroa.2.0..sroa_idx, align 1
   %conv9227 = zext i8 %word9224.sroa.2.0.copyload to i32
   %idxprom9229 = zext i8 %word9224.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_MATCH_CLASS:                               ; preds = %indirectgoto
-  %instr_ptr9231 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9231, align 8
-  %add.ptr9232 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx9234 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9231 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9231, align 8
+  %add.ptr9232 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx9234 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1785 = load ptr, ptr %arrayidx9234, align 8
-  %arrayidx9235 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx9235 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1786 = load ptr, ptr %arrayidx9235, align 8
-  %arrayidx9236 = getelementptr i8, ptr %stack_pointer.17, i64 -24
+  %arrayidx9236 = getelementptr i8, ptr %stack_pointer.0, i64 -24
   %1787 = load ptr, ptr %arrayidx9236, align 8
-  %conv9237 = sext i32 %oparg.1 to i64
+  %conv9237 = sext i32 %oparg.0 to i64
   %call9238 = call ptr @_PyEval_MatchClass(ptr noundef %tstate, ptr noundef %1787, ptr noundef %1786, i64 noundef %conv9237, ptr noundef %1785)
   %1788 = load i64, ptr %1787, align 8
   %1789 = and i64 %1788, 2147483648
@@ -15456,39 +15456,39 @@ if.end9291:                                       ; preds = %if.else9286, %_PyEr
   %attrs.0 = phi ptr [ %call9238, %do.end9283 ], [ @_Py_NoneStruct, %_PyErr_Occurred.exit8359 ], [ @_Py_NoneStruct, %if.else9286 ]
   store ptr %attrs.0, ptr %arrayidx9236, align 8
   %word9295.sroa.0.0.copyload = load i8, ptr %add.ptr9232, align 2
-  %word9295.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word9295.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word9295.sroa.2.0.copyload = load i8, ptr %word9295.sroa.2.0..sroa_idx, align 1
   %conv9298 = zext i8 %word9295.sroa.2.0.copyload to i32
   %idxprom9300 = zext i8 %word9295.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_MATCH_KEYS:                                ; preds = %indirectgoto
-  %instr_ptr9302 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9302, align 8
-  %add.ptr9303 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx9306 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9302 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9302, align 8
+  %add.ptr9303 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx9306 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1801 = load ptr, ptr %arrayidx9306, align 8
-  %arrayidx9307 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx9307 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1802 = load ptr, ptr %arrayidx9307, align 8
   %call9308 = call ptr @_PyEval_MatchKeys(ptr noundef %tstate, ptr noundef %1802, ptr noundef %1801)
   %cmp9309 = icmp eq ptr %call9308, null
   br i1 %cmp9309, label %error.loopexit, label %if.end9312
 
 if.end9312:                                       ; preds = %TARGET_MATCH_KEYS
-  store ptr %call9308, ptr %stack_pointer.17, align 8
-  %add.ptr9314 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %call9308, ptr %stack_pointer.0, align 8
+  %add.ptr9314 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word9316.sroa.0.0.copyload = load i8, ptr %add.ptr9303, align 2
-  %word9316.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word9316.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word9316.sroa.2.0.copyload = load i8, ptr %word9316.sroa.2.0..sroa_idx, align 1
   %conv9319 = zext i8 %word9316.sroa.2.0.copyload to i32
   %idxprom9321 = zext i8 %word9316.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_MATCH_MAPPING:                             ; preds = %indirectgoto
-  %instr_ptr9323 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9323, align 8
-  %add.ptr9324 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx9327 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9323 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9323, align 8
+  %add.ptr9324 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx9327 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1803 = load ptr, ptr %arrayidx9327, align 8
   %1804 = getelementptr i8, ptr %1803, i64 8
   %.val7068 = load ptr, ptr %1804, align 8
@@ -15497,20 +15497,20 @@ TARGET_MATCH_MAPPING:                             ; preds = %indirectgoto
   %conv93316814 = and i64 %1805, 64
   %tobool9332.not = icmp eq i64 %conv93316814, 0
   %cond9333 = select i1 %tobool9332.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  store ptr %cond9333, ptr %stack_pointer.17, align 8
-  %add.ptr9335 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %cond9333, ptr %stack_pointer.0, align 8
+  %add.ptr9335 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word9337.sroa.0.0.copyload = load i8, ptr %add.ptr9324, align 2
-  %word9337.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word9337.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word9337.sroa.2.0.copyload = load i8, ptr %word9337.sroa.2.0..sroa_idx, align 1
   %conv9340 = zext i8 %word9337.sroa.2.0.copyload to i32
   %idxprom9342 = zext i8 %word9337.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_MATCH_SEQUENCE:                            ; preds = %indirectgoto
-  %instr_ptr9344 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9344, align 8
-  %add.ptr9345 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx9348 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9344 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9344, align 8
+  %add.ptr9345 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx9348 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1806 = load ptr, ptr %arrayidx9348, align 8
   %1807 = getelementptr i8, ptr %1806, i64 8
   %.val7067 = load ptr, ptr %1807, align 8
@@ -15519,31 +15519,31 @@ TARGET_MATCH_SEQUENCE:                            ; preds = %indirectgoto
   %conv93536813 = and i64 %1808, 32
   %tobool9354.not = icmp eq i64 %conv93536813, 0
   %cond9355 = select i1 %tobool9354.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  store ptr %cond9355, ptr %stack_pointer.17, align 8
-  %add.ptr9357 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %cond9355, ptr %stack_pointer.0, align 8
+  %add.ptr9357 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word9359.sroa.0.0.copyload = load i8, ptr %add.ptr9345, align 2
-  %word9359.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word9359.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word9359.sroa.2.0.copyload = load i8, ptr %word9359.sroa.2.0..sroa_idx, align 1
   %conv9362 = zext i8 %word9359.sroa.2.0.copyload to i32
   %idxprom9364 = zext i8 %word9359.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_NOP:                                       ; preds = %indirectgoto
-  %instr_ptr9366 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9366, align 8
-  %add.ptr9367 = getelementptr i8, ptr %next_instr.27, i64 2
+  %instr_ptr9366 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9366, align 8
+  %add.ptr9367 = getelementptr i8, ptr %next_instr.1, i64 2
   %word9369.sroa.0.0.copyload = load i8, ptr %add.ptr9367, align 2
-  %word9369.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word9369.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word9369.sroa.2.0.copyload = load i8, ptr %word9369.sroa.2.0..sroa_idx, align 1
   %conv9372 = zext i8 %word9369.sroa.2.0.copyload to i32
   %idxprom9374 = zext i8 %word9369.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_POP_EXCEPT:                                ; preds = %indirectgoto
-  %instr_ptr9376 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9376, align 8
-  %add.ptr9377 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx9379 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9376 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9376, align 8
+  %add.ptr9377 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx9379 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1809 = load ptr, ptr %arrayidx9379, align 8
   %1810 = load ptr, ptr %exc_info17215, align 8
   %1811 = load ptr, ptr %1810, align 8
@@ -15573,26 +15573,26 @@ if.then9400:                                      ; preds = %if.end9396
 
 do.end9408:                                       ; preds = %do.body9391, %if.then9400, %if.end9396, %TARGET_POP_EXCEPT
   %word9411.sroa.0.0.copyload = load i8, ptr %add.ptr9377, align 2
-  %word9411.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word9411.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word9411.sroa.2.0.copyload = load i8, ptr %word9411.sroa.2.0..sroa_idx, align 1
   %conv9414 = zext i8 %word9411.sroa.2.0.copyload to i32
   %idxprom9416 = zext i8 %word9411.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_POP_JUMP_IF_FALSE:                         ; preds = %indirectgoto
-  %instr_ptr9419 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9419, align 8
-  %add.ptr9420 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx9422 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9419 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9419, align 8
+  %add.ptr9420 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx9422 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1816 = load ptr, ptr %arrayidx9422, align 8
   %cmp9424 = icmp eq ptr %1816, @_Py_FalseStruct
   %conv9425 = zext i1 %cmp9424 to i16
-  %arrayidx9426 = getelementptr i8, ptr %next_instr.27, i64 2
+  %arrayidx9426 = getelementptr i8, ptr %next_instr.1, i64 2
   %1817 = load i16, ptr %arrayidx9426, align 2
   %shl9428 = shl i16 %1817, 1
   %or9429 = or disjoint i16 %shl9428, %conv9425
   store i16 %or9429, ptr %arrayidx9426, align 2
-  %1818 = sext i32 %oparg.1 to i64
+  %1818 = sext i32 %oparg.0 to i64
   %idx.ext9433 = select i1 %cmp9424, i64 %1818, i64 0
   %add.ptr9434 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr9420, i64 %idx.ext9433
   %word9437.sroa.0.0.copyload = load i8, ptr %add.ptr9434, align 2
@@ -15603,10 +15603,10 @@ TARGET_POP_JUMP_IF_FALSE:                         ; preds = %indirectgoto
   br label %indirectgoto.backedge
 
 TARGET_POP_JUMP_IF_NONE:                          ; preds = %indirectgoto
-  %instr_ptr9445 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9445, align 8
-  %add.ptr9446 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx9450 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9445 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9445, align 8
+  %add.ptr9446 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx9450 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1819 = load ptr, ptr %arrayidx9450, align 8
   %cmp9451 = icmp eq ptr %1819, @_Py_NoneStruct
   br i1 %cmp9451, label %if.end9470, label %if.else9454
@@ -15632,9 +15632,9 @@ if.then9464:                                      ; preds = %if.end9460
   br label %if.end9470
 
 if.end9470:                                       ; preds = %TARGET_POP_JUMP_IF_NONE, %if.else9454, %if.then9464, %if.end9460
-  %mul9480 = phi i32 [ 0, %if.else9454 ], [ 0, %if.then9464 ], [ 0, %if.end9460 ], [ %oparg.1, %TARGET_POP_JUMP_IF_NONE ]
+  %mul9480 = phi i32 [ 0, %if.else9454 ], [ 0, %if.then9464 ], [ 0, %if.end9460 ], [ %oparg.0, %TARGET_POP_JUMP_IF_NONE ]
   %conv9473 = zext i1 %cmp9451 to i16
-  %arrayidx9474 = getelementptr i8, ptr %next_instr.27, i64 2
+  %arrayidx9474 = getelementptr i8, ptr %next_instr.1, i64 2
   %1824 = load i16, ptr %arrayidx9474, align 2
   %shl9476 = shl i16 %1824, 1
   %or9477 = or disjoint i16 %shl9476, %conv9473
@@ -15649,10 +15649,10 @@ if.end9470:                                       ; preds = %TARGET_POP_JUMP_IF_
   br label %indirectgoto.backedge
 
 TARGET_POP_JUMP_IF_NOT_NONE:                      ; preds = %indirectgoto
-  %instr_ptr9493 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9493, align 8
-  %add.ptr9494 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx9498 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9493 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9493, align 8
+  %add.ptr9494 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx9498 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1825 = load ptr, ptr %arrayidx9498, align 8
   %cmp9499 = icmp ne ptr %1825, @_Py_NoneStruct
   br i1 %cmp9499, label %if.else9502, label %if.end9518
@@ -15678,9 +15678,9 @@ if.then9512:                                      ; preds = %if.end9508
   br label %if.end9518
 
 if.end9518:                                       ; preds = %TARGET_POP_JUMP_IF_NOT_NONE, %if.else9502, %if.then9512, %if.end9508
-  %mul9528 = phi i32 [ %oparg.1, %if.else9502 ], [ %oparg.1, %if.then9512 ], [ %oparg.1, %if.end9508 ], [ 0, %TARGET_POP_JUMP_IF_NOT_NONE ]
+  %mul9528 = phi i32 [ %oparg.0, %if.else9502 ], [ %oparg.0, %if.then9512 ], [ %oparg.0, %if.end9508 ], [ 0, %TARGET_POP_JUMP_IF_NOT_NONE ]
   %conv9521 = zext i1 %cmp9499 to i16
-  %arrayidx9522 = getelementptr i8, ptr %next_instr.27, i64 2
+  %arrayidx9522 = getelementptr i8, ptr %next_instr.1, i64 2
   %1830 = load i16, ptr %arrayidx9522, align 2
   %shl9524 = shl i16 %1830, 1
   %or9525 = or disjoint i16 %shl9524, %conv9521
@@ -15695,19 +15695,19 @@ if.end9518:                                       ; preds = %TARGET_POP_JUMP_IF_
   br label %indirectgoto.backedge
 
 TARGET_POP_JUMP_IF_TRUE:                          ; preds = %indirectgoto
-  %instr_ptr9541 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9541, align 8
-  %add.ptr9542 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx9544 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9541 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9541, align 8
+  %add.ptr9542 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx9544 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1831 = load ptr, ptr %arrayidx9544, align 8
   %cmp9546 = icmp eq ptr %1831, @_Py_TrueStruct
   %conv9547 = zext i1 %cmp9546 to i16
-  %arrayidx9548 = getelementptr i8, ptr %next_instr.27, i64 2
+  %arrayidx9548 = getelementptr i8, ptr %next_instr.1, i64 2
   %1832 = load i16, ptr %arrayidx9548, align 2
   %shl9550 = shl i16 %1832, 1
   %or9551 = or disjoint i16 %shl9550, %conv9547
   store i16 %or9551, ptr %arrayidx9548, align 2
-  %1833 = sext i32 %oparg.1 to i64
+  %1833 = sext i32 %oparg.0 to i64
   %idx.ext9555 = select i1 %cmp9546, i64 %1833, i64 0
   %add.ptr9556 = getelementptr %union._Py_CODEUNIT, ptr %add.ptr9542, i64 %idx.ext9555
   %word9559.sroa.0.0.copyload = load i8, ptr %add.ptr9556, align 2
@@ -15718,10 +15718,10 @@ TARGET_POP_JUMP_IF_TRUE:                          ; preds = %indirectgoto
   br label %indirectgoto.backedge
 
 TARGET_POP_TOP:                                   ; preds = %indirectgoto
-  %instr_ptr9566 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9566, align 8
-  %add.ptr9567 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx9569 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9566 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9566, align 8
+  %add.ptr9567 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx9569 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1834 = load ptr, ptr %arrayidx9569, align 8
   %1835 = load i64, ptr %1834, align 8
   %1836 = and i64 %1835, 2147483648
@@ -15744,17 +15744,17 @@ if.then9579:                                      ; preds = %if.end9575
 
 do.end9584:                                       ; preds = %if.end9575, %if.then9579, %TARGET_POP_TOP
   %word9587.sroa.0.0.copyload = load i8, ptr %add.ptr9567, align 2
-  %word9587.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word9587.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word9587.sroa.2.0.copyload = load i8, ptr %word9587.sroa.2.0..sroa_idx, align 1
   %conv9590 = zext i8 %word9587.sroa.2.0.copyload to i32
   %idxprom9592 = zext i8 %word9587.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_PUSH_EXC_INFO:                             ; preds = %indirectgoto
-  %instr_ptr9594 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9594, align 8
-  %add.ptr9595 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx9596 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9594 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9594, align 8
+  %add.ptr9595 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx9596 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1839 = load ptr, ptr %arrayidx9596, align 8
   %1840 = load ptr, ptr %exc_info17215, align 8
   %1841 = load ptr, ptr %1840, align 8
@@ -15772,36 +15772,36 @@ if.end.i.i8362:                                   ; preds = %TARGET_PUSH_EXC_INF
 _Py_NewRef.exit8363:                              ; preds = %TARGET_PUSH_EXC_INFO, %if.end.i.i8362
   store ptr %1839, ptr %1840, align 8
   store ptr %_Py_NoneStruct., ptr %arrayidx9596, align 8
-  store ptr %1839, ptr %stack_pointer.17, align 8
-  %add.ptr9610 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %1839, ptr %stack_pointer.0, align 8
+  %add.ptr9610 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word9612.sroa.0.0.copyload = load i8, ptr %add.ptr9595, align 2
-  %word9612.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word9612.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word9612.sroa.2.0.copyload = load i8, ptr %word9612.sroa.2.0..sroa_idx, align 1
   %conv9615 = zext i8 %word9612.sroa.2.0.copyload to i32
   %idxprom9617 = zext i8 %word9612.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_PUSH_NULL:                                 ; preds = %indirectgoto
-  %instr_ptr9619 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9619, align 8
-  %add.ptr9620 = getelementptr i8, ptr %next_instr.27, i64 2
-  store ptr null, ptr %stack_pointer.17, align 8
-  %add.ptr9623 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  %instr_ptr9619 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9619, align 8
+  %add.ptr9620 = getelementptr i8, ptr %next_instr.1, i64 2
+  store ptr null, ptr %stack_pointer.0, align 8
+  %add.ptr9623 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word9625.sroa.0.0.copyload = load i8, ptr %add.ptr9620, align 2
-  %word9625.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word9625.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word9625.sroa.2.0.copyload = load i8, ptr %word9625.sroa.2.0..sroa_idx, align 1
   %conv9628 = zext i8 %word9625.sroa.2.0.copyload to i32
   %idxprom9630 = zext i8 %word9625.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_RAISE_VARARGS:                             ; preds = %indirectgoto
-  %instr_ptr9633 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9633, align 8
-  %add.ptr9634 = getelementptr i8, ptr %next_instr.27, i64 2
-  %sub9636 = sub i32 0, %oparg.1
+  %instr_ptr9633 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9633, align 8
+  %add.ptr9634 = getelementptr i8, ptr %next_instr.1, i64 2
+  %sub9636 = sub i32 0, %oparg.0
   %idxprom9637 = sext i32 %sub9636 to i64
-  %arrayidx9638 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom9637
-  switch i32 %oparg.1, label %sw.default [
+  %arrayidx9638 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom9637
+  switch i32 %oparg.0, label %sw.default [
     i32 2, label %sw.bb
     i32 1, label %sw.bb9643
     i32 0, label %if.then.i8389
@@ -16171,7 +16171,7 @@ if.then9646:                                      ; preds = %if.end.i218.i, %if.
 
 if.end.i8398:                                     ; preds = %if.then9646
   %call.i.i8399 = call ptr @PyErr_GetRaisedException() #15
-  %call1.i.i8400 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 14, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %call.i.i8399) #15
+  %call1.i.i8400 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 14, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %call.i.i8399) #15
   %cmp.i2.i8401 = icmp eq i32 %call1.i.i8400, 0
   br i1 %cmp.i2.i8401, label %if.then.i.i8410, label %do.body.i.i8402
 
@@ -16205,18 +16205,18 @@ sw.default:                                       ; preds = %TARGET_RAISE_VARARG
   br label %error
 
 TARGET_RERAISE:                                   ; preds = %indirectgoto
-  %instr_ptr9652 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9652, align 8
-  %add.ptr9653 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx9656 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9652 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9652, align 8
+  %add.ptr9653 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx9656 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1909 = load ptr, ptr %arrayidx9656, align 8
-  %tobool9660.not = icmp eq i32 %oparg.1, 0
+  %tobool9660.not = icmp eq i32 %oparg.0, 0
   br i1 %tobool9660.not, label %if.end9674, label %if.then9661
 
 if.then9661:                                      ; preds = %TARGET_RERAISE
-  %sub9657 = xor i32 %oparg.1, -1
+  %sub9657 = xor i32 %oparg.0, -1
   %idxprom9658 = sext i32 %sub9657 to i64
-  %arrayidx9659 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom9658
+  %arrayidx9659 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom9658
   %1910 = load ptr, ptr %arrayidx9659, align 8
   %1911 = getelementptr i8, ptr %1910, i64 8
   %.val7062 = load ptr, ptr %1911, align 8
@@ -16227,8 +16227,8 @@ if.then9661:                                      ; preds = %TARGET_RERAISE
   br i1 %tobool9665.not, label %if.else9672, label %if.then9666
 
 if.then9666:                                      ; preds = %if.then9661
-  %frame.addr.8.val7318 = load ptr, ptr %frame.addr.8, align 8
-  %co_code_adaptive = getelementptr inbounds i8, ptr %frame.addr.8.val7318, i64 200
+  %frame.addr.4.val7318 = load ptr, ptr %frame.addr.4, align 8
+  %co_code_adaptive = getelementptr inbounds i8, ptr %frame.addr.4.val7318, i64 200
   %call9669 = call i64 @PyLong_AsLong(ptr noundef nonnull %1910) #15
   %add.ptr9670 = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive, i64 %call9669
   store ptr %add.ptr9670, ptr %instr_ptr9652, align 8
@@ -16259,7 +16259,7 @@ Py_INCREF.exit21208:                              ; preds = %if.end9674, %if.end
 
 if.end.i8418:                                     ; preds = %Py_INCREF.exit21208
   %call.i.i8419 = call ptr @PyErr_GetRaisedException() #15
-  %call1.i.i8420 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 14, ptr noundef nonnull %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %call.i.i8419) #15
+  %call1.i.i8420 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 14, ptr noundef nonnull %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %call.i.i8419) #15
   %cmp.i2.i8421 = icmp eq i32 %call1.i.i8420, 0
   br i1 %cmp.i2.i8421, label %if.then.i.i8430, label %do.body.i.i8422
 
@@ -16291,30 +16291,30 @@ TARGET_RESERVED:                                  ; preds = %indirectgoto
   unreachable
 
 TARGET_RESUME:                                    ; preds = %indirectgoto
-  %instr_ptr9677 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9677, align 8
-  %add.ptr9678 = getelementptr i8, ptr %next_instr.27, i64 2
+  %instr_ptr9677 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9677, align 8
+  %add.ptr9678 = getelementptr i8, ptr %next_instr.1, i64 2
   %.pre = load ptr, ptr %interp10475, align 8
   br label %PRED_149
 
 PRED_149:                                         ; preds = %TARGET_RESUME_CHECK, %TARGET_RESUME
   %1921 = phi ptr [ %1925, %TARGET_RESUME_CHECK ], [ %.pre, %TARGET_RESUME ]
-  %next_instr.13 = phi ptr [ %add.ptr9730, %TARGET_RESUME_CHECK ], [ %add.ptr9678, %TARGET_RESUME ]
+  %next_instr.20 = phi ptr [ %add.ptr9730, %TARGET_RESUME_CHECK ], [ %add.ptr9678, %TARGET_RESUME ]
   %1922 = load atomic i64, ptr %1921 monotonic, align 8
   %and9686 = and i64 %1922, -256
-  %frame.addr.8.val7319 = load ptr, ptr %frame.addr.8, align 8
-  %_co_instrumentation_version9689 = getelementptr inbounds i8, ptr %frame.addr.8.val7319, i64 168
+  %frame.addr.4.val7319 = load ptr, ptr %frame.addr.4, align 8
+  %_co_instrumentation_version9689 = getelementptr inbounds i8, ptr %frame.addr.4.val7319, i64 168
   %1923 = load i64, ptr %_co_instrumentation_version9689, align 8
   %cmp9690.not = icmp eq i64 %1923, %and9686
   br i1 %cmp9690.not, label %if.else9700, label %if.then9692
 
 if.then9692:                                      ; preds = %PRED_149
-  %call9696 = call i32 @_Py_Instrument(ptr noundef nonnull %frame.addr.8.val7319, ptr noundef nonnull %1921) #15
+  %call9696 = call i32 @_Py_Instrument(ptr noundef nonnull %frame.addr.4.val7319, ptr noundef nonnull %1921) #15
   %tobool9697.not = icmp eq i32 %call9696, 0
   br i1 %tobool9697.not, label %do.body9721, label %error.loopexit
 
 if.else9700:                                      ; preds = %PRED_149
-  %and9701 = and i32 %oparg.1, 2
+  %and9701 = and i32 %oparg.0, 2
   %cmp9702.not.not = icmp eq i32 %and9701, 0
   br i1 %cmp9702.not.not, label %if.then9704, label %if.end9718
 
@@ -16330,46 +16330,46 @@ if.then9711:                                      ; preds = %if.then9704
   br i1 %cmp9713.not, label %if.end9718, label %error.loopexit
 
 if.end9718:                                       ; preds = %if.then9704, %if.then9711, %if.else9700
-  store i8 -53, ptr %next_instr.27, align 2
+  store i8 -53, ptr %next_instr.1, align 2
   br label %do.body9721
 
 do.body9721:                                      ; preds = %if.then9692, %if.end9718
-  %next_instr.14 = phi ptr [ %next_instr.13, %if.end9718 ], [ %next_instr.27, %if.then9692 ]
-  %word9722.sroa.0.0.copyload = load i8, ptr %next_instr.14, align 2
-  %word9722.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %next_instr.14, i64 1
+  %next_instr.21 = phi ptr [ %next_instr.20, %if.end9718 ], [ %next_instr.1, %if.then9692 ]
+  %word9722.sroa.0.0.copyload = load i8, ptr %next_instr.21, align 2
+  %word9722.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %next_instr.21, i64 1
   %word9722.sroa.2.0.copyload = load i8, ptr %word9722.sroa.2.0..sroa_idx, align 1
   %conv9725 = zext i8 %word9722.sroa.2.0.copyload to i32
   %idxprom9727 = zext i8 %word9722.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_RESUME_CHECK:                              ; preds = %indirectgoto
-  %instr_ptr9729 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9729, align 8
-  %add.ptr9730 = getelementptr i8, ptr %next_instr.27, i64 2
+  %instr_ptr9729 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9729, align 8
+  %add.ptr9730 = getelementptr i8, ptr %next_instr.1, i64 2
   %1925 = load ptr, ptr %interp10475, align 8
   %1926 = load atomic i64, ptr %1925 monotonic, align 8
-  %frame.addr.8.val7321 = load ptr, ptr %frame.addr.8, align 8
-  %_co_instrumentation_version9738 = getelementptr inbounds i8, ptr %frame.addr.8.val7321, i64 168
+  %frame.addr.4.val7321 = load ptr, ptr %frame.addr.4, align 8
+  %_co_instrumentation_version9738 = getelementptr inbounds i8, ptr %frame.addr.4.val7321, i64 168
   %1927 = load i64, ptr %_co_instrumentation_version9738, align 8
   %cmp9739.not = icmp eq i64 %1926, %1927
   br i1 %cmp9739.not, label %do.body9743, label %PRED_149
 
 do.body9743:                                      ; preds = %TARGET_RESUME_CHECK
   %word9744.sroa.0.0.copyload = load i8, ptr %add.ptr9730, align 2
-  %word9744.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word9744.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word9744.sroa.2.0.copyload = load i8, ptr %word9744.sroa.2.0..sroa_idx, align 1
   %conv9747 = zext i8 %word9744.sroa.2.0.copyload to i32
   %idxprom9749 = zext i8 %word9744.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_RETURN_CONST:                              ; preds = %indirectgoto
-  %instr_ptr9751 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9751, align 8
-  %frame.addr.8.val7322 = load ptr, ptr %frame.addr.8, align 8
-  %co_consts9756 = getelementptr inbounds i8, ptr %frame.addr.8.val7322, i64 24
+  %instr_ptr9751 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9751, align 8
+  %frame.addr.4.val7322 = load ptr, ptr %frame.addr.4, align 8
+  %co_consts9756 = getelementptr inbounds i8, ptr %frame.addr.4.val7322, i64 24
   %1928 = load ptr, ptr %co_consts9756, align 8
   %ob_item9757 = getelementptr inbounds i8, ptr %1928, i64 24
-  %idxprom9758 = sext i32 %oparg.1 to i64
+  %idxprom9758 = sext i32 %oparg.0 to i64
   %arrayidx9759 = getelementptr [1 x ptr], ptr %ob_item9757, i64 0, i64 %idxprom9758
   %1929 = load ptr, ptr %arrayidx9759, align 8
   %1930 = load i32, ptr %1929, align 8
@@ -16382,21 +16382,21 @@ if.end.i21198:                                    ; preds = %TARGET_RETURN_CONST
   br label %Py_INCREF.exit21200
 
 Py_INCREF.exit21200:                              ; preds = %TARGET_RETURN_CONST, %if.end.i21198
-  %localsplus.i8432 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %sub.ptr.lhs.cast.i8433 = ptrtoint ptr %stack_pointer.17 to i64
+  %localsplus.i8432 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %sub.ptr.lhs.cast.i8433 = ptrtoint ptr %stack_pointer.0 to i64
   %sub.ptr.rhs.cast.i8434 = ptrtoint ptr %localsplus.i8432 to i64
   %sub.ptr.sub.i8435 = sub i64 %sub.ptr.lhs.cast.i8433, %sub.ptr.rhs.cast.i8434
   %sub.ptr.div.i8436 = lshr exact i64 %sub.ptr.sub.i8435, 3
   %conv.i8437 = trunc i64 %sub.ptr.div.i8436 to i32
-  %stacktop.i8438 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8438 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8437, ptr %stacktop.i8438, align 8
   %1931 = load i32, ptr %py_recursion_remaining3963, align 4
   %inc.i8440 = add i32 %1931, 1
   store i32 %inc.i8440, ptr %py_recursion_remaining3963, align 4
-  %previous9761 = getelementptr inbounds i8, ptr %frame.addr.8, i64 8
+  %previous9761 = getelementptr inbounds i8, ptr %frame.addr.4, i64 8
   %1932 = load ptr, ptr %previous9761, align 8
   store ptr %1932, ptr %current_frame, align 8
-  call void @_PyEval_FrameClearAndPop(ptr noundef %tstate, ptr noundef nonnull %frame.addr.8)
+  call void @_PyEval_FrameClearAndPop(ptr noundef %tstate, ptr noundef nonnull %frame.addr.4)
   %localsplus.i8441 = getelementptr inbounds i8, ptr %1932, i64 72
   %stacktop.i8442 = getelementptr inbounds i8, ptr %1932, i64 64
   %1933 = load i32, ptr %stacktop.i8442, align 8
@@ -16422,27 +16422,27 @@ Py_INCREF.exit21200:                              ; preds = %TARGET_RETURN_CONST
   br label %indirectgoto.backedge
 
 TARGET_RETURN_GENERATOR:                          ; preds = %indirectgoto
-  %instr_ptr9779 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9779, align 8
-  %add.ptr9780 = getelementptr i8, ptr %next_instr.27, i64 2
-  %f_funcobj9782 = getelementptr inbounds i8, ptr %frame.addr.8, i64 16
+  %instr_ptr9779 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9779, align 8
+  %add.ptr9780 = getelementptr i8, ptr %next_instr.1, i64 2
+  %f_funcobj9782 = getelementptr inbounds i8, ptr %frame.addr.4, i64 16
   %1937 = load ptr, ptr %f_funcobj9782, align 8
   %call9784 = call ptr @_Py_MakeCoro(ptr noundef %1937) #15
   %cmp9785 = icmp eq ptr %call9784, null
   br i1 %cmp9785, label %error, label %if.end9788
 
 if.end9788:                                       ; preds = %TARGET_RETURN_GENERATOR
-  %localsplus.i8450 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %sub.ptr.lhs.cast.i8451 = ptrtoint ptr %stack_pointer.17 to i64
+  %localsplus.i8450 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %sub.ptr.lhs.cast.i8451 = ptrtoint ptr %stack_pointer.0 to i64
   %sub.ptr.rhs.cast.i8452 = ptrtoint ptr %localsplus.i8450 to i64
   %sub.ptr.sub.i8453 = sub i64 %sub.ptr.lhs.cast.i8451, %sub.ptr.rhs.cast.i8452
   %sub.ptr.div.i8454 = lshr exact i64 %sub.ptr.sub.i8453, 3
   %conv.i8455 = trunc i64 %sub.ptr.div.i8454 to i32
-  %stacktop.i8456 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8456 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8455, ptr %stacktop.i8456, align 8
   %gi_iframe9790 = getelementptr inbounds i8, ptr %call9784, i64 72
   store ptr %add.ptr9780, ptr %instr_ptr9779, align 8
-  call void @_PyFrame_Copy(ptr noundef nonnull %frame.addr.8, ptr noundef nonnull %gi_iframe9790) #15
+  call void @_PyFrame_Copy(ptr noundef nonnull %frame.addr.4, ptr noundef nonnull %gi_iframe9790) #15
   %gi_frame_state9793 = getelementptr inbounds i8, ptr %call9784, i64 67
   store i8 -3, ptr %gi_frame_state9793, align 1
   %owner9794 = getelementptr inbounds i8, ptr %call9784, i64 142
@@ -16450,9 +16450,9 @@ if.end9788:                                       ; preds = %TARGET_RETURN_GENER
   %1938 = load i32, ptr %py_recursion_remaining3963, align 4
   %inc.i8458 = add i32 %1938, 1
   store i32 %inc.i8458, ptr %py_recursion_remaining3963, align 4
-  %previous9795 = getelementptr inbounds i8, ptr %frame.addr.8, i64 8
+  %previous9795 = getelementptr inbounds i8, ptr %frame.addr.4, i64 8
   %1939 = load ptr, ptr %previous9795, align 8
-  call void @_PyThreadState_PopFrame(ptr noundef %tstate, ptr noundef nonnull %frame.addr.8) #15
+  call void @_PyThreadState_PopFrame(ptr noundef %tstate, ptr noundef nonnull %frame.addr.4) #15
   store ptr %1939, ptr %current_frame, align 8
   %localsplus.i8459 = getelementptr inbounds i8, ptr %1939, i64 72
   %stacktop.i8460 = getelementptr inbounds i8, ptr %1939, i64 64
@@ -16472,25 +16472,25 @@ if.end9788:                                       ; preds = %TARGET_RETURN_GENER
   br label %resume_frame
 
 TARGET_RETURN_VALUE:                              ; preds = %indirectgoto
-  %instr_ptr9804 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9804, align 8
-  %arrayidx9807 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9804 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9804, align 8
+  %arrayidx9807 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1944 = load ptr, ptr %arrayidx9807, align 8
-  %localsplus.i8464 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i8464 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i8465 = ptrtoint ptr %arrayidx9807 to i64
   %sub.ptr.rhs.cast.i8466 = ptrtoint ptr %localsplus.i8464 to i64
   %sub.ptr.sub.i8467 = sub i64 %sub.ptr.lhs.cast.i8465, %sub.ptr.rhs.cast.i8466
   %sub.ptr.div.i8468 = lshr exact i64 %sub.ptr.sub.i8467, 3
   %conv.i8469 = trunc i64 %sub.ptr.div.i8468 to i32
-  %stacktop.i8470 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8470 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8469, ptr %stacktop.i8470, align 8
   %1945 = load i32, ptr %py_recursion_remaining3963, align 4
   %inc.i8472 = add i32 %1945, 1
   store i32 %inc.i8472, ptr %py_recursion_remaining3963, align 4
-  %previous9810 = getelementptr inbounds i8, ptr %frame.addr.8, i64 8
+  %previous9810 = getelementptr inbounds i8, ptr %frame.addr.4, i64 8
   %1946 = load ptr, ptr %previous9810, align 8
   store ptr %1946, ptr %current_frame, align 8
-  call void @_PyEval_FrameClearAndPop(ptr noundef %tstate, ptr noundef %frame.addr.8)
+  call void @_PyEval_FrameClearAndPop(ptr noundef %tstate, ptr noundef %frame.addr.4)
   %localsplus.i8473 = getelementptr inbounds i8, ptr %1946, i64 72
   %stacktop.i8474 = getelementptr inbounds i8, ptr %1946, i64 64
   %1947 = load i32, ptr %stacktop.i8474, align 8
@@ -16516,30 +16516,30 @@ TARGET_RETURN_VALUE:                              ; preds = %indirectgoto
   br label %indirectgoto.backedge
 
 TARGET_SEND:                                      ; preds = %indirectgoto
-  %instr_ptr9828 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9828, align 8
-  %arrayidx9835.phi.trans.insert = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %instr_ptr9828 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9828, align 8
+  %arrayidx9835.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %.pre11850 = load ptr, ptr %arrayidx9835.phi.trans.insert, align 8
   br label %PRED_104
 
 PRED_104:                                         ; preds = %if.end9960, %if.end9970, %TARGET_SEND_GEN, %TARGET_SEND
   %1951 = phi ptr [ %1975, %if.end9960 ], [ %1975, %if.end9970 ], [ %1975, %TARGET_SEND_GEN ], [ %.pre11850, %TARGET_SEND ]
-  %next_instr.15 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx9837 = getelementptr i8, ptr %next_instr.27, i64 2
+  %next_instr.22 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx9837 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx9837.val = load i16, ptr %arrayidx9837, align 2
   %cmp9841 = icmp ult i16 %arrayidx9837.val, 16
   br i1 %cmp9841, label %if.then9843, label %do.body9848
 
 if.then9843:                                      ; preds = %PRED_104
-  call void @_Py_Specialize_Send(ptr noundef %1951, ptr noundef nonnull %next_instr.27) #15
-  %1952 = load i8, ptr %next_instr.27, align 2
+  call void @_Py_Specialize_Send(ptr noundef %1951, ptr noundef nonnull %next_instr.1) #15
+  %1952 = load i8, ptr %next_instr.1, align 2
   %idxprom9845 = zext i8 %1952 to i64
   br label %indirectgoto.backedge
 
 do.body9848:                                      ; preds = %PRED_104
   %sub9851 = add i16 %arrayidx9837.val, -16
   store i16 %sub9851, ptr %arrayidx9837, align 2
-  %arrayidx9854 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %arrayidx9854 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1953 = load ptr, ptr %arrayidx9854, align 8
   %1954 = load ptr, ptr %interp10475, align 8
   %eval_frame9856 = getelementptr inbounds i8, ptr %1954, i64 2072
@@ -16579,20 +16579,20 @@ if.then9872:                                      ; preds = %land.lhs.true9867
   %previous_item9881 = getelementptr inbounds i8, ptr %1951, i64 48
   store ptr %1960, ptr %previous_item9881, align 8
   store ptr %gi_exc_state9880, ptr %exc_info17215, align 8
-  %conv9888 = trunc i32 %oparg.1 to i16
+  %conv9888 = trunc i32 %oparg.0 to i16
   %add9889 = add i16 %conv9888, 2
-  %return_offset9891 = getelementptr inbounds i8, ptr %frame.addr.8, i64 68
+  %return_offset9891 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
   store i16 %add9889, ptr %return_offset9891, align 4
-  %localsplus.i8487 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i8487 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i8488 = ptrtoint ptr %arrayidx9854 to i64
   %sub.ptr.rhs.cast.i8489 = ptrtoint ptr %localsplus.i8487 to i64
   %sub.ptr.sub.i8490 = sub i64 %sub.ptr.lhs.cast.i8488, %sub.ptr.rhs.cast.i8489
   %sub.ptr.div.i8491 = lshr exact i64 %sub.ptr.sub.i8490, 3
   %conv.i8492 = trunc i64 %sub.ptr.div.i8491 to i32
-  %stacktop.i8493 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8493 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8492, ptr %stacktop.i8493, align 8
   %previous9893 = getelementptr inbounds i8, ptr %1951, i64 80
-  store ptr %frame.addr.8, ptr %previous9893, align 8
+  store ptr %frame.addr.4, ptr %previous9893, align 8
   store ptr %gi_iframe9875, ptr %current_frame, align 8
   br label %start_frame
 
@@ -16650,7 +16650,7 @@ if.then9914:                                      ; preds = %if.then9911
 
 if.end.i8503:                                     ; preds = %if.then9914
   %call.i.i8504 = call ptr @PyErr_GetRaisedException() #15
-  %call1.i.i8505 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 10, ptr noundef nonnull %frame.addr.8, ptr noundef nonnull %next_instr.27, ptr noundef %call.i.i8504) #15
+  %call1.i.i8505 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 10, ptr noundef nonnull %frame.addr.4, ptr noundef nonnull %next_instr.1, ptr noundef %call.i.i8504) #15
   %cmp.i2.i8506 = icmp eq i32 %call1.i.i8505, 0
   br i1 %cmp.i2.i8506, label %if.then.i.i8515, label %do.body.i.i8507
 
@@ -16684,12 +16684,12 @@ if.end9915:                                       ; preds = %if.then5.i.i8512, %
   br i1 %cmp9917, label %if.then9919, label %error.loopexit
 
 if.then9919:                                      ; preds = %if.end9915
-  %idx.ext9920 = sext i32 %oparg.1 to i64
-  %add.ptr9921 = getelementptr %union._Py_CODEUNIT, ptr %next_instr.15, i64 %idx.ext9920
+  %idx.ext9920 = sext i32 %oparg.0 to i64
+  %add.ptr9921 = getelementptr %union._Py_CODEUNIT, ptr %next_instr.22, i64 %idx.ext9920
   br label %do.body9925
 
 do.body9925:                                      ; preds = %if.end9908, %if.then9919
-  %next_instr.16 = phi ptr [ %add.ptr9921, %if.then9919 ], [ %next_instr.15, %if.end9908 ]
+  %next_instr.23 = phi ptr [ %add.ptr9921, %if.then9919 ], [ %next_instr.22, %if.end9908 ]
   %1969 = load i64, ptr %1953, align 8
   %1970 = and i64 %1969, 2147483648
   %cmp.i20305.not = icmp eq i64 %1970, 0
@@ -16712,19 +16712,19 @@ if.then9934:                                      ; preds = %if.end9930
 do.end9939:                                       ; preds = %if.end9930, %if.then9934, %do.body9925
   %1973 = load ptr, ptr %retval9834, align 8
   store ptr %1973, ptr %arrayidx9854, align 8
-  %word9942.sroa.0.0.copyload = load i8, ptr %next_instr.16, align 2
-  %word9942.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %next_instr.16, i64 1
+  %word9942.sroa.0.0.copyload = load i8, ptr %next_instr.23, align 2
+  %word9942.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %next_instr.23, i64 1
   %word9942.sroa.2.0.copyload = load i8, ptr %word9942.sroa.2.0..sroa_idx, align 1
   %conv9945 = zext i8 %word9942.sroa.2.0.copyload to i32
   %idxprom9947 = zext i8 %word9942.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_SEND_GEN:                                  ; preds = %indirectgoto
-  %instr_ptr9950 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9950, align 8
-  %arrayidx9954 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr9950 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9950, align 8
+  %arrayidx9954 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1974 = load ptr, ptr %arrayidx9954, align 8
-  %arrayidx9955 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx9955 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %1975 = load ptr, ptr %arrayidx9955, align 8
   %1976 = load ptr, ptr %interp10475, align 8
   %eval_frame9957 = getelementptr inbounds i8, ptr %1976, i64 2072
@@ -16747,7 +16747,7 @@ if.end9970:                                       ; preds = %if.end9960
   br i1 %cmp9973, label %PRED_104, label %if.end9976
 
 if.end9976:                                       ; preds = %if.end9970
-  %arrayidx9954.le = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %arrayidx9954.le = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %gi_frame_state9971.le = getelementptr inbounds i8, ptr %1975, i64 67
   %gi_iframe9978 = getelementptr inbounds i8, ptr %1975, i64 72
   %localsplus.i8517 = getelementptr inbounds i8, ptr %1975, i64 144
@@ -16765,28 +16765,28 @@ if.end9976:                                       ; preds = %if.end9970
   %previous_item9984 = getelementptr inbounds i8, ptr %1975, i64 48
   store ptr %1982, ptr %previous_item9984, align 8
   store ptr %gi_exc_state9983, ptr %exc_info17215, align 8
-  %conv9991 = trunc i32 %oparg.1 to i16
+  %conv9991 = trunc i32 %oparg.0 to i16
   %add9992 = add i16 %conv9991, 2
-  %return_offset9994 = getelementptr inbounds i8, ptr %frame.addr.8, i64 68
+  %return_offset9994 = getelementptr inbounds i8, ptr %frame.addr.4, i64 68
   store i16 %add9992, ptr %return_offset9994, align 4
-  %localsplus.i8522 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i8522 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i8523 = ptrtoint ptr %arrayidx9954.le to i64
   %sub.ptr.rhs.cast.i8524 = ptrtoint ptr %localsplus.i8522 to i64
   %sub.ptr.sub.i8525 = sub i64 %sub.ptr.lhs.cast.i8523, %sub.ptr.rhs.cast.i8524
   %sub.ptr.div.i8526 = lshr exact i64 %sub.ptr.sub.i8525, 3
   %conv.i8527 = trunc i64 %sub.ptr.div.i8526 to i32
-  %stacktop.i8528 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8528 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8527, ptr %stacktop.i8528, align 8
   %previous9996 = getelementptr inbounds i8, ptr %1975, i64 80
-  store ptr %frame.addr.8, ptr %previous9996, align 8
+  store ptr %frame.addr.4, ptr %previous9996, align 8
   store ptr %gi_iframe9978, ptr %current_frame, align 8
   br label %start_frame
 
 TARGET_SETUP_ANNOTATIONS:                         ; preds = %indirectgoto
-  %instr_ptr9999 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr9999, align 8
-  %add.ptr10000 = getelementptr i8, ptr %next_instr.27, i64 2
-  %f_locals10002 = getelementptr inbounds i8, ptr %frame.addr.8, i64 40
+  %instr_ptr9999 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr9999, align 8
+  %add.ptr10000 = getelementptr i8, ptr %next_instr.1, i64 2
+  %f_locals10002 = getelementptr inbounds i8, ptr %frame.addr.4, i64 40
   %1983 = load ptr, ptr %f_locals10002, align 8
   %cmp10003 = icmp eq ptr %1983, null
   br i1 %cmp10003, label %if.then10005, label %if.end10007
@@ -16861,21 +16861,21 @@ if.then10052:                                     ; preds = %if.end10048
 
 do.body10059:                                     ; preds = %do.end10038, %if.end10048, %if.then10052, %do.body10043
   %word10060.sroa.0.0.copyload = load i8, ptr %add.ptr10000, align 2
-  %word10060.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word10060.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word10060.sroa.2.0.copyload = load i8, ptr %word10060.sroa.2.0..sroa_idx, align 1
   %conv10063 = zext i8 %word10060.sroa.2.0.copyload to i32
   %idxprom10065 = zext i8 %word10060.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_SET_ADD:                                   ; preds = %indirectgoto
-  %instr_ptr10067 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10067, align 8
-  %add.ptr10068 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx10071 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10067 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10067, align 8
+  %add.ptr10068 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx10071 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %1996 = load ptr, ptr %arrayidx10071, align 8
-  %sub10073 = xor i32 %oparg.1, -1
+  %sub10073 = xor i32 %oparg.0, -1
   %idxprom10074 = sext i32 %sub10073 to i64
-  %arrayidx10075 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom10074
+  %arrayidx10075 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom10074
   %1997 = load ptr, ptr %arrayidx10075, align 8
   %call10077 = call i32 @PySet_Add(ptr noundef %1997, ptr noundef %1996) #15
   %1998 = load i64, ptr %1996, align 8
@@ -16903,21 +16903,21 @@ do.end10092:                                      ; preds = %if.end10083, %if.th
 
 if.end10095:                                      ; preds = %do.end10092
   %word10098.sroa.0.0.copyload = load i8, ptr %add.ptr10068, align 2
-  %word10098.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word10098.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word10098.sroa.2.0.copyload = load i8, ptr %word10098.sroa.2.0..sroa_idx, align 1
   %conv10101 = zext i8 %word10098.sroa.2.0.copyload to i32
   %idxprom10103 = zext i8 %word10098.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_SET_FUNCTION_ATTRIBUTE:                    ; preds = %indirectgoto
-  %instr_ptr10105 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10105, align 8
-  %add.ptr10106 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx10109 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10105 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10105, align 8
+  %add.ptr10106 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx10109 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2002 = load ptr, ptr %arrayidx10109, align 8
-  %arrayidx10110 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx10110 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %2003 = load ptr, ptr %arrayidx10110, align 8
-  %2004 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %oparg.1, i1 true)
+  %2004 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %oparg.0, i1 true)
   %2005 = zext nneg i32 %2004 to i64
   %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._PyEval_EvalFrameDefault.53, i64 0, i64 %2005
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -16925,21 +16925,21 @@ TARGET_SET_FUNCTION_ATTRIBUTE:                    ; preds = %indirectgoto
   store ptr %2003, ptr %func_defaults10117, align 8
   store ptr %2002, ptr %arrayidx10110, align 8
   %word10123.sroa.0.0.copyload = load i8, ptr %add.ptr10106, align 2
-  %word10123.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word10123.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word10123.sroa.2.0.copyload = load i8, ptr %word10123.sroa.2.0..sroa_idx, align 1
   %conv10126 = zext i8 %word10123.sroa.2.0.copyload to i32
   %idxprom10128 = zext i8 %word10123.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_SET_UPDATE:                                ; preds = %indirectgoto
-  %instr_ptr10130 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10130, align 8
-  %add.ptr10131 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx10134 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10130 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10130, align 8
+  %add.ptr10131 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx10134 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2006 = load ptr, ptr %arrayidx10134, align 8
-  %sub10136 = xor i32 %oparg.1, -1
+  %sub10136 = xor i32 %oparg.0, -1
   %idxprom10137 = sext i32 %sub10136 to i64
-  %arrayidx10138 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom10137
+  %arrayidx10138 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom10137
   %2007 = load ptr, ptr %arrayidx10138, align 8
   %call10140 = call i32 @_PySet_Update(ptr noundef %2007, ptr noundef %2006) #15
   %2008 = load i64, ptr %2006, align 8
@@ -16967,51 +16967,51 @@ do.end10155:                                      ; preds = %if.end10146, %if.th
 
 if.end10159:                                      ; preds = %do.end10155
   %word10162.sroa.0.0.copyload = load i8, ptr %add.ptr10131, align 2
-  %word10162.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word10162.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word10162.sroa.2.0.copyload = load i8, ptr %word10162.sroa.2.0..sroa_idx, align 1
   %conv10165 = zext i8 %word10162.sroa.2.0.copyload to i32
   %idxprom10167 = zext i8 %word10162.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_ATTR:                                ; preds = %indirectgoto
-  %instr_ptr10169 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10169, align 8
-  %add.ptr10170 = getelementptr i8, ptr %next_instr.27, i64 10
-  %arrayidx10175.phi.trans.insert = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10169 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10169, align 8
+  %add.ptr10170 = getelementptr i8, ptr %next_instr.1, i64 10
+  %arrayidx10175.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %.pre11849 = load ptr, ptr %arrayidx10175.phi.trans.insert, align 8
   br label %PRED_108
 
 PRED_108:                                         ; preds = %if.end10489, %if.else10478, %if.end10469, %if.then10458, %if.end10438, %if.end10424, %TARGET_STORE_ATTR_WITH_HINT, %TARGET_STORE_ATTR_SLOT, %if.end10266, %TARGET_STORE_ATTR_INSTANCE_VALUE, %TARGET_STORE_ATTR
   %2012 = phi ptr [ %2053, %TARGET_STORE_ATTR_WITH_HINT ], [ %2053, %if.end10424 ], [ %2053, %if.end10438 ], [ %2053, %if.then10458 ], [ %2053, %if.end10469 ], [ %2053, %if.else10478 ], [ %2053, %if.end10489 ], [ %2041, %TARGET_STORE_ATTR_SLOT ], [ %2027, %TARGET_STORE_ATTR_INSTANCE_VALUE ], [ %2027, %if.end10266 ], [ %.pre11849, %TARGET_STORE_ATTR ]
-  %next_instr.17 = phi ptr [ %add.ptr10407, %TARGET_STORE_ATTR_WITH_HINT ], [ %add.ptr10407, %if.end10424 ], [ %add.ptr10407, %if.end10438 ], [ %add.ptr10407, %if.then10458 ], [ %add.ptr10407, %if.end10469 ], [ %add.ptr10407, %if.else10478 ], [ %add.ptr10407, %if.end10489 ], [ %add.ptr10336, %TARGET_STORE_ATTR_SLOT ], [ %add.ptr10253, %TARGET_STORE_ATTR_INSTANCE_VALUE ], [ %add.ptr10253, %if.end10266 ], [ %add.ptr10170, %TARGET_STORE_ATTR ]
-  %arrayidx10177 = getelementptr i8, ptr %next_instr.27, i64 2
+  %next_instr.24 = phi ptr [ %add.ptr10407, %TARGET_STORE_ATTR_WITH_HINT ], [ %add.ptr10407, %if.end10424 ], [ %add.ptr10407, %if.end10438 ], [ %add.ptr10407, %if.then10458 ], [ %add.ptr10407, %if.end10469 ], [ %add.ptr10407, %if.else10478 ], [ %add.ptr10407, %if.end10489 ], [ %add.ptr10336, %TARGET_STORE_ATTR_SLOT ], [ %add.ptr10253, %TARGET_STORE_ATTR_INSTANCE_VALUE ], [ %add.ptr10253, %if.end10266 ], [ %add.ptr10170, %TARGET_STORE_ATTR ]
+  %arrayidx10177 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx10177.val = load i16, ptr %arrayidx10177, align 2
   %cmp10181 = icmp ult i16 %arrayidx10177.val, 16
   br i1 %cmp10181, label %if.then10183, label %do.body10194
 
 if.then10183:                                     ; preds = %PRED_108
-  %frame.addr.8.val7323 = load ptr, ptr %frame.addr.8, align 8
-  %co_names10186 = getelementptr inbounds i8, ptr %frame.addr.8.val7323, i64 32
+  %frame.addr.4.val7323 = load ptr, ptr %frame.addr.4, align 8
+  %co_names10186 = getelementptr inbounds i8, ptr %frame.addr.4.val7323, i64 32
   %2013 = load ptr, ptr %co_names10186, align 8
   %ob_item10187 = getelementptr inbounds i8, ptr %2013, i64 24
-  %idxprom10188 = sext i32 %oparg.1 to i64
+  %idxprom10188 = sext i32 %oparg.0 to i64
   %arrayidx10189 = getelementptr [1 x ptr], ptr %ob_item10187, i64 0, i64 %idxprom10188
   %2014 = load ptr, ptr %arrayidx10189, align 8
-  call void @_Py_Specialize_StoreAttr(ptr noundef %2012, ptr noundef nonnull %next_instr.27, ptr noundef %2014) #15
-  %2015 = load i8, ptr %next_instr.27, align 2
+  call void @_Py_Specialize_StoreAttr(ptr noundef %2012, ptr noundef nonnull %next_instr.1, ptr noundef %2014) #15
+  %2015 = load i8, ptr %next_instr.1, align 2
   %idxprom10191 = zext i8 %2015 to i64
   br label %indirectgoto.backedge
 
 do.body10194:                                     ; preds = %PRED_108
   %sub10197 = add i16 %arrayidx10177.val, -16
   store i16 %sub10197, ptr %arrayidx10177, align 2
-  %arrayidx10200 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx10200 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %2016 = load ptr, ptr %arrayidx10200, align 8
-  %frame.addr.8.val7324 = load ptr, ptr %frame.addr.8, align 8
-  %co_names10203 = getelementptr inbounds i8, ptr %frame.addr.8.val7324, i64 32
+  %frame.addr.4.val7324 = load ptr, ptr %frame.addr.4, align 8
+  %co_names10203 = getelementptr inbounds i8, ptr %frame.addr.4.val7324, i64 32
   %2017 = load ptr, ptr %co_names10203, align 8
   %ob_item10204 = getelementptr inbounds i8, ptr %2017, i64 24
-  %idxprom10205 = sext i32 %oparg.1 to i64
+  %idxprom10205 = sext i32 %oparg.0 to i64
   %arrayidx10206 = getelementptr [1 x ptr], ptr %ob_item10204, i64 0, i64 %idxprom10205
   %2018 = load ptr, ptr %arrayidx10206, align 8
   %call10208 = call i32 @PyObject_SetAttr(ptr noundef %2012, ptr noundef %2018, ptr noundef %2016) #15
@@ -17059,20 +17059,20 @@ do.end10238:                                      ; preds = %if.end10229, %if.th
   br i1 %tobool10239.not, label %if.end10241, label %pop_2_error
 
 if.end10241:                                      ; preds = %do.end10238
-  %word10244.sroa.0.0.copyload = load i8, ptr %next_instr.17, align 2
-  %word10244.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 11
+  %word10244.sroa.0.0.copyload = load i8, ptr %next_instr.24, align 2
+  %word10244.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 11
   %word10244.sroa.2.0.copyload = load i8, ptr %word10244.sroa.2.0..sroa_idx, align 1
   %conv10247 = zext i8 %word10244.sroa.2.0.copyload to i32
   %idxprom10249 = zext i8 %word10244.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_ATTR_INSTANCE_VALUE:                 ; preds = %indirectgoto
-  %instr_ptr10252 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10252, align 8
-  %add.ptr10253 = getelementptr i8, ptr %next_instr.27, i64 10
-  %arrayidx10256 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10252 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10252, align 8
+  %add.ptr10253 = getelementptr i8, ptr %next_instr.1, i64 10
+  %arrayidx10256 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2027 = load ptr, ptr %arrayidx10256, align 8
-  %arrayidx10258 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx10258 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx10258.val = load i32, ptr %arrayidx10258, align 2
   %2028 = getelementptr i8, ptr %2027, i64 8
   %.val7049 = load ptr, ptr %2028, align 8
@@ -17090,9 +17090,9 @@ if.end10266:                                      ; preds = %TARGET_STORE_ATTR_I
   br i1 %tobool10271.not, label %PRED_108, label %if.end10273
 
 if.end10273:                                      ; preds = %if.end10266
-  %arrayidx10274 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx10274 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %2031 = load ptr, ptr %arrayidx10274, align 8
-  %arrayidx10276 = getelementptr i8, ptr %next_instr.27, i64 8
+  %arrayidx10276 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx10276.val = load i16, ptr %arrayidx10276, align 2
   %add.ptr.i8532 = getelementptr i8, ptr %dorv10267.sroa.0.0.copyload, i64 1
   %idxprom10284 = zext i16 %arrayidx10276.val to i64
@@ -17155,19 +17155,19 @@ if.then10319:                                     ; preds = %if.end10315
 
 do.end10324:                                      ; preds = %if.end10315, %if.then10319, %do.body10310
   %word10327.sroa.0.0.copyload = load i8, ptr %add.ptr10253, align 2
-  %word10327.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 11
+  %word10327.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 11
   %word10327.sroa.2.0.copyload = load i8, ptr %word10327.sroa.2.0..sroa_idx, align 1
   %conv10330 = zext i8 %word10327.sroa.2.0.copyload to i32
   %idxprom10332 = zext i8 %word10327.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_ATTR_SLOT:                           ; preds = %indirectgoto
-  %instr_ptr10335 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10335, align 8
-  %add.ptr10336 = getelementptr i8, ptr %next_instr.27, i64 10
-  %arrayidx10339 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10335 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10335, align 8
+  %add.ptr10336 = getelementptr i8, ptr %next_instr.1, i64 10
+  %arrayidx10339 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2041 = load ptr, ptr %arrayidx10339, align 8
-  %arrayidx10341 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx10341 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx10341.val = load i32, ptr %arrayidx10341, align 2
   %2042 = getelementptr i8, ptr %2041, i64 8
   %.val7046 = load ptr, ptr %2042, align 8
@@ -17177,9 +17177,9 @@ TARGET_STORE_ATTR_SLOT:                           ; preds = %indirectgoto
   br i1 %cmp10346.not, label %if.end10349, label %PRED_108
 
 if.end10349:                                      ; preds = %TARGET_STORE_ATTR_SLOT
-  %arrayidx10350 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx10350 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %2044 = load ptr, ptr %arrayidx10350, align 8
-  %arrayidx10352 = getelementptr i8, ptr %next_instr.27, i64 8
+  %arrayidx10352 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx10352.val = load i16, ptr %arrayidx10352, align 2
   %idx.ext10356 = zext i16 %arrayidx10352.val to i64
   %add.ptr10357 = getelementptr i8, ptr %2041, i64 %idx.ext10356
@@ -17229,23 +17229,23 @@ if.then10390:                                     ; preds = %if.end10386
 
 do.end10395:                                      ; preds = %if.end10386, %if.then10390, %do.body10381
   %word10398.sroa.0.0.copyload = load i8, ptr %add.ptr10336, align 2
-  %word10398.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 11
+  %word10398.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 11
   %word10398.sroa.2.0.copyload = load i8, ptr %word10398.sroa.2.0..sroa_idx, align 1
   %conv10401 = zext i8 %word10398.sroa.2.0.copyload to i32
   %idxprom10403 = zext i8 %word10398.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_ATTR_WITH_HINT:                      ; preds = %indirectgoto
-  %instr_ptr10406 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10406, align 8
-  %add.ptr10407 = getelementptr i8, ptr %next_instr.27, i64 10
-  %arrayidx10410 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10406 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10406, align 8
+  %add.ptr10407 = getelementptr i8, ptr %next_instr.1, i64 10
+  %arrayidx10410 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2053 = load ptr, ptr %arrayidx10410, align 8
-  %arrayidx10411 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx10411 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %2054 = load ptr, ptr %arrayidx10411, align 8
-  %arrayidx10413 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx10413 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx10413.val = load i32, ptr %arrayidx10413, align 2
-  %arrayidx10416 = getelementptr i8, ptr %next_instr.27, i64 8
+  %arrayidx10416 = getelementptr i8, ptr %next_instr.1, i64 8
   %arrayidx10416.val = load i16, ptr %arrayidx10416, align 2
   %2055 = getelementptr i8, ptr %2053, i64 8
   %.val7043 = load ptr, ptr %2055, align 8
@@ -17265,11 +17265,11 @@ if.end10424:                                      ; preds = %TARGET_STORE_ATTR_W
   br i1 %or.cond9356, label %PRED_108, label %if.end10438
 
 if.end10438:                                      ; preds = %if.end10424
-  %frame.addr.8.val7325 = load ptr, ptr %frame.addr.8, align 8
-  %co_names10441 = getelementptr inbounds i8, ptr %frame.addr.8.val7325, i64 32
+  %frame.addr.4.val7325 = load ptr, ptr %frame.addr.4, align 8
+  %co_names10441 = getelementptr inbounds i8, ptr %frame.addr.4.val7325, i64 32
   %2058 = load ptr, ptr %co_names10441, align 8
   %ob_item10442 = getelementptr inbounds i8, ptr %2058, i64 24
-  %idxprom10443 = sext i32 %oparg.1 to i64
+  %idxprom10443 = sext i32 %oparg.0 to i64
   %arrayidx10444 = getelementptr [1 x ptr], ptr %ob_item10442, i64 0, i64 %idxprom10443
   %2059 = load ptr, ptr %arrayidx10444, align 8
   %conv10445 = zext i16 %arrayidx10416.val to i64
@@ -17460,20 +17460,20 @@ if.then10530:                                     ; preds = %if.end10526
 
 do.end10535:                                      ; preds = %if.end10526, %if.then10530, %if.end10520
   %word10538.sroa.0.0.copyload = load i8, ptr %add.ptr10407, align 2
-  %word10538.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 11
+  %word10538.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 11
   %word10538.sroa.2.0.copyload = load i8, ptr %word10538.sroa.2.0..sroa_idx, align 1
   %conv10541 = zext i8 %word10538.sroa.2.0.copyload to i32
   %idxprom10543 = zext i8 %word10538.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_DEREF:                               ; preds = %indirectgoto
-  %instr_ptr10545 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10545, align 8
-  %add.ptr10546 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx10548 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10545 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10545, align 8
+  %add.ptr10546 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx10548 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2096 = load ptr, ptr %arrayidx10548, align 8
-  %localsplus10550 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %idxprom10551 = sext i32 %oparg.1 to i64
+  %localsplus10550 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %idxprom10551 = sext i32 %oparg.0 to i64
   %arrayidx10552 = getelementptr [1 x ptr], ptr %localsplus10550, i64 0, i64 %idxprom10551
   %2097 = load ptr, ptr %arrayidx10552, align 8
   %2098 = getelementptr i8, ptr %2097, i64 16
@@ -17504,20 +17504,20 @@ if.then10569:                                     ; preds = %if.end10565
 
 do.end10576:                                      ; preds = %TARGET_STORE_DEREF, %if.end10565, %if.then10569, %do.body10560
   %word10579.sroa.0.0.copyload = load i8, ptr %add.ptr10546, align 2
-  %word10579.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word10579.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word10579.sroa.2.0.copyload = load i8, ptr %word10579.sroa.2.0..sroa_idx, align 1
   %conv10582 = zext i8 %word10579.sroa.2.0.copyload to i32
   %idxprom10584 = zext i8 %word10579.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_FAST:                                ; preds = %indirectgoto
-  %instr_ptr10586 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10586, align 8
-  %add.ptr10587 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx10589 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10586 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10586, align 8
+  %add.ptr10587 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx10589 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2103 = load ptr, ptr %arrayidx10589, align 8
-  %localsplus10592 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %idxprom10593 = sext i32 %oparg.1 to i64
+  %localsplus10592 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %idxprom10593 = sext i32 %oparg.0 to i64
   %arrayidx10594 = getelementptr [1 x ptr], ptr %localsplus10592, i64 0, i64 %idxprom10593
   %2104 = load ptr, ptr %arrayidx10594, align 8
   store ptr %2103, ptr %arrayidx10594, align 8
@@ -17546,21 +17546,21 @@ if.then10612:                                     ; preds = %if.end10608
 
 do.end10620:                                      ; preds = %do.body10603, %if.then10612, %if.end10608, %TARGET_STORE_FAST
   %word10623.sroa.0.0.copyload = load i8, ptr %add.ptr10587, align 2
-  %word10623.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word10623.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word10623.sroa.2.0.copyload = load i8, ptr %word10623.sroa.2.0..sroa_idx, align 1
   %conv10626 = zext i8 %word10623.sroa.2.0.copyload to i32
   %idxprom10628 = zext i8 %word10623.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_FAST_LOAD_FAST:                      ; preds = %indirectgoto
-  %instr_ptr10630 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10630, align 8
-  %add.ptr10631 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx10634 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10630 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10630, align 8
+  %add.ptr10631 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx10634 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2109 = load ptr, ptr %arrayidx10634, align 8
-  %shr10636 = ashr i32 %oparg.1, 4
-  %and10638 = and i32 %oparg.1, 15
-  %localsplus10641 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %shr10636 = ashr i32 %oparg.0, 4
+  %and10638 = and i32 %oparg.0, 15
+  %localsplus10641 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %idxprom10642 = zext i32 %shr10636 to i64
   %arrayidx10643 = getelementptr [1 x ptr], ptr %localsplus10641, i64 0, i64 %idxprom10642
   %2110 = load ptr, ptr %arrayidx10643, align 8
@@ -17604,23 +17604,23 @@ if.end.i21190:                                    ; preds = %do.end10669
 Py_INCREF.exit21192:                              ; preds = %do.end10669, %if.end.i21190
   store ptr %2115, ptr %arrayidx10634, align 8
   %word10675.sroa.0.0.copyload = load i8, ptr %add.ptr10631, align 2
-  %word10675.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word10675.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word10675.sroa.2.0.copyload = load i8, ptr %word10675.sroa.2.0..sroa_idx, align 1
   %conv10678 = zext i8 %word10675.sroa.2.0.copyload to i32
   %idxprom10680 = zext i8 %word10675.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_FAST_STORE_FAST:                     ; preds = %indirectgoto
-  %instr_ptr10682 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10682, align 8
-  %add.ptr10683 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx10686 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10682 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10682, align 8
+  %add.ptr10683 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx10686 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2117 = load ptr, ptr %arrayidx10686, align 8
-  %arrayidx10687 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx10687 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %2118 = load ptr, ptr %arrayidx10687, align 8
-  %shr10689 = ashr i32 %oparg.1, 4
-  %and10691 = and i32 %oparg.1, 15
-  %localsplus10694 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %shr10689 = ashr i32 %oparg.0, 4
+  %and10691 = and i32 %oparg.0, 15
+  %localsplus10694 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %idxprom10695 = zext i32 %shr10689 to i64
   %arrayidx10696 = getelementptr [1 x ptr], ptr %localsplus10694, i64 0, i64 %idxprom10695
   %2119 = load ptr, ptr %arrayidx10696, align 8
@@ -17678,26 +17678,26 @@ if.then10745:                                     ; preds = %if.end10741
 
 do.end10753:                                      ; preds = %do.body10736, %if.then10745, %if.end10741, %do.body10723
   %word10756.sroa.0.0.copyload = load i8, ptr %add.ptr10683, align 2
-  %word10756.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word10756.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word10756.sroa.2.0.copyload = load i8, ptr %word10756.sroa.2.0..sroa_idx, align 1
   %conv10759 = zext i8 %word10756.sroa.2.0.copyload to i32
   %idxprom10761 = zext i8 %word10756.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_GLOBAL:                              ; preds = %indirectgoto
-  %instr_ptr10763 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10763, align 8
-  %add.ptr10764 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx10766 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10763 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10763, align 8
+  %add.ptr10764 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx10766 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2129 = load ptr, ptr %arrayidx10766, align 8
-  %frame.addr.8.val7326 = load ptr, ptr %frame.addr.8, align 8
-  %co_names10769 = getelementptr inbounds i8, ptr %frame.addr.8.val7326, i64 32
+  %frame.addr.4.val7326 = load ptr, ptr %frame.addr.4, align 8
+  %co_names10769 = getelementptr inbounds i8, ptr %frame.addr.4.val7326, i64 32
   %2130 = load ptr, ptr %co_names10769, align 8
   %ob_item10770 = getelementptr inbounds i8, ptr %2130, i64 24
-  %idxprom10771 = sext i32 %oparg.1 to i64
+  %idxprom10771 = sext i32 %oparg.0 to i64
   %arrayidx10772 = getelementptr [1 x ptr], ptr %ob_item10770, i64 0, i64 %idxprom10771
   %2131 = load ptr, ptr %arrayidx10772, align 8
-  %f_globals10774 = getelementptr inbounds i8, ptr %frame.addr.8, i64 24
+  %f_globals10774 = getelementptr inbounds i8, ptr %frame.addr.4, i64 24
   %2132 = load ptr, ptr %f_globals10774, align 8
   %call10775 = call i32 @PyDict_SetItem(ptr noundef %2132, ptr noundef %2131, ptr noundef %2129) #15
   %2133 = load i64, ptr %2129, align 8
@@ -17725,26 +17725,26 @@ do.end10790:                                      ; preds = %if.end10781, %if.th
 
 if.end10793:                                      ; preds = %do.end10790
   %word10796.sroa.0.0.copyload = load i8, ptr %add.ptr10764, align 2
-  %word10796.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word10796.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word10796.sroa.2.0.copyload = load i8, ptr %word10796.sroa.2.0..sroa_idx, align 1
   %conv10799 = zext i8 %word10796.sroa.2.0.copyload to i32
   %idxprom10801 = zext i8 %word10796.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_NAME:                                ; preds = %indirectgoto
-  %instr_ptr10803 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10803, align 8
-  %add.ptr10804 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx10806 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10803 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10803, align 8
+  %add.ptr10804 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx10806 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2137 = load ptr, ptr %arrayidx10806, align 8
-  %frame.addr.8.val7327 = load ptr, ptr %frame.addr.8, align 8
-  %co_names10809 = getelementptr inbounds i8, ptr %frame.addr.8.val7327, i64 32
+  %frame.addr.4.val7327 = load ptr, ptr %frame.addr.4, align 8
+  %co_names10809 = getelementptr inbounds i8, ptr %frame.addr.4.val7327, i64 32
   %2138 = load ptr, ptr %co_names10809, align 8
   %ob_item10810 = getelementptr inbounds i8, ptr %2138, i64 24
-  %idxprom10811 = sext i32 %oparg.1 to i64
+  %idxprom10811 = sext i32 %oparg.0 to i64
   %arrayidx10812 = getelementptr [1 x ptr], ptr %ob_item10810, i64 0, i64 %idxprom10811
   %2139 = load ptr, ptr %arrayidx10812, align 8
-  %f_locals10814 = getelementptr inbounds i8, ptr %frame.addr.8, i64 40
+  %f_locals10814 = getelementptr inbounds i8, ptr %frame.addr.4, i64 40
   %2140 = load ptr, ptr %f_locals10814, align 8
   %cmp10816 = icmp eq ptr %2140, null
   br i1 %cmp10816, label %if.then10818, label %if.end10835
@@ -17812,23 +17812,23 @@ do.end10858:                                      ; preds = %if.end10849, %if.th
 
 if.end10861:                                      ; preds = %do.end10858
   %word10864.sroa.0.0.copyload = load i8, ptr %add.ptr10804, align 2
-  %word10864.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word10864.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word10864.sroa.2.0.copyload = load i8, ptr %word10864.sroa.2.0..sroa_idx, align 1
   %conv10867 = zext i8 %word10864.sroa.2.0.copyload to i32
   %idxprom10869 = zext i8 %word10864.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_SLICE:                               ; preds = %indirectgoto
-  %instr_ptr10871 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10871, align 8
-  %add.ptr10872 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx10877 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr10871 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10871, align 8
+  %add.ptr10872 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx10877 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2151 = load ptr, ptr %arrayidx10877, align 8
-  %arrayidx10878 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx10878 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %2152 = load ptr, ptr %arrayidx10878, align 8
-  %arrayidx10879 = getelementptr i8, ptr %stack_pointer.17, i64 -24
+  %arrayidx10879 = getelementptr i8, ptr %stack_pointer.0, i64 -24
   %2153 = load ptr, ptr %arrayidx10879, align 8
-  %arrayidx10880 = getelementptr i8, ptr %stack_pointer.17, i64 -32
+  %arrayidx10880 = getelementptr i8, ptr %stack_pointer.0, i64 -32
   %2154 = load ptr, ptr %arrayidx10880, align 8
   %call10882 = call ptr @_PyBuildSlice_ConsumeRefs(ptr noundef %2152, ptr noundef %2151) #15
   %cmp10884 = icmp eq ptr %call10882, null
@@ -17902,40 +17902,40 @@ do.end10934:                                      ; preds = %if.end10925, %if.th
 
 if.end10937:                                      ; preds = %do.end10934
   %word10940.sroa.0.0.copyload = load i8, ptr %add.ptr10872, align 2
-  %word10940.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word10940.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word10940.sroa.2.0.copyload = load i8, ptr %word10940.sroa.2.0..sroa_idx, align 1
   %conv10943 = zext i8 %word10940.sroa.2.0.copyload to i32
   %idxprom10945 = zext i8 %word10940.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_SUBSCR:                              ; preds = %indirectgoto
-  %instr_ptr10947 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr10947, align 8
-  %add.ptr10948 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx10955.phi.trans.insert = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %instr_ptr10947 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr10947, align 8
+  %add.ptr10948 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx10955.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %.pre11860 = load ptr, ptr %arrayidx10955.phi.trans.insert, align 8
   br label %PRED_39
 
 PRED_39:                                          ; preds = %if.end11097, %if.end11093, %if.end11088, %TARGET_STORE_SUBSCR_LIST_INT, %TARGET_STORE_SUBSCR_DICT, %TARGET_STORE_SUBSCR
   %2167 = phi ptr [ %2183, %TARGET_STORE_SUBSCR_DICT ], [ %2191, %if.end11097 ], [ %2191, %if.end11093 ], [ %2191, %if.end11088 ], [ %2191, %TARGET_STORE_SUBSCR_LIST_INT ], [ %.pre11860, %TARGET_STORE_SUBSCR ]
-  %next_instr.18 = phi ptr [ %add.ptr11035, %TARGET_STORE_SUBSCR_DICT ], [ %add.ptr11077, %if.end11097 ], [ %add.ptr11077, %if.end11093 ], [ %add.ptr11077, %if.end11088 ], [ %add.ptr11077, %TARGET_STORE_SUBSCR_LIST_INT ], [ %add.ptr10948, %TARGET_STORE_SUBSCR ]
-  %arrayidx10954 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %next_instr.25 = phi ptr [ %add.ptr11035, %TARGET_STORE_SUBSCR_DICT ], [ %add.ptr11077, %if.end11097 ], [ %add.ptr11077, %if.end11093 ], [ %add.ptr11077, %if.end11088 ], [ %add.ptr11077, %TARGET_STORE_SUBSCR_LIST_INT ], [ %add.ptr10948, %TARGET_STORE_SUBSCR ]
+  %arrayidx10954 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2168 = load ptr, ptr %arrayidx10954, align 8
-  %arrayidx10957 = getelementptr i8, ptr %next_instr.27, i64 2
+  %arrayidx10957 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx10957.val = load i16, ptr %arrayidx10957, align 2
   %cmp10961 = icmp ult i16 %arrayidx10957.val, 16
   br i1 %cmp10961, label %if.then10963, label %do.body10968
 
 if.then10963:                                     ; preds = %PRED_39
-  call void @_Py_Specialize_StoreSubscr(ptr noundef %2167, ptr noundef %2168, ptr noundef nonnull %next_instr.27) #15
-  %2169 = load i8, ptr %next_instr.27, align 2
+  call void @_Py_Specialize_StoreSubscr(ptr noundef %2167, ptr noundef %2168, ptr noundef nonnull %next_instr.1) #15
+  %2169 = load i8, ptr %next_instr.1, align 2
   %idxprom10965 = zext i8 %2169 to i64
   br label %indirectgoto.backedge
 
 do.body10968:                                     ; preds = %PRED_39
   %sub10971 = add i16 %arrayidx10957.val, -16
   store i16 %sub10971, ptr %arrayidx10957, align 2
-  %arrayidx10974 = getelementptr i8, ptr %stack_pointer.17, i64 -24
+  %arrayidx10974 = getelementptr i8, ptr %stack_pointer.0, i64 -24
   %2170 = load ptr, ptr %arrayidx10974, align 8
   %call10976 = call i32 @PyObject_SetItem(ptr noundef %2167, ptr noundef %2168, ptr noundef %2170) #15
   %2171 = load i64, ptr %2170, align 8
@@ -18002,20 +18002,20 @@ do.end11021:                                      ; preds = %if.end11012, %if.th
   br i1 %tobool11022.not, label %if.end11024, label %pop_3_error
 
 if.end11024:                                      ; preds = %do.end11021
-  %word11027.sroa.0.0.copyload = load i8, ptr %next_instr.18, align 2
-  %word11027.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word11027.sroa.0.0.copyload = load i8, ptr %next_instr.25, align 2
+  %word11027.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word11027.sroa.2.0.copyload = load i8, ptr %word11027.sroa.2.0..sroa_idx, align 1
   %conv11030 = zext i8 %word11027.sroa.2.0.copyload to i32
   %idxprom11032 = zext i8 %word11027.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_SUBSCR_DICT:                         ; preds = %indirectgoto
-  %instr_ptr11034 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11034, align 8
-  %add.ptr11035 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx11040 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %instr_ptr11034 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11034, align 8
+  %add.ptr11035 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx11040 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %2183 = load ptr, ptr %arrayidx11040, align 8
-  %arrayidx11041 = getelementptr i8, ptr %stack_pointer.17, i64 -24
+  %arrayidx11041 = getelementptr i8, ptr %stack_pointer.0, i64 -24
   %ob_type11042 = getelementptr inbounds i8, ptr %2183, i64 8
   %2184 = load ptr, ptr %ob_type11042, align 8
   %cmp11043 = icmp eq ptr %2184, @PyDict_Type
@@ -18023,7 +18023,7 @@ TARGET_STORE_SUBSCR_DICT:                         ; preds = %indirectgoto
 
 if.end11046:                                      ; preds = %TARGET_STORE_SUBSCR_DICT
   %2185 = load ptr, ptr %arrayidx11041, align 8
-  %arrayidx11039 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %arrayidx11039 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2186 = load ptr, ptr %arrayidx11039, align 8
   %call11048 = call i32 @_PyDict_SetItem_Take2(ptr noundef nonnull %2183, ptr noundef %2186, ptr noundef %2185) #15
   %2187 = load i64, ptr %2183, align 8
@@ -18050,21 +18050,21 @@ do.end11063:                                      ; preds = %if.end11054, %if.th
 
 if.end11066:                                      ; preds = %do.end11063
   %word11069.sroa.0.0.copyload = load i8, ptr %add.ptr11035, align 2
-  %word11069.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word11069.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word11069.sroa.2.0.copyload = load i8, ptr %word11069.sroa.2.0..sroa_idx, align 1
   %conv11072 = zext i8 %word11069.sroa.2.0.copyload to i32
   %idxprom11074 = zext i8 %word11069.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_STORE_SUBSCR_LIST_INT:                     ; preds = %indirectgoto
-  %instr_ptr11076 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11076, align 8
-  %add.ptr11077 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx11081 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11076 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11076, align 8
+  %add.ptr11077 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx11081 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2190 = load ptr, ptr %arrayidx11081, align 8
-  %arrayidx11082 = getelementptr i8, ptr %stack_pointer.17, i64 -16
+  %arrayidx11082 = getelementptr i8, ptr %stack_pointer.0, i64 -16
   %2191 = load ptr, ptr %arrayidx11082, align 8
-  %arrayidx11083 = getelementptr i8, ptr %stack_pointer.17, i64 -24
+  %arrayidx11083 = getelementptr i8, ptr %stack_pointer.0, i64 -24
   %2192 = load ptr, ptr %arrayidx11083, align 8
   %ob_type11084 = getelementptr inbounds i8, ptr %2190, i64 8
   %2193 = load ptr, ptr %ob_type11084, align 8
@@ -18154,51 +18154,51 @@ if.then11148:                                     ; preds = %if.end11144
 
 do.end11153:                                      ; preds = %if.end11144, %if.then11148, %do.body11139
   %word11156.sroa.0.0.copyload = load i8, ptr %add.ptr11077, align 2
-  %word11156.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word11156.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word11156.sroa.2.0.copyload = load i8, ptr %word11156.sroa.2.0..sroa_idx, align 1
   %conv11159 = zext i8 %word11156.sroa.2.0.copyload to i32
   %idxprom11161 = zext i8 %word11156.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_SWAP:                                      ; preds = %indirectgoto
-  %instr_ptr11163 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11163, align 8
-  %add.ptr11164 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx11167 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11163 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11163, align 8
+  %add.ptr11164 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx11167 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2209 = load ptr, ptr %arrayidx11167, align 8
-  %sub11169 = sub i32 0, %oparg.1
+  %sub11169 = sub i32 0, %oparg.0
   %idxprom11170 = sext i32 %sub11169 to i64
-  %arrayidx11171 = getelementptr ptr, ptr %stack_pointer.17, i64 %idxprom11170
+  %arrayidx11171 = getelementptr ptr, ptr %stack_pointer.0, i64 %idxprom11170
   %2210 = load ptr, ptr %arrayidx11171, align 8
   store ptr %2209, ptr %arrayidx11171, align 8
   store ptr %2210, ptr %arrayidx11167, align 8
   %word11178.sroa.0.0.copyload = load i8, ptr %add.ptr11164, align 2
-  %word11178.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word11178.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word11178.sroa.2.0.copyload = load i8, ptr %word11178.sroa.2.0..sroa_idx, align 1
   %conv11181 = zext i8 %word11178.sroa.2.0.copyload to i32
   %idxprom11183 = zext i8 %word11178.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_TO_BOOL:                                   ; preds = %indirectgoto
-  %instr_ptr11185 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11185, align 8
-  %add.ptr11186 = getelementptr i8, ptr %next_instr.27, i64 8
-  %arrayidx11191.phi.trans.insert = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11185 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11185, align 8
+  %add.ptr11186 = getelementptr i8, ptr %next_instr.1, i64 8
+  %arrayidx11191.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %.pre11859 = load ptr, ptr %arrayidx11191.phi.trans.insert, align 8
   br label %PRED_40
 
 PRED_40:                                          ; preds = %TARGET_TO_BOOL_STR, %TARGET_TO_BOOL_NONE, %TARGET_TO_BOOL_LIST, %TARGET_TO_BOOL_INT, %TARGET_TO_BOOL_BOOL, %TARGET_TO_BOOL_ALWAYS_TRUE, %TARGET_TO_BOOL
   %2211 = phi ptr [ %2217, %TARGET_TO_BOOL_ALWAYS_TRUE ], [ %2223, %TARGET_TO_BOOL_BOOL ], [ %2225, %TARGET_TO_BOOL_INT ], [ %2231, %TARGET_TO_BOOL_LIST ], [ %2237, %TARGET_TO_BOOL_NONE ], [ %2238, %TARGET_TO_BOOL_STR ], [ %.pre11859, %TARGET_TO_BOOL ]
-  %next_instr.19 = phi ptr [ %add.ptr11244, %TARGET_TO_BOOL_ALWAYS_TRUE ], [ %add.ptr11282, %TARGET_TO_BOOL_BOOL ], [ %add.ptr11299, %TARGET_TO_BOOL_INT ], [ %add.ptr11337, %TARGET_TO_BOOL_LIST ], [ %add.ptr11374, %TARGET_TO_BOOL_NONE ], [ %add.ptr11392, %TARGET_TO_BOOL_STR ], [ %add.ptr11186, %TARGET_TO_BOOL ]
-  %arrayidx11191 = getelementptr i8, ptr %stack_pointer.17, i64 -8
-  %arrayidx11193 = getelementptr i8, ptr %next_instr.27, i64 2
+  %next_instr.26 = phi ptr [ %add.ptr11244, %TARGET_TO_BOOL_ALWAYS_TRUE ], [ %add.ptr11282, %TARGET_TO_BOOL_BOOL ], [ %add.ptr11299, %TARGET_TO_BOOL_INT ], [ %add.ptr11337, %TARGET_TO_BOOL_LIST ], [ %add.ptr11374, %TARGET_TO_BOOL_NONE ], [ %add.ptr11392, %TARGET_TO_BOOL_STR ], [ %add.ptr11186, %TARGET_TO_BOOL ]
+  %arrayidx11191 = getelementptr i8, ptr %stack_pointer.0, i64 -8
+  %arrayidx11193 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx11193.val = load i16, ptr %arrayidx11193, align 2
   %cmp11197 = icmp ult i16 %arrayidx11193.val, 16
   br i1 %cmp11197, label %if.then11199, label %do.body11204
 
 if.then11199:                                     ; preds = %PRED_40
-  call void @_Py_Specialize_ToBool(ptr noundef %2211, ptr noundef nonnull %next_instr.27) #15
-  %2212 = load i8, ptr %next_instr.27, align 2
+  call void @_Py_Specialize_ToBool(ptr noundef %2211, ptr noundef nonnull %next_instr.1) #15
+  %2212 = load i8, ptr %next_instr.1, align 2
   %idxprom11201 = zext i8 %2212 to i64
   br label %indirectgoto.backedge
 
@@ -18233,20 +18233,20 @@ if.end11230:                                      ; preds = %do.end11226
   %tobool11231.not = icmp eq i32 %call11211, 0
   %cond11232 = select i1 %tobool11231.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   store ptr %cond11232, ptr %arrayidx11191, align 8
-  %word11235.sroa.0.0.copyload = load i8, ptr %next_instr.19, align 2
-  %word11235.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word11235.sroa.0.0.copyload = load i8, ptr %next_instr.26, align 2
+  %word11235.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word11235.sroa.2.0.copyload = load i8, ptr %word11235.sroa.2.0..sroa_idx, align 1
   %conv11238 = zext i8 %word11235.sroa.2.0.copyload to i32
   %idxprom11240 = zext i8 %word11235.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_TO_BOOL_ALWAYS_TRUE:                       ; preds = %indirectgoto
-  %instr_ptr11243 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11243, align 8
-  %add.ptr11244 = getelementptr i8, ptr %next_instr.27, i64 8
-  %arrayidx11247 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11243 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11243, align 8
+  %add.ptr11244 = getelementptr i8, ptr %next_instr.1, i64 8
+  %arrayidx11247 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2217 = load ptr, ptr %arrayidx11247, align 8
-  %arrayidx11249 = getelementptr i8, ptr %next_instr.27, i64 4
+  %arrayidx11249 = getelementptr i8, ptr %next_instr.1, i64 4
   %arrayidx11249.val = load i32, ptr %arrayidx11249, align 2
   %2218 = getelementptr i8, ptr %2217, i64 8
   %.val7025 = load ptr, ptr %2218, align 8
@@ -18276,17 +18276,17 @@ if.then11266:                                     ; preds = %if.end11262
 do.end11271:                                      ; preds = %if.end11262, %if.then11266, %do.body11257
   store ptr @_Py_TrueStruct, ptr %arrayidx11247, align 8
   %word11274.sroa.0.0.copyload = load i8, ptr %add.ptr11244, align 2
-  %word11274.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word11274.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word11274.sroa.2.0.copyload = load i8, ptr %word11274.sroa.2.0..sroa_idx, align 1
   %conv11277 = zext i8 %word11274.sroa.2.0.copyload to i32
   %idxprom11279 = zext i8 %word11274.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_TO_BOOL_BOOL:                              ; preds = %indirectgoto
-  %instr_ptr11281 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11281, align 8
-  %add.ptr11282 = getelementptr i8, ptr %next_instr.27, i64 8
-  %arrayidx11284 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11281 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11281, align 8
+  %add.ptr11282 = getelementptr i8, ptr %next_instr.1, i64 8
+  %arrayidx11284 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2223 = load ptr, ptr %arrayidx11284, align 8
   %ob_type11285 = getelementptr inbounds i8, ptr %2223, i64 8
   %2224 = load ptr, ptr %ob_type11285, align 8
@@ -18295,17 +18295,17 @@ TARGET_TO_BOOL_BOOL:                              ; preds = %indirectgoto
 
 do.body11290:                                     ; preds = %TARGET_TO_BOOL_BOOL
   %word11291.sroa.0.0.copyload = load i8, ptr %add.ptr11282, align 2
-  %word11291.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word11291.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word11291.sroa.2.0.copyload = load i8, ptr %word11291.sroa.2.0..sroa_idx, align 1
   %conv11294 = zext i8 %word11291.sroa.2.0.copyload to i32
   %idxprom11296 = zext i8 %word11291.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_TO_BOOL_INT:                               ; preds = %indirectgoto
-  %instr_ptr11298 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11298, align 8
-  %add.ptr11299 = getelementptr i8, ptr %next_instr.27, i64 8
-  %arrayidx11302 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11298 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11298, align 8
+  %add.ptr11299 = getelementptr i8, ptr %next_instr.1, i64 8
+  %arrayidx11302 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2225 = load ptr, ptr %arrayidx11302, align 8
   %ob_type11303 = getelementptr inbounds i8, ptr %2225, i64 8
   %2226 = load ptr, ptr %ob_type11303, align 8
@@ -18340,17 +18340,17 @@ if.end11326:                                      ; preds = %do.body11311, %if.t
   %res11301.0 = phi ptr [ @_Py_FalseStruct, %if.end11307 ], [ @_Py_TrueStruct, %if.end11316 ], [ @_Py_TrueStruct, %if.then11320 ], [ @_Py_TrueStruct, %do.body11311 ]
   store ptr %res11301.0, ptr %arrayidx11302, align 8
   %word11329.sroa.0.0.copyload = load i8, ptr %add.ptr11299, align 2
-  %word11329.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word11329.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word11329.sroa.2.0.copyload = load i8, ptr %word11329.sroa.2.0..sroa_idx, align 1
   %conv11332 = zext i8 %word11329.sroa.2.0.copyload to i32
   %idxprom11334 = zext i8 %word11329.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_TO_BOOL_LIST:                              ; preds = %indirectgoto
-  %instr_ptr11336 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11336, align 8
-  %add.ptr11337 = getelementptr i8, ptr %next_instr.27, i64 8
-  %arrayidx11340 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11336 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11336, align 8
+  %add.ptr11337 = getelementptr i8, ptr %next_instr.1, i64 8
+  %arrayidx11340 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2231 = load ptr, ptr %arrayidx11340, align 8
   %ob_type11341 = getelementptr inbounds i8, ptr %2231, i64 8
   %2232 = load ptr, ptr %ob_type11341, align 8
@@ -18381,17 +18381,17 @@ if.then11358:                                     ; preds = %if.end11354
 do.end11363:                                      ; preds = %if.end11354, %if.then11358, %if.end11345
   store ptr %cond11348, ptr %arrayidx11340, align 8
   %word11366.sroa.0.0.copyload = load i8, ptr %add.ptr11337, align 2
-  %word11366.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word11366.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word11366.sroa.2.0.copyload = load i8, ptr %word11366.sroa.2.0..sroa_idx, align 1
   %conv11369 = zext i8 %word11366.sroa.2.0.copyload to i32
   %idxprom11371 = zext i8 %word11366.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_TO_BOOL_NONE:                              ; preds = %indirectgoto
-  %instr_ptr11373 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11373, align 8
-  %add.ptr11374 = getelementptr i8, ptr %next_instr.27, i64 8
-  %arrayidx11377 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11373 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11373, align 8
+  %add.ptr11374 = getelementptr i8, ptr %next_instr.1, i64 8
+  %arrayidx11377 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2237 = load ptr, ptr %arrayidx11377, align 8
   %cmp11378 = icmp eq ptr %2237, @_Py_NoneStruct
   br i1 %cmp11378, label %if.end11381, label %PRED_40
@@ -18399,17 +18399,17 @@ TARGET_TO_BOOL_NONE:                              ; preds = %indirectgoto
 if.end11381:                                      ; preds = %TARGET_TO_BOOL_NONE
   store ptr @_Py_FalseStruct, ptr %arrayidx11377, align 8
   %word11384.sroa.0.0.copyload = load i8, ptr %add.ptr11374, align 2
-  %word11384.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word11384.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word11384.sroa.2.0.copyload = load i8, ptr %word11384.sroa.2.0..sroa_idx, align 1
   %conv11387 = zext i8 %word11384.sroa.2.0.copyload to i32
   %idxprom11389 = zext i8 %word11384.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_TO_BOOL_STR:                               ; preds = %indirectgoto
-  %instr_ptr11391 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11391, align 8
-  %add.ptr11392 = getelementptr i8, ptr %next_instr.27, i64 8
-  %arrayidx11395 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11391 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11391, align 8
+  %add.ptr11392 = getelementptr i8, ptr %next_instr.1, i64 8
+  %arrayidx11395 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2238 = load ptr, ptr %arrayidx11395, align 8
   %ob_type11396 = getelementptr inbounds i8, ptr %2238, i64 8
   %2239 = load ptr, ptr %ob_type11396, align 8
@@ -18441,17 +18441,17 @@ if.end11420:                                      ; preds = %do.body11405, %if.t
   %res11394.0 = phi ptr [ @_Py_FalseStruct, %if.end11400 ], [ @_Py_TrueStruct, %if.end11410 ], [ @_Py_TrueStruct, %if.then11414 ], [ @_Py_TrueStruct, %do.body11405 ]
   store ptr %res11394.0, ptr %arrayidx11395, align 8
   %word11423.sroa.0.0.copyload = load i8, ptr %add.ptr11392, align 2
-  %word11423.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 9
+  %word11423.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 9
   %word11423.sroa.2.0.copyload = load i8, ptr %word11423.sroa.2.0..sroa_idx, align 1
   %conv11426 = zext i8 %word11423.sroa.2.0.copyload to i32
   %idxprom11428 = zext i8 %word11423.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_UNARY_INVERT:                              ; preds = %indirectgoto
-  %instr_ptr11430 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11430, align 8
-  %add.ptr11431 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx11434 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11430 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11430, align 8
+  %add.ptr11431 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx11434 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2243 = load ptr, ptr %arrayidx11434, align 8
   %call11435 = call ptr @PyNumber_Invert(ptr noundef %2243) #15
   %2244 = load i64, ptr %2243, align 8
@@ -18480,17 +18480,17 @@ do.end11450:                                      ; preds = %if.end11441, %if.th
 if.end11454:                                      ; preds = %do.end11450
   store ptr %call11435, ptr %arrayidx11434, align 8
   %word11457.sroa.0.0.copyload = load i8, ptr %add.ptr11431, align 2
-  %word11457.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word11457.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word11457.sroa.2.0.copyload = load i8, ptr %word11457.sroa.2.0..sroa_idx, align 1
   %conv11460 = zext i8 %word11457.sroa.2.0.copyload to i32
   %idxprom11462 = zext i8 %word11457.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_UNARY_NEGATIVE:                            ; preds = %indirectgoto
-  %instr_ptr11464 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11464, align 8
-  %add.ptr11465 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx11468 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11464 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11464, align 8
+  %add.ptr11465 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx11468 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2248 = load ptr, ptr %arrayidx11468, align 8
   %call11469 = call ptr @PyNumber_Negative(ptr noundef %2248) #15
   %2249 = load i64, ptr %2248, align 8
@@ -18519,40 +18519,40 @@ do.end11484:                                      ; preds = %if.end11475, %if.th
 if.end11488:                                      ; preds = %do.end11484
   store ptr %call11469, ptr %arrayidx11468, align 8
   %word11491.sroa.0.0.copyload = load i8, ptr %add.ptr11465, align 2
-  %word11491.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word11491.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word11491.sroa.2.0.copyload = load i8, ptr %word11491.sroa.2.0..sroa_idx, align 1
   %conv11494 = zext i8 %word11491.sroa.2.0.copyload to i32
   %idxprom11496 = zext i8 %word11491.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_UNARY_NOT:                                 ; preds = %indirectgoto
-  %instr_ptr11498 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11498, align 8
-  %add.ptr11499 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx11502 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11498 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11498, align 8
+  %add.ptr11499 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx11502 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2253 = load ptr, ptr %arrayidx11502, align 8
   %cmp11503 = icmp eq ptr %2253, @_Py_FalseStruct
   %cond11505 = select i1 %cmp11503, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   store ptr %cond11505, ptr %arrayidx11502, align 8
   %word11508.sroa.0.0.copyload = load i8, ptr %add.ptr11499, align 2
-  %word11508.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word11508.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word11508.sroa.2.0.copyload = load i8, ptr %word11508.sroa.2.0..sroa_idx, align 1
   %conv11511 = zext i8 %word11508.sroa.2.0.copyload to i32
   %idxprom11513 = zext i8 %word11508.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_UNPACK_EX:                                 ; preds = %indirectgoto
-  %instr_ptr11515 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11515, align 8
-  %add.ptr11516 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx11518 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11515 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11515, align 8
+  %add.ptr11516 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx11518 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2254 = load ptr, ptr %arrayidx11518, align 8
-  %and11519 = and i32 %oparg.1, 255
-  %shr11521 = ashr i32 %oparg.1, 8
+  %and11519 = and i32 %oparg.0, 255
+  %shr11521 = ashr i32 %oparg.0, 8
   %add11520 = add nsw i32 %shr11521, %and11519
   %add11522 = add nsw i32 %add11520, 1
   %idx.ext11524 = sext i32 %add11522 to i64
-  %add.ptr11525 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext11524
+  %add.ptr11525 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext11524
   %add.ptr11526 = getelementptr i8, ptr %add.ptr11525, i64 -8
   %call11530 = call i32 @_PyEval_UnpackIterable(ptr noundef %tstate, ptr noundef %2254, i32 noundef %and11519, i32 noundef %shr11521, ptr noundef %add.ptr11526)
   %2255 = load i64, ptr %2254, align 8
@@ -18580,43 +18580,43 @@ do.end11545:                                      ; preds = %if.end11536, %if.th
 
 if.end11549:                                      ; preds = %do.end11545
   %idx.ext11553 = sext i32 %add11520 to i64
-  %add.ptr11554 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext11553
+  %add.ptr11554 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext11553
   %word11556.sroa.0.0.copyload = load i8, ptr %add.ptr11516, align 2
-  %word11556.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word11556.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word11556.sroa.2.0.copyload = load i8, ptr %word11556.sroa.2.0..sroa_idx, align 1
   %conv11559 = zext i8 %word11556.sroa.2.0.copyload to i32
   %idxprom11561 = zext i8 %word11556.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_UNPACK_SEQUENCE:                           ; preds = %indirectgoto
-  %instr_ptr11563 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11563, align 8
-  %add.ptr11564 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx11568.phi.trans.insert = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11563 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11563, align 8
+  %add.ptr11564 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx11568.phi.trans.insert = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %.pre11848 = load ptr, ptr %arrayidx11568.phi.trans.insert, align 8
   br label %PRED_117
 
 PRED_117:                                         ; preds = %if.end11745, %TARGET_UNPACK_SEQUENCE_TWO_TUPLE, %if.end11688, %TARGET_UNPACK_SEQUENCE_TUPLE, %if.end11633, %TARGET_UNPACK_SEQUENCE_LIST, %TARGET_UNPACK_SEQUENCE
   %2259 = phi ptr [ %2265, %if.end11633 ], [ %2265, %TARGET_UNPACK_SEQUENCE_LIST ], [ %2275, %if.end11688 ], [ %2275, %TARGET_UNPACK_SEQUENCE_TUPLE ], [ %2284, %if.end11745 ], [ %2284, %TARGET_UNPACK_SEQUENCE_TWO_TUPLE ], [ %.pre11848, %TARGET_UNPACK_SEQUENCE ]
-  %next_instr.20 = phi ptr [ %add.ptr11624, %if.end11633 ], [ %add.ptr11624, %TARGET_UNPACK_SEQUENCE_LIST ], [ %add.ptr11679, %if.end11688 ], [ %add.ptr11679, %TARGET_UNPACK_SEQUENCE_TUPLE ], [ %add.ptr11736, %if.end11745 ], [ %add.ptr11736, %TARGET_UNPACK_SEQUENCE_TWO_TUPLE ], [ %add.ptr11564, %TARGET_UNPACK_SEQUENCE ]
-  %arrayidx11570 = getelementptr i8, ptr %next_instr.27, i64 2
+  %next_instr.27 = phi ptr [ %add.ptr11624, %if.end11633 ], [ %add.ptr11624, %TARGET_UNPACK_SEQUENCE_LIST ], [ %add.ptr11679, %if.end11688 ], [ %add.ptr11679, %TARGET_UNPACK_SEQUENCE_TUPLE ], [ %add.ptr11736, %if.end11745 ], [ %add.ptr11736, %TARGET_UNPACK_SEQUENCE_TWO_TUPLE ], [ %add.ptr11564, %TARGET_UNPACK_SEQUENCE ]
+  %arrayidx11570 = getelementptr i8, ptr %next_instr.1, i64 2
   %arrayidx11570.val = load i16, ptr %arrayidx11570, align 2
   %cmp11574 = icmp ult i16 %arrayidx11570.val, 16
   br i1 %cmp11574, label %if.then11576, label %do.body11581
 
 if.then11576:                                     ; preds = %PRED_117
-  call void @_Py_Specialize_UnpackSequence(ptr noundef %2259, ptr noundef nonnull %next_instr.27, i32 noundef %oparg.1) #15
-  %2260 = load i8, ptr %next_instr.27, align 2
+  call void @_Py_Specialize_UnpackSequence(ptr noundef %2259, ptr noundef nonnull %next_instr.1, i32 noundef %oparg.0) #15
+  %2260 = load i8, ptr %next_instr.1, align 2
   %idxprom11578 = zext i8 %2260 to i64
   br label %indirectgoto.backedge
 
 do.body11581:                                     ; preds = %PRED_117
   %sub11584 = add i16 %arrayidx11570.val, -16
   store i16 %sub11584, ptr %arrayidx11570, align 2
-  %idx.ext11588 = sext i32 %oparg.1 to i64
-  %add.ptr11589 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext11588
+  %idx.ext11588 = sext i32 %oparg.0 to i64
+  %add.ptr11589 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext11588
   %add.ptr11590 = getelementptr i8, ptr %add.ptr11589, i64 -8
-  %call11592 = call i32 @_PyEval_UnpackIterable(ptr noundef %tstate, ptr noundef %2259, i32 noundef %oparg.1, i32 noundef -1, ptr noundef %add.ptr11590)
+  %call11592 = call i32 @_PyEval_UnpackIterable(ptr noundef %tstate, ptr noundef %2259, i32 noundef %oparg.0, i32 noundef -1, ptr noundef %add.ptr11590)
   %2261 = load i64, ptr %2259, align 8
   %2262 = and i64 %2261, 2147483648
   %cmp.i20149.not = icmp eq i64 %2262, 0
@@ -18641,21 +18641,21 @@ do.end11607:                                      ; preds = %if.end11598, %if.th
   br i1 %cmp11608, label %pop_1_error, label %if.end11611
 
 if.end11611:                                      ; preds = %do.end11607
-  %add11612 = add i32 %oparg.1, -1
+  %add11612 = add i32 %oparg.0, -1
   %idx.ext11613 = sext i32 %add11612 to i64
-  %add.ptr11614 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext11613
-  %word11616.sroa.0.0.copyload = load i8, ptr %next_instr.20, align 2
-  %word11616.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %add.ptr11614 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext11613
+  %word11616.sroa.0.0.copyload = load i8, ptr %next_instr.27, align 2
+  %word11616.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word11616.sroa.2.0.copyload = load i8, ptr %word11616.sroa.2.0..sroa_idx, align 1
   %conv11619 = zext i8 %word11616.sroa.2.0.copyload to i32
   %idxprom11621 = zext i8 %word11616.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_UNPACK_SEQUENCE_LIST:                      ; preds = %indirectgoto
-  %instr_ptr11623 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11623, align 8
-  %add.ptr11624 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx11627 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11623 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11623, align 8
+  %add.ptr11624 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx11627 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2265 = load ptr, ptr %arrayidx11627, align 8
   %ob_type11629 = getelementptr inbounds i8, ptr %2265, i64 8
   %2266 = load ptr, ptr %ob_type11629, align 8
@@ -18665,14 +18665,14 @@ TARGET_UNPACK_SEQUENCE_LIST:                      ; preds = %indirectgoto
 if.end11633:                                      ; preds = %TARGET_UNPACK_SEQUENCE_LIST
   %2267 = getelementptr i8, ptr %2265, i64 16
   %.val7287 = load i64, ptr %2267, align 8
-  %conv11635 = sext i32 %oparg.1 to i64
+  %conv11635 = sext i32 %oparg.0 to i64
   %cmp11636.not = icmp eq i64 %.val7287, %conv11635
   br i1 %cmp11636.not, label %if.end11639, label %PRED_117
 
 if.end11639:                                      ; preds = %if.end11633
   %ob_item11640 = getelementptr inbounds i8, ptr %2265, i64 24
   %2268 = load ptr, ptr %ob_item11640, align 8
-  %dec1164310316 = add i32 %oparg.1, -1
+  %dec1164310316 = add i32 %oparg.0, -1
   %cmp1164410317 = icmp sgt i32 %dec1164310316, -1
   br i1 %cmp1164410317, label %for.body11646.preheader, label %do.body11652
 
@@ -18722,19 +18722,19 @@ if.then11661:                                     ; preds = %if.end11657
 
 do.end11666:                                      ; preds = %if.end11657, %if.then11661, %do.body11652
   %idx.ext11668 = sext i32 %dec1164310316 to i64
-  %add.ptr11669 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext11668
+  %add.ptr11669 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext11668
   %word11671.sroa.0.0.copyload = load i8, ptr %add.ptr11624, align 2
-  %word11671.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word11671.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word11671.sroa.2.0.copyload = load i8, ptr %word11671.sroa.2.0..sroa_idx, align 1
   %conv11674 = zext i8 %word11671.sroa.2.0.copyload to i32
   %idxprom11676 = zext i8 %word11671.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_UNPACK_SEQUENCE_TUPLE:                     ; preds = %indirectgoto
-  %instr_ptr11678 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11678, align 8
-  %add.ptr11679 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx11682 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11678 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11678, align 8
+  %add.ptr11679 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx11682 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2275 = load ptr, ptr %arrayidx11682, align 8
   %ob_type11684 = getelementptr inbounds i8, ptr %2275, i64 8
   %2276 = load ptr, ptr %ob_type11684, align 8
@@ -18744,13 +18744,13 @@ TARGET_UNPACK_SEQUENCE_TUPLE:                     ; preds = %indirectgoto
 if.end11688:                                      ; preds = %TARGET_UNPACK_SEQUENCE_TUPLE
   %2277 = getelementptr i8, ptr %2275, i64 16
   %.val6829 = load i64, ptr %2277, align 8
-  %conv11690 = sext i32 %oparg.1 to i64
+  %conv11690 = sext i32 %oparg.0 to i64
   %cmp11691.not = icmp eq i64 %.val6829, %conv11690
   br i1 %cmp11691.not, label %if.end11694, label %PRED_117
 
 if.end11694:                                      ; preds = %if.end11688
   %ob_item11696 = getelementptr inbounds i8, ptr %2275, i64 24
-  %dec1170010320 = add i32 %oparg.1, -1
+  %dec1170010320 = add i32 %oparg.0, -1
   %cmp1170110321 = icmp sgt i32 %dec1170010320, -1
   br i1 %cmp1170110321, label %for.body11703.preheader, label %do.body11709
 
@@ -18800,19 +18800,19 @@ if.then11718:                                     ; preds = %if.end11714
 
 do.end11723:                                      ; preds = %if.end11714, %if.then11718, %do.body11709
   %idx.ext11725 = sext i32 %dec1170010320 to i64
-  %add.ptr11726 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext11725
+  %add.ptr11726 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext11725
   %word11728.sroa.0.0.copyload = load i8, ptr %add.ptr11679, align 2
-  %word11728.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word11728.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word11728.sroa.2.0.copyload = load i8, ptr %word11728.sroa.2.0..sroa_idx, align 1
   %conv11731 = zext i8 %word11728.sroa.2.0.copyload to i32
   %idxprom11733 = zext i8 %word11728.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_UNPACK_SEQUENCE_TWO_TUPLE:                 ; preds = %indirectgoto
-  %instr_ptr11735 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11735, align 8
-  %add.ptr11736 = getelementptr i8, ptr %next_instr.27, i64 4
-  %arrayidx11739 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11735 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11735, align 8
+  %add.ptr11736 = getelementptr i8, ptr %next_instr.1, i64 4
+  %arrayidx11739 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2284 = load ptr, ptr %arrayidx11739, align 8
   %ob_type11741 = getelementptr inbounds i8, ptr %2284, i64 8
   %2285 = load ptr, ptr %ob_type11741, align 8
@@ -18851,7 +18851,7 @@ if.end.i.i8599:                                   ; preds = %_Py_NewRef.exit8596
   br label %_Py_NewRef.exit8600
 
 _Py_NewRef.exit8600:                              ; preds = %_Py_NewRef.exit8596, %if.end.i.i8599
-  store ptr %2289, ptr %stack_pointer.17, align 8
+  store ptr %2289, ptr %stack_pointer.0, align 8
   %2291 = load i64, ptr %2284, align 8
   %2292 = and i64 %2291, 2147483648
   %cmp.i20137.not = icmp eq i64 %2292, 0
@@ -18871,23 +18871,23 @@ if.then11768:                                     ; preds = %if.end11764
   br label %do.end11773
 
 do.end11773:                                      ; preds = %if.end11764, %if.then11768, %_Py_NewRef.exit8600
-  %add11774 = add i32 %oparg.1, -1
+  %add11774 = add i32 %oparg.0, -1
   %idx.ext11775 = sext i32 %add11774 to i64
-  %add.ptr11776 = getelementptr ptr, ptr %stack_pointer.17, i64 %idx.ext11775
+  %add.ptr11776 = getelementptr ptr, ptr %stack_pointer.0, i64 %idx.ext11775
   %word11778.sroa.0.0.copyload = load i8, ptr %add.ptr11736, align 2
-  %word11778.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 5
+  %word11778.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 5
   %word11778.sroa.2.0.copyload = load i8, ptr %word11778.sroa.2.0..sroa_idx, align 1
   %conv11781 = zext i8 %word11778.sroa.2.0.copyload to i32
   %idxprom11783 = zext i8 %word11778.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_WITH_EXCEPT_START:                         ; preds = %indirectgoto
-  %instr_ptr11785 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11785, align 8
-  %add.ptr11786 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx11789 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11785 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11785, align 8
+  %add.ptr11786 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx11789 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2294 = load ptr, ptr %arrayidx11789, align 8
-  %arrayidx11791 = getelementptr i8, ptr %stack_pointer.17, i64 -32
+  %arrayidx11791 = getelementptr i8, ptr %stack_pointer.0, i64 -32
   %2295 = load ptr, ptr %arrayidx11791, align 8
   %2296 = getelementptr i8, ptr %2294, i64 8
   %.val7013 = load ptr, ptr %2296, align 8
@@ -18926,42 +18926,42 @@ if.end11814:                                      ; preds = %TARGET_WITH_EXCEPT_
   br i1 %cmp11823, label %error.loopexit, label %if.end11826
 
 if.end11826:                                      ; preds = %if.end11814
-  store ptr %call11822, ptr %stack_pointer.17, align 8
-  %add.ptr11828 = getelementptr i8, ptr %stack_pointer.17, i64 8
+  store ptr %call11822, ptr %stack_pointer.0, align 8
+  %add.ptr11828 = getelementptr i8, ptr %stack_pointer.0, i64 8
   %word11830.sroa.0.0.copyload = load i8, ptr %add.ptr11786, align 2
-  %word11830.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.27, i64 3
+  %word11830.sroa.2.0..sroa_idx = getelementptr i8, ptr %next_instr.1, i64 3
   %word11830.sroa.2.0.copyload = load i8, ptr %word11830.sroa.2.0..sroa_idx, align 1
   %conv11833 = zext i8 %word11830.sroa.2.0.copyload to i32
   %idxprom11835 = zext i8 %word11830.sroa.0.0.copyload to i64
   br label %indirectgoto.backedge
 
 TARGET_YIELD_VALUE:                               ; preds = %indirectgoto
-  %instr_ptr11837 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
-  store ptr %next_instr.27, ptr %instr_ptr11837, align 8
-  %add.ptr11838 = getelementptr i8, ptr %next_instr.27, i64 2
-  %arrayidx11840 = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %instr_ptr11837 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
+  store ptr %next_instr.1, ptr %instr_ptr11837, align 8
+  %add.ptr11838 = getelementptr i8, ptr %next_instr.1, i64 2
+  %arrayidx11840 = getelementptr i8, ptr %stack_pointer.0, i64 -8
   %2301 = load ptr, ptr %arrayidx11840, align 8
   store ptr %add.ptr11838, ptr %instr_ptr11837, align 8
-  %2302 = trunc i32 %oparg.1 to i8
+  %2302 = trunc i32 %oparg.0 to i8
   %conv11845 = add i8 %2302, -2
-  %gi_frame_state11846 = getelementptr i8, ptr %frame.addr.8, i64 -5
+  %gi_frame_state11846 = getelementptr i8, ptr %frame.addr.4, i64 -5
   store i8 %conv11845, ptr %gi_frame_state11846, align 1
-  %localsplus.i8602 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
+  %localsplus.i8602 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
   %sub.ptr.lhs.cast.i8603 = ptrtoint ptr %arrayidx11840 to i64
   %sub.ptr.rhs.cast.i8604 = ptrtoint ptr %localsplus.i8602 to i64
   %sub.ptr.sub.i8605 = sub i64 %sub.ptr.lhs.cast.i8603, %sub.ptr.rhs.cast.i8604
   %sub.ptr.div.i8606 = lshr exact i64 %sub.ptr.sub.i8605, 3
   %conv.i8607 = trunc i64 %sub.ptr.div.i8606 to i32
-  %stacktop.i8608 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8608 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8607, ptr %stacktop.i8608, align 8
-  %previous_item11849 = getelementptr i8, ptr %frame.addr.8, i64 -24
+  %previous_item11849 = getelementptr i8, ptr %frame.addr.4, i64 -24
   %2303 = load ptr, ptr %previous_item11849, align 8
   store ptr %2303, ptr %exc_info17215, align 8
   store ptr null, ptr %previous_item11849, align 8
   %2304 = load i32, ptr %py_recursion_remaining3963, align 4
   %inc.i8610 = add i32 %2304, 1
   store i32 %inc.i8610, ptr %py_recursion_remaining3963, align 4
-  %previous11854 = getelementptr inbounds i8, ptr %frame.addr.8, i64 8
+  %previous11854 = getelementptr inbounds i8, ptr %frame.addr.4, i64 8
   %2305 = load ptr, ptr %previous11854, align 8
   store ptr %2305, ptr %current_frame, align 8
   store ptr null, ptr %previous11854, align 8
@@ -18980,18 +18980,18 @@ TARGET_YIELD_VALUE:                               ; preds = %indirectgoto
   br label %resume_frame
 
 TARGET_INSTRUMENTED_LINE:                         ; preds = %indirectgoto
-  %instr_ptr11862 = getelementptr inbounds i8, ptr %frame.addr.8, i64 56
+  %instr_ptr11862 = getelementptr inbounds i8, ptr %frame.addr.4, i64 56
   %2309 = load ptr, ptr %instr_ptr11862, align 8
-  store ptr %next_instr.27, ptr %instr_ptr11862, align 8
-  %localsplus.i8616 = getelementptr inbounds i8, ptr %frame.addr.8, i64 72
-  %sub.ptr.lhs.cast.i8617 = ptrtoint ptr %stack_pointer.17 to i64
+  store ptr %next_instr.1, ptr %instr_ptr11862, align 8
+  %localsplus.i8616 = getelementptr inbounds i8, ptr %frame.addr.4, i64 72
+  %sub.ptr.lhs.cast.i8617 = ptrtoint ptr %stack_pointer.0 to i64
   %sub.ptr.rhs.cast.i8618 = ptrtoint ptr %localsplus.i8616 to i64
   %sub.ptr.sub.i8619 = sub i64 %sub.ptr.lhs.cast.i8617, %sub.ptr.rhs.cast.i8618
   %sub.ptr.div.i8620 = lshr exact i64 %sub.ptr.sub.i8619, 3
   %conv.i8621 = trunc i64 %sub.ptr.div.i8620 to i32
-  %stacktop.i8622 = getelementptr inbounds i8, ptr %frame.addr.8, i64 64
+  %stacktop.i8622 = getelementptr inbounds i8, ptr %frame.addr.4, i64 64
   store i32 %conv.i8621, ptr %stacktop.i8622, align 8
-  %call11864 = call i32 @_Py_call_instrumentation_line(ptr noundef %tstate, ptr noundef %frame.addr.8, ptr noundef %next_instr.27, ptr noundef %2309) #15
+  %call11864 = call i32 @_Py_call_instrumentation_line(ptr noundef %tstate, ptr noundef %frame.addr.4, ptr noundef %next_instr.1, ptr noundef %2309) #15
   %2310 = load i32, ptr %stacktop.i8622, align 8
   %idx.ext.i8625 = sext i32 %2310 to i64
   %add.ptr.i8626 = getelementptr ptr, ptr %localsplus.i8616, i64 %idx.ext.i8625
@@ -19000,12 +19000,12 @@ TARGET_INSTRUMENTED_LINE:                         ; preds = %indirectgoto
   br i1 %cmp11866, label %if.then11868, label %if.end11870
 
 if.then11868:                                     ; preds = %TARGET_INSTRUMENTED_LINE
-  %add.ptr11869 = getelementptr i8, ptr %next_instr.27, i64 2
+  %add.ptr11869 = getelementptr i8, ptr %next_instr.1, i64 2
   br label %error
 
 if.end11870:                                      ; preds = %TARGET_INSTRUMENTED_LINE
   %2311 = load ptr, ptr %instr_ptr11862, align 8
-  %cmp11872.not = icmp eq ptr %2311, %next_instr.27
+  %cmp11872.not = icmp eq ptr %2311, %next_instr.1
   br i1 %cmp11872.not, label %if.end11883, label %do.body11875
 
 do.body11875:                                     ; preds = %if.end11870
@@ -19037,62 +19037,62 @@ if.end11896:                                      ; preds = %if.then11887, %if.e
   br label %indirectgoto.backedge
 
 _unknown_opcode:                                  ; preds = %indirectgoto
-  %2314 = load i8, ptr %next_instr.27, align 2
+  %2314 = load i8, ptr %next_instr.1, align 2
   %2315 = load ptr, ptr @PyExc_SystemError, align 8
-  %frame.addr.8.val7328 = load ptr, ptr %frame.addr.8, align 8
-  %co_filename = getelementptr inbounds i8, ptr %frame.addr.8.val7328, i64 112
+  %frame.addr.4.val7328 = load ptr, ptr %frame.addr.4, align 8
+  %co_filename = getelementptr inbounds i8, ptr %frame.addr.4.val7328, i64 112
   %2316 = load ptr, ptr %co_filename, align 8
-  %call11902 = call i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef nonnull %frame.addr.8) #15
+  %call11902 = call i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef nonnull %frame.addr.4) #15
   %conv11903 = zext i8 %2314 to i32
   %call11904 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %tstate, ptr noundef %2315, ptr noundef nonnull @.str.34, ptr noundef %2316, i32 noundef %call11902, i32 noundef %conv11903) #15
   br label %error
 
 unbound_local_error:                              ; preds = %TARGET_LOAD_FAST_CHECK, %TARGET_DELETE_FAST
   %conv11907.pre-phi = phi i64 [ %idxprom8286, %TARGET_LOAD_FAST_CHECK ], [ %idxprom5105, %TARGET_DELETE_FAST ]
-  %next_instr.21 = phi ptr [ %add.ptr8283, %TARGET_LOAD_FAST_CHECK ], [ %add.ptr5103, %TARGET_DELETE_FAST ]
+  %next_instr.13 = phi ptr [ %add.ptr8283, %TARGET_LOAD_FAST_CHECK ], [ %add.ptr5103, %TARGET_DELETE_FAST ]
   %2317 = load ptr, ptr @PyExc_UnboundLocalError, align 8
-  %frame.addr.8.val7329 = load ptr, ptr %frame.addr.8, align 8
-  %co_localsplusnames11906 = getelementptr inbounds i8, ptr %frame.addr.8.val7329, i64 96
+  %frame.addr.4.val7329 = load ptr, ptr %frame.addr.4, align 8
+  %co_localsplusnames11906 = getelementptr inbounds i8, ptr %frame.addr.4.val7329, i64 96
   %2318 = load ptr, ptr %co_localsplusnames11906, align 8
   %call11908 = call ptr @PyTuple_GetItem(ptr noundef %2318, i64 noundef %conv11907.pre-phi) #15
   call void @_PyEval_FormatExcCheckArg(ptr noundef %tstate, ptr noundef %2317, ptr noundef nonnull @.str.35, ptr noundef %call11908)
   br label %error
 
 pop_3_error.loopexit.split.loop.exit:             ; preds = %do.end10934
-  %arrayidx10877.le = getelementptr i8, ptr %stack_pointer.17, i64 -8
+  %arrayidx10877.le = getelementptr i8, ptr %stack_pointer.0, i64 -8
   br label %pop_3_error
 
 pop_3_error:                                      ; preds = %do.end11063, %do.end11021, %_PyErr_Occurred.exit8359, %do.end8995, %do.end8903, %do.end8876, %if.then8768, %do.end805, %pop_3_error.loopexit.split.loop.exit, %do.body9077, %if.then9086, %if.end9082
-  %stack_pointer.2 = phi ptr [ %stack_pointer.17, %do.body9077 ], [ %stack_pointer.17, %if.then9086 ], [ %stack_pointer.17, %if.end9082 ], [ %arrayidx10877.le, %pop_3_error.loopexit.split.loop.exit ], [ %stack_pointer.17, %do.end805 ], [ %stack_pointer.17, %if.then8768 ], [ %stack_pointer.17, %do.end8876 ], [ %stack_pointer.17, %do.end8903 ], [ %stack_pointer.17, %do.end8995 ], [ %stack_pointer.17, %_PyErr_Occurred.exit8359 ], [ %stack_pointer.17, %do.end11021 ], [ %stack_pointer.17, %do.end11063 ]
-  %next_instr.22 = phi ptr [ %add.ptr9011, %do.body9077 ], [ %add.ptr9011, %if.then9086 ], [ %add.ptr9011, %if.end9082 ], [ %add.ptr10872, %pop_3_error.loopexit.split.loop.exit ], [ %add.ptr11035, %do.end11063 ], [ %next_instr.18, %do.end11021 ], [ %add.ptr9232, %_PyErr_Occurred.exit8359 ], [ %add.ptr8927, %do.end8995 ], [ %next_instr.12, %do.end8903 ], [ %next_instr.12, %do.end8876 ], [ %next_instr.12, %if.then8768 ], [ %add.ptr764, %do.end805 ]
-  %add.ptr11910 = getelementptr i8, ptr %stack_pointer.2, i64 -8
+  %stack_pointer.4 = phi ptr [ %stack_pointer.0, %do.body9077 ], [ %stack_pointer.0, %if.then9086 ], [ %stack_pointer.0, %if.end9082 ], [ %arrayidx10877.le, %pop_3_error.loopexit.split.loop.exit ], [ %stack_pointer.0, %do.end805 ], [ %stack_pointer.0, %if.then8768 ], [ %stack_pointer.0, %do.end8876 ], [ %stack_pointer.0, %do.end8903 ], [ %stack_pointer.0, %do.end8995 ], [ %stack_pointer.0, %_PyErr_Occurred.exit8359 ], [ %stack_pointer.0, %do.end11021 ], [ %stack_pointer.0, %do.end11063 ]
+  %next_instr.6 = phi ptr [ %add.ptr9011, %do.body9077 ], [ %add.ptr9011, %if.then9086 ], [ %add.ptr9011, %if.end9082 ], [ %add.ptr10872, %pop_3_error.loopexit.split.loop.exit ], [ %add.ptr11035, %do.end11063 ], [ %next_instr.25, %do.end11021 ], [ %add.ptr9232, %_PyErr_Occurred.exit8359 ], [ %add.ptr8927, %do.end8995 ], [ %next_instr.15, %do.end8903 ], [ %next_instr.15, %do.end8876 ], [ %next_instr.15, %if.then8768 ], [ %add.ptr764, %do.end805 ]
+  %add.ptr11910 = getelementptr i8, ptr %stack_pointer.4, i64 -8
   br label %pop_2_error
 
 pop_2_error:                                      ; preds = %do.end10238, %TARGET_MAP_ADD, %do.end6441, %do.end5636, %do.end5239, %do.end4933, %do.end4681, %do.end4658, %do.end4451, %do.end2869, %do.end937, %do.end877, %do.end748, %do.end625, %do.end503, %do.end452, %do.end394, %do.end279, %do.body4404, %if.then4413, %if.end4409, %pop_3_error
-  %stack_pointer.3 = phi ptr [ %add.ptr11910, %pop_3_error ], [ %stack_pointer.17, %do.body4404 ], [ %stack_pointer.17, %if.then4413 ], [ %stack_pointer.17, %if.end4409 ], [ %stack_pointer.17, %do.end279 ], [ %stack_pointer.17, %do.end394 ], [ %stack_pointer.17, %do.end452 ], [ %stack_pointer.17, %do.end503 ], [ %stack_pointer.17, %do.end625 ], [ %stack_pointer.17, %do.end748 ], [ %stack_pointer.17, %do.end877 ], [ %stack_pointer.17, %do.end937 ], [ %stack_pointer.17, %do.end2869 ], [ %stack_pointer.17, %do.end4451 ], [ %stack_pointer.17, %do.end4658 ], [ %stack_pointer.17, %do.end4681 ], [ %stack_pointer.17, %do.end4933 ], [ %stack_pointer.17, %do.end5239 ], [ %stack_pointer.17, %do.end5636 ], [ %stack_pointer.17, %do.end6441 ], [ %stack_pointer.17, %TARGET_MAP_ADD ], [ %stack_pointer.17, %do.end10238 ]
-  %next_instr.23 = phi ptr [ %next_instr.22, %pop_3_error ], [ %add.ptr4382, %do.body4404 ], [ %add.ptr4382, %if.then4413 ], [ %add.ptr4382, %if.end4409 ], [ %next_instr.17, %do.end10238 ], [ %add.ptr9208, %TARGET_MAP_ADD ], [ %add.ptr6401, %do.end6441 ], [ %add.ptr5601, %do.end5636 ], [ %add.ptr5203, %do.end5239 ], [ %add.ptr4896, %do.end4933 ], [ %next_instr.6, %do.end4681 ], [ %next_instr.6, %do.end4658 ], [ %add.ptr4382, %do.end4451 ], [ %add.ptr2832, %do.end2869 ], [ %add.ptr893, %do.end937 ], [ %next_instr.2, %do.end877 ], [ %add.ptr706, %do.end748 ], [ %add.ptr583, %do.end625 ], [ %add.ptr468, %do.end503 ], [ %add.ptr410, %do.end452 ], [ %add.ptr352, %do.end394 ], [ %next_instr.1, %do.end279 ]
+  %stack_pointer.3 = phi ptr [ %add.ptr11910, %pop_3_error ], [ %stack_pointer.0, %do.body4404 ], [ %stack_pointer.0, %if.then4413 ], [ %stack_pointer.0, %if.end4409 ], [ %stack_pointer.0, %do.end279 ], [ %stack_pointer.0, %do.end394 ], [ %stack_pointer.0, %do.end452 ], [ %stack_pointer.0, %do.end503 ], [ %stack_pointer.0, %do.end625 ], [ %stack_pointer.0, %do.end748 ], [ %stack_pointer.0, %do.end877 ], [ %stack_pointer.0, %do.end937 ], [ %stack_pointer.0, %do.end2869 ], [ %stack_pointer.0, %do.end4451 ], [ %stack_pointer.0, %do.end4658 ], [ %stack_pointer.0, %do.end4681 ], [ %stack_pointer.0, %do.end4933 ], [ %stack_pointer.0, %do.end5239 ], [ %stack_pointer.0, %do.end5636 ], [ %stack_pointer.0, %do.end6441 ], [ %stack_pointer.0, %TARGET_MAP_ADD ], [ %stack_pointer.0, %do.end10238 ]
+  %next_instr.5 = phi ptr [ %next_instr.6, %pop_3_error ], [ %add.ptr4382, %do.body4404 ], [ %add.ptr4382, %if.then4413 ], [ %add.ptr4382, %if.end4409 ], [ %next_instr.24, %do.end10238 ], [ %add.ptr9208, %TARGET_MAP_ADD ], [ %add.ptr6401, %do.end6441 ], [ %add.ptr5601, %do.end5636 ], [ %add.ptr5203, %do.end5239 ], [ %add.ptr4896, %do.end4933 ], [ %next_instr.12, %do.end4681 ], [ %next_instr.12, %do.end4658 ], [ %add.ptr4382, %do.end4451 ], [ %add.ptr2832, %do.end2869 ], [ %add.ptr893, %do.end937 ], [ %next_instr.7, %do.end877 ], [ %add.ptr706, %do.end748 ], [ %add.ptr583, %do.end625 ], [ %add.ptr468, %do.end503 ], [ %add.ptr410, %do.end452 ], [ %add.ptr352, %do.end394 ], [ %next_instr.4, %do.end279 ]
   %add.ptr11911 = getelementptr i8, ptr %stack_pointer.3, i64 -8
   br label %pop_1_error
 
 pop_1_error:                                      ; preds = %do.end6199, %do.end11607, %do.end11545, %do.end11484, %do.end11450, %do.end11226, %do.end10858, %do.end10790, %do.end10155, %do.end10092, %do.end7453, %do.end7431, %_PyList_AppendTakeRef.exit8200, %do.end6284, %do.end6044, %do.end5584, %do.end5055, %do.end4972, %_PyList_AppendTakeRef.exit, %do.end2817, %do.end6248, %if.then10818, %if.then10829, %if.end10825, %do.body7317, %if.then7326, %if.end7322, %if.then6058, %if.then6071, %if.end6067, %if.then6010, %if.then6022, %if.end6018, %do.body5329, %if.then5338, %if.end5334, %if.then5268, %if.then5278, %if.end5274, %do.body4484, %if.then4493, %if.end4489, %do.body198, %if.then207, %if.end203, %do.body91, %if.then100, %if.end96, %pop_2_error
-  %stack_pointer.4 = phi ptr [ %add.ptr11911, %pop_2_error ], [ %stack_pointer.17, %if.then10818 ], [ %stack_pointer.17, %if.then10829 ], [ %stack_pointer.17, %if.end10825 ], [ %stack_pointer.17, %do.body7317 ], [ %stack_pointer.17, %if.then7326 ], [ %stack_pointer.17, %if.end7322 ], [ %stack_pointer.17, %do.body5329 ], [ %stack_pointer.17, %if.then5338 ], [ %stack_pointer.17, %if.end5334 ], [ %stack_pointer.17, %if.then5268 ], [ %stack_pointer.17, %if.then5278 ], [ %stack_pointer.17, %if.end5274 ], [ %stack_pointer.17, %if.then6010 ], [ %stack_pointer.17, %if.then6022 ], [ %stack_pointer.17, %if.end6018 ], [ %stack_pointer.17, %if.then6058 ], [ %stack_pointer.17, %if.then6071 ], [ %stack_pointer.17, %if.end6067 ], [ %stack_pointer.17, %do.body4484 ], [ %stack_pointer.17, %if.then4493 ], [ %stack_pointer.17, %if.end4489 ], [ %stack_pointer.17, %do.body198 ], [ %stack_pointer.17, %if.then207 ], [ %stack_pointer.17, %if.end203 ], [ %stack_pointer.17, %do.body91 ], [ %stack_pointer.17, %if.then100 ], [ %stack_pointer.17, %if.end96 ], [ %stack_pointer.17, %do.end6248 ], [ %stack_pointer.17, %do.end2817 ], [ %stack_pointer.17, %_PyList_AppendTakeRef.exit ], [ %stack_pointer.17, %do.end4972 ], [ %stack_pointer.17, %do.end5055 ], [ %stack_pointer.17, %do.end5584 ], [ %stack_pointer.17, %do.end6044 ], [ %stack_pointer.17, %do.end6284 ], [ %stack_pointer.17, %_PyList_AppendTakeRef.exit8200 ], [ %stack_pointer.17, %do.end7431 ], [ %stack_pointer.17, %do.end7453 ], [ %stack_pointer.17, %do.end10092 ], [ %stack_pointer.17, %do.end10155 ], [ %stack_pointer.17, %do.end10790 ], [ %stack_pointer.17, %do.end10858 ], [ %stack_pointer.17, %do.end11226 ], [ %stack_pointer.17, %do.end11450 ], [ %stack_pointer.17, %do.end11484 ], [ %stack_pointer.17, %do.end11545 ], [ %stack_pointer.17, %do.end11607 ], [ %stack_pointer.17, %do.end6199 ]
-  %next_instr.24 = phi ptr [ %next_instr.23, %pop_2_error ], [ %add.ptr10804, %if.then10818 ], [ %add.ptr10804, %if.then10829 ], [ %add.ptr10804, %if.end10825 ], [ %add.ptr7291, %do.body7317 ], [ %add.ptr7291, %if.then7326 ], [ %add.ptr7291, %if.end7322 ], [ %add.ptr5310, %do.body5329 ], [ %add.ptr5310, %if.then5338 ], [ %add.ptr5310, %if.end5334 ], [ %add.ptr5253, %if.then5268 ], [ %add.ptr5253, %if.then5278 ], [ %add.ptr5253, %if.end5274 ], [ %add.ptr5998, %if.then6010 ], [ %add.ptr5998, %if.then6022 ], [ %add.ptr5998, %if.end6018 ], [ %add.ptr5998, %if.then6058 ], [ %add.ptr5998, %if.then6071 ], [ %add.ptr5998, %if.end6067 ], [ %add.ptr4475, %do.body4484 ], [ %add.ptr4475, %if.then4493 ], [ %add.ptr4475, %if.end4489 ], [ %add.ptr119, %do.body198 ], [ %add.ptr119, %if.then207 ], [ %add.ptr119, %if.end203 ], [ %add.ptr, %do.body91 ], [ %add.ptr, %if.then100 ], [ %add.ptr, %if.end96 ], [ %add.ptr6176, %do.end6248 ], [ %add.ptr6176, %do.end6199 ], [ %next_instr.20, %do.end11607 ], [ %add.ptr11516, %do.end11545 ], [ %add.ptr11465, %do.end11484 ], [ %add.ptr11431, %do.end11450 ], [ %next_instr.19, %do.end11226 ], [ %add.ptr10804, %do.end10858 ], [ %add.ptr10764, %do.end10790 ], [ %add.ptr10131, %do.end10155 ], [ %add.ptr10068, %do.end10092 ], [ %next_instr.10, %do.end7453 ], [ %next_instr.10, %do.end7431 ], [ %add.ptr7268, %_PyList_AppendTakeRef.exit8200 ], [ %add.ptr6265, %do.end6284 ], [ %add.ptr5998, %do.end6044 ], [ %add.ptr5561, %do.end5584 ], [ %add.ptr5032, %do.end5055 ], [ %add.ptr4951, %do.end4972 ], [ %add.ptr3343, %_PyList_AppendTakeRef.exit ], [ %add.ptr2796, %do.end2817 ]
-  %add.ptr11912 = getelementptr i8, ptr %stack_pointer.4, i64 -8
+  %stack_pointer.2 = phi ptr [ %add.ptr11911, %pop_2_error ], [ %stack_pointer.0, %if.then10818 ], [ %stack_pointer.0, %if.then10829 ], [ %stack_pointer.0, %if.end10825 ], [ %stack_pointer.0, %do.body7317 ], [ %stack_pointer.0, %if.then7326 ], [ %stack_pointer.0, %if.end7322 ], [ %stack_pointer.0, %do.body5329 ], [ %stack_pointer.0, %if.then5338 ], [ %stack_pointer.0, %if.end5334 ], [ %stack_pointer.0, %if.then5268 ], [ %stack_pointer.0, %if.then5278 ], [ %stack_pointer.0, %if.end5274 ], [ %stack_pointer.0, %if.then6010 ], [ %stack_pointer.0, %if.then6022 ], [ %stack_pointer.0, %if.end6018 ], [ %stack_pointer.0, %if.then6058 ], [ %stack_pointer.0, %if.then6071 ], [ %stack_pointer.0, %if.end6067 ], [ %stack_pointer.0, %do.body4484 ], [ %stack_pointer.0, %if.then4493 ], [ %stack_pointer.0, %if.end4489 ], [ %stack_pointer.0, %do.body198 ], [ %stack_pointer.0, %if.then207 ], [ %stack_pointer.0, %if.end203 ], [ %stack_pointer.0, %do.body91 ], [ %stack_pointer.0, %if.then100 ], [ %stack_pointer.0, %if.end96 ], [ %stack_pointer.0, %do.end6248 ], [ %stack_pointer.0, %do.end2817 ], [ %stack_pointer.0, %_PyList_AppendTakeRef.exit ], [ %stack_pointer.0, %do.end4972 ], [ %stack_pointer.0, %do.end5055 ], [ %stack_pointer.0, %do.end5584 ], [ %stack_pointer.0, %do.end6044 ], [ %stack_pointer.0, %do.end6284 ], [ %stack_pointer.0, %_PyList_AppendTakeRef.exit8200 ], [ %stack_pointer.0, %do.end7431 ], [ %stack_pointer.0, %do.end7453 ], [ %stack_pointer.0, %do.end10092 ], [ %stack_pointer.0, %do.end10155 ], [ %stack_pointer.0, %do.end10790 ], [ %stack_pointer.0, %do.end10858 ], [ %stack_pointer.0, %do.end11226 ], [ %stack_pointer.0, %do.end11450 ], [ %stack_pointer.0, %do.end11484 ], [ %stack_pointer.0, %do.end11545 ], [ %stack_pointer.0, %do.end11607 ], [ %stack_pointer.0, %do.end6199 ]
+  %next_instr.3 = phi ptr [ %next_instr.5, %pop_2_error ], [ %add.ptr10804, %if.then10818 ], [ %add.ptr10804, %if.then10829 ], [ %add.ptr10804, %if.end10825 ], [ %add.ptr7291, %do.body7317 ], [ %add.ptr7291, %if.then7326 ], [ %add.ptr7291, %if.end7322 ], [ %add.ptr5310, %do.body5329 ], [ %add.ptr5310, %if.then5338 ], [ %add.ptr5310, %if.end5334 ], [ %add.ptr5253, %if.then5268 ], [ %add.ptr5253, %if.then5278 ], [ %add.ptr5253, %if.end5274 ], [ %add.ptr5998, %if.then6010 ], [ %add.ptr5998, %if.then6022 ], [ %add.ptr5998, %if.end6018 ], [ %add.ptr5998, %if.then6058 ], [ %add.ptr5998, %if.then6071 ], [ %add.ptr5998, %if.end6067 ], [ %add.ptr4475, %do.body4484 ], [ %add.ptr4475, %if.then4493 ], [ %add.ptr4475, %if.end4489 ], [ %add.ptr119, %do.body198 ], [ %add.ptr119, %if.then207 ], [ %add.ptr119, %if.end203 ], [ %add.ptr, %do.body91 ], [ %add.ptr, %if.then100 ], [ %add.ptr, %if.end96 ], [ %add.ptr6176, %do.end6248 ], [ %add.ptr6176, %do.end6199 ], [ %next_instr.27, %do.end11607 ], [ %add.ptr11516, %do.end11545 ], [ %add.ptr11465, %do.end11484 ], [ %add.ptr11431, %do.end11450 ], [ %next_instr.26, %do.end11226 ], [ %add.ptr10804, %do.end10858 ], [ %add.ptr10764, %do.end10790 ], [ %add.ptr10131, %do.end10155 ], [ %add.ptr10068, %do.end10092 ], [ %next_instr.18, %do.end7453 ], [ %next_instr.18, %do.end7431 ], [ %add.ptr7268, %_PyList_AppendTakeRef.exit8200 ], [ %add.ptr6265, %do.end6284 ], [ %add.ptr5998, %do.end6044 ], [ %add.ptr5561, %do.end5584 ], [ %add.ptr5032, %do.end5055 ], [ %add.ptr4951, %do.end4972 ], [ %add.ptr3343, %_PyList_AppendTakeRef.exit ], [ %add.ptr2796, %do.end2817 ]
+  %add.ptr11912 = getelementptr i8, ptr %stack_pointer.2, i64 -8
   br label %error
 
 error.loopexit.split.loop.exit10490:              ; preds = %if.then5500
-  %add.ptr5493.le = getelementptr i8, ptr %next_instr.27, i64 2
+  %add.ptr5493.le = getelementptr i8, ptr %next_instr.1, i64 2
   br label %error
 
 error.loopexit:                                   ; preds = %do.end4276, %do.end4186, %do.end3879, %do.end3743, %do.end3624, %do.end3498, %do.end3320, %for.end3215, %do.end2971, %do.end2757, %do.end2510, %do.end2400, %do.end2289, %do.end2179, %for.end1827, %TARGET_BUILD_TUPLE, %for.end1583, %do.end1521, %for.end1345, %TARGET_BUILD_LIST, %do.end1259, %if.end11814, %do.end10038, %if.then10016, %if.end10007, %if.end9915, %if.then9711, %if.then9692, %TARGET_MATCH_KEYS, %do.end9193, %TARGET_MAKE_CELL, %if.then8713, %if.then8704, %if.end8690, %if.then8509, %if.else8500, %if.then8402, %if.then8393, %TARGET_LOAD_FROM_DICT_OR_GLOBALS, %TARGET_LOAD_FROM_DICT_OR_DEREF, %TARGET_LOAD_BUILD_CLASS, %if.then7201, %if.then7170, %if.end6996, %if.then6989, %if.then6971, %if.then6715, %TARGET_INSTRUMENTED_INSTRUCTION, %if.then6641, %cond.end6520, %cond.end6479, %import_from.exit, %if.else6343, %if.end6307, %TARGET_GET_LEN, %if.then6115, %if.then6097, %if.end5886, %if.then5681, %if.then4296, %if.then4206, %if.then3899, %if.then3763, %if.then3644, %if.then3518, %if.end3282, %if.then3235, %if.end2915, %if.then2780, %cond.end2619, %if.end2574, %if.then2530, %if.then2420, %if.then2309, %if.then2199, %if.then1845, %TARGET_BUILD_SET, %if.else686, %if.else563, %if.else332
-  %stack_pointer.5.ph = phi ptr [ %stack_pointer.17, %if.else332 ], [ %stack_pointer.17, %if.else563 ], [ %stack_pointer.17, %if.else686 ], [ %stack_pointer.17, %TARGET_BUILD_SET ], [ %arrayidx1646, %if.then1845 ], [ %arrayidx2117, %if.then2199 ], [ %arrayidx2225, %if.then2309 ], [ %arrayidx2335, %if.then2420 ], [ %arrayidx2446, %if.then2530 ], [ %stack_pointer.17, %if.end2574 ], [ %stack_pointer.17, %cond.end2619 ], [ %add.ptr2773, %if.then2780 ], [ %stack_pointer.17, %if.end2915 ], [ %arrayidx3007, %if.then3235 ], [ %stack_pointer.17, %if.end3282 ], [ %arrayidx3425, %if.then3518 ], [ %arrayidx3544, %if.then3644 ], [ %arrayidx3670, %if.then3763 ], [ %arrayidx3789, %if.then3899 ], [ %arrayidx4142, %if.then4206 ], [ %arrayidx4232, %if.then4296 ], [ %stack_pointer.17, %if.then5681 ], [ %stack_pointer.17, %if.end5886 ], [ %stack_pointer.17, %if.then6097 ], [ %stack_pointer.17, %if.then6115 ], [ %stack_pointer.17, %TARGET_GET_LEN ], [ %stack_pointer.17, %if.end6307 ], [ %stack_pointer.17, %if.else6343 ], [ %stack_pointer.17, %import_from.exit ], [ %stack_pointer.17, %cond.end6479 ], [ %stack_pointer.17, %cond.end6520 ], [ %stack_pointer.17, %if.then6641 ], [ %stack_pointer.17, %TARGET_INSTRUMENTED_INSTRUCTION ], [ %stack_pointer.17, %if.then6715 ], [ %stack_pointer.17, %if.then6971 ], [ %stack_pointer.17, %if.then6989 ], [ %add.ptr.i8146, %if.end6996 ], [ %stack_pointer.17, %if.then7170 ], [ %stack_pointer.17, %if.then7201 ], [ %stack_pointer.17, %TARGET_LOAD_BUILD_CLASS ], [ %stack_pointer.17, %TARGET_LOAD_FROM_DICT_OR_DEREF ], [ %stack_pointer.17, %TARGET_LOAD_FROM_DICT_OR_GLOBALS ], [ %stack_pointer.17, %if.then8393 ], [ %stack_pointer.17, %if.then8402 ], [ %stack_pointer.17, %if.else8500 ], [ %stack_pointer.17, %if.then8509 ], [ %stack_pointer.17, %if.end8690 ], [ %stack_pointer.17, %if.then8704 ], [ %stack_pointer.17, %if.then8713 ], [ %stack_pointer.17, %TARGET_MAKE_CELL ], [ %stack_pointer.17, %do.end9193 ], [ %stack_pointer.17, %TARGET_MATCH_KEYS ], [ %stack_pointer.17, %if.then9692 ], [ %stack_pointer.17, %if.then9711 ], [ %stack_pointer.17, %if.end9915 ], [ %stack_pointer.17, %if.end10007 ], [ %stack_pointer.17, %if.then10016 ], [ %stack_pointer.17, %do.end10038 ], [ %stack_pointer.17, %if.end11814 ], [ %arrayidx1211, %do.end1259 ], [ %arrayidx1286, %TARGET_BUILD_LIST ], [ %arrayidx1317, %for.end1345 ], [ %arrayidx1469, %do.end1521 ], [ %arrayidx1557, %for.end1583 ], [ %arrayidx1610, %TARGET_BUILD_TUPLE ], [ %arrayidx1649, %for.end1827 ], [ %arrayidx2120, %do.end2179 ], [ %arrayidx2228, %do.end2289 ], [ %arrayidx2338, %do.end2400 ], [ %arrayidx2449, %do.end2510 ], [ %arrayidx2565, %do.end2757 ], [ %arrayidx2898, %do.end2971 ], [ %arrayidx3010, %for.end3215 ], [ %arrayidx3264, %do.end3320 ], [ %arrayidx3428, %do.end3498 ], [ %arrayidx3547, %do.end3624 ], [ %arrayidx3673, %do.end3743 ], [ %arrayidx3792, %do.end3879 ], [ %arrayidx4145, %do.end4186 ], [ %arrayidx4235, %do.end4276 ]
-  %next_instr.25.ph = phi ptr [ %add.ptr295, %if.else332 ], [ %add.ptr519, %if.else563 ], [ %add.ptr641, %if.else686 ], [ %add.ptr1371, %TARGET_BUILD_SET ], [ %next_instr.3, %if.then1845 ], [ %add.ptr2107, %if.then2199 ], [ %add.ptr2215, %if.then2309 ], [ %add.ptr2325, %if.then2420 ], [ %add.ptr2436, %if.then2530 ], [ %next_instr.4, %if.end2574 ], [ %next_instr.4, %cond.end2619 ], [ %next_instr.4, %if.then2780 ], [ %add.ptr2885, %if.end2915 ], [ %next_instr.5, %if.then3235 ], [ %add.ptr3251, %if.end3282 ], [ %add.ptr3415, %if.then3518 ], [ %add.ptr3534, %if.then3644 ], [ %add.ptr3660, %if.then3763 ], [ %add.ptr3779, %if.then3899 ], [ %add.ptr4132, %if.then4206 ], [ %add.ptr4222, %if.then4296 ], [ %next_instr.7, %if.then5681 ], [ %add.ptr5845, %if.end5886 ], [ %add.ptr6088, %if.then6097 ], [ %add.ptr6088, %if.then6115 ], [ %add.ptr6299, %TARGET_GET_LEN ], [ %add.ptr6299, %if.end6307 ], [ %add.ptr6324, %if.else6343 ], [ %add.ptr6376, %import_from.exit ], [ %add.ptr6458, %cond.end6479 ], [ %add.ptr6496, %cond.end6520 ], [ %add.ptr6627, %if.then6641 ], [ %add.ptr6686, %TARGET_INSTRUMENTED_INSTRUCTION ], [ %add.ptr6708, %if.then6715 ], [ %add.ptr6962, %if.then6971 ], [ %add.ptr6962, %if.then6989 ], [ %add.ptr6962, %if.end6996 ], [ %add.ptr7163, %if.then7170 ], [ %add.ptr7179, %if.then7201 ], [ %add.ptr8186, %TARGET_LOAD_BUILD_CLASS ], [ %add.ptr8326, %TARGET_LOAD_FROM_DICT_OR_DEREF ], [ %add.ptr8377, %TARGET_LOAD_FROM_DICT_OR_GLOBALS ], [ %add.ptr8377, %if.then8393 ], [ %add.ptr8377, %if.then8402 ], [ %next_instr.11, %if.else8500 ], [ %next_instr.11, %if.then8509 ], [ %add.ptr8683, %if.end8690 ], [ %add.ptr8683, %if.then8704 ], [ %add.ptr8683, %if.then8713 ], [ %add.ptr9124, %TARGET_MAKE_CELL ], [ %add.ptr9174, %do.end9193 ], [ %add.ptr9303, %TARGET_MATCH_KEYS ], [ %next_instr.13, %if.then9692 ], [ %next_instr.13, %if.then9711 ], [ %next_instr.15, %if.end9915 ], [ %add.ptr10000, %if.end10007 ], [ %add.ptr10000, %if.then10016 ], [ %add.ptr10000, %do.end10038 ], [ %add.ptr11786, %if.end11814 ], [ %add.ptr1207, %do.end1259 ], [ %add.ptr1281, %TARGET_BUILD_LIST ], [ %add.ptr1311, %for.end1345 ], [ %add.ptr1445, %do.end1521 ], [ %add.ptr1553, %for.end1583 ], [ %add.ptr1606, %TARGET_BUILD_TUPLE ], [ %next_instr.3, %for.end1827 ], [ %add.ptr2107, %do.end2179 ], [ %add.ptr2215, %do.end2289 ], [ %add.ptr2325, %do.end2400 ], [ %add.ptr2436, %do.end2510 ], [ %next_instr.4, %do.end2757 ], [ %add.ptr2885, %do.end2971 ], [ %next_instr.5, %for.end3215 ], [ %add.ptr3251, %do.end3320 ], [ %add.ptr3415, %do.end3498 ], [ %add.ptr3534, %do.end3624 ], [ %add.ptr3660, %do.end3743 ], [ %add.ptr3779, %do.end3879 ], [ %add.ptr4132, %do.end4186 ], [ %add.ptr4222, %do.end4276 ]
+  %stack_pointer.1.ph = phi ptr [ %stack_pointer.0, %if.else332 ], [ %stack_pointer.0, %if.else563 ], [ %stack_pointer.0, %if.else686 ], [ %stack_pointer.0, %TARGET_BUILD_SET ], [ %arrayidx1646, %if.then1845 ], [ %arrayidx2117, %if.then2199 ], [ %arrayidx2225, %if.then2309 ], [ %arrayidx2335, %if.then2420 ], [ %arrayidx2446, %if.then2530 ], [ %stack_pointer.0, %if.end2574 ], [ %stack_pointer.0, %cond.end2619 ], [ %add.ptr2773, %if.then2780 ], [ %stack_pointer.0, %if.end2915 ], [ %arrayidx3007, %if.then3235 ], [ %stack_pointer.0, %if.end3282 ], [ %arrayidx3425, %if.then3518 ], [ %arrayidx3544, %if.then3644 ], [ %arrayidx3670, %if.then3763 ], [ %arrayidx3789, %if.then3899 ], [ %arrayidx4142, %if.then4206 ], [ %arrayidx4232, %if.then4296 ], [ %stack_pointer.0, %if.then5681 ], [ %stack_pointer.0, %if.end5886 ], [ %stack_pointer.0, %if.then6097 ], [ %stack_pointer.0, %if.then6115 ], [ %stack_pointer.0, %TARGET_GET_LEN ], [ %stack_pointer.0, %if.end6307 ], [ %stack_pointer.0, %if.else6343 ], [ %stack_pointer.0, %import_from.exit ], [ %stack_pointer.0, %cond.end6479 ], [ %stack_pointer.0, %cond.end6520 ], [ %stack_pointer.0, %if.then6641 ], [ %stack_pointer.0, %TARGET_INSTRUMENTED_INSTRUCTION ], [ %stack_pointer.0, %if.then6715 ], [ %stack_pointer.0, %if.then6971 ], [ %stack_pointer.0, %if.then6989 ], [ %add.ptr.i8146, %if.end6996 ], [ %stack_pointer.0, %if.then7170 ], [ %stack_pointer.0, %if.then7201 ], [ %stack_pointer.0, %TARGET_LOAD_BUILD_CLASS ], [ %stack_pointer.0, %TARGET_LOAD_FROM_DICT_OR_DEREF ], [ %stack_pointer.0, %TARGET_LOAD_FROM_DICT_OR_GLOBALS ], [ %stack_pointer.0, %if.then8393 ], [ %stack_pointer.0, %if.then8402 ], [ %stack_pointer.0, %if.else8500 ], [ %stack_pointer.0, %if.then8509 ], [ %stack_pointer.0, %if.end8690 ], [ %stack_pointer.0, %if.then8704 ], [ %stack_pointer.0, %if.then8713 ], [ %stack_pointer.0, %TARGET_MAKE_CELL ], [ %stack_pointer.0, %do.end9193 ], [ %stack_pointer.0, %TARGET_MATCH_KEYS ], [ %stack_pointer.0, %if.then9692 ], [ %stack_pointer.0, %if.then9711 ], [ %stack_pointer.0, %if.end9915 ], [ %stack_pointer.0, %if.end10007 ], [ %stack_pointer.0, %if.then10016 ], [ %stack_pointer.0, %do.end10038 ], [ %stack_pointer.0, %if.end11814 ], [ %arrayidx1211, %do.end1259 ], [ %arrayidx1286, %TARGET_BUILD_LIST ], [ %arrayidx1317, %for.end1345 ], [ %arrayidx1469, %do.end1521 ], [ %arrayidx1557, %for.end1583 ], [ %arrayidx1610, %TARGET_BUILD_TUPLE ], [ %arrayidx1649, %for.end1827 ], [ %arrayidx2120, %do.end2179 ], [ %arrayidx2228, %do.end2289 ], [ %arrayidx2338, %do.end2400 ], [ %arrayidx2449, %do.end2510 ], [ %arrayidx2565, %do.end2757 ], [ %arrayidx2898, %do.end2971 ], [ %arrayidx3010, %for.end3215 ], [ %arrayidx3264, %do.end3320 ], [ %arrayidx3428, %do.end3498 ], [ %arrayidx3547, %do.end3624 ], [ %arrayidx3673, %do.end3743 ], [ %arrayidx3792, %do.end3879 ], [ %arrayidx4145, %do.end4186 ], [ %arrayidx4235, %do.end4276 ]
+  %next_instr.2.ph = phi ptr [ %add.ptr295, %if.else332 ], [ %add.ptr519, %if.else563 ], [ %add.ptr641, %if.else686 ], [ %add.ptr1371, %TARGET_BUILD_SET ], [ %next_instr.8, %if.then1845 ], [ %add.ptr2107, %if.then2199 ], [ %add.ptr2215, %if.then2309 ], [ %add.ptr2325, %if.then2420 ], [ %add.ptr2436, %if.then2530 ], [ %next_instr.9, %if.end2574 ], [ %next_instr.9, %cond.end2619 ], [ %next_instr.9, %if.then2780 ], [ %add.ptr2885, %if.end2915 ], [ %next_instr.10, %if.then3235 ], [ %add.ptr3251, %if.end3282 ], [ %add.ptr3415, %if.then3518 ], [ %add.ptr3534, %if.then3644 ], [ %add.ptr3660, %if.then3763 ], [ %add.ptr3779, %if.then3899 ], [ %add.ptr4132, %if.then4206 ], [ %add.ptr4222, %if.then4296 ], [ %next_instr.14, %if.then5681 ], [ %add.ptr5845, %if.end5886 ], [ %add.ptr6088, %if.then6097 ], [ %add.ptr6088, %if.then6115 ], [ %add.ptr6299, %TARGET_GET_LEN ], [ %add.ptr6299, %if.end6307 ], [ %add.ptr6324, %if.else6343 ], [ %add.ptr6376, %import_from.exit ], [ %add.ptr6458, %cond.end6479 ], [ %add.ptr6496, %cond.end6520 ], [ %add.ptr6627, %if.then6641 ], [ %add.ptr6686, %TARGET_INSTRUMENTED_INSTRUCTION ], [ %add.ptr6708, %if.then6715 ], [ %add.ptr6962, %if.then6971 ], [ %add.ptr6962, %if.then6989 ], [ %add.ptr6962, %if.end6996 ], [ %add.ptr7163, %if.then7170 ], [ %add.ptr7179, %if.then7201 ], [ %add.ptr8186, %TARGET_LOAD_BUILD_CLASS ], [ %add.ptr8326, %TARGET_LOAD_FROM_DICT_OR_DEREF ], [ %add.ptr8377, %TARGET_LOAD_FROM_DICT_OR_GLOBALS ], [ %add.ptr8377, %if.then8393 ], [ %add.ptr8377, %if.then8402 ], [ %next_instr.19, %if.else8500 ], [ %next_instr.19, %if.then8509 ], [ %add.ptr8683, %if.end8690 ], [ %add.ptr8683, %if.then8704 ], [ %add.ptr8683, %if.then8713 ], [ %add.ptr9124, %TARGET_MAKE_CELL ], [ %add.ptr9174, %do.end9193 ], [ %add.ptr9303, %TARGET_MATCH_KEYS ], [ %next_instr.20, %if.then9692 ], [ %next_instr.20, %if.then9711 ], [ %next_instr.22, %if.end9915 ], [ %add.ptr10000, %if.end10007 ], [ %add.ptr10000, %if.then10016 ], [ %add.ptr10000, %do.end10038 ], [ %add.ptr11786, %if.end11814 ], [ %add.ptr1207, %do.end1259 ], [ %add.ptr1281, %TARGET_BUILD_LIST ], [ %add.ptr1311, %for.end1345 ], [ %add.ptr1445, %do.end1521 ], [ %add.ptr1553, %for.end1583 ], [ %add.ptr1606, %TARGET_BUILD_TUPLE ], [ %next_instr.8, %for.end1827 ], [ %add.ptr2107, %do.end2179 ], [ %add.ptr2215, %do.end2289 ], [ %add.ptr2325, %do.end2400 ], [ %add.ptr2436, %do.end2510 ], [ %next_instr.9, %do.end2757 ], [ %add.ptr2885, %do.end2971 ], [ %next_instr.10, %for.end3215 ], [ %add.ptr3251, %do.end3320 ], [ %add.ptr3415, %do.end3498 ], [ %add.ptr3534, %do.end3624 ], [ %add.ptr3660, %do.end3743 ], [ %add.ptr3779, %do.end3879 ], [ %add.ptr4132, %do.end4186 ], [ %add.ptr4222, %do.end4276 ]
   br label %error
 
 error:                                            ; preds = %error.loopexit, %error.loopexit.split.loop.exit10490, %import_from.exit.thread, %sw.default, %if.then3.i8394, %if.end115.i, %if.then118.i8376, %do.body110.i, %do.body163.i, %if.end172.i, %if.then175.i, %do.body167.i, %_PyErr_Occurred.exit8338, %if.then8497, %if.end.i8321, %_PyErr_Occurred.exit.i8317, %if.end.i8302, %_PyErr_Occurred.exit.i8298, %if.then5.i.i8029, %if.end.i.i8026, %do.body.i.i8023, %if.then5.i.i8000, %if.end.i.i7997, %do.body.i.i7994, %if.then6128, %if.then6141, %if.end6137, %if.then5161, %if.then5164, %if.end.i7876, %_PyErr_Occurred.exit.i, %if.then11.i, %if.end.i7671, %if.then4.i, %if.then.i7669, %do.body1411, %if.then1420, %if.end1416, %do.body148, %if.then157, %if.end153, %_PyErr_Occurred.exit7474, %if.then131, %do.body44, %if.then52, %if.end48, %_PyErr_Occurred.exit, %if.then28, %_Py_EnterRecursiveCallTstate.exit7761, %_Py_EnterRecursiveCallTstate.exit7741, %_Py_EnterRecursiveCallTstate.exit7657, %TARGET_RETURN_GENERATOR, %TARGET_INSTRUMENTED_YIELD_VALUE, %TARGET_INSTRUMENTED_RETURN_VALUE, %TARGET_INSTRUMENTED_RETURN_CONST, %do.end3096, %_PyEvalFramePushAndInit_Ex.exit, %if.end1904, %cond.end, %resume_with_error, %pop_1_error, %unbound_local_error, %_unknown_opcode, %if.then11868, %if.then10005, %if.else9672, %if.then8722, %if.then8689, %if.then8670, %if.then8518, %if.then8411, %if.then8194, %if.then6946, %if.then6909, %if.then6854, %if.then6799, %if.then6754, %if.then6729, %if.then6672, %if.then6336, %if.else6121, %if.then5537, %if.then5192, %if.then5186, %if.then1219
-  %stack_pointer.5 = phi ptr [ %add.ptr11912, %pop_1_error ], [ %add.ptr.i8722, %resume_with_error ], [ %stack_pointer.17, %if.then8518 ], [ %arrayidx1649, %cond.end ], [ %stack_pointer.17, %_Py_EnterRecursiveCallTstate.exit7761 ], [ %stack_pointer.17, %_Py_EnterRecursiveCallTstate.exit7741 ], [ %stack_pointer.17, %_Py_EnterRecursiveCallTstate.exit7657 ], [ %stack_pointer.17, %if.end1904 ], [ %stack_pointer.17, %TARGET_INSTRUMENTED_RETURN_VALUE ], [ %stack_pointer.17, %TARGET_INSTRUMENTED_RETURN_CONST ], [ %stack_pointer.17, %TARGET_INSTRUMENTED_YIELD_VALUE ], [ %add.ptr.i8069, %if.then6672 ], [ %arrayidx3010, %do.end3096 ], [ %add.ptr2693, %_PyEvalFramePushAndInit_Ex.exit ], [ %add.ptr.i8091, %if.then6754 ], [ %add.ptr.i8080, %if.then6729 ], [ %add.ptr.i8135, %if.then6946 ], [ %add.ptr.i8102, %if.then6799 ], [ %add.ptr.i8113, %if.then6854 ], [ %add.ptr.i8124, %if.then6909 ], [ %add.ptr.i8626, %if.then11868 ], [ %stack_pointer.17, %_unknown_opcode ], [ %stack_pointer.17, %if.else9672 ], [ %stack_pointer.17, %if.then8689 ], [ %stack_pointer.17, %if.then8722 ], [ %stack_pointer.17, %if.then8411 ], [ %stack_pointer.17, %unbound_local_error ], [ %stack_pointer.17, %if.then5186 ], [ %stack_pointer.17, %if.then5192 ], [ %stack_pointer.17, %if.then1219 ], [ %stack_pointer.17, %if.then10005 ], [ %stack_pointer.17, %TARGET_RETURN_GENERATOR ], [ %stack_pointer.17, %if.then8670 ], [ %stack_pointer.17, %if.then8194 ], [ %stack_pointer.17, %if.then6336 ], [ %stack_pointer.17, %if.else6121 ], [ %stack_pointer.17, %if.then5537 ], [ %stack_pointer.17, %if.then28 ], [ %stack_pointer.17, %_PyErr_Occurred.exit ], [ %stack_pointer.17, %if.end48 ], [ %stack_pointer.17, %if.then52 ], [ %stack_pointer.17, %do.body44 ], [ %stack_pointer.17, %if.then131 ], [ %stack_pointer.17, %_PyErr_Occurred.exit7474 ], [ %stack_pointer.17, %if.end153 ], [ %stack_pointer.17, %if.then157 ], [ %stack_pointer.17, %do.body148 ], [ %arrayidx1375, %if.end1416 ], [ %arrayidx1375, %if.then1420 ], [ %arrayidx1375, %do.body1411 ], [ %stack_pointer.17, %if.then.i7669 ], [ %stack_pointer.17, %if.then4.i ], [ %stack_pointer.17, %if.end.i7671 ], [ %stack_pointer.17, %if.then11.i ], [ %stack_pointer.17, %_PyErr_Occurred.exit.i ], [ %stack_pointer.17, %if.end.i7876 ], [ %stack_pointer.17, %if.then5164 ], [ %stack_pointer.17, %if.then5161 ], [ %stack_pointer.17, %if.end6137 ], [ %stack_pointer.17, %if.then6141 ], [ %stack_pointer.17, %if.then6128 ], [ %stack_pointer.17, %do.body.i.i7994 ], [ %stack_pointer.17, %if.end.i.i7997 ], [ %stack_pointer.17, %if.then5.i.i8000 ], [ %stack_pointer.17, %do.body.i.i8023 ], [ %stack_pointer.17, %if.end.i.i8026 ], [ %stack_pointer.17, %if.then5.i.i8029 ], [ %stack_pointer.17, %_PyErr_Occurred.exit.i8298 ], [ %stack_pointer.17, %if.end.i8302 ], [ %stack_pointer.17, %_PyErr_Occurred.exit.i8317 ], [ %stack_pointer.17, %if.end.i8321 ], [ %stack_pointer.17, %if.then8497 ], [ %stack_pointer.17, %_PyErr_Occurred.exit8338 ], [ %arrayidx9638, %do.body167.i ], [ %arrayidx9638, %if.then175.i ], [ %arrayidx9638, %if.end172.i ], [ %arrayidx9638, %do.body163.i ], [ %arrayidx9638, %do.body110.i ], [ %arrayidx9638, %if.then118.i8376 ], [ %arrayidx9638, %if.end115.i ], [ %arrayidx9638, %if.then3.i8394 ], [ %arrayidx9638, %sw.default ], [ %stack_pointer.17, %error.loopexit.split.loop.exit10490 ], [ %stack_pointer.17, %import_from.exit.thread ], [ %stack_pointer.5.ph, %error.loopexit ]
-  %next_instr.25 = phi ptr [ %next_instr.24, %pop_1_error ], [ %2395, %resume_with_error ], [ %next_instr.11, %if.then8518 ], [ %next_instr.3, %cond.end ], [ %add.ptr3779, %_Py_EnterRecursiveCallTstate.exit7761 ], [ %add.ptr3660, %_Py_EnterRecursiveCallTstate.exit7741 ], [ %add.ptr2436, %_Py_EnterRecursiveCallTstate.exit7657 ], [ %add.ptr1862, %if.end1904 ], [ %add.ptr7051, %TARGET_INSTRUMENTED_RETURN_VALUE ], [ %add.ptr7029, %TARGET_INSTRUMENTED_RETURN_CONST ], [ %add.ptr7072, %TARGET_INSTRUMENTED_YIELD_VALUE ], [ %add.ptr6673, %if.then6672 ], [ %next_instr.5, %do.end3096 ], [ %next_instr.4, %_PyEvalFramePushAndInit_Ex.exit ], [ %add.ptr6757, %if.then6754 ], [ %add.ptr6733, %if.then6729 ], [ %add.ptr6949, %if.then6946 ], [ %add.ptr6802, %if.then6799 ], [ %add.ptr6857, %if.then6854 ], [ %add.ptr6912, %if.then6909 ], [ %add.ptr11869, %if.then11868 ], [ %next_instr.27, %_unknown_opcode ], [ %add.ptr9653, %if.else9672 ], [ %add.ptr8683, %if.then8689 ], [ %add.ptr8683, %if.then8722 ], [ %add.ptr8377, %if.then8411 ], [ %next_instr.21, %unbound_local_error ], [ %add.ptr5176, %if.then5186 ], [ %add.ptr5176, %if.then5192 ], [ %add.ptr1207, %if.then1219 ], [ %add.ptr10000, %if.then10005 ], [ %add.ptr9780, %TARGET_RETURN_GENERATOR ], [ %add.ptr8665, %if.then8670 ], [ %add.ptr8186, %if.then8194 ], [ %add.ptr6324, %if.then6336 ], [ %add.ptr6088, %if.else6121 ], [ %add.ptr5533, %if.then5537 ], [ %add.ptr, %if.then28 ], [ %add.ptr, %_PyErr_Occurred.exit ], [ %add.ptr, %if.end48 ], [ %add.ptr, %if.then52 ], [ %add.ptr, %do.body44 ], [ %add.ptr119, %if.then131 ], [ %add.ptr119, %_PyErr_Occurred.exit7474 ], [ %add.ptr119, %if.end153 ], [ %add.ptr119, %if.then157 ], [ %add.ptr119, %do.body148 ], [ %add.ptr1371, %if.end1416 ], [ %add.ptr1371, %if.then1420 ], [ %add.ptr1371, %do.body1411 ], [ %next_instr.4, %if.then.i7669 ], [ %next_instr.4, %if.then4.i ], [ %next_instr.4, %if.end.i7671 ], [ %next_instr.4, %if.then11.i ], [ %add.ptr5069, %_PyErr_Occurred.exit.i ], [ %add.ptr5069, %if.end.i7876 ], [ %add.ptr5150, %if.then5164 ], [ %add.ptr5150, %if.then5161 ], [ %add.ptr6088, %if.end6137 ], [ %add.ptr6088, %if.then6141 ], [ %add.ptr6088, %if.then6128 ], [ %add.ptr6529, %do.body.i.i7994 ], [ %add.ptr6529, %if.end.i.i7997 ], [ %add.ptr6529, %if.then5.i.i8000 ], [ %add.ptr6583, %do.body.i.i8023 ], [ %add.ptr6583, %if.end.i.i8026 ], [ %add.ptr6583, %if.then5.i.i8029 ], [ %add.ptr8225, %_PyErr_Occurred.exit.i8298 ], [ %add.ptr8225, %if.end.i8302 ], [ %add.ptr8326, %_PyErr_Occurred.exit.i8317 ], [ %add.ptr8326, %if.end.i8321 ], [ %next_instr.11, %if.then8497 ], [ %next_instr.11, %_PyErr_Occurred.exit8338 ], [ %add.ptr9634, %do.body167.i ], [ %add.ptr9634, %if.then175.i ], [ %add.ptr9634, %if.end172.i ], [ %add.ptr9634, %do.body163.i ], [ %add.ptr9634, %do.body110.i ], [ %add.ptr9634, %if.then118.i8376 ], [ %add.ptr9634, %if.end115.i ], [ %add.ptr9634, %if.then3.i8394 ], [ %add.ptr9634, %sw.default ], [ %add.ptr5493.le, %error.loopexit.split.loop.exit10490 ], [ %add.ptr6376, %import_from.exit.thread ], [ %next_instr.25.ph, %error.loopexit ]
-  %frame.addr.2 = phi ptr [ %frame.addr.8, %pop_1_error ], [ %frame.addr.5, %resume_with_error ], [ %frame.addr.8, %if.then8518 ], [ %frame.addr.8, %cond.end ], [ %frame.addr.8, %_Py_EnterRecursiveCallTstate.exit7761 ], [ %frame.addr.8, %_Py_EnterRecursiveCallTstate.exit7741 ], [ %frame.addr.8, %_Py_EnterRecursiveCallTstate.exit7657 ], [ %frame.addr.8, %if.end1904 ], [ %frame.addr.8, %TARGET_INSTRUMENTED_RETURN_VALUE ], [ %frame.addr.8, %TARGET_INSTRUMENTED_RETURN_CONST ], [ %frame.addr.8, %TARGET_INSTRUMENTED_YIELD_VALUE ], [ %frame.addr.8, %if.then6672 ], [ %frame.addr.8, %do.end3096 ], [ %frame.addr.8, %_PyEvalFramePushAndInit_Ex.exit ], [ %frame.addr.8, %if.then6754 ], [ %frame.addr.8, %if.then6729 ], [ %frame.addr.8, %if.then6946 ], [ %frame.addr.8, %if.then6799 ], [ %frame.addr.8, %if.then6854 ], [ %frame.addr.8, %if.then6909 ], [ %frame.addr.8, %if.then11868 ], [ %frame.addr.8, %_unknown_opcode ], [ %frame.addr.8, %if.else9672 ], [ %frame.addr.8, %if.then8689 ], [ %frame.addr.8, %if.then8722 ], [ %frame.addr.8, %if.then8411 ], [ %frame.addr.8, %unbound_local_error ], [ %frame.addr.8, %if.then5186 ], [ %frame.addr.8, %if.then5192 ], [ %frame.addr.8, %if.then1219 ], [ %frame.addr.8, %if.then10005 ], [ %frame.addr.8, %TARGET_RETURN_GENERATOR ], [ %frame.addr.8, %if.then8670 ], [ %frame.addr.8, %if.then8194 ], [ %frame.addr.8, %if.then6336 ], [ %frame.addr.8, %if.else6121 ], [ %frame.addr.8, %if.then5537 ], [ %frame.addr.8, %if.then28 ], [ %frame.addr.8, %_PyErr_Occurred.exit ], [ %frame.addr.8, %if.end48 ], [ %frame.addr.8, %if.then52 ], [ %frame.addr.8, %do.body44 ], [ %frame.addr.8, %if.then131 ], [ %frame.addr.8, %_PyErr_Occurred.exit7474 ], [ %frame.addr.8, %if.end153 ], [ %frame.addr.8, %if.then157 ], [ %frame.addr.8, %do.body148 ], [ %frame.addr.8, %if.end1416 ], [ %frame.addr.8, %if.then1420 ], [ %frame.addr.8, %do.body1411 ], [ %frame.addr.8, %if.then.i7669 ], [ %frame.addr.8, %if.then4.i ], [ %frame.addr.8, %if.end.i7671 ], [ %frame.addr.8, %if.then11.i ], [ %frame.addr.8, %_PyErr_Occurred.exit.i ], [ %frame.addr.8, %if.end.i7876 ], [ %frame.addr.8, %if.then5164 ], [ %frame.addr.8, %if.then5161 ], [ %frame.addr.8, %if.end6137 ], [ %frame.addr.8, %if.then6141 ], [ %frame.addr.8, %if.then6128 ], [ %frame.addr.8, %do.body.i.i7994 ], [ %frame.addr.8, %if.end.i.i7997 ], [ %frame.addr.8, %if.then5.i.i8000 ], [ %frame.addr.8, %do.body.i.i8023 ], [ %frame.addr.8, %if.end.i.i8026 ], [ %frame.addr.8, %if.then5.i.i8029 ], [ %frame.addr.8, %_PyErr_Occurred.exit.i8298 ], [ %frame.addr.8, %if.end.i8302 ], [ %frame.addr.8, %_PyErr_Occurred.exit.i8317 ], [ %frame.addr.8, %if.end.i8321 ], [ %frame.addr.8, %if.then8497 ], [ %frame.addr.8, %_PyErr_Occurred.exit8338 ], [ %frame.addr.8, %do.body167.i ], [ %frame.addr.8, %if.then175.i ], [ %frame.addr.8, %if.end172.i ], [ %frame.addr.8, %do.body163.i ], [ %frame.addr.8, %do.body110.i ], [ %frame.addr.8, %if.then118.i8376 ], [ %frame.addr.8, %if.end115.i ], [ %frame.addr.8, %if.then3.i8394 ], [ %frame.addr.8, %sw.default ], [ %frame.addr.8, %error.loopexit.split.loop.exit10490 ], [ %frame.addr.8, %import_from.exit.thread ], [ %frame.addr.8, %error.loopexit ]
+  %stack_pointer.1 = phi ptr [ %add.ptr11912, %pop_1_error ], [ %add.ptr.i8722, %resume_with_error ], [ %stack_pointer.0, %if.then8518 ], [ %arrayidx1649, %cond.end ], [ %stack_pointer.0, %_Py_EnterRecursiveCallTstate.exit7761 ], [ %stack_pointer.0, %_Py_EnterRecursiveCallTstate.exit7741 ], [ %stack_pointer.0, %_Py_EnterRecursiveCallTstate.exit7657 ], [ %stack_pointer.0, %if.end1904 ], [ %stack_pointer.0, %TARGET_INSTRUMENTED_RETURN_VALUE ], [ %stack_pointer.0, %TARGET_INSTRUMENTED_RETURN_CONST ], [ %stack_pointer.0, %TARGET_INSTRUMENTED_YIELD_VALUE ], [ %add.ptr.i8069, %if.then6672 ], [ %arrayidx3010, %do.end3096 ], [ %add.ptr2693, %_PyEvalFramePushAndInit_Ex.exit ], [ %add.ptr.i8091, %if.then6754 ], [ %add.ptr.i8080, %if.then6729 ], [ %add.ptr.i8135, %if.then6946 ], [ %add.ptr.i8102, %if.then6799 ], [ %add.ptr.i8113, %if.then6854 ], [ %add.ptr.i8124, %if.then6909 ], [ %add.ptr.i8626, %if.then11868 ], [ %stack_pointer.0, %_unknown_opcode ], [ %stack_pointer.0, %if.else9672 ], [ %stack_pointer.0, %if.then8689 ], [ %stack_pointer.0, %if.then8722 ], [ %stack_pointer.0, %if.then8411 ], [ %stack_pointer.0, %unbound_local_error ], [ %stack_pointer.0, %if.then5186 ], [ %stack_pointer.0, %if.then5192 ], [ %stack_pointer.0, %if.then1219 ], [ %stack_pointer.0, %if.then10005 ], [ %stack_pointer.0, %TARGET_RETURN_GENERATOR ], [ %stack_pointer.0, %if.then8670 ], [ %stack_pointer.0, %if.then8194 ], [ %stack_pointer.0, %if.then6336 ], [ %stack_pointer.0, %if.else6121 ], [ %stack_pointer.0, %if.then5537 ], [ %stack_pointer.0, %if.then28 ], [ %stack_pointer.0, %_PyErr_Occurred.exit ], [ %stack_pointer.0, %if.end48 ], [ %stack_pointer.0, %if.then52 ], [ %stack_pointer.0, %do.body44 ], [ %stack_pointer.0, %if.then131 ], [ %stack_pointer.0, %_PyErr_Occurred.exit7474 ], [ %stack_pointer.0, %if.end153 ], [ %stack_pointer.0, %if.then157 ], [ %stack_pointer.0, %do.body148 ], [ %arrayidx1375, %if.end1416 ], [ %arrayidx1375, %if.then1420 ], [ %arrayidx1375, %do.body1411 ], [ %stack_pointer.0, %if.then.i7669 ], [ %stack_pointer.0, %if.then4.i ], [ %stack_pointer.0, %if.end.i7671 ], [ %stack_pointer.0, %if.then11.i ], [ %stack_pointer.0, %_PyErr_Occurred.exit.i ], [ %stack_pointer.0, %if.end.i7876 ], [ %stack_pointer.0, %if.then5164 ], [ %stack_pointer.0, %if.then5161 ], [ %stack_pointer.0, %if.end6137 ], [ %stack_pointer.0, %if.then6141 ], [ %stack_pointer.0, %if.then6128 ], [ %stack_pointer.0, %do.body.i.i7994 ], [ %stack_pointer.0, %if.end.i.i7997 ], [ %stack_pointer.0, %if.then5.i.i8000 ], [ %stack_pointer.0, %do.body.i.i8023 ], [ %stack_pointer.0, %if.end.i.i8026 ], [ %stack_pointer.0, %if.then5.i.i8029 ], [ %stack_pointer.0, %_PyErr_Occurred.exit.i8298 ], [ %stack_pointer.0, %if.end.i8302 ], [ %stack_pointer.0, %_PyErr_Occurred.exit.i8317 ], [ %stack_pointer.0, %if.end.i8321 ], [ %stack_pointer.0, %if.then8497 ], [ %stack_pointer.0, %_PyErr_Occurred.exit8338 ], [ %arrayidx9638, %do.body167.i ], [ %arrayidx9638, %if.then175.i ], [ %arrayidx9638, %if.end172.i ], [ %arrayidx9638, %do.body163.i ], [ %arrayidx9638, %do.body110.i ], [ %arrayidx9638, %if.then118.i8376 ], [ %arrayidx9638, %if.end115.i ], [ %arrayidx9638, %if.then3.i8394 ], [ %arrayidx9638, %sw.default ], [ %stack_pointer.0, %error.loopexit.split.loop.exit10490 ], [ %stack_pointer.0, %import_from.exit.thread ], [ %stack_pointer.1.ph, %error.loopexit ]
+  %next_instr.2 = phi ptr [ %next_instr.3, %pop_1_error ], [ %2395, %resume_with_error ], [ %next_instr.19, %if.then8518 ], [ %next_instr.8, %cond.end ], [ %add.ptr3779, %_Py_EnterRecursiveCallTstate.exit7761 ], [ %add.ptr3660, %_Py_EnterRecursiveCallTstate.exit7741 ], [ %add.ptr2436, %_Py_EnterRecursiveCallTstate.exit7657 ], [ %add.ptr1862, %if.end1904 ], [ %add.ptr7051, %TARGET_INSTRUMENTED_RETURN_VALUE ], [ %add.ptr7029, %TARGET_INSTRUMENTED_RETURN_CONST ], [ %add.ptr7072, %TARGET_INSTRUMENTED_YIELD_VALUE ], [ %add.ptr6673, %if.then6672 ], [ %next_instr.10, %do.end3096 ], [ %next_instr.9, %_PyEvalFramePushAndInit_Ex.exit ], [ %add.ptr6757, %if.then6754 ], [ %add.ptr6733, %if.then6729 ], [ %add.ptr6949, %if.then6946 ], [ %add.ptr6802, %if.then6799 ], [ %add.ptr6857, %if.then6854 ], [ %add.ptr6912, %if.then6909 ], [ %add.ptr11869, %if.then11868 ], [ %next_instr.1, %_unknown_opcode ], [ %add.ptr9653, %if.else9672 ], [ %add.ptr8683, %if.then8689 ], [ %add.ptr8683, %if.then8722 ], [ %add.ptr8377, %if.then8411 ], [ %next_instr.13, %unbound_local_error ], [ %add.ptr5176, %if.then5186 ], [ %add.ptr5176, %if.then5192 ], [ %add.ptr1207, %if.then1219 ], [ %add.ptr10000, %if.then10005 ], [ %add.ptr9780, %TARGET_RETURN_GENERATOR ], [ %add.ptr8665, %if.then8670 ], [ %add.ptr8186, %if.then8194 ], [ %add.ptr6324, %if.then6336 ], [ %add.ptr6088, %if.else6121 ], [ %add.ptr5533, %if.then5537 ], [ %add.ptr, %if.then28 ], [ %add.ptr, %_PyErr_Occurred.exit ], [ %add.ptr, %if.end48 ], [ %add.ptr, %if.then52 ], [ %add.ptr, %do.body44 ], [ %add.ptr119, %if.then131 ], [ %add.ptr119, %_PyErr_Occurred.exit7474 ], [ %add.ptr119, %if.end153 ], [ %add.ptr119, %if.then157 ], [ %add.ptr119, %do.body148 ], [ %add.ptr1371, %if.end1416 ], [ %add.ptr1371, %if.then1420 ], [ %add.ptr1371, %do.body1411 ], [ %next_instr.9, %if.then.i7669 ], [ %next_instr.9, %if.then4.i ], [ %next_instr.9, %if.end.i7671 ], [ %next_instr.9, %if.then11.i ], [ %add.ptr5069, %_PyErr_Occurred.exit.i ], [ %add.ptr5069, %if.end.i7876 ], [ %add.ptr5150, %if.then5164 ], [ %add.ptr5150, %if.then5161 ], [ %add.ptr6088, %if.end6137 ], [ %add.ptr6088, %if.then6141 ], [ %add.ptr6088, %if.then6128 ], [ %add.ptr6529, %do.body.i.i7994 ], [ %add.ptr6529, %if.end.i.i7997 ], [ %add.ptr6529, %if.then5.i.i8000 ], [ %add.ptr6583, %do.body.i.i8023 ], [ %add.ptr6583, %if.end.i.i8026 ], [ %add.ptr6583, %if.then5.i.i8029 ], [ %add.ptr8225, %_PyErr_Occurred.exit.i8298 ], [ %add.ptr8225, %if.end.i8302 ], [ %add.ptr8326, %_PyErr_Occurred.exit.i8317 ], [ %add.ptr8326, %if.end.i8321 ], [ %next_instr.19, %if.then8497 ], [ %next_instr.19, %_PyErr_Occurred.exit8338 ], [ %add.ptr9634, %do.body167.i ], [ %add.ptr9634, %if.then175.i ], [ %add.ptr9634, %if.end172.i ], [ %add.ptr9634, %do.body163.i ], [ %add.ptr9634, %do.body110.i ], [ %add.ptr9634, %if.then118.i8376 ], [ %add.ptr9634, %if.end115.i ], [ %add.ptr9634, %if.then3.i8394 ], [ %add.ptr9634, %sw.default ], [ %add.ptr5493.le, %error.loopexit.split.loop.exit10490 ], [ %add.ptr6376, %import_from.exit.thread ], [ %next_instr.2.ph, %error.loopexit ]
+  %frame.addr.5 = phi ptr [ %frame.addr.4, %pop_1_error ], [ %frame.addr.1, %resume_with_error ], [ %frame.addr.4, %if.then8518 ], [ %frame.addr.4, %cond.end ], [ %frame.addr.4, %_Py_EnterRecursiveCallTstate.exit7761 ], [ %frame.addr.4, %_Py_EnterRecursiveCallTstate.exit7741 ], [ %frame.addr.4, %_Py_EnterRecursiveCallTstate.exit7657 ], [ %frame.addr.4, %if.end1904 ], [ %frame.addr.4, %TARGET_INSTRUMENTED_RETURN_VALUE ], [ %frame.addr.4, %TARGET_INSTRUMENTED_RETURN_CONST ], [ %frame.addr.4, %TARGET_INSTRUMENTED_YIELD_VALUE ], [ %frame.addr.4, %if.then6672 ], [ %frame.addr.4, %do.end3096 ], [ %frame.addr.4, %_PyEvalFramePushAndInit_Ex.exit ], [ %frame.addr.4, %if.then6754 ], [ %frame.addr.4, %if.then6729 ], [ %frame.addr.4, %if.then6946 ], [ %frame.addr.4, %if.then6799 ], [ %frame.addr.4, %if.then6854 ], [ %frame.addr.4, %if.then6909 ], [ %frame.addr.4, %if.then11868 ], [ %frame.addr.4, %_unknown_opcode ], [ %frame.addr.4, %if.else9672 ], [ %frame.addr.4, %if.then8689 ], [ %frame.addr.4, %if.then8722 ], [ %frame.addr.4, %if.then8411 ], [ %frame.addr.4, %unbound_local_error ], [ %frame.addr.4, %if.then5186 ], [ %frame.addr.4, %if.then5192 ], [ %frame.addr.4, %if.then1219 ], [ %frame.addr.4, %if.then10005 ], [ %frame.addr.4, %TARGET_RETURN_GENERATOR ], [ %frame.addr.4, %if.then8670 ], [ %frame.addr.4, %if.then8194 ], [ %frame.addr.4, %if.then6336 ], [ %frame.addr.4, %if.else6121 ], [ %frame.addr.4, %if.then5537 ], [ %frame.addr.4, %if.then28 ], [ %frame.addr.4, %_PyErr_Occurred.exit ], [ %frame.addr.4, %if.end48 ], [ %frame.addr.4, %if.then52 ], [ %frame.addr.4, %do.body44 ], [ %frame.addr.4, %if.then131 ], [ %frame.addr.4, %_PyErr_Occurred.exit7474 ], [ %frame.addr.4, %if.end153 ], [ %frame.addr.4, %if.then157 ], [ %frame.addr.4, %do.body148 ], [ %frame.addr.4, %if.end1416 ], [ %frame.addr.4, %if.then1420 ], [ %frame.addr.4, %do.body1411 ], [ %frame.addr.4, %if.then.i7669 ], [ %frame.addr.4, %if.then4.i ], [ %frame.addr.4, %if.end.i7671 ], [ %frame.addr.4, %if.then11.i ], [ %frame.addr.4, %_PyErr_Occurred.exit.i ], [ %frame.addr.4, %if.end.i7876 ], [ %frame.addr.4, %if.then5164 ], [ %frame.addr.4, %if.then5161 ], [ %frame.addr.4, %if.end6137 ], [ %frame.addr.4, %if.then6141 ], [ %frame.addr.4, %if.then6128 ], [ %frame.addr.4, %do.body.i.i7994 ], [ %frame.addr.4, %if.end.i.i7997 ], [ %frame.addr.4, %if.then5.i.i8000 ], [ %frame.addr.4, %do.body.i.i8023 ], [ %frame.addr.4, %if.end.i.i8026 ], [ %frame.addr.4, %if.then5.i.i8029 ], [ %frame.addr.4, %_PyErr_Occurred.exit.i8298 ], [ %frame.addr.4, %if.end.i8302 ], [ %frame.addr.4, %_PyErr_Occurred.exit.i8317 ], [ %frame.addr.4, %if.end.i8321 ], [ %frame.addr.4, %if.then8497 ], [ %frame.addr.4, %_PyErr_Occurred.exit8338 ], [ %frame.addr.4, %do.body167.i ], [ %frame.addr.4, %if.then175.i ], [ %frame.addr.4, %if.end172.i ], [ %frame.addr.4, %do.body163.i ], [ %frame.addr.4, %do.body110.i ], [ %frame.addr.4, %if.then118.i8376 ], [ %frame.addr.4, %if.end115.i ], [ %frame.addr.4, %if.then3.i8394 ], [ %frame.addr.4, %sw.default ], [ %frame.addr.4, %error.loopexit.split.loop.exit10490 ], [ %frame.addr.4, %import_from.exit.thread ], [ %frame.addr.4, %error.loopexit ]
   %2319 = getelementptr i8, ptr %tstate, i64 104
   %tstate.val7264 = load ptr, ptr %2319, align 8
   %cmp.i8627 = icmp eq ptr %tstate.val7264, null
@@ -19110,7 +19110,7 @@ if.then11915:                                     ; preds = %error, %_PyErr_Occu
   br label %if.end11916
 
 if.end11916:                                      ; preds = %if.then11915, %_PyErr_Occurred.exit8631
-  %owner.i8632 = getelementptr inbounds i8, ptr %frame.addr.2, i64 70
+  %owner.i8632 = getelementptr inbounds i8, ptr %frame.addr.5, i64 70
   %2322 = load i8, ptr %owner.i8632, align 2
   switch i8 %2322, label %_PyFrame_IsIncomplete.exit [
     i8 3, label %if.end11926
@@ -19118,9 +19118,9 @@ if.end11916:                                      ; preds = %if.then11915, %_PyE
   ]
 
 _PyFrame_IsIncomplete.exit:                       ; preds = %if.end11916
-  %instr_ptr.i8636 = getelementptr inbounds i8, ptr %frame.addr.2, i64 56
+  %instr_ptr.i8636 = getelementptr inbounds i8, ptr %frame.addr.5, i64 56
   %2323 = load ptr, ptr %instr_ptr.i8636, align 8
-  %frame.val5.i = load ptr, ptr %frame.addr.2, align 8
+  %frame.val5.i = load ptr, ptr %frame.addr.5, align 8
   %co_code_adaptive.i = getelementptr inbounds i8, ptr %frame.val5.i, i64 200
   %_co_firsttraceable.i = getelementptr inbounds i8, ptr %frame.val5.i, i64 184
   %2324 = load i32, ptr %_co_firsttraceable.i, align 8
@@ -19130,13 +19130,13 @@ _PyFrame_IsIncomplete.exit:                       ; preds = %if.end11916
   br i1 %cmp7.i, label %if.end11926, label %if.then11918
 
 if.then11918:                                     ; preds = %if.end11916, %_PyFrame_IsIncomplete.exit
-  %frame_obj.i8639 = getelementptr inbounds i8, ptr %frame.addr.2, i64 48
+  %frame_obj.i8639 = getelementptr inbounds i8, ptr %frame.addr.5, i64 48
   %2325 = load ptr, ptr %frame_obj.i8639, align 8
   %cmp.not.i8640 = icmp eq ptr %2325, null
   br i1 %cmp.not.i8640, label %_PyFrame_GetFrameObject.exit, label %if.then11923
 
 _PyFrame_GetFrameObject.exit:                     ; preds = %if.then11918
-  %call.i8643 = call ptr @_PyFrame_MakeAndSetFrameObject(ptr noundef nonnull %frame.addr.2) #15
+  %call.i8643 = call ptr @_PyFrame_MakeAndSetFrameObject(ptr noundef nonnull %frame.addr.5) #15
   %cmp11921.not = icmp eq ptr %call.i8643, null
   br i1 %cmp11921.not, label %if.end11926, label %if.then11923
 
@@ -19154,9 +19154,9 @@ if.end11926:                                      ; preds = %if.end11916, %_PyFr
   br i1 %cmp.i.i8646, label %exception_unwind.preheader, label %if.end.i8647
 
 if.end.i8647:                                     ; preds = %if.end11926
-  %add.ptr11927 = getelementptr i8, ptr %next_instr.25, i64 -2
+  %add.ptr11927 = getelementptr i8, ptr %next_instr.2, i64 -2
   %call.i.i8648 = call ptr @PyErr_GetRaisedException() #15
-  %call1.i.i8649 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 10, ptr noundef nonnull %frame.addr.2, ptr noundef %add.ptr11927, ptr noundef %call.i.i8648) #15
+  %call1.i.i8649 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 10, ptr noundef nonnull %frame.addr.5, ptr noundef %add.ptr11927, ptr noundef %call.i.i8648) #15
   %cmp.i2.i8650 = icmp eq i32 %call1.i.i8649, 0
   br i1 %cmp.i2.i8650, label %if.then.i.i8659, label %do.body.i.i8651
 
@@ -19185,30 +19185,30 @@ if.then5.i.i8656:                                 ; preds = %if.end.i.i8653
   br label %exception_unwind.preheader
 
 exception_unwind.preheader:                       ; preds = %if.then5.i.i8656, %if.end.i.i8653, %do.body.i.i8651, %if.then.i.i8659, %if.end11926, %if.then5.i.i8427, %if.end.i.i8424, %do.body.i.i8422, %if.then.i.i8430, %Py_INCREF.exit21208, %if.then5.i.i8407, %if.end.i.i8404, %do.body.i.i8402, %if.then.i.i8410, %if.then9646, %if.then5.i.i7892, %if.end.i.i7889, %do.body.i.i7887, %if.then.i.i7895, %Py_INCREF.exit21368, %if.then5.i.i7851, %if.end.i.i7848, %do.body.i.i7846, %if.then.i.i7854, %_Py_NewRef.exit7838
-  %stack_pointer.6.ph = phi ptr [ %stack_pointer.17, %_Py_NewRef.exit7838 ], [ %stack_pointer.17, %if.then.i.i7854 ], [ %stack_pointer.17, %do.body.i.i7846 ], [ %stack_pointer.17, %if.end.i.i7848 ], [ %stack_pointer.17, %if.then5.i.i7851 ], [ %stack_pointer.17, %Py_INCREF.exit21368 ], [ %stack_pointer.17, %if.then.i.i7895 ], [ %stack_pointer.17, %do.body.i.i7887 ], [ %stack_pointer.17, %if.end.i.i7889 ], [ %stack_pointer.17, %if.then5.i.i7892 ], [ %stack_pointer.17, %if.then9646 ], [ %stack_pointer.17, %if.then.i.i8410 ], [ %stack_pointer.17, %do.body.i.i8402 ], [ %stack_pointer.17, %if.end.i.i8404 ], [ %stack_pointer.17, %if.then5.i.i8407 ], [ %stack_pointer.17, %Py_INCREF.exit21208 ], [ %stack_pointer.17, %if.then.i.i8430 ], [ %stack_pointer.17, %do.body.i.i8422 ], [ %stack_pointer.17, %if.end.i.i8424 ], [ %stack_pointer.17, %if.then5.i.i8427 ], [ %stack_pointer.5, %if.end11926 ], [ %stack_pointer.5, %if.then.i.i8659 ], [ %stack_pointer.5, %do.body.i.i8651 ], [ %stack_pointer.5, %if.end.i.i8653 ], [ %stack_pointer.5, %if.then5.i.i8656 ]
-  %next_instr.26.ph = phi ptr [ %add.ptr4530, %_Py_NewRef.exit7838 ], [ %add.ptr4530, %if.then.i.i7854 ], [ %add.ptr4530, %do.body.i.i7846 ], [ %add.ptr4530, %if.end.i.i7848 ], [ %add.ptr4530, %if.then5.i.i7851 ], [ %add.ptr5371, %Py_INCREF.exit21368 ], [ %add.ptr5371, %if.then.i.i7895 ], [ %add.ptr5371, %do.body.i.i7887 ], [ %add.ptr5371, %if.end.i.i7889 ], [ %add.ptr5371, %if.then5.i.i7892 ], [ %add.ptr9634, %if.then9646 ], [ %add.ptr9634, %if.then.i.i8410 ], [ %add.ptr9634, %do.body.i.i8402 ], [ %add.ptr9634, %if.end.i.i8404 ], [ %add.ptr9634, %if.then5.i.i8407 ], [ %add.ptr9653, %Py_INCREF.exit21208 ], [ %add.ptr9653, %if.then.i.i8430 ], [ %add.ptr9653, %do.body.i.i8422 ], [ %add.ptr9653, %if.end.i.i8424 ], [ %add.ptr9653, %if.then5.i.i8427 ], [ %next_instr.25, %if.end11926 ], [ %next_instr.25, %if.then.i.i8659 ], [ %next_instr.25, %do.body.i.i8651 ], [ %next_instr.25, %if.end.i.i8653 ], [ %next_instr.25, %if.then5.i.i8656 ]
-  %frame.addr.3.ph = phi ptr [ %frame.addr.8, %_Py_NewRef.exit7838 ], [ %frame.addr.8, %if.then.i.i7854 ], [ %frame.addr.8, %do.body.i.i7846 ], [ %frame.addr.8, %if.end.i.i7848 ], [ %frame.addr.8, %if.then5.i.i7851 ], [ %frame.addr.8, %Py_INCREF.exit21368 ], [ %frame.addr.8, %if.then.i.i7895 ], [ %frame.addr.8, %do.body.i.i7887 ], [ %frame.addr.8, %if.end.i.i7889 ], [ %frame.addr.8, %if.then5.i.i7892 ], [ %frame.addr.8, %if.then9646 ], [ %frame.addr.8, %if.then.i.i8410 ], [ %frame.addr.8, %do.body.i.i8402 ], [ %frame.addr.8, %if.end.i.i8404 ], [ %frame.addr.8, %if.then5.i.i8407 ], [ %frame.addr.8, %Py_INCREF.exit21208 ], [ %frame.addr.8, %if.then.i.i8430 ], [ %frame.addr.8, %do.body.i.i8422 ], [ %frame.addr.8, %if.end.i.i8424 ], [ %frame.addr.8, %if.then5.i.i8427 ], [ %frame.addr.2, %if.end11926 ], [ %frame.addr.2, %if.then.i.i8659 ], [ %frame.addr.2, %do.body.i.i8651 ], [ %frame.addr.2, %if.end.i.i8653 ], [ %frame.addr.2, %if.then5.i.i8656 ]
-  %localsplus.i8706 = getelementptr inbounds i8, ptr %frame.addr.3.ph, i64 72
-  %instr_ptr12008 = getelementptr inbounds i8, ptr %frame.addr.3.ph, i64 56
+  %stack_pointer.5.ph = phi ptr [ %stack_pointer.0, %_Py_NewRef.exit7838 ], [ %stack_pointer.0, %if.then.i.i7854 ], [ %stack_pointer.0, %do.body.i.i7846 ], [ %stack_pointer.0, %if.end.i.i7848 ], [ %stack_pointer.0, %if.then5.i.i7851 ], [ %stack_pointer.0, %Py_INCREF.exit21368 ], [ %stack_pointer.0, %if.then.i.i7895 ], [ %stack_pointer.0, %do.body.i.i7887 ], [ %stack_pointer.0, %if.end.i.i7889 ], [ %stack_pointer.0, %if.then5.i.i7892 ], [ %stack_pointer.0, %if.then9646 ], [ %stack_pointer.0, %if.then.i.i8410 ], [ %stack_pointer.0, %do.body.i.i8402 ], [ %stack_pointer.0, %if.end.i.i8404 ], [ %stack_pointer.0, %if.then5.i.i8407 ], [ %stack_pointer.0, %Py_INCREF.exit21208 ], [ %stack_pointer.0, %if.then.i.i8430 ], [ %stack_pointer.0, %do.body.i.i8422 ], [ %stack_pointer.0, %if.end.i.i8424 ], [ %stack_pointer.0, %if.then5.i.i8427 ], [ %stack_pointer.1, %if.end11926 ], [ %stack_pointer.1, %if.then.i.i8659 ], [ %stack_pointer.1, %do.body.i.i8651 ], [ %stack_pointer.1, %if.end.i.i8653 ], [ %stack_pointer.1, %if.then5.i.i8656 ]
+  %next_instr.11.ph = phi ptr [ %add.ptr4530, %_Py_NewRef.exit7838 ], [ %add.ptr4530, %if.then.i.i7854 ], [ %add.ptr4530, %do.body.i.i7846 ], [ %add.ptr4530, %if.end.i.i7848 ], [ %add.ptr4530, %if.then5.i.i7851 ], [ %add.ptr5371, %Py_INCREF.exit21368 ], [ %add.ptr5371, %if.then.i.i7895 ], [ %add.ptr5371, %do.body.i.i7887 ], [ %add.ptr5371, %if.end.i.i7889 ], [ %add.ptr5371, %if.then5.i.i7892 ], [ %add.ptr9634, %if.then9646 ], [ %add.ptr9634, %if.then.i.i8410 ], [ %add.ptr9634, %do.body.i.i8402 ], [ %add.ptr9634, %if.end.i.i8404 ], [ %add.ptr9634, %if.then5.i.i8407 ], [ %add.ptr9653, %Py_INCREF.exit21208 ], [ %add.ptr9653, %if.then.i.i8430 ], [ %add.ptr9653, %do.body.i.i8422 ], [ %add.ptr9653, %if.end.i.i8424 ], [ %add.ptr9653, %if.then5.i.i8427 ], [ %next_instr.2, %if.end11926 ], [ %next_instr.2, %if.then.i.i8659 ], [ %next_instr.2, %do.body.i.i8651 ], [ %next_instr.2, %if.end.i.i8653 ], [ %next_instr.2, %if.then5.i.i8656 ]
+  %frame.addr.6.ph = phi ptr [ %frame.addr.4, %_Py_NewRef.exit7838 ], [ %frame.addr.4, %if.then.i.i7854 ], [ %frame.addr.4, %do.body.i.i7846 ], [ %frame.addr.4, %if.end.i.i7848 ], [ %frame.addr.4, %if.then5.i.i7851 ], [ %frame.addr.4, %Py_INCREF.exit21368 ], [ %frame.addr.4, %if.then.i.i7895 ], [ %frame.addr.4, %do.body.i.i7887 ], [ %frame.addr.4, %if.end.i.i7889 ], [ %frame.addr.4, %if.then5.i.i7892 ], [ %frame.addr.4, %if.then9646 ], [ %frame.addr.4, %if.then.i.i8410 ], [ %frame.addr.4, %do.body.i.i8402 ], [ %frame.addr.4, %if.end.i.i8404 ], [ %frame.addr.4, %if.then5.i.i8407 ], [ %frame.addr.4, %Py_INCREF.exit21208 ], [ %frame.addr.4, %if.then.i.i8430 ], [ %frame.addr.4, %do.body.i.i8422 ], [ %frame.addr.4, %if.end.i.i8424 ], [ %frame.addr.4, %if.then5.i.i8427 ], [ %frame.addr.5, %if.end11926 ], [ %frame.addr.5, %if.then.i.i8659 ], [ %frame.addr.5, %do.body.i.i8651 ], [ %frame.addr.5, %if.end.i.i8653 ], [ %frame.addr.5, %if.then5.i.i8656 ]
+  %localsplus.i8706 = getelementptr inbounds i8, ptr %frame.addr.6.ph, i64 72
+  %instr_ptr12008 = getelementptr inbounds i8, ptr %frame.addr.6.ph, i64 56
   %2332 = getelementptr i8, ptr %tstate, i64 16
   br label %exception_unwind.outer
 
 exception_unwind.outer:                           ; preds = %exception_unwind.preheader, %monitor_handled.exit
-  %stack_pointer.6.ph9375 = phi ptr [ %stack_pointer.6.ph, %exception_unwind.preheader ], [ %incdec.ptr12028, %monitor_handled.exit ]
-  %next_instr.26.ph9376 = phi ptr [ %next_instr.26.ph, %exception_unwind.preheader ], [ %add.ptr12033, %monitor_handled.exit ]
-  %sub.ptr.lhs.cast11932 = ptrtoint ptr %next_instr.26.ph9376 to i64
+  %stack_pointer.5.ph9375 = phi ptr [ %stack_pointer.5.ph, %exception_unwind.preheader ], [ %incdec.ptr12028, %monitor_handled.exit ]
+  %next_instr.11.ph9376 = phi ptr [ %next_instr.11.ph, %exception_unwind.preheader ], [ %add.ptr12033, %monitor_handled.exit ]
+  %sub.ptr.lhs.cast11932 = ptrtoint ptr %next_instr.11.ph9376 to i64
   br label %exception_unwind
 
 exception_unwind:                                 ; preds = %exception_unwind.outer, %if.then12007
-  %stack_pointer.6 = phi ptr [ %stack_pointer.8.lcssa, %if.then12007 ], [ %stack_pointer.6.ph9375, %exception_unwind.outer ]
-  %frame.addr.3.val = load ptr, ptr %frame.addr.3.ph, align 8
-  %co_code_adaptive11930 = getelementptr inbounds i8, ptr %frame.addr.3.val, i64 200
+  %stack_pointer.5 = phi ptr [ %stack_pointer.9.lcssa, %if.then12007 ], [ %stack_pointer.5.ph9375, %exception_unwind.outer ]
+  %frame.addr.6.val = load ptr, ptr %frame.addr.6.ph, align 8
+  %co_code_adaptive11930 = getelementptr inbounds i8, ptr %frame.addr.6.val, i64 200
   %sub.ptr.rhs.cast11933 = ptrtoint ptr %co_code_adaptive11930 to i64
   %sub.ptr.sub11934 = sub i64 %sub.ptr.lhs.cast11932, %sub.ptr.rhs.cast11933
   %sub.ptr.div11935 = lshr exact i64 %sub.ptr.sub11934, 1
   %conv11936 = trunc i64 %sub.ptr.div11935 to i32
   %sub11937 = add i32 %conv11936, -1
-  %2333 = getelementptr i8, ptr %frame.addr.3.val, i64 40
+  %2333 = getelementptr i8, ptr %frame.addr.6.val, i64 40
   %call11940.val = load ptr, ptr %2333, align 8
   %ob_sval.i.i = getelementptr inbounds i8, ptr %call11940.val, i64 32
   %2334 = getelementptr i8, ptr %call11940.val, i64 16
@@ -19244,13 +19244,13 @@ parse_varint.exit.i:                              ; preds = %while.body.i.i, %if
   br i1 %cmp4.i8676, label %if.then11944, label %do.body.i8677
 
 do.body.i8677:                                    ; preds = %parse_varint.exit.i, %parse_varint.exit37.i
-  %start.0.i = phi ptr [ %start.0.call10.i, %parse_varint.exit37.i ], [ %ob_sval.i.i, %parse_varint.exit.i ]
-  %end.0.i = phi ptr [ %call10.end.0.i, %parse_varint.exit37.i ], [ %add.ptr.i8662, %parse_varint.exit.i ]
-  %sub.ptr.lhs.cast6.i = ptrtoint ptr %end.0.i to i64
-  %sub.ptr.rhs.cast7.i = ptrtoint ptr %start.0.i to i64
+  %start.1.i = phi ptr [ %start.1.call10.i, %parse_varint.exit37.i ], [ %ob_sval.i.i, %parse_varint.exit.i ]
+  %end.1.i = phi ptr [ %call10.end.1.i, %parse_varint.exit37.i ], [ %add.ptr.i8662, %parse_varint.exit.i ]
+  %sub.ptr.lhs.cast6.i = ptrtoint ptr %end.1.i to i64
+  %sub.ptr.rhs.cast7.i = ptrtoint ptr %start.1.i to i64
   %sub.ptr.sub8.i = sub i64 %sub.ptr.lhs.cast6.i, %sub.ptr.rhs.cast7.i
   %shr.i = ashr i64 %sub.ptr.sub8.i, 1
-  %add.ptr9.i = getelementptr i8, ptr %start.0.i, i64 %shr.i
+  %add.ptr9.i = getelementptr i8, ptr %start.1.i, i64 %shr.i
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i, %do.body.i8677
@@ -19283,26 +19283,26 @@ while.body.i26.i:                                 ; preds = %scan_back_to_entry_
 parse_varint.exit37.i:                            ; preds = %while.body.i26.i, %scan_back_to_entry_start.exit.i
   %val.0.lcssa.i35.i = phi i32 [ %and.i24.i, %scan_back_to_entry_start.exit.i ], [ %or.i32.i, %while.body.i26.i ]
   %cmp12.i = icmp sgt i32 %val.0.lcssa.i35.i, %sub11937
-  %start.0.call10.i = select i1 %cmp12.i, ptr %start.0.i, ptr %p.addr.0.i.i
-  %call10.end.0.i = select i1 %cmp12.i, ptr %p.addr.0.i.i, ptr %end.0.i
-  %sub.ptr.lhs.cast15.i = ptrtoint ptr %call10.end.0.i to i64
-  %sub.ptr.rhs.cast16.i = ptrtoint ptr %start.0.call10.i to i64
+  %start.1.call10.i = select i1 %cmp12.i, ptr %start.1.i, ptr %p.addr.0.i.i
+  %call10.end.1.i = select i1 %cmp12.i, ptr %p.addr.0.i.i, ptr %end.1.i
+  %sub.ptr.lhs.cast15.i = ptrtoint ptr %call10.end.1.i to i64
+  %sub.ptr.rhs.cast16.i = ptrtoint ptr %start.1.call10.i to i64
   %sub.ptr.sub17.i = sub i64 %sub.ptr.lhs.cast15.i, %sub.ptr.rhs.cast16.i
   %cmp18.i8679 = icmp sgt i64 %sub.ptr.sub17.i, 40
   br i1 %cmp18.i8679, label %do.body.i8677, label %if.end19.i, !llvm.loop !36
 
 if.end19.i:                                       ; preds = %parse_varint.exit37.i, %exception_unwind
-  %start.2.i = phi ptr [ %ob_sval.i.i, %exception_unwind ], [ %start.0.call10.i, %parse_varint.exit37.i ]
-  %end.2.i = phi ptr [ %add.ptr.i8662, %exception_unwind ], [ %call10.end.0.i, %parse_varint.exit37.i ]
-  %cmp203.i = icmp ult ptr %start.2.i, %end.2.i
+  %start.0.i = phi ptr [ %ob_sval.i.i, %exception_unwind ], [ %start.1.call10.i, %parse_varint.exit37.i ]
+  %end.0.i = phi ptr [ %add.ptr.i8662, %exception_unwind ], [ %call10.end.1.i, %parse_varint.exit37.i ]
+  %cmp203.i = icmp ult ptr %start.0.i, %end.0.i
   br i1 %cmp203.i, label %while.body.lr.ph.i, label %if.then11944
 
 while.body.lr.ph.i:                               ; preds = %if.end19.i
-  %end7.i.i = ptrtoint ptr %end.2.i to i64
+  %end7.i.i = ptrtoint ptr %end.0.i to i64
   br label %while.body.i
 
 while.body.i:                                     ; preds = %skip_to_next_entry.exit.i, %while.body.lr.ph.i
-  %scan.04.i = phi ptr [ %start.2.i, %while.body.lr.ph.i ], [ %p.addr.0.lcssa.i94.i, %skip_to_next_entry.exit.i ]
+  %scan.04.i = phi ptr [ %start.0.i, %while.body.lr.ph.i ], [ %p.addr.0.lcssa.i94.i, %skip_to_next_entry.exit.i ]
   %2347 = load i8, ptr %scan.04.i, align 1
   %2348 = and i8 %2347, 63
   %and.i38.i = zext nneg i8 %2348 to i32
@@ -19405,7 +19405,7 @@ while.body.i82.i:                                 ; preds = %parse_varint.exit79
   br i1 %tobool.not.i89.i, label %if.end11973, label %while.body.i82.i, !llvm.loop !34
 
 if.end31.i8668:                                   ; preds = %parse_varint.exit65.i
-  %cmp4.i.i8669 = icmp ult ptr %add.ptr.i64.i, %end.2.i
+  %cmp4.i.i8669 = icmp ult ptr %add.ptr.i64.i, %end.0.i
   br i1 %cmp4.i.i8669, label %land.rhs.preheader.i.i, label %skip_to_next_entry.exit.i
 
 land.rhs.preheader.i.i:                           ; preds = %if.end31.i8668
@@ -19422,25 +19422,25 @@ land.rhs.i.i:                                     ; preds = %while.body.i95.i, %
 
 while.body.i95.i:                                 ; preds = %land.rhs.i.i
   %incdec.ptr.i96.i = getelementptr i8, ptr %p.addr.05.i.i, i64 1
-  %exitcond.not.i.i = icmp eq ptr %incdec.ptr.i96.i, %end.2.i
+  %exitcond.not.i.i = icmp eq ptr %incdec.ptr.i96.i, %end.0.i
   br i1 %exitcond.not.i.i, label %skip_to_next_entry.exit.i, label %land.rhs.i.i, !llvm.loop !37
 
 skip_to_next_entry.exit.i:                        ; preds = %while.body.i95.i, %land.rhs.i.i, %if.end31.i8668
   %p.addr.0.lcssa.i94.i = phi ptr [ %add.ptr.i64.i, %if.end31.i8668 ], [ %scevgep.i.i, %while.body.i95.i ], [ %p.addr.05.i.i, %land.rhs.i.i ]
-  %cmp20.i = icmp ult ptr %p.addr.0.lcssa.i94.i, %end.2.i
+  %cmp20.i = icmp ult ptr %p.addr.0.lcssa.i94.i, %end.0.i
   br i1 %cmp20.i, label %while.body.i, label %if.then11944, !llvm.loop !38
 
 if.then11944:                                     ; preds = %parse_varint.exit.i, %if.end19.i, %skip_to_next_entry.exit.i, %parse_varint.exit51.i
-  %co_nlocalsplus.i = getelementptr inbounds i8, ptr %frame.addr.3.val, i64 72
+  %co_nlocalsplus.i = getelementptr inbounds i8, ptr %frame.addr.6.val, i64 72
   %2374 = load i32, ptr %co_nlocalsplus.i, align 8
   %idx.ext.i8681 = sext i32 %2374 to i64
   %add.ptr.i8682 = getelementptr ptr, ptr %localsplus.i8706, i64 %idx.ext.i8681
-  %cmp1194610777 = icmp ugt ptr %stack_pointer.6, %add.ptr.i8682
+  %cmp1194610777 = icmp ugt ptr %stack_pointer.5, %add.ptr.i8682
   br i1 %cmp1194610777, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.then11944, %do.end11971
-  %stack_pointer.710778 = phi ptr [ %incdec.ptr11949, %do.end11971 ], [ %stack_pointer.6, %if.then11944 ]
-  %incdec.ptr11949 = getelementptr i8, ptr %stack_pointer.710778, i64 -8
+  %stack_pointer.810778 = phi ptr [ %incdec.ptr11949, %do.end11971 ], [ %stack_pointer.5, %if.then11944 ]
+  %incdec.ptr11949 = getelementptr i8, ptr %stack_pointer.810778, i64 -8
   %2375 = load ptr, ptr %incdec.ptr11949, align 8
   %cmp11952.not = icmp eq ptr %2375, null
   br i1 %cmp11952.not, label %do.end11971, label %do.body11955
@@ -19470,13 +19470,13 @@ do.end11971:                                      ; preds = %while.body, %if.end
   br i1 %cmp11946, label %while.body, label %while.end, !llvm.loop !39
 
 while.end:                                        ; preds = %do.end11971, %if.then11944
-  %stack_pointer.7.lcssa = phi ptr [ %stack_pointer.6, %if.then11944 ], [ %incdec.ptr11949, %do.end11971 ]
-  %sub.ptr.lhs.cast.i8684 = ptrtoint ptr %stack_pointer.7.lcssa to i64
+  %stack_pointer.8.lcssa = phi ptr [ %stack_pointer.5, %if.then11944 ], [ %incdec.ptr11949, %do.end11971 ]
+  %sub.ptr.lhs.cast.i8684 = ptrtoint ptr %stack_pointer.8.lcssa to i64
   %sub.ptr.rhs.cast.i8685 = ptrtoint ptr %localsplus.i8706 to i64
   %sub.ptr.sub.i8686 = sub i64 %sub.ptr.lhs.cast.i8684, %sub.ptr.rhs.cast.i8685
   %sub.ptr.div.i8687 = lshr exact i64 %sub.ptr.sub.i8686, 3
   %conv.i8688 = trunc i64 %sub.ptr.div.i8687 to i32
-  %stacktop.i8689 = getelementptr inbounds i8, ptr %frame.addr.3.ph, i64 64
+  %stacktop.i8689 = getelementptr inbounds i8, ptr %frame.addr.6.ph, i64 64
   store i32 %conv.i8688, ptr %stacktop.i8689, align 8
   %tstate.val.i8690 = load ptr, ptr %2332, align 8
   %arrayidx.i.i8691 = getelementptr i8, ptr %tstate.val.i8690, i64 414956
@@ -19485,9 +19485,9 @@ while.end:                                        ; preds = %do.end11971, %if.th
   br i1 %cmp.i.i8692, label %exit_unwind, label %if.end.i8693
 
 if.end.i8693:                                     ; preds = %while.end
-  %add.ptr11972 = getelementptr i8, ptr %next_instr.26.ph9376, i64 -2
+  %add.ptr11972 = getelementptr i8, ptr %next_instr.11.ph9376, i64 -2
   %call.i.i8694 = call ptr @PyErr_GetRaisedException() #15
-  %call1.i.i8695 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 12, ptr noundef nonnull %frame.addr.3.ph, ptr noundef %add.ptr11972, ptr noundef %call.i.i8694) #15
+  %call1.i.i8695 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 12, ptr noundef nonnull %frame.addr.6.ph, ptr noundef %add.ptr11972, ptr noundef %call.i.i8694) #15
   %cmp.i2.i8696 = icmp eq i32 %call1.i.i8695, 0
   br i1 %cmp.i2.i8696, label %if.then.i.i8705, label %do.body.i.i8697
 
@@ -19519,18 +19519,18 @@ if.end11973:                                      ; preds = %while.body.i82.i, %
   %val.0.lcssa.i91.i = phi i32 [ %and.i80.i, %parse_varint.exit79.i ], [ %or.i88.i, %while.body.i82.i ]
   %shr30.i = ashr i32 %val.0.lcssa.i91.i, 1
   %and.i8670 = and i32 %val.0.lcssa.i91.i, 1
-  %co_nlocalsplus.i8708 = getelementptr inbounds i8, ptr %frame.addr.3.val, i64 72
+  %co_nlocalsplus.i8708 = getelementptr inbounds i8, ptr %frame.addr.6.val, i64 72
   %2385 = load i32, ptr %co_nlocalsplus.i8708, align 8
   %idx.ext.i8709 = sext i32 %2385 to i64
   %add.ptr.i8710 = getelementptr ptr, ptr %localsplus.i8706, i64 %idx.ext.i8709
   %idx.ext11975 = sext i32 %shr30.i to i64
   %add.ptr11976 = getelementptr ptr, ptr %add.ptr.i8710, i64 %idx.ext11975
-  %cmp1197810300 = icmp ugt ptr %stack_pointer.6, %add.ptr11976
+  %cmp1197810300 = icmp ugt ptr %stack_pointer.5, %add.ptr11976
   br i1 %cmp1197810300, label %while.body11980, label %while.end12005
 
 while.body11980:                                  ; preds = %if.end11973, %do.end12004
-  %stack_pointer.810301 = phi ptr [ %incdec.ptr11982, %do.end12004 ], [ %stack_pointer.6, %if.end11973 ]
-  %incdec.ptr11982 = getelementptr i8, ptr %stack_pointer.810301, i64 -8
+  %stack_pointer.910301 = phi ptr [ %incdec.ptr11982, %do.end12004 ], [ %stack_pointer.5, %if.end11973 ]
+  %incdec.ptr11982 = getelementptr i8, ptr %stack_pointer.910301, i64 -8
   %2386 = load ptr, ptr %incdec.ptr11982, align 8
   %cmp11985.not = icmp eq ptr %2386, null
   br i1 %cmp11985.not, label %do.end12004, label %do.body11988
@@ -19560,14 +19560,14 @@ do.end12004:                                      ; preds = %while.body11980, %i
   br i1 %cmp11978, label %while.body11980, label %while.end12005, !llvm.loop !40
 
 while.end12005:                                   ; preds = %do.end12004, %if.end11973
-  %stack_pointer.8.lcssa = phi ptr [ %stack_pointer.6, %if.end11973 ], [ %incdec.ptr11982, %do.end12004 ]
+  %stack_pointer.9.lcssa = phi ptr [ %stack_pointer.5, %if.end11973 ], [ %incdec.ptr11982, %do.end12004 ]
   %tobool12006.not = icmp eq i32 %and.i8670, 0
   br i1 %tobool12006.not, label %if.end12025, label %if.then12007
 
 if.then12007:                                     ; preds = %while.end12005
   %2391 = load ptr, ptr %instr_ptr12008, align 8
-  %frame.addr.3.val7331 = load ptr, ptr %frame.addr.3.ph, align 8
-  %co_code_adaptive12010 = getelementptr inbounds i8, ptr %frame.addr.3.val7331, i64 200
+  %frame.addr.6.val7331 = load ptr, ptr %frame.addr.6.ph, align 8
+  %co_code_adaptive12010 = getelementptr inbounds i8, ptr %frame.addr.6.val7331, i64 200
   %sub.ptr.lhs.cast12012 = ptrtoint ptr %2391 to i64
   %sub.ptr.rhs.cast12013 = ptrtoint ptr %co_code_adaptive12010 to i64
   %sub.ptr.sub12014 = sub i64 %sub.ptr.lhs.cast12012, %sub.ptr.rhs.cast12013
@@ -19578,17 +19578,17 @@ if.then12007:                                     ; preds = %while.end12005
   br i1 %cmp12020, label %exception_unwind, label %if.end12023
 
 if.end12023:                                      ; preds = %if.then12007
-  %incdec.ptr12024 = getelementptr i8, ptr %stack_pointer.8.lcssa, i64 8
-  store ptr %call12019, ptr %stack_pointer.8.lcssa, align 8
+  %incdec.ptr12024 = getelementptr i8, ptr %stack_pointer.9.lcssa, i64 8
+  store ptr %call12019, ptr %stack_pointer.9.lcssa, align 8
   br label %if.end12025
 
 if.end12025:                                      ; preds = %while.end12005, %if.end12023
-  %stack_pointer.9 = phi ptr [ %incdec.ptr12024, %if.end12023 ], [ %stack_pointer.8.lcssa, %while.end12005 ]
+  %stack_pointer.10 = phi ptr [ %incdec.ptr12024, %if.end12023 ], [ %stack_pointer.9.lcssa, %while.end12005 ]
   %call12027 = call ptr @_PyErr_GetRaisedException(ptr noundef %tstate) #15
-  %incdec.ptr12028 = getelementptr i8, ptr %stack_pointer.9, i64 8
-  store ptr %call12027, ptr %stack_pointer.9, align 8
-  %frame.addr.3.val7332 = load ptr, ptr %frame.addr.3.ph, align 8
-  %co_code_adaptive12030 = getelementptr inbounds i8, ptr %frame.addr.3.val7332, i64 200
+  %incdec.ptr12028 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %call12027, ptr %stack_pointer.10, align 8
+  %frame.addr.6.val7332 = load ptr, ptr %frame.addr.6.ph, align 8
+  %co_code_adaptive12030 = getelementptr inbounds i8, ptr %frame.addr.6.val7332, i64 200
   %idx.ext12032 = sext i32 %val.0.lcssa.i77.i to i64
   %add.ptr12033 = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive12030, i64 %idx.ext12032
   %tstate.val.i8711 = load ptr, ptr %2332, align 8
@@ -19598,31 +19598,31 @@ if.end12025:                                      ; preds = %while.end12005, %if
   br i1 %cmp.i.i8713, label %indirectgoto.preheader.loopexit, label %monitor_handled.exit
 
 monitor_handled.exit:                             ; preds = %if.end12025
-  %call1.i8715 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 11, ptr noundef nonnull %frame.addr.3.ph, ptr noundef %add.ptr12033, ptr noundef %call12027) #15
+  %call1.i8715 = call i32 @_Py_call_instrumentation_arg(ptr noundef nonnull %tstate, i32 noundef 11, ptr noundef nonnull %frame.addr.6.ph, ptr noundef %add.ptr12033, ptr noundef %call12027) #15
   %cmp12035 = icmp slt i32 %call1.i8715, 0
   br i1 %cmp12035, label %exception_unwind.outer, label %indirectgoto.preheader.loopexit
 
 exit_unwind:                                      ; preds = %if.then5.i.i8702, %if.end.i.i8699, %do.body.i.i8697, %if.then.i.i8705, %while.end, %_Py_EnterRecursivePy.exit7459, %_Py_EnterRecursivePy.exit, %if.then
-  %frame.addr.4 = phi ptr [ %frame.addr.0, %_Py_EnterRecursivePy.exit7459 ], [ %frame, %_Py_EnterRecursivePy.exit ], [ %frame, %if.then ], [ %frame.addr.3.ph, %while.end ], [ %frame.addr.3.ph, %if.then.i.i8705 ], [ %frame.addr.3.ph, %do.body.i.i8697 ], [ %frame.addr.3.ph, %if.end.i.i8699 ], [ %frame.addr.3.ph, %if.then5.i.i8702 ]
+  %frame.addr.0 = phi ptr [ %frame.addr.2, %_Py_EnterRecursivePy.exit7459 ], [ %frame, %_Py_EnterRecursivePy.exit ], [ %frame, %if.then ], [ %frame.addr.6.ph, %while.end ], [ %frame.addr.6.ph, %if.then.i.i8705 ], [ %frame.addr.6.ph, %do.body.i.i8697 ], [ %frame.addr.6.ph, %if.end.i.i8699 ], [ %frame.addr.6.ph, %if.then5.i.i8702 ]
   %py_recursion_remaining.i8717 = getelementptr inbounds i8, ptr %tstate, i64 36
   %2393 = load i32, ptr %py_recursion_remaining.i8717, align 4
   %inc.i8718 = add i32 %2393, 1
   store i32 %inc.i8718, ptr %py_recursion_remaining.i8717, align 4
-  %previous12048 = getelementptr inbounds i8, ptr %frame.addr.4, i64 8
+  %previous12048 = getelementptr inbounds i8, ptr %frame.addr.0, i64 8
   %2394 = load ptr, ptr %previous12048, align 8
   store ptr %2394, ptr %current_frame, align 8
-  call void @_PyEval_FrameClearAndPop(ptr noundef nonnull %tstate, ptr noundef nonnull %frame.addr.4)
+  call void @_PyEval_FrameClearAndPop(ptr noundef nonnull %tstate, ptr noundef nonnull %frame.addr.0)
   %return_offset12050 = getelementptr inbounds i8, ptr %2394, i64 68
   store i16 0, ptr %return_offset12050, align 4
   %cmp12051 = icmp eq ptr %2394, %entry_frame
   br i1 %cmp12051, label %return, label %resume_with_error
 
 resume_with_error:                                ; preds = %if.end5515, %if.then5.i.i, %if.end.i.i, %do.body.i.i, %if.then.i.i7443, %if.end10, %error_tier_two, %if.then19343, %if.end19339, %exit_unwind
-  %frame.addr.5 = phi ptr [ %2394, %exit_unwind ], [ %frame.addr.6, %if.then19343 ], [ %frame.addr.6, %if.end19339 ], [ %frame.addr.6, %error_tier_two ], [ %frame, %if.end10 ], [ %frame, %if.then.i.i7443 ], [ %frame, %do.body.i.i ], [ %frame, %if.end.i.i ], [ %frame, %if.then5.i.i ], [ %1069, %if.end5515 ]
-  %instr_ptr12059 = getelementptr inbounds i8, ptr %frame.addr.5, i64 56
+  %frame.addr.1 = phi ptr [ %2394, %exit_unwind ], [ %frame.addr.7, %if.then19343 ], [ %frame.addr.7, %if.end19339 ], [ %frame.addr.7, %error_tier_two ], [ %frame, %if.end10 ], [ %frame, %if.then.i.i7443 ], [ %frame, %do.body.i.i ], [ %frame, %if.end.i.i ], [ %frame, %if.then5.i.i ], [ %1069, %if.end5515 ]
+  %instr_ptr12059 = getelementptr inbounds i8, ptr %frame.addr.1, i64 56
   %2395 = load ptr, ptr %instr_ptr12059, align 8
-  %localsplus.i8719 = getelementptr inbounds i8, ptr %frame.addr.5, i64 72
-  %stacktop.i8720 = getelementptr inbounds i8, ptr %frame.addr.5, i64 64
+  %localsplus.i8719 = getelementptr inbounds i8, ptr %frame.addr.1, i64 72
+  %stacktop.i8720 = getelementptr inbounds i8, ptr %frame.addr.1, i64 64
   %2396 = load i32, ptr %stacktop.i8720, align 8
   %idx.ext.i8721 = sext i32 %2396 to i64
   %add.ptr.i8722 = getelementptr ptr, ptr %localsplus.i8719, i64 %idx.ext.i8721
@@ -19631,8 +19631,8 @@ resume_with_error:                                ; preds = %if.end5515, %if.the
 
 for.cond12062:                                    ; preds = %for.cond12062.backedge, %if.then5514
   %next_uop.0 = phi ptr [ %trace, %if.then5514 ], [ %next_uop.0.be, %for.cond12062.backedge ]
-  %stack_pointer.10 = phi ptr [ %stack_pointer.17, %if.then5514 ], [ %stack_pointer.10.be, %for.cond12062.backedge ]
-  %frame.addr.6 = phi ptr [ %frame.addr.8, %if.then5514 ], [ %frame.addr.6.be, %for.cond12062.backedge ]
+  %stack_pointer.11 = phi ptr [ %stack_pointer.0, %if.then5514 ], [ %stack_pointer.11.be, %for.cond12062.backedge ]
+  %frame.addr.7 = phi ptr [ %frame.addr.4, %if.then5514 ], [ %frame.addr.7.be, %for.cond12062.backedge ]
   %2397 = load i16, ptr %next_uop.0, align 8
   %incdec.ptr12064 = getelementptr i8, ptr %next_uop.0, i64 16
   switch i16 %2397, label %sw.default19323 [
@@ -19825,8 +19825,8 @@ for.cond12062:                                    ; preds = %for.cond12062.backe
 sw.bb12067:                                       ; preds = %for.cond12062
   %2398 = load ptr, ptr %interp10475, align 8
   %2399 = load atomic i64, ptr %2398 monotonic, align 8
-  %frame.addr.6.val = load ptr, ptr %frame.addr.6, align 8
-  %_co_instrumentation_version12075 = getelementptr inbounds i8, ptr %frame.addr.6.val, i64 168
+  %frame.addr.7.val = load ptr, ptr %frame.addr.7, align 8
+  %_co_instrumentation_version12075 = getelementptr inbounds i8, ptr %frame.addr.7.val, i64 168
   %2400 = load i64, ptr %_co_instrumentation_version12075, align 8
   %cmp12076.not = icmp eq i64 %2399, %2400
   br i1 %cmp12076.not, label %for.cond12062.backedge, label %deoptimize
@@ -19834,7 +19834,7 @@ sw.bb12067:                                       ; preds = %for.cond12062
 sw.bb12080:                                       ; preds = %for.cond12062
   %oparg12083 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2401 = load i16, ptr %oparg12083, align 2
-  %localsplus12085 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
+  %localsplus12085 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
   %idxprom12086 = zext i16 %2401 to i64
   %arrayidx12087 = getelementptr [1 x ptr], ptr %localsplus12085, i64 0, i64 %idxprom12086
   %2402 = load ptr, ptr %arrayidx12087, align 8
@@ -19852,14 +19852,14 @@ if.end.i21182:                                    ; preds = %if.end12091
   br label %Py_INCREF.exit21184
 
 Py_INCREF.exit21184:                              ; preds = %if.end12091, %if.end.i21182
-  store ptr %2402, ptr %stack_pointer.10, align 8
-  %add.ptr12093 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %2402, ptr %stack_pointer.11, align 8
+  %add.ptr12093 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb12094:                                       ; preds = %for.cond12062
   %oparg12097 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2404 = load i16, ptr %oparg12097, align 2
-  %localsplus12099 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
+  %localsplus12099 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
   %idxprom12100 = zext i16 %2404 to i64
   %arrayidx12101 = getelementptr [1 x ptr], ptr %localsplus12099, i64 0, i64 %idxprom12100
   %2405 = load ptr, ptr %arrayidx12101, align 8
@@ -19873,27 +19873,27 @@ if.end.i21174:                                    ; preds = %sw.bb12094
   br label %Py_INCREF.exit21176
 
 Py_INCREF.exit21176:                              ; preds = %sw.bb12094, %if.end.i21174
-  store ptr %2405, ptr %stack_pointer.10, align 8
-  %add.ptr12103 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %2405, ptr %stack_pointer.11, align 8
+  %add.ptr12103 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb12104:                                       ; preds = %for.cond12062
   %oparg12107 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2407 = load i16, ptr %oparg12107, align 2
-  %localsplus12109 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
+  %localsplus12109 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
   %idxprom12110 = zext i16 %2407 to i64
   %arrayidx12111 = getelementptr [1 x ptr], ptr %localsplus12109, i64 0, i64 %idxprom12110
   %2408 = load ptr, ptr %arrayidx12111, align 8
   store ptr null, ptr %arrayidx12111, align 8
-  store ptr %2408, ptr %stack_pointer.10, align 8
-  %add.ptr12116 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %2408, ptr %stack_pointer.11, align 8
+  %add.ptr12116 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb12117:                                       ; preds = %for.cond12062
   %oparg12120 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2409 = load i16, ptr %oparg12120, align 2
-  %frame.addr.6.val7333 = load ptr, ptr %frame.addr.6, align 8
-  %co_consts12123 = getelementptr inbounds i8, ptr %frame.addr.6.val7333, i64 24
+  %frame.addr.7.val7333 = load ptr, ptr %frame.addr.7, align 8
+  %co_consts12123 = getelementptr inbounds i8, ptr %frame.addr.7.val7333, i64 24
   %2410 = load ptr, ptr %co_consts12123, align 8
   %ob_item12124 = getelementptr inbounds i8, ptr %2410, i64 24
   %idxprom12125 = zext i16 %2409 to i64
@@ -19909,16 +19909,16 @@ if.end.i21166:                                    ; preds = %sw.bb12117
   br label %Py_INCREF.exit21168
 
 Py_INCREF.exit21168:                              ; preds = %sw.bb12117, %if.end.i21166
-  store ptr %2411, ptr %stack_pointer.10, align 8
-  %add.ptr12128 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %2411, ptr %stack_pointer.11, align 8
+  %add.ptr12128 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb12129:                                       ; preds = %for.cond12062
   %oparg12132 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2413 = load i16, ptr %oparg12132, align 2
-  %arrayidx12134 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12134 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2414 = load ptr, ptr %arrayidx12134, align 8
-  %localsplus12137 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
+  %localsplus12137 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
   %idxprom12138 = zext i16 %2413 to i64
   %arrayidx12139 = getelementptr [1 x ptr], ptr %localsplus12137, i64 0, i64 %idxprom12138
   %2415 = load ptr, ptr %arrayidx12139, align 8
@@ -19947,7 +19947,7 @@ if.then12157:                                     ; preds = %if.end12153
   br label %for.cond12062.backedge
 
 sw.bb12167:                                       ; preds = %for.cond12062
-  %arrayidx12169 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12169 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2420 = load ptr, ptr %arrayidx12169, align 8
   %2421 = load i64, ptr %2420, align 8
   %2422 = and i64 %2421, 2147483648
@@ -19969,14 +19969,14 @@ if.then12179:                                     ; preds = %if.end12175
   br label %for.cond12062.backedge
 
 sw.bb12186:                                       ; preds = %for.cond12062
-  store ptr null, ptr %stack_pointer.10, align 8
-  %add.ptr12189 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr null, ptr %stack_pointer.11, align 8
+  %add.ptr12189 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb12190:                                       ; preds = %for.cond12062
-  %arrayidx12193 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12193 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2425 = load ptr, ptr %arrayidx12193, align 8
-  %arrayidx12194 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12194 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2426 = load ptr, ptr %arrayidx12194, align 8
   %2427 = load i64, ptr %2426, align 8
   %2428 = and i64 %2427, 2147483648
@@ -20002,7 +20002,7 @@ do.end12209:                                      ; preds = %if.end12200, %if.th
   br label %for.cond12062.backedge
 
 sw.bb12212:                                       ; preds = %for.cond12062
-  %arrayidx12215 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12215 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2431 = load ptr, ptr %arrayidx12215, align 8
   %call12216 = call ptr @PyNumber_Negative(ptr noundef %2431) #15
   %2432 = load i64, ptr %2431, align 8
@@ -20033,7 +20033,7 @@ if.end12235:                                      ; preds = %do.end12231
   br label %for.cond12062.backedge
 
 sw.bb12237:                                       ; preds = %for.cond12062
-  %arrayidx12240 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12240 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2436 = load ptr, ptr %arrayidx12240, align 8
   %cmp12241 = icmp eq ptr %2436, @_Py_FalseStruct
   %cond12243 = select i1 %cmp12241, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
@@ -20041,7 +20041,7 @@ sw.bb12237:                                       ; preds = %for.cond12062
   br label %for.cond12062.backedge
 
 sw.bb12245:                                       ; preds = %for.cond12062
-  %arrayidx12248 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12248 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2437 = load ptr, ptr %arrayidx12248, align 8
   %call12250 = call i32 @PyObject_IsTrue(ptr noundef %2437) #15
   %2438 = load i64, ptr %2437, align 8
@@ -20074,7 +20074,7 @@ if.end12269:                                      ; preds = %do.end12265
   br label %for.cond12062.backedge
 
 sw.bb12273:                                       ; preds = %for.cond12062
-  %arrayidx12275 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12275 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2442 = load ptr, ptr %arrayidx12275, align 8
   %ob_type12276 = getelementptr inbounds i8, ptr %2442, i64 8
   %2443 = load ptr, ptr %ob_type12276, align 8
@@ -20082,7 +20082,7 @@ sw.bb12273:                                       ; preds = %for.cond12062
   br i1 %cmp12277, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb12281:                                       ; preds = %for.cond12062
-  %arrayidx12284 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12284 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2444 = load ptr, ptr %arrayidx12284, align 8
   %ob_type12285 = getelementptr inbounds i8, ptr %2444, i64 8
   %2445 = load ptr, ptr %ob_type12285, align 8
@@ -20119,7 +20119,7 @@ if.end12308:                                      ; preds = %do.body12293, %if.t
   br label %for.cond12062.backedge
 
 sw.bb12310:                                       ; preds = %for.cond12062
-  %arrayidx12313 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12313 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2450 = load ptr, ptr %arrayidx12313, align 8
   %ob_type12314 = getelementptr inbounds i8, ptr %2450, i64 8
   %2451 = load ptr, ptr %ob_type12314, align 8
@@ -20152,7 +20152,7 @@ do.end12336:                                      ; preds = %if.end12327, %if.th
   br label %for.cond12062.backedge
 
 sw.bb12338:                                       ; preds = %for.cond12062
-  %arrayidx12341 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12341 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2456 = load ptr, ptr %arrayidx12341, align 8
   %cmp12342 = icmp eq ptr %2456, @_Py_NoneStruct
   br i1 %cmp12342, label %if.end12345, label %deoptimize
@@ -20162,7 +20162,7 @@ if.end12345:                                      ; preds = %sw.bb12338
   br label %for.cond12062.backedge
 
 sw.bb12347:                                       ; preds = %for.cond12062
-  %arrayidx12350 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12350 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2457 = load ptr, ptr %arrayidx12350, align 8
   %ob_type12351 = getelementptr inbounds i8, ptr %2457, i64 8
   %2458 = load ptr, ptr %ob_type12351, align 8
@@ -20196,7 +20196,7 @@ if.end12375:                                      ; preds = %do.body12360, %if.t
   br label %for.cond12062.backedge
 
 sw.bb12377:                                       ; preds = %for.cond12062
-  %arrayidx12380 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12380 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2462 = load ptr, ptr %arrayidx12380, align 8
   %operand = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %2463 = load i64, ptr %operand, align 8
@@ -20231,7 +20231,7 @@ do.end12404:                                      ; preds = %if.end12395, %if.th
   br label %for.cond12062.backedge
 
 sw.bb12406:                                       ; preds = %for.cond12062
-  %arrayidx12409 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12409 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2469 = load ptr, ptr %arrayidx12409, align 8
   %call12410 = call ptr @PyNumber_Invert(ptr noundef %2469) #15
   %2470 = load i64, ptr %2469, align 8
@@ -20262,7 +20262,7 @@ if.end12429:                                      ; preds = %do.end12425
   br label %for.cond12062.backedge
 
 sw.bb12431:                                       ; preds = %for.cond12062
-  %arrayidx12435 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12435 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2474 = load ptr, ptr %arrayidx12435, align 8
   %ob_type12436 = getelementptr inbounds i8, ptr %2474, i64 8
   %2475 = load ptr, ptr %ob_type12436, align 8
@@ -20270,7 +20270,7 @@ sw.bb12431:                                       ; preds = %for.cond12062
   br i1 %cmp12437, label %if.end12440, label %deoptimize
 
 if.end12440:                                      ; preds = %sw.bb12431
-  %arrayidx12434 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12434 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2476 = load ptr, ptr %arrayidx12434, align 8
   %ob_type12441 = getelementptr inbounds i8, ptr %2476, i64 8
   %2477 = load ptr, ptr %ob_type12441, align 8
@@ -20278,9 +20278,9 @@ if.end12440:                                      ; preds = %sw.bb12431
   br i1 %cmp12442, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb12446:                                       ; preds = %for.cond12062
-  %arrayidx12450 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12450 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2478 = load ptr, ptr %arrayidx12450, align 8
-  %arrayidx12451 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12451 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2479 = load ptr, ptr %arrayidx12451, align 8
   %call12452 = call ptr @_PyLong_Multiply(ptr noundef %2479, ptr noundef %2478) #15
   %2480 = load i64, ptr %2478, align 8
@@ -20323,9 +20323,9 @@ if.end12482:                                      ; preds = %do.end12478
   br label %for.cond12062.backedge
 
 sw.bb12485:                                       ; preds = %for.cond12062
-  %arrayidx12489 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12489 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2484 = load ptr, ptr %arrayidx12489, align 8
-  %arrayidx12490 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12490 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2485 = load ptr, ptr %arrayidx12490, align 8
   %call12491 = call ptr @_PyLong_Add(ptr noundef %2485, ptr noundef %2484) #15
   %2486 = load i64, ptr %2484, align 8
@@ -20368,9 +20368,9 @@ if.end12521:                                      ; preds = %do.end12517
   br label %for.cond12062.backedge
 
 sw.bb12524:                                       ; preds = %for.cond12062
-  %arrayidx12528 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12528 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2490 = load ptr, ptr %arrayidx12528, align 8
-  %arrayidx12529 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12529 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2491 = load ptr, ptr %arrayidx12529, align 8
   %call12530 = call ptr @_PyLong_Subtract(ptr noundef %2491, ptr noundef %2490) #15
   %2492 = load i64, ptr %2490, align 8
@@ -20413,7 +20413,7 @@ if.end12560:                                      ; preds = %do.end12556
   br label %for.cond12062.backedge
 
 sw.bb12563:                                       ; preds = %for.cond12062
-  %arrayidx12567 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12567 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2496 = load ptr, ptr %arrayidx12567, align 8
   %ob_type12568 = getelementptr inbounds i8, ptr %2496, i64 8
   %2497 = load ptr, ptr %ob_type12568, align 8
@@ -20421,7 +20421,7 @@ sw.bb12563:                                       ; preds = %for.cond12062
   br i1 %cmp12569, label %if.end12572, label %deoptimize
 
 if.end12572:                                      ; preds = %sw.bb12563
-  %arrayidx12566 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12566 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2498 = load ptr, ptr %arrayidx12566, align 8
   %ob_type12573 = getelementptr inbounds i8, ptr %2498, i64 8
   %2499 = load ptr, ptr %ob_type12573, align 8
@@ -20429,9 +20429,9 @@ if.end12572:                                      ; preds = %sw.bb12563
   br i1 %cmp12574, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb12578:                                       ; preds = %for.cond12062
-  %arrayidx12582 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12582 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2500 = load ptr, ptr %arrayidx12582, align 8
-  %arrayidx12583 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12583 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2501 = load ptr, ptr %arrayidx12583, align 8
   %ob_fval12585 = getelementptr inbounds i8, ptr %2501, i64 16
   %2502 = load double, ptr %ob_fval12585, align 8
@@ -20509,9 +20509,9 @@ do.end12621:                                      ; preds = %if.end.i8734, %_Py_
   br label %for.cond12062.backedge
 
 sw.bb12624:                                       ; preds = %for.cond12062
-  %arrayidx12628 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12628 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2512 = load ptr, ptr %arrayidx12628, align 8
-  %arrayidx12629 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12629 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2513 = load ptr, ptr %arrayidx12629, align 8
   %ob_fval12631 = getelementptr inbounds i8, ptr %2513, i64 16
   %2514 = load double, ptr %ob_fval12631, align 8
@@ -20589,9 +20589,9 @@ do.end12667:                                      ; preds = %if.end.i8746, %_Py_
   br label %for.cond12062.backedge
 
 sw.bb12670:                                       ; preds = %for.cond12062
-  %arrayidx12674 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12674 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2524 = load ptr, ptr %arrayidx12674, align 8
-  %arrayidx12675 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12675 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2525 = load ptr, ptr %arrayidx12675, align 8
   %ob_fval12677 = getelementptr inbounds i8, ptr %2525, i64 16
   %2526 = load double, ptr %ob_fval12677, align 8
@@ -20669,7 +20669,7 @@ do.end12713:                                      ; preds = %if.end.i8758, %_Py_
   br label %for.cond12062.backedge
 
 sw.bb12716:                                       ; preds = %for.cond12062
-  %arrayidx12720 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12720 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2536 = load ptr, ptr %arrayidx12720, align 8
   %ob_type12721 = getelementptr inbounds i8, ptr %2536, i64 8
   %2537 = load ptr, ptr %ob_type12721, align 8
@@ -20677,7 +20677,7 @@ sw.bb12716:                                       ; preds = %for.cond12062
   br i1 %cmp12722, label %if.end12725, label %deoptimize
 
 if.end12725:                                      ; preds = %sw.bb12716
-  %arrayidx12719 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12719 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2538 = load ptr, ptr %arrayidx12719, align 8
   %ob_type12726 = getelementptr inbounds i8, ptr %2538, i64 8
   %2539 = load ptr, ptr %ob_type12726, align 8
@@ -20685,9 +20685,9 @@ if.end12725:                                      ; preds = %sw.bb12716
   br i1 %cmp12727, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb12731:                                       ; preds = %for.cond12062
-  %arrayidx12735 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12735 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2540 = load ptr, ptr %arrayidx12735, align 8
-  %arrayidx12736 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12736 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2541 = load ptr, ptr %arrayidx12736, align 8
   %call12737 = call ptr @PyUnicode_Concat(ptr noundef %2541, ptr noundef %2540) #15
   %2542 = load i64, ptr %2541, align 8
@@ -20730,9 +20730,9 @@ if.end12767:                                      ; preds = %do.end12763
   br label %for.cond12062.backedge
 
 sw.bb12770:                                       ; preds = %for.cond12062
-  %arrayidx12774 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12774 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2546 = load ptr, ptr %arrayidx12774, align 8
-  %arrayidx12775 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12775 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2547 = load ptr, ptr %arrayidx12775, align 8
   %call12776 = call ptr @PyObject_GetItem(ptr noundef %2547, ptr noundef %2546) #15
   %2548 = load i64, ptr %2547, align 8
@@ -20783,11 +20783,11 @@ if.end12810:                                      ; preds = %do.end12806
   br label %for.cond12062.backedge
 
 sw.bb12813:                                       ; preds = %for.cond12062
-  %arrayidx12818 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12818 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2556 = load ptr, ptr %arrayidx12818, align 8
-  %arrayidx12819 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12819 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2557 = load ptr, ptr %arrayidx12819, align 8
-  %arrayidx12820 = getelementptr i8, ptr %stack_pointer.10, i64 -24
+  %arrayidx12820 = getelementptr i8, ptr %stack_pointer.11, i64 -24
   %2558 = load ptr, ptr %arrayidx12820, align 8
   %call12822 = call ptr @_PyBuildSlice_ConsumeRefs(ptr noundef %2557, ptr noundef %2556) #15
   %cmp12823 = icmp eq ptr %call12822, null
@@ -20844,13 +20844,13 @@ if.end12862:                                      ; preds = %do.end12858
   br label %for.cond12062.backedge
 
 sw.bb12865:                                       ; preds = %for.cond12062
-  %arrayidx12870 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12870 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2567 = load ptr, ptr %arrayidx12870, align 8
-  %arrayidx12871 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12871 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2568 = load ptr, ptr %arrayidx12871, align 8
-  %arrayidx12872 = getelementptr i8, ptr %stack_pointer.10, i64 -24
+  %arrayidx12872 = getelementptr i8, ptr %stack_pointer.11, i64 -24
   %2569 = load ptr, ptr %arrayidx12872, align 8
-  %arrayidx12873 = getelementptr i8, ptr %stack_pointer.10, i64 -32
+  %arrayidx12873 = getelementptr i8, ptr %stack_pointer.11, i64 -32
   %2570 = load ptr, ptr %arrayidx12873, align 8
   %call12875 = call ptr @_PyBuildSlice_ConsumeRefs(ptr noundef %2568, ptr noundef %2567) #15
   %cmp12877 = icmp eq ptr %call12875, null
@@ -20923,9 +20923,9 @@ do.end12927:                                      ; preds = %if.end12918, %if.th
   br i1 %tobool12928.not, label %for.cond12062.backedge, label %pop_3_error_tier_two.loopexit.split.loop.exit
 
 sw.bb12932:                                       ; preds = %for.cond12062
-  %arrayidx12936 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12936 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2583 = load ptr, ptr %arrayidx12936, align 8
-  %arrayidx12937 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12937 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2584 = load ptr, ptr %arrayidx12937, align 8
   %ob_type12938 = getelementptr inbounds i8, ptr %2583, i64 8
   %2585 = load ptr, ptr %ob_type12938, align 8
@@ -21007,9 +21007,9 @@ do.end12991:                                      ; preds = %if.end12982, %if.th
   br label %for.cond12062.backedge
 
 sw.bb12994:                                       ; preds = %for.cond12062
-  %arrayidx12998 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12998 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2598 = load ptr, ptr %arrayidx12998, align 8
-  %arrayidx12999 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx12999 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2599 = load ptr, ptr %arrayidx12999, align 8
   %ob_type13000 = getelementptr inbounds i8, ptr %2598, i64 8
   %2600 = load ptr, ptr %ob_type13000, align 8
@@ -21161,9 +21161,9 @@ do.end13060:                                      ; preds = %if.end13051, %if.th
   br label %for.cond12062.backedge
 
 sw.bb13063:                                       ; preds = %for.cond12062
-  %arrayidx13067 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13067 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2620 = load ptr, ptr %arrayidx13067, align 8
-  %arrayidx13068 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx13068 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2621 = load ptr, ptr %arrayidx13068, align 8
   %ob_type13069 = getelementptr inbounds i8, ptr %2620, i64 8
   %2622 = load ptr, ptr %ob_type13069, align 8
@@ -21244,9 +21244,9 @@ do.end13122:                                      ; preds = %if.end13113, %if.th
   br label %for.cond12062.backedge
 
 sw.bb13125:                                       ; preds = %for.cond12062
-  %arrayidx13129 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13129 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2634 = load ptr, ptr %arrayidx13129, align 8
-  %arrayidx13130 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx13130 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2635 = load ptr, ptr %arrayidx13130, align 8
   %ob_type13131 = getelementptr inbounds i8, ptr %2635, i64 8
   %2636 = load ptr, ptr %ob_type13131, align 8
@@ -21314,10 +21314,10 @@ sw.bb13178:                                       ; preds = %for.cond12062
   %oparg13182 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2645 = load i16, ptr %oparg13182, align 2
   %conv13183 = zext i16 %2645 to i64
-  %arrayidx13184 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13184 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2646 = load ptr, ptr %arrayidx13184, align 8
   %sub13186 = xor i64 %conv13183, -1
-  %arrayidx13188 = getelementptr ptr, ptr %stack_pointer.10, i64 %sub13186
+  %arrayidx13188 = getelementptr ptr, ptr %stack_pointer.11, i64 %sub13186
   %2647 = load ptr, ptr %arrayidx13188, align 8
   %2648 = getelementptr i8, ptr %2647, i64 16
   %self.val8.i8806 = load i64, ptr %2648, align 8
@@ -21344,10 +21344,10 @@ sw.bb13195:                                       ; preds = %for.cond12062
   %oparg13199 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2651 = load i16, ptr %oparg13199, align 2
   %conv13200 = zext i16 %2651 to i64
-  %arrayidx13201 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13201 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2652 = load ptr, ptr %arrayidx13201, align 8
   %sub13203 = xor i64 %conv13200, -1
-  %arrayidx13205 = getelementptr ptr, ptr %stack_pointer.10, i64 %sub13203
+  %arrayidx13205 = getelementptr ptr, ptr %stack_pointer.11, i64 %sub13203
   %2653 = load ptr, ptr %arrayidx13205, align 8
   %call13207 = call i32 @PySet_Add(ptr noundef %2653, ptr noundef %2652) #15
   %2654 = load i64, ptr %2652, align 8
@@ -21374,11 +21374,11 @@ do.end13222:                                      ; preds = %if.end13213, %if.th
   br i1 %tobool13223.not, label %for.cond12062.backedge, label %pop_1_error_tier_two
 
 sw.bb13227:                                       ; preds = %for.cond12062
-  %arrayidx13231 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13231 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2658 = load ptr, ptr %arrayidx13231, align 8
-  %arrayidx13232 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx13232 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2659 = load ptr, ptr %arrayidx13232, align 8
-  %arrayidx13233 = getelementptr i8, ptr %stack_pointer.10, i64 -24
+  %arrayidx13233 = getelementptr i8, ptr %stack_pointer.11, i64 -24
   %2660 = load ptr, ptr %arrayidx13233, align 8
   %call13235 = call i32 @PyObject_SetItem(ptr noundef %2659, ptr noundef %2658, ptr noundef %2660) #15
   %2661 = load i64, ptr %2660, align 8
@@ -21445,11 +21445,11 @@ do.end13280:                                      ; preds = %if.end13271, %if.th
   br i1 %tobool13281.not, label %for.cond12062.backedge, label %pop_3_error_tier_two
 
 sw.bb13285:                                       ; preds = %for.cond12062
-  %arrayidx13289 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13289 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2673 = load ptr, ptr %arrayidx13289, align 8
-  %arrayidx13290 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx13290 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2674 = load ptr, ptr %arrayidx13290, align 8
-  %arrayidx13291 = getelementptr i8, ptr %stack_pointer.10, i64 -24
+  %arrayidx13291 = getelementptr i8, ptr %stack_pointer.11, i64 -24
   %2675 = load ptr, ptr %arrayidx13291, align 8
   %ob_type13292 = getelementptr inbounds i8, ptr %2673, i64 8
   %2676 = load ptr, ptr %ob_type13292, align 8
@@ -21538,9 +21538,9 @@ if.then13356:                                     ; preds = %if.end13352
   br label %for.cond12062.backedge
 
 sw.bb13363:                                       ; preds = %for.cond12062
-  %arrayidx13368 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx13368 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2692 = load ptr, ptr %arrayidx13368, align 8
-  %arrayidx13369 = getelementptr i8, ptr %stack_pointer.10, i64 -24
+  %arrayidx13369 = getelementptr i8, ptr %stack_pointer.11, i64 -24
   %ob_type13370 = getelementptr inbounds i8, ptr %2692, i64 8
   %2693 = load ptr, ptr %ob_type13370, align 8
   %cmp13371 = icmp eq ptr %2693, @PyDict_Type
@@ -21548,7 +21548,7 @@ sw.bb13363:                                       ; preds = %for.cond12062
 
 if.end13374:                                      ; preds = %sw.bb13363
   %2694 = load ptr, ptr %arrayidx13369, align 8
-  %arrayidx13367 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13367 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2695 = load ptr, ptr %arrayidx13367, align 8
   %call13376 = call i32 @_PyDict_SetItem_Take2(ptr noundef nonnull %2692, ptr noundef %2695, ptr noundef %2694) #15
   %2696 = load i64, ptr %2692, align 8
@@ -21574,9 +21574,9 @@ do.end13391:                                      ; preds = %if.end13382, %if.th
   br i1 %tobool13392.not, label %for.cond12062.backedge, label %pop_3_error_tier_two
 
 sw.bb13396:                                       ; preds = %for.cond12062
-  %arrayidx13399 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13399 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2699 = load ptr, ptr %arrayidx13399, align 8
-  %arrayidx13400 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx13400 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2700 = load ptr, ptr %arrayidx13400, align 8
   %call13402 = call i32 @PyObject_DelItem(ptr noundef %2700, ptr noundef %2699) #15
   %2701 = load i64, ptr %2700, align 8
@@ -21625,7 +21625,7 @@ do.end13432:                                      ; preds = %if.end13423, %if.th
 sw.bb13437:                                       ; preds = %for.cond12062
   %oparg13441 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2709 = load i16, ptr %oparg13441, align 2
-  %arrayidx13443 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13443 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2710 = load ptr, ptr %arrayidx13443, align 8
   %idxprom13444 = zext i16 %2709 to i64
   %arrayidx13445 = getelementptr [0 x %struct.intrinsic_func1_info], ptr @_PyIntrinsics_UnaryFunctions, i64 0, i64 %idxprom13444
@@ -21661,9 +21661,9 @@ if.end13466:                                      ; preds = %do.end13462
 sw.bb13468:                                       ; preds = %for.cond12062
   %oparg13473 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2716 = load i16, ptr %oparg13473, align 2
-  %arrayidx13475 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13475 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2717 = load ptr, ptr %arrayidx13475, align 8
-  %arrayidx13476 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx13476 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2718 = load ptr, ptr %arrayidx13476, align 8
   %idxprom13477 = zext i16 %2716 to i64
   %arrayidx13478 = getelementptr [0 x %struct.intrinsic_func2_info], ptr @_PyIntrinsics_BinaryFunctions, i64 0, i64 %idxprom13477
@@ -21717,23 +21717,23 @@ if.end13514:                                      ; preds = %do.end13510
   br label %for.cond12062.backedge
 
 sw.bb13517:                                       ; preds = %for.cond12062
-  %arrayidx13519 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13519 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2728 = load ptr, ptr %arrayidx13519, align 8
-  %localsplus.i8820 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
+  %localsplus.i8820 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
   %sub.ptr.lhs.cast.i8821 = ptrtoint ptr %arrayidx13519 to i64
   %sub.ptr.rhs.cast.i8822 = ptrtoint ptr %localsplus.i8820 to i64
   %sub.ptr.sub.i8823 = sub i64 %sub.ptr.lhs.cast.i8821, %sub.ptr.rhs.cast.i8822
   %sub.ptr.div.i8824 = lshr exact i64 %sub.ptr.sub.i8823, 3
   %conv.i8825 = trunc i64 %sub.ptr.div.i8824 to i32
-  %stacktop.i8826 = getelementptr inbounds i8, ptr %frame.addr.6, i64 64
+  %stacktop.i8826 = getelementptr inbounds i8, ptr %frame.addr.7, i64 64
   store i32 %conv.i8825, ptr %stacktop.i8826, align 8
   %2729 = load i32, ptr %py_recursion_remaining3963, align 4
   %inc.i8828 = add i32 %2729, 1
   store i32 %inc.i8828, ptr %py_recursion_remaining3963, align 4
-  %previous13522 = getelementptr inbounds i8, ptr %frame.addr.6, i64 8
+  %previous13522 = getelementptr inbounds i8, ptr %frame.addr.7, i64 8
   %2730 = load ptr, ptr %previous13522, align 8
   store ptr %2730, ptr %current_frame, align 8
-  call void @_PyEval_FrameClearAndPop(ptr noundef %tstate, ptr noundef %frame.addr.6)
+  call void @_PyEval_FrameClearAndPop(ptr noundef %tstate, ptr noundef %frame.addr.7)
   %localsplus.i8829 = getelementptr inbounds i8, ptr %2730, i64 72
   %stacktop.i8830 = getelementptr inbounds i8, ptr %2730, i64 64
   %2731 = load i32, ptr %stacktop.i8830, align 8
@@ -21748,7 +21748,7 @@ sw.bb13517:                                       ; preds = %for.cond12062
   br label %for.cond12062.backedge
 
 sw.bb13525:                                       ; preds = %for.cond12062
-  %arrayidx13528 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13528 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2733 = load ptr, ptr %arrayidx13528, align 8
   %2734 = getelementptr i8, ptr %2733, i64 8
   %.val6977 = load ptr, ptr %2734, align 8
@@ -21853,7 +21853,7 @@ if.end13609:                                      ; preds = %lor.lhs.false13584
   br label %for.cond12062.backedge
 
 sw.bb13611:                                       ; preds = %for.cond12062
-  %arrayidx13614 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13614 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2754 = load ptr, ptr %arrayidx13614, align 8
   %2755 = getelementptr i8, ptr %2754, i64 8
   %.val6971 = load ptr, ptr %2755, align 8
@@ -21944,14 +21944,14 @@ if.then13682:                                     ; preds = %if.end13678
 
 if.end13689:                                      ; preds = %if.end13678, %if.then13682, %do.body13673, %if.then13622
   %awaitable13613.0 = phi ptr [ %call13625, %if.then13622 ], [ %call13650, %do.body13673 ], [ %call13650, %if.then13682 ], [ %call13650, %if.end13678 ]
-  store ptr %awaitable13613.0, ptr %stack_pointer.10, align 8
-  %add.ptr13691 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %awaitable13613.0, ptr %stack_pointer.11, align 8
+  %add.ptr13691 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb13692:                                       ; preds = %for.cond12062
   %oparg13696 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2772 = load i16, ptr %oparg13696, align 2
-  %arrayidx13698 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13698 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2773 = load ptr, ptr %arrayidx13698, align 8
   %call13699 = call ptr @_PyCoro_GetAwaitableIter(ptr noundef %2773) #15
   %cmp13700 = icmp eq ptr %call13699, null
@@ -22071,7 +22071,7 @@ if.end13775:                                      ; preds = %land.lhs.true13722,
   br label %for.cond12062.backedge
 
 sw.bb13777:                                       ; preds = %for.cond12062
-  %arrayidx13779 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13779 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2792 = load ptr, ptr %arrayidx13779, align 8
   %2793 = load ptr, ptr %exc_info17215, align 8
   %2794 = load ptr, ptr %2793, align 8
@@ -22111,12 +22111,12 @@ if.end.i.i8851:                                   ; preds = %sw.bb13810
   br label %_Py_NewRef.exit8852
 
 _Py_NewRef.exit8852:                              ; preds = %sw.bb13810, %if.end.i.i8851
-  store ptr %2799, ptr %stack_pointer.10, align 8
-  %add.ptr13814 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %2799, ptr %stack_pointer.11, align 8
+  %add.ptr13814 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb13815:                                       ; preds = %for.cond12062
-  %f_builtins13817 = getelementptr inbounds i8, ptr %frame.addr.6, i64 32
+  %f_builtins13817 = getelementptr inbounds i8, ptr %frame.addr.7, i64 32
   %2801 = load ptr, ptr %f_builtins13817, align 8
   %call13818 = call i32 @PyMapping_GetOptionalItem(ptr noundef %2801, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27328), ptr noundef nonnull %bc13816) #15
   %cmp13819 = icmp slt i32 %call13818, 0
@@ -22133,23 +22133,23 @@ if.then13825:                                     ; preds = %if.end13822
   br label %error_tier_two
 
 if.end13826:                                      ; preds = %if.end13822
-  store ptr %2802, ptr %stack_pointer.10, align 8
-  %add.ptr13828 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %2802, ptr %stack_pointer.11, align 8
+  %add.ptr13828 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb13829:                                       ; preds = %for.cond12062
   %oparg13832 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2804 = load i16, ptr %oparg13832, align 2
-  %arrayidx13834 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13834 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2805 = load ptr, ptr %arrayidx13834, align 8
-  %frame.addr.6.val7334 = load ptr, ptr %frame.addr.6, align 8
-  %co_names13837 = getelementptr inbounds i8, ptr %frame.addr.6.val7334, i64 32
+  %frame.addr.7.val7334 = load ptr, ptr %frame.addr.7, align 8
+  %co_names13837 = getelementptr inbounds i8, ptr %frame.addr.7.val7334, i64 32
   %2806 = load ptr, ptr %co_names13837, align 8
   %ob_item13838 = getelementptr inbounds i8, ptr %2806, i64 24
   %idxprom13839 = zext i16 %2804 to i64
   %arrayidx13840 = getelementptr [1 x ptr], ptr %ob_item13838, i64 0, i64 %idxprom13839
   %2807 = load ptr, ptr %arrayidx13840, align 8
-  %f_locals13842 = getelementptr inbounds i8, ptr %frame.addr.6, i64 40
+  %f_locals13842 = getelementptr inbounds i8, ptr %frame.addr.7, i64 40
   %2808 = load ptr, ptr %f_locals13842, align 8
   %cmp13844 = icmp eq ptr %2808, null
   br i1 %cmp13844, label %if.then13846, label %if.end13863
@@ -22218,14 +22218,14 @@ do.end13886:                                      ; preds = %if.end13877, %if.th
 sw.bb13891:                                       ; preds = %for.cond12062
   %oparg13893 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2819 = load i16, ptr %oparg13893, align 2
-  %frame.addr.6.val7335 = load ptr, ptr %frame.addr.6, align 8
-  %co_names13897 = getelementptr inbounds i8, ptr %frame.addr.6.val7335, i64 32
+  %frame.addr.7.val7335 = load ptr, ptr %frame.addr.7, align 8
+  %co_names13897 = getelementptr inbounds i8, ptr %frame.addr.7.val7335, i64 32
   %2820 = load ptr, ptr %co_names13897, align 8
   %ob_item13898 = getelementptr inbounds i8, ptr %2820, i64 24
   %idxprom13899 = zext i16 %2819 to i64
   %arrayidx13900 = getelementptr [1 x ptr], ptr %ob_item13898, i64 0, i64 %idxprom13899
   %2821 = load ptr, ptr %arrayidx13900, align 8
-  %f_locals13902 = getelementptr inbounds i8, ptr %frame.addr.6, i64 40
+  %f_locals13902 = getelementptr inbounds i8, ptr %frame.addr.7, i64 40
   %2822 = load ptr, ptr %f_locals13902, align 8
   %cmp13904 = icmp eq ptr %2822, null
   br i1 %cmp13904, label %if.then13906, label %if.end13908
@@ -22249,10 +22249,10 @@ sw.bb13914:                                       ; preds = %for.cond12062
   %oparg13917 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2825 = load i16, ptr %oparg13917, align 2
   %conv13918 = zext i16 %2825 to i32
-  %arrayidx13919 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13919 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2826 = load ptr, ptr %arrayidx13919, align 8
   %idx.ext13921 = zext i16 %2825 to i64
-  %add.ptr13922 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext13921
+  %add.ptr13922 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext13921
   %add.ptr13923 = getelementptr i8, ptr %add.ptr13922, i64 -8
   %call13925 = call i32 @_PyEval_UnpackIterable(ptr noundef %tstate, ptr noundef %2826, i32 noundef %conv13918, i32 noundef -1, ptr noundef %add.ptr13923)
   %2827 = load i64, ptr %2826, align 8
@@ -22281,14 +22281,14 @@ do.end13940:                                      ; preds = %if.end13931, %if.th
 if.end13944:                                      ; preds = %do.end13940
   %add13945 = add nsw i32 %conv13918, -1
   %idx.ext13946 = sext i32 %add13945 to i64
-  %add.ptr13947 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext13946
+  %add.ptr13947 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext13946
   br label %for.cond12062.backedge
 
 sw.bb13948:                                       ; preds = %for.cond12062
   %oparg13952 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2831 = load i16, ptr %oparg13952, align 2
   %conv13953 = zext i16 %2831 to i64
-  %arrayidx13954 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13954 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2832 = load ptr, ptr %arrayidx13954, align 8
   %ob_type13956 = getelementptr inbounds i8, ptr %2832, i64 8
   %2833 = load ptr, ptr %ob_type13956, align 8
@@ -22327,7 +22327,7 @@ if.end.i.i8859:                                   ; preds = %_Py_NewRef.exit8856
   br label %_Py_NewRef.exit8860
 
 _Py_NewRef.exit8860:                              ; preds = %_Py_NewRef.exit8856, %if.end.i.i8859
-  store ptr %2837, ptr %stack_pointer.10, align 8
+  store ptr %2837, ptr %stack_pointer.11, align 8
   %2839 = load i64, ptr %2832, align 8
   %2840 = and i64 %2839, 2147483648
   %cmp.i19877.not = icmp eq i64 %2840, 0
@@ -22348,14 +22348,14 @@ if.then13983:                                     ; preds = %if.end13979
 
 do.end13988:                                      ; preds = %if.end13979, %if.then13983, %_Py_NewRef.exit8860
   %add13989 = add nsw i64 %conv13953, -1
-  %add.ptr13991 = getelementptr ptr, ptr %stack_pointer.10, i64 %add13989
+  %add.ptr13991 = getelementptr ptr, ptr %stack_pointer.11, i64 %add13989
   br label %for.cond12062.backedge
 
 sw.bb13992:                                       ; preds = %for.cond12062
   %oparg13996 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2842 = load i16, ptr %oparg13996, align 2
   %conv13997 = zext i16 %2842 to i64
-  %arrayidx13998 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx13998 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2843 = load ptr, ptr %arrayidx13998, align 8
   %ob_type14000 = getelementptr inbounds i8, ptr %2843, i64 8
   %2844 = load ptr, ptr %ob_type14000, align 8
@@ -22416,14 +22416,14 @@ if.then14034:                                     ; preds = %if.end14030
 
 do.end14039:                                      ; preds = %if.end14030, %if.then14034, %do.body14025
   %add14040 = add nsw i64 %conv13997, -1
-  %add.ptr14042 = getelementptr ptr, ptr %stack_pointer.10, i64 %add14040
+  %add.ptr14042 = getelementptr ptr, ptr %stack_pointer.11, i64 %add14040
   br label %for.cond12062.backedge
 
 sw.bb14043:                                       ; preds = %for.cond12062
   %oparg14047 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2851 = load i16, ptr %oparg14047, align 2
   %conv14048 = zext i16 %2851 to i64
-  %arrayidx14049 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx14049 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2852 = load ptr, ptr %arrayidx14049, align 8
   %ob_type14051 = getelementptr inbounds i8, ptr %2852, i64 8
   %2853 = load ptr, ptr %ob_type14051, align 8
@@ -22485,21 +22485,21 @@ if.then14084:                                     ; preds = %if.end14080
 
 do.end14089:                                      ; preds = %if.end14080, %if.then14084, %do.body14075
   %add14090 = add nsw i64 %conv14048, -1
-  %add.ptr14092 = getelementptr ptr, ptr %stack_pointer.10, i64 %add14090
+  %add.ptr14092 = getelementptr ptr, ptr %stack_pointer.11, i64 %add14090
   br label %for.cond12062.backedge
 
 sw.bb14093:                                       ; preds = %for.cond12062
   %oparg14096 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2861 = load i16, ptr %oparg14096, align 2
   %conv14097 = zext i16 %2861 to i32
-  %arrayidx14098 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx14098 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2862 = load ptr, ptr %arrayidx14098, align 8
   %and14100 = and i32 %conv14097, 255
   %shr14102 = lshr i32 %conv14097, 8
   %add14101 = add nuw nsw i32 %shr14102, %and14100
   %add14103 = add nuw nsw i32 %add14101, 1
   %idx.ext14105 = zext nneg i32 %add14103 to i64
-  %add.ptr14106 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext14105
+  %add.ptr14106 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext14105
   %add.ptr14107 = getelementptr i8, ptr %add.ptr14106, i64 -8
   %call14111 = call i32 @_PyEval_UnpackIterable(ptr noundef %tstate, ptr noundef %2862, i32 noundef %and14100, i32 noundef %shr14102, ptr noundef %add.ptr14107)
   %2863 = load i64, ptr %2862, align 8
@@ -22527,18 +22527,18 @@ do.end14126:                                      ; preds = %if.end14117, %if.th
 
 if.end14130:                                      ; preds = %do.end14126
   %idx.ext14134 = zext nneg i32 %add14101 to i64
-  %add.ptr14135 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext14134
+  %add.ptr14135 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext14134
   br label %for.cond12062.backedge
 
 sw.bb14136:                                       ; preds = %for.cond12062
   %oparg14140 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2867 = load i16, ptr %oparg14140, align 2
-  %arrayidx14142 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx14142 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2868 = load ptr, ptr %arrayidx14142, align 8
-  %arrayidx14143 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx14143 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %2869 = load ptr, ptr %arrayidx14143, align 8
-  %frame.addr.6.val7336 = load ptr, ptr %frame.addr.6, align 8
-  %co_names14146 = getelementptr inbounds i8, ptr %frame.addr.6.val7336, i64 32
+  %frame.addr.7.val7336 = load ptr, ptr %frame.addr.7, align 8
+  %co_names14146 = getelementptr inbounds i8, ptr %frame.addr.7.val7336, i64 32
   %2870 = load ptr, ptr %co_names14146, align 8
   %ob_item14147 = getelementptr inbounds i8, ptr %2870, i64 24
   %idxprom14148 = zext i16 %2867 to i64
@@ -22591,10 +22591,10 @@ do.end14181:                                      ; preds = %if.end14172, %if.th
 sw.bb14186:                                       ; preds = %for.cond12062
   %oparg14189 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2880 = load i16, ptr %oparg14189, align 2
-  %arrayidx14191 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx14191 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2881 = load ptr, ptr %arrayidx14191, align 8
-  %frame.addr.6.val7337 = load ptr, ptr %frame.addr.6, align 8
-  %co_names14194 = getelementptr inbounds i8, ptr %frame.addr.6.val7337, i64 32
+  %frame.addr.7.val7337 = load ptr, ptr %frame.addr.7, align 8
+  %co_names14194 = getelementptr inbounds i8, ptr %frame.addr.7.val7337, i64 32
   %2882 = load ptr, ptr %co_names14194, align 8
   %ob_item14195 = getelementptr inbounds i8, ptr %2882, i64 24
   %idxprom14196 = zext i16 %2880 to i64
@@ -22627,16 +22627,16 @@ do.end14214:                                      ; preds = %if.end14205, %if.th
 sw.bb14219:                                       ; preds = %for.cond12062
   %oparg14222 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2888 = load i16, ptr %oparg14222, align 2
-  %arrayidx14224 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx14224 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2889 = load ptr, ptr %arrayidx14224, align 8
-  %frame.addr.6.val7338 = load ptr, ptr %frame.addr.6, align 8
-  %co_names14227 = getelementptr inbounds i8, ptr %frame.addr.6.val7338, i64 32
+  %frame.addr.7.val7338 = load ptr, ptr %frame.addr.7, align 8
+  %co_names14227 = getelementptr inbounds i8, ptr %frame.addr.7.val7338, i64 32
   %2890 = load ptr, ptr %co_names14227, align 8
   %ob_item14228 = getelementptr inbounds i8, ptr %2890, i64 24
   %idxprom14229 = zext i16 %2888 to i64
   %arrayidx14230 = getelementptr [1 x ptr], ptr %ob_item14228, i64 0, i64 %idxprom14229
   %2891 = load ptr, ptr %arrayidx14230, align 8
-  %f_globals14232 = getelementptr inbounds i8, ptr %frame.addr.6, i64 24
+  %f_globals14232 = getelementptr inbounds i8, ptr %frame.addr.7, i64 24
   %2892 = load ptr, ptr %f_globals14232, align 8
   %call14233 = call i32 @PyDict_SetItem(ptr noundef %2892, ptr noundef %2891, ptr noundef %2889) #15
   %2893 = load i64, ptr %2889, align 8
@@ -22665,14 +22665,14 @@ do.end14248:                                      ; preds = %if.end14239, %if.th
 sw.bb14253:                                       ; preds = %for.cond12062
   %oparg14255 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2897 = load i16, ptr %oparg14255, align 2
-  %frame.addr.6.val7339 = load ptr, ptr %frame.addr.6, align 8
-  %co_names14259 = getelementptr inbounds i8, ptr %frame.addr.6.val7339, i64 32
+  %frame.addr.7.val7339 = load ptr, ptr %frame.addr.7, align 8
+  %co_names14259 = getelementptr inbounds i8, ptr %frame.addr.7.val7339, i64 32
   %2898 = load ptr, ptr %co_names14259, align 8
   %ob_item14260 = getelementptr inbounds i8, ptr %2898, i64 24
   %idxprom14261 = zext i16 %2897 to i64
   %arrayidx14262 = getelementptr [1 x ptr], ptr %ob_item14260, i64 0, i64 %idxprom14261
   %2899 = load ptr, ptr %arrayidx14262, align 8
-  %f_globals14264 = getelementptr inbounds i8, ptr %frame.addr.6, i64 24
+  %f_globals14264 = getelementptr inbounds i8, ptr %frame.addr.7, i64 24
   %2900 = load ptr, ptr %f_globals14264, align 8
   %call14265 = call i32 @PyDict_DelItem(ptr noundef %2900, ptr noundef %2899) #15
   %cmp14266.not = icmp eq i32 %call14265, 0
@@ -22690,7 +22690,7 @@ if.then14271:                                     ; preds = %if.then14268
   br label %error_tier_two
 
 sw.bb14274:                                       ; preds = %for.cond12062
-  %f_locals14276 = getelementptr inbounds i8, ptr %frame.addr.6, i64 40
+  %f_locals14276 = getelementptr inbounds i8, ptr %frame.addr.7, i64 40
   %2903 = load ptr, ptr %f_locals14276, align 8
   %cmp14277 = icmp eq ptr %2903, null
   br i1 %cmp14277, label %if.then14279, label %if.end14280
@@ -22711,17 +22711,17 @@ if.end.i21142:                                    ; preds = %if.end14280
   br label %Py_INCREF.exit21144
 
 Py_INCREF.exit21144:                              ; preds = %if.end14280, %if.end.i21142
-  store ptr %2903, ptr %stack_pointer.10, align 8
-  %add.ptr14282 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %2903, ptr %stack_pointer.11, align 8
+  %add.ptr14282 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb14283:                                       ; preds = %for.cond12062
   %oparg14287 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2906 = load i16, ptr %oparg14287, align 2
-  %arrayidx14289 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx14289 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2907 = load ptr, ptr %arrayidx14289, align 8
-  %frame.addr.6.val7340 = load ptr, ptr %frame.addr.6, align 8
-  %co_names14292 = getelementptr inbounds i8, ptr %frame.addr.6.val7340, i64 32
+  %frame.addr.7.val7340 = load ptr, ptr %frame.addr.7, align 8
+  %co_names14292 = getelementptr inbounds i8, ptr %frame.addr.7.val7340, i64 32
   %2908 = load ptr, ptr %co_names14292, align 8
   %ob_item14293 = getelementptr inbounds i8, ptr %2908, i64 24
   %idxprom14294 = zext i16 %2906 to i64
@@ -22737,7 +22737,7 @@ if.end14300:                                      ; preds = %sw.bb14283
   br i1 %cmp14301, label %if.then14303, label %do.body14325
 
 if.then14303:                                     ; preds = %if.end14300
-  %f_globals14304 = getelementptr inbounds i8, ptr %frame.addr.6, i64 24
+  %f_globals14304 = getelementptr inbounds i8, ptr %frame.addr.7, i64 24
   %2911 = load ptr, ptr %f_globals14304, align 8
   %call14305 = call i32 @PyDict_GetItemRef(ptr noundef %2911, ptr noundef %2909, ptr noundef nonnull %v14285) #15
   %cmp14306 = icmp slt i32 %call14305, 0
@@ -22749,7 +22749,7 @@ if.end14309:                                      ; preds = %if.then14303
   br i1 %cmp14310, label %if.then14312, label %do.body14325
 
 if.then14312:                                     ; preds = %if.end14309
-  %f_builtins14313 = getelementptr inbounds i8, ptr %frame.addr.6, i64 32
+  %f_builtins14313 = getelementptr inbounds i8, ptr %frame.addr.7, i64 32
   %2913 = load ptr, ptr %f_builtins14313, align 8
   %call14314 = call i32 @PyMapping_GetOptionalItem(ptr noundef %2913, ptr noundef %2909, ptr noundef nonnull %v14285) #15
   %cmp14315 = icmp slt i32 %call14314, 0
@@ -22791,7 +22791,7 @@ do.end14339:                                      ; preds = %if.end14330, %if.th
   br label %for.cond12062.backedge
 
 sw.bb14341:                                       ; preds = %for.cond12062
-  %f_locals14347 = getelementptr inbounds i8, ptr %frame.addr.6, i64 40
+  %f_locals14347 = getelementptr inbounds i8, ptr %frame.addr.7, i64 40
   %2921 = load ptr, ptr %f_locals14347, align 8
   %cmp14348 = icmp eq ptr %2921, null
   br i1 %cmp14348, label %if.then14350, label %if.end14351
@@ -22804,8 +22804,8 @@ if.then14350:                                     ; preds = %sw.bb14341
 if.end14351:                                      ; preds = %sw.bb14341
   %oparg14344 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2923 = load i16, ptr %oparg14344, align 2
-  %frame.addr.6.val7341 = load ptr, ptr %frame.addr.6, align 8
-  %co_names14354 = getelementptr inbounds i8, ptr %frame.addr.6.val7341, i64 32
+  %frame.addr.7.val7341 = load ptr, ptr %frame.addr.7, align 8
+  %co_names14354 = getelementptr inbounds i8, ptr %frame.addr.7.val7341, i64 32
   %2924 = load ptr, ptr %co_names14354, align 8
   %ob_item14355 = getelementptr inbounds i8, ptr %2924, i64 24
   %idxprom14356 = zext i16 %2923 to i64
@@ -22821,7 +22821,7 @@ if.end14362:                                      ; preds = %if.end14351
   br i1 %cmp14363, label %if.then14365, label %if.end14386
 
 if.then14365:                                     ; preds = %if.end14362
-  %f_globals14366 = getelementptr inbounds i8, ptr %frame.addr.6, i64 24
+  %f_globals14366 = getelementptr inbounds i8, ptr %frame.addr.7, i64 24
   %2927 = load ptr, ptr %f_globals14366, align 8
   %call14367 = call i32 @PyDict_GetItemRef(ptr noundef %2927, ptr noundef %2925, ptr noundef nonnull %v14342) #15
   %cmp14368 = icmp slt i32 %call14367, 0
@@ -22833,7 +22833,7 @@ if.end14371:                                      ; preds = %if.then14365
   br i1 %cmp14372, label %if.then14374, label %if.end14386
 
 if.then14374:                                     ; preds = %if.end14371
-  %f_builtins14375 = getelementptr inbounds i8, ptr %frame.addr.6, i64 32
+  %f_builtins14375 = getelementptr inbounds i8, ptr %frame.addr.7, i64 32
   %2929 = load ptr, ptr %f_builtins14375, align 8
   %call14376 = call i32 @PyMapping_GetOptionalItem(ptr noundef %2929, ptr noundef %2925, ptr noundef nonnull %v14342) #15
   %cmp14377 = icmp slt i32 %call14376, 0
@@ -22851,23 +22851,23 @@ if.then14383:                                     ; preds = %if.end14380
 
 if.end14386:                                      ; preds = %if.end14371, %if.end14380, %if.end14362
   %2932 = phi ptr [ %2928, %if.end14371 ], [ %2930, %if.end14380 ], [ %2926, %if.end14362 ]
-  store ptr %2932, ptr %stack_pointer.10, align 8
-  %add.ptr14388 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %2932, ptr %stack_pointer.11, align 8
+  %add.ptr14388 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb14389:                                       ; preds = %for.cond12062
   %oparg14393 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2933 = load i16, ptr %oparg14393, align 2
   %conv14394 = zext i16 %2933 to i32
-  %frame.addr.6.val7342 = load ptr, ptr %frame.addr.6, align 8
-  %co_names14397 = getelementptr inbounds i8, ptr %frame.addr.6.val7342, i64 32
+  %frame.addr.7.val7342 = load ptr, ptr %frame.addr.7, align 8
+  %co_names14397 = getelementptr inbounds i8, ptr %frame.addr.7.val7342, i64 32
   %2934 = load ptr, ptr %co_names14397, align 8
   %ob_item14398 = getelementptr inbounds i8, ptr %2934, i64 24
   %shr14399 = lshr i32 %conv14394, 1
   %idxprom14400 = zext nneg i32 %shr14399 to i64
   %arrayidx14401 = getelementptr [1 x ptr], ptr %ob_item14398, i64 0, i64 %idxprom14400
   %2935 = load ptr, ptr %arrayidx14401, align 8
-  %f_globals14402 = getelementptr inbounds i8, ptr %frame.addr.6, i64 24
+  %f_globals14402 = getelementptr inbounds i8, ptr %frame.addr.7, i64 24
   %2936 = load ptr, ptr %f_globals14402, align 8
   %ob_type14403 = getelementptr inbounds i8, ptr %2936, i64 8
   %2937 = load ptr, ptr %ob_type14403, align 8
@@ -22875,7 +22875,7 @@ sw.bb14389:                                       ; preds = %for.cond12062
   br i1 %cmp14404, label %land.lhs.true14406, label %if.else14423
 
 land.lhs.true14406:                               ; preds = %sw.bb14389
-  %f_builtins14407 = getelementptr inbounds i8, ptr %frame.addr.6, i64 32
+  %f_builtins14407 = getelementptr inbounds i8, ptr %frame.addr.7, i64 32
   %2938 = load ptr, ptr %f_builtins14407, align 8
   %ob_type14408 = getelementptr inbounds i8, ptr %2938, i64 8
   %2939 = load ptr, ptr %ob_type14408, align 8
@@ -22926,7 +22926,7 @@ if.end14429:                                      ; preds = %if.else14423
   br i1 %cmp14430, label %if.then14432, label %if.end14444
 
 if.then14432:                                     ; preds = %if.end14429
-  %f_builtins14433 = getelementptr inbounds i8, ptr %frame.addr.6, i64 32
+  %f_builtins14433 = getelementptr inbounds i8, ptr %frame.addr.7, i64 32
   %2944 = load ptr, ptr %f_builtins14433, align 8
   %call14434 = call i32 @PyMapping_GetOptionalItem(ptr noundef %2944, ptr noundef %2935, ptr noundef nonnull %res14390) #15
   %cmp14435 = icmp slt i32 %call14434, 0
@@ -22944,24 +22944,24 @@ if.then14441:                                     ; preds = %if.end14438
 
 if.end14444:                                      ; preds = %if.end14429, %if.end14438, %if.end.i21134, %if.end14422
   %2947 = phi ptr [ %2943, %if.end14429 ], [ %2945, %if.end14438 ], [ %.pre11855, %if.end.i21134 ], [ %call14414, %if.end14422 ]
-  store ptr %2947, ptr %stack_pointer.10, align 8
+  store ptr %2947, ptr %stack_pointer.11, align 8
   %and14446 = and i32 %conv14394, 1
   %tobool14447.not = icmp eq i32 %and14446, 0
   br i1 %tobool14447.not, label %if.end14450, label %if.then14448
 
 if.then14448:                                     ; preds = %if.end14444
-  %arrayidx14449 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  %arrayidx14449 = getelementptr i8, ptr %stack_pointer.11, i64 8
   store ptr null, ptr %arrayidx14449, align 8
   br label %if.end14450
 
 if.end14450:                                      ; preds = %if.then14448, %if.end14444
   %add14452 = add nuw nsw i32 %and14446, 1
   %idx.ext14453 = zext nneg i32 %add14452 to i64
-  %add.ptr14454 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext14453
+  %add.ptr14454 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext14453
   br label %for.cond12062.backedge
 
 sw.bb14455:                                       ; preds = %for.cond12062
-  %f_globals14461 = getelementptr inbounds i8, ptr %frame.addr.6, i64 24
+  %f_globals14461 = getelementptr inbounds i8, ptr %frame.addr.7, i64 24
   %2948 = load ptr, ptr %f_globals14461, align 8
   %ob_type14462 = getelementptr inbounds i8, ptr %2948, i64 8
   %2949 = load ptr, ptr %ob_type14462, align 8
@@ -22981,7 +22981,7 @@ if.end14466:                                      ; preds = %sw.bb14455
   br i1 %cmp14470.not, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb14474:                                       ; preds = %for.cond12062
-  %f_builtins14480 = getelementptr inbounds i8, ptr %frame.addr.6, i64 32
+  %f_builtins14480 = getelementptr inbounds i8, ptr %frame.addr.7, i64 32
   %2953 = load ptr, ptr %f_builtins14480, align 8
   %ob_type14481 = getelementptr inbounds i8, ptr %2953, i64 8
   %2954 = load ptr, ptr %ob_type14481, align 8
@@ -23005,7 +23005,7 @@ sw.bb14493:                                       ; preds = %for.cond12062
   %2958 = load i16, ptr %oparg14497, align 2
   %operand14501 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %2959 = load i64, ptr %operand14501, align 8
-  %f_globals14504 = getelementptr inbounds i8, ptr %frame.addr.6, i64 24
+  %f_globals14504 = getelementptr inbounds i8, ptr %frame.addr.7, i64 24
   %2960 = load ptr, ptr %f_globals14504, align 8
   %ma_keys14506 = getelementptr inbounds i8, ptr %2960, i64 32
   %2961 = load ptr, ptr %ma_keys14506, align 8
@@ -23032,20 +23032,20 @@ if.end.i21126:                                    ; preds = %if.end14514
   br label %Py_INCREF.exit21128
 
 Py_INCREF.exit21128:                              ; preds = %if.end14514, %if.end.i21126
-  store ptr %2963, ptr %stack_pointer.10, align 8
+  store ptr %2963, ptr %stack_pointer.11, align 8
   %2965 = and i16 %2958, 1
   %tobool14517.not = icmp eq i16 %2965, 0
   br i1 %tobool14517.not, label %if.end14520, label %if.then14518
 
 if.then14518:                                     ; preds = %Py_INCREF.exit21128
-  %arrayidx14519 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  %arrayidx14519 = getelementptr i8, ptr %stack_pointer.11, i64 8
   store ptr null, ptr %arrayidx14519, align 8
   br label %if.end14520
 
 if.end14520:                                      ; preds = %if.then14518, %Py_INCREF.exit21128
   %narrow6811 = add nuw nsw i16 %2965, 1
   %idx.ext14523 = zext nneg i16 %narrow6811 to i64
-  %add.ptr14524 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext14523
+  %add.ptr14524 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext14523
   br label %for.cond12062.backedge
 
 sw.bb14525:                                       ; preds = %for.cond12062
@@ -23053,7 +23053,7 @@ sw.bb14525:                                       ; preds = %for.cond12062
   %2966 = load i16, ptr %oparg14529, align 2
   %operand14533 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %2967 = load i64, ptr %operand14533, align 8
-  %f_builtins14536 = getelementptr inbounds i8, ptr %frame.addr.6, i64 32
+  %f_builtins14536 = getelementptr inbounds i8, ptr %frame.addr.7, i64 32
   %2968 = load ptr, ptr %f_builtins14536, align 8
   %ma_keys14538 = getelementptr inbounds i8, ptr %2968, i64 32
   %2969 = load ptr, ptr %ma_keys14538, align 8
@@ -23080,26 +23080,26 @@ if.end.i21118:                                    ; preds = %if.end14546
   br label %Py_INCREF.exit21120
 
 Py_INCREF.exit21120:                              ; preds = %if.end14546, %if.end.i21118
-  store ptr %2971, ptr %stack_pointer.10, align 8
+  store ptr %2971, ptr %stack_pointer.11, align 8
   %2973 = and i16 %2966, 1
   %tobool14549.not = icmp eq i16 %2973, 0
   br i1 %tobool14549.not, label %if.end14552, label %if.then14550
 
 if.then14550:                                     ; preds = %Py_INCREF.exit21120
-  %arrayidx14551 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  %arrayidx14551 = getelementptr i8, ptr %stack_pointer.11, i64 8
   store ptr null, ptr %arrayidx14551, align 8
   br label %if.end14552
 
 if.end14552:                                      ; preds = %if.then14550, %Py_INCREF.exit21120
   %narrow = add nuw nsw i16 %2973, 1
   %idx.ext14555 = zext nneg i16 %narrow to i64
-  %add.ptr14556 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext14555
+  %add.ptr14556 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext14555
   br label %for.cond12062.backedge
 
 sw.bb14557:                                       ; preds = %for.cond12062
   %oparg14559 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2974 = load i16, ptr %oparg14559, align 2
-  %localsplus14562 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
+  %localsplus14562 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
   %idxprom14563 = zext i16 %2974 to i64
   %arrayidx14564 = getelementptr [1 x ptr], ptr %localsplus14562, i64 0, i64 %idxprom14563
   %2975 = load ptr, ptr %arrayidx14564, align 8
@@ -23130,7 +23130,7 @@ if.then14591:                                     ; preds = %if.end14587
 sw.bb14600:                                       ; preds = %for.cond12062
   %oparg14602 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2980 = load i16, ptr %oparg14602, align 2
-  %localsplus14605 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
+  %localsplus14605 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
   %idxprom14606 = zext i16 %2980 to i64
   %arrayidx14607 = getelementptr [1 x ptr], ptr %localsplus14605, i64 0, i64 %idxprom14606
   %2981 = load ptr, ptr %arrayidx14607, align 8
@@ -23167,7 +23167,7 @@ if.then14636:                                     ; preds = %if.end14632
 sw.bb14645:                                       ; preds = %for.cond12062
   %oparg14647 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2987 = load i16, ptr %oparg14647, align 2
-  %localsplus14650 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
+  %localsplus14650 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
   %idxprom14651 = zext i16 %2987 to i64
   %arrayidx14652 = getelementptr [1 x ptr], ptr %localsplus14650, i64 0, i64 %idxprom14651
   %2988 = load ptr, ptr %arrayidx14652, align 8
@@ -23178,8 +23178,8 @@ sw.bb14645:                                       ; preds = %for.cond12062
 
 if.then14657:                                     ; preds = %sw.bb14645
   %conv14648 = zext i16 %2987 to i32
-  %frame.addr.6.val7343 = load ptr, ptr %frame.addr.6, align 8
-  call void @_PyEval_FormatExcUnbound(ptr noundef %tstate, ptr noundef %frame.addr.6.val7343, i32 noundef %conv14648)
+  %frame.addr.7.val7343 = load ptr, ptr %frame.addr.7, align 8
+  call void @_PyEval_FormatExcUnbound(ptr noundef %tstate, ptr noundef %frame.addr.7.val7343, i32 noundef %conv14648)
   br label %error_tier_two
 
 if.end14659:                                      ; preds = %sw.bb14645
@@ -23206,10 +23206,10 @@ if.then14669:                                     ; preds = %if.end14665
 sw.bb14675:                                       ; preds = %for.cond12062
   %oparg14679 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %2994 = load i16, ptr %oparg14679, align 2
-  %arrayidx14681 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx14681 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %2995 = load ptr, ptr %arrayidx14681, align 8
-  %frame.addr.6.val7344 = load ptr, ptr %frame.addr.6, align 8
-  %co_localsplusnames14684 = getelementptr inbounds i8, ptr %frame.addr.6.val7344, i64 96
+  %frame.addr.7.val7344 = load ptr, ptr %frame.addr.7, align 8
+  %co_localsplusnames14684 = getelementptr inbounds i8, ptr %frame.addr.7.val7344, i64 96
   %2996 = load ptr, ptr %co_localsplusnames14684, align 8
   %ob_item14685 = getelementptr inbounds i8, ptr %2996, i64 24
   %idxprom14686 = zext i16 %2994 to i64
@@ -23225,7 +23225,7 @@ if.end14692:                                      ; preds = %sw.bb14675
   br i1 %tobool14693.not, label %if.then14694, label %do.body14706
 
 if.then14694:                                     ; preds = %if.end14692
-  %localsplus14696 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
+  %localsplus14696 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
   %arrayidx14698 = getelementptr [1 x ptr], ptr %localsplus14696, i64 0, i64 %idxprom14686
   %2999 = load ptr, ptr %arrayidx14698, align 8
   %3000 = getelementptr i8, ptr %2999, i64 16
@@ -23236,8 +23236,8 @@ if.then14694:                                     ; preds = %if.end14692
 
 if.then14702:                                     ; preds = %if.then14694
   %conv14680.le = zext i16 %2994 to i32
-  %frame.addr.6.val7345 = load ptr, ptr %frame.addr.6, align 8
-  call void @_PyEval_FormatExcUnbound(ptr noundef %tstate, ptr noundef %frame.addr.6.val7345, i32 noundef %conv14680.le)
+  %frame.addr.7.val7345 = load ptr, ptr %frame.addr.7, align 8
+  call void @_PyEval_FormatExcUnbound(ptr noundef %tstate, ptr noundef %frame.addr.7.val7345, i32 noundef %conv14680.le)
   br label %error_tier_two
 
 if.end14704:                                      ; preds = %if.then14694
@@ -23278,7 +23278,7 @@ do.end14720:                                      ; preds = %if.end14711, %if.th
 sw.bb14722:                                       ; preds = %for.cond12062
   %oparg14725 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3007 = load i16, ptr %oparg14725, align 2
-  %localsplus14728 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
+  %localsplus14728 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
   %idxprom14729 = zext i16 %3007 to i64
   %arrayidx14730 = getelementptr [1 x ptr], ptr %localsplus14728, i64 0, i64 %idxprom14729
   %3008 = load ptr, ptr %arrayidx14730, align 8
@@ -23289,8 +23289,8 @@ sw.bb14722:                                       ; preds = %for.cond12062
 
 if.then14734:                                     ; preds = %sw.bb14722
   %conv14726 = zext i16 %3007 to i32
-  %frame.addr.6.val7346 = load ptr, ptr %frame.addr.6, align 8
-  call void @_PyEval_FormatExcUnbound(ptr noundef %tstate, ptr noundef %frame.addr.6.val7346, i32 noundef %conv14726)
+  %frame.addr.7.val7346 = load ptr, ptr %frame.addr.7, align 8
+  call void @_PyEval_FormatExcUnbound(ptr noundef %tstate, ptr noundef %frame.addr.7.val7346, i32 noundef %conv14726)
   br label %error_tier_two
 
 if.end14736:                                      ; preds = %sw.bb14722
@@ -23304,16 +23304,16 @@ if.end.i21102:                                    ; preds = %if.end14736
   br label %Py_INCREF.exit21104
 
 Py_INCREF.exit21104:                              ; preds = %if.end14736, %if.end.i21102
-  store ptr %.val7420, ptr %stack_pointer.10, align 8
-  %add.ptr14738 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %.val7420, ptr %stack_pointer.11, align 8
+  %add.ptr14738 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb14739:                                       ; preds = %for.cond12062
   %oparg14742 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3011 = load i16, ptr %oparg14742, align 2
-  %arrayidx14744 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx14744 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3012 = load ptr, ptr %arrayidx14744, align 8
-  %localsplus14746 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
+  %localsplus14746 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
   %idxprom14747 = zext i16 %3011 to i64
   %arrayidx14748 = getelementptr [1 x ptr], ptr %localsplus14746, i64 0, i64 %idxprom14747
   %3013 = load ptr, ptr %arrayidx14748, align 8
@@ -23347,8 +23347,8 @@ sw.bb14774:                                       ; preds = %for.cond12062
   %oparg14776 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3019 = load i16, ptr %oparg14776, align 2
   %conv14777 = zext i16 %3019 to i32
-  %frame.addr.6.val7347 = load ptr, ptr %frame.addr.6, align 8
-  %co_nlocalsplus14784 = getelementptr inbounds i8, ptr %frame.addr.6.val7347, i64 72
+  %frame.addr.7.val7347 = load ptr, ptr %frame.addr.7, align 8
+  %co_nlocalsplus14784 = getelementptr inbounds i8, ptr %frame.addr.7.val7347, i64 72
   %3020 = load i32, ptr %co_nlocalsplus14784, align 8
   %sub14785 = sub i32 %3020, %conv14777
   %cmp1478810349.not = icmp eq i16 %3019, 0
@@ -23356,17 +23356,17 @@ sw.bb14774:                                       ; preds = %for.cond12062
 
 for.cond12062.backedge:                           ; preds = %_Py_NewRef.exit8889, %sw.bb14774, %sw.bb15787, %_PyList_AppendTakeRef.exit8816.thread, %do.body19253, %if.then19262, %if.end19258, %sw.bb19238, %sw.bb19230, %sw.bb19222, %sw.bb17782, %do.body16095, %if.then16104, %if.end16100, %do.body16043, %if.then16052, %if.end16048, %sw.bb15366, %do.body15350, %if.then15359, %if.end15355, %do.body15298, %if.then15307, %if.end15303, %do.end14989, %do.body14946, %if.then14955, %if.end14951, %do.body14756, %if.then14765, %if.end14761, %sw.bb14739, %do.end14248, %do.end14214, %do.end14181, %do.end13886, %sw.bb13777, %if.end13796, %if.then13800, %do.body13791, %do.end13432, %do.end13391, %do.body13347, %if.then13356, %if.end13352, %do.end13280, %do.end13222, %_PyList_AppendTakeRef.exit8816, %do.end12927, %sw.bb12167, %if.then12179, %if.end12175, %sw.bb12129, %if.end12153, %if.then12157, %do.body12148, %sw.bb19319, %sw.bb19269, %if.then19278, %if.end18866, %if.then18879, %if.end18747, %if.then18760, %if.end18634, %if.then18647, %if.end18514, %if.then18527, %if.end18190, %if.then18203, %if.end18085, %if.then18098, %if.end17980, %if.then17993, %if.end17876, %if.then17889, %if.end17762, %if.then17775, %if.end17678, %if.then17691, %if.end17488, %if.end17463, %sw.bb17431, %if.end17384, %sw.bb17342, %sw.bb17240, %sw.bb17228, %land.lhs.true17236, %sw.bb16940, %sw.bb16931, %if.end16910, %sw.bb16893, %if.end16872, %sw.bb16855, %sw.bb15991, %if.end15949, %if.end15729, %sw.bb15659, %land.lhs.true15667, %sw.bb15645, %do.end15162, %if.end15172, %if.then15176, %do.body15167, %if.end14659, %if.then14669, %if.end14665, %do.body14614, %if.end14632, %if.then14636, %do.body14627, %if.end14587, %if.then14591, %do.body14569, %if.end14485, %if.end14466, %sw.bb14253, %if.end13908, %if.end12725, %if.end12572, %if.end12440, %sw.bb12273, %sw.bb12067, %for.cond12062, %sw.bb19302, %sw.bb19295, %sw.bb19285, %sw.bb19206, %if.end19203, %_Py_NewRef.exit9227, %if.end19142, %if.end19100, %if.end19069, %if.end19027, %sw.bb18914, %if.end18911, %if.end18397, %if.end18291, %do.end17607, %sw.bb17539, %for.end17532, %do.end17424, %_Py_NewRef.exit9070, %_Py_NewRef.exit9066, %_Py_NewRef.exit9062, %_Py_NewRef.exit9058, %_Py_NewRef.exit9054, %_Py_NewRef.exit9048, %if.end17207, %if.end17160, %if.end17062, %if.end16965, %_Py_NewRef.exit8994, %_Py_NewRef.exit8990, %if.end16852, %if.end16816, %if.end16773, %if.end16747, %sw.bb16724, %sw.bb16711, %if.end16708, %if.end16640, %if.end16624, %do.end16597, %if.end16552, %if.end16461, %do.end16412, %do.end16363, %do.end16311, %do.end16241, %if.end16182, %if.end15987, %if.end15935, %if.end15891, %if.end15783, %if.end15714, %if.end15641, %if.end15568, %if.end15460, %if.end15253, %if.end15114, %if.end15062, %if.end14892, %if.end14868, %if.end14844, %Py_INCREF.exit21104, %do.end14720, %if.end14552, %if.end14520, %if.end14450, %if.end14386, %do.end14339, %Py_INCREF.exit21144, %if.end14130, %do.end14089, %do.end14039, %do.end13988, %if.end13944, %if.end13826, %_Py_NewRef.exit8852, %if.end13775, %if.end13689, %if.end13609, %sw.bb13517, %if.end13514, %if.end13466, %if.end13175, %do.end13122, %do.end13060, %do.end12991, %if.end12862, %if.end12810, %if.end12767, %do.end12713, %do.end12667, %do.end12621, %if.end12560, %if.end12521, %if.end12482, %if.end12429, %do.end12404, %if.end12375, %if.end12345, %do.end12336, %if.end12308, %if.end12269, %sw.bb12237, %if.end12235, %do.end12209, %sw.bb12186, %Py_INCREF.exit21168, %sw.bb12104, %Py_INCREF.exit21176, %Py_INCREF.exit21184
   %next_uop.0.be = phi ptr [ %incdec.ptr12064, %sw.bb19319 ], [ %incdec.ptr12064, %sw.bb19302 ], [ %incdec.ptr12064, %sw.bb19295 ], [ %incdec.ptr12064, %sw.bb19285 ], [ %trace, %if.then19278 ], [ %trace, %sw.bb19269 ], [ %incdec.ptr12064, %sw.bb19206 ], [ %incdec.ptr12064, %if.end19203 ], [ %incdec.ptr12064, %_Py_NewRef.exit9227 ], [ %incdec.ptr12064, %if.end19142 ], [ %incdec.ptr12064, %if.end19100 ], [ %incdec.ptr12064, %if.end19069 ], [ %incdec.ptr12064, %if.end19027 ], [ %incdec.ptr12064, %sw.bb18914 ], [ %incdec.ptr12064, %if.end18911 ], [ %incdec.ptr12064, %if.then18879 ], [ %incdec.ptr12064, %if.end18866 ], [ %incdec.ptr12064, %if.then18760 ], [ %incdec.ptr12064, %if.end18747 ], [ %incdec.ptr12064, %if.then18647 ], [ %incdec.ptr12064, %if.end18634 ], [ %incdec.ptr12064, %if.then18527 ], [ %incdec.ptr12064, %if.end18514 ], [ %incdec.ptr12064, %if.end18397 ], [ %incdec.ptr12064, %if.end18291 ], [ %incdec.ptr12064, %if.then18203 ], [ %incdec.ptr12064, %if.end18190 ], [ %incdec.ptr12064, %if.then18098 ], [ %incdec.ptr12064, %if.end18085 ], [ %incdec.ptr12064, %if.then17993 ], [ %incdec.ptr12064, %if.end17980 ], [ %incdec.ptr12064, %if.then17889 ], [ %incdec.ptr12064, %if.end17876 ], [ %incdec.ptr12064, %if.then17775 ], [ %incdec.ptr12064, %if.end17762 ], [ %incdec.ptr12064, %if.then17691 ], [ %incdec.ptr12064, %if.end17678 ], [ %incdec.ptr12064, %do.end17607 ], [ %incdec.ptr12064, %sw.bb17539 ], [ %incdec.ptr12064, %for.end17532 ], [ %incdec.ptr12064, %if.end17488 ], [ %incdec.ptr12064, %if.end17463 ], [ %incdec.ptr12064, %sw.bb17431 ], [ %incdec.ptr12064, %do.end17424 ], [ %incdec.ptr12064, %if.end17384 ], [ %incdec.ptr12064, %_Py_NewRef.exit9070 ], [ %incdec.ptr12064, %sw.bb17342 ], [ %incdec.ptr12064, %_Py_NewRef.exit9066 ], [ %incdec.ptr12064, %_Py_NewRef.exit9062 ], [ %incdec.ptr12064, %_Py_NewRef.exit9058 ], [ %incdec.ptr12064, %_Py_NewRef.exit9054 ], [ %incdec.ptr12064, %sw.bb17240 ], [ %incdec.ptr12064, %sw.bb17228 ], [ %incdec.ptr12064, %land.lhs.true17236 ], [ %incdec.ptr12064, %_Py_NewRef.exit9048 ], [ %incdec.ptr12064, %if.end17207 ], [ %incdec.ptr12064, %if.end17160 ], [ %incdec.ptr12064, %if.end17062 ], [ %incdec.ptr12064, %if.end16965 ], [ %incdec.ptr12064, %sw.bb16940 ], [ %incdec.ptr12064, %sw.bb16931 ], [ %incdec.ptr12064, %_Py_NewRef.exit8994 ], [ %incdec.ptr12064, %if.end16910 ], [ %incdec.ptr12064, %sw.bb16893 ], [ %incdec.ptr12064, %_Py_NewRef.exit8990 ], [ %incdec.ptr12064, %if.end16872 ], [ %incdec.ptr12064, %sw.bb16855 ], [ %incdec.ptr12064, %if.end16852 ], [ %incdec.ptr12064, %if.end16816 ], [ %incdec.ptr12064, %if.end16773 ], [ %incdec.ptr12064, %if.end16747 ], [ %incdec.ptr12064, %sw.bb16724 ], [ %incdec.ptr12064, %sw.bb16711 ], [ %incdec.ptr12064, %if.end16708 ], [ %incdec.ptr12064, %if.end16640 ], [ %incdec.ptr12064, %if.end16624 ], [ %incdec.ptr12064, %do.end16597 ], [ %incdec.ptr12064, %if.end16552 ], [ %incdec.ptr12064, %if.end16461 ], [ %incdec.ptr12064, %do.end16412 ], [ %incdec.ptr12064, %do.end16363 ], [ %incdec.ptr12064, %do.end16311 ], [ %incdec.ptr12064, %do.end16241 ], [ %incdec.ptr12064, %if.end16182 ], [ %incdec.ptr12064, %sw.bb15991 ], [ %incdec.ptr12064, %if.end15987 ], [ %incdec.ptr12064, %if.end15949 ], [ %incdec.ptr12064, %if.end15935 ], [ %incdec.ptr12064, %if.end15891 ], [ %incdec.ptr12064, %if.end15783 ], [ %incdec.ptr12064, %if.end15729 ], [ %incdec.ptr12064, %if.end15714 ], [ %incdec.ptr12064, %sw.bb15659 ], [ %incdec.ptr12064, %land.lhs.true15667 ], [ %incdec.ptr12064, %sw.bb15645 ], [ %incdec.ptr12064, %if.end15641 ], [ %incdec.ptr12064, %if.end15568 ], [ %incdec.ptr12064, %if.end15460 ], [ %incdec.ptr12064, %if.end15253 ], [ %incdec.ptr12064, %do.end15162 ], [ %incdec.ptr12064, %do.body15167 ], [ %incdec.ptr12064, %if.then15176 ], [ %incdec.ptr12064, %if.end15172 ], [ %incdec.ptr12064, %if.end15114 ], [ %incdec.ptr12064, %if.end15062 ], [ %incdec.ptr12064, %if.end14892 ], [ %incdec.ptr12064, %if.end14868 ], [ %incdec.ptr12064, %if.end14844 ], [ %incdec.ptr12064, %Py_INCREF.exit21104 ], [ %incdec.ptr12064, %do.end14720 ], [ %incdec.ptr12064, %if.end14659 ], [ %incdec.ptr12064, %if.then14669 ], [ %incdec.ptr12064, %if.end14665 ], [ %incdec.ptr12064, %do.body14627 ], [ %incdec.ptr12064, %if.then14636 ], [ %incdec.ptr12064, %if.end14632 ], [ %incdec.ptr12064, %do.body14614 ], [ %incdec.ptr12064, %do.body14569 ], [ %incdec.ptr12064, %if.then14591 ], [ %incdec.ptr12064, %if.end14587 ], [ %incdec.ptr12064, %if.end14552 ], [ %incdec.ptr12064, %if.end14520 ], [ %incdec.ptr12064, %if.end14485 ], [ %incdec.ptr12064, %if.end14466 ], [ %incdec.ptr12064, %if.end14450 ], [ %incdec.ptr12064, %if.end14386 ], [ %incdec.ptr12064, %do.end14339 ], [ %incdec.ptr12064, %Py_INCREF.exit21144 ], [ %incdec.ptr12064, %sw.bb14253 ], [ %incdec.ptr12064, %if.end14130 ], [ %incdec.ptr12064, %do.end14089 ], [ %incdec.ptr12064, %do.end14039 ], [ %incdec.ptr12064, %do.end13988 ], [ %incdec.ptr12064, %if.end13944 ], [ %incdec.ptr12064, %if.end13908 ], [ %incdec.ptr12064, %if.end13826 ], [ %incdec.ptr12064, %_Py_NewRef.exit8852 ], [ %incdec.ptr12064, %if.end13775 ], [ %incdec.ptr12064, %if.end13689 ], [ %incdec.ptr12064, %if.end13609 ], [ %incdec.ptr12064, %sw.bb13517 ], [ %incdec.ptr12064, %if.end13514 ], [ %incdec.ptr12064, %if.end13466 ], [ %incdec.ptr12064, %if.end13175 ], [ %incdec.ptr12064, %do.end13122 ], [ %incdec.ptr12064, %do.end13060 ], [ %incdec.ptr12064, %do.end12991 ], [ %incdec.ptr12064, %if.end12862 ], [ %incdec.ptr12064, %if.end12810 ], [ %incdec.ptr12064, %if.end12767 ], [ %incdec.ptr12064, %if.end12725 ], [ %incdec.ptr12064, %do.end12713 ], [ %incdec.ptr12064, %do.end12667 ], [ %incdec.ptr12064, %do.end12621 ], [ %incdec.ptr12064, %if.end12572 ], [ %incdec.ptr12064, %if.end12560 ], [ %incdec.ptr12064, %if.end12521 ], [ %incdec.ptr12064, %if.end12482 ], [ %incdec.ptr12064, %if.end12440 ], [ %incdec.ptr12064, %if.end12429 ], [ %incdec.ptr12064, %do.end12404 ], [ %incdec.ptr12064, %if.end12375 ], [ %incdec.ptr12064, %if.end12345 ], [ %incdec.ptr12064, %do.end12336 ], [ %incdec.ptr12064, %if.end12308 ], [ %incdec.ptr12064, %sw.bb12273 ], [ %incdec.ptr12064, %if.end12269 ], [ %incdec.ptr12064, %sw.bb12237 ], [ %incdec.ptr12064, %if.end12235 ], [ %incdec.ptr12064, %do.end12209 ], [ %incdec.ptr12064, %sw.bb12186 ], [ %incdec.ptr12064, %Py_INCREF.exit21168 ], [ %incdec.ptr12064, %sw.bb12104 ], [ %incdec.ptr12064, %Py_INCREF.exit21176 ], [ %incdec.ptr12064, %Py_INCREF.exit21184 ], [ %incdec.ptr12064, %sw.bb12067 ], [ %incdec.ptr12064, %for.cond12062 ], [ %incdec.ptr12064, %do.body12148 ], [ %incdec.ptr12064, %if.then12157 ], [ %incdec.ptr12064, %if.end12153 ], [ %incdec.ptr12064, %sw.bb12129 ], [ %incdec.ptr12064, %if.end12175 ], [ %incdec.ptr12064, %if.then12179 ], [ %incdec.ptr12064, %sw.bb12167 ], [ %incdec.ptr12064, %do.end12927 ], [ %incdec.ptr12064, %_PyList_AppendTakeRef.exit8816 ], [ %incdec.ptr12064, %do.end13222 ], [ %incdec.ptr12064, %do.end13280 ], [ %incdec.ptr12064, %if.end13352 ], [ %incdec.ptr12064, %if.then13356 ], [ %incdec.ptr12064, %do.body13347 ], [ %incdec.ptr12064, %do.end13391 ], [ %incdec.ptr12064, %do.end13432 ], [ %incdec.ptr12064, %do.body13791 ], [ %incdec.ptr12064, %if.then13800 ], [ %incdec.ptr12064, %if.end13796 ], [ %incdec.ptr12064, %sw.bb13777 ], [ %incdec.ptr12064, %do.end13886 ], [ %incdec.ptr12064, %do.end14181 ], [ %incdec.ptr12064, %do.end14214 ], [ %incdec.ptr12064, %do.end14248 ], [ %incdec.ptr12064, %sw.bb14739 ], [ %incdec.ptr12064, %if.end14761 ], [ %incdec.ptr12064, %if.then14765 ], [ %incdec.ptr12064, %do.body14756 ], [ %incdec.ptr12064, %if.end14951 ], [ %incdec.ptr12064, %if.then14955 ], [ %incdec.ptr12064, %do.body14946 ], [ %incdec.ptr12064, %do.end14989 ], [ %incdec.ptr12064, %if.end15303 ], [ %incdec.ptr12064, %if.then15307 ], [ %incdec.ptr12064, %do.body15298 ], [ %incdec.ptr12064, %if.end15355 ], [ %incdec.ptr12064, %if.then15359 ], [ %incdec.ptr12064, %do.body15350 ], [ %incdec.ptr12064, %sw.bb15366 ], [ %incdec.ptr12064, %if.end16048 ], [ %incdec.ptr12064, %if.then16052 ], [ %incdec.ptr12064, %do.body16043 ], [ %incdec.ptr12064, %if.end16100 ], [ %incdec.ptr12064, %if.then16104 ], [ %incdec.ptr12064, %do.body16095 ], [ %incdec.ptr12064, %sw.bb17782 ], [ %incdec.ptr12064, %sw.bb19222 ], [ %incdec.ptr12064, %sw.bb19230 ], [ %incdec.ptr12064, %sw.bb19238 ], [ %incdec.ptr12064, %if.end19258 ], [ %incdec.ptr12064, %if.then19262 ], [ %incdec.ptr12064, %do.body19253 ], [ %incdec.ptr12064, %_PyList_AppendTakeRef.exit8816.thread ], [ %incdec.ptr12064, %sw.bb15787 ], [ %incdec.ptr12064, %sw.bb14774 ], [ %incdec.ptr12064, %_Py_NewRef.exit8889 ]
-  %stack_pointer.10.be = phi ptr [ %stack_pointer.10, %sw.bb19319 ], [ %stack_pointer.10, %sw.bb19302 ], [ %stack_pointer.10, %sw.bb19295 ], [ %stack_pointer.10, %sw.bb19285 ], [ %stack_pointer.10, %if.then19278 ], [ %stack_pointer.10, %sw.bb19269 ], [ %stack_pointer.10, %sw.bb19206 ], [ %arrayidx19165, %if.end19203 ], [ %add.ptr19157, %_Py_NewRef.exit9227 ], [ %arrayidx19106, %if.end19142 ], [ %stack_pointer.10, %if.end19100 ], [ %stack_pointer.10, %if.end19069 ], [ %arrayidx18958, %if.end19027 ], [ %arrayidx18920, %sw.bb18914 ], [ %stack_pointer.10, %if.end18911 ], [ %arrayidx18780, %if.then18879 ], [ %arrayidx18780, %if.end18866 ], [ %arrayidx18667, %if.then18760 ], [ %arrayidx18667, %if.end18747 ], [ %arrayidx18547, %if.then18647 ], [ %arrayidx18547, %if.end18634 ], [ %arrayidx18417, %if.then18527 ], [ %arrayidx18417, %if.end18514 ], [ %arrayidx18311, %if.end18397 ], [ %arrayidx18223, %if.end18291 ], [ %arrayidx18118, %if.then18203 ], [ %arrayidx18118, %if.end18190 ], [ %arrayidx18013, %if.then18098 ], [ %arrayidx18013, %if.end18085 ], [ %arrayidx17909, %if.then17993 ], [ %arrayidx17909, %if.end17980 ], [ %arrayidx17806, %if.then17889 ], [ %arrayidx17806, %if.end17876 ], [ %arrayidx17711, %if.then17775 ], [ %arrayidx17711, %if.end17762 ], [ %arrayidx17627, %if.then17691 ], [ %arrayidx17627, %if.end17678 ], [ %arrayidx17562, %do.end17607 ], [ %add.ptr.i9132, %sw.bb17539 ], [ %arrayidx17507, %for.end17532 ], [ %stack_pointer.10, %if.end17488 ], [ %stack_pointer.10, %if.end17463 ], [ %stack_pointer.10, %sw.bb17431 ], [ %stack_pointer.10, %do.end17424 ], [ %stack_pointer.10, %if.end17384 ], [ %add.ptr17368, %_Py_NewRef.exit9070 ], [ %stack_pointer.10, %sw.bb17342 ], [ %stack_pointer.10, %_Py_NewRef.exit9066 ], [ %stack_pointer.10, %_Py_NewRef.exit9062 ], [ %add.ptr17285, %_Py_NewRef.exit9058 ], [ %add.ptr17270, %_Py_NewRef.exit9054 ], [ %stack_pointer.10, %sw.bb17240 ], [ %stack_pointer.10, %sw.bb17228 ], [ %stack_pointer.10, %land.lhs.true17236 ], [ %add.ptr17227, %_Py_NewRef.exit9048 ], [ %add.ptr17209, %if.end17207 ], [ %add.ptr17163, %if.end17160 ], [ %add.ptr17065, %if.end17062 ], [ %add.ptr16967, %if.end16965 ], [ %stack_pointer.10, %sw.bb16940 ], [ %stack_pointer.10, %sw.bb16931 ], [ %add.ptr16930, %_Py_NewRef.exit8994 ], [ %stack_pointer.10, %if.end16910 ], [ %stack_pointer.10, %sw.bb16893 ], [ %add.ptr16892, %_Py_NewRef.exit8990 ], [ %stack_pointer.10, %if.end16872 ], [ %stack_pointer.10, %sw.bb16855 ], [ %add.ptr16854, %if.end16852 ], [ %stack_pointer.10, %if.end16816 ], [ %stack_pointer.10, %if.end16773 ], [ %add.ptr16749, %if.end16747 ], [ %add.ptr16736, %sw.bb16724 ], [ %add.ptr16723, %sw.bb16711 ], [ %arrayidx16652, %if.end16708 ], [ %add.ptr16642, %if.end16640 ], [ %stack_pointer.10, %if.end16624 ], [ %stack_pointer.10, %do.end16597 ], [ %stack_pointer.10, %if.end16552 ], [ %arrayidx16424, %if.end16461 ], [ %arrayidx16377, %do.end16412 ], [ %arrayidx16324, %do.end16363 ], [ %arrayidx16254, %do.end16311 ], [ %arrayidx16192, %do.end16241 ], [ %arrayidx16118, %if.end16182 ], [ %stack_pointer.10, %sw.bb15991 ], [ %add.ptr15990, %if.end15987 ], [ %stack_pointer.10, %if.end15949 ], [ %add.ptr15938, %if.end15935 ], [ %add.ptr15894, %if.end15891 ], [ %add.ptr15786, %if.end15783 ], [ %stack_pointer.10, %if.end15729 ], [ %add.ptr15717, %if.end15714 ], [ %stack_pointer.10, %sw.bb15659 ], [ %stack_pointer.10, %land.lhs.true15667 ], [ %stack_pointer.10, %sw.bb15645 ], [ %add.ptr15644, %if.end15641 ], [ %arrayidx15472, %if.end15568 ], [ %arrayidx15394, %if.end15460 ], [ %add.ptr15259, %if.end15253 ], [ %stack_pointer.10, %do.end15162 ], [ %stack_pointer.10, %do.body15167 ], [ %stack_pointer.10, %if.then15176 ], [ %stack_pointer.10, %if.end15172 ], [ %add.ptr15122, %if.end15114 ], [ %add.ptr15068, %if.end15062 ], [ %add.ptr14898, %if.end14892 ], [ %add.ptr14874, %if.end14868 ], [ %add.ptr14850, %if.end14844 ], [ %add.ptr14738, %Py_INCREF.exit21104 ], [ %stack_pointer.10, %do.end14720 ], [ %stack_pointer.10, %if.end14659 ], [ %stack_pointer.10, %if.then14669 ], [ %stack_pointer.10, %if.end14665 ], [ %stack_pointer.10, %do.body14627 ], [ %stack_pointer.10, %if.then14636 ], [ %stack_pointer.10, %if.end14632 ], [ %stack_pointer.10, %do.body14614 ], [ %stack_pointer.10, %do.body14569 ], [ %stack_pointer.10, %if.then14591 ], [ %stack_pointer.10, %if.end14587 ], [ %add.ptr14556, %if.end14552 ], [ %add.ptr14524, %if.end14520 ], [ %stack_pointer.10, %if.end14485 ], [ %stack_pointer.10, %if.end14466 ], [ %add.ptr14454, %if.end14450 ], [ %add.ptr14388, %if.end14386 ], [ %stack_pointer.10, %do.end14339 ], [ %add.ptr14282, %Py_INCREF.exit21144 ], [ %stack_pointer.10, %sw.bb14253 ], [ %add.ptr14135, %if.end14130 ], [ %add.ptr14092, %do.end14089 ], [ %add.ptr14042, %do.end14039 ], [ %add.ptr13991, %do.end13988 ], [ %add.ptr13947, %if.end13944 ], [ %stack_pointer.10, %if.end13908 ], [ %add.ptr13828, %if.end13826 ], [ %add.ptr13814, %_Py_NewRef.exit8852 ], [ %stack_pointer.10, %if.end13775 ], [ %add.ptr13691, %if.end13689 ], [ %stack_pointer.10, %if.end13609 ], [ %add.ptr.i8837, %sw.bb13517 ], [ %arrayidx13475, %if.end13514 ], [ %stack_pointer.10, %if.end13466 ], [ %arrayidx13129, %if.end13175 ], [ %arrayidx13067, %do.end13122 ], [ %arrayidx12998, %do.end13060 ], [ %arrayidx12936, %do.end12991 ], [ %arrayidx12819, %if.end12862 ], [ %arrayidx12774, %if.end12810 ], [ %arrayidx12735, %if.end12767 ], [ %stack_pointer.10, %if.end12725 ], [ %arrayidx12674, %do.end12713 ], [ %arrayidx12628, %do.end12667 ], [ %arrayidx12582, %do.end12621 ], [ %stack_pointer.10, %if.end12572 ], [ %arrayidx12528, %if.end12560 ], [ %arrayidx12489, %if.end12521 ], [ %arrayidx12450, %if.end12482 ], [ %stack_pointer.10, %if.end12440 ], [ %stack_pointer.10, %if.end12429 ], [ %stack_pointer.10, %do.end12404 ], [ %stack_pointer.10, %if.end12375 ], [ %stack_pointer.10, %if.end12345 ], [ %stack_pointer.10, %do.end12336 ], [ %stack_pointer.10, %if.end12308 ], [ %stack_pointer.10, %sw.bb12273 ], [ %stack_pointer.10, %if.end12269 ], [ %stack_pointer.10, %sw.bb12237 ], [ %stack_pointer.10, %if.end12235 ], [ %arrayidx12193, %do.end12209 ], [ %add.ptr12189, %sw.bb12186 ], [ %add.ptr12128, %Py_INCREF.exit21168 ], [ %add.ptr12116, %sw.bb12104 ], [ %add.ptr12103, %Py_INCREF.exit21176 ], [ %add.ptr12093, %Py_INCREF.exit21184 ], [ %stack_pointer.10, %sw.bb12067 ], [ %stack_pointer.10, %for.cond12062 ], [ %arrayidx12134, %do.body12148 ], [ %arrayidx12134, %if.then12157 ], [ %arrayidx12134, %if.end12153 ], [ %arrayidx12134, %sw.bb12129 ], [ %arrayidx12169, %if.end12175 ], [ %arrayidx12169, %if.then12179 ], [ %arrayidx12169, %sw.bb12167 ], [ %arrayidx12873, %do.end12927 ], [ %arrayidx13184, %_PyList_AppendTakeRef.exit8816 ], [ %arrayidx13201, %do.end13222 ], [ %arrayidx13233, %do.end13280 ], [ %arrayidx13291, %if.end13352 ], [ %arrayidx13291, %if.then13356 ], [ %arrayidx13291, %do.body13347 ], [ %arrayidx13369, %do.end13391 ], [ %arrayidx13400, %do.end13432 ], [ %arrayidx13779, %do.body13791 ], [ %arrayidx13779, %if.then13800 ], [ %arrayidx13779, %if.end13796 ], [ %arrayidx13779, %sw.bb13777 ], [ %arrayidx13834, %do.end13886 ], [ %arrayidx14143, %do.end14181 ], [ %arrayidx14191, %do.end14214 ], [ %arrayidx14224, %do.end14248 ], [ %arrayidx14744, %sw.bb14739 ], [ %arrayidx14744, %if.end14761 ], [ %arrayidx14744, %if.then14765 ], [ %arrayidx14744, %do.body14756 ], [ %arrayidx14905, %if.end14951 ], [ %arrayidx14905, %if.then14955 ], [ %arrayidx14905, %do.body14946 ], [ %arrayidx14968, %do.end14989 ], [ %arrayidx15266, %if.end15303 ], [ %arrayidx15266, %if.then15307 ], [ %arrayidx15266, %do.body15298 ], [ %arrayidx15321, %if.end15355 ], [ %arrayidx15321, %if.then15359 ], [ %arrayidx15321, %do.body15350 ], [ %arrayidx15374, %sw.bb15366 ], [ %arrayidx16005, %if.end16048 ], [ %arrayidx16005, %if.then16052 ], [ %arrayidx16005, %do.body16043 ], [ %arrayidx16063, %if.end16100 ], [ %arrayidx16063, %if.then16104 ], [ %arrayidx16063, %do.body16095 ], [ %arrayidx17784, %sw.bb17782 ], [ %arrayidx19224, %sw.bb19222 ], [ %arrayidx19232, %sw.bb19230 ], [ %arrayidx19240, %sw.bb19238 ], [ %arrayidx19248, %if.end19258 ], [ %arrayidx19248, %if.then19262 ], [ %arrayidx19248, %do.body19253 ], [ %arrayidx13184, %_PyList_AppendTakeRef.exit8816.thread ], [ %stack_pointer.10, %sw.bb15787 ], [ %stack_pointer.10, %sw.bb14774 ], [ %stack_pointer.10, %_Py_NewRef.exit8889 ]
-  %frame.addr.6.be = phi ptr [ %frame.addr.6, %sw.bb19319 ], [ %frame.addr.6, %sw.bb19302 ], [ %frame.addr.6, %sw.bb19295 ], [ %frame.addr.6, %sw.bb19285 ], [ %frame.addr.6, %if.then19278 ], [ %frame.addr.6, %sw.bb19269 ], [ %frame.addr.6, %sw.bb19206 ], [ %frame.addr.6, %if.end19203 ], [ %frame.addr.6, %_Py_NewRef.exit9227 ], [ %frame.addr.6, %if.end19142 ], [ %frame.addr.6, %if.end19100 ], [ %frame.addr.6, %if.end19069 ], [ %frame.addr.6, %if.end19027 ], [ %frame.addr.6, %sw.bb18914 ], [ %frame.addr.6, %if.end18911 ], [ %frame.addr.6, %if.then18879 ], [ %frame.addr.6, %if.end18866 ], [ %frame.addr.6, %if.then18760 ], [ %frame.addr.6, %if.end18747 ], [ %frame.addr.6, %if.then18647 ], [ %frame.addr.6, %if.end18634 ], [ %frame.addr.6, %if.then18527 ], [ %frame.addr.6, %if.end18514 ], [ %frame.addr.6, %if.end18397 ], [ %frame.addr.6, %if.end18291 ], [ %frame.addr.6, %if.then18203 ], [ %frame.addr.6, %if.end18190 ], [ %frame.addr.6, %if.then18098 ], [ %frame.addr.6, %if.end18085 ], [ %frame.addr.6, %if.then17993 ], [ %frame.addr.6, %if.end17980 ], [ %frame.addr.6, %if.then17889 ], [ %frame.addr.6, %if.end17876 ], [ %frame.addr.6, %if.then17775 ], [ %frame.addr.6, %if.end17762 ], [ %frame.addr.6, %if.then17691 ], [ %frame.addr.6, %if.end17678 ], [ %frame.addr.6, %do.end17607 ], [ %3643, %sw.bb17539 ], [ %frame.addr.6, %for.end17532 ], [ %frame.addr.6, %if.end17488 ], [ %frame.addr.6, %if.end17463 ], [ %frame.addr.6, %sw.bb17431 ], [ %frame.addr.6, %do.end17424 ], [ %frame.addr.6, %if.end17384 ], [ %frame.addr.6, %_Py_NewRef.exit9070 ], [ %frame.addr.6, %sw.bb17342 ], [ %frame.addr.6, %_Py_NewRef.exit9066 ], [ %frame.addr.6, %_Py_NewRef.exit9062 ], [ %frame.addr.6, %_Py_NewRef.exit9058 ], [ %frame.addr.6, %_Py_NewRef.exit9054 ], [ %frame.addr.6, %sw.bb17240 ], [ %frame.addr.6, %sw.bb17228 ], [ %frame.addr.6, %land.lhs.true17236 ], [ %frame.addr.6, %_Py_NewRef.exit9048 ], [ %frame.addr.6, %if.end17207 ], [ %frame.addr.6, %if.end17160 ], [ %frame.addr.6, %if.end17062 ], [ %frame.addr.6, %if.end16965 ], [ %frame.addr.6, %sw.bb16940 ], [ %frame.addr.6, %sw.bb16931 ], [ %frame.addr.6, %_Py_NewRef.exit8994 ], [ %frame.addr.6, %if.end16910 ], [ %frame.addr.6, %sw.bb16893 ], [ %frame.addr.6, %_Py_NewRef.exit8990 ], [ %frame.addr.6, %if.end16872 ], [ %frame.addr.6, %sw.bb16855 ], [ %frame.addr.6, %if.end16852 ], [ %frame.addr.6, %if.end16816 ], [ %frame.addr.6, %if.end16773 ], [ %frame.addr.6, %if.end16747 ], [ %frame.addr.6, %sw.bb16724 ], [ %frame.addr.6, %sw.bb16711 ], [ %frame.addr.6, %if.end16708 ], [ %frame.addr.6, %if.end16640 ], [ %frame.addr.6, %if.end16624 ], [ %frame.addr.6, %do.end16597 ], [ %frame.addr.6, %if.end16552 ], [ %frame.addr.6, %if.end16461 ], [ %frame.addr.6, %do.end16412 ], [ %frame.addr.6, %do.end16363 ], [ %frame.addr.6, %do.end16311 ], [ %frame.addr.6, %do.end16241 ], [ %frame.addr.6, %if.end16182 ], [ %frame.addr.6, %sw.bb15991 ], [ %frame.addr.6, %if.end15987 ], [ %frame.addr.6, %if.end15949 ], [ %frame.addr.6, %if.end15935 ], [ %frame.addr.6, %if.end15891 ], [ %frame.addr.6, %if.end15783 ], [ %frame.addr.6, %if.end15729 ], [ %frame.addr.6, %if.end15714 ], [ %frame.addr.6, %sw.bb15659 ], [ %frame.addr.6, %land.lhs.true15667 ], [ %frame.addr.6, %sw.bb15645 ], [ %frame.addr.6, %if.end15641 ], [ %frame.addr.6, %if.end15568 ], [ %frame.addr.6, %if.end15460 ], [ %frame.addr.6, %if.end15253 ], [ %frame.addr.6, %do.end15162 ], [ %frame.addr.6, %do.body15167 ], [ %frame.addr.6, %if.then15176 ], [ %frame.addr.6, %if.end15172 ], [ %frame.addr.6, %if.end15114 ], [ %frame.addr.6, %if.end15062 ], [ %frame.addr.6, %if.end14892 ], [ %frame.addr.6, %if.end14868 ], [ %frame.addr.6, %if.end14844 ], [ %frame.addr.6, %Py_INCREF.exit21104 ], [ %frame.addr.6, %do.end14720 ], [ %frame.addr.6, %if.end14659 ], [ %frame.addr.6, %if.then14669 ], [ %frame.addr.6, %if.end14665 ], [ %frame.addr.6, %do.body14627 ], [ %frame.addr.6, %if.then14636 ], [ %frame.addr.6, %if.end14632 ], [ %frame.addr.6, %do.body14614 ], [ %frame.addr.6, %do.body14569 ], [ %frame.addr.6, %if.then14591 ], [ %frame.addr.6, %if.end14587 ], [ %frame.addr.6, %if.end14552 ], [ %frame.addr.6, %if.end14520 ], [ %frame.addr.6, %if.end14485 ], [ %frame.addr.6, %if.end14466 ], [ %frame.addr.6, %if.end14450 ], [ %frame.addr.6, %if.end14386 ], [ %frame.addr.6, %do.end14339 ], [ %frame.addr.6, %Py_INCREF.exit21144 ], [ %frame.addr.6, %sw.bb14253 ], [ %frame.addr.6, %if.end14130 ], [ %frame.addr.6, %do.end14089 ], [ %frame.addr.6, %do.end14039 ], [ %frame.addr.6, %do.end13988 ], [ %frame.addr.6, %if.end13944 ], [ %frame.addr.6, %if.end13908 ], [ %frame.addr.6, %if.end13826 ], [ %frame.addr.6, %_Py_NewRef.exit8852 ], [ %frame.addr.6, %if.end13775 ], [ %frame.addr.6, %if.end13689 ], [ %frame.addr.6, %if.end13609 ], [ %2730, %sw.bb13517 ], [ %frame.addr.6, %if.end13514 ], [ %frame.addr.6, %if.end13466 ], [ %frame.addr.6, %if.end13175 ], [ %frame.addr.6, %do.end13122 ], [ %frame.addr.6, %do.end13060 ], [ %frame.addr.6, %do.end12991 ], [ %frame.addr.6, %if.end12862 ], [ %frame.addr.6, %if.end12810 ], [ %frame.addr.6, %if.end12767 ], [ %frame.addr.6, %if.end12725 ], [ %frame.addr.6, %do.end12713 ], [ %frame.addr.6, %do.end12667 ], [ %frame.addr.6, %do.end12621 ], [ %frame.addr.6, %if.end12572 ], [ %frame.addr.6, %if.end12560 ], [ %frame.addr.6, %if.end12521 ], [ %frame.addr.6, %if.end12482 ], [ %frame.addr.6, %if.end12440 ], [ %frame.addr.6, %if.end12429 ], [ %frame.addr.6, %do.end12404 ], [ %frame.addr.6, %if.end12375 ], [ %frame.addr.6, %if.end12345 ], [ %frame.addr.6, %do.end12336 ], [ %frame.addr.6, %if.end12308 ], [ %frame.addr.6, %sw.bb12273 ], [ %frame.addr.6, %if.end12269 ], [ %frame.addr.6, %sw.bb12237 ], [ %frame.addr.6, %if.end12235 ], [ %frame.addr.6, %do.end12209 ], [ %frame.addr.6, %sw.bb12186 ], [ %frame.addr.6, %Py_INCREF.exit21168 ], [ %frame.addr.6, %sw.bb12104 ], [ %frame.addr.6, %Py_INCREF.exit21176 ], [ %frame.addr.6, %Py_INCREF.exit21184 ], [ %frame.addr.6, %sw.bb12067 ], [ %frame.addr.6, %for.cond12062 ], [ %frame.addr.6, %do.body12148 ], [ %frame.addr.6, %if.then12157 ], [ %frame.addr.6, %if.end12153 ], [ %frame.addr.6, %sw.bb12129 ], [ %frame.addr.6, %if.end12175 ], [ %frame.addr.6, %if.then12179 ], [ %frame.addr.6, %sw.bb12167 ], [ %frame.addr.6, %do.end12927 ], [ %frame.addr.6, %_PyList_AppendTakeRef.exit8816 ], [ %frame.addr.6, %do.end13222 ], [ %frame.addr.6, %do.end13280 ], [ %frame.addr.6, %if.end13352 ], [ %frame.addr.6, %if.then13356 ], [ %frame.addr.6, %do.body13347 ], [ %frame.addr.6, %do.end13391 ], [ %frame.addr.6, %do.end13432 ], [ %frame.addr.6, %do.body13791 ], [ %frame.addr.6, %if.then13800 ], [ %frame.addr.6, %if.end13796 ], [ %frame.addr.6, %sw.bb13777 ], [ %frame.addr.6, %do.end13886 ], [ %frame.addr.6, %do.end14181 ], [ %frame.addr.6, %do.end14214 ], [ %frame.addr.6, %do.end14248 ], [ %frame.addr.6, %sw.bb14739 ], [ %frame.addr.6, %if.end14761 ], [ %frame.addr.6, %if.then14765 ], [ %frame.addr.6, %do.body14756 ], [ %frame.addr.6, %if.end14951 ], [ %frame.addr.6, %if.then14955 ], [ %frame.addr.6, %do.body14946 ], [ %frame.addr.6, %do.end14989 ], [ %frame.addr.6, %if.end15303 ], [ %frame.addr.6, %if.then15307 ], [ %frame.addr.6, %do.body15298 ], [ %frame.addr.6, %if.end15355 ], [ %frame.addr.6, %if.then15359 ], [ %frame.addr.6, %do.body15350 ], [ %frame.addr.6, %sw.bb15366 ], [ %frame.addr.6, %if.end16048 ], [ %frame.addr.6, %if.then16052 ], [ %frame.addr.6, %do.body16043 ], [ %frame.addr.6, %if.end16100 ], [ %frame.addr.6, %if.then16104 ], [ %frame.addr.6, %do.body16095 ], [ %frame.addr.6, %sw.bb17782 ], [ %frame.addr.6, %sw.bb19222 ], [ %frame.addr.6, %sw.bb19230 ], [ %frame.addr.6, %sw.bb19238 ], [ %frame.addr.6, %if.end19258 ], [ %frame.addr.6, %if.then19262 ], [ %frame.addr.6, %do.body19253 ], [ %frame.addr.6, %_PyList_AppendTakeRef.exit8816.thread ], [ %frame.addr.6, %sw.bb15787 ], [ %frame.addr.6, %sw.bb14774 ], [ %frame.addr.6, %_Py_NewRef.exit8889 ]
+  %stack_pointer.11.be = phi ptr [ %stack_pointer.11, %sw.bb19319 ], [ %stack_pointer.11, %sw.bb19302 ], [ %stack_pointer.11, %sw.bb19295 ], [ %stack_pointer.11, %sw.bb19285 ], [ %stack_pointer.11, %if.then19278 ], [ %stack_pointer.11, %sw.bb19269 ], [ %stack_pointer.11, %sw.bb19206 ], [ %arrayidx19165, %if.end19203 ], [ %add.ptr19157, %_Py_NewRef.exit9227 ], [ %arrayidx19106, %if.end19142 ], [ %stack_pointer.11, %if.end19100 ], [ %stack_pointer.11, %if.end19069 ], [ %arrayidx18958, %if.end19027 ], [ %arrayidx18920, %sw.bb18914 ], [ %stack_pointer.11, %if.end18911 ], [ %arrayidx18780, %if.then18879 ], [ %arrayidx18780, %if.end18866 ], [ %arrayidx18667, %if.then18760 ], [ %arrayidx18667, %if.end18747 ], [ %arrayidx18547, %if.then18647 ], [ %arrayidx18547, %if.end18634 ], [ %arrayidx18417, %if.then18527 ], [ %arrayidx18417, %if.end18514 ], [ %arrayidx18311, %if.end18397 ], [ %arrayidx18223, %if.end18291 ], [ %arrayidx18118, %if.then18203 ], [ %arrayidx18118, %if.end18190 ], [ %arrayidx18013, %if.then18098 ], [ %arrayidx18013, %if.end18085 ], [ %arrayidx17909, %if.then17993 ], [ %arrayidx17909, %if.end17980 ], [ %arrayidx17806, %if.then17889 ], [ %arrayidx17806, %if.end17876 ], [ %arrayidx17711, %if.then17775 ], [ %arrayidx17711, %if.end17762 ], [ %arrayidx17627, %if.then17691 ], [ %arrayidx17627, %if.end17678 ], [ %arrayidx17562, %do.end17607 ], [ %add.ptr.i9132, %sw.bb17539 ], [ %arrayidx17507, %for.end17532 ], [ %stack_pointer.11, %if.end17488 ], [ %stack_pointer.11, %if.end17463 ], [ %stack_pointer.11, %sw.bb17431 ], [ %stack_pointer.11, %do.end17424 ], [ %stack_pointer.11, %if.end17384 ], [ %add.ptr17368, %_Py_NewRef.exit9070 ], [ %stack_pointer.11, %sw.bb17342 ], [ %stack_pointer.11, %_Py_NewRef.exit9066 ], [ %stack_pointer.11, %_Py_NewRef.exit9062 ], [ %add.ptr17285, %_Py_NewRef.exit9058 ], [ %add.ptr17270, %_Py_NewRef.exit9054 ], [ %stack_pointer.11, %sw.bb17240 ], [ %stack_pointer.11, %sw.bb17228 ], [ %stack_pointer.11, %land.lhs.true17236 ], [ %add.ptr17227, %_Py_NewRef.exit9048 ], [ %add.ptr17209, %if.end17207 ], [ %add.ptr17163, %if.end17160 ], [ %add.ptr17065, %if.end17062 ], [ %add.ptr16967, %if.end16965 ], [ %stack_pointer.11, %sw.bb16940 ], [ %stack_pointer.11, %sw.bb16931 ], [ %add.ptr16930, %_Py_NewRef.exit8994 ], [ %stack_pointer.11, %if.end16910 ], [ %stack_pointer.11, %sw.bb16893 ], [ %add.ptr16892, %_Py_NewRef.exit8990 ], [ %stack_pointer.11, %if.end16872 ], [ %stack_pointer.11, %sw.bb16855 ], [ %add.ptr16854, %if.end16852 ], [ %stack_pointer.11, %if.end16816 ], [ %stack_pointer.11, %if.end16773 ], [ %add.ptr16749, %if.end16747 ], [ %add.ptr16736, %sw.bb16724 ], [ %add.ptr16723, %sw.bb16711 ], [ %arrayidx16652, %if.end16708 ], [ %add.ptr16642, %if.end16640 ], [ %stack_pointer.11, %if.end16624 ], [ %stack_pointer.11, %do.end16597 ], [ %stack_pointer.11, %if.end16552 ], [ %arrayidx16424, %if.end16461 ], [ %arrayidx16377, %do.end16412 ], [ %arrayidx16324, %do.end16363 ], [ %arrayidx16254, %do.end16311 ], [ %arrayidx16192, %do.end16241 ], [ %arrayidx16118, %if.end16182 ], [ %stack_pointer.11, %sw.bb15991 ], [ %add.ptr15990, %if.end15987 ], [ %stack_pointer.11, %if.end15949 ], [ %add.ptr15938, %if.end15935 ], [ %add.ptr15894, %if.end15891 ], [ %add.ptr15786, %if.end15783 ], [ %stack_pointer.11, %if.end15729 ], [ %add.ptr15717, %if.end15714 ], [ %stack_pointer.11, %sw.bb15659 ], [ %stack_pointer.11, %land.lhs.true15667 ], [ %stack_pointer.11, %sw.bb15645 ], [ %add.ptr15644, %if.end15641 ], [ %arrayidx15472, %if.end15568 ], [ %arrayidx15394, %if.end15460 ], [ %add.ptr15259, %if.end15253 ], [ %stack_pointer.11, %do.end15162 ], [ %stack_pointer.11, %do.body15167 ], [ %stack_pointer.11, %if.then15176 ], [ %stack_pointer.11, %if.end15172 ], [ %add.ptr15122, %if.end15114 ], [ %add.ptr15068, %if.end15062 ], [ %add.ptr14898, %if.end14892 ], [ %add.ptr14874, %if.end14868 ], [ %add.ptr14850, %if.end14844 ], [ %add.ptr14738, %Py_INCREF.exit21104 ], [ %stack_pointer.11, %do.end14720 ], [ %stack_pointer.11, %if.end14659 ], [ %stack_pointer.11, %if.then14669 ], [ %stack_pointer.11, %if.end14665 ], [ %stack_pointer.11, %do.body14627 ], [ %stack_pointer.11, %if.then14636 ], [ %stack_pointer.11, %if.end14632 ], [ %stack_pointer.11, %do.body14614 ], [ %stack_pointer.11, %do.body14569 ], [ %stack_pointer.11, %if.then14591 ], [ %stack_pointer.11, %if.end14587 ], [ %add.ptr14556, %if.end14552 ], [ %add.ptr14524, %if.end14520 ], [ %stack_pointer.11, %if.end14485 ], [ %stack_pointer.11, %if.end14466 ], [ %add.ptr14454, %if.end14450 ], [ %add.ptr14388, %if.end14386 ], [ %stack_pointer.11, %do.end14339 ], [ %add.ptr14282, %Py_INCREF.exit21144 ], [ %stack_pointer.11, %sw.bb14253 ], [ %add.ptr14135, %if.end14130 ], [ %add.ptr14092, %do.end14089 ], [ %add.ptr14042, %do.end14039 ], [ %add.ptr13991, %do.end13988 ], [ %add.ptr13947, %if.end13944 ], [ %stack_pointer.11, %if.end13908 ], [ %add.ptr13828, %if.end13826 ], [ %add.ptr13814, %_Py_NewRef.exit8852 ], [ %stack_pointer.11, %if.end13775 ], [ %add.ptr13691, %if.end13689 ], [ %stack_pointer.11, %if.end13609 ], [ %add.ptr.i8837, %sw.bb13517 ], [ %arrayidx13475, %if.end13514 ], [ %stack_pointer.11, %if.end13466 ], [ %arrayidx13129, %if.end13175 ], [ %arrayidx13067, %do.end13122 ], [ %arrayidx12998, %do.end13060 ], [ %arrayidx12936, %do.end12991 ], [ %arrayidx12819, %if.end12862 ], [ %arrayidx12774, %if.end12810 ], [ %arrayidx12735, %if.end12767 ], [ %stack_pointer.11, %if.end12725 ], [ %arrayidx12674, %do.end12713 ], [ %arrayidx12628, %do.end12667 ], [ %arrayidx12582, %do.end12621 ], [ %stack_pointer.11, %if.end12572 ], [ %arrayidx12528, %if.end12560 ], [ %arrayidx12489, %if.end12521 ], [ %arrayidx12450, %if.end12482 ], [ %stack_pointer.11, %if.end12440 ], [ %stack_pointer.11, %if.end12429 ], [ %stack_pointer.11, %do.end12404 ], [ %stack_pointer.11, %if.end12375 ], [ %stack_pointer.11, %if.end12345 ], [ %stack_pointer.11, %do.end12336 ], [ %stack_pointer.11, %if.end12308 ], [ %stack_pointer.11, %sw.bb12273 ], [ %stack_pointer.11, %if.end12269 ], [ %stack_pointer.11, %sw.bb12237 ], [ %stack_pointer.11, %if.end12235 ], [ %arrayidx12193, %do.end12209 ], [ %add.ptr12189, %sw.bb12186 ], [ %add.ptr12128, %Py_INCREF.exit21168 ], [ %add.ptr12116, %sw.bb12104 ], [ %add.ptr12103, %Py_INCREF.exit21176 ], [ %add.ptr12093, %Py_INCREF.exit21184 ], [ %stack_pointer.11, %sw.bb12067 ], [ %stack_pointer.11, %for.cond12062 ], [ %arrayidx12134, %do.body12148 ], [ %arrayidx12134, %if.then12157 ], [ %arrayidx12134, %if.end12153 ], [ %arrayidx12134, %sw.bb12129 ], [ %arrayidx12169, %if.end12175 ], [ %arrayidx12169, %if.then12179 ], [ %arrayidx12169, %sw.bb12167 ], [ %arrayidx12873, %do.end12927 ], [ %arrayidx13184, %_PyList_AppendTakeRef.exit8816 ], [ %arrayidx13201, %do.end13222 ], [ %arrayidx13233, %do.end13280 ], [ %arrayidx13291, %if.end13352 ], [ %arrayidx13291, %if.then13356 ], [ %arrayidx13291, %do.body13347 ], [ %arrayidx13369, %do.end13391 ], [ %arrayidx13400, %do.end13432 ], [ %arrayidx13779, %do.body13791 ], [ %arrayidx13779, %if.then13800 ], [ %arrayidx13779, %if.end13796 ], [ %arrayidx13779, %sw.bb13777 ], [ %arrayidx13834, %do.end13886 ], [ %arrayidx14143, %do.end14181 ], [ %arrayidx14191, %do.end14214 ], [ %arrayidx14224, %do.end14248 ], [ %arrayidx14744, %sw.bb14739 ], [ %arrayidx14744, %if.end14761 ], [ %arrayidx14744, %if.then14765 ], [ %arrayidx14744, %do.body14756 ], [ %arrayidx14905, %if.end14951 ], [ %arrayidx14905, %if.then14955 ], [ %arrayidx14905, %do.body14946 ], [ %arrayidx14968, %do.end14989 ], [ %arrayidx15266, %if.end15303 ], [ %arrayidx15266, %if.then15307 ], [ %arrayidx15266, %do.body15298 ], [ %arrayidx15321, %if.end15355 ], [ %arrayidx15321, %if.then15359 ], [ %arrayidx15321, %do.body15350 ], [ %arrayidx15374, %sw.bb15366 ], [ %arrayidx16005, %if.end16048 ], [ %arrayidx16005, %if.then16052 ], [ %arrayidx16005, %do.body16043 ], [ %arrayidx16063, %if.end16100 ], [ %arrayidx16063, %if.then16104 ], [ %arrayidx16063, %do.body16095 ], [ %arrayidx17784, %sw.bb17782 ], [ %arrayidx19224, %sw.bb19222 ], [ %arrayidx19232, %sw.bb19230 ], [ %arrayidx19240, %sw.bb19238 ], [ %arrayidx19248, %if.end19258 ], [ %arrayidx19248, %if.then19262 ], [ %arrayidx19248, %do.body19253 ], [ %arrayidx13184, %_PyList_AppendTakeRef.exit8816.thread ], [ %stack_pointer.11, %sw.bb15787 ], [ %stack_pointer.11, %sw.bb14774 ], [ %stack_pointer.11, %_Py_NewRef.exit8889 ]
+  %frame.addr.7.be = phi ptr [ %frame.addr.7, %sw.bb19319 ], [ %frame.addr.7, %sw.bb19302 ], [ %frame.addr.7, %sw.bb19295 ], [ %frame.addr.7, %sw.bb19285 ], [ %frame.addr.7, %if.then19278 ], [ %frame.addr.7, %sw.bb19269 ], [ %frame.addr.7, %sw.bb19206 ], [ %frame.addr.7, %if.end19203 ], [ %frame.addr.7, %_Py_NewRef.exit9227 ], [ %frame.addr.7, %if.end19142 ], [ %frame.addr.7, %if.end19100 ], [ %frame.addr.7, %if.end19069 ], [ %frame.addr.7, %if.end19027 ], [ %frame.addr.7, %sw.bb18914 ], [ %frame.addr.7, %if.end18911 ], [ %frame.addr.7, %if.then18879 ], [ %frame.addr.7, %if.end18866 ], [ %frame.addr.7, %if.then18760 ], [ %frame.addr.7, %if.end18747 ], [ %frame.addr.7, %if.then18647 ], [ %frame.addr.7, %if.end18634 ], [ %frame.addr.7, %if.then18527 ], [ %frame.addr.7, %if.end18514 ], [ %frame.addr.7, %if.end18397 ], [ %frame.addr.7, %if.end18291 ], [ %frame.addr.7, %if.then18203 ], [ %frame.addr.7, %if.end18190 ], [ %frame.addr.7, %if.then18098 ], [ %frame.addr.7, %if.end18085 ], [ %frame.addr.7, %if.then17993 ], [ %frame.addr.7, %if.end17980 ], [ %frame.addr.7, %if.then17889 ], [ %frame.addr.7, %if.end17876 ], [ %frame.addr.7, %if.then17775 ], [ %frame.addr.7, %if.end17762 ], [ %frame.addr.7, %if.then17691 ], [ %frame.addr.7, %if.end17678 ], [ %frame.addr.7, %do.end17607 ], [ %3643, %sw.bb17539 ], [ %frame.addr.7, %for.end17532 ], [ %frame.addr.7, %if.end17488 ], [ %frame.addr.7, %if.end17463 ], [ %frame.addr.7, %sw.bb17431 ], [ %frame.addr.7, %do.end17424 ], [ %frame.addr.7, %if.end17384 ], [ %frame.addr.7, %_Py_NewRef.exit9070 ], [ %frame.addr.7, %sw.bb17342 ], [ %frame.addr.7, %_Py_NewRef.exit9066 ], [ %frame.addr.7, %_Py_NewRef.exit9062 ], [ %frame.addr.7, %_Py_NewRef.exit9058 ], [ %frame.addr.7, %_Py_NewRef.exit9054 ], [ %frame.addr.7, %sw.bb17240 ], [ %frame.addr.7, %sw.bb17228 ], [ %frame.addr.7, %land.lhs.true17236 ], [ %frame.addr.7, %_Py_NewRef.exit9048 ], [ %frame.addr.7, %if.end17207 ], [ %frame.addr.7, %if.end17160 ], [ %frame.addr.7, %if.end17062 ], [ %frame.addr.7, %if.end16965 ], [ %frame.addr.7, %sw.bb16940 ], [ %frame.addr.7, %sw.bb16931 ], [ %frame.addr.7, %_Py_NewRef.exit8994 ], [ %frame.addr.7, %if.end16910 ], [ %frame.addr.7, %sw.bb16893 ], [ %frame.addr.7, %_Py_NewRef.exit8990 ], [ %frame.addr.7, %if.end16872 ], [ %frame.addr.7, %sw.bb16855 ], [ %frame.addr.7, %if.end16852 ], [ %frame.addr.7, %if.end16816 ], [ %frame.addr.7, %if.end16773 ], [ %frame.addr.7, %if.end16747 ], [ %frame.addr.7, %sw.bb16724 ], [ %frame.addr.7, %sw.bb16711 ], [ %frame.addr.7, %if.end16708 ], [ %frame.addr.7, %if.end16640 ], [ %frame.addr.7, %if.end16624 ], [ %frame.addr.7, %do.end16597 ], [ %frame.addr.7, %if.end16552 ], [ %frame.addr.7, %if.end16461 ], [ %frame.addr.7, %do.end16412 ], [ %frame.addr.7, %do.end16363 ], [ %frame.addr.7, %do.end16311 ], [ %frame.addr.7, %do.end16241 ], [ %frame.addr.7, %if.end16182 ], [ %frame.addr.7, %sw.bb15991 ], [ %frame.addr.7, %if.end15987 ], [ %frame.addr.7, %if.end15949 ], [ %frame.addr.7, %if.end15935 ], [ %frame.addr.7, %if.end15891 ], [ %frame.addr.7, %if.end15783 ], [ %frame.addr.7, %if.end15729 ], [ %frame.addr.7, %if.end15714 ], [ %frame.addr.7, %sw.bb15659 ], [ %frame.addr.7, %land.lhs.true15667 ], [ %frame.addr.7, %sw.bb15645 ], [ %frame.addr.7, %if.end15641 ], [ %frame.addr.7, %if.end15568 ], [ %frame.addr.7, %if.end15460 ], [ %frame.addr.7, %if.end15253 ], [ %frame.addr.7, %do.end15162 ], [ %frame.addr.7, %do.body15167 ], [ %frame.addr.7, %if.then15176 ], [ %frame.addr.7, %if.end15172 ], [ %frame.addr.7, %if.end15114 ], [ %frame.addr.7, %if.end15062 ], [ %frame.addr.7, %if.end14892 ], [ %frame.addr.7, %if.end14868 ], [ %frame.addr.7, %if.end14844 ], [ %frame.addr.7, %Py_INCREF.exit21104 ], [ %frame.addr.7, %do.end14720 ], [ %frame.addr.7, %if.end14659 ], [ %frame.addr.7, %if.then14669 ], [ %frame.addr.7, %if.end14665 ], [ %frame.addr.7, %do.body14627 ], [ %frame.addr.7, %if.then14636 ], [ %frame.addr.7, %if.end14632 ], [ %frame.addr.7, %do.body14614 ], [ %frame.addr.7, %do.body14569 ], [ %frame.addr.7, %if.then14591 ], [ %frame.addr.7, %if.end14587 ], [ %frame.addr.7, %if.end14552 ], [ %frame.addr.7, %if.end14520 ], [ %frame.addr.7, %if.end14485 ], [ %frame.addr.7, %if.end14466 ], [ %frame.addr.7, %if.end14450 ], [ %frame.addr.7, %if.end14386 ], [ %frame.addr.7, %do.end14339 ], [ %frame.addr.7, %Py_INCREF.exit21144 ], [ %frame.addr.7, %sw.bb14253 ], [ %frame.addr.7, %if.end14130 ], [ %frame.addr.7, %do.end14089 ], [ %frame.addr.7, %do.end14039 ], [ %frame.addr.7, %do.end13988 ], [ %frame.addr.7, %if.end13944 ], [ %frame.addr.7, %if.end13908 ], [ %frame.addr.7, %if.end13826 ], [ %frame.addr.7, %_Py_NewRef.exit8852 ], [ %frame.addr.7, %if.end13775 ], [ %frame.addr.7, %if.end13689 ], [ %frame.addr.7, %if.end13609 ], [ %2730, %sw.bb13517 ], [ %frame.addr.7, %if.end13514 ], [ %frame.addr.7, %if.end13466 ], [ %frame.addr.7, %if.end13175 ], [ %frame.addr.7, %do.end13122 ], [ %frame.addr.7, %do.end13060 ], [ %frame.addr.7, %do.end12991 ], [ %frame.addr.7, %if.end12862 ], [ %frame.addr.7, %if.end12810 ], [ %frame.addr.7, %if.end12767 ], [ %frame.addr.7, %if.end12725 ], [ %frame.addr.7, %do.end12713 ], [ %frame.addr.7, %do.end12667 ], [ %frame.addr.7, %do.end12621 ], [ %frame.addr.7, %if.end12572 ], [ %frame.addr.7, %if.end12560 ], [ %frame.addr.7, %if.end12521 ], [ %frame.addr.7, %if.end12482 ], [ %frame.addr.7, %if.end12440 ], [ %frame.addr.7, %if.end12429 ], [ %frame.addr.7, %do.end12404 ], [ %frame.addr.7, %if.end12375 ], [ %frame.addr.7, %if.end12345 ], [ %frame.addr.7, %do.end12336 ], [ %frame.addr.7, %if.end12308 ], [ %frame.addr.7, %sw.bb12273 ], [ %frame.addr.7, %if.end12269 ], [ %frame.addr.7, %sw.bb12237 ], [ %frame.addr.7, %if.end12235 ], [ %frame.addr.7, %do.end12209 ], [ %frame.addr.7, %sw.bb12186 ], [ %frame.addr.7, %Py_INCREF.exit21168 ], [ %frame.addr.7, %sw.bb12104 ], [ %frame.addr.7, %Py_INCREF.exit21176 ], [ %frame.addr.7, %Py_INCREF.exit21184 ], [ %frame.addr.7, %sw.bb12067 ], [ %frame.addr.7, %for.cond12062 ], [ %frame.addr.7, %do.body12148 ], [ %frame.addr.7, %if.then12157 ], [ %frame.addr.7, %if.end12153 ], [ %frame.addr.7, %sw.bb12129 ], [ %frame.addr.7, %if.end12175 ], [ %frame.addr.7, %if.then12179 ], [ %frame.addr.7, %sw.bb12167 ], [ %frame.addr.7, %do.end12927 ], [ %frame.addr.7, %_PyList_AppendTakeRef.exit8816 ], [ %frame.addr.7, %do.end13222 ], [ %frame.addr.7, %do.end13280 ], [ %frame.addr.7, %if.end13352 ], [ %frame.addr.7, %if.then13356 ], [ %frame.addr.7, %do.body13347 ], [ %frame.addr.7, %do.end13391 ], [ %frame.addr.7, %do.end13432 ], [ %frame.addr.7, %do.body13791 ], [ %frame.addr.7, %if.then13800 ], [ %frame.addr.7, %if.end13796 ], [ %frame.addr.7, %sw.bb13777 ], [ %frame.addr.7, %do.end13886 ], [ %frame.addr.7, %do.end14181 ], [ %frame.addr.7, %do.end14214 ], [ %frame.addr.7, %do.end14248 ], [ %frame.addr.7, %sw.bb14739 ], [ %frame.addr.7, %if.end14761 ], [ %frame.addr.7, %if.then14765 ], [ %frame.addr.7, %do.body14756 ], [ %frame.addr.7, %if.end14951 ], [ %frame.addr.7, %if.then14955 ], [ %frame.addr.7, %do.body14946 ], [ %frame.addr.7, %do.end14989 ], [ %frame.addr.7, %if.end15303 ], [ %frame.addr.7, %if.then15307 ], [ %frame.addr.7, %do.body15298 ], [ %frame.addr.7, %if.end15355 ], [ %frame.addr.7, %if.then15359 ], [ %frame.addr.7, %do.body15350 ], [ %frame.addr.7, %sw.bb15366 ], [ %frame.addr.7, %if.end16048 ], [ %frame.addr.7, %if.then16052 ], [ %frame.addr.7, %do.body16043 ], [ %frame.addr.7, %if.end16100 ], [ %frame.addr.7, %if.then16104 ], [ %frame.addr.7, %do.body16095 ], [ %frame.addr.7, %sw.bb17782 ], [ %frame.addr.7, %sw.bb19222 ], [ %frame.addr.7, %sw.bb19230 ], [ %frame.addr.7, %sw.bb19238 ], [ %frame.addr.7, %if.end19258 ], [ %frame.addr.7, %if.then19262 ], [ %frame.addr.7, %do.body19253 ], [ %frame.addr.7, %_PyList_AppendTakeRef.exit8816.thread ], [ %frame.addr.7, %sw.bb15787 ], [ %frame.addr.7, %sw.bb14774 ], [ %frame.addr.7, %_Py_NewRef.exit8889 ]
   br label %for.cond12062
 
 for.body14790.lr.ph:                              ; preds = %sw.bb14774
-  %f_funcobj14781 = getelementptr inbounds i8, ptr %frame.addr.6, i64 16
+  %f_funcobj14781 = getelementptr inbounds i8, ptr %frame.addr.7, i64 16
   %3021 = load ptr, ptr %f_funcobj14781, align 8
   %func_closure14782 = getelementptr inbounds i8, ptr %3021, i64 72
   %3022 = load ptr, ptr %func_closure14782, align 8
   %ob_item14792 = getelementptr inbounds i8, ptr %3022, i64 24
-  %localsplus14796 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
+  %localsplus14796 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
   %wide.trip.count11795 = zext i16 %3019 to i64
   br label %for.body14790
 
@@ -23399,7 +23399,7 @@ sw.bb14803:                                       ; preds = %for.cond12062
   %conv14808 = zext i16 %3026 to i32
   %sub14809 = sub nsw i32 0, %conv14808
   %idxprom14810 = sext i32 %sub14809 to i64
-  %arrayidx14811 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom14810
+  %arrayidx14811 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom14810
   %conv14812 = zext i16 %3026 to i64
   %call14813 = call ptr @_PyUnicode_JoinArray(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 25216), ptr noundef %arrayidx14811, i64 noundef %conv14812) #15
   %cmp1481710347.not = icmp eq i16 %3026, 0
@@ -23441,7 +23441,7 @@ if.end14844:                                      ; preds = %for.end14837
   store ptr %call14813, ptr %arrayidx14811, align 8
   %sub14848 = sub nsw i32 1, %conv14808
   %idx.ext14849 = sext i32 %sub14848 to i64
-  %add.ptr14850 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext14849
+  %add.ptr14850 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext14849
   br label %for.cond12062.backedge
 
 sw.bb14851:                                       ; preds = %for.cond12062
@@ -23450,7 +23450,7 @@ sw.bb14851:                                       ; preds = %for.cond12062
   %conv14856 = zext i16 %3032 to i32
   %sub14857 = sub nsw i32 0, %conv14856
   %idxprom14858 = sext i32 %sub14857 to i64
-  %arrayidx14859 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom14858
+  %arrayidx14859 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom14858
   %conv14860 = zext i16 %3032 to i64
   %call14861 = call ptr @_PyTuple_FromArraySteal(ptr noundef %arrayidx14859, i64 noundef %conv14860) #15
   %cmp14862 = icmp eq ptr %call14861, null
@@ -23460,7 +23460,7 @@ if.end14868:                                      ; preds = %sw.bb14851
   store ptr %call14861, ptr %arrayidx14859, align 8
   %sub14872 = sub nsw i32 1, %conv14856
   %idx.ext14873 = sext i32 %sub14872 to i64
-  %add.ptr14874 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext14873
+  %add.ptr14874 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext14873
   br label %for.cond12062.backedge
 
 sw.bb14875:                                       ; preds = %for.cond12062
@@ -23469,7 +23469,7 @@ sw.bb14875:                                       ; preds = %for.cond12062
   %conv14880 = zext i16 %3033 to i32
   %sub14881 = sub nsw i32 0, %conv14880
   %idxprom14882 = sext i32 %sub14881 to i64
-  %arrayidx14883 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom14882
+  %arrayidx14883 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom14882
   %conv14884 = zext i16 %3033 to i64
   %call14885 = call ptr @_PyList_FromArraySteal(ptr noundef %arrayidx14883, i64 noundef %conv14884) #15
   %cmp14886 = icmp eq ptr %call14885, null
@@ -23479,17 +23479,17 @@ if.end14892:                                      ; preds = %sw.bb14875
   store ptr %call14885, ptr %arrayidx14883, align 8
   %sub14896 = sub nsw i32 1, %conv14880
   %idx.ext14897 = sext i32 %sub14896 to i64
-  %add.ptr14898 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext14897
+  %add.ptr14898 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext14897
   br label %for.cond12062.backedge
 
 sw.bb14899:                                       ; preds = %for.cond12062
   %oparg14903 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3034 = load i16, ptr %oparg14903, align 2
   %conv14904 = zext i16 %3034 to i64
-  %arrayidx14905 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx14905 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3035 = load ptr, ptr %arrayidx14905, align 8
   %sub14907 = xor i64 %conv14904, -1
-  %arrayidx14909 = getelementptr ptr, ptr %stack_pointer.10, i64 %sub14907
+  %arrayidx14909 = getelementptr ptr, ptr %stack_pointer.11, i64 %sub14907
   %3036 = load ptr, ptr %arrayidx14909, align 8
   %call14911 = call ptr @_PyList_Extend(ptr noundef %3036, ptr noundef %3035) #15
   %cmp14912 = icmp eq ptr %call14911, null
@@ -23567,10 +23567,10 @@ sw.bb14962:                                       ; preds = %for.cond12062
   %oparg14966 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3050 = load i16, ptr %oparg14966, align 2
   %conv14967 = zext i16 %3050 to i64
-  %arrayidx14968 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx14968 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3051 = load ptr, ptr %arrayidx14968, align 8
   %sub14970 = xor i64 %conv14967, -1
-  %arrayidx14972 = getelementptr ptr, ptr %stack_pointer.10, i64 %sub14970
+  %arrayidx14972 = getelementptr ptr, ptr %stack_pointer.11, i64 %sub14970
   %3052 = load ptr, ptr %arrayidx14972, align 8
   %call14974 = call i32 @_PySet_Update(ptr noundef %3052, ptr noundef %3051) #15
   %3053 = load i64, ptr %3051, align 8
@@ -23602,7 +23602,7 @@ sw.bb14995:                                       ; preds = %for.cond12062
   %conv15000 = zext i16 %3057 to i32
   %sub15001 = sub nsw i32 0, %conv15000
   %idxprom15002 = sext i32 %sub15001 to i64
-  %arrayidx15003 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom15002
+  %arrayidx15003 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom15002
   %call15004 = call ptr @PySet_New(ptr noundef null) #15
   %cmp15005 = icmp eq ptr %call15004, null
   br i1 %cmp15005, label %error_tier_two, label %for.cond15011.preheader
@@ -23681,7 +23681,7 @@ if.end15062:                                      ; preds = %for.cond15011.prehe
   store ptr %call15004, ptr %arrayidx15003, align 8
   %sub15066 = sub nsw i32 1, %conv15000
   %idx.ext15067 = sext i32 %sub15066 to i64
-  %add.ptr15068 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext15067
+  %add.ptr15068 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext15067
   br label %for.cond12062.backedge
 
 sw.bb15069:                                       ; preds = %for.cond12062
@@ -23690,7 +23690,7 @@ sw.bb15069:                                       ; preds = %for.cond12062
   %conv15074 = zext i16 %3067 to i32
   %.neg = mul nsw i32 %conv15074, -2
   %idxprom15077 = sext i32 %.neg to i64
-  %arrayidx15078 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom15077
+  %arrayidx15078 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom15077
   %add.ptr15079 = getelementptr i8, ptr %arrayidx15078, i64 8
   %conv15080 = zext i16 %3067 to i64
   %call15081 = call ptr @_PyDict_FromItems(ptr noundef %arrayidx15078, i64 noundef 2, ptr noundef %add.ptr15079, i64 noundef 2, i64 noundef %conv15080) #15
@@ -23738,11 +23738,11 @@ if.end15114:                                      ; preds = %for.end15106
   store ptr %call15081, ptr %arrayidx15078, align 8
   %sub15120 = sub nsw i32 1, %mul15083
   %idx.ext15121 = sext i32 %sub15120 to i64
-  %add.ptr15122 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext15121
+  %add.ptr15122 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext15121
   br label %for.cond12062.backedge
 
 sw.bb15123:                                       ; preds = %for.cond12062
-  %f_locals15126 = getelementptr inbounds i8, ptr %frame.addr.6, i64 40
+  %f_locals15126 = getelementptr inbounds i8, ptr %frame.addr.7, i64 40
   %3074 = load ptr, ptr %f_locals15126, align 8
   %cmp15127 = icmp eq ptr %3074, null
   br i1 %cmp15127, label %if.then15129, label %if.end15131
@@ -23819,11 +23819,11 @@ sw.bb15183:                                       ; preds = %for.cond12062
   %oparg15188 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3087 = load i16, ptr %oparg15188, align 2
   %conv15189 = zext i16 %3087 to i32
-  %arrayidx15190 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15190 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3088 = load ptr, ptr %arrayidx15190, align 8
   %sub15191 = xor i32 %conv15189, -1
   %idxprom15192 = sext i32 %sub15191 to i64
-  %arrayidx15193 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom15192
+  %arrayidx15193 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom15192
   %ob_type15194 = getelementptr inbounds i8, ptr %3088, i64 8
   %3089 = load ptr, ptr %ob_type15194, align 8
   %cmp15195 = icmp eq ptr %3089, @PyTuple_Type
@@ -23902,17 +23902,17 @@ if.end15253:                                      ; preds = %do.end15246
   store ptr %call15207, ptr %arrayidx15193, align 8
   %sub15257 = sub nsw i32 0, %conv15189
   %idx.ext15258 = sext i32 %sub15257 to i64
-  %add.ptr15259 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext15258
+  %add.ptr15259 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext15258
   br label %for.cond12062.backedge
 
 sw.bb15260:                                       ; preds = %for.cond12062
   %oparg15264 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3100 = load i16, ptr %oparg15264, align 2
   %conv15265 = zext i16 %3100 to i64
-  %arrayidx15266 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15266 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3101 = load ptr, ptr %arrayidx15266, align 8
   %sub15268 = xor i64 %conv15265, -1
-  %arrayidx15270 = getelementptr ptr, ptr %stack_pointer.10, i64 %sub15268
+  %arrayidx15270 = getelementptr ptr, ptr %stack_pointer.11, i64 %sub15268
   %3102 = load ptr, ptr %arrayidx15270, align 8
   %call15271 = call i32 @PyDict_Update(ptr noundef %3102, ptr noundef %3101) #15
   %cmp15272 = icmp slt i32 %call15271, 0
@@ -23977,15 +23977,15 @@ sw.bb15314:                                       ; preds = %for.cond12062
   %oparg15319 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3115 = load i16, ptr %oparg15319, align 2
   %conv15320 = zext i16 %3115 to i32
-  %arrayidx15321 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15321 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3116 = load ptr, ptr %arrayidx15321, align 8
   %sub15323 = xor i32 %conv15320, -1
   %idxprom15324 = sext i32 %sub15323 to i64
-  %arrayidx15325 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom15324
+  %arrayidx15325 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom15324
   %3117 = load ptr, ptr %arrayidx15325, align 8
   %sub15327 = sub nuw nsw i32 -4, %conv15320
   %idxprom15328 = sext i32 %sub15327 to i64
-  %arrayidx15329 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom15328
+  %arrayidx15329 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom15328
   %3118 = load ptr, ptr %arrayidx15329, align 8
   %call15330 = call i32 @_PyDict_MergeEx(ptr noundef %3117, ptr noundef %3116, i32 noundef 2) #15
   %cmp15331 = icmp slt i32 %call15330, 0
@@ -24036,12 +24036,12 @@ sw.bb15366:                                       ; preds = %for.cond12062
   %oparg15371 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3127 = load i16, ptr %oparg15371, align 2
   %conv15372 = zext i16 %3127 to i64
-  %arrayidx15373 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15373 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3128 = load ptr, ptr %arrayidx15373, align 8
-  %arrayidx15374 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx15374 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3129 = load ptr, ptr %arrayidx15374, align 8
   %sub15376 = sub nuw nsw i64 -2, %conv15372
-  %arrayidx15378 = getelementptr ptr, ptr %stack_pointer.10, i64 %sub15376
+  %arrayidx15378 = getelementptr ptr, ptr %stack_pointer.11, i64 %sub15376
   %3130 = load ptr, ptr %arrayidx15378, align 8
   %call15379 = call i32 @_PyDict_SetItem_Take2(ptr noundef %3130, ptr noundef %3129, ptr noundef %3128) #15
   %cmp15380.not = icmp eq i32 %call15379, 0
@@ -24050,11 +24050,11 @@ sw.bb15366:                                       ; preds = %for.cond12062
 sw.bb15385:                                       ; preds = %for.cond12062
   %oparg15391 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3131 = load i16, ptr %oparg15391, align 2
-  %arrayidx15393 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15393 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3132 = load ptr, ptr %arrayidx15393, align 8
-  %arrayidx15394 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx15394 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3133 = load ptr, ptr %arrayidx15394, align 8
-  %arrayidx15395 = getelementptr i8, ptr %stack_pointer.10, i64 -24
+  %arrayidx15395 = getelementptr i8, ptr %stack_pointer.11, i64 -24
   %3134 = load ptr, ptr %arrayidx15395, align 8
   %cmp15396.not = icmp eq ptr %3134, @PySuper_Type
   br i1 %cmp15396.not, label %if.end15399, label %deoptimize
@@ -24069,8 +24069,8 @@ if.end15399:                                      ; preds = %sw.bb15385
   br i1 %cmp.i.i8891.not, label %deoptimize, label %if.end15403
 
 if.end15403:                                      ; preds = %if.end15399
-  %frame.addr.6.val7348 = load ptr, ptr %frame.addr.6, align 8
-  %co_names15406 = getelementptr inbounds i8, ptr %frame.addr.6.val7348, i64 32
+  %frame.addr.7.val7348 = load ptr, ptr %frame.addr.7, align 8
+  %co_names15406 = getelementptr inbounds i8, ptr %frame.addr.7.val7348, i64 32
   %3137 = load ptr, ptr %co_names15406, align 8
   %ob_item15407 = getelementptr inbounds i8, ptr %3137, i64 24
   %3138 = lshr i16 %3131, 2
@@ -24146,11 +24146,11 @@ if.end15460:                                      ; preds = %do.end15456
 sw.bb15463:                                       ; preds = %for.cond12062
   %oparg15470 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3150 = load i16, ptr %oparg15470, align 2
-  %arrayidx15472 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15472 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3151 = load ptr, ptr %arrayidx15472, align 8
-  %arrayidx15473 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx15473 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3152 = load ptr, ptr %arrayidx15473, align 8
-  %arrayidx15474 = getelementptr i8, ptr %stack_pointer.10, i64 -24
+  %arrayidx15474 = getelementptr i8, ptr %stack_pointer.11, i64 -24
   %3153 = load ptr, ptr %arrayidx15474, align 8
   %cmp15475.not = icmp eq ptr %3153, @PySuper_Type
   br i1 %cmp15475.not, label %if.end15478, label %deoptimize
@@ -24165,8 +24165,8 @@ if.end15478:                                      ; preds = %sw.bb15463
   br i1 %cmp.i.i8894.not, label %deoptimize, label %if.end15482
 
 if.end15482:                                      ; preds = %if.end15478
-  %frame.addr.6.val7349 = load ptr, ptr %frame.addr.6, align 8
-  %co_names15485 = getelementptr inbounds i8, ptr %frame.addr.6.val7349, i64 32
+  %frame.addr.7.val7349 = load ptr, ptr %frame.addr.7, align 8
+  %co_names15485 = getelementptr inbounds i8, ptr %frame.addr.7.val7349, i64 32
   %3156 = load ptr, ptr %co_names15485, align 8
   %ob_item15486 = getelementptr inbounds i8, ptr %3156, i64 24
   %3157 = lshr i16 %3150, 2
@@ -24275,10 +24275,10 @@ sw.bb15572:                                       ; preds = %for.cond12062
   %oparg15577 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3174 = load i16, ptr %oparg15577, align 2
   %conv15578 = zext i16 %3174 to i32
-  %arrayidx15579 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15579 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3175 = load ptr, ptr %arrayidx15579, align 8
-  %frame.addr.6.val7350 = load ptr, ptr %frame.addr.6, align 8
-  %co_names15582 = getelementptr inbounds i8, ptr %frame.addr.6.val7350, i64 32
+  %frame.addr.7.val7350 = load ptr, ptr %frame.addr.7, align 8
+  %co_names15582 = getelementptr inbounds i8, ptr %frame.addr.7.val7350, i64 32
   %3176 = load ptr, ptr %co_names15582, align 8
   %ob_item15583 = getelementptr inbounds i8, ptr %3176, i64 24
   %shr15584 = lshr i32 %conv15578, 1
@@ -24363,16 +24363,16 @@ if.then15639:                                     ; preds = %if.then15589.if.the
   %3188 = phi ptr [ %3182, %do.end15608 ], [ %.pre11854, %if.then15589.if.then15639_crit_edge ]
   %self_or_null15575.0.ph = phi ptr [ null, %do.end15608 ], [ %3175, %if.then15589.if.then15639_crit_edge ]
   store ptr %3188, ptr %arrayidx15579, align 8
-  store ptr %self_or_null15575.0.ph, ptr %stack_pointer.10, align 8
+  store ptr %self_or_null15575.0.ph, ptr %stack_pointer.11, align 8
   br label %if.end15641
 
 if.end15641:                                      ; preds = %if.end15635, %if.then15639
   %idx.ext15643 = zext nneg i32 %and15587 to i64
-  %add.ptr15644 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext15643
+  %add.ptr15644 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext15643
   br label %for.cond12062.backedge
 
 sw.bb15645:                                       ; preds = %for.cond12062
-  %arrayidx15647 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15647 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3189 = load ptr, ptr %arrayidx15647, align 8
   %operand15650 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3190 = load i64, ptr %operand15650, align 8
@@ -24385,7 +24385,7 @@ sw.bb15645:                                       ; preds = %for.cond12062
   br i1 %cmp15655.not, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb15659:                                       ; preds = %for.cond12062
-  %arrayidx15661 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15661 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3193 = load ptr, ptr %arrayidx15661, align 8
   %add.ptr.i8896 = getelementptr i8, ptr %3193, i64 -24
   %3194 = load ptr, ptr %add.ptr.i8896, align 8
@@ -24401,7 +24401,7 @@ land.lhs.true15667:                               ; preds = %sw.bb15659
 sw.bb15671:                                       ; preds = %for.cond12062
   %oparg15676 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3196 = load i16, ptr %oparg15676, align 2
-  %arrayidx15678 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15678 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3197 = load ptr, ptr %arrayidx15678, align 8
   %operand15681 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3198 = load i64, ptr %operand15681, align 8
@@ -24451,16 +24451,16 @@ do.end15708:                                      ; preds = %if.end15699, %if.th
   br i1 %tobool15711.not, label %if.end15714, label %if.then15712
 
 if.then15712:                                     ; preds = %do.end15708
-  store ptr null, ptr %stack_pointer.10, align 8
+  store ptr null, ptr %stack_pointer.11, align 8
   br label %if.end15714
 
 if.end15714:                                      ; preds = %if.then15712, %do.end15708
   %idx.ext15716 = zext nneg i16 %3205 to i64
-  %add.ptr15717 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext15716
+  %add.ptr15717 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext15716
   br label %for.cond12062.backedge
 
 sw.bb15718:                                       ; preds = %for.cond12062
-  %arrayidx15720 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15720 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3206 = load ptr, ptr %arrayidx15720, align 8
   %ob_type15725 = getelementptr inbounds i8, ptr %3206, i64 8
   %3207 = load ptr, ptr %ob_type15725, align 8
@@ -24483,7 +24483,7 @@ if.end15729:                                      ; preds = %sw.bb15718
 sw.bb15738:                                       ; preds = %for.cond12062
   %oparg15743 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3212 = load i16, ptr %oparg15743, align 2
-  %arrayidx15745 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15745 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3213 = load ptr, ptr %arrayidx15745, align 8
   %operand15748 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3214 = load i64, ptr %operand15748, align 8
@@ -24540,16 +24540,16 @@ do.end15777:                                      ; preds = %if.end15768, %if.th
   br i1 %tobool15780.not, label %if.end15783, label %if.then15781
 
 if.then15781:                                     ; preds = %do.end15777
-  store ptr null, ptr %stack_pointer.10, align 8
+  store ptr null, ptr %stack_pointer.11, align 8
   br label %if.end15783
 
 if.end15783:                                      ; preds = %if.then15781, %do.end15777
   %idx.ext15785 = zext nneg i16 %3224 to i64
-  %add.ptr15786 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext15785
+  %add.ptr15786 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext15785
   br label %for.cond12062.backedge
 
 sw.bb15787:                                       ; preds = %for.cond12062
-  %arrayidx15789 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15789 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3225 = load ptr, ptr %arrayidx15789, align 8
   %add.ptr.i8905 = getelementptr i8, ptr %3225, i64 -24
   %dorv15790.sroa.0.0.copyload = load ptr, ptr %add.ptr.i8905, align 8
@@ -24564,7 +24564,7 @@ sw.bb15804:                                       ; preds = %for.cond12062
   %oparg15809 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3227 = load i16, ptr %oparg15809, align 2
   %conv15810 = zext i16 %3227 to i32
-  %arrayidx15811 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15811 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3228 = load ptr, ptr %arrayidx15811, align 8
   %operand15814 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3229 = load i64, ptr %operand15814, align 8
@@ -24579,8 +24579,8 @@ sw.bb15804:                                       ; preds = %for.cond12062
   br i1 %cmp15824.not, label %if.end15827, label %deoptimize
 
 if.end15827:                                      ; preds = %sw.bb15804
-  %frame.addr.6.val7351 = load ptr, ptr %frame.addr.6, align 8
-  %co_names15830 = getelementptr inbounds i8, ptr %frame.addr.6.val7351, i64 32
+  %frame.addr.7.val7351 = load ptr, ptr %frame.addr.7, align 8
+  %co_names15830 = getelementptr inbounds i8, ptr %frame.addr.7.val7351, i64 32
   %3232 = load ptr, ptr %co_names15830, align 8
   %ob_item15831 = getelementptr inbounds i8, ptr %3232, i64 24
   %shr15832 = lshr i32 %conv15810, 1
@@ -24662,18 +24662,18 @@ do.end15885:                                      ; preds = %if.end15876, %if.th
   br i1 %tobool15888.not, label %if.end15891, label %if.then15889
 
 if.then15889:                                     ; preds = %do.end15885
-  store ptr null, ptr %stack_pointer.10, align 8
+  store ptr null, ptr %stack_pointer.11, align 8
   br label %if.end15891
 
 if.end15891:                                      ; preds = %if.then15889, %do.end15885
   %idx.ext15893 = zext nneg i32 %and15887 to i64
-  %add.ptr15894 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext15893
+  %add.ptr15894 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext15893
   br label %for.cond12062.backedge
 
 sw.bb15895:                                       ; preds = %for.cond12062
   %oparg15900 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3243 = load i16, ptr %oparg15900, align 2
-  %arrayidx15902 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15902 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3244 = load ptr, ptr %arrayidx15902, align 8
   %operand15905 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3245 = load i64, ptr %operand15905, align 8
@@ -24720,16 +24720,16 @@ do.end15929:                                      ; preds = %if.end15920, %if.th
   br i1 %tobool15932.not, label %if.end15935, label %if.then15933
 
 if.then15933:                                     ; preds = %do.end15929
-  store ptr null, ptr %stack_pointer.10, align 8
+  store ptr null, ptr %stack_pointer.11, align 8
   br label %if.end15935
 
 if.end15935:                                      ; preds = %if.then15933, %do.end15929
   %idx.ext15937 = zext nneg i16 %3252 to i64
-  %add.ptr15938 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext15937
+  %add.ptr15938 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext15937
   br label %for.cond12062.backedge
 
 sw.bb15939:                                       ; preds = %for.cond12062
-  %arrayidx15941 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15941 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3253 = load ptr, ptr %arrayidx15941, align 8
   %3254 = getelementptr i8, ptr %3253, i64 8
   %.val7274 = load ptr, ptr %3254, align 8
@@ -24751,7 +24751,7 @@ if.end15949:                                      ; preds = %sw.bb15939
 sw.bb15955:                                       ; preds = %for.cond12062
   %oparg15960 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3258 = load i16, ptr %oparg15960, align 2
-  %arrayidx15962 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15962 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3259 = load ptr, ptr %arrayidx15962, align 8
   %operand15965 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3260 = load i64, ptr %operand15965, align 8
@@ -24792,16 +24792,16 @@ do.end15981:                                      ; preds = %if.end15972, %if.th
   br i1 %tobool15984.not, label %if.end15987, label %if.then15985
 
 if.then15985:                                     ; preds = %do.end15981
-  store ptr null, ptr %stack_pointer.10, align 8
+  store ptr null, ptr %stack_pointer.11, align 8
   br label %if.end15987
 
 if.end15987:                                      ; preds = %if.then15985, %do.end15981
   %idx.ext15989 = zext nneg i16 %3267 to i64
-  %add.ptr15990 = getelementptr ptr, ptr %stack_pointer.10, i64 %idx.ext15989
+  %add.ptr15990 = getelementptr ptr, ptr %stack_pointer.11, i64 %idx.ext15989
   br label %for.cond12062.backedge
 
 sw.bb15991:                                       ; preds = %for.cond12062
-  %arrayidx15993 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx15993 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3268 = load ptr, ptr %arrayidx15993, align 8
   %add.ptr.i8925 = getelementptr i8, ptr %3268, i64 -24
   %dorv15994.sroa.0.0.copyload = load ptr, ptr %add.ptr.i8925, align 8
@@ -24811,9 +24811,9 @@ sw.bb15991:                                       ; preds = %for.cond12062
   br i1 %tobool15998.not, label %deoptimize, label %for.cond12062.backedge
 
 sw.bb16001:                                       ; preds = %for.cond12062
-  %arrayidx16004 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16004 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3270 = load ptr, ptr %arrayidx16004, align 8
-  %arrayidx16005 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx16005 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3271 = load ptr, ptr %arrayidx16005, align 8
   %operand16008 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3272 = load i64, ptr %operand16008, align 8
@@ -24880,9 +24880,9 @@ if.then16052:                                     ; preds = %if.end16048
   br label %for.cond12062.backedge
 
 sw.bb16059:                                       ; preds = %for.cond12062
-  %arrayidx16062 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16062 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3283 = load ptr, ptr %arrayidx16062, align 8
-  %arrayidx16063 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx16063 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3284 = load ptr, ptr %arrayidx16063, align 8
   %operand16066 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3285 = load i64, ptr %operand16066, align 8
@@ -24937,9 +24937,9 @@ sw.bb16111:                                       ; preds = %for.cond12062
   %oparg16116 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3295 = load i16, ptr %oparg16116, align 2
   %conv16117 = zext i16 %3295 to i32
-  %arrayidx16118 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16118 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3296 = load ptr, ptr %arrayidx16118, align 8
-  %arrayidx16119 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx16119 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3297 = load ptr, ptr %arrayidx16119, align 8
   %shr16120 = lshr i32 %conv16117, 5
   %call16121 = call ptr @PyObject_RichCompare(ptr noundef %3297, ptr noundef %3296, i32 noundef %shr16120) #15
@@ -25030,9 +25030,9 @@ sw.bb16185:                                       ; preds = %for.cond12062
   %oparg16190 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3310 = load i16, ptr %oparg16190, align 2
   %conv16191 = zext i16 %3310 to i32
-  %arrayidx16192 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16192 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3311 = load ptr, ptr %arrayidx16192, align 8
-  %arrayidx16193 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx16193 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3312 = load ptr, ptr %arrayidx16193, align 8
   %ob_type16194 = getelementptr inbounds i8, ptr %3312, i64 8
   %3313 = load ptr, ptr %ob_type16194, align 8
@@ -25098,9 +25098,9 @@ sw.bb16247:                                       ; preds = %for.cond12062
   %oparg16252 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3321 = load i16, ptr %oparg16252, align 2
   %conv16253 = zext i16 %3321 to i32
-  %arrayidx16254 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16254 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3322 = load ptr, ptr %arrayidx16254, align 8
-  %arrayidx16255 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx16255 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3323 = load ptr, ptr %arrayidx16255, align 8
   %ob_type16256 = getelementptr inbounds i8, ptr %3323, i64 8
   %3324 = load ptr, ptr %ob_type16256, align 8
@@ -25186,9 +25186,9 @@ sw.bb16317:                                       ; preds = %for.cond12062
   %oparg16322 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3334 = load i16, ptr %oparg16322, align 2
   %conv16323 = zext i16 %3334 to i32
-  %arrayidx16324 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16324 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3335 = load ptr, ptr %arrayidx16324, align 8
-  %arrayidx16325 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx16325 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3336 = load ptr, ptr %arrayidx16325, align 8
   %ob_type16326 = getelementptr inbounds i8, ptr %3336, i64 8
   %3337 = load ptr, ptr %ob_type16326, align 8
@@ -25245,9 +25245,9 @@ do.end16363:                                      ; preds = %if.end16356, %if.th
 sw.bb16370:                                       ; preds = %for.cond12062
   %oparg16375 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3343 = load i16, ptr %oparg16375, align 2
-  %arrayidx16377 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16377 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3344 = load ptr, ptr %arrayidx16377, align 8
-  %arrayidx16378 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx16378 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3345 = load ptr, ptr %arrayidx16378, align 8
   %cmp16380 = icmp eq ptr %3345, %3344
   %3346 = zext i1 %cmp16380 to i16
@@ -25300,9 +25300,9 @@ sw.bb16417:                                       ; preds = %for.cond12062
   %oparg16422 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3355 = load i16, ptr %oparg16422, align 2
   %conv16423 = zext i16 %3355 to i32
-  %arrayidx16424 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16424 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3356 = load ptr, ptr %arrayidx16424, align 8
-  %arrayidx16425 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx16425 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3357 = load ptr, ptr %arrayidx16425, align 8
   %call16427 = call i32 @PySequence_Contains(ptr noundef %3356, ptr noundef %3357) #15
   %3358 = load i64, ptr %3357, align 8
@@ -25355,9 +25355,9 @@ if.end16461:                                      ; preds = %do.end16457
   br label %for.cond12062.backedge
 
 sw.bb16467:                                       ; preds = %for.cond12062
-  %arrayidx16472 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16472 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3366 = load ptr, ptr %arrayidx16472, align 8
-  %arrayidx16473 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx16473 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3367 = load ptr, ptr %arrayidx16473, align 8
   %call16474 = call i32 @_PyEval_CheckExceptStarTypeValid(ptr noundef %tstate, ptr noundef %3366)
   %cmp16475 = icmp slt i32 %call16474, 0
@@ -25469,9 +25469,9 @@ if.end16552:                                      ; preds = %if.then16551, %if.e
   br label %for.cond12062.backedge
 
 sw.bb16555:                                       ; preds = %for.cond12062
-  %arrayidx16559 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16559 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3387 = load ptr, ptr %arrayidx16559, align 8
-  %arrayidx16560 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx16560 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3388 = load ptr, ptr %arrayidx16560, align 8
   %3389 = getelementptr i8, ptr %3387, i64 8
   %right.val9.i8947 = load ptr, ptr %3389, align 8
@@ -25575,7 +25575,7 @@ do.end16597:                                      ; preds = %if.end16588, %if.th
   br label %for.cond12062.backedge
 
 sw.bb16601:                                       ; preds = %for.cond12062
-  %arrayidx16604 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16604 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3407 = load ptr, ptr %arrayidx16604, align 8
   %cmp16605 = icmp eq ptr %3407, @_Py_NoneStruct
   br i1 %cmp16605, label %if.end16624, label %if.else16608
@@ -25606,7 +25606,7 @@ if.end16624:                                      ; preds = %sw.bb16601, %if.els
   br label %for.cond12062.backedge
 
 sw.bb16626:                                       ; preds = %for.cond12062
-  %arrayidx16629 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16629 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3412 = load ptr, ptr %arrayidx16629, align 8
   %call16631 = call i64 @PyObject_Size(ptr noundef %3412) #15
   %cmp16632 = icmp slt i64 %call16631, 0
@@ -25618,18 +25618,18 @@ if.end16635:                                      ; preds = %sw.bb16626
   br i1 %cmp16637, label %error_tier_two, label %if.end16640
 
 if.end16640:                                      ; preds = %if.end16635
-  store ptr %call16636, ptr %stack_pointer.10, align 8
-  %add.ptr16642 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %call16636, ptr %stack_pointer.11, align 8
+  %add.ptr16642 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb16643:                                       ; preds = %for.cond12062
   %oparg16649 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3413 = load i16, ptr %oparg16649, align 2
-  %arrayidx16651 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16651 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3414 = load ptr, ptr %arrayidx16651, align 8
-  %arrayidx16652 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx16652 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3415 = load ptr, ptr %arrayidx16652, align 8
-  %arrayidx16653 = getelementptr i8, ptr %stack_pointer.10, i64 -24
+  %arrayidx16653 = getelementptr i8, ptr %stack_pointer.11, i64 -24
   %3416 = load ptr, ptr %arrayidx16653, align 8
   %conv16654 = zext i16 %3413 to i64
   %call16655 = call ptr @_PyEval_MatchClass(ptr noundef %tstate, ptr noundef %3416, ptr noundef %3415, i64 noundef %conv16654, ptr noundef %3414)
@@ -25713,7 +25713,7 @@ if.end16708:                                      ; preds = %if.else16703, %_PyE
   br label %for.cond12062.backedge
 
 sw.bb16711:                                       ; preds = %for.cond12062
-  %arrayidx16714 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16714 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3430 = load ptr, ptr %arrayidx16714, align 8
   %3431 = getelementptr i8, ptr %3430, i64 8
   %.val6898 = load ptr, ptr %3431, align 8
@@ -25722,12 +25722,12 @@ sw.bb16711:                                       ; preds = %for.cond12062
   %conv167196810 = and i64 %3432, 64
   %tobool16720.not = icmp eq i64 %conv167196810, 0
   %cond16721 = select i1 %tobool16720.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  store ptr %cond16721, ptr %stack_pointer.10, align 8
-  %add.ptr16723 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %cond16721, ptr %stack_pointer.11, align 8
+  %add.ptr16723 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb16724:                                       ; preds = %for.cond12062
-  %arrayidx16727 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16727 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3433 = load ptr, ptr %arrayidx16727, align 8
   %3434 = getelementptr i8, ptr %3433, i64 8
   %.val6897 = load ptr, ptr %3434, align 8
@@ -25736,26 +25736,26 @@ sw.bb16724:                                       ; preds = %for.cond12062
   %conv167326809 = and i64 %3435, 32
   %tobool16733.not = icmp eq i64 %conv167326809, 0
   %cond16734 = select i1 %tobool16733.not, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
-  store ptr %cond16734, ptr %stack_pointer.10, align 8
-  %add.ptr16736 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %cond16734, ptr %stack_pointer.11, align 8
+  %add.ptr16736 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb16737:                                       ; preds = %for.cond12062
-  %arrayidx16741 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16741 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3436 = load ptr, ptr %arrayidx16741, align 8
-  %arrayidx16742 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx16742 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3437 = load ptr, ptr %arrayidx16742, align 8
   %call16743 = call ptr @_PyEval_MatchKeys(ptr noundef %tstate, ptr noundef %3437, ptr noundef %3436)
   %cmp16744 = icmp eq ptr %call16743, null
   br i1 %cmp16744, label %error_tier_two, label %if.end16747
 
 if.end16747:                                      ; preds = %sw.bb16737
-  store ptr %call16743, ptr %stack_pointer.10, align 8
-  %add.ptr16749 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %call16743, ptr %stack_pointer.11, align 8
+  %add.ptr16749 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb16750:                                       ; preds = %for.cond12062
-  %arrayidx16753 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16753 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3438 = load ptr, ptr %arrayidx16753, align 8
   %call16754 = call ptr @PyObject_GetIter(ptr noundef %3438) #15
   %3439 = load i64, ptr %3438, align 8
@@ -25786,7 +25786,7 @@ if.end16773:                                      ; preds = %do.end16769
   br label %for.cond12062.backedge
 
 sw.bb16775:                                       ; preds = %for.cond12062
-  %arrayidx16778 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16778 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3443 = load ptr, ptr %arrayidx16778, align 8
   %ob_type16779 = getelementptr inbounds i8, ptr %3443, i64 8
   %3444 = load ptr, ptr %ob_type16779, align 8
@@ -25794,8 +25794,8 @@ sw.bb16775:                                       ; preds = %for.cond12062
   br i1 %cmp16780, label %if.then16782, label %if.else16789
 
 if.then16782:                                     ; preds = %sw.bb16775
-  %frame.addr.6.val7352 = load ptr, ptr %frame.addr.6, align 8
-  %co_flags16784 = getelementptr inbounds i8, ptr %frame.addr.6.val7352, i64 48
+  %frame.addr.7.val7352 = load ptr, ptr %frame.addr.7, align 8
+  %co_flags16784 = getelementptr inbounds i8, ptr %frame.addr.7.val7352, i64 48
   %3445 = load i32, ptr %co_flags16784, align 8
   %and16785 = and i32 %3445, 384
   %tobool16786.not = icmp eq i32 %and16785, 0
@@ -25840,7 +25840,7 @@ if.end16816:                                      ; preds = %if.else16789, %if.t
   br label %for.cond12062.backedge
 
 sw.bb16818:                                       ; preds = %for.cond12062
-  %arrayidx16821 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16821 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3450 = load ptr, ptr %arrayidx16821, align 8
   %3451 = getelementptr i8, ptr %3450, i64 8
   %.val6894 = load ptr, ptr %3451, align 8
@@ -25851,7 +25851,7 @@ sw.bb16818:                                       ; preds = %for.cond12062
   br i1 %cmp16825, label %if.then16827, label %if.end16852
 
 if.then16827:                                     ; preds = %sw.bb16818
-  %arrayidx16821.le = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16821.le = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3453 = getelementptr i8, ptr %3450, i64 8
   %tstate.val7261 = load ptr, ptr %25, align 8
   %cmp.i8982 = icmp eq ptr %tstate.val7261, null
@@ -25893,12 +25893,12 @@ if.then16845:                                     ; preds = %if.end16841
   br label %deoptimize
 
 if.end16852:                                      ; preds = %sw.bb16818
-  store ptr %call16824, ptr %stack_pointer.10, align 8
-  %add.ptr16854 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %call16824, ptr %stack_pointer.11, align 8
+  %add.ptr16854 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb16855:                                       ; preds = %for.cond12062
-  %arrayidx16857 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16857 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3459 = load ptr, ptr %arrayidx16857, align 8
   %3460 = getelementptr i8, ptr %3459, i64 8
   %.val6892 = load ptr, ptr %3460, align 8
@@ -25906,7 +25906,7 @@ sw.bb16855:                                       ; preds = %for.cond12062
   br i1 %cmp16859.not, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb16863:                                       ; preds = %for.cond12062
-  %arrayidx16865 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16865 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3461 = load ptr, ptr %arrayidx16865, align 8
   %it_seq16868 = getelementptr inbounds i8, ptr %3461, i64 24
   %3462 = load ptr, ptr %it_seq16868, align 8
@@ -25922,7 +25922,7 @@ if.end16872:                                      ; preds = %sw.bb16863
   br i1 %cmp16875.not, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb16879:                                       ; preds = %for.cond12062
-  %arrayidx16882 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16882 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3465 = load ptr, ptr %arrayidx16882, align 8
   %it_seq16885 = getelementptr inbounds i8, ptr %3465, i64 24
   %3466 = load ptr, ptr %it_seq16885, align 8
@@ -25944,12 +25944,12 @@ if.end.i.i8989:                                   ; preds = %sw.bb16879
   br label %_Py_NewRef.exit8990
 
 _Py_NewRef.exit8990:                              ; preds = %sw.bb16879, %if.end.i.i8989
-  store ptr %3469, ptr %stack_pointer.10, align 8
-  %add.ptr16892 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %3469, ptr %stack_pointer.11, align 8
+  %add.ptr16892 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb16893:                                       ; preds = %for.cond12062
-  %arrayidx16895 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16895 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3471 = load ptr, ptr %arrayidx16895, align 8
   %3472 = getelementptr i8, ptr %3471, i64 8
   %.val6891 = load ptr, ptr %3472, align 8
@@ -25957,7 +25957,7 @@ sw.bb16893:                                       ; preds = %for.cond12062
   br i1 %cmp16897.not, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb16901:                                       ; preds = %for.cond12062
-  %arrayidx16903 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16903 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3473 = load ptr, ptr %arrayidx16903, align 8
   %it_seq16906 = getelementptr inbounds i8, ptr %3473, i64 24
   %3474 = load ptr, ptr %it_seq16906, align 8
@@ -25973,7 +25973,7 @@ if.end16910:                                      ; preds = %sw.bb16901
   br i1 %cmp16913.not, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb16917:                                       ; preds = %for.cond12062
-  %arrayidx16920 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16920 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3477 = load ptr, ptr %arrayidx16920, align 8
   %it_seq16923 = getelementptr inbounds i8, ptr %3477, i64 24
   %3478 = load ptr, ptr %it_seq16923, align 8
@@ -25994,12 +25994,12 @@ if.end.i.i8993:                                   ; preds = %sw.bb16917
   br label %_Py_NewRef.exit8994
 
 _Py_NewRef.exit8994:                              ; preds = %sw.bb16917, %if.end.i.i8993
-  store ptr %3480, ptr %stack_pointer.10, align 8
-  %add.ptr16930 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %3480, ptr %stack_pointer.11, align 8
+  %add.ptr16930 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb16931:                                       ; preds = %for.cond12062
-  %arrayidx16933 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16933 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3482 = load ptr, ptr %arrayidx16933, align 8
   %3483 = getelementptr i8, ptr %3482, i64 8
   %.val6890 = load ptr, ptr %3483, align 8
@@ -26007,7 +26007,7 @@ sw.bb16931:                                       ; preds = %for.cond12062
   br i1 %cmp16936.not, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb16940:                                       ; preds = %for.cond12062
-  %arrayidx16942 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16942 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3484 = load ptr, ptr %arrayidx16942, align 8
   %len16944 = getelementptr inbounds i8, ptr %3484, i64 32
   %3485 = load i64, ptr %len16944, align 8
@@ -26015,7 +26015,7 @@ sw.bb16940:                                       ; preds = %for.cond12062
   br i1 %cmp16945, label %deoptimize, label %for.cond12062.backedge
 
 sw.bb16949:                                       ; preds = %for.cond12062
-  %arrayidx16952 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16952 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3486 = load ptr, ptr %arrayidx16952, align 8
   %start16955 = getelementptr inbounds i8, ptr %3486, i64 16
   %3487 = load i64, ptr %start16955, align 8
@@ -26032,12 +26032,12 @@ sw.bb16949:                                       ; preds = %for.cond12062
   br i1 %cmp16962, label %error_tier_two, label %if.end16965
 
 if.end16965:                                      ; preds = %sw.bb16949
-  store ptr %call16961, ptr %stack_pointer.10, align 8
-  %add.ptr16967 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %call16961, ptr %stack_pointer.11, align 8
+  %add.ptr16967 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb16968:                                       ; preds = %for.cond12062
-  %arrayidx16972 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx16972 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3490 = load ptr, ptr %arrayidx16972, align 8
   %call16974 = call ptr @_PyObject_LookupSpecial(ptr noundef %3490, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 26600)) #15
   %cmp16975 = icmp eq ptr %call16974, null
@@ -26200,12 +26200,12 @@ if.then17056:                                     ; preds = %if.end17052
 
 if.end17062:                                      ; preds = %do.end17043
   store ptr %call16986, ptr %arrayidx16972, align 8
-  store ptr %retval.0.i.i9016, ptr %stack_pointer.10, align 8
-  %add.ptr17065 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %retval.0.i.i9016, ptr %stack_pointer.11, align 8
+  %add.ptr17065 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb17066:                                       ; preds = %for.cond12062
-  %arrayidx17070 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx17070 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3518 = load ptr, ptr %arrayidx17070, align 8
   %call17072 = call ptr @_PyObject_LookupSpecial(ptr noundef %3518, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 28624)) #15
   %cmp17073 = icmp eq ptr %call17072, null
@@ -26368,14 +26368,14 @@ if.then17154:                                     ; preds = %if.end17150
 
 if.end17160:                                      ; preds = %do.end17141
   store ptr %call17084, ptr %arrayidx17070, align 8
-  store ptr %retval.0.i.i9041, ptr %stack_pointer.10, align 8
-  %add.ptr17163 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %retval.0.i.i9041, ptr %stack_pointer.11, align 8
+  %add.ptr17163 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb17164:                                       ; preds = %for.cond12062
-  %arrayidx17169 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx17169 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3546 = load ptr, ptr %arrayidx17169, align 8
-  %arrayidx17171 = getelementptr i8, ptr %stack_pointer.10, i64 -32
+  %arrayidx17171 = getelementptr i8, ptr %stack_pointer.11, i64 -32
   %3547 = load ptr, ptr %arrayidx17171, align 8
   %3548 = getelementptr i8, ptr %3546, i64 8
   %.val6881 = load ptr, ptr %3548, align 8
@@ -26414,12 +26414,12 @@ if.end17195:                                      ; preds = %sw.bb17164, %do.bod
   br i1 %cmp17204, label %error_tier_two, label %if.end17207
 
 if.end17207:                                      ; preds = %if.end17195
-  store ptr %call17203, ptr %stack_pointer.10, align 8
-  %add.ptr17209 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %call17203, ptr %stack_pointer.11, align 8
+  %add.ptr17209 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb17210:                                       ; preds = %for.cond12062
-  %arrayidx17213 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx17213 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3553 = load ptr, ptr %arrayidx17213, align 8
   %3554 = load ptr, ptr %exc_info17215, align 8
   %3555 = load ptr, ptr %3554, align 8
@@ -26437,12 +26437,12 @@ if.end.i.i9047:                                   ; preds = %sw.bb17210
 _Py_NewRef.exit9048:                              ; preds = %sw.bb17210, %if.end.i.i9047
   store ptr %3553, ptr %3554, align 8
   store ptr %_Py_NoneStruct.6820, ptr %arrayidx17213, align 8
-  store ptr %3553, ptr %stack_pointer.10, align 8
-  %add.ptr17227 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %3553, ptr %stack_pointer.11, align 8
+  %add.ptr17227 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb17228:                                       ; preds = %for.cond12062
-  %arrayidx17230 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx17230 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3557 = load ptr, ptr %arrayidx17230, align 8
   %add.ptr.i9049 = getelementptr i8, ptr %3557, i64 -24
   %3558 = load ptr, ptr %add.ptr.i9049, align 8
@@ -26456,7 +26456,7 @@ land.lhs.true17236:                               ; preds = %sw.bb17228
   br i1 %call17237, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb17240:                                       ; preds = %for.cond12062
-  %arrayidx17242 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx17242 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3560 = load ptr, ptr %arrayidx17242, align 8
   %operand17245 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3561 = load i64, ptr %operand17245, align 8
@@ -26471,7 +26471,7 @@ sw.bb17240:                                       ; preds = %for.cond12062
   br i1 %cmp17252.not, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb17256:                                       ; preds = %for.cond12062
-  %arrayidx17263 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx17263 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3565 = load ptr, ptr %arrayidx17263, align 8
   %operand17266 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3566 = load i64, ptr %operand17266, align 8
@@ -26487,12 +26487,12 @@ if.end.i.i9053:                                   ; preds = %sw.bb17256
 
 _Py_NewRef.exit9054:                              ; preds = %sw.bb17256, %if.end.i.i9053
   store ptr %3567, ptr %arrayidx17263, align 8
-  store ptr %3565, ptr %stack_pointer.10, align 8
-  %add.ptr17270 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %3565, ptr %stack_pointer.11, align 8
+  %add.ptr17270 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb17271:                                       ; preds = %for.cond12062
-  %arrayidx17278 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx17278 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3569 = load ptr, ptr %arrayidx17278, align 8
   %operand17281 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3570 = load i64, ptr %operand17281, align 8
@@ -26508,12 +26508,12 @@ if.end.i.i9057:                                   ; preds = %sw.bb17271
 
 _Py_NewRef.exit9058:                              ; preds = %sw.bb17271, %if.end.i.i9057
   store ptr %3571, ptr %arrayidx17278, align 8
-  store ptr %3569, ptr %stack_pointer.10, align 8
-  %add.ptr17285 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %3569, ptr %stack_pointer.11, align 8
+  %add.ptr17285 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb17286:                                       ; preds = %for.cond12062
-  %arrayidx17292 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx17292 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3573 = load ptr, ptr %arrayidx17292, align 8
   %operand17295 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3574 = load i64, ptr %operand17295, align 8
@@ -26552,7 +26552,7 @@ _Py_NewRef.exit9062:                              ; preds = %do.end17310, %if.en
   br label %for.cond12062.backedge
 
 sw.bb17314:                                       ; preds = %for.cond12062
-  %arrayidx17320 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx17320 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3581 = load ptr, ptr %arrayidx17320, align 8
   %operand17323 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3582 = load i64, ptr %operand17323, align 8
@@ -26591,7 +26591,7 @@ _Py_NewRef.exit9066:                              ; preds = %do.end17338, %if.en
   br label %for.cond12062.backedge
 
 sw.bb17342:                                       ; preds = %for.cond12062
-  %arrayidx17344 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx17344 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3589 = load ptr, ptr %arrayidx17344, align 8
   %3590 = getelementptr i8, ptr %3589, i64 8
   %.val6877 = load ptr, ptr %3590, align 8
@@ -26603,7 +26603,7 @@ sw.bb17342:                                       ; preds = %for.cond12062
   br i1 %cmp17350.not, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb17354:                                       ; preds = %for.cond12062
-  %arrayidx17361 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx17361 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3593 = load ptr, ptr %arrayidx17361, align 8
   %operand17364 = getelementptr inbounds i8, ptr %next_uop.0, i64 8
   %3594 = load i64, ptr %operand17364, align 8
@@ -26619,8 +26619,8 @@ if.end.i.i9069:                                   ; preds = %sw.bb17354
 
 _Py_NewRef.exit9070:                              ; preds = %sw.bb17354, %if.end.i.i9069
   store ptr %3595, ptr %arrayidx17361, align 8
-  store ptr %3593, ptr %stack_pointer.10, align 8
-  %add.ptr17368 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %3593, ptr %stack_pointer.11, align 8
+  %add.ptr17368 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb17369:                                       ; preds = %for.cond12062
@@ -26629,7 +26629,7 @@ sw.bb17369:                                       ; preds = %for.cond12062
   %conv17374 = zext i16 %3597 to i32
   %sub17375 = xor i32 %conv17374, -1
   %idxprom17376 = sext i32 %sub17375 to i64
-  %arrayidx17377 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17376
+  %arrayidx17377 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17376
   %3598 = load ptr, ptr %arrayidx17377, align 8
   %cmp17381.not = icmp eq ptr %3598, null
   br i1 %cmp17381.not, label %if.end17384, label %deoptimize
@@ -26637,7 +26637,7 @@ sw.bb17369:                                       ; preds = %for.cond12062
 if.end17384:                                      ; preds = %sw.bb17369
   %sub17378 = sub nuw nsw i32 -2, %conv17374
   %idxprom17379 = sext i32 %sub17378 to i64
-  %arrayidx17380 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17379
+  %arrayidx17380 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17379
   %3599 = load ptr, ptr %arrayidx17380, align 8
   %3600 = getelementptr i8, ptr %3599, i64 8
   %.val6876 = load ptr, ptr %3600, align 8
@@ -26650,7 +26650,7 @@ sw.bb17390:                                       ; preds = %for.cond12062
   %conv17396 = zext i16 %3601 to i32
   %sub17397 = sub nuw nsw i32 -2, %conv17396
   %idxprom17398 = sext i32 %sub17397 to i64
-  %arrayidx17399 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17398
+  %arrayidx17399 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17398
   %3602 = load ptr, ptr %arrayidx17399, align 8
   %im_self17400 = getelementptr inbounds i8, ptr %3602, i64 24
   %3603 = load ptr, ptr %im_self17400, align 8
@@ -26666,7 +26666,7 @@ if.end.i.i9073:                                   ; preds = %sw.bb17390
 _Py_NewRef.exit9074:                              ; preds = %sw.bb17390, %if.end.i.i9073
   %sub17402 = xor i32 %conv17396, -1
   %idxprom17403 = sext i32 %sub17402 to i64
-  %arrayidx17404 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17403
+  %arrayidx17404 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17403
   store ptr %3603, ptr %arrayidx17404, align 8
   %im_func17405 = getelementptr inbounds i8, ptr %3602, i64 16
   %3605 = load ptr, ptr %im_func17405, align 8
@@ -26718,11 +26718,11 @@ sw.bb17437:                                       ; preds = %for.cond12062
   %conv17442 = zext i16 %3613 to i32
   %sub17443 = xor i32 %conv17442, -1
   %idxprom17444 = sext i32 %sub17443 to i64
-  %arrayidx17445 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17444
+  %arrayidx17445 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17444
   %3614 = load ptr, ptr %arrayidx17445, align 8
   %sub17446 = sub nuw nsw i32 -2, %conv17442
   %idxprom17447 = sext i32 %sub17446 to i64
-  %arrayidx17448 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17447
+  %arrayidx17448 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17447
   %3615 = load ptr, ptr %arrayidx17448, align 8
   %ob_type17453 = getelementptr inbounds i8, ptr %3615, i64 8
   %3616 = load ptr, ptr %ob_type17453, align 8
@@ -26759,7 +26759,7 @@ _PyThreadState_HasStackSpace.exit9090:            ; preds = %sw.bb17474
   %3622 = load i16, ptr %oparg17477, align 2
   %conv17478 = zext i16 %3622 to i64
   %sub17479 = sub nuw nsw i64 -2, %conv17478
-  %arrayidx17481 = getelementptr ptr, ptr %stack_pointer.10, i64 %sub17479
+  %arrayidx17481 = getelementptr ptr, ptr %stack_pointer.11, i64 %sub17479
   %3623 = load ptr, ptr %arrayidx17481, align 8
   %func_code17484 = getelementptr inbounds i8, ptr %3623, i64 48
   %3624 = load ptr, ptr %func_code17484, align 8
@@ -26785,14 +26785,14 @@ sw.bb17494:                                       ; preds = %for.cond12062
   %conv17501 = zext i16 %3628 to i32
   %sub17502 = sub nsw i32 0, %conv17501
   %idxprom17503 = sext i32 %sub17502 to i64
-  %arrayidx17504 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17503
+  %arrayidx17504 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17503
   %sub17505 = xor i32 %conv17501, -1
   %idxprom17506 = sext i32 %sub17505 to i64
-  %arrayidx17507 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17506
+  %arrayidx17507 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17506
   %3629 = load ptr, ptr %arrayidx17507, align 8
   %sub17508 = sub nuw nsw i32 -2, %conv17501
   %idxprom17509 = sext i32 %sub17508 to i64
-  %arrayidx17510 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17509
+  %arrayidx17510 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17509
   %3630 = load ptr, ptr %arrayidx17510, align 8
   %cmp17512.not = icmp ne ptr %3629, null
   %inc17516 = zext i1 %cmp17512.not to i32
@@ -26886,18 +26886,18 @@ for.end17532:                                     ; preds = %for.body17524, %_Py
   br label %for.cond12062.backedge
 
 sw.bb17539:                                       ; preds = %for.cond12062
-  %arrayidx17541 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx17541 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3643 = load ptr, ptr %arrayidx17541, align 8
-  %localsplus.i9122 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
+  %localsplus.i9122 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
   %sub.ptr.lhs.cast.i9123 = ptrtoint ptr %arrayidx17541 to i64
   %sub.ptr.rhs.cast.i9124 = ptrtoint ptr %localsplus.i9122 to i64
   %sub.ptr.sub.i9125 = sub i64 %sub.ptr.lhs.cast.i9123, %sub.ptr.rhs.cast.i9124
   %sub.ptr.div.i9126 = lshr exact i64 %sub.ptr.sub.i9125, 3
   %conv.i9127 = trunc i64 %sub.ptr.div.i9126 to i32
-  %stacktop.i9128 = getelementptr inbounds i8, ptr %frame.addr.6, i64 64
+  %stacktop.i9128 = getelementptr inbounds i8, ptr %frame.addr.7, i64 64
   store i32 %conv.i9127, ptr %stacktop.i9128, align 8
   %previous17543 = getelementptr inbounds i8, ptr %3643, i64 8
-  store ptr %frame.addr.6, ptr %previous17543, align 8
+  store ptr %frame.addr.7, ptr %previous17543, align 8
   store ptr %3643, ptr %current_frame, align 8
   %3644 = load i32, ptr %py_recursion_remaining3963, align 4
   %dec17546 = add i32 %3644, -1
@@ -26916,11 +26916,11 @@ sw.bb17549:                                       ; preds = %for.cond12062
   %conv17556 = zext i16 %3646 to i32
   %sub17560 = xor i32 %conv17556, -1
   %idxprom17561 = sext i32 %sub17560 to i64
-  %arrayidx17562 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17561
+  %arrayidx17562 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17561
   %3647 = load ptr, ptr %arrayidx17562, align 8
   %sub17563 = sub nuw nsw i32 -2, %conv17556
   %idxprom17564 = sext i32 %sub17563 to i64
-  %arrayidx17565 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17564
+  %arrayidx17565 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17564
   %cmp17566.not = icmp eq ptr %3647, null
   br i1 %cmp17566.not, label %if.end17569, label %deoptimize
 
@@ -26928,7 +26928,7 @@ if.end17569:                                      ; preds = %sw.bb17549
   %3648 = load ptr, ptr %arrayidx17565, align 8
   %sub17557 = sub nsw i32 0, %conv17556
   %idxprom17558 = sext i32 %sub17557 to i64
-  %arrayidx17559 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17558
+  %arrayidx17559 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17558
   %3649 = load ptr, ptr %arrayidx17559, align 8
   %cmp17572.not = icmp eq ptr %3648, @PyType_Type
   br i1 %cmp17572.not, label %if.end17575, label %deoptimize
@@ -26993,11 +26993,11 @@ sw.bb17614:                                       ; preds = %for.cond12062
   %conv17621 = zext i16 %3658 to i32
   %sub17625 = xor i32 %conv17621, -1
   %idxprom17626 = sext i32 %sub17625 to i64
-  %arrayidx17627 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17626
+  %arrayidx17627 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17626
   %3659 = load ptr, ptr %arrayidx17627, align 8
   %sub17628 = sub nuw nsw i32 -2, %conv17621
   %idxprom17629 = sext i32 %sub17628 to i64
-  %arrayidx17630 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17629
+  %arrayidx17630 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17629
   %3660 = load ptr, ptr %arrayidx17630, align 8
   %cmp17631 = icmp ne ptr %3659, null
   %cmp17635 = icmp ne ptr %3660, @PyUnicode_Type
@@ -27007,7 +27007,7 @@ sw.bb17614:                                       ; preds = %for.cond12062
 if.end17638:                                      ; preds = %sw.bb17614
   %sub17622 = sub nsw i32 0, %conv17621
   %idxprom17623 = sext i32 %sub17622 to i64
-  %arrayidx17624 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17623
+  %arrayidx17624 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17623
   %3661 = load ptr, ptr %arrayidx17624, align 8
   %call17641 = call ptr @PyObject_Str(ptr noundef %3661) #15
   %3662 = load i64, ptr %3661, align 8
@@ -27071,11 +27071,11 @@ sw.bb17698:                                       ; preds = %for.cond12062
   %conv17705 = zext i16 %3671 to i32
   %sub17709 = xor i32 %conv17705, -1
   %idxprom17710 = sext i32 %sub17709 to i64
-  %arrayidx17711 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17710
+  %arrayidx17711 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17710
   %3672 = load ptr, ptr %arrayidx17711, align 8
   %sub17712 = sub nuw nsw i32 -2, %conv17705
   %idxprom17713 = sext i32 %sub17712 to i64
-  %arrayidx17714 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17713
+  %arrayidx17714 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17713
   %3673 = load ptr, ptr %arrayidx17714, align 8
   %cmp17715 = icmp ne ptr %3672, null
   %cmp17719 = icmp ne ptr %3673, @PyTuple_Type
@@ -27085,7 +27085,7 @@ sw.bb17698:                                       ; preds = %for.cond12062
 if.end17722:                                      ; preds = %sw.bb17698
   %sub17706 = sub nsw i32 0, %conv17705
   %idxprom17707 = sext i32 %sub17706 to i64
-  %arrayidx17708 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17707
+  %arrayidx17708 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17707
   %3674 = load ptr, ptr %arrayidx17708, align 8
   %call17725 = call ptr @PySequence_Tuple(ptr noundef %3674) #15
   %3675 = load i64, ptr %3674, align 8
@@ -27144,7 +27144,7 @@ if.then17775:                                     ; preds = %if.end17762
   br i1 %cmp17777.not, label %for.cond12062.backedge, label %error_tier_two
 
 sw.bb17782:                                       ; preds = %for.cond12062
-  %arrayidx17784 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx17784 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3684 = load ptr, ptr %arrayidx17784, align 8
   %cmp17785.not = icmp eq ptr %3684, @_Py_NoneStruct
   br i1 %cmp17785.not, label %for.cond12062.backedge, label %if.then17787
@@ -27164,14 +27164,14 @@ sw.bb17793:                                       ; preds = %for.cond12062
   %conv17800 = zext i16 %3688 to i32
   %sub17801 = sub nsw i32 0, %conv17800
   %idxprom17802 = sext i32 %sub17801 to i64
-  %arrayidx17803 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17802
+  %arrayidx17803 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17802
   %sub17804 = xor i32 %conv17800, -1
   %idxprom17805 = sext i32 %sub17804 to i64
-  %arrayidx17806 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17805
+  %arrayidx17806 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17805
   %3689 = load ptr, ptr %arrayidx17806, align 8
   %sub17807 = sub nuw nsw i32 -2, %conv17800
   %idxprom17808 = sext i32 %sub17807 to i64
-  %arrayidx17809 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17808
+  %arrayidx17809 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17808
   %3690 = load ptr, ptr %arrayidx17809, align 8
   %cmp17811.not = icmp ne ptr %3689, null
   %inc17815 = zext i1 %cmp17811.not to i32
@@ -27268,14 +27268,14 @@ sw.bb17896:                                       ; preds = %for.cond12062
   %conv17903 = zext i16 %3704 to i32
   %sub17904 = sub nsw i32 0, %conv17903
   %idxprom17905 = sext i32 %sub17904 to i64
-  %arrayidx17906 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17905
+  %arrayidx17906 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17905
   %sub17907 = xor i32 %conv17903, -1
   %idxprom17908 = sext i32 %sub17907 to i64
-  %arrayidx17909 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17908
+  %arrayidx17909 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17908
   %3705 = load ptr, ptr %arrayidx17909, align 8
   %sub17910 = sub nuw nsw i32 -2, %conv17903
   %idxprom17911 = sext i32 %sub17910 to i64
-  %arrayidx17912 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom17911
+  %arrayidx17912 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom17911
   %3706 = load ptr, ptr %arrayidx17912, align 8
   %cmp17914.not = icmp ne ptr %3705, null
   %args17897.0.idx = select i1 %cmp17914.not, i64 -8, i64 0
@@ -27415,14 +27415,14 @@ sw.bb18000:                                       ; preds = %for.cond12062
   %conv18007 = zext i16 %3730 to i32
   %sub18008 = sub nsw i32 0, %conv18007
   %idxprom18009 = sext i32 %sub18008 to i64
-  %arrayidx18010 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18009
+  %arrayidx18010 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18009
   %sub18011 = xor i32 %conv18007, -1
   %idxprom18012 = sext i32 %sub18011 to i64
-  %arrayidx18013 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18012
+  %arrayidx18013 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18012
   %3731 = load ptr, ptr %arrayidx18013, align 8
   %sub18014 = sub nuw nsw i32 -2, %conv18007
   %idxprom18015 = sext i32 %sub18014 to i64
-  %arrayidx18016 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18015
+  %arrayidx18016 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18015
   %3732 = load ptr, ptr %arrayidx18016, align 8
   %cmp18018.not = icmp ne ptr %3731, null
   %args18001.0.idx = select i1 %cmp18018.not, i64 -8, i64 0
@@ -27522,14 +27522,14 @@ sw.bb18105:                                       ; preds = %for.cond12062
   %conv18112 = zext i16 %3748 to i32
   %sub18113 = sub nsw i32 0, %conv18112
   %idxprom18114 = sext i32 %sub18113 to i64
-  %arrayidx18115 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18114
+  %arrayidx18115 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18114
   %sub18116 = xor i32 %conv18112, -1
   %idxprom18117 = sext i32 %sub18116 to i64
-  %arrayidx18118 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18117
+  %arrayidx18118 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18117
   %3749 = load ptr, ptr %arrayidx18118, align 8
   %sub18119 = sub nuw nsw i32 -2, %conv18112
   %idxprom18120 = sext i32 %sub18119 to i64
-  %arrayidx18121 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18120
+  %arrayidx18121 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18120
   %3750 = load ptr, ptr %arrayidx18121, align 8
   %cmp18123.not = icmp ne ptr %3749, null
   %args18106.0.idx = select i1 %cmp18123.not, i64 -8, i64 0
@@ -27629,14 +27629,14 @@ sw.bb18210:                                       ; preds = %for.cond12062
   %conv18217 = zext i16 %3766 to i32
   %sub18218 = sub nsw i32 0, %conv18217
   %idxprom18219 = sext i32 %sub18218 to i64
-  %arrayidx18220 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18219
+  %arrayidx18220 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18219
   %sub18221 = xor i32 %conv18217, -1
   %idxprom18222 = sext i32 %sub18221 to i64
-  %arrayidx18223 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18222
+  %arrayidx18223 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18222
   %3767 = load ptr, ptr %arrayidx18223, align 8
   %sub18224 = sub nuw nsw i32 -2, %conv18217
   %idxprom18225 = sext i32 %sub18224 to i64
-  %arrayidx18226 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18225
+  %arrayidx18226 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18225
   %3768 = load ptr, ptr %arrayidx18226, align 8
   %cmp18228.not = icmp ne ptr %3767, null
   %args18211.0.idx = select i1 %cmp18228.not, i64 -8, i64 0
@@ -27714,14 +27714,14 @@ sw.bb18298:                                       ; preds = %for.cond12062
   %conv18305 = zext i16 %3780 to i32
   %sub18306 = sub nsw i32 0, %conv18305
   %idxprom18307 = sext i32 %sub18306 to i64
-  %arrayidx18308 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18307
+  %arrayidx18308 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18307
   %sub18309 = xor i32 %conv18305, -1
   %idxprom18310 = sext i32 %sub18309 to i64
-  %arrayidx18311 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18310
+  %arrayidx18311 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18310
   %3781 = load ptr, ptr %arrayidx18311, align 8
   %sub18312 = sub nuw nsw i32 -2, %conv18305
   %idxprom18313 = sext i32 %sub18312 to i64
-  %arrayidx18314 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18313
+  %arrayidx18314 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18313
   %3782 = load ptr, ptr %arrayidx18314, align 8
   %cmp18316.not = icmp ne ptr %3781, null
   %args18299.0.idx = select i1 %cmp18316.not, i64 -8, i64 0
@@ -27822,14 +27822,14 @@ sw.bb18404:                                       ; preds = %for.cond12062
   %conv18411 = zext i16 %3799 to i32
   %sub18412 = sub nsw i32 0, %conv18411
   %idxprom18413 = sext i32 %sub18412 to i64
-  %arrayidx18414 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18413
+  %arrayidx18414 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18413
   %sub18415 = xor i32 %conv18411, -1
   %idxprom18416 = sext i32 %sub18415 to i64
-  %arrayidx18417 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18416
+  %arrayidx18417 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18416
   %3800 = load ptr, ptr %arrayidx18417, align 8
   %sub18418 = sub nuw nsw i32 -2, %conv18411
   %idxprom18419 = sext i32 %sub18418 to i64
-  %arrayidx18420 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18419
+  %arrayidx18420 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18419
   %3801 = load ptr, ptr %arrayidx18420, align 8
   %cmp18422.not = icmp ne ptr %3800, null
   %args18405.0.idx = select i1 %cmp18422.not, i64 -8, i64 0
@@ -27984,14 +27984,14 @@ sw.bb18534:                                       ; preds = %for.cond12062
   %conv18541 = zext i16 %3828 to i32
   %sub18542 = sub nsw i32 0, %conv18541
   %idxprom18543 = sext i32 %sub18542 to i64
-  %arrayidx18544 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18543
+  %arrayidx18544 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18543
   %sub18545 = xor i32 %conv18541, -1
   %idxprom18546 = sext i32 %sub18545 to i64
-  %arrayidx18547 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18546
+  %arrayidx18547 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18546
   %3829 = load ptr, ptr %arrayidx18547, align 8
   %sub18548 = sub nuw nsw i32 -2, %conv18541
   %idxprom18549 = sext i32 %sub18548 to i64
-  %arrayidx18550 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18549
+  %arrayidx18550 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18549
   %3830 = load ptr, ptr %arrayidx18550, align 8
   %cmp18552.not = icmp ne ptr %3829, null
   %args18535.0.idx = select i1 %cmp18552.not, i64 -8, i64 0
@@ -28104,14 +28104,14 @@ sw.bb18654:                                       ; preds = %for.cond12062
   %conv18661 = zext i16 %3848 to i32
   %sub18662 = sub nsw i32 0, %conv18661
   %idxprom18663 = sext i32 %sub18662 to i64
-  %arrayidx18664 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18663
+  %arrayidx18664 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18663
   %sub18665 = xor i32 %conv18661, -1
   %idxprom18666 = sext i32 %sub18665 to i64
-  %arrayidx18667 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18666
+  %arrayidx18667 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18666
   %3849 = load ptr, ptr %arrayidx18667, align 8
   %sub18668 = sub nuw nsw i32 -2, %conv18661
   %idxprom18669 = sext i32 %sub18668 to i64
-  %arrayidx18670 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18669
+  %arrayidx18670 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18669
   %3850 = load ptr, ptr %arrayidx18670, align 8
   %cmp18672.not = icmp ne ptr %3849, null
   %args18655.0.idx = select i1 %cmp18672.not, i64 -8, i64 0
@@ -28244,14 +28244,14 @@ sw.bb18767:                                       ; preds = %for.cond12062
   %conv18774 = zext i16 %3872 to i32
   %sub18775 = sub nsw i32 0, %conv18774
   %idxprom18776 = sext i32 %sub18775 to i64
-  %arrayidx18777 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18776
+  %arrayidx18777 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18776
   %sub18778 = xor i32 %conv18774, -1
   %idxprom18779 = sext i32 %sub18778 to i64
-  %arrayidx18780 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18779
+  %arrayidx18780 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18779
   %3873 = load ptr, ptr %arrayidx18780, align 8
   %sub18781 = sub nuw nsw i32 -2, %conv18774
   %idxprom18782 = sext i32 %sub18781 to i64
-  %arrayidx18783 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom18782
+  %arrayidx18783 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom18782
   %3874 = load ptr, ptr %arrayidx18783, align 8
   %cmp18785.not = icmp ne ptr %3873, null
   %args18768.0.idx = select i1 %cmp18785.not, i64 -8, i64 0
@@ -28359,9 +28359,9 @@ if.then18879:                                     ; preds = %if.end18866
   br i1 %cmp18881.not, label %for.cond12062.backedge, label %error_tier_two
 
 sw.bb18886:                                       ; preds = %for.cond12062
-  %arrayidx18889 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx18889 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3892 = load ptr, ptr %arrayidx18889, align 8
-  %f_globals18891 = getelementptr inbounds i8, ptr %frame.addr.6, i64 24
+  %f_globals18891 = getelementptr inbounds i8, ptr %frame.addr.7, i64 24
   %3893 = load ptr, ptr %f_globals18891, align 8
   %call18892 = call ptr @PyFunction_New(ptr noundef %3892, ptr noundef %3893) #15
   %3894 = load i64, ptr %3892, align 8
@@ -28397,9 +28397,9 @@ if.end18911:                                      ; preds = %do.end18907
 sw.bb18914:                                       ; preds = %for.cond12062
   %oparg18918 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3899 = load i16, ptr %oparg18918, align 2
-  %arrayidx18920 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx18920 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3900 = load ptr, ptr %arrayidx18920, align 8
-  %arrayidx18921 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx18921 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3901 = load ptr, ptr %arrayidx18921, align 8
   %3902 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %3899, i1 true)
   %3903 = zext nneg i16 %3902 to i64
@@ -28417,7 +28417,7 @@ sw.bb18935:                                       ; preds = %for.cond12062
   br i1 %cmp18943, label %if.then18945, label %if.end18952
 
 if.then18945:                                     ; preds = %sw.bb18935
-  %arrayidx18951 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx18951 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3905 = load ptr, ptr %arrayidx18951, align 8
   br label %if.end18952
 
@@ -28426,9 +28426,9 @@ if.end18952:                                      ; preds = %if.then18945, %sw.b
   %step18936.0 = phi ptr [ %3905, %if.then18945 ], [ null, %sw.bb18935 ]
   %cond18955 = zext i1 %cmp18943 to i64
   %sub18956 = xor i64 %cond18955, -1
-  %arrayidx18958 = getelementptr ptr, ptr %stack_pointer.10, i64 %sub18956
+  %arrayidx18958 = getelementptr ptr, ptr %stack_pointer.11, i64 %sub18956
   %3906 = load ptr, ptr %arrayidx18958, align 8
-  %arrayidx18964 = getelementptr ptr, ptr %stack_pointer.10, i64 %sub18962
+  %arrayidx18964 = getelementptr ptr, ptr %stack_pointer.11, i64 %sub18962
   %3907 = load ptr, ptr %arrayidx18964, align 8
   %call18965 = call ptr @PySlice_New(ptr noundef %3907, ptr noundef %3906, ptr noundef %step18936.0) #15
   %3908 = load i64, ptr %3907, align 8
@@ -28505,7 +28505,7 @@ if.end19027:                                      ; preds = %do.end19017
 sw.bb19040:                                       ; preds = %for.cond12062
   %oparg19044 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3920 = load i16, ptr %oparg19044, align 2
-  %arrayidx19046 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx19046 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3921 = load ptr, ptr %arrayidx19046, align 8
   %idxprom19048 = zext i16 %3920 to i64
   %arrayidx19049 = getelementptr [4 x ptr], ptr @CONVERSION_FUNCTIONS, i64 0, i64 %idxprom19048
@@ -28539,7 +28539,7 @@ if.end19069:                                      ; preds = %do.end19065
   br label %for.cond12062.backedge
 
 sw.bb19071:                                       ; preds = %for.cond12062
-  %arrayidx19074 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx19074 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3927 = load ptr, ptr %arrayidx19074, align 8
   %ob_type19075 = getelementptr inbounds i8, ptr %3927, i64 8
   %3928 = load ptr, ptr %ob_type19075, align 8
@@ -28576,9 +28576,9 @@ if.end19100:                                      ; preds = %sw.bb19071, %do.end
   br label %for.cond12062.backedge
 
 sw.bb19102:                                       ; preds = %for.cond12062
-  %arrayidx19106 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx19106 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3932 = load ptr, ptr %arrayidx19106, align 8
-  %arrayidx19107 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx19107 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3933 = load ptr, ptr %arrayidx19107, align 8
   %call19108 = call ptr @PyObject_Format(ptr noundef %3933, ptr noundef %3932) #15
   %3934 = load i64, ptr %3933, align 8
@@ -28633,7 +28633,7 @@ sw.bb19145:                                       ; preds = %for.cond12062
   %3942 = load i16, ptr %oparg19149, align 2
   %conv19150 = zext i16 %3942 to i64
   %sub19152 = sub nsw i64 0, %conv19150
-  %arrayidx19154 = getelementptr ptr, ptr %stack_pointer.10, i64 %sub19152
+  %arrayidx19154 = getelementptr ptr, ptr %stack_pointer.11, i64 %sub19152
   %3943 = load ptr, ptr %arrayidx19154, align 8
   %3944 = load i32, ptr %3943, align 8
   %add.i.i9224 = add i32 %3944, 1
@@ -28645,16 +28645,16 @@ if.end.i.i9226:                                   ; preds = %sw.bb19145
   br label %_Py_NewRef.exit9227
 
 _Py_NewRef.exit9227:                              ; preds = %sw.bb19145, %if.end.i.i9226
-  store ptr %3943, ptr %stack_pointer.10, align 8
-  %add.ptr19157 = getelementptr i8, ptr %stack_pointer.10, i64 8
+  store ptr %3943, ptr %stack_pointer.11, align 8
+  %add.ptr19157 = getelementptr i8, ptr %stack_pointer.11, i64 8
   br label %for.cond12062.backedge
 
 sw.bb19158:                                       ; preds = %for.cond12062
   %oparg19163 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3945 = load i16, ptr %oparg19163, align 2
-  %arrayidx19165 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx19165 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3946 = load ptr, ptr %arrayidx19165, align 8
-  %arrayidx19166 = getelementptr i8, ptr %stack_pointer.10, i64 -16
+  %arrayidx19166 = getelementptr i8, ptr %stack_pointer.11, i64 -16
   %3947 = load ptr, ptr %arrayidx19166, align 8
   %idxprom19167 = zext i16 %3945 to i64
   %arrayidx19168 = getelementptr [26 x ptr], ptr @_PyEval_BinaryOps, i64 0, i64 %idxprom19167
@@ -28711,35 +28711,35 @@ sw.bb19206:                                       ; preds = %for.cond12062
   %oparg19210 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3957 = load i16, ptr %oparg19210, align 2
   %conv19211 = zext i16 %3957 to i64
-  %arrayidx19212 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx19212 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3958 = load ptr, ptr %arrayidx19212, align 8
   %sub19214 = sub nsw i64 0, %conv19211
-  %arrayidx19216 = getelementptr ptr, ptr %stack_pointer.10, i64 %sub19214
+  %arrayidx19216 = getelementptr ptr, ptr %stack_pointer.11, i64 %sub19214
   %3959 = load ptr, ptr %arrayidx19216, align 8
   store ptr %3958, ptr %arrayidx19216, align 8
   store ptr %3959, ptr %arrayidx19212, align 8
   br label %for.cond12062.backedge
 
 sw.bb19222:                                       ; preds = %for.cond12062
-  %arrayidx19224 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx19224 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3960 = load ptr, ptr %arrayidx19224, align 8
   %cmp19225 = icmp eq ptr %3960, @_Py_FalseStruct
   br i1 %cmp19225, label %deoptimize, label %for.cond12062.backedge
 
 sw.bb19230:                                       ; preds = %for.cond12062
-  %arrayidx19232 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx19232 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3961 = load ptr, ptr %arrayidx19232, align 8
   %cmp19233 = icmp eq ptr %3961, @_Py_TrueStruct
   br i1 %cmp19233, label %deoptimize, label %for.cond12062.backedge
 
 sw.bb19238:                                       ; preds = %for.cond12062
-  %arrayidx19240 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx19240 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3962 = load ptr, ptr %arrayidx19240, align 8
   %cmp19241 = icmp eq ptr %3962, @_Py_NoneStruct
   br i1 %cmp19241, label %for.cond12062.backedge, label %deoptimize
 
 sw.bb19246:                                       ; preds = %for.cond12062
-  %arrayidx19248 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx19248 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3963 = load ptr, ptr %arrayidx19248, align 8
   %cmp19249 = icmp eq ptr %3963, @_Py_NoneStruct
   br i1 %cmp19249, label %deoptimize, label %do.body19253
@@ -28779,18 +28779,18 @@ if.then19278:                                     ; preds = %sw.bb19269
 sw.bb19285:                                       ; preds = %for.cond12062
   %oparg19287 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3970 = load i16, ptr %oparg19287, align 2
-  %frame.addr.6.val7353 = load ptr, ptr %frame.addr.6, align 8
-  %co_code_adaptive19290 = getelementptr inbounds i8, ptr %frame.addr.6.val7353, i64 200
+  %frame.addr.7.val7353 = load ptr, ptr %frame.addr.7, align 8
+  %co_code_adaptive19290 = getelementptr inbounds i8, ptr %frame.addr.7.val7353, i64 200
   %idx.ext19292 = zext i16 %3970 to i64
   %add.ptr19293 = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive19290, i64 %idx.ext19292
-  %instr_ptr19294 = getelementptr inbounds i8, ptr %frame.addr.6, i64 56
+  %instr_ptr19294 = getelementptr inbounds i8, ptr %frame.addr.7, i64 56
   store ptr %add.ptr19293, ptr %instr_ptr19294, align 8
   br label %for.cond12062.backedge
 
 sw.bb19295:                                       ; preds = %for.cond12062
   %oparg19297 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3971 = load i16, ptr %oparg19297, align 2
-  %return_offset19300 = getelementptr inbounds i8, ptr %frame.addr.6, i64 68
+  %return_offset19300 = getelementptr inbounds i8, ptr %frame.addr.7, i64 68
   store i16 %3971, ptr %return_offset19300, align 4
   br label %for.cond12062.backedge
 
@@ -28798,14 +28798,14 @@ sw.bb19302:                                       ; preds = %for.cond12062
   %oparg19305 = getelementptr inbounds i8, ptr %next_uop.0, i64 2
   %3972 = load i16, ptr %oparg19305, align 2
   %conv19306 = zext i16 %3972 to i32
-  %arrayidx19307 = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx19307 = getelementptr i8, ptr %stack_pointer.11, i64 -8
   %3973 = load ptr, ptr %arrayidx19307, align 8
   %sub19308 = xor i32 %conv19306, -1
   %idxprom19309 = sext i32 %sub19308 to i64
-  %arrayidx19310 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom19309
+  %arrayidx19310 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom19309
   %sub19311 = sub nsw i32 0, %conv19306
   %idxprom19312 = sext i32 %sub19311 to i64
-  %arrayidx19313 = getelementptr ptr, ptr %stack_pointer.10, i64 %idxprom19312
+  %arrayidx19313 = getelementptr ptr, ptr %stack_pointer.11, i64 %idxprom19312
   %conv19314 = zext i16 %3972 to i64
   %mul19315 = shl nuw nsw i64 %conv19314, 3
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %arrayidx19310, ptr align 8 %arrayidx19313, i64 %mul19315, i1 false)
@@ -28823,43 +28823,43 @@ sw.default19323:                                  ; preds = %for.cond12062
 unbound_local_error_tier_two:                     ; preds = %sw.bb14557, %sw.bb12080
   %conv19327.pre-phi = phi i64 [ %idxprom14563, %sw.bb14557 ], [ %idxprom12086, %sw.bb12080 ]
   %3975 = load ptr, ptr @PyExc_UnboundLocalError, align 8
-  %frame.addr.6.val7354 = load ptr, ptr %frame.addr.6, align 8
-  %co_localsplusnames19326 = getelementptr inbounds i8, ptr %frame.addr.6.val7354, i64 96
+  %frame.addr.7.val7354 = load ptr, ptr %frame.addr.7, align 8
+  %co_localsplusnames19326 = getelementptr inbounds i8, ptr %frame.addr.7.val7354, i64 96
   %3976 = load ptr, ptr %co_localsplusnames19326, align 8
   %call19328 = call ptr @PyTuple_GetItem(ptr noundef %3976, i64 noundef %conv19327.pre-phi) #15
   call void @_PyEval_FormatExcCheckArg(ptr noundef %tstate, ptr noundef %3975, ptr noundef nonnull @.str.35, ptr noundef %call19328)
   br label %error_tier_two
 
 pop_3_error_tier_two.loopexit.split.loop.exit:    ; preds = %do.end12927
-  %arrayidx12870.le = getelementptr i8, ptr %stack_pointer.10, i64 -8
+  %arrayidx12870.le = getelementptr i8, ptr %stack_pointer.11, i64 -8
   br label %pop_3_error_tier_two
 
 pop_3_error_tier_two:                             ; preds = %_PyErr_Occurred.exit8981, %do.end15456, %do.end13391, %do.end13280, %do.end12858, %pop_3_error_tier_two.loopexit.split.loop.exit, %do.body15534, %if.then15543, %if.end15539
-  %stack_pointer.12 = phi ptr [ %stack_pointer.10, %do.body15534 ], [ %stack_pointer.10, %if.then15543 ], [ %stack_pointer.10, %if.end15539 ], [ %arrayidx12870.le, %pop_3_error_tier_two.loopexit.split.loop.exit ], [ %stack_pointer.10, %do.end12858 ], [ %stack_pointer.10, %do.end13280 ], [ %stack_pointer.10, %do.end13391 ], [ %stack_pointer.10, %do.end15456 ], [ %stack_pointer.10, %_PyErr_Occurred.exit8981 ]
-  %add.ptr19330 = getelementptr i8, ptr %stack_pointer.12, i64 -8
+  %stack_pointer.17 = phi ptr [ %stack_pointer.11, %do.body15534 ], [ %stack_pointer.11, %if.then15543 ], [ %stack_pointer.11, %if.end15539 ], [ %arrayidx12870.le, %pop_3_error_tier_two.loopexit.split.loop.exit ], [ %stack_pointer.11, %do.end12858 ], [ %stack_pointer.11, %do.end13280 ], [ %stack_pointer.11, %do.end13391 ], [ %stack_pointer.11, %do.end15456 ], [ %stack_pointer.11, %_PyErr_Occurred.exit8981 ]
+  %add.ptr19330 = getelementptr i8, ptr %stack_pointer.17, i64 -8
   br label %pop_2_error_tier_two
 
 pop_2_error_tier_two:                             ; preds = %do.end19199, %do.end19138, %do.end16540, %do.end16457, %do.end16175, %do.end16151, %sw.bb15366, %do.end14181, %do.end13510, %do.end13432, %do.end13171, %do.end12806, %do.end12763, %do.end12556, %do.end12517, %do.end12478, %do.body16493, %if.then16502, %if.end16498, %pop_3_error_tier_two
-  %stack_pointer.13 = phi ptr [ %add.ptr19330, %pop_3_error_tier_two ], [ %stack_pointer.10, %do.body16493 ], [ %stack_pointer.10, %if.then16502 ], [ %stack_pointer.10, %if.end16498 ], [ %stack_pointer.10, %do.end12478 ], [ %stack_pointer.10, %do.end12517 ], [ %stack_pointer.10, %do.end12556 ], [ %stack_pointer.10, %do.end12763 ], [ %stack_pointer.10, %do.end12806 ], [ %stack_pointer.10, %do.end13171 ], [ %stack_pointer.10, %do.end13432 ], [ %stack_pointer.10, %do.end13510 ], [ %stack_pointer.10, %do.end14181 ], [ %stack_pointer.10, %sw.bb15366 ], [ %stack_pointer.10, %do.end16151 ], [ %stack_pointer.10, %do.end16175 ], [ %stack_pointer.10, %do.end16457 ], [ %stack_pointer.10, %do.end16540 ], [ %stack_pointer.10, %do.end19138 ], [ %stack_pointer.10, %do.end19199 ]
-  %add.ptr19331 = getelementptr i8, ptr %stack_pointer.13, i64 -8
+  %stack_pointer.15 = phi ptr [ %add.ptr19330, %pop_3_error_tier_two ], [ %stack_pointer.11, %do.body16493 ], [ %stack_pointer.11, %if.then16502 ], [ %stack_pointer.11, %if.end16498 ], [ %stack_pointer.11, %do.end12478 ], [ %stack_pointer.11, %do.end12517 ], [ %stack_pointer.11, %do.end12556 ], [ %stack_pointer.11, %do.end12763 ], [ %stack_pointer.11, %do.end12806 ], [ %stack_pointer.11, %do.end13171 ], [ %stack_pointer.11, %do.end13432 ], [ %stack_pointer.11, %do.end13510 ], [ %stack_pointer.11, %do.end14181 ], [ %stack_pointer.11, %sw.bb15366 ], [ %stack_pointer.11, %do.end16151 ], [ %stack_pointer.11, %do.end16175 ], [ %stack_pointer.11, %do.end16457 ], [ %stack_pointer.11, %do.end16540 ], [ %stack_pointer.11, %do.end19138 ], [ %stack_pointer.11, %do.end19199 ]
+  %add.ptr19331 = getelementptr i8, ptr %stack_pointer.15, i64 -8
   br label %pop_1_error_tier_two
 
 pop_1_error_tier_two:                             ; preds = %do.end13719, %do.end19094, %do.end19065, %do.end16769, %do.end15630, %do.end15608, %do.end14989, %do.end14248, %do.end14214, %do.end14126, %do.end13940, %do.end13886, %do.end13575, %do.end13462, %do.end13222, %_PyList_AppendTakeRef.exit8816, %do.end12425, %do.end12265, %do.end12231, %do.end13769, %do.body17145, %if.then17154, %if.end17150, %do.body17047, %if.then17056, %if.end17052, %do.body16565, %if.then16574, %if.end16570, %if.then15333, %if.then15343, %if.end15339, %do.body15282, %if.then15291, %if.end15287, %do.body14930, %if.then14939, %if.end14935, %if.then13846, %if.then13857, %if.end13853, %if.then13590, %if.then13603, %if.end13599, %if.then13541, %if.then13553, %if.end13549, %pop_2_error_tier_two
-  %stack_pointer.14 = phi ptr [ %add.ptr19331, %pop_2_error_tier_two ], [ %stack_pointer.10, %do.body17145 ], [ %stack_pointer.10, %if.then17154 ], [ %stack_pointer.10, %if.end17150 ], [ %stack_pointer.10, %do.body17047 ], [ %stack_pointer.10, %if.then17056 ], [ %stack_pointer.10, %if.end17052 ], [ %stack_pointer.10, %do.body16565 ], [ %stack_pointer.10, %if.then16574 ], [ %stack_pointer.10, %if.end16570 ], [ %stack_pointer.10, %if.then15333 ], [ %stack_pointer.10, %if.then15343 ], [ %stack_pointer.10, %if.end15339 ], [ %stack_pointer.10, %do.body15282 ], [ %stack_pointer.10, %if.then15291 ], [ %stack_pointer.10, %if.end15287 ], [ %stack_pointer.10, %do.body14930 ], [ %stack_pointer.10, %if.then14939 ], [ %stack_pointer.10, %if.end14935 ], [ %stack_pointer.10, %if.then13846 ], [ %stack_pointer.10, %if.then13857 ], [ %stack_pointer.10, %if.end13853 ], [ %stack_pointer.10, %if.then13541 ], [ %stack_pointer.10, %if.then13553 ], [ %stack_pointer.10, %if.end13549 ], [ %stack_pointer.10, %if.then13590 ], [ %stack_pointer.10, %if.then13603 ], [ %stack_pointer.10, %if.end13599 ], [ %stack_pointer.10, %do.end13769 ], [ %stack_pointer.10, %do.end12231 ], [ %stack_pointer.10, %do.end12265 ], [ %stack_pointer.10, %do.end12425 ], [ %stack_pointer.10, %_PyList_AppendTakeRef.exit8816 ], [ %stack_pointer.10, %do.end13222 ], [ %stack_pointer.10, %do.end13462 ], [ %stack_pointer.10, %do.end13575 ], [ %stack_pointer.10, %do.end13886 ], [ %stack_pointer.10, %do.end13940 ], [ %stack_pointer.10, %do.end14126 ], [ %stack_pointer.10, %do.end14214 ], [ %stack_pointer.10, %do.end14248 ], [ %stack_pointer.10, %do.end14989 ], [ %stack_pointer.10, %do.end15608 ], [ %stack_pointer.10, %do.end15630 ], [ %stack_pointer.10, %do.end16769 ], [ %stack_pointer.10, %do.end19065 ], [ %stack_pointer.10, %do.end19094 ], [ %stack_pointer.10, %do.end13719 ]
+  %stack_pointer.14 = phi ptr [ %add.ptr19331, %pop_2_error_tier_two ], [ %stack_pointer.11, %do.body17145 ], [ %stack_pointer.11, %if.then17154 ], [ %stack_pointer.11, %if.end17150 ], [ %stack_pointer.11, %do.body17047 ], [ %stack_pointer.11, %if.then17056 ], [ %stack_pointer.11, %if.end17052 ], [ %stack_pointer.11, %do.body16565 ], [ %stack_pointer.11, %if.then16574 ], [ %stack_pointer.11, %if.end16570 ], [ %stack_pointer.11, %if.then15333 ], [ %stack_pointer.11, %if.then15343 ], [ %stack_pointer.11, %if.end15339 ], [ %stack_pointer.11, %do.body15282 ], [ %stack_pointer.11, %if.then15291 ], [ %stack_pointer.11, %if.end15287 ], [ %stack_pointer.11, %do.body14930 ], [ %stack_pointer.11, %if.then14939 ], [ %stack_pointer.11, %if.end14935 ], [ %stack_pointer.11, %if.then13846 ], [ %stack_pointer.11, %if.then13857 ], [ %stack_pointer.11, %if.end13853 ], [ %stack_pointer.11, %if.then13541 ], [ %stack_pointer.11, %if.then13553 ], [ %stack_pointer.11, %if.end13549 ], [ %stack_pointer.11, %if.then13590 ], [ %stack_pointer.11, %if.then13603 ], [ %stack_pointer.11, %if.end13599 ], [ %stack_pointer.11, %do.end13769 ], [ %stack_pointer.11, %do.end12231 ], [ %stack_pointer.11, %do.end12265 ], [ %stack_pointer.11, %do.end12425 ], [ %stack_pointer.11, %_PyList_AppendTakeRef.exit8816 ], [ %stack_pointer.11, %do.end13222 ], [ %stack_pointer.11, %do.end13462 ], [ %stack_pointer.11, %do.end13575 ], [ %stack_pointer.11, %do.end13886 ], [ %stack_pointer.11, %do.end13940 ], [ %stack_pointer.11, %do.end14126 ], [ %stack_pointer.11, %do.end14214 ], [ %stack_pointer.11, %do.end14248 ], [ %stack_pointer.11, %do.end14989 ], [ %stack_pointer.11, %do.end15608 ], [ %stack_pointer.11, %do.end15630 ], [ %stack_pointer.11, %do.end16769 ], [ %stack_pointer.11, %do.end19065 ], [ %stack_pointer.11, %do.end19094 ], [ %stack_pointer.11, %do.end13719 ]
   %add.ptr19332 = getelementptr i8, ptr %stack_pointer.14, i64 -8
   br label %error_tier_two
 
 error_tier_two:                                   ; preds = %if.then16830, %do.end19017, %do.end18859, %do.end18740, %do.end18627, %do.end18507, %do.end18390, %do.end18284, %do.end18183, %do.end18078, %do.end17973, %do.end17869, %do.end17755, %do.end17671, %do.end15246, %for.end15106, %sw.bb14875, %sw.bb14851, %for.end14837, %if.then19278, %do.end18907, %if.then18879, %if.then18760, %if.then18647, %if.then18527, %if.end18333, %if.end18245, %if.then18203, %if.then18098, %if.then17993, %if.then17889, %if.then17775, %if.then17691, %if.end17195, %sw.bb16949, %if.else16794, %sw.bb16737, %if.end16635, %sw.bb16626, %do.end15162, %if.then15140, %if.end15131, %sw.bb14995, %sw.bb14675, %sw.bb14600, %if.then14432, %if.else14423, %if.then14374, %if.then14365, %if.end14351, %if.then14312, %if.then14303, %sw.bb14283, %sw.bb13815, %if.then13640, %if.then13622, %if.else12705, %if.else12659, %if.else12613, %_Py_EnterRecursiveCallTstate.exit9221, %_Py_EnterRecursiveCallTstate.exit9201, %_Py_EnterRecursiveCallTstate.exit9157, %do.body15044, %if.then15053, %if.end15049, %do.body17095, %if.then17104, %if.end17100, %_PyErr_Occurred.exit9024, %if.then17078, %do.body16997, %if.then17006, %if.end17002, %_PyErr_Occurred.exit8999, %if.then16980, %_PyErr_Occurred.exit8873, %if.then14420, %if.then14268, %if.then14271, %if.then13653, %if.then13666, %if.end13662, %pop_1_error_tier_two, %unbound_local_error_tier_two, %if.then17787, %if.then16787, %if.then15202, %if.then15129, %if.then14734, %if.then14702, %if.then14657, %if.then14441, %if.then14383, %if.then14350, %if.then14321, %if.then14279, %if.then13912, %if.then13906, %if.then13825, %if.else13646
-  %stack_pointer.15 = phi ptr [ %add.ptr19332, %pop_1_error_tier_two ], [ %stack_pointer.10, %_Py_EnterRecursiveCallTstate.exit9221 ], [ %stack_pointer.10, %_Py_EnterRecursiveCallTstate.exit9201 ], [ %stack_pointer.10, %_Py_EnterRecursiveCallTstate.exit9157 ], [ %stack_pointer.10, %if.then17787 ], [ %stack_pointer.10, %_PyErr_Occurred.exit9024 ], [ %stack_pointer.10, %if.then17078 ], [ %stack_pointer.10, %do.body17095 ], [ %stack_pointer.10, %if.then17104 ], [ %stack_pointer.10, %if.end17100 ], [ %stack_pointer.10, %_PyErr_Occurred.exit8999 ], [ %stack_pointer.10, %if.then16980 ], [ %stack_pointer.10, %do.body16997 ], [ %stack_pointer.10, %if.then17006 ], [ %stack_pointer.10, %if.end17002 ], [ %stack_pointer.10, %if.then16787 ], [ %stack_pointer.10, %if.then15202 ], [ %stack_pointer.10, %if.then15129 ], [ %stack_pointer.10, %if.then14734 ], [ %stack_pointer.10, %if.then14702 ], [ %stack_pointer.10, %if.then14657 ], [ %stack_pointer.10, %unbound_local_error_tier_two ], [ %stack_pointer.10, %_PyErr_Occurred.exit8873 ], [ %stack_pointer.10, %if.then14420 ], [ %stack_pointer.10, %if.then14441 ], [ %stack_pointer.10, %if.then14350 ], [ %stack_pointer.10, %if.then14383 ], [ %stack_pointer.10, %if.then14321 ], [ %stack_pointer.10, %if.then14279 ], [ %stack_pointer.10, %if.then14271 ], [ %stack_pointer.10, %if.then14268 ], [ %stack_pointer.10, %if.then13906 ], [ %stack_pointer.10, %if.then13912 ], [ %stack_pointer.10, %if.then13825 ], [ %stack_pointer.10, %if.then13653 ], [ %stack_pointer.10, %if.then13666 ], [ %stack_pointer.10, %if.end13662 ], [ %stack_pointer.10, %if.else13646 ], [ %arrayidx15003, %if.end15049 ], [ %arrayidx15003, %if.then15053 ], [ %arrayidx15003, %do.body15044 ], [ %arrayidx18964, %do.end19017 ], [ %arrayidx18783, %do.end18859 ], [ %arrayidx18670, %do.end18740 ], [ %arrayidx18550, %do.end18627 ], [ %arrayidx18420, %do.end18507 ], [ %arrayidx18314, %do.end18390 ], [ %arrayidx18226, %do.end18284 ], [ %arrayidx18121, %do.end18183 ], [ %arrayidx18016, %do.end18078 ], [ %arrayidx17912, %do.end17973 ], [ %arrayidx17809, %do.end17869 ], [ %arrayidx17714, %do.end17755 ], [ %arrayidx17630, %do.end17671 ], [ %arrayidx15193, %do.end15246 ], [ %arrayidx15078, %for.end15106 ], [ %arrayidx14883, %sw.bb14875 ], [ %arrayidx14859, %sw.bb14851 ], [ %arrayidx14811, %for.end14837 ], [ %stack_pointer.10, %if.else12613 ], [ %stack_pointer.10, %if.else12659 ], [ %stack_pointer.10, %if.else12705 ], [ %stack_pointer.10, %if.then13640 ], [ %stack_pointer.10, %if.then13622 ], [ %stack_pointer.10, %sw.bb13815 ], [ %stack_pointer.10, %if.then14312 ], [ %stack_pointer.10, %if.then14303 ], [ %stack_pointer.10, %sw.bb14283 ], [ %stack_pointer.10, %if.then14374 ], [ %stack_pointer.10, %if.then14365 ], [ %stack_pointer.10, %if.end14351 ], [ %stack_pointer.10, %if.then14432 ], [ %stack_pointer.10, %if.else14423 ], [ %stack_pointer.10, %sw.bb14600 ], [ %stack_pointer.10, %sw.bb14675 ], [ %stack_pointer.10, %sw.bb14995 ], [ %stack_pointer.10, %do.end15162 ], [ %stack_pointer.10, %if.then15140 ], [ %stack_pointer.10, %if.end15131 ], [ %stack_pointer.10, %if.end16635 ], [ %stack_pointer.10, %sw.bb16626 ], [ %stack_pointer.10, %sw.bb16737 ], [ %stack_pointer.10, %if.else16794 ], [ %stack_pointer.10, %sw.bb16949 ], [ %stack_pointer.10, %if.end17195 ], [ %arrayidx17627, %if.then17691 ], [ %arrayidx17711, %if.then17775 ], [ %arrayidx17806, %if.then17889 ], [ %arrayidx17909, %if.then17993 ], [ %arrayidx18013, %if.then18098 ], [ %arrayidx18118, %if.then18203 ], [ %stack_pointer.10, %if.end18245 ], [ %stack_pointer.10, %if.end18333 ], [ %arrayidx18417, %if.then18527 ], [ %arrayidx18547, %if.then18647 ], [ %arrayidx18667, %if.then18760 ], [ %arrayidx18780, %if.then18879 ], [ %stack_pointer.10, %do.end18907 ], [ %stack_pointer.10, %if.then19278 ], [ %stack_pointer.10, %if.then16830 ]
-  %return_offset19333 = getelementptr inbounds i8, ptr %frame.addr.6, i64 68
+  %stack_pointer.16 = phi ptr [ %add.ptr19332, %pop_1_error_tier_two ], [ %stack_pointer.11, %_Py_EnterRecursiveCallTstate.exit9221 ], [ %stack_pointer.11, %_Py_EnterRecursiveCallTstate.exit9201 ], [ %stack_pointer.11, %_Py_EnterRecursiveCallTstate.exit9157 ], [ %stack_pointer.11, %if.then17787 ], [ %stack_pointer.11, %_PyErr_Occurred.exit9024 ], [ %stack_pointer.11, %if.then17078 ], [ %stack_pointer.11, %do.body17095 ], [ %stack_pointer.11, %if.then17104 ], [ %stack_pointer.11, %if.end17100 ], [ %stack_pointer.11, %_PyErr_Occurred.exit8999 ], [ %stack_pointer.11, %if.then16980 ], [ %stack_pointer.11, %do.body16997 ], [ %stack_pointer.11, %if.then17006 ], [ %stack_pointer.11, %if.end17002 ], [ %stack_pointer.11, %if.then16787 ], [ %stack_pointer.11, %if.then15202 ], [ %stack_pointer.11, %if.then15129 ], [ %stack_pointer.11, %if.then14734 ], [ %stack_pointer.11, %if.then14702 ], [ %stack_pointer.11, %if.then14657 ], [ %stack_pointer.11, %unbound_local_error_tier_two ], [ %stack_pointer.11, %_PyErr_Occurred.exit8873 ], [ %stack_pointer.11, %if.then14420 ], [ %stack_pointer.11, %if.then14441 ], [ %stack_pointer.11, %if.then14350 ], [ %stack_pointer.11, %if.then14383 ], [ %stack_pointer.11, %if.then14321 ], [ %stack_pointer.11, %if.then14279 ], [ %stack_pointer.11, %if.then14271 ], [ %stack_pointer.11, %if.then14268 ], [ %stack_pointer.11, %if.then13906 ], [ %stack_pointer.11, %if.then13912 ], [ %stack_pointer.11, %if.then13825 ], [ %stack_pointer.11, %if.then13653 ], [ %stack_pointer.11, %if.then13666 ], [ %stack_pointer.11, %if.end13662 ], [ %stack_pointer.11, %if.else13646 ], [ %arrayidx15003, %if.end15049 ], [ %arrayidx15003, %if.then15053 ], [ %arrayidx15003, %do.body15044 ], [ %arrayidx18964, %do.end19017 ], [ %arrayidx18783, %do.end18859 ], [ %arrayidx18670, %do.end18740 ], [ %arrayidx18550, %do.end18627 ], [ %arrayidx18420, %do.end18507 ], [ %arrayidx18314, %do.end18390 ], [ %arrayidx18226, %do.end18284 ], [ %arrayidx18121, %do.end18183 ], [ %arrayidx18016, %do.end18078 ], [ %arrayidx17912, %do.end17973 ], [ %arrayidx17809, %do.end17869 ], [ %arrayidx17714, %do.end17755 ], [ %arrayidx17630, %do.end17671 ], [ %arrayidx15193, %do.end15246 ], [ %arrayidx15078, %for.end15106 ], [ %arrayidx14883, %sw.bb14875 ], [ %arrayidx14859, %sw.bb14851 ], [ %arrayidx14811, %for.end14837 ], [ %stack_pointer.11, %if.else12613 ], [ %stack_pointer.11, %if.else12659 ], [ %stack_pointer.11, %if.else12705 ], [ %stack_pointer.11, %if.then13640 ], [ %stack_pointer.11, %if.then13622 ], [ %stack_pointer.11, %sw.bb13815 ], [ %stack_pointer.11, %if.then14312 ], [ %stack_pointer.11, %if.then14303 ], [ %stack_pointer.11, %sw.bb14283 ], [ %stack_pointer.11, %if.then14374 ], [ %stack_pointer.11, %if.then14365 ], [ %stack_pointer.11, %if.end14351 ], [ %stack_pointer.11, %if.then14432 ], [ %stack_pointer.11, %if.else14423 ], [ %stack_pointer.11, %sw.bb14600 ], [ %stack_pointer.11, %sw.bb14675 ], [ %stack_pointer.11, %sw.bb14995 ], [ %stack_pointer.11, %do.end15162 ], [ %stack_pointer.11, %if.then15140 ], [ %stack_pointer.11, %if.end15131 ], [ %stack_pointer.11, %if.end16635 ], [ %stack_pointer.11, %sw.bb16626 ], [ %stack_pointer.11, %sw.bb16737 ], [ %stack_pointer.11, %if.else16794 ], [ %stack_pointer.11, %sw.bb16949 ], [ %stack_pointer.11, %if.end17195 ], [ %arrayidx17627, %if.then17691 ], [ %arrayidx17711, %if.then17775 ], [ %arrayidx17806, %if.then17889 ], [ %arrayidx17909, %if.then17993 ], [ %arrayidx18013, %if.then18098 ], [ %arrayidx18118, %if.then18203 ], [ %stack_pointer.11, %if.end18245 ], [ %stack_pointer.11, %if.end18333 ], [ %arrayidx18417, %if.then18527 ], [ %arrayidx18547, %if.then18647 ], [ %arrayidx18667, %if.then18760 ], [ %arrayidx18780, %if.then18879 ], [ %stack_pointer.11, %do.end18907 ], [ %stack_pointer.11, %if.then19278 ], [ %stack_pointer.11, %if.then16830 ]
+  %return_offset19333 = getelementptr inbounds i8, ptr %frame.addr.7, i64 68
   store i16 0, ptr %return_offset19333, align 4
-  %localsplus.i9228 = getelementptr inbounds i8, ptr %frame.addr.6, i64 72
-  %sub.ptr.lhs.cast.i9229 = ptrtoint ptr %stack_pointer.15 to i64
+  %localsplus.i9228 = getelementptr inbounds i8, ptr %frame.addr.7, i64 72
+  %sub.ptr.lhs.cast.i9229 = ptrtoint ptr %stack_pointer.16 to i64
   %sub.ptr.rhs.cast.i9230 = ptrtoint ptr %localsplus.i9228 to i64
   %sub.ptr.sub.i9231 = sub i64 %sub.ptr.lhs.cast.i9229, %sub.ptr.rhs.cast.i9230
   %sub.ptr.div.i9232 = lshr exact i64 %sub.ptr.sub.i9231, 3
   %conv.i9233 = trunc i64 %sub.ptr.div.i9232 to i32
-  %stacktop.i9234 = getelementptr inbounds i8, ptr %frame.addr.6, i64 64
+  %stacktop.i9234 = getelementptr inbounds i8, ptr %frame.addr.7, i64 64
   store i32 %conv.i9233, ptr %stacktop.i9234, align 8
   %3977 = load i64, ptr %1066, align 8
   %3978 = and i64 %3977, 2147483648
@@ -28881,11 +28881,11 @@ if.then19343:                                     ; preds = %if.end19339
   br label %resume_with_error
 
 deoptimize:                                       ; preds = %sw.bb17474, %sw.bb19319, %for.cond12062, %sw.bb19246, %sw.bb19238, %sw.bb19230, %sw.bb19222, %if.end18803, %if.end18796, %sw.bb18767, %if.end18698, %if.end18687, %if.end18681, %sw.bb18654, %if.end18570, %if.end18563, %sw.bb18534, %if.end18444, %if.end18437, %if.end18432, %sw.bb18404, %if.end18325, %sw.bb18298, %if.end18237, %sw.bb18210, %if.end18133, %sw.bb18105, %if.end18028, %sw.bb18000, %if.end17928, %if.end17923, %sw.bb17896, %if.end17820, %sw.bb17793, %sw.bb17698, %sw.bb17614, %if.end17569, %sw.bb17549, %if.end17488, %_PyThreadState_HasStackSpace.exit9090, %if.end17463, %if.end17457, %sw.bb17437, %sw.bb17431, %if.end17384, %sw.bb17369, %sw.bb17342, %sw.bb17240, %land.lhs.true17236, %sw.bb16940, %sw.bb16931, %if.end16910, %sw.bb16901, %sw.bb16893, %if.end16872, %sw.bb16863, %sw.bb16855, %if.end16330, %sw.bb16317, %if.end16269, %if.end16265, %if.end16260, %sw.bb16247, %if.end16198, %sw.bb16185, %sw.bb15991, %if.end15949, %sw.bb15939, %sw.bb15895, %if.end15866, %if.else15853, %if.then15840, %sw.bb15804, %sw.bb15787, %sw.bb15738, %if.end15729, %sw.bb15718, %sw.bb15671, %land.lhs.true15667, %sw.bb15645, %if.end15478, %sw.bb15463, %if.end15399, %sw.bb15385, %sw.bb14525, %sw.bb14493, %if.end14485, %sw.bb14474, %if.end14466, %sw.bb14455, %if.end14055, %sw.bb14043, %if.end14004, %sw.bb13992, %if.end13960, %sw.bb13948, %sw.bb13363, %if.end13305, %if.end13301, %if.end13296, %sw.bb13285, %sw.bb13125, %if.end13082, %if.end13078, %if.end13073, %sw.bb13063, %PyUnicode_READ_CHAR.exit8803, %if.end13013, %if.end13009, %if.end13004, %sw.bb12994, %if.end12951, %if.end12947, %if.end12942, %sw.bb12932, %if.end12725, %sw.bb12716, %if.end12572, %sw.bb12563, %if.end12440, %sw.bb12431, %sw.bb12377, %sw.bb12347, %sw.bb12338, %sw.bb12310, %sw.bb12281, %sw.bb12273, %sw.bb12067, %do.body16836, %if.then16845, %if.end16841
-  %stack_pointer.16 = phi ptr [ %arrayidx16821.le, %if.end16841 ], [ %arrayidx16821.le, %if.then16845 ], [ %arrayidx16821.le, %do.body16836 ], [ %stack_pointer.10, %sw.bb12067 ], [ %stack_pointer.10, %sw.bb12273 ], [ %stack_pointer.10, %sw.bb12281 ], [ %stack_pointer.10, %sw.bb12310 ], [ %stack_pointer.10, %sw.bb12338 ], [ %stack_pointer.10, %sw.bb12347 ], [ %stack_pointer.10, %sw.bb12377 ], [ %stack_pointer.10, %sw.bb12431 ], [ %stack_pointer.10, %if.end12440 ], [ %stack_pointer.10, %sw.bb12563 ], [ %stack_pointer.10, %if.end12572 ], [ %stack_pointer.10, %sw.bb12716 ], [ %stack_pointer.10, %if.end12725 ], [ %stack_pointer.10, %sw.bb12932 ], [ %stack_pointer.10, %if.end12942 ], [ %stack_pointer.10, %if.end12947 ], [ %stack_pointer.10, %if.end12951 ], [ %stack_pointer.10, %sw.bb12994 ], [ %stack_pointer.10, %if.end13004 ], [ %stack_pointer.10, %if.end13009 ], [ %stack_pointer.10, %if.end13013 ], [ %stack_pointer.10, %PyUnicode_READ_CHAR.exit8803 ], [ %stack_pointer.10, %sw.bb13063 ], [ %stack_pointer.10, %if.end13073 ], [ %stack_pointer.10, %if.end13078 ], [ %stack_pointer.10, %if.end13082 ], [ %stack_pointer.10, %sw.bb13125 ], [ %stack_pointer.10, %sw.bb13285 ], [ %stack_pointer.10, %if.end13296 ], [ %stack_pointer.10, %if.end13301 ], [ %stack_pointer.10, %if.end13305 ], [ %stack_pointer.10, %sw.bb13363 ], [ %stack_pointer.10, %sw.bb13948 ], [ %stack_pointer.10, %if.end13960 ], [ %stack_pointer.10, %sw.bb13992 ], [ %stack_pointer.10, %if.end14004 ], [ %stack_pointer.10, %sw.bb14043 ], [ %stack_pointer.10, %if.end14055 ], [ %stack_pointer.10, %sw.bb14455 ], [ %stack_pointer.10, %if.end14466 ], [ %stack_pointer.10, %sw.bb14474 ], [ %stack_pointer.10, %if.end14485 ], [ %stack_pointer.10, %sw.bb14493 ], [ %stack_pointer.10, %sw.bb14525 ], [ %stack_pointer.10, %sw.bb15385 ], [ %stack_pointer.10, %if.end15399 ], [ %stack_pointer.10, %sw.bb15463 ], [ %stack_pointer.10, %if.end15478 ], [ %stack_pointer.10, %sw.bb15645 ], [ %stack_pointer.10, %land.lhs.true15667 ], [ %stack_pointer.10, %sw.bb15671 ], [ %stack_pointer.10, %sw.bb15718 ], [ %stack_pointer.10, %if.end15729 ], [ %stack_pointer.10, %sw.bb15738 ], [ %stack_pointer.10, %sw.bb15787 ], [ %stack_pointer.10, %sw.bb15804 ], [ %stack_pointer.10, %if.then15840 ], [ %stack_pointer.10, %if.else15853 ], [ %stack_pointer.10, %if.end15866 ], [ %stack_pointer.10, %sw.bb15895 ], [ %stack_pointer.10, %sw.bb15939 ], [ %stack_pointer.10, %if.end15949 ], [ %stack_pointer.10, %sw.bb15991 ], [ %stack_pointer.10, %sw.bb16185 ], [ %stack_pointer.10, %if.end16198 ], [ %stack_pointer.10, %sw.bb16247 ], [ %stack_pointer.10, %if.end16260 ], [ %stack_pointer.10, %if.end16265 ], [ %stack_pointer.10, %if.end16269 ], [ %stack_pointer.10, %sw.bb16317 ], [ %stack_pointer.10, %if.end16330 ], [ %stack_pointer.10, %sw.bb16855 ], [ %stack_pointer.10, %sw.bb16863 ], [ %stack_pointer.10, %if.end16872 ], [ %stack_pointer.10, %sw.bb16893 ], [ %stack_pointer.10, %sw.bb16901 ], [ %stack_pointer.10, %if.end16910 ], [ %stack_pointer.10, %sw.bb16931 ], [ %stack_pointer.10, %sw.bb16940 ], [ %stack_pointer.10, %land.lhs.true17236 ], [ %stack_pointer.10, %sw.bb17240 ], [ %stack_pointer.10, %sw.bb17342 ], [ %stack_pointer.10, %sw.bb17369 ], [ %stack_pointer.10, %if.end17384 ], [ %stack_pointer.10, %sw.bb17431 ], [ %stack_pointer.10, %sw.bb17437 ], [ %stack_pointer.10, %if.end17457 ], [ %stack_pointer.10, %if.end17463 ], [ %stack_pointer.10, %_PyThreadState_HasStackSpace.exit9090 ], [ %stack_pointer.10, %if.end17488 ], [ %stack_pointer.10, %sw.bb17549 ], [ %stack_pointer.10, %if.end17569 ], [ %stack_pointer.10, %sw.bb17614 ], [ %stack_pointer.10, %sw.bb17698 ], [ %stack_pointer.10, %sw.bb17793 ], [ %stack_pointer.10, %if.end17820 ], [ %stack_pointer.10, %sw.bb17896 ], [ %stack_pointer.10, %if.end17923 ], [ %stack_pointer.10, %if.end17928 ], [ %stack_pointer.10, %sw.bb18000 ], [ %stack_pointer.10, %if.end18028 ], [ %stack_pointer.10, %sw.bb18105 ], [ %stack_pointer.10, %if.end18133 ], [ %stack_pointer.10, %sw.bb18210 ], [ %stack_pointer.10, %if.end18237 ], [ %stack_pointer.10, %sw.bb18298 ], [ %stack_pointer.10, %if.end18325 ], [ %stack_pointer.10, %sw.bb18404 ], [ %stack_pointer.10, %if.end18432 ], [ %stack_pointer.10, %if.end18437 ], [ %stack_pointer.10, %if.end18444 ], [ %stack_pointer.10, %sw.bb18534 ], [ %stack_pointer.10, %if.end18563 ], [ %stack_pointer.10, %if.end18570 ], [ %stack_pointer.10, %sw.bb18654 ], [ %stack_pointer.10, %if.end18681 ], [ %stack_pointer.10, %if.end18687 ], [ %stack_pointer.10, %if.end18698 ], [ %stack_pointer.10, %sw.bb18767 ], [ %stack_pointer.10, %if.end18796 ], [ %stack_pointer.10, %if.end18803 ], [ %stack_pointer.10, %sw.bb19222 ], [ %stack_pointer.10, %sw.bb19230 ], [ %stack_pointer.10, %sw.bb19238 ], [ %stack_pointer.10, %sw.bb19246 ], [ %stack_pointer.10, %for.cond12062 ], [ %stack_pointer.10, %sw.bb19319 ], [ %stack_pointer.10, %sw.bb17474 ]
+  %stack_pointer.13 = phi ptr [ %arrayidx16821.le, %if.end16841 ], [ %arrayidx16821.le, %if.then16845 ], [ %arrayidx16821.le, %do.body16836 ], [ %stack_pointer.11, %sw.bb12067 ], [ %stack_pointer.11, %sw.bb12273 ], [ %stack_pointer.11, %sw.bb12281 ], [ %stack_pointer.11, %sw.bb12310 ], [ %stack_pointer.11, %sw.bb12338 ], [ %stack_pointer.11, %sw.bb12347 ], [ %stack_pointer.11, %sw.bb12377 ], [ %stack_pointer.11, %sw.bb12431 ], [ %stack_pointer.11, %if.end12440 ], [ %stack_pointer.11, %sw.bb12563 ], [ %stack_pointer.11, %if.end12572 ], [ %stack_pointer.11, %sw.bb12716 ], [ %stack_pointer.11, %if.end12725 ], [ %stack_pointer.11, %sw.bb12932 ], [ %stack_pointer.11, %if.end12942 ], [ %stack_pointer.11, %if.end12947 ], [ %stack_pointer.11, %if.end12951 ], [ %stack_pointer.11, %sw.bb12994 ], [ %stack_pointer.11, %if.end13004 ], [ %stack_pointer.11, %if.end13009 ], [ %stack_pointer.11, %if.end13013 ], [ %stack_pointer.11, %PyUnicode_READ_CHAR.exit8803 ], [ %stack_pointer.11, %sw.bb13063 ], [ %stack_pointer.11, %if.end13073 ], [ %stack_pointer.11, %if.end13078 ], [ %stack_pointer.11, %if.end13082 ], [ %stack_pointer.11, %sw.bb13125 ], [ %stack_pointer.11, %sw.bb13285 ], [ %stack_pointer.11, %if.end13296 ], [ %stack_pointer.11, %if.end13301 ], [ %stack_pointer.11, %if.end13305 ], [ %stack_pointer.11, %sw.bb13363 ], [ %stack_pointer.11, %sw.bb13948 ], [ %stack_pointer.11, %if.end13960 ], [ %stack_pointer.11, %sw.bb13992 ], [ %stack_pointer.11, %if.end14004 ], [ %stack_pointer.11, %sw.bb14043 ], [ %stack_pointer.11, %if.end14055 ], [ %stack_pointer.11, %sw.bb14455 ], [ %stack_pointer.11, %if.end14466 ], [ %stack_pointer.11, %sw.bb14474 ], [ %stack_pointer.11, %if.end14485 ], [ %stack_pointer.11, %sw.bb14493 ], [ %stack_pointer.11, %sw.bb14525 ], [ %stack_pointer.11, %sw.bb15385 ], [ %stack_pointer.11, %if.end15399 ], [ %stack_pointer.11, %sw.bb15463 ], [ %stack_pointer.11, %if.end15478 ], [ %stack_pointer.11, %sw.bb15645 ], [ %stack_pointer.11, %land.lhs.true15667 ], [ %stack_pointer.11, %sw.bb15671 ], [ %stack_pointer.11, %sw.bb15718 ], [ %stack_pointer.11, %if.end15729 ], [ %stack_pointer.11, %sw.bb15738 ], [ %stack_pointer.11, %sw.bb15787 ], [ %stack_pointer.11, %sw.bb15804 ], [ %stack_pointer.11, %if.then15840 ], [ %stack_pointer.11, %if.else15853 ], [ %stack_pointer.11, %if.end15866 ], [ %stack_pointer.11, %sw.bb15895 ], [ %stack_pointer.11, %sw.bb15939 ], [ %stack_pointer.11, %if.end15949 ], [ %stack_pointer.11, %sw.bb15991 ], [ %stack_pointer.11, %sw.bb16185 ], [ %stack_pointer.11, %if.end16198 ], [ %stack_pointer.11, %sw.bb16247 ], [ %stack_pointer.11, %if.end16260 ], [ %stack_pointer.11, %if.end16265 ], [ %stack_pointer.11, %if.end16269 ], [ %stack_pointer.11, %sw.bb16317 ], [ %stack_pointer.11, %if.end16330 ], [ %stack_pointer.11, %sw.bb16855 ], [ %stack_pointer.11, %sw.bb16863 ], [ %stack_pointer.11, %if.end16872 ], [ %stack_pointer.11, %sw.bb16893 ], [ %stack_pointer.11, %sw.bb16901 ], [ %stack_pointer.11, %if.end16910 ], [ %stack_pointer.11, %sw.bb16931 ], [ %stack_pointer.11, %sw.bb16940 ], [ %stack_pointer.11, %land.lhs.true17236 ], [ %stack_pointer.11, %sw.bb17240 ], [ %stack_pointer.11, %sw.bb17342 ], [ %stack_pointer.11, %sw.bb17369 ], [ %stack_pointer.11, %if.end17384 ], [ %stack_pointer.11, %sw.bb17431 ], [ %stack_pointer.11, %sw.bb17437 ], [ %stack_pointer.11, %if.end17457 ], [ %stack_pointer.11, %if.end17463 ], [ %stack_pointer.11, %_PyThreadState_HasStackSpace.exit9090 ], [ %stack_pointer.11, %if.end17488 ], [ %stack_pointer.11, %sw.bb17549 ], [ %stack_pointer.11, %if.end17569 ], [ %stack_pointer.11, %sw.bb17614 ], [ %stack_pointer.11, %sw.bb17698 ], [ %stack_pointer.11, %sw.bb17793 ], [ %stack_pointer.11, %if.end17820 ], [ %stack_pointer.11, %sw.bb17896 ], [ %stack_pointer.11, %if.end17923 ], [ %stack_pointer.11, %if.end17928 ], [ %stack_pointer.11, %sw.bb18000 ], [ %stack_pointer.11, %if.end18028 ], [ %stack_pointer.11, %sw.bb18105 ], [ %stack_pointer.11, %if.end18133 ], [ %stack_pointer.11, %sw.bb18210 ], [ %stack_pointer.11, %if.end18237 ], [ %stack_pointer.11, %sw.bb18298 ], [ %stack_pointer.11, %if.end18325 ], [ %stack_pointer.11, %sw.bb18404 ], [ %stack_pointer.11, %if.end18432 ], [ %stack_pointer.11, %if.end18437 ], [ %stack_pointer.11, %if.end18444 ], [ %stack_pointer.11, %sw.bb18534 ], [ %stack_pointer.11, %if.end18563 ], [ %stack_pointer.11, %if.end18570 ], [ %stack_pointer.11, %sw.bb18654 ], [ %stack_pointer.11, %if.end18681 ], [ %stack_pointer.11, %if.end18687 ], [ %stack_pointer.11, %if.end18698 ], [ %stack_pointer.11, %sw.bb18767 ], [ %stack_pointer.11, %if.end18796 ], [ %stack_pointer.11, %if.end18803 ], [ %stack_pointer.11, %sw.bb19222 ], [ %stack_pointer.11, %sw.bb19230 ], [ %stack_pointer.11, %sw.bb19238 ], [ %stack_pointer.11, %sw.bb19246 ], [ %stack_pointer.11, %for.cond12062 ], [ %stack_pointer.11, %sw.bb19319 ], [ %stack_pointer.11, %sw.bb17474 ]
   %target19350 = getelementptr inbounds i8, ptr %next_uop.0, i64 4
   %3981 = load i32, ptr %target19350, align 4
-  %frame.addr.6.val7355 = load ptr, ptr %frame.addr.6, align 8
-  %co_code_adaptive19352 = getelementptr inbounds i8, ptr %frame.addr.6.val7355, i64 200
+  %frame.addr.7.val7355 = load ptr, ptr %frame.addr.7, align 8
+  %co_code_adaptive19352 = getelementptr inbounds i8, ptr %frame.addr.7.val7355, i64 200
   %idx.ext19354 = zext i32 %3981 to i64
   %add.ptr19355 = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive19352, i64 %idx.ext19354
   %3982 = load i64, ptr %1066, align 8
@@ -28916,9 +28916,9 @@ do.body19371:                                     ; preds = %deoptimize, %if.the
   br label %indirectgoto.backedge
 
 return:                                           ; preds = %exit_unwind, %TARGET_INTERPRETER_EXIT
-  %frame.addr.8.pn = phi ptr [ %frame.addr.8, %TARGET_INTERPRETER_EXIT ], [ %2394, %exit_unwind ]
+  %frame.addr.4.pn = phi ptr [ %frame.addr.4, %TARGET_INTERPRETER_EXIT ], [ %2394, %exit_unwind ]
   %retval.0 = phi ptr [ %1425, %TARGET_INTERPRETER_EXIT ], [ null, %exit_unwind ]
-  %storemerge6816.in = getelementptr inbounds i8, ptr %frame.addr.8.pn, i64 8
+  %storemerge6816.in = getelementptr inbounds i8, ptr %frame.addr.4.pn, i64 8
   %storemerge6816 = load ptr, ptr %storemerge6816.in, align 8
   store ptr %storemerge6816, ptr %current_frame, align 8
   %storemerge6815.in = load i32, ptr %c_recursion_remaining, align 4
@@ -28927,11 +28927,11 @@ return:                                           ; preds = %exit_unwind, %TARGE
   ret ptr %retval.0
 
 indirectgoto:                                     ; preds = %indirectgoto.backedge, %indirectgoto.preheader
-  %stack_pointer.17 = phi ptr [ %stack_pointer.17.ph, %indirectgoto.preheader ], [ %stack_pointer.17.be, %indirectgoto.backedge ]
-  %next_instr.27 = phi ptr [ %next_instr.27.ph, %indirectgoto.preheader ], [ %next_instr.27.be, %indirectgoto.backedge ]
-  %oparg.1 = phi i32 [ %oparg.1.ph, %indirectgoto.preheader ], [ %oparg.1.be, %indirectgoto.backedge ]
+  %stack_pointer.0 = phi ptr [ %stack_pointer.0.ph, %indirectgoto.preheader ], [ %stack_pointer.0.be, %indirectgoto.backedge ]
+  %next_instr.1 = phi ptr [ %next_instr.1.ph, %indirectgoto.preheader ], [ %next_instr.1.be, %indirectgoto.backedge ]
+  %oparg.0 = phi i32 [ %oparg.0.ph, %indirectgoto.preheader ], [ %oparg.0.be, %indirectgoto.backedge ]
   %opcode.0 = phi i8 [ %opcode.0.ph, %indirectgoto.preheader ], [ %opcode.0.be, %indirectgoto.backedge ]
-  %frame.addr.8 = phi ptr [ %frame.addr.8.ph, %indirectgoto.preheader ], [ %frame.addr.8.be, %indirectgoto.backedge ]
+  %frame.addr.4 = phi ptr [ %frame.addr.4.ph, %indirectgoto.preheader ], [ %frame.addr.4.be, %indirectgoto.backedge ]
   %idxprom12045.pn.pn = phi i64 [ %idxprom12045.pn, %indirectgoto.preheader ], [ %idxprom12045.pn.pn.be, %indirectgoto.backedge ]
   %indirect.goto.dest.in = getelementptr [256 x ptr], ptr @_PyEval_EvalFrameDefault.opcode_targets, i64 0, i64 %idxprom12045.pn.pn
   %indirect.goto.dest = load ptr, ptr %indirect.goto.dest.in, align 8
@@ -29303,8 +29303,8 @@ for.inc92.i:                                      ; preds = %for.body86.i
   br i1 %exitcond294.not.i, label %for.body100.i, label %for.body86.i, !llvm.loop !56
 
 for.body100.i:                                    ; preds = %for.inc92.i, %for.inc114.i
-  %j72.1251.i = phi i64 [ %inc115.i, %for.inc114.i ], [ %conv82.i, %for.inc92.i ]
-  %arrayidx102.i = getelementptr ptr, ptr %ob_item81.i, i64 %j72.1251.i
+  %j72.2251.i = phi i64 [ %inc115.i, %for.inc114.i ], [ %conv82.i, %for.inc92.i ]
+  %arrayidx102.i = getelementptr ptr, ptr %ob_item81.i, i64 %j72.2251.i
   %36 = load ptr, ptr %arrayidx102.i, align 8
   %call104.i = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %26, ptr noundef %36, i32 noundef 2) #15
   %cmp105.i = icmp sgt i32 %call104.i, 0
@@ -29315,7 +29315,7 @@ if.else108.i:                                     ; preds = %for.body100.i
   br i1 %cmp109.i, label %kw_fail.i, label %for.inc114.i
 
 for.inc114.i:                                     ; preds = %if.else108.i
-  %inc115.i = add nsw i64 %j72.1251.i, 1
+  %inc115.i = add nsw i64 %j72.2251.i, 1
   %exitcond295.not.i = icmp eq i64 %inc115.i, %conv.i
   br i1 %exitcond295.not.i, label %for.end116.i, label %for.body100.i, !llvm.loop !57
 
@@ -29492,8 +29492,8 @@ for.inc236.i:                                     ; preds = %if.then230.i, %if.e
   br i1 %exitcond298.not.i, label %if.then3, label %for.body217.i, !llvm.loop !59
 
 kw_found.i:                                       ; preds = %for.body86.i, %for.body100.i
-  %j72.2.i = phi i64 [ %j72.1251.i, %for.body100.i ], [ %j72.0249.i, %for.body86.i ]
-  %arrayidx239.i = getelementptr ptr, ptr %localsplus, i64 %j72.2.i
+  %j72.1.i = phi i64 [ %j72.2251.i, %for.body100.i ], [ %j72.0249.i, %for.body86.i ]
+  %arrayidx239.i = getelementptr ptr, ptr %localsplus, i64 %j72.1.i
   %65 = load ptr, ptr %arrayidx239.i, align 8
   %cmp240.not.i = icmp eq ptr %65, null
   br i1 %cmp240.not.i, label %if.end245.i, label %if.then242.i
@@ -31007,12 +31007,12 @@ if.then68:                                        ; preds = %if.end62
 
 for.body77:                                       ; preds = %for.body77.lr.ph, %for.body77
   %indvars.iv = phi i64 [ %20, %for.body77.lr.ph ], [ %indvars.iv.next, %for.body77 ]
-  %sp.addr.188 = phi ptr [ %incdec.ptr63, %for.body77.lr.ph ], [ %incdec.ptr79, %for.body77 ]
+  %sp.addr.288 = phi ptr [ %incdec.ptr63, %for.body77.lr.ph ], [ %incdec.ptr79, %for.body77 ]
   %22 = load ptr, ptr %ob_item, align 8
   %sub = sub i64 %call59.val, %indvars.iv
   %arrayidx = getelementptr ptr, ptr %22, i64 %sub
   %23 = load ptr, ptr %arrayidx, align 8
-  %incdec.ptr79 = getelementptr i8, ptr %sp.addr.188, i64 -8
+  %incdec.ptr79 = getelementptr i8, ptr %sp.addr.288, i64 -8
   store ptr %23, ptr %incdec.ptr79, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp75 = icmp ugt i64 %indvars.iv, 1
@@ -31041,14 +31041,14 @@ if.then95:                                        ; preds = %if.end91
   br label %return
 
 Error:                                            ; preds = %if.end58, %_PyErr_Occurred.exit75, %_PyErr_Occurred.exit, %if.else, %if.then19, %if.then68, %do.end56
-  %i.2 = phi i32 [ %i.083, %_PyErr_Occurred.exit ], [ %i.083, %if.then19 ], [ %i.083, %if.else ], [ %i.0.lcssa, %_PyErr_Occurred.exit75 ], [ %i.0.lcssa, %do.end56 ], [ %i.0.lcssa, %if.end58 ], [ %inc64, %if.then68 ]
-  %sp.addr.2 = phi ptr [ %sp.addr.084, %_PyErr_Occurred.exit ], [ %sp.addr.084, %if.then19 ], [ %sp.addr.084, %if.else ], [ %sp.addr.0.lcssa, %_PyErr_Occurred.exit75 ], [ %sp.addr.0.lcssa, %do.end56 ], [ %sp.addr.0.lcssa, %if.end58 ], [ %incdec.ptr63, %if.then68 ]
-  %cmp10289 = icmp sgt i32 %i.2, 0
+  %i.1 = phi i32 [ %i.083, %_PyErr_Occurred.exit ], [ %i.083, %if.then19 ], [ %i.083, %if.else ], [ %i.0.lcssa, %_PyErr_Occurred.exit75 ], [ %i.0.lcssa, %do.end56 ], [ %i.0.lcssa, %if.end58 ], [ %inc64, %if.then68 ]
+  %sp.addr.1 = phi ptr [ %sp.addr.084, %_PyErr_Occurred.exit ], [ %sp.addr.084, %if.then19 ], [ %sp.addr.084, %if.else ], [ %sp.addr.0.lcssa, %_PyErr_Occurred.exit75 ], [ %sp.addr.0.lcssa, %do.end56 ], [ %sp.addr.0.lcssa, %if.end58 ], [ %incdec.ptr63, %if.then68 ]
+  %cmp10289 = icmp sgt i32 %i.1, 0
   br i1 %cmp10289, label %do.body105, label %do.body128
 
 do.body105:                                       ; preds = %Error, %for.inc120
-  %sp.addr.391 = phi ptr [ %incdec.ptr122, %for.inc120 ], [ %sp.addr.2, %Error ]
-  %i.390 = phi i32 [ %dec121, %for.inc120 ], [ %i.2, %Error ]
+  %sp.addr.391 = phi ptr [ %incdec.ptr122, %for.inc120 ], [ %sp.addr.1, %Error ]
+  %i.390 = phi i32 [ %dec121, %for.inc120 ], [ %i.1, %Error ]
   %28 = load ptr, ptr %sp.addr.391, align 8
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 2147483648

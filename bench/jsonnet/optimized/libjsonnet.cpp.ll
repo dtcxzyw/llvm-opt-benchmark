@@ -2805,24 +2805,24 @@ _ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit: ; preds = %51
 
 71:                                               ; preds = %70, %45
   %.pn20.pn = phi { ptr, i32 } [ %.pn20, %70 ], [ %46, %45 ]
-  %.2 = extractvalue { ptr, i32 } %.pn20.pn, 0
-  %.217 = extractvalue { ptr, i32 } %.pn20.pn, 1
+  %.013 = extractvalue { ptr, i32 } %.pn20.pn, 0
+  %.015 = extractvalue { ptr, i32 } %.pn20.pn, 1
   %72 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #30
-  %73 = icmp eq i32 %.217, %72
+  %73 = icmp eq i32 %.015, %72
   br i1 %73, label %.unreachable, label %75
 
 .unreachable:                                     ; preds = %71
-  %74 = call ptr @__cxa_begin_catch(ptr %.2) #30
+  %74 = call ptr @__cxa_begin_catch(ptr %.013) #30
   call fastcc void @_ZL12memory_panicv()
   unreachable
 
 75:                                               ; preds = %71
   %76 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #30
-  %77 = icmp eq i32 %.217, %76
+  %77 = icmp eq i32 %.015, %76
   br i1 %77, label %78, label %92
 
 78:                                               ; preds = %75
-  %79 = call ptr @__cxa_begin_catch(ptr %.2) #30
+  %79 = call ptr @__cxa_begin_catch(ptr %.013) #30
   %80 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.7)
           to label %81 unwind label %90
 
@@ -3171,17 +3171,17 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 99:                                               ; preds = %98, %.body
   %.pn22.pn = phi { ptr, i32 } [ %.pn22, %98 ], [ %.pn, %.body ]
-  %.2 = extractvalue { ptr, i32 } %.pn22.pn, 1
+  %.1 = extractvalue { ptr, i32 } %.pn22.pn, 1
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #30
   call void @_ZN7jsonnet8internal9AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #30
   %100 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7jsonnet8internal11StaticErrorE) #30
-  %101 = icmp eq i32 %.2, %100
+  %101 = icmp eq i32 %.1, %100
   br i1 %101, label %102, label %120
 
 102:                                              ; preds = %99
-  %.217 = extractvalue { ptr, i32 } %.pn22.pn, 0
-  %103 = call ptr @__cxa_begin_catch(ptr %.217) #30
+  %.116 = extractvalue { ptr, i32 } %.pn22.pn, 0
+  %103 = call ptr @__cxa_begin_catch(ptr %.116) #30
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %15)
           to label %104 unwind label %114
 
@@ -4107,15 +4107,15 @@ _ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EED2Ev.exit: ; preds = %.lr.ph
 
 162:                                              ; preds = %161, %.body
   %.pn137.pn = phi { ptr, i32 } [ %.pn137, %161 ], [ %.pn, %.body ]
-  %.2 = extractvalue { ptr, i32 } %.pn137.pn, 0
-  %.2124 = extractvalue { ptr, i32 } %.pn137.pn, 1
+  %.1120 = extractvalue { ptr, i32 } %.pn137.pn, 0
+  %.1123 = extractvalue { ptr, i32 } %.pn137.pn, 1
   call void @_ZN7jsonnet8internal9AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #30
   %163 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7jsonnet8internal11StaticErrorE) #30
-  %164 = icmp eq i32 %.2124, %163
+  %164 = icmp eq i32 %.1123, %163
   br i1 %164, label %165, label %177
 
 165:                                              ; preds = %162
-  %166 = call ptr @__cxa_begin_catch(ptr %.2) #30
+  %166 = call ptr @__cxa_begin_catch(ptr %.1120) #30
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %16)
           to label %167 unwind label %234
 
@@ -4146,11 +4146,11 @@ _ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EED2Ev.exit: ; preds = %.lr.ph
 
 177:                                              ; preds = %162
   %178 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN7jsonnet8internal12RuntimeErrorE) #30
-  %179 = icmp eq i32 %.2124, %178
+  %179 = icmp eq i32 %.1123, %178
   br i1 %179, label %180, label %240
 
 180:                                              ; preds = %177
-  %181 = call ptr @__cxa_begin_catch(ptr %.2) #30
+  %181 = call ptr @__cxa_begin_catch(ptr %.1120) #30
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %14)
           to label %182 unwind label %217
 
@@ -6407,27 +6407,27 @@ _ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEC2ERSi.exit: ; preds = %50
           to label %94 unwind label %46
 
 94:                                               ; preds = %92, %87, %45, %75
-  %.0 = phi i32 [ 2, %75 ], [ 1, %45 ], [ 2, %87 ], [ 0, %92 ]
+  %.1 = phi i32 [ 2, %75 ], [ 1, %45 ], [ 2, %87 ], [ 0, %92 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %9) #30
   br label %96
 
 95:                                               ; preds = %76, %62, %46
-  %.018 = phi ptr [ %48, %46 ], [ %78, %76 ], [ %64, %62 ]
-  %.016 = phi i32 [ %49, %46 ], [ %79, %76 ], [ %65, %62 ]
+  %.119 = phi ptr [ %48, %46 ], [ %78, %76 ], [ %64, %62 ]
+  %.117 = phi i32 [ %49, %46 ], [ %79, %76 ], [ %65, %62 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %9) #30
   br label %97
 
 96:                                               ; preds = %.invoke, %94
-  %.1 = phi i32 [ %.0, %94 ], [ 2, %.invoke ]
+  %.0 = phi i32 [ %.1, %94 ], [ 2, %.invoke ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
-  ret i32 %.1
+  ret i32 %.0
 
 97:                                               ; preds = %95, %.body
-  %.119 = phi ptr [ %14, %.body ], [ %.018, %95 ]
-  %.117 = phi i32 [ %15, %.body ], [ %.016, %95 ]
+  %.018 = phi ptr [ %14, %.body ], [ %.119, %95 ]
+  %.016 = phi i32 [ %15, %.body ], [ %.117, %95 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
-  %98 = insertvalue { ptr, i32 } poison, ptr %.119, 0
-  %99 = insertvalue { ptr, i32 } %98, i32 %.117, 1
+  %98 = insertvalue { ptr, i32 } poison, ptr %.018, 0
+  %99 = insertvalue { ptr, i32 } %98, i32 %.016, 1
   resume { ptr, i32 } %99
 
 100:                                              ; preds = %76
@@ -8255,7 +8255,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   br i1 %9, label %.preheader.split, label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us
-  %.sroa.031.0.us = phi ptr [ %.sroa.031.1.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %1, %.preheader ]
+  %.sroa.031.0.us = phi ptr [ %.sroa.031.2.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %1, %.preheader ]
   %.sroa.11.0.us = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %2, %.preheader ]
   %.0.us = phi i64 [ %22, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ 0, %.preheader ]
   %.not.i.i.i.i.us = icmp ne ptr %.sroa.031.0.us, null
@@ -8270,7 +8270,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; preds = %11, %.preheader.split.us
-  %.sroa.031.1.us = phi ptr [ %.sroa.031.0.us, %.preheader.split.us ], [ %spec.select.us, %11 ]
+  %.sroa.031.2.us = phi ptr [ %.sroa.031.0.us, %.preheader.split.us ], [ %spec.select.us, %11 ]
   %.0.i.i.i.i.us = phi i32 [ %.sroa.11.0.us, %.preheader.split.us ], [ %12, %11 ]
   %14 = icmp eq i32 %.0.i.i.i.i.us, -1
   %15 = icmp ult i64 %.0.us, 15
@@ -8278,12 +8278,12 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; pred
   br i1 %16, label %17, label %.split.us
 
 17:                                               ; preds = %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us
-  %.not.i.i.us = icmp ne ptr %.sroa.031.1.us, null
+  %.not.i.i.us = icmp ne ptr %.sroa.031.2.us, null
   %or.cond.i.i.us = select i1 %.not.i.i.us, i1 %10, i1 false
   br i1 %or.cond.i.i.us, label %18, label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us
 
 18:                                               ; preds = %17
-  %19 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1.us)
+  %19 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.2.us)
   %20 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %20)
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us
@@ -8294,7 +8294,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us: ; preds = %18, %17
   %22 = add nuw nsw i64 %.0.us, 1
   %23 = getelementptr inbounds i8, ptr %8, i64 %.0.us
   store i8 %21, ptr %23, align 1
-  %24 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1.us)
+  %24 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.2.us)
   br label %.preheader.split.us, !llvm.loop !60
 
 25:                                               ; preds = %5
@@ -8305,8 +8305,8 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us: ; preds = %18, %17
   unreachable
 
 .preheader.split:                                 ; preds = %.preheader, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
-  %.sroa.031.0 = phi ptr [ %.sroa.031.1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %1, %.preheader ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %3, %.preheader ]
+  %.sroa.031.0 = phi ptr [ %.sroa.031.2, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %1, %.preheader ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %3, %.preheader ]
   %.sroa.11.0 = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %2, %.preheader ]
   %.0 = phi i64 [ %45, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ 0, %.preheader ]
   %.not.i.i.i.i = icmp ne ptr %.sroa.031.0, null
@@ -8321,7 +8321,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us: ; preds = %18, %17
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i: ; preds = %29, %.preheader.split
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0, %.preheader.split ], [ %spec.select, %29 ]
+  %.sroa.031.2 = phi ptr [ %.sroa.031.0, %.preheader.split ], [ %spec.select, %29 ]
   %.0.i.i.i.i = phi i32 [ %.sroa.11.0, %.preheader.split ], [ %30, %29 ]
   %.not.i.i2.i.i.not = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i.i2.i.i.not, label %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit, label %32
@@ -8333,7 +8333,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i: ; preds =
   br label %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
 
 _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = %32, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i
-  %.sroa.0.1 = phi ptr [ null, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %spec.select42, %32 ]
+  %.sroa.0.2 = phi ptr [ null, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %spec.select42, %32 ]
   %.0.i.i4.i.i = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %33, %32 ]
   %35 = icmp eq i32 %.0.i.i.i.i, -1
   %36 = icmp eq i32 %.0.i.i4.i.i, -1
@@ -8343,12 +8343,12 @@ _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   br i1 %39, label %40, label %.split.us
 
 40:                                               ; preds = %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
-  %.not.i.i = icmp ne ptr %.sroa.031.1, null
+  %.not.i.i = icmp ne ptr %.sroa.031.2, null
   %or.cond.i.i = select i1 %.not.i.i, i1 %28, i1 false
   br i1 %or.cond.i.i, label %41, label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
 
 41:                                               ; preds = %40
-  %42 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1)
+  %42 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.2)
   %43 = icmp ne i32 %42, -1
   tail call void @llvm.assume(i1 %43)
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
@@ -8359,45 +8359,45 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit: ; preds = %41, %40
   %45 = add nuw nsw i64 %.0, 1
   %46 = getelementptr inbounds i8, ptr %8, i64 %.0
   store i8 %44, ptr %46, align 1
-  %47 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1)
+  %47 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.2)
   br label %.preheader.split, !llvm.loop !60
 
 .split.us:                                        ; preds = %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
-  %.us-phi = phi ptr [ %.sroa.0.1, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %3, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
-  %.us-phi47 = phi ptr [ %.sroa.031.1, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.sroa.031.1.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
+  %.us-phi = phi ptr [ %.sroa.0.2, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %3, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
+  %.us-phi47 = phi ptr [ %.sroa.031.2, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.sroa.031.2.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
   %.us-phi49 = phi i32 [ %.sroa.11.0, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.sroa.11.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
   %.us-phi50 = phi i64 [ %.0, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
   store ptr %0, ptr %7, align 8
   br label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit
 
 _ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit: ; preds = %79, %.split.us
-  %.sroa.031.3 = phi ptr [ %.us-phi47, %.split.us ], [ %.sroa.031.4, %79 ]
-  %.sroa.0.2 = phi ptr [ %.us-phi, %.split.us ], [ %.sroa.0.340, %79 ]
+  %.sroa.031.1 = phi ptr [ %.us-phi47, %.split.us ], [ %.sroa.031.4, %79 ]
+  %.sroa.0.1 = phi ptr [ %.us-phi, %.split.us ], [ %.sroa.0.340, %79 ]
   %.sroa.11.1 = phi i32 [ %.us-phi49, %.split.us ], [ -1, %79 ]
   %.1 = phi i64 [ %.us-phi50, %.split.us ], [ %82, %79 ]
-  %.not.i.i.i.i14 = icmp ne ptr %.sroa.031.3, null
+  %.not.i.i.i.i14 = icmp ne ptr %.sroa.031.1, null
   %48 = icmp eq i32 %.sroa.11.1, -1
   %or.cond.i.i.i.i15 = select i1 %.not.i.i.i.i14, i1 %48, i1 false
   br i1 %or.cond.i.i.i.i15, label %49, label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i16
 
 49:                                               ; preds = %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit
-  %50 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.3)
+  %50 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %49
   %51 = icmp eq i32 %50, -1
-  %spec.select44 = select i1 %51, ptr null, ptr %.sroa.031.3
+  %spec.select44 = select i1 %51, ptr null, ptr %.sroa.031.1
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i16
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i16: ; preds = %.noexc, %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit
-  %.sroa.031.4 = phi ptr [ %.sroa.031.3, %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit ], [ %spec.select44, %.noexc ]
+  %.sroa.031.4 = phi ptr [ %.sroa.031.1, %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit ], [ %spec.select44, %.noexc ]
   %.0.i.i.i.i17 = phi i32 [ %.sroa.11.1, %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit ], [ %50, %.noexc ]
-  %.not.i.i2.i.i18 = icmp ne ptr %.sroa.0.2, null
+  %.not.i.i2.i.i18 = icmp ne ptr %.sroa.0.1, null
   %or.cond.i.i3.i.i19 = and i1 %.not.i.i2.i.i18, %9
   br i1 %or.cond.i.i3.i.i19, label %52, label %56
 
 52:                                               ; preds = %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i16
-  %53 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.2)
+  %53 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.1)
           to label %.noexc21 unwind label %.loopexit
 
 .noexc21:                                         ; preds = %52
@@ -8417,7 +8417,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i16: ; preds
   br i1 %58, label %59, label %84
 
 59:                                               ; preds = %55, %.noexc21._crit_edge, %56
-  %.sroa.0.340 = phi ptr [ %.sroa.0.2, %.noexc21._crit_edge ], [ %.sroa.0.2, %56 ], [ null, %55 ]
+  %.sroa.0.340 = phi ptr [ %.sroa.0.1, %.noexc21._crit_edge ], [ %.sroa.0.1, %56 ], [ null, %55 ]
   %60 = load i64, ptr %6, align 8
   %61 = icmp eq i64 %.1, %60
   br i1 %61, label %62, label %73

@@ -141,14 +141,14 @@ select.unfold:                                    ; preds = %43, %42
   br label %77
 
 77:                                               ; preds = %70, %61
-  %.0138 = phi i64 [ %67, %61 ], [ %71, %70 ]
+  %.1139 = phi i64 [ %67, %61 ], [ %71, %70 ]
   %78 = getelementptr inbounds i8, ptr %59, i64 16
   br label %.thread
 
 .thread:                                          ; preds = %43, %77, %select.unfold
   %.0135171 = phi i64 [ %.0135, %77 ], [ %.0135, %select.unfold ], [ %40, %43 ]
   %.0141 = phi ptr [ %78, %77 ], [ %1, %select.unfold ], [ %1, %43 ]
-  %.1139 = phi i64 [ %.0138, %77 ], [ %16, %select.unfold ], [ %16, %43 ]
+  %.0138 = phi i64 [ %.1139, %77 ], [ %16, %select.unfold ], [ %16, %43 ]
   %.0134 = phi ptr [ %59, %77 ], [ %12, %select.unfold ], [ %12, %43 ]
   %.not159 = icmp eq i64 %.0135171, 0
   br i1 %.not159, label %106, label %79
@@ -174,7 +174,7 @@ select.unfold:                                    ; preds = %43, %42
   %90 = add i64 %.0135171, 32
   %91 = icmp ult i64 %spec.select, %90
   %spec.select163 = select i1 %91, i64 %spec.select, i64 %.0135171
-  %92 = add i64 %spec.select163, %.1139
+  %92 = add i64 %spec.select163, %.0138
   %93 = getelementptr inbounds i8, ptr %.0134, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, 3

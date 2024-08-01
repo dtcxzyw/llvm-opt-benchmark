@@ -2436,7 +2436,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %53, %61, %63, %65, 
   br label %.thread
 
 .thread:                                          ; preds = %88, %93, %118, %87, %195, %.thread144, %H5MF__alloc_to_fs_type.exit, %174, %.thread146, %180, %146, %142, %170, %162, %138, %125, %114, %106, %83, %30
-  %.2 = phi i32 [ -1, %83 ], [ -1, %114 ], [ -1, %125 ], [ -1, %138 ], [ -1, %170 ], [ 0, %180 ], [ 0, %.thread146 ], [ %168, %174 ], [ -1, %162 ], [ 0, %146 ], [ %136, %142 ], [ -1, %106 ], [ 0, %H5MF__alloc_to_fs_type.exit ], [ -1, %30 ], [ 0, %.thread144 ], [ %spec.select138, %195 ], [ %81, %87 ], [ 1, %118 ], [ 1, %93 ], [ 1, %88 ]
+  %.0105 = phi i32 [ -1, %83 ], [ -1, %114 ], [ -1, %125 ], [ -1, %138 ], [ -1, %170 ], [ 0, %180 ], [ 0, %.thread146 ], [ %168, %174 ], [ -1, %162 ], [ 0, %146 ], [ %136, %142 ], [ -1, %106 ], [ 0, %H5MF__alloc_to_fs_type.exit ], [ -1, %30 ], [ 0, %.thread144 ], [ %spec.select138, %195 ], [ %81, %87 ], [ 1, %118 ], [ 1, %93 ], [ 1, %88 ]
   %197 = load i32, ptr %6, align 4
   %.not134 = icmp eq i32 %197, 0
   br i1 %.not134, label %199, label %198
@@ -2448,7 +2448,7 @@ H5MF__alloc_to_fs_type.exit:                      ; preds = %53, %61, %63, %65, 
 199:                                              ; preds = %198, %.thread
   %200 = load i64, ptr %7, align 8
   call void @H5AC_tag(i64 noundef %200, ptr noundef null) #7
-  ret i32 %.2
+  ret i32 %.0105
 }
 
 declare i64 @H5F_get_base_addr(ptr noundef) local_unnamed_addr #2
@@ -2558,7 +2558,7 @@ define range(i32 -1, -2147483648) i32 @H5MF_close(ptr noundef %0) local_unnamed_
 
 .preheader.i:                                     ; preds = %48, %83
   %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %83 ], [ 1, %48 ]
-  %.067.i = phi i32 [ %.2.i, %83 ], [ 2, %48 ]
+  %.067.i = phi i32 [ %.1.i, %83 ], [ 2, %48 ]
   %57 = load ptr, ptr %7, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 1720
   %59 = getelementptr inbounds [13 x ptr], ptr %58, i64 0, i64 %indvars.iv71.i
@@ -2578,7 +2578,7 @@ define range(i32 -1, -2147483648) i32 @H5MF_close(ptr noundef %0) local_unnamed_
   br label %65
 
 65:                                               ; preds = %64, %61
-  %.1.i = phi i32 [ %..i, %64 ], [ %.067.i, %61 ]
+  %.2.i = phi i32 [ %..i, %64 ], [ %.067.i, %61 ]
   %66 = load ptr, ptr %7, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 1720
   %68 = getelementptr inbounds [13 x ptr], ptr %67, i64 0, i64 %indvars.iv71.i
@@ -2607,7 +2607,7 @@ define range(i32 -1, -2147483648) i32 @H5MF_close(ptr noundef %0) local_unnamed_
 
 83:                                               ; preds = %76, %.preheader.i
   %84 = phi ptr [ %.pre.i, %76 ], [ %57, %.preheader.i ]
-  %.2.i = phi i32 [ %.1.i, %76 ], [ %.067.i, %.preheader.i ]
+  %.1.i = phi i32 [ %.2.i, %76 ], [ %.067.i, %.preheader.i ]
   %85 = getelementptr inbounds i8, ptr %84, i64 1616
   %86 = getelementptr inbounds [13 x i64], ptr %85, i64 0, i64 %indvars.iv71.i
   store i64 -1, ptr %86, align 8
@@ -2795,7 +2795,7 @@ H5MF__close_pagefs.exit:                          ; preds = %125, %128
 
 .preheader.i12:                                   ; preds = %165, %214
   %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %214 ], [ 1, %165 ]
-  %.05671.i = phi i32 [ %.2.i17, %214 ], [ 2, %165 ]
+  %.05671.i = phi i32 [ %.1.i17, %214 ], [ 2, %165 ]
   %188 = load ptr, ptr %7, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 1720
   %190 = getelementptr inbounds [13 x ptr], ptr %189, i64 0, i64 %indvars.iv75.i
@@ -2815,7 +2815,7 @@ H5MF__close_pagefs.exit:                          ; preds = %125, %128
   br label %196
 
 196:                                              ; preds = %195, %192
-  %.1.i15 = phi i32 [ %..i14, %195 ], [ %.05671.i, %192 ]
+  %.2.i15 = phi i32 [ %..i14, %195 ], [ %.05671.i, %192 ]
   %197 = load ptr, ptr %7, align 8
   %198 = getelementptr inbounds i8, ptr %197, i64 1720
   %199 = getelementptr inbounds [13 x ptr], ptr %198, i64 0, i64 %indvars.iv75.i
@@ -2844,7 +2844,7 @@ H5MF__close_pagefs.exit:                          ; preds = %125, %128
 
 214:                                              ; preds = %207, %.preheader.i12
   %215 = phi ptr [ %.pre.i16, %207 ], [ %188, %.preheader.i12 ]
-  %.2.i17 = phi i32 [ %.1.i15, %207 ], [ %.05671.i, %.preheader.i12 ]
+  %.1.i17 = phi i32 [ %.2.i15, %207 ], [ %.05671.i, %.preheader.i12 ]
   %216 = getelementptr inbounds i8, ptr %215, i64 1616
   %217 = getelementptr inbounds [13 x i64], ptr %216, i64 0, i64 %indvars.iv75.i
   store i64 -1, ptr %217, align 8

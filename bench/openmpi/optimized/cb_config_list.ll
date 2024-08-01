@@ -747,7 +747,7 @@ get_max_procs.exit:                               ; preds = %57, %cb_config_list
   br label %match_procs.exit
 
 .preheader100.i:                                  ; preds = %match_this_proc.exit.i, %.preheader100.lr.ph.i
-  %.1 = phi i32 [ %.06298, %.preheader100.lr.ph.i ], [ %spec.select74, %match_this_proc.exit.i ]
+  %.2 = phi i32 [ %.06298, %.preheader100.lr.ph.i ], [ %spec.select74, %match_this_proc.exit.i ]
   %.058120.i = phi i32 [ 0, %.preheader100.lr.ph.i ], [ %138, %match_this_proc.exit.i ]
   %127 = icmp slt i32 %.058120.i, %7
   br i1 %127, label %.lr.ph.preheader.i, label %.critedge.i
@@ -778,10 +778,10 @@ get_max_procs.exit:                               ; preds = %57, %cb_config_list
   br i1 %133, label %match_procs.exit, label %134
 
 134:                                              ; preds = %.critedge.i
-  %135 = sext i32 %.1 to i64
+  %135 = sext i32 %.2 to i64
   %136 = getelementptr inbounds i32, ptr %2, i64 %135
   store i32 %.1.lcssa.i, ptr %136, align 4
-  %137 = add nsw i32 %.1, 1
+  %137 = add nsw i32 %.2, 1
   %138 = add nsw i32 %.1.lcssa.i, 1
   %139 = sext i32 %.1.lcssa.i to i64
   %140 = getelementptr inbounds ptr, ptr %9, i64 %139
@@ -1023,7 +1023,7 @@ match_this_proc.exit98.i:                         ; preds = %find_name.exit52.th
   br label %match_procs.exit
 
 match_procs.exit:                                 ; preds = %.critedge.i, %match_this_proc.exit.i, %131, %match_this_proc.exit98.i, %.lr.ph122.preheader.i
-  %.4 = phi i32 [ %.06298, %.lr.ph122.preheader.i ], [ %spec.select75, %match_this_proc.exit98.i ], [ %.1, %131 ], [ %.1, %.critedge.i ], [ %spec.select74, %match_this_proc.exit.i ]
+  %.4 = phi i32 [ %.06298, %.lr.ph122.preheader.i ], [ %spec.select75, %match_this_proc.exit98.i ], [ %.2, %131 ], [ %.2, %.critedge.i ], [ %spec.select74, %match_this_proc.exit.i ]
   %225 = icmp slt i32 %.4, %spec.select
   br i1 %225, label %34, label %._crit_edge, !llvm.loop !14
 

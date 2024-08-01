@@ -831,7 +831,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %194, %214
 pmix_pointer_array_get_item.exit180:              ; preds = %264, %310
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %310 ], [ 0, %264 ]
   %283 = phi ptr [ %313, %310 ], [ %279, %264 ]
-  %.0120191 = phi ptr [ %.2, %310 ], [ null, %264 ]
+  %.1121191 = phi ptr [ %.2, %310 ], [ null, %264 ]
   %284 = getelementptr inbounds i8, ptr %283, i64 152
   %285 = load ptr, ptr %284, align 8
   %286 = getelementptr inbounds ptr, ptr %285, i64 %indvars.iv199
@@ -848,16 +848,16 @@ pmix_pointer_array_get_item.exit180:              ; preds = %264, %310
   br i1 %.not154, label %310, label %293
 
 293:                                              ; preds = %289
-  %cond = icmp eq ptr %.0120191, null
+  %cond = icmp eq ptr %.1121191, null
   br i1 %cond, label %298, label %294
 
 294:                                              ; preds = %293
-  %295 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.0120191, ptr noundef nonnull dereferenceable(1) %292) #20
+  %295 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1121191, ptr noundef nonnull dereferenceable(1) %292) #20
   %.not156 = icmp eq i32 %295, 0
   br i1 %.not156, label %308, label %296
 
 296:                                              ; preds = %294
-  %297 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.21, i32 noundef 1, ptr noundef nonnull %.0120191, ptr noundef nonnull %292) #16
+  %297 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.21, i32 noundef 1, ptr noundef nonnull %.1121191, ptr noundef nonnull %292) #16
   br label %344
 
 298:                                              ; preds = %293
@@ -881,12 +881,12 @@ pmix_pointer_array_get_item.exit180:              ; preds = %264, %310
 
 308:                                              ; preds = %294, %298, %301, %306
   %309 = phi ptr [ %.pre204, %306 ], [ %292, %301 ], [ %292, %298 ], [ %292, %294 ]
-  %.1121 = phi ptr [ %299, %306 ], [ %299, %301 ], [ %299, %298 ], [ %.0120191, %294 ]
+  %.3 = phi ptr [ %299, %306 ], [ %299, %301 ], [ %299, %298 ], [ %.1121191, %294 ]
   call void @free(ptr noundef %309) #16
   br label %310
 
 310:                                              ; preds = %289, %308, %pmix_pointer_array_get_item.exit180
-  %.2 = phi ptr [ %.0120191, %pmix_pointer_array_get_item.exit180 ], [ %.1121, %308 ], [ %.0120191, %289 ]
+  %.2 = phi ptr [ %.1121191, %pmix_pointer_array_get_item.exit180 ], [ %.3, %308 ], [ %.1121191, %289 ]
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %311 = load ptr, ptr %24, align 8
   %312 = getelementptr inbounds i8, ptr %311, i64 440
@@ -911,7 +911,7 @@ pmix_pointer_array_get_item.exit180:              ; preds = %264, %310
   br label %322
 
 322:                                              ; preds = %._crit_edge193.thread, %320, %._crit_edge193
-  %.3 = phi ptr [ %321, %320 ], [ null, %._crit_edge193.thread ], [ %.2, %._crit_edge193 ]
+  %.4 = phi ptr [ %321, %320 ], [ null, %._crit_edge193.thread ], [ %.2, %._crit_edge193 ]
   %323 = load ptr, ptr %4, align 8
   call void @prte_plm_base_wrap_args(ptr noundef %323) #16
   %324 = load i32, ptr getelementptr inbounds (i8, ptr @prte_plm_base_framework, i64 76), align 4
@@ -935,7 +935,7 @@ pmix_pointer_array_get_item.exit180:              ; preds = %264, %310
 
 335:                                              ; preds = %327, %334, %322
   %336 = load ptr, ptr %4, align 8
-  %337 = call fastcc i32 @plm_slurm_start_proc(ptr noundef %336, ptr noundef %.3)
+  %337 = call fastcc i32 @plm_slurm_start_proc(ptr noundef %336, ptr noundef %.4)
   switch i32 %337, label %338 [
     i32 0, label %340
     i32 -43, label %344
@@ -955,7 +955,7 @@ pmix_pointer_array_get_item.exit180:              ; preds = %264, %310
   br label %344
 
 344:                                              ; preds = %335, %22, %338, %27, %340, %296, %263, %223, %92
-  %.4 = phi ptr [ null, %27 ], [ null, %92 ], [ null, %223 ], [ null, %263 ], [ %.0120191, %296 ], [ %.3, %338 ], [ %.3, %340 ], [ null, %22 ], [ %.3, %335 ]
+  %.0120 = phi ptr [ null, %27 ], [ null, %92 ], [ null, %223 ], [ null, %263 ], [ %.1121191, %296 ], [ %.4, %338 ], [ %.4, %340 ], [ null, %22 ], [ %.4, %335 ]
   %.0119 = phi i1 [ true, %27 ], [ true, %92 ], [ true, %223 ], [ true, %263 ], [ true, %296 ], [ true, %338 ], [ false, %340 ], [ true, %22 ], [ true, %335 ]
   %345 = load ptr, ptr %4, align 8
   %.not161 = icmp eq ptr %345, null
@@ -966,11 +966,11 @@ pmix_pointer_array_get_item.exit180:              ; preds = %264, %310
   br label %347
 
 347:                                              ; preds = %346, %344
-  %.not162 = icmp eq ptr %.4, null
+  %.not162 = icmp eq ptr %.0120, null
   br i1 %.not162, label %349, label %348
 
 348:                                              ; preds = %347
-  call void @free(ptr noundef nonnull %.4) #16
+  call void @free(ptr noundef nonnull %.0120) #16
   br label %349
 
 349:                                              ; preds = %348, %347

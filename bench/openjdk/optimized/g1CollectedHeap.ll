@@ -2203,12 +2203,12 @@ _ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i: ; preds = %75, %70
   br i1 %.not.i, label %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit", label %.lr.ph.i, !llvm.loop !15
 
 "_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit": ; preds = %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i", %50, %18
-  %.0 = phi ptr [ null, %18 ], [ %32, %50 ], [ %32, %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i" ]
+  %.1 = phi ptr [ null, %18 ], [ %32, %50 ], [ %32, %"_ZZN15G1CollectedHeap20alloc_archive_regionEmPP12HeapWordImplENK3$_0clEP12G1HeapRegionb.exit.i" ]
   store i8 %24, ptr @AlwaysPreTouch, align 1
   br label %91
 
 91:                                               ; preds = %17, %15, %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit"
-  %.1 = phi ptr [ %.0, %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit" ], [ null, %15 ], [ null, %17 ]
+  %.0 = phi ptr [ %.1, %"_ZN15G1CollectedHeap24iterate_regions_in_rangeIZNS_20alloc_archive_regionEmPP12HeapWordImplE3$_0EEv9MemRegionRKT_.exit" ], [ null, %15 ], [ null, %17 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %92
 
 92:                                               ; preds = %91
@@ -2216,7 +2216,7 @@ _ZN19G1HeapRegionPrinter5allocEP12G1HeapRegion.exit.i.i: ; preds = %75, %70
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %91, %92
-  ret ptr %.1
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4594,7 +4594,7 @@ define hidden noundef zeroext i1 @_ZN15G1CollectedHeap24try_collect_concurrently
   br label %41
 
 41:                                               ; preds = %409, %4
-  %.039 = phi i32 [ %3, %4 ], [ %.241, %409 ]
+  %.039 = phi i32 [ %3, %4 ], [ %.140, %409 ]
   %.038 = phi i32 [ 1, %4 ], [ %410, %409 ]
   %.034 = phi i32 [ %2, %4 ], [ %139, %409 ]
   %42 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
@@ -5336,7 +5336,7 @@ _ZN13MonitorLocker4waitEl.exit95:                 ; preds = %_ZN13MonitorLockerC
   br label %409
 
 _ZN12ResourceMarkD2Ev.exit66:                     ; preds = %195, %193, %202, %171, %170, %351
-  %.140 = phi i32 [ %.039, %170 ], [ %.039, %351 ], [ %138, %171 ], [ %.039, %202 ], [ %138, %193 ], [ %138, %195 ]
+  %.241 = phi i32 [ %.039, %170 ], [ %.039, %351 ], [ %138, %171 ], [ %.039, %202 ], [ %138, %193 ], [ %138, %195 ]
   %385 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not214 = icmp eq ptr %385, null
   br i1 %.not214, label %409, label %386
@@ -5389,15 +5389,15 @@ _ZN12ResourceMarkD2Ev.exit66:                     ; preds = %195, %193, %202, %1
   br label %409
 
 409:                                              ; preds = %326, %_ZN12ResourceMarkD2Ev.exit66, %348, %350, %383, %384, %406, %408
-  %.241 = phi i32 [ %.039, %326 ], [ %.140, %_ZN12ResourceMarkD2Ev.exit66 ], [ %.039, %348 ], [ %.039, %350 ], [ %.039, %383 ], [ %.039, %384 ], [ %.140, %406 ], [ %.140, %408 ]
+  %.140 = phi i32 [ %.039, %326 ], [ %.241, %_ZN12ResourceMarkD2Ev.exit66 ], [ %.039, %348 ], [ %.039, %350 ], [ %.039, %383 ], [ %.039, %384 ], [ %.241, %406 ], [ %.241, %408 ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %6) #23
   %410 = add i32 %.038, 1
   br label %41, !llvm.loop !22
 
 .loopexit:                                        ; preds = %_ZN13MonitorLockerD2Ev.exit, %_ZN12ResourceMarkD2Ev.exit53, %101, %143, %205, %235, %125, %127, %167, %169, %229, %231, %259, %261
-  %.4.ph = phi i1 [ true, %261 ], [ true, %259 ], [ true, %231 ], [ true, %229 ], [ true, %169 ], [ true, %167 ], [ false, %127 ], [ false, %125 ], [ true, %235 ], [ true, %205 ], [ true, %143 ], [ false, %101 ], [ %97, %_ZN12ResourceMarkD2Ev.exit53 ], [ true, %_ZN13MonitorLockerD2Ev.exit ]
+  %.1.ph = phi i1 [ true, %261 ], [ true, %259 ], [ true, %231 ], [ true, %229 ], [ true, %169 ], [ true, %167 ], [ false, %127 ], [ false, %125 ], [ true, %235 ], [ true, %205 ], [ true, %143 ], [ false, %101 ], [ %97, %_ZN12ResourceMarkD2Ev.exit53 ], [ true, %_ZN13MonitorLockerD2Ev.exit ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %6) #23
-  ret i1 %.4.ph
+  ret i1 %.1.ph
 }
 
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
@@ -5508,9 +5508,9 @@ _ZN11MutexLockerD2Ev.exit.us:                     ; preds = %_ZN11MutexLockerC2E
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us, %18, %_ZN11MutexLockerD2Ev.exit.us, %.split, %.split.us
-  %.2.ph = phi i1 [ true, %.split.us ], [ %.pre24, %.split ], [ true, %_ZN11MutexLockerD2Ev.exit.us ], [ true, %18 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us ]
+  %.19.ph = phi i1 [ true, %.split.us ], [ %.pre24, %.split ], [ true, %_ZN11MutexLockerD2Ev.exit.us ], [ true, %18 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #23
-  ret i1 %.2.ph
+  ret i1 %.19.ph
 }
 
 declare void @_ZN25VM_G1CollectForAllocationC1EmjN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(57), i64 noundef, i32 noundef, i32 noundef) unnamed_addr #1
@@ -11079,9 +11079,9 @@ _ZNK12G1HeapRegion12block_is_objEPKP12HeapWordImplPS1_.exit: ; preds = %3
   br label %61
 
 61:                                               ; preds = %59, %48
-  %.1.ph.i.i.i.i.i = phi i64 [ %46, %48 ], [ %58, %59 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %46, %48 ], [ %58, %59 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %35, %48 ], [ %60, %59 ]
-  %62 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %62 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %63 = add nuw i64 %.026.ph.i.i.i.i.i, %62
   %64 = icmp ult i64 %63, %39
   br i1 %64, label %_ZNK12G1HeapRegion23next_live_in_unparsableEPKP12HeapWordImplPS1_.exit, label %.loopexit.i.i.i.i.i
@@ -17195,9 +17195,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
@@ -17438,9 +17438,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit

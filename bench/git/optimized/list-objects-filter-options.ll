@@ -517,8 +517,8 @@ if.then15:                                        ; preds = %cleanup.thread, %cl
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then15, %cleanup
-  %result.133 = phi i32 [ 1, %if.then15 ], [ 0, %cleanup ]
-  ret i32 %result.133
+  %result.033 = phi i32 [ 1, %if.then15 ], [ 0, %cleanup ]
+  ret i32 %result.033
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

@@ -3486,15 +3486,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit126: ;
 
 .body124:                                         ; preds = %116, %99, %118
   %.pn73 = phi { ptr, i32 } [ %119, %118 ], [ %117, %116 ], [ %100, %99 ]
-  %.346 = extractvalue { ptr, i32 } %.pn73, 1
+  %.447 = extractvalue { ptr, i32 } %.pn73, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #24
   %120 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5Ipopt23DYNAMIC_LIBRARY_FAILUREE) #24
-  %121 = icmp eq i32 %.346, %120
+  %121 = icmp eq i32 %.447, %120
   br i1 %121, label %122, label %494
 
 122:                                              ; preds = %.body124
-  %.3 = extractvalue { ptr, i32 } %.pn73, 0
-  %123 = call ptr @__cxa_begin_catch(ptr %.3) #24
+  %.4 = extractvalue { ptr, i32 } %.pn73, 0
+  %123 = call ptr @__cxa_begin_catch(ptr %.4) #24
   call void @__cxa_end_catch()
   br label %124
 

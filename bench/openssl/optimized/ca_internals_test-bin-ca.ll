@@ -512,8 +512,8 @@ while.cond:                                       ; preds = %while.cond.backedge
   ]
 
 while.cond.backedge:                              ; preds = %while.cond, %lor.lhs.false98, %lor.lhs.false, %sw.bb66, %sw.bb57, %sw.bb51, %sw.bb42, %sw.bb11, %sw.bb6, %sw.bb145, %sw.bb143, %sw.bb141, %sw.bb140, %sw.bb138, %sw.bb136, %sw.bb134, %sw.bb132, %sw.bb130, %sw.bb128, %sw.bb126, %sw.bb122, %sw.bb119, %sw.bb116, %sw.bb114, %sw.bb112, %sw.bb111, %sw.bb110, %sw.bb109, %sw.bb108, %sw.bb107, %sw.bb106, %sw.bb73, %sw.bb72, %sw.bb64, %sw.bb62, %sw.bb48, %sw.bb40, %sw.bb38, %sw.bb36, %sw.bb33, %sw.bb31, %sw.bb29, %sw.bb27, %sw.bb26, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb9, %sw.bb4
-  %sigopts.0.be = phi ptr [ %sigopts.0, %sw.bb141 ], [ %sigopts.0, %sw.bb140 ], [ %sigopts.0, %sw.bb138 ], [ %sigopts.0, %sw.bb136 ], [ %sigopts.0, %sw.bb134 ], [ %sigopts.0, %sw.bb132 ], [ %sigopts.0, %sw.bb130 ], [ %sigopts.0, %sw.bb128 ], [ %sigopts.0, %sw.bb126 ], [ %sigopts.0, %sw.bb122 ], [ %sigopts.0, %sw.bb119 ], [ %sigopts.0, %sw.bb116 ], [ %sigopts.0, %sw.bb114 ], [ %sigopts.0, %sw.bb112 ], [ %sigopts.0, %sw.bb111 ], [ %sigopts.0, %sw.bb110 ], [ %sigopts.0, %sw.bb109 ], [ %sigopts.0, %sw.bb108 ], [ %sigopts.0, %sw.bb107 ], [ %sigopts.0, %sw.bb106 ], [ %sigopts.0, %lor.lhs.false98 ], [ %sigopts.1440, %lor.lhs.false ], [ %sigopts.0, %sw.bb73 ], [ %sigopts.0, %sw.bb72 ], [ %sigopts.0, %sw.bb66 ], [ %sigopts.0, %sw.bb64 ], [ %sigopts.0, %sw.bb62 ], [ %sigopts.0, %sw.bb57 ], [ %sigopts.0, %sw.bb51 ], [ %sigopts.0, %sw.bb143 ], [ %sigopts.0, %sw.bb48 ], [ %sigopts.0, %sw.bb42 ], [ %sigopts.0, %sw.bb40 ], [ %sigopts.0, %sw.bb38 ], [ %sigopts.0, %sw.bb36 ], [ %sigopts.0, %sw.bb33 ], [ %sigopts.0, %sw.bb31 ], [ %sigopts.0, %sw.bb29 ], [ %sigopts.0, %sw.bb145 ], [ %sigopts.0, %sw.bb27 ], [ %sigopts.0, %sw.bb26 ], [ %sigopts.0, %sw.bb25 ], [ %sigopts.0, %sw.bb23 ], [ %sigopts.0, %sw.bb21 ], [ %sigopts.0, %sw.bb19 ], [ %sigopts.0, %sw.bb18 ], [ %sigopts.0, %sw.bb17 ], [ %sigopts.0, %sw.bb11 ], [ %sigopts.0, %sw.bb9 ], [ %sigopts.0, %sw.bb6 ], [ %sigopts.0, %sw.bb4 ], [ %sigopts.0, %while.cond ]
-  %vfyopts.0.be = phi ptr [ %vfyopts.0, %sw.bb141 ], [ %vfyopts.0, %sw.bb140 ], [ %vfyopts.0, %sw.bb138 ], [ %vfyopts.0, %sw.bb136 ], [ %vfyopts.0, %sw.bb134 ], [ %vfyopts.0, %sw.bb132 ], [ %vfyopts.0, %sw.bb130 ], [ %vfyopts.0, %sw.bb128 ], [ %vfyopts.0, %sw.bb126 ], [ %vfyopts.0, %sw.bb122 ], [ %vfyopts.0, %sw.bb119 ], [ %vfyopts.0, %sw.bb116 ], [ %vfyopts.0, %sw.bb114 ], [ %vfyopts.0, %sw.bb112 ], [ %vfyopts.0, %sw.bb111 ], [ %vfyopts.0, %sw.bb110 ], [ %vfyopts.0, %sw.bb109 ], [ %vfyopts.0, %sw.bb108 ], [ %vfyopts.0, %sw.bb107 ], [ %vfyopts.0, %sw.bb106 ], [ %vfyopts.1443, %lor.lhs.false98 ], [ %vfyopts.0, %lor.lhs.false ], [ %vfyopts.0, %sw.bb73 ], [ %vfyopts.0, %sw.bb72 ], [ %vfyopts.0, %sw.bb66 ], [ %vfyopts.0, %sw.bb64 ], [ %vfyopts.0, %sw.bb62 ], [ %vfyopts.0, %sw.bb57 ], [ %vfyopts.0, %sw.bb51 ], [ %vfyopts.0, %sw.bb143 ], [ %vfyopts.0, %sw.bb48 ], [ %vfyopts.0, %sw.bb42 ], [ %vfyopts.0, %sw.bb40 ], [ %vfyopts.0, %sw.bb38 ], [ %vfyopts.0, %sw.bb36 ], [ %vfyopts.0, %sw.bb33 ], [ %vfyopts.0, %sw.bb31 ], [ %vfyopts.0, %sw.bb29 ], [ %vfyopts.0, %sw.bb145 ], [ %vfyopts.0, %sw.bb27 ], [ %vfyopts.0, %sw.bb26 ], [ %vfyopts.0, %sw.bb25 ], [ %vfyopts.0, %sw.bb23 ], [ %vfyopts.0, %sw.bb21 ], [ %vfyopts.0, %sw.bb19 ], [ %vfyopts.0, %sw.bb18 ], [ %vfyopts.0, %sw.bb17 ], [ %vfyopts.0, %sw.bb11 ], [ %vfyopts.0, %sw.bb9 ], [ %vfyopts.0, %sw.bb6 ], [ %vfyopts.0, %sw.bb4 ], [ %vfyopts.0, %while.cond ]
+  %sigopts.0.be = phi ptr [ %sigopts.0, %sw.bb141 ], [ %sigopts.0, %sw.bb140 ], [ %sigopts.0, %sw.bb138 ], [ %sigopts.0, %sw.bb136 ], [ %sigopts.0, %sw.bb134 ], [ %sigopts.0, %sw.bb132 ], [ %sigopts.0, %sw.bb130 ], [ %sigopts.0, %sw.bb128 ], [ %sigopts.0, %sw.bb126 ], [ %sigopts.0, %sw.bb122 ], [ %sigopts.0, %sw.bb119 ], [ %sigopts.0, %sw.bb116 ], [ %sigopts.0, %sw.bb114 ], [ %sigopts.0, %sw.bb112 ], [ %sigopts.0, %sw.bb111 ], [ %sigopts.0, %sw.bb110 ], [ %sigopts.0, %sw.bb109 ], [ %sigopts.0, %sw.bb108 ], [ %sigopts.0, %sw.bb107 ], [ %sigopts.0, %sw.bb106 ], [ %sigopts.0, %lor.lhs.false98 ], [ %sigopts.3440, %lor.lhs.false ], [ %sigopts.0, %sw.bb73 ], [ %sigopts.0, %sw.bb72 ], [ %sigopts.0, %sw.bb66 ], [ %sigopts.0, %sw.bb64 ], [ %sigopts.0, %sw.bb62 ], [ %sigopts.0, %sw.bb57 ], [ %sigopts.0, %sw.bb51 ], [ %sigopts.0, %sw.bb143 ], [ %sigopts.0, %sw.bb48 ], [ %sigopts.0, %sw.bb42 ], [ %sigopts.0, %sw.bb40 ], [ %sigopts.0, %sw.bb38 ], [ %sigopts.0, %sw.bb36 ], [ %sigopts.0, %sw.bb33 ], [ %sigopts.0, %sw.bb31 ], [ %sigopts.0, %sw.bb29 ], [ %sigopts.0, %sw.bb145 ], [ %sigopts.0, %sw.bb27 ], [ %sigopts.0, %sw.bb26 ], [ %sigopts.0, %sw.bb25 ], [ %sigopts.0, %sw.bb23 ], [ %sigopts.0, %sw.bb21 ], [ %sigopts.0, %sw.bb19 ], [ %sigopts.0, %sw.bb18 ], [ %sigopts.0, %sw.bb17 ], [ %sigopts.0, %sw.bb11 ], [ %sigopts.0, %sw.bb9 ], [ %sigopts.0, %sw.bb6 ], [ %sigopts.0, %sw.bb4 ], [ %sigopts.0, %while.cond ]
+  %vfyopts.0.be = phi ptr [ %vfyopts.0, %sw.bb141 ], [ %vfyopts.0, %sw.bb140 ], [ %vfyopts.0, %sw.bb138 ], [ %vfyopts.0, %sw.bb136 ], [ %vfyopts.0, %sw.bb134 ], [ %vfyopts.0, %sw.bb132 ], [ %vfyopts.0, %sw.bb130 ], [ %vfyopts.0, %sw.bb128 ], [ %vfyopts.0, %sw.bb126 ], [ %vfyopts.0, %sw.bb122 ], [ %vfyopts.0, %sw.bb119 ], [ %vfyopts.0, %sw.bb116 ], [ %vfyopts.0, %sw.bb114 ], [ %vfyopts.0, %sw.bb112 ], [ %vfyopts.0, %sw.bb111 ], [ %vfyopts.0, %sw.bb110 ], [ %vfyopts.0, %sw.bb109 ], [ %vfyopts.0, %sw.bb108 ], [ %vfyopts.0, %sw.bb107 ], [ %vfyopts.0, %sw.bb106 ], [ %vfyopts.3443, %lor.lhs.false98 ], [ %vfyopts.0, %lor.lhs.false ], [ %vfyopts.0, %sw.bb73 ], [ %vfyopts.0, %sw.bb72 ], [ %vfyopts.0, %sw.bb66 ], [ %vfyopts.0, %sw.bb64 ], [ %vfyopts.0, %sw.bb62 ], [ %vfyopts.0, %sw.bb57 ], [ %vfyopts.0, %sw.bb51 ], [ %vfyopts.0, %sw.bb143 ], [ %vfyopts.0, %sw.bb48 ], [ %vfyopts.0, %sw.bb42 ], [ %vfyopts.0, %sw.bb40 ], [ %vfyopts.0, %sw.bb38 ], [ %vfyopts.0, %sw.bb36 ], [ %vfyopts.0, %sw.bb33 ], [ %vfyopts.0, %sw.bb31 ], [ %vfyopts.0, %sw.bb29 ], [ %vfyopts.0, %sw.bb145 ], [ %vfyopts.0, %sw.bb27 ], [ %vfyopts.0, %sw.bb26 ], [ %vfyopts.0, %sw.bb25 ], [ %vfyopts.0, %sw.bb23 ], [ %vfyopts.0, %sw.bb21 ], [ %vfyopts.0, %sw.bb19 ], [ %vfyopts.0, %sw.bb18 ], [ %vfyopts.0, %sw.bb17 ], [ %vfyopts.0, %sw.bb11 ], [ %vfyopts.0, %sw.bb9 ], [ %vfyopts.0, %sw.bb6 ], [ %vfyopts.0, %sw.bb4 ], [ %vfyopts.0, %while.cond ]
   %configfile.0.be = phi ptr [ %configfile.0, %sw.bb141 ], [ %configfile.0, %sw.bb140 ], [ %configfile.0, %sw.bb138 ], [ %configfile.0, %sw.bb136 ], [ %configfile.0, %sw.bb134 ], [ %configfile.0, %sw.bb132 ], [ %configfile.0, %sw.bb130 ], [ %configfile.0, %sw.bb128 ], [ %configfile.0, %sw.bb126 ], [ %configfile.0, %sw.bb122 ], [ %configfile.0, %sw.bb119 ], [ %configfile.0, %sw.bb116 ], [ %configfile.0, %sw.bb114 ], [ %configfile.0, %sw.bb112 ], [ %configfile.0, %sw.bb111 ], [ %configfile.0, %sw.bb110 ], [ %configfile.0, %sw.bb109 ], [ %configfile.0, %sw.bb108 ], [ %configfile.0, %sw.bb107 ], [ %configfile.0, %sw.bb106 ], [ %configfile.0, %lor.lhs.false98 ], [ %configfile.0, %lor.lhs.false ], [ %configfile.0, %sw.bb73 ], [ %configfile.0, %sw.bb72 ], [ %configfile.0, %sw.bb66 ], [ %configfile.0, %sw.bb64 ], [ %configfile.0, %sw.bb62 ], [ %configfile.0, %sw.bb57 ], [ %configfile.0, %sw.bb51 ], [ %configfile.0, %sw.bb143 ], [ %configfile.0, %sw.bb48 ], [ %configfile.0, %sw.bb42 ], [ %configfile.0, %sw.bb40 ], [ %configfile.0, %sw.bb38 ], [ %configfile.0, %sw.bb36 ], [ %configfile.0, %sw.bb33 ], [ %configfile.0, %sw.bb31 ], [ %configfile.0, %sw.bb29 ], [ %configfile.0, %sw.bb145 ], [ %configfile.0, %sw.bb27 ], [ %configfile.0, %sw.bb26 ], [ %configfile.0, %sw.bb25 ], [ %configfile.0, %sw.bb23 ], [ %configfile.0, %sw.bb21 ], [ %call20, %sw.bb19 ], [ %configfile.0, %sw.bb18 ], [ %configfile.0, %sw.bb17 ], [ %configfile.0, %sw.bb11 ], [ %configfile.0, %sw.bb9 ], [ %configfile.0, %sw.bb6 ], [ %configfile.0, %sw.bb4 ], [ %configfile.0, %while.cond ]
   %section.0.be = phi ptr [ %section.0, %sw.bb141 ], [ %section.0, %sw.bb140 ], [ %section.0, %sw.bb138 ], [ %section.0, %sw.bb136 ], [ %section.0, %sw.bb134 ], [ %section.0, %sw.bb132 ], [ %section.0, %sw.bb130 ], [ %section.0, %sw.bb128 ], [ %section.0, %sw.bb126 ], [ %section.0, %sw.bb122 ], [ %section.0, %sw.bb119 ], [ %section.0, %sw.bb116 ], [ %section.0, %sw.bb114 ], [ %section.0, %sw.bb112 ], [ %section.0, %sw.bb111 ], [ %section.0, %sw.bb110 ], [ %section.0, %sw.bb109 ], [ %section.0, %sw.bb108 ], [ %section.0, %sw.bb107 ], [ %section.0, %sw.bb106 ], [ %section.0, %lor.lhs.false98 ], [ %section.0, %lor.lhs.false ], [ %section.0, %sw.bb73 ], [ %section.0, %sw.bb72 ], [ %section.0, %sw.bb66 ], [ %section.0, %sw.bb64 ], [ %section.0, %sw.bb62 ], [ %section.0, %sw.bb57 ], [ %section.0, %sw.bb51 ], [ %section.0, %sw.bb143 ], [ %section.0, %sw.bb48 ], [ %section.0, %sw.bb42 ], [ %section.0, %sw.bb40 ], [ %section.0, %sw.bb38 ], [ %section.0, %sw.bb36 ], [ %section.0, %sw.bb33 ], [ %section.0, %sw.bb31 ], [ %section.0, %sw.bb29 ], [ %section.0, %sw.bb145 ], [ %section.0, %sw.bb27 ], [ %section.0, %sw.bb26 ], [ %section.0, %sw.bb25 ], [ %section.0, %sw.bb23 ], [ %call22, %sw.bb21 ], [ %section.0, %sw.bb19 ], [ %section.0, %sw.bb18 ], [ %section.0, %sw.bb17 ], [ %section.0, %sw.bb11 ], [ %section.0, %sw.bb9 ], [ %section.0, %sw.bb6 ], [ %section.0, %sw.bb4 ], [ %section.0, %while.cond ]
   %dgst.0.be = phi ptr [ %dgst.0, %sw.bb141 ], [ %dgst.0, %sw.bb140 ], [ %dgst.0, %sw.bb138 ], [ %dgst.0, %sw.bb136 ], [ %dgst.0, %sw.bb134 ], [ %dgst.0, %sw.bb132 ], [ %dgst.0, %sw.bb130 ], [ %dgst.0, %sw.bb128 ], [ %dgst.0, %sw.bb126 ], [ %dgst.0, %sw.bb122 ], [ %dgst.0, %sw.bb119 ], [ %dgst.0, %sw.bb116 ], [ %dgst.0, %sw.bb114 ], [ %dgst.0, %sw.bb112 ], [ %dgst.0, %sw.bb111 ], [ %dgst.0, %sw.bb110 ], [ %dgst.0, %sw.bb109 ], [ %dgst.0, %sw.bb108 ], [ %dgst.0, %sw.bb107 ], [ %dgst.0, %sw.bb106 ], [ %dgst.0, %lor.lhs.false98 ], [ %dgst.0, %lor.lhs.false ], [ %dgst.0, %sw.bb73 ], [ %dgst.0, %sw.bb72 ], [ %dgst.0, %sw.bb66 ], [ %dgst.0, %sw.bb64 ], [ %dgst.0, %sw.bb62 ], [ %dgst.0, %sw.bb57 ], [ %dgst.0, %sw.bb51 ], [ %dgst.0, %sw.bb143 ], [ %dgst.0, %sw.bb48 ], [ %dgst.0, %sw.bb42 ], [ %dgst.0, %sw.bb40 ], [ %dgst.0, %sw.bb38 ], [ %call37, %sw.bb36 ], [ %dgst.0, %sw.bb33 ], [ %dgst.0, %sw.bb31 ], [ %dgst.0, %sw.bb29 ], [ %dgst.0, %sw.bb145 ], [ %dgst.0, %sw.bb27 ], [ %dgst.0, %sw.bb26 ], [ %dgst.0, %sw.bb25 ], [ %dgst.0, %sw.bb23 ], [ %dgst.0, %sw.bb21 ], [ %dgst.0, %sw.bb19 ], [ %dgst.0, %sw.bb18 ], [ %dgst.0, %sw.bb17 ], [ %dgst.0, %sw.bb11 ], [ %dgst.0, %sw.bb9 ], [ %dgst.0, %sw.bb6 ], [ %dgst.0, %sw.bb4 ], [ %dgst.0, %while.cond ]
@@ -688,9 +688,9 @@ if.end80:                                         ; preds = %sw.bb75
   br i1 %cmp81, label %if.then1233, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %sw.bb75, %if.end80
-  %sigopts.1440 = phi ptr [ %call79, %if.end80 ], [ %sigopts.0, %sw.bb75 ]
+  %sigopts.3440 = phi ptr [ %call79, %if.end80 ], [ %sigopts.0, %sw.bb75 ]
   %call84 = call ptr @opt_arg() #12
-  %call86 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %sigopts.1440, ptr noundef %call84) #12
+  %call86 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %sigopts.3440, ptr noundef %call84) #12
   %tobool87.not = icmp eq i32 %call86, 0
   br i1 %tobool87.not, label %if.then1233, label %while.cond.backedge
 
@@ -704,9 +704,9 @@ if.end95:                                         ; preds = %sw.bb90
   br i1 %cmp96, label %if.then1233, label %lor.lhs.false98
 
 lor.lhs.false98:                                  ; preds = %sw.bb90, %if.end95
-  %vfyopts.1443 = phi ptr [ %call94, %if.end95 ], [ %vfyopts.0, %sw.bb90 ]
+  %vfyopts.3443 = phi ptr [ %call94, %if.end95 ], [ %vfyopts.0, %sw.bb90 ]
   %call100 = call ptr @opt_arg() #12
-  %call102 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %vfyopts.1443, ptr noundef %call100) #12
+  %call102 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %vfyopts.3443, ptr noundef %call100) #12
   %tobool103.not = icmp eq i32 %call102, 0
   br i1 %tobool103.not, label %if.then1233, label %while.cond.backedge
 
@@ -973,7 +973,7 @@ if.then256:                                       ; preds = %if.then253
 
 if.end259:                                        ; preds = %if.then253.if.end259_crit_edge, %if.end250
   %9 = phi ptr [ %.pre, %if.then253.if.end259_crit_edge ], [ %7, %if.end250 ]
-  %free_passin.0 = phi i32 [ 1, %if.then253.if.end259_crit_edge ], [ 0, %if.end250 ]
+  %free_passin.1 = phi i32 [ 1, %if.then253.if.end259_crit_edge ], [ 0, %if.end250 ]
   %10 = load i32, ptr %keyformat, align 4
   %call260 = call ptr @load_key(ptr noundef nonnull %keyfile.2, i32 noundef %10, i32 noundef 0, ptr noundef %9, ptr noundef %e.0, ptr noundef nonnull @.str.147) #12
   %11 = load ptr, ptr %passin, align 8
@@ -1019,8 +1019,8 @@ if.then288:                                       ; preds = %if.end285
   br label %if.then1233
 
 if.end291:                                        ; preds = %if.end285, %if.end264
-  %x509.0 = phi ptr [ %call281, %if.end285 ], [ null, %if.end264 ]
-  %spec.select428 = select i1 %tobool265, ptr %x509.0, ptr null
+  %x509.1 = phi ptr [ %call281, %if.end285 ], [ null, %if.end264 ]
+  %spec.select428 = select i1 %tobool265, ptr %x509.1, ptr null
   %call295 = call ptr @app_conf_try_string(ptr noundef nonnull %call150, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.151) #12
   %cmp296.not = icmp eq ptr %call295, null
   br i1 %cmp296.not, label %if.end307, label %land.lhs.true298
@@ -1400,8 +1400,8 @@ land.lhs.true554:                                 ; preds = %land.lhs.true550
   br label %if.then1233
 
 if.else560:                                       ; preds = %land.lhs.true550, %if.else547
-  %dgst.2 = phi ptr [ %call551, %land.lhs.true550 ], [ %dgst.0, %if.else547 ]
-  %call561 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %dgst.2, ptr noundef nonnull dereferenceable(8) @.str.175) #13
+  %dgst.3 = phi ptr [ %call551, %land.lhs.true550 ], [ %dgst.0, %if.else547 ]
+  %call561 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %dgst.3, ptr noundef nonnull dereferenceable(8) @.str.175) #13
   %cmp562 = icmp eq i32 %call561, 0
   br i1 %cmp562, label %if.then569, label %lor.lhs.false564
 
@@ -1420,7 +1420,7 @@ if.then572:                                       ; preds = %if.then569
   br label %if.then1233
 
 if.end578:                                        ; preds = %if.then569, %land.lhs.true541, %lor.lhs.false564
-  %dgst.3 = phi ptr [ %dgst.2, %lor.lhs.false564 ], [ null, %land.lhs.true541 ], [ %def_dgst, %if.then569 ]
+  %dgst.2 = phi ptr [ %dgst.3, %lor.lhs.false564 ], [ null, %land.lhs.true541 ], [ %def_dgst, %if.then569 ]
   br i1 %tobool354, label %if.then580, label %if.end1000
 
 if.then580:                                       ; preds = %if.end578
@@ -1465,7 +1465,7 @@ if.end593:                                        ; preds = %land.lhs.true587.ta
 
 if.then595:                                       ; preds = %if.end593
   %72 = load ptr, ptr @bio_err, align 8
-  %call596 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %72, ptr noundef nonnull @.str.181, ptr noundef %dgst.3) #12
+  %call596 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %72, ptr noundef nonnull @.str.181, ptr noundef %dgst.2) #12
   br label %if.end597
 
 if.end597:                                        ; preds = %if.then595, %if.end593
@@ -1527,20 +1527,20 @@ if.end634:                                        ; preds = %if.else629
   br i1 %cmp635.not, label %if.end645, label %if.then637
 
 if.then637:                                       ; preds = %if.else629, %if.end634
-  %extensions.3446 = phi ptr [ %call633, %if.end634 ], [ %extensions.2, %if.else629 ]
+  %extensions.4446 = phi ptr [ %call633, %if.end634 ], [ %extensions.2, %if.else629 ]
   call void @X509V3_set_ctx(ptr noundef nonnull %ctx638, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #12
   call void @X509V3_set_nconf(ptr noundef nonnull %ctx638, ptr noundef %call150) #12
-  %call639 = call i32 @X509V3_EXT_add_nconf(ptr noundef %call150, ptr noundef nonnull %ctx638, ptr noundef nonnull %extensions.3446, ptr noundef null) #12
+  %call639 = call i32 @X509V3_EXT_add_nconf(ptr noundef %call150, ptr noundef nonnull %ctx638, ptr noundef nonnull %extensions.4446, ptr noundef null) #12
   %tobool640.not = icmp eq i32 %call639, 0
   br i1 %tobool640.not, label %if.then641, label %if.end645
 
 if.then641:                                       ; preds = %if.then637
   %78 = load ptr, ptr @bio_err, align 8
-  %call642 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %78, ptr noundef nonnull @.str.186, ptr noundef nonnull %extensions.3446) #12
+  %call642 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %78, ptr noundef nonnull @.str.186, ptr noundef nonnull %extensions.4446) #12
   br label %if.then1233
 
 if.end645:                                        ; preds = %if.end634, %if.then637, %if.then623
-  %extensions.4 = phi ptr [ %extensions.2, %if.then623 ], [ %extensions.3446, %if.then637 ], [ null, %if.end634 ]
+  %extensions.3 = phi ptr [ %extensions.2, %if.then623 ], [ %extensions.4446, %if.then637 ], [ null, %if.end634 ]
   %cmp646 = icmp eq ptr %startdate.0, null
   br i1 %cmp646, label %if.end650, label %land.lhs.true653
 
@@ -1698,7 +1698,7 @@ if.then740:                                       ; preds = %if.end737
   %call742 = call i64 @get_nameopt() #12
   %94 = load i32, ptr %ext_copy, align 4
   %95 = load i64, ptr %dateopt, align 8
-  %call743 = call fastcc i32 @certify_spkac(ptr noundef nonnull %x, ptr noundef nonnull %spkac_file.0, ptr noundef %call260, ptr noundef %x509.0, ptr noundef %dgst.3, ptr noundef %sigopts.0, ptr noundef nonnull %call726, ptr noundef nonnull %call374, ptr noundef %91, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %92, ptr noundef %extensions.4, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %93, i64 noundef %call742, i32 noundef %default_op.1, i32 noundef %94, i64 noundef %95)
+  %call743 = call fastcc i32 @certify_spkac(ptr noundef nonnull %x, ptr noundef nonnull %spkac_file.0, ptr noundef %call260, ptr noundef %x509.1, ptr noundef %dgst.2, ptr noundef %sigopts.0, ptr noundef nonnull %call726, ptr noundef nonnull %call374, ptr noundef %91, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %92, ptr noundef %extensions.3, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %93, i64 noundef %call742, i32 noundef %default_op.1, i32 noundef %94, i64 noundef %95)
   %cmp744 = icmp slt i32 %call743, 0
   br i1 %cmp744, label %if.then1233, label %if.end747
 
@@ -1740,7 +1740,7 @@ if.then768:                                       ; preds = %if.end765
   %call770 = call i64 @get_nameopt() #12
   %105 = load i32, ptr %ext_copy, align 4
   %106 = load i64, ptr %dateopt, align 8
-  %call771 = call fastcc i32 @certify_cert(ptr noundef nonnull %x, ptr noundef nonnull %ss_cert_file.0, i32 noundef %100, ptr noundef %101, ptr noundef %call260, ptr noundef %x509.0, ptr noundef %dgst.3, ptr noundef %sigopts.0, ptr noundef %vfyopts.0, ptr noundef nonnull %call726, ptr noundef nonnull %call374, ptr noundef %102, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %103, i32 noundef %batch.2, ptr noundef %extensions.4, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %104, i64 noundef %call770, i32 noundef %default_op.1, i32 noundef %105, i64 noundef %106)
+  %call771 = call fastcc i32 @certify_cert(ptr noundef nonnull %x, ptr noundef nonnull %ss_cert_file.0, i32 noundef %100, ptr noundef %101, ptr noundef %call260, ptr noundef %x509.1, ptr noundef %dgst.2, ptr noundef %sigopts.0, ptr noundef %vfyopts.0, ptr noundef nonnull %call726, ptr noundef nonnull %call374, ptr noundef %102, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %103, i32 noundef %batch.2, ptr noundef %extensions.3, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %104, i64 noundef %call770, i32 noundef %default_op.1, i32 noundef %105, i64 noundef %106)
   %cmp772 = icmp slt i32 %call771, 0
   br i1 %cmp772, label %if.then1233, label %if.end775
 
@@ -1783,7 +1783,7 @@ if.then796:                                       ; preds = %if.end793
   %call798 = call i64 @get_nameopt() #12
   %115 = load i32, ptr %ext_copy, align 4
   %116 = load i64, ptr %dateopt, align 8
-  %call799 = call fastcc i32 @certify(ptr noundef nonnull %x, ptr noundef nonnull %infile.0, i32 noundef %111, ptr noundef %call260, ptr noundef %spec.select428, ptr noundef %dgst.3, ptr noundef %sigopts.0, ptr noundef %vfyopts.0, ptr noundef nonnull %call726, ptr noundef nonnull %call374, ptr noundef %112, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %113, i32 noundef %batch.2, ptr noundef %extensions.4, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %114, i64 noundef %call798, i32 noundef %default_op.1, i32 noundef %115, i32 noundef %selfsign.0, i64 noundef %116)
+  %call799 = call fastcc i32 @certify(ptr noundef nonnull %x, ptr noundef nonnull %infile.0, i32 noundef %111, ptr noundef %call260, ptr noundef %spec.select428, ptr noundef %dgst.2, ptr noundef %sigopts.0, ptr noundef %vfyopts.0, ptr noundef nonnull %call726, ptr noundef nonnull %call374, ptr noundef %112, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %113, i32 noundef %batch.2, ptr noundef %extensions.3, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %114, i64 noundef %call798, i32 noundef %default_op.1, i32 noundef %115, i32 noundef %selfsign.0, i64 noundef %116)
   %cmp800 = icmp slt i32 %call799, 0
   br i1 %cmp800, label %if.then1233, label %if.end803
 
@@ -1834,7 +1834,7 @@ for.body825:                                      ; preds = %for.body825.prehead
   %call829 = call i64 @get_nameopt() #12
   %127 = load i32, ptr %ext_copy, align 4
   %128 = load i64, ptr %dateopt, align 8
-  %call830 = call fastcc i32 @certify(ptr noundef nonnull %x, ptr noundef %122, i32 noundef %123, ptr noundef %call260, ptr noundef %spec.select428, ptr noundef %dgst.3, ptr noundef %sigopts.0, ptr noundef %vfyopts.0, ptr noundef nonnull %call726, ptr noundef %call374, ptr noundef %124, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %125, i32 noundef %batch.2, ptr noundef %extensions.4, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %126, i64 noundef %call829, i32 noundef %default_op.1, i32 noundef %127, i32 noundef %selfsign.0, i64 noundef %128)
+  %call830 = call fastcc i32 @certify(ptr noundef nonnull %x, ptr noundef %122, i32 noundef %123, ptr noundef %call260, ptr noundef %spec.select428, ptr noundef %dgst.2, ptr noundef %sigopts.0, ptr noundef %vfyopts.0, ptr noundef nonnull %call726, ptr noundef %call374, ptr noundef %124, ptr noundef %subj.0, i64 noundef %chtype.2, i32 noundef %email_dn.2, ptr noundef nonnull %cmp651.not452, ptr noundef %enddate.2456, i64 noundef %125, i32 noundef %batch.2, ptr noundef %extensions.3, ptr noundef %call150, i32 noundef %verbose.0, i64 noundef %126, i64 noundef %call829, i32 noundef %default_op.1, i32 noundef %127, i32 noundef %selfsign.0, i64 noundef %128)
   %cmp831 = icmp slt i32 %call830, 0
   br i1 %cmp831, label %if.then1233, label %if.end834
 
@@ -2071,7 +2071,7 @@ if.end997:                                        ; preds = %if.end993
   br label %if.end1000
 
 if.end1000:                                       ; preds = %for.end982, %if.end997, %if.end578
-  %cert_sk.0 = phi ptr [ %call732, %if.end997 ], [ %call732, %for.end982 ], [ null, %if.end578 ]
+  %cert_sk.1 = phi ptr [ %call732, %if.end997 ], [ %call732, %for.end982 ], [ null, %if.end578 ]
   br i1 %tobool271, label %if.then1002, label %if.end1199
 
 if.then1002:                                      ; preds = %if.end1000
@@ -2114,7 +2114,7 @@ if.then1025:                                      ; preds = %if.then1021
   br label %if.then1233
 
 if.end1028:                                       ; preds = %if.then1021, %if.end1017
-  %crlnumber.0 = phi ptr [ %call1022, %if.then1021 ], [ null, %if.end1017 ]
+  %crlnumber.2 = phi ptr [ %call1022, %if.then1021 ], [ null, %if.end1017 ]
   %157 = load i64, ptr %crldays, align 8
   %tobool1029 = icmp ne i64 %157, 0
   %158 = load i64, ptr %crlhours, align 8
@@ -2179,7 +2179,7 @@ if.end1061:                                       ; preds = %if.then1059, %if.en
   br i1 %cmp1065, label %if.then1233, label %if.end1068
 
 if.end1068:                                       ; preds = %if.end1061
-  %call1069 = call ptr @X509_get_subject_name(ptr noundef %x509.0) #12
+  %call1069 = call ptr @X509_get_subject_name(ptr noundef %x509.1) #12
   %call1070 = call i32 @X509_CRL_set_issuer_name(ptr noundef nonnull %call1064, ptr noundef %call1069) #12
   %tobool1071.not = icmp eq i32 %call1070, 0
   br i1 %tobool1071.not, label %if.then1233, label %if.end1073
@@ -2295,7 +2295,7 @@ if.end1133:                                       ; preds = %if.then1131, %for.e
   br i1 %or.cond15, label %if.then1139, label %if.end1162
 
 if.then1139:                                      ; preds = %if.end1133
-  call void @X509V3_set_ctx(ptr noundef nonnull %crlctx, ptr noundef %x509.0, ptr noundef null, ptr noundef null, ptr noundef %call1064, i32 noundef 0) #12
+  call void @X509V3_set_ctx(ptr noundef nonnull %crlctx, ptr noundef %x509.1, ptr noundef null, ptr noundef null, ptr noundef %call1064, i32 noundef 0) #12
   call void @X509V3_set_nconf(ptr noundef nonnull %crlctx, ptr noundef %call150) #12
   br i1 %cmp1008463, label %if.then1142, label %if.end1148
 
@@ -2313,14 +2313,14 @@ if.end1148:                                       ; preds = %if.then1142, %if.th
   br i1 %cmp1019, label %if.then1151, label %if.end1162
 
 if.then1151:                                      ; preds = %if.end1148
-  %call1152 = call ptr @BN_to_ASN1_INTEGER(ptr noundef %crlnumber.0, ptr noundef null) #12
+  %call1152 = call ptr @BN_to_ASN1_INTEGER(ptr noundef %crlnumber.2, ptr noundef null) #12
   %tobool1153.not = icmp eq ptr %call1152, null
   br i1 %tobool1153.not, label %if.then1233, label %if.end1155
 
 if.end1155:                                       ; preds = %if.then1151
   %call1156 = call i32 @X509_CRL_add1_ext_i2d(ptr noundef %call1064, i32 noundef 88, ptr noundef nonnull %call1152, i32 noundef 0, i64 noundef 0) #12
   call void @ASN1_INTEGER_free(ptr noundef nonnull %call1152) #12
-  %call1157 = call i32 @BN_add_word(ptr noundef %crlnumber.0, i64 noundef 1) #12
+  %call1157 = call i32 @BN_add_word(ptr noundef %crlnumber.2, i64 noundef 1) #12
   %tobool1158.not = icmp eq i32 %call1157, 0
   br i1 %tobool1158.not, label %if.then1233, label %if.then1167.thread
 
@@ -2339,13 +2339,13 @@ if.then1167.thread:                               ; preds = %if.end1155
   br i1 %tobool1169.not469, label %if.then1233, label %land.lhs.true1175
 
 land.lhs.true1175:                                ; preds = %if.then1167.thread
-  %call1176 = call i32 @save_serial(ptr noundef nonnull %call1018, ptr noundef nonnull @.str.171, ptr noundef %crlnumber.0, ptr noundef null) #12
+  %call1176 = call i32 @save_serial(ptr noundef nonnull %call1018, ptr noundef nonnull @.str.171, ptr noundef %crlnumber.2, ptr noundef null) #12
   %tobool1177.not = icmp eq i32 %call1176, 0
   br i1 %tobool1177.not, label %if.then1233, label %if.end1179
 
 if.end1179:                                       ; preds = %if.then1167, %if.end1162, %land.lhs.true1175
-  call void @BN_free(ptr noundef %crlnumber.0) #12
-  %call1180 = call i32 @do_X509_CRL_sign(ptr noundef %call1064, ptr noundef %call260, ptr noundef %dgst.3, ptr noundef %sigopts.0) #12
+  call void @BN_free(ptr noundef %crlnumber.2) #12
+  %call1180 = call i32 @do_X509_CRL_sign(ptr noundef %call1064, ptr noundef %call260, ptr noundef %dgst.2, ptr noundef %sigopts.0) #12
   %tobool1181.not = icmp eq i32 %call1180, 0
   br i1 %tobool1181.not, label %if.then1233, label %if.end1183
 
@@ -2364,8 +2364,8 @@ land.lhs.true1194:                                ; preds = %if.end1190
   br i1 %tobool1196.not, label %if.then1233, label %if.end1199
 
 if.end1199:                                       ; preds = %if.end1190, %land.lhs.true1194, %if.end1000
-  %crl.0 = phi ptr [ %call1064, %land.lhs.true1194 ], [ %call1064, %if.end1190 ], [ null, %if.end1000 ]
-  %Sout.2 = phi ptr [ %call1186, %land.lhs.true1194 ], [ %call1186, %if.end1190 ], [ null, %if.end1000 ]
+  %crl.1 = phi ptr [ %call1064, %land.lhs.true1194 ], [ %call1064, %if.end1190 ], [ null, %if.end1000 ]
+  %Sout.3 = phi ptr [ %call1186, %land.lhs.true1194 ], [ %call1186, %if.end1190 ], [ null, %if.end1000 ]
   %tobool1200.not = icmp eq i32 %dorevoke.0, 0
   br i1 %tobool1200.not, label %if.end1234, label %if.then1201
 
@@ -2409,16 +2409,16 @@ if.end1228:                                       ; preds = %if.end1224
   br label %if.end1234
 
 if.then1233:                                      ; preds = %if.end95, %lor.lhs.false98, %if.end80, %lor.lhs.false, %sw.bb57, %sw.bb51, %for.body825, %if.end965, %if.then1099, %if.end1118, %if.end1113, %if.end1104, %end_of_options, %if.then219, %if.then228, %if.end230, %if.then239, %if.end235, %land.lhs.true245, %if.end259, %land.lhs.true275, %if.end280, %if.then359, %if.then365, %if.end368, %if.then377, %if.then397, %if.then433, %if.then446, %if.then417, %if.then410, %if.end464, %if.then479, %land.lhs.true600, %if.then689, %if.then700, %if.then729, %if.then735, %if.then740, %if.then768, %if.then796, %if.then848, %if.then842, %if.then930, %if.then977, %if.then1025, %if.then1055, %if.end1061, %if.end1183, %if.then1204, %if.else1206, %if.end1211, %if.end1224, %if.end1220, %land.lhs.true1194, %if.end1179, %land.lhs.true1175, %if.then1167, %if.end1155, %if.then1151, %if.then1145, %if.then1081, %if.then1076, %if.end1068, %if.then1014, %if.end993, %land.lhs.true989, %if.end895, %land.lhs.true891, %if.then817, %if.then806, %if.then789, %if.then778, %if.then761, %if.then750, %if.then707, %if.else716, %if.then673, %if.then656, %if.then626, %if.then641, %if.else614, %land.lhs.true554, %if.then572, %if.end493, %if.else489, %if.then347, %if.then337, %if.then327, %if.then288, %if.then256, %if.then195, %if.end184, %if.end180, %land.lhs.true, %opthelp, %if.then506, %lookup_conf.exit.thread, %if.then1167.thread
-  %sigopts.3.ph = phi ptr [ %sigopts.0, %if.then1167.thread ], [ %sigopts.0, %lookup_conf.exit.thread ], [ %sigopts.0, %if.then506 ], [ %sigopts.0, %opthelp ], [ %sigopts.0, %land.lhs.true ], [ %sigopts.0, %if.end180 ], [ %sigopts.0, %if.end184 ], [ %sigopts.0, %if.then195 ], [ %sigopts.0, %if.then256 ], [ %sigopts.0, %if.then288 ], [ %sigopts.0, %if.then327 ], [ %sigopts.0, %if.then337 ], [ %sigopts.0, %if.then347 ], [ %sigopts.0, %if.else489 ], [ %sigopts.0, %if.end493 ], [ %sigopts.0, %if.then572 ], [ %sigopts.0, %land.lhs.true554 ], [ %sigopts.0, %if.else614 ], [ %sigopts.0, %if.then641 ], [ %sigopts.0, %if.then626 ], [ %sigopts.0, %if.then656 ], [ %sigopts.0, %if.then673 ], [ %sigopts.0, %if.else716 ], [ %sigopts.0, %if.then707 ], [ %sigopts.0, %if.then750 ], [ %sigopts.0, %if.then761 ], [ %sigopts.0, %if.then778 ], [ %sigopts.0, %if.then789 ], [ %sigopts.0, %if.then806 ], [ %sigopts.0, %if.then817 ], [ %sigopts.0, %land.lhs.true891 ], [ %sigopts.0, %if.end895 ], [ %sigopts.0, %land.lhs.true989 ], [ %sigopts.0, %if.end993 ], [ %sigopts.0, %if.then1014 ], [ %sigopts.0, %if.end1068 ], [ %sigopts.0, %if.then1076 ], [ %sigopts.0, %if.then1081 ], [ %sigopts.0, %if.then1145 ], [ %sigopts.0, %if.then1151 ], [ %sigopts.0, %if.end1155 ], [ %sigopts.0, %if.then1167 ], [ %sigopts.0, %land.lhs.true1175 ], [ %sigopts.0, %if.end1179 ], [ %sigopts.0, %land.lhs.true1194 ], [ %sigopts.0, %if.end1220 ], [ %sigopts.0, %if.end1224 ], [ %sigopts.0, %if.end1211 ], [ %sigopts.0, %if.else1206 ], [ %sigopts.0, %if.then1204 ], [ %sigopts.0, %if.end1183 ], [ %sigopts.0, %if.end1061 ], [ %sigopts.0, %if.then1055 ], [ %sigopts.0, %if.then1025 ], [ %sigopts.0, %if.then977 ], [ %sigopts.0, %if.then930 ], [ %sigopts.0, %if.then842 ], [ %sigopts.0, %if.then848 ], [ %sigopts.0, %if.then796 ], [ %sigopts.0, %if.then768 ], [ %sigopts.0, %if.then740 ], [ %sigopts.0, %if.then735 ], [ %sigopts.0, %if.then729 ], [ %sigopts.0, %if.then700 ], [ %sigopts.0, %if.then689 ], [ %sigopts.0, %land.lhs.true600 ], [ %sigopts.0, %if.then479 ], [ %sigopts.0, %if.end464 ], [ %sigopts.0, %if.then410 ], [ %sigopts.0, %if.then417 ], [ %sigopts.0, %if.then446 ], [ %sigopts.0, %if.then433 ], [ %sigopts.0, %if.then397 ], [ %sigopts.0, %if.then377 ], [ %sigopts.0, %if.end368 ], [ %sigopts.0, %if.then365 ], [ %sigopts.0, %if.then359 ], [ %sigopts.0, %if.end280 ], [ %sigopts.0, %land.lhs.true275 ], [ %sigopts.0, %if.end259 ], [ %sigopts.0, %land.lhs.true245 ], [ %sigopts.0, %if.end235 ], [ %sigopts.0, %if.then239 ], [ %sigopts.0, %if.end230 ], [ %sigopts.0, %if.then228 ], [ %sigopts.0, %if.then219 ], [ %sigopts.0, %end_of_options ], [ %sigopts.0, %if.end1104 ], [ %sigopts.0, %if.end1113 ], [ %sigopts.0, %if.end1118 ], [ %sigopts.0, %if.then1099 ], [ %sigopts.0, %if.end965 ], [ %sigopts.0, %for.body825 ], [ %sigopts.0, %if.end95 ], [ %sigopts.0, %lor.lhs.false98 ], [ null, %if.end80 ], [ %sigopts.1440, %lor.lhs.false ], [ %sigopts.0, %sw.bb57 ], [ %sigopts.0, %sw.bb51 ]
-  %vfyopts.3.ph = phi ptr [ %vfyopts.0, %if.then1167.thread ], [ %vfyopts.0, %lookup_conf.exit.thread ], [ %vfyopts.0, %if.then506 ], [ %vfyopts.0, %opthelp ], [ %vfyopts.0, %land.lhs.true ], [ %vfyopts.0, %if.end180 ], [ %vfyopts.0, %if.end184 ], [ %vfyopts.0, %if.then195 ], [ %vfyopts.0, %if.then256 ], [ %vfyopts.0, %if.then288 ], [ %vfyopts.0, %if.then327 ], [ %vfyopts.0, %if.then337 ], [ %vfyopts.0, %if.then347 ], [ %vfyopts.0, %if.else489 ], [ %vfyopts.0, %if.end493 ], [ %vfyopts.0, %if.then572 ], [ %vfyopts.0, %land.lhs.true554 ], [ %vfyopts.0, %if.else614 ], [ %vfyopts.0, %if.then641 ], [ %vfyopts.0, %if.then626 ], [ %vfyopts.0, %if.then656 ], [ %vfyopts.0, %if.then673 ], [ %vfyopts.0, %if.else716 ], [ %vfyopts.0, %if.then707 ], [ %vfyopts.0, %if.then750 ], [ %vfyopts.0, %if.then761 ], [ %vfyopts.0, %if.then778 ], [ %vfyopts.0, %if.then789 ], [ %vfyopts.0, %if.then806 ], [ %vfyopts.0, %if.then817 ], [ %vfyopts.0, %land.lhs.true891 ], [ %vfyopts.0, %if.end895 ], [ %vfyopts.0, %land.lhs.true989 ], [ %vfyopts.0, %if.end993 ], [ %vfyopts.0, %if.then1014 ], [ %vfyopts.0, %if.end1068 ], [ %vfyopts.0, %if.then1076 ], [ %vfyopts.0, %if.then1081 ], [ %vfyopts.0, %if.then1145 ], [ %vfyopts.0, %if.then1151 ], [ %vfyopts.0, %if.end1155 ], [ %vfyopts.0, %if.then1167 ], [ %vfyopts.0, %land.lhs.true1175 ], [ %vfyopts.0, %if.end1179 ], [ %vfyopts.0, %land.lhs.true1194 ], [ %vfyopts.0, %if.end1220 ], [ %vfyopts.0, %if.end1224 ], [ %vfyopts.0, %if.end1211 ], [ %vfyopts.0, %if.else1206 ], [ %vfyopts.0, %if.then1204 ], [ %vfyopts.0, %if.end1183 ], [ %vfyopts.0, %if.end1061 ], [ %vfyopts.0, %if.then1055 ], [ %vfyopts.0, %if.then1025 ], [ %vfyopts.0, %if.then977 ], [ %vfyopts.0, %if.then930 ], [ %vfyopts.0, %if.then842 ], [ %vfyopts.0, %if.then848 ], [ %vfyopts.0, %if.then796 ], [ %vfyopts.0, %if.then768 ], [ %vfyopts.0, %if.then740 ], [ %vfyopts.0, %if.then735 ], [ %vfyopts.0, %if.then729 ], [ %vfyopts.0, %if.then700 ], [ %vfyopts.0, %if.then689 ], [ %vfyopts.0, %land.lhs.true600 ], [ %vfyopts.0, %if.then479 ], [ %vfyopts.0, %if.end464 ], [ %vfyopts.0, %if.then410 ], [ %vfyopts.0, %if.then417 ], [ %vfyopts.0, %if.then446 ], [ %vfyopts.0, %if.then433 ], [ %vfyopts.0, %if.then397 ], [ %vfyopts.0, %if.then377 ], [ %vfyopts.0, %if.end368 ], [ %vfyopts.0, %if.then365 ], [ %vfyopts.0, %if.then359 ], [ %vfyopts.0, %if.end280 ], [ %vfyopts.0, %land.lhs.true275 ], [ %vfyopts.0, %if.end259 ], [ %vfyopts.0, %land.lhs.true245 ], [ %vfyopts.0, %if.end235 ], [ %vfyopts.0, %if.then239 ], [ %vfyopts.0, %if.end230 ], [ %vfyopts.0, %if.then228 ], [ %vfyopts.0, %if.then219 ], [ %vfyopts.0, %end_of_options ], [ %vfyopts.0, %if.end1104 ], [ %vfyopts.0, %if.end1113 ], [ %vfyopts.0, %if.end1118 ], [ %vfyopts.0, %if.then1099 ], [ %vfyopts.0, %if.end965 ], [ %vfyopts.0, %for.body825 ], [ null, %if.end95 ], [ %vfyopts.1443, %lor.lhs.false98 ], [ %vfyopts.0, %if.end80 ], [ %vfyopts.0, %lor.lhs.false ], [ %vfyopts.0, %sw.bb57 ], [ %vfyopts.0, %sw.bb51 ]
-  %cert_sk.1.ph = phi ptr [ %cert_sk.0, %if.then1167.thread ], [ null, %lookup_conf.exit.thread ], [ null, %if.then506 ], [ null, %opthelp ], [ null, %land.lhs.true ], [ null, %if.end180 ], [ null, %if.end184 ], [ null, %if.then195 ], [ null, %if.then256 ], [ null, %if.then288 ], [ null, %if.then327 ], [ null, %if.then337 ], [ null, %if.then347 ], [ null, %if.else489 ], [ null, %if.end493 ], [ null, %if.then572 ], [ null, %land.lhs.true554 ], [ null, %if.else614 ], [ null, %if.then641 ], [ null, %if.then626 ], [ null, %if.then656 ], [ null, %if.then673 ], [ null, %if.else716 ], [ null, %if.then707 ], [ %call732, %if.then750 ], [ %call732, %if.then761 ], [ %call732, %if.then778 ], [ %call732, %if.then789 ], [ %call732, %if.then806 ], [ %call732, %if.then817 ], [ %call732, %land.lhs.true891 ], [ %call732, %if.end895 ], [ %call732, %land.lhs.true989 ], [ %call732, %if.end993 ], [ %cert_sk.0, %if.then1014 ], [ %cert_sk.0, %if.end1068 ], [ %cert_sk.0, %if.then1076 ], [ %cert_sk.0, %if.then1081 ], [ %cert_sk.0, %if.then1145 ], [ %cert_sk.0, %if.then1151 ], [ %cert_sk.0, %if.end1155 ], [ %cert_sk.0, %if.then1167 ], [ %cert_sk.0, %land.lhs.true1175 ], [ %cert_sk.0, %if.end1179 ], [ %cert_sk.0, %land.lhs.true1194 ], [ %cert_sk.0, %if.end1220 ], [ %cert_sk.0, %if.end1224 ], [ %cert_sk.0, %if.end1211 ], [ %cert_sk.0, %if.else1206 ], [ %cert_sk.0, %if.then1204 ], [ %cert_sk.0, %if.end1183 ], [ %cert_sk.0, %if.end1061 ], [ %cert_sk.0, %if.then1055 ], [ %cert_sk.0, %if.then1025 ], [ %call732, %if.then977 ], [ %call732, %if.then930 ], [ %call732, %if.then842 ], [ %call732, %if.then848 ], [ %call732, %if.then796 ], [ %call732, %if.then768 ], [ %call732, %if.then740 ], [ null, %if.then735 ], [ null, %if.then729 ], [ null, %if.then700 ], [ null, %if.then689 ], [ null, %land.lhs.true600 ], [ null, %if.then479 ], [ null, %if.end464 ], [ null, %if.then410 ], [ null, %if.then417 ], [ null, %if.then446 ], [ null, %if.then433 ], [ null, %if.then397 ], [ null, %if.then377 ], [ null, %if.end368 ], [ null, %if.then365 ], [ null, %if.then359 ], [ null, %if.end280 ], [ null, %land.lhs.true275 ], [ null, %if.end259 ], [ null, %land.lhs.true245 ], [ null, %if.end235 ], [ null, %if.then239 ], [ null, %if.end230 ], [ null, %if.then228 ], [ null, %if.then219 ], [ null, %end_of_options ], [ %cert_sk.0, %if.end1104 ], [ %cert_sk.0, %if.end1113 ], [ %cert_sk.0, %if.end1118 ], [ %cert_sk.0, %if.then1099 ], [ %call732, %if.end965 ], [ %call732, %for.body825 ], [ null, %sw.bb51 ], [ null, %sw.bb57 ], [ null, %lor.lhs.false ], [ null, %if.end80 ], [ null, %lor.lhs.false98 ], [ null, %if.end95 ]
-  %crl.1.ph = phi ptr [ %call1064, %if.then1167.thread ], [ null, %lookup_conf.exit.thread ], [ null, %if.then506 ], [ null, %opthelp ], [ null, %land.lhs.true ], [ null, %if.end180 ], [ null, %if.end184 ], [ null, %if.then195 ], [ null, %if.then256 ], [ null, %if.then288 ], [ null, %if.then327 ], [ null, %if.then337 ], [ null, %if.then347 ], [ null, %if.else489 ], [ null, %if.end493 ], [ null, %if.then572 ], [ null, %land.lhs.true554 ], [ null, %if.else614 ], [ null, %if.then641 ], [ null, %if.then626 ], [ null, %if.then656 ], [ null, %if.then673 ], [ null, %if.else716 ], [ null, %if.then707 ], [ null, %if.then750 ], [ null, %if.then761 ], [ null, %if.then778 ], [ null, %if.then789 ], [ null, %if.then806 ], [ null, %if.then817 ], [ null, %land.lhs.true891 ], [ null, %if.end895 ], [ null, %land.lhs.true989 ], [ null, %if.end993 ], [ null, %if.then1014 ], [ %call1064, %if.end1068 ], [ %call1064, %if.then1076 ], [ %call1064, %if.then1081 ], [ %call1064, %if.then1145 ], [ %call1064, %if.then1151 ], [ %call1064, %if.end1155 ], [ %call1064, %if.then1167 ], [ %call1064, %land.lhs.true1175 ], [ %call1064, %if.end1179 ], [ %call1064, %land.lhs.true1194 ], [ %crl.0, %if.end1220 ], [ %crl.0, %if.end1224 ], [ %crl.0, %if.end1211 ], [ %crl.0, %if.else1206 ], [ %crl.0, %if.then1204 ], [ %call1064, %if.end1183 ], [ null, %if.end1061 ], [ null, %if.then1055 ], [ null, %if.then1025 ], [ null, %if.then977 ], [ null, %if.then930 ], [ null, %if.then842 ], [ null, %if.then848 ], [ null, %if.then796 ], [ null, %if.then768 ], [ null, %if.then740 ], [ null, %if.then735 ], [ null, %if.then729 ], [ null, %if.then700 ], [ null, %if.then689 ], [ null, %land.lhs.true600 ], [ null, %if.then479 ], [ null, %if.end464 ], [ null, %if.then410 ], [ null, %if.then417 ], [ null, %if.then446 ], [ null, %if.then433 ], [ null, %if.then397 ], [ null, %if.then377 ], [ null, %if.end368 ], [ null, %if.then365 ], [ null, %if.then359 ], [ null, %if.end280 ], [ null, %land.lhs.true275 ], [ null, %if.end259 ], [ null, %land.lhs.true245 ], [ null, %if.end235 ], [ null, %if.then239 ], [ null, %if.end230 ], [ null, %if.then228 ], [ null, %if.then219 ], [ null, %end_of_options ], [ %call1064, %if.end1104 ], [ %call1064, %if.end1113 ], [ %call1064, %if.end1118 ], [ %call1064, %if.then1099 ], [ null, %if.end965 ], [ null, %for.body825 ], [ null, %sw.bb51 ], [ null, %sw.bb57 ], [ null, %lor.lhs.false ], [ null, %if.end80 ], [ null, %lor.lhs.false98 ], [ null, %if.end95 ]
-  %free_passin.1.ph = phi i32 [ %free_passin.0, %if.then1167.thread ], [ 0, %lookup_conf.exit.thread ], [ %free_passin.0, %if.then506 ], [ 0, %opthelp ], [ 0, %land.lhs.true ], [ 0, %if.end180 ], [ 0, %if.end184 ], [ 0, %if.then195 ], [ 1, %if.then256 ], [ %free_passin.0, %if.then288 ], [ %free_passin.0, %if.then327 ], [ %free_passin.0, %if.then337 ], [ %free_passin.0, %if.then347 ], [ %free_passin.0, %if.else489 ], [ %free_passin.0, %if.end493 ], [ %free_passin.0, %if.then572 ], [ %free_passin.0, %land.lhs.true554 ], [ %free_passin.0, %if.else614 ], [ %free_passin.0, %if.then641 ], [ %free_passin.0, %if.then626 ], [ %free_passin.0, %if.then656 ], [ %free_passin.0, %if.then673 ], [ %free_passin.0, %if.else716 ], [ %free_passin.0, %if.then707 ], [ %free_passin.0, %if.then750 ], [ %free_passin.0, %if.then761 ], [ %free_passin.0, %if.then778 ], [ %free_passin.0, %if.then789 ], [ %free_passin.0, %if.then806 ], [ %free_passin.0, %if.then817 ], [ %free_passin.0, %land.lhs.true891 ], [ %free_passin.0, %if.end895 ], [ %free_passin.0, %land.lhs.true989 ], [ %free_passin.0, %if.end993 ], [ %free_passin.0, %if.then1014 ], [ %free_passin.0, %if.end1068 ], [ %free_passin.0, %if.then1076 ], [ %free_passin.0, %if.then1081 ], [ %free_passin.0, %if.then1145 ], [ %free_passin.0, %if.then1151 ], [ %free_passin.0, %if.end1155 ], [ %free_passin.0, %if.then1167 ], [ %free_passin.0, %land.lhs.true1175 ], [ %free_passin.0, %if.end1179 ], [ %free_passin.0, %land.lhs.true1194 ], [ %free_passin.0, %if.end1220 ], [ %free_passin.0, %if.end1224 ], [ %free_passin.0, %if.end1211 ], [ %free_passin.0, %if.else1206 ], [ %free_passin.0, %if.then1204 ], [ %free_passin.0, %if.end1183 ], [ %free_passin.0, %if.end1061 ], [ %free_passin.0, %if.then1055 ], [ %free_passin.0, %if.then1025 ], [ %free_passin.0, %if.then977 ], [ %free_passin.0, %if.then930 ], [ %free_passin.0, %if.then842 ], [ %free_passin.0, %if.then848 ], [ %free_passin.0, %if.then796 ], [ %free_passin.0, %if.then768 ], [ %free_passin.0, %if.then740 ], [ %free_passin.0, %if.then735 ], [ %free_passin.0, %if.then729 ], [ %free_passin.0, %if.then700 ], [ %free_passin.0, %if.then689 ], [ %free_passin.0, %land.lhs.true600 ], [ %free_passin.0, %if.then479 ], [ %free_passin.0, %if.end464 ], [ %free_passin.0, %if.then410 ], [ %free_passin.0, %if.then417 ], [ %free_passin.0, %if.then446 ], [ %free_passin.0, %if.then433 ], [ %free_passin.0, %if.then397 ], [ %free_passin.0, %if.then377 ], [ %free_passin.0, %if.end368 ], [ %free_passin.0, %if.then365 ], [ %free_passin.0, %if.then359 ], [ %free_passin.0, %if.end280 ], [ %free_passin.0, %land.lhs.true275 ], [ %free_passin.0, %if.end259 ], [ 0, %land.lhs.true245 ], [ 0, %if.end235 ], [ 0, %if.then239 ], [ 0, %if.end230 ], [ 0, %if.then228 ], [ 0, %if.then219 ], [ 0, %end_of_options ], [ %free_passin.0, %if.end1104 ], [ %free_passin.0, %if.end1113 ], [ %free_passin.0, %if.end1118 ], [ %free_passin.0, %if.then1099 ], [ %free_passin.0, %if.end965 ], [ %free_passin.0, %for.body825 ], [ 0, %sw.bb51 ], [ 0, %sw.bb57 ], [ 0, %lor.lhs.false ], [ 0, %if.end80 ], [ 0, %lor.lhs.false98 ], [ 0, %if.end95 ]
+  %sigopts.2.ph = phi ptr [ %sigopts.0, %if.then1167.thread ], [ %sigopts.0, %lookup_conf.exit.thread ], [ %sigopts.0, %if.then506 ], [ %sigopts.0, %opthelp ], [ %sigopts.0, %land.lhs.true ], [ %sigopts.0, %if.end180 ], [ %sigopts.0, %if.end184 ], [ %sigopts.0, %if.then195 ], [ %sigopts.0, %if.then256 ], [ %sigopts.0, %if.then288 ], [ %sigopts.0, %if.then327 ], [ %sigopts.0, %if.then337 ], [ %sigopts.0, %if.then347 ], [ %sigopts.0, %if.else489 ], [ %sigopts.0, %if.end493 ], [ %sigopts.0, %if.then572 ], [ %sigopts.0, %land.lhs.true554 ], [ %sigopts.0, %if.else614 ], [ %sigopts.0, %if.then641 ], [ %sigopts.0, %if.then626 ], [ %sigopts.0, %if.then656 ], [ %sigopts.0, %if.then673 ], [ %sigopts.0, %if.else716 ], [ %sigopts.0, %if.then707 ], [ %sigopts.0, %if.then750 ], [ %sigopts.0, %if.then761 ], [ %sigopts.0, %if.then778 ], [ %sigopts.0, %if.then789 ], [ %sigopts.0, %if.then806 ], [ %sigopts.0, %if.then817 ], [ %sigopts.0, %land.lhs.true891 ], [ %sigopts.0, %if.end895 ], [ %sigopts.0, %land.lhs.true989 ], [ %sigopts.0, %if.end993 ], [ %sigopts.0, %if.then1014 ], [ %sigopts.0, %if.end1068 ], [ %sigopts.0, %if.then1076 ], [ %sigopts.0, %if.then1081 ], [ %sigopts.0, %if.then1145 ], [ %sigopts.0, %if.then1151 ], [ %sigopts.0, %if.end1155 ], [ %sigopts.0, %if.then1167 ], [ %sigopts.0, %land.lhs.true1175 ], [ %sigopts.0, %if.end1179 ], [ %sigopts.0, %land.lhs.true1194 ], [ %sigopts.0, %if.end1220 ], [ %sigopts.0, %if.end1224 ], [ %sigopts.0, %if.end1211 ], [ %sigopts.0, %if.else1206 ], [ %sigopts.0, %if.then1204 ], [ %sigopts.0, %if.end1183 ], [ %sigopts.0, %if.end1061 ], [ %sigopts.0, %if.then1055 ], [ %sigopts.0, %if.then1025 ], [ %sigopts.0, %if.then977 ], [ %sigopts.0, %if.then930 ], [ %sigopts.0, %if.then842 ], [ %sigopts.0, %if.then848 ], [ %sigopts.0, %if.then796 ], [ %sigopts.0, %if.then768 ], [ %sigopts.0, %if.then740 ], [ %sigopts.0, %if.then735 ], [ %sigopts.0, %if.then729 ], [ %sigopts.0, %if.then700 ], [ %sigopts.0, %if.then689 ], [ %sigopts.0, %land.lhs.true600 ], [ %sigopts.0, %if.then479 ], [ %sigopts.0, %if.end464 ], [ %sigopts.0, %if.then410 ], [ %sigopts.0, %if.then417 ], [ %sigopts.0, %if.then446 ], [ %sigopts.0, %if.then433 ], [ %sigopts.0, %if.then397 ], [ %sigopts.0, %if.then377 ], [ %sigopts.0, %if.end368 ], [ %sigopts.0, %if.then365 ], [ %sigopts.0, %if.then359 ], [ %sigopts.0, %if.end280 ], [ %sigopts.0, %land.lhs.true275 ], [ %sigopts.0, %if.end259 ], [ %sigopts.0, %land.lhs.true245 ], [ %sigopts.0, %if.end235 ], [ %sigopts.0, %if.then239 ], [ %sigopts.0, %if.end230 ], [ %sigopts.0, %if.then228 ], [ %sigopts.0, %if.then219 ], [ %sigopts.0, %end_of_options ], [ %sigopts.0, %if.end1104 ], [ %sigopts.0, %if.end1113 ], [ %sigopts.0, %if.end1118 ], [ %sigopts.0, %if.then1099 ], [ %sigopts.0, %if.end965 ], [ %sigopts.0, %for.body825 ], [ %sigopts.0, %if.end95 ], [ %sigopts.0, %lor.lhs.false98 ], [ null, %if.end80 ], [ %sigopts.3440, %lor.lhs.false ], [ %sigopts.0, %sw.bb57 ], [ %sigopts.0, %sw.bb51 ]
+  %vfyopts.2.ph = phi ptr [ %vfyopts.0, %if.then1167.thread ], [ %vfyopts.0, %lookup_conf.exit.thread ], [ %vfyopts.0, %if.then506 ], [ %vfyopts.0, %opthelp ], [ %vfyopts.0, %land.lhs.true ], [ %vfyopts.0, %if.end180 ], [ %vfyopts.0, %if.end184 ], [ %vfyopts.0, %if.then195 ], [ %vfyopts.0, %if.then256 ], [ %vfyopts.0, %if.then288 ], [ %vfyopts.0, %if.then327 ], [ %vfyopts.0, %if.then337 ], [ %vfyopts.0, %if.then347 ], [ %vfyopts.0, %if.else489 ], [ %vfyopts.0, %if.end493 ], [ %vfyopts.0, %if.then572 ], [ %vfyopts.0, %land.lhs.true554 ], [ %vfyopts.0, %if.else614 ], [ %vfyopts.0, %if.then641 ], [ %vfyopts.0, %if.then626 ], [ %vfyopts.0, %if.then656 ], [ %vfyopts.0, %if.then673 ], [ %vfyopts.0, %if.else716 ], [ %vfyopts.0, %if.then707 ], [ %vfyopts.0, %if.then750 ], [ %vfyopts.0, %if.then761 ], [ %vfyopts.0, %if.then778 ], [ %vfyopts.0, %if.then789 ], [ %vfyopts.0, %if.then806 ], [ %vfyopts.0, %if.then817 ], [ %vfyopts.0, %land.lhs.true891 ], [ %vfyopts.0, %if.end895 ], [ %vfyopts.0, %land.lhs.true989 ], [ %vfyopts.0, %if.end993 ], [ %vfyopts.0, %if.then1014 ], [ %vfyopts.0, %if.end1068 ], [ %vfyopts.0, %if.then1076 ], [ %vfyopts.0, %if.then1081 ], [ %vfyopts.0, %if.then1145 ], [ %vfyopts.0, %if.then1151 ], [ %vfyopts.0, %if.end1155 ], [ %vfyopts.0, %if.then1167 ], [ %vfyopts.0, %land.lhs.true1175 ], [ %vfyopts.0, %if.end1179 ], [ %vfyopts.0, %land.lhs.true1194 ], [ %vfyopts.0, %if.end1220 ], [ %vfyopts.0, %if.end1224 ], [ %vfyopts.0, %if.end1211 ], [ %vfyopts.0, %if.else1206 ], [ %vfyopts.0, %if.then1204 ], [ %vfyopts.0, %if.end1183 ], [ %vfyopts.0, %if.end1061 ], [ %vfyopts.0, %if.then1055 ], [ %vfyopts.0, %if.then1025 ], [ %vfyopts.0, %if.then977 ], [ %vfyopts.0, %if.then930 ], [ %vfyopts.0, %if.then842 ], [ %vfyopts.0, %if.then848 ], [ %vfyopts.0, %if.then796 ], [ %vfyopts.0, %if.then768 ], [ %vfyopts.0, %if.then740 ], [ %vfyopts.0, %if.then735 ], [ %vfyopts.0, %if.then729 ], [ %vfyopts.0, %if.then700 ], [ %vfyopts.0, %if.then689 ], [ %vfyopts.0, %land.lhs.true600 ], [ %vfyopts.0, %if.then479 ], [ %vfyopts.0, %if.end464 ], [ %vfyopts.0, %if.then410 ], [ %vfyopts.0, %if.then417 ], [ %vfyopts.0, %if.then446 ], [ %vfyopts.0, %if.then433 ], [ %vfyopts.0, %if.then397 ], [ %vfyopts.0, %if.then377 ], [ %vfyopts.0, %if.end368 ], [ %vfyopts.0, %if.then365 ], [ %vfyopts.0, %if.then359 ], [ %vfyopts.0, %if.end280 ], [ %vfyopts.0, %land.lhs.true275 ], [ %vfyopts.0, %if.end259 ], [ %vfyopts.0, %land.lhs.true245 ], [ %vfyopts.0, %if.end235 ], [ %vfyopts.0, %if.then239 ], [ %vfyopts.0, %if.end230 ], [ %vfyopts.0, %if.then228 ], [ %vfyopts.0, %if.then219 ], [ %vfyopts.0, %end_of_options ], [ %vfyopts.0, %if.end1104 ], [ %vfyopts.0, %if.end1113 ], [ %vfyopts.0, %if.end1118 ], [ %vfyopts.0, %if.then1099 ], [ %vfyopts.0, %if.end965 ], [ %vfyopts.0, %for.body825 ], [ null, %if.end95 ], [ %vfyopts.3443, %lor.lhs.false98 ], [ %vfyopts.0, %if.end80 ], [ %vfyopts.0, %lor.lhs.false ], [ %vfyopts.0, %sw.bb57 ], [ %vfyopts.0, %sw.bb51 ]
+  %cert_sk.0.ph = phi ptr [ %cert_sk.1, %if.then1167.thread ], [ null, %lookup_conf.exit.thread ], [ null, %if.then506 ], [ null, %opthelp ], [ null, %land.lhs.true ], [ null, %if.end180 ], [ null, %if.end184 ], [ null, %if.then195 ], [ null, %if.then256 ], [ null, %if.then288 ], [ null, %if.then327 ], [ null, %if.then337 ], [ null, %if.then347 ], [ null, %if.else489 ], [ null, %if.end493 ], [ null, %if.then572 ], [ null, %land.lhs.true554 ], [ null, %if.else614 ], [ null, %if.then641 ], [ null, %if.then626 ], [ null, %if.then656 ], [ null, %if.then673 ], [ null, %if.else716 ], [ null, %if.then707 ], [ %call732, %if.then750 ], [ %call732, %if.then761 ], [ %call732, %if.then778 ], [ %call732, %if.then789 ], [ %call732, %if.then806 ], [ %call732, %if.then817 ], [ %call732, %land.lhs.true891 ], [ %call732, %if.end895 ], [ %call732, %land.lhs.true989 ], [ %call732, %if.end993 ], [ %cert_sk.1, %if.then1014 ], [ %cert_sk.1, %if.end1068 ], [ %cert_sk.1, %if.then1076 ], [ %cert_sk.1, %if.then1081 ], [ %cert_sk.1, %if.then1145 ], [ %cert_sk.1, %if.then1151 ], [ %cert_sk.1, %if.end1155 ], [ %cert_sk.1, %if.then1167 ], [ %cert_sk.1, %land.lhs.true1175 ], [ %cert_sk.1, %if.end1179 ], [ %cert_sk.1, %land.lhs.true1194 ], [ %cert_sk.1, %if.end1220 ], [ %cert_sk.1, %if.end1224 ], [ %cert_sk.1, %if.end1211 ], [ %cert_sk.1, %if.else1206 ], [ %cert_sk.1, %if.then1204 ], [ %cert_sk.1, %if.end1183 ], [ %cert_sk.1, %if.end1061 ], [ %cert_sk.1, %if.then1055 ], [ %cert_sk.1, %if.then1025 ], [ %call732, %if.then977 ], [ %call732, %if.then930 ], [ %call732, %if.then842 ], [ %call732, %if.then848 ], [ %call732, %if.then796 ], [ %call732, %if.then768 ], [ %call732, %if.then740 ], [ null, %if.then735 ], [ null, %if.then729 ], [ null, %if.then700 ], [ null, %if.then689 ], [ null, %land.lhs.true600 ], [ null, %if.then479 ], [ null, %if.end464 ], [ null, %if.then410 ], [ null, %if.then417 ], [ null, %if.then446 ], [ null, %if.then433 ], [ null, %if.then397 ], [ null, %if.then377 ], [ null, %if.end368 ], [ null, %if.then365 ], [ null, %if.then359 ], [ null, %if.end280 ], [ null, %land.lhs.true275 ], [ null, %if.end259 ], [ null, %land.lhs.true245 ], [ null, %if.end235 ], [ null, %if.then239 ], [ null, %if.end230 ], [ null, %if.then228 ], [ null, %if.then219 ], [ null, %end_of_options ], [ %cert_sk.1, %if.end1104 ], [ %cert_sk.1, %if.end1113 ], [ %cert_sk.1, %if.end1118 ], [ %cert_sk.1, %if.then1099 ], [ %call732, %if.end965 ], [ %call732, %for.body825 ], [ null, %sw.bb51 ], [ null, %sw.bb57 ], [ null, %lor.lhs.false ], [ null, %if.end80 ], [ null, %lor.lhs.false98 ], [ null, %if.end95 ]
+  %crl.0.ph = phi ptr [ %call1064, %if.then1167.thread ], [ null, %lookup_conf.exit.thread ], [ null, %if.then506 ], [ null, %opthelp ], [ null, %land.lhs.true ], [ null, %if.end180 ], [ null, %if.end184 ], [ null, %if.then195 ], [ null, %if.then256 ], [ null, %if.then288 ], [ null, %if.then327 ], [ null, %if.then337 ], [ null, %if.then347 ], [ null, %if.else489 ], [ null, %if.end493 ], [ null, %if.then572 ], [ null, %land.lhs.true554 ], [ null, %if.else614 ], [ null, %if.then641 ], [ null, %if.then626 ], [ null, %if.then656 ], [ null, %if.then673 ], [ null, %if.else716 ], [ null, %if.then707 ], [ null, %if.then750 ], [ null, %if.then761 ], [ null, %if.then778 ], [ null, %if.then789 ], [ null, %if.then806 ], [ null, %if.then817 ], [ null, %land.lhs.true891 ], [ null, %if.end895 ], [ null, %land.lhs.true989 ], [ null, %if.end993 ], [ null, %if.then1014 ], [ %call1064, %if.end1068 ], [ %call1064, %if.then1076 ], [ %call1064, %if.then1081 ], [ %call1064, %if.then1145 ], [ %call1064, %if.then1151 ], [ %call1064, %if.end1155 ], [ %call1064, %if.then1167 ], [ %call1064, %land.lhs.true1175 ], [ %call1064, %if.end1179 ], [ %call1064, %land.lhs.true1194 ], [ %crl.1, %if.end1220 ], [ %crl.1, %if.end1224 ], [ %crl.1, %if.end1211 ], [ %crl.1, %if.else1206 ], [ %crl.1, %if.then1204 ], [ %call1064, %if.end1183 ], [ null, %if.end1061 ], [ null, %if.then1055 ], [ null, %if.then1025 ], [ null, %if.then977 ], [ null, %if.then930 ], [ null, %if.then842 ], [ null, %if.then848 ], [ null, %if.then796 ], [ null, %if.then768 ], [ null, %if.then740 ], [ null, %if.then735 ], [ null, %if.then729 ], [ null, %if.then700 ], [ null, %if.then689 ], [ null, %land.lhs.true600 ], [ null, %if.then479 ], [ null, %if.end464 ], [ null, %if.then410 ], [ null, %if.then417 ], [ null, %if.then446 ], [ null, %if.then433 ], [ null, %if.then397 ], [ null, %if.then377 ], [ null, %if.end368 ], [ null, %if.then365 ], [ null, %if.then359 ], [ null, %if.end280 ], [ null, %land.lhs.true275 ], [ null, %if.end259 ], [ null, %land.lhs.true245 ], [ null, %if.end235 ], [ null, %if.then239 ], [ null, %if.end230 ], [ null, %if.then228 ], [ null, %if.then219 ], [ null, %end_of_options ], [ %call1064, %if.end1104 ], [ %call1064, %if.end1113 ], [ %call1064, %if.end1118 ], [ %call1064, %if.then1099 ], [ null, %if.end965 ], [ null, %for.body825 ], [ null, %sw.bb51 ], [ null, %sw.bb57 ], [ null, %lor.lhs.false ], [ null, %if.end80 ], [ null, %lor.lhs.false98 ], [ null, %if.end95 ]
+  %free_passin.0.ph = phi i32 [ %free_passin.1, %if.then1167.thread ], [ 0, %lookup_conf.exit.thread ], [ %free_passin.1, %if.then506 ], [ 0, %opthelp ], [ 0, %land.lhs.true ], [ 0, %if.end180 ], [ 0, %if.end184 ], [ 0, %if.then195 ], [ 1, %if.then256 ], [ %free_passin.1, %if.then288 ], [ %free_passin.1, %if.then327 ], [ %free_passin.1, %if.then337 ], [ %free_passin.1, %if.then347 ], [ %free_passin.1, %if.else489 ], [ %free_passin.1, %if.end493 ], [ %free_passin.1, %if.then572 ], [ %free_passin.1, %land.lhs.true554 ], [ %free_passin.1, %if.else614 ], [ %free_passin.1, %if.then641 ], [ %free_passin.1, %if.then626 ], [ %free_passin.1, %if.then656 ], [ %free_passin.1, %if.then673 ], [ %free_passin.1, %if.else716 ], [ %free_passin.1, %if.then707 ], [ %free_passin.1, %if.then750 ], [ %free_passin.1, %if.then761 ], [ %free_passin.1, %if.then778 ], [ %free_passin.1, %if.then789 ], [ %free_passin.1, %if.then806 ], [ %free_passin.1, %if.then817 ], [ %free_passin.1, %land.lhs.true891 ], [ %free_passin.1, %if.end895 ], [ %free_passin.1, %land.lhs.true989 ], [ %free_passin.1, %if.end993 ], [ %free_passin.1, %if.then1014 ], [ %free_passin.1, %if.end1068 ], [ %free_passin.1, %if.then1076 ], [ %free_passin.1, %if.then1081 ], [ %free_passin.1, %if.then1145 ], [ %free_passin.1, %if.then1151 ], [ %free_passin.1, %if.end1155 ], [ %free_passin.1, %if.then1167 ], [ %free_passin.1, %land.lhs.true1175 ], [ %free_passin.1, %if.end1179 ], [ %free_passin.1, %land.lhs.true1194 ], [ %free_passin.1, %if.end1220 ], [ %free_passin.1, %if.end1224 ], [ %free_passin.1, %if.end1211 ], [ %free_passin.1, %if.else1206 ], [ %free_passin.1, %if.then1204 ], [ %free_passin.1, %if.end1183 ], [ %free_passin.1, %if.end1061 ], [ %free_passin.1, %if.then1055 ], [ %free_passin.1, %if.then1025 ], [ %free_passin.1, %if.then977 ], [ %free_passin.1, %if.then930 ], [ %free_passin.1, %if.then842 ], [ %free_passin.1, %if.then848 ], [ %free_passin.1, %if.then796 ], [ %free_passin.1, %if.then768 ], [ %free_passin.1, %if.then740 ], [ %free_passin.1, %if.then735 ], [ %free_passin.1, %if.then729 ], [ %free_passin.1, %if.then700 ], [ %free_passin.1, %if.then689 ], [ %free_passin.1, %land.lhs.true600 ], [ %free_passin.1, %if.then479 ], [ %free_passin.1, %if.end464 ], [ %free_passin.1, %if.then410 ], [ %free_passin.1, %if.then417 ], [ %free_passin.1, %if.then446 ], [ %free_passin.1, %if.then433 ], [ %free_passin.1, %if.then397 ], [ %free_passin.1, %if.then377 ], [ %free_passin.1, %if.end368 ], [ %free_passin.1, %if.then365 ], [ %free_passin.1, %if.then359 ], [ %free_passin.1, %if.end280 ], [ %free_passin.1, %land.lhs.true275 ], [ %free_passin.1, %if.end259 ], [ 0, %land.lhs.true245 ], [ 0, %if.end235 ], [ 0, %if.then239 ], [ 0, %if.end230 ], [ 0, %if.then228 ], [ 0, %if.then219 ], [ 0, %end_of_options ], [ %free_passin.1, %if.end1104 ], [ %free_passin.1, %if.end1113 ], [ %free_passin.1, %if.end1118 ], [ %free_passin.1, %if.then1099 ], [ %free_passin.1, %if.end965 ], [ %free_passin.1, %for.body825 ], [ 0, %sw.bb51 ], [ 0, %sw.bb57 ], [ 0, %lor.lhs.false ], [ 0, %if.end80 ], [ 0, %lor.lhs.false98 ], [ 0, %if.end95 ]
   %db.0.ph = phi ptr [ %call374, %if.then1167.thread ], [ null, %lookup_conf.exit.thread ], [ %call374, %if.then506 ], [ null, %opthelp ], [ null, %land.lhs.true ], [ null, %if.end180 ], [ null, %if.end184 ], [ null, %if.then195 ], [ null, %if.then256 ], [ null, %if.then288 ], [ null, %if.then327 ], [ null, %if.then337 ], [ null, %if.then347 ], [ %call374, %if.else489 ], [ %call374, %if.end493 ], [ %call374, %if.then572 ], [ %call374, %land.lhs.true554 ], [ %call374, %if.else614 ], [ %call374, %if.then641 ], [ %call374, %if.then626 ], [ %call374, %if.then656 ], [ %call374, %if.then673 ], [ %call374, %if.else716 ], [ %call374, %if.then707 ], [ %call374, %if.then750 ], [ %call374, %if.then761 ], [ %call374, %if.then778 ], [ %call374, %if.then789 ], [ %call374, %if.then806 ], [ %call374, %if.then817 ], [ %call374, %land.lhs.true891 ], [ %call374, %if.end895 ], [ %call374, %land.lhs.true989 ], [ %call374, %if.end993 ], [ %call374, %if.then1014 ], [ %call374, %if.end1068 ], [ %call374, %if.then1076 ], [ %call374, %if.then1081 ], [ %call374, %if.then1145 ], [ %call374, %if.then1151 ], [ %call374, %if.end1155 ], [ %call374, %if.then1167 ], [ %call374, %land.lhs.true1175 ], [ %call374, %if.end1179 ], [ %call374, %land.lhs.true1194 ], [ %call374, %if.end1220 ], [ %call374, %if.end1224 ], [ %call374, %if.end1211 ], [ %call374, %if.else1206 ], [ %call374, %if.then1204 ], [ %call374, %if.end1183 ], [ %call374, %if.end1061 ], [ %call374, %if.then1055 ], [ %call374, %if.then1025 ], [ %call374, %if.then977 ], [ %call374, %if.then930 ], [ %call374, %if.then842 ], [ %call374, %if.then848 ], [ %call374, %if.then796 ], [ %call374, %if.then768 ], [ %call374, %if.then740 ], [ %call374, %if.then735 ], [ %call374, %if.then729 ], [ %call374, %if.then700 ], [ %call374, %if.then689 ], [ %call374, %land.lhs.true600 ], [ %call374, %if.then479 ], [ %call374, %if.end464 ], [ %call374, %if.then410 ], [ %call374, %if.then417 ], [ %call374, %if.then446 ], [ %call374, %if.then433 ], [ %call374, %if.then397 ], [ null, %if.then377 ], [ null, %if.end368 ], [ null, %if.then365 ], [ null, %if.then359 ], [ null, %if.end280 ], [ null, %land.lhs.true275 ], [ null, %if.end259 ], [ null, %land.lhs.true245 ], [ %call225, %if.end235 ], [ %call225, %if.then239 ], [ %call225, %if.end230 ], [ null, %if.then228 ], [ null, %if.then219 ], [ null, %end_of_options ], [ %call374, %if.end1104 ], [ %call374, %if.end1113 ], [ %call374, %if.end1118 ], [ %call374, %if.then1099 ], [ %call374, %if.end965 ], [ %call374, %for.body825 ], [ null, %sw.bb51 ], [ null, %sw.bb57 ], [ null, %lor.lhs.false ], [ null, %if.end80 ], [ null, %lor.lhs.false98 ], [ null, %if.end95 ]
-  %x509.1.ph = phi ptr [ %x509.0, %if.then1167.thread ], [ null, %lookup_conf.exit.thread ], [ %x509.0, %if.then506 ], [ null, %opthelp ], [ null, %land.lhs.true ], [ null, %if.end180 ], [ null, %if.end184 ], [ null, %if.then195 ], [ null, %if.then256 ], [ %call281, %if.then288 ], [ %x509.0, %if.then327 ], [ %x509.0, %if.then337 ], [ %x509.0, %if.then347 ], [ %x509.0, %if.else489 ], [ %x509.0, %if.end493 ], [ %x509.0, %if.then572 ], [ %x509.0, %land.lhs.true554 ], [ %x509.0, %if.else614 ], [ %x509.0, %if.then641 ], [ %x509.0, %if.then626 ], [ %x509.0, %if.then656 ], [ %x509.0, %if.then673 ], [ %x509.0, %if.else716 ], [ %x509.0, %if.then707 ], [ %x509.0, %if.then750 ], [ %x509.0, %if.then761 ], [ %x509.0, %if.then778 ], [ %x509.0, %if.then789 ], [ %x509.0, %if.then806 ], [ %x509.0, %if.then817 ], [ %x509.0, %land.lhs.true891 ], [ %x509.0, %if.end895 ], [ %x509.0, %land.lhs.true989 ], [ %x509.0, %if.end993 ], [ %x509.0, %if.then1014 ], [ %x509.0, %if.end1068 ], [ %x509.0, %if.then1076 ], [ %x509.0, %if.then1081 ], [ %x509.0, %if.then1145 ], [ %x509.0, %if.then1151 ], [ %x509.0, %if.end1155 ], [ %x509.0, %if.then1167 ], [ %x509.0, %land.lhs.true1175 ], [ %x509.0, %if.end1179 ], [ %x509.0, %land.lhs.true1194 ], [ %x509.0, %if.end1220 ], [ %x509.0, %if.end1224 ], [ %x509.0, %if.end1211 ], [ %x509.0, %if.else1206 ], [ %x509.0, %if.then1204 ], [ %x509.0, %if.end1183 ], [ %x509.0, %if.end1061 ], [ %x509.0, %if.then1055 ], [ %x509.0, %if.then1025 ], [ %x509.0, %if.then977 ], [ %x509.0, %if.then930 ], [ %x509.0, %if.then842 ], [ %x509.0, %if.then848 ], [ %x509.0, %if.then796 ], [ %x509.0, %if.then768 ], [ %x509.0, %if.then740 ], [ %x509.0, %if.then735 ], [ %x509.0, %if.then729 ], [ %x509.0, %if.then700 ], [ %x509.0, %if.then689 ], [ %x509.0, %land.lhs.true600 ], [ %x509.0, %if.then479 ], [ %x509.0, %if.end464 ], [ %x509.0, %if.then410 ], [ %x509.0, %if.then417 ], [ %x509.0, %if.then446 ], [ %x509.0, %if.then433 ], [ %x509.0, %if.then397 ], [ %x509.0, %if.then377 ], [ %x509.0, %if.end368 ], [ %x509.0, %if.then365 ], [ %x509.0, %if.then359 ], [ null, %if.end280 ], [ null, %land.lhs.true275 ], [ null, %if.end259 ], [ null, %land.lhs.true245 ], [ null, %if.end235 ], [ null, %if.then239 ], [ null, %if.end230 ], [ null, %if.then228 ], [ null, %if.then219 ], [ null, %end_of_options ], [ %x509.0, %if.end1104 ], [ %x509.0, %if.end1113 ], [ %x509.0, %if.end1118 ], [ %x509.0, %if.then1099 ], [ %x509.0, %if.end965 ], [ %x509.0, %for.body825 ], [ null, %sw.bb51 ], [ null, %sw.bb57 ], [ null, %lor.lhs.false ], [ null, %if.end80 ], [ null, %lor.lhs.false98 ], [ null, %if.end95 ]
-  %Sout.3.ph = phi ptr [ null, %if.then1167.thread ], [ null, %lookup_conf.exit.thread ], [ null, %if.then506 ], [ null, %opthelp ], [ null, %land.lhs.true ], [ null, %if.end180 ], [ null, %if.end184 ], [ null, %if.then195 ], [ null, %if.then256 ], [ null, %if.then288 ], [ null, %if.then327 ], [ null, %if.then337 ], [ null, %if.then347 ], [ null, %if.else489 ], [ null, %if.end493 ], [ null, %if.then572 ], [ null, %land.lhs.true554 ], [ null, %if.else614 ], [ null, %if.then641 ], [ null, %if.then626 ], [ null, %if.then656 ], [ null, %if.then673 ], [ null, %if.else716 ], [ null, %if.then707 ], [ null, %if.then750 ], [ null, %if.then761 ], [ null, %if.then778 ], [ null, %if.then789 ], [ null, %if.then806 ], [ null, %if.then817 ], [ null, %land.lhs.true891 ], [ null, %if.end895 ], [ null, %land.lhs.true989 ], [ null, %if.end993 ], [ null, %if.then1014 ], [ null, %if.end1068 ], [ null, %if.then1076 ], [ null, %if.then1081 ], [ null, %if.then1145 ], [ null, %if.then1151 ], [ null, %if.end1155 ], [ null, %if.then1167 ], [ null, %land.lhs.true1175 ], [ null, %if.end1179 ], [ %call1186, %land.lhs.true1194 ], [ %Sout.2, %if.end1220 ], [ %Sout.2, %if.end1224 ], [ %Sout.2, %if.end1211 ], [ %Sout.2, %if.else1206 ], [ %Sout.2, %if.then1204 ], [ null, %if.end1183 ], [ null, %if.end1061 ], [ null, %if.then1055 ], [ null, %if.then1025 ], [ %call968, %if.then977 ], [ null, %if.then930 ], [ null, %if.then842 ], [ null, %if.then848 ], [ null, %if.then796 ], [ null, %if.then768 ], [ null, %if.then740 ], [ null, %if.then735 ], [ null, %if.then729 ], [ null, %if.then700 ], [ null, %if.then689 ], [ null, %land.lhs.true600 ], [ null, %if.then479 ], [ null, %if.end464 ], [ null, %if.then410 ], [ null, %if.then417 ], [ null, %if.then446 ], [ null, %if.then433 ], [ null, %if.then397 ], [ null, %if.then377 ], [ null, %if.end368 ], [ null, %if.then365 ], [ null, %if.then359 ], [ null, %if.end280 ], [ null, %land.lhs.true275 ], [ null, %if.end259 ], [ null, %land.lhs.true245 ], [ null, %if.end235 ], [ null, %if.then239 ], [ null, %if.end230 ], [ null, %if.then228 ], [ null, %if.then219 ], [ null, %end_of_options ], [ null, %if.end1104 ], [ null, %if.end1113 ], [ null, %if.end1118 ], [ null, %if.then1099 ], [ null, %if.end965 ], [ null, %for.body825 ], [ null, %sw.bb51 ], [ null, %sw.bb57 ], [ null, %lor.lhs.false ], [ null, %if.end80 ], [ null, %lor.lhs.false98 ], [ null, %if.end95 ]
+  %x509.0.ph = phi ptr [ %x509.1, %if.then1167.thread ], [ null, %lookup_conf.exit.thread ], [ %x509.1, %if.then506 ], [ null, %opthelp ], [ null, %land.lhs.true ], [ null, %if.end180 ], [ null, %if.end184 ], [ null, %if.then195 ], [ null, %if.then256 ], [ %call281, %if.then288 ], [ %x509.1, %if.then327 ], [ %x509.1, %if.then337 ], [ %x509.1, %if.then347 ], [ %x509.1, %if.else489 ], [ %x509.1, %if.end493 ], [ %x509.1, %if.then572 ], [ %x509.1, %land.lhs.true554 ], [ %x509.1, %if.else614 ], [ %x509.1, %if.then641 ], [ %x509.1, %if.then626 ], [ %x509.1, %if.then656 ], [ %x509.1, %if.then673 ], [ %x509.1, %if.else716 ], [ %x509.1, %if.then707 ], [ %x509.1, %if.then750 ], [ %x509.1, %if.then761 ], [ %x509.1, %if.then778 ], [ %x509.1, %if.then789 ], [ %x509.1, %if.then806 ], [ %x509.1, %if.then817 ], [ %x509.1, %land.lhs.true891 ], [ %x509.1, %if.end895 ], [ %x509.1, %land.lhs.true989 ], [ %x509.1, %if.end993 ], [ %x509.1, %if.then1014 ], [ %x509.1, %if.end1068 ], [ %x509.1, %if.then1076 ], [ %x509.1, %if.then1081 ], [ %x509.1, %if.then1145 ], [ %x509.1, %if.then1151 ], [ %x509.1, %if.end1155 ], [ %x509.1, %if.then1167 ], [ %x509.1, %land.lhs.true1175 ], [ %x509.1, %if.end1179 ], [ %x509.1, %land.lhs.true1194 ], [ %x509.1, %if.end1220 ], [ %x509.1, %if.end1224 ], [ %x509.1, %if.end1211 ], [ %x509.1, %if.else1206 ], [ %x509.1, %if.then1204 ], [ %x509.1, %if.end1183 ], [ %x509.1, %if.end1061 ], [ %x509.1, %if.then1055 ], [ %x509.1, %if.then1025 ], [ %x509.1, %if.then977 ], [ %x509.1, %if.then930 ], [ %x509.1, %if.then842 ], [ %x509.1, %if.then848 ], [ %x509.1, %if.then796 ], [ %x509.1, %if.then768 ], [ %x509.1, %if.then740 ], [ %x509.1, %if.then735 ], [ %x509.1, %if.then729 ], [ %x509.1, %if.then700 ], [ %x509.1, %if.then689 ], [ %x509.1, %land.lhs.true600 ], [ %x509.1, %if.then479 ], [ %x509.1, %if.end464 ], [ %x509.1, %if.then410 ], [ %x509.1, %if.then417 ], [ %x509.1, %if.then446 ], [ %x509.1, %if.then433 ], [ %x509.1, %if.then397 ], [ %x509.1, %if.then377 ], [ %x509.1, %if.end368 ], [ %x509.1, %if.then365 ], [ %x509.1, %if.then359 ], [ null, %if.end280 ], [ null, %land.lhs.true275 ], [ null, %if.end259 ], [ null, %land.lhs.true245 ], [ null, %if.end235 ], [ null, %if.then239 ], [ null, %if.end230 ], [ null, %if.then228 ], [ null, %if.then219 ], [ null, %end_of_options ], [ %x509.1, %if.end1104 ], [ %x509.1, %if.end1113 ], [ %x509.1, %if.end1118 ], [ %x509.1, %if.then1099 ], [ %x509.1, %if.end965 ], [ %x509.1, %for.body825 ], [ null, %sw.bb51 ], [ null, %sw.bb57 ], [ null, %lor.lhs.false ], [ null, %if.end80 ], [ null, %lor.lhs.false98 ], [ null, %if.end95 ]
+  %Sout.0.ph = phi ptr [ null, %if.then1167.thread ], [ null, %lookup_conf.exit.thread ], [ null, %if.then506 ], [ null, %opthelp ], [ null, %land.lhs.true ], [ null, %if.end180 ], [ null, %if.end184 ], [ null, %if.then195 ], [ null, %if.then256 ], [ null, %if.then288 ], [ null, %if.then327 ], [ null, %if.then337 ], [ null, %if.then347 ], [ null, %if.else489 ], [ null, %if.end493 ], [ null, %if.then572 ], [ null, %land.lhs.true554 ], [ null, %if.else614 ], [ null, %if.then641 ], [ null, %if.then626 ], [ null, %if.then656 ], [ null, %if.then673 ], [ null, %if.else716 ], [ null, %if.then707 ], [ null, %if.then750 ], [ null, %if.then761 ], [ null, %if.then778 ], [ null, %if.then789 ], [ null, %if.then806 ], [ null, %if.then817 ], [ null, %land.lhs.true891 ], [ null, %if.end895 ], [ null, %land.lhs.true989 ], [ null, %if.end993 ], [ null, %if.then1014 ], [ null, %if.end1068 ], [ null, %if.then1076 ], [ null, %if.then1081 ], [ null, %if.then1145 ], [ null, %if.then1151 ], [ null, %if.end1155 ], [ null, %if.then1167 ], [ null, %land.lhs.true1175 ], [ null, %if.end1179 ], [ %call1186, %land.lhs.true1194 ], [ %Sout.3, %if.end1220 ], [ %Sout.3, %if.end1224 ], [ %Sout.3, %if.end1211 ], [ %Sout.3, %if.else1206 ], [ %Sout.3, %if.then1204 ], [ null, %if.end1183 ], [ null, %if.end1061 ], [ null, %if.then1055 ], [ null, %if.then1025 ], [ %call968, %if.then977 ], [ null, %if.then930 ], [ null, %if.then842 ], [ null, %if.then848 ], [ null, %if.then796 ], [ null, %if.then768 ], [ null, %if.then740 ], [ null, %if.then735 ], [ null, %if.then729 ], [ null, %if.then700 ], [ null, %if.then689 ], [ null, %land.lhs.true600 ], [ null, %if.then479 ], [ null, %if.end464 ], [ null, %if.then410 ], [ null, %if.then417 ], [ null, %if.then446 ], [ null, %if.then433 ], [ null, %if.then397 ], [ null, %if.then377 ], [ null, %if.end368 ], [ null, %if.then365 ], [ null, %if.then359 ], [ null, %if.end280 ], [ null, %land.lhs.true275 ], [ null, %if.end259 ], [ null, %land.lhs.true245 ], [ null, %if.end235 ], [ null, %if.then239 ], [ null, %if.end230 ], [ null, %if.then228 ], [ null, %if.then219 ], [ null, %end_of_options ], [ null, %if.end1104 ], [ null, %if.end1113 ], [ null, %if.end1118 ], [ null, %if.then1099 ], [ null, %if.end965 ], [ null, %for.body825 ], [ null, %sw.bb51 ], [ null, %sw.bb57 ], [ null, %lor.lhs.false ], [ null, %if.end80 ], [ null, %lor.lhs.false98 ], [ null, %if.end95 ]
   %pkey.0.ph = phi ptr [ %call260, %if.then1167.thread ], [ null, %lookup_conf.exit.thread ], [ %call260, %if.then506 ], [ null, %opthelp ], [ null, %land.lhs.true ], [ null, %if.end180 ], [ null, %if.end184 ], [ null, %if.then195 ], [ null, %if.then256 ], [ %call260, %if.then288 ], [ %call260, %if.then327 ], [ %call260, %if.then337 ], [ %call260, %if.then347 ], [ %call260, %if.else489 ], [ %call260, %if.end493 ], [ %call260, %if.then572 ], [ %call260, %land.lhs.true554 ], [ %call260, %if.else614 ], [ %call260, %if.then641 ], [ %call260, %if.then626 ], [ %call260, %if.then656 ], [ %call260, %if.then673 ], [ %call260, %if.else716 ], [ %call260, %if.then707 ], [ %call260, %if.then750 ], [ %call260, %if.then761 ], [ %call260, %if.then778 ], [ %call260, %if.then789 ], [ %call260, %if.then806 ], [ %call260, %if.then817 ], [ %call260, %land.lhs.true891 ], [ %call260, %if.end895 ], [ %call260, %land.lhs.true989 ], [ %call260, %if.end993 ], [ %call260, %if.then1014 ], [ %call260, %if.end1068 ], [ %call260, %if.then1076 ], [ %call260, %if.then1081 ], [ %call260, %if.then1145 ], [ %call260, %if.then1151 ], [ %call260, %if.end1155 ], [ %call260, %if.then1167 ], [ %call260, %land.lhs.true1175 ], [ %call260, %if.end1179 ], [ %call260, %land.lhs.true1194 ], [ %call260, %if.end1220 ], [ %call260, %if.end1224 ], [ %call260, %if.end1211 ], [ %call260, %if.else1206 ], [ %call260, %if.then1204 ], [ %call260, %if.end1183 ], [ %call260, %if.end1061 ], [ %call260, %if.then1055 ], [ %call260, %if.then1025 ], [ %call260, %if.then977 ], [ %call260, %if.then930 ], [ %call260, %if.then842 ], [ %call260, %if.then848 ], [ %call260, %if.then796 ], [ %call260, %if.then768 ], [ %call260, %if.then740 ], [ %call260, %if.then735 ], [ %call260, %if.then729 ], [ %call260, %if.then700 ], [ %call260, %if.then689 ], [ %call260, %land.lhs.true600 ], [ %call260, %if.then479 ], [ %call260, %if.end464 ], [ %call260, %if.then410 ], [ %call260, %if.then417 ], [ %call260, %if.then446 ], [ %call260, %if.then433 ], [ %call260, %if.then397 ], [ %call260, %if.then377 ], [ %call260, %if.end368 ], [ %call260, %if.then365 ], [ %call260, %if.then359 ], [ %call260, %if.end280 ], [ %call260, %land.lhs.true275 ], [ null, %if.end259 ], [ null, %land.lhs.true245 ], [ null, %if.end235 ], [ null, %if.then239 ], [ null, %if.end230 ], [ null, %if.then228 ], [ null, %if.then219 ], [ null, %end_of_options ], [ %call260, %if.end1104 ], [ %call260, %if.end1113 ], [ %call260, %if.end1118 ], [ %call260, %if.then1099 ], [ %call260, %if.end965 ], [ %call260, %for.body825 ], [ null, %sw.bb51 ], [ null, %sw.bb57 ], [ null, %lor.lhs.false ], [ null, %if.end80 ], [ null, %lor.lhs.false98 ], [ null, %if.end95 ]
-  %crlnumber.2.ph = phi ptr [ %crlnumber.0, %if.then1167.thread ], [ null, %lookup_conf.exit.thread ], [ null, %if.then506 ], [ null, %opthelp ], [ null, %land.lhs.true ], [ null, %if.end180 ], [ null, %if.end184 ], [ null, %if.then195 ], [ null, %if.then256 ], [ null, %if.then288 ], [ null, %if.then327 ], [ null, %if.then337 ], [ null, %if.then347 ], [ null, %if.else489 ], [ null, %if.end493 ], [ null, %if.then572 ], [ null, %land.lhs.true554 ], [ null, %if.else614 ], [ null, %if.then641 ], [ null, %if.then626 ], [ null, %if.then656 ], [ null, %if.then673 ], [ null, %if.else716 ], [ null, %if.then707 ], [ null, %if.then750 ], [ null, %if.then761 ], [ null, %if.then778 ], [ null, %if.then789 ], [ null, %if.then806 ], [ null, %if.then817 ], [ null, %land.lhs.true891 ], [ null, %if.end895 ], [ null, %land.lhs.true989 ], [ null, %if.end993 ], [ null, %if.then1014 ], [ %crlnumber.0, %if.end1068 ], [ %crlnumber.0, %if.then1076 ], [ %crlnumber.0, %if.then1081 ], [ %crlnumber.0, %if.then1145 ], [ %crlnumber.0, %if.then1151 ], [ %crlnumber.0, %if.end1155 ], [ %crlnumber.0, %if.then1167 ], [ %crlnumber.0, %land.lhs.true1175 ], [ null, %if.end1179 ], [ null, %land.lhs.true1194 ], [ null, %if.end1220 ], [ null, %if.end1224 ], [ null, %if.end1211 ], [ null, %if.else1206 ], [ null, %if.then1204 ], [ null, %if.end1183 ], [ %crlnumber.0, %if.end1061 ], [ %crlnumber.0, %if.then1055 ], [ null, %if.then1025 ], [ null, %if.then977 ], [ null, %if.then930 ], [ null, %if.then842 ], [ null, %if.then848 ], [ null, %if.then796 ], [ null, %if.then768 ], [ null, %if.then740 ], [ null, %if.then735 ], [ null, %if.then729 ], [ null, %if.then700 ], [ null, %if.then689 ], [ null, %land.lhs.true600 ], [ null, %if.then479 ], [ null, %if.end464 ], [ null, %if.then410 ], [ null, %if.then417 ], [ null, %if.then446 ], [ null, %if.then433 ], [ null, %if.then397 ], [ null, %if.then377 ], [ null, %if.end368 ], [ null, %if.then365 ], [ null, %if.then359 ], [ null, %if.end280 ], [ null, %land.lhs.true275 ], [ null, %if.end259 ], [ null, %land.lhs.true245 ], [ null, %if.end235 ], [ null, %if.then239 ], [ null, %if.end230 ], [ null, %if.then228 ], [ null, %if.then219 ], [ null, %end_of_options ], [ %crlnumber.0, %if.end1104 ], [ %crlnumber.0, %if.end1113 ], [ %crlnumber.0, %if.end1118 ], [ %crlnumber.0, %if.then1099 ], [ null, %if.end965 ], [ null, %for.body825 ], [ null, %sw.bb51 ], [ null, %sw.bb57 ], [ null, %lor.lhs.false ], [ null, %if.end80 ], [ null, %lor.lhs.false98 ], [ null, %if.end95 ]
+  %crlnumber.0.ph = phi ptr [ %crlnumber.2, %if.then1167.thread ], [ null, %lookup_conf.exit.thread ], [ null, %if.then506 ], [ null, %opthelp ], [ null, %land.lhs.true ], [ null, %if.end180 ], [ null, %if.end184 ], [ null, %if.then195 ], [ null, %if.then256 ], [ null, %if.then288 ], [ null, %if.then327 ], [ null, %if.then337 ], [ null, %if.then347 ], [ null, %if.else489 ], [ null, %if.end493 ], [ null, %if.then572 ], [ null, %land.lhs.true554 ], [ null, %if.else614 ], [ null, %if.then641 ], [ null, %if.then626 ], [ null, %if.then656 ], [ null, %if.then673 ], [ null, %if.else716 ], [ null, %if.then707 ], [ null, %if.then750 ], [ null, %if.then761 ], [ null, %if.then778 ], [ null, %if.then789 ], [ null, %if.then806 ], [ null, %if.then817 ], [ null, %land.lhs.true891 ], [ null, %if.end895 ], [ null, %land.lhs.true989 ], [ null, %if.end993 ], [ null, %if.then1014 ], [ %crlnumber.2, %if.end1068 ], [ %crlnumber.2, %if.then1076 ], [ %crlnumber.2, %if.then1081 ], [ %crlnumber.2, %if.then1145 ], [ %crlnumber.2, %if.then1151 ], [ %crlnumber.2, %if.end1155 ], [ %crlnumber.2, %if.then1167 ], [ %crlnumber.2, %land.lhs.true1175 ], [ null, %if.end1179 ], [ null, %land.lhs.true1194 ], [ null, %if.end1220 ], [ null, %if.end1224 ], [ null, %if.end1211 ], [ null, %if.else1206 ], [ null, %if.then1204 ], [ null, %if.end1183 ], [ %crlnumber.2, %if.end1061 ], [ %crlnumber.2, %if.then1055 ], [ null, %if.then1025 ], [ null, %if.then977 ], [ null, %if.then930 ], [ null, %if.then842 ], [ null, %if.then848 ], [ null, %if.then796 ], [ null, %if.then768 ], [ null, %if.then740 ], [ null, %if.then735 ], [ null, %if.then729 ], [ null, %if.then700 ], [ null, %if.then689 ], [ null, %land.lhs.true600 ], [ null, %if.then479 ], [ null, %if.end464 ], [ null, %if.then410 ], [ null, %if.then417 ], [ null, %if.then446 ], [ null, %if.then433 ], [ null, %if.then397 ], [ null, %if.then377 ], [ null, %if.end368 ], [ null, %if.then365 ], [ null, %if.then359 ], [ null, %if.end280 ], [ null, %land.lhs.true275 ], [ null, %if.end259 ], [ null, %land.lhs.true245 ], [ null, %if.end235 ], [ null, %if.then239 ], [ null, %if.end230 ], [ null, %if.then228 ], [ null, %if.then219 ], [ null, %end_of_options ], [ %crlnumber.2, %if.end1104 ], [ %crlnumber.2, %if.end1113 ], [ %crlnumber.2, %if.end1118 ], [ %crlnumber.2, %if.then1099 ], [ null, %if.end965 ], [ null, %for.body825 ], [ null, %sw.bb51 ], [ null, %sw.bb57 ], [ null, %lor.lhs.false ], [ null, %if.end80 ], [ null, %lor.lhs.false98 ], [ null, %if.end95 ]
   %conf.0.ph = phi ptr [ %call150, %if.then1167.thread ], [ %call150, %lookup_conf.exit.thread ], [ %call150, %if.then506 ], [ null, %opthelp ], [ %call150, %land.lhs.true ], [ %call150, %if.end180 ], [ %call150, %if.end184 ], [ %call150, %if.then195 ], [ %call150, %if.then256 ], [ %call150, %if.then288 ], [ %call150, %if.then327 ], [ %call150, %if.then337 ], [ %call150, %if.then347 ], [ %call150, %if.else489 ], [ %call150, %if.end493 ], [ %call150, %if.then572 ], [ %call150, %land.lhs.true554 ], [ %call150, %if.else614 ], [ %call150, %if.then641 ], [ %call150, %if.then626 ], [ %call150, %if.then656 ], [ %call150, %if.then673 ], [ %call150, %if.else716 ], [ %call150, %if.then707 ], [ %call150, %if.then750 ], [ %call150, %if.then761 ], [ %call150, %if.then778 ], [ %call150, %if.then789 ], [ %call150, %if.then806 ], [ %call150, %if.then817 ], [ %call150, %land.lhs.true891 ], [ %call150, %if.end895 ], [ %call150, %land.lhs.true989 ], [ %call150, %if.end993 ], [ %call150, %if.then1014 ], [ %call150, %if.end1068 ], [ %call150, %if.then1076 ], [ %call150, %if.then1081 ], [ %call150, %if.then1145 ], [ %call150, %if.then1151 ], [ %call150, %if.end1155 ], [ %call150, %if.then1167 ], [ %call150, %land.lhs.true1175 ], [ %call150, %if.end1179 ], [ %call150, %land.lhs.true1194 ], [ %call150, %if.end1220 ], [ %call150, %if.end1224 ], [ %call150, %if.end1211 ], [ %call150, %if.else1206 ], [ %call150, %if.then1204 ], [ %call150, %if.end1183 ], [ %call150, %if.end1061 ], [ %call150, %if.then1055 ], [ %call150, %if.then1025 ], [ %call150, %if.then977 ], [ %call150, %if.then930 ], [ %call150, %if.then842 ], [ %call150, %if.then848 ], [ %call150, %if.then796 ], [ %call150, %if.then768 ], [ %call150, %if.then740 ], [ %call150, %if.then735 ], [ %call150, %if.then729 ], [ %call150, %if.then700 ], [ %call150, %if.then689 ], [ %call150, %land.lhs.true600 ], [ %call150, %if.then479 ], [ %call150, %if.end464 ], [ %call150, %if.then410 ], [ %call150, %if.then417 ], [ %call150, %if.then446 ], [ %call150, %if.then433 ], [ %call150, %if.then397 ], [ %call150, %if.then377 ], [ %call150, %if.end368 ], [ %call150, %if.then365 ], [ %call150, %if.then359 ], [ %call150, %if.end280 ], [ %call150, %land.lhs.true275 ], [ %call150, %if.end259 ], [ %call150, %land.lhs.true245 ], [ %call150, %if.end235 ], [ %call150, %if.then239 ], [ %call150, %if.end230 ], [ %call150, %if.then228 ], [ %call150, %if.then219 ], [ null, %end_of_options ], [ %call150, %if.end1104 ], [ %call150, %if.end1113 ], [ %call150, %if.end1118 ], [ %call150, %if.then1099 ], [ %call150, %if.end965 ], [ %call150, %for.body825 ], [ null, %sw.bb51 ], [ null, %sw.bb57 ], [ null, %lor.lhs.false ], [ null, %if.end80 ], [ null, %lor.lhs.false98 ], [ null, %if.end95 ]
   %186 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %186) #12
@@ -2426,24 +2426,24 @@ if.then1233:                                      ; preds = %if.end95, %lor.lhs.
 
 if.end1234:                                       ; preds = %sw.bb3, %if.then870, %if.then882, %if.end1228, %if.end1199, %if.then1233
   %conf.0507 = phi ptr [ %conf.0.ph, %if.then1233 ], [ %call150, %if.then870 ], [ %call150, %if.then882 ], [ null, %sw.bb3 ], [ %call150, %if.end1228 ], [ %call150, %if.end1199 ]
-  %crlnumber.2505 = phi ptr [ %crlnumber.2.ph, %if.then1233 ], [ null, %if.then870 ], [ null, %if.then882 ], [ null, %sw.bb3 ], [ null, %if.end1228 ], [ null, %if.end1199 ]
+  %crlnumber.0505 = phi ptr [ %crlnumber.0.ph, %if.then1233 ], [ null, %if.then870 ], [ null, %if.then882 ], [ null, %sw.bb3 ], [ null, %if.end1228 ], [ null, %if.end1199 ]
   %pkey.0503 = phi ptr [ %pkey.0.ph, %if.then1233 ], [ %call260, %if.then870 ], [ %call260, %if.then882 ], [ null, %sw.bb3 ], [ %call260, %if.end1228 ], [ %call260, %if.end1199 ]
-  %Sout.3501 = phi ptr [ %Sout.3.ph, %if.then1233 ], [ null, %if.then870 ], [ null, %if.then882 ], [ null, %sw.bb3 ], [ %Sout.2, %if.end1228 ], [ %Sout.2, %if.end1199 ]
-  %x509.1499 = phi ptr [ %x509.1.ph, %if.then1233 ], [ %x509.0, %if.then870 ], [ %x509.0, %if.then882 ], [ null, %sw.bb3 ], [ %x509.0, %if.end1228 ], [ %x509.0, %if.end1199 ]
+  %Sout.0501 = phi ptr [ %Sout.0.ph, %if.then1233 ], [ null, %if.then870 ], [ null, %if.then882 ], [ null, %sw.bb3 ], [ %Sout.3, %if.end1228 ], [ %Sout.3, %if.end1199 ]
+  %x509.0499 = phi ptr [ %x509.0.ph, %if.then1233 ], [ %x509.1, %if.then870 ], [ %x509.1, %if.then882 ], [ null, %sw.bb3 ], [ %x509.1, %if.end1228 ], [ %x509.1, %if.end1199 ]
   %ret.0497 = phi i32 [ 1, %if.then1233 ], [ 0, %if.then870 ], [ 0, %if.then882 ], [ 0, %sw.bb3 ], [ 0, %if.end1228 ], [ 0, %if.end1199 ]
   %db.0495 = phi ptr [ %db.0.ph, %if.then1233 ], [ %call374, %if.then870 ], [ %call374, %if.then882 ], [ null, %sw.bb3 ], [ %call374, %if.end1228 ], [ %call374, %if.end1199 ]
-  %free_passin.1493 = phi i32 [ %free_passin.1.ph, %if.then1233 ], [ %free_passin.0, %if.then870 ], [ %free_passin.0, %if.then882 ], [ 0, %sw.bb3 ], [ %free_passin.0, %if.end1228 ], [ %free_passin.0, %if.end1199 ]
-  %crl.1491 = phi ptr [ %crl.1.ph, %if.then1233 ], [ null, %if.then870 ], [ null, %if.then882 ], [ null, %sw.bb3 ], [ %crl.0, %if.end1228 ], [ %crl.0, %if.end1199 ]
-  %cert_sk.1489 = phi ptr [ %cert_sk.1.ph, %if.then1233 ], [ %call732, %if.then870 ], [ %call732, %if.then882 ], [ null, %sw.bb3 ], [ %cert_sk.0, %if.end1228 ], [ %cert_sk.0, %if.end1199 ]
-  %vfyopts.3487 = phi ptr [ %vfyopts.3.ph, %if.then1233 ], [ %vfyopts.0, %if.then870 ], [ %vfyopts.0, %if.then882 ], [ %vfyopts.0, %sw.bb3 ], [ %vfyopts.0, %if.end1228 ], [ %vfyopts.0, %if.end1199 ]
-  %sigopts.3485 = phi ptr [ %sigopts.3.ph, %if.then1233 ], [ %sigopts.0, %if.then870 ], [ %sigopts.0, %if.then882 ], [ %sigopts.0, %sw.bb3 ], [ %sigopts.0, %if.end1228 ], [ %sigopts.0, %if.end1199 ]
-  call void @BIO_free_all(ptr noundef %Sout.3501) #12
+  %free_passin.0493 = phi i32 [ %free_passin.0.ph, %if.then1233 ], [ %free_passin.1, %if.then870 ], [ %free_passin.1, %if.then882 ], [ 0, %sw.bb3 ], [ %free_passin.1, %if.end1228 ], [ %free_passin.1, %if.end1199 ]
+  %crl.0491 = phi ptr [ %crl.0.ph, %if.then1233 ], [ null, %if.then870 ], [ null, %if.then882 ], [ null, %sw.bb3 ], [ %crl.1, %if.end1228 ], [ %crl.1, %if.end1199 ]
+  %cert_sk.0489 = phi ptr [ %cert_sk.0.ph, %if.then1233 ], [ %call732, %if.then870 ], [ %call732, %if.then882 ], [ null, %sw.bb3 ], [ %cert_sk.1, %if.end1228 ], [ %cert_sk.1, %if.end1199 ]
+  %vfyopts.2487 = phi ptr [ %vfyopts.2.ph, %if.then1233 ], [ %vfyopts.0, %if.then870 ], [ %vfyopts.0, %if.then882 ], [ %vfyopts.0, %sw.bb3 ], [ %vfyopts.0, %if.end1228 ], [ %vfyopts.0, %if.end1199 ]
+  %sigopts.2485 = phi ptr [ %sigopts.2.ph, %if.then1233 ], [ %sigopts.0, %if.then870 ], [ %sigopts.0, %if.then882 ], [ %sigopts.0, %sw.bb3 ], [ %sigopts.0, %if.end1228 ], [ %sigopts.0, %if.end1199 ]
+  call void @BIO_free_all(ptr noundef %Sout.0501) #12
   call void @BIO_free_all(ptr noundef null) #12
   call void @BIO_free_all(ptr noundef null) #12
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %cert_sk.1489) #12
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %cert_sk.0489) #12
   %187 = load ptr, ptr %passin, align 8
   call void @cleanse(ptr noundef %187) #12
-  %tobool1235.not = icmp eq i32 %free_passin.1493, 0
+  %tobool1235.not = icmp eq i32 %free_passin.0493, 0
   br i1 %tobool1235.not, label %if.end1237, label %if.then1236
 
 if.then1236:                                      ; preds = %if.end1234
@@ -2454,13 +2454,13 @@ if.then1236:                                      ; preds = %if.end1234
 if.end1237:                                       ; preds = %if.then1236, %if.end1234
   %189 = load ptr, ptr %serial, align 8
   call void @BN_free(ptr noundef %189) #12
-  call void @BN_free(ptr noundef %crlnumber.2505) #12
+  call void @BN_free(ptr noundef %crlnumber.0505) #12
   call void @free_index(ptr noundef %db.0495) #12
-  call void @OPENSSL_sk_free(ptr noundef %sigopts.3485) #12
-  call void @OPENSSL_sk_free(ptr noundef %vfyopts.3487) #12
+  call void @OPENSSL_sk_free(ptr noundef %sigopts.2485) #12
+  call void @OPENSSL_sk_free(ptr noundef %vfyopts.2487) #12
   call void @EVP_PKEY_free(ptr noundef %pkey.0503) #12
-  call void @X509_free(ptr noundef %x509.1499) #12
-  call void @X509_CRL_free(ptr noundef %crl.1491) #12
+  call void @X509_free(ptr noundef %x509.0499) #12
+  call void @X509_CRL_free(ptr noundef %crl.0491) #12
   call void @NCONF_free(ptr noundef %conf.0507) #12
   %190 = load ptr, ptr @extfile_conf, align 8
   call void @NCONF_free(ptr noundef %190) #12
@@ -2724,7 +2724,7 @@ if.end14:                                         ; preds = %lor.lhs.false
   br i1 %cmp16, label %end, label %if.end20
 
 if.end20:                                         ; preds = %if.end14, %if.end4
-  %rtmp.0 = phi ptr [ %call9, %if.end14 ], [ null, %if.end4 ]
+  %rtmp.1 = phi ptr [ %call9, %if.end14 ], [ null, %if.end4 ]
   %3 = load ptr, ptr %comp_time, align 8
   %tobool23.not = icmp eq ptr %3, null
   br i1 %tobool23.not, label %if.end30, label %if.then24
@@ -2745,7 +2745,7 @@ if.then34:                                        ; preds = %if.end30
   br i1 %cmp36, label %end, label %if.end40
 
 if.end40:                                         ; preds = %if.end, %if.then34, %if.end30
-  %rtmp.01923 = phi ptr [ %rtmp.0, %if.then34 ], [ %rtmp.0, %if.end30 ], [ null, %if.end ]
+  %rtmp.11923 = phi ptr [ %rtmp.1, %if.then34 ], [ %rtmp.1, %if.end30 ], [ null, %if.end ]
   %5 = load i32, ptr %reason_code, align 4
   %cmp41.not = icmp eq i32 %5, -1
   %. = select i1 %cmp41.not, i32 1, i32 2
@@ -2753,13 +2753,13 @@ if.end40:                                         ; preds = %if.end, %if.then34,
 
 end:                                              ; preds = %if.end40, %if.then34, %if.then24, %if.end14, %if.then8, %lor.lhs.false, %land.lhs.true, %entry
   %ret.0 = phi i32 [ 0, %entry ], [ 0, %if.then8 ], [ 0, %if.end14 ], [ 0, %if.then24 ], [ 0, %if.then34 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ], [ %., %if.end40 ]
-  %rtmp.1 = phi ptr [ null, %entry ], [ null, %if.then8 ], [ %call9, %if.end14 ], [ %rtmp.0, %if.then24 ], [ %rtmp.0, %if.then34 ], [ %call9, %lor.lhs.false ], [ null, %land.lhs.true ], [ %rtmp.01923, %if.end40 ]
+  %rtmp.0 = phi ptr [ null, %entry ], [ null, %if.then8 ], [ %call9, %if.end14 ], [ %rtmp.1, %if.then24 ], [ %rtmp.1, %if.then34 ], [ %call9, %lor.lhs.false ], [ null, %land.lhs.true ], [ %rtmp.11923, %if.end40 ]
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str.198, i32 noundef 2484) #12
   %6 = load ptr, ptr %hold, align 8
   call void @ASN1_OBJECT_free(ptr noundef %6) #12
   %7 = load ptr, ptr %comp_time, align 8
   call void @ASN1_GENERALIZEDTIME_free(ptr noundef %7) #12
-  call void @ASN1_ENUMERATED_free(ptr noundef %rtmp.1) #12
+  call void @ASN1_ENUMERATED_free(ptr noundef %rtmp.0) #12
   %8 = load ptr, ptr %revDate, align 8
   call void @ASN1_TIME_free(ptr noundef %8) #12
   ret i32 %ret.0
@@ -2942,7 +2942,7 @@ if.end18.lr.ph:                                   ; preds = %if.end12
 
 if.end18:                                         ; preds = %if.end18.lr.ph, %for.inc60
   %i.040 = phi i32 [ 0, %if.end18.lr.ph ], [ %inc, %for.inc60 ]
-  %spki.039 = phi ptr [ null, %if.end18.lr.ph ], [ %spki.1, %for.inc60 ]
+  %spki.139 = phi ptr [ null, %if.end18.lr.ph ], [ %spki.2, %for.inc60 ]
   %call20 = call ptr @OPENSSL_sk_value(ptr noundef %call2, i32 noundef %i.040) #12
   %name = getelementptr inbounds i8, ptr %call20, i64 8
   %3 = load ptr, ptr %name, align 8
@@ -2999,14 +2999,14 @@ if.end54:                                         ; preds = %for.end
   br i1 %tobool57.not, label %end, label %for.inc60
 
 for.inc60:                                        ; preds = %if.end54, %if.then41, %if.then45
-  %spki.1 = phi ptr [ %call47, %if.then45 ], [ %spki.039, %if.then41 ], [ %spki.039, %if.end54 ]
+  %spki.2 = phi ptr [ %call47, %if.then45 ], [ %spki.139, %if.then41 ], [ %spki.139, %if.end54 ]
   %inc = add nuw nsw i32 %i.040, 1
   %call15 = call i32 @OPENSSL_sk_num(ptr noundef %call2) #12
   %cmp16.not = icmp sgt i32 %call15, %inc
   br i1 %cmp16.not, label %if.end18, label %for.end61
 
 for.end61:                                        ; preds = %for.inc60
-  %cmp62 = icmp eq ptr %spki.1, null
+  %cmp62 = icmp eq ptr %spki.2, null
   br i1 %cmp62, label %if.then64, label %if.end66
 
 if.then64:                                        ; preds = %if.end12, %for.end61
@@ -3017,7 +3017,7 @@ if.then64:                                        ; preds = %if.end12, %for.end6
 if.end66:                                         ; preds = %for.end61
   %10 = load ptr, ptr @bio_err, align 8
   %call67 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull @.str.312) #12
-  %call68 = call ptr @NETSCAPE_SPKI_get_pubkey(ptr noundef nonnull %spki.1) #12
+  %call68 = call ptr @NETSCAPE_SPKI_get_pubkey(ptr noundef nonnull %spki.2) #12
   %cmp69 = icmp eq ptr %call68, null
   br i1 %cmp69, label %if.then71, label %if.end73
 
@@ -3027,7 +3027,7 @@ if.then71:                                        ; preds = %if.end66
   br label %end
 
 if.end73:                                         ; preds = %if.end66
-  %call74 = call i32 @NETSCAPE_SPKI_verify(ptr noundef nonnull %spki.1, ptr noundef nonnull %call68) #12
+  %call74 = call i32 @NETSCAPE_SPKI_verify(ptr noundef nonnull %spki.2, ptr noundef nonnull %call68) #12
   %cmp75 = icmp slt i32 %call74, 1
   br i1 %cmp75, label %if.then77, label %if.end79
 
@@ -3046,12 +3046,12 @@ if.end79:                                         ; preds = %if.end73
   br label %end
 
 end:                                              ; preds = %if.end54, %if.end8, %if.end79, %if.then77, %if.then71, %if.then64, %if.then50, %if.then6, %if.then
-  %spki.2 = phi ptr [ null, %if.then ], [ null, %if.then6 ], [ null, %if.end8 ], [ null, %if.then64 ], [ %spki.1, %if.then71 ], [ %spki.1, %if.then77 ], [ %spki.1, %if.end79 ], [ null, %if.then50 ], [ %spki.039, %if.end54 ]
+  %spki.0 = phi ptr [ null, %if.then ], [ null, %if.then6 ], [ null, %if.end8 ], [ null, %if.then64 ], [ %spki.2, %if.then71 ], [ %spki.2, %if.then77 ], [ %spki.2, %if.end79 ], [ null, %if.then50 ], [ %spki.139, %if.end54 ]
   %req.0 = phi ptr [ null, %if.then ], [ null, %if.then6 ], [ null, %if.end8 ], [ %call9, %if.then64 ], [ %call9, %if.then71 ], [ %call9, %if.then77 ], [ %call9, %if.end79 ], [ %call9, %if.then50 ], [ %call9, %if.end54 ]
   %ok.0 = phi i32 [ -1, %if.then ], [ -1, %if.then6 ], [ -1, %if.end8 ], [ -1, %if.then64 ], [ -1, %if.then71 ], [ -1, %if.then77 ], [ %call82, %if.end79 ], [ -1, %if.then50 ], [ -1, %if.end54 ]
   call void @X509_REQ_free(ptr noundef %req.0) #12
   call void @CONF_free(ptr noundef %call) #12
-  call void @NETSCAPE_SPKI_free(ptr noundef %spki.2) #12
+  call void @NETSCAPE_SPKI_free(ptr noundef %spki.0) #12
   call void @X509_NAME_ENTRY_free(ptr noundef null) #12
   ret i32 %ok.0
 }
@@ -3515,7 +3515,7 @@ if.end19.i:                                       ; preds = %sw.bb15.i
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %for.body.i, %if.end19.i, %sw.bb9.i, %if.else126
-  %reason.1.i = phi ptr [ null, %if.else126 ], [ @.str.325, %sw.bb9.i ], [ %.str.327..str.328.i, %if.end19.i ], [ %31, %for.body.i ]
+  %reason.0.i = phi ptr [ null, %if.else126 ], [ @.str.325, %sw.bb9.i ], [ %.str.327..str.328.i, %if.end19.i ], [ %31, %for.body.i ]
   %other.0.i = phi ptr [ null, %if.else126 ], [ %value, %sw.bb9.i ], [ %value, %if.end19.i ], [ null, %for.body.i ]
   %call23.i = call ptr @X509_gmtime_adj(ptr noundef null, i64 noundef 0) #12
   %tobool24.not.i = icmp eq ptr %call23.i, null
@@ -3524,11 +3524,11 @@ sw.epilog.i:                                      ; preds = %for.body.i, %if.end
 if.end26.i:                                       ; preds = %sw.epilog.i
   %32 = load i32, ptr %call23.i, align 8
   %add.i = add nsw i32 %32, 1
-  %tobool27.not.i = icmp eq ptr %reason.1.i, null
+  %tobool27.not.i = icmp eq ptr %reason.0.i, null
   br i1 %tobool27.not.i, label %if.end33.i, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.end26.i
-  %call29.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reason.1.i) #13
+  %call29.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reason.0.i) #13
   %33 = trunc i64 %call29.i to i32
   %34 = add i32 %32, 2
   %conv32.i = add i32 %34, %33
@@ -3557,7 +3557,7 @@ if.end41.i:                                       ; preds = %if.then35.i, %if.en
 
 if.then47.i:                                      ; preds = %if.end41.i
   %call49.i = call i64 @OPENSSL_strlcat(ptr noundef %call43.i, ptr noundef nonnull @.str.329, i64 noundef %conv42.i) #12
-  %call51.i = call i64 @OPENSSL_strlcat(ptr noundef %call43.i, ptr noundef nonnull %reason.1.i, i64 noundef %conv42.i) #12
+  %call51.i = call i64 @OPENSSL_strlcat(ptr noundef %call43.i, ptr noundef nonnull %reason.0.i, i64 noundef %conv42.i) #12
   br label %if.end52.i
 
 if.end52.i:                                       ; preds = %if.then47.i, %if.end41.i
@@ -3793,13 +3793,13 @@ if.end75:                                         ; preds = %if.end70
   br label %if.end84
 
 if.end84:                                         ; preds = %if.end75, %for.end, %if.else55, %if.then52, %if.else53, %if.end21
-  %reason_code.1 = phi i32 [ 6, %if.then52 ], [ 6, %if.else53 ], [ %4, %if.else55 ], [ -1, %if.end21 ], [ 8, %for.end ], [ %., %if.end75 ]
-  %comp_time.0 = phi ptr [ null, %if.then52 ], [ null, %if.else53 ], [ null, %if.else55 ], [ null, %if.end21 ], [ null, %for.end ], [ %call65, %if.end75 ]
+  %reason_code.0 = phi i32 [ 6, %if.then52 ], [ 6, %if.else53 ], [ %4, %if.else55 ], [ -1, %if.end21 ], [ 8, %for.end ], [ %., %if.end75 ]
+  %comp_time.1 = phi ptr [ null, %if.then52 ], [ null, %if.else53 ], [ null, %if.else55 ], [ null, %if.end21 ], [ null, %for.end ], [ %call65, %if.end75 ]
   %tobool85.not = icmp eq ptr %preason, null
   br i1 %tobool85.not, label %if.end87, label %if.then86
 
 if.then86:                                        ; preds = %if.end84
-  store i32 %reason_code.1, ptr %preason, align 4
+  store i32 %reason_code.0, ptr %preason, align 4
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then86, %if.end84
@@ -3807,14 +3807,14 @@ if.end87:                                         ; preds = %if.then86, %if.end8
   br i1 %tobool88.not, label %end, label %if.then89
 
 if.then89:                                        ; preds = %if.end87
-  store ptr %comp_time.0, ptr %pinvtm, align 8
+  store ptr %comp_time.1, ptr %pinvtm, align 8
   br label %end
 
 end:                                              ; preds = %if.end87, %if.then89, %if.then73, %if.then68, %if.then62, %if.then48, %if.then43, %if.then33, %if.then18, %if.then13, %if.then
   %ret.0 = phi i32 [ 0, %if.then13 ], [ 0, %if.then33 ], [ 0, %if.then48 ], [ 0, %if.then43 ], [ 0, %if.then68 ], [ 0, %if.then73 ], [ 0, %if.then62 ], [ 0, %if.then18 ], [ 0, %if.then ], [ 1, %if.then89 ], [ 1, %if.end87 ]
-  %comp_time.2 = phi ptr [ null, %if.then13 ], [ null, %if.then33 ], [ null, %if.then48 ], [ null, %if.then43 ], [ null, %if.then68 ], [ %call65, %if.then73 ], [ null, %if.then62 ], [ null, %if.then18 ], [ null, %if.then ], [ null, %if.then89 ], [ %comp_time.0, %if.end87 ]
+  %comp_time.0 = phi ptr [ null, %if.then13 ], [ null, %if.then33 ], [ null, %if.then48 ], [ null, %if.then43 ], [ null, %if.then68 ], [ %call65, %if.then73 ], [ null, %if.then62 ], [ null, %if.then18 ], [ null, %if.then ], [ null, %if.then89 ], [ %comp_time.1, %if.end87 ]
   tail call void @CRYPTO_free(ptr noundef %call, ptr noundef nonnull @.str.198, i32 noundef 2639) #12
-  tail call void @ASN1_GENERALIZEDTIME_free(ptr noundef %comp_time.2) #12
+  tail call void @ASN1_GENERALIZEDTIME_free(ptr noundef %comp_time.0) #12
   ret i32 %ret.0
 }
 
@@ -4168,9 +4168,9 @@ if.end122:                                        ; preds = %for.body112
   br label %for.cond124
 
 for.cond124:                                      ; preds = %if.end221, %if.end122
-  %str2.1 = phi ptr [ %str2.0264, %if.end122 ], [ %str2.4209, %if.end221 ]
+  %str2.1 = phi ptr [ %str2.0264, %if.end122 ], [ %str2.2209, %if.end221 ]
   %last.0 = phi i32 [ -1, %if.end122 ], [ %call125, %if.end221 ]
-  %str.1 = phi ptr [ %str.0266, %if.end122 ], [ %str.4213, %if.end221 ]
+  %str.1 = phi ptr [ %str.0266, %if.end122 ], [ %str.2213, %if.end221 ]
   %call125 = call i32 @X509_NAME_get_index_by_OBJ(ptr noundef %call9, ptr noundef %call123, i32 noundef %last.0) #12
   %cmp126 = icmp slt i32 %call125, 0
   br i1 %cmp126, label %if.then128, label %if.else133
@@ -4223,8 +4223,8 @@ if.then165:                                       ; preds = %if.then162
   br label %end
 
 again2:                                           ; preds = %if.then162, %if.then181
-  %str2.2 = phi ptr [ %call184, %if.then181 ], [ %str2.1, %if.then162 ]
-  %str.2 = phi ptr [ %call183, %if.then181 ], [ %str.1, %if.then162 ]
+  %str2.3 = phi ptr [ %call184, %if.then181 ], [ %str2.1, %if.then162 ]
+  %str.3 = phi ptr [ %call183, %if.then181 ], [ %str.1, %if.then162 ]
   %last2.0 = phi i32 [ %call169, %if.then181 ], [ -1, %if.then162 ]
   %call169 = call i32 @X509_NAME_get_index_by_OBJ(ptr noundef nonnull %call101, ptr noundef %call123, i32 noundef %last2.0) #12
   %cmp170 = icmp slt i32 %call169, 0
@@ -4255,21 +4255,21 @@ if.then193:                                       ; preds = %if.end178
   %name115.le319 = getelementptr inbounds i8, ptr %call114, i64 8
   %37 = load ptr, ptr @bio_err, align 8
   %38 = load ptr, ptr %name115.le319, align 8
-  %cmp195 = icmp eq ptr %str2.2, null
+  %cmp195 = icmp eq ptr %str2.3, null
   br i1 %cmp195, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then193
-  %data197 = getelementptr inbounds i8, ptr %str2.2, i64 8
+  %data197 = getelementptr inbounds i8, ptr %str2.3, i64 8
   %39 = load ptr, ptr %data197, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then193, %cond.false
   %cond = phi ptr [ %39, %cond.false ], [ @.str.254, %if.then193 ]
-  %cmp198 = icmp eq ptr %str.2, null
+  %cmp198 = icmp eq ptr %str.3, null
   br i1 %cmp198, label %cond.end203, label %cond.false201
 
 cond.false201:                                    ; preds = %cond.end
-  %data202 = getelementptr inbounds i8, ptr %str.2, i64 8
+  %data202 = getelementptr inbounds i8, ptr %str.3, i64 8
   %40 = load ptr, ptr %data202, align 8
   br label %cond.end203
 
@@ -4284,19 +4284,19 @@ if.else207:                                       ; preds = %if.else157
   br label %end
 
 if.end212:                                        ; preds = %if.then181, %if.end135
-  %str2.4 = phi ptr [ %str2.1, %if.end135 ], [ %call184, %if.then181 ]
+  %str2.2 = phi ptr [ %str2.1, %if.end135 ], [ %call184, %if.then181 ]
   %j.0 = phi i32 [ %call125, %if.end135 ], [ %call169, %if.then181 ]
-  %str.4 = phi ptr [ %str.1, %if.end135 ], [ %call183, %if.then181 ]
-  %push.2 = phi ptr [ %tne.0, %if.end135 ], [ %call182, %if.then181 ]
-  %cmp213.not = icmp eq ptr %push.2, null
+  %str.2 = phi ptr [ %str.1, %if.end135 ], [ %call183, %if.then181 ]
+  %push.0 = phi ptr [ %tne.0, %if.end135 ], [ %call182, %if.then181 ]
+  %cmp213.not = icmp eq ptr %push.0, null
   br i1 %cmp213.not, label %if.end221, label %if.then215
 
 if.then215:                                       ; preds = %if.then149, %if.end212
-  %push.2214 = phi ptr [ %push.2, %if.end212 ], [ %tne.0, %if.then149 ]
-  %str.4212 = phi ptr [ %str.4, %if.end212 ], [ %str.1, %if.then149 ]
+  %push.0214 = phi ptr [ %push.0, %if.end212 ], [ %tne.0, %if.then149 ]
+  %str.2212 = phi ptr [ %str.2, %if.end212 ], [ %str.1, %if.then149 ]
   %j.0210 = phi i32 [ %j.0, %if.end212 ], [ %call125, %if.then149 ]
-  %str2.4208 = phi ptr [ %str2.4, %if.end212 ], [ %str2.1, %if.then149 ]
-  %call216 = call i32 @X509_NAME_add_entry(ptr noundef nonnull %call91, ptr noundef nonnull %push.2214, i32 noundef -1, i32 noundef 0) #12
+  %str2.2208 = phi ptr [ %str2.2, %if.end212 ], [ %str2.1, %if.then149 ]
+  %call216 = call i32 @X509_NAME_add_entry(ptr noundef nonnull %call91, ptr noundef nonnull %push.0214, i32 noundef -1, i32 noundef 0) #12
   %tobool217.not = icmp eq i32 %call216, 0
   br i1 %tobool217.not, label %if.then218, label %if.end221
 
@@ -4306,15 +4306,15 @@ if.then218:                                       ; preds = %if.then215
   br label %end
 
 if.end221:                                        ; preds = %if.then215, %if.end212
-  %str.4213 = phi ptr [ %str.4212, %if.then215 ], [ %str.4, %if.end212 ]
+  %str.2213 = phi ptr [ %str.2212, %if.then215 ], [ %str.2, %if.end212 ]
   %j.0211 = phi i32 [ %j.0210, %if.then215 ], [ %j.0, %if.end212 ]
-  %str2.4209 = phi ptr [ %str2.4208, %if.then215 ], [ %str2.4, %if.end212 ]
+  %str2.2209 = phi ptr [ %str2.2208, %if.then215 ], [ %str2.2, %if.end212 ]
   %cmp222 = icmp slt i32 %j.0211, 0
   br i1 %cmp222, label %for.inc227, label %for.cond124
 
 for.inc227:                                       ; preds = %if.then128, %if.end221
-  %str2.5 = phi ptr [ %str2.1, %if.then128 ], [ %str2.4209, %if.end221 ]
-  %str.5 = phi ptr [ %str.1, %if.then128 ], [ %str.4213, %if.end221 ]
+  %str2.5 = phi ptr [ %str2.1, %if.then128 ], [ %str2.2209, %if.end221 ]
+  %str.5 = phi ptr [ %str.1, %if.then128 ], [ %str.2213, %if.end221 ]
   %inc228 = add nuw nsw i32 %i.2265, 1
   %call109 = call i32 @OPENSSL_sk_num(ptr noundef %policy) #12
   %cmp110 = icmp slt i32 %inc228, %call109
@@ -4331,7 +4331,7 @@ if.then231:                                       ; preds = %for.end229
   br i1 %cmp233, label %end, label %if.end237
 
 if.end237:                                        ; preds = %if.then231, %for.end229
-  %subject.0 = phi ptr [ %call232, %if.then231 ], [ %call91, %for.end229 ]
+  %subject.1 = phi ptr [ %call232, %if.then231 ], [ %call91, %for.end229 ]
   %tobool238.not = icmp eq i32 %verbose, 0
   br i1 %tobool238.not, label %if.end241, label %if.then239
 
@@ -4357,7 +4357,7 @@ if.end254:                                        ; preds = %if.end248
   br i1 %tobool97.not, label %if.else261, label %if.then256
 
 if.then256:                                       ; preds = %if.end254
-  %call257 = call i32 @X509_set_issuer_name(ptr noundef nonnull %call244, ptr noundef nonnull %subject.0) #12
+  %call257 = call i32 @X509_set_issuer_name(ptr noundef nonnull %call244, ptr noundef nonnull %subject.1) #12
   %tobool258.not = icmp eq i32 %call257, 0
   br i1 %tobool258.not, label %end, label %if.end267
 
@@ -4390,7 +4390,7 @@ if.end280:                                        ; preds = %if.then275
 
 if.end282:                                        ; preds = %if.end280, %if.end272
   %days.addr.0 = phi i64 [ %conv281, %if.end280 ], [ %days, %if.end272 ]
-  %call283 = call i32 @X509_set_subject_name(ptr noundef nonnull %call244, ptr noundef nonnull %subject.0) #12
+  %call283 = call i32 @X509_set_subject_name(ptr noundef nonnull %call244, ptr noundef nonnull %subject.1) #12
   %tobool284.not = icmp eq i32 %call283, 0
   br i1 %tobool284.not, label %end, label %if.end286
 
@@ -4497,7 +4497,7 @@ if.end350:                                        ; preds = %if.then348, %if.end
   br i1 %tobool351.not, label %if.then352, label %if.end367
 
 if.then352:                                       ; preds = %if.end350
-  %call353 = call ptr @X509_NAME_dup(ptr noundef nonnull %subject.0) #12
+  %call353 = call ptr @X509_NAME_dup(ptr noundef nonnull %subject.1) #12
   %cmp354 = icmp eq ptr %call353, null
   br i1 %cmp354, label %if.then356, label %while.cond.preheader
 
@@ -4834,9 +4834,9 @@ if.then601:                                       ; preds = %for.end596
 end:                                              ; preds = %while.end, %if.end548, %if.then298, %if.end286, %if.end282, %if.then275, %if.end267, %if.else261, %if.then256, %if.end248, %if.end241, %if.then231, %if.end102, %if.then, %if.then601, %if.then582, %if.then536, %if.then524, %if.end475, %if.then405, %if.then389, %if.then374, %if.then356, %if.then344, %if.then332, %if.then320, %if.then218, %if.else207, %cond.end203, %if.then175, %if.then165, %if.then152, %if.then119, %if.then94, %if.then80, %if.then56
   %ret.0 = phi ptr [ null, %if.then56 ], [ null, %if.then80 ], [ null, %if.then94 ], [ null, %if.end102 ], [ null, %if.then119 ], [ null, %if.then218 ], [ null, %if.then152 ], [ null, %if.then165 ], [ null, %if.then175 ], [ null, %cond.end203 ], [ null, %if.else207 ], [ null, %if.then231 ], [ null, %if.end241 ], [ %call244, %if.end248 ], [ %call244, %if.then374 ], [ %call244, %if.then389 ], [ %call244, %if.then405 ], [ %call244, %if.end475 ], [ %call244, %if.then582 ], [ %call244, %if.then601 ], [ %call244, %if.end548 ], [ %call244, %if.then524 ], [ %call244, %if.then536 ], [ %call244, %if.then356 ], [ %call244, %if.then344 ], [ %call244, %if.then320 ], [ %call244, %if.then332 ], [ %call244, %if.then298 ], [ %call244, %if.end286 ], [ %call244, %if.end282 ], [ %call244, %if.then275 ], [ %call244, %if.end267 ], [ %call244, %if.then256 ], [ %call244, %if.else261 ], [ null, %if.then ], [ %call244, %while.end ]
   %ok.0 = phi i32 [ -1, %if.then56 ], [ -1, %if.then80 ], [ -1, %if.then94 ], [ -1, %if.end102 ], [ -1, %if.then119 ], [ -1, %if.then218 ], [ -1, %if.then152 ], [ -1, %if.then165 ], [ -1, %if.then175 ], [ -1, %cond.end203 ], [ -1, %if.else207 ], [ -1, %if.then231 ], [ -1, %if.end241 ], [ -1, %if.end248 ], [ -1, %if.then374 ], [ -1, %if.then389 ], [ -1, %if.then405 ], [ -1, %if.end475 ], [ -1, %if.then582 ], [ -1, %if.then601 ], [ -1, %if.end548 ], [ 0, %if.then524 ], [ 0, %if.then536 ], [ -1, %if.then356 ], [ -1, %if.then344 ], [ -1, %if.then320 ], [ -1, %if.then332 ], [ -1, %if.then298 ], [ -1, %if.end286 ], [ -1, %if.end282 ], [ -1, %if.then275 ], [ -1, %if.end267 ], [ -1, %if.then256 ], [ -1, %if.else261 ], [ -1, %if.then ], [ -1, %while.end ]
-  %subject.1 = phi ptr [ null, %if.then56 ], [ null, %if.then80 ], [ null, %if.then94 ], [ %call91, %if.end102 ], [ %call91, %if.then119 ], [ %call91, %if.then218 ], [ %call91, %if.then152 ], [ %call91, %if.then165 ], [ %call91, %if.then175 ], [ %call91, %cond.end203 ], [ %call91, %if.else207 ], [ null, %if.then231 ], [ %subject.0, %if.end241 ], [ %subject.0, %if.end248 ], [ %subject.0, %if.then374 ], [ %subject.0, %if.then389 ], [ %subject.0, %if.then405 ], [ %subject.0, %if.end475 ], [ %subject.0, %if.then582 ], [ %subject.0, %if.then601 ], [ %subject.0, %if.end548 ], [ %subject.0, %if.then524 ], [ %subject.0, %if.then536 ], [ %subject.0, %if.then356 ], [ %subject.0, %if.then344 ], [ %subject.0, %if.then320 ], [ %subject.0, %if.then332 ], [ %subject.0, %if.then298 ], [ %subject.0, %if.end286 ], [ %subject.0, %if.end282 ], [ %subject.0, %if.then275 ], [ %subject.0, %if.end267 ], [ %subject.0, %if.then256 ], [ %subject.0, %if.else261 ], [ null, %if.then ], [ %subject.0, %while.end ]
+  %subject.0 = phi ptr [ null, %if.then56 ], [ null, %if.then80 ], [ null, %if.then94 ], [ %call91, %if.end102 ], [ %call91, %if.then119 ], [ %call91, %if.then218 ], [ %call91, %if.then152 ], [ %call91, %if.then165 ], [ %call91, %if.then175 ], [ %call91, %cond.end203 ], [ %call91, %if.else207 ], [ null, %if.then231 ], [ %subject.1, %if.end241 ], [ %subject.1, %if.end248 ], [ %subject.1, %if.then374 ], [ %subject.1, %if.then389 ], [ %subject.1, %if.then405 ], [ %subject.1, %if.end475 ], [ %subject.1, %if.then582 ], [ %subject.1, %if.then601 ], [ %subject.1, %if.end548 ], [ %subject.1, %if.then524 ], [ %subject.1, %if.then536 ], [ %subject.1, %if.then356 ], [ %subject.1, %if.then344 ], [ %subject.1, %if.then320 ], [ %subject.1, %if.then332 ], [ %subject.1, %if.then298 ], [ %subject.1, %if.end286 ], [ %subject.1, %if.end282 ], [ %subject.1, %if.then275 ], [ %subject.1, %if.end267 ], [ %subject.1, %if.then256 ], [ %subject.1, %if.else261 ], [ null, %if.then ], [ %subject.1, %while.end ]
   %irow.0 = phi ptr [ null, %if.then56 ], [ null, %if.then80 ], [ null, %if.then94 ], [ null, %if.end102 ], [ null, %if.then119 ], [ null, %if.then218 ], [ null, %if.then152 ], [ null, %if.then165 ], [ null, %if.then175 ], [ null, %cond.end203 ], [ null, %if.else207 ], [ null, %if.then231 ], [ null, %if.end241 ], [ null, %if.end248 ], [ null, %if.then374 ], [ null, %if.then389 ], [ null, %if.then405 ], [ null, %if.end475 ], [ null, %if.then582 ], [ %call585, %if.then601 ], [ null, %if.end548 ], [ null, %if.then524 ], [ null, %if.then536 ], [ null, %if.then356 ], [ null, %if.then344 ], [ null, %if.then320 ], [ null, %if.then332 ], [ null, %if.then298 ], [ null, %if.end286 ], [ null, %if.end282 ], [ null, %if.then275 ], [ null, %if.end267 ], [ null, %if.then256 ], [ null, %if.else261 ], [ null, %if.then ], [ null, %while.end ]
-  %CAname.1 = phi ptr [ null, %if.then56 ], [ null, %if.then80 ], [ null, %if.then94 ], [ null, %if.end102 ], [ %call101, %if.then119 ], [ %call101, %if.then218 ], [ %call101, %if.then152 ], [ %call101, %if.then165 ], [ %call101, %if.then175 ], [ %call101, %cond.end203 ], [ %call101, %if.else207 ], [ %call101, %if.then231 ], [ %call101, %if.end241 ], [ %call101, %if.end248 ], [ %call101, %if.then374 ], [ %call101, %if.then389 ], [ %call101, %if.then405 ], [ %call101, %if.end475 ], [ %call101, %if.then582 ], [ %call101, %if.then601 ], [ %call101, %if.end548 ], [ %call101, %if.then524 ], [ %call101, %if.then536 ], [ %call101, %if.then356 ], [ %call101, %if.then344 ], [ %call101, %if.then320 ], [ %call101, %if.then332 ], [ %call101, %if.then298 ], [ %call101, %if.end286 ], [ %call101, %if.end282 ], [ %call101, %if.then275 ], [ %call101, %if.end267 ], [ %call101, %if.then256 ], [ %call101, %if.else261 ], [ null, %if.then ], [ %call101, %while.end ]
+  %CAname.0 = phi ptr [ null, %if.then56 ], [ null, %if.then80 ], [ null, %if.then94 ], [ null, %if.end102 ], [ %call101, %if.then119 ], [ %call101, %if.then218 ], [ %call101, %if.then152 ], [ %call101, %if.then165 ], [ %call101, %if.then175 ], [ %call101, %cond.end203 ], [ %call101, %if.else207 ], [ %call101, %if.then231 ], [ %call101, %if.end241 ], [ %call101, %if.end248 ], [ %call101, %if.then374 ], [ %call101, %if.then389 ], [ %call101, %if.then405 ], [ %call101, %if.end475 ], [ %call101, %if.then582 ], [ %call101, %if.then601 ], [ %call101, %if.end548 ], [ %call101, %if.then524 ], [ %call101, %if.then536 ], [ %call101, %if.then356 ], [ %call101, %if.then344 ], [ %call101, %if.then320 ], [ %call101, %if.then332 ], [ %call101, %if.then298 ], [ %call101, %if.end286 ], [ %call101, %if.end282 ], [ %call101, %if.then275 ], [ %call101, %if.end267 ], [ %call101, %if.then256 ], [ %call101, %if.else261 ], [ null, %if.then ], [ %call101, %while.end ]
   br label %for.body612
 
 for.body612:                                      ; preds = %end, %for.body612
@@ -4849,15 +4849,15 @@ for.body612:                                      ; preds = %end, %for.body612
   br i1 %exitcond295.not, label %if.end618, label %for.body612, !llvm.loop !25
 
 if.end618:                                        ; preds = %for.body612, %for.end596
-  %CAname.1232 = phi ptr [ %call101, %for.end596 ], [ %CAname.1, %for.body612 ]
+  %CAname.0232 = phi ptr [ %call101, %for.end596 ], [ %CAname.0, %for.body612 ]
   %irow.0231 = phi ptr [ null, %for.end596 ], [ %irow.0, %for.body612 ]
-  %subject.1230 = phi ptr [ %subject.0, %for.end596 ], [ %subject.1, %for.body612 ]
+  %subject.0230 = phi ptr [ %subject.1, %for.end596 ], [ %subject.0, %for.body612 ]
   %ok.0229 = phi i32 [ 1, %for.end596 ], [ %ok.0, %for.body612 ]
   %cmp619228 = phi i1 [ false, %for.end596 ], [ true, %for.body612 ]
   %ret.0227 = phi ptr [ %call244, %for.end596 ], [ %ret.0, %for.body612 ]
   call void @CRYPTO_free(ptr noundef %irow.0231, ptr noundef nonnull @.str.198, i32 noundef 1940) #12
-  call void @X509_NAME_free(ptr noundef %CAname.1232) #12
-  call void @X509_NAME_free(ptr noundef %subject.1230) #12
+  call void @X509_NAME_free(ptr noundef %CAname.0232) #12
+  call void @X509_NAME_free(ptr noundef %subject.0230) #12
   br i1 %cmp619228, label %if.then621, label %if.else622
 
 if.then621:                                       ; preds = %if.end618

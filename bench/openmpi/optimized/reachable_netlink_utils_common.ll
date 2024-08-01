@@ -71,12 +71,12 @@ define i32 @prte_reachable_netlink_rt_lookup(i32 noundef %0, i32 noundef %1, i32
   br label %24
 
 24:                                               ; preds = %23, %16
-  %.0.i = phi i32 [ 22, %16 ], [ %21, %23 ]
+  %.1.i = phi i32 [ 22, %16 ], [ %21, %23 ]
   call void @nl_socket_free(ptr noundef nonnull %11) #8
   br label %25
 
 25:                                               ; preds = %24, %12
-  %.1.i = phi i32 [ %.0.i, %24 ], [ 12, %12 ]
+  %.0.i = phi i32 [ %.1.i, %24 ], [ 12, %12 ]
   call void @free(ptr noundef nonnull %8) #8
   br label %prte_reachable_netlink_sk_alloc.exit.thread
 
@@ -179,7 +179,7 @@ define i32 @prte_reachable_netlink_rt_lookup(i32 noundef %0, i32 noundef %1, i32
   br label %prte_reachable_netlink_sk_alloc.exit.thread
 
 prte_reachable_netlink_sk_alloc.exit.thread:      ; preds = %9, %25, %68
-  %.022 = phi i32 [ %.0, %68 ], [ 12, %9 ], [ %.1.i, %25 ]
+  %.022 = phi i32 [ %.0, %68 ], [ 12, %9 ], [ %.0.i, %25 ]
   ret i32 %.022
 }
 

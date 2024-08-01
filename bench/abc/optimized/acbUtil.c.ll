@@ -10727,18 +10727,18 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
   br label %99
 
 99:                                               ; preds = %99, %.critedge
-  %.140 = phi ptr [ %98, %.critedge ], [ %102, %99 ]
-  %100 = load i8, ptr %.140, align 1
+  %.2 = phi ptr [ %98, %.critedge ], [ %102, %99 ]
+  %100 = load i8, ptr %.2, align 1
   %101 = icmp eq i8 %100, 0
-  %102 = getelementptr inbounds i8, ptr %.140, i64 1
+  %102 = getelementptr inbounds i8, ptr %.2, i64 1
   br i1 %101, label %99, label %.thread58, !llvm.loop !90
 
 .thread58:                                        ; preds = %99, %20, %25, %30, %.thread61, %24
   %.24356 = phi i32 [ %.041, %24 ], [ 0, %.thread61 ], [ 0, %25 ], [ 0, %30 ], [ %spec.select, %20 ], [ 0, %99 ]
-  %.2 = phi ptr [ %.039, %24 ], [ %.039, %.thread61 ], [ %.039, %25 ], [ %.039, %30 ], [ %.039, %20 ], [ %.140, %99 ]
+  %.140 = phi ptr [ %.039, %24 ], [ %.039, %.thread61 ], [ %.039, %25 ], [ %.039, %30 ], [ %.039, %20 ], [ %.2, %99 ]
   %.138 = phi i32 [ %.037, %24 ], [ %29, %.thread61 ], [ %.037, %25 ], [ %.037, %30 ], [ %.037, %20 ], [ %.037, %99 ]
   %.1 = phi i32 [ %.036, %24 ], [ %.036, %.thread61 ], [ %.036, %25 ], [ 0, %30 ], [ %.036, %20 ], [ 0, %99 ]
-  %103 = getelementptr inbounds i8, ptr %.2, i64 1
+  %103 = getelementptr inbounds i8, ptr %.140, i64 1
   br label %18, !llvm.loop !91
 
 104:                                              ; preds = %18
@@ -10901,17 +10901,17 @@ Vec_PtrFreeData.exit.i:                           ; preds = %45
 
 61:                                               ; preds = %.lr.ph179, %._crit_edge175
   %indvars.iv215 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next216, %._crit_edge175 ]
-  %.1131176 = phi i32 [ 0, %.lr.ph179 ], [ %64, %._crit_edge175 ]
+  %.2132176 = phi i32 [ 0, %.lr.ph179 ], [ %64, %._crit_edge175 ]
   %62 = or disjoint i64 %indvars.iv215, 1
   %63 = getelementptr inbounds i32, ptr %.val143, i64 %indvars.iv215
   %64 = load i32, ptr %63, align 4
   %65 = getelementptr inbounds i32, ptr %.val143, i64 %62
   %66 = load i32, ptr %65, align 4
-  %67 = icmp slt i32 %.1131176, %64
+  %67 = icmp slt i32 %.2132176, %64
   br i1 %67, label %.lr.ph174.preheader, label %._crit_edge175
 
 .lr.ph174.preheader:                              ; preds = %61
-  %68 = sext i32 %.1131176 to i64
+  %68 = sext i32 %.2132176 to i64
   %wide.trip.count213 = sext i32 %64 to i64
   br label %.lr.ph174
 
@@ -10938,35 +10938,35 @@ Vec_PtrFreeData.exit.i:                           ; preds = %45
   br i1 %79, label %61, label %.critedge2, !llvm.loop !96
 
 .critedge2:                                       ; preds = %._crit_edge175, %55
-  %.1131.lcssa = phi i32 [ 0, %55 ], [ %64, %._crit_edge175 ]
+  %.2132.lcssa = phi i32 [ 0, %55 ], [ %64, %._crit_edge175 ]
   %.not.i160 = icmp eq ptr %.val143, null
   br i1 %.not.i160, label %Vec_PtrFreeFree.exit.sink.split, label %Vec_PtrFreeFree.exit.sink.split.sink.split
 
 Vec_PtrFreeFree.exit.sink.split.sink.split:       ; preds = %54, %.critedge2, %Vec_PtrFreeData.exit.i
   %.sink243 = phi ptr [ %.val15.i.i, %Vec_PtrFreeData.exit.i ], [ %.val143, %.critedge2 ], [ %.val15.i.i, %54 ]
   %.sink.ph = phi ptr [ %18, %Vec_PtrFreeData.exit.i ], [ %56, %.critedge2 ], [ %18, %54 ]
-  %.2132.ph.ph = phi i32 [ %.0130.lcssa, %Vec_PtrFreeData.exit.i ], [ %.1131.lcssa, %.critedge2 ], [ %.0130.lcssa, %54 ]
+  %.1131.ph.ph = phi i32 [ %.0130.lcssa, %Vec_PtrFreeData.exit.i ], [ %.2132.lcssa, %.critedge2 ], [ %.0130.lcssa, %54 ]
   tail call void @free(ptr noundef nonnull %.sink243) #25
   br label %Vec_PtrFreeFree.exit.sink.split
 
 Vec_PtrFreeFree.exit.sink.split:                  ; preds = %Vec_PtrFreeFree.exit.sink.split.sink.split, %.critedge2, %Vec_PtrFreeData.exit.i
   %.sink = phi ptr [ %18, %Vec_PtrFreeData.exit.i ], [ %56, %.critedge2 ], [ %.sink.ph, %Vec_PtrFreeFree.exit.sink.split.sink.split ]
-  %.2132.ph = phi i32 [ %.0130.lcssa, %Vec_PtrFreeData.exit.i ], [ %.1131.lcssa, %.critedge2 ], [ %.2132.ph.ph, %Vec_PtrFreeFree.exit.sink.split.sink.split ]
+  %.1131.ph = phi i32 [ %.0130.lcssa, %Vec_PtrFreeData.exit.i ], [ %.2132.lcssa, %.critedge2 ], [ %.1131.ph.ph, %Vec_PtrFreeFree.exit.sink.split.sink.split ]
   tail call void @free(ptr noundef nonnull %.sink) #25
   br label %Vec_PtrFreeFree.exit
 
 Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeFree.exit.sink.split, %Vec_IntFree.exit
-  %.2132 = phi i32 [ %.0130.lcssa, %Vec_IntFree.exit ], [ %.2132.ph, %Vec_PtrFreeFree.exit.sink.split ]
+  %.1131 = phi i32 [ %.0130.lcssa, %Vec_IntFree.exit ], [ %.1131.ph, %Vec_PtrFreeFree.exit.sink.split ]
   %80 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) @.str.18) #26
   %81 = ptrtoint ptr %80 to i64
   %82 = ptrtoint ptr %11 to i64
   %83 = sub i64 %81, %82
   %84 = trunc i64 %83 to i32
-  %85 = icmp slt i32 %.2132, %84
+  %85 = icmp slt i32 %.1131, %84
   br i1 %85, label %.lr.ph182.preheader, label %._crit_edge183
 
 .lr.ph182.preheader:                              ; preds = %Vec_PtrFreeFree.exit
-  %86 = sext i32 %.2132 to i64
+  %86 = sext i32 %.1131 to i64
   %sext236 = shl i64 %83, 32
   %87 = ashr exact i64 %sext236, 32
   br label %.lr.ph182

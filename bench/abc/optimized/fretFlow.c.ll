@@ -2511,7 +2511,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 
 245:                                              ; preds = %245, %.lr.ph118.i
   %indvars.iv130.i = phi i64 [ 0, %.lr.ph118.i ], [ %indvars.iv.next131.i, %245 ]
-  %.2117.i = phi i32 [ 30000, %.lr.ph118.i ], [ %.3.i, %245 ]
+  %.3117.i = phi i32 [ 30000, %.lr.ph118.i ], [ %.4.i, %245 ]
   %246 = getelementptr inbounds i32, ptr %.val102.i, i64 %indvars.iv130.i
   %247 = load i32, ptr %246, align 4
   %248 = sext i32 %247 to i64
@@ -2524,14 +2524,14 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %254 = load i32, ptr %253, align 8
   %.not77.i = icmp ult i32 %254, 65536
   %255 = lshr i32 %254, 16
-  %256 = tail call i32 @llvm.smin.i32(i32 %.2117.i, i32 %255)
-  %.3.i = select i1 %.not77.i, i32 %.2117.i, i32 %256
+  %256 = tail call i32 @llvm.smin.i32(i32 %.3117.i, i32 %255)
+  %.4.i = select i1 %.not77.i, i32 %.3117.i, i32 %256
   %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
   %exitcond134.not.i = icmp eq i64 %indvars.iv.next131.i, %wide.trip.count133.i
   br i1 %exitcond134.not.i, label %.critedge.i, label %245, !llvm.loop !22
 
 .critedge.i:                                      ; preds = %233, %245, %.preheader111.i, %.preheader112.i
-  %.4.i = phi i32 [ 30000, %.preheader111.i ], [ 30000, %.preheader112.i ], [ %.3.i, %245 ], [ %.1.i, %233 ]
+  %.2.i = phi i32 [ 30000, %.preheader111.i ], [ 30000, %.preheader112.i ], [ %.4.i, %245 ], [ %.1.i, %233 ]
   %.val99.i = load i32, ptr %19, align 4
   %257 = and i32 %.val99.i, 15
   %.not109.i = icmp eq i32 %257, 8
@@ -2545,8 +2545,8 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %.not80.i = icmp ult i32 %219, 65536
   %or.cond.i = select i1 %.not79.i, i1 true, i1 %.not80.i
   %262 = lshr i32 %219, 16
-  %263 = tail call i32 @llvm.smin.i32(i32 %.4.i, i32 %262)
-  %.5.i = select i1 %or.cond.i, i32 %.4.i, i32 %263
+  %263 = tail call i32 @llvm.smin.i32(i32 %.2.i, i32 %262)
+  %.6.i = select i1 %or.cond.i, i32 %.2.i, i32 %263
   br i1 %.not.i, label %.preheader110.i, label %.critedge6.i
 
 .preheader110.i:                                  ; preds = %258
@@ -2568,7 +2568,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 
 269:                                              ; preds = %269, %.lr.ph122.i
   %indvars.iv135.i = phi i64 [ 0, %.lr.ph122.i ], [ %indvars.iv.next136.i, %269 ]
-  %.6121.i = phi i32 [ %.5.i, %.lr.ph122.i ], [ %.7.i, %269 ]
+  %.7121.i = phi i32 [ %.6.i, %.lr.ph122.i ], [ %.8.i, %269 ]
   %270 = getelementptr inbounds i32, ptr %.val106.i, i64 %indvars.iv135.i
   %271 = load i32, ptr %270, align 4
   %272 = sext i32 %271 to i64
@@ -2581,14 +2581,14 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %278 = load i32, ptr %277, align 8
   %279 = and i32 %278, 65535
   %.not84.i = icmp eq i32 %279, 0
-  %280 = tail call i32 @llvm.smin.i32(i32 %.6121.i, i32 %279)
-  %.7.i = select i1 %.not84.i, i32 %.6121.i, i32 %280
+  %280 = tail call i32 @llvm.smin.i32(i32 %.7121.i, i32 %279)
+  %.8.i = select i1 %.not84.i, i32 %.7121.i, i32 %280
   %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i, 1
   %exitcond139.not.i = icmp eq i64 %indvars.iv.next136.i, %wide.trip.count138.i
   br i1 %exitcond139.not.i, label %.critedge4.i, label %269, !llvm.loop !23
 
 .critedge4.i:                                     ; preds = %269, %.preheader110.i
-  %.6.lcssa.i = phi i32 [ %.5.i, %.preheader110.i ], [ %.7.i, %269 ]
+  %.7.lcssa.i = phi i32 [ %.6.i, %.preheader110.i ], [ %.8.i, %269 ]
   %281 = load i32, ptr %214, align 8
   %.not82.i = icmp eq i32 %281, 0
   br i1 %.not82.i, label %.critedge6.i, label %.preheader.i
@@ -2610,7 +2610,7 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
 
 288:                                              ; preds = %288, %.lr.ph126.i
   %indvars.iv140.i = phi i64 [ 0, %.lr.ph126.i ], [ %indvars.iv.next141.i, %288 ]
-  %.8125.i = phi i32 [ %.6.lcssa.i, %.lr.ph126.i ], [ %.9.i, %288 ]
+  %.9125.i = phi i32 [ %.7.lcssa.i, %.lr.ph126.i ], [ %.10.i, %288 ]
   %289 = getelementptr inbounds ptr, ptr %.val87.i, i64 %indvars.iv140.i
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr i8, ptr %290, i64 16
@@ -2620,16 +2620,16 @@ define range(i32 0, 2) i32 @dfsfast_e(ptr noundef %0, ptr noundef %1) local_unna
   %294 = load i32, ptr %293, align 8
   %295 = and i32 %294, 65535
   %.not83.i = icmp eq i32 %295, 0
-  %296 = tail call i32 @llvm.smin.i32(i32 %.8125.i, i32 %295)
-  %.9.i = select i1 %.not83.i, i32 %.8125.i, i32 %296
+  %296 = tail call i32 @llvm.smin.i32(i32 %.9125.i, i32 %295)
+  %.10.i = select i1 %.not83.i, i32 %.9125.i, i32 %296
   %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
   %exitcond144.not.i = icmp eq i64 %indvars.iv.next141.i, %wide.trip.count143.i
   br i1 %exitcond144.not.i, label %.critedge6.i, label %288, !llvm.loop !24
 
 .critedge6.i:                                     ; preds = %288, %.preheader.i, %.critedge4.i, %258, %.critedge.i
-  %.10.i = phi i32 [ %.4.i, %.critedge.i ], [ %.5.i, %258 ], [ %.6.lcssa.i, %.critedge4.i ], [ %.6.lcssa.i, %.preheader.i ], [ %.9.i, %288 ]
-  %297 = add nuw nsw i32 %.10.i, 1
-  %298 = icmp sgt i32 %.10.i, 29998
+  %.5.i = phi i32 [ %.2.i, %.critedge.i ], [ %.6.i, %258 ], [ %.7.lcssa.i, %.critedge4.i ], [ %.7.lcssa.i, %.preheader.i ], [ %.10.i, %288 ]
+  %297 = add nuw nsw i32 %.5.i, 1
+  %298 = icmp sgt i32 %.5.i, 29998
   %spec.store.select.i = select i1 %298, i32 0, i32 %297
   %299 = and i32 %spec.store.select.i, 65535
   %300 = and i32 %219, -65536
@@ -3052,7 +3052,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
 
 198:                                              ; preds = %214, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %214 ]
-  %.184.i = phi i32 [ %.0.i, %.lr.ph.i ], [ %.2.i, %214 ]
+  %.284.i = phi i32 [ %.0.i, %.lr.ph.i ], [ %.3.i, %214 ]
   %199 = getelementptr inbounds i32, ptr %.val78.i, i64 %indvars.iv.i
   %200 = load i32, ptr %199, align 4
   %201 = sext i32 %200 to i64
@@ -3075,17 +3075,17 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
 
 211:                                              ; preds = %206
   %212 = lshr i32 %210, 16
-  %213 = tail call i32 @llvm.smin.i32(i32 %.184.i, i32 %212)
+  %213 = tail call i32 @llvm.smin.i32(i32 %.284.i, i32 %212)
   br label %214
 
 214:                                              ; preds = %211, %206, %198
-  %.2.i = phi i32 [ %.184.i, %198 ], [ %213, %211 ], [ %.184.i, %206 ]
+  %.3.i = phi i32 [ %.284.i, %198 ], [ %213, %211 ], [ %.284.i, %206 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge.i, label %198, !llvm.loop !27
 
 .critedge.i:                                      ; preds = %214, %.preheader82.i
-  %.1.lcssa.i = phi i32 [ %.0.i, %.preheader82.i ], [ %.2.i, %214 ]
+  %.2.lcssa.i = phi i32 [ %.0.i, %.preheader82.i ], [ %.3.i, %214 ]
   %215 = load i32, ptr %165, align 8
   %.not59.i = icmp eq i32 %215, 0
   br i1 %.not59.i, label %.critedge2.i, label %.preheader.i
@@ -3107,7 +3107,7 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
 
 222:                                              ; preds = %222, %.lr.ph87.i
   %indvars.iv90.i = phi i64 [ 0, %.lr.ph87.i ], [ %indvars.iv.next91.i, %222 ]
-  %.386.i = phi i32 [ %.1.lcssa.i, %.lr.ph87.i ], [ %.4.i, %222 ]
+  %.486.i = phi i32 [ %.2.lcssa.i, %.lr.ph87.i ], [ %.5.i, %222 ]
   %223 = getelementptr inbounds ptr, ptr %.val64.i, i64 %indvars.iv90.i
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr i8, ptr %224, i64 16
@@ -3117,16 +3117,16 @@ define range(i32 0, 2) i32 @dfsfast_r(ptr noundef %0, ptr noundef %1) local_unna
   %228 = load i32, ptr %227, align 8
   %.not61.i = icmp ult i32 %228, 65536
   %229 = lshr i32 %228, 16
-  %230 = tail call i32 @llvm.smin.i32(i32 %.386.i, i32 %229)
-  %.4.i = select i1 %.not61.i, i32 %.386.i, i32 %230
+  %230 = tail call i32 @llvm.smin.i32(i32 %.486.i, i32 %229)
+  %.5.i = select i1 %.not61.i, i32 %.486.i, i32 %230
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond94.not.i = icmp eq i64 %indvars.iv.next91.i, %wide.trip.count93.i
   br i1 %exitcond94.not.i, label %.critedge2.i, label %222, !llvm.loop !28
 
 .critedge2.i:                                     ; preds = %222, %.preheader.i, %.critedge.i, %190
-  %.5.i = phi i32 [ %.1.lcssa.i, %.critedge.i ], [ %.0.i, %190 ], [ %.1.lcssa.i, %.preheader.i ], [ %.4.i, %222 ]
-  %231 = add nuw nsw i32 %.5.i, 1
-  %232 = icmp sgt i32 %.5.i, 29998
+  %.1.i = phi i32 [ %.2.lcssa.i, %.critedge.i ], [ %.0.i, %190 ], [ %.2.lcssa.i, %.preheader.i ], [ %.5.i, %222 ]
+  %231 = add nuw nsw i32 %.1.i, 1
+  %232 = icmp sgt i32 %.1.i, 29998
   %spec.store.select.i = select i1 %232, i32 0, i32 %231
   %233 = shl nuw nsw i32 %spec.store.select.i, 16
   %234 = and i32 %170, 65535

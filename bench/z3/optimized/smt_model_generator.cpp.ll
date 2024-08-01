@@ -1719,7 +1719,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIPN3smt5
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %__begin2.0103 = phi ptr [ %11, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %visited.0102 = phi i1 [ true, %for.body.lr.ph ], [ %visited.2, %for.inc ]
+  %visited.0102 = phi i1 [ true, %for.body.lr.ph ], [ %visited.1, %for.inc ]
   %14 = load ptr, ptr %__begin2.0103, align 8
   %15 = load ptr, ptr %14, align 8
   %call.i = call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %15)
@@ -1850,13 +1850,13 @@ _ZN6vectorIN3smt22model_value_dependencyELb0EjE9push_backERKS1_.exit.i: ; preds 
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN6vectorIN3smt22model_value_dependencyELb0EjE9push_backERKS1_.exit.i, %_ZN3smtL9get_colorERK3mapINS_22model_value_dependencyEiNS_16source_hash_procENS_14source_eq_procEERKS1_.exit.i, %_ZNK7obj_mapIN3smt5enodeEPNS0_16model_value_procEEixEPS1_.exit, %for.body
-  %visited.2 = phi i1 [ %visited.0102, %_ZNK7obj_mapIN3smt5enodeEPNS0_16model_value_procEEixEPS1_.exit ], [ %visited.0102, %for.body ], [ false, %_ZN6vectorIN3smt22model_value_dependencyELb0EjE9push_backERKS1_.exit.i ], [ %visited.0102, %_ZN3smtL9get_colorERK3mapINS_22model_value_dependencyEiNS_16source_hash_procENS_14source_eq_procEERKS1_.exit.i ]
+  %visited.1 = phi i1 [ %visited.0102, %_ZNK7obj_mapIN3smt5enodeEPNS0_16model_value_procEEixEPS1_.exit ], [ %visited.0102, %for.body ], [ false, %_ZN6vectorIN3smt22model_value_dependencyELb0EjE9push_backERKS1_.exit.i ], [ %visited.0102, %_ZN3smtL9get_colorERK3mapINS_22model_value_dependencyEiNS_16source_hash_procENS_14source_eq_procEERKS1_.exit.i ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0103, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end, %_ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit
-  %visited.0.lcssa = phi i1 [ true, %_ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit ], [ true, %if.end ], [ %visited.2, %for.inc ]
+  %visited.0.lcssa = phi i1 [ true, %_ZNK6vectorIPN3smt5enodeELb0EjE3endEv.exit ], [ true, %if.end ], [ %visited.1, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i)
   store ptr %3, ptr %tmp.i, align 8
   call void @_ZN14core_hashtableI14obj_hash_entryI4sortE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %already_traversed, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i)

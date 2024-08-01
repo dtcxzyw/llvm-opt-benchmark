@@ -87,7 +87,7 @@ land.lhs.true:                                    ; preds = %if.end36
   br i1 %cmp43, label %err96.sink.split, label %if.end46
 
 if.end46:                                         ; preds = %if.end36, %land.lhs.true
-  %ocerts.0 = phi ptr [ %call42, %land.lhs.true ], [ null, %if.end36 ]
+  %ocerts.1 = phi ptr [ %call42, %land.lhs.true ], [ null, %if.end36 ]
   %call.i = tail call ptr @PKCS12_unpack_authsafes(ptr noundef nonnull %p12) #3
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then49, label %for.cond.preheader.i
@@ -126,7 +126,7 @@ if.end19.i:                                       ; preds = %if.end15.i
   %3 = load ptr, ptr %ctx.i, align 8
   %propq.i = getelementptr inbounds i8, ptr %call5.i, i64 48
   %4 = load ptr, ptr %propq.i, align 8
-  %call21.i = tail call fastcc i32 @parse_bags(ptr noundef nonnull %bags.0.i, ptr noundef %pass.addr.0, ptr noundef %pkey, ptr noundef %ocerts.0, ptr noundef %3, ptr noundef %4)
+  %call21.i = tail call fastcc i32 @parse_bags(ptr noundef nonnull %bags.0.i, ptr noundef %pass.addr.0, ptr noundef %pkey, ptr noundef %ocerts.1, ptr noundef %3, ptr noundef %4)
   %tobool22.not.i = icmp eq i32 %call21.i, 0
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %bags.0.i, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
   br i1 %tobool22.not.i, label %parse_pk12.exit.thread44, label %for.inc.i
@@ -143,7 +143,7 @@ parse_pk12.exit.thread44:                         ; preds = %if.end15.i, %if.end
 
 parse_pk12.exit:                                  ; preds = %for.inc.i, %for.cond.preheader.i
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call.i, ptr noundef nonnull @PKCS7_free) #3
-  %call6550 = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.0) #3
+  %call6550 = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.1) #3
   %cmp66.not51 = icmp eq ptr %call6550, null
   br i1 %cmp66.not51, label %while.end, label %while.body.lr.ph
 
@@ -160,14 +160,14 @@ while.body.us.us:                                 ; preds = %while.body.lr.ph.sp
   br i1 %tobool91.not.us.us, label %err96, label %while.cond.backedge.us.us
 
 while.cond.backedge.us.us:                        ; preds = %while.body.us.us
-  %call65.us.us = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.0) #3
+  %call65.us.us = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.1) #3
   %cmp66.not.us.us = icmp eq ptr %call65.us.us, null
   br i1 %cmp66.not.us.us, label %while.end, label %while.body.us.us, !llvm.loop !6
 
 while.body.us:                                    ; preds = %while.body.lr.ph.split.us, %while.body.us
   %call6552.us = phi ptr [ %call65.us, %while.body.us ], [ %call6550, %while.body.lr.ph.split.us ]
   tail call void @X509_free(ptr noundef nonnull %call6552.us) #3
-  %call65.us = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.0) #3
+  %call65.us = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.1) #3
   %cmp66.not.us = icmp eq ptr %call65.us, null
   br i1 %cmp66.not.us, label %while.end, label %while.body.us, !llvm.loop !6
 
@@ -184,14 +184,14 @@ while.body.us53.us:                               ; preds = %while.body.lr.ph.sp
   br i1 %tobool91.not.us59.us, label %err96, label %while.cond.backedge.us60.us
 
 while.cond.backedge.us60.us:                      ; preds = %while.body.us53.us
-  %call65.us61.us = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.0) #3
+  %call65.us61.us = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.1) #3
   %cmp66.not.us62.us = icmp eq ptr %call65.us61.us, null
   br i1 %cmp66.not.us62.us, label %while.end, label %while.body.us53.us, !llvm.loop !6
 
 while.body.us53:                                  ; preds = %while.body.lr.ph.split.split.us, %while.body.us53
   %call6552.us54 = phi ptr [ %call65.us61, %while.body.us53 ], [ %call6550, %while.body.lr.ph.split.split.us ]
   tail call void @X509_free(ptr noundef nonnull %call6552.us54) #3
-  %call65.us61 = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.0) #3
+  %call65.us61 = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.1) #3
   %cmp66.not.us62 = icmp eq ptr %call65.us61, null
   br i1 %cmp66.not.us62, label %while.end, label %while.body.us53, !llvm.loop !6
 
@@ -227,7 +227,7 @@ if.end86.us67:                                    ; preds = %if.then79.us, %land
   br i1 %tobool91.not.us70, label %if.then99, label %while.cond.backedge.us71
 
 while.cond.backedge.us71:                         ; preds = %if.end86.us67, %if.then84.us
-  %call65.us72 = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.0) #3
+  %call65.us72 = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.1) #3
   %cmp66.not.us73 = icmp eq ptr %call65.us72, null
   br i1 %cmp66.not.us73, label %while.end, label %while.body.us65, !llvm.loop !6
 
@@ -271,7 +271,7 @@ if.then84:                                        ; preds = %if.then79
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.then84, %if.end86
-  %call65 = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.0) #3
+  %call65 = tail call ptr @OPENSSL_sk_shift(ptr noundef %ocerts.1) #3
   %cmp66.not = icmp eq ptr %call65, null
   br i1 %cmp66.not, label %while.end, label %while.body, !llvm.loop !6
 
@@ -280,26 +280,26 @@ if.end86:                                         ; preds = %if.then79, %land.lh
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.body.us53, %while.cond.backedge.us60.us, %while.cond.backedge, %while.cond.backedge.us71, %while.body.us, %while.cond.backedge.us.us, %parse_pk12.exit
-  tail call void @OPENSSL_sk_free(ptr noundef %ocerts.0) #3
+  tail call void @OPENSSL_sk_free(ptr noundef %ocerts.1) #3
   br label %return
 
 err96.sink.split:                                 ; preds = %land.lhs.true56, %land.lhs.true, %if.else21, %if.else
   %.sink105 = phi i32 [ 67, %if.else ], [ 71, %if.else21 ], [ 81, %land.lhs.true ], [ 90, %land.lhs.true56 ]
   %.sink = phi i32 [ 113, %if.else ], [ 113, %if.else21 ], [ 524303, %land.lhs.true ], [ 114, %land.lhs.true56 ]
-  %ocerts.1.ph = phi ptr [ null, %if.else ], [ null, %if.else21 ], [ null, %land.lhs.true ], [ %ocerts.0, %land.lhs.true56 ]
+  %ocerts.0.ph = phi ptr [ null, %if.else ], [ null, %if.else21 ], [ null, %land.lhs.true ], [ %ocerts.1, %land.lhs.true56 ]
   tail call void @ERR_new() #3
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink105, ptr noundef nonnull @__func__.PKCS12_parse) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef %.sink, ptr noundef null) #3
   br label %err96
 
 err96:                                            ; preds = %while.body.us53.us, %while.body.us.us, %err96.sink.split, %if.then49, %land.lhs.true56
-  %ocerts.1 = phi ptr [ %ocerts.0, %land.lhs.true56 ], [ %ocerts.0, %if.then49 ], [ %ocerts.1.ph, %err96.sink.split ], [ %ocerts.0, %while.body.us.us ], [ %ocerts.0, %while.body.us53.us ]
+  %ocerts.0 = phi ptr [ %ocerts.1, %land.lhs.true56 ], [ %ocerts.1, %if.then49 ], [ %ocerts.0.ph, %err96.sink.split ], [ %ocerts.1, %while.body.us.us ], [ %ocerts.1, %while.body.us53.us ]
   %x.0 = phi ptr [ null, %land.lhs.true56 ], [ null, %if.then49 ], [ null, %err96.sink.split ], [ %call6552.us.us, %while.body.us.us ], [ %call6552.us54.us, %while.body.us53.us ]
   br i1 %cmp.not, label %if.end100, label %if.then99
 
 if.then99:                                        ; preds = %if.end86.us67, %err96
   %x.093 = phi ptr [ %x.0, %err96 ], [ %call6552.us66, %if.end86.us67 ]
-  %ocerts.191 = phi ptr [ %ocerts.1, %err96 ], [ %ocerts.0, %if.end86.us67 ]
+  %ocerts.091 = phi ptr [ %ocerts.0, %err96 ], [ %ocerts.1, %if.end86.us67 ]
   %12 = load ptr, ptr %pkey, align 8
   tail call void @EVP_PKEY_free(ptr noundef %12) #3
   store ptr null, ptr %pkey, align 8
@@ -307,7 +307,7 @@ if.then99:                                        ; preds = %if.end86.us67, %err
 
 if.end100:                                        ; preds = %if.then99, %err96
   %x.094 = phi ptr [ %x.093, %if.then99 ], [ %x.0, %err96 ]
-  %ocerts.192 = phi ptr [ %ocerts.191, %if.then99 ], [ %ocerts.1, %err96 ]
+  %ocerts.092 = phi ptr [ %ocerts.091, %if.then99 ], [ %ocerts.0, %err96 ]
   br i1 %cmp1, label %if.then103, label %if.end104
 
 if.then103:                                       ; preds = %if.end100
@@ -318,7 +318,7 @@ if.then103:                                       ; preds = %if.end100
 
 if.end104:                                        ; preds = %if.then103, %if.end100
   tail call void @X509_free(ptr noundef %x.094) #3
-  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %ocerts.192) #3
+  tail call void @OSSL_STACK_OF_X509_free(ptr noundef %ocerts.092) #3
   br label %return
 
 return:                                           ; preds = %if.end104, %while.end, %if.then5

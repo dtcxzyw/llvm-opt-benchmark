@@ -1321,14 +1321,14 @@ _ZNKSt10type_indexneERKS_.exit.thread:            ; preds = %28, %_ZNKSt10type_i
 
 46:                                               ; preds = %43, %45, %39
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn44, %45 ], [ %44, %43 ], [ %40, %39 ]
-  %.220 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
+  %.018 = extractvalue { ptr, i32 } %.pn.pn.pn, 1
   %47 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN3gmx14UserInputErrorE) #26
-  %48 = icmp eq i32 %.220, %47
+  %48 = icmp eq i32 %.018, %47
   br i1 %48, label %49, label %86
 
 49:                                               ; preds = %46
-  %.2 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
-  %50 = call ptr @__cxa_begin_catch(ptr %.2) #26
+  %.0 = extractvalue { ptr, i32 } %.pn.pn.pn, 0
+  %50 = call ptr @__cxa_begin_catch(ptr %.0) #26
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 88
   %53 = load ptr, ptr %51, align 8

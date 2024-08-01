@@ -1179,10 +1179,10 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %9
 
 9:                                                ; preds = %.lr.ph368, %362
-  %.0271365 = phi ptr [ %1, %.lr.ph368 ], [ %.3274, %362 ]
+  %.0271365 = phi ptr [ %1, %.lr.ph368 ], [ %.1272, %362 ]
   %.0275364 = phi i32 [ 0, %.lr.ph368 ], [ %.1276, %362 ]
-  %.0277363 = phi i32 [ 128, %.lr.ph368 ], [ %.11, %362 ]
-  %.0281362 = phi ptr [ %5, %.lr.ph368 ], [ %.11292, %362 ]
+  %.0277363 = phi i32 [ 128, %.lr.ph368 ], [ %.2279, %362 ]
+  %.0281362 = phi ptr [ %5, %.lr.ph368 ], [ %.2283, %362 ]
   %10 = getelementptr i8, ptr %.0271365, i64 1
   %11 = load i8, ptr %.0271365, align 1
   %12 = zext i8 %11 to i64
@@ -1231,10 +1231,10 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %35
 
 35:                                               ; preds = %31, %29
-  %.2283 = phi ptr [ %34, %31 ], [ %.0281362, %29 ]
-  %.2279 = phi i32 [ %32, %31 ], [ %.0277363, %29 ]
+  %.3284 = phi ptr [ %34, %31 ], [ %.0281362, %29 ]
+  %.3280 = phi i32 [ %32, %31 ], [ %.0277363, %29 ]
   %36 = zext i32 %.0275364 to i64
-  %37 = getelementptr i8, ptr %.2283, i64 %36
+  %37 = getelementptr i8, ptr %.3284, i64 %36
   store i8 32, ptr %37, align 1
   %38 = add i32 %.0275364, 1
   br label %362
@@ -1256,10 +1256,10 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %48
 
 48:                                               ; preds = %44, %42
-  %.3284 = phi ptr [ %47, %44 ], [ %.0281362, %42 ]
-  %.3280 = phi i32 [ %45, %44 ], [ %.0277363, %42 ]
+  %.4285 = phi ptr [ %47, %44 ], [ %.0281362, %42 ]
+  %.4 = phi i32 [ %45, %44 ], [ %.0277363, %42 ]
   %49 = zext i32 %.0275364 to i64
-  %50 = getelementptr i8, ptr %.3284, i64 %49
+  %50 = getelementptr i8, ptr %.4285, i64 %49
   store i8 92, ptr %50, align 1
   %51 = add i32 %.0275364, 1
   switch i8 %11, label %80 [
@@ -1274,83 +1274,83 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 
 52:                                               ; preds = %48
   %53 = zext i32 %51 to i64
-  %54 = getelementptr i8, ptr %.3284, i64 %53
+  %54 = getelementptr i8, ptr %.4285, i64 %53
   store i8 97, ptr %54, align 1
   %55 = add i32 %.0275364, 2
   br label %362
 
 56:                                               ; preds = %48
   %57 = zext i32 %51 to i64
-  %58 = getelementptr i8, ptr %.3284, i64 %57
+  %58 = getelementptr i8, ptr %.4285, i64 %57
   store i8 98, ptr %58, align 1
   %59 = add i32 %.0275364, 2
   br label %362
 
 60:                                               ; preds = %48
   %61 = zext i32 %51 to i64
-  %62 = getelementptr i8, ptr %.3284, i64 %61
+  %62 = getelementptr i8, ptr %.4285, i64 %61
   store i8 102, ptr %62, align 1
   %63 = add i32 %.0275364, 2
   br label %362
 
 64:                                               ; preds = %48
   %65 = zext i32 %51 to i64
-  %66 = getelementptr i8, ptr %.3284, i64 %65
+  %66 = getelementptr i8, ptr %.4285, i64 %65
   store i8 110, ptr %66, align 1
   %67 = add i32 %.0275364, 2
   br label %362
 
 68:                                               ; preds = %48
   %69 = zext i32 %51 to i64
-  %70 = getelementptr i8, ptr %.3284, i64 %69
+  %70 = getelementptr i8, ptr %.4285, i64 %69
   store i8 114, ptr %70, align 1
   %71 = add i32 %.0275364, 2
   br label %362
 
 72:                                               ; preds = %48
   %73 = zext i32 %51 to i64
-  %74 = getelementptr i8, ptr %.3284, i64 %73
+  %74 = getelementptr i8, ptr %.4285, i64 %73
   store i8 116, ptr %74, align 1
   %75 = add i32 %.0275364, 2
   br label %362
 
 76:                                               ; preds = %48
   %77 = zext i32 %51 to i64
-  %78 = getelementptr i8, ptr %.3284, i64 %77
+  %78 = getelementptr i8, ptr %.4285, i64 %77
   store i8 118, ptr %78, align 1
   %79 = add i32 %.0275364, 2
   br label %362
 
 80:                                               ; preds = %48
   %81 = add i32 %.0275364, 5
-  %.not310 = icmp ult i32 %81, %.3280
+  %.not310 = icmp ult i32 %81, %.4
   br i1 %.not310, label %86, label %82
 
 82:                                               ; preds = %80
-  %83 = shl i32 %.3280, 1
+  %83 = shl i32 %.4, 1
   %84 = zext i32 %83 to i64
-  %85 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.3284, i64 noundef %84) #19
+  %85 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.4285, i64 noundef %84) #19
   br label %86
 
 86:                                               ; preds = %82, %80
-  %.4285 = phi ptr [ %85, %82 ], [ %.3284, %80 ]
-  %.4 = phi i32 [ %83, %82 ], [ %.3280, %80 ]
+  %.5286 = phi ptr [ %85, %82 ], [ %.4285, %80 ]
+  %.5 = phi i32 [ %83, %82 ], [ %.4, %80 ]
   %87 = lshr i8 %11, 6
   %88 = or disjoint i8 %87, 48
   %89 = zext i32 %51 to i64
-  %90 = getelementptr i8, ptr %.4285, i64 %89
+  %90 = getelementptr i8, ptr %.5286, i64 %89
   store i8 %88, ptr %90, align 1
   %91 = add i32 %.0275364, 2
   %92 = lshr i8 %11, 3
   %93 = and i8 %92, 7
   %94 = or disjoint i8 %93, 48
   %95 = zext i32 %91 to i64
-  %96 = getelementptr i8, ptr %.4285, i64 %95
+  %96 = getelementptr i8, ptr %.5286, i64 %95
   store i8 %94, ptr %96, align 1
   %97 = and i8 %11, 7
   %98 = or disjoint i8 %97, 48
   %99 = zext i32 %43 to i64
-  %100 = getelementptr i8, ptr %.4285, i64 %99
+  %100 = getelementptr i8, ptr %.5286, i64 %99
   store i8 %98, ptr %100, align 1
   %101 = add i32 %.0275364, 4
   br label %362
@@ -1381,7 +1381,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br i1 %116, label %.thread, label %.thread322
 
 .thread:                                          ; preds = %111, %108, %105, %102, %114
-  %.1264321 = phi i8 [ 1, %114 ], [ 3, %111 ], [ 7, %108 ], [ 15, %105 ], [ 31, %102 ]
+  %.2265321 = phi i8 [ 1, %114 ], [ 3, %111 ], [ 7, %108 ], [ 15, %105 ], [ 31, %102 ]
   %.0266319 = phi i32 [ 5, %114 ], [ 4, %111 ], [ 3, %108 ], [ 2, %105 ], [ 1, %102 ]
   %scevgep = getelementptr i8, ptr %.0271365, i64 2
   %117 = zext nneg i32 %.0266319 to i64
@@ -1391,20 +1391,20 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br i1 %.not298374, label %.lr.ph378, label %._crit_edge379
 
 .lr.ph378:                                        ; preds = %.thread
-  %119 = and i8 %.1264321, %11
+  %119 = and i8 %.2265321, %11
   %120 = zext nneg i8 %119 to i32
   br label %123
 
 121:                                              ; preds = %127
-  %122 = getelementptr i8, ptr %.1272356377, i64 1
+  %122 = getelementptr i8, ptr %.2273356377, i64 1
   %.not298 = icmp ult ptr %122, %6
   br i1 %.not298, label %123, label %._crit_edge379, !llvm.loop !24
 
 123:                                              ; preds = %.lr.ph378, %121
-  %.1272356377 = phi ptr [ %10, %.lr.ph378 ], [ %122, %121 ]
+  %.2273356377 = phi ptr [ %10, %.lr.ph378 ], [ %122, %121 ]
   %.0262358376 = phi i32 [ %120, %.lr.ph378 ], [ %130, %121 ]
   %.0260359375 = phi i32 [ 0, %.lr.ph378 ], [ %131, %121 ]
-  %124 = load i8, ptr %.1272356377, align 1
+  %124 = load i8, ptr %.2273356377, align 1
   %125 = zext i8 %124 to i32
   %126 = and i32 %125, 192
   %.not299 = icmp eq i32 %126, 128
@@ -1419,7 +1419,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br i1 %exitcond.not, label %._crit_edge379, label %121, !llvm.loop !24
 
 ._crit_edge379:                                   ; preds = %123, %121, %127, %.thread
-  %.1272.lcssa = phi ptr [ %10, %.thread ], [ %.1272356377, %123 ], [ %122, %121 ], [ %scevgep372, %127 ]
+  %.2273.lcssa = phi ptr [ %10, %.thread ], [ %.2273356377, %123 ], [ %122, %121 ], [ %scevgep372, %127 ]
   %.1269 = phi i8 [ %11, %.thread ], [ %124, %127 ], [ %124, %121 ], [ %124, %123 ]
   %.1 = phi i32 [ 65533, %.thread ], [ 65533, %123 ], [ 65533, %121 ], [ %130, %127 ]
   %132 = tail call i32 @g_unichar_validate(i32 noundef %.1) #20
@@ -1457,7 +1457,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %.thread352
 
 .thread352:                                       ; preds = %.thread322, %143, %141, %139, %137, %135
-  %.2273330342 = phi ptr [ %.1272.lcssa, %135 ], [ %.1272.lcssa, %137 ], [ %.1272.lcssa, %139 ], [ %.1272.lcssa, %141 ], [ %.1272.lcssa, %143 ], [ %10, %.thread322 ]
+  %.3274330342 = phi ptr [ %.2273.lcssa, %135 ], [ %.2273.lcssa, %137 ], [ %.2273.lcssa, %139 ], [ %.2273.lcssa, %141 ], [ %.2273.lcssa, %143 ], [ %10, %.thread322 ]
   %.2333340 = phi i32 [ %.1, %135 ], [ %.1, %137 ], [ %spec.store.select, %139 ], [ %.1, %141 ], [ %.1, %143 ], [ 65533, %.thread322 ]
   %.1267 = phi i32 [ 1, %135 ], [ 2, %137 ], [ 3, %139 ], [ 4, %141 ], [ %.315, %143 ], [ 3, %.thread322 ]
   %.0261 = phi i32 [ 0, %135 ], [ 192, %137 ], [ 224, %139 ], [ 240, %141 ], [ %.316, %143 ], [ 224, %.thread322 ]
@@ -1473,8 +1473,8 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %151
 
 151:                                              ; preds = %147, %.thread352
-  %.5286 = phi ptr [ %150, %147 ], [ %.0281362, %.thread352 ]
-  %.5 = phi i32 [ %148, %147 ], [ %.0277363, %.thread352 ]
+  %.6287 = phi ptr [ %150, %147 ], [ %.0281362, %.thread352 ]
+  %.6 = phi i32 [ %148, %147 ], [ %.0277363, %.thread352 ]
   %invariant.op = add i32 %.0275364, -1
   %152 = icmp ugt i32 %.1267, 1
   br i1 %152, label %.lr.ph.preheader, label %._crit_edge
@@ -1493,7 +1493,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %157 = trunc nuw nsw i64 %indvars.iv to i32
   %.reass = add i32 %invariant.op, %157
   %158 = zext i32 %.reass to i64
-  %159 = getelementptr i8, ptr %.5286, i64 %158
+  %159 = getelementptr i8, ptr %.6287, i64 %158
   store i8 %156, ptr %159, align 1
   %160 = lshr i32 %.3360, 6
   %161 = icmp ugt i64 %indvars.iv, 2
@@ -1504,7 +1504,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %162 = or i32 %.3.lcssa, %.0261
   %163 = trunc i32 %162 to i8
   %164 = zext i32 %.0275364 to i64
-  %165 = getelementptr i8, ptr %.5286, i64 %164
+  %165 = getelementptr i8, ptr %.6287, i64 %164
   store i8 %163, ptr %165, align 1
   %166 = add i32 %.1267, %.0275364
   br label %362
@@ -1512,7 +1512,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 167:                                              ; preds = %.thread322, %._crit_edge379
   %.2334 = phi i32 [ 65533, %.thread322 ], [ %spec.store.select, %._crit_edge379 ]
   %.2270332 = phi i8 [ %11, %.thread322 ], [ %.1269, %._crit_edge379 ]
-  %.2273331 = phi ptr [ %10, %.thread322 ], [ %.1272.lcssa, %._crit_edge379 ]
+  %.3274331 = phi ptr [ %10, %.thread322 ], [ %.2273.lcssa, %._crit_edge379 ]
   br i1 %3, label %168, label %180
 
 168:                                              ; preds = %167
@@ -1532,10 +1532,10 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %176
 
 176:                                              ; preds = %172, %170
-  %.6287 = phi ptr [ %175, %172 ], [ %.0281362, %170 ]
-  %.6 = phi i32 [ %173, %172 ], [ %.0277363, %170 ]
+  %.7288 = phi ptr [ %175, %172 ], [ %.0281362, %170 ]
+  %.7 = phi i32 [ %173, %172 ], [ %.0277363, %170 ]
   %177 = zext i32 %.0275364 to i64
-  %178 = getelementptr i8, ptr %.6287, i64 %177
+  %178 = getelementptr i8, ptr %.7288, i64 %177
   store i8 32, ptr %178, align 1
   %179 = add i32 %.0275364, 1
   br label %362
@@ -1556,10 +1556,10 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %188
 
 188:                                              ; preds = %184, %182
-  %.7288 = phi ptr [ %187, %184 ], [ %.0281362, %182 ]
-  %.7 = phi i32 [ %185, %184 ], [ %.0277363, %182 ]
+  %.8289 = phi ptr [ %187, %184 ], [ %.0281362, %182 ]
+  %.8 = phi i32 [ %185, %184 ], [ %.0277363, %182 ]
   %189 = zext i32 %.0275364 to i64
-  %190 = getelementptr i8, ptr %.7288, i64 %189
+  %190 = getelementptr i8, ptr %.8289, i64 %189
   store i8 92, ptr %190, align 1
   %191 = add i32 %.0275364, 1
   switch i8 %.2270332, label %220 [
@@ -1574,83 +1574,83 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
 
 192:                                              ; preds = %188
   %193 = zext i32 %191 to i64
-  %194 = getelementptr i8, ptr %.7288, i64 %193
+  %194 = getelementptr i8, ptr %.8289, i64 %193
   store i8 97, ptr %194, align 1
   %195 = add i32 %.0275364, 2
   br label %362
 
 196:                                              ; preds = %188
   %197 = zext i32 %191 to i64
-  %198 = getelementptr i8, ptr %.7288, i64 %197
+  %198 = getelementptr i8, ptr %.8289, i64 %197
   store i8 98, ptr %198, align 1
   %199 = add i32 %.0275364, 2
   br label %362
 
 200:                                              ; preds = %188
   %201 = zext i32 %191 to i64
-  %202 = getelementptr i8, ptr %.7288, i64 %201
+  %202 = getelementptr i8, ptr %.8289, i64 %201
   store i8 102, ptr %202, align 1
   %203 = add i32 %.0275364, 2
   br label %362
 
 204:                                              ; preds = %188
   %205 = zext i32 %191 to i64
-  %206 = getelementptr i8, ptr %.7288, i64 %205
+  %206 = getelementptr i8, ptr %.8289, i64 %205
   store i8 110, ptr %206, align 1
   %207 = add i32 %.0275364, 2
   br label %362
 
 208:                                              ; preds = %188
   %209 = zext i32 %191 to i64
-  %210 = getelementptr i8, ptr %.7288, i64 %209
+  %210 = getelementptr i8, ptr %.8289, i64 %209
   store i8 114, ptr %210, align 1
   %211 = add i32 %.0275364, 2
   br label %362
 
 212:                                              ; preds = %188
   %213 = zext i32 %191 to i64
-  %214 = getelementptr i8, ptr %.7288, i64 %213
+  %214 = getelementptr i8, ptr %.8289, i64 %213
   store i8 116, ptr %214, align 1
   %215 = add i32 %.0275364, 2
   br label %362
 
 216:                                              ; preds = %188
   %217 = zext i32 %191 to i64
-  %218 = getelementptr i8, ptr %.7288, i64 %217
+  %218 = getelementptr i8, ptr %.8289, i64 %217
   store i8 118, ptr %218, align 1
   %219 = add i32 %.0275364, 2
   br label %362
 
 220:                                              ; preds = %188
   %221 = add i32 %.0275364, 5
-  %.not306 = icmp ult i32 %221, %.7
+  %.not306 = icmp ult i32 %221, %.8
   br i1 %.not306, label %226, label %222
 
 222:                                              ; preds = %220
-  %223 = shl i32 %.7, 1
+  %223 = shl i32 %.8, 1
   %224 = zext i32 %223 to i64
-  %225 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.7288, i64 noundef %224) #19
+  %225 = tail call noalias ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %.8289, i64 noundef %224) #19
   br label %226
 
 226:                                              ; preds = %222, %220
-  %.8289 = phi ptr [ %225, %222 ], [ %.7288, %220 ]
-  %.8 = phi i32 [ %223, %222 ], [ %.7, %220 ]
+  %.9290 = phi ptr [ %225, %222 ], [ %.8289, %220 ]
+  %.9 = phi i32 [ %223, %222 ], [ %.8, %220 ]
   %227 = lshr i8 %.2270332, 6
   %228 = or disjoint i8 %227, 48
   %229 = zext i32 %191 to i64
-  %230 = getelementptr i8, ptr %.8289, i64 %229
+  %230 = getelementptr i8, ptr %.9290, i64 %229
   store i8 %228, ptr %230, align 1
   %231 = add i32 %.0275364, 2
   %232 = lshr i8 %.2270332, 3
   %233 = and i8 %232, 7
   %234 = or disjoint i8 %233, 48
   %235 = zext i32 %231 to i64
-  %236 = getelementptr i8, ptr %.8289, i64 %235
+  %236 = getelementptr i8, ptr %.9290, i64 %235
   store i8 %234, ptr %236, align 1
   %237 = and i8 %.2270332, 7
   %238 = or disjoint i8 %237, 48
   %239 = zext i32 %183 to i64
-  %240 = getelementptr i8, ptr %.8289, i64 %239
+  %240 = getelementptr i8, ptr %.9290, i64 %239
   store i8 %238, ptr %240, align 1
   %241 = add i32 %.0275364, 4
   br label %362
@@ -1671,14 +1671,14 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %250
 
 250:                                              ; preds = %246, %244
-  %.9290 = phi ptr [ %249, %246 ], [ %.0281362, %244 ]
-  %.9 = phi i32 [ %247, %246 ], [ %.0277363, %244 ]
+  %.10291 = phi ptr [ %249, %246 ], [ %.0281362, %244 ]
+  %.10 = phi i32 [ %247, %246 ], [ %.0277363, %244 ]
   %251 = zext i32 %.0275364 to i64
-  %252 = getelementptr i8, ptr %.9290, i64 %251
+  %252 = getelementptr i8, ptr %.10291, i64 %251
   store i8 92, ptr %252, align 1
   %253 = add i32 %.0275364, 1
   %254 = zext i32 %253 to i64
-  %255 = getelementptr i8, ptr %.9290, i64 %254
+  %255 = getelementptr i8, ptr %.10291, i64 %254
   store i8 117, ptr %255, align 1
   %256 = add i32 %.0275364, 2
   %257 = lshr i32 %.2334, 12
@@ -1686,7 +1686,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %259 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %258
   %260 = load i8, ptr %259, align 1
   %261 = zext i32 %256 to i64
-  %262 = getelementptr i8, ptr %.9290, i64 %261
+  %262 = getelementptr i8, ptr %.10291, i64 %261
   store i8 %260, ptr %262, align 1
   %263 = add i32 %.0275364, 3
   %264 = lshr i32 %.2334, 8
@@ -1695,7 +1695,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %267 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %266
   %268 = load i8, ptr %267, align 1
   %269 = zext i32 %263 to i64
-  %270 = getelementptr i8, ptr %.9290, i64 %269
+  %270 = getelementptr i8, ptr %.10291, i64 %269
   store i8 %268, ptr %270, align 1
   %271 = add i32 %.0275364, 4
   %272 = lshr i32 %.2334, 4
@@ -1704,7 +1704,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %275 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %274
   %276 = load i8, ptr %275, align 1
   %277 = zext i32 %271 to i64
-  %278 = getelementptr i8, ptr %.9290, i64 %277
+  %278 = getelementptr i8, ptr %.10291, i64 %277
   store i8 %276, ptr %278, align 1
   %279 = add i32 %.0275364, 5
   %280 = and i32 %.2334, 15
@@ -1712,7 +1712,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %282 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %281
   %283 = load i8, ptr %282, align 1
   %284 = zext i32 %279 to i64
-  %285 = getelementptr i8, ptr %.9290, i64 %284
+  %285 = getelementptr i8, ptr %.10291, i64 %284
   store i8 %283, ptr %285, align 1
   %286 = add i32 %.0275364, 6
   br label %362
@@ -1729,14 +1729,14 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %293
 
 293:                                              ; preds = %289, %287
-  %.10291 = phi ptr [ %292, %289 ], [ %.0281362, %287 ]
-  %.10 = phi i32 [ %290, %289 ], [ %.0277363, %287 ]
+  %.11292 = phi ptr [ %292, %289 ], [ %.0281362, %287 ]
+  %.11 = phi i32 [ %290, %289 ], [ %.0277363, %287 ]
   %294 = zext i32 %.0275364 to i64
-  %295 = getelementptr i8, ptr %.10291, i64 %294
+  %295 = getelementptr i8, ptr %.11292, i64 %294
   store i8 92, ptr %295, align 1
   %296 = add i32 %.0275364, 1
   %297 = zext i32 %296 to i64
-  %298 = getelementptr i8, ptr %.10291, i64 %297
+  %298 = getelementptr i8, ptr %.11292, i64 %297
   store i8 85, ptr %298, align 1
   %299 = add i32 %.0275364, 2
   %300 = lshr i32 %.2334, 28
@@ -1744,7 +1744,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %302 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %301
   %303 = load i8, ptr %302, align 1
   %304 = zext i32 %299 to i64
-  %305 = getelementptr i8, ptr %.10291, i64 %304
+  %305 = getelementptr i8, ptr %.11292, i64 %304
   store i8 %303, ptr %305, align 1
   %306 = add i32 %.0275364, 3
   %307 = lshr i32 %.2334, 24
@@ -1753,7 +1753,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %310 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %309
   %311 = load i8, ptr %310, align 1
   %312 = zext i32 %306 to i64
-  %313 = getelementptr i8, ptr %.10291, i64 %312
+  %313 = getelementptr i8, ptr %.11292, i64 %312
   store i8 %311, ptr %313, align 1
   %314 = add i32 %.0275364, 4
   %315 = lshr i32 %.2334, 20
@@ -1762,7 +1762,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %318 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %317
   %319 = load i8, ptr %318, align 1
   %320 = zext i32 %314 to i64
-  %321 = getelementptr i8, ptr %.10291, i64 %320
+  %321 = getelementptr i8, ptr %.11292, i64 %320
   store i8 %319, ptr %321, align 1
   %322 = add i32 %.0275364, 5
   %323 = lshr i32 %.2334, 16
@@ -1771,7 +1771,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %326 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %325
   %327 = load i8, ptr %326, align 1
   %328 = zext i32 %322 to i64
-  %329 = getelementptr i8, ptr %.10291, i64 %328
+  %329 = getelementptr i8, ptr %.11292, i64 %328
   store i8 %327, ptr %329, align 1
   %330 = add i32 %.0275364, 6
   %331 = lshr i32 %.2334, 12
@@ -1780,7 +1780,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %334 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %333
   %335 = load i8, ptr %334, align 1
   %336 = zext i32 %330 to i64
-  %337 = getelementptr i8, ptr %.10291, i64 %336
+  %337 = getelementptr i8, ptr %.11292, i64 %336
   store i8 %335, ptr %337, align 1
   %338 = add i32 %.0275364, 7
   %339 = lshr i32 %.2334, 8
@@ -1789,7 +1789,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %342 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %341
   %343 = load i8, ptr %342, align 1
   %344 = zext i32 %338 to i64
-  %345 = getelementptr i8, ptr %.10291, i64 %344
+  %345 = getelementptr i8, ptr %.11292, i64 %344
   store i8 %343, ptr %345, align 1
   %346 = add i32 %.0275364, 8
   %347 = lshr i32 %.2334, 4
@@ -1798,7 +1798,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %350 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %349
   %351 = load i8, ptr %350, align 1
   %352 = zext i32 %346 to i64
-  %353 = getelementptr i8, ptr %.10291, i64 %352
+  %353 = getelementptr i8, ptr %.11292, i64 %352
   store i8 %351, ptr %353, align 1
   %354 = add i32 %.0275364, 9
   %355 = and i32 %.2334, 15
@@ -1806,17 +1806,17 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   %357 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %356
   %358 = load i8, ptr %357, align 1
   %359 = zext i32 %354 to i64
-  %360 = getelementptr i8, ptr %.10291, i64 %359
+  %360 = getelementptr i8, ptr %.11292, i64 %359
   store i8 %358, ptr %360, align 1
   %361 = add i32 %.0275364, 10
   br label %362
 
 362:                                              ; preds = %35, %._crit_edge, %226, %216, %212, %208, %204, %200, %196, %192, %293, %250, %176, %52, %56, %60, %64, %68, %72, %76, %86, %23
-  %.11292 = phi ptr [ %.1282, %23 ], [ %.2283, %35 ], [ %.4285, %86 ], [ %.3284, %76 ], [ %.3284, %72 ], [ %.3284, %68 ], [ %.3284, %64 ], [ %.3284, %60 ], [ %.3284, %56 ], [ %.3284, %52 ], [ %.5286, %._crit_edge ], [ %.6287, %176 ], [ %.8289, %226 ], [ %.7288, %216 ], [ %.7288, %212 ], [ %.7288, %208 ], [ %.7288, %204 ], [ %.7288, %200 ], [ %.7288, %196 ], [ %.7288, %192 ], [ %.9290, %250 ], [ %.10291, %293 ]
-  %.11 = phi i32 [ %.1278, %23 ], [ %.2279, %35 ], [ %.4, %86 ], [ %.3280, %76 ], [ %.3280, %72 ], [ %.3280, %68 ], [ %.3280, %64 ], [ %.3280, %60 ], [ %.3280, %56 ], [ %.3280, %52 ], [ %.5, %._crit_edge ], [ %.6, %176 ], [ %.8, %226 ], [ %.7, %216 ], [ %.7, %212 ], [ %.7, %208 ], [ %.7, %204 ], [ %.7, %200 ], [ %.7, %196 ], [ %.7, %192 ], [ %.9, %250 ], [ %.10, %293 ]
+  %.2283 = phi ptr [ %.1282, %23 ], [ %.3284, %35 ], [ %.5286, %86 ], [ %.4285, %76 ], [ %.4285, %72 ], [ %.4285, %68 ], [ %.4285, %64 ], [ %.4285, %60 ], [ %.4285, %56 ], [ %.4285, %52 ], [ %.6287, %._crit_edge ], [ %.7288, %176 ], [ %.9290, %226 ], [ %.8289, %216 ], [ %.8289, %212 ], [ %.8289, %208 ], [ %.8289, %204 ], [ %.8289, %200 ], [ %.8289, %196 ], [ %.8289, %192 ], [ %.10291, %250 ], [ %.11292, %293 ]
+  %.2279 = phi i32 [ %.1278, %23 ], [ %.3280, %35 ], [ %.5, %86 ], [ %.4, %76 ], [ %.4, %72 ], [ %.4, %68 ], [ %.4, %64 ], [ %.4, %60 ], [ %.4, %56 ], [ %.4, %52 ], [ %.6, %._crit_edge ], [ %.7, %176 ], [ %.9, %226 ], [ %.8, %216 ], [ %.8, %212 ], [ %.8, %208 ], [ %.8, %204 ], [ %.8, %200 ], [ %.8, %196 ], [ %.8, %192 ], [ %.10, %250 ], [ %.11, %293 ]
   %.1276 = phi i32 [ %26, %23 ], [ %38, %35 ], [ %101, %86 ], [ %79, %76 ], [ %75, %72 ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ], [ %59, %56 ], [ %55, %52 ], [ %166, %._crit_edge ], [ %179, %176 ], [ %241, %226 ], [ %219, %216 ], [ %215, %212 ], [ %211, %208 ], [ %207, %204 ], [ %203, %200 ], [ %199, %196 ], [ %195, %192 ], [ %286, %250 ], [ %361, %293 ]
-  %.3274 = phi ptr [ %10, %23 ], [ %10, %35 ], [ %10, %86 ], [ %10, %76 ], [ %10, %72 ], [ %10, %68 ], [ %10, %64 ], [ %10, %60 ], [ %10, %56 ], [ %10, %52 ], [ %.2273330342, %._crit_edge ], [ %.2273331, %176 ], [ %.2273331, %226 ], [ %.2273331, %216 ], [ %.2273331, %212 ], [ %.2273331, %208 ], [ %.2273331, %204 ], [ %.2273331, %200 ], [ %.2273331, %196 ], [ %.2273331, %192 ], [ %.2273331, %250 ], [ %.2273331, %293 ]
-  %363 = icmp ult ptr %.3274, %6
+  %.1272 = phi ptr [ %10, %23 ], [ %10, %35 ], [ %10, %86 ], [ %10, %76 ], [ %10, %72 ], [ %10, %68 ], [ %10, %64 ], [ %10, %60 ], [ %10, %56 ], [ %10, %52 ], [ %.3274330342, %._crit_edge ], [ %.3274331, %176 ], [ %.3274331, %226 ], [ %.3274331, %216 ], [ %.3274331, %212 ], [ %.3274331, %208 ], [ %.3274331, %204 ], [ %.3274331, %200 ], [ %.3274331, %196 ], [ %.3274331, %192 ], [ %.3274331, %250 ], [ %.3274331, %293 ]
+  %363 = icmp ult ptr %.1272, %6
   br i1 %363, label %9, label %._crit_edge369.loopexit, !llvm.loop !26
 
 ._crit_edge369.loopexit:                          ; preds = %362
@@ -1824,7 +1824,7 @@ define internal fastcc ptr @format_text_internal(ptr noundef %0, ptr noundef rea
   br label %._crit_edge369
 
 ._crit_edge369:                                   ; preds = %._crit_edge369.loopexit, %4
-  %.0281.lcssa = phi ptr [ %5, %4 ], [ %.11292, %._crit_edge369.loopexit ]
+  %.0281.lcssa = phi ptr [ %5, %4 ], [ %.2283, %._crit_edge369.loopexit ]
   %.0275.lcssa = phi i64 [ 0, %4 ], [ %364, %._crit_edge369.loopexit ]
   %365 = getelementptr i8, ptr %.0281.lcssa, i64 %.0275.lcssa
   store i8 0, ptr %365, align 1
@@ -2113,7 +2113,7 @@ define zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, ptr nounde
 
 .thread.us:                                       ; preds = %.lr.ph.split.us..thread.us_crit_edge, %38, %27
   %.pre-phi = phi i64 [ %.pre, %.lr.ph.split.us..thread.us_crit_edge ], [ %35, %38 ], [ %35, %27 ]
-  %.250.us = phi i32 [ %.04872.us, %.lr.ph.split.us..thread.us_crit_edge ], [ %32, %38 ], [ %32, %27 ]
+  %.149.us = phi i32 [ %.04872.us, %.lr.ph.split.us..thread.us_crit_edge ], [ %32, %38 ], [ %32, %27 ]
   %.1.us = phi i32 [ %.04773.us, %.lr.ph.split.us..thread.us_crit_edge ], [ %39, %38 ], [ %37, %27 ]
   %42 = getelementptr i8, ptr %.05569.us, i64 1
   %43 = load i8, ptr %.05569.us, align 1
@@ -2122,7 +2122,7 @@ define zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, ptr nounde
   %46 = zext nneg i32 %45 to i64
   %47 = getelementptr [16 x i8], ptr @hex_dump_buffer.binhex, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
-  %49 = add i32 %.250.us, 1
+  %49 = add i32 %.149.us, 1
   %50 = getelementptr [79 x i8], ptr %7, i64 0, i64 %.pre-phi
   store i8 %48, ptr %50, align 1
   %51 = and i32 %44, 15
@@ -2132,7 +2132,7 @@ define zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, ptr nounde
   %55 = zext i32 %49 to i64
   %56 = getelementptr [79 x i8], ptr %7, i64 0, i64 %55
   store i8 %54, ptr %56, align 1
-  %57 = add i32 %.250.us, 3
+  %57 = add i32 %.149.us, 3
   %58 = add nuw i32 %.05171.us, 1
   %59 = and i32 %58, 15
   %60 = icmp eq i32 %59, 0
@@ -2158,7 +2158,7 @@ define zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, ptr nounde
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %135
   %69 = phi i1 [ %136, %135 ], [ false, %.lr.ph ]
-  %.04773 = phi i32 [ %.4, %135 ], [ 0, %.lr.ph ]
+  %.04773 = phi i32 [ %.3, %135 ], [ 0, %.lr.ph ]
   %.04872 = phi i32 [ %111, %135 ], [ 0, %.lr.ph ]
   %.05171 = phi i32 [ %121, %135 ], [ 0, %.lr.ph ]
   %.05270 = phi i32 [ %.153, %135 ], [ 0, %.lr.ph ]
@@ -2212,7 +2212,7 @@ define zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, ptr nounde
 
 95:                                               ; preds = %.lr.ph.split._crit_edge, %80, %91
   %.pre-phi85 = phi i64 [ %.pre84, %.lr.ph.split._crit_edge ], [ %88, %80 ], [ %88, %91 ]
-  %.250 = phi i32 [ %.04872, %.lr.ph.split._crit_edge ], [ %85, %80 ], [ %85, %91 ]
+  %.149 = phi i32 [ %.04872, %.lr.ph.split._crit_edge ], [ %85, %80 ], [ %85, %91 ]
   %.1 = phi i32 [ %.04773, %.lr.ph.split._crit_edge ], [ %90, %80 ], [ %92, %91 ]
   %96 = getelementptr i8, ptr %.05569, i64 1
   %97 = load i8, ptr %.05569, align 1
@@ -2221,7 +2221,7 @@ define zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, ptr nounde
   %100 = zext nneg i32 %99 to i64
   %101 = getelementptr [16 x i8], ptr @hex_dump_buffer.binhex, i64 0, i64 %100
   %102 = load i8, ptr %101, align 1
-  %103 = add i32 %.250, 1
+  %103 = add i32 %.149, 1
   %104 = getelementptr [79 x i8], ptr %7, i64 0, i64 %.pre-phi85
   store i8 %102, ptr %104, align 1
   %105 = and i32 %98, 15
@@ -2231,7 +2231,7 @@ define zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, ptr nounde
   %109 = zext i32 %103 to i64
   %110 = getelementptr [79 x i8], ptr %7, i64 0, i64 %109
   store i8 %108, ptr %110, align 1
-  %111 = add i32 %.250, 3
+  %111 = add i32 %.149, 3
   br i1 %15, label %112, label %116
 
 112:                                              ; preds = %95
@@ -2267,8 +2267,8 @@ define zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, ptr nounde
   br label %.thread66
 
 .thread66:                                        ; preds = %126, %125
-  %.3 = phi i32 [ %127, %126 ], [ %118, %125 ]
-  %130 = zext i32 %.3 to i64
+  %.4 = phi i32 [ %127, %126 ], [ %118, %125 ]
+  %130 = zext i32 %.4 to i64
   %131 = getelementptr [79 x i8], ptr %7, i64 0, i64 %130
   store i8 0, ptr %131, align 1
   %132 = call zeroext i1 %0(ptr noundef %1, ptr noundef nonnull %7) #19
@@ -2280,7 +2280,7 @@ define zeroext i1 @hex_dump_buffer(ptr nocapture noundef readonly %0, ptr nounde
 
 135:                                              ; preds = %116, %133
   %.153 = phi i32 [ %134, %133 ], [ %.05270, %116 ]
-  %.4 = phi i32 [ %.3, %133 ], [ %118, %116 ]
+  %.3 = phi i32 [ %.4, %133 ], [ %118, %116 ]
   %136 = icmp uge i32 %121, %3
   br i1 %124, label %._crit_edge, label %.lr.ph.split, !llvm.loop !30
 

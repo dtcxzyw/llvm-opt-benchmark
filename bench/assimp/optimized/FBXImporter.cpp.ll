@@ -762,14 +762,14 @@ ehcleanup68:                                      ; preds = %lpad47.body, %lpad4
 
 catch.dispatch:                                   ; preds = %ehcleanup68, %lpad37
   %.pn6.pn = phi { ptr, i32 } [ %.pn6, %ehcleanup68 ], [ %26, %lpad37 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn6.pn, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn6.pn, 1
+  %exn.slot.4 = extractvalue { ptr, i32 } %.pn6.pn, 0
+  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn6.pn, 1
   %46 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
-  %matches = icmp eq i32 %ehselector.slot.2, %46
+  %matches = icmp eq i32 %ehselector.slot.4, %46
   br i1 %matches, label %invoke.cont79, label %ehcleanup83
 
 invoke.cont79:                                    ; preds = %catch.dispatch
-  %47 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #17
+  %47 = call ptr @__cxa_begin_catch(ptr %exn.slot.4) #17
   invoke void @__cxa_rethrow() #18
           to label %unreachable unwind label %lpad78
 
@@ -782,8 +782,8 @@ lpad78:                                           ; preds = %invoke.cont79
           to label %ehcleanup83 unwind label %terminate.lpad
 
 ehcleanup83:                                      ; preds = %lpad78, %catch.dispatch
-  %ehselector.slot.3 = phi i32 [ %50, %lpad78 ], [ %ehselector.slot.2, %catch.dispatch ]
-  %exn.slot.3 = phi ptr [ %49, %lpad78 ], [ %exn.slot.2, %catch.dispatch ]
+  %ehselector.slot.6 = phi i32 [ %50, %lpad78 ], [ %ehselector.slot.4, %catch.dispatch ]
+  %exn.slot.6 = phi ptr [ %49, %lpad78 ], [ %exn.slot.4, %catch.dispatch ]
   call void @_ZN6Assimp14StackAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %tempAllocator) #17
   %51 = load ptr, ptr %tokens, align 8
   %tobool.not.i.i.i45 = icmp eq ptr %51, null
@@ -794,22 +794,22 @@ if.then.i.i.i46:                                  ; preds = %ehcleanup83
   br label %ehcleanup85
 
 ehcleanup85:                                      ; preds = %if.then.i.i.i46, %ehcleanup83, %lpad12
-  %ehselector.slot.4 = phi i32 [ %25, %lpad12 ], [ %ehselector.slot.3, %ehcleanup83 ], [ %ehselector.slot.3, %if.then.i.i.i46 ]
-  %exn.slot.4 = phi ptr [ %24, %lpad12 ], [ %exn.slot.3, %ehcleanup83 ], [ %exn.slot.3, %if.then.i.i.i46 ]
+  %ehselector.slot.3 = phi i32 [ %25, %lpad12 ], [ %ehselector.slot.6, %ehcleanup83 ], [ %ehselector.slot.6, %if.then.i.i.i46 ]
+  %exn.slot.3 = phi ptr [ %24, %lpad12 ], [ %exn.slot.6, %ehcleanup83 ], [ %exn.slot.6, %if.then.i.i.i46 ]
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %contents) #17
   br label %ehcleanup86
 
 ehcleanup86:                                      ; preds = %ehcleanup85, %lpad6.body
-  %ehselector.slot.5 = phi i32 [ %ehselector.slot.4, %ehcleanup85 ], [ %10, %lpad6.body ]
-  %exn.slot.5 = phi ptr [ %exn.slot.4, %ehcleanup85 ], [ %9, %lpad6.body ]
+  %ehselector.slot.2 = phi i32 [ %ehselector.slot.3, %ehcleanup85 ], [ %10, %lpad6.body ]
+  %exn.slot.2 = phi ptr [ %exn.slot.3, %ehcleanup85 ], [ %9, %lpad6.body ]
   call fastcc void @"_ZNSt10unique_ptrIN6Assimp8IOStreamEZNS0_11FBXImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS0_8IOSystemEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %stream) #17
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup86, %ehcleanup
-  %ehselector.slot.6 = phi i32 [ %ehselector.slot.5, %ehcleanup86 ], [ %ehselector.slot.0, %ehcleanup ]
-  %exn.slot.6 = phi ptr [ %exn.slot.5, %ehcleanup86 ], [ %exn.slot.0, %ehcleanup ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.6, 0
-  %lpad.val89 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.6, 1
+  %ehselector.slot.1 = phi i32 [ %ehselector.slot.2, %ehcleanup86 ], [ %ehselector.slot.0, %ehcleanup ]
+  %exn.slot.1 = phi ptr [ %exn.slot.2, %ehcleanup86 ], [ %exn.slot.0, %ehcleanup ]
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.1, 0
+  %lpad.val89 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.1, 1
   resume { ptr, i32 } %lpad.val89
 
 terminate.lpad:                                   ; preds = %lpad78

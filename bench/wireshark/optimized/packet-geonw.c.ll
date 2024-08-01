@@ -3026,9 +3026,9 @@ transaction_end.exit:                             ; preds = %685, %693, %703, %7
   br label %880
 
 880:                                              ; preds = %878, %861, %841
-  %.3 = phi i32 [ %842, %841 ], [ %879, %878 ], [ %862, %861 ]
+  %.4 = phi i32 [ %842, %841 ], [ %879, %878 ], [ %862, %861 ]
   %881 = load i32, ptr @hf_geonw_gxc_reserved, align 4
-  %882 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %472, i32 noundef %881, ptr noundef %.05087, i32 noundef %.3, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
+  %882 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %472, i32 noundef %881, ptr noundef %.05087, i32 noundef %.4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #12
   %883 = load i32, ptr %21, align 4
   %.not559 = icmp eq i32 %883, 0
   br i1 %.not559, label %886, label %884
@@ -3038,7 +3038,7 @@ transaction_end.exit:                             ; preds = %685, %693, %703, %7
   br label %886
 
 886:                                              ; preds = %884, %880
-  %887 = add nuw nsw i32 %.3, 2
+  %887 = add nuw nsw i32 %.4, 2
   br label %997
 
 888:                                              ; preds = %657
@@ -3234,8 +3234,8 @@ transaction_start.exit:                           ; preds = %966, %proto_item_se
   br label %997
 
 997:                                              ; preds = %transaction_start.exit, %886, %818, %793, %657
-  %.4 = phi i32 [ %658, %657 ], [ %917, %transaction_start.exit ], [ %887, %886 ], [ %819, %818 ], [ %794, %793 ]
-  call void @proto_item_set_end(ptr noundef %58, ptr noundef %.05087, i32 noundef %.4) #12
+  %.3 = phi i32 [ %658, %657 ], [ %917, %transaction_start.exit ], [ %887, %886 ], [ %819, %818 ], [ %794, %793 ]
+  call void @proto_item_set_end(ptr noundef %58, ptr noundef %.05087, i32 noundef %.3) #12
   %998 = load i32, ptr @geonw_tap, align 4
   call void @tap_queue_packet(i32 noundef %998, ptr noundef nonnull %1, ptr noundef nonnull %27) #12
   %999 = load i32, ptr %20, align 4
@@ -3243,7 +3243,7 @@ transaction_start.exit:                           ; preds = %966, %proto_item_se
   br i1 %.not561, label %1017, label %1000
 
 1000:                                             ; preds = %997
-  %1001 = call ptr @tvb_new_subset_length(ptr noundef %.05087, i32 noundef %.4, i32 noundef %999) #12
+  %1001 = call ptr @tvb_new_subset_length(ptr noundef %.05087, i32 noundef %.3, i32 noundef %999) #12
   %1002 = load i32, ptr %16, align 4
   switch i32 %1002, label %1012 [
     i32 1, label %1003

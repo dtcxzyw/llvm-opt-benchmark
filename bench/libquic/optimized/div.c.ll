@@ -348,17 +348,17 @@ for.cond187:                                      ; preds = %if.end194
 if.end194:                                        ; preds = %if.else184, %for.cond187
   %t2.0145 = phi i128 [ %sub202, %for.cond187 ], [ %mul, %if.else184 ]
   %rem178.0144 = phi i64 [ %add196, %for.cond187 ], [ %asmresult1.i, %if.else184 ]
-  %q.0143 = phi i64 [ %dec195, %for.cond187 ], [ %asmresult.i, %if.else184 ]
-  %dec195 = add i64 %q.0143, -1
+  %q.1143 = phi i64 [ %dec195, %for.cond187 ], [ %asmresult.i, %if.else184 ]
+  %dec195 = add i64 %q.1143, -1
   %add196 = add i64 %rem178.0144, %35
   %cmp197 = icmp ult i64 %add196, %35
   br i1 %cmp197, label %if.end204, label %for.cond187
 
 if.end204:                                        ; preds = %if.end194, %for.cond187, %if.else184, %for.body177
-  %q.1 = phi i64 [ -1, %for.body177 ], [ %asmresult.i, %if.else184 ], [ %dec195, %for.cond187 ], [ %dec195, %if.end194 ]
+  %q.0 = phi i64 [ -1, %for.body177 ], [ %asmresult.i, %if.else184 ], [ %dec195, %for.cond187 ], [ %dec195, %if.end194 ]
   %50 = load ptr, ptr %call37, align 8
   %51 = load ptr, ptr %call39, align 8
-  %call207 = call i64 @bn_mul_words(ptr noundef %50, ptr noundef %51, i32 noundef %29, i64 noundef %q.1) #4
+  %call207 = call i64 @bn_mul_words(ptr noundef %50, ptr noundef %51, i32 noundef %29, i64 noundef %q.0) #4
   %52 = load ptr, ptr %call37, align 8
   %arrayidx210 = getelementptr inbounds i64, ptr %52, i64 %33
   store i64 %call207, ptr %arrayidx210, align 8
@@ -371,7 +371,7 @@ if.end204:                                        ; preds = %if.end194, %for.con
   br i1 %tobool218.not, label %if.end229, label %if.then219
 
 if.then219:                                       ; preds = %if.end204
-  %dec220 = add i64 %q.1, -1
+  %dec220 = add i64 %q.0, -1
   %55 = load ptr, ptr %wnum, align 8
   %56 = load ptr, ptr %call39, align 8
   %call224 = call i64 @bn_add_words(ptr noundef %55, ptr noundef %55, ptr noundef %56, i32 noundef %29) #4
@@ -385,7 +385,7 @@ if.then226:                                       ; preds = %if.then219
   br label %if.end229
 
 if.end229:                                        ; preds = %if.then219, %if.then226, %if.end204
-  %q.2 = phi i64 [ %q.1, %if.end204 ], [ %dec220, %if.then219 ], [ %dec220, %if.then226 ]
+  %q.2 = phi i64 [ %q.0, %if.end204 ], [ %dec220, %if.then219 ], [ %dec220, %if.then226 ]
   store i64 %q.2, ptr %resp.1150, align 8
   %inc231 = add nuw nsw i32 %i.1151, 1
   %incdec.ptr233 = getelementptr inbounds i8, ptr %resp.1150, i64 -8

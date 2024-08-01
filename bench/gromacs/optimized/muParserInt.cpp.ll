@@ -1566,14 +1566,14 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt5IsValEPKcPiPd(ptr noundef %
   br label %53
 
 53:                                               ; preds = %45, %25, %47
-  %.0 = phi i32 [ 1, %47 ], [ 0, %25 ], [ 0, %45 ]
+  %.1 = phi i32 [ 1, %47 ], [ 0, %25 ], [ 0, %45 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6) #12
   br label %54
 
 54:                                               ; preds = %10, %53
-  %.1 = phi i32 [ %.0, %53 ], [ 0, %10 ]
+  %.0 = phi i32 [ %.1, %53 ], [ 0, %10 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
-  ret i32 %.1
+  ret i32 %.0
 
 55:                                               ; preds = %30, %28, %26
   %.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ], [ %27, %26 ]
@@ -1620,8 +1620,8 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsHexValEPKcPiPd(ptr nounde
 11:                                               ; preds = %3
   %12 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %12, 48
-  %.not12 = icmp eq i8 %9, 120
-  %or.cond = and i1 %.not12, %.not
+  %.not13 = icmp eq i8 %9, 120
+  %or.cond = and i1 %.not13, %.not
   br i1 %or.cond, label %13, label %40
 
 13:                                               ; preds = %11
@@ -1692,12 +1692,12 @@ define noundef range(i32 0, 2) i32 @_ZN2mu9ParserInt8IsHexValEPKcPiPd(ptr nounde
   br label %40
 
 40:                                               ; preds = %3, %11, %39
-  %.1 = phi i32 [ 1, %39 ], [ 0, %11 ], [ 0, %3 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 1, %39 ], [ 0, %11 ], [ 0, %3 ]
+  ret i32 %.0
 
 41:                                               ; preds = %30, %29
-  %.pn14 = phi { ptr, i32 } [ %31, %30 ], [ %.pn, %29 ]
-  resume { ptr, i32 } %.pn14
+  %.pn15 = phi { ptr, i32 } [ %31, %30 ], [ %.pn, %29 ]
+  resume { ptr, i32 } %.pn15
 }
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #3

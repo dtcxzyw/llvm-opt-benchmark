@@ -551,8 +551,8 @@ _ZL15build_res_indexiPKiP6t_atomPi.exit174.i:     ; preds = %204, %.noexc183
 
 .lr.ph:                                           ; preds = %210, %580
   %indvars.iv = phi i64 [ %indvars.iv.next, %580 ], [ 0, %210 ]
-  %.0124295.i285 = phi i32 [ %.1254278.i, %580 ], [ -9368163, %210 ]
-  %.0123296.i284 = phi i32 [ %.1252279.i, %580 ], [ -9368163, %210 ]
+  %.0124295.i285 = phi i32 [ %.0253278.i, %580 ], [ -9368163, %210 ]
+  %.0123296.i284 = phi i32 [ %.0251279.i, %580 ], [ -9368163, %210 ]
   %.0120297.i283 = phi i32 [ %.2122280.i, %580 ], [ 0, %210 ]
   %217 = phi i32 [ %589, %580 ], [ 0, %210 ]
   %218 = phi i32 [ %590, %580 ], [ 0, %210 ]
@@ -1126,8 +1126,8 @@ _ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i: ; preds = %482, %.critedge.l
   br label %.thread264.i
 
 .thread264.i:                                     ; preds = %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i, %472, %442, %338
-  %.0253261271.i = phi i32 [ %453, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ %232, %472 ], [ %232, %338 ], [ %232, %442 ]
-  %.0251262270.i = phi i32 [ %450, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ %450, %472 ], [ %225, %338 ], [ %225, %442 ]
+  %.1254261271.i = phi i32 [ %453, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ %232, %472 ], [ %232, %338 ], [ %232, %442 ]
+  %.1252262270.i = phi i32 [ %450, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ %450, %472 ], [ %225, %338 ], [ %225, %442 ]
   %.0135.lcssa247264.i263269.i = phi i32 [ 0, %_ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i ], [ 0, %472 ], [ -9368163, %338 ], [ %.4139.i.i, %442 ]
   %491 = load ptr, ptr @debug, align 8
   %.not154.i = icmp eq ptr %491, null
@@ -1139,7 +1139,7 @@ _ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i: ; preds = %482, %.critedge.l
   br label %517
 
 492:                                              ; preds = %.thread264.i
-  %493 = sext i32 %.0251262270.i to i64
+  %493 = sext i32 %.1252262270.i to i64
   %494 = getelementptr inbounds %struct.t_resinfo, ptr %152, i64 %493
   %495 = load ptr, ptr %494, align 8
   %496 = load ptr, ptr %495, align 8
@@ -1150,7 +1150,7 @@ _ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i: ; preds = %482, %.critedge.l
   %501 = getelementptr inbounds ptr, ptr %154, i64 %500
   %502 = load ptr, ptr %501, align 8
   %503 = load ptr, ptr %502, align 8
-  %504 = sext i32 %.0253261271.i to i64
+  %504 = sext i32 %.1254261271.i to i64
   %505 = getelementptr inbounds %struct.t_resinfo, ptr %156, i64 %504
   %506 = load ptr, ptr %505, align 8
   %507 = load ptr, ptr %506, align 8
@@ -1162,7 +1162,7 @@ _ZL22find_first_atom_in_resiiPKiP6t_atom.exit215.i: ; preds = %482, %.critedge.l
   %513 = getelementptr inbounds ptr, ptr %158, i64 %512
   %514 = load ptr, ptr %513, align 8
   %515 = load ptr, ptr %514, align 8
-  %516 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %491, ptr noundef nonnull @.str.77, ptr noundef %496, i32 noundef %.0251262270.i, ptr noundef %503, i32 noundef %499, ptr noundef %507, i32 noundef %.0253261271.i, ptr noundef %515, i32 noundef %511) #17
+  %516 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %491, ptr noundef nonnull @.str.77, ptr noundef %496, i32 noundef %.1252262270.i, ptr noundef %503, i32 noundef %499, ptr noundef %507, i32 noundef %.1254261271.i, ptr noundef %515, i32 noundef %511) #17
   br label %517
 
 517:                                              ; preds = %492, %.thread264._crit_edge.i
@@ -1268,8 +1268,8 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit233.i:       ; preds = %548, %.critedge.loo
   br label %.thread.i
 
 .thread.i:                                        ; preds = %556, %323, %_ZL12debug_strcmpPcS_.exit.i
-  %.1254.ph.i = phi i32 [ %.0253261271.i, %556 ], [ %232, %323 ], [ %232, %_ZL12debug_strcmpPcS_.exit.i ]
-  %.1252.ph.i = phi i32 [ %.0251262270.i, %556 ], [ %225, %323 ], [ %225, %_ZL12debug_strcmpPcS_.exit.i ]
+  %.0253.ph.i = phi i32 [ %.1254261271.i, %556 ], [ %232, %323 ], [ %232, %_ZL12debug_strcmpPcS_.exit.i ]
+  %.0251.ph.i = phi i32 [ %.1252262270.i, %556 ], [ %225, %323 ], [ %225, %_ZL12debug_strcmpPcS_.exit.i ]
   %.2122.ph.i = phi i32 [ %.0135.lcssa247264.i263269.i, %556 ], [ %.1121.i, %323 ], [ %.1121.i, %_ZL12debug_strcmpPcS_.exit.i ]
   %.2.ph.i = phi i32 [ %554, %556 ], [ 0, %323 ], [ 0, %_ZL12debug_strcmpPcS_.exit.i ]
   %.pr.i = load ptr, ptr @debug, align 8
@@ -1284,8 +1284,8 @@ _ZL12find_res_endiiPKiPK7t_atoms.exit233.i:       ; preds = %548, %.critedge.loo
 .thread272.i:                                     ; preds = %574, %.thread.i, %553
   %.2281.i = phi i32 [ %.2.ph.i, %574 ], [ %.2.ph.i, %.thread.i ], [ %554, %553 ]
   %.2122280.i = phi i32 [ %.2122.ph.i, %574 ], [ %.2122.ph.i, %.thread.i ], [ %.0135.lcssa247264.i263269.i, %553 ]
-  %.1252279.i = phi i32 [ %.1252.ph.i, %574 ], [ %.1252.ph.i, %.thread.i ], [ %.0251262270.i, %553 ]
-  %.1254278.i = phi i32 [ %.1254.ph.i, %574 ], [ %.1254.ph.i, %.thread.i ], [ %.0253261271.i, %553 ]
+  %.0251279.i = phi i32 [ %.0251.ph.i, %574 ], [ %.0251.ph.i, %.thread.i ], [ %.1252262270.i, %553 ]
+  %.0253278.i = phi i32 [ %.0253.ph.i, %574 ], [ %.0253.ph.i, %.thread.i ], [ %.1254261271.i, %553 ]
   %577 = icmp eq i32 %.2281.i, 0
   %.pre314.i = load i32, ptr %3, align 4
   %.pre315.i = load i32, ptr %4, align 4

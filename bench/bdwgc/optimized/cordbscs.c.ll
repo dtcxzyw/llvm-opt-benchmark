@@ -317,31 +317,31 @@ CORD__call_oom_fn.exit100:                        ; preds = %61, %63
   br i1 %70, label %.sink.split, label %75
 
 .sink.split:                                      ; preds = %26, %30, %34, %66, %54
-  %.075122.sink = phi ptr [ %40, %66 ], [ %0, %54 ], [ %0, %34 ], [ %0, %30 ], [ %0, %26 ]
-  %.185.ph = phi i64 [ %69, %66 ], [ %28, %54 ], [ %28, %34 ], [ %28, %30 ], [ %28, %26 ]
+  %.1122.sink = phi ptr [ %40, %66 ], [ %0, %54 ], [ %0, %34 ], [ %0, %30 ], [ %0, %26 ]
+  %.286.ph = phi i64 [ %69, %66 ], [ %28, %54 ], [ %28, %34 ], [ %28, %30 ], [ %28, %26 ]
   %.180.ph = phi i64 [ %55, %66 ], [ %2, %54 ], [ %2, %34 ], [ %2, %30 ], [ %2, %26 ]
-  %.177.ph = phi ptr [ %59, %66 ], [ %1, %54 ], [ %1, %34 ], [ %1, %30 ], [ %1, %26 ]
-  %71 = getelementptr inbounds i8, ptr %.075122.sink, i64 2
+  %.278.ph = phi ptr [ %59, %66 ], [ %1, %54 ], [ %1, %34 ], [ %1, %30 ], [ %1, %26 ]
+  %71 = getelementptr inbounds i8, ptr %.1122.sink, i64 2
   %72 = load i8, ptr %71, align 2
   %73 = sext i8 %72 to i32
   %74 = add nsw i32 %73, 1
   br label %75
 
 75:                                               ; preds = %.sink.split, %66
-  %.185 = phi i64 [ %69, %66 ], [ %.185.ph, %.sink.split ]
-  %.082 = phi i32 [ 1, %66 ], [ %74, %.sink.split ]
+  %.286 = phi i64 [ %69, %66 ], [ %.286.ph, %.sink.split ]
+  %.183 = phi i32 [ 1, %66 ], [ %74, %.sink.split ]
   %.180 = phi i64 [ %55, %66 ], [ %.180.ph, %.sink.split ]
-  %.177 = phi ptr [ %59, %66 ], [ %.177.ph, %.sink.split ]
-  %.1 = phi ptr [ %40, %66 ], [ %.075122.sink, %.sink.split ]
-  %76 = add i64 %.180, %.185
+  %.278 = phi ptr [ %59, %66 ], [ %.278.ph, %.sink.split ]
+  %.2 = phi ptr [ %40, %66 ], [ %.1122.sink, %.sink.split ]
+  %76 = add i64 %.180, %.286
   br label %77
 
 77:                                               ; preds = %10, %75
-  %.286 = phi i64 [ %.185, %75 ], [ %11, %10 ]
-  %.183 = phi i32 [ %.082, %75 ], [ 1, %10 ]
+  %.084 = phi i64 [ %.286, %75 ], [ %11, %10 ]
+  %.082 = phi i32 [ %.183, %75 ], [ 1, %10 ]
   %.081 = phi i64 [ %76, %75 ], [ %12, %10 ]
-  %.278 = phi ptr [ %.177, %75 ], [ %1, %10 ]
-  %.2 = phi ptr [ %.1, %75 ], [ %0, %10 ]
+  %.076 = phi ptr [ %.278, %75 ], [ %1, %10 ]
+  %.075 = phi ptr [ %.2, %75 ], [ %0, %10 ]
   %78 = tail call noalias dereferenceable_or_null(32) ptr @GC_malloc(i64 noundef 32) #17
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %85
@@ -364,14 +364,14 @@ CORD__call_oom_fn.exit102:                        ; preds = %80, %82
 85:                                               ; preds = %77
   %86 = getelementptr inbounds i8, ptr %78, i64 1
   store i8 1, ptr %86, align 1
-  %87 = trunc i32 %.183 to i8
+  %87 = trunc i32 %.082 to i8
   %88 = getelementptr inbounds i8, ptr %78, i64 2
   store i8 %87, ptr %88, align 2
-  %89 = icmp ult i64 %.286, 256
+  %89 = icmp ult i64 %.084, 256
   br i1 %89, label %90, label %93
 
 90:                                               ; preds = %85
-  %91 = trunc nuw i64 %.286 to i8
+  %91 = trunc nuw i64 %.084 to i8
   %92 = getelementptr inbounds i8, ptr %78, i64 3
   store i8 %91, ptr %92, align 1
   br label %93
@@ -380,11 +380,11 @@ CORD__call_oom_fn.exit102:                        ; preds = %80, %82
   %94 = getelementptr inbounds i8, ptr %78, i64 8
   store i64 %.081, ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %78, i64 16
-  store ptr %.2, ptr %95, align 8
+  store ptr %.075, ptr %95, align 8
   %96 = getelementptr inbounds i8, ptr %78, i64 24
-  tail call void @GC_ptr_store_and_dirty(ptr noundef nonnull %96, ptr noundef %.278) #15
-  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.2) #15, !srcloc !8
-  %97 = icmp sgt i32 %.183, 47
+  tail call void @GC_ptr_store_and_dirty(ptr noundef nonnull %96, ptr noundef %.076) #15
+  tail call void asm sideeffect " ", "X,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.075) #15, !srcloc !8
+  %97 = icmp sgt i32 %.082, 47
   br i1 %97, label %98, label %124
 
 98:                                               ; preds = %93

@@ -1029,9 +1029,9 @@ define dso_local i64 @int8inc_support(ptr nocapture noundef readonly %0) local_u
   br label %19
 
 19:                                               ; preds = %13, %7
-  %.1 = phi i32 [ 3, %7 ], [ %spec.select14, %13 ]
+  %.012 = phi i32 [ 3, %7 ], [ %spec.select14, %13 ]
   %20 = getelementptr inbounds i8, ptr %4, i64 24
-  store i32 %.1, ptr %20, align 8
+  store i32 %.012, ptr %20, align 8
   br label %21
 
 21:                                               ; preds = %1, %19

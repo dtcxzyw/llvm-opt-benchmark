@@ -4134,7 +4134,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont28
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %dirty.0689 = phi i1 [ false, %for.body.lr.ph ], [ %dirty.1, %for.inc ]
-  %a.1686 = phi ptr [ %a.0.ph696, %for.body.lr.ph ], [ %a.4, %for.inc ]
+  %a.1686 = phi ptr [ %a.0.ph696, %for.body.lr.ph ], [ %a.2, %for.inc ]
   %arrayidx.i60 = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %indvars.iv
   %31 = load ptr, ptr %arrayidx.i60, align 8
   %32 = load ptr, ptr %this, align 8
@@ -4458,7 +4458,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %for.inc
 
 _ZNK11ast_manager13is_hypothesisEPK4expr.exit.i:  ; preds = %_ZNK11ast_manager11is_assertedEPK4expr.exit.i, %land.lhs.true.i, %land.lhs.true
-  %a.2612614.ph = phi ptr [ %a.1686, %_ZNK11ast_manager11is_assertedEPK4expr.exit.i ], [ %a.1686, %land.lhs.true.i ], [ %60, %land.lhs.true ]
+  %a.4612614.ph = phi ptr [ %a.1686, %_ZNK11ast_manager11is_assertedEPK4expr.exit.i ], [ %a.1686, %land.lhs.true.i ], [ %60, %land.lhs.true ]
   %68 = load i32, ptr %55, align 8
   %cmp.i.i.i.i.i.i123 = icmp eq i32 %68, 0
   %m_kind.i.i.i.i.i.i124 = getelementptr inbounds i8, ptr %55, i64 4
@@ -4527,7 +4527,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   br label %for.inc
 
 land.lhs.true74:                                  ; preds = %land.rhs.i.i.i, %_ZNK11ast_manager13is_hypothesisEPK4expr.exit.i, %land.lhs.true.i126, %land.lhs.true62
-  %a.3618620 = phi ptr [ %72, %land.lhs.true62 ], [ %a.2612614.ph, %land.lhs.true.i126 ], [ %a.2612614.ph, %_ZNK11ast_manager13is_hypothesisEPK4expr.exit.i ], [ %a.1686, %land.rhs.i.i.i ]
+  %a.5618620 = phi ptr [ %72, %land.lhs.true62 ], [ %a.4612614.ph, %land.lhs.true.i126 ], [ %a.4612614.ph, %_ZNK11ast_manager13is_hypothesisEPK4expr.exit.i ], [ %a.1686, %land.rhs.i.i.i ]
   %m_hash.i.i.i.i.i.i.i153 = getelementptr inbounds i8, ptr %31, i64 12
   %80 = load i32, ptr %m_hash.i.i.i.i.i.i.i153, align 4
   %81 = load i32, ptr %m_capacity.i.i, align 8
@@ -4707,7 +4707,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 
 for.inc:                                          ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit252, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit212, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit151, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit113, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit86, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
   %.sink = phi ptr [ %108, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit252 ], [ %101, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit ], [ %95, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit212 ], [ %79, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit151 ], [ %67, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit113 ], [ %53, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit86 ], [ %42, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
-  %a.4 = phi ptr [ %a.1686, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit252 ], [ %a.3618620, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit ], [ %a.3618620, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit212 ], [ %72, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit151 ], [ %60, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit113 ], [ %a.1686, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit86 ], [ %a.1686, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
+  %a.2 = phi ptr [ %a.1686, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit252 ], [ %a.5618620, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit ], [ %a.5618620, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit212 ], [ %72, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit151 ], [ %60, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit113 ], [ %a.1686, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit86 ], [ %a.1686, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
   %dirty.1 = phi i1 [ %dirty.0689, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit252 ], [ %dirty.0689, %_ZN6vectorIP3appLb0EjE9push_backEOS1_.exit ], [ %88, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit212 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit151 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit113 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit86 ], [ true, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ]
   %arrayidx10.i.i245 = getelementptr inbounds i8, ptr %.sink, i64 -4
   %109 = load i32, ptr %arrayidx10.i.i245, align 4
@@ -4718,7 +4718,7 @@ for.inc:                                          ; preds = %_ZN15ref_vector_cor
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !14
 
 for.end:                                          ; preds = %for.inc, %invoke.cont28
-  %a.1.lcssa = phi ptr [ %a.0.ph696, %invoke.cont28 ], [ %a.4, %for.inc ]
+  %a.1.lcssa = phi ptr [ %a.0.ph696, %invoke.cont28 ], [ %a.2, %for.inc ]
   %dirty.0.lcssa = phi i1 [ false, %invoke.cont28 ], [ %dirty.1, %for.inc ]
   %110 = load ptr, ptr %todo, align 8
   %cmp.i253 = icmp eq ptr %110, null
@@ -4779,7 +4779,7 @@ if.then.i.i277:                                   ; preds = %_ZN15ref_vector_cor
   br label %while.cond.outer.backedge
 
 while.cond.outer.backedge:                        ; preds = %if.then2.i.i.i458, %if.then.i.i.i453, %invoke.cont189, %if.then.i.i277, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i274, %if.then106
-  %a.0.ph.be = phi ptr [ %a.1.lcssa, %if.then106 ], [ %a.1.lcssa, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i274 ], [ %a.1.lcssa, %if.then.i.i277 ], [ %a.6, %invoke.cont189 ], [ %a.6, %if.then.i.i.i453 ], [ %a.6, %if.then2.i.i.i458 ]
+  %a.0.ph.be = phi ptr [ %a.1.lcssa, %if.then106 ], [ %a.1.lcssa, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.i274 ], [ %a.1.lcssa, %if.then.i.i277 ], [ %a.3, %invoke.cont189 ], [ %a.3, %if.then.i.i.i453 ], [ %a.3, %if.then2.i.i.i458 ]
   %119 = load ptr, ptr %todo, align 8
   %cmp.i46683 = icmp eq ptr %119, null
   br i1 %cmp.i46683, label %while.end, label %_ZNK6vectorIP3appLb0EjE5emptyEv.exit.lr.ph, !llvm.loop !13
@@ -5153,27 +5153,27 @@ for.inc.i:                                        ; preds = %land.lhs.true7.i, %
   br i1 %exitcond.not.i, label %invoke.cont162, label %for.body.i, !llvm.loop !17
 
 invoke.cont162:                                   ; preds = %for.inc.i, %land.lhs.true7.i
-  %a.5 = phi ptr [ %a.1.lcssa, %for.inc.i ], [ %166, %land.lhs.true7.i ]
+  %a.6 = phi ptr [ %a.1.lcssa, %for.inc.i ], [ %166, %land.lhs.true7.i ]
   %cmp25.i = phi i1 [ %cmp.i385, %for.inc.i ], [ %cmp28.i, %land.lhs.true7.i ]
   br i1 %cmp25.i, label %if.then164, label %if.else169
 
 if.then164:                                       ; preds = %invoke.cont162
-  %tobool.not.i392 = icmp eq ptr %a.5, null
+  %tobool.not.i392 = icmp eq ptr %a.6, null
   br i1 %tobool.not.i392, label %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit405, label %_ZN11ast_manager7inc_refEP3ast.exit.i393
 
 _ZN11ast_manager7inc_refEP3ast.exit.i393:         ; preds = %if.then164
-  %m_ref_count.i.i.i394 = getelementptr inbounds i8, ptr %a.5, i64 8
+  %m_ref_count.i.i.i394 = getelementptr inbounds i8, ptr %a.6, i64 8
   %175 = load i32, ptr %m_ref_count.i.i.i394, align 4
   %inc.i.i.i395 = add i32 %175, 1
   store i32 %inc.i.i.i395, ptr %m_ref_count.i.i.i394, align 4
   br label %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit405
 
 _ZN7obj_refI3app11ast_managerEaSEPS0_.exit405:    ; preds = %if.then164, %_ZN11ast_manager7inc_refEP3ast.exit.i393
-  store ptr %a.5, ptr %newp, align 8
+  store ptr %a.6, ptr %newp, align 8
   br label %if.end186
 
 if.else169:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i, %invoke.cont162
-  %a.5634 = phi ptr [ %a.5, %invoke.cont162 ], [ %a.1.lcssa, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ]
+  %a.6634 = phi ptr [ %a.6, %invoke.cont162 ], [ %a.1.lcssa, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ]
   store ptr null, ptr %papp, align 8
   store ptr %m, ptr %m_manager.i406, align 8
   %m_decl.i = getelementptr inbounds i8, ptr %12, i64 16
@@ -5266,8 +5266,8 @@ lpad171:                                          ; preds = %if.then.i.i436, %if
   br label %ehcleanup
 
 if.end186:                                        ; preds = %if.then2.i.i.i448, %if.then.i.i.i443, %invoke.cont182, %if.end.i.i.i.i.i, %if.end160, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit405, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
-  %192 = phi ptr [ %a.5, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit405 ], [ %12, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ], [ %154, %if.end160 ], [ %154, %if.end.i.i.i.i.i ], [ %177, %invoke.cont182 ], [ %177, %if.then.i.i.i443 ], [ %177, %if.then2.i.i.i448 ]
-  %a.6 = phi ptr [ %a.5, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit405 ], [ %a.1.lcssa, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ], [ %a.1.lcssa, %if.end160 ], [ %a.1.lcssa, %if.end.i.i.i.i.i ], [ %a.5634, %invoke.cont182 ], [ %a.5634, %if.then.i.i.i443 ], [ %a.5634, %if.then2.i.i.i448 ]
+  %192 = phi ptr [ %a.6, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit405 ], [ %12, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ], [ %154, %if.end160 ], [ %154, %if.end.i.i.i.i.i ], [ %177, %invoke.cont182 ], [ %177, %if.then.i.i.i443 ], [ %177, %if.then2.i.i.i448 ]
+  %a.3 = phi ptr [ %a.6, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit405 ], [ %a.1.lcssa, %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit ], [ %a.1.lcssa, %if.end160 ], [ %a.1.lcssa, %if.end.i.i.i.i.i ], [ %a.6634, %invoke.cont182 ], [ %a.6634, %if.then.i.i.i443 ], [ %a.6634, %if.then2.i.i.i448 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %12, ptr %ref.tmp.i, align 8
   store ptr %192, ptr %m_value.i.i, align 8

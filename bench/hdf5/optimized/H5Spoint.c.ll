@@ -224,8 +224,8 @@ define internal range(i64 -9223372036854775795, -9223372036854775808) i64 @H5S__
   br label %25
 
 25:                                               ; preds = %10, %6
-  %.1 = phi i64 [ -1, %6 ], [ %24, %10 ]
-  ret i64 %.1
+  %.0 = phi i64 [ -1, %6 ], [ %24, %10 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -444,7 +444,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
 
 .loopexit175:                                     ; preds = %125, %.preheader174
   %122 = phi i32 [ 0, %.preheader174 ], [ %142, %125 ]
-  %.4.lcssa = phi ptr [ %.3198, %.preheader174 ], [ %141, %125 ]
+  %.5.lcssa = phi ptr [ %.4198, %.preheader174 ], [ %141, %125 ]
   %.1166 = load ptr, ptr %.1166199, align 8
   %.not168 = icmp eq ptr %.1166, null
   br i1 %.not168, label %._crit_edge.loopexit219, label %.preheader174, !llvm.loop !6
@@ -452,7 +452,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
 .preheader174:                                    ; preds = %.preheader174.lr.ph, %.loopexit175
   %123 = phi i32 [ %122, %.loopexit175 ], [ 1, %.preheader174.lr.ph ]
   %.1166199 = phi ptr [ %.1166, %.loopexit175 ], [ %.1166196, %.preheader174.lr.ph ]
-  %.3198 = phi ptr [ %.4.lcssa, %.loopexit175 ], [ %117, %.preheader174.lr.ph ]
+  %.4198 = phi ptr [ %.5.lcssa, %.loopexit175 ], [ %117, %.preheader174.lr.ph ]
   %.not215 = icmp eq i32 %123, 0
   br i1 %.not215, label %.loopexit175, label %.lr.ph194
 
@@ -462,27 +462,27 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
 
 125:                                              ; preds = %.lr.ph194, %125
   %indvars.iv226 = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next227, %125 ]
-  %.4192 = phi ptr [ %.3198, %.lr.ph194 ], [ %141, %125 ]
+  %.5192 = phi ptr [ %.4198, %.lr.ph194 ], [ %141, %125 ]
   %126 = getelementptr inbounds [0 x i64], ptr %124, i64 0, i64 %indvars.iv226
   %127 = load i64, ptr %126, align 8
   %128 = trunc i64 %127 to i8
-  store i8 %128, ptr %.4192, align 1
-  %129 = getelementptr inbounds i8, ptr %.4192, i64 1
+  store i8 %128, ptr %.5192, align 1
+  %129 = getelementptr inbounds i8, ptr %.5192, i64 1
   %130 = load i64, ptr %126, align 8
   %131 = lshr i64 %130, 8
   %132 = trunc i64 %131 to i8
   store i8 %132, ptr %129, align 1
-  %133 = getelementptr inbounds i8, ptr %.4192, i64 2
+  %133 = getelementptr inbounds i8, ptr %.5192, i64 2
   %134 = load i64, ptr %126, align 8
   %135 = lshr i64 %134, 16
   %136 = trunc i64 %135 to i8
   store i8 %136, ptr %133, align 1
-  %137 = getelementptr inbounds i8, ptr %.4192, i64 3
+  %137 = getelementptr inbounds i8, ptr %.5192, i64 3
   %138 = load i64, ptr %126, align 8
   %139 = lshr i64 %138, 24
   %140 = trunc i64 %139 to i8
   store i8 %140, ptr %137, align 1
-  %141 = getelementptr inbounds i8, ptr %.4192, i64 4
+  %141 = getelementptr inbounds i8, ptr %.5192, i64 4
   %indvars.iv.next227 = add nuw nsw i64 %indvars.iv226, 1
   %142 = load i32, ptr %57, align 8
   %143 = zext i32 %142 to i64
@@ -495,7 +495,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
 
 ._crit_edge:                                      ; preds = %.preheader174.us, %._crit_edge.loopexit219, %101
   %145 = phi i32 [ %33, %101 ], [ %.pre232, %._crit_edge.loopexit219 ], [ %33, %.preheader174.us ]
-  %.3.lcssa = phi ptr [ %117, %101 ], [ %.4.lcssa, %._crit_edge.loopexit219 ], [ %117, %.preheader174.us ]
+  %.4.lcssa = phi ptr [ %117, %101 ], [ %.5.lcssa, %._crit_edge.loopexit219 ], [ %117, %.preheader174.us ]
   %146 = icmp eq i32 %145, 1
   br i1 %146, label %147, label %.thread
 
@@ -547,7 +547,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
 
 .loopexit177:                                     ; preds = %179, %.preheader176
   %168 = phi i32 [ 0, %.preheader176 ], [ %181, %179 ]
-  %.6.lcssa = phi ptr [ %.5189, %.preheader176 ], [ %180, %179 ]
+  %.7.lcssa = phi ptr [ %.6189, %.preheader176 ], [ %180, %179 ]
   %.2167 = load ptr, ptr %.2167190, align 8
   %.not = icmp eq ptr %.2167, null
   br i1 %.not, label %.loopexit173, label %.preheader176, !llvm.loop !7
@@ -555,7 +555,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
 .preheader176:                                    ; preds = %.preheader176.lr.ph, %.loopexit177
   %169 = phi i32 [ %168, %.loopexit177 ], [ 1, %.preheader176.lr.ph ]
   %.2167190 = phi ptr [ %.2167, %.loopexit177 ], [ %.2167187, %.preheader176.lr.ph ]
-  %.5189 = phi ptr [ %.6.lcssa, %.loopexit177 ], [ %163, %.preheader176.lr.ph ]
+  %.6189 = phi ptr [ %.7.lcssa, %.loopexit177 ], [ %163, %.preheader176.lr.ph ]
   %.not213 = icmp eq i32 %169, 0
   br i1 %.not213, label %.loopexit177, label %.lr.ph
 
@@ -565,13 +565,13 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
 
 171:                                              ; preds = %.lr.ph, %179
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %179 ]
-  %.6185 = phi ptr [ %.5189, %.lr.ph ], [ %180, %179 ]
+  %.7185 = phi ptr [ %.6189, %.lr.ph ], [ %180, %179 ]
   %172 = getelementptr inbounds [0 x i64], ptr %170, i64 0, i64 %indvars.iv
   %173 = load i64, ptr %172, align 8
   br label %174
 
 174:                                              ; preds = %171, %174
-  %.0184 = phi ptr [ %.6185, %171 ], [ %176, %174 ]
+  %.0184 = phi ptr [ %.7185, %171 ], [ %176, %174 ]
   %.0148183 = phi i64 [ 0, %171 ], [ %177, %174 ]
   %.0150182 = phi i64 [ %173, %171 ], [ %178, %174 ]
   %175 = trunc i64 %.0150182 to i8
@@ -583,7 +583,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
   br i1 %exitcond224.not, label %179, label %174
 
 179:                                              ; preds = %174
-  %180 = getelementptr inbounds i8, ptr %.6185, i64 8
+  %180 = getelementptr inbounds i8, ptr %.7185, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %181 = load i32, ptr %57, align 8
   %182 = zext i32 %181 to i64
@@ -597,7 +597,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
   br label %200
 
 .loopexit173:                                     ; preds = %.loopexit177, %.preheader176.us, %.loopexit, %.preheader.us, %162, %73, %147
-  %.7.ph = phi ptr [ %.3.lcssa, %147 ], [ %81, %73 ], [ %163, %162 ], [ %81, %.preheader.us ], [ %.2164.lcssa, %.loopexit ], [ %163, %.preheader176.us ], [ %.6.lcssa, %.loopexit177 ]
+  %.3.ph = phi ptr [ %.4.lcssa, %147 ], [ %81, %73 ], [ %163, %162 ], [ %81, %.preheader.us ], [ %.2164.lcssa, %.loopexit ], [ %163, %.preheader176.us ], [ %.7.lcssa, %.loopexit177 ]
   %.1160.ph = phi i32 [ %153, %147 ], [ %.0159, %73 ], [ %.0159, %162 ], [ %.0159, %.preheader.us ], [ %.0159, %.loopexit ], [ %.0159, %.preheader176.us ], [ %.0159, %.loopexit177 ]
   %.pr = load i32, ptr %3, align 4
   %188 = icmp eq i32 %.pr, 1
@@ -621,8 +621,8 @@ define internal range(i32 -1, 1) i32 @H5S__point_serialize(ptr nocapture noundef
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %189, %.loopexit173
-  %.7172 = phi ptr [ %.7.ph, %189 ], [ %.7.ph, %.loopexit173 ], [ %.3.lcssa, %._crit_edge ]
-  store ptr %.7172, ptr %1, align 8
+  %.3172 = phi ptr [ %.3.ph, %189 ], [ %.3.ph, %.loopexit173 ], [ %.4.lcssa, %._crit_edge ]
+  store ptr %.3172, ptr %1, align 8
   br label %200
 
 200:                                              ; preds = %.thread, %184, %8
@@ -652,7 +652,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
   br label %300
 
 15:                                               ; preds = %4, %9
-  %.0198 = phi ptr [ %10, %9 ], [ %8, %4 ]
+  %.1 = phi ptr [ %10, %9 ], [ %8, %4 ]
   br i1 %3, label %27, label %16
 
 16:                                               ; preds = %15
@@ -813,7 +813,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
   %115 = shl nuw nsw i32 %105, 3
   %116 = zext nneg i32 %115 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %5, i8 0, i64 %116, i1 false)
-  %117 = call i32 @H5S_set_extent_simple(ptr noundef nonnull %.0198, i32 noundef %105, ptr noundef nonnull %5, ptr noundef null) #14
+  %117 = call i32 @H5S_set_extent_simple(ptr noundef nonnull %.1, i32 noundef %105, ptr noundef nonnull %5, ptr noundef null) #14
   %118 = icmp slt i32 %117, 0
   br i1 %118, label %119, label %130
 
@@ -824,7 +824,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
   br label %289
 
 123:                                              ; preds = %112
-  %124 = getelementptr inbounds i8, ptr %.0198, i64 56
+  %124 = getelementptr inbounds i8, ptr %.1, i64 56
   %125 = load i32, ptr %124, align 8
   %.not237 = icmp eq i32 %105, %125
   br i1 %.not237, label %130, label %126
@@ -921,10 +921,10 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
 
 176:                                              ; preds = %174, %176
   %.0197283 = phi i64 [ 0, %174 ], [ %182, %176 ]
-  %.0204282 = phi i64 [ 0, %174 ], [ %181, %176 ]
-  %.1207281 = phi ptr [ %175, %174 ], [ %178, %176 ]
-  %177 = shl i64 %.0204282, 8
-  %178 = getelementptr inbounds i8, ptr %.1207281, i64 -1
+  %.1205282 = phi i64 [ 0, %174 ], [ %181, %176 ]
+  %.2281 = phi ptr [ %175, %174 ], [ %178, %176 ]
+  %177 = shl i64 %.1205282, 8
+  %178 = getelementptr inbounds i8, ptr %.2281, i64 -1
   %179 = load i8, ptr %178, align 1
   %180 = zext i8 %179 to i64
   %181 = or disjoint i64 %177, %180
@@ -940,15 +940,15 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
 
 .loopexit:                                        ; preds = %176, %.thread255, %.thread250
   %.sink = phi i64 [ 8, %.thread255 ], [ 6, %.thread250 ], [ 12, %176 ]
-  %.1205254 = phi i64 [ %160, %.thread255 ], [ %145, %.thread250 ], [ %181, %176 ]
+  %.0204254 = phi i64 [ %160, %.thread255 ], [ %145, %.thread250 ], [ %181, %176 ]
   %.0201 = phi i64 [ 4, %.thread255 ], [ 2, %.thread250 ], [ 8, %176 ]
   %187 = getelementptr i8, ptr %.0206249, i64 %.sink
   %188 = zext nneg i32 %105 to i64
-  %189 = mul i64 %.1205254, %188
+  %189 = mul i64 %.0204254, %188
   %190 = mul i64 %.0201, %189
   %191 = mul nuw nsw i64 %.0201, %188
   %192 = udiv i64 %190, %191
-  %.not238 = icmp eq i64 %.1205254, %192
+  %.not238 = icmp eq i64 %.0204254, %192
   br i1 %.not238, label %197, label %193
 
 193:                                              ; preds = %.loopexit
@@ -987,7 +987,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
   br i1 %214, label %270, label %.preheader277
 
 .preheader277:                                    ; preds = %211
-  %.not328 = icmp eq i64 %.1205254, 0
+  %.not328 = icmp eq i64 %.0204254, 0
   br i1 %.not328, label %._crit_edge303, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.preheader277
@@ -1029,7 +1029,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
 ._crit_edge.split.us.us.us:                       ; preds = %215
   %226 = add i32 %.0203302.us.us, 1
   %227 = zext i32 %226 to i64
-  %228 = icmp ugt i64 %.1205254, %227
+  %228 = icmp ugt i64 %.0204254, %227
   br i1 %228, label %.preheader.us.us, label %._crit_edge303
 
 .preheader.us.us315:                              ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.split.us.us.us
@@ -1072,7 +1072,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
 ._crit_edge.split.split.us.us.us:                 ; preds = %229
   %250 = add i32 %.0203302.us.us316, 1
   %251 = zext i32 %250 to i64
-  %252 = icmp ugt i64 %.1205254, %251
+  %252 = icmp ugt i64 %.0204254, %251
   br i1 %252, label %.preheader.us.us315, label %._crit_edge303
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.split.us308
@@ -1113,7 +1113,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
 ._crit_edge.split.split.us308:                    ; preds = %255
   %267 = add i32 %.0203302.us, 1
   %268 = zext i32 %267 to i64
-  %269 = icmp ugt i64 %.1205254, %268
+  %269 = icmp ugt i64 %.0204254, %268
   br i1 %269, label %.preheader.us, label %._crit_edge303
 
 270:                                              ; preds = %211
@@ -1126,7 +1126,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
   %.0203302 = phi i32 [ %274, %.preheader ], [ 0, %.preheader.lr.ph ]
   %274 = add i32 %.0203302, 1
   %275 = zext i32 %274 to i64
-  %276 = icmp ugt i64 %.1205254, %275
+  %276 = icmp ugt i64 %.0204254, %275
   br i1 %276, label %.preheader, label %._crit_edge303
 
 .split.us:                                        ; preds = %.preheader.lr.ph.split.us
@@ -1137,7 +1137,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
 
 ._crit_edge303:                                   ; preds = %._crit_edge.split.split.us308, %._crit_edge.split.split.us.us.us, %._crit_edge.split.us.us.us, %.preheader, %.preheader277
   %.3.lcssa = phi ptr [ %187, %.preheader277 ], [ %187, %.preheader ], [ %223, %._crit_edge.split.us.us.us ], [ %247, %._crit_edge.split.split.us.us.us ], [ %256, %._crit_edge.split.split.us308 ]
-  %280 = call i32 @H5S_select_elements(ptr noundef nonnull %.0198, i32 noundef 0, i64 noundef %.1205254, ptr noundef nonnull %213)
+  %280 = call i32 @H5S_select_elements(ptr noundef nonnull %.1, i32 noundef 0, i64 noundef %.0204254, ptr noundef nonnull %213)
   %281 = icmp slt i32 %280, 0
   br i1 %281, label %282, label %286
 
@@ -1154,7 +1154,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
   br i1 %.not, label %288, label %.thread343
 
 288:                                              ; preds = %286
-  store ptr %.0198, ptr %0, align 8
+  store ptr %.1, ptr %0, align 8
   br label %.thread343
 
 289:                                              ; preds = %282, %.split.us, %270, %207, %193, %183, %170, %155, %140, %126, %119, %108, %89, %76, %67, %55, %42, %23
@@ -1164,7 +1164,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr nocapture nound
   br i1 %290, label %291, label %.thread343
 
 291:                                              ; preds = %289
-  %292 = call i32 @H5S_close(ptr noundef nonnull %.0198) #14
+  %292 = call i32 @H5S_close(ptr noundef nonnull %.1) #14
   %293 = icmp slt i32 %292, 0
   br i1 %293, label %294, label %.thread343
 
@@ -2487,18 +2487,18 @@ define range(i32 -1, 1) i32 @H5Sget_select_elem_pointlist(i64 noundef %0, i64 no
   br label %59
 
 59:                                               ; preds = %59, %57
-  %.024.in.i = phi ptr [ %58, %57 ], [ %.024.i, %59 ]
+  %.1.in.i = phi ptr [ %58, %57 ], [ %.1.i, %59 ]
   %.0.i = phi i64 [ %1, %57 ], [ %63, %59 ]
-  %.024.i = load ptr, ptr %.024.in.i, align 8
-  %60 = icmp ne ptr %.024.i, null
+  %.1.i = load ptr, ptr %.1.in.i, align 8
+  %60 = icmp ne ptr %.1.i, null
   %61 = icmp ne i64 %.0.i, 0
   %62 = select i1 %60, i1 %61, i1 false
   %63 = add i64 %.0.i, -1
   br i1 %62, label %59, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %59, %53
-  %.1.i = phi ptr [ %52, %53 ], [ %.024.i, %59 ]
-  %64 = icmp ne ptr %.1.i, null
+  %.024.i = phi ptr [ %52, %53 ], [ %.1.i, %59 ]
+  %64 = icmp ne ptr %.024.i, null
   %65 = icmp ne i64 %2, 0
   %66 = and i1 %65, %64
   br i1 %66, label %.lr.ph.i, label %78
@@ -2509,7 +2509,7 @@ define range(i32 -1, 1) i32 @H5Sget_select_elem_pointlist(i64 noundef %0, i64 no
   br label %69
 
 69:                                               ; preds = %69, %.lr.ph.i
-  %.230.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %73, %69 ]
+  %.230.i = phi ptr [ %.024.i, %.lr.ph.i ], [ %73, %69 ]
   %.02529.i = phi i64 [ %2, %.lr.ph.i ], [ %72, %69 ]
   %.02628.i = phi ptr [ %3, %.lr.ph.i ], [ %71, %69 ]
   %70 = getelementptr inbounds i8, ptr %.230.i, i64 8
@@ -2532,7 +2532,7 @@ define range(i32 -1, 1) i32 @H5Sget_select_elem_pointlist(i64 noundef %0, i64 no
 
 78:                                               ; preds = %._crit_edge.loopexit.i, %.loopexit.i
   %79 = phi ptr [ %50, %.loopexit.i ], [ %.pre.i, %._crit_edge.loopexit.i ]
-  %.2.lcssa.i = phi ptr [ %.1.i, %.loopexit.i ], [ %73, %._crit_edge.loopexit.i ]
+  %.2.lcssa.i = phi ptr [ %.024.i, %.loopexit.i ], [ %73, %._crit_edge.loopexit.i ]
   %80 = add i64 %2, %1
   %81 = getelementptr inbounds i8, ptr %79, i64 528
   store i64 %80, ptr %81, align 8
@@ -2868,7 +2868,7 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr nocapture noundef 
 
 .split.us:                                        ; preds = %.split.us.preheader, %43
   %.066.in.us = phi ptr [ %.066.us, %43 ], [ %12, %.split.us.preheader ]
-  %.062.us = phi i64 [ %.163.us, %43 ], [ 0, %.split.us.preheader ]
+  %.062.us = phi i64 [ %.2.us, %43 ], [ 0, %.split.us.preheader ]
   %.0.us = phi i64 [ %44, %43 ], [ %., %.split.us.preheader ]
   %.066.us = load ptr, ptr %.066.in.us, align 8
   %.not.us = icmp eq ptr %.066.us, null
@@ -2922,14 +2922,14 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr nocapture noundef 
   br label %43
 
 43:                                               ; preds = %41, %39, %34
-  %.163.us = phi i64 [ %.062.us, %39 ], [ %38, %34 ], [ 1, %41 ]
+  %.2.us = phi i64 [ %.062.us, %39 ], [ %38, %34 ], [ 1, %41 ]
   %44 = add i64 %.0.us, -1
   %45 = load ptr, ptr %.066.us, align 8
   store ptr %45, ptr %12, align 8
   %46 = load i64, ptr %8, align 8
   %47 = add i64 %46, -1
   store i64 %47, ptr %8, align 8
-  %48 = icmp eq i64 %.163.us, %1
+  %48 = icmp eq i64 %.2.us, %1
   %49 = icmp eq i64 %44, 0
   %or.cond.us = select i1 %48, i1 true, i1 %49
   br i1 %or.cond.us, label %.split77.us, label %.split.us
@@ -2958,7 +2958,7 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr nocapture noundef 
 
 .split:                                           ; preds = %7, %85
   %.066.in = phi ptr [ %.066, %85 ], [ %12, %7 ]
-  %.062 = phi i64 [ %.163, %85 ], [ 0, %7 ]
+  %.062 = phi i64 [ %.2, %85 ], [ 0, %7 ]
   %.0 = phi i64 [ %86, %85 ], [ %., %7 ]
   %.066 = load ptr, ptr %.066.in, align 8
   %.not = icmp eq ptr %.066, null
@@ -3012,20 +3012,20 @@ define internal noundef i32 @H5S__point_iter_get_seq_list(ptr nocapture noundef 
   br label %85
 
 85:                                               ; preds = %76, %78, %83
-  %.163 = phi i64 [ %.062, %76 ], [ %82, %78 ], [ 1, %83 ]
+  %.2 = phi i64 [ %.062, %76 ], [ %82, %78 ], [ 1, %83 ]
   %86 = add i64 %.0, -1
   %87 = load ptr, ptr %.066, align 8
   store ptr %87, ptr %12, align 8
   %88 = load i64, ptr %8, align 8
   %89 = add i64 %88, -1
   store i64 %89, ptr %8, align 8
-  %90 = icmp eq i64 %.163, %1
+  %90 = icmp eq i64 %.2, %1
   %91 = icmp eq i64 %86, 0
   %or.cond = select i1 %90, i1 true, i1 %91
   br i1 %or.cond, label %.split77.us, label %.split
 
 .split77.us:                                      ; preds = %.split, %67, %85, %.split.us, %24, %43
-  %.us-phi = phi i64 [ %.062.us, %24 ], [ %.163.us, %43 ], [ %.062.us, %.split.us ], [ %.062, %67 ], [ %.163, %85 ], [ %.062, %.split ]
+  %.us-phi = phi i64 [ %.062.us, %24 ], [ %.2.us, %43 ], [ %.062.us, %.split.us ], [ %.062, %67 ], [ %.2, %85 ], [ %.062, %.split ]
   %.us-phi78 = phi i64 [ %.0.us, %24 ], [ %44, %43 ], [ %.0.us, %.split.us ], [ %.0, %67 ], [ %86, %85 ], [ %.0, %.split ]
   store i64 %.us-phi, ptr %3, align 8
   %92 = sub i64 %., %.us-phi78

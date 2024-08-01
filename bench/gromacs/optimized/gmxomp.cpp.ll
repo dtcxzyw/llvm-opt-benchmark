@@ -124,14 +124,14 @@ define noundef zeroext i1 @_Z29gmx_omp_check_thread_affinityPPc(ptr nocapture no
 
 33:                                               ; preds = %31, %29
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
-  %.016 = extractvalue { ptr, i32 } %.pn, 1
+  %.117 = extractvalue { ptr, i32 } %.pn, 1
   %34 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #8
-  %35 = icmp eq i32 %.016, %34
+  %35 = icmp eq i32 %.117, %34
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %33
-  %.015 = extractvalue { ptr, i32 } %.pn, 0
-  %37 = call ptr @__cxa_begin_catch(ptr %.015) #8
+  %.1 = extractvalue { ptr, i32 } %.pn, 0
+  %37 = call ptr @__cxa_begin_catch(ptr %.1) #8
   invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %37) #9
           to label %38 unwind label %39
 

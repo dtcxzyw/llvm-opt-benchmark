@@ -13742,8 +13742,8 @@ define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readnone %0, 
   br i1 %.not48.us.us, label %.preheader.us.us, label %.backedge.us.us
 
 .preheader.us.us:                                 ; preds = %37, %46
-  %.1.us.us = phi ptr [ %42, %46 ], [ %.03352.us.us, %37 ]
-  %41 = getelementptr inbounds i8, ptr %.1.us.us, i64 40
+  %.2.us.us = phi ptr [ %42, %46 ], [ %.03352.us.us, %37 ]
+  %41 = getelementptr inbounds i8, ptr %.2.us.us, i64 40
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, %0
   br i1 %43, label %.loopexit, label %44
@@ -13801,8 +13801,8 @@ define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readnone %0, 
   br i1 %.not48.us, label %.preheader.us, label %.backedge.us
 
 .preheader.us:                                    ; preds = %66, %74
-  %.1.us = phi ptr [ %70, %74 ], [ %.03352.us, %66 ]
-  %69 = getelementptr inbounds i8, ptr %.1.us, i64 40
+  %.2.us = phi ptr [ %70, %74 ], [ %.03352.us, %66 ]
+  %69 = getelementptr inbounds i8, ptr %.2.us, i64 40
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, %0
   br i1 %71, label %.loopexit, label %72
@@ -13883,8 +13883,8 @@ define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readnone %0, 
   br i1 %.not48.us59, label %.preheader.us62, label %.backedge.us65
 
 .preheader.us62:                                  ; preds = %103, %111
-  %.1.us60 = phi ptr [ %107, %111 ], [ %.03352.us57, %103 ]
-  %106 = getelementptr inbounds i8, ptr %.1.us60, i64 40
+  %.2.us60 = phi ptr [ %107, %111 ], [ %.03352.us57, %103 ]
+  %106 = getelementptr inbounds i8, ptr %.2.us60, i64 40
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %107, %0
   br i1 %108, label %.loopexit, label %109
@@ -13963,8 +13963,8 @@ define hidden ptr @dom_get_elements_by_tag_name_ns_raw(ptr noundef readnone %0, 
   br i1 %.not48, label %.preheader, label %.backedge
 
 .preheader:                                       ; preds = %142, %150
-  %.1 = phi ptr [ %146, %150 ], [ %.03352, %142 ]
-  %145 = getelementptr inbounds i8, ptr %.1, i64 40
+  %.2 = phi ptr [ %146, %150 ], [ %.03352, %142 ]
+  %145 = getelementptr inbounds i8, ptr %.2, i64 40
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %146, %0
   br i1 %147, label %.loopexit, label %148

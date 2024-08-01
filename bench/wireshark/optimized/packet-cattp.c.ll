@@ -347,10 +347,10 @@ define internal i32 @dissect_cattp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 116:                                              ; preds = %116, %112
   %.021.i = phi i32 [ 0, %112 ], [ %120, %116 ]
-  %.01820.i = phi i32 [ 18, %112 ], [ %119, %116 ]
+  %.120.i = phi i32 [ 18, %112 ], [ %119, %116 ]
   %117 = load i32, ptr @hf_cattp_eaks, align 4
-  %118 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %117, ptr noundef %0, i32 noundef %.01820.i, i32 noundef 2, i32 noundef 0) #3
-  %119 = add nuw nsw i32 %.01820.i, 2
+  %118 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %117, ptr noundef %0, i32 noundef %.120.i, i32 noundef 2, i32 noundef 0) #3
+  %119 = add nuw nsw i32 %.120.i, 2
   %120 = add nuw nsw i32 %.021.i, 1
   %exitcond.not.i127 = icmp eq i32 %120, %109
   br i1 %exitcond.not.i127, label %dissect_cattp_synpdu.exit, label %116, !llvm.loop !6

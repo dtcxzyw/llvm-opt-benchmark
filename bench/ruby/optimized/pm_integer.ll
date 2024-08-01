@@ -112,14 +112,14 @@ define hidden void @pm_integer_parse(ptr nocapture noundef %0, i32 noundef %1, p
   br label %43
 
 43:                                               ; preds = %15, %13, %10, %23, %29, %41, %39, %37, %35, %34, %32, %21, %8, %4
-  %.2 = phi ptr [ %spec.select, %4 ], [ %spec.select, %29 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %30, %34 ], [ %33, %32 ], [ %spec.select, %23 ], [ %22, %21 ], [ %9, %8 ], [ %14, %13 ], [ %11, %10 ], [ %spec.select45, %15 ]
+  %.1 = phi ptr [ %spec.select, %4 ], [ %spec.select, %29 ], [ %42, %41 ], [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %30, %34 ], [ %33, %32 ], [ %spec.select, %23 ], [ %22, %21 ], [ %9, %8 ], [ %14, %13 ], [ %11, %10 ], [ %spec.select45, %15 ]
   %.0 = phi i64 [ 10, %4 ], [ 10, %29 ], [ 16, %41 ], [ 10, %39 ], [ 8, %37 ], [ 2, %35 ], [ 8, %34 ], [ 8, %32 ], [ 10, %23 ], [ 16, %21 ], [ 2, %8 ], [ 8, %13 ], [ 8, %10 ], [ 10, %15 ]
-  %.270 = ptrtoint ptr %.2 to i64
-  %.not = icmp ult ptr %.2, %3
+  %.170 = ptrtoint ptr %.1 to i64
+  %.not = icmp ult ptr %.1, %3
   br i1 %.not, label %44, label %.loopexit
 
 44:                                               ; preds = %43
-  %45 = load i8, ptr %.2, align 1
+  %45 = load i8, ptr %.1, align 1
   %46 = tail call fastcc i32 @pm_integer_parse_digit(i8 noundef zeroext %45)
   %.not17.i = icmp eq i32 %46, 0
   br i1 %.not17.i, label %pm_integer_add.exit, label %.lr.ph.preheader.i
@@ -162,14 +162,14 @@ pm_integer_node_create.exit.i:                    ; preds = %58, %53
   br label %pm_integer_add.exit
 
 pm_integer_add.exit:                              ; preds = %.lr.ph.i, %44, %pm_integer_node_create.exit.i
-  %.364 = getelementptr i8, ptr %.2, i64 1
+  %.364 = getelementptr i8, ptr %.1, i64 1
   %59 = icmp ult ptr %.364, %3
   br i1 %59, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %pm_integer_add.exit
   %60 = getelementptr inbounds i8, ptr %0, i64 8
-  %61 = sub i64 %5, %.270
-  %scevgep = getelementptr i8, ptr %.2, i64 %61
+  %61 = sub i64 %5, %.170
+  %scevgep = getelementptr i8, ptr %.1, i64 %61
   br label %62
 
 62:                                               ; preds = %.lr.ph, %pm_integer_add.exit59

@@ -232,16 +232,16 @@ dissect_wsmp_length_and_count.exit.i:             ; preds = %40, %36, %33
   br i1 %.not7791.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %dissect_wsmp_length_and_count.exit.i, %dissect_wsmp_length_and_count.exit81.i
-  %.093.i = phi i32 [ %72, %dissect_wsmp_length_and_count.exit81.i ], [ %44, %dissect_wsmp_length_and_count.exit.i ]
+  %.193.i = phi i32 [ %72, %dissect_wsmp_length_and_count.exit81.i ], [ %44, %dissect_wsmp_length_and_count.exit.i ]
   %.09092.i = phi i16 [ %75, %dissect_wsmp_length_and_count.exit81.i ], [ %.0.i.i, %dissect_wsmp_length_and_count.exit.i ]
-  %45 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.093.i) #3
+  %45 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.193.i) #3
   %46 = load i32, ptr @ett_wsmp_ie, align 4
   %47 = zext i8 %45 to i32
   %48 = call ptr @val_to_str_const(i32 noundef %47, ptr noundef nonnull @wsmp_wave_information_elements_vals, ptr noundef nonnull @.str.77) #3
-  %49 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %27, ptr noundef %0, i32 noundef %.093.i, i32 noundef -1, i32 noundef %46, ptr noundef nonnull %5, ptr noundef nonnull @.str.76, ptr noundef %48) #3
+  %49 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %27, ptr noundef %0, i32 noundef %.193.i, i32 noundef -1, i32 noundef %46, ptr noundef nonnull %5, ptr noundef nonnull @.str.76, ptr noundef %48) #3
   %50 = load i32, ptr @hf_wsmp_wave_ie, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef %.093.i, i32 noundef 1, i32 noundef 0) #3
-  %52 = add i32 %.093.i, 1
+  %51 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef %.193.i, i32 noundef 1, i32 noundef 0) #3
+  %52 = add i32 %.193.i, 1
   %53 = load i32, ptr @hf_wsmp_wave_ie_len, align 4
   %54 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %52) #3
   %.not.i78.i = icmp sgt i8 %54, -1
@@ -276,7 +276,7 @@ dissect_wsmp_length_and_count.exit81.i:           ; preds = %65, %61, %58
   %70 = load i32, ptr @hf_wsmp_wave_ie_data, align 4
   %71 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %70, ptr noundef %0, i32 noundef %69, i32 noundef %67, i32 noundef 0) #3
   %72 = add i32 %69, %67
-  %73 = sub i32 %72, %.093.i
+  %73 = sub i32 %72, %.193.i
   %74 = load ptr, ptr %5, align 8
   call void @proto_item_set_len(ptr noundef %74, i32 noundef %73) #3
   %75 = add nsw i16 %.09092.i, -1
@@ -284,10 +284,10 @@ dissect_wsmp_length_and_count.exit81.i:           ; preds = %65, %61, %58
   br i1 %.not77.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !4
 
 .loopexit.i:                                      ; preds = %dissect_wsmp_length_and_count.exit81.i, %dissect_wsmp_length_and_count.exit.i, %21
-  %.1.i = phi i32 [ 1, %21 ], [ %44, %dissect_wsmp_length_and_count.exit.i ], [ %72, %dissect_wsmp_length_and_count.exit81.i ]
+  %.0.i = phi i32 [ 1, %21 ], [ %44, %dissect_wsmp_length_and_count.exit.i ], [ %72, %dissect_wsmp_length_and_count.exit81.i ]
   %76 = load i32, ptr @hf_wsmp_tpid, align 4
-  %77 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %23, i32 noundef %76, ptr noundef %0, i32 noundef %.1.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #3
-  %78 = add i32 %.1.i, 1
+  %77 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %23, i32 noundef %76, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #3
+  %78 = add i32 %.0.i, 1
   %79 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %79, ptr noundef %0, i32 noundef %78) #3
   %80 = load i32, ptr @ett_wsmp_t_hdr, align 4

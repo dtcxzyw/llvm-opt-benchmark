@@ -487,11 +487,11 @@ define internal fastcc noundef i32 @nmas_string(ptr %.408.val, ptr noundef %0, i
 
 32:                                               ; preds = %23, %26, %29
   %.263 = phi i32 [ %.1624, %23 ], [ %28, %26 ], [ %.1624, %29 ]
-  %.1 = phi i32 [ %.0595, %23 ], [ %27, %26 ], [ %.0595, %29 ]
+  %.2 = phi i32 [ %.0595, %23 ], [ %27, %26 ], [ %.0595, %29 ]
   %33 = add i32 %.0643, 1
   %34 = add i32 %.06, -1
   %35 = icmp ne i32 %34, 1
-  %36 = add i32 %.1, 1
+  %36 = add i32 %.2, 1
   %37 = icmp ult i32 %36, %.263
   %or.cond16 = select i1 %35, i1 %37, i1 false
   br i1 %or.cond16, label %.preheader, label %.loopexit, !llvm.loop !6

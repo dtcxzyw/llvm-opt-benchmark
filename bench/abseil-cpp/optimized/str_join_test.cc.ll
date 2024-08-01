@@ -1039,13 +1039,13 @@ ehcleanup21.thread:                               ; preds = %lpad.i, %lpad
 ehcleanup21:                                      ; preds = %ehcleanup, %lpad.i110, %lpad4
   %cleanup.isactive.1 = phi i1 [ %16, %ehcleanup ], [ false, %lpad.i110 ], [ false, %lpad4 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %1, %lpad.i110 ], [ %14, %lpad4 ]
-  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element6, %ehcleanup ], [ %arrayinit.element, %lpad.i110 ], [ %arrayinit.element, %lpad4 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element6, %ehcleanup ], [ %arrayinit.element, %lpad.i110 ], [ %arrayinit.element, %lpad4 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #20
   br i1 %cleanup.isactive.1, label %common.resume, label %arraydestroy.body23
 
 arraydestroy.body23:                              ; preds = %ehcleanup21, %arraydestroy.body23
-  %arraydestroy.elementPast24 = phi ptr [ %arraydestroy.element25, %arraydestroy.body23 ], [ %arrayinit.endOfInit.0, %ehcleanup21 ]
+  %arraydestroy.elementPast24 = phi ptr [ %arraydestroy.element25, %arraydestroy.body23 ], [ %arrayinit.endOfInit.1, %ehcleanup21 ]
   %arraydestroy.element25 = getelementptr inbounds i8, ptr %arraydestroy.elementPast24, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element25) #20
   %arraydestroy.done26 = icmp eq ptr %arraydestroy.element25, %ref.tmp
@@ -7571,7 +7571,7 @@ ehcleanup21.thread:                               ; preds = %lpad.i, %lpad
   br label %eh.resume
 
 ehcleanup21:                                      ; preds = %ehcleanup, %lpad.i29, %lpad4
-  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element6, %ehcleanup ], [ %arrayinit.element, %lpad.i29 ], [ %arrayinit.element, %lpad4 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element6, %ehcleanup ], [ %arrayinit.element, %lpad.i29 ], [ %arrayinit.element, %lpad4 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %1, %lpad.i29 ], [ %18, %lpad4 ]
   %cleanup.isactive.1 = phi i1 [ %20, %ehcleanup ], [ false, %lpad.i29 ], [ false, %lpad4 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #20
@@ -7579,7 +7579,7 @@ ehcleanup21:                                      ; preds = %ehcleanup, %lpad.i2
   br i1 %cleanup.isactive.1, label %eh.resume, label %arraydestroy.body23
 
 arraydestroy.body23:                              ; preds = %ehcleanup21, %arraydestroy.body23
-  %arraydestroy.elementPast24 = phi ptr [ %arraydestroy.element25, %arraydestroy.body23 ], [ %arrayinit.endOfInit.0, %ehcleanup21 ]
+  %arraydestroy.elementPast24 = phi ptr [ %arraydestroy.element25, %arraydestroy.body23 ], [ %arrayinit.endOfInit.1, %ehcleanup21 ]
   %arraydestroy.element25 = getelementptr inbounds i8, ptr %arraydestroy.elementPast24, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element25) #20
   %arraydestroy.done26 = icmp eq ptr %arraydestroy.element25, %ref.tmp
@@ -12607,13 +12607,13 @@ ehcleanup21.thread:                               ; preds = %lpad.i, %lpad
 ehcleanup21:                                      ; preds = %ehcleanup, %lpad.i21, %lpad4
   %cleanup.isactive.1 = phi i1 [ %20, %ehcleanup ], [ false, %lpad.i21 ], [ false, %lpad4 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %1, %lpad.i21 ], [ %18, %lpad4 ]
-  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element6, %ehcleanup ], [ %arrayinit.element, %lpad.i21 ], [ %arrayinit.element, %lpad4 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element6, %ehcleanup ], [ %arrayinit.element, %lpad.i21 ], [ %arrayinit.element, %lpad4 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #20
   br i1 %cleanup.isactive.1, label %eh.resume, label %arraydestroy.body23
 
 arraydestroy.body23:                              ; preds = %ehcleanup21, %arraydestroy.body23
-  %arraydestroy.elementPast24 = phi ptr [ %arraydestroy.element25, %arraydestroy.body23 ], [ %arrayinit.endOfInit.0, %ehcleanup21 ]
+  %arraydestroy.elementPast24 = phi ptr [ %arraydestroy.element25, %arraydestroy.body23 ], [ %arrayinit.endOfInit.1, %ehcleanup21 ]
   %arraydestroy.element25 = getelementptr inbounds i8, ptr %arraydestroy.elementPast24, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element25) #20
   %arraydestroy.done26 = icmp eq ptr %arraydestroy.element25, %ref.tmp
@@ -14102,14 +14102,14 @@ ehcleanup92.thread:                               ; preds = %lpad.i, %lpad78
   br label %common.resume
 
 ehcleanup92:                                      ; preds = %lpad85.body, %lpad.i137, %lpad81
-  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element83, %lpad85.body ], [ %arrayinit.element, %lpad.i137 ], [ %arrayinit.element, %lpad81 ]
+  %arrayinit.endOfInit.1 = phi ptr [ %arrayinit.element83, %lpad85.body ], [ %arrayinit.element, %lpad.i137 ], [ %arrayinit.element, %lpad81 ]
   %.pn9 = phi { ptr, i32 } [ %eh.lpad-body149, %lpad85.body ], [ %43, %lpad.i137 ], [ %47, %lpad81 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp80) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp77) #20
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %ehcleanup92, %arraydestroy.body
-  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %arrayinit.endOfInit.0, %ehcleanup92 ]
+  %arraydestroy.elementPast = phi ptr [ %arraydestroy.element, %arraydestroy.body ], [ %arrayinit.endOfInit.1, %ehcleanup92 ]
   %arraydestroy.element = getelementptr inbounds i8, ptr %arraydestroy.elementPast, i64 -32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element) #20
   %arraydestroy.done = icmp eq ptr %arraydestroy.element, %ref.tmp75

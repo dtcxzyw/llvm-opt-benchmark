@@ -146,7 +146,7 @@ if.then:                                          ; preds = %while.end
 
 while.cond13:                                     ; preds = %while.end, %while.body19
   %3 = phi i8 [ %.pr, %while.body19 ], [ %2, %while.end ]
-  %ptr.1 = phi ptr [ %incdec.ptr20, %while.body19 ], [ %incdec.ptr6, %while.end ]
+  %ptr.2 = phi ptr [ %incdec.ptr20, %while.body19 ], [ %incdec.ptr6, %while.end ]
   %fptr.0 = phi ptr [ %incdec.ptr21, %while.body19 ], [ %functionSymbol, %while.end ]
   switch i8 %3, label %while.body19 [
     i8 0, label %while.end22
@@ -154,7 +154,7 @@ while.cond13:                                     ; preds = %while.end, %while.b
   ]
 
 while.body19:                                     ; preds = %while.cond13
-  %incdec.ptr20 = getelementptr inbounds i8, ptr %ptr.1, i64 1
+  %incdec.ptr20 = getelementptr inbounds i8, ptr %ptr.2, i64 1
   %incdec.ptr21 = getelementptr inbounds i8, ptr %fptr.0, i64 1
   store i8 %3, ptr %fptr.0, align 1
   %.pr = load i8, ptr %incdec.ptr20, align 1
@@ -171,7 +171,7 @@ if.then25:                                        ; preds = %while.end22
   br label %for.inc
 
 if.end:                                           ; preds = %while.end22
-  %incdec.ptr29 = getelementptr inbounds i8, ptr %ptr.1, i64 1
+  %incdec.ptr29 = getelementptr inbounds i8, ptr %ptr.2, i64 1
   br label %while.cond32.preheader
 
 while.cond32.preheader:                           ; preds = %if.end, %if.then

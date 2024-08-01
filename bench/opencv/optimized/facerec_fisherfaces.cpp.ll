@@ -1553,14 +1553,14 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 592:                                              ; preds = %591, %303
   %.pn110.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn110.pn.pn.pn.pn.pn.pn.pn.pn, %591 ], [ %304, %303 ]
-  %.36 = extractvalue { ptr, i32 } %.pn110.pn.pn.pn.pn.pn.pn.pn.pn.pn, 0
-  %.3667 = extractvalue { ptr, i32 } %.pn110.pn.pn.pn.pn.pn.pn.pn.pn.pn, 1
+  %.3 = extractvalue { ptr, i32 } %.pn110.pn.pn.pn.pn.pn.pn.pn.pn.pn, 0
+  %.334 = extractvalue { ptr, i32 } %.pn110.pn.pn.pn.pn.pn.pn.pn.pn.pn, 1
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #19
   br label %593
 
 593:                                              ; preds = %214, %592, %299, %233, %229, %.body
-  %.3768 = phi i32 [ %236, %233 ], [ %232, %229 ], [ %.3667, %592 ], [ %302, %299 ], [ %217, %214 ], [ %198, %.body ]
-  %.37 = phi ptr [ %235, %233 ], [ %231, %229 ], [ %.36, %592 ], [ %301, %299 ], [ %216, %214 ], [ %197, %.body ]
+  %.233 = phi i32 [ %236, %233 ], [ %232, %229 ], [ %.334, %592 ], [ %302, %299 ], [ %217, %214 ], [ %198, %.body ]
+  %.2 = phi ptr [ %235, %233 ], [ %231, %229 ], [ %.3, %592 ], [ %301, %299 ], [ %216, %214 ], [ %197, %.body ]
   %594 = load ptr, ptr %22, align 8
   %.not.i.i.i141 = icmp eq ptr %594, null
   br i1 %.not.i.i.i141, label %_ZNSt6vectorIiSaIiEED2Ev.exit142, label %595
@@ -1575,16 +1575,16 @@ _ZNSt6vectorIiSaIiEED2Ev.exit142:                 ; preds = %593, %595
   br label %596
 
 596:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit142, %191, %99
-  %.3869 = phi i32 [ %.3768, %_ZNSt6vectorIiSaIiEED2Ev.exit142 ], [ %194, %191 ], [ %102, %99 ]
-  %.38 = phi ptr [ %.37, %_ZNSt6vectorIiSaIiEED2Ev.exit142 ], [ %193, %191 ], [ %101, %99 ]
+  %.132 = phi i32 [ %.233, %_ZNSt6vectorIiSaIiEED2Ev.exit142 ], [ %194, %191 ], [ %102, %99 ]
+  %.1 = phi ptr [ %.2, %_ZNSt6vectorIiSaIiEED2Ev.exit142 ], [ %193, %191 ], [ %101, %99 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #19
   br label %597
 
 597:                                              ; preds = %596, %95
-  %.3970 = phi i32 [ %.3869, %596 ], [ %98, %95 ]
-  %.39 = phi ptr [ %.38, %596 ], [ %97, %95 ]
-  %598 = insertvalue { ptr, i32 } poison, ptr %.39, 0
-  %599 = insertvalue { ptr, i32 } %598, i32 %.3970, 1
+  %.031 = phi i32 [ %.132, %596 ], [ %98, %95 ]
+  %.030 = phi ptr [ %.1, %596 ], [ %97, %95 ]
+  %598 = insertvalue { ptr, i32 } poison, ptr %.030, 0
+  %599 = insertvalue { ptr, i32 } %598, i32 %.031, 1
   resume { ptr, i32 } %599
 
 600:                                              ; preds = %214

@@ -311,7 +311,7 @@ if.end101:                                        ; preds = %if.then99, %sw.bb96
   br i1 %cmp.i.not33, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end101, %for.inc
-  %result102.036 = phi i1 [ %result102.2, %for.inc ], [ %call105, %if.end101 ]
+  %result102.036 = phi i1 [ %result102.1, %for.inc ], [ %call105, %if.end101 ]
   %first_value_has_been_output.035 = phi i1 [ %first_value_has_been_output.1, %for.inc ], [ false, %if.end101 ]
   %__begin3.sroa.0.034 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %30, %if.end101 ]
   %32 = load i8, ptr %this, align 8
@@ -348,13 +348,13 @@ if.end128:                                        ; preds = %if.then121, %if.the
 
 for.inc:                                          ; preds = %land.lhs.true114, %if.end128
   %first_value_has_been_output.1 = phi i1 [ %first_value_has_been_output.035, %land.lhs.true114 ], [ true, %if.end128 ]
-  %result102.2 = phi i1 [ %result102.036, %land.lhs.true114 ], [ %spec.select, %if.end128 ]
+  %result102.1 = phi i1 [ %result102.036, %land.lhs.true114 ], [ %spec.select, %if.end128 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.034, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %31
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end101
-  %result102.0.lcssa = phi i1 [ %call105, %if.end101 ], [ %result102.2, %for.inc ]
+  %result102.0.lcssa = phi i1 [ %call105, %if.end101 ], [ %result102.1, %for.inc ]
   %39 = load i8, ptr %pretty_print_, align 2
   %tobool135 = trunc i8 %39 to i1
   br i1 %tobool135, label %if.then136, label %if.end138
@@ -405,7 +405,7 @@ for.body159.lr.ph:                                ; preds = %if.end148
   br label %for.body159
 
 for.cond.cleanup:                                 ; preds = %for.inc209, %if.end148
-  %result150.0.lcssa = phi i1 [ %call153, %if.end148 ], [ %result150.2, %for.inc209 ]
+  %result150.0.lcssa = phi i1 [ %call153, %if.end148 ], [ %result150.1, %for.inc209 ]
   call void @_ZN4base15DictionaryValue8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %itr) #8
   %50 = load i8, ptr %pretty_print_143, align 2
   %tobool213 = trunc i8 %50 to i1
@@ -420,7 +420,7 @@ lpad156:                                          ; preds = %if.then184, %if.end
 for.body159:                                      ; preds = %for.body159.lr.ph, %for.inc209
   %52 = phi ptr [ %47, %for.body159.lr.ph ], [ %69, %for.inc209 ]
   %53 = phi ptr [ %48, %for.body159.lr.ph ], [ %call.i.i, %for.inc209 ]
-  %result150.032 = phi i1 [ %call153, %for.body159.lr.ph ], [ %result150.2, %for.inc209 ]
+  %result150.032 = phi i1 [ %call153, %for.body159.lr.ph ], [ %result150.1, %for.inc209 ]
   %first_value_has_been_output149.031 = phi i1 [ false, %for.body159.lr.ph ], [ %first_value_has_been_output149.1, %for.inc209 ]
   %54 = load i8, ptr %this, align 8
   %tobool161 = trunc i8 %54 to i1
@@ -505,7 +505,7 @@ for.inc209:                                       ; preds = %land.lhs.true162, %
   %69 = phi ptr [ %52, %land.lhs.true162 ], [ %.pre38, %invoke.cont205 ]
   %70 = phi ptr [ %53, %land.lhs.true162 ], [ %.pre, %invoke.cont205 ]
   %first_value_has_been_output149.1 = phi i1 [ %first_value_has_been_output149.031, %land.lhs.true162 ], [ true, %invoke.cont205 ]
-  %result150.2 = phi i1 [ %result150.032, %land.lhs.true162 ], [ %spec.select14, %invoke.cont205 ]
+  %result150.1 = phi i1 [ %result150.032, %land.lhs.true162 ], [ %spec.select14, %invoke.cont205 ]
   %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %70) #9
   store ptr %call.i.i, ptr %it_.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %69, i64 24

@@ -179,7 +179,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %conv16 = phi i64 [ %conv, %if.end15 ], [ 0, %while.cond.preheader ]
   %value.015 = phi i32 [ %value.1, %if.end15 ], [ 0, %while.cond.preheader ]
   %byte_nbr.014 = phi i32 [ %inc, %if.end15 ], [ 0, %while.cond.preheader ]
-  %char_nbr.013 = phi i32 [ %char_nbr.2, %if.end15 ], [ 0, %while.cond.preheader ]
+  %char_nbr.013 = phi i32 [ %char_nbr.1, %if.end15 ], [ 0, %while.cond.preheader ]
   %mul = shl i32 %value.015, 8
   %inc = add i32 %byte_nbr.014, 1
   %arrayidx = getelementptr inbounds i8, ptr %data_, i64 %conv16
@@ -196,14 +196,14 @@ while.body7.preheader:                            ; preds = %while.body
 
 while.body7:                                      ; preds = %while.body7.preheader, %while.body7
   %divisor.011 = phi i32 [ %div14, %while.body7 ], [ 52200625, %while.body7.preheader ]
-  %char_nbr.110 = phi i32 [ %inc11, %while.body7 ], [ %char_nbr.013, %while.body7.preheader ]
+  %char_nbr.210 = phi i32 [ %inc11, %while.body7 ], [ %char_nbr.013, %while.body7.preheader ]
   %div = udiv i32 %add, %divisor.011
   %rem8 = urem i32 %div, 85
   %idxprom9 = zext nneg i32 %rem8 to i64
   %arrayidx10 = getelementptr inbounds [86 x i8], ptr @_ZL7encoder, i64 0, i64 %idxprom9
   %2 = load i8, ptr %arrayidx10, align 1
-  %inc11 = add i32 %char_nbr.110, 1
-  %idxprom12 = zext i32 %char_nbr.110 to i64
+  %inc11 = add i32 %char_nbr.210, 1
+  %idxprom12 = zext i32 %char_nbr.210 to i64
   %arrayidx13 = getelementptr inbounds i8, ptr %dest_, i64 %idxprom12
   store i8 %2, ptr %arrayidx13, align 1
   %div14 = udiv i32 %divisor.011, 85
@@ -211,14 +211,14 @@ while.body7:                                      ; preds = %while.body7.prehead
   br i1 %exitcond, label %if.end15, label %while.body7, !llvm.loop !4
 
 if.end15:                                         ; preds = %while.body7, %while.body
-  %char_nbr.2 = phi i32 [ %char_nbr.013, %while.body ], [ %1, %while.body7 ]
+  %char_nbr.1 = phi i32 [ %char_nbr.013, %while.body ], [ %1, %while.body7 ]
   %value.1 = phi i32 [ %add, %while.body ], [ 0, %while.body7 ]
   %conv = zext i32 %inc to i64
   %cmp1 = icmp ult i64 %conv, %size_
   br i1 %cmp1, label %while.body, label %while.end16.loopexit, !llvm.loop !6
 
 while.end16.loopexit:                             ; preds = %if.end15
-  %3 = zext i32 %char_nbr.2 to i64
+  %3 = zext i32 %char_nbr.1 to i64
   br label %while.end16
 
 while.end16:                                      ; preds = %while.end16.loopexit, %while.cond.preheader
@@ -252,7 +252,7 @@ while.cond.preheader:                             ; preds = %entry
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end33
   %1 = phi i8 [ %4, %if.end33 ], [ %0, %while.cond.preheader ]
-  %byte_nbr.025 = phi i32 [ %byte_nbr.2, %if.end33 ], [ 0, %while.cond.preheader ]
+  %byte_nbr.025 = phi i32 [ %byte_nbr.1, %if.end33 ], [ 0, %while.cond.preheader ]
   %char_nbr.024 = phi i32 [ %inc, %if.end33 ], [ 0, %while.cond.preheader ]
   %value.023 = phi i32 [ %value.1, %if.end33 ], [ 0, %while.cond.preheader ]
   %cmp2 = icmp ugt i32 %value.023, 50529027
@@ -288,11 +288,11 @@ while.body26.preheader:                           ; preds = %if.end20
 
 while.body26:                                     ; preds = %while.body26.preheader, %while.body26
   %divisor.021 = phi i32 [ %div3217, %while.body26 ], [ 16777216, %while.body26.preheader ]
-  %byte_nbr.120 = phi i32 [ %inc29, %while.body26 ], [ %byte_nbr.025, %while.body26.preheader ]
+  %byte_nbr.220 = phi i32 [ %inc29, %while.body26 ], [ %byte_nbr.025, %while.body26.preheader ]
   %div = udiv i32 %add, %divisor.021
   %conv28 = trunc i32 %div to i8
-  %inc29 = add i32 %byte_nbr.120, 1
-  %idxprom30 = zext i32 %byte_nbr.120 to i64
+  %inc29 = add i32 %byte_nbr.220, 1
+  %idxprom30 = zext i32 %byte_nbr.220 to i64
   %arrayidx31 = getelementptr inbounds i8, ptr %dest_, i64 %idxprom30
   store i8 %conv28, ptr %arrayidx31, align 1
   %div3217 = lshr i32 %divisor.021, 8
@@ -301,7 +301,7 @@ while.body26:                                     ; preds = %while.body26.prehea
 
 if.end33:                                         ; preds = %while.body26, %if.end20
   %value.1 = phi i32 [ %add, %if.end20 ], [ 0, %while.body26 ]
-  %byte_nbr.2 = phi i32 [ %byte_nbr.025, %if.end20 ], [ %3, %while.body26 ]
+  %byte_nbr.1 = phi i32 [ %byte_nbr.025, %if.end20 ], [ %3, %while.body26 ]
   %idxprom = zext i32 %inc to i64
   %arrayidx = getelementptr inbounds i8, ptr %string_, i64 %idxprom
   %4 = load i8, ptr %arrayidx, align 1

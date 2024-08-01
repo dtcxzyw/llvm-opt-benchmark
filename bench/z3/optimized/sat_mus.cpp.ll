@@ -3379,7 +3379,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
           to label %cleanup46 unwind label %lpad24
 
 cleanup46:                                        ; preds = %invoke.cont43, %invoke.cont32
-  %retval.1 = phi i32 [ 0, %invoke.cont32 ], [ %call42, %invoke.cont43 ]
+  %retval.2 = phi i32 [ 0, %invoke.cont32 ], [ %call42, %invoke.cont43 ]
   %m_set.i.i106 = getelementptr inbounds i8, ptr %assign2, i64 8
   %92 = load ptr, ptr %m_set.i.i106, align 8
   %tobool.not.i.i.i.i.i107 = icmp eq ptr %92, null
@@ -3415,8 +3415,8 @@ terminate.lpad.i.i4.i.i115:                       ; preds = %if.then.i.i.i2.i.i1
   unreachable
 
 return:                                           ; preds = %if.then.i.i.i2.i.i113, %_ZN7svectorIjjED2Ev.exit.i.i111, %_ZNK3sat11literal_set4sizeEv.exit, %_ZN3sat3mus13scoped_appendD2Ev.exit
-  %retval.2 = phi i32 [ %retval.0, %_ZN3sat3mus13scoped_appendD2Ev.exit ], [ 1, %_ZNK3sat11literal_set4sizeEv.exit ], [ %retval.1, %_ZN7svectorIjjED2Ev.exit.i.i111 ], [ %retval.1, %if.then.i.i.i2.i.i113 ]
-  ret i32 %retval.2
+  %retval.1 = phi i32 [ %retval.0, %_ZN3sat3mus13scoped_appendD2Ev.exit ], [ 1, %_ZNK3sat11literal_set4sizeEv.exit ], [ %retval.2, %_ZN7svectorIjjED2Ev.exit.i.i111 ], [ %retval.2, %if.then.i.i.i2.i.i113 ]
+  ret i32 %retval.1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -3743,29 +3743,29 @@ define internal fastcc void @php_url_scanner_session_handler_impl(ptr noundef %0
   br label %227
 
 35:                                               ; preds = %157, %129, %passthru.exit291.i.i, %21
-  %.0220.i.i = phi ptr [ %29, %21 ], [ %.7.i.i, %129 ], [ %158, %157 ], [ %82, %passthru.exit291.i.i ]
+  %.6.i.i = phi ptr [ %29, %21 ], [ %.12.i.i, %129 ], [ %158, %157 ], [ %82, %passthru.exit291.i.i ]
   store i32 0, ptr %33, align 8
   br label %.preheader335.i.i
 
 .preheader335.i.i:                                ; preds = %104, %35, %21
-  %.1221.ph.i.i = phi ptr [ %29, %21 ], [ %98, %104 ], [ %.0220.i.i, %35 ]
-  %.not248356.i.i = icmp ugt ptr %32, %.1221.ph.i.i
+  %.0220.ph.i.i = phi ptr [ %29, %21 ], [ %98, %104 ], [ %.6.i.i, %35 ]
+  %.not248356.i.i = icmp ugt ptr %32, %.0220.ph.i.i
   br i1 %.not248356.i.i, label %.lr.ph.i.i, label %.loopexit.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader335.i.i
   %36 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 952)
   %37 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960)
-  %38 = load i8, ptr %.1221.ph.i.i, align 1
+  %38 = load i8, ptr %.0220.ph.i.i, align 1
   %.not249.i186.i = icmp eq i8 %38, 60
   br i1 %.not249.i186.i, label %._crit_edge.i, label %.preheader333.i.preheader.i
 
 .preheader333.i.preheader.i:                      ; preds = %.lr.ph.i.i, %passthru.exit.i.i
-  %.1221357.i187.i = phi ptr [ %39, %passthru.exit.i.i ], [ %.1221.ph.i.i, %.lr.ph.i.i ]
+  %.0220357.i187.i = phi ptr [ %39, %passthru.exit.i.i ], [ %.0220.ph.i.i, %.lr.ph.i.i ]
   br label %.preheader333.i.i
 
 .preheader333.i.i:                                ; preds = %40, %.preheader333.i.preheader.i
-  %.2.i.i = phi ptr [ %39, %40 ], [ %.1221357.i187.i, %.preheader333.i.preheader.i ]
-  %39 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
+  %.7.i.i = phi ptr [ %39, %40 ], [ %.0220357.i187.i, %.preheader333.i.preheader.i ]
+  %39 = getelementptr inbounds i8, ptr %.7.i.i, i64 1
   %.not272.i.i = icmp ugt ptr %32, %39
   br i1 %.not272.i.i, label %40, label %.loopexit.i.i
 
@@ -3776,7 +3776,7 @@ define internal fastcc void @php_url_scanner_session_handler_impl(ptr noundef %0
 
 42:                                               ; preds = %40
   %43 = ptrtoint ptr %39 to i64
-  %44 = ptrtoint ptr %.1221357.i187.i to i64
+  %44 = ptrtoint ptr %.0220357.i187.i to i64
   %45 = sub i64 %43, %44
   %46 = load ptr, ptr %36, align 8
   %.not.i.i.i = icmp eq ptr %46, null
@@ -3804,7 +3804,7 @@ passthru.exit.i.i:                                ; preds = %52, %47
   %.1.i.i.i = phi i64 [ %.0.i.i.i, %52 ], [ %50, %47 ]
   %55 = getelementptr inbounds i8, ptr %54, i64 24
   %56 = getelementptr inbounds i8, ptr %55, i64 %53
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %56, ptr noundef nonnull align 1 dereferenceable(1) %.1221357.i187.i, i64 %45, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %56, ptr noundef nonnull align 1 dereferenceable(1) %.0220357.i187.i, i64 %45, i1 false)
   %57 = load ptr, ptr %36, align 8
   %58 = getelementptr inbounds i8, ptr %57, i64 16
   store i64 %.1.i.i.i, ptr %58, align 8
@@ -3813,8 +3813,8 @@ passthru.exit.i.i:                                ; preds = %52, %47
   br i1 %.not249.i.i, label %._crit_edge.i, label %.preheader333.i.preheader.i
 
 ._crit_edge.i:                                    ; preds = %passthru.exit.i.i, %.lr.ph.i.i
-  %.1221357.i.lcssa.i = phi ptr [ %.1221.ph.i.i, %.lr.ph.i.i ], [ %39, %passthru.exit.i.i ]
-  %60 = getelementptr inbounds i8, ptr %.1221357.i.lcssa.i, i64 1
+  %.0220357.i.lcssa.i = phi ptr [ %.0220.ph.i.i, %.lr.ph.i.i ], [ %39, %passthru.exit.i.i ]
+  %60 = getelementptr inbounds i8, ptr %.0220357.i.lcssa.i, i64 1
   %61 = load ptr, ptr %36, align 8
   %.not.i276.i.i = icmp eq ptr %61, null
   br i1 %.not.i276.i.i, label %67, label %62
@@ -3833,7 +3833,7 @@ passthru.exit.i.i:                                ; preds = %52, %47
   %.pre.i279.i.i = load ptr, ptr %36, align 8
   %.phi.trans.insert.i280.i.i = getelementptr inbounds i8, ptr %.pre.i279.i.i, i64 16
   %.pre29.i281.i.i = load i64, ptr %.phi.trans.insert.i280.i.i, align 8
-  %.pre392.i.i = load i8, ptr %.1221357.i.lcssa.i, align 1
+  %.pre392.i.i = load i8, ptr %.0220357.i.lcssa.i, align 1
   br label %passthru.exit283.i.i
 
 passthru.exit283.i.i:                             ; preds = %67, %62
@@ -3851,12 +3851,12 @@ passthru.exit283.i.i:                             ; preds = %67, %62
   br label %75
 
 75:                                               ; preds = %passthru.exit283.i.i, %21
-  %.3.i.i = phi ptr [ %60, %passthru.exit283.i.i ], [ %29, %21 ]
-  %.not250.i.i = icmp ugt ptr %32, %.3.i.i
+  %.1221.i.i = phi ptr [ %60, %passthru.exit283.i.i ], [ %29, %21 ]
+  %.not250.i.i = icmp ugt ptr %32, %.1221.i.i
   br i1 %.not250.i.i, label %76, label %.loopexit.i.i
 
 76:                                               ; preds = %75
-  %77 = load i8, ptr %.3.i.i, align 1
+  %77 = load i8, ptr %.1221.i.i, align 1
   %78 = zext i8 %77 to i64
   %79 = getelementptr inbounds [256 x i8], ptr @xx_mainloop.yybm.9, i64 0, i64 %78
   %80 = load i8, ptr %79, align 1
@@ -3864,7 +3864,7 @@ passthru.exit283.i.i:                             ; preds = %67, %62
   br i1 %.not251.i.i, label %81, label %.preheader331.i.i
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds i8, ptr %.3.i.i, i64 1
+  %82 = getelementptr inbounds i8, ptr %.1221.i.i, i64 1
   %83 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 952)
   %84 = load ptr, ptr %83, align 8
   %.not.i284.i.i = icmp eq ptr %84, null
@@ -3886,7 +3886,7 @@ passthru.exit283.i.i:                             ; preds = %67, %62
   %.pre.i287.i.i = load ptr, ptr %83, align 8
   %.phi.trans.insert.i288.i.i = getelementptr inbounds i8, ptr %.pre.i287.i.i, i64 16
   %.pre29.i289.i.i = load i64, ptr %.phi.trans.insert.i288.i.i, align 8
-  %.pre396.i.i = load i8, ptr %.3.i.i, align 1
+  %.pre396.i.i = load i8, ptr %.1221.i.i, align 1
   br label %passthru.exit291.i.i
 
 passthru.exit291.i.i:                             ; preds = %90, %85
@@ -3903,8 +3903,8 @@ passthru.exit291.i.i:                             ; preds = %90, %85
   br label %35
 
 .preheader331.i.i:                                ; preds = %76, %99
-  %.4.i.i = phi ptr [ %98, %99 ], [ %.3.i.i, %76 ]
-  %98 = getelementptr inbounds i8, ptr %.4.i.i, i64 1
+  %.8.i.i = phi ptr [ %98, %99 ], [ %.1221.i.i, %76 ]
+  %98 = getelementptr inbounds i8, ptr %.8.i.i, i64 1
   %.not252.i.i = icmp ugt ptr %32, %98
   br i1 %.not252.i.i, label %99, label %.loopexit.i.i
 
@@ -3917,21 +3917,21 @@ passthru.exit291.i.i:                             ; preds = %90, %85
   br i1 %.not253.i.i, label %104, label %.preheader331.i.i
 
 104:                                              ; preds = %99
-  tail call fastcc void @handle_tag(ptr noundef nonnull %., ptr noundef nonnull %.3.i.i, ptr noundef nonnull %98)
-  tail call fastcc void @passthru(ptr noundef nonnull %., ptr noundef nonnull %.3.i.i, ptr noundef nonnull %98)
+  tail call fastcc void @handle_tag(ptr noundef nonnull %., ptr noundef nonnull %.1221.i.i, ptr noundef nonnull %98)
+  tail call fastcc void @passthru(ptr noundef nonnull %., ptr noundef nonnull %.1221.i.i, ptr noundef nonnull %98)
   %105 = load i32, ptr %33, align 8
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %.preheader335.i.i, label %.preheader329.i.i
 
 .preheader329.sink.split.i.i:                     ; preds = %225, %291, %283, %passthru.exit315.i.i, %249, %198, %196, %passthru.exit307.i.i
-  %.6.ph.ph.i.i = phi ptr [ %168, %passthru.exit307.i.i ], [ %242, %249 ], [ %.18.i.i, %passthru.exit315.i.i ], [ %284, %283 ], [ %292, %291 ], [ %.12.i.i, %196 ], [ %.12.i.i, %198 ], [ %.12.i.i, %225 ]
+  %.2.ph.ph.i.i = phi ptr [ %168, %passthru.exit307.i.i ], [ %242, %249 ], [ %.18.i.i, %passthru.exit315.i.i ], [ %284, %283 ], [ %292, %291 ], [ %.4.i.i, %196 ], [ %.4.i.i, %198 ], [ %.4.i.i, %225 ]
   store i32 2, ptr %33, align 8
   br label %.preheader329.i.i
 
 .preheader329.i.i:                                ; preds = %.preheader329.sink.split.i.i, %104, %21
-  %.6.ph.i.i = phi ptr [ %29, %21 ], [ %98, %104 ], [ %.6.ph.ph.i.i, %.preheader329.sink.split.i.i ]
+  %.2.ph.i.i = phi ptr [ %29, %21 ], [ %98, %104 ], [ %.2.ph.ph.i.i, %.preheader329.sink.split.i.i ]
   %107 = ptrtoint ptr %32 to i64
-  %108 = ptrtoint ptr %.6.ph.i.i to i64
+  %108 = ptrtoint ptr %.2.ph.i.i to i64
   %109 = sub i64 %107, %108
   %110 = icmp slt i64 %109, 2
   br i1 %110, label %.loopexit.i.i, label %.lr.ph359.i.i
@@ -3942,8 +3942,8 @@ passthru.exit291.i.i:                             ; preds = %90, %85
 
 112:                                              ; preds = %passthru.exit299.i.i, %.lr.ph359.i.i
   %113 = phi i64 [ %108, %.lr.ph359.i.i ], [ %137, %passthru.exit299.i.i ]
-  %.6358.i.i = phi ptr [ %.6.ph.i.i, %.lr.ph359.i.i ], [ %130, %passthru.exit299.i.i ]
-  %114 = load i8, ptr %.6358.i.i, align 1
+  %.2358.i.i = phi ptr [ %.2.ph.i.i, %.lr.ph359.i.i ], [ %130, %passthru.exit299.i.i ]
+  %114 = load i8, ptr %.2358.i.i, align 1
   %115 = zext i8 %114 to i64
   %116 = getelementptr inbounds [256 x i8], ptr @xx_mainloop.yybm.10, i64 0, i64 %115
   %117 = load i8, ptr %116, align 1
@@ -3974,17 +3974,17 @@ passthru.exit291.i.i:                             ; preds = %90, %85
   br i1 %or.cond.i.i, label %159, label %127
 
 127:                                              ; preds = %125, %123, %120
-  %128 = getelementptr inbounds i8, ptr %.6358.i.i, i64 1
+  %128 = getelementptr inbounds i8, ptr %.2358.i.i, i64 1
   br label %129
 
 129:                                              ; preds = %154, %127
-  %.7.i.i = phi ptr [ %155, %154 ], [ %128, %127 ]
-  tail call fastcc void @passthru(ptr noundef nonnull %., ptr noundef nonnull %.6358.i.i, ptr noundef nonnull %.7.i.i)
+  %.12.i.i = phi ptr [ %155, %154 ], [ %128, %127 ]
+  tail call fastcc void @passthru(ptr noundef nonnull %., ptr noundef nonnull %.2358.i.i, ptr noundef nonnull %.12.i.i)
   br label %35
 
 .preheader327.i.i:                                ; preds = %112, %131
-  %.8.i.i = phi ptr [ %130, %131 ], [ %.6358.i.i, %112 ]
-  %130 = getelementptr inbounds i8, ptr %.8.i.i, i64 1
+  %.10.i.i = phi ptr [ %130, %131 ], [ %.2358.i.i, %112 ]
+  %130 = getelementptr inbounds i8, ptr %.10.i.i, i64 1
   %.not270.i.i = icmp ugt ptr %32, %130
   br i1 %.not270.i.i, label %131, label %.loopexit.i.i
 
@@ -4027,7 +4027,7 @@ passthru.exit299.i.i:                             ; preds = %145, %140
   %.1.i298.i.i = phi i64 [ %.0.i294.i.i, %145 ], [ %143, %140 ]
   %148 = getelementptr inbounds i8, ptr %147, i64 24
   %149 = getelementptr inbounds i8, ptr %148, i64 %146
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %149, ptr noundef nonnull align 1 dereferenceable(1) %.6358.i.i, i64 %138, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %149, ptr noundef nonnull align 1 dereferenceable(1) %.2358.i.i, i64 %138, i1 false)
   %150 = load ptr, ptr %111, align 8
   %151 = getelementptr inbounds i8, ptr %150, i64 16
   store i64 %.1.i298.i.i, ptr %151, align 8
@@ -4036,15 +4036,15 @@ passthru.exit299.i.i:                             ; preds = %145, %140
   br i1 %153, label %.loopexit.i.i, label %112
 
 154:                                              ; preds = %120
-  %155 = getelementptr inbounds i8, ptr %.6358.i.i, i64 1
+  %155 = getelementptr inbounds i8, ptr %.2358.i.i, i64 1
   %156 = load i8, ptr %155, align 1
   %.not269.i.i = icmp eq i8 %156, 62
   br i1 %.not269.i.i, label %157, label %129
 
 157:                                              ; preds = %154, %120
-  %.9.i.i = phi ptr [ %155, %154 ], [ %.6358.i.i, %120 ]
-  %158 = getelementptr inbounds i8, ptr %.9.i.i, i64 1
-  tail call fastcc void @passthru(ptr noundef nonnull %., ptr noundef nonnull %.6358.i.i, ptr noundef nonnull %158)
+  %.11.i.i = phi ptr [ %155, %154 ], [ %.2358.i.i, %120 ]
+  %158 = getelementptr inbounds i8, ptr %.11.i.i, i64 1
+  tail call fastcc void @passthru(ptr noundef nonnull %., ptr noundef nonnull %.2358.i.i, ptr noundef nonnull %158)
   tail call fastcc void @handle_form(ptr noundef nonnull %.)
   br label %35
 
@@ -4053,12 +4053,12 @@ passthru.exit299.i.i:                             ; preds = %145, %140
   br label %160
 
 160:                                              ; preds = %159, %21
-  %.10.i.i = phi ptr [ %.6358.i.i, %159 ], [ %29, %21 ]
-  %.not255.i.i = icmp ugt ptr %32, %.10.i.i
+  %.3.i.i = phi ptr [ %.2358.i.i, %159 ], [ %29, %21 ]
+  %.not255.i.i = icmp ugt ptr %32, %.3.i.i
   br i1 %.not255.i.i, label %161, label %.loopexit.i.i
 
 161:                                              ; preds = %160
-  %162 = load i8, ptr %.10.i.i, align 1
+  %162 = load i8, ptr %.3.i.i, align 1
   %163 = icmp ult i8 %162, 65
   br i1 %163, label %167, label %164
 
@@ -4070,7 +4070,7 @@ passthru.exit299.i.i:                             ; preds = %145, %140
   br i1 %or.cond275.i.i, label %.preheader325.i.i, label %167
 
 167:                                              ; preds = %164, %161
-  %168 = getelementptr inbounds i8, ptr %.10.i.i, i64 1
+  %168 = getelementptr inbounds i8, ptr %.3.i.i, i64 1
   %169 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1176), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 952)
   %170 = load ptr, ptr %169, align 8
   %.not.i300.i.i = icmp eq ptr %170, null
@@ -4092,7 +4092,7 @@ passthru.exit299.i.i:                             ; preds = %145, %140
   %.pre.i303.i.i = load ptr, ptr %169, align 8
   %.phi.trans.insert.i304.i.i = getelementptr inbounds i8, ptr %.pre.i303.i.i, i64 16
   %.pre29.i305.i.i = load i64, ptr %.phi.trans.insert.i304.i.i, align 8
-  %.pre393.i.i = load i8, ptr %.10.i.i, align 1
+  %.pre393.i.i = load i8, ptr %.3.i.i, align 1
   br label %passthru.exit307.i.i
 
 passthru.exit307.i.i:                             ; preds = %176, %171
@@ -4109,8 +4109,8 @@ passthru.exit307.i.i:                             ; preds = %176, %171
   br label %.preheader329.sink.split.i.i
 
 .preheader325.i.i:                                ; preds = %164, %185
-  %.11.i.i = phi ptr [ %184, %185 ], [ %.10.i.i, %164 ]
-  %184 = getelementptr inbounds i8, ptr %.11.i.i, i64 1
+  %.13.i.i = phi ptr [ %184, %185 ], [ %.3.i.i, %164 ]
+  %184 = getelementptr inbounds i8, ptr %.13.i.i, i64 1
   %.not256.i.i = icmp ugt ptr %32, %184
   br i1 %.not256.i.i, label %185, label %.loopexit.i.i
 
@@ -4123,28 +4123,28 @@ passthru.exit307.i.i:                             ; preds = %176, %171
   br i1 %.not257.i.i, label %190, label %.preheader325.i.i
 
 190:                                              ; preds = %185
-  tail call fastcc void @passthru(ptr noundef nonnull %., ptr noundef nonnull %.10.i.i, ptr noundef nonnull %184)
-  tail call fastcc void @handle_arg(ptr noundef nonnull %., ptr noundef nonnull %.10.i.i, ptr noundef nonnull %184)
+  tail call fastcc void @passthru(ptr noundef nonnull %., ptr noundef nonnull %.3.i.i, ptr noundef nonnull %184)
+  tail call fastcc void @handle_arg(ptr noundef nonnull %., ptr noundef nonnull %.3.i.i, ptr noundef nonnull %184)
   store i32 4, ptr %33, align 8
   br label %191
 
 191:                                              ; preds = %190, %21
-  %.12.i.i = phi ptr [ %184, %190 ], [ %29, %21 ]
+  %.4.i.i = phi ptr [ %184, %190 ], [ %29, %21 ]
   %192 = ptrtoint ptr %32 to i64
-  %193 = ptrtoint ptr %.12.i.i to i64
+  %193 = ptrtoint ptr %.4.i.i to i64
   %194 = sub i64 %192, %193
   %195 = icmp slt i64 %194, 2
   br i1 %195, label %.loopexit.i.i, label %196
 
 196:                                              ; preds = %191
-  %197 = load i8, ptr %.12.i.i, align 1
+  %197 = load i8, ptr %.4.i.i, align 1
   switch i8 %197, label %.preheader329.sink.split.i.i [
     i8 32, label %198
     i8 61, label %.preheader320.i.i.preheader
   ]
 
 198:                                              ; preds = %196
-  %199 = getelementptr inbounds i8, ptr %.12.i.i, i64 1
+  %199 = getelementptr inbounds i8, ptr %.4.i.i, i64 1
   %200 = load i8, ptr %199, align 1
   switch i8 %200, label %.preheader329.sink.split.i.i [
     i8 32, label %.preheader322.i.i
@@ -4152,7 +4152,7 @@ passthru.exit307.i.i:                             ; preds = %176, %171
   ]
 
 .preheader320.i.i.preheader:                      ; preds = %225, %198, %196
-  %.14.i.i.ph = phi ptr [ %.12.i.i, %196 ], [ %199, %198 ], [ %224, %225 ]
+  %.14.i.i.ph = phi ptr [ %.4.i.i, %196 ], [ %199, %198 ], [ %224, %225 ]
   br label %.preheader320.i.i
 
 .preheader320.i.i:                                ; preds = %.preheader320.i.i.preheader, %202
@@ -4201,7 +4201,7 @@ passthru.exit.i:                                  ; preds = %217, %212
   %.1.i156.i = phi i64 [ %.0.i153.i, %217 ], [ %215, %212 ]
   %220 = getelementptr inbounds i8, ptr %219, i64 24
   %221 = getelementptr inbounds i8, ptr %220, i64 %218
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %221, ptr nonnull align 1 %.12.i.i, i64 %210, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %221, ptr nonnull align 1 %.4.i.i, i64 %210, i1 false)
   %222 = load ptr, ptr %208, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 16
   store i64 %.1.i156.i, ptr %223, align 8
@@ -4209,8 +4209,8 @@ passthru.exit.i:                                  ; preds = %217, %212
   br label %227
 
 .preheader322.i.i:                                ; preds = %198, %225
-  %.15.i.i = phi ptr [ %224, %225 ], [ %199, %198 ]
-  %224 = getelementptr inbounds i8, ptr %.15.i.i, i64 1
+  %.16.i.i = phi ptr [ %224, %225 ], [ %199, %198 ]
+  %224 = getelementptr inbounds i8, ptr %.16.i.i, i64 1
   %.not259.i.i = icmp ugt ptr %32, %224
   br i1 %.not259.i.i, label %225, label %.loopexit.i.i
 
@@ -4224,13 +4224,13 @@ passthru.exit.i:                                  ; preds = %217, %212
 227:                                              ; preds = %passthru.exit.i, %._crit_edge.i.i
   %.pre-phi.i = phi i64 [ %209, %passthru.exit.i ], [ %.pre220.i, %._crit_edge.i.i ]
   %.pre-phi.i.i = phi i64 [ %192, %passthru.exit.i ], [ %.pre397.i.i, %._crit_edge.i.i ]
-  %.16.i.i = phi ptr [ %201, %passthru.exit.i ], [ %29, %._crit_edge.i.i ]
+  %.5.i.i = phi ptr [ %201, %passthru.exit.i ], [ %29, %._crit_edge.i.i ]
   %228 = sub i64 %.pre-phi.i.i, %.pre-phi.i
   %229 = icmp slt i64 %228, 2
   br i1 %229, label %.loopexit.i.i, label %230
 
 230:                                              ; preds = %227
-  %231 = load i8, ptr %.16.i.i, align 1
+  %231 = load i8, ptr %.5.i.i, align 1
   %232 = zext i8 %231 to i64
   %233 = getelementptr inbounds [256 x i8], ptr @xx_mainloop.yybm.13, i64 0, i64 %232
   %234 = load i8, ptr %233, align 1
@@ -4251,7 +4251,7 @@ passthru.exit.i:                                  ; preds = %217, %212
   br i1 %241, label %273, label %250
 
 .preheader318.i.i:                                ; preds = %230, %243
-  %.17.i.i = phi ptr [ %242, %243 ], [ %.16.i.i, %230 ]
+  %.17.i.i = phi ptr [ %242, %243 ], [ %.5.i.i, %230 ]
   %242 = getelementptr inbounds i8, ptr %.17.i.i, i64 1
   %.not267.i.i = icmp ugt ptr %32, %242
   br i1 %.not267.i.i, label %243, label %.loopexit.i.i
@@ -4266,11 +4266,11 @@ passthru.exit.i:                                  ; preds = %217, %212
   br i1 %.not268.i.i, label %249, label %.preheader318.i.i
 
 249:                                              ; preds = %243
-  tail call fastcc void @handle_val(ptr noundef nonnull %., ptr noundef nonnull %.16.i.i, ptr noundef nonnull %242, i8 noundef signext 0, i8 noundef signext 32)
+  tail call fastcc void @handle_val(ptr noundef nonnull %., ptr noundef nonnull %.5.i.i, ptr noundef nonnull %242, i8 noundef signext 0, i8 noundef signext 32)
   br label %.preheader329.sink.split.i.i
 
 250:                                              ; preds = %240, %236
-  %251 = getelementptr inbounds i8, ptr %.16.i.i, i64 1
+  %251 = getelementptr inbounds i8, ptr %.5.i.i, i64 1
   br label %252
 
 252:                                              ; preds = %289, %281, %273, %269, %250
@@ -4306,20 +4306,20 @@ passthru.exit315.i.i:                             ; preds = %262, %257
   %.1.i314.i.i = phi i64 [ %.0.i310.i.i, %262 ], [ %260, %257 ]
   %265 = getelementptr inbounds i8, ptr %264, i64 24
   %266 = getelementptr inbounds i8, ptr %265, i64 %263
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %266, ptr nonnull align 1 %.16.i.i, i64 %255, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %266, ptr nonnull align 1 %.5.i.i, i64 %255, i1 false)
   %267 = load ptr, ptr %253, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 16
   store i64 %.1.i314.i.i, ptr %268, align 8
   br label %.preheader329.sink.split.i.i
 
 269:                                              ; preds = %238
-  %270 = getelementptr inbounds i8, ptr %.16.i.i, i64 1
+  %270 = getelementptr inbounds i8, ptr %.5.i.i, i64 1
   %271 = load i8, ptr %270, align 1
   %272 = icmp eq i8 %271, 62
   br i1 %272, label %252, label %.preheader.i.i
 
 273:                                              ; preds = %240
-  %274 = getelementptr inbounds i8, ptr %.16.i.i, i64 1
+  %274 = getelementptr inbounds i8, ptr %.5.i.i, i64 1
   %275 = load i8, ptr %274, align 1
   %276 = icmp eq i8 %275, 62
   br i1 %276, label %252, label %.preheader316.i.i
@@ -4347,7 +4347,7 @@ passthru.exit315.i.i:                             ; preds = %262, %257
 
 283:                                              ; preds = %281
   %284 = getelementptr inbounds i8, ptr %.19.i.i, i64 1
-  tail call fastcc void @handle_val(ptr noundef nonnull %., ptr noundef nonnull %.16.i.i, ptr noundef nonnull %284, i8 noundef signext 1, i8 noundef signext 34)
+  tail call fastcc void @handle_val(ptr noundef nonnull %., ptr noundef nonnull %.5.i.i, ptr noundef nonnull %284, i8 noundef signext 1, i8 noundef signext 34)
   br label %.preheader329.sink.split.i.i
 
 285:                                              ; preds = %287
@@ -4373,11 +4373,11 @@ passthru.exit315.i.i:                             ; preds = %262, %257
 
 291:                                              ; preds = %289
   %292 = getelementptr inbounds i8, ptr %.20.i.i, i64 1
-  tail call fastcc void @handle_val(ptr noundef nonnull %., ptr noundef nonnull %.16.i.i, ptr noundef nonnull %292, i8 noundef signext 1, i8 noundef signext 39)
+  tail call fastcc void @handle_val(ptr noundef nonnull %., ptr noundef nonnull %.5.i.i, ptr noundef nonnull %292, i8 noundef signext 1, i8 noundef signext 39)
   br label %.preheader329.sink.split.i.i
 
 .loopexit.i.i:                                    ; preds = %.preheader333.i.i, %.preheader331.i.i, %passthru.exit299.i.i, %.preheader327.i.i, %.preheader325.i.i, %.preheader322.i.i, %.preheader320.i.i, %.preheader318.i.i, %287, %279, %227, %191, %160, %.preheader329.i.i, %75, %.preheader335.i.i
-  %.0219.i.i = phi ptr [ %.3.i.i, %75 ], [ %.10.i.i, %160 ], [ %.12.i.i, %191 ], [ %.16.i.i, %227 ], [ %.6.ph.i.i, %.preheader329.i.i ], [ %.1221.ph.i.i, %.preheader335.i.i ], [ %.16.i.i, %279 ], [ %.16.i.i, %287 ], [ %.16.i.i, %.preheader318.i.i ], [ %.12.i.i, %.preheader320.i.i ], [ %.12.i.i, %.preheader322.i.i ], [ %.10.i.i, %.preheader325.i.i ], [ %.6358.i.i, %.preheader327.i.i ], [ %130, %passthru.exit299.i.i ], [ %.3.i.i, %.preheader331.i.i ], [ %.1221357.i187.i, %.preheader333.i.i ]
+  %.0219.i.i = phi ptr [ %.1221.i.i, %75 ], [ %.3.i.i, %160 ], [ %.4.i.i, %191 ], [ %.5.i.i, %227 ], [ %.2.ph.i.i, %.preheader329.i.i ], [ %.0220.ph.i.i, %.preheader335.i.i ], [ %.5.i.i, %279 ], [ %.5.i.i, %287 ], [ %.5.i.i, %.preheader318.i.i ], [ %.4.i.i, %.preheader320.i.i ], [ %.4.i.i, %.preheader322.i.i ], [ %.3.i.i, %.preheader325.i.i ], [ %.2358.i.i, %.preheader327.i.i ], [ %130, %passthru.exit299.i.i ], [ %.1221.i.i, %.preheader331.i.i ], [ %.0220357.i187.i, %.preheader333.i.i ]
   %293 = icmp ult ptr %32, %.0219.i.i
   %294 = ptrtoint ptr %32 to i64
   %295 = ptrtoint ptr %.0219.i.i to i64
@@ -4576,7 +4576,7 @@ xx_mainloop.exit.i:                               ; preds = %297, %.loopexit.i.i
   br label %384
 
 384:                                              ; preds = %382, %308
-  %.0130 = phi i64 [ %342, %382 ], [ %storemerge.i136, %308 ]
+  %.1131 = phi i64 [ %342, %382 ], [ %storemerge.i136, %308 ]
   %385 = phi ptr [ %.pre217.i, %382 ], [ %.pre218.pre.i, %308 ]
   %386 = getelementptr inbounds i8, ptr %385, i64 24
   %387 = getelementptr inbounds i8, ptr %385, i64 16
@@ -4614,7 +4614,7 @@ url_adapt_ext.exit:                               ; preds = %384, %401
   %402 = select i1 %.not, ptr getelementptr inbounds (i8, ptr @basic_globals, i64 1184), ptr getelementptr inbounds (i8, ptr @basic_globals, i64 960)
   store i64 0, ptr %402, align 8
   store ptr %389, ptr %2, align 8
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %.0130, i64 4294967295)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %.1131, i64 4294967295)
   store i64 %spec.select, ptr %3, align 8
   br label %479
 

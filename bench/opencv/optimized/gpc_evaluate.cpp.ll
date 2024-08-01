@@ -1817,9 +1817,9 @@ _ZN2cv3PtrINS_7optflow9GPCForestILi5EEEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted
   br label %.body
 
 634:                                              ; preds = %89, %_ZN2cv3PtrINS_7optflow9GPCForestILi5EEEED2Ev.exit
-  %.2 = phi i32 [ %.1, %_ZN2cv3PtrINS_7optflow9GPCForestILi5EEEED2Ev.exit ], [ 0, %89 ]
+  %.0 = phi i32 [ %.1, %_ZN2cv3PtrINS_7optflow9GPCForestILi5EEEED2Ev.exit ], [ 0, %89 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #21
-  ret i32 %.2
+  ret i32 %.0
 
 .body:                                            ; preds = %100, %103, %.body140, %99, %94
   %.pn117 = phi { ptr, i32 } [ %.pn105.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body140 ], [ %.pn65, %99 ], [ %.pn, %94 ], [ %101, %100 ], [ %104, %103 ]

@@ -930,7 +930,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split.si
   br label %142
 
 make_string.exit.i:                               ; preds = %.thread.i, %125, %97, %77, %45, %18, %14, %9
-  %.1.ph.i = phi ptr [ null, %45 ], [ null, %18 ], [ null, %9 ], [ null, %14 ], [ %47, %.thread.i ], [ %47, %125 ], [ %47, %97 ], [ %47, %77 ]
+  %.039.ph.i = phi ptr [ null, %45 ], [ null, %18 ], [ null, %9 ], [ null, %14 ], [ %47, %.thread.i ], [ %47, %125 ], [ %47, %97 ], [ %47, %77 ]
   %.pr46.i = load ptr, ptr %3, align 8
   %.not34.i = icmp eq ptr %.pr46.i, null
   br i1 %.not34.i, label %141, label %140
@@ -940,12 +940,12 @@ make_string.exit.i:                               ; preds = %.thread.i, %125, %9
   br label %141
 
 141:                                              ; preds = %140, %make_string.exit.i
-  %.not35.i = icmp eq ptr %.1.ph.i, null
+  %.not35.i = icmp eq ptr %.039.ph.i, null
   br i1 %.not35.i, label %output.exit, label %142
 
 142:                                              ; preds = %141, %.thread53.i
-  %.15159.i = phi ptr [ %47, %.thread53.i ], [ %.1.ph.i, %141 ]
-  call void @free(ptr noundef nonnull %.15159.i) #21
+  %.0395159.i = phi ptr [ %47, %.thread53.i ], [ %.039.ph.i, %141 ]
+  call void @free(ptr noundef nonnull %.0395159.i) #21
   br label %output.exit
 
 output.exit:                                      ; preds = %141, %142

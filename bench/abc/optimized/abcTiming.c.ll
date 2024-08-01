@@ -3389,7 +3389,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %22
 
 52:                                               ; preds = %.lr.ph232, %52
   %indvars.iv251 = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next252, %52 ]
-  %.0231 = phi ptr [ null, %.lr.ph232 ], [ %.1, %52 ]
+  %.1231 = phi ptr [ null, %.lr.ph232 ], [ %.2, %52 ]
   %53 = getelementptr inbounds ptr, ptr %.val154.val, i64 %indvars.iv251
   %54 = load ptr, ptr %53, align 8
   %.val170 = load ptr, ptr %54, align 8
@@ -3421,18 +3421,18 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %22
   %71 = fcmp ogt float %69, %70
   %72 = select i1 %71, float %69, float %70
   %73 = fcmp oeq float %.1130, %72
-  %.1 = select i1 %73, ptr %54, ptr %.0231
+  %.2 = select i1 %73, ptr %54, ptr %.1231
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %exitcond255.not = icmp eq i64 %indvars.iv.next252, %wide.trip.count254
   br i1 %exitcond255.not, label %.critedge9, label %52, !llvm.loop !42
 
 .critedge9:                                       ; preds = %52, %.critedge5.thread, %.critedge5
   %.0129.lcssa272 = phi float [ %.1130, %.critedge5 ], [ -1.000000e+09, %.critedge5.thread ], [ %.1130, %52 ]
-  %.2 = phi ptr [ %1, %.critedge5 ], [ %1, %.critedge5.thread ], [ %.1, %52 ]
+  %.0 = phi ptr [ %1, %.critedge5 ], [ %1, %.critedge5.thread ], [ %.2, %52 ]
   br i1 %7, label %.critedge9.thread, label %300
 
 .critedge9.thread:                                ; preds = %.critedge5.thread, %.preheader, %.critedge9
-  %.2279 = phi ptr [ %.2, %.critedge9 ], [ null, %.preheader ], [ null, %.critedge5.thread ]
+  %.0279 = phi ptr [ %.0, %.critedge9 ], [ null, %.preheader ], [ null, %.critedge5.thread ]
   %.0129.lcssa272278 = phi float [ %.0129.lcssa272, %.critedge9 ], [ %.1130, %.preheader ], [ -1.000000e+09, %.critedge5.thread ]
   %74 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   %75 = getelementptr inbounds i8, ptr %74, i64 4
@@ -3526,16 +3526,16 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Vec_IntStartFull.ex
   %108 = load i32, ptr %107, align 8
   %109 = add nsw i32 %108, 1
   store i32 %109, ptr %107, align 8
-  %.2.val168 = load ptr, ptr %.2279, align 8
-  %110 = getelementptr i8, ptr %.2279, i64 32
-  %.2.val169 = load ptr, ptr %110, align 8
-  %111 = getelementptr i8, ptr %.2.val168, i64 32
-  %.2.val168.val = load ptr, ptr %111, align 8
-  %.2.val169.val = load i32, ptr %.2.val169, align 4
-  %112 = getelementptr i8, ptr %.2.val168.val, i64 8
-  %.2.val168.val.val = load ptr, ptr %112, align 8
-  %113 = sext i32 %.2.val169.val to i64
-  %114 = getelementptr inbounds ptr, ptr %.2.val168.val.val, i64 %113
+  %.0.val168 = load ptr, ptr %.0279, align 8
+  %110 = getelementptr i8, ptr %.0279, i64 32
+  %.0.val169 = load ptr, ptr %110, align 8
+  %111 = getelementptr i8, ptr %.0.val168, i64 32
+  %.0.val168.val = load ptr, ptr %111, align 8
+  %.0.val169.val = load i32, ptr %.0.val169, align 4
+  %112 = getelementptr i8, ptr %.0.val168.val, i64 8
+  %.0.val168.val.val = load ptr, ptr %112, align 8
+  %113 = sext i32 %.0.val169.val to i64
+  %114 = getelementptr inbounds ptr, ptr %.0.val168.val.val, i64 %113
   %115 = load ptr, ptr %114, align 8
   %116 = tail call i32 @Abc_NtkDelayTraceCritPath_rec(ptr noundef %.0219, ptr noundef %115, ptr noundef %2, ptr noundef nonnull %80)
   %.not = icmp eq i32 %116, 0
@@ -3546,19 +3546,19 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Vec_IntStartFull.ex
   br i1 %118, label %119, label %122
 
 119:                                              ; preds = %117
-  %120 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2279) #22
+  %120 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.0279) #22
   %121 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef %120)
   br label %296
 
 122:                                              ; preds = %117
   %123 = tail call ptr @Abc_ObjName(ptr noundef nonnull %2) #22
-  %124 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2279) #22
+  %124 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.0279) #22
   %125 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %123, ptr noundef %124)
   br label %296
 
 126:                                              ; preds = %Abc_NtkIncrementTravId.exit
-  %.val.i.i = load ptr, ptr %.2279, align 8
-  %127 = getelementptr i8, ptr %.2279, i64 16
+  %.val.i.i = load ptr, ptr %.0279, align 8
+  %127 = getelementptr i8, ptr %.0279, i64 16
   %.val1.i.i = load i32, ptr %127, align 8
   %128 = getelementptr i8, ptr %.val.i.i, i64 264
   %.val.val.i.i = load ptr, ptr %128, align 8
@@ -3574,14 +3574,14 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Vec_IntStartFull.ex
   %136 = load float, ptr %135, align 4
   %137 = fcmp olt float %134, %136
   %138 = select i1 %137, float %134, float %136
-  %.2.val167 = load ptr, ptr %110, align 8
+  %.0.val167 = load ptr, ptr %110, align 8
   %139 = getelementptr i8, ptr %.val.i.i, i64 32
-  %.2.val166.val = load ptr, ptr %139, align 8
-  %.2.val167.val = load i32, ptr %.2.val167, align 4
-  %140 = getelementptr i8, ptr %.2.val166.val, i64 8
-  %.2.val166.val.val = load ptr, ptr %140, align 8
-  %141 = sext i32 %.2.val167.val to i64
-  %142 = getelementptr inbounds ptr, ptr %.2.val166.val.val, i64 %141
+  %.0.val166.val = load ptr, ptr %139, align 8
+  %.0.val167.val = load i32, ptr %.0.val167, align 4
+  %140 = getelementptr i8, ptr %.0.val166.val, i64 8
+  %.0.val166.val.val = load ptr, ptr %140, align 8
+  %141 = sext i32 %.0.val167.val to i64
+  %142 = getelementptr inbounds ptr, ptr %.0.val166.val.val, i64 %141
   %143 = load ptr, ptr %142, align 8
   %.val3.i = load ptr, ptr %143, align 8
   %144 = getelementptr i8, ptr %143, i64 16
@@ -3651,7 +3651,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Vec_IntStartFull.ex
   %.0121.lcssa = phi i32 [ 0, %160 ], [ %.1122, %174 ]
   %175 = tail call i32 @Abc_NtkLevel(ptr noundef %0) #22
   %176 = tail call ptr @Abc_ObjName(ptr noundef %.0123) #22
-  %177 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2279) #22
+  %177 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.0279) #22
   %178 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %176, ptr noundef %177)
   br i1 %161, label %.lr.ph246, label %.critedge13
 
@@ -3817,24 +3817,24 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %Vec_IntStartFull.ex
   br i1 %exitcond269.not, label %.critedge13, label %179, !llvm.loop !46
 
 .critedge13:                                      ; preds = %.critedge15, %.critedge11
-  %.2.val = load ptr, ptr %.2279, align 8
-  %.2.val163 = load ptr, ptr %110, align 8
-  %270 = getelementptr i8, ptr %.2.val, i64 32
-  %.2.val.val = load ptr, ptr %270, align 8
-  %.2.val163.val = load i32, ptr %.2.val163, align 4
-  %271 = getelementptr i8, ptr %.2.val.val, i64 8
-  %.2.val.val.val = load ptr, ptr %271, align 8
-  %272 = sext i32 %.2.val163.val to i64
-  %273 = getelementptr inbounds ptr, ptr %.2.val.val.val, i64 %272
+  %.0.val = load ptr, ptr %.0279, align 8
+  %.0.val163 = load ptr, ptr %110, align 8
+  %270 = getelementptr i8, ptr %.0.val, i64 32
+  %.0.val.val = load ptr, ptr %270, align 8
+  %.0.val163.val = load i32, ptr %.0.val163, align 4
+  %271 = getelementptr i8, ptr %.0.val.val, i64 8
+  %.0.val.val.val = load ptr, ptr %271, align 8
+  %272 = sext i32 %.0.val163.val to i64
+  %273 = getelementptr inbounds ptr, ptr %.0.val.val.val, i64 %272
   %274 = load ptr, ptr %273, align 8
   %275 = getelementptr i8, ptr %274, i64 20
   %.val175 = load i32, ptr %275, align 4
   %276 = lshr i32 %.val175, 12
   %277 = add nuw nsw i32 %276, 1
   %278 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %277)
-  %279 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.2279) #22
+  %279 = tail call ptr @Abc_ObjName(ptr noundef nonnull %.0279) #22
   %280 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %279)
-  %.val.i.i205 = load ptr, ptr %.2279, align 8
+  %.val.i.i205 = load ptr, ptr %.0279, align 8
   %.val1.i.i206 = load i32, ptr %127, align 8
   %281 = getelementptr i8, ptr %.val.i.i205, i64 264
   %.val.val.i.i207 = load ptr, ptr %281, align 8

@@ -214,16 +214,16 @@ follow_arg_mode.exit:                             ; preds = %2, %21, %24, %27, %
   br label %63
 
 63:                                               ; preds = %85, %59
-  %.3 = phi ptr [ %37, %59 ], [ %92, %85 ]
+  %.1 = phi ptr [ %37, %59 ], [ %92, %85 ]
   %64 = phi i1 [ true, %59 ], [ false, %85 ]
   %indvars.iv.i = phi i64 [ 0, %59 ], [ 1, %85 ]
   %65 = getelementptr [2 x i32], ptr %60, i64 0, i64 %indvars.iv.i
-  %66 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.3, ptr noundef nonnull @.str.11, ptr noundef nonnull %5, ptr noundef %65, ptr noundef nonnull %4) #12
+  %66 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1, ptr noundef nonnull @.str.11, ptr noundef nonnull %5, ptr noundef %65, ptr noundef nonnull %4) #12
   %.not48.i = icmp eq i32 %66, 2
   br i1 %.not48.i, label %71, label %67
 
 67:                                               ; preds = %63
-  %68 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.3, ptr noundef nonnull @.str.12, ptr noundef nonnull %5, ptr noundef %65, ptr noundef nonnull %4) #12
+  %68 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.1, ptr noundef nonnull @.str.12, ptr noundef nonnull %5, ptr noundef %65, ptr noundef nonnull %4) #12
   %69 = icmp eq i32 %68, 2
   br i1 %69, label %.thread.i, label %70
 
@@ -278,7 +278,7 @@ follow_arg_mode.exit:                             ; preds = %2, %21, %24, %27, %
   store ptr null, ptr %89, align 8
   %90 = load i32, ptr %4, align 4
   %91 = sext i32 %90 to i64
-  %92 = getelementptr i8, ptr %.3, i64 %91
+  %92 = getelementptr i8, ptr %.1, i64 %91
   br i1 %64, label %63, label %93, !llvm.loop !5
 
 93:                                               ; preds = %85
@@ -297,11 +297,11 @@ follow_arg_mode.exit:                             ; preds = %2, %21, %24, %27, %
   br label %follow_arg_filter.exit
 
 follow_arg_filter.exit:                           ; preds = %45, %48, %51, %56, %98
-  %.4 = phi ptr [ %92, %98 ], [ %43, %51 ], [ %54, %56 ], [ %43, %48 ], [ %43, %45 ]
+  %.2 = phi ptr [ %92, %98 ], [ %43, %51 ], [ %54, %56 ], [ %43, %48 ], [ %43, %45 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 81, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %99 = load i8, ptr %.4, align 1
+  %99 = load i8, ptr %.2, align 1
   %100 = icmp eq i8 %99, 0
   %101 = getelementptr inbounds i8, ptr %11, i64 16
   br i1 %100, label %102, label %104
@@ -314,12 +314,12 @@ follow_arg_filter.exit:                           ; preds = %45, %48, %51, %56, 
 
 104:                                              ; preds = %follow_arg_filter.exit
   %105 = getelementptr inbounds i8, ptr %11, i64 20
-  %106 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.4, ptr noundef nonnull @.str.18, ptr noundef nonnull %101, ptr noundef nonnull %105, ptr noundef nonnull %3) #12
+  %106 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.2, ptr noundef nonnull @.str.18, ptr noundef nonnull %101, ptr noundef nonnull %105, ptr noundef nonnull %3) #12
   %107 = icmp eq i32 %106, 2
   br i1 %107, label %thread-pre-split, label %108
 
 108:                                              ; preds = %104
-  %109 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.4, ptr noundef nonnull @.str.19, ptr noundef nonnull %101, ptr noundef nonnull %3) #12
+  %109 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.2, ptr noundef nonnull @.str.19, ptr noundef nonnull %101, ptr noundef nonnull %3) #12
   %110 = icmp eq i32 %109, 1
   br i1 %110, label %111, label %113
 
@@ -344,7 +344,7 @@ thread-pre-split:                                 ; preds = %104
 117:                                              ; preds = %114
   %.sink16.i = load i32, ptr %3, align 4
   %118 = sext i32 %.sink16.i to i64
-  %119 = getelementptr i8, ptr %.4, i64 %118
+  %119 = getelementptr i8, ptr %.2, i64 %118
   %120 = load i32, ptr %105, align 4
   %121 = icmp ugt i32 %115, %120
   br i1 %121, label %122, label %follow_arg_range.exit
@@ -354,9 +354,9 @@ thread-pre-split:                                 ; preds = %104
   unreachable
 
 follow_arg_range.exit:                            ; preds = %102, %117
-  %.5 = phi ptr [ %.4, %102 ], [ %119, %117 ]
+  %.3 = phi ptr [ %.2, %102 ], [ %119, %117 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %.val39 = load i8, ptr %.5, align 1
+  %.val39 = load i8, ptr %.3, align 1
   %.not.i41 = icmp eq i8 %.val39, 0
   br i1 %.not.i41, label %follow_arg_done.exit, label %123
 
@@ -556,8 +556,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
 54:                                               ; preds = %.lr.ph164, %.cont
   %.0111161 = phi i32 [ 1, %.lr.ph164 ], [ %278, %.cont ]
   %.0112160 = phi ptr [ %49, %.lr.ph164 ], [ %277, %.cont ]
-  %.0159 = phi i32 [ 0, %.lr.ph164 ], [ %.3, %.cont ]
-  %.0140158 = phi i32 [ 0, %.lr.ph164 ], [ %.3143, %.cont ]
+  %.0159 = phi i32 [ 0, %.lr.ph164 ], [ %.1138, %.cont ]
+  %.0140158 = phi i32 [ 0, %.lr.ph164 ], [ %.1141, %.cont ]
   %55 = load ptr, ptr %.0112160, align 8
   %56 = load i32, ptr %55, align 8
   %.not118 = icmp eq i32 %56, 0
@@ -648,7 +648,7 @@ thread-pre-split:                                 ; preds = %70, %78
 93:                                               ; preds = %141, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %141 ]
   %.038.i = phi i32 [ %.sroa.speculated129, %.lr.ph.i ], [ %.1.i, %141 ]
-  %.02737.i = phi i32 [ 0, %.lr.ph.i ], [ %.4.i, %141 ]
+  %.02737.i = phi i32 [ 0, %.lr.ph.i ], [ %.3.i, %141 ]
   %.02936.i = phi i32 [ 0, %.lr.ph.i ], [ %.231.i, %141 ]
   %94 = and i64 %indvars.iv.i, 15
   %95 = icmp eq i64 %94, 0
@@ -726,7 +726,7 @@ thread-pre-split:                                 ; preds = %70, %78
   br label %141
 
 141:                                              ; preds = %134, %130
-  %.4.i = phi i32 [ %spec.select.i, %134 ], [ %.2.i, %130 ]
+  %.3.i = phi i32 [ %spec.select.i, %134 ], [ %.2.i, %130 ]
   %.1.i = phi i32 [ %140, %134 ], [ %.038.i, %130 ]
   br i1 %133, label %follow_print_hex.exit, label %93, !llvm.loop !7
 
@@ -942,8 +942,8 @@ follow_print_hex.exit:                            ; preds = %141, %83
   unreachable
 
 .cont:                                            ; preds = %.lr.ph, %245, %follow_print_hex.exit, %62, %182, %184, %._crit_edge
-  %.3143 = phi i32 [ %.0140158, %._crit_edge ], [ %.0140158, %184 ], [ %.0140158, %182 ], [ %spec.select144, %62 ], [ %spec.select146, %follow_print_hex.exit ], [ %.0140158, %245 ], [ %.0140158, %.lr.ph ]
-  %.3 = phi i32 [ %.0159, %._crit_edge ], [ %.0159, %184 ], [ %.0159, %182 ], [ %spec.select145, %62 ], [ %spec.select147, %follow_print_hex.exit ], [ %.0159, %245 ], [ %.0159, %.lr.ph ]
+  %.1141 = phi i32 [ %.0140158, %._crit_edge ], [ %.0140158, %184 ], [ %.0140158, %182 ], [ %spec.select144, %62 ], [ %spec.select146, %follow_print_hex.exit ], [ %.0140158, %245 ], [ %.0140158, %.lr.ph ]
+  %.1138 = phi i32 [ %.0159, %._crit_edge ], [ %.0159, %184 ], [ %.0159, %182 ], [ %spec.select145, %62 ], [ %spec.select147, %follow_print_hex.exit ], [ %.0159, %245 ], [ %.0159, %.lr.ph ]
   %276 = getelementptr inbounds i8, ptr %.0112160, i64 16
   %277 = load ptr, ptr %276, align 8
   %278 = add i32 %.0111161, 1

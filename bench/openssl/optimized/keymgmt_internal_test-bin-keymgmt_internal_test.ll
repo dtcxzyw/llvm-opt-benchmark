@@ -549,15 +549,15 @@ while.cond:                                       ; preds = %if.end210
   br i1 %cmp172, label %while.body, label %err, !llvm.loop !5
 
 while.body:                                       ; preds = %lor.lhs.false167, %while.cond
-  %pk.045 = phi ptr [ null, %while.cond ], [ %call144, %lor.lhs.false167 ]
+  %pk.145 = phi ptr [ null, %while.cond ], [ %call144, %lor.lhs.false167 ]
   store ptr %call164, ptr %km, align 8
-  %call174 = call ptr @evp_pkey_export_to_provider(ptr noundef %pk.045, ptr noundef null, ptr noundef nonnull %km, ptr noundef null) #3
+  %call174 = call ptr @evp_pkey_export_to_provider(ptr noundef %pk.145, ptr noundef null, ptr noundef nonnull %km, ptr noundef null) #3
   %call175 = call i32 @test_ptr_null(ptr noundef nonnull @.str, i32 noundef 233, ptr noundef nonnull @.str.41, ptr noundef %call174) #3
   %tobool176.not = icmp eq i32 %call175, 0
   br i1 %tobool176.not, label %err, label %if.end178
 
 if.end178:                                        ; preds = %while.body
-  %call179 = call ptr @evp_pkey_export_to_provider(ptr noundef %pk.045, ptr noundef null, ptr noundef nonnull %km1, ptr noundef null) #3
+  %call179 = call ptr @evp_pkey_export_to_provider(ptr noundef %pk.145, ptr noundef null, ptr noundef nonnull %km1, ptr noundef null) #3
   %call180 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 237, ptr noundef nonnull @.str.42, ptr noundef %call179) #3
   %tobool181.not = icmp eq i32 %call180, 0
   br i1 %tobool181.not, label %err, label %lor.lhs.false182
@@ -572,7 +572,7 @@ lor.lhs.false182:                                 ; preds = %if.end178
 
 for.body:                                         ; preds = %lor.lhs.false182, %for.inc
   %i.044 = phi i64 [ %inc200, %for.inc ], [ 0, %lor.lhs.false182 ]
-  %ret.143 = phi i32 [ %ret.2, %for.inc ], [ 0, %lor.lhs.false182 ]
+  %ret.243 = phi i32 [ %ret.3, %for.inc ], [ 0, %lor.lhs.false182 ]
   %arrayidx192 = getelementptr inbounds [12 x i64], ptr @test_pass_rsa.expected, i64 0, i64 %i.044
   %3 = load i64, ptr %arrayidx192, align 8
   %conv193 = trunc i64 %3 to i32
@@ -588,51 +588,51 @@ if.then198:                                       ; preds = %for.body
   br label %for.inc
 
 if.else:                                          ; preds = %for.body
-  %inc = add nsw i32 %ret.143, 1
+  %inc = add nsw i32 %ret.243, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then198, %if.else
-  %ret.2 = phi i32 [ %inc, %if.else ], [ %ret.143, %if.then198 ]
+  %ret.3 = phi i32 [ %inc, %if.else ], [ %ret.243, %if.then198 ]
   %inc200 = add nuw nsw i64 %i.044, 1
   %exitcond.not = icmp eq i64 %inc200, 12
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc
-  %cmp202 = icmp eq i32 %ret.2, 12
+  %cmp202 = icmp eq i32 %ret.3, 12
   br i1 %cmp202, label %lor.lhs.false205, label %err
 
 lor.lhs.false205:                                 ; preds = %for.end
-  %call206 = call ptr @EVP_PKEY_dup(ptr noundef %pk.045) #3
+  %call206 = call ptr @EVP_PKEY_dup(ptr noundef %pk.145) #3
   %call207 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 258, ptr noundef nonnull @.str.47, ptr noundef %call206) #3
   %tobool208.not = icmp eq i32 %call207, 0
   br i1 %tobool208.not, label %err, label %if.end210
 
 if.end210:                                        ; preds = %lor.lhs.false205
-  %call211 = call i32 @EVP_PKEY_eq(ptr noundef %pk.045, ptr noundef %call206) #3
+  %call211 = call i32 @EVP_PKEY_eq(ptr noundef %pk.145, ptr noundef %call206) #3
   %call212 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.49, i32 noundef %call211, i32 noundef 1) #3
-  call void @EVP_PKEY_free(ptr noundef %pk.045) #3
+  call void @EVP_PKEY_free(ptr noundef %pk.145) #3
   %tobool213.not = icmp eq i32 %call212, 0
   br i1 %tobool213.not, label %err, label %while.cond, !llvm.loop !5
 
 err:                                              ; preds = %while.cond, %if.end210, %for.end, %lor.lhs.false205, %if.end178, %lor.lhs.false182, %while.body, %if.end154, %lor.lhs.false158, %lor.lhs.false162, %lor.lhs.false167, %if.end143, %lor.lhs.false147, %if.end99, %lor.lhs.false103, %lor.lhs.false110, %lor.lhs.false115, %lor.lhs.false122, %lor.lhs.false127, %lor.lhs.false134, %if.end62, %lor.lhs.false66, %lor.lhs.false72, %lor.lhs.false76, %lor.lhs.false82, %lor.lhs.false86, %lor.lhs.false92, %if.end35, %lor.lhs.false39, %lor.lhs.false45, %lor.lhs.false49, %lor.lhs.false55, %if.end, %lor.lhs.false, %lor.lhs.false8, %lor.lhs.false12, %lor.lhs.false18, %lor.lhs.false22, %lor.lhs.false28, %entry
-  %ret.3 = phi i32 [ 0, %lor.lhs.false167 ], [ 0, %lor.lhs.false162 ], [ 0, %lor.lhs.false158 ], [ 0, %if.end154 ], [ 0, %lor.lhs.false147 ], [ 0, %if.end143 ], [ 0, %lor.lhs.false134 ], [ 0, %lor.lhs.false127 ], [ 0, %lor.lhs.false122 ], [ 0, %lor.lhs.false115 ], [ 0, %lor.lhs.false110 ], [ 0, %lor.lhs.false103 ], [ 0, %if.end99 ], [ 0, %lor.lhs.false92 ], [ 0, %lor.lhs.false86 ], [ 0, %lor.lhs.false82 ], [ 0, %lor.lhs.false76 ], [ 0, %lor.lhs.false72 ], [ 0, %lor.lhs.false66 ], [ 0, %if.end62 ], [ 0, %lor.lhs.false55 ], [ 0, %lor.lhs.false49 ], [ 0, %lor.lhs.false45 ], [ 0, %lor.lhs.false39 ], [ 0, %if.end35 ], [ 0, %lor.lhs.false28 ], [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false12 ], [ 0, %lor.lhs.false8 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %entry ], [ %call212, %while.cond ], [ 0, %while.body ], [ 0, %if.end178 ], [ 0, %lor.lhs.false182 ], [ 0, %for.end ], [ 1, %lor.lhs.false205 ], [ 0, %if.end210 ]
+  %ret.0 = phi i32 [ 0, %lor.lhs.false167 ], [ 0, %lor.lhs.false162 ], [ 0, %lor.lhs.false158 ], [ 0, %if.end154 ], [ 0, %lor.lhs.false147 ], [ 0, %if.end143 ], [ 0, %lor.lhs.false134 ], [ 0, %lor.lhs.false127 ], [ 0, %lor.lhs.false122 ], [ 0, %lor.lhs.false115 ], [ 0, %lor.lhs.false110 ], [ 0, %lor.lhs.false103 ], [ 0, %if.end99 ], [ 0, %lor.lhs.false92 ], [ 0, %lor.lhs.false86 ], [ 0, %lor.lhs.false82 ], [ 0, %lor.lhs.false76 ], [ 0, %lor.lhs.false72 ], [ 0, %lor.lhs.false66 ], [ 0, %if.end62 ], [ 0, %lor.lhs.false55 ], [ 0, %lor.lhs.false49 ], [ 0, %lor.lhs.false45 ], [ 0, %lor.lhs.false39 ], [ 0, %if.end35 ], [ 0, %lor.lhs.false28 ], [ 0, %lor.lhs.false22 ], [ 0, %lor.lhs.false18 ], [ 0, %lor.lhs.false12 ], [ 0, %lor.lhs.false8 ], [ 0, %lor.lhs.false ], [ 0, %if.end ], [ 0, %entry ], [ %call212, %while.cond ], [ 0, %while.body ], [ 0, %if.end178 ], [ 0, %lor.lhs.false182 ], [ 0, %for.end ], [ 1, %lor.lhs.false205 ], [ 0, %if.end210 ]
   %rsa.0 = phi ptr [ null, %lor.lhs.false167 ], [ null, %lor.lhs.false162 ], [ null, %lor.lhs.false158 ], [ null, %if.end154 ], [ %call, %lor.lhs.false147 ], [ %call, %if.end143 ], [ %call, %lor.lhs.false134 ], [ %call, %lor.lhs.false127 ], [ %call, %lor.lhs.false122 ], [ %call, %lor.lhs.false115 ], [ %call, %lor.lhs.false110 ], [ %call, %lor.lhs.false103 ], [ %call, %if.end99 ], [ %call, %lor.lhs.false92 ], [ %call, %lor.lhs.false86 ], [ %call, %lor.lhs.false82 ], [ %call, %lor.lhs.false76 ], [ %call, %lor.lhs.false72 ], [ %call, %lor.lhs.false66 ], [ %call, %if.end62 ], [ %call, %lor.lhs.false55 ], [ %call, %lor.lhs.false49 ], [ %call, %lor.lhs.false45 ], [ %call, %lor.lhs.false39 ], [ %call, %if.end35 ], [ %call, %lor.lhs.false28 ], [ %call, %lor.lhs.false22 ], [ %call, %lor.lhs.false18 ], [ %call, %lor.lhs.false12 ], [ %call, %lor.lhs.false8 ], [ %call, %lor.lhs.false ], [ %call, %if.end ], [ %call, %entry ], [ null, %while.body ], [ null, %lor.lhs.false182 ], [ null, %if.end178 ], [ null, %lor.lhs.false205 ], [ null, %for.end ], [ null, %if.end210 ], [ null, %while.cond ]
   %bn1.0 = phi ptr [ null, %lor.lhs.false167 ], [ null, %lor.lhs.false162 ], [ null, %lor.lhs.false158 ], [ null, %if.end154 ], [ null, %lor.lhs.false147 ], [ null, %if.end143 ], [ null, %lor.lhs.false134 ], [ null, %lor.lhs.false127 ], [ null, %lor.lhs.false122 ], [ null, %lor.lhs.false115 ], [ null, %lor.lhs.false110 ], [ null, %lor.lhs.false103 ], [ null, %if.end99 ], [ %call63, %lor.lhs.false92 ], [ %call63, %lor.lhs.false86 ], [ %call63, %lor.lhs.false82 ], [ %call63, %lor.lhs.false76 ], [ %call63, %lor.lhs.false72 ], [ %call63, %lor.lhs.false66 ], [ %call63, %if.end62 ], [ %call36, %lor.lhs.false55 ], [ %call36, %lor.lhs.false49 ], [ %call36, %lor.lhs.false45 ], [ %call36, %lor.lhs.false39 ], [ %call36, %if.end35 ], [ %call2, %lor.lhs.false28 ], [ %call2, %lor.lhs.false22 ], [ %call2, %lor.lhs.false18 ], [ %call2, %lor.lhs.false12 ], [ %call2, %lor.lhs.false8 ], [ %call2, %lor.lhs.false ], [ %call2, %if.end ], [ null, %entry ], [ null, %while.body ], [ null, %lor.lhs.false182 ], [ null, %if.end178 ], [ null, %lor.lhs.false205 ], [ null, %for.end ], [ null, %if.end210 ], [ null, %while.cond ]
   %bn2.0 = phi ptr [ null, %lor.lhs.false167 ], [ null, %lor.lhs.false162 ], [ null, %lor.lhs.false158 ], [ null, %if.end154 ], [ null, %lor.lhs.false147 ], [ null, %if.end143 ], [ null, %lor.lhs.false134 ], [ null, %lor.lhs.false127 ], [ null, %lor.lhs.false122 ], [ null, %lor.lhs.false115 ], [ null, %lor.lhs.false110 ], [ null, %lor.lhs.false103 ], [ null, %if.end99 ], [ %call73, %lor.lhs.false92 ], [ %call73, %lor.lhs.false86 ], [ %call73, %lor.lhs.false82 ], [ %call73, %lor.lhs.false76 ], [ %call73, %lor.lhs.false72 ], [ %call46, %lor.lhs.false66 ], [ %call46, %if.end62 ], [ %call46, %lor.lhs.false55 ], [ %call46, %lor.lhs.false49 ], [ %call46, %lor.lhs.false45 ], [ %call9, %lor.lhs.false39 ], [ %call9, %if.end35 ], [ %call9, %lor.lhs.false28 ], [ %call9, %lor.lhs.false22 ], [ %call9, %lor.lhs.false18 ], [ %call9, %lor.lhs.false12 ], [ %call9, %lor.lhs.false8 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ], [ null, %while.body ], [ null, %lor.lhs.false182 ], [ null, %if.end178 ], [ null, %lor.lhs.false205 ], [ null, %for.end ], [ null, %if.end210 ], [ null, %while.cond ]
   %bn3.0 = phi ptr [ null, %lor.lhs.false167 ], [ null, %lor.lhs.false162 ], [ null, %lor.lhs.false158 ], [ null, %if.end154 ], [ null, %lor.lhs.false147 ], [ null, %if.end143 ], [ null, %lor.lhs.false134 ], [ null, %lor.lhs.false127 ], [ null, %lor.lhs.false122 ], [ null, %lor.lhs.false115 ], [ null, %lor.lhs.false110 ], [ null, %lor.lhs.false103 ], [ null, %if.end99 ], [ %call83, %lor.lhs.false92 ], [ %call83, %lor.lhs.false86 ], [ %call83, %lor.lhs.false82 ], [ %call19, %lor.lhs.false76 ], [ %call19, %lor.lhs.false72 ], [ %call19, %lor.lhs.false66 ], [ %call19, %if.end62 ], [ %call19, %lor.lhs.false55 ], [ %call19, %lor.lhs.false49 ], [ %call19, %lor.lhs.false45 ], [ %call19, %lor.lhs.false39 ], [ %call19, %if.end35 ], [ %call19, %lor.lhs.false28 ], [ %call19, %lor.lhs.false22 ], [ %call19, %lor.lhs.false18 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ], [ null, %while.body ], [ null, %lor.lhs.false182 ], [ null, %if.end178 ], [ null, %lor.lhs.false205 ], [ null, %for.end ], [ null, %if.end210 ], [ null, %while.cond ]
-  %pk.1 = phi ptr [ %call144, %lor.lhs.false167 ], [ %call144, %lor.lhs.false162 ], [ %call144, %lor.lhs.false158 ], [ %call144, %if.end154 ], [ %call144, %lor.lhs.false147 ], [ %call144, %if.end143 ], [ null, %lor.lhs.false134 ], [ null, %lor.lhs.false127 ], [ null, %lor.lhs.false122 ], [ null, %lor.lhs.false115 ], [ null, %lor.lhs.false110 ], [ null, %lor.lhs.false103 ], [ null, %if.end99 ], [ null, %lor.lhs.false92 ], [ null, %lor.lhs.false86 ], [ null, %lor.lhs.false82 ], [ null, %lor.lhs.false76 ], [ null, %lor.lhs.false72 ], [ null, %lor.lhs.false66 ], [ null, %if.end62 ], [ null, %lor.lhs.false55 ], [ null, %lor.lhs.false49 ], [ null, %lor.lhs.false45 ], [ null, %lor.lhs.false39 ], [ null, %if.end35 ], [ null, %lor.lhs.false28 ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ], [ %call206, %while.cond ], [ %pk.045, %while.body ], [ %pk.045, %if.end178 ], [ %pk.045, %lor.lhs.false182 ], [ %pk.045, %for.end ], [ %pk.045, %lor.lhs.false205 ], [ %call206, %if.end210 ]
+  %pk.0 = phi ptr [ %call144, %lor.lhs.false167 ], [ %call144, %lor.lhs.false162 ], [ %call144, %lor.lhs.false158 ], [ %call144, %if.end154 ], [ %call144, %lor.lhs.false147 ], [ %call144, %if.end143 ], [ null, %lor.lhs.false134 ], [ null, %lor.lhs.false127 ], [ null, %lor.lhs.false122 ], [ null, %lor.lhs.false115 ], [ null, %lor.lhs.false110 ], [ null, %lor.lhs.false103 ], [ null, %if.end99 ], [ null, %lor.lhs.false92 ], [ null, %lor.lhs.false86 ], [ null, %lor.lhs.false82 ], [ null, %lor.lhs.false76 ], [ null, %lor.lhs.false72 ], [ null, %lor.lhs.false66 ], [ null, %if.end62 ], [ null, %lor.lhs.false55 ], [ null, %lor.lhs.false49 ], [ null, %lor.lhs.false45 ], [ null, %lor.lhs.false39 ], [ null, %if.end35 ], [ null, %lor.lhs.false28 ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ], [ %call206, %while.cond ], [ %pk.145, %while.body ], [ %pk.145, %if.end178 ], [ %pk.145, %lor.lhs.false182 ], [ %pk.145, %for.end ], [ %pk.145, %lor.lhs.false205 ], [ %call206, %if.end210 ]
   %km2.0 = phi ptr [ %call159, %lor.lhs.false167 ], [ %call159, %lor.lhs.false162 ], [ %call159, %lor.lhs.false158 ], [ null, %if.end154 ], [ null, %lor.lhs.false147 ], [ null, %if.end143 ], [ null, %lor.lhs.false134 ], [ null, %lor.lhs.false127 ], [ null, %lor.lhs.false122 ], [ null, %lor.lhs.false115 ], [ null, %lor.lhs.false110 ], [ null, %lor.lhs.false103 ], [ null, %if.end99 ], [ null, %lor.lhs.false92 ], [ null, %lor.lhs.false86 ], [ null, %lor.lhs.false82 ], [ null, %lor.lhs.false76 ], [ null, %lor.lhs.false72 ], [ null, %lor.lhs.false66 ], [ null, %if.end62 ], [ null, %lor.lhs.false55 ], [ null, %lor.lhs.false49 ], [ null, %lor.lhs.false45 ], [ null, %lor.lhs.false39 ], [ null, %if.end35 ], [ null, %lor.lhs.false28 ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ], [ %call159, %while.body ], [ %call159, %lor.lhs.false182 ], [ %call159, %if.end178 ], [ %call159, %lor.lhs.false205 ], [ %call159, %for.end ], [ %call159, %if.end210 ], [ %call159, %while.cond ]
   %km3.0 = phi ptr [ %call164, %lor.lhs.false167 ], [ %call164, %lor.lhs.false162 ], [ null, %lor.lhs.false158 ], [ null, %if.end154 ], [ null, %lor.lhs.false147 ], [ null, %if.end143 ], [ null, %lor.lhs.false134 ], [ null, %lor.lhs.false127 ], [ null, %lor.lhs.false122 ], [ null, %lor.lhs.false115 ], [ null, %lor.lhs.false110 ], [ null, %lor.lhs.false103 ], [ null, %if.end99 ], [ null, %lor.lhs.false92 ], [ null, %lor.lhs.false86 ], [ null, %lor.lhs.false82 ], [ null, %lor.lhs.false76 ], [ null, %lor.lhs.false72 ], [ null, %lor.lhs.false66 ], [ null, %if.end62 ], [ null, %lor.lhs.false55 ], [ null, %lor.lhs.false49 ], [ null, %lor.lhs.false45 ], [ null, %lor.lhs.false39 ], [ null, %if.end35 ], [ null, %lor.lhs.false28 ], [ null, %lor.lhs.false22 ], [ null, %lor.lhs.false18 ], [ null, %lor.lhs.false12 ], [ null, %lor.lhs.false8 ], [ null, %lor.lhs.false ], [ null, %if.end ], [ null, %entry ], [ %call164, %while.body ], [ %call164, %lor.lhs.false182 ], [ %call164, %if.end178 ], [ %call164, %lor.lhs.false205 ], [ %call164, %for.end ], [ %call164, %if.end210 ], [ %call164, %while.cond ]
   call void @RSA_free(ptr noundef %rsa.0) #3
   call void @BN_free(ptr noundef %bn1.0) #3
   call void @BN_free(ptr noundef %bn2.0) #3
   call void @BN_free(ptr noundef %bn3.0) #3
-  call void @EVP_PKEY_free(ptr noundef %pk.1) #3
+  call void @EVP_PKEY_free(ptr noundef %pk.0) #3
   %5 = load ptr, ptr %km1, align 8
   call void @EVP_KEYMGMT_free(ptr noundef %5) #3
   call void @EVP_KEYMGMT_free(ptr noundef %km2.0) #3
   call void @EVP_KEYMGMT_free(ptr noundef %km3.0) #3
-  ret i32 %ret.3
+  ret i32 %ret.0
 }
 
 declare ptr @RSA_new() local_unnamed_addr #1

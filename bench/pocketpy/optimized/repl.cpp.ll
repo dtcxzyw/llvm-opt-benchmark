@@ -329,8 +329,8 @@ define noundef zeroext i1 @_ZN4pkpy4REPL5inputENSt7__cxx1112basic_stringIcSt11ch
           to label %53 unwind label %54
 
 .loopexit:                                        ; preds = %.lr.ph, %5, %48, %34
-  %.1 = phi i1 [ false, %34 ], [ true, %48 ], [ true, %5 ], [ true, %.lr.ph ]
-  ret i1 %.1
+  %.012 = phi i1 [ false, %34 ], [ true, %48 ], [ true, %5 ], [ true, %.lr.ph ]
+  ret i1 %.012
 
 53:                                               ; preds = %51, %39
   %.merged = phi { ptr, i32 } [ %52, %51 ], [ %.pn, %39 ]

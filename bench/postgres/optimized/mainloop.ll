@@ -589,9 +589,9 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
 
 255:                                              ; preds = %353, %248
   %.0180 = phi i8 [ 0, %248 ], [ %.3183, %353 ]
-  %.0176 = phi i8 [ 1, %248 ], [ %.1177, %353 ]
+  %.0176 = phi i8 [ 1, %248 ], [ %.2178, %353 ]
   %.1173 = phi i32 [ %.0172, %248 ], [ %.2174, %353 ]
-  %.1 = phi ptr [ %.0231, %248 ], [ %.2, %353 ]
+  %.1 = phi ptr [ %.0231, %248 ], [ %.3, %353 ]
   %256 = trunc nuw i8 %.0176 to i1
   br i1 %256, label %.critedge, label %257
 
@@ -684,7 +684,7 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %293
 
 293:                                              ; preds = %292, %290, %287
-  %.1181 = phi i8 [ %.0180, %290 ], [ 1, %292 ], [ %.0180, %287 ]
+  %.2182 = phi i8 [ %.0180, %290 ], [ 1, %292 ], [ %.0180, %287 ]
   %294 = call zeroext i1 @conditional_active(ptr noundef %21) #10
   br i1 %294, label %295, label %300
 
@@ -754,7 +754,7 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br label %322
 
 322:                                              ; preds = %321, %319, %316
-  %.2182 = phi i8 [ %.0180, %319 ], [ 1, %321 ], [ %.0180, %316 ]
+  %.4 = phi i8 [ %.0180, %319 ], [ 1, %321 ], [ %.0180, %316 ]
   %.0..0..0..0.131 = load volatile ptr, ptr %2, align 8
   %.0..0..0..0.104 = load volatile ptr, ptr %3, align 8
   %323 = call i32 @HandleSlashCmds(ptr noundef %20, ptr noundef %21, ptr noundef %.0..0..0..0.131, ptr noundef %.0..0..0..0.104) #10
@@ -834,28 +834,28 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br i1 %352, label %.thread254, label %353
 
 353:                                              ; preds = %._crit_edge, %344, %351, %327, %295, %304
-  %.3183 = phi i8 [ %.1181, %295 ], [ %.1181, %304 ], [ %.2182, %327 ], [ 0, %344 ], [ %.2182, %351 ], [ %.0180, %._crit_edge ]
-  %.1177 = phi i8 [ %298, %295 ], [ 1, %304 ], [ %330, %327 ], [ %325, %344 ], [ %325, %351 ], [ %.0176, %._crit_edge ]
+  %.3183 = phi i8 [ %.2182, %295 ], [ %.2182, %304 ], [ %.4, %327 ], [ 0, %344 ], [ %.4, %351 ], [ %.0180, %._crit_edge ]
+  %.2178 = phi i8 [ %298, %295 ], [ 1, %304 ], [ %330, %327 ], [ %325, %344 ], [ %325, %351 ], [ %.0176, %._crit_edge ]
   %.2174 = phi i32 [ -1, %295 ], [ %.1173, %304 ], [ -1, %327 ], [ -1, %344 ], [ -1, %351 ], [ %.1173, %._crit_edge ]
-  %.2 = phi ptr [ %.1, %295 ], [ %.1, %304 ], [ %.1, %327 ], [ %346, %344 ], [ %.1, %351 ], [ %.1, %._crit_edge ]
+  %.3 = phi ptr [ %.1, %295 ], [ %.1, %304 ], [ %.1, %327 ], [ %346, %344 ], [ %.1, %351 ], [ %.1, %._crit_edge ]
   %354 = and i32 %261, -2
   %or.cond3 = icmp eq i32 %354, 2
   br i1 %or.cond3, label %.thread254, label %255, !llvm.loop !10
 
 .thread254:                                       ; preds = %283, %353, %351, %257
-  %.4 = phi i8 [ %.3183, %353 ], [ %.2182, %351 ], [ %.0180, %257 ], [ %.0180, %283 ]
-  %.2178 = phi i8 [ %.1177, %353 ], [ %325, %351 ], [ %.0176, %257 ], [ %.0176, %283 ]
-  %.3 = phi ptr [ %.2, %353 ], [ %.1, %351 ], [ %.1, %257 ], [ %.1, %283 ]
+  %.1181 = phi i8 [ %.3183, %353 ], [ %.4, %351 ], [ %.0180, %257 ], [ %.0180, %283 ]
+  %.1177 = phi i8 [ %.2178, %353 ], [ %325, %351 ], [ %.0176, %257 ], [ %.0176, %283 ]
+  %.2 = phi ptr [ %.3, %353 ], [ %.1, %351 ], [ %.1, %257 ], [ %.1, %283 ]
   %355 = load i8, ptr getelementptr inbounds (i8, ptr @pset, i64 312), align 8
   %356 = trunc i8 %355 to i1
   br i1 %356, label %357, label %365
 
 357:                                              ; preds = %.thread254
-  %358 = trunc nuw i8 %.4 to i1
+  %358 = trunc nuw i8 %.1181 to i1
   br i1 %358, label %360, label %359
 
 359:                                              ; preds = %357
-  call void @pg_append_history(ptr noundef %.3, ptr noundef %24) #10
+  call void @pg_append_history(ptr noundef %.2, ptr noundef %24) #10
   br label %360
 
 360:                                              ; preds = %359, %357
@@ -871,7 +871,7 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
 
 365:                                              ; preds = %360, %364, %.thread254
   call void @psql_scan_finish(ptr noundef %20) #10
-  call void @free(ptr noundef %.3) #10
+  call void @free(ptr noundef %.2) #10
   %.0..0..0..0.53 = load volatile i32, ptr %5, align 4
   %366 = icmp eq i32 %.0..0..0..0.53, 3
   br i1 %366, label %367, label %368
@@ -886,7 +886,7 @@ select.unfold:                                    ; preds = %.tail260, %164, %15
   br i1 %370, label %.backedge, label %371
 
 371:                                              ; preds = %368
-  %372 = trunc nuw i8 %.2178 to i1
+  %372 = trunc nuw i8 %.1177 to i1
   br i1 %372, label %376, label %373
 
 373:                                              ; preds = %371

@@ -123,7 +123,7 @@ define hidden noundef ptr @_ZN9metaspace10FreeBlocks12remove_blockEm(ptr noundef
   br i1 %.not.i.i, label %_ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %6, %13
-  %.015.i.i.i = phi ptr [ %.1.i.i.i, %13 ], [ null, %6 ]
+  %.015.i.i.i = phi ptr [ %.2.i.i.i, %13 ], [ null, %6 ]
   %.0814.i.i.i = phi ptr [ %.19.i.i.i, %13 ], [ %8, %6 ]
   %9 = getelementptr inbounds i8, ptr %.0814.i.i.i, i64 40
   %10 = load i64, ptr %9, align 8
@@ -136,18 +136,18 @@ define hidden noundef ptr @_ZN9metaspace10FreeBlocks12remove_blockEm(ptr noundef
 
 13:                                               ; preds = %11, %.lr.ph.i.i.i
   %.sink.i.i.i = phi i64 [ 16, %11 ], [ 24, %.lr.ph.i.i.i ]
-  %.1.i.i.i = phi ptr [ %.0814.i.i.i, %11 ], [ %.015.i.i.i, %.lr.ph.i.i.i ]
+  %.2.i.i.i = phi ptr [ %.0814.i.i.i, %11 ], [ %.015.i.i.i, %.lr.ph.i.i.i ]
   %14 = getelementptr inbounds i8, ptr %.0814.i.i.i, i64 %.sink.i.i.i
   %.19.i.i.i = load ptr, ptr %14, align 8
   %.not.i.i.i = icmp eq ptr %.19.i.i.i, null
   br i1 %.not.i.i.i, label %_ZN9metaspace9BlockTree16find_closest_fitEm.exit.i, label %.lr.ph.i.i.i, !llvm.loop !8
 
 _ZN9metaspace9BlockTree16find_closest_fitEm.exit.i: ; preds = %13
-  %.not.i = icmp eq ptr %.1.i.i.i, null
+  %.not.i = icmp eq ptr %.2.i.i.i, null
   br i1 %.not.i, label %_ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm.exit, label %_ZN9metaspace9BlockTree16find_closest_fitEm.exit.thread17.i
 
 _ZN9metaspace9BlockTree16find_closest_fitEm.exit.thread17.i: ; preds = %11, %_ZN9metaspace9BlockTree16find_closest_fitEm.exit.i
-  %.0.i20.i = phi ptr [ %.1.i.i.i, %_ZN9metaspace9BlockTree16find_closest_fitEm.exit.i ], [ %.0814.i.i.i, %11 ]
+  %.0.i20.i = phi ptr [ %.2.i.i.i, %_ZN9metaspace9BlockTree16find_closest_fitEm.exit.i ], [ %.0814.i.i.i, %11 ]
   %15 = getelementptr inbounds i8, ptr %.0.i20.i, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not13.i = icmp eq ptr %16, null
@@ -214,28 +214,28 @@ _ZN9metaspace9BlockTree16find_closest_fitEm.exit.thread17.i: ; preds = %11, %_ZN
   br i1 %.not.i.i14, label %_ZN9metaspace9BlockTree12remove_blockEmPm.exit, label %_ZN9metaspace9BlockTree12remove_blockEmPm.exit.sink.split
 
 _ZN9metaspace9BlockTree12remove_blockEmPm.exit.sink.split: ; preds = %34, %21
-  %.sink46 = phi i64 [ 280, %21 ], [ 256, %34 ]
-  %.sink43 = phi i64 [ 288, %21 ], [ 264, %34 ]
-  %.sink42 = phi i64 [ %23, %21 ], [ %38, %34 ]
+  %.sink45 = phi i64 [ 280, %21 ], [ 256, %34 ]
+  %.sink42 = phi i64 [ 288, %21 ], [ 264, %34 ]
+  %.sink41 = phi i64 [ %23, %21 ], [ %38, %34 ]
   %.0.ph = phi ptr [ %.011.i, %21 ], [ %37, %34 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 %.sink46
+  %40 = getelementptr inbounds i8, ptr %0, i64 %.sink45
   %41 = load i32, ptr %40, align 8
   %42 = add i32 %41, -1
   store i32 %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 %.sink43
+  %43 = getelementptr inbounds i8, ptr %0, i64 %.sink42
   %44 = load i64, ptr %43, align 8
-  %45 = sub i64 %44, %.sink42
+  %45 = sub i64 %44, %.sink41
   store i64 %45, ptr %43, align 8
   br label %_ZN9metaspace9BlockTree12remove_blockEmPm.exit
 
 _ZN9metaspace9BlockTree12remove_blockEmPm.exit:   ; preds = %_ZN9metaspace9BlockTree12remove_blockEmPm.exit.sink.split, %21, %34
-  %.1 = phi i64 [ 0, %21 ], [ 0, %34 ], [ %.sink42, %_ZN9metaspace9BlockTree12remove_blockEmPm.exit.sink.split ]
+  %.016 = phi i64 [ 0, %21 ], [ 0, %34 ], [ %.sink41, %_ZN9metaspace9BlockTree12remove_blockEmPm.exit.sink.split ]
   %.0 = phi ptr [ %.011.i, %21 ], [ %37, %34 ], [ %.0.ph, %_ZN9metaspace9BlockTree12remove_blockEmPm.exit.sink.split ]
-  %.not12 = icmp eq i64 %.1, %1
+  %.not12 = icmp eq i64 %.016, %1
   br i1 %.not12, label %_ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm.exit, label %46
 
 46:                                               ; preds = %_ZN9metaspace9BlockTree12remove_blockEmPm.exit
-  %47 = sub i64 %.1, %1
+  %47 = sub i64 %.016, %1
   %48 = getelementptr inbounds ptr, ptr %.0, i64 %1
   %49 = load i64, ptr %3, align 8
   %50 = icmp ult i64 %49, %47
@@ -263,7 +263,7 @@ _ZN9metaspace9BlockTree12remove_blockEmPm.exit:   ; preds = %_ZN9metaspace9Block
   br i1 %61, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i15
 
 ._crit_edge.i.i.i:                                ; preds = %78, %58
-  %.0.lcssa.i.i.i = phi ptr [ %55, %58 ], [ %.1.i.i.i16, %78 ]
+  %.0.lcssa.i.i.i = phi ptr [ %55, %58 ], [ %.1.i.i.i, %78 ]
   %62 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 32
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr %48, i64 32
@@ -273,7 +273,7 @@ _ZN9metaspace9BlockTree12remove_blockEmPm.exit:   ; preds = %_ZN9metaspace9Block
 
 .lr.ph.i.i.i15:                                   ; preds = %58, %78
   %65 = phi i64 [ %80, %78 ], [ %60, %58 ]
-  %.024.i.i.i = phi ptr [ %.1.i.i.i16, %78 ], [ %55, %58 ]
+  %.024.i.i.i = phi ptr [ %.1.i.i.i, %78 ], [ %55, %58 ]
   %66 = icmp ult i64 %65, %47
   br i1 %66, label %67, label %72
 
@@ -302,8 +302,8 @@ _ZN9metaspace9BlockTree6insertEPNS0_4NodeES2_.exit.thread.i.i: ; preds = %67
   br label %_ZN9metaspace11BinListImplILi32EE9add_blockEPP12MetaWordImplm.exit.sink.split.i
 
 78:                                               ; preds = %72, %67
-  %.1.i.i.i16 = phi ptr [ %69, %67 ], [ %74, %72 ]
-  %79 = getelementptr inbounds i8, ptr %.1.i.i.i16, i64 40
+  %.1.i.i.i = phi ptr [ %69, %67 ], [ %74, %72 ]
+  %79 = getelementptr inbounds i8, ptr %.1.i.i.i, i64 40
   %80 = load i64, ptr %79, align 8
   %81 = icmp eq i64 %80, %47
   br i1 %81, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i15, !llvm.loop !6
@@ -332,8 +332,8 @@ _ZN9metaspace11BinListImplILi32EE9add_blockEPP12MetaWordImplm.exit.sink.split.i:
   br label %_ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm.exit
 
 _ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm.exit: ; preds = %32, %.critedge.i.i, %.critedge.i.i, %6, %_ZN9metaspace9BlockTree16find_closest_fitEm.exit.i, %_ZN9metaspace11BinListImplILi32EE9add_blockEPP12MetaWordImplm.exit.sink.split.i, %_ZN9metaspace9BlockTree12remove_blockEmPm.exit
-  %.021 = phi ptr [ %.0, %_ZN9metaspace9BlockTree12remove_blockEmPm.exit ], [ %.0, %_ZN9metaspace11BinListImplILi32EE9add_blockEPP12MetaWordImplm.exit.sink.split.i ], [ null, %_ZN9metaspace9BlockTree16find_closest_fitEm.exit.i ], [ null, %6 ], [ null, %.critedge.i.i ], [ null, %.critedge.i.i ], [ null, %32 ]
-  ret ptr %.021
+  %.020 = phi ptr [ %.0, %_ZN9metaspace9BlockTree12remove_blockEmPm.exit ], [ %.0, %_ZN9metaspace11BinListImplILi32EE9add_blockEPP12MetaWordImplm.exit.sink.split.i ], [ null, %_ZN9metaspace9BlockTree16find_closest_fitEm.exit.i ], [ null, %6 ], [ null, %.critedge.i.i ], [ null, %.critedge.i.i ], [ null, %32 ]
+  ret ptr %.020
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

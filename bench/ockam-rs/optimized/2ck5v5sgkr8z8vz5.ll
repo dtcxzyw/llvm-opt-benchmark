@@ -306,8 +306,8 @@ define hidden noundef align 8 ptr @"_ZN10ockam_core7routing7message13local_messa
   br label %26
 
 26:                                               ; preds = %23, %2, %8, %11, %15, %19
-  %.0 = phi ptr [ %6, %2 ], [ %9, %8 ], [ %13, %11 ], [ %17, %15 ], [ %21, %19 ], [ %25, %23 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %6, %2 ], [ %9, %8 ], [ %13, %11 ], [ %17, %15 ], [ %21, %19 ], [ %25, %23 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5662,13 +5662,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br label %597
 
 597:                                              ; preds = %.thread270, %606, %603, %"_ZN4core6option15Option$LT$T$GT$3map17h375292437e28d907E.exit.thread"
-  %.sroa.0196.0 = phi i64 [ 1, %606 ], [ 1, %603 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$3map17h375292437e28d907E.exit.thread" ], [ 0, %.thread270 ]
-  %.sroa.4197.0 = phi ptr [ %.sroa.4.i.sroa.4.0.copyload, %606 ], [ %.sroa.4.i.sroa.4.0.copyload, %603 ], [ null, %"_ZN4core6option15Option$LT$T$GT$3map17h375292437e28d907E.exit.thread" ], [ %.sroa.0201.0.copyload, %.thread270 ]
+  %.sroa.0196.1 = phi i64 [ 1, %606 ], [ 1, %603 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$3map17h375292437e28d907E.exit.thread" ], [ 0, %.thread270 ]
+  %.sroa.4197.1 = phi ptr [ %.sroa.4.i.sroa.4.0.copyload, %606 ], [ %.sroa.4.i.sroa.4.0.copyload, %603 ], [ null, %"_ZN4core6option15Option$LT$T$GT$3map17h375292437e28d907E.exit.thread" ], [ %.sroa.0201.0.copyload, %.thread270 ]
   %598 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 0, ptr %598, align 8
-  store i64 %.sroa.0196.0, ptr %0, align 8
+  store i64 %.sroa.0196.1, ptr %0, align 8
   %.sroa.4197.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.4197.0, ptr %.sroa.4197.0..sroa_idx, align 8
+  store ptr %.sroa.4197.1, ptr %.sroa.4197.0..sroa_idx, align 8
   %.sroa.7198.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.7198.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.7198, i64 224, i1 false)
   br label %common.ret
@@ -11347,7 +11347,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
 
 8:                                                ; preds = %26, %9
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %10, %9 ]
-  %.03 = phi i1 [ %.1, %26 ], [ true, %9 ]
+  %.03 = phi i1 [ %.2, %26 ], [ true, %9 ]
   invoke void @"_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17h95296d8d8c39f8cdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #21
           to label %47 unwind label %48
 
@@ -11390,7 +11390,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
           to label %28 unwind label %9
 
 26:                                               ; preds = %39, %35, %"_ZN4core3ptr210drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17hc8aba24d9a65fb9bE.exit", %32
-  %.1 = phi i1 [ false, %32 ], [ false, %"_ZN4core3ptr210drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17hc8aba24d9a65fb9bE.exit" ], [ true, %35 ], [ true, %39 ]
+  %.2 = phi i1 [ false, %32 ], [ false, %"_ZN4core3ptr210drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17hc8aba24d9a65fb9bE.exit" ], [ true, %35 ], [ true, %39 ]
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %8
@@ -11480,7 +11480,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
 
 8:                                                ; preds = %26, %9
   %.pn = phi { ptr, i32 } [ %27, %26 ], [ %10, %9 ]
-  %.03 = phi i1 [ %.1, %26 ], [ true, %9 ]
+  %.03 = phi i1 [ %.2, %26 ], [ true, %9 ]
   invoke void @"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17hc798454469fbd058E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #21
           to label %47 unwind label %48
 
@@ -11523,7 +11523,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
           to label %28 unwind label %9
 
 26:                                               ; preds = %39, %35, %"_ZN4core3ptr216drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h7ebacd4cfe987bceE.exit", %32
-  %.1 = phi i1 [ false, %32 ], [ false, %"_ZN4core3ptr216drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h7ebacd4cfe987bceE.exit" ], [ true, %35 ], [ true, %39 ]
+  %.2 = phi i1 [ false, %32 ], [ false, %"_ZN4core3ptr216drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h7ebacd4cfe987bceE.exit" ], [ true, %35 ], [ true, %39 ]
   %27 = landingpad { ptr, i32 }
           cleanup
   br label %8
@@ -12339,8 +12339,8 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
   br i1 %trunc, label %33, label %36
 
 32:                                               ; preds = %36, %22
-  %.sroa.4.0 = phi ptr [ %37, %36 ], [ %23, %22 ]
-  %.sroa.0.0 = getelementptr inbounds i8, ptr %18, i64 64
+  %.sroa.4.1 = phi ptr [ %37, %36 ], [ %23, %22 ]
+  %.sroa.0.1 = getelementptr inbounds i8, ptr %18, i64 64
   br label %38
 
 33:                                               ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hcec23f6c89055883E.exit"
@@ -12357,10 +12357,10 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
   br label %32
 
 38:                                               ; preds = %4, %32
-  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %32 ], [ undef, %4 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %32 ], [ null, %4 ]
-  %39 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %40 = insertvalue { ptr, ptr } %39, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %32 ], [ undef, %4 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %32 ], [ null, %4 ]
+  %39 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %40 = insertvalue { ptr, ptr } %39, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %40
 }
 

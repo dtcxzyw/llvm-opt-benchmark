@@ -566,19 +566,19 @@ define hidden noundef i32 @_ZN9softposit5p32e24math5sleef6kernel3log17h4af2fc342
   br label %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit
 
 .lr.ph.i.i:                                       ; preds = %.preheader12.i.i, %.lr.ph.i.i
-  %.214.i.i = phi i32 [ %19, %.lr.ph.i.i ], [ %10, %.preheader12.i.i ]
-  %.21113.i.i = phi i8 [ %18, %.lr.ph.i.i ], [ 0, %.preheader12.i.i ]
-  %18 = add nuw nsw i8 %.21113.i.i, 1
-  %19 = shl i32 %.214.i.i, 1
+  %.114.i.i = phi i32 [ %19, %.lr.ph.i.i ], [ %10, %.preheader12.i.i ]
+  %.11013.i.i = phi i8 [ %18, %.lr.ph.i.i ], [ 0, %.preheader12.i.i ]
+  %18 = add nuw nsw i8 %.11013.i.i, 1
+  %19 = shl i32 %.114.i.i, 1
   %20 = icmp sgt i32 %19, -1
   br i1 %20, label %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit, label %.lr.ph.i.i
 
 _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = %.lr.ph.i.i, %.preheader12.i.i, %._crit_edge.i.i
-  %.110.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %18, %.lr.ph.i.i ]
-  %.1.i.i = phi i32 [ %17, %._crit_edge.i.i ], [ %10, %.preheader12.i.i ], [ %19, %.lr.ph.i.i ]
-  %21 = sext i8 %.110.i.i to i32
+  %.211.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %18, %.lr.ph.i.i ]
+  %.2.i.i = phi i32 [ %17, %._crit_edge.i.i ], [ %10, %.preheader12.i.i ], [ %19, %.lr.ph.i.i ]
+  %21 = sext i8 %.211.i.i to i32
   %22 = shl nsw i32 %21, 2
-  %23 = lshr i32 %.1.i.i, 29
+  %23 = lshr i32 %.2.i.i, 29
   %24 = or disjoint i32 %22, %23
   %25 = sub nsw i32 0, %24
   %26 = ashr i32 %25, 1
@@ -640,7 +640,7 @@ _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = 
   br i1 %48, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_i3217h4f00cc7b49d63ce8E.llvm.10961338582784087609.exit", label %49
 
 49:                                               ; preds = %47
-  %50 = icmp slt i8 %.110.i.i, 0
+  %50 = icmp slt i8 %.211.i.i, 0
   %spec.select.i = call i32 @llvm.abs.i32(i32 %24, i1 true)
   %51 = icmp ult i32 %spec.select.i, 2
   br i1 %51, label %52, label %.lr.ph.i.i3
@@ -932,7 +932,7 @@ _ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit: ; 
   %21 = sub i32 0, %1
   %.057 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %.not = icmp slt i32 %.057, 2126512128
-  %.not.i86 = icmp sgt i32 %1, -1
+  %.not.i87 = icmp sgt i32 %1, -1
   br i1 %.not, label %119, label %71
 
 22:                                               ; preds = %_ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit
@@ -941,25 +941,25 @@ _ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit: ; 
 
 23:                                               ; preds = %22
   %24 = icmp ugt i32 %1, 2142240767
-  br i1 %24, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread108", label %28
+  br i1 %24, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread109", label %28
 
 25:                                               ; preds = %22
   %26 = sub nsw i32 0, %1
   %27 = icmp ugt i32 %26, 2142240767
-  br i1 %27, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103", label %28
+  br i1 %27, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %28
 
 28:                                               ; preds = %25, %23
   %.010.i = phi i32 [ %1, %23 ], [ %26, %25 ]
   %29 = icmp ult i32 %.010.i, 939524097
-  br i1 %29, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103", label %30
+  br i1 %29, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %30
 
 30:                                               ; preds = %28
   %31 = icmp ult i32 %.010.i, 1140850688
-  br i1 %31, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread108", label %32
+  br i1 %31, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread109", label %32
 
 32:                                               ; preds = %30
   %33 = icmp ult i32 %.010.i, 1241513985
-  br i1 %33, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103", label %34
+  br i1 %33, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %34
 
 34:                                               ; preds = %32
   %.012.i.i.i = add nsw i32 %.010.i, -1073741824
@@ -1008,7 +1008,7 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %60 = shl nuw i64 1, %59
   %61 = and i64 %.017.i.i, %60
   %62 = icmp eq i64 %61, 0
-  br i1 %62, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103", label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread108"
+  br i1 %62, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread109"
 
 63:                                               ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i
   %64 = lshr i64 4611686018427387904, %49
@@ -1023,58 +1023,58 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   br label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit"
 
 71:                                               ; preds = %20
-  br i1 %.not.i86, label %72, label %74
+  br i1 %.not.i87, label %72, label %74
 
 72:                                               ; preds = %71
   %73 = icmp ugt i32 %1, 2142240767
-  br i1 %73, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread108", label %76
+  br i1 %73, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread109", label %76
 
 74:                                               ; preds = %71
   %75 = icmp ugt i32 %21, 2142240767
-  br i1 %75, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103", label %76
+  br i1 %75, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %76
 
 76:                                               ; preds = %74, %72
-  %.010.i69 = phi i32 [ %1, %72 ], [ %21, %74 ]
-  %77 = icmp ult i32 %.010.i69, 939524097
-  br i1 %77, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103", label %78
+  %.010.i70 = phi i32 [ %1, %72 ], [ %21, %74 ]
+  %77 = icmp ult i32 %.010.i70, 939524097
+  br i1 %77, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %78
 
 78:                                               ; preds = %76
-  %79 = icmp ult i32 %.010.i69, 1140850688
-  br i1 %79, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread108", label %80
+  %79 = icmp ult i32 %.010.i70, 1140850688
+  br i1 %79, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread109", label %80
 
 80:                                               ; preds = %78
-  %81 = icmp ult i32 %.010.i69, 1241513985
-  br i1 %81, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103", label %82
+  %81 = icmp ult i32 %.010.i70, 1241513985
+  br i1 %81, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %82
 
 82:                                               ; preds = %80
-  %.012.i.i.i70 = add nsw i32 %.010.i69, -1073741824
-  %83 = and i32 %.010.i69, 536870912
+  %.012.i.i.i71 = add nsw i32 %.010.i70, -1073741824
+  %83 = and i32 %.010.i70, 536870912
   %84 = icmp eq i32 %83, 0
-  br i1 %84, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i75, label %.lr.ph.i.i.i71
+  br i1 %84, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i76, label %.lr.ph.i.i.i72
 
-.lr.ph.i.i.i71:                                   ; preds = %82, %.lr.ph.i.i.i71
-  %.014.i.i.i72 = phi i32 [ %.0.i.i.i74, %.lr.ph.i.i.i71 ], [ %.012.i.i.i70, %82 ]
-  %.01113.i.i.i73 = phi i32 [ %85, %.lr.ph.i.i.i71 ], [ 0, %82 ]
-  %85 = add i32 %.01113.i.i.i73, 4
-  %86 = shl i32 %.014.i.i.i72, 1
-  %.0.i.i.i74 = add i32 %86, -1073741824
-  %87 = and i32 %.014.i.i.i72, 268435456
+.lr.ph.i.i.i72:                                   ; preds = %82, %.lr.ph.i.i.i72
+  %.014.i.i.i73 = phi i32 [ %.0.i.i.i75, %.lr.ph.i.i.i72 ], [ %.012.i.i.i71, %82 ]
+  %.01113.i.i.i74 = phi i32 [ %85, %.lr.ph.i.i.i72 ], [ 0, %82 ]
+  %85 = add i32 %.01113.i.i.i74, 4
+  %86 = shl i32 %.014.i.i.i73, 1
+  %.0.i.i.i75 = add i32 %86, -1073741824
+  %87 = and i32 %.014.i.i.i73, 268435456
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i75, label %.lr.ph.i.i.i71
+  br i1 %88, label %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i76, label %.lr.ph.i.i.i72
 
-_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i75: ; preds = %.lr.ph.i.i.i71, %82
-  %.011.lcssa.i.i.i76 = phi i32 [ 0, %82 ], [ %85, %.lr.ph.i.i.i71 ]
-  %.0.in.lcssa.i.i.i77 = phi i32 [ %.010.i69, %82 ], [ %86, %.lr.ph.i.i.i71 ]
-  %.0.lcssa.i.i.i78 = phi i32 [ %.012.i.i.i70, %82 ], [ %.0.i.i.i74, %.lr.ph.i.i.i71 ]
-  %89 = lshr i32 %.0.in.lcssa.i.i.i77, 27
+_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i76: ; preds = %.lr.ph.i.i.i72, %82
+  %.011.lcssa.i.i.i77 = phi i32 [ 0, %82 ], [ %85, %.lr.ph.i.i.i72 ]
+  %.0.in.lcssa.i.i.i78 = phi i32 [ %.010.i70, %82 ], [ %86, %.lr.ph.i.i.i72 ]
+  %.0.lcssa.i.i.i79 = phi i32 [ %.012.i.i.i71, %82 ], [ %.0.i.i.i75, %.lr.ph.i.i.i72 ]
+  %89 = lshr i32 %.0.in.lcssa.i.i.i78, 27
   %90 = and i32 %89, 3
-  %.2.i.i.i79 = or i32 %90, %.011.lcssa.i.i.i76
-  %91 = shl i32 %.0.lcssa.i.i.i78, 1
+  %.2.i.i.i80 = or i32 %90, %.011.lcssa.i.i.i77
+  %91 = shl i32 %.0.lcssa.i.i.i79, 1
   %92 = and i32 %91, 268435454
   %93 = or disjoint i32 %92, 268435456
   %94 = zext nneg i32 %93 to i64
   %95 = shl nuw nsw i64 %94, 34
-  %96 = and i32 %.2.i.i.i79, 63
+  %96 = and i32 %.2.i.i.i80, 63
   %97 = zext nneg i32 %96 to i64
   %98 = lshr i64 2305843009213693952, %97
   %99 = and i64 %95, %98
@@ -1083,64 +1083,64 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %102 = xor i64 %100, %101
   %103 = and i64 %102, %95
   %104 = icmp eq i64 %99, 0
-  br i1 %104, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit85", label %111
+  br i1 %104, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit86", label %111
 
-"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit85": ; preds = %116, %111, %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i75
-  %.017.i.i80 = phi i64 [ %103, %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i75 ], [ %103, %111 ], [ %118, %116 ]
-  %105 = sub i32 62, %.2.i.i.i79
+"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit86": ; preds = %116, %111, %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i76
+  %.017.i.i81 = phi i64 [ %103, %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i76 ], [ %103, %111 ], [ %118, %116 ]
+  %105 = sub i32 62, %.2.i.i.i80
   %106 = and i32 %105, 63
   %107 = zext nneg i32 %106 to i64
   %108 = shl nuw i64 1, %107
-  %109 = and i64 %.017.i.i80, %108
+  %109 = and i64 %.017.i.i81, %108
   %110 = icmp eq i64 %109, 0
-  br i1 %110, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103", label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread108"
+  br i1 %110, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread109"
 
-111:                                              ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i75
+111:                                              ; preds = %_ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.16419641384398726998.exit.i.i76
   %112 = lshr i64 4611686018427387904, %97
   %113 = or i64 %100, %112
   %114 = and i64 %113, %95
   %115 = icmp eq i64 %114, 0
-  br i1 %115, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit85", label %116
+  br i1 %115, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit86", label %116
 
 116:                                              ; preds = %111
   %117 = shl nuw nsw i64 %98, 1
   %118 = add nuw i64 %103, %117
-  br label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit85"
+  br label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit86"
 
 119:                                              ; preds = %20
-  br i1 %.not.i86, label %120, label %122
+  br i1 %.not.i87, label %120, label %122
 
 120:                                              ; preds = %119
   %121 = icmp ugt i32 %1, 2142240767
-  br i1 %121, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103", label %124
+  br i1 %121, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %124
 
 122:                                              ; preds = %119
   %123 = icmp ugt i32 %21, 2142240767
-  br i1 %123, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103", label %124
+  br i1 %123, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %124
 
 124:                                              ; preds = %122, %120
-  %.010.i87 = phi i32 [ %1, %120 ], [ %21, %122 ]
-  %125 = icmp ult i32 %.010.i87, 1241513985
-  %126 = and i32 %.010.i87, 536870912
+  %.010.i88 = phi i32 [ %1, %120 ], [ %21, %122 ]
+  %125 = icmp ult i32 %.010.i88, 1241513985
+  %126 = and i32 %.010.i88, 536870912
   %127 = icmp eq i32 %126, 0
-  %or.cond137 = or i1 %125, %127
-  br i1 %or.cond137, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103", label %.lr.ph.i.i.i89
+  %or.cond138 = or i1 %125, %127
+  br i1 %or.cond138, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %.lr.ph.i.i.i90
 
-.lr.ph.i.i.i89:                                   ; preds = %124, %.lr.ph.i.i.i89
-  %.014.i.i.i90.in = phi i32 [ %128, %.lr.ph.i.i.i89 ], [ %.010.i87, %124 ]
-  %128 = shl i32 %.014.i.i.i90.in, 1
-  %129 = and i32 %.014.i.i.i90.in, 268435456
+.lr.ph.i.i.i90:                                   ; preds = %124, %.lr.ph.i.i.i90
+  %.014.i.i.i91.in = phi i32 [ %128, %.lr.ph.i.i.i90 ], [ %.010.i88, %124 ]
+  %128 = shl i32 %.014.i.i.i91.in, 1
+  %129 = and i32 %.014.i.i.i91.in, 268435456
   %130 = icmp eq i32 %129, 0
-  br i1 %130, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103", label %.lr.ph.i.i.i89
+  br i1 %130, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104", label %.lr.ph.i.i.i90
 
-"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread108": ; preds = %78, %30, %72, %23, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit85"
+"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread109": ; preds = %78, %30, %72, %23, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit86"
   %.058 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %131 = icmp slt i32 %.058, 2126512128
   %132 = select i1 %131, i32 -1073741824, i32 1073741824
-  br label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103"
+  br label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104"
 
-"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103": ; preds = %.lr.ph.i.i.i89, %76, %80, %28, %32, %124, %74, %25, %122, %120, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit85", %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread108"
-  %.3 = phi i32 [ %132, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread108" ], [ 1073741824, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit" ], [ 1073741824, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit85" ], [ -2147483648, %120 ], [ -2147483648, %122 ], [ 1073741824, %25 ], [ 1073741824, %74 ], [ -2147483648, %124 ], [ 1073741824, %32 ], [ 1073741824, %28 ], [ 1073741824, %80 ], [ 1073741824, %76 ], [ -2147483648, %.lr.ph.i.i.i89 ]
+"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104": ; preds = %.lr.ph.i.i.i90, %76, %80, %28, %32, %124, %74, %25, %122, %120, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit86", %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit", %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread109"
+  %.3 = phi i32 [ %132, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.thread109" ], [ 1073741824, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit" ], [ 1073741824, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit86" ], [ -2147483648, %120 ], [ -2147483648, %122 ], [ 1073741824, %25 ], [ 1073741824, %74 ], [ -2147483648, %124 ], [ 1073741824, %32 ], [ 1073741824, %28 ], [ 1073741824, %80 ], [ 1073741824, %76 ], [ -2147483648, %.lr.ph.i.i.i90 ]
   %133 = icmp slt i32 %0, 0
   %.059 = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
   %134 = tail call noundef i32 @_ZN9softposit5p32e24math5sleef6kernel3log17h4af2fc34254ebb37E.llvm.10961338582784087609(i32 noundef %.059)
@@ -1150,7 +1150,7 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   %138 = icmp eq i32 %137, -2147483648
   br i1 %138, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.i", label %139
 
-139:                                              ; preds = %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103"
+139:                                              ; preds = %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104"
   %.not.i.i = icmp sgt i32 %137, -1
   br i1 %.not.i.i, label %140, label %142
 
@@ -1237,13 +1237,13 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   br label %174
 
 _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i.i: ; preds = %174, %149, %147, %145
-  %.0.i.i.i104 = phi i32 [ %179, %174 ], [ 0, %145 ], [ 1, %147 ], [ 2, %149 ]
-  %188 = sub i32 0, %.0.i.i.i104
-  %.0.i13.i.i = select i1 %.not.i.i, i32 %.0.i.i.i104, i32 %188
+  %.0.i.i.i105 = phi i32 [ %179, %174 ], [ 0, %145 ], [ 1, %147 ], [ 2, %149 ]
+  %188 = sub i32 0, %.0.i.i.i105
+  %.0.i13.i.i = select i1 %.not.i.i, i32 %.0.i.i.i105, i32 %188
   br label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.i"
 
-"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.i": ; preds = %_ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i.i, %142, %140, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103"
-  %.0.i.i105 = phi i32 [ %.0.i13.i.i, %_ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i.i ], [ -2147483648, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit103" ], [ 2147483647, %140 ], [ -2147483648, %142 ]
+"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit.i": ; preds = %_ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i.i, %142, %140, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104"
+  %.0.i.i106 = phi i32 [ %.0.i13.i.i, %_ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i.i ], [ -2147483648, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$6to_i3217hc1a6c5bbffa9436eE.llvm.10961338582784087609.exit104" ], [ 2147483647, %140 ], [ -2147483648, %142 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %135, i32 noundef 1073741824, i1 noundef zeroext true)
@@ -1299,19 +1299,19 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i.i
 
 200:                                              ; preds = %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit.i"
   %201 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %8)
-  %202 = ashr i32 %.0.i.i105, 1
+  %202 = ashr i32 %.0.i.i106, 1
   %203 = call noundef i32 @_ZN9softposit5p32e24math5sleef6kernel5pow2i17hee776e34a5c33325E.llvm.580202203830469859(i32 noundef %202)
   %204 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %201, i32 noundef %203)
-  %205 = sub i32 %.0.i.i105, %202
+  %205 = sub i32 %.0.i.i106, %202
   %206 = call noundef i32 @_ZN9softposit5p32e24math5sleef6kernel5pow2i17hee776e34a5c33325E.llvm.580202203830469859(i32 noundef %205)
   %207 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %204, i32 noundef %206)
   br label %_ZN9softposit5p32e24math5sleef6kernel3exp17h8d6cb1dcf4ac09ffE.exit
 
 _ZN9softposit5p32e24math5sleef6kernel3exp17h8d6cb1dcf4ac09ffE.exit: ; preds = %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit.i", %200
-  %.0.i106 = phi i32 [ %207, %200 ], [ 0, %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit.i" ]
+  %.0.i107 = phi i32 [ %207, %200 ], [ 0, %"_ZN9softposit7quire323ops169_$LT$impl$u20$core..ops..arith..SubAssign$LT$$LP$softposit..p32e2..P32E2$C$$u5b$softposit..p32e2..P32E2$u3b$$u20$2$u5d$$RP$$GT$$u20$for$u20$softposit..quire32..Q32E2$GT$10sub_assign17h39b0f72ff6c85675E.llvm.10961338582784087609.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   %.060 = select i1 %133, i32 %.3, i32 1073741824
-  %208 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %.0.i106, i32 noundef %.060)
+  %208 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %.0.i107, i32 noundef %.060)
   br label %14
 }
 
@@ -1411,19 +1411,19 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4log217h3385a54ce9bb657cE(i32 
   br label %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit
 
 .lr.ph.i.i:                                       ; preds = %.preheader12.i.i, %.lr.ph.i.i
-  %.214.i.i = phi i32 [ %18, %.lr.ph.i.i ], [ %9, %.preheader12.i.i ]
-  %.21113.i.i = phi i8 [ %17, %.lr.ph.i.i ], [ 0, %.preheader12.i.i ]
-  %17 = add nuw nsw i8 %.21113.i.i, 1
-  %18 = shl i32 %.214.i.i, 1
+  %.114.i.i = phi i32 [ %18, %.lr.ph.i.i ], [ %9, %.preheader12.i.i ]
+  %.11013.i.i = phi i8 [ %17, %.lr.ph.i.i ], [ 0, %.preheader12.i.i ]
+  %17 = add nuw nsw i8 %.11013.i.i, 1
+  %18 = shl i32 %.114.i.i, 1
   %19 = icmp sgt i32 %18, -1
   br i1 %19, label %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit, label %.lr.ph.i.i
 
 _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = %.lr.ph.i.i, %.preheader12.i.i, %._crit_edge.i.i
-  %.110.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %17, %.lr.ph.i.i ]
-  %.1.i.i = phi i32 [ %16, %._crit_edge.i.i ], [ %9, %.preheader12.i.i ], [ %18, %.lr.ph.i.i ]
-  %20 = sext i8 %.110.i.i to i32
+  %.211.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %17, %.lr.ph.i.i ]
+  %.2.i.i = phi i32 [ %16, %._crit_edge.i.i ], [ %9, %.preheader12.i.i ], [ %18, %.lr.ph.i.i ]
+  %20 = sext i8 %.211.i.i to i32
   %21 = shl nsw i32 %20, 2
-  %22 = lshr i32 %.1.i.i, 29
+  %22 = lshr i32 %.2.i.i, 29
   %23 = or disjoint i32 %21, %22
   %24 = sub nsw i32 0, %23
   %25 = ashr i32 %24, 1
@@ -1485,7 +1485,7 @@ _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = 
   br i1 %47, label %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_i3217h4f00cc7b49d63ce8E.llvm.10961338582784087609.exit", label %48
 
 48:                                               ; preds = %46
-  %49 = icmp slt i8 %.110.i.i, 0
+  %49 = icmp slt i8 %.211.i.i, 0
   %spec.select.i = call i32 @llvm.abs.i32(i32 %23, i1 true)
   %50 = icmp ult i32 %spec.select.i, 2
   br i1 %50, label %51, label %.lr.ph.i.i7
@@ -2822,19 +2822,19 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4cbrt17ha0b366940e54d57aE(i32 
   br label %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit
 
 .lr.ph.i.i:                                       ; preds = %.preheader12.i.i, %.lr.ph.i.i
-  %.214.i.i = phi i32 [ %15, %.lr.ph.i.i ], [ %6, %.preheader12.i.i ]
-  %.21113.i.i = phi i8 [ %14, %.lr.ph.i.i ], [ 0, %.preheader12.i.i ]
-  %14 = add nuw nsw i8 %.21113.i.i, 1
-  %15 = shl i32 %.214.i.i, 1
+  %.114.i.i = phi i32 [ %15, %.lr.ph.i.i ], [ %6, %.preheader12.i.i ]
+  %.11013.i.i = phi i8 [ %14, %.lr.ph.i.i ], [ 0, %.preheader12.i.i ]
+  %14 = add nuw nsw i8 %.11013.i.i, 1
+  %15 = shl i32 %.114.i.i, 1
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %_ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit, label %.lr.ph.i.i
 
 _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = %.lr.ph.i.i, %.preheader12.i.i, %._crit_edge.i.i
-  %.110.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %14, %.lr.ph.i.i ]
-  %.1.i.i = phi i32 [ %13, %._crit_edge.i.i ], [ %6, %.preheader12.i.i ], [ %15, %.lr.ph.i.i ]
-  %17 = sext i8 %.110.i.i to i32
+  %.211.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %14, %.lr.ph.i.i ]
+  %.2.i.i = phi i32 [ %13, %._crit_edge.i.i ], [ %6, %.preheader12.i.i ], [ %15, %.lr.ph.i.i ]
+  %17 = sext i8 %.211.i.i to i32
   %18 = shl nsw i32 %17, 2
-  %19 = lshr i32 %.1.i.i, 29
+  %19 = lshr i32 %.2.i.i, 29
   %20 = or disjoint i32 %18, %19
   %21 = xor i32 %20, -1
   %22 = ashr i32 %21, 1

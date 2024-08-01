@@ -3881,14 +3881,14 @@ _ZN6uucore4mods5error12USimpleError3new17h13f65b162f9503abE.exit30.i.i: ; preds 
   br label %80
 
 .body.i.i:                                        ; preds = %137, %94, %78, %72, %58, %44
-  %.0.i.i = phi i1 [ true, %44 ], [ true, %58 ], [ true, %72 ], [ %.1.i.i, %78 ], [ true, %94 ], [ true, %137 ]
+  %.1.i.i = phi i1 [ true, %44 ], [ true, %58 ], [ true, %72 ], [ %.0.i.i, %78 ], [ true, %94 ], [ true, %137 ]
   %.pn.i.i = phi { ptr, i32 } [ %45, %44 ], [ %59, %58 ], [ %73, %72 ], [ %79, %78 ], [ %95, %94 ], [ %138, %137 ]
   %76 = load i32, ptr %26, align 8, !range !87, !alias.scope !954, !noalias !953, !noundef !5
   %77 = icmp eq i32 %76, 4
   br i1 %77, label %173, label %174
 
 78:                                               ; preds = %130, %117, %85, %62, %48, %34
-  %.1.i.i = phi i1 [ true, %34 ], [ true, %48 ], [ true, %62 ], [ true, %85 ], [ false, %117 ], [ true, %130 ]
+  %.0.i.i = phi i1 [ true, %34 ], [ true, %48 ], [ true, %62 ], [ true, %85 ], [ false, %117 ], [ true, %130 ]
   %79 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
@@ -4214,7 +4214,7 @@ _ZN6uucore4mods5error12USimpleError3new17h8a9e9eb7bb86a629E.exit63.i.i: ; preds 
   br label %"_ZN6uu_env19parse_args_from_str28_$u7b$$u7b$closure$u7d$$u7d$17h41c96040ddfb419dE.exit.i"
 
 173:                                              ; preds = %.body.i.i
-  br i1 %.0.i.i, label %175, label %.thread93.i.i
+  br i1 %.1.i.i, label %175, label %.thread93.i.i
 
 174:                                              ; preds = %.body.i.i
   invoke fastcc void @"_ZN4core3ptr52drop_in_place$LT$uu_env..parse_error..ParseError$GT$17hadc92679c3eae7d6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %26) #16
@@ -6445,7 +6445,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h45c0acf0ffcfb409E.exit: ; 
   br label %.outer
 
 .outer:                                           ; preds = %252, %181
-  %.sroa.4.0146.ph = phi ptr [ %.sroa.4.1, %252 ], [ undef, %181 ]
+  %.sroa.4.0146.ph = phi ptr [ %.sroa.4.2, %252 ], [ undef, %181 ]
   br label %188
 
 187:                                              ; preds = %262, %179
@@ -6588,7 +6588,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h45c0acf0ffcfb409E.exit: ; 
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %231, %228, %.thread.i
-  %.sroa.4.1 = phi ptr [ %230, %228 ], [ %232, %231 ], [ %224, %.thread.i ]
+  %.sroa.4.2 = phi ptr [ %230, %228 ], [ %232, %231 ], [ %224, %.thread.i ]
   %storemerge.i = phi ptr [ null, %228 ], [ %226, %231 ], [ null, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !1474
   call void @llvm.experimental.noalias.scope.decl(metadata !1490)
@@ -6637,17 +6637,17 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h45c0acf0ffcfb409E.exit: ; 
   br i1 %247, label %252, label %248
 
 248:                                              ; preds = %246
-  %249 = icmp ne ptr %.sroa.4.1, null
+  %249 = icmp ne ptr %.sroa.4.2, null
   call void @llvm.assume(i1 %249)
   %250 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %storemerge.i, ptr %250, align 8
   %251 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.4.1, ptr %251, align 8
+  store ptr %.sroa.4.2, ptr %251, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %255
 
 252:                                              ; preds = %246
-  %253 = ptrtoint ptr %.sroa.4.1 to i64
+  %253 = ptrtoint ptr %.sroa.4.2 to i64
   %254 = trunc i64 %253 to i1
   br i1 %254, label %"_ZN121_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h151280f61926a167E.exit.thread", label %.outer
 

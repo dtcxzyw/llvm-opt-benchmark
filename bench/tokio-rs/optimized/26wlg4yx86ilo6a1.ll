@@ -4152,7 +4152,7 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %59
   br label %.loopexit55
 
 .loopexit55:                                      ; preds = %42, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit
-  %.sroa.5.0 = phi ptr [ null, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ], [ %.val, %42 ]
+  %.sroa.5.1 = phi ptr [ null, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ], [ %.val, %42 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %67
@@ -4167,10 +4167,10 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %59
           to label %.noexc36 unwind label %70
 
 67:                                               ; preds = %.loopexit, %.loopexit55
-  %.sroa.5.1 = phi ptr [ %.sroa.5.2, %.loopexit ], [ %.sroa.5.0, %.loopexit55 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.2, %.loopexit ], [ 0, %.loopexit55 ]
-  %68 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %69 = insertvalue { i64, ptr } %68, ptr %.sroa.5.1, 1
+  %.sroa.5.2 = phi ptr [ %.sroa.5.0, %.loopexit ], [ %.sroa.5.1, %.loopexit55 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.0, %.loopexit ], [ 0, %.loopexit55 ]
+  %68 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
+  %69 = insertvalue { i64, ptr } %68, ptr %.sroa.5.2, 1
   ret { i64, ptr } %69
 
 70:                                               ; preds = %65
@@ -4217,8 +4217,8 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %59
           to label %.thread42 unwind label %77
 
 .loopexit:                                        ; preds = %74, %3, %.thread
-  %.sroa.5.2 = phi ptr [ %.us-phi, %.thread ], [ undef, %3 ], [ undef, %74 ]
-  %.sroa.0.2 = phi i64 [ 0, %.thread ], [ 1, %3 ], [ 1, %74 ]
+  %.sroa.5.0 = phi ptr [ %.us-phi, %.thread ], [ undef, %3 ], [ undef, %74 ]
+  %.sroa.0.0 = phi i64 [ 0, %.thread ], [ 1, %3 ], [ 1, %74 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %67
 }
@@ -4392,7 +4392,7 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %59
   br label %.loopexit55
 
 .loopexit55:                                      ; preds = %42, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit
-  %.sroa.5.0 = phi ptr [ null, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ], [ %.val, %42 ]
+  %.sroa.5.1 = phi ptr [ null, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ], [ %.val, %42 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %67
@@ -4407,10 +4407,10 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %59
           to label %.noexc36 unwind label %70
 
 67:                                               ; preds = %.loopexit, %.loopexit55
-  %.sroa.5.1 = phi ptr [ %.sroa.5.2, %.loopexit ], [ %.sroa.5.0, %.loopexit55 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.2, %.loopexit ], [ 0, %.loopexit55 ]
-  %68 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %69 = insertvalue { i64, ptr } %68, ptr %.sroa.5.1, 1
+  %.sroa.5.2 = phi ptr [ %.sroa.5.0, %.loopexit ], [ %.sroa.5.1, %.loopexit55 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.0, %.loopexit ], [ 0, %.loopexit55 ]
+  %68 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
+  %69 = insertvalue { i64, ptr } %68, ptr %.sroa.5.2, 1
   ret { i64, ptr } %69
 
 70:                                               ; preds = %65
@@ -4457,8 +4457,8 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %59
           to label %.thread42 unwind label %77
 
 .loopexit:                                        ; preds = %74, %3, %.thread
-  %.sroa.5.2 = phi ptr [ %.us-phi, %.thread ], [ undef, %3 ], [ undef, %74 ]
-  %.sroa.0.2 = phi i64 [ 0, %.thread ], [ 1, %3 ], [ 1, %74 ]
+  %.sroa.5.0 = phi ptr [ %.us-phi, %.thread ], [ undef, %3 ], [ undef, %74 ]
+  %.sroa.0.0 = phi i64 [ 0, %.thread ], [ 1, %3 ], [ 1, %74 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %67
 }
@@ -4632,7 +4632,7 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %59
   br label %.loopexit55
 
 .loopexit55:                                      ; preds = %42, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit
-  %.sroa.5.0 = phi ptr [ null, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ], [ %.val, %42 ]
+  %.sroa.5.1 = phi ptr [ null, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ], [ %.val, %42 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %67
@@ -4647,10 +4647,10 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %59
           to label %.noexc36 unwind label %70
 
 67:                                               ; preds = %.loopexit, %.loopexit55
-  %.sroa.5.1 = phi ptr [ %.sroa.5.2, %.loopexit ], [ %.sroa.5.0, %.loopexit55 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.2, %.loopexit ], [ 0, %.loopexit55 ]
-  %68 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %69 = insertvalue { i64, ptr } %68, ptr %.sroa.5.1, 1
+  %.sroa.5.2 = phi ptr [ %.sroa.5.0, %.loopexit ], [ %.sroa.5.1, %.loopexit55 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.0, %.loopexit ], [ 0, %.loopexit55 ]
+  %68 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
+  %69 = insertvalue { i64, ptr } %68, ptr %.sroa.5.2, 1
   ret { i64, ptr } %69
 
 70:                                               ; preds = %65
@@ -4697,8 +4697,8 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %59
           to label %.thread42 unwind label %77
 
 .loopexit:                                        ; preds = %74, %3, %.thread
-  %.sroa.5.2 = phi ptr [ %.us-phi, %.thread ], [ undef, %3 ], [ undef, %74 ]
-  %.sroa.0.2 = phi i64 [ 0, %.thread ], [ 1, %3 ], [ 1, %74 ]
+  %.sroa.5.0 = phi ptr [ %.us-phi, %.thread ], [ undef, %3 ], [ undef, %74 ]
+  %.sroa.0.0 = phi i64 [ 0, %.thread ], [ 1, %3 ], [ 1, %74 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %67
 }
@@ -4868,7 +4868,7 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %58
   br label %.loopexit55
 
 .loopexit55:                                      ; preds = %41, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit
-  %.sroa.5.0 = phi ptr [ null, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ], [ %.val, %41 ]
+  %.sroa.5.1 = phi ptr [ null, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ], [ %.val, %41 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %66
 
@@ -4882,10 +4882,10 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %58
           to label %.noexc36 unwind label %69
 
 66:                                               ; preds = %.loopexit, %.loopexit55
-  %.sroa.5.1 = phi ptr [ %.sroa.5.2, %.loopexit ], [ %.sroa.5.0, %.loopexit55 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.2, %.loopexit ], [ 0, %.loopexit55 ]
-  %67 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %68 = insertvalue { i64, ptr } %67, ptr %.sroa.5.1, 1
+  %.sroa.5.2 = phi ptr [ %.sroa.5.0, %.loopexit ], [ %.sroa.5.1, %.loopexit55 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.0, %.loopexit ], [ 0, %.loopexit55 ]
+  %67 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
+  %68 = insertvalue { i64, ptr } %67, ptr %.sroa.5.2, 1
   ret { i64, ptr } %68
 
 69:                                               ; preds = %64
@@ -4931,8 +4931,8 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %58
           to label %.thread42 unwind label %76
 
 .loopexit:                                        ; preds = %73, %3, %.thread
-  %.sroa.5.2 = phi ptr [ %.us-phi, %.thread ], [ undef, %3 ], [ undef, %73 ]
-  %.sroa.0.2 = phi i64 [ 0, %.thread ], [ 1, %3 ], [ 1, %73 ]
+  %.sroa.5.0 = phi ptr [ %.us-phi, %.thread ], [ undef, %3 ], [ undef, %73 ]
+  %.sroa.0.0 = phi i64 [ 0, %.thread ], [ 1, %3 ], [ 1, %73 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %66
 }
@@ -7290,15 +7290,15 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %25
   br label %31
 
 31:                                               ; preds = %34, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit
-  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %34 ], [ null, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %34 ], [ 0, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ]
-  %32 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %33 = insertvalue { i64, ptr } %32, ptr %.sroa.4.0, 1
+  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %34 ], [ null, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %34 ], [ 0, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ]
+  %32 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
+  %33 = insertvalue { i64, ptr } %32, ptr %.sroa.4.1, 1
   ret { i64, ptr } %33
 
 34:                                               ; preds = %3, %16
-  %.sroa.4.1 = phi ptr [ %17, %16 ], [ undef, %3 ]
-  %.sroa.0.1 = phi i64 [ 0, %16 ], [ 1, %3 ]
+  %.sroa.4.0 = phi ptr [ %17, %16 ], [ undef, %3 ]
+  %.sroa.0.0 = phi i64 [ 0, %16 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %31
 }
@@ -8982,15 +8982,15 @@ _ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit: ; preds = %25
   br label %31
 
 31:                                               ; preds = %34, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit
-  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %34 ], [ null, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %34 ], [ 0, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ]
-  %32 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %33 = insertvalue { i64, ptr } %32, ptr %.sroa.4.0, 1
+  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %34 ], [ null, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %34 ], [ 0, %_ZN5tokio2io8read_buf7ReadBuf7advance17h55f532eb43778181E.exit ]
+  %32 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
+  %33 = insertvalue { i64, ptr } %32, ptr %.sroa.4.1, 1
   ret { i64, ptr } %33
 
 34:                                               ; preds = %3, %16
-  %.sroa.4.1 = phi ptr [ %17, %16 ], [ undef, %3 ]
-  %.sroa.0.1 = phi i64 [ 0, %16 ], [ 1, %3 ]
+  %.sroa.4.0 = phi ptr [ %17, %16 ], [ undef, %3 ]
+  %.sroa.0.0 = phi i64 [ 0, %16 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %31
 }

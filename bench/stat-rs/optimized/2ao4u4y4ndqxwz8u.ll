@@ -1652,10 +1652,10 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   br label %80
 
 80:                                               ; preds = %82, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit95", %73, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit"
-  %.sroa.15.1.ph = phi i64 [ %74, %73 ], [ %79, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit" ], [ %19, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit95" ], [ %19, %82 ]
-  %.sroa.9.1.ph = phi i64 [ %32, %73 ], [ %.sroa.3.0.i, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit" ], [ %.sroa.3.0.i94, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit95" ], [ %32, %82 ]
-  %.sroa.098.1.ph = phi ptr [ %13, %73 ], [ %.sroa.06.0.i, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit" ], [ %.sroa.06.0.i93, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit95" ], [ %13, %82 ]
-  %.pr = load ptr, ptr %.sroa.098.1.ph, align 8, !noalias !280
+  %.sroa.15.0.ph = phi i64 [ %74, %73 ], [ %79, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit" ], [ %19, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit95" ], [ %19, %82 ]
+  %.sroa.9.0.ph = phi i64 [ %32, %73 ], [ %.sroa.3.0.i, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit" ], [ %.sroa.3.0.i94, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit95" ], [ %32, %82 ]
+  %.sroa.098.0.ph = phi ptr [ %13, %73 ], [ %.sroa.06.0.i, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit" ], [ %.sroa.06.0.i93, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$25merge_tracking_child_edge17h6c7968d683a59322E.exit95" ], [ %13, %82 ]
+  %.pr = load ptr, ptr %.sroa.098.0.ph, align 8, !noalias !280
   %81 = icmp eq ptr %.pr, null
   br i1 %81, label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h14c14eefedbbc952E.exit.thread167", label %86
 
@@ -1724,7 +1724,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   br i1 %89, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %86
-  %90 = add i64 %.sroa.9.1.ph, 1
+  %90 = add i64 %.sroa.9.0.ph, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$8do_merge17h0cc79190767af87aE.exit"
@@ -1960,18 +1960,18 @@ _ZN5alloc11collections5btree4node13move_to_slice17h0fcabb5f1570b7c5E.exit.i: ; p
   br label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h14c14eefedbbc952E.exit.thread167"
 
 "_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h14c14eefedbbc952E.exit.thread167": ; preds = %3, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h14c14eefedbbc952E.exit", %193, %80, %.loopexit
-  %.sroa.098.1.ph.sink = phi ptr [ %.sroa.098.1.ph, %.loopexit ], [ %13, %3 ], [ %.sroa.098.1.ph, %193 ], [ %13, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h14c14eefedbbc952E.exit" ], [ %.sroa.098.1.ph, %80 ]
-  %.sroa.9.1.ph.sink = phi i64 [ %.sroa.9.1.ph, %.loopexit ], [ %32, %3 ], [ %.sroa.9.1.ph, %193 ], [ %32, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h14c14eefedbbc952E.exit" ], [ %.sroa.9.1.ph, %80 ]
-  %.sroa.15.1.ph.sink = phi i64 [ %.sroa.15.1.ph, %.loopexit ], [ %19, %3 ], [ %.sroa.15.1.ph, %193 ], [ %19, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h14c14eefedbbc952E.exit" ], [ %.sroa.15.1.ph, %80 ]
+  %.sroa.098.0.ph.sink = phi ptr [ %.sroa.098.0.ph, %.loopexit ], [ %13, %3 ], [ %.sroa.098.0.ph, %193 ], [ %13, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h14c14eefedbbc952E.exit" ], [ %.sroa.098.0.ph, %80 ]
+  %.sroa.9.0.ph.sink = phi i64 [ %.sroa.9.0.ph, %.loopexit ], [ %32, %3 ], [ %.sroa.9.0.ph, %193 ], [ %32, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h14c14eefedbbc952E.exit" ], [ %.sroa.9.0.ph, %80 ]
+  %.sroa.15.0.ph.sink = phi i64 [ %.sroa.15.0.ph, %.loopexit ], [ %19, %3 ], [ %.sroa.15.0.ph, %193 ], [ %19, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h14c14eefedbbc952E.exit" ], [ %.sroa.15.0.ph, %80 ]
   store double %21, ptr %0, align 8
   %194 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %28, ptr %194, align 8
   %195 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.098.1.ph.sink, ptr %195, align 8
+  store ptr %.sroa.098.0.ph.sink, ptr %195, align 8
   %.sroa.876.0..sroa_idx77 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.9.1.ph.sink, ptr %.sroa.876.0..sroa_idx77, align 8
+  store i64 %.sroa.9.0.ph.sink, ptr %.sroa.876.0..sroa_idx77, align 8
   %.sroa.1079.0..sroa_idx80 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.15.1.ph.sink, ptr %.sroa.1079.0..sroa_idx80, align 8
+  store i64 %.sroa.15.0.ph.sink, ptr %.sroa.1079.0..sroa_idx80, align 8
   ret void
 }
 

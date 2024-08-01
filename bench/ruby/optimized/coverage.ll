@@ -299,7 +299,7 @@ rbimpl_intern_const.exit38:                       ; preds = %.lr.ph.i36, %rbimpl
   %27 = and i64 %26, -5
   %.not65 = icmp eq i64 %27, 0
   %28 = or disjoint i32 %spec.select, 2
-  %.1 = select i1 %.not65, i32 %spec.select, i32 %28
+  %.2 = select i1 %.not65, i32 %spec.select, i32 %28
   %29 = load i64, ptr %4, align 8
   %.pr.i39 = load i64, ptr @rb_coverage_setup.rbimpl_id.29, align 8
   %.not4.i40 = icmp eq i64 %.pr.i39, 0
@@ -317,8 +317,8 @@ rbimpl_intern_const.exit44:                       ; preds = %.lr.ph.i42, %rbimpl
   %32 = call i64 @rb_hash_lookup(i64 noundef %29, i64 noundef %31) #9
   %33 = and i64 %32, -5
   %.not66 = icmp eq i64 %33, 0
-  %34 = or disjoint i32 %.1, 4
-  %.2 = select i1 %.not66, i32 %.1, i32 %34
+  %34 = or disjoint i32 %.2, 4
+  %.3 = select i1 %.not66, i32 %.2, i32 %34
   %35 = load i64, ptr %4, align 8
   %.pr.i45 = load i64, ptr @rb_coverage_setup.rbimpl_id.30, align 8
   %.not4.i46 = icmp eq i64 %.pr.i45, 0
@@ -339,7 +339,7 @@ rbimpl_intern_const.exit50:                       ; preds = %.lr.ph.i48, %rbimpl
   br i1 %.not67, label %46, label %40
 
 40:                                               ; preds = %rbimpl_intern_const.exit50
-  %41 = and i32 %.2, 1
+  %41 = and i32 %.3, 1
   %.not23 = icmp eq i32 %41, 0
   br i1 %.not23, label %44, label %42
 
@@ -349,11 +349,11 @@ rbimpl_intern_const.exit50:                       ; preds = %.lr.ph.i48, %rbimpl
   unreachable
 
 44:                                               ; preds = %40
-  %45 = or disjoint i32 %.2, 9
+  %45 = or disjoint i32 %.3, 9
   br label %46
 
 46:                                               ; preds = %44, %rbimpl_intern_const.exit50
-  %.3 = phi i32 [ %45, %44 ], [ %.2, %rbimpl_intern_const.exit50 ]
+  %.4 = phi i32 [ %45, %44 ], [ %.3, %rbimpl_intern_const.exit50 ]
   %47 = load i64, ptr %4, align 8
   %.pr.i51 = load i64, ptr @rb_coverage_setup.rbimpl_id.32, align 8
   %.not4.i52 = icmp eq i64 %.pr.i51, 0
@@ -371,19 +371,19 @@ rbimpl_intern_const.exit50:                       ; preds = %.lr.ph.i48, %rbimpl
   %50 = call i64 @rb_hash_lookup(i64 noundef %47, i64 noundef %49) #9
   %51 = and i64 %50, -5
   %.not68 = icmp eq i64 %51, 0
-  %52 = or i32 %.3, 16
-  %spec.select26 = select i1 %.not68, i32 %.3, i32 %52
+  %52 = or i32 %.4, 16
+  %spec.select26 = select i1 %.not68, i32 %.4, i32 %52
   %53 = and i32 %spec.select26, 4
   %.not24 = icmp eq i32 %53, 0
   br i1 %.not24, label %.thread, label %.thread60
 
 .thread60:                                        ; preds = %rbimpl_intern_const.exit, %.loopexit
-  %.463 = phi i32 [ %spec.select26, %.loopexit ], [ 23, %rbimpl_intern_const.exit ]
+  %.063 = phi i32 [ %spec.select26, %.loopexit ], [ 23, %rbimpl_intern_const.exit ]
   %54 = call i64 @rb_ident_hash_new() #9
   br label %.thread
 
 .thread:                                          ; preds = %8, %.loopexit, %.thread60
-  %.459 = phi i32 [ %.463, %.thread60 ], [ %spec.select26, %.loopexit ], [ 0, %8 ]
+  %.059 = phi i32 [ %.063, %.thread60 ], [ %spec.select26, %.loopexit ], [ 0, %8 ]
   %storemerge = phi i64 [ %54, %.thread60 ], [ 4, %.loopexit ], [ 4, %8 ]
   store i64 %storemerge, ptr @me2counter, align 8
   %55 = call i64 @rb_get_coverages() #9
@@ -394,8 +394,8 @@ rbimpl_intern_const.exit50:                       ; preds = %.lr.ph.i48, %rbimpl
 57:                                               ; preds = %.thread
   %58 = call i64 @rb_hash_new() #9
   %59 = call i64 @rb_obj_hide(i64 noundef %58) #9
-  store i32 %.459, ptr @current_mode, align 4
-  %spec.store.select = call i32 @llvm.umax.i32(i32 %.459, i32 1)
+  store i32 %.059, ptr @current_mode, align 4
+  %spec.store.select = call i32 @llvm.umax.i32(i32 %.059, i32 1)
   %60 = load i64, ptr @me2counter, align 8
   call void @rb_set_coverages(i64 noundef %58, i32 noundef %spec.store.select, i64 noundef %60) #9
   store i32 1, ptr @current_state, align 4
@@ -403,7 +403,7 @@ rbimpl_intern_const.exit50:                       ; preds = %.lr.ph.i48, %rbimpl
 
 61:                                               ; preds = %.thread
   %62 = load i32, ptr @current_mode, align 4
-  %.not25 = icmp eq i32 %62, %.459
+  %.not25 = icmp eq i32 %62, %.059
   br i1 %.not25, label %65, label %63
 
 63:                                               ; preds = %61

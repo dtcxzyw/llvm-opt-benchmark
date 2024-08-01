@@ -196,39 +196,39 @@ if.else:                                          ; preds = %sw.bb
   br label %for.cond20
 
 for.cond20:                                       ; preds = %if.end31, %if.else
-  %month.2 = phi i32 [ %add, %if.else ], [ %add32, %if.end31 ]
-  %year.1 = phi i32 [ %call3, %if.else ], [ %dec33, %if.end31 ]
+  %month.3 = phi i32 [ %add, %if.else ], [ %add32, %if.end31 ]
+  %year.2 = phi i32 [ %call3, %if.else ], [ %dec33, %if.end31 ]
   %acrossAdar1.1 = phi i1 [ %cmp17, %if.else ], [ true, %if.end31 ]
-  %cmp23 = icmp slt i32 %month.2, 6
+  %cmp23 = icmp slt i32 %month.3, 6
   %or.cond1 = select i1 %acrossAdar1.1, i1 %cmp23, i1 false
   br i1 %or.cond1, label %land.lhs.true24, label %if.end28
 
 land.lhs.true24:                                  ; preds = %for.cond20
-  %mul.i30 = mul nsw i32 %year.1, 12
+  %mul.i30 = mul nsw i32 %year.2, 12
   %add.i31 = add nsw i32 %mul.i30, 17
   %rem.i32 = srem i32 %add.i31, 19
   %cmp.i33 = icmp slt i32 %rem.i32, 0
   %cond.i34 = select i1 %cmp.i33, i32 -7, i32 12
   %cmp1.i35.not = icmp slt i32 %rem.i32, %cond.i34
   %dec = sext i1 %cmp1.i35.not to i32
-  %spec.select27 = add nsw i32 %month.2, %dec
+  %spec.select27 = add nsw i32 %month.3, %dec
   br label %if.end28
 
 if.end28:                                         ; preds = %land.lhs.true24, %for.cond20
-  %month.3 = phi i32 [ %month.2, %for.cond20 ], [ %spec.select27, %land.lhs.true24 ]
-  %cmp29 = icmp sgt i32 %month.3, -1
+  %month.4 = phi i32 [ %month.3, %for.cond20 ], [ %spec.select27, %land.lhs.true24 ]
+  %cmp29 = icmp sgt i32 %month.4, -1
   br i1 %cmp29, label %if.end35, label %if.end31
 
 if.end31:                                         ; preds = %if.end28
-  %add32 = add nsw i32 %month.3, 13
-  %dec33 = add nsw i32 %year.1, -1
+  %add32 = add nsw i32 %month.4, 13
+  %dec33 = add nsw i32 %year.2, -1
   br label %for.cond20, !llvm.loop !6
 
 if.end35:                                         ; preds = %if.end28, %if.end12
-  %month.4 = phi i32 [ %month.1, %if.end12 ], [ %month.3, %if.end28 ]
-  %year.2 = phi i32 [ %year.0, %if.end12 ], [ %year.1, %if.end28 ]
-  tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 2, i32 noundef %month.4)
-  tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 1, i32 noundef %year.2)
+  %month.2 = phi i32 [ %month.1, %if.end12 ], [ %month.4, %if.end28 ]
+  %year.1 = phi i32 [ %year.0, %if.end12 ], [ %year.2, %if.end28 ]
+  tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 2, i32 noundef %month.2)
+  tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 1, i32 noundef %year.1)
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 392
   %1 = load ptr, ptr %vfn, align 8
@@ -401,7 +401,7 @@ if.then13:                                        ; preds = %if.then, %if.then, 
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %if.then13
-  %day.0 = phi i32 [ %add14, %if.then13 ], [ %add7, %if.then ]
+  %day.1 = phi i32 [ %add14, %if.then13 ], [ %add7, %if.then ]
   %wd.0 = phi i32 [ %rem15, %if.then13 ], [ %rem8, %if.then ]
   %cmp16 = icmp eq i32 %wd.0, 1
   %cmp17 = icmp sgt i64 %rem, 16404
@@ -415,8 +415,8 @@ land.lhs.true18:                                  ; preds = %if.end
   %cmp.i = icmp slt i32 %rem.i, 0
   %cond.i = select i1 %cmp.i, i32 -7, i32 12
   %cmp1.i.not = icmp slt i32 %rem.i, %cond.i
-  %add21 = add nsw i32 %day.0, 2
-  %spec.select34 = select i1 %cmp1.i.not, i32 %add21, i32 %day.0
+  %add21 = add nsw i32 %day.1, 2
+  %spec.select34 = select i1 %cmp1.i.not, i32 %add21, i32 %day.1
   br label %if.end32
 
 if.else:                                          ; preds = %if.end
@@ -433,17 +433,17 @@ land.lhs.true25:                                  ; preds = %if.else
   %cond.i28 = select i1 %cmp.i27, i32 -7, i32 12
   %cmp1.i29.not = icmp sge i32 %rem.i26, %cond.i28
   %add30 = zext i1 %cmp1.i29.not to i32
-  %spec.select = add nsw i32 %day.0, %add30
+  %spec.select = add nsw i32 %day.1, %add30
   br label %if.end32
 
 if.end32:                                         ; preds = %land.lhs.true18, %land.lhs.true25, %if.else
-  %day.1 = phi i32 [ %day.0, %if.else ], [ %spec.select, %land.lhs.true25 ], [ %spec.select34, %land.lhs.true18 ]
-  tail call void @_ZN6icu_7513CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef nonnull @_ZL6gCache, i32 noundef %year, i32 noundef %day.1, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %day.2 = phi i32 [ %day.1, %if.else ], [ %spec.select, %land.lhs.true25 ], [ %spec.select34, %land.lhs.true18 ]
+  tail call void @_ZN6icu_7513CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef nonnull @_ZL6gCache, i32 noundef %year, i32 noundef %day.2, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end32, %entry
-  %day.2 = phi i32 [ %day.1, %if.end32 ], [ %call, %entry ]
-  ret i32 %day.2
+  %day.0 = phi i32 [ %day.2, %if.end32 ], [ %call, %entry ]
+  ret i32 %day.0
 }
 
 declare void @ucln_i18n_registerCleanup_75(i32 noundef, ptr noundef) local_unnamed_addr #1

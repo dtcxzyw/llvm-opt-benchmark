@@ -224,7 +224,7 @@ _ZN6uucore8features5pipes12splice_exact17haeb8a571ac16637aE.exit.thread: ; preds
   unreachable
 
 _ZN4core3ops8function6FnOnce9call_once17h0dbcbc0929a59d5eE.exit.fold.split.i: ; preds = %63, %_ZN6uucore8features5pipes12splice_exact17haeb8a571ac16637aE.exit, %_ZN6uucore8features5pipes12splice_exact17haeb8a571ac16637aE.exit, %_ZN6uucore8features5pipes12splice_exact17haeb8a571ac16637aE.exit, %62
-  %.sroa.6.0 = phi ptr [ %.0.i.i.i.ph, %62 ], [ %67, %63 ], [ null, %_ZN6uucore8features5pipes12splice_exact17haeb8a571ac16637aE.exit ], [ null, %_ZN6uucore8features5pipes12splice_exact17haeb8a571ac16637aE.exit ], [ null, %_ZN6uucore8features5pipes12splice_exact17haeb8a571ac16637aE.exit ]
+  %.sroa.6.1 = phi ptr [ %.0.i.i.i.ph, %62 ], [ %67, %63 ], [ null, %_ZN6uucore8features5pipes12splice_exact17haeb8a571ac16637aE.exit ], [ null, %_ZN6uucore8features5pipes12splice_exact17haeb8a571ac16637aE.exit ], [ null, %_ZN6uucore8features5pipes12splice_exact17haeb8a571ac16637aE.exit ]
   %75 = invoke noundef i32 @close(i32 noundef %.sroa.451.0.extract.trunc)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h57f9dc38dc0c8895E.exit77" unwind label %77
 
@@ -243,8 +243,8 @@ _ZN4core3ops8function6FnOnce9call_once17h0dbcbc0929a59d5eE.exit.fold.split.i: ; 
   br label %80
 
 80:                                               ; preds = %97, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h57f9dc38dc0c8895E.exit77", %34, %21
-  %.sroa.6.1 = phi ptr [ %25, %21 ], [ %37, %34 ], [ %.sroa.6.0, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h57f9dc38dc0c8895E.exit77" ], [ %.0.i.i.i84.ph, %97 ]
-  %81 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.6.1, 1
+  %.sroa.6.0 = phi ptr [ %25, %21 ], [ %37, %34 ], [ %.sroa.6.1, %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h57f9dc38dc0c8895E.exit77" ], [ %.0.i.i.i84.ph, %97 ]
+  %81 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %.sroa.6.0, 1
   ret { i64, ptr } %81
 
 82:                                               ; preds = %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17h57f9dc38dc0c8895E.exit", %.loopexit.split-lp

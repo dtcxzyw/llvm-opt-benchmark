@@ -1029,13 +1029,13 @@ delete.notnull:                                   ; preds = %invoke.cont13
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont13, %delete.notnull, %if.then10, %if.then3
-  %retval.0 = phi ptr [ %2, %if.then3 ], [ null, %if.then10 ], [ null, %delete.notnull ], [ %call6, %invoke.cont13 ]
+  %retval.1 = phi ptr [ %2, %if.then3 ], [ null, %if.then10 ], [ null, %delete.notnull ], [ %call6, %invoke.cont13 ]
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key) #13
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2088,7 +2088,7 @@ if.then:                                          ; preds = %entry
 do.body:                                          ; preds = %if.end, %if.then
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end ], [ %2, %if.then ]
   %step.0.neg = phi i32 [ -1, %if.end ], [ 0, %if.then ]
-  %edgeNumber.addr.0 = phi i32 [ %edgeNumber.addr.1, %if.end ], [ %edgeNumber, %if.then ]
+  %edgeNumber.addr.1 = phi i32 [ %edgeNumber.addr.2, %if.end ], [ %edgeNumber, %if.then ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %arrayidx = getelementptr inbounds [5 x ptr], ptr %equal, i64 0, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx, align 8
@@ -2096,7 +2096,7 @@ do.body:                                          ; preds = %if.end, %if.then
   br i1 %cmp2.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %do.body
-  %sub = add i32 %edgeNumber.addr.0, %step.0.neg
+  %sub = add i32 %edgeNumber.addr.1, %step.0.neg
   %vtable = load ptr, ptr %3, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %4 = load ptr, ptr %vfn, align 8
@@ -2104,17 +2104,17 @@ if.then3:                                         ; preds = %do.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %do.body
-  %edgeNumber.addr.1 = phi i32 [ %call, %if.then3 ], [ %edgeNumber.addr.0, %do.body ]
+  %edgeNumber.addr.2 = phi i32 [ %call, %if.then3 ], [ %edgeNumber.addr.1, %do.body ]
   %cmp4 = icmp sgt i64 %indvars.iv, 1
   br i1 %cmp4, label %do.body, label %do.end, !llvm.loop !16
 
 do.end:                                           ; preds = %if.end
-  store i32 %edgeNumber.addr.1, ptr %offset, align 4
+  store i32 %edgeNumber.addr.2, ptr %offset, align 4
   br label %if.end6
 
 if.end6:                                          ; preds = %do.end, %entry
-  %edgeNumber.addr.2 = phi i32 [ %edgeNumber.addr.1, %do.end ], [ %edgeNumber, %entry ]
-  ret i32 %edgeNumber.addr.2
+  %edgeNumber.addr.0 = phi i32 [ %edgeNumber.addr.2, %do.end ], [ %edgeNumber, %entry ]
+  ret i32 %edgeNumber.addr.0
 }
 
 ; Function Attrs: mustprogress uwtable

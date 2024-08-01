@@ -336,7 +336,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
   unreachable
 
 .body83.i.i:                                      ; preds = %.thread151.i.i, %100, %93, %89
-  %.2.i.i = phi i1 [ %.3149.i.i, %.thread151.i.i ], [ false, %100 ], [ true, %89 ], [ true, %93 ]
+  %.2.i.i = phi i1 [ %.4149.i.i, %.thread151.i.i ], [ false, %100 ], [ true, %89 ], [ true, %93 ]
   %.pn67.i.i = phi { ptr, i32 } [ %.pn150.i.i, %.thread151.i.i ], [ %lpad.thr_comm.split-lp.i.i, %100 ], [ %90, %89 ], [ %94, %93 ]
   invoke void @"_ZN4core3ptr104drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$signal_hook_registry..SignalData$GT$$GT$17hf2e313e378ed9331E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %26) #26
           to label %75 unwind label %256, !noalias !30
@@ -362,7 +362,7 @@ define internal void @"_ZN117_$LT$signal_hook..iterator..backend..PendingSignals
           to label %101 unwind label %.thread156.i.i, !noalias !30
 
 .thread156.i.i:                                   ; preds = %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17he5e45ad62d1f5b4dE.exit101.i.i", %173, %170, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.4233002952263615725.exit.i.i.i.i95.i.i, %165, %157, %154, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.4233002952263615725.exit.i.i.i.i.i.i, %149, %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h0ca8297552c3dff2E.exit.i.i", %129, %117, %111, %95
-  %.4.ph.i.i = phi i1 [ true, %173 ], [ true, %170 ], [ true, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.4233002952263615725.exit.i.i.i.i95.i.i ], [ true, %165 ], [ true, %157 ], [ true, %154 ], [ true, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.4233002952263615725.exit.i.i.i.i.i.i ], [ true, %149 ], [ false, %129 ], [ false, %111 ], [ true, %95 ], [ false, %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h0ca8297552c3dff2E.exit.i.i" ], [ true, %117 ], [ true, %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17he5e45ad62d1f5b4dE.exit101.i.i" ]
+  %.3.ph.i.i = phi i1 [ true, %173 ], [ true, %170 ], [ true, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.4233002952263615725.exit.i.i.i.i95.i.i ], [ true, %165 ], [ true, %157 ], [ true, %154 ], [ true, %_ZN3std9panicking11panic_count13count_is_zero17h6863efef417c46dbE.llvm.4233002952263615725.exit.i.i.i.i.i.i ], [ true, %149 ], [ false, %129 ], [ false, %111 ], [ true, %95 ], [ false, %"_ZN4core3ptr265drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$$GT$17h0ca8297552c3dff2E.exit.i.i" ], [ true, %117 ], [ true, %"_ZN4core3ptr126drop_in_place$LT$signal_hook_registry..half_lock..WriteGuard$LT$core..option..Option$LT$signal_hook_registry..Prev$GT$$GT$$GT$17he5e45ad62d1f5b4dE.exit101.i.i" ]
   %lpad.thr_comm.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread151.i.i
@@ -874,7 +874,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.4233002952263615725.exit.
 
 .thread151.i.i:                                   ; preds = %255, %211, %134, %113, %.thread156.i.i
   %.pn150.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %.thread156.i.i ], [ %114, %113 ], [ %135, %134 ], [ %eh.lpad-body109.ph.i.i, %255 ], [ %212, %211 ]
-  %.3149.i.i = phi i1 [ %.4.ph.i.i, %.thread156.i.i ], [ false, %113 ], [ true, %134 ], [ false, %255 ], [ false, %211 ]
+  %.4149.i.i = phi i1 [ %.3.ph.i.i, %.thread156.i.i ], [ false, %113 ], [ true, %134 ], [ false, %255 ], [ false, %211 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$signal_hook_registry..SignalData$GT$17h20a5cdba3981dfb6E"(ptr noalias noundef nonnull align 16 dereferenceable(64) %25) #26
           to label %.body83.i.i unwind label %256, !noalias !30
 

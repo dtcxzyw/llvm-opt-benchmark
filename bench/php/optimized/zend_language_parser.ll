@@ -436,32 +436,32 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %16
 
 14:                                               ; preds = %2454, %2393, %84
-  %.01589 = phi ptr [ %2456, %2454 ], [ %2373, %2393 ], [ %85, %84 ]
-  %.01578 = phi ptr [ %.41582, %2454 ], [ %2372, %2393 ], [ %.21580, %84 ]
-  %.01568 = phi i32 [ 3, %2454 ], [ %.11569, %2393 ], [ %spec.select, %84 ]
-  %.01564 = phi i32 [ %2455, %2454 ], [ %2394, %2393 ], [ %78, %84 ]
-  %.01559 = phi i32 [ %.7, %2454 ], [ %.5, %2393 ], [ -2, %84 ]
-  %15 = getelementptr inbounds i8, ptr %.01578, i64 2
+  %.11590 = phi ptr [ %2456, %2454 ], [ %2373, %2393 ], [ %85, %84 ]
+  %.11579 = phi ptr [ %.61584, %2454 ], [ %2372, %2393 ], [ %.21580, %84 ]
+  %.11569 = phi i32 [ 3, %2454 ], [ %.01568, %2393 ], [ %spec.select, %84 ]
+  %.11565 = phi i32 [ %2455, %2454 ], [ %2394, %2393 ], [ %78, %84 ]
+  %.1 = phi i32 [ %.7, %2454 ], [ %.9, %2393 ], [ -2, %84 ]
+  %15 = getelementptr inbounds i8, ptr %.11579, i64 2
   br label %16
 
 16:                                               ; preds = %14, %0
-  %.11590 = phi ptr [ %3, %0 ], [ %.01589, %14 ]
+  %.01589 = phi ptr [ %3, %0 ], [ %.11590, %14 ]
   %.01587 = phi ptr [ %3, %0 ], [ %.11588, %14 ]
-  %.11579 = phi ptr [ %2, %0 ], [ %15, %14 ]
+  %.01578 = phi ptr [ %2, %0 ], [ %15, %14 ]
   %.01573 = phi ptr [ %2, %0 ], [ %.11574, %14 ]
   %.01571 = phi i64 [ 200, %0 ], [ %.11572, %14 ]
-  %.11569 = phi i32 [ 0, %0 ], [ %.01568, %14 ]
-  %.11565 = phi i32 [ 0, %0 ], [ %.01564, %14 ]
-  %.1 = phi i32 [ -2, %0 ], [ %.01559, %14 ]
-  %17 = trunc nsw i32 %.11565 to i16
-  store i16 %17, ptr %.11579, align 2
+  %.01568 = phi i32 [ 0, %0 ], [ %.11569, %14 ]
+  %.01564 = phi i32 [ 0, %0 ], [ %.11565, %14 ]
+  %.01559 = phi i32 [ -2, %0 ], [ %.1, %14 ]
+  %17 = trunc nsw i32 %.01564 to i16
+  store i16 %17, ptr %.01578, align 2
   %18 = getelementptr inbounds i16, ptr %.01573, i64 %.01571
   %19 = getelementptr inbounds i8, ptr %18, i64 -2
-  %.not = icmp ugt ptr %19, %.11579
+  %.not = icmp ugt ptr %19, %.01578
   br i1 %.not, label %45, label %20
 
 20:                                               ; preds = %16
-  %21 = ptrtoint ptr %.11579 to i64
+  %21 = ptrtoint ptr %.01578 to i64
   %22 = ptrtoint ptr %.01573 to i64
   %23 = sub i64 %21, %22
   %24 = ashr exact i64 %23, 1
@@ -503,16 +503,16 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br i1 %.not1638, label %45, label %.loopexit.loopexit1717
 
 45:                                               ; preds = %40, %16
-  %.21591 = phi ptr [ %44, %40 ], [ %.11590, %16 ]
+  %.21591 = phi ptr [ %44, %40 ], [ %.01589, %16 ]
   %.11588 = phi ptr [ %37, %40 ], [ %.01587, %16 ]
-  %.21580 = phi ptr [ %42, %40 ], [ %.11579, %16 ]
+  %.21580 = phi ptr [ %42, %40 ], [ %.01578, %16 ]
   %.11574 = phi ptr [ %31, %40 ], [ %.01573, %16 ]
   %.11572 = phi i64 [ %spec.store.select, %40 ], [ %.01571, %16 ]
-  %46 = icmp eq i32 %.11565, 3
+  %46 = icmp eq i32 %.01564, 3
   br i1 %46, label %.loopexit1692, label %47
 
 47:                                               ; preds = %45
-  %48 = sext i32 %.11565 to i64
+  %48 = sext i32 %.01564 to i64
   %49 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %48
   %50 = load i16, ptr %49, align 2
   %51 = sext i16 %50 to i32
@@ -520,7 +520,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br i1 %52, label %87, label %53
 
 53:                                               ; preds = %47
-  %54 = icmp eq i32 %.1, -2
+  %54 = icmp eq i32 %.01559, -2
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %53
@@ -528,20 +528,20 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %57
 
 57:                                               ; preds = %55, %53
-  %.2 = phi i32 [ %56, %55 ], [ %.1, %53 ]
-  %58 = icmp slt i32 %.2, 1
+  %.5 = phi i32 [ %56, %55 ], [ %.01559, %53 ]
+  %58 = icmp slt i32 %.5, 1
   br i1 %58, label %68, label %59
 
 59:                                               ; preds = %57
-  %60 = icmp eq i32 %.2, 256
+  %60 = icmp eq i32 %.5, 256
   br i1 %60, label %.thread1688, label %61
 
 61:                                               ; preds = %59
-  %62 = icmp ult i32 %.2, 407
+  %62 = icmp ult i32 %.5, 407
   br i1 %62, label %63, label %68
 
 63:                                               ; preds = %61
-  %64 = zext nneg i32 %.2 to i64
+  %64 = zext nneg i32 %.5 to i64
   %65 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %64
   %66 = load i8, ptr %65, align 1
   %67 = zext i8 %66 to i32
@@ -549,7 +549,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 68:                                               ; preds = %63, %61, %57
   %.01605 = phi i32 [ 0, %57 ], [ %67, %63 ], [ 2, %61 ]
-  %.3 = phi i32 [ 0, %57 ], [ %.2, %63 ], [ %.2, %61 ]
+  %.6 = phi i32 [ 0, %57 ], [ %.5, %63 ], [ %.5, %61 ]
   %69 = add nsw i32 %.01605, %51
   %or.cond3 = icmp ugt i32 %69, 9776
   br i1 %or.cond3, label %87, label %70
@@ -578,14 +578,14 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %92
 
 84:                                               ; preds = %75
-  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.11569, i32 1)
+  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.01568, i32 1)
   %85 = getelementptr inbounds i8, ptr %.21591, i64 8
   %86 = load i64, ptr %1, align 8
   store i64 %86, ptr %85, align 8
   br label %14
 
 87:                                               ; preds = %68, %70, %47
-  %.4 = phi i32 [ %.1, %47 ], [ %.3, %68 ], [ %.3, %70 ]
+  %.4 = phi i32 [ %.01559, %47 ], [ %.6, %68 ], [ %.6, %70 ]
   %88 = getelementptr inbounds [1131 x i16], ptr @yydefact, i64 0, i64 %48
   %89 = load i16, ptr %88, align 2
   %90 = sext i16 %89 to i32
@@ -594,7 +594,7 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
 
 92:                                               ; preds = %87, %82
   %.01598 = phi i32 [ %90, %87 ], [ %83, %82 ]
-  %.5 = phi i32 [ %.4, %87 ], [ %.3, %82 ]
+  %.9 = phi i32 [ %.4, %87 ], [ %.6, %82 ]
   %93 = sext i32 %.01598 to i64
   %94 = getelementptr inbounds [597 x i8], ptr @yyr2, i64 0, i64 %93
   %95 = load i8, ptr %94, align 1
@@ -4707,21 +4707,21 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br i1 %2396, label %2402, label %.thread
 
 .thread:                                          ; preds = %80, %2395
-  %.61679 = phi i32 [ %.4, %2395 ], [ %.3, %80 ]
-  %or.cond7 = icmp ult i32 %.61679, 407
+  %.81679 = phi i32 [ %.4, %2395 ], [ %.6, %80 ]
+  %or.cond7 = icmp ult i32 %.81679, 407
   br i1 %or.cond7, label %2397, label %2402
 
 2397:                                             ; preds = %.thread
-  %2398 = zext nneg i32 %.61679 to i64
+  %2398 = zext nneg i32 %.81679 to i64
   %2399 = getelementptr inbounds [407 x i8], ptr @yytranslate, i64 0, i64 %2398
   %2400 = load i8, ptr %2399, align 1
   %2401 = zext i8 %2400 to i32
   br label %2402
 
 2402:                                             ; preds = %2397, %.thread, %2395
-  %.61680 = phi i32 [ -2, %2395 ], [ %.61679, %2397 ], [ %.61679, %.thread ]
+  %.81680 = phi i32 [ -2, %2395 ], [ %.81679, %2397 ], [ %.81679, %.thread ]
   %2403 = phi i32 [ -2, %2395 ], [ %2401, %2397 ], [ 2, %.thread ]
-  switch i32 %.11569, label %.thread1688 [
+  switch i32 %.01568, label %.thread1688 [
     i32 0, label %2404
     i32 3, label %2417
   ]
@@ -4770,11 +4770,11 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br i1 %2416, label %.loopexit1690, label %.thread1688
 
 2417:                                             ; preds = %2402
-  %2418 = icmp slt i32 %.61680, 1
+  %2418 = icmp slt i32 %.81680, 1
   br i1 %2418, label %2419, label %2421
 
 2419:                                             ; preds = %2417
-  %2420 = icmp eq i32 %.61680, 0
+  %2420 = icmp eq i32 %.81680, 0
   br i1 %2420, label %.loopexit.loopexit1717, label %.thread1688
 
 2421:                                             ; preds = %2417
@@ -4791,15 +4791,15 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br label %.thread1688
 
 .thread1688:                                      ; preds = %2402, %2414, %.thread1684, %59, %2419, %2421, %2422
-  %.31592 = phi ptr [ %.21591, %2419 ], [ %.21591, %2421 ], [ %2425, %2422 ], [ %.21591, %59 ], [ %.21591, %.thread1684 ], [ %.21591, %2414 ], [ %.21591, %2402 ]
-  %.31581 = phi ptr [ %.21580, %2419 ], [ %.21580, %2421 ], [ %2426, %2422 ], [ %.21580, %59 ], [ %.21580, %.thread1684 ], [ %.21580, %2414 ], [ %.21580, %2402 ]
-  %.21566 = phi i32 [ %.11565, %2419 ], [ %.11565, %2421 ], [ %2428, %2422 ], [ %.11565, %59 ], [ %.11565, %.thread1684 ], [ %.11565, %2414 ], [ %.11565, %2402 ]
-  %.7 = phi i32 [ %.61680, %2419 ], [ -2, %2421 ], [ %.5, %2422 ], [ 257, %59 ], [ %.61680, %.thread1684 ], [ %.61680, %2414 ], [ %.61680, %2402 ]
+  %.51594 = phi ptr [ %.21591, %2419 ], [ %.21591, %2421 ], [ %2425, %2422 ], [ %.21591, %59 ], [ %.21591, %.thread1684 ], [ %.21591, %2414 ], [ %.21591, %2402 ]
+  %.51583 = phi ptr [ %.21580, %2419 ], [ %.21580, %2421 ], [ %2426, %2422 ], [ %.21580, %59 ], [ %.21580, %.thread1684 ], [ %.21580, %2414 ], [ %.21580, %2402 ]
+  %.21566 = phi i32 [ %.01564, %2419 ], [ %.01564, %2421 ], [ %2428, %2422 ], [ %.01564, %59 ], [ %.01564, %.thread1684 ], [ %.01564, %2414 ], [ %.01564, %2402 ]
+  %.7 = phi i32 [ %.81680, %2419 ], [ -2, %2421 ], [ %.9, %2422 ], [ 257, %59 ], [ %.81680, %.thread1684 ], [ %.81680, %2414 ], [ %.81680, %2402 ]
   br label %2429
 
 2429:                                             ; preds = %2446, %.thread1688
-  %.41593 = phi ptr [ %.31592, %.thread1688 ], [ %2450, %2446 ]
-  %.41582 = phi ptr [ %.31581, %.thread1688 ], [ %2451, %2446 ]
+  %.61595 = phi ptr [ %.51594, %.thread1688 ], [ %2450, %2446 ]
+  %.61584 = phi ptr [ %.51583, %.thread1688 ], [ %2451, %2446 ]
   %.31567 = phi i32 [ %.21566, %.thread1688 ], [ %2453, %2446 ]
   %2430 = sext i32 %.31567 to i64
   %2431 = getelementptr inbounds [1131 x i16], ptr @yypact, i64 0, i64 %2430
@@ -4823,51 +4823,51 @@ define range(i32 0, 3) i32 @zendparse() local_unnamed_addr #0 {
   br i1 %2443, label %2454, label %2444
 
 2444:                                             ; preds = %2434, %2440, %2429
-  %2445 = icmp eq ptr %.41582, %.11574
+  %2445 = icmp eq ptr %.61584, %.11574
   br i1 %2445, label %.loopexit1692, label %2446
 
 2446:                                             ; preds = %2444
   %2447 = getelementptr inbounds [1131 x i16], ptr @yystos, i64 0, i64 %2430
   %2448 = load i16, ptr %2447, align 2
   %2449 = sext i16 %2448 to i32
-  call fastcc void @yydestruct(i32 noundef %2449, ptr noundef %.41593)
-  %2450 = getelementptr inbounds i8, ptr %.41593, i64 -8
-  %2451 = getelementptr inbounds i8, ptr %.41582, i64 -2
+  call fastcc void @yydestruct(i32 noundef %2449, ptr noundef %.61595)
+  %2450 = getelementptr inbounds i8, ptr %.61595, i64 -8
+  %2451 = getelementptr inbounds i8, ptr %.61584, i64 -2
   %2452 = load i16, ptr %2451, align 2
   %2453 = sext i16 %2452 to i32
   br label %2429
 
 2454:                                             ; preds = %2440
   %2455 = zext nneg i16 %2442 to i32
-  %2456 = getelementptr inbounds i8, ptr %.41593, i64 8
+  %2456 = getelementptr inbounds i8, ptr %.61595, i64 8
   %2457 = load i64, ptr %1, align 8
   store i64 %2457, ptr %2456, align 8
   br label %14
 
 .loopexit.loopexit1717:                           ; preds = %40, %104, %501, %1183, %1320, %1914, %2419
-  %.31603.ph = phi i32 [ 0, %40 ], [ 0, %2419 ], [ %96, %1914 ], [ %96, %1320 ], [ %96, %1183 ], [ %96, %501 ], [ %96, %104 ]
-  %.51594.ph = phi ptr [ %44, %40 ], [ %.21591, %2419 ], [ %.21591, %1914 ], [ %.21591, %1320 ], [ %.21591, %1183 ], [ %.21591, %501 ], [ %.21591, %104 ]
-  %.51583.ph = phi ptr [ %42, %40 ], [ %.21580, %2419 ], [ %.21580, %1914 ], [ %.21580, %1320 ], [ %.21580, %1183 ], [ %.21580, %501 ], [ %.21580, %104 ]
-  %.21575.ph = phi ptr [ %31, %40 ], [ %.11574, %2419 ], [ %.11574, %1914 ], [ %.11574, %1320 ], [ %.11574, %1183 ], [ %.11574, %501 ], [ %.11574, %104 ]
-  %.8.ph = phi i32 [ %.1, %40 ], [ 0, %2419 ], [ %.5, %1914 ], [ %.5, %1320 ], [ %.5, %1183 ], [ %.5, %501 ], [ %.5, %104 ]
-  %2458 = sext i32 %.31603.ph to i64
+  %.21602.ph = phi i32 [ 0, %40 ], [ 0, %2419 ], [ %96, %1914 ], [ %96, %1320 ], [ %96, %1183 ], [ %96, %501 ], [ %96, %104 ]
+  %.41593.ph = phi ptr [ %44, %40 ], [ %.21591, %2419 ], [ %.21591, %1914 ], [ %.21591, %1320 ], [ %.21591, %1183 ], [ %.21591, %501 ], [ %.21591, %104 ]
+  %.41582.ph = phi ptr [ %42, %40 ], [ %.21580, %2419 ], [ %.21580, %1914 ], [ %.21580, %1320 ], [ %.21580, %1183 ], [ %.21580, %501 ], [ %.21580, %104 ]
+  %.31576.ph = phi ptr [ %31, %40 ], [ %.11574, %2419 ], [ %.11574, %1914 ], [ %.11574, %1320 ], [ %.11574, %1183 ], [ %.11574, %501 ], [ %.11574, %104 ]
+  %.3.ph = phi i32 [ %.01559, %40 ], [ 0, %2419 ], [ %.9, %1914 ], [ %.9, %1320 ], [ %.9, %1183 ], [ %.9, %501 ], [ %.9, %104 ]
+  %2458 = sext i32 %.21602.ph to i64
   br label %.loopexit1692
 
 .loopexit1690:                                    ; preds = %2414, %27, %20, %.thread1681
-  %.61595 = phi ptr [ %.21591, %.thread1681 ], [ %.11590, %27 ], [ %.21591, %2414 ], [ %.11590, %20 ]
-  %.61584 = phi ptr [ %.21580, %.thread1681 ], [ %.11579, %27 ], [ %.21580, %2414 ], [ %.11579, %20 ]
-  %.31576 = phi ptr [ %.11574, %.thread1681 ], [ %.01573, %27 ], [ %.11574, %2414 ], [ %.01573, %20 ]
-  %.9 = phi i32 [ %.61680, %.thread1681 ], [ %.1, %27 ], [ %.61680, %2414 ], [ %.1, %20 ]
+  %.31592 = phi ptr [ %.21591, %.thread1681 ], [ %.01589, %27 ], [ %.21591, %2414 ], [ %.01589, %20 ]
+  %.31581 = phi ptr [ %.21580, %.thread1681 ], [ %.01578, %27 ], [ %.21580, %2414 ], [ %.01578, %20 ]
+  %.21575 = phi ptr [ %.11574, %.thread1681 ], [ %.01573, %27 ], [ %.11574, %2414 ], [ %.01573, %20 ]
+  %.2 = phi i32 [ %.81680, %.thread1681 ], [ %.01559, %27 ], [ %.81680, %2414 ], [ %.01559, %20 ]
   call void @zenderror(ptr noundef nonnull @.str.5) #12
   br label %.loopexit1692
 
 .loopexit1692:                                    ; preds = %45, %2444, %.loopexit.loopexit1717, %.loopexit1690
   %.41604 = phi i64 [ 0, %.loopexit1690 ], [ %2458, %.loopexit.loopexit1717 ], [ 0, %2444 ], [ 0, %45 ]
   %.01599 = phi i32 [ 2, %.loopexit1690 ], [ 1, %.loopexit.loopexit1717 ], [ 1, %2444 ], [ 0, %45 ]
-  %.71596 = phi ptr [ %.61595, %.loopexit1690 ], [ %.51594.ph, %.loopexit.loopexit1717 ], [ %.41593, %2444 ], [ %.21591, %45 ]
-  %.71585 = phi ptr [ %.61584, %.loopexit1690 ], [ %.51583.ph, %.loopexit.loopexit1717 ], [ %.41582, %2444 ], [ %.21580, %45 ]
-  %.41577 = phi ptr [ %.31576, %.loopexit1690 ], [ %.21575.ph, %.loopexit.loopexit1717 ], [ %.11574, %2444 ], [ %.11574, %45 ]
-  %.10 = phi i32 [ %.9, %.loopexit1690 ], [ %.8.ph, %.loopexit.loopexit1717 ], [ %.7, %2444 ], [ %.1, %45 ]
+  %.71596 = phi ptr [ %.31592, %.loopexit1690 ], [ %.41593.ph, %.loopexit.loopexit1717 ], [ %.61595, %2444 ], [ %.21591, %45 ]
+  %.71585 = phi ptr [ %.31581, %.loopexit1690 ], [ %.41582.ph, %.loopexit.loopexit1717 ], [ %.61584, %2444 ], [ %.21580, %45 ]
+  %.41577 = phi ptr [ %.21575, %.loopexit1690 ], [ %.31576.ph, %.loopexit.loopexit1717 ], [ %.11574, %2444 ], [ %.11574, %45 ]
+  %.10 = phi i32 [ %.2, %.loopexit1690 ], [ %.3.ph, %.loopexit.loopexit1717 ], [ %.7, %2444 ], [ %.01559, %45 ]
   %.not1670 = icmp eq i32 %.10, -2
   br i1 %.not1670, label %2467, label %2459
 
@@ -5033,7 +5033,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %38
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %38 ], [ %18, %.lr.ph.i.i ]
-  %.0353.i.i = phi i32 [ %.2.i.fr.i, %38 ], [ 0, %.lr.ph.i.i ]
+  %.13.i.i = phi i32 [ %.035.i.fr.i, %38 ], [ 0, %.lr.ph.i.i ]
   %21 = add nsw i64 %indvars.iv.i.i, %19
   %22 = getelementptr inbounds [9777 x i16], ptr @yycheck, i64 0, i64 %21
   %23 = load i16, ptr %22, align 2
@@ -5051,25 +5051,25 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %28
-  %33 = icmp eq i32 %.0353.i.i, 4
+  %33 = icmp eq i32 %.13.i.i, 4
   br i1 %33, label %yy_syntax_error_arguments.exit.thread6, label %34
 
 34:                                               ; preds = %32
-  %35 = add nsw i32 %.0353.i.i, 1
-  %36 = sext i32 %.0353.i.i to i64
+  %35 = add nsw i32 %.13.i.i, 1
+  %36 = sext i32 %.13.i.i to i64
   %37 = getelementptr inbounds i32, ptr %5, i64 %36
   store i32 %24, ptr %37, align 4
   br label %38
 
 38:                                               ; preds = %34, %28, %.lr.ph.split.i.i
-  %.1.i.i = phi i32 [ %.0353.i.i, %28 ], [ %35, %34 ], [ %.0353.i.i, %.lr.ph.split.i.i ]
-  %.2.i.fr.i = freeze i32 %.1.i.i
+  %.2.i.i = phi i32 [ %.13.i.i, %28 ], [ %35, %34 ], [ %.13.i.i, %.lr.ph.split.i.i ]
+  %.035.i.fr.i = freeze i32 %.2.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next.i.i, %20
   br i1 %exitcond24.not.i, label %.loopexit.i.i, label %.lr.ph.split.i.i
 
 .loopexit.i.i:                                    ; preds = %38
-  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit [
+  switch i32 %.035.i.fr.i, label %yy_syntax_error_arguments.exit [
     i32 0, label %.loopexit.i.i.thread
     i32 -2, label %yy_syntax_error_arguments.exit.thread8
   ]
@@ -5079,8 +5079,8 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br label %yy_syntax_error_arguments.exit.thread6
 
 yy_syntax_error_arguments.exit:                   ; preds = %.loopexit.i.i
-  %39 = add nsw i32 %.2.i.fr.i, 1
-  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit.thread6 [
+  %39 = add nsw i32 %.035.i.fr.i, 1
+  switch i32 %.035.i.fr.i, label %yy_syntax_error_arguments.exit.thread6 [
     i32 -3, label %yy_syntax_error_arguments.exit.thread8
     i32 4, label %43
     i32 3, label %42
@@ -5189,7 +5189,7 @@ yy_syntax_error_arguments.exit.thread6:           ; preds = %32, %.loopexit.i.i.
   br label %63
 
 yy_syntax_error_arguments.exit.thread8:           ; preds = %.lr.ph, %63, %.loopexit.i.i, %59, %yy_syntax_error_arguments.exit
-  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %59 ], [ %.2.i.fr.i, %.loopexit.i.i ], [ 0, %63 ], [ -2, %.lr.ph ]
+  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %59 ], [ %.035.i.fr.i, %.loopexit.i.i ], [ 0, %63 ], [ -2, %.lr.ph ]
   ret i32 %.038
 }
 

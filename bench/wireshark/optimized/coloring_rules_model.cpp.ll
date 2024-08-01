@@ -4975,7 +4975,7 @@ _ZNK17QArrayDataPointerI8QVariantE11needsDetachEv.exit.thread.i.i.i.i: ; preds =
   br label %461
 
 .critedge.thread:                                 ; preds = %107, %.critedge, %._crit_edge
-  %.035 = phi i1 [ false, %.critedge ], [ true, %._crit_edge ], [ false, %107 ]
+  %.1 = phi i1 [ false, %.critedge ], [ true, %._crit_edge ], [ false, %107 ]
   call void @_ZN13QJsonDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #18
   %451 = load ptr, ptr %22, align 8
   %.not.i.i.i226 = icmp eq ptr %451, null
@@ -5019,8 +5019,8 @@ _ZN10QByteArrayD2Ev.exit98:                       ; preds = %127, %_ZN17QArrayDa
   resume { ptr, i32 } %.pn86.pn.pn.pn
 
 _ZN5QListI8QVariantED2Ev.exit:                    ; preds = %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i.i, %_ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i.i, %.critedge.thread, %77, %_ZN5QListIiE5clearEv.exit
-  %.1 = phi i1 [ true, %_ZN5QListIiE5clearEv.exit ], [ false, %77 ], [ %.035, %.critedge.thread ], [ %.035, %_ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i.i ], [ %.035, %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i.i ]
-  ret i1 %.1
+  %.035 = phi i1 [ true, %_ZN5QListIiE5clearEv.exit ], [ false, %77 ], [ %.1, %.critedge.thread ], [ %.1, %_ZN17QArrayDataPointerI8QVariantE5derefEv.exit.i.i ], [ %.1, %_ZN9QtPrivate16QGenericArrayOpsI8QVariantE10destroyAllEv.exit.i.i ]
+  ret i1 %.035
 }
 
 declare void @_ZN13QJsonDocument8fromJsonERK10QByteArrayP15QJsonParseError(ptr dead_on_unwind writable sret(%class.QJsonDocument) align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #5

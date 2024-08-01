@@ -2985,7 +2985,7 @@ ehcleanup403:                                     ; preds = %ehcleanup402, %lpad
   br label %ehcleanup406
 
 cleanup405:                                       ; preds = %invoke.cont, %if.then.i.i.i1279, %invoke.cont.i, %if.then13.i.i1108, %if.then.i.i1102, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1099, %for.end348, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit
-  %retval.6 = phi i32 [ 0, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit ], [ 1, %for.end348 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1099 ], [ 0, %if.then.i.i1102 ], [ 0, %if.then13.i.i1108 ], [ 1, %invoke.cont.i ], [ 1, %if.then.i.i.i1279 ], [ 1, %invoke.cont ]
+  %retval.0 = phi i32 [ 0, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit ], [ 1, %for.end348 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1099 ], [ 0, %if.then.i.i1102 ], [ 0, %if.then13.i.i1108 ], [ 1, %invoke.cont.i ], [ 1, %if.then.i.i.i1279 ], [ 1, %invoke.cont ]
   %279 = load ptr, ptr %_M_before_begin.i.i60, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %279, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS2_ILb1EEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i1282
@@ -3161,7 +3161,7 @@ terminate.lpad.i.i.i:                             ; preds = %_ZNSt6vectorIN4cvc5
   unreachable
 
 _ZN4cvc58internal6theory5arith14BoundInferenceD2Ev.exit: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit1320
-  ret i32 %retval.6
+  ret i32 %retval.0
 
 ehcleanup406:                                     ; preds = %if.then.i.i3.i, %lpad.i1115, %ehcleanup403, %ehcleanup345, %ehcleanup264, %lpad3
   %.pn55 = phi { ptr, i32 } [ %5, %lpad3 ], [ %.pn52.pn, %ehcleanup264 ], [ %.pn38.pn, %ehcleanup345 ], [ %.pn33.pn, %ehcleanup403 ], [ %245, %if.then.i.i3.i ], [ %245, %lpad.i1115 ]
@@ -6986,7 +6986,7 @@ ehcleanup205:                                     ; preds = %lpad162, %lpad.i662
   br label %ehcleanup207
 
 if.end206:                                        ; preds = %if.then.i.i.i820, %invoke.cont.i819, %invoke.cont17, %if.end138
-  %k.0 = phi i32 [ %bf.cast.i, %if.end138 ], [ %bf.cast.i, %invoke.cont17 ], [ %bf.cast.i804, %invoke.cont.i819 ], [ %bf.cast.i804, %if.then.i.i.i820 ]
+  %k.1 = phi i32 [ %bf.cast.i, %if.end138 ], [ %bf.cast.i, %invoke.cont17 ], [ %bf.cast.i804, %invoke.cont.i819 ], [ %bf.cast.i804, %if.then.i.i.i820 ]
   %132 = load ptr, ptr %den, align 8
   %bf.load.i.i821 = load i64, ptr %132, align 8
   %133 = and i64 %bf.load.i.i821, 1152920405095219200
@@ -7051,8 +7051,8 @@ ehcleanup208:                                     ; preds = %ehcleanup207, %lpad
   br label %eh.resume
 
 if.end209:                                        ; preds = %if.then13.i.i842, %if.then.i.i835, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit832, %cond.end
-  %k.1 = phi i32 [ %bf.cast.i, %cond.end ], [ %k.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit832 ], [ %k.0, %if.then.i.i835 ], [ %k.0, %if.then13.i.i842 ]
-  %cmp210 = icmp eq i32 %k.1, 46
+  %k.0 = phi i32 [ %bf.cast.i, %cond.end ], [ %k.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit832 ], [ %k.1, %if.then.i.i835 ], [ %k.1, %if.then13.i.i842 ]
+  %cmp210 = icmp eq i32 %k.0, 46
   br i1 %cmp210, label %if.then211, label %if.else413
 
 if.then211:                                       ; preds = %if.end209
@@ -7896,11 +7896,11 @@ ehcleanup412:                                     ; preds = %ehcleanup411, %lpad
   br label %eh.resume
 
 if.else413:                                       ; preds = %if.end209
-  %cmp414 = icmp eq i32 %k.1, 73
+  %cmp414 = icmp eq i32 %k.0, 73
   br i1 %cmp414, label %if.then441, label %lor.rhs
 
 lor.rhs:                                          ; preds = %if.else413
-  %cmp415 = icmp eq i32 %k.1, 5
+  %cmp415 = icmp eq i32 %k.0, 5
   br i1 %cmp415, label %land.rhs416, label %if.end786
 
 land.rhs416:                                      ; preds = %lor.rhs
@@ -8154,8 +8154,8 @@ for.body538.lr.ph:                                ; preds = %if.end531
   br label %for.body538
 
 for.body538:                                      ; preds = %for.body538.lr.ph, %for.inc679
-  %ubSuccess.01904 = phi i8 [ 1, %for.body538.lr.ph ], [ %ubSuccess.2, %for.inc679 ]
-  %lbSuccess.01903 = phi i8 [ 1, %for.body538.lr.ph ], [ %lbSuccess.2, %for.inc679 ]
+  %ubSuccess.01904 = phi i8 [ 1, %for.body538.lr.ph ], [ %ubSuccess.3, %for.inc679 ]
+  %lbSuccess.01903 = phi i8 [ 1, %for.body538.lr.ph ], [ %lbSuccess.3, %for.inc679 ]
   %__begin6.sroa.0.01902 = phi ptr [ %271, %for.body538.lr.ph ], [ %call.i1586, %for.inc679 ]
   %_M_storage.i.i1406 = getelementptr inbounds i8, ptr %__begin6.sroa.0.01902, i64 32
   %second541 = getelementptr inbounds i8, ptr %__begin6.sroa.0.01902, i64 40
@@ -8548,7 +8548,7 @@ terminate.lpad.i.i1521:                           ; preds = %ehcleanup635
   unreachable
 
 if.end637:                                        ; preds = %_ZN4cvc58internal8RationalD2Ev.exit1511, %301, %invoke.cont610
-  %lbSuccess.1 = phi i8 [ 0, %invoke.cont610 ], [ 0, %301 ], [ %lbSuccess.01903, %_ZN4cvc58internal8RationalD2Ev.exit1511 ]
+  %lbSuccess.2 = phi i8 [ 0, %invoke.cont610 ], [ 0, %301 ], [ %lbSuccess.01903, %_ZN4cvc58internal8RationalD2Ev.exit1511 ]
   %tobool638 = trunc nuw i8 %ubSuccess.01904 to i1
   br i1 %tobool638, label %land.lhs.true639, label %if.end667
 
@@ -8743,12 +8743,12 @@ terminate.lpad.i.i1583:                           ; preds = %ehcleanup665
   unreachable
 
 if.end667:                                        ; preds = %_ZN4cvc58internal8RationalD2Ev.exit1573, %if.end637, %invoke.cont640
-  %ubSuccess.1 = phi i8 [ 0, %invoke.cont640 ], [ 0, %if.end637 ], [ %ubSuccess.01904, %_ZN4cvc58internal8RationalD2Ev.exit1573 ]
-  %tobool668 = trunc nuw i8 %lbSuccess.1 to i1
+  %ubSuccess.2 = phi i8 [ 0, %invoke.cont640 ], [ 0, %if.end637 ], [ %ubSuccess.01904, %_ZN4cvc58internal8RationalD2Ev.exit1573 ]
+  %tobool668 = trunc nuw i8 %lbSuccess.2 to i1
   br i1 %tobool668, label %cleanup.thread, label %land.lhs.true669
 
 land.lhs.true669:                                 ; preds = %if.end667
-  %tobool670 = trunc nuw i8 %ubSuccess.1 to i1
+  %tobool670 = trunc nuw i8 %ubSuccess.2 to i1
   br i1 %tobool670, label %cleanup.thread, label %cleanup
 
 cleanup.thread:                                   ; preds = %if.end667, %land.lhs.true669
@@ -8765,16 +8765,16 @@ ehcleanup677:                                     ; preds = %lpad.i1480, %lpad60
   br label %ehcleanup773
 
 for.inc679:                                       ; preds = %cleanup.thread, %invoke.cont573
-  %lbSuccess.2 = phi i8 [ %lbSuccess.01903, %invoke.cont573 ], [ %lbSuccess.1, %cleanup.thread ]
-  %ubSuccess.2 = phi i8 [ %ubSuccess.01904, %invoke.cont573 ], [ %ubSuccess.1, %cleanup.thread ]
+  %lbSuccess.3 = phi i8 [ %lbSuccess.01903, %invoke.cont573 ], [ %lbSuccess.2, %cleanup.thread ]
+  %ubSuccess.3 = phi i8 [ %ubSuccess.01904, %invoke.cont573 ], [ %ubSuccess.2, %cleanup.thread ]
   %call.i1586 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin6.sroa.0.01902) #26
   %cmp.i1405.not = icmp eq ptr %call.i1586, %258
   br i1 %cmp.i1405.not, label %for.end681, label %for.body538
 
 for.end681:                                       ; preds = %for.inc679, %cleanup
-  %lbSuccess.3 = phi i8 [ %lbSuccess.1, %cleanup ], [ %lbSuccess.2, %for.inc679 ]
-  %ubSuccess.3 = phi i8 [ %ubSuccess.1, %cleanup ], [ %ubSuccess.2, %for.inc679 ]
-  %tobool682 = trunc nuw i8 %lbSuccess.3 to i1
+  %lbSuccess.1 = phi i8 [ %lbSuccess.2, %cleanup ], [ %lbSuccess.3, %for.inc679 ]
+  %ubSuccess.1 = phi i8 [ %ubSuccess.2, %cleanup ], [ %ubSuccess.3, %for.inc679 ]
+  %tobool682 = trunc nuw i8 %lbSuccess.1 to i1
   br i1 %tobool682, label %invoke.cont684, label %if.else741
 
 invoke.cont684:                                   ; preds = %if.end531, %for.end681
@@ -9140,7 +9140,7 @@ ehcleanup738:                                     ; preds = %ehcleanup735, %lpad
   br label %ehcleanup773
 
 if.else741:                                       ; preds = %for.end681
-  %tobool742 = trunc nuw i8 %ubSuccess.3 to i1
+  %tobool742 = trunc nuw i8 %ubSuccess.1 to i1
   %_mp_size.i1719 = getelementptr inbounds i8, ptr %ub, i64 4
   %391 = load i32, ptr %_mp_size.i1719, align 4
   %cmp.inv.i1722 = icmp slt i32 %391, 0

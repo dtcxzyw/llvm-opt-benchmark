@@ -103,10 +103,10 @@ define internal fastcc noundef ptr @_agstrcanon(ptr noundef readonly %0, ptr nou
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %is_escape.exit.us
   %.077127.us = phi ptr [ %.077.us, %is_escape.exit.us ], [ %.077116, %.lr.ph ]
-  %.061125.us = phi i1 [ %.2.us, %is_escape.exit.us ], [ %narrow, %.lr.ph ]
+  %.061125.us = phi i1 [ %.162.us, %is_escape.exit.us ], [ %narrow, %.lr.ph ]
   %.063124.us = phi i8 [ %.164.us, %is_escape.exit.us ], [ 0, %.lr.ph ]
-  %.065123.us = phi i1 [ %.267.us, %is_escape.exit.us ], [ false, %.lr.ph ]
-  %.068122.us = phi i32 [ %.270.us, %is_escape.exit.us ], [ 0, %.lr.ph ]
+  %.065123.us = phi i1 [ %.166.us, %is_escape.exit.us ], [ false, %.lr.ph ]
+  %.068122.us = phi i32 [ %.169.us, %is_escape.exit.us ], [ 0, %.lr.ph ]
   %.071121.us = phi i32 [ %44, %is_escape.exit.us ], [ 0, %.lr.ph ]
   %17 = phi i8 [ %43, %is_escape.exit.us ], [ %9, %.lr.ph ]
   %.074119.us = phi ptr [ %42, %is_escape.exit.us ], [ %8, %.lr.ph ]
@@ -190,10 +190,10 @@ is_escape.exit.thread.us:                         ; preds = %21, %25, %24
 
 is_escape.exit.us:                                ; preds = %39, %38, %36, %27, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25, %22
   %.175.us = phi ptr [ %23, %22 ], [ %.074119.us, %36 ], [ %.074119.us, %39 ], [ %.074119.us, %38 ], [ %.074119.us, %27 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ], [ %.074119.us, %25 ]
-  %.270.us = phi i32 [ %.068122.us, %22 ], [ %37, %36 ], [ %.068122.us, %39 ], [ %.068122.us, %38 ], [ %.068122.us, %27 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ]
-  %.267.us = phi i1 [ true, %22 ], [ %spec.select95.us, %36 ], [ %spec.select97.us, %39 ], [ %spec.select.us, %38 ], [ %spec.select101.us, %27 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ]
+  %.169.us = phi i32 [ %.068122.us, %22 ], [ %37, %36 ], [ %.068122.us, %39 ], [ %.068122.us, %38 ], [ %.068122.us, %27 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ], [ %.068122.us, %25 ]
+  %.166.us = phi i1 [ true, %22 ], [ %spec.select95.us, %36 ], [ %spec.select97.us, %39 ], [ %spec.select.us, %38 ], [ %spec.select101.us, %27 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ], [ true, %25 ]
   %.164.us = phi i8 [ %.063124.us, %22 ], [ 0, %36 ], [ 0, %39 ], [ 0, %38 ], [ %spec.select102.us, %27 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ], [ 1, %25 ]
-  %.2.us = phi i1 [ %.061125.us, %22 ], [ %.not89.us, %36 ], [ %41, %39 ], [ %.not90.us, %38 ], [ false, %27 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ]
+  %.162.us = phi i1 [ %.061125.us, %22 ], [ %.not89.us, %36 ], [ %41, %39 ], [ %.not90.us, %38 ], [ false, %27 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ], [ %.061125.us, %25 ]
   %42 = getelementptr inbounds i8, ptr %.175.us, i64 1
   store i8 %17, ptr %.175.us, align 1
   %43 = load i8, ptr %.077127.us, align 1
@@ -205,10 +205,10 @@ is_escape.exit.us:                                ; preds = %39, %38, %36, %27, 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
   %.077127 = phi ptr [ %.077, %.critedge ], [ %.077116, %.lr.ph ]
   %.060126 = phi i1 [ %.1, %.critedge ], [ false, %.lr.ph ]
-  %.061125 = phi i1 [ %.2, %.critedge ], [ %narrow, %.lr.ph ]
+  %.061125 = phi i1 [ %.162, %.critedge ], [ %narrow, %.lr.ph ]
   %.063124 = phi i8 [ %.164, %.critedge ], [ 0, %.lr.ph ]
   %.065123 = phi i1 [ %.3, %.critedge ], [ false, %.lr.ph ]
-  %.068122 = phi i32 [ %.270, %.critedge ], [ 0, %.lr.ph ]
+  %.068122 = phi i32 [ %.169, %.critedge ], [ 0, %.lr.ph ]
   %.071121 = phi i32 [ %.172, %.critedge ], [ 0, %.lr.ph ]
   %.073120 = phi i8 [ %72, %.critedge ], [ %9, %.lr.ph ]
   %.074119 = phi ptr [ %.276, %.critedge ], [ %8, %.lr.ph ]
@@ -296,10 +296,10 @@ is_escape.exit.thread:                            ; preds = %48, %54, %52, %51
 
 is_escape.exit:                                   ; preds = %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %54, %63, %60, %58, %57, %49
   %.175 = phi ptr [ %50, %49 ], [ %.074119, %58 ], [ %.074119, %60 ], [ %.074119, %57 ], [ %.074119, %63 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ], [ %.074119, %54 ]
-  %.270 = phi i32 [ %.068122, %49 ], [ %59, %58 ], [ %.068122, %60 ], [ %.068122, %57 ], [ %.068122, %63 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ]
-  %.267 = phi i1 [ true, %49 ], [ %spec.select95, %58 ], [ %spec.select97, %60 ], [ %spec.select, %57 ], [ %spec.select101, %63 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ]
+  %.169 = phi i32 [ %.068122, %49 ], [ %59, %58 ], [ %.068122, %60 ], [ %.068122, %57 ], [ %.068122, %63 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ], [ %.068122, %54 ]
+  %.166 = phi i1 [ true, %49 ], [ %spec.select95, %58 ], [ %spec.select97, %60 ], [ %spec.select, %57 ], [ %spec.select101, %63 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ], [ true, %54 ]
   %.164 = phi i8 [ %.063124, %49 ], [ 0, %58 ], [ 0, %60 ], [ 0, %57 ], [ %spec.select102, %63 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ], [ 1, %54 ]
-  %.2 = phi i1 [ %.061125, %49 ], [ %.not89, %58 ], [ %62, %60 ], [ %.not90, %57 ], [ false, %63 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ]
+  %.162 = phi i1 [ %.061125, %49 ], [ %.not89, %58 ], [ %62, %60 ], [ %.not90, %57 ], [ false, %63 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ], [ %.061125, %54 ]
   %71 = getelementptr inbounds i8, ptr %.175, i64 1
   store i8 %.073120, ptr %.175, align 1
   %72 = load i8, ptr %.077127, align 1
@@ -387,7 +387,7 @@ is_escape.exit:                                   ; preds = %54, %54, %54, %54, 
 .critedge:                                        ; preds = %.critedge.sink.split, %100, %112, %99
   %.276 = phi ptr [ %71, %99 ], [ %71, %112 ], [ %71, %100 ], [ %125, %.critedge.sink.split ]
   %.172 = phi i32 [ %73, %99 ], [ %73, %112 ], [ %73, %100 ], [ 0, %.critedge.sink.split ]
-  %.3 = phi i1 [ %.267, %99 ], [ %.267, %112 ], [ %.267, %100 ], [ true, %.critedge.sink.split ]
+  %.3 = phi i1 [ %.166, %99 ], [ %.166, %112 ], [ %.166, %100 ], [ true, %.critedge.sink.split ]
   %.1 = phi i1 [ %.060126, %99 ], [ true, %112 ], [ true, %100 ], [ %.1.ph, %.critedge.sink.split ]
   %.077 = getelementptr inbounds i8, ptr %.077127, i64 1
   br label %.lr.ph.split
@@ -395,7 +395,7 @@ is_escape.exit:                                   ; preds = %54, %54, %54, %54, 
 ._crit_edge:                                      ; preds = %is_escape.exit, %is_escape.exit.us
   %.074.lcssa = phi ptr [ %42, %is_escape.exit.us ], [ %71, %is_escape.exit ]
   %.071.lcssa = phi i32 [ %44, %is_escape.exit.us ], [ %73, %is_escape.exit ]
-  %.065.lcssa = phi i1 [ %.267.us, %is_escape.exit.us ], [ %.267, %is_escape.exit ]
+  %.065.lcssa = phi i1 [ %.166.us, %is_escape.exit.us ], [ %.166, %is_escape.exit ]
   %126 = getelementptr inbounds i8, ptr %.074.lcssa, i64 1
   store i8 34, ptr %.074.lcssa, align 1
   store i8 0, ptr %126, align 1
@@ -679,7 +679,7 @@ define internal fastcc range(i32 -1, 1) i32 @write_hdr(ptr noundef %0, ptr nound
   %.str.9..str.11 = select i1 %.not42, ptr @.str.9, ptr @.str.11
   %10 = tail call i32 @agisstrict(ptr noundef %0) #9
   %.not43 = icmp eq i32 %10, 0
-  %.035 = select i1 %.not43, ptr @.str.9, ptr @.str.12
+  %.1 = select i1 %.not43, ptr @.str.9, ptr @.str.12
   %11 = tail call ptr @agattr(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef null) #9
   store ptr %11, ptr @Tailport, align 8
   %12 = tail call ptr @agattr(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str.14, ptr noundef null) #9
@@ -687,8 +687,8 @@ define internal fastcc range(i32 -1, 1) i32 @write_hdr(ptr noundef %0, ptr nound
   br label %13
 
 13:                                               ; preds = %4, %6
-  %.137 = phi ptr [ %.str.9..str.11, %6 ], [ @.str.10, %4 ]
-  %.1 = phi ptr [ %.035, %6 ], [ @.str.9, %4 ]
+  %.036 = phi ptr [ %.str.9..str.11, %6 ], [ @.str.10, %4 ]
+  %.035 = phi ptr [ %.1, %6 ], [ @.str.9, %4 ]
   %.034 = phi i1 [ true, %6 ], [ false, %4 ]
   %14 = tail call ptr @agnameof(ptr noundef %0) #9
   %.not44 = icmp eq ptr %14, null
@@ -733,7 +733,7 @@ define internal fastcc range(i32 -1, 1) i32 @write_hdr(ptr noundef %0, ptr nound
   %.val.val = load ptr, ptr %30, align 8
   %31 = getelementptr i8, ptr %.val.val, i64 8
   %.val.val.val = load ptr, ptr %31, align 8
-  %32 = tail call i32 %.val.val.val(ptr noundef %1, ptr noundef nonnull %.1) #9
+  %32 = tail call i32 %.val.val.val(ptr noundef %1, ptr noundef nonnull %.035) #9
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %indent.exit, label %34
 
@@ -747,7 +747,7 @@ define internal fastcc range(i32 -1, 1) i32 @write_hdr(ptr noundef %0, ptr nound
   %.val45.val = load ptr, ptr %36, align 8
   %37 = getelementptr i8, ptr %.val45.val, i64 8
   %.val45.val.val = load ptr, ptr %37, align 8
-  %38 = tail call i32 %.val45.val.val(ptr noundef %1, ptr noundef nonnull %.137) #9
+  %38 = tail call i32 %.val45.val.val(ptr noundef %1, ptr noundef nonnull %.036) #9
   %39 = icmp eq i32 %38, -1
   br i1 %39, label %indent.exit, label %40
 
@@ -1995,7 +1995,7 @@ write_edge_name.exit:                             ; preds = %6, %10, %21, %3
   br label %33
 
 33:                                               ; preds = %.lr.ph, %106
-  %.170 = phi i32 [ %.042, %.lr.ph ], [ %.2, %106 ]
+  %.270 = phi i32 [ %.042, %.lr.ph ], [ %.3, %106 ]
   %.04369 = phi ptr [ %30, %.lr.ph ], [ %108, %106 ]
   %34 = load i32, ptr %0, align 8
   %35 = and i32 %34, 2
@@ -2041,8 +2041,8 @@ write_edge_name.exit:                             ; preds = %6, %10, %21, %3
   br i1 %.not54, label %106, label %61
 
 61:                                               ; preds = %52
-  %62 = add nsw i32 %.170, 1
-  %63 = icmp eq i32 %.170, 0
+  %62 = add nsw i32 %.270, 1
+  %63 = icmp eq i32 %.270, 0
   %.val59 = load ptr, ptr %32, align 8
   %64 = getelementptr i8, ptr %.val59, i64 8
   %.val59.val = load ptr, ptr %64, align 8
@@ -2119,15 +2119,15 @@ indent.exit.thread:                               ; preds = %78, %75, %69
   br i1 %105, label %indent.exit, label %106
 
 106:                                              ; preds = %52, %96, %46, %38
-  %.2 = phi i32 [ %.170, %38 ], [ %.170, %46 ], [ %62, %96 ], [ %.170, %52 ]
+  %.3 = phi i32 [ %.270, %38 ], [ %.270, %46 ], [ %62, %96 ], [ %.270, %52 ]
   %107 = load ptr, ptr %2, align 8
   %108 = tail call ptr %107(ptr noundef nonnull %2, ptr noundef nonnull %.04369, i32 noundef 8) #9
   %.not51 = icmp eq ptr %108, null
   br i1 %.not51, label %.loopexit, label %33
 
 .loopexit:                                        ; preds = %106, %28, %write_edge_name.exit
-  %.3 = phi i32 [ %.042, %write_edge_name.exit ], [ %.042, %28 ], [ %.2, %106 ]
-  %109 = icmp sgt i32 %.3, 0
+  %.1 = phi i32 [ %.042, %write_edge_name.exit ], [ %.042, %28 ], [ %.3, %106 ]
+  %109 = icmp sgt i32 %.1, 0
   br i1 %109, label %110, label %119
 
 110:                                              ; preds = %.loopexit

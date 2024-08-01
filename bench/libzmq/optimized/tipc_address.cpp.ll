@@ -421,13 +421,13 @@ if.else83:                                        ; preds = %lor.lhs.false37
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont31, %invoke.cont81, %if.else83
-  %retval.0 = phi i32 [ -1, %if.else83 ], [ 0, %invoke.cont81 ], [ 0, %invoke.cont31 ]
+  %retval.1 = phi i32 [ -1, %if.else83 ], [ 0, %invoke.cont81 ], [ 0, %invoke.cont31 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %s) #12
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.1 = phi i32 [ -1, %if.then ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind

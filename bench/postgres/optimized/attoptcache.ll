@@ -88,20 +88,20 @@ InitializeAttoptCache.exit:                       ; preds = %7, %12
   br label %36
 
 36:                                               ; preds = %22, %26
-  %.022 = phi ptr [ %32, %26 ], [ null, %22 ]
+  %.1 = phi ptr [ %32, %26 ], [ null, %22 ]
   call void @ReleaseSysCache(ptr noundef nonnull %21) #6
   br label %37
 
 37:                                               ; preds = %17, %36
-  %.1 = phi ptr [ %.022, %36 ], [ null, %17 ]
+  %.022 = phi ptr [ %.1, %36 ], [ null, %17 ]
   %38 = load ptr, ptr @AttoptCacheHash, align 8
   %39 = call ptr @hash_search(ptr noundef %38, ptr noundef nonnull %4, i32 noundef 1, ptr noundef null) #6
   %40 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr %.1, ptr %40, align 8
+  store ptr %.022, ptr %40, align 8
   br label %41
 
 41:                                               ; preds = %._crit_edge, %37
-  %42 = phi ptr [ %.pre28, %._crit_edge ], [ %.1, %37 ]
+  %42 = phi ptr [ %.pre28, %._crit_edge ], [ %.022, %37 ]
   %.021 = phi ptr [ %16, %._crit_edge ], [ %39, %37 ]
   %43 = icmp eq ptr %42, null
   br i1 %43, label %54, label %44

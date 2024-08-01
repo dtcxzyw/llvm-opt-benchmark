@@ -70,18 +70,18 @@ define dso_local i32 @lzma_raw_buffer_decode(ptr noundef %0, ptr noundef %1, ptr
   br label %42
 
 42:                                               ; preds = %36, %34, %32, %25
-  %.0 = phi i32 [ %31, %25 ], [ 10, %32 ], [ 9, %34 ], [ %., %36 ]
+  %.1 = phi i32 [ %31, %25 ], [ 10, %32 ], [ 9, %34 ], [ %., %36 ]
   store i64 %26, ptr %3, align 8
   store i64 %27, ptr %6, align 8
   br label %43
 
 43:                                               ; preds = %25, %42
-  %.1 = phi i32 [ %.0, %42 ], [ 0, %25 ]
+  %.0 = phi i32 [ %.1, %42 ], [ 0, %25 ]
   call void @lzma_next_end(ptr noundef nonnull %9, ptr noundef %1) #3
   br label %44
 
 44:                                               ; preds = %22, %8, %14, %19, %43
-  %.042 = phi i32 [ %.1, %43 ], [ 11, %19 ], [ 11, %14 ], [ 11, %8 ], [ %24, %22 ]
+  %.042 = phi i32 [ %.0, %43 ], [ 11, %19 ], [ 11, %14 ], [ 11, %8 ], [ %24, %22 ]
   ret i32 %.042
 }
 

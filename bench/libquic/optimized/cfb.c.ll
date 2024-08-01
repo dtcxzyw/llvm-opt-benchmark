@@ -97,9 +97,9 @@ if.then23:                                        ; preds = %while.end21
 
 while.body27:                                     ; preds = %if.then23, %while.body27
   %len.addr.2105 = phi i64 [ %len.addr.1.lcssa, %if.then23 ], [ %dec25, %while.body27 ]
-  %n.3104 = phi i32 [ %n.1.lcssa, %if.then23 ], [ %inc, %while.body27 ]
+  %n.4104 = phi i32 [ %n.1.lcssa, %if.then23 ], [ %inc, %while.body27 ]
   %dec25 = add i64 %len.addr.2105, -1
-  %idxprom28 = zext i32 %n.3104 to i64
+  %idxprom28 = zext i32 %n.4104 to i64
   %arrayidx29 = getelementptr inbounds i8, ptr %in.addr.1.lcssa, i64 %idxprom28
   %8 = load i8, ptr %arrayidx29, align 1
   %arrayidx32 = getelementptr inbounds i8, ptr %ivec, i64 %idxprom28
@@ -108,7 +108,7 @@ while.body27:                                     ; preds = %if.then23, %while.b
   store i8 %xor3481, ptr %arrayidx32, align 1
   %arrayidx37 = getelementptr inbounds i8, ptr %out.addr.1.lcssa, i64 %idxprom28
   store i8 %xor3481, ptr %arrayidx37, align 1
-  %inc = add i32 %n.3104, 1
+  %inc = add i32 %n.4104, 1
   %tobool26.not = icmp eq i64 %dec25, 0
   br i1 %tobool26.not, label %return, label %while.body27, !llvm.loop !11
 
@@ -190,9 +190,9 @@ if.then86:                                        ; preds = %while.end84
 
 while.body90:                                     ; preds = %if.then86, %while.body90
   %len.addr.5128 = phi i64 [ %len.addr.4.lcssa, %if.then86 ], [ %dec88, %while.body90 ]
-  %n.8127 = phi i32 [ %n.6.lcssa, %if.then86 ], [ %inc104, %while.body90 ]
+  %n.9127 = phi i32 [ %n.6.lcssa, %if.then86 ], [ %inc104, %while.body90 ]
   %dec88 = add i64 %len.addr.5128, -1
-  %idxprom92 = zext i32 %n.8127 to i64
+  %idxprom92 = zext i32 %n.9127 to i64
   %arrayidx93 = getelementptr inbounds i8, ptr %ivec, i64 %idxprom92
   %16 = load i8, ptr %arrayidx93, align 1
   %arrayidx96 = getelementptr inbounds i8, ptr %in.addr.3.lcssa, i64 %idxprom92
@@ -201,7 +201,7 @@ while.body90:                                     ; preds = %if.then86, %while.b
   %arrayidx101 = getelementptr inbounds i8, ptr %out.addr.3.lcssa, i64 %idxprom92
   store i8 %xor9879, ptr %arrayidx101, align 1
   store i8 %17, ptr %arrayidx93, align 1
-  %inc104 = add i32 %n.8127, 1
+  %inc104 = add i32 %n.9127, 1
   %tobool89.not = icmp eq i64 %dec88, 0
   br i1 %tobool89.not, label %return, label %while.body90, !llvm.loop !15
 

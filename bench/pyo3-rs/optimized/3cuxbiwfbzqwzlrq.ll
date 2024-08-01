@@ -363,11 +363,11 @@ define void @"_ZN98_$LT$pyo3_macros_backend..attributes..TextSignatureAttributeV
           to label %44 unwind label %42
 
 25:                                               ; preds = %42, %28
-  %.sroa.03.0 = phi i1 [ %29, %28 ], [ false, %42 ]
+  %.sroa.03.1 = phi i1 [ %29, %28 ], [ false, %42 ]
   %.pn = phi { ptr, i32 } [ %30, %28 ], [ %43, %42 ]
   %26 = load i64, ptr %7, align 8
   %27 = icmp ne i64 %26, 0
-  %brmerge = or i1 %.sroa.03.0, %27
+  %brmerge = or i1 %.sroa.03.1, %27
   br i1 %brmerge, label %47, label %48
 
 28:                                               ; preds = %44, %32, %19

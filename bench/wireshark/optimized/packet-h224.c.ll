@@ -453,9 +453,9 @@ define internal noundef i32 @dissect_h224_cme_client_data(ptr noundef %0, ptr no
   br label %62
 
 62:                                               ; preds = %51, %55, %46
-  %.1 = phi i32 [ %61, %55 ], [ %49, %51 ], [ %49, %46 ]
-  tail call void @proto_tree_add_bitmask_list(ptr noundef %6, ptr noundef %0, i32 noundef %.1, i32 noundef 1, ptr noundef nonnull @dissect_h224_cme_client_data.fecc_caps_ability, i32 noundef 0) #2
-  %63 = add i32 %.1, 1
+  %.2 = phi i32 [ %61, %55 ], [ %49, %51 ], [ %49, %46 ]
+  tail call void @proto_tree_add_bitmask_list(ptr noundef %6, ptr noundef %0, i32 noundef %.2, i32 noundef 1, ptr noundef nonnull @dissect_h224_cme_client_data.fecc_caps_ability, i32 noundef 0) #2
+  %63 = add i32 %.2, 1
   br label %.loopexit
 
 64:                                               ; preds = %3
@@ -472,8 +472,8 @@ define internal noundef i32 @dissect_h224_cme_client_data(ptr noundef %0, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %3, %33, %62, %64, %26
-  %.2 = phi i32 [ %2, %3 ], [ %74, %64 ], [ %63, %62 ], [ %43, %33 ], [ %32, %26 ], [ %18, %8 ], [ %24, %.lr.ph ]
-  ret i32 %.2
+  %.1 = phi i32 [ %2, %3 ], [ %74, %64 ], [ %63, %62 ], [ %43, %33 ], [ %32, %26 ], [ %18, %8 ], [ %24, %.lr.ph ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable

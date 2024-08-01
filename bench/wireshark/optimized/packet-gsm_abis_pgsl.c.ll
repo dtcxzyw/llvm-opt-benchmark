@@ -320,10 +320,10 @@ define internal range(i32 1, 14) i32 @dissect_abis_pgsl(ptr noundef %0, ptr noun
   br label %68
 
 68:                                               ; preds = %61, %51
-  %.0 = phi i32 [ 12, %61 ], [ 10, %51 ]
+  %.1 = phi i32 [ 12, %61 ], [ 10, %51 ]
   %69 = load i32, ptr @hf_pgsl_data_len, align 4
-  %70 = or disjoint i32 %.0, 1
-  %71 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %69, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
+  %70 = or disjoint i32 %.1, 1
+  %71 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %69, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #6
   %72 = load i32, ptr %7, align 4
   %73 = and i32 %72, 248
   %.not148 = icmp eq i32 %73, 0
@@ -419,8 +419,8 @@ pgsl_cs_to_rlcmac_cs.exit145:                     ; preds = %105, %114
   br label %132
 
 132:                                              ; preds = %36, %pgsl_cs_to_rlcmac_cs.exit, %121, %pgsl_cs_to_rlcmac_cs.exit145, %25, %4
-  %.1 = phi i32 [ 1, %4 ], [ 8, %121 ], [ 11, %pgsl_cs_to_rlcmac_cs.exit145 ], [ %70, %pgsl_cs_to_rlcmac_cs.exit ], [ 7, %36 ], [ 8, %25 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 1, %4 ], [ 8, %121 ], [ 11, %pgsl_cs_to_rlcmac_cs.exit145 ], [ %70, %pgsl_cs_to_rlcmac_cs.exit ], [ 7, %36 ], [ 8, %25 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

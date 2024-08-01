@@ -1325,8 +1325,8 @@ if.end20.i:                                       ; preds = %if.end17.i
 while.cond.i:                                     ; preds = %while.cond.i.backedge, %if.end20.i
   %ok.0.i = phi i32 [ %call22.i, %if.end20.i ], [ %ok.0.i.be, %while.cond.i.backedge ]
   %i.0.i = phi i64 [ 0, %if.end20.i ], [ %i.0.i.be, %while.cond.i.backedge ]
-  %iter.1.i = phi ptr [ %spec.select58, %if.end20.i ], [ %iter.1.i.be, %while.cond.i.backedge ]
-  %tobool26.not.i = icmp eq ptr %iter.1.i, null
+  %iter.3.i = phi ptr [ %spec.select58, %if.end20.i ], [ %iter.3.i.be, %while.cond.i.backedge ]
+  %tobool26.not.i = icmp eq ptr %iter.3.i, null
   %13 = load i64, ptr %nr29121.i, align 8
   %cmp27.i = icmp ult i64 %i.0.i, %13
   br i1 %tobool26.not.i, label %lor.rhs.i, label %while.body.thread.i
@@ -1347,7 +1347,7 @@ if.end38.i:                                       ; preds = %while.body.thread.i
   %16 = load ptr, ptr %updates, align 8
   %util123.i = getelementptr inbounds %struct.string_list_item, ptr %16, i64 %i.0.i, i32 1
   %17 = load ptr, ptr %util123.i, align 8
-  %refname.i = getelementptr inbounds i8, ptr %iter.1.i, i64 16
+  %refname.i = getelementptr inbounds i8, ptr %iter.3.i, i64 16
   %18 = load ptr, ptr %refname.i, align 8
   %refname35.i = getelementptr inbounds i8, ptr %17, i64 112
   %call36.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %refname35.i) #21
@@ -1405,7 +1405,7 @@ if.then45.i:                                      ; preds = %is_null_oid.exit.i
   br label %if.then153.i
 
 if.else48.i:                                      ; preds = %is_null_oid.exit.i
-  %oid.i = getelementptr inbounds i8, ptr %iter.1.i, i64 24
+  %oid.i = getelementptr inbounds i8, ptr %iter.3.i, i64 24
   %24 = load ptr, ptr %oid.i, align 8
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %if.else.i.i
 
@@ -1457,9 +1457,9 @@ if.end61.i:                                       ; preds = %oideq.exit.if.end61
   br i1 %tobool64.not.i, label %if.end88.thread140.i, label %if.then65.i
 
 if.then65.i:                                      ; preds = %if.end61.i
-  %call66.i = call i32 @ref_iterator_advance(ptr noundef nonnull %iter.1.i) #18
+  %call66.i = call i32 @ref_iterator_advance(ptr noundef nonnull %iter.3.i) #18
   %cmp67.not.i = icmp eq i32 %call66.i, 0
-  %spec.select60.i = select i1 %cmp67.not.i, ptr %iter.1.i, ptr null
+  %spec.select60.i = select i1 %cmp67.not.i, ptr %iter.3.i, ptr null
   br label %if.else103.i
 
 if.end88.thread140.i:                             ; preds = %if.end61.i
@@ -1525,10 +1525,10 @@ if.then81.i:                                      ; preds = %is_null_oid.exit85.
 
 if.then90.i:                                      ; preds = %if.else72.i, %if.end88.thread140.i, %while.body.thread.i
   %i.1147.i = phi i64 [ %inc.i, %if.end88.thread140.i ], [ %i.0.i, %if.else72.i ], [ %i.0.i, %while.body.thread.i ]
-  %call91.i = call i32 @ref_iterator_peel(ptr noundef nonnull %iter.1.i, ptr noundef nonnull %peeled.i) #18
-  %refname92.i = getelementptr inbounds i8, ptr %iter.1.i, i64 16
+  %call91.i = call i32 @ref_iterator_peel(ptr noundef nonnull %iter.3.i, ptr noundef nonnull %peeled.i) #18
+  %refname92.i = getelementptr inbounds i8, ptr %iter.3.i, i64 16
   %34 = load ptr, ptr %refname92.i, align 8
-  %oid93.i = getelementptr inbounds i8, ptr %iter.1.i, i64 24
+  %oid93.i = getelementptr inbounds i8, ptr %iter.3.i, i64 24
   %35 = load ptr, ptr %oid93.i, align 8
   %call.i86.i = call ptr @oid_to_hex(ptr noundef %35) #18
   %call1.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %call12.i, ptr noundef nonnull @.str.44, ptr noundef %call.i86.i, ptr noundef %34)
@@ -1546,13 +1546,13 @@ land.lhs.true.i.i:                                ; preds = %lor.lhs.false.i.i
   br i1 %cmp4.i.i, label %write_error.i, label %if.end98.i
 
 if.end98.i:                                       ; preds = %land.lhs.true.i.i, %lor.lhs.false.i.i
-  %call99.i = call i32 @ref_iterator_advance(ptr noundef nonnull %iter.1.i) #18
+  %call99.i = call i32 @ref_iterator_advance(ptr noundef nonnull %iter.3.i) #18
   %cmp100.not.i = icmp eq i32 %call99.i, 0
-  %spec.select62.i = select i1 %cmp100.not.i, ptr %iter.1.i, ptr null
+  %spec.select62.i = select i1 %cmp100.not.i, ptr %iter.3.i, ptr null
   br label %while.cond.i.backedge
 
 if.else103.i:                                     ; preds = %is_null_oid.exit85.i, %if.then74.i, %if.then65.i
-  %iter.3139.i = phi ptr [ %spec.select60.i, %if.then65.i ], [ %iter.1.i, %if.then74.i ], [ %iter.1.i, %is_null_oid.exit85.i ]
+  %iter.5139.i = phi ptr [ %spec.select60.i, %if.then65.i ], [ %iter.3.i, %if.then74.i ], [ %iter.3.i, %is_null_oid.exit85.i ]
   %ok.1137.i = phi i32 [ %call66.i, %if.then65.i ], [ %ok.0.i, %if.then74.i ], [ %ok.0.i, %is_null_oid.exit85.i ]
   %update.0127136.i = phi ptr [ %17, %if.then65.i ], [ %update.0128167.i, %if.then74.i ], [ %update.0128167.i, %is_null_oid.exit85.i ]
   %call.i89.i = call ptr @null_oid() #18
@@ -1621,7 +1621,7 @@ if.end124.i:                                      ; preds = %land.lhs.true.i114.
 while.cond.i.backedge:                            ; preds = %if.end124.i, %if.then106.i, %if.end98.i
   %ok.0.i.be = phi i32 [ %ok.1137.i, %if.then106.i ], [ %ok.1137.i, %if.end124.i ], [ %call99.i, %if.end98.i ]
   %i.0.i.be = phi i64 [ %inc107.i, %if.then106.i ], [ %inc125.i, %if.end124.i ], [ %i.1147.i, %if.end98.i ]
-  %iter.1.i.be = phi ptr [ %iter.3139.i, %if.then106.i ], [ %iter.3139.i, %if.end124.i ], [ %spec.select62.i, %if.end98.i ]
+  %iter.3.i.be = phi ptr [ %iter.5139.i, %if.then106.i ], [ %iter.5139.i, %if.end124.i ], [ %spec.select62.i, %if.end98.i ]
   br label %while.cond.i, !llvm.loop !13
 
 while.end.i:                                      ; preds = %lor.rhs.i
@@ -1662,7 +1662,7 @@ if.then141.i:                                     ; preds = %lor.lhs.false137.i,
   br label %write_with_updates.exit.thread
 
 write_error.i:                                    ; preds = %land.lhs.true.i114.i, %if.else108.i, %land.lhs.true.i.i, %if.then90.i, %if.end17.i
-  %iter.5.i = phi ptr [ null, %if.end17.i ], [ %iter.1.i, %land.lhs.true.i.i ], [ %iter.1.i, %if.then90.i ], [ %iter.3139.i, %land.lhs.true.i114.i ], [ %iter.3139.i, %if.else108.i ]
+  %iter.1.i = phi ptr [ null, %if.end17.i ], [ %iter.3.i, %land.lhs.true.i.i ], [ %iter.3.i, %if.then90.i ], [ %iter.5139.i, %land.lhs.true.i114.i ], [ %iter.5139.i, %if.else108.i ]
   %44 = load ptr, ptr %tempfile.i, align 8
   %call149.i = call ptr @get_tempfile_path(ptr noundef %44) #18
   %call150.i = tail call ptr @__errno_location() #20
@@ -1672,13 +1672,13 @@ write_error.i:                                    ; preds = %land.lhs.true.i114.
   br label %error.i
 
 error.i:                                          ; preds = %write_error.i, %if.then81.i
-  %iter.6.i = phi ptr [ %iter.5.i, %write_error.i ], [ %iter.1.i, %if.then81.i ]
-  %tobool152.not.i = icmp eq ptr %iter.6.i, null
+  %iter.0.i = phi ptr [ %iter.1.i, %write_error.i ], [ %iter.3.i, %if.then81.i ]
+  %tobool152.not.i = icmp eq ptr %iter.0.i, null
   br i1 %tobool152.not.i, label %if.end155.i, label %if.then153.i
 
 if.then153.i:                                     ; preds = %error.i, %if.then52.i, %if.then45.i
-  %iter.6159.i = phi ptr [ %iter.6.i, %error.i ], [ %iter.1.i, %if.then45.i ], [ %iter.1.i, %if.then52.i ]
-  %call154.i = call i32 @ref_iterator_abort(ptr noundef nonnull %iter.6159.i) #18
+  %iter.0159.i = phi ptr [ %iter.0.i, %error.i ], [ %iter.3.i, %if.then45.i ], [ %iter.3.i, %if.then52.i ]
+  %call154.i = call i32 @ref_iterator_abort(ptr noundef nonnull %iter.0159.i) #18
   br label %if.end155.i
 
 if.end155.i:                                      ; preds = %if.then153.i, %error.i, %if.then129.i, %if.then14.i

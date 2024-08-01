@@ -43,8 +43,8 @@ define i32 @nxtask_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   br label %30
 
 30:                                               ; preds = %28, %26
-  %.0 = phi i32 [ %27, %26 ], [ %29, %28 ]
-  %31 = icmp slt i32 %.0, 0
+  %.1 = phi i32 [ %27, %26 ], [ %29, %28 ]
+  %31 = icmp slt i32 %.1, 0
   br i1 %31, label %42, label %32
 
 32:                                               ; preds = %30
@@ -67,7 +67,7 @@ define i32 @nxtask_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   br label %48
 
 42:                                               ; preds = %38, %35, %32, %30, %21, %16
-  %.1 = phi i32 [ %19, %16 ], [ %22, %21 ], [ %.0, %30 ], [ %33, %32 ], [ %36, %35 ], [ %39, %38 ]
+  %.0 = phi i32 [ %19, %16 ], [ %22, %21 ], [ %.1, %30 ], [ %33, %32 ], [ %36, %35 ], [ %39, %38 ]
   %.not47 = icmp eq ptr %3, null
   br i1 %.not47, label %43, label %47
 
@@ -86,7 +86,7 @@ define i32 @nxtask_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   br label %48
 
 48:                                               ; preds = %9, %47, %41
-  %.038 = phi i32 [ %.1, %47 ], [ %39, %41 ], [ %14, %9 ]
+  %.038 = phi i32 [ %.0, %47 ], [ %39, %41 ], [ %14, %9 ]
   ret i32 %.038
 }
 

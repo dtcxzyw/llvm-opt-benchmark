@@ -2242,19 +2242,19 @@ if.end35.i:                                       ; preds = %do.body.i
   br i1 %cmp36.i, label %if.end56.i, label %do.body.i
 
 do.body40.i:                                      ; preds = %if.then27.i, %if.end45.i
-  %n.1.i = phi i64 [ %inc46.i, %if.end45.i ], [ 0, %if.then27.i ]
-  %exitcond.not.i = icmp eq i64 %n.1.i, %call11.val58.i
+  %n.2.i = phi i64 [ %inc46.i, %if.end45.i ], [ 0, %if.then27.i ]
+  %exitcond.not.i = icmp eq i64 %n.2.i, %call11.val58.i
   br i1 %exitcond.not.i, label %if.end56.i, label %if.end45.i
 
 if.end45.i:                                       ; preds = %do.body40.i
-  %inc46.i = add nuw i64 %n.1.i, 1
-  %arrayidx47.i = getelementptr i8, ptr %ob_sval.i.i, i64 %n.1.i
+  %inc46.i = add nuw i64 %n.2.i, 1
+  %arrayidx47.i = getelementptr i8, ptr %ob_sval.i.i, i64 %n.2.i
   %17 = load i8, ptr %arrayidx47.i, align 1
   %cmp49.i = icmp eq i8 %17, 10
   br i1 %cmp49.i, label %if.end56.i, label %do.body40.i
 
 if.end56.i:                                       ; preds = %if.end45.i, %do.body40.i, %if.end35.i, %do.body.i, %if.end24.i
-  %nreadahead.0.i = phi i64 [ 1, %if.end24.i ], [ %15, %do.body.i ], [ %inc.i, %if.end35.i ], [ %call11.val58.i, %do.body40.i ], [ %inc46.i, %if.end45.i ]
+  %nreadahead.1.i = phi i64 [ 1, %if.end24.i ], [ %15, %do.body.i ], [ %inc.i, %if.end35.i ], [ %call11.val58.i, %do.body40.i ], [ %inc46.i, %if.end45.i ]
   %18 = load i64, ptr %call11.i, align 8
   %19 = and i64 %18, 2147483648
   %cmp.i168.not.i = icmp eq i64 %19, 0
@@ -2271,8 +2271,8 @@ if.then1.i152.i:                                  ; preds = %if.end.i149.i
   br label %if.end57.i
 
 if.end57.i:                                       ; preds = %if.then1.i152.i, %if.end.i149.i, %if.end56.i, %while.body.i
-  %nreadahead.1.i = phi i64 [ %nreadahead.0.i, %if.end56.i ], [ %nreadahead.0.i, %if.then1.i152.i ], [ %nreadahead.0.i, %if.end.i149.i ], [ 1, %while.body.i ]
-  %call58.i = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56032), ptr noundef nonnull @.str.30, i64 noundef %nreadahead.1.i) #6
+  %nreadahead.0.i = phi i64 [ %nreadahead.1.i, %if.end56.i ], [ %nreadahead.1.i, %if.then1.i152.i ], [ %nreadahead.1.i, %if.end.i149.i ], [ 1, %while.body.i ]
+  %call58.i = call ptr (ptr, ptr, ptr, ...) @_PyObject_CallMethod(ptr noundef %self, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 56032), ptr noundef nonnull @.str.30, i64 noundef %nreadahead.0.i) #6
   %cmp59.i = icmp eq ptr %call58.i, null
   br i1 %cmp59.i, label %if.then61.i, label %if.end66.i
 

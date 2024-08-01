@@ -4021,8 +4021,8 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   br i1 %62, label %45, label %.loopexit
 
 .loopexit:                                        ; preds = %45, %20
-  %.2 = phi i32 [ %32, %20 ], [ %59, %45 ]
-  %64 = icmp slt i32 %.2, 0
+  %.1 = phi i32 [ %32, %20 ], [ %59, %45 ]
+  %64 = icmp slt i32 %.1, 0
   br i1 %64, label %65, label %.loopexit.thread
 
 65:                                               ; preds = %.loopexit
@@ -4101,8 +4101,8 @@ define i32 @H5E__walk(ptr noundef %0, i32 noundef %1, ptr nocapture noundef read
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %86, %.preheader74, %38, %.preheader, %69, %102, %.loopexit75, %10, %65, %.loopexit
-  %.6 = phi i32 [ %.2, %65 ], [ %.2, %.loopexit ], [ 0, %10 ], [ %.5, %102 ], [ %.5, %.loopexit75 ], [ 0, %69 ], [ 0, %.preheader ], [ 0, %38 ], [ 0, %.preheader74 ], [ 0, %86 ]
-  ret i32 %.6
+  %.3 = phi i32 [ %.1, %65 ], [ %.1, %.loopexit ], [ 0, %10 ], [ %.5, %102 ], [ %.5, %.loopexit75 ], [ 0, %69 ], [ 0, %.preheader ], [ 0, %38 ], [ 0, %.preheader74 ], [ 0, %86 ]
+  ret i32 %.3
 }
 
 ; Function Attrs: nounwind uwtable

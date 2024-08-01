@@ -3570,7 +3570,7 @@ _ZN17scoped_ptr_vectorI10ref_vectorI4expr11ast_managerEE9push_backEPS3_.exit: ; 
   br label %if.end25
 
 if.end25:                                         ; preds = %invoke.cont15, %_ZN17scoped_ptr_vectorI10ref_vectorI4expr11ast_managerEE9push_backEPS3_.exit
-  %vals.1 = phi ptr [ %22, %invoke.cont15 ], [ %call19, %_ZN17scoped_ptr_vectorI10ref_vectorI4expr11ast_managerEE9push_backEPS3_.exit ]
+  %vals.0 = phi ptr [ %22, %invoke.cont15 ], [ %call19, %_ZN17scoped_ptr_vectorI10ref_vectorI4expr11ast_managerEE9push_backEPS3_.exit ]
   br i1 %tobool.not.i.i.i.i.i61, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end25
@@ -3581,7 +3581,7 @@ if.then.i.i.i.i:                                  ; preds = %if.end25
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i: ; preds = %if.then.i.i.i.i, %if.end25
-  %m_nodes.i = getelementptr inbounds i8, ptr %vals.1, i64 8
+  %m_nodes.i = getelementptr inbounds i8, ptr %vals.0, i64 8
   %33 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i25 = icmp eq ptr %33, null
   br i1 %cmp.i.i25, label %if.then.i.i34, label %lor.lhs.false.i.i26
@@ -6088,8 +6088,8 @@ _ZN6vectorIPN14simple_factoryIjE9value_setELb0EjE9push_backERKS3_.exit: ; preds 
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK7obj_mapI4sortPN14simple_factoryIjE9value_setEE4findEPS0_RS4_.exit, %_ZN6vectorIPN14simple_factoryIjE9value_setELb0EjE9push_backERKS3_.exit
-  %set.1 = phi ptr [ %7, %_ZNK7obj_mapI4sortPN14simple_factoryIjE9value_setEE4findEPS0_RS4_.exit ], [ %call2, %_ZN6vectorIPN14simple_factoryIjE9value_setELb0EjE9push_backERKS3_.exit ]
-  ret ptr %set.1
+  %set.0 = phi ptr [ %7, %_ZNK7obj_mapI4sortPN14simple_factoryIjE9value_setEE4findEPS0_RS4_.exit ], [ %call2, %_ZN6vectorIPN14simple_factoryIjE9value_setELb0EjE9push_backERKS3_.exit ]
+  ret ptr %set.0
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -62,9 +62,9 @@ define noundef i32 @_ZN4pkpy11ManagedHeap5sweepEv(ptr nocapture noundef nonnull 
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
-  %.sroa.022.047 = phi ptr [ null, %.lr.ph ], [ %.sroa.022.2, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
-  %.sroa.8.046 = phi ptr [ null, %.lr.ph ], [ %.sroa.8.2, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
-  %.sroa.15.045 = phi ptr [ null, %.lr.ph ], [ %.sroa.15.2, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.022.047 = phi ptr [ null, %.lr.ph ], [ %.sroa.022.1, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.8.046 = phi ptr [ null, %.lr.ph ], [ %.sroa.8.1, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.15.045 = phi ptr [ null, %.lr.ph ], [ %.sroa.15.1, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.019.044 = phi ptr [ %3, %.lr.ph ], [ %51, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
   %9 = load ptr, ptr %.sroa.019.044, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 9
@@ -182,17 +182,17 @@ _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EED2Ev.exit:  ; preds = %38, %39
   br label %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %14, %47
-  %.sroa.15.2 = phi ptr [ %.sroa.15.045, %47 ], [ %37, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.15.045, %14 ]
-  %.sroa.8.2 = phi ptr [ %.sroa.8.046, %47 ], [ %35, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %15, %14 ]
-  %.sroa.022.2 = phi ptr [ %.sroa.022.047, %47 ], [ %30, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.022.047, %14 ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.045, %47 ], [ %37, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.15.045, %14 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.046, %47 ], [ %35, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %15, %14 ]
+  %.sroa.022.1 = phi ptr [ %.sroa.022.047, %47 ], [ %30, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.022.047, %14 ]
   %51 = getelementptr inbounds i8, ptr %.sroa.019.044, i64 8
   %.not33 = icmp eq ptr %51, %5
   br i1 %.not33, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit, %1
-  %.sroa.15.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.15.2, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
-  %.sroa.8.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.8.2, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
-  %.sroa.022.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.022.2, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.15.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.15.1, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.8.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.8.1, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
+  %.sroa.022.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.022.1, %_ZNSt6vectorIPN4pkpy8PyObjectESaIS2_EE9push_backERKS2_.exit ]
   %52 = load ptr, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8
@@ -358,23 +358,23 @@ define noundef i32 @_ZN4pkpy11ManagedHeap7collectEv(ptr noundef nonnull align 8 
 
 29:                                               ; preds = %27, %25
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
-  %.15 = phi i1 [ %.04, %27 ], [ true, %25 ]
+  %.4 = phi i1 [ %.04, %27 ], [ true, %25 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
   br label %30
 
 30:                                               ; preds = %29, %23
   %.pn.pn = phi { ptr, i32 } [ %.pn, %29 ], [ %24, %23 ]
-  %.26 = phi i1 [ %.15, %29 ], [ true, %23 ]
+  %.37 = phi i1 [ %.4, %29 ], [ true, %23 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   br label %31
 
 31:                                               ; preds = %21, %30
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %30 ], [ %22, %21 ]
-  %.37 = phi i1 [ %.26, %30 ], [ true, %21 ]
+  %.26 = phi i1 [ %.37, %30 ], [ true, %21 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #16
-  br i1 %.37, label %32, label %35
+  br i1 %.26, label %32, label %35
 
 32:                                               ; preds = %.thread, %31
   %.pn.pn.pn.pn19 = phi { ptr, i32 } [ %20, %.thread ], [ %.pn.pn.pn, %31 ]

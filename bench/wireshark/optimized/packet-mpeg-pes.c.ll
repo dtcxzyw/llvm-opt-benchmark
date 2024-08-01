@@ -1006,37 +1006,37 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   br label %150
 
 150:                                              ; preds = %146, %140
-  %.7 = phi i32 [ %149, %146 ], [ %145, %140 ]
+  %.8 = phi i32 [ %149, %146 ], [ %145, %140 ]
   %151 = and i32 %142, 64
   %.not130 = icmp eq i32 %151, 0
   br i1 %.not130, label %156, label %152
 
 152:                                              ; preds = %150
   %153 = load i32, ptr @hf_mpeg_pes_pack_length, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %153, ptr noundef %0, i32 noundef %.7, i32 noundef 1, i32 noundef 0) #3
-  %155 = add nuw nsw i32 %.7, 1
+  %154 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %153, ptr noundef %0, i32 noundef %.8, i32 noundef 1, i32 noundef 0) #3
+  %155 = add nuw nsw i32 %.8, 1
   br label %156
 
 156:                                              ; preds = %152, %150
-  %.8 = phi i32 [ %155, %152 ], [ %.7, %150 ]
+  %.9 = phi i32 [ %155, %152 ], [ %.8, %150 ]
   %157 = and i32 %142, 32
   %.not131 = icmp eq i32 %157, 0
   br i1 %.not131, label %162, label %158
 
 158:                                              ; preds = %156
   %159 = load i32, ptr @hf_mpeg_pes_sequence, align 4
-  %160 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %159, ptr noundef %0, i32 noundef %.8, i32 noundef 2, i32 noundef 0) #3
-  %161 = add nuw nsw i32 %.8, 2
+  %160 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %159, ptr noundef %0, i32 noundef %.9, i32 noundef 2, i32 noundef 0) #3
+  %161 = add nuw nsw i32 %.9, 2
   br label %162
 
 162:                                              ; preds = %158, %156
-  %.9 = phi i32 [ %161, %158 ], [ %.8, %156 ]
+  %.10 = phi i32 [ %161, %158 ], [ %.9, %156 ]
   %163 = and i32 %142, 16
   %.not132 = icmp eq i32 %163, 0
   br i1 %.not132, label %174, label %164
 
 164:                                              ; preds = %162
-  %165 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.9) #3
+  %165 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.10) #3
   %166 = zext i16 %165 to i32
   %167 = load i32, ptr @hf_mpeg_pes_pstd_buffer, align 4
   %168 = and i32 %166, 8192
@@ -1044,19 +1044,19 @@ define internal fastcc void @dissect_mpeg_pes_header_data(ptr noundef %0, ptr no
   %169 = and i32 %166, 511
   %170 = select i1 %.not133, i32 7, i32 10
   %171 = shl nuw nsw i32 %169, %170
-  %172 = call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %167, ptr noundef %0, i32 noundef %.9, i32 noundef 2, i32 noundef %171) #3
-  %173 = add nuw nsw i32 %.9, 2
+  %172 = call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %167, ptr noundef %0, i32 noundef %.10, i32 noundef 2, i32 noundef %171) #3
+  %173 = add nuw nsw i32 %.10, 2
   br label %174
 
 174:                                              ; preds = %164, %162
-  %.10 = phi i32 [ %173, %164 ], [ %.9, %162 ]
+  %.11 = phi i32 [ %173, %164 ], [ %.10, %162 ]
   %175 = and i32 %142, 1
   %.not134 = icmp eq i32 %175, 0
   br i1 %.not134, label %179, label %176
 
 176:                                              ; preds = %174
   %177 = load i32, ptr @hf_mpeg_pes_extension2, align 4
-  %178 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %177, ptr noundef %0, i32 noundef %.10, i32 noundef 2, i32 noundef 0) #3
+  %178 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %177, ptr noundef %0, i32 noundef %.11, i32 noundef 2, i32 noundef 0) #3
   br label %179
 
 179:                                              ; preds = %174, %176, %138

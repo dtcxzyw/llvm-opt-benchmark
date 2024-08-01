@@ -798,7 +798,7 @@ if.end46.i:                                       ; preds = %if.end27.i
 
 gcm_tls_cipher.exit:                              ; preds = %if.then, %lor.lhs.false.i, %if.end.i, %if.then11.i, %if.then18.i, %lor.lhs.false6.i.i, %if.else.i, %if.end.i35.i, %if.then38.i, %if.then44.i, %if.end46.i
   %rv.0.i = phi i32 [ 0, %if.end.i ], [ 0, %if.then11.i ], [ 1, %if.end46.i ], [ 0, %if.then38.i ], [ 0, %if.then44.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.then ], [ 0, %lor.lhs.false6.i.i ], [ 0, %if.then18.i ], [ 0, %if.else.i ], [ 0, %if.end.i35.i ]
-  %plen.1.i = phi i64 [ 0, %if.end.i ], [ 0, %if.then11.i ], [ %sub.len.i, %if.end46.i ], [ 0, %if.then38.i ], [ 0, %if.then44.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.then ], [ 0, %lor.lhs.false6.i.i ], [ 0, %if.then18.i ], [ 0, %if.else.i ], [ 0, %if.end.i35.i ]
+  %plen.0.i = phi i64 [ 0, %if.end.i ], [ 0, %if.then11.i ], [ %sub.len.i, %if.end46.i ], [ 0, %if.then38.i ], [ 0, %if.then44.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.then ], [ 0, %lor.lhs.false6.i.i ], [ 0, %if.then18.i ], [ 0, %if.else.i ], [ 0, %if.end.i35.i ]
   %iv_state.i = getelementptr inbounds i8, ptr %ctx, i64 80
   store i32 3, ptr %iv_state.i, align 8
   store i64 -1, ptr %tls_aad_len, align 8
@@ -911,11 +911,11 @@ if.end53:                                         ; preds = %if.end48
   br label %finish
 
 finish:                                           ; preds = %if.else, %if.then30, %if.end53
-  %olen.0 = phi i64 [ 0, %if.end53 ], [ %len, %if.then30 ], [ %len, %if.else ]
+  %olen.1 = phi i64 [ 0, %if.end53 ], [ %len, %if.then30 ], [ %len, %if.else ]
   br label %return
 
 return:                                           ; preds = %finish, %if.end, %if.then7, %if.then20, %if.then30, %if.else, %land.lhs.true, %if.end48, %lor.lhs.false12, %if.end.i34, %lor.lhs.false, %gcm_tls_cipher.exit
-  %storemerge = phi i64 [ %plen.1.i, %gcm_tls_cipher.exit ], [ 0, %lor.lhs.false ], [ %olen.0, %finish ], [ 0, %if.then30 ], [ 0, %if.else ], [ 0, %if.end48 ], [ 0, %land.lhs.true ], [ 0, %if.then20 ], [ 0, %if.then7 ], [ 0, %if.end ], [ 0, %lor.lhs.false12 ], [ 0, %if.end.i34 ]
+  %storemerge = phi i64 [ %plen.0.i, %gcm_tls_cipher.exit ], [ 0, %lor.lhs.false ], [ %olen.1, %finish ], [ 0, %if.then30 ], [ 0, %if.else ], [ 0, %if.end48 ], [ 0, %land.lhs.true ], [ 0, %if.then20 ], [ 0, %if.then7 ], [ 0, %if.end ], [ 0, %lor.lhs.false12 ], [ 0, %if.end.i34 ]
   %retval.0 = phi i32 [ %rv.0.i, %gcm_tls_cipher.exit ], [ 0, %lor.lhs.false ], [ 1, %finish ], [ 0, %if.then30 ], [ 0, %if.else ], [ 0, %if.end48 ], [ 0, %land.lhs.true ], [ 0, %if.then20 ], [ 0, %if.then7 ], [ 0, %if.end ], [ 0, %lor.lhs.false12 ], [ 0, %if.end.i34 ]
   store i64 %storemerge, ptr %padlen, align 8
   ret i32 %retval.0

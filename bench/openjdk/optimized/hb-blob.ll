@@ -800,13 +800,13 @@ define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr nocaptur
   br i1 %.not37, label %38, label %.outer
 
 .outer:                                           ; preds = %3, %19
-  %.031.ph = phi ptr [ %.132, %19 ], [ %2, %3 ]
+  %.132.ph = phi ptr [ %.2, %19 ], [ %2, %3 ]
   %.030.ph = phi i64 [ %.1, %19 ], [ 131072, %3 ]
   %.029.ph = phi i64 [ %20, %19 ], [ 0, %3 ]
   br label %5
 
 5:                                                ; preds = %.outer, %15
-  %.031 = phi ptr [ %.132, %15 ], [ %.031.ph, %.outer ]
+  %.132 = phi ptr [ %.2, %15 ], [ %.132.ph, %.outer ]
   %.030 = phi i64 [ %.1, %15 ], [ %.030.ph, %.outer ]
   %6 = tail call i32 @feof(ptr noundef nonnull %4) #20
   %.not38 = icmp eq i32 %6, 0
@@ -823,7 +823,7 @@ define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr nocaptur
   br i1 %12, label %36, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @realloc(ptr noundef %.031, i64 noundef %11) #23
+  %14 = tail call ptr @realloc(ptr noundef %.132, i64 noundef %11) #23
   %.not39 = icmp eq ptr %14, null
   br i1 %.not39, label %36, label %._crit_edge
 
@@ -833,9 +833,9 @@ define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr nocaptur
 
 15:                                               ; preds = %._crit_edge, %7
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %8, %7 ]
-  %.132 = phi ptr [ %14, %._crit_edge ], [ %.031, %7 ]
+  %.2 = phi ptr [ %14, %._crit_edge ], [ %.132, %7 ]
   %.1 = phi i64 [ %11, %._crit_edge ], [ %.030, %7 ]
-  %16 = getelementptr inbounds i8, ptr %.132, i64 %.029.ph
+  %16 = getelementptr inbounds i8, ptr %.2, i64 %.029.ph
   %17 = tail call i64 @fread(ptr noundef %16, i64 noundef 1, i64 noundef %.pre-phi, ptr noundef nonnull %4)
   %18 = tail call i32 @ferror(ptr noundef nonnull %4) #20
   switch i32 %18, label %36 [
@@ -859,7 +859,7 @@ define hidden noalias noundef ptr @hb_blob_create_from_file_or_fail(ptr nocaptur
   br i1 %.not.i.i, label %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, label %27
 
 _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i: ; preds = %25, %21
-  tail call void @free(ptr noundef %.031)
+  tail call void @free(ptr noundef %.132)
   br label %hb_blob_create_or_fail.exit
 
 27:                                               ; preds = %25
@@ -870,25 +870,25 @@ _ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i: ; preds = %25, %21
   store atomic i64 0, ptr %29 monotonic, align 8
   %30 = load atomic i32, ptr %26 monotonic, align 4
   %31 = getelementptr inbounds i8, ptr %26, i64 16
-  store ptr %.031, ptr %31, align 8
+  store ptr %.132, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %26, i64 24
   store i32 %23, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %26, i64 28
   store i32 2, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %26, i64 32
-  store ptr %.031, ptr %34, align 8
+  store ptr %.132, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %26, i64 40
   store ptr @free, ptr %35, align 8
   br label %hb_blob_create_or_fail.exit
 
 36:                                               ; preds = %15, %13, %10
-  %.2 = phi ptr [ %.031, %10 ], [ %.031, %13 ], [ %.132, %15 ]
+  %.3 = phi ptr [ %.132, %10 ], [ %.132, %13 ], [ %.2, %15 ]
   %37 = tail call i32 @fclose(ptr noundef nonnull %4)
   br label %38
 
 38:                                               ; preds = %3, %36
-  %.3 = phi ptr [ %.2, %36 ], [ %2, %3 ]
-  tail call void @free(ptr noundef %.3) #20
+  %.031 = phi ptr [ %.3, %36 ], [ %2, %3 ]
+  tail call void @free(ptr noundef %.031) #20
   br label %hb_blob_create_or_fail.exit
 
 hb_blob_create_or_fail.exit:                      ; preds = %27, %_ZL16hb_object_createI9hb_blob_tJEEPT_DpT0_.exit.thread.i, %1, %38
@@ -1201,9 +1201,9 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE7lsearchIS1_E
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %27, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %30, %.preheader.i.i ], [ %23, %27 ]
-  %28 = lshr i32 %.01542.i.i, 1
-  %29 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %30, %.preheader.i.i ], [ %23, %27 ]
+  %28 = lshr i32 %.142.i.i, 1
+  %29 = add i32 %.142.i.i, 8
   %30 = add i32 %29, %28
   %31 = icmp ult i32 %30, %25
   br i1 %31, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !29
@@ -1229,9 +1229,9 @@ _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vec
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread9.i: ; preds = %36, %.thread.i.i
-  %.138.sink.i.ph.in.i = phi i32 [ %23, %.thread.i.i ], [ %37, %36 ]
-  %.138.sink.i.ph.i = xor i32 %.138.sink.i.ph.in.i, -1
-  store i32 %.138.sink.i.ph.i, ptr %0, align 8
+  %.01538.sink.i.ph.in.i = phi i32 [ %23, %.thread.i.i ], [ %37, %36 ]
+  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
+  store i32 %.01538.sink.i.ph.i, ptr %0, align 8
   br label %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tIN20hb_user_data_array_t19hb_user_data_item_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i

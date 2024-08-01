@@ -425,7 +425,7 @@ invoke.cont86:                                    ; preds = %error
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then48, %if.then51, %if.then23, %if.then26, %invoke.cont86, %invoke.cont84
-  %retval.0 = phi i32 [ 0, %invoke.cont84 ], [ -1, %invoke.cont86 ], [ -1, %if.then26 ], [ -1, %if.then23 ], [ -1, %if.then51 ], [ -1, %if.then48 ]
+  %retval.1 = phi i32 [ 0, %invoke.cont84 ], [ -1, %invoke.cont86 ], [ -1, %if.then26 ], [ -1, %if.then23 ], [ -1, %if.then51 ], [ -1, %if.then48 ]
   call void @_ZN3zmq13ipc_address_tD1Ev(ptr noundef nonnull align 4 dereferenceable(116) %address) #11
   br label %cleanup89
 
@@ -435,9 +435,9 @@ ehcleanup:                                        ; preds = %lpad83, %lpad19
   br label %ehcleanup90
 
 cleanup89:                                        ; preds = %invoke.cont5, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ -1, %invoke.cont5 ]
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ -1, %invoke.cont5 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %addr) #11
-  ret i32 %retval.1
+  ret i32 %retval.0
 
 ehcleanup90:                                      ; preds = %ehcleanup, %lpad2
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad2 ]

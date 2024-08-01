@@ -739,7 +739,7 @@ define internal fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef %1, pt
   br i1 %.not42, label %38, label %37
 
 37:                                               ; preds = %35, %33
-  %.030 = phi i32 [ %34, %33 ], [ %36, %35 ]
+  %.1 = phi i32 [ %34, %33 ], [ %36, %35 ]
   br i1 %.not, label %41, label %.sink.split80
 
 38:                                               ; preds = %35
@@ -758,17 +758,17 @@ define internal fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef %1, pt
 
 .sink.split80:                                    ; preds = %37, %32, %29, %22
   %str.1.sink = phi ptr [ @str.5, %22 ], [ @str.5, %29 ], [ @str.11, %32 ], [ @str.11, %37 ]
-  %.1.ph = phi i32 [ %21, %22 ], [ %24, %29 ], [ %31, %32 ], [ %.030, %37 ]
+  %.030.ph = phi i32 [ %21, %22 ], [ %24, %29 ], [ %31, %32 ], [ %.1, %37 ]
   %puts43 = call i32 @puts(ptr nonnull dereferenceable(1) %str.1.sink)
   br label %41
 
 41:                                               ; preds = %.sink.split80, %37, %32, %29, %22
-  %.1 = phi i32 [ %21, %22 ], [ %24, %29 ], [ %31, %32 ], [ %.030, %37 ], [ %.1.ph, %.sink.split80 ]
+  %.030 = phi i32 [ %21, %22 ], [ %24, %29 ], [ %31, %32 ], [ %.1, %37 ], [ %.030.ph, %.sink.split80 ]
   call void @mbedtls_cipher_free(ptr noundef nonnull %8) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %41, %7
-  %.0 = phi i32 [ -24704, %7 ], [ %.1, %41 ], [ 0, %39 ]
+  %.0 = phi i32 [ -24704, %7 ], [ %.030, %41 ], [ 0, %39 ]
   ret i32 %.0
 }
 

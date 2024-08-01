@@ -675,7 +675,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %212, %215
   br label %762
 
 .preheader473:                                    ; preds = %230, %.preheader474
-  %.0190.lcssa = phi i1 [ true, %.preheader474 ], [ %spec.select, %230 ]
+  %.1191.lcssa = phi i1 [ true, %.preheader474 ], [ %spec.select, %230 ]
   %228 = icmp sgt i32 %222, 0
   br i1 %228, label %.lr.ph488, label %._crit_edge
 
@@ -686,29 +686,29 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %212, %215
 
 230:                                              ; preds = %.lr.ph485, %230
   %indvars.iv557 = phi i64 [ 0, %.lr.ph485 ], [ %indvars.iv.next558, %230 ]
-  %.0190484 = phi i1 [ true, %.lr.ph485 ], [ %spec.select, %230 ]
+  %.1191484 = phi i1 [ true, %.lr.ph485 ], [ %spec.select, %230 ]
   %231 = getelementptr inbounds i32, ptr %225, i64 %indvars.iv557
   %232 = load i32, ptr %231, align 4
   %.not259 = icmp slt i32 %232, %218
-  %spec.select = select i1 %.not259, i1 %.0190484, i1 false
+  %spec.select = select i1 %.not259, i1 %.1191484, i1 false
   %indvars.iv.next558 = add nuw nsw i64 %indvars.iv557, 1
   %exitcond560.not = icmp eq i64 %indvars.iv.next558, %wide.trip.count559
   br i1 %exitcond560.not, label %.preheader473, label %230, !llvm.loop !7
 
 233:                                              ; preds = %.lr.ph488, %233
   %indvars.iv561 = phi i64 [ 0, %.lr.ph488 ], [ %indvars.iv.next562, %233 ]
-  %.2192487 = phi i1 [ %.0190.lcssa, %.lr.ph488 ], [ %spec.select292, %233 ]
+  %.3487 = phi i1 [ %.1191.lcssa, %.lr.ph488 ], [ %spec.select292, %233 ]
   %234 = getelementptr inbounds i32, ptr %229, i64 %indvars.iv561
   %235 = load i32, ptr %234, align 4
   %.not258 = icmp slt i32 %235, %218
-  %spec.select292 = select i1 %.not258, i1 %.2192487, i1 false
+  %spec.select292 = select i1 %.not258, i1 %.3487, i1 false
   %indvars.iv.next562 = add nuw nsw i64 %indvars.iv561, 1
   %exitcond564.not = icmp eq i64 %indvars.iv.next562, %wide.trip.count563
   br i1 %exitcond564.not, label %._crit_edge, label %233, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %233, %.preheader473
-  %.2192.lcssa = phi i1 [ %.0190.lcssa, %.preheader473 ], [ %spec.select292, %233 ]
-  br i1 %.2192.lcssa, label %236, label %.thread
+  %.3.lcssa = phi i1 [ %.1191.lcssa, %.preheader473 ], [ %spec.select292, %233 ]
+  br i1 %.3.lcssa, label %236, label %.thread
 
 236:                                              ; preds = %._crit_edge
   br i1 %170, label %237, label %246

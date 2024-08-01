@@ -376,7 +376,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i
   br label %.noexc
 
 .noexc:                                           ; preds = %if.end.i.i.i.i.i.i.i.i, %entry
-  %bob_dist.sroa.0.0 = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i.i.i37, %if.end.i.i.i.i.i.i.i.i ]
+  %bob_dist.sroa.0.1 = phi ptr [ null, %entry ], [ %call5.i.i.i.i2.i.i.i37, %if.end.i.i.i.i.i.i.i.i ]
   %start_anchored.i = getelementptr inbounds i8, ptr %raw, i64 40
   %2 = load i16, ptr %start_anchored.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %to_visit.i, i8 0, i64 80, i1 false)
@@ -395,7 +395,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i
   store i16 %2, ptr %5, align 2
   %6 = load i16, ptr %start_anchored.i, align 8
   %conv.i = zext i16 %6 to i64
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %bob_dist.sroa.0.0, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds i32, ptr %bob_dist.sroa.0.1, i64 %conv.i
   store i32 0, ptr %add.ptr.i.i, align 4
   %_M_finish.i12.i = getelementptr inbounds i8, ptr %to_visit.i, i64 48
   %_M_start.i.i = getelementptr inbounds i8, ptr %to_visit.i, i64 16
@@ -455,7 +455,7 @@ _ZNSt5dequeItSaItEE9pop_frontEv.exit.i:           ; preds = %if.else.i.i, %if.th
   %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %17, %if.else.i.i ]
   store ptr %storemerge.i.i, ptr %_M_start.i.i, align 8
   %conv7.i = zext i16 %13 to i64
-  %add.ptr.i19.i = getelementptr inbounds i32, ptr %bob_dist.sroa.0.0, i64 %conv7.i
+  %add.ptr.i19.i = getelementptr inbounds i32, ptr %bob_dist.sroa.0.1, i64 %conv7.i
   %18 = load i32, ptr %add.ptr.i19.i, align 4
   %19 = load ptr, ptr %states.i, align 8
   %add.ptr.i20.i = getelementptr inbounds %"struct.ue2::dstate", ptr %19, i64 %conv7.i
@@ -477,7 +477,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
 
 if.end.i:                                         ; preds = %for.body.i
   %conv18.i = zext i16 %22 to i64
-  %add.ptr.i22.i = getelementptr inbounds i32, ptr %bob_dist.sroa.0.0, i64 %conv18.i
+  %add.ptr.i22.i = getelementptr inbounds i32, ptr %bob_dist.sroa.0.1, i64 %conv18.i
   %23 = load i32, ptr %add.ptr.i22.i, align 4
   %cmp20.i = icmp eq i32 %23, -1
   br i1 %cmp20.i, label %if.then21.i, label %for.inc.i
@@ -639,11 +639,11 @@ for.cond.preheader:                               ; preds = %invoke.cont
 
 lpad.body:                                        ; preds = %lpad.i.i, %lpad22.i
   %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %lpad22.i ], [ %9, %lpad.i.i ]
-  %tobool.not.i.i.i14 = icmp eq ptr %bob_dist.sroa.0.0, null
+  %tobool.not.i.i.i14 = icmp eq ptr %bob_dist.sroa.0.1, null
   br i1 %tobool.not.i.i.i14, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %if.then.i.i.i15
 
 if.then.i.i.i15:                                  ; preds = %lpad.body
-  call void @_ZdlPv(ptr noundef nonnull %bob_dist.sroa.0.0) #21
+  call void @_ZdlPv(ptr noundef nonnull %bob_dist.sroa.0.1) #21
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %lpad.body, %if.then.i.i.i15
@@ -655,7 +655,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %conv69 = phi i64 [ %conv, %for.inc ], [ 1, %for.cond.preheader ]
   %s.068 = phi i32 [ %inc, %for.inc ], [ 1, %for.cond.preheader ]
   %changed.067 = phi i1 [ %changed.1, %for.inc ], [ false, %for.cond.preheader ]
-  %add.ptr.i = getelementptr inbounds i32, ptr %bob_dist.sroa.0.0, i64 %conv69
+  %add.ptr.i = getelementptr inbounds i32, ptr %bob_dist.sroa.0.1, i64 %conv69
   %47 = load i32, ptr %add.ptr.i, align 4
   %cmp5 = icmp ugt i32 %47, %max_offset
   br i1 %cmp5, label %land.lhs.true, label %for.inc
@@ -840,12 +840,12 @@ do.end26:                                         ; preds = %for.end.i.i.i.i.i, 
 
 cleanup:                                          ; preds = %for.cond.preheader, %invoke.cont21, %do.end26, %invoke.cont
   %retval.0 = phi i1 [ false, %invoke.cont ], [ true, %do.end26 ], [ true, %invoke.cont21 ], [ false, %for.cond.preheader ]
-  %tobool.not.i.i.i22 = icmp eq ptr %bob_dist.sroa.0.0, null
+  %tobool.not.i.i.i22 = icmp eq ptr %bob_dist.sroa.0.1, null
   br i1 %tobool.not.i.i.i22, label %_ZNSt6vectorIjSaIjEED2Ev.exit24, label %if.then.i.i.i23
 
 if.then.i.i.i23:                                  ; preds = %for.end, %cleanup
   %retval.096 = phi i1 [ %retval.0, %cleanup ], [ false, %for.end ]
-  call void @_ZdlPv(ptr noundef nonnull %bob_dist.sroa.0.0) #21
+  call void @_ZdlPv(ptr noundef nonnull %bob_dist.sroa.0.1) #21
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit24
 
 _ZNSt6vectorIjSaIjEED2Ev.exit24:                  ; preds = %cleanup, %if.then.i.i.i23

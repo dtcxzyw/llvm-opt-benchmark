@@ -1605,11 +1605,11 @@ define dso_local void @drm_crtc_send_vblank_event(ptr nocapture noundef readonly
   br label %drm_vblank_count_and_time.exit
 
 drm_vblank_count_and_time.exit:                   ; preds = %.loopexit.i, %29, %43
-  %.1 = phi i64 [ %44, %43 ], [ 0, %29 ], [ %40, %.loopexit.i ]
+  %.0 = phi i64 [ %44, %43 ], [ 0, %29 ], [ %40, %.loopexit.i ]
   %45 = phi i64 [ 0, %43 ], [ 0, %29 ], [ %39, %.loopexit.i ]
   %46 = getelementptr inbounds i8, ptr %1, i64 72
   store i32 %5, ptr %46, align 8
-  tail call fastcc void @send_vblank_event(ptr noundef %3, ptr noundef %1, i64 noundef %45, i64 noundef %.1)
+  tail call fastcc void @send_vblank_event(ptr noundef %3, ptr noundef %1, i64 noundef %45, i64 noundef %.0)
   ret void
 }
 

@@ -768,7 +768,7 @@ define dso_local void @manifest_files_stat(ptr nocapture noundef readonly %0) lo
 8:                                                ; preds = %.lr.ph, %29
   %9 = phi i64 [ %5, %.lr.ph ], [ %30, %29 ]
   %10 = phi i64 [ 0, %.lr.ph ], [ %32, %29 ]
-  %.072 = phi i32 [ 0, %.lr.ph ], [ %.2, %29 ]
+  %.072 = phi i32 [ 0, %.lr.ph ], [ %.1, %29 ]
   %.04871 = phi i32 [ 0, %.lr.ph ], [ %.149, %29 ]
   %.05769 = phi i32 [ 0, %.lr.ph ], [ %31, %29 ]
   %11 = load ptr, ptr %6, align 8
@@ -810,7 +810,7 @@ manifest_files_distance.exit:                     ; preds = %14, %20
 29:                                               ; preds = %8, %manifest_files_distance.exit
   %30 = phi i64 [ %9, %8 ], [ %.pre, %manifest_files_distance.exit ]
   %.149 = phi i32 [ %.04871, %8 ], [ %24, %manifest_files_distance.exit ]
-  %.2 = phi i32 [ %.072, %8 ], [ %spec.select, %manifest_files_distance.exit ]
+  %.1 = phi i32 [ %.072, %8 ], [ %spec.select, %manifest_files_distance.exit ]
   %31 = add i32 %.05769, 1
   %32 = zext i32 %31 to i64
   %33 = icmp ugt i64 %30, %32
@@ -836,7 +836,7 @@ manifest_files_distance.exit:                     ; preds = %14, %20
 
 ._crit_edge:                                      ; preds = %.lr.ph78, %1, %.preheader
   %.lcssa90 = phi i64 [ 0, %.preheader ], [ 0, %1 ], [ %30, %.lr.ph78 ]
-  %.0.lcssa89 = phi i32 [ %.2, %.preheader ], [ 0, %1 ], [ %.2, %.lr.ph78 ]
+  %.0.lcssa89 = phi i32 [ %.1, %.preheader ], [ 0, %1 ], [ %.1, %.lr.ph78 ]
   %.048.lcssa88 = phi i32 [ %.149, %.preheader ], [ 0, %1 ], [ %.149, %.lr.ph78 ]
   %.055.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.156, %.lr.ph78 ]
   %.053.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.154, %.lr.ph78 ]

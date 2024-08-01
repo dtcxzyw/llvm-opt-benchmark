@@ -691,18 +691,18 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
   br label %87
 
 87:                                               ; preds = %83, %77, %71, %66, %61, %56, %51, %46, %41, %35, %31
-  %.sroa.0.sroa.11.0 = phi i64 [ 0, %83 ], [ %.sroa.0.sroa.11.0.extract.shift69, %77 ], [ 0, %71 ], [ %.sroa.0.sroa.11.0.extract.shift71, %66 ], [ 0, %61 ], [ 0, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %41 ], [ %.sroa.0.sroa.11.0.extract.shift, %35 ], [ 0, %31 ]
-  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ 0, %83 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc82, %77 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift, %71 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc84, %66 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift77, %61 ], [ 0, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %41 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc80, %35 ], [ 0, %31 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ 0, %83 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc89, %77 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc86, %71 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc90, %66 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc87, %61 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc85, %56 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %51 ], [ %50, %46 ], [ %45, %41 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc88, %35 ], [ 0, %31 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ 0, %83 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc100, %77 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc94, %71 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc102, %66 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc96, %61 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift91, %56 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %51 ], [ 0, %46 ], [ 0, %41 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc98, %35 ], [ 0, %31 ]
+  %.sroa.0.sroa.11.2 = phi i64 [ 0, %83 ], [ %.sroa.0.sroa.11.0.extract.shift69, %77 ], [ 0, %71 ], [ %.sroa.0.sroa.11.0.extract.shift71, %66 ], [ 0, %61 ], [ 0, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %41 ], [ %.sroa.0.sroa.11.0.extract.shift, %35 ], [ 0, %31 ]
+  %.sroa.0.sroa.0.sroa.11.2 = phi i32 [ 0, %83 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc82, %77 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift, %71 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc84, %66 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift77, %61 ], [ 0, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %41 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc80, %35 ], [ 0, %31 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.2 = phi i8 [ 0, %83 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc89, %77 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc86, %71 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc90, %66 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc87, %61 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc85, %56 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %51 ], [ %50, %46 ], [ %45, %41 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc88, %35 ], [ 0, %31 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.11.2 = phi i16 [ 0, %83 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc100, %77 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc94, %71 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc102, %66 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc96, %61 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift91, %56 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %51 ], [ 0, %46 ], [ 0, %41 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc98, %35 ], [ 0, %31 ]
   call void @llvm.va_end.p0(ptr nonnull %6)
-  %88 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, 8
-  %89 = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0 to i16
-  %90 = shl i32 %.sroa.0.sroa.0.sroa.11.0, 16
+  %88 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.2, 8
+  %89 = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.2 to i16
+  %90 = shl i32 %.sroa.0.sroa.0.sroa.11.2, 16
   br label %91
 
 91:                                               ; preds = %23, %87
-  %.sroa.0.sroa.11.1 = phi i64 [ 0, %23 ], [ %.sroa.0.sroa.11.0, %87 ]
+  %.sroa.0.sroa.11.1 = phi i64 [ 0, %23 ], [ %.sroa.0.sroa.11.2, %87 ]
   %.sroa.0.sroa.0.sroa.11.1 = phi i32 [ 0, %23 ], [ %90, %87 ]
   %.sroa.0.sroa.0.sroa.0.sroa.0.1 = phi i16 [ 0, %23 ], [ %89, %87 ]
   %.sroa.0.sroa.0.sroa.0.sroa.11.1 = phi i16 [ 0, %23 ], [ %88, %87 ]
@@ -713,10 +713,10 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
   br label %95
 
 95:                                               ; preds = %17, %.critedge, %91
-  %.sroa.0.sroa.11.2 = phi i64 [ 0, %.critedge ], [ 0, %17 ], [ %.sroa.0.sroa.11.1, %91 ]
-  %.sroa.0.sroa.0.sroa.11.2 = phi i32 [ 0, %.critedge ], [ 0, %17 ], [ %.sroa.0.sroa.0.sroa.11.1, %91 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.2 = phi i16 [ 0, %.critedge ], [ 0, %17 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.1, %91 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.2 = phi i16 [ 0, %.critedge ], [ 0, %17 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.1, %91 ]
+  %.sroa.0.sroa.11.0 = phi i64 [ 0, %.critedge ], [ 0, %17 ], [ %.sroa.0.sroa.11.1, %91 ]
+  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ 0, %.critedge ], [ 0, %17 ], [ %.sroa.0.sroa.0.sroa.11.1, %91 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i16 [ 0, %.critedge ], [ 0, %17 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.1, %91 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ 0, %.critedge ], [ 0, %17 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.1, %91 ]
   %.not116 = icmp eq ptr %1, null
   br i1 %.not116, label %101, label %96
 
@@ -729,11 +729,11 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly %1,
   br label %101
 
 101:                                              ; preds = %96, %95
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or i16 %.sroa.0.sroa.0.sroa.0.sroa.11.2, %.sroa.0.sroa.0.sroa.0.sroa.0.2
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.sroa.0.0
   %.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert to i32
-  %.sroa.0.sroa.0.sroa.0.0.insert.insert = or i32 %.sroa.0.sroa.0.sroa.11.2, %.sroa.0.sroa.0.sroa.0.0.insert.ext
+  %.sroa.0.sroa.0.sroa.0.0.insert.insert = or i32 %.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.0.insert.ext
   %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.0.sroa.0.sroa.0.0.insert.insert to i64
-  %.sroa.0.sroa.0.0.insert.insert = or i64 %.sroa.0.sroa.11.2, %.sroa.0.sroa.0.0.insert.ext
+  %.sroa.0.sroa.0.0.insert.insert = or i64 %.sroa.0.sroa.11.0, %.sroa.0.sroa.0.0.insert.ext
   ret i64 %.sroa.0.sroa.0.0.insert.insert
 }
 
@@ -907,24 +907,24 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
   br label %85
 
 85:                                               ; preds = %29, %33, %39, %44, %49, %54, %59, %64, %69, %75, %81, %17
-  %.sroa.0.sroa.11.0 = phi i64 [ 0, %17 ], [ 0, %81 ], [ %.sroa.0.sroa.11.0.extract.shift78, %75 ], [ 0, %69 ], [ %.sroa.0.sroa.11.0.extract.shift80, %64 ], [ 0, %59 ], [ 0, %54 ], [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ %.sroa.0.sroa.11.0.extract.shift, %33 ], [ 0, %29 ]
-  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ 0, %17 ], [ 0, %81 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc91, %75 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift, %69 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc93, %64 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift86, %59 ], [ 0, %54 ], [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc89, %33 ], [ 0, %29 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ 0, %17 ], [ 0, %81 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc98, %75 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc95, %69 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc99, %64 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc96, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc94, %54 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %49 ], [ %48, %44 ], [ %43, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc97, %33 ], [ 0, %29 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ 0, %17 ], [ 0, %81 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc109, %75 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc103, %69 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc111, %64 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc105, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift100, %54 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %49 ], [ 0, %44 ], [ 0, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc107, %33 ], [ 0, %29 ]
+  %.sroa.0.sroa.11.1 = phi i64 [ 0, %17 ], [ 0, %81 ], [ %.sroa.0.sroa.11.0.extract.shift78, %75 ], [ 0, %69 ], [ %.sroa.0.sroa.11.0.extract.shift80, %64 ], [ 0, %59 ], [ 0, %54 ], [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ %.sroa.0.sroa.11.0.extract.shift, %33 ], [ 0, %29 ]
+  %.sroa.0.sroa.0.sroa.11.1 = phi i32 [ 0, %17 ], [ 0, %81 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc91, %75 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift, %69 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc93, %64 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift86, %59 ], [ 0, %54 ], [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc89, %33 ], [ 0, %29 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.1 = phi i8 [ 0, %17 ], [ 0, %81 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc98, %75 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc95, %69 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc99, %64 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc96, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc94, %54 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %49 ], [ %48, %44 ], [ %43, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc97, %33 ], [ 0, %29 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.11.1 = phi i16 [ 0, %17 ], [ 0, %81 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc109, %75 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc103, %69 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc111, %64 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc105, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift100, %54 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %49 ], [ 0, %44 ], [ 0, %39 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc107, %33 ], [ 0, %29 ]
   %86 = load ptr, ptr %0, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 184
   %88 = load ptr, ptr %87, align 8
   tail call void %88(ptr noundef nonnull %0, ptr noundef %21) #10
-  %89 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, 8
-  %90 = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0 to i16
-  %91 = shl i32 %.sroa.0.sroa.0.sroa.11.0, 16
+  %89 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.1, 8
+  %90 = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.1 to i16
+  %91 = shl i32 %.sroa.0.sroa.0.sroa.11.1, 16
   br label %92
 
 92:                                               ; preds = %.critedge, %85
-  %.sroa.0.sroa.11.1 = phi i64 [ 0, %.critedge ], [ %.sroa.0.sroa.11.0, %85 ]
-  %.sroa.0.sroa.0.sroa.11.1 = phi i32 [ 0, %.critedge ], [ %91, %85 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.1 = phi i16 [ 0, %.critedge ], [ %90, %85 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.1 = phi i16 [ 0, %.critedge ], [ %89, %85 ]
+  %.sroa.0.sroa.11.0 = phi i64 [ 0, %.critedge ], [ %.sroa.0.sroa.11.1, %85 ]
+  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ 0, %.critedge ], [ %91, %85 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i16 [ 0, %.critedge ], [ %90, %85 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ 0, %.critedge ], [ %89, %85 ]
   %.not124 = icmp eq ptr %1, null
   br i1 %.not124, label %98, label %93
 
@@ -937,11 +937,11 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly %1, ptr 
   br label %98
 
 98:                                               ; preds = %93, %92
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.11.1, %.sroa.0.sroa.0.sroa.0.sroa.0.1
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.sroa.0.0
   %.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert to i32
-  %.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.0.sroa.11.1, %.sroa.0.sroa.0.sroa.0.0.insert.ext
+  %.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.0.insert.ext
   %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.0.sroa.0.sroa.0.0.insert.insert to i64
-  %.sroa.0.sroa.0.0.insert.insert = or i64 %.sroa.0.sroa.11.1, %.sroa.0.sroa.0.0.insert.ext
+  %.sroa.0.sroa.0.0.insert.insert = or i64 %.sroa.0.sroa.11.0, %.sroa.0.sroa.0.0.insert.ext
   ret i64 %.sroa.0.sroa.0.0.insert.insert
 }
 
@@ -2585,24 +2585,24 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
   br label %75
 
 75:                                               ; preds = %23, %29, %34, %39, %44, %49, %54, %59, %65, %71, %11
-  %.sroa.0.sroa.11.0 = phi i64 [ 0, %11 ], [ 0, %71 ], [ %.sroa.0.sroa.11.0.extract.shift59, %65 ], [ 0, %59 ], [ %.sroa.0.sroa.11.0.extract.shift61, %54 ], [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %34 ], [ 0, %29 ], [ %.sroa.0.sroa.11.0.extract.shift, %23 ]
-  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ 0, %11 ], [ 0, %71 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc72, %65 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift, %59 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc74, %54 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift67, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %34 ], [ 0, %29 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc70, %23 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ 0, %11 ], [ 0, %71 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc79, %65 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc76, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc80, %54 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc77, %49 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc75, %44 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %39 ], [ %38, %34 ], [ %33, %29 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc78, %23 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ 0, %11 ], [ 0, %71 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc90, %65 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc84, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc92, %54 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc86, %49 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift81, %44 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %39 ], [ 0, %34 ], [ 0, %29 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc88, %23 ]
+  %.sroa.0.sroa.11.1 = phi i64 [ 0, %11 ], [ 0, %71 ], [ %.sroa.0.sroa.11.0.extract.shift59, %65 ], [ 0, %59 ], [ %.sroa.0.sroa.11.0.extract.shift61, %54 ], [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %34 ], [ 0, %29 ], [ %.sroa.0.sroa.11.0.extract.shift, %23 ]
+  %.sroa.0.sroa.0.sroa.11.1 = phi i32 [ 0, %11 ], [ 0, %71 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc72, %65 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift, %59 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc74, %54 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift67, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %34 ], [ 0, %29 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc70, %23 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.1 = phi i8 [ 0, %11 ], [ 0, %71 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc79, %65 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc76, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc80, %54 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc77, %49 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc75, %44 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %39 ], [ %38, %34 ], [ %33, %29 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc78, %23 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.11.1 = phi i16 [ 0, %11 ], [ 0, %71 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc90, %65 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc84, %59 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc92, %54 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc86, %49 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift81, %44 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %39 ], [ 0, %34 ], [ 0, %29 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc88, %23 ]
   %76 = load ptr, ptr %0, align 8
   %77 = getelementptr inbounds i8, ptr %76, i64 184
   %78 = load ptr, ptr %77, align 8
   tail call void %78(ptr noundef nonnull %0, ptr noundef %15) #10
-  %79 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, 8
-  %80 = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0 to i16
-  %81 = shl i32 %.sroa.0.sroa.0.sroa.11.0, 16
+  %79 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.1, 8
+  %80 = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.1 to i16
+  %81 = shl i32 %.sroa.0.sroa.0.sroa.11.1, 16
   br label %82
 
 82:                                               ; preds = %5, %75
-  %.sroa.0.sroa.11.1 = phi i64 [ 0, %5 ], [ %.sroa.0.sroa.11.0, %75 ]
-  %.sroa.0.sroa.0.sroa.11.1 = phi i32 [ 0, %5 ], [ %81, %75 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.1 = phi i16 [ 0, %5 ], [ %80, %75 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.1 = phi i16 [ 0, %5 ], [ %79, %75 ]
+  %.sroa.0.sroa.11.0 = phi i64 [ 0, %5 ], [ %.sroa.0.sroa.11.1, %75 ]
+  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ 0, %5 ], [ %81, %75 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i16 [ 0, %5 ], [ %80, %75 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ 0, %5 ], [ %79, %75 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %88, label %83
 
@@ -2615,11 +2615,11 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly %1, ptr nou
   br label %88
 
 88:                                               ; preds = %83, %82
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.11.1, %.sroa.0.sroa.0.sroa.0.sroa.0.1
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.sroa.0.0
   %.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert to i32
-  %.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.0.sroa.11.1, %.sroa.0.sroa.0.sroa.0.0.insert.ext
+  %.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.0.insert.ext
   %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.0.sroa.0.sroa.0.0.insert.insert to i64
-  %.sroa.0.sroa.0.0.insert.insert = or i64 %.sroa.0.sroa.11.1, %.sroa.0.sroa.0.0.insert.ext
+  %.sroa.0.sroa.0.0.insert.insert = or i64 %.sroa.0.sroa.11.0, %.sroa.0.sroa.0.0.insert.ext
   ret i64 %.sroa.0.sroa.0.0.insert.insert
 }
 
@@ -3116,24 +3116,24 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
   br label %77
 
 77:                                               ; preds = %25, %31, %36, %41, %46, %51, %56, %61, %67, %73, %17
-  %.sroa.0.sroa.11.0 = phi i64 [ 0, %17 ], [ 0, %73 ], [ %.sroa.0.sroa.11.0.extract.shift60, %67 ], [ 0, %61 ], [ %.sroa.0.sroa.11.0.extract.shift62, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %41 ], [ 0, %36 ], [ 0, %31 ], [ %.sroa.0.sroa.11.0.extract.shift, %25 ]
-  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ 0, %17 ], [ 0, %73 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc73, %67 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift, %61 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc75, %56 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift68, %51 ], [ 0, %46 ], [ 0, %41 ], [ 0, %36 ], [ 0, %31 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc71, %25 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i8 [ 0, %17 ], [ 0, %73 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc80, %67 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc77, %61 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc81, %56 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc78, %51 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc76, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %41 ], [ %40, %36 ], [ %35, %31 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc79, %25 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ 0, %17 ], [ 0, %73 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc91, %67 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc85, %61 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc93, %56 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc87, %51 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift82, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %41 ], [ 0, %36 ], [ 0, %31 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc89, %25 ]
+  %.sroa.0.sroa.11.1 = phi i64 [ 0, %17 ], [ 0, %73 ], [ %.sroa.0.sroa.11.0.extract.shift60, %67 ], [ 0, %61 ], [ %.sroa.0.sroa.11.0.extract.shift62, %56 ], [ 0, %51 ], [ 0, %46 ], [ 0, %41 ], [ 0, %36 ], [ 0, %31 ], [ %.sroa.0.sroa.11.0.extract.shift, %25 ]
+  %.sroa.0.sroa.0.sroa.11.1 = phi i32 [ 0, %17 ], [ 0, %73 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc73, %67 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift, %61 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc75, %56 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.shift68, %51 ], [ 0, %46 ], [ 0, %41 ], [ 0, %36 ], [ 0, %31 ], [ %.sroa.0.sroa.0.sroa.11.0.extract.trunc71, %25 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.1 = phi i8 [ 0, %17 ], [ 0, %73 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc80, %67 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc77, %61 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc81, %56 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc78, %51 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc76, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc, %41 ], [ %40, %36 ], [ %35, %31 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.0.extract.trunc79, %25 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.11.1 = phi i16 [ 0, %17 ], [ 0, %73 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc91, %67 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc85, %61 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc93, %56 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc87, %51 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift82, %46 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.shift, %41 ], [ 0, %36 ], [ 0, %31 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.0.extract.trunc89, %25 ]
   %78 = load ptr, ptr %0, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 184
   %80 = load ptr, ptr %79, align 8
   tail call void %80(ptr noundef nonnull %0, ptr noundef nonnull %15) #10
-  %81 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, 8
-  %82 = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.0 to i16
-  %83 = shl i32 %.sroa.0.sroa.0.sroa.11.0, 16
+  %81 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.1, 8
+  %82 = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.1 to i16
+  %83 = shl i32 %.sroa.0.sroa.0.sroa.11.1, 16
   br label %84
 
 84:                                               ; preds = %11, %5, %77
-  %.sroa.0.sroa.11.1 = phi i64 [ 0, %5 ], [ 0, %11 ], [ %.sroa.0.sroa.11.0, %77 ]
-  %.sroa.0.sroa.0.sroa.11.1 = phi i32 [ 0, %5 ], [ 0, %11 ], [ %83, %77 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.1 = phi i16 [ 0, %5 ], [ 0, %11 ], [ %82, %77 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.1 = phi i16 [ 0, %5 ], [ 0, %11 ], [ %81, %77 ]
+  %.sroa.0.sroa.11.0 = phi i64 [ 0, %5 ], [ 0, %11 ], [ %.sroa.0.sroa.11.1, %77 ]
+  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ 0, %5 ], [ 0, %11 ], [ %83, %77 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i16 [ 0, %5 ], [ 0, %11 ], [ %82, %77 ]
+  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ 0, %5 ], [ 0, %11 ], [ %81, %77 ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %90, label %85
 
@@ -3146,11 +3146,11 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly %1, p
   br label %90
 
 90:                                               ; preds = %85, %84
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.11.1, %.sroa.0.sroa.0.sroa.0.sroa.0.1
+  %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.sroa.0.0
   %.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert to i32
-  %.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.0.sroa.11.1, %.sroa.0.sroa.0.sroa.0.0.insert.ext
+  %.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.0.insert.ext
   %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.0.sroa.0.sroa.0.0.insert.insert to i64
-  %.sroa.0.sroa.0.0.insert.insert = or i64 %.sroa.0.sroa.11.1, %.sroa.0.sroa.0.0.insert.ext
+  %.sroa.0.sroa.0.0.insert.insert = or i64 %.sroa.0.sroa.11.0, %.sroa.0.sroa.0.0.insert.ext
   ret i64 %.sroa.0.sroa.0.0.insert.insert
 }
 

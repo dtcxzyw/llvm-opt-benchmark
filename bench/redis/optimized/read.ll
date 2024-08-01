@@ -1718,9 +1718,9 @@ if.else54.i.i:                                    ; preds = %land.lhs.true46.i.i
   br label %if.then61.i.i
 
 if.then61.i.i:                                    ; preds = %if.else54.i.i, %if.then49.i.i, %if.then20.i.i
-  %obj.2.ph.i.i = phi ptr [ %134, %if.else54.i.i ], [ %call53.i.i, %if.then49.i.i ], [ %call23.i.i, %if.then20.i.i ]
+  %obj.1.ph.i.i = phi ptr [ %134, %if.else54.i.i ], [ %call53.i.i, %if.then49.i.i ], [ %call23.i.i, %if.then20.i.i ]
   %bytelen.0.ph.i.i = phi i64 [ %add27.i.i, %if.else54.i.i ], [ %add27.i.i, %if.then49.i.i ], [ %add.i42.i, %if.then20.i.i ]
-  %cmp62.i.i = icmp eq ptr %obj.2.ph.i.i, null
+  %cmp62.i.i = icmp eq ptr %obj.1.ph.i.i, null
   br i1 %cmp62.i.i, label %if.then64.i.i, label %if.then61.if.end65_crit_edge.i.i
 
 if.then61.if.end65_crit_edge.i.i:                 ; preds = %if.then61.i.i
@@ -1763,14 +1763,14 @@ if.end65.i.i:                                     ; preds = %if.then61.if.end65_
   %139 = phi i32 [ %.pre123.i.i, %if.then61.if.end65_crit_edge.i.i ], [ %103, %if.then17.i.i ], [ %103, %land.lhs.true.i100.i ]
   %140 = phi i64 [ %.pre122.i.i, %if.then61.if.end65_crit_edge.i.i ], [ %107, %if.then17.i.i ], [ %107, %land.lhs.true.i100.i ]
   %bytelen.0.ph112.i.i = phi i64 [ %bytelen.0.ph.i.i, %if.then61.if.end65_crit_edge.i.i ], [ %add.i42.i, %if.then17.i.i ], [ %add.i42.i, %land.lhs.true.i100.i ]
-  %obj.2.ph111.i.i = phi ptr [ %obj.2.ph.i.i, %if.then61.if.end65_crit_edge.i.i ], [ inttoptr (i64 4 to ptr), %if.then17.i.i ], [ inttoptr (i64 4 to ptr), %land.lhs.true.i100.i ]
+  %obj.1.ph111.i.i = phi ptr [ %obj.1.ph.i.i, %if.then61.if.end65_crit_edge.i.i ], [ inttoptr (i64 4 to ptr), %if.then17.i.i ], [ inttoptr (i64 4 to ptr), %land.lhs.true.i100.i ]
   %add67.i.i = add i64 %bytelen.0.ph112.i.i, %140
   store i64 %add67.i.i, ptr %pos.i.i, align 8
   %cmp69.i.i = icmp eq i32 %139, 0
   br i1 %cmp69.i.i, label %while.body.lr.ph.i.thread.i80.i, label %if.end72.i.i
 
 while.body.lr.ph.i.thread.i80.i:                  ; preds = %if.end65.i.i
-  store ptr %obj.2.ph111.i.i, ptr %reply.i197.i, align 8
+  store ptr %obj.1.ph111.i.i, ptr %reply.i197.i, align 8
   br label %if.then.i90.i.i
 
 if.end72.i.i:                                     ; preds = %if.end65.i.i
@@ -2173,8 +2173,8 @@ if.else54.i198.i:                                 ; preds = %land.lhs.true47.i19
   br label %if.end57.i.i
 
 if.end57.i.i:                                     ; preds = %if.else54.i198.i, %if.then50.i.i
-  %obj.1.i.i = phi ptr [ %call53.i195.i, %if.then50.i.i ], [ %187, %if.else54.i198.i ]
-  %cmp58.i.i = icmp eq ptr %obj.1.i.i, null
+  %obj.2.i.i = phi ptr [ %call53.i195.i, %if.then50.i.i ], [ %187, %if.else54.i198.i ]
+  %cmp58.i.i = icmp eq ptr %obj.2.i.i, null
   br i1 %cmp58.i.i, label %if.then60.i.i, label %if.end61.i.i
 
 if.then60.i.i:                                    ; preds = %if.end57.i.i
@@ -2189,7 +2189,7 @@ if.then64.i196.i:                                 ; preds = %if.end61.i.i
   %elements65.i.i = getelementptr inbounds i8, ptr %149, i64 8
   store i64 %spec.select.i.i, ptr %elements65.i.i, align 8
   %obj66.i.i = getelementptr inbounds i8, ptr %149, i64 24
-  store ptr %obj.1.i.i, ptr %obj66.i.i, align 8
+  store ptr %obj.2.i.i, ptr %obj66.i.i, align 8
   %188 = load i32, ptr %ridx, align 4
   %inc.i.i = add nsw i32 %188, 1
   store i32 %inc.i.i, ptr %ridx, align 4
@@ -2241,11 +2241,11 @@ if.else96.i.i:                                    ; preds = %if.end61.i.i
   br label %if.end98.i.i
 
 if.end98.i.i:                                     ; preds = %if.else96.i.i, %if.then64.i196.i, %if.end39.i.i
-  %obj.2.i.i = phi ptr [ %obj.0102.i.i, %if.end39.i.i ], [ %obj.1.i.i, %if.then64.i196.i ], [ %obj.1.i.i, %if.else96.i.i ]
+  %obj.1.i.i = phi ptr [ %obj.0102.i.i, %if.end39.i.i ], [ %obj.2.i.i, %if.then64.i196.i ], [ %obj.2.i.i, %if.else96.i.i ]
   br i1 %cmp1499.i.i, label %if.then100.i.i, label %processItem.exit
 
 if.then100.i.i:                                   ; preds = %if.end98.i.i
-  store ptr %obj.2.i.i, ptr %reply.i197.i, align 8
+  store ptr %obj.1.i.i, ptr %reply.i197.i, align 8
   br label %processItem.exit
 
 processItem.exit:                                 ; preds = %processLineItem.exit.i, %if.end72.i.i, %if.then.i90.i.i, %if.else.i89.i.i, %if.end98.i.i, %if.then100.i.i

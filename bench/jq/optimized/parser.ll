@@ -325,37 +325,37 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br label %32
 
 30:                                               ; preds = %2053, %2057, %2120, %108
-  %.01247 = phi ptr [ %.41251, %2120 ], [ %.11248, %2053 ], [ %.11248, %2057 ], [ %.11248, %108 ]
-  %.01183 = phi ptr [ %2123, %2120 ], [ %2036, %2053 ], [ %2036, %2057 ], [ %110, %108 ]
-  %.01173 = phi ptr [ %2122, %2120 ], [ %2035, %2053 ], [ %2035, %2057 ], [ %109, %108 ]
-  %.01163 = phi ptr [ %.31166, %2120 ], [ %2033, %2053 ], [ %2033, %2057 ], [ %.21165, %108 ]
-  %.01153 = phi i32 [ 3, %2120 ], [ %.11154, %2053 ], [ %.11154, %2057 ], [ %spec.select, %108 ]
-  %.01150 = phi i32 [ %2121, %2120 ], [ %2056, %2053 ], [ %2060, %2057 ], [ %102, %108 ]
-  %.01145 = phi i32 [ %.7, %2120 ], [ %.5, %2053 ], [ %.5, %2057 ], [ -2, %108 ]
-  %31 = getelementptr inbounds i8, ptr %.01163, i64 2
+  %.11248 = phi ptr [ %.3, %2120 ], [ %.01247, %2053 ], [ %.01247, %2057 ], [ %.01247, %108 ]
+  %.11184 = phi ptr [ %2123, %2120 ], [ %2036, %2053 ], [ %2036, %2057 ], [ %110, %108 ]
+  %.11174 = phi ptr [ %2122, %2120 ], [ %2035, %2053 ], [ %2035, %2057 ], [ %109, %108 ]
+  %.11164 = phi ptr [ %.51168, %2120 ], [ %2033, %2053 ], [ %2033, %2057 ], [ %.21165, %108 ]
+  %.11154 = phi i32 [ 3, %2120 ], [ %.01153, %2053 ], [ %.01153, %2057 ], [ %spec.select, %108 ]
+  %.11151 = phi i32 [ %2121, %2120 ], [ %2056, %2053 ], [ %2060, %2057 ], [ %102, %108 ]
+  %.1 = phi i32 [ %.7, %2120 ], [ %.9, %2053 ], [ %.9, %2057 ], [ -2, %108 ]
+  %31 = getelementptr inbounds i8, ptr %.11164, i64 2
   br label %32
 
 32:                                               ; preds = %30, %4
-  %.11248 = phi ptr [ %11, %4 ], [ %.01247, %30 ]
-  %.11184 = phi ptr [ %9, %4 ], [ %.01183, %30 ]
+  %.01247 = phi ptr [ %11, %4 ], [ %.11248, %30 ]
+  %.01183 = phi ptr [ %9, %4 ], [ %.11184, %30 ]
   %.01181 = phi ptr [ %9, %4 ], [ %.11182, %30 ]
-  %.11174 = phi ptr [ %8, %4 ], [ %.01173, %30 ]
+  %.01173 = phi ptr [ %8, %4 ], [ %.11174, %30 ]
   %.01171 = phi ptr [ %8, %4 ], [ %.11172, %30 ]
-  %.11164 = phi ptr [ %7, %4 ], [ %31, %30 ]
+  %.01163 = phi ptr [ %7, %4 ], [ %31, %30 ]
   %.01158 = phi ptr [ %7, %4 ], [ %.11159, %30 ]
   %.01156 = phi i64 [ 200, %4 ], [ %.11157, %30 ]
-  %.11154 = phi i32 [ 0, %4 ], [ %.01153, %30 ]
-  %.11151 = phi i32 [ 0, %4 ], [ %.01150, %30 ]
-  %.1 = phi i32 [ -2, %4 ], [ %.01145, %30 ]
-  %33 = trunc nsw i32 %.11151 to i16
-  store i16 %33, ptr %.11164, align 2
+  %.01153 = phi i32 [ 0, %4 ], [ %.11154, %30 ]
+  %.01150 = phi i32 [ 0, %4 ], [ %.11151, %30 ]
+  %.01145 = phi i32 [ -2, %4 ], [ %.1, %30 ]
+  %33 = trunc nsw i32 %.01150 to i16
+  store i16 %33, ptr %.01163, align 2
   %34 = getelementptr inbounds i16, ptr %.01158, i64 %.01156
   %35 = getelementptr inbounds i8, ptr %34, i64 -2
-  %.not = icmp ugt ptr %35, %.11164
+  %.not = icmp ugt ptr %35, %.01163
   br i1 %.not, label %68, label %36
 
 36:                                               ; preds = %32
-  %37 = ptrtoint ptr %.11164 to i64
+  %37 = ptrtoint ptr %.01163 to i64
   %38 = ptrtoint ptr %.01158 to i64
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 1
@@ -405,18 +405,18 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br i1 %.not1217, label %68, label %.loopexit
 
 68:                                               ; preds = %61, %32
-  %.21185 = phi ptr [ %67, %61 ], [ %.11184, %32 ]
+  %.21185 = phi ptr [ %67, %61 ], [ %.01183, %32 ]
   %.11182 = phi ptr [ %58, %61 ], [ %.01181, %32 ]
-  %.21175 = phi ptr [ %65, %61 ], [ %.11174, %32 ]
+  %.21175 = phi ptr [ %65, %61 ], [ %.01173, %32 ]
   %.11172 = phi ptr [ %53, %61 ], [ %.01171, %32 ]
-  %.21165 = phi ptr [ %63, %61 ], [ %.11164, %32 ]
+  %.21165 = phi ptr [ %63, %61 ], [ %.01163, %32 ]
   %.11159 = phi ptr [ %47, %61 ], [ %.01158, %32 ]
   %.11157 = phi i64 [ %spec.store.select, %61 ], [ %.01156, %32 ]
-  %69 = icmp eq i32 %.11151, 30
+  %69 = icmp eq i32 %.01150, 30
   br i1 %69, label %.loopexit, label %70
 
 70:                                               ; preds = %68
-  %71 = sext i32 %.11151 to i64
+  %71 = sext i32 %.01150 to i64
   %72 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %71
   %73 = load i16, ptr %72, align 2
   %74 = sext i16 %73 to i32
@@ -424,7 +424,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br i1 %75, label %112, label %76
 
 76:                                               ; preds = %70
-  %77 = icmp eq i32 %.1, -2
+  %77 = icmp eq i32 %.01145, -2
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %76
@@ -432,12 +432,12 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br label %80
 
 80:                                               ; preds = %78, %76
-  %.2 = phi i32 [ %79, %78 ], [ %.1, %76 ]
-  %81 = icmp slt i32 %.2, 1
+  %.5 = phi i32 [ %79, %78 ], [ %.01145, %76 ]
+  %81 = icmp slt i32 %.5, 1
   br i1 %81, label %92, label %82
 
 82:                                               ; preds = %80
-  %83 = icmp eq i32 %.2, 256
+  %83 = icmp eq i32 %.5, 256
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %82
@@ -445,11 +445,11 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br label %2094
 
 85:                                               ; preds = %82
-  %86 = icmp ult i32 %.2, 304
+  %86 = icmp ult i32 %.5, 304
   br i1 %86, label %87, label %92
 
 87:                                               ; preds = %85
-  %88 = zext nneg i32 %.2 to i64
+  %88 = zext nneg i32 %.5 to i64
   %89 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = sext i8 %90 to i32
@@ -457,7 +457,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 92:                                               ; preds = %87, %85, %80
   %.01193 = phi i32 [ 0, %80 ], [ %91, %87 ], [ 2, %85 ]
-  %.3 = phi i32 [ 0, %80 ], [ %.2, %87 ], [ %.2, %85 ]
+  %.6 = phi i32 [ 0, %80 ], [ %.5, %87 ], [ %.5, %85 ]
   %93 = add nsw i32 %.01193, %74
   %or.cond3 = icmp ugt i32 %93, 2051
   br i1 %or.cond3, label %112, label %94
@@ -486,7 +486,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br label %117
 
 108:                                              ; preds = %99
-  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.11154, i32 1)
+  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.01153, i32 1)
   %109 = getelementptr inbounds i8, ptr %.21175, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %110 = getelementptr inbounds i8, ptr %.21185, i64 8
@@ -495,7 +495,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br label %30
 
 112:                                              ; preds = %92, %94, %70
-  %.4 = phi i32 [ %.1, %70 ], [ %.3, %92 ], [ %.3, %94 ]
+  %.4 = phi i32 [ %.01145, %70 ], [ %.6, %92 ], [ %.6, %94 ]
   %113 = getelementptr inbounds [315 x i8], ptr @yydefact, i64 0, i64 %71
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
@@ -504,7 +504,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 117:                                              ; preds = %112, %106
   %.01191 = phi i32 [ %115, %112 ], [ %107, %106 ]
-  %.5 = phi i32 [ %.4, %112 ], [ %.3, %106 ]
+  %.9 = phi i32 [ %.4, %112 ], [ %.6, %106 ]
   %118 = zext nneg i32 %.01191 to i64
   %119 = getelementptr inbounds [170 x i8], ptr @yyr2, i64 0, i64 %118
   %120 = load i8, ptr %119, align 1
@@ -2506,7 +2506,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
 
 1480:                                             ; preds = %1455, %1470, %1464, %1446
   %.pn = phi { ptr, ptr } [ %1450, %1446 ], [ %1459, %1455 ], [ %1468, %1464 ], [ %1478, %1470 ]
-  %.sroa.179.0 = extractvalue { ptr, ptr } %.pn, 1
+  %.sroa.179.1 = extractvalue { ptr, ptr } %.pn, 1
   %1481 = load i64, ptr %.21175, align 8
   %1482 = load ptr, ptr %1441, align 8
   call void @jv_free(i64 %1481, ptr %1482) #9
@@ -2843,8 +2843,8 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %1728 = extractvalue { i64, ptr } %1727, 0
   %1729 = extractvalue { i64, ptr } %1727, 1
   %1730 = call i32 @jv_get_kind(i64 %1728, ptr %1729) #9
-  %.not1306 = icmp eq i32 %1730, 0
-  br i1 %.not1306, label %1734, label %1731
+  %.not1305 = icmp eq i32 %1730, 0
+  br i1 %.not1305, label %1734, label %1731
 
 1731:                                             ; preds = %1722
   %1732 = load i64, ptr %10, align 8
@@ -3243,8 +3243,8 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %2012 = extractvalue { i64, ptr } %2011, 0
   %2013 = extractvalue { i64, ptr } %2011, 1
   %2014 = call i32 @jv_get_kind(i64 %2012, ptr %2013) #9
-  %.not1305 = icmp eq i32 %2014, 0
-  br i1 %.not1305, label %2018, label %2015
+  %.not1304 = icmp eq i32 %2014, 0
+  br i1 %.not1304, label %2018, label %2015
 
 2015:                                             ; preds = %2006
   %2016 = load i64, ptr %10, align 8
@@ -3277,7 +3277,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br label %2030
 
 2030:                                             ; preds = %135, %1384, %1386, %800, %810, %706, %732, %721, %188, %206, %199, %2027, %2018, %1982, %1969, %1945, %1925, %1904, %1876, %1865, %1851, %1837, %1835, %1824, %1822, %1818, %1814, %1810, %1806, %1802, %1798, %1794, %1790, %1786, %1782, %1778, %1774, %1770, %1766, %1762, %1758, %1754, %1750, %1746, %1743, %1734, %1711, %1697, %1683, %1654, %1638, %1627, %1625, %1614, %1604, %1593, %1582, %1572, %1570, %1559, %1552, %1538, %1531, %1520, %1518, %1514, %1511, %1507, %1503, %1483, %1480, %1435, %1421, %1407, %1370, %1362, %1359, %1349, %1347, %1340, %1322, %1304, %1288, %1270, %1252, %1236, %1225, %1214, %1203, %1192, %1180, %1168, %1156, %1144, %1135, %1130, %1120, %1109, %1096, %1082, %1071, %1059, %1045, %1030, %1025, %998, %991, %987, %985, %972, %961, %957, %954, %939, %917, %903, %896, %889, %885, %882, %872, %862, %851, %849, %830, %812, %782, %762, %742, %697, %695, %684, %673, %662, %651, %640, %629, %618, %607, %596, %585, %574, %563, %552, %541, %528, %517, %506, %495, %484, %464, %453, %442, %431, %420, %400, %389, %367, %363, %353, %342, %338, %323, %303, %285, %268, %253, %242, %231, %227, %216, %212, %178, %160, %136
-  %.sroa.179.1 = phi ptr [ %.sroa.179.0.copyload, %135 ], [ %.sroa.179.0.copyload656, %2027 ], [ %2026, %2018 ], [ %2005, %1982 ], [ %1981, %1969 ], [ %1968, %1945 ], [ %1944, %1925 ], [ %1922, %1904 ], [ %1903, %1876 ], [ %1875, %1865 ], [ %1864, %1851 ], [ %1850, %1837 ], [ %.sroa.179.0.copyload654, %1835 ], [ %1834, %1824 ], [ %.sroa.179.0.copyload652, %1822 ], [ %1821, %1818 ], [ %1817, %1814 ], [ %1813, %1810 ], [ %1809, %1806 ], [ %1805, %1802 ], [ %1801, %1798 ], [ %1797, %1794 ], [ %1793, %1790 ], [ %1789, %1786 ], [ %1785, %1782 ], [ %1781, %1778 ], [ %1777, %1774 ], [ %1773, %1770 ], [ %1769, %1766 ], [ %1765, %1762 ], [ %1761, %1758 ], [ %1757, %1754 ], [ %1753, %1750 ], [ %1749, %1746 ], [ %.sroa.179.0.copyload650, %1743 ], [ %1742, %1734 ], [ %1721, %1711 ], [ %1710, %1697 ], [ %1696, %1683 ], [ %1682, %1654 ], [ %1653, %1638 ], [ %1637, %1627 ], [ %.sroa.179.0.copyload648, %1625 ], [ %1624, %1614 ], [ %1613, %1604 ], [ %1603, %1593 ], [ %1592, %1582 ], [ %1579, %1572 ], [ %.sroa.179.0.copyload646, %1570 ], [ %1569, %1559 ], [ %1558, %1552 ], [ %1551, %1538 ], [ %1537, %1531 ], [ %1530, %1520 ], [ %.sroa.179.0.copyload644, %1518 ], [ %1517, %1514 ], [ %.sroa.179.0.copyload642, %1511 ], [ %1510, %1507 ], [ %1506, %1503 ], [ %1500, %1483 ], [ %.sroa.179.0, %1480 ], [ %1438, %1435 ], [ %1432, %1421 ], [ %1418, %1407 ], [ %1385, %1384 ], [ %1406, %1386 ], [ %1376, %1370 ], [ %1369, %1362 ], [ %.sroa.179.0.copyload640, %1359 ], [ %1358, %1349 ], [ %.sroa.179.0.copyload638, %1347 ], [ %1346, %1340 ], [ %1339, %1322 ], [ %1321, %1304 ], [ %1303, %1288 ], [ %1287, %1270 ], [ %1269, %1252 ], [ %1251, %1236 ], [ %1235, %1225 ], [ %1224, %1214 ], [ %1213, %1203 ], [ %1202, %1192 ], [ %1191, %1180 ], [ %1179, %1168 ], [ %1167, %1156 ], [ %1155, %1144 ], [ %1143, %1135 ], [ %1134, %1130 ], [ %1129, %1120 ], [ %1119, %1109 ], [ %1108, %1096 ], [ %1095, %1082 ], [ %1081, %1071 ], [ %1070, %1059 ], [ %1058, %1045 ], [ %1044, %1030 ], [ %1029, %1025 ], [ %1022, %998 ], [ %997, %991 ], [ %990, %987 ], [ %.sroa.179.0.copyload636, %985 ], [ %984, %972 ], [ %971, %961 ], [ %960, %957 ], [ %.sroa.179.0.copyload634, %954 ], [ %953, %939 ], [ %938, %917 ], [ %916, %903 ], [ %902, %896 ], [ %.sroa.179.0.copyload632, %889 ], [ %888, %885 ], [ %.sroa.179.0.copyload630, %882 ], [ %879, %872 ], [ %869, %862 ], [ %861, %851 ], [ %.sroa.179.0.copyload628, %849 ], [ %846, %830 ], [ %827, %812 ], [ %.sroa.179.0.copyload626, %810 ], [ %807, %800 ], [ %792, %782 ], [ %777, %762 ], [ %757, %742 ], [ %725, %721 ], [ %741, %732 ], [ %710, %706 ], [ %.sroa.179.0.copyload624, %697 ], [ %.sroa.179.0.copyload622, %695 ], [ %694, %684 ], [ %683, %673 ], [ %672, %662 ], [ %661, %651 ], [ %650, %640 ], [ %639, %629 ], [ %628, %618 ], [ %617, %607 ], [ %606, %596 ], [ %595, %585 ], [ %584, %574 ], [ %573, %563 ], [ %562, %552 ], [ %551, %541 ], [ %540, %528 ], [ %527, %517 ], [ %516, %506 ], [ %505, %495 ], [ %494, %484 ], [ %483, %464 ], [ %463, %453 ], [ %452, %442 ], [ %441, %431 ], [ %430, %420 ], [ %419, %400 ], [ %399, %389 ], [ %386, %367 ], [ %.sroa.179.0.copyload620, %363 ], [ %362, %353 ], [ %352, %342 ], [ %.sroa.179.0.copyload618, %338 ], [ %337, %323 ], [ %322, %303 ], [ %302, %285 ], [ %284, %268 ], [ %267, %253 ], [ %252, %242 ], [ %241, %231 ], [ %230, %227 ], [ %226, %216 ], [ %215, %212 ], [ %203, %199 ], [ %211, %206 ], [ %192, %188 ], [ %181, %178 ], [ %.sroa.179.0.copyload, %160 ], [ %.sroa.179.0.copyload, %136 ]
+  %.sroa.179.0 = phi ptr [ %.sroa.179.0.copyload, %135 ], [ %.sroa.179.0.copyload656, %2027 ], [ %2026, %2018 ], [ %2005, %1982 ], [ %1981, %1969 ], [ %1968, %1945 ], [ %1944, %1925 ], [ %1922, %1904 ], [ %1903, %1876 ], [ %1875, %1865 ], [ %1864, %1851 ], [ %1850, %1837 ], [ %.sroa.179.0.copyload654, %1835 ], [ %1834, %1824 ], [ %.sroa.179.0.copyload652, %1822 ], [ %1821, %1818 ], [ %1817, %1814 ], [ %1813, %1810 ], [ %1809, %1806 ], [ %1805, %1802 ], [ %1801, %1798 ], [ %1797, %1794 ], [ %1793, %1790 ], [ %1789, %1786 ], [ %1785, %1782 ], [ %1781, %1778 ], [ %1777, %1774 ], [ %1773, %1770 ], [ %1769, %1766 ], [ %1765, %1762 ], [ %1761, %1758 ], [ %1757, %1754 ], [ %1753, %1750 ], [ %1749, %1746 ], [ %.sroa.179.0.copyload650, %1743 ], [ %1742, %1734 ], [ %1721, %1711 ], [ %1710, %1697 ], [ %1696, %1683 ], [ %1682, %1654 ], [ %1653, %1638 ], [ %1637, %1627 ], [ %.sroa.179.0.copyload648, %1625 ], [ %1624, %1614 ], [ %1613, %1604 ], [ %1603, %1593 ], [ %1592, %1582 ], [ %1579, %1572 ], [ %.sroa.179.0.copyload646, %1570 ], [ %1569, %1559 ], [ %1558, %1552 ], [ %1551, %1538 ], [ %1537, %1531 ], [ %1530, %1520 ], [ %.sroa.179.0.copyload644, %1518 ], [ %1517, %1514 ], [ %.sroa.179.0.copyload642, %1511 ], [ %1510, %1507 ], [ %1506, %1503 ], [ %1500, %1483 ], [ %.sroa.179.1, %1480 ], [ %1438, %1435 ], [ %1432, %1421 ], [ %1418, %1407 ], [ %1385, %1384 ], [ %1406, %1386 ], [ %1376, %1370 ], [ %1369, %1362 ], [ %.sroa.179.0.copyload640, %1359 ], [ %1358, %1349 ], [ %.sroa.179.0.copyload638, %1347 ], [ %1346, %1340 ], [ %1339, %1322 ], [ %1321, %1304 ], [ %1303, %1288 ], [ %1287, %1270 ], [ %1269, %1252 ], [ %1251, %1236 ], [ %1235, %1225 ], [ %1224, %1214 ], [ %1213, %1203 ], [ %1202, %1192 ], [ %1191, %1180 ], [ %1179, %1168 ], [ %1167, %1156 ], [ %1155, %1144 ], [ %1143, %1135 ], [ %1134, %1130 ], [ %1129, %1120 ], [ %1119, %1109 ], [ %1108, %1096 ], [ %1095, %1082 ], [ %1081, %1071 ], [ %1070, %1059 ], [ %1058, %1045 ], [ %1044, %1030 ], [ %1029, %1025 ], [ %1022, %998 ], [ %997, %991 ], [ %990, %987 ], [ %.sroa.179.0.copyload636, %985 ], [ %984, %972 ], [ %971, %961 ], [ %960, %957 ], [ %.sroa.179.0.copyload634, %954 ], [ %953, %939 ], [ %938, %917 ], [ %916, %903 ], [ %902, %896 ], [ %.sroa.179.0.copyload632, %889 ], [ %888, %885 ], [ %.sroa.179.0.copyload630, %882 ], [ %879, %872 ], [ %869, %862 ], [ %861, %851 ], [ %.sroa.179.0.copyload628, %849 ], [ %846, %830 ], [ %827, %812 ], [ %.sroa.179.0.copyload626, %810 ], [ %807, %800 ], [ %792, %782 ], [ %777, %762 ], [ %757, %742 ], [ %725, %721 ], [ %741, %732 ], [ %710, %706 ], [ %.sroa.179.0.copyload624, %697 ], [ %.sroa.179.0.copyload622, %695 ], [ %694, %684 ], [ %683, %673 ], [ %672, %662 ], [ %661, %651 ], [ %650, %640 ], [ %639, %629 ], [ %628, %618 ], [ %617, %607 ], [ %606, %596 ], [ %595, %585 ], [ %584, %574 ], [ %573, %563 ], [ %562, %552 ], [ %551, %541 ], [ %540, %528 ], [ %527, %517 ], [ %516, %506 ], [ %505, %495 ], [ %494, %484 ], [ %483, %464 ], [ %463, %453 ], [ %452, %442 ], [ %441, %431 ], [ %430, %420 ], [ %419, %400 ], [ %399, %389 ], [ %386, %367 ], [ %.sroa.179.0.copyload620, %363 ], [ %362, %353 ], [ %352, %342 ], [ %.sroa.179.0.copyload618, %338 ], [ %337, %323 ], [ %322, %303 ], [ %302, %285 ], [ %284, %268 ], [ %267, %253 ], [ %252, %242 ], [ %241, %231 ], [ %230, %227 ], [ %226, %216 ], [ %215, %212 ], [ %203, %199 ], [ %211, %206 ], [ %192, %188 ], [ %181, %178 ], [ %.sroa.179.0.copyload, %160 ], [ %.sroa.179.0.copyload, %136 ]
   %2031 = sub nsw i64 0, %121
   %2032 = getelementptr inbounds %union.YYSTYPE, ptr %.21175, i64 %2031
   %2033 = getelementptr inbounds i16, ptr %.21165, i64 %2031
@@ -3286,7 +3286,7 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %.sroa.0616.0..sroa.0616.0..sroa.0616.0. = load i64, ptr %.sroa.0616, align 8
   store i64 %.sroa.0616.0..sroa.0616.0..sroa.0616.0., ptr %2035, align 8
   %.sroa.179.0..sroa_idx657 = getelementptr inbounds i8, ptr %2032, i64 24
-  store ptr %.sroa.179.1, ptr %.sroa.179.0..sroa_idx657, align 8
+  store ptr %.sroa.179.0, ptr %.sroa.179.0..sroa_idx657, align 8
   %2036 = getelementptr inbounds i8, ptr %2034, i64 8
   %2037 = load i64, ptr %10, align 8
   store i64 %2037, ptr %2036, align 4
@@ -3327,25 +3327,25 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br i1 %2062, label %2068, label %.thread
 
 .thread:                                          ; preds = %104, %2061
-  %.61255 = phi i32 [ %.4, %2061 ], [ %.3, %104 ]
-  %or.cond7 = icmp ult i32 %.61255, 304
+  %.81254 = phi i32 [ %.4, %2061 ], [ %.6, %104 ]
+  %or.cond7 = icmp ult i32 %.81254, 304
   br i1 %or.cond7, label %2063, label %2068
 
 2063:                                             ; preds = %.thread
-  %2064 = zext nneg i32 %.61255 to i64
+  %2064 = zext nneg i32 %.81254 to i64
   %2065 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %2064
   %2066 = load i8, ptr %2065, align 1
   %2067 = sext i8 %2066 to i32
   br label %2068
 
 2068:                                             ; preds = %2063, %.thread, %2061
-  %.61256 = phi i32 [ -2, %2061 ], [ %.61255, %2063 ], [ %.61255, %.thread ]
+  %.81255 = phi i32 [ -2, %2061 ], [ %.81254, %2063 ], [ %.81254, %.thread ]
   %2069 = phi i32 [ -2, %2061 ], [ %2067, %2063 ], [ 2, %.thread ]
-  %.not1229 = icmp eq i32 %.11154, 0
+  %.not1229 = icmp eq i32 %.01153, 0
   br i1 %.not1229, label %2070, label %2087
 
 2070:                                             ; preds = %2068
-  %2071 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %12, ptr %.11248, ptr nonnull %.21165, i32 %2069)
+  %2071 = call fastcc i32 @yysyntax_error(ptr noundef nonnull %12, ptr %.01247, ptr nonnull %.21165, i32 %2069)
   switch i32 %2071, label %2081 [
     i32 0, label %2072
     i32 -1, label %2073
@@ -3355,11 +3355,11 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br label %2081
 
 2073:                                             ; preds = %2070
-  %.not1230 = icmp eq ptr %.11248, %11
+  %.not1230 = icmp eq ptr %.01247, %11
   br i1 %.not1230, label %2075, label %2074
 
 2074:                                             ; preds = %2073
-  call void @jv_mem_free(ptr noundef %.11248) #9
+  call void @jv_mem_free(ptr noundef %.01247) #9
   br label %2075
 
 2075:                                             ; preds = %2074, %2073
@@ -3377,8 +3377,8 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br label %2081
 
 2081:                                             ; preds = %2070, %2080, %2078, %2072
-  %.21249 = phi ptr [ %.11248, %2070 ], [ %11, %2080 ], [ %2077, %2078 ], [ %.11248, %2072 ]
-  %.01144 = phi ptr [ @.str.42, %2070 ], [ @.str.42, %2080 ], [ %2077, %2078 ], [ %.11248, %2072 ]
+  %.51251 = phi ptr [ %.01247, %2070 ], [ %11, %2080 ], [ %2077, %2078 ], [ %.01247, %2072 ]
+  %.01144 = phi ptr [ @.str.42, %2070 ], [ @.str.42, %2080 ], [ %2077, %2078 ], [ %.01247, %2072 ]
   %.0 = phi i32 [ -2, %2070 ], [ -2, %2080 ], [ %2079, %2078 ], [ 0, %2072 ]
   %2082 = load i32, ptr %1, align 4
   %2083 = add nsw i32 %2082, 1
@@ -3389,42 +3389,42 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   %.str.2..str.1.i = select i1 %.not.i, ptr @.str.2, ptr @.str.1
   call void (ptr, i64, ptr, ...) @locfile_locate(ptr noundef %2, i64 %2085, ptr noundef nonnull %.str.2..str.1.i, ptr noundef %.01144) #9
   %2086 = icmp eq i32 %.0, -2
-  br i1 %2086, label %2125, label %.thread1257
+  br i1 %2086, label %2125, label %.thread1256
 
-.thread1257:                                      ; preds = %2081
-  %.sroa.0606.8.copyload6081260 = load i32, ptr %6, align 8
+.thread1256:                                      ; preds = %2081
+  %.sroa.0606.8.copyload6081259 = load i32, ptr %6, align 8
   br label %2094
 
 2087:                                             ; preds = %2068
   %.sroa.0606.8.copyload608 = load i32, ptr %6, align 8
-  %2088 = icmp eq i32 %.11154, 3
+  %2088 = icmp eq i32 %.01153, 3
   br i1 %2088, label %2089, label %2094
 
 2089:                                             ; preds = %2087
-  %2090 = icmp slt i32 %.61256, 1
+  %2090 = icmp slt i32 %.81255, 1
   br i1 %2090, label %2091, label %2093
 
 2091:                                             ; preds = %2089
-  %2092 = icmp eq i32 %.61256, 0
-  br i1 %2092, label %.thread1283, label %2094
+  %2092 = icmp eq i32 %.81255, 0
+  br i1 %2092, label %.thread1282, label %2094
 
 2093:                                             ; preds = %2089
   call fastcc void @yydestruct(i32 noundef %2069, ptr noundef nonnull %5)
   br label %2094
 
-2094:                                             ; preds = %.thread1257, %2087, %2091, %2093, %84
-  %.41251 = phi ptr [ %.11248, %2091 ], [ %.11248, %2093 ], [ %.11248, %2087 ], [ %.11248, %84 ], [ %.21249, %.thread1257 ]
-  %.sroa.0606.0 = phi i32 [ %.sroa.0606.8.copyload608, %2091 ], [ %.sroa.0606.8.copyload608, %2093 ], [ %.sroa.0606.8.copyload608, %2087 ], [ %.sroa.0606.8.copyload, %84 ], [ %.sroa.0606.8.copyload6081260, %.thread1257 ]
-  %.7 = phi i32 [ %.61256, %2091 ], [ -2, %2093 ], [ %.61256, %2087 ], [ 257, %84 ], [ %.61256, %.thread1257 ]
+2094:                                             ; preds = %.thread1256, %2087, %2091, %2093, %84
+  %.3 = phi ptr [ %.01247, %2091 ], [ %.01247, %2093 ], [ %.01247, %2087 ], [ %.01247, %84 ], [ %.51251, %.thread1256 ]
+  %.sroa.0606.0 = phi i32 [ %.sroa.0606.8.copyload608, %2091 ], [ %.sroa.0606.8.copyload608, %2093 ], [ %.sroa.0606.8.copyload608, %2087 ], [ %.sroa.0606.8.copyload, %84 ], [ %.sroa.0606.8.copyload6081259, %.thread1256 ]
+  %.7 = phi i32 [ %.81255, %2091 ], [ -2, %2093 ], [ %.81255, %2087 ], [ 257, %84 ], [ %.81255, %.thread1256 ]
   br label %2095
 
 2095:                                             ; preds = %2111, %2094
   %2096 = phi i16 [ %73, %2094 ], [ %.pre, %2111 ]
   %.sroa.0606.1 = phi i32 [ %.sroa.0606.0, %2094 ], [ %.sroa.0606.8.copyload609, %2111 ]
-  %.31186 = phi ptr [ %.21185, %2094 ], [ %2117, %2111 ]
-  %.31176 = phi ptr [ %.21175, %2094 ], [ %2115, %2111 ]
-  %.31166 = phi ptr [ %.21165, %2094 ], [ %2116, %2111 ]
-  %.21152 = phi i32 [ %.11151, %2094 ], [ %2119, %2111 ]
+  %.51188 = phi ptr [ %.21185, %2094 ], [ %2117, %2111 ]
+  %.51178 = phi ptr [ %.21175, %2094 ], [ %2115, %2111 ]
+  %.51168 = phi ptr [ %.21165, %2094 ], [ %2116, %2111 ]
+  %.21152 = phi i32 [ %.01150, %2094 ], [ %2119, %2111 ]
   %2097 = sext i32 %.21152 to i64
   %2098 = icmp sgt i16 %2096, -2
   br i1 %2098, label %2099, label %2109
@@ -3444,42 +3444,42 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br i1 %2108, label %2120, label %2109
 
 2109:                                             ; preds = %2099, %2105, %2095
-  %2110 = icmp eq ptr %.31166, %.11159
+  %2110 = icmp eq ptr %.51168, %.11159
   br i1 %2110, label %.loopexit, label %2111
 
 2111:                                             ; preds = %2109
-  %.sroa.0606.8.copyload609 = load i32, ptr %.31186, align 4
+  %.sroa.0606.8.copyload609 = load i32, ptr %.51188, align 4
   %2112 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2097
   %2113 = load i8, ptr %2112, align 1
   %2114 = sext i8 %2113 to i32
-  call fastcc void @yydestruct(i32 noundef %2114, ptr noundef nonnull %.31176)
-  %2115 = getelementptr inbounds i8, ptr %.31176, i64 -16
-  %2116 = getelementptr inbounds i8, ptr %.31166, i64 -2
-  %2117 = getelementptr inbounds i8, ptr %.31186, i64 -8
+  call fastcc void @yydestruct(i32 noundef %2114, ptr noundef nonnull %.51178)
+  %2115 = getelementptr inbounds i8, ptr %.51178, i64 -16
+  %2116 = getelementptr inbounds i8, ptr %.51168, i64 -2
+  %2117 = getelementptr inbounds i8, ptr %.51188, i64 -8
   %2118 = load i16, ptr %2116, align 2
   %2119 = sext i16 %2118 to i32
   %.phi.trans.insert = sext i16 %2118 to i64
-  %.phi.trans.insert1338 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
-  %.pre = load i16, ptr %.phi.trans.insert1338, align 2
+  %.phi.trans.insert1337 = getelementptr inbounds [315 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.pre = load i16, ptr %.phi.trans.insert1337, align 2
   br label %2095
 
 2120:                                             ; preds = %2105
   %2121 = zext nneg i16 %2107 to i32
-  %2122 = getelementptr inbounds i8, ptr %.31176, i64 16
+  %2122 = getelementptr inbounds i8, ptr %.51178, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2122, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %.sroa.6.16.copyload = load i32, ptr %.sroa.6.16..sroa_idx, align 4
-  %2123 = getelementptr inbounds i8, ptr %.31186, i64 8
+  %2123 = getelementptr inbounds i8, ptr %.51188, i64 8
   store i32 %.sroa.0606.1, ptr %2123, align 4
-  %2124 = getelementptr inbounds i8, ptr %.31186, i64 12
+  %2124 = getelementptr inbounds i8, ptr %.51188, i64 12
   store i32 %.sroa.6.16.copyload, ptr %2124, align 4
   br label %30
 
 2125:                                             ; preds = %2081, %43, %36
-  %.51252 = phi ptr [ %.21249, %2081 ], [ %.11248, %36 ], [ %.11248, %43 ]
-  %.51178 = phi ptr [ %.21175, %2081 ], [ %.11174, %36 ], [ %.11174, %43 ]
-  %.51168 = phi ptr [ %.21165, %2081 ], [ %.11164, %36 ], [ %.11164, %43 ]
-  %.31161 = phi ptr [ %.11159, %2081 ], [ %.01158, %36 ], [ %.01158, %43 ]
-  %.9 = phi i32 [ %.61256, %2081 ], [ %.1, %36 ], [ %.1, %43 ]
+  %.21249 = phi ptr [ %.51251, %2081 ], [ %.01247, %36 ], [ %.01247, %43 ]
+  %.31176 = phi ptr [ %.21175, %2081 ], [ %.01173, %36 ], [ %.01173, %43 ]
+  %.31166 = phi ptr [ %.21165, %2081 ], [ %.01163, %36 ], [ %.01163, %43 ]
+  %.21160 = phi ptr [ %.11159, %2081 ], [ %.01158, %36 ], [ %.01158, %43 ]
+  %.2 = phi i32 [ %.81255, %2081 ], [ %.01145, %36 ], [ %.01145, %43 ]
   %2126 = load i32, ptr %1, align 4
   %2127 = add nsw i32 %2126, 1
   store i32 %2127, ptr %1, align 4
@@ -3488,83 +3488,83 @@ define range(i32 0, 3) i32 @yyparse(ptr nocapture noundef writeonly %0, ptr noca
   br label %.loopexit
 
 .loopexit:                                        ; preds = %61, %68, %2109, %2125
-  %.61253 = phi ptr [ %.51252, %2125 ], [ %.41251, %2109 ], [ %.11248, %68 ], [ %.11248, %61 ]
+  %.61252 = phi ptr [ %.21249, %2125 ], [ %.3, %2109 ], [ %.01247, %68 ], [ %.01247, %61 ]
   %.01192 = phi i32 [ 2, %2125 ], [ 1, %2109 ], [ 1, %61 ], [ 0, %68 ]
-  %.61179 = phi ptr [ %.51178, %2125 ], [ %.31176, %2109 ], [ %65, %61 ], [ %.21175, %68 ]
-  %.61169 = phi ptr [ %.51168, %2125 ], [ %.31166, %2109 ], [ %63, %61 ], [ %.21165, %68 ]
-  %.41162 = phi ptr [ %.31161, %2125 ], [ %.11159, %2109 ], [ %47, %61 ], [ %.11159, %68 ]
-  %.10 = phi i32 [ %.9, %2125 ], [ %.7, %2109 ], [ %.1, %68 ], [ %.1, %61 ]
+  %.61179 = phi ptr [ %.31176, %2125 ], [ %.51178, %2109 ], [ %65, %61 ], [ %.21175, %68 ]
+  %.61169 = phi ptr [ %.31166, %2125 ], [ %.51168, %2109 ], [ %63, %61 ], [ %.21165, %68 ]
+  %.41162 = phi ptr [ %.21160, %2125 ], [ %.11159, %2109 ], [ %47, %61 ], [ %.11159, %68 ]
+  %.10 = phi i32 [ %.2, %2125 ], [ %.7, %2109 ], [ %.01145, %68 ], [ %.01145, %61 ]
   %.not1232 = icmp eq i32 %.10, -2
   br i1 %.not1232, label %2136, label %2129
 
 2129:                                             ; preds = %.loopexit
   %or.cond11 = icmp ult i32 %.10, 304
-  br i1 %or.cond11, label %.thread1283, label %2134
+  br i1 %or.cond11, label %.thread1282, label %2134
 
-.thread1283:                                      ; preds = %2091, %2129
-  %.6125312701304 = phi ptr [ %.61253, %2129 ], [ %.11248, %2091 ]
-  %.0119212721302 = phi i32 [ %.01192, %2129 ], [ 1, %2091 ]
-  %.6117912761298 = phi ptr [ %.61179, %2129 ], [ %.21175, %2091 ]
-  %.6116912781296 = phi ptr [ %.61169, %2129 ], [ %.21165, %2091 ]
-  %.4116212801294 = phi ptr [ %.41162, %2129 ], [ %.11159, %2091 ]
-  %.1012821292 = phi i32 [ %.10, %2129 ], [ 0, %2091 ]
-  %2130 = zext nneg i32 %.1012821292 to i64
+.thread1282:                                      ; preds = %2091, %2129
+  %.6125212691303 = phi ptr [ %.61252, %2129 ], [ %.01247, %2091 ]
+  %.0119212711301 = phi i32 [ %.01192, %2129 ], [ 1, %2091 ]
+  %.6117912751297 = phi ptr [ %.61179, %2129 ], [ %.21175, %2091 ]
+  %.6116912771295 = phi ptr [ %.61169, %2129 ], [ %.21165, %2091 ]
+  %.4116212791293 = phi ptr [ %.41162, %2129 ], [ %.11159, %2091 ]
+  %.1012811291 = phi i32 [ %.10, %2129 ], [ 0, %2091 ]
+  %2130 = zext nneg i32 %.1012811291 to i64
   %2131 = getelementptr inbounds [304 x i8], ptr @yytranslate, i64 0, i64 %2130
   %2132 = load i8, ptr %2131, align 1
   %2133 = sext i8 %2132 to i32
   br label %2134
 
-2134:                                             ; preds = %2129, %.thread1283
-  %.6125312701303 = phi ptr [ %.6125312701304, %.thread1283 ], [ %.61253, %2129 ]
-  %.0119212721301 = phi i32 [ %.0119212721302, %.thread1283 ], [ %.01192, %2129 ]
-  %.6117912761297 = phi ptr [ %.6117912761298, %.thread1283 ], [ %.61179, %2129 ]
-  %.6116912781295 = phi ptr [ %.6116912781296, %.thread1283 ], [ %.61169, %2129 ]
-  %.4116212801293 = phi ptr [ %.4116212801294, %.thread1283 ], [ %.41162, %2129 ]
-  %2135 = phi i32 [ %2133, %.thread1283 ], [ 2, %2129 ]
+2134:                                             ; preds = %2129, %.thread1282
+  %.6125212691302 = phi ptr [ %.6125212691303, %.thread1282 ], [ %.61252, %2129 ]
+  %.0119212711300 = phi i32 [ %.0119212711301, %.thread1282 ], [ %.01192, %2129 ]
+  %.6117912751296 = phi ptr [ %.6117912751297, %.thread1282 ], [ %.61179, %2129 ]
+  %.6116912771294 = phi ptr [ %.6116912771295, %.thread1282 ], [ %.61169, %2129 ]
+  %.4116212791292 = phi ptr [ %.4116212791293, %.thread1282 ], [ %.41162, %2129 ]
+  %2135 = phi i32 [ %2133, %.thread1282 ], [ 2, %2129 ]
   call fastcc void @yydestruct(i32 noundef %2135, ptr noundef nonnull %5)
   br label %2136
 
 2136:                                             ; preds = %2134, %.loopexit
-  %.411621281 = phi ptr [ %.4116212801293, %2134 ], [ %.41162, %.loopexit ]
-  %.611691279 = phi ptr [ %.6116912781295, %2134 ], [ %.61169, %.loopexit ]
-  %.611791277 = phi ptr [ %.6117912761297, %2134 ], [ %.61179, %.loopexit ]
-  %.011921273 = phi i32 [ %.0119212721301, %2134 ], [ %.01192, %.loopexit ]
-  %.612531271 = phi ptr [ %.6125312701303, %2134 ], [ %.61253, %.loopexit ]
-  %.not12331321 = icmp eq ptr %.611691279, %.411621281
-  br i1 %.not12331321, label %._crit_edge, label %.lr.ph
+  %.411621280 = phi ptr [ %.4116212791292, %2134 ], [ %.41162, %.loopexit ]
+  %.611691278 = phi ptr [ %.6116912771294, %2134 ], [ %.61169, %.loopexit ]
+  %.611791276 = phi ptr [ %.6117912751296, %2134 ], [ %.61179, %.loopexit ]
+  %.011921272 = phi i32 [ %.0119212711300, %2134 ], [ %.01192, %.loopexit ]
+  %.612521270 = phi ptr [ %.6125212691302, %2134 ], [ %.61252, %.loopexit ]
+  %.not12331320 = icmp eq ptr %.611691278, %.411621280
+  br i1 %.not12331320, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2136, %.lr.ph
-  %.711701323 = phi ptr [ %2143, %.lr.ph ], [ %.611691279, %2136 ]
-  %.711801322 = phi ptr [ %2142, %.lr.ph ], [ %.611791277, %2136 ]
-  %2137 = load i16, ptr %.711701323, align 2
+  %.711701322 = phi ptr [ %2143, %.lr.ph ], [ %.611691278, %2136 ]
+  %.711801321 = phi ptr [ %2142, %.lr.ph ], [ %.611791276, %2136 ]
+  %2137 = load i16, ptr %.711701322, align 2
   %2138 = sext i16 %2137 to i64
   %2139 = getelementptr inbounds [315 x i8], ptr @yystos, i64 0, i64 %2138
   %2140 = load i8, ptr %2139, align 1
   %2141 = sext i8 %2140 to i32
-  call fastcc void @yydestruct(i32 noundef %2141, ptr noundef nonnull %.711801322)
-  %2142 = getelementptr inbounds i8, ptr %.711801322, i64 -16
-  %2143 = getelementptr inbounds i8, ptr %.711701323, i64 -2
-  %.not1233 = icmp eq ptr %2143, %.411621281
+  call fastcc void @yydestruct(i32 noundef %2141, ptr noundef nonnull %.711801321)
+  %2142 = getelementptr inbounds i8, ptr %.711801321, i64 -16
+  %2143 = getelementptr inbounds i8, ptr %.711701322, i64 -2
+  %.not1233 = icmp eq ptr %2143, %.411621280
   br i1 %.not1233, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2136
-  %.not1234 = icmp eq ptr %.411621281, %7
+  %.not1234 = icmp eq ptr %.411621280, %7
   br i1 %.not1234, label %2145, label %2144
 
 2144:                                             ; preds = %._crit_edge
-  call void @jv_mem_free(ptr noundef %.411621281) #9
+  call void @jv_mem_free(ptr noundef %.411621280) #9
   br label %2145
 
 2145:                                             ; preds = %2144, %._crit_edge
-  %.not1235 = icmp eq ptr %.612531271, %11
+  %.not1235 = icmp eq ptr %.612521270, %11
   br i1 %.not1235, label %2147, label %2146
 
 2146:                                             ; preds = %2145
-  call void @jv_mem_free(ptr noundef %.612531271) #9
+  call void @jv_mem_free(ptr noundef %.612521270) #9
   br label %2147
 
 2147:                                             ; preds = %2146, %2145
-  ret i32 %.011921273
+  ret i32 %.011921272
 }
 
 declare ptr @jv_mem_alloc(i64 noundef) local_unnamed_addr #2
@@ -4136,7 +4136,7 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %37
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %37 ], [ %17, %.lr.ph.i.i ]
-  %.0353.i.i = phi i32 [ %.2.i.fr.i, %37 ], [ 0, %.lr.ph.i.i ]
+  %.13.i.i = phi i32 [ %.035.i.fr.i, %37 ], [ 0, %.lr.ph.i.i ]
   %20 = add nsw i64 %indvars.iv.i.i, %18
   %21 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %20
   %22 = load i16, ptr %21, align 2
@@ -4154,25 +4154,25 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %27
-  %32 = icmp eq i32 %.0353.i.i, 4
+  %32 = icmp eq i32 %.13.i.i, 4
   br i1 %32, label %yy_syntax_error_arguments.exit.thread8, label %33
 
 33:                                               ; preds = %31
-  %34 = add nsw i32 %.0353.i.i, 1
-  %35 = sext i32 %.0353.i.i to i64
+  %34 = add nsw i32 %.13.i.i, 1
+  %35 = sext i32 %.13.i.i to i64
   %36 = getelementptr inbounds i32, ptr %4, i64 %35
   store i32 %23, ptr %36, align 4
   br label %37
 
 37:                                               ; preds = %33, %27, %.lr.ph.split.i.i
-  %.1.i.i = phi i32 [ %.0353.i.i, %27 ], [ %34, %33 ], [ %.0353.i.i, %.lr.ph.split.i.i ]
-  %.2.i.fr.i = freeze i32 %.1.i.i
+  %.2.i.i = phi i32 [ %.13.i.i, %27 ], [ %34, %33 ], [ %.13.i.i, %.lr.ph.split.i.i ]
+  %.035.i.fr.i = freeze i32 %.2.i.i
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next.i.i, %19
   br i1 %exitcond24.not.i, label %.loopexit.i.i, label %.lr.ph.split.i.i, !llvm.loop !6
 
 .loopexit.i.i:                                    ; preds = %37
-  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit [
+  switch i32 %.035.i.fr.i, label %yy_syntax_error_arguments.exit [
     i32 0, label %.loopexit.i.i.thread
     i32 -2, label %yy_syntax_error_arguments.exit.thread10
   ]
@@ -4182,8 +4182,8 @@ define internal fastcc range(i32 -2, 1) i32 @yysyntax_error(ptr nocapture nounde
   br label %yy_syntax_error_arguments.exit.thread8
 
 yy_syntax_error_arguments.exit:                   ; preds = %.loopexit.i.i
-  %38 = add nsw i32 %.2.i.fr.i, 1
-  switch i32 %.2.i.fr.i, label %yy_syntax_error_arguments.exit.thread8 [
+  %38 = add nsw i32 %.035.i.fr.i, 1
+  switch i32 %.035.i.fr.i, label %yy_syntax_error_arguments.exit.thread8 [
     i32 -3, label %yy_syntax_error_arguments.exit.thread10
     i32 4, label %42
     i32 3, label %41
@@ -4355,7 +4355,7 @@ yytnamerr.exit58:                                 ; preds = %69, %.preheader, %.
   br label %.preheader, !llvm.loop !8
 
 yy_syntax_error_arguments.exit.thread10:          ; preds = %yytnamerr.exit, %.preheader, %.loopexit.i.i, %66, %yy_syntax_error_arguments.exit
-  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %66 ], [ %.2.i.fr.i, %.loopexit.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
+  %.038 = phi i32 [ -2, %yy_syntax_error_arguments.exit ], [ -1, %66 ], [ %.035.i.fr.i, %.loopexit.i.i ], [ 0, %.preheader ], [ -2, %yytnamerr.exit ]
   ret i32 %.038
 }
 

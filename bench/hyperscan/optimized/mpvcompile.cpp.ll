@@ -451,7 +451,7 @@ invoke.cont:                                      ; preds = %invoke.cont.loopexi
 land.rhs.i:                                       ; preds = %invoke.cont, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i
   %counters.sroa.31.0 = phi ptr [ %counters.sroa.31.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ null, %invoke.cont ]
   %counters.sroa.14.0 = phi ptr [ %counters.sroa.14.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ null, %invoke.cont ]
-  %counters.sroa.0.0 = phi ptr [ %counters.sroa.0.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ null, %invoke.cont ]
+  %counters.sroa.0.2 = phi ptr [ %counters.sroa.0.3, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ null, %invoke.cont ]
   %curr_decomp_offset.0 = phi i32 [ %add.i.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %conv5, %invoke.cont ]
   %curr_comp_offset.0 = phi i32 [ %add22.i.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ 0, %invoke.cont ]
   %it.sroa.0.0207.i = phi ptr [ %call.i.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %kilopuffs.val.i, %invoke.cont ]
@@ -470,7 +470,7 @@ if.then.i.i.i53:                                  ; preds = %while.body.i
 
 if.else.i.i.i:                                    ; preds = %while.body.i
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %counters.sroa.31.0 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %counters.sroa.0.0 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %counters.sroa.0.2 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %cmp.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNKSt6vectorI16mpv_counter_infoSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -505,16 +505,16 @@ _ZNSt12_Vector_baseI16mpv_counter_infoSaIS0_EE11_M_allocateEm.exit.i.i.i.i: ; pr
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %_ZNSt12_Vector_baseI16mpv_counter_infoSaIS0_EE11_M_allocateEm.exit.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i.i, ptr align 8 %counters.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i.i, ptr align 8 %counters.sroa.0.2, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseI16mpv_counter_infoSaIS0_EE11_M_allocateEm.exit.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i
-  %tobool.not.i.i.i.i.i = icmp eq ptr %counters.sroa.0.0, null
+  %tobool.not.i.i.i.i.i = icmp eq ptr %counters.sroa.0.2, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i, label %if.then.i18.i.i.i.i
 
 if.then.i18.i.i.i.i:                              ; preds = %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %counters.sroa.0.0) #21
+  call void @_ZdlPv(ptr noundef nonnull %counters.sroa.0.2) #21
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i: ; preds = %if.then.i18.i.i.i.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i.i
@@ -524,7 +524,7 @@ _ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i, %if.then.i.i.i53
   %counters.sroa.31.1 = phi ptr [ %add.ptr19.i.i.i.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %counters.sroa.31.0, %if.then.i.i.i53 ]
   %add.ptr.i.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %counters.sroa.14.0, %if.then.i.i.i53 ]
-  %counters.sroa.0.1 = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %counters.sroa.0.0, %if.then.i.i.i53 ]
+  %counters.sroa.0.3 = phi ptr [ %cond.i10.i.i.i.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i ], [ %counters.sroa.0.2, %if.then.i.i.i53 ]
   %counters.sroa.14.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.pn, i64 24
   %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.0207.i) #23
   %kilopuffs.val8.i.i = load ptr, ptr %_M_left.i.i.i.i.i, align 8
@@ -605,7 +605,7 @@ _ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110Cl
 while.end.i:                                      ; preds = %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i, %land.rhs.i, %invoke.cont
   %counters.sroa.31.2 = phi ptr [ null, %invoke.cont ], [ %counters.sroa.31.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %counters.sroa.31.0, %land.rhs.i ]
   %counters.sroa.14.2 = phi ptr [ null, %invoke.cont ], [ %counters.sroa.14.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %counters.sroa.14.0, %land.rhs.i ]
-  %counters.sroa.0.2 = phi ptr [ null, %invoke.cont ], [ %counters.sroa.0.1, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %counters.sroa.0.0, %land.rhs.i ]
+  %counters.sroa.0.4 = phi ptr [ null, %invoke.cont ], [ %counters.sroa.0.3, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %counters.sroa.0.2, %land.rhs.i ]
   %curr_decomp_offset.1 = phi i32 [ %conv5, %invoke.cont ], [ %add.i.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %curr_decomp_offset.0, %land.rhs.i ]
   %curr_comp_offset.1 = phi i32 [ 0, %invoke.cont ], [ %add22.i.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %curr_comp_offset.0, %land.rhs.i ]
   %it.sroa.0.0.lcssa.i = phi ptr [ %kilopuffs.val.i, %invoke.cont ], [ %call.i.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit.i ], [ %it.sroa.0.0207.i, %land.rhs.i ]
@@ -639,7 +639,7 @@ if.then.i.i35.i:                                  ; preds = %if.then.i
 
 if.else.i.i37.i:                                  ; preds = %if.then.i
   %sub.ptr.lhs.cast.i.i.i.i.i38.i = ptrtoint ptr %counters.sroa.31.2 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i39.i = ptrtoint ptr %counters.sroa.0.2 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i39.i = ptrtoint ptr %counters.sroa.0.4 to i64
   %sub.ptr.sub.i.i.i.i.i40.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i38.i, %sub.ptr.rhs.cast.i.i.i.i.i39.i
   %cmp.i.i.i.i41.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i40.i, 9223372036854775800
   br i1 %cmp.i.i.i.i41.i, label %if.then.i.i.i.i64.i, label %_ZNKSt6vectorI16mpv_counter_infoSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i42.i
@@ -674,16 +674,16 @@ _ZNSt12_Vector_baseI16mpv_counter_infoSaIS0_EE11_M_allocateEm.exit.i.i.i52.i: ; 
   br i1 %cmp.i.i.i.i.i.i55.i, label %if.then.i.i.i.i.i.i63.i, label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i56.i
 
 if.then.i.i.i.i.i.i63.i:                          ; preds = %_ZNSt12_Vector_baseI16mpv_counter_infoSaIS0_EE11_M_allocateEm.exit.i.i.i52.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i53.i, ptr align 8 %counters.sroa.0.2, i64 %sub.ptr.sub.i.i.i.i.i40.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i53.i, ptr align 8 %counters.sroa.0.4, i64 %sub.ptr.sub.i.i.i.i.i40.i, i1 false)
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i56.i
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i56.i: ; preds = %if.then.i.i.i.i.i.i63.i, %_ZNSt12_Vector_baseI16mpv_counter_infoSaIS0_EE11_M_allocateEm.exit.i.i.i52.i
   %add.ptr.i.i.i.i.i.i57.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i53.i, i64 %sub.ptr.sub.i.i.i.i.i40.i
-  %tobool.not.i.i.i.i59.i = icmp eq ptr %counters.sroa.0.2, null
+  %tobool.not.i.i.i.i59.i = icmp eq ptr %counters.sroa.0.4, null
   br i1 %tobool.not.i.i.i.i59.i, label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i, label %if.then.i18.i.i.i60.i
 
 if.then.i18.i.i.i60.i:                            ; preds = %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i56.i
-  call void @_ZdlPv(ptr noundef nonnull %counters.sroa.0.2) #21
+  call void @_ZdlPv(ptr noundef nonnull %counters.sroa.0.4) #21
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i: ; preds = %if.then.i18.i.i.i60.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i56.i
@@ -693,7 +693,7 @@ _ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17
 _ZSt8distanceISt23_Rb_tree_const_iteratorISt4pairIKN3ue212_GLOBAL__N_110ClusterKeyESt6vectorINS2_8raw_puffESaIS7_EEEEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit.i76.i: ; preds = %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i, %if.then.i.i35.i
   %counters.sroa.31.3 = phi ptr [ %add.ptr19.i.i.i62.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i ], [ %counters.sroa.31.2, %if.then.i.i35.i ]
   %add.ptr.i.i.i.i.i.i57.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i57.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i ], [ %counters.sroa.14.2, %if.then.i.i35.i ]
-  %counters.sroa.0.3 = phi ptr [ %cond.i10.i.i.i53.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i ], [ %counters.sroa.0.2, %if.then.i.i35.i ]
+  %counters.sroa.0.5 = phi ptr [ %cond.i10.i.i.i53.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i61.i ], [ %counters.sroa.0.4, %if.then.i.i35.i ]
   %counters.sroa.14.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i57.i.pn, i64 24
   %kilopuffs.val17.i = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %kilo_begin.i78.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i57.i.pn, i64 16
@@ -759,7 +759,7 @@ _ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110Cl
 if.end.i:                                         ; preds = %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i, %while.end22.i, %while.end.i
   %counters.sroa.31.4 = phi ptr [ %counters.sroa.31.2, %while.end.i ], [ %counters.sroa.31.2, %while.end22.i ], [ %counters.sroa.31.3, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
   %counters.sroa.14.4 = phi ptr [ %counters.sroa.14.2, %while.end.i ], [ %counters.sroa.14.2, %while.end22.i ], [ %counters.sroa.14.3, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
-  %counters.sroa.0.4 = phi ptr [ %counters.sroa.0.2, %while.end.i ], [ %counters.sroa.0.2, %while.end22.i ], [ %counters.sroa.0.3, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
+  %counters.sroa.0.6 = phi ptr [ %counters.sroa.0.4, %while.end.i ], [ %counters.sroa.0.4, %while.end22.i ], [ %counters.sroa.0.5, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
   %curr_decomp_offset.2 = phi i32 [ %curr_decomp_offset.1, %while.end.i ], [ %curr_decomp_offset.1, %while.end22.i ], [ %add.i112.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
   %curr_comp_offset.2 = phi i32 [ %curr_comp_offset.1, %while.end.i ], [ %curr_comp_offset.1, %while.end22.i ], [ %add22.i113.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
   %it.sroa.0.1.lcssa219.i = phi ptr [ %it.sroa.0.0.lcssa.i, %while.end.i ], [ %it.sroa.0.1.lcssa.i, %while.end22.i ], [ %it.sroa.0.1.lcssa.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit114.i ]
@@ -769,7 +769,7 @@ if.end.i:                                         ; preds = %_ZN3ue2L15fillCount
 land.rhs37.i:                                     ; preds = %if.end.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i
   %counters.sroa.31.5 = phi ptr [ %counters.sroa.31.6, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %counters.sroa.31.4, %if.end.i ]
   %counters.sroa.14.5 = phi ptr [ %counters.sroa.14.6, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %counters.sroa.14.4, %if.end.i ]
-  %counters.sroa.0.5 = phi ptr [ %counters.sroa.0.6, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %counters.sroa.0.4, %if.end.i ]
+  %counters.sroa.0.7 = phi ptr [ %counters.sroa.0.8, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %counters.sroa.0.6, %if.end.i ]
   %curr_decomp_offset.3 = phi i32 [ %add.i199.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %curr_decomp_offset.2, %if.end.i ]
   %curr_comp_offset.3 = phi i32 [ %add22.i200.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %curr_comp_offset.2, %if.end.i ]
   %it.sroa.0.2216.i = phi ptr [ %call.i152.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ], [ %it.sroa.0.1.lcssa219.i, %if.end.i ]
@@ -788,7 +788,7 @@ if.then.i.i121.i:                                 ; preds = %while.body43.i
 
 if.else.i.i123.i:                                 ; preds = %while.body43.i
   %sub.ptr.lhs.cast.i.i.i.i.i124.i = ptrtoint ptr %counters.sroa.31.5 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i125.i = ptrtoint ptr %counters.sroa.0.5 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i125.i = ptrtoint ptr %counters.sroa.0.7 to i64
   %sub.ptr.sub.i.i.i.i.i126.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i124.i, %sub.ptr.rhs.cast.i.i.i.i.i125.i
   %cmp.i.i.i.i127.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i126.i, 9223372036854775800
   br i1 %cmp.i.i.i.i127.i, label %if.then.i.i.i.i150.i, label %_ZNKSt6vectorI16mpv_counter_infoSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i128.i
@@ -823,16 +823,16 @@ _ZNSt12_Vector_baseI16mpv_counter_infoSaIS0_EE11_M_allocateEm.exit.i.i.i138.i: ;
   br i1 %cmp.i.i.i.i.i.i141.i, label %if.then.i.i.i.i.i.i149.i, label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i142.i
 
 if.then.i.i.i.i.i.i149.i:                         ; preds = %_ZNSt12_Vector_baseI16mpv_counter_infoSaIS0_EE11_M_allocateEm.exit.i.i.i138.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i139.i, ptr align 8 %counters.sroa.0.5, i64 %sub.ptr.sub.i.i.i.i.i126.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i139.i, ptr align 8 %counters.sroa.0.7, i64 %sub.ptr.sub.i.i.i.i.i126.i, i1 false)
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i142.i
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i142.i: ; preds = %if.then.i.i.i.i.i.i149.i, %_ZNSt12_Vector_baseI16mpv_counter_infoSaIS0_EE11_M_allocateEm.exit.i.i.i138.i
   %add.ptr.i.i.i.i.i.i143.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i139.i, i64 %sub.ptr.sub.i.i.i.i.i126.i
-  %tobool.not.i.i.i.i145.i = icmp eq ptr %counters.sroa.0.5, null
+  %tobool.not.i.i.i.i145.i = icmp eq ptr %counters.sroa.0.7, null
   br i1 %tobool.not.i.i.i.i145.i, label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i, label %if.then.i18.i.i.i146.i
 
 if.then.i18.i.i.i146.i:                           ; preds = %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i142.i
-  call void @_ZdlPv(ptr noundef nonnull %counters.sroa.0.5) #21
+  call void @_ZdlPv(ptr noundef nonnull %counters.sroa.0.7) #21
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i: ; preds = %if.then.i18.i.i.i146.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit17.i.i.i142.i
@@ -842,7 +842,7 @@ _ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EE9push_backEOS0_.exit151.i: ; preds = %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i, %if.then.i.i121.i
   %counters.sroa.31.6 = phi ptr [ %add.ptr19.i.i.i148.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i ], [ %counters.sroa.31.5, %if.then.i.i121.i ]
   %add.ptr.i.i.i.i.i.i143.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i143.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i ], [ %counters.sroa.14.5, %if.then.i.i121.i ]
-  %counters.sroa.0.6 = phi ptr [ %cond.i10.i.i.i139.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i ], [ %counters.sroa.0.5, %if.then.i.i121.i ]
+  %counters.sroa.0.8 = phi ptr [ %cond.i10.i.i.i139.i, %_ZNSt6vectorI16mpv_counter_infoSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i147.i ], [ %counters.sroa.0.7, %if.then.i.i121.i ]
   %counters.sroa.14.6 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i143.i.pn, i64 24
   %call.i152.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.2216.i) #23
   %kilopuffs.val8.i155.i = load ptr, ptr %_M_left.i.i.i.i.i, align 8
@@ -922,7 +922,7 @@ _ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110Cl
 
 invoke.cont7:                                     ; preds = %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i, %land.rhs37.i, %if.end.i
   %counters.sroa.14.7 = phi ptr [ %counters.sroa.14.4, %if.end.i ], [ %counters.sroa.14.5, %land.rhs37.i ], [ %counters.sroa.14.6, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ]
-  %counters.sroa.0.7 = phi ptr [ %counters.sroa.0.4, %if.end.i ], [ %counters.sroa.0.5, %land.rhs37.i ], [ %counters.sroa.0.6, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ]
+  %counters.sroa.0.9 = phi ptr [ %counters.sroa.0.6, %if.end.i ], [ %counters.sroa.0.7, %land.rhs37.i ], [ %counters.sroa.0.8, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ]
   %curr_decomp_offset.4 = phi i32 [ %curr_decomp_offset.2, %if.end.i ], [ %curr_decomp_offset.3, %land.rhs37.i ], [ %add.i199.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ]
   %curr_comp_offset.4 = phi i32 [ %curr_comp_offset.2, %if.end.i ], [ %curr_comp_offset.3, %land.rhs37.i ], [ %add22.i200.i, %_ZN3ue2L15fillCounterInfoEP16mpv_counter_infoPjS2_RKSt3mapINS_12_GLOBAL__N_110ClusterKeyESt6vectorINS_8raw_puffESaIS7_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESt23_Rb_tree_const_iteratorISE_ESK_.exit201.i ]
   %puff_clusters.val30 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
@@ -946,7 +946,7 @@ invoke.cont25:                                    ; preds = %invoke.cont20
   %raw.val.i = load i64, ptr %_M_node_count.i.i.i.i.i, align 8
   %mul.i = shl i64 %raw.val.i, 6
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %counters.sroa.14.7 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %counters.sroa.0.7 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %counters.sroa.0.9 to i64
   %reass.sub.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %r.val.i.i.i.i65 = load ptr, ptr %_M_left.i.i.i.i.i, align 8, !noalias !22
   %add3.i = add i64 %reass.sub.i, 140
@@ -1039,7 +1039,7 @@ lpad6.loopexit.split-lp.loopexit:                 ; preds = %cond.true.i.i.i.i.i
   br label %ehcleanup
 
 lpad6.loopexit.split-lp.loopexit.split-lp:        ; preds = %invoke.cont28, %if.then.i.i.i.i150.i, %cond.true.i.i.i.i49.i, %if.then.i.i.i.i64.i, %if.then.i.i.i.i.i, %invoke.cont20, %invoke.cont7
-  %counters.sroa.0.8.ph.ph = phi ptr [ %counters.sroa.0.7, %invoke.cont28 ], [ %counters.sroa.0.7, %invoke.cont20 ], [ %counters.sroa.0.7, %invoke.cont7 ], [ %counters.sroa.0.5, %if.then.i.i.i.i150.i ], [ %counters.sroa.0.2, %if.then.i.i.i.i64.i ], [ %counters.sroa.0.2, %cond.true.i.i.i.i49.i ], [ %counters.sroa.0.0, %if.then.i.i.i.i.i ]
+  %counters.sroa.0.0.ph.ph = phi ptr [ %counters.sroa.0.9, %invoke.cont28 ], [ %counters.sroa.0.9, %invoke.cont20 ], [ %counters.sroa.0.9, %invoke.cont7 ], [ %counters.sroa.0.7, %if.then.i.i.i.i150.i ], [ %counters.sroa.0.4, %if.then.i.i.i.i64.i ], [ %counters.sroa.0.4, %cond.true.i.i.i.i49.i ], [ %counters.sroa.0.2, %if.then.i.i.i.i.i ]
   %lpad.loopexit.split-lp222 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -1146,13 +1146,13 @@ invoke.cont86:                                    ; preds = %invoke.cont76
 
 for.body96.lr.ph:                                 ; preds = %invoke.cont86
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr88 to i64
-  %cmp.i.not3.i = icmp eq ptr %counters.sroa.0.7, %counters.sroa.14.7
+  %cmp.i.not3.i = icmp eq ptr %counters.sroa.0.9, %counters.sroa.14.7
   %sub.ptr.rhs.cast.i142 = ptrtoint ptr %add.ptr71 to i64
   br label %for.body96
 
 for.cond113.preheader:                            ; preds = %invoke.cont101, %invoke.cont86
   %kp.0.lcssa = phi ptr [ %add.ptr88, %invoke.cont86 ], [ %incdec.ptr102, %invoke.cont101 ]
-  %cmp.i167.not255 = icmp eq ptr %counters.sroa.0.7, %counters.sroa.14.7
+  %cmp.i167.not255 = icmp eq ptr %counters.sroa.0.9, %counters.sroa.14.7
   br i1 %cmp.i167.not255, label %for.end120, label %for.body115
 
 for.body96:                                       ; preds = %for.body96.lr.ph, %invoke.cont101
@@ -1167,7 +1167,7 @@ for.body96:                                       ; preds = %for.body96.lr.ph, %
   br i1 %cmp.i.not3.i, label %_ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit, label %for.body.i128
 
 for.body.i128:                                    ; preds = %for.body96, %for.inc.i
-  %__begin1.sroa.0.04.i = phi ptr [ %incdec.ptr.i.i130, %for.inc.i ], [ %counters.sroa.0.7, %for.body96 ]
+  %__begin1.sroa.0.04.i = phi ptr [ %incdec.ptr.i.i130, %for.inc.i ], [ %counters.sroa.0.9, %for.body96 ]
   %kilo_begin.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.04.i, i64 16
   %62 = load i32, ptr %kilo_begin.i, align 8
   %cmp.not.i129 = icmp ule i32 %62, %conv98
@@ -1183,7 +1183,7 @@ for.inc.i:                                        ; preds = %for.body.i128
   br i1 %cmp.i.not.i131, label %_ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit, label %for.body.i128
 
 _ZN3ue2L11findCounterERKSt6vectorI16mpv_counter_infoSaIS1_EEj.exit: ; preds = %for.body.i128, %for.inc.i, %for.body96
-  %retval.0.i = phi ptr [ %counters.sroa.0.7, %for.body96 ], [ %__begin1.sroa.0.04.i, %for.body.i128 ], [ %counters.sroa.0.7, %for.inc.i ]
+  %retval.0.i = phi ptr [ %counters.sroa.0.9, %for.body96 ], [ %__begin1.sroa.0.04.i, %for.body.i128 ], [ %counters.sroa.0.9, %for.inc.i ]
   %counter_offset = getelementptr inbounds i8, ptr %retval.0.i, i64 12
   %64 = load i32, ptr %counter_offset, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i132)
@@ -1511,7 +1511,7 @@ invoke.cont101:                                   ; preds = %for.body.i.i, %for.
 
 for.body115:                                      ; preds = %for.cond113.preheader, %for.body115
   %out_ci.0257 = phi ptr [ %incdec.ptr117, %for.body115 ], [ %kp.0.lcssa, %for.cond113.preheader ]
-  %__begin1107.sroa.0.0256 = phi ptr [ %incdec.ptr.i168, %for.body115 ], [ %counters.sroa.0.7, %for.cond113.preheader ]
+  %__begin1107.sroa.0.0256 = phi ptr [ %incdec.ptr.i168, %for.body115 ], [ %counters.sroa.0.9, %for.cond113.preheader ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %out_ci.0257, ptr noundef nonnull align 8 dereferenceable(24) %__begin1107.sroa.0.0256, i64 24, i1 false)
   %incdec.ptr117 = getelementptr inbounds i8, ptr %out_ci.0257, i64 24
   %incdec.ptr.i168 = getelementptr inbounds i8, ptr %__begin1107.sroa.0.0256, i64 24
@@ -1533,11 +1533,11 @@ for.end120:                                       ; preds = %for.body115, %for.c
   store i32 %add22, ptr %scratchStateSize2.i, align 8
   %minWidth.i = getelementptr inbounds i8, ptr %101, i64 36
   store i32 %min_repeat.0.lcssa, ptr %minWidth.i, align 4
-  %tobool.not.i.i.i = icmp eq ptr %counters.sroa.0.7, null
+  %tobool.not.i.i.i = icmp eq ptr %counters.sroa.0.9, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EED2Ev.exit, label %if.then.i.i.i170
 
 if.then.i.i.i170:                                 ; preds = %for.end120
-  call void @_ZdlPv(ptr noundef nonnull %counters.sroa.0.7) #21
+  call void @_ZdlPv(ptr noundef nonnull %counters.sroa.0.9) #21
   br label %_ZNSt6vectorI16mpv_counter_infoSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI16mpv_counter_infoSaIS0_EED2Ev.exit: ; preds = %for.end120, %if.then.i.i.i170
@@ -1546,13 +1546,13 @@ _ZNSt6vectorI16mpv_counter_infoSaIS0_EED2Ev.exit: ; preds = %for.end120, %if.the
   ret void
 
 ehcleanup:                                        ; preds = %lpad6.loopexit, %lpad6.loopexit.split-lp.loopexit.split-lp, %lpad6.loopexit.split-lp.loopexit, %lpad33.body
-  %counters.sroa.0.9 = phi ptr [ %counters.sroa.0.7, %lpad33.body ], [ %counters.sroa.0.5, %lpad6.loopexit ], [ %counters.sroa.0.0, %lpad6.loopexit.split-lp.loopexit ], [ %counters.sroa.0.8.ph.ph, %lpad6.loopexit.split-lp.loopexit.split-lp ]
+  %counters.sroa.0.1 = phi ptr [ %counters.sroa.0.9, %lpad33.body ], [ %counters.sroa.0.7, %lpad6.loopexit ], [ %counters.sroa.0.2, %lpad6.loopexit.split-lp.loopexit ], [ %counters.sroa.0.0.ph.ph, %lpad6.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad33.body ], [ %lpad.loopexit219, %lpad6.loopexit ], [ %lpad.loopexit221, %lpad6.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp222, %lpad6.loopexit.split-lp.loopexit.split-lp ]
-  %tobool.not.i.i.i171 = icmp eq ptr %counters.sroa.0.9, null
+  %tobool.not.i.i.i171 = icmp eq ptr %counters.sroa.0.1, null
   br i1 %tobool.not.i.i.i171, label %ehcleanup124, label %if.then.i.i.i172
 
 if.then.i.i.i172:                                 ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %counters.sroa.0.9) #21
+  call void @_ZdlPv(ptr noundef nonnull %counters.sroa.0.1) #21
   br label %ehcleanup124
 
 ehcleanup124:                                     ; preds = %lpad.loopexit224, %lpad.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %if.then.i.i.i172, %ehcleanup

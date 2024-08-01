@@ -1393,12 +1393,12 @@ LWLockAttemptLock.exit30:                         ; preds = %.split.us.i26
   br label %48
 
 48:                                               ; preds = %48, %41
-  %.0 = phi i32 [ 0, %41 ], [ %52, %48 ]
+  %.1 = phi i32 [ 0, %41 ], [ %52, %48 ]
   %49 = load ptr, ptr %46, align 8
   tail call void @PGSemaphoreLock(ptr noundef %49) #15
   %50 = load i8, ptr %47, align 2
   %51 = icmp eq i8 %50, 0
-  %52 = add i32 %.0, 1
+  %52 = add i32 %.1, 1
   br i1 %51, label %54, label %48
 
 53:                                               ; preds = %.split14.i23, %LWLockAttemptLock.exit30
@@ -1408,7 +1408,7 @@ LWLockAttemptLock.exit30:                         ; preds = %.split.us.i26
 54:                                               ; preds = %48
   %55 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 0, ptr %55, align 4
-  %56 = icmp sgt i32 %.0, 0
+  %56 = icmp sgt i32 %.1, 0
   br i1 %56, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %54
@@ -1416,7 +1416,7 @@ LWLockAttemptLock.exit30:                         ; preds = %.split.us.i26
   br label %58
 
 58:                                               ; preds = %.lr.ph, %58
-  %.234 = phi i32 [ %.0, %.lr.ph ], [ %59, %58 ]
+  %.234 = phi i32 [ %.1, %.lr.ph ], [ %59, %58 ]
   %59 = add nsw i32 %.234, -1
   %60 = load ptr, ptr %57, align 8
   tail call void @PGSemaphoreUnlock(ptr noundef %60) #15
@@ -1520,7 +1520,7 @@ LWLockConflictsWithVar.exit21:                    ; preds = %19
 
 LWLockConflictsWithVar.exit.thread:               ; preds = %31, %15, %.loopexit
   %.033 = phi i32 [ %.041, %.loopexit ], [ %.041, %15 ], [ %.1, %31 ]
-  %.224 = phi i1 [ %.not.i18, %.loopexit ], [ false, %15 ], [ true, %31 ]
+  %.022 = phi i1 [ %.not.i18, %.loopexit ], [ false, %15 ], [ true, %31 ]
   %35 = icmp sgt i32 %.033, 0
   br i1 %35, label %.lr.ph43, label %._crit_edge
 
@@ -1537,11 +1537,11 @@ LWLockConflictsWithVar.exit.thread:               ; preds = %31, %15, %.loopexit
   br i1 %40, label %37, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %37, %4, %LWLockConflictsWithVar.exit.thread
-  %.22458 = phi i1 [ %.224, %LWLockConflictsWithVar.exit.thread ], [ true, %4 ], [ %.224, %37 ]
+  %.02258 = phi i1 [ %.022, %LWLockConflictsWithVar.exit.thread ], [ true, %4 ], [ %.022, %37 ]
   %41 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %42 = add i32 %41, -1
   store volatile i32 %42, ptr @InterruptHoldoffCount, align 4
-  ret i1 %.22458
+  ret i1 %.02258
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1888,7 +1888,7 @@ proclist_push_tail_offset.exit._crit_edge.thread.i: ; preds = %LWLockWaitListLoc
   %58 = phi ptr [ %53, %.lr.ph.i ], [ %100, %99 ]
   %59 = phi ptr [ %52, %.lr.ph.i ], [ %97, %99 ]
   %.060.i = phi i1 [ true, %.lr.ph.i ], [ %.2.i, %99 ]
-  %.03259.i = phi i1 [ false, %.lr.ph.i ], [ %.234.i, %99 ]
+  %.03259.i = phi i1 [ false, %.lr.ph.i ], [ %.133.i, %99 ]
   %.sroa.19.058.in.i = phi ptr [ %55, %.lr.ph.i ], [ %102, %99 ]
   %.sroa.0.057.i = phi i32 [ %49, %.lr.ph.i ], [ %.sroa.19.058.i, %99 ]
   %.sroa.0.04856.i = phi i32 [ -1, %.lr.ph.i ], [ %.sroa.0.2.i, %99 ]
@@ -1951,7 +1951,7 @@ proclist_delete_offset.exit.i:                    ; preds = %76, %66
   br label %proclist_push_tail_offset.exit.i
 
 proclist_push_tail_offset.exit.i:                 ; preds = %87, %86
-  %.sroa.0.149.i = phi i32 [ %.sroa.0.057.i, %86 ], [ %.sroa.0.04856.i, %87 ]
+  %.sroa.0.3.i = phi i32 [ %.sroa.0.057.i, %86 ], [ %.sroa.0.04856.i, %87 ]
   store i32 -1, ptr %83, align 4
   %92 = getelementptr inbounds i8, ptr %61, i64 91
   %93 = load i8, ptr %92, align 1
@@ -1968,8 +1968,8 @@ proclist_push_tail_offset.exit.i:                 ; preds = %87, %86
 96:                                               ; preds = %proclist_push_tail_offset.exit.i, %62
   %97 = phi ptr [ %59, %62 ], [ %.pre.i, %proclist_push_tail_offset.exit.i ]
   %.sroa.0.051.i = phi i32 [ %.sroa.0.05255.i, %62 ], [ %.sroa.0.057.i, %proclist_push_tail_offset.exit.i ]
-  %.sroa.0.2.i = phi i32 [ %.sroa.0.04856.i, %62 ], [ %.sroa.0.149.i, %proclist_push_tail_offset.exit.i ]
-  %.234.i = phi i1 [ true, %62 ], [ %spec.select.i, %proclist_push_tail_offset.exit.i ]
+  %.sroa.0.2.i = phi i32 [ %.sroa.0.04856.i, %62 ], [ %.sroa.0.3.i, %proclist_push_tail_offset.exit.i ]
+  %.133.i = phi i1 [ true, %62 ], [ %spec.select.i, %proclist_push_tail_offset.exit.i ]
   %.2.i = phi i1 [ %.060.i, %62 ], [ %spec.select41.i, %proclist_push_tail_offset.exit.i ]
   %98 = icmp eq i32 %.sroa.19.058.i, -1
   br i1 %98, label %proclist_push_tail_offset.exit._crit_edge.i, label %99
@@ -1981,23 +1981,23 @@ proclist_push_tail_offset.exit.i:                 ; preds = %87, %86
   br label %57, !llvm.loop !29
 
 proclist_push_tail_offset.exit._crit_edge.i:      ; preds = %96, %proclist_push_tail_offset.exit.i
-  %.sroa.0.3.ph.i = phi i32 [ %.sroa.0.149.i, %proclist_push_tail_offset.exit.i ], [ %.sroa.0.2.i, %96 ]
-  %.3.ph.i = phi i1 [ %spec.select41.i, %proclist_push_tail_offset.exit.i ], [ %.2.i, %96 ]
-  %103 = freeze i32 %.sroa.0.3.ph.i
-  %104 = select i1 %.3.ph.i, i32 536870912, i32 0
+  %.sroa.0.149.ph.i = phi i32 [ %.sroa.0.3.i, %proclist_push_tail_offset.exit.i ], [ %.sroa.0.2.i, %96 ]
+  %.1.ph.i = phi i1 [ %spec.select41.i, %proclist_push_tail_offset.exit.i ], [ %.2.i, %96 ]
+  %103 = freeze i32 %.sroa.0.149.ph.i
+  %104 = select i1 %.1.ph.i, i32 536870912, i32 0
   %105 = load volatile i32, ptr %33, align 4
   %106 = icmp eq i32 %103, -1
   br i1 %106, label %.split.us.preheader.i, label %.split.i
 
 .split.us.preheader.i:                            ; preds = %proclist_push_tail_offset.exit._crit_edge.i, %proclist_push_tail_offset.exit._crit_edge.thread.i
   %107 = phi i32 [ %51, %proclist_push_tail_offset.exit._crit_edge.thread.i ], [ %105, %proclist_push_tail_offset.exit._crit_edge.i ]
-  %.382.i = phi i32 [ 536870912, %proclist_push_tail_offset.exit._crit_edge.thread.i ], [ %104, %proclist_push_tail_offset.exit._crit_edge.i ]
+  %.182.i = phi i32 [ 536870912, %proclist_push_tail_offset.exit._crit_edge.thread.i ], [ %104, %proclist_push_tail_offset.exit._crit_edge.i ]
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %.split.us.i, %.split.us.preheader.i
   %.047.us.i = phi i32 [ %110, %.split.us.i ], [ %107, %.split.us.preheader.i ]
   %108 = and i32 %.047.us.i, -1879048193
-  %.035.us.i = or disjoint i32 %108, %.382.i
+  %.035.us.i = or disjoint i32 %108, %.182.i
   %109 = call { i32, i8 } asm sideeffect "\09lock\09\09\09\09\0A\09cmpxchgl\09$4,$5\09\0A   setz\09\09$2\09\09\0A", "={ax},=*m,=q,{ax},r,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %33, i32 %.047.us.i, i32 %.035.us.i, ptr nonnull elementtype(i32) %33) #15, !srcloc !18
   %110 = extractvalue { i32, i8 } %109, 0
   %111 = extractvalue { i32, i8 } %109, 1

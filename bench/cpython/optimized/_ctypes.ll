@@ -4071,9 +4071,9 @@ for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %inoutmask.0 = phi i32 [ 0, %for.body.lr.ph.i ], [ %inoutmask.2, %for.inc.i ]
-  %outmask.0 = phi i32 [ 0, %for.body.lr.ph.i ], [ %outmask.1, %for.inc.i ]
-  %numretvals.0 = phi i32 [ 0, %for.body.lr.ph.i ], [ %numretvals.2, %for.inc.i ]
+  %inoutmask.2 = phi i32 [ 0, %for.body.lr.ph.i ], [ %inoutmask.3, %for.inc.i ]
+  %outmask.2 = phi i32 [ 0, %for.body.lr.ph.i ], [ %outmask.3, %for.inc.i ]
+  %numretvals.2 = phi i32 [ 0, %for.body.lr.ph.i ], [ %numretvals.3, %for.inc.i ]
   %i.034.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc77.i, %for.inc.i ]
   %inargs_index.033.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inargs_index.2.i, %for.inc.i ]
   %arrayidx.i = getelementptr [1 x ptr], ptr %ob_item.i, i64 0, i64 %i.034.i
@@ -4130,13 +4130,13 @@ Py_INCREF.exit102.i:                              ; preds = %if.end.i100.i, %sw.
 sw.bb33.i:                                        ; preds = %cond.end26.i
   %sh_prom.i = trunc i64 %i.034.i to i32
   %shl.i = shl nuw i32 1, %sh_prom.i
-  %or.i = or i32 %shl.i, %inoutmask.0
-  %inc.i = add i32 %numretvals.0, 1
+  %or.i = or i32 %shl.i, %inoutmask.2
+  %inc.i = add i32 %numretvals.2, 1
   br label %sw.bb34.i
 
 sw.bb34.i:                                        ; preds = %sw.bb33.i, %cond.end26.i, %cond.end26.i
-  %inoutmask.1 = phi i32 [ %inoutmask.0, %cond.end26.i ], [ %inoutmask.0, %cond.end26.i ], [ %or.i, %sw.bb33.i ]
-  %numretvals.1 = phi i32 [ %numretvals.0, %cond.end26.i ], [ %numretvals.0, %cond.end26.i ], [ %inc.i, %sw.bb33.i ]
+  %inoutmask.4 = phi i32 [ %inoutmask.2, %cond.end26.i ], [ %inoutmask.2, %cond.end26.i ], [ %or.i, %sw.bb33.i ]
+  %numretvals.4 = phi i32 [ %numretvals.2, %cond.end26.i ], [ %numretvals.2, %cond.end26.i ], [ %inc.i, %sw.bb33.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i.i)
   %conv.i.i = sext i32 %inargs_index.033.i to i64
   %inargs.val.i.i = load i64, ptr %14, align 8
@@ -4232,8 +4232,8 @@ Py_INCREF.exit.i:                                 ; preds = %if.end.i93.i, %if.t
   store ptr %cond27.i, ptr %arrayidx.i69.i, align 8
   %sh_prom42.i = trunc i64 %i.034.i to i32
   %shl43.i = shl nuw i32 1, %sh_prom42.i
-  %or44.i = or i32 %shl43.i, %outmask.0
-  %inc45.i = add i32 %numretvals.0, 1
+  %or44.i = or i32 %shl43.i, %outmask.2
+  %inc45.i = add i32 %numretvals.2, 1
   br label %for.inc.i
 
 if.end46.i:                                       ; preds = %sw.bb40.i
@@ -4341,8 +4341,8 @@ if.end71.i:                                       ; preds = %if.end67.i
   store ptr %ob.0.i, ptr %arrayidx.i92.i, align 8
   %sh_prom72.i = trunc i64 %i.034.i to i32
   %shl73.i = shl nuw i32 1, %sh_prom72.i
-  %or74.i = or i32 %shl73.i, %outmask.0
-  %inc75.i = add i32 %numretvals.0, 1
+  %or74.i = or i32 %shl73.i, %outmask.2
+  %inc75.i = add i32 %numretvals.2, 1
   br label %for.inc.i
 
 sw.default.i:                                     ; preds = %cond.end26.i
@@ -4351,18 +4351,18 @@ sw.default.i:                                     ; preds = %cond.end26.i
   br label %error.i
 
 for.inc.i:                                        ; preds = %if.end71.i, %Py_INCREF.exit.i, %if.end39.i, %Py_INCREF.exit102.i
-  %inoutmask.2 = phi i32 [ %inoutmask.0, %if.end71.i ], [ %inoutmask.0, %Py_INCREF.exit.i ], [ %inoutmask.1, %if.end39.i ], [ %inoutmask.0, %Py_INCREF.exit102.i ]
-  %outmask.1 = phi i32 [ %or74.i, %if.end71.i ], [ %or44.i, %Py_INCREF.exit.i ], [ %outmask.0, %if.end39.i ], [ %outmask.0, %Py_INCREF.exit102.i ]
-  %numretvals.2 = phi i32 [ %inc75.i, %if.end71.i ], [ %inc45.i, %Py_INCREF.exit.i ], [ %numretvals.1, %if.end39.i ], [ %numretvals.0, %Py_INCREF.exit102.i ]
+  %inoutmask.3 = phi i32 [ %inoutmask.2, %if.end71.i ], [ %inoutmask.2, %Py_INCREF.exit.i ], [ %inoutmask.4, %if.end39.i ], [ %inoutmask.2, %Py_INCREF.exit102.i ]
+  %outmask.3 = phi i32 [ %or74.i, %if.end71.i ], [ %or44.i, %Py_INCREF.exit.i ], [ %outmask.2, %if.end39.i ], [ %outmask.2, %Py_INCREF.exit102.i ]
+  %numretvals.3 = phi i32 [ %inc75.i, %if.end71.i ], [ %inc45.i, %Py_INCREF.exit.i ], [ %numretvals.4, %if.end39.i ], [ %numretvals.2, %Py_INCREF.exit102.i ]
   %inargs_index.2.i = phi i32 [ %inargs_index.033.i, %if.end71.i ], [ %inargs_index.033.i, %Py_INCREF.exit.i ], [ %inargs_index.1.ph.i, %if.end39.i ], [ %inargs_index.033.i, %Py_INCREF.exit102.i ]
   %inc77.i = add nuw nsw i64 %i.034.i, 1
   %exitcond.not.i = icmp eq i64 %inc77.i, %argtypes.val61.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
-  %inoutmask.3 = phi i32 [ 0, %for.cond.preheader.i ], [ %inoutmask.2, %for.inc.i ]
-  %outmask.2 = phi i32 [ 0, %for.cond.preheader.i ], [ %outmask.1, %for.inc.i ]
-  %numretvals.3 = phi i32 [ 0, %for.cond.preheader.i ], [ %numretvals.2, %for.inc.i ]
+  %inoutmask.0 = phi i32 [ 0, %for.cond.preheader.i ], [ %inoutmask.3, %for.inc.i ]
+  %outmask.0 = phi i32 [ 0, %for.cond.preheader.i ], [ %outmask.3, %for.inc.i ]
+  %numretvals.0 = phi i32 [ 0, %for.cond.preheader.i ], [ %numretvals.3, %for.inc.i ]
   %inargs_index.0.lcssa.i = phi i32 [ 0, %for.cond.preheader.i ], [ %inargs_index.2.i, %for.inc.i ]
   %45 = getelementptr i8, ptr %inargs, i64 16
   %inargs.val.i = load i64, ptr %45, align 8
@@ -4403,9 +4403,9 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.end:                                           ; preds = %cond.end83.i, %if.end.i.i.i, %if.then.i
-  %inoutmask.5 = phi i32 [ 0, %if.then.i ], [ 0, %if.end.i.i.i ], [ %inoutmask.3, %cond.end83.i ]
-  %outmask.4 = phi i32 [ 0, %if.then.i ], [ 0, %if.end.i.i.i ], [ %outmask.2, %cond.end83.i ]
-  %numretvals.5 = phi i32 [ 0, %if.then.i ], [ 0, %if.end.i.i.i ], [ %numretvals.3, %cond.end83.i ]
+  %inoutmask.5 = phi i32 [ 0, %if.then.i ], [ 0, %if.end.i.i.i ], [ %inoutmask.0, %cond.end83.i ]
+  %outmask.4 = phi i32 [ 0, %if.then.i ], [ 0, %if.end.i.i.i ], [ %outmask.0, %cond.end83.i ]
+  %numretvals.5 = phi i32 [ 0, %if.then.i ], [ 0, %if.end.i.i.i ], [ %numretvals.0, %cond.end83.i ]
   %retval.0.i = phi ptr [ %inargs, %if.then.i ], [ %inargs, %if.end.i.i.i ], [ %call7.i, %cond.end83.i ]
   %tobool30.not = icmp eq ptr %cond11, null
   br i1 %tobool30.not, label %if.end.if.end55_crit_edge, label %if.then31

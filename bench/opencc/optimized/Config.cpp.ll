@@ -3030,10 +3030,10 @@ define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN6open
 
 20:                                               ; preds = %16, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
-  %.1 = phi i1 [ %.0, %18 ], [ true, %16 ]
+  %.2 = phi i1 [ %.0, %18 ], [ true, %16 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
-  br i1 %.1, label %21, label %23
+  br i1 %.2, label %21, label %23
 
 21:                                               ; preds = %.thread, %20
   %.pn.pn4 = phi { ptr, i32 } [ %15, %.thread ], [ %.pn, %20 ]
@@ -3101,10 +3101,10 @@ define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN6open
 
 20:                                               ; preds = %16, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
-  %.1 = phi i1 [ %.0, %18 ], [ true, %16 ]
+  %.2 = phi i1 [ %.0, %18 ], [ true, %16 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
-  br i1 %.1, label %21, label %23
+  br i1 %.2, label %21, label %23
 
 21:                                               ; preds = %.thread, %20
   %.pn.pn4 = phi { ptr, i32 } [ %15, %.thread ], [ %.pn, %20 ]
@@ -3796,10 +3796,10 @@ define internal fastcc noundef ptr @_ZN6opencc12_GLOBAL__N_114ConfigInternal17Ge
 
 20:                                               ; preds = %16, %18
   %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
-  %.1 = phi i1 [ %.0, %18 ], [ true, %16 ]
+  %.2 = phi i1 [ %.0, %18 ], [ true, %16 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #24
-  br i1 %.1, label %21, label %30
+  br i1 %.2, label %21, label %30
 
 21:                                               ; preds = %.thread, %20
   %.pn.pn4 = phi { ptr, i32 } [ %15, %.thread ], [ %.pn, %20 ]
@@ -4930,10 +4930,10 @@ _ZNK9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAlloca
 
 65:                                               ; preds = %61, %63
   %.pn = phi { ptr, i32 } [ %64, %63 ], [ %62, %61 ]
-  %.1 = phi i1 [ %.0, %63 ], [ true, %61 ]
+  %.2 = phi i1 [ %.0, %63 ], [ true, %61 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #24
-  br i1 %.1, label %66, label %111
+  br i1 %.2, label %66, label %111
 
 66:                                               ; preds = %.thread, %65
   %.pn.pn5 = phi { ptr, i32 } [ %60, %.thread ], [ %.pn, %65 ]
@@ -7700,7 +7700,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   br i1 %9, label %.preheader.split, label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us
-  %.sroa.031.0.us = phi ptr [ %.sroa.031.1.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %1, %.preheader ]
+  %.sroa.031.0.us = phi ptr [ %.sroa.031.2.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %1, %.preheader ]
   %.sroa.11.0.us = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ %2, %.preheader ]
   %.0.us = phi i64 [ %22, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us ], [ 0, %.preheader ]
   %.not.i.i.i.i.us = icmp ne ptr %.sroa.031.0.us, null
@@ -7715,7 +7715,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; preds = %11, %.preheader.split.us
-  %.sroa.031.1.us = phi ptr [ %.sroa.031.0.us, %.preheader.split.us ], [ %spec.select.us, %11 ]
+  %.sroa.031.2.us = phi ptr [ %.sroa.031.0.us, %.preheader.split.us ], [ %spec.select.us, %11 ]
   %.0.i.i.i.i.us = phi i32 [ %.sroa.11.0.us, %.preheader.split.us ], [ %12, %11 ]
   %14 = icmp eq i32 %.0.i.i.i.i.us, -1
   %15 = icmp ult i64 %.0.us, 15
@@ -7723,12 +7723,12 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us: ; pred
   br i1 %16, label %17, label %.split.us
 
 17:                                               ; preds = %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us
-  %.not.i.i.us = icmp ne ptr %.sroa.031.1.us, null
+  %.not.i.i.us = icmp ne ptr %.sroa.031.2.us, null
   %or.cond.i.i.us = select i1 %.not.i.i.us, i1 %10, i1 false
   br i1 %or.cond.i.i.us, label %18, label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us
 
 18:                                               ; preds = %17
-  %19 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1.us)
+  %19 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.2.us)
   %20 = icmp ne i32 %19, -1
   tail call void @llvm.assume(i1 %20)
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us
@@ -7739,7 +7739,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us: ; preds = %18, %17
   %22 = add nuw nsw i64 %.0.us, 1
   %23 = getelementptr inbounds i8, ptr %8, i64 %.0.us
   store i8 %21, ptr %23, align 1
-  %24 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1.us)
+  %24 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.2.us)
   br label %.preheader.split.us, !llvm.loop !73
 
 25:                                               ; preds = %5
@@ -7750,8 +7750,8 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us: ; preds = %18, %17
   unreachable
 
 .preheader.split:                                 ; preds = %.preheader, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
-  %.sroa.031.0 = phi ptr [ %.sroa.031.1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %1, %.preheader ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %3, %.preheader ]
+  %.sroa.031.0 = phi ptr [ %.sroa.031.2, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %1, %.preheader ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %3, %.preheader ]
   %.sroa.11.0 = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ %2, %.preheader ]
   %.0 = phi i64 [ %45, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit ], [ 0, %.preheader ]
   %.not.i.i.i.i = icmp ne ptr %.sroa.031.0, null
@@ -7766,7 +7766,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit.us: ; preds = %18, %17
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i: ; preds = %29, %.preheader.split
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0, %.preheader.split ], [ %spec.select, %29 ]
+  %.sroa.031.2 = phi ptr [ %.sroa.031.0, %.preheader.split ], [ %spec.select, %29 ]
   %.0.i.i.i.i = phi i32 [ %.sroa.11.0, %.preheader.split ], [ %30, %29 ]
   %.not.i.i2.i.i.not = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i.i2.i.i.not, label %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit, label %32
@@ -7778,7 +7778,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i: ; preds =
   br label %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
 
 _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = %32, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i
-  %.sroa.0.1 = phi ptr [ null, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %spec.select42, %32 ]
+  %.sroa.0.2 = phi ptr [ null, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %spec.select42, %32 ]
   %.0.i.i4.i.i = phi i32 [ -1, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i ], [ %33, %32 ]
   %35 = icmp eq i32 %.0.i.i.i.i, -1
   %36 = icmp eq i32 %.0.i.i4.i.i, -1
@@ -7788,12 +7788,12 @@ _ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit: ; preds = 
   br i1 %39, label %40, label %.split.us
 
 40:                                               ; preds = %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
-  %.not.i.i = icmp ne ptr %.sroa.031.1, null
+  %.not.i.i = icmp ne ptr %.sroa.031.2, null
   %or.cond.i.i = select i1 %.not.i.i, i1 %28, i1 false
   br i1 %or.cond.i.i, label %41, label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
 
 41:                                               ; preds = %40
-  %42 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1)
+  %42 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.2)
   %43 = icmp ne i32 %42, -1
   tail call void @llvm.assume(i1 %43)
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit
@@ -7804,45 +7804,45 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit: ; preds = %41, %40
   %45 = add nuw nsw i64 %.0, 1
   %46 = getelementptr inbounds i8, ptr %8, i64 %.0
   store i8 %44, ptr %46, align 1
-  %47 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1)
+  %47 = tail call noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6sbumpcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.2)
   br label %.preheader.split, !llvm.loop !73
 
 .split.us:                                        ; preds = %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
-  %.us-phi = phi ptr [ %.sroa.0.1, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %3, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
-  %.us-phi47 = phi ptr [ %.sroa.031.1, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.sroa.031.1.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
+  %.us-phi = phi ptr [ %.sroa.0.2, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %3, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
+  %.us-phi47 = phi ptr [ %.sroa.031.2, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.sroa.031.2.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
   %.us-phi49 = phi i32 [ %.sroa.11.0, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.sroa.11.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
   %.us-phi50 = phi i64 [ %.0, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit ], [ %.0.us, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i.us ]
   store ptr %0, ptr %7, align 8
   br label %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit
 
 _ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit: ; preds = %79, %.split.us
-  %.sroa.031.3 = phi ptr [ %.us-phi47, %.split.us ], [ %.sroa.031.4, %79 ]
-  %.sroa.0.2 = phi ptr [ %.us-phi, %.split.us ], [ %.sroa.0.340, %79 ]
+  %.sroa.031.1 = phi ptr [ %.us-phi47, %.split.us ], [ %.sroa.031.4, %79 ]
+  %.sroa.0.1 = phi ptr [ %.us-phi, %.split.us ], [ %.sroa.0.340, %79 ]
   %.sroa.11.1 = phi i32 [ %.us-phi49, %.split.us ], [ -1, %79 ]
   %.1 = phi i64 [ %.us-phi50, %.split.us ], [ %82, %79 ]
-  %.not.i.i.i.i14 = icmp ne ptr %.sroa.031.3, null
+  %.not.i.i.i.i14 = icmp ne ptr %.sroa.031.1, null
   %48 = icmp eq i32 %.sroa.11.1, -1
   %or.cond.i.i.i.i15 = select i1 %.not.i.i.i.i14, i1 %48, i1 false
   br i1 %or.cond.i.i.i.i15, label %49, label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i16
 
 49:                                               ; preds = %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit
-  %50 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.3)
+  %50 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.031.1)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %49
   %51 = icmp eq i32 %50, -1
-  %spec.select44 = select i1 %51, ptr null, ptr %.sroa.031.3
+  %spec.select44 = select i1 %51, ptr null, ptr %.sroa.031.1
   br label %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i16
 
 _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i16: ; preds = %.noexc, %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit
-  %.sroa.031.4 = phi ptr [ %.sroa.031.3, %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit ], [ %spec.select44, %.noexc ]
+  %.sroa.031.4 = phi ptr [ %.sroa.031.1, %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit ], [ %spec.select44, %.noexc ]
   %.0.i.i.i.i17 = phi i32 [ %.sroa.11.1, %_ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit ], [ %50, %.noexc ]
-  %.not.i.i2.i.i18 = icmp ne ptr %.sroa.0.2, null
+  %.not.i.i2.i.i18 = icmp ne ptr %.sroa.0.1, null
   %or.cond.i.i3.i.i19 = and i1 %.not.i.i2.i.i18, %9
   br i1 %or.cond.i.i3.i.i19, label %52, label %56
 
 52:                                               ; preds = %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i16
-  %53 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.2)
+  %53 = invoke noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.1)
           to label %.noexc21 unwind label %.loopexit
 
 .noexc21:                                         ; preds = %52
@@ -7862,7 +7862,7 @@ _ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEE9_M_at_eofEv.exit.i.i16: ; preds
   br i1 %58, label %59, label %84
 
 59:                                               ; preds = %55, %.noexc21._crit_edge, %56
-  %.sroa.0.340 = phi ptr [ %.sroa.0.2, %.noexc21._crit_edge ], [ %.sroa.0.2, %56 ], [ null, %55 ]
+  %.sroa.0.340 = phi ptr [ %.sroa.0.1, %.noexc21._crit_edge ], [ %.sroa.0.1, %56 ], [ null, %55 ]
   %60 = load i64, ptr %6, align 8
   %61 = icmp eq i64 %.1, %60
   br i1 %61, label %62, label %73
@@ -8598,8 +8598,8 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br label %9
 
 9:                                                ; preds = %136, %4
-  %.sroa.33.0 = phi ptr [ %5, %4 ], [ %.sroa.33.2, %136 ]
-  %.sroa.0.0 = phi ptr [ %5, %4 ], [ %.sroa.0.8, %136 ]
+  %.sroa.33.0 = phi ptr [ %5, %4 ], [ %.sroa.33.1, %136 ]
+  %.sroa.0.0 = phi ptr [ %5, %4 ], [ %.sroa.0.4, %136 ]
   %10 = load i8, ptr %.sroa.0.0, align 1
   switch i8 %10, label %126 [
     i8 92, label %11
@@ -8630,10 +8630,10 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br label %23
 
 23:                                               ; preds = %35, %21
-  %.sroa.0.1 = phi ptr [ %22, %21 ], [ %37, %35 ]
+  %.sroa.0.6 = phi ptr [ %22, %21 ], [ %37, %35 ]
   %.02731.i = phi i32 [ 0, %21 ], [ %38, %35 ]
   %.02830.i = phi i32 [ 0, %21 ], [ %36, %35 ]
-  %24 = load i8, ptr %.sroa.0.1, align 1
+  %24 = load i8, ptr %.sroa.0.6, align 1
   %25 = shl i32 %.02830.i, 4
   %26 = sext i8 %24 to i32
   %27 = add i32 %25, %26
@@ -8661,7 +8661,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 35:                                               ; preds = %31, %29, %23
   %.sink.i = phi i32 [ -48, %23 ], [ -55, %29 ], [ -87, %31 ]
   %36 = add i32 %27, %.sink.i
-  %37 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 1
+  %37 = getelementptr inbounds i8, ptr %.sroa.0.6, i64 1
   %38 = add nuw nsw i32 %.02731.i, 1
   %exitcond.not.i = icmp eq i32 %38, 4
   br i1 %exitcond.not.i, label %.loopexit, label %23, !llvm.loop !75
@@ -8692,7 +8692,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br label %.split.loop.exit
 
 .split.loop.exit:                                 ; preds = %42, %.split.loop.exit.split.loop.exit280
-  %.sroa.0.3 = phi ptr [ %48, %.split.loop.exit.split.loop.exit280 ], [ %scevgep, %42 ]
+  %.sroa.0.2 = phi ptr [ %48, %.split.loop.exit.split.loop.exit280 ], [ %scevgep, %42 ]
   %.pn = ptrtoint ptr %.sroa.0.0 to i64
   %.lcssa250 = sub i64 %.pn, %6
   store i32 9, ptr %7, align 8
@@ -8705,10 +8705,10 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br label %51
 
 51:                                               ; preds = %63, %49
-  %.sroa.0.5 = phi ptr [ %50, %49 ], [ %65, %63 ]
+  %.sroa.0.8 = phi ptr [ %50, %49 ], [ %65, %63 ]
   %.02731.i80 = phi i32 [ 0, %49 ], [ %66, %63 ]
   %.02830.i81 = phi i32 [ 0, %49 ], [ %64, %63 ]
-  %52 = load i8, ptr %.sroa.0.5, align 1
+  %52 = load i8, ptr %.sroa.0.8, align 1
   %53 = shl i32 %.02830.i81, 4
   %54 = sext i8 %52 to i32
   %55 = add i32 %53, %54
@@ -8736,7 +8736,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 63:                                               ; preds = %59, %57, %51
   %.sink.i86 = phi i32 [ -48, %51 ], [ -55, %57 ], [ -87, %59 ]
   %64 = add i32 %55, %.sink.i86
-  %65 = getelementptr inbounds i8, ptr %.sroa.0.5, i64 1
+  %65 = getelementptr inbounds i8, ptr %.sroa.0.8, i64 1
   %66 = add nuw nsw i32 %.02731.i80, 1
   %exitcond.not.i87 = icmp eq i32 %66, 4
   br i1 %exitcond.not.i87, label %67, label %51, !llvm.loop !75
@@ -8760,7 +8760,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br label %77
 
 77:                                               ; preds = %73, %39
-  %.sroa.0.7 = phi ptr [ %scevgep226, %73 ], [ %scevgep, %39 ]
+  %.sroa.0.1 = phi ptr [ %scevgep226, %73 ], [ %scevgep, %39 ]
   %.072 = phi i32 [ %76, %73 ], [ %36, %39 ]
   %78 = icmp ult i32 %.072, 128
   br i1 %78, label %79, label %81
@@ -8827,9 +8827,9 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br label %_ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsituStringStreamIS1_EEEEvRT_j.exit
 
 _ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsituStringStreamIS1_EEEEvRT_j.exit: ; preds = %79, %83, %95, %106
-  %.sroa.33.1 = phi ptr [ %.sroa.33.0, %79 ], [ %87, %83 ], [ %94, %95 ], [ %118, %106 ]
+  %.sroa.33.3 = phi ptr [ %.sroa.33.0, %79 ], [ %87, %83 ], [ %94, %95 ], [ %118, %106 ]
   %.sink.i89 = phi i8 [ %80, %79 ], [ %90, %83 ], [ %105, %95 ], [ %121, %106 ]
-  store i8 %.sink.i89, ptr %.sroa.33.1, align 1
+  store i8 %.sink.i89, ptr %.sroa.33.3, align 1
   br label %136
 
 122:                                              ; preds = %19
@@ -8866,9 +8866,9 @@ _ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsituStringStreamIS1_EEEEvRT_j.exit: ;
   br label %136
 
 136:                                              ; preds = %134, %17, %_ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsituStringStreamIS1_EEEEvRT_j.exit
-  %.sroa.33.0.pn = phi ptr [ %.sroa.33.0, %134 ], [ %.sroa.33.1, %_ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsituStringStreamIS1_EEEEvRT_j.exit ], [ %.sroa.33.0, %17 ]
-  %.sroa.0.8 = phi ptr [ %135, %134 ], [ %.sroa.0.7, %_ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsituStringStreamIS1_EEEEvRT_j.exit ], [ %18, %17 ]
-  %.sroa.33.2 = getelementptr inbounds i8, ptr %.sroa.33.0.pn, i64 1
+  %.sroa.33.0.pn = phi ptr [ %.sroa.33.0, %134 ], [ %.sroa.33.3, %_ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsituStringStreamIS1_EEEEvRT_j.exit ], [ %.sroa.33.0, %17 ]
+  %.sroa.0.4 = phi ptr [ %135, %134 ], [ %.sroa.0.1, %_ZN9rapidjson4UTF8IcE6EncodeINS_25GenericInsituStringStreamIS1_EEEEvRT_j.exit ], [ %18, %17 ]
+  %.sroa.33.1 = getelementptr inbounds i8, ptr %.sroa.33.0.pn, i64 1
   br label %9, !llvm.loop !76
 
 .loopexit143:                                     ; preds = %9
@@ -9066,10 +9066,10 @@ _ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllo
   br label %.loopexit143.thread
 
 .loopexit143.thread:                              ; preds = %.loopexit, %.loopexit.thread, %.thread, %122, %.split.loop.exit, %70, %133, %132, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E3KeyEPKcjb.exit, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6StringEPKcjb.exit, %.loopexit143
-  %.sroa.0.9237 = phi ptr [ %137, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E3KeyEPKcjb.exit ], [ %137, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6StringEPKcjb.exit ], [ %137, %.loopexit143 ], [ %.sroa.0.1, %.loopexit.thread ], [ %.sroa.0.5, %.thread ], [ %125, %122 ], [ %.sroa.0.3, %.split.loop.exit ], [ %scevgep226, %70 ], [ %.sroa.0.0, %133 ], [ %.sroa.0.0, %132 ], [ %scevgep, %.loopexit ]
-  %.sroa.33.3236 = phi ptr [ %138, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E3KeyEPKcjb.exit ], [ %138, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6StringEPKcjb.exit ], [ %138, %.loopexit143 ], [ %.sroa.33.0, %.loopexit.thread ], [ %.sroa.33.0, %.thread ], [ %.sroa.33.0, %122 ], [ %.sroa.33.0, %.split.loop.exit ], [ %.sroa.33.0, %70 ], [ %.sroa.33.0, %133 ], [ %.sroa.33.0, %132 ], [ %.sroa.33.0, %.loopexit ]
-  store ptr %.sroa.0.9237, ptr %1, align 8
-  store ptr %.sroa.33.3236, ptr %.sroa.33.0..sroa_idx, align 8
+  %.sroa.0.5237 = phi ptr [ %137, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E3KeyEPKcjb.exit ], [ %137, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6StringEPKcjb.exit ], [ %137, %.loopexit143 ], [ %.sroa.0.6, %.loopexit.thread ], [ %.sroa.0.8, %.thread ], [ %125, %122 ], [ %.sroa.0.2, %.split.loop.exit ], [ %scevgep226, %70 ], [ %.sroa.0.0, %133 ], [ %.sroa.0.0, %132 ], [ %scevgep, %.loopexit ]
+  %.sroa.33.2236 = phi ptr [ %138, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E3KeyEPKcjb.exit ], [ %138, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6StringEPKcjb.exit ], [ %138, %.loopexit143 ], [ %.sroa.33.0, %.loopexit.thread ], [ %.sroa.33.0, %.thread ], [ %.sroa.33.0, %122 ], [ %.sroa.33.0, %.split.loop.exit ], [ %.sroa.33.0, %70 ], [ %.sroa.33.0, %133 ], [ %.sroa.33.0, %132 ], [ %.sroa.33.0, %.loopexit ]
+  store ptr %.sroa.0.5237, ptr %1, align 8
+  store ptr %.sroa.33.2236, ptr %.sroa.33.0..sroa_idx, align 8
   store ptr %.sroa.55.0.copyload, ptr %.sroa.55.0..sroa_idx, align 8
   ret void
 }
@@ -9641,10 +9641,10 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br label %.critedge232
 
 16:                                               ; preds = %373, %329, %286, %241, %269
-  %.sroa.0.22652 = phi ptr [ %.sroa.0.22, %373 ], [ %.sroa.0.22, %329 ], [ %.sroa.0.22, %286 ], [ %.sroa.0.22653, %241 ], [ %.sroa.0.22, %269 ]
+  %.sroa.0.16652 = phi ptr [ %.sroa.0.16, %373 ], [ %.sroa.0.16, %329 ], [ %.sroa.0.16, %286 ], [ %.sroa.0.16653, %241 ], [ %.sroa.0.16, %269 ]
   %17 = landingpad { ptr, i32 }
           cleanup
-  store ptr %.sroa.0.22652, ptr %1, align 8
+  store ptr %.sroa.0.16652, ptr %1, align 8
   store ptr %.sroa.84.0.copyload, ptr %.sroa.84.0..sroa_idx, align 8
   store ptr %.sroa.84404.0.copyload, ptr %.sroa.84404.0..sroa_idx, align 8
   resume { ptr, i32 } %17
@@ -9671,14 +9671,14 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 
 .lr.ph514:                                        ; preds = %.preheader477, %31
   %26 = phi i8 [ %38, %31 ], [ %24, %.preheader477 ]
-  %.0180513 = phi i32 [ %37, %31 ], [ 0, %.preheader477 ]
-  %.0194512 = phi i32 [ %36, %31 ], [ %23, %.preheader477 ]
-  %.sroa.0.1511 = phi ptr [ %33, %31 ], [ %21, %.preheader477 ]
-  %27 = icmp ugt i32 %.0194512, 214748363
+  %.1181513 = phi i32 [ %37, %31 ], [ 0, %.preheader477 ]
+  %.1195512 = phi i32 [ %36, %31 ], [ %23, %.preheader477 ]
+  %.sroa.0.2511 = phi ptr [ %33, %31 ], [ %21, %.preheader477 ]
+  %27 = icmp ugt i32 %.1195512, 214748363
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %.lr.ph514
-  %.not210 = icmp eq i32 %.0194512, 214748364
+  %.not210 = icmp eq i32 %.1195512, 214748364
   br i1 %.not210, label %29, label %.loopexit
 
 29:                                               ; preds = %28
@@ -9686,12 +9686,12 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %29, %.lr.ph514
-  %32 = mul nuw nsw i32 %.0194512, 10
-  %33 = getelementptr inbounds i8, ptr %.sroa.0.1511, i64 1
+  %32 = mul nuw nsw i32 %.1195512, 10
+  %33 = getelementptr inbounds i8, ptr %.sroa.0.2511, i64 1
   %34 = zext nneg i8 %26 to i32
   %35 = add nsw i32 %32, -48
   %36 = add i32 %35, %34
-  %37 = add nuw nsw i32 %.0180513, 1
+  %37 = add nuw nsw i32 %.1181513, 1
   %38 = load i8, ptr %33, align 1
   %39 = add i8 %38, -48
   %or.cond458 = icmp ult i8 %39, 10
@@ -9699,14 +9699,14 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 
 .lr.ph:                                           ; preds = %.preheader479, %45
   %40 = phi i8 [ %52, %45 ], [ %24, %.preheader479 ]
-  %.1181507 = phi i32 [ %51, %45 ], [ 0, %.preheader479 ]
-  %.1195506 = phi i32 [ %50, %45 ], [ %23, %.preheader479 ]
-  %.sroa.0.2505 = phi ptr [ %47, %45 ], [ %21, %.preheader479 ]
-  %41 = icmp ugt i32 %.1195506, 429496728
+  %.2182507 = phi i32 [ %51, %45 ], [ 0, %.preheader479 ]
+  %.2196506 = phi i32 [ %50, %45 ], [ %23, %.preheader479 ]
+  %.sroa.0.3505 = phi ptr [ %47, %45 ], [ %21, %.preheader479 ]
+  %41 = icmp ugt i32 %.2196506, 429496728
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %.lr.ph
-  %.not = icmp eq i32 %.1195506, 429496729
+  %.not = icmp eq i32 %.2196506, 429496729
   br i1 %.not, label %43, label %.loopexit
 
 43:                                               ; preds = %42
@@ -9714,12 +9714,12 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br i1 %44, label %.loopexit, label %45
 
 45:                                               ; preds = %43, %.lr.ph
-  %46 = mul nuw i32 %.1195506, 10
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.2505, i64 1
+  %46 = mul nuw i32 %.2196506, 10
+  %47 = getelementptr inbounds i8, ptr %.sroa.0.3505, i64 1
   %48 = zext nneg i8 %40 to i32
   %49 = add i32 %46, -48
   %50 = add i32 %49, %48
-  %51 = add nuw nsw i32 %.1181507, 1
+  %51 = add nuw nsw i32 %.2182507, 1
   %52 = load i8, ptr %47, align 1
   %53 = add i8 %52, -48
   %or.cond459 = icmp ult i8 %53, 10
@@ -9736,33 +9736,33 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 
 .loopexit:                                        ; preds = %43, %42, %29, %28
   %59 = phi i8 [ 57, %29 ], [ %26, %28 ], [ %40, %42 ], [ %40, %43 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.1511, %28 ], [ %.sroa.0.1511, %29 ], [ %.sroa.0.2505, %42 ], [ %.sroa.0.2505, %43 ]
-  %.2196 = phi i32 [ 214748364, %29 ], [ %.0194512, %28 ], [ 429496729, %43 ], [ %.1195506, %42 ]
-  %.2182 = phi i32 [ %.0180513, %28 ], [ %.0180513, %29 ], [ %.1181507, %42 ], [ %.1181507, %43 ]
-  %.0186 = zext i32 %.2196 to i64
+  %.sroa.0.1 = phi ptr [ %.sroa.0.2511, %28 ], [ %.sroa.0.2511, %29 ], [ %.sroa.0.3505, %42 ], [ %.sroa.0.3505, %43 ]
+  %.0194 = phi i32 [ 214748364, %29 ], [ %.1195512, %28 ], [ 429496729, %43 ], [ %.2196506, %42 ]
+  %.0180 = phi i32 [ %.1181513, %28 ], [ %.1181513, %29 ], [ %.2182507, %42 ], [ %.2182507, %43 ]
+  %.0186 = zext i32 %.0194 to i64
   br i1 %8, label %.lr.ph530, label %.lr.ph522
 
 .lr.ph530:                                        ; preds = %.loopexit, %64
   %60 = phi i8 [ %71, %64 ], [ %59, %.loopexit ]
-  %.3183529 = phi i32 [ %70, %64 ], [ %.2182, %.loopexit ]
-  %.1187528 = phi i64 [ %69, %64 ], [ %.0186, %.loopexit ]
-  %.sroa.0.4527 = phi ptr [ %66, %64 ], [ %.sroa.0.3, %.loopexit ]
-  %61 = icmp ugt i64 %.1187528, 922337203685477579
+  %.4184529 = phi i32 [ %70, %64 ], [ %.0180, %.loopexit ]
+  %.2188528 = phi i64 [ %69, %64 ], [ %.0186, %.loopexit ]
+  %.sroa.0.6527 = phi ptr [ %66, %64 ], [ %.sroa.0.1, %.loopexit ]
+  %61 = icmp ugt i64 %.2188528, 922337203685477579
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %.lr.ph530
-  %.not212 = icmp ne i64 %.1187528, 922337203685477580
+  %.not212 = icmp ne i64 %.2188528, 922337203685477580
   %63 = icmp ugt i8 %60, 56
   %or.cond461 = or i1 %.not212, %63
   br i1 %or.cond461, label %.critedge224, label %64
 
 64:                                               ; preds = %62, %.lr.ph530
-  %65 = mul nuw nsw i64 %.1187528, 10
-  %66 = getelementptr inbounds i8, ptr %.sroa.0.4527, i64 1
+  %65 = mul nuw nsw i64 %.2188528, 10
+  %66 = getelementptr inbounds i8, ptr %.sroa.0.6527, i64 1
   %67 = and i8 %60, 15
   %68 = zext nneg i8 %67 to i64
   %69 = add nuw i64 %65, %68
-  %70 = add nuw nsw i32 %.3183529, 1
+  %70 = add nuw nsw i32 %.4184529, 1
   %71 = load i8, ptr %66, align 1
   %72 = add i8 %71, -48
   %or.cond460 = icmp ult i8 %72, 10
@@ -9770,25 +9770,25 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 
 .lr.ph522:                                        ; preds = %.loopexit, %77
   %73 = phi i8 [ %84, %77 ], [ %59, %.loopexit ]
-  %.4184521 = phi i32 [ %83, %77 ], [ %.2182, %.loopexit ]
-  %.2188520 = phi i64 [ %82, %77 ], [ %.0186, %.loopexit ]
-  %.sroa.0.5519 = phi ptr [ %79, %77 ], [ %.sroa.0.3, %.loopexit ]
-  %74 = icmp ugt i64 %.2188520, 1844674407370955160
+  %.5521 = phi i32 [ %83, %77 ], [ %.0180, %.loopexit ]
+  %.3189520 = phi i64 [ %82, %77 ], [ %.0186, %.loopexit ]
+  %.sroa.0.7519 = phi ptr [ %79, %77 ], [ %.sroa.0.1, %.loopexit ]
+  %74 = icmp ugt i64 %.3189520, 1844674407370955160
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %.lr.ph522
-  %.not211 = icmp ne i64 %.2188520, 1844674407370955161
+  %.not211 = icmp ne i64 %.3189520, 1844674407370955161
   %76 = icmp ugt i8 %73, 53
   %or.cond463 = or i1 %.not211, %76
   br i1 %or.cond463, label %.critedge224, label %77
 
 77:                                               ; preds = %75, %.lr.ph522
-  %78 = mul nuw i64 %.2188520, 10
-  %79 = getelementptr inbounds i8, ptr %.sroa.0.5519, i64 1
+  %78 = mul nuw i64 %.3189520, 10
+  %79 = getelementptr inbounds i8, ptr %.sroa.0.7519, i64 1
   %80 = and i8 %73, 15
   %81 = zext nneg i8 %80 to i64
   %82 = add i64 %78, %81
-  %83 = add nuw nsw i32 %.4184521, 1
+  %83 = add nuw nsw i32 %.5521, 1
   %84 = load i8, ptr %79, align 1
   %85 = add i8 %84, -48
   %or.cond462 = icmp ult i8 %85, 10
@@ -9796,17 +9796,17 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 
 .critedge224:                                     ; preds = %75, %62
   %86 = phi i8 [ %60, %62 ], [ %73, %75 ]
-  %.sroa.0.6 = phi ptr [ %.sroa.0.4527, %62 ], [ %.sroa.0.5519, %75 ]
-  %.3189 = phi i64 [ %.1187528, %62 ], [ %.2188520, %75 ]
-  %.5 = phi i32 [ %.3183529, %62 ], [ %.4184521, %75 ]
-  %.0199 = uitofp i64 %.3189 to double
+  %.sroa.0.5 = phi ptr [ %.sroa.0.6527, %62 ], [ %.sroa.0.7519, %75 ]
+  %.1187 = phi i64 [ %.2188528, %62 ], [ %.3189520, %75 ]
+  %.3183 = phi i32 [ %.4184529, %62 ], [ %.5521, %75 ]
+  %.0199 = uitofp i64 %.1187 to double
   br label %.lr.ph537
 
 .lr.ph537:                                        ; preds = %.critedge224, %92
   %87 = phi i8 [ %98, %92 ], [ %86, %.critedge224 ]
-  %.1200536 = phi double [ %97, %92 ], [ %.0199, %.critedge224 ]
-  %.sroa.0.7535 = phi ptr [ %93, %92 ], [ %.sroa.0.6, %.critedge224 ]
-  %88 = fcmp ult double %.1200536, 0x7FB9999999999999
+  %.2201536 = phi double [ %97, %92 ], [ %.0199, %.critedge224 ]
+  %.sroa.0.9535 = phi ptr [ %93, %92 ], [ %.sroa.0.5, %.critedge224 ]
+  %88 = fcmp ult double %.2201536, 0x7FB9999999999999
   br i1 %88, label %92, label %89
 
 89:                                               ; preds = %.lr.ph537
@@ -9817,11 +9817,11 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br label %.thread456
 
 92:                                               ; preds = %.lr.ph537
-  %93 = getelementptr inbounds i8, ptr %.sroa.0.7535, i64 1
+  %93 = getelementptr inbounds i8, ptr %.sroa.0.9535, i64 1
   %94 = zext nneg i8 %87 to i32
   %95 = add nsw i32 %94, -48
   %96 = uitofp nneg i32 %95 to double
-  %97 = tail call double @llvm.fmuladd.f64(double %.1200536, double 1.000000e+01, double %96)
+  %97 = tail call double @llvm.fmuladd.f64(double %.2201536, double 1.000000e+01, double %96)
   %98 = load i8, ptr %93, align 1
   %99 = add i8 %98, -48
   %or.cond464 = icmp ult i8 %99, 10
@@ -9831,12 +9831,12 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   %100 = phi i8 [ %.pre, %14 ], [ %24, %.preheader477 ], [ %24, %.preheader479 ], [ %98, %92 ], [ %71, %64 ], [ %84, %77 ], [ %38, %31 ], [ %52, %45 ]
   %101 = phi i1 [ false, %14 ], [ false, %.preheader477 ], [ false, %.preheader479 ], [ true, %92 ], [ false, %64 ], [ false, %77 ], [ false, %31 ], [ false, %45 ]
   %.0175432 = phi i8 [ 0, %14 ], [ 0, %.preheader477 ], [ 0, %.preheader479 ], [ 1, %92 ], [ 0, %64 ], [ 0, %77 ], [ 0, %31 ], [ 0, %45 ]
-  %.5431 = phi i32 [ 0, %14 ], [ 0, %.preheader477 ], [ 0, %.preheader479 ], [ %.5, %92 ], [ %70, %64 ], [ %83, %77 ], [ %37, %31 ], [ %51, %45 ]
-  %.3189430 = phi i64 [ 0, %14 ], [ 0, %.preheader477 ], [ 0, %.preheader479 ], [ %.3189, %92 ], [ %69, %64 ], [ %82, %77 ], [ 0, %31 ], [ 0, %45 ]
-  %.2196419429 = phi i32 [ 0, %14 ], [ %23, %.preheader477 ], [ %23, %.preheader479 ], [ %.2196, %92 ], [ %.2196, %64 ], [ %.2196, %77 ], [ %36, %31 ], [ %50, %45 ]
+  %.3183431 = phi i32 [ 0, %14 ], [ 0, %.preheader477 ], [ 0, %.preheader479 ], [ %.3183, %92 ], [ %70, %64 ], [ %83, %77 ], [ %37, %31 ], [ %51, %45 ]
+  %.1187430 = phi i64 [ 0, %14 ], [ 0, %.preheader477 ], [ 0, %.preheader479 ], [ %.1187, %92 ], [ %69, %64 ], [ %82, %77 ], [ 0, %31 ], [ 0, %45 ]
+  %.0194419429 = phi i32 [ 0, %14 ], [ %23, %.preheader477 ], [ %23, %.preheader479 ], [ %.0194, %92 ], [ %.0194, %64 ], [ %.0194, %77 ], [ %36, %31 ], [ %50, %45 ]
   %.0185420428 = phi i1 [ false, %14 ], [ false, %.preheader477 ], [ false, %.preheader479 ], [ true, %92 ], [ true, %64 ], [ true, %77 ], [ false, %31 ], [ false, %45 ]
   %.sroa.0.8 = phi ptr [ %15, %14 ], [ %21, %.preheader477 ], [ %21, %.preheader479 ], [ %93, %92 ], [ %66, %64 ], [ %79, %77 ], [ %33, %31 ], [ %47, %45 ]
-  %.2201 = phi double [ 0.000000e+00, %14 ], [ 0.000000e+00, %.preheader477 ], [ 0.000000e+00, %.preheader479 ], [ %97, %92 ], [ 0.000000e+00, %64 ], [ 0.000000e+00, %77 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %45 ]
+  %.1200 = phi double [ 0.000000e+00, %14 ], [ 0.000000e+00, %.preheader477 ], [ 0.000000e+00, %.preheader479 ], [ %97, %92 ], [ 0.000000e+00, %64 ], [ 0.000000e+00, %77 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %45 ]
   %102 = icmp eq i8 %100, 46
   br i1 %102, label %103, label %.critedge239
 
@@ -9860,36 +9860,36 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br i1 %101, label %.lr.ph558.preheader, label %.lr.ph544.preheader
 
 .lr.ph544.preheader:                              ; preds = %112
-  %113 = zext i32 %.2196419429 to i64
-  %spec.select = select i1 %.0185420428, i64 %.3189430, i64 %113
+  %113 = zext i32 %.0194419429 to i64
+  %spec.select = select i1 %.0185420428, i64 %.1187430, i64 %113
   br label %.lr.ph544
 
 .lr.ph544:                                        ; preds = %.lr.ph544.preheader, %118
   %114 = phi i8 [ %127, %118 ], [ %105, %.lr.ph544.preheader ]
-  %.0171543 = phi i32 [ %125, %118 ], [ 0, %.lr.ph544.preheader ]
-  %.6542 = phi i32 [ %spec.select237, %118 ], [ %.5431, %.lr.ph544.preheader ]
-  %.5191541 = phi i64 [ %124, %118 ], [ %spec.select, %.lr.ph544.preheader ]
-  %.sroa.0.9540 = phi ptr [ %120, %118 ], [ %104, %.lr.ph544.preheader ]
+  %.1172543 = phi i32 [ %125, %118 ], [ 0, %.lr.ph544.preheader ]
+  %.7542 = phi i32 [ %spec.select237, %118 ], [ %.3183431, %.lr.ph544.preheader ]
+  %.6192541 = phi i64 [ %124, %118 ], [ %spec.select, %.lr.ph544.preheader ]
+  %.sroa.0.11540 = phi ptr [ %120, %118 ], [ %104, %.lr.ph544.preheader ]
   %115 = icmp ult i8 %114, 58
-  %116 = icmp ult i64 %.5191541, 9007199254740992
+  %116 = icmp ult i64 %.6192541, 9007199254740992
   %or.cond.not = select i1 %115, i1 %116, i1 false
   br i1 %or.cond.not, label %118, label %.thread624
 
 .thread624:                                       ; preds = %.lr.ph544
-  %117 = uitofp i64 %.5191541 to double
+  %117 = uitofp i64 %.6192541 to double
   br label %.lr.ph558.preheader
 
 118:                                              ; preds = %.lr.ph544
-  %119 = mul nuw nsw i64 %.5191541, 10
-  %120 = getelementptr inbounds i8, ptr %.sroa.0.9540, i64 1
+  %119 = mul nuw nsw i64 %.6192541, 10
+  %120 = getelementptr inbounds i8, ptr %.sroa.0.11540, i64 1
   %121 = zext nneg i8 %114 to i64
   %122 = add nuw nsw i64 %121, 4294967248
   %123 = and i64 %122, 4294967295
   %124 = add nuw nsw i64 %123, %119
-  %125 = add nsw i32 %.0171543, -1
+  %125 = add nsw i32 %.1172543, -1
   %.not214 = icmp ne i64 %124, 0
   %126 = zext i1 %.not214 to i32
-  %spec.select237 = add nsw i32 %.6542, %126
+  %spec.select237 = add nsw i32 %.7542, %126
   %127 = load i8, ptr %120, align 1
   %128 = icmp sgt i8 %127, 47
   br i1 %128, label %.lr.ph544, label %.critedge243.thread, !llvm.loop !84
@@ -9899,21 +9899,21 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br label %201
 
 .lr.ph558.preheader:                              ; preds = %112, %.thread624
-  %.1172623 = phi i32 [ %.0171543, %.thread624 ], [ 0, %112 ]
+  %.0171623 = phi i32 [ %.1172543, %.thread624 ], [ 0, %112 ]
   %.1176622 = phi i8 [ 1, %.thread624 ], [ %.0175432, %112 ]
-  %.8621 = phi i32 [ %.6542, %.thread624 ], [ %.5431, %112 ]
-  %.6192620 = phi i64 [ %.5191541, %.thread624 ], [ %.3189430, %112 ]
-  %.3202619 = phi double [ %117, %.thread624 ], [ %.2201, %112 ]
-  %.sroa.0.10618 = phi ptr [ %.sroa.0.9540, %.thread624 ], [ %104, %112 ]
+  %.6621 = phi i32 [ %.7542, %.thread624 ], [ %.3183431, %112 ]
+  %.4190620 = phi i64 [ %.6192541, %.thread624 ], [ %.1187430, %112 ]
+  %.3202619 = phi double [ %117, %.thread624 ], [ %.1200, %112 ]
+  %.sroa.0.10618 = phi ptr [ %.sroa.0.11540, %.thread624 ], [ %104, %112 ]
   %130 = phi i8 [ %114, %.thread624 ], [ %105, %112 ]
   br label %.lr.ph558
 
 .lr.ph558:                                        ; preds = %.lr.ph558.preheader, %144
   %131 = phi i8 [ %145, %144 ], [ %130, %.lr.ph558.preheader ]
-  %.2173557 = phi i32 [ %.3174, %144 ], [ %.1172623, %.lr.ph558.preheader ]
-  %.9556 = phi i32 [ %.10, %144 ], [ %.8621, %.lr.ph558.preheader ]
+  %.2173557 = phi i32 [ %.3174, %144 ], [ %.0171623, %.lr.ph558.preheader ]
+  %.9556 = phi i32 [ %.10, %144 ], [ %.6621, %.lr.ph558.preheader ]
   %.4203555 = phi double [ %.5204, %144 ], [ %.3202619, %.lr.ph558.preheader ]
-  %.sroa.0.11554 = phi ptr [ %.sroa.0.12, %144 ], [ %.sroa.0.10618, %.lr.ph558.preheader ]
+  %.sroa.0.12554 = phi ptr [ %.sroa.0.13, %144 ], [ %.sroa.0.10618, %.lr.ph558.preheader ]
   %132 = icmp ult i8 %131, 58
   br i1 %132, label %133, label %.critedge239
 
@@ -9938,16 +9938,16 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   %.5204 = phi double [ %139, %142 ], [ %139, %135 ], [ %.4203555, %133 ]
   %.10 = phi i32 [ %143, %142 ], [ %.9556, %135 ], [ %.9556, %133 ]
   %.3174 = phi i32 [ %140, %142 ], [ %140, %135 ], [ %.2173557, %133 ]
-  %.sroa.0.12 = getelementptr inbounds i8, ptr %.sroa.0.11554, i64 1
-  %145 = load i8, ptr %.sroa.0.12, align 1
+  %.sroa.0.13 = getelementptr inbounds i8, ptr %.sroa.0.12554, i64 1
+  %145 = load i8, ptr %.sroa.0.13, align 1
   %146 = icmp sgt i8 %145, 47
   br i1 %146, label %.lr.ph558, label %.critedge243, !llvm.loop !85
 
 .critedge239:                                     ; preds = %.lr.ph558, %.critedge232
   %147 = phi i8 [ %100, %.critedge232 ], [ %131, %.lr.ph558 ]
-  %.sroa.0.13 = phi ptr [ %.sroa.0.8, %.critedge232 ], [ %.sroa.0.11554, %.lr.ph558 ]
-  %.6205 = phi double [ %.2201, %.critedge232 ], [ %.4203555, %.lr.ph558 ]
-  %.7193 = phi i64 [ %.3189430, %.critedge232 ], [ %.6192620, %.lr.ph558 ]
+  %.sroa.0.14 = phi ptr [ %.sroa.0.8, %.critedge232 ], [ %.sroa.0.12554, %.lr.ph558 ]
+  %.6205 = phi double [ %.1200, %.critedge232 ], [ %.4203555, %.lr.ph558 ]
+  %.7193 = phi i64 [ %.1187430, %.critedge232 ], [ %.4190620, %.lr.ph558 ]
   %.2177 = phi i8 [ %.0175432, %.critedge232 ], [ %.1176622, %.lr.ph558 ]
   %.4 = phi i32 [ 0, %.critedge232 ], [ %.2173557, %.lr.ph558 ]
   switch i8 %147, label %.critedge243 [
@@ -9956,14 +9956,14 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   ]
 
 148:                                              ; preds = %.critedge239, %.critedge239
-  %.sroa.0.14 = getelementptr inbounds i8, ptr %.sroa.0.13, i64 1
+  %.sroa.0.15 = getelementptr inbounds i8, ptr %.sroa.0.14, i64 1
   %149 = trunc nuw i8 %.2177 to i1
-  %150 = zext i32 %.2196419429 to i64
+  %150 = zext i32 %.0194419429 to i64
   %151 = select i1 %.0185420428, i64 %.7193, i64 %150
   %152 = uitofp i64 %151 to double
-  %.7206 = select i1 %149, double %.6205, double %152
-  %.3178 = select i1 %149, i8 %.2177, i8 1
-  %153 = load i8, ptr %.sroa.0.14, align 1
+  %.8207 = select i1 %149, double %.6205, double %152
+  %.4179 = select i1 %149, i8 %.2177, i8 1
+  %153 = load i8, ptr %.sroa.0.15, align 1
   switch i8 %153, label %.thread629 [
     i8 43, label %155
     i8 45, label %154
@@ -9974,8 +9974,8 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 
 155:                                              ; preds = %154, %148
   %.0169.ph = phi i1 [ true, %154 ], [ false, %148 ]
-  %.sroa.0.16.ph = getelementptr inbounds i8, ptr %.sroa.0.13, i64 2
-  %.pr455 = load i8, ptr %.sroa.0.16.ph, align 1
+  %.sroa.0.17.ph = getelementptr inbounds i8, ptr %.sroa.0.14, i64 2
+  %.pr455 = load i8, ptr %.sroa.0.17.ph, align 1
   %156 = add i8 %.pr455, -48
   %or.cond466 = icmp ult i8 %156, 10
   br i1 %or.cond466, label %161, label %194
@@ -9986,13 +9986,13 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br i1 %or.cond466632, label %.thread636, label %194
 
 .thread636:                                       ; preds = %.thread629
-  %158 = getelementptr inbounds i8, ptr %.sroa.0.13, i64 2
+  %158 = getelementptr inbounds i8, ptr %.sroa.0.14, i64 2
   %159 = zext nneg i8 %153 to i32
   %160 = add nsw i32 %159, -48
   br label %177
 
 161:                                              ; preds = %155
-  %162 = getelementptr inbounds i8, ptr %.sroa.0.13, i64 3
+  %162 = getelementptr inbounds i8, ptr %.sroa.0.14, i64 3
   %163 = zext nneg i8 %.pr455 to i32
   %164 = add nsw i32 %163, -48
   br i1 %.0169.ph, label %.preheader470, label %177
@@ -10005,10 +10005,10 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 
 .lr.ph565:                                        ; preds = %.preheader470, %.critedge252
   %167 = phi i8 [ %.pre609, %.critedge252 ], [ %165, %.preheader470 ]
-  %.0170564 = phi i32 [ %172, %.critedge252 ], [ %164, %.preheader470 ]
-  %.sroa.0.17563 = phi ptr [ %169, %.critedge252 ], [ %162, %.preheader470 ]
-  %168 = mul nsw i32 %.0170564, 10
-  %169 = getelementptr inbounds i8, ptr %.sroa.0.17563, i64 1
+  %.1564 = phi i32 [ %172, %.critedge252 ], [ %164, %.preheader470 ]
+  %.sroa.0.19563 = phi ptr [ %169, %.critedge252 ], [ %162, %.preheader470 ]
+  %168 = mul nsw i32 %.1564, 10
+  %169 = getelementptr inbounds i8, ptr %.sroa.0.19563, i64 1
   %170 = zext nneg i8 %167 to i32
   %171 = add i32 %168, -48
   %172 = add i32 %171, %170
@@ -10016,11 +10016,11 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br i1 %173, label %.preheader, label %.critedge252
 
 .preheader:                                       ; preds = %.lr.ph565, %.preheader
-  %.sroa.0.18 = phi ptr [ %176, %.preheader ], [ %169, %.lr.ph565 ]
-  %174 = load i8, ptr %.sroa.0.18, align 1
+  %.sroa.0.21 = phi ptr [ %176, %.preheader ], [ %169, %.lr.ph565 ]
+  %174 = load i8, ptr %.sroa.0.21, align 1
   %175 = add i8 %174, -48
   %or.cond468 = icmp ult i8 %175, 10
-  %176 = getelementptr inbounds i8, ptr %.sroa.0.18, i64 1
+  %176 = getelementptr inbounds i8, ptr %.sroa.0.21, i64 1
   br i1 %or.cond468, label %.preheader, label %.critedge250, !llvm.loop !86
 
 .critedge252:                                     ; preds = %.lr.ph565
@@ -10036,16 +10036,16 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br label %181
 
 181:                                              ; preds = %184, %177
-  %.sroa.0.20 = phi ptr [ %179, %177 ], [ %186, %184 ]
-  %.1 = phi i32 [ %178, %177 ], [ %189, %184 ]
-  %182 = load i8, ptr %.sroa.0.20, align 1
+  %.sroa.0.22 = phi ptr [ %179, %177 ], [ %186, %184 ]
+  %.2 = phi i32 [ %178, %177 ], [ %189, %184 ]
+  %182 = load i8, ptr %.sroa.0.22, align 1
   %183 = add i8 %182, -48
   %or.cond469 = icmp ult i8 %183, 10
   br i1 %or.cond469, label %184, label %.critedge250
 
 184:                                              ; preds = %181
-  %185 = mul nsw i32 %.1, 10
-  %186 = getelementptr inbounds i8, ptr %.sroa.0.20, i64 1
+  %185 = mul nsw i32 %.2, 10
+  %186 = getelementptr inbounds i8, ptr %.sroa.0.22, i64 1
   %187 = zext nneg i8 %182 to i32
   %188 = add i32 %185, -48
   %189 = add i32 %188, %187
@@ -10060,8 +10060,8 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br label %.thread456
 
 194:                                              ; preds = %.thread629, %155
-  %.sroa.0.16634 = phi ptr [ %.sroa.0.14, %.thread629 ], [ %.sroa.0.16.ph, %155 ]
-  %195 = ptrtoint ptr %.sroa.0.16634 to i64
+  %.sroa.0.17634 = phi ptr [ %.sroa.0.15, %.thread629 ], [ %.sroa.0.17.ph, %155 ]
+  %195 = ptrtoint ptr %.sroa.0.17634 to i64
   %196 = sub i64 %195, %5
   %197 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 15, ptr %197, align 8
@@ -10071,28 +10071,28 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
 
 .critedge250:                                     ; preds = %.critedge252, %.preheader, %181, %.preheader470
   %.0169635639 = phi i1 [ true, %.preheader470 ], [ false, %181 ], [ %.0169.ph, %.preheader ], [ %.0169.ph, %.critedge252 ]
-  %.sroa.0.21 = phi ptr [ %162, %.preheader470 ], [ %.sroa.0.20, %181 ], [ %.sroa.0.18, %.preheader ], [ %169, %.critedge252 ]
-  %.2 = phi i32 [ %164, %.preheader470 ], [ %.1, %181 ], [ %172, %.preheader ], [ %172, %.critedge252 ]
-  %199 = sub nsw i32 0, %.2
-  %spec.select255 = select i1 %.0169635639, i32 %199, i32 %.2
+  %.sroa.0.23 = phi ptr [ %162, %.preheader470 ], [ %.sroa.0.22, %181 ], [ %.sroa.0.21, %.preheader ], [ %169, %.critedge252 ]
+  %.3 = phi i32 [ %164, %.preheader470 ], [ %.2, %181 ], [ %172, %.preheader ], [ %172, %.critedge252 ]
+  %199 = sub nsw i32 0, %.3
+  %spec.select255 = select i1 %.0169635639, i32 %199, i32 %.3
   br label %.critedge243
 
 .critedge243:                                     ; preds = %144, %.critedge239, %.critedge250
   %.4447 = phi i32 [ %.4, %.critedge250 ], [ %.4, %.critedge239 ], [ %.3174, %144 ]
-  %.7193444 = phi i64 [ %.7193, %.critedge250 ], [ %.7193, %.critedge239 ], [ %.6192620, %144 ]
-  %.sroa.0.22 = phi ptr [ %.sroa.0.21, %.critedge250 ], [ %.sroa.0.13, %.critedge239 ], [ %.sroa.0.12, %144 ]
-  %.8207 = phi double [ %.7206, %.critedge250 ], [ %.6205, %.critedge239 ], [ %.5204, %144 ]
-  %.4179 = phi i8 [ %.3178, %.critedge250 ], [ %.2177, %.critedge239 ], [ %.1176622, %144 ]
-  %.3 = phi i32 [ %spec.select255, %.critedge250 ], [ 0, %.critedge239 ], [ 0, %144 ]
-  %200 = trunc nuw i8 %.4179 to i1
+  %.7193444 = phi i64 [ %.7193, %.critedge250 ], [ %.7193, %.critedge239 ], [ %.4190620, %144 ]
+  %.sroa.0.16 = phi ptr [ %.sroa.0.23, %.critedge250 ], [ %.sroa.0.14, %.critedge239 ], [ %.sroa.0.13, %144 ]
+  %.7206 = phi double [ %.8207, %.critedge250 ], [ %.6205, %.critedge239 ], [ %.5204, %144 ]
+  %.3178 = phi i8 [ %.4179, %.critedge250 ], [ %.2177, %.critedge239 ], [ %.1176622, %144 ]
+  %.0170 = phi i32 [ %spec.select255, %.critedge250 ], [ 0, %.critedge239 ], [ 0, %144 ]
+  %200 = trunc nuw i8 %.3178 to i1
   br i1 %200, label %201, label %267
 
 201:                                              ; preds = %.critedge243.thread, %.critedge243
-  %.3663 = phi i32 [ 0, %.critedge243.thread ], [ %.3, %.critedge243 ]
-  %.8207662 = phi double [ %129, %.critedge243.thread ], [ %.8207, %.critedge243 ]
-  %.sroa.0.22653 = phi ptr [ %120, %.critedge243.thread ], [ %.sroa.0.22, %.critedge243 ]
+  %.0170663 = phi i32 [ 0, %.critedge243.thread ], [ %.0170, %.critedge243 ]
+  %.7206662 = phi double [ %129, %.critedge243.thread ], [ %.7206, %.critedge243 ]
+  %.sroa.0.16653 = phi ptr [ %120, %.critedge243.thread ], [ %.sroa.0.16, %.critedge243 ]
   %.4447651 = phi i32 [ %125, %.critedge243.thread ], [ %.4447, %.critedge243 ]
-  %202 = add nsw i32 %.3663, %.4447651
+  %202 = add nsw i32 %.0170663, %.4447651
   %203 = icmp slt i32 %202, -308
   br i1 %203, label %204, label %213
 
@@ -10101,7 +10101,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   br i1 %205, label %_ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit, label %206
 
 206:                                              ; preds = %204
-  %207 = fdiv double %.8207662, 1.000000e+308
+  %207 = fdiv double %.7206662, 1.000000e+308
   %208 = sub nuw nsw i32 -308, %202
   %209 = zext nneg i32 %208 to i64
   %210 = getelementptr inbounds [309 x double], ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 0, i64 %209
@@ -10117,7 +10117,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   %216 = zext nneg i32 %202 to i64
   %217 = getelementptr inbounds [309 x double], ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 0, i64 %216
   %218 = load double, ptr %217, align 8
-  %219 = fmul double %.8207662, %218
+  %219 = fmul double %.7206662, %218
   br label %_ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit
 
 220:                                              ; preds = %213
@@ -10125,7 +10125,7 @@ define linkonce_odr void @_ZN9rapidjson13GenericReaderINS_4UTF8IcEES2_NS_12CrtAl
   %222 = zext nneg i32 %221 to i64
   %223 = getelementptr inbounds [309 x double], ptr @_ZZN9rapidjson8internal5Pow10EiE1e, i64 0, i64 %222
   %224 = load double, ptr %223, align 8
-  %225 = fdiv double %.8207662, %224
+  %225 = fdiv double %.7206662, %224
   br label %_ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit
 
 _ZN9rapidjson8internal21StrtodNormalPrecisionEdi.exit: ; preds = %220, %215, %206, %204
@@ -10314,7 +10314,7 @@ _ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllo
   br i1 %8, label %314, label %359
 
 314:                                              ; preds = %313
-  %315 = sub i32 0, %.2196419429
+  %315 = sub i32 0, %.0194419429
   %316 = getelementptr inbounds i8, ptr %2, i64 56
   %317 = load ptr, ptr %316, align 8
   %318 = getelementptr inbounds i8, ptr %317, i64 16
@@ -10476,9 +10476,9 @@ _ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllo
   store ptr %397, ptr %360, align 8
   %398 = getelementptr inbounds i8, ptr %396, i64 8
   store i64 0, ptr %398, align 8
-  %399 = zext i32 %.2196419429 to i64
+  %399 = zext i32 %.0194419429 to i64
   store i64 %399, ptr %396, align 8
-  %.not.i10.i270 = icmp sgt i32 %.2196419429, -1
+  %.not.i10.i270 = icmp sgt i32 %.0194419429, -1
   %400 = select i1 %.not.i10.i270, i16 502, i16 470
   %401 = getelementptr inbounds i8, ptr %396, i64 14
   store i16 %400, ptr %401, align 2
@@ -10495,8 +10495,8 @@ _ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllo
   br label %.thread456
 
 .thread456:                                       ; preds = %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E4UintEj.exit, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E3IntEi.exit, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6Uint64Em.exit, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6DoubleEd.exit, %194, %191, %107, %89, %54, %403, %402
-  %.sroa.0.23 = phi ptr [ %.sroa.0.7535, %89 ], [ %.sroa.0.22, %402 ], [ %.sroa.0.22, %403 ], [ %186, %191 ], [ %.sroa.0.16634, %194 ], [ %104, %107 ], [ %.sroa.0.0, %54 ], [ %.sroa.0.22653, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6DoubleEd.exit ], [ %.sroa.0.22, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6Uint64Em.exit ], [ %.sroa.0.22, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E3IntEi.exit ], [ %.sroa.0.22, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E4UintEj.exit ]
-  store ptr %.sroa.0.23, ptr %1, align 8
+  %.sroa.0.4 = phi ptr [ %.sroa.0.9535, %89 ], [ %.sroa.0.16, %402 ], [ %.sroa.0.16, %403 ], [ %186, %191 ], [ %.sroa.0.17634, %194 ], [ %104, %107 ], [ %.sroa.0.0, %54 ], [ %.sroa.0.16653, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6DoubleEd.exit ], [ %.sroa.0.16, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E6Uint64Em.exit ], [ %.sroa.0.16, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E3IntEi.exit ], [ %.sroa.0.16, %_ZN9rapidjson15GenericDocumentINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEES4_E4UintEj.exit ]
+  store ptr %.sroa.0.4, ptr %1, align 8
   store ptr %.sroa.84.0.copyload, ptr %.sroa.84.0..sroa_idx, align 8
   store ptr %.sroa.84404.0.copyload, ptr %.sroa.84404.0..sroa_idx, align 8
   ret void

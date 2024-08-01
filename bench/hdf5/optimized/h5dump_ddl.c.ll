@@ -779,7 +779,7 @@ define internal range(i32 -1, 1) i32 @dump_all_cb(i64 noundef %0, ptr noundef %1
   br label %245
 
 245:                                              ; preds = %238, %237
-  %.0107 = phi i32 [ -1, %237 ], [ 0, %238 ]
+  %.1 = phi i32 [ -1, %237 ], [ 0, %238 ]
   %246 = load i32, ptr %16, align 8
   %247 = add i32 %246, -1
   store i32 %247, ptr %16, align 8
@@ -1004,7 +1004,7 @@ dump_extlink.exit:                                ; preds = %300, %326, %336, %3
   br label %366
 
 366:                                              ; preds = %298, %dump_extlink.exit, %292
-  %.1 = phi i32 [ -1, %292 ], [ -1, %298 ], [ 0, %dump_extlink.exit ]
+  %.2 = phi i32 [ -1, %292 ], [ -1, %298 ], [ 0, %dump_extlink.exit ]
   store i32 1, ptr %277, align 8
   %367 = call ptr @h5tools_str_reset(ptr noundef nonnull %6) #15
   %368 = load ptr, ptr @h5tools_dump_header_format, align 8
@@ -1119,9 +1119,9 @@ dump_extlink.exit:                                ; preds = %300, %326, %336, %3
   br label %435
 
 435:                                              ; preds = %206, %207, %198, %.thread160, %42, %52, %212, %275, %384, %218, %265, %430, %189, %134, %35
-  %.2 = phi i32 [ -1, %35 ], [ -1, %212 ], [ -1, %206 ], [ 0, %207 ], [ -1, %134 ], [ 0, %189 ], [ 0, %198 ], [ -1, %.thread160 ], [ -1, %42 ], [ 0, %52 ], [ 0, %430 ], [ -1, %275 ], [ %.1, %384 ], [ -1, %218 ], [ %.0107, %265 ]
+  %.0107 = phi i32 [ -1, %35 ], [ -1, %212 ], [ -1, %206 ], [ 0, %207 ], [ -1, %134 ], [ 0, %189 ], [ 0, %198 ], [ -1, %.thread160 ], [ -1, %42 ], [ 0, %52 ], [ 0, %430 ], [ -1, %275 ], [ %.2, %384 ], [ -1, %218 ], [ %.1, %265 ]
   call void @h5tools_str_close(ptr noundef nonnull %6) #15
-  ret i32 %.2
+  ret i32 %.0107
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4347,13 +4347,13 @@ define internal range(i32 -1, 1) i32 @attr_search(i64 noundef %0, ptr nocapture 
   br label %54
 
 54:                                               ; preds = %39, %52, %29
-  %.053 = phi i32 [ -1, %39 ], [ 0, %52 ], [ 0, %29 ]
+  %.1 = phi i32 [ -1, %39 ], [ 0, %52 ], [ 0, %29 ]
   tail call void @free(ptr noundef nonnull %26) #15
   br label %55
 
 55:                                               ; preds = %54, %28
-  %.1 = phi i32 [ -1, %28 ], [ %.053, %54 ]
-  ret i32 %.1
+  %.053 = phi i32 [ -1, %28 ], [ %.1, %54 ]
+  ret i32 %.053
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)

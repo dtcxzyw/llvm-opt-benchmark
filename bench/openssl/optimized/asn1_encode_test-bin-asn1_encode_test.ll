@@ -684,13 +684,13 @@ if.else10.i:                                      ; preds = %if.end5.i62
   br label %der_encode_length.exit67
 
 der_encode_length.exit67:                         ; preds = %if.end5.thread.i66, %if.then9.i, %if.else10.i
-  %p.0 = phi ptr [ %incdec.ptr21.i, %if.end5.thread.i66 ], [ %incdec.ptr, %if.then9.i ], [ %incdec.ptr12.i, %if.else10.i ]
+  %p.1 = phi ptr [ %incdec.ptr21.i, %if.end5.thread.i66 ], [ %incdec.ptr, %if.then9.i ], [ %incdec.ptr12.i, %if.else10.i ]
   %conv.sink.i = phi i8 [ %conv22.i, %if.end5.thread.i66 ], [ %conv.i, %if.then9.i ], [ %conv16.i, %if.else10.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0, i64 1
-  store i8 %conv.sink.i, ptr %p.0, align 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.1, i64 1
+  store i8 %conv.sink.i, ptr %p.1, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %incdec.ptr.i, ptr noundef nonnull align 1 dereferenceable(3) @__const.make_custom_der.t_true, i64 3, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %p.0, i64 4
-  %incdec.ptr32 = getelementptr inbounds i8, ptr %p.0, i64 5
+  %add.ptr = getelementptr inbounds i8, ptr %p.1, i64 4
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %p.1, i64 5
   store i8 2, ptr %add.ptr, align 1
   %10 = load i64, ptr %nbytes1, align 8
   %cmp.i68 = icmp ult i64 %10, 32768
@@ -709,12 +709,12 @@ if.end5.i72:                                      ; preds = %cond.end.i70
   br i1 %cmp2.i73, label %if.then9.i82, label %if.else10.i75
 
 if.end5.thread.i84:                               ; preds = %cond.end.i70
-  %incdec.ptr1233.i85 = getelementptr inbounds i8, ptr %p.0, i64 6
+  %incdec.ptr1233.i85 = getelementptr inbounds i8, ptr %p.1, i64 6
   store i8 2, ptr %incdec.ptr32, align 1
   %shr.i86 = lshr i64 %10, 8
   %11 = trunc nuw i64 %shr.i86 to i8
   %conv20.i87 = or disjoint i8 %11, -128
-  %incdec.ptr21.i88 = getelementptr inbounds i8, ptr %p.0, i64 7
+  %incdec.ptr21.i88 = getelementptr inbounds i8, ptr %p.1, i64 7
   store i8 %conv20.i87, ptr %incdec.ptr1233.i85, align 1
   %conv22.i89 = trunc i64 %10 to i8
   br label %der_encode_length.exit90
@@ -724,17 +724,17 @@ if.then9.i82:                                     ; preds = %if.end5.i72
   br label %der_encode_length.exit90
 
 if.else10.i75:                                    ; preds = %if.end5.i72
-  %incdec.ptr12.i76 = getelementptr inbounds i8, ptr %p.0, i64 6
+  %incdec.ptr12.i76 = getelementptr inbounds i8, ptr %p.1, i64 6
   store i8 1, ptr %incdec.ptr32, align 1
   %12 = trunc nuw i64 %10 to i8
   %conv16.i77 = or i8 %12, -128
   br label %der_encode_length.exit90
 
 der_encode_length.exit90:                         ; preds = %if.end5.thread.i84, %if.then9.i82, %if.else10.i75
-  %p.1 = phi ptr [ %incdec.ptr21.i88, %if.end5.thread.i84 ], [ %incdec.ptr32, %if.then9.i82 ], [ %incdec.ptr12.i76, %if.else10.i75 ]
+  %p.2 = phi ptr [ %incdec.ptr21.i88, %if.end5.thread.i84 ], [ %incdec.ptr32, %if.then9.i82 ], [ %incdec.ptr12.i76, %if.else10.i75 ]
   %conv.sink.i78 = phi i8 [ %conv22.i89, %if.end5.thread.i84 ], [ %conv.i83, %if.then9.i82 ], [ %conv16.i77, %if.else10.i75 ]
-  %incdec.ptr.i80 = getelementptr inbounds i8, ptr %p.1, i64 1
-  store i8 %conv.sink.i78, ptr %p.1, align 1
+  %incdec.ptr.i80 = getelementptr inbounds i8, ptr %p.2, i64 1
+  store i8 %conv.sink.i78, ptr %p.2, align 1
   %13 = load ptr, ptr %custom_data, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr.i80, ptr align 1 %13, i64 %10, i1 false)
   %14 = load i64, ptr %nbytes1, align 8
@@ -775,11 +775,11 @@ if.else10.i98:                                    ; preds = %if.end5.i95
   br label %der_encode_length.exit113
 
 der_encode_length.exit113:                        ; preds = %if.end5.thread.i107, %if.then9.i105, %if.else10.i98
-  %p.2 = phi ptr [ %incdec.ptr21.i111, %if.end5.thread.i107 ], [ %incdec.ptr41, %if.then9.i105 ], [ %incdec.ptr12.i99, %if.else10.i98 ]
+  %p.3 = phi ptr [ %incdec.ptr21.i111, %if.end5.thread.i107 ], [ %incdec.ptr41, %if.then9.i105 ], [ %incdec.ptr12.i99, %if.else10.i98 ]
   %conv.sink.i101 = phi i8 [ %conv22.i112, %if.end5.thread.i107 ], [ %conv.i106, %if.then9.i105 ], [ %conv16.i100, %if.else10.i98 ]
-  %incdec.ptr.i103 = getelementptr inbounds i8, ptr %p.2, i64 1
-  store i8 %conv.sink.i101, ptr %p.2, align 1
-  %incdec.ptr43 = getelementptr inbounds i8, ptr %p.2, i64 2
+  %incdec.ptr.i103 = getelementptr inbounds i8, ptr %p.3, i64 1
+  store i8 %conv.sink.i101, ptr %p.3, align 1
+  %incdec.ptr43 = getelementptr inbounds i8, ptr %p.3, i64 2
   store i8 2, ptr %incdec.ptr.i103, align 1
   %17 = load i64, ptr %nbytes2, align 8
   %cmp.i114 = icmp ult i64 %17, 32768
@@ -798,12 +798,12 @@ if.end5.i118:                                     ; preds = %cond.end.i116
   br i1 %cmp2.i119, label %if.then9.i128, label %if.else10.i121
 
 if.end5.thread.i130:                              ; preds = %cond.end.i116
-  %incdec.ptr1233.i131 = getelementptr inbounds i8, ptr %p.2, i64 3
+  %incdec.ptr1233.i131 = getelementptr inbounds i8, ptr %p.3, i64 3
   store i8 2, ptr %incdec.ptr43, align 1
   %shr.i132 = lshr i64 %17, 8
   %18 = trunc nuw i64 %shr.i132 to i8
   %conv20.i133 = or disjoint i8 %18, -128
-  %incdec.ptr21.i134 = getelementptr inbounds i8, ptr %p.2, i64 4
+  %incdec.ptr21.i134 = getelementptr inbounds i8, ptr %p.3, i64 4
   store i8 %conv20.i133, ptr %incdec.ptr1233.i131, align 1
   %conv22.i135 = trunc i64 %17 to i8
   br label %der_encode_length.exit136
@@ -813,17 +813,17 @@ if.then9.i128:                                    ; preds = %if.end5.i118
   br label %der_encode_length.exit136
 
 if.else10.i121:                                   ; preds = %if.end5.i118
-  %incdec.ptr12.i122 = getelementptr inbounds i8, ptr %p.2, i64 3
+  %incdec.ptr12.i122 = getelementptr inbounds i8, ptr %p.3, i64 3
   store i8 1, ptr %incdec.ptr43, align 1
   %19 = trunc nuw i64 %17 to i8
   %conv16.i123 = or i8 %19, -128
   br label %der_encode_length.exit136
 
 der_encode_length.exit136:                        ; preds = %if.end5.thread.i130, %if.then9.i128, %if.else10.i121
-  %p.3 = phi ptr [ %incdec.ptr21.i134, %if.end5.thread.i130 ], [ %incdec.ptr43, %if.then9.i128 ], [ %incdec.ptr12.i122, %if.else10.i121 ]
+  %p.4 = phi ptr [ %incdec.ptr21.i134, %if.end5.thread.i130 ], [ %incdec.ptr43, %if.then9.i128 ], [ %incdec.ptr12.i122, %if.else10.i121 ]
   %conv.sink.i124 = phi i8 [ %conv22.i135, %if.end5.thread.i130 ], [ %conv.i129, %if.then9.i128 ], [ %conv16.i123, %if.else10.i121 ]
-  %incdec.ptr.i126 = getelementptr inbounds i8, ptr %p.3, i64 1
-  store i8 %conv.sink.i124, ptr %p.3, align 1
+  %incdec.ptr.i126 = getelementptr inbounds i8, ptr %p.4, i64 1
+  store i8 %conv.sink.i124, ptr %p.4, align 1
   %bytes246 = getelementptr inbounds i8, ptr %custom_data, i64 16
   %20 = load ptr, ptr %bytes246, align 8
   %21 = load i64, ptr %nbytes2, align 8
@@ -833,9 +833,9 @@ der_encode_length.exit136:                        ; preds = %if.end5.thread.i130
   br label %if.end50
 
 if.end50:                                         ; preds = %der_encode_length.exit136, %der_encode_length.exit90
-  %p.4 = phi ptr [ %add.ptr37, %der_encode_length.exit90 ], [ %add.ptr49, %der_encode_length.exit136 ]
+  %p.0 = phi ptr [ %add.ptr37, %der_encode_length.exit90 ], [ %add.ptr49, %der_encode_length.exit136 ]
   %23 = load ptr, ptr %encoding, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %p.4 to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %p.0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %23 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp51 = icmp eq i64 %add23, %sub.ptr.sub

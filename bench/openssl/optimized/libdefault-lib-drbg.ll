@@ -510,7 +510,7 @@ if.then72:                                        ; preds = %lor.lhs.false, %if.
   br label %end
 
 if.end76:                                         ; preds = %if.end40, %lor.lhs.false, %if.then55, %if.end21
-  %noncelen.0 = phi i64 [ %call, %if.end40 ], [ 0, %if.then55 ], [ %call65, %lor.lhs.false ], [ 0, %if.end21 ]
+  %noncelen.1 = phi i64 [ %call, %if.end40 ], [ 0, %if.then55 ], [ %call65, %lor.lhs.false ], [ 0, %if.end21 ]
   %min_entropy.0 = phi i32 [ %0, %if.end40 ], [ %add, %if.then55 ], [ %0, %lor.lhs.false ], [ %0, %if.end21 ]
   %min_entropylen.0 = phi i64 [ %1, %if.end40 ], [ %add59, %if.then55 ], [ %1, %lor.lhs.false ], [ %1, %if.end21 ]
   %max_entropylen.0 = phi i64 [ %2, %if.end40 ], [ %add61, %if.then55 ], [ %2, %lor.lhs.false ], [ %2, %if.end21 ]
@@ -539,7 +539,7 @@ if.end94:                                         ; preds = %if.end76
   %19 = load ptr, ptr %instantiate, align 8
   %20 = load ptr, ptr %entropy, align 8
   %21 = load ptr, ptr %nonce, align 8
-  %call95 = call i32 %19(ptr noundef nonnull %drbg, ptr noundef %20, i64 noundef %call87, ptr noundef %21, i64 noundef %noncelen.0, ptr noundef nonnull %spec.select70, i64 noundef %spec.select) #8
+  %call95 = call i32 %19(ptr noundef nonnull %drbg, ptr noundef %20, i64 noundef %call87, ptr noundef %21, i64 noundef %noncelen.1, ptr noundef nonnull %spec.select70, i64 noundef %spec.select) #8
   %tobool96.not = icmp eq i32 %call95, 0
   %22 = load ptr, ptr %entropy, align 8
   call fastcc void @cleanup_entropy(ptr noundef nonnull %drbg, ptr noundef %22, i64 noundef %call87)
@@ -563,7 +563,7 @@ if.end98:                                         ; preds = %if.end94
   br label %end
 
 end:                                              ; preds = %if.then19, %if.else, %if.end98, %if.then97, %if.then93, %if.then72, %if.then49, %if.then39, %if.then34, %if.then11, %if.then
-  %noncelen.1 = phi i64 [ 0, %if.then ], [ 0, %if.then11 ], [ 0, %if.then19 ], [ 0, %if.else ], [ 0, %if.then34 ], [ %call, %if.then39 ], [ %call, %if.then49 ], [ %noncelen.0, %if.then93 ], [ %noncelen.0, %if.end98 ], [ %noncelen.0, %if.then97 ], [ %call65, %if.then72 ]
+  %noncelen.0 = phi i64 [ 0, %if.then ], [ 0, %if.then11 ], [ 0, %if.then19 ], [ 0, %if.else ], [ 0, %if.then34 ], [ %call, %if.then39 ], [ %call, %if.then49 ], [ %noncelen.1, %if.then93 ], [ %noncelen.1, %if.end98 ], [ %noncelen.1, %if.then97 ], [ %call65, %if.then72 ]
   %24 = load ptr, ptr %nonce, align 8
   %cmp103.not = icmp eq ptr %24, null
   br i1 %cmp103.not, label %if.end106, label %if.then105
@@ -571,7 +571,7 @@ end:                                              ; preds = %if.then19, %if.else
 if.then105:                                       ; preds = %end
   %provctx = getelementptr inbounds i8, ptr %drbg, i64 8
   %25 = load ptr, ptr %provctx, align 8
-  call void @ossl_prov_cleanup_nonce(ptr noundef %25, ptr noundef nonnull %24, i64 noundef %noncelen.1) #8
+  call void @ossl_prov_cleanup_nonce(ptr noundef %25, ptr noundef nonnull %24, i64 noundef %noncelen.0) #8
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then105, %end

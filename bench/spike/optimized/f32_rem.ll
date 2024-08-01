@@ -127,28 +127,28 @@ define i32 @f32_rem(i32 %0, i32 %1) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47
   %.092.lcssa = phi i64 [ %52, %47 ], [ %62, %.lr.ph ]
-  %.088.lcssa = phi i32 [ %51, %47 ], [ %61, %.lr.ph ]
+  %.189.lcssa = phi i32 [ %51, %47 ], [ %61, %.lr.ph ]
   %.lcssa114 = phi i32 [ %57, %47 ], [ %66, %.lr.ph ]
   %68 = trunc i64 %.092.lcssa to i32
   %69 = and i32 %68, 31
   %70 = xor i32 %69, 31
   %71 = lshr i32 %.lcssa114, %70
   %72 = add nsw i32 %68, 30
-  %73 = shl i32 %.088.lcssa, %72
+  %73 = shl i32 %.189.lcssa, %72
   %74 = mul i32 %71, %.pre
   %75 = sub i32 %73, %74
   br label %76
 
 76:                                               ; preds = %39, %44, %41, %._crit_edge
   %.090 = phi i32 [ 0, %39 ], [ 1, %44 ], [ 0, %41 ], [ %71, %._crit_edge ]
-  %.189 = phi i32 [ %40, %39 ], [ %46, %44 ], [ %42, %41 ], [ %75, %._crit_edge ]
+  %.088 = phi i32 [ %40, %39 ], [ %46, %44 ], [ %42, %41 ], [ %75, %._crit_edge ]
   %.1 = phi i64 [ %38, %39 ], [ %38, %44 ], [ %38, %41 ], [ %53, %._crit_edge ]
   %77 = trunc i64 %.1 to i32
   br label %78
 
 78:                                               ; preds = %78, %76
   %.191 = phi i32 [ %.090, %76 ], [ %79, %78 ]
-  %.2 = phi i32 [ %.189, %76 ], [ %80, %78 ]
+  %.2 = phi i32 [ %.088, %76 ], [ %80, %78 ]
   %79 = add i32 %.191, 1
   %80 = sub i32 %.2, %77
   %.not106 = icmp sgt i32 %80, -1

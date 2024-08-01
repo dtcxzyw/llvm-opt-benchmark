@@ -422,7 +422,7 @@ do.end34:                                         ; preds = %land.lhs.true.do.en
           to label %cleanup unwind label %lpad13
 
 cleanup:                                          ; preds = %do.end34, %land.lhs.true, %try.cont, %catch
-  %retval.0 = phi i1 [ false, %catch ], [ false, %try.cont ], [ false, %land.lhs.true ], [ %call39, %do.end34 ]
+  %retval.1 = phi i1 [ false, %catch ], [ false, %try.cont ], [ false, %land.lhs.true ], [ %call39, %do.end34 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue223ConstructLiteralVisitorE, i64 16), ptr %vis, align 8
   %20 = load ptr, ptr %repeat_stack.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %20, null
@@ -474,8 +474,8 @@ ehcleanup:                                        ; preds = %lpad13, %lpad
   br label %common.resume
 
 return:                                           ; preds = %if.end, %entry, %_ZN3ue223ConstructLiteralVisitorD2Ev.exit
-  %retval.1 = phi i1 [ %retval.0, %_ZN3ue223ConstructLiteralVisitorD2Ev.exit ], [ false, %entry ], [ false, %if.end ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %_ZN3ue223ConstructLiteralVisitorD2Ev.exit ], [ false, %entry ], [ false, %if.end ]
+  ret i1 %retval.0
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr

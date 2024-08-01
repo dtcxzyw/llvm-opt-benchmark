@@ -3277,8 +3277,8 @@ _ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.e
   br label %74
 
 74:                                               ; preds = %_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.exit, %48, %"_ZN4core3ptr50drop_in_place$LT$aws_lc_rs..aead..nonce..Nonce$GT$17ha5fd0bbdefbf572cE.exit", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he196bf46852923c1E.llvm.12014582817787848890.exit"
-  %.sroa.0.0 = phi ptr [ null, %"_ZN4core3ptr50drop_in_place$LT$aws_lc_rs..aead..nonce..Nonce$GT$17ha5fd0bbdefbf572cE.exit" ], [ %3, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he196bf46852923c1E.llvm.12014582817787848890.exit" ], [ null, %48 ], [ null, %_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.exit ]
-  %75 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %"_ZN4core3ptr50drop_in_place$LT$aws_lc_rs..aead..nonce..Nonce$GT$17ha5fd0bbdefbf572cE.exit" ], [ %3, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he196bf46852923c1E.llvm.12014582817787848890.exit" ], [ null, %48 ], [ null, %_ZN9aws_lc_rs4aead11unbound_key10UnboundKey13open_combined17h81dc015a75147f6bE.exit ]
+  %75 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %76 = insertvalue { ptr, i64 } %75, i64 %15, 1
   ret { ptr, i64 } %76
 
@@ -3646,9 +3646,9 @@ define internal fastcc noundef zeroext i1 @"_ZN9aws_lc_rs4hkdf12Okm$LT$L$GT$4fil
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !801
   br label %29
 
-29:                                               ; preds = %"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit9", %"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit"
-  %.0 = phi i1 [ true, %"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit9" ], [ false, %"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit" ]
-  ret i1 %.0
+29:                                               ; preds = %"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit8", %"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit"
+  %.1 = phi i1 [ true, %"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit8" ], [ false, %"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit" ]
+  ret i1 %.1
 
 30:                                               ; preds = %21, %3
   %31 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3659,17 +3659,17 @@ define internal fastcc noundef zeroext i1 @"_ZN9aws_lc_rs4hkdf12Okm$LT$L$GT$4fil
   store ptr %32, ptr %33, align 8, !noalias !811
   %34 = call noundef align 1 dereferenceable_or_null(1) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0a8bdeb25250510E.llvm.15934541666227088301"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit9", label %.lr.ph.i.i.i.i8
+  br i1 %35, label %"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit8", label %.lr.ph.i.i.i.i7
 
-.lr.ph.i.i.i.i8:                                  ; preds = %30, %.lr.ph.i.i.i.i8
-  %36 = phi ptr [ %37, %.lr.ph.i.i.i.i8 ], [ %34, %30 ]
+.lr.ph.i.i.i.i7:                                  ; preds = %30, %.lr.ph.i.i.i.i7
+  %36 = phi ptr [ %37, %.lr.ph.i.i.i.i7 ], [ %34, %30 ]
   store volatile i8 0, ptr %36, align 1, !alias.scope !818
   fence syncscope("singlethread") seq_cst
   %37 = call noundef align 1 dereferenceable_or_null(1) ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha0a8bdeb25250510E.llvm.15934541666227088301"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit9", label %.lr.ph.i.i.i.i8
+  br i1 %38, label %"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit8", label %.lr.ph.i.i.i.i7
 
-"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit9": ; preds = %.lr.ph.i.i.i.i8, %30
+"_ZN4core3ptr86drop_in_place$LT$aws_lc_rs..hkdf..Okm$LT$rustls..crypto..aws_lc_rs..tls13..Len$GT$$GT$17h20813243ce7ee546E.exit8": ; preds = %.lr.ph.i.i.i.i7, %30
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !811
   br label %29
 
@@ -7365,7 +7365,7 @@ define hidden void @"_ZN6rustls6client11client_conn103_$LT$impl$u20$rustls..conn
 44:                                               ; preds = %433
   %45 = landingpad { ptr, i32 }
           cleanup
-  %46 = trunc nuw i8 %.3 to i1
+  %46 = trunc nuw i8 %.4 to i1
   br i1 %46, label %465, label %.thread
 
 47:                                               ; preds = %5
@@ -8279,7 +8279,7 @@ _ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a
   br label %266
 
 "_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$$GT$17h386c143b035c9b65E.exit.i": ; preds = %287, %280, %266, %245
-  %.sroa.080.1 = phi i8 [ 14, %266 ], [ 14, %280 ], [ 14, %287 ], [ %238, %245 ]
+  %.sroa.080.0 = phi i8 [ 14, %266 ], [ 14, %280 ], [ 14, %287 ], [ %238, %245 ]
   %.sroa.19.0 = phi i64 [ undef, %266 ], [ undef, %280 ], [ undef, %287 ], [ %.sroa.754.0.copyload.i, %245 ]
   %383 = phi <2 x ptr> [ undef, %266 ], [ undef, %280 ], [ undef, %287 ], [ %246, %245 ]
   %384 = load i64, ptr %34, align 8, !range !229, !alias.scope !1672, !noalias !1492, !noundef !4
@@ -8480,7 +8480,7 @@ _ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.254, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.9, i64 7, i1 false)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.9)
   %432 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %.sroa.080.1, ptr %432, align 8
+  store i8 %.sroa.080.0, ptr %432, align 8
   %.sroa.254.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.254.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.254, i64 7, i1 false)
   %.sroa.355.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -8496,13 +8496,13 @@ _ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a
   ret void
 
 433:                                              ; preds = %431, %60
-  %.3 = phi i8 [ 0, %431 ], [ 1, %60 ]
+  %.4 = phi i8 [ 0, %431 ], [ 1, %60 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$rustls..common_state..CommonState$GT$17h7f8a11752aaaa101E"(ptr noalias noundef nonnull align 8 dereferenceable(776) %41)
           to label %434 unwind label %44
 
 434:                                              ; preds = %433
   call void @llvm.lifetime.end.p0(i64 776, ptr nonnull %41)
-  %435 = trunc nuw i8 %.3 to i1
+  %435 = trunc nuw i8 %.4 to i1
   br i1 %435, label %436, label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17h3c6b5bff9fd8b4ceE.exit"
 
 436:                                              ; preds = %434
@@ -8510,9 +8510,9 @@ _ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a
           to label %.thread109 unwind label %438
 
 .thread:                                          ; preds = %465, %438, %44
-  %.4 = phi i8 [ %.3, %438 ], [ %.186, %465 ], [ %.3, %44 ]
+  %.2 = phi i8 [ %.4, %438 ], [ %.086, %465 ], [ %.4, %44 ]
   %.pn72 = phi { ptr, i32 } [ %439, %438 ], [ %466, %465 ], [ %45, %44 ]
-  %437 = trunc nuw i8 %.4 to i1
+  %437 = trunc nuw i8 %.2 to i1
   br i1 %437, label %467, label %455
 
 438:                                              ; preds = %436
@@ -8561,7 +8561,7 @@ _ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a
   br label %.thread112
 
 455:                                              ; preds = %467, %457, %.thread
-  %.5 = phi i8 [ %.3, %457 ], [ %.4, %467 ], [ %.4, %.thread ]
+  %.5 = phi i8 [ %.4, %457 ], [ %.2, %467 ], [ %.2, %.thread ]
   %.pn74 = phi { ptr, i32 } [ %458, %457 ], [ %.pn72, %467 ], [ %.pn72, %.thread ]
   %456 = trunc nuw i8 %.5 to i1
   br i1 %456, label %468, label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17h3c6b5bff9fd8b4ceE.exit79"
@@ -8592,7 +8592,7 @@ _ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a
 
 465:                                              ; preds = %.thread84, %44
   %466 = phi { ptr, i32 } [ %43, %.thread84 ], [ %45, %44 ]
-  %.186 = phi i8 [ 1, %.thread84 ], [ %.3, %44 ]
+  %.086 = phi i8 [ 1, %.thread84 ], [ %.4, %44 ]
   invoke void @"_ZN4core3ptr84drop_in_place$LT$alloc..vec..Vec$LT$rustls..msgs..handshake..ClientExtension$GT$$GT$17ha293c72c6f03e552E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #39
           to label %.thread unwind label %463
 
@@ -9911,7 +9911,7 @@ _ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a
   br label %525
 
 thread-pre-split432:                              ; preds = %_ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a7E.exit.i, %_ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a7E.exit30.thread.i, %.noexc298
-  %.sroa.02.2.i.ph = phi ptr [ null, %_ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a7E.exit.i ], [ %449, %.noexc298 ], [ null, %_ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a7E.exit30.thread.i ]
+  %.sroa.02.1.i.ph = phi ptr [ null, %_ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a7E.exit.i ], [ %449, %.noexc298 ], [ null, %_ZN6rustls6client11client_conn12ClientConfig16supports_version17he8eb3d608f9150a7E.exit30.thread.i ]
   %.pr433 = load i64, ptr %172, align 8
   %.pre = load ptr, ptr %171, align 8
   br label %525
@@ -9919,7 +9919,7 @@ thread-pre-split432:                              ; preds = %_ZN6rustls6client11
 525:                                              ; preds = %thread-pre-split432, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h895e9d638cf4fb4cE.exit41.i"
   %526 = phi ptr [ %.pre, %thread-pre-split432 ], [ %522, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h895e9d638cf4fb4cE.exit41.i" ]
   %527 = phi i64 [ %.pr433, %thread-pre-split432 ], [ %524, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h895e9d638cf4fb4cE.exit41.i" ]
-  %.sroa.02.2.i = phi ptr [ %.sroa.02.2.i.ph, %thread-pre-split432 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h895e9d638cf4fb4cE.exit41.i" ]
+  %.sroa.02.1.i = phi ptr [ %.sroa.02.1.i.ph, %thread-pre-split432 ], [ null, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h895e9d638cf4fb4cE.exit41.i" ]
   %528 = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !1961)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17)
@@ -10278,12 +10278,12 @@ _ZN4core5slice4sort9quicksort17hdb1cfa62c10589f9E.exit.i: ; preds = %.noexc305
   %.sroa.448.0..sroa_idx = getelementptr inbounds i8, ptr %47, i64 144
   store i16 4, ptr %.sroa.448.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44)
-  %.not204 = icmp eq ptr %.sroa.02.2.i, null
+  %.not204 = icmp eq ptr %.sroa.02.1.i, null
   br i1 %.not204, label %646, label %645
 
 645:                                              ; preds = %643
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43)
-  invoke void @_ZN6rustls6client5tls1318fill_in_psk_binder17heb59bd83c2c3efa0E(ptr noalias nocapture noundef nonnull sret({ { { ptr, ptr }, ptr } }) align 8 dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.02.2.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(160) %47)
+  invoke void @_ZN6rustls6client5tls1318fill_in_psk_binder17heb59bd83c2c3efa0E(ptr noalias nocapture noundef nonnull sret({ { { ptr, ptr }, ptr } }) align 8 dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %.sroa.02.1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(160) %47)
           to label %649 unwind label %647
 
 646:                                              ; preds = %643
@@ -10297,7 +10297,7 @@ _ZN4core5slice4sort9quicksort17hdb1cfa62c10589f9E.exit.i: ; preds = %.noexc305
           to label %.thread508 unwind label %299
 
 649:                                              ; preds = %645
-  %650 = getelementptr inbounds i8, ptr %.sroa.02.2.i, i64 112
+  %650 = getelementptr inbounds i8, ptr %.sroa.02.1.i, i64 112
   %651 = load ptr, ptr %650, align 8, !alias.scope !2000, !nonnull !4, !align !35, !noundef !4
   %.sroa.459.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.459.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false)
@@ -11861,7 +11861,7 @@ _ZN6rustls4msgs9handshake19HasServerExtensions23has_duplicate_extension17h6fb1cf
   br label %342
 
 342:                                              ; preds = %366, %341
-  %.2262 = phi i8 [ 0, %366 ], [ 1, %341 ]
+  %.3263 = phi i8 [ 0, %366 ], [ 1, %341 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %31)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %36)
@@ -11955,23 +11955,23 @@ _ZN6rustls4msgs9handshake19HasServerExtensions23has_duplicate_extension17h6fb1cf
   br label %342
 
 "_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit": ; preds = %.critedge311.thread, %368
-  %.3263 = phi i8 [ %.4264, %368 ], [ %.0260, %.critedge311.thread ]
-  %.4243 = phi i8 [ %.2, %368 ], [ %.0239, %.critedge311.thread ]
-  %.4 = phi i8 [ %.2, %368 ], [ %.0236, %.critedge311.thread ]
+  %.1261 = phi i8 [ %.4264, %368 ], [ %.0260, %.critedge311.thread ]
+  %.1240 = phi i8 [ %.2, %368 ], [ %.0239, %.critedge311.thread ]
+  %.1237 = phi i8 [ %.2, %368 ], [ %.0236, %.critedge311.thread ]
   %.1 = phi i8 [ %.2, %368 ], [ %.0235, %.critedge311.thread ]
   %.pn294 = phi { ptr, i32 } [ %369, %368 ], [ %.pn292, %.critedge311.thread ]
-  %367 = trunc nuw i8 %.4243 to i1
+  %367 = trunc nuw i8 %.1240 to i1
   br i1 %367, label %413, label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17h3c6b5bff9fd8b4ceE.exit391"
 
 368:                                              ; preds = %409, %342
-  %.4264 = phi i8 [ %.2262, %342 ], [ 1, %409 ]
+  %.4264 = phi i8 [ %.3263, %342 ], [ 1, %409 ]
   %.2 = phi i8 [ 0, %342 ], [ 1, %409 ]
   %369 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit"
 
 "_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit383": ; preds = %342
-  %370 = trunc nuw i8 %.2262 to i1
+  %370 = trunc nuw i8 %.3263 to i1
   br i1 %370, label %371, label %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$rustls..client..hs..ExpectServerHello$GT$$GT$17he63489cdec3cd853E.exit"
 
 371:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit383"
@@ -12147,7 +12147,7 @@ common.resume:                                    ; preds = %377, %384, %.thread
   br label %common.resume
 
 "_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17h3c6b5bff9fd8b4ceE.exit391": ; preds = %413, %418, %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit"
-  %412 = trunc nuw i8 %.4 to i1
+  %412 = trunc nuw i8 %.1237 to i1
   br i1 %412, label %420, label %"_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..Retrieved$LT$rustls..client..hs..ClientSessionValue$GT$$GT$$GT$17h0d3047a08f78e3d2E.exit"
 
 413:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit"
@@ -12165,7 +12165,7 @@ common.resume:                                    ; preds = %377, %384, %.thread
           to label %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17h3c6b5bff9fd8b4ceE.exit391" unwind label %382
 
 "_ZN4core3ptr127drop_in_place$LT$core..option..Option$LT$rustls..msgs..persist..Retrieved$LT$rustls..client..hs..ClientSessionValue$GT$$GT$$GT$17h0d3047a08f78e3d2E.exit": ; preds = %420, %424, %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17h3c6b5bff9fd8b4ceE.exit391"
-  %419 = trunc nuw i8 %.3263 to i1
+  %419 = trunc nuw i8 %.1261 to i1
   br i1 %419, label %426, label %425
 
 420:                                              ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..sync..Arc$LT$rustls..client..client_conn..ClientConfig$GT$$GT$17h3c6b5bff9fd8b4ceE.exit391"
@@ -12385,16 +12385,16 @@ define void @"_ZN161_$LT$rustls..client..hs..ExpectServerHelloOrHelloRetryReques
   br i1 %76, label %89, label %79
 
 .body.i10:                                        ; preds = %.thread349.i, %192, %184, %147, %77
-  %.0190.i = phi i8 [ %.2192354.i, %.thread349.i ], [ 0, %147 ], [ %.1191.i, %77 ], [ %.4194.i, %192 ], [ %.4194.i, %184 ]
-  %.0185.i = phi i8 [ 0, %.thread349.i ], [ 0, %147 ], [ %.1186.i, %77 ], [ 0, %192 ], [ 0, %184 ]
-  %.0176.i = phi i8 [ %.2355.i, %.thread349.i ], [ 0, %147 ], [ %.1191.i, %77 ], [ 1, %192 ], [ 1, %184 ]
+  %.1191.i = phi i8 [ %.5195354.i, %.thread349.i ], [ 0, %147 ], [ %.0190.i, %77 ], [ %.6.i, %192 ], [ %.6.i, %184 ]
+  %.1186.i = phi i8 [ 0, %.thread349.i ], [ 0, %147 ], [ %.0185.i, %77 ], [ 0, %192 ], [ 0, %184 ]
+  %.1.i = phi i8 [ %.3355.i, %.thread349.i ], [ 0, %147 ], [ %.0190.i, %77 ], [ 1, %192 ], [ 1, %184 ]
   %.pn216.i = phi { ptr, i32 } [ %.pn356.i, %.thread349.i ], [ %lpad.thr_comm.split-lp.i, %147 ], [ %78, %77 ], [ %185, %192 ], [ %185, %184 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(184) %36)
           to label %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit.i" unwind label %332, !noalias !2325
 
 77:                                               ; preds = %326, %139, %_ZN6rustls4msgs9handshake17HelloRetryRequest6cookie17hcd43289147bbddcbE.exit.i, %100, %93, %85, %73
-  %.1191.i = phi i8 [ 1, %139 ], [ 0, %326 ], [ 1, %93 ], [ 1, %73 ], [ 1, %85 ], [ 1, %100 ], [ 1, %_ZN6rustls4msgs9handshake17HelloRetryRequest6cookie17hcd43289147bbddcbE.exit.i ]
-  %.1186.i = phi i8 [ 0, %139 ], [ 0, %326 ], [ 1, %93 ], [ 1, %73 ], [ 1, %85 ], [ 1, %100 ], [ 1, %_ZN6rustls4msgs9handshake17HelloRetryRequest6cookie17hcd43289147bbddcbE.exit.i ]
+  %.0190.i = phi i8 [ 1, %139 ], [ 0, %326 ], [ 1, %93 ], [ 1, %73 ], [ 1, %85 ], [ 1, %100 ], [ 1, %_ZN6rustls4msgs9handshake17HelloRetryRequest6cookie17hcd43289147bbddcbE.exit.i ]
+  %.0185.i = phi i8 [ 0, %139 ], [ 0, %326 ], [ 1, %93 ], [ 1, %73 ], [ 1, %85 ], [ 1, %100 ], [ 1, %_ZN6rustls4msgs9handshake17HelloRetryRequest6cookie17hcd43289147bbddcbE.exit.i ]
   %78 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i10
@@ -12588,7 +12588,7 @@ _ZN6rustls4msgs9handshake17HelloRetryRequest6cookie17hcd43289147bbddcbE.exit.i: 
   br label %.thread349.i
 
 .loopexit.split-lp.i:                             ; preds = %305, %271, %255, %242, %238, %232, %229, %224, %218, %214, %209, %201, %176, %.critedge226.i, %143
-  %.3193.ph.i = phi i8 [ 1, %255 ], [ 1, %238 ], [ 1, %232 ], [ 1, %224 ], [ 1, %214 ], [ 1, %209 ], [ 1, %201 ], [ 1, %176 ], [ 1, %.critedge226.i ], [ 1, %143 ], [ 1, %218 ], [ 1, %229 ], [ 1, %242 ], [ 0, %271 ], [ 0, %305 ]
+  %.4194.ph.i = phi i8 [ 1, %255 ], [ 1, %238 ], [ 1, %232 ], [ 1, %224 ], [ 1, %214 ], [ 1, %209 ], [ 1, %201 ], [ 1, %176 ], [ 1, %.critedge226.i ], [ 1, %143 ], [ 1, %218 ], [ 1, %229 ], [ 1, %242 ], [ 0, %271 ], [ 0, %305 ]
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
   br label %.thread349.i
@@ -12687,7 +12687,7 @@ _ZN6rustls4msgs9handshake17HelloRetryRequest6cookie17hcd43289147bbddcbE.exit.i: 
   br label %182
 
 182:                                              ; preds = %344, %342, %340, %338, %336, %334, %319, %259, %180
-  %.4194.i = phi i8 [ 1, %344 ], [ 1, %180 ], [ 1, %342 ], [ 1, %340 ], [ 1, %338 ], [ 1, %336 ], [ 1, %334 ], [ 1, %259 ], [ 0, %319 ]
+  %.6.i = phi i8 [ 1, %344 ], [ 1, %180 ], [ 1, %342 ], [ 1, %340 ], [ 1, %338 ], [ 1, %336 ], [ 1, %334 ], [ 1, %259 ], [ 0, %319 ]
   %183 = load ptr, ptr %137, align 8, !invariant.load !4, !noalias !2336, !nonnull !4
   invoke void %183(ptr noundef nonnull align 1 %135)
           to label %193 unwind label %184, !noalias !2336
@@ -13066,16 +13066,16 @@ _ZN6rustls4msgs9handshake17HelloRetryRequest23has_duplicate_extension17h26d3b1e9
           to label %325 unwind label %77, !noalias !2325
 
 "_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit.i": ; preds = %328, %.body.i10
-  %.6.i = phi i8 [ %.7.i, %328 ], [ %.0190.i, %.body.i10 ]
-  %.2187.i = phi i8 [ %.3188.i, %328 ], [ %.0185.i, %.body.i10 ]
-  %.4.i = phi i8 [ %.5.i, %328 ], [ %.0176.i, %.body.i10 ]
+  %.2192.i = phi i8 [ %.8.i, %328 ], [ %.1191.i, %.body.i10 ]
+  %.2187.i = phi i8 [ %.4189.i, %328 ], [ %.1186.i, %.body.i10 ]
+  %.2.i = phi i8 [ %.5.i, %328 ], [ %.1.i, %.body.i10 ]
   %.pn216.pn.i = phi { ptr, i32 } [ %329, %328 ], [ %.pn216.i, %.body.i10 ]
-  %327 = trunc nuw i8 %.4.i to i1
+  %327 = trunc nuw i8 %.2.i to i1
   br i1 %327, label %415, label %413
 
 328:                                              ; preds = %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit.i", %325
-  %.7.i = phi i8 [ 0, %325 ], [ %.8.i, %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit.i" ]
-  %.3188.i = phi i8 [ 0, %325 ], [ %.4189.i, %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit.i" ]
+  %.8.i = phi i8 [ 0, %325 ], [ %.3193.i, %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit.i" ]
+  %.4189.i = phi i8 [ 0, %325 ], [ %.3188.i, %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit.i" ]
   %.5.i = phi i8 [ 0, %325 ], [ 1, %"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit.i" ]
   %329 = landingpad { ptr, i32 }
           cleanup
@@ -13153,16 +13153,16 @@ _ZN6rustls4msgs9handshake17HelloRetryRequest23has_duplicate_extension17h26d3b1e9
   br label %182
 
 "_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E.exit.i": ; preds = %200, %193, %114, %79
-  %.8.i = phi i8 [ 1, %114 ], [ 1, %79 ], [ %.4194.i, %200 ], [ %.4194.i, %193 ]
-  %.4189.i = phi i8 [ 1, %114 ], [ 1, %79 ], [ 0, %200 ], [ 0, %193 ]
+  %.3193.i = phi i8 [ 1, %114 ], [ 1, %79 ], [ %.6.i, %200 ], [ %.6.i, %193 ]
+  %.3188.i = phi i8 [ 1, %114 ], [ 1, %79 ], [ 0, %200 ], [ 0, %193 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32), !noalias !2334
   invoke void @"_ZN4core3ptr58drop_in_place$LT$rustls..msgs..message..MessagePayload$GT$17h6de0f8096c3e035fE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(184) %36)
           to label %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit294.i" unwind label %328, !noalias !2336
 
 .thread349.i:                                     ; preds = %331, %261, %.loopexit.split-lp.i, %.loopexit.i, %147
   %.pn356.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i, %147 ], [ %262, %261 ], [ %lpad.thr_comm.i, %331 ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  %.2355.i = phi i8 [ 0, %147 ], [ 1, %261 ], [ 1, %331 ], [ 1, %.loopexit.i ], [ 1, %.loopexit.split-lp.i ]
-  %.2192354.i = phi i8 [ 0, %147 ], [ 0, %261 ], [ 0, %331 ], [ 1, %.loopexit.i ], [ %.3193.ph.i, %.loopexit.split-lp.i ]
+  %.3355.i = phi i8 [ 0, %147 ], [ 1, %261 ], [ 1, %331 ], [ 1, %.loopexit.i ], [ 1, %.loopexit.split-lp.i ]
+  %.5195354.i = phi i8 [ 0, %147 ], [ 0, %261 ], [ 0, %331 ], [ 1, %.loopexit.i ], [ %.4194.ph.i, %.loopexit.split-lp.i ]
   invoke fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$17h3fdca86914cd26b2E"(ptr nonnull %135, ptr nonnull %137) #39
           to label %.body.i10 unwind label %332, !noalias !2325
 
@@ -13174,11 +13174,11 @@ _ZN6rustls4msgs9handshake17HelloRetryRequest23has_duplicate_extension17h26d3b1e9
 347:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit294.i"
   %348 = landingpad { ptr, i32 }
           cleanup
-  %349 = trunc nuw i8 %.8.i to i1
+  %349 = trunc nuw i8 %.3193.i to i1
   br i1 %349, label %408, label %374
 
 350:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit294.i"
-  %351 = trunc nuw i8 %.8.i to i1
+  %351 = trunc nuw i8 %.3193.i to i1
   br i1 %351, label %364, label %352
 
 352:                                              ; preds = %"_ZN4core3ptr57drop_in_place$LT$rustls..hash_hs..HandshakeHashBuffer$GT$17h6fdf8abfe16799d1E.exit.i", %350
@@ -13254,7 +13254,7 @@ _ZN6rustls4msgs9handshake17HelloRetryRequest23has_duplicate_extension17h26d3b1e9
 
 .body295.i:                                       ; preds = %379, %374, %360
   %.pn212.i = phi { ptr, i32 } [ %.pn210.i, %374 ], [ %380, %379 ], [ %361, %360 ]
-  %378 = trunc nuw i8 %.4189.i to i1
+  %378 = trunc nuw i8 %.3188.i to i1
   br i1 %378, label %410, label %.body299.i
 
 379:                                              ; preds = %"_ZN4core3ptr66drop_in_place$LT$rustls..tls13..key_schedule..KeyScheduleEarly$GT$17h2c64db19df554addE.exit.i.i"
@@ -13263,7 +13263,7 @@ _ZN6rustls4msgs9handshake17HelloRetryRequest23has_duplicate_extension17h26d3b1e9
   br label %.body295.i
 
 "_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$rustls..tls13..key_schedule..KeyScheduleEarly$GT$$GT$17hcac6449dd0f60cd8E.exit.i": ; preds = %"_ZN4core3ptr66drop_in_place$LT$rustls..tls13..key_schedule..KeyScheduleEarly$GT$17h2c64db19df554addE.exit.i.i", %352
-  %381 = trunc nuw i8 %.4189.i to i1
+  %381 = trunc nuw i8 %.3188.i to i1
   br i1 %381, label %383, label %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$$GT$17h386c143b035c9b65E.exit.i"
 
 "_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..ActiveKeyExchange$GT$$GT$$GT$17h386c143b035c9b65E.exit.i": ; preds = %406, %399, %383, %"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$rustls..tls13..key_schedule..KeyScheduleEarly$GT$$GT$17hcac6449dd0f60cd8E.exit.i"
@@ -13336,7 +13336,7 @@ _ZN6rustls4msgs9handshake17HelloRetryRequest23has_duplicate_extension17h26d3b1e9
           to label %.body299.i unwind label %332, !noalias !2336
 
 413:                                              ; preds = %415, %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit.i"
-  %414 = trunc nuw i8 %.6.i to i1
+  %414 = trunc nuw i8 %.2192.i to i1
   br i1 %414, label %419, label %417
 
 415:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..msgs..message..Message$GT$17he5c98e835734cfb6E.exit.i"

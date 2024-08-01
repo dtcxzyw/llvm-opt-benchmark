@@ -572,9 +572,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -919,8 +919,8 @@ ehcleanup81:                                      ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %entry, %cleanup80
-  %retval.2 = phi ptr [ %retval.1, %cleanup80 ], [ null, %entry ]
-  ret ptr %retval.2
+  %retval.0 = phi ptr [ %retval.1, %cleanup80 ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: nounwind
@@ -2685,7 +2685,7 @@ invoke.cont61:                                    ; preds = %invoke.cont60
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont17, %invoke.cont24, %invoke.cont61
-  %retval.0 = phi i32 [ %spec.store.select, %invoke.cont61 ], [ %9, %invoke.cont17 ], [ 0, %invoke.cont24 ]
+  %retval.1 = phi i32 [ %spec.store.select, %invoke.cont61 ], [ %9, %invoke.cont17 ], [ 0, %invoke.cont24 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %calTypeBuf) #23
   br label %cleanup65
 
@@ -2695,9 +2695,9 @@ ehcleanup:                                        ; preds = %lpad5.loopexit, %lp
   br label %ehcleanup66
 
 cleanup65:                                        ; preds = %invoke.cont2, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %invoke.cont2 ]
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %invoke.cont2 ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %canonicalName) #23
-  ret i32 %retval.1
+  ret i32 %retval.0
 
 ehcleanup66:                                      ; preds = %ehcleanup, %lpad1, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad ], [ %3, %lpad1 ]
@@ -7381,8 +7381,8 @@ if.else11:                                        ; preds = %dynamic_cast.notnul
   br label %return
 
 return:                                           ; preds = %if.else11, %cleanup.thread, %cleanup, %entry
-  %retval.1 = phi i8 [ 1, %cleanup ], [ 0, %entry ], [ 0, %cleanup.thread ], [ 0, %if.else11 ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ 1, %cleanup ], [ 0, %entry ], [ 0, %cleanup.thread ], [ 0, %if.else11 ]
+  ret i8 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7722,7 +7722,7 @@ if.end.i164.lr.ph:                                ; preds = %while.cond48.prehea
   br label %if.end.i164
 
 if.end.i164:                                      ; preds = %if.end.i164.lr.ph, %if.end67
-  %min.4318 = phi i32 [ 0, %if.end.i164.lr.ph ], [ %max47.0317, %if.end67 ]
+  %min.5318 = phi i32 [ 0, %if.end.i164.lr.ph ], [ %max47.0317, %if.end67 ]
   %max47.0317 = phi i32 [ -1, %if.end.i164.lr.ph ], [ %shl62, %if.end67 ]
   br i1 %cmp.i165, label %if.then2.i189, label %if.else7.i166
 
@@ -7828,8 +7828,8 @@ if.end67:                                         ; preds = %if.else61
 while.end68:                                      ; preds = %if.end67, %if.else58, %if.end67.thread, %while.cond48.preheader
   %51 = phi i32 [ %9, %while.cond48.preheader ], [ 1, %if.end67.thread ], [ %50, %if.else58 ], [ %50, %if.end67 ]
   %max47.0.lcssa = phi i32 [ -1, %while.cond48.preheader ], [ 0, %if.end67.thread ], [ %shl62, %if.end67 ], [ %max47.0317, %if.else58 ]
-  %min.4.lcssa = phi i32 [ 0, %while.cond48.preheader ], [ %max47.0317, %if.end67.thread ], [ %max47.0317, %if.end67 ], [ %min.4318, %if.else58 ]
-  %sub70322 = sub nsw i32 %min.4.lcssa, %max47.0.lcssa
+  %min.5.lcssa = phi i32 [ 0, %while.cond48.preheader ], [ %max47.0317, %if.end67.thread ], [ %max47.0317, %if.end67 ], [ %min.5318, %if.else58 ]
+  %sub70322 = sub nsw i32 %min.5.lcssa, %max47.0.lcssa
   %cmp71323 = icmp sgt i32 %sub70322, 1
   br i1 %cmp71323, label %land.rhs72.lr.ph, label %if.end95
 
@@ -7846,15 +7846,15 @@ land.rhs72.lr.ph:                                 ; preds = %while.end68
 
 land.rhs72:                                       ; preds = %land.rhs72.lr.ph, %if.else87
   %52 = phi i32 [ %51, %land.rhs72.lr.ph ], [ %65, %if.else87 ]
-  %min.5325 = phi i32 [ %min.4.lcssa, %land.rhs72.lr.ph ], [ %min.5.add80, %if.else87 ]
+  %min.6325 = phi i32 [ %min.5.lcssa, %land.rhs72.lr.ph ], [ %min.6.add80, %if.else87 ]
   %max47.1324 = phi i32 [ %max47.0.lcssa, %land.rhs72.lr.ph ], [ %add80.max47.1, %if.else87 ]
   %cmp.i216 = icmp sgt i32 %52, 0
   br i1 %cmp.i216, label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300, label %while.body76
 
 while.body76:                                     ; preds = %land.rhs72
-  %sub78 = sub nsw i32 %max47.1324, %min.5325
+  %sub78 = sub nsw i32 %max47.1324, %min.6325
   %div79 = sdiv i32 %sub78, 2
-  %add80 = add nsw i32 %div79, %min.5325
+  %add80 = add nsw i32 %div79, %min.6325
   br i1 %cmp.i220, label %if.then2.i244, label %if.else7.i221
 
 if.then2.i244:                                    ; preds = %while.body76
@@ -7942,14 +7942,14 @@ _ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit270: ; preds = %_ZN6icu_
 if.else87:                                        ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit270
   %cmp88 = fcmp olt double %retval.0.i249, %targetMs
   %add80.max47.1 = select i1 %cmp88, i32 %add80, i32 %max47.1324
-  %min.5.add80 = select i1 %cmp88, i32 %min.5325, i32 %add80
-  %sub70 = sub nsw i32 %min.5.add80, %add80.max47.1
+  %min.6.add80 = select i1 %cmp88, i32 %min.6325, i32 %add80
+  %sub70 = sub nsw i32 %min.6.add80, %add80.max47.1
   %cmp71 = icmp sgt i32 %sub70, 1
   br i1 %cmp71, label %land.rhs72, label %if.end95, !llvm.loop !15
 
 if.end95:                                         ; preds = %if.else87, %if.else37, %if.else44, %while.end, %while.end68
   %.pr = phi i32 [ %9, %if.else44 ], [ %23, %while.end ], [ %51, %while.end68 ], [ %37, %if.else37 ], [ %65, %if.else87 ]
-  %min.7.ph = phi i32 [ 0, %if.else44 ], [ %min.0.lcssa, %while.end ], [ %min.4.lcssa, %while.end68 ], [ %min.2.add, %if.else37 ], [ %min.5.add80, %if.else87 ]
+  %min.4.ph = phi i32 [ 0, %if.else44 ], [ %min.0.lcssa, %while.end ], [ %min.5.lcssa, %while.end68 ], [ %min.2.add, %if.else37 ], [ %min.6.add80, %if.else87 ]
   %66 = icmp slt i32 %.pr, 1
   br i1 %66, label %if.end.i272, label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300
 
@@ -7992,18 +7992,18 @@ for.end.sink.split.i279:                          ; preds = %if.else15.i276, %if
   br label %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300
 
 _ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300: ; preds = %land.rhs72, %land.rhs, %if.end21.i280, %if.end95, %for.end.sink.split.i279
-  %min.7361 = phi i32 [ %min.7.ph, %if.end21.i280 ], [ %min.7.ph, %if.end95 ], [ %min.7.ph, %for.end.sink.split.i279 ], [ %min.2337, %land.rhs ], [ %min.5325, %land.rhs72 ]
+  %min.4361 = phi i32 [ %min.4.ph, %if.end21.i280 ], [ %min.4.ph, %if.end95 ], [ %min.4.ph, %for.end.sink.split.i279 ], [ %min.2337, %land.rhs ], [ %min.6325, %land.rhs72 ]
   %vtable96 = load ptr, ptr %this, align 8
   %vfn97 = getelementptr inbounds i8, ptr %vtable96, i64 56
   %69 = load ptr, ptr %vfn97, align 8
-  tail call void %69(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %min.7361, ptr noundef nonnull align 4 dereferenceable(4) %ec)
+  tail call void %69(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %field, i32 noundef %min.4361, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %70 = load i32, ptr %ec, align 4
   %cmp.i301.inv = icmp sgt i32 %70, 0
-  %min.7. = select i1 %cmp.i301.inv, i32 0, i32 %min.7361
+  %min.4. = select i1 %cmp.i301.inv, i32 0, i32 %min.4361
   br label %return
 
 return:                                           ; preds = %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit215, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit270, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit105, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit160, %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300, %entry, %if.then3
-  %retval.0 = phi i32 [ 0, %if.then3 ], [ 0, %entry ], [ %min.7., %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300 ], [ %add, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit160 ], [ %max.0328, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit105 ], [ %add80, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit270 ], [ %max47.0317, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit215 ]
+  %retval.0 = phi i32 [ 0, %if.then3 ], [ 0, %entry ], [ %min.4., %_ZN6icu_758Calendar15setTimeInMillisEdR10UErrorCode.exit300 ], [ %add, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit160 ], [ %max.0328, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit105 ], [ %add80, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit270 ], [ %max47.0317, %_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode.exit215 ]
   ret i32 %retval.0
 }
 
@@ -10400,16 +10400,16 @@ if.then146:                                       ; preds = %if.then133
   br label %if.end165
 
 if.end165:                                        ; preds = %lor.lhs.false89, %if.else128, %if.then146, %if.then133, %if.then109, %land.lhs.true111, %if.then116, %if.else84
-  %first.3 = phi i32 [ %spec.select66, %if.then116 ], [ %spec.select63, %land.lhs.true111 ], [ %spec.select63, %if.then109 ], [ %spec.select69, %if.then146 ], [ %spec.select63, %if.then133 ], [ %spec.select63, %if.else128 ], [ %spec.select63, %lor.lhs.false89 ], [ %spec.select63, %if.else84 ]
-  %date.1 = phi i32 [ %add126, %if.then116 ], [ %add59, %land.lhs.true111 ], [ %add59, %if.then109 ], [ %add160, %if.then146 ], [ %add59, %if.then133 ], [ %add59, %if.else128 ], [ %add59, %lor.lhs.false89 ], [ %add59, %if.else84 ]
-  %julianDay.0 = phi i32 [ %call99, %if.then116 ], [ %call31, %land.lhs.true111 ], [ %call31, %if.then109 ], [ %call150, %if.then146 ], [ %call31, %if.then133 ], [ %call31, %if.else128 ], [ %call31, %lor.lhs.false89 ], [ %call31, %if.else84 ]
-  %sub166 = sub nsw i32 7, %first.3
+  %first.1 = phi i32 [ %spec.select66, %if.then116 ], [ %spec.select63, %land.lhs.true111 ], [ %spec.select63, %if.then109 ], [ %spec.select69, %if.then146 ], [ %spec.select63, %if.then133 ], [ %spec.select63, %if.else128 ], [ %spec.select63, %lor.lhs.false89 ], [ %spec.select63, %if.else84 ]
+  %date.2 = phi i32 [ %add126, %if.then116 ], [ %add59, %land.lhs.true111 ], [ %add59, %if.then109 ], [ %add160, %if.then146 ], [ %add59, %if.then133 ], [ %add59, %if.else128 ], [ %add59, %lor.lhs.false89 ], [ %add59, %if.else84 ]
+  %julianDay.1 = phi i32 [ %call99, %if.then116 ], [ %call31, %land.lhs.true111 ], [ %call31, %if.then109 ], [ %call150, %if.then146 ], [ %call31, %if.then133 ], [ %call31, %if.else128 ], [ %call31, %lor.lhs.false89 ], [ %call31, %if.else84 ]
+  %sub166 = sub nsw i32 7, %first.1
   %fMinimalDaysInFirstWeek.i144 = getelementptr inbounds i8, ptr %this, i64 268
   %35 = load i8, ptr %fMinimalDaysInFirstWeek.i144, align 4
   %conv168 = zext i8 %35 to i32
   %cmp169 = icmp slt i32 %sub166, %conv168
-  %add171 = add nsw i32 %date.1, 7
-  %spec.select70 = select i1 %cmp169, i32 %add171, i32 %date.1
+  %add171 = add nsw i32 %date.2, 7
+  %spec.select70 = select i1 %cmp169, i32 %add171, i32 %date.2
   %idxprom.i146 = zext i32 %bestField to i64
   %arrayidx.i147 = getelementptr inbounds [24 x i32], ptr %fFields.i73, i64 0, i64 %idxprom.i146
   %36 = load i32, ptr %arrayidx.i147, align 4
@@ -10419,9 +10419,9 @@ if.end165:                                        ; preds = %lor.lhs.false89, %i
   br label %if.end177
 
 if.end177:                                        ; preds = %if.then68, %if.else71, %if.end165
-  %date.3 = phi i32 [ %add70, %if.then68 ], [ %add82, %if.else71 ], [ %add176, %if.end165 ]
-  %julianDay.1 = phi i32 [ %call31, %if.then68 ], [ %call31, %if.else71 ], [ %julianDay.0, %if.end165 ]
-  %add178 = add nsw i32 %julianDay.1, %date.3
+  %date.1 = phi i32 [ %add70, %if.then68 ], [ %add82, %if.else71 ], [ %add176, %if.end165 ]
+  %julianDay.0 = phi i32 [ %call31, %if.then68 ], [ %call31, %if.else71 ], [ %julianDay.1, %if.end165 ]
+  %add178 = add nsw i32 %julianDay.0, %date.1
   br label %return
 
 return:                                           ; preds = %entry, %if.end177, %if.then45, %if.end42, %if.then12
@@ -11030,8 +11030,8 @@ do.body.preheader:                                ; preds = %_ZNK6icu_758Calenda
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end37
-  %result.0 = phi i32 [ %add, %if.end37 ], [ %startValue, %do.body.preheader ]
-  %add = add nsw i32 %result.0, %cond
+  %result.1 = phi i32 [ %add, %if.end37 ], [ %startValue, %do.body.preheader ]
+  %add = add nsw i32 %result.1, %cond
   %vtable29 = load ptr, ptr %call13, align 8
   %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 56
   %30 = load ptr, ptr %vfn30, align 8
@@ -11104,7 +11104,7 @@ if.end37:                                         ; preds = %_ZNK6icu_758Calenda
   br i1 %cmp38.not, label %delete.notnull, label %do.body, !llvm.loop !22
 
 delete.notnull:                                   ; preds = %if.then3.i.i92, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i102, %if.then10.i.i84, %if.end8.i88, %do.body, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit108, %if.end37, %if.then3.i.i, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i, %if.then10.i.i, %if.end8.i63, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
-  %result.1 = phi i32 [ %startValue, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ %startValue, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit ], [ %startValue, %if.end8.i63 ], [ %startValue, %if.then10.i.i ], [ %startValue, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i ], [ %startValue, %if.then3.i.i ], [ %result.0, %if.then3.i.i92 ], [ %result.0, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i102 ], [ %result.0, %if.then10.i.i84 ], [ %result.0, %if.end8.i88 ], [ %result.0, %do.body ], [ %endValue, %if.end37 ], [ %result.0, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit108 ]
+  %result.0 = phi i32 [ %startValue, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ %startValue, %_ZN6icu_758Calendar3setE19UCalendarDateFieldsi.exit ], [ %startValue, %if.end8.i63 ], [ %startValue, %if.then10.i.i ], [ %startValue, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i ], [ %startValue, %if.then3.i.i ], [ %result.1, %if.then3.i.i92 ], [ %result.1, %_ZN6icu_758Calendar10updateTimeER10UErrorCode.exit.i.i102 ], [ %result.1, %if.then10.i.i84 ], [ %result.1, %if.end8.i88 ], [ %result.1, %do.body ], [ %endValue, %if.end37 ], [ %result.1, %_ZNK6icu_758Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit108 ]
   %vtable40 = load ptr, ptr %call13, align 8
   %vfn41 = getelementptr inbounds i8, ptr %vtable40, i64 8
   %42 = load ptr, ptr %vfn41, align 8
@@ -11112,7 +11112,7 @@ delete.notnull:                                   ; preds = %if.then3.i.i92, %_Z
   br label %return
 
 return:                                           ; preds = %if.end4, %entry, %delete.notnull, %if.then15, %if.then3
-  %retval.0 = phi i32 [ 0, %if.then3 ], [ %result.1, %delete.notnull ], [ %startValue, %if.then15 ], [ 0, %entry ], [ %startValue, %if.end4 ]
+  %retval.0 = phi i32 [ 0, %if.then3 ], [ %result.0, %delete.notnull ], [ %startValue, %if.then15 ], [ 0, %entry ], [ %startValue, %if.end4 ]
   ret i32 %retval.0
 }
 
@@ -12140,7 +12140,7 @@ invoke.cont18:                                    ; preds = %for.inc.i, %return.
           to label %cleanup unwind label %lpad2.loopexit.split-lp.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont9, %invoke.cont18, %invoke.cont12
-  %retval.0 = phi ptr [ null, %invoke.cont12 ], [ %call21, %invoke.cont18 ], [ null, %invoke.cont9 ]
+  %retval.1 = phi ptr [ null, %invoke.cont12 ], [ %call21, %invoke.cont18 ], [ null, %invoke.cont9 ]
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %canLoc) #23
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %curLoc) #23
   br label %return
@@ -12151,8 +12151,8 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12536,8 +12536,8 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi ptr [ %call3, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %call3, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 declare void @_ZN6icu_7510ICUService11clearCachesEv(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #5

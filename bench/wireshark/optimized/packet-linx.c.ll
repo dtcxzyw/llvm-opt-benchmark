@@ -401,7 +401,7 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %55
 
 55:                                               ; preds = %.lr.ph, %245
-  %.1297311 = phi i32 [ %47, %.lr.ph ], [ %.4, %245 ]
+  %.1297311 = phi i32 [ %47, %.lr.ph ], [ %.2, %245 ]
   %.0298310 = phi i32 [ %31, %.lr.ph ], [ %57, %245 ]
   %56 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.1297311) #2
   %57 = lshr i32 %56, 28
@@ -535,7 +535,7 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 149:                                              ; preds = %.thread, %138
   %150 = phi i32 [ %136, %.thread ], [ %147, %138 ]
-  %.2305 = phi i32 [ %129, %.thread ], [ %141, %138 ]
+  %.3305 = phi i32 [ %129, %.thread ], [ %141, %138 ]
   %151 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %150) #2
   %152 = load ptr, ptr %5, align 8
   %153 = tail call ptr @val_to_str_const(i32 noundef %151, ptr noundef nonnull @linx_short_rlnh_names, ptr noundef nonnull @.str.160) #2
@@ -553,7 +553,7 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %hf_linx_rlnh_msg_type8.sink = phi ptr [ @hf_linx_rlnh_msg_type8, %156 ], [ @hf_linx_rlnh_msg_type32, %149 ]
   %160 = load i32, ptr %hf_linx_rlnh_msg_type8.sink, align 4
   %161 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %160, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef 0) #2
-  %.3 = add i32 %.2305, 8
+  %.4 = add i32 %.3305, 8
   switch i32 %151, label %210 [
     i32 0, label %245
     i32 1, label %162
@@ -567,8 +567,8 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 162:                                              ; preds = %159
   %163 = load i32, ptr @hf_linx_rlnh_src_linkaddr, align 4
-  %164 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %163, ptr noundef %0, i32 noundef %.3, i32 noundef 4, i32 noundef 0) #2
-  %165 = add i32 %.2305, 12
+  %164 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %163, ptr noundef %0, i32 noundef %.4, i32 noundef 4, i32 noundef 0) #2
+  %165 = add i32 %.3305, 12
   %166 = load i32, ptr @hf_linx_rlnh_name, align 4
   %167 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %166, ptr noundef %0, i32 noundef %165, i32 noundef -1, i32 noundef 0) #2
   %168 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %165, i32 noundef -1) #2
@@ -577,8 +577,8 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 170:                                              ; preds = %159
   %171 = load i32, ptr @hf_linx_rlnh_src_linkaddr, align 4
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %171, ptr noundef %0, i32 noundef %.3, i32 noundef 4, i32 noundef 0) #2
-  %173 = add i32 %.2305, 12
+  %172 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %171, ptr noundef %0, i32 noundef %.4, i32 noundef 4, i32 noundef 0) #2
+  %173 = add i32 %.3305, 12
   %174 = load i32, ptr @hf_linx_rlnh_name, align 4
   %175 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %174, ptr noundef %0, i32 noundef %173, i32 noundef -1, i32 noundef 0) #2
   %176 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %173, i32 noundef -1) #2
@@ -587,28 +587,28 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 178:                                              ; preds = %159
   %179 = load i32, ptr @hf_linx_rlnh_src_linkaddr, align 4
-  %180 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %179, ptr noundef %0, i32 noundef %.3, i32 noundef 4, i32 noundef 0) #2
-  %181 = add i32 %.2305, 12
+  %180 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %179, ptr noundef %0, i32 noundef %.4, i32 noundef 4, i32 noundef 0) #2
+  %181 = add i32 %.3305, 12
   br label %245
 
 182:                                              ; preds = %159
   %183 = load i32, ptr @hf_linx_rlnh_src_linkaddr, align 4
-  %184 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %183, ptr noundef %0, i32 noundef %.3, i32 noundef 4, i32 noundef 0) #2
-  %185 = add i32 %.2305, 12
+  %184 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %183, ptr noundef %0, i32 noundef %.4, i32 noundef 4, i32 noundef 0) #2
+  %185 = add i32 %.3305, 12
   br label %245
 
 186:                                              ; preds = %159
   %187 = load i32, ptr @hf_linx_rlnh_version, align 4
-  %188 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %187, ptr noundef %0, i32 noundef %.3, i32 noundef 4, i32 noundef 0) #2
-  %189 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.3) #2
+  %188 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %187, ptr noundef %0, i32 noundef %.4, i32 noundef 4, i32 noundef 0) #2
+  %189 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.4) #2
   store i32 %189, ptr @rlnh_version, align 4
-  %190 = add i32 %.2305, 12
+  %190 = add i32 %.3305, 12
   br label %245
 
 191:                                              ; preds = %159
   %192 = load i32, ptr @hf_linx_rlnh_status, align 4
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %192, ptr noundef %0, i32 noundef %.3, i32 noundef 4, i32 noundef 0) #2
-  %194 = add i32 %.2305, 12
+  %193 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %192, ptr noundef %0, i32 noundef %.4, i32 noundef 4, i32 noundef 0) #2
+  %194 = add i32 %.3305, 12
   %195 = load i32, ptr @rlnh_version, align 4
   %196 = icmp sgt i32 %195, 1
   br i1 %196, label %197, label %245
@@ -622,8 +622,8 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 202:                                              ; preds = %159
   %203 = load i32, ptr @hf_linx_rlnh_src_linkaddr, align 4
-  %204 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %203, ptr noundef %0, i32 noundef %.3, i32 noundef 4, i32 noundef 0) #2
-  %205 = add i32 %.2305, 12
+  %204 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %203, ptr noundef %0, i32 noundef %.4, i32 noundef 4, i32 noundef 0) #2
+  %205 = add i32 %.3305, 12
   %206 = load i32, ptr @hf_linx_rlnh_peer_linkaddr, align 4
   %207 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %206, ptr noundef %0, i32 noundef %205, i32 noundef -1, i32 noundef 0) #2
   %208 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %205, i32 noundef -1) #2
@@ -680,7 +680,7 @@ define internal i32 @dissect_linx(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %._crit_edge
 
 245:                                              ; preds = %191, %197, %159, %210, %202, %186, %182, %178, %170, %162, %214, %212, %92, %94, %232, %218, %99
-  %.4 = phi i32 [ %243, %232 ], [ %231, %218 ], [ %.3, %210 ], [ %209, %202 ], [ %201, %197 ], [ %194, %191 ], [ %190, %186 ], [ %185, %182 ], [ %181, %178 ], [ %177, %170 ], [ %169, %162 ], [ %.3, %159 ], [ %213, %214 ], [ %32, %212 ], [ %112, %99 ], [ %98, %94 ], [ %93, %92 ]
+  %.2 = phi i32 [ %243, %232 ], [ %231, %218 ], [ %.4, %210 ], [ %209, %202 ], [ %201, %197 ], [ %194, %191 ], [ %190, %186 ], [ %185, %182 ], [ %181, %178 ], [ %177, %170 ], [ %169, %162 ], [ %.4, %159 ], [ %213, %214 ], [ %32, %212 ], [ %112, %99 ], [ %98, %94 ], [ %93, %92 ]
   %.not = icmp eq i32 %57, 15
   br i1 %.not, label %._crit_edge, label %55, !llvm.loop !4
 

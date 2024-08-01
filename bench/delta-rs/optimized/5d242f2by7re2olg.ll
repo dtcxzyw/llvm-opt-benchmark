@@ -19050,10 +19050,10 @@ default.unreachable:                              ; preds = %1
   br label %"_ZN94_$LT$aws_credential_types..provider..error..CredentialsError$u20$as$u20$core..error..Error$GT$6source17hf3214ff65bc758f7E.exit"
 
 "_ZN94_$LT$aws_credential_types..provider..error..CredentialsError$u20$as$u20$core..error..Error$GT$6source17hf3214ff65bc758f7E.exit": ; preds = %1, %3, %7, %12, %17, %22
-  %.sroa.7.1.i = phi ptr [ %21, %17 ], [ %16, %12 ], [ %11, %7 ], [ undef, %1 ], [ %24, %22 ], [ undef, %3 ]
-  %.sroa.0.1.i = phi ptr [ %19, %17 ], [ %14, %12 ], [ %9, %7 ], [ null, %1 ], [ %5, %22 ], [ null, %3 ]
-  %25 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i, 0
-  %26 = insertvalue { ptr, ptr } %25, ptr %.sroa.7.1.i, 1
+  %.sroa.7.0.i = phi ptr [ %21, %17 ], [ %16, %12 ], [ %11, %7 ], [ undef, %1 ], [ %24, %22 ], [ undef, %3 ]
+  %.sroa.0.0.i = phi ptr [ %19, %17 ], [ %14, %12 ], [ %9, %7 ], [ null, %1 ], [ %5, %22 ], [ null, %3 ]
+  %25 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %26 = insertvalue { ptr, ptr } %25, ptr %.sroa.7.0.i, 1
   ret { ptr, ptr } %26
 }
 
@@ -21932,7 +21932,7 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17hb79955f1a
   br label %213
 
 .loopexit.split-lp.i.i.i.i.i.i.i.i.i:             ; preds = %156, %.backedge.i.i.i.i.i.i.i.i.i
-  %.239.ph54.ph.i.i.i.i.i.i.i.i.i = phi ptr [ %.6129.i.i.i.i.i.i.i.i.i, %156 ], [ %.1.i.i.i.i.i.i.i.i.i, %.backedge.i.i.i.i.i.i.i.i.i ]
+  %.239.ph54.ph.i.i.i.i.i.i.i.i.i = phi ptr [ %.4129.i.i.i.i.i.i.i.i.i, %156 ], [ %.1.i.i.i.i.i.i.i.i.i, %.backedge.i.i.i.i.i.i.i.i.i ]
   %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
   br label %213
@@ -22117,7 +22117,7 @@ _ZN5tokio7runtime4coop11with_budget17h75cb051a59b12123E.exit.i.i.i.i.i.i.i.i.i.i
   unreachable
 
 136:                                              ; preds = %140, %93
-  %.5.i.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i.i, %93 ], [ %125, %140 ]
+  %.3.i.i.i.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i.i.i.i, %93 ], [ %125, %140 ]
   %137 = load ptr, ptr %54, align 8, !noalias !3176, !nonnull !5, !noundef !5
   %138 = getelementptr inbounds i8, ptr %137, i64 80
   %139 = load i32, ptr %138, align 8, !noalias !3177, !noundef !5
@@ -22138,15 +22138,15 @@ _ZN5tokio7runtime4coop11with_budget17h75cb051a59b12123E.exit.i.i.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i.i:                    ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i, %136
   %141 = phi ptr [ %137, %136 ], [ %.pre.i.i.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i ]
-  %.6.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %.5.i.i.i.i.i.i.i.i.i, %136 ], [ %193, %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i ]
+  %.4.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %.3.i.i.i.i.i.i.i.i.i, %136 ], [ %193, %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i ]
   %142 = getelementptr inbounds i8, ptr %141, i64 16
   br label %.invoke.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %136, %212
   %.sroa.02.0130.i.i.i.i.i.i.i.i.i = phi i32 [ %143, %212 ], [ 0, %136 ]
-  %.6129.i.i.i.i.i.i.i.i.i = phi ptr [ %193, %212 ], [ %.5.i.i.i.i.i.i.i.i.i, %136 ]
+  %.4129.i.i.i.i.i.i.i.i.i = phi ptr [ %193, %212 ], [ %.3.i.i.i.i.i.i.i.i.i, %136 ]
   %143 = add nuw i32 %.sroa.02.0130.i.i.i.i.i.i.i.i.i, 1
-  %144 = getelementptr inbounds i8, ptr %.6129.i.i.i.i.i.i.i.i.i, i64 104
+  %144 = getelementptr inbounds i8, ptr %.4129.i.i.i.i.i.i.i.i.i, i64 104
   %145 = load i8, ptr %144, align 8, !range !543, !noalias !3177, !noundef !5
   %146 = trunc nuw i8 %145 to i1
   br i1 %146, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h674fa50d9cc8259bE.exit.thread5.i.i.i.i", label %147
@@ -22162,13 +22162,13 @@ _ZN5tokio7runtime4coop11with_budget17h75cb051a59b12123E.exit.i.i.i.i.i.i.i.i.i.i
   br label %226
 
 147:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %148 = getelementptr inbounds i8, ptr %.6129.i.i.i.i.i.i.i.i.i, i64 96
+  %148 = getelementptr inbounds i8, ptr %.4129.i.i.i.i.i.i.i.i.i, i64 96
   %149 = load i32, ptr %148, align 8, !noalias !3177, !noundef !5
   %150 = add i32 %149, 1
   store i32 %150, ptr %148, align 8, !noalias !3177
   %151 = load ptr, ptr %54, align 8, !noalias !3176, !nonnull !5, !noundef !5
   %152 = getelementptr inbounds i8, ptr %151, i64 16
-  %153 = invoke noundef ptr @_ZN5tokio7runtime9scheduler14current_thread4Core9next_task17h656f2bbe712d2f6cE(ptr noalias noundef nonnull align 8 dereferenceable(112) %.6129.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 %152)
+  %153 = invoke noundef ptr @_ZN5tokio7runtime9scheduler14current_thread4Core9next_task17h656f2bbe712d2f6cE(ptr noalias noundef nonnull align 8 dereferenceable(112) %.4129.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 %152)
           to label %154 unwind label %.loopexit.i.i.i.i.i.i.i.i.i, !noalias !3177
 
 154:                                              ; preds = %147
@@ -22187,7 +22187,7 @@ _ZN5tokio7runtime4coop11with_budget17h75cb051a59b12123E.exit.i.i.i.i.i.i.i.i.i.i
 161:                                              ; preds = %170
   %162 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..current_thread..Core$GT$$GT$$GT$17h7ae3bced2df1579dE"(ptr nonnull %.6129.i.i.i.i.i.i.i.i.i) #33
+  invoke fastcc void @"_ZN4core3ptr121drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..current_thread..Core$GT$$GT$$GT$17h7ae3bced2df1579dE"(ptr nonnull %.4129.i.i.i.i.i.i.i.i.i) #33
           to label %201 unwind label %199, !noalias !3177
 
 163:                                              ; preds = %158
@@ -22204,7 +22204,7 @@ _ZN5tokio7runtime4coop11with_budget17h75cb051a59b12123E.exit.i.i.i.i.i.i.i.i.i.i
   %166 = landingpad { ptr, i32 }
           cleanup
   call void @__rust_dealloc(ptr noundef nonnull %.val9.i.i.i.i.i.i.i.i.i.i, i64 noundef 112, i64 noundef 8) #35, !noalias !3229
-  store ptr %.6129.i.i.i.i.i.i.i.i.i, ptr %62, align 8, !noalias !3226
+  store ptr %.4129.i.i.i.i.i.i.i.i.i, ptr %62, align 8, !noalias !3226
   %167 = load i64, ptr %58, align 8, !noalias !3230, !noundef !5
   %168 = add i64 %167, 1
   store i64 %168, ptr %58, align 8, !noalias !3230
@@ -22222,7 +22222,7 @@ _ZN5tokio7runtime4coop11with_budget17h75cb051a59b12123E.exit.i.i.i.i.i.i.i.i.i.i
 
 171:                                              ; preds = %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..current_thread..Core$GT$$GT$17hd1ab75e3e6ab880bE.exit.i.i22.i.i.i.i.i.i.i.i.i", %163
   %172 = phi i64 [ 0, %163 ], [ %169, %"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..current_thread..Core$GT$$GT$17hd1ab75e3e6ab880bE.exit.i.i22.i.i.i.i.i.i.i.i.i" ]
-  store ptr %.6129.i.i.i.i.i.i.i.i.i, ptr %62, align 8, !noalias !3226
+  store ptr %.4129.i.i.i.i.i.i.i.i.i, ptr %62, align 8, !noalias !3226
   store i64 %172, ptr %58, align 8, !noalias !3237
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7), !noalias !3244
   %173 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h8a03d6d967b37520E, align 1, !noalias !3244, !noundef !5
@@ -22347,13 +22347,13 @@ _ZN5tokio7runtime4coop11with_budget17h75cb051a59b12123E.exit.i.i.i.i.i.i.i.i.i.i
   br i1 %157, label %210, label %.invoke.i.i.i.i.i.i.i
 
 .invoke.i.i.i.i.i.i.i:                            ; preds = %204, %._crit_edge.i.i.i.i.i.i.i.i.i
-  %207 = phi ptr [ %.6.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %.6129.i.i.i.i.i.i.i.i.i, %204 ]
+  %207 = phi ptr [ %.4.lcssa.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %.4129.i.i.i.i.i.i.i.i.i, %204 ]
   %208 = phi ptr [ %142, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %206, %204 ]
   %209 = invoke noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7Context10park_yield17h6b9a33dd80b50aa6E(ptr noundef nonnull align 8 %54, ptr noalias noundef nonnull align 8 %207, ptr noundef nonnull align 8 %208)
           to label %.backedge.i.i.i.i.i.i.i.i.i.backedge unwind label %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i, !noalias !3202
 
 210:                                              ; preds = %204
-  %211 = invoke noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7Context4park17h463c913a32dde08cE(ptr noundef nonnull align 8 %54, ptr noalias noundef nonnull align 8 %.6129.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 %206)
+  %211 = invoke noundef nonnull align 8 ptr @_ZN5tokio7runtime9scheduler14current_thread7Context4park17h463c913a32dde08cE(ptr noundef nonnull align 8 %54, ptr noalias noundef nonnull align 8 %.4129.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 %206)
           to label %.backedge.i.i.i.i.i.i.i.i.i.backedge unwind label %.loopexit.split-lp.loopexit.i.i.i.i.i.i.i, !noalias !3202
 
 .backedge.i.i.i.i.i.i.i.i.i.backedge:             ; preds = %210, %.invoke.i.i.i.i.i.i.i
@@ -22367,7 +22367,7 @@ _ZN5tokio7runtime4coop11with_budget17h75cb051a59b12123E.exit.i.i.i.i.i.i.i.i.i.i
 
 213:                                              ; preds = %.thread.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.i.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i.i
   %.pn45.i.i.i.i.i.i.i.i.i = phi { ptr, i32 } [ %82, %.thread.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.i.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.i.i.i.i.i.i.i.i.i ]
-  %.03843.i.i.i.i.i.i.i.i.i = phi ptr [ %63, %.thread.i.i.i.i.i.i.i.i.i ], [ %.6129.i.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i.i ], [ %.239.ph54.ph.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.i.i.i.i.i.i.i.i.i ]
+  %.03843.i.i.i.i.i.i.i.i.i = phi ptr [ %63, %.thread.i.i.i.i.i.i.i.i.i ], [ %.4129.i.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i.i.i ], [ %.239.ph54.ph.i.i.i.i.i.i.i.i.i, %.loopexit.split-lp.i.i.i.i.i.i.i.i.i ]
   invoke fastcc void @"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$LT$tokio..runtime..scheduler..current_thread..Core$GT$$GT$17hd1ab75e3e6ab880bE"(ptr %.03843.i.i.i.i.i.i.i.i.i) #33
           to label %.body.i.i.i.i.i unwind label %214, !noalias !3177
 
@@ -22446,7 +22446,7 @@ _ZN5tokio7runtime7context7CONTEXT7__getit17h3348d4564fca2e31E.exit.i.i.i.i.i: ; 
   unreachable
 
 226:                                              ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h674fa50d9cc8259bE.exit.i.i.i.i", %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h674fa50d9cc8259bE.exit.thread5.i.i.i.i"
-  %.sroa.0.0.i9.i.i.i.i = phi ptr [ %.6129.i.i.i.i.i.i.i.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h674fa50d9cc8259bE.exit.thread5.i.i.i.i" ], [ %125, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h674fa50d9cc8259bE.exit.i.i.i.i" ]
+  %.sroa.0.0.i9.i.i.i.i = phi ptr [ %.4129.i.i.i.i.i.i.i.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h674fa50d9cc8259bE.exit.thread5.i.i.i.i" ], [ %125, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h674fa50d9cc8259bE.exit.i.i.i.i" ]
   %.sroa.0.0.copyload1.i.i = phi i64 [ -9223372036854775807, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h674fa50d9cc8259bE.exit.thread5.i.i.i.i" ], [ %.sroa.4.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h674fa50d9cc8259bE.exit.i.i.i.i" ]
   %.sroa.6.8..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %12), !noalias !3253
@@ -24803,8 +24803,8 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
   br i1 %30, label %32, label %38, !prof !3542
 
 31:                                               ; preds = %42, %25
-  %.sroa.4.0 = phi ptr [ %43, %42 ], [ %26, %25 ]
-  %.sroa.0.0 = getelementptr inbounds i8, ptr %21, i64 64
+  %.sroa.4.1 = phi ptr [ %43, %42 ], [ %26, %25 ]
+  %.sroa.0.1 = getelementptr inbounds i8, ptr %21, i64 64
   br label %44
 
 32:                                               ; preds = %27
@@ -24834,10 +24834,10 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
   br label %31
 
 44:                                               ; preds = %4, %31
-  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %31 ], [ undef, %4 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %31 ], [ null, %4 ]
-  %45 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %46 = insertvalue { ptr, ptr } %45, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %31 ], [ undef, %4 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %31 ], [ null, %4 ]
+  %45 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %46 = insertvalue { ptr, ptr } %45, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %46
 }
 
@@ -24911,10 +24911,10 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
 31:                                               ; preds = %39, %32, %25
   %storemerge39 = phi i64 [ %., %25 ], [ 1, %39 ], [ 2, %32 ]
   %storemerge38 = phi i64 [ %.sroa.48.0.copyload, %25 ], [ %41, %39 ], [ undef, %32 ]
-  %.sroa.4.0 = phi ptr [ %21, %25 ], [ %35, %39 ], [ %35, %32 ]
+  %.sroa.4.1 = phi ptr [ %21, %25 ], [ %35, %39 ], [ %35, %32 ]
   store i64 %storemerge39, ptr %0, align 8
   store i64 %storemerge38, ptr %22, align 8
-  %.sroa.0.0 = getelementptr inbounds i8, ptr %21, i64 72
+  %.sroa.0.1 = getelementptr inbounds i8, ptr %21, i64 72
   br label %42
 
 32:                                               ; preds = %27
@@ -24936,10 +24936,10 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
   br label %31
 
 42:                                               ; preds = %4, %31
-  %.sroa.4.1 = phi ptr [ %.sroa.4.0, %31 ], [ undef, %4 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %31 ], [ null, %4 ]
-  %43 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %44 = insertvalue { ptr, ptr } %43, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %31 ], [ undef, %4 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %31 ], [ null, %4 ]
+  %43 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %44 = insertvalue { ptr, ptr } %43, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %44
 }
 
@@ -25313,10 +25313,10 @@ default.unreachable2:                             ; preds = %1
   br label %25
 
 25:                                               ; preds = %22, %3, %1, %17, %12, %7
-  %.sroa.7.1 = phi ptr [ %21, %17 ], [ %16, %12 ], [ %11, %7 ], [ undef, %1 ], [ %24, %22 ], [ undef, %3 ]
-  %.sroa.0.1 = phi ptr [ %19, %17 ], [ %14, %12 ], [ %9, %7 ], [ null, %1 ], [ %5, %22 ], [ null, %3 ]
-  %26 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %27 = insertvalue { ptr, ptr } %26, ptr %.sroa.7.1, 1
+  %.sroa.7.0 = phi ptr [ %21, %17 ], [ %16, %12 ], [ %11, %7 ], [ undef, %1 ], [ %24, %22 ], [ undef, %3 ]
+  %.sroa.0.0 = phi ptr [ %19, %17 ], [ %14, %12 ], [ %9, %7 ], [ null, %1 ], [ %5, %22 ], [ null, %3 ]
+  %26 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %27 = insertvalue { ptr, ptr } %26, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %27
 }
 

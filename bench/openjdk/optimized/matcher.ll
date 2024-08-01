@@ -2373,7 +2373,7 @@ _ZN7Matcher11is_dontcareEP4Node.exit.thread:      ; preds = %91, %_ZN7Matcher11i
   br label %156
 
 156:                                              ; preds = %154, %153, %145, %122, %126
-  %.0112 = phi ptr [ %149, %153 ], [ %149, %145 ], [ %155, %154 ], [ %110, %126 ], [ %110, %122 ]
+  %.1113 = phi ptr [ %149, %153 ], [ %149, %145 ], [ %155, %154 ], [ %110, %126 ], [ %110, %122 ]
   %157 = load i32, ptr %85, align 8
   %158 = load i32, ptr %37, align 8
   %.not.i.i134 = icmp ugt i32 %158, %157
@@ -2387,7 +2387,7 @@ _ZN7Matcher12set_new_nodeEPK4NodePS0_.exit:       ; preds = %156, %159
   %160 = load ptr, ptr %34, align 8
   %161 = zext i32 %157 to i64
   %162 = getelementptr inbounds ptr, ptr %160, i64 %161
-  store ptr %.0112, ptr %162, align 8
+  store ptr %.1113, ptr %162, align 8
   %163 = load ptr, ptr %39, align 8
   %.not129 = icmp eq ptr %163, null
   br i1 %.not129, label %_ZN7Compile17set_node_notes_atEiP10Node_Notes.exit, label %164
@@ -2409,7 +2409,7 @@ _ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit: ; preds =
   %174 = zext nneg i32 %173 to i64
   %175 = getelementptr inbounds %class.Node_Notes, ptr %172, i64 %174
   %176 = load ptr, ptr %33, align 8
-  %177 = getelementptr inbounds i8, ptr %.0112, i64 40
+  %177 = getelementptr inbounds i8, ptr %.1113, i64 40
   %178 = load i32, ptr %177, align 8
   %179 = icmp eq ptr %172, null
   br i1 %179, label %_ZN7Compile17set_node_notes_atEiP10Node_Notes.exit, label %180
@@ -2466,13 +2466,13 @@ _ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit.i: ; preds
   br label %_ZN7Compile17set_node_notes_atEiP10Node_Notes.exit
 
 _ZN7Compile17set_node_notes_atEiP10Node_Notes.exit: ; preds = %164, %207, %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit.i, %180, %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit, %84, %_ZN7Matcher12set_new_nodeEPK4NodePS0_.exit
-  %.1113 = phi ptr [ %.0112, %_ZN7Matcher12set_new_nodeEPK4NodePS0_.exit ], [ %90, %84 ], [ %.0112, %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit ], [ %.0112, %180 ], [ %.0112, %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit.i ], [ %.0112, %207 ], [ %.0112, %164 ]
+  %.0112 = phi ptr [ %.1113, %_ZN7Matcher12set_new_nodeEPK4NodePS0_.exit ], [ %90, %84 ], [ %.1113, %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit ], [ %.1113, %180 ], [ %.1113, %_ZN7Compile17locate_node_notesEP13GrowableArrayIP10Node_NotesEib.exit.i ], [ %.1113, %207 ], [ %.1113, %164 ]
   %208 = load ptr, ptr %4, align 8
-  store ptr %.1113, ptr %208, align 8
+  store ptr %.0112, ptr %208, align 8
   br label %209
 
 209:                                              ; preds = %_ZN7Compile17set_node_notes_atEiP10Node_Notes.exit, %79
-  %.1 = phi ptr [ %76, %79 ], [ %.1113, %_ZN7Compile17set_node_notes_atEiP10Node_Notes.exit ]
+  %.1 = phi ptr [ %76, %79 ], [ %.0112, %_ZN7Compile17set_node_notes_atEiP10Node_Notes.exit ]
   %210 = getelementptr inbounds i8, ptr %.1, i64 40
   %211 = load i32, ptr %210, align 8
   %212 = lshr i32 %211, 5
@@ -4269,7 +4269,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit207:   ; preds = %483, %487
   br label %493
 
 493:                                              ; preds = %_ZN4NodenwEm.exit205, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit207, %329, %452, %441, %314
-  %.2 = phi i32 [ %315, %314 ], [ %.0164234, %329 ], [ %442, %441 ], [ %.0164234, %452 ], [ %.0164234, %_ZN4NodenwEm.exit205 ], [ %476, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit207 ]
+  %.1 = phi i32 [ %315, %314 ], [ %.0164234, %329 ], [ %442, %441 ], [ %.0164234, %452 ], [ %.0164234, %_ZN4NodenwEm.exit205 ], [ %476, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit207 ]
   %.0163 = phi ptr [ %.0.i.i.i, %314 ], [ %332, %329 ], [ %.0.i.i.i198, %441 ], [ %455, %452 ], [ null, %_ZN4NodenwEm.exit205 ], [ %.0.i.i.i204, %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit207 ]
   %494 = add i32 %.0169230, 1
   %495 = add i32 %.0173228, 1
@@ -4298,7 +4298,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit207:   ; preds = %483, %487
   %.1174 = phi i32 [ %.0173228, %176 ], [ %495, %493 ], [ %495, %.lr.ph225 ]
   %.1172 = phi i32 [ %.0171229, %176 ], [ %498, %493 ], [ %498, %.lr.ph225 ]
   %.1170 = phi i32 [ %.0169230, %176 ], [ %494, %493 ], [ %494, %.lr.ph225 ]
-  %.3 = phi i32 [ %.0164234, %176 ], [ %.2, %493 ], [ %.2, %.lr.ph225 ]
+  %.3 = phi i32 [ %.0164234, %176 ], [ %.1, %493 ], [ %.1, %.lr.ph225 ]
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next249, 591
   br i1 %exitcond.not, label %507, label %176, !llvm.loop !28
@@ -7398,7 +7398,7 @@ define hidden noundef ptr @_ZN7Matcher10match_sfptEP13SafePointNode(ptr noundef 
 
 173:                                              ; preds = %.lr.ph208, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread
   %indvars.iv223 = phi i64 [ 0, %.lr.ph208 ], [ %indvars.iv.next224, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread ]
-  %.1180205 = phi i32 [ %.0179, %.lr.ph208 ], [ %.6, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread ]
+  %.2205 = phi i32 [ %.0179, %.lr.ph208 ], [ %.3, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread ]
   %174 = load ptr, ptr %170, align 8
   %175 = add nuw nsw i64 %indvars.iv223, 5
   %176 = getelementptr inbounds %class.RegMask, ptr %174, i64 %175
@@ -7520,9 +7520,9 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %222, %225
 234:                                              ; preds = %.loopexit196
   %235 = sub i32 %182, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
   %236 = add nsw i32 %235, %136
-  %.not.i162 = icmp slt i32 %236, %.1180205
+  %.not.i162 = icmp slt i32 %236, %.2205
   %.reass = add i32 %235, %invariant.op
-  %spec.select = select i1 %.not.i162, i32 %.1180205, i32 %.reass
+  %spec.select = select i1 %.not.i162, i32 %.2205, i32 %.reass
   %237 = icmp slt i32 %236, 688
   br i1 %237, label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit, label %238
 
@@ -7545,7 +7545,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %222, %225
   br label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit
 
 _ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit: ; preds = %234, %243
-  %.3 = phi i32 [ %.1180205, %243 ], [ %spec.select, %234 ]
+  %.5 = phi i32 [ %.2205, %243 ], [ %spec.select, %234 ]
   %.0.i163 = phi i32 [ %246, %243 ], [ %236, %234 ]
   %.not194 = icmp eq i32 %.0.i163, -1
   br i1 %.not194, label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread, label %247
@@ -7583,16 +7583,16 @@ _ZN7RegMask6InsertEi.exit164:                     ; preds = %253, %257
   br label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread
 
 _ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread: ; preds = %242, %238, %_ZN7RegMask6InsertEi.exit164, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit
-  %.3183 = phi i32 [ %.3, %_ZN7RegMask6InsertEi.exit164 ], [ %.3, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit ], [ %spec.select, %238 ], [ %.1180205, %242 ]
+  %.5183 = phi i32 [ %.5, %_ZN7RegMask6InsertEi.exit164 ], [ %.5, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit ], [ %spec.select, %238 ], [ %.2205, %242 ]
   %.not13.i165 = icmp ult ptr %180, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
   br i1 %.not13.i165, label %273, label %265
 
 265:                                              ; preds = %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread
   %266 = sub i32 %186, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_VMRegs, i64 617) to i32)
   %267 = add nsw i32 %266, %136
-  %.not.i166 = icmp slt i32 %267, %.3183
+  %.not.i166 = icmp slt i32 %267, %.5183
   %.reass204 = add i32 %266, %invariant.op
-  %spec.select191 = select i1 %.not.i166, i32 %.3183, i32 %.reass204
+  %spec.select191 = select i1 %.not.i166, i32 %.5183, i32 %.reass204
   %268 = icmp slt i32 %267, 688
   br i1 %268, label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169, label %269
 
@@ -7615,7 +7615,7 @@ _ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit.thread: ; preds = %242, %
   br label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169
 
 _ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169: ; preds = %265, %274
-  %.5 = phi i32 [ %.3183, %274 ], [ %spec.select191, %265 ]
+  %.7 = phi i32 [ %.5183, %274 ], [ %spec.select191, %265 ]
   %.0.i167 = phi i32 [ %277, %274 ], [ %267, %265 ]
   %.not195 = icmp eq i32 %.0.i167, -1
   br i1 %.not195, label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread, label %278
@@ -7653,20 +7653,20 @@ _ZN7RegMask6InsertEi.exit170:                     ; preds = %284, %288
   br label %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread
 
 _ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread: ; preds = %173, %273, %269, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169, %_ZN7RegMask6InsertEi.exit170
-  %.6 = phi i32 [ %.5, %_ZN7RegMask6InsertEi.exit170 ], [ %.5, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169 ], [ %spec.select191, %269 ], [ %.3183, %273 ], [ %.1180205, %173 ]
+  %.3 = phi i32 [ %.7, %_ZN7RegMask6InsertEi.exit170 ], [ %.7, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169 ], [ %spec.select191, %269 ], [ %.5183, %273 ], [ %.2205, %173 ]
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond227.not = icmp eq i64 %indvars.iv.next224, %151
   br i1 %exitcond227.not, label %.loopexit197, label %173, !llvm.loop !40
 
 .loopexit197:                                     ; preds = %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread, %147
-  %.7 = phi i32 [ %.0179, %147 ], [ %.6, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread ]
+  %.1180 = phi i32 [ %.0179, %147 ], [ %.3, %_ZN7Matcher21warp_outgoing_stk_argEP9VMRegImpliRi.exit169.thread ]
   %296 = getelementptr inbounds i8, ptr %0, i64 796
   %297 = load i32, ptr %296, align 4
-  %298 = icmp slt i32 %297, %.7
+  %298 = icmp slt i32 %297, %.1180
   br i1 %298, label %299, label %300
 
 299:                                              ; preds = %.loopexit197
-  store i32 %.7, ptr %296, align 4
+  store i32 %.1180, ptr %296, align 4
   br label %300
 
 300:                                              ; preds = %299, %.loopexit197
@@ -7749,11 +7749,11 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %333, %338
   br label %344
 
 344:                                              ; preds = %_ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit, %_ZN4NodenwEm.exit
-  %345 = icmp slt i32 %.7, 689
+  %345 = icmp slt i32 %.1180, 689
   br i1 %345, label %.preheader, label %350
 
 .preheader:                                       ; preds = %344
-  %346 = icmp slt i32 %136, %.7
+  %346 = icmp slt i32 %136, %.1180
   br i1 %346, label %.lr.ph210, label %.loopexit
 
 .lr.ph210:                                        ; preds = %.preheader
@@ -7801,7 +7801,7 @@ _ZN7RegMask6InsertEi.exit171:                     ; preds = %360, %363
   %370 = or i64 %369, %366
   store i64 %370, ptr %368, align 8
   %371 = add nsw i32 %.0137209, 1
-  %372 = icmp slt i32 %371, %.7
+  %372 = icmp slt i32 %371, %.1180
   br i1 %372, label %355, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %_ZN7RegMask6InsertEi.exit171, %.preheader, %350
@@ -8297,7 +8297,7 @@ define hidden noundef ptr @_ZN7Matcher10Label_RootEPK4NodeP5StatePS0_RS5_(ptr no
 
 55:                                               ; preds = %.lr.ph82, %170
   %indvars.iv85 = phi i64 [ 1, %.lr.ph82 ], [ %indvars.iv.next86, %170 ]
-  %.05779 = phi ptr [ %3, %.lr.ph82 ], [ %.2, %170 ]
+  %.05779 = phi ptr [ %3, %.lr.ph82 ], [ %.1, %170 ]
   %.05878 = phi i32 [ 0, %.lr.ph82 ], [ %.159, %170 ]
   %56 = load ptr, ptr %1, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 120
@@ -8469,8 +8469,8 @@ _ZL14match_into_regPK4NodePS_S2_ib.exit.thread:   ; preds = %.preheader.i, %122,
   br label %158
 
 158:                                              ; preds = %154, %150, %148
-  %.1 = phi ptr [ null, %150 ], [ %.05779, %148 ], [ %spec.select73, %154 ]
-  %159 = tail call noundef ptr @_ZN7Matcher10Label_RootEPK4NodeP5StatePS0_RS5_(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef %.1, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %.2 = phi ptr [ null, %150 ], [ %.05779, %148 ], [ %spec.select73, %154 ]
+  %159 = tail call noundef ptr @_ZN7Matcher10Label_RootEPK4NodeP5StatePS0_RS5_(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef nonnull %64, ptr noundef nonnull %65, ptr noundef %.2, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %160 = load ptr, ptr %28, align 8
   %161 = getelementptr inbounds i8, ptr %160, i64 352
   %162 = load ptr, ptr %161, align 8
@@ -8485,13 +8485,13 @@ _ZL14match_into_regPK4NodePS_S2_ib.exit.thread:   ; preds = %.preheader.i, %122,
 
 170:                                              ; preds = %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread, %158, %55
   %.159 = phi i32 [ %68, %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread ], [ %68, %158 ], [ %.05878, %55 ]
-  %.2 = phi ptr [ %.05779, %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread ], [ %159, %158 ], [ %.05779, %55 ]
+  %.1 = phi ptr [ %.05779, %_ZL14match_into_regPK4NodePS_S2_ib.exit.thread ], [ %159, %158 ], [ %.05779, %55 ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %._crit_edge, label %55, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %170, %17, %.preheader
-  %.057.lcssa = phi ptr [ %3, %.preheader ], [ %3, %17 ], [ %.2, %170 ]
+  %.057.lcssa = phi ptr [ %3, %.preheader ], [ %3, %17 ], [ %.1, %170 ]
   %171 = load ptr, ptr %1, align 8
   %172 = load ptr, ptr %171, align 8
   %173 = tail call noundef i32 %172(ptr noundef nonnull align 8 dereferenceable(52) %1) #15

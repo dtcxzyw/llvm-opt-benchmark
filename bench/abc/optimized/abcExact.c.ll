@@ -10008,32 +10008,32 @@ Ses_ManSelectVar.exit.loopexit:                   ; preds = %.lr.ph.i
 
 .lr.ph263.split.us:                               ; preds = %.lr.ph263, %.lr.ph263.split.us
   %indvars.iv317 = phi i64 [ %indvars.iv.next318, %.lr.ph263.split.us ], [ 0, %.lr.ph263 ]
-  %.0169262.us = phi i32 [ %242, %.lr.ph263.split.us ], [ 0, %.lr.ph263 ]
+  %.1170262.us = phi i32 [ %242, %.lr.ph263.split.us ], [ 0, %.lr.ph263 ]
   %239 = add nuw nsw i64 %indvars.iv317, %238
   %240 = getelementptr inbounds i32, ptr %.0, i64 %239
   %241 = load i32, ptr %240, align 4
-  %242 = tail call noundef i32 @llvm.smax.i32(i32 %.0169262.us, i32 %241)
+  %242 = tail call noundef i32 @llvm.smax.i32(i32 %.1170262.us, i32 %241)
   %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
   %exitcond321.not = icmp eq i64 %indvars.iv.next318, %wide.trip.count320
   br i1 %exitcond321.not, label %.loopexit221, label %.lr.ph263.split.us, !llvm.loop !136
 
 .lr.ph263.split:                                  ; preds = %.lr.ph263, %.lr.ph263.split
   %indvars.iv312 = phi i64 [ %indvars.iv.next313, %.lr.ph263.split ], [ 0, %.lr.ph263 ]
-  %.0169262 = phi i32 [ %249, %.lr.ph263.split ], [ 0, %.lr.ph263 ]
+  %.1170262 = phi i32 [ %249, %.lr.ph263.split ], [ 0, %.lr.ph263 ]
   %243 = getelementptr inbounds i32, ptr %236, i64 %indvars.iv312
   %244 = load i32, ptr %243, align 4
   %245 = add nuw nsw i64 %indvars.iv312, %238
   %246 = getelementptr inbounds i32, ptr %.0, i64 %245
   %247 = load i32, ptr %246, align 4
   %248 = add nsw i32 %247, %244
-  %249 = tail call noundef i32 @llvm.smax.i32(i32 %.0169262, i32 %248)
+  %249 = tail call noundef i32 @llvm.smax.i32(i32 %.1170262, i32 %248)
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %exitcond316.not = icmp eq i64 %indvars.iv.next313, %wide.trip.count320
   br i1 %exitcond316.not, label %.loopexit221, label %.lr.ph263.split, !llvm.loop !136
 
 .loopexit221:                                     ; preds = %.lr.ph263.split, %.lr.ph263.split.us, %.preheader, %225
-  %.2171 = phi i32 [ 0, %225 ], [ 0, %.preheader ], [ %242, %.lr.ph263.split.us ], [ %249, %.lr.ph263.split ]
-  %250 = trunc i32 %.2171 to i8
+  %.0169 = phi i32 [ 0, %225 ], [ 0, %.preheader ], [ %242, %.lr.ph263.split.us ], [ %249, %.lr.ph263.split ]
+  %250 = trunc i32 %.0169 to i8
   %251 = getelementptr inbounds i8, ptr %.4274, i64 2
   store i8 %250, ptr %232, align 1
   %252 = load ptr, ptr %209, align 8
@@ -10049,7 +10049,7 @@ Ses_ManSelectVar.exit.loopexit:                   ; preds = %.lr.ph.i
   %256 = load i32, ptr %8, align 4
   %257 = add nsw i32 %256, %.2174271
   %258 = load i32, ptr %211, align 8
-  %259 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, i32 noundef %.0168278, i32 noundef %257, i32 noundef %.2171, i32 noundef %258)
+  %259 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, i32 noundef %.0168278, i32 noundef %257, i32 noundef %.0169, i32 noundef %258)
   br label %260
 
 260:                                              ; preds = %255, %253, %.loopexit221

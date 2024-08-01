@@ -2024,8 +2024,8 @@ if.else75:                                        ; preds = %if.then67
   br label %if.end80
 
 if.end80:                                         ; preds = %if.else75, %if.then61
-  %ret.0 = phi i32 [ %call64, %if.then61 ], [ %28, %if.else75 ]
-  %cmp81 = icmp slt i32 %ret.0, 0
+  %ret.2 = phi i32 [ %call64, %if.then61 ], [ %28, %if.else75 ]
+  %cmp81 = icmp slt i32 %ret.2, 0
   br i1 %cmp81, label %while.end103, label %flush_children
 
 flush_children:                                   ; preds = %if.else, %if.end80, %if.end45, %if.end42
@@ -2036,7 +2036,7 @@ flush_children:                                   ; preds = %if.else, %if.end80,
 
 for.body:                                         ; preds = %flush_children, %for.inc
   %child.059 = phi ptr [ %child.0, %for.inc ], [ %child.056, %flush_children ]
-  %ret.158 = phi i32 [ %ret.2, %for.inc ], [ 0, %flush_children ]
+  %ret.358 = phi i32 [ %ret.4, %for.inc ], [ 0, %flush_children ]
   %perm = getelementptr inbounds i8, ptr %child.059, i64 40
   %29 = load i64, ptr %perm, align 8
   %and85 = and i64 %29, 6
@@ -2046,20 +2046,20 @@ for.body:                                         ; preds = %flush_children, %fo
 if.then87:                                        ; preds = %for.body
   %30 = load ptr, ptr %child.059, align 8
   %call89 = call i32 @bdrv_co_flush(ptr noundef %30)
-  %tobool90.not = icmp eq i32 %ret.158, 0
-  %spec.select = select i1 %tobool90.not, i32 %call89, i32 %ret.158
+  %tobool90.not = icmp eq i32 %ret.358, 0
+  %spec.select = select i1 %tobool90.not, i32 %call89, i32 %ret.358
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then87, %for.body
-  %ret.2 = phi i32 [ %ret.158, %for.body ], [ %spec.select, %if.then87 ]
+  %ret.4 = phi i32 [ %ret.358, %for.body ], [ %spec.select, %if.then87 ]
   %next = getelementptr inbounds i8, ptr %child.059, i64 64
   %child.0 = load ptr, ptr %next, align 8
   %tobool84.not = icmp eq ptr %child.0, null
   br i1 %tobool84.not, label %out, label %for.body, !llvm.loop !22
 
 out:                                              ; preds = %for.inc, %if.then23
-  %ret.3 = phi i32 [ %call26, %if.then23 ], [ %ret.2, %for.inc ]
-  %cmp94 = icmp eq i32 %ret.3, 0
+  %ret.1 = phi i32 [ %call26, %if.then23 ], [ %ret.4, %for.inc ]
+  %cmp94 = icmp eq i32 %ret.1, 0
   br i1 %cmp94, label %if.then95, label %while.end103
 
 if.then95:                                        ; preds = %flush_children, %out
@@ -2068,7 +2068,7 @@ if.then95:                                        ; preds = %flush_children, %ou
   br label %while.end103
 
 while.end103:                                     ; preds = %if.then67, %do.end54, %if.end80, %if.then36, %if.then95, %out
-  %ret.354 = phi i32 [ 0, %if.then95 ], [ %ret.3, %out ], [ -123, %do.end54 ], [ %ret.0, %if.end80 ], [ %call39, %if.then36 ], [ -5, %if.then67 ]
+  %ret.154 = phi i32 [ 0, %if.then95 ], [ %ret.1, %out ], [ -123, %do.end54 ], [ %ret.2, %if.end80 ], [ %call39, %if.then36 ], [ -5, %if.then67 ]
   %31 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %32 = inttoptr i64 %31 to ptr
   call void %32(ptr noundef nonnull %reqs_lock, ptr noundef nonnull @.str.1, i32 noundef 3078) #15
@@ -2079,10 +2079,10 @@ while.end103:                                     ; preds = %if.then67, %do.end5
   br label %early_exit
 
 early_exit:                                       ; preds = %entry, %lor.lhs.false, %lor.lhs.false3, %while.end103
-  %ret.4 = phi i32 [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false3 ], [ %ret.354, %while.end103 ], [ 0, %entry ]
+  %ret.0 = phi i32 [ 0, %lor.lhs.false ], [ 0, %lor.lhs.false3 ], [ %ret.154, %while.end103 ], [ 0, %entry ]
   %33 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @aio_wait_kick() #15
-  ret i32 %ret.4
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -2858,17 +2858,17 @@ if.else117:                                       ; preds = %while.body
 
 if.end122:                                        ; preds = %if.else117, %if.end110
   %num.0 = phi i64 [ %cond106, %if.end110 ], [ %bytes_remaining.091, %if.else117 ]
-  %ret.2 = phi i32 [ %call115, %if.end110 ], [ %conv121, %if.else117 ]
+  %ret.3 = phi i32 [ %call115, %if.end110 ], [ %conv121, %if.else117 ]
   %max_bytes.1 = phi i64 [ %sub116, %if.end110 ], [ 0, %if.else117 ]
-  %cmp123 = icmp slt i32 %ret.2, 0
+  %cmp123 = icmp slt i32 %ret.3, 0
   %sub127 = sub i64 %bytes_remaining.091, %num.0
   %tobool89.not = icmp eq i64 %sub127, 0
   %or.cond95 = select i1 %cmp123, i1 true, i1 %tobool89.not
   br i1 %or.cond95, label %out, label %while.body, !llvm.loop !23
 
 out:                                              ; preds = %if.end122, %if.end88, %if.else52, %bdrv_co_is_allocated.exit, %if.then86, %if.then62, %if.then50
-  %ret.3 = phi i32 [ %call.i.i, %bdrv_co_is_allocated.exit ], [ %call51, %if.then50 ], [ 1, %if.else52 ], [ %conv63, %if.then62 ], [ %call87, %if.then86 ], [ %ret.0, %if.end88 ], [ %ret.2, %if.end122 ]
-  %cond133 = call i32 @llvm.smin.i32(i32 %ret.3, i32 0)
+  %ret.1 = phi i32 [ %call.i.i, %bdrv_co_is_allocated.exit ], [ %call51, %if.then50 ], [ 1, %if.else52 ], [ %conv63, %if.then62 ], [ %call87, %if.then86 ], [ %ret.0, %if.end88 ], [ %ret.3, %if.end122 ]
+  %cond133 = call i32 @llvm.smin.i32(i32 %ret.1, i32 0)
   ret i32 %cond133
 }
 
@@ -3379,7 +3379,7 @@ if.end49:                                         ; preds = %if.then41
   br label %if.end52
 
 if.end52:                                         ; preds = %if.end49, %if.end38
-  %ret.1 = phi i32 [ %call45, %if.end49 ], [ %ret.0, %if.end38 ]
+  %ret.2 = phi i32 [ %call45, %if.end49 ], [ %ret.0, %if.end38 ]
   %bytes.addr.1 = phi i64 [ %sub50, %if.end49 ], [ %bytes.addr.0, %if.end38 ]
   %offset.addr.1 = phi i64 [ %add51, %if.end49 ], [ %offset.addr.0, %if.end38 ]
   %tobool53.not = icmp eq i64 %bytes.addr.1, 0
@@ -3423,7 +3423,7 @@ if.end69:                                         ; preds = %if.then63
   br label %out
 
 out:                                              ; preds = %if.then9, %if.end52, %if.end69, %if.then41
-  %ret.2 = phi i32 [ %call15, %if.then9 ], [ %call45, %if.then41 ], [ %call71, %if.end69 ], [ %ret.1, %if.end52 ]
+  %ret.1 = phi i32 [ %call15, %if.then9 ], [ %call45, %if.then41 ], [ %call71, %if.end69 ], [ %ret.2, %if.end52 ]
   %collapse_bounce_buf.i = getelementptr inbounds i8, ptr %pad, i64 88
   %21 = load ptr, ptr %collapse_bounce_buf.i, align 8
   %tobool.not.i = icmp eq ptr %21, null
@@ -3462,7 +3462,7 @@ if.then8.i:                                       ; preds = %if.end6.i
   br label %bdrv_padding_finalize.exit
 
 bdrv_padding_finalize.exit:                       ; preds = %if.end6.i, %if.then8.i
-  ret i32 %ret.2
+  ret i32 %ret.1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3715,18 +3715,18 @@ if.then39:                                        ; preds = %land.lhs.true36
   br label %if.else51
 
 if.else51:                                        ; preds = %if.then39, %land.lhs.true36, %land.lhs.true34, %land.lhs.true
-  %flags.addr.1.ph = phi i32 [ %flags, %land.lhs.true ], [ %flags, %land.lhs.true34 ], [ %flags, %land.lhs.true36 ], [ %and46, %if.then39 ]
-  %and52 = and i32 %flags.addr.1.ph, 2
+  %flags.addr.0.ph = phi i32 [ %flags, %land.lhs.true ], [ %flags, %land.lhs.true34 ], [ %flags, %land.lhs.true36 ], [ %and46, %if.then39 ]
+  %and52 = and i32 %flags.addr.0.ph, 2
   %tobool53.not = icmp eq i32 %and52, 0
   br i1 %tobool53.not, label %if.else56, label %if.then54
 
 if.then54:                                        ; preds = %if.else51
   tail call void @bdrv_co_debug_event(ptr noundef nonnull %0, i32 noundef 40) #15
-  %call55 = tail call i32 @bdrv_co_do_pwrite_zeroes(ptr noundef nonnull %0, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags.addr.1.ph)
+  %call55 = tail call i32 @bdrv_co_do_pwrite_zeroes(ptr noundef nonnull %0, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags.addr.0.ph)
   br label %if.end108
 
 if.else56:                                        ; preds = %if.else51
-  %and57 = and i32 %flags.addr.1.ph, 32
+  %and57 = and i32 %flags.addr.0.ph, 32
   %tobool58.not = icmp eq i32 %and57, 0
   br i1 %tobool58.not, label %if.else61, label %if.then59
 
@@ -3740,7 +3740,7 @@ if.else61:                                        ; preds = %if.else56
   br i1 %cmp63.not, label %if.else67, label %if.then65
 
 if.then65:                                        ; preds = %if.else61
-  %call66 = tail call i32 @bdrv_driver_pwritev(ptr noundef nonnull %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags.addr.1.ph)
+  %call66 = tail call i32 @bdrv_driver_pwritev(ptr noundef nonnull %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i64 noundef %qiov_offset, i32 noundef %flags.addr.0.ph)
   br label %if.end108
 
 if.else67:                                        ; preds = %if.else61
@@ -3749,10 +3749,10 @@ if.else67:                                        ; preds = %if.else61
 
 while.body.lr.ph:                                 ; preds = %if.else67
   %bytes_remaining.0.neg90 = sub nsw i64 0, %bytes
-  %and86 = and i32 %flags.addr.1.ph, 16
+  %and86 = and i32 %flags.addr.0.ph, 16
   %tobool87.not = icmp eq i32 %and86, 0
   %supported_write_flags = getelementptr inbounds i8, ptr %0, i64 16588
-  %and92 = and i32 %flags.addr.1.ph, -51
+  %and92 = and i32 %flags.addr.0.ph, -51
   %add = add i64 %bytes, %offset
   %add96 = add i64 %qiov_offset, %bytes
   br i1 %tobool87.not, label %while.body.us, label %while.body
@@ -3770,7 +3770,7 @@ if.end81.us:                                      ; preds = %while.body.us
   %conv82.us = ashr exact i64 %sext81.us, 32
   %sub94.us = add i64 %add, %bytes_remaining.0.neg93.us
   %sub97.us = add i64 %add96, %bytes_remaining.0.neg93.us
-  %call98.us = tail call i32 @bdrv_driver_pwritev(ptr noundef %0, i64 noundef %sub94.us, i64 noundef %conv82.us, ptr noundef %qiov, i64 noundef %sub97.us, i32 noundef %flags.addr.1.ph)
+  %call98.us = tail call i32 @bdrv_driver_pwritev(ptr noundef %0, i64 noundef %sub94.us, i64 noundef %conv82.us, ptr noundef %qiov, i64 noundef %sub97.us, i32 noundef %flags.addr.0.ph)
   %cmp99.us = icmp slt i32 %call98.us, 0
   %sub104.us = sub i64 %bytes_remaining.092.us, %conv82.us
   %bytes_remaining.0.neg.us = sub i64 0, %sub104.us
@@ -3800,11 +3800,11 @@ land.lhs.true88:                                  ; preds = %if.end81
   %12 = load i32, ptr %supported_write_flags, align 4
   %and89 = and i32 %12, 16
   %tobool90.not = icmp eq i32 %and89, 0
-  %spec.select83 = select i1 %tobool90.not, i32 %and92, i32 %flags.addr.1.ph
+  %spec.select83 = select i1 %tobool90.not, i32 %and92, i32 %flags.addr.0.ph
   br label %if.end93
 
 if.end93:                                         ; preds = %land.lhs.true88, %if.end81
-  %local_flags.0 = phi i32 [ %flags.addr.1.ph, %if.end81 ], [ %spec.select83, %land.lhs.true88 ]
+  %local_flags.0 = phi i32 [ %flags.addr.0.ph, %if.end81 ], [ %spec.select83, %land.lhs.true88 ]
   %sub94 = add i64 %add, %bytes_remaining.0.neg93
   %sub97 = add i64 %add96, %bytes_remaining.0.neg93
   %call98 = tail call i32 @bdrv_driver_pwritev(ptr noundef %0, i64 noundef %sub94, i64 noundef %conv82, ptr noundef %qiov, i64 noundef %sub97, i32 noundef %local_flags.0)
@@ -3816,9 +3816,9 @@ if.end93:                                         ; preds = %land.lhs.true88, %i
   br i1 %or.cond97, label %if.end108, label %while.body, !llvm.loop !24
 
 if.end108:                                        ; preds = %if.end93, %if.end81.us, %if.else67, %if.end17, %if.then54, %if.then65, %if.then59
-  %ret.1 = phi i32 [ %call55, %if.then54 ], [ %call60, %if.then59 ], [ %call66, %if.then65 ], [ %call27, %if.end17 ], [ 0, %if.else67 ], [ %call98.us, %if.end81.us ], [ %call98, %if.end93 ]
+  %ret.0 = phi i32 [ %call55, %if.then54 ], [ %call60, %if.then59 ], [ %call66, %if.then65 ], [ %call27, %if.end17 ], [ 0, %if.else67 ], [ %call98.us, %if.end81.us ], [ %call98, %if.end93 ]
   tail call void @bdrv_co_debug_event(ptr noundef %0, i32 noundef 41) #15
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %ret.1, i32 0)
+  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %ret.0, i32 0)
   tail call void @bdrv_co_write_req_finish(ptr noundef nonnull %child, i64 noundef %offset, i64 noundef %bytes, ptr noundef %req, i32 noundef %spec.store.select)
   br label %return
 
@@ -4419,13 +4419,13 @@ out.thread145:                                    ; preds = %if.end88
   br label %early_out
 
 if.end92thread-pre-split:                         ; preds = %if.end88, %if.then53, %if.end79, %land.lhs.true64
-  %ret.1135.ph = phi i32 [ 5, %if.then53 ], [ 5, %if.end79 ], [ 5, %land.lhs.true64 ], [ %call58, %if.end88 ]
+  %ret.2135.ph = phi i32 [ 5, %if.then53 ], [ 5, %if.end79 ], [ 5, %land.lhs.true64 ], [ %call58, %if.end88 ]
   %.pr = load i64, ptr %pnum, align 8
   br label %if.end92
 
 if.end92:                                         ; preds = %if.end92thread-pre-split, %if.end87
   %22 = phi i64 [ %.pr, %if.end92thread-pre-split ], [ %sub43, %if.end87 ]
-  %ret.1135 = phi i32 [ %ret.1135.ph, %if.end92thread-pre-split ], [ 12, %if.end87 ]
+  %ret.2135 = phi i32 [ %ret.2135.ph, %if.end92thread-pre-split ], [ 12, %if.end87 ]
   %tobool93.not = icmp eq i64 %22, 0
   br i1 %tobool93.not, label %if.else104, label %land.lhs.true94
 
@@ -4439,12 +4439,12 @@ if.else104:                                       ; preds = %land.lhs.true94, %i
   unreachable
 
 if.end105:                                        ; preds = %land.lhs.true94
-  %and106 = and i32 %ret.1135, 64
+  %and106 = and i32 %ret.2135, 64
   %tobool107.not = icmp eq i32 %and106, 0
   br i1 %tobool107.not, label %if.end124, label %if.then108
 
 if.then108:                                       ; preds = %if.end105
-  %and109 = and i32 %ret.1135, 1
+  %and109 = and i32 %ret.2135, 1
   %tobool110.not = icmp eq i32 %and109, 0
   br i1 %tobool110.not, label %if.else112, label %if.end113
 
@@ -4453,7 +4453,7 @@ if.else112:                                       ; preds = %if.then108
   unreachable
 
 if.end113:                                        ; preds = %if.then108
-  %and114 = and i32 %ret.1135, 4
+  %and114 = and i32 %ret.2135, 4
   %tobool115.not = icmp eq i32 %and114, 0
   br i1 %tobool115.not, label %if.else117, label %if.end118
 
@@ -4462,7 +4462,7 @@ if.else117:                                       ; preds = %if.end113
   unreachable
 
 if.end118:                                        ; preds = %if.end113
-  %and119 = and i32 %ret.1135, 2
+  %and119 = and i32 %ret.2135, 2
   %tobool120.not = icmp eq i32 %and119, 0
   br i1 %tobool120.not, label %if.end124.thread, label %if.else122
 
@@ -4477,7 +4477,7 @@ if.else122:                                       ; preds = %if.end118
   unreachable
 
 if.end124:                                        ; preds = %if.end105
-  %.pre155 = and i32 %ret.1135, 4
+  %.pre155 = and i32 %ret.2135, 4
   %.not = icmp eq i32 %.pre155, 0
   %sub126 = sub i64 %22, %8
   %spec.select117 = call i64 @llvm.smin.i64(i64 %sub126, i64 %spec.select)
@@ -4494,7 +4494,7 @@ if.then133:                                       ; preds = %if.end124.thread, %
 if.end136:                                        ; preds = %if.then133, %if.end124
   %spec.select117162 = phi i64 [ %spec.select117163, %if.then133 ], [ %spec.select117, %if.end124 ]
   %and131.pre-phi160 = phi i1 [ true, %if.then133 ], [ false, %if.end124 ]
-  %and137 = and i32 %ret.1135, 8
+  %and137 = and i32 %ret.2135, 8
   %tobool138.not = icmp eq i32 %and137, 0
   br i1 %tobool138.not, label %if.end149, label %if.then139
 
@@ -4509,12 +4509,12 @@ if.else145:                                       ; preds = %if.then139
   unreachable
 
 if.end149:                                        ; preds = %if.end136
-  %and150 = and i32 %ret.1135, 3
+  %and150 = and i32 %ret.2135, 3
   %tobool151.not = icmp eq i32 %and150, 0
   br i1 %tobool151.not, label %if.else154, label %if.then152
 
 if.then152:                                       ; preds = %if.end149
-  %or153 = or i32 %ret.1135, 16
+  %or153 = or i32 %ret.2135, 16
   br label %if.end177
 
 if.else154:                                       ; preds = %if.end149
@@ -4535,7 +4535,7 @@ bdrv_cow_bs.exit:                                 ; preds = %if.then157
   br i1 %tobool159.not, label %if.then160, label %if.else162
 
 if.then160:                                       ; preds = %if.then157, %bdrv_cow_bs.exit
-  %or161 = or disjoint i32 %ret.1135, 2
+  %or161 = or disjoint i32 %ret.2135, 2
   br label %if.end177
 
 if.else162:                                       ; preds = %bdrv_cow_bs.exit
@@ -4546,21 +4546,21 @@ if.end177.thread:                                 ; preds = %if.else162
   %cmp166 = icmp slt i64 %call165, 0
   %cmp169.not = icmp sgt i64 %call165, %offset
   %or.cond118 = or i1 %cmp166, %cmp169.not
-  %or172 = or disjoint i32 %ret.1135, 2
-  %spec.select125 = select i1 %or.cond118, i32 %ret.1135, i32 %or172
+  %or172 = or disjoint i32 %ret.2135, 2
+  %spec.select125 = select i1 %or.cond118, i32 %ret.2135, i32 %or172
   br label %land.lhs.true180
 
 if.end177:                                        ; preds = %if.else154, %if.then160, %if.then152
-  %ret.2 = phi i32 [ %or153, %if.then152 ], [ %or161, %if.then160 ], [ %ret.1135, %if.else154 ]
+  %ret.4 = phi i32 [ %or153, %if.then152 ], [ %or161, %if.then160 ], [ %ret.2135, %if.else154 ]
   br i1 %want_zero, label %land.lhs.true180, label %out.thread
 
 land.lhs.true180:                                 ; preds = %if.end177.thread, %if.end177
-  %ret.2139 = phi i32 [ %spec.select125, %if.end177.thread ], [ %ret.2, %if.end177 ]
+  %ret.4139 = phi i32 [ %spec.select125, %if.end177.thread ], [ %ret.4, %if.end177 ]
   %28 = load ptr, ptr %local_file, align 8
   %tobool184 = icmp eq ptr %28, null
   %cmp186.not = icmp eq ptr %28, %bs
   %.not.not153 = or i1 %tobool184, %cmp186.not
-  %29 = and i32 %ret.2139, 71
+  %29 = and i32 %ret.4139, 71
   %30 = icmp ne i32 %29, 69
   %or.cond122 = select i1 %30, i1 true, i1 %.not.not153
   br i1 %or.cond122, label %out.thread, label %if.then197
@@ -4590,17 +4590,17 @@ land.lhs.true205:                                 ; preds = %if.then202
   br i1 %or.cond123, label %if.else211, label %if.then209
 
 if.then209:                                       ; preds = %land.lhs.true205
-  %or210 = or disjoint i32 %ret.2139, 2
+  %or210 = or disjoint i32 %ret.4139, 2
   br label %out.thread
 
 if.else211:                                       ; preds = %if.then202.if.else211_crit_edge, %land.lhs.true205
   %and212.pre-phi = phi i32 [ %.pre156, %if.then202.if.else211_crit_edge ], [ 0, %land.lhs.true205 ]
   store i64 %.pre154, ptr %pnum, align 8
-  %or213 = or disjoint i32 %and212.pre-phi, %ret.2139
+  %or213 = or disjoint i32 %and212.pre-phi, %ret.4139
   br label %out.thread
 
 out.thread:                                       ; preds = %if.then209, %if.else211, %if.then197, %land.lhs.true180, %if.end177, %if.else162
-  %ret.3.ph = phi i32 [ %ret.2, %if.end177 ], [ %ret.2139, %land.lhs.true180 ], [ %ret.2139, %if.then197 ], [ %or213, %if.else211 ], [ %or210, %if.then209 ], [ %ret.1135, %if.else162 ]
+  %ret.3.ph = phi i32 [ %ret.4, %if.end177 ], [ %ret.4139, %land.lhs.true180 ], [ %ret.4139, %if.then197 ], [ %or213, %if.else211 ], [ %or210, %if.then209 ], [ %ret.2135, %if.else162 ]
   %33 = atomicrmw sub ptr %in_flight.i, i32 1 seq_cst, align 4
   call void @aio_wait_kick() #15
   br label %land.lhs.true219
@@ -4623,7 +4623,7 @@ land.lhs.true219:                                 ; preds = %out.thread, %out
   br label %early_out
 
 early_out:                                        ; preds = %out.thread145, %land.lhs.true219, %if.end6, %if.end2, %out, %if.then24, %if.then31, %if.then1
-  %ret.4 = phi i32 [ %conv, %if.then1 ], [ %call148, %out ], [ %or32, %if.then31 ], [ %spec.select116, %if.then24 ], [ 32, %if.end2 ], [ 0, %if.end6 ], [ %spec.select124, %land.lhs.true219 ], [ %call58, %out.thread145 ]
+  %ret.0 = phi i32 [ %conv, %if.then1 ], [ %call148, %out ], [ %or32, %if.then31 ], [ %spec.select116, %if.then24 ], [ 32, %if.end2 ], [ 0, %if.end6 ], [ %spec.select124, %land.lhs.true219 ], [ %call58, %out.thread145 ]
   %tobool226.not = icmp eq ptr %file, null
   br i1 %tobool226.not, label %if.end228, label %if.then227
 
@@ -4642,7 +4642,7 @@ if.then230:                                       ; preds = %if.end228
   br label %if.end231
 
 if.end231:                                        ; preds = %if.then230, %if.end228
-  ret i32 %ret.4
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -5255,8 +5255,8 @@ if.else153:                                       ; preds = %if.else143
   br label %if.end156
 
 if.end156:                                        ; preds = %if.else153, %if.then139
-  %ret.0 = phi i32 [ %call142, %if.then139 ], [ %26, %if.else153 ]
-  switch i32 %ret.0, label %out [
+  %ret.1 = phi i32 [ %call142, %if.then139 ], [ %26, %if.else153 ]
+  switch i32 %ret.1, label %out [
     i32 -95, label %if.end162
     i32 0, label %if.end162
   ]
@@ -5268,10 +5268,10 @@ if.end162:                                        ; preds = %if.end156, %if.end1
   br i1 %cmp64, label %while.body, label %out, !llvm.loop !28
 
 out:                                              ; preds = %if.end127, %if.else143, %if.end156, %if.end162, %while.cond.preheader, %tracked_request_begin.exit
-  %ret.1 = phi i32 [ %call31, %tracked_request_begin.exit ], [ 0, %while.cond.preheader ], [ -123, %if.end127 ], [ -5, %if.else143 ], [ %ret.0, %if.end156 ], [ 0, %if.end162 ]
+  %ret.0 = phi i32 [ %call31, %tracked_request_begin.exit ], [ 0, %while.cond.preheader ], [ -123, %if.end127 ], [ -5, %if.else143 ], [ %ret.1, %if.end156 ], [ 0, %if.end162 ]
   %27 = load i64, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
   %28 = load i64, ptr %.compoundliteral.sroa.3.0..sroa_idx.i, align 8
-  call void @bdrv_co_write_req_finish(ptr noundef nonnull %child, i64 noundef %27, i64 noundef %28, ptr noundef nonnull %req, i32 noundef %ret.1)
+  call void @bdrv_co_write_req_finish(ptr noundef nonnull %child, i64 noundef %27, i64 noundef %28, ptr noundef nonnull %req, i32 noundef %ret.0)
   %29 = load i8, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 4
   %tobool.i = trunc i8 %29 to i1
   br i1 %tobool.i, label %if.then.i94, label %while.end.i
@@ -5310,7 +5310,7 @@ tracked_request_end.exit:                         ; preds = %while.end.i, %if.th
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end9, %if.end6, %if.end, %entry, %lor.lhs.false, %lor.lhs.false3, %tracked_request_end.exit
-  %retval.0 = phi i32 [ %ret.1, %tracked_request_end.exit ], [ -123, %lor.lhs.false3 ], [ -123, %lor.lhs.false ], [ -123, %entry ], [ -1, %if.end ], [ %call.i, %if.end6 ], [ 0, %if.end9 ], [ 0, %land.lhs.true ]
+  %retval.0 = phi i32 [ %ret.0, %tracked_request_end.exit ], [ -123, %lor.lhs.false3 ], [ -123, %lor.lhs.false ], [ -123, %entry ], [ -1, %if.end ], [ %call.i, %if.end6 ], [ 0, %if.end9 ], [ 0, %land.lhs.true ]
   ret i32 %retval.0
 }
 
@@ -5605,8 +5605,8 @@ sw.default:                                       ; preds = %if.end57
   unreachable
 
 return:                                           ; preds = %glib_autoptr_cleanup_QemuLockable.exit, %sw.bb75, %entry, %if.end74
-  %retval.1 = phi i32 [ -16, %glib_autoptr_cleanup_QemuLockable.exit ], [ 0, %if.end74 ], [ -1, %entry ], [ 0, %sw.bb75 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -16, %glib_autoptr_cleanup_QemuLockable.exit ], [ 0, %if.end74 ], [ -1, %entry ], [ 0, %sw.bb75 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6323,8 +6323,8 @@ if.then79:                                        ; preds = %if.else74
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then79, %if.else74
-  %ret.0 = phi i32 [ %call77, %if.else74 ], [ %call84, %if.then79 ]
-  call void @bdrv_co_write_req_finish(ptr noundef nonnull %dst, i64 noundef %dst_offset, i64 noundef %bytes, ptr noundef nonnull %req, i32 noundef %ret.0)
+  %ret.1 = phi i32 [ %call77, %if.else74 ], [ %call84, %if.then79 ]
+  call void @bdrv_co_write_req_finish(ptr noundef nonnull %dst, i64 noundef %dst_offset, i64 noundef %bytes, ptr noundef nonnull %req, i32 noundef %ret.1)
   call void @tracked_request_end(ptr noundef nonnull %req)
   %26 = load ptr, ptr %dst, align 8
   %in_flight.i67 = getelementptr inbounds i8, ptr %26, i64 16972
@@ -6333,7 +6333,7 @@ if.end85:                                         ; preds = %if.then79, %if.else
   br label %return
 
 return:                                           ; preds = %if.end67, %if.end85, %if.end43, %lor.lhs.false46, %lor.lhs.false50, %lor.lhs.false53, %if.end39, %if.end30, %lor.lhs.false32, %lor.lhs.false35, %if.end21, %if.end15, %lor.lhs.false, %lor.lhs.false18, %if.then28
-  %retval.0 = phi i32 [ %call29, %if.then28 ], [ -123, %lor.lhs.false18 ], [ -123, %lor.lhs.false ], [ -123, %if.end15 ], [ %retval.0.i, %if.end21 ], [ -123, %lor.lhs.false35 ], [ -123, %lor.lhs.false32 ], [ -123, %if.end30 ], [ %retval.0.i64, %if.end39 ], [ -95, %lor.lhs.false53 ], [ -95, %lor.lhs.false50 ], [ -95, %lor.lhs.false46 ], [ -95, %if.end43 ], [ %call72, %if.end67 ], [ %ret.0, %if.end85 ]
+  %retval.0 = phi i32 [ %call29, %if.then28 ], [ -123, %lor.lhs.false18 ], [ -123, %lor.lhs.false ], [ -123, %if.end15 ], [ %retval.0.i, %if.end21 ], [ -123, %lor.lhs.false35 ], [ -123, %lor.lhs.false32 ], [ -123, %if.end30 ], [ %retval.0.i64, %if.end39 ], [ -95, %lor.lhs.false53 ], [ -95, %lor.lhs.false50 ], [ -95, %lor.lhs.false46 ], [ -95, %if.end43 ], [ %call72, %if.end67 ], [ %ret.1, %if.end85 ]
   ret i32 %retval.0
 }
 
@@ -6596,8 +6596,8 @@ if.else63:                                        ; preds = %if.else58
   br label %out
 
 if.end65:                                         ; preds = %if.then60, %if.end54
-  %ret.0 = phi i32 [ %call57, %if.end54 ], [ %call62, %if.then60 ]
-  %cmp66 = icmp slt i32 %ret.0, 0
+  %ret.1 = phi i32 [ %call57, %if.end54 ], [ %call62, %if.then60 ]
+  %cmp66 = icmp slt i32 %ret.1, 0
   br i1 %cmp66, label %out, label %if.end69
 
 if.end69:                                         ; preds = %if.end65
@@ -6624,7 +6624,7 @@ if.end76:                                         ; preds = %if.else75, %if.then
   br label %out
 
 out:                                              ; preds = %if.end65, %if.end76, %if.else63, %if.then53, %if.then41, %if.then29
-  %ret.1 = phi i32 [ %call2665, %if.then29 ], [ %conv42, %if.then41 ], [ -95, %if.then53 ], [ %ret.0, %if.end65 ], [ %call70, %if.end76 ], [ -95, %if.else63 ]
+  %ret.0 = phi i32 [ %call2665, %if.then29 ], [ %conv42, %if.then41 ], [ -95, %if.then53 ], [ %ret.1, %if.end65 ], [ %call70, %if.end76 ], [ -95, %if.else63 ]
   %25 = load i8, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 4
   %tobool.i = trunc i8 %25 to i1
   br i1 %tobool.i, label %if.then.i70, label %while.end.i
@@ -6663,7 +6663,7 @@ tracked_request_end.exit:                         ; preds = %while.end.i, %if.th
   br label %return
 
 return:                                           ; preds = %bdrv_check_qiov_request.exit.thread, %tracked_request_end.exit, %if.then14, %if.then10, %if.then3, %if.then
-  %retval.0 = phi i32 [ -22, %if.then3 ], [ %2, %if.then10 ], [ -13, %if.then14 ], [ %ret.1, %tracked_request_end.exit ], [ -123, %if.then ], [ -5, %bdrv_check_qiov_request.exit.thread ]
+  %retval.0 = phi i32 [ -22, %if.then3 ], [ %2, %if.then10 ], [ -13, %if.then14 ], [ %ret.0, %tracked_request_end.exit ], [ -123, %if.then ], [ -5, %bdrv_check_qiov_request.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -7291,7 +7291,7 @@ while.body.lr.ph:                                 ; preds = %trace_bdrv_co_do_co
   br i1 %tobool14.not, label %while.body.us, label %while.body.lr.ph.split
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end157.us
-  %bounce_buffer.0104.us = phi ptr [ %bounce_buffer.2.us, %if.end157.us ], [ null, %while.body.lr.ph ]
+  %bounce_buffer.0104.us = phi ptr [ %bounce_buffer.3.us, %if.end157.us ], [ null, %while.body.lr.ph ]
   %skip_bytes.0103.us = phi i64 [ 0, %if.end157.us ], [ %sub, %while.body.lr.ph ]
   %progress.0101.us = phi i64 [ %add161.us, %if.end157.us ], [ 0, %while.body.lr.ph ]
   %align_bytes.0100.us = phi i64 [ %sub159.us, %if.end157.us ], [ %storemerge.i, %while.body.lr.ph ]
@@ -7401,8 +7401,8 @@ if.else115.us:                                    ; preds = %land.lhs.true110.us
   br label %if.end117.us
 
 if.end117.us:                                     ; preds = %if.else115.us, %if.then113.us
-  %ret.1.us = phi i32 [ %call114.us, %if.then113.us ], [ %call116.us, %if.else115.us ]
-  %cmp118.us = icmp slt i32 %ret.1.us, 0
+  %ret.2.us = phi i32 [ %call114.us, %if.then113.us ], [ %call116.us, %if.else115.us ]
+  %cmp118.us = icmp slt i32 %ret.2.us, 0
   br i1 %cmp118.us, label %err, label %if.end121.us
 
 if.end121.us:                                     ; preds = %if.end117.us
@@ -7419,7 +7419,7 @@ if.then124.us:                                    ; preds = %if.end121.us
   br label %if.end157.us
 
 if.end157.us:                                     ; preds = %if.then124.us, %if.end121.us, %if.then139.us, %if.else136.us
-  %bounce_buffer.2.us = phi ptr [ %bounce_buffer.1.us, %if.end121.us ], [ %bounce_buffer.1.us, %if.then124.us ], [ %bounce_buffer.0104.us, %if.else136.us ], [ %bounce_buffer.0104.us, %if.then139.us ]
+  %bounce_buffer.3.us = phi ptr [ %bounce_buffer.1.us, %if.end121.us ], [ %bounce_buffer.1.us, %if.then124.us ], [ %bounce_buffer.0104.us, %if.else136.us ], [ %bounce_buffer.0104.us, %if.then139.us ]
   %23 = load i64, ptr %pnum, align 8
   %add158.us = add i64 %23, %align_offset.097.us
   %sub159.us = sub i64 %align_bytes.0100.us, %23
@@ -7481,13 +7481,13 @@ while.cond.err.loopexit_crit_edge.split.split:    ; preds = %while.body
   br label %err
 
 err:                                              ; preds = %while.body.us125, %if.end157.us138, %if.end103.us, %if.end117.us, %if.then139.us, %qemu_try_blockalign.exit.us, %if.end157.us, %trace_bdrv_co_do_copy_on_readv.exit, %while.cond.err.loopexit_crit_edge.split.split, %if.then51
-  %ret.2 = phi i32 [ 0, %if.then51 ], [ 0, %trace_bdrv_co_do_copy_on_readv.exit ], [ 0, %while.cond.err.loopexit_crit_edge.split.split ], [ %call104.us, %if.end103.us ], [ %ret.1.us, %if.end117.us ], [ %call151.us, %if.then139.us ], [ -12, %qemu_try_blockalign.exit.us ], [ 0, %if.end157.us ], [ %call151.us136, %while.body.us125 ], [ 0, %if.end157.us138 ]
-  %bounce_buffer.3 = phi ptr [ %bounce_buffer.0104.us, %if.then51 ], [ null, %trace_bdrv_co_do_copy_on_readv.exit ], [ null, %while.cond.err.loopexit_crit_edge.split.split ], [ %bounce_buffer.1.us, %if.end103.us ], [ %bounce_buffer.1.us, %if.end117.us ], [ %bounce_buffer.0104.us, %if.then139.us ], [ null, %qemu_try_blockalign.exit.us ], [ %bounce_buffer.2.us, %if.end157.us ], [ null, %if.end157.us138 ], [ null, %while.body.us125 ]
-  call void @qemu_vfree(ptr noundef %bounce_buffer.3) #15
+  %ret.1 = phi i32 [ 0, %if.then51 ], [ 0, %trace_bdrv_co_do_copy_on_readv.exit ], [ 0, %while.cond.err.loopexit_crit_edge.split.split ], [ %call104.us, %if.end103.us ], [ %ret.2.us, %if.end117.us ], [ %call151.us, %if.then139.us ], [ -12, %qemu_try_blockalign.exit.us ], [ 0, %if.end157.us ], [ %call151.us136, %while.body.us125 ], [ 0, %if.end157.us138 ]
+  %bounce_buffer.2 = phi ptr [ %bounce_buffer.0104.us, %if.then51 ], [ null, %trace_bdrv_co_do_copy_on_readv.exit ], [ null, %while.cond.err.loopexit_crit_edge.split.split ], [ %bounce_buffer.1.us, %if.end103.us ], [ %bounce_buffer.1.us, %if.end117.us ], [ %bounce_buffer.0104.us, %if.then139.us ], [ null, %qemu_try_blockalign.exit.us ], [ %bounce_buffer.3.us, %if.end157.us ], [ null, %if.end157.us138 ], [ null, %while.body.us125 ]
+  call void @qemu_vfree(ptr noundef %bounce_buffer.2) #15
   br label %return
 
 return:                                           ; preds = %entry, %err
-  %retval.0 = phi i32 [ %ret.2, %err ], [ -123, %entry ]
+  %retval.0 = phi i32 [ %ret.1, %err ], [ -123, %entry ]
   ret i32 %retval.0
 }
 
@@ -7737,8 +7737,8 @@ if.else57:                                        ; preds = %if.end43
 while.body:                                       ; preds = %while.body.lr.ph, %if.end166
   %offset.addr.0123 = phi i64 [ %offset, %while.body.lr.ph ], [ %add167, %if.end166 ]
   %bytes.addr.0122 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub168, %if.end166 ]
-  %buf.0121 = phi ptr [ null, %while.body.lr.ph ], [ %buf.2, %if.end166 ]
-  %need_flush.0120 = phi i1 [ false, %while.body.lr.ph ], [ %need_flush.3, %if.end166 ]
+  %buf.0121 = phi ptr [ null, %while.body.lr.ph ], [ %buf.1, %if.end166 ]
+  %need_flush.0120 = phi i1 [ false, %while.body.lr.ph ], [ %need_flush.2, %if.end166 ]
   %head.0119 = phi i32 [ %conv45, %while.body.lr.ph ], [ %head.1, %if.end166 ]
   %tobool62.not = icmp eq i32 %head.0119, 0
   br i1 %tobool62.not, label %if.else90, label %if.then63
@@ -7817,7 +7817,7 @@ land.lhs.true137:                                 ; preds = %if.then133
   br label %if.end142
 
 if.end142:                                        ; preds = %land.lhs.true137, %if.then133
-  %need_flush.2 = phi i1 [ %need_flush.0120, %if.then133 ], [ %spec.select95, %land.lhs.true137 ]
+  %need_flush.3 = phi i1 [ %need_flush.0120, %if.then133 ], [ %spec.select95, %land.lhs.true137 ]
   %write_flags.0 = phi i32 [ %and134, %if.then133 ], [ %spec.select96, %land.lhs.true137 ]
   %cmp145 = icmp slt i64 %spec.select, %conv64
   %cond150 = call i64 @llvm.smin.i64(i64 %spec.select, i64 %conv64)
@@ -7845,24 +7845,24 @@ qemu_try_blockalign0.exit:                        ; preds = %qemu_try_blockalign
   br label %if.end159
 
 if.end159:                                        ; preds = %qemu_try_blockalign0.exit, %if.end142
-  %buf.1 = phi ptr [ %call4.i.i, %qemu_try_blockalign0.exit ], [ %buf.0121, %if.end142 ]
+  %buf.2 = phi ptr [ %call4.i.i, %qemu_try_blockalign0.exit ], [ %buf.0121, %if.end142 ]
   store ptr %local_iov.i, ptr %qiov, align 8
   store i32 1, ptr %.compoundliteral.sroa.2.0..sroa_idx.i, align 8
   store i32 -1, ptr %8, align 8
-  store ptr %buf.1, ptr %local_iov.i, align 8
+  store ptr %buf.2, ptr %local_iov.i, align 8
   store i64 %cond150, ptr %.compoundliteral.sroa.5.0..sroa_idx.i, align 8
   %call160 = call i32 @bdrv_driver_pwritev(ptr noundef nonnull %bs, i64 noundef %offset.addr.0123, i64 noundef %cond150, ptr noundef nonnull %qiov, i64 noundef 0, i32 noundef %write_flags.0)
   br i1 %cmp145, label %if.then164, label %if.end166
 
 if.then164:                                       ; preds = %if.end159
-  call void @qemu_vfree(ptr noundef nonnull %buf.1) #15
+  call void @qemu_vfree(ptr noundef nonnull %buf.2) #15
   br label %if.end166
 
 if.end166:                                        ; preds = %land.lhs.true112, %land.lhs.true115, %if.end159, %if.then164
   %num.2 = phi i64 [ %cond150, %if.then164 ], [ %cond150, %if.end159 ], [ %spec.select, %land.lhs.true115 ], [ %spec.select, %land.lhs.true112 ]
-  %need_flush.3 = phi i1 [ %need_flush.2, %if.then164 ], [ %need_flush.2, %if.end159 ], [ %spec.select94, %land.lhs.true115 ], [ %need_flush.0120, %land.lhs.true112 ]
+  %need_flush.2 = phi i1 [ %need_flush.3, %if.then164 ], [ %need_flush.3, %if.end159 ], [ %spec.select94, %land.lhs.true115 ], [ %need_flush.0120, %land.lhs.true112 ]
   %ret.2 = phi i32 [ %call160, %if.then164 ], [ %call160, %if.end159 ], [ %call109, %land.lhs.true115 ], [ %call109, %land.lhs.true112 ]
-  %buf.2 = phi ptr [ null, %if.then164 ], [ %buf.1, %if.end159 ], [ %buf.0121, %land.lhs.true115 ], [ %buf.0121, %land.lhs.true112 ]
+  %buf.1 = phi ptr [ null, %if.then164 ], [ %buf.2, %if.end159 ], [ %buf.0121, %land.lhs.true115 ], [ %buf.0121, %land.lhs.true112 ]
   %add167 = add i64 %num.2, %offset.addr.0123
   %sub168 = sub i64 %bytes.addr.0122, %num.2
   %cmp59 = icmp sgt i64 %sub168, 0
@@ -7872,7 +7872,7 @@ if.end166:                                        ; preds = %land.lhs.true112, %
 
 fail:                                             ; preds = %if.end166
   %cmp169 = icmp eq i32 %ret.2, 0
-  %brmerge.not = select i1 %cmp169, i1 %need_flush.3, i1 false
+  %brmerge.not = select i1 %cmp169, i1 %need_flush.2, i1 false
   br i1 %brmerge.not, label %if.then174, label %if.end176
 
 if.then174:                                       ; preds = %fail
@@ -7880,7 +7880,7 @@ if.then174:                                       ; preds = %fail
   br label %if.end176
 
 if.end176:                                        ; preds = %land.lhs.true130, %qemu_try_blockalign.exit.i, %while.cond.preheader, %fail, %if.then174
-  %buf.3105 = phi ptr [ %buf.2, %if.then174 ], [ %buf.2, %fail ], [ null, %while.cond.preheader ], [ %buf.0121, %land.lhs.true130 ], [ null, %qemu_try_blockalign.exit.i ]
+  %buf.3105 = phi ptr [ %buf.1, %if.then174 ], [ %buf.1, %fail ], [ null, %while.cond.preheader ], [ %buf.0121, %land.lhs.true130 ], [ null, %qemu_try_blockalign.exit.i ]
   %ret.4 = phi i32 [ %call175, %if.then174 ], [ %ret.2, %fail ], [ 0, %while.cond.preheader ], [ -95, %land.lhs.true130 ], [ -12, %qemu_try_blockalign.exit.i ]
   call void @qemu_vfree(ptr noundef %buf.3105) #15
   br label %return
@@ -7940,7 +7940,7 @@ if.then16:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %lor.lhs.false
-  %qiov.addr.0 = phi ptr [ %local_qiov, %if.then16 ], [ %qiov, %lor.lhs.false ]
+  %qiov.addr.1 = phi ptr [ %local_qiov, %if.then16 ], [ %qiov, %lor.lhs.false ]
   %bdrv_co_pwritev = getelementptr inbounds i8, ptr %0, i64 544
   %7 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwritev, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 561, ptr null)
   %8 = load ptr, ptr %7, align 8
@@ -7950,7 +7950,7 @@ if.end17:                                         ; preds = %if.then16, %lor.lhs
 if.then19:                                        ; preds = %if.end17
   %9 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_pwritev, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 561, ptr null)
   %10 = load ptr, ptr %9, align 8
-  %call21 = call i32 %10(ptr noundef nonnull %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov.addr.0, i32 noundef %and9) #15
+  %call21 = call i32 %10(ptr noundef nonnull %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov.addr.1, i32 noundef %and9) #15
   br label %emulate_flags
 
 if.end22:                                         ; preds = %if.end17
@@ -7965,7 +7965,7 @@ if.then24:                                        ; preds = %if.end22
   %ret26 = getelementptr inbounds i8, ptr %co, i64 8
   store i32 0, ptr %ret26, align 8
   %12 = load ptr, ptr %bdrv_aio_pwritev, align 8
-  %call28 = call ptr %12(ptr noundef nonnull %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov.addr.0, i32 noundef %and9, ptr noundef nonnull @bdrv_co_io_em_complete, ptr noundef nonnull %co) #15
+  %call28 = call ptr %12(ptr noundef nonnull %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %qiov.addr.1, i32 noundef %and9, ptr noundef nonnull @bdrv_co_io_em_complete, ptr noundef nonnull %co) #15
   %cmp29 = icmp eq ptr %call28, null
   br i1 %cmp29, label %if.end64, label %if.else
 
@@ -8017,11 +8017,11 @@ if.else53:                                        ; preds = %if.end50
 if.end54:                                         ; preds = %if.end50
   %16 = call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %bdrv_co_writev, ptr nonnull @.str.4, ptr nonnull @.str.5, i32 543, ptr null)
   %17 = load ptr, ptr %16, align 8
-  %call56 = call i32 %17(ptr noundef nonnull %bs, i64 noundef %shr, i32 noundef %conv, ptr noundef nonnull %qiov.addr.0, i32 noundef %and9) #15
+  %call56 = call i32 %17(ptr noundef nonnull %bs, i64 noundef %shr, i32 noundef %conv, ptr noundef nonnull %qiov.addr.1, i32 noundef %and9) #15
   br label %emulate_flags
 
 emulate_flags:                                    ; preds = %if.else, %if.end54, %if.then19, %if.then11
-  %qiov.addr.1 = phi ptr [ %qiov, %if.then11 ], [ %qiov.addr.0, %if.then19 ], [ %qiov.addr.0, %if.else ], [ %qiov.addr.0, %if.end54 ]
+  %qiov.addr.0 = phi ptr [ %qiov, %if.then11 ], [ %qiov.addr.1, %if.then19 ], [ %qiov.addr.1, %if.else ], [ %qiov.addr.1, %if.end54 ]
   %ret.0 = phi i32 [ %call13, %if.then11 ], [ %call21, %if.then19 ], [ %13, %if.else ], [ %call56, %if.end54 ]
   %18 = or i32 %not, %ret.0
   %19 = icmp ne i32 %18, 0
@@ -8033,9 +8033,9 @@ if.then62:                                        ; preds = %emulate_flags
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then24, %emulate_flags, %if.then62
-  %qiov.addr.154 = phi ptr [ %qiov.addr.1, %if.then62 ], [ %qiov.addr.1, %emulate_flags ], [ %qiov.addr.0, %if.then24 ]
+  %qiov.addr.054 = phi ptr [ %qiov.addr.0, %if.then62 ], [ %qiov.addr.0, %emulate_flags ], [ %qiov.addr.1, %if.then24 ]
   %ret.1 = phi i32 [ %call63, %if.then62 ], [ %ret.0, %emulate_flags ], [ -5, %if.then24 ]
-  %cmp65 = icmp eq ptr %qiov.addr.154, %local_qiov
+  %cmp65 = icmp eq ptr %qiov.addr.054, %local_qiov
   br i1 %cmp65, label %if.then67, label %return
 
 if.then67:                                        ; preds = %if.end64

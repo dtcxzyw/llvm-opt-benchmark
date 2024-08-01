@@ -314,7 +314,7 @@ _ZSt11lower_boundIPKN6hermes21UnicodeTransformRangeEjET_S4_S4_RKT0_.exit.i: ; pr
 
 while.body.i:                                     ; preds = %_ZSt11lower_boundIPKN6hermes21UnicodeTransformRangeEjET_S4_S4_RKT0_.exit.i, %if.end.i
   %transform.061.i = phi ptr [ %transform.1.i, %if.end.i ], [ %__first.addr.0.lcssa.i.i.i, %_ZSt11lower_boundIPKN6hermes21UnicodeTransformRangeEjET_S4_S4_RKT0_.exit.i ]
-  %curcp.060.i = phi i32 [ %curcp.2.i, %if.end.i ], [ %range.sroa.0.0.extract.trunc.i, %_ZSt11lower_boundIPKN6hermes21UnicodeTransformRangeEjET_S4_S4_RKT0_.exit.i ]
+  %curcp.060.i = phi i32 [ %curcp.1.i, %if.end.i ], [ %range.sroa.0.0.extract.trunc.i, %_ZSt11lower_boundIPKN6hermes21UnicodeTransformRangeEjET_S4_S4_RKT0_.exit.i ]
   %bf.load.i = load i64, ptr %transform.061.i, align 4
   %11 = trunc i64 %bf.load.i to i32
   %bf.cast.i = and i32 %11, 16777215
@@ -329,11 +329,11 @@ for.cond.preheader.i:                             ; preds = %while.body.i
   br i1 %13, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %_ZN6hermes12CodePointSet3addEj.exit.i
-  %curcp.157.i = phi i32 [ %inc.i, %_ZN6hermes12CodePointSet3addEj.exit.i ], [ %curcp.060.i, %for.cond.preheader.i ]
+  %curcp.257.i = phi i32 [ %inc.i, %_ZN6hermes12CodePointSet3addEj.exit.i ], [ %curcp.060.i, %for.cond.preheader.i ]
   %transform.0.val.i = load i64, ptr %transform.061.i, align 4
   %14 = trunc i64 %transform.0.val.i to i32
   %bf.cast.i.i = and i32 %14, 16777215
-  %sub.i.i = sub i32 %curcp.157.i, %bf.cast.i.i
+  %sub.i.i = sub i32 %curcp.257.i, %bf.cast.i.i
   %bf.lshr.i.i = lshr i64 %transform.0.val.i, 56
   %bf.cast2.i.i = trunc nuw nsw i64 %bf.lshr.i.i to i32
   %rem.i.i = urem i32 %sub.i.i, %bf.cast2.i.i
@@ -342,7 +342,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %bf.ashr.i.i = ashr i64 %bf.shl.i.i, 40
   %bf.cast4.i.i = trunc nsw i64 %bf.ashr.i.i to i32
   %add.i15.i = select i1 %cmp.i.i, i32 %bf.cast4.i.i, i32 0
-  %retval.0.i.i = add nsw i32 %add.i15.i, %curcp.157.i
+  %retval.0.i.i = add nsw i32 %add.i15.i, %curcp.257.i
   %agg.tmp.sroa.0.0.insert.ext.i.i = zext i32 %retval.0.i.i to i64
   %agg.tmp.sroa.0.0.insert.insert.i.i = or disjoint i64 %agg.tmp.sroa.0.0.insert.ext.i.i, 4294967296
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %r.i.i.i)
@@ -629,19 +629,19 @@ _ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE5eraseEPKS2_S5_.exit.i.i.i: 
 
 _ZN6hermes12CodePointSet3addEj.exit.i:            ; preds = %_ZN4llvh15SmallVectorImplIN6hermes14CodePointRangeEE5eraseEPKS2_S5_.exit.i.i.i, %_ZSt13move_backwardIPN6hermes14CodePointRangeES2_ET0_T_S4_S3_.exit.i.i, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes14CodePointRangeELb1EE9push_backERKS2_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %r.i.i.i)
-  %inc.i = add i32 %curcp.157.i, 1
+  %inc.i = add i32 %curcp.257.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %invariant.umin.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !10
 
 for.end.i:                                        ; preds = %_ZN6hermes12CodePointSet3addEj.exit.i, %for.cond.preheader.i
-  %curcp.1.lcssa.i = phi i32 [ %curcp.060.i, %for.cond.preheader.i ], [ %invariant.umin.i, %_ZN6hermes12CodePointSet3addEj.exit.i ]
+  %curcp.2.lcssa.i = phi i32 [ %curcp.060.i, %for.cond.preheader.i ], [ %invariant.umin.i, %_ZN6hermes12CodePointSet3addEj.exit.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %transform.061.i, i64 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %for.end.i, %while.body.i
-  %curcp.2.i = phi i32 [ %curcp.1.lcssa.i, %for.end.i ], [ %bf.cast.i, %while.body.i ]
+  %curcp.1.i = phi i32 [ %curcp.2.lcssa.i, %for.end.i ], [ %bf.cast.i, %while.body.i ]
   %transform.1.i = phi ptr [ %incdec.ptr.i, %for.end.i ], [ %transform.061.i, %while.body.i ]
-  %cmp.i = icmp ult i32 %curcp.2.i, %add.i.i
+  %cmp.i = icmp ult i32 %curcp.1.i, %add.i.i
   %cmp9.i = icmp ne ptr %transform.1.i, %cond5.i
   %48 = select i1 %cmp.i, i1 %cmp9.i, i1 false
   br i1 %48, label %while.body.i, label %_ZN6hermesL17canonicalizeRangeENS_14CodePointRangeEPNS_12CodePointSetEb.exit, !llvm.loop !11

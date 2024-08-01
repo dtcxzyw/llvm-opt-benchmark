@@ -178,8 +178,8 @@ define dso_local noundef i32 @runChild(ptr noundef %0, i32 noundef %1, i32 nound
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %67
   %44 = phi i32 [ %68, %67 ], [ %40, %.lr.ph.i ]
-  %.0107.i = phi i32 [ %.196.i, %67 ], [ %8, %.lr.ph.i ]
-  %45 = icmp ne i32 %.0107.i, 0
+  %.1107.i = phi i32 [ %.296.i, %67 ], [ %8, %.lr.ph.i ]
+  %45 = icmp ne i32 %.1107.i, 0
   %46 = icmp eq i32 %44, 255
   %or.cond3.i = and i1 %46, %45
   br i1 %or.cond3.i, label %47, label %56
@@ -189,8 +189,8 @@ define dso_local noundef i32 @runChild(ptr noundef %0, i32 noundef %1, i32 nound
   %49 = call i64 @fwrite(ptr nonnull @.str.10, i64 29, i64 1, ptr %48)
   %50 = load ptr, ptr @stdout, align 8
   %51 = call i32 @fflush(ptr noundef %50)
-  %52 = add nsw i32 %.0107.i, 1
-  %53 = icmp sgt i32 %.0107.i, 18
+  %52 = add nsw i32 %.1107.i, 1
+  %53 = icmp sgt i32 %.1107.i, 18
   br i1 %53, label %.thread.i, label %64
 
 .thread.i:                                        ; preds = %47
@@ -210,23 +210,23 @@ define dso_local noundef i32 @runChild(ptr noundef %0, i32 noundef %1, i32 nound
   br label %64
 
 64:                                               ; preds = %56, %47
-  %.1.i = phi i32 [ %52, %47 ], [ %.0107.i, %56 ]
-  %.not82.i = icmp eq i32 %.1.i, 0
+  %.2.i = phi i32 [ %52, %47 ], [ %.1107.i, %56 ]
+  %.not82.i = icmp eq i32 %.2.i, 0
   br i1 %.not82.i, label %67, label %65
 
 65:                                               ; preds = %64, %.thread.i
-  %.195.i = phi i32 [ %52, %.thread.i ], [ %.1.i, %64 ]
+  %.295.i = phi i32 [ %52, %.thread.i ], [ %.2.i, %64 ]
   %66 = call i32 @usleep(i32 noundef 100000) #12
   br label %67
 
 67:                                               ; preds = %65, %64
-  %.196.i = phi i32 [ %.195.i, %65 ], [ 0, %64 ]
+  %.296.i = phi i32 [ %.295.i, %65 ], [ 0, %64 ]
   %68 = call i32 @cmsysProcess_WaitForData(ptr noundef %17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef %spec.select.i) #12
   %.not80.i = icmp eq i32 %68, 0
   br i1 %.not80.i, label %.loopexit.i, label %.lr.ph.split.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %67, %.lr.ph.split.us.i, %.lr.ph.split.us.i.us, %.preheader.i, %39
-  %.2.i = phi i32 [ %8, %39 ], [ %8, %.preheader.i ], [ 0, %.lr.ph.split.us.i.us ], [ %8, %.lr.ph.split.us.i ], [ %.196.i, %67 ]
+  %.0.i = phi i32 [ %8, %39 ], [ %8, %.preheader.i ], [ 0, %.lr.ph.split.us.i.us ], [ %8, %.lr.ph.split.us.i ], [ %.296.i, %67 ]
   br i1 %.not79.i, label %70, label %69
 
 69:                                               ; preds = %.loopexit.i
@@ -323,8 +323,8 @@ define dso_local noundef i32 @runChild(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %.not92.i, label %104, label %.thread
 
 104:                                              ; preds = %.thread97.i
-  %105 = icmp ne i32 %.2.i, 0
-  %106 = icmp slt i32 %.2.i, 5
+  %105 = icmp ne i32 %.0.i, 0
+  %106 = icmp slt i32 %.0.i, 5
   %or.cond5.i = and i1 %105, %106
   br i1 %or.cond5.i, label %runChild2.exit.thread, label %runChild2.exit
 
@@ -332,8 +332,8 @@ define dso_local noundef i32 @runChild(ptr noundef %0, i32 noundef %1, i32 nound
   %107 = load ptr, ptr @stderr, align 8
   %108 = call i32 @cmsysProcess_GetState(ptr noundef %17) #12
   %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef %108) #14
-  %110 = icmp ne i32 %.2.i, 0
-  %111 = icmp slt i32 %.2.i, 5
+  %110 = icmp ne i32 %.0.i, 0
+  %111 = icmp slt i32 %.0.i, 5
   %or.cond5.i33 = and i1 %110, %111
   br i1 %or.cond5.i33, label %runChild2.exit.thread, label %runChild2.exit.thread35
 
@@ -345,7 +345,7 @@ runChild2.exit.thread35:                          ; preds = %.thread
 
 runChild2.exit.thread:                            ; preds = %104, %.thread
   %112 = load ptr, ptr @stderr, align 8
-  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.23, i32 noundef %.2.i, i32 noundef 5) #14
+  %113 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.23, i32 noundef %.0.i, i32 noundef 5) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)

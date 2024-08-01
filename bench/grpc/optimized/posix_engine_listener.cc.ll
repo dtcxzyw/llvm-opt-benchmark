@@ -2049,7 +2049,7 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental13PosixEndpointESt14default_
   br label %cleanup
 
 cleanup:                                          ; preds = %delete.notnull.i27, %invoke.cont88, %_ZNSt10unique_ptrIN17grpc_event_engine12experimental13PosixEndpointESt14default_deleteIS2_EED2Ev.exit
-  %cleanup.dest.slot.0 = phi i32 [ 0, %_ZNSt10unique_ptrIN17grpc_event_engine12experimental13PosixEndpointESt14default_deleteIS2_EED2Ev.exit ], [ 1, %invoke.cont88 ], [ 1, %delete.notnull.i27 ]
+  %cleanup.dest.slot.1 = phi i32 [ 0, %_ZNSt10unique_ptrIN17grpc_event_engine12experimental13PosixEndpointESt14default_deleteIS2_EED2Ev.exit ], [ 1, %invoke.cont88 ], [ 1, %delete.notnull.i27 ]
   %140 = load i64, ptr %peer_name, align 8
   %cmp.i.i.i.i65 = icmp eq i64 %140, 0
   br i1 %cmp.i.i.i.i65, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
@@ -2075,7 +2075,7 @@ terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
   unreachable
 
 cleanup146:                                       ; preds = %if.then.i.i3.i.i, %if.else.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %delete.notnull.i24, %invoke.cont74
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont74 ], [ 1, %delete.notnull.i24 ], [ %cleanup.dest.slot.0, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %cleanup.dest.slot.0, %if.else.i.i ], [ %cleanup.dest.slot.0, %if.then.i.i3.i.i ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont74 ], [ 1, %delete.notnull.i24 ], [ %cleanup.dest.slot.1, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %cleanup.dest.slot.1, %if.else.i.i ], [ %cleanup.dest.slot.1, %if.then.i.i3.i.i ]
   %143 = load i64, ptr %result, align 8
   %and.i.i.i66 = and i64 %143, 1
   %cmp.i.i.i67 = icmp eq i64 %and.i.i.i66, 0
@@ -2093,7 +2093,7 @@ terminate.lpad.i69:                               ; preds = %if.then.i.i68
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit71:         ; preds = %cleanup146, %if.then.i.i68
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %for.cond.backedge, label %return
 
 lpad119.loopexit:                                 ; preds = %invoke.cont122

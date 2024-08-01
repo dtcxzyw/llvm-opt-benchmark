@@ -262,8 +262,8 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN2tt6buffer18C
   br label %"_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread"
 
 "_ZN2tt6buffer23TokenBuffer$LT$Span$GT$5entry17hff9437bc47c2e1aaE.llvm.4854586973698006518.exit.thread": ; preds = %33, %8, %39, %23, %18, %44
-  %.0 = phi ptr [ %46, %44 ], [ null, %18 ], [ null, %23 ], [ null, %39 ], [ null, %8 ], [ null, %33 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %46, %44 ], [ null, %18 ], [ null, %23 ], [ null, %39 ], [ null, %8 ], [ null, %33 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable

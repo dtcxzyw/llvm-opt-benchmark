@@ -972,7 +972,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
 
 .body:                                            ; preds = %28, %52, %11
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %29, %28 ], [ %lpad.phi3.i, %52 ]
-  %.03 = phi i1 [ true, %11 ], [ %.1, %28 ], [ false, %52 ]
+  %.03 = phi i1 [ true, %11 ], [ %.2, %28 ], [ false, %52 ]
   invoke void @"_ZN4core3ptr132drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$GT$17hf4c0c217ac1f6247E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #14
           to label %68 unwind label %69
 
@@ -1010,7 +1010,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
           to label %30 unwind label %11
 
 28:                                               ; preds = %60, %56, %51, %46, %"_ZN4core3ptr210drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17hd6586068d8320787E.exit"
-  %.1 = phi i1 [ false, %"_ZN4core3ptr210drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17hd6586068d8320787E.exit" ], [ false, %46 ], [ false, %51 ], [ true, %56 ], [ true, %60 ]
+  %.2 = phi i1 [ false, %"_ZN4core3ptr210drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..current_thread..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17hd6586068d8320787E.exit" ], [ false, %46 ], [ false, %51 ], [ true, %56 ], [ true, %60 ]
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1169,7 +1169,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
 
 .body:                                            ; preds = %28, %52, %11
   %.pn = phi { ptr, i32 } [ %12, %11 ], [ %29, %28 ], [ %lpad.phi3.i, %52 ]
-  %.03 = phi i1 [ true, %11 ], [ %.1, %28 ], [ false, %52 ]
+  %.03 = phi i1 [ true, %11 ], [ %.2, %28 ], [ false, %52 ]
   invoke void @"_ZN4core3ptr138drop_in_place$LT$tokio..runtime..task..Notified$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$GT$17ha02977cf0c505f09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #14
           to label %68 unwind label %69
 
@@ -1207,7 +1207,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
           to label %30 unwind label %11
 
 28:                                               ; preds = %60, %56, %51, %46, %"_ZN4core3ptr216drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h457b2e78b21dae9aE.exit"
-  %.1 = phi i1 [ false, %"_ZN4core3ptr216drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h457b2e78b21dae9aE.exit" ], [ false, %46 ], [ false, %51 ], [ true, %56 ], [ true, %60 ]
+  %.2 = phi i1 [ false, %"_ZN4core3ptr216drop_in_place$LT$tokio..util..sharded_list..ShardGuard$LT$tokio..runtime..task..Task$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..handle..Handle$GT$$GT$$C$tokio..runtime..task..core..Header$GT$$GT$17h457b2e78b21dae9aE.exit" ], [ false, %46 ], [ false, %51 ], [ true, %56 ], [ true, %60 ]
   %29 = landingpad { ptr, i32 }
           cleanup
   br label %.body

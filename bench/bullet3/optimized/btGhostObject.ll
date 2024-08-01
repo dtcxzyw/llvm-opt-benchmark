@@ -994,14 +994,14 @@ for.cond22.preheader:                             ; preds = %if.then, %for.end
   %bit.0134 = phi i32 [ 1, %if.then ], [ %shl, %for.end ]
   %normSign.0133 = phi float [ 1.000000e+00, %if.then ], [ -1.000000e+00, %for.end ]
   %lambda_enter.0132 = phi float [ 0.000000e+00, %if.then ], [ %lambda_enter.2, %for.end ]
-  %lambda_exit.0131 = phi float [ %22, %if.then ], [ %lambda_exit.3, %for.end ]
+  %lambda_exit.0131 = phi float [ %22, %if.then ], [ %lambda_exit.2, %for.end ]
   br label %for.body24
 
 for.body24:                                       ; preds = %for.cond22.preheader, %if.end59
   %indvars.iv = phi i64 [ 0, %for.cond22.preheader ], [ %indvars.iv.next, %if.end59 ]
   %bit.1130 = phi i32 [ %bit.0134, %for.cond22.preheader ], [ %shl, %if.end59 ]
   %lambda_enter.1128 = phi float [ %lambda_enter.0132, %for.cond22.preheader ], [ %lambda_enter.2, %if.end59 ]
-  %lambda_exit.1127 = phi float [ %lambda_exit.0131, %for.cond22.preheader ], [ %lambda_exit.3, %if.end59 ]
+  %lambda_exit.1127 = phi float [ %lambda_exit.0131, %for.cond22.preheader ], [ %lambda_exit.2, %if.end59 ]
   %and25 = and i32 %bit.1130, %or27.i
   %tobool.not = icmp eq i32 %and25, 0
   br i1 %tobool.not, label %if.else, label %if.then26
@@ -1049,7 +1049,7 @@ if.then.i:                                        ; preds = %if.then44
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then.i, %if.then44, %if.else, %if.then26, %if.then35
-  %lambda_exit.3 = phi float [ %lambda_exit.1127, %if.else ], [ %lambda_exit.1127, %if.then26 ], [ %lambda_exit.1127, %if.then35 ], [ %div57, %if.then.i ], [ %lambda_exit.1127, %if.then44 ]
+  %lambda_exit.2 = phi float [ %lambda_exit.1127, %if.else ], [ %lambda_exit.1127, %if.then26 ], [ %lambda_exit.1127, %if.then35 ], [ %div57, %if.then.i ], [ %lambda_exit.1127, %if.then44 ]
   %lambda_enter.2 = phi float [ %lambda_enter.1128, %if.else ], [ %lambda_enter.1128, %if.then26 ], [ %div, %if.then35 ], [ %lambda_enter.1128, %if.then.i ], [ %lambda_enter.1128, %if.then44 ]
   %shl = shl i32 %bit.1130, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1060,7 +1060,7 @@ for.end:                                          ; preds = %if.end59
   br i1 %cmp21, label %for.cond22.preheader, label %for.end62, !llvm.loop !10
 
 for.end62:                                        ; preds = %for.end
-  %cmp63 = fcmp ugt float %lambda_enter.2, %lambda_exit.3
+  %cmp63 = fcmp ugt float %lambda_enter.2, %lambda_exit.2
   br i1 %cmp63, label %return, label %if.then64
 
 if.then64:                                        ; preds = %for.end62

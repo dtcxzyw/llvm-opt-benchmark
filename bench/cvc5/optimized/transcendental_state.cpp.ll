@@ -2790,7 +2790,7 @@ invoke.cont31:                                    ; preds = %if.else27
   br i1 %cmp.i45.not482, label %if.then50, label %for.body37
 
 for.body37:                                       ; preds = %invoke.cont31, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %consider.0484 = phi i8 [ %consider.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 1, %invoke.cont31 ]
+  %consider.2484 = phi i8 [ %consider.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 1, %invoke.cont31 ]
   %__begin7.sroa.0.0483 = phi ptr [ %incdec.ptr.i, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %spec.select.i.i, %invoke.cont31 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %39 = load ptr, ptr %__begin7.sroa.0.0483, align 8, !noalias !19
@@ -2838,7 +2838,7 @@ land.lhs.true:                                    ; preds = %invoke.cont41
           to label %invoke.cont43 unwind label %lpad40
 
 invoke.cont43:                                    ; preds = %land.lhs.true
-  %spec.select = select i1 %call44, i8 %consider.0484, i8 0
+  %spec.select = select i1 %call44, i8 %consider.2484, i8 0
   br label %cleanup
 
 lpad40:                                           ; preds = %invoke.cont39, %land.lhs.true
@@ -2848,7 +2848,7 @@ lpad40:                                           ; preds = %invoke.cont39, %lan
   br label %ehcleanup218
 
 cleanup:                                          ; preds = %invoke.cont43, %invoke.cont41
-  %consider.1 = phi i8 [ %consider.0484, %invoke.cont41 ], [ %spec.select, %invoke.cont43 ]
+  %consider.3 = phi i8 [ %consider.2484, %invoke.cont41 ], [ %spec.select, %invoke.cont43 ]
   %cleanup.dest.slot.0 = phi i1 [ true, %invoke.cont41 ], [ %call44, %invoke.cont43 ]
   %43 = load ptr, ptr %ref.tmp38, align 8
   %bf.load.i.i51 = load i64, ptr %43, align 8
@@ -2883,11 +2883,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %cleanup, %if.then.i
   br i1 %or.cond490.not, label %for.body37, label %if.end49
 
 if.end49:                                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %tobool = trunc nuw i8 %consider.1 to i1
+  %tobool = trunc nuw i8 %consider.3 to i1
   br i1 %tobool, label %if.then50, label %cond.true65
 
 if.then50:                                        ; preds = %invoke.cont31, %if.end49
-  %consider.2498 = phi i8 [ %consider.1, %if.end49 ], [ 1, %invoke.cont31 ]
+  %consider.1498 = phi i8 [ %consider.3, %if.end49 ], [ 1, %invoke.cont31 ]
   %call53 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEES4_St4hashIS4_EEixERKS4_(ptr noundef nonnull align 8 dereferenceable(112) %d_trPurify, ptr noundef nonnull align 8 dereferenceable(8) %__begin4.sroa.0.0487)
           to label %invoke.cont52 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -2904,8 +2904,8 @@ invoke.cont56:                                    ; preds = %invoke.cont54
           to label %cond.true65 unwind label %lpad.loopexit.split-lp.loopexit
 
 cond.true65:                                      ; preds = %invoke.cont22, %if.end49, %invoke.cont56
-  %consider.3 = phi i8 [ %frombool, %invoke.cont22 ], [ %consider.1, %if.end49 ], [ %consider.2498, %invoke.cont56 ]
-  %tobool83 = trunc nuw i8 %consider.3 to i1
+  %consider.0 = phi i8 [ %frombool, %invoke.cont22 ], [ %consider.3, %if.end49 ], [ %consider.1498, %invoke.cont56 ]
+  %tobool83 = trunc nuw i8 %consider.0 to i1
   br i1 %tobool83, label %if.end86.thread, label %if.then84
 
 if.then84:                                        ; preds = %if.else, %cond.true65

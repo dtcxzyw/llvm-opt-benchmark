@@ -326,8 +326,8 @@ sub_0:                                            ; preds = %78, %79
   br label %100
 
 100:                                              ; preds = %.tail.thread, %89
-  %.046 = phi i32 [ %94, %89 ], [ %99, %.tail.thread ]
-  switch i32 %.046, label %148 [
+  %.147 = phi i32 [ %94, %89 ], [ %99, %.tail.thread ]
+  switch i32 %.147, label %148 [
     i32 0, label %list_idb_merge_modes.exit
     i32 1, label %101
     i32 2, label %102
@@ -417,17 +417,17 @@ sub_0:                                            ; preds = %78, %79
   br label %list_idb_merge_modes.exit
 
 148:                                              ; preds = %100
-  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.21, i32 noundef %.046) #6
+  call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.21, i32 noundef %.147) #6
   br label %list_idb_merge_modes.exit
 
 list_idb_merge_modes.exit:                        ; preds = %52, %48, %57, %102, %111, %114, %123, %131, %141, %148, %100, %147, %146, %82, %68, %43, %35, %29, %25
-  %.147 = phi i32 [ 0, %43 ], [ 2, %35 ], [ 0, %29 ], [ 2, %25 ], [ 2, %82 ], [ 2, %148 ], [ 2, %146 ], [ 2, %147 ], [ 2, %141 ], [ 2, %131 ], [ 2, %123 ], [ 2, %114 ], [ 2, %111 ], [ 2, %102 ], [ %.046, %100 ], [ 2, %68 ], [ 2, %57 ], [ 2, %48 ], [ 2, %52 ]
+  %.046 = phi i32 [ 0, %43 ], [ 2, %35 ], [ 0, %29 ], [ 2, %25 ], [ 2, %82 ], [ 2, %148 ], [ 2, %146 ], [ 2, %147 ], [ 2, %141 ], [ 2, %131 ], [ 2, %123 ], [ 2, %114 ], [ 2, %111 ], [ 2, %102 ], [ %.147, %100 ], [ 2, %68 ], [ 2, %57 ], [ 2, %48 ], [ 2, %52 ]
   call void @wtap_cleanup() #6
   call void @free_progdirs() #6
   br label %149
 
 149:                                              ; preds = %list_idb_merge_modes.exit, %75
-  %.058 = phi i32 [ %.147, %list_idb_merge_modes.exit ], [ 1, %75 ]
+  %.058 = phi i32 [ %.046, %list_idb_merge_modes.exit ], [ 1, %75 ]
   ret i32 %.058
 }
 

@@ -2990,8 +2990,8 @@ switch.lookup:                                    ; preds = %80
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %96, %94, %34, %23, %14, %9, %3
-  %.1 = phi i1 [ false, %3 ], [ false, %9 ], [ false, %14 ], [ false, %23 ], [ false, %34 ], [ true, %94 ], [ true, %96 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %3 ], [ false, %9 ], [ false, %14 ], [ false, %23 ], [ false, %34 ], [ true, %94 ], [ true, %96 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

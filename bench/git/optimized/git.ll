@@ -572,7 +572,7 @@ if.end37:                                         ; preds = %if.end37.sink.split
   br label %while.body
 
 while.body:                                       ; preds = %if.then51, %if.end37
-  %cmd.2 = phi ptr [ %27, %if.end37 ], [ %call52, %if.then51 ]
+  %cmd.1 = phi ptr [ %27, %if.end37 ], [ %call52, %if.then51 ]
   %tobool50.not = phi i1 [ true, %if.end37 ], [ false, %if.then51 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %cmd_list.i)
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %cmd.i)
@@ -1136,7 +1136,7 @@ if.then44:                                        ; preds = %if.end42
   %88 = load ptr, ptr @stderr, align 8
   %call45 = call fastcc ptr @_(ptr noundef nonnull @.str.13)
   %89 = load ptr, ptr %54, align 8
-  %call47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef %call45, ptr noundef %cmd.2, ptr noundef %89) #19
+  %call47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef %call45, ptr noundef %cmd.1, ptr noundef %89) #19
   %call48 = call i32 @common_exit(ptr noundef nonnull @.str.1, i32 noundef 930, i32 noundef 1) #15
   call void @exit(i32 noundef %call48) #17
   unreachable
@@ -1145,7 +1145,7 @@ if.end49:                                         ; preds = %if.end42
   br i1 %tobool50.not, label %if.then51, label %while.end
 
 if.then51:                                        ; preds = %if.end49
-  %call52 = call ptr @help_unknown_cmd(ptr noundef %cmd.2) #15
+  %call52 = call ptr @help_unknown_cmd(ptr noundef %cmd.1) #15
   store ptr %call52, ptr %54, align 8
   br label %while.body
 
@@ -1164,7 +1164,7 @@ _.exit:                                           ; preds = %while.end, %if.end3
   %92 = phi i32 [ %.pre263, %if.end3.i ], [ %87, %while.end ]
   %retval.0.i = phi ptr [ %call.i6, %if.end3.i ], [ @.str.14, %while.end ]
   %call58 = call ptr @strerror(i32 noundef %92) #15
-  %call59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef %retval.0.i, ptr noundef %cmd.2, ptr noundef %call58) #19
+  %call59 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef %retval.0.i, ptr noundef %cmd.1, ptr noundef %call58) #19
   ret i32 1
 }
 

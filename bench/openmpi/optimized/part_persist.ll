@@ -2126,11 +2126,11 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br label %29
 
 29:                                               ; preds = %.lr.ph, %29
-  %.13536 = phi i64 [ 0, %.lr.ph ], [ %32, %29 ]
+  %.236 = phi i64 [ 0, %.lr.ph ], [ %32, %29 ]
   %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds i32, ptr %30, i64 %.13536
+  %31 = getelementptr inbounds i32, ptr %30, i64 %.236
   store i32 -1, ptr %31, align 4
-  %32 = add nuw i64 %.13536, 1
+  %32 = add nuw i64 %.236, 1
   %33 = load i64, ptr %26, align 8
   %34 = icmp ult i64 %32, %33
   br i1 %34, label %29, label %.loopexit, !llvm.loop !16
@@ -2146,7 +2146,7 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %.loopexit.sink.split, %24, %25
-  %.2 = phi i64 [ 0, %25 ], [ %.03437, %24 ], [ %.03437, %.loopexit.sink.split ], [ %32, %29 ]
+  %.135 = phi i64 [ 0, %25 ], [ %.03437, %24 ], [ %.03437, %.loopexit.sink.split ], [ %32, %29 ]
   %.1 = phi i32 [ 0, %25 ], [ 0, %24 ], [ %.1.ph, %.loopexit.sink.split ], [ 0, %29 ]
   %37 = getelementptr inbounds i8, ptr %4, i64 96
   store volatile i32 2, ptr %37, align 8
@@ -2173,7 +2173,7 @@ define internal i32 @mca_part_persist_start(i64 noundef %0, ptr nocapture nounde
   br label %opal_thread_swap_ptr.exit
 
 opal_thread_swap_ptr.exit:                        ; preds = %45, %47
-  %48 = add i64 %.2, 1
+  %48 = add i64 %.135, 1
   %49 = icmp ult i64 %48, %0
   %50 = icmp eq i32 %.1, 0
   %51 = select i1 %49, i1 %50, i1 false
@@ -2263,8 +2263,8 @@ define internal noundef i32 @mca_part_persist_parrived(i64 noundef %0, i64 nound
 
 .lr.ph47:                                         ; preds = %.preheader, %17
   %.046 = phi i64 [ %20, %17 ], [ %0, %.preheader ]
-  %.02745 = phi i32 [ %19, %17 ], [ 1, %.preheader ]
-  %.not35 = icmp eq i32 %.02745, 0
+  %.12845 = phi i32 [ %19, %17 ], [ 1, %.preheader ]
+  %.not35 = icmp eq i32 %.12845, 0
   br i1 %.not35, label %17, label %13
 
 13:                                               ; preds = %.lr.ph47
@@ -2297,8 +2297,8 @@ define internal noundef i32 @mca_part_persist_parrived(i64 noundef %0, i64 nound
 
 .lr.ph:                                           ; preds = %21, %37
   %.143 = phi i64 [ %40, %37 ], [ %28, %21 ]
-  %.12842 = phi i32 [ %39, %37 ], [ 1, %21 ]
-  %.not32 = icmp eq i32 %.12842, 0
+  %.242 = phi i32 [ %39, %37 ], [ 1, %21 ]
+  %.not32 = icmp eq i32 %.242, 0
   br i1 %.not32, label %37, label %33
 
 33:                                               ; preds = %.lr.ph
@@ -2315,8 +2315,8 @@ define internal noundef i32 @mca_part_persist_parrived(i64 noundef %0, i64 nound
   br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %37, %17
-  %.2 = phi i32 [ %19, %17 ], [ %39, %37 ]
-  %.not34 = icmp eq i32 %.2, 0
+  %.027 = phi i32 [ %19, %17 ], [ %39, %37 ]
+  %.not34 = icmp eq i32 %.027, 0
   br i1 %.not34, label %.thread, label %.loopexit.thread
 
 .thread:                                          ; preds = %4, %.loopexit
@@ -2324,8 +2324,8 @@ define internal noundef i32 @mca_part_persist_parrived(i64 noundef %0, i64 nound
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %21, %.preheader, %.thread, %.loopexit
-  %.238 = phi i32 [ 0, %.thread ], [ 1, %.loopexit ], [ 1, %.preheader ], [ 1, %21 ]
-  store i32 %.238, ptr %2, align 4
+  %.02738 = phi i32 [ 0, %.thread ], [ 1, %.loopexit ], [ 1, %.preheader ], [ 1, %21 ]
+  store i32 %.02738, ptr %2, align 4
   ret i32 0
 }
 

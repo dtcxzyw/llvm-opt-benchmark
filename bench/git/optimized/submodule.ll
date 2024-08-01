@@ -1653,7 +1653,7 @@ is_null_oid.exit90:                               ; preds = %if.then.i.i.i86, %i
 
 if.end28:                                         ; preds = %is_null_oid.exit90, %land.lhs.true.if.then27_crit_edge
   %17 = phi ptr [ %.pre.pre, %land.lhs.true.if.then27_crit_edge ], [ %.pre94, %is_null_oid.exit90 ]
-  %message.1 = phi ptr [ @.str.111, %land.lhs.true.if.then27_crit_edge ], [ %spec.select97, %is_null_oid.exit90 ]
+  %message.2 = phi ptr [ @.str.111, %land.lhs.true.if.then27_crit_edge ], [ %spec.select97, %is_null_oid.exit90 ]
   %18 = load ptr, ptr %left, align 8
   %call29 = tail call ptr @repo_get_merge_bases(ptr noundef nonnull %sub, ptr noundef %18, ptr noundef %17) #14
   store ptr %call29, ptr %merge_bases, align 8
@@ -1673,8 +1673,8 @@ if.else33:                                        ; preds = %if.then31
   br label %if.end39
 
 if.end39:                                         ; preds = %if.else33, %if.then31, %if.end28
-  %fast_forward.0 = phi i32 [ 0, %if.end28 ], [ 1, %if.then31 ], [ 0, %if.else33 ]
-  %fast_backward.0 = phi i32 [ 0, %if.end28 ], [ 0, %if.then31 ], [ %spec.select30, %if.else33 ]
+  %fast_forward.1 = phi i32 [ 0, %if.end28 ], [ 1, %if.then31 ], [ 0, %if.else33 ]
+  %fast_backward.1 = phi i32 [ 0, %if.end28 ], [ 0, %if.then31 ], [ %spec.select30, %if.else33 ]
   %22 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
@@ -1711,28 +1711,28 @@ oideq.exit:                                       ; preds = %if.then.i.i92, %if.
   br i1 %retval.0.in.i.i.not, label %return, label %output_header
 
 output_header:                                    ; preds = %if.end11, %oideq.exit
-  %message.2 = phi ptr [ %message.1, %oideq.exit ], [ %tobool14.not, %if.end11 ]
-  %fast_forward.1 = phi i32 [ %fast_forward.0, %oideq.exit ], [ 0, %if.end11 ]
-  %fast_backward.1 = phi i32 [ %fast_backward.0, %oideq.exit ], [ 0, %if.end11 ]
+  %message.1 = phi ptr [ %message.2, %oideq.exit ], [ %tobool14.not, %if.end11 ]
+  %fast_forward.0 = phi i32 [ %fast_forward.1, %oideq.exit ], [ 0, %if.end11 ]
+  %fast_backward.0 = phi i32 [ %fast_backward.1, %oideq.exit ], [ 0, %if.end11 ]
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.112, ptr noundef %path) #14
   %26 = load i32, ptr @default_abbrev, align 4
   call void @strbuf_add_unique_abbrev(ptr noundef nonnull %sb, ptr noundef nonnull %one, i32 noundef %26) #14
-  %27 = or i32 %fast_backward.1, %fast_forward.1
+  %27 = or i32 %fast_backward.0, %fast_forward.0
   %.not = icmp eq i32 %27, 0
   %cond = select i1 %.not, ptr @.str.113, ptr @.str.99
   %call.i93 = select i1 %.not, i64 3, i64 2
   call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef nonnull %cond, i64 noundef %call.i93) #14
   %28 = load i32, ptr @default_abbrev, align 4
   call void @strbuf_add_unique_abbrev(ptr noundef nonnull %sb, ptr noundef %two, i32 noundef %28) #14
-  %tobool46.not = icmp eq ptr %message.2, null
+  %tobool46.not = icmp eq ptr %message.1, null
   br i1 %tobool46.not, label %if.else48, label %if.then47
 
 if.then47:                                        ; preds = %output_header
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.114, ptr noundef nonnull %message.2) #14
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.114, ptr noundef nonnull %message.1) #14
   br label %if.end51
 
 if.else48:                                        ; preds = %output_header
-  %tobool44.not = icmp eq i32 %fast_backward.1, 0
+  %tobool44.not = icmp eq i32 %fast_backward.0, 0
   %cond50 = select i1 %tobool44.not, ptr @.str.85, ptr @.str.116
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %sb, ptr noundef nonnull @.str.115, ptr noundef nonnull %cond50) #14
   br label %if.end51
@@ -3629,7 +3629,7 @@ land.lhs.true:                                    ; preds = %if.end54
   br label %if.end67
 
 if.end67:                                         ; preds = %land.lhs.true, %if.end54
-  %dirty_submodule.2 = phi i32 [ %spec.select15, %if.end54 ], [ %spec.select16, %land.lhs.true ]
+  %dirty_submodule.4 = phi i32 [ %spec.select15, %if.end54 ], [ %spec.select16, %land.lhs.true ]
   switch i8 %5, label %lor.lhs.false79 [
     i8 117, label %if.then83
     i8 50, label %if.then83
@@ -3641,11 +3641,11 @@ lor.lhs.false79:                                  ; preds = %if.end67
   br i1 %tobool82.not, label %if.end86, label %if.then83
 
 if.then83:                                        ; preds = %if.end67, %if.end67, %lor.lhs.false79
-  %or84 = or i32 %dirty_submodule.2, 2
+  %or84 = or i32 %dirty_submodule.4, 2
   br label %if.end86
 
 if.end86:                                         ; preds = %while.body, %lor.lhs.false79, %if.then83
-  %dirty_submodule.3 = phi i32 [ %or84, %if.then83 ], [ %dirty_submodule.2, %lor.lhs.false79 ], [ %spec.select15, %while.body ]
+  %dirty_submodule.3 = phi i32 [ %or84, %if.then83 ], [ %dirty_submodule.4, %lor.lhs.false79 ], [ %spec.select15, %while.body ]
   %and = and i32 %dirty_submodule.3, 2
   %tobool87.not = icmp eq i32 %and, 0
   br i1 %tobool87.not, label %if.end94, label %land.lhs.true88
@@ -3663,7 +3663,7 @@ if.end94:                                         ; preds = %land.lhs.true88, %i
 
 while.end:                                        ; preds = %if.end94, %land.lhs.true88, %if.end24
   %cmp.not.lcssa = phi i1 [ false, %if.end24 ], [ true, %land.lhs.true88 ], [ false, %if.end94 ]
-  %dirty_submodule.4 = phi i32 [ 0, %if.end24 ], [ %dirty_submodule.3, %land.lhs.true88 ], [ %dirty_submodule.3, %if.end94 ]
+  %dirty_submodule.1 = phi i32 [ 0, %if.end24 ], [ %dirty_submodule.3, %land.lhs.true88 ], [ %dirty_submodule.3, %if.end94 ]
   %call95 = call i32 @fclose(ptr noundef %call26)
   %call96 = call i32 @finish_command(ptr noundef nonnull %cp) #14
   %tobool97 = icmp eq i32 %call96, 0
@@ -3676,7 +3676,7 @@ if.then100:                                       ; preds = %while.end
   unreachable
 
 return:                                           ; preds = %while.end, %if.then5
-  %retval.0 = phi i32 [ 0, %if.then5 ], [ %dirty_submodule.4, %while.end ]
+  %retval.0 = phi i32 [ 0, %if.then5 ], [ %dirty_submodule.1, %while.end ]
   call void @strbuf_release(ptr noundef nonnull %buf) #14
   ret i32 %retval.0
 }
@@ -3813,12 +3813,12 @@ if.then43:                                        ; preds = %if.then40
   unreachable
 
 out47:                                            ; preds = %if.then40, %if.then25, %if.end31
-  %ret.1 = phi i32 [ %spec.select, %if.end31 ], [ -1, %if.then25 ], [ -1, %if.then40 ]
+  %ret.0 = phi i32 [ %spec.select, %if.end31 ], [ -1, %if.then25 ], [ -1, %if.then40 ]
   call void @strbuf_release(ptr noundef nonnull %buf) #14
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %out47
-  %retval.0 = phi i32 [ %ret.1, %out47 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.end ]
+  %retval.0 = phi i32 [ %ret.0, %out47 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ 1, %if.end ]
   ret i32 %retval.0
 }
 

@@ -582,7 +582,7 @@ land.rhs.lr.ph:                                   ; preds = %entry
   %2 = load ptr, ptr @mem_base, align 8
   %cmp.i = icmp eq ptr %2, null
   %size.biased.i = add nsw i64 %conv, 7
-  %size.addr.0.i = and i64 %size.biased.i, -8
+  %size.addr.1.i = and i64 %size.biased.i, -8
   br i1 %cmp.i, label %land.rhs.us.preheader, label %land.rhs.preheader
 
 land.rhs.us.preheader:                            ; preds = %land.rhs.lr.ph
@@ -651,11 +651,11 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   br i1 %cmp1.i, label %while.end, label %if.end.i
 
 if.end.i:                                         ; preds = %land.rhs
-  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i1217, i64 %size.addr.0.i
+  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i1217, i64 %size.addr.1.i
   store ptr %add.ptr.i, ptr @mem_current, align 8
-  %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %sub8.i1416, i64 %size.addr.0.i)
+  %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %sub8.i1416, i64 %size.addr.1.i)
   store i64 %spec.select, ptr @mem_avail, align 8
-  %add12.i = add i64 %size.addr.0.i, %add12.i1018
+  %add12.i = add i64 %size.addr.1.i, %add12.i1018
   store i64 %add12.i, ptr @mem_malloced, align 8
   %cmp1.not = icmp eq ptr %add.ptr.i1217, null
   br i1 %cmp1.not, label %while.end, label %while.body
@@ -1878,7 +1878,7 @@ if.else228.i:                                     ; preds = %do.body214.i
   br label %if.end251.i
 
 if.end251.i:                                      ; preds = %if.else228.i, %if.then223.i, %if.end210.i
-  %was_busy.0.i = phi i32 [ 0, %if.end210.i ], [ 1, %if.else228.i ], [ 0, %if.then223.i ]
+  %was_busy.2.i = phi i32 [ 0, %if.end210.i ], [ 1, %if.else228.i ], [ 0, %if.then223.i ]
   tail call void @item_trylock_unlock(ptr noundef nonnull %call30.i) #22
   %call252.i = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #22
   br label %sw.epilog.i
@@ -1903,7 +1903,7 @@ sw.bb258.i:                                       ; preds = %if.then73.i, %if.th
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.bb258.i, %sw.bb253.i, %if.end251.i, %if.end.i9
-  %was_busy.1.i = phi i32 [ 1, %sw.bb258.i ], [ 0, %sw.bb253.i ], [ %was_busy.0.i, %if.end251.i ], [ 0, %if.end.i9 ]
+  %was_busy.1.i = phi i32 [ 1, %sw.bb258.i ], [ 0, %sw.bb253.i ], [ %was_busy.2.i, %if.end251.i ], [ 0, %if.end.i9 ]
   %call262.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @slabs_lock) #22
   %.pre117.i = load ptr, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 16), align 8
   %.pre118.i = load i32, ptr %arrayidx.i5, align 8
@@ -1913,7 +1913,7 @@ sw.epilog.i:                                      ; preds = %sw.bb258.i, %sw.bb2
 if.end263.i:                                      ; preds = %sw.epilog.i, %if.then7
   %idx.ext265.pre-phi.i = phi i64 [ %.pre119.i, %sw.epilog.i ], [ %conv.i6, %if.then7 ]
   %92 = phi ptr [ %.pre117.i, %sw.epilog.i ], [ %21, %if.then7 ]
-  %was_busy.2.i = phi i32 [ %was_busy.1.i, %sw.epilog.i ], [ 0, %if.then7 ]
+  %was_busy.0.i = phi i32 [ %was_busy.1.i, %sw.epilog.i ], [ 0, %if.then7 ]
   %add.ptr266.i = getelementptr inbounds i8, ptr %92, i64 %idx.ext265.pre-phi.i
   store ptr %add.ptr266.i, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 16), align 8
   %93 = load ptr, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 8), align 8
@@ -1948,13 +1948,13 @@ if.else275.i:                                     ; preds = %if.then269.i
   br label %if.end10
 
 if.end10thread-pre-split:                         ; preds = %if.else, %if.then4, %slab_rebalance_start.exit, %if.end263.i, %if.then271.i
-  %was_busy.1.ph = phi i32 [ %was_busy.2.i, %if.then271.i ], [ %was_busy.2.i, %if.end263.i ], [ 0, %slab_rebalance_start.exit ], [ 0, %if.then4 ], [ %was_busy.0, %if.else ]
+  %was_busy.1.ph = phi i32 [ %was_busy.0.i, %if.then271.i ], [ %was_busy.0.i, %if.end263.i ], [ 0, %slab_rebalance_start.exit ], [ 0, %if.then4 ], [ %was_busy.0, %if.else ]
   %.pr = load i8, ptr getelementptr inbounds (i8, ptr @slab_rebal, i64 60), align 4
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end10thread-pre-split, %if.else275.i
   %100 = phi i8 [ %.pr, %if.end10thread-pre-split ], [ %inc276.i, %if.else275.i ]
-  %was_busy.1 = phi i32 [ %was_busy.1.ph, %if.end10thread-pre-split ], [ %was_busy.2.i, %if.else275.i ]
+  %was_busy.1 = phi i32 [ %was_busy.1.ph, %if.end10thread-pre-split ], [ %was_busy.0.i, %if.else275.i ]
   %tobool11.not = icmp eq i8 %100, 0
   br i1 %tobool11.not, label %if.else13, label %if.then12
 
@@ -2425,14 +2425,14 @@ if.else.i:                                        ; preds = %land.lhs.true17
 
 if.end.i17:                                       ; preds = %if.else.i
   %size.biased.i = add nsw i64 %conv18, 7
-  %size.addr.0.i = and i64 %size.biased.i, -8
-  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %size.addr.0.i
+  %size.addr.1.i = and i64 %size.biased.i, -8
+  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %size.addr.1.i
   store ptr %add.ptr.i, ptr @mem_current, align 8
-  %cmp6.i = icmp ult i64 %size.addr.0.i, %16
+  %cmp6.i = icmp ult i64 %size.addr.1.i, %16
   br i1 %cmp6.i, label %if.then7.i, label %if.else9.i
 
 if.then7.i:                                       ; preds = %if.end.i17
-  %sub8.i = sub nuw i64 %16, %size.addr.0.i
+  %sub8.i = sub nuw i64 %16, %size.addr.1.i
   store i64 %sub8.i, ptr @mem_avail, align 8
   br label %memory_allocate.exit
 
@@ -2441,10 +2441,10 @@ if.else9.i:                                       ; preds = %if.end.i17
   br label %memory_allocate.exit
 
 memory_allocate.exit:                             ; preds = %if.then.i19, %if.then7.i, %if.else9.i
-  %size.addr.1.i = phi i64 [ %conv18, %if.then.i19 ], [ %size.addr.0.i, %if.then7.i ], [ %size.addr.0.i, %if.else9.i ]
+  %size.addr.0.i = phi i64 [ %conv18, %if.then.i19 ], [ %size.addr.1.i, %if.then7.i ], [ %size.addr.1.i, %if.else9.i ]
   %ret.0.i = phi ptr [ %call.i20, %if.then.i19 ], [ %15, %if.then7.i ], [ %15, %if.else9.i ]
   %17 = load i64, ptr @mem_malloced, align 8
-  %add12.i = add i64 %17, %size.addr.1.i
+  %add12.i = add i64 %17, %size.addr.0.i
   store i64 %add12.i, ptr @mem_malloced, align 8
   %cmp20 = icmp eq ptr %ret.0.i, null
   br i1 %cmp20, label %return, label %if.end23

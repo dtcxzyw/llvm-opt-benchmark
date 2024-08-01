@@ -1557,7 +1557,7 @@ error.sink.split.i:                               ; preds = %if.end.i73.i, %if.e
   br label %error.i
 
 error.i:                                          ; preds = %error.sink.split.i, %Py_DECREF.exit.i, %if.end.i73.i, %if.then36.i, %if.end.i82.i, %if.then31.i, %if.then13.i, %entry
-  %main_importer_path.2.i = phi ptr [ null, %if.then13.i ], [ %main_importer_path.1.i, %if.end.i82.i ], [ %main_importer_path.1.i, %if.then31.i ], [ %main_importer_path.1.i, %if.end.i73.i ], [ %main_importer_path.1.i, %if.then36.i ], [ %main_importer_path.1.i, %Py_DECREF.exit.i ], [ null, %entry ], [ %main_importer_path.1.i, %error.sink.split.i ]
+  %main_importer_path.0.i = phi ptr [ null, %if.then13.i ], [ %main_importer_path.1.i, %if.end.i82.i ], [ %main_importer_path.1.i, %if.then31.i ], [ %main_importer_path.1.i, %if.end.i73.i ], [ %main_importer_path.1.i, %if.then36.i ], [ %main_importer_path.1.i, %Py_DECREF.exit.i ], [ null, %entry ], [ %main_importer_path.1.i, %error.sink.split.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %exitcode.i.i120.i)
   %call.i.i121.i = call i32 @_Py_HandleSystemExit(ptr noundef nonnull %exitcode.i.i120.i) #14
   %tobool.not.i.i122.i = icmp eq i32 %call.i.i121.i, 0
@@ -1578,25 +1578,25 @@ pymain_exit_err_print.exit.i:                     ; preds = %if.end.i.i125.i, %i
   br label %done.i
 
 done.i:                                           ; preds = %pymain_exit_err_print.exit.i, %pymain_repl.exit.i
-  %main_importer_path.3.i = phi ptr [ %main_importer_path.2.i, %pymain_exit_err_print.exit.i ], [ %main_importer_path.1.i, %pymain_repl.exit.i ]
+  %main_importer_path.2.i = phi ptr [ %main_importer_path.0.i, %pymain_exit_err_print.exit.i ], [ %main_importer_path.1.i, %pymain_repl.exit.i ]
   call void @_PyInterpreterState_SetNotRunningMain(ptr noundef %2) #14
-  %cmp.not.i126.i = icmp eq ptr %main_importer_path.3.i, null
+  %cmp.not.i126.i = icmp eq ptr %main_importer_path.2.i, null
   br i1 %cmp.not.i126.i, label %pymain_run_python.exit, label %if.then.i127.i
 
 if.then.i127.i:                                   ; preds = %done.i
-  %70 = load i64, ptr %main_importer_path.3.i, align 8
+  %70 = load i64, ptr %main_importer_path.2.i, align 8
   %71 = and i64 %70, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %71, 0
   br i1 %cmp.i2.not.i.i, label %if.end.i.i129.i, label %pymain_run_python.exit
 
 if.end.i.i129.i:                                  ; preds = %if.then.i127.i
   %dec.i.i130.i = add i64 %70, -1
-  store i64 %dec.i.i130.i, ptr %main_importer_path.3.i, align 8
+  store i64 %dec.i.i130.i, ptr %main_importer_path.2.i, align 8
   %cmp.i.i131.i = icmp eq i64 %dec.i.i130.i, 0
   br i1 %cmp.i.i131.i, label %if.then1.i.i132.i, label %pymain_run_python.exit
 
 if.then1.i.i132.i:                                ; preds = %if.end.i.i129.i
-  call void @_Py_Dealloc(ptr noundef nonnull %main_importer_path.3.i) #14
+  call void @_Py_Dealloc(ptr noundef nonnull %main_importer_path.2.i) #14
   br label %pymain_run_python.exit
 
 pymain_run_python.exit:                           ; preds = %pymain_get_importer.exit.i, %done.i, %if.then.i127.i, %if.end.i.i129.i, %if.then1.i.i132.i

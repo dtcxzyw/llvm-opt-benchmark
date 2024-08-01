@@ -606,7 +606,7 @@ while.body.i:                                     ; preds = %if.end46.i, %while.
   %retval.sroa.0.sroa.0.07.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %retval.sroa.0.sroa.0.1.i, %if.end46.i ]
   %retval.sroa.0.sroa.4.06.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %retval.sroa.0.sroa.4.1.i, %if.end46.i ]
   %retval.sroa.6.05.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %retval.sroa.6.1.i, %if.end46.i ]
-  %activeSegment.sroa.16.04.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %activeSegment.sroa.16.3.i, %if.end46.i ]
+  %activeSegment.sroa.16.04.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %activeSegment.sroa.16.2.i, %if.end46.i ]
   %activeSegment.sroa.0.02.i = phi i32 [ %conv9, %while.body.lr.ph.i ], [ %activeSegment.sroa.0.1.i, %if.end46.i ]
   %7 = load ptr, ptr %ctx, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.i
@@ -655,15 +655,15 @@ if.then39.i:                                      ; preds = %if.then25.i
   br label %if.end43.i
 
 if.end43.i:                                       ; preds = %if.then39.i, %if.then25.i
-  %activeSegment.sroa.16.2.i = phi i32 [ %sub42.i, %if.then39.i ], [ %activeSegment.sroa.16.1.i, %if.then25.i ]
+  %activeSegment.sroa.16.3.i = phi i32 [ %sub42.i, %if.then39.i ], [ %activeSegment.sroa.16.1.i, %if.then25.i ]
   %add45.i = add i32 %activeSegment.sroa.0.02.i, 1
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.end43.i, %if.end.i
   %activeSegment.sroa.0.1.i = phi i32 [ %add45.i, %if.end43.i ], [ %activeSegment.sroa.0.02.i, %if.end.i ]
-  %activeSegment.sroa.16.3.i = phi i32 [ %activeSegment.sroa.16.2.i, %if.end43.i ], [ %activeSegment.sroa.16.1.i, %if.end.i ]
-  %cmp49.i = icmp ugt i32 %activeSegment.sroa.16.3.i, %retval.sroa.6.05.i
-  %retval.sroa.6.1.i = tail call i32 @llvm.umax.i32(i32 %activeSegment.sroa.16.3.i, i32 %retval.sroa.6.05.i)
+  %activeSegment.sroa.16.2.i = phi i32 [ %activeSegment.sroa.16.3.i, %if.end43.i ], [ %activeSegment.sroa.16.1.i, %if.end.i ]
+  %cmp49.i = icmp ugt i32 %activeSegment.sroa.16.2.i, %retval.sroa.6.05.i
+  %retval.sroa.6.1.i = tail call i32 @llvm.umax.i32(i32 %activeSegment.sroa.16.2.i, i32 %retval.sroa.6.05.i)
   %retval.sroa.0.sroa.4.1.i = select i1 %cmp49.i, i32 %indvars.i, i32 %retval.sroa.0.sroa.4.06.i
   %retval.sroa.0.sroa.0.1.i = select i1 %cmp49.i, i32 %activeSegment.sroa.0.1.i, i32 %retval.sroa.0.sroa.0.07.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

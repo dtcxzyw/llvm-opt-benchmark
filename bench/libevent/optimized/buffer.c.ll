@@ -1084,8 +1084,8 @@ if.end10:                                         ; preds = %lor.lhs.false
 
 for.cond:                                         ; preds = %if.end32, %if.end10
   %chain.0.in = phi ptr [ %2, %if.end10 ], [ %chain.0, %if.end32 ]
-  %avail.0 = phi i64 [ 0, %if.end10 ], [ %avail.1, %if.end32 ]
-  %used.0 = phi i32 [ 0, %if.end10 ], [ %used.1, %if.end32 ]
+  %avail.0 = phi i64 [ 0, %if.end10 ], [ %avail.2, %if.end32 ]
+  %used.0 = phi i32 [ 0, %if.end10 ], [ %used.2, %if.end32 ]
   %chain.0 = load ptr, ptr %chain.0.in, align 8
   %tobool11.not = icmp eq ptr %chain.0, null
   br i1 %tobool11.not, label %for.end, label %for.body
@@ -1128,13 +1128,13 @@ if.else24:                                        ; preds = %for.body
   br label %if.end29
 
 if.end29:                                         ; preds = %if.then13, %cond.end, %if.then21, %if.else24
-  %avail.1 = phi i64 [ %add22, %if.then21 ], [ %avail.0, %cond.end ], [ %add27, %if.else24 ], [ %avail.0, %if.then13 ]
-  %used.1 = phi i32 [ %inc, %if.then21 ], [ %used.0, %cond.end ], [ %inc28, %if.else24 ], [ %used.0, %if.then13 ]
-  %cmp30.not = icmp ult i64 %avail.1, %datlen
+  %avail.2 = phi i64 [ %add22, %if.then21 ], [ %avail.0, %cond.end ], [ %add27, %if.else24 ], [ %avail.0, %if.then13 ]
+  %used.2 = phi i32 [ %inc, %if.then21 ], [ %used.0, %cond.end ], [ %inc28, %if.else24 ], [ %used.0, %if.then13 ]
+  %cmp30.not = icmp ult i64 %avail.2, %datlen
   br i1 %cmp30.not, label %if.end32, label %return
 
 if.end32:                                         ; preds = %if.end29
-  %cmp33 = icmp eq i32 %used.1, %n
+  %cmp33 = icmp eq i32 %used.2, %n
   br i1 %cmp33, label %if.else49, label %for.cond, !llvm.loop !11
 
 for.end:                                          ; preds = %for.cond
@@ -2225,7 +2225,7 @@ cond.end84:                                       ; preds = %lor.lhs.false, %con
 
 for.body92:                                       ; preds = %for.body92.preheader, %if.end108
   %indvars.iv75 = phi i64 [ 0, %for.body92.preheader ], [ %indvars.iv.next76, %if.end108 ]
-  %added.072 = phi i64 [ 0, %for.body92.preheader ], [ %add101, %if.end108 ]
+  %added.172 = phi i64 [ 0, %for.body92.preheader ], [ %add101, %if.end108 ]
   %chainp.071 = phi ptr [ %firstchainp.0, %for.body92.preheader ], [ %32, %if.end108 ]
   %iov_len95 = getelementptr inbounds %struct.iovec, ptr %vec, i64 %indvars.iv75, i32 1
   %28 = load i64, ptr %iov_len95, align 8
@@ -2235,7 +2235,7 @@ for.body92:                                       ; preds = %for.body92.preheade
   %add97 = add i64 %30, %28
   store i64 %add97, ptr %off96, align 8
   %31 = load i64, ptr %iov_len95, align 8
-  %add101 = add i64 %31, %added.072
+  %add101 = add i64 %31, %added.172
   %tobool105.not = icmp eq i64 %31, 0
   br i1 %tobool105.not, label %if.end108, label %if.then106
 
@@ -2250,14 +2250,14 @@ if.end108:                                        ; preds = %if.then106, %for.bo
   br i1 %exitcond79.not, label %okay, label %for.body92, !llvm.loop !18
 
 okay:                                             ; preds = %if.end108, %if.end58, %for.cond90.preheader, %if.end27, %if.then36
-  %added.1 = phi i64 [ %12, %if.then36 ], [ 0, %if.end27 ], [ 0, %for.cond90.preheader ], [ 0, %if.end58 ], [ %add101, %if.end108 ]
+  %added.0 = phi i64 [ %12, %if.then36 ], [ 0, %if.end27 ], [ 0, %for.cond90.preheader ], [ 0, %if.end58 ], [ %add101, %if.end108 ]
   %total_len = getelementptr inbounds i8, ptr %buf, i64 24
   %33 = load i64, ptr %total_len, align 8
-  %add113 = add i64 %33, %added.1
+  %add113 = add i64 %33, %added.0
   store i64 %add113, ptr %total_len, align 8
   %n_add_for_cb = getelementptr inbounds i8, ptr %buf, i64 40
   %34 = load i64, ptr %n_add_for_cb, align 8
-  %add114 = add i64 %34, %added.1
+  %add114 = add i64 %34, %added.0
   store i64 %add114, ptr %n_add_for_cb, align 8
   tail call void @evbuffer_invoke_callbacks_(ptr noundef %buf)
   br label %do.body116
@@ -3255,10 +3255,10 @@ for.end47:                                        ; preds = %for.end47.loopexit,
   br label %if.end55
 
 if.end55:                                         ; preds = %for.end47, %for.end
-  %len.addr.1 = phi i64 [ %spec.select, %for.end47 ], [ %2, %for.end ]
+  %len.addr.0 = phi i64 [ %spec.select, %for.end47 ], [ %2, %for.end ]
   %n_del_for_cb = getelementptr inbounds i8, ptr %buf, i64 48
   %25 = load i64, ptr %n_del_for_cb, align 8
-  %add56 = add i64 %25, %len.addr.1
+  %add56 = add i64 %25, %len.addr.0
   store i64 %add56, ptr %n_del_for_cb, align 8
   tail call void @evbuffer_invoke_callbacks_(ptr noundef nonnull %buf)
   br label %do.body58
@@ -5178,7 +5178,7 @@ for.end.loopexit36.i:                             ; preds = %cond.end26.i
   br label %evbuffer_read_setup_vecs_.exit
 
 evbuffer_read_setup_vecs_.exit:                   ; preds = %if.end11.i, %for.end.loopexit36.i, %if.else
-  %chainp.0 = phi ptr [ undef, %if.else ], [ %firstchainp.0.i, %for.end.loopexit36.i ], [ %firstchainp.0.i, %if.end11.i ]
+  %chainp.1 = phi ptr [ undef, %if.else ], [ %firstchainp.0.i, %for.end.loopexit36.i ], [ %firstchainp.0.i, %if.end11.i ]
   %retval.0.i34 = phi i32 [ -1, %if.else ], [ %23, %for.end.loopexit36.i ], [ 0, %if.end11.i ]
   %call29 = call i64 @readv(i32 noundef %fd, ptr noundef nonnull %vecs, i32 noundef %retval.0.i34) #16
   %conv30 = trunc i64 %call29 to i32
@@ -5194,8 +5194,8 @@ for.cond.preheader:                               ; preds = %evbuffer_read_setup
 for.body:                                         ; preds = %for.cond.preheader, %if.then50
   %remaining.046 = phi i32 [ %sub54, %if.then50 ], [ %conv30, %for.cond.preheader ]
   %i.045 = phi i32 [ %inc, %if.then50 ], [ 0, %for.cond.preheader ]
-  %chainp.144 = phi ptr [ %31, %if.then50 ], [ %chainp.0, %for.cond.preheader ]
-  %24 = load ptr, ptr %chainp.144, align 8
+  %chainp.044 = phi ptr [ %31, %if.then50 ], [ %chainp.1, %for.cond.preheader ]
+  %24 = load ptr, ptr %chainp.044, align 8
   %flags = getelementptr inbounds i8, ptr %24, i64 32
   %25 = load i32, ptr %flags, align 8
   %and = and i32 %25, 8
@@ -5227,7 +5227,7 @@ if.then50:                                        ; preds = %cond.end
   store i64 %add52, ptr %off51, align 8
   %conv53 = trunc i64 %spec.store.select to i32
   %sub54 = sub nsw i32 %remaining.046, %conv53
-  %31 = load ptr, ptr %chainp.144, align 8
+  %31 = load ptr, ptr %chainp.044, align 8
   %inc = add nuw nsw i32 %i.045, 1
   %exitcond.not = icmp eq i32 %inc, %retval.0.i34
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !34
@@ -5236,7 +5236,7 @@ if.else55:                                        ; preds = %cond.end
   %add58 = add i64 %30, %conv47
   store i64 %add58, ptr %off51, align 8
   %last_with_datap = getelementptr inbounds i8, ptr %buf, i64 16
-  store ptr %chainp.144, ptr %last_with_datap, align 8
+  store ptr %chainp.044, ptr %last_with_datap, align 8
   br label %for.end
 
 for.end:                                          ; preds = %if.then50, %for.cond.preheader, %if.else55

@@ -2911,11 +2911,11 @@ define internal fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_1
   br label %59
 
 59:                                               ; preds = %31, %.critedge
-  %.2 = phi i32 [ %.0..0.24, %31 ], [ %.0..0.26, %.critedge ]
+  %.219 = phi i32 [ %.0..0.24, %31 ], [ %.0..0.26, %.critedge ]
   %.116 = phi i32 [ %spec.select, %31 ], [ %.0.1240, %.critedge ]
   %.sink = phi i1 [ %32, %31 ], [ %58, %.critedge ]
   %.1 = phi i32 [ %.sroa.speculated29, %31 ], [ %.054, %.critedge ]
-  %storemerge66 = select i1 %.sink, i32 %.116, i32 %.2
+  %storemerge66 = select i1 %.sink, i32 %.116, i32 %.219
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count
   br i1 %exitcond.not, label %60, label %19, !llvm.loop !39
@@ -2965,29 +2965,29 @@ define internal fastcc void @_ZN5NbnxmL10sort_atomsEibibPiiN3gmx8ArrayRefIKNS1_1
 
 75:                                               ; preds = %.lr.ph66, %83
   %indvars.iv95 = phi i64 [ %73, %.lr.ph66 ], [ %indvars.iv.next96, %83 ]
-  %.263 = phi i32 [ 0, %.lr.ph66 ], [ %.3, %83 ]
+  %.363 = phi i32 [ 0, %.lr.ph66 ], [ %.4, %83 ]
   %76 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv95
   %77 = load i32, ptr %76, align 4
   %78 = icmp sgt i32 %77, -1
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %75
-  %80 = add nsw i32 %.263, 1
-  %81 = sext i32 %.263 to i64
+  %80 = add nsw i32 %.363, 1
+  %81 = sext i32 %.363 to i64
   %82 = getelementptr inbounds i32, ptr %2, i64 %81
   store i32 %77, ptr %82, align 4
   store i32 -1, ptr %76, align 4
   br label %83
 
 83:                                               ; preds = %75, %79
-  %.3 = phi i32 [ %80, %79 ], [ %.263, %75 ]
+  %.4 = phi i32 [ %80, %79 ], [ %.363, %75 ]
   %indvars.iv.next96 = add nsw i64 %indvars.iv95, -1
   %.not.not = icmp sgt i64 %indvars.iv95, %74
   br i1 %.not.not, label %75, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %71, %83, %.preheader, %72
-  %.4 = phi i32 [ 0, %72 ], [ 0, %.preheader ], [ %.3, %83 ], [ %.158, %71 ]
-  %84 = icmp slt i32 %.4, %3
+  %.2 = phi i32 [ 0, %72 ], [ 0, %.preheader ], [ %.4, %83 ], [ %.158, %71 ]
+  %84 = icmp slt i32 %.2, %3
   br i1 %84, label %85, label %97
 
 85:                                               ; preds = %.loopexit

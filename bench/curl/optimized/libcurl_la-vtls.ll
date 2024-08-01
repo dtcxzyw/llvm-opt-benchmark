@@ -3743,8 +3743,8 @@ for.inc:                                          ; preds = %for.body
   br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !16
 
 for.end:                                          ; preds = %for.inc, %entry, %cond.end, %if.then
-  %result.1 = phi i32 [ %spec.select, %if.then ], [ 0, %cond.end ], [ 0, %entry ], [ 0, %for.inc ]
-  ret i32 %result.1
+  %result.0 = phi i32 [ %spec.select, %if.then ], [ 0, %cond.end ], [ 0, %entry ], [ 0, %for.inc ]
+  ret i32 %result.0
 }
 
 declare zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4

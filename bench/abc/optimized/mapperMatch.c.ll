@@ -227,7 +227,7 @@ define noundef i32 @Map_MatchNodeCut(ptr nocapture noundef %0, ptr noundef %1, p
   br label %18
 
 18:                                               ; preds = %.lr.ph128, %._crit_edge
-  %.sroa.7.sroa.0.0 = phi i64 [ %9, %.lr.ph128 ], [ %.sroa.7.sroa.0.3, %._crit_edge ]
+  %.sroa.7.sroa.0.0 = phi i64 [ %9, %.lr.ph128 ], [ %.sroa.7.sroa.0.4, %._crit_edge ]
   %.075126 = phi ptr [ %.075119, %.lr.ph128 ], [ %.075, %._crit_edge ]
   %.0125 = phi i32 [ 0, %.lr.ph128 ], [ %169, %._crit_edge ]
   %.076124 = phi float [ %4, %.lr.ph128 ], [ %.1.lcssa, %._crit_edge ]
@@ -251,7 +251,7 @@ define noundef i32 @Map_MatchNodeCut(ptr nocapture noundef %0, ptr noundef %1, p
   br label %27
 
 27:                                               ; preds = %.lr.ph, %Map_MatchCompare.exit.thread
-  %.sroa.7.sroa.0.1 = phi i64 [ %.sroa.7.sroa.0.0, %.lr.ph ], [ %.sroa.7.sroa.0.2, %Map_MatchCompare.exit.thread ]
+  %.sroa.7.sroa.0.2 = phi i64 [ %.sroa.7.sroa.0.0, %.lr.ph ], [ %.sroa.7.sroa.0.3, %Map_MatchCompare.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Map_MatchCompare.exit.thread ]
   %.1114 = phi float [ %.076124, %.lr.ph ], [ %.2, %Map_MatchCompare.exit.thread ]
   %.sroa.3.1113 = phi ptr [ %.sroa.3.0123, %.lr.ph ], [ %.sroa.3.2, %Map_MatchCompare.exit.thread ]
@@ -471,7 +471,7 @@ Map_MatchCompare.exit.thread107:                  ; preds = %94, %149, %135, %12
   br label %Map_MatchCompare.exit.thread
 
 Map_MatchCompare.exit.thread:                     ; preds = %94, %138, %129, %110, %100, %81, %73, %65, %Map_MatchCompare.exit, %160, %Map_MatchCompare.exit.thread107, %56, %51, %37
-  %.sroa.7.sroa.0.2 = phi i64 [ %.sroa.7.sroa.0.1, %51 ], [ %.sroa.7.sroa.0.1, %56 ], [ %.sroa.7.sroa.0.1, %65 ], [ %156, %160 ], [ %156, %Map_MatchCompare.exit.thread107 ], [ %.sroa.7.sroa.0.1, %73 ], [ %.sroa.7.sroa.0.1, %81 ], [ %.sroa.7.sroa.0.1, %Map_MatchCompare.exit ], [ %.sroa.7.sroa.0.1, %100 ], [ %.sroa.7.sroa.0.1, %129 ], [ %.sroa.7.sroa.0.1, %138 ], [ %.sroa.7.sroa.0.1, %110 ], [ %.sroa.7.sroa.0.1, %37 ], [ %.sroa.7.sroa.0.1, %94 ]
+  %.sroa.7.sroa.0.3 = phi i64 [ %.sroa.7.sroa.0.2, %51 ], [ %.sroa.7.sroa.0.2, %56 ], [ %.sroa.7.sroa.0.2, %65 ], [ %156, %160 ], [ %156, %Map_MatchCompare.exit.thread107 ], [ %.sroa.7.sroa.0.2, %73 ], [ %.sroa.7.sroa.0.2, %81 ], [ %.sroa.7.sroa.0.2, %Map_MatchCompare.exit ], [ %.sroa.7.sroa.0.2, %100 ], [ %.sroa.7.sroa.0.2, %129 ], [ %.sroa.7.sroa.0.2, %138 ], [ %.sroa.7.sroa.0.2, %110 ], [ %.sroa.7.sroa.0.2, %37 ], [ %.sroa.7.sroa.0.2, %94 ]
   %.sroa.3.2 = phi ptr [ %.sroa.3.1113, %51 ], [ %.sroa.3.1113, %56 ], [ %.sroa.3.1113, %65 ], [ %.sroa.3.0.copyload82, %160 ], [ %.sroa.3.0.copyload82, %Map_MatchCompare.exit.thread107 ], [ %.sroa.3.1113, %73 ], [ %.sroa.3.1113, %81 ], [ %.sroa.3.1113, %Map_MatchCompare.exit ], [ %.sroa.3.1113, %100 ], [ %.sroa.3.1113, %129 ], [ %.sroa.3.1113, %138 ], [ %.sroa.3.1113, %110 ], [ %.sroa.3.1113, %37 ], [ %.sroa.3.1113, %94 ]
   %.2 = phi float [ %.1114, %51 ], [ %.1114, %56 ], [ %.1114, %65 ], [ %161, %160 ], [ %.1114, %Map_MatchCompare.exit.thread107 ], [ %.1114, %73 ], [ %.1114, %81 ], [ %.1114, %Map_MatchCompare.exit ], [ %.1114, %100 ], [ %.1114, %129 ], [ %.1114, %138 ], [ %.1114, %110 ], [ %.1114, %37 ], [ %.1114, %94 ]
   %162 = phi <2 x float> [ %28, %51 ], [ %28, %56 ], [ %28, %65 ], [ %157, %160 ], [ %157, %Map_MatchCompare.exit.thread107 ], [ %28, %73 ], [ %28, %81 ], [ %28, %Map_MatchCompare.exit ], [ %28, %100 ], [ %28, %129 ], [ %28, %138 ], [ %28, %110 ], [ %28, %37 ], [ %28, %94 ]
@@ -483,7 +483,7 @@ Map_MatchCompare.exit.thread:                     ; preds = %94, %138, %129, %11
   br i1 %166, label %27, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %Map_MatchCompare.exit.thread, %23
-  %.sroa.7.sroa.0.3 = phi i64 [ %.sroa.7.sroa.0.0, %23 ], [ %.sroa.7.sroa.0.2, %Map_MatchCompare.exit.thread ]
+  %.sroa.7.sroa.0.4 = phi i64 [ %.sroa.7.sroa.0.0, %23 ], [ %.sroa.7.sroa.0.3, %Map_MatchCompare.exit.thread ]
   %.sroa.3.1.lcssa = phi ptr [ %.sroa.3.0123, %23 ], [ %.sroa.3.2, %Map_MatchCompare.exit.thread ]
   %.1.lcssa = phi float [ %.076124, %23 ], [ %.2, %Map_MatchCompare.exit.thread ]
   %167 = phi <2 x float> [ %19, %23 ], [ %162, %Map_MatchCompare.exit.thread ]
@@ -494,12 +494,12 @@ Map_MatchCompare.exit.thread:                     ; preds = %94, %138, %129, %11
   br i1 %.not, label %._crit_edge129, label %18, !llvm.loop !6
 
 ._crit_edge129:                                   ; preds = %._crit_edge, %18, %5
-  %.sroa.7.sroa.0.5 = phi i64 [ %9, %5 ], [ %.sroa.7.sroa.0.3, %._crit_edge ], [ %.sroa.7.sroa.0.0, %18 ]
+  %.sroa.7.sroa.0.1 = phi i64 [ %9, %5 ], [ %.sroa.7.sroa.0.4, %._crit_edge ], [ %.sroa.7.sroa.0.0, %18 ]
   %.sroa.3.0.lcssa = phi ptr [ %.sroa.3.0.copyload, %5 ], [ %.sroa.3.1.lcssa, %._crit_edge ], [ %.sroa.3.0123, %18 ]
   %170 = phi <2 x float> [ %10, %5 ], [ %167, %._crit_edge ], [ %19, %18 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false)
   store ptr %.sroa.3.0.lcssa, ptr %.sroa.3.0..sroa_idx, align 8
-  store i64 %.sroa.7.sroa.0.5, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.7.sroa.0.1, ptr %.sroa.7.0..sroa_idx, align 8
   store <2 x float> %170, ptr %.sroa.790.0..sroa_idx, align 8
   %.not80 = icmp eq ptr %.sroa.3.0.lcssa, null
   br i1 %.not80, label %181, label %171

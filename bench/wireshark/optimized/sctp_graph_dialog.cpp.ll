@@ -2983,8 +2983,8 @@ define void @_ZN15SCTPGraphDialog15drawNRSACKGraphEPK16_sctp_assoc_info(ptr noun
   br i1 %.not88, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit.us
-  %.3472.us = phi i32 [ %271, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit.us ], [ %70, %.lr.ph ]
-  %73 = add i32 %63, %.3472.us
+  %.4472.us = phi i32 [ %271, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit.us ], [ %70, %.lr.ph ]
+  %73 = add i32 %63, %.4472.us
   %74 = uitofp i32 %73 to double
   %75 = load i64, ptr %23, align 8
   %76 = load ptr, ptr %22, align 8
@@ -3377,13 +3377,13 @@ _ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit
   br label %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit.us
 
 _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit.us: ; preds = %_ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit.i137.us, %228, %222
-  %271 = add nuw nsw i32 %.3472.us, 1
-  %exitcond490.not = icmp eq i32 %.3472.us, %71
+  %271 = add nuw nsw i32 %.4472.us, 1
+  %exitcond490.not = icmp eq i32 %.4472.us, %71
   br i1 %exitcond490.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit
-  %.3472 = phi i32 [ %470, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit ], [ %70, %.lr.ph ]
-  %272 = add i32 %63, %.3472
+  %.4472 = phi i32 [ %470, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit ], [ %70, %.lr.ph ]
+  %272 = add i32 %63, %.4472
   %273 = uitofp i32 %272 to double
   %274 = load i64, ptr %14, align 8
   %275 = load ptr, ptr %13, align 8
@@ -3776,12 +3776,12 @@ _ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit
   br label %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit
 
 _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit: ; preds = %_ZN9QtPrivate12QPodArrayOpsIjE10createHoleEN10QArrayData14GrowthPositionExx.exit.i, %427, %421
-  %470 = add nuw nsw i32 %.3472, 1
-  %exitcond.not = icmp eq i32 %.3472, %71
+  %470 = add nuw nsw i32 %.4472, 1
+  %exitcond.not = icmp eq i32 %.4472, %71
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit.us, %66
-  %.3.lcssa = phi i32 [ %70, %66 ], [ %72, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit.us ], [ %72, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit ]
+  %.4.lcssa = phi i32 [ %70, %66 ], [ %72, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit.us ], [ %72, %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit ]
   %471 = icmp sgt i32 %64, %indvars.iv
   %spec.select89.idx = select i1 %471, i64 4, i64 0
   %spec.select89 = getelementptr i8, ptr %.0474, i64 %spec.select89.idx
@@ -3794,7 +3794,7 @@ _ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit: ; preds = %_ZN9QtPriv
   br i1 %.not84, label %_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_.exit179, label %473
 
 473:                                              ; preds = %472
-  %474 = add i32 %63, %.3.lcssa
+  %474 = add i32 %63, %.4.lcssa
   %475 = uitofp i32 %474 to double
   %476 = load i64, ptr %32, align 8
   %477 = load ptr, ptr %31, align 8

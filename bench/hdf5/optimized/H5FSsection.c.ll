@@ -1528,7 +1528,7 @@ H5VM_log2_gen.exit.i:                             ; preds = %62, %56, %50, %44, 
   br label %113
 
 113:                                              ; preds = %109, %80
-  %.149.i = phi ptr [ %83, %109 ], [ %81, %80 ]
+  %.250.i = phi ptr [ %83, %109 ], [ %81, %80 ]
   %114 = load ptr, ptr %66, align 8
   %115 = getelementptr inbounds %struct.H5FS_bin_t, ptr %114, i64 %.0.i.i
   %116 = load i64, ptr %115, align 8
@@ -1546,7 +1546,7 @@ H5VM_log2_gen.exit.i:                             ; preds = %62, %56, %50, %44, 
   %124 = load i64, ptr %123, align 8
   %125 = add i64 %124, 1
   store i64 %125, ptr %123, align 8
-  %126 = getelementptr inbounds i8, ptr %.149.i, i64 16
+  %126 = getelementptr inbounds i8, ptr %.250.i, i64 16
   %127 = load i64, ptr %126, align 8
   %128 = add i64 %127, 1
   store i64 %128, ptr %126, align 8
@@ -1558,7 +1558,7 @@ H5VM_log2_gen.exit.i:                             ; preds = %62, %56, %50, %44, 
   %132 = load i64, ptr %131, align 8
   %133 = add i64 %132, 1
   store i64 %133, ptr %131, align 8
-  %134 = getelementptr inbounds i8, ptr %.149.i, i64 8
+  %134 = getelementptr inbounds i8, ptr %.250.i, i64 8
   %135 = load i64, ptr %134, align 8
   %136 = add i64 %135, 1
   store i64 %136, ptr %134, align 8
@@ -1574,7 +1574,7 @@ H5VM_log2_gen.exit.i:                             ; preds = %62, %56, %50, %44, 
   br label %141
 
 141:                                              ; preds = %.sink.split.i, %130, %122
-  %142 = getelementptr inbounds i8, ptr %.149.i, i64 24
+  %142 = getelementptr inbounds i8, ptr %.250.i, i64 24
   %143 = load ptr, ptr %142, align 8
   %144 = tail call i32 @H5SL_insert(ptr noundef %143, ptr noundef nonnull %1, ptr noundef nonnull %1) #5
   %145 = icmp slt i32 %144, 0

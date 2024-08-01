@@ -2028,10 +2028,10 @@ define noundef i32 @_Z12read_pdbfileP8_IO_FILEPcPiP7t_atomsP8t_symtabPA3_fP7PbcT
   br i1 %.not89219, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %63, %448
-  %.077151223 = phi i1 [ %.279, %448 ], [ false, %63 ]
-  %.074152222 = phi i1 [ %.276, %448 ], [ false, %63 ]
-  %.067153221 = phi i32 [ %.269, %448 ], [ 0, %63 ]
-  %.064156220 = phi i32 [ %.266, %448 ], [ 0, %63 ]
+  %.077151223 = phi i1 [ %.178, %448 ], [ false, %63 ]
+  %.074152222 = phi i1 [ %.175, %448 ], [ false, %63 ]
+  %.067153221 = phi i32 [ %.168, %448 ], [ 0, %63 ]
+  %.064156220 = phi i32 [ %.165, %448 ], [ 0, %63 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %44) #24
   %95 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %43)
           to label %.noexc unwind label %106
@@ -2482,7 +2482,7 @@ _ZL11read_anisouPciP7t_atoms.exit:                ; preds = %._crit_edge.i, %232
   %263 = phi i32 [ %.pre66.i, %256 ], [ %252, %245 ]
   %264 = phi i32 [ %.pre65.i, %256 ], [ %250, %245 ]
   %265 = phi i8 [ %.pre.i122, %256 ], [ %248, %245 ]
-  %.0.i = phi i32 [ %260, %256 ], [ 4, %245 ]
+  %.1.i = phi i32 [ %260, %256 ], [ 4, %245 ]
   %266 = icmp eq i8 %265, 80
   %267 = icmp eq i32 %264, 21
   %or.cond7.i = select i1 %266, i1 %267, i1 false
@@ -2490,15 +2490,15 @@ _ZL11read_anisouPciP7t_atoms.exit:                ; preds = %._crit_edge.i, %232
   %or.cond9.i = select i1 %or.cond7.i, i1 %268, i1 false
   %269 = icmp eq i32 %262, 1
   %or.cond11.i = select i1 %or.cond9.i, i1 %269, i1 false
-  %spec.select.i = select i1 %or.cond11.i, i32 3, i32 %.0.i
+  %spec.select.i = select i1 %or.cond11.i, i32 3, i32 %.1.i
   br label %270
 
 270:                                              ; preds = %261, %241
-  %.1.i = phi i32 [ 4, %241 ], [ %spec.select.i, %261 ]
+  %.0.i = phi i32 [ 4, %241 ], [ %spec.select.i, %261 ]
   br i1 %.not, label %272, label %271
 
 271:                                              ; preds = %270
-  store i32 %.1.i, ptr %6, align 4
+  store i32 %.0.i, ptr %6, align 4
   br label %272
 
 272:                                              ; preds = %271, %270
@@ -2511,7 +2511,7 @@ _ZL11read_anisouPciP7t_atoms.exit:                ; preds = %._crit_edge.i, %232
   %277 = fmul double %276, 1.000000e-01
   %278 = call double @strtod(ptr nocapture noundef nonnull %19, ptr noundef null) #24
   %279 = fmul double %278, 1.000000e-01
-  %280 = icmp eq i32 %.1.i, 3
+  %280 = icmp eq i32 %.0.i, 3
   %281 = fmul double %275, 5.000000e-01
   %spec.select64.i = select i1 %280, double %281, double %275
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %68, i8 0, i64 32, i1 false)
@@ -2958,10 +2958,10 @@ _ZL18gmx_conect_addlineP12gmx_conect_tPc.exit:    ; preds = %_ZStplIcSt11char_tr
   br label %448
 
 448:                                              ; preds = %_ZL18gmx_conect_addlineP12gmx_conect_tPc.exit, %_ZL11read_anisouPciP7t_atoms.exit, %_ZL9read_atomP8t_symtabPKc13PdbRecordTypeiP7t_atomsPA3_fi.exit, %_ZL11read_cryst1PcP7PbcTypePA3_f.exit, %369, %197, %341, %342, %331, %346, %372, %371, %444, %445, %_ZNRSt8optionalI13PdbRecordTypeE5valueEv.exit, %365, %367, %363, %102
-  %.279 = phi i1 [ %.077151223, %102 ], [ %.077151223, %_ZNRSt8optionalI13PdbRecordTypeE5valueEv.exit ], [ %.077151223, %_ZL18gmx_conect_addlineP12gmx_conect_tPc.exit ], [ %.077151223, %444 ], [ %.077151223, %445 ], [ %.077151223, %372 ], [ %.077151223, %371 ], [ %.077151223, %369 ], [ %.077151223, %346 ], [ %.077151223, %342 ], [ %.077151223, %341 ], [ %.077151223, %331 ], [ %.077151223, %_ZL11read_cryst1PcP7PbcTypePA3_f.exit ], [ %.077151223, %_ZL11read_anisouPciP7t_atoms.exit ], [ %.077151223, %197 ], [ %.077151223, %_ZL9read_atomP8t_symtabPKc13PdbRecordTypeiP7t_atomsPA3_fi.exit ], [ true, %365 ], [ true, %367 ], [ true, %363 ]
-  %.276 = phi i1 [ %.074152222, %102 ], [ %.074152222, %_ZNRSt8optionalI13PdbRecordTypeE5valueEv.exit ], [ %.074152222, %_ZL18gmx_conect_addlineP12gmx_conect_tPc.exit ], [ true, %444 ], [ true, %445 ], [ %.074152222, %372 ], [ %.074152222, %371 ], [ %.074152222, %369 ], [ %.074152222, %346 ], [ %.074152222, %342 ], [ %.074152222, %341 ], [ %.074152222, %331 ], [ %.074152222, %_ZL11read_cryst1PcP7PbcTypePA3_f.exit ], [ %.074152222, %_ZL11read_anisouPciP7t_atoms.exit ], [ %.074152222, %197 ], [ %.074152222, %_ZL9read_atomP8t_symtabPKc13PdbRecordTypeiP7t_atomsPA3_fi.exit ], [ %.074152222, %365 ], [ %.074152222, %367 ], [ %.074152222, %363 ]
-  %.269 = phi i32 [ %.067153221, %102 ], [ %.067153221, %_ZNRSt8optionalI13PdbRecordTypeE5valueEv.exit ], [ %.067153221, %_ZL18gmx_conect_addlineP12gmx_conect_tPc.exit ], [ %.067153221, %444 ], [ %.067153221, %445 ], [ %.067153221, %372 ], [ %.067153221, %371 ], [ %.067153221, %369 ], [ %.067153221, %346 ], [ %.067153221, %342 ], [ %.067153221, %341 ], [ %.067153221, %331 ], [ %.067153221, %_ZL11read_cryst1PcP7PbcTypePA3_f.exit ], [ %.067153221, %_ZL11read_anisouPciP7t_atoms.exit ], [ %.067153221, %197 ], [ %196, %_ZL9read_atomP8t_symtabPKc13PdbRecordTypeiP7t_atomsPA3_fi.exit ], [ %.067153221, %365 ], [ %.067153221, %367 ], [ %.067153221, %363 ]
-  %.266 = phi i32 [ %.064156220, %102 ], [ %.064156220, %_ZNRSt8optionalI13PdbRecordTypeE5valueEv.exit ], [ %.064156220, %_ZL18gmx_conect_addlineP12gmx_conect_tPc.exit ], [ %.064156220, %444 ], [ %.064156220, %445 ], [ %.064156220, %372 ], [ %.064156220, %371 ], [ %370, %369 ], [ %.064156220, %346 ], [ %.064156220, %342 ], [ %.064156220, %341 ], [ %.064156220, %331 ], [ %.064156220, %_ZL11read_cryst1PcP7PbcTypePA3_f.exit ], [ %.064156220, %_ZL11read_anisouPciP7t_atoms.exit ], [ %.064156220, %197 ], [ %.064156220, %_ZL9read_atomP8t_symtabPKc13PdbRecordTypeiP7t_atomsPA3_fi.exit ], [ %.064156220, %365 ], [ %.064156220, %367 ], [ %.064156220, %363 ]
+  %.178 = phi i1 [ %.077151223, %102 ], [ %.077151223, %_ZNRSt8optionalI13PdbRecordTypeE5valueEv.exit ], [ %.077151223, %_ZL18gmx_conect_addlineP12gmx_conect_tPc.exit ], [ %.077151223, %444 ], [ %.077151223, %445 ], [ %.077151223, %372 ], [ %.077151223, %371 ], [ %.077151223, %369 ], [ %.077151223, %346 ], [ %.077151223, %342 ], [ %.077151223, %341 ], [ %.077151223, %331 ], [ %.077151223, %_ZL11read_cryst1PcP7PbcTypePA3_f.exit ], [ %.077151223, %_ZL11read_anisouPciP7t_atoms.exit ], [ %.077151223, %197 ], [ %.077151223, %_ZL9read_atomP8t_symtabPKc13PdbRecordTypeiP7t_atomsPA3_fi.exit ], [ true, %365 ], [ true, %367 ], [ true, %363 ]
+  %.175 = phi i1 [ %.074152222, %102 ], [ %.074152222, %_ZNRSt8optionalI13PdbRecordTypeE5valueEv.exit ], [ %.074152222, %_ZL18gmx_conect_addlineP12gmx_conect_tPc.exit ], [ true, %444 ], [ true, %445 ], [ %.074152222, %372 ], [ %.074152222, %371 ], [ %.074152222, %369 ], [ %.074152222, %346 ], [ %.074152222, %342 ], [ %.074152222, %341 ], [ %.074152222, %331 ], [ %.074152222, %_ZL11read_cryst1PcP7PbcTypePA3_f.exit ], [ %.074152222, %_ZL11read_anisouPciP7t_atoms.exit ], [ %.074152222, %197 ], [ %.074152222, %_ZL9read_atomP8t_symtabPKc13PdbRecordTypeiP7t_atomsPA3_fi.exit ], [ %.074152222, %365 ], [ %.074152222, %367 ], [ %.074152222, %363 ]
+  %.168 = phi i32 [ %.067153221, %102 ], [ %.067153221, %_ZNRSt8optionalI13PdbRecordTypeE5valueEv.exit ], [ %.067153221, %_ZL18gmx_conect_addlineP12gmx_conect_tPc.exit ], [ %.067153221, %444 ], [ %.067153221, %445 ], [ %.067153221, %372 ], [ %.067153221, %371 ], [ %.067153221, %369 ], [ %.067153221, %346 ], [ %.067153221, %342 ], [ %.067153221, %341 ], [ %.067153221, %331 ], [ %.067153221, %_ZL11read_cryst1PcP7PbcTypePA3_f.exit ], [ %.067153221, %_ZL11read_anisouPciP7t_atoms.exit ], [ %.067153221, %197 ], [ %196, %_ZL9read_atomP8t_symtabPKc13PdbRecordTypeiP7t_atomsPA3_fi.exit ], [ %.067153221, %365 ], [ %.067153221, %367 ], [ %.067153221, %363 ]
+  %.165 = phi i32 [ %.064156220, %102 ], [ %.064156220, %_ZNRSt8optionalI13PdbRecordTypeE5valueEv.exit ], [ %.064156220, %_ZL18gmx_conect_addlineP12gmx_conect_tPc.exit ], [ %.064156220, %444 ], [ %.064156220, %445 ], [ %.064156220, %372 ], [ %.064156220, %371 ], [ %370, %369 ], [ %.064156220, %346 ], [ %.064156220, %342 ], [ %.064156220, %341 ], [ %.064156220, %331 ], [ %.064156220, %_ZL11read_cryst1PcP7PbcTypePA3_f.exit ], [ %.064156220, %_ZL11read_anisouPciP7t_atoms.exit ], [ %.064156220, %197 ], [ %.064156220, %_ZL9read_atomP8t_symtabPKc13PdbRecordTypeiP7t_atomsPA3_fi.exit ], [ %.064156220, %365 ], [ %.064156220, %367 ], [ %.064156220, %363 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #24
   %449 = call noundef ptr @_Z6fgets2PciP8_IO_FILE(ptr noundef nonnull %42, i32 noundef 4096, ptr noundef %0)
   %.not89 = icmp eq ptr %449, null
@@ -2973,7 +2973,7 @@ _ZL18gmx_conect_addlineP12gmx_conect_tPc.exit:    ; preds = %_ZStplIcSt11char_tr
   br label %450
 
 .critedge:                                        ; preds = %448, %63, %.thread
-  %.067153218 = phi i32 [ %.067153221, %.thread ], [ 0, %63 ], [ %.269, %448 ]
+  %.067153218 = phi i32 [ %.067153221, %.thread ], [ 0, %63 ], [ %.168, %448 ]
   ret i32 %.067153218
 
 450:                                              ; preds = %.body115, %.body, %104

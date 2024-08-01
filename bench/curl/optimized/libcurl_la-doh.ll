@@ -449,7 +449,7 @@ do.body219:                                       ; preds = %do.end211
   ]
 
 if.end229:                                        ; preds = %do.body219, %do.body219, %do.body219, %do.end211
-  %result.0 = phi i32 [ %call220, %do.body219 ], [ %call203, %do.end211 ], [ %call220, %do.body219 ], [ %call220, %do.body219 ]
+  %result.1 = phi i32 [ %call220, %do.body219 ], [ %call203, %do.end211 ], [ %call220, %do.body219 ], [ %call220, %do.body219 ]
   %arrayidx = getelementptr inbounds i8, ptr %data, i64 2040
   %32 = load ptr, ptr %arrayidx, align 8
   %tobool231.not = icmp eq ptr %32, null
@@ -465,7 +465,7 @@ do.body233:                                       ; preds = %if.end229
   ]
 
 if.end246:                                        ; preds = %do.body233, %do.body233, %do.body233, %if.end229
-  %result.1 = phi i32 [ %call237, %do.body233 ], [ %result.0, %if.end229 ], [ %call237, %do.body233 ], [ %call237, %do.body233 ]
+  %result.2 = phi i32 [ %call237, %do.body233 ], [ %result.1, %if.end229 ], [ %call237, %do.body233 ], [ %call237, %do.body233 ]
   %arrayidx248 = getelementptr inbounds i8, ptr %data, i64 2504
   %34 = load ptr, ptr %arrayidx248, align 8
   %tobool249.not = icmp eq ptr %34, null
@@ -481,7 +481,7 @@ do.body251:                                       ; preds = %if.end246
   ]
 
 if.end264:                                        ; preds = %do.body251, %do.body251, %do.body251, %if.end246
-  %result.2 = phi i32 [ %call255, %do.body251 ], [ %result.1, %if.end246 ], [ %call255, %do.body251 ], [ %call255, %do.body251 ]
+  %result.3 = phi i32 [ %call255, %do.body251 ], [ %result.2, %if.end246 ], [ %call255, %do.body251 ], [ %call255, %do.body251 ]
   %arrayidx267 = getelementptr inbounds i8, ptr %data, i64 2024
   %36 = load ptr, ptr %arrayidx267, align 8
   %tobool268.not = icmp eq ptr %36, null
@@ -497,7 +497,7 @@ do.body270:                                       ; preds = %if.end264
   ]
 
 if.end283:                                        ; preds = %do.body270, %do.body270, %do.body270, %if.end264
-  %result.3 = phi i32 [ %call274, %do.body270 ], [ %result.2, %if.end264 ], [ %call274, %do.body270 ], [ %call274, %do.body270 ]
+  %result.4 = phi i32 [ %call274, %do.body270 ], [ %result.3, %if.end264 ], [ %call274, %do.body270 ], [ %call274, %do.body270 ]
   %arrayidx286 = getelementptr inbounds i8, ptr %data, i64 2112
   %38 = load ptr, ptr %arrayidx286, align 8
   %tobool287.not = icmp eq ptr %38, null
@@ -513,7 +513,7 @@ do.body289:                                       ; preds = %if.end283
   ]
 
 if.end302:                                        ; preds = %do.body289, %do.body289, %do.body289, %if.end283
-  %result.4 = phi i32 [ %call293, %do.body289 ], [ %result.3, %if.end283 ], [ %call293, %do.body289 ], [ %call293, %do.body289 ]
+  %result.5 = phi i32 [ %call293, %do.body289 ], [ %result.4, %if.end283 ], [ %call293, %do.body289 ], [ %call293, %do.body289 ]
   %bf.load305 = load i8, ptr %falsestart, align 8
   %bf.clear306 = and i8 %bf.load305, 1
   %tobool308.not = icmp eq i8 %bf.clear306, 0
@@ -529,7 +529,7 @@ do.body310:                                       ; preds = %if.end302
   ]
 
 if.end320:                                        ; preds = %do.body310, %do.body310, %do.body310, %if.end302
-  %result.5 = phi i32 [ %call311, %do.body310 ], [ %result.4, %if.end302 ], [ %call311, %do.body310 ], [ %call311, %do.body310 ]
+  %result.6 = phi i32 [ %call311, %do.body310 ], [ %result.5, %if.end302 ], [ %call311, %do.body310 ], [ %call311, %do.body310 ]
   %fsslctx = getelementptr inbounds i8, ptr %data, i64 1432
   %41 = load ptr, ptr %fsslctx, align 8
   %tobool323.not = icmp eq ptr %41, null
@@ -545,7 +545,7 @@ do.body325:                                       ; preds = %if.end320
   ]
 
 if.end338:                                        ; preds = %do.body325, %do.body325, %do.body325, %if.end320
-  %result.6 = phi i32 [ %call329, %do.body325 ], [ %result.5, %if.end320 ], [ %call329, %do.body325 ], [ %call329, %do.body325 ]
+  %result.7 = phi i32 [ %call329, %do.body325 ], [ %result.6, %if.end320 ], [ %call329, %do.body325 ], [ %call329, %do.body325 ]
   %fsslctxp = getelementptr inbounds i8, ptr %data, i64 1440
   %43 = load ptr, ptr %fsslctxp, align 8
   %tobool341.not = icmp eq ptr %43, null
@@ -561,7 +561,7 @@ do.body343:                                       ; preds = %if.end338
   ]
 
 if.end356:                                        ; preds = %do.body343, %do.body343, %do.body343, %if.end338
-  %result.7 = phi i32 [ %call347, %do.body343 ], [ %result.6, %if.end338 ], [ %call347, %do.body343 ], [ %call347, %do.body343 ]
+  %result.8 = phi i32 [ %call347, %do.body343 ], [ %result.7, %if.end338 ], [ %call347, %do.body343 ], [ %call347, %do.body343 ]
   %fdebug = getelementptr inbounds i8, ptr %data, i64 576
   %45 = load ptr, ptr %fdebug, align 8
   %tobool358.not = icmp eq ptr %45, null
@@ -577,7 +577,7 @@ do.body360:                                       ; preds = %if.end356
   ]
 
 if.end372:                                        ; preds = %do.body360, %do.body360, %do.body360, %if.end356
-  %result.8 = phi i32 [ %call363, %do.body360 ], [ %result.7, %if.end356 ], [ %call363, %do.body360 ], [ %call363, %do.body360 ]
+  %result.9 = phi i32 [ %call363, %do.body360 ], [ %result.8, %if.end356 ], [ %call363, %do.body360 ], [ %call363, %do.body360 ]
   %debugdata = getelementptr inbounds i8, ptr %data, i64 424
   %47 = load ptr, ptr %debugdata, align 8
   %tobool374.not = icmp eq ptr %47, null
@@ -593,7 +593,7 @@ do.body376:                                       ; preds = %if.end372
   ]
 
 if.end388:                                        ; preds = %do.body376, %do.body376, %do.body376, %if.end372
-  %result.9 = phi i32 [ %call379, %do.body376 ], [ %result.8, %if.end372 ], [ %call379, %do.body376 ], [ %call379, %do.body376 ]
+  %result.10 = phi i32 [ %call379, %do.body376 ], [ %result.9, %if.end372 ], [ %call379, %do.body376 ], [ %call379, %do.body376 ]
   %arrayidx391 = getelementptr inbounds i8, ptr %data, i64 2416
   %49 = load ptr, ptr %arrayidx391, align 8
   %tobool392.not = icmp eq ptr %49, null
@@ -609,7 +609,7 @@ do.body394:                                       ; preds = %if.end388
   ]
 
 if.end407:                                        ; preds = %do.body394, %do.body394, %do.body394, %if.end388
-  %result.10 = phi i32 [ %call398, %do.body394 ], [ %result.9, %if.end388 ], [ %call398, %do.body394 ], [ %call398, %do.body394 ]
+  %result.11 = phi i32 [ %call398, %do.body394 ], [ %result.10, %if.end388 ], [ %call398, %do.body394 ], [ %call398, %do.body394 ]
   %bf.load410 = load i8, ptr %falsestart, align 8
   %51 = lshr i8 %bf.load410, 2
   %conv = zext nneg i8 %51 to i64
@@ -626,12 +626,12 @@ if.end407:                                        ; preds = %do.body394, %do.bod
   br i1 %tobool465.not, label %return, label %error
 
 error:                                            ; preds = %do.body394, %do.body376, %do.body360, %do.body343, %do.body325, %do.body310, %do.body289, %do.body270, %do.body251, %do.body233, %do.body219, %do.body195, %do.body178, %do.body162, %do.body151, %do.body133, %do.body115, %do.body99, %do.body89, %do.body79, %do.body69, %do.body58, %do.body46, %do.body36, %do.body26, %do.body16, %if.then7, %if.end, %if.end4, %if.end407
-  %result.11 = phi i32 [ %call5, %if.end4 ], [ %call9, %if.then7 ], [ %call17, %do.body16 ], [ %call27, %do.body26 ], [ %call37, %do.body36 ], [ %call49, %do.body46 ], [ %call60, %do.body58 ], [ %call70, %do.body69 ], [ %call80, %do.body79 ], [ %call90, %do.body89 ], [ %call100, %do.body99 ], [ %call118, %do.body115 ], [ %call134, %do.body133 ], [ %call152, %do.body151 ], [ %call169, %do.body162 ], [ %call186, %do.body178 ], [ %call203, %do.body195 ], [ %call220, %do.body219 ], [ %call237, %do.body233 ], [ %call255, %do.body251 ], [ %call274, %do.body270 ], [ %call293, %do.body289 ], [ %call311, %do.body310 ], [ %call329, %do.body325 ], [ %call347, %do.body343 ], [ %call363, %do.body360 ], [ %call379, %do.body376 ], [ %call398, %do.body394 ], [ %result.10, %if.end407 ], [ 28, %if.end ]
+  %result.0 = phi i32 [ %call5, %if.end4 ], [ %call9, %if.then7 ], [ %call17, %do.body16 ], [ %call27, %do.body26 ], [ %call37, %do.body36 ], [ %call49, %do.body46 ], [ %call60, %do.body58 ], [ %call70, %do.body69 ], [ %call80, %do.body79 ], [ %call90, %do.body89 ], [ %call100, %do.body99 ], [ %call118, %do.body115 ], [ %call134, %do.body133 ], [ %call152, %do.body151 ], [ %call169, %do.body162 ], [ %call186, %do.body178 ], [ %call203, %do.body195 ], [ %call220, %do.body219 ], [ %call237, %do.body233 ], [ %call255, %do.body251 ], [ %call274, %do.body270 ], [ %call293, %do.body289 ], [ %call311, %do.body310 ], [ %call329, %do.body325 ], [ %call347, %do.body343 ], [ %call363, %do.body360 ], [ %call379, %do.body376 ], [ %call398, %do.body394 ], [ %result.11, %if.end407 ], [ 28, %if.end ]
   %call469 = call i32 @Curl_close(ptr noundef nonnull %doh) #8
   br label %return
 
 return:                                           ; preds = %if.end407, %error, %if.then
-  %retval.0 = phi i32 [ 27, %if.then ], [ %result.11, %error ], [ 0, %if.end407 ]
+  %retval.0 = phi i32 [ 27, %if.then ], [ %result.0, %error ], [ 0, %if.end407 ]
   ret i32 %retval.0
 }
 

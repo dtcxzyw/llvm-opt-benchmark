@@ -2503,7 +2503,7 @@ _ZN9cmCTestP413ChangesParserD2Ev.exit:            ; preds = %_ZNSt6vectorINSt7__
   br label %.body29
 
 152:                                              ; preds = %_ZN9cmCTestP413ChangesParserD2Ev.exit, %35
-  %.1 = phi i1 [ false, %35 ], [ true, %_ZN9cmCTestP413ChangesParserD2Ev.exit ]
+  %.0 = phi i1 [ false, %35 ], [ true, %_ZN9cmCTestP413ChangesParserD2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
   %153 = load ptr, ptr %2, align 8
   %154 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2532,7 +2532,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit59
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit59: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i57, %158
-  ret i1 %.1
+  ret i1 %.0
 
 .body29:                                          ; preds = %38, %_ZN5cmsys17RegularExpressionD2Ev.exit.i, %.body32, %44
   %.pn19.pn = phi { ptr, i32 } [ %.pn19, %44 ], [ %.pn.pn.pn.pn, %.body32 ], [ %39, %38 ], [ %78, %_ZN5cmsys17RegularExpressionD2Ev.exit.i ]

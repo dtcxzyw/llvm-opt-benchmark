@@ -3521,7 +3521,7 @@ _ZN7logging6BufferlsIA36_cEERS0_RKT_.exit161:     ; preds = %320
   br label %.critedge79
 
 .critedge79:                                      ; preds = %._crit_edge206, %.critedge79.critedge, %_ZN7logging6BufferlsIPKcEERS0_RKT_.exit121, %160
-  %.2 = phi i1 [ false, %160 ], [ false, %_ZN7logging6BufferlsIPKcEERS0_RKT_.exit121 ], [ false, %.critedge79.critedge ], [ true, %._crit_edge206 ]
+  %.1 = phi i1 [ false, %160 ], [ false, %_ZN7logging6BufferlsIPKcEERS0_RKT_.exit121 ], [ false, %.critedge79.critedge ], [ true, %._crit_edge206 ]
   %334 = load ptr, ptr %15, align 8
   %335 = load atomic i32, ptr %334 monotonic, align 4
   switch i32 %335, label %_ZN9QtPrivate8RefCount5derefEv.exit.i165 [
@@ -3558,9 +3558,9 @@ _ZN7QStringD2Ev.exit169:                          ; preds = %.critedge79, %_ZN9Q
   br label %339
 
 .critedge:                                        ; preds = %_ZN7logging6BufferlsIPKcEERS0_RKT_.exit, %89, %_ZN7QStringD2Ev.exit169
-  %.3 = phi i1 [ %.2, %_ZN7QStringD2Ev.exit169 ], [ false, %89 ], [ false, %_ZN7logging6BufferlsIPKcEERS0_RKT_.exit ]
+  %.039 = phi i1 [ %.1, %_ZN7QStringD2Ev.exit169 ], [ false, %89 ], [ false, %_ZN7logging6BufferlsIPKcEERS0_RKT_.exit ]
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #34
-  ret i1 %.3
+  ret i1 %.039
 
 339:                                              ; preds = %99, %.body, %190, %97
   %.pn73.pn.pn = phi { ptr, i32 } [ %.pn73.pn, %.body ], [ %.pn, %190 ], [ %98, %97 ], [ %100, %99 ]
@@ -6594,7 +6594,7 @@ _ZN3vcg3ply7PlyFile9AddToReadERKNS0_14PropDescriptorE.exit621: ; preds = %1513
   br label %1544
 
 1544:                                             ; preds = %_ZN3vcg3ply7PlyFile9AddToReadERKNS0_14PropDescriptorE.exit620, %1541
-  %.1396 = phi i1 [ %1538, %1541 ], [ false, %_ZN3vcg3ply7PlyFile9AddToReadERKNS0_14PropDescriptorE.exit620 ]
+  %.0395 = phi i1 [ %1538, %1541 ], [ false, %_ZN3vcg3ply7PlyFile9AddToReadERKNS0_14PropDescriptorE.exit620 ]
   %1545 = invoke noundef nonnull align 8 dereferenceable(108) ptr @_ZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEi(i32 noundef 4)
           to label %1546 unwind label %.loopexit.split-lp848.loopexit.split-lp
 
@@ -7686,7 +7686,7 @@ _ZN3vcg6Color4IhE12SetGrayShadeEf.exit:           ; preds = %1967, %1971, %1973
 
 .lr.ph934:                                        ; preds = %2090, %._crit_edge930
   %.0429933 = phi i32 [ %2323, %._crit_edge930 ], [ 0, %2090 ]
-  %.sroa.0710.0932 = phi ptr [ %.sroa.0710.2.lcssa, %._crit_edge930 ], [ %2089, %2090 ]
+  %.sroa.0710.0932 = phi ptr [ %.sroa.0710.3.lcssa, %._crit_edge930 ], [ %2089, %2090 ]
   %2091 = load ptr, ptr %1762, align 8
   %.not524 = icmp ne ptr %2091, null
   %2092 = urem i32 %.0429933, 1000
@@ -7812,7 +7812,7 @@ _ZN3vcg6Color4IhE12SetGrayShadeEf.exit:           ; preds = %1967, %1971, %1973
   store double %2153, ptr %2154, align 8
   %2155 = load i32, ptr %1781, align 4
   %2156 = trunc i32 %2155 to i16
-  %.sink = select i1 %.1396, i16 %2156, i16 0
+  %.sink = select i1 %.0395, i16 %2156, i16 0
   %2157 = getelementptr inbounds i8, ptr %2149, i64 16
   store i16 %.sink, ptr %2157, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7966,13 +7966,13 @@ _ZN3vcg6Color4IhE12SetGrayShadeEf.exit:           ; preds = %1967, %1971, %1973
 
 .lr.ph929:                                        ; preds = %2238, %._crit_edge925
   %indvars.iv1036 = phi i64 [ %indvars.iv.next1037, %._crit_edge925 ], [ 0, %2238 ]
-  %.sroa.0710.2926 = phi ptr [ %2319, %._crit_edge925 ], [ %2245, %2238 ]
+  %.sroa.0710.3926 = phi ptr [ %2319, %._crit_edge925 ], [ %2245, %2238 ]
   %2249 = load i32, ptr %1791, align 4
   %2250 = sext i32 %2249 to i64
   %2251 = load ptr, ptr %7, align 8
   %2252 = getelementptr inbounds ptr, ptr %2251, i64 %2250
   %2253 = load ptr, ptr %2252, align 8
-  %2254 = getelementptr inbounds i8, ptr %.sroa.0710.2926, i64 8
+  %2254 = getelementptr inbounds i8, ptr %.sroa.0710.3926, i64 8
   store ptr %2253, ptr %2254, align 8
   %2255 = add nuw nsw i64 %indvars.iv1036, 2
   %2256 = getelementptr inbounds [512 x i32], ptr %1791, i64 0, i64 %2255
@@ -8011,7 +8011,7 @@ _ZN3vcg6Color4IhE12SetGrayShadeEf.exit:           ; preds = %1967, %1971, %1973
 2273:                                             ; preds = %2270
   %2274 = load double, ptr %1776, align 8
   %2275 = fptrunc double %2274 to float
-  %2276 = getelementptr inbounds i8, ptr %.sroa.0710.2926, i64 196
+  %2276 = getelementptr inbounds i8, ptr %.sroa.0710.3926, i64 196
   store float %2275, ptr %2276, align 4
   %.pre1062 = load i32, ptr %40, align 4
   br label %2277
@@ -8027,7 +8027,7 @@ _ZN3vcg6Color4IhE12SetGrayShadeEf.exit:           ; preds = %1967, %1971, %1973
   %2282 = load i16, ptr %1778, align 2
   %2283 = zext i16 %2282 to i32
   %2284 = shl nuw nsw i32 %2283, 8
-  %2285 = getelementptr inbounds i8, ptr %.sroa.0710.2926, i64 192
+  %2285 = getelementptr inbounds i8, ptr %.sroa.0710.3926, i64 192
   %.sroa.0707.0.insert.ext = zext i8 %2281 to i32
   %.sroa.2.0.insert.insert = or disjoint i32 %2284, %.sroa.0707.0.insert.ext
   %.sroa.0707.0.insert.insert = or disjoint i32 %.sroa.2.0.insert.insert, -16777216
@@ -8035,7 +8035,7 @@ _ZN3vcg6Color4IhE12SetGrayShadeEf.exit:           ; preds = %1967, %1971, %1973
   br label %2286
 
 2286:                                             ; preds = %2280, %2277
-  %2287 = getelementptr inbounds i8, ptr %.sroa.0710.2926, i64 200
+  %2287 = getelementptr inbounds i8, ptr %.sroa.0710.3926, i64 200
   %2288 = load i32, ptr %2287, align 4
   %2289 = or i32 %2288, 262144
   store i32 %2289, ptr %2287, align 4
@@ -8071,7 +8071,7 @@ _ZN3vcg6Color4IhE12SetGrayShadeEf.exit:           ; preds = %1967, %1971, %1973
 
 2308:                                             ; preds = %.lr.ph924
   %2309 = getelementptr inbounds i8, ptr %8, i64 %2306
-  %2310 = getelementptr inbounds i8, ptr %.sroa.0710.2926, i64 %2302
+  %2310 = getelementptr inbounds i8, ptr %.sroa.0710.3926, i64 %2302
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2310, ptr nonnull align 1 %2309, i64 %2307, i1 false)
   %2311 = add nuw i64 %.0417922, 1
   %2312 = load ptr, ptr %1604, align 8
@@ -8090,14 +8090,14 @@ _ZN3vcg6Color4IhE12SetGrayShadeEf.exit:           ; preds = %1967, %1971, %1973
 
 ._crit_edge925:                                   ; preds = %._crit_edge925.loopexit, %2297
   %.pre-phi = phi i32 [ %.pre1070, %._crit_edge925.loopexit ], [ %2291, %2297 ]
-  %2319 = getelementptr inbounds i8, ptr %.sroa.0710.2926, i64 216
+  %2319 = getelementptr inbounds i8, ptr %.sroa.0710.3926, i64 216
   %2320 = add nsw i32 %.pre-phi, -3
   %2321 = sext i32 %2320 to i64
   %2322 = icmp slt i64 %indvars.iv.next1037, %2321
   br i1 %2322, label %.lr.ph929, label %._crit_edge930, !llvm.loop !36
 
 ._crit_edge930:                                   ; preds = %._crit_edge925, %._crit_edge920, %2238
-  %.sroa.0710.2.lcssa = phi ptr [ %2245, %2238 ], [ %2231, %._crit_edge920 ], [ %2319, %._crit_edge925 ]
+  %.sroa.0710.3.lcssa = phi ptr [ %2245, %2238 ], [ %2231, %._crit_edge920 ], [ %2319, %._crit_edge925 ]
   %2323 = add nuw nsw i32 %.0429933, 1
   %exitcond1039.not = icmp eq i32 %2323, %1836
   br i1 %exitcond1039.not, label %.loopexit800, label %.lr.ph934, !llvm.loop !37
@@ -8295,8 +8295,8 @@ _ZN3vcg6Color4IhE12SetGrayShadeEf.exit:           ; preds = %1967, %1971, %1973
   br i1 %.not999, label %.loopexit826, label %.lr.ph902
 
 .lr.ph902:                                        ; preds = %.preheader825, %2473
-  %.1385901 = phi i32 [ %.2, %2473 ], [ 0, %.preheader825 ]
-  %.1388900 = phi i32 [ %.2389, %2473 ], [ %.0387974, %.preheader825 ]
+  %.2901 = phi i32 [ %.3, %2473 ], [ 0, %.preheader825 ]
+  %.2389900 = phi i32 [ %.3390, %2473 ], [ %.0387974, %.preheader825 ]
   %.0402899 = phi i64 [ %2474, %2473 ], [ 0, %.preheader825 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #34
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.27, ptr noundef nonnull align 1 dereferenceable(1) %19)
@@ -8379,7 +8379,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %2482
 
 2454:                                             ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread777, %2444, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %.2 = phi i32 [ %2447, %2444 ], [ %.1385901, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.1385901, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread777 ]
+  %.3 = phi i32 [ %2447, %2444 ], [ %.2901, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %.2901, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread777 ]
   %2455 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #34
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %26, ptr noundef nonnull align 8 dereferenceable(32) %2429, i64 noundef 0, i64 noundef %2455)
           to label %2456 unwind label %2452
@@ -8425,7 +8425,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %2473
 
 2473:                                             ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit667.thread778, %2469, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit667
-  %.2389 = phi i32 [ %2472, %2469 ], [ %.1388900, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit667 ], [ %.1388900, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit667.thread778 ]
+  %.3390 = phi i32 [ %2472, %2469 ], [ %.2389900, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit667 ], [ %.2389900, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit667.thread778 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #34
@@ -8446,9 +8446,9 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.body
 
 .loopexit826:                                     ; preds = %2473, %.preheader825, %2422
-  %.3390 = phi i32 [ %.0387974, %2422 ], [ %.0387974, %.preheader825 ], [ %.2389, %2473 ]
-  %.3 = phi i32 [ %.0384975, %2422 ], [ 0, %.preheader825 ], [ %.2, %2473 ]
-  %2483 = mul i32 %.3, %.3390
+  %.1388 = phi i32 [ %.0387974, %2422 ], [ %.0387974, %.preheader825 ], [ %.3390, %2473 ]
+  %.1385 = phi i32 [ %.0384975, %2422 ], [ 0, %.preheader825 ], [ %.3, %2473 ]
+  %2483 = mul i32 %.1385, %.1388
   invoke void @_ZN3vcg3ply7PlyFile13SetCurElementEi(ptr noundef nonnull align 8 dereferenceable(120) %14, i32 noundef %1835)
           to label %.preheader821 unwind label %.loopexit.split-lp785.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -8569,7 +8569,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %exitcond1024.not, label %._crit_edge907, label %.lr.ph906, !llvm.loop !41
 
 ._crit_edge907:                                   ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, %.preheader821
-  invoke void @_ZN3vcg3tri14SparseFaceGridI4MeshEEvRT_RKSt6vectorIiSaIiEEii(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %.3, i32 noundef %.3390)
+  invoke void @_ZN3vcg3tri14SparseFaceGridI4MeshEEvRT_RKSt6vectorIiSaIiEEii(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef %.1385, i32 noundef %.1388)
           to label %.loopexit800 unwind label %.loopexit.split-lp785.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 2533:                                             ; preds = %2420
@@ -8599,8 +8599,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %2541, label %.sink.split1101, label %2537
 
 .loopexit800:                                     ; preds = %2537, %._crit_edge911, %._crit_edge930, %2069, %.lr.ph950, %1859, %.preheader827, %2329, %2015, %_ZN3vcg3ply7PlyFile13SetCurElementEi.exit, %._crit_edge907
-  %.4391 = phi i32 [ %.3390, %._crit_edge907 ], [ %.0387974, %_ZN3vcg3ply7PlyFile13SetCurElementEi.exit ], [ %.0387974, %2015 ], [ %.0387974, %2329 ], [ %.0387974, %.preheader827 ], [ %.0387974, %1859 ], [ %.0387974, %.lr.ph950 ], [ %.0387974, %2069 ], [ %.0387974, %._crit_edge930 ], [ %.0387974, %._crit_edge911 ], [ %.0387974, %2537 ]
-  %.4 = phi i32 [ %.3, %._crit_edge907 ], [ %.0384975, %_ZN3vcg3ply7PlyFile13SetCurElementEi.exit ], [ %.0384975, %2015 ], [ %.0384975, %2329 ], [ %.0384975, %.preheader827 ], [ %.0384975, %1859 ], [ %.0384975, %.lr.ph950 ], [ %.0384975, %2069 ], [ %.0384975, %._crit_edge930 ], [ %.0384975, %._crit_edge911 ], [ %.0384975, %2537 ]
+  %.4391 = phi i32 [ %.1388, %._crit_edge907 ], [ %.0387974, %_ZN3vcg3ply7PlyFile13SetCurElementEi.exit ], [ %.0387974, %2015 ], [ %.0387974, %2329 ], [ %.0387974, %.preheader827 ], [ %.0387974, %1859 ], [ %.0387974, %.lr.ph950 ], [ %.0387974, %2069 ], [ %.0387974, %._crit_edge930 ], [ %.0387974, %._crit_edge911 ], [ %.0387974, %2537 ]
+  %.4 = phi i32 [ %.1385, %._crit_edge907 ], [ %.0384975, %_ZN3vcg3ply7PlyFile13SetCurElementEi.exit ], [ %.0384975, %2015 ], [ %.0384975, %2329 ], [ %.0384975, %.preheader827 ], [ %.0384975, %1859 ], [ %.0384975, %.lr.ph950 ], [ %.0384975, %2069 ], [ %.0384975, %._crit_edge930 ], [ %.0384975, %._crit_edge911 ], [ %.0384975, %2537 ]
   %2542 = add nuw i64 %.0437969, 1
   %2543 = load ptr, ptr %1757, align 8
   %2544 = load ptr, ptr %14, align 8
@@ -8946,7 +8946,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %2668
 
 2668:                                             ; preds = %.sink.split1101, %._crit_edge995
-  %.0383 = phi i32 [ 0, %._crit_edge995 ], [ %.sink1102, %.sink.split1101 ]
+  %.1 = phi i32 [ 0, %._crit_edge995 ], [ %.sink1102, %.sink.split1101 ]
   %2669 = load ptr, ptr %16, align 8
   %2670 = getelementptr inbounds i8, ptr %16, i64 8
   %2671 = load ptr, ptr %2670, align 8
@@ -9015,7 +9015,7 @@ _ZSt8_DestroyIPN3vcg3ply14PropDescriptorES2_EvT_S4_RSaIT0_E.exit.i691: ; preds =
   br label %2688
 
 _ZNSt6vectorIN3vcg3ply14PropDescriptorESaIS2_EED2Ev.exit693: ; preds = %2682, %_ZSt8_DestroyIPN3vcg3ply14PropDescriptorES2_EvT_S4_RSaIT0_E.exit.i691, %252, %196, %140, %46
-  %.1 = phi i32 [ %48, %46 ], [ 15, %140 ], [ 15, %196 ], [ 15, %252 ], [ %.0383, %_ZSt8_DestroyIPN3vcg3ply14PropDescriptorES2_EvT_S4_RSaIT0_E.exit.i691 ], [ %.0383, %2682 ]
+  %.0383 = phi i32 [ %48, %46 ], [ 15, %140 ], [ 15, %196 ], [ 15, %252 ], [ %.1, %_ZSt8_DestroyIPN3vcg3ply14PropDescriptorES2_EvT_S4_RSaIT0_E.exit.i691 ], [ %.1, %2682 ]
   call void @_ZN3vcg3ply7PlyFileD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %14) #34
   %2684 = load ptr, ptr %13, align 8
   %.not.i.i.i694 = icmp eq ptr %2684, null
@@ -9035,7 +9035,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN3vcg3
   br label %_ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit:      ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %2687
-  ret i32 %.1
+  ret i32 %.0383
 
 2688:                                             ; preds = %1690, %2683, %.loopexit.split-lp848.loopexit, %.loopexit.split-lp848.loopexit.split-lp, %.loopexit847
   %.pn542.pn.pn = phi { ptr, i32 } [ %.pn542.pn, %2683 ], [ %1691, %1690 ], [ %lpad.loopexit849, %.loopexit847 ], [ %lpad.loopexit853, %.loopexit.split-lp848.loopexit ], [ %lpad.loopexit.split-lp854, %.loopexit.split-lp848.loopexit.split-lp ]
@@ -10109,421 +10109,421 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(108) ptr @_ZN3vcg3tr
   br label %311
 
 311:                                              ; preds = %310, %301
-  %.077 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2464), %310 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2352), %301 ]
+  %.65142 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2464), %310 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2352), %301 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %310 ], [ %302, %301 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #34
   br label %312
 
 312:                                              ; preds = %311, %299
-  %.178 = phi ptr [ %.077, %311 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2352), %299 ]
+  %.64141 = phi ptr [ %.65142, %311 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2352), %299 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %311 ], [ %300, %299 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #34
   br label %313
 
 313:                                              ; preds = %312, %297
-  %.279 = phi ptr [ %.178, %312 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2352), %297 ]
+  %.63140 = phi ptr [ %.64141, %312 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2352), %297 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %312 ], [ %298, %297 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #34
   br label %314
 
 314:                                              ; preds = %313, %295
-  %.380 = phi ptr [ %.279, %313 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2240), %295 ]
+  %.62139 = phi ptr [ %.63140, %313 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2240), %295 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %313 ], [ %296, %295 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #34
   br label %315
 
 315:                                              ; preds = %314, %293
-  %.481 = phi ptr [ %.380, %314 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2240), %293 ]
+  %.61138 = phi ptr [ %.62139, %314 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2240), %293 ]
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %314 ], [ %294, %293 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #34
   br label %316
 
 316:                                              ; preds = %315, %291
-  %.582 = phi ptr [ %.481, %315 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2240), %291 ]
+  %.60137 = phi ptr [ %.61138, %315 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2240), %291 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %315 ], [ %292, %291 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #34
   br label %317
 
 317:                                              ; preds = %316, %289
-  %.683 = phi ptr [ %.582, %316 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2128), %289 ]
+  %.59136 = phi ptr [ %.60137, %316 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2128), %289 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %316 ], [ %290, %289 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #34
   br label %318
 
 318:                                              ; preds = %317, %287
-  %.784 = phi ptr [ %.683, %317 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2128), %287 ]
+  %.58135 = phi ptr [ %.59136, %317 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2128), %287 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %317 ], [ %288, %287 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #34
   br label %319
 
 319:                                              ; preds = %318, %285
-  %.885 = phi ptr [ %.784, %318 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2128), %285 ]
+  %.57134 = phi ptr [ %.58135, %318 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2128), %285 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %318 ], [ %286, %285 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #34
   br label %320
 
 320:                                              ; preds = %319, %283
-  %.986 = phi ptr [ %.885, %319 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2016), %283 ]
+  %.56133 = phi ptr [ %.57134, %319 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2016), %283 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %319 ], [ %284, %283 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #34
   br label %321
 
 321:                                              ; preds = %320, %281
-  %.1087 = phi ptr [ %.986, %320 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2016), %281 ]
+  %.55132 = phi ptr [ %.56133, %320 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2016), %281 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %320 ], [ %282, %281 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #34
   br label %322
 
 322:                                              ; preds = %321, %279
-  %.1188 = phi ptr [ %.1087, %321 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2016), %279 ]
+  %.54131 = phi ptr [ %.55132, %321 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 2016), %279 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %321 ], [ %280, %279 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #34
   br label %323
 
 323:                                              ; preds = %322, %277
-  %.1289 = phi ptr [ %.1188, %322 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1904), %277 ]
+  %.53130 = phi ptr [ %.54131, %322 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1904), %277 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %322 ], [ %278, %277 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #34
   br label %324
 
 324:                                              ; preds = %323, %275
-  %.1390 = phi ptr [ %.1289, %323 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1904), %275 ]
+  %.52129 = phi ptr [ %.53130, %323 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1904), %275 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %323 ], [ %276, %275 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #34
   br label %325
 
 325:                                              ; preds = %324, %273
-  %.1491 = phi ptr [ %.1390, %324 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1904), %273 ]
+  %.51128 = phi ptr [ %.52129, %324 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1904), %273 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %324 ], [ %274, %273 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #34
   br label %326
 
 326:                                              ; preds = %325, %271
-  %.1592 = phi ptr [ %.1491, %325 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1792), %271 ]
+  %.50127 = phi ptr [ %.51128, %325 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1792), %271 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %325 ], [ %272, %271 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #34
   br label %327
 
 327:                                              ; preds = %326, %269
-  %.1693 = phi ptr [ %.1592, %326 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1792), %269 ]
+  %.49126 = phi ptr [ %.50127, %326 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1792), %269 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %326 ], [ %270, %269 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #34
   br label %328
 
 328:                                              ; preds = %327, %267
-  %.1794 = phi ptr [ %.1693, %327 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1792), %267 ]
+  %.48125 = phi ptr [ %.49126, %327 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1792), %267 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %327 ], [ %268, %267 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #34
   br label %329
 
 329:                                              ; preds = %328, %265
-  %.1895 = phi ptr [ %.1794, %328 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1680), %265 ]
+  %.47124 = phi ptr [ %.48125, %328 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1680), %265 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %328 ], [ %266, %265 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #34
   br label %330
 
 330:                                              ; preds = %329, %263
-  %.1996 = phi ptr [ %.1895, %329 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1680), %263 ]
+  %.46123 = phi ptr [ %.47124, %329 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1680), %263 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %329 ], [ %264, %263 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #34
   br label %331
 
 331:                                              ; preds = %330, %261
-  %.2097 = phi ptr [ %.1996, %330 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1680), %261 ]
+  %.45122 = phi ptr [ %.46123, %330 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1680), %261 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %330 ], [ %262, %261 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #34
   br label %332
 
 332:                                              ; preds = %331, %259
-  %.2198 = phi ptr [ %.2097, %331 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1568), %259 ]
+  %.44121 = phi ptr [ %.45122, %331 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1568), %259 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %331 ], [ %260, %259 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #34
   br label %333
 
 333:                                              ; preds = %332, %257
-  %.2299 = phi ptr [ %.2198, %332 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1568), %257 ]
+  %.43120 = phi ptr [ %.44121, %332 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1568), %257 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %332 ], [ %258, %257 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #34
   br label %334
 
 334:                                              ; preds = %333, %255
-  %.23100 = phi ptr [ %.2299, %333 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1568), %255 ]
+  %.42119 = phi ptr [ %.43120, %333 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1568), %255 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %333 ], [ %256, %255 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #34
   br label %335
 
 335:                                              ; preds = %334, %253
-  %.24101 = phi ptr [ %.23100, %334 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1456), %253 ]
+  %.41118 = phi ptr [ %.42119, %334 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1456), %253 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %334 ], [ %254, %253 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #34
   br label %336
 
 336:                                              ; preds = %335, %251
-  %.25102 = phi ptr [ %.24101, %335 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1456), %251 ]
+  %.40117 = phi ptr [ %.41118, %335 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1456), %251 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %335 ], [ %252, %251 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #34
   br label %337
 
 337:                                              ; preds = %336, %249
-  %.26103 = phi ptr [ %.25102, %336 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1456), %249 ]
+  %.39116 = phi ptr [ %.40117, %336 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1456), %249 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %336 ], [ %250, %249 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #34
   br label %338
 
 338:                                              ; preds = %337, %247
-  %.27104 = phi ptr [ %.26103, %337 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1344), %247 ]
+  %.38115 = phi ptr [ %.39116, %337 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1344), %247 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %337 ], [ %248, %247 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #34
   br label %339
 
 339:                                              ; preds = %338, %245
-  %.28105 = phi ptr [ %.27104, %338 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1344), %245 ]
+  %.37114 = phi ptr [ %.38115, %338 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1344), %245 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %338 ], [ %246, %245 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #34
   br label %340
 
 340:                                              ; preds = %339, %243
-  %.29106 = phi ptr [ %.28105, %339 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1344), %243 ]
+  %.36113 = phi ptr [ %.37114, %339 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1344), %243 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %339 ], [ %244, %243 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #34
   br label %341
 
 341:                                              ; preds = %340, %241
-  %.30107 = phi ptr [ %.29106, %340 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1232), %241 ]
+  %.35112 = phi ptr [ %.36113, %340 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1232), %241 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %340 ], [ %242, %241 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #34
   br label %342
 
 342:                                              ; preds = %341, %239
-  %.31108 = phi ptr [ %.30107, %341 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1232), %239 ]
+  %.34111 = phi ptr [ %.35112, %341 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1232), %239 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %341 ], [ %240, %239 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #34
   br label %343
 
 343:                                              ; preds = %342, %237
-  %.32109 = phi ptr [ %.31108, %342 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1232), %237 ]
+  %.33110 = phi ptr [ %.34111, %342 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1232), %237 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %342 ], [ %238, %237 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #34
   br label %344
 
 344:                                              ; preds = %343, %235
-  %.33110 = phi ptr [ %.32109, %343 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1120), %235 ]
+  %.32109 = phi ptr [ %.33110, %343 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1120), %235 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %343 ], [ %236, %235 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #34
   br label %345
 
 345:                                              ; preds = %344, %233
-  %.34111 = phi ptr [ %.33110, %344 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1120), %233 ]
+  %.31108 = phi ptr [ %.32109, %344 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1120), %233 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %344 ], [ %234, %233 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #34
   br label %346
 
 346:                                              ; preds = %345, %231
-  %.35112 = phi ptr [ %.34111, %345 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1120), %231 ]
+  %.30107 = phi ptr [ %.31108, %345 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1120), %231 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %345 ], [ %232, %231 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #34
   br label %347
 
 347:                                              ; preds = %346, %229
-  %.36113 = phi ptr [ %.35112, %346 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1008), %229 ]
+  %.29106 = phi ptr [ %.30107, %346 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1008), %229 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %346 ], [ %230, %229 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #34
   br label %348
 
 348:                                              ; preds = %347, %227
-  %.37114 = phi ptr [ %.36113, %347 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1008), %227 ]
+  %.28105 = phi ptr [ %.29106, %347 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1008), %227 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %347 ], [ %228, %227 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #34
   br label %349
 
 349:                                              ; preds = %348, %225
-  %.38115 = phi ptr [ %.37114, %348 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1008), %225 ]
+  %.27104 = phi ptr [ %.28105, %348 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 1008), %225 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %348 ], [ %226, %225 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #34
   br label %350
 
 350:                                              ; preds = %349, %223
-  %.39116 = phi ptr [ %.38115, %349 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 896), %223 ]
+  %.26103 = phi ptr [ %.27104, %349 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 896), %223 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %349 ], [ %224, %223 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #34
   br label %351
 
 351:                                              ; preds = %350, %221
-  %.40117 = phi ptr [ %.39116, %350 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 896), %221 ]
+  %.25102 = phi ptr [ %.26103, %350 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 896), %221 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %350 ], [ %222, %221 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #34
   br label %352
 
 352:                                              ; preds = %351, %219
-  %.41118 = phi ptr [ %.40117, %351 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 896), %219 ]
+  %.24101 = phi ptr [ %.25102, %351 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 896), %219 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %351 ], [ %220, %219 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #34
   br label %353
 
 353:                                              ; preds = %352, %217
-  %.42119 = phi ptr [ %.41118, %352 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 784), %217 ]
+  %.23100 = phi ptr [ %.24101, %352 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 784), %217 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %352 ], [ %218, %217 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #34
   br label %354
 
 354:                                              ; preds = %353, %215
-  %.43120 = phi ptr [ %.42119, %353 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 784), %215 ]
+  %.2299 = phi ptr [ %.23100, %353 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 784), %215 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %353 ], [ %216, %215 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #34
   br label %355
 
 355:                                              ; preds = %354, %213
-  %.44121 = phi ptr [ %.43120, %354 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 784), %213 ]
+  %.2198 = phi ptr [ %.2299, %354 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 784), %213 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %354 ], [ %214, %213 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #34
   br label %356
 
 356:                                              ; preds = %355, %211
-  %.45122 = phi ptr [ %.44121, %355 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 672), %211 ]
+  %.2097 = phi ptr [ %.2198, %355 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 672), %211 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %355 ], [ %212, %211 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #34
   br label %357
 
 357:                                              ; preds = %356, %209
-  %.46123 = phi ptr [ %.45122, %356 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 672), %209 ]
+  %.1996 = phi ptr [ %.2097, %356 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 672), %209 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %356 ], [ %210, %209 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #34
   br label %358
 
 358:                                              ; preds = %357, %207
-  %.47124 = phi ptr [ %.46123, %357 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 672), %207 ]
+  %.1895 = phi ptr [ %.1996, %357 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 672), %207 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %357 ], [ %208, %207 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #34
   br label %359
 
 359:                                              ; preds = %358, %205
-  %.48125 = phi ptr [ %.47124, %358 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 560), %205 ]
+  %.1794 = phi ptr [ %.1895, %358 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 560), %205 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %358 ], [ %206, %205 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #34
   br label %360
 
 360:                                              ; preds = %359, %203
-  %.49126 = phi ptr [ %.48125, %359 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 560), %203 ]
+  %.1693 = phi ptr [ %.1794, %359 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 560), %203 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %359 ], [ %204, %203 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #34
   br label %361
 
 361:                                              ; preds = %360, %201
-  %.50127 = phi ptr [ %.49126, %360 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 560), %201 ]
+  %.1592 = phi ptr [ %.1693, %360 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 560), %201 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %360 ], [ %202, %201 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #34
   br label %362
 
 362:                                              ; preds = %361, %199
-  %.51128 = phi ptr [ %.50127, %361 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 448), %199 ]
+  %.1491 = phi ptr [ %.1592, %361 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 448), %199 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %361 ], [ %200, %199 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #34
   br label %363
 
 363:                                              ; preds = %362, %197
-  %.52129 = phi ptr [ %.51128, %362 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 448), %197 ]
+  %.1390 = phi ptr [ %.1491, %362 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 448), %197 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %362 ], [ %198, %197 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #34
   br label %364
 
 364:                                              ; preds = %363, %195
-  %.53130 = phi ptr [ %.52129, %363 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 448), %195 ]
+  %.1289 = phi ptr [ %.1390, %363 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 448), %195 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %363 ], [ %196, %195 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #34
   br label %365
 
 365:                                              ; preds = %364, %193
-  %.54131 = phi ptr [ %.53130, %364 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 336), %193 ]
+  %.1188 = phi ptr [ %.1289, %364 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 336), %193 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %364 ], [ %194, %193 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #34
   br label %366
 
 366:                                              ; preds = %365, %191
-  %.55132 = phi ptr [ %.54131, %365 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 336), %191 ]
+  %.1087 = phi ptr [ %.1188, %365 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 336), %191 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %365 ], [ %192, %191 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #34
   br label %367
 
 367:                                              ; preds = %366, %189
-  %.56133 = phi ptr [ %.55132, %366 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 336), %189 ]
+  %.986 = phi ptr [ %.1087, %366 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 336), %189 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %366 ], [ %190, %189 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #34
   br label %368
 
 368:                                              ; preds = %367, %187
-  %.57134 = phi ptr [ %.56133, %367 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 224), %187 ]
+  %.885 = phi ptr [ %.986, %367 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 224), %187 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %367 ], [ %188, %187 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #34
   br label %369
 
 369:                                              ; preds = %368, %185
-  %.58135 = phi ptr [ %.57134, %368 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 224), %185 ]
+  %.784 = phi ptr [ %.885, %368 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 224), %185 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %368 ], [ %186, %185 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #34
   br label %370
 
 370:                                              ; preds = %369, %183
-  %.59136 = phi ptr [ %.58135, %369 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 224), %183 ]
+  %.683 = phi ptr [ %.784, %369 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 224), %183 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %369 ], [ %184, %183 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #34
   br label %371
 
 371:                                              ; preds = %370, %181
-  %.60137 = phi ptr [ %.59136, %370 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 112), %181 ]
+  %.582 = phi ptr [ %.683, %370 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 112), %181 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %370 ], [ %182, %181 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #34
   br label %372
 
 372:                                              ; preds = %371, %179
-  %.61138 = phi ptr [ %.60137, %371 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 112), %179 ]
+  %.481 = phi ptr [ %.582, %371 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 112), %179 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %371 ], [ %180, %179 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #34
   br label %373
 
 373:                                              ; preds = %372, %177
-  %.62139 = phi ptr [ %.61138, %372 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 112), %177 ]
+  %.380 = phi ptr [ %.481, %372 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, i64 112), %177 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %372 ], [ %178, %177 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #34
   br label %374
 
 374:                                              ; preds = %373, %175
-  %.63140 = phi ptr [ %.62139, %373 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, %175 ]
+  %.279 = phi ptr [ %.380, %373 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, %175 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %373 ], [ %176, %175 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
   br label %375
 
 375:                                              ; preds = %173, %374
-  %.64141 = phi ptr [ %.63140, %374 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, %173 ]
+  %.178 = phi ptr [ %.279, %374 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad, %173 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %374 ], [ %174, %173 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #34
-  %376 = icmp eq ptr %.64141, @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad
+  %376 = icmp eq ptr %.178, @_ZZN3vcg3tri2io11ImporterPLYI4MeshE10CameraDescEiE3cad
   br i1 %376, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %375, %.preheader
-  %377 = phi ptr [ %378, %.preheader ], [ %.64141, %375 ]
+  %377 = phi ptr [ %378, %.preheader ], [ %.178, %375 ]
   %378 = getelementptr inbounds i8, ptr %377, i64 -112
   %379 = getelementptr inbounds i8, ptr %377, i64 -80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %379) #34
@@ -11830,630 +11830,630 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(108) ptr @_ZN3vcg3tr
   br label %454
 
 454:                                              ; preds = %453, %444
-  %.0110 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3696), %453 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3584), %444 ]
+  %.98208 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3696), %453 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3584), %444 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %453 ], [ %445, %444 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %132) #34
   br label %455
 
 455:                                              ; preds = %454, %442
-  %.1111 = phi ptr [ %.0110, %454 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3584), %442 ]
+  %.97207 = phi ptr [ %.98208, %454 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3584), %442 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %454 ], [ %443, %442 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %133) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %130) #34
   br label %456
 
 456:                                              ; preds = %455, %440
-  %.2112 = phi ptr [ %.1111, %455 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3584), %440 ]
+  %.96206 = phi ptr [ %.97207, %455 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3584), %440 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %455 ], [ %441, %440 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %131) #34
   br label %457
 
 457:                                              ; preds = %456, %438
-  %.3113 = phi ptr [ %.2112, %456 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3472), %438 ]
+  %.95205 = phi ptr [ %.96206, %456 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3472), %438 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %456 ], [ %439, %438 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %128) #34
   br label %458
 
 458:                                              ; preds = %457, %436
-  %.4114 = phi ptr [ %.3113, %457 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3472), %436 ]
+  %.94204 = phi ptr [ %.95205, %457 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3472), %436 ]
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %457 ], [ %437, %436 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %129) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %126) #34
   br label %459
 
 459:                                              ; preds = %458, %434
-  %.5115 = phi ptr [ %.4114, %458 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3472), %434 ]
+  %.93203 = phi ptr [ %.94204, %458 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3472), %434 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %458 ], [ %435, %434 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %127) #34
   br label %460
 
 460:                                              ; preds = %459, %432
-  %.6116 = phi ptr [ %.5115, %459 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3360), %432 ]
+  %.92202 = phi ptr [ %.93203, %459 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3360), %432 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %459 ], [ %433, %432 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %124) #34
   br label %461
 
 461:                                              ; preds = %460, %430
-  %.7117 = phi ptr [ %.6116, %460 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3360), %430 ]
+  %.91201 = phi ptr [ %.92202, %460 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3360), %430 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %460 ], [ %431, %430 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %125) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %122) #34
   br label %462
 
 462:                                              ; preds = %461, %428
-  %.8118 = phi ptr [ %.7117, %461 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3360), %428 ]
+  %.90200 = phi ptr [ %.91201, %461 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3360), %428 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %461 ], [ %429, %428 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %123) #34
   br label %463
 
 463:                                              ; preds = %462, %426
-  %.9119 = phi ptr [ %.8118, %462 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3248), %426 ]
+  %.89199 = phi ptr [ %.90200, %462 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3248), %426 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %462 ], [ %427, %426 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #34
   br label %464
 
 464:                                              ; preds = %463, %424
-  %.10120 = phi ptr [ %.9119, %463 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3248), %424 ]
+  %.88198 = phi ptr [ %.89199, %463 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3248), %424 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %463 ], [ %425, %424 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %121) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %118) #34
   br label %465
 
 465:                                              ; preds = %464, %422
-  %.11121 = phi ptr [ %.10120, %464 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3248), %422 ]
+  %.87197 = phi ptr [ %.88198, %464 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3248), %422 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %464 ], [ %423, %422 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %119) #34
   br label %466
 
 466:                                              ; preds = %465, %420
-  %.12122 = phi ptr [ %.11121, %465 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3136), %420 ]
+  %.86196 = phi ptr [ %.87197, %465 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3136), %420 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %465 ], [ %421, %420 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %116) #34
   br label %467
 
 467:                                              ; preds = %466, %418
-  %.13123 = phi ptr [ %.12122, %466 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3136), %418 ]
+  %.85195 = phi ptr [ %.86196, %466 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3136), %418 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %466 ], [ %419, %418 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %117) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %114) #34
   br label %468
 
 468:                                              ; preds = %467, %416
-  %.14124 = phi ptr [ %.13123, %467 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3136), %416 ]
+  %.84194 = phi ptr [ %.85195, %467 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3136), %416 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %467 ], [ %417, %416 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %115) #34
   br label %469
 
 469:                                              ; preds = %468, %414
-  %.15125 = phi ptr [ %.14124, %468 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3024), %414 ]
+  %.83193 = phi ptr [ %.84194, %468 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3024), %414 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %468 ], [ %415, %414 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #34
   br label %470
 
 470:                                              ; preds = %469, %412
-  %.16126 = phi ptr [ %.15125, %469 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3024), %412 ]
+  %.82192 = phi ptr [ %.83193, %469 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3024), %412 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %469 ], [ %413, %412 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %113) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #34
   br label %471
 
 471:                                              ; preds = %470, %410
-  %.17127 = phi ptr [ %.16126, %470 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3024), %410 ]
+  %.81191 = phi ptr [ %.82192, %470 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 3024), %410 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %470 ], [ %411, %410 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #34
   br label %472
 
 472:                                              ; preds = %471, %408
-  %.18128 = phi ptr [ %.17127, %471 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2912), %408 ]
+  %.80190 = phi ptr [ %.81191, %471 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2912), %408 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %471 ], [ %409, %408 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #34
   br label %473
 
 473:                                              ; preds = %472, %406
-  %.19129 = phi ptr [ %.18128, %472 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2912), %406 ]
+  %.79189 = phi ptr [ %.80190, %472 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2912), %406 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %472 ], [ %407, %406 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #34
   br label %474
 
 474:                                              ; preds = %473, %404
-  %.20130 = phi ptr [ %.19129, %473 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2912), %404 ]
+  %.78188 = phi ptr [ %.79189, %473 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2912), %404 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %473 ], [ %405, %404 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #34
   br label %475
 
 475:                                              ; preds = %474, %402
-  %.21131 = phi ptr [ %.20130, %474 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2800), %402 ]
+  %.77187 = phi ptr [ %.78188, %474 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2800), %402 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %474 ], [ %403, %402 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #34
   br label %476
 
 476:                                              ; preds = %475, %400
-  %.22132 = phi ptr [ %.21131, %475 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2800), %400 ]
+  %.76186 = phi ptr [ %.77187, %475 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2800), %400 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %475 ], [ %401, %400 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #34
   br label %477
 
 477:                                              ; preds = %476, %398
-  %.23133 = phi ptr [ %.22132, %476 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2800), %398 ]
+  %.75185 = phi ptr [ %.76186, %476 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2800), %398 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %476 ], [ %399, %398 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #34
   br label %478
 
 478:                                              ; preds = %477, %396
-  %.24134 = phi ptr [ %.23133, %477 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2688), %396 ]
+  %.74184 = phi ptr [ %.75185, %477 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2688), %396 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %477 ], [ %397, %396 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #34
   br label %479
 
 479:                                              ; preds = %478, %394
-  %.25135 = phi ptr [ %.24134, %478 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2688), %394 ]
+  %.73183 = phi ptr [ %.74184, %478 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2688), %394 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %478 ], [ %395, %394 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #34
   br label %480
 
 480:                                              ; preds = %479, %392
-  %.26136 = phi ptr [ %.25135, %479 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2688), %392 ]
+  %.72182 = phi ptr [ %.73183, %479 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2688), %392 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %479 ], [ %393, %392 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %99) #34
   br label %481
 
 481:                                              ; preds = %480, %390
-  %.27137 = phi ptr [ %.26136, %480 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2576), %390 ]
+  %.71181 = phi ptr [ %.72182, %480 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2576), %390 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %480 ], [ %391, %390 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #34
   br label %482
 
 482:                                              ; preds = %481, %388
-  %.28138 = phi ptr [ %.27137, %481 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2576), %388 ]
+  %.70180 = phi ptr [ %.71181, %481 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2576), %388 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %481 ], [ %389, %388 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #34
   br label %483
 
 483:                                              ; preds = %482, %386
-  %.29139 = phi ptr [ %.28138, %482 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2576), %386 ]
+  %.69179 = phi ptr [ %.70180, %482 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2576), %386 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %482 ], [ %387, %386 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #34
   br label %484
 
 484:                                              ; preds = %483, %384
-  %.30140 = phi ptr [ %.29139, %483 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2464), %384 ]
+  %.68178 = phi ptr [ %.69179, %483 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2464), %384 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %483 ], [ %385, %384 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %92) #34
   br label %485
 
 485:                                              ; preds = %484, %382
-  %.31141 = phi ptr [ %.30140, %484 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2464), %382 ]
+  %.67177 = phi ptr [ %.68178, %484 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2464), %382 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %484 ], [ %383, %382 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #34
   br label %486
 
 486:                                              ; preds = %485, %380
-  %.32142 = phi ptr [ %.31141, %485 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2464), %380 ]
+  %.66176 = phi ptr [ %.67177, %485 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2464), %380 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %485 ], [ %381, %380 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #34
   br label %487
 
 487:                                              ; preds = %486, %378
-  %.33143 = phi ptr [ %.32142, %486 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2352), %378 ]
+  %.65175 = phi ptr [ %.66176, %486 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2352), %378 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %486 ], [ %379, %378 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #34
   br label %488
 
 488:                                              ; preds = %487, %376
-  %.34144 = phi ptr [ %.33143, %487 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2352), %376 ]
+  %.64174 = phi ptr [ %.65175, %487 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2352), %376 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %487 ], [ %377, %376 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #34
   br label %489
 
 489:                                              ; preds = %488, %374
-  %.35145 = phi ptr [ %.34144, %488 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2352), %374 ]
+  %.63173 = phi ptr [ %.64174, %488 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2352), %374 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %488 ], [ %375, %374 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #34
   br label %490
 
 490:                                              ; preds = %489, %372
-  %.36146 = phi ptr [ %.35145, %489 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2240), %372 ]
+  %.62172 = phi ptr [ %.63173, %489 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2240), %372 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %489 ], [ %373, %372 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #34
   br label %491
 
 491:                                              ; preds = %490, %370
-  %.37147 = phi ptr [ %.36146, %490 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2240), %370 ]
+  %.61171 = phi ptr [ %.62172, %490 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2240), %370 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %490 ], [ %371, %370 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #34
   br label %492
 
 492:                                              ; preds = %491, %368
-  %.38148 = phi ptr [ %.37147, %491 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2240), %368 ]
+  %.60170 = phi ptr [ %.61171, %491 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2240), %368 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %491 ], [ %369, %368 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #34
   br label %493
 
 493:                                              ; preds = %492, %366
-  %.39149 = phi ptr [ %.38148, %492 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2128), %366 ]
+  %.59169 = phi ptr [ %.60170, %492 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2128), %366 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %492 ], [ %367, %366 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #34
   br label %494
 
 494:                                              ; preds = %493, %364
-  %.40150 = phi ptr [ %.39149, %493 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2128), %364 ]
+  %.58168 = phi ptr [ %.59169, %493 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2128), %364 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %493 ], [ %365, %364 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #34
   br label %495
 
 495:                                              ; preds = %494, %362
-  %.41151 = phi ptr [ %.40150, %494 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2128), %362 ]
+  %.57167 = phi ptr [ %.58168, %494 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2128), %362 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %494 ], [ %363, %362 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #34
   br label %496
 
 496:                                              ; preds = %495, %360
-  %.42152 = phi ptr [ %.41151, %495 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2016), %360 ]
+  %.56166 = phi ptr [ %.57167, %495 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2016), %360 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %495 ], [ %361, %360 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #34
   br label %497
 
 497:                                              ; preds = %496, %358
-  %.43153 = phi ptr [ %.42152, %496 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2016), %358 ]
+  %.55165 = phi ptr [ %.56166, %496 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2016), %358 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %496 ], [ %359, %358 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #34
   br label %498
 
 498:                                              ; preds = %497, %356
-  %.44154 = phi ptr [ %.43153, %497 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2016), %356 ]
+  %.54164 = phi ptr [ %.55165, %497 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 2016), %356 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %497 ], [ %357, %356 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #34
   br label %499
 
 499:                                              ; preds = %498, %354
-  %.45155 = phi ptr [ %.44154, %498 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1904), %354 ]
+  %.53163 = phi ptr [ %.54164, %498 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1904), %354 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %498 ], [ %355, %354 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #34
   br label %500
 
 500:                                              ; preds = %499, %352
-  %.46156 = phi ptr [ %.45155, %499 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1904), %352 ]
+  %.52162 = phi ptr [ %.53163, %499 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1904), %352 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %499 ], [ %353, %352 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #34
   br label %501
 
 501:                                              ; preds = %500, %350
-  %.47157 = phi ptr [ %.46156, %500 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1904), %350 ]
+  %.51161 = phi ptr [ %.52162, %500 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1904), %350 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %500 ], [ %351, %350 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #34
   br label %502
 
 502:                                              ; preds = %501, %348
-  %.48158 = phi ptr [ %.47157, %501 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1792), %348 ]
+  %.50160 = phi ptr [ %.51161, %501 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1792), %348 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %501 ], [ %349, %348 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #34
   br label %503
 
 503:                                              ; preds = %502, %346
-  %.49159 = phi ptr [ %.48158, %502 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1792), %346 ]
+  %.49159 = phi ptr [ %.50160, %502 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1792), %346 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %502 ], [ %347, %346 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #34
   br label %504
 
 504:                                              ; preds = %503, %344
-  %.50160 = phi ptr [ %.49159, %503 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1792), %344 ]
+  %.48158 = phi ptr [ %.49159, %503 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1792), %344 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %503 ], [ %345, %344 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #34
   br label %505
 
 505:                                              ; preds = %504, %342
-  %.51161 = phi ptr [ %.50160, %504 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1680), %342 ]
+  %.47157 = phi ptr [ %.48158, %504 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1680), %342 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %504 ], [ %343, %342 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #34
   br label %506
 
 506:                                              ; preds = %505, %340
-  %.52162 = phi ptr [ %.51161, %505 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1680), %340 ]
+  %.46156 = phi ptr [ %.47157, %505 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1680), %340 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %505 ], [ %341, %340 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #34
   br label %507
 
 507:                                              ; preds = %506, %338
-  %.53163 = phi ptr [ %.52162, %506 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1680), %338 ]
+  %.45155 = phi ptr [ %.46156, %506 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1680), %338 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %506 ], [ %339, %338 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #34
   br label %508
 
 508:                                              ; preds = %507, %336
-  %.54164 = phi ptr [ %.53163, %507 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1568), %336 ]
+  %.44154 = phi ptr [ %.45155, %507 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1568), %336 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %507 ], [ %337, %336 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #34
   br label %509
 
 509:                                              ; preds = %508, %334
-  %.55165 = phi ptr [ %.54164, %508 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1568), %334 ]
+  %.43153 = phi ptr [ %.44154, %508 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1568), %334 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %508 ], [ %335, %334 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #34
   br label %510
 
 510:                                              ; preds = %509, %332
-  %.56166 = phi ptr [ %.55165, %509 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1568), %332 ]
+  %.42152 = phi ptr [ %.43153, %509 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1568), %332 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %509 ], [ %333, %332 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #34
   br label %511
 
 511:                                              ; preds = %510, %330
-  %.57167 = phi ptr [ %.56166, %510 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1456), %330 ]
+  %.41151 = phi ptr [ %.42152, %510 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1456), %330 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %510 ], [ %331, %330 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #34
   br label %512
 
 512:                                              ; preds = %511, %328
-  %.58168 = phi ptr [ %.57167, %511 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1456), %328 ]
+  %.40150 = phi ptr [ %.41151, %511 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1456), %328 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %511 ], [ %329, %328 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #34
   br label %513
 
 513:                                              ; preds = %512, %326
-  %.59169 = phi ptr [ %.58168, %512 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1456), %326 ]
+  %.39149 = phi ptr [ %.40150, %512 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1456), %326 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %512 ], [ %327, %326 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #34
   br label %514
 
 514:                                              ; preds = %513, %324
-  %.60170 = phi ptr [ %.59169, %513 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1344), %324 ]
+  %.38148 = phi ptr [ %.39149, %513 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1344), %324 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %513 ], [ %325, %324 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #34
   br label %515
 
 515:                                              ; preds = %514, %322
-  %.61171 = phi ptr [ %.60170, %514 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1344), %322 ]
+  %.37147 = phi ptr [ %.38148, %514 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1344), %322 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %514 ], [ %323, %322 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #34
   br label %516
 
 516:                                              ; preds = %515, %320
-  %.62172 = phi ptr [ %.61171, %515 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1344), %320 ]
+  %.36146 = phi ptr [ %.37147, %515 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1344), %320 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %515 ], [ %321, %320 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #34
   br label %517
 
 517:                                              ; preds = %516, %318
-  %.63173 = phi ptr [ %.62172, %516 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1232), %318 ]
+  %.35145 = phi ptr [ %.36146, %516 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1232), %318 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %516 ], [ %319, %318 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #34
   br label %518
 
 518:                                              ; preds = %517, %316
-  %.64174 = phi ptr [ %.63173, %517 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1232), %316 ]
+  %.34144 = phi ptr [ %.35145, %517 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1232), %316 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %517 ], [ %317, %316 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #34
   br label %519
 
 519:                                              ; preds = %518, %314
-  %.65175 = phi ptr [ %.64174, %518 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1232), %314 ]
+  %.33143 = phi ptr [ %.34144, %518 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1232), %314 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %518 ], [ %315, %314 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #34
   br label %520
 
 520:                                              ; preds = %519, %312
-  %.66176 = phi ptr [ %.65175, %519 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1120), %312 ]
+  %.32142 = phi ptr [ %.33143, %519 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1120), %312 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %519 ], [ %313, %312 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #34
   br label %521
 
 521:                                              ; preds = %520, %310
-  %.67177 = phi ptr [ %.66176, %520 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1120), %310 ]
+  %.31141 = phi ptr [ %.32142, %520 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1120), %310 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %520 ], [ %311, %310 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #34
   br label %522
 
 522:                                              ; preds = %521, %308
-  %.68178 = phi ptr [ %.67177, %521 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1120), %308 ]
+  %.30140 = phi ptr [ %.31141, %521 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1120), %308 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %521 ], [ %309, %308 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #34
   br label %523
 
 523:                                              ; preds = %522, %306
-  %.69179 = phi ptr [ %.68178, %522 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1008), %306 ]
+  %.29139 = phi ptr [ %.30140, %522 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1008), %306 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %522 ], [ %307, %306 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #34
   br label %524
 
 524:                                              ; preds = %523, %304
-  %.70180 = phi ptr [ %.69179, %523 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1008), %304 ]
+  %.28138 = phi ptr [ %.29139, %523 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1008), %304 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %523 ], [ %305, %304 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #34
   br label %525
 
 525:                                              ; preds = %524, %302
-  %.71181 = phi ptr [ %.70180, %524 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1008), %302 ]
+  %.27137 = phi ptr [ %.28138, %524 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 1008), %302 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %524 ], [ %303, %302 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #34
   br label %526
 
 526:                                              ; preds = %525, %300
-  %.72182 = phi ptr [ %.71181, %525 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 896), %300 ]
+  %.26136 = phi ptr [ %.27137, %525 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 896), %300 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %525 ], [ %301, %300 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #34
   br label %527
 
 527:                                              ; preds = %526, %298
-  %.73183 = phi ptr [ %.72182, %526 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 896), %298 ]
+  %.25135 = phi ptr [ %.26136, %526 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 896), %298 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %526 ], [ %299, %298 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #34
   br label %528
 
 528:                                              ; preds = %527, %296
-  %.74184 = phi ptr [ %.73183, %527 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 896), %296 ]
+  %.24134 = phi ptr [ %.25135, %527 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 896), %296 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %527 ], [ %297, %296 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #34
   br label %529
 
 529:                                              ; preds = %528, %294
-  %.75185 = phi ptr [ %.74184, %528 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 784), %294 ]
+  %.23133 = phi ptr [ %.24134, %528 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 784), %294 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %528 ], [ %295, %294 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #34
   br label %530
 
 530:                                              ; preds = %529, %292
-  %.76186 = phi ptr [ %.75185, %529 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 784), %292 ]
+  %.22132 = phi ptr [ %.23133, %529 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 784), %292 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %529 ], [ %293, %292 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #34
   br label %531
 
 531:                                              ; preds = %530, %290
-  %.77187 = phi ptr [ %.76186, %530 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 784), %290 ]
+  %.21131 = phi ptr [ %.22132, %530 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 784), %290 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %530 ], [ %291, %290 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #34
   br label %532
 
 532:                                              ; preds = %531, %288
-  %.78188 = phi ptr [ %.77187, %531 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 672), %288 ]
+  %.20130 = phi ptr [ %.21131, %531 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 672), %288 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %531 ], [ %289, %288 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #34
   br label %533
 
 533:                                              ; preds = %532, %286
-  %.79189 = phi ptr [ %.78188, %532 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 672), %286 ]
+  %.19129 = phi ptr [ %.20130, %532 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 672), %286 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %532 ], [ %287, %286 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #34
   br label %534
 
 534:                                              ; preds = %533, %284
-  %.80190 = phi ptr [ %.79189, %533 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 672), %284 ]
+  %.18128 = phi ptr [ %.19129, %533 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 672), %284 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %533 ], [ %285, %284 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #34
   br label %535
 
 535:                                              ; preds = %534, %282
-  %.81191 = phi ptr [ %.80190, %534 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 560), %282 ]
+  %.17127 = phi ptr [ %.18128, %534 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 560), %282 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %534 ], [ %283, %282 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #34
   br label %536
 
 536:                                              ; preds = %535, %280
-  %.82192 = phi ptr [ %.81191, %535 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 560), %280 ]
+  %.16126 = phi ptr [ %.17127, %535 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 560), %280 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %535 ], [ %281, %280 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #34
   br label %537
 
 537:                                              ; preds = %536, %278
-  %.83193 = phi ptr [ %.82192, %536 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 560), %278 ]
+  %.15125 = phi ptr [ %.16126, %536 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 560), %278 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %536 ], [ %279, %278 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #34
   br label %538
 
 538:                                              ; preds = %537, %276
-  %.84194 = phi ptr [ %.83193, %537 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 448), %276 ]
+  %.14124 = phi ptr [ %.15125, %537 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 448), %276 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %537 ], [ %277, %276 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #34
   br label %539
 
 539:                                              ; preds = %538, %274
-  %.85195 = phi ptr [ %.84194, %538 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 448), %274 ]
+  %.13123 = phi ptr [ %.14124, %538 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 448), %274 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %538 ], [ %275, %274 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #34
   br label %540
 
 540:                                              ; preds = %539, %272
-  %.86196 = phi ptr [ %.85195, %539 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 448), %272 ]
+  %.12122 = phi ptr [ %.13123, %539 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 448), %272 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %539 ], [ %273, %272 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #34
   br label %541
 
 541:                                              ; preds = %540, %270
-  %.87197 = phi ptr [ %.86196, %540 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 336), %270 ]
+  %.11121 = phi ptr [ %.12122, %540 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 336), %270 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %540 ], [ %271, %270 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #34
   br label %542
 
 542:                                              ; preds = %541, %268
-  %.88198 = phi ptr [ %.87197, %541 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 336), %268 ]
+  %.10120 = phi ptr [ %.11121, %541 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 336), %268 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %541 ], [ %269, %268 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #34
   br label %543
 
 543:                                              ; preds = %542, %266
-  %.89199 = phi ptr [ %.88198, %542 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 336), %266 ]
+  %.9119 = phi ptr [ %.10120, %542 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 336), %266 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %542 ], [ %267, %266 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #34
   br label %544
 
 544:                                              ; preds = %543, %264
-  %.90200 = phi ptr [ %.89199, %543 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 224), %264 ]
+  %.8118 = phi ptr [ %.9119, %543 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 224), %264 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %543 ], [ %265, %264 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #34
   br label %545
 
 545:                                              ; preds = %544, %262
-  %.91201 = phi ptr [ %.90200, %544 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 224), %262 ]
+  %.7117 = phi ptr [ %.8118, %544 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 224), %262 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %544 ], [ %263, %262 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #34
   br label %546
 
 546:                                              ; preds = %545, %260
-  %.92202 = phi ptr [ %.91201, %545 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 224), %260 ]
+  %.6116 = phi ptr [ %.7117, %545 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 224), %260 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %545 ], [ %261, %260 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #34
   br label %547
 
 547:                                              ; preds = %546, %258
-  %.93203 = phi ptr [ %.92202, %546 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 112), %258 ]
+  %.5115 = phi ptr [ %.6116, %546 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 112), %258 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %546 ], [ %259, %258 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #34
   br label %548
 
 548:                                              ; preds = %547, %256
-  %.94204 = phi ptr [ %.93203, %547 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 112), %256 ]
+  %.4114 = phi ptr [ %.5115, %547 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 112), %256 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %547 ], [ %257, %256 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #34
   br label %549
 
 549:                                              ; preds = %548, %254
-  %.95205 = phi ptr [ %.94204, %548 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 112), %254 ]
+  %.3113 = phi ptr [ %.4114, %548 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, i64 112), %254 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %548 ], [ %255, %254 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #34
   br label %550
 
 550:                                              ; preds = %549, %252
-  %.96206 = phi ptr [ %.95205, %549 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, %252 ]
+  %.2112 = phi ptr [ %.3113, %549 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, %252 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %549 ], [ %253, %252 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
   br label %551
 
 551:                                              ; preds = %250, %550
-  %.97207 = phi ptr [ %.96206, %550 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, %250 ]
+  %.1111 = phi ptr [ %.2112, %550 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv, %250 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %550 ], [ %251, %250 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #34
-  %552 = icmp eq ptr %.97207, @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv
+  %552 = icmp eq ptr %.1111, @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8VertDescEiE2pv
   br i1 %552, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %551, %.preheader
-  %553 = phi ptr [ %554, %.preheader ], [ %.97207, %551 ]
+  %553 = phi ptr [ %554, %.preheader ], [ %.1111, %551 ]
   %554 = getelementptr inbounds i8, ptr %553, i64 -112
   %555 = getelementptr inbounds i8, ptr %553, i64 -80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %555) #34
@@ -13575,535 +13575,535 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(108) ptr @_ZN3vcg3tr
   br label %389
 
 389:                                              ; preds = %388, %379
-  %.095 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 3136), %388 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 3024), %379 ]
+  %.83178 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 3136), %388 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 3024), %379 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %388 ], [ %380, %379 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #34
   br label %390
 
 390:                                              ; preds = %389, %377
-  %.196 = phi ptr [ %.095, %389 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 3024), %377 ]
+  %.82177 = phi ptr [ %.83178, %389 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 3024), %377 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %389 ], [ %378, %377 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %113) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %110) #34
   br label %391
 
 391:                                              ; preds = %390, %375
-  %.297 = phi ptr [ %.196, %390 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 3024), %375 ]
+  %.81176 = phi ptr [ %.82177, %390 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 3024), %375 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %390 ], [ %376, %375 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %111) #34
   br label %392
 
 392:                                              ; preds = %391, %373
-  %.398 = phi ptr [ %.297, %391 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2912), %373 ]
+  %.80175 = phi ptr [ %.81176, %391 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2912), %373 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %391 ], [ %374, %373 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #34
   br label %393
 
 393:                                              ; preds = %392, %371
-  %.499 = phi ptr [ %.398, %392 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2912), %371 ]
+  %.79174 = phi ptr [ %.80175, %392 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2912), %371 ]
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %392 ], [ %372, %371 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %109) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #34
   br label %394
 
 394:                                              ; preds = %393, %369
-  %.5100 = phi ptr [ %.499, %393 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2912), %369 ]
+  %.78173 = phi ptr [ %.79174, %393 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2912), %369 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %393 ], [ %370, %369 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #34
   br label %395
 
 395:                                              ; preds = %394, %367
-  %.6101 = phi ptr [ %.5100, %394 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2800), %367 ]
+  %.77172 = phi ptr [ %.78173, %394 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2800), %367 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %394 ], [ %368, %367 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #34
   br label %396
 
 396:                                              ; preds = %395, %365
-  %.7102 = phi ptr [ %.6101, %395 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2800), %365 ]
+  %.76171 = phi ptr [ %.77172, %395 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2800), %365 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %395 ], [ %366, %365 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #34
   br label %397
 
 397:                                              ; preds = %396, %363
-  %.8103 = phi ptr [ %.7102, %396 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2800), %363 ]
+  %.75170 = phi ptr [ %.76171, %396 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2800), %363 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %396 ], [ %364, %363 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #34
   br label %398
 
 398:                                              ; preds = %397, %361
-  %.9104 = phi ptr [ %.8103, %397 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2688), %361 ]
+  %.74169 = phi ptr [ %.75170, %397 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2688), %361 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %397 ], [ %362, %361 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #34
   br label %399
 
 399:                                              ; preds = %398, %359
-  %.10105 = phi ptr [ %.9104, %398 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2688), %359 ]
+  %.73168 = phi ptr [ %.74169, %398 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2688), %359 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %398 ], [ %360, %359 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %101) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %98) #34
   br label %400
 
 400:                                              ; preds = %399, %357
-  %.11106 = phi ptr [ %.10105, %399 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2688), %357 ]
+  %.72167 = phi ptr [ %.73168, %399 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2688), %357 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %399 ], [ %358, %357 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %99) #34
   br label %401
 
 401:                                              ; preds = %400, %355
-  %.12107 = phi ptr [ %.11106, %400 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2576), %355 ]
+  %.71166 = phi ptr [ %.72167, %400 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2576), %355 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %400 ], [ %356, %355 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #34
   br label %402
 
 402:                                              ; preds = %401, %353
-  %.13108 = phi ptr [ %.12107, %401 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2576), %353 ]
+  %.70165 = phi ptr [ %.71166, %401 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2576), %353 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %401 ], [ %354, %353 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #34
   br label %403
 
 403:                                              ; preds = %402, %351
-  %.14109 = phi ptr [ %.13108, %402 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2576), %351 ]
+  %.69164 = phi ptr [ %.70165, %402 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2576), %351 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %402 ], [ %352, %351 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %95) #34
   br label %404
 
 404:                                              ; preds = %403, %349
-  %.15110 = phi ptr [ %.14109, %403 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2464), %349 ]
+  %.68163 = phi ptr [ %.69164, %403 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2464), %349 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %403 ], [ %350, %349 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %92) #34
   br label %405
 
 405:                                              ; preds = %404, %347
-  %.16111 = phi ptr [ %.15110, %404 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2464), %347 ]
+  %.67162 = phi ptr [ %.68163, %404 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2464), %347 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %404 ], [ %348, %347 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %93) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %90) #34
   br label %406
 
 406:                                              ; preds = %405, %345
-  %.17112 = phi ptr [ %.16111, %405 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2464), %345 ]
+  %.66161 = phi ptr [ %.67162, %405 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2464), %345 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %405 ], [ %346, %345 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %91) #34
   br label %407
 
 407:                                              ; preds = %406, %343
-  %.18113 = phi ptr [ %.17112, %406 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2352), %343 ]
+  %.65160 = phi ptr [ %.66161, %406 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2352), %343 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %406 ], [ %344, %343 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %88) #34
   br label %408
 
 408:                                              ; preds = %407, %341
-  %.19114 = phi ptr [ %.18113, %407 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2352), %341 ]
+  %.64159 = phi ptr [ %.65160, %407 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2352), %341 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %407 ], [ %342, %341 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %89) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %86) #34
   br label %409
 
 409:                                              ; preds = %408, %339
-  %.20115 = phi ptr [ %.19114, %408 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2352), %339 ]
+  %.63158 = phi ptr [ %.64159, %408 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2352), %339 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %408 ], [ %340, %339 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %87) #34
   br label %410
 
 410:                                              ; preds = %409, %337
-  %.21116 = phi ptr [ %.20115, %409 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2240), %337 ]
+  %.62157 = phi ptr [ %.63158, %409 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2240), %337 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %409 ], [ %338, %337 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #34
   br label %411
 
 411:                                              ; preds = %410, %335
-  %.22117 = phi ptr [ %.21116, %410 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2240), %335 ]
+  %.61156 = phi ptr [ %.62157, %410 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2240), %335 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %410 ], [ %336, %335 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %82) #34
   br label %412
 
 412:                                              ; preds = %411, %333
-  %.23118 = phi ptr [ %.22117, %411 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2240), %333 ]
+  %.60155 = phi ptr [ %.61156, %411 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2240), %333 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %411 ], [ %334, %333 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %83) #34
   br label %413
 
 413:                                              ; preds = %412, %331
-  %.24119 = phi ptr [ %.23118, %412 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2128), %331 ]
+  %.59154 = phi ptr [ %.60155, %412 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2128), %331 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %412 ], [ %332, %331 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %80) #34
   br label %414
 
 414:                                              ; preds = %413, %329
-  %.25120 = phi ptr [ %.24119, %413 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2128), %329 ]
+  %.58153 = phi ptr [ %.59154, %413 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2128), %329 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %413 ], [ %330, %329 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %81) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %78) #34
   br label %415
 
 415:                                              ; preds = %414, %327
-  %.26121 = phi ptr [ %.25120, %414 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2128), %327 ]
+  %.57152 = phi ptr [ %.58153, %414 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2128), %327 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %414 ], [ %328, %327 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %79) #34
   br label %416
 
 416:                                              ; preds = %415, %325
-  %.27122 = phi ptr [ %.26121, %415 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2016), %325 ]
+  %.56151 = phi ptr [ %.57152, %415 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2016), %325 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %415 ], [ %326, %325 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %76) #34
   br label %417
 
 417:                                              ; preds = %416, %323
-  %.28123 = phi ptr [ %.27122, %416 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2016), %323 ]
+  %.55150 = phi ptr [ %.56151, %416 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2016), %323 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %416 ], [ %324, %323 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %77) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #34
   br label %418
 
 418:                                              ; preds = %417, %321
-  %.29124 = phi ptr [ %.28123, %417 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2016), %321 ]
+  %.54149 = phi ptr [ %.55150, %417 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 2016), %321 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %417 ], [ %322, %321 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %75) #34
   br label %419
 
 419:                                              ; preds = %418, %319
-  %.30125 = phi ptr [ %.29124, %418 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1904), %319 ]
+  %.53148 = phi ptr [ %.54149, %418 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1904), %319 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %418 ], [ %320, %319 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #34
   br label %420
 
 420:                                              ; preds = %419, %317
-  %.31126 = phi ptr [ %.30125, %419 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1904), %317 ]
+  %.52147 = phi ptr [ %.53148, %419 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1904), %317 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %419 ], [ %318, %317 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %73) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #34
   br label %421
 
 421:                                              ; preds = %420, %315
-  %.32127 = phi ptr [ %.31126, %420 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1904), %315 ]
+  %.51146 = phi ptr [ %.52147, %420 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1904), %315 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %420 ], [ %316, %315 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %71) #34
   br label %422
 
 422:                                              ; preds = %421, %313
-  %.33128 = phi ptr [ %.32127, %421 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1792), %313 ]
+  %.50145 = phi ptr [ %.51146, %421 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1792), %313 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %421 ], [ %314, %313 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #34
   br label %423
 
 423:                                              ; preds = %422, %311
-  %.34129 = phi ptr [ %.33128, %422 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1792), %311 ]
+  %.49144 = phi ptr [ %.50145, %422 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1792), %311 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %422 ], [ %312, %311 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %69) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %66) #34
   br label %424
 
 424:                                              ; preds = %423, %309
-  %.35130 = phi ptr [ %.34129, %423 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1792), %309 ]
+  %.48143 = phi ptr [ %.49144, %423 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1792), %309 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %423 ], [ %310, %309 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %67) #34
   br label %425
 
 425:                                              ; preds = %424, %307
-  %.36131 = phi ptr [ %.35130, %424 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1680), %307 ]
+  %.47142 = phi ptr [ %.48143, %424 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1680), %307 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %424 ], [ %308, %307 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #34
   br label %426
 
 426:                                              ; preds = %425, %305
-  %.37132 = phi ptr [ %.36131, %425 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1680), %305 ]
+  %.46141 = phi ptr [ %.47142, %425 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1680), %305 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %425 ], [ %306, %305 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %65) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #34
   br label %427
 
 427:                                              ; preds = %426, %303
-  %.38133 = phi ptr [ %.37132, %426 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1680), %303 ]
+  %.45140 = phi ptr [ %.46141, %426 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1680), %303 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %426 ], [ %304, %303 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #34
   br label %428
 
 428:                                              ; preds = %427, %301
-  %.39134 = phi ptr [ %.38133, %427 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1568), %301 ]
+  %.44139 = phi ptr [ %.45140, %427 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1568), %301 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %427 ], [ %302, %301 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #34
   br label %429
 
 429:                                              ; preds = %428, %299
-  %.40135 = phi ptr [ %.39134, %428 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1568), %299 ]
+  %.43138 = phi ptr [ %.44139, %428 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1568), %299 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %428 ], [ %300, %299 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %61) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #34
   br label %430
 
 430:                                              ; preds = %429, %297
-  %.41136 = phi ptr [ %.40135, %429 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1568), %297 ]
+  %.42137 = phi ptr [ %.43138, %429 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1568), %297 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %429 ], [ %298, %297 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %59) #34
   br label %431
 
 431:                                              ; preds = %430, %295
-  %.42137 = phi ptr [ %.41136, %430 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1456), %295 ]
+  %.41136 = phi ptr [ %.42137, %430 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1456), %295 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %430 ], [ %296, %295 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #34
   br label %432
 
 432:                                              ; preds = %431, %293
-  %.43138 = phi ptr [ %.42137, %431 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1456), %293 ]
+  %.40135 = phi ptr [ %.41136, %431 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1456), %293 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %431 ], [ %294, %293 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %57) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #34
   br label %433
 
 433:                                              ; preds = %432, %291
-  %.44139 = phi ptr [ %.43138, %432 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1456), %291 ]
+  %.39134 = phi ptr [ %.40135, %432 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1456), %291 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %432 ], [ %292, %291 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %55) #34
   br label %434
 
 434:                                              ; preds = %433, %289
-  %.45140 = phi ptr [ %.44139, %433 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1344), %289 ]
+  %.38133 = phi ptr [ %.39134, %433 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1344), %289 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %433 ], [ %290, %289 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #34
   br label %435
 
 435:                                              ; preds = %434, %287
-  %.46141 = phi ptr [ %.45140, %434 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1344), %287 ]
+  %.37132 = phi ptr [ %.38133, %434 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1344), %287 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %434 ], [ %288, %287 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %50) #34
   br label %436
 
 436:                                              ; preds = %435, %285
-  %.47142 = phi ptr [ %.46141, %435 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1344), %285 ]
+  %.36131 = phi ptr [ %.37132, %435 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1344), %285 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %435 ], [ %286, %285 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %51) #34
   br label %437
 
 437:                                              ; preds = %436, %283
-  %.48143 = phi ptr [ %.47142, %436 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1232), %283 ]
+  %.35130 = phi ptr [ %.36131, %436 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1232), %283 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %436 ], [ %284, %283 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %48) #34
   br label %438
 
 438:                                              ; preds = %437, %281
-  %.49144 = phi ptr [ %.48143, %437 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1232), %281 ]
+  %.34129 = phi ptr [ %.35130, %437 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1232), %281 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %437 ], [ %282, %281 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %49) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #34
   br label %439
 
 439:                                              ; preds = %438, %279
-  %.50145 = phi ptr [ %.49144, %438 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1232), %279 ]
+  %.33128 = phi ptr [ %.34129, %438 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1232), %279 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %438 ], [ %280, %279 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #34
   br label %440
 
 440:                                              ; preds = %439, %277
-  %.51146 = phi ptr [ %.50145, %439 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1120), %277 ]
+  %.32127 = phi ptr [ %.33128, %439 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1120), %277 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %439 ], [ %278, %277 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %44) #34
   br label %441
 
 441:                                              ; preds = %440, %275
-  %.52147 = phi ptr [ %.51146, %440 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1120), %275 ]
+  %.31126 = phi ptr [ %.32127, %440 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1120), %275 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %440 ], [ %276, %275 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %45) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %42) #34
   br label %442
 
 442:                                              ; preds = %441, %273
-  %.53148 = phi ptr [ %.52147, %441 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1120), %273 ]
+  %.30125 = phi ptr [ %.31126, %441 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1120), %273 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %441 ], [ %274, %273 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %43) #34
   br label %443
 
 443:                                              ; preds = %442, %271
-  %.54149 = phi ptr [ %.53148, %442 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1008), %271 ]
+  %.29124 = phi ptr [ %.30125, %442 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1008), %271 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %442 ], [ %272, %271 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #34
   br label %444
 
 444:                                              ; preds = %443, %269
-  %.55150 = phi ptr [ %.54149, %443 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1008), %269 ]
+  %.28123 = phi ptr [ %.29124, %443 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1008), %269 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %443 ], [ %270, %269 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #34
   br label %445
 
 445:                                              ; preds = %444, %267
-  %.56151 = phi ptr [ %.55150, %444 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1008), %267 ]
+  %.27122 = phi ptr [ %.28123, %444 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 1008), %267 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %444 ], [ %268, %267 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %39) #34
   br label %446
 
 446:                                              ; preds = %445, %265
-  %.57152 = phi ptr [ %.56151, %445 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 896), %265 ]
+  %.26121 = phi ptr [ %.27122, %445 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 896), %265 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %445 ], [ %266, %265 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #34
   br label %447
 
 447:                                              ; preds = %446, %263
-  %.58153 = phi ptr [ %.57152, %446 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 896), %263 ]
+  %.25120 = phi ptr [ %.26121, %446 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 896), %263 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %446 ], [ %264, %263 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #34
   br label %448
 
 448:                                              ; preds = %447, %261
-  %.59154 = phi ptr [ %.58153, %447 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 896), %261 ]
+  %.24119 = phi ptr [ %.25120, %447 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 896), %261 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %447 ], [ %262, %261 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %35) #34
   br label %449
 
 449:                                              ; preds = %448, %259
-  %.60155 = phi ptr [ %.59154, %448 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 784), %259 ]
+  %.23118 = phi ptr [ %.24119, %448 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 784), %259 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %448 ], [ %260, %259 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #34
   br label %450
 
 450:                                              ; preds = %449, %257
-  %.61156 = phi ptr [ %.60155, %449 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 784), %257 ]
+  %.22117 = phi ptr [ %.23118, %449 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 784), %257 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %449 ], [ %258, %257 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #34
   br label %451
 
 451:                                              ; preds = %450, %255
-  %.62157 = phi ptr [ %.61156, %450 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 784), %255 ]
+  %.21116 = phi ptr [ %.22117, %450 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 784), %255 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %450 ], [ %256, %255 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #34
   br label %452
 
 452:                                              ; preds = %451, %253
-  %.63158 = phi ptr [ %.62157, %451 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 672), %253 ]
+  %.20115 = phi ptr [ %.21116, %451 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 672), %253 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %451 ], [ %254, %253 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #34
   br label %453
 
 453:                                              ; preds = %452, %251
-  %.64159 = phi ptr [ %.63158, %452 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 672), %251 ]
+  %.19114 = phi ptr [ %.20115, %452 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 672), %251 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %452 ], [ %252, %251 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %29) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #34
   br label %454
 
 454:                                              ; preds = %453, %249
-  %.65160 = phi ptr [ %.64159, %453 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 672), %249 ]
+  %.18113 = phi ptr [ %.19114, %453 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 672), %249 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %453 ], [ %250, %249 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #34
   br label %455
 
 455:                                              ; preds = %454, %247
-  %.66161 = phi ptr [ %.65160, %454 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 560), %247 ]
+  %.17112 = phi ptr [ %.18113, %454 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 560), %247 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %454 ], [ %248, %247 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #34
   br label %456
 
 456:                                              ; preds = %455, %245
-  %.67162 = phi ptr [ %.66161, %455 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 560), %245 ]
+  %.16111 = phi ptr [ %.17112, %455 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 560), %245 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %455 ], [ %246, %245 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #34
   br label %457
 
 457:                                              ; preds = %456, %243
-  %.68163 = phi ptr [ %.67162, %456 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 560), %243 ]
+  %.15110 = phi ptr [ %.16111, %456 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 560), %243 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %456 ], [ %244, %243 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %23) #34
   br label %458
 
 458:                                              ; preds = %457, %241
-  %.69164 = phi ptr [ %.68163, %457 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 448), %241 ]
+  %.14109 = phi ptr [ %.15110, %457 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 448), %241 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %457 ], [ %242, %241 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #34
   br label %459
 
 459:                                              ; preds = %458, %239
-  %.70165 = phi ptr [ %.69164, %458 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 448), %239 ]
+  %.13108 = phi ptr [ %.14109, %458 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 448), %239 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %458 ], [ %240, %239 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %21) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #34
   br label %460
 
 460:                                              ; preds = %459, %237
-  %.71166 = phi ptr [ %.70165, %459 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 448), %237 ]
+  %.12107 = phi ptr [ %.13108, %459 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 448), %237 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %459 ], [ %238, %237 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #34
   br label %461
 
 461:                                              ; preds = %460, %235
-  %.72167 = phi ptr [ %.71166, %460 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 336), %235 ]
+  %.11106 = phi ptr [ %.12107, %460 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 336), %235 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %460 ], [ %236, %235 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #34
   br label %462
 
 462:                                              ; preds = %461, %233
-  %.73168 = phi ptr [ %.72167, %461 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 336), %233 ]
+  %.10105 = phi ptr [ %.11106, %461 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 336), %233 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %461 ], [ %234, %233 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #34
   br label %463
 
 463:                                              ; preds = %462, %231
-  %.74169 = phi ptr [ %.73168, %462 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 336), %231 ]
+  %.9104 = phi ptr [ %.10105, %462 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 336), %231 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %462 ], [ %232, %231 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #34
   br label %464
 
 464:                                              ; preds = %463, %229
-  %.75170 = phi ptr [ %.74169, %463 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 224), %229 ]
+  %.8103 = phi ptr [ %.9104, %463 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 224), %229 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %463 ], [ %230, %229 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #34
   br label %465
 
 465:                                              ; preds = %464, %227
-  %.76171 = phi ptr [ %.75170, %464 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 224), %227 ]
+  %.7102 = phi ptr [ %.8103, %464 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 224), %227 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %464 ], [ %228, %227 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #34
   br label %466
 
 466:                                              ; preds = %465, %225
-  %.77172 = phi ptr [ %.76171, %465 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 224), %225 ]
+  %.6101 = phi ptr [ %.7102, %465 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 224), %225 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %465 ], [ %226, %225 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #34
   br label %467
 
 467:                                              ; preds = %466, %223
-  %.78173 = phi ptr [ %.77172, %466 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 112), %223 ]
+  %.5100 = phi ptr [ %.6101, %466 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 112), %223 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %466 ], [ %224, %223 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #34
   br label %468
 
 468:                                              ; preds = %467, %221
-  %.79174 = phi ptr [ %.78173, %467 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 112), %221 ]
+  %.499 = phi ptr [ %.5100, %467 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 112), %221 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %467 ], [ %222, %221 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #34
   br label %469
 
 469:                                              ; preds = %468, %219
-  %.80175 = phi ptr [ %.79174, %468 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 112), %219 ]
+  %.398 = phi ptr [ %.499, %468 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, i64 112), %219 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %468 ], [ %220, %219 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #34
   br label %470
 
 470:                                              ; preds = %469, %217
-  %.81176 = phi ptr [ %.80175, %469 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, %217 ]
+  %.297 = phi ptr [ %.398, %469 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, %217 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %469 ], [ %218, %217 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
   br label %471
 
 471:                                              ; preds = %215, %470
-  %.82177 = phi ptr [ %.81176, %470 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, %215 ]
+  %.196 = phi ptr [ %.297, %470 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf, %215 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %470 ], [ %216, %215 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #34
-  %472 = icmp eq ptr %.82177, @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf
+  %472 = icmp eq ptr %.196, @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8FaceDescEiE2qf
   br i1 %472, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %471, %.preheader
-  %473 = phi ptr [ %474, %.preheader ], [ %.82177, %471 ]
+  %473 = phi ptr [ %474, %.preheader ], [ %.196, %471 ]
   %474 = getelementptr inbounds i8, ptr %473, i64 -112
   %475 = getelementptr inbounds i8, ptr %473, i64 -80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %475) #34
@@ -14444,60 +14444,60 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(108) ptr @_ZN3vcg3tr
   br label %64
 
 64:                                               ; preds = %63, %54
-  %.016 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 336), %63 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 224), %54 ]
+  %.824 = phi ptr [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 336), %63 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 224), %54 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %63 ], [ %55, %54 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #34
   br label %65
 
 65:                                               ; preds = %64, %52
-  %.117 = phi ptr [ %.016, %64 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 224), %52 ]
+  %.723 = phi ptr [ %.824, %64 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 224), %52 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %64 ], [ %53, %52 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #34
   br label %66
 
 66:                                               ; preds = %65, %50
-  %.218 = phi ptr [ %.117, %65 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 224), %50 ]
+  %.622 = phi ptr [ %.723, %65 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 224), %50 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %65 ], [ %51, %50 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #34
   br label %67
 
 67:                                               ; preds = %66, %48
-  %.319 = phi ptr [ %.218, %66 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 112), %48 ]
+  %.521 = phi ptr [ %.622, %66 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 112), %48 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %66 ], [ %49, %48 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #34
   br label %68
 
 68:                                               ; preds = %67, %46
-  %.420 = phi ptr [ %.319, %67 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 112), %46 ]
+  %.420 = phi ptr [ %.521, %67 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 112), %46 ]
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %67 ], [ %47, %46 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #34
   br label %69
 
 69:                                               ; preds = %68, %44
-  %.521 = phi ptr [ %.420, %68 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 112), %44 ]
+  %.319 = phi ptr [ %.420, %68 ], [ getelementptr inbounds (i8, ptr @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, i64 112), %44 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %68 ], [ %45, %44 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #34
   br label %70
 
 70:                                               ; preds = %69, %42
-  %.622 = phi ptr [ %.521, %69 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, %42 ]
+  %.218 = phi ptr [ %.319, %69 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, %42 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %69 ], [ %43, %42 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #34
   br label %71
 
 71:                                               ; preds = %40, %70
-  %.723 = phi ptr [ %.622, %70 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, %40 ]
+  %.117 = phi ptr [ %.218, %70 ], [ @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf, %40 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %70 ], [ %41, %40 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #34
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #34
-  %72 = icmp eq ptr %.723, @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf
+  %72 = icmp eq ptr %.117, @_ZZN3vcg3tri2io11ImporterPLYI4MeshE8EdgeDescEiE2qf
   br i1 %72, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %71, %.preheader
-  %73 = phi ptr [ %74, %.preheader ], [ %.723, %71 ]
+  %73 = phi ptr [ %74, %.preheader ], [ %.117, %71 ]
   %74 = getelementptr inbounds i8, ptr %73, i64 -112
   %75 = getelementptr inbounds i8, ptr %73, i64 -80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #34
@@ -18272,14 +18272,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 155:                                              ; preds = %.preheader521, %168
   %indvars.iv643 = phi i64 [ 0, %.preheader521 ], [ %indvars.iv.next644, %168 ]
-  %.3344568 = phi i64 [ %152, %.preheader521 ], [ %174, %168 ]
+  %.4345568 = phi i64 [ %152, %.preheader521 ], [ %174, %168 ]
   %156 = load ptr, ptr %19, align 8
   %157 = load ptr, ptr %6, align 8
   %158 = ptrtoint ptr %156 to i64
   %159 = ptrtoint ptr %157 to i64
   %160 = sub i64 %158, %159
   %161 = ashr exact i64 %160, 5
-  %162 = icmp eq i64 %.3344568, %161
+  %162 = icmp eq i64 %.4345568, %161
   br i1 %162, label %163, label %168
 
 163:                                              ; preds = %155
@@ -18294,19 +18294,19 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 168:                                              ; preds = %164, %155
   %169 = phi ptr [ %157, %155 ], [ %166, %164 ]
-  %.4345 = phi i64 [ %.3344568, %155 ], [ 0, %164 ]
-  %170 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %169, i64 %.4345
+  %.5346 = phi i64 [ %.4345568, %155 ], [ 0, %164 ]
+  %170 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %169, i64 %.5346
   %171 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %170) #34
   %172 = call double @atof(ptr noundef %171) #35
   %173 = getelementptr inbounds [3 x double], ptr %154, i64 0, i64 %indvars.iv643
   store double %172, ptr %173, align 8
-  %174 = add i64 %.4345, 1
+  %174 = add i64 %.5346, 1
   %indvars.iv.next644 = add nuw nsw i64 %indvars.iv643, 1
   %exitcond646.not = icmp eq i64 %indvars.iv.next644, 3
   br i1 %exitcond646.not, label %.loopexit522, label %155, !llvm.loop !97
 
 .loopexit522:                                     ; preds = %168, %153
-  %.5346 = phi i64 [ %152, %153 ], [ %174, %168 ]
+  %.3344 = phi i64 [ %152, %153 ], [ %174, %168 ]
   br i1 %.0325.lcssa, label %175, label %323
 
 175:                                              ; preds = %.loopexit522
@@ -18317,7 +18317,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %180 = sub i64 %178, %179
   %181 = lshr exact i64 %180, 5
   %182 = trunc i64 %181 to i32
-  %183 = trunc i64 %.5346 to i32
+  %183 = trunc i64 %.3344 to i32
   %184 = add i32 %183, %125
   %185 = sub i32 %182, %184
   %or.cond = icmp ugt i32 %185, 4
@@ -18342,7 +18342,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 191:                                              ; preds = %190
   %192 = getelementptr inbounds i8, ptr %.sroa.0475.0571, i64 100
-  %193 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %177, i64 %.5346
+  %193 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %177, i64 %.3344
   %194 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %193) #34
   %195 = call i32 @atoi(ptr nocapture noundef %194) #35
   %196 = sext i32 %195 to i64
@@ -18370,14 +18370,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br label %.sink.split
 
 215:                                              ; preds = %190
-  %216 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %177, i64 %.5346
+  %216 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %177, i64 %.3344
   %217 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %216, ptr noundef nonnull @.str.110, i64 noundef 0) #34
   %218 = icmp eq i64 %217, -1
   %219 = load ptr, ptr %6, align 8
-  %220 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %219, i64 %.5346
+  %220 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %219, i64 %.3344
   %221 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %220) #34
   %222 = load ptr, ptr %6, align 8
-  %223 = getelementptr %"class.std::__cxx11::basic_string", ptr %222, i64 %.5346
+  %223 = getelementptr %"class.std::__cxx11::basic_string", ptr %222, i64 %.3344
   %224 = getelementptr i8, ptr %223, i64 32
   %225 = getelementptr inbounds i8, ptr %.sroa.0475.0571, i64 100
   br i1 %218, label %226, label %240
@@ -18389,7 +18389,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %230 = call i32 @atoi(ptr nocapture noundef %229) #35
   %231 = trunc i32 %230 to i8
   %232 = load ptr, ptr %6, align 8
-  %233 = getelementptr %"class.std::__cxx11::basic_string", ptr %232, i64 %.5346
+  %233 = getelementptr %"class.std::__cxx11::basic_string", ptr %232, i64 %.3344
   %234 = getelementptr i8, ptr %233, i64 64
   %235 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %234) #34
   %236 = call i32 @atoi(ptr nocapture noundef %235) #35
@@ -18408,7 +18408,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %244 = call double @atof(ptr noundef %243) #35
   %245 = fptrunc double %244 to float
   %246 = load ptr, ptr %6, align 8
-  %247 = getelementptr %"class.std::__cxx11::basic_string", ptr %246, i64 %.5346
+  %247 = getelementptr %"class.std::__cxx11::basic_string", ptr %246, i64 %.3344
   %248 = getelementptr i8, ptr %247, i64 64
   %249 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %248) #34
   %250 = call double @atof(ptr noundef %249) #35
@@ -18427,14 +18427,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   br label %.sink.split
 
 260:                                              ; preds = %190
-  %261 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %177, i64 %.5346
+  %261 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %177, i64 %.3344
   %262 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %261, ptr noundef nonnull @.str.110, i64 noundef 0) #34
   %263 = icmp eq i64 %262, -1
   %264 = load ptr, ptr %6, align 8
-  %265 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %264, i64 %.5346
+  %265 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %264, i64 %.3344
   %266 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %265) #34
   %267 = load ptr, ptr %6, align 8
-  %268 = getelementptr %"class.std::__cxx11::basic_string", ptr %267, i64 %.5346
+  %268 = getelementptr %"class.std::__cxx11::basic_string", ptr %267, i64 %.3344
   %269 = getelementptr i8, ptr %268, i64 32
   %270 = getelementptr inbounds i8, ptr %.sroa.0475.0571, i64 100
   br i1 %263, label %271, label %291
@@ -18446,13 +18446,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %275 = call i32 @atoi(ptr nocapture noundef %274) #35
   %276 = trunc i32 %275 to i8
   %277 = load ptr, ptr %6, align 8
-  %278 = getelementptr %"class.std::__cxx11::basic_string", ptr %277, i64 %.5346
+  %278 = getelementptr %"class.std::__cxx11::basic_string", ptr %277, i64 %.3344
   %279 = getelementptr i8, ptr %278, i64 64
   %280 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %279) #34
   %281 = call i32 @atoi(ptr nocapture noundef %280) #35
   %282 = trunc i32 %281 to i8
   %283 = load ptr, ptr %6, align 8
-  %284 = getelementptr %"class.std::__cxx11::basic_string", ptr %283, i64 %.5346
+  %284 = getelementptr %"class.std::__cxx11::basic_string", ptr %283, i64 %.3344
   %285 = getelementptr i8, ptr %284, i64 96
   %286 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %285) #34
   %287 = call i32 @atoi(ptr nocapture noundef %286) #35
@@ -18471,13 +18471,13 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %295 = call double @atof(ptr noundef %294) #35
   %296 = fptrunc double %295 to float
   %297 = load ptr, ptr %6, align 8
-  %298 = getelementptr %"class.std::__cxx11::basic_string", ptr %297, i64 %.5346
+  %298 = getelementptr %"class.std::__cxx11::basic_string", ptr %297, i64 %.3344
   %299 = getelementptr i8, ptr %298, i64 64
   %300 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %299) #34
   %301 = call double @atof(ptr noundef %300) #35
   %302 = fptrunc double %301 to float
   %303 = load ptr, ptr %6, align 8
-  %304 = getelementptr %"class.std::__cxx11::basic_string", ptr %303, i64 %.5346
+  %304 = getelementptr %"class.std::__cxx11::basic_string", ptr %303, i64 %.3344
   %305 = getelementptr i8, ptr %304, i64 96
   %306 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %305) #34
   %307 = call double @atof(ptr noundef %306) #35
@@ -18505,11 +18505,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
 
 320:                                              ; preds = %.sink.split, %190
   %321 = zext nneg i32 %185 to i64
-  %322 = add i64 %.5346, %321
+  %322 = add i64 %.3344, %321
   br label %323
 
 323:                                              ; preds = %320, %.loopexit522
-  %.6347 = phi i64 [ %322, %320 ], [ %.5346, %.loopexit522 ]
+  %.6347 = phi i64 [ %322, %320 ], [ %.3344, %.loopexit522 ]
   br i1 %92, label %.preheader515, label %.loopexit516
 
 .preheader515:                                    ; preds = %323, %340
@@ -19057,7 +19057,7 @@ _ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit408:   ; preds = %_ZNSt6vectorIP10Mes
 
 .loopexit509:                                     ; preds = %417, %_ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit408
   %.not376540 = phi i1 [ %.not376, %_ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit408 ], [ %.not376580, %417 ]
-  %.1350 = phi i32 [ %619, %_ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit408 ], [ %.0349613, %417 ]
+  %.2351 = phi i32 [ %619, %_ZNSt6vectorIP10MeshVertexSaIS1_EED2Ev.exit408 ], [ %.0349613, %417 ]
   %620 = load ptr, ptr %12, align 8
   %.not.i.i.i413 = icmp eq ptr %620, null
   br i1 %.not.i.i.i413, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, label %621
@@ -19099,7 +19099,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %625, %_ZNSt6vector
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit419
 
 .loopexit502:                                     ; preds = %389, %_ZNSt6vectorIiSaIiEED2Ev.exit415
-  %.2351 = phi i32 [ %.1350, %_ZNSt6vectorIiSaIiEED2Ev.exit415 ], [ %.0349613, %389 ]
+  %.1350 = phi i32 [ %.2351, %_ZNSt6vectorIiSaIiEED2Ev.exit415 ], [ %.0349613, %389 ]
   %.1339 = phi i32 [ %402, %_ZNSt6vectorIiSaIiEED2Ev.exit415 ], [ %.0338614, %389 ]
   %628 = load ptr, ptr %19, align 8
   %629 = load ptr, ptr %6, align 8
@@ -19124,7 +19124,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %625, %_ZNSt6vector
   ]
 
 .preheader:                                       ; preds = %637
-  %.not380601 = icmp ugt i32 %.0349613, %.2351
+  %.not380601 = icmp ugt i32 %.0349613, %.1350
   br i1 %.not380601, label %.loopexit, label %.lr.ph603
 
 .lr.ph603:                                        ; preds = %.preheader
@@ -19148,7 +19148,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %625, %_ZNSt6vector
   %654 = fptoui <4 x float> %653 to <4 x i8>
   store <4 x i8> %654, ptr %644, align 1
   %655 = add i32 %.1353602, 1
-  %.not380 = icmp ugt i32 %655, %.2351
+  %.not380 = icmp ugt i32 %655, %.1350
   br i1 %.not380, label %.loopexit, label %641, !llvm.loop !107
 
 656:                                              ; preds = %637
@@ -19164,7 +19164,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %625, %_ZNSt6vector
   %666 = zext nneg i32 %371 to i64
   %667 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %665, i64 %666
   %668 = getelementptr inbounds i8, ptr %667, i64 64
-  %.not379597 = icmp ugt i32 %.0349613, %.2351
+  %.not379597 = icmp ugt i32 %.0349613, %.1350
   br i1 %661, label %669, label %683
 
 669:                                              ; preds = %656
@@ -19195,7 +19195,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %625, %_ZNSt6vector
   %681 = getelementptr inbounds %class.MeshFace, ptr %680, i64 %679, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   store i32 %.sroa.0439.0.insert.insert, ptr %681, align 1
   %682 = add i32 %.2354598, 1
-  %.not379 = icmp ugt i32 %682, %.2351
+  %.not379 = icmp ugt i32 %682, %.1350
   br i1 %.not379, label %.loopexit, label %678, !llvm.loop !108
 
 683:                                              ; preds = %656
@@ -19234,7 +19234,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %625, %_ZNSt6vector
   %707 = getelementptr inbounds i8, ptr %704, i64 3
   store i8 -1, ptr %707, align 1
   %708 = add i32 %.3355594, 1
-  %.not378 = icmp ugt i32 %708, %.2351
+  %.not378 = icmp ugt i32 %708, %.1350
   br i1 %.not378, label %.loopexit, label %701, !llvm.loop !109
 
 709:                                              ; preds = %637
@@ -19250,7 +19250,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %625, %_ZNSt6vector
   %719 = zext nneg i32 %371 to i64
   %720 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %718, i64 %719
   %721 = getelementptr inbounds i8, ptr %720, i64 64
-  %.not382608 = icmp ugt i32 %.0349613, %.2351
+  %.not382608 = icmp ugt i32 %.0349613, %.1350
   br i1 %714, label %722, label %741
 
 722:                                              ; preds = %709
@@ -19288,7 +19288,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %625, %_ZNSt6vector
   %739 = getelementptr inbounds %class.MeshFace, ptr %738, i64 %737, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   store i32 %.sroa.0432.0.insert.insert, ptr %739, align 1
   %740 = add i32 %.4356609, 1
-  %.not382 = icmp ugt i32 %740, %.2351
+  %.not382 = icmp ugt i32 %740, %.1350
   br i1 %.not382, label %.loopexit, label %736, !llvm.loop !110
 
 741:                                              ; preds = %709
@@ -19324,11 +19324,11 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit417: ; preds = %625, %_ZNSt6vector
   %765 = getelementptr inbounds %class.MeshFace, ptr %764, i64 %763, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   store <4 x i8> %761, ptr %765, align 1
   %766 = add i32 %.5357605, 1
-  %.not381 = icmp ugt i32 %766, %.2351
+  %.not381 = icmp ugt i32 %766, %.1350
   br i1 %.not381, label %.loopexit, label %762, !llvm.loop !111
 
 .loopexit:                                        ; preds = %701, %678, %641, %762, %736, %683, %669, %.preheader, %741, %722, %.loopexit502, %637
-  %767 = add i32 %.2351, 1
+  %767 = add i32 %.1350, 1
   %.not385 = icmp ult i32 %767, %.1339
   br i1 %.not385, label %352, label %.loopexit504, !llvm.loop !112
 
@@ -19358,7 +19358,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit419:                 ; preds = %.loopexit503, %.loo
   br label %775
 
 .loopexit679:                                     ; preds = %64, %175, %142, %164, %333, %27, %94, %101, %.loopexit504, %769
-  %.6 = phi i32 [ 3, %27 ], [ 2, %94 ], [ 4, %101 ], [ %spec.select495, %.loopexit504 ], [ %spec.select495, %769 ], [ 2, %333 ], [ 2, %164 ], [ 2, %142 ], [ 2, %175 ], [ 6, %64 ]
+  %.1 = phi i32 [ 3, %27 ], [ 2, %94 ], [ 4, %101 ], [ %spec.select495, %.loopexit504 ], [ %spec.select495, %769 ], [ 2, %333 ], [ 2, %164 ], [ 2, %142 ], [ 2, %175 ], [ 6, %64 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #34
   %.pre = load ptr, ptr %6, align 8
   %.pre670 = load ptr, ptr %19, align 8
@@ -19377,7 +19377,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %17, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, %.loopexit679
-  %.7673 = phi i32 [ %.6, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %.6, %.loopexit679 ], [ 3, %17 ]
+  %.0673 = phi i32 [ %.1, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %.1, %.loopexit679 ], [ 3, %17 ]
   %773 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %.loopexit679 ], [ %18, %17 ]
   %.not.i.i.i431 = icmp eq ptr %773, null
   br i1 %.not.i.i.i431, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %774
@@ -19387,7 +19387,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %774
-  ret i32 %.7673
+  ret i32 %.0673
 
 775:                                              ; preds = %.body, %22
   %.pn391.pn = phi { ptr, i32 } [ %.pn391, %.body ], [ %23, %22 ]
@@ -21106,8 +21106,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_Sa
 .lr.ph:                                           ; preds = %59, %.lr.ph
   %.02487 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
   %.sroa.0.086 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
-  %.sroa.035.285 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.035.285, i64 -8
+  %.sroa.035.385 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
+  %63 = getelementptr inbounds i8, ptr %.sroa.035.385, i64 -8
   %64 = getelementptr inbounds i8, ptr %.sroa.0.086, i64 -8
   %65 = load ptr, ptr %63, align 8
   %66 = load ptr, ptr %64, align 8
@@ -21118,13 +21118,13 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_Sa
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.sroa.035.2.lcssa = phi ptr [ %61, %59 ], [ %.sroa.035.0, %.lr.ph ]
+  %.sroa.035.3.lcssa = phi ptr [ %61, %59 ], [ %.sroa.035.0, %.lr.ph ]
   %68 = srem i64 %.077, %25
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPP10MeshVertexSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
-  %.sroa.035.0.be = phi ptr [ %.sroa.035.1.lcssa, %45 ], [ %.sroa.035.2.lcssa, %._crit_edge ]
+  %.sroa.035.0.be = phi ptr [ %.sroa.035.1.lcssa, %45 ], [ %.sroa.035.3.lcssa, %._crit_edge ]
   %.078.be = phi i64 [ %46, %45 ], [ %68, %._crit_edge ]
   %.077.be = phi i64 [ %.078, %45 ], [ %25, %._crit_edge ]
   br label %24, !llvm.loop !129
@@ -22417,10 +22417,10 @@ _ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE17_M_realloc_
   br label %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit
 
 _ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit: ; preds = %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, %256
-  %.sroa.11653.1 = phi ptr [ %276, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %.sroa.11653.0.ph, %256 ]
+  %.sroa.11653.2 = phi ptr [ %276, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %.sroa.11653.0.ph, %256 ]
   %.pn716 = phi ptr [ %274, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %.sroa.7651.0.ph, %256 ]
-  %.sroa.0646.1 = phi ptr [ %270, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %.sroa.0646.0.ph, %256 ]
-  %.sroa.7651.1 = getelementptr inbounds i8, ptr %.pn716, i64 8
+  %.sroa.0646.3 = phi ptr [ %270, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %.sroa.0646.0.ph, %256 ]
+  %.sroa.7651.2 = getelementptr inbounds i8, ptr %.pn716, i64 8
   br label %.outer.backedge
 
 277:                                              ; preds = %239
@@ -22516,10 +22516,10 @@ _ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
   br label %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %295
-  %.sroa.11645.1 = phi ptr [ %314, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.11645.0.ph, %295 ]
+  %.sroa.11645.2 = phi ptr [ %314, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.11645.0.ph, %295 ]
   %.0.lcssa.i.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.7643.0.ph, %295 ]
-  %.sroa.0638.1 = phi ptr [ %309, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.0638.0.ph, %295 ]
-  %.sroa.7643.1 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.pn, i64 24
+  %.sroa.0638.3 = phi ptr [ %309, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ], [ %.sroa.0638.0.ph, %295 ]
+  %.sroa.7643.2 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.pn, i64 24
   %315 = add nsw i32 %.0300.ph, 1
   br label %.outer.backedge
 
@@ -22609,10 +22609,10 @@ _ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE17_M_realloc_inser
   br label %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit
 
 _ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit: ; preds = %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i, %332
-  %.sroa.10628.1 = phi ptr [ %352, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %.sroa.10628.0.ph, %332 ]
+  %.sroa.10628.2 = phi ptr [ %352, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %.sroa.10628.0.ph, %332 ]
   %.pn715 = phi ptr [ %350, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %.sroa.6626.0.ph, %332 ]
-  %.sroa.0622.1 = phi ptr [ %346, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %.sroa.0622.0.ph, %332 ]
-  %.sroa.6626.1 = getelementptr inbounds i8, ptr %.pn715, i64 8
+  %.sroa.0622.2 = phi ptr [ %346, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i ], [ %.sroa.0622.0.ph, %332 ]
+  %.sroa.6626.2 = getelementptr inbounds i8, ptr %.pn715, i64 8
   %353 = add nsw i32 %.0291.ph, 1
   br label %.outer.backedge
 
@@ -22847,8 +22847,8 @@ _ZN3vcg3tri2io11ImporterOBJI4MeshE12GoodObjIndexERii.exit440: ; preds = %418, %4
   br label %453
 
 453:                                              ; preds = %.lr.ph1004, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit
-  %.22591002 = phi i32 [ %.0257, %.lr.ph1004 ], [ %.3260, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit ]
-  %.22951001 = phi i32 [ %.0293.ph, %.lr.ph1004 ], [ %.3296, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit ]
+  %.32601002 = phi i32 [ %.0257, %.lr.ph1004 ], [ %.4261, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit ]
+  %.32961001 = phi i32 [ %.0293.ph, %.lr.ph1004 ], [ %.4297, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit ]
   %.0320999 = phi i64 [ 0, %.lr.ph1004 ], [ %542, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit ]
   store i32 3, ptr %21, align 4
   invoke void @_ZN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFace3setERKi(ptr noundef nonnull align 8 dereferenceable(88) %18, ptr noundef nonnull align 4 dereferenceable(4) %21)
@@ -23023,7 +23023,7 @@ _ZN3vcg3tri2io11ImporterOBJI4MeshE12GoodObjIndexERii.exit446: ; preds = %528, %5
 
 534:                                              ; preds = %533, %.critedge380
   store i32 %452, ptr %116, align 4
-  %535 = add nsw i32 %.22951001, 1
+  %535 = add nsw i32 %.32961001, 1
   %536 = load ptr, ptr %117, align 8
   %537 = load ptr, ptr %118, align 8
   %.not.i447 = icmp eq ptr %536, %537
@@ -23044,8 +23044,8 @@ _ZN3vcg3tri2io11ImporterOBJI4MeshE12GoodObjIndexERii.exit446: ; preds = %528, %5
           to label %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit unwind label %.loopexit725
 
 _ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit: ; preds = %493, %.preheader721, %517, %.preheader719, %528, %.preheader718, %500, %506, %.noexc448, %541
-  %.3296 = phi i32 [ %535, %541 ], [ %535, %.noexc448 ], [ %.22951001, %506 ], [ %.22951001, %500 ], [ %.22951001, %.preheader718 ], [ %.22951001, %528 ], [ %.22951001, %.preheader719 ], [ %.22951001, %517 ], [ %.22951001, %.preheader721 ], [ %.22951001, %493 ]
-  %.3260 = phi i32 [ %.22591002, %541 ], [ %.22591002, %.noexc448 ], [ 9, %506 ], [ 9, %500 ], [ %.22591002, %.preheader718 ], [ %.22591002, %528 ], [ %.22591002, %.preheader719 ], [ %.22591002, %517 ], [ %.22591002, %.preheader721 ], [ %.22591002, %493 ]
+  %.4297 = phi i32 [ %535, %541 ], [ %535, %.noexc448 ], [ %.32961001, %506 ], [ %.32961001, %500 ], [ %.32961001, %.preheader718 ], [ %.32961001, %528 ], [ %.32961001, %.preheader719 ], [ %.32961001, %517 ], [ %.32961001, %.preheader721 ], [ %.32961001, %493 ]
+  %.4261 = phi i32 [ %.32601002, %541 ], [ %.32601002, %.noexc448 ], [ 9, %506 ], [ 9, %500 ], [ %.32601002, %.preheader718 ], [ %.32601002, %528 ], [ %.32601002, %.preheader719 ], [ %.32601002, %517 ], [ %.32601002, %.preheader721 ], [ %.32601002, %493 ]
   %542 = add i64 %.0320999, 3
   %543 = load ptr, ptr %110, align 8
   %544 = load ptr, ptr %20, align 8
@@ -23057,8 +23057,8 @@ _ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_back
   br i1 %549, label %453, label %._crit_edge1005, !llvm.loop !166
 
 ._crit_edge1005:                                  ; preds = %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit, %446
-  %.2295.lcssa = phi i32 [ %.0293.ph, %446 ], [ %.3296, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit ]
-  %.2259.lcssa = phi i32 [ %.0257, %446 ], [ %.3260, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit ]
+  %.3296.lcssa = phi i32 [ %.0293.ph, %446 ], [ %.4297, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit ]
+  %.3260.lcssa = phi i32 [ %.0257, %446 ], [ %.4261, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit ]
   %.lcssa809 = phi ptr [ %448, %446 ], [ %544, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EE9push_backERKS6_.exit ]
   %.not.i.i.i450 = icmp eq ptr %.lcssa809, null
   br i1 %.not.i.i.i450, label %_ZNSt6vectorIiSaIiEED2Ev.exit457, label %550
@@ -23105,24 +23105,24 @@ _ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i: ; pr
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %133, %557, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i, %237, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit, %588, %591, %.critedge, %587, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit
-  %.sroa.10628.0.ph.be = phi ptr [ %.sroa.10628.0.ph, %237 ], [ %.sroa.10628.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.10628.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.10628.1, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.10628.0.ph, %587 ], [ %.sroa.10628.0.ph, %.critedge ], [ %.sroa.10628.0.ph, %591 ], [ %.sroa.10628.0.ph, %588 ], [ %.sroa.10628.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.10628.0.ph, %557 ], [ %.sroa.10628.0.ph, %133 ]
-  %.sroa.6626.0.ph.be = phi ptr [ %.sroa.6626.0.ph, %237 ], [ %.sroa.6626.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.6626.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.6626.1, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.6626.0.ph, %587 ], [ %.sroa.6626.0.ph, %.critedge ], [ %.sroa.6626.0.ph, %591 ], [ %.sroa.6626.0.ph, %588 ], [ %.sroa.6626.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.6626.0.ph, %557 ], [ %.sroa.6626.0.ph, %133 ]
-  %.sroa.0622.0.ph.be = phi ptr [ %.sroa.0622.0.ph, %237 ], [ %.sroa.0622.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0622.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0622.1, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0622.0.ph, %587 ], [ %.sroa.0622.0.ph, %.critedge ], [ %.sroa.0622.0.ph, %591 ], [ %.sroa.0622.0.ph, %588 ], [ %.sroa.0622.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.0622.0.ph, %557 ], [ %.sroa.0622.0.ph, %133 ]
+  %.sroa.10628.0.ph.be = phi ptr [ %.sroa.10628.0.ph, %237 ], [ %.sroa.10628.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.10628.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.10628.2, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.10628.0.ph, %587 ], [ %.sroa.10628.0.ph, %.critedge ], [ %.sroa.10628.0.ph, %591 ], [ %.sroa.10628.0.ph, %588 ], [ %.sroa.10628.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.10628.0.ph, %557 ], [ %.sroa.10628.0.ph, %133 ]
+  %.sroa.6626.0.ph.be = phi ptr [ %.sroa.6626.0.ph, %237 ], [ %.sroa.6626.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.6626.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.6626.2, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.6626.0.ph, %587 ], [ %.sroa.6626.0.ph, %.critedge ], [ %.sroa.6626.0.ph, %591 ], [ %.sroa.6626.0.ph, %588 ], [ %.sroa.6626.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.6626.0.ph, %557 ], [ %.sroa.6626.0.ph, %133 ]
+  %.sroa.0622.0.ph.be = phi ptr [ %.sroa.0622.0.ph, %237 ], [ %.sroa.0622.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0622.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0622.2, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0622.0.ph, %587 ], [ %.sroa.0622.0.ph, %.critedge ], [ %.sroa.0622.0.ph, %591 ], [ %.sroa.0622.0.ph, %588 ], [ %.sroa.0622.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.0622.0.ph, %557 ], [ %.sroa.0622.0.ph, %133 ]
   %.sroa.0629.0.ph.be = phi ptr [ %238, %237 ], [ %.sroa.0629.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0629.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0629.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0629.0.ph, %587 ], [ %.sroa.0629.0.ph, %.critedge ], [ %.sroa.0629.0.ph, %591 ], [ %.sroa.0629.0.ph, %588 ], [ %.sroa.0629.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.0629.0.ph, %557 ], [ %.sroa.0629.0.ph, %133 ]
-  %.sroa.0635.0.ph.be = phi i32 [ %.sroa.0635.0.ph, %237 ], [ %.sroa.0635.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0635.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0635.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0635.0.ph, %587 ], [ %.sroa.0635.1.lcssa, %.critedge ], [ %.sroa.0635.0.ph, %591 ], [ %.sroa.0635.0.ph, %588 ], [ %.sroa.0635.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.0635.0.ph, %557 ], [ %.sroa.0635.0.ph, %133 ]
-  %.sroa.11645.0.ph.be = phi ptr [ %.sroa.11645.0.ph, %237 ], [ %.sroa.11645.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.11645.1, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.11645.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.11645.0.ph, %587 ], [ %.sroa.11645.0.ph, %.critedge ], [ %.sroa.11645.0.ph, %591 ], [ %.sroa.11645.0.ph, %588 ], [ %.sroa.11645.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.11645.0.ph, %557 ], [ %.sroa.11645.0.ph, %133 ]
-  %.sroa.7643.0.ph.be = phi ptr [ %.sroa.7643.0.ph, %237 ], [ %.sroa.7643.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.7643.1, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.7643.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.7643.0.ph, %587 ], [ %.sroa.7643.0.ph, %.critedge ], [ %.sroa.7643.0.ph, %591 ], [ %.sroa.7643.0.ph, %588 ], [ %.sroa.7643.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.7643.0.ph, %557 ], [ %.sroa.7643.0.ph, %133 ]
-  %.sroa.0638.0.ph.be = phi ptr [ %.sroa.0638.0.ph, %237 ], [ %.sroa.0638.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0638.1, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0638.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0638.0.ph, %587 ], [ %.sroa.0638.0.ph, %.critedge ], [ %.sroa.0638.0.ph, %591 ], [ %.sroa.0638.0.ph, %588 ], [ %.sroa.0638.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.0638.0.ph, %557 ], [ %.sroa.0638.0.ph, %133 ]
-  %.sroa.11653.0.ph.be = phi ptr [ %.sroa.11653.0.ph, %237 ], [ %.sroa.11653.1, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.11653.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.11653.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.11653.0.ph, %587 ], [ %.sroa.11653.0.ph, %.critedge ], [ %.sroa.11653.0.ph, %591 ], [ %.sroa.11653.0.ph, %588 ], [ %.sroa.11653.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.11653.0.ph, %557 ], [ %.sroa.11653.0.ph, %133 ]
-  %.sroa.7651.0.ph.be = phi ptr [ %.sroa.7651.0.ph, %237 ], [ %.sroa.7651.1, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.7651.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.7651.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.7651.0.ph, %587 ], [ %.sroa.7651.0.ph, %.critedge ], [ %.sroa.7651.0.ph, %591 ], [ %.sroa.7651.0.ph, %588 ], [ %.sroa.7651.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.7651.0.ph, %557 ], [ %.sroa.7651.0.ph, %133 ]
-  %.sroa.0646.0.ph.be = phi ptr [ %.sroa.0646.0.ph, %237 ], [ %.sroa.0646.1, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0646.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0646.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0646.0.ph, %587 ], [ %.sroa.0646.0.ph, %.critedge ], [ %.sroa.0646.0.ph, %591 ], [ %.sroa.0646.0.ph, %588 ], [ %.sroa.0646.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.0646.0.ph, %557 ], [ %.sroa.0646.0.ph, %133 ]
+  %.sroa.0635.0.ph.be = phi i32 [ %.sroa.0635.0.ph, %237 ], [ %.sroa.0635.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0635.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0635.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0635.0.ph, %587 ], [ %.sroa.0635.2.lcssa, %.critedge ], [ %.sroa.0635.0.ph, %591 ], [ %.sroa.0635.0.ph, %588 ], [ %.sroa.0635.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.0635.0.ph, %557 ], [ %.sroa.0635.0.ph, %133 ]
+  %.sroa.11645.0.ph.be = phi ptr [ %.sroa.11645.0.ph, %237 ], [ %.sroa.11645.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.11645.2, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.11645.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.11645.0.ph, %587 ], [ %.sroa.11645.0.ph, %.critedge ], [ %.sroa.11645.0.ph, %591 ], [ %.sroa.11645.0.ph, %588 ], [ %.sroa.11645.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.11645.0.ph, %557 ], [ %.sroa.11645.0.ph, %133 ]
+  %.sroa.7643.0.ph.be = phi ptr [ %.sroa.7643.0.ph, %237 ], [ %.sroa.7643.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.7643.2, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.7643.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.7643.0.ph, %587 ], [ %.sroa.7643.0.ph, %.critedge ], [ %.sroa.7643.0.ph, %591 ], [ %.sroa.7643.0.ph, %588 ], [ %.sroa.7643.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.7643.0.ph, %557 ], [ %.sroa.7643.0.ph, %133 ]
+  %.sroa.0638.0.ph.be = phi ptr [ %.sroa.0638.0.ph, %237 ], [ %.sroa.0638.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0638.3, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0638.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0638.0.ph, %587 ], [ %.sroa.0638.0.ph, %.critedge ], [ %.sroa.0638.0.ph, %591 ], [ %.sroa.0638.0.ph, %588 ], [ %.sroa.0638.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.0638.0.ph, %557 ], [ %.sroa.0638.0.ph, %133 ]
+  %.sroa.11653.0.ph.be = phi ptr [ %.sroa.11653.0.ph, %237 ], [ %.sroa.11653.2, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.11653.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.11653.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.11653.0.ph, %587 ], [ %.sroa.11653.0.ph, %.critedge ], [ %.sroa.11653.0.ph, %591 ], [ %.sroa.11653.0.ph, %588 ], [ %.sroa.11653.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.11653.0.ph, %557 ], [ %.sroa.11653.0.ph, %133 ]
+  %.sroa.7651.0.ph.be = phi ptr [ %.sroa.7651.0.ph, %237 ], [ %.sroa.7651.2, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.7651.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.7651.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.7651.0.ph, %587 ], [ %.sroa.7651.0.ph, %.critedge ], [ %.sroa.7651.0.ph, %591 ], [ %.sroa.7651.0.ph, %588 ], [ %.sroa.7651.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.7651.0.ph, %557 ], [ %.sroa.7651.0.ph, %133 ]
+  %.sroa.0646.0.ph.be = phi ptr [ %.sroa.0646.0.ph, %237 ], [ %.sroa.0646.3, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0646.0.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.sroa.0646.0.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.sroa.0646.0.ph, %587 ], [ %.sroa.0646.0.ph, %.critedge ], [ %.sroa.0646.0.ph, %591 ], [ %.sroa.0646.0.ph, %588 ], [ %.sroa.0646.0.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.sroa.0646.0.ph, %557 ], [ %.sroa.0646.0.ph, %133 ]
   %.0307.ph.be = phi ptr [ @.str.19, %237 ], [ @.str.116, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ @.str.118, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ @.str.21, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.0307, %587 ], [ %.0307, %.critedge ], [ %.0307, %591 ], [ %.0307, %588 ], [ @.str.23, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ @.str.23, %557 ], [ %.0307, %133 ]
   %.0300.ph.be = phi i32 [ %.0300.ph, %237 ], [ %.0300.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %315, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.0300.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.0300.ph, %587 ], [ %.0300.ph, %.critedge ], [ %.0300.ph, %591 ], [ %.0300.ph, %588 ], [ %.0300.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.0300.ph, %557 ], [ %.0300.ph, %133 ]
-  %.0293.ph.be = phi i32 [ %.0293.ph, %237 ], [ %.0293.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.0293.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.0293.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.0293.ph, %587 ], [ %.0293.ph, %.critedge ], [ %.0293.ph, %591 ], [ %.0293.ph, %588 ], [ %.2295.lcssa, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.2295.lcssa, %557 ], [ %.0293.ph, %133 ]
+  %.0293.ph.be = phi i32 [ %.0293.ph, %237 ], [ %.0293.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.0293.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.0293.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.0293.ph, %587 ], [ %.0293.ph, %.critedge ], [ %.0293.ph, %591 ], [ %.0293.ph, %588 ], [ %.3296.lcssa, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.3296.lcssa, %557 ], [ %.0293.ph, %133 ]
   %.0291.ph.be = phi i32 [ %.0291.ph, %237 ], [ %.0291.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.0291.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %353, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.0291.ph, %587 ], [ %.0291.ph, %.critedge ], [ %.0291.ph, %591 ], [ %.0291.ph, %588 ], [ %.0291.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.0291.ph, %557 ], [ %.0291.ph, %133 ]
   %.0289.ph.be = phi i32 [ %183, %237 ], [ %.0289.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.0289.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.0289.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.0289.ph, %587 ], [ %.0289.ph, %.critedge ], [ %.0289.ph, %591 ], [ %.0289.ph, %588 ], [ %.0289.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.0289.ph, %557 ], [ %.0289.ph, %133 ]
   %.0283.ph.be = phi i16 [ %.0283.ph, %237 ], [ %.0283.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.0283.ph, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.0283.ph, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %.0283.ph, %587 ], [ %spec.select381, %.critedge ], [ %.0283.ph, %591 ], [ %.0283.ph, %588 ], [ %.0283.ph, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.0283.ph, %557 ], [ %.0283.ph, %133 ]
-  %.0257.ph.be = phi i32 [ %.0257, %237 ], [ %.0257, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.0257, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.0257, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %spec.select, %587 ], [ %spec.select382, %.critedge ], [ %.0257, %591 ], [ %.0257, %588 ], [ %.2259.lcssa, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.2259.lcssa, %557 ], [ %.0257, %133 ]
+  %.0257.ph.be = phi i32 [ %.0257, %237 ], [ %.0257, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EE9push_backERKS6_.exit ], [ %.0257, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EE9push_backERKS2_.exit ], [ %.0257, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE7ObjEdgeESaIS6_EE9push_backERKS6_.exit ], [ %spec.select, %587 ], [ %spec.select382, %.critedge ], [ %.0257, %591 ], [ %.0257, %588 ], [ %.3260.lcssa, %_ZSt8_DestroyIPSt6vectorIN3vcg6Point3IfEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i ], [ %.3260.lcssa, %557 ], [ %.0257, %133 ]
   br label %.outer, !llvm.loop !155
 
 _ZNSt6vectorIiSaIiEED2Ev.exit436:                 ; preds = %.loopexit.split-lp, %411
@@ -23385,7 +23385,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %681, label %.lr.ph1663, label %.critedge, !llvm.loop !167
 
 .critedge:                                        ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread711, %637, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread711.thread
-  %.sroa.0635.1.lcssa = phi i32 [ %.sroa.0545.0.insert.insert, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread711.thread ], [ %.sroa.0635.0.ph, %637 ], [ %.sroa.0635.0.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread711 ]
+  %.sroa.0635.2.lcssa = phi i32 [ %.sroa.0545.0.insert.insert, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread711.thread ], [ %.sroa.0635.0.ph, %637 ], [ %.sroa.0635.0.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread711 ]
   %spec.select382 = phi i32 [ %.0257, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread711.thread ], [ 5, %637 ], [ 5, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread711 ]
   %spec.select381 = phi i16 [ %653, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread711.thread ], [ 0, %637 ], [ 0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread711 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #34
@@ -23774,7 +23774,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %925 unwind label %.loopexit.split-lp734
 
 925:                                              ; preds = %.loopexit, %371, %281, %244, %167, %149
-  %.3 = phi i32 [ 16, %149 ], [ 22, %167 ], [ 24, %244 ], [ 26, %281 ], [ 34, %371 ], [ %.0257, %.loopexit ]
+  %.4 = phi i32 [ 16, %149 ], [ 22, %167 ], [ 24, %244 ], [ 26, %281 ], [ 34, %371 ], [ %.0257, %.loopexit ]
   %926 = load ptr, ptr %112, align 8
   %.not.i.i.i.i479 = icmp eq ptr %926, null
   br i1 %.not.i.i.i.i479, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i, label %927
@@ -23938,8 +23938,8 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit498: ; preds = %.body466, %956
   br label %.body
 
 .body:                                            ; preds = %957, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit498, %83, %98, %102, %160
-  %.sroa.0638.3 = phi ptr [ null, %160 ], [ null, %102 ], [ null, %98 ], [ null, %83 ], [ %.sroa.0638.0.ph, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit498 ], [ %.sroa.0638.0.ph, %957 ]
-  %.sroa.0646.3 = phi ptr [ null, %160 ], [ null, %102 ], [ null, %98 ], [ null, %83 ], [ %.sroa.0646.0.ph, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit498 ], [ %.sroa.0646.0.ph, %957 ]
+  %.sroa.0638.2 = phi ptr [ null, %160 ], [ null, %102 ], [ null, %98 ], [ null, %83 ], [ %.sroa.0638.0.ph, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit498 ], [ %.sroa.0638.0.ph, %957 ]
+  %.sroa.0646.2 = phi ptr [ null, %160 ], [ null, %102 ], [ null, %98 ], [ null, %83 ], [ %.sroa.0646.0.ph, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit498 ], [ %.sroa.0646.0.ph, %957 ]
   %.pn364.pn.pn = phi { ptr, i32 } [ %161, %160 ], [ %99, %102 ], [ %99, %98 ], [ %84, %83 ], [ %.pn364, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit498 ], [ %.pn364, %957 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %74) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #34
@@ -23947,23 +23947,23 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit498: ; preds = %.body466, %956
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #34
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #34
   call void @_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE14ObjIndexedFaceESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #34
-  %.not.i.i.i501 = icmp eq ptr %.sroa.0638.3, null
+  %.not.i.i.i501 = icmp eq ptr %.sroa.0638.2, null
   br i1 %.not.i.i.i501, label %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit502, label %958
 
 958:                                              ; preds = %.body
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0638.3) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0638.2) #33
   br label %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit502
 
 _ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit502: ; preds = %.body, %958
-  %.not.i.i.i503 = icmp eq ptr %.sroa.0646.3, null
+  %.not.i.i.i503 = icmp eq ptr %.sroa.0646.2, null
   br i1 %.not.i.i.i503, label %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EED2Ev.exit504, label %959
 
 959:                                              ; preds = %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit502
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0646.3) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0646.2) #33
   br label %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EED2Ev.exit504
 
 _ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EED2Ev.exit: ; preds = %954, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit, %51
-  %.4 = phi i32 [ 12, %51 ], [ %.3, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit ], [ %.3, %954 ]
+  %.1 = phi i32 [ 12, %51 ], [ %.4, %_ZNSt6vectorIN3vcg6Point3IdEESaIS2_EED2Ev.exit ], [ %.4, %954 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %7) #34
   br label %960
 
@@ -23973,8 +23973,8 @@ _ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EED2Ev.exit504:
   resume { ptr, i32 } %.pn369
 
 960:                                              ; preds = %_ZN3vcg3tri2io4Mask9ClampMaskI4MeshEEvRT_Ri.exit, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EED2Ev.exit
-  %.5 = phi i32 [ %.4, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EED2Ev.exit ], [ 18, %_ZN3vcg3tri2io4Mask9ClampMaskI4MeshEEvRT_Ri.exit ]
-  ret i32 %.5
+  %.0256 = phi i32 [ %.1, %_ZNSt6vectorIN3vcg3tri2io11ImporterOBJI4MeshE11ObjTexCoordESaIS6_EED2Ev.exit ], [ 18, %_ZN3vcg3tri2io4Mask9ClampMaskI4MeshEEvRT_Ri.exit ]
+  ret i32 %.0256
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -24046,14 +24046,14 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri2io11ImporterOBJI4MeshE8LoadM
   %.051.ph105 = phi i1 [ %.051.ph, %.outer ], [ %.253, %109 ]
   %.050.ph106 = phi i32 [ %.050.ph, %.outer ], [ %41, %109 ]
   %.049.ph107 = phi i64 [ %.049.ph, %.outer ], [ %46, %109 ]
-  %.047.ph108 = phi i1 [ %.047.ph, %.outer ], [ %.148, %109 ]
+  %.047.ph108 = phi i1 [ %.047.ph, %.outer ], [ %.2, %109 ]
   br label %.outer109
 
 .outer109:                                        ; preds = %.outer103, %106
   %.051.ph110 = phi i1 [ %.051.ph105, %.outer103 ], [ %.253, %106 ]
   %.050.ph111 = phi i32 [ %.050.ph106, %.outer103 ], [ %41, %106 ]
   %.049.ph112 = phi i64 [ %.049.ph107, %.outer103 ], [ %46, %106 ]
-  %.047.ph113 = phi i1 [ %.047.ph108, %.outer103 ], [ %.148, %106 ]
+  %.047.ph113 = phi i1 [ %.047.ph108, %.outer103 ], [ %.2, %106 ]
   br label %33
 
 33:                                               ; preds = %.backedge, %.outer109
@@ -24208,7 +24208,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri2io11ImporterOBJI4MeshE8LoadM
 
 96:                                               ; preds = %76, %._crit_edge, %73
   %.253 = phi i1 [ %spec.select, %._crit_edge ], [ %.051.ph110, %76 ], [ %.051.ph110, %73 ]
-  %.148 = phi i1 [ false, %._crit_edge ], [ false, %76 ], [ %.047.ph113, %73 ]
+  %.2 = phi i1 [ false, %._crit_edge ], [ false, %76 ], [ %.047.ph113, %73 ]
   %97 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 1)
           to label %98 unwind label %.loopexit.split-lp.loopexit.loopexit.loopexit.split-lp
 
@@ -26053,9 +26053,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %324
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %323, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %17
-  %.1 = phi i1 [ false, %17 ], [ %59, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %59, %323 ]
+  %.042 = phi i1 [ false, %17 ], [ %59, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %59, %323 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %4) #34
-  ret i1 %.1
+  ret i1 %.042
 
 324:                                              ; preds = %.body, %18
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %19, %18 ]
@@ -48823,8 +48823,8 @@ _ZN7QStringD2Ev.exit117:                          ; preds = %.critedge69, %_ZN9Q
   br label %225
 
 .critedge63:                                      ; preds = %_ZN7logging6BufferlsIPKcEERS0_RKT_.exit81, %82, %_ZN7QStringD2Ev.exit117
-  %.1 = phi i1 [ %218, %_ZN7QStringD2Ev.exit117 ], [ false, %82 ], [ false, %_ZN7logging6BufferlsIPKcEERS0_RKT_.exit81 ]
-  ret i1 %.1
+  %.039 = phi i1 [ %218, %_ZN7QStringD2Ev.exit117 ], [ false, %82 ], [ false, %_ZN7logging6BufferlsIPKcEERS0_RKT_.exit81 ]
+  ret i1 %.039
 
 225:                                              ; preds = %128, %101, %80, %224, %130, %71
   %.pn57.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn, %71 ], [ %102, %101 ], [ %.pn54.pn, %224 ], [ %131, %130 ], [ %129, %128 ], [ %81, %80 ]
@@ -50669,7 +50669,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i: ; preds = %.noexc1237, %_
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit1234, label %_ZNSt6vectorIiSaIiEED2Ev.exit1234.sink.split
 
 _ZN3vcg14SimpleTempDataISt6vectorI10MeshVertexSaIS2_EEiEC2ERKS4_.exit: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i, %324, %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i, %311, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
-  %.sroa.131513.3 = phi ptr [ %.sroa.29.0, %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i ], [ %.sroa.29.0, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.29.0, %311 ], [ %320, %324 ], [ %320, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i ]
+  %.sroa.131513.2 = phi ptr [ %.sroa.29.0, %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i ], [ %.sroa.29.0, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.29.0, %311 ], [ %320, %324 ], [ %320, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit.i ]
   %326 = load ptr, ptr %116, align 8
   %327 = load ptr, ptr %115, align 8
   %328 = ptrtoint ptr %326 to i64
@@ -51392,14 +51392,14 @@ _ZNSt6vectorIN3vcg3tri7TriMeshIS_I10MeshVertexSaIS3_EES_I8MeshFaceSaIS6_EENS1_14
 584:                                              ; preds = %.lr.ph2172, %1237
   %.08852170 = phi i32 [ 0, %.lr.ph2172 ], [ %.1886, %1237 ]
   %.sroa.01528.02167 = phi ptr [ %580, %.lr.ph2172 ], [ %1238, %1237 ]
-  %.016702166 = phi i8 [ undef, %.lr.ph2172 ], [ %.5, %1237 ]
-  %.016752165 = phi i8 [ undef, %.lr.ph2172 ], [ %.51680, %1237 ]
+  %.016702166 = phi i8 [ undef, %.lr.ph2172 ], [ %.41674, %1237 ]
+  %.016752165 = phi i8 [ undef, %.lr.ph2172 ], [ %.41679, %1237 ]
   %585 = load ptr, ptr %287, align 8
   %586 = ptrtoint ptr %.sroa.01528.02167 to i64
   %587 = ptrtoint ptr %585 to i64
   %588 = sub i64 %586, %587
   %589 = sdiv exact i64 %588, 30
-  %590 = getelementptr inbounds i8, ptr %.sroa.131513.3, i64 %589
+  %590 = getelementptr inbounds i8, ptr %.sroa.131513.2, i64 %589
   store i32 %.08852170, ptr %590, align 4
   %591 = srem i32 %.08852170, 1000
   %592 = icmp eq i32 %591, 0
@@ -51527,8 +51527,8 @@ _ZNSt6vectorIN3vcg3tri7TriMeshIS_I10MeshVertexSaIS3_EES_I8MeshFaceSaIS6_EENS1_14
 .lr.ph2161:                                       ; preds = %656, %976
   %659 = phi ptr [ %979, %976 ], [ %658, %656 ]
   %.08612159 = phi i64 [ %977, %976 ], [ 0, %656 ]
-  %.116712158 = phi i8 [ %.31673, %976 ], [ %.016702166, %656 ]
-  %.116762157 = phi i8 [ %.31678, %976 ], [ %.016752165, %656 ]
+  %.116712158 = phi i8 [ %.21672, %976 ], [ %.016702166, %656 ]
+  %.116762157 = phi i8 [ %.21677, %976 ], [ %.016752165, %656 ]
   store double 0.000000e+00, ptr %11, align 8
   store float 0.000000e+00, ptr %12, align 4
   %660 = load ptr, ptr %582, align 8
@@ -52019,8 +52019,8 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit: ; preds = %908, %.si
   br label %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit
 
 _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit: ; preds = %938, %941, %944, %947, %950, %952, %932
-  %.21677 = phi i8 [ %.116762157, %932 ], [ %953, %952 ], [ %951, %950 ], [ %949, %947 ], [ %946, %944 ], [ %943, %941 ], [ %940, %938 ]
-  %chari994 = sext i8 %.21677 to i32
+  %.51680 = phi i8 [ %.116762157, %932 ], [ %953, %952 ], [ %951, %950 ], [ %949, %947 ], [ %946, %944 ], [ %943, %941 ], [ %940, %938 ]
+  %chari994 = sext i8 %.51680 to i32
   %fputc995 = tail call i32 @fputc(i32 %chari994, ptr %25)
   br label %976
 
@@ -52068,14 +52068,14 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit: ; preds = %938, %941
   br label %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit
 
 _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit: ; preds = %960, %963, %966, %969, %972, %974, %954
-  %.21672 = phi i8 [ %.116712158, %954 ], [ %975, %974 ], [ %973, %972 ], [ %971, %969 ], [ %968, %966 ], [ %965, %963 ], [ %962, %960 ]
-  %chari991 = sext i8 %.21672 to i32
+  %.5 = phi i8 [ %.116712158, %954 ], [ %975, %974 ], [ %973, %972 ], [ %971, %969 ], [ %968, %966 ], [ %965, %963 ], [ %962, %960 ]
+  %chari991 = sext i8 %.5 to i32
   %fputc992 = tail call i32 @fputc(i32 %chari991, ptr %25)
   br label %976
 
 976:                                              ; preds = %757, %794, %756, %674, %688, %702, %716, %730, %743, %673, %831, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit
-  %.31678 = phi i8 [ %.116762157, %831 ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit ], [ %.21677, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit ], [ %.116762157, %756 ], [ %.116762157, %794 ], [ %.116762157, %757 ], [ %.116762157, %673 ], [ %.116762157, %743 ], [ %742, %730 ], [ %.116762157, %716 ], [ %.116762157, %702 ], [ %.116762157, %688 ], [ %.116762157, %674 ]
-  %.31673 = phi i8 [ %.116712158, %831 ], [ %.21672, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit ], [ %.116712158, %756 ], [ %.116712158, %794 ], [ %.116712158, %757 ], [ %.116712158, %673 ], [ %755, %743 ], [ %.116712158, %730 ], [ %.116712158, %716 ], [ %.116712158, %702 ], [ %.116712158, %688 ], [ %.116712158, %674 ]
+  %.21677 = phi i8 [ %.116762157, %831 ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit ], [ %.51680, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit ], [ %.116762157, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit ], [ %.116762157, %756 ], [ %.116762157, %794 ], [ %.116762157, %757 ], [ %.116762157, %673 ], [ %.116762157, %743 ], [ %742, %730 ], [ %.116762157, %716 ], [ %.116762157, %702 ], [ %.116762157, %688 ], [ %.116762157, %674 ]
+  %.21672 = phi i8 [ %.116712158, %831 ], [ %.5, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit ], [ %.116712158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit ], [ %.116712158, %756 ], [ %.116712158, %794 ], [ %.116712158, %757 ], [ %.116712158, %673 ], [ %755, %743 ], [ %.116712158, %730 ], [ %.116712158, %716 ], [ %.116712158, %702 ], [ %.116712158, %688 ], [ %.116712158, %674 ]
   %977 = add nuw i64 %.08612159, 1
   %978 = load ptr, ptr %116, align 8
   %979 = load ptr, ptr %115, align 8
@@ -52436,14 +52436,14 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit: ; preds = %960, %963
   br label %.loopexit2128
 
 .loopexit2128:                                    ; preds = %976, %656, %._crit_edge2156
-  %.41679 = phi i8 [ %.016752165, %._crit_edge2156 ], [ %.016752165, %656 ], [ %.31678, %976 ]
-  %.41674 = phi i8 [ %.016702166, %._crit_edge2156 ], [ %.016702166, %656 ], [ %.31673, %976 ]
+  %.31678 = phi i8 [ %.016752165, %._crit_edge2156 ], [ %.016752165, %656 ], [ %.21677, %976 ]
+  %.31673 = phi i8 [ %.016702166, %._crit_edge2156 ], [ %.016702166, %656 ], [ %.21672, %976 ]
   %1236 = add nsw i32 %.08852170, 1
   br label %1237
 
 1237:                                             ; preds = %601, %.loopexit2128
-  %.51680 = phi i8 [ %.016752165, %601 ], [ %.41679, %.loopexit2128 ]
-  %.5 = phi i8 [ %.016702166, %601 ], [ %.41674, %.loopexit2128 ]
+  %.41679 = phi i8 [ %.016752165, %601 ], [ %.31678, %.loopexit2128 ]
+  %.41674 = phi i8 [ %.016702166, %601 ], [ %.31673, %.loopexit2128 ]
   %.1886 = phi i32 [ %.08852170, %601 ], [ %1236, %.loopexit2128 ]
   %1238 = getelementptr inbounds i8, ptr %.sroa.01528.02167, i64 120
   %1239 = load ptr, ptr %300, align 8
@@ -52467,8 +52467,8 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit: ; preds = %960, %963
   br label %1248
 
 1248:                                             ; preds = %.lr.ph2196, %.loopexit2124
-  %.016632193 = phi i8 [ undef, %.lr.ph2196 ], [ %.4, %.loopexit2124 ]
-  %.016652192 = phi i8 [ undef, %.lr.ph2196 ], [ %.41669, %.loopexit2124 ]
+  %.016632193 = phi i8 [ undef, %.lr.ph2196 ], [ %.3, %.loopexit2124 ]
+  %.016652192 = phi i8 [ undef, %.lr.ph2196 ], [ %.31668, %.loopexit2124 ]
   %.sroa.01247.02190 = phi ptr [ %1241, %.lr.ph2196 ], [ %1938, %.loopexit2124 ]
   br i1 %.not917, label %1257, label %1249
 
@@ -52503,7 +52503,7 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit: ; preds = %960, %963
   %1267 = ptrtoint ptr %1265 to i64
   %1268 = sub i64 %1266, %1267
   %1269 = sdiv exact i64 %1268, 30
-  %1270 = getelementptr inbounds i8, ptr %.sroa.131513.3, i64 %1269
+  %1270 = getelementptr inbounds i8, ptr %.sroa.131513.2, i64 %1269
   %1271 = load i32, ptr %1270, align 4
   store i32 %1271, ptr %15, align 4
   %1272 = getelementptr inbounds i8, ptr %.sroa.01247.02190, i64 16
@@ -52511,7 +52511,7 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit: ; preds = %960, %963
   %1274 = ptrtoint ptr %1273 to i64
   %1275 = sub i64 %1274, %1267
   %1276 = sdiv exact i64 %1275, 30
-  %1277 = getelementptr inbounds i8, ptr %.sroa.131513.3, i64 %1276
+  %1277 = getelementptr inbounds i8, ptr %.sroa.131513.2, i64 %1276
   %1278 = load i32, ptr %1277, align 4
   store i32 %1278, ptr %1246, align 4
   %1279 = getelementptr inbounds i8, ptr %.sroa.01247.02190, i64 24
@@ -52519,7 +52519,7 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit: ; preds = %960, %963
   %1281 = ptrtoint ptr %1280 to i64
   %1282 = sub i64 %1281, %1267
   %1283 = sdiv exact i64 %1282, 30
-  %1284 = getelementptr inbounds i8, ptr %.sroa.131513.3, i64 %1283
+  %1284 = getelementptr inbounds i8, ptr %.sroa.131513.2, i64 %1283
   %1285 = load i32, ptr %1284, align 4
   store i32 %1285, ptr %1247, align 4
   %fputc926 = tail call i32 @fputc(i32 3, ptr %25)
@@ -52631,8 +52631,8 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit: ; preds = %960, %963
 1339:                                             ; preds = %.lr.ph2186, %1657
   %1340 = phi ptr [ %1337, %.lr.ph2186 ], [ %1660, %1657 ]
   %.08532184 = phi i64 [ 0, %.lr.ph2186 ], [ %1658, %1657 ]
-  %.116642183 = phi i8 [ %.016632193, %.lr.ph2186 ], [ %.3, %1657 ]
-  %.116662182 = phi i8 [ %.016652192, %.lr.ph2186 ], [ %.31668, %1657 ]
+  %.116642183 = phi i8 [ %.016632193, %.lr.ph2186 ], [ %.2, %1657 ]
+  %.116662182 = phi i8 [ %.016652192, %.lr.ph2186 ], [ %.21667, %1657 ]
   store double 0.000000e+00, ptr %20, align 8
   store float 0.000000e+00, ptr %21, align 4
   %1341 = load ptr, ptr %1244, align 8
@@ -53123,8 +53123,8 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit1164: ; preds = %1589,
   br label %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit1167
 
 _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit1167: ; preds = %1619, %1622, %1625, %1628, %1631, %1633, %1613
-  %.21667 = phi i8 [ %.116662182, %1613 ], [ %1634, %1633 ], [ %1632, %1631 ], [ %1630, %1628 ], [ %1627, %1625 ], [ %1624, %1622 ], [ %1621, %1619 ]
-  %chari959 = sext i8 %.21667 to i32
+  %.41669 = phi i8 [ %.116662182, %1613 ], [ %1634, %1633 ], [ %1632, %1631 ], [ %1630, %1628 ], [ %1627, %1625 ], [ %1624, %1622 ], [ %1621, %1619 ]
+  %chari959 = sext i8 %.41669 to i32
   %fputc960 = tail call i32 @fputc(i32 %chari959, ptr %25)
   br label %1657
 
@@ -53172,14 +53172,14 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit1167: ; preds = %1619,
   br label %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170
 
 _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170: ; preds = %1641, %1644, %1647, %1650, %1653, %1655, %1635
-  %.2 = phi i8 [ %.116642183, %1635 ], [ %1656, %1655 ], [ %1654, %1653 ], [ %1652, %1650 ], [ %1649, %1647 ], [ %1646, %1644 ], [ %1643, %1641 ]
-  %chari956 = sext i8 %.2 to i32
+  %.4 = phi i8 [ %.116642183, %1635 ], [ %1656, %1655 ], [ %1654, %1653 ], [ %1652, %1650 ], [ %1649, %1647 ], [ %1646, %1644 ], [ %1643, %1641 ]
+  %chari956 = sext i8 %.4 to i32
   %fputc957 = tail call i32 @fputc(i32 %chari956, ptr %25)
   br label %1657
 
 1657:                                             ; preds = %1438, %1475, %1437, %1355, %1369, %1383, %1397, %1411, %1424, %1354, %1512, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit1167, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit1164, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit1161, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit1158, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit1155
-  %.31668 = phi i8 [ %.116662182, %1512 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170 ], [ %.21667, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit1167 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit1164 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit1161 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit1158 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit1155 ], [ %.116662182, %1437 ], [ %.116662182, %1475 ], [ %.116662182, %1438 ], [ %.116662182, %1354 ], [ %.116662182, %1424 ], [ %1423, %1411 ], [ %.116662182, %1397 ], [ %.116662182, %1383 ], [ %.116662182, %1369 ], [ %.116662182, %1355 ]
-  %.3 = phi i8 [ %.116642183, %1512 ], [ %.2, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit1167 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit1164 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit1161 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit1158 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit1155 ], [ %.116642183, %1437 ], [ %.116642183, %1475 ], [ %.116642183, %1438 ], [ %.116642183, %1354 ], [ %1436, %1424 ], [ %.116642183, %1411 ], [ %.116642183, %1397 ], [ %.116642183, %1383 ], [ %.116642183, %1369 ], [ %.116642183, %1355 ]
+  %.21667 = phi i8 [ %.116662182, %1512 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170 ], [ %.41669, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit1167 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit1164 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit1161 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit1158 ], [ %.116662182, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit1155 ], [ %.116662182, %1437 ], [ %.116662182, %1475 ], [ %.116662182, %1438 ], [ %.116662182, %1354 ], [ %.116662182, %1424 ], [ %1423, %1411 ], [ %.116662182, %1397 ], [ %.116662182, %1383 ], [ %.116662182, %1369 ], [ %.116662182, %1355 ]
+  %.2 = phi i8 [ %.116642183, %1512 ], [ %.4, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIcEEviPvRT_.exit1167 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIsEEviPvRT_.exit1164 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIiEEviPvRT_.exit1161 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIdEEviPvRT_.exit1158 ], [ %.116642183, %_ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIfEEviPvRT_.exit1155 ], [ %.116642183, %1437 ], [ %.116642183, %1475 ], [ %.116642183, %1438 ], [ %.116642183, %1354 ], [ %1436, %1424 ], [ %.116642183, %1411 ], [ %.116642183, %1397 ], [ %.116642183, %1383 ], [ %.116642183, %1369 ], [ %.116642183, %1355 ]
   %1658 = add nuw i64 %.08532184, 1
   %1659 = load ptr, ptr %183, align 8
   %1660 = load ptr, ptr %182, align 8
@@ -53204,7 +53204,7 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170: ; preds = %1641,
   %1674 = ptrtoint ptr %1672 to i64
   %1675 = sub i64 %1673, %1674
   %1676 = sdiv exact i64 %1675, 30
-  %1677 = getelementptr inbounds i8, ptr %.sroa.131513.3, i64 %1676
+  %1677 = getelementptr inbounds i8, ptr %.sroa.131513.2, i64 %1676
   %1678 = load i32, ptr %1677, align 4
   %1679 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.284, i32 noundef %1678) #34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -53579,8 +53579,8 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170: ; preds = %1641,
   br label %.loopexit2124
 
 .loopexit2124:                                    ; preds = %1657, %1335, %1257, %._crit_edge2180
-  %.41669 = phi i8 [ %.016652192, %1257 ], [ %.016652192, %._crit_edge2180 ], [ %.016652192, %1335 ], [ %.31668, %1657 ]
-  %.4 = phi i8 [ %.016632193, %1257 ], [ %.016632193, %._crit_edge2180 ], [ %.016632193, %1335 ], [ %.3, %1657 ]
+  %.31668 = phi i8 [ %.016652192, %1257 ], [ %.016652192, %._crit_edge2180 ], [ %.016652192, %1335 ], [ %.21667, %1657 ]
+  %.3 = phi i8 [ %.016632193, %1257 ], [ %.016632193, %._crit_edge2180 ], [ %.016632193, %1335 ], [ %.2, %1657 ]
   %1938 = getelementptr inbounds i8, ptr %.sroa.01247.02190, i64 216
   %1939 = load ptr, ptr %1242, align 8
   %.not2119 = icmp eq ptr %1938, %1939
@@ -53619,7 +53619,7 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170: ; preds = %1641,
   %1956 = ptrtoint ptr %1954 to i64
   %1957 = sub i64 %1955, %1956
   %1958 = sdiv exact i64 %1957, 30
-  %1959 = getelementptr inbounds i8, ptr %.sroa.131513.3, i64 %1958
+  %1959 = getelementptr inbounds i8, ptr %.sroa.131513.2, i64 %1958
   %1960 = load i32, ptr %1959, align 4
   br i1 %2, label %1961, label %1970
 
@@ -53630,7 +53630,7 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170: ; preds = %1641,
   %1964 = ptrtoint ptr %1963 to i64
   %1965 = sub i64 %1964, %1956
   %1966 = sdiv exact i64 %1965, 30
-  %1967 = getelementptr inbounds i8, ptr %.sroa.131513.3, i64 %1966
+  %1967 = getelementptr inbounds i8, ptr %.sroa.131513.2, i64 %1966
   %1968 = load i32, ptr %1967, align 4
   store i32 %1968, ptr %1947, align 4
   %1969 = call i64 @fwrite(ptr noundef nonnull %24, i64 noundef 4, i64 noundef 2, ptr noundef %25)
@@ -53642,7 +53642,7 @@ _ZN3vcg3tri2io11ExporterPLYI4MeshE7PlyConvIhEEviPvRT_.exit1170: ; preds = %1641,
   %1973 = ptrtoint ptr %1972 to i64
   %1974 = sub i64 %1973, %1956
   %1975 = sdiv exact i64 %1974, 30
-  %1976 = getelementptr inbounds i8, ptr %.sroa.131513.3, i64 %1975
+  %1976 = getelementptr inbounds i8, ptr %.sroa.131513.2, i64 %1975
   %1977 = load i32, ptr %1976, align 4
   %1978 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.300, i32 noundef %1960, i32 noundef %1977) #34
   br label %1979
@@ -53786,11 +53786,11 @@ _ZNSt6vectorIN3vcg3tri7TriMeshIS_I10MeshVertexSaIS3_EES_I8MeshFaceSaIS6_EENS1_14
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit.i
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit.i:              ; preds = %1999, %_ZNSt6vectorIN3vcg3tri7TriMeshIS_I10MeshVertexSaIS3_EES_I8MeshFaceSaIS6_EENS1_14DummyContainerES9_S9_E29ConstPerVertexAttributeHandleIdEESaISC_EED2Ev.exit
-  %.not.i.i.i.i.i1195 = icmp eq ptr %.sroa.131513.3, null
+  %.not.i.i.i.i.i1195 = icmp eq ptr %.sroa.131513.2, null
   br i1 %.not.i.i.i.i.i1195, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %2000
 
 2000:                                             ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.131513.3) #33
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.131513.2) #33
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIN3vcg3tri7TriMeshIS_I10MeshVertexSaIS3_EES_I8MeshFaceSaIS6_EENS1_14DummyContainerES9_S9_E27ConstPerFaceAttributeHandleINS0_6Point3IdEEEESaISE_EED2Ev.exit: ; preds = %520, %.loopexit.split-lp
@@ -54065,11 +54065,11 @@ _ZNSt6vectorIN3vcg3tri7TriMeshIS_I10MeshVertexSaIS3_EES_I8MeshFaceSaIS6_EENS1_14
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit.i1229:          ; preds = %377, %_ZNSt6vectorIN3vcg3tri7TriMeshIS_I10MeshVertexSaIS3_EES_I8MeshFaceSaIS6_EENS1_14DummyContainerES9_S9_E29ConstPerVertexAttributeHandleIdEESaISC_EED2Ev.exit1225, %2015
   %.pn1003.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %378, %377 ], [ %.pn1003.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIN3vcg3tri7TriMeshIS_I10MeshVertexSaIS3_EES_I8MeshFaceSaIS6_EENS1_14DummyContainerES9_S9_E29ConstPerVertexAttributeHandleIdEESaISC_EED2Ev.exit1225 ], [ %.pn1003.pn.pn.pn.pn.pn.pn.pn2117, %2015 ]
-  %.not.i.i.i.i.i1230 = icmp eq ptr %.sroa.131513.3, null
+  %.not.i.i.i.i.i1230 = icmp eq ptr %.sroa.131513.2, null
   br i1 %.not.i.i.i.i.i1230, label %_ZNSt6vectorIiSaIiEED2Ev.exit1234, label %_ZNSt6vectorIiSaIiEED2Ev.exit1234.sink.split
 
 _ZNSt6vectorIiSaIiEED2Ev.exit1234.sink.split:     ; preds = %_ZNSt6vectorIiSaIiEE5clearEv.exit.i1229, %325
-  %.sroa.29.0.sink = phi ptr [ %.sroa.29.0, %325 ], [ %.sroa.131513.3, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i1229 ]
+  %.sroa.29.0.sink = phi ptr [ %.sroa.29.0, %325 ], [ %.sroa.131513.2, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i1229 ]
   %.pn1003.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %325 ], [ %.pn1003.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEE5clearEv.exit.i1229 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.29.0.sink) #33
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit1234
@@ -57221,9 +57221,9 @@ _ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit.threa
 
 249:                                              ; preds = %.preheader, %259
   %indvars.iv366 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next367, %259 ]
-  %.1148347 = phi i32 [ %.0147353, %.preheader ], [ %.2149, %259 ]
+  %.2149347 = phi i32 [ %.0147353, %.preheader ], [ %.3, %259 ]
   %250 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %248, i64 0, i64 %indvars.iv366
-  %251 = invoke noundef zeroext i1 @_ZN3vcg3tri2io11ExporterOBJI4MeshE18AddNewTextureCoordIdEEbRSt3mapINS_9TexCoord2IT_Li1EEEiSt4lessIS9_ESaISt4pairIKS9_iEEERSD_i(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(18) %250, i32 noundef %.1148347)
+  %251 = invoke noundef zeroext i1 @_ZN3vcg3tri2io11ExporterOBJI4MeshE18AddNewTextureCoordIdEEbRSt3mapINS_9TexCoord2IT_Li1EEEiSt4lessIS9_ESaISt4pairIKS9_iEEERSD_i(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(18) %250, i32 noundef %.2149347)
           to label %252 unwind label %.loopexit
 
 252:                                              ; preds = %249
@@ -57234,18 +57234,18 @@ _ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit.threa
   %255 = getelementptr inbounds i8, ptr %250, i64 8
   %256 = load double, ptr %255, align 8
   %257 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.363, i32 noundef 16, double noundef %254, i32 noundef 16, double noundef %256) #34
-  %258 = add nsw i32 %.1148347, 1
+  %258 = add nsw i32 %.2149347, 1
   br label %259
 
 259:                                              ; preds = %252, %253
-  %.2149 = phi i32 [ %258, %253 ], [ %.1148347, %252 ]
+  %.3 = phi i32 [ %258, %253 ], [ %.2149347, %252 ]
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next367, 3
   br i1 %exitcond.not, label %.thread, label %249, !llvm.loop !392
 
 .thread:                                          ; preds = %259, %230, %247
   %.1146309 = phi i32 [ %.1146, %247 ], [ %.0145354, %230 ], [ %.1146, %259 ]
-  %.3 = phi i32 [ %.0147353, %247 ], [ %.0147353, %230 ], [ %.2149, %259 ]
+  %.1148 = phi i32 [ %.0147353, %247 ], [ %.0147353, %230 ], [ %.3, %259 ]
   %260 = call i64 @fwrite(ptr nonnull @.str.369, i64 2, i64 1, ptr %65)
   %261 = getelementptr inbounds i8, ptr %.sroa.0257.0351, i64 8
   %262 = getelementptr inbounds i8, ptr %.sroa.0257.0351, i64 96
@@ -57476,7 +57476,7 @@ _ZN3vcg3tri2io11ExporterOBJI4MeshE17WriteFacesElementEP8_IO_FILEiii.exit: ; pred
 
 364:                                              ; preds = %226, %363, %357
   %.4157 = phi i32 [ %.3156352, %226 ], [ %359, %363 ], [ %.3156352, %357 ]
-  %.4 = phi i32 [ %.0147353, %226 ], [ %.3, %363 ], [ %.3, %357 ]
+  %.4 = phi i32 [ %.0147353, %226 ], [ %.1148, %363 ], [ %.1148, %357 ]
   %.2 = phi i32 [ %.0145354, %226 ], [ %.1146309, %363 ], [ %.1146309, %357 ]
   %365 = getelementptr inbounds i8, ptr %.sroa.0257.0351, i64 216
   %366 = load ptr, ptr %220, align 8
@@ -57562,7 +57562,7 @@ _ZN3vcg3tri7TriMeshISt6vectorI10MeshVertexSaIS3_EES2_I8MeshFaceSaIS6_EENS0_14Dum
   br label %.loopexit387
 
 .loopexit387:                                     ; preds = %363, %410, %.thread310
-  %.0150 = phi i32 [ %409, %410 ], [ %spec.select227, %.thread310 ], [ 4, %363 ]
+  %.2152 = phi i32 [ %409, %410 ], [ %spec.select227, %.thread310 ], [ 4, %363 ]
   %412 = call i32 @fclose(ptr noundef %65)
   %413 = load ptr, ptr %15, align 8
   %414 = getelementptr inbounds i8, ptr %15, i64 8
@@ -57611,12 +57611,12 @@ _ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit: ; pr
 
 425:                                              ; preds = %_ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit.thread, %_ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit
   %.sroa.0292.0380 = phi ptr [ %118, %_ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit.thread ], [ %.sroa.0292.0381, %_ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit ]
-  %.1151315 = phi i32 [ 4, %_ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit.thread ], [ %.0150, %_ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit ]
+  %.1151315 = phi i32 [ 4, %_ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit.thread ], [ %.2152, %_ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0292.0380) #33
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit, %425
-  %.1151316 = phi i32 [ %.0150, %_ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit ], [ %.1151315, %425 ]
+  %.1151316 = phi i32 [ %.2152, %_ZNSt3mapIN3vcg9TexCoord2IdLi1EEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit ], [ %.1151315, %425 ]
   %426 = load ptr, ptr %102, align 8
   invoke void @_ZNSt8_Rb_treeIN3vcg6Point3IdEESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %426)
           to label %_ZNSt3mapIN3vcg6Point3IdEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit unwind label %427
@@ -57671,8 +57671,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit248:                 ; preds = %430, %.loopexit.spl
   br label %432
 
 _ZN3vcg3tri9AllocatorI4MeshE13IsValidHandleIiEEbRKS2_RKNS0_7TriMeshISt6vectorI10MeshVertexSaIS9_EES8_I8MeshFaceSaISC_EENS0_14DummyContainerESF_SF_E22PerFaceAttributeHandleIT_EE.exit.thread: ; preds = %53, %46, %.loopexit336, %_ZN3vcg3tri9AllocatorI4MeshE13IsValidHandleISt6vectorINS0_2io8MaterialESaIS7_EEEEbRKS2_RKNS0_7TriMeshIS5_I10MeshVertexSaISD_EES5_I8MeshFaceSaISG_EENS0_14DummyContainerESJ_SJ_E22PerMeshAttributeHandleIT_EE.exit, %5, %_ZNSt3mapIN3vcg6Point3IdEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit
-  %.2152 = phi i32 [ %.1151316, %_ZNSt3mapIN3vcg6Point3IdEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit ], [ 6, %5 ], [ 1, %_ZN3vcg3tri9AllocatorI4MeshE13IsValidHandleISt6vectorINS0_2io8MaterialESaIS7_EEEEbRKS2_RKNS0_7TriMeshIS5_I10MeshVertexSaISD_EES5_I8MeshFaceSaISG_EENS0_14DummyContainerESJ_SJ_E22PerMeshAttributeHandleIT_EE.exit ], [ 8, %.loopexit336 ], [ 8, %46 ], [ 8, %53 ]
-  ret i32 %.2152
+  %.0150 = phi i32 [ %.1151316, %_ZNSt3mapIN3vcg6Point3IdEEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev.exit ], [ 6, %5 ], [ 1, %_ZN3vcg3tri9AllocatorI4MeshE13IsValidHandleISt6vectorINS0_2io8MaterialESaIS7_EEEEbRKS2_RKNS0_7TriMeshIS5_I10MeshVertexSaISD_EES5_I8MeshFaceSaISG_EENS0_14DummyContainerESJ_SJ_E22PerMeshAttributeHandleIT_EE.exit ], [ 8, %.loopexit336 ], [ 8, %46 ], [ 8, %53 ]
+  ret i32 %.0150
 
 432:                                              ; preds = %431, %82, %64, %59
   %.pn213.pn.pn.pn = phi { ptr, i32 } [ %.pn213.pn.pn, %431 ], [ %83, %82 ], [ %.pn186, %64 ], [ %.pn, %59 ]
@@ -60291,10 +60291,10 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %31, %28
 
 49:                                               ; preds = %.loopexit92.i, %.lr.ph.i
   %50 = phi ptr [ %37, %.lr.ph.i ], [ %271, %.loopexit92.i ]
-  %.051118.i = phi i32 [ %44, %.lr.ph.i ], [ %.3.i, %.loopexit92.i ]
+  %.051118.i = phi i32 [ %44, %.lr.ph.i ], [ %.152.i, %.loopexit92.i ]
   %.sroa.069.0117.i = phi ptr [ %35, %.lr.ph.i ], [ %272, %.loopexit92.i ]
-  %.0116.i = phi ptr [ %16, %.lr.ph.i ], [ %.4.i, %.loopexit92.i ]
-  %.084115.i = phi ptr [ %13, %.lr.ph.i ], [ %.488.i, %.loopexit92.i ]
+  %.0116.i = phi ptr [ %16, %.lr.ph.i ], [ %.181.i, %.loopexit92.i ]
+  %.084115.i = phi ptr [ %13, %.lr.ph.i ], [ %.185.i, %.loopexit92.i ]
   %51 = getelementptr inbounds i8, ptr %.sroa.069.0117.i, i64 200
   %52 = load i32, ptr %51, align 8
   %53 = and i32 %52, 1
@@ -60333,13 +60333,13 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %31, %28
 
 60:                                               ; preds = %.preheader91.i, %267
   %indvars.iv.i = phi i64 [ 0, %.preheader91.i ], [ %indvars.iv.next.i, %267 ]
-  %.152112.i = phi i32 [ %.051118.i, %.preheader91.i ], [ %.2.i, %267 ]
-  %.181111.i = phi ptr [ %.0116.i, %.preheader91.i ], [ %.383.i, %267 ]
-  %.185110.i = phi ptr [ %.084115.i, %.preheader91.i ], [ %.387.i, %267 ]
+  %.2112.i = phi i32 [ %.051118.i, %.preheader91.i ], [ %.3.i, %267 ]
+  %.282111.i = phi ptr [ %.0116.i, %.preheader91.i ], [ %.383.i, %267 ]
+  %.286110.i = phi ptr [ %.084115.i, %.preheader91.i ], [ %.387.i, %267 ]
   %61 = getelementptr inbounds [3 x ptr], ptr %54, i64 0, i64 %indvars.iv.i
   %62 = load ptr, ptr %61, align 8
   %63 = ptrtoint ptr %62 to i64
-  %64 = ptrtoint ptr %.181111.i to i64
+  %64 = ptrtoint ptr %.282111.i to i64
   %65 = sub i64 %63, %64
   %66 = sdiv exact i64 %65, 120
   %67 = trunc i64 %66 to i32
@@ -60349,53 +60349,53 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %31, %28
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 116
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %.185110.i, i64 116
+  %73 = getelementptr inbounds i8, ptr %.286110.i, i64 116
   store i32 %72, ptr %73, align 4
   %74 = getelementptr inbounds i8, ptr %70, i64 112
   %75 = load i32, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %.185110.i, i64 112
+  %76 = getelementptr inbounds i8, ptr %.286110.i, i64 112
   store i32 %75, ptr %76, align 4
   %77 = getelementptr inbounds i8, ptr %70, i64 104
   %78 = load double, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.185110.i, i64 104
+  %79 = getelementptr inbounds i8, ptr %.286110.i, i64 104
   store double %78, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %70, i64 100
-  %81 = getelementptr inbounds i8, ptr %.185110.i, i64 100
+  %81 = getelementptr inbounds i8, ptr %.286110.i, i64 100
   %82 = load i32, ptr %80, align 1
   store i32 %82, ptr %81, align 1
-  %83 = getelementptr inbounds i8, ptr %.185110.i, i64 48
+  %83 = getelementptr inbounds i8, ptr %.286110.i, i64 48
   %84 = getelementptr inbounds i8, ptr %70, i64 48
   %85 = load double, ptr %84, align 8
   store double %85, ptr %83, align 8
   %86 = getelementptr inbounds i8, ptr %70, i64 56
   %87 = load double, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %.185110.i, i64 56
+  %88 = getelementptr inbounds i8, ptr %.286110.i, i64 56
   store double %87, ptr %88, align 8
   %89 = getelementptr inbounds i8, ptr %70, i64 64
   %90 = load double, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %.185110.i, i64 64
+  %91 = getelementptr inbounds i8, ptr %.286110.i, i64 64
   store double %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %.185110.i, i64 24
+  %92 = getelementptr inbounds i8, ptr %.286110.i, i64 24
   %93 = getelementptr inbounds i8, ptr %70, i64 24
   %94 = load double, ptr %93, align 8
   store double %94, ptr %92, align 8
   %95 = getelementptr inbounds i8, ptr %70, i64 32
   %96 = load double, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %.185110.i, i64 32
+  %97 = getelementptr inbounds i8, ptr %.286110.i, i64 32
   store double %96, ptr %97, align 8
   %98 = getelementptr inbounds i8, ptr %70, i64 40
   %99 = load i16, ptr %98, align 2
-  %100 = getelementptr inbounds i8, ptr %.185110.i, i64 40
+  %100 = getelementptr inbounds i8, ptr %.286110.i, i64 40
   store i16 %99, ptr %100, align 2
   %101 = load double, ptr %70, align 8
-  store double %101, ptr %.185110.i, align 8
+  store double %101, ptr %.286110.i, align 8
   %102 = getelementptr inbounds i8, ptr %70, i64 8
   %103 = load double, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %.185110.i, i64 8
+  %104 = getelementptr inbounds i8, ptr %.286110.i, i64 8
   store double %103, ptr %104, align 8
   %105 = getelementptr inbounds i8, ptr %70, i64 16
   %106 = load double, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %.185110.i, i64 16
+  %107 = getelementptr inbounds i8, ptr %.286110.i, i64 16
   store double %106, ptr %107, align 8
   %108 = getelementptr inbounds [3 x %"class.vcg::TexCoord2"], ptr %55, i64 0, i64 %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %92, ptr noundef nonnull readonly align 8 dereferenceable(18) %108, i64 18, i1 false)
@@ -60448,7 +60448,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %31, %28
   %139 = load i16, ptr %100, align 2
   %140 = getelementptr inbounds i8, ptr %120, i64 40
   store i16 %139, ptr %140, align 2
-  %141 = load double, ptr %.185110.i, align 8
+  %141 = load double, ptr %.286110.i, align 8
   store double %141, ptr %120, align 8
   %142 = load double, ptr %104, align 8
   %143 = getelementptr inbounds i8, ptr %120, i64 8
@@ -60561,21 +60561,21 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %166
   %191 = phi ptr [ %184, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %.pre122.i, %166 ]
   %192 = getelementptr inbounds i32, ptr %191, i64 %109
-  store i32 %.152112.i, ptr %192, align 4
+  store i32 %.2112.i, ptr %192, align 4
   %193 = invoke ptr @_ZN3vcg3tri9AllocatorI4MeshE11AddVerticesERS2_mRNS3_14PointerUpdaterIP10MeshVertexEE(ptr noundef nonnull align 8 dereferenceable(808) %0, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(57) %3)
           to label %194 unwind label %.loopexit.split-lp.loopexit.i
 
 194:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i
   %195 = load ptr, ptr %45, align 8
-  %196 = icmp ult ptr %.185110.i, %195
+  %196 = icmp ult ptr %.286110.i, %195
   %197 = load ptr, ptr %46, align 8
-  %198 = icmp ugt ptr %.185110.i, %197
+  %198 = icmp ugt ptr %.286110.i, %197
   %or.cond.i.i = select i1 %196, i1 true, i1 %198
   br i1 %or.cond.i.i, label %_ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE6UpdateERS6_.exit.i, label %199
 
 199:                                              ; preds = %194
   %200 = load ptr, ptr %3, align 8
-  %201 = ptrtoint ptr %.185110.i to i64
+  %201 = ptrtoint ptr %.286110.i to i64
   %202 = ptrtoint ptr %195 to i64
   %203 = sub i64 %201, %202
   %204 = getelementptr inbounds i8, ptr %200, i64 %203
@@ -60592,9 +60592,9 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i:        ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE6UpdateERS6_.exit.i
 
 _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE6UpdateERS6_.exit.i: ; preds = %208, %199, %194
-  %.286.i = phi ptr [ %.185110.i, %194 ], [ %204, %199 ], [ %212, %208 ]
-  %213 = icmp ult ptr %.181111.i, %195
-  %214 = icmp ugt ptr %.181111.i, %197
+  %.488.i = phi ptr [ %.286110.i, %194 ], [ %204, %199 ], [ %212, %208 ]
+  %213 = icmp ult ptr %.282111.i, %195
+  %214 = icmp ugt ptr %.282111.i, %197
   %or.cond.i63.i = select i1 %213, i1 true, i1 %214
   br i1 %or.cond.i63.i, label %228, label %215
 
@@ -60616,65 +60616,65 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE6UpdateERS6_.exit.i: 
   br label %228
 
 228:                                              ; preds = %223, %215, %_ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE6UpdateERS6_.exit.i
-  %.282.i = phi ptr [ %.181111.i, %_ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE6UpdateERS6_.exit.i ], [ %219, %215 ], [ %227, %223 ]
-  %229 = getelementptr inbounds i8, ptr %.286.i, i64 116
+  %.4.i = phi ptr [ %.282111.i, %_ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE6UpdateERS6_.exit.i ], [ %219, %215 ], [ %227, %223 ]
+  %229 = getelementptr inbounds i8, ptr %.488.i, i64 116
   %230 = load i32, ptr %229, align 4
   %231 = getelementptr inbounds i8, ptr %193, i64 116
   store i32 %230, ptr %231, align 4
-  %232 = getelementptr inbounds i8, ptr %.286.i, i64 112
+  %232 = getelementptr inbounds i8, ptr %.488.i, i64 112
   %233 = load i32, ptr %232, align 8
   %234 = getelementptr inbounds i8, ptr %193, i64 112
   store i32 %233, ptr %234, align 4
-  %235 = getelementptr inbounds i8, ptr %.286.i, i64 104
+  %235 = getelementptr inbounds i8, ptr %.488.i, i64 104
   %236 = load double, ptr %235, align 8
   %237 = getelementptr inbounds i8, ptr %193, i64 104
   store double %236, ptr %237, align 8
-  %238 = getelementptr inbounds i8, ptr %.286.i, i64 100
+  %238 = getelementptr inbounds i8, ptr %.488.i, i64 100
   %239 = getelementptr inbounds i8, ptr %193, i64 100
   %240 = load i32, ptr %238, align 1
   store i32 %240, ptr %239, align 1
   %241 = getelementptr inbounds i8, ptr %193, i64 48
-  %242 = getelementptr inbounds i8, ptr %.286.i, i64 48
+  %242 = getelementptr inbounds i8, ptr %.488.i, i64 48
   %243 = load double, ptr %242, align 8
   store double %243, ptr %241, align 8
-  %244 = getelementptr inbounds i8, ptr %.286.i, i64 56
+  %244 = getelementptr inbounds i8, ptr %.488.i, i64 56
   %245 = load double, ptr %244, align 8
   %246 = getelementptr inbounds i8, ptr %193, i64 56
   store double %245, ptr %246, align 8
-  %247 = getelementptr inbounds i8, ptr %.286.i, i64 64
+  %247 = getelementptr inbounds i8, ptr %.488.i, i64 64
   %248 = load double, ptr %247, align 8
   %249 = getelementptr inbounds i8, ptr %193, i64 64
   store double %248, ptr %249, align 8
   %250 = getelementptr inbounds i8, ptr %193, i64 24
-  %251 = getelementptr inbounds i8, ptr %.286.i, i64 24
+  %251 = getelementptr inbounds i8, ptr %.488.i, i64 24
   %252 = load double, ptr %251, align 8
   store double %252, ptr %250, align 8
-  %253 = getelementptr inbounds i8, ptr %.286.i, i64 32
+  %253 = getelementptr inbounds i8, ptr %.488.i, i64 32
   %254 = load double, ptr %253, align 8
   %255 = getelementptr inbounds i8, ptr %193, i64 32
   store double %254, ptr %255, align 8
-  %256 = getelementptr inbounds i8, ptr %.286.i, i64 40
+  %256 = getelementptr inbounds i8, ptr %.488.i, i64 40
   %257 = load i16, ptr %256, align 2
   %258 = getelementptr inbounds i8, ptr %193, i64 40
   store i16 %257, ptr %258, align 2
-  %259 = load double, ptr %.286.i, align 8
+  %259 = load double, ptr %.488.i, align 8
   store double %259, ptr %193, align 8
-  %260 = getelementptr inbounds i8, ptr %.286.i, i64 8
+  %260 = getelementptr inbounds i8, ptr %.488.i, i64 8
   %261 = load double, ptr %260, align 8
   %262 = getelementptr inbounds i8, ptr %193, i64 8
   store double %261, ptr %262, align 8
-  %263 = getelementptr inbounds i8, ptr %.286.i, i64 16
+  %263 = getelementptr inbounds i8, ptr %.488.i, i64 16
   %264 = load double, ptr %263, align 8
   %265 = getelementptr inbounds i8, ptr %193, i64 16
   store double %264, ptr %265, align 8
-  %266 = add nsw i32 %.152112.i, 1
+  %266 = add nsw i32 %.2112.i, 1
   br label %267
 
 267:                                              ; preds = %228, %162, %118
-  %.387.i = phi ptr [ %.185110.i, %118 ], [ %.286.i, %228 ], [ %.185110.i, %162 ]
-  %.383.i = phi ptr [ %.181111.i, %118 ], [ %.282.i, %228 ], [ %.181111.i, %162 ]
-  %.2.i = phi i32 [ %.152112.i, %118 ], [ %266, %228 ], [ %.152112.i, %162 ]
-  %.050.i = phi i32 [ %67, %118 ], [ %.152112.i, %228 ], [ %.047.i, %162 ]
+  %.387.i = phi ptr [ %.286110.i, %118 ], [ %.488.i, %228 ], [ %.286110.i, %162 ]
+  %.383.i = phi ptr [ %.282111.i, %118 ], [ %.4.i, %228 ], [ %.282111.i, %162 ]
+  %.3.i = phi i32 [ %.2112.i, %118 ], [ %266, %228 ], [ %.2112.i, %162 ]
+  %.050.i = phi i32 [ %67, %118 ], [ %.2112.i, %228 ], [ %.047.i, %162 ]
   %268 = sext i32 %.050.i to i64
   %269 = load ptr, ptr %15, align 8
   %270 = getelementptr inbounds %class.MeshVertex, ptr %269, i64 %268
@@ -60689,15 +60689,15 @@ _ZN3vcg3tri9AllocatorI4MeshE14PointerUpdaterIP10MeshVertexE6UpdateERS6_.exit.i: 
 
 .loopexit92.i:                                    ; preds = %.loopexit92.loopexit.i, %49
   %271 = phi ptr [ %50, %49 ], [ %.pre123.i, %.loopexit92.loopexit.i ]
-  %.488.i = phi ptr [ %.084115.i, %49 ], [ %.387.i, %.loopexit92.loopexit.i ]
-  %.4.i = phi ptr [ %.0116.i, %49 ], [ %.383.i, %.loopexit92.loopexit.i ]
-  %.3.i = phi i32 [ %.051118.i, %49 ], [ %.2.i, %.loopexit92.loopexit.i ]
+  %.185.i = phi ptr [ %.084115.i, %49 ], [ %.387.i, %.loopexit92.loopexit.i ]
+  %.181.i = phi ptr [ %.0116.i, %49 ], [ %.383.i, %.loopexit92.loopexit.i ]
+  %.152.i = phi i32 [ %.051118.i, %49 ], [ %.3.i, %.loopexit92.loopexit.i ]
   %272 = getelementptr inbounds i8, ptr %.sroa.069.0117.i, i64 216
   %.not.i = icmp eq ptr %272, %271
   br i1 %.not.i, label %._crit_edge.i, label %49, !llvm.loop !410
 
 ._crit_edge.i:                                    ; preds = %.loopexit92.i, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i
-  %.084.lcssa.i = phi ptr [ %13, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i ], [ %.488.i, %.loopexit92.i ]
+  %.084.lcssa.i = phi ptr [ %13, %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i ], [ %.185.i, %.loopexit92.i ]
   %273 = getelementptr inbounds i8, ptr %.084.lcssa.i, i64 116
   %274 = load i32, ptr %273, align 4
   %275 = or i32 %274, 1

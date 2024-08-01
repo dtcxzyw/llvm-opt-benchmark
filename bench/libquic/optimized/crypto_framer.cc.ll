@@ -807,7 +807,7 @@ if.then:                                          ; preds = %entry
   br label %if.end9
 
 if.end9:                                          ; preds = %if.then, %entry
-  %pad_length.1 = phi i64 [ %spec.select, %if.then ], [ 0, %entry ]
+  %pad_length.0 = phi i64 [ %spec.select, %if.then ], [ 0, %entry ]
   %need_pad_value.0 = phi i8 [ 1, %if.then ], [ 0, %entry ]
   %len.0 = phi i64 [ %add8, %if.then ], [ %call2, %entry ]
   %num_entries.0 = phi i64 [ %inc, %if.then ], [ %0, %entry ]
@@ -856,7 +856,7 @@ if.end29:                                         ; preds = %invoke.cont26
   br i1 %cmp.i.not87, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end29
-  %4 = trunc i64 %pad_length.1 to i32
+  %4 = trunc i64 %pad_length.0 to i32
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -933,7 +933,7 @@ for.end:                                          ; preds = %for.inc, %if.end29
   br i1 %tobool69, label %if.then70, label %if.end75
 
 if.then70:                                        ; preds = %for.end
-  %call72 = invoke noundef zeroext i1 @_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj(ptr noundef nonnull %writer, i64 noundef %pad_length.1, ptr noundef nonnull %end_offset)
+  %call72 = invoke noundef zeroext i1 @_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj(ptr noundef nonnull %writer, i64 noundef %pad_length.0, ptr noundef nonnull %end_offset)
           to label %invoke.cont71 unwind label %ehcleanup126.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont71:                                    ; preds = %if.then70
@@ -957,7 +957,7 @@ land.lhs.true92:                                  ; preds = %for.body88
   br i1 %tobool93, label %if.then94, label %if.end99
 
 if.then94:                                        ; preds = %land.lhs.true92
-  %call96 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter17WriteRepeatedByteEhm(ptr noundef nonnull align 8 dereferenceable(24) %writer, i8 noundef zeroext 45, i64 noundef %pad_length.1)
+  %call96 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter17WriteRepeatedByteEhm(ptr noundef nonnull align 8 dereferenceable(24) %writer, i8 noundef zeroext 45, i64 noundef %pad_length.0)
           to label %invoke.cont95 unwind label %ehcleanup126.loopexit
 
 invoke.cont95:                                    ; preds = %if.then94
@@ -985,7 +985,7 @@ for.end112:                                       ; preds = %for.inc110, %if.end
   br i1 %tobool113, label %if.then114, label %if.end119
 
 if.then114:                                       ; preds = %for.end112
-  %call116 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter17WriteRepeatedByteEhm(ptr noundef nonnull align 8 dereferenceable(24) %writer, i8 noundef zeroext 45, i64 noundef %pad_length.1)
+  %call116 = invoke noundef zeroext i1 @_ZN3net14QuicDataWriter17WriteRepeatedByteEhm(ptr noundef nonnull align 8 dereferenceable(24) %writer, i8 noundef zeroext 45, i64 noundef %pad_length.0)
           to label %invoke.cont115 unwind label %ehcleanup126.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont115:                                   ; preds = %if.then114
@@ -1045,8 +1045,8 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit46: ; preds = %ehcleanup12
   resume { ptr, i32 } %.pn.pn72
 
 return:                                           ; preds = %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %cleanup, %if.end9
-  %retval.1 = phi ptr [ null, %if.end9 ], [ %call121, %cleanup ], [ null, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.end9 ], [ %call121, %cleanup ], [ null, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i ]
+  ret ptr %retval.0
 }
 
 declare noundef i64 @_ZNK3net22CryptoHandshakeMessage4sizeEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2

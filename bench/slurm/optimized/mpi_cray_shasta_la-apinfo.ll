@@ -298,7 +298,7 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
 
 .lr.ph125.i:                                      ; preds = %.preheader96.i, %120
   %109 = phi ptr [ %124, %120 ], [ %108, %.preheader96.i ]
-  %.272124.i = phi i32 [ %123, %120 ], [ 0, %.preheader96.i ]
+  %.3124.i = phi i32 [ %123, %120 ], [ 0, %.preheader96.i ]
   %110 = call i64 @strtol(ptr noundef nonnull %109, ptr noundef nonnull %7, i32 noundef 10) #11
   %111 = trunc i64 %110 to i32
   %112 = load ptr, ptr %7, align 8
@@ -324,19 +324,19 @@ define range(i32 -1, 1) i32 @create_apinfo(ptr nocapture noundef readonly %0, pt
   %121 = and i64 %110, 2147483647
   %122 = getelementptr inbounds i32, ptr %40, i64 %121
   store i32 %.073.ph.i438, ptr %122, align 4
-  %123 = add nuw nsw i32 %.272124.i, 1
+  %123 = add nuw nsw i32 %.3124.i, 1
   %124 = call ptr @hostlist_pop(ptr noundef nonnull %107) #11
   %.not93.i = icmp eq ptr %124, null
   br i1 %.not93.i, label %._crit_edge126.i, label %.lr.ph125.i, !llvm.loop !13
 
 ._crit_edge126.i:                                 ; preds = %120, %.preheader96.i
-  %.272.lcssa.i = phi i32 [ 0, %.preheader96.i ], [ %123, %120 ]
+  %.3.lcssa.i = phi i32 [ 0, %.preheader96.i ], [ %123, %120 ]
   call void @hostlist_destroy(ptr noundef nonnull %107) #11
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %101, %._crit_edge126.i, %.preheader95.i
-  %.3.i = phi i32 [ %.272.lcssa.i, %._crit_edge126.i ], [ 0, %.preheader95.i ], [ %.171.i, %101 ]
-  %125 = icmp sgt i32 %.3.i, 0
+  %.272.i = phi i32 [ %.3.lcssa.i, %._crit_edge126.i ], [ 0, %.preheader95.i ], [ %.171.i, %101 ]
+  %125 = icmp sgt i32 %.272.i, 0
   %126 = zext i1 %125 to i32
   %spec.select.i = add nuw nsw i32 %.073.ph.i438, %126
   %.not83.i431 = icmp eq i32 %61, 0

@@ -3433,14 +3433,14 @@ ehcleanup.i.i.i.i:                                ; preds = %arraydestroy.body27
 
 ehcleanup32.i.i.i.i:                              ; preds = %ehcleanup.i.i.i.i, %lpad14.i.i.i.i, %lpad.i1.i.i.i
   %.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn.i.i.i.i, %ehcleanup.i.i.i.i ], [ %31, %lpad14.i.i.i.i ], [ %17, %lpad.i1.i.i.i ]
-  %cleanup.isactive.1.i.i.i.i = phi i1 [ %33, %ehcleanup.i.i.i.i ], [ false, %lpad14.i.i.i.i ], [ false, %lpad.i1.i.i.i ]
+  %cleanup.isactive.3.i.i.i.i = phi i1 [ %33, %ehcleanup.i.i.i.i ], [ false, %lpad14.i.i.i.i ], [ false, %lpad.i1.i.i.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp13.i.i.i.i) #20
   br label %ehcleanup33.i.i.i.i
 
 ehcleanup33.i.i.i.i:                              ; preds = %ehcleanup32.i.i.i.i, %lpad.i11.i.i.i.i
-  %arrayinit.endOfInit.0.i.i.i.i = phi ptr [ %arrayinit.element.i.i.i.i, %ehcleanup32.i.i.i.i ], [ %ref.tmp.i.i.i.i, %lpad.i11.i.i.i.i ]
+  %arrayinit.endOfInit.2.i.i.i.i = phi ptr [ %arrayinit.element.i.i.i.i, %ehcleanup32.i.i.i.i ], [ %ref.tmp.i.i.i.i, %lpad.i11.i.i.i.i ]
   %.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i.i, %ehcleanup32.i.i.i.i ], [ %14, %lpad.i11.i.i.i.i ]
-  %cleanup.isactive.2.i.i.i.i = phi i1 [ %cleanup.isactive.1.i.i.i.i, %ehcleanup32.i.i.i.i ], [ false, %lpad.i11.i.i.i.i ]
+  %cleanup.isactive.2.i.i.i.i = phi i1 [ %cleanup.isactive.3.i.i.i.i, %ehcleanup32.i.i.i.i ], [ false, %lpad.i11.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp7.i.i.i.i) #20
   br label %ehcleanup35.i.i.i.i
 
@@ -3450,13 +3450,13 @@ ehcleanup35.thread.i.i.i.i:                       ; preds = %lpad.i.i.i.i, %lpad
   br label %eh.resume.i.i.i.i
 
 ehcleanup35.i.i.i.i:                              ; preds = %ehcleanup33.i.i.i.i, %lpad8.i.i.i.i
-  %arrayinit.endOfInit.1.i.i.i.i = phi ptr [ %arrayinit.endOfInit.0.i.i.i.i, %ehcleanup33.i.i.i.i ], [ %ref.tmp.i.i.i.i, %lpad8.i.i.i.i ]
+  %arrayinit.endOfInit.1.i.i.i.i = phi ptr [ %arrayinit.endOfInit.2.i.i.i.i, %ehcleanup33.i.i.i.i ], [ %ref.tmp.i.i.i.i, %lpad8.i.i.i.i ]
   %.pn.pn.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.pn.i.i.i.i, %ehcleanup33.i.i.i.i ], [ %30, %lpad8.i.i.i.i ]
-  %cleanup.isactive.3.i.i.i.i = phi i1 [ %cleanup.isactive.2.i.i.i.i, %ehcleanup33.i.i.i.i ], [ false, %lpad8.i.i.i.i ]
+  %cleanup.isactive.1.i.i.i.i = phi i1 [ %cleanup.isactive.2.i.i.i.i, %ehcleanup33.i.i.i.i ], [ false, %lpad8.i.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp5.i.i.i.i) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6.i.i.i.i) #20
   %arraydestroy.isempty.i.i.i.i = icmp eq ptr %ref.tmp.i.i.i.i, %arrayinit.endOfInit.1.i.i.i.i
-  %or.cond.i.i.i.i = select i1 %cleanup.isactive.3.i.i.i.i, i1 true, i1 %arraydestroy.isempty.i.i.i.i
+  %or.cond.i.i.i.i = select i1 %cleanup.isactive.1.i.i.i.i, i1 true, i1 %arraydestroy.isempty.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %eh.resume.i.i.i.i, label %arraydestroy.body37.i.i.i.i
 
 arraydestroy.body37.i.i.i.i:                      ; preds = %ehcleanup35.i.i.i.i, %arraydestroy.body37.i.i.i.i

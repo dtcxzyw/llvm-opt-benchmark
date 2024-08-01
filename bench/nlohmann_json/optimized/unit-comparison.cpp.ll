@@ -2356,12 +2356,12 @@ arraydestroy.body232:                             ; preds = %arraydestroy.body23
   br i1 %arraydestroy.done235, label %_ZNSt6vectorIN8nlohmann16json_abi_v3_11_36detail7value_tESaIS3_EED2Ev.exit1040, label %arraydestroy.body232
 
 ehcleanup245:                                     ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5298, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5326, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5354, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5382, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5410, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5396, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5368, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5340, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5312
-  %arrayinit.endOfInit.8 = phi ptr [ %arrayinit.element53, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5298 ], [ %arrayinit.element72, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5312 ], [ %arrayinit.element91, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5326 ], [ %arrayinit.element110, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5340 ], [ %arrayinit.element129, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5354 ], [ %arrayinit.element148, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5368 ], [ %arrayinit.element167, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5382 ], [ %arrayinit.element186, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5396 ], [ %arrayinit.element205, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5410 ]
+  %arrayinit.endOfInit.0 = phi ptr [ %arrayinit.element53, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5298 ], [ %arrayinit.element72, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5312 ], [ %arrayinit.element91, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5326 ], [ %arrayinit.element110, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5340 ], [ %arrayinit.element129, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5354 ], [ %arrayinit.element148, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5368 ], [ %arrayinit.element167, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5382 ], [ %arrayinit.element186, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5396 ], [ %arrayinit.element205, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5410 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %9, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5298 ], [ %13, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5312 ], [ %17, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5326 ], [ %21, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5340 ], [ %25, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5354 ], [ %29, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5368 ], [ %33, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5382 ], [ %37, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5396 ], [ %41, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5410 ]
   br label %arraydestroy.body247
 
 arraydestroy.body247:                             ; preds = %ehcleanup245, %arraydestroy.body247
-  %arraydestroy.elementPast248 = phi ptr [ %arraydestroy.element249, %arraydestroy.body247 ], [ %arrayinit.endOfInit.8, %ehcleanup245 ]
+  %arraydestroy.elementPast248 = phi ptr [ %arraydestroy.element249, %arraydestroy.body247 ], [ %arrayinit.endOfInit.0, %ehcleanup245 ]
   %arraydestroy.element249 = getelementptr inbounds i8, ptr %arraydestroy.elementPast248, i64 -40
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %arraydestroy.element249) #19
   %arraydestroy.done250 = icmp eq ptr %arraydestroy.element249, %ref.tmp33
@@ -3066,12 +3066,12 @@ _ZNSt6vectorISt16partial_orderingSaIS0_EED2Ev.exit929: ; preds = %arraydestroy.b
   br i1 %arraydestroy.done575, label %ehcleanup751, label %arraydestroy.body572
 
 ehcleanup586:                                     ; preds = %lpad.i810, %lpad.i800, %lpad.i790, %lpad.i780, %lpad.i770, %lpad.i760, %lpad.i750, %lpad.i740, %lpad.i730
-  %arrayinit.endOfInit366.8 = phi ptr [ %arrayinit.element385, %lpad.i730 ], [ %arrayinit.element404, %lpad.i740 ], [ %arrayinit.element423, %lpad.i750 ], [ %arrayinit.element442, %lpad.i760 ], [ %arrayinit.element461, %lpad.i770 ], [ %arrayinit.element480, %lpad.i780 ], [ %arrayinit.element499, %lpad.i790 ], [ %arrayinit.element518, %lpad.i800 ], [ %arrayinit.element537, %lpad.i810 ]
+  %arrayinit.endOfInit366.0 = phi ptr [ %arrayinit.element385, %lpad.i730 ], [ %arrayinit.element404, %lpad.i740 ], [ %arrayinit.element423, %lpad.i750 ], [ %arrayinit.element442, %lpad.i760 ], [ %arrayinit.element461, %lpad.i770 ], [ %arrayinit.element480, %lpad.i780 ], [ %arrayinit.element499, %lpad.i790 ], [ %arrayinit.element518, %lpad.i800 ], [ %arrayinit.element537, %lpad.i810 ]
   %.pn119.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %118, %lpad.i730 ], [ %119, %lpad.i740 ], [ %120, %lpad.i750 ], [ %121, %lpad.i760 ], [ %122, %lpad.i770 ], [ %123, %lpad.i780 ], [ %124, %lpad.i790 ], [ %125, %lpad.i800 ], [ %126, %lpad.i810 ]
   br label %arraydestroy.body591
 
 arraydestroy.body591:                             ; preds = %ehcleanup586, %_ZNSt6vectorISt16partial_orderingSaIS0_EED2Ev.exit933
-  %arraydestroy.elementPast592 = phi ptr [ %arraydestroy.element593, %_ZNSt6vectorISt16partial_orderingSaIS0_EED2Ev.exit933 ], [ %arrayinit.endOfInit366.8, %ehcleanup586 ]
+  %arraydestroy.elementPast592 = phi ptr [ %arraydestroy.element593, %_ZNSt6vectorISt16partial_orderingSaIS0_EED2Ev.exit933 ], [ %arrayinit.endOfInit366.0, %ehcleanup586 ]
   %arraydestroy.element593 = getelementptr inbounds i8, ptr %arraydestroy.elementPast592, i64 -24
   %174 = load ptr, ptr %arraydestroy.element593, align 8
   %tobool.not.i.i.i930 = icmp eq ptr %174, null
@@ -9006,15 +9006,15 @@ ehcleanup1039:                                    ; preds = %arraydestroy.body10
   br label %ehcleanup1045
 
 ehcleanup1045:                                    ; preds = %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i1168, %ehcleanup1039, %lpad.i1177
-  %cleanup.isactive1020.3 = phi i1 [ true, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i1168 ], [ false, %ehcleanup1039 ], [ true, %lpad.i1177 ]
-  %arrayinit.endOfInit769.3 = phi ptr [ %arrayinit.element992, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i1168 ], [ %arrayinit.element1015, %ehcleanup1039 ], [ %arrayinit.element992, %lpad.i1177 ]
+  %cleanup.isactive1020.15 = phi i1 [ true, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i1168 ], [ false, %ehcleanup1039 ], [ true, %lpad.i1177 ]
+  %arrayinit.endOfInit769.16 = phi ptr [ %arrayinit.element992, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i1168 ], [ %arrayinit.element1015, %ehcleanup1039 ], [ %arrayinit.element992, %lpad.i1177 ]
   %.pn132.pn.pn.pn = phi { ptr, i32 } [ %233, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i1168 ], [ %640, %ehcleanup1039 ], [ %234, %lpad.i1177 ]
   call void @_ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp975) #19
   br label %ehcleanup1053
 
 ehcleanup1053:                                    ; preds = %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i, %ehcleanup1045, %lpad.i1159, %lpad972
-  %cleanup.isactive1020.6 = phi i1 [ true, %lpad972 ], [ true, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i ], [ %cleanup.isactive1020.3, %ehcleanup1045 ], [ true, %lpad.i1159 ]
-  %arrayinit.endOfInit769.6 = phi ptr [ %arrayinit.element911, %lpad972 ], [ %arrayinit.element974, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i ], [ %arrayinit.endOfInit769.3, %ehcleanup1045 ], [ %arrayinit.element974, %lpad.i1159 ]
+  %cleanup.isactive1020.12 = phi i1 [ true, %lpad972 ], [ true, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i ], [ %cleanup.isactive1020.15, %ehcleanup1045 ], [ true, %lpad.i1159 ]
+  %arrayinit.endOfInit769.13 = phi ptr [ %arrayinit.element911, %lpad972 ], [ %arrayinit.element974, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i ], [ %arrayinit.endOfInit769.16, %ehcleanup1045 ], [ %arrayinit.element974, %lpad.i1159 ]
   %.pn132.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %639, %lpad972 ], [ %230, %_ZNSt12_Vector_baseIhSaIhEED2Ev.exit.i ], [ %.pn132.pn.pn.pn, %ehcleanup1045 ], [ %231, %lpad.i1159 ]
   %642 = getelementptr inbounds i8, ptr %ref.tmp913, i64 48
   br label %arraydestroy.body1055
@@ -9027,9 +9027,9 @@ arraydestroy.body1055:                            ; preds = %arraydestroy.body10
   br i1 %arraydestroy.done1058, label %ehcleanup1066, label %arraydestroy.body1055
 
 ehcleanup1066:                                    ; preds = %arraydestroy.body1055, %lpad966
-  %cleanup.isactive1020.7 = phi i1 [ true, %lpad966 ], [ %cleanup.isactive1020.6, %arraydestroy.body1055 ]
-  %cleanup.isactive968.0 = phi i1 [ true, %lpad966 ], [ false, %arraydestroy.body1055 ]
-  %arrayinit.endOfInit769.7 = phi ptr [ %arrayinit.element911, %lpad966 ], [ %arrayinit.endOfInit769.6, %arraydestroy.body1055 ]
+  %cleanup.isactive1020.11 = phi i1 [ true, %lpad966 ], [ %cleanup.isactive1020.12, %arraydestroy.body1055 ]
+  %cleanup.isactive968.4 = phi i1 [ true, %lpad966 ], [ false, %arraydestroy.body1055 ]
+  %arrayinit.endOfInit769.12 = phi ptr [ %arrayinit.element911, %lpad966 ], [ %arrayinit.endOfInit769.13, %arraydestroy.body1055 ]
   %.pn132.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %638, %lpad966 ], [ %.pn132.pn.pn.pn.pn.pn.pn, %arraydestroy.body1055 ]
   %643 = getelementptr inbounds i8, ptr %ref.tmp938, i64 48
   br label %arraydestroy.body1068
@@ -9051,10 +9051,10 @@ arraydestroy.body1090.preheader:                  ; preds = %ehcleanup1086.threa
   br label %ehcleanup1102
 
 ehcleanup1102:                                    ; preds = %ehcleanup1086, %arraydestroy.body1090.preheader, %lpad.i.i1132, %lpad934
-  %cleanup.isactive1020.10 = phi i1 [ %cleanup.isactive1020.7, %ehcleanup1086 ], [ true, %lpad934 ], [ true, %lpad.i.i1132 ], [ true, %arraydestroy.body1090.preheader ]
-  %cleanup.isactive968.3 = phi i1 [ %cleanup.isactive968.0, %ehcleanup1086 ], [ true, %lpad934 ], [ true, %lpad.i.i1132 ], [ true, %arraydestroy.body1090.preheader ]
-  %arrayinit.endOfInit915.0 = phi ptr [ %arrayinit.element936, %ehcleanup1086 ], [ %ref.tmp913, %lpad934 ], [ %arrayinit.element936, %lpad.i.i1132 ], [ %arrayinit.element936, %arraydestroy.body1090.preheader ]
-  %arrayinit.endOfInit769.10 = phi ptr [ %arrayinit.endOfInit769.7, %ehcleanup1086 ], [ %arrayinit.element911, %lpad934 ], [ %arrayinit.element911, %lpad.i.i1132 ], [ %arrayinit.element911, %arraydestroy.body1090.preheader ]
+  %cleanup.isactive1020.8 = phi i1 [ %cleanup.isactive1020.11, %ehcleanup1086 ], [ true, %lpad934 ], [ true, %lpad.i.i1132 ], [ true, %arraydestroy.body1090.preheader ]
+  %cleanup.isactive968.1 = phi i1 [ %cleanup.isactive968.4, %ehcleanup1086 ], [ true, %lpad934 ], [ true, %lpad.i.i1132 ], [ true, %arraydestroy.body1090.preheader ]
+  %arrayinit.endOfInit915.1 = phi ptr [ %arrayinit.element936, %ehcleanup1086 ], [ %ref.tmp913, %lpad934 ], [ %arrayinit.element936, %lpad.i.i1132 ], [ %arrayinit.element936, %arraydestroy.body1090.preheader ]
+  %arrayinit.endOfInit769.9 = phi ptr [ %arrayinit.endOfInit769.12, %ehcleanup1086 ], [ %arrayinit.element911, %lpad934 ], [ %arrayinit.element911, %lpad.i.i1132 ], [ %arrayinit.element911, %arraydestroy.body1090.preheader ]
   %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn132.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1086 ], [ %636, %lpad934 ], [ %228, %lpad.i.i1132 ], [ %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn7154, %arraydestroy.body1090.preheader ]
   %644 = getelementptr inbounds i8, ptr %ref.tmp917, i64 48
   br label %arraydestroy.body1104
@@ -9067,20 +9067,20 @@ arraydestroy.body1104:                            ; preds = %arraydestroy.body11
   br i1 %arraydestroy.done1107, label %ehcleanup1109, label %arraydestroy.body1104
 
 ehcleanup1109:                                    ; preds = %arraydestroy.body1104
-  %arraydestroy.isempty1112 = icmp ne ptr %ref.tmp913, %arrayinit.endOfInit915.0
-  %or.cond3.not = select i1 %cleanup.isactive968.3, i1 %arraydestroy.isempty1112, i1 false
+  %arraydestroy.isempty1112 = icmp ne ptr %ref.tmp913, %arrayinit.endOfInit915.1
+  %or.cond3.not = select i1 %cleanup.isactive968.1, i1 %arraydestroy.isempty1112, i1 false
   br i1 %or.cond3.not, label %arraydestroy.body1113, label %ehcleanup1125
 
 arraydestroy.body1113:                            ; preds = %ehcleanup1109, %arraydestroy.body1113
-  %arraydestroy.elementPast1114 = phi ptr [ %arraydestroy.element1115, %arraydestroy.body1113 ], [ %arrayinit.endOfInit915.0, %ehcleanup1109 ]
+  %arraydestroy.elementPast1114 = phi ptr [ %arraydestroy.element1115, %arraydestroy.body1113 ], [ %arrayinit.endOfInit915.1, %ehcleanup1109 ]
   %arraydestroy.element1115 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1114, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element1115) #19
   %arraydestroy.done1116 = icmp eq ptr %arraydestroy.element1115, %ref.tmp913
   br i1 %arraydestroy.done1116, label %ehcleanup1125, label %arraydestroy.body1113
 
 ehcleanup1125:                                    ; preds = %arraydestroy.body1113, %lpad.i.i1124, %lpad920.body.thread, %ehcleanup1109, %lpad909
-  %cleanup.isactive1020.12 = phi i1 [ %cleanup.isactive1020.10, %ehcleanup1109 ], [ true, %lpad909 ], [ true, %lpad920.body.thread ], [ true, %lpad.i.i1124 ], [ %cleanup.isactive1020.10, %arraydestroy.body1113 ]
-  %arrayinit.endOfInit769.12 = phi ptr [ %arrayinit.endOfInit769.10, %ehcleanup1109 ], [ %arrayinit.element857, %lpad909 ], [ %arrayinit.element911, %lpad920.body.thread ], [ %arrayinit.element911, %lpad.i.i1124 ], [ %arrayinit.endOfInit769.10, %arraydestroy.body1113 ]
+  %cleanup.isactive1020.6 = phi i1 [ %cleanup.isactive1020.8, %ehcleanup1109 ], [ true, %lpad909 ], [ true, %lpad920.body.thread ], [ true, %lpad.i.i1124 ], [ %cleanup.isactive1020.8, %arraydestroy.body1113 ]
+  %arrayinit.endOfInit769.7 = phi ptr [ %arrayinit.endOfInit769.9, %ehcleanup1109 ], [ %arrayinit.element857, %lpad909 ], [ %arrayinit.element911, %lpad920.body.thread ], [ %arrayinit.element911, %lpad.i.i1124 ], [ %arrayinit.endOfInit769.9, %arraydestroy.body1113 ]
   %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1109 ], [ %635, %lpad909 ], [ %226, %lpad920.body.thread ], [ %227, %lpad.i.i1124 ], [ %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body1113 ]
   %645 = getelementptr inbounds i8, ptr %ref.tmp859, i64 48
   br label %arraydestroy.body1127
@@ -9093,9 +9093,9 @@ arraydestroy.body1127:                            ; preds = %arraydestroy.body11
   br i1 %arraydestroy.done1130, label %ehcleanup1138, label %arraydestroy.body1127
 
 ehcleanup1138:                                    ; preds = %arraydestroy.body1127, %lpad903
-  %cleanup.isactive1020.13 = phi i1 [ true, %lpad903 ], [ %cleanup.isactive1020.12, %arraydestroy.body1127 ]
-  %cleanup.isactive905.0 = phi i1 [ true, %lpad903 ], [ false, %arraydestroy.body1127 ]
-  %arrayinit.endOfInit769.13 = phi ptr [ %arrayinit.element857, %lpad903 ], [ %arrayinit.endOfInit769.12, %arraydestroy.body1127 ]
+  %cleanup.isactive1020.5 = phi i1 [ true, %lpad903 ], [ %cleanup.isactive1020.6, %arraydestroy.body1127 ]
+  %cleanup.isactive905.2 = phi i1 [ true, %lpad903 ], [ false, %arraydestroy.body1127 ]
+  %arrayinit.endOfInit769.6 = phi ptr [ %arrayinit.element857, %lpad903 ], [ %arrayinit.endOfInit769.7, %arraydestroy.body1127 ]
   %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %634, %lpad903 ], [ %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body1127 ]
   %646 = getelementptr inbounds i8, ptr %ref.tmp885, i64 48
   br label %arraydestroy.body1140
@@ -9108,10 +9108,10 @@ arraydestroy.body1140:                            ; preds = %arraydestroy.body11
   br i1 %arraydestroy.done1143, label %ehcleanup1151, label %arraydestroy.body1140
 
 ehcleanup1151:                                    ; preds = %arraydestroy.body1140, %lpad.i.i1109, %lpad881
-  %cleanup.isactive1020.14 = phi i1 [ true, %lpad881 ], [ true, %lpad.i.i1109 ], [ %cleanup.isactive1020.13, %arraydestroy.body1140 ]
-  %cleanup.isactive905.1 = phi i1 [ true, %lpad881 ], [ true, %lpad.i.i1109 ], [ %cleanup.isactive905.0, %arraydestroy.body1140 ]
-  %arrayinit.endOfInit861.0 = phi ptr [ %ref.tmp859, %lpad881 ], [ %arrayinit.element883, %lpad.i.i1109 ], [ %arrayinit.element883, %arraydestroy.body1140 ]
-  %arrayinit.endOfInit769.14 = phi ptr [ %arrayinit.element857, %lpad881 ], [ %arrayinit.element857, %lpad.i.i1109 ], [ %arrayinit.endOfInit769.13, %arraydestroy.body1140 ]
+  %cleanup.isactive1020.4 = phi i1 [ true, %lpad881 ], [ true, %lpad.i.i1109 ], [ %cleanup.isactive1020.5, %arraydestroy.body1140 ]
+  %cleanup.isactive905.1 = phi i1 [ true, %lpad881 ], [ true, %lpad.i.i1109 ], [ %cleanup.isactive905.2, %arraydestroy.body1140 ]
+  %arrayinit.endOfInit861.1 = phi ptr [ %ref.tmp859, %lpad881 ], [ %arrayinit.element883, %lpad.i.i1109 ], [ %arrayinit.element883, %arraydestroy.body1140 ]
+  %arrayinit.endOfInit769.5 = phi ptr [ %arrayinit.element857, %lpad881 ], [ %arrayinit.element857, %lpad.i.i1109 ], [ %arrayinit.endOfInit769.6, %arraydestroy.body1140 ]
   %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %633, %lpad881 ], [ %225, %lpad.i.i1109 ], [ %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body1140 ]
   %647 = getelementptr inbounds i8, ptr %ref.tmp863, i64 48
   br label %arraydestroy.body1153
@@ -9124,20 +9124,20 @@ arraydestroy.body1153:                            ; preds = %arraydestroy.body11
   br i1 %arraydestroy.done1156, label %ehcleanup1158, label %arraydestroy.body1153
 
 ehcleanup1158:                                    ; preds = %arraydestroy.body1153
-  %arraydestroy.isempty1161 = icmp ne ptr %ref.tmp859, %arrayinit.endOfInit861.0
+  %arraydestroy.isempty1161 = icmp ne ptr %ref.tmp859, %arrayinit.endOfInit861.1
   %or.cond4.not = select i1 %cleanup.isactive905.1, i1 %arraydestroy.isempty1161, i1 false
   br i1 %or.cond4.not, label %arraydestroy.body1162, label %ehcleanup1174
 
 arraydestroy.body1162:                            ; preds = %ehcleanup1158, %arraydestroy.body1162
-  %arraydestroy.elementPast1163 = phi ptr [ %arraydestroy.element1164, %arraydestroy.body1162 ], [ %arrayinit.endOfInit861.0, %ehcleanup1158 ]
+  %arraydestroy.elementPast1163 = phi ptr [ %arraydestroy.element1164, %arraydestroy.body1162 ], [ %arrayinit.endOfInit861.1, %ehcleanup1158 ]
   %arraydestroy.element1164 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1163, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element1164) #19
   %arraydestroy.done1165 = icmp eq ptr %arraydestroy.element1164, %ref.tmp859
   br i1 %arraydestroy.done1165, label %ehcleanup1174, label %arraydestroy.body1162
 
 ehcleanup1174:                                    ; preds = %arraydestroy.body1162, %lpad.i.i1099, %ehcleanup1158, %lpad855
-  %cleanup.isactive1020.16 = phi i1 [ %cleanup.isactive1020.14, %ehcleanup1158 ], [ true, %lpad855 ], [ true, %lpad.i.i1099 ], [ %cleanup.isactive1020.14, %arraydestroy.body1162 ]
-  %arrayinit.endOfInit769.16 = phi ptr [ %arrayinit.endOfInit769.14, %ehcleanup1158 ], [ %arrayinit.element834, %lpad855 ], [ %arrayinit.element857, %lpad.i.i1099 ], [ %arrayinit.endOfInit769.14, %arraydestroy.body1162 ]
+  %cleanup.isactive1020.2 = phi i1 [ %cleanup.isactive1020.4, %ehcleanup1158 ], [ true, %lpad855 ], [ true, %lpad.i.i1099 ], [ %cleanup.isactive1020.4, %arraydestroy.body1162 ]
+  %arrayinit.endOfInit769.3 = phi ptr [ %arrayinit.endOfInit769.5, %ehcleanup1158 ], [ %arrayinit.element834, %lpad855 ], [ %arrayinit.element857, %lpad.i.i1099 ], [ %arrayinit.endOfInit769.5, %arraydestroy.body1162 ]
   %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup1158 ], [ %632, %lpad855 ], [ %224, %lpad.i.i1099 ], [ %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body1162 ]
   %648 = getelementptr inbounds i8, ptr %ref.tmp836, i64 72
   br label %arraydestroy.body1176
@@ -9150,8 +9150,8 @@ arraydestroy.body1176:                            ; preds = %arraydestroy.body11
   br i1 %arraydestroy.done1179, label %ehcleanup1187, label %arraydestroy.body1176
 
 ehcleanup1187:                                    ; preds = %arraydestroy.body847, %arraydestroy.body1176, %lpad839.body.thread, %lpad832
-  %cleanup.isactive1020.17 = phi i1 [ true, %lpad832 ], [ true, %lpad839.body.thread ], [ %cleanup.isactive1020.16, %arraydestroy.body1176 ], [ true, %arraydestroy.body847 ]
-  %arrayinit.endOfInit769.17 = phi ptr [ %arrayinit.element808, %lpad832 ], [ %arrayinit.element834, %lpad839.body.thread ], [ %arrayinit.endOfInit769.16, %arraydestroy.body1176 ], [ %arrayinit.element834, %arraydestroy.body847 ]
+  %cleanup.isactive1020.1 = phi i1 [ true, %lpad832 ], [ true, %lpad839.body.thread ], [ %cleanup.isactive1020.2, %arraydestroy.body1176 ], [ true, %arraydestroy.body847 ]
+  %arrayinit.endOfInit769.2 = phi ptr [ %arrayinit.element808, %lpad832 ], [ %arrayinit.element834, %lpad839.body.thread ], [ %arrayinit.endOfInit769.3, %arraydestroy.body1176 ], [ %arrayinit.element834, %arraydestroy.body847 ]
   %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %631, %lpad832 ], [ %221, %lpad839.body.thread ], [ %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body1176 ], [ %eh.lpad-body1084, %arraydestroy.body847 ]
   %649 = getelementptr inbounds i8, ptr %ref.tmp810, i64 72
   br label %arraydestroy.body1189
@@ -9170,15 +9170,15 @@ ehcleanup1194.sink.split:                         ; preds = %lpad.i.i1061, %lpad
   br label %ehcleanup1194
 
 ehcleanup1194:                                    ; preds = %arraydestroy.body1189, %ehcleanup1194.sink.split
-  %cleanup.isactive1020.18 = phi i1 [ true, %ehcleanup1194.sink.split ], [ %cleanup.isactive1020.17, %arraydestroy.body1189 ]
-  %arrayinit.endOfInit769.18 = phi ptr [ %arrayinit.element798.sink, %ehcleanup1194.sink.split ], [ %arrayinit.endOfInit769.17, %arraydestroy.body1189 ]
+  %cleanup.isactive1020.0 = phi i1 [ true, %ehcleanup1194.sink.split ], [ %cleanup.isactive1020.1, %arraydestroy.body1189 ]
+  %arrayinit.endOfInit769.1 = phi ptr [ %arrayinit.element798.sink, %ehcleanup1194.sink.split ], [ %arrayinit.endOfInit769.2, %arraydestroy.body1189 ]
   %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup1194.sink.split ], [ %.pn132.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %arraydestroy.body1189 ]
-  %arraydestroy.isempty1197 = icmp ne ptr %ref.tmp767, %arrayinit.endOfInit769.18
-  %or.cond5.not = select i1 %cleanup.isactive1020.18, i1 %arraydestroy.isempty1197, i1 false
+  %arraydestroy.isempty1197 = icmp ne ptr %ref.tmp767, %arrayinit.endOfInit769.1
+  %or.cond5.not = select i1 %cleanup.isactive1020.0, i1 %arraydestroy.isempty1197, i1 false
   br i1 %or.cond5.not, label %arraydestroy.body1198, label %ehcleanup3346
 
 arraydestroy.body1198:                            ; preds = %ehcleanup1194, %arraydestroy.body1198
-  %arraydestroy.elementPast1199 = phi ptr [ %arraydestroy.element1200, %arraydestroy.body1198 ], [ %arrayinit.endOfInit769.18, %ehcleanup1194 ]
+  %arraydestroy.elementPast1199 = phi ptr [ %arraydestroy.element1200, %arraydestroy.body1198 ], [ %arrayinit.endOfInit769.1, %ehcleanup1194 ]
   %arraydestroy.element1200 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1199, i64 -24
   call void @_ZN8nlohmann16json_abi_v3_11_36detail8json_refINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %arraydestroy.element1200) #19
   %arraydestroy.done1201 = icmp eq ptr %arraydestroy.element1200, %ref.tmp767
@@ -9196,12 +9196,12 @@ arraydestroy.body1443:                            ; preds = %arraydestroy.body14
   br i1 %arraydestroy.done1446, label %ehcleanup3344, label %arraydestroy.body1443
 
 ehcleanup1469:                                    ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5502, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5530, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5558, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5586, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5614, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5642, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5670, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5698, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5726, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5754, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5782, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5768, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5740, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5712, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5684, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5656, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5628, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5600, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5572, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5544, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5516
-  %arrayinit.endOfInit1207.20 = phi ptr [ %arrayinit.element1217, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5502 ], [ %arrayinit.element1227, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5516 ], [ %arrayinit.element1237, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5530 ], [ %arrayinit.element1247, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5544 ], [ %arrayinit.element1257, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5558 ], [ %arrayinit.element1267, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5572 ], [ %arrayinit.element1277, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5586 ], [ %arrayinit.element1287, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5600 ], [ %arrayinit.element1297, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5614 ], [ %arrayinit.element1307, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5628 ], [ %arrayinit.element1317, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5642 ], [ %arrayinit.element1327, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5656 ], [ %arrayinit.element1337, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5670 ], [ %arrayinit.element1347, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5684 ], [ %arrayinit.element1357, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5698 ], [ %arrayinit.element1367, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5712 ], [ %arrayinit.element1377, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5726 ], [ %arrayinit.element1387, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5740 ], [ %arrayinit.element1397, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5754 ], [ %arrayinit.element1407, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5768 ], [ %arrayinit.element1417, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5782 ]
+  %arrayinit.endOfInit1207.0 = phi ptr [ %arrayinit.element1217, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5502 ], [ %arrayinit.element1227, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5516 ], [ %arrayinit.element1237, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5530 ], [ %arrayinit.element1247, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5544 ], [ %arrayinit.element1257, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5558 ], [ %arrayinit.element1267, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5572 ], [ %arrayinit.element1277, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5586 ], [ %arrayinit.element1287, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5600 ], [ %arrayinit.element1297, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5614 ], [ %arrayinit.element1307, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5628 ], [ %arrayinit.element1317, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5642 ], [ %arrayinit.element1327, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5656 ], [ %arrayinit.element1337, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5670 ], [ %arrayinit.element1347, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5684 ], [ %arrayinit.element1357, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5698 ], [ %arrayinit.element1367, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5712 ], [ %arrayinit.element1377, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5726 ], [ %arrayinit.element1387, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5740 ], [ %arrayinit.element1397, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5754 ], [ %arrayinit.element1407, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5768 ], [ %arrayinit.element1417, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5782 ]
   %.pn152.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %294, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5502 ], [ %298, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5516 ], [ %302, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5530 ], [ %306, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5544 ], [ %310, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5558 ], [ %314, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5572 ], [ %318, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5586 ], [ %320, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5600 ], [ %322, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5614 ], [ %326, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5628 ], [ %330, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5642 ], [ %334, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5656 ], [ %338, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5670 ], [ %342, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5684 ], [ %346, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5698 ], [ %350, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5712 ], [ %354, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5726 ], [ %358, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5740 ], [ %362, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5754 ], [ %364, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5768 ], [ %366, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5782 ]
   br label %arraydestroy.body1474
 
 arraydestroy.body1474:                            ; preds = %ehcleanup1469, %arraydestroy.body1474
-  %arraydestroy.elementPast1475 = phi ptr [ %arraydestroy.element1476, %arraydestroy.body1474 ], [ %arrayinit.endOfInit1207.20, %ehcleanup1469 ]
+  %arraydestroy.elementPast1475 = phi ptr [ %arraydestroy.element1476, %arraydestroy.body1474 ], [ %arrayinit.endOfInit1207.0, %ehcleanup1469 ]
   %arraydestroy.element1476 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1475, i64 -40
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %arraydestroy.element1476) #19
   %arraydestroy.done1477 = icmp eq ptr %arraydestroy.element1476, %ref.tmp1205
@@ -9219,12 +9219,12 @@ arraydestroy.body1720:                            ; preds = %arraydestroy.body17
   br i1 %arraydestroy.done1723, label %ehcleanup3343, label %arraydestroy.body1720
 
 ehcleanup1746:                                    ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5836, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5864, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5892, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5920, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5948, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5976, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6004, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6032, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6060, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6088, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6116, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6102, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6074, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6046, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6018, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5990, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5962, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5934, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5906, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5878, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5850
-  %arrayinit.endOfInit1484.20 = phi ptr [ %arrayinit.element1494, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5836 ], [ %arrayinit.element1504, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5850 ], [ %arrayinit.element1514, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5864 ], [ %arrayinit.element1524, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5878 ], [ %arrayinit.element1534, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5892 ], [ %arrayinit.element1544, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5906 ], [ %arrayinit.element1554, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5920 ], [ %arrayinit.element1564, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5934 ], [ %arrayinit.element1574, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5948 ], [ %arrayinit.element1584, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5962 ], [ %arrayinit.element1594, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5976 ], [ %arrayinit.element1604, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5990 ], [ %arrayinit.element1614, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6004 ], [ %arrayinit.element1624, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6018 ], [ %arrayinit.element1634, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6032 ], [ %arrayinit.element1644, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6046 ], [ %arrayinit.element1654, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6060 ], [ %arrayinit.element1664, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6074 ], [ %arrayinit.element1674, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6088 ], [ %arrayinit.element1684, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6102 ], [ %arrayinit.element1694, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6116 ]
+  %arrayinit.endOfInit1484.0 = phi ptr [ %arrayinit.element1494, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5836 ], [ %arrayinit.element1504, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5850 ], [ %arrayinit.element1514, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5864 ], [ %arrayinit.element1524, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5878 ], [ %arrayinit.element1534, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5892 ], [ %arrayinit.element1544, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5906 ], [ %arrayinit.element1554, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5920 ], [ %arrayinit.element1564, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5934 ], [ %arrayinit.element1574, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5948 ], [ %arrayinit.element1584, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5962 ], [ %arrayinit.element1594, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5976 ], [ %arrayinit.element1604, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5990 ], [ %arrayinit.element1614, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6004 ], [ %arrayinit.element1624, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6018 ], [ %arrayinit.element1634, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6032 ], [ %arrayinit.element1644, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6046 ], [ %arrayinit.element1654, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6060 ], [ %arrayinit.element1664, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6074 ], [ %arrayinit.element1674, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6088 ], [ %arrayinit.element1684, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6102 ], [ %arrayinit.element1694, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6116 ]
   %.pn175.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %383, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5836 ], [ %387, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5850 ], [ %391, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5864 ], [ %395, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5878 ], [ %399, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5892 ], [ %403, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5906 ], [ %407, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5920 ], [ %411, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5934 ], [ %415, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5948 ], [ %419, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5962 ], [ %423, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5976 ], [ %427, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit5990 ], [ %431, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6004 ], [ %435, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6018 ], [ %439, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6032 ], [ %443, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6046 ], [ %447, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6060 ], [ %451, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6074 ], [ %453, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6088 ], [ %455, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6102 ], [ %457, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6116 ]
   br label %arraydestroy.body1751
 
 arraydestroy.body1751:                            ; preds = %ehcleanup1746, %arraydestroy.body1751
-  %arraydestroy.elementPast1752 = phi ptr [ %arraydestroy.element1753, %arraydestroy.body1751 ], [ %arrayinit.endOfInit1484.20, %ehcleanup1746 ]
+  %arraydestroy.elementPast1752 = phi ptr [ %arraydestroy.element1753, %arraydestroy.body1751 ], [ %arrayinit.endOfInit1484.0, %ehcleanup1746 ]
   %arraydestroy.element1753 = getelementptr inbounds i8, ptr %arraydestroy.elementPast1752, i64 -40
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %arraydestroy.element1753) #19
   %arraydestroy.done1754 = icmp eq ptr %arraydestroy.element1753, %ref.tmp1482
@@ -9258,12 +9258,12 @@ arraydestroy.body2008:                            ; preds = %arraydestroy.body20
   br i1 %arraydestroy.done2011, label %ehcleanup2125, label %arraydestroy.body2008
 
 ehcleanup2034:                                    ; preds = %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6170, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6198, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6226, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6254, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6282, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6310, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6338, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6366, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6394, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6422, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6450, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6436, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6408, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6380, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6352, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6324, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6296, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6268, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6240, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6212, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6184
-  %arrayinit.endOfInit1772.20 = phi ptr [ %arrayinit.element1782, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6170 ], [ %arrayinit.element1792, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6184 ], [ %arrayinit.element1802, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6198 ], [ %arrayinit.element1812, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6212 ], [ %arrayinit.element1822, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6226 ], [ %arrayinit.element1832, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6240 ], [ %arrayinit.element1842, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6254 ], [ %arrayinit.element1852, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6268 ], [ %arrayinit.element1862, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6282 ], [ %arrayinit.element1872, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6296 ], [ %arrayinit.element1882, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6310 ], [ %arrayinit.element1892, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6324 ], [ %arrayinit.element1902, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6338 ], [ %arrayinit.element1912, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6352 ], [ %arrayinit.element1922, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6366 ], [ %arrayinit.element1932, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6380 ], [ %arrayinit.element1942, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6394 ], [ %arrayinit.element1952, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6408 ], [ %arrayinit.element1962, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6422 ], [ %arrayinit.element1972, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6436 ], [ %arrayinit.element1982, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6450 ]
+  %arrayinit.endOfInit1772.0 = phi ptr [ %arrayinit.element1782, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6170 ], [ %arrayinit.element1792, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6184 ], [ %arrayinit.element1802, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6198 ], [ %arrayinit.element1812, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6212 ], [ %arrayinit.element1822, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6226 ], [ %arrayinit.element1832, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6240 ], [ %arrayinit.element1842, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6254 ], [ %arrayinit.element1852, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6268 ], [ %arrayinit.element1862, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6282 ], [ %arrayinit.element1872, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6296 ], [ %arrayinit.element1882, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6310 ], [ %arrayinit.element1892, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6324 ], [ %arrayinit.element1902, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6338 ], [ %arrayinit.element1912, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6352 ], [ %arrayinit.element1922, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6366 ], [ %arrayinit.element1932, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6380 ], [ %arrayinit.element1942, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6394 ], [ %arrayinit.element1952, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6408 ], [ %arrayinit.element1962, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6422 ], [ %arrayinit.element1972, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6436 ], [ %arrayinit.element1982, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6450 ]
   %.pn198.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %474, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6170 ], [ %478, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6184 ], [ %482, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6198 ], [ %486, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6212 ], [ %490, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6226 ], [ %494, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6240 ], [ %498, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6254 ], [ %502, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6268 ], [ %506, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6282 ], [ %510, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6296 ], [ %514, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6310 ], [ %518, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6324 ], [ %522, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6338 ], [ %526, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6352 ], [ %530, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6366 ], [ %534, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6380 ], [ %538, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6394 ], [ %542, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6408 ], [ %546, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6422 ], [ %550, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6436 ], [ %554, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit6450 ]
   br label %arraydestroy.body2039
 
 arraydestroy.body2039:                            ; preds = %ehcleanup2034, %arraydestroy.body2039
-  %arraydestroy.elementPast2040 = phi ptr [ %arraydestroy.element2041, %arraydestroy.body2039 ], [ %arrayinit.endOfInit1772.20, %ehcleanup2034 ]
+  %arraydestroy.elementPast2040 = phi ptr [ %arraydestroy.element2041, %arraydestroy.body2039 ], [ %arrayinit.endOfInit1772.0, %ehcleanup2034 ]
   %arraydestroy.element2041 = getelementptr inbounds i8, ptr %arraydestroy.elementPast2040, i64 -40
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %arraydestroy.element2041) #19
   %arraydestroy.done2042 = icmp eq ptr %arraydestroy.element2041, %ref.tmp1770
@@ -13932,12 +13932,12 @@ _ZNSt6vectorISt16partial_orderingSaIS0_EED2Ev.exit5003: ; preds = %arraydestroy.
   br i1 %arraydestroy.done3065, label %ehcleanup3341, label %arraydestroy.body3062
 
 ehcleanup3088:                                    ; preds = %lpad.i4759, %lpad.i4748, %lpad.i4737, %lpad.i4726, %lpad.i4715, %lpad.i4704, %lpad.i4693, %lpad.i4682, %lpad.i4671, %lpad.i4660, %lpad.i4649, %lpad.i4638, %lpad.i4627, %lpad.i4616, %lpad.i4605, %lpad.i4594, %lpad.i4583, %lpad.i4572, %lpad.i4561, %lpad.i4550, %lpad.i4539
-  %arrayinit.endOfInit2826.20 = phi ptr [ %arrayinit.element2836, %lpad.i4539 ], [ %arrayinit.element2846, %lpad.i4550 ], [ %arrayinit.element2856, %lpad.i4561 ], [ %arrayinit.element2866, %lpad.i4572 ], [ %arrayinit.element2876, %lpad.i4583 ], [ %arrayinit.element2886, %lpad.i4594 ], [ %arrayinit.element2896, %lpad.i4605 ], [ %arrayinit.element2906, %lpad.i4616 ], [ %arrayinit.element2916, %lpad.i4627 ], [ %arrayinit.element2926, %lpad.i4638 ], [ %arrayinit.element2936, %lpad.i4649 ], [ %arrayinit.element2946, %lpad.i4660 ], [ %arrayinit.element2956, %lpad.i4671 ], [ %arrayinit.element2966, %lpad.i4682 ], [ %arrayinit.element2976, %lpad.i4693 ], [ %arrayinit.element2986, %lpad.i4704 ], [ %arrayinit.element2996, %lpad.i4715 ], [ %arrayinit.element3006, %lpad.i4726 ], [ %arrayinit.element3016, %lpad.i4737 ], [ %arrayinit.element3026, %lpad.i4748 ], [ %arrayinit.element3036, %lpad.i4759 ]
+  %arrayinit.endOfInit2826.0 = phi ptr [ %arrayinit.element2836, %lpad.i4539 ], [ %arrayinit.element2846, %lpad.i4550 ], [ %arrayinit.element2856, %lpad.i4561 ], [ %arrayinit.element2866, %lpad.i4572 ], [ %arrayinit.element2876, %lpad.i4583 ], [ %arrayinit.element2886, %lpad.i4594 ], [ %arrayinit.element2896, %lpad.i4605 ], [ %arrayinit.element2906, %lpad.i4616 ], [ %arrayinit.element2916, %lpad.i4627 ], [ %arrayinit.element2926, %lpad.i4638 ], [ %arrayinit.element2936, %lpad.i4649 ], [ %arrayinit.element2946, %lpad.i4660 ], [ %arrayinit.element2956, %lpad.i4671 ], [ %arrayinit.element2966, %lpad.i4682 ], [ %arrayinit.element2976, %lpad.i4693 ], [ %arrayinit.element2986, %lpad.i4704 ], [ %arrayinit.element2996, %lpad.i4715 ], [ %arrayinit.element3006, %lpad.i4726 ], [ %arrayinit.element3016, %lpad.i4737 ], [ %arrayinit.element3026, %lpad.i4748 ], [ %arrayinit.element3036, %lpad.i4759 ]
   %.pn232.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %1087, %lpad.i4539 ], [ %1088, %lpad.i4550 ], [ %1089, %lpad.i4561 ], [ %1090, %lpad.i4572 ], [ %1091, %lpad.i4583 ], [ %1092, %lpad.i4594 ], [ %1093, %lpad.i4605 ], [ %1094, %lpad.i4616 ], [ %1095, %lpad.i4627 ], [ %1096, %lpad.i4638 ], [ %1097, %lpad.i4649 ], [ %1098, %lpad.i4660 ], [ %1099, %lpad.i4671 ], [ %1100, %lpad.i4682 ], [ %1101, %lpad.i4693 ], [ %1102, %lpad.i4704 ], [ %1103, %lpad.i4715 ], [ %1104, %lpad.i4726 ], [ %1105, %lpad.i4737 ], [ %1106, %lpad.i4748 ], [ %1107, %lpad.i4759 ]
   br label %arraydestroy.body3093
 
 arraydestroy.body3093:                            ; preds = %ehcleanup3088, %_ZNSt6vectorISt16partial_orderingSaIS0_EED2Ev.exit5008
-  %arraydestroy.elementPast3094 = phi ptr [ %arraydestroy.element3095, %_ZNSt6vectorISt16partial_orderingSaIS0_EED2Ev.exit5008 ], [ %arrayinit.endOfInit2826.20, %ehcleanup3088 ]
+  %arraydestroy.elementPast3094 = phi ptr [ %arraydestroy.element3095, %_ZNSt6vectorISt16partial_orderingSaIS0_EED2Ev.exit5008 ], [ %arrayinit.endOfInit2826.0, %ehcleanup3088 ]
   %arraydestroy.element3095 = getelementptr inbounds i8, ptr %arraydestroy.elementPast3094, i64 -24
   %1190 = load ptr, ptr %arraydestroy.element3095, align 8
   %tobool.not.i.i.i5005 = icmp eq ptr %1190, null
@@ -15250,8 +15250,8 @@ cleanup.action:                                   ; preds = %ehcleanup.thread, %
   br label %ehcleanup54
 
 if.end18:                                         ; preds = %if.then, %invoke.cont
-  %is_an_object.1 = phi i1 [ %cmp.i, %invoke.cont ], [ %spec.select, %if.then ]
-  br i1 %is_an_object.1, label %if.then20, label %if.else
+  %is_an_object.0 = phi i1 [ %cmp.i, %invoke.cont ], [ %spec.select, %if.then ]
+  br i1 %is_an_object.0, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %if.end18
   store i8 1, ptr %this, align 8
@@ -25458,10 +25458,10 @@ lpad95:                                           ; preds = %invoke.cont96, %inv
 
 ehcleanup98:                                      ; preds = %lpad93, %lpad95
   %.pn57 = phi { ptr, i32 } [ %15, %lpad95 ], [ %14, %lpad93 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0, %lpad95 ], [ true, %lpad93 ]
+  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.0, %lpad95 ], [ true, %lpad93 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp88) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp87) #19
-  br i1 %cleanup.isactive.1, label %eh.resume.sink.split, label %eh.resume
+  br i1 %cleanup.isactive.3, label %eh.resume.sink.split, label %eh.resume
 
 sw.bb99:                                          ; preds = %sw.bb85, %sw.bb85
   %cmp100.not = icmp ne i64 %undumped_chars.0115.ph, 0
@@ -25497,8 +25497,8 @@ if.else126:                                       ; preds = %if.then105
   br label %if.end139
 
 if.end139:                                        ; preds = %if.else126, %if.then107
-  %bytes.3 = phi i64 [ %inc124, %if.then107 ], [ %inc115, %if.else126 ]
-  %16 = add i64 %bytes.3, -500
+  %bytes.4 = phi i64 [ %inc124, %if.then107 ], [ %inc115, %if.else126 ]
+  %16 = add i64 %bytes.4, -500
   %cmp143 = icmp ult i64 %16, 13
   br i1 %cmp143, label %if.then144, label %for.inc
 
@@ -25507,7 +25507,7 @@ if.then144:                                       ; preds = %if.end139
   %vtable149 = load ptr, ptr %17, align 8
   %vfn150 = getelementptr inbounds i8, ptr %vtable149, i64 8
   %18 = load ptr, ptr %vfn150, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %string_buffer128, i64 noundef %bytes.3)
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %string_buffer128, i64 noundef %bytes.4)
   br label %for.inc
 
 sw.default155:                                    ; preds = %_ZN8nlohmann16json_abi_v3_11_36detail10serializerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEE6decodeERhRjh.exit
@@ -25526,10 +25526,10 @@ if.end162:                                        ; preds = %if.then157, %sw.def
 
 for.inc:                                          ; preds = %sw.bb99, %if.then144, %if.end139, %sw.epilog, %if.then80, %if.end162
   %state.1 = phi i8 [ %7, %if.end162 ], [ 0, %if.then80 ], [ 0, %sw.epilog ], [ 0, %if.end139 ], [ 0, %if.then144 ], [ 0, %sw.bb99 ]
-  %bytes_after_last_accept.2 = phi i64 [ %bytes_after_last_accept.0114.ph, %if.end162 ], [ 0, %if.then80 ], [ %bytes.1, %sw.epilog ], [ %bytes.3, %if.end139 ], [ 0, %if.then144 ], [ %bytes_after_last_accept.0114.ph, %sw.bb99 ]
+  %bytes_after_last_accept.2 = phi i64 [ %bytes_after_last_accept.0114.ph, %if.end162 ], [ 0, %if.then80 ], [ %bytes.1, %sw.epilog ], [ %bytes.4, %if.end139 ], [ 0, %if.then144 ], [ %bytes_after_last_accept.0114.ph, %sw.bb99 ]
   %undumped_chars.1 = phi i64 [ %inc163, %if.end162 ], [ 0, %if.then80 ], [ 0, %sw.epilog ], [ 0, %if.end139 ], [ 0, %if.then144 ], [ 0, %sw.bb99 ]
   %i.2 = phi i64 [ %i.0116, %if.end162 ], [ %i.0116, %if.then80 ], [ %i.0116, %sw.epilog ], [ %spec.select, %if.end139 ], [ %spec.select, %if.then144 ], [ %spec.select, %sw.bb99 ]
-  %bytes.7 = phi i64 [ %bytes.6, %if.end162 ], [ 0, %if.then80 ], [ %bytes.1, %sw.epilog ], [ %bytes.3, %if.end139 ], [ 0, %if.then144 ], [ %bytes_after_last_accept.0114.ph, %sw.bb99 ]
+  %bytes.7 = phi i64 [ %bytes.6, %if.end162 ], [ 0, %if.then80 ], [ %bytes.1, %sw.epilog ], [ %bytes.4, %if.end139 ], [ 0, %if.then144 ], [ %bytes_after_last_accept.0114.ph, %sw.bb99 ]
   %inc165 = add i64 %i.2, 1
   %19 = load i64, ptr %_M_string_length.i, align 8
   %cmp = icmp ult i64 %inc165, %19

@@ -7099,10 +7099,10 @@ if.then1650:                                      ; preds = %if.then1647
   br i1 %cmp1654, label %return, label %if.end1658
 
 if.end1658:                                       ; preds = %if.then1650, %if.then1647
-  %ret.20 = phi i64 [ %retval.0.i2703, %if.then1647 ], [ %arg2, %if.then1650 ]
-  %call1660 = call fastcc i32 @host_to_target_cpu_mask(ptr noundef nonnull %247, i64 noundef %conv1639, i64 noundef %arg3, i64 noundef %ret.20)
+  %ret.21 = phi i64 [ %retval.0.i2703, %if.then1647 ], [ %arg2, %if.then1650 ]
+  %call1660 = call fastcc i32 @host_to_target_cpu_mask(ptr noundef nonnull %247, i64 noundef %conv1639, i64 noundef %arg3, i64 noundef %ret.21)
   %tobool1661.not = icmp eq i32 %call1660, 0
-  %spec.select1796 = select i1 %tobool1661.not, i64 %ret.20, i64 -14
+  %spec.select1796 = select i1 %tobool1661.not, i64 %ret.21, i64 -14
   br label %return
 
 sw.bb1665:                                        ; preds = %entry
@@ -7717,12 +7717,12 @@ for.body2093:                                     ; preds = %for.body2093.prehea
 
 if.end2116:                                       ; preds = %for.body2093, %if.end2060
   %dataptr.0 = phi ptr [ null, %if.end2060 ], [ %data, %for.body2093 ]
-  %target_data.1 = phi ptr [ null, %if.end2060 ], [ %call2082, %for.body2093 ]
+  %target_data.0 = phi ptr [ null, %if.end2060 ], [ %call2082, %for.body2093 ]
   %cmp2117 = icmp eq i32 %num, 90
   br i1 %cmp2117, label %if.then2119, label %if.else2123
 
 if.then2119:                                      ; preds = %if.end2083.thread, %if.end2116
-  %target_data.13779 = phi ptr [ %target_data.1, %if.end2116 ], [ %call2079, %if.end2083.thread ]
+  %target_data.03779 = phi ptr [ %target_data.0, %if.end2116 ], [ %call2079, %if.end2083.thread ]
   %dataptr.03777 = phi ptr [ %dataptr.0, %if.end2116 ], [ %data, %if.end2083.thread ]
   %call.i2876 = call i64 (i64, ...) @syscall(i64 noundef 125, ptr noundef nonnull %header, ptr noundef %dataptr.03777) #27
   %sext3841 = shl i64 %call.i2876, 32
@@ -7771,7 +7771,7 @@ for.body2139:                                     ; preds = %for.body2139.prehea
   %indvars.iv3904 = phi i64 [ 0, %for.body2139.preheader ], [ %indvars.iv.next3905, %for.body2139 ]
   %arrayidx2141 = getelementptr [2 x %struct.__user_cap_data_struct], ptr %data, i64 0, i64 %indvars.iv3904
   %307 = load i32, ptr %arrayidx2141, align 4
-  %arrayidx2145 = getelementptr %struct.target_user_cap_data, ptr %target_data.13779, i64 %indvars.iv3904
+  %arrayidx2145 = getelementptr %struct.target_user_cap_data, ptr %target_data.03779, i64 %indvars.iv3904
   store i32 %307, ptr %arrayidx2145, align 4
   %permitted2149 = getelementptr inbounds i8, ptr %arrayidx2141, i64 4
   %308 = load i32, ptr %permitted2149, align 4
@@ -8086,8 +8086,8 @@ if.then2375:                                      ; preds = %if.end2372
   br i1 %tobool2378.not, label %cleanup, label %if.end2381
 
 if.end2381:                                       ; preds = %if.then2375, %if.end2372
-  %grouplist.0 = phi ptr [ %call2377, %if.then2375 ], [ null, %if.end2372 ]
-  %call2382 = tail call i32 @getgroups(i32 noundef %conv2364, ptr noundef %grouplist.0) #27
+  %grouplist.1 = phi ptr [ %call2377, %if.then2375 ], [ null, %if.end2372 ]
+  %call2382 = tail call i32 @getgroups(i32 noundef %conv2364, ptr noundef %grouplist.1) #27
   %cmp.i2974 = icmp eq i32 %call2382, -1
   br i1 %cmp.i2974, label %if.then.i2976, label %get_errno.exit2980
 
@@ -8121,7 +8121,7 @@ for.body2401.preheader:                           ; preds = %for.cond2397.prehea
 
 for.body2401:                                     ; preds = %for.body2401.preheader, %for.body2401
   %indvars.iv3894 = phi i64 [ 0, %for.body2401.preheader ], [ %indvars.iv.next3895, %for.body2401 ]
-  %arrayidx2403 = getelementptr i32, ptr %grouplist.0, i64 %indvars.iv3894
+  %arrayidx2403 = getelementptr i32, ptr %grouplist.1, i64 %indvars.iv3894
   %336 = load i32, ptr %arrayidx2403, align 4
   %arrayidx2407 = getelementptr i32, ptr %call2393, i64 %indvars.iv3894
   store i32 %336, ptr %arrayidx2407, align 4
@@ -8130,9 +8130,9 @@ for.body2401:                                     ; preds = %for.body2401.prehea
   br i1 %exitcond3898.not, label %cleanup, label %for.body2401, !llvm.loop !23
 
 cleanup:                                          ; preds = %for.body2401, %for.cond2397.preheader, %get_errno.exit2980, %if.then2390, %if.then2375, %sw.bb2363
-  %grouplist.1 = phi ptr [ null, %sw.bb2363 ], [ null, %if.then2375 ], [ %grouplist.0, %if.then2390 ], [ %grouplist.0, %get_errno.exit2980 ], [ %grouplist.0, %for.cond2397.preheader ], [ %grouplist.0, %for.body2401 ]
-  %retval.0 = phi i64 [ -22, %sw.bb2363 ], [ -12, %if.then2375 ], [ -14, %if.then2390 ], [ %retval.0.i2975, %get_errno.exit2980 ], [ %retval.0.i2975, %for.cond2397.preheader ], [ %retval.0.i2975, %for.body2401 ]
-  tail call void @g_free(ptr noundef %grouplist.1) #27
+  %grouplist.0 = phi ptr [ null, %sw.bb2363 ], [ null, %if.then2375 ], [ %grouplist.1, %if.then2390 ], [ %grouplist.1, %get_errno.exit2980 ], [ %grouplist.1, %for.cond2397.preheader ], [ %grouplist.1, %for.body2401 ]
+  %retval.1 = phi i64 [ -22, %sw.bb2363 ], [ -12, %if.then2375 ], [ -14, %if.then2390 ], [ %retval.0.i2975, %get_errno.exit2980 ], [ %retval.0.i2975, %for.cond2397.preheader ], [ %retval.0.i2975, %for.body2401 ]
+  tail call void @g_free(ptr noundef %grouplist.0) #27
   br label %return
 
 sw.bb2414:                                        ; preds = %entry
@@ -8172,8 +8172,8 @@ for.body2444:                                     ; preds = %for.body2444.prehea
 
 if.end2456:                                       ; preds = %for.body2444, %if.end2426
   %conv2457.pre-phi = phi i64 [ 0, %if.end2426 ], [ %conv2430, %for.body2444 ]
-  %grouplist2418.0 = phi ptr [ null, %if.end2426 ], [ %call2431, %for.body2444 ]
-  %call2458 = tail call i32 @setgroups(i64 noundef %conv2457.pre-phi, ptr noundef %grouplist2418.0) #27
+  %grouplist2418.1 = phi ptr [ null, %if.end2426 ], [ %call2431, %for.body2444 ]
+  %call2458 = tail call i32 @setgroups(i64 noundef %conv2457.pre-phi, ptr noundef %grouplist2418.1) #27
   %conv2459 = sext i32 %call2458 to i64
   %cmp.i2983 = icmp eq i32 %call2458, -1
   br i1 %cmp.i2983, label %if.then.i2985, label %cleanup2461
@@ -8186,9 +8186,9 @@ if.then.i2985:                                    ; preds = %if.end2456
   br label %cleanup2461
 
 cleanup2461:                                      ; preds = %if.then.i2985, %if.end2456, %if.end2434, %if.then2429, %sw.bb2414
-  %grouplist2418.1 = phi ptr [ null, %sw.bb2414 ], [ null, %if.then2429 ], [ %call2431, %if.end2434 ], [ %grouplist2418.0, %if.end2456 ], [ %grouplist2418.0, %if.then.i2985 ]
-  %retval.1 = phi i64 [ -22, %sw.bb2414 ], [ -12, %if.then2429 ], [ -14, %if.end2434 ], [ %conv2459, %if.end2456 ], [ %conv.i2988, %if.then.i2985 ]
-  tail call void @g_free(ptr noundef %grouplist2418.1) #27
+  %grouplist2418.0 = phi ptr [ null, %sw.bb2414 ], [ null, %if.then2429 ], [ %call2431, %if.end2434 ], [ %grouplist2418.1, %if.end2456 ], [ %grouplist2418.1, %if.then.i2985 ]
+  %retval.2 = phi i64 [ -22, %sw.bb2414 ], [ -12, %if.then2429 ], [ -14, %if.end2434 ], [ %conv2459, %if.end2456 ], [ %conv.i2988, %if.then.i2985 ]
+  tail call void @g_free(ptr noundef %grouplist2418.0) #27
   br label %return
 
 sw.bb2462:                                        ; preds = %entry
@@ -10268,8 +10268,8 @@ if.then3712:                                      ; preds = %do.body3707
   br label %return
 
 return:                                           ; preds = %for.inc.i, %for.body2139, %fd_trans_unregister.exit, %if.end559, %sw.bb3503, %sw.bb3488, %sw.bb3465, %sw.bb3436, %if.then3628, %if.then3610, %if.then3125, %if.then3107, %if.then2172, %if.end2127.thread, %if.then156, %sw.bb2820, %do.body1909, %if.then1902, %do.body1884, %if.then1877, %if.end2127, %land.lhs.true532, %if.else536, %if.then.i2099, %get_errno.exit2032, %if.end420, %if.end280, %if.then.i1948, %if.then271, %if.else3081, %if.end1855, %sw.bb3691, %if.else3699, %if.then.i3732, %if.then.i3711, %sw.bb3602, %if.then.i3695, %sw.bb3585, %if.then.i3686, %sw.bb3580, %if.then.i3679, %sw.bb3574, %if.then.i3672, %sw.bb3567, %if.then.i3663, %sw.bb3561, %if.then.i3616, %if.else3495, %if.end3284, %if.then.i3532, %if.end3258, %if.then.i3525, %sw.bb3236, %if.then.i3518, %sw.bb3226, %if.then.i3511, %sw.bb3220, %if.then.i3481, %sw.bb3099, %do.body.i3474, %if.then3096, %land.lhs.true3046, %if.then3035, %get_errno.exit3382, %host_to_target_timespec.exit3391.thread, %if.else3023, %if.then.i3398, %land.lhs.true3018, %if.then3006, %if.then.i3358, %if.end2997, %if.then.i3351, %if.end2988, %if.then2977, %if.then.i3339, %sw.bb2966, %if.then.i3332, %sw.bb2958, %if.then.i3318, %if.end2933, %if.then.i3309, %if.then2923, %if.end2913, %if.else2908, %if.then.i3282, %sw.bb2895, %if.then.i3271, %sw.bb2888, %if.then.i3260, %sw.bb2881, %get_errno.exit3248, %host_to_target_timespec.exit3255.thread, %land.lhs.true2876, %sw.bb2853, %do.body.i3224, %if.then2850, %do.body.i3208, %if.then2839, %if.then.i3192, %if.then2825, %sw.bb2809, %if.then.i3174, %if.then2813, %sw.bb2788, %if.then2798, %if.then.i3160, %if.else2802, %if.then.i3167, %if.then2782, %if.then.i3153, %if.end2779, %if.end2752, %if.then2761, %if.then.i3139, %if.else2764, %if.then.i3146, %if.then2735, %if.then.i3132, %if.end2732, %if.end2701, %if.then2710, %if.then.i3118, %if.else2715, %if.then.i3125, %if.then.i3111, %if.end2690, %if.end2667, %if.then2673, %if.then.i3097, %if.else2676, %if.then.i3104, %if.then.i3090, %sw.bb2656, %if.then.i3083, %sw.bb2652, %if.end2633, %if.else2637, %if.then.i3074, %if.then.i3067, %sw.bb2624, %if.then.i3060, %sw.bb2619, %if.then.i3053, %sw.bb2613, %if.then.i3044, %sw.bb2607, %if.then.i3026, %sw.bb2546, %if.then.i3008, %sw.bb2485, %if.then.i2999, %if.end2475, %if.then.i2992, %sw.bb2462, %if.then.i2969, %sw.bb2355, %if.then.i2962, %sw.bb2347, %if.then.i2955, %sw.bb2342, %if.then.i2948, %sw.bb2337, %if.then.i2941, %sw.bb2332, %if.then.i2934, %sw.bb2327, %if.end2252, %if.then2246, %311, %if.then2198, %if.end2083.thread, %if.end2083, %if.then.i2871, %if.end2052, %if.then.i2862, %if.end2043, %if.then.i2855, %if.end2022, %do.body.i2848, %if.then2001, %do.body.i2821, %if.then1989, %if.then.i2805, %sw.bb1976, %if.then.i2798, %sw.bb1971, %if.then.i2791, %sw.bb1967, %if.then.i2784, %if.end1961, %if.end1819, %if.then1841, %if.then.i2764, %sw.bb1793, %if.then.i2755, %if.end1784, %if.then.i2735, %if.end1745, %if.then.i2715, %if.end1681, %if.then.i2695, %sw.bb1626, %if.then.i2688, %sw.bb1621, %if.then.i2634, %sw.bb1550, %if.then.i2623, %sw.bb1541, %if.then.i2616, %sw.bb1536, %if.then.i2609, %sw.bb1531, %get_errno.exit2586, %if.then1491, %land.lhs.true1488, %if.then1483, %if.then.i2575, %if.end1469, %if.then.i2568, %sw.bb1459, %if.then.i2559, %sw.bb1454, %if.then.i2552, %sw.bb1449, %if.then.i2545, %sw.bb1433, %if.then.i2538, %sw.bb1419, %if.then.i2531, %sw.bb1395, %if.then.i2515, %if.end1326, %if.then.i2495, %sw.bb1276, %get_errno.exit2467, %copy_to_user_timeval.exit2483.thread, %lor.lhs.false1204, %if.then1200, %get_errno.exit2444, %copy_to_user_timeval.exit2460.thread, %lor.lhs.false1182, %if.then1178, %lor.lhs.false1162, %if.then1159, %if.then.i2415, %if.end1150, %if.then.i2406, %sw.bb1132, %if.then.i2397, %if.end1109, %if.then.i2388, %sw.bb1099, %if.then.i2381, %sw.bb1066, %if.then.i2358, %sw.bb969, %if.then.i2351, %if.end944, %if.then.i2344, %sw.bb934, %if.then.i2337, %sw.bb929, %if.then.i2330, %if.end925, %if.then.i2323, %sw.bb917, %if.then.i2316, %sw.bb911, %if.then.i2309, %sw.bb906, %if.then.i2301, %sw.bb901, %if.then.i2293, %sw.bb895, %if.then.i2285, %sw.bb891, %if.then.i2278, %if.end886, %if.then.i2271, %sw.bb861, %if.then.i2264, %if.else848, %if.then.i2255, %if.end841, %if.then.i2246, %if.end829, %if.then808, %sw.bb794, %if.else802, %if.else817, %if.then.i2239, %sw.bb780, %if.else788, %if.then.i2232, %if.then.i2225, %if.end774, %if.then769, %if.then762, %get_errno.exit2200, %if.end750, %copy_to_user_timezone.exit.thread, %land.lhs.true752, %land.lhs.true746, %if.then.i2171, %if.then700, %if.then.i2164, %if.end677, %if.then.i2157, %if.end659, %if.then.i2148, %if.end647, %if.then618, %if.then.i2126, %get_errno.exit2125, %if.then.i2092, %sw.bb516, %if.then.i2085, %sw.bb512, %if.then.i2071, %if.end488, %if.then.i2058, %sw.bb473, %if.then.i2051, %if.end460, %if.then.i2044, %if.end450, %if.then.i2037, %if.then442, %if.then.i2014, %if.end391, %sw.bb371, %if.else379, %if.then.i2007, %if.then.i1998, %sw.bb364, %if.then.i1987, %sw.bb359, %if.then.i1980, %if.end351, %if.then.i1973, %if.end341, %if.then.i1966, %if.end326, %if.then.i1957, %if.end311, %if.end307, %if.end262.thread, %if.end262, %if.then.i1940, %sw.bb249, %if.then.i1933, %sw.bb244, %if.then.i1926, %if.end238, %if.then.i1919, %if.end230, %if.then.i1912, %if.end212, %if.end193, %if.else200, %if.then.i1905, %if.then.i1875, %sw.bb139, %if.then.i1868, %sw.bb132, %if.then.i1859, %if.end124, %if.then.i1850, %sw.bb110, %if.end86, %if.else87, %if.then.i1834, %if.then.i1814, %if.then63, %get_errno.exit1808, %land.lhs.true47, %if.then51, %if.then.i, %if.then33, %land.lhs.true3458, %if.end1658, %get_errno.exit3725, %if.end3672, %do.body3681, %if.then3674, %if.then3657, %get_errno.exit3605, %do.body3424, %if.end3163, %do.body3172, %if.then3165, %if.then3148, %get_errno.exit3037, %do.body2597, %get_errno.exit3019, %do.body2536, %if.end1720, %do.body1729, %land.lhs.true1722, %land.lhs.true1706, %if.then1315, %if.then1297, %if.then3712, %do.body3707, %sw.bb3592, %land.lhs.true3556, %if.then3543, %land.lhs.true3536, %get_errno.exit3644, %if.then3527, %get_errno.exit3635, %if.else3472, %get_errno.exit3590, %if.else3446, %if.then3416, %get_errno.exit3564, %do.body3387, %if.then3382, %if.then3353, %if.end3278, %sw.bb3265, %if.then3247, %get_errno.exit3508, %if.then3217, %get_errno.exit3499, %if.else3191, %if.end3090, %if.end3056, %if.then3059, %do.body3066, %sw.bb2992, %if.end2983, %get_errno.exit3329, %if.then2955, %if.else2929, %entry, %entry, %get_errno.exit3219, %get_errno.exit3203, %if.then2774, %if.then2747, %if.then2727, %if.then2696, %if.then2685, %if.then2662, %sw.bb2629, %if.then2562, %do.body2569, %do.body2583, %if.then2501, %do.body2508, %do.body2522, %sw.bb2471, %get_errno.exit2929, %if.end2267, %if.then2263, %sw.bb2231, %get_errno.exit2909, %if.then2228, %sw.bb2215, %get_errno.exit2900, %sw.bb2056, %sw.bb2048, %if.else2038, %if.else2017, %get_errno.exit2843, %get_errno.exit2816, %if.end1918, %sw.bb1848, %get_errno.exit2777, %if.then1815, %sw.bb1798, %if.end1780, %sw.bb1774, %get_errno.exit2748, %if.end1769, %if.then1765, %sw.bb1752, %if.end1741, %sw.bb1737, %get_errno.exit2728, %sw.bb1665, %get_errno.exit2708, %if.then1650, %sw.bb1631, %get_errno.exit2683, %if.else1615, %get_errno.exit2671, %if.else1597, %get_errno.exit2659, %if.else1581, %get_errno.exit2648, %if.else1565, %land.lhs.true1526, %sw.bb1514, %if.then1507, %sw.bb1496, %sw.bb1473, %sw.bb1465, %get_errno.exit2526, %do.body1344, %if.then1339, %sw.bb1322, %get_errno.exit2510, %if.end1313, %get_errno.exit2490, %if.end1223, %if.then1219, %sw.bb1130, %if.end1146, %if.end1142, %sw.bb1138, %sw.bb1105, %convert_statfs, %do.body992, %if.then987, %sw.bb976, %sw.bb940, %sw.bb921, %if.then837, %sw.bb825, %get_errno.exit2191, %if.then735, %get_errno.exit2182, %if.end720, %if.then716, %if.end687, %if.end687, %if.end687, %sw.bb681, %sw.bb673, %sw.bb667, %sw.bb654, %sw.bb642, %get_errno.exit2141, %if.end637, %if.then632, %if.end612, %sw.bb606, %get_errno.exit2112, %if.end592, %if.then588, %sw.bb577, %if.end564, %if.end575, %if.then571, %if.then555, %sw.bb548, %land.lhs.true526, %sw.bb520, %get_errno.exit2082, %if.then508, %sw.bb492, %sw.bb484, %sw.bb456, %if.else446, %if.then416, %get_errno.exit2025, %if.then404, %sw.bb387, %sw.bb347, %sw.bb337, %if.end322, %sw.bb318, %if.end303, %sw.bb297, %if.then256, %sw.bb234, %sw.bb226, %sw.bb208, %sw.bb189, %get_errno.exit1900, %if.end187, %if.then183, %get_errno.exit1888, %if.then118, %sw.bb92, %if.end67, %if.else37, %sw.bb, %sw.bb3704, %get_errno.exit3706, %if.end3560, %if.end3540, %if.then3431, %if.then3409, %if.end3338, %sw.bb3232, %sw.bb2941, %sw.bb2649, %sw.bb2642, %cleanup2461, %cleanup, %sw.bb2168, %sw.bb2004, %if.then1897, %if.then1680, %sw.bb1548, %sw.bb1545, %if.end1530, %if.end1513, %sw.bb1447, %sw.bb1443, %sw.bb1439, %sw.bb1429, %sw.bb1425, %sw.bb1415, %sw.bb1410, %sw.bb1406, %sw.bb1402, %sw.bb1124, %sw.bb1119, %sw.bb1114, %sw.bb1094, %sw.bb1089, %sw.bb1084, %sw.bb1080, %sw.bb1076, %sw.bb1072, %sw.bb1061, %sw.bb1058, %sw.bb1055, %sw.bb1051, %sw.bb1047, %sw.bb1043, %sw.bb1040, %if.end967, %if.then962, %sw.bb856, %sw.bb778, %if.end671, %if.then600, %sw.bb479, %sw.bb469, %sw.bb465, %sw.bb408, %sw.bb358, %sw.bb223, %sw.bb218, %sw.bb165, %sw.bb107, %sw.bb105, %get_errno.exit1845
-  %retval.2 = phi i64 [ %call3705, %sw.bb3704 ], [ %retval.0.i3701, %get_errno.exit3706 ], [ %retval.0.i3653, %if.end3560 ], [ %retval.0.i3646, %if.end3540 ], [ %call3406, %if.then3409 ], [ -14, %if.then3431 ], [ %ret.41, %if.end3338 ], [ %call3235, %sw.bb3232 ], [ %conv2946, %sw.bb2941 ], [ %call2651, %sw.bb2649 ], [ %conv2648, %sw.bb2642 ], [ %retval.1, %cleanup2461 ], [ %retval.0, %cleanup ], [ %call2169, %sw.bb2168 ], [ %call2005, %sw.bb2004 ], [ %conv1898, %if.then1897 ], [ %conv1678, %if.then1680 ], [ %call1549, %sw.bb1548 ], [ %conv1547, %sw.bb1545 ], [ %retval.0.i2599, %if.end1530 ], [ %retval.0.i2590, %if.end1513 ], [ %call1448, %sw.bb1447 ], [ %call1446, %sw.bb1443 ], [ %call1442, %sw.bb1439 ], [ %call1432, %sw.bb1429 ], [ %call1428, %sw.bb1425 ], [ %call1418, %sw.bb1415 ], [ %call1414, %sw.bb1410 ], [ %call1409, %sw.bb1406 ], [ %call1405, %sw.bb1402 ], [ %call1129, %sw.bb1124 ], [ %call1123, %sw.bb1119 ], [ %call1118, %sw.bb1114 ], [ %call1098, %sw.bb1094 ], [ %call1093, %sw.bb1089 ], [ %call1088, %sw.bb1084 ], [ %call1083, %sw.bb1080 ], [ %call1079, %sw.bb1076 ], [ %call1075, %sw.bb1072 ], [ %call1065, %sw.bb1061 ], [ %call1060, %sw.bb1058 ], [ %call1057, %sw.bb1055 ], [ %call1054, %sw.bb1051 ], [ %call1050, %sw.bb1047 ], [ %call1046, %sw.bb1043 ], [ %call1042, %sw.bb1040 ], [ %conv966, %if.then962 ], [ %sub968, %if.end967 ], [ %call860, %sw.bb856 ], [ %call779, %sw.bb778 ], [ %call672, %if.end671 ], [ %conv597, %if.then600 ], [ %conv482, %sw.bb479 ], [ %call472, %sw.bb469 ], [ %call468, %sw.bb465 ], [ %call411, %sw.bb408 ], [ 0, %sw.bb358 ], [ %conv225, %sw.bb223 ], [ %conv222, %sw.bb218 ], [ %call166, %sw.bb165 ], [ %call108, %sw.bb107 ], [ %call106, %sw.bb105 ], [ %retval.0.i1840, %get_errno.exit1845 ], [ -512, %sw.bb ], [ -14, %if.else37 ], [ -14, %if.end67 ], [ -14, %sw.bb92 ], [ -14, %if.then118 ], [ %retval.0.i1883, %get_errno.exit1888 ], [ -14, %if.then183 ], [ %retval.0.i1895, %if.end187 ], [ %retval.0.i1895, %get_errno.exit1900 ], [ -14, %sw.bb189 ], [ -14, %sw.bb208 ], [ -14, %sw.bb226 ], [ -14, %sw.bb234 ], [ -14, %if.then256 ], [ -14, %sw.bb297 ], [ -14, %if.end303 ], [ -14, %sw.bb318 ], [ -14, %if.end322 ], [ -14, %sw.bb337 ], [ -14, %sw.bb347 ], [ -14, %sw.bb387 ], [ %retval.0.i2020, %if.then404 ], [ %retval.0.i2020, %get_errno.exit2025 ], [ -14, %if.then416 ], [ -14, %if.else446 ], [ -14, %sw.bb456 ], [ -14, %sw.bb484 ], [ -22, %sw.bb492 ], [ %retval.0.i2077, %if.then508 ], [ %retval.0.i2077, %get_errno.exit2082 ], [ -22, %sw.bb520 ], [ -14, %land.lhs.true526 ], [ -22, %sw.bb548 ], [ -14, %if.then555 ], [ -22, %if.end559 ], [ -14, %if.then571 ], [ %conv566, %if.end575 ], [ %conv566, %if.end564 ], [ -22, %sw.bb577 ], [ -14, %if.then588 ], [ %retval.0.i2107, %if.end592 ], [ %retval.0.i2107, %get_errno.exit2112 ], [ -22, %sw.bb606 ], [ -14, %if.end612 ], [ -14, %if.then632 ], [ %retval.0.i2136, %get_errno.exit2141 ], [ %conv640, %if.end637 ], [ -14, %sw.bb642 ], [ -14, %sw.bb654 ], [ -512, %sw.bb667 ], [ -14, %sw.bb673 ], [ -14, %sw.bb681 ], [ 0, %if.end687 ], [ 0, %if.end687 ], [ 0, %if.end687 ], [ -14, %if.then716 ], [ %retval.0.i2177, %if.end720 ], [ %retval.0.i2177, %get_errno.exit2182 ], [ %retval.0.i2186, %get_errno.exit2191 ], [ %call736, %if.then735 ], [ -14, %sw.bb825 ], [ -14, %if.then837 ], [ -14, %sw.bb921 ], [ -14, %sw.bb940 ], [ -14, %sw.bb976 ], [ -14, %if.then987 ], [ %ret.14, %do.body992 ], [ %ret.14, %convert_statfs ], [ -14, %sw.bb1105 ], [ -22, %sw.bb1138 ], [ 0, %if.end1142 ], [ -14, %if.end1146 ], [ -22, %sw.bb1130 ], [ -14, %if.then1219 ], [ %retval.0.i2485, %if.end1223 ], [ %retval.0.i2485, %get_errno.exit2490 ], [ %retval.0.i2505, %get_errno.exit2510 ], [ %retval.0.i2505, %if.end1313 ], [ %spec.select1785, %if.then1315 ], [ -14, %sw.bb1322 ], [ -14, %if.then1339 ], [ %retval.0.i2521, %do.body1344 ], [ %retval.0.i2521, %get_errno.exit2526 ], [ -14, %sw.bb1465 ], [ -14, %sw.bb1473 ], [ -14, %sw.bb1496 ], [ -14, %if.then1507 ], [ -14, %sw.bb1514 ], [ -14, %land.lhs.true1526 ], [ %retval.0.i2643, %get_errno.exit2648 ], [ %conv1569, %if.else1565 ], [ %retval.0.i2654, %get_errno.exit2659 ], [ %conv1585, %if.else1581 ], [ %retval.0.i2666, %get_errno.exit2671 ], [ %conv1601, %if.else1597 ], [ %retval.0.i2678, %get_errno.exit2683 ], [ %conv1619, %if.else1615 ], [ -22, %sw.bb1631 ], [ -22, %if.then1650 ], [ %retval.0.i2703, %get_errno.exit2708 ], [ -22, %sw.bb1665 ], [ %retval.0.i2723, %get_errno.exit2728 ], [ -22, %sw.bb1737 ], [ -14, %if.end1741 ], [ -22, %sw.bb1752 ], [ -14, %if.then1765 ], [ %retval.0.i2743, %if.end1769 ], [ %retval.0.i2743, %get_errno.exit2748 ], [ -22, %sw.bb1774 ], [ -14, %if.end1780 ], [ -22, %sw.bb1798 ], [ -14, %if.then1815 ], [ %retval.0.i2772, %get_errno.exit2777 ], [ -22, %sw.bb1848 ], [ -14, %if.end1918 ], [ %retval.0.i2811, %get_errno.exit2816 ], [ %retval.0.i2838, %get_errno.exit2843 ], [ -14, %if.else2017 ], [ -14, %if.else2038 ], [ -14, %sw.bb2048 ], [ -14, %sw.bb2056 ], [ %ret.23, %if.end2127 ], [ %retval.0.i2895, %get_errno.exit2900 ], [ -14, %sw.bb2215 ], [ %retval.0.i2904, %get_errno.exit2909 ], [ %call2229, %if.then2228 ], [ -14, %sw.bb2231 ], [ -14, %if.then2263 ], [ %retval.0.i2924, %if.end2267 ], [ %retval.0.i2924, %get_errno.exit2929 ], [ -14, %sw.bb2471 ], [ -14, %do.body2522 ], [ -14, %do.body2508 ], [ -14, %if.then2501 ], [ -14, %do.body2583 ], [ -14, %do.body2569 ], [ -14, %if.then2562 ], [ -12, %sw.bb2629 ], [ -14, %if.then2662 ], [ -14, %if.then2685 ], [ -14, %if.then2696 ], [ -14, %if.then2727 ], [ -14, %if.then2747 ], [ -14, %if.then2774 ], [ %retval.0.i3198, %get_errno.exit3203 ], [ %retval.0.i3214, %get_errno.exit3219 ], [ -38, %entry ], [ -38, %entry ], [ -14, %if.else2929 ], [ %retval.0.i3324, %if.then2955 ], [ %retval.0.i3324, %get_errno.exit3329 ], [ -14, %if.end2983 ], [ -14, %sw.bb2992 ], [ %ret.38, %do.body3066 ], [ %ret.38, %if.then3059 ], [ %ret.38, %if.end3056 ], [ %ret.39, %if.end3090 ], [ %retval.0.i3494, %get_errno.exit3499 ], [ %conv3195, %if.else3191 ], [ %retval.0.i3503, %if.then3217 ], [ %retval.0.i3503, %get_errno.exit3508 ], [ -14, %if.then3247 ], [ -22, %sw.bb3265 ], [ -14, %if.end3278 ], [ -14, %if.then3353 ], [ -14, %if.then3382 ], [ %retval.0.i3559, %do.body3387 ], [ %retval.0.i3559, %get_errno.exit3564 ], [ %retval.0.i3571, %if.then3416 ], [ 0, %do.body3424 ], [ -14, %if.else3446 ], [ %retval.0.i3585, %get_errno.exit3590 ], [ -14, %if.else3472 ], [ %spec.select1795, %get_errno.exit3605 ], [ %retval.0.i3630, %get_errno.exit3635 ], [ %retval.0.i3639, %if.then3527 ], [ %retval.0.i3639, %get_errno.exit3644 ], [ -14, %land.lhs.true3536 ], [ -14, %if.then3543 ], [ -14, %land.lhs.true3556 ], [ -14, %sw.bb3592 ], [ -38, %do.body3707 ], [ -38, %if.then3712 ], [ -14, %if.then1297 ], [ %spec.select1796, %if.end1658 ], [ -14, %land.lhs.true1706 ], [ -14, %land.lhs.true1722 ], [ %retval.0.i2723, %do.body1729 ], [ %retval.0.i2723, %if.end1720 ], [ %retval.0.i3014, %do.body2536 ], [ %retval.0.i3014, %get_errno.exit3019 ], [ %retval.0.i3032, %do.body2597 ], [ %retval.0.i3032, %get_errno.exit3037 ], [ -14, %if.then3148 ], [ -14, %if.then3165 ], [ %retval.0.i3487, %do.body3172 ], [ %retval.0.i3487, %if.end3163 ], [ %spec.select1797, %land.lhs.true3458 ], [ -14, %if.then3657 ], [ -14, %if.then3674 ], [ %retval.0.i3720, %do.body3681 ], [ %retval.0.i3720, %if.end3672 ], [ %retval.0.i3720, %get_errno.exit3725 ], [ %conv.i, %if.then.i ], [ %call.i, %if.then33 ], [ %call54, %if.then51 ], [ %retval.0.i1803, %land.lhs.true47 ], [ %retval.0.i1803, %get_errno.exit1808 ], [ %conv.i1817, %if.then.i1814 ], [ %call.i1811, %if.then63 ], [ %ret.1, %if.end86 ], [ %conv.i1837, %if.then.i1834 ], [ %call.i1831, %if.else87 ], [ %conv.i1853, %if.then.i1850 ], [ %conv114, %sw.bb110 ], [ %conv.i1862, %if.then.i1859 ], [ %conv130, %if.end124 ], [ %conv.i1871, %if.then.i1868 ], [ %conv137, %sw.bb132 ], [ %conv.i1878, %if.then.i1875 ], [ %conv143, %sw.bb139 ], [ -14, %if.end193 ], [ %conv.i1908, %if.then.i1905 ], [ %conv205, %if.else200 ], [ %conv.i1915, %if.then.i1912 ], [ %conv216, %if.end212 ], [ %conv.i1922, %if.then.i1919 ], [ %conv232, %if.end230 ], [ %conv.i1929, %if.then.i1926 ], [ %conv242, %if.end238 ], [ %conv.i1936, %if.then.i1933 ], [ %call247, %sw.bb244 ], [ %conv.i1943, %if.then.i1940 ], [ %conv251, %sw.bb249 ], [ -14, %if.end262 ], [ -14, %if.end262.thread ], [ -14, %if.end307 ], [ %conv.i1960, %if.then.i1957 ], [ %conv316, %if.end311 ], [ %conv.i1969, %if.then.i1966 ], [ %conv335, %if.end326 ], [ %conv.i1976, %if.then.i1973 ], [ %conv345, %if.end341 ], [ %conv.i1983, %if.then.i1980 ], [ %conv356, %if.end351 ], [ %conv.i1990, %if.then.i1987 ], [ %conv362, %sw.bb359 ], [ %conv.i2001, %if.then.i1998 ], [ %conv369, %sw.bb364 ], [ -14, %sw.bb371 ], [ %conv.i2010, %if.then.i2007 ], [ %conv384, %if.else379 ], [ %conv.i2017, %if.then.i2014 ], [ %conv395, %if.end391 ], [ %conv.i2040, %if.then.i2037 ], [ %conv444, %if.then442 ], [ %conv.i2047, %if.then.i2044 ], [ %conv453, %if.end450 ], [ %conv.i2054, %if.then.i2051 ], [ %conv463, %if.end460 ], [ %conv.i2061, %if.then.i2058 ], [ %conv477, %sw.bb473 ], [ %conv.i2074, %if.then.i2071 ], [ %conv490, %if.end488 ], [ %conv.i2088, %if.then.i2085 ], [ %conv514, %sw.bb512 ], [ %conv.i2095, %if.then.i2092 ], [ %conv518, %sw.bb516 ], [ -512, %get_errno.exit2125 ], [ %retval.0.i2120, %if.then.i2126 ], [ -14, %if.then618 ], [ %conv.i2151, %if.then.i2148 ], [ %conv652, %if.end647 ], [ %conv.i2160, %if.then.i2157 ], [ %conv665, %if.end659 ], [ %conv.i2167, %if.then.i2164 ], [ %conv679, %if.end677 ], [ %conv.i2174, %if.then.i2171 ], [ %conv702, %if.then700 ], [ -14, %land.lhs.true746 ], [ -14, %land.lhs.true752 ], [ %retval.0.i2195, %copy_to_user_timezone.exit.thread ], [ %retval.0.i2195, %if.end750 ], [ %retval.0.i2195, %get_errno.exit2200 ], [ -14, %if.then762 ], [ -14, %if.then769 ], [ %conv.i2228, %if.then.i2225 ], [ %conv776, %if.end774 ], [ -14, %sw.bb780 ], [ %conv.i2235, %if.then.i2232 ], [ %conv791, %if.else788 ], [ %cond816, %if.then808 ], [ -14, %sw.bb794 ], [ -22, %if.else802 ], [ %conv.i2242, %if.then.i2239 ], [ %call820, %if.else817 ], [ %conv.i2249, %if.then.i2246 ], [ %conv832, %if.end829 ], [ %conv.i2258, %if.then.i2255 ], [ %conv846, %if.end841 ], [ %conv.i2267, %if.then.i2264 ], [ %conv853, %if.else848 ], [ %conv.i2274, %if.then.i2271 ], [ %conv864, %sw.bb861 ], [ %conv.i2281, %if.then.i2278 ], [ %conv889, %if.end886 ], [ %conv.i2288, %if.then.i2285 ], [ %call893, %sw.bb891 ], [ %conv.i2296, %if.then.i2293 ], [ %conv899, %sw.bb895 ], [ %conv.i2304, %if.then.i2301 ], [ %conv904, %sw.bb901 ], [ %conv.i2312, %if.then.i2309 ], [ %conv909, %sw.bb906 ], [ %conv.i2319, %if.then.i2316 ], [ %conv915, %sw.bb911 ], [ %conv.i2326, %if.then.i2323 ], [ %conv919, %sw.bb917 ], [ %conv.i2333, %if.then.i2330 ], [ %conv927, %if.end925 ], [ %conv.i2340, %if.then.i2337 ], [ %conv932, %sw.bb929 ], [ %conv.i2347, %if.then.i2344 ], [ %conv938, %sw.bb934 ], [ %conv.i2354, %if.then.i2351 ], [ %conv948, %if.end944 ], [ %conv.i2361, %if.then.i2358 ], [ %conv974, %sw.bb969 ], [ %conv.i2384, %if.then.i2381 ], [ %conv1070, %sw.bb1066 ], [ %conv.i2391, %if.then.i2388 ], [ %conv1103, %sw.bb1099 ], [ %conv.i2400, %if.then.i2397 ], [ %conv1112, %if.end1109 ], [ %conv.i2409, %if.then.i2406 ], [ %conv1136, %sw.bb1132 ], [ %conv.i2418, %if.then.i2415 ], [ %conv1154, %if.end1150 ], [ -14, %if.then1159 ], [ -14, %lor.lhs.false1162 ], [ -14, %if.then1178 ], [ -14, %lor.lhs.false1182 ], [ %retval.0.i2439, %copy_to_user_timeval.exit2460.thread ], [ %retval.0.i2439, %get_errno.exit2444 ], [ -14, %if.then1200 ], [ -14, %lor.lhs.false1204 ], [ %retval.0.i2462, %copy_to_user_timeval.exit2483.thread ], [ %retval.0.i2462, %get_errno.exit2467 ], [ %conv.i2498, %if.then.i2495 ], [ %conv1278, %sw.bb1276 ], [ %conv.i2518, %if.then.i2515 ], [ %conv1328, %if.end1326 ], [ %conv.i2534, %if.then.i2531 ], [ %conv1400, %sw.bb1395 ], [ %conv.i2541, %if.then.i2538 ], [ %conv1423, %sw.bb1419 ], [ %conv.i2548, %if.then.i2545 ], [ %conv1437, %sw.bb1433 ], [ %conv.i2555, %if.then.i2552 ], [ %conv1452, %sw.bb1449 ], [ %conv.i2562, %if.then.i2559 ], [ %conv1457, %sw.bb1454 ], [ %conv.i2571, %if.then.i2568 ], [ %conv1463, %sw.bb1459 ], [ %conv.i2578, %if.then.i2575 ], [ %conv1471, %if.end1469 ], [ %retval.0.i2581, %if.then1483 ], [ %retval.0.i2581, %land.lhs.true1488 ], [ %retval.0.i2581, %if.then1491 ], [ %retval.0.i2581, %get_errno.exit2586 ], [ %conv.i2612, %if.then.i2609 ], [ %conv1534, %sw.bb1531 ], [ %conv.i2619, %if.then.i2616 ], [ %conv1539, %sw.bb1536 ], [ %conv.i2626, %if.then.i2623 ], [ %conv1543, %sw.bb1541 ], [ %conv.i2637, %if.then.i2634 ], [ %conv1554, %sw.bb1550 ], [ %conv.i2691, %if.then.i2688 ], [ %conv1624, %sw.bb1621 ], [ %conv.i2698, %if.then.i2695 ], [ %conv1629, %sw.bb1626 ], [ %conv.i2718, %if.then.i2715 ], [ %conv1684, %if.end1681 ], [ %conv.i2738, %if.then.i2735 ], [ %conv1750, %if.end1745 ], [ %conv.i2758, %if.then.i2755 ], [ %conv1791, %if.end1784 ], [ %conv.i2767, %if.then.i2764 ], [ %conv1796, %sw.bb1793 ], [ %retval.0.i2772, %if.then1841 ], [ %retval.0.i2772, %if.end1819 ], [ %conv.i2787, %if.then.i2784 ], [ %conv1965, %if.end1961 ], [ %conv.i2794, %if.then.i2791 ], [ %conv1969, %sw.bb1967 ], [ %conv.i2801, %if.then.i2798 ], [ %conv1974, %sw.bb1971 ], [ %conv.i2808, %if.then.i2805 ], [ %conv1979, %sw.bb1976 ], [ 0, %do.body.i2821 ], [ -14, %if.then1989 ], [ %retval.0.i2838, %if.then2001 ], [ %retval.0.i2838, %do.body.i2848 ], [ %conv.i2858, %if.then.i2855 ], [ %call2025, %if.end2022 ], [ %conv.i2865, %if.then.i2862 ], [ %call2046, %if.end2043 ], [ %conv.i2874, %if.then.i2871 ], [ %conv2054, %if.end2052 ], [ -14, %if.end2083 ], [ -14, %if.end2083.thread ], [ %retval.0.i2895, %311 ], [ -14, %if.then2198 ], [ -14, %if.then2246 ], [ %retval.0.i2915, %if.end2252 ], [ %conv.i2937, %if.then.i2934 ], [ %conv2330, %sw.bb2327 ], [ %conv.i2944, %if.then.i2941 ], [ %conv2335, %sw.bb2332 ], [ %conv.i2951, %if.then.i2948 ], [ %conv2340, %sw.bb2337 ], [ %conv.i2958, %if.then.i2955 ], [ %conv2345, %sw.bb2342 ], [ %conv.i2965, %if.then.i2962 ], [ %conv2353, %sw.bb2347 ], [ %conv.i2972, %if.then.i2969 ], [ %conv2361, %sw.bb2355 ], [ %conv.i2995, %if.then.i2992 ], [ %conv2469, %sw.bb2462 ], [ %conv.i3002, %if.then.i2999 ], [ %conv2483, %if.end2475 ], [ %conv.i3011, %if.then.i3008 ], [ %conv2493, %sw.bb2485 ], [ %conv.i3029, %if.then.i3026 ], [ %conv2554, %sw.bb2546 ], [ %conv.i3047, %if.then.i3044 ], [ %conv2611, %sw.bb2607 ], [ %conv.i3056, %if.then.i3053 ], [ %conv2617, %sw.bb2613 ], [ %conv.i3063, %if.then.i3060 ], [ %conv2622, %sw.bb2619 ], [ %conv.i3070, %if.then.i3067 ], [ %conv2627, %sw.bb2624 ], [ -14, %if.end2633 ], [ %conv.i3077, %if.then.i3074 ], [ %conv2639, %if.else2637 ], [ %conv.i3086, %if.then.i3083 ], [ %conv2654, %sw.bb2652 ], [ %conv.i3093, %if.then.i3090 ], [ %call2658, %sw.bb2656 ], [ -14, %if.end2667 ], [ %conv.i3100, %if.then.i3097 ], [ %call2674, %if.then2673 ], [ %conv.i3107, %if.then.i3104 ], [ %call2677, %if.else2676 ], [ %conv.i3114, %if.then.i3111 ], [ %call2692, %if.end2690 ], [ -14, %if.end2701 ], [ %conv.i3121, %if.then.i3118 ], [ %conv2713, %if.then2710 ], [ %conv.i3128, %if.then.i3125 ], [ %conv2718, %if.else2715 ], [ %conv.i3135, %if.then.i3132 ], [ %conv2739, %if.then2735 ], [ -14, %if.end2732 ], [ -14, %if.end2752 ], [ %conv.i3142, %if.then.i3139 ], [ %call2762, %if.then2761 ], [ %conv.i3149, %if.then.i3146 ], [ %call2765, %if.else2764 ], [ %conv.i3156, %if.then.i3153 ], [ %call2784, %if.then2782 ], [ -14, %if.end2779 ], [ -14, %sw.bb2788 ], [ %conv.i3163, %if.then.i3160 ], [ %conv2800, %if.then2798 ], [ %conv.i3170, %if.then.i3167 ], [ %conv2804, %if.else2802 ], [ %conv.i3177, %if.then.i3174 ], [ %conv2816, %if.then2813 ], [ -14, %sw.bb2809 ], [ %conv.i3195, %if.then.i3192 ], [ %conv2828, %if.then2825 ], [ 0, %do.body.i3208 ], [ -14, %if.then2839 ], [ %retval.0.i3214, %if.then2850 ], [ %retval.0.i3214, %do.body.i3224 ], [ -14, %sw.bb2853 ], [ -14, %land.lhs.true2876 ], [ -4, %host_to_target_timespec.exit3255.thread ], [ %retval.0.i3243, %get_errno.exit3248 ], [ %conv.i3263, %if.then.i3260 ], [ %conv2886, %sw.bb2881 ], [ %conv.i3274, %if.then.i3271 ], [ %conv2893, %sw.bb2888 ], [ %conv.i3285, %if.then.i3282 ], [ %conv2901, %sw.bb2895 ], [ -14, %if.else2908 ], [ -14, %if.end2913 ], [ %conv.i3312, %if.then.i3309 ], [ %conv2927, %if.then2923 ], [ %conv.i3321, %if.then.i3318 ], [ %conv2938, %if.end2933 ], [ %conv.i3335, %if.then.i3332 ], [ %conv2964, %sw.bb2958 ], [ %conv.i3342, %if.then.i3339 ], [ %conv2970, %sw.bb2966 ], [ -14, %if.then2977 ], [ %conv.i3354, %if.then.i3351 ], [ %conv2990, %if.end2988 ], [ %conv.i3361, %if.then.i3358 ], [ %conv2999, %if.end2997 ], [ -14, %if.then3006 ], [ -14, %land.lhs.true3018 ], [ %retval.0.i3377, %get_errno.exit3382 ], [ %retval.0.i3377, %host_to_target_timespec.exit3391.thread ], [ %conv.i3401, %if.then.i3398 ], [ %conv3027, %if.else3023 ], [ -14, %if.then3035 ], [ -14, %land.lhs.true3046 ], [ 0, %if.then3096 ], [ 0, %do.body.i3474 ], [ %conv.i3484, %if.then.i3481 ], [ %call3103, %sw.bb3099 ], [ %conv.i3514, %if.then.i3511 ], [ %conv3224, %sw.bb3220 ], [ %conv.i3521, %if.then.i3518 ], [ %conv3230, %sw.bb3226 ], [ %conv.i3528, %if.then.i3525 ], [ %conv3240, %sw.bb3236 ], [ %conv.i3535, %if.then.i3532 ], [ %conv3263, %if.end3258 ], [ -12, %if.end3284 ], [ %conv.i3619, %if.then.i3616 ], [ %conv3500, %if.else3495 ], [ %conv.i3666, %if.then.i3663 ], [ %conv3565, %sw.bb3561 ], [ %conv.i3675, %if.then.i3672 ], [ %conv3572, %sw.bb3567 ], [ %conv.i3682, %if.then.i3679 ], [ %conv3578, %sw.bb3574 ], [ %conv.i3689, %if.then.i3686 ], [ %conv3583, %sw.bb3580 ], [ %conv.i3698, %if.then.i3695 ], [ %conv3590, %sw.bb3585 ], [ %conv.i3714, %if.then.i3711 ], [ %conv3606, %sw.bb3602 ], [ -14, %sw.bb3691 ], [ %conv.i3735, %if.then.i3732 ], [ %conv3701, %if.else3699 ], [ -14, %if.end1855 ], [ 0, %if.else3081 ], [ -14, %if.then271 ], [ %conv.i1951, %if.then.i1948 ], [ %ret.4, %if.end280 ], [ %retval.0.i2027, %if.end420 ], [ %retval.0.i2027, %get_errno.exit2032 ], [ -14, %land.lhs.true532 ], [ %conv.i2102, %if.then.i2099 ], [ %conv539, %if.else536 ], [ -14, %if.then1877 ], [ -7, %do.body1884 ], [ -14, %if.then1902 ], [ -7, %do.body1909 ], [ -14, %sw.bb2820 ], [ %retval.0.i1883, %if.then156 ], [ %ret.23.ph, %if.end2127.thread ], [ -14, %if.then2172 ], [ -14, %if.then3107 ], [ -14, %if.then3125 ], [ -14, %if.then3610 ], [ -14, %if.then3628 ], [ -22, %sw.bb3436 ], [ -22, %sw.bb3465 ], [ -22, %sw.bb3488 ], [ -22, %sw.bb3503 ], [ %retval.0.i1883, %fd_trans_unregister.exit ], [ %ret.23, %for.body2139 ], [ -11, %for.inc.i ]
-  ret i64 %retval.2
+  %retval.0 = phi i64 [ %call3705, %sw.bb3704 ], [ %retval.0.i3701, %get_errno.exit3706 ], [ %retval.0.i3653, %if.end3560 ], [ %retval.0.i3646, %if.end3540 ], [ %call3406, %if.then3409 ], [ -14, %if.then3431 ], [ %ret.41, %if.end3338 ], [ %call3235, %sw.bb3232 ], [ %conv2946, %sw.bb2941 ], [ %call2651, %sw.bb2649 ], [ %conv2648, %sw.bb2642 ], [ %retval.2, %cleanup2461 ], [ %retval.1, %cleanup ], [ %call2169, %sw.bb2168 ], [ %call2005, %sw.bb2004 ], [ %conv1898, %if.then1897 ], [ %conv1678, %if.then1680 ], [ %call1549, %sw.bb1548 ], [ %conv1547, %sw.bb1545 ], [ %retval.0.i2599, %if.end1530 ], [ %retval.0.i2590, %if.end1513 ], [ %call1448, %sw.bb1447 ], [ %call1446, %sw.bb1443 ], [ %call1442, %sw.bb1439 ], [ %call1432, %sw.bb1429 ], [ %call1428, %sw.bb1425 ], [ %call1418, %sw.bb1415 ], [ %call1414, %sw.bb1410 ], [ %call1409, %sw.bb1406 ], [ %call1405, %sw.bb1402 ], [ %call1129, %sw.bb1124 ], [ %call1123, %sw.bb1119 ], [ %call1118, %sw.bb1114 ], [ %call1098, %sw.bb1094 ], [ %call1093, %sw.bb1089 ], [ %call1088, %sw.bb1084 ], [ %call1083, %sw.bb1080 ], [ %call1079, %sw.bb1076 ], [ %call1075, %sw.bb1072 ], [ %call1065, %sw.bb1061 ], [ %call1060, %sw.bb1058 ], [ %call1057, %sw.bb1055 ], [ %call1054, %sw.bb1051 ], [ %call1050, %sw.bb1047 ], [ %call1046, %sw.bb1043 ], [ %call1042, %sw.bb1040 ], [ %conv966, %if.then962 ], [ %sub968, %if.end967 ], [ %call860, %sw.bb856 ], [ %call779, %sw.bb778 ], [ %call672, %if.end671 ], [ %conv597, %if.then600 ], [ %conv482, %sw.bb479 ], [ %call472, %sw.bb469 ], [ %call468, %sw.bb465 ], [ %call411, %sw.bb408 ], [ 0, %sw.bb358 ], [ %conv225, %sw.bb223 ], [ %conv222, %sw.bb218 ], [ %call166, %sw.bb165 ], [ %call108, %sw.bb107 ], [ %call106, %sw.bb105 ], [ %retval.0.i1840, %get_errno.exit1845 ], [ -512, %sw.bb ], [ -14, %if.else37 ], [ -14, %if.end67 ], [ -14, %sw.bb92 ], [ -14, %if.then118 ], [ %retval.0.i1883, %get_errno.exit1888 ], [ -14, %if.then183 ], [ %retval.0.i1895, %if.end187 ], [ %retval.0.i1895, %get_errno.exit1900 ], [ -14, %sw.bb189 ], [ -14, %sw.bb208 ], [ -14, %sw.bb226 ], [ -14, %sw.bb234 ], [ -14, %if.then256 ], [ -14, %sw.bb297 ], [ -14, %if.end303 ], [ -14, %sw.bb318 ], [ -14, %if.end322 ], [ -14, %sw.bb337 ], [ -14, %sw.bb347 ], [ -14, %sw.bb387 ], [ %retval.0.i2020, %if.then404 ], [ %retval.0.i2020, %get_errno.exit2025 ], [ -14, %if.then416 ], [ -14, %if.else446 ], [ -14, %sw.bb456 ], [ -14, %sw.bb484 ], [ -22, %sw.bb492 ], [ %retval.0.i2077, %if.then508 ], [ %retval.0.i2077, %get_errno.exit2082 ], [ -22, %sw.bb520 ], [ -14, %land.lhs.true526 ], [ -22, %sw.bb548 ], [ -14, %if.then555 ], [ -22, %if.end559 ], [ -14, %if.then571 ], [ %conv566, %if.end575 ], [ %conv566, %if.end564 ], [ -22, %sw.bb577 ], [ -14, %if.then588 ], [ %retval.0.i2107, %if.end592 ], [ %retval.0.i2107, %get_errno.exit2112 ], [ -22, %sw.bb606 ], [ -14, %if.end612 ], [ -14, %if.then632 ], [ %retval.0.i2136, %get_errno.exit2141 ], [ %conv640, %if.end637 ], [ -14, %sw.bb642 ], [ -14, %sw.bb654 ], [ -512, %sw.bb667 ], [ -14, %sw.bb673 ], [ -14, %sw.bb681 ], [ 0, %if.end687 ], [ 0, %if.end687 ], [ 0, %if.end687 ], [ -14, %if.then716 ], [ %retval.0.i2177, %if.end720 ], [ %retval.0.i2177, %get_errno.exit2182 ], [ %retval.0.i2186, %get_errno.exit2191 ], [ %call736, %if.then735 ], [ -14, %sw.bb825 ], [ -14, %if.then837 ], [ -14, %sw.bb921 ], [ -14, %sw.bb940 ], [ -14, %sw.bb976 ], [ -14, %if.then987 ], [ %ret.14, %do.body992 ], [ %ret.14, %convert_statfs ], [ -14, %sw.bb1105 ], [ -22, %sw.bb1138 ], [ 0, %if.end1142 ], [ -14, %if.end1146 ], [ -22, %sw.bb1130 ], [ -14, %if.then1219 ], [ %retval.0.i2485, %if.end1223 ], [ %retval.0.i2485, %get_errno.exit2490 ], [ %retval.0.i2505, %get_errno.exit2510 ], [ %retval.0.i2505, %if.end1313 ], [ %spec.select1785, %if.then1315 ], [ -14, %sw.bb1322 ], [ -14, %if.then1339 ], [ %retval.0.i2521, %do.body1344 ], [ %retval.0.i2521, %get_errno.exit2526 ], [ -14, %sw.bb1465 ], [ -14, %sw.bb1473 ], [ -14, %sw.bb1496 ], [ -14, %if.then1507 ], [ -14, %sw.bb1514 ], [ -14, %land.lhs.true1526 ], [ %retval.0.i2643, %get_errno.exit2648 ], [ %conv1569, %if.else1565 ], [ %retval.0.i2654, %get_errno.exit2659 ], [ %conv1585, %if.else1581 ], [ %retval.0.i2666, %get_errno.exit2671 ], [ %conv1601, %if.else1597 ], [ %retval.0.i2678, %get_errno.exit2683 ], [ %conv1619, %if.else1615 ], [ -22, %sw.bb1631 ], [ -22, %if.then1650 ], [ %retval.0.i2703, %get_errno.exit2708 ], [ -22, %sw.bb1665 ], [ %retval.0.i2723, %get_errno.exit2728 ], [ -22, %sw.bb1737 ], [ -14, %if.end1741 ], [ -22, %sw.bb1752 ], [ -14, %if.then1765 ], [ %retval.0.i2743, %if.end1769 ], [ %retval.0.i2743, %get_errno.exit2748 ], [ -22, %sw.bb1774 ], [ -14, %if.end1780 ], [ -22, %sw.bb1798 ], [ -14, %if.then1815 ], [ %retval.0.i2772, %get_errno.exit2777 ], [ -22, %sw.bb1848 ], [ -14, %if.end1918 ], [ %retval.0.i2811, %get_errno.exit2816 ], [ %retval.0.i2838, %get_errno.exit2843 ], [ -14, %if.else2017 ], [ -14, %if.else2038 ], [ -14, %sw.bb2048 ], [ -14, %sw.bb2056 ], [ %ret.23, %if.end2127 ], [ %retval.0.i2895, %get_errno.exit2900 ], [ -14, %sw.bb2215 ], [ %retval.0.i2904, %get_errno.exit2909 ], [ %call2229, %if.then2228 ], [ -14, %sw.bb2231 ], [ -14, %if.then2263 ], [ %retval.0.i2924, %if.end2267 ], [ %retval.0.i2924, %get_errno.exit2929 ], [ -14, %sw.bb2471 ], [ -14, %do.body2522 ], [ -14, %do.body2508 ], [ -14, %if.then2501 ], [ -14, %do.body2583 ], [ -14, %do.body2569 ], [ -14, %if.then2562 ], [ -12, %sw.bb2629 ], [ -14, %if.then2662 ], [ -14, %if.then2685 ], [ -14, %if.then2696 ], [ -14, %if.then2727 ], [ -14, %if.then2747 ], [ -14, %if.then2774 ], [ %retval.0.i3198, %get_errno.exit3203 ], [ %retval.0.i3214, %get_errno.exit3219 ], [ -38, %entry ], [ -38, %entry ], [ -14, %if.else2929 ], [ %retval.0.i3324, %if.then2955 ], [ %retval.0.i3324, %get_errno.exit3329 ], [ -14, %if.end2983 ], [ -14, %sw.bb2992 ], [ %ret.38, %do.body3066 ], [ %ret.38, %if.then3059 ], [ %ret.38, %if.end3056 ], [ %ret.39, %if.end3090 ], [ %retval.0.i3494, %get_errno.exit3499 ], [ %conv3195, %if.else3191 ], [ %retval.0.i3503, %if.then3217 ], [ %retval.0.i3503, %get_errno.exit3508 ], [ -14, %if.then3247 ], [ -22, %sw.bb3265 ], [ -14, %if.end3278 ], [ -14, %if.then3353 ], [ -14, %if.then3382 ], [ %retval.0.i3559, %do.body3387 ], [ %retval.0.i3559, %get_errno.exit3564 ], [ %retval.0.i3571, %if.then3416 ], [ 0, %do.body3424 ], [ -14, %if.else3446 ], [ %retval.0.i3585, %get_errno.exit3590 ], [ -14, %if.else3472 ], [ %spec.select1795, %get_errno.exit3605 ], [ %retval.0.i3630, %get_errno.exit3635 ], [ %retval.0.i3639, %if.then3527 ], [ %retval.0.i3639, %get_errno.exit3644 ], [ -14, %land.lhs.true3536 ], [ -14, %if.then3543 ], [ -14, %land.lhs.true3556 ], [ -14, %sw.bb3592 ], [ -38, %do.body3707 ], [ -38, %if.then3712 ], [ -14, %if.then1297 ], [ %spec.select1796, %if.end1658 ], [ -14, %land.lhs.true1706 ], [ -14, %land.lhs.true1722 ], [ %retval.0.i2723, %do.body1729 ], [ %retval.0.i2723, %if.end1720 ], [ %retval.0.i3014, %do.body2536 ], [ %retval.0.i3014, %get_errno.exit3019 ], [ %retval.0.i3032, %do.body2597 ], [ %retval.0.i3032, %get_errno.exit3037 ], [ -14, %if.then3148 ], [ -14, %if.then3165 ], [ %retval.0.i3487, %do.body3172 ], [ %retval.0.i3487, %if.end3163 ], [ %spec.select1797, %land.lhs.true3458 ], [ -14, %if.then3657 ], [ -14, %if.then3674 ], [ %retval.0.i3720, %do.body3681 ], [ %retval.0.i3720, %if.end3672 ], [ %retval.0.i3720, %get_errno.exit3725 ], [ %conv.i, %if.then.i ], [ %call.i, %if.then33 ], [ %call54, %if.then51 ], [ %retval.0.i1803, %land.lhs.true47 ], [ %retval.0.i1803, %get_errno.exit1808 ], [ %conv.i1817, %if.then.i1814 ], [ %call.i1811, %if.then63 ], [ %ret.1, %if.end86 ], [ %conv.i1837, %if.then.i1834 ], [ %call.i1831, %if.else87 ], [ %conv.i1853, %if.then.i1850 ], [ %conv114, %sw.bb110 ], [ %conv.i1862, %if.then.i1859 ], [ %conv130, %if.end124 ], [ %conv.i1871, %if.then.i1868 ], [ %conv137, %sw.bb132 ], [ %conv.i1878, %if.then.i1875 ], [ %conv143, %sw.bb139 ], [ -14, %if.end193 ], [ %conv.i1908, %if.then.i1905 ], [ %conv205, %if.else200 ], [ %conv.i1915, %if.then.i1912 ], [ %conv216, %if.end212 ], [ %conv.i1922, %if.then.i1919 ], [ %conv232, %if.end230 ], [ %conv.i1929, %if.then.i1926 ], [ %conv242, %if.end238 ], [ %conv.i1936, %if.then.i1933 ], [ %call247, %sw.bb244 ], [ %conv.i1943, %if.then.i1940 ], [ %conv251, %sw.bb249 ], [ -14, %if.end262 ], [ -14, %if.end262.thread ], [ -14, %if.end307 ], [ %conv.i1960, %if.then.i1957 ], [ %conv316, %if.end311 ], [ %conv.i1969, %if.then.i1966 ], [ %conv335, %if.end326 ], [ %conv.i1976, %if.then.i1973 ], [ %conv345, %if.end341 ], [ %conv.i1983, %if.then.i1980 ], [ %conv356, %if.end351 ], [ %conv.i1990, %if.then.i1987 ], [ %conv362, %sw.bb359 ], [ %conv.i2001, %if.then.i1998 ], [ %conv369, %sw.bb364 ], [ -14, %sw.bb371 ], [ %conv.i2010, %if.then.i2007 ], [ %conv384, %if.else379 ], [ %conv.i2017, %if.then.i2014 ], [ %conv395, %if.end391 ], [ %conv.i2040, %if.then.i2037 ], [ %conv444, %if.then442 ], [ %conv.i2047, %if.then.i2044 ], [ %conv453, %if.end450 ], [ %conv.i2054, %if.then.i2051 ], [ %conv463, %if.end460 ], [ %conv.i2061, %if.then.i2058 ], [ %conv477, %sw.bb473 ], [ %conv.i2074, %if.then.i2071 ], [ %conv490, %if.end488 ], [ %conv.i2088, %if.then.i2085 ], [ %conv514, %sw.bb512 ], [ %conv.i2095, %if.then.i2092 ], [ %conv518, %sw.bb516 ], [ -512, %get_errno.exit2125 ], [ %retval.0.i2120, %if.then.i2126 ], [ -14, %if.then618 ], [ %conv.i2151, %if.then.i2148 ], [ %conv652, %if.end647 ], [ %conv.i2160, %if.then.i2157 ], [ %conv665, %if.end659 ], [ %conv.i2167, %if.then.i2164 ], [ %conv679, %if.end677 ], [ %conv.i2174, %if.then.i2171 ], [ %conv702, %if.then700 ], [ -14, %land.lhs.true746 ], [ -14, %land.lhs.true752 ], [ %retval.0.i2195, %copy_to_user_timezone.exit.thread ], [ %retval.0.i2195, %if.end750 ], [ %retval.0.i2195, %get_errno.exit2200 ], [ -14, %if.then762 ], [ -14, %if.then769 ], [ %conv.i2228, %if.then.i2225 ], [ %conv776, %if.end774 ], [ -14, %sw.bb780 ], [ %conv.i2235, %if.then.i2232 ], [ %conv791, %if.else788 ], [ %cond816, %if.then808 ], [ -14, %sw.bb794 ], [ -22, %if.else802 ], [ %conv.i2242, %if.then.i2239 ], [ %call820, %if.else817 ], [ %conv.i2249, %if.then.i2246 ], [ %conv832, %if.end829 ], [ %conv.i2258, %if.then.i2255 ], [ %conv846, %if.end841 ], [ %conv.i2267, %if.then.i2264 ], [ %conv853, %if.else848 ], [ %conv.i2274, %if.then.i2271 ], [ %conv864, %sw.bb861 ], [ %conv.i2281, %if.then.i2278 ], [ %conv889, %if.end886 ], [ %conv.i2288, %if.then.i2285 ], [ %call893, %sw.bb891 ], [ %conv.i2296, %if.then.i2293 ], [ %conv899, %sw.bb895 ], [ %conv.i2304, %if.then.i2301 ], [ %conv904, %sw.bb901 ], [ %conv.i2312, %if.then.i2309 ], [ %conv909, %sw.bb906 ], [ %conv.i2319, %if.then.i2316 ], [ %conv915, %sw.bb911 ], [ %conv.i2326, %if.then.i2323 ], [ %conv919, %sw.bb917 ], [ %conv.i2333, %if.then.i2330 ], [ %conv927, %if.end925 ], [ %conv.i2340, %if.then.i2337 ], [ %conv932, %sw.bb929 ], [ %conv.i2347, %if.then.i2344 ], [ %conv938, %sw.bb934 ], [ %conv.i2354, %if.then.i2351 ], [ %conv948, %if.end944 ], [ %conv.i2361, %if.then.i2358 ], [ %conv974, %sw.bb969 ], [ %conv.i2384, %if.then.i2381 ], [ %conv1070, %sw.bb1066 ], [ %conv.i2391, %if.then.i2388 ], [ %conv1103, %sw.bb1099 ], [ %conv.i2400, %if.then.i2397 ], [ %conv1112, %if.end1109 ], [ %conv.i2409, %if.then.i2406 ], [ %conv1136, %sw.bb1132 ], [ %conv.i2418, %if.then.i2415 ], [ %conv1154, %if.end1150 ], [ -14, %if.then1159 ], [ -14, %lor.lhs.false1162 ], [ -14, %if.then1178 ], [ -14, %lor.lhs.false1182 ], [ %retval.0.i2439, %copy_to_user_timeval.exit2460.thread ], [ %retval.0.i2439, %get_errno.exit2444 ], [ -14, %if.then1200 ], [ -14, %lor.lhs.false1204 ], [ %retval.0.i2462, %copy_to_user_timeval.exit2483.thread ], [ %retval.0.i2462, %get_errno.exit2467 ], [ %conv.i2498, %if.then.i2495 ], [ %conv1278, %sw.bb1276 ], [ %conv.i2518, %if.then.i2515 ], [ %conv1328, %if.end1326 ], [ %conv.i2534, %if.then.i2531 ], [ %conv1400, %sw.bb1395 ], [ %conv.i2541, %if.then.i2538 ], [ %conv1423, %sw.bb1419 ], [ %conv.i2548, %if.then.i2545 ], [ %conv1437, %sw.bb1433 ], [ %conv.i2555, %if.then.i2552 ], [ %conv1452, %sw.bb1449 ], [ %conv.i2562, %if.then.i2559 ], [ %conv1457, %sw.bb1454 ], [ %conv.i2571, %if.then.i2568 ], [ %conv1463, %sw.bb1459 ], [ %conv.i2578, %if.then.i2575 ], [ %conv1471, %if.end1469 ], [ %retval.0.i2581, %if.then1483 ], [ %retval.0.i2581, %land.lhs.true1488 ], [ %retval.0.i2581, %if.then1491 ], [ %retval.0.i2581, %get_errno.exit2586 ], [ %conv.i2612, %if.then.i2609 ], [ %conv1534, %sw.bb1531 ], [ %conv.i2619, %if.then.i2616 ], [ %conv1539, %sw.bb1536 ], [ %conv.i2626, %if.then.i2623 ], [ %conv1543, %sw.bb1541 ], [ %conv.i2637, %if.then.i2634 ], [ %conv1554, %sw.bb1550 ], [ %conv.i2691, %if.then.i2688 ], [ %conv1624, %sw.bb1621 ], [ %conv.i2698, %if.then.i2695 ], [ %conv1629, %sw.bb1626 ], [ %conv.i2718, %if.then.i2715 ], [ %conv1684, %if.end1681 ], [ %conv.i2738, %if.then.i2735 ], [ %conv1750, %if.end1745 ], [ %conv.i2758, %if.then.i2755 ], [ %conv1791, %if.end1784 ], [ %conv.i2767, %if.then.i2764 ], [ %conv1796, %sw.bb1793 ], [ %retval.0.i2772, %if.then1841 ], [ %retval.0.i2772, %if.end1819 ], [ %conv.i2787, %if.then.i2784 ], [ %conv1965, %if.end1961 ], [ %conv.i2794, %if.then.i2791 ], [ %conv1969, %sw.bb1967 ], [ %conv.i2801, %if.then.i2798 ], [ %conv1974, %sw.bb1971 ], [ %conv.i2808, %if.then.i2805 ], [ %conv1979, %sw.bb1976 ], [ 0, %do.body.i2821 ], [ -14, %if.then1989 ], [ %retval.0.i2838, %if.then2001 ], [ %retval.0.i2838, %do.body.i2848 ], [ %conv.i2858, %if.then.i2855 ], [ %call2025, %if.end2022 ], [ %conv.i2865, %if.then.i2862 ], [ %call2046, %if.end2043 ], [ %conv.i2874, %if.then.i2871 ], [ %conv2054, %if.end2052 ], [ -14, %if.end2083 ], [ -14, %if.end2083.thread ], [ %retval.0.i2895, %311 ], [ -14, %if.then2198 ], [ -14, %if.then2246 ], [ %retval.0.i2915, %if.end2252 ], [ %conv.i2937, %if.then.i2934 ], [ %conv2330, %sw.bb2327 ], [ %conv.i2944, %if.then.i2941 ], [ %conv2335, %sw.bb2332 ], [ %conv.i2951, %if.then.i2948 ], [ %conv2340, %sw.bb2337 ], [ %conv.i2958, %if.then.i2955 ], [ %conv2345, %sw.bb2342 ], [ %conv.i2965, %if.then.i2962 ], [ %conv2353, %sw.bb2347 ], [ %conv.i2972, %if.then.i2969 ], [ %conv2361, %sw.bb2355 ], [ %conv.i2995, %if.then.i2992 ], [ %conv2469, %sw.bb2462 ], [ %conv.i3002, %if.then.i2999 ], [ %conv2483, %if.end2475 ], [ %conv.i3011, %if.then.i3008 ], [ %conv2493, %sw.bb2485 ], [ %conv.i3029, %if.then.i3026 ], [ %conv2554, %sw.bb2546 ], [ %conv.i3047, %if.then.i3044 ], [ %conv2611, %sw.bb2607 ], [ %conv.i3056, %if.then.i3053 ], [ %conv2617, %sw.bb2613 ], [ %conv.i3063, %if.then.i3060 ], [ %conv2622, %sw.bb2619 ], [ %conv.i3070, %if.then.i3067 ], [ %conv2627, %sw.bb2624 ], [ -14, %if.end2633 ], [ %conv.i3077, %if.then.i3074 ], [ %conv2639, %if.else2637 ], [ %conv.i3086, %if.then.i3083 ], [ %conv2654, %sw.bb2652 ], [ %conv.i3093, %if.then.i3090 ], [ %call2658, %sw.bb2656 ], [ -14, %if.end2667 ], [ %conv.i3100, %if.then.i3097 ], [ %call2674, %if.then2673 ], [ %conv.i3107, %if.then.i3104 ], [ %call2677, %if.else2676 ], [ %conv.i3114, %if.then.i3111 ], [ %call2692, %if.end2690 ], [ -14, %if.end2701 ], [ %conv.i3121, %if.then.i3118 ], [ %conv2713, %if.then2710 ], [ %conv.i3128, %if.then.i3125 ], [ %conv2718, %if.else2715 ], [ %conv.i3135, %if.then.i3132 ], [ %conv2739, %if.then2735 ], [ -14, %if.end2732 ], [ -14, %if.end2752 ], [ %conv.i3142, %if.then.i3139 ], [ %call2762, %if.then2761 ], [ %conv.i3149, %if.then.i3146 ], [ %call2765, %if.else2764 ], [ %conv.i3156, %if.then.i3153 ], [ %call2784, %if.then2782 ], [ -14, %if.end2779 ], [ -14, %sw.bb2788 ], [ %conv.i3163, %if.then.i3160 ], [ %conv2800, %if.then2798 ], [ %conv.i3170, %if.then.i3167 ], [ %conv2804, %if.else2802 ], [ %conv.i3177, %if.then.i3174 ], [ %conv2816, %if.then2813 ], [ -14, %sw.bb2809 ], [ %conv.i3195, %if.then.i3192 ], [ %conv2828, %if.then2825 ], [ 0, %do.body.i3208 ], [ -14, %if.then2839 ], [ %retval.0.i3214, %if.then2850 ], [ %retval.0.i3214, %do.body.i3224 ], [ -14, %sw.bb2853 ], [ -14, %land.lhs.true2876 ], [ -4, %host_to_target_timespec.exit3255.thread ], [ %retval.0.i3243, %get_errno.exit3248 ], [ %conv.i3263, %if.then.i3260 ], [ %conv2886, %sw.bb2881 ], [ %conv.i3274, %if.then.i3271 ], [ %conv2893, %sw.bb2888 ], [ %conv.i3285, %if.then.i3282 ], [ %conv2901, %sw.bb2895 ], [ -14, %if.else2908 ], [ -14, %if.end2913 ], [ %conv.i3312, %if.then.i3309 ], [ %conv2927, %if.then2923 ], [ %conv.i3321, %if.then.i3318 ], [ %conv2938, %if.end2933 ], [ %conv.i3335, %if.then.i3332 ], [ %conv2964, %sw.bb2958 ], [ %conv.i3342, %if.then.i3339 ], [ %conv2970, %sw.bb2966 ], [ -14, %if.then2977 ], [ %conv.i3354, %if.then.i3351 ], [ %conv2990, %if.end2988 ], [ %conv.i3361, %if.then.i3358 ], [ %conv2999, %if.end2997 ], [ -14, %if.then3006 ], [ -14, %land.lhs.true3018 ], [ %retval.0.i3377, %get_errno.exit3382 ], [ %retval.0.i3377, %host_to_target_timespec.exit3391.thread ], [ %conv.i3401, %if.then.i3398 ], [ %conv3027, %if.else3023 ], [ -14, %if.then3035 ], [ -14, %land.lhs.true3046 ], [ 0, %if.then3096 ], [ 0, %do.body.i3474 ], [ %conv.i3484, %if.then.i3481 ], [ %call3103, %sw.bb3099 ], [ %conv.i3514, %if.then.i3511 ], [ %conv3224, %sw.bb3220 ], [ %conv.i3521, %if.then.i3518 ], [ %conv3230, %sw.bb3226 ], [ %conv.i3528, %if.then.i3525 ], [ %conv3240, %sw.bb3236 ], [ %conv.i3535, %if.then.i3532 ], [ %conv3263, %if.end3258 ], [ -12, %if.end3284 ], [ %conv.i3619, %if.then.i3616 ], [ %conv3500, %if.else3495 ], [ %conv.i3666, %if.then.i3663 ], [ %conv3565, %sw.bb3561 ], [ %conv.i3675, %if.then.i3672 ], [ %conv3572, %sw.bb3567 ], [ %conv.i3682, %if.then.i3679 ], [ %conv3578, %sw.bb3574 ], [ %conv.i3689, %if.then.i3686 ], [ %conv3583, %sw.bb3580 ], [ %conv.i3698, %if.then.i3695 ], [ %conv3590, %sw.bb3585 ], [ %conv.i3714, %if.then.i3711 ], [ %conv3606, %sw.bb3602 ], [ -14, %sw.bb3691 ], [ %conv.i3735, %if.then.i3732 ], [ %conv3701, %if.else3699 ], [ -14, %if.end1855 ], [ 0, %if.else3081 ], [ -14, %if.then271 ], [ %conv.i1951, %if.then.i1948 ], [ %ret.4, %if.end280 ], [ %retval.0.i2027, %if.end420 ], [ %retval.0.i2027, %get_errno.exit2032 ], [ -14, %land.lhs.true532 ], [ %conv.i2102, %if.then.i2099 ], [ %conv539, %if.else536 ], [ -14, %if.then1877 ], [ -7, %do.body1884 ], [ -14, %if.then1902 ], [ -7, %do.body1909 ], [ -14, %sw.bb2820 ], [ %retval.0.i1883, %if.then156 ], [ %ret.23.ph, %if.end2127.thread ], [ -14, %if.then2172 ], [ -14, %if.then3107 ], [ -14, %if.then3125 ], [ -14, %if.then3610 ], [ -14, %if.then3628 ], [ -22, %sw.bb3436 ], [ -22, %sw.bb3465 ], [ -22, %sw.bb3488 ], [ -22, %sw.bb3503 ], [ %retval.0.i1883, %fd_trans_unregister.exit ], [ %ret.23, %for.body2139 ], [ -11, %for.inc.i ]
+  ret i64 %retval.0
 }
 
 declare void @print_syscall_ret(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
@@ -10793,13 +10793,13 @@ if.then3:                                         ; preds = %land.lhs.true
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end, %land.lhs.true, %if.then3
-  %retval.0 = phi ptr [ %5, %if.then3 ], [ null, %land.lhs.true ], [ null, %if.end ]
+  %retval.1 = phi ptr [ %5, %if.then3 ], [ null, %land.lhs.true ], [ null, %if.end ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 132) #27
   br label %return
 
 return:                                           ; preds = %entry, %glib_autoptr_cleanup_QemuLockable.exit
-  %retval.1 = phi ptr [ %retval.0, %glib_autoptr_cleanup_QemuLockable.exit ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %glib_autoptr_cleanup_QemuLockable.exit ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -10830,13 +10830,13 @@ if.then3:                                         ; preds = %land.lhs.true
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end, %land.lhs.true, %if.then3
-  %retval.0 = phi ptr [ %5, %if.then3 ], [ null, %land.lhs.true ], [ null, %if.end ]
+  %retval.1 = phi ptr [ %5, %if.then3 ], [ null, %land.lhs.true ], [ null, %if.end ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 132) #27
   br label %return
 
 return:                                           ; preds = %entry, %glib_autoptr_cleanup_QemuLockable.exit
-  %retval.1 = phi ptr [ %retval.0, %glib_autoptr_cleanup_QemuLockable.exit ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %glib_autoptr_cleanup_QemuLockable.exit ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: allocsize(0)
@@ -13615,10 +13615,10 @@ if.end22.sink.split:                              ; preds = %if.else19, %if.end1
   br label %if.end22
 
 if.end22:                                         ; preds = %if.end22.sink.split, %if.else19, %if.end16
-  %ret.0 = phi i64 [ %call.i, %if.end16 ], [ %call.i38, %if.else19 ], [ %conv.i44, %if.end22.sink.split ]
+  %ret.1 = phi i64 [ %call.i, %if.end16 ], [ %call.i38, %if.else19 ], [ %conv.i44, %if.end22.sink.split ]
   %addr.0 = phi ptr [ %0, %if.end16 ], [ null, %if.else19 ], [ %addr.0.ph, %if.end22.sink.split ]
   %addrlen.1 = phi i32 [ %call6.val, %if.end16 ], [ 0, %if.else19 ], [ %addrlen.1.ph, %if.end22.sink.split ]
-  %cmp.i46 = icmp ult i64 %ret.0, -4096
+  %cmp.i46 = icmp ult i64 %ret.1, -4096
   br i1 %cmp.i46, label %if.then25, label %return
 
 if.then25:                                        ; preds = %if.end22
@@ -13671,13 +13671,13 @@ if.then3.i60:                                     ; preds = %land.lhs.true.i56
   br label %fd_trans_host_to_target_data.exit61
 
 fd_trans_host_to_target_data.exit61:              ; preds = %if.end.i51, %land.lhs.true.i56, %if.then3.i60
-  %retval.0.i54 = phi ptr [ %19, %if.then3.i60 ], [ null, %land.lhs.true.i56 ], [ null, %if.end.i51 ]
+  %retval.1.i54 = phi ptr [ %19, %if.then3.i60 ], [ null, %land.lhs.true.i56 ], [ null, %if.end.i51 ]
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 132) #27
-  %cond = call i64 @llvm.umin.i64(i64 %ret.0, i64 %len)
-  %call33 = call i64 %retval.0.i54(ptr noundef %host_msg.0, i64 noundef %cond) #27
+  %cond = call i64 @llvm.umin.i64(i64 %ret.1, i64 %len)
+  %call33 = call i64 %retval.1.i54(ptr noundef %host_msg.0, i64 noundef %cond) #27
   %cmp.i62 = icmp ugt i64 %call33, -4097
   %brmerge = or i1 %tobool4.not, %cmp.i62
-  %call33.mux = select i1 %cmp.i62, i64 %call33, i64 %ret.0
+  %call33.mux = select i1 %cmp.i62, i64 %call33, i64 %ret.1
   br i1 %brmerge, label %return, label %if.then40
 
 if.end38:                                         ; preds = %if.then25, %fd_trans_host_to_target_data.exit.thread73, %fd_trans_host_to_target_data.exit
@@ -13742,7 +13742,7 @@ do.body55:                                        ; preds = %host_to_target_sock
   br label %return
 
 return:                                           ; preds = %fd_trans_host_to_target_data.exit61, %if.then5, %if.end22, %if.end14, %host_to_target_sockaddr.exit, %if.end38, %do.body55, %if.else
-  %retval.0 = phi i64 [ -14, %if.else ], [ %ret.0, %do.body55 ], [ %ret.0, %if.end38 ], [ %ret.0, %if.end22 ], [ -22, %if.end14 ], [ %call33.mux, %fd_trans_host_to_target_data.exit61 ], [ -14, %host_to_target_sockaddr.exit ], [ -14, %if.then5 ]
+  %retval.0 = phi i64 [ -14, %if.else ], [ %ret.1, %do.body55 ], [ %ret.1, %if.end38 ], [ %ret.1, %if.end22 ], [ -22, %if.end14 ], [ %call33.mux, %fd_trans_host_to_target_data.exit61 ], [ -14, %host_to_target_sockaddr.exit ], [ -14, %if.then5 ]
   ret i64 %retval.0
 }
 
@@ -13882,9 +13882,9 @@ if.then3.i38:                                     ; preds = %land.lhs.true.i34
   br label %fd_trans_target_to_host_data.exit40
 
 fd_trans_target_to_host_data.exit40:              ; preds = %if.end.i29, %land.lhs.true.i34, %if.then3.i38
-  %retval.0.i32 = phi ptr [ %11, %if.then3.i38 ], [ null, %land.lhs.true.i34 ], [ null, %if.end.i29 ]
+  %retval.1.i32 = phi ptr [ %11, %if.then3.i38 ], [ null, %land.lhs.true.i34 ], [ null, %if.end.i29 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 132) #27
-  %call8 = tail call i64 %retval.0.i32(ptr noundef %call6, i64 noundef %len) #27
+  %call8 = tail call i64 %retval.1.i32(ptr noundef %call6, i64 noundef %len) #27
   %cmp9 = icmp slt i64 %call8, 0
   br i1 %cmp9, label %if.then25, label %if.end12
 
@@ -16613,14 +16613,14 @@ if.end54:                                         ; preds = %if.end44.thread, %i
   br i1 %cmp14, label %for.body, label %return, !llvm.loop !43
 
 fail2:                                            ; preds = %for.body, %if.then38, %if.end9
-  %err.1 = phi i32 [ 14, %if.end9 ], [ 14, %if.then38 ], [ 22, %for.body ]
+  %err.0 = phi i32 [ 14, %if.end9 ], [ 14, %if.then38 ], [ 22, %for.body ]
   tail call void @g_free(ptr noundef nonnull %call5) #27
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end4, %if.end, %entry, %fail2
-  %err.1.sink = phi i32 [ %err.1, %fail2 ], [ 0, %entry ], [ 22, %if.end ], [ 12, %if.end4 ]
+  %err.0.sink = phi i32 [ %err.0, %fail2 ], [ 0, %entry ], [ 22, %if.end ], [ 12, %if.end4 ]
   %call75 = tail call ptr @__errno_location() #26
-  store i32 %err.1.sink, ptr %call75, align 4
+  store i32 %err.0.sink, ptr %call75, align 4
   br label %return
 
 return:                                           ; preds = %if.end54, %return.sink.split
@@ -18038,9 +18038,9 @@ if.then3.i43:                                     ; preds = %land.lhs.true.i39
   br label %fd_trans_target_to_host_addr.exit45
 
 fd_trans_target_to_host_addr.exit45:              ; preds = %if.end.i34, %land.lhs.true.i39, %if.then3.i43
-  %retval.0.i37 = phi ptr [ %11, %if.then3.i43 ], [ null, %land.lhs.true.i39 ], [ null, %if.end.i34 ]
+  %retval.1.i37 = phi ptr [ %11, %if.then3.i43 ], [ null, %land.lhs.true.i39 ], [ null, %if.end.i34 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 132) #27
-  %call2 = tail call i64 %retval.0.i37(ptr noundef %addr, i64 noundef %target_addr, i32 noundef %len) #27
+  %call2 = tail call i64 %retval.1.i37(ptr noundef %addr, i64 noundef %target_addr, i32 noundef %len) #27
   br label %return
 
 if.end:                                           ; preds = %entry, %fd_trans_target_to_host_addr.exit.thread48, %fd_trans_target_to_host_addr.exit
@@ -18074,8 +18074,8 @@ land.lhs.true19:                                  ; preds = %if.then16
   br label %if.end30.thread
 
 if.end30.thread:                                  ; preds = %if.then11, %if.then16, %land.lhs.true19
-  %len.addr.0 = phi i32 [ %len, %if.then16 ], [ %len, %if.then11 ], [ %spec.select, %land.lhs.true19 ]
-  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %len.addr.0, i32 110)
+  %len.addr.1 = phi i32 [ %len, %if.then16 ], [ %len, %if.then11 ], [ %spec.select, %land.lhs.true19 ]
+  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %len.addr.1, i32 110)
   %conv3152 = zext nneg i32 %spec.store.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %addr, ptr nonnull align 2 %call3, i64 %conv3152, i1 false)
   store i16 1, ptr %addr, align 2
@@ -18249,12 +18249,12 @@ if.then3.i60:                                     ; preds = %land.lhs.true.i56
   br label %fd_trans_target_to_host_data.exit62
 
 fd_trans_target_to_host_data.exit62:              ; preds = %if.end.i51, %land.lhs.true.i56, %if.then3.i60
-  %retval.0.i54 = phi ptr [ %25, %if.then3.i60 ], [ null, %land.lhs.true.i56 ], [ null, %if.end.i51 ]
+  %retval.1.i54 = phi ptr [ %25, %if.then3.i60 ], [ null, %land.lhs.true.i56 ], [ null, %if.end.i51 ]
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 132) #27
   %26 = load ptr, ptr %msg_iov46124, align 8
   %iov_len59 = getelementptr inbounds i8, ptr %26, i64 8
   %27 = load i64, ptr %iov_len59, align 8
-  %call60 = call i64 %retval.0.i54(ptr noundef %call53, i64 noundef %27) #27
+  %call60 = call i64 %retval.1.i54(ptr noundef %call53, i64 noundef %27) #27
   %cmp61 = icmp sgt i64 %call60, -1
   br i1 %cmp61, label %if.then63, label %if.end68
 
@@ -18278,7 +18278,7 @@ if.then.i:                                        ; preds = %if.then63
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then.i, %if.then63, %fd_trans_target_to_host_data.exit62
-  %ret.0 = phi i64 [ %call60, %fd_trans_target_to_host_data.exit62 ], [ %conv.i, %if.then.i ], [ %call.i, %if.then63 ]
+  %ret.1 = phi i64 [ %call60, %fd_trans_target_to_host_data.exit62 ], [ %conv.i, %if.then.i ], [ %call.i, %if.then63 ]
   call void @g_free(ptr noundef %call53) #27
   br label %out
 
@@ -18309,7 +18309,7 @@ while.body.lr.ph.i:                               ; preds = %while.cond.preheade
 while.body.i:                                     ; preds = %if.end121.i, %while.body.lr.ph.i
   %cmsg.071.i = phi ptr [ %34, %while.body.lr.ph.i ], [ %call122.i, %if.end121.i ]
   %target_cmsg.070.i = phi ptr [ %call6.i, %while.body.lr.ph.i ], [ %add.ptr.i.i, %if.end121.i ]
-  %space.069.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %conv17.i, %if.end121.i ]
+  %space.169.i = phi i32 [ 0, %while.body.lr.ph.i ], [ %conv17.i, %if.end121.i ]
   %__cmsg_data.i = getelementptr i8, ptr %cmsg.071.i, i64 16
   %add.ptr.i = getelementptr i8, ptr %target_cmsg.070.i, i64 16
   %37 = load i64, ptr %target_cmsg.070.i, align 8
@@ -18319,7 +18319,7 @@ while.body.i:                                     ; preds = %if.end121.i, %while
   %38 = trunc nsw i64 %conv12.i to i32
   %39 = add i32 %38, 7
   %40 = and i32 %39, -8
-  %41 = add i32 %space.069.i, 16
+  %41 = add i32 %space.169.i, 16
   %conv17.i = add i32 %41, %40
   %conv18.i = zext i32 %conv17.i to i64
   %42 = load i64, ptr %msg_controllen20, align 8
@@ -18438,13 +18438,13 @@ if.end121.i:                                      ; preds = %do.body67.i, %do.en
   br i1 %54, label %while.body.i, label %while.end.i, !llvm.loop !53
 
 while.end.i:                                      ; preds = %if.end121.i, %if.then35.i, %if.then22.i, %while.cond.preheader.i
-  %space.065.i = phi i32 [ %space.069.i, %if.then35.i ], [ %space.069.i, %if.then22.i ], [ 0, %while.cond.preheader.i ], [ %conv17.i, %if.end121.i ]
-  %55 = zext i32 %space.065.i to i64
+  %space.165.i = phi i32 [ %space.169.i, %if.then35.i ], [ %space.169.i, %if.then22.i ], [ 0, %while.cond.preheader.i ], [ %conv17.i, %if.end121.i ]
+  %55 = zext i32 %space.165.i to i64
   br label %if.then73
 
 if.then73:                                        ; preds = %if.else69, %while.end.i
-  %space.2.i = phi i64 [ 0, %if.else69 ], [ %55, %while.end.i ]
-  store i64 %space.2.i, ptr %msg_controllen20, align 8
+  %space.0.i = phi i64 [ 0, %if.else69 ], [ %55, %while.end.i ]
+  store i64 %space.0.i, ptr %msg_controllen20, align 8
   %56 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %57 = load ptr, ptr %56, align 8
   %opaque.i72 = getelementptr inbounds i8, ptr %57, i64 624
@@ -18533,14 +18533,14 @@ if.then3.i115:                                    ; preds = %land.lhs.true.i111
   br label %if.end96
 
 if.end96:                                         ; preds = %if.then3.i115, %land.lhs.true.i111, %if.end.i106
-  %retval.0.i109 = phi ptr [ %75, %if.then3.i115 ], [ null, %land.lhs.true.i111 ], [ null, %if.end.i106 ]
+  %retval.1.i109 = phi ptr [ %75, %if.then3.i115 ], [ null, %land.lhs.true.i111 ], [ null, %if.end.i106 ]
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull @target_fd_trans_lock, ptr noundef nonnull @.str.630, i32 noundef 132) #27
   %76 = load ptr, ptr %msg_iov46, align 8
   %77 = load ptr, ptr %76, align 8
   %iov_len91 = getelementptr inbounds i8, ptr %76, i64 8
   %78 = load i64, ptr %iov_len91, align 8
   %cond94 = call i64 @llvm.umin.i64(i64 %78, i64 %retval.0.i86)
-  %call95 = call i64 %retval.0.i109(ptr noundef %77, i64 noundef %cond94) #27
+  %call95 = call i64 %retval.1.i109(ptr noundef %77, i64 noundef %cond94) #27
   %cmp.i117 = icmp ult i64 %call95, -4096
   br i1 %cmp.i117, label %if.end101, label %if.then131
 
@@ -18573,19 +18573,19 @@ if.end126:                                        ; preds = %if.then104, %if.the
   br label %if.then131
 
 out:                                              ; preds = %if.then.i77, %if.then73, %if.end.i67, %if.end68
-  %ret.3 = phi i64 [ %ret.0, %if.end68 ], [ -14, %if.end.i67 ], [ %conv.i80, %if.then.i77 ], [ %call.i74, %if.then73 ]
+  %ret.4 = phi i64 [ %ret.1, %if.end68 ], [ -14, %if.end.i67 ], [ %conv.i80, %if.then.i77 ], [ %call.i74, %if.then73 ]
   br i1 %cmp34, label %out2, label %if.then131
 
 if.then131:                                       ; preds = %if.end96, %if.then117, %get_errno.exit91, %if.end126, %if.end101, %out
-  %ret.3138 = phi i64 [ %ret.3, %out ], [ %retval.0.i86, %if.end126 ], [ %call122, %if.then117 ], [ %call100, %if.end101 ], [ %retval.0.i86, %get_errno.exit91 ], [ %call95, %if.end96 ]
+  %ret.4138 = phi i64 [ %ret.4, %out ], [ %retval.0.i86, %if.end126 ], [ %call122, %if.then117 ], [ %call100, %if.end101 ], [ %retval.0.i86, %get_errno.exit91 ], [ %call95, %if.end96 ]
   %mul.i = shl nuw nsw i64 %6, 4
   %call.i121 = call ptr @lock_user(i32 noundef 1, i64 noundef %7, i64 noundef %mul.i, i1 noundef zeroext true) #27
   call void @g_free(ptr noundef nonnull %call33) #27
   br label %out2
 
 out2:                                             ; preds = %if.end18, %if.then, %out, %if.then131, %if.then36
-  %ret.4 = phi i64 [ %conv39, %if.then36 ], [ %ret.3138, %if.then131 ], [ %ret.3, %out ], [ %call8, %if.then ], [ -90, %if.end18 ]
-  ret i64 %ret.4
+  %ret.0 = phi i64 [ %conv39, %if.then36 ], [ %ret.4138, %if.then131 ], [ %ret.4, %out ], [ %call8, %if.then ], [ -90, %if.end18 ]
+  ret i64 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -18628,7 +18628,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cmsg.0146 = phi ptr [ %cond, %while.body.lr.ph ], [ %call257, %sw.epilog238 ]
   %msg_controllen1.0145 = phi i64 [ %2, %while.body.lr.ph ], [ %sub255, %sw.epilog238 ]
   %target_cmsg.0144 = phi ptr [ %call6, %while.body.lr.ph ], [ %add.ptr.i, %sw.epilog238 ]
-  %space.0143 = phi i32 [ 0, %while.body.lr.ph ], [ %add256, %sw.epilog238 ]
+  %space.1143 = phi i32 [ 0, %while.body.lr.ph ], [ %add256, %sw.epilog238 ]
   %__cmsg_data = getelementptr i8, ptr %cmsg.0146, i64 16
   %add.ptr = getelementptr i8, ptr %target_cmsg.0144, i64 16
   %4 = load i64, ptr %cmsg.0146, align 8
@@ -18910,7 +18910,7 @@ sw.epilog238:                                     ; preds = %do.body, %sw.bb45, 
   %spec.select124 = select i1 %cmp249, i32 %conv252, i32 %add246
   %conv254 = sext i32 %spec.select124 to i64
   %sub255 = sub i64 %msg_controllen1.0145, %conv254
-  %add256 = add i32 %spec.select124, %space.0143
+  %add256 = add i32 %spec.select124, %space.1143
   %call257 = tail call ptr @__cmsg_nxthdr(ptr noundef %msgh, ptr noundef nonnull %cmsg.0146) #27
   %target_msgh.val = load i64, ptr %msg_controllen2, align 8
   %51 = load i64, ptr %target_cmsg.0144, align 8
@@ -18928,13 +18928,13 @@ sw.epilog238:                                     ; preds = %do.body, %sw.bb45, 
   br i1 %53, label %while.body, label %while.end, !llvm.loop !55
 
 while.end:                                        ; preds = %sw.epilog238, %while.cond.preheader, %if.then13
-  %space.0139 = phi i32 [ %space.0143, %if.then13 ], [ 0, %while.cond.preheader ], [ %add256, %sw.epilog238 ]
-  %54 = zext i32 %space.0139 to i64
+  %space.1139 = phi i32 [ %space.1143, %if.then13 ], [ 0, %while.cond.preheader ], [ %add256, %sw.epilog238 ]
+  %54 = zext i32 %space.1139 to i64
   br label %the_end
 
 the_end:                                          ; preds = %cond.end, %while.end
-  %space.1 = phi i64 [ 0, %cond.end ], [ %54, %while.end ]
-  store i64 %space.1, ptr %msg_controllen2, align 8
+  %space.0 = phi i64 [ 0, %cond.end ], [ %54, %while.end ]
+  store i64 %space.0, ptr %msg_controllen2, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %the_end

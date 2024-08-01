@@ -2116,18 +2116,18 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   br label %102
 
 102:                                              ; preds = %99, %96, %91
-  %.062.i = phi float [ %93, %91 ], [ %98, %96 ], [ %101, %99 ]
-  %103 = fcmp olt float %.062.i, 0.000000e+00
+  %.163.i = phi float [ %93, %91 ], [ %98, %96 ], [ %101, %99 ]
+  %103 = fcmp olt float %.163.i, 0.000000e+00
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %102
-  %105 = fadd float %.062.i, 3.600000e+02
+  %105 = fadd float %.163.i, 3.600000e+02
   br label %106
 
 106:                                              ; preds = %104, %102, %69
-  %.163.i = phi float [ %105, %104 ], [ %.062.i, %102 ], [ 0.000000e+00, %69 ]
+  %.062.i = phi float [ %105, %104 ], [ %.163.i, %102 ], [ 0.000000e+00, %69 ]
   %.061.i = phi float [ %88, %104 ], [ %88, %102 ], [ 0.000000e+00, %69 ]
-  %107 = fmul float %.163.i, %68
+  %107 = fmul float %.062.i, %68
   store float %107, ptr %.06475.i, align 4
   %108 = getelementptr inbounds i8, ptr %.06475.i, i64 4
   store float %82, ptr %108, align 4
@@ -2390,19 +2390,19 @@ define internal void @_ZNK2cv4impl12_GLOBAL__N_120CvtColorLoop_InvokerINS_3hal12
   br label %70
 
 70:                                               ; preds = %67, %64, %59
-  %.062.i = phi float [ %61, %59 ], [ %66, %64 ], [ %69, %67 ]
-  %71 = fcmp olt float %.062.i, 0.000000e+00
+  %.163.i = phi float [ %61, %59 ], [ %66, %64 ], [ %69, %67 ]
+  %71 = fcmp olt float %.163.i, 0.000000e+00
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
-  %73 = fadd float %.062.i, 3.600000e+02
+  %73 = fadd float %.163.i, 3.600000e+02
   br label %74
 
 74:                                               ; preds = %72, %70, %37
-  %.163.i = phi float [ %73, %72 ], [ %.062.i, %70 ], [ 0.000000e+00, %37 ]
+  %.062.i = phi float [ %73, %72 ], [ %.163.i, %70 ], [ 0.000000e+00, %37 ]
   %.061.i = phi float [ %56, %72 ], [ %56, %70 ], [ 0.000000e+00, %37 ]
   %75 = load float, ptr %35, align 4
-  %76 = fmul float %.163.i, %75
+  %76 = fmul float %.062.i, %75
   store float %76, ptr %.06475.i, align 4
   %77 = getelementptr inbounds i8, ptr %.06475.i, i64 4
   store float %50, ptr %77, align 4

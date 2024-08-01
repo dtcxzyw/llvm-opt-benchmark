@@ -1690,7 +1690,7 @@ for.cond51:                                       ; preds = %_ZN20btAlignedObjec
   br i1 %exitcond407.not, label %cleanup104.sink.split, label %for.body53, !llvm.loop !29
 
 for.body53:                                       ; preds = %for.body53.lr.ph, %for.cond51
-  %retval.0399 = phi i32 [ undef, %for.body53.lr.ph ], [ %retval.1, %for.cond51 ]
+  %retval.1399 = phi i32 [ undef, %for.body53.lr.ph ], [ %retval.2, %for.cond51 ]
   %col.0398 = phi i32 [ 0, %for.body53.lr.ph ], [ %inc102, %for.cond51 ]
   %currentMin.2397 = phi float [ %currentMin.1, %for.body53.lr.ph ], [ %currentMin.3.lcssa412, %for.cond51 ]
   store i8 1, ptr %m_ownsMemory.i.i157, align 8
@@ -2072,7 +2072,7 @@ if.then97:                                        ; preds = %for.end93
 cleanup:                                          ; preds = %_ZN20btAlignedObjectArrayIiE5clearEv.exit175, %for.end93, %if.then97
   %cmp96.not413 = phi i1 [ true, %if.then97 ], [ false, %for.end93 ], [ false, %_ZN20btAlignedObjectArrayIiE5clearEv.exit175 ]
   %currentMin.3.lcssa412 = phi float [ %currentMin.4, %if.then97 ], [ %currentMin.4, %for.end93 ], [ %currentMin.2397, %_ZN20btAlignedObjectArrayIiE5clearEv.exit175 ]
-  %retval.1 = phi i32 [ %78, %if.then97 ], [ %retval.0399, %for.end93 ], [ %retval.0399, %_ZN20btAlignedObjectArrayIiE5clearEv.exit175 ]
+  %retval.2 = phi i32 [ %78, %if.then97 ], [ %retval.1399, %for.end93 ], [ %retval.1399, %_ZN20btAlignedObjectArrayIiE5clearEv.exit175 ]
   %tobool.not.i.i.i349 = icmp eq ptr %40, null
   br i1 %tobool.not.i.i.i349, label %_ZN20btAlignedObjectArrayIiED2Ev.exit, label %if.then3.i.i.i353
 
@@ -2099,13 +2099,13 @@ cleanup104.sink.split:                            ; preds = %for.cond51, %for.co
   br label %cleanup104
 
 cleanup104:                                       ; preds = %for.body42, %_ZN20btAlignedObjectArrayIiED2Ev.exit, %cleanup104.sink.split
-  %retval.2.ph = phi i32 [ 0, %cleanup104.sink.split ], [ %retval.1, %_ZN20btAlignedObjectArrayIiED2Ev.exit ], [ %33, %for.body42 ]
+  %retval.0.ph = phi i32 [ 0, %cleanup104.sink.split ], [ %retval.2, %_ZN20btAlignedObjectArrayIiED2Ev.exit ], [ %33, %for.body42 ]
   %.pr = load ptr, ptr %m_data.i.i, align 8
   %tobool.not.i.i.i355 = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i355, label %_ZN20btAlignedObjectArrayIiED2Ev.exit364, label %if.then.i.i.i356
 
 if.then.i.i.i356:                                 ; preds = %cleanup104.thread, %cleanup104
-  %retval.2374 = phi i32 [ %35, %cleanup104.thread ], [ %retval.2.ph, %cleanup104 ]
+  %retval.0374 = phi i32 [ %35, %cleanup104.thread ], [ %retval.0.ph, %cleanup104 ]
   %81 = phi ptr [ %34, %cleanup104.thread ], [ %.pr, %cleanup104 ]
   %82 = load i8, ptr %m_ownsMemory.i.i, align 8
   %tobool2.i.i.i358 = trunc i8 %82 to i1
@@ -2123,8 +2123,8 @@ terminate.lpad.i363:                              ; preds = %if.then3.i.i.i362
   unreachable
 
 _ZN20btAlignedObjectArrayIiED2Ev.exit364:         ; preds = %cleanup104, %if.then.i.i.i356, %if.then3.i.i.i362
-  %retval.2375 = phi i32 [ %retval.2.ph, %cleanup104 ], [ %retval.2374, %if.then.i.i.i356 ], [ %retval.2374, %if.then3.i.i.i362 ]
-  ret i32 %retval.2375
+  %retval.0375 = phi i32 [ %retval.0.ph, %cleanup104 ], [ %retval.0374, %if.then.i.i.i356 ], [ %retval.0374, %if.then3.i.i.i362 ]
+  ret i32 %retval.0375
 
 ehcleanup:                                        ; preds = %lpad.loopexit376, %lpad.loopexit.split-lp377, %lpad55
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad55 ], [ %lpad.loopexit378, %lpad.loopexit376 ], [ %lpad.loopexit.split-lp379, %lpad.loopexit.split-lp377 ]

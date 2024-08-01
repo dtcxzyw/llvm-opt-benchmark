@@ -40,23 +40,23 @@ define hidden noundef ptr @_Z26hb_paint_extents_get_funcsv() local_unnamed_addr 
   br label %5
 
 5:                                                ; preds = %3, %.lr.ph.i.i
-  %.0.i.i = phi ptr [ %2, %.lr.ph.i.i ], [ %4, %3 ]
-  %6 = ptrtoint ptr %.0.i.i to i64
+  %.1.i.i = phi ptr [ %2, %.lr.ph.i.i ], [ %4, %3 ]
+  %6 = ptrtoint ptr %.1.i.i to i64
   %7 = cmpxchg weak ptr @_ZL26static_paint_extents_funcs, i64 0, i64 %6 acq_rel monotonic, align 8
   %8 = extractvalue { i64, i1 } %7, 1
   br i1 %8, label %_ZNK16hb_lazy_loader_tI16hb_paint_funcs_t36hb_paint_extents_funcs_lazy_loader_tvLj0ES0_E11get_unconstEv.exit, label %9
 
 9:                                                ; preds = %5
-  %.not.i.i.i = icmp eq ptr %.0.i.i, null
+  %.not.i.i.i = icmp eq ptr %.1.i.i, null
   br i1 %.not.i.i.i, label %_ZN16hb_lazy_loader_tI16hb_paint_funcs_t36hb_paint_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit.i.i, label %10
 
 10:                                               ; preds = %9
   %11 = tail call noundef ptr @hb_paint_funcs_get_empty()
-  %.not3.i.i.i = icmp eq ptr %11, %.0.i.i
+  %.not3.i.i.i = icmp eq ptr %11, %.1.i.i
   br i1 %.not3.i.i.i, label %_ZN16hb_lazy_loader_tI16hb_paint_funcs_t36hb_paint_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit.i.i, label %12
 
 12:                                               ; preds = %10
-  tail call void @hb_paint_funcs_destroy(ptr noundef nonnull %.0.i.i)
+  tail call void @hb_paint_funcs_destroy(ptr noundef nonnull %.1.i.i)
   br label %_ZN16hb_lazy_loader_tI16hb_paint_funcs_t36hb_paint_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit.i.i
 
 _ZN16hb_lazy_loader_tI16hb_paint_funcs_t36hb_paint_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit.i.i: ; preds = %12, %10, %9
@@ -70,7 +70,7 @@ _ZN16hb_lazy_loader_tI16hb_paint_funcs_t36hb_paint_extents_funcs_lazy_loader_tvL
   br label %_ZNK16hb_lazy_loader_tI16hb_paint_funcs_t36hb_paint_extents_funcs_lazy_loader_tvLj0ES0_E11get_unconstEv.exit
 
 _ZNK16hb_lazy_loader_tI16hb_paint_funcs_t36hb_paint_extents_funcs_lazy_loader_tvLj0ES0_E11get_unconstEv.exit: ; preds = %5, %.split.loop.exit.i.i
-  %.07.i.i = phi ptr [ %14, %.split.loop.exit.i.i ], [ %.0.i.i, %5 ]
+  %.07.i.i = phi ptr [ %14, %.split.loop.exit.i.i ], [ %.1.i.i, %5 ]
   ret ptr %.07.i.i
 }
 
@@ -201,9 +201,9 @@ define internal void @_ZL27hb_paint_extents_push_groupP16hb_paint_funcs_tPvS1_(p
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread.i.i
 
 .preheader.i.i.i:                                 ; preds = %11, %.preheader.i.i.i
-  %.01542.i.i.i = phi i32 [ %14, %.preheader.i.i.i ], [ %7, %11 ]
-  %12 = lshr i32 %.01542.i.i.i, 1
-  %13 = add i32 %.01542.i.i.i, 8
+  %.142.i.i.i = phi i32 [ %14, %.preheader.i.i.i ], [ %7, %11 ]
+  %12 = lshr i32 %.142.i.i.i, 1
+  %13 = add i32 %.142.i.i.i, 8
   %14 = add i32 %13, %12
   %15 = icmp ult i32 %14, %9
   br i1 %15, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !12
@@ -227,9 +227,9 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3st
   br i1 %.not21.i.i.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread9.i.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread.i.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread9.i.i: ; preds = %22, %.thread.i.i.i
-  %.138.sink.i.ph.in.i.i = phi i32 [ %7, %.thread.i.i.i ], [ %23, %22 ]
-  %.138.sink.i.ph.i.i = xor i32 %.138.sink.i.ph.in.i.i, -1
-  store i32 %.138.sink.i.ph.i.i, ptr %4, align 8
+  %.01538.sink.i.ph.in.i.i = phi i32 [ %7, %.thread.i.i.i ], [ %23, %22 ]
+  %.01538.sink.i.ph.i.i = xor i32 %.01538.sink.i.ph.in.i.i, -1
+  store i32 %.01538.sink.i.ph.i.i, ptr %4, align 8
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.i.i: ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i
@@ -854,9 +854,9 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE4tailEv.exit: ; preds = %5, %6
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %46, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %49, %.preheader.i.i ], [ %42, %46 ]
-  %47 = lshr i32 %.01542.i.i, 1
-  %48 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %49, %.preheader.i.i ], [ %42, %46 ]
+  %47 = lshr i32 %.142.i.i, 1
+  %48 = add i32 %.142.i.i, 8
   %49 = add i32 %48, %47
   %50 = icmp ult i32 %49, %44
   br i1 %50, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !17
@@ -880,9 +880,9 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr
   br i1 %.not21.i.i, label %_ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.thread9.i: ; preds = %57, %.thread.i.i
-  %.138.sink.i.ph.in.i = phi i32 [ %42, %.thread.i.i ], [ %58, %57 ]
-  %.138.sink.i.ph.i = xor i32 %.138.sink.i.ph.in.i, -1
-  store i32 %.138.sink.i.ph.i, ptr %0, align 8
+  %.01538.sink.i.ph.in.i = phi i32 [ %42, %.thread.i.i ], [ %58, %57 ]
+  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
+  store i32 %.01538.sink.i.ph.i, ptr %0, align 8
   br label %_ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tI14hb_transform_tLb0EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tI14hb_transform_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
@@ -1027,9 +1027,9 @@ _ZNK14hb_transform_t17transform_extentsER12hb_extents_t.exit: ; preds = %_ZN12hb
   br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %64, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %67, %.preheader.i.i ], [ %60, %64 ]
-  %65 = lshr i32 %.01542.i.i, 1
-  %66 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %67, %.preheader.i.i ], [ %60, %64 ]
+  %65 = lshr i32 %.142.i.i, 1
+  %66 = add i32 %.142.i.i, 8
   %67 = add i32 %66, %65
   %68 = icmp ult i32 %67, %62
   br i1 %68, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !12
@@ -1053,9 +1053,9 @@ _ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3st
   br i1 %.not21.i.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread9.i: ; preds = %75, %.thread.i.i
-  %.138.sink.i.ph.in.i = phi i32 [ %60, %.thread.i.i ], [ %76, %75 ]
-  %.138.sink.i.ph.i = xor i32 %.138.sink.i.ph.in.i, -1
-  store i32 %.138.sink.i.ph.i, ptr %50, align 8
+  %.01538.sink.i.ph.in.i = phi i32 [ %60, %.thread.i.i ], [ %76, %75 ]
+  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
+  store i32 %.01538.sink.i.ph.i, ptr %50, align 8
   br label %_ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tI11hb_bounds_tLb0EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tI11hb_bounds_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i
@@ -1107,23 +1107,23 @@ define linkonce_odr hidden noundef ptr @_ZNK16hb_lazy_loader_tI15hb_draw_funcs_t
   br label %6
 
 6:                                                ; preds = %4, %.lr.ph
-  %.0 = phi ptr [ %3, %.lr.ph ], [ %5, %4 ]
-  %7 = ptrtoint ptr %.0 to i64
+  %.1 = phi ptr [ %3, %.lr.ph ], [ %5, %4 ]
+  %7 = ptrtoint ptr %.1 to i64
   %8 = cmpxchg weak ptr %0, i64 0, i64 %7 acq_rel monotonic, align 8
   %9 = extractvalue { i64, i1 } %8, 1
   br i1 %9, label %.split.loop.exit11, label %10
 
 10:                                               ; preds = %6
-  %.not.i = icmp eq ptr %.0, null
+  %.not.i = icmp eq ptr %.1, null
   br i1 %.not.i, label %_ZN16hb_lazy_loader_tI15hb_draw_funcs_t35hb_draw_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit, label %11
 
 11:                                               ; preds = %10
   %12 = tail call noundef ptr @hb_draw_funcs_get_empty()
-  %.not3.i = icmp eq ptr %12, %.0
+  %.not3.i = icmp eq ptr %12, %.1
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tI15hb_draw_funcs_t35hb_draw_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit, label %13
 
 13:                                               ; preds = %11
-  tail call void @hb_draw_funcs_destroy(ptr noundef nonnull %.0)
+  tail call void @hb_draw_funcs_destroy(ptr noundef nonnull %.1)
   br label %_ZN16hb_lazy_loader_tI15hb_draw_funcs_t35hb_draw_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit
 
 _ZN16hb_lazy_loader_tI15hb_draw_funcs_t35hb_draw_extents_funcs_lazy_loader_tvLj0ES0_E10do_destroyEPS0_.exit: ; preds = %10, %11, %13
@@ -1137,7 +1137,7 @@ _ZN16hb_lazy_loader_tI15hb_draw_funcs_t35hb_draw_extents_funcs_lazy_loader_tvLj0
   br label %.split.loop.exit11
 
 .split.loop.exit11:                               ; preds = %6, %.split.loop.exit
-  %.07 = phi ptr [ %15, %.split.loop.exit ], [ %.0, %6 ]
+  %.07 = phi ptr [ %15, %.split.loop.exit ], [ %.1, %6 ]
   ret ptr %.07
 }
 

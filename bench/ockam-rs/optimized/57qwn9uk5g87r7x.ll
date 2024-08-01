@@ -5851,7 +5851,7 @@ common.ret:                                       ; preds = %638, %504, %275
   br label %.noexc12.i.i.i.i
 
 .noexc12.i.i.i.i:                                 ; preds = %484, %481
-  %.sroa.12.sroa.0.0.i = phi i64 [ %.sroa.12.sroa.0.0.copyload17.i, %481 ], [ 0, %484 ]
+  %.sroa.12.sroa.0.1.i = phi i64 [ %.sroa.12.sroa.0.0.copyload17.i, %481 ], [ 0, %484 ]
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %26), !noalias !717
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h97a5d371b1046357E.exit.i.i.i.i"
 
@@ -5898,7 +5898,7 @@ common.ret:                                       ; preds = %638, %504, %275
   br label %.noexc15.i.i.i.i
 
 .noexc15.i.i.i.i:                                 ; preds = %495, %493
-  %.sroa.12.sroa.0.1.i = phi i64 [ %.sroa.12.sroa.0.0.copyload18.i, %493 ], [ 0, %495 ]
+  %.sroa.12.sroa.0.2.i = phi i64 [ %.sroa.12.sroa.0.0.copyload18.i, %493 ], [ 0, %495 ]
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %28), !noalias !717
   br label %"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h97a5d371b1046357E.exit.i.i.i.i"
 
@@ -5929,7 +5929,7 @@ common.ret:                                       ; preds = %638, %504, %275
           to label %.body.i131 unwind label %498, !noalias !711
 
 "_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h97a5d371b1046357E.exit.i.i.i.i": ; preds = %.noexc15.i.i.i.i, %.noexc12.i.i.i.i, %472, %.noexc8.i.i.i.i, %461
-  %.sroa.12.sroa.0.2.i = phi i64 [ %.sroa.12.sroa.0.1.i, %.noexc15.i.i.i.i ], [ %.sroa.12.sroa.0.0.i, %.noexc12.i.i.i.i ], [ undef, %.noexc8.i.i.i.i ], [ undef, %461 ], [ 0, %472 ]
+  %.sroa.12.sroa.0.0.i = phi i64 [ %.sroa.12.sroa.0.2.i, %.noexc15.i.i.i.i ], [ %.sroa.12.sroa.0.1.i, %.noexc12.i.i.i.i ], [ undef, %.noexc8.i.i.i.i ], [ undef, %461 ], [ 0, %472 ]
   %switch.i = phi i1 [ true, %.noexc15.i.i.i.i ], [ true, %.noexc12.i.i.i.i ], [ false, %.noexc8.i.i.i.i ], [ false, %461 ], [ true, %472 ]
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha48440384a6888ecE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %29)
           to label %"_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h37f05efa98b7792eE.exit.i" unwind label %500, !noalias !695
@@ -5980,11 +5980,11 @@ common.ret:                                       ; preds = %638, %504, %275
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %.sroa.8154)
   %506 = load ptr, ptr %1, align 8, !nonnull !4, !align !6, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !725)
-  %507 = icmp eq i64 %.sroa.12.sroa.0.2.i, 0
+  %507 = icmp eq i64 %.sroa.12.sroa.0.0.i, 0
   br i1 %507, label %"_ZN4core6option15Option$LT$T$GT$3map17h28994fdef3de6ddbE.exit.thread", label %508
 
 508:                                              ; preds = %505
-  %509 = inttoptr i64 %.sroa.12.sroa.0.2.i to ptr
+  %509 = inttoptr i64 %.sroa.12.sroa.0.0.i to ptr
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %24), !noalias !728
   store ptr %509, ptr %24, align 8, !noalias !731
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 8
@@ -6390,13 +6390,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br label %638
 
 638:                                              ; preds = %.thread266, %647, %644, %"_ZN4core6option15Option$LT$T$GT$3map17h28994fdef3de6ddbE.exit.thread"
-  %.sroa.0194.0 = phi i64 [ 1, %647 ], [ 1, %644 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$3map17h28994fdef3de6ddbE.exit.thread" ], [ 0, %.thread266 ]
-  %.sroa.4195.0 = phi ptr [ %.sroa.4.i.sroa.4.0.copyload, %647 ], [ %.sroa.4.i.sroa.4.0.copyload, %644 ], [ null, %"_ZN4core6option15Option$LT$T$GT$3map17h28994fdef3de6ddbE.exit.thread" ], [ %.sroa.0199.0.copyload, %.thread266 ]
+  %.sroa.0194.1 = phi i64 [ 1, %647 ], [ 1, %644 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$3map17h28994fdef3de6ddbE.exit.thread" ], [ 0, %.thread266 ]
+  %.sroa.4195.1 = phi ptr [ %.sroa.4.i.sroa.4.0.copyload, %647 ], [ %.sroa.4.i.sroa.4.0.copyload, %644 ], [ null, %"_ZN4core6option15Option$LT$T$GT$3map17h28994fdef3de6ddbE.exit.thread" ], [ %.sroa.0199.0.copyload, %.thread266 ]
   %639 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 0, ptr %639, align 8
-  store i64 %.sroa.0194.0, ptr %0, align 8
+  store i64 %.sroa.0194.1, ptr %0, align 8
   %.sroa.4195.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.4195.0, ptr %.sroa.4195.0..sroa_idx, align 8
+  store ptr %.sroa.4195.1, ptr %.sroa.4195.0..sroa_idx, align 8
   %.sroa.7196.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.7196.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.7196, i64 224, i1 false)
   br label %common.ret

@@ -4223,7 +4223,7 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
 
 705:                                              ; preds = %703, %699
   %706 = phi i32 [ %.pre.i, %703 ], [ %698, %699 ]
-  %.1.i = phi ptr [ %704, %703 ], [ %.0160219.i, %699 ]
+  %.2.i = phi ptr [ %704, %703 ], [ %.0160219.i, %699 ]
   %707 = icmp slt i32 %706, 0
   br i1 %707, label %708, label %710
 
@@ -4239,13 +4239,13 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
 
 714:                                              ; preds = %710, %708
   %.sink238.i = phi ptr [ %709, %708 ], [ %713, %710 ]
-  %715 = getelementptr ptr, ptr %.1.i, i64 %indvars.iv228.i
+  %715 = getelementptr ptr, ptr %.2.i, i64 %indvars.iv228.i
   store ptr %.sink238.i, ptr %715, align 8
   store ptr %701, ptr @CurrentMemoryContext, align 8
   br label %716
 
 716:                                              ; preds = %714, %697
-  %.2.i = phi ptr [ %.1.i, %714 ], [ %.0160219.i, %697 ]
+  %.1.i = phi ptr [ %.2.i, %714 ], [ %.0160219.i, %697 ]
   %717 = load ptr, ptr %12, align 8
   %.not193.i = icmp eq ptr %.0150.i, %717
   br i1 %.not193.i, label %736, label %718
@@ -4287,7 +4287,7 @@ IsTransactionExitStmt.exit.thread.i74:            ; preds = %IsTransactionExitSt
   unreachable
 
 736:                                              ; preds = %718, %716, %693
-  %.3.i = phi ptr [ %.2.i, %718 ], [ %.2.i, %716 ], [ %.0160219.i, %693 ]
+  %.3.i = phi ptr [ %.1.i, %718 ], [ %.1.i, %716 ], [ %.0160219.i, %693 ]
   br i1 %678, label %.thread202.i, label %.thread207.i
 
 .thread207.i:                                     ; preds = %736, %723

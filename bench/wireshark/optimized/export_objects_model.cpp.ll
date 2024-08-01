@@ -2044,8 +2044,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i38:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %72, %51, %20, %_ZN7QStringD2Ev.exit36, %_ZN7QStringD2Ev.exit, %124
-  %.111 = phi i1 [ false, %_ZN7QStringD2Ev.exit36 ], [ true, %124 ], [ false, %_ZN7QStringD2Ev.exit ], [ false, %20 ], [ false, %51 ], [ false, %72 ]
-  ret i1 %.111
+  %.010 = phi i1 [ false, %_ZN7QStringD2Ev.exit36 ], [ true, %124 ], [ false, %_ZN7QStringD2Ev.exit ], [ false, %20 ], [ false, %51 ], [ false, %72 ]
+  ret i1 %.010
 
 _ZN7QStringD2Ev.exit40:                           ; preds = %122, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i38, %_ZN7QStringD2Ev.exit28, %98, %44
   %.pn.pn = phi { ptr, i32 } [ %99, %98 ], [ %45, %44 ], [ %.pn, %_ZN7QStringD2Ev.exit28 ], [ %.pn, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i38 ], [ %.pn, %122 ]

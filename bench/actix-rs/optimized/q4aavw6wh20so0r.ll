@@ -147,8 +147,8 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread: ; preds = 
   br i1 %.not, label %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread14, label %.lr.ph.split
 
 _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread14: ; preds = %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us, %15, %4
-  %.1 = phi i1 [ false, %4 ], [ true, %15 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread ], [ true, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %4 ], [ true, %15 ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us ], [ false, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread ], [ true, %_ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -331,12 +331,12 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
 
 .lr.ph.i.i43:                                     ; preds = %54, %63
   %.06249.i.i = phi i64 [ %64, %63 ], [ 0, %54 ]
-  %.06448.i.i = phi i8 [ %.2.i.i, %63 ], [ 0, %54 ]
+  %.06448.i.i = phi i8 [ %.3.i.i, %63 ], [ 0, %54 ]
   %59 = trunc nuw i8 %.06448.i.i to i1
   br i1 %59, label %._crit_edge.i.i, label %62
 
 ._crit_edge.i.i:                                  ; preds = %63, %.lr.ph.i.i43, %54
-  %.064.lcssa.i.i = phi i8 [ 0, %54 ], [ %.2.i.i, %63 ], [ %.06448.i.i, %.lr.ph.i.i43 ]
+  %.064.lcssa.i.i = phi i8 [ 0, %54 ], [ %.3.i.i, %63 ], [ %.06448.i.i, %.lr.ph.i.i43 ]
   %.062.lcssa.i.i = phi i64 [ 0, %54 ], [ %64, %63 ], [ %.06249.i.i, %.lr.ph.i.i43 ]
   %60 = add i64 %.062.lcssa.i.i, 24
   %61 = icmp ult i64 %60, %34
@@ -357,7 +357,7 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
 
 .preheader.i.i:                                   ; preds = %78, %70
   %.sroa.025.047.i.i = phi i64 [ %66, %70 ], [ 0, %78 ]
-  %.16546.i.i = phi i8 [ %.2.i.i, %70 ], [ %.06448.i.i, %78 ]
+  %.246.i.i = phi i8 [ %.3.i.i, %70 ], [ %.06448.i.i, %78 ]
   %66 = add nuw nsw i64 %.sroa.025.047.i.i, 1
   %67 = getelementptr inbounds [4 x i16], ptr %8, i64 0, i64 %.sroa.025.047.i.i
   %68 = load i16, ptr %67, align 2, !noalias !35, !noundef !4
@@ -365,14 +365,14 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %71, %.preheader.i.i
-  %.2.i.i = phi i8 [ %.16546.i.i, %.preheader.i.i ], [ %77, %71 ]
+  %.3.i.i = phi i8 [ %.246.i.i, %.preheader.i.i ], [ %77, %71 ]
   %exitcond66.not.i.i = icmp eq i64 %66, 4
   br i1 %exitcond66.not.i.i, label %63, label %.preheader.i.i
 
 71:                                               ; preds = %.preheader.i.i
   %72 = shl nuw nsw i64 %.sroa.025.047.i.i, 4
   %73 = add nuw nsw i64 %72, %.06249.i.i
-  %74 = trunc nuw i8 %.16546.i.i to i1
+  %74 = trunc nuw i8 %.246.i.i to i1
   %75 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17he7a43a35f9445261E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %73, i16 noundef %68, i1 noundef zeroext %74)
   %76 = or i1 %75, %74
   %77 = zext i1 %76 to i8
@@ -396,12 +396,12 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
 
 .lr.ph57.i.i:                                     ; preds = %._crit_edge.i.i, %103
   %.16355.i.i = phi i64 [ %104, %103 ], [ %.062.lcssa.i.i, %._crit_edge.i.i ]
-  %.354.i.i = phi i8 [ %.4.i.i, %103 ], [ %.064.lcssa.i.i, %._crit_edge.i.i ]
-  %86 = trunc nuw i8 %.354.i.i to i1
+  %.16554.i.i = phi i8 [ %.5.i.i, %103 ], [ %.064.lcssa.i.i, %._crit_edge.i.i ]
+  %86 = trunc nuw i8 %.16554.i.i to i1
   br i1 %86, label %._crit_edge58.i.i, label %95
 
 ._crit_edge58.i.i:                                ; preds = %103, %.lr.ph57.i.i, %._crit_edge.i.i
-  %.3.lcssa.i.i = phi i8 [ %.064.lcssa.i.i, %._crit_edge.i.i ], [ %.4.i.i, %103 ], [ %.354.i.i, %.lr.ph57.i.i ]
+  %.165.lcssa.i.i = phi i8 [ %.064.lcssa.i.i, %._crit_edge.i.i ], [ %.5.i.i, %103 ], [ %.16554.i.i, %.lr.ph57.i.i ]
   %87 = add i64 %34, -24
   %88 = getelementptr inbounds i8, ptr %36, i64 %87
   %.0.copyload.i80.i.i = load <16 x i8>, ptr %88, align 1, !alias.scope !35, !noalias !39
@@ -427,7 +427,7 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %106, %95
-  %.4.i.i = phi i8 [ %.354.i.i, %95 ], [ %108, %106 ]
+  %.5.i.i = phi i8 [ %.16554.i.i, %95 ], [ %108, %106 ]
   %104 = add i64 %.16355.i.i, 16
   %.reass63.i.i = add i64 %.16355.i.i, 40
   %105 = icmp ult i64 %.reass63.i.i, %34
@@ -439,13 +439,13 @@ define void @_ZN16actix_web_actors2ws24handshake_with_protocols17hff1425362f08a8
   br label %103
 
 109:                                              ; preds = %111, %._crit_edge58.i.i
-  %.5.i.i = phi i8 [ %.3.lcssa.i.i, %._crit_edge58.i.i ], [ %115, %111 ]
+  %.4.i.i = phi i8 [ %.165.lcssa.i.i, %._crit_edge58.i.i ], [ %115, %111 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !35
-  %110 = trunc nuw i8 %.5.i.i to i1
+  %110 = trunc nuw i8 %.4.i.i to i1
   br label %"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15is_contained_in17h04515ee06e6bece1E.exit"
 
 111:                                              ; preds = %._crit_edge58.i.i
-  %112 = trunc nuw i8 %.3.lcssa.i.i to i1
+  %112 = trunc nuw i8 %.165.lcssa.i.i to i1
   %113 = call fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains28_$u7b$$u7b$closure$u7d$$u7d$17he7a43a35f9445261E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9, i64 noundef %87, i16 noundef %93, i1 noundef zeroext %112)
   %114 = or i1 %113, %112
   %115 = zext i1 %114 to i8
@@ -837,9 +837,9 @@ select.unfold.i:                                  ; preds = %"_ZN73_$LT$$u5b$A$u
   %.pre.i.i.i13.i = phi i64 [ %.pre.i.i.i1415.i, %.lr.ph.split.split.i ], [ %26, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1231cce739dac71bE.exit.i.i.i.i" ], [ %.pre.i.i.i1415.i, %29 ], [ %.pre.i.i.i1415.i, %22 ]
   %32 = phi i1 [ true, %.lr.ph.split.split.i ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1231cce739dac71bE.exit.i.i.i.i" ], [ true, %29 ], [ true, %22 ]
   %.pn.i = phi i64 [ %6, %.lr.ph.split.split.i ], [ %28, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h1231cce739dac71bE.exit.i.i.i.i" ], [ %6, %29 ], [ %6, %22 ]
-  %.sroa.4.1.i.i.i = sub i64 %.pn.i, %.pre.i.i.i1415.i
-  %.sroa.0.1.i.i.i = getelementptr inbounds i8, ptr %5, i64 %.pre.i.i.i1415.i
-  %33 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h3e3c730b247eede0E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i, i64 noundef %.sroa.4.1.i.i.i), !noalias !123
+  %.sroa.4.0.i.i.i = sub i64 %.pn.i, %.pre.i.i.i1415.i
+  %.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %5, i64 %.pre.i.i.i1415.i
+  %33 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h3e3c730b247eede0E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.4.0.i.i.i), !noalias !123
   %34 = extractvalue { ptr, i64 } %33, 0
   %35 = extractvalue { ptr, i64 } %33, 1
   %36 = icmp ne ptr %34, null
@@ -868,10 +868,10 @@ select.unfold.i:                                  ; preds = %"_ZN73_$LT$$u5b$A$u
   br i1 %32, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hc906c0cd9414d0d4E.exit, label %.lr.ph.split.split.i, !llvm.loop !142
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hc906c0cd9414d0d4E.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc1fbbe3c5cb65615E.exit.i", %40, %3
-  %.sroa.4.1 = phi i64 [ undef, %3 ], [ %35, %40 ], [ %35, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc1fbbe3c5cb65615E.exit.i" ]
-  %.sroa.0.1 = phi ptr [ null, %3 ], [ %34, %40 ], [ null, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc1fbbe3c5cb65615E.exit.i" ]
-  %42 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %43 = insertvalue { ptr, i64 } %42, i64 %.sroa.4.1, 1
+  %.sroa.4.0 = phi i64 [ undef, %3 ], [ %35, %40 ], [ %35, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc1fbbe3c5cb65615E.exit.i" ]
+  %.sroa.0.0 = phi ptr [ null, %3 ], [ %34, %40 ], [ null, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hc1fbbe3c5cb65615E.exit.i" ]
+  %42 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %43 = insertvalue { ptr, i64 } %42, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %43
 }
 

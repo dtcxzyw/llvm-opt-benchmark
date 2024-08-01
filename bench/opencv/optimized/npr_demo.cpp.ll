@@ -640,15 +640,15 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %229
 
 229:                                              ; preds = %69, %228
-  %.034 = phi i32 [ 0, %228 ], [ 1, %69 ]
+  %.135 = phi i32 [ 0, %228 ], [ 1, %69 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #5
   br label %230
 
 230:                                              ; preds = %46, %229
-  %.135 = phi i32 [ %.034, %229 ], [ 0, %46 ]
+  %.034 = phi i32 [ %.135, %229 ], [ 0, %46 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  ret i32 %.135
+  ret i32 %.034
 
 231:                                              ; preds = %219, %168, %149, %225, %206, %174, %155, %147
   %.pn68 = phi { ptr, i32 } [ %148, %147 ], [ %.pn65.pn, %155 ], [ %.pn60.pn, %174 ], [ %.pn54.pn.pn, %206 ], [ %.pn45.pn, %225 ], [ %150, %149 ], [ %169, %168 ], [ %220, %219 ]

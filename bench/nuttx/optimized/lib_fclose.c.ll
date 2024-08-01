@@ -101,8 +101,8 @@ define range(i32 -1, 1) i32 @fclose(ptr noundef %0) local_unnamed_addr #0 {
   br label %51
 
 51:                                               ; preds = %48, %46
-  %.141 = phi i32 [ %50, %48 ], [ %.040, %46 ]
-  %.1 = phi i32 [ %.038, %48 ], [ %.039, %46 ]
+  %.242 = phi i32 [ %50, %48 ], [ %.040, %46 ]
+  %.2 = phi i32 [ %.038, %48 ], [ %.039, %46 ]
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   %53 = tail call i32 @nxrmutex_destroy(ptr noundef nonnull %52) #3
   %54 = getelementptr inbounds i8, ptr %0, i64 96
@@ -126,15 +126,15 @@ define range(i32 -1, 1) i32 @fclose(ptr noundef %0) local_unnamed_addr #0 {
   br label %63
 
 63:                                               ; preds = %62, %11, %14, %17
-  %.242 = phi i32 [ %.040, %11 ], [ %.040, %14 ], [ %.040, %17 ], [ %.141, %62 ]
-  %.2 = phi i32 [ %.039, %11 ], [ %.039, %14 ], [ %.039, %17 ], [ %.1, %62 ]
-  %.not52 = icmp eq i32 %.2, 0
+  %.141 = phi i32 [ %.040, %11 ], [ %.040, %14 ], [ %.040, %17 ], [ %.242, %62 ]
+  %.1 = phi i32 [ %.039, %11 ], [ %.039, %14 ], [ %.039, %17 ], [ %.2, %62 ]
+  %.not52 = icmp eq i32 %.1, 0
   br i1 %.not52, label %65, label %.thread
 
 .thread:                                          ; preds = %1, %63
-  %.24256 = phi i32 [ %.242, %63 ], [ 22, %1 ]
+  %.14156 = phi i32 [ %.141, %63 ], [ 22, %1 ]
   %64 = tail call ptr @__errno() #3
-  store i32 %.24256, ptr %64, align 4
+  store i32 %.14156, ptr %64, align 4
   br label %65
 
 65:                                               ; preds = %63, %.thread

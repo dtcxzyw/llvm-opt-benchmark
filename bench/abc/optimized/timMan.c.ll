@@ -496,8 +496,8 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit
 
 27:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %.0116215 = phi i32 [ %.0.i144, %.lr.ph ], [ %.1117, %39 ]
-  %.0118214 = phi i32 [ %.0.i, %.lr.ph ], [ %.1119, %39 ]
+  %.1117215 = phi i32 [ %.0.i144, %.lr.ph ], [ %.2, %39 ]
+  %.1119214 = phi i32 [ %.0.i, %.lr.ph ], [ %.2120, %39 ]
   %28 = getelementptr inbounds i32, ptr %.val139, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %.not131 = icmp eq i32 %29, 0
@@ -509,31 +509,31 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 12
   %34 = load i32, ptr %33, align 4
-  %35 = add nsw i32 %34, %.0118214
+  %35 = add nsw i32 %34, %.1119214
   %36 = getelementptr inbounds i8, ptr %32, i64 8
   %37 = load i32, ptr %36, align 4
-  %38 = add nsw i32 %37, %.0116215
+  %38 = add nsw i32 %37, %.1117215
   br label %39
 
 39:                                               ; preds = %27, %30
-  %.1119 = phi i32 [ %35, %30 ], [ %.0118214, %27 ]
-  %.1117 = phi i32 [ %38, %30 ], [ %.0116215, %27 ]
+  %.2120 = phi i32 [ %35, %30 ], [ %.1119214, %27 ]
+  %.2 = phi i32 [ %38, %30 ], [ %.1117215, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %27, !llvm.loop !12
 
 .critedge:                                        ; preds = %39, %Tim_ManPoNum.exit, %Tim_ManBoxNum.exit
-  %.2120 = phi i32 [ %.0.i, %Tim_ManBoxNum.exit ], [ %.0.i, %Tim_ManPoNum.exit ], [ %.1119, %39 ]
-  %.2 = phi i32 [ %.0.i144, %Tim_ManBoxNum.exit ], [ %.0.i144, %Tim_ManPoNum.exit ], [ %.1117, %39 ]
+  %.0118 = phi i32 [ %.0.i, %Tim_ManBoxNum.exit ], [ %.0.i, %Tim_ManPoNum.exit ], [ %.2120, %39 ]
+  %.0116 = phi i32 [ %.0.i144, %Tim_ManBoxNum.exit ], [ %.0.i144, %Tim_ManPoNum.exit ], [ %.2, %39 ]
   %40 = getelementptr inbounds i8, ptr %0, i64 32
   %41 = load i32, ptr %40, align 8
-  %42 = icmp eq i32 %.2120, %41
+  %42 = icmp eq i32 %.0118, %41
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %.critedge
   %44 = getelementptr inbounds i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %.2, %45
+  %46 = icmp eq i32 %.0116, %45
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %43
@@ -583,7 +583,7 @@ Tim_ManBoxNum.exit:                               ; preds = %Tim_ManPoNum.exit
   br i1 %67, label %.lr.ph221, label %.critedge4, !llvm.loop !14
 
 .critedge4:                                       ; preds = %.lr.ph221, %63, %.critedge2
-  %68 = tail call ptr @Tim_ManStart(i32 noundef %.2120, i32 noundef %.2)
+  %68 = tail call ptr @Tim_ManStart(i32 noundef %.0118, i32 noundef %.0116)
   %69 = getelementptr inbounds i8, ptr %68, i64 40
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %50, align 8
@@ -612,7 +612,7 @@ Tim_ManPiNum.exit151:                             ; preds = %Tim_ManBoxNum.exit.
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %70, ptr align 4 %71, i64 %79, i1 false)
   %80 = getelementptr inbounds i8, ptr %68, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = sext i32 %.2 to i64
+  %82 = sext i32 %.0116 to i64
   %83 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %81, i64 %82
   %84 = load ptr, ptr %0, align 8
   %.not.i.i152 = icmp eq ptr %84, null
@@ -1218,7 +1218,7 @@ Tim_ManDelayTableNum.exit:                        ; preds = %Tim_ManPoNum.exit14
 .lr.ph177:                                        ; preds = %.lr.ph177.preheader, %141
   %101 = phi ptr [ %89, %.lr.ph177.preheader ], [ %142, %141 ]
   %indvars.iv197 = phi i64 [ 0, %.lr.ph177.preheader ], [ %indvars.iv.next198, %141 ]
-  %.0115176 = phi i32 [ 0, %.lr.ph177.preheader ], [ %.2, %141 ]
+  %.0115176 = phi i32 [ 0, %.lr.ph177.preheader ], [ %.1, %141 ]
   %102 = getelementptr i8, ptr %101, i64 8
   %.val127 = load ptr, ptr %102, align 8
   %103 = getelementptr inbounds ptr, ptr %.val127, i64 %indvars.iv197
@@ -1240,7 +1240,7 @@ Tim_ManDelayTableNum.exit:                        ; preds = %Tim_ManPoNum.exit14
   br label %113
 
 113:                                              ; preds = %112, %106
-  %.1 = phi i32 [ 1, %112 ], [ %.0115176, %106 ]
+  %.2 = phi i32 [ 1, %112 ], [ %.0115176, %106 ]
   %114 = getelementptr inbounds i8, ptr %104, i64 4
   %115 = getelementptr inbounds i8, ptr %104, i64 8
   %116 = load <2 x float>, ptr %114, align 4
@@ -1292,7 +1292,7 @@ Tim_ManDelayTableNum.exit:                        ; preds = %Tim_ManPoNum.exit14
 
 141:                                              ; preds = %.lr.ph177, %._crit_edge
   %142 = phi ptr [ %101, %.lr.ph177 ], [ %.pre203, %._crit_edge ]
-  %.2 = phi i32 [ %.0115176, %.lr.ph177 ], [ %.1, %._crit_edge ]
+  %.1 = phi i32 [ %.0115176, %.lr.ph177 ], [ %.2, %._crit_edge ]
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %143 = getelementptr i8, ptr %142, i64 4
   %.val = load i32, ptr %143, align 4
@@ -3231,19 +3231,19 @@ Tim_ManBoxNum.exit:                               ; preds = %1
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %.012 = phi i32 [ 0, %.lr.ph ], [ %11, %6 ]
+  %.112 = phi i32 [ 0, %.lr.ph ], [ %11, %6 ]
   %7 = getelementptr inbounds ptr, ptr %.val9, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 4
-  %11 = add nsw i32 %10, %.012
+  %11 = add nsw i32 %10, %.112
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !52
 
 .critedge:                                        ; preds = %6, %1, %Tim_ManBoxNum.exit
-  %.1 = phi i32 [ 0, %Tim_ManBoxNum.exit ], [ 0, %1 ], [ %11, %6 ]
-  ret i32 %.1
+  %.0 = phi i32 [ 0, %Tim_ManBoxNum.exit ], [ 0, %1 ], [ %11, %6 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

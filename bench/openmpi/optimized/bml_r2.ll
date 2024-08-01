@@ -795,7 +795,7 @@ define internal range(i32 -12, 1) i32 @mca_bml_r2_add_procs(i64 noundef %0, ptr 
 
 9:                                                ; preds = %.preheader108, %31
   %.083115 = phi i64 [ 0, %.preheader108 ], [ %.1, %31 ]
-  %.090114 = phi ptr [ null, %.preheader108 ], [ %.2, %31 ]
+  %.090114 = phi ptr [ null, %.preheader108 ], [ %.191, %31 ]
   %.092113 = phi i64 [ 0, %.preheader108 ], [ %32, %31 ]
   %10 = getelementptr inbounds ptr, ptr %1, i64 %.092113
   %11 = load ptr, ptr %10, align 8
@@ -814,7 +814,7 @@ define internal range(i32 -12, 1) i32 @mca_bml_r2_add_procs(i64 noundef %0, ptr 
   br i1 %18, label %.loopexit109, label %19
 
 19:                                               ; preds = %16, %14
-  %.191 = phi ptr [ %17, %16 ], [ %.090114, %14 ]
+  %.2 = phi ptr [ %17, %16 ], [ %.090114, %14 ]
   %20 = getelementptr inbounds i8, ptr %11, i64 8
   %21 = load i8, ptr @opal_uses_threads, align 1
   %22 = trunc i8 %21 to i1
@@ -833,12 +833,12 @@ define internal range(i32 -12, 1) i32 @mca_bml_r2_add_procs(i64 noundef %0, ptr 
 
 opal_thread_add_fetch_32.exit:                    ; preds = %23, %25
   %29 = add i64 %.083115, 1
-  %30 = getelementptr inbounds ptr, ptr %.191, i64 %.083115
+  %30 = getelementptr inbounds ptr, ptr %.2, i64 %.083115
   store ptr %11, ptr %30, align 8
   br label %31
 
 31:                                               ; preds = %9, %opal_thread_add_fetch_32.exit
-  %.2 = phi ptr [ %.090114, %9 ], [ %.191, %opal_thread_add_fetch_32.exit ]
+  %.191 = phi ptr [ %.090114, %9 ], [ %.2, %opal_thread_add_fetch_32.exit ]
   %.1 = phi i64 [ %.083115, %9 ], [ %29, %opal_thread_add_fetch_32.exit ]
   %32 = add nuw i64 %.092113, 1
   %exitcond.not = icmp eq i64 %32, %0
@@ -860,7 +860,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %23, %25
   br i1 %.not121, label %._crit_edge, label %.lr.ph
 
 40:                                               ; preds = %35
-  tail call void @free(ptr noundef %.2) #15
+  tail call void @free(ptr noundef %.191) #15
   br label %.loopexit109
 
 .lr.ph:                                           ; preds = %.preheader107, %mca_bml_r2_register_progress.exit
@@ -872,7 +872,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %23, %25
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %37, i8 0, i64 %36, i1 false)
   %45 = getelementptr inbounds i8, ptr %43, i64 136
   %46 = load ptr, ptr %45, align 8
-  %47 = call i32 %46(ptr noundef %43, i64 noundef %.1, ptr noundef %.2, ptr noundef nonnull %37, ptr noundef %2) #15
+  %47 = call i32 %46(ptr noundef %43, i64 noundef %.1, ptr noundef %.191, ptr noundef nonnull %37, ptr noundef %2) #15
   %.not102 = icmp eq i32 %47, 0
   br i1 %.not102, label %.preheader106, label %mca_bml_r2_register_progress.exit
 
@@ -888,7 +888,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %23, %25
   br i1 %51, label %52, label %74
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds ptr, ptr %.2, i64 %.086117
+  %53 = getelementptr inbounds ptr, ptr %.191, i64 %.086117
   %54 = load ptr, ptr %53, align 8
   store ptr %54, ptr %4, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 72
@@ -906,7 +906,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %23, %25
 
 63:                                               ; preds = %58
   call void @free(ptr noundef %37) #15
-  call void @free(ptr noundef nonnull %.2) #15
+  call void @free(ptr noundef nonnull %.191) #15
   br label %.loopexit109
 
 64:                                               ; preds = %58, %52
@@ -994,7 +994,7 @@ mca_bml_r2_register_progress.exit:                ; preds = %91, %.critedge.thre
 
 96:                                               ; preds = %._crit_edge, %102
   %.084119 = phi i64 [ 0, %._crit_edge ], [ %103, %102 ]
-  %97 = getelementptr inbounds ptr, ptr %.2, i64 %.084119
+  %97 = getelementptr inbounds ptr, ptr %.191, i64 %.084119
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 72
   %100 = load ptr, ptr %99, align 8
@@ -1017,7 +1017,7 @@ mca_bml_r2_register_progress.exit:                ; preds = %91, %.critedge.thre
 
 .preheader:                                       ; preds = %102, %104
   %.082120 = phi i64 [ %105, %104 ], [ 0, %102 ]
-  %106 = getelementptr inbounds ptr, ptr %.2, i64 %.082120
+  %106 = getelementptr inbounds ptr, ptr %.191, i64 %.082120
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 72
   %109 = load ptr, ptr %108, align 8
@@ -1049,7 +1049,7 @@ mca_bml_r2_register_progress.exit:                ; preds = %91, %.critedge.thre
 
 .loopexit:                                        ; preds = %104, %111, %114
   %.093 = phi i32 [ -12, %114 ], [ -12, %111 ], [ 0, %104 ]
-  call void @free(ptr noundef nonnull %.2) #15
+  call void @free(ptr noundef nonnull %.191) #15
   br label %.loopexit109
 
 .loopexit109:                                     ; preds = %16, %33, %6, %3, %.loopexit, %63, %40

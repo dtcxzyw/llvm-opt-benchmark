@@ -436,14 +436,14 @@ if.else129:                                       ; preds = %land.lhs.true125, %
   br label %if.end131
 
 if.end131:                                        ; preds = %land.lhs.true115, %land.lhs.true125, %if.else129
-  %ret.0 = phi i32 [ %conv130, %if.else129 ], [ 0, %land.lhs.true125 ], [ 0, %land.lhs.true115 ]
+  %ret.1 = phi i32 [ %conv130, %if.else129 ], [ 0, %land.lhs.true125 ], [ 0, %land.lhs.true115 ]
   %irq = getelementptr inbounds i8, ptr %opaque, i64 2136
   %31 = load ptr, ptr %irq, align 8
   tail call void @qemu_set_irq(ptr noundef %31, i32 noundef 0) #17
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %land.lhs.true101, %land.lhs.true82, %land.lhs.true63, %land.lhs.true44, %land.lhs.true25, %land.lhs.true, %land.lhs.true11, %if.else107, %if.else92, %if.then90, %if.else73, %if.then71, %if.else54, %if.then52, %if.else35, %if.then33, %if.else17, %if.then15, %if.end131, %sw.bb
-  %ret.1 = phi i32 [ %ret.0, %if.end131 ], [ %conv108, %if.else107 ], [ %conv93, %if.else92 ], [ %conv91, %if.then90 ], [ %conv74, %if.else73 ], [ %conv72, %if.then71 ], [ %conv55, %if.else54 ], [ %conv53, %if.then52 ], [ %conv36, %if.else35 ], [ %and34, %if.then33 ], [ %conv18, %if.else17 ], [ %conv16, %if.then15 ], [ %and3, %sw.bb ], [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true25 ], [ 0, %land.lhs.true44 ], [ 0, %land.lhs.true63 ], [ 0, %land.lhs.true82 ], [ 0, %land.lhs.true101 ]
+  %ret.0 = phi i32 [ %ret.1, %if.end131 ], [ %conv108, %if.else107 ], [ %conv93, %if.else92 ], [ %conv91, %if.then90 ], [ %conv74, %if.else73 ], [ %conv72, %if.then71 ], [ %conv55, %if.else54 ], [ %conv53, %if.then52 ], [ %conv36, %if.else35 ], [ %and34, %if.then33 ], [ %conv18, %if.else17 ], [ %conv16, %if.then15 ], [ %and3, %sw.bb ], [ 0, %land.lhs.true11 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true25 ], [ 0, %land.lhs.true44 ], [ 0, %land.lhs.true63 ], [ 0, %land.lhs.true82 ], [ 0, %land.lhs.true101 ]
   %idxprom = zext nneg i32 %and to i64
   %arrayidx132 = getelementptr [8 x ptr], ptr @ATA_IOPORT_RR_lookup, i64 0, i64 %idxprom
   %32 = load ptr, ptr %arrayidx132, align 8
@@ -472,16 +472,16 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %37 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %38 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %37, i64 noundef %38, i32 noundef %addr, ptr noundef %32, i32 noundef %ret.1, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %call10.i.i, i64 noundef %37, i64 noundef %38, i32 noundef %addr, ptr noundef %32, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_ioport_read.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %addr, ptr noundef %32, i32 noundef %ret.1, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %addr, ptr noundef %32, i32 noundef %ret.0, ptr noundef nonnull %opaque, ptr noundef %add.ptr.i) #17
   br label %trace_ide_ioport_read.exit
 
 trace_ide_ioport_read.exit:                       ; preds = %sw.epilog, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

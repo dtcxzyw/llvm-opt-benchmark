@@ -6750,7 +6750,7 @@ ehcleanup269:                                     ; preds = %lpad264, %lpad262
   br label %ehcleanup271
 
 if.end270:                                        ; preds = %if.then13.i.i1098, %if.then.i.i1091, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1088, %if.then13.i.i1044, %if.then.i.i1037, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1034
-  %ret.1.in = phi i1 [ %call253, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1034 ], [ %call253, %if.then.i.i1037 ], [ %call253, %if.then13.i.i1044 ], [ %call266, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1088 ], [ %call266, %if.then.i.i1091 ], [ %call266, %if.then13.i.i1098 ]
+  %ret.2.in = phi i1 [ %call253, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1034 ], [ %call253, %if.then.i.i1037 ], [ %call253, %if.then13.i.i1044 ], [ %call266, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1088 ], [ %call266, %if.then.i.i1091 ], [ %call266, %if.then13.i.i1098 ]
   %102 = load ptr, ptr %lit, align 8
   %bf.load.i.i1101 = load i64, ptr %102, align 8
   %103 = and i64 %bf.load.i.i1101, 1152920405095219200
@@ -6783,7 +6783,7 @@ ehcleanup271:                                     ; preds = %ehcleanup269, %ehcl
   br label %ehcleanup305
 
 if.end272:                                        ; preds = %if.then13.i.i1110, %if.then.i.i1103, %if.end270, %_ZN4cvc57context9CDHashSetINS_8internal12NodeTemplateILb1EEESt4hashIS4_EE6insertERKS4_.exit916
-  %ret.2.in = phi i1 [ %ret.0.in, %_ZN4cvc57context9CDHashSetINS_8internal12NodeTemplateILb1EEESt4hashIS4_EE6insertERKS4_.exit916 ], [ %ret.1.in, %if.end270 ], [ %ret.1.in, %if.then.i.i1103 ], [ %ret.1.in, %if.then13.i.i1110 ]
+  %ret.1.in = phi i1 [ %ret.0.in, %_ZN4cvc57context9CDHashSetINS_8internal12NodeTemplateILb1EEESt4hashIS4_EE6insertERKS4_.exit916 ], [ %ret.2.in, %if.end270 ], [ %ret.2.in, %if.then.i.i1103 ], [ %ret.2.in, %if.then13.i.i1110 ]
   %106 = load ptr, ptr %d_theory, align 8
   %107 = load ptr, ptr %atom, align 8
   store ptr %107, ptr %agg.tmp274, align 8
@@ -6801,7 +6801,7 @@ lpad282:                                          ; preds = %if.end272
   br label %ehcleanup305
 
 cleanup304:                                       ; preds = %if.end272, %invoke.cont40
-  %retval.0 = phi i1 [ true, %invoke.cont40 ], [ %ret.2.in, %if.end272 ]
+  %retval.0 = phi i1 [ true, %invoke.cont40 ], [ %ret.1.in, %if.end272 ]
   %111 = load ptr, ptr %expn, align 8
   %bf.load.i.i1194 = load i64, ptr %111, align 8
   %112 = and i64 %bf.load.i.i1194, 1152920405095219200

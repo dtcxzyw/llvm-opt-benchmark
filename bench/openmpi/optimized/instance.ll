@@ -2996,7 +2996,7 @@ ompi_instance_group_shared.exit:                  ; preds = %93, %107, %110, %12
   br i1 %210, label %198, label %._crit_edge58.i, !llvm.loop !25
 
 ._crit_edge58.i:                                  ; preds = %204, %.preheader.i32
-  %.1.lcssa.i = phi i32 [ 0, %.preheader.i32 ], [ %200, %204 ]
+  %.4.lcssa.i = phi i32 [ 0, %.preheader.i32 ], [ %200, %204 ]
   %211 = load ptr, ptr @ompi_proc_local_proc, align 8
   call void @ompi_set_group_rank(ptr noundef nonnull %193, ptr noundef %211) #13
   %212 = getelementptr inbounds i8, ptr %193, i64 72
@@ -3005,13 +3005,13 @@ ompi_instance_group_shared.exit:                  ; preds = %93, %107, %110, %12
   br label %.thread48.i
 
 .thread48.i:                                      ; preds = %179, %._crit_edge58.i, %185, %.preheader52.i
-  %.3.i = phi i32 [ %.1.lcssa.i, %._crit_edge58.i ], [ -2, %185 ], [ -13, %.preheader52.i ], [ -13, %179 ]
+  %.3.i = phi i32 [ %.4.lcssa.i, %._crit_edge58.i ], [ -2, %185 ], [ -13, %.preheader52.i ], [ -13, %179 ]
   %213 = load ptr, ptr %7, align 8
   call void @PMIx_Info_destruct(ptr noundef %213) #13
   br label %ompi_instance_group_pmix_pset.exit
 
 ompi_instance_group_pmix_pset.exit:               ; preds = %172, %.thread.i30, %.thread48.i
-  %.4.i = phi i32 [ %.3.i, %.thread48.i ], [ -43, %172 ], [ %.047.i, %.thread.i30 ]
+  %.1.i = phi i32 [ %.3.i, %.thread48.i ], [ -43, %172 ], [ %.047.i, %.thread.i30 ]
   call void @PMIx_Query_destruct(ptr noundef nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
@@ -3023,7 +3023,7 @@ ompi_instance_group_pmix_pset.exit:               ; preds = %172, %.thread.i30, 
   br label %ompi_instance_group_world.exit
 
 ompi_instance_group_world.exit:                   ; preds = %._crit_edge.i, %24, %3, %ompi_instance_group_pmix_pset.exit, %ompi_instance_group_shared.exit, %ompi_instance_group_self.exit
-  %.0 = phi i32 [ %.0.i19, %ompi_instance_group_self.exit ], [ %.0.i28, %ompi_instance_group_shared.exit ], [ %.4.i, %ompi_instance_group_pmix_pset.exit ], [ -5, %3 ], [ 0, %._crit_edge.i ], [ -2, %24 ]
+  %.0 = phi i32 [ %.0.i19, %ompi_instance_group_self.exit ], [ %.0.i28, %ompi_instance_group_shared.exit ], [ %.1.i, %ompi_instance_group_pmix_pset.exit ], [ -5, %3 ], [ 0, %._crit_edge.i ], [ -2, %24 ]
   ret i32 %.0
 }
 
@@ -3138,7 +3138,7 @@ define i32 @ompi_instance_get_pset_info(ptr nocapture noundef readnone %0, ptr n
   br i1 %60, label %39, label %.thread23, !llvm.loop !26
 
 .thread23:                                        ; preds = %44, %36
-  %.018.ph = phi i64 [ 0, %36 ], [ %56, %44 ]
+  %.1.ph = phi i64 [ 0, %36 ], [ %56, %44 ]
   call void @llvm.lifetime.end.p0(i64 260, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -3155,8 +3155,8 @@ define i32 @ompi_instance_get_pset_info(ptr nocapture noundef readnone %0, ptr n
   br i1 %63, label %.thread, label %71
 
 .thread:                                          ; preds = %22, %28, %32, %19, %.thread23, %61
-  %.121 = phi i64 [ 0, %61 ], [ %.018.ph, %.thread23 ], [ 0, %28 ], [ %35, %32 ], [ %21, %19 ], [ %spec.select, %22 ]
-  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 16, ptr noundef nonnull @.str.15, i64 noundef %.121) #13
+  %.01821 = phi i64 [ 0, %61 ], [ %.1.ph, %.thread23 ], [ 0, %28 ], [ %35, %32 ], [ %21, %19 ], [ %spec.select, %22 ]
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 16, ptr noundef nonnull @.str.15, i64 noundef %.01821) #13
   %65 = load ptr, ptr %8, align 8
   %66 = call i32 @opal_info_set(ptr noundef %65, ptr noundef nonnull @.str.16, ptr noundef nonnull %9) #13
   %.not = icmp eq i32 %66, 0

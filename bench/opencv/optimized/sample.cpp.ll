@@ -1400,7 +1400,7 @@ _ZN2cv3PtrINS_6stereo14StereoBinaryBMEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_6ster
   br label %532
 
 531:                                              ; preds = %195, %528
-  %.021 = phi i32 [ 0, %528 ], [ 1, %195 ]
+  %.122 = phi i32 [ 0, %528 ], [ 1, %195 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #7
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #7
   br label %533
@@ -1412,10 +1412,10 @@ _ZN2cv3PtrINS_6stereo14StereoBinaryBMEED2Ev.exit: ; preds = %_ZN2cv3PtrINS_6ster
   br label %.body
 
 533:                                              ; preds = %182, %531
-  %.122 = phi i32 [ %.021, %531 ], [ 1, %182 ]
+  %.021 = phi i32 [ %.122, %531 ], [ 1, %182 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #7
-  ret i32 %.122
+  ret i32 %.021
 
 .body:                                            ; preds = %.body.i, %104, %532
   %.pn43.pn = phi { ptr, i32 } [ %.pn43, %532 ], [ %.pn79.i, %.body.i ], [ %.pn.i, %104 ]

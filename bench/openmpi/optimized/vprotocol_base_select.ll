@@ -85,9 +85,9 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
   %21 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %18, %.lr.ph ]
   %.04279 = phi ptr [ %.042, %.lr.ph.splitthread-pre-split ], [ %.04274, %.lr.ph ]
-  %.078 = phi ptr [ %.2, %.lr.ph.splitthread-pre-split ], [ null, %.lr.ph ]
-  %.03977 = phi ptr [ %.241, %.lr.ph.splitthread-pre-split ], [ null, %.lr.ph ]
-  %.04476 = phi i32 [ %.246, %.lr.ph.splitthread-pre-split ], [ -1, %.lr.ph ]
+  %.078 = phi ptr [ %.1, %.lr.ph.splitthread-pre-split ], [ null, %.lr.ph ]
+  %.03977 = phi ptr [ %.140, %.lr.ph.splitthread-pre-split ], [ null, %.lr.ph ]
+  %.04476 = phi i32 [ %.145, %.lr.ph.splitthread-pre-split ], [ -1, %.lr.ph ]
   %22 = getelementptr inbounds i8, ptr %.04279, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %21, null
@@ -113,9 +113,9 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %8
 35:                                               ; preds = %32
   %36 = load i32, ptr %3, align 4
   %37 = icmp sgt i32 %36, %.04476
-  %.145 = call i32 @llvm.smax.i32(i32 %36, i32 %.04476)
-  %.140 = select i1 %37, ptr %23, ptr %.03977
-  %.1 = select i1 %37, ptr %33, ptr %.078
+  %.246 = call i32 @llvm.smax.i32(i32 %36, i32 %.04476)
+  %.241 = select i1 %37, ptr %23, ptr %.03977
+  %.2 = select i1 %37, ptr %33, ptr %.078
   %38 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #9
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.loopexit, label %40
@@ -166,26 +166,26 @@ opal_obj_run_constructors.exit65:                 ; preds = %.lr.ph.i62, %44
   br label %59
 
 59:                                               ; preds = %32, %28, %25, %.lr.ph.split, %opal_obj_run_constructors.exit65
-  %.246 = phi i32 [ %.04476, %.lr.ph.split ], [ %.145, %opal_obj_run_constructors.exit65 ], [ %.04476, %25 ], [ %.04476, %28 ], [ %.04476, %32 ]
-  %.241 = phi ptr [ %.03977, %.lr.ph.split ], [ %.140, %opal_obj_run_constructors.exit65 ], [ %.03977, %25 ], [ %.03977, %28 ], [ %.03977, %32 ]
-  %.2 = phi ptr [ %.078, %.lr.ph.split ], [ %.1, %opal_obj_run_constructors.exit65 ], [ %.078, %25 ], [ %.078, %28 ], [ %.078, %32 ]
+  %.145 = phi i32 [ %.04476, %.lr.ph.split ], [ %.246, %opal_obj_run_constructors.exit65 ], [ %.04476, %25 ], [ %.04476, %28 ], [ %.04476, %32 ]
+  %.140 = phi ptr [ %.03977, %.lr.ph.split ], [ %.241, %opal_obj_run_constructors.exit65 ], [ %.03977, %25 ], [ %.03977, %28 ], [ %.03977, %32 ]
+  %.1 = phi ptr [ %.078, %.lr.ph.split ], [ %.2, %opal_obj_run_constructors.exit65 ], [ %.078, %25 ], [ %.078, %28 ], [ %.078, %32 ]
   %60 = getelementptr inbounds i8, ptr %.04279, i64 16
   %.042 = load volatile ptr, ptr %60, align 8
   %.not54 = icmp eq ptr %.042, getelementptr inbounds (i8, ptr @ompi_vprotocol_base_framework, i64 96)
   br i1 %.not54, label %._crit_edge, label %.lr.ph.splitthread-pre-split, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %59
-  %61 = icmp eq ptr %.241, null
+  %61 = icmp eq ptr %.140, null
   br i1 %61, label %._crit_edge.thread, label %62
 
 62:                                               ; preds = %._crit_edge
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) @mca_vprotocol_component, ptr noundef nonnull align 8 dereferenceable(280) %.241, i64 280, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) @mca_vprotocol, ptr noundef nonnull align 8 dereferenceable(208) %.2, i64 208, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) @mca_vprotocol_component, ptr noundef nonnull align 8 dereferenceable(280) %.140, i64 280, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) @mca_vprotocol, ptr noundef nonnull align 8 dereferenceable(208) %.1, i64 208, i1 false)
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %opal_obj_run_constructors.exit, %._crit_edge, %62
   %spec.select = phi i32 [ -13, %._crit_edge ], [ 0, %62 ], [ -13, %opal_obj_run_constructors.exit ], [ -13, %.lr.ph.split.us ]
-  %.039.lcssa89 = phi ptr [ null, %._crit_edge ], [ %.241, %62 ], [ null, %opal_obj_run_constructors.exit ], [ null, %.lr.ph.split.us ]
+  %.039.lcssa89 = phi ptr [ null, %._crit_edge ], [ %.140, %62 ], [ null, %opal_obj_run_constructors.exit ], [ null, %.lr.ph.split.us ]
   %63 = getelementptr inbounds i8, ptr %4, i64 56
   %64 = load volatile i64, ptr %63, align 8
   %65 = icmp eq i64 %64, 0

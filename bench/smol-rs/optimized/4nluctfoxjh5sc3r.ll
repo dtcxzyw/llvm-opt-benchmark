@@ -775,7 +775,7 @@ default.unreachable:                              ; preds = %311, %1
 
 79:                                               ; preds = %75, %52
   %80 = phi ptr [ %55, %52 ], [ %72, %75 ]
-  %.015.i.i.ph.i.i.i.i.i = phi ptr [ %53, %52 ], [ %76, %75 ]
+  %.1.i.i.ph.i.i.i.i.i = phi ptr [ %53, %52 ], [ %76, %75 ]
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2), !noalias !155
   %81 = load i64, ptr %80, align 8, !range !158, !noalias !155, !noundef !7
   %82 = icmp eq i64 %81, 2
@@ -816,7 +816,7 @@ default.unreachable:                              ; preds = %311, %1
   %92 = load ptr, ptr %34, align 8, !noalias !155, !nonnull !7, !align !30, !noundef !7
   store ptr %92, ptr %80, align 8, !noalias !155
   %.sroa.649.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 184
-  store ptr %.015.i.i.ph.i.i.i.i.i, ptr %.sroa.649.0..sroa_idx.i.i.i.i.i, align 8, !noalias !155
+  store ptr %.1.i.i.ph.i.i.i.i.i, ptr %.sroa.649.0..sroa_idx.i.i.i.i.i, align 8, !noalias !155
   %.sroa.750.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.750.0..sroa_idx.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.750.i.i.i.i.i, i64 16, i1 false), !noalias !155
   %.sroa.8.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %.val, i64 208
@@ -865,7 +865,7 @@ default.unreachable:                              ; preds = %311, %1
   unreachable
 
 100:                                              ; preds = %._crit_edge71.i.i.i.i, %.thread114.i.i.i.i.i
-  %101 = phi ptr [ %.015.i.i.ph.i.i.i.i.i, %.thread114.i.i.i.i.i ], [ %.pre72.i.i.i.i, %._crit_edge71.i.i.i.i ]
+  %101 = phi ptr [ %.1.i.i.ph.i.i.i.i.i, %.thread114.i.i.i.i.i ], [ %.pre72.i.i.i.i, %._crit_edge71.i.i.i.i ]
   %102 = phi ptr [ %.sroa.8.0..sroa_idx.i.i.i.i.i, %.thread114.i.i.i.i.i ], [ %.phi.trans.insert109.i.i.i.i.i, %._crit_edge71.i.i.i.i ]
   %103 = phi ptr [ %93, %.thread114.i.i.i.i.i ], [ %98, %._crit_edge71.i.i.i.i ]
   %104 = getelementptr inbounds i8, ptr %.val, i64 192

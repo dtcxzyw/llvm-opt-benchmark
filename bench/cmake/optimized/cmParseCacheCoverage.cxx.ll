@@ -319,9 +319,9 @@ define dso_local noundef zeroext i1 @_ZN20cmParseCacheCoverage16LoadCoverageData
   br label %69
 
 .loopexit:                                        ; preds = %64, %.preheader, %.critedge23, %11
-  %.4 = phi i1 [ false, %11 ], [ false, %.critedge23 ], [ true, %.preheader ], [ true, %64 ]
+  %.012 = phi i1 [ false, %11 ], [ false, %.critedge23 ], [ true, %.preheader ], [ true, %64 ]
   call void @_ZN5cmsys9DirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
-  ret i1 %.4
+  ret i1 %.012
 
 69:                                               ; preds = %.loopexit27, %.loopexit.split-lp, %68, %.body
   %.pn.pn = phi { ptr, i32 } [ %.pn, %68 ], [ %eh.lpad-body, %.body ], [ %lpad.loopexit, %.loopexit27 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -1156,7 +1156,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %307, %_ZNSt6vectorI
   br label %.backedge.backedge
 
 .loopexit91:                                      ; preds = %131, %216
-  %.0 = xor i1 %130, true
+  %.2 = xor i1 %130, true
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #17
   %339 = load ptr, ptr %9, align 16
@@ -1196,7 +1196,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %345
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit76: ; preds = %343, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i74, %70
-  %.1 = phi i1 [ false, %70 ], [ %.0, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i74 ], [ %.0, %343 ]
+  %.1 = phi i1 [ false, %70 ], [ %.2, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i74 ], [ %.2, %343 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   br label %346
 
@@ -1206,9 +1206,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %347
 
 346:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit76, %43
-  %.2 = phi i1 [ false, %43 ], [ %.1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit76 ]
+  %.0 = phi i1 [ false, %43 ], [ %.1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit76 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #17
-  ret i1 %.2
+  ret i1 %.0
 
 347:                                              ; preds = %345, %50, %44
   %.pn62.pn = phi { ptr, i32 } [ %.pn62, %50 ], [ %45, %44 ], [ %.pn57.pn.pn.pn, %345 ]

@@ -349,7 +349,7 @@ define range(i32 -1, 1) i32 @H5T__conv_struct(ptr noundef %0, ptr noundef %1, pt
 
 .lr.ph212:                                        ; preds = %.lr.ph212.preheader, %245
   %indvars.iv231 = phi i64 [ %187, %.lr.ph212.preheader ], [ %indvars.iv.next232, %245 ]
-  %.2177209 = phi i64 [ %.1176, %.lr.ph212.preheader ], [ %.4, %245 ]
+  %.2177209 = phi i64 [ %.1176, %.lr.ph212.preheader ], [ %.3, %245 ]
   %indvars.iv.next232 = add nsw i64 %indvars.iv231, -1
   %188 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv.next232
   %189 = load i32, ptr %188, align 4
@@ -420,16 +420,16 @@ define range(i32 -1, 1) i32 @H5T__conv_struct(ptr noundef %0, ptr noundef %1, pt
 
 239:                                              ; preds = %._crit_edge236, %237
   %240 = phi i64 [ %.pre, %._crit_edge236 ], [ %201, %237 ]
-  %.3 = phi i64 [ %215, %._crit_edge236 ], [ %238, %237 ]
+  %.4 = phi i64 [ %215, %._crit_edge236 ], [ %238, %237 ]
   %241 = getelementptr inbounds i8, ptr %199, i64 8
   %242 = load i64, ptr %241, align 8
   %243 = getelementptr inbounds i8, ptr %.1167215, i64 %242
-  %244 = getelementptr inbounds i8, ptr %.1216, i64 %.3
+  %244 = getelementptr inbounds i8, ptr %.1216, i64 %.4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %243, ptr align 1 %244, i64 %240, i1 false)
   br label %245
 
 245:                                              ; preds = %.lr.ph212, %239
-  %.4 = phi i64 [ %.2177209, %.lr.ph212 ], [ %.3, %239 ]
+  %.3 = phi i64 [ %.2177209, %.lr.ph212 ], [ %.4, %239 ]
   %246 = icmp ugt i64 %indvars.iv231, 1
   br i1 %246, label %.lr.ph212, label %._crit_edge213
 
@@ -1098,7 +1098,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_struct_free(ptr noundef %
 
 27:                                               ; preds = %23, %20
   %.sink = phi ptr [ %24, %23 ], [ %22, %20 ]
-  %.3 = phi i32 [ %spec.select50, %23 ], [ %spec.select, %20 ]
+  %.2 = phi i32 [ %spec.select50, %23 ], [ %spec.select, %20 ]
   store ptr null, ptr %.sink, align 8
   %28 = load i32, ptr %13, align 4
   %29 = sext i32 %28 to i64
@@ -1110,7 +1110,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_struct_free(ptr noundef %
 33:                                               ; preds = %27
   %34 = tail call i32 @H5I_dec_ref(i64 noundef %31) #7
   %.inv55 = icmp sgt i32 %34, -1
-  %spec.select51 = select i1 %.inv55, i32 %.3, i32 -1
+  %spec.select51 = select i1 %.inv55, i32 %.2, i32 -1
   %35 = load i32, ptr %13, align 4
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i64, ptr %10, i64 %36
@@ -1122,7 +1122,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__conv_struct_free(ptr noundef %
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 @H5T_close(ptr noundef %40) #7
   %.inv54 = icmp sgt i32 %41, -1
-  %spec.select52 = select i1 %.inv54, i32 %.3, i32 -1
+  %spec.select52 = select i1 %.inv54, i32 %.2, i32 -1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %33, %38

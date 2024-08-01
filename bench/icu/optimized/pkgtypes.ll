@@ -24,7 +24,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br i1 %cmp2, label %while.body.us, label %while.body.lr.ph.split
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %if.end76.us
-  %ln.021.us = phi i32 [ %ln.3.us, %if.end76.us ], [ 0, %while.body.lr.ph ]
+  %ln.021.us = phi i32 [ %ln.2.us, %if.end76.us ], [ 0, %while.body.lr.ph ]
   %l.addr.020.us = phi ptr [ %5, %if.end76.us ], [ %l, %while.body.lr.ph ]
   %0 = load ptr, ptr %l.addr.020.us, align 8
   %tobool.not.us = icmp eq ptr %0, null
@@ -83,7 +83,7 @@ if.then68.us:                                     ; preds = %if.then63.us
   br label %if.end72.us
 
 if.end72.us:                                      ; preds = %if.then68.us, %if.then63.us
-  %ln.2.us = phi i32 [ 0, %if.then68.us ], [ %ln.1.us, %if.then63.us ]
+  %ln.3.us = phi i32 [ 0, %if.then68.us ], [ %ln.1.us, %if.then63.us ]
   %call73.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %delim) #11
   %conv74.us = trunc i64 %call73.us to i32
   %call75.us = call i32 @T_FileStream_write(ptr noundef %s, ptr noundef nonnull %delim, i32 noundef %conv74.us) #10
@@ -92,7 +92,7 @@ if.end72.us:                                      ; preds = %if.then68.us, %if.t
 
 if.end76.us:                                      ; preds = %if.end72.us, %if.end60.us
   %5 = phi ptr [ %.pre82, %if.end72.us ], [ %4, %if.end60.us ]
-  %ln.3.us = phi i32 [ %ln.2.us, %if.end72.us ], [ %ln.1.us, %if.end60.us ]
+  %ln.2.us = phi i32 [ %ln.3.us, %if.end72.us ], [ %ln.1.us, %if.end60.us ]
   %cmp.not.us = icmp eq ptr %5, null
   br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !5
 
@@ -101,7 +101,7 @@ while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
   br i1 %cmp23.not, label %while.body.us22, label %while.body.lr.ph.split.split
 
 while.body.us22:                                  ; preds = %while.body.lr.ph.split, %if.end76.us52
-  %ln.021.us23 = phi i32 [ %ln.3.us53, %if.end76.us52 ], [ 0, %while.body.lr.ph.split ]
+  %ln.021.us23 = phi i32 [ %ln.2.us53, %if.end76.us52 ], [ 0, %while.body.lr.ph.split ]
   %l.addr.020.us24 = phi ptr [ %9, %if.end76.us52 ], [ %l, %while.body.lr.ph.split ]
   %6 = load ptr, ptr %l.addr.020.us24, align 8
   %tobool.not.us25 = icmp eq ptr %6, null
@@ -139,7 +139,7 @@ if.then68.us43:                                   ; preds = %if.then63.us40
   br label %if.end72.us47
 
 if.end72.us47:                                    ; preds = %if.then68.us43, %if.then63.us40
-  %ln.2.us48 = phi i32 [ 0, %if.then68.us43 ], [ %ln.1.us36, %if.then63.us40 ]
+  %ln.3.us48 = phi i32 [ 0, %if.then68.us43 ], [ %ln.1.us36, %if.then63.us40 ]
   %call73.us49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %delim) #11
   %conv74.us50 = trunc i64 %call73.us49 to i32
   %call75.us51 = call i32 @T_FileStream_write(ptr noundef %s, ptr noundef nonnull %delim, i32 noundef %conv74.us50) #10
@@ -148,7 +148,7 @@ if.end72.us47:                                    ; preds = %if.then68.us43, %if
 
 if.end76.us52:                                    ; preds = %if.end72.us47, %if.end60.us35
   %9 = phi ptr [ %.pre81, %if.end72.us47 ], [ %8, %if.end60.us35 ]
-  %ln.3.us53 = phi i32 [ %ln.2.us48, %if.end72.us47 ], [ %ln.1.us36, %if.end60.us35 ]
+  %ln.2.us53 = phi i32 [ %ln.3.us48, %if.end72.us47 ], [ %ln.1.us36, %if.end60.us35 ]
   %cmp.not.us54 = icmp eq ptr %9, null
   br i1 %cmp.not.us54, label %while.end, label %while.body.us22, !llvm.loop !5
 
@@ -204,7 +204,7 @@ if.end60.us68:                                    ; preds = %if.end51.us61, %whi
   br i1 %cmp.not.us75, label %while.end, label %while.body.us55, !llvm.loop !5
 
 while.body:                                       ; preds = %while.body.lr.ph.split.split, %if.end76
-  %ln.021 = phi i32 [ %ln.2, %if.end76 ], [ 0, %while.body.lr.ph.split.split ]
+  %ln.021 = phi i32 [ %ln.3, %if.end76 ], [ 0, %while.body.lr.ph.split.split ]
   %l.addr.020 = phi ptr [ %.pre80, %if.end76 ], [ %l, %while.body.lr.ph.split.split ]
   %18 = load ptr, ptr %l.addr.020, align 8
   %tobool.not = icmp eq ptr %18, null
@@ -269,7 +269,7 @@ if.then68:                                        ; preds = %if.then63
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then63, %if.then68
-  %ln.2 = phi i32 [ 0, %if.then68 ], [ %ln.1, %if.then63 ]
+  %ln.3 = phi i32 [ 0, %if.then68 ], [ %ln.1, %if.then63 ]
   %call73 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %delim) #11
   %conv74 = trunc i64 %call73 to i32
   %call75 = call i32 @T_FileStream_write(ptr noundef %s, ptr noundef nonnull %delim, i32 noundef %conv74) #10
@@ -620,7 +620,7 @@ while.end.else:                                   ; preds = %while.end
   br label %if.end5
 
 if.end5:                                          ; preds = %while.end.else, %while.end, %entry.cont
-  %endptr.1 = phi ptr [ null, %entry.cont ], [ null, %while.end.else ], [ %tmp.0, %while.end ]
+  %endptr.0 = phi ptr [ null, %entry.cont ], [ null, %while.end.else ], [ %tmp.0, %while.end ]
   %cmp6 = icmp eq ptr %l, null
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #14
   %cmp.i = icmp eq ptr %call.i, null
@@ -650,7 +650,7 @@ pkg_prependToList.exit20.else:                    ; preds = %pkg_prependToList.e
   br label %if.end10.sink.split
 
 if.end10.sink.split:                              ; preds = %pkg_prependToList.exit20.else, %pkg_prependToList.exit20, %if.end.i
-  %call.i.sink = phi ptr [ %call.i, %if.end.i ], [ %endptr.1, %pkg_prependToList.exit20 ], [ %.else.val, %pkg_prependToList.exit20.else ]
+  %call.i.sink = phi ptr [ %call.i, %if.end.i ], [ %endptr.0, %pkg_prependToList.exit20 ], [ %.else.val, %pkg_prependToList.exit20.else ]
   %.sink = phi ptr [ null, %if.end.i ], [ %call.i, %pkg_prependToList.exit20 ], [ %call.i, %pkg_prependToList.exit20.else ]
   %l.addr.0.ph = phi ptr [ %call.i, %if.end.i ], [ %l, %pkg_prependToList.exit20 ], [ %l, %pkg_prependToList.exit20.else ]
   %next.i = getelementptr inbounds i8, ptr %call.i.sink, i64 8
@@ -666,7 +666,7 @@ if.end10.else:                                    ; preds = %if.end10
   br label %if.end10.cont
 
 if.end10.cont:                                    ; preds = %if.end10, %if.end10.else
-  %2 = phi ptr [ %endptr.1, %if.end10 ], [ %.else.val22, %if.end10.else ]
+  %2 = phi ptr [ %endptr.0, %if.end10 ], [ %.else.val22, %if.end10.else ]
   %tobool11.not = icmp eq ptr %2, null
   br i1 %tobool11.not, label %if.end15, label %if.then12
 
@@ -791,7 +791,7 @@ while.end.else.i:                                 ; preds = %while.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %while.end.else.i, %while.end.i, %entry.cont.i
-  %endptr.1.i = phi ptr [ null, %entry.cont.i ], [ null, %while.end.else.i ], [ %tmp.0.i, %while.end.i ]
+  %endptr.0.i = phi ptr [ null, %entry.cont.i ], [ null, %while.end.else.i ], [ %tmp.0.i, %while.end.i ]
   %call.i.i = call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #14
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not3.i13, label %if.then7.i, label %if.else.i
@@ -820,7 +820,7 @@ pkg_prependToList.exit20.else.i:                  ; preds = %pkg_prependToList.e
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %pkg_prependToList.exit20.else.i, %pkg_prependToList.exit20.i, %if.end.i.i
-  %call.i.sink.i = phi ptr [ %call.i.i, %if.end.i.i ], [ %endptr.1.i, %pkg_prependToList.exit20.i ], [ %.else.val.i, %pkg_prependToList.exit20.else.i ]
+  %call.i.sink.i = phi ptr [ %call.i.i, %if.end.i.i ], [ %endptr.0.i, %pkg_prependToList.exit20.i ], [ %.else.val.i, %pkg_prependToList.exit20.else.i ]
   %.sink.i = phi ptr [ null, %if.end.i.i ], [ %call.i.i, %pkg_prependToList.exit20.i ], [ %call.i.i, %pkg_prependToList.exit20.else.i ]
   %l.addr.0.ph.i = phi ptr [ %call.i.i, %if.end.i.i ], [ %l, %pkg_prependToList.exit20.i ], [ %l, %pkg_prependToList.exit20.else.i ]
   %next.i.i = getelementptr inbounds i8, ptr %call.i.sink.i, i64 8
@@ -836,7 +836,7 @@ if.end10.else.i:                                  ; preds = %if.end10.i
   br label %if.end10.cont.i
 
 if.end10.cont.i:                                  ; preds = %if.end10.else.i, %if.end10.i
-  %5 = phi ptr [ %endptr.1.i, %if.end10.i ], [ %.else.val22.i, %if.end10.else.i ]
+  %5 = phi ptr [ %endptr.0.i, %if.end10.i ], [ %.else.val22.i, %if.end10.else.i ]
   %tobool11.not.i = icmp eq ptr %5, null
   br i1 %tobool11.not.i, label %if.end15.i, label %if.then12.i
 

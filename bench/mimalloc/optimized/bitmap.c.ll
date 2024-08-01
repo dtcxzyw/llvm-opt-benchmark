@@ -1012,9 +1012,9 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %23, label %while.cond27.i, label %do.body.i, !llvm.loop !10
 
 while.cond27.i:                                   ; preds = %do.cond.i, %while.body30.i
-  %field.1.i = phi ptr [ %incdec.ptr28.i, %while.body30.i ], [ %arrayidx.i17, %do.cond.i ]
-  %incdec.ptr28.i = getelementptr inbounds i8, ptr %field.1.i, i64 8
-  %cmp29.i = icmp ult ptr %field.1.i, %field.0100.i
+  %field.2.i = phi ptr [ %incdec.ptr28.i, %while.body30.i ], [ %arrayidx.i17, %do.cond.i ]
+  %incdec.ptr28.i = getelementptr inbounds i8, ptr %field.2.i, i64 8
+  %cmp29.i = icmp ult ptr %field.2.i, %field.0100.i
   br i1 %cmp29.i, label %while.body30.i, label %while.end39.i
 
 while.body30.i:                                   ; preds = %while.cond27.i
@@ -1040,8 +1040,8 @@ do.cond47.i:                                      ; preds = %do.body41.i
   br i1 %29, label %mi_bitmap_try_find_claim_field_across.exit, label %do.body41.i, !llvm.loop !12
 
 rollback.i:                                       ; preds = %do.body.i, %while.body30.i, %do.body41.i
-  %field.2.i = phi ptr [ %incdec.ptr28.i, %do.body41.i ], [ %incdec.ptr28.i, %while.body30.i ], [ %arrayidx.i17, %do.body.i ]
-  %incdec.ptr58102.i = getelementptr inbounds i8, ptr %field.2.i, i64 -8
+  %field.1.i = phi ptr [ %incdec.ptr28.i, %do.body41.i ], [ %incdec.ptr28.i, %while.body30.i ], [ %arrayidx.i17, %do.body.i ]
+  %incdec.ptr58102.i = getelementptr inbounds i8, ptr %field.1.i, i64 -8
   %cmp59103.i = icmp ugt ptr %incdec.ptr58102.i, %arrayidx.i17
   br i1 %cmp59103.i, label %while.body60.i, label %while.end62.i
 
@@ -1268,7 +1268,7 @@ if.then19:                                        ; preds = %while.end
 
 if.end30:                                         ; preds = %while.end.thread, %if.then19, %while.end
   %any_zero.3 = phi i8 [ %any_zero.1.lcssa, %while.end ], [ %spec.select12, %if.then19 ], [ %any_zero.036, %while.end.thread ]
-  %all_zero.4 = phi i1 [ %all_zero.1.lcssa, %while.end ], [ %spec.select11, %if.then19 ], [ %cmp.not34, %while.end.thread ]
+  %all_zero.3 = phi i1 [ %all_zero.1.lcssa, %while.end ], [ %spec.select11, %if.then19 ], [ %cmp.not34, %while.end.thread ]
   %cmp31.not = icmp eq ptr %pany_zero, null
   br i1 %cmp31.not, label %if.end33, label %if.then32
 
@@ -1278,7 +1278,7 @@ if.then32:                                        ; preds = %if.end30
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then32, %if.end30
-  ret i1 %all_zero.4
+  ret i1 %all_zero.3
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
@@ -1360,8 +1360,8 @@ if.then18.i:                                      ; preds = %while.end.i
   br label %mi_bitmap_is_claimedx_across.exit
 
 mi_bitmap_is_claimedx_across.exit:                ; preds = %while.end.thread.i, %while.end.i, %if.then18.i
-  %all_ones.4.i = phi i1 [ %all_ones.1.lcssa.i, %while.end.i ], [ %spec.select11.i, %if.then18.i ], [ %cmp.not32.i, %while.end.thread.i ]
-  ret i1 %all_ones.4.i
+  %all_ones.3.i = phi i1 [ %all_ones.1.lcssa.i, %while.end.i ], [ %spec.select11.i, %if.then18.i ], [ %cmp.not32.i, %while.end.thread.i ]
+  ret i1 %all_ones.3.i
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable

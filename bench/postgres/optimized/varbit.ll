@@ -317,21 +317,21 @@ define dso_local i64 @bit_out(ptr nocapture noundef readonly %0) local_unnamed_a
   br label %27
 
 27:                                               ; preds = %27, %25
-  %.246.i = phi ptr [ %.0.lcssa.i, %25 ], [ %29, %27 ]
+  %.346.i = phi ptr [ %.0.lcssa.i, %25 ], [ %29, %27 ]
   %.12745.i = phi i32 [ %.028.lcssa.i, %25 ], [ %31, %27 ]
   %.13044.i = phi i8 [ %26, %25 ], [ %30, %27 ]
   %.not33.i = icmp sgt i8 %.13044.i, -1
   %28 = select i1 %.not33.i, i8 48, i8 49
-  %29 = getelementptr i8, ptr %.246.i, i64 1
-  store i8 %28, ptr %.246.i, align 1
+  %29 = getelementptr i8, ptr %.346.i, i64 1
+  store i8 %28, ptr %.346.i, align 1
   %30 = shl i8 %.13044.i, 1
   %31 = add nuw nsw i32 %.12745.i, 1
   %exitcond50.not.i = icmp eq i32 %31, %7
   br i1 %exitcond50.not.i, label %varbit_out.exit, label %27, !llvm.loop !10
 
 varbit_out.exit:                                  ; preds = %27, %._crit_edge.i
-  %.3.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i ], [ %29, %27 ]
-  store i8 0, ptr %.3.i, align 1
+  %.2.i = phi ptr [ %.0.lcssa.i, %._crit_edge.i ], [ %29, %27 ]
+  store i8 0, ptr %.2.i, align 1
   %32 = ptrtoint ptr %10 to i64
   ret i64 %32
 }
@@ -390,21 +390,21 @@ define dso_local i64 @varbit_out(ptr nocapture noundef readonly %0) local_unname
   br label %25
 
 25:                                               ; preds = %23, %25
-  %.246 = phi ptr [ %.0.lcssa, %23 ], [ %27, %25 ]
+  %.346 = phi ptr [ %.0.lcssa, %23 ], [ %27, %25 ]
   %.12745 = phi i32 [ %.028.lcssa, %23 ], [ %29, %25 ]
   %.13044 = phi i8 [ %24, %23 ], [ %28, %25 ]
   %.not33 = icmp sgt i8 %.13044, -1
   %26 = select i1 %.not33, i8 48, i8 49
-  %27 = getelementptr i8, ptr %.246, i64 1
-  store i8 %26, ptr %.246, align 1
+  %27 = getelementptr i8, ptr %.346, i64 1
+  store i8 %26, ptr %.346, align 1
   %28 = shl i8 %.13044, 1
   %29 = add nuw nsw i32 %.12745, 1
   %exitcond50.not = icmp eq i32 %29, %7
   br i1 %exitcond50.not, label %.loopexit, label %25, !llvm.loop !10
 
 .loopexit:                                        ; preds = %25, %._crit_edge
-  %.3 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %27, %25 ]
-  store i8 0, ptr %.3, align 1
+  %.2 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %27, %25 ]
+  store i8 0, ptr %.2, align 1
   %30 = ptrtoint ptr %10 to i64
   ret i64 %30
 }

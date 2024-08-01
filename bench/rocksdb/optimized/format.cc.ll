@@ -1440,7 +1440,7 @@ if.then89:                                        ; preds = %if.end83
 
 if.end98:                                         ; preds = %if.end83, %if.then89
   %.pre = phi i32 [ %.pre.pre, %if.then89 ], [ %result.0.copyload.i47, %if.end83 ]
-  %computed_checksum.0 = phi i32 [ %call96, %if.then89 ], [ 0, %if.end83 ]
+  %computed_checksum.1 = phi i32 [ %call96, %if.then89 ], [ 0, %if.end83 ]
   %add.ptr.i76 = getelementptr inbounds i8, ptr %add.ptr.i62, i64 1
   %cmp100 = icmp ugt i32 %.pre, 5
   br i1 %cmp100, label %if.then101, label %if.else175
@@ -1519,7 +1519,7 @@ if.end134:                                        ; preds = %if.end122
   %conv.i3.i = trunc nuw i64 %shr.i.i to i32
   %add.i109 = add i32 %conv.i3.i, %conv.i.i
   %xor.i = xor i32 %result.0.copyload.i.i101, %add.i109
-  %add137 = add i32 %xor.i, %computed_checksum.0
+  %add137 = add i32 %xor.i, %computed_checksum.1
   %cmp138.not = icmp eq i32 %add137, %result.0.copyload.i.i
   br i1 %cmp138.not, label %_ZN7rocksdb10GetFixed32EPNS_5SliceEPj.exit127, label %if.then140
 
@@ -4779,8 +4779,8 @@ if.else:                                          ; preds = %entry
   br label %if.end5
 
 if.end5:                                          ; preds = %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread, %if.else
-  %input_length.addr.1 = phi i64 [ %input_length, %if.else ], [ %sub.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
-  %input_data.addr.1 = phi ptr [ %input_data, %if.else ], [ %retval.0.i9.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
+  %input_length.addr.0 = phi i64 [ %input_length, %if.else ], [ %sub.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
+  %input_data.addr.0 = phi ptr [ %input_data, %if.else ], [ %retval.0.i9.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %_stream, i8 0, i64 112, i1 false)
   %cmp6 = icmp sgt i32 %windowBits, 0
   %add7 = add nuw nsw i32 %windowBits, 32
@@ -4814,8 +4814,8 @@ if.then21:                                        ; preds = %if.then15
   br label %return
 
 if.end23:                                         ; preds = %if.then15, %if.end11
-  store ptr %input_data.addr.1, ptr %_stream, align 8
-  %conv24 = trunc i64 %input_length.addr.1 to i32
+  store ptr %input_data.addr.0, ptr %_stream, align 8
+  %conv24 = trunc i64 %input_length.addr.0 to i32
   %avail_in = getelementptr inbounds i8, ptr %_stream, i64 8
   store i32 %conv24, ptr %avail_in, align 8
   %4 = load i32, ptr %output_len, align 4
@@ -5096,8 +5096,8 @@ if.end4:                                          ; preds = %if.else
 
 if.end5:                                          ; preds = %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread, %if.end4
   %2 = phi i32 [ %1, %if.end4 ], [ %.pre, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
-  %input_data.addr.1 = phi ptr [ %add.ptr, %if.end4 ], [ %retval.0.i9.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
-  %input_length.addr.1 = phi i64 [ %sub, %if.end4 ], [ %sub.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
+  %input_data.addr.0 = phi ptr [ %add.ptr, %if.end4 ], [ %retval.0.i9.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
+  %input_length.addr.0 = phi i64 [ %sub, %if.end4 ], [ %sub.i, %_ZN7rocksdb11compression23GetDecompressedSizeInfoEPPKcPmPj.exit.thread ]
   %conv = zext i32 %2 to i64
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %tobool.not.i = icmp eq ptr %allocator, null
@@ -5146,9 +5146,9 @@ lpad:                                             ; preds = %invoke.cont19, %if.
   resume { ptr, i32 } %10
 
 if.end16:                                         ; preds = %if.then10, %invoke.cont
-  %conv18 = trunc i64 %input_length.addr.1 to i32
+  %conv18 = trunc i64 %input_length.addr.0 to i32
   %11 = load i32, ptr %output_len, align 4
-  %call20 = invoke i32 @LZ4_decompress_safe_continue(ptr noundef %call6, ptr noundef nonnull %input_data.addr.1, ptr noundef %5, i32 noundef %conv18, i32 noundef %11)
+  %call20 = invoke i32 @LZ4_decompress_safe_continue(ptr noundef %call6, ptr noundef nonnull %input_data.addr.0, ptr noundef %5, i32 noundef %conv18, i32 noundef %11)
           to label %invoke.cont19 unwind label %lpad
 
 invoke.cont19:                                    ; preds = %if.end16

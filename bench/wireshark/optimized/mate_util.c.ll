@@ -1397,9 +1397,9 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr nocapture no
 
 20:                                               ; preds = %.lr.ph, %73
   %21 = phi ptr [ %19, %.lr.ph ], [ %74, %73 ]
-  %.04082 = phi ptr [ null, %.lr.ph ], [ %.270, %73 ]
-  %.04281 = phi ptr [ %16, %.lr.ph ], [ %.24469, %73 ]
-  %.04580 = phi ptr [ %18, %.lr.ph ], [ %.14668, %73 ]
+  %.04082 = phi ptr [ null, %.lr.ph ], [ %.14170, %73 ]
+  %.04281 = phi ptr [ %16, %.lr.ph ], [ %.14369, %73 ]
+  %.04580 = phi ptr [ %18, %.lr.ph ], [ %.24768, %73 ]
   %22 = load ptr, ptr %.04580, align 8
   %.not52 = icmp eq ptr %22, null
   br i1 %.not52, label %.critedge, label %23
@@ -1470,15 +1470,15 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr nocapture no
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %.04281, i64 8
   %63 = load ptr, ptr %62, align 8
-  %.146.in89 = getelementptr inbounds i8, ptr %.04580, i64 8
-  %.14690 = load ptr, ptr %.146.in89, align 8
+  %.247.in89 = getelementptr inbounds i8, ptr %.04580, i64 8
+  %.24790 = load ptr, ptr %.247.in89, align 8
   br label %73
 
 64:                                               ; preds = %31, %23
   %65 = load ptr, ptr %.04580, align 8
   %66 = load ptr, ptr %65, align 8
-  %.146.in = getelementptr inbounds i8, ptr %.04580, i64 8
-  %.146 = load ptr, ptr %.146.in, align 8
+  %.247.in = getelementptr inbounds i8, ptr %.04580, i64 8
+  %.247 = load ptr, ptr %.247.in, align 8
   %.not55 = icmp eq ptr %66, null
   br i1 %.not55, label %73, label %67
 
@@ -1490,7 +1490,7 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr nocapture no
   br i1 %.not57, label %73, label %69
 
 69:                                               ; preds = %68
-  %70 = load ptr, ptr %.146, align 8
+  %70 = load ptr, ptr %.247, align 8
   %.not58 = icmp eq ptr %70, null
   br i1 %.not58, label %.critedge.thread, label %71
 
@@ -1500,15 +1500,15 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr nocapture no
   br i1 %.not59, label %73, label %.critedge.thread
 
 73:                                               ; preds = %.thread85, %.thread, %71, %68, %64
-  %.270 = phi ptr [ %.04082, %.thread ], [ %.04082, %71 ], [ %.04082, %68 ], [ %.04082, %64 ], [ %61, %.thread85 ]
-  %.24469 = phi ptr [ %30, %.thread ], [ %.04281, %71 ], [ %.04281, %68 ], [ %.04281, %64 ], [ %63, %.thread85 ]
-  %.14668 = phi ptr [ %.04580, %.thread ], [ %.146, %71 ], [ %.146, %68 ], [ %.146, %64 ], [ %.14690, %.thread85 ]
-  %74 = load ptr, ptr %.24469, align 8
+  %.14170 = phi ptr [ %.04082, %.thread ], [ %.04082, %71 ], [ %.04082, %68 ], [ %.04082, %64 ], [ %61, %.thread85 ]
+  %.14369 = phi ptr [ %30, %.thread ], [ %.04281, %71 ], [ %.04281, %68 ], [ %.04281, %64 ], [ %63, %.thread85 ]
+  %.24768 = phi ptr [ %.04580, %.thread ], [ %.247, %71 ], [ %.247, %68 ], [ %.247, %64 ], [ %.24790, %.thread85 ]
+  %74 = load ptr, ptr %.14369, align 8
   %.not = icmp eq ptr %74, null
   br i1 %.not, label %.critedge, label %20, !llvm.loop !17
 
 .critedge:                                        ; preds = %20, %73, %5
-  %.045.lcssa = phi ptr [ %18, %5 ], [ %.14668, %73 ], [ %.04580, %20 ]
+  %.045.lcssa = phi ptr [ %18, %5 ], [ %.24768, %73 ], [ %.04580, %20 ]
   %.not77 = icmp eq i32 %3, 0
   br i1 %.not77, label %select.unfold, label %75
 

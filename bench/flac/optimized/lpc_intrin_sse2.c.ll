@@ -1351,7 +1351,7 @@ if.end1054.loopexit863:                           ; preds = %for.body1034
   br label %if.end1054
 
 if.end1054:                                       ; preds = %if.end1054.loopexit863, %if.end1054.loopexit862, %if.end1054.loopexit861, %if.end1054.loopexit860, %if.end1054.loopexit859, %if.end1054.loopexit858, %if.end1054.loopexit857, %if.end1054.loopexit856, %if.end1054.loopexit855, %if.end1054.loopexit854, %if.end1054.loopexit853, %if.end1054.loopexit, %if.else1025, %if.then987, %if.else935, %if.then875, %if.else798, %if.then716, %if.else620, %if.then516, %if.else393, %if.then267, %if.else, %if.then6
-  %i.12 = phi i32 [ 0, %if.then6 ], [ 0, %if.else ], [ 0, %if.then267 ], [ 0, %if.else393 ], [ 0, %if.then516 ], [ 0, %if.else620 ], [ 0, %if.then716 ], [ 0, %if.else798 ], [ 0, %if.then875 ], [ 0, %if.else935 ], [ 0, %if.then987 ], [ 0, %if.else1025 ], [ %348, %if.end1054.loopexit ], [ %349, %if.end1054.loopexit853 ], [ %350, %if.end1054.loopexit854 ], [ %351, %if.end1054.loopexit855 ], [ %352, %if.end1054.loopexit856 ], [ %353, %if.end1054.loopexit857 ], [ %354, %if.end1054.loopexit858 ], [ %355, %if.end1054.loopexit859 ], [ %356, %if.end1054.loopexit860 ], [ %357, %if.end1054.loopexit861 ], [ %358, %if.end1054.loopexit862 ], [ %359, %if.end1054.loopexit863 ]
+  %i.4 = phi i32 [ 0, %if.then6 ], [ 0, %if.else ], [ 0, %if.then267 ], [ 0, %if.else393 ], [ 0, %if.then516 ], [ 0, %if.else620 ], [ 0, %if.then716 ], [ 0, %if.else798 ], [ 0, %if.then875 ], [ 0, %if.else935 ], [ 0, %if.then987 ], [ 0, %if.else1025 ], [ %348, %if.end1054.loopexit ], [ %349, %if.end1054.loopexit853 ], [ %350, %if.end1054.loopexit854 ], [ %351, %if.end1054.loopexit855 ], [ %352, %if.end1054.loopexit856 ], [ %353, %if.end1054.loopexit857 ], [ %354, %if.end1054.loopexit858 ], [ %355, %if.end1054.loopexit859 ], [ %356, %if.end1054.loopexit860 ], [ %357, %if.end1054.loopexit861 ], [ %358, %if.end1054.loopexit862 ], [ %359, %if.end1054.loopexit863 ]
   %invariant.gep827 = getelementptr i8, ptr %data, i64 -48
   %invariant.gep829 = getelementptr i8, ptr %data, i64 -44
   %invariant.gep831 = getelementptr i8, ptr %data, i64 -40
@@ -1364,7 +1364,7 @@ if.end1054:                                       ; preds = %if.end1054.loopexit
   %invariant.gep845 = getelementptr i8, ptr %data, i64 -12
   %invariant.gep847 = getelementptr i8, ptr %data, i64 -8
   %invariant.gep849 = getelementptr i8, ptr %data, i64 -4
-  %cmp1056851 = icmp slt i32 %i.12, %data_len
+  %cmp1056851 = icmp slt i32 %i.4, %data_len
   br i1 %cmp1056851, label %for.body1057.lr.ph, label %if.end1372
 
 for.body1057.lr.ph:                               ; preds = %if.end1054
@@ -1379,7 +1379,7 @@ for.body1057.lr.ph:                               ; preds = %if.end1054
   %arrayidx1112 = getelementptr inbounds i8, ptr %qlp_coeff, i64 12
   %arrayidx1119 = getelementptr inbounds i8, ptr %qlp_coeff, i64 8
   %arrayidx1126 = getelementptr inbounds i8, ptr %qlp_coeff, i64 4
-  %360 = zext nneg i32 %i.12 to i64
+  %360 = zext nneg i32 %i.4 to i64
   %wide.trip.count905 = zext i32 %data_len to i64
   br label %for.body1057
 
@@ -1408,109 +1408,109 @@ sw.bb:                                            ; preds = %for.body1057
   br label %sw.bb1062
 
 sw.bb1062:                                        ; preds = %sw.bb, %for.body1057
-  %sum.0 = phi i32 [ 0, %for.body1057 ], [ %mul, %sw.bb ]
+  %sum.1 = phi i32 [ 0, %for.body1057 ], [ %mul, %sw.bb ]
   %363 = load i32, ptr %arrayidx1063, align 4
   %gep830 = getelementptr i32, ptr %invariant.gep829, i64 %indvars.iv902
   %364 = load i32, ptr %gep830, align 4
   %mul1067 = mul nsw i32 %364, %363
-  %add1068 = add nsw i32 %mul1067, %sum.0
+  %add1068 = add nsw i32 %mul1067, %sum.1
   br label %sw.bb1069
 
 sw.bb1069:                                        ; preds = %sw.bb1062, %for.body1057
-  %sum.1 = phi i32 [ 0, %for.body1057 ], [ %add1068, %sw.bb1062 ]
+  %sum.2 = phi i32 [ 0, %for.body1057 ], [ %add1068, %sw.bb1062 ]
   %365 = load i32, ptr %arrayidx1070, align 4
   %gep832 = getelementptr i32, ptr %invariant.gep831, i64 %indvars.iv902
   %366 = load i32, ptr %gep832, align 4
   %mul1074 = mul nsw i32 %366, %365
-  %add1075 = add nsw i32 %mul1074, %sum.1
+  %add1075 = add nsw i32 %mul1074, %sum.2
   br label %sw.bb1076
 
 sw.bb1076:                                        ; preds = %sw.bb1069, %for.body1057
-  %sum.2 = phi i32 [ 0, %for.body1057 ], [ %add1075, %sw.bb1069 ]
+  %sum.3 = phi i32 [ 0, %for.body1057 ], [ %add1075, %sw.bb1069 ]
   %367 = load i32, ptr %arrayidx1077, align 4
   %gep834 = getelementptr i32, ptr %invariant.gep833, i64 %indvars.iv902
   %368 = load i32, ptr %gep834, align 4
   %mul1081 = mul nsw i32 %368, %367
-  %add1082 = add nsw i32 %mul1081, %sum.2
+  %add1082 = add nsw i32 %mul1081, %sum.3
   br label %sw.bb1083
 
 sw.bb1083:                                        ; preds = %sw.bb1076, %for.body1057
-  %sum.3 = phi i32 [ 0, %for.body1057 ], [ %add1082, %sw.bb1076 ]
+  %sum.4 = phi i32 [ 0, %for.body1057 ], [ %add1082, %sw.bb1076 ]
   %369 = load i32, ptr %arrayidx1084, align 4
   %gep836 = getelementptr i32, ptr %invariant.gep835, i64 %indvars.iv902
   %370 = load i32, ptr %gep836, align 4
   %mul1088 = mul nsw i32 %370, %369
-  %add1089 = add nsw i32 %mul1088, %sum.3
+  %add1089 = add nsw i32 %mul1088, %sum.4
   br label %sw.bb1090
 
 sw.bb1090:                                        ; preds = %sw.bb1083, %for.body1057
-  %sum.4 = phi i32 [ 0, %for.body1057 ], [ %add1089, %sw.bb1083 ]
+  %sum.5 = phi i32 [ 0, %for.body1057 ], [ %add1089, %sw.bb1083 ]
   %371 = load i32, ptr %arrayidx1091, align 4
   %gep838 = getelementptr i32, ptr %invariant.gep837, i64 %indvars.iv902
   %372 = load i32, ptr %gep838, align 4
   %mul1095 = mul nsw i32 %372, %371
-  %add1096 = add nsw i32 %mul1095, %sum.4
+  %add1096 = add nsw i32 %mul1095, %sum.5
   br label %sw.bb1097
 
 sw.bb1097:                                        ; preds = %sw.bb1090, %for.body1057
-  %sum.5 = phi i32 [ 0, %for.body1057 ], [ %add1096, %sw.bb1090 ]
+  %sum.6 = phi i32 [ 0, %for.body1057 ], [ %add1096, %sw.bb1090 ]
   %373 = load i32, ptr %arrayidx1098, align 4
   %gep840 = getelementptr i32, ptr %invariant.gep839, i64 %indvars.iv902
   %374 = load i32, ptr %gep840, align 4
   %mul1102 = mul nsw i32 %374, %373
-  %add1103 = add nsw i32 %mul1102, %sum.5
+  %add1103 = add nsw i32 %mul1102, %sum.6
   br label %sw.bb1104
 
 sw.bb1104:                                        ; preds = %sw.bb1097, %for.body1057
-  %sum.6 = phi i32 [ 0, %for.body1057 ], [ %add1103, %sw.bb1097 ]
+  %sum.7 = phi i32 [ 0, %for.body1057 ], [ %add1103, %sw.bb1097 ]
   %375 = load i32, ptr %arrayidx1105, align 4
   %gep842 = getelementptr i32, ptr %invariant.gep841, i64 %indvars.iv902
   %376 = load i32, ptr %gep842, align 4
   %mul1109 = mul nsw i32 %376, %375
-  %add1110 = add nsw i32 %mul1109, %sum.6
+  %add1110 = add nsw i32 %mul1109, %sum.7
   br label %sw.bb1111
 
 sw.bb1111:                                        ; preds = %sw.bb1104, %for.body1057
-  %sum.7 = phi i32 [ 0, %for.body1057 ], [ %add1110, %sw.bb1104 ]
+  %sum.8 = phi i32 [ 0, %for.body1057 ], [ %add1110, %sw.bb1104 ]
   %377 = load i32, ptr %arrayidx1112, align 4
   %gep844 = getelementptr i32, ptr %invariant.gep843, i64 %indvars.iv902
   %378 = load i32, ptr %gep844, align 4
   %mul1116 = mul nsw i32 %378, %377
-  %add1117 = add nsw i32 %mul1116, %sum.7
+  %add1117 = add nsw i32 %mul1116, %sum.8
   br label %sw.bb1118
 
 sw.bb1118:                                        ; preds = %sw.bb1111, %for.body1057
-  %sum.8 = phi i32 [ 0, %for.body1057 ], [ %add1117, %sw.bb1111 ]
+  %sum.9 = phi i32 [ 0, %for.body1057 ], [ %add1117, %sw.bb1111 ]
   %379 = load i32, ptr %arrayidx1119, align 4
   %gep846 = getelementptr i32, ptr %invariant.gep845, i64 %indvars.iv902
   %380 = load i32, ptr %gep846, align 4
   %mul1123 = mul nsw i32 %380, %379
-  %add1124 = add nsw i32 %mul1123, %sum.8
+  %add1124 = add nsw i32 %mul1123, %sum.9
   br label %sw.bb1125
 
 sw.bb1125:                                        ; preds = %sw.bb1118, %for.body1057
-  %sum.9 = phi i32 [ 0, %for.body1057 ], [ %add1124, %sw.bb1118 ]
+  %sum.10 = phi i32 [ 0, %for.body1057 ], [ %add1124, %sw.bb1118 ]
   %381 = load i32, ptr %arrayidx1126, align 4
   %gep848 = getelementptr i32, ptr %invariant.gep847, i64 %indvars.iv902
   %382 = load i32, ptr %gep848, align 4
   %mul1130 = mul nsw i32 %382, %381
-  %add1131 = add nsw i32 %mul1130, %sum.9
+  %add1131 = add nsw i32 %mul1130, %sum.10
   br label %sw.bb1132
 
 sw.bb1132:                                        ; preds = %sw.bb1125, %for.body1057
-  %sum.10 = phi i32 [ 0, %for.body1057 ], [ %add1131, %sw.bb1125 ]
+  %sum.11 = phi i32 [ 0, %for.body1057 ], [ %add1131, %sw.bb1125 ]
   %383 = load i32, ptr %qlp_coeff, align 4
   %gep850 = getelementptr i32, ptr %invariant.gep849, i64 %indvars.iv902
   %384 = load i32, ptr %gep850, align 4
   %mul1137 = mul nsw i32 %384, %383
-  %add1138 = add nsw i32 %mul1137, %sum.10
+  %add1138 = add nsw i32 %mul1137, %sum.11
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb1132, %for.body1057
-  %sum.11 = phi i32 [ 0, %for.body1057 ], [ %add1138, %sw.bb1132 ]
+  %sum.0 = phi i32 [ 0, %for.body1057 ], [ %add1138, %sw.bb1132 ]
   %arrayidx1140 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv902
   %385 = load i32, ptr %arrayidx1140, align 4
-  %shr = ashr i32 %sum.11, %lp_quantization
+  %shr = ashr i32 %sum.0, %lp_quantization
   %sub1141 = sub nsw i32 %385, %shr
   %arrayidx1143 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv902
   store i32 %sub1141, ptr %arrayidx1143, align 4
@@ -1551,169 +1551,169 @@ sw.bb1150:                                        ; preds = %for.body1149
   br label %sw.bb1157
 
 sw.bb1157:                                        ; preds = %sw.bb1150, %for.body1149
-  %sum.12 = phi i32 [ 0, %for.body1149 ], [ %mul1155, %sw.bb1150 ]
+  %sum.13 = phi i32 [ 0, %for.body1149 ], [ %mul1155, %sw.bb1150 ]
   %388 = load i32, ptr %arrayidx1158, align 4
   %gep755 = getelementptr i32, ptr %invariant.gep754, i64 %indvars.iv
   %389 = load i32, ptr %gep755, align 4
   %mul1162 = mul nsw i32 %389, %388
-  %add1163 = add nsw i32 %mul1162, %sum.12
+  %add1163 = add nsw i32 %mul1162, %sum.13
   br label %sw.bb1164
 
 sw.bb1164:                                        ; preds = %sw.bb1157, %for.body1149
-  %sum.13 = phi i32 [ 0, %for.body1149 ], [ %add1163, %sw.bb1157 ]
+  %sum.14 = phi i32 [ 0, %for.body1149 ], [ %add1163, %sw.bb1157 ]
   %390 = load i32, ptr %arrayidx1165, align 4
   %gep757 = getelementptr i32, ptr %invariant.gep756, i64 %indvars.iv
   %391 = load i32, ptr %gep757, align 4
   %mul1169 = mul nsw i32 %391, %390
-  %add1170 = add nsw i32 %mul1169, %sum.13
+  %add1170 = add nsw i32 %mul1169, %sum.14
   br label %sw.bb1171
 
 sw.bb1171:                                        ; preds = %sw.bb1164, %for.body1149
-  %sum.14 = phi i32 [ 0, %for.body1149 ], [ %add1170, %sw.bb1164 ]
+  %sum.15 = phi i32 [ 0, %for.body1149 ], [ %add1170, %sw.bb1164 ]
   %392 = load i32, ptr %arrayidx1172, align 4
   %gep759 = getelementptr i32, ptr %invariant.gep758, i64 %indvars.iv
   %393 = load i32, ptr %gep759, align 4
   %mul1176 = mul nsw i32 %393, %392
-  %add1177 = add nsw i32 %mul1176, %sum.14
+  %add1177 = add nsw i32 %mul1176, %sum.15
   br label %sw.bb1178
 
 sw.bb1178:                                        ; preds = %sw.bb1171, %for.body1149
-  %sum.15 = phi i32 [ 0, %for.body1149 ], [ %add1177, %sw.bb1171 ]
+  %sum.16 = phi i32 [ 0, %for.body1149 ], [ %add1177, %sw.bb1171 ]
   %394 = load i32, ptr %arrayidx1179, align 4
   %gep761 = getelementptr i32, ptr %invariant.gep760, i64 %indvars.iv
   %395 = load i32, ptr %gep761, align 4
   %mul1183 = mul nsw i32 %395, %394
-  %add1184 = add nsw i32 %mul1183, %sum.15
+  %add1184 = add nsw i32 %mul1183, %sum.16
   br label %sw.bb1185
 
 sw.bb1185:                                        ; preds = %sw.bb1178, %for.body1149
-  %sum.16 = phi i32 [ 0, %for.body1149 ], [ %add1184, %sw.bb1178 ]
+  %sum.17 = phi i32 [ 0, %for.body1149 ], [ %add1184, %sw.bb1178 ]
   %396 = load i32, ptr %arrayidx1186, align 4
   %gep763 = getelementptr i32, ptr %invariant.gep762, i64 %indvars.iv
   %397 = load i32, ptr %gep763, align 4
   %mul1190 = mul nsw i32 %397, %396
-  %add1191 = add nsw i32 %mul1190, %sum.16
+  %add1191 = add nsw i32 %mul1190, %sum.17
   br label %sw.bb1192
 
 sw.bb1192:                                        ; preds = %sw.bb1185, %for.body1149
-  %sum.17 = phi i32 [ 0, %for.body1149 ], [ %add1191, %sw.bb1185 ]
+  %sum.18 = phi i32 [ 0, %for.body1149 ], [ %add1191, %sw.bb1185 ]
   %398 = load i32, ptr %arrayidx1193, align 4
   %gep765 = getelementptr i32, ptr %invariant.gep764, i64 %indvars.iv
   %399 = load i32, ptr %gep765, align 4
   %mul1197 = mul nsw i32 %399, %398
-  %add1198 = add nsw i32 %mul1197, %sum.17
+  %add1198 = add nsw i32 %mul1197, %sum.18
   br label %sw.bb1199
 
 sw.bb1199:                                        ; preds = %sw.bb1192, %for.body1149
-  %sum.18 = phi i32 [ 0, %for.body1149 ], [ %add1198, %sw.bb1192 ]
+  %sum.19 = phi i32 [ 0, %for.body1149 ], [ %add1198, %sw.bb1192 ]
   %400 = load i32, ptr %arrayidx1200, align 4
   %gep767 = getelementptr i32, ptr %invariant.gep766, i64 %indvars.iv
   %401 = load i32, ptr %gep767, align 4
   %mul1204 = mul nsw i32 %401, %400
-  %add1205 = add nsw i32 %mul1204, %sum.18
+  %add1205 = add nsw i32 %mul1204, %sum.19
   br label %sw.bb1206
 
 sw.bb1206:                                        ; preds = %sw.bb1199, %for.body1149
-  %sum.19 = phi i32 [ 0, %for.body1149 ], [ %add1205, %sw.bb1199 ]
+  %sum.20 = phi i32 [ 0, %for.body1149 ], [ %add1205, %sw.bb1199 ]
   %402 = load i32, ptr %arrayidx1207, align 4
   %gep769 = getelementptr i32, ptr %invariant.gep768, i64 %indvars.iv
   %403 = load i32, ptr %gep769, align 4
   %mul1211 = mul nsw i32 %403, %402
-  %add1212 = add nsw i32 %mul1211, %sum.19
+  %add1212 = add nsw i32 %mul1211, %sum.20
   br label %sw.bb1213
 
 sw.bb1213:                                        ; preds = %sw.bb1206, %for.body1149
-  %sum.20 = phi i32 [ 0, %for.body1149 ], [ %add1212, %sw.bb1206 ]
+  %sum.21 = phi i32 [ 0, %for.body1149 ], [ %add1212, %sw.bb1206 ]
   %404 = load i32, ptr %arrayidx1214, align 4
   %gep771 = getelementptr i32, ptr %invariant.gep770, i64 %indvars.iv
   %405 = load i32, ptr %gep771, align 4
   %mul1218 = mul nsw i32 %405, %404
-  %add1219 = add nsw i32 %mul1218, %sum.20
+  %add1219 = add nsw i32 %mul1218, %sum.21
   br label %sw.bb1220
 
 sw.bb1220:                                        ; preds = %sw.bb1213, %for.body1149
-  %sum.21 = phi i32 [ 0, %for.body1149 ], [ %add1219, %sw.bb1213 ]
+  %sum.22 = phi i32 [ 0, %for.body1149 ], [ %add1219, %sw.bb1213 ]
   %406 = load i32, ptr %arrayidx1221, align 4
   %gep773 = getelementptr i32, ptr %invariant.gep772, i64 %indvars.iv
   %407 = load i32, ptr %gep773, align 4
   %mul1225 = mul nsw i32 %407, %406
-  %add1226 = add nsw i32 %mul1225, %sum.21
+  %add1226 = add nsw i32 %mul1225, %sum.22
   br label %sw.bb1227
 
 sw.bb1227:                                        ; preds = %sw.bb1220, %for.body1149
-  %sum.22 = phi i32 [ 0, %for.body1149 ], [ %add1226, %sw.bb1220 ]
+  %sum.23 = phi i32 [ 0, %for.body1149 ], [ %add1226, %sw.bb1220 ]
   %408 = load i32, ptr %arrayidx1228, align 4
   %gep775 = getelementptr i32, ptr %invariant.gep774, i64 %indvars.iv
   %409 = load i32, ptr %gep775, align 4
   %mul1232 = mul nsw i32 %409, %408
-  %add1233 = add nsw i32 %mul1232, %sum.22
+  %add1233 = add nsw i32 %mul1232, %sum.23
   br label %sw.bb1234
 
 sw.bb1234:                                        ; preds = %sw.bb1227, %for.body1149
-  %sum.23 = phi i32 [ 0, %for.body1149 ], [ %add1233, %sw.bb1227 ]
+  %sum.24 = phi i32 [ 0, %for.body1149 ], [ %add1233, %sw.bb1227 ]
   %410 = load i32, ptr %arrayidx1235, align 4
   %gep777 = getelementptr i32, ptr %invariant.gep776, i64 %indvars.iv
   %411 = load i32, ptr %gep777, align 4
   %mul1239 = mul nsw i32 %411, %410
-  %add1240 = add nsw i32 %mul1239, %sum.23
+  %add1240 = add nsw i32 %mul1239, %sum.24
   br label %sw.bb1241
 
 sw.bb1241:                                        ; preds = %sw.bb1234, %for.body1149
-  %sum.24 = phi i32 [ 0, %for.body1149 ], [ %add1240, %sw.bb1234 ]
+  %sum.25 = phi i32 [ 0, %for.body1149 ], [ %add1240, %sw.bb1234 ]
   %412 = load i32, ptr %arrayidx1242, align 4
   %gep779 = getelementptr i32, ptr %invariant.gep778, i64 %indvars.iv
   %413 = load i32, ptr %gep779, align 4
   %mul1246 = mul nsw i32 %413, %412
-  %add1247 = add nsw i32 %mul1246, %sum.24
+  %add1247 = add nsw i32 %mul1246, %sum.25
   br label %sw.bb1248
 
 sw.bb1248:                                        ; preds = %sw.bb1241, %for.body1149
-  %sum.25 = phi i32 [ 0, %for.body1149 ], [ %add1247, %sw.bb1241 ]
+  %sum.26 = phi i32 [ 0, %for.body1149 ], [ %add1247, %sw.bb1241 ]
   %414 = load i32, ptr %arrayidx1249, align 4
   %gep781 = getelementptr i32, ptr %invariant.gep780, i64 %indvars.iv
   %415 = load i32, ptr %gep781, align 4
   %mul1253 = mul nsw i32 %415, %414
-  %add1254 = add nsw i32 %mul1253, %sum.25
+  %add1254 = add nsw i32 %mul1253, %sum.26
   br label %sw.bb1255
 
 sw.bb1255:                                        ; preds = %sw.bb1248, %for.body1149
-  %sum.26 = phi i32 [ 0, %for.body1149 ], [ %add1254, %sw.bb1248 ]
+  %sum.27 = phi i32 [ 0, %for.body1149 ], [ %add1254, %sw.bb1248 ]
   %416 = load i32, ptr %arrayidx1256, align 4
   %gep783 = getelementptr i32, ptr %invariant.gep782, i64 %indvars.iv
   %417 = load i32, ptr %gep783, align 4
   %mul1260 = mul nsw i32 %417, %416
-  %add1261 = add nsw i32 %mul1260, %sum.26
+  %add1261 = add nsw i32 %mul1260, %sum.27
   br label %sw.bb1262
 
 sw.bb1262:                                        ; preds = %sw.bb1255, %for.body1149
-  %sum.27 = phi i32 [ 0, %for.body1149 ], [ %add1261, %sw.bb1255 ]
+  %sum.28 = phi i32 [ 0, %for.body1149 ], [ %add1261, %sw.bb1255 ]
   %418 = load i32, ptr %arrayidx1263, align 4
   %gep785 = getelementptr i32, ptr %invariant.gep784, i64 %indvars.iv
   %419 = load i32, ptr %gep785, align 4
   %mul1267 = mul nsw i32 %419, %418
-  %add1268 = add nsw i32 %mul1267, %sum.27
+  %add1268 = add nsw i32 %mul1267, %sum.28
   br label %sw.bb1269
 
 sw.bb1269:                                        ; preds = %sw.bb1262, %for.body1149
-  %sum.28 = phi i32 [ 0, %for.body1149 ], [ %add1268, %sw.bb1262 ]
+  %sum.29 = phi i32 [ 0, %for.body1149 ], [ %add1268, %sw.bb1262 ]
   %420 = load i32, ptr %arrayidx1270, align 4
   %gep787 = getelementptr i32, ptr %invariant.gep786, i64 %indvars.iv
   %421 = load i32, ptr %gep787, align 4
   %mul1274 = mul nsw i32 %421, %420
-  %add1275 = add nsw i32 %mul1274, %sum.28
+  %add1275 = add nsw i32 %mul1274, %sum.29
   br label %sw.bb1276
 
 sw.bb1276:                                        ; preds = %sw.bb1269, %for.body1149
-  %sum.29 = phi i32 [ 0, %for.body1149 ], [ %add1275, %sw.bb1269 ]
+  %sum.30 = phi i32 [ 0, %for.body1149 ], [ %add1275, %sw.bb1269 ]
   %422 = load i32, ptr %arrayidx1277, align 4
   %gep789 = getelementptr i32, ptr %invariant.gep788, i64 %indvars.iv
   %423 = load i32, ptr %gep789, align 4
   %mul1281 = mul nsw i32 %423, %422
-  %add1282 = add nsw i32 %mul1281, %sum.29
+  %add1282 = add nsw i32 %mul1281, %sum.30
   br label %sw.bb1283
 
 sw.bb1283:                                        ; preds = %sw.bb1276, %for.body1149
-  %sum.30 = phi i32 [ 0, %for.body1149 ], [ %add1282, %sw.bb1276 ]
+  %sum.31 = phi i32 [ 0, %for.body1149 ], [ %add1282, %sw.bb1276 ]
   %424 = getelementptr i32, ptr %data, i64 %indvars.iv
   %arrayidx1287 = getelementptr i8, ptr %424, i64 -52
   %425 = load <8 x i32>, ptr %arrayidx1326, align 4
@@ -1733,14 +1733,14 @@ sw.bb1283:                                        ; preds = %sw.bb1276, %for.bod
   %436 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %432)
   %op.rdx = add i32 %435, %436
   %op.rdx909 = add i32 %op.rdx, %mul1360
-  %op.rdx910 = add i32 %op.rdx909, %sum.30
+  %op.rdx910 = add i32 %op.rdx909, %sum.31
   br label %sw.epilog1362
 
 sw.epilog1362:                                    ; preds = %sw.bb1283, %for.body1149
-  %sum.31 = phi i32 [ 0, %for.body1149 ], [ %op.rdx910, %sw.bb1283 ]
+  %sum.12 = phi i32 [ 0, %for.body1149 ], [ %op.rdx910, %sw.bb1283 ]
   %arrayidx1364 = getelementptr inbounds i32, ptr %data, i64 %indvars.iv
   %437 = load i32, ptr %arrayidx1364, align 4
-  %shr1365 = ashr i32 %sum.31, %lp_quantization
+  %shr1365 = ashr i32 %sum.12, %lp_quantization
   %sub1366 = sub nsw i32 %437, %shr1365
   %arrayidx1368 = getelementptr inbounds i32, ptr %residual, i64 %indvars.iv
   store i32 %sub1366, ptr %arrayidx1368, align 4

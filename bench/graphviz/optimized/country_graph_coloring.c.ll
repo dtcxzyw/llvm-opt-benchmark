@@ -63,7 +63,7 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   br label %25
 
 25:                                               ; preds = %40, %.lr.ph.i
-  %.sroa.0135.0 = phi double [ %16, %.lr.ph.i ], [ %.sroa.0135.1, %40 ]
+  %.sroa.0135.2 = phi double [ %16, %.lr.ph.i ], [ %.sroa.0135.3, %40 ]
   %26 = phi double [ %16, %.lr.ph.i ], [ %41, %40 ]
   %indvars.iv.i = phi i64 [ %23, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
   %27 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i
@@ -85,21 +85,21 @@ define dso_local void @improve_antibandwidth_by_swapping(ptr nocapture noundef r
   br label %40
 
 40:                                               ; preds = %31, %25
-  %.sroa.0135.1 = phi double [ %.sroa.0135.0, %25 ], [ %..i, %31 ]
+  %.sroa.0135.3 = phi double [ %.sroa.0135.2, %25 ], [ %..i, %31 ]
   %41 = phi double [ %26, %25 ], [ %..i, %31 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %24
   br i1 %exitcond.not, label %.lr.ph, label %25
 
 .lr.ph:                                           ; preds = %40, %.lr.ph158
-  %.sroa.0135.2 = phi double [ %16, %.lr.ph158 ], [ %.sroa.0135.1, %40 ]
+  %.sroa.0135.4 = phi double [ %16, %.lr.ph158 ], [ %.sroa.0135.3, %40 ]
   %42 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv176
   br label %43
 
 43:                                               ; preds = %.lr.ph, %126
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %126 ]
   %.2154 = phi i1 [ %.1157, %.lr.ph ], [ %.3, %126 ]
-  %.sroa.0135.3151 = phi double [ %.sroa.0135.2, %.lr.ph ], [ %.sroa.0135.4, %126 ]
+  %.sroa.0135.0151 = phi double [ %.sroa.0135.4, %.lr.ph ], [ %.sroa.0135.1, %126 ]
   %44 = icmp eq i64 %indvars.iv, %indvars.iv176
   br i1 %44, label %126, label %45
 
@@ -235,7 +235,7 @@ get_local_12_norm.exit91:                         ; preds = %94, %get_local_12_n
 get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_norm.exit91
   %.sroa.0.2 = phi double [ %16, %get_local_12_norm.exit91 ], [ %.sroa.0.1, %115 ]
   %117 = insertelement <2 x double> poison, double %.sroa.0131.2, i64 0
-  %118 = insertelement <2 x double> %117, double %.sroa.0135.3151, i64 1
+  %118 = insertelement <2 x double> %117, double %.sroa.0135.0151, i64 1
   %119 = insertelement <2 x double> poison, double %.sroa.0.2, i64 0
   %120 = insertelement <2 x double> %119, double %.sroa.0133.2, i64 1
   %121 = tail call <2 x double> @llvm.minnum.v2f64(<2 x double> %118, <2 x double> %120)
@@ -250,7 +250,7 @@ get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_
   br label %126
 
 126:                                              ; preds = %get_local_12_norm.exit100, %43, %125
-  %.sroa.0135.4 = phi double [ %.sroa.0135.3151, %43 ], [ %.sroa.0135.3151, %125 ], [ %.sroa.0131.2, %get_local_12_norm.exit100 ]
+  %.sroa.0135.1 = phi double [ %.sroa.0135.0151, %43 ], [ %.sroa.0135.0151, %125 ], [ %.sroa.0131.2, %get_local_12_norm.exit100 ]
   %.3 = phi i1 [ %.2154, %43 ], [ %.2154, %125 ], [ true, %get_local_12_norm.exit100 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
@@ -271,7 +271,7 @@ get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_
 
 .lr.ph71.i:                                       ; preds = %.lr.ph71.i.preheader, %._crit_edge.i101
   %132 = phi i32 [ %135, %._crit_edge.i101 ], [ %.pre, %.lr.ph71.i.preheader ]
-  %.sroa.0135.5 = phi double [ %.sroa.0135.8, %._crit_edge.i101 ], [ %16, %.lr.ph71.i.preheader ]
+  %.sroa.0135.5 = phi double [ %.sroa.0135.6, %._crit_edge.i101 ], [ %16, %.lr.ph71.i.preheader ]
   %133 = phi double [ %159, %._crit_edge.i101 ], [ %16, %.lr.ph71.i.preheader ]
   %indvars.iv76.i = phi i64 [ %indvars.iv.next77.i, %._crit_edge.i101 ], [ 0, %.lr.ph71.i.preheader ]
   %storemerge67.i = phi double [ %160, %._crit_edge.i101 ], [ 0.000000e+00, %.lr.ph71.i.preheader ]
@@ -288,7 +288,7 @@ get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_
   br label %140
 
 140:                                              ; preds = %157, %.lr.ph.i102
-  %.sroa.0135.6 = phi double [ %.sroa.0135.5, %.lr.ph.i102 ], [ %.sroa.0135.7, %157 ]
+  %.sroa.0135.7 = phi double [ %.sroa.0135.5, %.lr.ph.i102 ], [ %.sroa.0135.8, %157 ]
   %141 = phi double [ %133, %.lr.ph.i102 ], [ %158, %157 ]
   %indvars.iv.i103 = phi i64 [ %138, %.lr.ph.i102 ], [ %indvars.iv.next.i107, %157 ]
   %.064.i = phi double [ %16, %.lr.ph.i102 ], [ %.1.i106, %157 ]
@@ -313,7 +313,7 @@ get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_
   br label %157
 
 157:                                              ; preds = %146, %140
-  %.sroa.0135.7 = phi double [ %.sroa.0135.6, %140 ], [ %..i104, %146 ]
+  %.sroa.0135.8 = phi double [ %.sroa.0135.7, %140 ], [ %..i104, %146 ]
   %158 = phi double [ %141, %140 ], [ %..i104, %146 ]
   %.1.i106 = phi double [ %.064.i, %140 ], [ %156, %146 ]
   %indvars.iv.next.i107 = add nsw i64 %indvars.iv.i103, 1
@@ -321,7 +321,7 @@ get_local_12_norm.exit100:                        ; preds = %115, %get_local_12_
   br i1 %exitcond175.not, label %._crit_edge.i101, label %140
 
 ._crit_edge.i101:                                 ; preds = %157, %.lr.ph71.i
-  %.sroa.0135.8 = phi double [ %.sroa.0135.5, %.lr.ph71.i ], [ %.sroa.0135.7, %157 ]
+  %.sroa.0135.6 = phi double [ %.sroa.0135.5, %.lr.ph71.i ], [ %.sroa.0135.8, %157 ]
   %159 = phi double [ %133, %.lr.ph71.i ], [ %158, %157 ]
   %.0.lcssa.i = phi double [ %16, %.lr.ph71.i ], [ %.1.i106, %157 ]
   %160 = fadd double %storemerge67.i, %.0.lcssa.i
@@ -334,7 +334,7 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   %163 = sub nsw i64 %162, %8
   %164 = sitofp i64 %163 to double
   %165 = fdiv double %164, 1.000000e+06
-  %166 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0, ptr noundef nonnull @.str.3, double noundef %165, double noundef %.sroa.0135.8, double noundef %161) #7
+  %166 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0, ptr noundef nonnull @.str.3, double noundef %165, double noundef %.sroa.0135.6, double noundef %161) #7
   br label %167
 
 167:                                              ; preds = %._crit_edge, %get_12_norm.exit
@@ -361,7 +361,7 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
 
 .lr.ph71.i111:                                    ; preds = %.lr.ph71.i111.preheader, %._crit_edge.i116
   %171 = phi i32 [ %174, %._crit_edge.i116 ], [ %.pre181, %.lr.ph71.i111.preheader ]
-  %.sroa.0135.10 = phi double [ %.sroa.0135.13, %._crit_edge.i116 ], [ %16, %.lr.ph71.i111.preheader ]
+  %.sroa.0135.10 = phi double [ %.sroa.0135.11, %._crit_edge.i116 ], [ %16, %.lr.ph71.i111.preheader ]
   %172 = phi double [ %198, %._crit_edge.i116 ], [ %16, %.lr.ph71.i111.preheader ]
   %indvars.iv76.i112 = phi i64 [ %indvars.iv.next77.i115, %._crit_edge.i116 ], [ 0, %.lr.ph71.i111.preheader ]
   %storemerge67.i114 = phi double [ %199, %._crit_edge.i116 ], [ 0.000000e+00, %.lr.ph71.i111.preheader ]
@@ -378,7 +378,7 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   br label %179
 
 179:                                              ; preds = %196, %.lr.ph.i121
-  %.sroa.0135.11 = phi double [ %.sroa.0135.10, %.lr.ph.i121 ], [ %.sroa.0135.12, %196 ]
+  %.sroa.0135.12 = phi double [ %.sroa.0135.10, %.lr.ph.i121 ], [ %.sroa.0135.13, %196 ]
   %180 = phi double [ %172, %.lr.ph.i121 ], [ %197, %196 ]
   %indvars.iv.i122 = phi i64 [ %177, %.lr.ph.i121 ], [ %indvars.iv.next.i129, %196 ]
   %.064.i123 = phi double [ %16, %.lr.ph.i121 ], [ %.1.i128, %196 ]
@@ -403,7 +403,7 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   br label %196
 
 196:                                              ; preds = %185, %179
-  %.sroa.0135.12 = phi double [ %.sroa.0135.11, %179 ], [ %..i125, %185 ]
+  %.sroa.0135.13 = phi double [ %.sroa.0135.12, %179 ], [ %..i125, %185 ]
   %197 = phi double [ %180, %179 ], [ %..i125, %185 ]
   %.1.i128 = phi double [ %.064.i123, %179 ], [ %195, %185 ]
   %indvars.iv.next.i129 = add nsw i64 %indvars.iv.i122, 1
@@ -411,7 +411,7 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
   br i1 %exitcond180.not, label %._crit_edge.i116, label %179
 
 ._crit_edge.i116:                                 ; preds = %196, %.lr.ph71.i111
-  %.sroa.0135.13 = phi double [ %.sroa.0135.10, %.lr.ph71.i111 ], [ %.sroa.0135.12, %196 ]
+  %.sroa.0135.11 = phi double [ %.sroa.0135.10, %.lr.ph71.i111 ], [ %.sroa.0135.13, %196 ]
   %198 = phi double [ %172, %.lr.ph71.i111 ], [ %197, %196 ]
   %.0.lcssa.i118 = phi double [ %16, %.lr.ph71.i111 ], [ %.1.i128, %196 ]
   %199 = fadd double %storemerge67.i114, %.0.lcssa.i118
@@ -420,7 +420,7 @@ get_12_norm.exit:                                 ; preds = %._crit_edge.i101
 
 get_12_norm.exit130:                              ; preds = %._crit_edge.i116, %._crit_edge159.thread, %170
   %.1.lcssa184187 = phi i1 [ %.3, %170 ], [ false, %._crit_edge159.thread ], [ %.3, %._crit_edge.i116 ]
-  %.sroa.0135.14 = phi double [ %16, %170 ], [ %16, %._crit_edge159.thread ], [ %.sroa.0135.13, %._crit_edge.i116 ]
+  %.sroa.0135.14 = phi double [ %16, %170 ], [ %16, %._crit_edge159.thread ], [ %.sroa.0135.11, %._crit_edge.i116 ]
   %storemerge.lcssa.i108 = phi double [ 0.000000e+00, %170 ], [ 0.000000e+00, %._crit_edge159.thread ], [ %199, %._crit_edge.i116 ]
   %200 = fdiv double %storemerge.lcssa.i108, %16
   %201 = load ptr, ptr @stderr, align 8

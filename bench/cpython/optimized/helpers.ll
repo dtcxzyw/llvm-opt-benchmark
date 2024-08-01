@@ -490,9 +490,9 @@ if.then6:                                         ; preds = %for.body
 
 if.end11:                                         ; preds = %if.then6, %for.body
   %s.addr.1 = phi ptr [ %incdec.ptr, %if.then6 ], [ %s.addr.040, %for.body ]
-  %c.1 = phi i8 [ %4, %if.then6 ], [ %3, %for.body ]
-  %cmp14 = icmp eq i8 %c.1, 13
-  %spec.select = select i1 %cmp14, i8 10, i8 %c.1
+  %c.2 = phi i8 [ %4, %if.then6 ], [ %3, %for.body ]
+  %cmp14 = icmp eq i8 %c.2, 13
+  %spec.select = select i1 %cmp14, i8 10, i8 %c.2
   store i8 %spec.select, ptr %current.041, align 1
   %incdec.ptr18 = getelementptr i8, ptr %s.addr.1, i64 1
   %incdec.ptr19 = getelementptr i8, ptr %current.041, i64 1

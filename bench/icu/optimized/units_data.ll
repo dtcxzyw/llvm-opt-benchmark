@@ -511,9 +511,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2021,9 +2021,9 @@ if.end187:                                        ; preds = %invoke.cont181
   br label %cleanup193
 
 cleanup193:                                       ; preds = %land.rhs, %if.end187, %invoke.cont181
-  %m.1 = phi ptr [ %82, %invoke.cont181 ], [ %150, %if.end187 ], [ %82, %land.rhs ]
+  %m.2 = phi ptr [ %82, %invoke.cont181 ], [ %150, %if.end187 ], [ %82, %land.rhs ]
   %cond = phi i1 [ false, %invoke.cont181 ], [ true, %if.end187 ], [ true, %land.rhs ]
-  %nrvo.2 = phi i1 [ true, %invoke.cont181 ], [ false, %if.end187 ], [ false, %land.rhs ]
+  %nrvo.4 = phi i1 [ true, %invoke.cont181 ], [ false, %if.end187 ], [ false, %land.rhs ]
   %151 = load i32, ptr %rates, align 8
   %cmp3.i.i.i189 = icmp sgt i32 %151, 0
   br i1 %cmp3.i.i.i189, label %for.body.i.i.i198, label %for.end.i.i.i190
@@ -2085,15 +2085,15 @@ ehcleanup196:                                     ; preds = %lpad96.loopexit, %l
   br label %ehcleanup215
 
 if.end197:                                        ; preds = %_ZN6icu_755units15ConversionRatesD2Ev.exit, %invoke.cont87
-  %m.2 = phi ptr [ %m.1, %_ZN6icu_755units15ConversionRatesD2Ev.exit ], [ %82, %invoke.cont87 ]
-  %prefsCount200 = getelementptr inbounds i8, ptr %m.2, i64 204
+  %m.0 = phi ptr [ %m.2, %_ZN6icu_755units15ConversionRatesD2Ev.exit ], [ %82, %invoke.cont87 ]
+  %prefsCount200 = getelementptr inbounds i8, ptr %m.0, i64 204
   %161 = load i32, ptr %prefsCount200, align 4
   %cmp201253 = icmp sgt i32 %161, 0
   br i1 %cmp201253, label %invoke.cont207.lr.ph, label %nrvo.skipdtor.sink.split
 
 invoke.cont207.lr.ph:                             ; preds = %if.end197
   %fPool.i207 = getelementptr inbounds i8, ptr %this, i64 96
-  %prefsOffset204 = getelementptr inbounds i8, ptr %m.2, i64 200
+  %prefsOffset204 = getelementptr inbounds i8, ptr %m.0, i64 200
   %162 = load i32, ptr %status, align 4
   %163 = icmp slt i32 %162, 1
   br i1 %163, label %invoke.cont207, label %nrvo.skipdtor.sink.split
@@ -2145,7 +2145,7 @@ ehcleanup217:                                     ; preds = %lpad51, %ehcleanup.
 cleanup218:                                       ; preds = %_ZN6icu_755units15ConversionRatesD2Ev.exit
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %localeSystem) #15
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %region) #15
-  br i1 %nrvo.2, label %nrvo.skipdtor, label %nrvo.unused
+  br i1 %nrvo.4, label %nrvo.skipdtor, label %nrvo.unused
 
 nrvo.unused:                                      ; preds = %cleanup218
   %171 = load i32, ptr %agg.result, align 8
@@ -2460,7 +2460,7 @@ cleanup.sink.split:                               ; preds = %if.else, %if.end61,
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end16.i.i, %if.end37, %if.end16.i.i54, %cleanup.sink.split, %if.end, %if.end61
-  %retval.0 = phi i32 [ %call60, %if.end61 ], [ -1, %if.end ], [ -1, %cleanup.sink.split ], [ %div11.i37, %if.end16.i.i54 ], [ -1, %if.end37 ], [ %div11.i, %if.end16.i.i ]
+  %retval.1 = phi i32 [ %call60, %if.end61 ], [ -1, %if.end ], [ -1, %cleanup.sink.split ], [ %div11.i37, %if.end16.i.i54 ], [ -1, %if.end37 ], [ %div11.i, %if.end16.i.i ]
   %region.i64 = getelementptr inbounds i8, ptr %desired, i64 136
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %region.i64) #15
   %usage.i65 = getelementptr inbounds i8, ptr %desired, i64 72
@@ -2470,8 +2470,8 @@ cleanup:                                          ; preds = %if.end16.i.i, %if.e
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ -1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ -1, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN6icu_7515MeasureUnitImpl13forIdentifierENS_11StringPieceER10UErrorCode(ptr sret(%"class.icu_75::MeasureUnitImpl") align 8, ptr, i32, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5

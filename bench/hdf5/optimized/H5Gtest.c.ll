@@ -735,13 +735,13 @@ define range(i32 -1, 1) i32 @H5G__new_dense_info_test(i64 noundef %0, ptr nounde
   br label %78
 
 78:                                               ; preds = %69, %77
-  %.026 = phi ptr [ %62, %69 ], [ null, %77 ]
+  %.127 = phi ptr [ %62, %69 ], [ null, %77 ]
   %79 = load i64, ptr %5, align 8
   call void @H5AC_tag(i64 noundef %79, ptr noundef null) #4
   br label %80
 
 80:                                               ; preds = %52, %64, %72, %78
-  %.127 = phi ptr [ null, %52 ], [ null, %64 ], [ %62, %72 ], [ %.026, %78 ]
+  %.026 = phi ptr [ null, %52 ], [ null, %64 ], [ %62, %72 ], [ %.127, %78 ]
   %.0 = phi i32 [ -1, %52 ], [ -1, %64 ], [ -1, %72 ], [ 0, %78 ]
   %81 = call i32 @H5B2_close(ptr noundef nonnull %42) #4
   %82 = icmp slt i32 %81, 0
@@ -755,11 +755,11 @@ define range(i32 -1, 1) i32 @H5G__new_dense_info_test(i64 noundef %0, ptr nounde
 
 87:                                               ; preds = %83, %80
   %.1 = phi i32 [ -1, %83 ], [ %.0, %80 ]
-  %.not39 = icmp eq ptr %.127, null
+  %.not39 = icmp eq ptr %.026, null
   br i1 %.not39, label %.thread54, label %88
 
 88:                                               ; preds = %87
-  %89 = call i32 @H5B2_close(ptr noundef nonnull %.127) #4
+  %89 = call i32 @H5B2_close(ptr noundef nonnull %.026) #4
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %91, label %.thread54
 
@@ -1307,7 +1307,7 @@ define internal range(i32 -1, 1) i32 @H5G__verify_cached_stabs_test_cb(ptr nound
   br label %99
 
 .loopexit:                                        ; preds = %17, %10, %78, %71, %62, %50, %42, %34, %27
-  %.140.ph = phi ptr [ %25, %71 ], [ %25, %78 ], [ %25, %62 ], [ %25, %50 ], [ %25, %42 ], [ %25, %34 ], [ null, %27 ], [ null, %10 ], [ null, %17 ]
+  %.039.ph = phi ptr [ %25, %71 ], [ %25, %78 ], [ %25, %62 ], [ %25, %50 ], [ %25, %42 ], [ %25, %34 ], [ null, %27 ], [ null, %10 ], [ null, %17 ]
   %.0.ph = phi i32 [ -1, %71 ], [ -1, %78 ], [ -1, %62 ], [ -1, %50 ], [ -1, %42 ], [ -1, %34 ], [ -1, %27 ], [ 0, %10 ], [ 0, %17 ]
   %85 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SNODE, i64 noundef %2, ptr noundef nonnull %8, i32 noundef 0) #4
   %86 = icmp slt i32 %85, 0
@@ -1321,11 +1321,11 @@ define internal range(i32 -1, 1) i32 @H5G__verify_cached_stabs_test_cb(ptr nound
 
 91:                                               ; preds = %87, %.loopexit
   %.1 = phi i32 [ -1, %87 ], [ %.0.ph, %.loopexit ]
-  %.not50 = icmp eq ptr %.140.ph, null
+  %.not50 = icmp eq ptr %.039.ph, null
   br i1 %.not50, label %99, label %92
 
 92:                                               ; preds = %91
-  %93 = call i32 @H5O_unprotect(ptr noundef nonnull %6, ptr noundef nonnull %.140.ph, i32 noundef 0) #4
+  %93 = call i32 @H5O_unprotect(ptr noundef nonnull %6, ptr noundef nonnull %.039.ph, i32 noundef 0) #4
   %94 = icmp slt i32 %93, 0
   br i1 %94, label %95, label %99
 

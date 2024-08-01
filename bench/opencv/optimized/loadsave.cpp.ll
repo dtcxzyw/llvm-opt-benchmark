@@ -1452,7 +1452,7 @@ _ZN2cv3PtrINS_16BaseImageDecoderEED2Ev.exit:      ; preds = %_ZN2cv3PtrINS_16Bas
   br label %_ZN2cvL8calcTypeEii.exit
 
 _ZN2cvL8calcTypeEii.exit:                         ; preds = %219, %229, %232
-  %.1.i = phi i32 [ %231, %229 ], [ %233, %232 ], [ %218, %219 ]
+  %.0.i = phi i32 [ %231, %229 ], [ %233, %232 ], [ %218, %219 ]
   %234 = invoke noundef zeroext i1 @_ZNK2cv11_InputArray5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %235 unwind label %100
 
@@ -1460,7 +1460,7 @@ _ZN2cvL8calcTypeEii.exit:                         ; preds = %219, %229, %232
   br i1 %234, label %236, label %237
 
 236:                                              ; preds = %235
-  invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.sroa.5.0.extract.trunc, i32 noundef %.sroa.0144.0.extract.trunc, i32 noundef %.1.i, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
+  invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %.sroa.5.0.extract.trunc, i32 noundef %.sroa.0144.0.extract.trunc, i32 noundef %.0.i, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
           to label %266 unwind label %100
 
 237:                                              ; preds = %235
@@ -1491,7 +1491,7 @@ _ZN2cvL8calcTypeEii.exit:                         ; preds = %219, %229, %232
           to label %249 unwind label %100
 
 249:                                              ; preds = %247
-  %250 = icmp eq i32 %.1.i, %248
+  %250 = icmp eq i32 %.0.i, %248
   br i1 %250, label %255, label %251
 
 251:                                              ; preds = %249
@@ -1499,7 +1499,7 @@ _ZN2cvL8calcTypeEii.exit:                         ; preds = %219, %229, %232
           to label %253 unwind label %100
 
 253:                                              ; preds = %251
-  invoke void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 noundef %.1.i, i32 noundef %252, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cvL7imread_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_12_OutputArrayEE15__cv_check__478) #28
+  invoke void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 noundef %.0.i, i32 noundef %252, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cvL7imread_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_12_OutputArrayEE15__cv_check__478) #28
           to label %254 unwind label %100
 
 254:                                              ; preds = %253
@@ -2525,7 +2525,7 @@ _ZN2cv3PtrINS_16BaseImageDecoderEED2Ev.exit:      ; preds = %_ZN2cv3PtrINS_16Bas
   br label %_ZN2cvL8calcTypeEii.exit
 
 _ZN2cvL8calcTypeEii.exit:                         ; preds = %226, %225
-  %.1.i = phi i32 [ %224, %225 ], [ %spec.select156, %226 ]
+  %.0.i = phi i32 [ %224, %225 ], [ %spec.select156, %226 ]
   %231 = load <2 x i32>, ptr %214, align 8
   store <2 x i32> %231, ptr %12, align 8
   %232 = invoke fastcc i64 @_ZN2cvL22validateInputImageSizeERKNS_5Size_IiEE(ptr noundef nonnull align 4 dereferenceable(8) %12)
@@ -2535,7 +2535,7 @@ _ZN2cvL8calcTypeEii.exit:                         ; preds = %226, %225
   %.sroa.0.0.extract.trunc = trunc i64 %232 to i32
   %.sroa.2.0.extract.shift = lshr i64 %232, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
-  invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %13, i32 noundef %.sroa.2.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.1.i)
+  invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %13, i32 noundef %.sroa.2.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.0.i)
           to label %234 unwind label %.loopexit132
 
 234:                                              ; preds = %233
@@ -3926,11 +3926,11 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit.i: ; preds = %175, %.noexc.i
 
 308:                                              ; preds = %307, %265
   %.pn97.pn.i = phi { ptr, i32 } [ %.pn97.i, %307 ], [ %266, %265 ]
-  %.9.i = extractvalue { ptr, i32 } %.pn97.pn.i, 0
-  %.971.i = extractvalue { ptr, i32 } %.pn97.pn.i, 1
+  %.11.i = extractvalue { ptr, i32 } %.pn97.pn.i, 0
+  %.1173.i = extractvalue { ptr, i32 } %.pn97.pn.i, 1
   %309 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #26
-  %310 = icmp eq i32 %.971.i, %309
-  %311 = call ptr @__cxa_begin_catch(ptr %.9.i) #26
+  %310 = icmp eq i32 %.1173.i, %309
+  %311 = call ptr @__cxa_begin_catch(ptr %.11.i) #26
   br i1 %310, label %312, label %314
 
 312:                                              ; preds = %308
@@ -5167,8 +5167,8 @@ _ZN2cv3PtrINS_16BaseImageDecoderEE7releaseEv.exit: ; preds = %.critedge, %250, %
   br label %_ZN2cvL8calcTypeEii.exit
 
 _ZN2cvL8calcTypeEii.exit:                         ; preds = %310, %320, %323
-  %.1.i = phi i32 [ %322, %320 ], [ %324, %323 ], [ %309, %310 ]
-  invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %.sroa.3.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.1.i)
+  %.0.i = phi i32 [ %322, %320 ], [ %324, %323 ], [ %309, %310 ]
+  invoke void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %.sroa.3.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.0.i)
           to label %325 unwind label %91
 
 325:                                              ; preds = %_ZN2cvL8calcTypeEii.exit
@@ -6513,7 +6513,7 @@ _ZN2cv3PtrINS_16BaseImageDecoderEE7releaseEv.exit: ; preds = %.thread, %259, %27
   br label %_ZN2cvL8calcTypeEii.exit
 
 _ZN2cvL8calcTypeEii.exit:                         ; preds = %314, %313
-  %.1.i = phi i32 [ %312, %313 ], [ %spec.select237, %314 ]
+  %.0.i = phi i32 [ %312, %313 ], [ %spec.select237, %314 ]
   %319 = load ptr, ptr %14, align 8
   %320 = getelementptr inbounds i8, ptr %319, i64 8
   %321 = load <2 x i32>, ptr %320, align 8
@@ -6525,7 +6525,7 @@ _ZN2cvL8calcTypeEii.exit:                         ; preds = %314, %313
   %.sroa.0.0.extract.trunc = trunc i64 %322 to i32
   %.sroa.2.0.extract.shift = lshr i64 %322, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
-  invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %27, i32 noundef %.sroa.2.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.1.i)
+  invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %27, i32 noundef %.sroa.2.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.0.i)
           to label %324 unwind label %.loopexit193
 
 324:                                              ; preds = %323
@@ -6792,7 +6792,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc, %418
   br i1 %423, label %425, label %.thread185
 
 .thread185:                                       ; preds = %402, %424, %.invoke236
-  %.3115183.ph = phi i1 [ false, %.invoke236 ], [ %329, %424 ], [ %329, %402 ]
+  %.4116183.ph = phi i1 [ false, %.invoke236 ], [ %329, %424 ], [ %329, %402 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %27) #26
   br label %.loopexit
 
@@ -6808,7 +6808,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc, %418
   br label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %425, %.preheader, %.thread185
-  %.4116 = phi i1 [ %.3115183.ph, %.thread185 ], [ %139, %.preheader ], [ true, %425 ]
+  %.3115 = phi i1 [ %.4116183.ph, %.thread185 ], [ %139, %.preheader ], [ true, %425 ]
   %428 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #26
   br i1 %428, label %458, label %429
 
@@ -6887,7 +6887,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc, %418
   %.pre225 = load ptr, ptr %2, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 8
   %.pre226 = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.4116, label %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit, label %459
+  br i1 %.3115, label %_ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit, label %459
 
 459:                                              ; preds = %458
   %.not.i.i = icmp eq ptr %.pre226, %.pre225
@@ -9369,7 +9369,7 @@ define void @_ZN2cv15ImageCollection4Impl8readDataEv(ptr dead_on_unwind noalias 
   br label %_ZN2cvL8calcTypeEii.exit
 
 _ZN2cvL8calcTypeEii.exit:                         ; preds = %2, %28, %31
-  %.1.i = phi i32 [ %30, %28 ], [ %32, %31 ], [ %16, %2 ]
+  %.0.i = phi i32 [ %30, %28 ], [ %32, %31 ], [ %16, %2 ]
   %33 = getelementptr inbounds i8, ptr %1, i64 48
   %34 = load <2 x i32>, ptr %33, align 8
   store <2 x i32> %34, ptr %3, align 8
@@ -9377,7 +9377,7 @@ _ZN2cvL8calcTypeEii.exit:                         ; preds = %2, %28, %31
   %.sroa.0.0.extract.trunc = trunc i64 %35 to i32
   %.sroa.2.0.extract.shift = lshr i64 %35, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
-  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %.sroa.2.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.1.i)
+  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %.sroa.2.0.extract.trunc, i32 noundef %.sroa.0.0.extract.trunc, i32 noundef %.0.i)
   %36 = load ptr, ptr %11, align 8
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 56

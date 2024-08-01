@@ -6815,11 +6815,11 @@ expr_setup_walker.exit250:                        ; preds = %expr_setup_walker.e
 
 174:                                              ; preds = %.lr.ph529, %._crit_edge515
   %indvars.iv556 = phi i64 [ 0, %.lr.ph529 ], [ %indvars.iv.next557, %._crit_edge515 ]
-  %.sroa.48.0525 = phi i32 [ 0, %.lr.ph529 ], [ %.sroa.48.4, %._crit_edge515 ]
-  %.sroa.45.0523 = phi i32 [ 0, %.lr.ph529 ], [ %.sroa.45.5, %._crit_edge515 ]
-  %.sroa.41.0521 = phi i32 [ 0, %.lr.ph529 ], [ %.sroa.41.6, %._crit_edge515 ]
-  %.sroa.37.0520 = phi ptr [ null, %.lr.ph529 ], [ %.sroa.37.6, %._crit_edge515 ]
-  %.sroa.27.0519 = phi ptr [ null, %.lr.ph529 ], [ %.sroa.27.8, %._crit_edge515 ]
+  %.sroa.48.0525 = phi i32 [ 0, %.lr.ph529 ], [ %.sroa.48.3, %._crit_edge515 ]
+  %.sroa.45.0523 = phi i32 [ 0, %.lr.ph529 ], [ %.sroa.45.4, %._crit_edge515 ]
+  %.sroa.41.0521 = phi i32 [ 0, %.lr.ph529 ], [ %.sroa.41.5, %._crit_edge515 ]
+  %.sroa.37.0520 = phi ptr [ null, %.lr.ph529 ], [ %.sroa.37.5, %._crit_edge515 ]
+  %.sroa.27.0519 = phi ptr [ null, %.lr.ph529 ], [ %.sroa.27.7, %._crit_edge515 ]
   %175 = load ptr, ptr %165, align 8
   %176 = getelementptr %struct.AggStatePerTransData, ptr %175, i64 %indvars.iv556
   %177 = getelementptr inbounds i8, ptr %176, i64 352
@@ -7276,10 +7276,10 @@ ExprEvalPushStep.exit263:                         ; preds = %364, %._crit_edge.i
 
 391:                                              ; preds = %384, %ExecBuildAggTransCall.exit
   %indvars.iv547 = phi i64 [ 0, %384 ], [ %indvars.iv.next548, %ExecBuildAggTransCall.exit ]
-  %.sroa.48.1497 = phi i32 [ %.sroa.48.0525, %384 ], [ %456, %ExecBuildAggTransCall.exit ]
-  %.sroa.45.2496 = phi i32 [ %.sroa.45.1, %384 ], [ %390, %ExecBuildAggTransCall.exit ]
-  %.sroa.41.3495 = phi i32 [ %.sroa.41.2, %384 ], [ %456, %ExecBuildAggTransCall.exit ]
-  %.sroa.37.3494 = phi ptr [ %.sroa.37.2, %384 ], [ %.0.i264, %ExecBuildAggTransCall.exit ]
+  %.sroa.48.2497 = phi i32 [ %.sroa.48.0525, %384 ], [ %456, %ExecBuildAggTransCall.exit ]
+  %.sroa.45.3496 = phi i32 [ %.sroa.45.1, %384 ], [ %390, %ExecBuildAggTransCall.exit ]
+  %.sroa.41.4495 = phi i32 [ %.sroa.41.2, %384 ], [ %456, %ExecBuildAggTransCall.exit ]
+  %.sroa.37.4494 = phi ptr [ %.sroa.37.2, %384 ], [ %.0.i264, %ExecBuildAggTransCall.exit ]
   %392 = load ptr, ptr %169, align 8
   %393 = getelementptr ptr, ptr %392, i64 %indvars.iv547
   %.0.i264 = load ptr, ptr %393, align 8
@@ -7332,13 +7332,13 @@ ExprEvalPushStep.exit.i:                          ; preds = %403, %._crit_edge.i
   %.sroa.27.0..sroa_idx334 = getelementptr inbounds i8, ptr %413, i64 24
   store ptr %395, ptr %.sroa.27.0..sroa_idx334, align 8
   %.sroa.37.0..sroa_idx351 = getelementptr inbounds i8, ptr %413, i64 32
-  store ptr %.sroa.37.3494, ptr %.sroa.37.0..sroa_idx351, align 8
+  store ptr %.sroa.37.4494, ptr %.sroa.37.0..sroa_idx351, align 8
   %.sroa.41.0..sroa_idx367 = getelementptr inbounds i8, ptr %413, i64 40
-  store i32 %.sroa.41.3495, ptr %.sroa.41.0..sroa_idx367, align 8
+  store i32 %.sroa.41.4495, ptr %.sroa.41.0..sroa_idx367, align 8
   %.sroa.45.0..sroa_idx383 = getelementptr inbounds i8, ptr %413, i64 44
-  store i32 %.sroa.45.2496, ptr %.sroa.45.0..sroa_idx383, align 4
+  store i32 %.sroa.45.3496, ptr %.sroa.45.0..sroa_idx383, align 4
   %.sroa.48.0..sroa_idx399 = getelementptr inbounds i8, ptr %413, i64 48
-  store i32 %.sroa.48.1497, ptr %.sroa.48.0..sroa_idx399, align 8
+  store i32 %.sroa.48.2497, ptr %.sroa.48.0..sroa_idx399, align 8
   %.sroa.50.0..sroa_idx411 = getelementptr inbounds i8, ptr %413, i64 52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.50.0..sroa_idx411, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.50, i64 12, i1 false)
   %414 = load i32, ptr %167, align 8
@@ -7458,11 +7458,11 @@ ExecBuildAggTransCall.exit:                       ; preds = %ExprEvalPushStep.ex
   br i1 %exitcond.not, label %.loopexit474, label %391, !llvm.loop !14
 
 .loopexit474:                                     ; preds = %ExecBuildAggTransCall.exit, %383
-  %.sroa.27.6 = phi ptr [ %.sroa.27.4, %383 ], [ %176, %ExecBuildAggTransCall.exit ]
-  %.sroa.37.4 = phi ptr [ %.sroa.37.2, %383 ], [ %.0.i264, %ExecBuildAggTransCall.exit ]
-  %.sroa.41.4 = phi i32 [ %.sroa.41.2, %383 ], [ %456, %ExecBuildAggTransCall.exit ]
-  %.sroa.45.3 = phi i32 [ %.sroa.45.1, %383 ], [ %390, %ExecBuildAggTransCall.exit ]
-  %.sroa.48.2 = phi i32 [ %.sroa.48.0525, %383 ], [ %456, %ExecBuildAggTransCall.exit ]
+  %.sroa.27.5 = phi ptr [ %.sroa.27.4, %383 ], [ %176, %ExecBuildAggTransCall.exit ]
+  %.sroa.37.3 = phi ptr [ %.sroa.37.2, %383 ], [ %.0.i264, %ExecBuildAggTransCall.exit ]
+  %.sroa.41.3 = phi i32 [ %.sroa.41.2, %383 ], [ %456, %ExecBuildAggTransCall.exit ]
+  %.sroa.45.2 = phi i32 [ %.sroa.45.1, %383 ], [ %390, %ExecBuildAggTransCall.exit ]
+  %.sroa.48.1 = phi i32 [ %.sroa.48.0525, %383 ], [ %456, %ExecBuildAggTransCall.exit ]
   br i1 %3, label %463, label %.loopexit
 
 463:                                              ; preds = %.loopexit474
@@ -7491,10 +7491,10 @@ ExecBuildAggTransCall.exit:                       ; preds = %ExprEvalPushStep.ex
 475:                                              ; preds = %.lr.ph507, %ExecBuildAggTransCall.exit281
   %.0180505 = phi i32 [ 0, %.lr.ph507 ], [ %545, %ExecBuildAggTransCall.exit281 ]
   %.1504 = phi i32 [ %.0181, %.lr.ph507 ], [ %544, %ExecBuildAggTransCall.exit281 ]
-  %.sroa.48.3503 = phi i32 [ %.sroa.48.2, %.lr.ph507 ], [ %.1504, %ExecBuildAggTransCall.exit281 ]
-  %.sroa.45.4502 = phi i32 [ %.sroa.45.3, %.lr.ph507 ], [ %474, %ExecBuildAggTransCall.exit281 ]
-  %.sroa.41.5501 = phi i32 [ %.sroa.41.4, %.lr.ph507 ], [ %.0180505, %ExecBuildAggTransCall.exit281 ]
-  %.sroa.37.5500 = phi ptr [ %.sroa.37.4, %.lr.ph507 ], [ %.0.i266, %ExecBuildAggTransCall.exit281 ]
+  %.sroa.48.4503 = phi i32 [ %.sroa.48.1, %.lr.ph507 ], [ %.1504, %ExecBuildAggTransCall.exit281 ]
+  %.sroa.45.5502 = phi i32 [ %.sroa.45.2, %.lr.ph507 ], [ %474, %ExecBuildAggTransCall.exit281 ]
+  %.sroa.41.6501 = phi i32 [ %.sroa.41.3, %.lr.ph507 ], [ %.0180505, %ExecBuildAggTransCall.exit281 ]
+  %.sroa.37.6500 = phi ptr [ %.sroa.37.3, %.lr.ph507 ], [ %.0.i266, %ExecBuildAggTransCall.exit281 ]
   %.0.i266 = load ptr, ptr %173, align 8
   br i1 %4, label %476, label %498
 
@@ -7546,13 +7546,13 @@ ExprEvalPushStep.exit.i280:                       ; preds = %485, %._crit_edge.i
   %.sroa.27.0..sroa_idx338 = getelementptr inbounds i8, ptr %495, i64 24
   store ptr %477, ptr %.sroa.27.0..sroa_idx338, align 8
   %.sroa.37.0..sroa_idx355 = getelementptr inbounds i8, ptr %495, i64 32
-  store ptr %.sroa.37.5500, ptr %.sroa.37.0..sroa_idx355, align 8
+  store ptr %.sroa.37.6500, ptr %.sroa.37.0..sroa_idx355, align 8
   %.sroa.41.0..sroa_idx371 = getelementptr inbounds i8, ptr %495, i64 40
-  store i32 %.sroa.41.5501, ptr %.sroa.41.0..sroa_idx371, align 8
+  store i32 %.sroa.41.6501, ptr %.sroa.41.0..sroa_idx371, align 8
   %.sroa.45.0..sroa_idx387 = getelementptr inbounds i8, ptr %495, i64 44
-  store i32 %.sroa.45.4502, ptr %.sroa.45.0..sroa_idx387, align 4
+  store i32 %.sroa.45.5502, ptr %.sroa.45.0..sroa_idx387, align 4
   %.sroa.48.0..sroa_idx403 = getelementptr inbounds i8, ptr %495, i64 48
-  store i32 %.sroa.48.3503, ptr %.sroa.48.0..sroa_idx403, align 8
+  store i32 %.sroa.48.4503, ptr %.sroa.48.0..sroa_idx403, align 8
   %.sroa.50.0..sroa_idx413 = getelementptr inbounds i8, ptr %495, i64 52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.50.0..sroa_idx413, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.50, i64 12, i1 false)
   %496 = load i32, ptr %167, align 8
@@ -7672,11 +7672,11 @@ ExecBuildAggTransCall.exit281:                    ; preds = %ExprEvalPushStep.ex
   br i1 %exitcond552.not, label %.loopexit, label %475, !llvm.loop !15
 
 .loopexit:                                        ; preds = %ExecBuildAggTransCall.exit281, %468, %.loopexit474
-  %.sroa.27.8 = phi ptr [ %.sroa.27.6, %.loopexit474 ], [ %.sroa.27.6, %468 ], [ %176, %ExecBuildAggTransCall.exit281 ]
-  %.sroa.37.6 = phi ptr [ %.sroa.37.4, %.loopexit474 ], [ %.sroa.37.4, %468 ], [ %.0.i266, %ExecBuildAggTransCall.exit281 ]
-  %.sroa.41.6 = phi i32 [ %.sroa.41.4, %.loopexit474 ], [ %.sroa.41.4, %468 ], [ %.0180505, %ExecBuildAggTransCall.exit281 ]
-  %.sroa.45.5 = phi i32 [ %.sroa.45.3, %.loopexit474 ], [ %.sroa.45.3, %468 ], [ %474, %ExecBuildAggTransCall.exit281 ]
-  %.sroa.48.4 = phi i32 [ %.sroa.48.2, %.loopexit474 ], [ %.sroa.48.2, %468 ], [ %.1504, %ExecBuildAggTransCall.exit281 ]
+  %.sroa.27.7 = phi ptr [ %.sroa.27.5, %.loopexit474 ], [ %.sroa.27.5, %468 ], [ %176, %ExecBuildAggTransCall.exit281 ]
+  %.sroa.37.5 = phi ptr [ %.sroa.37.3, %.loopexit474 ], [ %.sroa.37.3, %468 ], [ %.0.i266, %ExecBuildAggTransCall.exit281 ]
+  %.sroa.41.5 = phi i32 [ %.sroa.41.3, %.loopexit474 ], [ %.sroa.41.3, %468 ], [ %.0180505, %ExecBuildAggTransCall.exit281 ]
+  %.sroa.45.4 = phi i32 [ %.sroa.45.2, %.loopexit474 ], [ %.sroa.45.2, %468 ], [ %474, %ExecBuildAggTransCall.exit281 ]
+  %.sroa.48.3 = phi i32 [ %.sroa.48.1, %.loopexit474 ], [ %.sroa.48.1, %468 ], [ %.1504, %ExecBuildAggTransCall.exit281 ]
   %546 = getelementptr inbounds i8, ptr %.5, i64 4
   %.not210 = icmp eq ptr %.5, null
   br i1 %.not210, label %._crit_edge515, label %.lr.ph514
@@ -7744,11 +7744,11 @@ ExecBuildAggTransCall.exit281:                    ; preds = %ExprEvalPushStep.ex
   br i1 %575, label %174, label %._crit_edge530, !llvm.loop !16
 
 ._crit_edge530:                                   ; preds = %._crit_edge515, %._crit_edge
-  %.sroa.27.0.lcssa = phi ptr [ null, %._crit_edge ], [ %.sroa.27.8, %._crit_edge515 ]
-  %.sroa.37.0.lcssa = phi ptr [ null, %._crit_edge ], [ %.sroa.37.6, %._crit_edge515 ]
-  %.sroa.41.0.lcssa = phi i32 [ 0, %._crit_edge ], [ %.sroa.41.6, %._crit_edge515 ]
-  %.sroa.45.0.lcssa = phi i32 [ 0, %._crit_edge ], [ %.sroa.45.5, %._crit_edge515 ]
-  %.sroa.48.0.lcssa = phi i32 [ 0, %._crit_edge ], [ %.sroa.48.4, %._crit_edge515 ]
+  %.sroa.27.0.lcssa = phi ptr [ null, %._crit_edge ], [ %.sroa.27.7, %._crit_edge515 ]
+  %.sroa.37.0.lcssa = phi ptr [ null, %._crit_edge ], [ %.sroa.37.5, %._crit_edge515 ]
+  %.sroa.41.0.lcssa = phi i32 [ 0, %._crit_edge ], [ %.sroa.41.5, %._crit_edge515 ]
+  %.sroa.45.0.lcssa = phi i32 [ 0, %._crit_edge ], [ %.sroa.45.4, %._crit_edge515 ]
+  %.sroa.48.0.lcssa = phi i32 [ 0, %._crit_edge ], [ %.sroa.48.3, %._crit_edge515 ]
   %576 = getelementptr inbounds i8, ptr %7, i64 60
   %577 = load i32, ptr %576, align 4
   %578 = icmp eq i32 %577, 0
@@ -8422,13 +8422,13 @@ define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64
   br label %64
 
 64:                                               ; preds = %46, %49, %52, %60, %30, %27, %7
-  %.1 = phi ptr [ %9, %7 ], [ %26, %27 ], [ %31, %30 ], [ %45, %46 ], [ %50, %49 ], [ %56, %60 ], [ %56, %52 ]
+  %.051 = phi ptr [ %9, %7 ], [ %26, %27 ], [ %31, %30 ], [ %45, %46 ], [ %50, %49 ], [ %56, %60 ], [ %56, %52 ]
   %.050 = phi ptr [ %6, %7 ], [ %28, %27 ], [ %32, %30 ], [ %47, %46 ], [ %51, %49 ], [ %54, %60 ], [ %54, %52 ]
   %65 = load i8, ptr %2, align 1
   %66 = trunc i8 %65 to i1
   %67 = icmp ne ptr %.050, null
   %or.cond = select i1 %66, i1 %67, i1 false
-  %68 = icmp ne ptr %.1, null
+  %68 = icmp ne ptr %.051, null
   %or.cond3 = select i1 %or.cond, i1 %68, i1 false
   br i1 %or.cond3, label %71, label %69
 
@@ -8442,8 +8442,8 @@ define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64
   %72 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 1, ptr %72, align 4
   %73 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.1, ptr %73, align 8
-  %74 = icmp eq ptr %.1, @TTSOpsVirtual
+  store ptr %.051, ptr %73, align 8
+  %74 = icmp eq ptr %.051, @TTSOpsVirtual
   store ptr %.050, ptr %5, align 8
   br i1 %74, label %76, label %75
 

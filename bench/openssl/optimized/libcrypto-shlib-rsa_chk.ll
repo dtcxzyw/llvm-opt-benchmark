@@ -142,7 +142,7 @@ if.then40:                                        ; preds = %if.end37
   br label %if.end41
 
 if.end41:                                         ; preds = %if.then40, %if.end37
-  %ret.0 = phi i32 [ 0, %if.then40 ], [ 1, %if.end37 ]
+  %ret.1 = phi i32 [ 0, %if.then40 ], [ 1, %if.end37 ]
   %17 = load ptr, ptr %e, align 8
   %call43 = tail call i32 @BN_is_odd(ptr noundef %17) #2
   %tobool44.not = icmp eq i32 %call43, 0
@@ -155,7 +155,7 @@ if.then45:                                        ; preds = %if.end41
   br label %if.end46
 
 if.end46:                                         ; preds = %if.then45, %if.end41
-  %ret.1 = phi i32 [ %ret.0, %if.end41 ], [ 0, %if.then45 ]
+  %ret.2 = phi i32 [ %ret.1, %if.end41 ], [ 0, %if.then45 ]
   %18 = load ptr, ptr %p, align 8
   %call48 = tail call i32 @BN_check_prime(ptr noundef %18, ptr noundef nonnull %call24, ptr noundef %cb) #2
   %cmp49.not = icmp eq i32 %call48, 1
@@ -168,7 +168,7 @@ if.then50:                                        ; preds = %if.end46
   br label %if.end51
 
 if.end51:                                         ; preds = %if.then50, %if.end46
-  %ret.2 = phi i32 [ 0, %if.then50 ], [ %ret.1, %if.end46 ]
+  %ret.3 = phi i32 [ 0, %if.then50 ], [ %ret.2, %if.end46 ]
   %19 = load ptr, ptr %q, align 8
   %call53 = tail call i32 @BN_check_prime(ptr noundef %19, ptr noundef nonnull %call24, ptr noundef %cb) #2
   %cmp54.not = icmp eq i32 %call53, 1
@@ -181,7 +181,7 @@ if.then55:                                        ; preds = %if.end51
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then55, %if.end51
-  %ret.3 = phi i32 [ 0, %if.then55 ], [ %ret.2, %if.end51 ]
+  %ret.4 = phi i32 [ 0, %if.then55 ], [ %ret.3, %if.end51 ]
   %cmp57140.not = icmp eq i32 %ex_primes.0, 0
   br i1 %cmp57140.not, label %for.end, label %for.body.lr.ph
 
@@ -191,7 +191,7 @@ for.body.lr.ph:                                   ; preds = %if.end56
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %idx.0142 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %ret.4141 = phi i32 [ %ret.3, %for.body.lr.ph ], [ %ret.5, %for.inc ]
+  %ret.5141 = phi i32 [ %ret.4, %for.body.lr.ph ], [ %ret.6, %for.inc ]
   %20 = load ptr, ptr %prime_infos58, align 8
   %call.i134 = tail call ptr @OPENSSL_sk_value(ptr noundef %20, i32 noundef %idx.0142) #2
   %21 = load ptr, ptr %call.i134, align 8
@@ -206,13 +206,13 @@ if.then62:                                        ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then62
-  %ret.5 = phi i32 [ 0, %if.then62 ], [ %ret.4141, %for.body ]
+  %ret.6 = phi i32 [ 0, %if.then62 ], [ %ret.5141, %for.body ]
   %inc = add nuw nsw i32 %idx.0142, 1
   %exitcond.not = icmp eq i32 %inc, %ex_primes.0
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
 for.end:                                          ; preds = %for.inc, %if.end56
-  %ret.4.lcssa = phi i32 [ %ret.3, %if.end56 ], [ %ret.5, %for.inc ]
+  %ret.5.lcssa = phi i32 [ %ret.4, %if.end56 ], [ %ret.6, %for.inc ]
   %22 = load ptr, ptr %p, align 8
   %23 = load ptr, ptr %q, align 8
   %call66 = tail call i32 @BN_mul(ptr noundef %call19, ptr noundef %22, ptr noundef %23, ptr noundef %call24) #2
@@ -256,7 +256,7 @@ if.then86:                                        ; preds = %for.end82
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then86, %for.end82
-  %ret.6 = phi i32 [ %ret.4.lcssa, %for.end82 ], [ 0, %if.then86 ]
+  %ret.7 = phi i32 [ %ret.5.lcssa, %for.end82 ], [ 0, %if.then86 ]
   %27 = load ptr, ptr %p, align 8
   %call92 = tail call ptr @BN_value_one() #2
   %call93 = tail call i32 @BN_sub(ptr noundef %call19, ptr noundef %27, ptr noundef %call92) #2
@@ -341,7 +341,7 @@ if.then149:                                       ; preds = %if.end146
   br label %if.end150
 
 if.end150:                                        ; preds = %if.then149, %if.end146
-  %ret.7 = phi i32 [ %ret.6, %if.end146 ], [ 0, %if.then149 ]
+  %ret.8 = phi i32 [ %ret.7, %if.end146 ], [ 0, %if.then149 ]
   %dmp1 = getelementptr inbounds i8, ptr %key, i64 80
   %33 = load ptr, ptr %dmp1, align 8
   %cmp151.not = icmp eq ptr %33, null
@@ -385,7 +385,7 @@ if.then170:                                       ; preds = %if.end166
   br label %if.end171
 
 if.end171:                                        ; preds = %if.then170, %if.end166
-  %ret.8 = phi i32 [ 0, %if.then170 ], [ %ret.7, %if.end166 ]
+  %ret.10 = phi i32 [ 0, %if.then170 ], [ %ret.8, %if.end166 ]
   %39 = load ptr, ptr %q, align 8
   %call173 = tail call ptr @BN_value_one() #2
   %call174 = tail call i32 @BN_sub(ptr noundef %call19, ptr noundef %39, ptr noundef %call173) #2
@@ -411,7 +411,7 @@ if.then186:                                       ; preds = %if.end182
   br label %if.end187
 
 if.end187:                                        ; preds = %if.then186, %if.end182
-  %ret.9 = phi i32 [ 0, %if.then186 ], [ %ret.8, %if.end182 ]
+  %ret.11 = phi i32 [ 0, %if.then186 ], [ %ret.10, %if.end182 ]
   %42 = load ptr, ptr %q, align 8
   %43 = load ptr, ptr %p, align 8
   %call190 = tail call ptr @BN_mod_inverse(ptr noundef %call19, ptr noundef %42, ptr noundef %43, ptr noundef %call24) #2
@@ -431,13 +431,13 @@ if.then197:                                       ; preds = %if.end193
   br label %if.end199
 
 if.end199:                                        ; preds = %if.end193, %if.then197, %land.lhs.true153, %land.lhs.true, %if.end150
-  %ret.10 = phi i32 [ 0, %if.then197 ], [ %ret.9, %if.end193 ], [ %ret.7, %land.lhs.true153 ], [ %ret.7, %land.lhs.true ], [ %ret.7, %if.end150 ]
+  %ret.9 = phi i32 [ 0, %if.then197 ], [ %ret.11, %if.end193 ], [ %ret.8, %land.lhs.true153 ], [ %ret.8, %land.lhs.true ], [ %ret.8, %if.end150 ]
   %prime_infos203 = getelementptr inbounds i8, ptr %key, i64 136
   br i1 %cmp57140.not, label %err, label %for.body202
 
 for.body202:                                      ; preds = %if.end199, %for.inc230
   %idx.3149 = phi i32 [ %inc231, %for.inc230 ], [ 0, %if.end199 ]
-  %ret.11148 = phi i32 [ %ret.13, %for.inc230 ], [ %ret.10, %if.end199 ]
+  %ret.12148 = phi i32 [ %ret.14, %for.inc230 ], [ %ret.9, %if.end199 ]
   %45 = load ptr, ptr %prime_infos203, align 8
   %call.i137 = tail call ptr @OPENSSL_sk_value(ptr noundef %45, i32 noundef %idx.3149) #2
   %46 = load ptr, ptr %call.i137, align 8
@@ -466,7 +466,7 @@ if.then219:                                       ; preds = %if.end215
   br label %if.end220
 
 if.end220:                                        ; preds = %if.then219, %if.end215
-  %ret.12 = phi i32 [ 0, %if.then219 ], [ %ret.11148, %if.end215 ]
+  %ret.13 = phi i32 [ 0, %if.then219 ], [ %ret.12148, %if.end215 ]
   %pp = getelementptr inbounds i8, ptr %call.i137, i64 24
   %49 = load ptr, ptr %pp, align 8
   %50 = load ptr, ptr %call.i137, align 8
@@ -488,13 +488,13 @@ if.then228:                                       ; preds = %if.end225
   br label %for.inc230
 
 for.inc230:                                       ; preds = %if.end225, %if.then228
-  %ret.13 = phi i32 [ 0, %if.then228 ], [ %ret.12, %if.end225 ]
+  %ret.14 = phi i32 [ 0, %if.then228 ], [ %ret.13, %if.end225 ]
   %inc231 = add nuw nsw i32 %idx.3149, 1
   %exitcond158.not = icmp eq i32 %inc231, %ex_primes.0
   br i1 %exitcond158.not, label %err, label %for.body202, !llvm.loop !8
 
 err:                                              ; preds = %for.body72, %if.end133, %if.end129, %if.end125, %for.body117, %for.inc230, %for.body202, %if.end210, %if.end220, %if.end199, %if.end187, %if.end177, %if.end171, %if.end161, %if.then155, %for.end140, %if.end110, %if.end106, %if.end102, %if.end96, %if.end90, %for.end, %if.then36
-  %ret.14 = phi i32 [ -1, %if.then36 ], [ -1, %for.end ], [ -1, %if.end90 ], [ -1, %if.end96 ], [ -1, %if.end102 ], [ -1, %if.end106 ], [ -1, %if.end110 ], [ -1, %for.end140 ], [ -1, %if.then155 ], [ -1, %if.end161 ], [ -1, %if.end171 ], [ -1, %if.end177 ], [ -1, %if.end187 ], [ %ret.10, %if.end199 ], [ %ret.13, %for.inc230 ], [ -1, %for.body202 ], [ -1, %if.end210 ], [ -1, %if.end220 ], [ -1, %for.body117 ], [ -1, %if.end125 ], [ -1, %if.end129 ], [ -1, %if.end133 ], [ -1, %for.body72 ]
+  %ret.0 = phi i32 [ -1, %if.then36 ], [ -1, %for.end ], [ -1, %if.end90 ], [ -1, %if.end96 ], [ -1, %if.end102 ], [ -1, %if.end106 ], [ -1, %if.end110 ], [ -1, %for.end140 ], [ -1, %if.then155 ], [ -1, %if.end161 ], [ -1, %if.end171 ], [ -1, %if.end177 ], [ -1, %if.end187 ], [ %ret.9, %if.end199 ], [ %ret.14, %for.inc230 ], [ -1, %for.body202 ], [ -1, %if.end210 ], [ -1, %if.end220 ], [ -1, %for.body117 ], [ -1, %if.end125 ], [ -1, %if.end129 ], [ -1, %if.end133 ], [ -1, %for.body72 ]
   tail call void @BN_free(ptr noundef %call19) #2
   tail call void @BN_free(ptr noundef %call20) #2
   tail call void @BN_free(ptr noundef %call21) #2
@@ -504,7 +504,7 @@ err:                                              ; preds = %for.body72, %if.end
   br label %return
 
 return:                                           ; preds = %err, %if.then16, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then16 ], [ %ret.14, %err ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then16 ], [ %ret.0, %err ]
   ret i32 %retval.0
 }
 

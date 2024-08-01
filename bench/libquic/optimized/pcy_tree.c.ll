@@ -261,7 +261,7 @@ for.body95.preheader.i:                           ; preds = %for.cond92.preheade
 for.body95.i:                                     ; preds = %for.inc162.i, %for.body95.preheader.i
   %indvars.iv99.i = phi i64 [ %7, %for.body95.preheader.i ], [ %indvars.iv.next100.i, %for.inc162.i ]
   %map_skip.197.i = phi i32 [ %map_skip.0.i, %for.body95.preheader.i ], [ %map_skip.3.i, %for.inc162.i ]
-  %any_skip.196.i = phi i32 [ %any_skip.0.i, %for.body95.preheader.i ], [ %any_skip.3.i, %for.inc162.i ]
+  %any_skip.196.i = phi i32 [ %any_skip.0.i, %for.body95.preheader.i ], [ %any_skip.2.i, %for.inc162.i ]
   %level.094.i = phi ptr [ %calloc.i, %for.body95.preheader.i ], [ %incdec.ptr.i, %for.inc162.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %level.094.i, i64 32
   %call97.i = tail call ptr @sk_value(ptr noundef %certs, i64 noundef %indvars.iv99.i) #7
@@ -316,7 +316,7 @@ if.else117.i:                                     ; preds = %if.end103.i
   br label %if.end136.i
 
 if.end136.i:                                      ; preds = %if.else117.i, %if.then113.i, %if.then106.i
-  %any_skip.3.i = phi i32 [ 0, %if.then113.i ], [ 0, %if.then106.i ], [ %spec.select81.i, %if.else117.i ]
+  %any_skip.2.i = phi i32 [ 0, %if.then113.i ], [ 0, %if.then106.i ], [ %spec.select81.i, %if.else117.i ]
   %cmp137.i = icmp eq i32 %map_skip.197.i, 0
   br i1 %cmp137.i, label %if.then139.i, label %if.else142.i
 

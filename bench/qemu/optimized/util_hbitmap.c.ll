@@ -472,8 +472,8 @@ if.end31:                                         ; preds = %cond.end
   br i1 %cmp32, label %do.body, label %if.end45
 
 do.body:                                          ; preds = %if.end31, %land.rhs
-  %pos.0 = phi i64 [ %inc, %land.rhs ], [ %shr1, %if.end31 ]
-  %inc = add nsw i64 %pos.0, 1
+  %pos.1 = phi i64 [ %inc, %land.rhs ], [ %shr1, %if.end31 ]
+  %inc = add nsw i64 %pos.1, 1
   %cmp35 = icmp ult i64 %inc, %shr17
   br i1 %cmp35, label %land.rhs, label %return
 
@@ -485,8 +485,8 @@ land.rhs:                                         ; preds = %do.body
 
 if.end45:                                         ; preds = %land.rhs, %if.end31
   %cur.0 = phi i64 [ %or, %if.end31 ], [ %7, %land.rhs ]
-  %pos.1 = phi i64 [ %shr1, %if.end31 ], [ %inc, %land.rhs ]
-  %shl46 = shl i64 %pos.1, 6
+  %pos.0 = phi i64 [ %shr1, %if.end31 ], [ %inc, %land.rhs ]
+  %shl46 = shl i64 %pos.0, 6
   %not.i = xor i64 %cur.0, -1
   %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %not.i, i1 false)
   %add48 = add nuw i64 %shl46, %8
@@ -762,13 +762,13 @@ if.then.i:                                        ; preds = %tailrecurse.i
 if.end.i:                                         ; preds = %if.then.i, %if.end.i
   %inc47.i = phi i64 [ %inc.i, %if.end.i ], [ %inc43.i, %if.then.i ]
   %next.046.i = phi i64 [ %add6.i, %if.end.i ], [ %add.i, %if.then.i ]
-  %changed.0.in45.i = phi i1 [ %or1828.i, %if.end.i ], [ %cmp8.i.i, %if.then.i ]
+  %changed.1.in45.i = phi i1 [ %or1828.i, %if.end.i ], [ %cmp8.i.i, %if.then.i ]
   %add6.i = add i64 %next.046.i, 64
   %13 = load ptr, ptr %arrayidx.i, align 8
   %arrayidx13.i = getelementptr i64, ptr %13, i64 %inc47.i
   %14 = load i64, ptr %arrayidx13.i, align 8
   %cmp14.i = icmp eq i64 %14, 0
-  %or1828.i = or i1 %changed.0.in45.i, %cmp14.i
+  %or1828.i = or i1 %changed.1.in45.i, %cmp14.i
   store i64 -1, ptr %arrayidx13.i, align 8
   %inc.i = add i64 %inc47.i, 1
   %cmp7.i = icmp eq i64 %inc.i, %shr1.i
@@ -776,11 +776,11 @@ if.end.i:                                         ; preds = %if.then.i, %if.end.
 
 if.end25.i:                                       ; preds = %if.end.i, %if.then.i, %tailrecurse.i
   %start.addr.0.i = phi i64 [ %add.i, %if.then.i ], [ %start.tr.i, %tailrecurse.i ], [ %add6.i, %if.end.i ]
-  %changed.1.i = phi i1 [ %cmp8.i.i, %if.then.i ], [ false, %tailrecurse.i ], [ %or1828.i, %if.end.i ]
-  %i.1.i = phi i64 [ %shr1.i, %if.then.i ], [ %shr.i, %tailrecurse.i ], [ %shr1.i, %if.end.i ]
+  %changed.0.i = phi i1 [ %cmp8.i.i, %if.then.i ], [ false, %tailrecurse.i ], [ %or1828.i, %if.end.i ]
+  %i.0.i = phi i64 [ %shr1.i, %if.then.i ], [ %shr.i, %tailrecurse.i ], [ %shr1.i, %if.end.i ]
   %arrayidx28.i = getelementptr [7 x ptr], ptr %levels26.i, i64 0, i64 %idxprom.i
   %15 = load ptr, ptr %arrayidx28.i, align 8
-  %arrayidx29.i = getelementptr i64, ptr %15, i64 %i.1.i
+  %arrayidx29.i = getelementptr i64, ptr %15, i64 %i.0.i
   %cmp.unshifted.i30.i = xor i64 %start.addr.0.i, %last.tr.i
   %cmp.i31.i = icmp ult i64 %cmp.unshifted.i30.i, 64
   br i1 %cmp.i31.i, label %if.end.i.i, label %if.else.i32.i
@@ -807,7 +807,7 @@ hb_set_elem.exit37.i:                             ; preds = %if.end.i.i
   %or.i35.i = or i64 %16, %sub.i.i
   store i64 %or.i35.i, ptr %arrayidx29.i, align 8
   %cmp8.i36.i = icmp ne i64 %16, %or.i35.i
-  %or3429.i = or i1 %changed.1.i, %cmp8.i36.i
+  %or3429.i = or i1 %changed.0.i, %cmp8.i36.i
   %cmp37.i = icmp ne i32 %level.tr.i, 0
   %brmerge.not.i = select i1 %cmp37.i, i1 %or3429.i, i1 false
   %sub42.i = add nsw i32 %level.tr.i, -1
@@ -1024,7 +1024,7 @@ if.end25:                                         ; preds = %trace_hbitmap_reset
 
 tailrecurse.i:                                    ; preds = %if.then34.i, %if.end25
   %level.tr.i = phi i32 [ 6, %if.end25 ], [ %sub35.i, %if.then34.i ]
-  %start.tr.i = phi i64 [ %shr18, %if.end25 ], [ %pos.1.i, %if.then34.i ]
+  %start.tr.i = phi i64 [ %shr18, %if.end25 ], [ %pos.0.i, %if.then34.i ]
   %last.tr.i = phi i64 [ %shr21, %if.end25 ], [ %lastpos.0.i, %if.then34.i ]
   %ret.known.tr.i = phi i1 [ false, %if.end25 ], [ true, %if.then34.i ]
   %shr.i = lshr i64 %start.tr.i, 6
@@ -1049,7 +1049,7 @@ if.then.i:                                        ; preds = %tailrecurse.i
   %.not.i = select i1 %cmp8.not.i.i, i1 true, i1 %cmp10.i.i
   store i64 %and9.i.i, ptr %arrayidx2.i, align 8
   %inc.i = zext i1 %.not.i to i64
-  %pos.0.i = add nuw nsw i64 %shr.i, %inc.i
+  %pos.1.i = add nuw nsw i64 %shr.i, %inc.i
   %not..not.i = xor i1 %.not.i, true
   %inc543.i = add nuw nsw i64 %shr.i, 1
   %cmp644.i = icmp eq i64 %inc543.i, %shr1.i
@@ -1058,13 +1058,13 @@ if.then.i:                                        ; preds = %tailrecurse.i
 if.end8.i:                                        ; preds = %if.then.i, %if.end8.i
   %inc547.i = phi i64 [ %inc5.i, %if.end8.i ], [ %inc543.i, %if.then.i ]
   %next.046.i = phi i64 [ %add4.i, %if.end8.i ], [ %add.i, %if.then.i ]
-  %changed.145.i = phi i1 [ %16, %if.end8.i ], [ %not..not.i, %if.then.i ]
+  %changed.245.i = phi i1 [ %16, %if.end8.i ], [ %not..not.i, %if.then.i ]
   %add4.i = add i64 %next.046.i, 64
   %14 = load ptr, ptr %arrayidx.i, align 8
   %arrayidx12.i = getelementptr i64, ptr %14, i64 %inc547.i
   %15 = load i64, ptr %arrayidx12.i, align 8
   %cmp13.i = icmp ne i64 %15, 0
-  %16 = or i1 %changed.145.i, %cmp13.i
+  %16 = or i1 %changed.245.i, %cmp13.i
   store i64 0, ptr %arrayidx12.i, align 8
   %inc5.i = add i64 %inc547.i, 1
   %cmp6.i = icmp eq i64 %inc5.i, %shr1.i
@@ -1072,12 +1072,12 @@ if.end8.i:                                        ; preds = %if.then.i, %if.end8
 
 if.end21.i:                                       ; preds = %if.end8.i, %if.then.i, %tailrecurse.i
   %start.addr.0.i = phi i64 [ %add.i, %if.then.i ], [ %start.tr.i, %tailrecurse.i ], [ %add4.i, %if.end8.i ]
-  %pos.1.i = phi i64 [ %pos.0.i, %if.then.i ], [ %shr.i, %tailrecurse.i ], [ %pos.0.i, %if.end8.i ]
-  %changed.2.i = phi i1 [ %not..not.i, %if.then.i ], [ false, %tailrecurse.i ], [ %16, %if.end8.i ]
-  %i.1.i = phi i64 [ %shr1.i, %if.then.i ], [ %shr.i, %tailrecurse.i ], [ %shr1.i, %if.end8.i ]
+  %pos.0.i = phi i64 [ %pos.1.i, %if.then.i ], [ %shr.i, %tailrecurse.i ], [ %pos.1.i, %if.end8.i ]
+  %changed.0.i = phi i1 [ %not..not.i, %if.then.i ], [ false, %tailrecurse.i ], [ %16, %if.end8.i ]
+  %i.0.i = phi i64 [ %shr1.i, %if.then.i ], [ %shr.i, %tailrecurse.i ], [ %shr1.i, %if.end8.i ]
   %arrayidx24.i = getelementptr [7 x ptr], ptr %levels22.i, i64 0, i64 %idxprom.i
   %17 = load ptr, ptr %arrayidx24.i, align 8
-  %arrayidx25.i = getelementptr i64, ptr %17, i64 %i.1.i
+  %arrayidx25.i = getelementptr i64, ptr %17, i64 %i.0.i
   %cmp.unshifted.i28.i = xor i64 %start.addr.0.i, %last.tr.i
   %cmp.i29.i = icmp ult i64 %cmp.unshifted.i28.i, 64
   br i1 %cmp.i29.i, label %if.end.i.i, label %if.else.i30.i
@@ -1107,7 +1107,7 @@ hb_reset_elem.exit37.i:                           ; preds = %if.end.i.i
   %cmp10.i36.i = icmp eq i64 %and9.i35.i, 0
   %19 = select i1 %cmp8.not.i33.i, i1 %cmp10.i36.i, i1 false
   store i64 %and9.i35.i, ptr %arrayidx25.i, align 8
-  %changed.3.i = select i1 %19, i1 true, i1 %changed.2.i
+  %changed.3.i = select i1 %19, i1 true, i1 %changed.0.i
   %cmp30.i = icmp ne i32 %level.tr.i, 0
   %brmerge.not.i = select i1 %cmp30.i, i1 %changed.3.i, i1 false
   br i1 %brmerge.not.i, label %if.then34.i, label %hb_reset_between.exit

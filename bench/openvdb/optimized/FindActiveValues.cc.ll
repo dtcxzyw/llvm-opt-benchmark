@@ -21882,15 +21882,15 @@ lpad129.thread:                                   ; preds = %if.then139, %land.l
 lpad129:                                          ; preds = %if.end145
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i, label %ehcleanup188, label %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %lpad129
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %ehcleanup188
 
 if.end145:                                        ; preds = %if.then139, %invoke.cont134, %land.lhs.true137, %invoke.cont130, %if.end119
-  %scopedTempBuf.sroa.0.1 = phi ptr [ null, %invoke.cont134 ], [ null, %land.lhs.true137 ], [ null, %invoke.cont130 ], [ null, %if.end119 ], [ %call142, %if.then139 ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %invoke.cont134 ], [ null, %land.lhs.true137 ], [ null, %invoke.cont130 ], [ null, %if.end119 ], [ %call142, %if.then139 ]
   %tempBuf.0 = phi ptr [ null, %invoke.cont134 ], [ %destBuf, %land.lhs.true137 ], [ %destBuf, %invoke.cont130 ], [ %destBuf, %if.end119 ], [ %call142, %if.then139 ]
   %tempCount.0 = phi i32 [ %add.i, %invoke.cont134 ], [ %destCount, %land.lhs.true137 ], [ %destCount, %invoke.cont130 ], [ %destCount, %if.end119 ], [ %add.i, %if.then139 ]
   %cond152 = select i1 %cmp, ptr null, ptr %tempBuf.0
@@ -21947,11 +21947,11 @@ for.inc:                                          ; preds = %if.then172, %if.els
   br i1 %exitcond.not, label %if.end185, label %for.body, !llvm.loop !140
 
 if.end185:                                        ; preds = %for.inc, %if.end163
-  %cmp.not.i75 = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i75 = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i75, label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit77, label %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i76
 
 _ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i76: ; preds = %if.end185
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %_ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit77
 
 _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit77: ; preds = %if.end185, %_ZNKSt14default_deleteIA_iEclIiEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i76
@@ -25372,15 +25372,15 @@ lpad129.thread:                                   ; preds = %if.then139, %land.l
 lpad129:                                          ; preds = %if.end145
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i, label %ehcleanup188, label %_ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %lpad129
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %ehcleanup188
 
 if.end145:                                        ; preds = %if.then139, %invoke.cont134, %land.lhs.true137, %invoke.cont130, %if.end119
-  %scopedTempBuf.sroa.0.1 = phi ptr [ null, %invoke.cont134 ], [ null, %land.lhs.true137 ], [ null, %invoke.cont130 ], [ null, %if.end119 ], [ %call142, %if.then139 ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %invoke.cont134 ], [ null, %land.lhs.true137 ], [ null, %invoke.cont130 ], [ null, %if.end119 ], [ %call142, %if.then139 ]
   %tempBuf.0 = phi ptr [ null, %invoke.cont134 ], [ %destBuf, %land.lhs.true137 ], [ %destBuf, %invoke.cont130 ], [ %destBuf, %if.end119 ], [ %call142, %if.then139 ]
   %tempCount.0 = phi i32 [ %add.i, %invoke.cont134 ], [ %destCount, %land.lhs.true137 ], [ %destCount, %invoke.cont130 ], [ %destCount, %if.end119 ], [ %add.i, %if.then139 ]
   %cond152 = select i1 %cmp, ptr null, ptr %tempBuf.0
@@ -25437,11 +25437,11 @@ for.inc:                                          ; preds = %if.then172, %if.els
   br i1 %exitcond.not, label %if.end185, label %for.body, !llvm.loop !192
 
 if.end185:                                        ; preds = %for.inc, %if.end163
-  %cmp.not.i75 = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i75 = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i75, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit77, label %_ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i76
 
 _ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i76: ; preds = %if.end185
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit77
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit77: ; preds = %if.end185, %_ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i76
@@ -28405,15 +28405,15 @@ lpad129.thread:                                   ; preds = %if.then139, %land.l
 lpad129:                                          ; preds = %if.else155, %if.then147
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i, label %ehcleanup188, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %lpad129
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %ehcleanup188
 
 if.end145:                                        ; preds = %if.then139, %invoke.cont134, %land.lhs.true137, %invoke.cont130, %if.end119
-  %scopedTempBuf.sroa.0.1 = phi ptr [ null, %invoke.cont134 ], [ null, %land.lhs.true137 ], [ null, %invoke.cont130 ], [ null, %if.end119 ], [ %call142, %if.then139 ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %invoke.cont134 ], [ null, %land.lhs.true137 ], [ null, %invoke.cont130 ], [ null, %if.end119 ], [ %call142, %if.then139 ]
   %tempBuf.0 = phi ptr [ null, %invoke.cont134 ], [ %destBuf, %land.lhs.true137 ], [ %destBuf, %invoke.cont130 ], [ %destBuf, %if.end119 ], [ %call142, %if.then139 ]
   %tempCount.0 = phi i32 [ %add.i, %invoke.cont134 ], [ %destCount, %land.lhs.true137 ], [ %destCount, %invoke.cont130 ], [ %destCount, %if.end119 ], [ %add.i, %if.then139 ]
   %cond152 = select i1 %cmp, ptr null, ptr %tempBuf.0
@@ -28477,11 +28477,11 @@ for.inc:                                          ; preds = %if.then172, %if.els
   br i1 %exitcond.not, label %if.end185, label %for.body, !llvm.loop !236
 
 if.end185:                                        ; preds = %for.inc, %if.end163
-  %cmp.not.i74 = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i74 = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i74, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit76, label %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i75
 
 _ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i75: ; preds = %if.end185
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit76
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit76: ; preds = %if.end185, %_ZNKSt14default_deleteIA_fEclIfEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i75
@@ -31605,15 +31605,15 @@ lpad128.thread:                                   ; preds = %if.then138, %land.l
 lpad128:                                          ; preds = %if.else154, %if.then146
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i, label %ehcleanup187, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %lpad128
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %ehcleanup187
 
 if.end144:                                        ; preds = %if.then138, %invoke.cont133, %land.lhs.true136, %invoke.cont129, %if.end118
-  %scopedTempBuf.sroa.0.1 = phi ptr [ null, %invoke.cont133 ], [ null, %land.lhs.true136 ], [ null, %invoke.cont129 ], [ null, %if.end118 ], [ %call141, %if.then138 ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %invoke.cont133 ], [ null, %land.lhs.true136 ], [ null, %invoke.cont129 ], [ null, %if.end118 ], [ %call141, %if.then138 ]
   %tempBuf.0 = phi ptr [ null, %invoke.cont133 ], [ %destBuf, %land.lhs.true136 ], [ %destBuf, %invoke.cont129 ], [ %destBuf, %if.end118 ], [ %call141, %if.then138 ]
   %tempCount.0 = phi i32 [ %add.i, %invoke.cont133 ], [ %destCount, %land.lhs.true136 ], [ %destCount, %invoke.cont129 ], [ %destCount, %if.end118 ], [ %add.i, %if.then138 ]
   %cond151 = select i1 %cmp, ptr null, ptr %tempBuf.0
@@ -31677,11 +31677,11 @@ for.inc:                                          ; preds = %if.then171, %if.els
   br i1 %exitcond.not, label %if.end184, label %for.body, !llvm.loop !281
 
 if.end184:                                        ; preds = %for.inc, %if.end162
-  %cmp.not.i74 = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i74 = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i74, label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit76, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i75
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i75: ; preds = %if.end184
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %_ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit76
 
 _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit76: ; preds = %if.end184, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i75
@@ -34812,15 +34812,15 @@ lpad133.thread:                                   ; preds = %if.then143, %land.l
 lpad133:                                          ; preds = %if.else158, %if.then151
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i, label %ehcleanup190, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IfEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i
 
 _ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IfEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i: ; preds = %lpad133
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %ehcleanup190
 
 if.end149:                                        ; preds = %if.then143, %invoke.cont138, %land.lhs.true141, %invoke.cont134, %if.end123
-  %scopedTempBuf.sroa.0.1 = phi ptr [ null, %invoke.cont138 ], [ null, %land.lhs.true141 ], [ null, %invoke.cont134 ], [ null, %if.end123 ], [ %call146, %if.then143 ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %invoke.cont138 ], [ null, %land.lhs.true141 ], [ null, %invoke.cont134 ], [ null, %if.end123 ], [ %call146, %if.then143 ]
   %tempBuf.0 = phi ptr [ null, %invoke.cont138 ], [ %destBuf, %land.lhs.true141 ], [ %destBuf, %invoke.cont134 ], [ %destBuf, %if.end123 ], [ %call146, %if.then143 ]
   %tempCount.0 = phi i32 [ %add.i, %invoke.cont138 ], [ %destCount, %land.lhs.true141 ], [ %destCount, %invoke.cont134 ], [ %destCount, %if.end123 ], [ %add.i, %if.then143 ]
   %cond = select i1 %cmp, ptr null, ptr %tempBuf.0
@@ -34879,11 +34879,11 @@ for.inc:                                          ; preds = %if.then175, %if.els
   br i1 %exitcond.not, label %if.end187, label %for.body, !llvm.loop !326
 
 if.end187:                                        ; preds = %for.inc, %if.end166
-  %cmp.not.i74 = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i74 = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i74, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IfEESt14default_deleteIS5_EED2Ev.exit76, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IfEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i75
 
 _ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IfEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i75: ; preds = %if.end187
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IfEESt14default_deleteIS5_EED2Ev.exit76
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IfEESt14default_deleteIS5_EED2Ev.exit76: ; preds = %if.end187, %_ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IfEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i75
@@ -38118,15 +38118,15 @@ lpad127.thread:                                   ; preds = %if.then137, %land.l
 lpad127:                                          ; preds = %if.else152, %if.then145
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i, label %ehcleanup184, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IdEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i
 
 _ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IdEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i: ; preds = %lpad127
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %ehcleanup184
 
 if.end143:                                        ; preds = %if.then137, %invoke.cont132, %land.lhs.true135, %invoke.cont128, %if.end117
-  %scopedTempBuf.sroa.0.1 = phi ptr [ null, %invoke.cont132 ], [ null, %land.lhs.true135 ], [ null, %invoke.cont128 ], [ null, %if.end117 ], [ %call140, %if.then137 ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %invoke.cont132 ], [ null, %land.lhs.true135 ], [ null, %invoke.cont128 ], [ null, %if.end117 ], [ %call140, %if.then137 ]
   %tempBuf.0 = phi ptr [ null, %invoke.cont132 ], [ %destBuf, %land.lhs.true135 ], [ %destBuf, %invoke.cont128 ], [ %destBuf, %if.end117 ], [ %call140, %if.then137 ]
   %tempCount.0 = phi i32 [ %add.i, %invoke.cont132 ], [ %destCount, %land.lhs.true135 ], [ %destCount, %invoke.cont128 ], [ %destCount, %if.end117 ], [ %add.i, %if.then137 ]
   %cond = select i1 %cmp, ptr null, ptr %tempBuf.0
@@ -38185,11 +38185,11 @@ for.inc:                                          ; preds = %if.then169, %if.els
   br i1 %exitcond.not, label %if.end181, label %for.body, !llvm.loop !377
 
 if.end181:                                        ; preds = %for.inc, %if.end160
-  %cmp.not.i74 = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i74 = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i74, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IdEESt14default_deleteIS5_EED2Ev.exit76, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IdEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i75
 
 _ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IdEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i75: ; preds = %if.end181
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IdEESt14default_deleteIS5_EED2Ev.exit76
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IdEESt14default_deleteIS5_EED2Ev.exit76: ; preds = %if.end181, %_ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IdEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i75
@@ -41443,15 +41443,15 @@ lpad133.thread:                                   ; preds = %if.then143, %land.l
 lpad133:                                          ; preds = %if.end149
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i, label %ehcleanup190, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IiEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i
 
 _ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IiEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i: ; preds = %lpad133
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %ehcleanup190
 
 if.end149:                                        ; preds = %if.then143, %invoke.cont138, %land.lhs.true141, %invoke.cont134, %if.end123
-  %scopedTempBuf.sroa.0.1 = phi ptr [ null, %invoke.cont138 ], [ null, %land.lhs.true141 ], [ null, %invoke.cont134 ], [ null, %if.end123 ], [ %call146, %if.then143 ]
+  %scopedTempBuf.sroa.0.0 = phi ptr [ null, %invoke.cont138 ], [ null, %land.lhs.true141 ], [ null, %invoke.cont134 ], [ null, %if.end123 ], [ %call146, %if.then143 ]
   %tempBuf.0 = phi ptr [ null, %invoke.cont138 ], [ %destBuf, %land.lhs.true141 ], [ %destBuf, %invoke.cont134 ], [ %destBuf, %if.end123 ], [ %call146, %if.then143 ]
   %tempCount.0 = phi i32 [ %add.i, %invoke.cont138 ], [ %destCount, %land.lhs.true141 ], [ %destCount, %invoke.cont134 ], [ %destCount, %if.end123 ], [ %add.i, %if.then143 ]
   %cond = select i1 %cmp, ptr null, ptr %tempBuf.0
@@ -41503,11 +41503,11 @@ for.inc:                                          ; preds = %if.then175, %if.els
   br i1 %exitcond.not, label %if.end187, label %for.body, !llvm.loop !422
 
 if.end187:                                        ; preds = %for.inc, %if.end166
-  %cmp.not.i75 = icmp eq ptr %scopedTempBuf.sroa.0.1, null
+  %cmp.not.i75 = icmp eq ptr %scopedTempBuf.sroa.0.0, null
   br i1 %cmp.not.i75, label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IiEESt14default_deleteIS5_EED2Ev.exit77, label %_ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IiEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i76
 
 _ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IiEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i76: ; preds = %if.end187
-  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.1) #22
+  call void @_ZdaPv(ptr noundef nonnull %scopedTempBuf.sroa.0.0) #22
   br label %_ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IiEESt14default_deleteIS5_EED2Ev.exit77
 
 _ZNSt10unique_ptrIA_N7openvdb5v11_04math4Vec3IiEESt14default_deleteIS5_EED2Ev.exit77: ; preds = %if.end187, %_ZNKSt14default_deleteIA_N7openvdb5v11_04math4Vec3IiEEEclIS4_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS5_EE5valueEvE4typeEPS9_.exit.i76
@@ -47348,7 +47348,7 @@ for.body58.lr.ph:                                 ; preds = %if.then52
 for.body58:                                       ; preds = %for.body58.lr.ph, %for.inc75
   %41 = phi i64 [ %39, %for.body58.lr.ph ], [ %58, %for.inc75 ]
   %i54.0176 = phi i64 [ 0, %for.body58.lr.ph ], [ %inc76, %for.inc75 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.2, %for.inc75 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.1, %for.inc75 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i54.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -47395,7 +47395,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not171, label %for.inc75, label %for.body68
 
 for.body68:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont69 unwind label %lpad.loopexit
@@ -47404,8 +47404,8 @@ invoke.cont69:                                    ; preds = %for.body68
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -47471,7 +47471,7 @@ for.inc75.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc75:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc75.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body58
   %58 = phi i64 [ %41, %for.body58 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc75.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc76 = add nuw i64 %i54.0176, 1
   %cmp57 = icmp ult i64 %inc76, %58
   br i1 %cmp57, label %for.body58, label %cleanup, !llvm.loop !517
@@ -47915,7 +47915,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc73
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc73 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc74, %for.inc73 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc73 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc73 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -47962,7 +47962,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not171, label %for.inc73, label %for.body66
 
 for.body66:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont67 unwind label %lpad.loopexit
@@ -47971,8 +47971,8 @@ invoke.cont67:                                    ; preds = %for.body66
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.455"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -48038,7 +48038,7 @@ for.inc73.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc73:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc73.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc73.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc74 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc74, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !528
@@ -50762,7 +50762,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -50814,14 +50814,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -50887,7 +50887,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !566
@@ -53502,7 +53502,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -53554,14 +53554,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.455"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -53627,7 +53627,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !602
@@ -55223,7 +55223,7 @@ for.body58.lr.ph:                                 ; preds = %if.then52
 for.body58:                                       ; preds = %for.body58.lr.ph, %for.inc75
   %41 = phi i64 [ %39, %for.body58.lr.ph ], [ %58, %for.inc75 ]
   %i54.0176 = phi i64 [ 0, %for.body58.lr.ph ], [ %inc76, %for.inc75 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.2, %for.inc75 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.1, %for.inc75 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i54.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -55270,7 +55270,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not171, label %for.inc75, label %for.body68
 
 for.body68:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont69 unwind label %lpad.loopexit
@@ -55279,8 +55279,8 @@ invoke.cont69:                                    ; preds = %for.body68
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -55346,7 +55346,7 @@ for.inc75.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc75:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc75.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body58
   %58 = phi i64 [ %41, %for.body58 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc75.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc76 = add nuw i64 %i54.0176, 1
   %cmp57 = icmp ult i64 %inc76, %58
   br i1 %cmp57, label %for.body58, label %cleanup, !llvm.loop !625
@@ -55896,7 +55896,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc73
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc73 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc74, %for.inc73 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc73 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc73 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -55943,7 +55943,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not171, label %for.inc73, label %for.body66
 
 for.body66:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont67 unwind label %lpad.loopexit
@@ -55952,8 +55952,8 @@ invoke.cont67:                                    ; preds = %for.body66
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.455"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -56019,7 +56019,7 @@ for.inc73.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc73:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc73.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc73.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc74 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc74, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !639
@@ -58717,7 +58717,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -58769,14 +58769,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -58842,7 +58842,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIbLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !671
@@ -61482,7 +61482,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -61534,14 +61534,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIbLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.455"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -61607,7 +61607,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIbLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !703
@@ -63854,7 +63854,7 @@ for.body58.lr.ph:                                 ; preds = %if.then52
 for.body58:                                       ; preds = %for.body58.lr.ph, %for.inc75
   %41 = phi i64 [ %39, %for.body58.lr.ph ], [ %58, %for.inc75 ]
   %i54.0176 = phi i64 [ 0, %for.body58.lr.ph ], [ %inc76, %for.inc75 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.2, %for.inc75 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.1, %for.inc75 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i54.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -63901,7 +63901,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not171, label %for.inc75, label %for.body68
 
 for.body68:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont69 unwind label %lpad.loopexit
@@ -63910,8 +63910,8 @@ invoke.cont69:                                    ; preds = %for.body68
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.468"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -63977,7 +63977,7 @@ for.inc75.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc75:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc75.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body58
   %58 = phi i64 [ %41, %for.body58 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc75.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc76 = add nuw i64 %i54.0176, 1
   %cmp57 = icmp ult i64 %inc76, %58
   br i1 %cmp57, label %for.body58, label %cleanup, !llvm.loop !752
@@ -64421,7 +64421,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc73
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc73 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc74, %for.inc73 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc73 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc73 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -64468,7 +64468,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not171, label %for.inc73, label %for.body66
 
 for.body66:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont67 unwind label %lpad.loopexit
@@ -64477,8 +64477,8 @@ invoke.cont67:                                    ; preds = %for.body66
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.491"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -64544,7 +64544,7 @@ for.inc73.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc73:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc73.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc73.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc74 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc74, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !762
@@ -67217,7 +67217,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -67269,14 +67269,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.468"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -67342,7 +67342,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !798
@@ -69957,7 +69957,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -70009,14 +70009,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.491"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -70082,7 +70082,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !834
@@ -71680,7 +71680,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc74
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc74 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc75, %for.inc74 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc74 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc74 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -71727,7 +71727,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not171, label %for.inc74, label %for.body67
 
 for.body67:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont68 unwind label %lpad.loopexit
@@ -71736,8 +71736,8 @@ invoke.cont68:                                    ; preds = %for.body67
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.468"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -71803,7 +71803,7 @@ for.inc74.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc74:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc74.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc74.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc75 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc75, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !857
@@ -72353,7 +72353,7 @@ for.body56.lr.ph:                                 ; preds = %if.then50
 for.body56:                                       ; preds = %for.body56.lr.ph, %for.inc72
   %41 = phi i64 [ %39, %for.body56.lr.ph ], [ %58, %for.inc72 ]
   %i52.0176 = phi i64 [ 0, %for.body56.lr.ph ], [ %inc73, %for.inc72 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.2, %for.inc72 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.1, %for.inc72 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i52.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -72400,7 +72400,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not171, label %for.inc72, label %for.body65
 
 for.body65:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont66 unwind label %lpad.loopexit
@@ -72409,8 +72409,8 @@ invoke.cont66:                                    ; preds = %for.body65
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.491"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -72476,7 +72476,7 @@ for.inc72.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc72:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc72.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit, %for.body56
   %58 = phi i64 [ %41, %for.body56 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc72.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc73 = add nuw i64 %i52.0176, 1
   %cmp55 = icmp ult i64 %inc73, %58
   br i1 %cmp55, label %for.body56, label %cleanup, !llvm.loop !871
@@ -75174,7 +75174,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -75226,14 +75226,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.468"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -75299,7 +75299,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIiLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !903
@@ -77939,7 +77939,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -77991,14 +77991,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIiLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.491"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -78064,7 +78064,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIiLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !935
@@ -80319,7 +80319,7 @@ for.body58.lr.ph:                                 ; preds = %if.then52
 for.body58:                                       ; preds = %for.body58.lr.ph, %for.inc75
   %41 = phi i64 [ %39, %for.body58.lr.ph ], [ %58, %for.inc75 ]
   %i54.0176 = phi i64 [ 0, %for.body58.lr.ph ], [ %inc76, %for.inc75 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.2, %for.inc75 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.1, %for.inc75 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i54.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -80366,7 +80366,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not171, label %for.inc75, label %for.body68
 
 for.body68:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont69 unwind label %lpad.loopexit
@@ -80375,8 +80375,8 @@ invoke.cont69:                                    ; preds = %for.body68
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.570"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -80442,7 +80442,7 @@ for.inc75.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc75:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc75.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body58
   %58 = phi i64 [ %41, %for.body58 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc75.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc76 = add nuw i64 %i54.0176, 1
   %cmp57 = icmp ult i64 %inc76, %58
   br i1 %cmp57, label %for.body58, label %cleanup, !llvm.loop !984
@@ -80886,7 +80886,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc73
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc73 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc74, %for.inc73 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc73 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc73 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -80933,7 +80933,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not171, label %for.inc73, label %for.body66
 
 for.body66:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont67 unwind label %lpad.loopexit
@@ -80942,8 +80942,8 @@ invoke.cont67:                                    ; preds = %for.body66
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.590"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -81009,7 +81009,7 @@ for.inc73.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc73:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc73.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc73.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc74 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc74, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !994
@@ -83682,7 +83682,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -83734,14 +83734,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.570"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -83807,7 +83807,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1030
@@ -86422,7 +86422,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -86474,14 +86474,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.590"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -86547,7 +86547,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1066
@@ -88145,7 +88145,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc74
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc74 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc75, %for.inc74 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc74 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc74 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -88192,7 +88192,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not171, label %for.inc74, label %for.body67
 
 for.body67:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont68 unwind label %lpad.loopexit
@@ -88201,8 +88201,8 @@ invoke.cont68:                                    ; preds = %for.body67
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.570"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -88268,7 +88268,7 @@ for.inc74.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc74:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc74.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc74.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc75 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc75, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !1089
@@ -88818,7 +88818,7 @@ for.body56.lr.ph:                                 ; preds = %if.then50
 for.body56:                                       ; preds = %for.body56.lr.ph, %for.inc72
   %41 = phi i64 [ %39, %for.body56.lr.ph ], [ %58, %for.inc72 ]
   %i52.0176 = phi i64 [ 0, %for.body56.lr.ph ], [ %inc73, %for.inc72 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.2, %for.inc72 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.1, %for.inc72 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i52.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -88865,7 +88865,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not171, label %for.inc72, label %for.body65
 
 for.body65:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont66 unwind label %lpad.loopexit
@@ -88874,8 +88874,8 @@ invoke.cont66:                                    ; preds = %for.body65
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.590"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -88941,7 +88941,7 @@ for.inc72.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc72:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc72.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit, %for.body56
   %58 = phi i64 [ %41, %for.body56 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc72.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc73 = add nuw i64 %i52.0176, 1
   %cmp55 = icmp ult i64 %inc73, %58
   br i1 %cmp55, label %for.body56, label %cleanup, !llvm.loop !1103
@@ -91639,7 +91639,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -91691,14 +91691,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.570"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -91764,7 +91764,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIlLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1135
@@ -94404,7 +94404,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -94456,14 +94456,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIlLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.590"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -94529,7 +94529,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIlLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1167
@@ -96784,7 +96784,7 @@ for.body58.lr.ph:                                 ; preds = %if.then52
 for.body58:                                       ; preds = %for.body58.lr.ph, %for.inc75
   %41 = phi i64 [ %39, %for.body58.lr.ph ], [ %58, %for.inc75 ]
   %i54.0176 = phi i64 [ 0, %for.body58.lr.ph ], [ %inc76, %for.inc75 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.2, %for.inc75 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.1, %for.inc75 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i54.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -96831,7 +96831,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not171, label %for.inc75, label %for.body68
 
 for.body68:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont69 unwind label %lpad.loopexit
@@ -96840,8 +96840,8 @@ invoke.cont69:                                    ; preds = %for.body68
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.620"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -96907,7 +96907,7 @@ for.inc75.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc75:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc75.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body58
   %58 = phi i64 [ %41, %for.body58 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc75.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc76 = add nuw i64 %i54.0176, 1
   %cmp57 = icmp ult i64 %inc76, %58
   br i1 %cmp57, label %for.body58, label %cleanup, !llvm.loop !1216
@@ -97351,7 +97351,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc73
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc73 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc74, %for.inc73 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc73 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc73 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -97398,7 +97398,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not171, label %for.inc73, label %for.body66
 
 for.body66:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont67 unwind label %lpad.loopexit
@@ -97407,8 +97407,8 @@ invoke.cont67:                                    ; preds = %for.body66
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.640"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -97474,7 +97474,7 @@ for.inc73.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc73:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc73.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc73.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc74 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc74, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !1226
@@ -100147,7 +100147,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -100199,14 +100199,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.620"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -100272,7 +100272,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1262
@@ -102887,7 +102887,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -102939,14 +102939,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.640"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -103012,7 +103012,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1298
@@ -104610,7 +104610,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc74
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc74 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc75, %for.inc74 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc74 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc74 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -104657,7 +104657,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not171, label %for.inc74, label %for.body67
 
 for.body67:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont68 unwind label %lpad.loopexit
@@ -104666,8 +104666,8 @@ invoke.cont68:                                    ; preds = %for.body67
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.620"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -104733,7 +104733,7 @@ for.inc74.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc74:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc74.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc74.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc75 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc75, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !1321
@@ -105283,7 +105283,7 @@ for.body56.lr.ph:                                 ; preds = %if.then50
 for.body56:                                       ; preds = %for.body56.lr.ph, %for.inc72
   %41 = phi i64 [ %39, %for.body56.lr.ph ], [ %58, %for.inc72 ]
   %i52.0176 = phi i64 [ 0, %for.body56.lr.ph ], [ %inc73, %for.inc72 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.2, %for.inc72 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.1, %for.inc72 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i52.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -105330,7 +105330,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not171, label %for.inc72, label %for.body65
 
 for.body65:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont66 unwind label %lpad.loopexit
@@ -105339,8 +105339,8 @@ invoke.cont66:                                    ; preds = %for.body65
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.640"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -105406,7 +105406,7 @@ for.inc72.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc72:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc72.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit, %for.body56
   %58 = phi i64 [ %41, %for.body56 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc72.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc73 = add nuw i64 %i52.0176, 1
   %cmp55 = icmp ult i64 %inc73, %58
   br i1 %cmp55, label %for.body56, label %cleanup, !llvm.loop !1335
@@ -108104,7 +108104,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -108156,14 +108156,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.620"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -108229,7 +108229,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1367
@@ -110869,7 +110869,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -110921,14 +110921,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIfLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.640"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -110994,7 +110994,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIfLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1399
@@ -113249,7 +113249,7 @@ for.body58.lr.ph:                                 ; preds = %if.then52
 for.body58:                                       ; preds = %for.body58.lr.ph, %for.inc75
   %41 = phi i64 [ %39, %for.body58.lr.ph ], [ %58, %for.inc75 ]
   %i54.0176 = phi i64 [ 0, %for.body58.lr.ph ], [ %inc76, %for.inc75 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.2, %for.inc75 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.1, %for.inc75 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i54.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -113296,7 +113296,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not171, label %for.inc75, label %for.body68
 
 for.body68:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont69 unwind label %lpad.loopexit
@@ -113305,8 +113305,8 @@ invoke.cont69:                                    ; preds = %for.body68
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.676"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -113372,7 +113372,7 @@ for.inc75.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc75:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc75.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body58
   %58 = phi i64 [ %41, %for.body58 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc75.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc76 = add nuw i64 %i54.0176, 1
   %cmp57 = icmp ult i64 %inc76, %58
   br i1 %cmp57, label %for.body58, label %cleanup, !llvm.loop !1448
@@ -113816,7 +113816,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc73
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc73 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc74, %for.inc73 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc73 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc73 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -113863,7 +113863,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not171, label %for.inc73, label %for.body66
 
 for.body66:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont67 unwind label %lpad.loopexit
@@ -113872,8 +113872,8 @@ invoke.cont67:                                    ; preds = %for.body66
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.696"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -113939,7 +113939,7 @@ for.inc73.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc73:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc73.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc73.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc74 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc74, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !1458
@@ -116612,7 +116612,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -116664,14 +116664,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.676"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -116737,7 +116737,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1494
@@ -119352,7 +119352,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -119404,14 +119404,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.696"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -119477,7 +119477,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1530
@@ -121075,7 +121075,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc74
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc74 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc75, %for.inc74 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc74 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc74 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -121122,7 +121122,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not171, label %for.inc74, label %for.body67
 
 for.body67:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont68 unwind label %lpad.loopexit
@@ -121131,8 +121131,8 @@ invoke.cont68:                                    ; preds = %for.body67
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.676"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -121198,7 +121198,7 @@ for.inc74.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc74:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc74.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc74.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc75 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc75, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !1553
@@ -121748,7 +121748,7 @@ for.body56.lr.ph:                                 ; preds = %if.then50
 for.body56:                                       ; preds = %for.body56.lr.ph, %for.inc72
   %41 = phi i64 [ %39, %for.body56.lr.ph ], [ %58, %for.inc72 ]
   %i52.0176 = phi i64 [ 0, %for.body56.lr.ph ], [ %inc73, %for.inc72 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.2, %for.inc72 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.1, %for.inc72 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i52.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -121795,7 +121795,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not171, label %for.inc72, label %for.body65
 
 for.body65:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont66 unwind label %lpad.loopexit
@@ -121804,8 +121804,8 @@ invoke.cont66:                                    ; preds = %for.body65
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.696"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -121871,7 +121871,7 @@ for.inc72.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc72:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc72.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit, %for.body56
   %58 = phi i64 [ %41, %for.body56 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc72.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc73 = add nuw i64 %i52.0176, 1
   %cmp55 = icmp ult i64 %inc73, %58
   br i1 %cmp55, label %for.body56, label %cleanup, !llvm.loop !1567
@@ -124569,7 +124569,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -124621,14 +124621,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beg
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(270352) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.676"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -124694,7 +124694,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIdLj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1599
@@ -127334,7 +127334,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -127386,14 +127386,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeIdLj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.696"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -127459,7 +127459,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeIdLj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1631
@@ -129714,7 +129714,7 @@ for.body58.lr.ph:                                 ; preds = %if.then52
 for.body58:                                       ; preds = %for.body58.lr.ph, %for.inc75
   %41 = phi i64 [ %39, %for.body58.lr.ph ], [ %58, %for.inc75 ]
   %i54.0176 = phi i64 [ 0, %for.body58.lr.ph ], [ %inc76, %for.inc75 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.2, %for.inc75 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.1, %for.inc75 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i54.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -129761,7 +129761,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EE
   br i1 %cmp.i.i.i.not171, label %for.inc75, label %for.body68
 
 for.body68:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont69 unwind label %lpad.loopexit
@@ -129770,8 +129770,8 @@ invoke.cont69:                                    ; preds = %for.body68
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.726"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -129837,7 +129837,7 @@ for.inc75.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc75:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc75.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body58
   %58 = phi i64 [ %41, %for.body58 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc75.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc76 = add nuw i64 %i54.0176, 1
   %cmp57 = icmp ult i64 %inc76, %58
   br i1 %cmp57, label %for.body58, label %cleanup, !llvm.loop !1680
@@ -130281,7 +130281,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc73
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc73 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc74, %for.inc73 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc73 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc73 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -130328,7 +130328,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4E
   br i1 %cmp.i.i.i.not171, label %for.inc73, label %for.body66
 
 for.body66:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont67 unwind label %lpad.loopexit
@@ -130337,8 +130337,8 @@ invoke.cont67:                                    ; preds = %for.body66
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.746"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -130404,7 +130404,7 @@ for.inc73.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc73:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc73.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc73.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc74 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc74, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !1690
@@ -133077,7 +133077,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -133129,14 +133129,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EE
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.726"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -133202,7 +133202,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1726
@@ -135817,7 +135817,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -135869,14 +135869,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4E
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.746"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -135942,7 +135942,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1762
@@ -137540,7 +137540,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc74
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc74 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc75, %for.inc74 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc74 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc74 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -137587,7 +137587,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EE
   br i1 %cmp.i.i.i.not171, label %for.inc74, label %for.body67
 
 for.body67:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont68 unwind label %lpad.loopexit
@@ -137596,8 +137596,8 @@ invoke.cont68:                                    ; preds = %for.body67
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.726"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -137663,7 +137663,7 @@ for.inc74.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc74:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc74.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc74.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc75 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc75, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !1785
@@ -138213,7 +138213,7 @@ for.body56.lr.ph:                                 ; preds = %if.then50
 for.body56:                                       ; preds = %for.body56.lr.ph, %for.inc72
   %41 = phi i64 [ %39, %for.body56.lr.ph ], [ %58, %for.inc72 ]
   %i52.0176 = phi i64 [ 0, %for.body56.lr.ph ], [ %inc73, %for.inc72 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.2, %for.inc72 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.1, %for.inc72 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i52.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -138260,7 +138260,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4E
   br i1 %cmp.i.i.i.not171, label %for.inc72, label %for.body65
 
 for.body65:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont66 unwind label %lpad.loopexit
@@ -138269,8 +138269,8 @@ invoke.cont66:                                    ; preds = %for.body65
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.746"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -138336,7 +138336,7 @@ for.inc72.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc72:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc72.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit, %for.body56
   %58 = phi i64 [ %41, %for.body56 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc72.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc73 = add nuw i64 %i52.0176, 1
   %cmp55 = icmp ult i64 %inc73, %58
   br i1 %cmp55, label %for.body56, label %cleanup, !llvm.loop !1799
@@ -141034,7 +141034,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -141086,14 +141086,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EE
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.726"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -141159,7 +141159,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1831
@@ -143799,7 +143799,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -143851,14 +143851,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4E
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.746"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -143924,7 +143924,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1863
@@ -146179,7 +146179,7 @@ for.body58.lr.ph:                                 ; preds = %if.then52
 for.body58:                                       ; preds = %for.body58.lr.ph, %for.inc75
   %41 = phi i64 [ %39, %for.body58.lr.ph ], [ %58, %for.inc75 ]
   %i54.0176 = phi i64 [ 0, %for.body58.lr.ph ], [ %inc76, %for.inc75 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.2, %for.inc75 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.1, %for.inc75 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i54.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -146226,7 +146226,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EE
   br i1 %cmp.i.i.i.not171, label %for.inc75, label %for.body68
 
 for.body68:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont69 unwind label %lpad.loopexit
@@ -146235,8 +146235,8 @@ invoke.cont69:                                    ; preds = %for.body68
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.785"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -146302,7 +146302,7 @@ for.inc75.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc75:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc75.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body58
   %58 = phi i64 [ %41, %for.body58 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc75.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc76 = add nuw i64 %i54.0176, 1
   %cmp57 = icmp ult i64 %inc76, %58
   br i1 %cmp57, label %for.body58, label %cleanup, !llvm.loop !1912
@@ -146746,7 +146746,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc73
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc73 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc74, %for.inc73 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc73 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc73 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -146793,7 +146793,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4E
   br i1 %cmp.i.i.i.not171, label %for.inc73, label %for.body66
 
 for.body66:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont67 unwind label %lpad.loopexit
@@ -146802,8 +146802,8 @@ invoke.cont67:                                    ; preds = %for.body66
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.805"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -146869,7 +146869,7 @@ for.inc73.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc73:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc73.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc73.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc74 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc74, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !1922
@@ -149542,7 +149542,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -149594,14 +149594,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EE
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.785"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -149667,7 +149667,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1958
@@ -152282,7 +152282,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -152334,14 +152334,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4E
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.805"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -152407,7 +152407,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !1994
@@ -154005,7 +154005,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc74
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc74 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc75, %for.inc74 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc74 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc74 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -154052,7 +154052,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EE
   br i1 %cmp.i.i.i.not171, label %for.inc74, label %for.body67
 
 for.body67:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont68 unwind label %lpad.loopexit
@@ -154061,8 +154061,8 @@ invoke.cont68:                                    ; preds = %for.body67
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.785"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -154128,7 +154128,7 @@ for.inc74.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc74:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc74.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc74.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc75 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc75, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !2017
@@ -154678,7 +154678,7 @@ for.body56.lr.ph:                                 ; preds = %if.then50
 for.body56:                                       ; preds = %for.body56.lr.ph, %for.inc72
   %41 = phi i64 [ %39, %for.body56.lr.ph ], [ %58, %for.inc72 ]
   %i52.0176 = phi i64 [ 0, %for.body56.lr.ph ], [ %inc73, %for.inc72 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.2, %for.inc72 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.1, %for.inc72 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i52.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -154725,7 +154725,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4E
   br i1 %cmp.i.i.i.not171, label %for.inc72, label %for.body65
 
 for.body65:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont66 unwind label %lpad.loopexit
@@ -154734,8 +154734,8 @@ invoke.cont66:                                    ; preds = %for.body65
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.805"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -154801,7 +154801,7 @@ for.inc72.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc72:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc72.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit, %for.body56
   %58 = phi i64 [ %41, %for.body56 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc72.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc73 = add nuw i64 %i52.0176, 1
   %cmp55 = icmp ult i64 %inc73, %58
   br i1 %cmp55, label %for.body56, label %cleanup, !llvm.loop !2031
@@ -157499,7 +157499,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -157551,14 +157551,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EE
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(794640) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.785"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -157624,7 +157624,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !2063
@@ -160264,7 +160264,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -160316,14 +160316,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4E
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(99344) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.805"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -160389,7 +160389,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !2095
@@ -162644,7 +162644,7 @@ for.body58.lr.ph:                                 ; preds = %if.then52
 for.body58:                                       ; preds = %for.body58.lr.ph, %for.inc75
   %41 = phi i64 [ %39, %for.body58.lr.ph ], [ %58, %for.inc75 ]
   %i54.0176 = phi i64 [ 0, %for.body58.lr.ph ], [ %inc76, %for.inc75 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.2, %for.inc75 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body58.lr.ph ], [ %nodePtr.1, %for.inc75 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i54.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -162691,7 +162691,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EE
   br i1 %cmp.i.i.i.not171, label %for.inc75, label %for.body68
 
 for.body68:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont69 unwind label %lpad.loopexit
@@ -162700,8 +162700,8 @@ invoke.cont69:                                    ; preds = %for.body68
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.835"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -162767,7 +162767,7 @@ for.inc75.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc75:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc75.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body58
   %58 = phi i64 [ %41, %for.body58 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc75.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body58 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc75.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc76 = add nuw i64 %i54.0176, 1
   %cmp57 = icmp ult i64 %inc76, %58
   br i1 %cmp57, label %for.body58, label %cleanup, !llvm.loop !2144
@@ -163211,7 +163211,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc73
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc73 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc74, %for.inc73 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc73 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc73 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -163258,7 +163258,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4E
   br i1 %cmp.i.i.i.not171, label %for.inc73, label %for.body66
 
 for.body66:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont67 unwind label %lpad.loopexit
@@ -163267,8 +163267,8 @@ invoke.cont67:                                    ; preds = %for.body66
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.856"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -163334,7 +163334,7 @@ for.inc73.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc73:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc73.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc73.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc73.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc74 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc74, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !2154
@@ -166007,7 +166007,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -166059,14 +166059,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EE
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.835"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -166132,7 +166132,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !2190
@@ -168747,7 +168747,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -168799,14 +168799,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4E
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.856"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -168872,7 +168872,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !2226
@@ -170470,7 +170470,7 @@ for.body57.lr.ph:                                 ; preds = %if.then51
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.inc74
   %41 = phi i64 [ %39, %for.body57.lr.ph ], [ %58, %for.inc74 ]
   %i53.0176 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc75, %for.inc74 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.2, %for.inc74 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body57.lr.ph ], [ %nodePtr.1, %for.inc74 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i53.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -170517,7 +170517,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EE
   br i1 %cmp.i.i.i.not171, label %for.inc74, label %for.body67
 
 for.body67:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont68 unwind label %lpad.loopexit
@@ -170526,8 +170526,8 @@ invoke.cont68:                                    ; preds = %for.body67
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.835"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -170593,7 +170593,7 @@ for.inc74.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc74:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc74.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body57
   %58 = phi i64 [ %41, %for.body57 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre183, %for.inc74.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body57 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc74.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc75 = add nuw i64 %i53.0176, 1
   %cmp56 = icmp ult i64 %inc75, %58
   br i1 %cmp56, label %for.body57, label %cleanup, !llvm.loop !2249
@@ -171143,7 +171143,7 @@ for.body56.lr.ph:                                 ; preds = %if.then50
 for.body56:                                       ; preds = %for.body56.lr.ph, %for.inc72
   %41 = phi i64 [ %39, %for.body56.lr.ph ], [ %58, %for.inc72 ]
   %i52.0176 = phi i64 [ 0, %for.body56.lr.ph ], [ %inc73, %for.inc72 ]
-  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.2, %for.inc72 ]
+  %nodePtr.0175 = phi ptr [ %40, %for.body56.lr.ph ], [ %nodePtr.1, %for.inc72 ]
   %42 = load ptr, ptr %mValid.i88, align 8
   %arrayidx.i89 = getelementptr inbounds i8, ptr %42, i64 %i52.0176
   %43 = load i8, ptr %arrayidx.i89, align 1
@@ -171190,7 +171190,7 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4E
   br i1 %cmp.i.i.i.not171, label %for.inc72, label %for.body65
 
 for.body65:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit
-  %nodePtr.1172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.2172 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ]
   %49 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i95, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i98 = invoke noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
           to label %invoke.cont66 unwind label %lpad.loopexit
@@ -171199,8 +171199,8 @@ invoke.cont66:                                    ; preds = %for.body65
   %idxprom.i.i.i = zext i32 %49 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.856"], ptr %call.i.i98, i64 0, i64 %idxprom.i.i.i
   %50 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.1172, i64 8
-  store ptr %50, ptr %nodePtr.1172, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.2172, i64 8
+  store ptr %50, ptr %nodePtr.2172, align 8
   %51 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %52 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %52, 1
@@ -171266,7 +171266,7 @@ for.inc72.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc72:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc72.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit, %for.body56
   %58 = phi i64 [ %41, %for.body56 ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ], [ %.pre183, %for.inc72.loopexit ], [ %41, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.2 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.1 = phi ptr [ %nodePtr.0175, %for.body56 ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc72.loopexit ], [ %nodePtr.0175, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc73 = add nuw i64 %i52.0176, 1
   %cmp55 = icmp ult i64 %inc73, %58
   br i1 %cmp55, label %for.body56, label %cleanup, !llvm.loop !2263
@@ -173964,7 +173964,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -174016,14 +174016,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EE
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(532496) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj5EEEEEKNS1_12InternalNodeINS8_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32768 x %"class.openvdb::v11_0::tree::NodeUnion.835"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -174089,7 +174089,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !2295
@@ -176729,7 +176729,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc14
   %11 = phi i64 [ %8, %for.body.lr.ph ], [ %30, %for.inc14 ]
-  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.3, %for.inc14 ]
+  %nodePtr.124 = phi ptr [ %nodePtr.0, %for.body.lr.ph ], [ %nodePtr.2, %for.inc14 ]
   %i.023 = phi i64 [ %1, %for.body.lr.ph ], [ %inc, %for.inc14 ]
   %12 = load ptr, ptr %9, align 8
   %mValid.i = getelementptr inbounds i8, ptr %12, i64 24
@@ -176781,14 +176781,14 @@ _ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4E
   br i1 %cmp.i.i.i.not20, label %for.inc14, label %for.body11
 
 for.body11:                                       ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit
-  %nodePtr.221 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ]
+  %nodePtr.321 = phi ptr [ %incdec.ptr, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ]
   %21 = phi i32 [ %retval.0.i.i.i.i, %_ZN7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEEppEv.exit ], [ %add.i.i.i.i, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ]
   %call.i.i = call noundef nonnull align 8 dereferenceable(66576) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %iter)
   %idxprom.i.i.i = zext i32 %21 to i64
   %arrayidx.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.856"], ptr %call.i.i, i64 0, i64 %idxprom.i.i.i
   %22 = load ptr, ptr %arrayidx.i.i.i, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.221, i64 8
-  store ptr %22, ptr %nodePtr.221, align 8
+  %incdec.ptr = getelementptr inbounds i8, ptr %nodePtr.321, i64 8
+  store ptr %22, ptr %nodePtr.321, align 8
   %23 = load ptr, ptr %ref.tmp.sroa.21.0.mMaskIter.i.i.i.sroa_idx.i.i, align 8
   %24 = load i32, ptr %mMaskIter.i.i.i.i.i, align 8
   %add.i.i.i = add i32 %24, 1
@@ -176854,7 +176854,7 @@ for.inc14.loopexit:                               ; preds = %_ZN7openvdb5v11_04t
 
 for.inc14:                                        ; preds = %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread, %for.inc14.loopexit, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit, %for.body
   %30 = phi i64 [ %11, %for.body ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ], [ %.pre, %for.inc14.loopexit ], [ %11, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread ]
-  %nodePtr.3 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread ]
+  %nodePtr.2 = phi ptr [ %nodePtr.124, %for.body ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit ], [ %incdec.ptr, %for.inc14.loopexit ], [ %nodePtr.124, %_ZNK7openvdb5v11_04tree12InternalNodeINS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EE12beginChildOnEv.exit.thread ]
   %inc = add nuw i64 %i.023, 1
   %cmp4 = icmp ult i64 %inc, %30
   br i1 %cmp4, label %for.body, label %for.end15, !llvm.loop !2327

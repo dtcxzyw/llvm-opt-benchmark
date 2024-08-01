@@ -585,8 +585,8 @@ dom_html5_serialize_element_end.exit.thread65.i:  ; preds = %dom_html5_serialize
   br i1 %.not38.i, label %.preheader.i, label %.backedge.i
 
 .preheader.i:                                     ; preds = %dom_html5_serialize_element_end.exit.thread65.i, %dom_html5_serialize_element_end.exit54.thread70.i
-  %.1.i = phi ptr [ %265, %dom_html5_serialize_element_end.exit54.thread70.i ], [ %.02778.i, %dom_html5_serialize_element_end.exit.thread65.i ]
-  %264 = getelementptr inbounds i8, ptr %.1.i, i64 40
+  %.2.i = phi ptr [ %265, %dom_html5_serialize_element_end.exit54.thread70.i ], [ %.02778.i, %dom_html5_serialize_element_end.exit.thread65.i ]
+  %264 = getelementptr inbounds i8, ptr %.2.i, i64 40
   %265 = load ptr, ptr %264, align 8
   %266 = icmp eq ptr %265, %1
   br i1 %266, label %dom_html5_serialize_node.exit, label %267

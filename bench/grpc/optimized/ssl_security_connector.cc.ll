@@ -908,7 +908,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN12_GLOBAL__N_134grpc_ssl_server_security_connector37try_replace_server_handshaker_factoryEPK34grpc_ssl_server_certificate_config.exit
 
 _ZN12_GLOBAL__N_134grpc_ssl_server_security_connector37try_replace_server_handshaker_factoryEPK34grpc_ssl_server_certificate_config.exit: ; preds = %if.then.i, %cleanup.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i
-  %retval.1.i = phi i1 [ %cmp21.not.i, %cleanup.i ], [ %cmp21.not.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %cmp21.not.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i ], [ %cmp21.not.i, %if.end8.sink.split.i.i.i.i.i.i ], [ false, %if.then.i ]
+  %retval.0.i = phi i1 [ %cmp21.not.i, %cleanup.i ], [ %cmp21.not.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %cmp21.not.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i ], [ %cmp21.not.i, %if.end8.sink.split.i.i.i.i.i.i ], [ false, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %num_alpn_protocols.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %new_handshaker_factory.i)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %options.i)
@@ -919,7 +919,7 @@ if.else10:                                        ; preds = %invoke.cont3
           to label %if.end13 unwind label %lpad
 
 if.end13:                                         ; preds = %_ZN12_GLOBAL__N_134grpc_ssl_server_security_connector37try_replace_server_handshaker_factoryEPK34grpc_ssl_server_certificate_config.exit, %if.else10, %invoke.cont3
-  %status.0 = phi i1 [ false, %invoke.cont3 ], [ %retval.1.i, %_ZN12_GLOBAL__N_134grpc_ssl_server_security_connector37try_replace_server_handshaker_factoryEPK34grpc_ssl_server_certificate_config.exit ], [ false, %if.else10 ]
+  %status.0 = phi i1 [ false, %invoke.cont3 ], [ %retval.0.i, %_ZN12_GLOBAL__N_134grpc_ssl_server_security_connector37try_replace_server_handshaker_factoryEPK34grpc_ssl_server_certificate_config.exit ], [ false, %if.else10 ]
   %32 = load ptr, ptr %certificate_config, align 8
   %cmp14.not = icmp eq ptr %32, null
   br i1 %cmp14.not, label %if.end17, label %if.then15

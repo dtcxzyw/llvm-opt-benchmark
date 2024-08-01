@@ -3267,7 +3267,7 @@ _Z14setupArgumentsP9lua_StateiPPc.exit.i:         ; preds = %.noexc50.i, %.noexc
   unreachable
 
 _ZL7runReplv.exit:                                ; preds = %328, %327, %156, %155
-  %.0.shrunk = phi i1 [ false, %155 ], [ false, %156 ], [ %.087.lcssa, %327 ], [ %.087.lcssa, %328 ]
+  %.1.shrunk = phi i1 [ false, %155 ], [ false, %156 ], [ %.087.lcssa, %327 ], [ %.087.lcssa, %328 ]
   %332 = load ptr, ptr %16, align 8
   %333 = load ptr, ptr %147, align 8
   %.not4.i.i.i.i = icmp eq ptr %332, %333
@@ -3304,9 +3304,9 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   resume { ptr, i32 } %.pn
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %336, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %132, %118, %68, %55, %35
-  %.1.shrunk = phi i1 [ false, %35 ], [ true, %55 ], [ true, %68 ], [ true, %132 ], [ true, %118 ], [ %.0.shrunk, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.0.shrunk, %336 ]
-  %.1 = zext i1 %.1.shrunk to i32
-  ret i32 %.1
+  %.0.shrunk = phi i1 [ false, %35 ], [ true, %55 ], [ true, %68 ], [ true, %132 ], [ true, %118 ], [ %.1.shrunk, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.1.shrunk, %336 ]
+  %.0 = zext i1 %.0.shrunk to i32
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable

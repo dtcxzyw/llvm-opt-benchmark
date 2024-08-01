@@ -674,7 +674,7 @@ if.then44:                                        ; preds = %if.then39
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then39, %if.then44
-  %size.0 = phi i32 [ %call60, %if.then44 ], [ %call9, %if.then39 ]
+  %size.1 = phi i32 [ %call60, %if.then44 ], [ %call9, %if.then39 ]
   %ch.0 = phi ptr [ %add.ptr58, %if.then44 ], [ %add.ptr, %if.then39 ]
   %29 = load ptr, ptr %ch.0, align 8
   %tobool63.not = icmp eq ptr %29, null
@@ -723,11 +723,11 @@ if.then83:                                        ; preds = %if.end81
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end81, %if.then83, %if.end34
-  %size.1 = phi i32 [ %size.0, %if.then83 ], [ %size.0, %if.end81 ], [ %call9, %if.end34 ]
-  %conv92 = sext i32 %size.1 to i64
+  %size.0 = phi i32 [ %size.1, %if.then83 ], [ %size.1, %if.end81 ], [ %call9, %if.end34 ]
+  %conv92 = sext i32 %size.0 to i64
   %add93 = add i64 %checked.058, %conv92
-  %sub94 = sub i32 %page_remain.057, %size.1
-  %cmp95 = icmp ugt i32 %size.1, %sub94
+  %sub94 = sub i32 %page_remain.057, %size.0
+  %cmp95 = icmp ugt i32 %size.0, %sub94
   %44 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 132), align 4
   %page_remain.1 = select i1 %cmp95, i32 %44, i32 %sub94
   %narrow = select i1 %cmp95, i32 %sub94, i32 0

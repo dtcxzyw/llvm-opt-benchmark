@@ -953,7 +953,7 @@ define void @_ZN3spv10spirvbin_t12mapRemainderEv(ptr noundef nonnull align 8 der
   %21 = phi ptr [ %14, %.lr.ph ], [ %74, %72 ]
   %22 = phi i64 [ 0, %.lr.ph ], [ %76, %72 ]
   %.023 = phi i32 [ 0, %.lr.ph ], [ %75, %72 ]
-  %.0922 = phi i32 [ 1, %.lr.ph ], [ %.2, %72 ]
+  %.0922 = phi i32 [ 1, %.lr.ph ], [ %.1, %72 ]
   %.01521 = phi i32 [ 0, %.lr.ph ], [ %.116, %72 ]
   %23 = getelementptr inbounds i32, ptr %20, i64 %22
   %24 = load i32, ptr %23, align 4
@@ -1054,7 +1054,7 @@ _ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   br label %.loopexit
 
 .thread:                                          ; preds = %19, %49
-  %.130 = phi i32 [ %.0.lcssa.i, %49 ], [ %.0922, %19 ]
+  %.230 = phi i32 [ %.0.lcssa.i, %49 ], [ %.0922, %19 ]
   %67 = phi i32 [ %.pre26, %49 ], [ %24, %19 ]
   %68 = phi ptr [ %.pre, %49 ], [ %20, %19 ]
   %69 = load i8, ptr %18, align 8
@@ -1071,7 +1071,7 @@ _ZNK3spv10spirvbin_t5errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %73 = phi ptr [ %20, %19 ], [ %68, %._crit_edge27 ]
   %74 = phi ptr [ %21, %19 ], [ %.pre28, %._crit_edge27 ]
   %.116 = phi i32 [ %.01521, %19 ], [ %.sroa.speculated, %._crit_edge27 ]
-  %.2 = phi i32 [ %.0922, %19 ], [ %.130, %._crit_edge27 ]
+  %.1 = phi i32 [ %.0922, %19 ], [ %.230, %._crit_edge27 ]
   %75 = add i32 %.023, 1
   %76 = zext i32 %75 to i64
   %77 = ptrtoint ptr %74 to i64

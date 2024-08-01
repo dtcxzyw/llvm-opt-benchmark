@@ -45991,13 +45991,13 @@ while.body.preheader:                             ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %_ZN4absl13hash_internal16SpyHashStateImplImED2Ev.exit47
-  %begin.addr.0 = phi ptr [ %add.ptr, %_ZN4absl13hash_internal16SpyHashStateImplImED2Ev.exit47 ], [ %begin, %while.body.preheader ]
+  %begin.addr.1 = phi ptr [ %add.ptr, %_ZN4absl13hash_internal16SpyHashStateImplImED2Ev.exit47 ], [ %begin, %while.body.preheader ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %agg.tmp, i8 0, i64 41, i1 false)
   %call.i = call noundef nonnull align 8 dereferenceable(41) ptr @_ZN4absl13hash_internal16SpyHashStateImplImEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(41) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(41) %hash_state) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   store i64 1024, ptr %size.addr.i, align 8, !noalias !1122
-  store ptr %begin.addr.0, ptr %ref.tmp2.i, align 8, !noalias !1122
+  store ptr %begin.addr.1, ptr %ref.tmp2.i, align 8, !noalias !1122
   %0 = load ptr, ptr %_M_finish.i51, align 8
   %1 = load ptr, ptr %_M_end_of_storage.i52, align 8
   %cmp.not.i53 = icmp eq ptr %0, %1
@@ -46006,7 +46006,7 @@ while.body:                                       ; preds = %while.body.preheade
 if.then.i54:                                      ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i50)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i50) #23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %begin.addr.0, i64 noundef 1024, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i50)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %begin.addr.1, i64 noundef 1024, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i50)
           to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JPKcRmEEEvRS6_PT_DpOT0_.exit.i56 unwind label %lpad.i.i.i55
 
 lpad.i.i.i55:                                     ; preds = %if.then.i54
@@ -46231,7 +46231,7 @@ if.then.i.i.i1.i27:                               ; preds = %invoke.cont.i.i25
   br label %_ZN4absl13hash_internal16SpyHashStateImplImED2Ev.exit47
 
 _ZN4absl13hash_internal16SpyHashStateImplImED2Ev.exit47: ; preds = %invoke.cont.i.i25, %if.then.i.i.i1.i27
-  %add.ptr = getelementptr inbounds i8, ptr %begin.addr.0, i64 1024
+  %add.ptr = getelementptr inbounds i8, ptr %begin.addr.1, i64 1024
   %32 = load i64, ptr %size.addr, align 8
   %sub = add i64 %32, -1024
   store i64 %sub, ptr %size.addr, align 8
@@ -46254,8 +46254,8 @@ lpad.body:                                        ; preds = %lpad.i.i.i55, %lpad
 
 if.end:                                           ; preds = %_ZN4absl13hash_internal16SpyHashStateImplImED2Ev.exit47, %entry
   %34 = phi i64 [ %size, %entry ], [ %sub, %_ZN4absl13hash_internal16SpyHashStateImplImED2Ev.exit47 ]
-  %begin.addr.1 = phi ptr [ %begin, %entry ], [ %add.ptr, %_ZN4absl13hash_internal16SpyHashStateImplImED2Ev.exit47 ]
-  store ptr %begin.addr.1, ptr %ref.tmp2, align 8
+  %begin.addr.0 = phi ptr [ %begin, %entry ], [ %add.ptr, %_ZN4absl13hash_internal16SpyHashStateImplImED2Ev.exit47 ]
+  store ptr %begin.addr.0, ptr %ref.tmp2, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %hash_state, i64 8
   %35 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %hash_state, i64 16
@@ -46266,7 +46266,7 @@ if.end:                                           ; preds = %_ZN4absl13hash_inte
 if.then.i:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef %begin.addr.1, i64 noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef %begin.addr.0, i64 noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i)
           to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JPKcRmEEEvRS6_PT_DpOT0_.exit.i unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i
@@ -46732,13 +46732,13 @@ while.body.preheader:                             ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %_ZN4absl13hash_internal16SpyHashStateImplINS_4SpanIKiEEED2Ev.exit47
-  %begin.addr.0 = phi ptr [ %add.ptr, %_ZN4absl13hash_internal16SpyHashStateImplINS_4SpanIKiEEED2Ev.exit47 ], [ %begin, %while.body.preheader ]
+  %begin.addr.1 = phi ptr [ %add.ptr, %_ZN4absl13hash_internal16SpyHashStateImplINS_4SpanIKiEEED2Ev.exit47 ], [ %begin, %while.body.preheader ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %agg.tmp, i8 0, i64 41, i1 false)
   %call.i = call noundef nonnull align 8 dereferenceable(41) ptr @_ZN4absl13hash_internal16SpyHashStateImplINS_4SpanIKiEEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(41) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(41) %hash_state) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
   store i64 1024, ptr %size.addr.i, align 8, !noalias !1125
-  store ptr %begin.addr.0, ptr %ref.tmp2.i, align 8, !noalias !1125
+  store ptr %begin.addr.1, ptr %ref.tmp2.i, align 8, !noalias !1125
   %0 = load ptr, ptr %_M_finish.i51, align 8
   %1 = load ptr, ptr %_M_end_of_storage.i52, align 8
   %cmp.not.i53 = icmp eq ptr %0, %1
@@ -46747,7 +46747,7 @@ while.body:                                       ; preds = %while.body.preheade
 if.then.i54:                                      ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i50)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i50) #23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %begin.addr.0, i64 noundef 1024, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i50)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %begin.addr.1, i64 noundef 1024, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i50)
           to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JPKcRmEEEvRS6_PT_DpOT0_.exit.i56 unwind label %lpad.i.i.i55
 
 lpad.i.i.i55:                                     ; preds = %if.then.i54
@@ -46972,7 +46972,7 @@ if.then.i.i.i1.i27:                               ; preds = %invoke.cont.i.i25
   br label %_ZN4absl13hash_internal16SpyHashStateImplINS_4SpanIKiEEED2Ev.exit47
 
 _ZN4absl13hash_internal16SpyHashStateImplINS_4SpanIKiEEED2Ev.exit47: ; preds = %invoke.cont.i.i25, %if.then.i.i.i1.i27
-  %add.ptr = getelementptr inbounds i8, ptr %begin.addr.0, i64 1024
+  %add.ptr = getelementptr inbounds i8, ptr %begin.addr.1, i64 1024
   %32 = load i64, ptr %size.addr, align 8
   %sub = add i64 %32, -1024
   store i64 %sub, ptr %size.addr, align 8
@@ -46995,8 +46995,8 @@ lpad.body:                                        ; preds = %lpad.i.i.i55, %lpad
 
 if.end:                                           ; preds = %_ZN4absl13hash_internal16SpyHashStateImplINS_4SpanIKiEEED2Ev.exit47, %entry
   %34 = phi i64 [ %size, %entry ], [ %sub, %_ZN4absl13hash_internal16SpyHashStateImplINS_4SpanIKiEEED2Ev.exit47 ]
-  %begin.addr.1 = phi ptr [ %begin, %entry ], [ %add.ptr, %_ZN4absl13hash_internal16SpyHashStateImplINS_4SpanIKiEEED2Ev.exit47 ]
-  store ptr %begin.addr.1, ptr %ref.tmp2, align 8
+  %begin.addr.0 = phi ptr [ %begin, %entry ], [ %add.ptr, %_ZN4absl13hash_internal16SpyHashStateImplINS_4SpanIKiEEED2Ev.exit47 ]
+  store ptr %begin.addr.0, ptr %ref.tmp2, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %hash_state, i64 8
   %35 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %hash_state, i64 16
@@ -47007,7 +47007,7 @@ if.end:                                           ; preds = %_ZN4absl13hash_inte
 if.then.i:                                        ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i) #23
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef %begin.addr.1, i64 noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef %begin.addr.0, i64 noundef %34, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i)
           to label %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JPKcRmEEEvRS6_PT_DpOT0_.exit.i unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %if.then.i

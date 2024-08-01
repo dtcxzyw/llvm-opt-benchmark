@@ -1106,7 +1106,7 @@ _ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit:       ; preds = %._crit_edge87, %206
   %.sink103 = phi ptr [ %218, %217 ], [ %224, %223 ]
   %.sink102 = phi ptr [ %216, %217 ], [ %222, %223 ]
   %.sink.ph = phi ptr [ %215, %217 ], [ %49, %223 ]
-  %.2.ph.ph = phi i32 [ 0, %217 ], [ -1, %223 ]
+  %.3.ph.ph = phi i32 [ 0, %217 ], [ -1, %223 ]
   store i32 -559026175, ptr %.sink103, align 8
   %228 = load ptr, ptr %.sink102, align 8
   %229 = getelementptr inbounds i8, ptr %228, i64 8
@@ -1116,12 +1116,12 @@ _ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit:       ; preds = %._crit_edge87, %206
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %223, %.critedge, %217, %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit
   %.sink = phi ptr [ %215, %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit ], [ %215, %217 ], [ %49, %.critedge ], [ %49, %223 ], [ %.sink.ph, %.sink.split.sink.split ]
-  %.2.ph = phi i32 [ 0, %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit ], [ 0, %217 ], [ -1, %.critedge ], [ -1, %223 ], [ %.2.ph.ph, %.sink.split.sink.split ]
+  %.3.ph = phi i32 [ 0, %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit ], [ 0, %217 ], [ -1, %.critedge ], [ -1, %223 ], [ %.3.ph.ph, %.sink.split.sink.split ]
   store ptr null, ptr %.sink, align 8
   br label %231
 
 231:                                              ; preds = %.sink.split, %151
-  %.2 = phi i32 [ -1, %151 ], [ %.2.ph, %.sink.split ]
+  %.3 = phi i32 [ -1, %151 ], [ %.3.ph, %.sink.split ]
   br i1 %.not.i.i, label %_ZN5zxing8ArrayRefIiED2Ev.exit, label %232
 
 232:                                              ; preds = %231
@@ -1161,7 +1161,7 @@ _ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit:       ; preds = %._crit_edge87, %206
   br label %_ZN5zxing8ArrayRefIiED2Ev.exit70
 
 _ZN5zxing8ArrayRefIiED2Ev.exit:                   ; preds = %237, %232, %231, %30
-  %.3 = phi i32 [ -1, %30 ], [ %.2, %231 ], [ %.2, %232 ], [ %.2, %237 ]
+  %.0 = phi i32 [ -1, %30 ], [ %.3, %231 ], [ %.3, %232 ], [ %.3, %237 ]
   %251 = load i32, ptr %23, align 8
   %252 = add i32 %251, -1
   store i32 %252, ptr %23, align 8
@@ -1177,7 +1177,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit:                   ; preds = %237, %232, %231, %3
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %_ZN5zxing8ArrayRefIiED2Ev.exit, %254
-  ret i32 %.3
+  ret i32 %.0
 
 _ZN5zxing8ArrayRefIiED2Ev.exit70:                 ; preds = %247, %242, %241, %33
   %.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn, %241 ], [ %.pn, %242 ], [ %.pn, %247 ]

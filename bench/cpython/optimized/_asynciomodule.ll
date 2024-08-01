@@ -9103,7 +9103,7 @@ if.then23:                                        ; preds = %if.end20
 
 if.end28:                                         ; preds = %if.then23, %if.end20
   %noptargs.0 = phi i64 [ %dec, %if.then23 ], [ %sub33, %if.end20 ]
-  %loop.0 = phi ptr [ %5, %if.then23 ], [ @_Py_NoneStruct, %if.end20 ]
+  %loop.1 = phi ptr [ %5, %if.then23 ], [ @_Py_NoneStruct, %if.end20 ]
   %arrayidx29 = getelementptr i8, ptr %call14, i64 16
   %6 = load ptr, ptr %arrayidx29, align 8
   %tobool30.not = icmp eq ptr %6, null
@@ -9116,7 +9116,7 @@ if.then31:                                        ; preds = %if.end28
 
 if.end37:                                         ; preds = %if.then31, %if.end28
   %noptargs.1 = phi i64 [ %dec33, %if.then31 ], [ %noptargs.0, %if.end28 ]
-  %name.0 = phi ptr [ %6, %if.then31 ], [ @_Py_NoneStruct, %if.end28 ]
+  %name.1 = phi ptr [ %6, %if.then31 ], [ @_Py_NoneStruct, %if.end28 ]
   %arrayidx38 = getelementptr i8, ptr %call14, i64 24
   %7 = load ptr, ptr %arrayidx38, align 8
   %tobool39.not = icmp eq ptr %7, null
@@ -9127,7 +9127,7 @@ if.then40:                                        ; preds = %if.end37
   br i1 %tobool43.not, label %skip_optional_kwonly, label %if.end46
 
 if.end46:                                         ; preds = %if.then40, %if.end37
-  %context.0 = phi ptr [ %7, %if.then40 ], [ @_Py_NoneStruct, %if.end37 ]
+  %context.1 = phi ptr [ %7, %if.then40 ], [ @_Py_NoneStruct, %if.end37 ]
   %arrayidx47 = getelementptr i8, ptr %call14, i64 32
   %8 = load ptr, ptr %arrayidx47, align 8
   %call48 = call i32 @PyObject_IsTrue(ptr noundef %8) #6
@@ -9136,11 +9136,11 @@ if.end46:                                         ; preds = %if.then40, %if.end3
 
 skip_optional_kwonly:                             ; preds = %if.end.thread, %if.end46, %if.then40, %if.then31, %if.then23, %if.end
   %9 = phi ptr [ %4, %if.end46 ], [ %4, %if.then40 ], [ %4, %if.then31 ], [ %4, %if.then23 ], [ %4, %if.end ], [ %3, %if.end.thread ]
-  %loop.1 = phi ptr [ %loop.0, %if.end46 ], [ %loop.0, %if.then40 ], [ %loop.0, %if.then31 ], [ %5, %if.then23 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %if.end.thread ]
-  %name.1 = phi ptr [ %name.0, %if.end46 ], [ %name.0, %if.then40 ], [ %6, %if.then31 ], [ @_Py_NoneStruct, %if.then23 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %if.end.thread ]
-  %context.1 = phi ptr [ %context.0, %if.end46 ], [ %7, %if.then40 ], [ @_Py_NoneStruct, %if.then31 ], [ @_Py_NoneStruct, %if.then23 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %if.end.thread ]
+  %loop.0 = phi ptr [ %loop.1, %if.end46 ], [ %loop.1, %if.then40 ], [ %loop.1, %if.then31 ], [ %5, %if.then23 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %if.end.thread ]
+  %name.0 = phi ptr [ %name.1, %if.end46 ], [ %name.1, %if.then40 ], [ %6, %if.then31 ], [ @_Py_NoneStruct, %if.then23 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %if.end.thread ]
+  %context.0 = phi ptr [ %context.1, %if.end46 ], [ %7, %if.then40 ], [ @_Py_NoneStruct, %if.then31 ], [ @_Py_NoneStruct, %if.then23 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %if.end.thread ]
   %eager_start.0 = phi i32 [ %call48, %if.end46 ], [ 0, %if.then40 ], [ 0, %if.then31 ], [ 0, %if.then23 ], [ 0, %if.end ], [ 0, %if.end.thread ]
-  %call.i = call fastcc i32 @future_init(ptr noundef %self, ptr noundef %loop.1)
+  %call.i = call fastcc i32 @future_init(ptr noundef %self, ptr noundef %loop.0)
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %exit
 
@@ -9220,7 +9220,7 @@ if.then6.i:                                       ; preds = %is_coroutine.exit.i
   br label %exit
 
 if.end8.i:                                        ; preds = %is_coroutine.exit.i, %if.then7.i.i.i, %if.end4.i.i.i, %if.end.i
-  %cmp9.i = icmp eq ptr %context.1, @_Py_NoneStruct
+  %cmp9.i = icmp eq ptr %context.0, @_Py_NoneStruct
   br i1 %cmp9.i, label %do.body.i, label %if.else.i
 
 do.body.i:                                        ; preds = %if.end8.i
@@ -9257,18 +9257,18 @@ Py_XDECREF.exit.i:                                ; preds = %Py_XDECREF.exitthre
   br i1 %cmp13.i, label %exit, label %do.body19.i
 
 if.else.i:                                        ; preds = %if.end8.i
-  %24 = load i32, ptr %context.1, align 8
+  %24 = load i32, ptr %context.0, align 8
   %add.i.i.i = add i32 %24, 1
   %cmp.i.i49.i = icmp eq i32 %add.i.i.i, 0
   br i1 %cmp.i.i49.i, label %_Py_NewRef.exit.i, label %if.end.i.i50.i
 
 if.end.i.i50.i:                                   ; preds = %if.else.i
-  store i32 %add.i.i.i, ptr %context.1, align 8
+  store i32 %add.i.i.i, ptr %context.0, align 8
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i50.i, %if.else.i
   %task_context17.i = getelementptr inbounds i8, ptr %self, i64 136
-  store ptr %context.1, ptr %task_context17.i, align 8
+  store ptr %context.0, ptr %task_context17.i, align 8
   br label %do.body19.i
 
 do.body19.i:                                      ; preds = %_Py_NewRef.exit.i, %Py_XDECREF.exit.i
@@ -9335,7 +9335,7 @@ if.then1.i.i58.i:                                 ; preds = %if.end.i.i55.i
   br label %Py_XDECREF.exit59.i
 
 Py_XDECREF.exit59.i:                              ; preds = %if.then1.i.i58.i, %if.end.i.i55.i, %if.then.i52.i, %do.body31.i
-  %cmp35.i = icmp eq ptr %name.1, @_Py_NoneStruct
+  %cmp35.i = icmp eq ptr %name.0, @_Py_NoneStruct
   br i1 %cmp35.i, label %if.then36.i, label %if.else38.i
 
 if.then36.i:                                      ; preds = %Py_XDECREF.exit59.i
@@ -9347,27 +9347,27 @@ if.then36.i:                                      ; preds = %Py_XDECREF.exit59.i
   br label %do.body46.i
 
 if.else38.i:                                      ; preds = %Py_XDECREF.exit59.i
-  %33 = getelementptr i8, ptr %name.1, i64 8
+  %33 = getelementptr i8, ptr %name.0, i64 8
   %name.val.i = load ptr, ptr %33, align 8
   %cmp.i60.not.i = icmp eq ptr %name.val.i, @PyUnicode_Type
   br i1 %cmp.i60.not.i, label %if.else43.i, label %if.then41.i
 
 if.then41.i:                                      ; preds = %if.else38.i
-  %call42.i = call ptr @PyObject_Str(ptr noundef %name.1) #6
+  %call42.i = call ptr @PyObject_Str(ptr noundef %name.0) #6
   br label %do.body46.i
 
 if.else43.i:                                      ; preds = %if.else38.i
-  %34 = load i32, ptr %name.1, align 8
+  %34 = load i32, ptr %name.0, align 8
   %add.i.i = add i32 %34, 1
   %cmp.i.i = icmp eq i32 %add.i.i, 0
   br i1 %cmp.i.i, label %do.body46.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else43.i
-  store i32 %add.i.i, ptr %name.1, align 8
+  store i32 %add.i.i, ptr %name.0, align 8
   br label %do.body46.i
 
 do.body46.i:                                      ; preds = %if.end.i.i, %if.else43.i, %if.then41.i, %if.then36.i
-  %name.addr.0.i = phi ptr [ %call37.i, %if.then36.i ], [ %name.1, %if.else43.i ], [ %name.1, %if.end.i.i ], [ %call42.i, %if.then41.i ]
+  %name.addr.0.i = phi ptr [ %call37.i, %if.then36.i ], [ %name.0, %if.else43.i ], [ %name.0, %if.end.i.i ], [ %call42.i, %if.then41.i ]
   %task_name.i = getelementptr inbounds i8, ptr %self, i64 128
   %35 = load ptr, ptr %task_name.i, align 8
   store ptr %name.addr.0.i, ptr %task_name.i, align 8
@@ -9405,7 +9405,7 @@ if.end53.i:                                       ; preds = %Py_XDECREF.exit69.i
 
 if.then55.i:                                      ; preds = %if.end53.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %self.addr.i.i)
-  store ptr %loop.1, ptr %self.addr.i.i, align 8
+  store ptr %loop.0, ptr %self.addr.i.i, align 8
   %call.i.i = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 48760), ptr noundef nonnull %self.addr.i.i, i64 noundef -9223372036854775807, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %self.addr.i.i)
   %cmp57.i = icmp eq ptr %call.i.i, null
@@ -9876,13 +9876,13 @@ if.then16:                                        ; preds = %if.end14
   br i1 %tobool18.not, label %skip_optional_kwonly, label %if.end21
 
 if.end21:                                         ; preds = %if.then16, %if.end14
-  %limit.0 = phi ptr [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end14 ]
+  %limit.1 = phi ptr [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end14 ]
   %arrayidx22 = getelementptr i8, ptr %call8, i64 8
   %4 = load ptr, ptr %arrayidx22, align 8
   br label %skip_optional_kwonly
 
 skip_optional_kwonly:                             ; preds = %cond.end, %if.then16, %if.end, %if.end21
-  %limit.1 = phi ptr [ %limit.0, %if.end21 ], [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %cond.end ]
+  %limit.0 = phi ptr [ %limit.1, %if.end21 ], [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %cond.end ]
   %file.0 = phi ptr [ %4, %if.end21 ], [ @_Py_NoneStruct, %if.then16 ], [ @_Py_NoneStruct, %if.end ], [ @_Py_NoneStruct, %cond.end ]
   %5 = getelementptr i8, ptr %cls, i64 888
   %cls.val = load ptr, ptr %5, align 8
@@ -9893,7 +9893,7 @@ skip_optional_kwonly:                             ; preds = %cond.end, %if.then1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %stack.i)
   store ptr %self, ptr %stack.i, align 16
   %arrayinit.element.i = getelementptr inbounds i8, ptr %stack.i, i64 8
-  store ptr %limit.1, ptr %arrayinit.element.i, align 8
+  store ptr %limit.0, ptr %arrayinit.element.i, align 8
   %arrayinit.element1.i = getelementptr inbounds i8, ptr %stack.i, i64 16
   store ptr %file.0, ptr %arrayinit.element1.i, align 16
   %call2.i = call ptr @PyObject_Vectorcall(ptr noundef %cls.val.val.val, ptr noundef nonnull %stack.i, i64 noundef 3, ptr noundef null) #6

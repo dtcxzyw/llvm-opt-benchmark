@@ -390,8 +390,8 @@ sw.default:                                       ; preds = %if.end78
   br label %err
 
 sw.epilog:                                        ; preds = %sw.bb80, %sw.bb
-  %r.0 = phi i32 [ %call81, %sw.bb80 ], [ %call79, %sw.bb ]
-  %cmp84 = icmp slt i32 %r.0, 0
+  %r.1 = phi i32 [ %call81, %sw.bb80 ], [ %call79, %sw.bb ]
+  %cmp84 = icmp slt i32 %r.1, 0
   br i1 %cmp84, label %if.then86, label %err
 
 if.then86:                                        ; preds = %sw.epilog
@@ -402,7 +402,7 @@ if.then86:                                        ; preds = %sw.epilog
 
 err:                                              ; preds = %sw.epilog.thread, %sw.epilog, %if.then86, %if.end73, %if.then67, %if.end53, %if.then47, %if.end35, %if.end24, %if.end15, %sw.default, %if.then45, %if.then34, %if.then23
   %num.0 = phi i32 [ 0, %if.end15 ], [ 0, %if.then23 ], [ %div, %if.end24 ], [ %div, %if.then34 ], [ %div, %if.end35 ], [ %div, %if.then45 ], [ %div, %if.end73 ], [ %div, %sw.default ], [ %div, %if.then86 ], [ %div, %sw.epilog ], [ %div, %if.then67 ], [ %div, %if.end53 ], [ %div, %if.then47 ], [ %div, %sw.epilog.thread ]
-  %r.1 = phi i32 [ -1, %if.end15 ], [ -1, %if.then23 ], [ -1, %if.end24 ], [ -1, %if.then34 ], [ -1, %if.end35 ], [ -1, %if.then45 ], [ -1, %if.end73 ], [ -1, %sw.default ], [ %r.0, %if.then86 ], [ %r.0, %sw.epilog ], [ -1, %if.then67 ], [ -1, %if.end53 ], [ -1, %if.then47 ], [ %call74, %sw.epilog.thread ]
+  %r.0 = phi i32 [ -1, %if.end15 ], [ -1, %if.then23 ], [ -1, %if.end24 ], [ -1, %if.then34 ], [ -1, %if.end35 ], [ -1, %if.then45 ], [ -1, %if.end73 ], [ -1, %sw.default ], [ %r.1, %if.then86 ], [ %r.1, %sw.epilog ], [ -1, %if.then67 ], [ -1, %if.end53 ], [ -1, %if.then47 ], [ %call74, %sw.epilog.thread ]
   %buf.0 = phi ptr [ null, %if.end15 ], [ null, %if.then23 ], [ null, %if.end24 ], [ %call27, %if.then34 ], [ %call27, %if.end35 ], [ %call27, %if.then45 ], [ %call27, %if.end73 ], [ %call27, %sw.default ], [ %call27, %if.then86 ], [ %call27, %sw.epilog ], [ %call27, %if.then67 ], [ %call27, %if.end53 ], [ %call27, %if.then47 ], [ %call27, %sw.epilog.thread ]
   tail call void @BN_CTX_end(ptr noundef %call16) #8
   tail call void @BN_CTX_free(ptr noundef %call16) #8
@@ -411,7 +411,7 @@ err:                                              ; preds = %sw.epilog.thread, %
   br label %return
 
 return:                                           ; preds = %err, %if.then13, %if.then4, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then4 ], [ -1, %if.then13 ], [ %r.1, %err ]
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then4 ], [ -1, %if.then13 ], [ %r.0, %err ]
   ret i32 %retval.0
 }
 
@@ -543,8 +543,8 @@ if.then55:                                        ; preds = %land.lhs.true
   br label %err
 
 if.end56:                                         ; preds = %land.lhs.true, %if.then50
-  %unblind.0 = phi ptr [ null, %if.then50 ], [ %call52, %land.lhs.true ]
-  %call57 = tail call fastcc i32 @rsa_blinding_convert(ptr noundef nonnull %call42, ptr noundef %call1, ptr noundef %unblind.0, ptr noundef nonnull %call)
+  %unblind.1 = phi ptr [ null, %if.then50 ], [ %call52, %land.lhs.true ]
+  %call57 = tail call fastcc i32 @rsa_blinding_convert(ptr noundef nonnull %call42, ptr noundef %call1, ptr noundef %unblind.1, ptr noundef nonnull %call)
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %err, label %if.end56.if.end61_crit_edge
 
@@ -555,7 +555,7 @@ if.end56.if.end61_crit_edge:                      ; preds = %if.end56
 if.end61:                                         ; preds = %if.end56.if.end61_crit_edge, %if.end37
   %8 = phi i32 [ %.pre79, %if.end56.if.end61_crit_edge ], [ %6, %if.end37 ]
   %blinding.077 = phi ptr [ %call42, %if.end56.if.end61_crit_edge ], [ null, %if.end37 ]
-  %unblind.1 = phi ptr [ %unblind.0, %if.end56.if.end61_crit_edge ], [ null, %if.end37 ]
+  %unblind.0 = phi ptr [ %unblind.1, %if.end56.if.end61_crit_edge ], [ null, %if.end37 ]
   %and63 = and i32 %8, 32
   %tobool64.not = icmp eq i32 %and63, 0
   br i1 %tobool64.not, label %lor.lhs.false65, label %if.then83
@@ -648,7 +648,7 @@ if.end106:                                        ; preds = %if.end97, %if.then8
 
 if.then108:                                       ; preds = %if.end106
   tail call void @BN_set_flags(ptr noundef nonnull %call2, i32 noundef 4) #8
-  %call.i = tail call i32 @BN_BLINDING_invert_ex(ptr noundef nonnull %call2, ptr noundef %unblind.1, ptr noundef %blinding.077, ptr noundef nonnull %call) #8
+  %call.i = tail call i32 @BN_BLINDING_invert_ex(ptr noundef nonnull %call2, ptr noundef %unblind.0, ptr noundef %blinding.077, ptr noundef nonnull %call) #8
   %tobool110.not = icmp eq i32 %call.i, 0
   br i1 %tobool110.not, label %err, label %if.end113
 
@@ -818,8 +818,8 @@ if.then62:                                        ; preds = %land.lhs.true58
   br label %err
 
 if.end63:                                         ; preds = %land.lhs.true58, %if.then56
-  %unblind.0 = phi ptr [ null, %if.then56 ], [ %call59, %land.lhs.true58 ]
-  %call64 = tail call fastcc i32 @rsa_blinding_convert(ptr noundef nonnull %call48, ptr noundef %call4, ptr noundef %unblind.0, ptr noundef nonnull %call)
+  %unblind.1 = phi ptr [ null, %if.then56 ], [ %call59, %land.lhs.true58 ]
+  %call64 = tail call fastcc i32 @rsa_blinding_convert(ptr noundef nonnull %call48, ptr noundef %call4, ptr noundef %unblind.1, ptr noundef nonnull %call)
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %err, label %if.end63.if.end68_crit_edge
 
@@ -830,7 +830,7 @@ if.end63.if.end68_crit_edge:                      ; preds = %if.end63
 if.end68:                                         ; preds = %if.end63.if.end68_crit_edge, %if.end43
   %9 = phi i32 [ %.pre91, %if.end63.if.end68_crit_edge ], [ %7, %if.end43 ]
   %blinding.088 = phi ptr [ %call48, %if.end63.if.end68_crit_edge ], [ null, %if.end43 ]
-  %unblind.1 = phi ptr [ %unblind.0, %if.end63.if.end68_crit_edge ], [ null, %if.end43 ]
+  %unblind.0 = phi ptr [ %unblind.1, %if.end63.if.end68_crit_edge ], [ null, %if.end43 ]
   %and70 = and i32 %9, 32
   %tobool71.not = icmp eq i32 %and70, 0
   br i1 %tobool71.not, label %lor.lhs.false, label %if.then89
@@ -923,7 +923,7 @@ if.end112:                                        ; preds = %if.end103, %if.then
 
 if.then114:                                       ; preds = %if.end112
   tail call void @BN_set_flags(ptr noundef nonnull %call5, i32 noundef 4) #8
-  %call.i = tail call i32 @BN_BLINDING_invert_ex(ptr noundef nonnull %call5, ptr noundef %unblind.1, ptr noundef %blinding.088, ptr noundef nonnull %call) #8
+  %call.i = tail call i32 @BN_BLINDING_invert_ex(ptr noundef nonnull %call5, ptr noundef %unblind.0, ptr noundef %blinding.088, ptr noundef nonnull %call) #8
   %tobool116.not = icmp eq i32 %call.i, 0
   br i1 %tobool116.not, label %err, label %if.end119
 
@@ -974,24 +974,24 @@ sw.default:                                       ; preds = %if.end133
   br label %err
 
 sw.epilog:                                        ; preds = %sw.bb141, %sw.bb139, %sw.bb135, %sw.bb
-  %r.0 = phi i32 [ %call129, %sw.bb141 ], [ %call140, %sw.bb139 ], [ %call138, %sw.bb135 ], [ %call134, %sw.bb ]
+  %r.1 = phi i32 [ %call129, %sw.bb141 ], [ %call140, %sw.bb139 ], [ %call138, %sw.bb135 ], [ %call134, %sw.bb ]
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 645, ptr noundef nonnull @__func__.rsa_ossl_private_decrypt) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 114, ptr noundef null) #8
-  %isnotneg = icmp sgt i32 %r.0, -1
+  %isnotneg = icmp sgt i32 %r.1, -1
   %and144 = zext i1 %isnotneg to i32
   call void @err_clear_last_constant_time(i32 noundef %and144) #8
   br label %err
 
 err:                                              ; preds = %if.end103, %if.end128, %if.then122, %if.then114, %if.then89, %if.end63, %if.then37, %if.end22, %if.end8, %entry, %sw.epilog, %sw.default, %if.then102, %if.then97, %if.then62, %if.then51, %if.then32, %if.then21, %if.then17, %if.then7
   %num.0 = phi i32 [ 0, %entry ], [ 0, %if.then7 ], [ %div, %if.end8 ], [ %div, %if.then17 ], [ %div, %if.then21 ], [ %div, %if.end22 ], [ %div, %if.then32 ], [ %div, %if.then122 ], [ %div, %if.end128 ], [ %div, %sw.default ], [ %div, %sw.epilog ], [ %div, %if.then114 ], [ %div, %if.then89 ], [ %div, %if.then97 ], [ %div, %if.then102 ], [ %div, %if.end63 ], [ %div, %if.then62 ], [ %div, %if.then51 ], [ %div, %if.then37 ], [ %div, %if.end103 ]
-  %r.1 = phi i32 [ -1, %entry ], [ -1, %if.then7 ], [ -1, %if.end8 ], [ -1, %if.then17 ], [ -1, %if.then21 ], [ -1, %if.end22 ], [ -1, %if.then32 ], [ -1, %if.then122 ], [ -1, %if.end128 ], [ -1, %sw.default ], [ %r.0, %sw.epilog ], [ -1, %if.then114 ], [ -1, %if.then89 ], [ -1, %if.then97 ], [ -1, %if.then102 ], [ -1, %if.end63 ], [ -1, %if.then62 ], [ -1, %if.then51 ], [ -1, %if.then37 ], [ -1, %if.end103 ]
+  %r.0 = phi i32 [ -1, %entry ], [ -1, %if.then7 ], [ -1, %if.end8 ], [ -1, %if.then17 ], [ -1, %if.then21 ], [ -1, %if.end22 ], [ -1, %if.then32 ], [ -1, %if.then122 ], [ -1, %if.end128 ], [ -1, %sw.default ], [ %r.1, %sw.epilog ], [ -1, %if.then114 ], [ -1, %if.then89 ], [ -1, %if.then97 ], [ -1, %if.then102 ], [ -1, %if.end63 ], [ -1, %if.then62 ], [ -1, %if.then51 ], [ -1, %if.then37 ], [ -1, %if.end103 ]
   %buf.0 = phi ptr [ null, %entry ], [ null, %if.then7 ], [ null, %if.end8 ], [ %call10, %if.then17 ], [ %call10, %if.then21 ], [ %call10, %if.end22 ], [ %call10, %if.then32 ], [ %call10, %if.then122 ], [ %call10, %if.end128 ], [ %call10, %sw.default ], [ %call10, %sw.epilog ], [ %call10, %if.then114 ], [ %call10, %if.then89 ], [ %call10, %if.then97 ], [ %call10, %if.then102 ], [ %call10, %if.end63 ], [ %call10, %if.then62 ], [ %call10, %if.then51 ], [ %call10, %if.then37 ], [ %call10, %if.end103 ]
   call void @BN_CTX_end(ptr noundef %call) #8
   call void @BN_CTX_free(ptr noundef %call) #8
   %conv145 = sext i32 %num.0 to i64
   call void @CRYPTO_clear_free(ptr noundef %buf.0, i64 noundef %conv145, ptr noundef nonnull @.str.1, i32 noundef 652) #8
-  ret i32 %r.1
+  ret i32 %r.0
 }
 
 ; Function Attrs: nounwind uwtable

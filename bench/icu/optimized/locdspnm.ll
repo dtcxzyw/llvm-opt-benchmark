@@ -488,9 +488,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1332,14 +1332,14 @@ if.end99:                                         ; preds = %if.else93, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else93, %if.end99
-  %needBrkIter.0 = phi i1 [ %53, %if.end99 ], [ false, %if.else93 ]
+  %needBrkIter.2 = phi i1 [ %53, %if.end99 ], [ false, %if.else93 ]
   %54 = phi i1 [ true, %if.end99 ], [ false, %if.else93 ]
   call void @_ZN6icu_7522LocaleDisplayNamesImpl25CapitalizationContextSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %sink) #18
   br label %cleanup100
 
 cleanup100:                                       ; preds = %invoke.cont79, %cleanup
-  %needBrkIter.1 = phi i1 [ false, %invoke.cont79 ], [ %needBrkIter.0, %cleanup ]
-  %cleanup.dest.slot.1 = phi i1 [ false, %invoke.cont79 ], [ %54, %cleanup ]
+  %needBrkIter.1 = phi i1 [ false, %invoke.cont79 ], [ %needBrkIter.2, %cleanup ]
+  %cleanup.dest.slot.0 = phi i1 [ false, %invoke.cont79 ], [ %54, %cleanup ]
   %cmp.not.i = icmp eq ptr %call78, null
   br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i
 
@@ -1355,7 +1355,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %cleanup100, %if.then.i
-  br i1 %cleanup.dest.slot.1, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit.if.end101_crit_edge, label %cleanup118
+  br i1 %cleanup.dest.slot.0, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit.if.end101_crit_edge, label %cleanup118
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit.if.end101_crit_edge: ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit
   %.pre = load i32, ptr %capitalizationContext, align 8
@@ -1363,9 +1363,9 @@ _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit.if.end101_crit_edge: ; preds = 
 
 if.end101:                                        ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit.if.end101_crit_edge, %invoke.cont68
   %57 = phi i32 [ %.pre, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit.if.end101_crit_edge ], [ %47, %invoke.cont68 ]
-  %needBrkIter.2 = phi i1 [ %needBrkIter.1, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit.if.end101_crit_edge ], [ false, %invoke.cont68 ]
+  %needBrkIter.0 = phi i1 [ %needBrkIter.1, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit.if.end101_crit_edge ], [ false, %invoke.cont68 ]
   %cmp105 = icmp eq i32 %57, 258
-  %or.cond = select i1 %needBrkIter.2, i1 true, i1 %cmp105
+  %or.cond = select i1 %needBrkIter.0, i1 true, i1 %cmp105
   br i1 %or.cond, label %if.then106, label %cleanup118
 
 if.then106:                                       ; preds = %if.end101
@@ -3821,8 +3821,8 @@ if.end45:                                         ; preds = %_ZNK6icu_7512ICUDat
   br label %return
 
 return:                                           ; preds = %cleanup, %if.end45, %if.then9, %if.then
-  %retval.1 = phi ptr [ %call4, %if.then ], [ %result, %cleanup ], [ %result, %if.end45 ], [ %result, %if.then9 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %call4, %if.then ], [ %result, %cleanup ], [ %result, %if.end45 ], [ %result, %if.then9 ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad42, %lpad
   %.pn = phi { ptr, i32 } [ %37, %lpad42 ], [ %27, %lpad ]
@@ -4163,7 +4163,7 @@ lpad16:                                           ; preds = %if.end14
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont17, %if.then13
-  %retval.0 = phi i32 [ 0, %if.then13 ], [ %call18, %invoke.cont17 ]
+  %retval.1 = phi i32 [ 0, %if.then13 ], [ %call18, %invoke.cont17 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %temp) #18
   br label %return
 
@@ -4173,8 +4173,8 @@ ehcleanup:                                        ; preds = %lpad16, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup, %if.then7
-  %retval.1 = phi i32 [ 0, %if.then7 ], [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then7 ], [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN6icu_7513UnicodeStringC1EPDsii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #5

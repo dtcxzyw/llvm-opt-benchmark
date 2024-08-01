@@ -676,13 +676,13 @@ thread-pre-split.sink.split:                      ; preds = %233, %213
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-split.sink.split, %.invoke217, %195, %246, %248, %250, %252, %256, %259, %261, %263
-  %.0.ph = phi i1 [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %256 ], [ %255, %252 ], [ %251, %250 ], [ %249, %248 ], [ %247, %246 ], [ false, %195 ], [ true, %.invoke217 ], [ true, %thread-pre-split.sink.split ]
+  %.2.ph = phi i1 [ %264, %263 ], [ %262, %261 ], [ %260, %259 ], [ %258, %256 ], [ %255, %252 ], [ %251, %250 ], [ %249, %248 ], [ %247, %246 ], [ false, %195 ], [ true, %.invoke217 ], [ true, %thread-pre-split.sink.split ]
   %.pr = load ptr, ptr %14, align 8
   br label %265
 
 265:                                              ; preds = %thread-pre-split, %244
   %266 = phi ptr [ %.pr, %thread-pre-split ], [ %245, %244 ]
-  %.0 = phi i1 [ %.0.ph, %thread-pre-split ], [ true, %244 ]
+  %.2 = phi i1 [ %.2.ph, %thread-pre-split ], [ true, %244 ]
   %.not.i.i.i = icmp eq ptr %266, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIP10cmMakefileSaIS1_EED2Ev.exit, label %267
 
@@ -701,7 +701,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   br label %_ZNSt6vectorIP10cmMakefileSaIS1_EED2Ev.exit178
 
 _ZNSt6vectorIP10cmMakefileSaIS1_EED2Ev.exit:      ; preds = %267, %265, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit176, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit169, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit161
-  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit169 ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit176 ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit161 ], [ %.0, %265 ], [ %.0, %267 ]
+  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit169 ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit176 ], [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit161 ], [ %.2, %265 ], [ %.2, %267 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #14
   %271 = load ptr, ptr %8, align 8
   %272 = getelementptr inbounds i8, ptr %8, i64 8
@@ -771,8 +771,8 @@ _ZNSt6vectorIP10cmMakefileSaIS1_EED2Ev.exit178:   ; preds = %.loopexit, %.loopex
   br label %284
 
 283:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit188, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.2 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit188 ]
-  ret i1 %.2
+  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit188 ]
+  ret i1 %.0
 
 284:                                              ; preds = %_ZNSt6vectorIP10cmMakefileSaIS1_EED2Ev.exit178, %.body
   %.pn153.pn = phi { ptr, i32 } [ %.pn153, %.body ], [ %.pn151, %_ZNSt6vectorIP10cmMakefileSaIS1_EED2Ev.exit178 ]
@@ -1488,8 +1488,8 @@ _ZN12_GLOBAL__N_111StoreResultI7cmValueEEbNS_7OutTypeER10cmMakefileRKNSt7__cxx11
   br label %55
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_111StoreResultI7cmValueEEbNS_7OutTypeER10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.1 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.not, %_ZN12_GLOBAL__N_111StoreResultI7cmValueEEbNS_7OutTypeER10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.not, %_ZN12_GLOBAL__N_111StoreResultI7cmValueEEbNS_7OutTypeER10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_.exit ]
+  ret i1 %.0
 
 55:                                               ; preds = %53, %.body
   %.pn22.pn = phi { ptr, i32 } [ %.pn22, %.body ], [ %.pn, %53 ]

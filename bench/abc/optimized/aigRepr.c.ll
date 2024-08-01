@@ -774,23 +774,23 @@ define i32 @Aig_ManRemapRepr(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %.not.i, label %Aig_ObjFindReprTransitive.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %18, %.preheader.i
-  %.0.i = phi ptr [ %26, %.preheader.i ], [ %22, %18 ]
-  %23 = getelementptr i8, ptr %.0.i, i64 36
-  %.0.val.i = load i32, ptr %23, align 4
-  %24 = sext i32 %.0.val.i to i64
+  %.1.i = phi ptr [ %26, %.preheader.i ], [ %22, %18 ]
+  %23 = getelementptr i8, ptr %.1.i, i64 36
+  %.1.val.i = load i32, ptr %23, align 4
+  %24 = sext i32 %.1.val.i to i64
   %25 = getelementptr inbounds ptr, ptr %.val20, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not9.i = icmp eq ptr %26, null
   br i1 %.not9.i, label %Aig_ObjFindReprTransitive.exit, label %.preheader.i, !llvm.loop !11
 
 Aig_ObjFindReprTransitive.exit:                   ; preds = %.preheader.i
-  %27 = icmp eq ptr %11, %.0.i
+  %27 = icmp eq ptr %11, %.1.i
   br i1 %27, label %Aig_ObjSetRepr_.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %Aig_ObjFindReprTransitive.exit
-  %28 = icmp slt i32 %.val21, %.0.val.i
-  %..i = tail call i32 @llvm.smax.i32(i32 %.val21, i32 %.0.val.i)
-  %.16.i = select i1 %28, ptr %11, ptr %.0.i
+  %28 = icmp slt i32 %.val21, %.1.val.i
+  %..i = tail call i32 @llvm.smax.i32(i32 %.val21, i32 %.1.val.i)
+  %.16.i = select i1 %28, ptr %11, ptr %.1.i
   %29 = sext i32 %..i to i64
   %30 = getelementptr inbounds ptr, ptr %.val20, i64 %29
   store ptr %.16.i, ptr %30, align 8
@@ -997,23 +997,23 @@ define noundef ptr @Aig_ManRehash(ptr noundef %0) local_unnamed_addr #6 {
   br i1 %.not.i.i, label %Aig_ObjFindReprTransitive.exit.thread.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %20, %.preheader.i.i
-  %.0.i.i = phi ptr [ %28, %.preheader.i.i ], [ %24, %20 ]
-  %25 = getelementptr i8, ptr %.0.i.i, i64 36
-  %.0.val.i.i = load i32, ptr %25, align 4
-  %26 = sext i32 %.0.val.i.i to i64
+  %.1.i.i = phi ptr [ %28, %.preheader.i.i ], [ %24, %20 ]
+  %25 = getelementptr i8, ptr %.1.i.i, i64 36
+  %.1.val.i.i = load i32, ptr %25, align 4
+  %26 = sext i32 %.1.val.i.i to i64
   %27 = getelementptr inbounds ptr, ptr %.val20.i, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.not9.i.i = icmp eq ptr %28, null
   br i1 %.not9.i.i, label %Aig_ObjFindReprTransitive.exit.i, label %.preheader.i.i, !llvm.loop !11
 
 Aig_ObjFindReprTransitive.exit.i:                 ; preds = %.preheader.i.i
-  %29 = icmp eq ptr %13, %.0.i.i
+  %29 = icmp eq ptr %13, %.1.i.i
   br i1 %29, label %Aig_ObjSetRepr_.exit.i, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %Aig_ObjFindReprTransitive.exit.i
-  %30 = icmp slt i32 %.val21.i, %.0.val.i.i
-  %..i.i = tail call i32 @llvm.smax.i32(i32 %.val21.i, i32 %.0.val.i.i)
-  %.16.i.i = select i1 %30, ptr %13, ptr %.0.i.i
+  %30 = icmp slt i32 %.val21.i, %.1.val.i.i
+  %..i.i = tail call i32 @llvm.smax.i32(i32 %.val21.i, i32 %.1.val.i.i)
+  %.16.i.i = select i1 %30, ptr %13, ptr %.1.i.i
   %31 = sext i32 %..i.i to i64
   %32 = getelementptr inbounds ptr, ptr %.val20.i, i64 %31
   store ptr %.16.i.i, ptr %32, align 8
@@ -1219,7 +1219,7 @@ define i32 @Aig_TransferMappedClasses(ptr nocapture noundef readonly %0, ptr noc
 12:                                               ; preds = %.lr.ph, %Aig_ObjSetRepr_.exit
   %13 = phi ptr [ %7, %.lr.ph ], [ %51, %Aig_ObjSetRepr_.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_ObjSetRepr_.exit ]
-  %.01827 = phi i32 [ 0, %.lr.ph ], [ %.1, %Aig_ObjSetRepr_.exit ]
+  %.127 = phi i32 [ 0, %.lr.ph ], [ %.2, %Aig_ObjSetRepr_.exit ]
   %14 = getelementptr i8, ptr %13, i64 8
   %.val20 = load ptr, ptr %14, align 8
   %15 = getelementptr inbounds ptr, ptr %.val20, i64 %indvars.iv
@@ -1238,7 +1238,7 @@ define i32 @Aig_TransferMappedClasses(ptr nocapture noundef readonly %0, ptr noc
   br i1 %25, label %Aig_ObjSetRepr_.exit, label %26
 
 26:                                               ; preds = %18
-  %27 = add nsw i32 %.01827, 1
+  %27 = add nsw i32 %.127, 1
   %.val21 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.val21, null
   br i1 %.not.i, label %Aig_ObjSetRepr_.exit, label %Aig_ManObj.exit25
@@ -1279,7 +1279,7 @@ Aig_ManObj.exit25:                                ; preds = %26
 
 Aig_ObjSetRepr_.exit:                             ; preds = %26, %.sink.split.i, %Aig_ManObj.exit25, %12, %18
   %51 = phi ptr [ %13, %12 ], [ %13, %18 ], [ %13, %Aig_ManObj.exit25 ], [ %.pre, %.sink.split.i ], [ %13, %26 ]
-  %.1 = phi i32 [ %.01827, %12 ], [ %.01827, %18 ], [ %27, %Aig_ManObj.exit25 ], [ %27, %.sink.split.i ], [ %27, %26 ]
+  %.2 = phi i32 [ %.127, %12 ], [ %.127, %18 ], [ %27, %Aig_ManObj.exit25 ], [ %27, %.sink.split.i ], [ %27, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = getelementptr i8, ptr %51, i64 4
   %.val = load i32, ptr %52, align 4
@@ -1288,8 +1288,8 @@ Aig_ObjSetRepr_.exit:                             ; preds = %26, %.sink.split.i,
   br i1 %54, label %12, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %Aig_ObjSetRepr_.exit, %.preheader, %3
-  %.2 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %.1, %Aig_ObjSetRepr_.exit ]
-  ret i32 %.2
+  %.018 = phi i32 [ 0, %3 ], [ 0, %.preheader ], [ %.2, %Aig_ObjSetRepr_.exit ]
+  ret i32 %.018
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)

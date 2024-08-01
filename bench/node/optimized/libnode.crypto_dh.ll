@@ -5038,8 +5038,8 @@ do.body80:                                        ; preds = %entry
   unreachable
 
 if.end84:                                         ; preds = %do.body31, %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit37
-  %key_params.sroa.0.0 = phi ptr [ %5, %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit37 ], [ %call20, %do.body31 ]
-  %call86 = call ptr @EVP_PKEY_CTX_new(ptr noundef %key_params.sroa.0.0, ptr noundef null) #18
+  %key_params.sroa.0.1 = phi ptr [ %5, %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit37 ], [ %call20, %do.body31 ]
+  %call86 = call ptr @EVP_PKEY_CTX_new(ptr noundef %key_params.sroa.0.1, ptr noundef null) #18
   %cmp.i38.not = icmp eq ptr %call86, null
   br i1 %cmp.i38.not, label %cleanup94.thread72, label %lor.lhs.false88
 
@@ -5063,11 +5063,11 @@ if.then.i40:                                      ; preds = %lor.lhs.false88
   br label %cleanup95
 
 cleanup95:                                        ; preds = %if.then.i40, %cleanup94.thread, %cleanup94.thread72
-  %cmp.not.i42 = icmp eq ptr %key_params.sroa.0.0, null
+  %cmp.not.i42 = icmp eq ptr %key_params.sroa.0.1, null
   br i1 %cmp.not.i42, label %_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEED2Ev.exit44, label %if.then.i43
 
 if.then.i43:                                      ; preds = %cleanup95
-  call void @EVP_PKEY_free(ptr noundef nonnull %key_params.sroa.0.0) #18
+  call void @EVP_PKEY_free(ptr noundef nonnull %key_params.sroa.0.1) #18
   br label %_ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEED2Ev.exit44
 
 _ZNSt10unique_ptrI11evp_pkey_stN4node15FunctionDeleterIS0_XadL_Z13EVP_PKEY_freeEEEEED2Ev.exit44: ; preds = %if.then.i28, %if.then72, %_ZNSt10unique_ptrI5dh_stN4node15FunctionDeleterIS0_XadL_Z7DH_freeEEEEED2Ev.exit, %_ZNSt10unique_ptrI5dh_stN4node15FunctionDeleterIS0_XadL_Z7DH_freeEEEEED2Ev.exit13, %cleanup95, %if.then.i43
@@ -5237,9 +5237,9 @@ _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit: ; preds = %do.
   br label %cleanup23.thread
 
 cleanup23.thread:                                 ; preds = %if.then18, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
-  %out.sroa.8.1 = phi i64 [ %0, %if.then18 ], [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ]
-  %out.sroa.0.2 = phi ptr [ %call1.i.i, %if.then18 ], [ null, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ]
-  call void @CRYPTO_clear_free(ptr noundef %out.sroa.0.2, i64 noundef %out.sroa.8.1, ptr noundef nonnull @.str.109, i32 noundef 225) #18
+  %out.sroa.8.0 = phi i64 [ %0, %if.then18 ], [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ]
+  %out.sroa.0.0 = phi ptr [ %call1.i.i, %if.then18 ], [ null, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ]
+  call void @CRYPTO_clear_free(ptr noundef %out.sroa.0.0, i64 noundef %out.sroa.8.0, ptr noundef nonnull @.str.109, i32 noundef 225) #18
   br label %if.then.i
 
 cleanup23.thread19:                               ; preds = %lor.lhs.false, %lor.lhs.false5, %lor.lhs.false10

@@ -692,8 +692,8 @@ if.then19:                                        ; preds = %if.else
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then19, %if.then15
-  %error_line.0 = phi ptr [ %call16, %if.then15 ], [ %call23, %if.then19 ]
-  %tobool26.not = icmp eq ptr %error_line.0, null
+  %error_line.1 = phi ptr [ %call16, %if.then15 ], [ %call23, %if.then19 ]
+  %tobool26.not = icmp eq ptr %error_line.1, null
   br i1 %tobool26.not, label %if.end25.if.then27_crit_edge, label %if.end66
 
 if.end25.if.then27_crit_edge:                     ; preds = %if.end25
@@ -740,12 +740,12 @@ if.else59:                                        ; preds = %if.else49
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then57, %if.else59, %if.then38
-  %error_line.1 = phi ptr [ %call48, %if.then38 ], [ %call58, %if.then57 ], [ %call60, %if.else59 ]
-  %tobool63.not = icmp eq ptr %error_line.1, null
+  %error_line.3 = phi ptr [ %call48, %if.then38 ], [ %call58, %if.then57 ], [ %call60, %if.else59 ]
+  %tobool63.not = icmp eq ptr %error_line.3, null
   br i1 %tobool63.not, label %if.then.i, label %if.end66
 
 if.end66:                                         ; preds = %if.end62, %if.end25
-  %error_line.2 = phi ptr [ %error_line.0, %if.end25 ], [ %error_line.1, %if.end62 ]
+  %error_line.2 = phi ptr [ %error_line.1, %if.end25 ], [ %error_line.3, %if.end62 ]
   %17 = load ptr, ptr %p, align 8
   %encoding68 = getelementptr inbounds i8, ptr %17, i64 2752
   %18 = load ptr, ptr %encoding68, align 8
@@ -827,7 +827,7 @@ if.end.i:                                         ; preds = %Py_DECREF.exit107
   br i1 %cmp.i, label %return.sink.split, label %return
 
 if.then.i:                                        ; preds = %Py_DECREF.exit116, %if.end88, %if.then79, %if.then71, %if.end62
-  %error_line.3.ph = phi ptr [ null, %if.end62 ], [ %error_line.2, %if.end88 ], [ %error_line.2, %Py_DECREF.exit116 ], [ %error_line.2, %if.then79 ], [ %error_line.2, %if.then71 ]
+  %error_line.0.ph = phi ptr [ null, %if.end62 ], [ %error_line.2, %if.end88 ], [ %error_line.2, %Py_DECREF.exit116 ], [ %error_line.2, %if.then79 ], [ %error_line.2, %if.then71 ]
   %27 = load i64, ptr %call, align 8
   %28 = and i64 %27, 2147483648
   %cmp.i2.not.i = icmp eq i64 %28, 0
@@ -844,24 +844,24 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.then.i, %if.end.i.i, %if.then1.i.i
-  %cmp.not.i53 = icmp eq ptr %error_line.3.ph, null
+  %cmp.not.i53 = icmp eq ptr %error_line.0.ph, null
   br i1 %cmp.not.i53, label %return, label %if.then.i54
 
 if.then.i54:                                      ; preds = %Py_XDECREF.exit
-  %29 = load i64, ptr %error_line.3.ph, align 8
+  %29 = load i64, ptr %error_line.0.ph, align 8
   %30 = and i64 %29, 2147483648
   %cmp.i2.not.i55 = icmp eq i64 %30, 0
   br i1 %cmp.i2.not.i55, label %if.end.i.i57, label %return
 
 if.end.i.i57:                                     ; preds = %if.then.i54
   %dec.i.i58 = add i64 %29, -1
-  store i64 %dec.i.i58, ptr %error_line.3.ph, align 8
+  store i64 %dec.i.i58, ptr %error_line.0.ph, align 8
   %cmp.i.i59 = icmp eq i64 %dec.i.i58, 0
   br i1 %cmp.i.i59, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end.i.i57, %if.end.i
-  %error_line.3.ph.sink = phi ptr [ %call95, %if.end.i ], [ %error_line.3.ph, %if.end.i.i57 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %error_line.3.ph.sink) #5
+  %error_line.0.ph.sink = phi ptr [ %call95, %if.end.i ], [ %error_line.0.ph, %if.end.i.i57 ]
+  tail call void @_Py_Dealloc(ptr noundef nonnull %error_line.0.ph.sink) #5
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end7, %if.end.i.i57, %if.then.i54, %Py_XDECREF.exit, %if.end.i, %Py_DECREF.exit107

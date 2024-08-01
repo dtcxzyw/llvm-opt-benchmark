@@ -1720,14 +1720,14 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp.i24.not, label %cleanup, label %for.body
 
 cleanup:                                          ; preds = %land.lhs.true.i, %for.inc, %do.end40, %invoke.cont21, %invoke.cont
-  %retval.0 = phi i1 [ false, %invoke.cont ], [ false, %invoke.cont21 ], [ true, %do.end40 ], [ true, %for.inc ], [ false, %land.lhs.true.i ]
+  %retval.1 = phi i1 [ false, %invoke.cont ], [ false, %invoke.cont21 ], [ true, %do.end40 ], [ true, %for.inc ], [ false, %land.lhs.true.i ]
   %literals.val9 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   call fastcc void @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111sls_literalESt4pairIKS2_NS0_8flat_setIjSt4lessIjESaIjEEEESt10_Select1stISA_ES6_IS2_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef %literals.val9)
   br label %return
 
 return:                                           ; preds = %if.end2, %if.end, %entry, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %entry ], [ false, %if.end ], [ false, %if.end2 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %entry ], [ false, %if.end ], [ false, %if.end2 ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZN3ue29isAcyclicERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3

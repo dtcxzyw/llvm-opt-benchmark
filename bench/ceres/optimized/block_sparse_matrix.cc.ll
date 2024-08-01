@@ -8940,8 +8940,8 @@ _ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__d
 
 .lr.ph27.i:                                       ; preds = %.loopexit.i, %.lr.ph27.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %.026.i = phi ptr [ %15, %.lr.ph27.preheader.i ], [ %.3.i, %.loopexit.i ]
-  %.03625.i = phi ptr [ %28, %.lr.ph27.preheader.i ], [ %.238.i, %.loopexit.i ]
+  %.026.i = phi ptr [ %15, %.lr.ph27.preheader.i ], [ %.1.i, %.loopexit.i ]
+  %.03625.i = phi ptr [ %28, %.lr.ph27.preheader.i ], [ %.137.i, %.loopexit.i ]
   %.0823.i = phi i32 [ 0, %.lr.ph27.preheader.i ], [ %.210.i, %.loopexit.i ]
   %29 = load ptr, ptr %18, align 8, !noalias !87
   %30 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %29, i64 %indvars.iv.i
@@ -8985,20 +8985,20 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.i:                 ; preds = %_ZSt4fillIPiiEvT_S1
   br i1 %49, label %.lr.ph19.i, label %.loopexit.i
 
 .lr.ph19.i:                                       ; preds = %44, %._crit_edge.i
-  %.117.i = phi ptr [ %.2.lcssa.i, %._crit_edge.i ], [ %.026.i, %44 ]
-  %.13716.i = phi ptr [ %51, %._crit_edge.i ], [ %.03625.i, %44 ]
+  %.217.i = phi ptr [ %.3.lcssa.i, %._crit_edge.i ], [ %.026.i, %44 ]
+  %.23816.i = phi ptr [ %51, %._crit_edge.i ], [ %.03625.i, %44 ]
   %.04015.i = phi i32 [ %66, %._crit_edge.i ], [ 0, %44 ]
   %.1914.i = phi i32 [ %50, %._crit_edge.i ], [ %.0823.i, %44 ]
   %50 = add nsw i32 %.1914.i, %48
-  %51 = getelementptr inbounds i8, ptr %.13716.i, i64 4
-  store i32 %50, ptr %.13716.i, align 4, !noalias !87
+  %51 = getelementptr inbounds i8, ptr %.23816.i, i64 4
+  store i32 %50, ptr %.23816.i, align 4, !noalias !87
   %52 = load ptr, ptr %31, align 8, !noalias !87
   %53 = load ptr, ptr %33, align 8, !noalias !87
   %.not11.i = icmp eq ptr %52, %53
   br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph19.i, %_ZSt4iotaIPiiEvT_S1_T0_.exit.i
-  %.213.i = phi ptr [ %60, %_ZSt4iotaIPiiEvT_S1_T0_.exit.i ], [ %.117.i, %.lr.ph19.i ]
+  %.313.i = phi ptr [ %60, %_ZSt4iotaIPiiEvT_S1_T0_.exit.i ], [ %.217.i, %.lr.ph19.i ]
   %.sroa.01.012.i = phi ptr [ %65, %_ZSt4iotaIPiiEvT_S1_T0_.exit.i ], [ %52, %.lr.ph19.i ]
   %54 = load i32, ptr %.sroa.01.012.i, align 4, !noalias !87
   %55 = sext i32 %54 to i64
@@ -9006,7 +9006,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.i:                 ; preds = %_ZSt4fillIPiiEvT_S1
   %57 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %56, i64 %55
   %58 = load i32, ptr %57, align 4, !noalias !87
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i32, ptr %.213.i, i64 %59
+  %60 = getelementptr inbounds i32, ptr %.313.i, i64 %59
   %.not6.i.i = icmp eq i32 %58, 0
   br i1 %.not6.i.i, label %_ZSt4iotaIPiiEvT_S1_T0_.exit.i, label %.lr.ph.i.preheader.i
 
@@ -9017,7 +9017,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.i:                 ; preds = %_ZSt4fillIPiiEvT_S1
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %.08.i.i = phi i32 [ %63, %.lr.ph.i.i ], [ %62, %.lr.ph.i.preheader.i ]
-  %.057.i.i = phi ptr [ %64, %.lr.ph.i.i ], [ %.213.i, %.lr.ph.i.preheader.i ]
+  %.057.i.i = phi ptr [ %64, %.lr.ph.i.i ], [ %.313.i, %.lr.ph.i.preheader.i ]
   store i32 %.08.i.i, ptr %.057.i.i, align 4, !noalias !87
   %63 = add nsw i32 %.08.i.i, 1
   %64 = getelementptr inbounds i8, ptr %.057.i.i, i64 4
@@ -9030,7 +9030,7 @@ _ZSt4iotaIPiiEvT_S1_T0_.exit.i:                   ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZSt4iotaIPiiEvT_S1_T0_.exit.i, %.lr.ph19.i
-  %.2.lcssa.i = phi ptr [ %.117.i, %.lr.ph19.i ], [ %60, %_ZSt4iotaIPiiEvT_S1_T0_.exit.i ]
+  %.3.lcssa.i = phi ptr [ %.217.i, %.lr.ph19.i ], [ %60, %_ZSt4iotaIPiiEvT_S1_T0_.exit.i ]
   %66 = add nuw nsw i32 %.04015.i, 1
   %67 = load i32, ptr %30, align 8, !noalias !87
   %68 = icmp slt i32 %66, %67
@@ -9038,8 +9038,8 @@ _ZSt4iotaIPiiEvT_S1_T0_.exit.i:                   ; preds = %.lr.ph.i.i, %.lr.ph
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %44, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i
   %.210.i = phi i32 [ %.0823.i, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i ], [ %.0823.i, %44 ], [ %50, %._crit_edge.i ]
-  %.238.i = phi ptr [ %43, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i ], [ %.03625.i, %44 ], [ %51, %._crit_edge.i ]
-  %.3.i = phi ptr [ %.026.i, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i ], [ %.026.i, %44 ], [ %.2.lcssa.i, %._crit_edge.i ]
+  %.137.i = phi ptr [ %43, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i ], [ %.03625.i, %44 ], [ %51, %._crit_edge.i ]
+  %.1.i = phi ptr [ %.026.i, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i ], [ %.026.i, %44 ], [ %.3.lcssa.i, %._crit_edge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb1EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit.loopexit, label %.lr.ph27.i, !llvm.loop !97
@@ -9493,8 +9493,8 @@ _ZSt11make_uniqueIN5ceres8internal25CompressedRowSparseMatrixEJRiS3_S3_EENSt8__d
 
 .lr.ph34.i:                                       ; preds = %.loopexit.i, %.lr.ph34.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph34.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %.033.i = phi ptr [ %15, %.lr.ph34.preheader.i ], [ %.3.i, %.loopexit.i ]
-  %.04032.i = phi ptr [ %28, %.lr.ph34.preheader.i ], [ %.242.i, %.loopexit.i ]
+  %.033.i = phi ptr [ %15, %.lr.ph34.preheader.i ], [ %.1.i, %.loopexit.i ]
+  %.04032.i = phi ptr [ %28, %.lr.ph34.preheader.i ], [ %.141.i, %.loopexit.i ]
   %.01230.i = phi i32 [ 0, %.lr.ph34.preheader.i ], [ %.214.i, %.loopexit.i ]
   %29 = load ptr, ptr %18, align 8, !noalias !102
   %30 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %29, i64 %indvars.iv.i
@@ -9551,20 +9551,20 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.i:                 ; preds = %_ZSt4fillIPiiEvT_S1
   br i1 %.not.i, label %.preheader.i, label %47
 
 .lr.ph26.i:                                       ; preds = %.preheader.i, %._crit_edge.i
-  %.125.i = phi ptr [ %.2.lcssa.i, %._crit_edge.i ], [ %.033.i, %.preheader.i ]
-  %.14124.i = phi ptr [ %55, %._crit_edge.i ], [ %.04032.i, %.preheader.i ]
+  %.225.i = phi ptr [ %.3.lcssa.i, %._crit_edge.i ], [ %.033.i, %.preheader.i ]
+  %.24224.i = phi ptr [ %55, %._crit_edge.i ], [ %.04032.i, %.preheader.i ]
   %.04423.i = phi i32 [ %70, %._crit_edge.i ], [ 0, %.preheader.i ]
   %.11322.i = phi i32 [ %54, %._crit_edge.i ], [ %.01230.i, %.preheader.i ]
   %54 = add nsw i32 %.11322.i, %52
-  %55 = getelementptr inbounds i8, ptr %.14124.i, i64 4
-  store i32 %54, ptr %.14124.i, align 4, !noalias !102
+  %55 = getelementptr inbounds i8, ptr %.24224.i, i64 4
+  store i32 %54, ptr %.24224.i, align 4, !noalias !102
   %56 = load ptr, ptr %31, align 8, !noalias !102
   %57 = load ptr, ptr %33, align 8, !noalias !102
   %.not1519.i = icmp eq ptr %56, %57
   br i1 %.not1519.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph26.i, %_ZSt4iotaIPiiEvT_S1_T0_.exit.i
-  %.221.i = phi ptr [ %64, %_ZSt4iotaIPiiEvT_S1_T0_.exit.i ], [ %.125.i, %.lr.ph26.i ]
+  %.321.i = phi ptr [ %64, %_ZSt4iotaIPiiEvT_S1_T0_.exit.i ], [ %.225.i, %.lr.ph26.i ]
   %.sroa.01.020.i = phi ptr [ %69, %_ZSt4iotaIPiiEvT_S1_T0_.exit.i ], [ %56, %.lr.ph26.i ]
   %58 = load i32, ptr %.sroa.01.020.i, align 4, !noalias !102
   %59 = sext i32 %58 to i64
@@ -9572,7 +9572,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.i:                 ; preds = %_ZSt4fillIPiiEvT_S1
   %61 = getelementptr inbounds %"struct.ceres::internal::Block", ptr %60, i64 %59
   %62 = load i32, ptr %61, align 4, !noalias !102
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %.221.i, i64 %63
+  %64 = getelementptr inbounds i32, ptr %.321.i, i64 %63
   %.not6.i.i = icmp eq i32 %62, 0
   br i1 %.not6.i.i, label %_ZSt4iotaIPiiEvT_S1_T0_.exit.i, label %.lr.ph.i.preheader.i
 
@@ -9583,7 +9583,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.i:                 ; preds = %_ZSt4fillIPiiEvT_S1
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %.08.i.i = phi i32 [ %67, %.lr.ph.i.i ], [ %66, %.lr.ph.i.preheader.i ]
-  %.057.i.i = phi ptr [ %68, %.lr.ph.i.i ], [ %.221.i, %.lr.ph.i.preheader.i ]
+  %.057.i.i = phi ptr [ %68, %.lr.ph.i.i ], [ %.321.i, %.lr.ph.i.preheader.i ]
   store i32 %.08.i.i, ptr %.057.i.i, align 4, !noalias !102
   %67 = add nsw i32 %.08.i.i, 1
   %68 = getelementptr inbounds i8, ptr %.057.i.i, i64 4
@@ -9596,7 +9596,7 @@ _ZSt4iotaIPiiEvT_S1_T0_.exit.i:                   ; preds = %.lr.ph.i.i, %.lr.ph
   br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %_ZSt4iotaIPiiEvT_S1_T0_.exit.i, %.lr.ph26.i
-  %.2.lcssa.i = phi ptr [ %.125.i, %.lr.ph26.i ], [ %64, %_ZSt4iotaIPiiEvT_S1_T0_.exit.i ]
+  %.3.lcssa.i = phi ptr [ %.225.i, %.lr.ph26.i ], [ %64, %_ZSt4iotaIPiiEvT_S1_T0_.exit.i ]
   %70 = add nuw nsw i32 %.04423.i, 1
   %71 = load i32, ptr %30, align 8, !noalias !102
   %72 = icmp slt i32 %70, %71
@@ -9604,8 +9604,8 @@ _ZSt4iotaIPiiEvT_S1_T0_.exit.i:                   ; preds = %.lr.ph.i.i, %.lr.ph
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %.preheader.i, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i
   %.214.i = phi i32 [ %.01230.i, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i ], [ %.01230.i, %.preheader.i ], [ %54, %._crit_edge.i ]
-  %.242.i = phi ptr [ %44, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i ], [ %.04032.i, %.preheader.i ], [ %55, %._crit_edge.i ]
-  %.3.i = phi ptr [ %.033.i, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i ], [ %.033.i, %.preheader.i ], [ %.2.lcssa.i, %._crit_edge.i ]
+  %.141.i = phi ptr [ %44, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i ], [ %.04032.i, %.preheader.i ], [ %55, %._crit_edge.i ]
+  %.1.i = phi ptr [ %.033.i, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.i ], [ %.033.i, %.preheader.i ], [ %.3.lcssa.i, %._crit_edge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN5ceres8internal12_GLOBAL__N_142CreateStructureOfCompressedRowSparseMatrixILb0EEESt10unique_ptrINS0_25CompressedRowSparseMatrixESt14default_deleteIS4_EEPKdiiiPKNS0_27CompressedRowBlockStructureE.exit.loopexit, label %.lr.ph34.i, !llvm.loop !110
@@ -21257,8 +21257,8 @@ define linkonce_odr noundef i32 @_ZNSt24uniform_int_distributionIiEclISt23mersen
   br i1 %26, label %.lr.ph.i, label %_ZNSt24uniform_int_distributionIiE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit, !llvm.loop !222
 
 _ZNSt24uniform_int_distributionIiE5_S_ndImSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEjEET1_RT0_S4_.exit: ; preds = %.lr.ph.i, %12, %19
-  %.1.i = phi i64 [ %17, %12 ], [ %17, %19 ], [ %24, %.lr.ph.i ]
-  %27 = lshr i64 %.1.i, 32
+  %.0.i = phi i64 [ %17, %12 ], [ %17, %19 ], [ %24, %.lr.ph.i ]
+  %27 = lshr i64 %.0.i, 32
   br label %.loopexit
 
 28:                                               ; preds = %3

@@ -68,7 +68,7 @@ if.then11:                                        ; preds = %if.end, %if.end
   br i1 %cmp13, label %err, label %if.end19
 
 if.end19:                                         ; preds = %if.then11, %if.then1
-  %dsa.0 = phi ptr [ %call2, %if.then1 ], [ %call12, %if.then11 ]
+  %dsa.1 = phi ptr [ %call2, %if.then1 ], [ %call12, %if.then11 ]
   %5 = load i32, ptr %pklen, align 4
   %conv20 = sext i32 %5 to i64
   %call21 = call ptr @d2i_ASN1_INTEGER(ptr noundef null, ptr noundef nonnull %p, i64 noundef %conv20) #4
@@ -77,30 +77,30 @@ if.end19:                                         ; preds = %if.then11, %if.then
 
 if.end25:                                         ; preds = %if.end19
   %call26 = call ptr @ASN1_INTEGER_to_BN(ptr noundef nonnull %call21, ptr noundef null) #4
-  %pub_key = getelementptr inbounds i8, ptr %dsa.0, i64 104
+  %pub_key = getelementptr inbounds i8, ptr %dsa.1, i64 104
   store ptr %call26, ptr %pub_key, align 8
   %cmp27 = icmp eq ptr %call26, null
   br i1 %cmp27, label %err, label %if.end30
 
 if.end30:                                         ; preds = %if.end25
-  %dirty_cnt = getelementptr inbounds i8, ptr %dsa.0, i64 192
+  %dirty_cnt = getelementptr inbounds i8, ptr %dsa.1, i64 192
   %6 = load i64, ptr %dirty_cnt, align 8
   %inc = add i64 %6, 1
   store i64 %inc, ptr %dirty_cnt, align 8
   call void @ASN1_INTEGER_free(ptr noundef nonnull %call21) #4
-  %call31 = call i32 @EVP_PKEY_assign(ptr noundef %pkey, i32 noundef 116, ptr noundef nonnull %dsa.0) #4
+  %call31 = call i32 @EVP_PKEY_assign(ptr noundef %pkey, i32 noundef 116, ptr noundef nonnull %dsa.1) #4
   br label %return
 
 err:                                              ; preds = %if.end25, %if.end19, %if.end, %if.then11, %if.then1
   %.sink7 = phi i32 [ 51, %if.then1 ], [ 57, %if.then11 ], [ 61, %if.end ], [ 66, %if.end19 ], [ 71, %if.end25 ]
   %.sink = phi i32 [ 104, %if.then1 ], [ 524298, %if.then11 ], [ 105, %if.end ], [ 104, %if.end19 ], [ 108, %if.end25 ]
   %public_key.0 = phi ptr [ null, %if.then1 ], [ null, %if.then11 ], [ null, %if.end ], [ null, %if.end19 ], [ %call21, %if.end25 ]
-  %dsa.1 = phi ptr [ null, %if.then1 ], [ null, %if.then11 ], [ null, %if.end ], [ %dsa.0, %if.end19 ], [ %dsa.0, %if.end25 ]
+  %dsa.0 = phi ptr [ null, %if.then1 ], [ null, %if.then11 ], [ null, %if.end ], [ %dsa.1, %if.end19 ], [ %dsa.1, %if.end25 ]
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink7, ptr noundef nonnull @__func__.dsa_pub_decode) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 10, i32 noundef %.sink, ptr noundef null) #4
   call void @ASN1_INTEGER_free(ptr noundef %public_key.0) #4
-  call void @DSA_free(ptr noundef %dsa.1) #4
+  call void @DSA_free(ptr noundef %dsa.0) #4
   br label %return
 
 return:                                           ; preds = %entry, %err, %if.end30
@@ -164,7 +164,7 @@ if.then13:                                        ; preds = %if.end
 
 if.end15:                                         ; preds = %entry, %land.lhs.true, %land.lhs.true2, %land.lhs.true5, %if.end
   %ptype.0 = phi i32 [ 16, %if.end ], [ -1, %land.lhs.true5 ], [ -1, %land.lhs.true2 ], [ -1, %land.lhs.true ], [ -1, %entry ]
-  %str.0 = phi ptr [ %call, %if.end ], [ null, %land.lhs.true5 ], [ null, %land.lhs.true2 ], [ null, %land.lhs.true ], [ null, %entry ]
+  %str.1 = phi ptr [ %call, %if.end ], [ null, %land.lhs.true5 ], [ null, %land.lhs.true2 ], [ null, %land.lhs.true ], [ null, %entry ]
   %pub_key = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load ptr, ptr %pub_key, align 8
   %call16 = tail call ptr @BN_to_ASN1_INTEGER(ptr noundef %5, ptr noundef null) #4
@@ -196,15 +196,15 @@ if.end23:                                         ; preds = %if.end19
 
 if.end27:                                         ; preds = %if.end23
   %6 = load ptr, ptr %penc, align 8
-  %call28 = call i32 @X509_PUBKEY_set0_param(ptr noundef %pk, ptr noundef nonnull %call24, i32 noundef %ptype.0, ptr noundef %str.0, ptr noundef %6, i32 noundef %call20) #4
+  %call28 = call i32 @X509_PUBKEY_set0_param(ptr noundef %pk, ptr noundef nonnull %call24, i32 noundef %ptype.0, ptr noundef %str.1, ptr noundef %6, i32 noundef %call20) #4
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %err, label %return
 
 err:                                              ; preds = %if.end27, %if.end23, %if.then22, %if.then18, %if.then13, %if.then9
-  %str.1 = phi ptr [ null, %if.then9 ], [ %call, %if.then13 ], [ %str.0, %if.then18 ], [ %str.0, %if.then22 ], [ %str.0, %if.end23 ], [ %str.0, %if.end27 ]
+  %str.0 = phi ptr [ null, %if.then9 ], [ %call, %if.then13 ], [ %str.1, %if.then18 ], [ %str.1, %if.then22 ], [ %str.1, %if.end23 ], [ %str.1, %if.end27 ]
   %7 = load ptr, ptr %penc, align 8
   call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.2, i32 noundef 139) #4
-  call void @ASN1_STRING_free(ptr noundef %str.1) #4
+  call void @ASN1_STRING_free(ptr noundef %str.0) #4
   br label %return
 
 return:                                           ; preds = %if.end27, %err

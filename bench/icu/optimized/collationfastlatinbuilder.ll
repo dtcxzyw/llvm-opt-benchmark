@@ -698,10 +698,10 @@ cond.true.i:                                      ; preds = %cond.true.i.lr.ph, 
   %group.066 = phi i32 [ 0, %cond.true.i.lr.ph ], [ %group.4, %for.inc ]
   %lastGroupPrimary.065 = phi i32 [ %4, %cond.true.i.lr.ph ], [ %lastGroupPrimary.4, %for.inc ]
   %prevPrimary.064 = phi i32 [ 0, %cond.true.i.lr.ph ], [ %prevPrimary.2, %for.inc ]
-  %prevSecondary.063 = phi i32 [ 0, %cond.true.i.lr.ph ], [ %prevSecondary.3, %for.inc ]
-  %ter.061 = phi i32 [ 0, %cond.true.i.lr.ph ], [ %ter.4, %for.inc ]
-  %sec.060 = phi i32 [ 0, %cond.true.i.lr.ph ], [ %sec.5, %for.inc ]
-  %pri.059 = phi i32 [ 0, %cond.true.i.lr.ph ], [ %pri.3, %for.inc ]
+  %prevSecondary.063 = phi i32 [ 0, %cond.true.i.lr.ph ], [ %prevSecondary.2, %for.inc ]
+  %ter.061 = phi i32 [ 0, %cond.true.i.lr.ph ], [ %ter.2, %for.inc ]
+  %sec.060 = phi i32 [ 0, %cond.true.i.lr.ph ], [ %sec.2, %for.inc ]
+  %pri.059 = phi i32 [ 0, %cond.true.i.lr.ph ], [ %pri.2, %for.inc ]
   %5 = load ptr, ptr %elements.i, align 8
   %arrayidx.i = getelementptr inbounds i64, ptr %5, i64 %indvars.iv68
   %6 = load i64, ptr %arrayidx.i, align 8
@@ -736,8 +736,8 @@ if.then20:                                        ; preds = %while.body
   br i1 %cmp16, label %while.body, label %while.end, !llvm.loop !8
 
 while.end:                                        ; preds = %if.then20, %while.body, %while.cond.preheader
-  %lastGroupPrimary.2 = phi i32 [ %lastGroupPrimary.065, %while.cond.preheader ], [ %10, %if.then20 ], [ -1, %while.body ]
-  %group.2 = phi i32 [ %group.066, %while.cond.preheader ], [ %9, %if.then20 ], [ %8, %while.body ]
+  %lastGroupPrimary.3 = phi i32 [ %lastGroupPrimary.065, %while.cond.preheader ], [ %10, %if.then20 ], [ -1, %while.body ]
+  %group.3 = phi i32 [ %group.066, %while.cond.preheader ], [ %9, %if.then20 ], [ %8, %while.body ]
   %11 = load i32, ptr %firstShortPrimary, align 4
   %cmp25 = icmp ugt i32 %11, %conv13
   br i1 %cmp25, label %if.then26, label %if.else39
@@ -771,20 +771,20 @@ if.else46:                                        ; preds = %if.else42
   br label %for.inc
 
 if.end53:                                         ; preds = %if.then31, %if.then44, %if.then26, %if.else39, %cond.true.i
-  %pri.2 = phi i32 [ %pri.059, %cond.true.i ], [ %add32, %if.then31 ], [ %add45, %if.then44 ], [ 3072, %if.then26 ], [ 4096, %if.else39 ]
+  %pri.1 = phi i32 [ %pri.059, %cond.true.i ], [ %add32, %if.then31 ], [ %add45, %if.then44 ], [ 3072, %if.then26 ], [ 4096, %if.else39 ]
   %sec.1 = phi i32 [ %sec.060, %cond.true.i ], [ 160, %if.then31 ], [ 160, %if.then44 ], [ 160, %if.then26 ], [ 160, %if.else39 ]
   %ter.1 = phi i32 [ %ter.061, %cond.true.i ], [ 0, %if.then31 ], [ 0, %if.then44 ], [ 0, %if.then26 ], [ 0, %if.else39 ]
   %prevSecondary.1 = phi i32 [ %prevSecondary.063, %cond.true.i ], [ 1280, %if.then31 ], [ 1280, %if.then44 ], [ 1280, %if.then26 ], [ 1280, %if.else39 ]
   %prevPrimary.1 = phi i32 [ %prevPrimary.064, %cond.true.i ], [ %conv13, %if.then31 ], [ %conv13, %if.then44 ], [ %conv13, %if.then26 ], [ %conv13, %if.else39 ]
-  %lastGroupPrimary.3 = phi i32 [ %lastGroupPrimary.065, %cond.true.i ], [ %lastGroupPrimary.2, %if.then31 ], [ %lastGroupPrimary.2, %if.then44 ], [ %lastGroupPrimary.2, %if.then26 ], [ %lastGroupPrimary.2, %if.else39 ]
-  %group.3 = phi i32 [ %group.066, %cond.true.i ], [ %group.2, %if.then31 ], [ %group.2, %if.then44 ], [ %group.2, %if.then26 ], [ %group.2, %if.else39 ]
+  %lastGroupPrimary.1 = phi i32 [ %lastGroupPrimary.065, %cond.true.i ], [ %lastGroupPrimary.3, %if.then31 ], [ %lastGroupPrimary.3, %if.then44 ], [ %lastGroupPrimary.3, %if.then26 ], [ %lastGroupPrimary.3, %if.else39 ]
+  %group.1 = phi i32 [ %group.066, %cond.true.i ], [ %group.3, %if.then31 ], [ %group.3, %if.then44 ], [ %group.3, %if.then26 ], [ %group.3, %if.else39 ]
   %conv54 = trunc i64 %6 to i32
   %shr55 = lshr i32 %conv54, 16
   %cmp56.not = icmp eq i32 %shr55, %prevSecondary.1
   br i1 %cmp56.not, label %if.end106, label %if.then57
 
 if.then57:                                        ; preds = %if.end53
-  %cmp58 = icmp eq i32 %pri.2, 0
+  %cmp58 = icmp eq i32 %pri.1, 0
   br i1 %cmp58, label %if.then59, label %if.else72
 
 if.then59:                                        ; preds = %if.then57
@@ -832,47 +832,47 @@ if.then95:                                        ; preds = %if.else93
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then95, %if.then79, %if.then59, %if.then64, %if.then74, %if.else87, %if.else90, %if.end53
-  %sec.4 = phi i32 [ %sec.1, %if.end53 ], [ %add80, %if.then79 ], [ %add96, %if.then95 ], [ %add65, %if.then64 ], [ 384, %if.then59 ], [ 0, %if.then74 ], [ 160, %if.else87 ], [ 192, %if.else90 ]
-  %ter.2 = phi i32 [ %ter.1, %if.end53 ], [ 0, %if.then79 ], [ 0, %if.then95 ], [ 0, %if.then64 ], [ 0, %if.then59 ], [ 0, %if.then74 ], [ 0, %if.else87 ], [ 0, %if.else90 ]
-  %prevSecondary.2 = phi i32 [ %prevSecondary.1, %if.end53 ], [ %shr55, %if.then79 ], [ %shr55, %if.then95 ], [ %shr55, %if.then64 ], [ %shr55, %if.then59 ], [ %shr55, %if.then74 ], [ 1280, %if.else87 ], [ %shr55, %if.else90 ]
+  %sec.3 = phi i32 [ %sec.1, %if.end53 ], [ %add80, %if.then79 ], [ %add96, %if.then95 ], [ %add65, %if.then64 ], [ 384, %if.then59 ], [ 0, %if.then74 ], [ 160, %if.else87 ], [ 192, %if.else90 ]
+  %ter.3 = phi i32 [ %ter.1, %if.end53 ], [ 0, %if.then79 ], [ 0, %if.then95 ], [ 0, %if.then64 ], [ 0, %if.then59 ], [ 0, %if.then74 ], [ 0, %if.else87 ], [ 0, %if.else90 ]
+  %prevSecondary.3 = phi i32 [ %prevSecondary.1, %if.end53 ], [ %shr55, %if.then79 ], [ %shr55, %if.then95 ], [ %shr55, %if.then64 ], [ %shr55, %if.then59 ], [ %shr55, %if.then74 ], [ 1280, %if.else87 ], [ %shr55, %if.else90 ]
   %and = and i32 %conv54, 16191
   %cmp107 = icmp ugt i32 %and, 1280
   br i1 %cmp107, label %if.then108, label %if.end117
 
 if.then108:                                       ; preds = %if.end106
-  %cmp109 = icmp ult i32 %ter.2, 7
+  %cmp109 = icmp ult i32 %ter.3, 7
   br i1 %cmp109, label %if.then110, label %for.inc
 
 if.then110:                                       ; preds = %if.then108
-  %inc111 = add nuw nsw i32 %ter.2, 1
+  %inc111 = add nuw nsw i32 %ter.3, 1
   br label %if.end117
 
 if.end117:                                        ; preds = %if.then110, %if.end106
-  %ter.3 = phi i32 [ %inc111, %if.then110 ], [ %ter.2, %if.end106 ]
-  %12 = add i32 %pri.2, -3072
+  %ter.4 = phi i32 [ %inc111, %if.then110 ], [ %ter.3, %if.end106 ]
+  %12 = add i32 %pri.1, -3072
   %or.cond = icmp ult i32 %12, 1017
   br i1 %or.cond, label %if.then120, label %if.else125
 
 if.then120:                                       ; preds = %if.end117
-  %or = or i32 %ter.3, %pri.2
+  %or = or i32 %ter.4, %pri.1
   %conv121 = trunc i32 %or to i16
   br label %for.inc
 
 if.else125:                                       ; preds = %if.end117
-  %or126 = or i32 %sec.4, %pri.2
-  %or127 = or i32 %or126, %ter.3
+  %or126 = or i32 %sec.3, %pri.1
+  %or127 = or i32 %or126, %ter.4
   %conv128 = trunc i32 %or127 to i16
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then108, %if.else93, %if.else77, %if.else62, %if.else29, %if.then120, %if.else125, %if.else46
   %conv121.sink = phi i16 [ %conv121, %if.then120 ], [ %conv128, %if.else125 ], [ 1, %if.else46 ], [ 1, %if.else29 ], [ 1, %if.else62 ], [ 1, %if.else77 ], [ 1, %if.else93 ], [ 1, %if.then108 ]
-  %pri.3 = phi i32 [ %pri.2, %if.then120 ], [ %pri.2, %if.else125 ], [ %pri.059, %if.else46 ], [ %pri.059, %if.else29 ], [ 0, %if.else62 ], [ %pri.2, %if.else77 ], [ %pri.2, %if.else93 ], [ %pri.2, %if.then108 ]
-  %sec.5 = phi i32 [ %sec.4, %if.then120 ], [ %sec.4, %if.else125 ], [ %sec.060, %if.else46 ], [ %sec.060, %if.else29 ], [ %sec.1, %if.else62 ], [ %sec.1, %if.else77 ], [ %sec.1, %if.else93 ], [ %sec.4, %if.then108 ]
-  %ter.4 = phi i32 [ %ter.3, %if.then120 ], [ %ter.3, %if.else125 ], [ %ter.061, %if.else46 ], [ %ter.061, %if.else29 ], [ %ter.1, %if.else62 ], [ %ter.1, %if.else77 ], [ %ter.1, %if.else93 ], [ %ter.2, %if.then108 ]
-  %prevSecondary.3 = phi i32 [ %prevSecondary.2, %if.then120 ], [ %prevSecondary.2, %if.else125 ], [ %prevSecondary.063, %if.else46 ], [ %prevSecondary.063, %if.else29 ], [ %prevSecondary.1, %if.else62 ], [ %prevSecondary.1, %if.else77 ], [ %prevSecondary.1, %if.else93 ], [ %prevSecondary.2, %if.then108 ]
+  %pri.2 = phi i32 [ %pri.1, %if.then120 ], [ %pri.1, %if.else125 ], [ %pri.059, %if.else46 ], [ %pri.059, %if.else29 ], [ 0, %if.else62 ], [ %pri.1, %if.else77 ], [ %pri.1, %if.else93 ], [ %pri.1, %if.then108 ]
+  %sec.2 = phi i32 [ %sec.3, %if.then120 ], [ %sec.3, %if.else125 ], [ %sec.060, %if.else46 ], [ %sec.060, %if.else29 ], [ %sec.1, %if.else62 ], [ %sec.1, %if.else77 ], [ %sec.1, %if.else93 ], [ %sec.3, %if.then108 ]
+  %ter.2 = phi i32 [ %ter.4, %if.then120 ], [ %ter.4, %if.else125 ], [ %ter.061, %if.else46 ], [ %ter.061, %if.else29 ], [ %ter.1, %if.else62 ], [ %ter.1, %if.else77 ], [ %ter.1, %if.else93 ], [ %ter.3, %if.then108 ]
+  %prevSecondary.2 = phi i32 [ %prevSecondary.3, %if.then120 ], [ %prevSecondary.3, %if.else125 ], [ %prevSecondary.063, %if.else46 ], [ %prevSecondary.063, %if.else29 ], [ %prevSecondary.1, %if.else62 ], [ %prevSecondary.1, %if.else77 ], [ %prevSecondary.1, %if.else93 ], [ %prevSecondary.3, %if.then108 ]
   %prevPrimary.2 = phi i32 [ %prevPrimary.1, %if.then120 ], [ %prevPrimary.1, %if.else125 ], [ %prevPrimary.064, %if.else46 ], [ %prevPrimary.064, %if.else29 ], [ %prevPrimary.1, %if.else62 ], [ %prevPrimary.1, %if.else77 ], [ %prevPrimary.1, %if.else93 ], [ %prevPrimary.1, %if.then108 ]
-  %lastGroupPrimary.4 = phi i32 [ %lastGroupPrimary.3, %if.then120 ], [ %lastGroupPrimary.3, %if.else125 ], [ %lastGroupPrimary.2, %if.else46 ], [ %lastGroupPrimary.2, %if.else29 ], [ %lastGroupPrimary.3, %if.else62 ], [ %lastGroupPrimary.3, %if.else77 ], [ %lastGroupPrimary.3, %if.else93 ], [ %lastGroupPrimary.3, %if.then108 ]
-  %group.4 = phi i32 [ %group.3, %if.then120 ], [ %group.3, %if.else125 ], [ %group.2, %if.else46 ], [ %group.2, %if.else29 ], [ %group.3, %if.else62 ], [ %group.3, %if.else77 ], [ %group.3, %if.else93 ], [ %group.3, %if.then108 ]
+  %lastGroupPrimary.4 = phi i32 [ %lastGroupPrimary.1, %if.then120 ], [ %lastGroupPrimary.1, %if.else125 ], [ %lastGroupPrimary.3, %if.else46 ], [ %lastGroupPrimary.3, %if.else29 ], [ %lastGroupPrimary.1, %if.else62 ], [ %lastGroupPrimary.1, %if.else77 ], [ %lastGroupPrimary.1, %if.else93 ], [ %lastGroupPrimary.1, %if.then108 ]
+  %group.4 = phi i32 [ %group.1, %if.then120 ], [ %group.1, %if.else125 ], [ %group.3, %if.else46 ], [ %group.3, %if.else29 ], [ %group.1, %if.else62 ], [ %group.1, %if.else77 ], [ %group.1, %if.else93 ], [ %group.1, %if.then108 ]
   %13 = load ptr, ptr %miniCEs, align 8
   %arrayidx124 = getelementptr inbounds i16, ptr %13, i64 %indvars.iv68
   store i16 %conv121.sink, ptr %arrayidx124, align 2
@@ -2312,13 +2312,13 @@ if.end57:                                         ; preds = %if.end52
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end52, %if.end57
-  %retval.0 = phi i8 [ 1, %if.end57 ], [ 0, %if.end52 ]
+  %retval.1 = phi i8 [ 1, %if.end57 ], [ 0, %if.end52 ]
   call void @_ZN6icu_7510UCharsTrie8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %suffixes) #11
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i8 [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i8 %retval.0
 
 eh.resume:                                        ; preds = %lpad10, %lpad
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad10 ], [ %16, %lpad ]

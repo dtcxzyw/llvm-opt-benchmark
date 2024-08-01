@@ -3141,9 +3141,9 @@ vnc_get_bytes_per_pixel.exit.i163.i.i:            ; preds = %930
   br label %process_tight_rect_filter_palette.exit.thread.i.i.i
 
 process_tight_rect_filter_palette.exit.thread.i.i.i: ; preds = %1115, %1094, %1077, %1065
-  %.1.i.i.i = phi i32 [ %1071, %1065 ], [ %1071, %1077 ], [ %..i.i.i.i, %1115 ], [ %1071, %1094 ]
+  %.0109.i.i.i = phi i32 [ %1071, %1065 ], [ %1071, %1077 ], [ %..i.i.i.i, %1115 ], [ %1071, %1094 ]
   %1122 = zext i16 %676 to i32
-  %1123 = mul nuw nsw i32 %.1.i.i.i, %1122
+  %1123 = mul nuw nsw i32 %.0109.i.i.i, %1122
   %1124 = add nuw nsw i32 %1123, 7
   %1125 = lshr i32 %1124, 3
   %1126 = zext i16 %682 to i32

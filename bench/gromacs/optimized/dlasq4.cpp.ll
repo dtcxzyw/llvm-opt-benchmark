@@ -351,7 +351,7 @@ define void @dlasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 .lr.ph495:                                        ; preds = %.lr.ph495.preheader, %255
   %indvars.iv520 = phi i64 [ %253, %.lr.ph495.preheader ], [ %indvars.iv.next521, %255 ]
   %.2398493 = phi double [ %245, %.lr.ph495.preheader ], [ %265, %255 ]
-  %.3405492 = phi double [ %246, %.lr.ph495.preheader ], [ %266, %255 ]
+  %.4406492 = phi double [ %246, %.lr.ph495.preheader ], [ %266, %255 ]
   %258 = getelementptr inbounds double, ptr %2, i64 %indvars.iv520
   %259 = load double, ptr %258, align 8
   %260 = getelementptr i8, ptr %258, i64 -16
@@ -362,7 +362,7 @@ define void @dlasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 263:                                              ; preds = %.lr.ph495
   %264 = fdiv double %259, %261
   %265 = fmul double %.2398493, %264
-  %266 = fadd double %.3405492, %265
+  %266 = fadd double %.4406492, %265
   %267 = fcmp ogt double %265, %.2398493
   %268 = select i1 %267, double %265, double %.2398493
   %269 = fmul double %268, 1.000000e+02
@@ -372,20 +372,20 @@ define void @dlasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %or.cond3, label %._crit_edge, label %255
 
 ._crit_edge:                                      ; preds = %263, %255, %238
-  %.4406 = phi double [ %246, %238 ], [ %266, %255 ], [ %266, %263 ]
-  %272 = fmul double %.4406, 1.050000e+00
+  %.5407 = phi double [ %246, %238 ], [ %266, %255 ], [ %266, %263 ]
+  %272 = fmul double %.5407, 1.050000e+00
   br label %273
 
 273:                                              ; preds = %._crit_edge, %224
-  %.5407 = phi double [ %272, %._crit_edge ], [ %233, %224 ]
-  %274 = fcmp olt double %.5407, 5.630000e-01
+  %.3405 = phi double [ %272, %._crit_edge ], [ %233, %224 ]
+  %274 = fcmp olt double %.3405, 5.630000e-01
   br i1 %274, label %275, label %464
 
 275:                                              ; preds = %273
-  %276 = tail call double @sqrt(double noundef %.5407) #3
+  %276 = tail call double @sqrt(double noundef %.3405) #3
   %277 = fsub double 1.000000e+00, %276
   %278 = fmul double %216, %277
-  %279 = fadd double %.5407, 1.000000e+00
+  %279 = fadd double %.3405, 1.000000e+00
   %280 = fdiv double %278, %279
   br label %464
 
@@ -465,7 +465,7 @@ define void @dlasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph486:                                        ; preds = %336, %.lr.ph486.preheader
   %indvars.iv517 = phi i64 [ %329, %.lr.ph486.preheader ], [ %indvars.iv.next518, %336 ]
-  %.3399484 = phi double [ %316, %.lr.ph486.preheader ], [ %339, %336 ]
+  %.4484 = phi double [ %316, %.lr.ph486.preheader ], [ %339, %336 ]
   %.0400483 = phi double [ %316, %.lr.ph486.preheader ], [ %338, %336 ]
   %331 = getelementptr inbounds double, ptr %2, i64 %indvars.iv517
   %332 = load double, ptr %331, align 8
@@ -477,7 +477,7 @@ define void @dlasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 336:                                              ; preds = %.lr.ph486
   %337 = fdiv double %332, %334
   %338 = fmul double %.0400483, %337
-  %339 = fadd double %.3399484, %338
+  %339 = fadd double %.4484, %338
   %340 = fcmp ogt double %.0400483, %338
   %341 = select i1 %340, double %.0400483, double %338
   %342 = fmul double %341, 1.000000e+02
@@ -488,8 +488,8 @@ define void @dlasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %or.cond532, label %.loopexit472, label %.lr.ph486, !llvm.loop !7
 
 .loopexit472:                                     ; preds = %336, %319, %315
-  %.4 = phi double [ %316, %315 ], [ %316, %319 ], [ %339, %336 ]
-  %344 = fmul double %.4, 1.050000e+00
+  %.3399 = phi double [ %316, %315 ], [ %316, %319 ], [ %339, %336 ]
+  %344 = fmul double %.3399, 1.050000e+00
   %345 = tail call double @sqrt(double noundef %344) #3
   %346 = load double, ptr %6, align 8
   %347 = tail call double @llvm.fmuladd.f64(double %345, double %345, double 1.000000e+00)
@@ -590,7 +590,7 @@ define void @dlasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 .lr.ph:                                           ; preds = %419, %.lr.ph.preheader
   %indvars.iv = phi i64 [ %412, %.lr.ph.preheader ], [ %indvars.iv.next, %419 ]
-  %.5478 = phi double [ %399, %.lr.ph.preheader ], [ %422, %419 ]
+  %.6478 = phi double [ %399, %.lr.ph.preheader ], [ %422, %419 ]
   %.1401477 = phi double [ %399, %.lr.ph.preheader ], [ %421, %419 ]
   %414 = getelementptr inbounds double, ptr %2, i64 %indvars.iv
   %415 = load double, ptr %414, align 8
@@ -602,7 +602,7 @@ define void @dlasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 419:                                              ; preds = %.lr.ph
   %420 = fdiv double %415, %417
   %421 = fmul double %.1401477, %420
-  %422 = fadd double %.5478, %421
+  %422 = fadd double %.6478, %421
   %423 = fmul double %421, 1.000000e+02
   %424 = fcmp olt double %423, %422
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
@@ -611,8 +611,8 @@ define void @dlasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %or.cond533, label %.loopexit474, label %.lr.ph, !llvm.loop !8
 
 .loopexit474:                                     ; preds = %419, %402, %398
-  %.6 = phi double [ %399, %398 ], [ %399, %402 ], [ %422, %419 ]
-  %425 = fmul double %.6, 1.050000e+00
+  %.5 = phi double [ %399, %398 ], [ %399, %402 ], [ %422, %419 ]
+  %425 = fmul double %.5, 1.050000e+00
   %426 = tail call double @sqrt(double noundef %425) #3
   %427 = load double, ptr %7, align 8
   %428 = tail call double @llvm.fmuladd.f64(double %426, double %426, double 1.000000e+00)
@@ -667,8 +667,8 @@ define void @dlasq4_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %464
 
 464:                                              ; preds = %355, %363, %369, %461, %463, %459, %453, %445, %._crit_edge506, %190, %98, %105, %273, %275, %281
-  %.3411 = phi double [ %104, %98 ], [ %115, %105 ], [ %195, %190 ], [ %118, %._crit_edge506 ], [ %280, %275 ], [ %206, %273 ], [ %283, %281 ], [ %362, %355 ], [ %368, %363 ], [ %370, %369 ], [ %452, %445 ], [ %458, %453 ], [ %460, %459 ], [ 0.000000e+00, %463 ], [ 0.000000e+00, %461 ]
-  store double %.3411, ptr %11, align 8
+  %.2410 = phi double [ %104, %98 ], [ %115, %105 ], [ %195, %190 ], [ %118, %._crit_edge506 ], [ %280, %275 ], [ %206, %273 ], [ %283, %281 ], [ %362, %355 ], [ %368, %363 ], [ %370, %369 ], [ %452, %445 ], [ %458, %453 ], [ %460, %459 ], [ 0.000000e+00, %463 ], [ 0.000000e+00, %461 ]
+  store double %.2410, ptr %11, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph486, %.lr.ph495, %.lr.ph505, %392, %305, %204, %220, %145, %133, %126, %464, %16

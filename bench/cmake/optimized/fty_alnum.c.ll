@@ -97,7 +97,7 @@ define internal zeroext i1 @Check_AlphaNumeric_Field(ptr noundef %0, ptr nocaptu
   br label %5, !llvm.loop !5
 
 11:                                               ; preds = %.lr.ph, %17
-  %.137 = phi ptr [ %.0, %.lr.ph ], [ %18, %17 ]
+  %.237 = phi ptr [ %.0, %.lr.ph ], [ %18, %17 ]
   %12 = phi i8 [ %6, %.lr.ph ], [ %.pr, %17 ]
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds i16, ptr %8, i64 %13
@@ -107,23 +107,23 @@ define internal zeroext i1 @Check_AlphaNumeric_Field(ptr noundef %0, ptr nocaptu
   br i1 %.not27, label %.critedge2, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %.137, i64 1
+  %18 = getelementptr inbounds i8, ptr %.237, i64 1
   %.pr = load i8, ptr %18, align 1
   %.not26 = icmp eq i8 %.pr, 0
   br i1 %.not26, label %.critedge2, label %11, !llvm.loop !7
 
 .critedge2:                                       ; preds = %11, %17
-  %.1.lcssa.ph = phi ptr [ %.137, %11 ], [ %18, %17 ]
-  %19 = ptrtoint ptr %.1.lcssa.ph to i64
+  %.2.lcssa.ph = phi ptr [ %.237, %11 ], [ %18, %17 ]
+  %19 = ptrtoint ptr %.2.lcssa.ph to i64
   %20 = ptrtoint ptr %.0 to i64
   %21 = sub i64 %19, %20
   br label %22
 
 22:                                               ; preds = %22, %.critedge2
-  %.2 = phi ptr [ %.1.lcssa.ph, %.critedge2 ], [ %24, %22 ]
-  %23 = load i8, ptr %.2, align 1
+  %.3 = phi ptr [ %.2.lcssa.ph, %.critedge2 ], [ %24, %22 ]
+  %23 = load i8, ptr %.3, align 1
   %cond32 = icmp eq i8 %23, 32
-  %24 = getelementptr inbounds i8, ptr %.2, i64 1
+  %24 = getelementptr inbounds i8, ptr %.3, i64 1
   br i1 %cond32, label %22, label %.critedge4.loopexit, !llvm.loop !8
 
 .critedge4.loopexit:                              ; preds = %22

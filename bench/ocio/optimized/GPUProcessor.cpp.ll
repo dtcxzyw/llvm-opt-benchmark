@@ -1268,7 +1268,7 @@ sw.bb38.i.i.i.i:                                  ; preds = %if.end36.i.i.i.i, %
 
 for.body.i.i:                                     ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i", %for.inc.i.i
   %__first.sroa.0.028.i.i = phi ptr [ %__first.sroa.0.0.i.i, %for.inc.i.i ], [ %__first.sroa.0.025.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i" ]
-  %retval.sroa.0.027.i.i = phi ptr [ %retval.sroa.0.1.i.i, %for.inc.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i" ]
+  %retval.sroa.0.127.i.i = phi ptr [ %retval.sroa.0.2.i.i, %for.inc.i.i ], [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i" ]
   %call.val.i.i.i = load i8, ptr %__first.sroa.0.028.i.i, align 1
   %conv.i.i.i.i = sext i8 %call.val.i.i.i to i32
   %call.i.i.i.i = call i32 @isalnum(i32 noundef %conv.i.i.i.i) #21
@@ -1278,20 +1278,20 @@ for.body.i.i:                                     ; preds = %"_ZSt9__find_ifIN9_
   br i1 %spec.select.i.i3.i.i, label %for.inc.i.i, label %if.then13.i.i
 
 if.then13.i.i:                                    ; preds = %for.body.i.i
-  store i8 %call.val.i.i.i, ptr %retval.sroa.0.027.i.i, align 1
-  %incdec.ptr.i4.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.027.i.i, i64 1
+  store i8 %call.val.i.i.i, ptr %retval.sroa.0.127.i.i, align 1
+  %incdec.ptr.i4.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.127.i.i, i64 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then13.i.i, %for.body.i.i
-  %retval.sroa.0.1.i.i = phi ptr [ %retval.sroa.0.027.i.i, %for.body.i.i ], [ %incdec.ptr.i4.i.i, %if.then13.i.i ]
+  %retval.sroa.0.2.i.i = phi ptr [ %retval.sroa.0.127.i.i, %for.body.i.i ], [ %incdec.ptr.i4.i.i, %if.then13.i.i ]
   %__first.sroa.0.0.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.028.i.i, i64 1
   %cmp.i1.not.i.i = icmp eq ptr %__first.sroa.0.0.i.i, %call33
   br i1 %cmp.i1.not.i.i, label %invoke.cont38, label %for.body.i.i, !llvm.loop !13
 
 invoke.cont38:                                    ; preds = %for.inc.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i", %for.end.i.i.i.i
-  %retval.sroa.0.2.i.i = phi ptr [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i" ], [ %call33, %for.end.i.i.i.i ], [ %retval.sroa.0.1.i.i, %for.inc.i.i ]
+  %retval.sroa.0.0.i.i = phi ptr [ %retval.sroa.0.0.in.sroa.speculated.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops10_Iter_predIZNK19OpenColorIO_v2_4dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINSC_16GpuShaderCreatorEEE3$_0EEET_SK_SK_T0_.exit.i.i" ], [ %call33, %for.end.i.i.i.i ], [ %retval.sroa.0.2.i.i, %for.inc.i.i ]
   %call43 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %key) #17
-  %call48 = invoke ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %key, ptr %retval.sroa.0.2.i.i, ptr %call43)
+  %call48 = invoke ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_(ptr noundef nonnull align 8 dereferenceable(32) %key, ptr %retval.sroa.0.0.i.i, ptr %call43)
           to label %invoke.cont47 unwind label %lpad18
 
 invoke.cont47:                                    ; preds = %invoke.cont38
@@ -1353,22 +1353,22 @@ invoke.cont68:                                    ; preds = %try.cont
   ret void
 
 ehcleanup:                                        ; preds = %lpad62, %lpad55, %lpad18
-  %ehselector.slot.0 = phi i32 [ %13, %lpad18 ], [ %28, %lpad62 ], [ %21, %lpad55 ]
-  %exn.slot.0 = phi ptr [ %12, %lpad18 ], [ %27, %lpad62 ], [ %20, %lpad55 ]
+  %ehselector.slot.2 = phi i32 [ %13, %lpad18 ], [ %28, %lpad62 ], [ %21, %lpad55 ]
+  %exn.slot.2 = phi ptr [ %12, %lpad18 ], [ %27, %lpad62 ], [ %20, %lpad55 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %key) #17
   br label %ehcleanup69
 
 ehcleanup69:                                      ; preds = %ehcleanup, %lpad3
-  %ehselector.slot.1 = phi i32 [ %ehselector.slot.0, %ehcleanup ], [ %10, %lpad3 ]
-  %exn.slot.1 = phi ptr [ %exn.slot.0, %ehcleanup ], [ %9, %lpad3 ]
+  %ehselector.slot.1 = phi i32 [ %ehselector.slot.2, %ehcleanup ], [ %10, %lpad3 ]
+  %exn.slot.1 = phi ptr [ %exn.slot.2, %ehcleanup ], [ %9, %lpad3 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tmpKey) #17
   br label %eh.resume
 
 eh.resume:                                        ; preds = %ehcleanup69, %lpad
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %ehcleanup69 ], [ %7, %lpad ]
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %ehcleanup69 ], [ %6, %lpad ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val72 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup69 ], [ %7, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup69 ], [ %6, %lpad ]
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val72 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val72
 
 terminate.lpad:                                   ; preds = %lpad62

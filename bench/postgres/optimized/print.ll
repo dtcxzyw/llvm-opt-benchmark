@@ -855,25 +855,25 @@ switch.early.test:                                ; preds = %10
 
 .lr.ph.i:                                         ; preds = %33, %.lr.ph.i
   %.020.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.017.i, %33 ]
-  %.119.i = phi i32 [ %35, %.lr.ph.i ], [ %.016.i, %33 ]
-  %35 = add i32 %.119.i, 1
+  %.219.i = phi i32 [ %35, %.lr.ph.i ], [ %.016.i, %33 ]
+  %35 = add i32 %.219.i, 1
   %36 = getelementptr inbounds i8, ptr %.020.i, i64 8
   %.0.i = load ptr, ptr %36, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %33, %29
-  %.2.i = phi i32 [ %.016.i, %29 ], [ %.016.i, %33 ], [ %35, %.lr.ph.i ]
-  %37 = tail call ptr @PageOutput(i32 noundef %.2.i, ptr noundef nonnull %7)
+  %.1.i = phi i32 [ %.016.i, %29 ], [ %.016.i, %33 ], [ %35, %.lr.ph.i ]
+  %37 = tail call ptr @PageOutput(i32 noundef %.1.i, ptr noundef nonnull %7)
   %38 = load ptr, ptr @stdout, align 8
   %39 = icmp ne ptr %37, %38
   br label %IsPagerNeeded.exit
 
 IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %11, %switch.early.test, %switch.early.test, %10
-  %.1 = phi ptr [ %1, %10 ], [ %1, %switch.early.test ], [ %1, %switch.early.test ], [ %37, %.loopexit.i ], [ %1, %11 ]
+  %.066 = phi ptr [ %1, %10 ], [ %1, %switch.early.test ], [ %1, %switch.early.test ], [ %37, %.loopexit.i ], [ %1, %11 ]
   %.065 = phi i1 [ true, %10 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ %39, %.loopexit.i ], [ false, %11 ]
   %.0 = phi i1 [ false, %10 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ %39, %.loopexit.i ], [ false, %11 ]
-  tail call void @clearerr(ptr noundef %.1) #18
+  tail call void @clearerr(ptr noundef %.066) #18
   %.not40 = icmp eq ptr %3, null
   br i1 %.not40, label %41, label %40
 
@@ -903,11 +903,11 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %11, %
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %44
-  tail call fastcc void @print_unaligned_vertical(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_unaligned_vertical(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 49:                                               ; preds = %44
-  tail call fastcc void @print_unaligned_text(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_unaligned_text(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 50:                                               ; preds = %41, %41
@@ -922,11 +922,11 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %11, %
   br i1 %.065, label %54, label %55
 
 54:                                               ; preds = %50, %53
-  tail call fastcc void @print_aligned_vertical(ptr noundef nonnull %0, ptr noundef %.1, i1 noundef zeroext %.065)
+  tail call fastcc void @print_aligned_vertical(ptr noundef nonnull %0, ptr noundef %.066, i1 noundef zeroext %.065)
   br label %95
 
 55:                                               ; preds = %50, %53
-  tail call fastcc void @print_aligned_text(ptr noundef nonnull %0, ptr noundef %.1, i1 noundef zeroext %.065)
+  tail call fastcc void @print_aligned_text(ptr noundef nonnull %0, ptr noundef %.066, i1 noundef zeroext %.065)
   br label %95
 
 56:                                               ; preds = %41
@@ -936,11 +936,11 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %11, %
   br i1 %59, label %60, label %61
 
 60:                                               ; preds = %56
-  tail call fastcc void @print_csv_vertical(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_csv_vertical(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 61:                                               ; preds = %56
-  tail call fastcc void @print_csv_text(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_csv_text(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 62:                                               ; preds = %41
@@ -950,11 +950,11 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %11, %
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %62
-  tail call fastcc void @print_html_vertical(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_html_vertical(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 67:                                               ; preds = %62
-  tail call fastcc void @print_html_text(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_html_text(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 68:                                               ; preds = %41
@@ -964,11 +964,11 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %11, %
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %68
-  tail call fastcc void @print_asciidoc_vertical(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_asciidoc_vertical(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 73:                                               ; preds = %68
-  tail call fastcc void @print_asciidoc_text(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_asciidoc_text(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 74:                                               ; preds = %41
@@ -978,11 +978,11 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %11, %
   br i1 %77, label %78, label %79
 
 78:                                               ; preds = %74
-  tail call fastcc void @print_latex_vertical(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_latex_vertical(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 79:                                               ; preds = %74
-  tail call fastcc void @print_latex_text(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_latex_text(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 80:                                               ; preds = %41
@@ -992,11 +992,11 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %11, %
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %80
-  tail call fastcc void @print_latex_vertical(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_latex_vertical(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 85:                                               ; preds = %80
-  tail call fastcc void @print_latex_longtable_text(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_latex_longtable_text(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 86:                                               ; preds = %41
@@ -1006,11 +1006,11 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %11, %
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %86
-  tail call fastcc void @print_troff_ms_vertical(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_troff_ms_vertical(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 91:                                               ; preds = %86
-  tail call fastcc void @print_troff_ms_text(ptr noundef nonnull %0, ptr noundef %.1)
+  tail call fastcc void @print_troff_ms_text(ptr noundef nonnull %0, ptr noundef %.066)
   br label %95
 
 92:                                               ; preds = %41
@@ -1023,9 +1023,9 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %11, %
   br i1 %.0, label %96, label %ClosePager.exit
 
 96:                                               ; preds = %95
-  %.not.i42 = icmp eq ptr %.1, null
+  %.not.i42 = icmp eq ptr %.066, null
   %97 = load ptr, ptr @stdout, align 8
-  %.not4.i = icmp eq ptr %97, %.1
+  %.not4.i = icmp eq ptr %97, %.066
   %or.cond.i = select i1 %.not.i42, i1 true, i1 %.not4.i
   br i1 %or.cond.i, label %ClosePager.exit, label %98
 
@@ -1035,11 +1035,11 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %11, %
   br i1 %.not5.i, label %102, label %100
 
 100:                                              ; preds = %98
-  %101 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.1, ptr noundef nonnull @.str.21) #18
+  %101 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.066, ptr noundef nonnull @.str.21) #18
   br label %102
 
 102:                                              ; preds = %100, %98
-  %103 = tail call i32 @pclose(ptr noundef nonnull %.1)
+  %103 = tail call i32 @pclose(ptr noundef nonnull %.066)
   %104 = load i8, ptr @always_ignore_sigpipe, align 1
   %105 = trunc nuw i8 %104 to i1
   %106 = select i1 %105, ptr inttoptr (i64 1 to ptr), ptr null
@@ -1411,7 +1411,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   br label %.preheader633
 
 .preheader633:                                    ; preds = %.preheader633.lr.ph, %194
-  %.2485668 = phi i32 [ %.1484.lcssa833838, %.preheader633.lr.ph ], [ %199, %194 ]
+  %.3486668 = phi i32 [ %.1484.lcssa833838, %.preheader633.lr.ph ], [ %199, %194 ]
   br i1 %30, label %.loopexit635.loopexit, label %.lr.ph665
 
 .lr.ph665:                                        ; preds = %.preheader633, %192
@@ -1463,18 +1463,18 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   %197 = load i32, ptr %196, align 4
   %198 = add i32 %197, -1
   store i32 %198, ptr %196, align 4
-  %199 = add i32 %.2485668, -1
+  %199 = add i32 %.3486668, -1
   %200 = icmp ugt i32 %199, %.0467
   br i1 %200, label %.preheader633, label %.loopexit635.loopexit, !llvm.loop !17
 
 .loopexit635.loopexit:                            ; preds = %.preheader633, %._crit_edge666, %194
-  %.3486.ph = phi i32 [ %.2485668, %._crit_edge666 ], [ %.0467, %194 ], [ %.2485668, %.preheader633 ]
+  %.2485.ph = phi i32 [ %.3486668, %._crit_edge666 ], [ %.0467, %194 ], [ %.3486668, %.preheader633 ]
   %.pre785 = load ptr, ptr %0, align 8
   br label %.loopexit635
 
 .loopexit635:                                     ; preds = %.loopexit635.loopexit, %167
   %201 = phi ptr [ %168, %167 ], [ %.pre785, %.loopexit635.loopexit ]
-  %.3486 = phi i32 [ %.1484.lcssa833838, %167 ], [ %.3486.ph, %.loopexit635.loopexit ]
+  %.2485 = phi i32 [ %.1484.lcssa833838, %167 ], [ %.2485.ph, %.loopexit635.loopexit ]
   %202 = getelementptr inbounds i8, ptr %201, i64 4
   %203 = load i16, ptr %202, align 4
   %204 = icmp eq i16 %203, 2
@@ -1484,7 +1484,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
 205:                                              ; preds = %.loopexit635
   %206 = load i32, ptr %28, align 8
   %207 = icmp sgt i32 %206, 1
-  %208 = icmp ult i32 %.0467, %.3486
+  %208 = icmp ult i32 %.0467, %.2485
   %or.cond551 = select i1 %.not526, i1 true, i1 %208
   %or.cond629 = select i1 %207, i1 %or.cond551, i1 false
   br i1 %or.cond629, label %209, label %210
@@ -1500,7 +1500,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   %212 = load ptr, ptr @stdout, align 8
   %213 = icmp eq ptr %212, %1
   %or.cond5 = select i1 %213, i1 %171, i1 false
-  %214 = icmp ult i32 %.0467, %.3486
+  %214 = icmp ult i32 %.0467, %.2485
   %or.cond552 = select i1 %.not526, i1 true, i1 %214
   %or.cond630 = select i1 %or.cond5, i1 %or.cond552, i1 false
   br i1 %or.cond630, label %215, label %217
@@ -1583,16 +1583,16 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
 
 .lr.ph.i:                                         ; preds = %248, %.lr.ph.i
   %.020.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.017.i, %248 ]
-  %.119.i = phi i32 [ %250, %.lr.ph.i ], [ %243, %248 ]
-  %250 = add i32 %.119.i, 1
+  %.219.i = phi i32 [ %250, %.lr.ph.i ], [ %243, %248 ]
+  %250 = add i32 %.219.i, 1
   %251 = getelementptr inbounds i8, ptr %.020.i, i64 8
   %.0.i = load ptr, ptr %251, align 8
   %.not.i562 = icmp eq ptr %.0.i, null
   br i1 %.not.i562, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %248, %._crit_edge679.thread
-  %.2.i = phi i32 [ %243, %._crit_edge679.thread ], [ %243, %248 ], [ %250, %.lr.ph.i ]
-  %252 = add i32 %.2.i, %.0475.lcssa841
+  %.1.i = phi i32 [ %243, %._crit_edge679.thread ], [ %243, %248 ], [ %250, %.lr.ph.i ]
+  %252 = add i32 %.1.i, %.0475.lcssa841
   %253 = call ptr @PageOutput(i32 noundef %252, ptr noundef %244)
   %254 = load ptr, ptr @stdout, align 8
   %255 = icmp ne ptr %253, %254
@@ -1600,7 +1600,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
 
 .thread:                                          ; preds = %.loopexit.i, %._crit_edge679, %215, %210, %217
   %.2618 = phi ptr [ %1, %217 ], [ %216, %215 ], [ %1, %210 ], [ %253, %.loopexit.i ], [ %1, %._crit_edge679 ]
-  %.1465 = phi i1 [ false, %217 ], [ true, %215 ], [ false, %210 ], [ %255, %.loopexit.i ], [ false, %._crit_edge679 ]
+  %.2466 = phi i1 [ false, %217 ], [ true, %215 ], [ false, %210 ], [ %255, %.loopexit.i ], [ false, %._crit_edge679 ]
   %256 = load ptr, ptr %0, align 8
   %257 = getelementptr inbounds i8, ptr %256, i64 25
   %258 = load i8, ptr %257, align 1
@@ -1618,7 +1618,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   %264 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %262) #19
   call void @pg_wcssize(ptr noundef nonnull %262, i64 noundef %264, i32 noundef %21, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef null) #18
   %265 = load i32, ptr %14, align 4
-  %.not531 = icmp ult i32 %265, %.3486
+  %.not531 = icmp ult i32 %265, %.2485
   br i1 %.not531, label %269, label %266
 
 266:                                              ; preds = %263
@@ -1627,7 +1627,7 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
   br label %274
 
 269:                                              ; preds = %263
-  %270 = sub nuw i32 %.3486, %265
+  %270 = sub nuw i32 %.2485, %265
   %271 = lshr i32 %270, 1
   %272 = load ptr, ptr %261, align 8
   %273 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.2618, ptr noundef nonnull @.str.29, i32 noundef %271, ptr noundef nonnull @.str.3, ptr noundef %272) #18
@@ -1899,11 +1899,11 @@ define internal fastcc void @print_aligned_text(ptr nocapture noundef readonly %
 
 401:                                              ; preds = %398, %._crit_edge704.us
   %402 = call i32 @fputc(i32 noundef 10, ptr noundef %.2618)
-  br i1 %.2449.us, label %.split.us, label %.split707.us, !llvm.loop !23
+  br i1 %.1448.us, label %.split.us, label %.split707.us, !llvm.loop !23
 
 .lr.ph703.us:                                     ; preds = %.lr.ph703.us.preheader, %._crit_edge788
   %indvars.iv775 = phi i64 [ %514, %._crit_edge788 ], [ 0, %.lr.ph703.us.preheader ]
-  %.0447701.us = phi i1 [ %.2449.us, %._crit_edge788 ], [ false, %.lr.ph703.us.preheader ]
+  %.0447701.us = phi i1 [ %.1448.us, %._crit_edge788 ], [ false, %.lr.ph703.us.preheader ]
   %403 = getelementptr ptr, ptr %.0471810, i64 %indvars.iv775
   %404 = load ptr, ptr %403, align 8
   %405 = getelementptr i32, ptr %.0489807, i64 %indvars.iv775
@@ -1990,7 +1990,7 @@ strlen_max_width.exit.us:                         ; preds = %439, %.lr.ph.i563.u
 450:                                              ; preds = %strlen_max_width.exit.us, %strlen_max_width.exit.thread.us
   %451 = phi i32 [ %434, %strlen_max_width.exit.thread.us ], [ %449, %strlen_max_width.exit.us ]
   %452 = phi i32 [ 0, %strlen_max_width.exit.thread.us ], [ %448, %strlen_max_width.exit.us ]
-  %.0614.us = phi i32 [ 0, %strlen_max_width.exit.thread.us ], [ %spec.select631.us, %strlen_max_width.exit.us ]
+  %.1.us = phi i32 [ 0, %strlen_max_width.exit.thread.us ], [ %spec.select631.us, %strlen_max_width.exit.us ]
   %453 = load ptr, ptr %378, align 8
   %454 = getelementptr i8, ptr %453, i64 %indvars.iv775
   %455 = load i8, ptr %454, align 1
@@ -1998,7 +1998,7 @@ strlen_max_width.exit.us:                         ; preds = %439, %.lr.ph.i563.u
   br i1 %456, label %457, label %460
 
 457:                                              ; preds = %450
-  %458 = sub i32 %451, %.0614.us
+  %458 = sub i32 %451, %.1.us
   %459 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.2618, ptr noundef nonnull @.str.31, i32 noundef %458, ptr noundef nonnull @.str.3) #18
   br label %460
 
@@ -2040,8 +2040,8 @@ strlen_max_width.exit.us:                         ; preds = %439, %.lr.ph.i563.u
   br label %483
 
 483:                                              ; preds = %481, %480, %473, %460
-  %.1.us = phi i32 [ %410, %481 ], [ %410, %480 ], [ %.0614.us, %473 ], [ %.0614.us, %460 ]
-  %.2449.us = phi i1 [ %.0447701.us, %481 ], [ %.0447701.us, %480 ], [ %spec.select556.us, %473 ], [ true, %460 ]
+  %.0614.us = phi i32 [ %410, %481 ], [ %410, %480 ], [ %.1.us, %473 ], [ %.1.us, %460 ]
+  %.1448.us = phi i1 [ %.0447701.us, %481 ], [ %.0447701.us, %480 ], [ %spec.select556.us, %473 ], [ true, %460 ]
   %484 = getelementptr i32, ptr %.0468813, i64 %indvars.iv775
   store i32 0, ptr %484, align 4
   %485 = load ptr, ptr %403, align 8
@@ -2083,7 +2083,7 @@ strlen_max_width.exit.us:                         ; preds = %439, %.lr.ph.i563.u
 
 500:                                              ; preds = %499
   %501 = load i32, ptr %409, align 4
-  %502 = sub i32 %501, %.1.us
+  %502 = sub i32 %501, %.0614.us
   %503 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.2618, ptr noundef nonnull @.str.31, i32 noundef %502, ptr noundef nonnull @.str.3) #18
   %.pr.us.pre = load i32, ptr %484, align 4
   br label %thread-pre-split.us
@@ -2246,8 +2246,8 @@ footers_with_default.exit:                        ; preds = %541, %545, %549
   br i1 %30, label %._crit_edge720, label %.lr.ph719.preheader
 
 .lr.ph719.preheader:                              ; preds = %.loopexit, %209, %571
-  %.2466846 = phi i1 [ false, %209 ], [ %.1465, %571 ], [ %.1465, %.loopexit ]
-  %.3619844 = phi ptr [ %1, %209 ], [ %.2618, %571 ], [ %.2618, %.loopexit ]
+  %.0464846 = phi i1 [ false, %209 ], [ %.2466, %571 ], [ %.2466, %.loopexit ]
+  %.0616844 = phi ptr [ %1, %209 ], [ %.2618, %571 ], [ %.2618, %.loopexit ]
   %wide.trip.count782 = zext nneg i32 %.0443.fr822 to i64
   br label %.lr.ph719
 
@@ -2264,8 +2264,8 @@ footers_with_default.exit:                        ; preds = %541, %545, %549
   br i1 %exitcond783.not, label %._crit_edge720, label %.lr.ph719, !llvm.loop !28
 
 ._crit_edge720:                                   ; preds = %.lr.ph719, %.loopexit, %209, %571
-  %.2466847 = phi i1 [ false, %209 ], [ %.1465, %571 ], [ %.1465, %.loopexit ], [ %.2466846, %.lr.ph719 ]
-  %.3619845 = phi ptr [ %1, %209 ], [ %.2618, %571 ], [ %.2618, %.loopexit ], [ %.3619844, %.lr.ph719 ]
+  %.0464847 = phi i1 [ false, %209 ], [ %.2466, %571 ], [ %.2466, %.loopexit ], [ %.0464846, %.lr.ph719 ]
+  %.0616845 = phi ptr [ %1, %209 ], [ %.2618, %571 ], [ %.2618, %.loopexit ], [ %.0616844, %.lr.ph719 ]
   call void @free(ptr noundef %.0452820) #18
   call void @free(ptr noundef %.0463814) #18
   call void @free(ptr noundef %.0457818) #18
@@ -2278,12 +2278,12 @@ footers_with_default.exit:                        ; preds = %541, %545, %549
   call void @free(ptr noundef %.0470811) #18
   call void @free(ptr noundef %.0469812) #18
   call void @free(ptr noundef %.0468813) #18
-  br i1 %.2466847, label %576, label %ClosePager.exit
+  br i1 %.0464847, label %576, label %ClosePager.exit
 
 576:                                              ; preds = %._crit_edge720
-  %.not.i565 = icmp eq ptr %.3619845, null
+  %.not.i565 = icmp eq ptr %.0616845, null
   %577 = load ptr, ptr @stdout, align 8
-  %.not4.i = icmp eq ptr %577, %.3619845
+  %.not4.i = icmp eq ptr %577, %.0616845
   %or.cond.i566 = select i1 %.not.i565, i1 true, i1 %.not4.i
   br i1 %or.cond.i566, label %ClosePager.exit, label %578
 
@@ -2293,11 +2293,11 @@ footers_with_default.exit:                        ; preds = %541, %545, %549
   br i1 %.not5.i, label %582, label %580
 
 580:                                              ; preds = %578
-  %581 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.3619845, ptr noundef nonnull @.str.21) #18
+  %581 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.0616845, ptr noundef nonnull @.str.21) #18
   br label %582
 
 582:                                              ; preds = %580, %578
-  %583 = call i32 @pclose(ptr noundef nonnull %.3619845)
+  %583 = call i32 @pclose(ptr noundef nonnull %.0616845)
   %584 = load i8, ptr @always_ignore_sigpipe, align 1
   %585 = trunc nuw i8 %584 to i1
   %586 = select i1 %585, ptr inttoptr (i64 1 to ptr), ptr null
@@ -2351,7 +2351,7 @@ define internal fastcc void @print_unaligned_vertical(ptr nocapture noundef read
   br label %23
 
 23:                                               ; preds = %.lr.ph, %print_separator.exit60
-  %.170 = phi i8 [ %.043, %.lr.ph ], [ %.3, %print_separator.exit60 ]
+  %.170 = phi i8 [ %.043, %.lr.ph ], [ %.4, %print_separator.exit60 ]
   %.04469 = phi ptr [ %19, %.lr.ph ], [ %85, %print_separator.exit60 ]
   %.04568 = phi i32 [ 0, %.lr.ph ], [ %70, %print_separator.exit60 ]
   %24 = trunc nuw i8 %.170 to i1
@@ -2405,7 +2405,7 @@ print_separator.exit56:                           ; preds = %43, %45, %46
   br i1 %.not49, label %49, label %print_separator.exit56._crit_edge
 
 49:                                               ; preds = %print_separator.exit56, %23
-  %.2 = phi i8 [ 0, %print_separator.exit56 ], [ %.170, %23 ]
+  %.3 = phi i8 [ 0, %print_separator.exit56 ], [ %.170, %23 ]
   %50 = load ptr, ptr %21, align 8
   %51 = load i32, ptr %22, align 8
   %52 = urem i32 %.04568, %51
@@ -2464,14 +2464,14 @@ print_separator.exit58:                           ; preds = %63, %65, %66
   br label %print_separator.exit60
 
 print_separator.exit60:                           ; preds = %83, %82, %80, %print_separator.exit58
-  %.3 = phi i8 [ 1, %print_separator.exit58 ], [ %.2, %80 ], [ %.2, %82 ], [ %.2, %83 ]
+  %.4 = phi i8 [ 1, %print_separator.exit58 ], [ %.3, %80 ], [ %.3, %82 ], [ %.3, %83 ]
   %85 = getelementptr i8, ptr %.04469, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not48 = icmp eq ptr %86, null
   br i1 %.not48, label %print_separator.exit56._crit_edge, label %23, !llvm.loop !29
 
 print_separator.exit56._crit_edge:                ; preds = %print_separator.exit60, %print_separator.exit56, %17
-  %.4 = phi i8 [ %.043, %17 ], [ 0, %print_separator.exit56 ], [ %.3, %print_separator.exit60 ]
+  %.2 = phi i8 [ %.043, %17 ], [ 0, %print_separator.exit56 ], [ %.4, %print_separator.exit60 ]
   %87 = load ptr, ptr %0, align 8
   %88 = getelementptr inbounds i8, ptr %87, i64 26
   %89 = load i8, ptr %88, align 2
@@ -2548,7 +2548,7 @@ print_separator.exit64:                           ; preds = %114, %116, %117
   br i1 %.not53, label %.loopexit, label %.lr.ph75, !llvm.loop !30
 
 .loopexit:                                        ; preds = %print_separator.exit64, %print_separator.exit62, %95, %92, %91
-  %122 = trunc nuw i8 %.4 to i1
+  %122 = trunc nuw i8 %.2 to i1
   br i1 %122, label %.sink.split, label %128
 
 .sink.split:                                      ; preds = %.loopexit
@@ -2668,7 +2668,7 @@ print_separator.exit65:                           ; preds = %42, %41, %39, %.lr.
 52:                                               ; preds = %.lr.ph82, %print_separator.exit69
   %53 = phi ptr [ %50, %.lr.ph82 ], [ %87, %print_separator.exit69 ]
   %.04881 = phi i32 [ 0, %.lr.ph82 ], [ %71, %print_separator.exit69 ]
-  %.180 = phi i8 [ %.049, %.lr.ph82 ], [ %.3, %print_separator.exit69 ]
+  %.180 = phi i8 [ %.049, %.lr.ph82 ], [ %.4, %print_separator.exit69 ]
   %.15179 = phi ptr [ %49, %.lr.ph82 ], [ %86, %print_separator.exit69 ]
   %54 = trunc nuw i8 %.180 to i1
   br i1 %54, label %55, label %68
@@ -2705,7 +2705,7 @@ print_separator.exit67._crit_edge86:              ; preds = %print_separator.exi
 
 68:                                               ; preds = %print_separator.exit67._crit_edge86, %52
   %69 = phi ptr [ %.pre, %print_separator.exit67._crit_edge86 ], [ %53, %52 ]
-  %.2 = phi i8 [ 0, %print_separator.exit67._crit_edge86 ], [ %.180, %52 ]
+  %.3 = phi i8 [ 0, %print_separator.exit67._crit_edge86 ], [ %.180, %52 ]
   %70 = tail call i32 @fputs(ptr noundef %69, ptr noundef %1)
   %71 = add i32 %.04881, 1
   %72 = load i32, ptr %51, align 8
@@ -2735,14 +2735,14 @@ print_separator.exit67._crit_edge86:              ; preds = %print_separator.exi
   br label %print_separator.exit69
 
 print_separator.exit69:                           ; preds = %84, %83, %81, %68
-  %.3 = phi i8 [ 1, %68 ], [ %.2, %81 ], [ %.2, %83 ], [ %.2, %84 ]
+  %.4 = phi i8 [ 1, %68 ], [ %.3, %81 ], [ %.3, %83 ], [ %.3, %84 ]
   %86 = getelementptr i8, ptr %.15179, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not58 = icmp eq ptr %87, null
   br i1 %.not58, label %print_separator.exit67._crit_edge, label %52, !llvm.loop !32
 
 print_separator.exit67._crit_edge:                ; preds = %print_separator.exit69, %print_separator.exit67, %.critedge
-  %.4 = phi i8 [ %.049, %.critedge ], [ 0, %print_separator.exit67 ], [ %.3, %print_separator.exit69 ]
+  %.2 = phi i8 [ %.049, %.critedge ], [ 0, %print_separator.exit67 ], [ %.4, %print_separator.exit69 ]
   %88 = load ptr, ptr %0, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 26
   %90 = load i8, ptr %89, align 2
@@ -2783,13 +2783,13 @@ footers_with_default.exit:                        ; preds = %92, %100
   br i1 %.not, label %.preheader.preheader, label %footers_with_default.exit.thread
 
 .preheader.preheader:                             ; preds = %110
-  %112 = trunc nuw i8 %.4 to i1
+  %112 = trunc nuw i8 %.2 to i1
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %print_separator.exit71
   %.085 = phi ptr [ %128, %print_separator.exit71 ], [ %.0.i, %.preheader.preheader ]
-  %.584 = phi i1 [ true, %print_separator.exit71 ], [ %112, %.preheader.preheader ]
-  br i1 %.584, label %113, label %print_separator.exit71
+  %.684 = phi i1 [ true, %print_separator.exit71 ], [ %112, %.preheader.preheader ]
+  br i1 %.684, label %113, label %print_separator.exit71
 
 113:                                              ; preds = %.preheader
   %114 = load ptr, ptr %0, align 8
@@ -2821,7 +2821,7 @@ print_separator.exit71:                           ; preds = %123, %122, %120, %.
   br i1 %.not62, label %footers_with_default.exit.thread.thread, label %.preheader, !llvm.loop !33
 
 footers_with_default.exit.thread:                 ; preds = %96, %110, %footers_with_default.exit
-  %129 = trunc nuw i8 %.4 to i1
+  %129 = trunc nuw i8 %.2 to i1
   br i1 %129, label %footers_with_default.exit.thread.thread, label %135
 
 footers_with_default.exit.thread.thread:          ; preds = %print_separator.exit71, %footers_with_default.exit.thread
@@ -2958,22 +2958,22 @@ footers_with_default.exit:                        ; preds = %38, %42, %46
 
 .lr.ph.i:                                         ; preds = %74, %.lr.ph.i
   %.020.i = phi ptr [ %.0.i416, %.lr.ph.i ], [ %.017.i, %74 ]
-  %.119.i = phi i32 [ %76, %.lr.ph.i ], [ %73, %74 ]
-  %76 = add i32 %.119.i, 1
+  %.219.i = phi i32 [ %76, %.lr.ph.i ], [ %73, %74 ]
+  %76 = add i32 %.219.i, 1
   %77 = getelementptr inbounds i8, ptr %.020.i, i64 8
   %.0.i416 = load ptr, ptr %77, align 8
   %.not.i417 = icmp eq ptr %.0.i416, null
   br i1 %.not.i417, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %74, %67
-  %.2.i = phi i32 [ %73, %67 ], [ %73, %74 ], [ %76, %.lr.ph.i ]
-  %78 = tail call ptr @PageOutput(i32 noundef %.2.i, ptr noundef %11)
+  %.1.i = phi i32 [ %73, %67 ], [ %73, %74 ], [ %76, %.lr.ph.i ]
+  %78 = tail call ptr @PageOutput(i32 noundef %.1.i, ptr noundef %11)
   %79 = load ptr, ptr @stdout, align 8
   %80 = icmp ne ptr %78, %79
   br label %IsPagerNeeded.exit
 
 IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %63
-  %.1470 = phi ptr [ %1, %63 ], [ %78, %.loopexit.i ], [ %1, %64 ]
+  %.0469 = phi ptr [ %1, %63 ], [ %78, %.loopexit.i ], [ %1, %64 ]
   %.0468 = phi i1 [ true, %63 ], [ %80, %.loopexit.i ], [ false, %64 ]
   %.0325 = phi i1 [ false, %63 ], [ %80, %.loopexit.i ], [ false, %64 ]
   %81 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3076,7 +3076,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   br i1 %.not368, label %127, label %125
 
 125:                                              ; preds = %122
-  %126 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.1470, ptr noundef nonnull @.str.28, ptr noundef nonnull %124) #18
+  %126 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0469, ptr noundef nonnull @.str.28, ptr noundef nonnull %124) #18
   %.pre = load ptr, ptr %0, align 8
   br label %127
 
@@ -3089,7 +3089,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
 
 132:                                              ; preds = %127
   %133 = load ptr, ptr @stdout, align 8
-  %134 = icmp eq ptr %.1470, %133
+  %134 = icmp eq ptr %.0469, %133
   br i1 %134, label %135, label %138
 
 135:                                              ; preds = %132
@@ -3178,11 +3178,11 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   br label %179
 
 179:                                              ; preds = %174, %170
-  %.0311 = phi i32 [ %178, %174 ], [ 0, %170 ]
+  %.1312 = phi i32 [ %178, %174 ], [ 0, %170 ]
   br i1 %157, label %180, label %182
 
 180:                                              ; preds = %179
-  %181 = add i32 %.0311, 9
+  %181 = add i32 %.1312, 9
   br label %188
 
 182:                                              ; preds = %179
@@ -3190,11 +3190,11 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   br i1 %183, label %184, label %.thread568
 
 184:                                              ; preds = %182
-  %185 = add i32 %.0311, 12
+  %185 = add i32 %.1312, 12
   br label %188
 
 .thread568:                                       ; preds = %182
-  %186 = add i32 %.0311, 15
+  %186 = add i32 %.1312, 15
   %invariant.op570 = add i32 %.0341.lcssa, %.0338.lcssa
   %.not495571 = icmp eq i32 %.0319, 0
   %invariant.op521572 = add i32 %.0341.lcssa, 3
@@ -3204,7 +3204,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   br i1 %.not495571, label %194, label %191
 
 188:                                              ; preds = %180, %184, %165
-  %.1312 = phi i32 [ 0, %165 ], [ %181, %180 ], [ %185, %184 ]
+  %.0311 = phi i32 [ 0, %165 ], [ %181, %180 ], [ %185, %184 ]
   %invariant.op = add i32 %.0341.lcssa, %.0338.lcssa
   %.not495 = icmp eq i32 %.0319, 0
   %invariant.op521 = add i32 %.0341.lcssa, 3
@@ -3214,20 +3214,20 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
 .split.us:                                        ; preds = %188
   %190 = add i32 %spec.select398, %.0341.lcssa
   %.reass.us = add i32 %spec.select398, %invariant.op
-  %spec.select399.us = call i32 @llvm.umax.i32(i32 %.reass.us, i32 %.1312)
+  %spec.select399.us = call i32 @llvm.umax.i32(i32 %.reass.us, i32 %.0311)
   br i1 %.not495, label %194, label %191
 
 191:                                              ; preds = %.thread568, %.split.us
   %spec.select399.us581 = phi i32 [ %spec.select399.us578, %.thread568 ], [ %spec.select399.us, %.split.us ]
   %192 = phi i32 [ %187, %.thread568 ], [ %190, %.split.us ]
-  %.1312573580 = phi i32 [ %186, %.thread568 ], [ %.1312, %.split.us ]
+  %.0311573580 = phi i32 [ %186, %.thread568 ], [ %.0311, %.split.us ]
   %invariant.op521576579 = phi i32 [ %invariant.op521572, %.thread568 ], [ %invariant.op521, %.split.us ]
   %.not371.us = icmp ult i32 %.0319, %spec.select399.us581
   br i1 %.not371.us, label %193, label %194
 
 193:                                              ; preds = %191
   %.reass522.us = add i32 %spec.select398, %invariant.op521576579
-  %spec.select400.us = call i32 @llvm.umax.i32(i32 %.reass522.us, i32 %.1312573580)
+  %spec.select400.us = call i32 @llvm.umax.i32(i32 %.reass522.us, i32 %.0311573580)
   %spec.select400..0319.us = call i32 @llvm.umax.i32(i32 %.0319, i32 %spec.select400.us)
   br label %194
 
@@ -3241,39 +3241,39 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   br i1 %.not495, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
-  %.2322.us525 = phi i8 [ 1, %.split.split.us ], [ %.0320.lcssa, %.split ]
+  %.3.us525 = phi i8 [ 1, %.split.split.us ], [ %.0320.lcssa, %.split ]
   %.2315.us526 = phi i32 [ %199, %.split.split.us ], [ %spec.select398, %.split ]
   %196 = add i32 %.2315.us526, %.0341.lcssa
   %.reass.us527 = add i32 %.2315.us526, %invariant.op
-  %spec.select399.us528 = call i32 @llvm.umax.i32(i32 %.reass.us527, i32 %.1312)
+  %spec.select399.us528 = call i32 @llvm.umax.i32(i32 %.reass.us527, i32 %.0311)
   %.0310.us530 = sub i32 %spec.select399.us528, %196
   %197 = icmp uge i32 %.0310.us530, %.0338.lcssa
-  %198 = trunc nuw i8 %.2322.us525 to i1
+  %198 = trunc nuw i8 %.3.us525 to i1
   %199 = add i32 %.2315.us526, 1
   %or.cond556.not = select i1 %197, i1 true, i1 %198
   br i1 %or.cond556.not, label %.loopexit498, label %.split.split.us
 
 .split.split:                                     ; preds = %.split, %.split.split
-  %.2322 = phi i8 [ 1, %.split.split ], [ %.0320.lcssa, %.split ]
+  %.3 = phi i8 [ 1, %.split.split ], [ %.0320.lcssa, %.split ]
   %.2315 = phi i32 [ %203, %.split.split ], [ %spec.select398, %.split ]
   %200 = add i32 %.2315, %.0341.lcssa
   %.reass = add i32 %.2315, %invariant.op
-  %spec.select399 = call i32 @llvm.umax.i32(i32 %.reass, i32 %.1312)
+  %spec.select399 = call i32 @llvm.umax.i32(i32 %.reass, i32 %.0311)
   %.reass522 = add i32 %.2315, %invariant.op521
-  %spec.select400 = call i32 @llvm.umax.i32(i32 %.reass522, i32 %.1312)
+  %spec.select400 = call i32 @llvm.umax.i32(i32 %.reass522, i32 %.0311)
   %.not371 = icmp ult i32 %.0319, %spec.select399
   %spec.select400..0319 = call i32 @llvm.umax.i32(i32 %.0319, i32 %spec.select400)
   %spec.select399.pn = select i1 %.not371, i32 %spec.select400..0319, i32 %spec.select399
   %.0310 = sub i32 %spec.select399.pn, %200
   %201 = icmp uge i32 %.0310, %.0338.lcssa
-  %202 = trunc nuw i8 %.2322 to i1
+  %202 = trunc nuw i8 %.3 to i1
   %203 = add i32 %.2315, 1
   %or.cond558.not = select i1 %201, i1 true, i1 %202
   br i1 %or.cond558.not, label %.loopexit498, label %.split.split
 
 .loopexit498:                                     ; preds = %.split.split, %.split.split.us, %194, %152
   %.2340 = phi i32 [ %.0338.lcssa, %152 ], [ %.0310.us, %194 ], [ %.0310.us530, %.split.split.us ], [ %.0310, %.split.split ]
-  %.3 = phi i8 [ %.0320.lcssa, %152 ], [ %.0320.lcssa, %194 ], [ %.2322.us525, %.split.split.us ], [ %.2322, %.split.split ]
+  %.2322 = phi i8 [ %.0320.lcssa, %152 ], [ %.0320.lcssa, %194 ], [ %.3.us525, %.split.split.us ], [ %.3, %.split.split ]
   %204 = load ptr, ptr %26, align 8
   %205 = load ptr, ptr %204, align 8
   %.not372541 = icmp eq ptr %205, null
@@ -3310,7 +3310,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
   %221 = getelementptr inbounds i8, ptr %pg_asciiformat..i.fr, i64 168
   %222 = getelementptr i8, ptr %pg_asciiformat..i.fr, i64 128
   %223 = getelementptr inbounds i8, ptr %pg_asciiformat..i.fr, i64 192
-  %224 = trunc nuw i8 %.3 to i1
+  %224 = trunc nuw i8 %.2322 to i1
   %or.cond31 = and i1 %218, %224
   %or.cond413 = select i1 %214, i1 true, i1 %or.cond31
   %225 = getelementptr inbounds i8, ptr %pg_asciiformat..i.fr, i64 200
@@ -3354,7 +3354,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
 .sink.split:                                      ; preds = %237, %238, %235
   %.0317544.sink = phi i64 [ %.0317544, %235 ], [ 0, %238 ], [ 0, %237 ]
   %.1318.ph = phi i64 [ %236, %235 ], [ %.0317544, %238 ], [ %.0317544, %237 ]
-  call fastcc void @print_aligned_vertical_line(ptr noundef %.pre564, i64 noundef %.0317544.sink, i32 noundef %.0291, i32 noundef %.2340, i32 noundef %.0319, i32 noundef %., ptr noundef %.1470)
+  call fastcc void @print_aligned_vertical_line(ptr noundef %.pre564, i64 noundef %.0317544.sink, i32 noundef %.0291, i32 noundef %.2340, i32 noundef %.0319, i32 noundef %., ptr noundef %.0469)
   br label %242
 
 242:                                              ; preds = %.sink.split, %238, %229
@@ -3384,7 +3384,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
 
 254:                                              ; preds = %253
   %255 = load ptr, ptr %215, align 8
-  %256 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.1470, ptr noundef nonnull @.str.36, ptr noundef %255) #18
+  %256 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0469, ptr noundef nonnull @.str.36, ptr noundef %255) #18
   br label %257
 
 257:                                              ; preds = %254, %253
@@ -3403,7 +3403,7 @@ IsPagerNeeded.exit:                               ; preds = %.loopexit.i, %64, %
 
 262:                                              ; preds = %259, %260
   %263 = phi ptr [ %261, %260 ], [ @.str.5, %259 ]
-  %264 = call i32 @fputs(ptr noundef %263, ptr noundef %.1470)
+  %264 = call i32 @fputs(ptr noundef %263, ptr noundef %.0469)
   br label %265
 
 265:                                              ; preds = %258, %262
@@ -3442,13 +3442,13 @@ strlen_max_width.exit.loopexit:                   ; preds = %276, %.lr.ph.i418
 strlen_max_width.exit:                            ; preds = %strlen_max_width.exit.loopexit, %265
   %282 = phi ptr [ %268, %265 ], [ %.pre565, %strlen_max_width.exit.loopexit ]
   %.023.lcssa.i = phi i32 [ 0, %265 ], [ %.023.lcssa.i.ph, %strlen_max_width.exit.loopexit ]
-  %283 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.1470, ptr noundef nonnull @.str.37, ptr noundef %282) #18
+  %283 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0469, ptr noundef nonnull @.str.37, ptr noundef %282) #18
   %284 = sub i32 %.0341.lcssa, %.023.lcssa.i
   %285 = icmp sgt i32 %284, 0
   br i1 %285, label %286, label %288
 
 286:                                              ; preds = %strlen_max_width.exit
-  %287 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.1470, ptr noundef nonnull @.str.31, i32 noundef %284, ptr noundef nonnull @.str.5) #18
+  %287 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0469, ptr noundef nonnull @.str.31, i32 noundef %284, ptr noundef nonnull @.str.5) #18
   br label %288
 
 288:                                              ; preds = %286, %strlen_max_width.exit
@@ -3464,18 +3464,18 @@ strlen_max_width.exit:                            ; preds = %strlen_max_width.ex
 
 294:                                              ; preds = %293
   %295 = load ptr, ptr %221, align 8
-  %296 = call i32 @fputs(ptr noundef %295, ptr noundef %.1470)
+  %296 = call i32 @fputs(ptr noundef %295, ptr noundef %.0469)
   br label %301
 
 297:                                              ; preds = %288
   br i1 %or.cond406, label %298, label %.thread
 
 298:                                              ; preds = %297
-  %fputc = call i32 @fputc(i32 32, ptr %.1470)
+  %fputc = call i32 @fputc(i32 32, ptr %.0469)
   br label %301
 
 299:                                              ; preds = %257
-  %300 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.1470, ptr noundef nonnull @.str.31, i32 noundef %.1, ptr noundef nonnull @.str.5) #18
+  %300 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0469, ptr noundef nonnull @.str.31, i32 noundef %.1, ptr noundef nonnull @.str.5) #18
   br label %301
 
 301:                                              ; preds = %298, %294, %299
@@ -3490,7 +3490,7 @@ strlen_max_width.exit:                            ; preds = %strlen_max_width.ex
   %.sink587.v = select i1 %.not383, i64 %.588.v, i64 144
   %.sink587 = getelementptr i8, ptr %pg_asciiformat..i.fr, i64 %.sink587.v
   %303 = load ptr, ptr %.sink587, align 8
-  %304 = call i32 @fputs(ptr noundef %303, ptr noundef %.1470)
+  %304 = call i32 @fputs(ptr noundef %303, ptr noundef %.0469)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %293, %297, %301
@@ -3508,7 +3508,7 @@ strlen_max_width.exit:                            ; preds = %strlen_max_width.ex
 
 309:                                              ; preds = %305, %307
   %310 = phi ptr [ %308, %307 ], [ @.str.5, %305 ]
-  %311 = call i32 @fputs(ptr noundef %310, ptr noundef %.1470)
+  %311 = call i32 @fputs(ptr noundef %310, ptr noundef %.0469)
   %312 = sext i32 %.0304535 to i64
   %313 = getelementptr %struct.lineptr, ptr %109, i64 %312
   %314 = load ptr, ptr %313, align 8
@@ -3555,7 +3555,7 @@ strlen_max_width.exit426:                         ; preds = %strlen_max_width.ex
   %335 = getelementptr i8, ptr %330, i64 %315
   %sext = shl i64 %333, 32
   %336 = ashr exact i64 %sext, 32
-  %337 = call i64 @fwrite(ptr noundef %335, i64 noundef 1, i64 noundef %336, ptr noundef %.1470)
+  %337 = call i64 @fwrite(ptr noundef %335, i64 noundef 1, i64 noundef %336, ptr noundef %.0469)
   %338 = sub i32 %.0292538, %.023.lcssa.i419
   %339 = add i32 %.0294537, %334
   %340 = sub i32 %.2340, %.023.lcssa.i419
@@ -3570,12 +3570,12 @@ strlen_max_width.exit426:                         ; preds = %strlen_max_width.ex
   br i1 %343, label %344, label %346
 
 344:                                              ; preds = %342
-  %345 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.1470, ptr noundef nonnull @.str.31, i32 noundef %340, ptr noundef nonnull @.str.5) #18
+  %345 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0469, ptr noundef nonnull @.str.31, i32 noundef %340, ptr noundef nonnull @.str.5) #18
   br label %346
 
 346:                                              ; preds = %344, %342
   %347 = load ptr, ptr %225, align 8
-  %348 = call i32 @fputs(ptr noundef %347, ptr noundef %.1470)
+  %348 = call i32 @fputs(ptr noundef %347, ptr noundef %.0469)
   br label %370
 
 349:                                              ; preds = %strlen_max_width.exit426
@@ -3594,12 +3594,12 @@ strlen_max_width.exit426:                         ; preds = %strlen_max_width.ex
   br i1 %356, label %357, label %359
 
 357:                                              ; preds = %355
-  %358 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.1470, ptr noundef nonnull @.str.31, i32 noundef %340, ptr noundef nonnull @.str.5) #18
+  %358 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0469, ptr noundef nonnull @.str.31, i32 noundef %340, ptr noundef nonnull @.str.5) #18
   br label %359
 
 359:                                              ; preds = %357, %355
   %360 = load ptr, ptr %226, align 8
-  %361 = call i32 @fputs(ptr noundef %360, ptr noundef %.1470)
+  %361 = call i32 @fputs(ptr noundef %360, ptr noundef %.0469)
   br label %362
 
 362:                                              ; preds = %354, %359
@@ -3615,11 +3615,11 @@ strlen_max_width.exit426:                         ; preds = %strlen_max_width.ex
   br i1 %367, label %368, label %.thread486
 
 368:                                              ; preds = %366
-  %369 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.1470, ptr noundef nonnull @.str.31, i32 noundef %340, ptr noundef nonnull @.str.5) #18
+  %369 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0469, ptr noundef nonnull @.str.31, i32 noundef %340, ptr noundef nonnull @.str.5) #18
   br label %.thread486
 
 .thread486:                                       ; preds = %366, %368
-  %fputc386 = call i32 @fputc(i32 32, ptr %.1470)
+  %fputc386 = call i32 @fputc(i32 32, ptr %.0469)
   br label %371
 
 370:                                              ; preds = %362, %346
@@ -3634,7 +3634,7 @@ strlen_max_width.exit426:                         ; preds = %strlen_max_width.ex
   %.1300492 = phi i32 [ 1, %.thread486 ], [ 0, %370 ]
   %.1305491 = phi i32 [ %.0304535, %.thread486 ], [ %.1305, %370 ]
   %372 = load ptr, ptr %222, align 8
-  %373 = call i32 @fputs(ptr noundef %372, ptr noundef %.1470)
+  %373 = call i32 @fputs(ptr noundef %372, ptr noundef %.0469)
   br label %.thread477
 
 .thread477:                                       ; preds = %341, %365, %371, %370
@@ -3642,19 +3642,19 @@ strlen_max_width.exit426:                         ; preds = %strlen_max_width.ex
   %.1295484 = phi i32 [ %.1295493, %371 ], [ %.1295, %370 ], [ %339, %365 ], [ %339, %341 ]
   %.1300483 = phi i32 [ %.1300492, %371 ], [ 0, %370 ], [ 1, %365 ], [ 0, %341 ]
   %.1305482 = phi i32 [ %.1305491, %371 ], [ %.1305, %370 ], [ %.0304535, %365 ], [ %.0304535, %341 ]
-  %fputc387 = call i32 @fputc(i32 10, ptr %.1470)
+  %fputc387 = call i32 @fputc(i32 10, ptr %.0469)
   br label %379
 
 374:                                              ; preds = %.thread
   br i1 %206, label %375, label %376
 
 375:                                              ; preds = %374
-  %fputc388 = call i32 @fputc(i32 10, ptr %.1470)
+  %fputc388 = call i32 @fputc(i32 10, ptr %.0469)
   br label %379
 
 376:                                              ; preds = %374
   %377 = load ptr, ptr %222, align 8
-  %378 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.1470, ptr noundef nonnull @.str.39, i32 noundef %.2340, ptr noundef nonnull @.str.3, ptr noundef %377) #18
+  %378 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0469, ptr noundef nonnull @.str.39, i32 noundef %.2340, ptr noundef nonnull @.str.3, ptr noundef %377) #18
   br label %379
 
 379:                                              ; preds = %375, %376, %.thread477
@@ -3691,7 +3691,7 @@ strlen_max_width.exit426:                         ; preds = %strlen_max_width.ex
   br i1 %.not389, label %393, label %394
 
 393:                                              ; preds = %391
-  call fastcc void @print_aligned_vertical_line(ptr noundef nonnull %385, i64 noundef 0, i32 noundef %.0341.lcssa, i32 noundef %.2340, i32 noundef %.0319, i32 noundef 2, ptr noundef %.1470)
+  call fastcc void @print_aligned_vertical_line(ptr noundef nonnull %385, i64 noundef 0, i32 noundef %.0341.lcssa, i32 noundef %.2340, i32 noundef %.0319, i32 noundef 2, ptr noundef %.0469)
   br label %394
 
 394:                                              ; preds = %393, %391, %389
@@ -3713,7 +3713,7 @@ strlen_max_width.exit426:                         ; preds = %strlen_max_width.ex
   br i1 %401, label %402, label %.lr.ph553.preheader
 
 402:                                              ; preds = %400
-  %403 = call i32 @fputc(i32 noundef 10, ptr noundef %.1470)
+  %403 = call i32 @fputc(i32 noundef 10, ptr noundef %.0469)
   %.0549.pre = load ptr, ptr %396, align 8
   %.not392550 = icmp eq ptr %.0549.pre, null
   br i1 %.not392550, label %.loopexit497, label %.lr.ph553.preheader
@@ -3725,14 +3725,14 @@ strlen_max_width.exit426:                         ; preds = %strlen_max_width.ex
 .lr.ph553:                                        ; preds = %.lr.ph553.preheader, %.lr.ph553
   %.0551 = phi ptr [ %.0, %.lr.ph553 ], [ %.0551.ph, %.lr.ph553.preheader ]
   %404 = load ptr, ptr %.0551, align 8
-  %405 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.1470, ptr noundef nonnull @.str.28, ptr noundef %404) #18
+  %405 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %.0469, ptr noundef nonnull @.str.28, ptr noundef %404) #18
   %406 = getelementptr inbounds i8, ptr %.0551, i64 8
   %.0 = load ptr, ptr %406, align 8
   %.not392 = icmp eq ptr %.0, null
   br i1 %.not392, label %.loopexit497, label %.lr.ph553, !llvm.loop !39
 
 .loopexit497:                                     ; preds = %.lr.ph553, %402, %398, %395, %394
-  %407 = call i32 @fputc(i32 noundef 10, ptr noundef %.1470)
+  %407 = call i32 @fputc(i32 noundef 10, ptr noundef %.0469)
   br label %408
 
 408:                                              ; preds = %.loopexit497, %._crit_edge547
@@ -3745,9 +3745,9 @@ strlen_max_width.exit426:                         ; preds = %strlen_max_width.ex
   br i1 %.0325, label %411, label %ClosePager.exit
 
 411:                                              ; preds = %408
-  %.not.i427 = icmp eq ptr %.1470, null
+  %.not.i427 = icmp eq ptr %.0469, null
   %412 = load ptr, ptr @stdout, align 8
-  %.not4.i = icmp eq ptr %412, %.1470
+  %.not4.i = icmp eq ptr %412, %.0469
   %or.cond.i428 = select i1 %.not.i427, i1 true, i1 %.not4.i
   br i1 %or.cond.i428, label %ClosePager.exit, label %413
 
@@ -3757,11 +3757,11 @@ strlen_max_width.exit426:                         ; preds = %strlen_max_width.ex
   br i1 %.not5.i, label %417, label %415
 
 415:                                              ; preds = %413
-  %416 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.1470, ptr noundef nonnull @.str.21) #18
+  %416 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.0469, ptr noundef nonnull @.str.21) #18
   br label %417
 
 417:                                              ; preds = %415, %413
-  %418 = call i32 @pclose(ptr noundef nonnull %.1470)
+  %418 = call i32 @pclose(ptr noundef nonnull %.0469)
   %419 = load i8, ptr @always_ignore_sigpipe, align 1
   %420 = trunc nuw i8 %419 to i1
   %421 = select i1 %420, ptr inttoptr (i64 1 to ptr), ptr null
@@ -4976,7 +4976,7 @@ define internal fastcc void @print_latex_vertical(ptr nocapture noundef readonly
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %70
   %.05471.us73 = phi ptr [ %79, %70 ], [ %37, %.lr.ph.split ]
   %.05570.us74 = phi i32 [ %78, %70 ], [ 0, %.lr.ph.split ]
-  %.05669.us75 = phi i64 [ %.2.us78, %70 ], [ %11, %.lr.ph.split ]
+  %.05669.us75 = phi i64 [ %.1.us78, %70 ], [ %11, %.lr.ph.split ]
   %61 = load i32, ptr %39, align 8
   %62 = urem i32 %.05570.us74, %61
   %63 = icmp eq i32 %62, 0
@@ -4998,7 +4998,7 @@ define internal fastcc void @print_latex_vertical(ptr nocapture noundef readonly
 
 70:                                               ; preds = %.thread.us, %.lr.ph.split.split.us
   %.pre-phi91 = phi i32 [ %.pre90, %.thread.us ], [ %62, %.lr.ph.split.split.us ]
-  %.2.us78 = phi i64 [ %67, %.thread.us ], [ %.05669.us75, %.lr.ph.split.split.us ]
+  %.1.us78 = phi i64 [ %67, %.thread.us ], [ %.05669.us75, %.lr.ph.split.split.us ]
   %71 = load ptr, ptr %40, align 8
   %72 = zext i32 %.pre-phi91 to i64
   %73 = getelementptr ptr, ptr %71, i64 %72
@@ -5017,7 +5017,7 @@ define internal fastcc void @print_latex_vertical(ptr nocapture noundef readonly
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %91
   %.05471 = phi ptr [ %102, %91 ], [ %37, %.lr.ph.split ]
   %.05570 = phi i32 [ %101, %91 ], [ 0, %.lr.ph.split ]
-  %.05669 = phi i64 [ %.2, %91 ], [ %11, %.lr.ph.split ]
+  %.05669 = phi i64 [ %.1, %91 ], [ %11, %.lr.ph.split ]
   %81 = load i32, ptr %39, align 8
   %82 = urem i32 %.05570, %81
   %83 = icmp eq i32 %82, 0
@@ -5038,7 +5038,7 @@ define internal fastcc void @print_latex_vertical(ptr nocapture noundef readonly
   br label %91
 
 91:                                               ; preds = %86, %89, %.lr.ph.split.split
-  %.2 = phi i64 [ %87, %89 ], [ %87, %86 ], [ %.05669, %.lr.ph.split.split ]
+  %.1 = phi i64 [ %87, %89 ], [ %87, %86 ], [ %.05669, %.lr.ph.split.split ]
   %92 = load ptr, ptr %40, align 8
   %93 = load i32, ptr %39, align 8
   %94 = urem i32 %.05570, %93
@@ -5833,7 +5833,7 @@ troff_ms_escaped_print.exit:                      ; preds = %24
   %.194 = phi i16 [ %.064, %.lr.ph ], [ %.5, %troff_ms_escaped_print.exit87 ]
   %.06593 = phi ptr [ %46, %.lr.ph ], [ %113, %troff_ms_escaped_print.exit87 ]
   %.06692 = phi i32 [ 0, %.lr.ph ], [ %112, %troff_ms_escaped_print.exit87 ]
-  %.06791 = phi i64 [ %11, %.lr.ph ], [ %.269, %troff_ms_escaped_print.exit87 ]
+  %.06791 = phi i64 [ %11, %.lr.ph ], [ %.168, %troff_ms_escaped_print.exit87 ]
   %52 = load i32, ptr %48, align 8
   %53 = urem i32 %.06692, %52
   %54 = icmp eq i32 %53, 0
@@ -5878,7 +5878,7 @@ troff_ms_escaped_print.exit:                      ; preds = %24
   br label %71
 
 71:                                               ; preds = %68, %57
-  %.168 = phi i64 [ %.06791, %57 ], [ %69, %68 ]
+  %.269 = phi i64 [ %.06791, %57 ], [ %69, %68 ]
   %.3 = phi i16 [ %.194, %57 ], [ 1, %68 ]
   br i1 %.not78, label %74, label %72
 
@@ -5887,14 +5887,14 @@ troff_ms_escaped_print.exit:                      ; preds = %24
   br label %74
 
 74:                                               ; preds = %71, %72, %51
-  %.269 = phi i64 [ %.168, %72 ], [ %.168, %71 ], [ %.06791, %51 ]
-  %.4 = phi i16 [ %.3, %72 ], [ %.3, %71 ], [ %.194, %51 ]
-  %75 = icmp eq i16 %.4, 2
+  %.168 = phi i64 [ %.269, %72 ], [ %.269, %71 ], [ %.06791, %51 ]
+  %.2 = phi i16 [ %.3, %72 ], [ %.3, %71 ], [ %.194, %51 ]
+  %75 = icmp eq i16 %.2, 2
   %or.cond4.not = select i1 %6, i1 true, i1 %75
   br i1 %or.cond4.not, label %84, label %76
 
 76:                                               ; preds = %74
-  %.not = icmp eq i16 %.4, 0
+  %.not = icmp eq i16 %.2, 0
   br i1 %.not, label %79, label %77
 
 77:                                               ; preds = %76
@@ -5913,7 +5913,7 @@ troff_ms_escaped_print.exit:                      ; preds = %24
   br label %84
 
 84:                                               ; preds = %80, %82, %74
-  %.5 = phi i16 [ %.4, %74 ], [ 2, %82 ], [ 2, %80 ]
+  %.5 = phi i16 [ %.2, %74 ], [ 2, %82 ], [ 2, %80 ]
   %85 = load ptr, ptr %50, align 8
   %86 = load i32, ptr %48, align 8
   %87 = urem i32 %.06692, %86
@@ -7299,7 +7299,7 @@ define internal fastcc void @print_aligned_vertical_line(ptr nocapture noundef r
   %reass.sub126 = sub i32 %.0104, %2
   %85 = add i32 %reass.sub126, -3
   %86 = tail call i32 @llvm.smax.i32(i32 %85, i32 0)
-  %.0101. = tail call i32 @llvm.umin.i32(i32 %86, i32 %3)
+  %.1102. = tail call i32 @llvm.umin.i32(i32 %86, i32 %3)
   br label %.thread120
 
 87:                                               ; preds = %82
@@ -7309,14 +7309,14 @@ define internal fastcc void @print_aligned_vertical_line(ptr nocapture noundef r
   %reass.sub = sub i32 %.0104, %2
   %89 = add i32 %reass.sub, -7
   %90 = tail call i32 @llvm.smax.i32(i32 %89, i32 0)
-  %.1102. = tail call i32 @llvm.umin.i32(i32 %90, i32 %3)
+  %.2103. = tail call i32 @llvm.umin.i32(i32 %90, i32 %3)
   br label %.thread120
 
 .thread120:                                       ; preds = %73, %84, %79, %88, %87
-  %.2103 = phi i32 [ %.1102., %88 ], [ %3, %87 ], [ %3, %79 ], [ %3, %73 ], [ %.0101., %84 ]
+  %.0101 = phi i32 [ %.2103., %88 ], [ %3, %87 ], [ %3, %79 ], [ %3, %73 ], [ %.1102., %84 ]
   %spec.store.select1 = tail call i32 @llvm.smax.i32(i32 %.2, i32 0)
-  %spec.select118 = tail call i32 @llvm.umax.i32(i32 %.2103, i32 %spec.store.select1)
-  %91 = icmp ugt i32 %.2103, %spec.store.select1
+  %spec.select118 = tail call i32 @llvm.umax.i32(i32 %.0101, i32 %spec.store.select1)
+  %91 = icmp ugt i32 %.0101, %spec.store.select1
   br i1 %91, label %.lr.ph124, label %._crit_edge125
 
 .thread120.thread:                                ; preds = %81

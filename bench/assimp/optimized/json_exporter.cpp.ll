@@ -250,8 +250,8 @@ lpad13:                                           ; preds = %invoke.cont12
 
 catch:                                            ; preds = %lpad13, %lpad4
   %.pn = phi { ptr, i32 } [ %8, %lpad13 ], [ %3, %lpad4 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #11
+  %exn.slot.1 = extractvalue { ptr, i32 } %.pn, 0
+  %9 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #11
   %10 = load ptr, ptr %scenecopy_tmp, align 8
   invoke void @aiFreeScene(ptr noundef %10)
           to label %invoke.cont16 unwind label %lpad15

@@ -19377,7 +19377,7 @@ define hidden void @"_ZN100_$LT$tokenizers..pre_tokenizers..byte_level..ByteLeve
 29:                                               ; preds = %150, %.lr.ph.i
   %.sroa.715.i.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %.lr.ph.i ], [ %.sroa.6.i.sroa.0.0.copyload, %150 ]
   %.sroa.715.i.sroa.6.0 = phi i64 [ 0, %.lr.ph.i ], [ %151, %150 ]
-  %.sroa.0.0.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.07.0.copyload.i, %150 ]
+  %.sroa.0.1.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.07.0.copyload.i, %150 ]
   %30 = phi ptr [ %17, %.lr.ph.i ], [ %67, %150 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 1
   %32 = load i8, ptr %30, align 1, !noalias !4137, !noundef !4
@@ -19437,7 +19437,7 @@ define hidden void @"_ZN100_$LT$tokenizers..pre_tokenizers..byte_level..ByteLeve
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15), !noalias !4146
   store ptr %.sroa.715.i.sroa.0.0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !4146
   store i64 %.sroa.715.i.sroa.6.0, ptr %.sroa.715.i.sroa.6.0..sroa.5.0..sroa_idx.i.sroa_idx, align 8, !noalias !4146
-  store i64 %.sroa.0.0.i, ptr %15, align 8, !noalias !4146
+  store i64 %.sroa.0.1.i, ptr %15, align 8, !noalias !4146
   store i32 %68, ptr %24, align 8, !noalias !4146
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !4147
   store ptr @"_ZN94_$LT$tokenizers..pre_tokenizers..byte_level..CHAR_BYTES$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17h8a8f7f7d48d63321E.llvm.14160285242575610615", ptr %12, align 8, !noalias !4147
@@ -19710,7 +19710,7 @@ select.unfold.i.i:                                ; preds = %72, %106
   br label %.loopexit
 
 .loopexit:                                        ; preds = %150, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i", %3, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h6328a129f240196fE.llvm.14140520316429159617.exit"
-  %.sink25 = phi i64 [ %167, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h6328a129f240196fE.llvm.14140520316429159617.exit" ], [ 0, %3 ], [ %.sroa.07.0.copyload.i, %150 ], [ %.sroa.0.0.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i" ]
+  %.sink25 = phi i64 [ %167, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h6328a129f240196fE.llvm.14140520316429159617.exit" ], [ 0, %3 ], [ %.sroa.07.0.copyload.i, %150 ], [ %.sroa.0.1.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i" ]
   %.sink24 = phi ptr [ %165, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h6328a129f240196fE.llvm.14140520316429159617.exit" ], [ inttoptr (i64 1 to ptr), %3 ], [ %.sroa.6.i.sroa.0.0.copyload, %150 ], [ %.sroa.715.i.sroa.0.0, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i" ]
   %.sink = phi i64 [ %154, %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h6328a129f240196fE.llvm.14140520316429159617.exit" ], [ 0, %3 ], [ %151, %150 ], [ %.sroa.715.i.sroa.6.0, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf8c5eef63cfad1b8E.exit.i" ]
   store i64 %.sink25, ptr %0, align 8
@@ -21691,8 +21691,8 @@ define hidden noundef align 8 ptr @"_ZN211_$LT$tokenizers..pre_tokenizers..byte_
   br label %"_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h1a6e1e5bcb564d0eE.exit"
 
 "_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h1a6e1e5bcb564d0eE.exit": ; preds = %2, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17h86fbf3f38125c6c0E.llvm.12815775647222681290.exit.i", %5
-  %.0 = phi ptr [ %.0.i.i, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17h86fbf3f38125c6c0E.llvm.12815775647222681290.exit.i" ], [ null, %5 ], [ %4, %2 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0.i.i, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17h86fbf3f38125c6c0E.llvm.12815775647222681290.exit.i" ], [ null, %5 ], [ %4, %2 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -22233,8 +22233,8 @@ define hidden noundef align 8 ptr @"_ZN212_$LT$tokenizers..pre_tokenizers..white
   br label %"_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h1a6e1e5bcb564d0eE.exit"
 
 "_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h1a6e1e5bcb564d0eE.exit": ; preds = %2, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17h86fbf3f38125c6c0E.llvm.12815775647222681290.exit.i", %5
-  %.0 = phi ptr [ %.0.i.i, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17h86fbf3f38125c6c0E.llvm.12815775647222681290.exit.i" ], [ null, %5 ], [ %4, %2 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0.i.i, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17h86fbf3f38125c6c0E.llvm.12815775647222681290.exit.i" ], [ null, %5 ], [ %4, %2 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -22572,8 +22572,8 @@ define hidden noundef align 8 ptr @"_ZN217_$LT$tokenizers..pre_tokenizers..white
   br label %"_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h1a6e1e5bcb564d0eE.exit"
 
 "_ZN107_$LT$serde..__private..de..content..VariantRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..VariantAccess$GT$12unit_variant17h1a6e1e5bcb564d0eE.exit": ; preds = %2, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17h86fbf3f38125c6c0E.llvm.12815775647222681290.exit.i", %5
-  %.0 = phi ptr [ %.0.i.i, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17h86fbf3f38125c6c0E.llvm.12815775647222681290.exit.i" ], [ null, %5 ], [ %4, %2 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0.i.i, %"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$16deserialize_unit17h86fbf3f38125c6c0E.llvm.12815775647222681290.exit.i" ], [ null, %5 ], [ %4, %2 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

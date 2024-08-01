@@ -1909,7 +1909,7 @@ switch.lookup555:                                 ; preds = %165
   br label %.thread532
 
 .thread532:                                       ; preds = %511, %515, %509, %517, %500, %539, %528, %321, %325, %280, %283, %229, %235, %219, %225, %216, %259, %261, %258, %258, %258, %258, %258, %197, %264, %262, %458, %428, %404, %398, %382, %374, %351, %343, %335, %307
-  %.1 = phi ptr [ null, %528 ], [ null, %539 ], [ null, %517 ], [ null, %500 ], [ null, %458 ], [ null, %428 ], [ null, %404 ], [ null, %398 ], [ null, %382 ], [ null, %374 ], [ null, %351 ], [ null, %343 ], [ null, %335 ], [ null, %325 ], [ null, %321 ], [ null, %307 ], [ null, %283 ], [ null, %280 ], [ null, %197 ], [ null, %216 ], [ null, %229 ], [ null, %235 ], [ null, %219 ], [ null, %225 ], [ null, %261 ], [ null, %259 ], [ null, %258 ], [ null, %258 ], [ null, %258 ], [ null, %258 ], [ null, %258 ], [ null, %264 ], [ null, %262 ], [ null, %509 ], [ %514, %511 ], [ %514, %515 ]
+  %.0440 = phi ptr [ null, %528 ], [ null, %539 ], [ null, %517 ], [ null, %500 ], [ null, %458 ], [ null, %428 ], [ null, %404 ], [ null, %398 ], [ null, %382 ], [ null, %374 ], [ null, %351 ], [ null, %343 ], [ null, %335 ], [ null, %325 ], [ null, %321 ], [ null, %307 ], [ null, %283 ], [ null, %280 ], [ null, %197 ], [ null, %216 ], [ null, %229 ], [ null, %235 ], [ null, %219 ], [ null, %225 ], [ null, %261 ], [ null, %259 ], [ null, %258 ], [ null, %258 ], [ null, %258 ], [ null, %258 ], [ null, %258 ], [ null, %264 ], [ null, %262 ], [ null, %509 ], [ %514, %511 ], [ %514, %515 ]
   %546 = load i32, ptr %7, align 4
   %547 = call i32 @tvb_reported_length(ptr noundef %0) #4
   %.not498 = icmp ult i32 %546, %547
@@ -1922,7 +1922,7 @@ switch.lookup555:                                 ; preds = %165
   br i1 %.not499, label %551, label %629
 
 551:                                              ; preds = %548
-  %.not500 = icmp eq ptr %.1, null
+  %.not500 = icmp eq ptr %.0440, null
   br i1 %.not500, label %552, label %554
 
 552:                                              ; preds = %551
@@ -1930,7 +1930,7 @@ switch.lookup555:                                 ; preds = %165
   br label %554
 
 554:                                              ; preds = %552, %551
-  %.2 = phi ptr [ %.1, %551 ], [ %553, %552 ]
+  %.2 = phi ptr [ %.0440, %551 ], [ %553, %552 ]
   %555 = call i32 @try_conversation_dissector_by_id(i32 noundef 21, i32 noundef %18, ptr noundef %.2, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %8) #4
   %.not501 = icmp eq i32 %555, 0
   br i1 %.not501, label %556, label %629

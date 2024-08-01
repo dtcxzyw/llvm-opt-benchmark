@@ -4994,7 +4994,7 @@ _ZN7bv_util14mk_sign_extendEjP4expr.exit:         ; preds = %if.end23
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN7bv_util14mk_sign_extendEjP4expr.exit, %if.then19
-  %retval.0 = phi ptr [ %call22, %if.then19 ], [ %call2.i, %_ZN7bv_util14mk_sign_extendEjP4expr.exit ]
+  %retval.1 = phi ptr [ %call22, %if.then19 ], [ %call2.i, %_ZN7bv_util14mk_sign_extendEjP4expr.exit ]
   %23 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(16) %r)
           to label %.noexc.i27 unwind label %terminate.lpad.i26
@@ -5016,8 +5016,8 @@ ehcleanup27:                                      ; preds = %lpad, %lpad.i, %cle
   resume { ptr, i32 } %.pn6
 
 return:                                           ; preds = %.noexc.i27, %entry
-  %retval.1 = phi ptr [ %b, %entry ], [ %retval.0, %.noexc.i27 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %b, %entry ], [ %retval.1, %.noexc.i27 ]
+  ret ptr %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK14bv_recognizers10is_numeralEPK4exprR8rationalRj(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
@@ -6035,7 +6035,7 @@ lpad21:                                           ; preds = %if.then2.i.i.i90, %
   br label %ehcleanup
 
 cleanup:                                          ; preds = %.noexc.i94, %invoke.cont, %land.lhs.true
-  %retval.0 = phi i1 [ false, %land.lhs.true ], [ false, %invoke.cont ], [ true, %.noexc.i94 ]
+  %retval.1 = phi i1 [ false, %land.lhs.true ], [ false, %invoke.cont ], [ true, %.noexc.i94 ]
   %53 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(16) %k)
           to label %.noexc.i98 unwind label %terminate.lpad.i97
@@ -6057,8 +6057,8 @@ ehcleanup:                                        ; preds = %lpad.i, %lpad.i47, 
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %.noexc.i98, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit20
-  %retval.1 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit20 ], [ %retval.0, %.noexc.i98 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit20 ], [ %retval.1, %.noexc.i98 ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0

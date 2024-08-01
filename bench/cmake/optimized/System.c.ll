@@ -41,7 +41,7 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nocap
   %.040108.i.ph = phi i32 [ %.141.i, %.loopexit ], [ 0, %11 ]
   %.042107.i.ph = phi i32 [ %.143.i, %.loopexit ], [ 0, %11 ]
   %.044106.i.ph = phi i32 [ %.145.i, %.loopexit ], [ 0, %11 ]
-  %.046105.i.ph = phi i32 [ %.147.i, %.loopexit ], [ 0, %11 ]
+  %.046105.i.ph = phi i32 [ %.2.i, %.loopexit ], [ 0, %11 ]
   %13 = icmp ne i32 %.040108.i.ph, 0
   %14 = icmp ne i32 %.042107.i.ph, 0
   %or.cond7.i = select i1 %14, i1 true, i1 %13
@@ -221,7 +221,7 @@ kwsysSystem__AppendByte.exit83.i:                 ; preds = %86, %72
   br label %.thread
 
 .loopexit:                                        ; preds = %50, %35, %70, %42, %39
-  %.147.i = phi i32 [ 0, %70 ], [ %spec.select.i, %39 ], [ %spec.select127.i, %42 ], [ %.046105.i, %35 ], [ 0, %50 ]
+  %.2.i = phi i32 [ 0, %70 ], [ %spec.select.i, %39 ], [ %spec.select127.i, %42 ], [ %.046105.i, %35 ], [ 0, %50 ]
   %.145.i = phi i32 [ 0, %70 ], [ 0, %39 ], [ 0, %42 ], [ 1, %35 ], [ 0, %50 ]
   %.143.i = phi i32 [ 0, %70 ], [ %spec.select126.i, %39 ], [ 0, %42 ], [ %.042107.i.ph, %35 ], [ %.042107.i.ph, %50 ]
   %.141.i = phi i32 [ 0, %70 ], [ 0, %39 ], [ %spec.select128.i, %42 ], [ %.040108.i.ph, %35 ], [ %.040108.i.ph, %50 ]
@@ -239,7 +239,7 @@ kwsysSystem__AppendByte.exit83.i:                 ; preds = %86, %72
   br i1 %.not.i8, label %.thread.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %.loopexit
-  %94 = icmp eq i32 %.147.i, 0
+  %94 = icmp eq i32 %.2.i, 0
   br i1 %94, label %.thread97.i, label %.thread.i
 
 .thread.thread.i:                                 ; preds = %70, %80, %60, %24

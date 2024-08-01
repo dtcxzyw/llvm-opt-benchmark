@@ -438,7 +438,7 @@ thread-pre-split:                                 ; preds = %41
   br label %133
 
 50:                                               ; preds = %36, %37, %._crit_edge, %28
-  %.2 = phi ptr [ null, %28 ], [ %.pre, %._crit_edge ], [ %.pre174, %37 ], [ %.pre174, %36 ]
+  %.0136 = phi ptr [ null, %28 ], [ %.pre, %._crit_edge ], [ %.pre174, %37 ], [ %.pre174, %36 ]
   %51 = load double, ptr %3, align 8
   %52 = call double @llvm.fabs.f64(double %51)
   %53 = fcmp ueq double %52, 0x7FF0000000000000
@@ -465,18 +465,18 @@ thread-pre-split:                                 ; preds = %41
   br label %133
 
 64:                                               ; preds = %57
-  %.not153 = icmp eq ptr %.2, null
+  %.not153 = icmp eq ptr %.0136, null
   br i1 %.not153, label %82, label %65
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds i8, ptr %.2, i64 16
+  %66 = getelementptr inbounds i8, ptr %.0136, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 28
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 268435456
   %71 = icmp ne i32 %70, 0
   call void @llvm.assume(i1 %71)
-  %72 = getelementptr inbounds i8, ptr %.2, i64 40
+  %72 = getelementptr inbounds i8, ptr %.0136, i64 40
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 24
   %75 = load i8, ptr %74, align 8
@@ -1398,8 +1398,8 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   br label %86
 
 86:                                               ; preds = %.lr.ph260, %._crit_edge
-  %.1258 = phi i64 [ 0, %.lr.ph260 ], [ %.4, %._crit_edge ]
-  %.0199257 = phi i32 [ 0, %.lr.ph260 ], [ %.3202, %._crit_edge ]
+  %.1258 = phi i64 [ 0, %.lr.ph260 ], [ %.3, %._crit_edge ]
+  %.0199257 = phi i32 [ 0, %.lr.ph260 ], [ %.2201, %._crit_edge ]
   %87 = load ptr, ptr %84, align 8
   %88 = call { i64, i64 } %87(ptr noundef %.sroa.3.0.copyload) #7
   %89 = extractvalue { i64, i64 } %88, 0
@@ -1445,9 +1445,9 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   br label %138
 
 104:                                              ; preds = %.lr.ph, %128
-  %.2252 = phi i64 [ %.1258, %.lr.ph ], [ %.3, %128 ]
+  %.2252 = phi i64 [ %.1258, %.lr.ph ], [ %.4, %128 ]
   %.0197251 = phi i64 [ 0, %.lr.ph ], [ %129, %128 ]
-  %.1200250 = phi i32 [ %.0199257, %.lr.ph ], [ %.2201, %128 ]
+  %.1200250 = phi i32 [ %.0199257, %.lr.ph ], [ %.3202, %128 ]
   %105 = shl i64 %.0197251, 3
   %106 = lshr i64 %89, %105
   %107 = and i64 %106, %82
@@ -1496,16 +1496,16 @@ define hidden void @zim_Random_Randomizer_getBytesFromString(ptr noundef %0, ptr
   br i1 %.not218, label %128, label %._crit_edge
 
 128:                                              ; preds = %123, %109
-  %.2201 = phi i32 [ %110, %109 ], [ 0, %123 ]
-  %.3 = phi i64 [ %.2252, %109 ], [ %126, %123 ]
+  %.3202 = phi i32 [ %110, %109 ], [ 0, %123 ]
+  %.4 = phi i64 [ %.2252, %109 ], [ %126, %123 ]
   %129 = add nuw i64 %.0197251, 1
   %exitcond.not = icmp eq i64 %129, %90
   br i1 %exitcond.not, label %._crit_edge, label %104
 
 ._crit_edge:                                      ; preds = %128, %123, %.preheader248
-  %.3202 = phi i32 [ %.0199257, %.preheader248 ], [ 0, %123 ], [ %.2201, %128 ]
-  %.4 = phi i64 [ %.1258, %.preheader248 ], [ %126, %123 ], [ %.3, %128 ]
-  %130 = icmp ult i64 %.4, %.pre267
+  %.2201 = phi i32 [ %.0199257, %.preheader248 ], [ 0, %123 ], [ %.3202, %128 ]
+  %.3 = phi i64 [ %.1258, %.preheader248 ], [ %126, %123 ], [ %.4, %128 ]
+  %130 = icmp ult i64 %.3, %.pre267
   br i1 %130, label %86, label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge, %67, %76, %.preheader

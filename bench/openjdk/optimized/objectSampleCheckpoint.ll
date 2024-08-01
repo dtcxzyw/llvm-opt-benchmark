@@ -308,7 +308,7 @@ define hidden noundef i32 @_ZN22ObjectSampleCheckpoint15save_mark_wordsEPK13Obje
   br i1 %.not1.i.i, label %_ZL15iterate_samplesI12SampleMarkerEvRT_b.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %_ZN12SampleMarker9sample_doEP12ObjectSample.exit
-  %.sroa.4.0 = phi i32 [ %.sroa.4.1, %_ZN12SampleMarker9sample_doEP12ObjectSample.exit ], [ 0, %9 ]
+  %.sroa.4.0 = phi i32 [ %.sroa.4.2, %_ZN12SampleMarker9sample_doEP12ObjectSample.exit ], [ 0, %9 ]
   %.02.i.i = phi ptr [ %47, %_ZN12SampleMarker9sample_doEP12ObjectSample.exit ], [ %12, %9 ]
   %13 = tail call noundef zeroext i1 @_ZNK12ObjectSample7is_deadEv(ptr noundef nonnull align 8 dereferenceable(117) %.02.i.i) #10
   br i1 %13, label %_ZN12SampleMarker9sample_doEP12ObjectSample.exit, label %_ZNK12ObjectSample23is_alive_and_older_thanEl.exit.i
@@ -365,13 +365,13 @@ _ZN18ObjectSampleMarker4markEP7oopDesc.exit.i:    ; preds = %30, %22
   br label %_ZN12SampleMarker9sample_doEP12ObjectSample.exit
 
 _ZN12SampleMarker9sample_doEP12ObjectSample.exit: ; preds = %.lr.ph.i.i, %_ZNK12ObjectSample23is_alive_and_older_thanEl.exit.i, %_ZN18ObjectSampleMarker4markEP7oopDesc.exit.i
-  %.sroa.4.1 = phi i32 [ %.sroa.4.0, %.lr.ph.i.i ], [ %46, %_ZN18ObjectSampleMarker4markEP7oopDesc.exit.i ], [ %.sroa.4.0, %_ZNK12ObjectSample23is_alive_and_older_thanEl.exit.i ]
+  %.sroa.4.2 = phi i32 [ %.sroa.4.0, %.lr.ph.i.i ], [ %46, %_ZN18ObjectSampleMarker4markEP7oopDesc.exit.i ], [ %.sroa.4.0, %_ZNK12ObjectSample23is_alive_and_older_thanEl.exit.i ]
   %47 = load ptr, ptr %.02.i.i, align 8
   %.not.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i, label %_ZL15iterate_samplesI12SampleMarkerEvRT_b.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 _ZL15iterate_samplesI12SampleMarkerEvRT_b.exit:   ; preds = %_ZN12SampleMarker9sample_doEP12ObjectSample.exit, %9, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %9 ], [ %.sroa.4.1, %_ZN12SampleMarker9sample_doEP12ObjectSample.exit ]
+  %.0 = phi i32 [ 0, %3 ], [ 0, %9 ], [ %.sroa.4.2, %_ZN12SampleMarker9sample_doEP12ObjectSample.exit ]
   ret i32 %.0
 }
 
@@ -695,15 +695,15 @@ _ZN12ObjectSample14set_stacktraceERK14RefCountHandleI15RefCountPointerI7JfrBlob2
   br i1 %.not.i16, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit19, label %_ZN12ObjectSample14set_stacktraceERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit.thread
 
 _ZN12ObjectSample14set_stacktraceERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit.thread: ; preds = %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i, %38, %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.i, %32, %_ZN12ObjectSample14set_stacktraceERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit
-  %.sroa.0.129 = phi ptr [ %49, %_ZN12ObjectSample14set_stacktraceERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit ], [ %31, %32 ], [ %31, %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.i ], [ %31, %38 ], [ %31, %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i ]
-  %91 = getelementptr inbounds i8, ptr %.sroa.0.129, i64 8
+  %.sroa.0.029 = phi ptr [ %49, %_ZN12ObjectSample14set_stacktraceERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit ], [ %31, %32 ], [ %31, %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEEC2ERKS4_.exit.i ], [ %31, %38 ], [ %31, %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i.i ]
+  %91 = getelementptr inbounds i8, ptr %.sroa.0.029, i64 8
   %92 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %91) #10, !srcloc !15
   %93 = icmp eq i64 %92, 1
   br i1 %93, label %94, label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit19
 
 94:                                               ; preds = %_ZN12ObjectSample14set_stacktraceERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit.thread
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
-  %95 = load ptr, ptr %.sroa.0.129, align 8
+  %95 = load ptr, ptr %.sroa.0.029, align 8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i18, label %97
 
@@ -713,7 +713,7 @@ _ZN12ObjectSample14set_stacktraceERK14RefCountHandleI15RefCountPointerI7JfrBlob2
   br label %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i18
 
 _ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i18: ; preds = %97, %94
-  call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.sroa.0.129, i64 noundef 16) #10
+  call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %.sroa.0.029, i64 noundef 16) #10
   br label %_ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit19
 
 _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.exit19: ; preds = %_ZN12ObjectSample14set_stacktraceERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit.thread, %_ZN15RefCountPointerI7JfrBlob23MultiThreadedRefCounterED2Ev.exit.i.i18, %_ZN12ObjectSample14set_stacktraceERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE.exit
@@ -1509,8 +1509,8 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEPhPKT_mSD_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEPhPKT_mSD_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEvPKT_m.exit
 

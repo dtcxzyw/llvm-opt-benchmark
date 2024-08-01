@@ -1708,12 +1708,12 @@ if.end31:                                         ; preds = %if.then24, %if.then
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @ohci_service_ed_list(ptr noundef %ohci, i32 noundef %head) unnamed_addr #0 {
 entry:
-  %_now.i.i201 = alloca %struct.timeval, align 8
-  %_now.i.i186 = alloca %struct.timeval, align 8
-  %_now.i.i172 = alloca %struct.timeval, align 8
-  %_now.i.i148 = alloca %struct.timeval, align 8
-  %_now.i.i134 = alloca %struct.timeval, align 8
-  %_now.i.i120 = alloca %struct.timeval, align 8
+  %_now.i.i200 = alloca %struct.timeval, align 8
+  %_now.i.i185 = alloca %struct.timeval, align 8
+  %_now.i.i171 = alloca %struct.timeval, align 8
+  %_now.i.i147 = alloca %struct.timeval, align 8
+  %_now.i.i133 = alloca %struct.timeval, align 8
+  %_now.i.i119 = alloca %struct.timeval, align 8
   %tmp.i.i = alloca i32, align 4
   %_now.i.i247.i = alloca %struct.timeval, align 8
   %_now.i.i233.i = alloca %struct.timeval, align 8
@@ -1767,8 +1767,8 @@ for.cond.preheader:                               ; preds = %entry
   %arrayidx39.i = getelementptr inbounds i8, ptr %iso_td.i, i64 30
   %tv_usec.i.i189.i = getelementptr inbounds i8, ptr %_now.i.i176.i, i64 8
   %tv_usec.i.i217.i = getelementptr inbounds i8, ptr %_now.i.i204.i, i64 8
-  %done.i104 = getelementptr inbounds i8, ptr %ohci, i64 560
-  %done_count.i105 = getelementptr inbounds i8, ptr %ohci, i64 564
+  %done.i103 = getelementptr inbounds i8, ptr %ohci, i64 560
+  %done_count.i104 = getelementptr inbounds i8, ptr %ohci, i64 564
   %async_complete.i = getelementptr inbounds i8, ptr %ohci, i64 10164
   %cbp.i = getelementptr inbounds i8, ptr %td.i, i64 4
   %be.i = getelementptr inbounds i8, ptr %td.i, i64 12
@@ -1778,15 +1778,15 @@ for.cond.preheader:                               ; preds = %entry
   %num_ports.i.i = getelementptr inbounds i8, ptr %ohci, i64 488
   %rhport.i.i = getelementptr inbounds i8, ptr %ohci, i64 600
   %status.i = getelementptr inbounds i8, ptr %ohci, i64 1916
-  %tv_usec.i.i161 = getelementptr inbounds i8, ptr %_now.i.i148, i64 8
+  %tv_usec.i.i160 = getelementptr inbounds i8, ptr %_now.i.i147, i64 8
   %actual_length.i = getelementptr inbounds i8, ptr %ohci, i64 1920
-  %tv_usec.i.i133 = getelementptr inbounds i8, ptr %_now.i.i120, i64 8
-  %tv_usec.i.i147 = getelementptr inbounds i8, ptr %_now.i.i134, i64 8
+  %tv_usec.i.i132 = getelementptr inbounds i8, ptr %_now.i.i119, i64 8
+  %tv_usec.i.i146 = getelementptr inbounds i8, ptr %_now.i.i133, i64 8
   %next.i = getelementptr inbounds i8, ptr %td.i, i64 8
   %tv_usec.i.i.i79 = getelementptr inbounds i8, ptr %_now.i.i.i52, i64 8
-  %tv_usec.i.i214 = getelementptr inbounds i8, ptr %_now.i.i201, i64 8
+  %tv_usec.i.i213 = getelementptr inbounds i8, ptr %_now.i.i200, i64 8
   %tv_usec.i.i246.i = getelementptr inbounds i8, ptr %_now.i.i233.i, i64 8
-  %tv_usec.i.i199 = getelementptr inbounds i8, ptr %_now.i.i186, i64 8
+  %tv_usec.i.i198 = getelementptr inbounds i8, ptr %_now.i.i185, i64 8
   %tv_usec.i.i260.i = getelementptr inbounds i8, ptr %_now.i.i247.i, i64 8
   %tv_usec.i.i203.i = getelementptr inbounds i8, ptr %_now.i.i190.i, i64 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
@@ -1794,19 +1794,19 @@ for.cond.preheader:                               ; preds = %entry
   %tv_usec.i.i128.i = getelementptr inbounds i8, ptr %_now.i.i115.i, i64 8
   %tv_usec.i.i172.i = getelementptr inbounds i8, ptr %_now.i.i159.i, i64 8
   %tv_usec.i.i158.i = getelementptr inbounds i8, ptr %_now.i.i145.i, i64 8
-  %tv_usec.i.i185 = getelementptr inbounds i8, ptr %_now.i.i172, i64 8
+  %tv_usec.i.i184 = getelementptr inbounds i8, ptr %_now.i.i171, i64 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %for.cond.preheader, %for.inc
-  %link_cnt.0321 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
-  %active.0320 = phi i32 [ 0, %for.cond.preheader ], [ %active.3, %for.inc ]
-  %cur.0319 = phi i32 [ %head, %for.cond.preheader ], [ %and, %for.inc ]
-  %inc = add nuw nsw i32 %link_cnt.0321, 1
-  %exitcond.not = icmp eq i32 %link_cnt.0321, 32
+  %link_cnt.0320 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %for.inc ]
+  %active.0319 = phi i32 [ 0, %for.cond.preheader ], [ %active.1, %for.inc ]
+  %cur.0318 = phi i32 [ %head, %for.cond.preheader ], [ %and, %for.inc ]
+  %inc = add nuw nsw i32 %link_cnt.0320, 1
+  %exitcond.not = icmp eq i32 %link_cnt.0320, 32
   br i1 %exitcond.not, label %return, label %for.body
 
 for.body:                                         ; preds = %land.rhs
-  %conv = zext i32 %cur.0319 to i64
+  %conv = zext i32 %cur.0318 to i64
   %0 = load i64, ptr %localmem_base.i.i, align 8
   %add.i.i = add i64 %0, %conv
   br label %for.body.i.i
@@ -1855,11 +1855,11 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %6 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %cur.0319) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %cur.0318) #8
   br label %trace_usb_ohci_ed_read_error.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %cur.0319) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.57, i32 noundef %cur.0318) #8
   br label %trace_usb_ohci_ed_read_error.exit
 
 trace_usb_ohci_ed_read_error.exit:                ; preds = %if.then3, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
@@ -1881,10 +1881,10 @@ lor.lhs.false:                                    ; preds = %if.end4
   br i1 %tobool9.not, label %while.cond.preheader, label %if.then10
 
 while.cond.preheader:                             ; preds = %lor.lhs.false
-  %and25315 = and i32 %9, -16
+  %and25314 = and i32 %9, -16
   %11 = load i32, ptr %tail, align 4
-  %cmp26.not316 = icmp eq i32 %and25315, %11
-  br i1 %cmp26.not316, label %while.end, label %while.body
+  %cmp26.not315 = icmp eq i32 %and25314, %11
+  br i1 %cmp26.not315, label %while.end, label %while.body
 
 if.then10:                                        ; preds = %lor.lhs.false, %if.end4
   %12 = load i32, ptr %async_td, align 16
@@ -1905,7 +1905,7 @@ if.then17:                                        ; preds = %if.then10
 
 while.body:                                       ; preds = %while.cond.preheader, %if.end78
   %15 = phi i32 [ %285, %if.end78 ], [ %11, %while.cond.preheader ]
-  %and25317 = phi i32 [ %and25, %if.end78 ], [ %and25315, %while.cond.preheader ]
+  %and25316 = phi i32 [ %and25, %if.end78 ], [ %and25314, %while.cond.preheader ]
   %16 = phi i32 [ %284, %if.end78 ], [ %9, %while.cond.preheader ]
   %and29 = and i32 %16, 1
   %and33 = lshr i32 %16, 1
@@ -1937,11 +1937,11 @@ if.then8.i.i28:                                   ; preds = %if.then.i.i25
   %call10.i.i30 = call i32 @qemu_get_thread_id() #8
   %22 = load i64, ptr %_now.i.i18, align 8
   %23 = load i64, ptr %tv_usec.i.i31, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i30, i64 noundef %22, i64 noundef %23, i32 noundef %cur.0319, i32 noundef %and29, i32 noundef %and33.lobit, i32 noundef %and25317, i32 noundef %and39, i32 noundef %and41) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.58, i32 noundef %call10.i.i30, i64 noundef %22, i64 noundef %23, i32 noundef %cur.0318, i32 noundef %and29, i32 noundef %and33.lobit, i32 noundef %and25316, i32 noundef %and39, i32 noundef %and41) #8
   br label %trace_usb_ohci_ed_pkt.exit
 
 if.else.i.i27:                                    ; preds = %if.then.i.i25
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %cur.0319, i32 noundef %and29, i32 noundef %and33.lobit, i32 noundef %and25317, i32 noundef %and39, i32 noundef %and41) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.59, i32 noundef %cur.0318, i32 noundef %and29, i32 noundef %and33.lobit, i32 noundef %and25316, i32 noundef %and39, i32 noundef %and41) #8
   br label %trace_usb_ohci_ed_pkt.exit
 
 trace_usb_ohci_ed_pkt.exit:                       ; preds = %while.body, %land.lhs.true5.i.i22, %if.then8.i.i28, %if.else.i.i27
@@ -2201,8 +2201,8 @@ if.then21.i:                                      ; preds = %sw.epilog17.i
 if.then28.i:                                      ; preds = %if.then21.i
   %and30.i = and i32 %60, 4095
   %and32.i = and i32 %59, 4095
-  %reass.sub323 = sub nsw i32 %and30.i, %and32.i
-  %sub.i = add nsw i32 %reass.sub323, 4097
+  %reass.sub322 = sub nsw i32 %and30.i, %and32.i
+  %sub.i = add nsw i32 %reass.sub322, 4097
   br label %if.end47.i
 
 if.else.i:                                        ; preds = %if.then21.i
@@ -2210,51 +2210,51 @@ if.else.i:                                        ; preds = %if.then21.i
   br i1 %cmp36.i, label %if.then38.i, label %if.end41.i
 
 if.then38.i:                                      ; preds = %if.else.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i172)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i171)
   %62 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i173 = icmp ne i32 %62, 0
+  %tobool.i.i172 = icmp ne i32 %62, 0
   %63 = load i16, ptr @_TRACE_USB_OHCI_ISO_TD_BAD_CC_OVERRUN_DSTATE, align 2
-  %tobool4.i.i174 = icmp ne i16 %63, 0
-  %or.cond.i.i175 = select i1 %tobool.i.i173, i1 %tobool4.i.i174, i1 false
-  br i1 %or.cond.i.i175, label %land.lhs.true5.i.i176, label %trace_usb_ohci_iso_td_bad_cc_overrun.exit
+  %tobool4.i.i173 = icmp ne i16 %63, 0
+  %or.cond.i.i174 = select i1 %tobool.i.i172, i1 %tobool4.i.i173, i1 false
+  br i1 %or.cond.i.i174, label %land.lhs.true5.i.i175, label %trace_usb_ohci_iso_td_bad_cc_overrun.exit
 
-land.lhs.true5.i.i176:                            ; preds = %if.then38.i
+land.lhs.true5.i.i175:                            ; preds = %if.then38.i
   %64 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i177 = and i32 %64, 32768
-  %cmp.i.not.i.i178 = icmp eq i32 %and.i.i.i177, 0
-  br i1 %cmp.i.not.i.i178, label %trace_usb_ohci_iso_td_bad_cc_overrun.exit, label %if.then.i.i179
+  %and.i.i.i176 = and i32 %64, 32768
+  %cmp.i.not.i.i177 = icmp eq i32 %and.i.i.i176, 0
+  br i1 %cmp.i.not.i.i177, label %trace_usb_ohci_iso_td_bad_cc_overrun.exit, label %if.then.i.i178
 
-if.then.i.i179:                                   ; preds = %land.lhs.true5.i.i176
+if.then.i.i178:                                   ; preds = %land.lhs.true5.i.i175
   %65 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i180 = trunc i8 %65 to i1
-  br i1 %tobool7.i.i180, label %if.then8.i.i182, label %if.else.i.i181
+  %tobool7.i.i179 = trunc i8 %65 to i1
+  br i1 %tobool7.i.i179, label %if.then8.i.i181, label %if.else.i.i180
 
-if.then8.i.i182:                                  ; preds = %if.then.i.i179
-  %call9.i.i183 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i172, ptr noundef null) #8
-  %call10.i.i184 = call i32 @qemu_get_thread_id() #8
-  %66 = load i64, ptr %_now.i.i172, align 8
-  %67 = load i64, ptr %tv_usec.i.i185, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i184, i64 noundef %66, i64 noundef %67, i32 noundef %59, i32 noundef %60) #8
+if.then8.i.i181:                                  ; preds = %if.then.i.i178
+  %call9.i.i182 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i171, ptr noundef null) #8
+  %call10.i.i183 = call i32 @qemu_get_thread_id() #8
+  %66 = load i64, ptr %_now.i.i171, align 8
+  %67 = load i64, ptr %tv_usec.i.i184, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i183, i64 noundef %66, i64 noundef %67, i32 noundef %59, i32 noundef %60) #8
   br label %trace_usb_ohci_iso_td_bad_cc_overrun.exit
 
-if.else.i.i181:                                   ; preds = %if.then.i.i179
+if.else.i.i180:                                   ; preds = %if.then.i.i178
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %59, i32 noundef %60) #8
   br label %trace_usb_ohci_iso_td_bad_cc_overrun.exit
 
-trace_usb_ohci_iso_td_bad_cc_overrun.exit:        ; preds = %if.then38.i, %land.lhs.true5.i.i176, %if.then8.i.i182, %if.else.i.i181
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i172)
+trace_usb_ohci_iso_td_bad_cc_overrun.exit:        ; preds = %if.then38.i, %land.lhs.true5.i.i175, %if.then8.i.i181, %if.else.i.i180
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i171)
   %68 = load ptr, ptr %ohci_die.i130.i, align 8
   call void %68(ptr noundef nonnull %ohci) #8
   br label %ohci_service_td.exit.thread
 
 if.end41.i:                                       ; preds = %if.else.i
-  %reass.sub324 = sub nuw i32 %60, %59
-  %add45.i = add nuw i32 %reass.sub324, 1
+  %reass.sub323 = sub nuw i32 %60, %59
+  %add45.i = add nuw i32 %reass.sub323, 1
   br label %if.end47.i
 
 if.end47.i:                                       ; preds = %if.end41.i, %if.then28.i
-  %len.0.in.i = phi i32 [ %sub.i, %if.then28.i ], [ %add45.i, %if.end41.i ]
-  %69 = call i32 @llvm.umin.i32(i32 %len.0.in.i, i32 8192)
+  %len.1.in.i = phi i32 [ %sub.i, %if.then28.i ], [ %add45.i, %if.end41.i ]
+  %69 = call i32 @llvm.umin.i32(i32 %len.1.in.i, i32 8192)
   %spec.store.select.i = zext nneg i32 %69 to i64
   %cmp54.not.i = icmp eq i32 %dir.0.i, 2
   br i1 %cmp54.not.i, label %if.end74.i, label %if.then56.i
@@ -2263,40 +2263,40 @@ if.then56.i:                                      ; preds = %if.end47.i
   %and58.i = lshr i32 %51, 16
   %shr59.i = and i32 %and58.i, 2047
   %conv60.i = zext nneg i32 %shr59.i to i64
-  %cmp61.i = icmp ult i32 %len.0.in.i, %shr59.i
+  %cmp61.i = icmp ult i32 %len.1.in.i, %shr59.i
   %spec.select.i = select i1 %cmp61.i, i64 %spec.store.select.i, i64 %conv60.i
   br i1 %cmp1.i, label %if.end74.i, label %if.then66.i
 
 if.then66.i:                                      ; preds = %if.then56.i
-  %conv.i163 = zext i32 %59 to i64
-  %and.i164 = and i64 %conv.i163, 4095
-  %sub.i165 = sub nuw nsw i64 4096, %and.i164
-  %spec.select.i166 = call i64 @llvm.umin.i64(i64 %sub.i165, i64 %spec.select.i)
+  %conv.i162 = zext i32 %59 to i64
+  %and.i163 = and i64 %conv.i162, 4095
+  %sub.i164 = sub nuw nsw i64 4096, %and.i163
+  %spec.select.i165 = call i64 @llvm.umin.i64(i64 %sub.i164, i64 %spec.select.i)
   %70 = load ptr, ptr %as.i.i, align 16
   %71 = load i64, ptr %localmem_base.i.i, align 8
-  %add.i167 = add i64 %71, %conv.i163
+  %add.i166 = add i64 %71, %conv.i162
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
-  %call.i.i.i = call i32 @address_space_rw(ptr noundef %70, i64 noundef %add.i167, i32 1, ptr noundef nonnull %usb_buf.i, i64 noundef %spec.select.i166, i1 noundef zeroext false) #8
+  %call.i.i.i = call i32 @address_space_rw(ptr noundef %70, i64 noundef %add.i166, i32 1, ptr noundef nonnull %usb_buf.i, i64 noundef %spec.select.i165, i1 noundef zeroext false) #8
   %tobool.not.i = icmp eq i32 %call.i.i.i, 0
   br i1 %tobool.not.i, label %if.end32.i, label %if.then70.i
 
 if.end32.i:                                       ; preds = %if.then66.i
-  %cmp34.not.i = icmp ult i64 %sub.i165, %spec.select.i
+  %cmp34.not.i = icmp ult i64 %sub.i164, %spec.select.i
   br i1 %cmp34.not.i, label %ohci_copy_td.exit, label %if.end74.i
 
 ohci_copy_td.exit:                                ; preds = %if.end32.i
   %72 = load i32, ptr %be.i, align 4
   %and38.i = and i32 %72, -4096
   %conv39.i = zext i32 %and38.i to i64
-  %add.ptr.i170 = getelementptr i8, ptr %usb_buf.i, i64 %spec.select.i166
+  %add.ptr.i169 = getelementptr i8, ptr %usb_buf.i, i64 %spec.select.i165
   %73 = load ptr, ptr %as.i.i, align 16
   %74 = load i64, ptr %localmem_base.i.i, align 8
   %add42.i = add i64 %74, %conv39.i
-  %sub44.i = sub nsw i64 %spec.select.i, %spec.select.i166
+  %sub44.i = sub nsw i64 %spec.select.i, %spec.select.i165
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
-  %call.i.i38.i = call i32 @address_space_rw(ptr noundef %73, i64 noundef %add42.i, i32 1, ptr noundef %add.ptr.i170, i64 noundef %sub44.i, i1 noundef zeroext false) #8
+  %call.i.i38.i = call i32 @address_space_rw(ptr noundef %73, i64 noundef %add42.i, i32 1, ptr noundef %add.ptr.i169, i64 noundef %sub44.i, i1 noundef zeroext false) #8
   %tobool78.not.i.not = icmp eq i32 %call.i.i38.i, 0
   br i1 %tobool78.not.i.not, label %if.end74.i, label %if.then70.i
 
@@ -2306,8 +2306,8 @@ if.then70.i:                                      ; preds = %if.then66.i, %ohci_
   br label %if.end74.i
 
 if.end74.i:                                       ; preds = %if.end32.i, %if.then70.i, %ohci_copy_td.exit, %if.then56.i, %if.end47.i, %sw.epilog17.i
-  %pktlen.1.i = phi i64 [ %spec.select.i, %if.then56.i ], [ %spec.select.i, %if.then70.i ], [ %spec.select.i, %ohci_copy_td.exit ], [ %spec.store.select.i, %if.end47.i ], [ 0, %sw.epilog17.i ], [ %spec.select.i, %if.end32.i ]
-  %len.1.i = phi i64 [ %spec.store.select.i, %if.then56.i ], [ %spec.store.select.i, %if.then70.i ], [ %spec.store.select.i, %ohci_copy_td.exit ], [ %spec.store.select.i, %if.end47.i ], [ 0, %sw.epilog17.i ], [ %spec.store.select.i, %if.end32.i ]
+  %pktlen.0.i = phi i64 [ %spec.select.i, %if.then56.i ], [ %spec.select.i, %if.then70.i ], [ %spec.select.i, %ohci_copy_td.exit ], [ %spec.store.select.i, %if.end47.i ], [ 0, %sw.epilog17.i ], [ %spec.select.i, %if.end32.i ]
+  %len.0.i = phi i64 [ %spec.store.select.i, %if.then56.i ], [ %spec.store.select.i, %if.then70.i ], [ %spec.store.select.i, %ohci_copy_td.exit ], [ %spec.store.select.i, %if.end47.i ], [ 0, %sw.epilog17.i ], [ %spec.store.select.i, %if.end32.i ]
   %76 = load i32, ptr %td.i, align 4
   %and76.i = and i32 %76, 262144
   %cmp77.i = icmp ne i32 %and76.i, 0
@@ -2338,16 +2338,16 @@ if.then8.i.i141.i:                                ; preds = %if.then.i.i138.i
   %call10.i.i143.i = call i32 @qemu_get_thread_id() #8
   %83 = load i64, ptr %_now.i.i131.i, align 8
   %84 = load i64, ptr %tv_usec.i.i144.i, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i143.i, i64 noundef %83, i64 noundef %84, i32 noundef %and.i, i64 noundef %pktlen.1.i, i64 noundef %len.1.i, ptr noundef nonnull %str.0.i, i32 noundef %and76.lobit.i, i32 noundef %77, i32 noundef %78) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.75, i32 noundef %call10.i.i143.i, i64 noundef %83, i64 noundef %84, i32 noundef %and.i, i64 noundef %pktlen.0.i, i64 noundef %len.0.i, ptr noundef nonnull %str.0.i, i32 noundef %and76.lobit.i, i32 noundef %77, i32 noundef %78) #8
   br label %trace_usb_ohci_td_pkt_hdr.exit.i
 
 if.else.i.i140.i:                                 ; preds = %if.then.i.i138.i
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %and.i, i64 noundef %pktlen.1.i, i64 noundef %len.1.i, ptr noundef nonnull %str.0.i, i32 noundef %and76.lobit.i, i32 noundef %77, i32 noundef %78) #8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.76, i32 noundef %and.i, i64 noundef %pktlen.0.i, i64 noundef %len.0.i, ptr noundef nonnull %str.0.i, i32 noundef %and76.lobit.i, i32 noundef %77, i32 noundef %78) #8
   br label %trace_usb_ohci_td_pkt_hdr.exit.i
 
 trace_usb_ohci_td_pkt_hdr.exit.i:                 ; preds = %if.else.i.i140.i, %if.then8.i.i141.i, %land.lhs.true5.i.i135.i, %if.end74.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i131.i)
-  call fastcc void @ohci_td_pkt(ptr noundef nonnull @.str.65, ptr noundef nonnull %usb_buf.i, i64 noundef %pktlen.1.i)
+  call fastcc void @ohci_td_pkt(ptr noundef nonnull @.str.65, ptr noundef nonnull %usb_buf.i, i64 noundef %pktlen.0.i)
   br i1 %cmp1.i, label %if.then84.i, label %if.else87.i
 
 if.then84.i:                                      ; preds = %trace_usb_ohci_td_pkt_hdr.exit.i
@@ -2479,42 +2479,42 @@ if.end105.i:                                      ; preds = %if.end96.i
   %107 = and i32 %106, 14680064
   %cmp111.i = icmp eq i32 %107, 0
   call void @usb_packet_setup(ptr noundef nonnull %usb_packet, i32 noundef %pid.0.i, ptr noundef %call100.i, i32 noundef 0, i64 noundef %conv5.i, i1 noundef zeroext %lnot.i, i1 noundef zeroext %cmp111.i) #8
-  call void @usb_packet_addbuf(ptr noundef nonnull %usb_packet, ptr noundef nonnull %usb_buf.i, i64 noundef %pktlen.1.i) #8
+  call void @usb_packet_addbuf(ptr noundef nonnull %usb_packet, ptr noundef nonnull %usb_buf.i, i64 noundef %pktlen.0.i) #8
   call void @usb_handle_packet(ptr noundef nonnull %call.i.i, ptr noundef nonnull %usb_packet) #8
   %108 = load i32, ptr %status.i, align 4
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i148)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i147)
   %109 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i149 = icmp ne i32 %109, 0
+  %tobool.i.i148 = icmp ne i32 %109, 0
   %110 = load i16, ptr @_TRACE_USB_OHCI_TD_PACKET_STATUS_DSTATE, align 2
-  %tobool4.i.i150 = icmp ne i16 %110, 0
-  %or.cond.i.i151 = select i1 %tobool.i.i149, i1 %tobool4.i.i150, i1 false
-  br i1 %or.cond.i.i151, label %land.lhs.true5.i.i152, label %trace_usb_ohci_td_packet_status.exit
+  %tobool4.i.i149 = icmp ne i16 %110, 0
+  %or.cond.i.i150 = select i1 %tobool.i.i148, i1 %tobool4.i.i149, i1 false
+  br i1 %or.cond.i.i150, label %land.lhs.true5.i.i151, label %trace_usb_ohci_td_packet_status.exit
 
-land.lhs.true5.i.i152:                            ; preds = %if.end105.i
+land.lhs.true5.i.i151:                            ; preds = %if.end105.i
   %111 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i153 = and i32 %111, 32768
-  %cmp.i.not.i.i154 = icmp eq i32 %and.i.i.i153, 0
-  br i1 %cmp.i.not.i.i154, label %trace_usb_ohci_td_packet_status.exit, label %if.then.i.i155
+  %and.i.i.i152 = and i32 %111, 32768
+  %cmp.i.not.i.i153 = icmp eq i32 %and.i.i.i152, 0
+  br i1 %cmp.i.not.i.i153, label %trace_usb_ohci_td_packet_status.exit, label %if.then.i.i154
 
-if.then.i.i155:                                   ; preds = %land.lhs.true5.i.i152
+if.then.i.i154:                                   ; preds = %land.lhs.true5.i.i151
   %112 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i156 = trunc i8 %112 to i1
-  br i1 %tobool7.i.i156, label %if.then8.i.i158, label %if.else.i.i157
+  %tobool7.i.i155 = trunc i8 %112 to i1
+  br i1 %tobool7.i.i155, label %if.then8.i.i157, label %if.else.i.i156
 
-if.then8.i.i158:                                  ; preds = %if.then.i.i155
-  %call9.i.i159 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i148, ptr noundef null) #8
-  %call10.i.i160 = call i32 @qemu_get_thread_id() #8
-  %113 = load i64, ptr %_now.i.i148, align 8
-  %114 = load i64, ptr %tv_usec.i.i161, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i160, i64 noundef %113, i64 noundef %114, i32 noundef %108) #8
+if.then8.i.i157:                                  ; preds = %if.then.i.i154
+  %call9.i.i158 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i147, ptr noundef null) #8
+  %call10.i.i159 = call i32 @qemu_get_thread_id() #8
+  %113 = load i64, ptr %_now.i.i147, align 8
+  %114 = load i64, ptr %tv_usec.i.i160, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i.i159, i64 noundef %113, i64 noundef %114, i32 noundef %108) #8
   br label %trace_usb_ohci_td_packet_status.exit
 
-if.else.i.i157:                                   ; preds = %if.then.i.i155
+if.else.i.i156:                                   ; preds = %if.then.i.i154
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.87, i32 noundef %108) #8
   br label %trace_usb_ohci_td_packet_status.exit
 
-trace_usb_ohci_td_packet_status.exit:             ; preds = %if.end105.i, %land.lhs.true5.i.i152, %if.then8.i.i158, %if.else.i.i157
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i148)
+trace_usb_ohci_td_packet_status.exit:             ; preds = %if.end105.i, %land.lhs.true5.i.i151, %if.then8.i.i157, %if.else.i.i156
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i147)
   %115 = load i32, ptr %status.i, align 4
   %cmp120.i = icmp eq i32 %115, -6
   br i1 %cmp120.i, label %if.then122.i, label %if.end125.i
@@ -2583,17 +2583,17 @@ if.then146.i:                                     ; preds = %ohci_copy_td.exit.i
   br label %if.end147.i
 
 if.end147.i:                                      ; preds = %if.then146.i, %ohci_copy_td.exit.i, %if.end32.i.i
-  call fastcc void @ohci_td_pkt(ptr noundef nonnull @.str.66, ptr noundef nonnull %usb_buf.i, i64 noundef %pktlen.1.i)
+  call fastcc void @ohci_td_pkt(ptr noundef nonnull @.str.66, ptr noundef nonnull %usb_buf.i, i64 noundef %pktlen.0.i)
   br label %if.end153.i
 
 if.else150.i:                                     ; preds = %if.then138.i
-  %conv151.i = trunc nuw nsw i64 %pktlen.1.i to i32
+  %conv151.i = trunc nuw nsw i64 %pktlen.0.i to i32
   br label %if.end153.i
 
 if.end153.i:                                      ; preds = %if.else150.i, %if.end147.i, %if.end135.i
   %ret.1.i = phi i32 [ %ret.0.i, %if.end147.i ], [ %conv151.i, %if.else150.i ], [ %ret.0.i, %if.end135.i ]
   %conv154.i = sext i32 %ret.1.i to i64
-  %cmp155.i = icmp eq i64 %pktlen.1.i, %conv154.i
+  %cmp155.i = icmp eq i64 %pktlen.0.i, %conv154.i
   br i1 %cmp155.i, label %if.then164.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end153.i
@@ -2604,7 +2604,7 @@ lor.lhs.false.i:                                  ; preds = %if.end153.i
   br i1 %or.cond3.i, label %if.then164.i, label %if.else218.i
 
 if.then164.i:                                     ; preds = %lor.lhs.false.i, %if.end153.i
-  %cmp166.i = icmp eq i64 %len.1.i, %conv154.i
+  %cmp166.i = icmp eq i64 %len.0.i, %conv154.i
   br i1 %cmp166.i, label %if.end188.thread.i, label %if.else170.i
 
 if.end188.thread.i:                               ; preds = %if.then164.i
@@ -2657,39 +2657,39 @@ if.else218.i:                                     ; preds = %lor.lhs.false.i
   br i1 %cmp160.i, label %if.then221.i, label %if.else228.i
 
 if.then221.i:                                     ; preds = %if.else218.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i134)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i133)
   %132 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i135 = icmp ne i32 %132, 0
+  %tobool.i.i134 = icmp ne i32 %132, 0
   %133 = load i16, ptr @_TRACE_USB_OHCI_TD_UNDERRUN_DSTATE, align 2
-  %tobool4.i.i136 = icmp ne i16 %133, 0
-  %or.cond.i.i137 = select i1 %tobool.i.i135, i1 %tobool4.i.i136, i1 false
-  br i1 %or.cond.i.i137, label %land.lhs.true5.i.i138, label %trace_usb_ohci_td_underrun.exit
+  %tobool4.i.i135 = icmp ne i16 %133, 0
+  %or.cond.i.i136 = select i1 %tobool.i.i134, i1 %tobool4.i.i135, i1 false
+  br i1 %or.cond.i.i136, label %land.lhs.true5.i.i137, label %trace_usb_ohci_td_underrun.exit
 
-land.lhs.true5.i.i138:                            ; preds = %if.then221.i
+land.lhs.true5.i.i137:                            ; preds = %if.then221.i
   %134 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i139 = and i32 %134, 32768
-  %cmp.i.not.i.i140 = icmp eq i32 %and.i.i.i139, 0
-  br i1 %cmp.i.not.i.i140, label %trace_usb_ohci_td_underrun.exit, label %if.then.i.i141
+  %and.i.i.i138 = and i32 %134, 32768
+  %cmp.i.not.i.i139 = icmp eq i32 %and.i.i.i138, 0
+  br i1 %cmp.i.not.i.i139, label %trace_usb_ohci_td_underrun.exit, label %if.then.i.i140
 
-if.then.i.i141:                                   ; preds = %land.lhs.true5.i.i138
+if.then.i.i140:                                   ; preds = %land.lhs.true5.i.i137
   %135 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i142 = trunc i8 %135 to i1
-  br i1 %tobool7.i.i142, label %if.then8.i.i144, label %if.else.i.i143
+  %tobool7.i.i141 = trunc i8 %135 to i1
+  br i1 %tobool7.i.i141, label %if.then8.i.i143, label %if.else.i.i142
 
-if.then8.i.i144:                                  ; preds = %if.then.i.i141
-  %call9.i.i145 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i134, ptr noundef null) #8
-  %call10.i.i146 = call i32 @qemu_get_thread_id() #8
-  %136 = load i64, ptr %_now.i.i134, align 8
-  %137 = load i64, ptr %tv_usec.i.i147, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i.i146, i64 noundef %136, i64 noundef %137) #8
+if.then8.i.i143:                                  ; preds = %if.then.i.i140
+  %call9.i.i144 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i133, ptr noundef null) #8
+  %call10.i.i145 = call i32 @qemu_get_thread_id() #8
+  %136 = load i64, ptr %_now.i.i133, align 8
+  %137 = load i64, ptr %tv_usec.i.i146, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i.i145, i64 noundef %136, i64 noundef %137) #8
   br label %trace_usb_ohci_td_underrun.exit
 
-if.else.i.i143:                                   ; preds = %if.then.i.i141
+if.else.i.i142:                                   ; preds = %if.then.i.i140
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.89) #8
   br label %trace_usb_ohci_td_underrun.exit
 
-trace_usb_ohci_td_underrun.exit:                  ; preds = %if.then221.i, %land.lhs.true5.i.i138, %if.then8.i.i144, %if.else.i.i143
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i134)
+trace_usb_ohci_td_underrun.exit:                  ; preds = %if.then221.i, %land.lhs.true5.i.i137, %if.then8.i.i143, %if.else.i.i142
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i133)
   %138 = load i32, ptr %td.i, align 4
   %and224.i = and i32 %138, 268435455
   %or226.i = or disjoint i32 %and224.i, -1879048192
@@ -2706,39 +2706,39 @@ if.else228.i:                                     ; preds = %if.else218.i
   ]
 
 sw.bb229.i:                                       ; preds = %if.else228.i, %if.else228.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i120)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i119)
   %139 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i121 = icmp ne i32 %139, 0
+  %tobool.i.i120 = icmp ne i32 %139, 0
   %140 = load i16, ptr @_TRACE_USB_OHCI_TD_DEV_ERROR_DSTATE, align 2
-  %tobool4.i.i122 = icmp ne i16 %140, 0
-  %or.cond.i.i123 = select i1 %tobool.i.i121, i1 %tobool4.i.i122, i1 false
-  br i1 %or.cond.i.i123, label %land.lhs.true5.i.i124, label %trace_usb_ohci_td_dev_error.exit
+  %tobool4.i.i121 = icmp ne i16 %140, 0
+  %or.cond.i.i122 = select i1 %tobool.i.i120, i1 %tobool4.i.i121, i1 false
+  br i1 %or.cond.i.i122, label %land.lhs.true5.i.i123, label %trace_usb_ohci_td_dev_error.exit
 
-land.lhs.true5.i.i124:                            ; preds = %sw.bb229.i
+land.lhs.true5.i.i123:                            ; preds = %sw.bb229.i
   %141 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i125 = and i32 %141, 32768
-  %cmp.i.not.i.i126 = icmp eq i32 %and.i.i.i125, 0
-  br i1 %cmp.i.not.i.i126, label %trace_usb_ohci_td_dev_error.exit, label %if.then.i.i127
+  %and.i.i.i124 = and i32 %141, 32768
+  %cmp.i.not.i.i125 = icmp eq i32 %and.i.i.i124, 0
+  br i1 %cmp.i.not.i.i125, label %trace_usb_ohci_td_dev_error.exit, label %if.then.i.i126
 
-if.then.i.i127:                                   ; preds = %land.lhs.true5.i.i124
+if.then.i.i126:                                   ; preds = %land.lhs.true5.i.i123
   %142 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i128 = trunc i8 %142 to i1
-  br i1 %tobool7.i.i128, label %if.then8.i.i130, label %if.else.i.i129
+  %tobool7.i.i127 = trunc i8 %142 to i1
+  br i1 %tobool7.i.i127, label %if.then8.i.i129, label %if.else.i.i128
 
-if.then8.i.i130:                                  ; preds = %if.then.i.i127
-  %call9.i.i131 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i120, ptr noundef null) #8
-  %call10.i.i132 = call i32 @qemu_get_thread_id() #8
-  %143 = load i64, ptr %_now.i.i120, align 8
-  %144 = load i64, ptr %tv_usec.i.i133, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i132, i64 noundef %143, i64 noundef %144) #8
+if.then8.i.i129:                                  ; preds = %if.then.i.i126
+  %call9.i.i130 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i119, ptr noundef null) #8
+  %call10.i.i131 = call i32 @qemu_get_thread_id() #8
+  %143 = load i64, ptr %_now.i.i119, align 8
+  %144 = load i64, ptr %tv_usec.i.i132, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.82, i32 noundef %call10.i.i131, i64 noundef %143, i64 noundef %144) #8
   br label %trace_usb_ohci_td_dev_error.exit
 
-if.else.i.i129:                                   ; preds = %if.then.i.i127
+if.else.i.i128:                                   ; preds = %if.then.i.i126
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.83) #8
   br label %trace_usb_ohci_td_dev_error.exit
 
-trace_usb_ohci_td_dev_error.exit:                 ; preds = %sw.bb229.i, %land.lhs.true5.i.i124, %if.then8.i.i130, %if.else.i.i129
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i120)
+trace_usb_ohci_td_dev_error.exit:                 ; preds = %sw.bb229.i, %land.lhs.true5.i.i123, %if.then8.i.i129, %if.else.i.i128
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i119)
   %145 = load i32, ptr %td.i, align 4
   %and232.i = and i32 %145, 268435455
   %or234.i = or disjoint i32 %and232.i, 1342177280
@@ -2775,7 +2775,7 @@ sw.default251.i:                                  ; preds = %if.else228.i
 
 sw.epilog264.i:                                   ; preds = %sw.default251.i, %sw.bb244.i, %sw.bb237.i, %trace_usb_ohci_td_dev_error.exit
   %149 = phi i32 [ %or262.i, %sw.default251.i ], [ %or249.i, %sw.bb244.i ], [ %or242.i, %sw.bb237.i ], [ %or234.i, %trace_usb_ohci_td_dev_error.exit ]
-  store i32 0, ptr %done_count.i105, align 4
+  store i32 0, ptr %done_count.i104, align 4
   br label %if.end265.i
 
 if.end265.i:                                      ; preds = %sw.epilog264.i, %trace_usb_ohci_td_underrun.exit
@@ -2792,17 +2792,17 @@ if.end268.i:                                      ; preds = %if.end265.i, %if.en
   %and271.i = and i32 %154, -16
   %or273.i = or disjoint i32 %and271.i, %and270.i
   store i32 %or273.i, ptr %head5, align 4
-  %155 = load i32, ptr %done.i104, align 16
+  %155 = load i32, ptr %done.i103, align 16
   store i32 %155, ptr %next.i, align 4
-  store i32 %and.i, ptr %done.i104, align 16
+  store i32 %and.i, ptr %done.i103, align 16
   %and277.i = lshr i32 %152, 21
   %shr278.i = and i32 %and277.i, 7
-  %156 = load i32, ptr %done_count.i105, align 4
+  %156 = load i32, ptr %done_count.i104, align 4
   %cmp280.i = icmp slt i32 %shr278.i, %156
   br i1 %cmp280.i, label %if.then282.i, label %exit_no_retire.i
 
 if.then282.i:                                     ; preds = %if.end268.i
-  store i32 %shr278.i, ptr %done_count.i105, align 4
+  store i32 %shr278.i, ptr %done_count.i104, align 4
   br label %exit_no_retire.i
 
 exit_no_retire.i:                                 ; preds = %if.then282.i, %if.end268.i, %if.end188.i
@@ -2854,9 +2854,9 @@ if.else:                                          ; preds = %trace_usb_ohci_ed_p
   %162 = load i32, ptr %head5, align 4
   %and.i54 = and i32 %162, -16
   %cmp.i55 = icmp eq i32 %and.i54, 0
-  br i1 %cmp.i55, label %if.then.i110, label %if.end.i56
+  br i1 %cmp.i55, label %if.then.i109, label %if.end.i56
 
-if.then.i110:                                     ; preds = %if.else
+if.then.i109:                                     ; preds = %if.else
   %163 = load ptr, ptr %ohci_die.i130.i, align 8
   call void %163(ptr noundef nonnull %ohci) #8
   br label %ohci_service_iso_td.exit.thread
@@ -3138,17 +3138,17 @@ do.body.i:                                        ; preds = %trace_usb_ohci_iso_
   %and64.i = and i32 %217, -16
   %or66.i = or disjoint i32 %and64.i, %and62.i
   store i32 %or66.i, ptr %head5, align 4
-  %218 = load i32, ptr %done.i104, align 16
+  %218 = load i32, ptr %done.i103, align 16
   store i32 %218, ptr %next.i86, align 4
-  store i32 %and.i54, ptr %done.i104, align 16
+  store i32 %and.i54, ptr %done.i103, align 16
   %and70.i = lshr i32 %215, 21
   %shr71.i = and i32 %and70.i, 7
-  %219 = load i32, ptr %done_count.i105, align 4
+  %219 = load i32, ptr %done_count.i104, align 4
   %cmp72.i = icmp slt i32 %shr71.i, %219
   br i1 %cmp72.i, label %if.then74.i, label %if.end76.i
 
 if.then74.i:                                      ; preds = %do.body.i
-  store i32 %shr71.i, ptr %done_count.i105, align 4
+  store i32 %shr71.i, ptr %done_count.i104, align 4
   br label %if.end76.i
 
 if.end76.i:                                       ; preds = %if.then74.i, %do.body.i
@@ -3157,23 +3157,23 @@ if.end76.i:                                       ; preds = %if.then74.i, %do.bo
   %add.i.i219.i = add i64 %220, %conv.i
   br label %for.body.i.i221.i
 
-for.body.i.i221.i:                                ; preds = %for.inc.i.i.i109, %if.end76.i
-  %i.019.i.i.i106 = phi i32 [ 0, %if.end76.i ], [ %inc.i.i225.i, %for.inc.i.i.i109 ]
-  %buf.addr.018.i.i.i107 = phi ptr [ %iso_td.i, %if.end76.i ], [ %incdec.ptr.i.i226.i, %for.inc.i.i.i109 ]
-  %addr.addr.017.i.i.i108 = phi i64 [ %add.i.i219.i, %if.end76.i ], [ %add29.i.i227.i, %for.inc.i.i.i109 ]
-  %221 = load i32, ptr %buf.addr.018.i.i.i107, align 4
+for.body.i.i221.i:                                ; preds = %for.inc.i.i.i108, %if.end76.i
+  %i.019.i.i.i105 = phi i32 [ 0, %if.end76.i ], [ %inc.i.i225.i, %for.inc.i.i.i108 ]
+  %buf.addr.018.i.i.i106 = phi ptr [ %iso_td.i, %if.end76.i ], [ %incdec.ptr.i.i226.i, %for.inc.i.i.i108 ]
+  %addr.addr.017.i.i.i107 = phi i64 [ %add.i.i219.i, %if.end76.i ], [ %add29.i.i227.i, %for.inc.i.i.i108 ]
+  %221 = load i32, ptr %buf.addr.018.i.i.i106, align 4
   store i32 %221, ptr %tmp.i.i.i51, align 4
   %222 = load ptr, ptr %as.i.i, align 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i222.i = call i32 @address_space_rw(ptr noundef %222, i64 noundef %addr.addr.017.i.i.i108, i32 1, ptr noundef nonnull %tmp.i.i.i51, i64 noundef 4, i1 noundef zeroext true) #8
+  %call.i.i.i.i.i222.i = call i32 @address_space_rw(ptr noundef %222, i64 noundef %addr.addr.017.i.i.i107, i32 1, ptr noundef nonnull %tmp.i.i.i51, i64 noundef 4, i1 noundef zeroext true) #8
   %tobool.not.i.i223.i = icmp eq i32 %call.i.i.i.i.i222.i, 0
-  br i1 %tobool.not.i.i223.i, label %for.inc.i.i.i109, label %ohci_put_iso_td.exit.thread.i
+  br i1 %tobool.not.i.i223.i, label %for.inc.i.i.i108, label %ohci_put_iso_td.exit.thread.i
 
-for.inc.i.i.i109:                                 ; preds = %for.body.i.i221.i
-  %inc.i.i225.i = add nuw nsw i32 %i.019.i.i.i106, 1
-  %incdec.ptr.i.i226.i = getelementptr i8, ptr %buf.addr.018.i.i.i107, i64 4
-  %add29.i.i227.i = add i64 %addr.addr.017.i.i.i108, 4
+for.inc.i.i.i108:                                 ; preds = %for.body.i.i221.i
+  %inc.i.i225.i = add nuw nsw i32 %i.019.i.i.i105, 1
+  %incdec.ptr.i.i226.i = getelementptr i8, ptr %buf.addr.018.i.i.i106, i64 4
+  %add29.i.i227.i = add i64 %addr.addr.017.i.i.i107, 4
   %exitcond.not.i.i228.i = icmp eq i32 %inc.i.i225.i, 4
   br i1 %exitcond.not.i.i228.i, label %lor.rhs.i229.i, label %for.body.i.i221.i, !llvm.loop !14
 
@@ -3181,7 +3181,7 @@ ohci_put_iso_td.exit.thread.i:                    ; preds = %for.body.i.i221.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i.i51)
   br label %if.then80.i
 
-lor.rhs.i229.i:                                   ; preds = %for.inc.i.i.i109
+lor.rhs.i229.i:                                   ; preds = %for.inc.i.i.i108
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i.i51)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %tmp.i4.i.i)
   %223 = load i64, ptr %localmem_base.i.i, align 8
@@ -3235,39 +3235,39 @@ sw.bb88.i:                                        ; preds = %if.end83.i
   br label %sw.epilog.i
 
 sw.default.i:                                     ; preds = %if.end83.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i201)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i200)
   %228 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i202 = icmp ne i32 %228, 0
+  %tobool.i.i201 = icmp ne i32 %228, 0
   %229 = load i16, ptr @_TRACE_USB_OHCI_ISO_TD_BAD_DIRECTION_DSTATE, align 2
-  %tobool4.i.i203 = icmp ne i16 %229, 0
-  %or.cond.i.i204 = select i1 %tobool.i.i202, i1 %tobool4.i.i203, i1 false
-  br i1 %or.cond.i.i204, label %land.lhs.true5.i.i205, label %trace_usb_ohci_iso_td_bad_direction.exit
+  %tobool4.i.i202 = icmp ne i16 %229, 0
+  %or.cond.i.i203 = select i1 %tobool.i.i201, i1 %tobool4.i.i202, i1 false
+  br i1 %or.cond.i.i203, label %land.lhs.true5.i.i204, label %trace_usb_ohci_iso_td_bad_direction.exit
 
-land.lhs.true5.i.i205:                            ; preds = %sw.default.i
+land.lhs.true5.i.i204:                            ; preds = %sw.default.i
   %230 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i206 = and i32 %230, 32768
-  %cmp.i.not.i.i207 = icmp eq i32 %and.i.i.i206, 0
-  br i1 %cmp.i.not.i.i207, label %trace_usb_ohci_iso_td_bad_direction.exit, label %if.then.i.i208
+  %and.i.i.i205 = and i32 %230, 32768
+  %cmp.i.not.i.i206 = icmp eq i32 %and.i.i.i205, 0
+  br i1 %cmp.i.not.i.i206, label %trace_usb_ohci_iso_td_bad_direction.exit, label %if.then.i.i207
 
-if.then.i.i208:                                   ; preds = %land.lhs.true5.i.i205
+if.then.i.i207:                                   ; preds = %land.lhs.true5.i.i204
   %231 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i209 = trunc i8 %231 to i1
-  br i1 %tobool7.i.i209, label %if.then8.i.i211, label %if.else.i.i210
+  %tobool7.i.i208 = trunc i8 %231 to i1
+  br i1 %tobool7.i.i208, label %if.then8.i.i210, label %if.else.i.i209
 
-if.then8.i.i211:                                  ; preds = %if.then.i.i208
-  %call9.i.i212 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i201, ptr noundef null) #8
-  %call10.i.i213 = call i32 @qemu_get_thread_id() #8
-  %232 = load i64, ptr %_now.i.i201, align 8
-  %233 = load i64, ptr %tv_usec.i.i214, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, i32 noundef %call10.i.i213, i64 noundef %232, i64 noundef %233, i32 noundef 3) #8
+if.then8.i.i210:                                  ; preds = %if.then.i.i207
+  %call9.i.i211 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i200, ptr noundef null) #8
+  %call10.i.i212 = call i32 @qemu_get_thread_id() #8
+  %232 = load i64, ptr %_now.i.i200, align 8
+  %233 = load i64, ptr %tv_usec.i.i213, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.108, i32 noundef %call10.i.i212, i64 noundef %232, i64 noundef %233, i32 noundef 3) #8
   br label %trace_usb_ohci_iso_td_bad_direction.exit
 
-if.else.i.i210:                                   ; preds = %if.then.i.i208
+if.else.i.i209:                                   ; preds = %if.then.i.i207
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.109, i32 noundef 3) #8
   br label %trace_usb_ohci_iso_td_bad_direction.exit
 
-trace_usb_ohci_iso_td_bad_direction.exit:         ; preds = %sw.default.i, %land.lhs.true5.i.i205, %if.then8.i.i211, %if.else.i.i210
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i201)
+trace_usb_ohci_iso_td_bad_direction.exit:         ; preds = %sw.default.i, %land.lhs.true5.i.i204, %if.then8.i.i210, %if.else.i.i209
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i200)
   br label %ohci_service_iso_td.exit.thread
 
 sw.epilog.i:                                      ; preds = %sw.bb88.i, %sw.bb87.i, %if.end83.i
@@ -3322,9 +3322,9 @@ if.end96.i92:                                     ; preds = %sw.epilog.i
   %242 = load i16, ptr %arrayidx98.i, align 2
   %conv99.i = zext i16 %242 to i32
   %cmp101.i = icmp sgt i32 %shr7.i, %conv18.i
-  br i1 %cmp101.i, label %if.then103.i102, label %if.end111.i
+  br i1 %cmp101.i, label %if.then103.i101, label %if.end111.i
 
-if.then103.i102:                                  ; preds = %if.end96.i92
+if.then103.i101:                                  ; preds = %if.end96.i92
   %add.i = add nuw nsw i32 %conv18.i, 1
   %idxprom106.i = zext nneg i32 %add.i to i64
   %arrayidx107.i = getelementptr [8 x i16], ptr %offset.i.i, i64 0, i64 %idxprom106.i
@@ -3332,8 +3332,8 @@ if.then103.i102:                                  ; preds = %if.end96.i92
   %conv108.i = zext i16 %243 to i32
   br label %if.end111.i
 
-if.end111.i:                                      ; preds = %if.then103.i102, %if.end96.i92
-  %next_offset.0.i = phi i32 [ %conv108.i, %if.then103.i102 ], [ %235, %if.end96.i92 ]
+if.end111.i:                                      ; preds = %if.then103.i101, %if.end96.i92
+  %next_offset.0.i = phi i32 [ %conv108.i, %if.then103.i101 ], [ %235, %if.end96.i92 ]
   %tobool115.not.i = icmp ult i16 %242, 8192
   br i1 %tobool115.not.i, label %if.then124.i, label %lor.lhs.false116.i
 
@@ -3385,39 +3385,39 @@ if.end125.i93:                                    ; preds = %lor.lhs.false116.i
   br i1 %or.cond158.i, label %if.then132.i, label %if.end133.i
 
 if.then132.i:                                     ; preds = %if.end125.i93
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i186)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i185)
   %251 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i187 = icmp ne i32 %251, 0
+  %tobool.i.i186 = icmp ne i32 %251, 0
   %252 = load i16, ptr @_TRACE_USB_OHCI_ISO_TD_BAD_CC_OVERRUN_DSTATE, align 2
-  %tobool4.i.i188 = icmp ne i16 %252, 0
-  %or.cond.i.i189 = select i1 %tobool.i.i187, i1 %tobool4.i.i188, i1 false
-  br i1 %or.cond.i.i189, label %land.lhs.true5.i.i190, label %trace_usb_ohci_iso_td_bad_cc_overrun.exit200
+  %tobool4.i.i187 = icmp ne i16 %252, 0
+  %or.cond.i.i188 = select i1 %tobool.i.i186, i1 %tobool4.i.i187, i1 false
+  br i1 %or.cond.i.i188, label %land.lhs.true5.i.i189, label %trace_usb_ohci_iso_td_bad_cc_overrun.exit199
 
-land.lhs.true5.i.i190:                            ; preds = %if.then132.i
+land.lhs.true5.i.i189:                            ; preds = %if.then132.i
   %253 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i191 = and i32 %253, 32768
-  %cmp.i.not.i.i192 = icmp eq i32 %and.i.i.i191, 0
-  br i1 %cmp.i.not.i.i192, label %trace_usb_ohci_iso_td_bad_cc_overrun.exit200, label %if.then.i.i193
+  %and.i.i.i190 = and i32 %253, 32768
+  %cmp.i.not.i.i191 = icmp eq i32 %and.i.i.i190, 0
+  br i1 %cmp.i.not.i.i191, label %trace_usb_ohci_iso_td_bad_cc_overrun.exit199, label %if.then.i.i192
 
-if.then.i.i193:                                   ; preds = %land.lhs.true5.i.i190
+if.then.i.i192:                                   ; preds = %land.lhs.true5.i.i189
   %254 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i194 = trunc i8 %254 to i1
-  br i1 %tobool7.i.i194, label %if.then8.i.i196, label %if.else.i.i195
+  %tobool7.i.i193 = trunc i8 %254 to i1
+  br i1 %tobool7.i.i193, label %if.then8.i.i195, label %if.else.i.i194
 
-if.then8.i.i196:                                  ; preds = %if.then.i.i193
-  %call9.i.i197 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i186, ptr noundef null) #8
-  %call10.i.i198 = call i32 @qemu_get_thread_id() #8
-  %255 = load i64, ptr %_now.i.i186, align 8
-  %256 = load i64, ptr %tv_usec.i.i199, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i198, i64 noundef %255, i64 noundef %256, i32 noundef %conv99.i, i32 noundef %next_offset.0.i) #8
-  br label %trace_usb_ohci_iso_td_bad_cc_overrun.exit200
+if.then8.i.i195:                                  ; preds = %if.then.i.i192
+  %call9.i.i196 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i185, ptr noundef null) #8
+  %call10.i.i197 = call i32 @qemu_get_thread_id() #8
+  %255 = load i64, ptr %_now.i.i185, align 8
+  %256 = load i64, ptr %tv_usec.i.i198, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.73, i32 noundef %call10.i.i197, i64 noundef %255, i64 noundef %256, i32 noundef %conv99.i, i32 noundef %next_offset.0.i) #8
+  br label %trace_usb_ohci_iso_td_bad_cc_overrun.exit199
 
-if.else.i.i195:                                   ; preds = %if.then.i.i193
+if.else.i.i194:                                   ; preds = %if.then.i.i192
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.74, i32 noundef %conv99.i, i32 noundef %next_offset.0.i) #8
-  br label %trace_usb_ohci_iso_td_bad_cc_overrun.exit200
+  br label %trace_usb_ohci_iso_td_bad_cc_overrun.exit199
 
-trace_usb_ohci_iso_td_bad_cc_overrun.exit200:     ; preds = %if.then132.i, %land.lhs.true5.i.i190, %if.then8.i.i196, %if.else.i.i195
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i186)
+trace_usb_ohci_iso_td_bad_cc_overrun.exit199:     ; preds = %if.then132.i, %land.lhs.true5.i.i189, %if.then8.i.i195, %if.else.i.i194
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i185)
   br label %ohci_service_iso_td.exit.thread
 
 if.end133.i:                                      ; preds = %if.end125.i93
@@ -3468,15 +3468,15 @@ if.then177.i:                                     ; preds = %if.end172.i
   br label %if.end187.i
 
 if.else183.i:                                     ; preds = %if.end172.i
-  %reass.sub322 = sub i32 %end_addr.0.i, %or146.i
-  %add185.i = add i32 %reass.sub322, 1
+  %reass.sub321 = sub i32 %end_addr.0.i, %or146.i
+  %add185.i = add i32 %reass.sub321, 1
   br label %if.end187.i
 
 if.end187.i:                                      ; preds = %if.else183.i, %if.then177.i
-  %len.0.in.i96 = phi i32 [ %sub181.i, %if.then177.i ], [ %add185.i, %if.else183.i ]
-  %258 = call i32 @llvm.umin.i32(i32 %len.0.in.i96, i32 8192)
-  %spec.store.select.i97 = zext nneg i32 %258 to i64
-  %tobool192.i = icmp ne i32 %len.0.in.i96, 0
+  %len.0.in.i = phi i32 [ %sub181.i, %if.then177.i ], [ %add185.i, %if.else183.i ]
+  %258 = call i32 @llvm.umin.i32(i32 %len.0.in.i, i32 8192)
+  %spec.store.select.i96 = zext nneg i32 %258 to i64
+  %tobool192.i = icmp ne i32 %len.0.in.i, 0
   %cmp194.i = icmp ne i32 %shr86.i, 2
   %or.cond1.i = and i1 %cmp194.i, %tobool192.i
   br i1 %or.cond1.i, label %if.then196.i, label %if.end202.i
@@ -3487,7 +3487,7 @@ if.then196.i:                                     ; preds = %if.end187.i
   br i1 %tobool199.not.i, label %if.then196.if.end202_crit_edge.i, label %if.then200.i
 
 if.then196.if.end202_crit_edge.i:                 ; preds = %if.then196.i
-  %.pre.i101 = load i32, ptr %ed, align 4
+  %.pre.i100 = load i32, ptr %ed, align 4
   br label %if.end202.i
 
 if.then200.i:                                     ; preds = %if.then196.i
@@ -3496,7 +3496,7 @@ if.then200.i:                                     ; preds = %if.then196.i
   br label %ohci_service_iso_td.exit.thread
 
 if.end202.i:                                      ; preds = %if.then196.if.end202_crit_edge.i, %if.end187.i
-  %260 = phi i32 [ %.pre.i101, %if.then196.if.end202_crit_edge.i ], [ %227, %if.end187.i ]
+  %260 = phi i32 [ %.pre.i100, %if.then196.if.end202_crit_edge.i ], [ %227, %if.end187.i ]
   %261 = trunc i32 %260 to i8
   %conv206.i = and i8 %261, 127
   %call207.i = call fastcc ptr @ohci_find_device(ptr noundef nonnull %ohci, i8 noundef zeroext %conv206.i)
@@ -3520,10 +3520,10 @@ if.end211.i:                                      ; preds = %if.end202.i
   %cmp223.i = icmp eq i32 %264, 0
   %265 = select i1 %cmp218.i, i1 %cmp223.i, i1 false
   call void @usb_packet_setup(ptr noundef %call216.i, i32 noundef %pid.0.i89, ptr noundef %call215.i, i32 noundef 0, i64 noundef %conv.i, i1 noundef zeroext false, i1 noundef zeroext %265) #8
-  call void @usb_packet_addbuf(ptr noundef %call216.i, ptr noundef nonnull %buf.i, i64 noundef %spec.store.select.i97) #8
+  call void @usb_packet_addbuf(ptr noundef %call216.i, ptr noundef nonnull %buf.i, i64 noundef %spec.store.select.i96) #8
   call void @usb_handle_packet(ptr noundef nonnull %call207.i, ptr noundef %call216.i) #8
-  %status.i98 = getelementptr inbounds i8, ptr %call216.i, i64 84
-  %266 = load i32, ptr %status.i98, align 4
+  %status.i97 = getelementptr inbounds i8, ptr %call216.i, i64 84
+  %266 = load i32, ptr %status.i97, align 4
   switch i32 %266, label %if.end238.i [
     i32 -6, label %if.then230.i
     i32 0, label %if.then235.i
@@ -3535,21 +3535,21 @@ if.then230.i:                                     ; preds = %if.end211.i
   br label %ohci_service_iso_td.exit.thread
 
 if.then235.i:                                     ; preds = %if.end211.i
-  %actual_length.i99 = getelementptr inbounds i8, ptr %call216.i, i64 88
-  %267 = load i32, ptr %actual_length.i99, align 8
+  %actual_length.i98 = getelementptr inbounds i8, ptr %call216.i, i64 88
+  %267 = load i32, ptr %actual_length.i98, align 8
   br label %if.end238.i
 
 if.end238.i:                                      ; preds = %if.then235.i, %if.end211.i
-  %ret.0.i100 = phi i32 [ %267, %if.then235.i ], [ %266, %if.end211.i ]
+  %ret.0.i99 = phi i32 [ %267, %if.then235.i ], [ %266, %if.end211.i ]
   call void @g_free(ptr noundef nonnull %call216.i) #8
-  call fastcc void @trace_usb_ohci_iso_td_so(i32 noundef %conv99.i, i32 noundef %end_offset.0.i, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %str.0.i90, i64 noundef %spec.store.select.i97, i32 noundef %ret.0.i100)
-  %cmp242.i = icmp slt i32 %ret.0.i100, 0
-  %cmp246.not.i = icmp ugt i32 %ret.0.i100, %258
+  call fastcc void @trace_usb_ohci_iso_td_so(i32 noundef %conv99.i, i32 noundef %end_offset.0.i, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %str.0.i90, i64 noundef %spec.store.select.i96, i32 noundef %ret.0.i99)
+  %cmp242.i = icmp slt i32 %ret.0.i99, 0
+  %cmp246.not.i = icmp ugt i32 %ret.0.i99, %258
   %or.cond159.i = select i1 %cmp194.i, i1 true, i1 %cmp246.not.i
   br i1 %or.cond159.i, label %if.else283.i, label %if.then248.i
 
 if.then248.i:                                     ; preds = %if.end238.i
-  %call250.i = call fastcc i32 @ohci_copy_iso_td(ptr noundef nonnull %ohci, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %buf.i, i32 noundef %ret.0.i100, i32 noundef 1)
+  %call250.i = call fastcc i32 @ohci_copy_iso_td(ptr noundef nonnull %ohci, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %buf.i, i32 noundef %ret.0.i99, i32 noundef 1)
   %tobool251.not.i = icmp eq i32 %call250.i, 0
   br i1 %tobool251.not.i, label %do.body254.i, label %if.then252.i
 
@@ -3559,22 +3559,22 @@ if.then252.i:                                     ; preds = %if.then248.i
   br label %ohci_service_iso_td.exit.thread
 
 do.body254.i:                                     ; preds = %if.then248.i
-  %269 = trunc i32 %ret.0.i100 to i16
+  %269 = trunc i32 %ret.0.i99 to i16
   %conv281.i = and i16 %269, 4095
   br label %if.end450.i
 
 if.else283.i:                                     ; preds = %if.end238.i
   %cmp284.i = icmp eq i32 %shr86.i, 1
-  %cmp288.i = icmp eq i32 %ret.0.i100, %258
+  %cmp288.i = icmp eq i32 %ret.0.i99, %258
   %or.cond160.i = select i1 %cmp284.i, i1 %cmp288.i, i1 false
   br i1 %or.cond160.i, label %if.end450.i, label %if.else319.i
 
 if.else319.i:                                     ; preds = %if.else283.i
-  %cmp321.i = icmp sgt i32 %ret.0.i100, %258
+  %cmp321.i = icmp sgt i32 %ret.0.i99, %258
   br i1 %cmp321.i, label %if.then323.i, label %if.else354.i
 
 if.then323.i:                                     ; preds = %if.else319.i
-  call fastcc void @trace_usb_ohci_iso_td_data_overrun(i32 noundef %ret.0.i100, i64 noundef %spec.store.select.i97)
+  call fastcc void @trace_usb_ohci_iso_td_data_overrun(i32 noundef %ret.0.i99, i64 noundef %spec.store.select.i96)
   %270 = trunc nuw nsw i32 %258 to i16
   %271 = and i16 %270, 4095
   %conv352.i = or disjoint i16 %271, -32768
@@ -3584,14 +3584,14 @@ if.else354.i:                                     ; preds = %if.else319.i
   br i1 %cmp242.i, label %if.else372.i, label %if.then357.i
 
 if.then357.i:                                     ; preds = %if.else354.i
-  call fastcc void @trace_usb_ohci_iso_td_data_underrun(i32 noundef %ret.0.i100)
+  call fastcc void @trace_usb_ohci_iso_td_data_underrun(i32 noundef %ret.0.i99)
   %272 = load i16, ptr %arrayidx98.i, align 2
   %273 = and i16 %272, 4095
   %274 = or disjoint i16 %273, -28672
   br label %if.end450.i
 
 if.else372.i:                                     ; preds = %if.else354.i
-  switch i32 %ret.0.i100, label %sw.default431.i [
+  switch i32 %ret.0.i99, label %sw.default431.i [
     i32 -5, label %if.end450.i
     i32 -1, label %if.end450.i
     i32 -2, label %sw.bb402.i
@@ -3599,11 +3599,11 @@ if.else372.i:                                     ; preds = %if.else354.i
   ]
 
 sw.bb402.i:                                       ; preds = %if.else372.i, %if.else372.i
-  call fastcc void @trace_usb_ohci_iso_td_nak(i32 noundef %ret.0.i100)
+  call fastcc void @trace_usb_ohci_iso_td_nak(i32 noundef %ret.0.i99)
   br label %if.end450.i
 
 sw.default431.i:                                  ; preds = %if.else372.i
-  call fastcc void @trace_usb_ohci_iso_td_bad_response(i32 noundef %ret.0.i100)
+  call fastcc void @trace_usb_ohci_iso_td_bad_response(i32 noundef %ret.0.i99)
   %275 = load i16, ptr %arrayidx98.i, align 2
   %276 = and i16 %275, 4095
   %277 = or disjoint i16 %276, 28672
@@ -3624,17 +3624,17 @@ do.body455.i:                                     ; preds = %if.end450.i
   %and464.i = and i32 %280, -16
   %or466.i = or disjoint i32 %and464.i, %and462.i
   store i32 %or466.i, ptr %head5, align 4
-  %281 = load i32, ptr %done.i104, align 16
+  %281 = load i32, ptr %done.i103, align 16
   store i32 %281, ptr %next.i86, align 4
-  store i32 %and.i54, ptr %done.i104, align 16
+  store i32 %and.i54, ptr %done.i103, align 16
   %and471.i = lshr i32 %278, 21
   %shr472.i = and i32 %and471.i, 7
-  %282 = load i32, ptr %done_count.i105, align 4
+  %282 = load i32, ptr %done_count.i104, align 4
   %cmp474.i = icmp slt i32 %shr472.i, %282
   br i1 %cmp474.i, label %if.then476.i, label %if.end479.i
 
 if.then476.i:                                     ; preds = %do.body455.i
-  store i32 %shr472.i, ptr %done_count.i105, align 4
+  store i32 %shr472.i, ptr %done_count.i104, align 4
   br label %if.end479.i
 
 if.end479.i:                                      ; preds = %if.then476.i, %do.body455.i, %if.end450.i
@@ -3647,7 +3647,7 @@ if.then483.i:                                     ; preds = %if.end479.i
   call void %283(ptr noundef nonnull %ohci) #8
   br label %ohci_service_iso_td.exit.thread
 
-ohci_service_iso_td.exit.thread:                  ; preds = %trace_usb_ohci_iso_td_relative_frame_number_big.exit.i, %if.then.i110, %trace_usb_ohci_iso_td_read_failed.exit.i, %trace_usb_ohci_iso_td_relative_frame_number_neg.exit.i, %if.then80.i, %trace_usb_ohci_iso_td_bad_direction.exit, %trace_usb_ohci_iso_td_bad_cc_overrun.exit200, %if.then171.i, %if.then200.i, %if.then210.i, %if.then230.i, %if.then252.i, %trace_usb_ohci_iso_td_bad_cc_not_accessed.exit.i, %trace_usb_ohci_iso_td_bad_bp_be.exit.i, %if.then483.i, %if.end479.i
+ohci_service_iso_td.exit.thread:                  ; preds = %trace_usb_ohci_iso_td_relative_frame_number_big.exit.i, %if.then.i109, %trace_usb_ohci_iso_td_read_failed.exit.i, %trace_usb_ohci_iso_td_relative_frame_number_neg.exit.i, %if.then80.i, %trace_usb_ohci_iso_td_bad_direction.exit, %trace_usb_ohci_iso_td_bad_cc_overrun.exit199, %if.then171.i, %if.then200.i, %if.then210.i, %if.then230.i, %if.then252.i, %trace_usb_ohci_iso_td_bad_cc_not_accessed.exit.i, %trace_usb_ohci_iso_td_bad_bp_be.exit.i, %if.then483.i, %if.end479.i
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %iso_td.i)
   br label %while.end
@@ -3666,23 +3666,23 @@ if.end78:                                         ; preds = %ohci_service_iso_td
   br i1 %cmp26.not, label %while.end, label %while.body, !llvm.loop !17
 
 while.end:                                        ; preds = %if.end78, %ohci_service_td.exit, %while.cond.preheader, %ohci_service_iso_td.exit.thread, %ohci_service_td.exit.thread
-  %active.2 = phi i32 [ 1, %ohci_service_td.exit.thread ], [ 1, %ohci_service_iso_td.exit.thread ], [ %active.0320, %while.cond.preheader ], [ 1, %ohci_service_td.exit ], [ 1, %if.end78 ]
-  %add.i112 = add nuw nsw i64 %conv, 8
+  %active.3 = phi i32 [ 1, %ohci_service_td.exit.thread ], [ 1, %ohci_service_iso_td.exit.thread ], [ %active.0319, %while.cond.preheader ], [ 1, %ohci_service_td.exit ], [ 1, %if.end78 ]
+  %add.i111 = add nuw nsw i64 %conv, 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %tmp.i.i)
   %286 = load i64, ptr %localmem_base.i.i, align 8
-  %add.i.i114 = add i64 %add.i112, %286
+  %add.i.i113 = add i64 %add.i111, %286
   %287 = load i32, ptr %head5, align 4
   store i32 %287, ptr %tmp.i.i, align 4
   %288 = load ptr, ptr %as.i.i, align 16
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
-  %call.i.i.i.i.i116 = call i32 @address_space_rw(ptr noundef %288, i64 noundef %add.i.i114, i32 1, ptr noundef nonnull %tmp.i.i, i64 noundef 4, i1 noundef zeroext true) #8
-  %tobool.not.i.i117.not = icmp eq i32 %call.i.i.i.i.i116, 0
+  %call.i.i.i.i.i115 = call i32 @address_space_rw(ptr noundef %288, i64 noundef %add.i.i113, i32 1, ptr noundef nonnull %tmp.i.i, i64 noundef 4, i1 noundef zeroext true) #8
+  %tobool.not.i.i116.not = icmp eq i32 %call.i.i.i.i.i115, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %tmp.i.i)
-  br i1 %tobool.not.i.i117.not, label %for.inc, label %return.sink.split
+  br i1 %tobool.not.i.i116.not, label %for.inc, label %return.sink.split
 
 for.inc:                                          ; preds = %while.end, %if.then10, %if.then17
-  %active.3 = phi i32 [ %active.0320, %if.then17 ], [ %active.0320, %if.then10 ], [ %active.2, %while.end ]
+  %active.1 = phi i32 [ %active.0319, %if.then17 ], [ %active.0319, %if.then10 ], [ %active.3, %while.end ]
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %return, label %land.rhs, !llvm.loop !18
 
@@ -3692,7 +3692,7 @@ return.sink.split:                                ; preds = %while.end, %trace_u
   br label %return
 
 return:                                           ; preds = %land.rhs, %for.inc, %return.sink.split, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %return.sink.split ], [ %active.3, %for.inc ], [ %active.0320, %land.rhs ]
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %return.sink.split ], [ %active.1, %for.inc ], [ %active.0319, %land.rhs ]
   ret i32 %retval.0
 }
 

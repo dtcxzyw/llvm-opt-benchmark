@@ -181,27 +181,27 @@ define dso_local i32 @uv_loop_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %93
 
 93:                                               ; preds = %69, %92
-  %.0 = phi i32 [ %71, %69 ], [ %74, %92 ]
+  %.4 = phi i32 [ %71, %69 ], [ %74, %92 ]
   tail call void @uv_rwlock_destroy(ptr noundef nonnull %67) #4
   br label %94
 
 94:                                               ; preds = %62, %93
-  %.1 = phi i32 [ %68, %62 ], [ %.0, %93 ]
+  %.3 = phi i32 [ %68, %62 ], [ %.4, %93 ]
   tail call void @uv__signal_loop_cleanup(ptr noundef nonnull %0) #4
   br label %95
 
 95:                                               ; preds = %45, %94
-  %.2 = phi i32 [ %47, %45 ], [ %.1, %94 ]
+  %.2 = phi i32 [ %47, %45 ], [ %.3, %94 ]
   tail call void @uv__platform_loop_delete(ptr noundef nonnull %0) #4
   br label %96
 
 96:                                               ; preds = %10, %95
-  %.3 = phi i32 [ %44, %10 ], [ %.2, %95 ]
+  %.1 = phi i32 [ %44, %10 ], [ %.2, %95 ]
   tail call void @uv_mutex_destroy(ptr noundef nonnull %8) #4
   br label %97
 
 97:                                               ; preds = %6, %96
-  %.4 = phi i32 [ %9, %6 ], [ %.3, %96 ]
+  %.0 = phi i32 [ %9, %6 ], [ %.1, %96 ]
   tail call void @uv__free(ptr noundef nonnull %4) #4
   store ptr null, ptr %7, align 8
   %98 = getelementptr inbounds i8, ptr %0, i64 104
@@ -212,7 +212,7 @@ define dso_local i32 @uv_loop_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %101
 
 101:                                              ; preds = %1, %97, %89
-  %.095 = phi i32 [ %.4, %97 ], [ 0, %89 ], [ -12, %1 ]
+  %.095 = phi i32 [ %.0, %97 ], [ 0, %89 ], [ -12, %1 ]
   ret i32 %.095
 }
 

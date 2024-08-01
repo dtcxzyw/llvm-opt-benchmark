@@ -2239,7 +2239,7 @@ define void @Ssw_StrSimMatchingExtendOne(ptr noundef %0, ptr nocapture noundef %
 15:                                               ; preds = %.lr.ph190, %.critedge2
   %indvars.iv = phi i64 [ 0, %.lr.ph190 ], [ %indvars.iv.next, %.critedge2 ]
   %16 = phi ptr [ %5, %.lr.ph190 ], [ %239, %.critedge2 ]
-  %.0189 = phi i32 [ -1, %.lr.ph190 ], [ %.2, %.critedge2 ]
+  %.0189 = phi i32 [ -1, %.lr.ph190 ], [ %.1, %.critedge2 ]
   %17 = getelementptr i8, ptr %16, i64 8
   %.val93 = load ptr, ptr %17, align 8
   %18 = getelementptr inbounds ptr, ptr %.val93, i64 %indvars.iv
@@ -2591,15 +2591,15 @@ Aig_ObjRepr.exit135.thread:                       ; preds = %85, %121, %Aig_ObjR
 
 167:                                              ; preds = %.lr.ph, %Aig_ObjRepr.exit157.thread
   %168 = phi i64 [ %164, %.lr.ph ], [ %234, %Aig_ObjRepr.exit157.thread ]
-  %.1186 = phi i32 [ %.0189, %.lr.ph ], [ %181, %Aig_ObjRepr.exit157.thread ]
+  %.2186 = phi i32 [ %.0189, %.lr.ph ], [ %181, %Aig_ObjRepr.exit157.thread ]
   %.070185 = phi i32 [ 0, %.lr.ph ], [ %235, %Aig_ObjRepr.exit157.thread ]
   %.not85 = icmp eq i32 %.070185, 0
   br i1 %.not85, label %175, label %169
 
 169:                                              ; preds = %167
-  %170 = ashr i32 %.1186, 1
+  %170 = ashr i32 %.2186, 1
   %171 = mul nsw i32 %170, 5
-  %172 = and i32 %.1186, 1
+  %172 = and i32 %.2186, 1
   %173 = add nuw nsw i32 %172, 3
   %174 = add i32 %173, %171
   br label %178
@@ -2752,7 +2752,7 @@ Aig_ObjRepr.exit157.thread:                       ; preds = %Saig_ObjIsLi.exit.t
   br i1 %238, label %167, label %.critedge2, !llvm.loop !37
 
 .critedge2:                                       ; preds = %Aig_ObjRepr.exit157.thread, %Aig_ObjRepr.exit135.thread, %21, %15, %Aig_ObjRepr.exit
-  %.2 = phi i32 [ %.0189, %15 ], [ %.0189, %Aig_ObjRepr.exit ], [ %.0189, %21 ], [ %.0189, %Aig_ObjRepr.exit135.thread ], [ %181, %Aig_ObjRepr.exit157.thread ]
+  %.1 = phi i32 [ %.0189, %15 ], [ %.0189, %Aig_ObjRepr.exit ], [ %.0189, %21 ], [ %.0189, %Aig_ObjRepr.exit135.thread ], [ %181, %Aig_ObjRepr.exit157.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %239 = load ptr, ptr %4, align 8
   %240 = getelementptr i8, ptr %239, i64 4

@@ -110,7 +110,7 @@ define hidden noundef zeroext i1 @_ZN2cv5gimpl12pass_helpers9hasCyclesERKN3ade5G
   br label %14
 
 14:                                               ; preds = %_ZN3ade6HandleINS_4NodeEED2Ev.exit22.i, %.lr.ph.i
-  %.01037.i = phi i8 [ 0, %.lr.ph.i ], [ %.2.i, %_ZN3ade6HandleINS_4NodeEED2Ev.exit22.i ]
+  %.01037.i = phi i8 [ 0, %.lr.ph.i ], [ %.3.i, %_ZN3ade6HandleINS_4NodeEED2Ev.exit22.i ]
   %.sroa.028.036.i = phi ptr [ %.sroa.028.0.copyload.i, %.lr.ph.i ], [ %126, %_ZN3ade6HandleINS_4NodeEED2Ev.exit22.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -336,7 +336,7 @@ _ZNSt13unordered_mapIPN3ade4NodeEN12_GLOBAL__N_16Cycles13TraverseStateESt4hashIS
   br label %_ZN3ade6HandleINS_4NodeEED2Ev.exit.i
 
 _ZNSt13unordered_mapIPN3ade4NodeEN12_GLOBAL__N_16Cycles13TraverseStateESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSB_.exit.i: ; preds = %80, %68, %88, %76
-  %.2.i = phi i8 [ %91, %88 ], [ %.01037.i, %76 ], [ %.01037.i, %68 ], [ %.01037.i, %80 ]
+  %.3.i = phi i8 [ %91, %88 ], [ %.01037.i, %76 ], [ %.01037.i, %68 ], [ %.01037.i, %80 ]
   %.0.i = phi i1 [ %.not.i, %88 ], [ true, %76 ], [ true, %68 ], [ true, %80 ]
   %111 = load ptr, ptr %12, align 8
   %.not.i.i.i.i19.i = icmp eq ptr %111, null
@@ -377,11 +377,11 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit22.i:           ; preds = %122, %120, %_ZNSt13
   br i1 %or.cond.not.i, label %14, label %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.loopexit.i
 
 _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.loopexit.i: ; preds = %_ZN3ade6HandleINS_4NodeEED2Ev.exit22.i
-  %128 = trunc nuw i8 %.2.i to i1
+  %128 = trunc nuw i8 %.3.i to i1
   br label %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.i
 
 _ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.i: ; preds = %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.loopexit.i, %10
-  %.3.i = phi i1 [ false, %10 ], [ %128, %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.loopexit.i ]
+  %.1.i = phi i1 [ false, %10 ], [ %128, %_ZNK3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratorneERKSL_.exit.loopexit.i ]
   %.val.i.i.i.i = load ptr, ptr %7, align 8
   %.not1.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
   br i1 %.not1.i.i.i.i.i, label %_ZNSt10_HashtableIPN3ade4NodeESt4pairIKS2_N12_GLOBAL__N_16Cycles13TraverseStateEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i23.i
@@ -416,7 +416,7 @@ _ZN12_GLOBAL__N_16Cycles9hasCyclesERKN3ade5GraphE.exit: ; preds = %_ZNSt10_Hasht
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  ret i1 %.3.i
+  ret i1 %.1.i
 }
 
 ; Function Attrs: mustprogress uwtable

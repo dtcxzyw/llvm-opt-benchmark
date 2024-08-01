@@ -748,14 +748,14 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
 
 .lr.ph541:                                        ; preds = %.lr.ph541.preheader, %.loopexit478
   %indvars.iv578 = phi i64 [ 0, %.lr.ph541.preheader ], [ %indvars.iv.next579, %.loopexit478 ]
-  %.0539 = phi i32 [ 0, %.lr.ph541.preheader ], [ %.3, %.loopexit478 ]
-  %.0390538 = phi i32 [ %9, %.lr.ph541.preheader ], [ %.2392, %.loopexit478 ]
-  %.0393537 = phi double [ %24, %.lr.ph541.preheader ], [ %.2395, %.loopexit478 ]
-  %.0405534 = phi double [ 0.000000e+00, %.lr.ph541.preheader ], [ %.3408, %.loopexit478 ]
-  %.0417531 = phi double [ 0.000000e+00, %.lr.ph541.preheader ], [ %.2419, %.loopexit478 ]
-  %.0422530 = phi double [ 0.000000e+00, %.lr.ph541.preheader ], [ %.3425, %.loopexit478 ]
-  %.0426529 = phi double [ 0.000000e+00, %.lr.ph541.preheader ], [ %.3429, %.loopexit478 ]
-  %.0431528 = phi double [ 0.000000e+00, %.lr.ph541.preheader ], [ %.3434, %.loopexit478 ]
+  %.0539 = phi i32 [ 0, %.lr.ph541.preheader ], [ %.1, %.loopexit478 ]
+  %.0390538 = phi i32 [ %9, %.lr.ph541.preheader ], [ %.1391, %.loopexit478 ]
+  %.0393537 = phi double [ %24, %.lr.ph541.preheader ], [ %.1394, %.loopexit478 ]
+  %.0405534 = phi double [ 0.000000e+00, %.lr.ph541.preheader ], [ %.1406, %.loopexit478 ]
+  %.0417531 = phi double [ 0.000000e+00, %.lr.ph541.preheader ], [ %.1418, %.loopexit478 ]
+  %.0422530 = phi double [ 0.000000e+00, %.lr.ph541.preheader ], [ %.1423, %.loopexit478 ]
+  %.0426529 = phi double [ 0.000000e+00, %.lr.ph541.preheader ], [ %.1427, %.loopexit478 ]
+  %.0431528 = phi double [ 0.000000e+00, %.lr.ph541.preheader ], [ %.1432, %.loopexit478 ]
   %39 = phi <2 x double> [ %26, %.lr.ph541.preheader ], [ %323, %.loopexit478 ]
   %40 = phi <2 x double> [ zeroinitializer, %.lr.ph541.preheader ], [ %324, %.loopexit478 ]
   %41 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv578
@@ -862,11 +862,11 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
 102:                                              ; preds = %.lr.ph497, %168
   %103 = phi i32 [ %45, %.lr.ph497 ], [ %169, %168 ]
   %indvars.iv566 = phi i64 [ %100, %.lr.ph497 ], [ %indvars.iv.next567, %168 ]
-  %.1406495 = phi double [ %.0405534, %.lr.ph497 ], [ %.2407, %168 ]
+  %.2407495 = phi double [ %.0405534, %.lr.ph497 ], [ %.3408, %168 ]
   %.0420492 = phi double [ 0.000000e+00, %.lr.ph497 ], [ %.1421, %168 ]
-  %.1423491 = phi double [ %.0422530, %.lr.ph497 ], [ %.2424, %168 ]
-  %.1427490 = phi double [ %.0426529, %.lr.ph497 ], [ %.2428, %168 ]
-  %.1432489 = phi double [ %.0431528, %.lr.ph497 ], [ %.2433, %168 ]
+  %.2424491 = phi double [ %.0422530, %.lr.ph497 ], [ %.3425, %168 ]
+  %.2428490 = phi double [ %.0426529, %.lr.ph497 ], [ %.3429, %168 ]
+  %.2433489 = phi double [ %.0431528, %.lr.ph497 ], [ %.3434, %168 ]
   %.0445487 = phi i32 [ -1, %.lr.ph497 ], [ %.1446, %168 ]
   %104 = phi <2 x double> [ %40, %.lr.ph497 ], [ %170, %168 ]
   %105 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv566
@@ -973,11 +973,11 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
 168:                                              ; preds = %162, %167, %121, %102
   %169 = phi i32 [ %103, %102 ], [ %163, %167 ], [ %103, %121 ], [ %163, %162 ]
   %.1446 = phi i32 [ %.0445487, %102 ], [ %106, %167 ], [ %.0445487, %121 ], [ %.0445487, %162 ]
-  %.2433 = phi double [ %.1432489, %102 ], [ %.0435, %167 ], [ %.1432489, %121 ], [ %.1432489, %162 ]
-  %.2428 = phi double [ %.1427490, %102 ], [ %.0430, %167 ], [ %.1427490, %121 ], [ %.1427490, %162 ]
-  %.2424 = phi double [ %.1423491, %102 ], [ %.0436, %167 ], [ %.1423491, %121 ], [ %.1423491, %162 ]
+  %.3434 = phi double [ %.2433489, %102 ], [ %.0435, %167 ], [ %.2433489, %121 ], [ %.2433489, %162 ]
+  %.3429 = phi double [ %.2428490, %102 ], [ %.0430, %167 ], [ %.2428490, %121 ], [ %.2428490, %162 ]
+  %.3425 = phi double [ %.2424491, %102 ], [ %.0436, %167 ], [ %.2424491, %121 ], [ %.2424491, %162 ]
   %.1421 = phi double [ %.0420492, %102 ], [ %157, %167 ], [ %.0420492, %121 ], [ %.0420492, %162 ]
-  %.2407 = phi double [ %.1406495, %102 ], [ %.0404, %167 ], [ %.1406495, %121 ], [ %.1406495, %162 ]
+  %.3408 = phi double [ %.2407495, %102 ], [ %.0404, %167 ], [ %.2407495, %121 ], [ %.2407495, %162 ]
   %170 = phi <2 x double> [ %104, %102 ], [ %146, %167 ], [ %104, %121 ], [ %104, %162 ]
   %indvars.iv.next567 = add nsw i64 %indvars.iv566, 1
   %171 = load i32, ptr %46, align 4
@@ -991,11 +991,11 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   %176 = phi ptr [ %82, %._crit_edge486 ], [ %50, %._crit_edge486.thread ], [ %82, %168 ]
   %177 = phi ptr [ %80, %._crit_edge486 ], [ %49, %._crit_edge486.thread ], [ %80, %168 ]
   %.0445.lcssa = phi i32 [ -1, %._crit_edge486 ], [ -1, %._crit_edge486.thread ], [ %.1446, %168 ]
-  %.1432.lcssa = phi double [ %.0431528, %._crit_edge486 ], [ %.0431528, %._crit_edge486.thread ], [ %.2433, %168 ]
-  %.1427.lcssa = phi double [ %.0426529, %._crit_edge486 ], [ %.0426529, %._crit_edge486.thread ], [ %.2428, %168 ]
-  %.1423.lcssa = phi double [ %.0422530, %._crit_edge486 ], [ %.0422530, %._crit_edge486.thread ], [ %.2424, %168 ]
+  %.2433.lcssa = phi double [ %.0431528, %._crit_edge486 ], [ %.0431528, %._crit_edge486.thread ], [ %.3434, %168 ]
+  %.2428.lcssa = phi double [ %.0426529, %._crit_edge486 ], [ %.0426529, %._crit_edge486.thread ], [ %.3429, %168 ]
+  %.2424.lcssa = phi double [ %.0422530, %._crit_edge486 ], [ %.0422530, %._crit_edge486.thread ], [ %.3425, %168 ]
   %.0420.lcssa = phi double [ 0.000000e+00, %._crit_edge486 ], [ 0.000000e+00, %._crit_edge486.thread ], [ %.1421, %168 ]
-  %.1406.lcssa = phi double [ %.0405534, %._crit_edge486 ], [ %.0405534, %._crit_edge486.thread ], [ %.2407, %168 ]
+  %.2407.lcssa = phi double [ %.0405534, %._crit_edge486 ], [ %.0405534, %._crit_edge486.thread ], [ %.3408, %168 ]
   %178 = phi <2 x double> [ %40, %._crit_edge486 ], [ %40, %._crit_edge486.thread ], [ %170, %168 ]
   %179 = fcmp ogt double %.0420.lcssa, 0.000000e+00
   %or.cond471 = icmp sgt i32 %.0539, %invariant.smax601
@@ -1018,7 +1018,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   %191 = getelementptr inbounds %struct.ints_t, ptr %22, i64 %190
   tail call fastcc void @ints_append(ptr noundef %191, i32 noundef %.0445.lcssa)
   tail call fastcc void @ints_append(ptr noundef %191, i32 noundef %187)
-  %192 = fadd double %174, %.1427.lcssa
+  %192 = fadd double %174, %.2428.lcssa
   %193 = getelementptr inbounds double, ptr %31, i64 %190
   store double %192, ptr %193, align 8
   store i32 %.0539, ptr %183, align 4
@@ -1033,7 +1033,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   %200 = getelementptr inbounds double, ptr %16, i64 %182
   %201 = load double, ptr %200, align 8
   %202 = fadd double %199, %201
-  %203 = fadd double %.1432.lcssa, %202
+  %203 = fadd double %.2433.lcssa, %202
   %204 = getelementptr inbounds double, ptr %27, i64 %190
   store double %203, ptr %204, align 8
   %205 = add nsw i32 %.0539, 1
@@ -1044,7 +1044,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   %208 = sext i32 %184 to i64
   %209 = getelementptr inbounds %struct.ints_t, ptr %22, i64 %208
   tail call fastcc void @ints_append(ptr noundef %209, i32 noundef %187)
-  %210 = fadd double %174, %.1427.lcssa
+  %210 = fadd double %174, %.2428.lcssa
   %211 = getelementptr inbounds double, ptr %31, i64 %208
   store double %210, ptr %211, align 8
   %212 = load double, ptr %176, align 8
@@ -1054,7 +1054,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   store double %215, ptr %213, align 8
   store i32 %184, ptr %41, align 4
   %216 = load double, ptr %177, align 8
-  %217 = fadd double %.1432.lcssa, %216
+  %217 = fadd double %.2433.lcssa, %216
   %218 = getelementptr inbounds double, ptr %27, i64 %208
   %219 = load double, ptr %218, align 8
   %220 = fadd double %219, %217
@@ -1064,7 +1064,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
 221:                                              ; preds = %206, %188
   %.pre600.pre-phi = phi i64 [ %208, %206 ], [ %190, %188 ]
   %222 = phi i32 [ %184, %206 ], [ %.0539, %188 ]
-  %.1 = phi i32 [ %.0539, %206 ], [ %205, %188 ]
+  %.2 = phi i32 [ %.0539, %206 ], [ %205, %188 ]
   %223 = add nsw i32 %.0390538, -1
   br label %235
 
@@ -1088,10 +1088,10 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
 235:                                              ; preds = %224, %221
   %.pre-phi = phi i64 [ %228, %224 ], [ %.pre600.pre-phi, %221 ]
   %236 = phi i32 [ %.0539, %224 ], [ %222, %221 ]
-  %.1418 = phi double [ %.0417531, %224 ], [ %181, %221 ]
-  %.1394 = phi double [ %.0393537, %224 ], [ %.1406.lcssa, %221 ]
-  %.1391 = phi i32 [ %.0390538, %224 ], [ %223, %221 ]
-  %.2 = phi i32 [ %234, %224 ], [ %.1, %221 ]
+  %.2419 = phi double [ %.0417531, %224 ], [ %181, %221 ]
+  %.2395 = phi double [ %.0393537, %224 ], [ %.2407.lcssa, %221 ]
+  %.2392 = phi i32 [ %.0390538, %224 ], [ %223, %221 ]
+  %.3 = phi i32 [ %234, %224 ], [ %.2, %221 ]
   %237 = phi <2 x double> [ %39, %224 ], [ %178, %221 ]
   %238 = getelementptr inbounds %struct.ints_t, ptr %22, i64 %.pre-phi
   %239 = getelementptr i8, ptr %238, i64 8
@@ -1110,7 +1110,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
 
 .lr.ph525:                                        ; preds = %.preheader
   %242 = add nuw nsw i64 %indvars.iv578, %21
-  %243 = fadd double %175, %.1423.lcssa
+  %243 = fadd double %175, %.2424.lcssa
   %244 = trunc nsw i64 %242 to i32
   %245 = trunc nsw i64 %242 to i32
   br label %251
@@ -1221,7 +1221,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   %305 = getelementptr inbounds double, ptr %38, i64 %indvars.iv569
   %306 = load double, ptr %305, align 8
   %307 = fdiv double %306, %243
-  %308 = fdiv double %306, %.1423.lcssa
+  %308 = fdiv double %306, %.2424.lcssa
   %309 = fsub double %307, %308
   br i1 %304, label %310, label %314
 
@@ -1250,14 +1250,14 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   br i1 %322, label %.lr.ph513.split.split, label %.loopexit
 
 .loopexit478:                                     ; preds = %.loopexit, %235, %.preheader, %.lr.ph541
-  %.3434 = phi double [ %.0431528, %.lr.ph541 ], [ %.1432.lcssa, %.preheader ], [ %.1432.lcssa, %235 ], [ %.1432.lcssa, %.loopexit ]
-  %.3429 = phi double [ %.0426529, %.lr.ph541 ], [ %.1427.lcssa, %.preheader ], [ %.1427.lcssa, %235 ], [ %.1427.lcssa, %.loopexit ]
-  %.3425 = phi double [ %.0422530, %.lr.ph541 ], [ %.1423.lcssa, %.preheader ], [ %.1423.lcssa, %235 ], [ %.1423.lcssa, %.loopexit ]
-  %.2419 = phi double [ %.0417531, %.lr.ph541 ], [ %.1418, %.preheader ], [ %.1418, %235 ], [ %.1418, %.loopexit ]
-  %.3408 = phi double [ %.0405534, %.lr.ph541 ], [ %.1406.lcssa, %.preheader ], [ %.1406.lcssa, %235 ], [ %.1406.lcssa, %.loopexit ]
-  %.2395 = phi double [ %.0393537, %.lr.ph541 ], [ %.1394, %.preheader ], [ %.1394, %235 ], [ %.1394, %.loopexit ]
-  %.2392 = phi i32 [ %.0390538, %.lr.ph541 ], [ %.1391, %.preheader ], [ %.1391, %235 ], [ %.1391, %.loopexit ]
-  %.3 = phi i32 [ %.0539, %.lr.ph541 ], [ %.2, %.preheader ], [ %.2, %235 ], [ %.2, %.loopexit ]
+  %.1432 = phi double [ %.0431528, %.lr.ph541 ], [ %.2433.lcssa, %.preheader ], [ %.2433.lcssa, %235 ], [ %.2433.lcssa, %.loopexit ]
+  %.1427 = phi double [ %.0426529, %.lr.ph541 ], [ %.2428.lcssa, %.preheader ], [ %.2428.lcssa, %235 ], [ %.2428.lcssa, %.loopexit ]
+  %.1423 = phi double [ %.0422530, %.lr.ph541 ], [ %.2424.lcssa, %.preheader ], [ %.2424.lcssa, %235 ], [ %.2424.lcssa, %.loopexit ]
+  %.1418 = phi double [ %.0417531, %.lr.ph541 ], [ %.2419, %.preheader ], [ %.2419, %235 ], [ %.2419, %.loopexit ]
+  %.1406 = phi double [ %.0405534, %.lr.ph541 ], [ %.2407.lcssa, %.preheader ], [ %.2407.lcssa, %235 ], [ %.2407.lcssa, %.loopexit ]
+  %.1394 = phi double [ %.0393537, %.lr.ph541 ], [ %.2395, %.preheader ], [ %.2395, %235 ], [ %.2395, %.loopexit ]
+  %.1391 = phi i32 [ %.0390538, %.lr.ph541 ], [ %.2392, %.preheader ], [ %.2392, %235 ], [ %.2392, %.loopexit ]
+  %.1 = phi i32 [ %.0539, %.lr.ph541 ], [ %.3, %.preheader ], [ %.3, %235 ], [ %.3, %.loopexit ]
   %323 = phi <2 x double> [ %39, %.lr.ph541 ], [ %237, %.preheader ], [ %237, %235 ], [ %237, %.loopexit ]
   %324 = phi <2 x double> [ %40, %.lr.ph541 ], [ %178, %.preheader ], [ %178, %235 ], [ %178, %.loopexit ]
   %indvars.iv.next579 = add nuw nsw i64 %indvars.iv578, 1
@@ -1265,9 +1265,9 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   br i1 %exitcond582.not, label %._crit_edge542, label %.lr.ph541
 
 ._crit_edge542:                                   ; preds = %.loopexit478, %2
-  %.0417.lcssa = phi double [ 0.000000e+00, %2 ], [ %.2419, %.loopexit478 ]
-  %.0393.lcssa = phi double [ %24, %2 ], [ %.2395, %.loopexit478 ]
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.3, %.loopexit478 ]
+  %.0417.lcssa = phi double [ 0.000000e+00, %2 ], [ %.1418, %.loopexit478 ]
+  %.0393.lcssa = phi double [ %24, %2 ], [ %.1394, %.loopexit478 ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %.loopexit478 ]
   %325 = phi <2 x double> [ %26, %2 ], [ %323, %.loopexit478 ]
   %326 = load ptr, ptr @stderr, align 8
   %327 = load i8, ptr @Verbose, align 1

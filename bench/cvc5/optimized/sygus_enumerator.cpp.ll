@@ -9785,7 +9785,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %bufferChildSet.0129 = phi i1 [ false, %if.end ], [ %bufferChildSet.1, %for.inc ]
   %i.0128 = phi i64 [ 1, %if.end ], [ %inc, %for.inc ]
   %bufferChild.0127 = phi i64 [ 0, %if.end ], [ %bufferChild.1, %for.inc ]
-  %bufferChildProcessed.0126 = phi i1 [ false, %if.end ], [ %bufferChildProcessed.2, %for.inc ]
+  %bufferChildProcessed.0126 = phi i1 [ false, %if.end ], [ %bufferChildProcessed.1, %for.inc ]
   %3 = load ptr, ptr %children, align 8
   %add.ptr.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %3, i64 %i.0128
   %4 = load ptr, ptr %add.ptr.i, align 8
@@ -10109,7 +10109,7 @@ terminate.lpad.i124:                              ; preds = %if.then13.i.i123
   unreachable
 
 for.inc:                                          ; preds = %invoke.cont6, %if.then13.i.i123, %if.then.i.i117, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit114
-  %bufferChildProcessed.2 = phi i1 [ %bufferChildProcessed.0126, %invoke.cont6 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit114 ], [ true, %if.then.i.i117 ], [ true, %if.then13.i.i123 ]
+  %bufferChildProcessed.1 = phi i1 [ %bufferChildProcessed.0126, %invoke.cont6 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit114 ], [ true, %if.then.i.i117 ], [ true, %if.then13.i.i123 ]
   %bufferChild.1 = phi i64 [ %bufferChild.0.mux, %invoke.cont6 ], [ %bufferChild.0127, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit114 ], [ %bufferChild.0127, %if.then.i.i117 ], [ %bufferChild.0127, %if.then13.i.i123 ]
   %bufferChildSet.1 = phi i1 [ %bufferChildSet.0.mux, %invoke.cont6 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit114 ], [ true, %if.then.i.i117 ], [ true, %if.then13.i.i123 ]
   %inc = add nuw i64 %i.0128, 1
@@ -10917,7 +10917,7 @@ for.body115.preheader:                            ; preds = %invoke.cont111
 for.body115:                                      ; preds = %for.body115.preheader, %_ZN4cvc58internal8TypeNodeD2Ev.exit715
   %indvars.iv = phi i64 [ 0, %for.body115.preheader ], [ %indvars.iv.next, %_ZN4cvc58internal8TypeNodeD2Ev.exit715 ]
   %sum.01976 = phi i32 [ %81, %for.body115.preheader ], [ %sum.1, %_ZN4cvc58internal8TypeNodeD2Ev.exit715 ]
-  %doTerminate.11975 = phi i8 [ %doTerminate.01981, %for.body115.preheader ], [ %doTerminate.2, %_ZN4cvc58internal8TypeNodeD2Ev.exit715 ]
+  %doTerminate.21975 = phi i8 [ %doTerminate.01981, %for.body115.preheader ], [ %doTerminate.4, %_ZN4cvc58internal8TypeNodeD2Ev.exit715 ]
   %88 = load ptr, ptr %cctns, align 8
   %add.ptr.i652 = getelementptr inbounds %"class.cvc5::internal::TypeNode", ptr %88, i64 %indvars.iv
   %89 = load ptr, ptr %add.ptr.i652, align 8
@@ -11028,12 +11028,12 @@ if.else126:                                       ; preds = %invoke.cont122
   %add = add i32 %98, %sum.01976
   %99 = load i32, ptr %d_currSize, align 8
   %cmp129 = icmp ugt i32 %add, %99
-  %.doTerminate.1 = select i1 %cmp129, i8 0, i8 %doTerminate.11975
+  %.doTerminate.2 = select i1 %cmp129, i8 0, i8 %doTerminate.21975
   %. = select i1 %cmp129, i32 7, i32 0
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else126, %invoke.cont122
-  %doTerminate.2 = phi i8 [ 0, %invoke.cont122 ], [ %.doTerminate.1, %if.else126 ]
+  %doTerminate.4 = phi i8 [ 0, %invoke.cont122 ], [ %.doTerminate.2, %if.else126 ]
   %sum.1 = phi i32 [ %sum.01976, %invoke.cont122 ], [ %add, %if.else126 ]
   %cleanup.dest.slot.0 = phi i32 [ 7, %invoke.cont122 ], [ %., %if.else126 ]
   %100 = load ptr, ptr %tnc, align 8
@@ -11077,7 +11077,7 @@ for.end.loopexit:                                 ; preds = %_ZN4cvc58internal8T
 for.end:                                          ; preds = %for.end.loopexit, %invoke.cont111
   %104 = phi ptr [ %84, %invoke.cont111 ], [ %.pre1991, %for.end.loopexit ]
   %105 = phi ptr [ %85, %invoke.cont111 ], [ %.pre1990, %for.end.loopexit ]
-  %doTerminate.3 = phi i8 [ %doTerminate.01981, %invoke.cont111 ], [ %doTerminate.2, %for.end.loopexit ]
+  %doTerminate.3 = phi i8 [ %doTerminate.01981, %invoke.cont111 ], [ %doTerminate.4, %for.end.loopexit ]
   %tobool135 = trunc nuw i8 %doTerminate.3 to i1
   %cmp.not3.i.i.i.i = icmp eq ptr %105, %104
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i

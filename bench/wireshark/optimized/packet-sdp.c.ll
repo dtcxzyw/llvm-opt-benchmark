@@ -1485,7 +1485,7 @@ define internal fastcc void @apply_sdp_transport(ptr noundef %0, ptr nocapture n
 20:                                               ; preds = %.lr.ph, %124
   %.0100134 = phi i32 [ 0, %.lr.ph ], [ %125, %124 ]
   %.0101133 = phi i32 [ 0, %.lr.ph ], [ %.3, %124 ]
-  %.0102132 = phi ptr [ null, %.lr.ph ], [ %.3105, %124 ]
+  %.0102132 = phi ptr [ null, %.lr.ph ], [ %.2104, %124 ]
   %21 = load ptr, ptr %12, align 8
   %22 = tail call ptr @wmem_array_index(ptr noundef %21, i32 noundef %.0100134) #9
   %23 = getelementptr inbounds i8, ptr %22, i64 12
@@ -1524,7 +1524,7 @@ define internal fastcc void @apply_sdp_transport(ptr noundef %0, ptr nocapture n
   br i1 %.not120, label %38, label %124
 
 38:                                               ; preds = %37, %34
-  %.1 = phi i32 [ %.0101133, %34 ], [ 1, %37 ]
+  %.2 = phi i32 [ %.0101133, %34 ], [ 1, %37 ]
   %39 = icmp eq i32 %29, 2
   br i1 %39, label %40, label %51
 
@@ -1560,7 +1560,7 @@ define internal fastcc void @apply_sdp_transport(ptr noundef %0, ptr nocapture n
 .sink.split:                                      ; preds = %51, %52, %49
   %.sink141 = phi i16 [ %50, %49 ], [ %24, %52 ], [ %24, %51 ]
   %.sink138 = phi ptr [ %42, %49 ], [ null, %52 ], [ null, %51 ]
-  %.1103.ph = phi ptr [ %42, %49 ], [ %.0102132, %52 ], [ %.0102132, %51 ]
+  %.3105.ph = phi ptr [ %42, %49 ], [ %.0102132, %52 ], [ %.0102132, %51 ]
   %54 = zext i16 %.sink141 to i32
   %55 = getelementptr inbounds i8, ptr %22, i64 4
   %56 = load i32, ptr %55, align 4
@@ -1570,7 +1570,7 @@ define internal fastcc void @apply_sdp_transport(ptr noundef %0, ptr nocapture n
   br label %59
 
 59:                                               ; preds = %.sink.split, %52
-  %.1103 = phi ptr [ %.0102132, %52 ], [ %.1103.ph, %.sink.split ]
+  %.3105 = phi ptr [ %.0102132, %52 ], [ %.3105.ph, %.sink.split ]
   %60 = load i16, ptr %23, align 4
   %61 = load ptr, ptr @rtcp_handle, align 8
   %.not124 = icmp eq ptr %61, null
@@ -1589,7 +1589,7 @@ define internal fastcc void @apply_sdp_transport(ptr noundef %0, ptr nocapture n
   br i1 %68, label %69, label %70
 
 69:                                               ; preds = %66
-  tail call void @srtcp_add_address(ptr noundef %0, ptr noundef nonnull %31, i32 noundef %65, i32 noundef 0, ptr noundef nonnull @.str.198, i32 noundef %.099, ptr noundef %.1103) #9
+  tail call void @srtcp_add_address(ptr noundef %0, ptr noundef nonnull %31, i32 noundef %65, i32 noundef 0, ptr noundef nonnull @.str.198, i32 noundef %.099, ptr noundef %.3105) #9
   br label %thread-pre-split
 
 70:                                               ; preds = %66
@@ -1605,16 +1605,16 @@ define internal fastcc void @apply_sdp_transport(ptr noundef %0, ptr nocapture n
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %20, %25, %69, %73, %71, %62, %59, %30
-  %.2104.ph = phi ptr [ %.0102132, %30 ], [ %.0102132, %20 ], [ %.1103, %59 ], [ %.1103, %62 ], [ %.1103, %73 ], [ %.1103, %71 ], [ %.1103, %69 ], [ %.0102132, %25 ]
-  %.2.ph = phi i32 [ %.0101133, %30 ], [ %.0101133, %20 ], [ %.1, %59 ], [ %.1, %62 ], [ %.1, %73 ], [ %.1, %71 ], [ %.1, %69 ], [ %.0101133, %25 ]
+  %.1103.ph = phi ptr [ %.0102132, %30 ], [ %.0102132, %20 ], [ %.3105, %59 ], [ %.3105, %62 ], [ %.3105, %73 ], [ %.3105, %71 ], [ %.3105, %69 ], [ %.0102132, %25 ]
+  %.1.ph = phi i32 [ %.0101133, %30 ], [ %.0101133, %20 ], [ %.2, %59 ], [ %.2, %62 ], [ %.2, %73 ], [ %.2, %71 ], [ %.2, %69 ], [ %.0101133, %25 ]
   %.0.shrunk.ph = phi i16 [ 0, %30 ], [ 0, %20 ], [ %60, %59 ], [ %60, %62 ], [ %60, %73 ], [ %60, %71 ], [ %60, %69 ], [ 0, %25 ]
   %.pr = load i32, ptr %22, align 8
   br label %74
 
 74:                                               ; preds = %thread-pre-split, %28
   %75 = phi i32 [ %.pr, %thread-pre-split ], [ %29, %28 ]
-  %.2104 = phi ptr [ %.2104.ph, %thread-pre-split ], [ %.0102132, %28 ]
-  %.2 = phi i32 [ %.2.ph, %thread-pre-split ], [ %.0101133, %28 ]
+  %.1103 = phi ptr [ %.1103.ph, %thread-pre-split ], [ %.0102132, %28 ]
+  %.1 = phi i32 [ %.1.ph, %thread-pre-split ], [ %.0101133, %28 ]
   %.0.shrunk = phi i16 [ %.0.shrunk.ph, %thread-pre-split ], [ 0, %28 ]
   %76 = icmp eq i32 %75, 5
   br i1 %76, label %77, label %90
@@ -1709,8 +1709,8 @@ thread-pre-split:                                 ; preds = %20, %25, %69, %73, 
   br label %124
 
 124:                                              ; preds = %115, %120, %37
-  %.3105 = phi ptr [ %.2104, %120 ], [ %.2104, %115 ], [ %.0102132, %37 ]
-  %.3 = phi i32 [ %.2, %120 ], [ %.2, %115 ], [ 1, %37 ]
+  %.2104 = phi ptr [ %.1103, %120 ], [ %.1103, %115 ], [ %.0102132, %37 ]
+  %.3 = phi i32 [ %.1, %120 ], [ %.1, %115 ], [ 1, %37 ]
   %125 = add nuw i32 %.0100134, 1
   %126 = load ptr, ptr %12, align 8
   %127 = tail call i32 @wmem_array_get_count(ptr noundef %126) #9
@@ -2458,7 +2458,7 @@ define internal fastcc void @dissect_sdp_timezone(ptr noundef %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %find_next_optional_token_in_line.exit
   %8 = phi i32 [ %.02840.i, %find_next_optional_token_in_line.exit ], [ %.pre31, %.lr.ph.preheader ]
-  %9 = phi i32 [ %.241.i, %find_next_optional_token_in_line.exit ], [ %.pre, %.lr.ph.preheader ]
+  %9 = phi i32 [ %.041.i, %find_next_optional_token_in_line.exit ], [ %.pre, %.lr.ph.preheader ]
   %.023 = phi i32 [ 1, %find_next_optional_token_in_line.exit ], [ 0, %.lr.ph.preheader ]
   %phi.call22 = phi i32 [ %.02939.i, %find_next_optional_token_in_line.exit ], [ %6, %.lr.ph.preheader ]
   %10 = load i32, ptr @hf_timezone_time, align 4
@@ -2489,19 +2489,19 @@ define internal fastcc void @dissect_sdp_timezone(ptr noundef %0, ptr noundef %1
   br i1 %23, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %28, %.preheader.i
-  %.0.lcssa.i = phi i32 [ %20, %.preheader.i ], [ %31, %28 ]
-  %24 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0.lcssa.i) #9
+  %.1.lcssa.i = phi i32 [ %20, %.preheader.i ], [ %31, %28 ]
+  %24 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1.lcssa.i) #9
   br label %find_next_optional_token_in_line.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %28
   %25 = phi i32 [ %32, %28 ], [ %22, %.preheader.i ]
-  %.045.i = phi i32 [ %31, %28 ], [ %20, %.preheader.i ]
-  %26 = sub i32 %25, %.045.i
+  %.145.i = phi i32 [ %31, %28 ], [ %20, %.preheader.i ]
+  %26 = sub i32 %25, %.145.i
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %find_next_optional_token_in_line.exit
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = add i32 %.045.i, -1
+  %29 = add i32 %.145.i, -1
   %30 = tail call ptr @proto_tree_add_expert(ptr noundef %5, ptr noundef null, ptr noundef nonnull @ei_sdp_invalid_line_space, ptr noundef %0, i32 noundef %29, i32 noundef 2) #9
   %31 = add nuw i32 %25, 1
   %32 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %31, i32 noundef -1, i8 noundef zeroext 32) #9
@@ -2509,11 +2509,11 @@ define internal fastcc void @dissect_sdp_timezone(ptr noundef %0, ptr noundef %1
   br i1 %33, label %._crit_edge.i, label %.lr.ph.i
 
 find_next_optional_token_in_line.exit:            ; preds = %.lr.ph.i, %._crit_edge.i
-  %.241.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %.045.i, %.lr.ph.i ]
+  %.041.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %.145.i, %.lr.ph.i ]
   %.02840.i = phi i32 [ -1, %._crit_edge.i ], [ %25, %.lr.ph.i ]
   %.02939.i = phi i32 [ %24, %._crit_edge.i ], [ %26, %.lr.ph.i ]
   store i32 %.02840.i, ptr %3, align 4
-  store i32 %.241.i, ptr %2, align 4
+  store i32 %.041.i, ptr %2, align 4
   %34 = icmp eq i32 %.02939.i, 0
   br i1 %34, label %._crit_edge, label %.lr.ph
 
@@ -3895,19 +3895,19 @@ define internal fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %14, %.preheader
-  %.0.lcssa = phi i32 [ %6, %.preheader ], [ %17, %14 ]
-  %10 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0.lcssa) #9
+  %.1.lcssa = phi i32 [ %6, %.preheader ], [ %17, %14 ]
+  %10 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.1.lcssa) #9
   br label %20
 
 .lr.ph:                                           ; preds = %.preheader, %14
   %11 = phi i32 [ %18, %14 ], [ %8, %.preheader ]
-  %.045 = phi i32 [ %17, %14 ], [ %6, %.preheader ]
-  %12 = sub i32 %11, %.045
+  %.145 = phi i32 [ %17, %14 ], [ %6, %.preheader ]
+  %12 = sub i32 %11, %.145
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %.thread34
 
 14:                                               ; preds = %.lr.ph
-  %15 = add i32 %.045, -1
+  %15 = add i32 %.145, -1
   %16 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef null, ptr noundef nonnull @ei_sdp_invalid_line_space, ptr noundef %0, i32 noundef %15, i32 noundef 2) #9
   %17 = add nuw i32 %11, 1
   %18 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %17, i32 noundef -1, i8 noundef zeroext 32) #9
@@ -3916,7 +3916,7 @@ define internal fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr
 
 20:                                               ; preds = %._crit_edge, %5
   %.029 = phi i32 [ %10, %._crit_edge ], [ 0, %5 ]
-  %.2 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %6, %5 ]
+  %.0 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %6, %5 ]
   %21 = icmp eq i32 %4, 0
   %22 = icmp eq i32 %.029, 0
   %or.cond = select i1 %21, i1 %22, i1 false
@@ -3927,11 +3927,11 @@ define internal fastcc i32 @find_next_optional_token_in_line(ptr noundef %0, ptr
   br label %.thread34
 
 .thread34:                                        ; preds = %.lr.ph, %23, %20
-  %.241 = phi i32 [ %.2, %23 ], [ %.2, %20 ], [ %.045, %.lr.ph ]
+  %.041 = phi i32 [ %.0, %23 ], [ %.0, %20 ], [ %.145, %.lr.ph ]
   %.02840 = phi i32 [ -1, %23 ], [ -1, %20 ], [ %11, %.lr.ph ]
   %.02939 = phi i32 [ 0, %23 ], [ %.029, %20 ], [ %12, %.lr.ph ]
   store i32 %.02840, ptr %3, align 4
-  store i32 %.241, ptr %2, align 4
+  store i32 %.041, ptr %2, align 4
   ret i32 %.02939
 }
 

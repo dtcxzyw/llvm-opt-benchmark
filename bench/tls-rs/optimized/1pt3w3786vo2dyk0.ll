@@ -17773,8 +17773,8 @@ _ZN6rustls4msgs5codec5Codec12get_encoding17h70fb4bdcc373f64cE.exit: ; preds = %2
 52:                                               ; preds = %.thread, %48
   %53 = phi i64 [ %47, %.thread ], [ %50, %48 ]
   %54 = phi ptr [ %46, %.thread ], [ %49, %48 ]
-  %.112 = phi i64 [ 0, %.thread ], [ %34, %48 ]
-  %55 = sub nuw i64 %53, %.112
+  %.0612 = phi i64 [ 0, %.thread ], [ %34, %48 ]
+  %55 = sub nuw i64 %53, %.0612
   store i64 %55, ptr %54, align 8, !alias.scope !4245
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h5777dfd3e4249c38E.exit"
 

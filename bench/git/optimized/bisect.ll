@@ -2353,10 +2353,10 @@ do.cond.i54:                                      ; preds = %do.body.i50
   br i1 %cmp.i57, label %do.body.i50, label %if.else47, !llvm.loop !5
 
 if.then43:                                        ; preds = %do.body.i, %do.body.i50
-  %arg.2 = phi ptr [ %scevgep255, %do.body.i50 ], [ %scevgep, %do.body.i ]
+  %arg.0 = phi ptr [ %scevgep255, %do.body.i50 ], [ %scevgep, %do.body.i ]
   %34 = load ptr, ptr %terms, align 8
   call void @free(ptr noundef %34) #17
-  %call45 = call ptr @xstrdup(ptr noundef %arg.2) #17
+  %call45 = call ptr @xstrdup(ptr noundef %arg.0) #17
   store ptr %call45, ptr %terms, align 8
   br label %for.inc100
 

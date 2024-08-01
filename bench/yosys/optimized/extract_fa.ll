@@ -65300,7 +65300,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i: ; preds = %152, %148
   br i1 %.not69, label %_ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EE5eraseERKS3_.exit, label %.lr.ph96
 
 _ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EE5eraseERKS3_.exit: ; preds = %166, %175, %141, %168, %126, %137, %124
-  %.0 = phi i1 [ false, %124 ], [ true, %137 ], [ false, %126 ], [ false, %168 ], [ true, %141 ], [ false, %175 ], [ true, %166 ]
+  %.1 = phi i1 [ false, %124 ], [ true, %137 ], [ false, %126 ], [ false, %168 ], [ true, %141 ], [ false, %175 ], [ true, %166 ]
   %177 = load ptr, ptr %88, align 8
   invoke void @_ZNSt8_Rb_treeIPN5Yosys5RTLIL4CellES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %177)
           to label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit unwind label %178
@@ -65313,8 +65313,8 @@ _ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EE5eraseERKS3_.exit: ; preds = %
   unreachable
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EE5eraseERKS3_.exit, %46, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i, %4, %58
-  %.1 = phi i1 [ false, %58 ], [ true, %4 ], [ false, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i ], [ false, %46 ], [ %.0, %_ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EE5eraseERKS3_.exit ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %58 ], [ true, %4 ], [ false, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i ], [ false, %46 ], [ %.1, %_ZNSt3setIPN5Yosys5RTLIL4CellESt4lessIS3_ESaIS3_EE5eraseERKS3_.exit ]
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpec14is_fully_constEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
@@ -70831,7 +70831,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL7SigSpecES2_EvT_S4_RSaIT0_E.exit.i862: ; preds = %_Z
   br label %_ZNSt6vectorIN5Yosys5RTLIL7SigSpecESaIS2_EED2Ev.exit864
 
 _ZNSt6vectorIN5Yosys5RTLIL7SigSpecESaIS2_EED2Ev.exit864: ; preds = %1941, %_ZSt8_DestroyIPN5Yosys5RTLIL7SigSpecES2_EvT_S4_RSaIT0_E.exit.i862, %.critedge382, %.loopexit1113, %1735, %1440, %1232, %1211, %1142, %.critedge369, %1111, %457, %_ZNSt6vectorIN5Yosys5RTLIL7SigSpecESaIS2_EED2Ev.exit, %_ZN5Yosys5RTLIL5ConstD2Ev.exit838, %1922
-  %.9 = phi i1 [ true, %1922 ], [ false, %_ZNSt6vectorIN5Yosys5RTLIL7SigSpecESaIS2_EED2Ev.exit ], [ false, %1440 ], [ false, %1735 ], [ false, %.loopexit1113 ], [ false, %_ZN5Yosys5RTLIL5ConstD2Ev.exit838 ], [ true, %457 ], [ false, %1111 ], [ false, %.critedge369 ], [ false, %1142 ], [ false, %1211 ], [ false, %1232 ], [ false, %.critedge382 ], [ false, %_ZSt8_DestroyIPN5Yosys5RTLIL7SigSpecES2_EvT_S4_RSaIT0_E.exit.i862 ], [ false, %1941 ]
+  %.2 = phi i1 [ true, %1922 ], [ false, %_ZNSt6vectorIN5Yosys5RTLIL7SigSpecESaIS2_EED2Ev.exit ], [ false, %1440 ], [ false, %1735 ], [ false, %.loopexit1113 ], [ false, %_ZN5Yosys5RTLIL5ConstD2Ev.exit838 ], [ true, %457 ], [ false, %1111 ], [ false, %.critedge369 ], [ false, %1142 ], [ false, %1211 ], [ false, %1232 ], [ false, %.critedge382 ], [ false, %_ZSt8_DestroyIPN5Yosys5RTLIL7SigSpecES2_EvT_S4_RSaIT0_E.exit.i862 ], [ false, %1941 ]
   %1942 = load ptr, ptr %432, align 8
   %.not.i.i.i.i865 = icmp eq ptr %1942, null
   br i1 %.not.i.i.i.i865, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i866, label %1943
@@ -71022,13 +71022,13 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i914: ; preds = 
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit483.sink.split:   ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i914, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i481
   %.sink1222 = phi ptr [ %388, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i481 ], [ %1989, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i914 ]
-  %.10.ph = phi i1 [ %.0, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i481 ], [ %.9, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i914 ]
+  %.1.ph = phi i1 [ %.0, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i481 ], [ %.2, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i914 ]
   call void @_ZdlPv(ptr noundef nonnull %.sink1222) #21
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit483
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit483:              ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit483.sink.split, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i914, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i481
-  %.10 = phi i1 [ %.0, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i481 ], [ %.9, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i914 ], [ %.10.ph, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit483.sink.split ]
-  ret i1 %.10
+  %.1 = phi i1 [ %.0, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i481 ], [ %.2, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i914 ], [ %.1.ph, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit483.sink.split ]
+  ret i1 %.1
 }
 
 ; Function Attrs: mustprogress uwtable

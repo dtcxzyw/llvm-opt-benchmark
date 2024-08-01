@@ -698,7 +698,7 @@ expand_.exit384:                                  ; preds = %99, %103
   br label %123
 
 123:                                              ; preds = %expand_.exit384, %121
-  %.1 = phi i1 [ %.0431443, %expand_.exit384 ], [ true, %121 ]
+  %.4 = phi i1 [ %.0431443, %expand_.exit384 ], [ true, %121 ]
   %.sink.i = phi ptr [ %77, %expand_.exit384 ], [ %122, %121 ]
   %124 = tail call ptr @LLVMConstNull(ptr noundef %.sink.i) #10
   %125 = load i32, ptr %.1.i382, align 4
@@ -709,13 +709,13 @@ expand_.exit384:                                  ; preds = %99, %103
   br label %129
 
 129:                                              ; preds = %123, %.lr.ph450
-  %.2432 = phi i1 [ %.1, %123 ], [ %.0431443, %.lr.ph450 ]
+  %.1 = phi i1 [ %.4, %123 ], [ %.0431443, %.lr.ph450 ]
   %.1330 = phi ptr [ %119, %123 ], [ %.0329446, %.lr.ph450 ]
   %130 = load ptr, ptr %88, align 8
   %131 = tail call ptr @llvm_emit_const_initializer(ptr noundef %0, ptr noundef %130)
   %132 = tail call ptr @LLVMTypeOf(ptr noundef %131) #10
   %.not371 = icmp ne ptr %132, %77
-  %spec.select437 = select i1 %.not371, i1 true, i1 %.2432
+  %spec.select437 = select i1 %.not371, i1 true, i1 %.1
   %.not.i385 = icmp eq ptr %.1330, null
   br i1 %.not.i385, label %133, label %136
 

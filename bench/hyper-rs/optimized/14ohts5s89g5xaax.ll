@@ -254,7 +254,7 @@ define hidden void @"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u2
   br label %54
 
 54:                                               ; preds = %53, %19
-  %.sroa.0.0 = phi i64 [ 2, %19 ], [ %.sink80.i, %53 ]
+  %.sroa.0.1 = phi i64 [ 2, %19 ], [ %.sink80.i, %53 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !42
   br label %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h9c4c8141f9e13848E.exit"
 
@@ -286,7 +286,7 @@ define hidden void @"_ZN88_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u2
   br label %64
 
 64:                                               ; preds = %65, %32, %63, %61, %59, %37, %36
-  %.sroa.0.1 = phi i64 [ 1, %36 ], [ 2, %37 ], [ 2, %59 ], [ 0, %63 ], [ 1, %61 ], [ 0, %65 ], [ 1, %32 ]
+  %.sroa.0.0 = phi i64 [ 1, %36 ], [ 2, %37 ], [ 2, %59 ], [ 0, %63 ], [ 1, %61 ], [ 0, %65 ], [ 1, %32 ]
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17h203fc69658b88312E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5), !noalias !45
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !42
   br label %"_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h9c4c8141f9e13848E.exit"
@@ -307,7 +307,7 @@ common.resume:                                    ; preds = %78, %26
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5tokio4sync7oneshot14Inner$LT$T$GT$9poll_recv17h9c4c8141f9e13848E.exit": ; preds = %54, %64
-  %.sroa.0.2 = phi i64 [ %.sroa.0.0, %54 ], [ %.sroa.0.1, %64 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %54 ], [ %.sroa.0.0, %64 ]
   switch i64 %.sroa.0.2, label %77 [
     i64 2, label %83
     i64 0, label %73

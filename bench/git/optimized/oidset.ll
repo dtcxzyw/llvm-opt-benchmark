@@ -478,19 +478,19 @@ if.then55.loopexit.i:                             ; preds = %oideq_by_value.exit
 if.then55.i:                                      ; preds = %if.then55.loopexit.i, %while.end.i
   %.pre-phi72.i = phi i1 [ %17, %if.then55.loopexit.i ], [ true, %while.end.i ]
   %i.166.i = phi i32 [ %i.0.i, %if.then55.loopexit.i ], [ %and.i, %while.end.i ]
-  %site.265.i = phi i32 [ %site.0.i, %if.then55.loopexit.i ], [ %4, %while.end.i ]
-  %cmp66.not.i = icmp eq i32 %site.265.i, %4
+  %site.165.i = phi i32 [ %site.0.i, %if.then55.loopexit.i ], [ %4, %while.end.i ]
+  %cmp66.not.i = icmp eq i32 %site.165.i, %4
   %or.cond.i = select i1 %.pre-phi72.i, i1 true, i1 %cmp66.not.i
-  %spec.select60.i = select i1 %or.cond.i, i32 %i.166.i, i32 %site.265.i
+  %spec.select60.i = select i1 %or.cond.i, i32 %i.166.i, i32 %site.165.i
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.then55.i, %while.end.i, %if.end5.i
-  %x.1.i = phi i32 [ %spec.select.i, %while.end.i ], [ %and.i, %if.end5.i ], [ %spec.select60.i, %if.then55.i ]
-  %shr73.i = lshr i32 %x.1.i, 4
+  %x.0.i = phi i32 [ %spec.select.i, %while.end.i ], [ %and.i, %if.end5.i ], [ %spec.select60.i, %if.then55.i ]
+  %shr73.i = lshr i32 %x.0.i, 4
   %idxprom74.i = zext nneg i32 %shr73.i to i64
   %arrayidx75.i = getelementptr inbounds i32, ptr %5, i64 %idxprom74.i
   %18 = load i32, ptr %arrayidx75.i, align 4
-  %and76.i = shl i32 %x.1.i, 1
+  %and76.i = shl i32 %x.0.i, 1
   %shl77.i = and i32 %and76.i, 30
   %shr78.i = lshr i32 %18, %shl77.i
   %and79.i = and i32 %shr78.i, 2
@@ -500,7 +500,7 @@ if.end71.i:                                       ; preds = %if.then55.i, %while
 if.then81.i:                                      ; preds = %if.end71.i
   %keys82.i = getelementptr inbounds i8, ptr %set, i64 24
   %19 = load ptr, ptr %keys82.i, align 8
-  %idxprom83.i = zext i32 %x.1.i to i64
+  %idxprom83.i = zext i32 %x.0.i to i64
   %arrayidx84.i = getelementptr inbounds %struct.object_id, ptr %19, i64 %idxprom83.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx84.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp1, i64 36, i1 false)
   %shl87.i = shl nuw i32 3, %shl77.i
@@ -524,7 +524,7 @@ if.else98.i:                                      ; preds = %if.end71.i
 if.then108.i:                                     ; preds = %if.else98.i
   %keys109.i = getelementptr inbounds i8, ptr %set, i64 24
   %24 = load ptr, ptr %keys109.i, align 8
-  %idxprom110.i = zext i32 %x.1.i to i64
+  %idxprom110.i = zext i32 %x.0.i to i64
   %arrayidx111.i = getelementptr inbounds %struct.object_id, ptr %24, i64 %idxprom110.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %arrayidx111.i, ptr noundef nonnull readonly align 8 dereferenceable(36) %byval-temp1, i64 36, i1 false)
   %shl115.i = shl nuw i32 3, %shl77.i

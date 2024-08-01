@@ -1744,13 +1744,13 @@ retrieve_caching.exit.thread:                     ; preds = %10, %48, %16, %retr
   br label %62
 
 62:                                               ; preds = %59, %55
-  %.0796 = phi ptr [ %61, %59 ], [ null, %55 ]
+  %.1797 = phi ptr [ %61, %59 ], [ null, %55 ]
   %63 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0792) #2
   %or.cond.i = icmp ugt i8 %63, 1
   br i1 %or.cond.i, label %64, label %validate_boolean.exit
 
 64:                                               ; preds = %62
-  %65 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0796, ptr noundef nonnull @ei_openwire_encoding_not_supported) #2
+  %65 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %.1797, ptr noundef nonnull @ei_openwire_encoding_not_supported) #2
   br label %validate_boolean.exit
 
 validate_boolean.exit:                            ; preds = %62, %64
@@ -1767,7 +1767,7 @@ validate_boolean.exit:                            ; preds = %62, %64
   br label %71
 
 71:                                               ; preds = %51, %69, %52, %retrieve_caching.exit.thread
-  %.1797 = phi ptr [ %.0796, %69 ], [ null, %52 ], [ null, %51 ], [ null, %retrieve_caching.exit.thread ]
+  %.0796 = phi ptr [ %.1797, %69 ], [ null, %52 ], [ null, %51 ], [ null, %retrieve_caching.exit.thread ]
   %.not816 = phi i1 [ true, %69 ], [ false, %52 ], [ false, %51 ], [ true, %retrieve_caching.exit.thread ]
   %.1 = phi i32 [ %70, %69 ], [ %.0792, %52 ], [ %.0792, %51 ], [ %.0792, %retrieve_caching.exit.thread ]
   %72 = icmp eq i32 %5, -5
@@ -1841,7 +1841,7 @@ validate_boolean.exit:                            ; preds = %62, %64
   br label %109
 
 109:                                              ; preds = %106, %102
-  %.2798 = phi ptr [ %108, %106 ], [ %.1797, %102 ]
+  %.2798 = phi ptr [ %108, %106 ], [ %.0796, %102 ]
   %110 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #2
   %or.cond.i830 = icmp ugt i8 %110, 1
   br i1 %or.cond.i830, label %111, label %validate_boolean.exit831
@@ -2212,20 +2212,20 @@ validate_boolean.exit833:                         ; preds = %152, %159
   br i1 %.not853, label %.critedge, label %.lr.ph850
 
 .lr.ph850:                                        ; preds = %309, %317
-  %.4849 = phi i32 [ %.5, %317 ], [ %310, %309 ]
+  %.5849 = phi i32 [ %.6, %317 ], [ %310, %309 ]
   %.0801848 = phi i32 [ %318, %317 ], [ 0, %309 ]
-  %311 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4849) #2
+  %311 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.5849) #2
   %312 = icmp sgt i32 %311, -1
   br i1 %312, label %313, label %317
 
 313:                                              ; preds = %.lr.ph850
   %314 = load i32, ptr @hf_openwire_none, align 4
-  %315 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %298, i32 noundef %.4849, i32 noundef %314, i32 noundef -2, i32 noundef -4, i32 noundef 1)
-  %316 = add i32 %315, %.4849
+  %315 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %298, i32 noundef %.5849, i32 noundef %314, i32 noundef -2, i32 noundef -4, i32 noundef 1)
+  %316 = add i32 %315, %.5849
   br label %317
 
 317:                                              ; preds = %.lr.ph850, %313
-  %.5 = phi i32 [ %316, %313 ], [ %.4849, %.lr.ph850 ]
+  %.6 = phi i32 [ %316, %313 ], [ %.5849, %.lr.ph850 ]
   %318 = add nuw nsw i32 %.0801848, 1
   %exitcond856.not = icmp eq i32 %318, %304
   br i1 %exitcond856.not, label %.critedge, label %.lr.ph850, !llvm.loop !6
@@ -2253,24 +2253,24 @@ validate_boolean.exit833:                         ; preds = %152, %159
   br i1 %330, label %.lr.ph845, label %.critedge
 
 .lr.ph845:                                        ; preds = %328, %333
-  %.6844 = phi i32 [ %343, %333 ], [ %329, %328 ]
+  %.8844 = phi i32 [ %343, %333 ], [ %329, %328 ]
   %.0800843 = phi i32 [ %345, %333 ], [ 0, %328 ]
-  %331 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.6844) #2
+  %331 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.8844) #2
   %332 = icmp sgt i32 %331, 0
   br i1 %332, label %333, label %.critedge
 
 333:                                              ; preds = %.lr.ph845
   %334 = load i32, ptr @hf_openwire_map_entry, align 4
-  %335 = tail call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %334, ptr noundef %0, i32 noundef %.6844, i32 noundef 0, i32 noundef 0) #2
+  %335 = tail call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %334, ptr noundef %0, i32 noundef %.8844, i32 noundef 0, i32 noundef 0) #2
   %336 = load i32, ptr @ett_openwire_type, align 4
   %337 = tail call ptr @proto_item_add_subtree(ptr noundef %335, i32 noundef %336) #2
   %338 = load i32, ptr @hf_openwire_map_key, align 4
-  %339 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %337, i32 noundef %.6844, i32 noundef %338, i32 noundef 9, i32 noundef 11, i32 noundef 0)
-  %340 = add i32 %339, %.6844
+  %339 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %337, i32 noundef %.8844, i32 noundef %338, i32 noundef 9, i32 noundef 11, i32 noundef 0)
+  %340 = add i32 %339, %.8844
   %341 = load i32, ptr @hf_openwire_none, align 4
   %342 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %337, i32 noundef %340, i32 noundef %341, i32 noundef -2, i32 noundef 11, i32 noundef 0)
   %343 = add i32 %342, %340
-  %344 = sub i32 %343, %.6844
+  %344 = sub i32 %343, %.8844
   tail call void @proto_item_set_len(ptr noundef %335, i32 noundef %344) #2
   %345 = add nuw nsw i32 %.0800843, 1
   %exitcond855.not = icmp eq i32 %345, %323
@@ -2305,20 +2305,20 @@ validate_boolean.exit833:                         ; preds = %152, %159
   br i1 %.not820, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %362, %384
-  %.7842 = phi i32 [ %.8, %384 ], [ %363, %362 ]
+  %.9842 = phi i32 [ %.10, %384 ], [ %363, %362 ]
   %.0794841 = phi i32 [ %385, %384 ], [ 0, %362 ]
   %364 = load i32, ptr @hf_openwire_throwable_element, align 4
-  %365 = tail call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %364, ptr noundef %0, i32 noundef %.7842, i32 noundef -1, i32 noundef 0) #2
+  %365 = tail call ptr @proto_tree_add_item(ptr noundef %298, i32 noundef %364, ptr noundef %0, i32 noundef %.9842, i32 noundef -1, i32 noundef 0) #2
   %366 = load i32, ptr @ett_openwire_type, align 4
   %367 = tail call ptr @proto_item_add_subtree(ptr noundef %365, i32 noundef %366) #2
-  %368 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.7842) #2
+  %368 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.9842) #2
   %369 = icmp sgt i32 %368, -1
   br i1 %369, label %370, label %384
 
 370:                                              ; preds = %.preheader
   %371 = load i32, ptr @hf_openwire_throwable_classname, align 4
-  %372 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %367, i32 noundef %.7842, i32 noundef %371, i32 noundef 9, i32 noundef -1, i32 noundef 1)
-  %373 = add i32 %372, %.7842
+  %372 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %367, i32 noundef %.9842, i32 noundef %371, i32 noundef 9, i32 noundef -1, i32 noundef 1)
+  %373 = add i32 %372, %.9842
   %374 = load i32, ptr @hf_openwire_throwable_methodname, align 4
   %375 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %367, i32 noundef %373, i32 noundef %374, i32 noundef 9, i32 noundef -1, i32 noundef 1)
   %376 = add i32 %375, %373
@@ -2328,20 +2328,20 @@ validate_boolean.exit833:                         ; preds = %152, %159
   %380 = load i32, ptr @hf_openwire_throwable_linenumber, align 4
   %381 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %367, i32 noundef %379, i32 noundef %380, i32 noundef 5, i32 noundef -1, i32 noundef 0)
   %382 = add i32 %381, %379
-  %383 = sub i32 %382, %.7842
+  %383 = sub i32 %382, %.9842
   tail call void @proto_item_set_len(ptr noundef %365, i32 noundef %383) #2
   br label %384
 
 384:                                              ; preds = %.preheader, %370
-  %.8 = phi i32 [ %382, %370 ], [ %.7842, %.preheader ]
+  %.10 = phi i32 [ %382, %370 ], [ %.9842, %.preheader ]
   %385 = add nuw nsw i32 %.0794841, 1
   %exitcond.not = icmp eq i32 %385, %357
   br i1 %exitcond.not, label %386, label %.preheader, !llvm.loop !8
 
 386:                                              ; preds = %384
   %387 = load i32, ptr @hf_openwire_exceptionresponse_exception, align 4
-  %388 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %298, i32 noundef %.8, i32 noundef %387, i32 noundef -1, i32 noundef -1, i32 noundef 1)
-  %389 = add i32 %388, %.8
+  %388 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %298, i32 noundef %.10, i32 noundef %387, i32 noundef -1, i32 noundef -1, i32 noundef 1)
+  %389 = add i32 %388, %.10
   br label %.critedge
 
 390:                                              ; preds = %290
@@ -2497,10 +2497,10 @@ validate_boolean.exit833:                         ; preds = %152, %159
   br label %496
 
 496:                                              ; preds = %489, %488
-  %.9 = phi i32 [ %495, %489 ], [ %.3, %488 ]
+  %.11 = phi i32 [ %495, %489 ], [ %.3, %488 ]
   %497 = load i32, ptr @hf_openwire_message_producerid, align 4
-  %498 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %298, i32 noundef %.9, i32 noundef %497, i32 noundef -3, i32 noundef %.0793, i32 noundef 1)
-  %499 = add i32 %498, %.9
+  %498 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %298, i32 noundef %.11, i32 noundef %497, i32 noundef -3, i32 noundef %.0793, i32 noundef 1)
+  %499 = add i32 %498, %.11
   %500 = load i32, ptr @hf_openwire_message_destination, align 4
   %501 = tail call fastcc i32 @dissect_openwire_type(ptr noundef %0, ptr noundef %1, ptr noundef %298, i32 noundef %499, i32 noundef %500, i32 noundef -3, i32 noundef %.0793, i32 noundef 1)
   %502 = add i32 %501, %499
@@ -2599,14 +2599,14 @@ validate_boolean.exit833:                         ; preds = %152, %159
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph845, %333, %317, %328, %309, %390, %403, %426, %446, %469, %496, %586, %.thread836, %482, %459, %439, %413, %396, %362, %386
-  %.10 = phi i32 [ %389, %386 ], [ %363, %362 ], [ %.3, %390 ], [ %399, %396 ], [ %409, %403 ], [ %422, %413 ], [ %435, %426 ], [ %442, %439 ], [ %455, %446 ], [ %465, %459 ], [ %478, %469 ], [ %485, %482 ], [ %583, %496 ], [ %589, %586 ], [ %.3, %.thread836 ], [ %310, %309 ], [ %329, %328 ], [ %.5, %317 ], [ %.6844, %.lr.ph845 ], [ %343, %333 ]
-  %590 = sub i32 %.10, %3
+  %.7 = phi i32 [ %389, %386 ], [ %363, %362 ], [ %.3, %390 ], [ %399, %396 ], [ %409, %403 ], [ %422, %413 ], [ %435, %426 ], [ %442, %439 ], [ %455, %446 ], [ %465, %459 ], [ %478, %469 ], [ %485, %482 ], [ %583, %496 ], [ %589, %586 ], [ %.3, %.thread836 ], [ %310, %309 ], [ %329, %328 ], [ %.6, %317 ], [ %.8844, %.lr.ph845 ], [ %343, %333 ]
+  %590 = sub i32 %.7, %3
   tail call void @proto_item_set_len(ptr noundef %295, i32 noundef %590) #2
   br label %591
 
 591:                                              ; preds = %118, %122, %142, %165, %185, %215, %212, %.loopexit, %250, %.critedge, %287, %231, %234, %195, %175, %validate_boolean.exit833, %132
-  %.11 = phi i32 [ %128, %122 ], [ %138, %132 ], [ %148, %142 ], [ %161, %validate_boolean.exit833 ], [ %171, %165 ], [ %181, %175 ], [ %191, %185 ], [ %201, %195 ], [ %221, %215 ], [ %213, %212 ], [ %240, %234 ], [ %232, %231 ], [ %286, %.loopexit ], [ %251, %250 ], [ %.10, %.critedge ], [ %.3, %287 ], [ %.3, %118 ]
-  %592 = sub i32 %.11, %3
+  %.4 = phi i32 [ %128, %122 ], [ %138, %132 ], [ %148, %142 ], [ %161, %validate_boolean.exit833 ], [ %171, %165 ], [ %181, %175 ], [ %191, %185 ], [ %201, %195 ], [ %221, %215 ], [ %213, %212 ], [ %240, %234 ], [ %232, %231 ], [ %286, %.loopexit ], [ %251, %250 ], [ %.7, %.critedge ], [ %.3, %287 ], [ %.3, %118 ]
+  %592 = sub i32 %.4, %3
   br label %593
 
 593:                                              ; preds = %591, %113, %76, %66, %42

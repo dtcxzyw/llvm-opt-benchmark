@@ -304,14 +304,14 @@ if.then12.i:                                      ; preds = %while.end.i
 
 if.end14.i:                                       ; preds = %if.then12.i, %while.end.i, %while.cond.preheader.i
   %pkey.0.lcssa15.i = phi ptr [ %pkey.0.lcssa.i, %if.then12.i ], [ null, %while.end.i ], [ null, %while.cond.preheader.i ]
-  %ret.0.i = phi i32 [ %4, %if.then12.i ], [ 0, %while.end.i ], [ 0, %while.cond.preheader.i ]
+  %ret.1.i = phi i32 [ %4, %if.then12.i ], [ 0, %while.end.i ], [ 0, %while.cond.preheader.i ]
   call void @EVP_PKEY_free(ptr noundef %pkey.0.lcssa15.i) #3
   br label %get_params.exit
 
 get_params.exit:                                  ; preds = %if.end, %if.end14.i
-  %ret.1.i = phi i32 [ %ret.0.i, %if.end14.i ], [ 0, %if.end ]
+  %ret.0.i = phi i32 [ %ret.1.i, %if.end14.i ], [ 0, %if.end ]
   %call15.i = call i32 @OSSL_STORE_close(ptr noundef %call.i) #3
-  %call9 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 146, ptr noundef nonnull @.str.41, i32 noundef %ret.1.i) #3
+  %call9 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 146, ptr noundef nonnull @.str.41, i32 noundef %ret.0.i) #3
   %tobool10.not = icmp ne i32 %call9, 0
   %. = zext i1 %tobool10.not to i32
   br label %return

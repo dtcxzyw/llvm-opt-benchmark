@@ -191,9 +191,9 @@ _ZL10initializeP10JavaThread.exit:                ; preds = %1, %_ZL23new_java_u
   br label %46
 
 46:                                               ; preds = %_ZL10is_allowedPK5Klass.exit.thread.i, %.lr.ph.i
-  %.sroa.12.0 = phi i32 [ 64, %.lr.ph.i ], [ %.sroa.12.2, %_ZL10is_allowedPK5Klass.exit.thread.i ]
+  %.sroa.12.0 = phi i32 [ 64, %.lr.ph.i ], [ %.sroa.12.1, %_ZL10is_allowedPK5Klass.exit.thread.i ]
   %.sroa.041.0 = phi i32 [ 0, %.lr.ph.i ], [ %.sroa.041.1, %_ZL10is_allowedPK5Klass.exit.thread.i ]
-  %.sroa.19.0 = phi ptr [ %43, %.lr.ph.i ], [ %.sroa.19.2, %_ZL10is_allowedPK5Klass.exit.thread.i ]
+  %.sroa.19.0 = phi ptr [ %43, %.lr.ph.i ], [ %.sroa.19.1, %_ZL10is_allowedPK5Klass.exit.thread.i ]
   %47 = phi ptr [ %28, %.lr.ph.i ], [ %.pr.i, %_ZL10is_allowedPK5Klass.exit.thread.i ]
   %48 = getelementptr inbounds i8, ptr %47, i64 168
   %49 = load i64, ptr %48, align 8
@@ -266,18 +266,18 @@ _ZN13GrowableArrayIPKvE8allocateEv.exit.i:        ; preds = %59
   br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i31, !llvm.loop !6
 
 _ZN26GrowableArrayWithAllocatorIPKv13GrowableArrayIS1_EE6appendERKS1_.exit.i: ; preds = %.lr.ph19.preheader.i, %.preheader16.i, %59
-  %.sroa.12.1 = phi i32 [ %.sroa.12.0, %59 ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ]
-  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %59 ], [ %70, %.preheader16.i ], [ %70, %.lr.ph19.preheader.i ]
+  %.sroa.12.2 = phi i32 [ %.sroa.12.0, %59 ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ]
+  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %59 ], [ %70, %.preheader16.i ], [ %70, %.lr.ph19.preheader.i ]
   %84 = add nsw i32 %.sroa.041.0, 1
   %85 = sext i32 %.sroa.041.0 to i64
-  %86 = getelementptr inbounds ptr, ptr %.sroa.19.1, i64 %85
+  %86 = getelementptr inbounds ptr, ptr %.sroa.19.2, i64 %85
   store ptr %47, ptr %86, align 8
   br label %_ZL10is_allowedPK5Klass.exit.thread.i
 
 _ZL10is_allowedPK5Klass.exit.thread.i:            ; preds = %_ZN26GrowableArrayWithAllocatorIPKv13GrowableArrayIS1_EE6appendERKS1_.exit.i, %_ZL10is_allowedPK5Klass.exit.i, %51, %46
-  %.sroa.12.2 = phi i32 [ %.sroa.12.0, %46 ], [ %.sroa.12.0, %_ZL10is_allowedPK5Klass.exit.i ], [ %.sroa.12.1, %_ZN26GrowableArrayWithAllocatorIPKv13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ %.sroa.12.0, %51 ]
+  %.sroa.12.1 = phi i32 [ %.sroa.12.0, %46 ], [ %.sroa.12.0, %_ZL10is_allowedPK5Klass.exit.i ], [ %.sroa.12.2, %_ZN26GrowableArrayWithAllocatorIPKv13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ %.sroa.12.0, %51 ]
   %.sroa.041.1 = phi i32 [ %.sroa.041.0, %46 ], [ %.sroa.041.0, %_ZL10is_allowedPK5Klass.exit.i ], [ %84, %_ZN26GrowableArrayWithAllocatorIPKv13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ %.sroa.041.0, %51 ]
-  %.sroa.19.2 = phi ptr [ %.sroa.19.0, %46 ], [ %.sroa.19.0, %_ZL10is_allowedPK5Klass.exit.i ], [ %.sroa.19.1, %_ZN26GrowableArrayWithAllocatorIPKv13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ %.sroa.19.0, %51 ]
+  %.sroa.19.1 = phi ptr [ %.sroa.19.0, %46 ], [ %.sroa.19.0, %_ZL10is_allowedPK5Klass.exit.i ], [ %.sroa.19.2, %_ZN26GrowableArrayWithAllocatorIPKv13GrowableArrayIS1_EE6appendERKS1_.exit.i ], [ %.sroa.19.0, %51 ]
   call void @_ZN22ClassHierarchyIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(17) %4) #9
   %.pr.i = load ptr, ptr %44, align 8
   %87 = icmp eq ptr %.pr.i, null
@@ -302,7 +302,7 @@ _ZL12fill_klassesR13GrowableArrayIPKvEPK13InstanceKlassP10JavaThread.exit: ; pre
 
 .lr.ph.i24:                                       ; preds = %.lr.ph.i24.preheader, %_ZNK5Klass11java_mirrorEv.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK5Klass11java_mirrorEv.exit.i ], [ 0, %.lr.ph.i24.preheader ]
-  %94 = getelementptr inbounds ptr, ptr %.sroa.19.2, i64 %indvars.iv.i
+  %94 = getelementptr inbounds ptr, ptr %.sroa.19.1, i64 %indvars.iv.i
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 112
   %97 = load ptr, ptr %96, align 8
@@ -395,7 +395,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZL23new_java_util_
 
 _ZNK6HandleclEv.exit.us:                          ; preds = %.lr.ph, %138
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %138 ], [ 0, %.lr.ph ]
-  %131 = getelementptr inbounds ptr, ptr %.sroa.19.2, i64 %indvars.iv77
+  %131 = getelementptr inbounds ptr, ptr %.sroa.19.1, i64 %indvars.iv77
   %132 = load ptr, ptr %131, align 8
   call void @_ZN16JfrJavaArgumentsC1EP9JavaValuePK5KlassPK6SymbolS7_(ptr noundef nonnull align 8 dereferenceable(300) %9, ptr noundef nonnull %8, ptr noundef %126, ptr noundef %127, ptr noundef %128) #9
   call void @_ZN16JfrJavaArguments12set_receiverEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(300) %9, ptr noundef null) #9
@@ -421,7 +421,7 @@ _ZNK6HandleclEv.exit.us:                          ; preds = %.lr.ph, %138
 
 _ZNK6HandleclEv.exit:                             ; preds = %.lr.ph, %139
   %indvars.iv = phi i64 [ %indvars.iv.next, %139 ], [ 0, %.lr.ph ]
-  %140 = getelementptr inbounds ptr, ptr %.sroa.19.2, i64 %indvars.iv
+  %140 = getelementptr inbounds ptr, ptr %.sroa.19.1, i64 %indvars.iv
   %141 = load ptr, ptr %140, align 8
   call void @_ZN16JfrJavaArgumentsC1EP9JavaValuePK5KlassPK6SymbolS7_(ptr noundef nonnull align 8 dereferenceable(300) %9, ptr noundef nonnull %8, ptr noundef %126, ptr noundef %127, ptr noundef %128) #9
   %142 = load ptr, ptr %storemerge.i, align 8
@@ -454,7 +454,7 @@ _ZNK6HandleclEv.exit26:                           ; preds = %._crit_edge, %._cri
   br label %_ZN13GrowableArrayIPKvED2Ev.exit
 
 _ZN13GrowableArrayIPKvED2Ev.exit:                 ; preds = %89, %.split.us, %_ZNK6HandleclEv.exit26
-  %.0 = phi ptr [ %90, %89 ], [ %148, %.split.us ], [ %152, %_ZNK6HandleclEv.exit26 ]
+  %.1 = phi ptr [ %90, %89 ], [ %148, %.split.us ], [ %152, %_ZNK6HandleclEv.exit26 ]
   %153 = load ptr, ptr %36, align 8
   %.not.i.i.i.i28 = icmp eq ptr %153, null
   br i1 %.not.i.i.i.i28, label %155, label %154
@@ -476,8 +476,8 @@ _ZN13GrowableArrayIPKvED2Ev.exit:                 ; preds = %89, %.split.us, %_Z
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %157, %155, %31, %25
-  %.1 = phi ptr [ %26, %25 ], [ %32, %31 ], [ %.0, %155 ], [ %.0, %157 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %26, %25 ], [ %32, %31 ], [ %.1, %155 ], [ %.1, %157 ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZNK5Klass8subklassEb(ptr noundef nonnull align 8 dereferenceable(196), i1 noundef zeroext) local_unnamed_addr #1

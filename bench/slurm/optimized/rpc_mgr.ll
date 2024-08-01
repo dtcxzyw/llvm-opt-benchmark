@@ -226,7 +226,7 @@ define internal void @_connection_fini_callback(ptr noundef %0) #0 {
   br label %46
 
 46:                                               ; preds = %42, %38
-  %.0 = phi i1 [ false, %38 ], [ %.not13, %42 ]
+  %.1 = phi i1 [ false, %38 ], [ %.not13, %42 ]
   %47 = call i32 @pthread_mutex_lock(ptr noundef nonnull @registered_lock) #7
   %.not14 = icmp eq i32 %47, 0
   br i1 %.not14, label %50, label %48
@@ -240,7 +240,7 @@ define internal void @_connection_fini_callback(ptr noundef %0) #0 {
 50:                                               ; preds = %46
   %51 = load ptr, ptr @registered_clusters, align 8
   %52 = call i32 @list_delete_ptr(ptr noundef %51, ptr noundef nonnull %0) #7
-  br i1 %.0, label %62, label %53
+  br i1 %.1, label %62, label %53
 
 53:                                               ; preds = %50
   %54 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @registered_lock) #7

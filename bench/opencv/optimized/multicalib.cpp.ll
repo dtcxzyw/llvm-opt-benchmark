@@ -11452,8 +11452,8 @@ define void @_ZN2cv10multicalib22MultiCameraCalibration14findRowNonZeroERKNS_3Ma
 
 31:                                               ; preds = %.preheader46, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
   %indvars.iv = phi i64 [ 0, %.preheader46 ], [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.sroa.8.0 = phi ptr [ null, %.preheader46 ], [ %.sroa.8.2, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
-  %.sroa.14.0 = phi ptr [ null, %.preheader46 ], [ %.sroa.14.2, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.sroa.8.0 = phi ptr [ null, %.preheader46 ], [ %.sroa.8.1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
+  %.sroa.14.0 = phi ptr [ null, %.preheader46 ], [ %.sroa.14.1, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %.sroa.0.0 = phi ptr [ null, %.preheader46 ], [ %.sroa.0.2, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %32 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %1)
           to label %33 unwind label %.loopexit
@@ -11588,8 +11588,8 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit29
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %72, %_ZN2cv3Mat2atIfEERT_i.exit
-  %.sroa.8.2 = phi ptr [ %.sroa.8.0, %_ZN2cv3Mat2atIfEERT_i.exit ], [ %95, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %74, %72 ]
-  %.sroa.14.2 = phi ptr [ %.sroa.14.0, %_ZN2cv3Mat2atIfEERT_i.exit ], [ %97, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.14.0, %72 ]
+  %.sroa.8.1 = phi ptr [ %.sroa.8.0, %_ZN2cv3Mat2atIfEERT_i.exit ], [ %95, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %74, %72 ]
+  %.sroa.14.1 = phi ptr [ %.sroa.14.0, %_ZN2cv3Mat2atIfEERT_i.exit ], [ %97, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.14.0, %72 ]
   %.sroa.0.2 = phi ptr [ %.sroa.0.0, %_ZN2cv3Mat2atIfEERT_i.exit ], [ %89, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %.sroa.0.0, %72 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %31, !llvm.loop !254

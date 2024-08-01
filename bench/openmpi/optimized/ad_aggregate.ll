@@ -41,22 +41,22 @@ define i32 @ADIOI_Calc_aggregator(ptr nocapture noundef readonly %0, i64 noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %7
-  %.1 = phi i32 [ %12, %7 ], [ %21, %.loopexit.loopexit ]
+  %.0 = phi i32 [ %12, %7 ], [ %21, %.loopexit.loopexit ]
   %22 = getelementptr inbounds i8, ptr %14, i64 20
   %23 = load i32, ptr %22, align 4
-  %24 = icmp sge i32 %.1, %23
-  %25 = icmp slt i32 %.1, 0
+  %24 = icmp sge i32 %.0, %23
+  %25 = icmp slt i32 %.0, 0
   %or.cond = or i1 %25, %24
   br i1 %or.cond, label %26, label %30
 
 26:                                               ; preds = %.loopexit
   %27 = load ptr, ptr @stderr, align 8
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str, i32 noundef %.1, i32 noundef %23, i64 noundef %4, i64 noundef %1) #5
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str, i32 noundef %.0, i32 noundef %23, i64 noundef %4, i64 noundef %1) #5
   %29 = tail call i32 @PMPI_Abort(ptr noundef nonnull @ompi_mpi_comm_world, i32 noundef 1) #6
   br label %30
 
 30:                                               ; preds = %.loopexit, %26
-  %31 = sext i32 %.1 to i64
+  %31 = sext i32 %.0 to i64
   %32 = getelementptr inbounds i64, ptr %6, i64 %31
   %33 = load i64, ptr %32, align 8
   %reass.sub = sub i64 %33, %1
@@ -318,24 +318,24 @@ define void @ADIOI_Calc_my_req(ptr nocapture noundef readonly %0, ptr nocapture 
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %28
-  %.1.i = phi i32 [ %34, %28 ], [ %42, %.loopexit.loopexit.i ]
+  %.0.i = phi i32 [ %34, %28 ], [ %42, %.loopexit.loopexit.i ]
   %43 = getelementptr inbounds i8, ptr %35, i64 20
   %44 = load i32, ptr %43, align 4
-  %45 = icmp sge i32 %.1.i, %44
-  %46 = icmp slt i32 %.1.i, 0
+  %45 = icmp sge i32 %.0.i, %44
+  %46 = icmp slt i32 %.0.i, 0
   %or.cond.i = or i1 %46, %45
   br i1 %or.cond.i, label %47, label %ADIOI_Calc_aggregator.exit
 
 47:                                               ; preds = %.loopexit.i
   %48 = load ptr, ptr @stderr, align 8
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str, i32 noundef %.1.i, i32 noundef %44, i64 noundef %7, i64 noundef %30) #5
+  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %48, ptr noundef nonnull @.str, i32 noundef %.0.i, i32 noundef %44, i64 noundef %7, i64 noundef %30) #5
   %50 = tail call i32 @PMPI_Abort(ptr noundef nonnull @ompi_mpi_comm_world, i32 noundef 1) #6
   %.pre = load ptr, ptr %23, align 8
   br label %ADIOI_Calc_aggregator.exit
 
 ADIOI_Calc_aggregator.exit:                       ; preds = %47, %.loopexit.i
   %51 = phi ptr [ %.pre, %47 ], [ %35, %.loopexit.i ]
-  %52 = sext i32 %.1.i to i64
+  %52 = sext i32 %.0.i to i64
   %53 = getelementptr inbounds i64, ptr %6, i64 %52
   %54 = load i64, ptr %53, align 8
   %reass.sub = sub i64 %54, %30
@@ -358,8 +358,8 @@ ADIOI_Calc_aggregator.exit:                       ; preds = %47, %.loopexit.i
 .lr.ph211:                                        ; preds = %ADIOI_Calc_aggregator.exit, %ADIOI_Calc_aggregator.exit162
   %.0138210 = phi i64 [ %66, %ADIOI_Calc_aggregator.exit162 ], [ %30, %ADIOI_Calc_aggregator.exit ]
   %.0142209 = phi i64 [ %100, %ADIOI_Calc_aggregator.exit162 ], [ %65, %ADIOI_Calc_aggregator.exit ]
-  %.1193208 = phi i64 [ %spec.select197, %ADIOI_Calc_aggregator.exit162 ], [ %spec.select, %ADIOI_Calc_aggregator.exit ]
-  %66 = add nsw i64 %.0138210, %.1193208
+  %.0192208 = phi i64 [ %spec.select197, %ADIOI_Calc_aggregator.exit162 ], [ %spec.select, %ADIOI_Calc_aggregator.exit ]
+  %66 = add nsw i64 %.0138210, %.0192208
   %67 = add i64 %22, %66
   %68 = sdiv i64 %67, %7
   %69 = trunc i64 %68 to i32
@@ -383,24 +383,24 @@ ADIOI_Calc_aggregator.exit:                       ; preds = %47, %.loopexit.i
   br label %.loopexit.i154
 
 .loopexit.i154:                                   ; preds = %.loopexit.loopexit.i161, %.lr.ph211
-  %.1.i155 = phi i32 [ %70, %.lr.ph211 ], [ %78, %.loopexit.loopexit.i161 ]
+  %.0.i155 = phi i32 [ %70, %.lr.ph211 ], [ %78, %.loopexit.loopexit.i161 ]
   %79 = getelementptr inbounds i8, ptr %71, i64 20
   %80 = load i32, ptr %79, align 4
-  %81 = icmp sge i32 %.1.i155, %80
-  %82 = icmp slt i32 %.1.i155, 0
+  %81 = icmp sge i32 %.0.i155, %80
+  %82 = icmp slt i32 %.0.i155, 0
   %or.cond.i156 = or i1 %82, %81
   br i1 %or.cond.i156, label %83, label %ADIOI_Calc_aggregator.exit162
 
 83:                                               ; preds = %.loopexit.i154
   %84 = load ptr, ptr @stderr, align 8
-  %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull @.str, i32 noundef %.1.i155, i32 noundef %80, i64 noundef %7, i64 noundef %66) #5
+  %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %84, ptr noundef nonnull @.str, i32 noundef %.0.i155, i32 noundef %80, i64 noundef %7, i64 noundef %66) #5
   %86 = tail call i32 @PMPI_Abort(ptr noundef nonnull @ompi_mpi_comm_world, i32 noundef 1) #6
   %.pre258 = load ptr, ptr %23, align 8
   br label %ADIOI_Calc_aggregator.exit162
 
 ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
   %87 = phi ptr [ %.pre258, %83 ], [ %71, %.loopexit.i154 ]
-  %88 = sext i32 %.1.i155 to i64
+  %88 = sext i32 %.0.i155 to i64
   %89 = getelementptr inbounds i64, ptr %6, i64 %88
   %90 = load i64, ptr %89, align 8
   %reass.sub237 = sub i64 %90, %66
@@ -504,7 +504,7 @@ ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
 
 126:                                              ; preds = %.lr.ph235, %.loopexit
   %indvars.iv253 = phi i64 [ 0, %.lr.ph235 ], [ %indvars.iv.next254, %.loopexit ]
-  %.0140234 = phi i64 [ 0, %.lr.ph235 ], [ %.2, %.loopexit ]
+  %.0140234 = phi i64 [ 0, %.lr.ph235 ], [ %.1141, %.loopexit ]
   %127 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv253
   %128 = load i64, ptr %127, align 8
   %129 = icmp eq i64 %128, 0
@@ -536,24 +536,24 @@ ADIOI_Calc_aggregator.exit162:                    ; preds = %83, %.loopexit.i154
   br label %.loopexit.i163
 
 .loopexit.i163:                                   ; preds = %.loopexit.loopexit.i170, %130
-  %.1.i164 = phi i32 [ %136, %130 ], [ %144, %.loopexit.loopexit.i170 ]
+  %.0.i164 = phi i32 [ %136, %130 ], [ %144, %.loopexit.loopexit.i170 ]
   %145 = getelementptr inbounds i8, ptr %137, i64 20
   %146 = load i32, ptr %145, align 4
-  %147 = icmp sge i32 %.1.i164, %146
-  %148 = icmp slt i32 %.1.i164, 0
+  %147 = icmp sge i32 %.0.i164, %146
+  %148 = icmp slt i32 %.0.i164, 0
   %or.cond.i165 = or i1 %148, %147
   br i1 %or.cond.i165, label %149, label %ADIOI_Calc_aggregator.exit171
 
 149:                                              ; preds = %.loopexit.i163
   %150 = load ptr, ptr @stderr, align 8
-  %151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef nonnull @.str, i32 noundef %.1.i164, i32 noundef %146, i64 noundef %7, i64 noundef %132) #5
+  %151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef nonnull @.str, i32 noundef %.0.i164, i32 noundef %146, i64 noundef %7, i64 noundef %132) #5
   %152 = tail call i32 @PMPI_Abort(ptr noundef nonnull @ompi_mpi_comm_world, i32 noundef 1) #6
   %.pre259 = load ptr, ptr %111, align 8
   br label %ADIOI_Calc_aggregator.exit171
 
 ADIOI_Calc_aggregator.exit171:                    ; preds = %149, %.loopexit.i163
   %153 = phi ptr [ %.pre259, %149 ], [ %137, %.loopexit.i163 ]
-  %154 = sext i32 %.1.i164 to i64
+  %154 = sext i32 %.0.i164 to i64
   %155 = getelementptr inbounds i64, ptr %6, i64 %154
   %156 = load i64, ptr %155, align 8
   %reass.sub238 = sub i64 %156, %132
@@ -596,10 +596,10 @@ ADIOI_Calc_aggregator.exit171:                    ; preds = %149, %.loopexit.i16
 
 .lr.ph231:                                        ; preds = %167, %217
   %.1139229 = phi i64 [ %182, %217 ], [ %132, %167 ]
-  %.1141228 = phi i64 [ %221, %217 ], [ %171, %167 ]
+  %.2228 = phi i64 [ %221, %217 ], [ %171, %167 ]
   %.1143227 = phi i64 [ %222, %217 ], [ %173, %167 ]
-  %.4196226 = phi i64 [ %spec.select199, %217 ], [ %spec.select198, %167 ]
-  %182 = add nsw i64 %.1139229, %.4196226
+  %.1193226 = phi i64 [ %spec.select199, %217 ], [ %spec.select198, %167 ]
+  %182 = add nsw i64 %.1139229, %.1193226
   %183 = add i64 %110, %182
   %184 = sdiv i64 %183, %7
   %185 = trunc i64 %184 to i32
@@ -623,24 +623,24 @@ ADIOI_Calc_aggregator.exit171:                    ; preds = %149, %.loopexit.i16
   br label %.loopexit.i172
 
 .loopexit.i172:                                   ; preds = %.loopexit.loopexit.i179, %.lr.ph231
-  %.1.i173 = phi i32 [ %186, %.lr.ph231 ], [ %194, %.loopexit.loopexit.i179 ]
+  %.0.i173 = phi i32 [ %186, %.lr.ph231 ], [ %194, %.loopexit.loopexit.i179 ]
   %195 = getelementptr inbounds i8, ptr %187, i64 20
   %196 = load i32, ptr %195, align 4
-  %197 = icmp sge i32 %.1.i173, %196
-  %198 = icmp slt i32 %.1.i173, 0
+  %197 = icmp sge i32 %.0.i173, %196
+  %198 = icmp slt i32 %.0.i173, 0
   %or.cond.i174 = or i1 %198, %197
   br i1 %or.cond.i174, label %199, label %ADIOI_Calc_aggregator.exit180
 
 199:                                              ; preds = %.loopexit.i172
   %200 = load ptr, ptr @stderr, align 8
-  %201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull @.str, i32 noundef %.1.i173, i32 noundef %196, i64 noundef %7, i64 noundef %182) #5
+  %201 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull @.str, i32 noundef %.0.i173, i32 noundef %196, i64 noundef %7, i64 noundef %182) #5
   %202 = tail call i32 @PMPI_Abort(ptr noundef nonnull @ompi_mpi_comm_world, i32 noundef 1) #6
   %.pre260 = load ptr, ptr %111, align 8
   br label %ADIOI_Calc_aggregator.exit180
 
 ADIOI_Calc_aggregator.exit180:                    ; preds = %199, %.loopexit.i172
   %203 = phi ptr [ %.pre260, %199 ], [ %187, %.loopexit.i172 ]
-  %204 = sext i32 %.1.i173 to i64
+  %204 = sext i32 %.0.i173 to i64
   %205 = getelementptr inbounds i64, ptr %6, i64 %204
   %206 = load i64, ptr %205, align 8
   %reass.sub239 = sub i64 %206, %182
@@ -657,14 +657,14 @@ ADIOI_Calc_aggregator.exit180:                    ; preds = %199, %.loopexit.i17
   br i1 %215, label %216, label %217
 
 216:                                              ; preds = %ADIOI_Calc_aggregator.exit180
-  store i64 %.1141228, ptr %213, align 8
+  store i64 %.2228, ptr %213, align 8
   br label %217
 
 217:                                              ; preds = %216, %ADIOI_Calc_aggregator.exit180
   %218 = getelementptr inbounds %struct.ADIOI_Access, ptr %102, i64 %212
   %219 = getelementptr inbounds i8, ptr %218, i64 24
   %220 = load i32, ptr %219, align 8
-  %221 = add nsw i64 %spec.select199, %.1141228
+  %221 = add nsw i64 %spec.select199, %.2228
   %222 = sub nsw i64 %.1143227, %spec.select199
   %223 = load ptr, ptr %218, align 8
   %224 = sext i32 %220 to i64
@@ -681,7 +681,7 @@ ADIOI_Calc_aggregator.exit180:                    ; preds = %199, %.loopexit.i17
   br i1 %.not, label %.loopexit, label %.lr.ph231, !llvm.loop !14
 
 .loopexit:                                        ; preds = %217, %167, %126
-  %.2 = phi i64 [ %.0140234, %126 ], [ %171, %167 ], [ %221, %217 ]
+  %.1141 = phi i64 [ %.0140234, %126 ], [ %171, %167 ], [ %221, %217 ]
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
   %exitcond257.not = icmp eq i64 %indvars.iv.next254, %wide.trip.count256
   br i1 %exitcond257.not, label %._crit_edge236, label %126, !llvm.loop !15

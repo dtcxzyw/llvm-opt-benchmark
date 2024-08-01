@@ -495,8 +495,8 @@ define internal range(i32 0, 2) i32 @btsnoop_dump(ptr noundef %0, ptr nocapture 
   br label %99
 
 59:                                               ; preds = %44, %37, %33, %29, %42, %46, %48
-  %.1 = phi i32 [ %55, %48 ], [ %47, %46 ], [ %.77, %42 ], [ 2, %29 ], [ 3, %33 ], [ %., %37 ], [ %.77, %44 ]
-  %60 = tail call i32 @llvm.bswap.i32(i32 %.1)
+  %.060 = phi i32 [ %55, %48 ], [ %47, %46 ], [ %.77, %42 ], [ 2, %29 ], [ 3, %33 ], [ %., %37 ], [ %.77, %44 ]
+  %60 = tail call i32 @llvm.bswap.i32(i32 %.060)
   %61 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %60, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %6, i64 12

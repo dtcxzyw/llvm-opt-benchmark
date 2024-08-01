@@ -221,7 +221,7 @@ land.rhs:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %land.rhs, %if.then
-  %doCheck.0 = phi i8 [ 0, %if.then ], [ %4, %land.rhs ]
+  %doCheck.1 = phi i8 [ 0, %if.then ], [ %4, %land.rhs ]
   %call5 = tail call noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %quantifiers6 = getelementptr inbounds i8, ptr %call5, i64 328
   %5 = load ptr, ptr %quantifiers6, align 8
@@ -231,7 +231,7 @@ if.end:                                           ; preds = %land.rhs, %if.then
   br i1 %tobool7, label %land.lhs.true, label %if.end17
 
 land.lhs.true:                                    ; preds = %if.end
-  %tobool8 = trunc nuw i8 %doCheck.0 to i1
+  %tobool8 = trunc nuw i8 %doCheck.1 to i1
   br i1 %tobool8, label %if.end17, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
@@ -248,8 +248,8 @@ if.then12:                                        ; preds = %if.then9
 
 if.end17:                                         ; preds = %if.end, %land.lhs.true, %if.then12, %if.then9
   %fullEffort.0 = phi i1 [ false, %land.lhs.true ], [ false, %if.then9 ], [ true, %if.then12 ], [ false, %if.end ]
-  %doCheck.1 = phi i8 [ %doCheck.0, %land.lhs.true ], [ %doCheck.0, %if.then9 ], [ %frombool14, %if.then12 ], [ %doCheck.0, %if.end ]
-  %tobool18 = trunc nuw i8 %doCheck.1 to i1
+  %doCheck.0 = phi i8 [ %doCheck.1, %land.lhs.true ], [ %doCheck.1, %if.then9 ], [ %frombool14, %if.then12 ], [ %doCheck.1, %if.end ]
+  %tobool18 = trunc nuw i8 %doCheck.0 to i1
   br i1 %tobool18, label %if.end49, label %return
 
 if.end49:                                         ; preds = %if.end17
@@ -289,7 +289,7 @@ for.body.lr.ph:                                   ; preds = %if.end49
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc210.us
   %r.0535.us = phi i32 [ %inc211.us, %for.inc210.us ], [ %cond53, %for.body.lr.ph ]
-  %addedLemmas.0534.us = phi i32 [ %addedLemmas.6.us, %for.inc210.us ], [ 0, %for.body.lr.ph ]
+  %addedLemmas.0534.us = phi i32 [ %addedLemmas.7.us, %for.inc210.us ], [ 0, %for.body.lr.ph ]
   %14 = load ptr, ptr %d_rd, align 8
   %tobool63.us = icmp ne ptr %14, null
   %cmp64.us = icmp ne i32 %r.0535.us, 0
@@ -309,7 +309,7 @@ for.body134.us.preheader:                         ; preds = %cond.true72.us, %if
 
 for.body134.us:                                   ; preds = %for.body134.us.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit330.us
   %i.0531.us = phi i32 [ %inc193.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit330.us ], [ 0, %for.body134.us.preheader ]
-  %addedLemmas.1530.us = phi i32 [ %addedLemmas.4.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit330.us ], [ %addedLemmas.0534.us, %for.body134.us.preheader ]
+  %addedLemmas.2530.us = phi i32 [ %addedLemmas.6.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit330.us ], [ %addedLemmas.0534.us, %for.body134.us.preheader ]
   invoke void @_ZN4cvc58internal6theory11quantifiers15FirstOrderModel21getAssertedQuantifierEjb(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %q, ptr noundef nonnull align 8 dereferenceable(656) %call59, i32 noundef %i.0531.us, i1 noundef zeroext true)
           to label %invoke.cont135.us unwind label %lpad69.loopexit.split.us
 
@@ -549,11 +549,11 @@ invoke.cont182.us:                                ; preds = %if.then.i318.us, %l
   br label %if.end184.us
 
 if.end184.us:                                     ; preds = %invoke.cont182.us, %invoke.cont177.us
-  %inc.us = add i32 %addedLemmas.1530.us, 1
+  %inc.us = add i32 %addedLemmas.2530.us, 1
   br label %if.end185.us
 
 if.end185.us:                                     ; preds = %if.end184.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit313.us
-  %addedLemmas.2.us = phi i32 [ %inc.us, %if.end184.us ], [ %addedLemmas.1530.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit313.us ]
+  %addedLemmas.5.us = phi i32 [ %inc.us, %if.end184.us ], [ %addedLemmas.2530.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit313.us ]
   %34 = load ptr, ptr %d_qstate186, align 8
   %vtable.us = load ptr, ptr %34, align 8
   %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 72
@@ -568,7 +568,7 @@ invoke.cont187.us:                                ; preds = %if.end185.us
 
 cleanup.us:                                       ; preds = %invoke.cont187.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.us
   %36 = phi ptr [ %.pre548, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.us ], [ %.pre, %invoke.cont187.us ]
-  %addedLemmas.4.us = phi i32 [ %addedLemmas.1530.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.us ], [ %addedLemmas.2.us, %invoke.cont187.us ]
+  %addedLemmas.6.us = phi i32 [ %addedLemmas.2530.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.us ], [ %addedLemmas.5.us, %invoke.cont187.us ]
   %cleanup.dest.slot.0.us = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit.us ], [ %spec.select.us, %invoke.cont187.us ]
   %bf.load.i.i320.us = load i64, ptr %36, align 8
   %37 = and i64 %bf.load.i.i320.us, 1152920405095219200
@@ -607,7 +607,7 @@ invoke.cont197.us:                                ; preds = %for.end.us
   br i1 %call198.us, label %if.end282, label %lor.lhs.false199.us
 
 lor.lhs.false199.us:                              ; preds = %invoke.cont197.us
-  %cmp200.not.us = icmp eq i32 %addedLemmas.4.us, 0
+  %cmp200.not.us = icmp eq i32 %addedLemmas.6.us, 0
   br i1 %cmp200.not.us, label %for.inc210.us, label %land.lhs.true201.us
 
 land.lhs.true201.us:                              ; preds = %lor.lhs.false199.us
@@ -623,7 +623,7 @@ invoke.cont202.us:                                ; preds = %land.lhs.true201.us
   br i1 %tobool206.us, label %if.end282, label %for.inc210.us
 
 for.inc210.us:                                    ; preds = %invoke.cont202.us, %lor.lhs.false199.us, %for.body.us
-  %addedLemmas.6.us = phi i32 [ 0, %lor.lhs.false199.us ], [ %addedLemmas.4.us, %invoke.cont202.us ], [ %addedLemmas.0534.us, %for.body.us ]
+  %addedLemmas.7.us = phi i32 [ 0, %lor.lhs.false199.us ], [ %addedLemmas.6.us, %invoke.cont202.us ], [ %addedLemmas.0534.us, %for.body.us ]
   %inc211.us = add nuw nsw i32 %r.0535.us, 1
   %exitcond.not = icmp eq i32 %r.0535.us, %cond58
   br i1 %exitcond.not, label %if.end282, label %for.body.us, !llvm.loop !7
@@ -1362,7 +1362,7 @@ if.else:                                          ; preds = %_ZN4cvc58internal12
           to label %for.cond unwind label %lpad43.loopexit, !llvm.loop !17
 
 cleanup:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit145, %invoke.cont48, %invoke.cont53
-  %retval.0 = phi i1 [ false, %invoke.cont53 ], [ false, %invoke.cont48 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit145 ]
+  %retval.1 = phi i1 [ false, %invoke.cont53 ], [ false, %invoke.cont48 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit145 ]
   %57 = load ptr, ptr %failMask, align 8
   %tobool.not.i.i.i = icmp eq ptr %57, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIbSaIbEED2Ev.exit, label %if.then.i.i.i158
@@ -1474,8 +1474,8 @@ _ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterf
   br label %eh.resume
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit48, %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceESt14default_deleteIS4_EED2Ev.exit
-  %retval.1 = phi i1 [ %retval.0, %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceESt14default_deleteIS4_EED2Ev.exit ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit48 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceESt14default_deleteIS4_EED2Ev.exit ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit48 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup38.thread, %cleanup.action40, %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceESt14default_deleteIS4_EED2Ev.exit182, %ehcleanup
   %.pn6.pn = phi { ptr, i32 } [ %.pn6, %_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceESt14default_deleteIS4_EED2Ev.exit182 ], [ %39, %cleanup.action40 ], [ %.pn, %ehcleanup ], [ %38, %ehcleanup38.thread ]

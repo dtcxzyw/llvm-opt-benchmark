@@ -3075,7 +3075,7 @@ common.resume:                                    ; preds = %540, %259, %345, %3
   br label %.outer.i
 
 .outer.i:                                         ; preds = %515, %286
-  %.2.ph.i = phi i8 [ %.6.i, %515 ], [ 0, %286 ]
+  %.3.ph.i = phi i8 [ %.6.i, %515 ], [ 0, %286 ]
   br i1 %.not101.i, label %.outer.split.us.i, label %.outer.split.i
 
 .outer.split.us.i:                                ; preds = %.outer.i, %312
@@ -3227,7 +3227,7 @@ _ZN3std4path4Path11starts_with17h69bda1a4b4b525f3E.exit.us.i: ; preds = %296
   %.sroa.5178.0.i = phi ptr [ %331, %323 ], [ %.sroa.5178.1.i, %360 ]
   %.sroa.8179.0.i = phi ptr [ %330, %323 ], [ %.sroa.8179.1.i, %360 ]
   %.sroa.11.0.i = phi ptr [ %332, %323 ], [ %361, %360 ]
-  %.3.i = phi i8 [ %.2.ph.i, %323 ], [ %364, %360 ]
+  %.4.i = phi i8 [ %.3.ph.i, %323 ], [ %364, %360 ]
   %334 = icmp eq ptr %.sroa.8179.0.i, %.sroa.11.0.i
   br i1 %334, label %335, label %339
 
@@ -3304,7 +3304,7 @@ _ZN3std4path4Path11starts_with17h69bda1a4b4b525f3E.exit.us.i: ; preds = %296
 
 360:                                              ; preds = %339
   %361 = getelementptr inbounds i8, ptr %.sink6.i.i, i64 -48
-  %362 = trunc nuw i8 %.3.i to i1
+  %362 = trunc nuw i8 %.4.i to i1
   %363 = or i1 %344, %362
   %364 = zext i1 %363 to i8
   br label %333
@@ -3793,18 +3793,18 @@ _ZN5uu_rm14prompt_descend17haa69399bac078b57E.exit.i: ; preds = %425
   br label %507
 
 503:                                              ; preds = %369
-  %504 = trunc nuw i8 %.2.ph.i to i1
+  %504 = trunc nuw i8 %.3.ph.i to i1
   %505 = or i1 %372, %504
   %506 = zext i1 %505 to i8
   br label %508
 
 507:                                              ; preds = %"_ZN4core3ptr44drop_in_place$LT$walkdir..dent..DirEntry$GT$17h8c87d0fdfbde2ad6E.exit166.i", %494, %485
-  %.5200.i = phi i8 [ %.5.ph.i, %"_ZN4core3ptr44drop_in_place$LT$walkdir..dent..DirEntry$GT$17h8c87d0fdfbde2ad6E.exit166.i" ], [ %.2.ph.i, %494 ], [ %.2.ph.i, %485 ]
+  %.5200.i = phi i8 [ %.5.ph.i, %"_ZN4core3ptr44drop_in_place$LT$walkdir..dent..DirEntry$GT$17h8c87d0fdfbde2ad6E.exit166.i" ], [ %.3.ph.i, %494 ], [ %.3.ph.i, %485 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %56), !noalias !832
   br label %515
 
 508:                                              ; preds = %503, %479
-  %.5.ph.i = phi i8 [ %506, %503 ], [ %.2.ph.i, %479 ]
+  %.5.ph.i = phi i8 [ %506, %503 ], [ %.3.ph.i, %479 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1055
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h069fc8968155d9c0E.llvm.18033778647048430120"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %56)
           to label %.noexc165.i unwind label %.loopexit.split-lp214.i, !noalias !830
@@ -3980,8 +3980,8 @@ _ZN5uu_rm14prompt_descend17haa69399bac078b57E.exit.i: ; preds = %425
   br label %_ZN5uu_rm10handle_dir17h32ca07958ee19696E.exit
 
 _ZN5uu_rm10handle_dir17h32ca07958ee19696E.exit:   ; preds = %255, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb9859b150edc4c06E.exit.i", %"_ZN4core3ptr91drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$walkdir..dent..DirEntry$GT$$GT$17h316faf2c31e0bd43E.exit.i", %.thread205.i, %.thread207.i, %.thread279.i
-  %.4.i = phi i8 [ 1, %.thread279.i ], [ 1, %.thread207.i ], [ %525, %.thread205.i ], [ %.3.i, %"_ZN4core3ptr91drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$walkdir..dent..DirEntry$GT$$GT$17h316faf2c31e0bd43E.exit.i" ], [ %.1.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb9859b150edc4c06E.exit.i" ], [ 0, %255 ]
-  %532 = trunc nuw i8 %.4.i to i1
+  %.2.i = phi i8 [ 1, %.thread279.i ], [ 1, %.thread207.i ], [ %525, %.thread205.i ], [ %.4.i, %"_ZN4core3ptr91drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$walkdir..dent..DirEntry$GT$$GT$17h316faf2c31e0bd43E.exit.i" ], [ %.1.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb9859b150edc4c06E.exit.i" ], [ 0, %255 ]
+  %532 = trunc nuw i8 %.2.i to i1
   br label %535
 
 533:                                              ; preds = %236
@@ -4857,8 +4857,8 @@ _ZN3std2fs10remove_dir17habed5237f77079c1E.exit:  ; preds = %249
   br label %285
 
 287:                                              ; preds = %_ZN5uu_rm10prompt_dir17h26d9e910368b543bE.exit, %285, %"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17h7c5ba151f50bc9e9E.exit71"
-  %.1 = phi i1 [ true, %"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17h7c5ba151f50bc9e9E.exit71" ], [ false, %285 ], [ false, %_ZN5uu_rm10prompt_dir17h26d9e910368b543bE.exit ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17h7c5ba151f50bc9e9E.exit71" ], [ false, %285 ], [ false, %_ZN5uu_rm10prompt_dir17h26d9e910368b543bE.exit ]
+  ret i1 %.0
 
 288:                                              ; preds = %369, %368, %290, %265, %202
   %289 = landingpad { ptr, i32 }

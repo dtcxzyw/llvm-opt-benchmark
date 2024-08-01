@@ -966,8 +966,8 @@ escape_html.exit149:                              ; preds = %78, %82
   br label %129
 
 129:                                              ; preds = %126, %128, %124
-  %.0101 = phi ptr [ %127, %128 ], [ null, %126 ], [ null, %124 ]
-  %.199 = phi ptr [ %127, %128 ], [ %.098160, %126 ], [ %.098160, %124 ]
+  %.1102 = phi ptr [ %127, %128 ], [ null, %126 ], [ null, %124 ]
+  %.2100 = phi ptr [ %127, %128 ], [ %.098160, %126 ], [ %.098160, %124 ]
   %130 = load ptr, ptr getelementptr inbounds (i8, ptr @core_globals, i64 456), align 8
   %.not135 = icmp eq ptr %130, null
   br i1 %.not135, label %134, label %131
@@ -989,8 +989,8 @@ escape_html.exit149:                              ; preds = %78, %82
 
 136:                                              ; preds = %134, %118
   %137 = phi i8 [ %.pre167, %134 ], [ %114, %118 ]
-  %.1102 = phi ptr [ %.0101, %134 ], [ null, %118 ]
-  %.2100 = phi ptr [ %.199, %134 ], [ %.098160, %118 ]
+  %.0101 = phi ptr [ %.1102, %134 ], [ null, %118 ]
+  %.199 = phi ptr [ %.2100, %134 ], [ %.098160, %118 ]
   %.097 = phi ptr [ %117, %134 ], [ @.str.7, %118 ]
   %.2 = phi ptr [ %135, %134 ], [ %.1, %118 ]
   %138 = trunc i8 %137 to i1
@@ -998,20 +998,20 @@ escape_html.exit149:                              ; preds = %78, %82
   br i1 %138, label %140, label %142
 
 140:                                              ; preds = %136
-  %141 = call ptr (i64, ptr, ...) @zend_strpprintf_unchecked(i64 noundef 0, ptr noundef nonnull @.str.23, ptr noundef %139, ptr noundef nonnull %.097, ptr noundef %.2, ptr noundef %.2100, ptr noundef %.2, ptr noundef %.089) #29
+  %141 = call ptr (i64, ptr, ...) @zend_strpprintf_unchecked(i64 noundef 0, ptr noundef nonnull @.str.23, ptr noundef %139, ptr noundef nonnull %.097, ptr noundef %.2, ptr noundef %.199, ptr noundef %.2, ptr noundef %.089) #29
   br label %144
 
 142:                                              ; preds = %136
-  %143 = call ptr (i64, ptr, ...) @zend_strpprintf_unchecked(i64 noundef 0, ptr noundef nonnull @.str.24, ptr noundef %139, ptr noundef nonnull %.097, ptr noundef %.2, ptr noundef %.2100, ptr noundef %.089) #29
+  %143 = call ptr (i64, ptr, ...) @zend_strpprintf_unchecked(i64 noundef 0, ptr noundef nonnull @.str.24, ptr noundef %139, ptr noundef nonnull %.097, ptr noundef %.2, ptr noundef %.199, ptr noundef %.089) #29
   br label %144
 
 144:                                              ; preds = %142, %140
   %.091 = phi ptr [ %141, %140 ], [ %143, %142 ]
-  %.not138 = icmp eq ptr %.1102, null
+  %.not138 = icmp eq ptr %.0101, null
   br i1 %.not138, label %148, label %145
 
 145:                                              ; preds = %144
-  call void @_efree(ptr noundef nonnull %.1102) #29
+  call void @_efree(ptr noundef nonnull %.0101) #29
   br label %148
 
 .thread161:                                       ; preds = %92, %116, %113, %.thread156
@@ -2405,7 +2405,7 @@ define internal void @php_error_cb(i32 noundef %0, ptr noundef %1, i32 noundef %
   br label %51
 
 51:                                               ; preds = %47, %46
-  %.0 = phi ptr [ %1, %46 ], [ %50, %47 ]
+  %.1 = phi ptr [ %1, %46 ], [ %50, %47 ]
   store i32 %7, ptr getelementptr inbounds (i8, ptr @core_globals, i64 488), align 8
   %52 = getelementptr inbounds i8, ptr %3, i64 4
   %53 = load i32, ptr %52, align 4
@@ -2421,25 +2421,25 @@ define internal void @php_error_cb(i32 noundef %0, ptr noundef %1, i32 noundef %
 
 58:                                               ; preds = %55, %51
   store ptr %3, ptr getelementptr inbounds (i8, ptr @core_globals, i64 496), align 8
-  %59 = getelementptr inbounds i8, ptr %.0, i64 4
+  %59 = getelementptr inbounds i8, ptr %.1, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 64
   %.not116 = icmp eq i32 %61, 0
   br i1 %.not116, label %62, label %65
 
 62:                                               ; preds = %58
-  %63 = load i32, ptr %.0, align 4
+  %63 = load i32, ptr %.1, align 4
   %64 = add i32 %63, 1
-  store i32 %64, ptr %.0, align 4
+  store i32 %64, ptr %.1, align 4
   br label %65
 
 65:                                               ; preds = %62, %58
-  store ptr %.0, ptr getelementptr inbounds (i8, ptr @core_globals, i64 504), align 8
+  store ptr %.1, ptr getelementptr inbounds (i8, ptr @core_globals, i64 504), align 8
   store i32 %2, ptr getelementptr inbounds (i8, ptr @core_globals, i64 492), align 4
   br label %66
 
 66:                                               ; preds = %65, %45
-  %.1 = phi ptr [ %.0, %65 ], [ %1, %45 ]
+  %.0 = phi ptr [ %.1, %65 ], [ %1, %45 ]
   %67 = tail call zeroext i1 @zend_alloc_in_memory_limit_error_reporting() #29
   br i1 %67, label %68, label %69
 
@@ -2529,7 +2529,7 @@ define internal void @php_error_cb(i32 noundef %0, ptr noundef %1, i32 noundef %
 
 93:                                               ; preds = %90, %88
   %94 = getelementptr inbounds i8, ptr %3, i64 24
-  %95 = getelementptr inbounds i8, ptr %.1, i64 24
+  %95 = getelementptr inbounds i8, ptr %.0, i64 24
   %96 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %5, i64 noundef 0, ptr noundef nonnull @.str.74, ptr noundef nonnull %.0101, ptr noundef nonnull %94, ptr noundef nonnull %95, i32 noundef %2) #29
   %97 = load ptr, ptr %5, align 8
   call void @php_log_err_with_severity(ptr noundef %97, i32 noundef %.0102)
@@ -2565,7 +2565,7 @@ define internal void @php_error_cb(i32 noundef %0, ptr noundef %1, i32 noundef %
 110:                                              ; preds = %107
   %111 = load i64, ptr getelementptr inbounds (i8, ptr @core_globals, i64 464), align 8
   %112 = getelementptr inbounds i8, ptr %3, i64 24
-  %113 = getelementptr inbounds i8, ptr %.1, i64 24
+  %113 = getelementptr inbounds i8, ptr %.0, i64 24
   %114 = call i64 (ptr, ...) @php_printf(ptr noundef nonnull @.str.75, i64 noundef %111, ptr noundef nonnull %.0101, ptr noundef nonnull %112, ptr noundef nonnull %113, i32 noundef %2)
   br label %169
 
@@ -2590,7 +2590,7 @@ define internal void @php_error_cb(i32 noundef %0, ptr noundef %1, i32 noundef %
   %.not132 = icmp eq ptr %116, null
   %126 = select i1 %.not132, ptr @.str.7, ptr %116
   %127 = getelementptr inbounds i8, ptr %125, i64 24
-  %128 = getelementptr inbounds i8, ptr %.1, i64 24
+  %128 = getelementptr inbounds i8, ptr %.0, i64 24
   %.not133 = icmp eq ptr %117, null
   %129 = select i1 %.not133, ptr @.str.7, ptr %117
   %130 = call i64 (ptr, ...) @php_printf(ptr noundef nonnull @.str.78, ptr noundef nonnull %126, ptr noundef nonnull %.0101, ptr noundef nonnull %127, ptr noundef nonnull %128, i32 noundef %2, ptr noundef nonnull %129)
@@ -2616,7 +2616,7 @@ define internal void @php_error_cb(i32 noundef %0, ptr noundef %1, i32 noundef %
 138:                                              ; preds = %120
   %.not130 = icmp eq ptr %116, null
   %139 = select i1 %.not130, ptr @.str.7, ptr %116
-  %140 = getelementptr inbounds i8, ptr %.1, i64 24
+  %140 = getelementptr inbounds i8, ptr %.0, i64 24
   %.not131 = icmp eq ptr %117, null
   %141 = select i1 %.not131, ptr @.str.7, ptr %117
   %142 = call i64 (ptr, ...) @php_printf_unchecked(ptr noundef nonnull @.str.79, ptr noundef nonnull %139, ptr noundef nonnull %.0101, ptr noundef %3, ptr noundef nonnull %140, i32 noundef %2, ptr noundef nonnull %141)
@@ -2655,14 +2655,14 @@ define internal void @php_error_cb(i32 noundef %0, ptr noundef %1, i32 noundef %
   %159 = load ptr, ptr @stderr, align 8
   %160 = call i64 @fwrite(ptr noundef nonnull %156, i64 noundef 1, i64 noundef %158, ptr noundef %159) #32
   %161 = load ptr, ptr @stderr, align 8
-  %162 = getelementptr inbounds i8, ptr %.1, i64 24
+  %162 = getelementptr inbounds i8, ptr %.0, i64 24
   %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str.84, ptr noundef nonnull %162, i32 noundef %2) #33
   br label %169
 
 164:                                              ; preds = %152, %148
   %.not128 = icmp eq ptr %116, null
   %165 = select i1 %.not128, ptr @.str.7, ptr %116
-  %166 = getelementptr inbounds i8, ptr %.1, i64 24
+  %166 = getelementptr inbounds i8, ptr %.0, i64 24
   %.not129 = icmp eq ptr %117, null
   %167 = select i1 %.not129, ptr @.str.7, ptr %117
   %168 = call i64 (ptr, ...) @php_printf_unchecked(ptr noundef nonnull @.str.85, ptr noundef nonnull %165, ptr noundef nonnull %.0101, ptr noundef %3, ptr noundef nonnull %166, i32 noundef %2, ptr noundef nonnull %167)

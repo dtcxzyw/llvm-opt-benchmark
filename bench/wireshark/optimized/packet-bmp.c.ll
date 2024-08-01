@@ -1297,7 +1297,7 @@ dissect_bmp_peer_header.exit:                     ; preds = %136, %.preheader.i,
   br i1 %.not137.i.i, label %dissect_bmp_route_policy_event.exit.i, label %.lr.ph140.i.i
 
 .lr.ph140.i.i:                                    ; preds = %407, %572
-  %.0138.i.i = phi i32 [ %.3.i.i, %572 ], [ %440, %407 ]
+  %.0138.i.i = phi i32 [ %.1.i.i55, %572 ], [ %440, %407 ]
   %443 = load i32, ptr @hf_route_policy_tlv, align 4
   %444 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %443, ptr noundef %0, i32 noundef %.0138.i.i, i32 noundef 4, i32 noundef 0) #5
   %445 = load i32, ptr @ett_bmp_route_policy_tlv, align 4
@@ -1377,29 +1377,29 @@ dissect_bmp_peer_header.exit:                     ; preds = %136, %.preheader.i,
   br label %499
 
 499:                                              ; preds = %493, %490
-  %.1.i.i56 = add i32 %.0138.i.i, 23
+  %.2.i.i57 = add i32 %.0138.i.i, 23
   %500 = load i32, ptr @hf_route_policy_tlv_policy_peer_router_id, align 4
-  %501 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %500, ptr noundef %0, i32 noundef %.1.i.i56, i32 noundef 4, i32 noundef 0) #5
+  %501 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %500, ptr noundef %0, i32 noundef %.2.i.i57, i32 noundef 4, i32 noundef 0) #5
   %502 = add i32 %.0138.i.i, 27
   %503 = load i32, ptr @hf_route_policy_tlv_policy_peer_as, align 4
   %504 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %503, ptr noundef %0, i32 noundef %502, i32 noundef 4, i32 noundef 0) #5
   %505 = add i32 %.0138.i.i, 31
   %.pr134.i.i = load i32, ptr %8, align 4
   %.not133135.i.i = icmp eq i32 %.pr134.i.i, 0
-  br i1 %.not133135.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i57
+  br i1 %.not133135.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i58
 
-.lr.ph.i.i57:                                     ; preds = %499, %.lr.ph.i.i57
-  %.2136.i.i = phi i32 [ %539, %.lr.ph.i.i57 ], [ %505, %499 ]
+.lr.ph.i.i58:                                     ; preds = %499, %.lr.ph.i.i58
+  %.3136.i.i = phi i32 [ %539, %.lr.ph.i.i58 ], [ %505, %499 ]
   %506 = load i32, ptr @hf_route_policy_tlv_policy, align 4
-  %507 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %506, ptr noundef %0, i32 noundef %.2136.i.i, i32 noundef 4, i32 noundef 0) #5
+  %507 = call ptr @proto_tree_add_item(ptr noundef %446, i32 noundef %506, ptr noundef %0, i32 noundef %.3136.i.i, i32 noundef 4, i32 noundef 0) #5
   %508 = load i32, ptr @ett_bmp_route_policy_tlv_policy, align 4
   %509 = call ptr @proto_item_add_subtree(ptr noundef %507, i32 noundef %508) #5
   %510 = load i32, ptr @hf_route_policy_tlv_policy_name_length, align 4
-  %511 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %509, i32 noundef %510, ptr noundef %0, i32 noundef %.2136.i.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %11) #5
-  %512 = add i32 %.2136.i.i, 2
+  %511 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %509, i32 noundef %510, ptr noundef %0, i32 noundef %.3136.i.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %11) #5
+  %512 = add i32 %.3136.i.i, 2
   %513 = load i32, ptr @hf_route_policy_tlv_policy_item_id_length, align 4
   %514 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %509, i32 noundef %513, ptr noundef %0, i32 noundef %512, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %12) #5
-  %515 = add i32 %.2136.i.i, 4
+  %515 = add i32 %.3136.i.i, 4
   %516 = load i32, ptr %11, align 4
   %517 = load i32, ptr %12, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %509, ptr noundef nonnull @.str.313, i32 noundef %516, i32 noundef %517) #5
@@ -1432,10 +1432,10 @@ dissect_bmp_peer_header.exit:                     ; preds = %136, %.preheader.i,
   %541 = add i32 %540, -1
   store i32 %541, ptr %8, align 4
   %.not133.i.i = icmp eq i32 %541, 0
-  br i1 %.not133.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i57, !llvm.loop !9
+  br i1 %.not133.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i58, !llvm.loop !9
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i57, %499
-  %.2.lcssa.i.i = phi i32 [ %505, %499 ], [ %539, %.lr.ph.i.i57 ]
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i58, %499
+  %.3.lcssa.i.i = phi i32 [ %505, %499 ], [ %539, %.lr.ph.i.i58 ]
   %542 = load i32, ptr %7, align 4
   %543 = load i32, ptr %5, align 4
   %544 = sub i32 %543, %542
@@ -1485,12 +1485,12 @@ dissect_bmp_peer_header.exit:                     ; preds = %136, %.preheader.i,
 
 572:                                              ; preds = %567, %559, %552, %545, %._crit_edge.i.i, %466
   %.pr.i.i = phi i32 [ %571, %567 ], [ %566, %559 ], [ %558, %552 ], [ %551, %545 ], [ %544, %._crit_edge.i.i ], [ %477, %466 ]
-  %.3.i.i = phi i32 [ %569, %567 ], [ %564, %559 ], [ %556, %552 ], [ %549, %545 ], [ %.2.lcssa.i.i, %._crit_edge.i.i ], [ %475, %466 ]
-  %.not.i.i55 = icmp eq i32 %.pr.i.i, 0
-  br i1 %.not.i.i55, label %dissect_bmp_route_policy_event.exit.i, label %.lr.ph140.i.i, !llvm.loop !10
+  %.1.i.i55 = phi i32 [ %569, %567 ], [ %564, %559 ], [ %556, %552 ], [ %549, %545 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ], [ %475, %466 ]
+  %.not.i.i56 = icmp eq i32 %.pr.i.i, 0
+  br i1 %.not.i.i56, label %dissect_bmp_route_policy_event.exit.i, label %.lr.ph140.i.i, !llvm.loop !10
 
 dissect_bmp_route_policy_event.exit.i:            ; preds = %572, %407
-  %.0.lcssa.i.i = phi i32 [ %440, %407 ], [ %.3.i.i, %572 ]
+  %.0.lcssa.i.i = phi i32 [ %440, %407 ], [ %.1.i.i55, %572 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)

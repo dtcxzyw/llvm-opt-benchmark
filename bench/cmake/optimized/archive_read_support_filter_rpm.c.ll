@@ -126,8 +126,8 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   br label %23
 
 23:                                               ; preds = %131, %2
-  %.089 = phi i64 [ 0, %2 ], [ %.392, %131 ]
-  %.086 = phi ptr [ null, %2 ], [ %.4, %131 ]
+  %.089 = phi i64 [ 0, %2 ], [ %.493, %131 ]
+  %.086 = phi ptr [ null, %2 ], [ %.5, %131 ]
   %24 = icmp eq ptr %.086, null
   br i1 %24, label %25, label %32
 
@@ -293,9 +293,9 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %119
-  %.2117 = phi ptr [ %120, %119 ], [ %.1, %.preheader ]
-  %.190116 = phi i64 [ %121, %119 ], [ %.089, %.preheader ]
-  %117 = load i8, ptr %.2117, align 1
+  %.4117 = phi ptr [ %120, %119 ], [ %.1, %.preheader ]
+  %.392116 = phi i64 [ %121, %119 ], [ %.089, %.preheader ]
+  %117 = load i8, ptr %.4117, align 1
   %.not = icmp eq i8 %117, 0
   br i1 %.not, label %119, label %118
 
@@ -305,8 +305,8 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   br label %.loopexit
 
 119:                                              ; preds = %.lr.ph
-  %120 = getelementptr inbounds i8, ptr %.2117, i64 1
-  %121 = add i64 %.190116, 1
+  %120 = getelementptr inbounds i8, ptr %.4117, i64 1
+  %121 = add i64 %.392116, 1
   %exitcond.not = icmp eq i64 %121, %34
   br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !5
 
@@ -317,14 +317,14 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %.preheader, %118, %106, %116, %47, %73, %41, %43, %71
   %124 = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %34, %118 ], [ %110, %116 ], [ %110, %106 ], [ %50, %71 ], [ %50, %73 ], [ %50, %47 ], [ %38, %41 ], [ %38, %43 ], [ %34, %.preheader ]
-  %.195 = phi i64 [ 0, %..loopexit_crit_edge ], [ 0, %118 ], [ 0, %116 ], [ 0, %106 ], [ %72, %71 ], [ 0, %73 ], [ 0, %47 ], [ 0, %41 ], [ 0, %43 ], [ 0, %.preheader ]
-  %.291 = phi i64 [ %.089, %..loopexit_crit_edge ], [ %.190116, %118 ], [ %113, %116 ], [ %113, %106 ], [ %54, %71 ], [ %54, %73 ], [ %54, %47 ], [ %42, %41 ], [ %45, %43 ], [ %.089, %.preheader ]
-  %.3 = phi ptr [ %.1, %..loopexit_crit_edge ], [ %.2117, %118 ], [ %112, %116 ], [ %112, %106 ], [ %53, %71 ], [ %53, %73 ], [ %53, %47 ], [ %.1, %41 ], [ %46, %43 ], [ %.1, %.preheader ]
+  %.296 = phi i64 [ 0, %..loopexit_crit_edge ], [ 0, %118 ], [ 0, %116 ], [ 0, %106 ], [ %72, %71 ], [ 0, %73 ], [ 0, %47 ], [ 0, %41 ], [ 0, %43 ], [ 0, %.preheader ]
+  %.291 = phi i64 [ %.089, %..loopexit_crit_edge ], [ %.392116, %118 ], [ %113, %116 ], [ %113, %106 ], [ %54, %71 ], [ %54, %73 ], [ %54, %47 ], [ %42, %41 ], [ %45, %43 ], [ %.089, %.preheader ]
+  %.3 = phi ptr [ %.1, %..loopexit_crit_edge ], [ %.4117, %118 ], [ %112, %116 ], [ %112, %106 ], [ %53, %71 ], [ %53, %73 ], [ %53, %47 ], [ %.1, %41 ], [ %46, %43 ], [ %.1, %.preheader ]
   %125 = icmp eq i64 %.291, %124
   br i1 %125, label %.loopexit.thread, label %131
 
 .loopexit.thread:                                 ; preds = %119, %122, %.loopexit
-  %.195127 = phi i64 [ %.195, %.loopexit ], [ %123, %122 ], [ 0, %119 ]
+  %.296127 = phi i64 [ %.296, %.loopexit ], [ %123, %122 ], [ 0, %119 ]
   %126 = phi i64 [ %124, %.loopexit ], [ %123, %122 ], [ %34, %119 ]
   %127 = load i64, ptr %5, align 8
   %128 = add i64 %127, %126
@@ -335,31 +335,31 @@ define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr noca
   br label %131
 
 131:                                              ; preds = %.loopexit, %.loopexit.thread
-  %.195126 = phi i64 [ %.195127, %.loopexit.thread ], [ %.195, %.loopexit ]
+  %.296126 = phi i64 [ %.296127, %.loopexit.thread ], [ %.296, %.loopexit ]
   %132 = phi i64 [ %.pre122, %.loopexit.thread ], [ %124, %.loopexit ]
-  %.392 = phi i64 [ 0, %.loopexit.thread ], [ %.291, %.loopexit ]
-  %.4 = phi ptr [ null, %.loopexit.thread ], [ %.3, %.loopexit ]
-  %133 = icmp eq i64 %.195126, 0
+  %.493 = phi i64 [ 0, %.loopexit.thread ], [ %.291, %.loopexit ]
+  %.5 = phi ptr [ null, %.loopexit.thread ], [ %.3, %.loopexit ]
+  %133 = icmp eq i64 %.296126, 0
   %134 = icmp sgt i64 %132, 0
   %135 = select i1 %133, i1 %134, i1 false
   br i1 %135, label %23, label %136, !llvm.loop !7
 
 136:                                              ; preds = %131
-  %137 = icmp ne i64 %.392, 0
-  %138 = icmp ne ptr %.4, null
+  %137 = icmp ne i64 %.493, 0
+  %138 = icmp ne ptr %.5, null
   %or.cond = select i1 %137, i1 %138, i1 false
   br i1 %or.cond, label %139, label %.thread
 
 139:                                              ; preds = %136
   %140 = load i64, ptr %5, align 8
-  %141 = add i64 %140, %.392
+  %141 = add i64 %140, %.493
   store i64 %141, ptr %5, align 8
   %142 = load ptr, ptr %6, align 8
-  %143 = call i64 @__archive_read_filter_consume(ptr noundef %142, i64 noundef %.392) #9
+  %143 = call i64 @__archive_read_filter_consume(ptr noundef %142, i64 noundef %.493) #9
   br label %.thread
 
 .thread:                                          ; preds = %29, %136, %139, %68
-  %.0 = phi i64 [ -30, %68 ], [ %.195126, %139 ], [ %.195126, %136 ], [ %spec.select113, %29 ]
+  %.0 = phi i64 [ -30, %68 ], [ %.296126, %139 ], [ %.296126, %136 ], [ %spec.select113, %29 ]
   ret i64 %.0
 }
 

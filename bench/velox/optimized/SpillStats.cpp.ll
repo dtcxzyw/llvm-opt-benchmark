@@ -9993,7 +9993,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %entry, 
 
 for.body4:                                        ; preds = %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit, %for.inc
   %softState.054 = phi i32 [ 0, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %inc16, %for.inc ]
-  %slot.addr.153 = phi i32 [ %slot, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %slot.addr.2, %for.inc ]
+  %slot.addr.253 = phi i32 [ %slot, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %slot.addr.4, %for.inc ]
   %cmp5.not = icmp eq i32 %softState.054, 2
   br i1 %cmp5.not, label %if.else, label %if.then
 
@@ -10009,8 +10009,8 @@ while.cond.preheader:                             ; preds = %if.else, %if.then
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
-  %slot.addr.2 = phi i32 [ %inc, %while.body ], [ %slot.addr.153, %while.cond.preheader ]
-  %mul.i = shl i32 %slot.addr.2, 2
+  %slot.addr.4 = phi i32 [ %inc, %while.body ], [ %slot.addr.253, %while.cond.preheader ]
+  %mul.i = shl i32 %slot.addr.4, 2
   %idxprom.i = zext i32 %mul.i to i64
   %arrayidx.i = getelementptr inbounds [2048 x %"struct.std::atomic.140"], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_19shared_mutex_detail18PolicySuppressTSANEE15deferredReadersE, i64 0, i64 %idxprom.i
   %2 = load atomic i64, ptr %arrayidx.i acquire, align 32
@@ -10019,7 +10019,7 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp.i, label %for.inc, label %while.body
 
 while.body:                                       ; preds = %while.cond
-  %inc = add i32 %slot.addr.2, 1
+  %inc = add i32 %slot.addr.4, 1
   %cmp10 = icmp eq i32 %inc, %cond.i
   br i1 %cmp10, label %if.end41, label %while.cond, !llvm.loop !254
 
@@ -10029,11 +10029,11 @@ for.inc:                                          ; preds = %while.cond
   br i1 %exitcond.not, label %for.end23, label %for.body4, !llvm.loop !255
 
 for.end23:                                        ; preds = %for.inc
-  %cmp2557 = icmp ult i32 %slot.addr.2, %cond.i
+  %cmp2557 = icmp ult i32 %slot.addr.4, %cond.i
   br i1 %cmp2557, label %for.body26.lr.ph, label %if.end41
 
 for.body26.lr.ph:                                 ; preds = %for.end23
-  %3 = zext i32 %slot.addr.2 to i64
+  %3 = zext i32 %slot.addr.4 to i64
   %4 = zext i32 %cond.i to i64
   br label %for.body26
 

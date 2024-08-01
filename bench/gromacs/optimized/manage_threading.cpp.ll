@@ -86,7 +86,7 @@ define void @_Z22setup_bonded_threadingP18bonded_threading_tibRK22InteractionDef
 21:                                               ; preds = %_ZL25ftype_is_bonded_potentiali.exit.thread.i, %4
   %indvars.iv144.i = phi i64 [ 0, %4 ], [ %indvars.iv.next145.i, %_ZL25ftype_is_bonded_potentiali.exit.thread.i ]
   %.085129.i = phi i32 [ 0, %4 ], [ %.1.i, %_ZL25ftype_is_bonded_potentiali.exit.thread.i ]
-  %.089128.i = phi i64 [ 0, %4 ], [ %.2.i, %_ZL25ftype_is_bonded_potentiali.exit.thread.i ]
+  %.089128.i = phi i64 [ 0, %4 ], [ %.190.i, %_ZL25ftype_is_bonded_potentiali.exit.thread.i ]
   %22 = getelementptr inbounds [94 x %struct.t_interaction_function], ptr @interaction_function, i64 0, i64 %indvars.iv144.i, i32 5
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 1
@@ -136,7 +136,7 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %42
   br i1 %cond.fr.i, label %48, label %.preheader117.i
 
 48:                                               ; preds = %_ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i, %37, %_ZL25ftype_is_bonded_potentiali.exit.i
-  %.190.i = phi i64 [ %.089128.i, %37 ], [ %.089128.i, %_ZL25ftype_is_bonded_potentiali.exit.i ], [ %43, %_ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i ]
+  %.2.i = phi i64 [ %.089128.i, %37 ], [ %.089128.i, %_ZL25ftype_is_bonded_potentiali.exit.i ], [ %43, %_ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i ]
   %49 = icmp sgt i32 %35, 0
   br i1 %49, label %.thread110.i, label %.thread.i
 
@@ -149,7 +149,7 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %42
   br i1 %50, label %.preheader117.i, label %58
 
 .preheader117.i:                                  ; preds = %.thread.i, %_ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i, %42
-  %.190109161.i = phi i64 [ %.190.i, %.thread.i ], [ %43, %_ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i ], [ %43, %42 ]
+  %.2109161.i = phi i64 [ %.2.i, %.thread.i ], [ %43, %_ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i ], [ %43, %42 ]
   br i1 %.not99120.i, label %_ZL25ftype_is_bonded_potentiali.exit.thread.i, label %.lr.ph124.i
 
 .lr.ph124.i:                                      ; preds = %.preheader117.i, %.lr.ph124.i
@@ -243,19 +243,19 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %42
   br i1 %.old2.i, label %.preheader.i, label %.critedge.loopexit.i
 
 .critedge.loopexit.i:                             ; preds = %99, %85, %.preheader.i
-  %.187.ph.in.i = phi i64 [ %indvars.iv.next.i, %99 ], [ %indvars.iv.i, %85 ], [ %indvars.iv.i, %.preheader.i ]
-  %.187.ph.i = trunc i64 %.187.ph.in.i to i32
+  %.086.ph.in.i = phi i64 [ %indvars.iv.next.i, %99 ], [ %indvars.iv.i, %85 ], [ %indvars.iv.i, %.preheader.i ]
+  %.086.ph.i = trunc i64 %.086.ph.in.i to i32
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.loopexit.i, %.lr.ph.split.i
-  %.187.i = phi i32 [ %81, %.lr.ph.split.i ], [ %.187.ph.i, %.critedge.loopexit.i ]
+  %.086.i = phi i32 [ %81, %.lr.ph.split.i ], [ %.086.ph.i, %.critedge.loopexit.i ]
   %100 = load i32, ptr %19, align 8
   %101 = mul nsw i32 %100, 54
   %102 = add nsw i32 %101, %.088121.i
   %103 = sext i32 %102 to i64
   %104 = load ptr, ptr %20, align 8
   %105 = getelementptr inbounds i32, ptr %104, i64 %103
-  store i32 %.187.i, ptr %105, align 4
+  store i32 %.086.i, ptr %105, align 4
   %106 = add nuw i32 %.088121.i, 1
   %exitcond142.not.i = icmp eq i32 %.088121.i, %11
   br i1 %exitcond142.not.i, label %_ZL25ftype_is_bonded_potentiali.exit.thread.i, label %.lr.ph.split.i, !llvm.loop !7
@@ -278,7 +278,7 @@ _ZL24ftypeHasPerturbedEntriesRK22InteractionDefinitionsi.exit.i: ; preds = %42
   br label %_ZL25ftype_is_bonded_potentiali.exit.thread.i
 
 _ZL25ftype_is_bonded_potentiali.exit.thread.i:    ; preds = %.critedge.us.i, %.critedge.i, %.lr.ph124.i, %107, %64, %.preheader117.i, %25, %25, %25, %21
-  %.2.i = phi i64 [ %.190.i, %107 ], [ %.089128.i, %21 ], [ %.089128.i, %25 ], [ %.089128.i, %25 ], [ %.089128.i, %25 ], [ %.190109161.i, %.preheader117.i ], [ %.190.i, %64 ], [ %.190109161.i, %.lr.ph124.i ], [ %.190.i, %.critedge.i ], [ %.190.i, %.critedge.us.i ]
+  %.190.i = phi i64 [ %.2.i, %107 ], [ %.089128.i, %21 ], [ %.089128.i, %25 ], [ %.089128.i, %25 ], [ %.089128.i, %25 ], [ %.2109161.i, %.preheader117.i ], [ %.2.i, %64 ], [ %.2109161.i, %.lr.ph124.i ], [ %.2.i, %.critedge.i ], [ %.2.i, %.critedge.us.i ]
   %.1.i = phi i32 [ %117, %107 ], [ %.085129.i, %21 ], [ %.085129.i, %25 ], [ %.085129.i, %25 ], [ %.085129.i, %25 ], [ %.085129.i, %.preheader117.i ], [ %.085129.i, %64 ], [ %.085129.i, %.lr.ph124.i ], [ %.085129.i, %.critedge.i ], [ %.085129.i, %.critedge.us.i ]
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %exitcond148.not.i = icmp eq i64 %indvars.iv.next145.i, 94

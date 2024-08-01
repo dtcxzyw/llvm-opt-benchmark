@@ -214,13 +214,13 @@ lpad.thread71.i:                                  ; preds = %call47.i.noexc.i, %
 lpad.i:                                           ; preds = %if.then.i.i.i, %if.end56.i
   %lpad.thr_comm.split-lp70.i = landingpad { ptr, i32 }
           cleanup
-  %isnull.i.i = icmp eq ptr %nativePool.sroa.12.2.i, null
+  %isnull.i.i = icmp eq ptr %nativePool.sroa.12.0.i, null
   br i1 %isnull.i.i, label %lpad.body, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %lpad.i, %lpad.thread71.i
   %lpad.phi76.i = phi { ptr, i32 } [ %lpad.thr_comm69.i, %lpad.thread71.i ], [ %lpad.thr_comm.split-lp70.i, %lpad.i ]
-  %nativePool.sroa.12.0.ph75.i = phi ptr [ %call30.i38.i25, %lpad.thread71.i ], [ %nativePool.sroa.12.2.i, %lpad.i ]
-  call void @_ZdaPv(ptr noundef nonnull %nativePool.sroa.12.0.ph75.i) #16
+  %nativePool.sroa.12.1.ph75.i = phi ptr [ %call30.i38.i25, %lpad.thread71.i ], [ %nativePool.sroa.12.0.i, %lpad.i ]
+  call void @_ZdaPv(ptr noundef nonnull %nativePool.sroa.12.1.ph75.i) #16
   br label %lpad.body
 
 if.end10.i:                                       ; preds = %if.then6.i
@@ -337,7 +337,7 @@ call47.i.noexc.i:                                 ; preds = %call43.i.noexc.i
 invoke.cont20.i:                                  ; preds = %call47.i.noexc.i, %if.then12.i.i
   %nativePool.sroa.6.0.i = phi ptr [ %call.i3135.i22, %if.then12.i.i ], [ %call47.i40.i, %call47.i.noexc.i ]
   %nativePool.sroa.9.0.i = phi ptr [ %add.ptr.i34.i, %if.then12.i.i ], [ %add.ptr51.i.i, %call47.i.noexc.i ]
-  %nativePool.sroa.12.1.i = phi ptr [ null, %if.then12.i.i ], [ %call30.i38.i25, %call47.i.noexc.i ]
+  %nativePool.sroa.12.3.i = phi ptr [ null, %if.then12.i.i ], [ %call30.i38.i25, %call47.i.noexc.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %infoLength.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %itemHeaderLength.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %errorCode.i.i)
@@ -399,7 +399,7 @@ if.else.i:                                        ; preds = %if.end43.i
   br label %cleanup.i
 
 if.end56.i:                                       ; preds = %if.then47.i, %if.end.i
-  %nativePool.sroa.12.2.i = phi ptr [ null, %if.end.i ], [ %nativePool.sroa.12.1.i, %if.then47.i ]
+  %nativePool.sroa.12.0.i = phi ptr [ null, %if.end.i ], [ %nativePool.sroa.12.3.i, %if.then47.i ]
   %rootRes.i = getelementptr inbounds i8, ptr %resData.i, i64 32
   %55 = load i32, ptr %rootRes.i, align 8
   %call58.i = invoke fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %21, ptr noundef nonnull %resData.i, i32 noundef %55, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %check, ptr noundef %context, ptr noundef nonnull %errorCode)
@@ -543,12 +543,12 @@ _ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit.i.i: ; pr
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit.i.i, %land.lhs.true.i.i, %if.then75.i, %land.lhs.true70.i, %lor.lhs.false.i, %invoke.cont57.i, %if.else.i, %if.then39.i, %if.then27.i
-  %nativePool.sroa.12.3.i = phi ptr [ %nativePool.sroa.12.2.i, %invoke.cont57.i ], [ %nativePool.sroa.12.2.i, %if.then75.i ], [ %nativePool.sroa.12.2.i, %land.lhs.true70.i ], [ %nativePool.sroa.12.2.i, %lor.lhs.false.i ], [ %nativePool.sroa.12.1.i, %if.then27.i ], [ %nativePool.sroa.12.1.i, %if.then39.i ], [ %nativePool.sroa.12.1.i, %if.else.i ], [ %nativePool.sroa.12.2.i, %land.lhs.true.i.i ], [ %nativePool.sroa.12.2.i, %_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit.i.i ]
-  %isnull.i52.i = icmp eq ptr %nativePool.sroa.12.3.i, null
+  %nativePool.sroa.12.2.i = phi ptr [ %nativePool.sroa.12.0.i, %invoke.cont57.i ], [ %nativePool.sroa.12.0.i, %if.then75.i ], [ %nativePool.sroa.12.0.i, %land.lhs.true70.i ], [ %nativePool.sroa.12.0.i, %lor.lhs.false.i ], [ %nativePool.sroa.12.3.i, %if.then27.i ], [ %nativePool.sroa.12.3.i, %if.then39.i ], [ %nativePool.sroa.12.3.i, %if.else.i ], [ %nativePool.sroa.12.0.i, %land.lhs.true.i.i ], [ %nativePool.sroa.12.0.i, %_ZN6icu_75L13checkIDSuffixEPKcS1_iS1_PFvPvS1_S1_ES2_P10UErrorCode.exit.i.i ]
+  %isnull.i52.i = icmp eq ptr %nativePool.sroa.12.2.i, null
   br i1 %isnull.i52.i, label %invoke.cont10, label %delete.notnull.i53.i
 
 delete.notnull.i53.i:                             ; preds = %cleanup.i
-  call void @_ZdaPv(ptr noundef nonnull %nativePool.sroa.12.3.i) #16
+  call void @_ZdaPv(ptr noundef nonnull %nativePool.sroa.12.2.i) #16
   br label %invoke.cont10
 
 invoke.cont10:                                    ; preds = %delete.notnull.i53.i, %cleanup.i, %call15.i.noexc, %invoke.cont.i
@@ -873,12 +873,12 @@ for.body.lr.ph:                                   ; preds = %sw.bb23
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %doCheckParent.012 = phi i8 [ 1, %for.body.lr.ph ], [ %and60, %for.inc ]
+  %doCheckParent.112 = phi i8 [ 1, %for.body.lr.ph ], [ %and60, %for.inc ]
   %i.011 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %call26 = call i32 @res_getTableItemByIndex_75(ptr noundef %pResData, i32 noundef %res, i32 noundef %i.011, ptr noundef nonnull %itemKey)
   %3 = load ptr, ptr %itemKey, align 8
   %call27 = call fastcc noundef signext i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %itemName, ptr noundef %pResData, i32 noundef %call26, ptr noundef %3, ptr noundef %inKey, i32 noundef %add, ptr noundef %check, ptr noundef %context, ptr noundef %pErrorCode)
-  %and60 = and i8 %call27, %doCheckParent.012
+  %and60 = and i8 %call27, %doCheckParent.112
   %4 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %4, 1
   br i1 %cmp.i, label %for.inc, label %if.then31
@@ -922,8 +922,8 @@ for.inc50:                                        ; preds = %for.body40
   br i1 %exitcond.not, label %sw.epilog, label %for.body40, !llvm.loop !8
 
 sw.epilog:                                        ; preds = %for.inc50, %for.inc, %sw.bb34, %sw.bb23, %lor.lhs.false, %entry, %if.then47, %if.then31, %if.then, %if.then14, %land.lhs.true11, %if.else, %sw.bb19
-  %doCheckParent.1 = phi i8 [ 1, %entry ], [ 1, %if.then47 ], [ %and60, %if.then31 ], [ 1, %sw.bb19 ], [ 0, %if.then ], [ 1, %if.then14 ], [ 1, %land.lhs.true11 ], [ 1, %if.else ], [ 1, %lor.lhs.false ], [ 1, %sw.bb23 ], [ 1, %sw.bb34 ], [ %and60, %for.inc ], [ 1, %for.inc50 ]
-  ret i8 %doCheckParent.1
+  %doCheckParent.0 = phi i8 [ 1, %entry ], [ 1, %if.then47 ], [ %and60, %if.then31 ], [ 1, %sw.bb19 ], [ 0, %if.then ], [ 1, %if.then14 ], [ 1, %land.lhs.true11 ], [ 1, %if.else ], [ 1, %lor.lhs.false ], [ 1, %sw.bb23 ], [ 1, %sw.bb34 ], [ %and60, %for.inc ], [ 1, %for.inc50 ]
+  ret i8 %doCheckParent.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

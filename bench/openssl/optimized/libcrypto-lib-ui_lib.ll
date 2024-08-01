@@ -530,7 +530,7 @@ if.then5:                                         ; preds = %if.end3
   br i1 %cmp7, label %err, label %if.end10
 
 if.end10:                                         ; preds = %if.then5, %if.end3
-  %action_desc_copy.0 = phi ptr [ %call6, %if.then5 ], [ null, %if.end3 ]
+  %action_desc_copy.1 = phi ptr [ %call6, %if.then5 ], [ null, %if.end3 ]
   %cmp11.not = icmp eq ptr %ok_chars, null
   br i1 %cmp11.not, label %if.end17, label %if.then12
 
@@ -540,7 +540,7 @@ if.then12:                                        ; preds = %if.end10
   br i1 %cmp14, label %err, label %if.end17
 
 if.end17:                                         ; preds = %if.then12, %if.end10
-  %ok_chars_copy.0 = phi ptr [ %call13, %if.then12 ], [ null, %if.end10 ]
+  %ok_chars_copy.1 = phi ptr [ %call13, %if.then12 ], [ null, %if.end10 ]
   %cmp18.not = icmp eq ptr %cancel_chars, null
   br i1 %cmp18.not, label %if.end24, label %if.then19
 
@@ -550,17 +550,17 @@ if.then19:                                        ; preds = %if.end17
   br i1 %cmp21, label %err, label %if.end24
 
 if.end24:                                         ; preds = %if.then19, %if.end17
-  %cancel_chars_copy.0 = phi ptr [ %call20, %if.then19 ], [ null, %if.end17 ]
-  %call25 = tail call fastcc i32 @general_allocate_boolean(ptr noundef %ui, ptr noundef %prompt_copy.0, ptr noundef %action_desc_copy.0, ptr noundef %ok_chars_copy.0, ptr noundef %cancel_chars_copy.0, i32 noundef 1, i32 noundef %flags, ptr noundef %result_buf)
+  %cancel_chars_copy.1 = phi ptr [ %call20, %if.then19 ], [ null, %if.end17 ]
+  %call25 = tail call fastcc i32 @general_allocate_boolean(ptr noundef %ui, ptr noundef %prompt_copy.0, ptr noundef %action_desc_copy.1, ptr noundef %ok_chars_copy.1, ptr noundef %cancel_chars_copy.1, i32 noundef 1, i32 noundef %flags, ptr noundef %result_buf)
   br label %return
 
 err:                                              ; preds = %if.then19, %if.then12, %if.then5, %if.then
   %prompt_copy.1 = phi ptr [ null, %if.then ], [ %prompt_copy.0, %if.then5 ], [ %prompt_copy.0, %if.then12 ], [ %prompt_copy.0, %if.then19 ]
-  %action_desc_copy.1 = phi ptr [ null, %if.then ], [ null, %if.then5 ], [ %action_desc_copy.0, %if.then12 ], [ %action_desc_copy.0, %if.then19 ]
-  %ok_chars_copy.1 = phi ptr [ null, %if.then ], [ null, %if.then5 ], [ null, %if.then12 ], [ %ok_chars_copy.0, %if.then19 ]
+  %action_desc_copy.0 = phi ptr [ null, %if.then ], [ null, %if.then5 ], [ %action_desc_copy.1, %if.then12 ], [ %action_desc_copy.1, %if.then19 ]
+  %ok_chars_copy.0 = phi ptr [ null, %if.then ], [ null, %if.then5 ], [ null, %if.then12 ], [ %ok_chars_copy.1, %if.then19 ]
   tail call void @CRYPTO_free(ptr noundef %prompt_copy.1, ptr noundef nonnull @.str, i32 noundef 292) #7
-  tail call void @CRYPTO_free(ptr noundef %action_desc_copy.1, ptr noundef nonnull @.str, i32 noundef 293) #7
-  tail call void @CRYPTO_free(ptr noundef %ok_chars_copy.1, ptr noundef nonnull @.str, i32 noundef 294) #7
+  tail call void @CRYPTO_free(ptr noundef %action_desc_copy.0, ptr noundef nonnull @.str, i32 noundef 293) #7
+  tail call void @CRYPTO_free(ptr noundef %ok_chars_copy.0, ptr noundef nonnull @.str, i32 noundef 294) #7
   tail call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 295) #7
   br label %return
 
@@ -1039,7 +1039,7 @@ err.sink.split:                                   ; preds = %for.body36, %if.the
 
 err:                                              ; preds = %land.lhs.true11, %if.then39, %sw.default50, %err.sink.split, %if.end30, %if.then23, %land.lhs.true
   %cmp70 = phi i1 [ true, %land.lhs.true ], [ true, %if.then23 ], [ false, %if.end30 ], [ false, %err.sink.split ], [ true, %if.then39 ], [ false, %sw.default50 ], [ true, %land.lhs.true11 ]
-  %ok.2 = phi i32 [ -1, %land.lhs.true ], [ -1, %if.then23 ], [ 0, %if.end30 ], [ -2, %err.sink.split ], [ -1, %if.then39 ], [ 0, %sw.default50 ], [ -1, %land.lhs.true11 ]
+  %ok.0 = phi i32 [ -1, %land.lhs.true ], [ -1, %if.then23 ], [ 0, %if.end30 ], [ -2, %err.sink.split ], [ -1, %if.then39 ], [ 0, %sw.default50 ], [ -1, %land.lhs.true11 ]
   %cmp66 = phi ptr [ @.str.2, %land.lhs.true ], [ @.str.4, %if.then23 ], [ @.str.6, %if.end30 ], [ @.str.1, %err.sink.split ], [ @.str.5, %if.then39 ], [ @.str.6, %sw.default50 ], [ @.str.3, %land.lhs.true11 ]
   %state.0 = phi ptr [ @.str.2, %land.lhs.true ], [ @.str.4, %if.then23 ], [ null, %if.end30 ], [ @.str.1, %err.sink.split ], [ @.str.5, %if.then39 ], [ null, %sw.default50 ], [ @.str.3, %land.lhs.true11 ]
   %16 = load ptr, ptr %ui, align 8
@@ -1066,7 +1066,7 @@ if.then71:                                        ; preds = %land.lhs.true60, %i
   br label %if.end72
 
 if.end72:                                         ; preds = %land.lhs.true60, %if.then71, %if.end69
-  %ok.339 = phi i32 [ -1, %if.then71 ], [ %ok.2, %if.end69 ], [ %ok.2, %land.lhs.true60 ]
+  %ok.339 = phi i32 [ -1, %if.then71 ], [ %ok.0, %if.end69 ], [ %ok.0, %land.lhs.true60 ]
   ret i32 %ok.339
 }
 

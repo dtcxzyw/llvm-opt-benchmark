@@ -1453,10 +1453,10 @@ if.end389.i:                                      ; preds = %if.end.i
   br label %init_interpreter.exit
 
 init_interpreter.exit:                            ; preds = %if.then8, %if.then388.i, %if.end389.i
-  %tmp.sroa.0.0 = phi i32 [ 0, %if.end389.i ], [ %5, %if.then388.i ], [ 1, %if.then8 ]
-  %tmp.sroa.7.0 = phi i32 [ 0, %if.end389.i ], [ %tmp.sroa.7.0.copyload, %if.then388.i ], [ undef, %if.then8 ]
-  %tmp.sroa.8.0 = phi ptr [ null, %if.end389.i ], [ %tmp.sroa.8.0.copyload, %if.then388.i ], [ @__func__.init_interpreter, %if.then8 ]
-  %tmp.sroa.11.0 = phi ptr [ null, %if.end389.i ], [ %tmp.sroa.11.0.copyload, %if.then388.i ], [ @.str.159, %if.then8 ]
+  %tmp.sroa.0.1 = phi i32 [ 0, %if.end389.i ], [ %5, %if.then388.i ], [ 1, %if.then8 ]
+  %tmp.sroa.7.1 = phi i32 [ 0, %if.end389.i ], [ %tmp.sroa.7.0.copyload, %if.then388.i ], [ undef, %if.then8 ]
+  %tmp.sroa.8.1 = phi ptr [ null, %if.end389.i ], [ %tmp.sroa.8.0.copyload, %if.then388.i ], [ @__func__.init_interpreter, %if.then8 ]
+  %tmp.sroa.11.1 = phi ptr [ null, %if.end389.i ], [ %tmp.sroa.11.0.copyload, %if.then388.i ], [ @.str.159, %if.then8 ]
   %8 = phi <2 x i32> [ zeroinitializer, %if.end389.i ], [ %6, %if.then388.i ], [ <i32 0, i32 undef>, %if.then8 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   br label %if.end25
@@ -1670,21 +1670,21 @@ if.end413.i:                                      ; preds = %if.then410.i, %if.e
   br label %init_interpreter.exit41
 
 init_interpreter.exit41:                          ; preds = %if.then388.i39, %if.end413.i
-  %tmp.sroa.7.1 = phi i32 [ 0, %if.end413.i ], [ %tmp.sroa.7.0.copyload51, %if.then388.i39 ]
-  %tmp.sroa.8.1 = phi ptr [ null, %if.end413.i ], [ %tmp.sroa.8.0.copyload52, %if.then388.i39 ]
-  %tmp.sroa.11.1 = phi ptr [ null, %if.end413.i ], [ %tmp.sroa.11.0.copyload53, %if.then388.i39 ]
+  %tmp.sroa.7.2 = phi i32 [ 0, %if.end413.i ], [ %tmp.sroa.7.0.copyload51, %if.then388.i39 ]
+  %tmp.sroa.8.2 = phi ptr [ null, %if.end413.i ], [ %tmp.sroa.8.0.copyload52, %if.then388.i39 ]
+  %tmp.sroa.11.2 = phi ptr [ null, %if.end413.i ], [ %tmp.sroa.11.0.copyload53, %if.then388.i39 ]
   %12 = phi <2 x i32> [ zeroinitializer, %if.end413.i ], [ %10, %if.then388.i39 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i31)
   br label %if.end25
 
 if.end25:                                         ; preds = %init_interpreter.exit41, %init_interpreter.exit
-  %tmp.sroa.0.2 = phi i32 [ %tmp.sroa.0.0, %init_interpreter.exit ], [ %9, %init_interpreter.exit41 ]
-  %tmp.sroa.7.2 = phi i32 [ %tmp.sroa.7.0, %init_interpreter.exit ], [ %tmp.sroa.7.1, %init_interpreter.exit41 ]
-  %tmp.sroa.8.2 = phi ptr [ %tmp.sroa.8.0, %init_interpreter.exit ], [ %tmp.sroa.8.1, %init_interpreter.exit41 ]
-  %tmp.sroa.11.2 = phi ptr [ %tmp.sroa.11.0, %init_interpreter.exit ], [ %tmp.sroa.11.1, %init_interpreter.exit41 ]
+  %tmp.sroa.0.0 = phi i32 [ %tmp.sroa.0.1, %init_interpreter.exit ], [ %9, %init_interpreter.exit41 ]
+  %tmp.sroa.7.0 = phi i32 [ %tmp.sroa.7.1, %init_interpreter.exit ], [ %tmp.sroa.7.2, %init_interpreter.exit41 ]
+  %tmp.sroa.8.0 = phi ptr [ %tmp.sroa.8.1, %init_interpreter.exit ], [ %tmp.sroa.8.2, %init_interpreter.exit41 ]
+  %tmp.sroa.11.0 = phi ptr [ %tmp.sroa.11.1, %init_interpreter.exit ], [ %tmp.sroa.11.2, %init_interpreter.exit41 ]
   %interp.0 = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76952), %init_interpreter.exit ], [ %call.i, %init_interpreter.exit41 ]
   %13 = phi <2 x i32> [ %8, %init_interpreter.exit ], [ %12, %init_interpreter.exit41 ]
-  %cmp28.not = icmp eq i32 %tmp.sroa.0.2, 0
+  %cmp28.not = icmp eq i32 %tmp.sroa.0.0, 0
   br i1 %cmp28.not, label %if.end30, label %error
 
 if.end30:                                         ; preds = %if.end25
@@ -1702,10 +1702,10 @@ PyMutex_Unlock.exit:                              ; preds = %if.end30, %if.then.
   br label %return
 
 error:                                            ; preds = %if.end16, %if.else, %if.end25
-  %status.sroa.0.0 = phi i32 [ %tmp.sroa.0.2, %if.end25 ], [ 1, %if.else ], [ 1, %if.end16 ]
-  %status.sroa.5.0 = phi i32 [ %tmp.sroa.7.2, %if.end25 ], [ undef, %if.else ], [ undef, %if.end16 ]
-  %status.sroa.7.0 = phi ptr [ %tmp.sroa.8.2, %if.end25 ], [ @__func__._PyInterpreterState_New, %if.else ], [ @__func__._PyInterpreterState_New, %if.end16 ]
-  %status.sroa.9.0 = phi ptr [ %tmp.sroa.11.2, %if.end25 ], [ @.str, %if.else ], [ @.str.4, %if.end16 ]
+  %status.sroa.0.0 = phi i32 [ %tmp.sroa.0.0, %if.end25 ], [ 1, %if.else ], [ 1, %if.end16 ]
+  %status.sroa.5.0 = phi i32 [ %tmp.sroa.7.0, %if.end25 ], [ undef, %if.else ], [ undef, %if.end16 ]
+  %status.sroa.7.0 = phi ptr [ %tmp.sroa.8.0, %if.end25 ], [ @__func__._PyInterpreterState_New, %if.else ], [ @__func__._PyInterpreterState_New, %if.end16 ]
+  %status.sroa.9.0 = phi ptr [ %tmp.sroa.11.0, %if.end25 ], [ @.str, %if.else ], [ @.str.4, %if.end16 ]
   %interp.1 = phi ptr [ %interp.0, %if.end25 ], [ null, %if.else ], [ %call.i, %if.end16 ]
   %16 = phi <2 x i32> [ %13, %if.end25 ], [ <i32 0, i32 undef>, %if.else ], [ <i32 0, i32 undef>, %if.end16 ]
   %17 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 336), i8 1, i8 0 seq_cst seq_cst, align 1

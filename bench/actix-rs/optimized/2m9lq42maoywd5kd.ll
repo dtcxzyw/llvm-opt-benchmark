@@ -123,7 +123,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h721036d7
   br label %37
 
 .critedge54:                                      ; preds = %.critedge, %.loopexit, %.loopexit.split-lp, %.critedge53.thread, %.critedge53
-  %.0 = phi i1 [ true, %.critedge53.thread ], [ true, %.critedge53 ], [ true, %.loopexit ], [ false, %.loopexit.split-lp ], [ true, %.critedge ]
+  %.1 = phi i1 [ true, %.critedge53.thread ], [ true, %.critedge53 ], [ true, %.loopexit ], [ false, %.loopexit.split-lp ], [ true, %.critedge ]
   %.pn47 = phi { ptr, i32 } [ %.pn94100, %.critedge53.thread ], [ %.pn95, %.critedge53 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn, %.critedge ]
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$$GT$17h4fd4e0b15e875384E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #14
           to label %147 unwind label %136
@@ -460,7 +460,7 @@ define hidden void @_ZN12actix_router8resource11ResourceDef9construct17h721036d7
           to label %148 unwind label %136
 
 148:                                              ; preds = %147
-  br i1 %.0, label %149, label %34
+  br i1 %.1, label %149, label %34
 
 149:                                              ; preds = %148
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17hef46dc5dadc2509bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #14

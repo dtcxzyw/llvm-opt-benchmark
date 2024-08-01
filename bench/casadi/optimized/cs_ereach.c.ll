@@ -44,17 +44,17 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   br label %.lr.ph79
 
 .preheader:                                       ; preds = %.loopexit
-  %30 = icmp slt i32 %.2, %15
+  %30 = icmp slt i32 %.1, %15
   br i1 %30, label %.lr.ph82.preheader, label %._crit_edge
 
 .lr.ph82.preheader:                               ; preds = %.preheader
-  %31 = sext i32 %.2 to i64
+  %31 = sext i32 %.1 to i64
   %wide.trip.count = sext i32 %15 to i64
   br label %.lr.ph82
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.loopexit
   %indvars.iv92 = phi i64 [ %29, %.lr.ph79.preheader ], [ %indvars.iv.next93, %.loopexit ]
-  %.05978 = phi i32 [ %15, %.lr.ph79.preheader ], [ %.2, %.loopexit ]
+  %.05978 = phi i32 [ %15, %.lr.ph79.preheader ], [ %.1, %.loopexit ]
   %32 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv92
   %33 = load i32, ptr %32, align 4
   %34 = icmp sgt i32 %33, %1
@@ -113,7 +113,7 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader70, %.loopexit.loopexit, %.preheader69, %.lr.ph79
-  %.2 = phi i32 [ %.05978, %.lr.ph79 ], [ %.05978, %.preheader69 ], [ %58, %.loopexit.loopexit ], [ %.05978, %.preheader70 ]
+  %.1 = phi i32 [ %.05978, %.lr.ph79 ], [ %.05978, %.preheader69 ], [ %58, %.loopexit.loopexit ], [ %.05978, %.preheader70 ]
   %indvars.iv.next93 = add nsw i64 %indvars.iv92, 1
   %59 = load i32, ptr %26, align 4
   %60 = sext i32 %59 to i64
@@ -134,7 +134,7 @@ define i32 @cs_ereach(ptr noundef readonly %0, i32 noundef %1, ptr noundef reado
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph82, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph82, %13, %.preheader
-  %.059.lcssa99 = phi i32 [ %.2, %.preheader ], [ %15, %13 ], [ %.2, %.lr.ph82 ]
+  %.059.lcssa99 = phi i32 [ %.1, %.preheader ], [ %15, %13 ], [ %.1, %.lr.ph82 ]
   %68 = load i32, ptr %21, align 4
   %69 = sub i32 -2, %68
   store i32 %69, ptr %21, align 4

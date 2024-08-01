@@ -1891,7 +1891,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors5array16Channel
   br label %10
 
 10:                                               ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19, %2
-  %.025 = phi i32 [ 0, %2 ], [ %.3, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
+  %.025 = phi i32 [ 0, %2 ], [ %.126, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %.011 = phi i64 [ %3, %2 ], [ %.1, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %11 = load i64, ptr %4, align 16, !noundef !4
   %12 = add i64 %11, -1
@@ -1975,7 +1975,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19: ; preds = 
   %.pn.in = phi i1 [ %44, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %33, %.thread.i ], [ %65, %64 ]
   %.1 = phi i64 [ %45, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %34, %.thread.i ], [ %.sroa.07.0.i, %64 ]
   %.pn = zext i1 %.pn.in to i32
-  %.3 = add nuw nsw i32 %.025, %.pn
+  %.126 = add nuw nsw i32 %.025, %.pn
   br label %10
 
 52:                                               ; preds = %49
@@ -2035,7 +2035,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors5array16Channel
   br label %10
 
 10:                                               ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19, %2
-  %.025 = phi i32 [ 0, %2 ], [ %.3, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
+  %.025 = phi i32 [ 0, %2 ], [ %.126, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %.011 = phi i64 [ %3, %2 ], [ %.1, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %11 = load i64, ptr %4, align 16, !noundef !4
   %12 = add i64 %11, -1
@@ -2120,7 +2120,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19: ; preds = 
   %.pn.in = phi i1 [ %45, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %34, %.thread.i ], [ %66, %65 ]
   %.1 = phi i64 [ %46, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %35, %.thread.i ], [ %.sroa.07.0.i, %65 ]
   %.pn = zext i1 %.pn.in to i32
-  %.3 = add nuw nsw i32 %.025, %.pn
+  %.126 = add nuw nsw i32 %.025, %.pn
   br label %10
 
 53:                                               ; preds = %50
@@ -2180,7 +2180,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors5array16Channel
   br label %10
 
 10:                                               ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19, %2
-  %.025 = phi i32 [ 0, %2 ], [ %.3, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
+  %.025 = phi i32 [ 0, %2 ], [ %.126, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %.011 = phi i64 [ %3, %2 ], [ %.1, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %11 = load i64, ptr %4, align 16, !noundef !4
   %12 = add i64 %11, -1
@@ -2265,7 +2265,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19: ; preds = 
   %.pn.in = phi i1 [ %45, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %34, %.thread.i ], [ %66, %65 ]
   %.1 = phi i64 [ %46, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %35, %.thread.i ], [ %.sroa.07.0.i, %65 ]
   %.pn = zext i1 %.pn.in to i32
-  %.3 = add nuw nsw i32 %.025, %.pn
+  %.126 = add nuw nsw i32 %.025, %.pn
   br label %10
 
 53:                                               ; preds = %50
@@ -2325,7 +2325,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors5array16Channel
   br label %10
 
 10:                                               ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19, %2
-  %.025 = phi i32 [ 0, %2 ], [ %.3, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
+  %.025 = phi i32 [ 0, %2 ], [ %.126, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %.011 = phi i64 [ %3, %2 ], [ %.1, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %11 = load i64, ptr %4, align 16, !noundef !4
   %12 = add i64 %11, -1
@@ -2410,7 +2410,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19: ; preds = 
   %.pn.in = phi i1 [ %45, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %34, %.thread.i ], [ %66, %65 ]
   %.1 = phi i64 [ %46, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %35, %.thread.i ], [ %.sroa.07.0.i, %65 ]
   %.pn = zext i1 %.pn.in to i32
-  %.3 = add nuw nsw i32 %.025, %.pn
+  %.126 = add nuw nsw i32 %.025, %.pn
   br label %10
 
 53:                                               ; preds = %50
@@ -2470,7 +2470,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors5array16Channel
   br label %10
 
 10:                                               ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19, %2
-  %.025 = phi i32 [ 0, %2 ], [ %.3, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
+  %.025 = phi i32 [ 0, %2 ], [ %.126, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %.011 = phi i64 [ %3, %2 ], [ %.1, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %11 = load i64, ptr %4, align 16, !noundef !4
   %12 = add i64 %11, -1
@@ -2554,7 +2554,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19: ; preds = 
   %.pn.in = phi i1 [ %44, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %33, %.thread.i ], [ %66, %65 ]
   %.1 = phi i64 [ %45, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %34, %.thread.i ], [ %.sroa.07.0.i, %65 ]
   %.pn = zext i1 %.pn.in to i32
-  %.3 = add nuw nsw i32 %.025, %.pn
+  %.126 = add nuw nsw i32 %.025, %.pn
   br label %10
 
 52:                                               ; preds = %49
@@ -2623,7 +2623,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors5array16Channel
 13:                                               ; preds = %.lr.ph, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19
   %14 = phi i64 [ %6, %.lr.ph ], [ %54, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %.01233 = phi i64 [ %4, %.lr.ph ], [ %.1, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
-  %.02532 = phi i32 [ 0, %.lr.ph ], [ %.3, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
+  %.02532 = phi i32 [ 0, %.lr.ph ], [ %.126, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %15 = add i64 %14, -1
   %16 = and i64 %15, %.01233
   %17 = load i64, ptr %9, align 8, !noundef !4
@@ -2706,7 +2706,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19: ; preds = 
   %.pn.in = phi i1 [ %49, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %39, %.thread.i ], [ %69, %68 ]
   %.1 = phi i64 [ %50, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %40, %.thread.i ], [ %.sroa.07.0.i, %68 ]
   %.pn = zext i1 %.pn.in to i32
-  %.3 = add nuw nsw i32 %.02532, %.pn
+  %.126 = add nuw nsw i32 %.02532, %.pn
   %54 = load i64, ptr %5, align 16, !noundef !4
   %55 = and i64 %54, %.1
   %56 = icmp eq i64 %55, 0
@@ -2776,7 +2776,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors5array16Channel
 13:                                               ; preds = %.lr.ph, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19
   %14 = phi i64 [ %6, %.lr.ph ], [ %54, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %.01233 = phi i64 [ %4, %.lr.ph ], [ %.1, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
-  %.02532 = phi i32 [ 0, %.lr.ph ], [ %.3, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
+  %.02532 = phi i32 [ 0, %.lr.ph ], [ %.126, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %15 = add i64 %14, -1
   %16 = and i64 %15, %.01233
   %17 = load i64, ptr %9, align 8, !noundef !4
@@ -2859,7 +2859,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19: ; preds = 
   %.pn.in = phi i1 [ %49, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %39, %.thread.i ], [ %69, %68 ]
   %.1 = phi i64 [ %50, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %40, %.thread.i ], [ %.sroa.07.0.i, %68 ]
   %.pn = zext i1 %.pn.in to i32
-  %.3 = add nuw nsw i32 %.02532, %.pn
+  %.126 = add nuw nsw i32 %.02532, %.pn
   %54 = load i64, ptr %5, align 16, !noundef !4
   %55 = and i64 %54, %.1
   %56 = icmp eq i64 %55, 0
@@ -2929,7 +2929,7 @@ define hidden noundef zeroext i1 @"_ZN17crossbeam_channel7flavors5array16Channel
 13:                                               ; preds = %.lr.ph, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19
   %14 = phi i64 [ %6, %.lr.ph ], [ %53, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %.01233 = phi i64 [ %4, %.lr.ph ], [ %.1, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
-  %.02532 = phi i32 [ 0, %.lr.ph ], [ %.3, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
+  %.02532 = phi i32 [ 0, %.lr.ph ], [ %.126, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19 ]
   %15 = add i64 %14, -1
   %16 = and i64 %15, %.01233
   %17 = load i64, ptr %9, align 8, !noundef !4
@@ -3011,7 +3011,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19: ; preds = 
   %.pn.in = phi i1 [ %48, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %38, %.thread.i ], [ %68, %67 ]
   %.1 = phi i64 [ %49, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit ], [ %39, %.thread.i ], [ %.sroa.07.0.i, %67 ]
   %.pn = zext i1 %.pn.in to i32
-  %.3 = add nuw nsw i32 %.02532, %.pn
+  %.126 = add nuw nsw i32 %.02532, %.pn
   %53 = load i64, ptr %5, align 16, !noundef !4
   %54 = and i64 %53, %.1
   %55 = icmp eq i64 %54, 0
@@ -3509,7 +3509,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN17crossbeam_channel7flavors5array16
 45:                                               ; preds = %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i, %.lr.ph.i
   %46 = phi i64 [ %43, %.lr.ph.i ], [ %85, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i ]
   %.01234.i = phi i64 [ %44, %.lr.ph.i ], [ %.1.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i ]
-  %.02533.i = phi i32 [ 0, %.lr.ph.i ], [ %.3.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i ]
+  %.02533.i = phi i32 [ 0, %.lr.ph.i ], [ %.126.i, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i ]
   %47 = add i64 %46, -1
   %48 = and i64 %47, %.01234.i
   %49 = load i64, ptr %30, align 8, !noalias !434, !noundef !4
@@ -3587,7 +3587,7 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit19.i: ; preds 
   %.pn.in.i = phi i1 [ %80, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit.i ], [ %70, %.thread.i.i ], [ %97, %96 ]
   %.1.i = phi i64 [ %81, %_ZN15crossbeam_utils7backoff7Backoff4spin17h65392e13318235e6E.exit.i ], [ %71, %.thread.i.i ], [ %.sroa.07.0.i.i, %96 ]
   %.pn.i = zext i1 %.pn.in.i to i32
-  %.3.i = add nuw nsw i32 %.02533.i, %.pn.i
+  %.126.i = add nuw nsw i32 %.02533.i, %.pn.i
   %85 = load i64, ptr %25, align 16, !noalias !434, !noundef !4
   %86 = and i64 %85, %.1.i
   %87 = icmp eq i64 %86, 0

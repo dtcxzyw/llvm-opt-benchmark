@@ -1673,18 +1673,18 @@ define void @_ZN3gmx4File12throwOnErrorERKNS0_12NotFoundInfoE(ptr nocapture noun
 
 44:                                               ; preds = %42, %40
   %.pn = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ]
-  %.1 = phi i1 [ %.0, %42 ], [ true, %40 ]
+  %.4 = phi i1 [ %.0, %42 ], [ true, %40 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #20
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   br label %45
 
 45:                                               ; preds = %38, %44
   %.pn.pn = phi { ptr, i32 } [ %.pn, %44 ], [ %39, %38 ]
-  %.2 = phi i1 [ %.1, %44 ], [ true, %38 ]
+  %.3 = phi i1 [ %.4, %44 ], [ true, %38 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #20
   call void @_ZN3gmx11FileIOErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #20
-  br i1 %.2, label %46, label %48
+  br i1 %.3, label %46, label %48
 
 46:                                               ; preds = %.thread26, %.thread, %45
   %.pn.pn.pn.pn25 = phi { ptr, i32 } [ %36, %.thread ], [ %.pn.pn, %45 ], [ %37, %.thread26 ]
@@ -2341,7 +2341,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i31: ; 
 
 .body28:                                          ; preds = %97, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i23, %63, %.body36
   %.pn = phi { ptr, i32 } [ %eh.lpad-body37, %.body36 ], [ %98, %97 ], [ %64, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i23 ], [ %64, %63 ]
-  %.1 = phi i1 [ %.0.lpad-body, %.body36 ], [ true, %97 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i23 ], [ true, %63 ]
+  %.4 = phi i1 [ %.0.lpad-body, %.body36 ], [ true, %97 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i23 ], [ true, %63 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %12, align 8
   %101 = load ptr, ptr %50, align 8
@@ -2422,7 +2422,7 @@ _ZN3gmx17InvalidInputErrorD2Ev.exit:              ; preds = %.body28, %118, %131
 
 .body:                                            ; preds = %95, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i, %41, %_ZN3gmx17InvalidInputErrorD2Ev.exit
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN3gmx17InvalidInputErrorD2Ev.exit ], [ %96, %95 ], [ %42, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ %42, %41 ]
-  %.2 = phi i1 [ %.1, %_ZN3gmx17InvalidInputErrorD2Ev.exit ], [ true, %95 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ true, %41 ]
+  %.3 = phi i1 [ %.4, %_ZN3gmx17InvalidInputErrorD2Ev.exit ], [ true, %95 ], [ true, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i.i ], [ true, %41 ]
   call void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %13, align 8
   %136 = getelementptr inbounds i8, ptr %13, i64 16
@@ -2504,7 +2504,7 @@ _ZN3gmx17InvalidInputErrorD2Ev.exit44:            ; preds = %.body, %154, %167, 
 
 172:                                              ; preds = %_ZN3gmx17InvalidInputErrorD2Ev.exit44, %93
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZN3gmx17InvalidInputErrorD2Ev.exit44 ], [ %94, %93 ]
-  %.3 = phi i1 [ %.2, %_ZN3gmx17InvalidInputErrorD2Ev.exit44 ], [ true, %93 ]
+  %.2 = phi i1 [ %.3, %_ZN3gmx17InvalidInputErrorD2Ev.exit44 ], [ true, %93 ]
   %173 = load ptr, ptr %31, align 8
   %174 = getelementptr inbounds i8, ptr %14, i64 40
   %175 = load ptr, ptr %174, align 8
@@ -2541,7 +2541,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i: 
 
 181:                                              ; preds = %180, %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #20
-  br i1 %.3, label %182, label %183
+  br i1 %.2, label %182, label %183
 
 182:                                              ; preds = %.thread, %181
   %.pn.pn.pn.pn49 = phi { ptr, i32 } [ %92, %.thread ], [ %.pn.pn.pn, %181 ]

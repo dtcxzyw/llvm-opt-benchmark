@@ -942,7 +942,7 @@ define internal fastcc void @phpdbg_print_opcodes_ce(ptr nocapture noundef reado
   br i1 %.not3942, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %46
-  %.044 = phi i8 [ %.2, %46 ], [ 1, %17 ]
+  %.044 = phi i8 [ %.1, %46 ], [ 1, %17 ]
   %.03543 = phi ptr [ %47, %46 ], [ %23, %17 ]
   %31 = getelementptr inbounds i8, ptr %.03543, i64 8
   %32 = load i8, ptr %31, align 8
@@ -960,7 +960,7 @@ define internal fastcc void @phpdbg_print_opcodes_ce(ptr nocapture noundef reado
   br label %40
 
 40:                                               ; preds = %34, %37
-  %.1 = phi i8 [ %.044, %37 ], [ 0, %34 ]
+  %.2 = phi i8 [ %.044, %37 ], [ 0, %34 ]
   %41 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
   %42 = getelementptr inbounds i8, ptr %35, i64 8
   %43 = load ptr, ptr %42, align 8
@@ -969,13 +969,13 @@ define internal fastcc void @phpdbg_print_opcodes_ce(ptr nocapture noundef reado
   br label %46
 
 46:                                               ; preds = %.lr.ph, %40
-  %.2 = phi i8 [ %.044, %.lr.ph ], [ %.1, %40 ]
+  %.1 = phi i8 [ %.044, %.lr.ph ], [ %.2, %40 ]
   %47 = getelementptr inbounds i8, ptr %.03543, i64 32
   %.not39 = icmp eq ptr %47, %27
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %46
-  %48 = trunc nuw i8 %.2 to i1
+  %48 = trunc nuw i8 %.1 to i1
   br i1 %48, label %._crit_edge.thread, label %51
 
 ._crit_edge.thread:                               ; preds = %17, %._crit_edge

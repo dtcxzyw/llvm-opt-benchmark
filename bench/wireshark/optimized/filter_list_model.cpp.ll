@@ -2296,7 +2296,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i89:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit52
 
 _ZN7QStringD2Ev.exit79:                           ; preds = %150, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i77, %_ZN7QStringD2Ev.exit75, %75, %.critedge32, %_ZN7QStringD2Ev.exit
-  %.024 = phi i1 [ false, %_ZN7QStringD2Ev.exit ], [ false, %.critedge32 ], [ false, %75 ], [ true, %_ZN7QStringD2Ev.exit75 ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i77 ], [ true, %150 ]
+  %.125 = phi i1 [ false, %_ZN7QStringD2Ev.exit ], [ false, %.critedge32 ], [ false, %75 ], [ true, %_ZN7QStringD2Ev.exit75 ], [ true, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i77 ], [ true, %150 ]
   %167 = load ptr, ptr %9, align 8
   %.not.i.i.i92 = icmp eq ptr %167, null
   br i1 %.not.i.i.i92, label %.critedge, label %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i
@@ -2347,8 +2347,8 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %166, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit36
 
 .critedge:                                        ; preds = %4, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i, %_ZN7QStringD2Ev.exit79, %23
-  %.125 = phi i1 [ false, %23 ], [ %.024, %_ZN7QStringD2Ev.exit79 ], [ %.024, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i ], [ %.024, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i ], [ false, %4 ]
-  ret i1 %.125
+  %.024 = phi i1 [ false, %23 ], [ %.125, %_ZN7QStringD2Ev.exit79 ], [ %.125, %_ZN17QArrayDataPointerI7QStringE5derefEv.exit.i.i ], [ %.125, %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i ], [ false, %4 ]
+  ret i1 %.024
 
 _ZN7QStringD2Ev.exit36:                           ; preds = %56, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i34, %52, %_ZN7QStringD2Ev.exit52
   %.pn27.pn.pn = phi { ptr, i32 } [ %.pn27.pn, %_ZN7QStringD2Ev.exit52 ], [ %53, %52 ], [ %53, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i34 ], [ %53, %56 ]
@@ -5664,20 +5664,20 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP7QStringEET_S3_S3_S3_St26ra
 .lr.ph:                                           ; preds = %55, %.lr.ph
   %.064 = phi i64 [ %72, %.lr.ph ], [ 0, %55 ]
   %.03563 = phi ptr [ %61, %.lr.ph ], [ %56, %55 ]
-  %.262 = phi ptr [ %60, %.lr.ph ], [ %58, %55 ]
-  %60 = getelementptr i8, ptr %.262, i64 -24
+  %.362 = phi ptr [ %60, %.lr.ph ], [ %58, %55 ]
+  %60 = getelementptr i8, ptr %.362, i64 -24
   %61 = getelementptr i8, ptr %.03563, i64 -24
   %62 = load ptr, ptr %60, align 8
   %63 = load ptr, ptr %61, align 8
   store ptr %63, ptr %60, align 8
   store ptr %62, ptr %61, align 8
-  %64 = getelementptr i8, ptr %.262, i64 -16
+  %64 = getelementptr i8, ptr %.362, i64 -16
   %65 = getelementptr i8, ptr %.03563, i64 -16
   %66 = load ptr, ptr %64, align 8
   %67 = load ptr, ptr %65, align 8
   store ptr %67, ptr %64, align 8
   store ptr %66, ptr %65, align 8
-  %68 = getelementptr i8, ptr %.262, i64 -8
+  %68 = getelementptr i8, ptr %.362, i64 -8
   %69 = getelementptr i8, ptr %.03563, i64 -8
   %70 = load i64, ptr %68, align 8
   %71 = load i64, ptr %69, align 8
@@ -5688,7 +5688,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP7QStringEET_S3_S3_S3_St26ra
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %55
-  %.2.lcssa = phi ptr [ %58, %55 ], [ %.039, %.lr.ph ]
+  %.3.lcssa = phi ptr [ %58, %55 ], [ %.039, %.lr.ph ]
   %73 = srem i64 %.059, %33
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %_ZSt11swap_rangesIP7QStringS1_ET0_T_S3_S2_.exit, label %.backedge
@@ -5696,7 +5696,7 @@ define linkonce_odr noundef ptr @_ZNSt3_V28__rotateIP7QStringEET_S3_S3_S3_St26ra
 .backedge:                                        ; preds = %._crit_edge, %53
   %.059.be = phi i64 [ %.057, %53 ], [ %33, %._crit_edge ]
   %.057.be = phi i64 [ %54, %53 ], [ %73, %._crit_edge ]
-  %.039.be = phi ptr [ %.1.lcssa, %53 ], [ %.2.lcssa, %._crit_edge ]
+  %.039.be = phi ptr [ %.1.lcssa, %53 ], [ %.3.lcssa, %._crit_edge ]
   br label %32, !llvm.loop !32
 
 _ZSt11swap_rangesIP7QStringS1_ET0_T_S3_S2_.exit:  ; preds = %._crit_edge, %._crit_edge70, %.lr.ph.i, %5, %3

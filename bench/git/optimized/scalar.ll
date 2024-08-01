@@ -1312,12 +1312,12 @@ if.end41.loopexit:                                ; preds = %land.rhs
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end41.loopexit, %if.end
-  %i.2 = phi i32 [ -1, %if.end ], [ %7, %if.end41.loopexit ]
+  %i.1 = phi i32 [ -1, %if.end ], [ %7, %if.end41.loopexit ]
   %dec = add nsw i32 %call, -1
   %incdec.ptr = getelementptr inbounds i8, ptr %argv, i64 8
   call fastcc void @setup_enlistment_directory(i32 noundef %dec, ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %usagestr, ptr noundef nonnull %options, ptr noundef null)
   call void @strbuf_release(ptr noundef nonnull %buf) #17
-  %cmp44 = icmp eq i32 %i.2, 0
+  %cmp44 = icmp eq i32 %i.1, 0
   br i1 %cmp44, label %if.then45, label %if.end47
 
 if.then45:                                        ; preds = %if.end41
@@ -1325,11 +1325,11 @@ if.then45:                                        ; preds = %if.end41
   br label %return
 
 if.end47:                                         ; preds = %if.end41
-  %cmp48 = icmp sgt i32 %i.2, 0
+  %cmp48 = icmp sgt i32 %i.1, 0
   br i1 %cmp48, label %if.then49, label %if.end53
 
 if.then49:                                        ; preds = %if.end47
-  %idxprom50 = zext nneg i32 %i.2 to i64
+  %idxprom50 = zext nneg i32 %i.1 to i64
   %task = getelementptr inbounds [6 x %struct.anon.0], ptr @__const.cmd_run.tasks, i64 0, i64 %idxprom50, i32 1
   %8 = load ptr, ptr %task, align 8
   %call52 = call i32 (ptr, ...) @run_git(ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.156, ptr noundef %8, ptr noundef null)
@@ -1525,7 +1525,7 @@ _.exit32:                                         ; preds = %if.else, %if.end3.i
   br label %if.end41
 
 if.end41:                                         ; preds = %_.exit32, %_.exit27
-  %succeeded.0 = phi i32 [ 0, %_.exit27 ], [ 1, %_.exit32 ]
+  %succeeded.1 = phi i32 [ 0, %_.exit27 ], [ 1, %_.exit32 ]
   call void @strbuf_release(ptr noundef nonnull %buf) #17
   br label %loop_end
 
@@ -1581,7 +1581,7 @@ _.exit47:                                         ; preds = %sw.default, %if.end
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end42, %_.exit47
-  %succeeded.1 = phi i32 [ 0, %_.exit47 ], [ 1, %if.end42 ]
+  %succeeded.2 = phi i32 [ 0, %_.exit47 ], [ 1, %if.end42 ]
   call void @git_config_clear() #17
   store ptr %r, ptr @the_repository, align 8
   %16 = load ptr, ptr %buf.i, align 8
@@ -1593,8 +1593,8 @@ sw.epilog:                                        ; preds = %if.end42, %_.exit47
   br i1 %cmp54, label %for.inc, label %loop_end
 
 loop_end:                                         ; preds = %sw.epilog, %if.end41
-  %succeeded.2 = phi i32 [ %succeeded.0, %if.end41 ], [ %succeeded.1, %sw.epilog ]
-  %tobool58.not = icmp eq i32 %succeeded.2, 0
+  %succeeded.0 = phi i32 [ %succeeded.1, %if.end41 ], [ %succeeded.2, %sw.epilog ]
+  %tobool58.not = icmp eq i32 %succeeded.0, 0
   br i1 %tobool58.not, label %if.then59, label %for.inc
 
 if.then59:                                        ; preds = %_.exit37, %_.exit42, %_.exit, %loop_end

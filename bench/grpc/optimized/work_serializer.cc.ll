@@ -2662,7 +2662,7 @@ invoke.cont44.thread:                             ; preds = %invoke.cont24
 
 for.body.preheader.i:                             ; preds = %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i, %invoke.cont24
   %construct_data.040 = phi ptr [ %data_.i, %invoke.cont24 ], [ %call5.i.i.i.i13, %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
-  %allocation_tx.sroa.0.038 = phi ptr [ null, %invoke.cont24 ], [ %call5.i.i.i.i13, %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
+  %allocation_tx.sroa.0.138 = phi ptr [ null, %invoke.cont24 ], [ %call5.i.i.i.i13, %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
   %allocation_tx.sroa.7.036 = phi i64 [ 0, %invoke.cont24 ], [ %shr.i, %_ZN4absl12lts_2023080223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i ]
   br label %for.body.i
 
@@ -2720,11 +2720,11 @@ _ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerialize
 
 invoke.cont44:                                    ; preds = %_ZNSt16allocator_traitsISaIN9grpc_core14WorkSerializer25DispatchingWorkSerializer15CallbackWrapperEEE7destroyIS3_EEvRS4_PT_.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
-  %cmp.i.not = icmp eq ptr %allocation_tx.sroa.0.038, null
+  %cmp.i.not = icmp eq ptr %allocation_tx.sroa.0.138, null
   br i1 %cmp.i.not, label %if.else50, label %invoke.cont48
 
 invoke.cont48:                                    ; preds = %invoke.cont44
-  store ptr %allocation_tx.sroa.0.038, ptr %data_.i, align 8
+  store ptr %allocation_tx.sroa.0.138, ptr %data_.i, align 8
   store i64 %allocation_tx.sroa.7.036, ptr %allocated_capacity.i, align 8
   br label %cleanup.cont
 

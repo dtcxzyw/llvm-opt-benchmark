@@ -664,9 +664,9 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
   br label %.lr.ph.i.i.i17
 
 .lr.ph.i.i.i17:                                   ; preds = %.lr.ph.i.i.i17.preheader, %99
-  %.sroa.08.0.i.i = phi ptr [ %94, %99 ], [ %71, %.lr.ph.i.i.i17.preheader ]
+  %.sroa.08.3.i.i = phi ptr [ %94, %99 ], [ %71, %.lr.ph.i.i.i17.preheader ]
   %.017.i.i.i = phi i64 [ %100, %99 ], [ %73, %.lr.ph.i.i.i17.preheader ]
-  %76 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i, i64 -1
+  %76 = getelementptr inbounds i8, ptr %.sroa.08.3.i.i, i64 -1
   %77 = load i8, ptr %76, align 1, !noalias !8
   %78 = zext i8 %77 to i32
   %79 = call i32 @isspace(i32 noundef %78) #8, !noalias !8
@@ -674,7 +674,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
   br i1 %80, label %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit25.i.i, label %81
 
 81:                                               ; preds = %.lr.ph.i.i.i17
-  %82 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i, i64 -2
+  %82 = getelementptr inbounds i8, ptr %.sroa.08.3.i.i, i64 -2
   %83 = load i8, ptr %82, align 1, !noalias !8
   %84 = zext i8 %83 to i32
   %85 = call i32 @isspace(i32 noundef %84) #8, !noalias !8
@@ -682,7 +682,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
   br i1 %86, label %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit23.i.i, label %87
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i, i64 -3
+  %88 = getelementptr inbounds i8, ptr %.sroa.08.3.i.i, i64 -3
   %89 = load i8, ptr %88, align 1, !noalias !8
   %90 = zext i8 %89 to i32
   %91 = call i32 @isspace(i32 noundef %90) #8, !noalias !8
@@ -690,7 +690,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
   br i1 %92, label %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit21.i.i, label %93
 
 93:                                               ; preds = %87
-  %94 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i, i64 -4
+  %94 = getelementptr inbounds i8, ptr %.sroa.08.3.i.i, i64 -4
   %95 = load i8, ptr %94, align 1, !noalias !8
   %96 = zext i8 %95 to i32
   %97 = call i32 @isspace(i32 noundef %96) #8, !noalias !8
@@ -707,7 +707,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
   br label %._crit_edge.i.i.i16
 
 ._crit_edge.i.i.i16:                              ; preds = %._crit_edge.loopexit.i.i.i18, %68
-  %.sroa.08.1.i.i = phi ptr [ %scevgep63, %._crit_edge.loopexit.i.i.i18 ], [ %71, %68 ]
+  %.sroa.08.0.i.i = phi ptr [ %scevgep63, %._crit_edge.loopexit.i.i.i18 ], [ %71, %68 ]
   %103 = phi i64 [ %102, %._crit_edge.loopexit.i.i.i18 ], [ %70, %68 ]
   %104 = sub i64 %103, %69
   switch i64 %104, label %_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_.exit [
@@ -717,16 +717,16 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
   ]
 
 105:                                              ; preds = %._crit_edge.i.i.i16
-  %106 = getelementptr inbounds i8, ptr %.sroa.08.1.i.i, i64 -1
+  %106 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i, i64 -1
   %107 = load i8, ptr %106, align 1, !noalias !8
   %108 = zext i8 %107 to i32
   %109 = call i32 @isspace(i32 noundef %108) #8, !noalias !8
   %110 = icmp eq i32 %109, 0
-  %111 = ptrtoint ptr %.sroa.08.1.i.i to i64
+  %111 = ptrtoint ptr %.sroa.08.0.i.i to i64
   br i1 %110, label %_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_.exit, label %112
 
 112:                                              ; preds = %105, %._crit_edge.i.i.i16
-  %.ptr21.i.i.i = phi ptr [ %.sroa.08.1.i.i, %._crit_edge.i.i.i16 ], [ %106, %105 ]
+  %.ptr21.i.i.i = phi ptr [ %.sroa.08.0.i.i, %._crit_edge.i.i.i16 ], [ %106, %105 ]
   %113 = getelementptr inbounds i8, ptr %.ptr21.i.i.i, i64 -1
   %114 = load i8, ptr %113, align 1, !noalias !8
   %115 = zext i8 %114 to i32
@@ -736,7 +736,7 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
   br i1 %117, label %_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_.exit, label %119
 
 119:                                              ; preds = %112, %._crit_edge.i.i.i16
-  %.ptr23.i.i.i = phi ptr [ %.sroa.08.1.i.i, %._crit_edge.i.i.i16 ], [ %113, %112 ]
+  %.ptr23.i.i.i = phi ptr [ %.sroa.08.0.i.i, %._crit_edge.i.i.i16 ], [ %113, %112 ]
   %120 = getelementptr inbounds i8, ptr %.ptr23.i.i.i, i64 -1
   %121 = load i8, ptr %120, align 1, !noalias !8
   %122 = zext i8 %121 to i32
@@ -747,22 +747,22 @@ _ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11ch
   br label %_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_.exit
 
 _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i: ; preds = %93
-  %126 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i, i64 -3
+  %126 = getelementptr inbounds i8, ptr %.sroa.08.3.i.i, i64 -3
   %127 = ptrtoint ptr %126 to i64
   br label %_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_.exit
 
 _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit21.i.i: ; preds = %87
-  %128 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i, i64 -2
+  %128 = getelementptr inbounds i8, ptr %.sroa.08.3.i.i, i64 -2
   %129 = ptrtoint ptr %128 to i64
   br label %_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_.exit
 
 _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit23.i.i: ; preds = %81
-  %130 = getelementptr inbounds i8, ptr %.sroa.08.0.i.i, i64 -1
+  %130 = getelementptr inbounds i8, ptr %.sroa.08.3.i.i, i64 -1
   %131 = ptrtoint ptr %130 to i64
   br label %_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_.exit
 
 _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit25.i.i: ; preds = %.lr.ph.i.i.i17
-  %132 = ptrtoint ptr %.sroa.08.0.i.i to i64
+  %132 = ptrtoint ptr %.sroa.08.3.i.i to i64
   br label %_ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_.exit
 
 _ZSt7find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEPFbiEET_SF_SF_T0_.exit: ; preds = %._crit_edge.i.i.i16, %105, %112, %119, %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i, %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit21.i.i, %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit23.i.i, %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbiEEEET_SI_SI_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit25.i.i

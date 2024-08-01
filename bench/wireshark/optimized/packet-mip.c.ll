@@ -663,10 +663,10 @@ define internal i32 @dissect_mip(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %79
 
 79:                                               ; preds = %64, %68
-  %.0189 = phi ptr [ %72, %68 ], [ null, %64 ]
+  %.1190 = phi ptr [ %72, %68 ], [ null, %64 ]
   %80 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4) #2
   %81 = load ptr, ptr @ip_handle, align 8
-  %82 = tail call i32 @call_dissector(ptr noundef %81, ptr noundef %80, ptr noundef nonnull %1, ptr noundef %.0189) #2
+  %82 = tail call i32 @call_dissector(ptr noundef %81, ptr noundef %80, ptr noundef nonnull %1, ptr noundef %.1190) #2
   %83 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   br label %134
 
@@ -733,21 +733,21 @@ define internal i32 @dissect_mip(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %134
 
 134:                                              ; preds = %113, %84, %38, %9, %118, %93, %47, %18, %79, %4
-  %.1190 = phi ptr [ null, %4 ], [ %122, %118 ], [ %97, %93 ], [ %.0189, %79 ], [ %51, %47 ], [ %22, %18 ], [ null, %9 ], [ null, %38 ], [ null, %84 ], [ null, %113 ]
-  %.1 = phi i32 [ 0, %4 ], [ 12, %118 ], [ 20, %93 ], [ %83, %79 ], [ 20, %47 ], [ 24, %18 ], [ 24, %9 ], [ 20, %38 ], [ 20, %84 ], [ 12, %113 ]
-  %135 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #2
+  %.0189 = phi ptr [ null, %4 ], [ %122, %118 ], [ %97, %93 ], [ %.1190, %79 ], [ %51, %47 ], [ %22, %18 ], [ null, %9 ], [ null, %38 ], [ null, %84 ], [ null, %113 ]
+  %.0 = phi i32 [ 0, %4 ], [ 12, %118 ], [ 20, %93 ], [ %83, %79 ], [ 20, %47 ], [ 24, %18 ], [ 24, %9 ], [ 20, %38 ], [ 20, %84 ], [ 12, %113 ]
+  %135 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #2
   %136 = icmp sgt i32 %135, 0
   br i1 %136, label %137, label %dissect_mip_extensions.exit
 
 137:                                              ; preds = %134
   %138 = load i32, ptr @ett_mip_exts, align 4
-  %139 = tail call ptr @proto_tree_add_subtree(ptr noundef %.1190, ptr noundef %0, i32 noundef %.1, i32 noundef -1, i32 noundef %138, ptr noundef null, ptr noundef nonnull @.str.385) #2
-  %140 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #2
+  %139 = tail call ptr @proto_tree_add_subtree(ptr noundef %.0189, ptr noundef %0, i32 noundef %.0, i32 noundef -1, i32 noundef %138, ptr noundef null, ptr noundef nonnull @.str.385) #2
+  %140 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #2
   %141 = icmp sgt i32 %140, 0
   br i1 %141, label %.lr.ph.i, label %dissect_mip_extensions.exit
 
 .lr.ph.i:                                         ; preds = %137, %365
-  %.0283.i = phi i32 [ %366, %365 ], [ %.1, %137 ]
+  %.0283.i = phi i32 [ %366, %365 ], [ %.0, %137 ]
   %.0275282.i = phi i8 [ %.2277.i, %365 ], [ 0, %137 ]
   %142 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0283.i) #2
   %143 = zext i8 %142 to i32

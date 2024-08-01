@@ -72,26 +72,26 @@ define i16 @f16_rsqrte7(i16 %0) local_unnamed_addr #0 {
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i.preheader, %.preheader.i
-  %.028.lcssa.i = phi i64 [ %22, %.preheader.i ], [ %25, %.lr.ph.i.preheader ]
-  %.0.lcssa.i = phi i64 [ %21, %.preheader.i ], [ %27, %.lr.ph.i.preheader ]
-  %28 = shl nuw nsw i64 %.028.lcssa.i, 1
+  %.129.lcssa.i = phi i64 [ %22, %.preheader.i ], [ %25, %.lr.ph.i.preheader ]
+  %.1.lcssa.i = phi i64 [ %21, %.preheader.i ], [ %27, %.lr.ph.i.preheader ]
+  %28 = shl nuw nsw i64 %.129.lcssa.i, 1
   %29 = and i64 %28, 1022
   br label %rsqrte7.exit
 
 rsqrte7.exit:                                     ; preds = %14, %._crit_edge.i
   %30 = phi i64 [ %19, %._crit_edge.i ], [ %15, %14 ]
-  %.129.i = phi i64 [ %29, %._crit_edge.i ], [ %18, %14 ]
-  %.1.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %17, %14 ]
+  %.028.i = phi i64 [ %29, %._crit_edge.i ], [ %18, %14 ]
+  %.0.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %17, %14 ]
   %31 = and i64 %30, 32768
-  %32 = shl nsw i64 %.1.i, 6
+  %32 = shl nsw i64 %.0.i, 6
   %33 = and i64 %32, 64
-  %34 = lshr i64 %.129.i, 4
+  %34 = lshr i64 %.028.i, 4
   %35 = or disjoint i64 %33, %34
   %36 = getelementptr inbounds [128 x i8], ptr @rsqrte7.table, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
   %39 = shl nuw nsw i64 %38, 3
-  %40 = shl nsw i64 %.1.i, 9
+  %40 = shl nsw i64 %.0.i, 9
   %41 = sub nsw i64 22528, %40
   %42 = and i64 %41, 64512
   %43 = or i64 %42, %31
@@ -170,26 +170,26 @@ define i32 @f32_rsqrte7(i32 %0) local_unnamed_addr #0 {
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i.preheader, %.preheader.i
-  %.028.lcssa.i = phi i64 [ %22, %.preheader.i ], [ %25, %.lr.ph.i.preheader ]
-  %.0.lcssa.i = phi i64 [ %21, %.preheader.i ], [ %27, %.lr.ph.i.preheader ]
-  %28 = shl nuw nsw i64 %.028.lcssa.i, 1
+  %.129.lcssa.i = phi i64 [ %22, %.preheader.i ], [ %25, %.lr.ph.i.preheader ]
+  %.1.lcssa.i = phi i64 [ %21, %.preheader.i ], [ %27, %.lr.ph.i.preheader ]
+  %28 = shl nuw nsw i64 %.129.lcssa.i, 1
   %29 = and i64 %28, 8388606
   br label %rsqrte7.exit
 
 rsqrte7.exit:                                     ; preds = %14, %._crit_edge.i
   %30 = phi i64 [ %19, %._crit_edge.i ], [ %15, %14 ]
-  %.129.i = phi i64 [ %29, %._crit_edge.i ], [ %18, %14 ]
-  %.1.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %17, %14 ]
+  %.028.i = phi i64 [ %29, %._crit_edge.i ], [ %18, %14 ]
+  %.0.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %17, %14 ]
   %31 = and i64 %30, 2147483648
-  %32 = shl nsw i64 %.1.i, 6
+  %32 = shl nsw i64 %.0.i, 6
   %33 = and i64 %32, 64
-  %34 = lshr i64 %.129.i, 17
+  %34 = lshr i64 %.028.i, 17
   %35 = or disjoint i64 %33, %34
   %36 = getelementptr inbounds [128 x i8], ptr @rsqrte7.table, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i64
   %39 = shl nuw nsw i64 %38, 16
-  %40 = shl nsw i64 %.1.i, 22
+  %40 = shl nsw i64 %.0.i, 22
   %41 = sub nsw i64 1593835520, %40
   %42 = and i64 %41, 4286578688
   %43 = or i64 %42, %31
@@ -266,25 +266,25 @@ define i64 @f64_rsqrte7(i64 %0) local_unnamed_addr #0 {
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i.preheader, %.preheader.i
-  %.028.lcssa.i = phi i64 [ %20, %.preheader.i ], [ %23, %.lr.ph.i.preheader ]
-  %.0.lcssa.i = phi i64 [ %19, %.preheader.i ], [ %25, %.lr.ph.i.preheader ]
-  %26 = shl i64 %.028.lcssa.i, 1
+  %.129.lcssa.i = phi i64 [ %20, %.preheader.i ], [ %23, %.lr.ph.i.preheader ]
+  %.1.lcssa.i = phi i64 [ %19, %.preheader.i ], [ %25, %.lr.ph.i.preheader ]
+  %26 = shl i64 %.129.lcssa.i, 1
   %27 = and i64 %26, 4503599627370494
   br label %rsqrte7.exit
 
 rsqrte7.exit:                                     ; preds = %14, %._crit_edge.i
-  %.129.i = phi i64 [ %27, %._crit_edge.i ], [ %17, %14 ]
-  %.1.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ %16, %14 ]
+  %.028.i = phi i64 [ %27, %._crit_edge.i ], [ %17, %14 ]
+  %.0.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %16, %14 ]
   %28 = and i64 %0, -9223372036854775808
-  %29 = shl nsw i64 %.1.i, 6
+  %29 = shl nsw i64 %.0.i, 6
   %30 = and i64 %29, 64
-  %31 = lshr i64 %.129.i, 46
+  %31 = lshr i64 %.028.i, 46
   %32 = or disjoint i64 %30, %31
   %33 = getelementptr inbounds [128 x i8], ptr @rsqrte7.table, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i64
   %36 = shl nuw nsw i64 %35, 45
-  %37 = shl nsw i64 %.1.i, 51
+  %37 = shl nsw i64 %.0.i, 51
   %38 = sub i64 6908521828386340864, %37
   %39 = and i64 %38, -4503599627370496
   %40 = or i64 %39, %28
@@ -366,11 +366,11 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i.preheader, %.preheader.i
-  %.061.lcssa.i = phi i64 [ %24, %.preheader.i ], [ %28, %.lr.ph.i.preheader ]
-  %.060.lcssa.i = phi i64 [ %23, %.preheader.i ], [ %30, %.lr.ph.i.preheader ]
-  %31 = shl nuw nsw i64 %.061.lcssa.i, 1
+  %.162.lcssa.i = phi i64 [ %24, %.preheader.i ], [ %28, %.lr.ph.i.preheader ]
+  %.1.lcssa.i = phi i64 [ %23, %.preheader.i ], [ %30, %.lr.ph.i.preheader ]
+  %31 = shl nuw nsw i64 %.162.lcssa.i, 1
   %32 = and i64 %31, 1022
-  %33 = add nsw i64 %.060.lcssa.i, -1
+  %33 = add nsw i64 %.1.lcssa.i, -1
   %or.cond.i = icmp ult i64 %33, -2
   br i1 %or.cond.i, label %34, label %40
 
@@ -391,20 +391,20 @@ define i16 @f16_recip7(i16 %0) local_unnamed_addr #0 {
 
 40:                                               ; preds = %15, %._crit_edge.i
   %41 = phi i64 [ %20, %._crit_edge.i ], [ %16, %15 ]
-  %.162.i = phi i64 [ %32, %._crit_edge.i ], [ %19, %15 ]
-  %.1.i = phi i64 [ %.060.lcssa.i, %._crit_edge.i ], [ %18, %15 ]
-  %42 = lshr i64 %.162.i, 3
+  %.061.i = phi i64 [ %32, %._crit_edge.i ], [ %19, %15 ]
+  %.060.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %18, %15 ]
+  %42 = lshr i64 %.061.i, 3
   %43 = getelementptr inbounds [128 x i8], ptr @recip7.table, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
   %46 = shl nuw nsw i64 %45, 3
-  %47 = sub nsw i64 29, %.1.i
-  %48 = add nsw i64 %.1.i, -29
+  %47 = sub nsw i64 29, %.060.i
+  %48 = add nsw i64 %.060.i, -29
   %or.cond7.i = icmp ult i64 %48, 2
   br i1 %or.cond7.i, label %49, label %recip7.exit
 
 49:                                               ; preds = %40
-  %50 = icmp eq i64 %.1.i, 30
+  %50 = icmp eq i64 %.060.i, 30
   %51 = shl nuw nsw i64 %45, 2
   %52 = or i64 %51, 512
   %53 = zext i1 %50 to i64
@@ -502,11 +502,11 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i.preheader, %.preheader.i
-  %.061.lcssa.i = phi i64 [ %24, %.preheader.i ], [ %27, %.lr.ph.i.preheader ]
-  %.060.lcssa.i = phi i64 [ %23, %.preheader.i ], [ %29, %.lr.ph.i.preheader ]
-  %30 = shl nuw nsw i64 %.061.lcssa.i, 1
+  %.162.lcssa.i = phi i64 [ %24, %.preheader.i ], [ %27, %.lr.ph.i.preheader ]
+  %.1.lcssa.i = phi i64 [ %23, %.preheader.i ], [ %29, %.lr.ph.i.preheader ]
+  %30 = shl nuw nsw i64 %.162.lcssa.i, 1
   %31 = and i64 %30, 8388606
-  %32 = add nsw i64 %.060.lcssa.i, -1
+  %32 = add nsw i64 %.1.lcssa.i, -1
   %or.cond.i = icmp ult i64 %32, -2
   br i1 %or.cond.i, label %33, label %39
 
@@ -527,21 +527,21 @@ define i32 @f32_recip7(i32 %0) local_unnamed_addr #0 {
 
 39:                                               ; preds = %15, %._crit_edge.i
   %.in = phi i64 [ %20, %._crit_edge.i ], [ %16, %15 ]
-  %.162.i = phi i64 [ %31, %._crit_edge.i ], [ %19, %15 ]
-  %.1.i = phi i64 [ %.060.lcssa.i, %._crit_edge.i ], [ %18, %15 ]
+  %.061.i = phi i64 [ %31, %._crit_edge.i ], [ %19, %15 ]
+  %.060.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %18, %15 ]
   %40 = and i64 %.in, 2147483648
-  %41 = lshr i64 %.162.i, 16
+  %41 = lshr i64 %.061.i, 16
   %42 = getelementptr inbounds [128 x i8], ptr @recip7.table, i64 0, i64 %41
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i64
   %45 = shl nuw nsw i64 %44, 16
-  %46 = sub nsw i64 253, %.1.i
-  %47 = add nsw i64 %.1.i, -253
+  %46 = sub nsw i64 253, %.060.i
+  %47 = add nsw i64 %.060.i, -253
   %or.cond7.i = icmp ult i64 %47, 2
   br i1 %or.cond7.i, label %48, label %recip7.exit
 
 48:                                               ; preds = %39
-  %49 = icmp eq i64 %.1.i, 254
+  %49 = icmp eq i64 %.060.i, 254
   %50 = shl nuw nsw i64 %44, 15
   %51 = or i64 %50, 4194304
   %52 = zext i1 %49 to i64
@@ -637,11 +637,11 @@ define i64 @f64_recip7(i64 %0) local_unnamed_addr #0 {
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i.preheader, %.preheader.i
-  %.061.lcssa.i = phi i64 [ %22, %.preheader.i ], [ %25, %.lr.ph.i.preheader ]
-  %.060.lcssa.i = phi i64 [ %21, %.preheader.i ], [ %27, %.lr.ph.i.preheader ]
-  %28 = shl i64 %.061.lcssa.i, 1
+  %.162.lcssa.i = phi i64 [ %22, %.preheader.i ], [ %25, %.lr.ph.i.preheader ]
+  %.1.lcssa.i = phi i64 [ %21, %.preheader.i ], [ %27, %.lr.ph.i.preheader ]
+  %28 = shl i64 %.162.lcssa.i, 1
   %29 = and i64 %28, 4503599627370494
-  %30 = add nsw i64 %.060.lcssa.i, -1
+  %30 = add nsw i64 %.1.lcssa.i, -1
   %or.cond.i = icmp ult i64 %30, -2
   br i1 %or.cond.i, label %31, label %37
 
@@ -661,21 +661,21 @@ define i64 @f64_recip7(i64 %0) local_unnamed_addr #0 {
   br label %54
 
 37:                                               ; preds = %15, %._crit_edge.i
-  %.162.i = phi i64 [ %29, %._crit_edge.i ], [ %18, %15 ]
-  %.1.i = phi i64 [ %.060.lcssa.i, %._crit_edge.i ], [ %17, %15 ]
+  %.061.i = phi i64 [ %29, %._crit_edge.i ], [ %18, %15 ]
+  %.060.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ %17, %15 ]
   %38 = and i64 %0, -9223372036854775808
-  %39 = lshr i64 %.162.i, 45
+  %39 = lshr i64 %.061.i, 45
   %40 = getelementptr inbounds [128 x i8], ptr @recip7.table, i64 0, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
   %43 = shl nuw nsw i64 %42, 45
-  %44 = sub nsw i64 2045, %.1.i
-  %45 = add nsw i64 %.1.i, -2045
+  %44 = sub nsw i64 2045, %.060.i
+  %45 = add nsw i64 %.060.i, -2045
   %or.cond7.i = icmp ult i64 %45, 2
   br i1 %or.cond7.i, label %46, label %recip7.exit
 
 46:                                               ; preds = %37
-  %47 = icmp eq i64 %.1.i, 2046
+  %47 = icmp eq i64 %.060.i, 2046
   %48 = shl nuw nsw i64 %42, 44
   %49 = or i64 %48, 2251799813685248
   %50 = zext i1 %47 to i64

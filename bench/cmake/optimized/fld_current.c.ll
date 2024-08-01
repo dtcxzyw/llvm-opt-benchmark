@@ -121,7 +121,7 @@ define dso_local i32 @set_current_field(ptr noundef %0, ptr noundef %1) local_un
   br label %62
 
 62:                                               ; preds = %60, %55, %49
-  %.0 = phi i32 [ %52, %55 ], [ %52, %49 ], [ %61, %60 ]
+  %.1 = phi i32 [ %52, %55 ], [ %52, %49 ], [ %61, %60 ]
   %63 = getelementptr inbounds i8, ptr %0, i64 112
   %64 = load ptr, ptr %63, align 8
   %.not59 = icmp eq ptr %64, null
@@ -142,10 +142,10 @@ define dso_local i32 @set_current_field(ptr noundef %0, ptr noundef %1) local_un
   br label %72
 
 72:                                               ; preds = %16, %23, %70, %21, %26, %5, %8, %2
-  %.1.sink = phi i32 [ -2, %2 ], [ -12, %8 ], [ -12, %5 ], [ %.0, %70 ], [ 0, %23 ], [ 0, %16 ], [ -5, %21 ], [ -13, %26 ]
+  %.0.sink = phi i32 [ -2, %2 ], [ -12, %8 ], [ -12, %5 ], [ %.1, %70 ], [ 0, %23 ], [ 0, %16 ], [ -5, %21 ], [ -13, %26 ]
   %73 = tail call ptr @__errno_location() #6
-  store i32 %.1.sink, ptr %73, align 4
-  ret i32 %.1.sink
+  store i32 %.0.sink, ptr %73, align 4
+  ret i32 %.0.sink
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)

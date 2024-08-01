@@ -585,16 +585,16 @@ define void @dissect_e164_cc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0105208 = phi i32 [ %7, %.lr.ph ], [ %2, %.preheader ]
-  %7 = add i32 %.0105208, 1
+  %.1208 = phi i32 [ %7, %.lr.ph ], [ %2, %.preheader ]
+  %7 = add i32 %.1208, 1
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %7) #5
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.0105.lcssa = phi i32 [ %2, %.preheader ], [ %7, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %2, %.preheader ], [ %7, %.lr.ph ]
   %.0104.lcssa = phi i8 [ %5, %.preheader ], [ %8, %.lr.ph ]
-  %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0105.lcssa) #5
+  %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1.lcssa) #5
   %.not107 = icmp ult i8 %.0104.lcssa, 16
   %11 = lshr i16 %10, 4
   %spec.select = select i1 %.not107, i16 %10, i16 %11
@@ -636,7 +636,7 @@ define void @dissect_e164_cc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
 
 39:                                               ; preds = %._crit_edge, %12, %18, %23
   %.0172 = phi i16 [ %38, %23 ], [ %15, %12 ], [ %22, %18 ], [ %spec.select, %._crit_edge ]
-  %.1 = phi i32 [ %2, %23 ], [ %2, %12 ], [ %2, %18 ], [ %.0105.lcssa, %._crit_edge ]
+  %.0105 = phi i32 [ %2, %23 ], [ %2, %12 ], [ %2, %18 ], [ %.1.lcssa, %._crit_edge ]
   %40 = zext i16 %.0172 to i32
   %41 = lshr i32 %40, 8
   %42 = and i32 %41, 15
@@ -721,7 +721,7 @@ define void @dissect_e164_cc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   ]
 
 .thread:                                          ; preds = %4, %39, %39, %39
-  %.1179 = phi i32 [ %.1, %39 ], [ %.1, %39 ], [ %.1, %39 ], [ %2, %4 ]
+  %.0105179 = phi i32 [ %.0105, %39 ], [ %.0105, %39 ], [ %.0105, %39 ], [ %2, %4 ]
   %.0172178 = phi i16 [ %.0172, %39 ], [ %.0172, %39 ], [ %.0172, %39 ], [ 0, %4 ]
   %61 = lshr i16 %.0172178, 8
   br label %.thread182
@@ -732,7 +732,7 @@ select.unfold:                                    ; preds = %50, %43, %43, %52, 
 
 .thread182:                                       ; preds = %50, %50, %43, %48, %39, %58, %54, %45, %52, %52, %52, %select.unfold, %.thread
   %.0103187 = phi i32 [ 2, %select.unfold ], [ 1, %.thread ], [ 3, %52 ], [ 3, %52 ], [ 3, %52 ], [ 3, %43 ], [ 3, %45 ], [ 3, %54 ], [ 3, %58 ], [ 0, %39 ], [ 3, %48 ], [ 3, %50 ], [ 3, %50 ]
-  %.1179186 = phi i32 [ %.1, %select.unfold ], [ %.1179, %.thread ], [ %.1, %52 ], [ %.1, %52 ], [ %.1, %52 ], [ %.1, %43 ], [ %.1, %45 ], [ %.1, %54 ], [ %.1, %58 ], [ %.1, %39 ], [ %.1, %48 ], [ %.1, %50 ], [ %.1, %50 ]
+  %.0105179186 = phi i32 [ %.0105, %select.unfold ], [ %.0105179, %.thread ], [ %.0105, %52 ], [ %.0105, %52 ], [ %.0105, %52 ], [ %.0105, %43 ], [ %.0105, %45 ], [ %.0105, %54 ], [ %.0105, %58 ], [ %.0105, %39 ], [ %.0105, %48 ], [ %.0105, %50 ], [ %.0105, %50 ]
   %.1173 = phi i16 [ %62, %select.unfold ], [ %61, %.thread ], [ %.0172, %52 ], [ %.0172, %52 ], [ %.0172, %52 ], [ %.0172, %43 ], [ %.0172, %45 ], [ %.0172, %54 ], [ %.0172, %58 ], [ %.0172, %39 ], [ %.0172, %48 ], [ %.0172, %50 ], [ %.0172, %50 ]
   %.0102 = phi i32 [ 1, %select.unfold ], [ 1, %.thread ], [ 2, %52 ], [ 2, %52 ], [ 2, %52 ], [ 2, %43 ], [ 2, %45 ], [ 2, %54 ], [ 2, %58 ], [ 2, %39 ], [ 2, %48 ], [ 2, %50 ], [ 2, %50 ]
   %.not12.i = icmp eq i16 %.1173, 0
@@ -760,7 +760,7 @@ convert_bcd_to_dec.exit:                          ; preds = %.lr.ph.i, %.thread1
   %70 = load i32, ptr @hf_E164_country_code, align 4
   %71 = zext i16 %.09.lcssa.i to i32
   %.0103187..0102 = select i1 %69, i32 %.0103187, i32 %.0102
-  %72 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %70, ptr noundef %0, i32 noundef %.1179186, i32 noundef %.0103187..0102, i32 noundef %71) #5
+  %72 = tail call ptr @proto_tree_add_uint(ptr noundef %1, i32 noundef %70, ptr noundef %0, i32 noundef %.0105179186, i32 noundef %.0103187..0102, i32 noundef %71) #5
   %.not110 = icmp eq i32 %.010.lcssa.i, 0
   br i1 %.not110, label %73, label %75
 
@@ -783,21 +783,21 @@ convert_bcd_to_dec.exit:                          ; preds = %.lr.ph.i, %.thread1
   ]
 
 77:                                               ; preds = %76
-  %78 = add i32 %.1179186, 1
+  %78 = add i32 %.0105179186, 1
   %79 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %78) #5
   %80 = and i8 %79, 15
   %81 = zext nneg i8 %80 to i16
   br label %92
 
 82:                                               ; preds = %76
-  %83 = add i32 %.1179186, 1
+  %83 = add i32 %.0105179186, 1
   %84 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %83) #5
   %85 = lshr i8 %84, 4
   %86 = zext nneg i8 %85 to i16
   br label %92
 
 87:                                               ; preds = %76
-  %88 = add i32 %.1179186, %.0103187
+  %88 = add i32 %.0105179186, %.0103187
   %89 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %88) #5
   %90 = zext i8 %89 to i16
   %91 = add nsw i16 %90, -48
@@ -808,7 +808,7 @@ convert_bcd_to_dec.exit:                          ; preds = %.lr.ph.i, %.thread1
   %93 = zext i16 %.0174 to i32
   %94 = icmp ult i16 %.0174, 10
   %95 = load i32, ptr @hf_E164_identification_code, align 4
-  %96 = add i32 %.1179186, 1
+  %96 = add i32 %.0105179186, 1
   %97 = tail call ptr @val_to_str_const(i32 noundef %93, ptr noundef nonnull @E164_GMSS_vals, ptr noundef nonnull @.str.417) #5
   %98 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %95, ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef %93, ptr noundef nonnull @.str.416, i32 noundef %93, ptr noundef %97) #5
   br i1 %94, label %224, label %.sink.split
@@ -821,17 +821,17 @@ convert_bcd_to_dec.exit:                          ; preds = %.lr.ph.i, %.thread1
   ]
 
 100:                                              ; preds = %99
-  %101 = add i32 %.1179186, 1
+  %101 = add i32 %.0105179186, 1
   %102 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %101) #5
   %103 = lshr i16 %102, 4
   %104 = and i16 %103, 255
   br label %125
 
 105:                                              ; preds = %99
-  %106 = add i32 %.1179186, 1
+  %106 = add i32 %.0105179186, 1
   %107 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %106) #5
   %108 = and i8 %107, -16
-  %109 = add i32 %.1179186, 2
+  %109 = add i32 %.0105179186, 2
   %110 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %109) #5
   %111 = and i8 %110, 15
   %112 = or disjoint i8 %111, %108
@@ -839,7 +839,7 @@ convert_bcd_to_dec.exit:                          ; preds = %.lr.ph.i, %.thread1
   br label %125
 
 114:                                              ; preds = %99
-  %115 = add i32 %.1179186, %.0103187
+  %115 = add i32 %.0105179186, %.0103187
   %116 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %115) #5
   %117 = zext i8 %116 to i16
   %118 = shl nuw nsw i16 %117, 4
@@ -880,7 +880,7 @@ convert_bcd_to_dec.exit127:                       ; preds = %convert_bcd_to_dec.
   %.010.lcssa.i125 = phi i1 [ false, %125 ], [ false, %99 ], [ %133, %convert_bcd_to_dec.exit127.loopexit ]
   %.09.lcssa.i126 = phi i32 [ 0, %125 ], [ 0, %99 ], [ %132, %convert_bcd_to_dec.exit127.loopexit ]
   %134 = load i32, ptr @hf_E164_identification_code, align 4
-  %135 = add i32 %.1179186, 1
+  %135 = add i32 %.0105179186, 1
   %136 = tail call ptr @val_to_str_ext_const(i32 noundef %.09.lcssa.i126, ptr noundef nonnull @E164_International_Networks_882_vals_ext, ptr noundef nonnull @.str.417) #5
   %137 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %134, ptr noundef %0, i32 noundef %135, i32 noundef 2, i32 noundef %.09.lcssa.i126, ptr noundef nonnull @.str.416, i32 noundef %.09.lcssa.i126, ptr noundef %136) #5
   br i1 %.010.lcssa.i125, label %.sink.split, label %224
@@ -893,18 +893,18 @@ convert_bcd_to_dec.exit127:                       ; preds = %convert_bcd_to_dec.
   ]
 
 139:                                              ; preds = %138
-  %140 = add i32 %.1179186, 1
+  %140 = add i32 %.0105179186, 1
   %141 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %140) #5
   %142 = and i16 %141, 4095
   br label %175
 
 143:                                              ; preds = %138
-  %144 = add i32 %.1179186, 1
+  %144 = add i32 %.0105179186, 1
   %145 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %144) #5
   %146 = and i8 %145, -16
   %147 = zext i8 %146 to i16
   %148 = shl nuw nsw i16 %147, 4
-  %149 = add i32 %.1179186, 2
+  %149 = add i32 %.0105179186, 2
   %150 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %149) #5
   %151 = shl i8 %150, 4
   %152 = zext i8 %151 to i16
@@ -916,7 +916,7 @@ convert_bcd_to_dec.exit127:                       ; preds = %convert_bcd_to_dec.
   br label %175
 
 158:                                              ; preds = %138
-  %159 = add i32 %.1179186, %.0103187
+  %159 = add i32 %.0105179186, %.0103187
   %160 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %159) #5
   %161 = zext i8 %160 to i16
   %162 = shl nuw i16 %161, 8
@@ -949,7 +949,7 @@ convert_bcd_to_dec.exit127:                       ; preds = %convert_bcd_to_dec.
   ]
 
 180:                                              ; preds = %178
-  %181 = add i32 %.1179186, 3
+  %181 = add i32 %.0105179186, 3
   %182 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %181) #5
   %183 = lshr i8 %182, 4
   %184 = zext nneg i8 %183 to i16
@@ -961,7 +961,7 @@ convert_bcd_to_dec.exit127:                       ; preds = %convert_bcd_to_dec.
   br label %.lr.ph.i129
 
 186:                                              ; preds = %178
-  %187 = add i32 %.1179186, 3
+  %187 = add i32 %.0105179186, 3
   %188 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %187) #5
   %189 = and i8 %188, 15
   %190 = zext nneg i8 %189 to i16
@@ -969,7 +969,7 @@ convert_bcd_to_dec.exit127:                       ; preds = %convert_bcd_to_dec.
   br label %.lr.ph.i129.preheader
 
 192:                                              ; preds = %178
-  %193 = add i32 %.1179186, %.0103187
+  %193 = add i32 %.0105179186, %.0103187
   %194 = add i32 %193, 3
   %195 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %194) #5
   %196 = zext i8 %195 to i16
@@ -997,7 +997,7 @@ default.unreachable:                              ; preds = %178
 
 convert_bcd_to_dec.exit138:                       ; preds = %.lr.ph.i129
   %205 = load i32, ptr @hf_E164_identification_code, align 4
-  %206 = add i32 %.1179186, 1
+  %206 = add i32 %.0105179186, 1
   %207 = zext i16 %202 to i32
   %208 = tail call ptr @val_to_str_const(i32 noundef %207, ptr noundef nonnull @E164_International_Networks_883_vals, ptr noundef nonnull @.str.417) #5
   %209 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %205, ptr noundef %0, i32 noundef %206, i32 noundef 3, i32 noundef %207, ptr noundef nonnull @.str.416, i32 noundef %207, ptr noundef %208) #5
@@ -1032,7 +1032,7 @@ convert_bcd_to_dec.exit149:                       ; preds = %convert_bcd_to_dec.
   %.010.lcssa.i147 = phi i1 [ false, %210 ], [ false, %138 ], [ %218, %convert_bcd_to_dec.exit149.loopexit ]
   %.09.lcssa.i148 = phi i32 [ 0, %210 ], [ 0, %138 ], [ %217, %convert_bcd_to_dec.exit149.loopexit ]
   %219 = load i32, ptr @hf_E164_identification_code, align 4
-  %220 = add i32 %.1179186, 1
+  %220 = add i32 %.0105179186, 1
   %221 = tail call ptr @val_to_str_const(i32 noundef %.09.lcssa.i148, ptr noundef nonnull @E164_International_Networks_883_vals, ptr noundef nonnull @.str.417) #5
   %222 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %219, ptr noundef %0, i32 noundef %220, i32 noundef 2, i32 noundef %.09.lcssa.i148, ptr noundef nonnull @.str.416, i32 noundef %.09.lcssa.i148, ptr noundef %221) #5
   br i1 %.010.lcssa.i147, label %.sink.split, label %224

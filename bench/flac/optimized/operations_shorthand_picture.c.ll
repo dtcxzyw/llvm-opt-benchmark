@@ -180,11 +180,11 @@ do.body44:                                        ; preds = %do.body44, %cond.en
   %cmp51 = icmp eq i32 %i.0, %cond
   %or.cond = select i1 %cmp50, i1 true, i1 %cmp51
   %14 = select i1 %cmp48, i1 %or.cond, i1 false
-  %picture.2 = select i1 %14, ptr %call46, ptr null
+  %picture.1 = select i1 %14, ptr %call46, ptr null
   %inc = add i32 %i.0, 1
   %call55 = tail call i32 @FLAC__metadata_iterator_next(ptr noundef %call) #6
   %tobool56 = icmp ne i32 %call55, 0
-  %cmp57 = icmp eq ptr %picture.2, null
+  %cmp57 = icmp eq ptr %picture.1, null
   %15 = select i1 %tobool56, i1 %cmp57, i1 false
   br i1 %15, label %do.body44, label %do.end58, !llvm.loop !9
 
@@ -205,7 +205,7 @@ if.else64:                                        ; preds = %if.then60
 
 if.else67:                                        ; preds = %do.end58
   %17 = load ptr, ptr %argument41, align 8
-  %data_length.i = getelementptr inbounds i8, ptr %picture.2, i64 56
+  %data_length.i = getelementptr inbounds i8, ptr %picture.1, i64 56
   %18 = load i32, ptr %data_length.i, align 8
   %cmp.i35 = icmp eq ptr %17, null
   br i1 %cmp.i35, label %if.then.i41, label %lor.lhs.false.i36
@@ -250,7 +250,7 @@ if.then10.i:                                      ; preds = %if.end8.i
   br label %sw.epilog
 
 if.end14.i:                                       ; preds = %if.end8.i
-  %data16.i = getelementptr inbounds i8, ptr %picture.2, i64 64
+  %data16.i = getelementptr inbounds i8, ptr %picture.1, i64 64
   %25 = load ptr, ptr %data16.i, align 8
   %conv.i = zext i32 %18 to i64
   %call17.i = tail call i64 @fwrite(ptr noundef %25, i64 noundef 1, i64 noundef %conv.i, ptr noundef nonnull %f.0.i)

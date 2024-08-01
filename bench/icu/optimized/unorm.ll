@@ -654,7 +654,7 @@ lpad83:                                           ; preds = %if.else80
   br label %ehcleanup
 
 cleanup:                                          ; preds = %if.end77, %invoke.cont84
-  %retval.0 = phi i32 [ %call85, %invoke.cont84 ], [ %cond.i46, %if.end77 ]
+  %retval.1 = phi i32 [ %call85, %invoke.cont84 ], [ %cond.i46, %if.end77 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %destString) #3
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %buffer) #3
   br label %return
@@ -670,8 +670,8 @@ ehcleanup87:                                      ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %entry, %cleanup, %if.then14, %if.then5
-  %retval.1 = phi i32 [ 0, %if.then5 ], [ %retval.0, %cleanup ], [ %call15, %if.then14 ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then5 ], [ %retval.1, %cleanup ], [ %call15, %if.then14 ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 declare i32 @u_terminateUChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

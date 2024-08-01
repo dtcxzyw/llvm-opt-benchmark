@@ -954,7 +954,7 @@ spdy_assemble_data_frames.exit.thread.i:          ; preds = %spdy_assemble_data_
 287:                                              ; preds = %283, %280
   %288 = phi ptr [ %.pre19.i, %283 ], [ %275, %280 ]
   %289 = phi ptr [ %.pre.i, %283 ], [ %273, %280 ]
-  %.0126.i = phi ptr [ %286, %283 ], [ null, %280 ]
+  %.1127.i = phi ptr [ %286, %283 ], [ null, %280 ]
   %290 = getelementptr inbounds i8, ptr %1, i64 296
   store ptr %289, ptr %290, align 8
   %291 = load ptr, ptr %272, align 8
@@ -962,7 +962,7 @@ spdy_assemble_data_frames.exit.thread.i:          ; preds = %spdy_assemble_data_
   %293 = load i32, ptr %163, align 8
   store i32 %293, ptr %5, align 8
   %294 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %.0126.i, ptr %294, align 8
+  store ptr %.1127.i, ptr %294, align 8
   %295 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr null, ptr %295, align 8
   %.not150.i = icmp eq ptr %292, null

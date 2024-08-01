@@ -1630,7 +1630,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
 
 .thread311:                                       ; preds = %hwloc_obj_get_info_by_name.exit.thread, %42, %.thread
   %.1206 = phi i32 [ %57, %.thread ], [ 0, %42 ], [ 0, %hwloc_obj_get_info_by_name.exit.thread ]
-  %.0202 = phi i32 [ 1, %.thread ], [ 0, %42 ], [ 0, %hwloc_obj_get_info_by_name.exit.thread ]
+  %.1203 = phi i32 [ 1, %.thread ], [ 0, %42 ], [ 0, %hwloc_obj_get_info_by_name.exit.thread ]
   %58 = getelementptr inbounds i8, ptr %0, i64 36
   %59 = load i32, ptr %58, align 4
   %.not233 = icmp eq i32 %59, 0
@@ -1638,7 +1638,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
 
 60:                                               ; preds = %.thread311
   %61 = getelementptr inbounds i8, ptr %0, i64 116
-  %62 = zext nneg i32 %.0202 to i64
+  %62 = zext nneg i32 %.1203 to i64
   %63 = getelementptr inbounds [3 x [128 x i8]], ptr %61, i64 0, i64 %62
   %64 = icmp eq i32 %59, 2
   %65 = select i1 %64, ptr @.str.25, ptr @.str.26
@@ -1658,17 +1658,17 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   %77 = fptoui float %76 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %spec.select238 = call i32 @llvm.umax.i32(i32 %.1206, i32 %77)
-  %78 = add nuw nsw i32 %.0202, 1
+  %78 = add nuw nsw i32 %.1203, 1
   br label %79
 
 79:                                               ; preds = %60, %.thread311
   %.3 = phi i32 [ %spec.select238, %60 ], [ %.1206, %.thread311 ]
-  %.1203 = phi i32 [ %78, %60 ], [ %.0202, %.thread311 ]
+  %.2204 = phi i32 [ %78, %60 ], [ %.1203, %.thread311 ]
   %80 = call i64 @time(ptr noundef null) #24
   store i64 %80, ptr %8, align 8
   %81 = call ptr @localtime(ptr noundef nonnull %8) #24
   %82 = getelementptr inbounds i8, ptr %0, i64 116
-  %83 = zext nneg i32 %.1203 to i64
+  %83 = zext nneg i32 %.2204 to i64
   %84 = getelementptr inbounds [3 x [128 x i8]], ptr %82, i64 0, i64 %83
   %85 = call i64 @strftime(ptr noundef nonnull %84, i64 noundef 128, ptr noundef nonnull @.str.27, ptr noundef %81) #24
   %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #22
@@ -1686,14 +1686,14 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   %96 = fptoui float %95 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %spec.select239 = call i32 @llvm.umax.i32(i32 %.3, i32 %96)
-  %97 = add nuw nsw i32 %.1203, 1
+  %97 = add nuw nsw i32 %.2204, 1
   %.pr = load i32, ptr %25, align 8
   br label %98
 
 98:                                               ; preds = %79, %24
   %99 = phi i32 [ %.pr, %79 ], [ %26, %24 ]
-  %.5 = phi i32 [ %spec.select239, %79 ], [ 0, %24 ]
-  %.2204 = phi i32 [ %97, %79 ], [ 0, %24 ]
+  %.0205 = phi i32 [ %spec.select239, %79 ], [ 0, %24 ]
+  %.0202 = phi i32 [ %97, %79 ], [ 0, %24 ]
   %.not234 = icmp eq i32 %99, 1
   br i1 %.not234, label %.loopexit, label %.preheader256
 
@@ -1709,8 +1709,8 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   br label %108
 
 .preheader:                                       ; preds = %128, %.preheader256
-  %.6.lcssa = phi i32 [ %.5, %.preheader256 ], [ %.7, %128 ]
-  %.0200.lcssa = phi i32 [ 0, %.preheader256 ], [ %.1, %128 ]
+  %.7.lcssa = phi i32 [ %.0205, %.preheader256 ], [ %.8, %128 ]
+  %.1.lcssa = phi i32 [ 0, %.preheader256 ], [ %.2, %128 ]
   %104 = getelementptr inbounds i8, ptr %0, i64 520
   %105 = load i32, ptr %104, align 8
   %.not293 = icmp eq i32 %105, 0
@@ -1724,8 +1724,8 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
 108:                                              ; preds = %.lr.ph274, %128
   %109 = phi i32 [ %101, %.lr.ph274 ], [ %129, %128 ]
   %indvars.iv303 = phi i64 [ 0, %.lr.ph274 ], [ %indvars.iv.next304, %128 ]
-  %.0200273 = phi i32 [ 0, %.lr.ph274 ], [ %.1, %128 ]
-  %.6272 = phi i32 [ %.5, %.lr.ph274 ], [ %.7, %128 ]
+  %.1273 = phi i32 [ 0, %.lr.ph274 ], [ %.2, %128 ]
+  %.7272 = phi i32 [ %.0205, %.lr.ph274 ], [ %.8, %128 ]
   %110 = load ptr, ptr %102, align 8
   %111 = getelementptr inbounds %struct.hwloc_info_s, ptr %110, i64 %indvars.iv303
   %112 = load ptr, ptr %111, align 8
@@ -1734,7 +1734,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   br i1 %.not237, label %114, label %128
 
 114:                                              ; preds = %108
-  %115 = add i32 %.0200273, 1
+  %115 = add i32 %.1273, 1
   %116 = getelementptr inbounds i8, ptr %111, i64 8
   %117 = load ptr, ptr %116, align 8
   %118 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %117) #22
@@ -1750,14 +1750,14 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   %126 = fmul float %123, %125
   %127 = fptoui float %126 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %spec.select240 = call i32 @llvm.umax.i32(i32 %.6272, i32 %127)
+  %spec.select240 = call i32 @llvm.umax.i32(i32 %.7272, i32 %127)
   %.pre310 = load i32, ptr %100, align 8
   br label %128
 
 128:                                              ; preds = %114, %108
   %129 = phi i32 [ %109, %108 ], [ %.pre310, %114 ]
-  %.7 = phi i32 [ %.6272, %108 ], [ %spec.select240, %114 ]
-  %.1 = phi i32 [ %.0200273, %108 ], [ %115, %114 ]
+  %.8 = phi i32 [ %.7272, %108 ], [ %spec.select240, %114 ]
+  %.2 = phi i32 [ %.1273, %108 ], [ %115, %114 ]
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %130 = zext i32 %129 to i64
   %131 = icmp ult i64 %indvars.iv.next304, %130
@@ -1765,7 +1765,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
 
 132:                                              ; preds = %.lr.ph279, %132
   %indvars.iv306 = phi i64 [ 0, %.lr.ph279 ], [ %indvars.iv.next307, %132 ]
-  %.8278 = phi i32 [ %.6.lcssa, %.lr.ph279 ], [ %spec.select241, %132 ]
+  %.9278 = phi i32 [ %.7.lcssa, %.lr.ph279 ], [ %spec.select241, %132 ]
   %133 = load ptr, ptr %106, align 8
   %134 = getelementptr inbounds ptr, ptr %133, i64 %indvars.iv306
   %135 = load ptr, ptr %134, align 8
@@ -1782,7 +1782,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   %144 = fmul float %141, %143
   %145 = fptoui float %144 to i32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  %spec.select241 = call i32 @llvm.umax.i32(i32 %.8278, i32 %145)
+  %spec.select241 = call i32 @llvm.umax.i32(i32 %.9278, i32 %145)
   %indvars.iv.next307 = add nuw nsw i64 %indvars.iv306, 1
   %146 = load i32, ptr %104, align 8
   %147 = zext i32 %146 to i64
@@ -1790,14 +1790,14 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %34, %28, %hwloc_obj
   br i1 %148, label %132, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %132, %.preheader, %98
-  %.10 = phi i32 [ %.5, %98 ], [ %.6.lcssa, %.preheader ], [ %spec.select241, %132 ]
-  %.2 = phi i32 [ 0, %98 ], [ %.0200.lcssa, %.preheader ], [ %.0200.lcssa, %132 ]
+  %.6 = phi i32 [ %.0205, %98 ], [ %.7.lcssa, %.preheader ], [ %spec.select241, %132 ]
+  %.0200 = phi i32 [ 0, %98 ], [ %.1.lcssa, %.preheader ], [ %.1.lcssa, %132 ]
   %149 = getelementptr inbounds i8, ptr %0, i64 524
-  store i32 %.10, ptr %149, align 4
+  store i32 %.6, ptr %149, align 4
   %150 = getelementptr inbounds i8, ptr %0, i64 500
-  store i32 %.2204, ptr %150, align 4
+  store i32 %.0202, ptr %150, align 4
   %151 = getelementptr inbounds i8, ptr %0, i64 504
-  store i32 %.2, ptr %151, align 8
+  store i32 %.0200, ptr %151, align 8
   %152 = load ptr, ptr %0, align 8
   %153 = call i32 @hwloc_get_type_depth(ptr noundef %152, i32 noundef 3) #24
   %or.cond.i.i281 = icmp ugt i32 %153, -3
@@ -1944,7 +1944,7 @@ get_type_fun.exit:                                ; preds = %switch.lookup, %out
   br i1 %.not235, label %222, label %210
 
 210:                                              ; preds = %get_type_fun.exit
-  %211 = add i32 %.2, %.2204
+  %211 = add i32 %.0200, %.0202
   %212 = getelementptr inbounds i8, ptr %0, i64 520
   %213 = load i32, ptr %212, align 8
   %214 = add i32 %211, %213
@@ -3532,16 +3532,16 @@ define internal void @pci_device_draw(ptr noundef %0, ptr noundef %1, i32 nounde
   %20 = add i32 %2, -2
   %.not94 = icmp eq i32 %17, 2
   %21 = zext i1 %.not94 to i32
-  %.092 = lshr i32 %10, %21
+  %.1 = lshr i32 %10, %21
   %22 = getelementptr inbounds i8, ptr %0, i64 1592
   %23 = load i64, ptr %22, align 8
   %24 = trunc i64 %23 to i32
   %25 = and i32 %24, 1
-  %spec.select = shl i32 %.092, %25
+  %spec.select = shl i32 %.1, %25
   br label %26
 
 26:                                               ; preds = %19, %15, %5
-  %.1 = phi i32 [ 0, %15 ], [ 0, %5 ], [ %spec.select, %19 ]
+  %.092 = phi i32 [ 0, %15 ], [ 0, %5 ], [ %spec.select, %19 ]
   %.0 = phi i32 [ %2, %15 ], [ %2, %5 ], [ %20, %19 ]
   %27 = getelementptr inbounds i8, ptr %0, i64 1608
   %28 = load i32, ptr %27, align 8
@@ -3552,7 +3552,7 @@ define internal void @pci_device_draw(ptr noundef %0, ptr noundef %1, i32 nounde
 
 32:                                               ; preds = %26
   tail call fastcc void @prepare_text(ptr noundef nonnull %0, ptr noundef nonnull %1)
-  %33 = add i32 %.1, %10
+  %33 = add i32 %.092, %10
   store i32 %33, ptr %30, align 8
   store i32 %33, ptr %31, align 4
   %34 = getelementptr inbounds i8, ptr %8, i64 764
@@ -3595,10 +3595,10 @@ define internal void @pci_device_draw(ptr noundef %0, ptr noundef %1, i32 nounde
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %6, align 8
   %58 = add i32 %.0, 2
-  %59 = add i32 %.1, %3
-  %60 = sub i32 %48, %.1
-  %61 = add i32 %.1, %4
-  %62 = sub i32 %49, %.1
+  %59 = add i32 %.092, %3
+  %60 = sub i32 %48, %.092
+  %61 = add i32 %.092, %4
+  %62 = sub i32 %49, %.092
   tail call void %56(ptr noundef nonnull %0, ptr noundef %57, i32 noundef %58, i32 noundef %59, i32 noundef %60, i32 noundef %61, i32 noundef %62, ptr noundef nonnull %1, i32 noundef 2) #24
   %63 = load i32, ptr %51, align 8
   %64 = icmp sgt i32 %63, 2
@@ -3607,7 +3607,7 @@ define internal void @pci_device_draw(ptr noundef %0, ptr noundef %1, i32 nounde
 65:                                               ; preds = %54
   %66 = load ptr, ptr %55, align 8
   %67 = add i32 %.0, 1
-  %68 = lshr i32 %.1, 1
+  %68 = lshr i32 %.092, 1
   %69 = add i32 %68, %3
   %70 = add i32 %68, %4
   tail call void %66(ptr noundef nonnull %0, ptr noundef %57, i32 noundef %67, i32 noundef %69, i32 noundef %60, i32 noundef %70, i32 noundef %62, ptr noundef nonnull %1, i32 noundef 1) #24
@@ -4380,7 +4380,7 @@ thread-pre-split.i:                               ; preds = %177, %172, %170
   %.0196345 = phi i32 [ %203, %.lr.ph.loopexit ], [ 0, %.lr.ph.preheader ]
   %.0197344 = phi ptr [ %.5.i294, %.lr.ph.loopexit ], [ %.5.i, %.lr.ph.preheader ]
   %.0198343 = phi i32 [ %.1199, %.lr.ph.loopexit ], [ %139, %.lr.ph.preheader ]
-  %.1317342 = phi i32 [ %.553.i293, %.lr.ph.loopexit ], [ %.553.i, %.lr.ph.preheader ]
+  %.0316342 = phi i32 [ %.553.i293, %.lr.ph.loopexit ], [ %.553.i, %.lr.ph.preheader ]
   %195 = load i32, ptr %.0197344, align 8
   %switch.tableidx = add i32 %195, -4
   %196 = icmp ult i32 %switch.tableidx, 15
@@ -4412,7 +4412,7 @@ get_type_fun.exit:                                ; preds = %switch.lookup, %.lr
   br label %.backedge.i300
 
 .backedge.i300:                                   ; preds = %.backedge.i300.backedge, %202
-  %.149.i278 = phi i32 [ %.1317342, %202 ], [ %.553.i293, %.backedge.i300.backedge ]
+  %.149.i278 = phi i32 [ %.0316342, %202 ], [ %.553.i293, %.backedge.i300.backedge ]
   %.0197.pn = phi ptr [ %.0197344, %202 ], [ %.5.i294, %.backedge.i300.backedge ]
   %.1.i279.in = getelementptr inbounds i8, ptr %.0197.pn, i64 88
   %.1.i279 = load ptr, ptr %.1.i279.in, align 8
@@ -4552,12 +4552,12 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
   br label %261
 
 261:                                              ; preds = %260, %257
-  %.0195 = phi i32 [ 0, %260 ], [ %16, %257 ]
-  %262 = add i32 %.0195, %3
+  %.1 = phi i32 [ 0, %260 ], [ %16, %257 ]
+  %262 = add i32 %.1, %3
   br label %263
 
 263:                                              ; preds = %261, %253
-  %.1 = phi i32 [ %.0195, %261 ], [ %16, %253 ]
+  %.0195 = phi i32 [ %.1, %261 ], [ %16, %253 ]
   %.0 = phi i32 [ %262, %261 ], [ %3, %253 ]
   %264 = load i32, ptr %35, align 8
   %.not246 = icmp eq i32 %264, 0
@@ -4779,7 +4779,7 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
 375:                                              ; preds = %373, %370
   %spec.select268 = tail call i32 @llvm.umax.i32(i32 %spec.select267, i32 %18)
   %.not262 = icmp eq i32 %.0201, 0
-  %376 = add i32 %.0201, %.1
+  %376 = add i32 %.0201, %.0195
   %377 = select i1 %.not262, i32 0, i32 %376
   %.0203 = add i32 %377, %20
   %378 = load i32, ptr %37, align 8
@@ -4806,14 +4806,14 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
   %.not259 = icmp eq i32 %.0201, 0
   %389 = add i32 %.0201, %16
   %390 = select i1 %.not259, i32 0, i32 %389
-  %.1204 = add i32 %390, %20
+  %.2 = add i32 %390, %20
   %391 = load i32, ptr %37, align 8
   %.not260 = icmp eq i32 %391, 0
   br i1 %.not260, label %398, label %392
 
 392:                                              ; preds = %386
   %393 = load i32, ptr %8, align 4
-  %394 = add i32 %.1204, %16
+  %394 = add i32 %.2, %16
   %395 = add i32 %394, %393
   %396 = load i32, ptr %7, align 4
   %397 = add i32 %396, %387
@@ -4821,10 +4821,10 @@ thread-pre-split.i298:                            ; preds = %232, %226, %224
   br label %398
 
 398:                                              ; preds = %384, %392, %379, %386, %375
-  %.3 = phi i32 [ %spec.select268, %375 ], [ %spec.select271, %386 ], [ %spec.select269, %379 ], [ %spec.select272, %392 ], [ %385, %384 ]
-  %.2 = phi i32 [ %.0203, %375 ], [ %.1204, %386 ], [ %382, %379 ], [ %395, %392 ], [ %spec.select273, %384 ]
-  store i32 %.3, ptr %17, align 8
-  store i32 %.2, ptr %19, align 4
+  %.1206 = phi i32 [ %spec.select268, %375 ], [ %spec.select271, %386 ], [ %spec.select269, %379 ], [ %spec.select272, %392 ], [ %385, %384 ]
+  %.1204 = phi i32 [ %.0203, %375 ], [ %.2, %386 ], [ %382, %379 ], [ %395, %392 ], [ %spec.select273, %384 ]
+  store i32 %.1206, ptr %17, align 8
+  store i32 %.1204, ptr %19, align 4
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %169, %._crit_edge, %398
@@ -5554,10 +5554,10 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   br label %.lr.ph132.i.i
 
 .lr.ph132.i.i:                                    ; preds = %.lr.ph132.i.i.preheader, %159
-  %.0130.i.i = phi i32 [ %.2.i.i, %159 ], [ 0, %.lr.ph132.i.i.preheader ]
-  %.090129.i.i = phi i32 [ %.292.i.i, %159 ], [ 0, %.lr.ph132.i.i.preheader ]
+  %.0130.i.i = phi i32 [ %.1.i.i, %159 ], [ 0, %.lr.ph132.i.i.preheader ]
+  %.090129.i.i = phi i32 [ %.191.i.i, %159 ], [ 0, %.lr.ph132.i.i.preheader ]
   %.094128.i.i = phi i32 [ %160, %159 ], [ %118, %.lr.ph132.i.i.preheader ]
-  %.098127.i.i = phi float [ %.2100.i.i, %159 ], [ 0.000000e+00, %.lr.ph132.i.i.preheader ]
+  %.098127.i.i = phi float [ %.199.i.i, %159 ], [ 0.000000e+00, %.lr.ph132.i.i.preheader ]
   %132 = udiv i32 %.095.lcssa.i.i, %.094128.i.i
   %133 = icmp ugt i32 %132, 1
   %134 = mul nuw i32 %132, %.094128.i.i
@@ -5598,28 +5598,28 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   br label %157
 
 157:                                              ; preds = %156, %154, %153, %151
-  %.199.i.i = phi float [ %149, %153 ], [ %.098127.i.i, %151 ], [ %148, %156 ], [ %.098127.i.i, %154 ]
-  %.191.i.i = phi i32 [ %132, %153 ], [ %.090129.i.i, %151 ], [ %.094128.i.i, %156 ], [ %.090129.i.i, %154 ]
-  %.1.i.i = phi i32 [ %.094128.i.i, %153 ], [ %.0130.i.i, %151 ], [ %132, %156 ], [ %.0130.i.i, %154 ]
-  %158 = fcmp oeq float %.098127.i.i, %.199.i.i
+  %.2100.i.i = phi float [ %149, %153 ], [ %.098127.i.i, %151 ], [ %148, %156 ], [ %.098127.i.i, %154 ]
+  %.292.i.i = phi i32 [ %132, %153 ], [ %.090129.i.i, %151 ], [ %.094128.i.i, %156 ], [ %.090129.i.i, %154 ]
+  %.2.i.i = phi i32 [ %.094128.i.i, %153 ], [ %.0130.i.i, %151 ], [ %132, %156 ], [ %.0130.i.i, %154 ]
+  %158 = fcmp oeq float %.098127.i.i, %.2100.i.i
   br i1 %158, label %find_children_rectangle.exit.i, label %159
 
 159:                                              ; preds = %157, %.lr.ph132.i.i
-  %.2100.i.i = phi float [ %.098127.i.i, %.lr.ph132.i.i ], [ %.199.i.i, %157 ]
-  %.292.i.i = phi i32 [ %.090129.i.i, %.lr.ph132.i.i ], [ %.191.i.i, %157 ]
-  %.2.i.i = phi i32 [ %.0130.i.i, %.lr.ph132.i.i ], [ %.1.i.i, %157 ]
+  %.199.i.i = phi float [ %.098127.i.i, %.lr.ph132.i.i ], [ %.2100.i.i, %157 ]
+  %.191.i.i = phi i32 [ %.090129.i.i, %.lr.ph132.i.i ], [ %.292.i.i, %157 ]
+  %.1.i.i = phi i32 [ %.0130.i.i, %.lr.ph132.i.i ], [ %.2.i.i, %157 ]
   %160 = add i32 %.094128.i.i, -1
   %161 = tail call double @pow(double noundef %115, double noundef 3.300000e-01) #24
   %162 = tail call double @llvm.ceil.f64(double %161)
   %163 = fptrunc double %162 to float
   %164 = fptoui float %163 to i32
-  %165 = icmp uge i32 %.2.i.i, %164
+  %165 = icmp uge i32 %.1.i.i, %164
   %166 = icmp ugt i32 %160, 1
   %167 = and i1 %166, %165
   br i1 %167, label %.lr.ph132.i.i, label %._crit_edge133.i.i, !llvm.loop !32
 
 ._crit_edge133.i.i:                               ; preds = %159
-  %168 = fcmp une float %.2100.i.i, 0.000000e+00
+  %168 = fcmp une float %.199.i.i, 0.000000e+00
   br i1 %168, label %find_children_rectangle.exit.i, label %._crit_edge133.thread.i.i
 
 ._crit_edge133.thread.i.i:                        ; preds = %._crit_edge133.i.i, %._crit_edge.i.i
@@ -5674,14 +5674,14 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   br label %find_children_rectangle.exit.i
 
 find_children_rectangle.exit.i:                   ; preds = %157, %205, %177, %._crit_edge133.i.i
-  %.393.i.i = phi i32 [ %.292.i.i, %._crit_edge133.i.i ], [ %207, %205 ], [ %181, %177 ], [ %.191.i.i, %157 ]
+  %.393.i.i = phi i32 [ %.191.i.i, %._crit_edge133.i.i ], [ %207, %205 ], [ %181, %177 ], [ %.292.i.i, %157 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   %208 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %9)
   %.not66.i = icmp eq ptr %208, null
   br i1 %.not66.i, label %place_children_rect.exit, label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %find_children_rectangle.exit.i, %217
-  %.072.i = phi i32 [ %.2.i, %217 ], [ 0, %find_children_rectangle.exit.i ]
+  %.072.i = phi i32 [ %.1.i, %217 ], [ 0, %find_children_rectangle.exit.i ]
   %.04971.i = phi i32 [ %228, %217 ], [ 0, %find_children_rectangle.exit.i ]
   %.05170.i = phi ptr [ %229, %217 ], [ %208, %find_children_rectangle.exit.i ]
   %.05269.i = phi i32 [ %spec.select61.i, %217 ], [ 0, %find_children_rectangle.exit.i ]
@@ -5707,7 +5707,7 @@ find_children_rectangle.exit.i:                   ; preds = %157, %205, %177, %.
   %.158.i = phi i32 [ %216, %214 ], [ %.05767.i, %211 ], [ %.05767.i, %.lr.ph.i25 ]
   %.156.i = phi i32 [ 0, %214 ], [ %.05568.i, %211 ], [ %.05568.i, %.lr.ph.i25 ]
   %.153.i = phi i32 [ 0, %214 ], [ %.05269.i, %211 ], [ %.05269.i, %.lr.ph.i25 ]
-  %.2.i = phi i32 [ %spec.select.i28, %214 ], [ %.072.i, %211 ], [ %.072.i, %.lr.ph.i25 ]
+  %.1.i = phi i32 [ %spec.select.i28, %214 ], [ %.072.i, %211 ], [ %.072.i, %.lr.ph.i25 ]
   %218 = add i32 %.156.i, %3
   %219 = getelementptr inbounds i8, ptr %210, i64 208
   store i32 %218, ptr %219, align 8
@@ -5732,7 +5732,7 @@ find_children_rectangle.exit.i:                   ; preds = %157, %205, %177, %.
 
 place_children_rect.exit:                         ; preds = %find_children_rectangle.exit.i, %._crit_edge.loopexit.i
   %.055.lcssa.i = phi i32 [ 0, %find_children_rectangle.exit.i ], [ %225, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i27 = phi i32 [ 0, %find_children_rectangle.exit.i ], [ %.2.i, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i27 = phi i32 [ 0, %find_children_rectangle.exit.i ], [ %.1.i, %._crit_edge.loopexit.i ]
   %231 = phi i32 [ 0, %find_children_rectangle.exit.i ], [ %230, %._crit_edge.loopexit.i ]
   %spec.select62.i = tail call i32 @llvm.umax.i32(i32 %.055.lcssa.i, i32 %.0.lcssa.i27)
   %232 = shl i32 %3, 1

@@ -1667,20 +1667,20 @@ define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly %1, i32 nou
 .thread:                                          ; preds = %41, %68
   %.1224 = phi i32 [ %69, %68 ], [ %.0.lcssa, %41 ]
   %.1181223 = phi ptr [ %46, %68 ], [ %.0180.lcssa, %41 ]
-  %.1203222 = phi i32 [ %66, %68 ], [ %.0202.lcssa, %41 ]
-  %.1206221 = phi i32 [ %77, %68 ], [ %.0205.lcssa, %41 ]
+  %.2204222 = phi i32 [ %66, %68 ], [ %.0202.lcssa, %41 ]
+  %.2207221 = phi i32 [ %77, %68 ], [ %.0205.lcssa, %41 ]
   %78 = zext nneg i32 %.1224 to i64
   %79 = getelementptr inbounds i8, ptr %.1181223, i64 %78
   br label %80
 
 80:                                               ; preds = %80, %.thread
-  %.2207 = phi i32 [ %.1206221, %.thread ], [ %84, %80 ]
-  %.2204 = phi i32 [ %.1203222, %.thread ], [ %83, %80 ]
+  %.4209 = phi i32 [ %.2207221, %.thread ], [ %84, %80 ]
+  %.4 = phi i32 [ %.2204222, %.thread ], [ %83, %80 ]
   %.2 = phi ptr [ %.1181223, %.thread ], [ %85, %80 ]
   %81 = load i8, ptr %.2, align 1
   %82 = zext i8 %81 to i32
-  %83 = add i32 %.2204, %82
-  %84 = add i32 %83, %.2207
+  %83 = add i32 %.4, %82
+  %84 = add i32 %83, %.4209
   %85 = getelementptr inbounds i8, ptr %.2, i64 1
   %.not214 = icmp eq ptr %85, %79
   br i1 %.not214, label %.loopexit, label %80
@@ -1693,10 +1693,10 @@ define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly %1, i32 nou
   br label %88
 
 88:                                               ; preds = %.loopexit, %._crit_edge
-  %.4209 = phi i32 [ %87, %.loopexit ], [ %.0205.lcssa, %._crit_edge ]
-  %.4 = phi i32 [ %86, %.loopexit ], [ %.0202.lcssa, %._crit_edge ]
-  %89 = shl nuw i32 %.4209, 16
-  %90 = or i32 %89, %.4
+  %.1206 = phi i32 [ %87, %.loopexit ], [ %.0205.lcssa, %._crit_edge ]
+  %.1203 = phi i32 [ %86, %.loopexit ], [ %.0202.lcssa, %._crit_edge ]
+  %89 = shl nuw i32 %.1206, 16
+  %90 = or i32 %89, %.1203
   ret i32 %90
 }
 
@@ -1829,20 +1829,20 @@ define hidden i32 @zend_accel_script_checksum(ptr noundef %0) local_unnamed_addr
 .thread.i:                                        ; preds = %74, %47
   %.1224.i = phi i32 [ %75, %74 ], [ %.0.lcssa.i, %47 ]
   %.1181223.i = phi ptr [ %52, %74 ], [ %.0180.lcssa.i, %47 ]
-  %.1203222.i = phi i32 [ %72, %74 ], [ %.0202.lcssa.i, %47 ]
-  %.1206221.i = phi i32 [ %83, %74 ], [ %.0205.lcssa.i, %47 ]
+  %.2204222.i = phi i32 [ %72, %74 ], [ %.0202.lcssa.i, %47 ]
+  %.2207221.i = phi i32 [ %83, %74 ], [ %.0205.lcssa.i, %47 ]
   %84 = zext nneg i32 %.1224.i to i64
   %85 = getelementptr inbounds i8, ptr %.1181223.i, i64 %84
   br label %86
 
 86:                                               ; preds = %86, %.thread.i
-  %.2207.i = phi i32 [ %.1206221.i, %.thread.i ], [ %90, %86 ]
-  %.2204.i = phi i32 [ %.1203222.i, %.thread.i ], [ %89, %86 ]
+  %.4209.i = phi i32 [ %.2207221.i, %.thread.i ], [ %90, %86 ]
+  %.4.i = phi i32 [ %.2204222.i, %.thread.i ], [ %89, %86 ]
   %.2.i = phi ptr [ %.1181223.i, %.thread.i ], [ %91, %86 ]
   %87 = load i8, ptr %.2.i, align 1
   %88 = zext i8 %87 to i32
-  %89 = add i32 %.2204.i, %88
-  %90 = add i32 %89, %.2207.i
+  %89 = add i32 %.4.i, %88
+  %90 = add i32 %89, %.4209.i
   %91 = getelementptr inbounds i8, ptr %.2.i, i64 1
   %.not214.i = icmp eq ptr %91, %85
   br i1 %.not214.i, label %.loopexit.i, label %86
@@ -1855,10 +1855,10 @@ define hidden i32 @zend_accel_script_checksum(ptr noundef %0) local_unnamed_addr
   br label %zend_adler32.exit
 
 zend_adler32.exit:                                ; preds = %._crit_edge.i, %.loopexit.i
-  %.4209.i = phi i32 [ %93, %.loopexit.i ], [ %.0205.lcssa.i, %._crit_edge.i ]
-  %.4.i = phi i32 [ %92, %.loopexit.i ], [ %.0202.lcssa.i, %._crit_edge.i ]
-  %94 = shl nuw i32 %.4209.i, 16
-  %95 = or i32 %94, %.4.i
+  %.1206.i = phi i32 [ %93, %.loopexit.i ], [ %.0205.lcssa.i, %._crit_edge.i ]
+  %.1203.i = phi i32 [ %92, %.loopexit.i ], [ %.0202.lcssa.i, %._crit_edge.i ]
+  %94 = shl nuw i32 %.1206.i, 16
+  %95 = or i32 %94, %.1203.i
   %96 = sub i64 %5, %10
   %97 = getelementptr inbounds i8, ptr %3, i64 %10
   br label %zend_adler32.exit55
@@ -1991,20 +1991,20 @@ zend_adler32.exit55:                              ; preds = %zend_adler32.exit, 
 .thread.i62:                                      ; preds = %166, %139
   %.1224.i63 = phi i32 [ %167, %166 ], [ %.0.lcssa.i60, %139 ]
   %.1181223.i64 = phi ptr [ %144, %166 ], [ %.0180.lcssa.i59, %139 ]
-  %.1203222.i65 = phi i32 [ %164, %166 ], [ %.0202.lcssa.i58, %139 ]
-  %.1206221.i66 = phi i32 [ %175, %166 ], [ %.0205.lcssa.i57, %139 ]
+  %.2204222.i65 = phi i32 [ %164, %166 ], [ %.0202.lcssa.i58, %139 ]
+  %.2207221.i66 = phi i32 [ %175, %166 ], [ %.0205.lcssa.i57, %139 ]
   %176 = zext nneg i32 %.1224.i63 to i64
   %177 = getelementptr inbounds i8, ptr %.1181223.i64, i64 %176
   br label %178
 
 178:                                              ; preds = %178, %.thread.i62
-  %.2207.i67 = phi i32 [ %.1206221.i66, %.thread.i62 ], [ %182, %178 ]
-  %.2204.i68 = phi i32 [ %.1203222.i65, %.thread.i62 ], [ %181, %178 ]
+  %.4209.i67 = phi i32 [ %.2207221.i66, %.thread.i62 ], [ %182, %178 ]
+  %.4.i68 = phi i32 [ %.2204222.i65, %.thread.i62 ], [ %181, %178 ]
   %.2.i69 = phi ptr [ %.1181223.i64, %.thread.i62 ], [ %183, %178 ]
   %179 = load i8, ptr %.2.i69, align 1
   %180 = zext i8 %179 to i32
-  %181 = add i32 %.2204.i68, %180
-  %182 = add i32 %181, %.2207.i67
+  %181 = add i32 %.4.i68, %180
+  %182 = add i32 %181, %.4209.i67
   %183 = getelementptr inbounds i8, ptr %.2.i69, i64 1
   %.not214.i70 = icmp eq ptr %183, %177
   br i1 %.not214.i70, label %.loopexit.i71, label %178
@@ -2017,10 +2017,10 @@ zend_adler32.exit55:                              ; preds = %zend_adler32.exit, 
   br label %zend_adler32.exit92
 
 zend_adler32.exit92:                              ; preds = %._crit_edge.i56, %.loopexit.i71
-  %.4209.i74 = phi i32 [ %185, %.loopexit.i71 ], [ %.0205.lcssa.i57, %._crit_edge.i56 ]
-  %.4.i75 = phi i32 [ %184, %.loopexit.i71 ], [ %.0202.lcssa.i58, %._crit_edge.i56 ]
-  %186 = shl nuw i32 %.4209.i74, 16
-  %187 = or i32 %186, %.4.i75
+  %.1206.i74 = phi i32 [ %185, %.loopexit.i71 ], [ %.0205.lcssa.i57, %._crit_edge.i56 ]
+  %.1203.i75 = phi i32 [ %184, %.loopexit.i71 ], [ %.0202.lcssa.i58, %._crit_edge.i56 ]
+  %186 = shl nuw i32 %.1206.i74, 16
+  %187 = or i32 %186, %.1203.i75
   br label %188
 
 188:                                              ; preds = %zend_adler32.exit92, %zend_adler32.exit55

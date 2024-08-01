@@ -414,8 +414,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %98, %99
   br label %106
 
 106:                                              ; preds = %102, %_ZNSt6vectorIfSaIfEED2Ev.exit, %33, %16, %3, %105
-  %.1 = phi i1 [ false, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ true, %105 ], [ false, %3 ], [ false, %16 ], [ false, %33 ], [ false, %102 ]
-  ret i1 %.1
+  %.024 = phi i1 [ false, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ true, %105 ], [ false, %3 ], [ false, %16 ], [ false, %33 ], [ false, %102 ]
+  ret i1 %.024
 
 _ZNSt6vectorIfSaIfEED2Ev.exit73:                  ; preds = %101, %100, %.body53, %.body
   %.pn47.pn = phi { ptr, i32 } [ %.pn39.pn.pn, %.body53 ], [ %.pn, %.body ], [ %.pn47, %100 ], [ %.pn47, %101 ]
@@ -1335,10 +1335,10 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESa
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
-  %.01117 = phi ptr [ %29, %.lr.ph.preheader ], [ %32, %34 ]
-  %31 = call float @strtof(ptr noundef %.01117, ptr noundef nonnull %6) #11
+  %.01118 = phi ptr [ %29, %.lr.ph.preheader ], [ %32, %34 ]
+  %31 = call float @strtof(ptr noundef %.01118, ptr noundef nonnull %6) #11
   %32 = load ptr, ptr %6, align 8
-  %33 = icmp eq ptr %.01117, %32
+  %33 = icmp eq ptr %.01118, %32
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %.lr.ph
@@ -1353,8 +1353,8 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESa
   br label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.thread
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit.thread: ; preds = %4, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit, %.loopexit
-  %.1 = phi i1 [ false, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit ], [ true, %.loopexit ], [ false, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ false, %4 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE4findERS9_.exit ], [ true, %.loopexit ], [ false, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS8_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ false, %4 ]
+  ret i1 %.0
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0

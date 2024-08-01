@@ -1680,7 +1680,7 @@ define void @_ZN11ByteViewTab20selectedFieldChangedEP16FieldInformation(ptr noun
   br label %18
 
 18:                                               ; preds = %14, %12
-  %.0 = phi ptr [ %17, %14 ], [ %5, %12 ]
+  %.1 = phi ptr [ %17, %14 ], [ %5, %12 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 240
@@ -1722,8 +1722,8 @@ define void @_ZN11ByteViewTab20selectedFieldChangedEP16FieldInformation(ptr noun
   br label %40
 
 40:                                               ; preds = %37, %32
-  %.034 = phi i32 [ %36, %32 ], [ %.sroa.19.0.extract.trunc, %37 ]
-  %.032 = phi i32 [ %34, %32 ], [ %.sroa.010.0.extract.trunc, %37 ]
+  %.135 = phi i32 [ %36, %32 ], [ %.sroa.19.0.extract.trunc, %37 ]
+  %.133 = phi i32 [ %34, %32 ], [ %.sroa.010.0.extract.trunc, %37 ]
   %41 = load i32, ptr %3, align 4
   call void @_ZN10QTabWidget15setCurrentIndexEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %41)
   %42 = call noundef ptr @_ZNK16FieldInformation11parentFieldEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
@@ -1748,16 +1748,16 @@ define void @_ZN11ByteViewTab20selectedFieldChangedEP16FieldInformation(ptr noun
   %.038 = phi i32 [ %.sroa.01.0.extract.trunc, %40 ], [ -1, %2 ]
   %.037 = phi i32 [ %.sroa.13.0.extract.trunc, %40 ], [ -1, %2 ]
   %.036 = phi i32 [ %.sroa.04.0.extract.trunc, %40 ], [ -1, %2 ]
-  %.135 = phi i32 [ %.034, %40 ], [ -1, %2 ]
-  %.133 = phi i32 [ %.032, %40 ], [ -1, %2 ]
-  %.1 = phi ptr [ %.0, %40 ], [ %5, %2 ]
-  %.not48 = icmp eq ptr %.1, null
+  %.034 = phi i32 [ %.135, %40 ], [ -1, %2 ]
+  %.032 = phi i32 [ %.133, %40 ], [ -1, %2 ]
+  %.0 = phi ptr [ %.1, %40 ], [ %5, %2 ]
+  %.not48 = icmp eq ptr %.0, null
   br i1 %.not48, label %52, label %51
 
 51:                                               ; preds = %50
-  call void @_ZN12ByteViewText9markFieldEiib(ptr noundef nonnull align 8 dereferenceable(328) %.1, i32 noundef %.133, i32 noundef %.135, i1 noundef zeroext true)
-  call void @_ZN12ByteViewText12markProtocolEii(ptr noundef nonnull align 8 dereferenceable(328) %.1, i32 noundef %.036, i32 noundef %.037)
-  call void @_ZN12ByteViewText12markAppendixEii(ptr noundef nonnull align 8 dereferenceable(328) %.1, i32 noundef %.038, i32 noundef %.039)
+  call void @_ZN12ByteViewText9markFieldEiib(ptr noundef nonnull align 8 dereferenceable(328) %.0, i32 noundef %.032, i32 noundef %.034, i1 noundef zeroext true)
+  call void @_ZN12ByteViewText12markProtocolEii(ptr noundef nonnull align 8 dereferenceable(328) %.0, i32 noundef %.036, i32 noundef %.037)
+  call void @_ZN12ByteViewText12markAppendixEii(ptr noundef nonnull align 8 dereferenceable(328) %.0, i32 noundef %.038, i32 noundef %.039)
   br label %53
 
 52:                                               ; preds = %50

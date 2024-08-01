@@ -109,8 +109,8 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.076 = phi ptr [ %9, %.lr.ph ], [ %3, %.preheader ]
-  %8 = getelementptr inbounds i8, ptr %.076, i64 24
+  %.176 = phi ptr [ %9, %.lr.ph ], [ %3, %.preheader ]
+  %8 = getelementptr inbounds i8, ptr %.176, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 32
   %11 = load i8, ptr %10, align 8
@@ -118,7 +118,7 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %4
-  %.1 = phi ptr [ null, %4 ], [ %3, %.preheader ], [ %9, %.lr.ph ]
+  %.0 = phi ptr [ null, %4 ], [ %3, %.preheader ], [ %9, %.lr.ph ]
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   %.not = icmp eq i64 %14, 0
@@ -173,7 +173,7 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
   %42 = getelementptr inbounds i8, ptr %.06679, i64 32
   %43 = load i8, ptr %42, align 8
   %44 = trunc i8 %43 to i1
-  %.not74 = icmp eq ptr %.1, null
+  %.not74 = icmp eq ptr %.0, null
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %.critedge
@@ -181,7 +181,7 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
   br i1 %.not74, label %48, label %47
 
 47:                                               ; preds = %45
-  store ptr %.1, ptr %46, align 8
+  store ptr %.0, ptr %46, align 8
   br label %84
 
 48:                                               ; preds = %45
@@ -199,7 +199,7 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
   %55 = add i32 %54, -1
   store i32 %55, ptr %53, align 8
   %56 = getelementptr inbounds i8, ptr %.06679, i64 24
-  store ptr %.1, ptr %56, align 8
+  store ptr %.0, ptr %56, align 8
   store i8 1, ptr %42, align 8
   br label %84
 
@@ -242,7 +242,7 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
   br label %74
 
 74:                                               ; preds = %64, %70
-  %.sink82 = phi ptr [ %3, %70 ], [ %.1, %64 ]
+  %.sink82 = phi ptr [ %3, %70 ], [ %.0, %64 ]
   %.sink = phi i8 [ 0, %70 ], [ 1, %64 ]
   %75 = getelementptr inbounds i8, ptr %69, i64 24
   store ptr %.sink82, ptr %75, align 8

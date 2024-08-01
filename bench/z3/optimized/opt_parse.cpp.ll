@@ -5200,8 +5200,8 @@ _ZN6vectorIcLb0EjE9push_backEOc.exit:             ; preds = %lor.lhs.false.i, %i
   br i1 %20, label %if.then54, label %while.cond13
 
 while.cond13:                                     ; preds = %_ZN6vectorIcLb0EjE9push_backEOc.exit, %_ZN6vectorIcLb0EjE9push_backERKc.exit
-  %c.0 = phi i8 [ %conv21, %_ZN6vectorIcLb0EjE9push_backERKc.exit ], [ %conv8, %_ZN6vectorIcLb0EjE9push_backEOc.exit ]
-  switch i8 %c.0, label %land.rhs [
+  %c.1 = phi i8 [ %conv21, %_ZN6vectorIcLb0EjE9push_backERKc.exit ], [ %conv8, %_ZN6vectorIcLb0EjE9push_backEOc.exit ]
+  switch i8 %c.1, label %land.rhs [
     i8 32, label %while.end
     i8 10, label %while.end
     i8 9, label %while.end
@@ -5237,7 +5237,7 @@ _ZN6vectorIcLb0EjE9push_backERKc.exit:            ; preds = %lor.lhs.false.i56, 
   %26 = phi ptr [ %.pre.i66, %if.then.i65 ], [ %22, %lor.lhs.false.i56 ]
   %idx.ext.i61 = zext i32 %25 to i64
   %add.ptr.i62 = getelementptr inbounds i8, ptr %26, i64 %idx.ext.i61
-  store i8 %c.0, ptr %add.ptr.i62, align 1
+  store i8 %c.1, ptr %add.ptr.i62, align 1
   %27 = load ptr, ptr %m_buffer, align 8
   %arrayidx10.i63 = getelementptr inbounds i8, ptr %27, i64 -4
   %28 = load i32, ptr %arrayidx10.i63, align 4
@@ -5454,7 +5454,7 @@ if.end52:                                         ; preds = %if.end
   br i1 %64, label %if.then54, label %if.end184
 
 if.then54:                                        ; preds = %_ZN6vectorIcLb0EjE9push_backEOc.exit, %if.end52
-  %c.1629 = phi i32 [ %5, %if.end52 ], [ %call.i, %_ZN6vectorIcLb0EjE9push_backEOc.exit ]
+  %c.0629 = phi i32 [ %5, %if.end52 ], [ %call.i, %_ZN6vectorIcLb0EjE9push_backEOc.exit ]
   %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
   %bf.clear3.i.i.i = and i8 %bf.load.i.i.i, -4
   store ptr null, ptr %m_ptr.i.i.i, align 8
@@ -5489,7 +5489,7 @@ land.rhs61.preheader:                             ; preds = %if.then54
 
 land.rhs61:                                       ; preds = %land.rhs61.preheader, %invoke.cont80
   %67 = phi i32 [ %call.i161163, %invoke.cont80 ], [ %.pre, %land.rhs61.preheader ]
-  %c.2617 = phi i32 [ %call.i161163, %invoke.cont80 ], [ %c.1629, %land.rhs61.preheader ]
+  %c.2617 = phi i32 [ %call.i161163, %invoke.cont80 ], [ %c.0629, %land.rhs61.preheader ]
   %cmp.i122 = icmp eq i32 %67, -1
   br i1 %cmp.i122, label %if.end125, label %while.body65
 

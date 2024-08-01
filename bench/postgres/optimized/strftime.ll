@@ -150,8 +150,8 @@ define internal fastcc ptr @_fmt(ptr nocapture noundef readonly %0, ptr noundef 
   ]
 
 .preheader:                                       ; preds = %38, %.preheader.backedge
-  %.1 = phi ptr [ %40, %.preheader.backedge ], [ %.0206, %38 ]
-  %40 = getelementptr i8, ptr %.1, i64 1
+  %.2 = phi ptr [ %40, %.preheader.backedge ], [ %.0206, %38 ]
+  %40 = getelementptr i8, ptr %.2, i64 1
   %41 = load i8, ptr %40, align 1
   switch i8 %41, label %.loopexit.loopexit [
     i8 0, label %.loopexit
@@ -1437,19 +1437,19 @@ _conv.exit495:                                    ; preds = %.lr.ph.i.i490, %499
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.loopexit, %38
-  %.2 = phi ptr [ %.0206, %38 ], [ %40, %.loopexit.loopexit ], [ %.1, %.preheader ]
+  %.1 = phi ptr [ %.0206, %38 ], [ %40, %.loopexit.loopexit ], [ %.2, %.preheader ]
   %504 = icmp eq ptr %.0207, %3
   br i1 %504, label %509, label %505
 
 505:                                              ; preds = %.loopexit
-  %506 = load i8, ptr %.2, align 1
+  %506 = load i8, ptr %.1, align 1
   %507 = getelementptr i8, ptr %.0207, i64 1
   store i8 %506, ptr %.0207, align 1
   br label %_add.exit
 
 _add.exit:                                        ; preds = %457, %.lr.ph.i463, %279, %.lr.ph.i383, %255, %.lr.ph.i365, %244, %.lr.ph.i356, %119, %.lr.ph.i.i, %99, %.lr.ph.i269, %84, %.lr.ph.i260, %69, %.lr.ph.i251, %54, %.lr.ph.i, %274, %247, %239, %_conv.exit.i, %114, %93, %78, %63, %48, %460, %451, %422, %426, %_conv.exit415, %387, %_yconv.exit424, %136, %140, %505, %502, %_conv.exit495, %448, %_yconv.exit459, %415, %_conv.exit442, %_conv.exit433, %389, %_conv.exit406, %_conv.exit397, %272, %_conv.exit379, %260, %258, %_conv.exit352, %_conv.exit343, %_conv.exit334, %_conv.exit325, %_conv.exit316, %_conv.exit307, %_conv.exit298, %163, %_conv.exit289, %_conv.exit, %141
   %.1208 = phi ptr [ %507, %505 ], [ %503, %502 ], [ %.0207, %460 ], [ %.06.lcssa.i.i487, %_conv.exit495 ], [ %.0207, %451 ], [ %450, %448 ], [ %.06.lcssa.i.i39.i451, %_yconv.exit459 ], [ %418, %426 ], [ %418, %422 ], [ %416, %415 ], [ %.06.lcssa.i.i434, %_conv.exit442 ], [ %.06.lcssa.i.i425, %_conv.exit433 ], [ %390, %389 ], [ %.06.lcssa.i.i407, %_conv.exit415 ], [ %.06.lcssa.i.i39.i, %_yconv.exit424 ], [ %388, %387 ], [ %.06.lcssa.i.i398, %_conv.exit406 ], [ %.06.lcssa.i.i389, %_conv.exit397 ], [ %273, %272 ], [ %.06.lcssa.i.i371, %_conv.exit379 ], [ %261, %260 ], [ %259, %258 ], [ %.06.lcssa.i.i344, %_conv.exit352 ], [ %.06.lcssa.i.i335, %_conv.exit343 ], [ %.06.lcssa.i.i326, %_conv.exit334 ], [ %.06.lcssa.i.i317, %_conv.exit325 ], [ %.06.lcssa.i.i308, %_conv.exit316 ], [ %.06.lcssa.i.i299, %_conv.exit307 ], [ %.06.lcssa.i.i290, %_conv.exit298 ], [ %164, %163 ], [ %.06.lcssa.i.i281, %_conv.exit289 ], [ %.06.lcssa.i.i, %_conv.exit ], [ %142, %141 ], [ %132, %140 ], [ %132, %136 ], [ %.0207, %48 ], [ %.0207, %63 ], [ %.0207, %78 ], [ %.0207, %93 ], [ %.06.lcssa.i.i.i, %_conv.exit.i ], [ %.0207, %114 ], [ %.0207, %239 ], [ %.0207, %247 ], [ %.0207, %274 ], [ %.067.i, %.lr.ph.i ], [ %scevgep.i, %54 ], [ %.067.i253, %.lr.ph.i251 ], [ %scevgep.i250, %69 ], [ %.067.i262, %.lr.ph.i260 ], [ %scevgep.i259, %84 ], [ %.067.i271, %.lr.ph.i269 ], [ %scevgep.i268, %99 ], [ %scevgep.i.i, %119 ], [ %.067.i.i, %.lr.ph.i.i ], [ %.067.i358, %.lr.ph.i356 ], [ %scevgep.i355, %244 ], [ %.067.i367, %.lr.ph.i365 ], [ %scevgep.i364, %255 ], [ %.067.i385, %.lr.ph.i383 ], [ %scevgep.i382, %279 ], [ %.067.i465, %.lr.ph.i463 ], [ %scevgep.i462, %457 ]
-  %.3 = phi ptr [ %.2, %505 ], [ %40, %502 ], [ %40, %460 ], [ %40, %_conv.exit495 ], [ %40, %451 ], [ %40, %448 ], [ %40, %_yconv.exit459 ], [ %40, %426 ], [ %40, %422 ], [ %40, %415 ], [ %40, %_conv.exit442 ], [ %40, %_conv.exit433 ], [ %40, %389 ], [ %40, %_conv.exit415 ], [ %40, %_yconv.exit424 ], [ %40, %387 ], [ %40, %_conv.exit406 ], [ %40, %_conv.exit397 ], [ %40, %272 ], [ %40, %_conv.exit379 ], [ %40, %260 ], [ %40, %258 ], [ %40, %_conv.exit352 ], [ %40, %_conv.exit343 ], [ %40, %_conv.exit334 ], [ %40, %_conv.exit325 ], [ %40, %_conv.exit316 ], [ %40, %_conv.exit307 ], [ %40, %_conv.exit298 ], [ %40, %163 ], [ %40, %_conv.exit289 ], [ %40, %_conv.exit ], [ %40, %141 ], [ %40, %140 ], [ %40, %136 ], [ %40, %48 ], [ %40, %63 ], [ %40, %78 ], [ %40, %93 ], [ %40, %_conv.exit.i ], [ %40, %114 ], [ %40, %239 ], [ %40, %247 ], [ %40, %274 ], [ %40, %.lr.ph.i ], [ %40, %54 ], [ %40, %.lr.ph.i251 ], [ %40, %69 ], [ %40, %.lr.ph.i260 ], [ %40, %84 ], [ %40, %.lr.ph.i269 ], [ %40, %99 ], [ %40, %.lr.ph.i.i ], [ %40, %119 ], [ %40, %.lr.ph.i356 ], [ %40, %244 ], [ %40, %.lr.ph.i365 ], [ %40, %255 ], [ %40, %.lr.ph.i383 ], [ %40, %279 ], [ %40, %.lr.ph.i463 ], [ %40, %457 ]
+  %.3 = phi ptr [ %.1, %505 ], [ %40, %502 ], [ %40, %460 ], [ %40, %_conv.exit495 ], [ %40, %451 ], [ %40, %448 ], [ %40, %_yconv.exit459 ], [ %40, %426 ], [ %40, %422 ], [ %40, %415 ], [ %40, %_conv.exit442 ], [ %40, %_conv.exit433 ], [ %40, %389 ], [ %40, %_conv.exit415 ], [ %40, %_yconv.exit424 ], [ %40, %387 ], [ %40, %_conv.exit406 ], [ %40, %_conv.exit397 ], [ %40, %272 ], [ %40, %_conv.exit379 ], [ %40, %260 ], [ %40, %258 ], [ %40, %_conv.exit352 ], [ %40, %_conv.exit343 ], [ %40, %_conv.exit334 ], [ %40, %_conv.exit325 ], [ %40, %_conv.exit316 ], [ %40, %_conv.exit307 ], [ %40, %_conv.exit298 ], [ %40, %163 ], [ %40, %_conv.exit289 ], [ %40, %_conv.exit ], [ %40, %141 ], [ %40, %140 ], [ %40, %136 ], [ %40, %48 ], [ %40, %63 ], [ %40, %78 ], [ %40, %93 ], [ %40, %_conv.exit.i ], [ %40, %114 ], [ %40, %239 ], [ %40, %247 ], [ %40, %274 ], [ %40, %.lr.ph.i ], [ %40, %54 ], [ %40, %.lr.ph.i251 ], [ %40, %69 ], [ %40, %.lr.ph.i260 ], [ %40, %84 ], [ %40, %.lr.ph.i269 ], [ %40, %99 ], [ %40, %.lr.ph.i.i ], [ %40, %119 ], [ %40, %.lr.ph.i356 ], [ %40, %244 ], [ %40, %.lr.ph.i365 ], [ %40, %255 ], [ %40, %.lr.ph.i383 ], [ %40, %279 ], [ %40, %.lr.ph.i463 ], [ %40, %457 ]
   %508 = getelementptr i8, ptr %.3, i64 1
   br label %38, !llvm.loop !7
 

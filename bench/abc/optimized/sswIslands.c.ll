@@ -382,7 +382,7 @@ define void @Ssw_MatchingExtendOne(ptr noundef %0, ptr nocapture noundef %1) loc
 14:                                               ; preds = %.lr.ph162, %.critedge2
   %indvars.iv = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next, %.critedge2 ]
   %15 = phi ptr [ %5, %.lr.ph162 ], [ %229, %.critedge2 ]
-  %.0161 = phi i32 [ -1, %.lr.ph162 ], [ %.2, %.critedge2 ]
+  %.0161 = phi i32 [ -1, %.lr.ph162 ], [ %.1, %.critedge2 ]
   %16 = getelementptr i8, ptr %15, i64 8
   %.val = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
@@ -706,15 +706,15 @@ Vec_PtrPush.exit125:                              ; preds = %.Vec_PtrGrow.exit11
 
 159:                                              ; preds = %.lr.ph, %223
   %160 = phi i64 [ %156, %.lr.ph ], [ %224, %223 ]
-  %.1158 = phi i32 [ %.0161, %.lr.ph ], [ %173, %223 ]
+  %.2158 = phi i32 [ %.0161, %.lr.ph ], [ %173, %223 ]
   %.065157 = phi i32 [ 0, %.lr.ph ], [ %225, %223 ]
   %.not80 = icmp eq i32 %.065157, 0
   br i1 %.not80, label %167, label %161
 
 161:                                              ; preds = %159
-  %162 = ashr i32 %.1158, 1
+  %162 = ashr i32 %.2158, 1
   %163 = mul nsw i32 %162, 5
-  %164 = and i32 %.1158, 1
+  %164 = and i32 %.2158, 1
   %165 = add nuw nsw i32 %164, 3
   %166 = add i32 %165, %163
   br label %170
@@ -859,7 +859,7 @@ Vec_PtrPush.exit145:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %228, label %159, label %.critedge2, !llvm.loop !9
 
 .critedge2:                                       ; preds = %223, %155, %20, %14, %26
-  %.2 = phi i32 [ %.0161, %14 ], [ %.0161, %26 ], [ %.0161, %20 ], [ %.0161, %155 ], [ %173, %223 ]
+  %.1 = phi i32 [ %.0161, %14 ], [ %.0161, %26 ], [ %.0161, %20 ], [ %.0161, %155 ], [ %173, %223 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %229 = load ptr, ptr %4, align 8
   %230 = getelementptr i8, ptr %229, i64 4

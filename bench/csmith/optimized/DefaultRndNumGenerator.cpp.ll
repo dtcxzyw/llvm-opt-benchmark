@@ -296,7 +296,7 @@ define dso_local noundef range(i32 0, -1) i32 @_ZN22DefaultRndNumGenerator8rnd_u
   br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %4
-  %.1 = phi i32 [ %13, %4 ], [ %13, %.preheader ], [ %26, %.lr.ph ]
+  %.017 = phi i32 [ %13, %4 ], [ %13, %.preheader ], [ %26, %.lr.ph ]
   %.not19 = icmp eq ptr %3, null
   br i1 %.not19, label %45, label %31
 
@@ -340,7 +340,7 @@ define dso_local noundef range(i32 0, -1) i32 @_ZN22DefaultRndNumGenerator8rnd_u
   resume { ptr, i32 } %.pn
 
 45:                                               ; preds = %39, %.loopexit
-  ret i32 %.1
+  ret i32 %.017
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0

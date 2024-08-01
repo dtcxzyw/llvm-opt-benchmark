@@ -743,12 +743,12 @@ _ZNK5ceres21GradientProblemSolver7Options7IsValidEPNSt7__cxx1112basic_stringIcSt
   unreachable
 
 _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit: ; preds = %81, %86
-  %.sroa.0185.0 = phi ptr [ null, %81 ], [ %89, %86 ]
+  %.sroa.0185.3 = phi ptr [ null, %81 ], [ %89, %86 ]
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %84, %82
   br i1 %.not.i.i.i.i.i.i.i.i, label %.noexc, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i
 
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i: ; preds = %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit
-  call void @free(ptr noundef %.sroa.0185.0) #21
+  call void @free(ptr noundef %.sroa.0185.3) #21
   %92 = icmp sgt i32 %82, 0
   br i1 %92, label %96, label %.noexc.thread
 
@@ -775,7 +775,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   unreachable
 
 .noexc:                                           ; preds = %96, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit
-  %.sroa.0185.2 = phi ptr [ %.sroa.0185.0, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit ], [ %98, %96 ]
+  %.sroa.0185.2 = phi ptr [ %.sroa.0185.3, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit ], [ %98, %96 ]
   %102 = sdiv i32 %82, 2
   %.sext = sext i32 %102 to i64
   %103 = shl nsw i64 %.sext, 1
@@ -981,7 +981,7 @@ _ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev
           to label %_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_.exit unwind label %195
 
 187:                                              ; preds = %100, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit
-  %.sroa.0185.3 = phi ptr [ %.sroa.0185.2204, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit ], [ %.sroa.0185.0, %100 ]
+  %.sroa.0185.0 = phi ptr [ %.sroa.0185.2204, %_ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_3MapIS1_Li0ENS_6StrideILi0ELi0EEEEEEERS1_RKNS_9DenseBaseIT_EE.exit ], [ %.sroa.0185.3, %100 ]
   %188 = landingpad { ptr, i32 }
           cleanup
   br label %365
@@ -1004,13 +1004,13 @@ _ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev
   br label %_ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit142
 
 195:                                              ; preds = %_ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev.exit, %178
-  %.sroa.0180.0 = phi ptr [ %179, %_ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev.exit ], [ null, %178 ]
+  %.sroa.0180.1 = phi ptr [ %179, %_ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev.exit ], [ null, %178 ]
   %196 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 _ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_.exit: ; preds = %_ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN5ceres8internal24GradientProblemEvaluatorESt14default_deleteIS2_EED2Ev.exit
-  %.sroa.0180.2 = phi ptr [ null, %_ZNSt10unique_ptrIN5ceres8internal24GradientProblemEvaluatorESt14default_deleteIS2_EED2Ev.exit ], [ %179, %_ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev.exit ]
+  %.sroa.0180.0 = phi ptr [ null, %_ZNSt10unique_ptrIN5ceres8internal24GradientProblemEvaluatorESt14default_deleteIS2_EED2Ev.exit ], [ %179, %_ZNSt10unique_ptrIN5ceres8internal15LoggingCallbackESt14default_deleteIS2_EED2Ev.exit ]
   %197 = getelementptr inbounds i8, ptr %1, i64 125
   %198 = load i8, ptr %197, align 1
   %199 = trunc i8 %198 to i1
@@ -1042,13 +1042,13 @@ _ZNSt10unique_ptrIN5ceres8internal42GradientProblemSolverStateUpdatingCallbackES
           to label %_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_.exit90 unwind label %208
 
 208:                                              ; preds = %_ZNSt10unique_ptrIN5ceres8internal42GradientProblemSolverStateUpdatingCallbackESt14default_deleteIS2_EED2Ev.exit, %202, %_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_.exit90, %200
-  %.sroa.0171.0 = phi ptr [ %.sroa.0171.2, %_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_.exit90 ], [ %203, %_ZNSt10unique_ptrIN5ceres8internal42GradientProblemSolverStateUpdatingCallbackESt14default_deleteIS2_EED2Ev.exit ], [ null, %202 ], [ null, %200 ]
+  %.sroa.0171.1 = phi ptr [ %.sroa.0171.0, %_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_.exit90 ], [ %203, %_ZNSt10unique_ptrIN5ceres8internal42GradientProblemSolverStateUpdatingCallbackESt14default_deleteIS2_EED2Ev.exit ], [ null, %202 ], [ null, %200 ]
   %209 = landingpad { ptr, i32 }
           cleanup
   br label %.body84
 
 _ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_.exit90: ; preds = %_ZNSt10unique_ptrIN5ceres8internal42GradientProblemSolverStateUpdatingCallbackESt14default_deleteIS2_EED2Ev.exit, %_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_.exit
-  %.sroa.0171.2 = phi ptr [ null, %_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_.exit ], [ %203, %_ZNSt10unique_ptrIN5ceres8internal42GradientProblemSolverStateUpdatingCallbackESt14default_deleteIS2_EED2Ev.exit ]
+  %.sroa.0171.0 = phi ptr [ null, %_ZNSt6vectorIPN5ceres17IterationCallbackESaIS2_EE6insertEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EEOS2_.exit ], [ %203, %_ZNSt10unique_ptrIN5ceres8internal42GradientProblemSolverStateUpdatingCallbackESt14default_deleteIS2_EED2Ev.exit ]
   invoke void @_ZN5ceres8internal9Minimizer6CreateENS_13MinimizerTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.95") align 8 %16, i32 noundef 0)
           to label %210 unwind label %208
 
@@ -1410,25 +1410,25 @@ _ZNKSt14default_deleteIN5ceres8internal9MinimizerEEclEPS2_.exit.i: ; preds = %_Z
 
 _ZNSt10unique_ptrIN5ceres8internal9MinimizerESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5ceres8internal14CallStatisticsESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit, %_ZNKSt14default_deleteIN5ceres8internal9MinimizerEEclEPS2_.exit.i
   store ptr null, ptr %16, align 8
-  %.not.i130 = icmp eq ptr %.sroa.0171.2, null
+  %.not.i130 = icmp eq ptr %.sroa.0171.0, null
   br i1 %.not.i130, label %_ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN5ceres8internal9MinimizerESt14default_deleteIS2_EED2Ev.exit
-  %339 = load ptr, ptr %.sroa.0171.2, align 8
+  %339 = load ptr, ptr %.sroa.0171.0, align 8
   %340 = getelementptr inbounds i8, ptr %339, i64 8
   %341 = load ptr, ptr %340, align 8
-  call void %341(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0171.2) #21
+  call void %341(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0171.0) #21
   br label %_ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5ceres8internal9MinimizerESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i
-  %.not.i131 = icmp eq ptr %.sroa.0180.2, null
+  %.not.i131 = icmp eq ptr %.sroa.0180.0, null
   br i1 %.not.i131, label %_ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit133, label %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i132
 
 _ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i132: ; preds = %_ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit
-  %342 = load ptr, ptr %.sroa.0180.2, align 8
+  %342 = load ptr, ptr %.sroa.0180.0, align 8
   %343 = getelementptr inbounds i8, ptr %342, i64 8
   %344 = load ptr, ptr %343, align 8
-  call void %344(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0180.2) #21
+  call void %344(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0180.0) #21
   br label %_ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit133
 
 _ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit133: ; preds = %_ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i132
@@ -1492,29 +1492,29 @@ _ZNSt10unique_ptrIN5ceres8internal9MinimizerESt14default_deleteIS2_EED2Ev.exit13
   br label %.body84
 
 .body84:                                          ; preds = %208, %_ZNSt10unique_ptrIN5ceres8internal9MinimizerESt14default_deleteIS2_EED2Ev.exit136
-  %.sroa.0171.3 = phi ptr [ %.sroa.0171.2, %_ZNSt10unique_ptrIN5ceres8internal9MinimizerESt14default_deleteIS2_EED2Ev.exit136 ], [ %.sroa.0171.0, %208 ]
+  %.sroa.0171.2 = phi ptr [ %.sroa.0171.0, %_ZNSt10unique_ptrIN5ceres8internal9MinimizerESt14default_deleteIS2_EED2Ev.exit136 ], [ %.sroa.0171.1, %208 ]
   %.pn68.pn.pn.pn = phi { ptr, i32 } [ %.pn68.pn.pn, %_ZNSt10unique_ptrIN5ceres8internal9MinimizerESt14default_deleteIS2_EED2Ev.exit136 ], [ %209, %208 ]
-  %.not.i137 = icmp eq ptr %.sroa.0171.3, null
+  %.not.i137 = icmp eq ptr %.sroa.0171.2, null
   br i1 %.not.i137, label %.body, label %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i138
 
 _ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i138: ; preds = %.body84
-  %359 = load ptr, ptr %.sroa.0171.3, align 8
+  %359 = load ptr, ptr %.sroa.0171.2, align 8
   %360 = getelementptr inbounds i8, ptr %359, i64 8
   %361 = load ptr, ptr %360, align 8
-  call void %361(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0171.3) #21
+  call void %361(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0171.2) #21
   br label %.body
 
 .body:                                            ; preds = %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i138, %.body84, %.body84.thread, %195
-  %.sroa.0180.3 = phi ptr [ %.sroa.0180.0, %195 ], [ %.sroa.0180.2, %.body84.thread ], [ %.sroa.0180.2, %.body84 ], [ %.sroa.0180.2, %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i138 ]
+  %.sroa.0180.2 = phi ptr [ %.sroa.0180.1, %195 ], [ %.sroa.0180.0, %.body84.thread ], [ %.sroa.0180.0, %.body84 ], [ %.sroa.0180.0, %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i138 ]
   %.pn68.pn.pn.pn.pn = phi { ptr, i32 } [ %196, %195 ], [ %204, %.body84.thread ], [ %.pn68.pn.pn.pn, %.body84 ], [ %.pn68.pn.pn.pn, %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i138 ]
-  %.not.i140 = icmp eq ptr %.sroa.0180.3, null
+  %.not.i140 = icmp eq ptr %.sroa.0180.2, null
   br i1 %.not.i140, label %_ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit142, label %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i141
 
 _ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i141: ; preds = %.body
-  %362 = load ptr, ptr %.sroa.0180.3, align 8
+  %362 = load ptr, ptr %.sroa.0180.2, align 8
   %363 = getelementptr inbounds i8, ptr %362, i64 8
   %364 = load ptr, ptr %363, align 8
-  call void %364(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0180.3) #21
+  call void %364(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0180.2) #21
   br label %_ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit142
 
 _ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit142: ; preds = %_ZNKSt14default_deleteIN5ceres17IterationCallbackEEclEPS1_.exit.i141, %.body, %.body.thread, %193, %191
@@ -1523,9 +1523,9 @@ _ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit14
   br label %365
 
 365:                                              ; preds = %_ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit142, %189, %187
-  %.sroa.0185.4 = phi ptr [ %.sroa.0185.2204, %_ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit142 ], [ %.sroa.0185.2204, %189 ], [ %.sroa.0185.3, %187 ]
+  %.sroa.0185.1 = phi ptr [ %.sroa.0185.2204, %_ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit142 ], [ %.sroa.0185.2204, %189 ], [ %.sroa.0185.0, %187 ]
   %.pn68.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn68.pn.pn.pn.pn.pn, %_ZNSt10unique_ptrIN5ceres17IterationCallbackESt14default_deleteIS1_EED2Ev.exit142 ], [ %190, %189 ], [ %188, %187 ]
-  call void @free(ptr noundef %.sroa.0185.4) #21
+  call void @free(ptr noundef %.sroa.0185.1) #21
   br label %common.resume
 }
 

@@ -2144,7 +2144,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127: ; preds = %451, %_ZNSt6vectorI
   br label %.body
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %249, %453, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit, %_ZN2cv8tracking4impl21filterPointsInVectorsIhEEmRSt6vectorIT_SaIS4_EERS3_INS_6Point_IfEESaIS9_EESC_S4_.exit
-  %.2 = phi i1 [ false, %_ZN2cv8tracking4impl21filterPointsInVectorsIhEEmRSt6vectorIT_SaIS4_EERS3_INS_6Point_IfEESaIS9_EESC_S4_.exit ], [ %.1, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit ], [ %.1, %453 ], [ false, %249 ]
+  %.0 = phi i1 [ false, %_ZN2cv8tracking4impl21filterPointsInVectorsIhEEmRSt6vectorIT_SaIS4_EERS3_INS_6Point_IfEESaIS9_EESC_S4_.exit ], [ %.1, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit ], [ %.1, %453 ], [ false, %249 ]
   %470 = load ptr, ptr %20, align 8
   %471 = getelementptr inbounds i8, ptr %20, i64 8
   %472 = load ptr, ptr %471, align 8
@@ -2237,7 +2237,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit149: ; preds = %_ZNSt6vectorIhSaIhE
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit151
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit151: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit149, %489
-  ret i1 %.2
+  ret i1 %.0
 
 .body:                                            ; preds = %462, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, %223, %221, %315, %301, %248, %232
   %.pn94.pn.pn = phi { ptr, i32 } [ %.pn88, %315 ], [ %.pn86, %301 ], [ %.pn84, %248 ], [ %.pn82, %232 ], [ %222, %221 ], [ %224, %223 ], [ %335, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit ], [ %.pn94.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit127 ], [ %.pn94.pn, %462 ]

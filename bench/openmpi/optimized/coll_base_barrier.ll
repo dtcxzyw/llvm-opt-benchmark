@@ -603,8 +603,8 @@ define i32 @ompi_coll_base_barrier_intra_basic_linear(ptr noundef %0, ptr nocapt
   br i1 %exitcond88.not, label %.loopexit, label %.lr.ph78, !llvm.loop !9
 
 .loopexit:                                        ; preds = %42, %39, %.loopexit71
-  %.147 = phi i32 [ %.046, %.loopexit71 ], [ 18, %42 ], [ %41, %39 ]
-  %.147.fr = freeze i32 %.147
+  %.248 = phi i32 [ %.046, %.loopexit71 ], [ 18, %42 ], [ %41, %39 ]
+  %.248.fr = freeze i32 %.248
   %43 = icmp sgt i32 %.val.val, 0
   br i1 %43, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit
 
@@ -653,8 +653,8 @@ ompi_request_cancel.exit.i:                       ; preds = %52, %49
   br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !10
 
 ompi_coll_base_free_reqs.exit:                    ; preds = %60, %.loopexit
-  %61 = icmp eq i32 %.147.fr, 76
-  %spec.select = select i1 %61, i32 75, i32 %.147.fr
+  %61 = icmp eq i32 %.248.fr, 76
+  %spec.select = select i1 %61, i32 75, i32 %.248.fr
   br label %.thread
 
 .thread:                                          ; preds = %30, %.lr.ph74, %ompi_coll_base_free_reqs.exit, %.preheader, %.preheader69, %12, %15, %9, %2

@@ -176,8 +176,8 @@ for.body56.lr.ph:                                 ; preds = %if.end
 
 for.body56.us:                                    ; preds = %for.body56.lr.ph, %for.inc158.us
   %indvars.iv265 = phi i64 [ %indvars.iv.next266, %for.inc158.us ], [ 0, %for.body56.lr.ph ]
-  %loSuffix.0227.us = phi i32 [ %loSuffix.2.us, %for.inc158.us ], [ %cond53, %for.body56.lr.ph ]
-  %upSuffix.0226.us = phi i32 [ %upSuffix.2.us, %for.inc158.us ], [ %cond53, %for.body56.lr.ph ]
+  %loSuffix.0227.us = phi i32 [ %loSuffix.3.us, %for.inc158.us ], [ %cond53, %for.body56.lr.ph ]
+  %upSuffix.0226.us = phi i32 [ %upSuffix.3.us, %for.inc158.us ], [ %cond53, %for.body56.lr.ph ]
   %cmp57.us = icmp ult i64 %indvars.iv265, %call12
   br i1 %cmp57.us, label %if.then58.us, label %if.end83.us
 
@@ -222,19 +222,19 @@ if.then85.us:                                     ; preds = %if.end83.us
   %and106134.us = and i8 %34, %retval.i348.0
   %cmp108.not.us = icmp eq i8 %and106134.us, %and98132.us
   %cond117.us = tail call i32 @llvm.umin.i32(i32 %upSuffix.0226.us, i32 %31)
-  %upSuffix.1.us = select i1 %cmp108.not.us, i32 %upSuffix.0226.us, i32 %cond117.us
+  %upSuffix.2.us = select i1 %cmp108.not.us, i32 %upSuffix.0226.us, i32 %cond117.us
   %and123135.us = and i8 %34, %retval.i6.0.i
   %cmp125.not.us = icmp eq i8 %and123135.us, %and98132.us
   %cond134.us = tail call i32 @llvm.umin.i32(i32 %loSuffix.0227.us, i32 %31)
-  %loSuffix.1.us = select i1 %cmp125.not.us, i32 %loSuffix.0227.us, i32 %cond134.us
-  %cmp136.not.us = icmp eq i32 %loSuffix.1.us, %cond53
-  %cmp138.not.us = icmp eq i32 %upSuffix.1.us, %cond53
+  %loSuffix.2.us = select i1 %cmp125.not.us, i32 %loSuffix.0227.us, i32 %cond134.us
+  %cmp136.not.us = icmp eq i32 %loSuffix.2.us, %cond53
+  %cmp138.not.us = icmp eq i32 %upSuffix.2.us, %cond53
   %or.cond136.us = select i1 %cmp136.not.us, i1 true, i1 %cmp138.not.us
   br i1 %or.cond136.us, label %for.inc158.us, label %for.end160
 
 for.inc158.us:                                    ; preds = %if.then85.us, %if.end83.us
-  %upSuffix.2.us = phi i32 [ %upSuffix.1.us, %if.then85.us ], [ %upSuffix.0226.us, %if.end83.us ]
-  %loSuffix.2.us = phi i32 [ %loSuffix.1.us, %if.then85.us ], [ %loSuffix.0227.us, %if.end83.us ]
+  %upSuffix.3.us = phi i32 [ %upSuffix.2.us, %if.then85.us ], [ %upSuffix.0226.us, %if.end83.us ]
+  %loSuffix.3.us = phi i32 [ %loSuffix.2.us, %if.then85.us ], [ %loSuffix.0227.us, %if.end83.us ]
   %indvars.iv.next266 = add nuw nsw i64 %indvars.iv265, 1
   %exitcond269.not = icmp eq i64 %indvars.iv.next266, %wide.trip.count268
   br i1 %exitcond269.not, label %for.end160, label %for.body56.us, !llvm.loop !8
@@ -305,9 +305,9 @@ for.inc158:                                       ; preds = %if.end83, %if.then8
   br i1 %exitcond264.not, label %if.else174, label %for.body56, !llvm.loop !8
 
 for.end160:                                       ; preds = %if.then85.us, %for.inc158.us, %if.end, %do.end149, %do.end71
-  %upSuffix.3 = phi i32 [ %cond76, %do.end71 ], [ %cond154, %do.end149 ], [ 0, %if.end ], [ %upSuffix.1.us, %if.then85.us ], [ %upSuffix.2.us, %for.inc158.us ]
-  %loSuffix.3 = phi i32 [ %cond81, %do.end71 ], [ %cond53, %do.end149 ], [ 0, %if.end ], [ %loSuffix.1.us, %if.then85.us ], [ %loSuffix.2.us, %for.inc158.us ]
-  %cmp161.not = icmp eq i32 %upSuffix.3, %cond53
+  %upSuffix.1 = phi i32 [ %cond76, %do.end71 ], [ %cond154, %do.end149 ], [ 0, %if.end ], [ %upSuffix.2.us, %if.then85.us ], [ %upSuffix.3.us, %for.inc158.us ]
+  %loSuffix.1 = phi i32 [ %cond81, %do.end71 ], [ %cond53, %do.end149 ], [ 0, %if.end ], [ %loSuffix.2.us, %if.then85.us ], [ %loSuffix.3.us, %for.inc158.us ]
+  %cmp161.not = icmp eq i32 %upSuffix.1, %cond53
   br i1 %cmp161.not, label %if.else174, label %if.then162
 
 if.then162:                                       ; preds = %for.end160
@@ -319,13 +319,13 @@ if.then162:                                       ; preds = %for.end160
   %conv.i = zext i8 %cond171 to i64
   %suffix1.i = getelementptr inbounds %struct.FDRFlood, ptr %call5.i.i.i.i2.i.i143, i64 %conv.i, i32 1
   %54 = load i32, ptr %suffix1.i, align 8
-  %add.i150 = add i32 %upSuffix.3, 1
+  %add.i150 = add i32 %upSuffix.1, 1
   %.add.i = tail call i32 @llvm.umax.i32(i32 %54, i32 %add.i150)
   store i32 %.add.i, ptr %suffix1.i, align 8
   br label %if.end186
 
 if.else174:                                       ; preds = %for.inc158, %for.end160
-  %loSuffix.3279 = phi i32 [ %loSuffix.3, %for.end160 ], [ %cond53, %for.inc158 ]
+  %loSuffix.1279 = phi i32 [ %loSuffix.1, %for.end160 ], [ %cond53, %for.inc158 ]
   %55 = add i8 %c17.0, -97
   %56 = icmp ult i8 %55, 26
   %sub.i335 = add nsw i8 %c17.0, -32
@@ -364,11 +364,11 @@ if.then.i155:                                     ; preds = %if.else174
   br label %if.end186
 
 if.end186:                                        ; preds = %if.then.i155, %if.else174, %if.then162
-  %loSuffix.3278 = phi i32 [ %loSuffix.3279, %if.then.i155 ], [ %loSuffix.3279, %if.else174 ], [ %loSuffix.3, %if.then162 ]
+  %loSuffix.1278 = phi i32 [ %loSuffix.1279, %if.then.i155 ], [ %loSuffix.1279, %if.else174 ], [ %loSuffix.1, %if.then162 ]
   br i1 %nocase.0.shrunk.fr, label %if.then188, label %for.inc200
 
 if.then188:                                       ; preds = %if.end186
-  %cmp189.not = icmp eq i32 %loSuffix.3278, %cond53
+  %cmp189.not = icmp eq i32 %loSuffix.1278, %cond53
   %64 = add i8 %c17.0, -65
   %65 = icmp ult i8 %64, 26
   %66 = or disjoint i8 %c17.0, 32
@@ -379,7 +379,7 @@ if.then188:                                       ; preds = %if.end186
 if.then190:                                       ; preds = %if.then188
   %suffix1.i157 = getelementptr inbounds %struct.FDRFlood, ptr %call5.i.i.i.i2.i.i143, i64 %conv.i160, i32 1
   %67 = load i32, ptr %suffix1.i157, align 8
-  %add.i158 = add i32 %loSuffix.3278, 1
+  %add.i158 = add i32 %loSuffix.1278, 1
   %.add.i159 = tail call i32 @llvm.umax.i32(i32 %67, i32 %add.i158)
   store i32 %.add.i159, ptr %suffix1.i157, align 8
   br label %for.inc200

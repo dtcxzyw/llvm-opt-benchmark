@@ -922,13 +922,13 @@ define hidden noundef ptr @_ZN22SystemProcessInterface15SystemProcesses15Process
   br label %29
 
 29:                                               ; preds = %14, %27, %18, %13
-  %.022 = phi ptr [ %15, %27 ], [ %15, %18 ], [ %15, %14 ], [ null, %13 ]
+  %.1 = phi ptr [ %15, %27 ], [ %15, %18 ], [ %15, %14 ], [ null, %13 ]
   %30 = call i32 @fclose(ptr noundef nonnull %9)
   br label %31
 
 31:                                               ; preds = %29, %1
-  %.1 = phi ptr [ %.022, %29 ], [ null, %1 ]
-  ret ptr %.1
+  %.022 = phi ptr [ %.1, %29 ], [ null, %1 ]
+  ret ptr %.022
 }
 
 ; Function Attrs: nofree nounwind

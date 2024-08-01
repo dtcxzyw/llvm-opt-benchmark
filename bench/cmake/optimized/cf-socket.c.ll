@@ -2386,7 +2386,7 @@ tcpnodelay.exit:                                  ; preds = %79, %84
   br label %101
 
 101:                                              ; preds = %95, %.fold.split, %.critedge
-  %.0 = phi i1 [ false, %.critedge ], [ true, %95 ], [ false, %.fold.split ]
+  %.1 = phi i1 [ false, %.critedge ], [ true, %95 ], [ false, %.fold.split ]
   %102 = load i32, ptr %20, align 8
   switch i32 %102, label %276 [
     i32 2, label %103
@@ -2778,7 +2778,7 @@ bindlocal.exit:                                   ; preds = %103, %146, %150, %2
   br label %262
 
 262:                                              ; preds = %set_remote_ip.exit, %95, %36, %261, %.thread119
-  %.175.ph = phi i32 [ 45, %.thread119 ], [ 7, %261 ], [ 7, %36 ], [ 42, %95 ], [ 2, %set_remote_ip.exit ]
+  %.074.ph = phi i32 [ 45, %.thread119 ], [ 7, %261 ], [ 7, %36 ], [ 42, %95 ], [ 2, %set_remote_ip.exit ]
   %263 = load i32, ptr %21, align 8
   %.not100 = icmp eq i32 %263, -1
   br i1 %.not100, label %294, label %264
@@ -2825,7 +2825,7 @@ socket_close.exit:                                ; preds = %270, %.thread.i110
   %284 = and i8 %282, -5
   %285 = or disjoint i8 %284, %283
   store i8 %285, ptr %281, align 4
-  br i1 %.0, label %286, label %294
+  br i1 %.1, label %286, label %294
 
 286:                                              ; preds = %276
   %.val = load ptr, ptr %14, align 8
@@ -2844,7 +2844,7 @@ socket_close.exit:                                ; preds = %270, %.thread.i110
   br label %294
 
 294:                                              ; preds = %276, %286, %262, %socket_close.exit
-  %.175126 = phi i32 [ %.175.ph, %socket_close.exit ], [ %.175.ph, %262 ], [ 0, %286 ], [ 0, %276 ]
+  %.074126 = phi i32 [ %.074.ph, %socket_close.exit ], [ %.074.ph, %262 ], [ 0, %286 ], [ 0, %276 ]
   %295 = getelementptr inbounds i8, ptr %1, i64 2642
   %296 = load i64, ptr %295, align 2
   %297 = and i64 %296, 268435456
@@ -2862,11 +2862,11 @@ socket_close.exit:                                ; preds = %270, %.thread.i110
 
 305:                                              ; preds = %300
   %306 = load i32, ptr %21, align 8
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i32 noundef %.175126, i32 noundef %306) #13
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i32 noundef %.074126, i32 noundef %306) #13
   br label %307
 
 307:                                              ; preds = %294, %300, %305
-  ret i32 %.175126
+  ret i32 %.074126
 }
 
 ; Function Attrs: nounwind uwtable

@@ -372,7 +372,7 @@ define internal noundef i32 @_ZL10str_formatP9lua_State(ptr noundef %0) #0 {
 
 80:                                               ; preds = %73, %68
   %81 = phi i8 [ %71, %68 ], [ %.pre.i, %73 ]
-  %.4.i = phi ptr [ %.2.i, %68 ], [ %spec.select42.i, %73 ]
+  %.3.i = phi ptr [ %.2.i, %68 ], [ %spec.select42.i, %73 ]
   %82 = zext i8 %81 to i32
   %isdigittmp39.i = add nsw i32 %82, -48
   %isdigit40.i = icmp ult i32 %isdigittmp39.i, 10
@@ -384,14 +384,14 @@ define internal noundef i32 @_ZL10str_formatP9lua_State(ptr noundef %0) #0 {
 
 _ZL10scanformatP9lua_StatePKcPcPm.exit:           ; preds = %80
   store i8 37, ptr %5, align 16
-  %84 = ptrtoint ptr %.4.i to i64
+  %84 = ptrtoint ptr %.3.i to i64
   %85 = sub i64 %84, %64
   %86 = add nsw i64 %85, 1
   %87 = call ptr @strncpy(ptr noundef nonnull %14, ptr noundef nonnull %30, i64 noundef %86) #14
   %88 = getelementptr inbounds i8, ptr %14, i64 %86
   store i8 0, ptr %88, align 1
-  %89 = getelementptr inbounds i8, ptr %.4.i, i64 1
-  %90 = load i8, ptr %.4.i, align 1
+  %89 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  %90 = load i8, ptr %.3.i, align 1
   switch i8 %90, label %187 [
     i8 99, label %91
     i8 100, label %95
@@ -696,8 +696,8 @@ define internal noundef i32 @_ZL8str_gsubP9lua_State(ptr noundef %0) #0 {
   br label %34
 
 34:                                               ; preds = %142, %21
-  %.040 = phi i32 [ 0, %21 ], [ %.14150, %142 ]
-  %.0 = phi ptr [ %7, %21 ], [ %.1, %142 ]
+  %.040 = phi i32 [ 0, %21 ], [ %.24250, %142 ]
+  %.0 = phi ptr [ %7, %21 ], [ %.2, %142 ]
   %35 = icmp slt i32 %.040, %13
   br i1 %35, label %36, label %143
 
@@ -919,7 +919,7 @@ _ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit: ; preds = %127, %_ZL5add_s
   br i1 %128, label %142, label %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit.thread
 
 _ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit.thread: ; preds = %36, %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit
-  %.14149 = phi i32 [ %39, %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit ], [ %.040, %36 ]
+  %.24249 = phi i32 [ %39, %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit ], [ %.040, %36 ]
   %129 = load ptr, ptr %27, align 8
   %130 = icmp ult ptr %.0, %129
   br i1 %130, label %131, label %143
@@ -945,20 +945,20 @@ _ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit.thread: ; preds = %36, %_ZL
   br label %142
 
 142:                                              ; preds = %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit, %137
-  %.14150 = phi i32 [ %.14149, %137 ], [ %39, %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit ]
-  %.1 = phi ptr [ %139, %137 ], [ %37, %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit ]
+  %.24250 = phi i32 [ %.24249, %137 ], [ %39, %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit ]
+  %.2 = phi ptr [ %139, %137 ], [ %37, %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit ]
   br i1 %15, label %143, label %34, !llvm.loop !13
 
 143:                                              ; preds = %142, %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit.thread, %34
-  %.242 = phi i32 [ %.14150, %142 ], [ %.14149, %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit.thread ], [ %.040, %34 ]
-  %.2 = phi ptr [ %.1, %142 ], [ %.0, %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit.thread ], [ %.0, %34 ]
+  %.141 = phi i32 [ %.24250, %142 ], [ %.24249, %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit.thread ], [ %.040, %34 ]
+  %.1 = phi ptr [ %.2, %142 ], [ %.0, %_ZL9add_valueP10MatchStateP11luaL_StrbufPKcS4_i.exit.thread ], [ %.0, %34 ]
   %144 = load ptr, ptr %27, align 8
   %145 = ptrtoint ptr %144 to i64
-  %146 = ptrtoint ptr %.2 to i64
+  %146 = ptrtoint ptr %.1 to i64
   %147 = sub i64 %145, %146
-  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %6, ptr noundef %.2, i64 noundef %147)
+  call void @_Z15luaL_addlstringP11luaL_StrbufPKcm(ptr noundef nonnull %6, ptr noundef %.1, i64 noundef %147)
   call void @_Z15luaL_pushresultP11luaL_Strbuf(ptr noundef nonnull %6)
-  call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %.242)
+  call void @_Z15lua_pushintegerP9lua_Statei(ptr noundef %0, i32 noundef %.141)
   ret i32 2
 }
 
@@ -3230,7 +3230,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread175: ; preds = %248, %_ZL11sin
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread175, %.loopexit.loopexit649
-  %.1 = phi ptr [ %31, %.loopexit.loopexit649 ], [ %.0.ph281, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread175 ]
+  %.2 = phi ptr [ %31, %.loopexit.loopexit649 ], [ %.0.ph281, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread175 ]
   %296 = getelementptr inbounds i8, ptr %.018.i125, i64 -1
   switch i8 %35, label %.split [
     i8 46, label %.split.us.preheader
@@ -3240,13 +3240,13 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread175: ; preds = %248, %_ZL11sin
 
 .split.us.preheader:                              ; preds = %.loopexit
   %.val331399 = ptrtoint ptr %.val to i64
-  %.1398 = ptrtoint ptr %.1 to i64
-  %297 = tail call i64 @llvm.usub.sat.i64(i64 %.val331399, i64 %.1398)
+  %.2398 = ptrtoint ptr %.2 to i64
+  %297 = tail call i64 @llvm.usub.sat.i64(i64 %.val331399, i64 %.2398)
   br label %.lr.ph309
 
 .split.us290:                                     ; preds = %.loopexit, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit149.us293
   %.014.i.us291 = phi i64 [ %304, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit149.us293 ], [ 0, %.loopexit ]
-  %298 = getelementptr inbounds i8, ptr %.1, i64 %.014.i.us291
+  %298 = getelementptr inbounds i8, ptr %.2, i64 %.014.i.us291
   %.not.i136.us292 = icmp ugt ptr %.val, %298
   br i1 %.not.i136.us292, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit149.us293, label %.lr.ph309
 
@@ -3262,7 +3262,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit149.us293: ; preds = %.split.us290
 
 .split.us299:                                     ; preds = %.loopexit, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit149.us302
   %.014.i.us300 = phi i64 [ %334, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit149.us302 ], [ 0, %.loopexit ]
-  %305 = getelementptr inbounds i8, ptr %.1, i64 %.014.i.us300
+  %305 = getelementptr inbounds i8, ptr %.2, i64 %.014.i.us300
   %.not.i136.us301 = icmp ugt ptr %.val, %305
   br i1 %.not.i136.us301, label %306, label %.lr.ph309
 
@@ -3327,7 +3327,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit149.us302: ; preds = %331, %328, %326
 
 .split:                                           ; preds = %.loopexit, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit149
   %.014.i = phi i64 [ %337, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit149 ], [ 0, %.loopexit ]
-  %335 = getelementptr inbounds i8, ptr %.1, i64 %.014.i
+  %335 = getelementptr inbounds i8, ptr %.2, i64 %.014.i
   %.not.i136 = icmp ugt ptr %.val, %335
   br i1 %.not.i136, label %_ZL11singlematchP10MatchStatePKcS2_S2_.exit149, label %.lr.ph309
 
@@ -3349,7 +3349,7 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit149:   ; preds = %.split
 
 342:                                              ; preds = %.lr.ph309, %339
   %.1.i131308 = phi i64 [ %.us-phi, %.lr.ph309 ], [ %340, %339 ]
-  %343 = getelementptr inbounds i8, ptr %.1, i64 %.1.i131308
+  %343 = getelementptr inbounds i8, ptr %.2, i64 %.1.i131308
   %344 = tail call fastcc noundef ptr @_ZL5matchP10MatchStatePKcS2_(ptr noundef nonnull %0, ptr noundef nonnull %343, ptr noundef nonnull %338)
   %.not16.i = icmp eq ptr %344, null
   br i1 %.not16.i, label %339, label %_ZL13start_captureP10MatchStatePKcS2_i.exit
@@ -3456,11 +3456,11 @@ _ZL11singlematchP10MatchStatePKcS2_S2_.exit163.thread182: ; preds = %346, %_ZL11
   br i1 %.not90270, label %_ZL13start_captureP10MatchStatePKcS2_i.exit, label %.lr.ph
 
 _ZL13start_captureP10MatchStatePKcS2_i.exit:      ; preds = %.outer.backedge, %220, %_ZL13check_captureP10MatchStatei.exit.i, %108, %105, %.backedge, %_ZL17matchbracketclassiPKcS0_.exit117, %_ZL17matchbracketclassiPKcS0_.exit, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread, %293, %153, %122, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit163.thread182, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit163, %345, %339, %342, %21, %.preheader185, %91, %_ZL16capture_to_closeP10MatchState.exit, %66, %59, %53, %45, %93
-  %.2 = phi ptr [ %96, %93 ], [ %51, %45 ], [ null, %53 ], [ %64, %59 ], [ null, %66 ], [ %89, %_ZL16capture_to_closeP10MatchState.exit ], [ null, %91 ], [ %291, %.preheader185 ], [ %1, %21 ], [ null, %339 ], [ %344, %342 ], [ %384, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit163.thread182 ], [ null, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit163 ], [ null, %345 ], [ null, %122 ], [ null, %153 ], [ %295, %293 ], [ null, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread ], [ null, %_ZL17matchbracketclassiPKcS0_.exit ], [ null, %_ZL17matchbracketclassiPKcS0_.exit117 ], [ %.0.ph281, %.backedge ], [ %.0.ph.be, %.outer.backedge ], [ null, %220 ], [ null, %_ZL13check_captureP10MatchStatei.exit.i ], [ null, %108 ], [ null, %105 ]
+  %.1 = phi ptr [ %96, %93 ], [ %51, %45 ], [ null, %53 ], [ %64, %59 ], [ null, %66 ], [ %89, %_ZL16capture_to_closeP10MatchState.exit ], [ null, %91 ], [ %291, %.preheader185 ], [ %1, %21 ], [ null, %339 ], [ %344, %342 ], [ %384, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit163.thread182 ], [ null, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit163 ], [ null, %345 ], [ null, %122 ], [ null, %153 ], [ %295, %293 ], [ null, %_ZL11singlematchP10MatchStatePKcS2_S2_.exit.thread ], [ null, %_ZL17matchbracketclassiPKcS0_.exit ], [ null, %_ZL17matchbracketclassiPKcS0_.exit117 ], [ %.0.ph281, %.backedge ], [ %.0.ph.be, %.outer.backedge ], [ null, %220 ], [ null, %_ZL13check_captureP10MatchStatei.exit.i ], [ null, %108 ], [ null, %105 ]
   %385 = load i32, ptr %0, align 8
   %386 = add nsw i32 %385, 1
   store i32 %386, ptr %0, align 8
-  ret ptr %.2
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

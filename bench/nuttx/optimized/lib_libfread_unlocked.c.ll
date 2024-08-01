@@ -94,7 +94,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
 
 47:                                               ; preds = %.lr.ph149, %93
   %.1148 = phi ptr [ %.095.lcssa, %.lr.ph149 ], [ %.3, %93 ]
-  %.1101147 = phi i64 [ %.0100.lcssa, %.lr.ph149 ], [ %.3103, %93 ]
+  %.2102147 = phi i64 [ %.0100.lcssa, %.lr.ph149 ], [ %.4104, %93 ]
   %48 = load ptr, ptr %42, align 8
   %49 = load ptr, ptr %43, align 8
   %.not116 = icmp eq ptr %48, %49
@@ -104,9 +104,9 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   %51 = ptrtoint ptr %49 to i64
   %52 = ptrtoint ptr %48 to i64
   %53 = sub i64 %52, %51
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %53, i64 %.1101147)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %53, i64 %.2102147)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1148, ptr align 1 %49, i64 %spec.select, i1 false)
-  %54 = sub i64 %.1101147, %spec.select
+  %54 = sub i64 %.2102147, %spec.select
   %55 = load ptr, ptr %43, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 %spec.select
   store ptr %56, ptr %43, align 8
@@ -116,7 +116,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
 
 .thread:                                          ; preds = %47, %50
   %.2127 = phi ptr [ %57, %50 ], [ %.1148, %47 ]
-  %.2102126 = phi i64 [ %54, %50 ], [ %.1101147, %47 ]
+  %.3103126 = phi i64 [ %54, %50 ], [ %.2102147, %47 ]
   %58 = load ptr, ptr %36, align 8
   store ptr %58, ptr %42, align 8
   store ptr %58, ptr %43, align 8
@@ -124,7 +124,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %58 to i64
   %62 = sub i64 %60, %61
-  %63 = icmp ugt i64 %.2102126, %62
+  %63 = icmp ugt i64 %.3103126, %62
   %64 = load ptr, ptr %45, align 8
   %.not120 = icmp eq ptr %64, null
   br i1 %63, label %65, label %79
@@ -134,11 +134,11 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
 
 66:                                               ; preds = %65
   %67 = load ptr, ptr %14, align 8
-  %68 = tail call i64 %64(ptr noundef %67, ptr noundef %.2127, i64 noundef %.2102126) #5
+  %68 = tail call i64 %64(ptr noundef %67, ptr noundef %.2127, i64 noundef %.3103126) #5
   br label %71
 
 69:                                               ; preds = %65
-  %70 = tail call i64 @read(i32 noundef %17, ptr noundef %.2127, i64 noundef %.2102126) #5
+  %70 = tail call i64 @read(i32 noundef %17, ptr noundef %.2127, i64 noundef %.3103126) #5
   br label %71
 
 71:                                               ; preds = %69, %66
@@ -147,7 +147,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %71
-  %.not121 = icmp eq i64 %.2102126, %1
+  %.not121 = icmp eq i64 %.3103126, %1
   br i1 %.not121, label %119, label %.thread128
 
 74:                                               ; preds = %71
@@ -156,7 +156,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
 
 76:                                               ; preds = %74
   %77 = getelementptr inbounds i8, ptr %.2127, i64 %.096
-  %78 = sub i64 %.2102126, %.096
+  %78 = sub i64 %.3103126, %.096
   br label %93
 
 79:                                               ; preds = %.thread
@@ -177,7 +177,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %85
-  %.not119 = icmp eq i64 %.2102126, %1
+  %.not119 = icmp eq i64 %.3103126, %1
   br i1 %.not119, label %119, label %.thread128
 
 88:                                               ; preds = %85
@@ -191,25 +191,25 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br label %93
 
 93:                                               ; preds = %76, %90
-  %.3103 = phi i64 [ %78, %76 ], [ %.2102126, %90 ]
+  %.4104 = phi i64 [ %78, %76 ], [ %.3103126, %90 ]
   %.3 = phi ptr [ %77, %76 ], [ %.2127, %90 ]
-  %.not115 = icmp eq i64 %.3103, 0
+  %.not115 = icmp eq i64 %.4104, 0
   br i1 %.not115, label %.thread133, label %47, !llvm.loop !8
 
 94:                                               ; preds = %.lr.ph153, %106
   %.4152 = phi ptr [ %.095.lcssa, %.lr.ph153 ], [ %107, %106 ]
-  %.4104151 = phi i64 [ %.0100.lcssa, %.lr.ph153 ], [ %108, %106 ]
+  %.5151 = phi i64 [ %.0100.lcssa, %.lr.ph153 ], [ %108, %106 ]
   %95 = load ptr, ptr %38, align 8
   %.not113 = icmp eq ptr %95, null
   br i1 %.not113, label %99, label %96
 
 96:                                               ; preds = %94
   %97 = load ptr, ptr %14, align 8
-  %98 = tail call i64 %95(ptr noundef %97, ptr noundef %.4152, i64 noundef %.4104151) #5
+  %98 = tail call i64 %95(ptr noundef %97, ptr noundef %.4152, i64 noundef %.5151) #5
   br label %101
 
 99:                                               ; preds = %94
-  %100 = tail call i64 @read(i32 noundef %17, ptr noundef %.4152, i64 noundef %.4104151) #5
+  %100 = tail call i64 @read(i32 noundef %17, ptr noundef %.4152, i64 noundef %.5151) #5
   br label %101
 
 101:                                              ; preds = %99, %96
@@ -218,7 +218,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %101
-  %.not114 = icmp eq i64 %.4104151, %1
+  %.not114 = icmp eq i64 %.5151, %1
   br i1 %.not114, label %119, label %.thread128
 
 104:                                              ; preds = %101
@@ -227,7 +227,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
 
 106:                                              ; preds = %104
   %107 = getelementptr inbounds i8, ptr %.4152, i64 %.298
-  %108 = sub i64 %.4104151, %.298
+  %108 = sub i64 %.5151, %.298
   %.not112 = icmp eq i64 %108, 0
   br i1 %.not112, label %.thread133, label %94, !llvm.loop !9
 
@@ -243,7 +243,7 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br label %117
 
 .thread128:                                       ; preds = %88, %74, %104, %103, %87, %73, %109
-  %.5131 = phi i64 [ %.0100.lcssa, %109 ], [ %.4104151, %103 ], [ %.2102126, %87 ], [ %.2102126, %73 ], [ %.4104151, %104 ], [ %.2102126, %74 ], [ %.2102126, %88 ]
+  %.1101131 = phi i64 [ %.0100.lcssa, %109 ], [ %.5151, %103 ], [ %.3103126, %87 ], [ %.3103126, %73 ], [ %.5151, %104 ], [ %.3103126, %74 ], [ %.3103126, %88 ]
   %114 = getelementptr inbounds i8, ptr %2, i64 194
   %115 = load i8, ptr %114, align 2
   %116 = or i8 %115, 1
@@ -251,8 +251,8 @@ define i64 @lib_fread_unlocked(ptr noundef %0, i64 noundef %1, ptr noundef %2) l
   br label %117
 
 117:                                              ; preds = %.thread128, %.thread133
-  %.5130 = phi i64 [ %.5131, %.thread128 ], [ 0, %.thread133 ]
-  %118 = sub i64 %1, %.5130
+  %.1101130 = phi i64 [ %.1101131, %.thread128 ], [ 0, %.thread133 ]
+  %118 = sub i64 %1, %.1101130
   br label %123
 
 119:                                              ; preds = %103, %87, %73, %46

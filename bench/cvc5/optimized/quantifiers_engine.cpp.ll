@@ -1767,11 +1767,11 @@ if.then42:                                        ; preds = %invoke.cont40
   br i1 %cmp.i.not1950, label %if.end69, label %for.body
 
 for.body:                                         ; preds = %if.then42, %for.inc
-  %needsModelE.0 = phi i32 [ %needsModelE.1, %for.inc ], [ 4, %if.then42 ]
-  %needsCheck.01955 = phi i1 [ %needsCheck.1, %for.inc ], [ %8, %if.then42 ]
-  %qm.sroa.0.01954 = phi ptr [ %qm.sroa.0.3, %for.inc ], [ null, %if.then42 ]
-  %qm.sroa.8.01953 = phi ptr [ %qm.sroa.8.2, %for.inc ], [ null, %if.then42 ]
-  %qm.sroa.14.01952 = phi ptr [ %qm.sroa.14.2, %for.inc ], [ null, %if.then42 ]
+  %needsModelE.1 = phi i32 [ %needsModelE.2, %for.inc ], [ 4, %if.then42 ]
+  %needsCheck.11955 = phi i1 [ %needsCheck.2, %for.inc ], [ %8, %if.then42 ]
+  %qm.sroa.0.21954 = phi ptr [ %qm.sroa.0.4, %for.inc ], [ null, %if.then42 ]
+  %qm.sroa.8.11953 = phi ptr [ %qm.sroa.8.2, %for.inc ], [ null, %if.then42 ]
+  %qm.sroa.14.01952 = phi ptr [ %qm.sroa.14.1, %for.inc ], [ null, %if.then42 ]
   %__begin3.sroa.0.01951 = phi ptr [ %incdec.ptr.i111, %for.inc ], [ %9, %if.then42 ]
   %11 = load ptr, ptr %__begin3.sroa.0.01951, align 8
   %vtable50 = load ptr, ptr %11, align 8
@@ -1784,17 +1784,17 @@ invoke.cont52:                                    ; preds = %for.body
   br i1 %call53, label %if.then54, label %for.inc
 
 if.then54:                                        ; preds = %invoke.cont52
-  %cmp.not.i107 = icmp eq ptr %qm.sroa.8.01953, %qm.sroa.14.01952
+  %cmp.not.i107 = icmp eq ptr %qm.sroa.8.11953, %qm.sroa.14.01952
   br i1 %cmp.not.i107, label %if.else.i, label %if.then.i108
 
 if.then.i108:                                     ; preds = %if.then54
   %13 = load ptr, ptr %__begin3.sroa.0.01951, align 8
-  store ptr %13, ptr %qm.sroa.8.01953, align 8
+  store ptr %13, ptr %qm.sroa.8.11953, align 8
   br label %invoke.cont55
 
 if.else.i:                                        ; preds = %if.then54
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %qm.sroa.8.01953 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %qm.sroa.0.01954 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %qm.sroa.8.11953 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %qm.sroa.0.21954 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE12_M_check_lenEmPKc.exit.i.i
@@ -1830,16 +1830,16 @@ _ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allo
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %qm.sroa.0.01954, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %qm.sroa.0.21954, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i
 
 _ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i.i = icmp eq ptr %qm.sroa.0.01954, null
+  %tobool.not.i.i.i = icmp eq ptr %qm.sroa.0.21954, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %qm.sroa.0.01954) #21
+  call void @_ZdlPv(ptr noundef nonnull %qm.sroa.0.21954) #21
   br label %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i
@@ -1847,10 +1847,10 @@ _ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_ins
   br label %invoke.cont55
 
 invoke.cont55:                                    ; preds = %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %if.then.i108
-  %qm.sroa.14.1 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %qm.sroa.14.01952, %if.then.i108 ]
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %qm.sroa.8.01953, %if.then.i108 ]
-  %qm.sroa.0.1 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %qm.sroa.0.01954, %if.then.i108 ]
-  %qm.sroa.8.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
+  %qm.sroa.14.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %qm.sroa.14.01952, %if.then.i108 ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %qm.sroa.8.11953, %if.then.i108 ]
+  %qm.sroa.0.5 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPN4cvc58internal6theory17QuantifiersModuleESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %qm.sroa.0.21954, %if.then.i108 ]
+  %qm.sroa.8.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
   br i1 %cmp43, label %if.then57, label %for.inc
 
 if.then57:                                        ; preds = %invoke.cont55
@@ -1862,7 +1862,7 @@ if.then57:                                        ; preds = %invoke.cont55
           to label %invoke.cont60 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont60:                                    ; preds = %if.then57
-  %cond = call i32 @llvm.smin.i32(i32 %call61, i32 %needsModelE.0)
+  %cond = call i32 @llvm.smin.i32(i32 %call61, i32 %needsModelE.1)
   br label %for.inc
 
 lpad39.loopexit:                                  ; preds = %for.cond1004, %for.body1010
@@ -1901,32 +1901,32 @@ lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.l
   br label %ehcleanup1308
 
 lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %cond.true.i.i.i, %if.then57, %for.body
-  %qm.sroa.0.2.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %qm.sroa.0.1, %if.then57 ], [ %qm.sroa.0.01954, %cond.true.i.i.i ], [ %qm.sroa.0.01954, %for.body ]
+  %qm.sroa.0.0.ph.ph.ph.ph.ph.ph.ph.ph = phi ptr [ %qm.sroa.0.5, %if.then57 ], [ %qm.sroa.0.21954, %cond.true.i.i.i ], [ %qm.sroa.0.21954, %for.body ]
   %lpad.loopexit1925 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup1308
 
 lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then737.invoke, %if.then.i.i.i, %if.end1304, %invoke.cont1301, %if.end1299, %cond.end1296, %land.lhs.true1275, %invoke.cont1152, %if.then1150, %cond.end1146, %if.then780, %invoke.cont725, %cond.true712, %cond.true629, %invoke.cont106, %if.then104, %land.lhs.true, %invoke.cont71, %if.end69, %invoke.cont37
-  %qm.sroa.0.2.ph.ph.ph.ph.ph.ph.ph.ph1924 = phi ptr [ %qm.sroa.0.01954, %if.then.i.i.i ], [ %qm.sroa.0.4, %if.end1304 ], [ %qm.sroa.0.4, %invoke.cont1301 ], [ %qm.sroa.0.4, %if.end1299 ], [ %qm.sroa.0.4, %cond.end1296 ], [ %qm.sroa.0.4, %land.lhs.true1275 ], [ %qm.sroa.0.4, %invoke.cont1152 ], [ %qm.sroa.0.4, %if.then1150 ], [ %qm.sroa.0.4, %cond.end1146 ], [ %qm.sroa.0.4, %if.then780 ], [ %qm.sroa.0.4, %invoke.cont725 ], [ %qm.sroa.0.4, %cond.true712 ], [ %qm.sroa.0.4, %cond.true629 ], [ %qm.sroa.0.4, %invoke.cont106 ], [ %qm.sroa.0.4, %if.then104 ], [ %qm.sroa.0.4, %land.lhs.true ], [ %qm.sroa.0.4, %invoke.cont71 ], [ %qm.sroa.0.4, %if.end69 ], [ null, %invoke.cont37 ], [ %qm.sroa.0.4, %if.then737.invoke ]
+  %qm.sroa.0.0.ph.ph.ph.ph.ph.ph.ph.ph1924 = phi ptr [ %qm.sroa.0.21954, %if.then.i.i.i ], [ %qm.sroa.0.1, %if.end1304 ], [ %qm.sroa.0.1, %invoke.cont1301 ], [ %qm.sroa.0.1, %if.end1299 ], [ %qm.sroa.0.1, %cond.end1296 ], [ %qm.sroa.0.1, %land.lhs.true1275 ], [ %qm.sroa.0.1, %invoke.cont1152 ], [ %qm.sroa.0.1, %if.then1150 ], [ %qm.sroa.0.1, %cond.end1146 ], [ %qm.sroa.0.1, %if.then780 ], [ %qm.sroa.0.1, %invoke.cont725 ], [ %qm.sroa.0.1, %cond.true712 ], [ %qm.sroa.0.1, %cond.true629 ], [ %qm.sroa.0.1, %invoke.cont106 ], [ %qm.sroa.0.1, %if.then104 ], [ %qm.sroa.0.1, %land.lhs.true ], [ %qm.sroa.0.1, %invoke.cont71 ], [ %qm.sroa.0.1, %if.end69 ], [ null, %invoke.cont37 ], [ %qm.sroa.0.1, %if.then737.invoke ]
   %lpad.loopexit.split-lp1926 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup1308
 
 for.inc:                                          ; preds = %invoke.cont52, %invoke.cont60, %invoke.cont55
-  %needsModelE.1 = phi i32 [ %cond, %invoke.cont60 ], [ %needsModelE.0, %invoke.cont55 ], [ %needsModelE.0, %invoke.cont52 ]
-  %qm.sroa.14.2 = phi ptr [ %qm.sroa.14.1, %invoke.cont60 ], [ %qm.sroa.14.1, %invoke.cont55 ], [ %qm.sroa.14.01952, %invoke.cont52 ]
-  %qm.sroa.8.2 = phi ptr [ %qm.sroa.8.1, %invoke.cont60 ], [ %qm.sroa.8.1, %invoke.cont55 ], [ %qm.sroa.8.01953, %invoke.cont52 ]
-  %qm.sroa.0.3 = phi ptr [ %qm.sroa.0.1, %invoke.cont60 ], [ %qm.sroa.0.1, %invoke.cont55 ], [ %qm.sroa.0.01954, %invoke.cont52 ]
-  %needsCheck.1 = phi i1 [ true, %invoke.cont60 ], [ true, %invoke.cont55 ], [ %needsCheck.01955, %invoke.cont52 ]
+  %needsModelE.2 = phi i32 [ %cond, %invoke.cont60 ], [ %needsModelE.1, %invoke.cont55 ], [ %needsModelE.1, %invoke.cont52 ]
+  %qm.sroa.14.1 = phi ptr [ %qm.sroa.14.2, %invoke.cont60 ], [ %qm.sroa.14.2, %invoke.cont55 ], [ %qm.sroa.14.01952, %invoke.cont52 ]
+  %qm.sroa.8.2 = phi ptr [ %qm.sroa.8.3, %invoke.cont60 ], [ %qm.sroa.8.3, %invoke.cont55 ], [ %qm.sroa.8.11953, %invoke.cont52 ]
+  %qm.sroa.0.4 = phi ptr [ %qm.sroa.0.5, %invoke.cont60 ], [ %qm.sroa.0.5, %invoke.cont55 ], [ %qm.sroa.0.21954, %invoke.cont52 ]
+  %needsCheck.2 = phi i1 [ true, %invoke.cont60 ], [ true, %invoke.cont55 ], [ %needsCheck.11955, %invoke.cont52 ]
   %incdec.ptr.i111 = getelementptr inbounds i8, ptr %__begin3.sroa.0.01951, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i111, %10
   br i1 %cmp.i.not, label %if.end69, label %for.body
 
 if.end69:                                         ; preds = %for.inc, %if.then42, %invoke.cont40
-  %needsModelE.2 = phi i32 [ 4, %if.then42 ], [ 4, %invoke.cont40 ], [ %needsModelE.1, %for.inc ]
-  %qm.sroa.8.3 = phi ptr [ null, %if.then42 ], [ null, %invoke.cont40 ], [ %qm.sroa.8.2, %for.inc ]
-  %qm.sroa.0.4 = phi ptr [ null, %if.then42 ], [ null, %invoke.cont40 ], [ %qm.sroa.0.3, %for.inc ]
-  %needsCheck.2 = phi i1 [ %8, %if.then42 ], [ %call38, %invoke.cont40 ], [ %needsCheck.1, %for.inc ]
+  %needsModelE.0 = phi i32 [ 4, %if.then42 ], [ 4, %invoke.cont40 ], [ %needsModelE.2, %for.inc ]
+  %qm.sroa.8.0 = phi ptr [ null, %if.then42 ], [ null, %invoke.cont40 ], [ %qm.sroa.8.2, %for.inc ]
+  %qm.sroa.0.1 = phi ptr [ null, %if.then42 ], [ null, %invoke.cont40 ], [ %qm.sroa.0.4, %for.inc ]
+  %needsCheck.0 = phi i1 [ %8, %if.then42 ], [ %call38, %invoke.cont40 ], [ %needsCheck.2, %for.inc ]
   %18 = load ptr, ptr %d_qim, align 8
   invoke void @_ZN4cvc58internal6theory22TheoryInferenceManager5resetEv(ptr noundef nonnull align 8 dereferenceable(256) %18)
           to label %invoke.cont71 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -1964,7 +1964,7 @@ cond.true85.thread:                               ; preds = %invoke.cont75
   br label %if.end1273
 
 cond.true85:                                      ; preds = %invoke.cont72, %invoke.cont75
-  br i1 %needsCheck.2, label %if.then104, label %if.end1273
+  br i1 %needsCheck.0, label %if.then104, label %if.end1273
 
 if.then104:                                       ; preds = %cond.true85
   %24 = load ptr, ptr %d_qim, align 8
@@ -2074,15 +2074,15 @@ if.then737.invoke:                                ; preds = %if.end730, %if.then
 
 cond.end756:                                      ; preds = %if.then737.invoke, %if.end730
   %d_te777 = getelementptr inbounds i8, ptr %this, i64 32
-  %cmp.i1000.not1962 = icmp eq ptr %qm.sroa.0.4, %qm.sroa.8.3
+  %cmp.i1000.not1962 = icmp eq ptr %qm.sroa.0.1, %qm.sroa.8.0
   %cmp884 = icmp eq i32 %e, 200
   %d_qreg = getelementptr inbounds i8, ptr %this, i64 96
   br label %for.body759
 
 for.body759:                                      ; preds = %cond.end756, %for.inc1129
-  %setModelUnsound.11979 = phi i8 [ 0, %cond.end756 ], [ %setModelUnsound.9, %for.inc1129 ]
+  %setModelUnsound.11979 = phi i8 [ 0, %cond.end756 ], [ %setModelUnsound.10, %for.inc1129 ]
   %qef.01977 = phi i32 [ 0, %cond.end756 ], [ %inc1130, %for.inc1129 ]
-  %cmp760 = icmp eq i32 %needsModelE.2, %qef.01977
+  %cmp760 = icmp eq i32 %needsModelE.0, %qef.01977
   br i1 %cmp760, label %cond.true765, label %if.end784
 
 cond.true765:                                     ; preds = %for.body759
@@ -2110,7 +2110,7 @@ for.cond793.preheader:                            ; preds = %invoke.cont786
   br i1 %cmp.i1000.not1962, label %for.end863, label %cond.true801
 
 cond.true801:                                     ; preds = %for.cond793.preheader, %invoke.cont842
-  %__begin5.sroa.0.01963 = phi ptr [ %incdec.ptr.i1228, %invoke.cont842 ], [ %qm.sroa.0.4, %for.cond793.preheader ]
+  %__begin5.sroa.0.01963 = phi ptr [ %incdec.ptr.i1228, %invoke.cont842 ], [ %qm.sroa.0.1, %for.cond793.preheader ]
   %43 = load ptr, ptr %__begin5.sroa.0.01963, align 8
   %vtable836 = load ptr, ptr %43, align 8
   %vfn837 = getelementptr inbounds i8, ptr %vtable836, i64 48
@@ -2128,7 +2128,7 @@ invoke.cont838:                                   ; preds = %cond.true801
 
 invoke.cont842:                                   ; preds = %invoke.cont838
   %incdec.ptr.i1228 = getelementptr inbounds i8, ptr %__begin5.sroa.0.01963, i64 8
-  %cmp.i1000.not = icmp eq ptr %incdec.ptr.i1228, %qm.sroa.8.3
+  %cmp.i1000.not = icmp eq ptr %incdec.ptr.i1228, %qm.sroa.8.0
   %or.cond1980 = select i1 %call843, i1 true, i1 %cmp.i1000.not
   br i1 %or.cond1980, label %for.end863, label %cond.true801
 
@@ -2177,7 +2177,7 @@ if.then885:                                       ; preds = %if.else881
   br i1 %cmp.i1230.not1964, label %for.end938, label %for.body893
 
 for.body893:                                      ; preds = %if.then885, %invoke.cont898
-  %setModelUnsound.21966 = phi i8 [ %spec.select1902, %invoke.cont898 ], [ %setModelUnsound.11979, %if.then885 ]
+  %setModelUnsound.31966 = phi i8 [ %spec.select1902, %invoke.cont898 ], [ %setModelUnsound.11979, %if.then885 ]
   %__begin8.sroa.0.01965 = phi ptr [ %incdec.ptr.i1344, %invoke.cont898 ], [ %52, %if.then885 ]
   %54 = load ptr, ptr %__begin8.sroa.0.01965, align 8
   %vtable896 = load ptr, ptr %54, align 8
@@ -2187,13 +2187,13 @@ for.body893:                                      ; preds = %if.then885, %invoke
           to label %invoke.cont898 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont898:                                   ; preds = %for.body893
-  %spec.select1902 = select i1 %call899, i8 %setModelUnsound.21966, i8 1
+  %spec.select1902 = select i1 %call899, i8 %setModelUnsound.31966, i8 1
   %incdec.ptr.i1344 = getelementptr inbounds i8, ptr %__begin8.sroa.0.01965, i64 8
   %cmp.i1230.not = icmp eq ptr %incdec.ptr.i1344, %53
   br i1 %cmp.i1230.not, label %for.end938, label %for.body893
 
 for.end938:                                       ; preds = %invoke.cont898, %if.then885
-  %setModelUnsound.2.lcssa = phi i8 [ %setModelUnsound.11979, %if.then885 ], [ %spec.select1902, %invoke.cont898 ]
+  %setModelUnsound.3.lcssa = phi i8 [ %setModelUnsound.11979, %if.then885 ], [ %spec.select1902, %invoke.cont898 ]
   %56 = load ptr, ptr %d_qstate, align 8
   %vtable940 = load ptr, ptr %56, align 8
   %vfn941 = getelementptr inbounds i8, ptr %vtable940, i64 72
@@ -2202,7 +2202,7 @@ for.end938:                                       ; preds = %invoke.cont898, %if
           to label %invoke.cont942 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont942:                                   ; preds = %for.end938
-  %spec.select = select i1 %call943, i8 1, i8 %setModelUnsound.2.lcssa
+  %spec.select = select i1 %call943, i8 1, i8 %setModelUnsound.3.lcssa
   %tobool946 = trunc nuw i8 %spec.select to i1
   br i1 %tobool946, label %if.end1121, label %if.then947
 
@@ -2233,7 +2233,7 @@ invoke.cont960:                                   ; preds = %for.body955
   br i1 %call961, label %for.cond953, label %for.inc1129
 
 for.cond1004:                                     ; preds = %for.cond1004.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698
-  %setModelUnsound.6 = phi i8 [ %setModelUnsound.7, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698 ], [ %spec.select, %for.cond1004.preheader ]
+  %setModelUnsound.8 = phi i8 [ %setModelUnsound.9, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698 ], [ %spec.select, %for.cond1004.preheader ]
   %i1003.0 = phi i32 [ %inc1118, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698 ], [ 0, %for.cond1004.preheader ]
   %62 = load ptr, ptr %d_model, align 8
   %call1008 = invoke noundef i64 @_ZNK4cvc58internal6theory11quantifiers15FirstOrderModel25getNumAssertedQuantifiersEv(ptr noundef nonnull align 8 dereferenceable(656) %62)
@@ -2498,7 +2498,7 @@ cond.true1082:                                    ; preds = %_ZN4cvc58internal12
   br label %cleanup
 
 cleanup:                                          ; preds = %for.cond1031, %for.cond1031.preheader, %if.end1056, %cond.true1082
-  %setModelUnsound.7 = phi i8 [ %setModelUnsound.6, %cond.true1082 ], [ 1, %if.end1056 ], [ 1, %for.cond1031.preheader ], [ 1, %for.cond1031 ]
+  %setModelUnsound.9 = phi i8 [ %setModelUnsound.8, %cond.true1082 ], [ 1, %if.end1056 ], [ 1, %for.cond1031.preheader ], [ 1, %for.cond1031 ]
   %switch = phi i1 [ true, %cond.true1082 ], [ false, %if.end1056 ], [ false, %for.cond1031.preheader ], [ false, %for.cond1031 ]
   %94 = load ptr, ptr %q, align 8
   %bf.load.i.i1688 = load i64, ptr %94, align 8
@@ -2536,18 +2536,18 @@ ehcleanup1116:                                    ; preds = %lpad1013.loopexit, 
   br label %ehcleanup1308
 
 if.end1121:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698, %invoke.cont1007, %invoke.cont942
-  %setModelUnsound.8 = phi i8 [ %spec.select, %invoke.cont942 ], [ %setModelUnsound.6, %invoke.cont1007 ], [ %setModelUnsound.7, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698 ]
-  %tobool1122 = trunc nuw i8 %setModelUnsound.8 to i1
+  %setModelUnsound.6 = phi i8 [ %spec.select, %invoke.cont942 ], [ %setModelUnsound.8, %invoke.cont1007 ], [ %setModelUnsound.9, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1698 ]
+  %tobool1122 = trunc nuw i8 %setModelUnsound.6 to i1
   br i1 %tobool1122, label %for.inc1129, label %cond.end1146
 
 for.inc1129:                                      ; preds = %invoke.cont960, %if.else881, %if.end1121, %if.then878
-  %setModelUnsound.9 = phi i8 [ %setModelUnsound.11979, %if.then878 ], [ %setModelUnsound.8, %if.end1121 ], [ %setModelUnsound.11979, %if.else881 ], [ 1, %invoke.cont960 ]
+  %setModelUnsound.10 = phi i8 [ %setModelUnsound.11979, %if.then878 ], [ %setModelUnsound.6, %if.end1121 ], [ %setModelUnsound.11979, %if.else881 ], [ 1, %invoke.cont960 ]
   %inc1130 = add nuw nsw i32 %qef.01977, 1
   %exitcond.not = icmp eq i32 %inc1130, 4
   br i1 %exitcond.not, label %cond.end1146, label %for.body759, !llvm.loop !8
 
 cond.end1146:                                     ; preds = %if.end1121, %invoke.cont868, %invoke.cont873, %for.inc1129, %if.then780
-  %setModelUnsound.10 = phi i8 [ %setModelUnsound.11979, %if.then780 ], [ %setModelUnsound.9, %for.inc1129 ], [ %setModelUnsound.8, %if.end1121 ], [ %setModelUnsound.11979, %invoke.cont873 ], [ %setModelUnsound.11979, %invoke.cont868 ]
+  %setModelUnsound.2 = phi i8 [ %setModelUnsound.11979, %if.then780 ], [ %setModelUnsound.10, %for.inc1129 ], [ %setModelUnsound.6, %if.end1121 ], [ %setModelUnsound.11979, %invoke.cont873 ], [ %setModelUnsound.11979, %invoke.cont868 ]
   %98 = load ptr, ptr %d_qim, align 8
   %call1149 = invoke noundef zeroext i1 @_ZNK4cvc58internal6theory22TheoryInferenceManager12hasSentLemmaEv(ptr noundef nonnull align 8 dereferenceable(256) %98)
           to label %invoke.cont1148 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -2572,7 +2572,7 @@ invoke.cont1154:                                  ; preds = %invoke.cont1152
   br label %if.end1273
 
 if.end1273:                                       ; preds = %cond.true85.thread, %cond.true85, %invoke.cont1148, %invoke.cont1154
-  %setModelUnsound.11 = phi i8 [ %setModelUnsound.10, %invoke.cont1154 ], [ %setModelUnsound.10, %invoke.cont1148 ], [ 0, %cond.true85 ], [ 1, %cond.true85.thread ]
+  %setModelUnsound.11 = phi i8 [ %setModelUnsound.2, %invoke.cont1154 ], [ %setModelUnsound.2, %invoke.cont1148 ], [ 0, %cond.true85 ], [ 1, %cond.true85.thread ]
   %cmp1274 = icmp eq i32 %e, 200
   br i1 %cmp1274, label %land.lhs.true1275, label %if.end1304
 
@@ -2609,11 +2609,11 @@ if.end1304:                                       ; preds = %invoke.cont1301, %i
           to label %cleanup1307 unwind label %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 cleanup1307:                                      ; preds = %invoke.cont569, %if.end1304, %invoke.cont727, %invoke.cont108
-  %tobool.not.i.i.i1811 = icmp eq ptr %qm.sroa.0.4, null
+  %tobool.not.i.i.i1811 = icmp eq ptr %qm.sroa.0.1, null
   br i1 %tobool.not.i.i.i1811, label %cleanup1309, label %if.then.i.i.i1812
 
 if.then.i.i.i1812:                                ; preds = %cleanup1307
-  call void @_ZdlPv(ptr noundef nonnull %qm.sroa.0.4) #21
+  call void @_ZdlPv(ptr noundef nonnull %qm.sroa.0.1) #21
   br label %cleanup1309
 
 cleanup1309:                                      ; preds = %invoke.cont16, %invoke.cont4, %if.then.i.i.i1812, %cleanup1307
@@ -2621,13 +2621,13 @@ cleanup1309:                                      ; preds = %invoke.cont16, %inv
   ret void
 
 ehcleanup1308:                                    ; preds = %lpad39.loopexit, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad39.loopexit.split-lp.loopexit, %ehcleanup1116
-  %qm.sroa.0.5 = phi ptr [ %qm.sroa.0.4, %ehcleanup1116 ], [ %qm.sroa.0.4, %lpad39.loopexit ], [ %qm.sroa.0.4, %lpad39.loopexit.split-lp.loopexit ], [ %qm.sroa.0.4, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %qm.sroa.0.4, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %qm.sroa.0.4, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %qm.sroa.0.4, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %qm.sroa.0.4, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %qm.sroa.0.2.ph.ph.ph.ph.ph.ph.ph.ph, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %qm.sroa.0.2.ph.ph.ph.ph.ph.ph.ph.ph1924, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %qm.sroa.0.3 = phi ptr [ %qm.sroa.0.1, %ehcleanup1116 ], [ %qm.sroa.0.1, %lpad39.loopexit ], [ %qm.sroa.0.1, %lpad39.loopexit.split-lp.loopexit ], [ %qm.sroa.0.1, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %qm.sroa.0.1, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %qm.sroa.0.1, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %qm.sroa.0.1, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %qm.sroa.0.1, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %qm.sroa.0.0.ph.ph.ph.ph.ph.ph.ph.ph, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %qm.sroa.0.0.ph.ph.ph.ph.ph.ph.ph.ph1924, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn47 = phi { ptr, i32 } [ %.pn43, %ehcleanup1116 ], [ %lpad.loopexit1903, %lpad39.loopexit ], [ %lpad.loopexit1906, %lpad39.loopexit.split-lp.loopexit ], [ %lpad.loopexit1909, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1912, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1915, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1918, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1921, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1925, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1926, %lpad39.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %tobool.not.i.i.i1813 = icmp eq ptr %qm.sroa.0.5, null
+  %tobool.not.i.i.i1813 = icmp eq ptr %qm.sroa.0.3, null
   br i1 %tobool.not.i.i.i1813, label %ehcleanup1312, label %if.then.i.i.i1814
 
 if.then.i.i.i1814:                                ; preds = %ehcleanup1308
-  call void @_ZdlPv(ptr noundef nonnull %qm.sroa.0.5) #21
+  call void @_ZdlPv(ptr noundef nonnull %qm.sroa.0.3) #21
   br label %ehcleanup1312
 
 ehcleanup1312:                                    ; preds = %if.then.i.i.i1814, %ehcleanup1308, %lpad

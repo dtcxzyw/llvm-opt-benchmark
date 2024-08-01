@@ -3082,7 +3082,7 @@ invoke.cont56.cleanup_crit_edge:                  ; preds = %invoke.cont56
 
 cleanup:                                          ; preds = %invoke.cont56.cleanup_crit_edge, %if.then33
   %46 = phi ptr [ %16, %if.then33 ], [ %.pre, %invoke.cont56.cleanup_crit_edge ]
-  %retval.0 = phi ptr [ null, %if.then33 ], [ %call57, %invoke.cont56.cleanup_crit_edge ]
+  %retval.1 = phi ptr [ null, %if.then33 ], [ %call57, %invoke.cont56.cleanup_crit_edge ]
   %cmp.not.i.i.i73 = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i73, label %_ZNSt10shared_ptrIN7rocksdb15ManagedSnapshotEED2Ev.exit103, label %if.then.i.i.i74
 
@@ -3189,8 +3189,8 @@ terminate.lpad.i.i.i115:                          ; preds = %if.then.i.i.i112
   unreachable
 
 return:                                           ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %invoke.cont, %if.then.i.i.i106, %_ZNSt10shared_ptrIN7rocksdb15ManagedSnapshotEED2Ev.exit103
-  %retval.1 = phi ptr [ %retval.0, %_ZNSt10shared_ptrIN7rocksdb15ManagedSnapshotEED2Ev.exit103 ], [ %retval.0, %if.then.i.i.i106 ], [ %call, %invoke.cont ], [ %call, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %_ZNSt10shared_ptrIN7rocksdb15ManagedSnapshotEED2Ev.exit103 ], [ %retval.1, %if.then.i.i.i106 ], [ %call, %invoke.cont ], [ %call, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ]
+  ret ptr %retval.0
 }
 
 declare noundef ptr @_ZN7rocksdb16NewErrorIteratorERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3

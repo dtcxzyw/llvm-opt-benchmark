@@ -314,8 +314,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 64:                                               ; preds = %62, %60
   %.pn20 = phi { ptr, i32 } [ %63, %62 ], [ %61, %60 ]
-  %.0 = extractvalue { ptr, i32 } %.pn20, 0
-  %.013 = extractvalue { ptr, i32 } %.pn20, 1
+  %.1 = extractvalue { ptr, i32 } %.pn20, 0
+  %.114 = extractvalue { ptr, i32 } %.pn20, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   br label %119
 
@@ -499,8 +499,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   br label %.loopexit48
 
 .loopexit48:                                      ; preds = %104, %115
-  %.316 = phi i32 [ %118, %115 ], [ %.215, %104 ]
-  %.3 = phi ptr [ %117, %115 ], [ %.2, %104 ]
+  %.417 = phi i32 [ %118, %115 ], [ %.215, %104 ]
+  %.4 = phi ptr [ %117, %115 ], [ %.2, %104 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
   br label %119
 
@@ -508,11 +508,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %_ZN
   ret void
 
 119:                                              ; preds = %.loopexit48, %64, %57
-  %.417 = phi i32 [ %.013, %64 ], [ %59, %57 ], [ %.316, %.loopexit48 ]
-  %.4 = phi ptr [ %.0, %64 ], [ %58, %57 ], [ %.3, %.loopexit48 ]
+  %.013 = phi i32 [ %.114, %64 ], [ %59, %57 ], [ %.417, %.loopexit48 ]
+  %.0 = phi ptr [ %.1, %64 ], [ %58, %57 ], [ %.4, %.loopexit48 ]
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix9PublicKeyESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #16
-  %120 = insertvalue { ptr, i32 } poison, ptr %.4, 0
-  %121 = insertvalue { ptr, i32 } %120, i32 %.417, 1
+  %120 = insertvalue { ptr, i32 } poison, ptr %.0, 0
+  %121 = insertvalue { ptr, i32 } %120, i32 %.013, 1
   resume { ptr, i32 } %121
 }
 

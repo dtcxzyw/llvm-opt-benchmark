@@ -1613,7 +1613,7 @@ if.else103:                                       ; preds = %if.else100
   br label %if.end108
 
 if.end108:                                        ; preds = %if.then13.i.i198, %if.then.i.i192, %invoke.cont73, %if.else100, %invoke.cont95, %invoke.cont86, %if.else103
-  %tid.0 = phi i32 [ %cond, %if.else103 ], [ %call81, %invoke.cont86 ], [ %call87, %invoke.cont95 ], [ %call81, %if.else100 ], [ %usortOwner.id.0.i181, %invoke.cont73 ], [ %usortOwner.id.0.i181, %if.then.i.i192 ], [ %usortOwner.id.0.i181, %if.then13.i.i198 ]
+  %tid.1 = phi i32 [ %cond, %if.else103 ], [ %call81, %invoke.cont86 ], [ %call87, %invoke.cont95 ], [ %call81, %if.else100 ], [ %usortOwner.id.0.i181, %invoke.cont73 ], [ %usortOwner.id.0.i181, %if.then.i.i192 ], [ %usortOwner.id.0.i181, %if.then13.i.i198 ]
   %57 = load ptr, ptr %rtype, align 8
   %bf.load.i.i201 = load i64, ptr %57, align 8
   %58 = and i64 %bf.load.i.i201, 1152920405095219200
@@ -1696,8 +1696,8 @@ lpad119:                                          ; preds = %invoke.cont120, %sw
   unreachable
 
 sw.epilog:                                        ; preds = %if.then13.i.i220, %if.then.i.i214, %_ZN4cvc58internal8TypeNodeD2Ev.exit211, %if.then13.i.i86, %if.then.i.i80, %invoke.cont23, %if.then6, %if.else40, %_ZN4cvc58internal8TypeNodeD2Ev.exit126, %if.else113, %_ZN4cvc58internal8TypeNodeD2Ev.exit60, %if.else25
-  %tid.1 = phi i32 [ %call115, %if.else113 ], [ %usortOwner.id.0.i, %_ZN4cvc58internal8TypeNodeD2Ev.exit60 ], [ %call27, %if.else25 ], [ %spec.select, %if.then6 ], [ 2, %_ZN4cvc58internal8TypeNodeD2Ev.exit126 ], [ %., %if.else40 ], [ %usortOwner.id.0.i69, %invoke.cont23 ], [ %usortOwner.id.0.i69, %if.then.i.i80 ], [ %usortOwner.id.0.i69, %if.then13.i.i86 ], [ %tid.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit211 ], [ %tid.0, %if.then.i.i214 ], [ %tid.0, %if.then13.i.i220 ]
-  ret i32 %tid.1
+  %tid.0 = phi i32 [ %call115, %if.else113 ], [ %usortOwner.id.0.i, %_ZN4cvc58internal8TypeNodeD2Ev.exit60 ], [ %call27, %if.else25 ], [ %spec.select, %if.then6 ], [ 2, %_ZN4cvc58internal8TypeNodeD2Ev.exit126 ], [ %., %if.else40 ], [ %usortOwner.id.0.i69, %invoke.cont23 ], [ %usortOwner.id.0.i69, %if.then.i.i80 ], [ %usortOwner.id.0.i69, %if.then13.i.i86 ], [ %tid.1, %_ZN4cvc58internal8TypeNodeD2Ev.exit211 ], [ %tid.1, %if.then.i.i214 ], [ %tid.1, %if.then13.i.i220 ]
+  ret i32 %tid.0
 
 eh.resume:                                        ; preds = %lpad62, %ehcleanup109, %lpad22, %lpad34, %lpad3, %lpad
   %ltype.sink = phi ptr [ %agg.tmp19, %lpad22 ], [ %agg.tmp33, %lpad34 ], [ %agg.tmp2, %lpad3 ], [ %agg.tmp, %lpad ], [ %ltype, %ehcleanup109 ], [ %ltype, %lpad62 ]
@@ -4023,8 +4023,8 @@ if.end23:                                         ; preds = %lor.rhs
   br label %return
 
 return:                                           ; preds = %if.end, %lor.rhs, %entry, %if.end23
-  %retval.1 = phi i1 [ %or.cond1, %if.end23 ], [ true, %entry ], [ false, %lor.rhs ], [ false, %if.end ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %or.cond1, %if.end23 ], [ true, %entry ], [ false, %lor.rhs ], [ false, %if.end ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine11areDisequalENS0_12NodeTemplateILb0EEES5_b(ptr noundef nonnull align 8 dereferenceable(1784), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0

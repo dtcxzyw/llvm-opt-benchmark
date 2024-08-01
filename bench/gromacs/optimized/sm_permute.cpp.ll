@@ -211,10 +211,10 @@ define internal void @_ZL12init_permutePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(pt
 
 39:                                               ; preds = %35, %37
   %.pn63 = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
-  %.140 = phi i1 [ %.039, %37 ], [ true, %35 ]
+  %.3 = phi i1 [ %.039, %37 ], [ true, %35 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
-  br i1 %.140, label %.sink.split, label %93
+  br i1 %.3, label %.sink.split, label %93
 
 40:                                               ; preds = %4
   %41 = getelementptr inbounds i8, ptr %3, i64 168
@@ -533,10 +533,10 @@ define internal void @_ZL16evaluate_permuteRKN3gmx20SelMethodEvalContextEP13gmx_
 
 29:                                               ; preds = %25, %27
   %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
-  %.1 = phi i1 [ %.0, %27 ], [ true, %25 ]
+  %.3 = phi i1 [ %.0, %27 ], [ true, %25 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #14
-  br i1 %.1, label %30, label %71
+  br i1 %.3, label %30, label %71
 
 30:                                               ; preds = %.thread52, %.thread, %29
   %.pn.pn.pn51 = phi { ptr, i32 } [ %23, %.thread ], [ %.pn, %29 ], [ %24, %.thread52 ]

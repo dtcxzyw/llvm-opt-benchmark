@@ -1377,7 +1377,7 @@ if.end:                                           ; preds = %if.then10, %if.then
   %idx.ext.i.i.pre-phi = phi i64 [ %idx.ext.i.i.phi.trans.insert, %if.then10 ], [ %idx.ext, %if.then ]
   %add.ptr3.val.i.i = phi i16 [ %add.ptr3.val.i.i.pre, %if.then10 ], [ %add.ptr2.val, %if.then ]
   %5 = phi ptr [ %.pre53, %if.then10 ], [ %1, %if.then ]
-  %sltsta.0 = phi i16 [ %or, %if.then10 ], [ %add.ptr2.val, %if.then ]
+  %sltsta.1 = phi i16 [ %or, %if.then10 ], [ %add.ptr2.val, %if.then ]
   %add.ptr.i.i = getelementptr i8, ptr %5, i64 %idx.ext.i.i.pre-phi
   %add.ptr2.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 24
   %add.ptr2.val.i.i = load i16, ptr %add.ptr2.i.i, align 1
@@ -1415,7 +1415,7 @@ if.then.i:                                        ; preds = %land.lhs.true4.i
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then.i, %land.lhs.true4.i, %land.lhs.true2.i, %land.lhs.true.i, %if.end, %entry
-  %sltsta.1 = phi i16 [ %add.ptr2.val, %entry ], [ %sltsta.0, %if.end ], [ %sltsta.0, %land.lhs.true.i ], [ %sltsta.0, %land.lhs.true2.i ], [ %sltsta.0, %land.lhs.true4.i ], [ %sltsta.0, %if.then.i ]
+  %sltsta.0 = phi i16 [ %add.ptr2.val, %entry ], [ %sltsta.1, %if.end ], [ %sltsta.1, %land.lhs.true.i ], [ %sltsta.1, %land.lhs.true2.i ], [ %sltsta.1, %land.lhs.true4.i ], [ %sltsta.1, %if.then.i ]
   %add20 = add nuw nsw i32 %conv, 24
   %conv21 = zext nneg i32 %add20 to i64
   %sub.i4.i22 = add nuw nsw i64 %conv21, 1
@@ -1434,12 +1434,12 @@ if.end25:                                         ; preds = %if.end17
   br i1 %tobool28.not, label %if.end33, label %if.then29
 
 if.then29:                                        ; preds = %if.end25
-  %10 = xor i16 %sltsta.1, 128
+  %10 = xor i16 %sltsta.0, 128
   store i16 %10, ptr %add.ptr2, align 1
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then29, %if.end25
-  %sltsta.2 = phi i16 [ %10, %if.then29 ], [ %sltsta.1, %if.end25 ]
+  %sltsta.2 = phi i16 [ %10, %if.then29 ], [ %sltsta.0, %if.end25 ]
   %11 = and i16 %sltsta.2, 64
   %tobool36.not = icmp eq i16 %11, 0
   %12 = and i32 %val, 1792
@@ -1731,8 +1731,8 @@ entry:
   br i1 %tobool.not.i, label %pcie_find_capability_list.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
-  %next.04.i = phi i16 [ %conv20.i, %for.inc.i ], [ 256, %entry ]
-  %cmp.i = icmp ugt i16 %next.04.i, 255
+  %next.14.i = phi i16 [ %conv20.i, %for.inc.i ], [ 256, %entry ]
+  %cmp.i = icmp ugt i16 %next.14.i, 255
   br i1 %cmp.i, label %if.end4.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
@@ -1740,7 +1740,7 @@ if.else.i:                                        ; preds = %for.body.i
   unreachable
 
 if.end4.i:                                        ; preds = %for.body.i
-  %cmp6.i = icmp ult i16 %next.04.i, 4089
+  %cmp6.i = icmp ult i16 %next.14.i, 4089
   br i1 %cmp6.i, label %if.end10.i, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.end4.i
@@ -1748,7 +1748,7 @@ if.else9.i:                                       ; preds = %if.end4.i
   unreachable
 
 if.end10.i:                                       ; preds = %if.end4.i
-  %idx.ext.i = zext nneg i16 %next.04.i to i64
+  %idx.ext.i = zext nneg i16 %next.14.i to i64
   %add.ptr13.i = getelementptr i8, ptr %dev.val, i64 %idx.ext.i
   %add.ptr13.val.i = load i32, ptr %add.ptr13.i, align 1
   %1 = trunc i32 %add.ptr13.val.i to i16
@@ -1763,8 +1763,8 @@ for.inc.i:                                        ; preds = %if.end10.i
   br i1 %tobool1.not.i, label %pcie_find_capability_list.exit, label %for.body.i, !llvm.loop !5
 
 pcie_find_capability_list.exit:                   ; preds = %if.end10.i, %for.inc.i, %entry
-  %next.1.i = phi i16 [ 0, %entry ], [ 0, %for.inc.i ], [ %next.04.i, %if.end10.i ]
-  ret i16 %next.1.i
+  %next.0.i = phi i16 [ 0, %entry ], [ 0, %for.inc.i ], [ %next.14.i, %if.end10.i ]
+  ret i16 %next.0.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1826,8 +1826,8 @@ if.then34:                                        ; preds = %if.end30
   br i1 %tobool.not.i, label %if.else40, label %for.body.i
 
 for.body.i:                                       ; preds = %if.then34, %if.end10.i
-  %next.04.i = phi i16 [ %conv20.i, %if.end10.i ], [ 256, %if.then34 ]
-  %cmp.i = icmp ugt i16 %next.04.i, 255
+  %next.14.i = phi i16 [ %conv20.i, %if.end10.i ], [ 256, %if.then34 ]
+  %cmp.i = icmp ugt i16 %next.14.i, 255
   br i1 %cmp.i, label %if.end4.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body.i
@@ -1835,7 +1835,7 @@ if.else.i:                                        ; preds = %for.body.i
   unreachable
 
 if.end4.i:                                        ; preds = %for.body.i
-  %cmp6.i = icmp ult i16 %next.04.i, 4089
+  %cmp6.i = icmp ult i16 %next.14.i, 4089
   br i1 %cmp6.i, label %if.end10.i, label %if.else9.i
 
 if.else9.i:                                       ; preds = %if.end4.i
@@ -1843,7 +1843,7 @@ if.else9.i:                                       ; preds = %if.end4.i
   unreachable
 
 if.end10.i:                                       ; preds = %if.end4.i
-  %idx.ext.i = zext nneg i16 %next.04.i to i64
+  %idx.ext.i = zext nneg i16 %next.14.i to i64
   %add.ptr13.i = getelementptr i8, ptr %dev.val21, i64 %idx.ext.i
   %add.ptr13.val.i = load i32, ptr %add.ptr13.i, align 1
   %shr.i = lshr i32 %add.ptr13.val.i, 20
@@ -1951,31 +1951,31 @@ if.else25:                                        ; preds = %if.else
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else25, %if.then17
-  %lnksta.0.in = phi i32 [ %or, %if.then17 ], [ %spec.select, %if.else25 ]
-  %and36 = and i32 %lnksta.0.in, 15
+  %lnksta.1.in = phi i32 [ %or, %if.then17 ], [ %spec.select, %if.else25 ]
+  %and36 = and i32 %lnksta.1.in, 15
   %and38 = and i32 %conv14, 15
   %cmp39 = icmp ugt i32 %and36, %and38
   br i1 %cmp39, label %if.then41, label %if.else50
 
 if.then41:                                        ; preds = %if.end34
-  %conv44 = and i32 %lnksta.0.in, 65520
+  %conv44 = and i32 %lnksta.1.in, 65520
   %or48 = or disjoint i32 %conv44, %and38
   %conv49 = trunc nuw i32 %or48 to i16
   br label %if.end60
 
 if.else50:                                        ; preds = %if.end34
-  %lnksta.0 = trunc i32 %lnksta.0.in to i16
+  %lnksta.1 = trunc i32 %lnksta.1.in to i16
   %tobool53.not = icmp eq i32 %and36, 0
   %conv57 = zext i1 %tobool53.not to i16
-  %spec.select25 = or disjoint i16 %conv57, %lnksta.0
+  %spec.select25 = or disjoint i16 %conv57, %lnksta.1
   br label %if.end60
 
 if.end60:                                         ; preds = %if.else50, %entry, %lor.lhs.false, %if.then41
-  %lnksta.1 = phi i16 [ %conv49, %if.then41 ], [ %add.ptr3.val, %lor.lhs.false ], [ %add.ptr3.val, %entry ], [ %spec.select25, %if.else50 ]
+  %lnksta.0 = phi i16 [ %conv49, %if.then41 ], [ %add.ptr3.val, %lor.lhs.false ], [ %add.ptr3.val, %entry ], [ %spec.select25, %if.else50 ]
   %add.ptr61 = getelementptr i8, ptr %add.ptr, i64 18
   %config.val.i = load i16, ptr %add.ptr61, align 1
   %and.i = and i16 %config.val.i, -1024
-  %5 = and i16 %lnksta.1, 1023
+  %5 = and i16 %lnksta.0, 1023
   %or.i = or disjoint i16 %and.i, %5
   store i16 %or.i, ptr %add.ptr61, align 1
   ret void

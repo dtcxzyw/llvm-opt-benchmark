@@ -658,7 +658,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %266 = getelementptr inbounds i8, ptr %265, i64 32
   %267 = load i32, ptr %266, align 8
   %.not270 = icmp ne i32 %267, 0
-  %.0206 = zext i1 %.not270 to i32
+  %.1207 = zext i1 %.not270 to i32
   %268 = call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.42, i32 noundef %57) #14
   %269 = or i32 %267, %263
   %or.cond4.not271 = icmp eq i32 %269, 0
@@ -774,7 +774,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 .lr.ph373:                                        ; preds = %.lr.ph373.preheader, %343
   %.0191372 = phi ptr [ %357, %343 ], [ %332, %.lr.ph373.preheader ]
-  %.0193371 = phi ptr [ %342, %343 ], [ null, %.lr.ph373.preheader ]
+  %.1194371 = phi ptr [ %342, %343 ], [ null, %.lr.ph373.preheader ]
   %.0214370 = phi i32 [ %353, %343 ], [ 0, %.lr.ph373.preheader ]
   %336 = zext i32 %.0214370 to i64
   %337 = getelementptr inbounds i8, ptr %.0191372, i64 16
@@ -782,7 +782,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %339 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %338) #19
   %340 = add nuw nsw i64 %336, 3
   %341 = add i64 %340, %339
-  %342 = call ptr @realloc(ptr noundef %.0193371, i64 noundef %341) #20
+  %342 = call ptr @realloc(ptr noundef %.1194371, i64 noundef %341) #20
   %.not279 = icmp eq ptr %342, null
   br i1 %.not279, label %358, label %343
 
@@ -824,13 +824,13 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 368:                                              ; preds = %._crit_edge, %330
   %.0208 = phi i32 [ 528, %._crit_edge ], [ 16, %330 ]
-  %.2195 = phi ptr [ %342, %._crit_edge ], [ null, %330 ]
+  %.0193 = phi ptr [ %342, %._crit_edge ], [ null, %330 ]
   %369 = load ptr, ptr @opts, align 8
   %370 = call ptr @optget(ptr noundef %369, ptr noundef nonnull @.str.62) #14
   %371 = getelementptr inbounds i8, ptr %370, i64 32
   %372 = load i32, ptr %371, align 8
   %.not281 = icmp eq i32 %372, 0
-  %.not286 = icmp eq ptr %.2195, null
+  %.not286 = icmp eq ptr %.0193, null
   br i1 %.not281, label %408, label %373
 
 373:                                              ; preds = %368
@@ -838,7 +838,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 374:                                              ; preds = %373
   %375 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.63) #14
-  call void @free(ptr noundef nonnull %.2195) #14
+  call void @free(ptr noundef nonnull %.0193) #14
   br label %.critedge
 
 .lr.ph380.preheader:                              ; preds = %373
@@ -848,7 +848,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 .lr.ph380:                                        ; preds = %.lr.ph380.preheader, %385
   %.1378 = phi ptr [ %399, %385 ], [ %370, %.lr.ph380.preheader ]
-  %.3377 = phi ptr [ %384, %385 ], [ null, %.lr.ph380.preheader ]
+  %.4377 = phi ptr [ %384, %385 ], [ null, %.lr.ph380.preheader ]
   %.1215376 = phi i32 [ %395, %385 ], [ 0, %.lr.ph380.preheader ]
   %378 = zext i32 %.1215376 to i64
   %379 = getelementptr inbounds i8, ptr %.1378, i64 16
@@ -856,7 +856,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %381 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %380) #19
   %382 = add nuw nsw i64 %378, 3
   %383 = add i64 %382, %381
-  %384 = call ptr @realloc(ptr noundef %.3377, i64 noundef %383) #20
+  %384 = call ptr @realloc(ptr noundef %.4377, i64 noundef %383) #20
   %.not284 = icmp eq ptr %384, null
   br i1 %.not284, label %400, label %385
 
@@ -898,21 +898,21 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br i1 %.not286, label %418, label %409
 
 409:                                              ; preds = %.thread344, %408
-  %.5349 = phi ptr [ %384, %.thread344 ], [ %.2195, %408 ]
+  %.3349 = phi ptr [ %384, %.thread344 ], [ %.0193, %408 ]
   %.1209348 = phi i32 [ %376, %.thread344 ], [ %.0208, %408 ]
   %410 = load ptr, ptr @main.engine, align 8
-  %411 = call i32 @cl_engine_set_str(ptr noundef %410, i32 noundef 6, ptr noundef nonnull %.5349) #14
+  %411 = call i32 @cl_engine_set_str(ptr noundef %410, i32 noundef 6, ptr noundef nonnull %.3349) #14
   %.not287 = icmp eq i32 %411, 0
   br i1 %.not287, label %415, label %412
 
 412:                                              ; preds = %409
   %413 = call ptr @cl_strerror(i32 noundef %411) #14
   %414 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.65, ptr noundef %413) #14
-  call void @free(ptr noundef nonnull %.5349) #14
+  call void @free(ptr noundef nonnull %.3349) #14
   br label %.critedge
 
 415:                                              ; preds = %409
-  call void @free(ptr noundef nonnull %.5349) #14
+  call void @free(ptr noundef nonnull %.3349) #14
   br label %418
 
 416:                                              ; preds = %320
@@ -1547,14 +1547,14 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %.critedge
 
 .critedge:                                        ; preds = %648, %400, %358, %656, %576, %784, %782, %636, %590, %585, %500, %494, %447, %436, %412, %374, %300, %296, %247, %226
-  %.1207 = phi i32 [ 0, %226 ], [ 0, %247 ], [ %.0206, %296 ], [ %.0206, %358 ], [ %.0206, %374 ], [ %.0206, %400 ], [ %.0206, %412 ], [ %.0206, %436 ], [ %.0206, %494 ], [ %.0206, %500 ], [ %.0206, %585 ], [ %.0206, %590 ], [ %.0206, %636 ], [ %.0206, %782 ], [ %.0206, %784 ], [ %.0206, %447 ], [ %.0206, %300 ], [ %.0206, %576 ], [ %.0206, %656 ], [ %.0206, %648 ]
-  %.4201 = phi i32 [ 1, %226 ], [ 1, %247 ], [ 1, %296 ], [ 1, %358 ], [ 1, %374 ], [ 1, %400 ], [ 1, %412 ], [ 1, %436 ], [ 1, %494 ], [ 1, %500 ], [ 1, %585 ], [ 1, %590 ], [ 1, %636 ], [ 1, %782 ], [ %788, %784 ], [ 1, %447 ], [ 1, %300 ], [ 1, %576 ], [ 1, %656 ], [ 1, %648 ]
+  %.0206 = phi i32 [ 0, %226 ], [ 0, %247 ], [ %.1207, %296 ], [ %.1207, %358 ], [ %.1207, %374 ], [ %.1207, %400 ], [ %.1207, %412 ], [ %.1207, %436 ], [ %.1207, %494 ], [ %.1207, %500 ], [ %.1207, %585 ], [ %.1207, %590 ], [ %.1207, %636 ], [ %.1207, %782 ], [ %.1207, %784 ], [ %.1207, %447 ], [ %.1207, %300 ], [ %.1207, %576 ], [ %.1207, %656 ], [ %.1207, %648 ]
+  %.0197 = phi i32 [ 1, %226 ], [ 1, %247 ], [ 1, %296 ], [ 1, %358 ], [ 1, %374 ], [ 1, %400 ], [ 1, %412 ], [ 1, %436 ], [ 1, %494 ], [ 1, %500 ], [ 1, %585 ], [ 1, %590 ], [ 1, %636 ], [ 1, %782 ], [ %788, %784 ], [ 1, %447 ], [ 1, %300 ], [ 1, %576 ], [ 1, %656 ], [ 1, %648 ]
   %789 = icmp eq i32 %57, 0
   br i1 %789, label %.critedge.thread354, label %.critedge.thread361
 
 .critedge.thread354:                              ; preds = %668, %271, %693, %704, %720, %733, %660, %.critedge
-  %.4201359 = phi i32 [ %.4201, %.critedge ], [ 1, %660 ], [ 1, %733 ], [ 1, %720 ], [ 1, %704 ], [ 1, %693 ], [ 1, %271 ], [ 1, %668 ]
-  %.1207357 = phi i32 [ %.1207, %.critedge ], [ 1, %660 ], [ 1, %733 ], [ 1, %720 ], [ 1, %704 ], [ 1, %693 ], [ %.0206, %271 ], [ 1, %668 ]
+  %.0197359 = phi i32 [ %.0197, %.critedge ], [ 1, %660 ], [ 1, %733 ], [ 1, %720 ], [ 1, %704 ], [ 1, %693 ], [ 1, %271 ], [ 1, %668 ]
+  %.0206357 = phi i32 [ %.0206, %.critedge ], [ 1, %660 ], [ 1, %733 ], [ 1, %720 ], [ 1, %704 ], [ 1, %693 ], [ %.1207, %271 ], [ 1, %668 ]
   %790 = load i32, ptr %8, align 4
   %791 = icmp ugt i32 %790, 1
   %792 = select i1 %791, ptr @.str.119, ptr @.str
@@ -1577,7 +1577,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 ._crit_edge389:                                   ; preds = %.lr.ph388
   %802 = icmp ne i32 %799, 0
-  %803 = icmp ne i32 %.1207357, 0
+  %803 = icmp ne i32 %.0206357, 0
   %or.cond14 = and i1 %803, %802
   br i1 %or.cond14, label %804, label %.critedge.thread361
 
@@ -1600,7 +1600,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %.critedge.thread361
 
 .critedge.thread361:                              ; preds = %.critedge.thread354, %742, %749, %._crit_edge389, %814, %811, %.critedge
-  %.4201358 = phi i32 [ %.4201359, %._crit_edge389 ], [ %.4201359, %814 ], [ %.4201359, %811 ], [ %.4201, %.critedge ], [ 1, %749 ], [ 1, %742 ], [ %.4201359, %.critedge.thread354 ]
+  %.0197358 = phi i32 [ %.0197359, %._crit_edge389 ], [ %.0197359, %814 ], [ %.0197359, %811 ], [ %.0197, %.critedge ], [ 1, %749 ], [ 1, %742 ], [ %.0197359, %.critedge.thread354 ]
   %816 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %816) #14
   call void @logg_close() #14
@@ -1609,7 +1609,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   br label %818
 
 818:                                              ; preds = %.critedge.thread361, %628, %613, %218, %161, %144, %137, %87, %71, %64, %31, %26
-  %.0 = phi i32 [ 1, %26 ], [ 0, %31 ], [ 1, %64 ], [ 1, %71 ], [ 0, %87 ], [ 1, %144 ], [ 1, %161 ], [ %216, %218 ], [ %.4201358, %.critedge.thread361 ], [ 1, %613 ], [ 1, %628 ], [ 1, %137 ]
+  %.0 = phi i32 [ 1, %26 ], [ 0, %31 ], [ 1, %64 ], [ 1, %71 ], [ 0, %87 ], [ 1, %144 ], [ 1, %161 ], [ %216, %218 ], [ %.0197358, %.critedge.thread361 ], [ 1, %613 ], [ 1, %628 ], [ 1, %137 ]
   ret i32 %.0
 }
 

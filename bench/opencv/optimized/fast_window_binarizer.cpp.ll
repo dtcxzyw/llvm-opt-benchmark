@@ -566,7 +566,7 @@ _ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit:       ; preds = %63, %68, %73
   br label %77
 
 77:                                               ; preds = %50, %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit
-  %.0 = phi i32 [ 0, %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit ], [ -1, %50 ]
+  %.1 = phi i32 [ 0, %_ZN5zxing3RefINS_9BitMatrixEEaSERKS2_.exit ], [ -1, %50 ]
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIcEE, i64 16), ptr %4, align 8
   %78 = load ptr, ptr %37, align 8
   %.not.i19 = icmp eq ptr %78, null
@@ -593,7 +593,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit20:                 ; preds = %77, %79, %84
   br label %88
 
 88:                                               ; preds = %_ZN5zxing8ArrayRefIcED2Ev.exit20, %27
-  %.1 = phi i32 [ %.0, %_ZN5zxing8ArrayRefIcED2Ev.exit20 ], [ -1, %27 ]
+  %.0 = phi i32 [ %.1, %_ZN5zxing8ArrayRefIcED2Ev.exit20 ], [ -1, %27 ]
   %89 = load i32, ptr %20, align 8
   %90 = add i32 %89, -1
   store i32 %90, ptr %20, align 8
@@ -609,7 +609,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit20:                 ; preds = %77, %79, %84
   br label %_ZN5zxing3RefINS_9BitMatrixEED2Ev.exit
 
 _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %88, %92
-  ret i32 %.1
+  ret i32 %.0
 
 96:                                               ; preds = %30, %_ZN5zxing8ArrayRefIcED2Ev.exit
   %.pn = phi { ptr, i32 } [ %52, %_ZN5zxing8ArrayRefIcED2Ev.exit ], [ %31, %30 ]

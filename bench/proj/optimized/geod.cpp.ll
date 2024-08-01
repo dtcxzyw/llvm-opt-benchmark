@@ -108,7 +108,7 @@ sub_2:                                            ; preds = %sub_1
   unreachable
 
 .preheader108:                                    ; preds = %23, %120
-  %_ZL7inverse.0 = phi i32 [ %_ZL7inverse.4, %120 ], [ %24, %23 ]
+  %_ZL7inverse.0 = phi i32 [ %_ZL7inverse.2, %120 ], [ %24, %23 ]
   %.in = phi i32 [ %.4, %120 ], [ %0, %23 ]
   %.066126 = phi ptr [ %.268, %120 ], [ %1, %23 ]
   %31 = add nsw i32 %.in, -1
@@ -121,14 +121,14 @@ sub_2:                                            ; preds = %sub_1
   ]
 
 .outer:                                           ; preds = %.preheader108, %.outer.backedge
-  %_ZL7inverse.1 = phi i32 [ %_ZL7inverse.2, %.outer.backedge ], [ %_ZL7inverse.0, %.preheader108 ]
+  %_ZL7inverse.3 = phi i32 [ %_ZL7inverse.1, %.outer.backedge ], [ %_ZL7inverse.0, %.preheader108 ]
   %.167.ph = phi ptr [ %65, %.outer.backedge ], [ %32, %.preheader108 ]
   %.063.ph = phi ptr [ %35, %.outer.backedge ], [ %33, %.preheader108 ]
   %.1.ph = phi i32 [ %.1.ph.be, %.outer.backedge ], [ %31, %.preheader108 ]
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.outer
-  %_ZL7inverse.2 = phi i32 [ %_ZL7inverse.1, %.outer ], [ %_ZL7inverse.3, %.backedge.backedge ]
+  %_ZL7inverse.1 = phi i32 [ %_ZL7inverse.3, %.outer ], [ %_ZL7inverse.4, %.backedge.backedge ]
   %.063 = phi ptr [ %.063.ph, %.outer ], [ %.063.be, %.backedge.backedge ]
   %35 = getelementptr inbounds i8, ptr %.063, i64 1
   %36 = load i8, ptr %35, align 1
@@ -193,7 +193,7 @@ sub_2:                                            ; preds = %sub_1
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.backedge, %56, %59, %49, %51, %45, %103
-  %_ZL7inverse.3 = phi i32 [ %_ZL7inverse.2, %103 ], [ %_ZL7inverse.2, %56 ], [ %_ZL7inverse.2, %59 ], [ %_ZL7inverse.2, %51 ], [ %_ZL7inverse.2, %49 ], [ %_ZL7inverse.2, %45 ], [ 1, %.backedge ]
+  %_ZL7inverse.4 = phi i32 [ %_ZL7inverse.1, %103 ], [ %_ZL7inverse.1, %56 ], [ %_ZL7inverse.1, %59 ], [ %_ZL7inverse.1, %51 ], [ %_ZL7inverse.1, %49 ], [ %_ZL7inverse.1, %45 ], [ 1, %.backedge ]
   %.063.be = phi ptr [ %35, %103 ], [ %53, %56 ], [ %35, %59 ], [ %35, %51 ], [ %47, %49 ], [ %35, %45 ], [ %35, %.backedge ]
   br label %.backedge, !llvm.loop !5
 
@@ -207,14 +207,14 @@ sub_2:                                            ; preds = %sub_1
   br i1 %62, label %63, label %.outer.backedge
 
 63:                                               ; preds = %67, %60
-  %.2 = phi i32 [ %68, %67 ], [ %61, %60 ]
+  %.3 = phi i32 [ %68, %67 ], [ %61, %60 ]
   %64 = zext nneg i8 %36 to i32
   tail call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 1, ptr noundef nonnull @.str.5, i32 noundef %64)
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %60, %63, %67
   %_ZL5oform.sink = phi ptr [ @_ZL6osform, %67 ], [ @_ZL5oform, %63 ], [ @_ZL5oform, %60 ]
-  %.1.ph.be = phi i32 [ %68, %67 ], [ %.2, %63 ], [ %61, %60 ]
+  %.1.ph.be = phi i32 [ %68, %67 ], [ %.3, %63 ], [ %61, %60 ]
   %65 = getelementptr inbounds i8, ptr %.167.ph, i64 8
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %_ZL5oform.sink, align 8
@@ -338,7 +338,7 @@ sub_2:                                            ; preds = %sub_1
   br label %120
 
 120:                                              ; preds = %115, %114, %109, %37, %40, %104
-  %_ZL7inverse.4 = phi i32 [ %_ZL7inverse.0, %115 ], [ %_ZL7inverse.0, %109 ], [ %_ZL7inverse.0, %114 ], [ %_ZL7inverse.2, %104 ], [ %_ZL7inverse.2, %40 ], [ %_ZL7inverse.2, %37 ]
+  %_ZL7inverse.2 = phi i32 [ %_ZL7inverse.0, %115 ], [ %_ZL7inverse.0, %109 ], [ %_ZL7inverse.0, %114 ], [ %_ZL7inverse.1, %104 ], [ %_ZL7inverse.1, %40 ], [ %_ZL7inverse.1, %37 ]
   %.268 = phi ptr [ %32, %115 ], [ %32, %109 ], [ %32, %114 ], [ %.167.ph, %104 ], [ %.167.ph, %40 ], [ %.167.ph, %37 ]
   %.4 = phi i32 [ %31, %115 ], [ %31, %109 ], [ %31, %114 ], [ %.1.ph, %104 ], [ %.1.ph, %40 ], [ %.1.ph, %37 ]
   %121 = icmp sgt i32 %.4, 1
@@ -419,8 +419,8 @@ sub_2:                                            ; preds = %sub_1
   %155 = phi i32 [ 1, %154 ], [ %152, %151 ]
   %156 = add nsw i32 %155, -1
   store i32 %156, ptr @_ZZ4mainE5eargc, align 4
-  %.not12.i = icmp eq i32 %_ZL7inverse.4, 0
-  %.not13.i = icmp eq i32 %_ZL7inverse.4, 0
+  %.not12.i = icmp eq i32 %_ZL7inverse.2, 0
+  %.not13.i = icmp eq i32 %_ZL7inverse.2, 0
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %360

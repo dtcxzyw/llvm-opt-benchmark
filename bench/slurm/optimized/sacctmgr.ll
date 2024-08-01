@@ -421,7 +421,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %108
 
 108:                                              ; preds = %106, %176
-  %.0 = phi i32 [ 0, %106 ], [ %.1, %176 ]
+  %.1 = phi i32 [ 0, %106 ], [ %.3, %176 ]
   %109 = call ptr @readline(ptr noundef nonnull @.str.28) #15
   %110 = icmp eq ptr %109, null
   br i1 %110, label %_get_command.exit.thread92, label %111
@@ -512,12 +512,12 @@ _get_command.exit.thread:                         ; preds = %142
   %149 = sext i32 %.062 to i64
   %150 = getelementptr inbounds ptr, ptr %107, i64 %149
   store ptr %132, ptr %150, align 8
-  %.14356.i = add nsw i32 %.04262.i, 1
-  %151 = icmp slt i32 %.14356.i, %.041.i
+  %.256.i = add nsw i32 %.04262.i, 1
+  %151 = icmp slt i32 %.256.i, %.041.i
   br i1 %151, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %147
-  %152 = sext i32 %.14356.i to i64
+  %152 = sext i32 %.256.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %169, %.lr.ph.preheader.i
@@ -572,8 +572,8 @@ _get_command.exit.thread:                         ; preds = %142
 
 .loopexit.i:                                      ; preds = %169, %.loopexit.loopexit.split.loop.exit.i, %166, %147, %135
   %.163 = phi i32 [ %148, %166 ], [ %148, %.loopexit.loopexit.split.loop.exit.i ], [ %148, %147 ], [ %.062, %135 ], [ %148, %169 ]
-  %.2.i = phi i32 [ %168, %166 ], [ %170, %.loopexit.loopexit.split.loop.exit.i ], [ %.14356.i, %147 ], [ %.04262.i, %135 ], [ %.041.i, %169 ]
-  %171 = add nsw i32 %.2.i, 1
+  %.143.i = phi i32 [ %168, %166 ], [ %170, %.loopexit.loopexit.split.loop.exit.i ], [ %.256.i, %147 ], [ %.04262.i, %135 ], [ %.041.i, %169 ]
+  %171 = add nsw i32 %.143.i, 1
   %172 = icmp slt i32 %171, %.041.i
   br i1 %172, label %.lr.ph63.i, label %_get_command.exit, !llvm.loop !10
 
@@ -594,18 +594,18 @@ _get_command.exit:                                ; preds = %.lr.ph63.i, %.loope
   br label %176
 
 176:                                              ; preds = %175, %173
-  %.1 = phi i32 [ %174, %175 ], [ %.0, %173 ]
+  %.3 = phi i32 [ %174, %175 ], [ %.1, %173 ]
   %177 = load i32, ptr @exit_flag, align 4
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %108, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %176, %_get_command.exit, %_get_command.exit.thread92, %_get_command.exit.thread
-  %.2 = phi i32 [ %.0, %_get_command.exit.thread ], [ %.0, %_get_command.exit.thread92 ], [ %.1, %176 ], [ %.0, %_get_command.exit ]
+  %.2 = phi i32 [ %.1, %_get_command.exit.thread ], [ %.1, %_get_command.exit.thread92 ], [ %.3, %176 ], [ %.1, %_get_command.exit ]
   call void @slurm_xfree(ptr noundef nonnull %8) #15
   br label %179
 
 179:                                              ; preds = %.loopexit, %104, %70
-  %.3 = phi i32 [ 0, %70 ], [ %.2, %.loopexit ], [ 0, %104 ]
+  %.0 = phi i32 [ 0, %70 ], [ %.2, %.loopexit ], [ 0, %104 ]
   %180 = load i32, ptr @exit_flag, align 4
   %181 = icmp eq i32 %180, 2
   br i1 %181, label %182, label %184
@@ -615,11 +615,11 @@ _get_command.exit:                                ; preds = %.lr.ph63.i, %.loope
   br label %184
 
 184:                                              ; preds = %182, %179
-  %.not55 = icmp eq i32 %.3, 0
+  %.not55 = icmp eq i32 %.0, 0
   br i1 %.not55, label %186, label %185
 
 185:                                              ; preds = %184
-  store i32 %.3, ptr @exit_code, align 4
+  store i32 %.0, ptr @exit_code, align 4
   br label %186
 
 186:                                              ; preds = %185, %184

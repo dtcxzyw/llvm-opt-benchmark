@@ -1375,7 +1375,7 @@ _ZN7testing7MessageD2Ev.exit150:                  ; preds = %267, %_ZNKSt14defau
   br label %281
 
 272:                                              ; preds = %_ZN7testing8internal8EqHelper7CompareIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit, %_ZN7testing7MessageD2Ev.exit147
-  %.4 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit147 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit ]
+  %.6 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit147 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIA1_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit ]
   %273 = load ptr, ptr %37, align 8
   %.not.i.i151 = icmp eq ptr %273, null
   br i1 %.not.i.i151, label %_ZN7testing15AssertionResultD2Ev.exit113, label %_ZN7testing15AssertionResultD2Ev.exit113.sink.split
@@ -1383,14 +1383,14 @@ _ZN7testing7MessageD2Ev.exit150:                  ; preds = %267, %_ZNKSt14defau
 _ZN7testing15AssertionResultD2Ev.exit113.sink.split: ; preds = %272, %_ZN7testing7MessageD2Ev.exit129, %_ZN7testing7MessageD2Ev.exit110
   %.sink258 = phi ptr [ %172, %_ZN7testing7MessageD2Ev.exit110 ], [ %220, %_ZN7testing7MessageD2Ev.exit129 ], [ %273, %272 ]
   %.sink.ph = phi ptr [ %35, %_ZN7testing7MessageD2Ev.exit110 ], [ %36, %_ZN7testing7MessageD2Ev.exit129 ], [ %37, %272 ]
-  %.5.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit110 ], [ 1, %_ZN7testing7MessageD2Ev.exit129 ], [ %.4, %272 ]
+  %.4.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit110 ], [ 1, %_ZN7testing7MessageD2Ev.exit129 ], [ %.6, %272 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink258) #17
   call void @_ZdlPv(ptr noundef nonnull %.sink258) #18
   br label %_ZN7testing15AssertionResultD2Ev.exit113
 
 _ZN7testing15AssertionResultD2Ev.exit113:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit113.sink.split, %272, %_ZN7testing7MessageD2Ev.exit129, %_ZN7testing7MessageD2Ev.exit110
   %.sink = phi ptr [ %35, %_ZN7testing7MessageD2Ev.exit110 ], [ %36, %_ZN7testing7MessageD2Ev.exit129 ], [ %37, %272 ], [ %.sink.ph, %_ZN7testing15AssertionResultD2Ev.exit113.sink.split ]
-  %.5 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit110 ], [ 1, %_ZN7testing7MessageD2Ev.exit129 ], [ %.4, %272 ], [ %.5.ph, %_ZN7testing15AssertionResultD2Ev.exit113.sink.split ]
+  %.4 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit110 ], [ 1, %_ZN7testing7MessageD2Ev.exit129 ], [ %.6, %272 ], [ %.4.ph, %_ZN7testing15AssertionResultD2Ev.exit113.sink.split ]
   store ptr null, ptr %.sink, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #17
   br label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit
@@ -1401,12 +1401,12 @@ _ZN7testing15AssertionResultD2Ev.exit113:         ; preds = %_ZN7testing15Assert
   br i1 %275, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit.thread, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit113, %_ZN7testing15AssertionResultD2Ev.exit99, %274
-  %.6167 = phi i32 [ 1, %274 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit99 ], [ %.5, %_ZN7testing15AssertionResultD2Ev.exit113 ]
+  %.1167 = phi i32 [ 1, %274 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit99 ], [ %.4, %_ZN7testing15AssertionResultD2Ev.exit113 ]
   %276 = load ptr, ptr %48, align 8
   %277 = getelementptr inbounds i8, ptr %276, i64 8
   %278 = load ptr, ptr %277, align 8
   call void %278(ptr noundef nonnull align 8 dereferenceable(8) %48) #17
-  %switch = icmp ne i32 %.6167, 0
+  %switch = icmp ne i32 %.1167, 0
   %279 = getelementptr inbounds i8, ptr %.sroa.0163.0202, i64 8
   %280 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %279, %280
@@ -1898,7 +1898,7 @@ _ZN7testing7MessageD2Ev.exit65:                   ; preds = %129, %_ZNKSt14defau
   br label %146
 
 134:                                              ; preds = %_ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit, %_ZN7testing7MessageD2Ev.exit62
-  %.1 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit62 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit ]
+  %.2 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit62 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit ]
   %135 = load ptr, ptr %21, align 8
   %.not.i.i66 = icmp eq ptr %135, null
   br i1 %.not.i.i66, label %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit, label %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit.sink.split
@@ -1906,14 +1906,14 @@ _ZN7testing7MessageD2Ev.exit65:                   ; preds = %129, %_ZNKSt14defau
 _ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit.sink.split: ; preds = %134, %_ZN7testing7MessageD2Ev.exit
   %.sink162 = phi ptr [ %74, %_ZN7testing7MessageD2Ev.exit ], [ %135, %134 ]
   %.sink.ph = phi ptr [ %20, %_ZN7testing7MessageD2Ev.exit ], [ %21, %134 ]
-  %.2.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ %.1, %134 ]
+  %.1.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ %.2, %134 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink162) #17
   call void @_ZdlPv(ptr noundef nonnull %.sink162) #18
   br label %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit
 
 _ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit: ; preds = %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit.sink.split, %134, %_ZN7testing7MessageD2Ev.exit
   %.sink = phi ptr [ %20, %_ZN7testing7MessageD2Ev.exit ], [ %21, %134 ], [ %.sink.ph, %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit.sink.split ]
-  %.2 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ %.1, %134 ], [ %.2.ph, %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit.sink.split ]
+  %.1 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ %.2, %134 ], [ %.1.ph, %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit.sink.split ]
   store ptr null, ptr %.sink, align 8
   %136 = load ptr, ptr %40, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 8
@@ -1930,7 +1930,7 @@ _ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit: ; preds = %_ZN5bo
   br label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %_ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit, %140
-  %switch = icmp ne i32 %.2, 0
+  %switch = icmp ne i32 %.1, 0
   %144 = getelementptr inbounds i8, ptr %.sroa.079.0107, i64 8
   %145 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %144, %145
@@ -2568,7 +2568,7 @@ _ZN7testing7MessageD2Ev.exit116:                  ; preds = %209, %_ZNKSt14defau
   br label %223
 
 214:                                              ; preds = %_ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit, %_ZN7testing7MessageD2Ev.exit113
-  %.3 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit113 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit ]
+  %.4 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit113 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit ]
   %215 = load ptr, ptr %31, align 8
   %.not.i.i117 = icmp eq ptr %215, null
   br i1 %.not.i.i117, label %_ZN7testing15AssertionResultD2Ev.exit, label %_ZN7testing15AssertionResultD2Ev.exit.sink.split
@@ -2576,14 +2576,14 @@ _ZN7testing7MessageD2Ev.exit116:                  ; preds = %209, %_ZNKSt14defau
 _ZN7testing15AssertionResultD2Ev.exit.sink.split: ; preds = %214, %_ZN7testing7MessageD2Ev.exit95, %_ZN7testing7MessageD2Ev.exit77, %_ZN7testing7MessageD2Ev.exit
   %.sink189 = phi ptr [ %74, %_ZN7testing7MessageD2Ev.exit ], [ %122, %_ZN7testing7MessageD2Ev.exit77 ], [ %162, %_ZN7testing7MessageD2Ev.exit95 ], [ %215, %214 ]
   %.sink.ph = phi ptr [ %28, %_ZN7testing7MessageD2Ev.exit ], [ %29, %_ZN7testing7MessageD2Ev.exit77 ], [ %30, %_ZN7testing7MessageD2Ev.exit95 ], [ %31, %214 ]
-  %.4.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ 1, %_ZN7testing7MessageD2Ev.exit77 ], [ 1, %_ZN7testing7MessageD2Ev.exit95 ], [ %.3, %214 ]
+  %.1.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ 1, %_ZN7testing7MessageD2Ev.exit77 ], [ 1, %_ZN7testing7MessageD2Ev.exit95 ], [ %.4, %214 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink189) #17
   call void @_ZdlPv(ptr noundef nonnull %.sink189) #18
   br label %_ZN7testing15AssertionResultD2Ev.exit
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZN7testing15AssertionResultD2Ev.exit.sink.split, %214, %_ZN7testing7MessageD2Ev.exit95, %_ZN7testing7MessageD2Ev.exit77, %_ZN7testing7MessageD2Ev.exit
   %.sink = phi ptr [ %28, %_ZN7testing7MessageD2Ev.exit ], [ %29, %_ZN7testing7MessageD2Ev.exit77 ], [ %30, %_ZN7testing7MessageD2Ev.exit95 ], [ %31, %214 ], [ %.sink.ph, %_ZN7testing15AssertionResultD2Ev.exit.sink.split ]
-  %.4 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ 1, %_ZN7testing7MessageD2Ev.exit77 ], [ 1, %_ZN7testing7MessageD2Ev.exit95 ], [ %.3, %214 ], [ %.4.ph, %_ZN7testing15AssertionResultD2Ev.exit.sink.split ]
+  %.1 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ 1, %_ZN7testing7MessageD2Ev.exit77 ], [ 1, %_ZN7testing7MessageD2Ev.exit95 ], [ %.4, %214 ], [ %.1.ph, %_ZN7testing15AssertionResultD2Ev.exit.sink.split ]
   store ptr null, ptr %.sink, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
@@ -2598,7 +2598,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZN7testing15Assert
   br label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %217
-  %switch = icmp ne i32 %.4, 0
+  %switch = icmp ne i32 %.1, 0
   %221 = getelementptr inbounds i8, ptr %.sroa.0126.0148, i64 8
   %222 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %221, %222
@@ -5319,7 +5319,7 @@ _ZN7testing7MessageD2Ev.exit572:                  ; preds = %918, %_ZNKSt14defau
   br label %939
 
 923:                                              ; preds = %_ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit562, %_ZN7testing7MessageD2Ev.exit569
-  %.17 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit569 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit562 ]
+  %.20 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit569 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIA4_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit562 ]
   %924 = load ptr, ptr %119, align 8
   %.not.i.i573 = icmp eq ptr %924, null
   br i1 %.not.i.i573, label %_ZN7testing15AssertionResultD2Ev.exit439, label %_ZN7testing15AssertionResultD2Ev.exit439.sink.split
@@ -5327,14 +5327,14 @@ _ZN7testing7MessageD2Ev.exit572:                  ; preds = %918, %_ZNKSt14defau
 _ZN7testing15AssertionResultD2Ev.exit439.sink.split: ; preds = %923, %_ZN7testing7MessageD2Ev.exit550, %_ZN7testing7MessageD2Ev.exit531, %_ZN7testing7MessageD2Ev.exit512, %_ZN7testing7MessageD2Ev.exit493, %_ZN7testing7MessageD2Ev.exit474, %_ZN7testing7MessageD2Ev.exit455, %_ZN7testing7MessageD2Ev.exit436
   %.sink1127 = phi ptr [ %617, %_ZN7testing7MessageD2Ev.exit436 ], [ %671, %_ZN7testing7MessageD2Ev.exit455 ], [ %711, %_ZN7testing7MessageD2Ev.exit474 ], [ %751, %_ZN7testing7MessageD2Ev.exit493 ], [ %791, %_ZN7testing7MessageD2Ev.exit512 ], [ %831, %_ZN7testing7MessageD2Ev.exit531 ], [ %871, %_ZN7testing7MessageD2Ev.exit550 ], [ %924, %923 ]
   %.sink.ph = phi ptr [ %112, %_ZN7testing7MessageD2Ev.exit436 ], [ %113, %_ZN7testing7MessageD2Ev.exit455 ], [ %114, %_ZN7testing7MessageD2Ev.exit474 ], [ %115, %_ZN7testing7MessageD2Ev.exit493 ], [ %116, %_ZN7testing7MessageD2Ev.exit512 ], [ %117, %_ZN7testing7MessageD2Ev.exit531 ], [ %118, %_ZN7testing7MessageD2Ev.exit550 ], [ %119, %923 ]
-  %.18.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit436 ], [ 1, %_ZN7testing7MessageD2Ev.exit455 ], [ 1, %_ZN7testing7MessageD2Ev.exit474 ], [ 1, %_ZN7testing7MessageD2Ev.exit493 ], [ 1, %_ZN7testing7MessageD2Ev.exit512 ], [ 1, %_ZN7testing7MessageD2Ev.exit531 ], [ 1, %_ZN7testing7MessageD2Ev.exit550 ], [ %.17, %923 ]
+  %.13.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit436 ], [ 1, %_ZN7testing7MessageD2Ev.exit455 ], [ 1, %_ZN7testing7MessageD2Ev.exit474 ], [ 1, %_ZN7testing7MessageD2Ev.exit493 ], [ 1, %_ZN7testing7MessageD2Ev.exit512 ], [ 1, %_ZN7testing7MessageD2Ev.exit531 ], [ 1, %_ZN7testing7MessageD2Ev.exit550 ], [ %.20, %923 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1127) #17
   call void @_ZdlPv(ptr noundef nonnull %.sink1127) #18
   br label %_ZN7testing15AssertionResultD2Ev.exit439
 
 _ZN7testing15AssertionResultD2Ev.exit439:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit439.sink.split, %923, %_ZN7testing7MessageD2Ev.exit550, %_ZN7testing7MessageD2Ev.exit531, %_ZN7testing7MessageD2Ev.exit512, %_ZN7testing7MessageD2Ev.exit493, %_ZN7testing7MessageD2Ev.exit474, %_ZN7testing7MessageD2Ev.exit455, %_ZN7testing7MessageD2Ev.exit436
   %.sink = phi ptr [ %112, %_ZN7testing7MessageD2Ev.exit436 ], [ %113, %_ZN7testing7MessageD2Ev.exit455 ], [ %114, %_ZN7testing7MessageD2Ev.exit474 ], [ %115, %_ZN7testing7MessageD2Ev.exit493 ], [ %116, %_ZN7testing7MessageD2Ev.exit512 ], [ %117, %_ZN7testing7MessageD2Ev.exit531 ], [ %118, %_ZN7testing7MessageD2Ev.exit550 ], [ %119, %923 ], [ %.sink.ph, %_ZN7testing15AssertionResultD2Ev.exit439.sink.split ]
-  %.18 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit436 ], [ 1, %_ZN7testing7MessageD2Ev.exit455 ], [ 1, %_ZN7testing7MessageD2Ev.exit474 ], [ 1, %_ZN7testing7MessageD2Ev.exit493 ], [ 1, %_ZN7testing7MessageD2Ev.exit512 ], [ 1, %_ZN7testing7MessageD2Ev.exit531 ], [ 1, %_ZN7testing7MessageD2Ev.exit550 ], [ %.17, %923 ], [ %.18.ph, %_ZN7testing15AssertionResultD2Ev.exit439.sink.split ]
+  %.13 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit436 ], [ 1, %_ZN7testing7MessageD2Ev.exit455 ], [ 1, %_ZN7testing7MessageD2Ev.exit474 ], [ 1, %_ZN7testing7MessageD2Ev.exit493 ], [ 1, %_ZN7testing7MessageD2Ev.exit512 ], [ 1, %_ZN7testing7MessageD2Ev.exit531 ], [ 1, %_ZN7testing7MessageD2Ev.exit550 ], [ %.20, %923 ], [ %.13.ph, %_ZN7testing15AssertionResultD2Ev.exit439.sink.split ]
   store ptr null, ptr %.sink, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #17
@@ -5345,13 +5345,13 @@ _ZN7testing15AssertionResultD2Ev.exit439:         ; preds = %_ZN7testing15Assert
   br label %925
 
 925:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit425, %_ZN7testing15AssertionResultD2Ev.exit406, %_ZN7testing15AssertionResultD2Ev.exit388, %_ZN7testing15AssertionResultD2Ev.exit370, %_ZN7testing15AssertionResultD2Ev.exit439
-  %.19 = phi i32 [ %.18, %_ZN7testing15AssertionResultD2Ev.exit439 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit425 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit406 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit388 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit370 ]
+  %.8 = phi i32 [ %.13, %_ZN7testing15AssertionResultD2Ev.exit439 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit425 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit406 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit388 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit370 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #17
   br label %926
 
 926:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit356, %_ZN7testing15AssertionResultD2Ev.exit337, %_ZN7testing15AssertionResultD2Ev.exit323, %_ZN7testing15AssertionResultD2Ev.exit305, %_ZN7testing15AssertionResultD2Ev.exit291, %_ZN7testing15AssertionResultD2Ev.exit, %925
-  %.20 = phi i32 [ %.19, %925 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit356 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit337 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit323 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit305 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit291 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %.1 = phi i32 [ %.8, %925 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit356 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit337 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit323 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit305 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit291 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ]
   %927 = icmp eq ptr %139, null
   br i1 %927, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit, label %928
 
@@ -5374,7 +5374,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %9
   br label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit576
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit576: ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit, %933
-  %switch = icmp ne i32 %.20, 0
+  %switch = icmp ne i32 %.1, 0
   %937 = getelementptr inbounds i8, ptr %.sroa.0600.0776, i64 8
   %938 = load ptr, ptr %100, align 8
   %.not = icmp eq ptr %937, %938
@@ -8840,7 +8840,7 @@ _ZN7testing7MessageD2Ev.exit214:                  ; preds = %327, %_ZNKSt14defau
   br label %339
 
 332:                                              ; preds = %_ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit204, %_ZN7testing7MessageD2Ev.exit211
-  %.5 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit211 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit204 ]
+  %.7 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit211 ], [ 0, %_ZN7testing8internal8EqHelper7CompareIA10_cNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEETnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSJ_RKSB_RKSC_.exit204 ]
   %333 = load ptr, ptr %48, align 8
   %.not.i.i215 = icmp eq ptr %333, null
   br i1 %.not.i.i215, label %_ZN7testing15AssertionResultD2Ev.exit195, label %_ZN7testing15AssertionResultD2Ev.exit195.sink.split
@@ -8861,14 +8861,14 @@ _ZN7testing7MessageD2Ev.exit214:                  ; preds = %327, %_ZNKSt14defau
 _ZN7testing15AssertionResultD2Ev.exit195.sink.split: ; preds = %332, %_ZN7testing7MessageD2Ev.exit192
   %.sink414 = phi ptr [ %275, %_ZN7testing7MessageD2Ev.exit192 ], [ %333, %332 ]
   %.sink410.ph = phi ptr [ %47, %_ZN7testing7MessageD2Ev.exit192 ], [ %48, %332 ]
-  %.6.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit192 ], [ %.5, %332 ]
+  %.6.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit192 ], [ %.7, %332 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink414) #17
   call void @_ZdlPv(ptr noundef nonnull %.sink414) #18
   br label %_ZN7testing15AssertionResultD2Ev.exit195
 
 _ZN7testing15AssertionResultD2Ev.exit195:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit195.sink.split, %332, %_ZN7testing7MessageD2Ev.exit192
   %.sink410 = phi ptr [ %47, %_ZN7testing7MessageD2Ev.exit192 ], [ %48, %332 ], [ %.sink410.ph, %_ZN7testing15AssertionResultD2Ev.exit195.sink.split ]
-  %.6 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit192 ], [ %.5, %332 ], [ %.6.ph, %_ZN7testing15AssertionResultD2Ev.exit195.sink.split ]
+  %.6 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit192 ], [ %.7, %332 ], [ %.6.ph, %_ZN7testing15AssertionResultD2Ev.exit195.sink.split ]
   store ptr null, ptr %.sink410, align 8
   %334 = load ptr, ptr %238, align 8
   %335 = getelementptr inbounds i8, ptr %334, i64 8

@@ -1037,7 +1037,7 @@ for.inc44:                                        ; preds = %if.then34, %invoke.
   br i1 %cmp26.not, label %cleanup, label %for.body
 
 cleanup:                                          ; preds = %for.inc44, %invoke.cont, %_ZNK4absl4Cord4sizeEv.exit13.i.i, %for.body, %for.inc, %if.end23, %if.end5
-  %retval.0 = phi i1 [ false, %if.end5 ], [ true, %if.end23 ], [ false, %for.inc ], [ false, %for.body ], [ true, %for.inc44 ], [ false, %invoke.cont ], [ false, %_ZNK4absl4Cord4sizeEv.exit13.i.i ]
+  %retval.1 = phi i1 [ false, %if.end5 ], [ true, %if.end23 ], [ false, %for.inc ], [ false, %for.body ], [ true, %for.inc44 ], [ false, %invoke.cont ], [ false, %_ZNK4absl4Cord4sizeEv.exit13.i.i ]
   %21 = load i64, ptr %no_payloads, align 8
   %cmp.i.i33 = icmp eq i64 %21, 0
   br i1 %cmp.i.i33, label %return, label %if.end.i.i34
@@ -1097,8 +1097,8 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4absl23inlined_v
   br label %return
 
 return:                                           ; preds = %if.end, %if.then.i.i.i.i, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i, %cleanup, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %retval.0, %cleanup ], [ %retval.0, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i ], [ %retval.0, %if.then.i.i.i.i ], [ false, %if.end ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ], [ %retval.1, %cleanup ], [ %retval.1, %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit.i.i.i ], [ %retval.1, %if.then.i.i.i.i ], [ false, %if.end ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

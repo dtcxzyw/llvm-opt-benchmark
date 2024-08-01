@@ -3543,19 +3543,19 @@ Vec_IntFreeP.exit:                                ; preds = %.thread.i, %85, %79
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.078.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %106, %.lr.ph.i ]
+  %.18.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %106, %.lr.ph.i ]
   %102 = getelementptr inbounds i32, ptr %.val162, i64 %indvars.iv.i
   %103 = load i32, ptr %102, align 4
   %104 = icmp sgt i32 %103, 0
   %105 = zext i1 %104 to i32
-  %106 = add nuw nsw i32 %.078.i, %105
+  %106 = add nuw nsw i32 %.18.i, %105
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Gia_ManChoiceNum.exit, label %.lr.ph.i, !llvm.loop !18
 
 Gia_ManChoiceNum.exit:                            ; preds = %.lr.ph.i, %.preheader.i
-  %.1.i = phi i32 [ 0, %.preheader.i ], [ %106, %.lr.ph.i ]
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.51, i32 noundef %.1.i)
+  %.07.i = phi i32 [ 0, %.preheader.i ], [ %106, %.lr.ph.i ]
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.51, i32 noundef %.07.i)
   br label %107
 
 107:                                              ; preds = %Gia_ManChoiceNum.exit, %95
@@ -7316,7 +7316,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %8
   br i1 %.not30, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %25
-  %.040.us = phi i32 [ %.137.us, %25 ], [ %4, %.lr.ph ]
+  %.040.us = phi i32 [ %.237.us, %25 ], [ %4, %.lr.ph ]
   %.02339.us = phi i32 [ %28, %25 ], [ 0, %.lr.ph ]
   %.not32.us = phi ptr [ @.str.87, %25 ], [ @.str.86, %.lr.ph ]
   %15 = xor i32 %.02339.us, -1
@@ -7335,7 +7335,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %8
   br label %25
 
 25:                                               ; preds = %.lr.ph.split.us, %.thread.us
-  %.137.us = phi i32 [ %5, %.thread.us ], [ %22, %.lr.ph.split.us ]
+  %.237.us = phi i32 [ %5, %.thread.us ], [ %22, %.lr.ph.split.us ]
   %26 = phi ptr [ @.str.86, %.thread.us ], [ %.not32.us, %.lr.ph.split.us ]
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.85, ptr noundef nonnull %26, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %28 = add nuw nsw i32 %.02339.us, 1
@@ -7346,9 +7346,9 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %8
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %48
-  %.040.us41 = phi i32 [ %.2.us49, %48 ], [ %4, %.lr.ph.split ]
+  %.040.us41 = phi i32 [ %.1.us49, %48 ], [ %4, %.lr.ph.split ]
   %.02339.us42 = phi i32 [ %49, %48 ], [ 0, %.lr.ph.split ]
-  %.02438.us43 = phi i32 [ %.226.us48, %48 ], [ 1, %.lr.ph.split ]
+  %.02438.us43 = phi i32 [ %.125.us48, %48 ], [ 1, %.lr.ph.split ]
   %.val.us = load ptr, ptr %14, align 8
   %29 = lshr i32 %.02339.us42, 5
   %30 = zext nneg i32 %29 to i64
@@ -7379,22 +7379,22 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %8
   br label %45
 
 45:                                               ; preds = %.thread.us46, %43
-  %.137.us47 = phi i32 [ %5, %.thread.us46 ], [ %41, %43 ]
+  %.237.us47 = phi i32 [ %5, %.thread.us46 ], [ %41, %43 ]
   %46 = phi ptr [ @.str.86, %.thread.us46 ], [ %spec.select.us45, %43 ]
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.85, ptr noundef nonnull %46, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   br label %48
 
 48:                                               ; preds = %.lr.ph.split.split.us, %45
-  %.226.us48 = phi i32 [ 0, %45 ], [ %.02438.us43, %.lr.ph.split.split.us ]
-  %.2.us49 = phi i32 [ %.137.us47, %45 ], [ %.040.us41, %.lr.ph.split.split.us ]
+  %.125.us48 = phi i32 [ 0, %45 ], [ %.02438.us43, %.lr.ph.split.split.us ]
+  %.1.us49 = phi i32 [ %.237.us47, %45 ], [ %.040.us41, %.lr.ph.split.split.us ]
   %49 = add nuw nsw i32 %.02339.us42, 1
   %exitcond52.not = icmp eq i32 %49, %2
   br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !65
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %71
-  %.040 = phi i32 [ %.2, %71 ], [ %4, %.lr.ph.split ]
+  %.040 = phi i32 [ %.1, %71 ], [ %4, %.lr.ph.split ]
   %.02339 = phi i32 [ %72, %71 ], [ 0, %.lr.ph.split ]
-  %.02438 = phi i32 [ %.226, %71 ], [ 1, %.lr.ph.split ]
+  %.02438 = phi i32 [ %.125, %71 ], [ 1, %.lr.ph.split ]
   %50 = xor i32 %.02339, -1
   %51 = add nsw i32 %50, %2
   %.val = load ptr, ptr %14, align 8
@@ -7427,14 +7427,14 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %8
   br label %68
 
 68:                                               ; preds = %67, %.thread
-  %.137 = phi i32 [ %5, %.thread ], [ %64, %67 ]
+  %.237 = phi i32 [ %5, %.thread ], [ %64, %67 ]
   %69 = phi ptr [ @.str.86, %.thread ], [ %spec.select, %67 ]
   %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.85, ptr noundef nonnull %69, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   br label %71
 
 71:                                               ; preds = %.lr.ph.split.split, %68
-  %.226 = phi i32 [ 0, %68 ], [ %.02438, %.lr.ph.split.split ]
-  %.2 = phi i32 [ %.137, %68 ], [ %.040, %.lr.ph.split.split ]
+  %.125 = phi i32 [ 0, %68 ], [ %.02438, %.lr.ph.split.split ]
+  %.1 = phi i32 [ %.237, %68 ], [ %.040, %.lr.ph.split.split ]
   %72 = add nuw nsw i32 %.02339, 1
   %exitcond.not = icmp eq i32 %72, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !65
@@ -7623,7 +7623,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %Gia_Ma
   br i1 %61, label %.lr.ph.split.us.i, label %Gia_ManWriteNames.exit
 
 .lr.ph.split.us.i:                                ; preds = %Abc_Base10Log.exit.i, %69
-  %.040.us.i = phi i32 [ %.137.us.i, %69 ], [ 8, %Abc_Base10Log.exit.i ]
+  %.040.us.i = phi i32 [ %.237.us.i, %69 ], [ 8, %Abc_Base10Log.exit.i ]
   %.02339.us.i = phi i32 [ %72, %69 ], [ 0, %Abc_Base10Log.exit.i ]
   %.not32.us.i = phi ptr [ @.str.87, %69 ], [ @.str.86, %Abc_Base10Log.exit.i ]
   %62 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %56, i8 noundef signext 120, i32 noundef %.02339.us.i, i32 noundef %.09.i.i)
@@ -7639,7 +7639,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %Gia_Ma
   br label %69
 
 69:                                               ; preds = %.thread.us.i, %.lr.ph.split.us.i
-  %.137.us.i = phi i32 [ 4, %.thread.us.i ], [ %66, %.lr.ph.split.us.i ]
+  %.237.us.i = phi i32 [ 4, %.thread.us.i ], [ %66, %.lr.ph.split.us.i ]
   %70 = phi ptr [ @.str.86, %.thread.us.i ], [ %.not32.us.i, %.lr.ph.split.us.i ]
   %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %70, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %72 = add nuw nsw i32 %.02339.us.i, 1
@@ -7677,7 +7677,7 @@ Abc_Base10Log.exit.i220:                          ; preds = %.lr.ph.i.i216, %Gia
   br i1 %83, label %.lr.ph.split.us.i223, label %Gia_ManWriteNames.exit230
 
 .lr.ph.split.us.i223:                             ; preds = %Abc_Base10Log.exit.i220, %91
-  %.040.us.i224 = phi i32 [ %.137.us.i227, %91 ], [ 9, %Abc_Base10Log.exit.i220 ]
+  %.040.us.i224 = phi i32 [ %.237.us.i227, %91 ], [ 9, %Abc_Base10Log.exit.i220 ]
   %.02339.us.i225 = phi i32 [ %94, %91 ], [ 0, %Abc_Base10Log.exit.i220 ]
   %.not32.us.i226 = phi ptr [ @.str.87, %91 ], [ @.str.86, %Abc_Base10Log.exit.i220 ]
   %84 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %78, i8 noundef signext 122, i32 noundef %.02339.us.i225, i32 noundef %.09.i.i221)
@@ -7693,7 +7693,7 @@ Abc_Base10Log.exit.i220:                          ; preds = %.lr.ph.i.i216, %Gia
   br label %91
 
 91:                                               ; preds = %.thread.us.i229, %.lr.ph.split.us.i223
-  %.137.us.i227 = phi i32 [ 4, %.thread.us.i229 ], [ %88, %.lr.ph.split.us.i223 ]
+  %.237.us.i227 = phi i32 [ 4, %.thread.us.i229 ], [ %88, %.lr.ph.split.us.i223 ]
   %92 = phi ptr [ @.str.86, %.thread.us.i229 ], [ %.not32.us.i226, %.lr.ph.split.us.i223 ]
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %92, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %94 = add nuw nsw i32 %.02339.us.i225, 1
@@ -7728,7 +7728,7 @@ Abc_Base10Log.exit.i236:                          ; preds = %.lr.ph.i.i232, %Gia
   br i1 %103, label %.lr.ph.split.us.i239, label %Gia_ManWriteNames.exit246
 
 .lr.ph.split.us.i239:                             ; preds = %Abc_Base10Log.exit.i236, %113
-  %.040.us.i240 = phi i32 [ %.137.us.i243, %113 ], [ 8, %Abc_Base10Log.exit.i236 ]
+  %.040.us.i240 = phi i32 [ %.237.us.i243, %113 ], [ 8, %Abc_Base10Log.exit.i236 ]
   %.02339.us.i241 = phi i32 [ %116, %113 ], [ 0, %Abc_Base10Log.exit.i236 ]
   %.not32.us.i242 = phi ptr [ @.str.87, %113 ], [ @.str.86, %Abc_Base10Log.exit.i236 ]
   %104 = xor i32 %.02339.us.i241, -1
@@ -7746,7 +7746,7 @@ Abc_Base10Log.exit.i236:                          ; preds = %.lr.ph.i.i232, %Gia
   br label %113
 
 113:                                              ; preds = %.thread.us.i245, %.lr.ph.split.us.i239
-  %.137.us.i243 = phi i32 [ 4, %.thread.us.i245 ], [ %110, %.lr.ph.split.us.i239 ]
+  %.237.us.i243 = phi i32 [ 4, %.thread.us.i245 ], [ %110, %.lr.ph.split.us.i239 ]
   %114 = phi ptr [ @.str.86, %.thread.us.i245 ], [ %.not32.us.i242, %.lr.ph.split.us.i239 ]
   %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %114, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %116 = add nuw nsw i32 %.02339.us.i241, 1
@@ -7785,7 +7785,7 @@ Abc_Base10Log.exit.i252:                          ; preds = %.lr.ph.i.i248, %Gia
   br i1 %127, label %.lr.ph.split.us.i255, label %Gia_ManWriteNames.exit262
 
 .lr.ph.split.us.i255:                             ; preds = %Abc_Base10Log.exit.i252, %137
-  %.040.us.i256 = phi i32 [ %.137.us.i259, %137 ], [ 9, %Abc_Base10Log.exit.i252 ]
+  %.040.us.i256 = phi i32 [ %.237.us.i259, %137 ], [ 9, %Abc_Base10Log.exit.i252 ]
   %.02339.us.i257 = phi i32 [ %140, %137 ], [ 0, %Abc_Base10Log.exit.i252 ]
   %.not32.us.i258 = phi ptr [ @.str.87, %137 ], [ @.str.86, %Abc_Base10Log.exit.i252 ]
   %128 = xor i32 %.02339.us.i257, -1
@@ -7803,7 +7803,7 @@ Abc_Base10Log.exit.i252:                          ; preds = %.lr.ph.i.i248, %Gia
   br label %137
 
 137:                                              ; preds = %.thread.us.i261, %.lr.ph.split.us.i255
-  %.137.us.i259 = phi i32 [ 4, %.thread.us.i261 ], [ %134, %.lr.ph.split.us.i255 ]
+  %.237.us.i259 = phi i32 [ 4, %.thread.us.i261 ], [ %134, %.lr.ph.split.us.i255 ]
   %138 = phi ptr [ @.str.86, %.thread.us.i261 ], [ %.not32.us.i258, %.lr.ph.split.us.i255 ]
   %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %138, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %140 = add nuw nsw i32 %.02339.us.i257, 1
@@ -8236,7 +8236,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %Gia_Ma
   br i1 %61, label %.lr.ph.split.us.i, label %Gia_ManWriteNames.exit
 
 .lr.ph.split.us.i:                                ; preds = %Abc_Base10Log.exit.i, %69
-  %.040.us.i = phi i32 [ %.137.us.i, %69 ], [ 8, %Abc_Base10Log.exit.i ]
+  %.040.us.i = phi i32 [ %.237.us.i, %69 ], [ 8, %Abc_Base10Log.exit.i ]
   %.02339.us.i = phi i32 [ %72, %69 ], [ 0, %Abc_Base10Log.exit.i ]
   %.not32.us.i = phi ptr [ @.str.87, %69 ], [ @.str.86, %Abc_Base10Log.exit.i ]
   %62 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %56, i8 noundef signext 120, i32 noundef %.02339.us.i, i32 noundef %.09.i.i)
@@ -8252,7 +8252,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %Gia_Ma
   br label %69
 
 69:                                               ; preds = %.thread.us.i, %.lr.ph.split.us.i
-  %.137.us.i = phi i32 [ 4, %.thread.us.i ], [ %66, %.lr.ph.split.us.i ]
+  %.237.us.i = phi i32 [ 4, %.thread.us.i ], [ %66, %.lr.ph.split.us.i ]
   %70 = phi ptr [ @.str.86, %.thread.us.i ], [ %.not32.us.i, %.lr.ph.split.us.i ]
   %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %70, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %72 = add nuw nsw i32 %.02339.us.i, 1
@@ -8290,7 +8290,7 @@ Abc_Base10Log.exit.i220:                          ; preds = %.lr.ph.i.i216, %Gia
   br i1 %83, label %.lr.ph.split.us.i223, label %Gia_ManWriteNames.exit230
 
 .lr.ph.split.us.i223:                             ; preds = %Abc_Base10Log.exit.i220, %91
-  %.040.us.i224 = phi i32 [ %.137.us.i227, %91 ], [ 9, %Abc_Base10Log.exit.i220 ]
+  %.040.us.i224 = phi i32 [ %.237.us.i227, %91 ], [ 9, %Abc_Base10Log.exit.i220 ]
   %.02339.us.i225 = phi i32 [ %94, %91 ], [ 0, %Abc_Base10Log.exit.i220 ]
   %.not32.us.i226 = phi ptr [ @.str.87, %91 ], [ @.str.86, %Abc_Base10Log.exit.i220 ]
   %84 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %78, i8 noundef signext 122, i32 noundef %.02339.us.i225, i32 noundef %.09.i.i221)
@@ -8306,7 +8306,7 @@ Abc_Base10Log.exit.i220:                          ; preds = %.lr.ph.i.i216, %Gia
   br label %91
 
 91:                                               ; preds = %.thread.us.i229, %.lr.ph.split.us.i223
-  %.137.us.i227 = phi i32 [ 4, %.thread.us.i229 ], [ %88, %.lr.ph.split.us.i223 ]
+  %.237.us.i227 = phi i32 [ 4, %.thread.us.i229 ], [ %88, %.lr.ph.split.us.i223 ]
   %92 = phi ptr [ @.str.86, %.thread.us.i229 ], [ %.not32.us.i226, %.lr.ph.split.us.i223 ]
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %92, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %94 = add nuw nsw i32 %.02339.us.i225, 1
@@ -8341,7 +8341,7 @@ Abc_Base10Log.exit.i236:                          ; preds = %.lr.ph.i.i232, %Gia
   br i1 %103, label %.lr.ph.split.us.i239, label %Gia_ManWriteNames.exit246
 
 .lr.ph.split.us.i239:                             ; preds = %Abc_Base10Log.exit.i236, %113
-  %.040.us.i240 = phi i32 [ %.137.us.i243, %113 ], [ 8, %Abc_Base10Log.exit.i236 ]
+  %.040.us.i240 = phi i32 [ %.237.us.i243, %113 ], [ 8, %Abc_Base10Log.exit.i236 ]
   %.02339.us.i241 = phi i32 [ %116, %113 ], [ 0, %Abc_Base10Log.exit.i236 ]
   %.not32.us.i242 = phi ptr [ @.str.87, %113 ], [ @.str.86, %Abc_Base10Log.exit.i236 ]
   %104 = xor i32 %.02339.us.i241, -1
@@ -8359,7 +8359,7 @@ Abc_Base10Log.exit.i236:                          ; preds = %.lr.ph.i.i232, %Gia
   br label %113
 
 113:                                              ; preds = %.thread.us.i245, %.lr.ph.split.us.i239
-  %.137.us.i243 = phi i32 [ 4, %.thread.us.i245 ], [ %110, %.lr.ph.split.us.i239 ]
+  %.237.us.i243 = phi i32 [ 4, %.thread.us.i245 ], [ %110, %.lr.ph.split.us.i239 ]
   %114 = phi ptr [ @.str.86, %.thread.us.i245 ], [ %.not32.us.i242, %.lr.ph.split.us.i239 ]
   %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %114, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %116 = add nuw nsw i32 %.02339.us.i241, 1
@@ -8398,7 +8398,7 @@ Abc_Base10Log.exit.i252:                          ; preds = %.lr.ph.i.i248, %Gia
   br i1 %127, label %.lr.ph.split.us.i255, label %Gia_ManWriteNames.exit262
 
 .lr.ph.split.us.i255:                             ; preds = %Abc_Base10Log.exit.i252, %137
-  %.040.us.i256 = phi i32 [ %.137.us.i259, %137 ], [ 9, %Abc_Base10Log.exit.i252 ]
+  %.040.us.i256 = phi i32 [ %.237.us.i259, %137 ], [ 9, %Abc_Base10Log.exit.i252 ]
   %.02339.us.i257 = phi i32 [ %140, %137 ], [ 0, %Abc_Base10Log.exit.i252 ]
   %.not32.us.i258 = phi ptr [ @.str.87, %137 ], [ @.str.86, %Abc_Base10Log.exit.i252 ]
   %128 = xor i32 %.02339.us.i257, -1
@@ -8416,7 +8416,7 @@ Abc_Base10Log.exit.i252:                          ; preds = %.lr.ph.i.i248, %Gia
   br label %137
 
 137:                                              ; preds = %.thread.us.i261, %.lr.ph.split.us.i255
-  %.137.us.i259 = phi i32 [ 4, %.thread.us.i261 ], [ %134, %.lr.ph.split.us.i255 ]
+  %.237.us.i259 = phi i32 [ 4, %.thread.us.i261 ], [ %134, %.lr.ph.split.us.i255 ]
   %138 = phi ptr [ @.str.86, %.thread.us.i261 ], [ %.not32.us.i258, %.lr.ph.split.us.i255 ]
   %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.85, ptr noundef nonnull %138, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %140 = add nuw nsw i32 %.02339.us.i257, 1
@@ -8852,7 +8852,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %57
   br i1 %62, label %.lr.ph.split.us.i, label %Gia_ManWriteNames.exit
 
 .lr.ph.split.us.i:                                ; preds = %Abc_Base10Log.exit.i, %70
-  %.040.us.i = phi i32 [ %.137.us.i, %70 ], [ 4, %Abc_Base10Log.exit.i ]
+  %.040.us.i = phi i32 [ %.237.us.i, %70 ], [ 4, %Abc_Base10Log.exit.i ]
   %.02339.us.i = phi i32 [ %73, %70 ], [ 0, %Abc_Base10Log.exit.i ]
   %.not32.us.i = phi ptr [ @.str.87, %70 ], [ @.str.86, %Abc_Base10Log.exit.i ]
   %63 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Gia_ObjGetDumpName.pBuffer, ptr noundef nonnull dereferenceable(1) @.str.110, i32 noundef 97, i32 noundef %.09.i.i, i32 noundef %.02339.us.i, i32 noundef 97) #25
@@ -8868,7 +8868,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %57
   br label %70
 
 70:                                               ; preds = %.thread.us.i, %.lr.ph.split.us.i
-  %.137.us.i = phi i32 [ 4, %.thread.us.i ], [ %67, %.lr.ph.split.us.i ]
+  %.237.us.i = phi i32 [ 4, %.thread.us.i ], [ %67, %.lr.ph.split.us.i ]
   %71 = phi ptr [ @.str.86, %.thread.us.i ], [ %.not32.us.i, %.lr.ph.split.us.i ]
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %71, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %73 = add nuw nsw i32 %.02339.us.i, 1
@@ -8903,7 +8903,7 @@ Abc_Base10Log.exit.i351:                          ; preds = %.lr.ph.i.i347, %Gia
   br i1 %81, label %.lr.ph.split.us.i354, label %Gia_ManWriteNames.exit361
 
 .lr.ph.split.us.i354:                             ; preds = %Abc_Base10Log.exit.i351, %89
-  %.040.us.i355 = phi i32 [ %.137.us.i358, %89 ], [ 4, %Abc_Base10Log.exit.i351 ]
+  %.040.us.i355 = phi i32 [ %.237.us.i358, %89 ], [ 4, %Abc_Base10Log.exit.i351 ]
   %.02339.us.i356 = phi i32 [ %92, %89 ], [ 0, %Abc_Base10Log.exit.i351 ]
   %.not32.us.i357 = phi ptr [ @.str.87, %89 ], [ @.str.86, %Abc_Base10Log.exit.i351 ]
   %82 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Gia_ObjGetDumpName.pBuffer, ptr noundef nonnull dereferenceable(1) @.str.110, i32 noundef 121, i32 noundef %.09.i.i352, i32 noundef %.02339.us.i356, i32 noundef 121) #25
@@ -8919,7 +8919,7 @@ Abc_Base10Log.exit.i351:                          ; preds = %.lr.ph.i.i347, %Gia
   br label %89
 
 89:                                               ; preds = %.thread.us.i360, %.lr.ph.split.us.i354
-  %.137.us.i358 = phi i32 [ 4, %.thread.us.i360 ], [ %86, %.lr.ph.split.us.i354 ]
+  %.237.us.i358 = phi i32 [ 4, %.thread.us.i360 ], [ %86, %.lr.ph.split.us.i354 ]
   %90 = phi ptr [ @.str.86, %.thread.us.i360 ], [ %.not32.us.i357, %.lr.ph.split.us.i354 ]
   %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %90, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %92 = add nuw nsw i32 %.02339.us.i356, 1
@@ -8955,7 +8955,7 @@ Abc_Base10Log.exit.i367:                          ; preds = %.lr.ph.i.i363, %Gia
   br i1 %101, label %.lr.ph.split.us.i370, label %Gia_ManWriteNames.exit377
 
 .lr.ph.split.us.i370:                             ; preds = %Abc_Base10Log.exit.i367, %109
-  %.040.us.i371 = phi i32 [ %.137.us.i374, %109 ], [ 8, %Abc_Base10Log.exit.i367 ]
+  %.040.us.i371 = phi i32 [ %.237.us.i374, %109 ], [ 8, %Abc_Base10Log.exit.i367 ]
   %.02339.us.i372 = phi i32 [ %112, %109 ], [ 0, %Abc_Base10Log.exit.i367 ]
   %.not32.us.i373 = phi ptr [ @.str.87, %109 ], [ @.str.86, %Abc_Base10Log.exit.i367 ]
   %102 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Gia_ObjGetDumpName.pBuffer, ptr noundef nonnull dereferenceable(1) @.str.110, i32 noundef 97, i32 noundef %.09.i.i368, i32 noundef %.02339.us.i372, i32 noundef 97) #25
@@ -8971,7 +8971,7 @@ Abc_Base10Log.exit.i367:                          ; preds = %.lr.ph.i.i363, %Gia
   br label %109
 
 109:                                              ; preds = %.thread.us.i376, %.lr.ph.split.us.i370
-  %.137.us.i374 = phi i32 [ 4, %.thread.us.i376 ], [ %106, %.lr.ph.split.us.i370 ]
+  %.237.us.i374 = phi i32 [ 4, %.thread.us.i376 ], [ %106, %.lr.ph.split.us.i370 ]
   %110 = phi ptr [ @.str.86, %.thread.us.i376 ], [ %.not32.us.i373, %.lr.ph.split.us.i370 ]
   %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %110, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %112 = add nuw nsw i32 %.02339.us.i372, 1
@@ -9007,7 +9007,7 @@ Abc_Base10Log.exit.i383:                          ; preds = %.lr.ph.i.i379, %Gia
   br i1 %121, label %.lr.ph.split.us.i386, label %Gia_ManWriteNames.exit393
 
 .lr.ph.split.us.i386:                             ; preds = %Abc_Base10Log.exit.i383, %129
-  %.040.us.i387 = phi i32 [ %.137.us.i390, %129 ], [ 9, %Abc_Base10Log.exit.i383 ]
+  %.040.us.i387 = phi i32 [ %.237.us.i390, %129 ], [ 9, %Abc_Base10Log.exit.i383 ]
   %.02339.us.i388 = phi i32 [ %132, %129 ], [ 0, %Abc_Base10Log.exit.i383 ]
   %.not32.us.i389 = phi ptr [ @.str.87, %129 ], [ @.str.86, %Abc_Base10Log.exit.i383 ]
   %122 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Gia_ObjGetDumpName.pBuffer, ptr noundef nonnull dereferenceable(1) @.str.110, i32 noundef 121, i32 noundef %.09.i.i384, i32 noundef %.02339.us.i388, i32 noundef 121) #25
@@ -9023,7 +9023,7 @@ Abc_Base10Log.exit.i383:                          ; preds = %.lr.ph.i.i379, %Gia
   br label %129
 
 129:                                              ; preds = %.thread.us.i392, %.lr.ph.split.us.i386
-  %.137.us.i390 = phi i32 [ 4, %.thread.us.i392 ], [ %126, %.lr.ph.split.us.i386 ]
+  %.237.us.i390 = phi i32 [ 4, %.thread.us.i392 ], [ %126, %.lr.ph.split.us.i386 ]
   %130 = phi ptr [ @.str.86, %.thread.us.i392 ], [ %.not32.us.i389, %.lr.ph.split.us.i386 ]
   %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %130, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %132 = add nuw nsw i32 %.02339.us.i388, 1
@@ -9061,7 +9061,7 @@ Abc_Base10Log.exit.i399:                          ; preds = %.lr.ph.i.i395, %Gia
   br i1 %143, label %.lr.ph.split.us.i402, label %Gia_ManWriteNames.exit409
 
 .lr.ph.split.us.i402:                             ; preds = %Abc_Base10Log.exit.i399, %151
-  %.040.us.i403 = phi i32 [ %.137.us.i406, %151 ], [ 8, %Abc_Base10Log.exit.i399 ]
+  %.040.us.i403 = phi i32 [ %.237.us.i406, %151 ], [ 8, %Abc_Base10Log.exit.i399 ]
   %.02339.us.i404 = phi i32 [ %154, %151 ], [ 0, %Abc_Base10Log.exit.i399 ]
   %.not32.us.i405 = phi ptr [ @.str.87, %151 ], [ @.str.86, %Abc_Base10Log.exit.i399 ]
   %144 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %138, i8 noundef signext 120, i32 noundef %.02339.us.i404, i32 noundef %.09.i.i400)
@@ -9077,7 +9077,7 @@ Abc_Base10Log.exit.i399:                          ; preds = %.lr.ph.i.i395, %Gia
   br label %151
 
 151:                                              ; preds = %.thread.us.i408, %.lr.ph.split.us.i402
-  %.137.us.i406 = phi i32 [ 4, %.thread.us.i408 ], [ %148, %.lr.ph.split.us.i402 ]
+  %.237.us.i406 = phi i32 [ 4, %.thread.us.i408 ], [ %148, %.lr.ph.split.us.i402 ]
   %152 = phi ptr [ @.str.86, %.thread.us.i408 ], [ %.not32.us.i405, %.lr.ph.split.us.i402 ]
   %153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %152, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %154 = add nuw nsw i32 %.02339.us.i404, 1
@@ -9115,7 +9115,7 @@ Abc_Base10Log.exit.i415:                          ; preds = %.lr.ph.i.i411, %Gia
   br i1 %165, label %.lr.ph.split.us.i418, label %Gia_ManWriteNames.exit425
 
 .lr.ph.split.us.i418:                             ; preds = %Abc_Base10Log.exit.i415, %173
-  %.040.us.i419 = phi i32 [ %.137.us.i422, %173 ], [ 9, %Abc_Base10Log.exit.i415 ]
+  %.040.us.i419 = phi i32 [ %.237.us.i422, %173 ], [ 9, %Abc_Base10Log.exit.i415 ]
   %.02339.us.i420 = phi i32 [ %176, %173 ], [ 0, %Abc_Base10Log.exit.i415 ]
   %.not32.us.i421 = phi ptr [ @.str.87, %173 ], [ @.str.86, %Abc_Base10Log.exit.i415 ]
   %166 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %160, i8 noundef signext 122, i32 noundef %.02339.us.i420, i32 noundef %.09.i.i416)
@@ -9131,7 +9131,7 @@ Abc_Base10Log.exit.i415:                          ; preds = %.lr.ph.i.i411, %Gia
   br label %173
 
 173:                                              ; preds = %.thread.us.i424, %.lr.ph.split.us.i418
-  %.137.us.i422 = phi i32 [ 4, %.thread.us.i424 ], [ %170, %.lr.ph.split.us.i418 ]
+  %.237.us.i422 = phi i32 [ 4, %.thread.us.i424 ], [ %170, %.lr.ph.split.us.i418 ]
   %174 = phi ptr [ @.str.86, %.thread.us.i424 ], [ %.not32.us.i421, %.lr.ph.split.us.i418 ]
   %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %174, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %176 = add nuw nsw i32 %.02339.us.i420, 1
@@ -9227,7 +9227,7 @@ Abc_Base10Log.exit.i431:                          ; preds = %.lr.ph.i.i427, %203
   br i1 %210, label %.lr.ph.split.us.i434, label %Gia_ManWriteNames.exit441
 
 .lr.ph.split.us.i434:                             ; preds = %Abc_Base10Log.exit.i431, %218
-  %.040.us.i435 = phi i32 [ %.137.us.i438, %218 ], [ 4, %Abc_Base10Log.exit.i431 ]
+  %.040.us.i435 = phi i32 [ %.237.us.i438, %218 ], [ 4, %Abc_Base10Log.exit.i431 ]
   %.02339.us.i436 = phi i32 [ %221, %218 ], [ 0, %Abc_Base10Log.exit.i431 ]
   %.not32.us.i437 = phi ptr [ @.str.87, %218 ], [ @.str.86, %Abc_Base10Log.exit.i431 ]
   %211 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %205, i8 noundef signext 120, i32 noundef %.02339.us.i436, i32 noundef %.09.i.i432)
@@ -9243,7 +9243,7 @@ Abc_Base10Log.exit.i431:                          ; preds = %.lr.ph.i.i427, %203
   br label %218
 
 218:                                              ; preds = %.thread.us.i440, %.lr.ph.split.us.i434
-  %.137.us.i438 = phi i32 [ 4, %.thread.us.i440 ], [ %215, %.lr.ph.split.us.i434 ]
+  %.237.us.i438 = phi i32 [ 4, %.thread.us.i440 ], [ %215, %.lr.ph.split.us.i434 ]
   %219 = phi ptr [ @.str.86, %.thread.us.i440 ], [ %.not32.us.i437, %.lr.ph.split.us.i434 ]
   %220 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %219, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %221 = add nuw nsw i32 %.02339.us.i436, 1
@@ -9280,7 +9280,7 @@ Abc_Base10Log.exit.i447:                          ; preds = %.lr.ph.i.i443, %Gia
   br i1 %231, label %.lr.ph.split.us.i450, label %Gia_ManWriteNames.exit457
 
 .lr.ph.split.us.i450:                             ; preds = %Abc_Base10Log.exit.i447, %239
-  %.040.us.i451 = phi i32 [ %.137.us.i454, %239 ], [ 4, %Abc_Base10Log.exit.i447 ]
+  %.040.us.i451 = phi i32 [ %.237.us.i454, %239 ], [ 4, %Abc_Base10Log.exit.i447 ]
   %.02339.us.i452 = phi i32 [ %242, %239 ], [ 0, %Abc_Base10Log.exit.i447 ]
   %.not32.us.i453 = phi ptr [ @.str.87, %239 ], [ @.str.86, %Abc_Base10Log.exit.i447 ]
   %232 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %226, i8 noundef signext 122, i32 noundef %.02339.us.i452, i32 noundef %.09.i.i448)
@@ -9296,7 +9296,7 @@ Abc_Base10Log.exit.i447:                          ; preds = %.lr.ph.i.i443, %Gia
   br label %239
 
 239:                                              ; preds = %.thread.us.i456, %.lr.ph.split.us.i450
-  %.137.us.i454 = phi i32 [ 4, %.thread.us.i456 ], [ %236, %.lr.ph.split.us.i450 ]
+  %.237.us.i454 = phi i32 [ 4, %.thread.us.i456 ], [ %236, %.lr.ph.split.us.i450 ]
   %240 = phi ptr [ @.str.86, %.thread.us.i456 ], [ %.not32.us.i453, %.lr.ph.split.us.i450 ]
   %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %240, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %242 = add nuw nsw i32 %.02339.us.i452, 1
@@ -9333,7 +9333,7 @@ Abc_Base10Log.exit.i463:                          ; preds = %.lr.ph.i.i459, %Gia
   br i1 %252, label %.lr.ph.split.us.i466, label %Gia_ManWriteNames.exit473
 
 .lr.ph.split.us.i466:                             ; preds = %Abc_Base10Log.exit.i463, %260
-  %.040.us.i467 = phi i32 [ %.137.us.i470, %260 ], [ 8, %Abc_Base10Log.exit.i463 ]
+  %.040.us.i467 = phi i32 [ %.237.us.i470, %260 ], [ 8, %Abc_Base10Log.exit.i463 ]
   %.02339.us.i468 = phi i32 [ %263, %260 ], [ 0, %Abc_Base10Log.exit.i463 ]
   %.not32.us.i469 = phi ptr [ @.str.87, %260 ], [ @.str.86, %Abc_Base10Log.exit.i463 ]
   %253 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %247, i8 noundef signext 120, i32 noundef %.02339.us.i468, i32 noundef %.09.i.i464)
@@ -9349,7 +9349,7 @@ Abc_Base10Log.exit.i463:                          ; preds = %.lr.ph.i.i459, %Gia
   br label %260
 
 260:                                              ; preds = %.thread.us.i472, %.lr.ph.split.us.i466
-  %.137.us.i470 = phi i32 [ 4, %.thread.us.i472 ], [ %257, %.lr.ph.split.us.i466 ]
+  %.237.us.i470 = phi i32 [ 4, %.thread.us.i472 ], [ %257, %.lr.ph.split.us.i466 ]
   %261 = phi ptr [ @.str.86, %.thread.us.i472 ], [ %.not32.us.i469, %.lr.ph.split.us.i466 ]
   %262 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %261, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %263 = add nuw nsw i32 %.02339.us.i468, 1
@@ -9386,7 +9386,7 @@ Abc_Base10Log.exit.i479:                          ; preds = %.lr.ph.i.i475, %Gia
   br i1 %273, label %.lr.ph.split.us.i482, label %Gia_ManWriteNames.exit489
 
 .lr.ph.split.us.i482:                             ; preds = %Abc_Base10Log.exit.i479, %281
-  %.040.us.i483 = phi i32 [ %.137.us.i486, %281 ], [ 9, %Abc_Base10Log.exit.i479 ]
+  %.040.us.i483 = phi i32 [ %.237.us.i486, %281 ], [ 9, %Abc_Base10Log.exit.i479 ]
   %.02339.us.i484 = phi i32 [ %284, %281 ], [ 0, %Abc_Base10Log.exit.i479 ]
   %.not32.us.i485 = phi ptr [ @.str.87, %281 ], [ @.str.86, %Abc_Base10Log.exit.i479 ]
   %274 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %268, i8 noundef signext 122, i32 noundef %.02339.us.i484, i32 noundef %.09.i.i480)
@@ -9402,7 +9402,7 @@ Abc_Base10Log.exit.i479:                          ; preds = %.lr.ph.i.i475, %Gia
   br label %281
 
 281:                                              ; preds = %.thread.us.i488, %.lr.ph.split.us.i482
-  %.137.us.i486 = phi i32 [ 4, %.thread.us.i488 ], [ %278, %.lr.ph.split.us.i482 ]
+  %.237.us.i486 = phi i32 [ 4, %.thread.us.i488 ], [ %278, %.lr.ph.split.us.i482 ]
   %282 = phi ptr [ @.str.86, %.thread.us.i488 ], [ %.not32.us.i485, %.lr.ph.split.us.i482 ]
   %283 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %282, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %284 = add nuw nsw i32 %.02339.us.i484, 1
@@ -9947,7 +9947,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %57
   br i1 %62, label %.lr.ph.split.us.i, label %Gia_ManWriteNames.exit
 
 .lr.ph.split.us.i:                                ; preds = %Abc_Base10Log.exit.i, %70
-  %.040.us.i = phi i32 [ %.137.us.i, %70 ], [ 4, %Abc_Base10Log.exit.i ]
+  %.040.us.i = phi i32 [ %.237.us.i, %70 ], [ 4, %Abc_Base10Log.exit.i ]
   %.02339.us.i = phi i32 [ %73, %70 ], [ 0, %Abc_Base10Log.exit.i ]
   %.not32.us.i = phi ptr [ @.str.87, %70 ], [ @.str.86, %Abc_Base10Log.exit.i ]
   %63 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Gia_ObjGetDumpName.pBuffer, ptr noundef nonnull dereferenceable(1) @.str.110, i32 noundef 97, i32 noundef %.09.i.i, i32 noundef %.02339.us.i, i32 noundef 97) #25
@@ -9963,7 +9963,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %57
   br label %70
 
 70:                                               ; preds = %.thread.us.i, %.lr.ph.split.us.i
-  %.137.us.i = phi i32 [ 4, %.thread.us.i ], [ %67, %.lr.ph.split.us.i ]
+  %.237.us.i = phi i32 [ 4, %.thread.us.i ], [ %67, %.lr.ph.split.us.i ]
   %71 = phi ptr [ @.str.86, %.thread.us.i ], [ %.not32.us.i, %.lr.ph.split.us.i ]
   %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %71, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %73 = add nuw nsw i32 %.02339.us.i, 1
@@ -9998,7 +9998,7 @@ Abc_Base10Log.exit.i351:                          ; preds = %.lr.ph.i.i347, %Gia
   br i1 %81, label %.lr.ph.split.us.i354, label %Gia_ManWriteNames.exit361
 
 .lr.ph.split.us.i354:                             ; preds = %Abc_Base10Log.exit.i351, %89
-  %.040.us.i355 = phi i32 [ %.137.us.i358, %89 ], [ 4, %Abc_Base10Log.exit.i351 ]
+  %.040.us.i355 = phi i32 [ %.237.us.i358, %89 ], [ 4, %Abc_Base10Log.exit.i351 ]
   %.02339.us.i356 = phi i32 [ %92, %89 ], [ 0, %Abc_Base10Log.exit.i351 ]
   %.not32.us.i357 = phi ptr [ @.str.87, %89 ], [ @.str.86, %Abc_Base10Log.exit.i351 ]
   %82 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Gia_ObjGetDumpName.pBuffer, ptr noundef nonnull dereferenceable(1) @.str.110, i32 noundef 121, i32 noundef %.09.i.i352, i32 noundef %.02339.us.i356, i32 noundef 121) #25
@@ -10014,7 +10014,7 @@ Abc_Base10Log.exit.i351:                          ; preds = %.lr.ph.i.i347, %Gia
   br label %89
 
 89:                                               ; preds = %.thread.us.i360, %.lr.ph.split.us.i354
-  %.137.us.i358 = phi i32 [ 4, %.thread.us.i360 ], [ %86, %.lr.ph.split.us.i354 ]
+  %.237.us.i358 = phi i32 [ 4, %.thread.us.i360 ], [ %86, %.lr.ph.split.us.i354 ]
   %90 = phi ptr [ @.str.86, %.thread.us.i360 ], [ %.not32.us.i357, %.lr.ph.split.us.i354 ]
   %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %90, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %92 = add nuw nsw i32 %.02339.us.i356, 1
@@ -10050,7 +10050,7 @@ Abc_Base10Log.exit.i367:                          ; preds = %.lr.ph.i.i363, %Gia
   br i1 %101, label %.lr.ph.split.us.i370, label %Gia_ManWriteNames.exit377
 
 .lr.ph.split.us.i370:                             ; preds = %Abc_Base10Log.exit.i367, %109
-  %.040.us.i371 = phi i32 [ %.137.us.i374, %109 ], [ 8, %Abc_Base10Log.exit.i367 ]
+  %.040.us.i371 = phi i32 [ %.237.us.i374, %109 ], [ 8, %Abc_Base10Log.exit.i367 ]
   %.02339.us.i372 = phi i32 [ %112, %109 ], [ 0, %Abc_Base10Log.exit.i367 ]
   %.not32.us.i373 = phi ptr [ @.str.87, %109 ], [ @.str.86, %Abc_Base10Log.exit.i367 ]
   %102 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Gia_ObjGetDumpName.pBuffer, ptr noundef nonnull dereferenceable(1) @.str.110, i32 noundef 97, i32 noundef %.09.i.i368, i32 noundef %.02339.us.i372, i32 noundef 97) #25
@@ -10066,7 +10066,7 @@ Abc_Base10Log.exit.i367:                          ; preds = %.lr.ph.i.i363, %Gia
   br label %109
 
 109:                                              ; preds = %.thread.us.i376, %.lr.ph.split.us.i370
-  %.137.us.i374 = phi i32 [ 4, %.thread.us.i376 ], [ %106, %.lr.ph.split.us.i370 ]
+  %.237.us.i374 = phi i32 [ 4, %.thread.us.i376 ], [ %106, %.lr.ph.split.us.i370 ]
   %110 = phi ptr [ @.str.86, %.thread.us.i376 ], [ %.not32.us.i373, %.lr.ph.split.us.i370 ]
   %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %110, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %112 = add nuw nsw i32 %.02339.us.i372, 1
@@ -10102,7 +10102,7 @@ Abc_Base10Log.exit.i383:                          ; preds = %.lr.ph.i.i379, %Gia
   br i1 %121, label %.lr.ph.split.us.i386, label %Gia_ManWriteNames.exit393
 
 .lr.ph.split.us.i386:                             ; preds = %Abc_Base10Log.exit.i383, %129
-  %.040.us.i387 = phi i32 [ %.137.us.i390, %129 ], [ 9, %Abc_Base10Log.exit.i383 ]
+  %.040.us.i387 = phi i32 [ %.237.us.i390, %129 ], [ 9, %Abc_Base10Log.exit.i383 ]
   %.02339.us.i388 = phi i32 [ %132, %129 ], [ 0, %Abc_Base10Log.exit.i383 ]
   %.not32.us.i389 = phi ptr [ @.str.87, %129 ], [ @.str.86, %Abc_Base10Log.exit.i383 ]
   %122 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Gia_ObjGetDumpName.pBuffer, ptr noundef nonnull dereferenceable(1) @.str.110, i32 noundef 121, i32 noundef %.09.i.i384, i32 noundef %.02339.us.i388, i32 noundef 121) #25
@@ -10118,7 +10118,7 @@ Abc_Base10Log.exit.i383:                          ; preds = %.lr.ph.i.i379, %Gia
   br label %129
 
 129:                                              ; preds = %.thread.us.i392, %.lr.ph.split.us.i386
-  %.137.us.i390 = phi i32 [ 4, %.thread.us.i392 ], [ %126, %.lr.ph.split.us.i386 ]
+  %.237.us.i390 = phi i32 [ 4, %.thread.us.i392 ], [ %126, %.lr.ph.split.us.i386 ]
   %130 = phi ptr [ @.str.86, %.thread.us.i392 ], [ %.not32.us.i389, %.lr.ph.split.us.i386 ]
   %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %130, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %132 = add nuw nsw i32 %.02339.us.i388, 1
@@ -10156,7 +10156,7 @@ Abc_Base10Log.exit.i399:                          ; preds = %.lr.ph.i.i395, %Gia
   br i1 %143, label %.lr.ph.split.us.i402, label %Gia_ManWriteNames.exit409
 
 .lr.ph.split.us.i402:                             ; preds = %Abc_Base10Log.exit.i399, %151
-  %.040.us.i403 = phi i32 [ %.137.us.i406, %151 ], [ 8, %Abc_Base10Log.exit.i399 ]
+  %.040.us.i403 = phi i32 [ %.237.us.i406, %151 ], [ 8, %Abc_Base10Log.exit.i399 ]
   %.02339.us.i404 = phi i32 [ %154, %151 ], [ 0, %Abc_Base10Log.exit.i399 ]
   %.not32.us.i405 = phi ptr [ @.str.87, %151 ], [ @.str.86, %Abc_Base10Log.exit.i399 ]
   %144 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %138, i8 noundef signext 120, i32 noundef %.02339.us.i404, i32 noundef %.09.i.i400)
@@ -10172,7 +10172,7 @@ Abc_Base10Log.exit.i399:                          ; preds = %.lr.ph.i.i395, %Gia
   br label %151
 
 151:                                              ; preds = %.thread.us.i408, %.lr.ph.split.us.i402
-  %.137.us.i406 = phi i32 [ 4, %.thread.us.i408 ], [ %148, %.lr.ph.split.us.i402 ]
+  %.237.us.i406 = phi i32 [ 4, %.thread.us.i408 ], [ %148, %.lr.ph.split.us.i402 ]
   %152 = phi ptr [ @.str.86, %.thread.us.i408 ], [ %.not32.us.i405, %.lr.ph.split.us.i402 ]
   %153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %152, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %154 = add nuw nsw i32 %.02339.us.i404, 1
@@ -10210,7 +10210,7 @@ Abc_Base10Log.exit.i415:                          ; preds = %.lr.ph.i.i411, %Gia
   br i1 %165, label %.lr.ph.split.us.i418, label %Gia_ManWriteNames.exit425
 
 .lr.ph.split.us.i418:                             ; preds = %Abc_Base10Log.exit.i415, %173
-  %.040.us.i419 = phi i32 [ %.137.us.i422, %173 ], [ 9, %Abc_Base10Log.exit.i415 ]
+  %.040.us.i419 = phi i32 [ %.237.us.i422, %173 ], [ 9, %Abc_Base10Log.exit.i415 ]
   %.02339.us.i420 = phi i32 [ %176, %173 ], [ 0, %Abc_Base10Log.exit.i415 ]
   %.not32.us.i421 = phi ptr [ @.str.87, %173 ], [ @.str.86, %Abc_Base10Log.exit.i415 ]
   %166 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %160, i8 noundef signext 122, i32 noundef %.02339.us.i420, i32 noundef %.09.i.i416)
@@ -10226,7 +10226,7 @@ Abc_Base10Log.exit.i415:                          ; preds = %.lr.ph.i.i411, %Gia
   br label %173
 
 173:                                              ; preds = %.thread.us.i424, %.lr.ph.split.us.i418
-  %.137.us.i422 = phi i32 [ 4, %.thread.us.i424 ], [ %170, %.lr.ph.split.us.i418 ]
+  %.237.us.i422 = phi i32 [ 4, %.thread.us.i424 ], [ %170, %.lr.ph.split.us.i418 ]
   %174 = phi ptr [ @.str.86, %.thread.us.i424 ], [ %.not32.us.i421, %.lr.ph.split.us.i418 ]
   %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %174, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %176 = add nuw nsw i32 %.02339.us.i420, 1
@@ -10322,7 +10322,7 @@ Abc_Base10Log.exit.i431:                          ; preds = %.lr.ph.i.i427, %203
   br i1 %210, label %.lr.ph.split.us.i434, label %Gia_ManWriteNames.exit441
 
 .lr.ph.split.us.i434:                             ; preds = %Abc_Base10Log.exit.i431, %218
-  %.040.us.i435 = phi i32 [ %.137.us.i438, %218 ], [ 4, %Abc_Base10Log.exit.i431 ]
+  %.040.us.i435 = phi i32 [ %.237.us.i438, %218 ], [ 4, %Abc_Base10Log.exit.i431 ]
   %.02339.us.i436 = phi i32 [ %221, %218 ], [ 0, %Abc_Base10Log.exit.i431 ]
   %.not32.us.i437 = phi ptr [ @.str.87, %218 ], [ @.str.86, %Abc_Base10Log.exit.i431 ]
   %211 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %205, i8 noundef signext 120, i32 noundef %.02339.us.i436, i32 noundef %.09.i.i432)
@@ -10338,7 +10338,7 @@ Abc_Base10Log.exit.i431:                          ; preds = %.lr.ph.i.i427, %203
   br label %218
 
 218:                                              ; preds = %.thread.us.i440, %.lr.ph.split.us.i434
-  %.137.us.i438 = phi i32 [ 4, %.thread.us.i440 ], [ %215, %.lr.ph.split.us.i434 ]
+  %.237.us.i438 = phi i32 [ 4, %.thread.us.i440 ], [ %215, %.lr.ph.split.us.i434 ]
   %219 = phi ptr [ @.str.86, %.thread.us.i440 ], [ %.not32.us.i437, %.lr.ph.split.us.i434 ]
   %220 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %219, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %221 = add nuw nsw i32 %.02339.us.i436, 1
@@ -10375,7 +10375,7 @@ Abc_Base10Log.exit.i447:                          ; preds = %.lr.ph.i.i443, %Gia
   br i1 %231, label %.lr.ph.split.us.i450, label %Gia_ManWriteNames.exit457
 
 .lr.ph.split.us.i450:                             ; preds = %Abc_Base10Log.exit.i447, %239
-  %.040.us.i451 = phi i32 [ %.137.us.i454, %239 ], [ 4, %Abc_Base10Log.exit.i447 ]
+  %.040.us.i451 = phi i32 [ %.237.us.i454, %239 ], [ 4, %Abc_Base10Log.exit.i447 ]
   %.02339.us.i452 = phi i32 [ %242, %239 ], [ 0, %Abc_Base10Log.exit.i447 ]
   %.not32.us.i453 = phi ptr [ @.str.87, %239 ], [ @.str.86, %Abc_Base10Log.exit.i447 ]
   %232 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %226, i8 noundef signext 122, i32 noundef %.02339.us.i452, i32 noundef %.09.i.i448)
@@ -10391,7 +10391,7 @@ Abc_Base10Log.exit.i447:                          ; preds = %.lr.ph.i.i443, %Gia
   br label %239
 
 239:                                              ; preds = %.thread.us.i456, %.lr.ph.split.us.i450
-  %.137.us.i454 = phi i32 [ 4, %.thread.us.i456 ], [ %236, %.lr.ph.split.us.i450 ]
+  %.237.us.i454 = phi i32 [ 4, %.thread.us.i456 ], [ %236, %.lr.ph.split.us.i450 ]
   %240 = phi ptr [ @.str.86, %.thread.us.i456 ], [ %.not32.us.i453, %.lr.ph.split.us.i450 ]
   %241 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %240, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %242 = add nuw nsw i32 %.02339.us.i452, 1
@@ -10428,7 +10428,7 @@ Abc_Base10Log.exit.i463:                          ; preds = %.lr.ph.i.i459, %Gia
   br i1 %252, label %.lr.ph.split.us.i466, label %Gia_ManWriteNames.exit473
 
 .lr.ph.split.us.i466:                             ; preds = %Abc_Base10Log.exit.i463, %260
-  %.040.us.i467 = phi i32 [ %.137.us.i470, %260 ], [ 8, %Abc_Base10Log.exit.i463 ]
+  %.040.us.i467 = phi i32 [ %.237.us.i470, %260 ], [ 8, %Abc_Base10Log.exit.i463 ]
   %.02339.us.i468 = phi i32 [ %263, %260 ], [ 0, %Abc_Base10Log.exit.i463 ]
   %.not32.us.i469 = phi ptr [ @.str.87, %260 ], [ @.str.86, %Abc_Base10Log.exit.i463 ]
   %253 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %247, i8 noundef signext 120, i32 noundef %.02339.us.i468, i32 noundef %.09.i.i464)
@@ -10444,7 +10444,7 @@ Abc_Base10Log.exit.i463:                          ; preds = %.lr.ph.i.i459, %Gia
   br label %260
 
 260:                                              ; preds = %.thread.us.i472, %.lr.ph.split.us.i466
-  %.137.us.i470 = phi i32 [ 4, %.thread.us.i472 ], [ %257, %.lr.ph.split.us.i466 ]
+  %.237.us.i470 = phi i32 [ 4, %.thread.us.i472 ], [ %257, %.lr.ph.split.us.i466 ]
   %261 = phi ptr [ @.str.86, %.thread.us.i472 ], [ %.not32.us.i469, %.lr.ph.split.us.i466 ]
   %262 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %261, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %263 = add nuw nsw i32 %.02339.us.i468, 1
@@ -10481,7 +10481,7 @@ Abc_Base10Log.exit.i479:                          ; preds = %.lr.ph.i.i475, %Gia
   br i1 %273, label %.lr.ph.split.us.i482, label %Gia_ManWriteNames.exit489
 
 .lr.ph.split.us.i482:                             ; preds = %Abc_Base10Log.exit.i479, %281
-  %.040.us.i483 = phi i32 [ %.137.us.i486, %281 ], [ 9, %Abc_Base10Log.exit.i479 ]
+  %.040.us.i483 = phi i32 [ %.237.us.i486, %281 ], [ 9, %Abc_Base10Log.exit.i479 ]
   %.02339.us.i484 = phi i32 [ %284, %281 ], [ 0, %Abc_Base10Log.exit.i479 ]
   %.not32.us.i485 = phi ptr [ @.str.87, %281 ], [ @.str.86, %Abc_Base10Log.exit.i479 ]
   %274 = tail call ptr @Gia_ObjGetDumpName(ptr noundef %268, i8 noundef signext 122, i32 noundef %.02339.us.i484, i32 noundef %.09.i.i480)
@@ -10497,7 +10497,7 @@ Abc_Base10Log.exit.i479:                          ; preds = %.lr.ph.i.i475, %Gia
   br label %281
 
 281:                                              ; preds = %.thread.us.i488, %.lr.ph.split.us.i482
-  %.137.us.i486 = phi i32 [ 4, %.thread.us.i488 ], [ %278, %.lr.ph.split.us.i482 ]
+  %.237.us.i486 = phi i32 [ 4, %.thread.us.i488 ], [ %278, %.lr.ph.split.us.i482 ]
   %282 = phi ptr [ @.str.86, %.thread.us.i488 ], [ %.not32.us.i485, %.lr.ph.split.us.i482 ]
   %283 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.85, ptr noundef nonnull %282, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #25
   %284 = add nuw nsw i32 %.02339.us.i484, 1
@@ -10984,7 +10984,7 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8
 
 .lr.ph7:                                          ; preds = %.lr.ph7.preheader, %.lr.ph7
   %indvars.iv12 = phi i64 [ 0, %.lr.ph7.preheader ], [ %indvars.iv.next13, %.lr.ph7 ]
-  %.16 = phi i32 [ 0, %.lr.ph7.preheader ], [ %78, %.lr.ph7 ]
+  %.26 = phi i32 [ 0, %.lr.ph7.preheader ], [ %78, %.lr.ph7 ]
   %57 = getelementptr inbounds i32, ptr %.8.val, i64 %indvars.iv12
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 1431655765
@@ -11005,15 +11005,15 @@ define internal fastcc i32 @Vec_BitCount(i32 %.4.val, ptr nocapture readonly %.8
   %74 = add nuw nsw i32 %73, %71
   %75 = and i32 %74, 31
   %76 = lshr i32 %74, 16
-  %77 = add nuw nsw i32 %76, %.16
+  %77 = add nuw nsw i32 %76, %.26
   %78 = add nuw nsw i32 %77, %75
   %indvars.iv.next13 = add nuw nsw i64 %indvars.iv12, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next13, %wide.trip.count15
   br i1 %exitcond16.not, label %.loopexit, label %.lr.ph7, !llvm.loop !89
 
 .loopexit:                                        ; preds = %.lr.ph7, %.preheader, %._crit_edge
-  %.2 = phi i32 [ %56, %._crit_edge ], [ 0, %.preheader ], [ %78, %.lr.ph7 ]
-  ret i32 %.2
+  %.1 = phi i32 [ %56, %._crit_edge ], [ 0, %.preheader ], [ %78, %.lr.ph7 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nofree nounwind uwtable

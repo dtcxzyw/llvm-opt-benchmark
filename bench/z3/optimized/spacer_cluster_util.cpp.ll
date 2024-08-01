@@ -6033,7 +6033,7 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i: ; preds = %land.lhs.tru
 
 if.end3.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i, %land.lhs.true.i.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i, %land.rhs.i.i.i.i.i, %if.end.i.i
   %k1.034.i.i = phi ptr [ %8, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ null, %land.lhs.true.i.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ null, %if.end.i.i ], [ null, %land.rhs.i.i.i.i.i ]
-  %t1.1.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %0, %land.lhs.true.i.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %0, %if.end.i.i ], [ %0, %land.rhs.i.i.i.i.i ]
+  %t1.0.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %0, %land.lhs.true.i.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %0, %if.end.i.i ], [ %0, %land.rhs.i.i.i.i.i ]
   %m_kind.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %bf.load.i.i.i.i9.i.i = load i32, ptr %m_kind.i.i.i.i8.i.i, align 4
   %bf.clear.i.i.i.i10.i.i = and i32 %bf.load.i.i.i.i9.i.i, 65535
@@ -6072,13 +6072,13 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i: ; preds = %land.lhs.t
 
 if.end7.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i, %land.lhs.true.i21.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i, %land.rhs.i.i.i13.i.i, %if.end3.i.i
   %k2.039.i.i = phi ptr [ %16, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ null, %land.lhs.true.i21.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ null, %if.end3.i.i ], [ null, %land.rhs.i.i.i13.i.i ]
-  %t2.1.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %1, %land.lhs.true.i21.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %1, %if.end3.i.i ], [ %1, %land.rhs.i.i.i13.i.i ]
-  %cmp8.not.i.i = icmp eq ptr %t1.1.i.i, %t2.1.i.i
+  %t2.0.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %1, %land.lhs.true.i21.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %1, %if.end3.i.i ], [ %1, %land.rhs.i.i.i13.i.i ]
+  %cmp8.not.i.i = icmp eq ptr %t1.0.i.i, %t2.0.i.i
   br i1 %cmp8.not.i.i, label %if.end11.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
-  %18 = load i32, ptr %t1.1.i.i, align 4
-  %19 = load i32, ptr %t2.1.i.i, align 4
+  %18 = load i32, ptr %t1.0.i.i, align 4
+  %19 = load i32, ptr %t2.0.i.i, align 4
   %cmp.i28.i.i = icmp ult i32 %18, %19
   br i1 %cmp.i28.i.i, label %if.then3, label %if.else
 
@@ -6183,7 +6183,7 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i: ; preds = %land.lhs.tru
 
 if.end3.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i, %land.lhs.true.i.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i, %land.rhs.i.i.i.i.i, %if.end.i.i
   %k1.034.i.i = phi ptr [ %8, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ null, %land.lhs.true.i.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ null, %if.end.i.i ], [ null, %land.rhs.i.i.i.i.i ]
-  %t1.1.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %0, %land.lhs.true.i.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %0, %if.end.i.i ], [ %0, %land.rhs.i.i.i.i.i ]
+  %t1.0.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %0, %land.lhs.true.i.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %0, %if.end.i.i ], [ %0, %land.rhs.i.i.i.i.i ]
   %m_kind.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %bf.load.i.i.i.i9.i.i = load i32, ptr %m_kind.i.i.i.i8.i.i, align 4
   %bf.clear.i.i.i.i10.i.i = and i32 %bf.load.i.i.i.i9.i.i, 65535
@@ -6222,13 +6222,13 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i: ; preds = %land.lhs.t
 
 if.end7.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i, %land.lhs.true.i21.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i, %land.rhs.i.i.i13.i.i, %if.end3.i.i
   %k2.039.i.i = phi ptr [ %16, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ null, %land.lhs.true.i21.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ null, %if.end3.i.i ], [ null, %land.rhs.i.i.i13.i.i ]
-  %t2.1.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %1, %land.lhs.true.i21.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %1, %if.end3.i.i ], [ %1, %land.rhs.i.i.i13.i.i ]
-  %cmp8.not.i.i = icmp eq ptr %t1.1.i.i, %t2.1.i.i
+  %t2.0.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %1, %land.lhs.true.i21.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %1, %if.end3.i.i ], [ %1, %land.rhs.i.i.i13.i.i ]
+  %cmp8.not.i.i = icmp eq ptr %t1.0.i.i, %t2.0.i.i
   br i1 %cmp8.not.i.i, label %if.end11.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
-  %18 = load i32, ptr %t1.1.i.i, align 4
-  %19 = load i32, ptr %t2.1.i.i, align 4
+  %18 = load i32, ptr %t1.0.i.i, align 4
+  %19 = load i32, ptr %t2.0.i.i, align 4
   %cmp.i28.i.i = icmp ult i32 %18, %19
   br i1 %cmp.i28.i.i, label %if.then5, label %return
 
@@ -6348,7 +6348,7 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i: ; preds = %land.lhs.tru
 
 if.end3.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i, %land.lhs.true.i.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i, %land.rhs.i.i.i.i.i, %if.end.i.i
   %k1.034.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ null, %land.lhs.true.i.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ null, %if.end.i.i ], [ null, %land.rhs.i.i.i.i.i ]
-  %t1.1.i.i = phi ptr [ %10, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %0, %land.lhs.true.i.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %0, %if.end.i.i ], [ %0, %land.rhs.i.i.i.i.i ]
+  %t1.0.i.i = phi ptr [ %10, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %0, %land.lhs.true.i.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %0, %if.end.i.i ], [ %0, %land.rhs.i.i.i.i.i ]
   %m_kind.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %bf.load.i.i.i.i9.i.i = load i32, ptr %m_kind.i.i.i.i8.i.i, align 4
   %bf.clear.i.i.i.i10.i.i = and i32 %bf.load.i.i.i.i9.i.i, 65535
@@ -6387,13 +6387,13 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i: ; preds = %land.lhs.t
 
 if.end7.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i, %land.lhs.true.i21.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i, %land.rhs.i.i.i13.i.i, %if.end3.i.i
   %k2.039.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ null, %land.lhs.true.i21.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ null, %if.end3.i.i ], [ null, %land.rhs.i.i.i13.i.i ]
-  %t2.1.i.i = phi ptr [ %18, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %2, %land.lhs.true.i21.i.i ], [ %2, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %2, %if.end3.i.i ], [ %2, %land.rhs.i.i.i13.i.i ]
-  %cmp8.not.i.i = icmp eq ptr %t1.1.i.i, %t2.1.i.i
+  %t2.0.i.i = phi ptr [ %18, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %2, %land.lhs.true.i21.i.i ], [ %2, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %2, %if.end3.i.i ], [ %2, %land.rhs.i.i.i13.i.i ]
+  %cmp8.not.i.i = icmp eq ptr %t1.0.i.i, %t2.0.i.i
   br i1 %cmp8.not.i.i, label %if.end11.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
-  %19 = load i32, ptr %t1.1.i.i, align 4
-  %20 = load i32, ptr %t2.1.i.i, align 4
+  %19 = load i32, ptr %t1.0.i.i, align 4
+  %20 = load i32, ptr %t2.0.i.i, align 4
   %cmp.i28.i.i = icmp ult i32 %19, %20
   br i1 %cmp.i28.i.i, label %while.body, label %while.end
 
@@ -6495,7 +6495,7 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i: ; preds = %land.lhs.tru
 
 if.end3.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i, %land.lhs.true.i.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i, %land.rhs.i.i.i.i.i, %if.end.i.i
   %k1.034.i.i = phi ptr [ %8, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ null, %land.lhs.true.i.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ null, %if.end.i.i ], [ null, %land.rhs.i.i.i.i.i ]
-  %t1.1.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %1, %land.lhs.true.i.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %1, %if.end.i.i ], [ %1, %land.rhs.i.i.i.i.i ]
+  %t1.0.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %1, %land.lhs.true.i.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %1, %if.end.i.i ], [ %1, %land.rhs.i.i.i.i.i ]
   %k1.034.i.i.fr = freeze ptr %k1.034.i.i
   %bf.load.i.i.i.i9.i.i = load i32, ptr %m_kind.i.i.i.i8.i.i, align 4
   %bf.clear.i.i.i.i10.i.i = and i32 %bf.load.i.i.i.i9.i.i, 65535
@@ -6530,13 +6530,13 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i: ; preds = %land.lhs.t
 
 if.end7.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i, %land.lhs.true.i21.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i, %land.rhs.i.i.i13.i.i, %if.end3.i.i
   %k2.039.i.i = phi ptr [ %16, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ null, %land.lhs.true.i21.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ null, %if.end3.i.i ], [ null, %land.rhs.i.i.i13.i.i ]
-  %t2.1.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %0, %land.lhs.true.i21.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %0, %if.end3.i.i ], [ %0, %land.rhs.i.i.i13.i.i ]
-  %cmp8.not.i.i = icmp eq ptr %t1.1.i.i, %t2.1.i.i
+  %t2.0.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %0, %land.lhs.true.i21.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %0, %if.end3.i.i ], [ %0, %land.rhs.i.i.i13.i.i ]
+  %cmp8.not.i.i = icmp eq ptr %t1.0.i.i, %t2.0.i.i
   br i1 %cmp8.not.i.i, label %if.end11.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
-  %18 = load i32, ptr %t1.1.i.i, align 4
-  %19 = load i32, ptr %t2.1.i.i, align 4
+  %18 = load i32, ptr %t1.0.i.i, align 4
+  %19 = load i32, ptr %t2.0.i.i, align 4
   %cmp.i28.i.i = icmp ult i32 %18, %19
   %cond.fr21 = freeze i1 %cmp.i28.i.i
   br i1 %cond.fr21, label %22, label %.thread
@@ -6642,7 +6642,7 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i: ; preds = %land.lhs.tru
 
 if.end3.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i, %land.lhs.true.i.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i, %land.rhs.i.i.i.i.i, %if.end.i.i
   %k1.034.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ null, %land.lhs.true.i.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ null, %if.end.i.i ], [ null, %land.rhs.i.i.i.i.i ]
-  %t1.1.i.i = phi ptr [ %10, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %0, %land.lhs.true.i.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %0, %if.end.i.i ], [ %0, %land.rhs.i.i.i.i.i ]
+  %t1.0.i.i = phi ptr [ %10, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %0, %land.lhs.true.i.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %0, %if.end.i.i ], [ %0, %land.rhs.i.i.i.i.i ]
   %k1.034.i.i.fr = freeze ptr %k1.034.i.i
   %m_kind.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %bf.load.i.i.i.i9.i.i = load i32, ptr %m_kind.i.i.i.i8.i.i, align 4
@@ -6682,13 +6682,13 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i: ; preds = %land.lhs.t
 
 if.end7.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i, %land.lhs.true.i21.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i, %land.rhs.i.i.i13.i.i, %if.end3.i.i
   %k2.039.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ null, %land.lhs.true.i21.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ null, %if.end3.i.i ], [ null, %land.rhs.i.i.i13.i.i ]
-  %t2.1.i.i = phi ptr [ %18, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %1, %land.lhs.true.i21.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %1, %if.end3.i.i ], [ %1, %land.rhs.i.i.i13.i.i ]
-  %cmp8.not.i.i = icmp eq ptr %t1.1.i.i, %t2.1.i.i
+  %t2.0.i.i = phi ptr [ %18, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %1, %land.lhs.true.i21.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %1, %if.end3.i.i ], [ %1, %land.rhs.i.i.i13.i.i ]
+  %cmp8.not.i.i = icmp eq ptr %t1.0.i.i, %t2.0.i.i
   br i1 %cmp8.not.i.i, label %if.end11.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
-  %19 = load i32, ptr %t1.1.i.i, align 4
-  %20 = load i32, ptr %t2.1.i.i, align 4
+  %19 = load i32, ptr %t1.0.i.i, align 4
+  %20 = load i32, ptr %t2.0.i.i, align 4
   %cmp.i28.i.i = icmp ult i32 %19, %20
   %cond.fr21 = freeze i1 %cmp.i28.i.i
   br i1 %cond.fr21, label %while.cond, label %23
@@ -6861,8 +6861,8 @@ if.end46:                                         ; preds = %if.else35
 for.body54:                                       ; preds = %if.end46, %for.body54
   %__i50.066 = phi i64 [ %inc58, %for.body54 ], [ 0, %if.end46 ]
   %__q47.065 = phi ptr [ %incdec.ptr56, %for.body54 ], [ %add.ptr40, %if.end46 ]
-  %__p.264 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
-  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.264, i64 -8
+  %__p.364 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.364, i64 -8
   %incdec.ptr56 = getelementptr inbounds i8, ptr %__q47.065, i64 -8
   %6 = load ptr, ptr %incdec.ptr55, align 8
   %7 = load ptr, ptr %incdec.ptr56, align 8
@@ -6873,7 +6873,7 @@ for.body54:                                       ; preds = %if.end46, %for.body
   br i1 %exitcond.not, label %for.end59, label %for.body54, !llvm.loop !24
 
 for.end59:                                        ; preds = %for.body54, %if.end46
-  %__p.2.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
+  %__p.3.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
   %rem60 = srem i64 %__n.0, %sub15
   %cmp61 = icmp eq i64 %rem60, 0
   br i1 %cmp61, label %return, label %for.cond.backedge
@@ -6881,7 +6881,7 @@ for.end59:                                        ; preds = %for.body54, %if.end
 for.cond.backedge:                                ; preds = %for.end59, %if.end33
   %__n.0.be = phi i64 [ %__k.0, %if.end33 ], [ %sub15, %for.end59 ]
   %__k.0.be = phi i64 [ %sub34, %if.end33 ], [ %rem60, %for.end59 ]
-  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.2.lcssa, %for.end59 ]
+  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.3.lcssa, %for.end59 ]
   br label %for.cond, !llvm.loop !25
 
 return:                                           ; preds = %for.end59, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPP4exprS2_ET0_T_S4_S3_.exit, %_ZSt4moveIPP4exprS2_ET0_T_S4_S3_.exit
@@ -6983,7 +6983,7 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i.i: ; preds = %land.lhs.t
 
 if.end3.i.i.i:                                    ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i.i, %land.lhs.true.i.i.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i.i, %land.rhs.i.i.i.i.i.i, %if.end.i.i.i
   %k1.034.i.i.i = phi ptr [ %8, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i.i ], [ null, %land.lhs.true.i.i.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i.i ], [ null, %if.end.i.i.i ], [ null, %land.rhs.i.i.i.i.i.i ]
-  %t1.1.i.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i.i ], [ %0, %land.lhs.true.i.i.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i.i ], [ %0, %if.end.i.i.i ], [ %0, %land.rhs.i.i.i.i.i.i ]
+  %t1.0.i.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i.i ], [ %0, %land.lhs.true.i.i.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i.i ], [ %0, %if.end.i.i.i ], [ %0, %land.rhs.i.i.i.i.i.i ]
   %m_kind.i.i.i.i8.i.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %bf.load.i.i.i.i9.i.i.i = load i32, ptr %m_kind.i.i.i.i8.i.i.i, align 4
   %bf.clear.i.i.i.i10.i.i.i = and i32 %bf.load.i.i.i.i9.i.i.i, 65535
@@ -7022,13 +7022,13 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i.i: ; preds = %land.lhs
 
 if.end7.i.i.i:                                    ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i.i, %land.lhs.true.i21.i.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i.i, %land.rhs.i.i.i13.i.i.i, %if.end3.i.i.i
   %k2.039.i.i.i = phi ptr [ %16, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i.i ], [ null, %land.lhs.true.i21.i.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i.i ], [ null, %if.end3.i.i.i ], [ null, %land.rhs.i.i.i13.i.i.i ]
-  %t2.1.i.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i.i ], [ %1, %land.lhs.true.i21.i.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i.i ], [ %1, %if.end3.i.i.i ], [ %1, %land.rhs.i.i.i13.i.i.i ]
-  %cmp8.not.i.i.i = icmp eq ptr %t1.1.i.i.i, %t2.1.i.i.i
+  %t2.0.i.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i.i ], [ %1, %land.lhs.true.i21.i.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i.i ], [ %1, %if.end3.i.i.i ], [ %1, %land.rhs.i.i.i13.i.i.i ]
+  %cmp8.not.i.i.i = icmp eq ptr %t1.0.i.i.i, %t2.0.i.i.i
   br i1 %cmp8.not.i.i.i, label %if.end11.i.i.i, label %if.then9.i.i.i
 
 if.then9.i.i.i:                                   ; preds = %if.end7.i.i.i
-  %18 = load i32, ptr %t1.1.i.i.i, align 4
-  %19 = load i32, ptr %t2.1.i.i.i, align 4
+  %18 = load i32, ptr %t1.0.i.i.i, align 4
+  %19 = load i32, ptr %t2.0.i.i.i, align 4
   %cmp.i28.i.i.i = icmp ult i32 %18, %19
   br i1 %cmp.i28.i.i.i, label %if.then.i, label %if.else.i
 
@@ -7193,7 +7193,7 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i.i131: ; preds = %land.lh
 
 if.end3.i.i.i76:                                  ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i.i131, %land.lhs.true.i.i.i.i128, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i.i124, %land.rhs.i.i.i.i.i.i120, %if.end.i.i.i71
   %k1.034.i.i.i77 = phi ptr [ %31, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i.i131 ], [ null, %land.lhs.true.i.i.i.i128 ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i.i124 ], [ null, %if.end.i.i.i71 ], [ null, %land.rhs.i.i.i.i.i.i120 ]
-  %t1.1.i.i.i78 = phi ptr [ %32, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i.i131 ], [ %23, %land.lhs.true.i.i.i.i128 ], [ %23, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i.i124 ], [ %23, %if.end.i.i.i71 ], [ %23, %land.rhs.i.i.i.i.i.i120 ]
+  %t1.0.i.i.i78 = phi ptr [ %32, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i.i131 ], [ %23, %land.lhs.true.i.i.i.i128 ], [ %23, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i.i124 ], [ %23, %if.end.i.i.i71 ], [ %23, %land.rhs.i.i.i.i.i.i120 ]
   %m_kind.i.i.i.i8.i.i.i79 = getelementptr inbounds i8, ptr %24, i64 4
   %bf.load.i.i.i.i9.i.i.i80 = load i32, ptr %m_kind.i.i.i.i8.i.i.i79, align 4
   %bf.clear.i.i.i.i10.i.i.i81 = and i32 %bf.load.i.i.i.i9.i.i.i80, 65535
@@ -7232,13 +7232,13 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i.i117: ; preds = %land.
 
 if.end7.i.i.i83:                                  ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i.i117, %land.lhs.true.i21.i.i.i114, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i.i110, %land.rhs.i.i.i13.i.i.i106, %if.end3.i.i.i76
   %k2.039.i.i.i84 = phi ptr [ %39, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i.i117 ], [ null, %land.lhs.true.i21.i.i.i114 ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i.i110 ], [ null, %if.end3.i.i.i76 ], [ null, %land.rhs.i.i.i13.i.i.i106 ]
-  %t2.1.i.i.i85 = phi ptr [ %40, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i.i117 ], [ %24, %land.lhs.true.i21.i.i.i114 ], [ %24, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i.i110 ], [ %24, %if.end3.i.i.i76 ], [ %24, %land.rhs.i.i.i13.i.i.i106 ]
-  %cmp8.not.i.i.i86 = icmp eq ptr %t1.1.i.i.i78, %t2.1.i.i.i85
+  %t2.0.i.i.i85 = phi ptr [ %40, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i.i117 ], [ %24, %land.lhs.true.i21.i.i.i114 ], [ %24, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i.i110 ], [ %24, %if.end3.i.i.i76 ], [ %24, %land.rhs.i.i.i13.i.i.i106 ]
+  %cmp8.not.i.i.i86 = icmp eq ptr %t1.0.i.i.i78, %t2.0.i.i.i85
   br i1 %cmp8.not.i.i.i86, label %if.end11.i.i.i99, label %if.then9.i.i.i87
 
 if.then9.i.i.i87:                                 ; preds = %if.end7.i.i.i83
-  %41 = load i32, ptr %t1.1.i.i.i78, align 4
-  %42 = load i32, ptr %t2.1.i.i.i85, align 4
+  %41 = load i32, ptr %t1.0.i.i.i78, align 4
+  %42 = load i32, ptr %t2.0.i.i.i85, align 4
   %cmp.i28.i.i.i88 = icmp ult i32 %41, %42
   br i1 %cmp.i28.i.i.i88, label %if.then.i97, label %if.else.i89
 
@@ -7561,7 +7561,7 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i: ; preds = %land.lhs.tru
 
 if.end3.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i, %land.lhs.true.i.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i, %land.rhs.i.i.i.i.i, %if.end.i.i
   %k1.034.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ null, %land.lhs.true.i.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ null, %if.end.i.i ], [ null, %land.rhs.i.i.i.i.i ]
-  %t1.1.i.i = phi ptr [ %10, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %1, %land.lhs.true.i.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %1, %if.end.i.i ], [ %1, %land.rhs.i.i.i.i.i ]
+  %t1.0.i.i = phi ptr [ %10, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %1, %land.lhs.true.i.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %1, %if.end.i.i ], [ %1, %land.rhs.i.i.i.i.i ]
   %m_kind.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %bf.load.i.i.i.i9.i.i = load i32, ptr %m_kind.i.i.i.i8.i.i, align 4
   %bf.clear.i.i.i.i10.i.i = and i32 %bf.load.i.i.i.i9.i.i, 65535
@@ -7600,13 +7600,13 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i: ; preds = %land.lhs.t
 
 if.end7.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i, %land.lhs.true.i21.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i, %land.rhs.i.i.i13.i.i, %if.end3.i.i
   %k2.039.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ null, %land.lhs.true.i21.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ null, %if.end3.i.i ], [ null, %land.rhs.i.i.i13.i.i ]
-  %t2.1.i.i = phi ptr [ %18, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %2, %land.lhs.true.i21.i.i ], [ %2, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %2, %if.end3.i.i ], [ %2, %land.rhs.i.i.i13.i.i ]
-  %cmp8.not.i.i = icmp eq ptr %t1.1.i.i, %t2.1.i.i
+  %t2.0.i.i = phi ptr [ %18, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %2, %land.lhs.true.i21.i.i ], [ %2, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %2, %if.end3.i.i ], [ %2, %land.rhs.i.i.i13.i.i ]
+  %cmp8.not.i.i = icmp eq ptr %t1.0.i.i, %t2.0.i.i
   br i1 %cmp8.not.i.i, label %if.end11.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
-  %19 = load i32, ptr %t1.1.i.i, align 4
-  %20 = load i32, ptr %t2.1.i.i, align 4
+  %19 = load i32, ptr %t1.0.i.i, align 4
+  %20 = load i32, ptr %t2.0.i.i, align 4
   %cmp.i28.i.i = icmp ult i32 %19, %20
   br i1 %cmp.i28.i.i, label %if.then, label %if.else
 
@@ -7731,7 +7731,7 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i: ; preds = %land.lhs.tru
 
 if.end3.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i, %land.lhs.true.i.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i, %land.rhs.i.i.i.i.i, %if.end.i.i
   %k1.034.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ null, %land.lhs.true.i.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ null, %if.end.i.i ], [ null, %land.rhs.i.i.i.i.i ]
-  %t1.1.i.i = phi ptr [ %10, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %1, %land.lhs.true.i.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %1, %if.end.i.i ], [ %1, %land.rhs.i.i.i.i.i ]
+  %t1.0.i.i = phi ptr [ %10, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %1, %land.lhs.true.i.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %1, %if.end.i.i ], [ %1, %land.rhs.i.i.i.i.i ]
   %m_kind.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %2, i64 4
   %bf.load.i.i.i.i9.i.i = load i32, ptr %m_kind.i.i.i.i8.i.i, align 4
   %bf.clear.i.i.i.i10.i.i = and i32 %bf.load.i.i.i.i9.i.i, 65535
@@ -7770,13 +7770,13 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i: ; preds = %land.lhs.t
 
 if.end7.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i, %land.lhs.true.i21.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i, %land.rhs.i.i.i13.i.i, %if.end3.i.i
   %k2.039.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ null, %land.lhs.true.i21.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ null, %if.end3.i.i ], [ null, %land.rhs.i.i.i13.i.i ]
-  %t2.1.i.i = phi ptr [ %18, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %2, %land.lhs.true.i21.i.i ], [ %2, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %2, %if.end3.i.i ], [ %2, %land.rhs.i.i.i13.i.i ]
-  %cmp8.not.i.i = icmp eq ptr %t1.1.i.i, %t2.1.i.i
+  %t2.0.i.i = phi ptr [ %18, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %2, %land.lhs.true.i21.i.i ], [ %2, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %2, %if.end3.i.i ], [ %2, %land.rhs.i.i.i13.i.i ]
+  %cmp8.not.i.i = icmp eq ptr %t1.0.i.i, %t2.0.i.i
   br i1 %cmp8.not.i.i, label %if.end11.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
-  %19 = load i32, ptr %t1.1.i.i, align 4
-  %20 = load i32, ptr %t2.1.i.i, align 4
+  %19 = load i32, ptr %t1.0.i.i, align 4
+  %20 = load i32, ptr %t2.0.i.i, align 4
   %cmp.i28.i.i = icmp ult i32 %19, %20
   br i1 %cmp.i28.i.i, label %if.then, label %if.else
 
@@ -7913,7 +7913,7 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i: ; preds = %land.lhs.tru
 
 if.end3.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i, %land.lhs.true.i.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i, %land.rhs.i.i.i.i.i, %if.end.i.i
   %k1.034.i.i = phi ptr [ %8, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ null, %land.lhs.true.i.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ null, %if.end.i.i ], [ null, %land.rhs.i.i.i.i.i ]
-  %t1.1.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %0, %land.lhs.true.i.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %0, %if.end.i.i ], [ %0, %land.rhs.i.i.i.i.i ]
+  %t1.0.i.i = phi ptr [ %9, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit.i.i ], [ %0, %land.lhs.true.i.i.i ], [ %0, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i.i.i ], [ %0, %if.end.i.i ], [ %0, %land.rhs.i.i.i.i.i ]
   %m_kind.i.i.i.i8.i.i = getelementptr inbounds i8, ptr %1, i64 4
   %bf.load.i.i.i.i9.i.i = load i32, ptr %m_kind.i.i.i.i8.i.i, align 4
   %bf.clear.i.i.i.i10.i.i = and i32 %bf.load.i.i.i.i9.i.i, 65535
@@ -7952,13 +7952,13 @@ _ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i: ; preds = %land.lhs.t
 
 if.end7.i.i:                                      ; preds = %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i, %land.lhs.true.i21.i.i, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i, %land.rhs.i.i.i13.i.i, %if.end3.i.i
   %k2.039.i.i = phi ptr [ %16, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ null, %land.lhs.true.i21.i.i ], [ null, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ null, %if.end3.i.i ], [ null, %land.rhs.i.i.i13.i.i ]
-  %t2.1.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %1, %land.lhs.true.i21.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %1, %if.end3.i.i ], [ %1, %land.rhs.i.i.i13.i.i ]
-  %cmp8.not.i.i = icmp eq ptr %t1.1.i.i, %t2.1.i.i
+  %t2.0.i.i = phi ptr [ %17, %_ZNK17arith_recognizers6is_mulEPK4exprRPS0_S4_.exit27.i.i ], [ %1, %land.lhs.true.i21.i.i ], [ %1, %_ZNK17arith_recognizers6is_mulEPK4expr.exit.i17.i.i ], [ %1, %if.end3.i.i ], [ %1, %land.rhs.i.i.i13.i.i ]
+  %cmp8.not.i.i = icmp eq ptr %t1.0.i.i, %t2.0.i.i
   br i1 %cmp8.not.i.i, label %if.end11.i.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.end7.i.i
-  %18 = load i32, ptr %t1.1.i.i, align 4
-  %19 = load i32, ptr %t2.1.i.i, align 4
+  %18 = load i32, ptr %t1.0.i.i, align 4
+  %19 = load i32, ptr %t2.0.i.i, align 4
   %cmp.i28.i.i = icmp ult i32 %18, %19
   br i1 %cmp.i28.i.i, label %if.then7, label %if.else15
 

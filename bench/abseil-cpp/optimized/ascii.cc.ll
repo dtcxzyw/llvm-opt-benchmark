@@ -140,9 +140,9 @@ for.body.i.i.i.preheader.i:                       ; preds = %entry
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %if.end16.i.i.i.i, %for.body.i.i.i.preheader.i
-  %agg.tmp.sroa.0.0.i.i.i = phi ptr [ %incdec.ptr.i.i10.i.i.i.i, %if.end16.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.preheader.i ]
+  %agg.tmp.sroa.0.3.i.i.i = phi ptr [ %incdec.ptr.i.i10.i.i.i.i, %if.end16.i.i.i.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.preheader.i ]
   %__trip_count.036.i.i.i.i = phi i64 [ %dec.i.i.i.i, %if.end16.i.i.i.i ], [ %shr.i.i.i.i, %for.body.i.i.i.preheader.i ]
-  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -1
+  %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -1
   %3 = load i8, ptr %incdec.ptr.i.i.i.i.i.i, align 1, !noalias !9
   %idxprom.i18.i = zext i8 %3 to i64
   %arrayidx.i19.i = getelementptr inbounds [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i18.i
@@ -152,7 +152,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end16.i.i.i.i, %
   br i1 %cmp.i20.not.i, label %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
-  %incdec.ptr.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -2
+  %incdec.ptr.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -2
   %6 = load i8, ptr %incdec.ptr.i.i2.i.i.i.i, align 1, !noalias !9
   %idxprom.i15.i = zext i8 %6 to i64
   %arrayidx.i16.i = getelementptr inbounds [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i15.i
@@ -162,7 +162,7 @@ if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i
   br i1 %cmp.i17.not.i, label %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit15, label %if.end6.i.i.i.i
 
 if.end6.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -3
+  %incdec.ptr.i.i6.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -3
   %9 = load i8, ptr %incdec.ptr.i.i6.i.i.i.i, align 1, !noalias !9
   %idxprom.i12.i = zext i8 %9 to i64
   %arrayidx.i13.i = getelementptr inbounds [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i12.i
@@ -172,7 +172,7 @@ if.end6.i.i.i.i:                                  ; preds = %if.end.i.i.i.i
   br i1 %cmp.i14.not.i, label %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit13, label %if.end11.i.i.i.i
 
 if.end11.i.i.i.i:                                 ; preds = %if.end6.i.i.i.i
-  %incdec.ptr.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -4
+  %incdec.ptr.i.i10.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -4
   %12 = load i8, ptr %incdec.ptr.i.i10.i.i.i.i, align 1, !noalias !9
   %idxprom.i9.i = zext i8 %12 to i64
   %arrayidx.i10.i = getelementptr inbounds [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i9.i
@@ -187,8 +187,8 @@ if.end16.i.i.i.i:                                 ; preds = %if.end11.i.i.i.i
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i.i, label %for.end.i.i.i.i, !llvm.loop !16
 
 for.end.i.i.i.i:                                  ; preds = %if.end16.i.i.i.i, %entry
-  %agg.tmp.sroa.0.1.i.i.i = phi ptr [ %add.ptr.i.i.i, %entry ], [ %scevgep.i, %if.end16.i.i.i.i ]
-  %sub.ptr.lhs.cast.i14.pre-phi.i.i.i.i = ptrtoint ptr %agg.tmp.sroa.0.1.i.i.i to i64
+  %agg.tmp.sroa.0.0.i.i.i = phi ptr [ %add.ptr.i.i.i, %entry ], [ %scevgep.i, %if.end16.i.i.i.i ]
+  %sub.ptr.lhs.cast.i14.pre-phi.i.i.i.i = ptrtoint ptr %agg.tmp.sroa.0.0.i.i.i to i64
   %sub.ptr.sub.i16.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i14.pre-phi.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   switch i64 %sub.ptr.sub.i16.i.i.i.i, label %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit [
     i64 3, label %sw.bb.i.i.i.i
@@ -197,7 +197,7 @@ for.end.i.i.i.i:                                  ; preds = %if.end16.i.i.i.i, %
   ]
 
 sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
-  %incdec.ptr.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.1.i.i.i, i64 -1
+  %incdec.ptr.i.i17.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -1
   %15 = load i8, ptr %incdec.ptr.i.i17.i.i.i.i, align 1, !noalias !9
   %idxprom.i6.i = zext i8 %15 to i64
   %arrayidx.i7.i = getelementptr inbounds [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i6.i
@@ -207,7 +207,7 @@ sw.bb.i.i.i.i:                                    ; preds = %for.end.i.i.i.i
   br i1 %cmp.i8.not.i, label %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %sw.bb24.i.i.i.i
 
 sw.bb24.i.i.i.i:                                  ; preds = %sw.bb.i.i.i.i, %for.end.i.i.i.i
-  %agg.tmp.sroa.0.2.i.i.i = phi ptr [ %agg.tmp.sroa.0.1.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i.i17.i.i.i.i, %sw.bb.i.i.i.i ]
+  %agg.tmp.sroa.0.2.i.i.i = phi ptr [ %agg.tmp.sroa.0.0.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i.i17.i.i.i.i, %sw.bb.i.i.i.i ]
   %incdec.ptr.i.i21.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.2.i.i.i, i64 -1
   %18 = load i8, ptr %incdec.ptr.i.i21.i.i.i.i, align 1, !noalias !9
   %idxprom.i3.i = zext i8 %18 to i64
@@ -218,31 +218,31 @@ sw.bb24.i.i.i.i:                                  ; preds = %sw.bb.i.i.i.i, %for
   br i1 %cmp.i5.not.i, label %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %sw.bb30.i.i.i.i
 
 sw.bb30.i.i.i.i:                                  ; preds = %sw.bb24.i.i.i.i, %for.end.i.i.i.i
-  %agg.tmp.sroa.0.3.i.i.i = phi ptr [ %agg.tmp.sroa.0.1.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i.i21.i.i.i.i, %sw.bb24.i.i.i.i ]
-  %incdec.ptr.i.i25.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -1
+  %agg.tmp.sroa.0.1.i.i.i = phi ptr [ %agg.tmp.sroa.0.0.i.i.i, %for.end.i.i.i.i ], [ %incdec.ptr.i.i21.i.i.i.i, %sw.bb24.i.i.i.i ]
+  %incdec.ptr.i.i25.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.1.i.i.i, i64 -1
   %21 = load i8, ptr %incdec.ptr.i.i25.i.i.i.i, align 1, !noalias !9
   %idxprom.i.i = zext i8 %21 to i64
   %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %idxprom.i.i
   %22 = load i8, ptr %arrayidx.i.i, align 1, !noalias !9
   %23 = and i8 %22, 8
   %cmp.i.not.i = icmp eq i8 %23, 0
-  %spec.select.i.i.i = select i1 %cmp.i.not.i, ptr %agg.tmp.sroa.0.3.i.i.i, ptr %1
+  %spec.select.i.i.i = select i1 %cmp.i.not.i, ptr %agg.tmp.sroa.0.1.i.i.i, ptr %1
   br label %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit: ; preds = %if.end11.i.i.i.i
-  %incdec.ptr.i.i6.i.i.i.i.le = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -3
+  %incdec.ptr.i.i6.i.i.i.i.le = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -3
   br label %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit13: ; preds = %if.end6.i.i.i.i
-  %incdec.ptr.i.i2.i.i.i.i.le = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -2
+  %incdec.ptr.i.i2.i.i.i.i.le = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -2
   br label %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit15: ; preds = %if.end.i.i.i.i
-  %incdec.ptr.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -1
+  %incdec.ptr.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -1
   br label %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %for.body.i.i.i.i, %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit13, %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit15, %for.end.i.i.i.i, %sw.bb.i.i.i.i, %sw.bb24.i.i.i.i, %sw.bb30.i.i.i.i
-  %.sink.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.1.i.i.i, %sw.bb.i.i.i.i ], [ %agg.tmp.sroa.0.2.i.i.i, %sw.bb24.i.i.i.i ], [ %1, %for.end.i.i.i.i ], [ %spec.select.i.i.i, %sw.bb30.i.i.i.i ], [ %incdec.ptr.i.i6.i.i.i.i.le, %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i.i2.i.i.i.i.le, %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit13 ], [ %incdec.ptr.i.i.i.i.i.i.le, %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit15 ], [ %agg.tmp.sroa.0.0.i.i.i, %for.body.i.i.i.i ]
+  %.sink.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.0.i.i.i, %sw.bb.i.i.i.i ], [ %agg.tmp.sroa.0.2.i.i.i, %sw.bb24.i.i.i.i ], [ %1, %for.end.i.i.i.i ], [ %spec.select.i.i.i, %sw.bb30.i.i.i.i ], [ %incdec.ptr.i.i6.i.i.i.i.le, %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i.i2.i.i.i.i.le, %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit13 ], [ %incdec.ptr.i.i.i.i.i.i.le, %_ZN4absl28StripTrailingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit15 ], [ %agg.tmp.sroa.0.3.i.i.i, %for.body.i.i.i.i ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %.sink.i.i.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 %sub.ptr.sub.i.i)

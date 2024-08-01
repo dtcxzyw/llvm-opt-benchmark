@@ -227,13 +227,13 @@ if.else7:                                         ; preds = %if.else
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i13, %if.then5, %if.else7
-  %limit.0 = phi i64 [ %shl.i19, %if.else7 ], [ %or.i14, %if.then.i13 ], [ %shl.i11, %if.then5 ]
-  %or9 = or i64 %limit.0, 1048575
+  %limit.1 = phi i64 [ %shl.i19, %if.else7 ], [ %or.i14, %if.then.i13 ], [ %shl.i11, %if.then5 ]
+  %or9 = or i64 %limit.1, 1048575
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %pci_config_get_io_base.exit
-  %limit.1 = phi i64 [ %or, %pci_config_get_io_base.exit ], [ %or9, %if.end ]
-  ret i64 %limit.1
+  %limit.0 = phi i64 [ %or, %pci_config_get_io_base.exit ], [ %or9, %if.end ]
+  ret i64 %limit.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -330,8 +330,8 @@ if.then.i13.i.i:                                  ; preds = %if.then5.i29.i
   br label %pci_bridge_init_alias.exit
 
 pci_bridge_init_alias.exit:                       ; preds = %if.then5.i29.i, %if.then.i13.i.i
-  %limit.0.i.i = phi i64 [ %or.i14.i.i, %if.then.i13.i.i ], [ %shl.i11.i.i, %if.then5.i29.i ]
-  %or9.i.i = or i64 %limit.0.i.i, 1048575
+  %limit.1.i.i = phi i64 [ %or.i14.i.i, %if.then.i13.i.i ], [ %shl.i11.i.i, %if.then5.i29.i ]
+  %or9.i.i = or i64 %limit.1.i.i, 1048575
   %cmp.not.i = icmp uge i64 %or9.i.i, %base.0.i.ph.ph.i
   %or.cond.not.i = select i1 %tobool, i1 %cmp.not.i, i1 false
   %reass.sub = sub i64 %or9.i.i, %base.0.i.ph.ph.i

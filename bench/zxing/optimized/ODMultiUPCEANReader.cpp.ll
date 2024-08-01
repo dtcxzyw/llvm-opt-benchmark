@@ -2494,7 +2494,7 @@ _ZN5ZXing9IsPatternILb0ELi3ELi4EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EX
 
 52:                                               ; preds = %.lr.ph, %71
   %.065 = phi i32 [ 0, %.lr.ph ], [ %72, %71 ]
-  %.sroa.037.064 = phi ptr [ %51, %.lr.ph ], [ %.sroa.037.3, %71 ]
+  %.sroa.037.064 = phi ptr [ %51, %.lr.ph ], [ %.sroa.037.1, %71 ]
   %53 = call fastcc noundef zeroext i1 @_ZN5ZXing4OneDL11DecodeDigitERKNS_11PatternViewERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPi(ptr %.sroa.037.064, i32 4, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %5)
   br i1 %53, label %_ZN5ZXing11PatternView10skipSymbolEv.exit, label %_ZNK5ZXing11PatternView7isValidEv.exit.thread
 
@@ -2543,7 +2543,7 @@ _ZN5ZXing11PatternView8skipPairEv.exit:           ; preds = %_ZN5ZXing9IsPattern
   br label %71
 
 71:                                               ; preds = %_ZN5ZXing11PatternView10skipSymbolEv.exit, %_ZN5ZXing11PatternView8skipPairEv.exit
-  %.sroa.037.3 = phi ptr [ %70, %_ZN5ZXing11PatternView8skipPairEv.exit ], [ %spec.select, %_ZN5ZXing11PatternView10skipSymbolEv.exit ]
+  %.sroa.037.1 = phi ptr [ %70, %_ZN5ZXing11PatternView8skipPairEv.exit ], [ %spec.select, %_ZN5ZXing11PatternView10skipSymbolEv.exit ]
   %72 = add nuw nsw i32 %.065, 1
   %exitcond.not = icmp eq i32 %72, %2
   br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !25

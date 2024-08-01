@@ -780,7 +780,7 @@ define internal fastcc void @add_segment(i32 noundef %0, ptr noundef %1, ptr nou
 
 210:                                              ; preds = %.lr.ph, %1296
   %.08741015 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %1296 ]
-  %.08751014 = phi i32 [ 0, %.lr.ph ], [ %.1876, %1296 ]
+  %.08751014 = phi i32 [ 0, %.lr.ph ], [ %.2877, %1296 ]
   %.08781010 = phi i32 [ %.0872, %.lr.ph ], [ %.1879, %1296 ]
   %211 = load ptr, ptr %207, align 8
   %212 = zext nneg i32 %.08781010 to i64
@@ -891,7 +891,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %210, %_greater_than
   br label %284
 
 284:                                              ; preds = %283, %277, %_greater_than_equal_to.exit.thread
-  %.1876 = phi i32 [ %258, %283 ], [ %.08751014, %277 ], [ %.08751014, %_greater_than_equal_to.exit.thread ]
+  %.2877 = phi i32 [ %258, %283 ], [ %.08751014, %277 ], [ %.08751014, %_greater_than_equal_to.exit.thread ]
   %285 = getelementptr inbounds %struct.trap_t, ptr %267, i64 %262
   %286 = getelementptr inbounds %struct.trap_t, ptr %267, i64 %212
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %285, ptr noundef nonnull align 8 dereferenceable(72) %286, i64 72, i1 false)
@@ -2376,10 +2376,10 @@ is_left_of.exit939.thread:                        ; preds = %1161, %1153, %1135,
   br i1 %1301, label %210, label %.critedge
 
 .critedge:                                        ; preds = %_greater_than_equal_to.exit, %1296, %221, %205, %300
-  %.2877 = phi i32 [ %.1876, %300 ], [ 0, %205 ], [ %.08751014, %_greater_than_equal_to.exit ], [ %.1876, %1296 ], [ %.08751014, %221 ]
-  %.2 = phi i32 [ %spec.select, %300 ], [ 0, %205 ], [ %.08741015, %_greater_than_equal_to.exit ], [ %spec.select, %1296 ], [ %.08741015, %221 ]
+  %.1876 = phi i32 [ %.2877, %300 ], [ 0, %205 ], [ %.08751014, %_greater_than_equal_to.exit ], [ %.2877, %1296 ], [ %.08751014, %221 ]
+  %.1 = phi i32 [ %spec.select, %300 ], [ 0, %205 ], [ %.08741015, %_greater_than_equal_to.exit ], [ %spec.select, %1296 ], [ %.08741015, %221 ]
   tail call fastcc void @merge_trapezoids(i32 noundef %0, i32 noundef %.0872, i32 noundef %123, i32 noundef 1, ptr noundef %2, ptr noundef %3)
-  tail call fastcc void @merge_trapezoids(i32 noundef %0, i32 noundef %.2, i32 noundef %.2877, i32 noundef 2, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @merge_trapezoids(i32 noundef %0, i32 noundef %.1, i32 noundef %.1876, i32 noundef 2, ptr noundef %2, ptr noundef %3)
   %1302 = getelementptr inbounds i8, ptr %7, i64 32
   store i8 1, ptr %1302, align 8
   ret void
@@ -2824,7 +2824,7 @@ define internal fastcc void @merge_trapezoids(i32 noundef %0, i32 noundef %1, i3
   br label %.thread115.outer
 
 .thread115.outer.loopexit:                        ; preds = %66, %.thread, %56, %41
-  %.098118.ph.ph = phi i32 [ %.2112, %66 ], [ %.2112, %.thread ], [ %54, %56 ], [ %39, %41 ]
+  %.098118.ph.ph = phi i32 [ %.1100112, %66 ], [ %.1100112, %.thread ], [ %54, %56 ], [ %39, %41 ]
   br label %.thread115.outer
 
 .thread115.outer:                                 ; preds = %.thread115.outer.loopexit, %.lr.ph
@@ -2909,7 +2909,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
 
 .thread:                                          ; preds = %47, %32, %41, %56
   %.pre-phi = phi i64 [ %48, %47 ], [ %33, %32 ], [ %42, %41 ], [ %57, %56 ]
-  %.2112 = phi i32 [ %29, %47 ], [ %29, %32 ], [ %39, %41 ], [ %54, %56 ]
+  %.1100112 = phi i32 [ %29, %47 ], [ %29, %32 ], [ %39, %41 ], [ %54, %56 ]
   %61 = getelementptr inbounds %struct.trap_t, ptr %13, i64 %12
   %62 = load i32, ptr %61, align 8
   %63 = getelementptr inbounds %struct.trap_t, ptr %13, i64 %.pre-phi
@@ -2967,7 +2967,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
   %100 = getelementptr inbounds %struct.trap_t, ptr %96, i64 %99
   %101 = getelementptr inbounds i8, ptr %100, i64 40
   %102 = load i32, ptr %101, align 8
-  %103 = icmp eq i32 %102, %.2112
+  %103 = icmp eq i32 %102, %.1100112
   br i1 %103, label %104, label %105
 
 104:                                              ; preds = %95
@@ -2977,7 +2977,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
 105:                                              ; preds = %95
   %106 = getelementptr inbounds i8, ptr %100, i64 44
   %107 = load i32, ptr %106, align 4
-  %108 = icmp eq i32 %107, %.2112
+  %108 = icmp eq i32 %107, %.1100112
   br i1 %108, label %109, label %110
 
 109:                                              ; preds = %105
@@ -3001,7 +3001,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
   %121 = getelementptr inbounds %struct.trap_t, ptr %117, i64 %120
   %122 = getelementptr inbounds i8, ptr %121, i64 40
   %123 = load i32, ptr %122, align 8
-  %124 = icmp eq i32 %123, %.2112
+  %124 = icmp eq i32 %123, %.1100112
   br i1 %124, label %125, label %126
 
 125:                                              ; preds = %116
@@ -3011,7 +3011,7 @@ _greater_than_equal_to.exit.thread:               ; preds = %.thread115, %_great
 126:                                              ; preds = %116
   %127 = getelementptr inbounds i8, ptr %121, i64 44
   %128 = load i32, ptr %127, align 4
-  %129 = icmp eq i32 %128, %.2112
+  %129 = icmp eq i32 %128, %.1100112
   br i1 %129, label %130, label %131
 
 130:                                              ; preds = %126

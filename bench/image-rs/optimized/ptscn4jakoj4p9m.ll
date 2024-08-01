@@ -7665,7 +7665,7 @@ define hidden void @"_ZN3qoi6decode16Decoder$LT$R$GT$8new_impl17h1ccbd9bdbcacb03
           to label %common.resume unwind label %41
 
 "_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17hc347d10df1ab809bE.exit.thread68": ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i", %11, %12, %17
-  %.sroa.14.1.ph = phi ptr [ %18, %17 ], [ undef, %12 ], [ undef, %11 ], [ undef, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i" ]
+  %.sroa.14.0.ph = phi ptr [ %18, %17 ], [ undef, %12 ], [ undef, %11 ], [ undef, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i" ]
   %.sroa.1138.0.ph = phi i32 [ %8, %17 ], [ %7, %12 ], [ undef, %11 ], [ undef, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i" ]
   %.sroa.837.0.ph = phi i8 [ undef, %17 ], [ undef, %12 ], [ %.sroa.7.0.copyload.i, %11 ], [ %.sroa.6.0.copyload.i, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i" ]
   %.sroa.0.058.ph = phi i8 [ 3, %17 ], [ 0, %12 ], [ 2, %11 ], [ 1, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i" ]
@@ -7697,7 +7697,7 @@ define hidden void @"_ZN3qoi6decode16Decoder$LT$R$GT$8new_impl17h1ccbd9bdbcacb03
   %.sroa.0.167 = phi i8 [ 8, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17hc347d10df1ab809bE.exit.thread" ], [ %.sroa.0.058.ph, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17hc347d10df1ab809bE.exit.thread68" ]
   %.sroa.837.166 = phi i8 [ undef, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17hc347d10df1ab809bE.exit.thread" ], [ %.sroa.837.0.ph, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17hc347d10df1ab809bE.exit.thread68" ]
   %.sroa.1138.164 = phi i64 [ 0, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17hc347d10df1ab809bE.exit.thread" ], [ %21, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17hc347d10df1ab809bE.exit.thread68" ]
-  %.sroa.14.263 = phi ptr [ %5, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17hc347d10df1ab809bE.exit.thread" ], [ %.sroa.14.1.ph, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17hc347d10df1ab809bE.exit.thread68" ]
+  %.sroa.14.263 = phi ptr [ %5, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17hc347d10df1ab809bE.exit.thread" ], [ %.sroa.14.0.ph, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17hc347d10df1ab809bE.exit.thread68" ]
   %28 = ptrtoint ptr %.sroa.14.263 to i64
   %.sroa.14.12.extract.shift = lshr i64 %28, 32
   %.sroa.14.12.extract.trunc = trunc i64 %.sroa.14.12.extract.shift to i8
@@ -7837,7 +7837,7 @@ define hidden void @"_ZN3qoi6decode16Decoder$LT$R$GT$8new_impl17h4646fff2e949675
   br label %37
 
 "_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread67": ; preds = %17, %23, %24, %29
-  %.sroa.14.1.ph = phi ptr [ %30, %29 ], [ undef, %24 ], [ undef, %23 ], [ undef, %17 ]
+  %.sroa.14.0.ph = phi ptr [ %30, %29 ], [ undef, %24 ], [ undef, %23 ], [ undef, %17 ]
   %.sroa.1137.0.ph = phi i32 [ %20, %29 ], [ %19, %24 ], [ undef, %23 ], [ undef, %17 ]
   %.sroa.836.0.ph = phi i8 [ undef, %29 ], [ undef, %24 ], [ %.sroa.7.0.copyload.i, %23 ], [ %.sroa.6.0.copyload.i, %17 ]
   %.sroa.0.057.ph = phi i8 [ 3, %29 ], [ 0, %24 ], [ 2, %23 ], [ 1, %17 ]
@@ -7865,7 +7865,7 @@ define hidden void @"_ZN3qoi6decode16Decoder$LT$R$GT$8new_impl17h4646fff2e949675
   %.sroa.0.166 = phi i8 [ 8, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread" ], [ %.sroa.0.057.ph, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread67" ]
   %.sroa.836.165 = phi i8 [ undef, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread" ], [ %.sroa.836.0.ph, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread67" ]
   %.sroa.1137.163 = phi i64 [ 0, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread" ], [ %31, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread67" ]
-  %.sroa.14.262 = phi ptr [ %15, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread" ], [ %.sroa.14.1.ph, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread67" ]
+  %.sroa.14.262 = phi ptr [ %15, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread" ], [ %.sroa.14.0.ph, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread67" ]
   %38 = ptrtoint ptr %.sroa.14.262 to i64
   %.sroa.14.12.extract.shift = lshr i64 %38, 32
   %.sroa.14.12.extract.trunc = trunc i64 %.sroa.14.12.extract.shift to i8
@@ -20071,7 +20071,7 @@ define hidden void @"_ZN5image6codecs3qoi19QoiDecoder$LT$R$GT$3new17hfc7272b3d29
   br label %47
 
 "_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread67.i": ; preds = %37, %32, %31, %25
-  %.sroa.14.1.ph.i = phi ptr [ %38, %37 ], [ undef, %32 ], [ undef, %31 ], [ undef, %25 ]
+  %.sroa.14.0.ph.i = phi ptr [ %38, %37 ], [ undef, %32 ], [ undef, %31 ], [ undef, %25 ]
   %.sroa.1137.0.ph.i = phi i32 [ %28, %37 ], [ %27, %32 ], [ undef, %31 ], [ undef, %25 ]
   %.sroa.836.0.ph.i = phi i8 [ undef, %37 ], [ undef, %32 ], [ %.sroa.7.0.copyload.i.i, %31 ], [ %.sroa.6.0.copyload.i.i, %25 ]
   %.sroa.0.057.ph.i = phi i8 [ 3, %37 ], [ 0, %32 ], [ 2, %31 ], [ 1, %25 ]
@@ -20101,7 +20101,7 @@ define hidden void @"_ZN5image6codecs3qoi19QoiDecoder$LT$R$GT$3new17hfc7272b3d29
   %.sroa.0.166.i = phi i8 [ 8, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread.i" ], [ %.sroa.0.057.ph.i, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread67.i" ]
   %.sroa.836.165.i = phi i8 [ undef, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread.i" ], [ %.sroa.836.0.ph.i, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread67.i" ]
   %.sroa.1137.163.i = phi i64 [ 0, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread.i" ], [ %39, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread67.i" ]
-  %.sroa.14.262.i = phi ptr [ %23, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread.i" ], [ %.sroa.14.1.ph.i, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread67.i" ]
+  %.sroa.14.262.i = phi ptr [ %23, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread.i" ], [ %.sroa.14.0.ph.i, %"_ZN41_$LT$R$u20$as$u20$qoi..decode..Reader$GT$13decode_header17h0b62e0cdbe7e4696E.exit.thread67.i" ]
   %48 = ptrtoint ptr %.sroa.14.262.i to i64
   %.sroa.7.sroa.0.sroa.5.sroa.7.0.insert.ext.i = shl i64 %48, 32
   %.sroa.7.sroa.0.sroa.5.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.7.sroa.0.sroa.5.sroa.7.0.insert.ext.i, %.sroa.1137.163.i
@@ -21452,14 +21452,14 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f
   br label %449
 
 104:                                              ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i.i.i.i.i.i", %.noexc23.i.i
-  %.sroa.30.0.i.i.i = phi ptr [ %95, %.noexc23.i.i ], [ undef, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i.i.i.i.i.i" ]
-  %.sroa.0.0.i.i.i = phi i8 [ 8, %.noexc23.i.i ], [ 7, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i.i.i.i.i.i" ]
+  %.sroa.30.11.i.i.i = phi ptr [ %95, %.noexc23.i.i ], [ undef, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i.i.i.i.i.i" ]
+  %.sroa.0.11.i.i.i = phi i8 [ 8, %.noexc23.i.i ], [ 7, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28), !noalias !5577
   br label %105
 
 105:                                              ; preds = %.loopexit.i.i.i, %104
-  %.sroa.30.1.i.i.i = phi ptr [ %.sroa.30.0.i.i.i, %104 ], [ %.sroa.30.2.i.i.i, %.loopexit.i.i.i ]
-  %.sroa.0.1.i.i.i = phi i8 [ %.sroa.0.0.i.i.i, %104 ], [ 8, %.loopexit.i.i.i ]
+  %.sroa.30.10.i.i.i = phi ptr [ %.sroa.30.11.i.i.i, %104 ], [ %.sroa.30.9.i.i.i, %.loopexit.i.i.i ]
+  %.sroa.0.10.i.i.i = phi i8 [ %.sroa.0.11.i.i.i, %104 ], [ 8, %.loopexit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %32), !noalias !5577
   br label %426
 
@@ -21561,7 +21561,7 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %97
 
 .loopexit.i.i.i:                                  ; preds = %.noexc25.i.i, %167, %121
-  %.sroa.30.2.i.i.i = phi ptr [ %154, %167 ], [ %116, %121 ], [ %101, %.noexc25.i.i ]
+  %.sroa.30.9.i.i.i = phi ptr [ %154, %167 ], [ %116, %121 ], [ %101, %.noexc25.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %31), !noalias !5577
   br label %105
 
@@ -21725,14 +21725,14 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f
   br label %449
 
 184:                                              ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i16.i.i.i.i.i", %.noexc32.i.i
-  %.sroa.30.3.i.i.i = phi ptr [ %175, %.noexc32.i.i ], [ undef, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i16.i.i.i.i.i" ]
-  %.sroa.0.3.i.i.i = phi i8 [ 8, %.noexc32.i.i ], [ 7, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i16.i.i.i.i.i" ]
+  %.sroa.30.8.i.i.i = phi ptr [ %175, %.noexc32.i.i ], [ undef, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i16.i.i.i.i.i" ]
+  %.sroa.0.8.i.i.i = phi i8 [ 8, %.noexc32.i.i ], [ 7, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i16.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22), !noalias !5592
   br label %185
 
 185:                                              ; preds = %.loopexit24.i.i.i, %184
-  %.sroa.30.4.i.i.i = phi ptr [ %.sroa.30.3.i.i.i, %184 ], [ %.sroa.30.5.i.i.i, %.loopexit24.i.i.i ]
-  %.sroa.0.4.i.i.i = phi i8 [ %.sroa.0.3.i.i.i, %184 ], [ 8, %.loopexit24.i.i.i ]
+  %.sroa.30.7.i.i.i = phi ptr [ %.sroa.30.8.i.i.i, %184 ], [ %.sroa.30.6.i.i.i, %.loopexit24.i.i.i ]
+  %.sroa.0.7.i.i.i = phi i8 [ %.sroa.0.8.i.i.i, %184 ], [ 8, %.loopexit24.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %27), !noalias !5592
   br label %426
 
@@ -21834,7 +21834,7 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f
   br i1 %.not.i13.i.i.i.i.i, label %._crit_edge.i14.i.i.i.i.i, label %177
 
 .loopexit24.i.i.i:                                ; preds = %.noexc34.i.i, %255, %217, %201
-  %.sroa.30.5.i.i.i = phi ptr [ %242, %255 ], [ %212, %217 ], [ %196, %201 ], [ %181, %.noexc34.i.i ]
+  %.sroa.30.6.i.i.i = phi ptr [ %242, %255 ], [ %212, %217 ], [ %196, %201 ], [ %181, %.noexc34.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26), !noalias !5592
   br label %185
 
@@ -22023,14 +22023,14 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f
   br label %449
 
 270:                                              ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i36.i.i.i.i.i", %.noexc43.i.i
-  %.sroa.30.6.i.i.i = phi ptr [ %261, %.noexc43.i.i ], [ undef, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i36.i.i.i.i.i" ]
-  %.sroa.0.6.i.i.i = phi i8 [ 8, %.noexc43.i.i ], [ 7, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i36.i.i.i.i.i" ]
+  %.sroa.30.5.i.i.i = phi ptr [ %261, %.noexc43.i.i ], [ undef, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i36.i.i.i.i.i" ]
+  %.sroa.0.5.i.i.i = phi i8 [ 8, %.noexc43.i.i ], [ 7, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i36.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17), !noalias !5603
   br label %271
 
 271:                                              ; preds = %.loopexit25.i.i.i, %270
-  %.sroa.30.7.i.i.i = phi ptr [ %.sroa.30.6.i.i.i, %270 ], [ %.sroa.30.8.i.i.i, %.loopexit25.i.i.i ]
-  %.sroa.0.7.i.i.i = phi i8 [ %.sroa.0.6.i.i.i, %270 ], [ 8, %.loopexit25.i.i.i ]
+  %.sroa.30.4.i.i.i = phi ptr [ %.sroa.30.5.i.i.i, %270 ], [ %.sroa.30.3.i.i.i, %.loopexit25.i.i.i ]
+  %.sroa.0.4.i.i.i = phi i8 [ %.sroa.0.5.i.i.i, %270 ], [ 8, %.loopexit25.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %21), !noalias !5603
   br label %426
 
@@ -22111,7 +22111,7 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f
   br i1 %.not.i33.i.i.i.i.i, label %._crit_edge.i34.i.i.i.i.i, label %263
 
 .loopexit25.i.i.i:                                ; preds = %.noexc45.i.i, %334, %284
-  %.sroa.30.8.i.i.i = phi ptr [ %320, %334 ], [ %279, %284 ], [ %267, %.noexc45.i.i ]
+  %.sroa.30.3.i.i.i = phi ptr [ %320, %334 ], [ %279, %284 ], [ %267, %.noexc45.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20), !noalias !5603
   br label %271
 
@@ -22301,14 +22301,14 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f
   br label %449
 
 352:                                              ; preds = %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i55.i.i.i.i.i", %.noexc52.i.i
-  %.sroa.30.9.i.i.i = phi ptr [ %343, %.noexc52.i.i ], [ undef, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i55.i.i.i.i.i" ]
-  %.sroa.0.9.i.i.i = phi i8 [ 8, %.noexc52.i.i ], [ 7, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i55.i.i.i.i.i" ]
+  %.sroa.30.2.i.i.i = phi ptr [ %343, %.noexc52.i.i ], [ undef, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i55.i.i.i.i.i" ]
+  %.sroa.0.2.i.i.i = phi i8 [ 8, %.noexc52.i.i ], [ 7, %"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h618c1d1c9bbd9fd5E.exit.thread.i55.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !5614
   br label %353
 
 353:                                              ; preds = %.loopexit26.i.i.i, %352
-  %.sroa.30.10.i.i.i = phi ptr [ %.sroa.30.9.i.i.i, %352 ], [ %.sroa.30.11.i.i.i, %.loopexit26.i.i.i ]
-  %.sroa.0.10.i.i.i = phi i8 [ %.sroa.0.9.i.i.i, %352 ], [ 8, %.loopexit26.i.i.i ]
+  %.sroa.30.1.i.i.i = phi ptr [ %.sroa.30.2.i.i.i, %352 ], [ %.sroa.30.0.i.i.i, %.loopexit26.i.i.i ]
+  %.sroa.0.1.i.i.i = phi i8 [ %.sroa.0.2.i.i.i, %352 ], [ 8, %.loopexit26.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %16), !noalias !5614
   br label %426
 
@@ -22389,7 +22389,7 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f
   br i1 %.not.i52.i.i.i.i.i, label %._crit_edge.i53.i.i.i.i.i, label %345
 
 .loopexit26.i.i.i:                                ; preds = %.noexc54.i.i, %422, %382, %366
-  %.sroa.30.11.i.i.i = phi ptr [ %408, %422 ], [ %379, %382 ], [ %361, %366 ], [ %349, %.noexc54.i.i ]
+  %.sroa.30.0.i.i.i = phi ptr [ %408, %422 ], [ %379, %382 ], [ %361, %366 ], [ %349, %.noexc54.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15), !noalias !5614
   br label %353
 
@@ -22533,8 +22533,8 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17h8f
   br label %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17hc45433b1e91fc7b9E.exit.i76.i.i.i.i.i"
 
 426:                                              ; preds = %353, %271, %185, %105
-  %.sroa.30.12.i.i.i = phi ptr [ %.sroa.30.1.i.i.i, %105 ], [ %.sroa.30.4.i.i.i, %185 ], [ %.sroa.30.7.i.i.i, %271 ], [ %.sroa.30.10.i.i.i, %353 ]
-  %.sroa.0.12.i.i.i = phi i8 [ %.sroa.0.1.i.i.i, %105 ], [ %.sroa.0.4.i.i.i, %185 ], [ %.sroa.0.7.i.i.i, %271 ], [ %.sroa.0.10.i.i.i, %353 ]
+  %.sroa.30.12.i.i.i = phi ptr [ %.sroa.30.10.i.i.i, %105 ], [ %.sroa.30.7.i.i.i, %185 ], [ %.sroa.30.4.i.i.i, %271 ], [ %.sroa.30.1.i.i.i, %353 ]
+  %.sroa.0.12.i.i.i = phi i8 [ %.sroa.0.10.i.i.i, %105 ], [ %.sroa.0.7.i.i.i, %185 ], [ %.sroa.0.4.i.i.i, %271 ], [ %.sroa.0.1.i.i.i, %353 ]
   %427 = ptrtoint ptr %.sroa.30.12.i.i.i to i64
   br label %428
 
@@ -23147,13 +23147,13 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc9
   br label %.split
 
 "_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i.i.i.i.i.i": ; preds = %117, %.noexc24.i.i
-  %.sroa.0.0.i.i.i = phi i8 [ 8, %.noexc24.i.i ], [ 7, %117 ]
+  %.sroa.0.11.i.i.i = phi i8 [ 8, %.noexc24.i.i ], [ 7, %117 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45), !noalias !5742
   br label %119
 
 119:                                              ; preds = %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit69.i.i.i.i.i.i", %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i.i.i.i.i.i"
-  %.sroa.30.1.i.i.i = phi ptr [ %105, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i.i.i.i.i.i" ], [ %.sroa.30.2.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit69.i.i.i.i.i.i" ]
-  %.sroa.0.1.i.i.i = phi i8 [ %.sroa.0.0.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i.i.i.i.i.i" ], [ 8, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit69.i.i.i.i.i.i" ]
+  %.sroa.30.10.i.i.i = phi ptr [ %105, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i.i.i.i.i.i" ], [ %.sroa.30.9.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit69.i.i.i.i.i.i" ]
+  %.sroa.0.10.i.i.i = phi i8 [ %.sroa.0.11.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i.i.i.i.i.i" ], [ 8, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit69.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %49), !noalias !5742
   br label %527
 
@@ -23266,7 +23266,7 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc9
   br i1 %.not.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %107
 
 "_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit69.i.i.i.i.i.i": ; preds = %.noexc27.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit75.i.i.i.i.i.i", %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit72.i.i.i.i.i.i"
-  %.sroa.30.2.i.i.i = phi ptr [ %179, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit75.i.i.i.i.i.i" ], [ %135, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit72.i.i.i.i.i.i" ], [ %115, %.noexc27.i.i ]
+  %.sroa.30.9.i.i.i = phi ptr [ %179, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit75.i.i.i.i.i.i" ], [ %135, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit72.i.i.i.i.i.i" ], [ %115, %.noexc27.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %48), !noalias !5742
   br label %119
 
@@ -23463,13 +23463,13 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc9
   br label %.split
 
 "_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i17.i.i.i.i.i": ; preds = %219, %.noexc37.i.i
-  %.sroa.0.3.i.i.i = phi i8 [ 8, %.noexc37.i.i ], [ 7, %219 ]
+  %.sroa.0.8.i.i.i = phi i8 [ 8, %.noexc37.i.i ], [ 7, %219 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35), !noalias !5777
   br label %221
 
 221:                                              ; preds = %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit81.i.i.i.i.i.i", %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i17.i.i.i.i.i"
-  %.sroa.30.4.i.i.i = phi ptr [ %207, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i17.i.i.i.i.i" ], [ %.sroa.30.5.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit81.i.i.i.i.i.i" ]
-  %.sroa.0.4.i.i.i = phi i8 [ %.sroa.0.3.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i17.i.i.i.i.i" ], [ 8, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit81.i.i.i.i.i.i" ]
+  %.sroa.30.7.i.i.i = phi ptr [ %207, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i17.i.i.i.i.i" ], [ %.sroa.30.6.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit81.i.i.i.i.i.i" ]
+  %.sroa.0.7.i.i.i = phi i8 [ %.sroa.0.8.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i17.i.i.i.i.i" ], [ 8, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit81.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %40), !noalias !5777
   br label %527
 
@@ -23582,7 +23582,7 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc9
   br i1 %.not.i13.i.i.i.i.i, label %._crit_edge.i14.i.i.i.i.i, label %209
 
 "_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit81.i.i.i.i.i.i": ; preds = %.noexc40.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit90.i.i.i.i.i.i", %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit87.i.i.i.i.i.i", %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit84.i.i.i.i.i.i"
-  %.sroa.30.5.i.i.i = phi ptr [ %293, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit90.i.i.i.i.i.i" ], [ %259, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit87.i.i.i.i.i.i" ], [ %237, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit84.i.i.i.i.i.i" ], [ %217, %.noexc40.i.i ]
+  %.sroa.30.6.i.i.i = phi ptr [ %293, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit90.i.i.i.i.i.i" ], [ %259, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit87.i.i.i.i.i.i" ], [ %237, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit84.i.i.i.i.i.i" ], [ %217, %.noexc40.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %39), !noalias !5777
   br label %221
 
@@ -23811,13 +23811,13 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc9
   br label %.split
 
 "_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i38.i.i.i.i.i": ; preds = %331, %.noexc53.i.i
-  %.sroa.0.6.i.i.i = phi i8 [ 8, %.noexc53.i.i ], [ 7, %331 ]
+  %.sroa.0.5.i.i.i = phi i8 [ 8, %.noexc53.i.i ], [ 7, %331 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25), !noalias !5808
   br label %333
 
 333:                                              ; preds = %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit77.i.i.i.i.i.i", %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i38.i.i.i.i.i"
-  %.sroa.30.7.i.i.i = phi ptr [ %319, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i38.i.i.i.i.i" ], [ %.sroa.30.8.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit77.i.i.i.i.i.i" ]
-  %.sroa.0.7.i.i.i = phi i8 [ %.sroa.0.6.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i38.i.i.i.i.i" ], [ 8, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit77.i.i.i.i.i.i" ]
+  %.sroa.30.4.i.i.i = phi ptr [ %319, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i38.i.i.i.i.i" ], [ %.sroa.30.3.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit77.i.i.i.i.i.i" ]
+  %.sroa.0.4.i.i.i = phi i8 [ %.sroa.0.5.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i38.i.i.i.i.i" ], [ 8, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit77.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %29), !noalias !5808
   br label %527
 
@@ -23909,7 +23909,7 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc9
   br i1 %.not.i34.i.i.i.i.i, label %._crit_edge.i35.i.i.i.i.i, label %321
 
 "_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit77.i.i.i.i.i.i": ; preds = %.noexc56.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit83.i.i.i.i.i.i", %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit80.i.i.i.i.i.i"
-  %.sroa.30.8.i.i.i = phi ptr [ %393, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit83.i.i.i.i.i.i" ], [ %346, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit80.i.i.i.i.i.i" ], [ %329, %.noexc56.i.i ]
+  %.sroa.30.3.i.i.i = phi ptr [ %393, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit83.i.i.i.i.i.i" ], [ %346, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit80.i.i.i.i.i.i" ], [ %329, %.noexc56.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %28), !noalias !5808
   br label %333
 
@@ -24132,13 +24132,13 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc9
   br label %.split
 
 "_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i56.i.i.i.i.i": ; preds = %435, %.noexc66.i.i
-  %.sroa.0.9.i.i.i = phi i8 [ 8, %.noexc66.i.i ], [ 7, %435 ]
+  %.sroa.0.2.i.i.i = phi i8 [ 8, %.noexc66.i.i ], [ 7, %435 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15), !noalias !5835
   br label %437
 
 437:                                              ; preds = %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit89.i.i.i.i.i.i", %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i56.i.i.i.i.i"
-  %.sroa.30.10.i.i.i = phi ptr [ %423, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i56.i.i.i.i.i" ], [ %.sroa.30.11.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit89.i.i.i.i.i.i" ]
-  %.sroa.0.10.i.i.i = phi i8 [ %.sroa.0.9.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i56.i.i.i.i.i" ], [ 8, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit89.i.i.i.i.i.i" ]
+  %.sroa.30.1.i.i.i = phi ptr [ %423, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i56.i.i.i.i.i" ], [ %.sroa.30.0.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit89.i.i.i.i.i.i" ]
+  %.sroa.0.1.i.i.i = phi i8 [ %.sroa.0.2.i.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit.i56.i.i.i.i.i" ], [ 8, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit89.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %20), !noalias !5835
   br label %527
 
@@ -24230,7 +24230,7 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc9
   br i1 %.not.i52.i.i.i.i.i, label %._crit_edge.i53.i.i.i.i.i, label %425
 
 "_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit89.i.i.i.i.i.i": ; preds = %.noexc69.i.i, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit98.i.i.i.i.i.i", %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit95.i.i.i.i.i.i", %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit92.i.i.i.i.i.i"
-  %.sroa.30.11.i.i.i = phi ptr [ %508, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit98.i.i.i.i.i.i" ], [ %474, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit95.i.i.i.i.i.i" ], [ %450, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit92.i.i.i.i.i.i" ], [ %433, %.noexc69.i.i ]
+  %.sroa.30.0.i.i.i = phi ptr [ %508, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit98.i.i.i.i.i.i" ], [ %474, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit95.i.i.i.i.i.i" ], [ %450, %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$10read_exact17h6a85d66de06d6641E.exit92.i.i.i.i.i.i" ], [ %433, %.noexc69.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19), !noalias !5835
   br label %437
 
@@ -24398,8 +24398,8 @@ define hidden void @_ZN5image5image12ImageDecoder24read_image_with_progress17hc9
   br label %"_ZN74_$LT$$u5b$T$u5d$$u20$as$u20$core..slice..specialize..SpecFill$LT$T$GT$$GT$9spec_fill17hc45433b1e91fc7b9E.exit.i77.i.i.i.i.i"
 
 527:                                              ; preds = %437, %333, %221, %119
-  %.sroa.30.12.i.i.i = phi ptr [ %.sroa.30.1.i.i.i, %119 ], [ %.sroa.30.4.i.i.i, %221 ], [ %.sroa.30.7.i.i.i, %333 ], [ %.sroa.30.10.i.i.i, %437 ]
-  %.sroa.0.12.i.i.i = phi i8 [ %.sroa.0.1.i.i.i, %119 ], [ %.sroa.0.4.i.i.i, %221 ], [ %.sroa.0.7.i.i.i, %333 ], [ %.sroa.0.10.i.i.i, %437 ]
+  %.sroa.30.12.i.i.i = phi ptr [ %.sroa.30.10.i.i.i, %119 ], [ %.sroa.30.7.i.i.i, %221 ], [ %.sroa.30.4.i.i.i, %333 ], [ %.sroa.30.1.i.i.i, %437 ]
+  %.sroa.0.12.i.i.i = phi i8 [ %.sroa.0.10.i.i.i, %119 ], [ %.sroa.0.7.i.i.i, %221 ], [ %.sroa.0.4.i.i.i, %333 ], [ %.sroa.0.1.i.i.i, %437 ]
   %528 = ptrtoint ptr %.sroa.30.12.i.i.i to i64
   br label %529
 

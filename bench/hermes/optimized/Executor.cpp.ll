@@ -347,7 +347,7 @@ if.end.i30:                                       ; preds = %_ZNSt6vectorIN6herm
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i30, %_ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE9push_backEOS2_.exit, %if.end25, %if.then28, %_ZN6hermes5regex5StateINS0_16UTF16RegexTraitsEEC2ENS0_6CursorIS2_EEjj.exit
-  %retval.0 = phi i32 [ 2, %_ZN6hermes5regex5StateINS0_16UTF16RegexTraitsEEC2ENS0_6CursorIS2_EEjj.exit ], [ 0, %if.then28 ], [ 1, %if.end25 ], [ 0, %_ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE9push_backEOS2_.exit ], [ 0, %if.end.i30 ]
+  %retval.1 = phi i32 [ 2, %_ZN6hermes5regex5StateINS0_16UTF16RegexTraitsEEC2ENS0_6CursorIS2_EEjj.exit ], [ 0, %if.then28 ], [ 1, %if.end25 ], [ 0, %_ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE9push_backEOS2_.exit ], [ 0, %if.end.i30 ]
   %22 = load ptr, ptr %loopDatas_.i, align 8
   %cmp.i.i.i.i32 = icmp eq ptr %22, %add.ptr.i.i.i.i.i1.i
   br i1 %cmp.i.i.i.i32, label %_ZN4llvh11SmallVectorIN6hermes5regex8LoopDataELj16EED2Ev.exit.i, label %if.then.i.i.i
@@ -378,8 +378,8 @@ if.end.i.i.i.i:                                   ; preds = %_ZN6hermes5regex5St
   br label %return
 
 return:                                           ; preds = %if.end.i, %entry, %if.end.i.i.i.i, %_ZN6hermes5regex5StateINS0_16UTF16RegexTraitsEED2Ev.exit
-  %retval.1 = phi i32 [ %retval.0, %_ZN6hermes5regex5StateINS0_16UTF16RegexTraitsEED2Ev.exit ], [ %retval.0, %if.end.i.i.i.i ], [ 1, %entry ], [ 1, %if.end.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6hermes5regex5StateINS0_16UTF16RegexTraitsEED2Ev.exit ], [ %retval.1, %if.end.i.i.i.i ], [ 1, %entry ], [ 1, %if.end.i ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -635,7 +635,7 @@ if.end.i30:                                       ; preds = %_ZNSt6vectorIN6herm
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end.i30, %_ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE9push_backEOS2_.exit, %if.end25, %if.then28, %_ZN6hermes5regex5StateINS0_16ASCIIRegexTraitsEEC2ENS0_6CursorIS2_EEjj.exit
-  %retval.0 = phi i32 [ 2, %_ZN6hermes5regex5StateINS0_16ASCIIRegexTraitsEEC2ENS0_6CursorIS2_EEjj.exit ], [ 0, %if.then28 ], [ 1, %if.end25 ], [ 0, %_ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE9push_backEOS2_.exit ], [ 0, %if.end.i30 ]
+  %retval.1 = phi i32 [ 2, %_ZN6hermes5regex5StateINS0_16ASCIIRegexTraitsEEC2ENS0_6CursorIS2_EEjj.exit ], [ 0, %if.then28 ], [ 1, %if.end25 ], [ 0, %_ZNSt6vectorIN6hermes5regex13CapturedRangeESaIS2_EE9push_backEOS2_.exit ], [ 0, %if.end.i30 ]
   %21 = load ptr, ptr %loopDatas_.i, align 8
   %cmp.i.i.i.i32 = icmp eq ptr %21, %add.ptr.i.i.i.i.i1.i
   br i1 %cmp.i.i.i.i32, label %_ZN4llvh11SmallVectorIN6hermes5regex8LoopDataELj16EED2Ev.exit.i, label %if.then.i.i.i
@@ -654,8 +654,8 @@ if.then.i.i3.i:                                   ; preds = %_ZN4llvh11SmallVect
   br label %return
 
 return:                                           ; preds = %if.end.i, %entry, %if.then.i.i3.i, %_ZN4llvh11SmallVectorIN6hermes5regex8LoopDataELj16EED2Ev.exit.i
-  %retval.1 = phi i32 [ %retval.0, %_ZN4llvh11SmallVectorIN6hermes5regex8LoopDataELj16EED2Ev.exit.i ], [ %retval.0, %if.then.i.i3.i ], [ 1, %entry ], [ 1, %if.end.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN4llvh11SmallVectorIN6hermes5regex8LoopDataELj16EED2Ev.exit.i ], [ %retval.1, %if.then.i.i3.i ], [ 1, %entry ], [ 1, %if.end.i ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2202,8 +2202,8 @@ land.rhs.us1208.backedge:                         ; preds = %if.else616.us1214, 
   br i1 %cmp.i710.us1211, label %if.end679, label %while.body.us1212, !llvm.loop !9
 
 while.body:                                       ; preds = %land.rhs.preheader, %land.rhs.backedge
-  %cursor1.sroa.3.012061297 = phi ptr [ %cursor1.sroa.3.1, %land.rhs.backedge ], [ %cursor1.sroa.3.0.copyload, %land.rhs.preheader ]
-  %cursor2.sroa.4.012071296 = phi ptr [ %cursor2.sroa.4.1, %land.rhs.backedge ], [ %cond608, %land.rhs.preheader ]
+  %cursor1.sroa.3.012061297 = phi ptr [ %cursor1.sroa.3.2, %land.rhs.backedge ], [ %cursor1.sroa.3.0.copyload, %land.rhs.preheader ]
+  %cursor2.sroa.4.012071296 = phi ptr [ %cursor2.sroa.4.2, %land.rhs.backedge ], [ %cond608, %land.rhs.preheader ]
   %cmp.i713 = icmp eq ptr %cursor1.sroa.3.012061297, %cursor1.sroa.13.0.copyload
   br i1 %cmp.i713, label %do.body664, label %if.else616
 
@@ -2249,7 +2249,7 @@ if.end25.i776:                                    ; preds = %land.lhs.true.i783,
 _ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit793: ; preds = %if.then17.i788, %if.end25.i776
   %idx.ext.i.i779.pn = phi i64 [ %idx.ext.i.i779, %if.end25.i776 ], [ %cond13.in.v.i784, %if.then17.i788 ]
   %retval.0.i782 = phi i32 [ %conv27.i781, %if.end25.i776 ], [ %add2.i.i792, %if.then17.i788 ]
-  %cursor1.sroa.3.1 = getelementptr inbounds i16, ptr %cursor1.sroa.3.012061297, i64 %idx.ext.i.i779.pn
+  %cursor1.sroa.3.2 = getelementptr inbounds i16, ptr %cursor1.sroa.3.012061297, i64 %idx.ext.i.i779.pn
   %.sink1.i.i800 = select i1 %tobool.i700, ptr %add.ptr603, ptr %cursor2.sroa.4.012071296
   %.sroa.speculated1141 = select i1 %tobool.i700, ptr %cursor2.sroa.4.012071296, ptr %add.ptr599
   %sub.ptr.lhs.cast3.i.i801 = ptrtoint ptr %.sink1.i.i800 to i64
@@ -2291,7 +2291,7 @@ if.end25.i810:                                    ; preds = %land.lhs.true.i817,
 _ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit827: ; preds = %if.then17.i822, %if.end25.i810
   %idx.ext.i.i813.pn = phi i64 [ %idx.ext.i.i779, %if.end25.i810 ], [ %cond13.in.v.i784, %if.then17.i822 ]
   %retval.0.i816 = phi i32 [ %conv27.i815, %if.end25.i810 ], [ %add2.i.i826, %if.then17.i822 ]
-  %cursor2.sroa.4.1 = getelementptr inbounds i16, ptr %cursor2.sroa.4.012071296, i64 %idx.ext.i.i813.pn
+  %cursor2.sroa.4.2 = getelementptr inbounds i16, ptr %cursor2.sroa.4.012071296, i64 %idx.ext.i.i813.pn
   %cmp648 = icmp eq i32 %retval.0.i782, %retval.0.i816
   br i1 %cmp648, label %land.rhs.backedge, label %lor.rhs649
 
@@ -2334,7 +2334,7 @@ _ZN6hermes5regex16UTF16RegexTraits12canonicalizeEjb.exit845: ; preds = %if.then.
   br i1 %cmp656, label %land.rhs.backedge, label %do.body664
 
 land.rhs.backedge:                                ; preds = %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit827, %_ZN6hermes5regex16UTF16RegexTraits12canonicalizeEjb.exit845
-  %cmp.i710 = icmp eq ptr %cursor2.sroa.4.1, %cond.i706
+  %cmp.i710 = icmp eq ptr %cursor2.sroa.4.2, %cond.i706
   br i1 %cmp.i710, label %if.end679, label %while.body, !llvm.loop !9
 
 do.body664:                                       ; preds = %while.body, %_ZN6hermes5regex16UTF16RegexTraits12canonicalizeEjb.exit845, %while.body.us1212, %_ZN6hermes5regex16UTF16RegexTraits12canonicalizeEjb.exit759.us, %while.body.us, %if.end661.us
@@ -2349,7 +2349,7 @@ if.end672:                                        ; preds = %do.body664
   br i1 %tobool674.not, label %for.inc927, label %for.cond5.backedge
 
 if.end679:                                        ; preds = %land.rhs.backedge, %land.rhs.us1208.backedge, %land.rhs.us, %land.rhs.preheader, %land.rhs.us1208.preheader
-  %.us-phi = phi ptr [ %cursor1.sroa.3.0.copyload, %land.rhs.us1208.preheader ], [ %cursor1.sroa.3.0.copyload, %land.rhs.preheader ], [ %cursor1.sroa.3.01206.us, %land.rhs.us ], [ %add.ptr.i734.us, %land.rhs.us1208.backedge ], [ %cursor1.sroa.3.1, %land.rhs.backedge ]
+  %.us-phi = phi ptr [ %cursor1.sroa.3.0.copyload, %land.rhs.us1208.preheader ], [ %cursor1.sroa.3.0.copyload, %land.rhs.preheader ], [ %cursor1.sroa.3.01206.us, %land.rhs.us ], [ %add.ptr.i734.us, %land.rhs.us1208.backedge ], [ %cursor1.sroa.3.2, %land.rhs.backedge ]
   %277 = load i32, ptr %ip_, align 8
   %add682 = add i32 %277, 3
   store i32 %add682, ptr %ip_, align 8

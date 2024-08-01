@@ -426,7 +426,7 @@ if.else:                                          ; preds = %if.end25
   br label %if.end34
 
 if.end34:                                         ; preds = %if.else, %if.then28
-  %ret.0 = phi i32 [ %call32, %if.then28 ], [ %call33, %if.else ]
+  %ret.1 = phi i32 [ %call32, %if.then28 ], [ %call33, %if.else ]
   %error = getelementptr inbounds i8, ptr %ctx9, i64 184
   %10 = load i32, ptr %error, align 8
   %conv = sext i32 %10 to i64
@@ -435,12 +435,12 @@ if.end34:                                         ; preds = %if.else, %if.then28
   br label %err
 
 err:                                              ; preds = %if.end12, %if.end34
-  %ret.1 = phi i32 [ %ret.0, %if.end34 ], [ 0, %if.end12 ]
+  %ret.0 = phi i32 [ %ret.1, %if.end34 ], [ 0, %if.end12 ]
   call void @X509_STORE_CTX_cleanup(ptr noundef nonnull %ctx9) #10
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %err, %if.then11
-  %retval.0 = phi i32 [ %ret.1, %err ], [ 0, %if.then11 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %ret.0, %err ], [ 0, %if.then11 ], [ 0, %lor.lhs.false ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

@@ -113,7 +113,7 @@ Abc_Clock.exit89:                                 ; preds = %29, %33
 50:                                               ; preds = %.preheader, %169
   %.068132 = phi i32 [ 0, %.preheader ], [ %170, %169 ]
   %.069131 = phi i32 [ -1, %.preheader ], [ %.1114, %169 ]
-  %.070130 = phi ptr [ %42, %.preheader ], [ %.171113, %169 ]
+  %.070130 = phi ptr [ %42, %.preheader ], [ %.2113, %169 ]
   %51 = call i32 @Abc_Random(i32 noundef 0) #11
   %52 = and i32 %51, 1
   br i1 %.not77, label %56, label %53
@@ -259,7 +259,7 @@ Abc_Clock.exit99:                                 ; preds = %106, %110
 
 .thread:                                          ; preds = %80, %Abc_Clock.exit99, %104
   %.1114 = phi i32 [ %.068132, %Abc_Clock.exit99 ], [ %.068132, %104 ], [ %.069131, %80 ]
-  %.171113 = phi ptr [ %105, %Abc_Clock.exit99 ], [ %105, %104 ], [ %.070130, %80 ]
+  %.2113 = phi ptr [ %105, %Abc_Clock.exit99 ], [ %105, %104 ], [ %.070130, %80 ]
   br i1 %.not84, label %151, label %137
 
 137:                                              ; preds = %.thread
@@ -383,7 +383,7 @@ Abc_Clock.exit109:                                ; preds = %187, %190
   br label %202
 
 202:                                              ; preds = %Abc_Clock.exit107, %Abc_Clock.exit109, %.thread115, %78, %74
-  %.066 = phi ptr [ null, %74 ], [ null, %78 ], [ %.171113, %.thread115 ], [ %.171113, %Abc_Clock.exit109 ], [ %.171113, %Abc_Clock.exit107 ]
+  %.066 = phi ptr [ null, %74 ], [ null, %78 ], [ %.2113, %.thread115 ], [ %.2113, %Abc_Clock.exit109 ], [ %.2113, %Abc_Clock.exit107 ]
   ret ptr %.066
 }
 

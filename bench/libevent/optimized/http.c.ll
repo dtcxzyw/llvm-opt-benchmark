@@ -5808,7 +5808,7 @@ if.end:                                           ; preds = %if.then
   br label %if.end5
 
 if.end5:                                          ; preds = %entry, %if.end
-  %uri.0 = phi ptr [ %call.i, %if.end ], [ null, %entry ]
+  %uri.1 = phi ptr [ %call.i, %if.end ], [ null, %entry ]
   %query_part.0 = phi ptr [ %0, %if.end ], [ %str, %entry ]
   %tobool6.not = icmp eq ptr %query_part.0, null
   br i1 %tobool6.not, label %if.end64, label %lor.lhs.false
@@ -6011,7 +6011,7 @@ if.end57:                                         ; preds = %for.cond.i, %do.bod
   br i1 %tobool59.not, label %while.condthread-pre-split, label %error, !llvm.loop !22
 
 error:                                            ; preds = %if.end57, %if.else30, %lor.lhs.false33, %if.then, %if.then44, %if.then12
-  %uri.1 = phi ptr [ %uri.0, %if.then12 ], [ %uri.0, %if.then44 ], [ null, %if.then ], [ %uri.0, %lor.lhs.false33 ], [ %uri.0, %if.else30 ], [ %uri.0, %if.end57 ]
+  %uri.0 = phi ptr [ %uri.1, %if.then12 ], [ %uri.1, %if.then44 ], [ null, %if.then ], [ %uri.1, %lor.lhs.false33 ], [ %uri.1, %if.else30 ], [ %uri.1, %if.end57 ]
   %line.0 = phi ptr [ null, %if.then12 ], [ %call11, %if.then44 ], [ null, %if.then ], [ %call11, %lor.lhs.false33 ], [ %call11, %if.else30 ], [ %call11, %if.end57 ]
   %header.012.i = load ptr, ptr %headers, align 8
   %cmp.not13.i = icmp eq ptr %header.012.i, null
@@ -6040,7 +6040,7 @@ do.body.i25:                                      ; preds = %error, %do.body.i25
   br i1 %cmp.not.i, label %done, label %do.body.i25, !llvm.loop !9
 
 done:                                             ; preds = %land.rhs, %while.condthread-pre-split, %do.body.i25, %error
-  %uri.2 = phi ptr [ %uri.1, %error ], [ %uri.1, %do.body.i25 ], [ %uri.0, %while.condthread-pre-split ], [ %uri.0, %land.rhs ]
+  %uri.2 = phi ptr [ %uri.0, %error ], [ %uri.0, %do.body.i25 ], [ %uri.1, %while.condthread-pre-split ], [ %uri.1, %land.rhs ]
   %result.0 = phi i32 [ -1, %error ], [ -1, %do.body.i25 ], [ 0, %while.condthread-pre-split ], [ 0, %land.rhs ]
   %line.1 = phi ptr [ %line.0, %error ], [ %line.0, %do.body.i25 ], [ %call11, %while.condthread-pre-split ], [ %call11, %land.rhs ]
   %tobool62.not = icmp eq ptr %line.1, null
@@ -6052,7 +6052,7 @@ if.then63:                                        ; preds = %done
 
 if.end64:                                         ; preds = %if.end5, %lor.lhs.false, %if.then63, %done
   %result.033 = phi i32 [ %result.0, %if.then63 ], [ %result.0, %done ], [ 0, %lor.lhs.false ], [ 0, %if.end5 ]
-  %uri.232 = phi ptr [ %uri.2, %if.then63 ], [ %uri.2, %done ], [ %uri.0, %lor.lhs.false ], [ %uri.0, %if.end5 ]
+  %uri.232 = phi ptr [ %uri.2, %if.then63 ], [ %uri.2, %done ], [ %uri.1, %lor.lhs.false ], [ %uri.1, %if.end5 ]
   %tobool65.not = icmp eq ptr %uri.232, null
   br i1 %tobool65.not, label %if.end67, label %if.then66
 
@@ -8471,8 +8471,8 @@ if.then:                                          ; preds = %entry
   ]
 
 while.cond:                                       ; preds = %if.then, %while.body
-  %cp.addr.0 = phi ptr [ %incdec.ptr, %while.body ], [ %cp, %if.then ]
-  %9 = load i8, ptr %cp.addr.0, align 1
+  %cp.addr.1 = phi ptr [ %incdec.ptr, %while.body ], [ %cp, %if.then ]
+  %9 = load i8, ptr %cp.addr.1, align 1
   switch i8 %9, label %while.body [
     i8 0, label %return
     i8 35, label %return
@@ -8480,19 +8480,19 @@ while.cond:                                       ; preds = %if.then, %while.bod
   ]
 
 while.body:                                       ; preds = %while.cond
-  %incdec.ptr = getelementptr inbounds i8, ptr %cp.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %cp.addr.1, i64 1
   br label %while.cond, !llvm.loop !41
 
 while.cond8:                                      ; preds = %if.then, %while.body16
-  %cp.addr.1 = phi ptr [ %incdec.ptr17, %while.body16 ], [ %cp, %if.then ]
-  %10 = load i8, ptr %cp.addr.1, align 1
+  %cp.addr.2 = phi ptr [ %incdec.ptr17, %while.body16 ], [ %cp, %if.then ]
+  %10 = load i8, ptr %cp.addr.2, align 1
   switch i8 %10, label %while.body16 [
     i8 0, label %return
     i8 35, label %return
   ]
 
 while.body16:                                     ; preds = %while.cond8
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %cp.addr.1, i64 1
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %cp.addr.2, i64 1
   br label %while.cond8, !llvm.loop !42
 
 sw.bb19:                                          ; preds = %if.then
@@ -8556,7 +8556,7 @@ if.end67:                                         ; preds = %if.else55, %land.lh
   br i1 %tobool21.not, label %return, label %while.body22, !llvm.loop !40
 
 return:                                           ; preds = %while.cond8, %while.cond8, %while.cond, %while.cond, %while.cond, %if.else55, %if.end67, %land.lhs.true49.us, %land.lhs.true45.us, %switch.early.test.us, %if.end67.us, %while.cond20.preheader, %sw.bb19
-  %retval.0 = phi ptr [ %add.ptr, %sw.bb19 ], [ %cp, %while.cond20.preheader ], [ %cp.addr.334.us, %land.lhs.true49.us ], [ %cp.addr.334.us, %land.lhs.true45.us ], [ %cp.addr.334.us, %switch.early.test.us ], [ %incdec.ptr41.us, %if.end67.us ], [ %cp.addr.334, %if.else55 ], [ %add.ptr54, %if.end67 ], [ %cp.addr.0, %while.cond ], [ %cp.addr.0, %while.cond ], [ %cp.addr.0, %while.cond ], [ %cp.addr.1, %while.cond8 ], [ %cp.addr.1, %while.cond8 ]
+  %retval.0 = phi ptr [ %add.ptr, %sw.bb19 ], [ %cp, %while.cond20.preheader ], [ %cp.addr.334.us, %land.lhs.true49.us ], [ %cp.addr.334.us, %land.lhs.true45.us ], [ %cp.addr.334.us, %switch.early.test.us ], [ %incdec.ptr41.us, %if.end67.us ], [ %cp.addr.334, %if.else55 ], [ %add.ptr54, %if.end67 ], [ %cp.addr.1, %while.cond ], [ %cp.addr.1, %while.cond ], [ %cp.addr.1, %while.cond ], [ %cp.addr.2, %while.cond8 ], [ %cp.addr.2, %while.cond8 ]
   ret ptr %retval.0
 }
 

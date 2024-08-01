@@ -152,16 +152,16 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br label %79
 
 79:                                               ; preds = %67, %.thread, %77, %65
-  %.3127 = phi ptr [ %66, %65 ], [ %78, %77 ], [ %52, %.thread ], [ %52, %67 ]
+  %.4 = phi ptr [ %66, %65 ], [ %78, %77 ], [ %52, %.thread ], [ %52, %67 ]
   %80 = phi i1 [ false, %65 ], [ false, %77 ], [ true, %.thread ], [ true, %67 ]
-  %.0 = phi i32 [ 37, %65 ], [ 33, %77 ], [ 0, %.thread ], [ 0, %67 ]
-  %81 = ptrtoint ptr %.3127 to i64
+  %.1 = phi i32 [ 37, %65 ], [ 33, %77 ], [ 0, %.thread ], [ 0, %67 ]
+  %81 = ptrtoint ptr %.4 to i64
   %82 = sub i64 %38, %81
   %83 = icmp sgt i64 %82, 13
   br i1 %83, label %84, label %102
 
 84:                                               ; preds = %79
-  %bcmp143 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %.3127, ptr noundef nonnull dereferenceable(14) @.str.3, i64 14)
+  %bcmp143 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %.4, ptr noundef nonnull dereferenceable(14) @.str.3, i64 14)
   %85 = icmp eq i32 %bcmp143, 0
   br i1 %85, label %86, label %102
 
@@ -170,23 +170,23 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %87, label %159, label %88
 
 88:                                               ; preds = %86
-  %bcmp144 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %.3127, ptr noundef nonnull dereferenceable(22) @.str.4, i64 22)
+  %bcmp144 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %.4, ptr noundef nonnull dereferenceable(22) @.str.4, i64 22)
   %89 = icmp eq i32 %bcmp144, 0
   br i1 %89, label %94, label %90
 
 90:                                               ; preds = %88
-  %bcmp145 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %.3127, ptr noundef nonnull dereferenceable(22) @.str.5, i64 22)
+  %bcmp145 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %.4, ptr noundef nonnull dereferenceable(22) @.str.5, i64 22)
   %91 = icmp eq i32 %bcmp145, 0
   br i1 %91, label %94, label %92
 
 92:                                               ; preds = %90
-  %bcmp146 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %.3127, ptr noundef nonnull dereferenceable(22) @.str.6, i64 22)
+  %bcmp146 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %.4, ptr noundef nonnull dereferenceable(22) @.str.6, i64 22)
   %93 = icmp eq i32 %bcmp146, 0
   br i1 %93, label %94, label %159
 
 94:                                               ; preds = %92, %90, %88
-  %.1 = phi i32 [ 5, %88 ], [ 6, %90 ], [ 7, %92 ]
-  %95 = getelementptr inbounds i8, ptr %.3127, i64 22
+  %.3 = phi i32 [ 5, %88 ], [ 6, %90 ], [ 7, %92 ]
+  %95 = getelementptr inbounds i8, ptr %.4, i64 22
   %96 = ptrtoint ptr %95 to i64
   %97 = sub i64 %38, %96
   %98 = icmp slt i64 %97, 32
@@ -198,19 +198,19 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %.not147, label %.thread156, label %159
 
 .thread156:                                       ; preds = %99
-  %101 = getelementptr inbounds i8, ptr %.3127, i64 54
+  %101 = getelementptr inbounds i8, ptr %.4, i64 54
   br label %103
 
 102:                                              ; preds = %84, %79
   br i1 %80, label %159, label %103
 
 103:                                              ; preds = %.thread156, %102
-  %.2160 = phi i32 [ %.1, %.thread156 ], [ %.0, %102 ]
-  %.4159 = phi ptr [ %101, %.thread156 ], [ %.3127, %102 ]
-  %104 = load i8, ptr %.4159, align 1
+  %.2160 = phi i32 [ %.3, %.thread156 ], [ %.1, %102 ]
+  %.5159 = phi ptr [ %101, %.thread156 ], [ %.4, %102 ]
+  %104 = load i8, ptr %.5159, align 1
   %105 = icmp eq i8 %104, 13
   %spec.select155.idx = zext i1 %105 to i64
-  %spec.select155 = getelementptr inbounds i8, ptr %.4159, i64 %spec.select155.idx
+  %spec.select155 = getelementptr inbounds i8, ptr %.5159, i64 %spec.select155.idx
   %106 = load i8, ptr %spec.select155, align 1
   %107 = icmp eq i8 %106, 10
   br i1 %107, label %108, label %159
@@ -221,15 +221,15 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
 
 110:                                              ; preds = %108, %42, %25
   %.not150 = phi i1 [ false, %108 ], [ true, %42 ], [ true, %25 ]
-  %.6 = phi ptr [ %109, %108 ], [ %26, %42 ], [ %26, %25 ]
-  %.3 = phi i32 [ %.2160, %108 ], [ 0, %42 ], [ 0, %25 ]
-  %.not148 = icmp ult ptr %.6, %15
+  %.2126 = phi ptr [ %109, %108 ], [ %26, %42 ], [ %26, %25 ]
+  %.0 = phi i32 [ %.2160, %108 ], [ 0, %42 ], [ 0, %25 ]
+  %.not148 = icmp ult ptr %.2126, %15
   br i1 %.not148, label %111, label %159
 
 111:                                              ; preds = %110
-  %112 = ptrtoint ptr %.6 to i64
+  %112 = ptrtoint ptr %.2126 to i64
   %113 = sub i64 %38, %112
-  %114 = call i32 @mbedtls_base64_decode(ptr noundef null, i64 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %.6, i64 noundef %113) #12
+  %114 = call i32 @mbedtls_base64_decode(ptr noundef null, i64 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %.2126, i64 noundef %113) #12
   %115 = icmp eq i32 %114, -44
   br i1 %115, label %159, label %116
 
@@ -240,7 +240,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br i1 %119, label %159, label %120
 
 120:                                              ; preds = %116
-  %121 = call i32 @mbedtls_base64_decode(ptr noundef nonnull %118, i64 noundef %117, ptr noundef nonnull %8, ptr noundef nonnull %.6, i64 noundef %113) #12
+  %121 = call i32 @mbedtls_base64_decode(ptr noundef nonnull %118, i64 noundef %117, ptr noundef nonnull %8, ptr noundef nonnull %.2126, i64 noundef %113) #12
   %.not149 = icmp eq i32 %121, 0
   br i1 %.not149, label %125, label %122
 
@@ -269,7 +269,7 @@ define hidden i32 @mbedtls_pem_read_buffer(ptr noundef writeonly %0, ptr nocaptu
   br label %159
 
 130:                                              ; preds = %126
-  switch i32 %.3, label %.thread163 [
+  switch i32 %.0, label %.thread163 [
     i32 37, label %131
     i32 33, label %134
     i32 5, label %137

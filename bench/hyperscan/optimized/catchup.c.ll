@@ -537,7 +537,7 @@ if.end26:                                         ; preds = %do.end22
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end26, %ensureEnd.exit
-  %next_pos_match_loc.0 = phi i64 [ %call18, %ensureEnd.exit ], [ %99, %if.end26 ]
+  %next_pos_match_loc.1 = phi i64 [ %call18, %ensureEnd.exit ], [ %99, %if.end26 ]
   %100 = load i32, ptr %cur.i, align 8
   %101 = load i32, ptr %end.i636, align 4
   %cmp31 = icmp eq i32 %100, %101
@@ -554,7 +554,7 @@ do.end35:                                         ; preds = %if.end30
   br label %done
 
 done:                                             ; preds = %do.body.i348, %if.else.i.i, %if.end6.i365.thread, %do.end35, %if.end30, %ensureQueueActive.exit, %if.then.i.i
-  %next_pos_match_loc.1 = phi i64 [ 0, %if.then.i.i ], [ 0, %ensureQueueActive.exit ], [ %next_pos_match_loc.0, %do.end35 ], [ %next_pos_match_loc.0, %if.end30 ], [ 0, %if.end6.i365.thread ], [ 0, %if.else.i.i ], [ 0, %do.body.i348 ]
+  %next_pos_match_loc.0 = phi i64 [ 0, %if.then.i.i ], [ 0, %ensureQueueActive.exit ], [ %next_pos_match_loc.1, %do.end35 ], [ %next_pos_match_loc.1, %if.end30 ], [ 0, %if.end6.i365.thread ], [ 0, %if.else.i.i ], [ 0, %do.body.i348 ]
   %flushCombProgramOffset = getelementptr inbounds i8, ptr %t, i64 188
   %102 = load i32, ptr %flushCombProgramOffset, align 4
   %tobool41.not = icmp eq i32 %102, 0
@@ -573,7 +573,7 @@ if.end48:                                         ; preds = %if.then42, %done
   %.add = tail call i64 @llvm.umax.i64(i64 %103, i64 %add)
   store i64 %.add, ptr %minNonMpvMatchOffset.i, align 8
   %104 = load i64, ptr %buf_offset, align 8
-  %add52 = add i64 %104, %next_pos_match_loc.1
+  %add52 = add i64 %104, %next_pos_match_loc.0
   %add53 = add i64 %add, 1
   %cond = tail call i64 @llvm.umax.i64(i64 %add52, i64 %add53)
   %next_mpv_offset = getelementptr inbounds i8, ptr %scratch, i64 104

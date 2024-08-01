@@ -601,8 +601,8 @@ for.inc:                                          ; preds = %invoke.cont24, %for
   br i1 %cmp17.not.not, label %for.body, label %return, !llvm.loop !8
 
 return:                                           ; preds = %for.inc, %invoke.cont24, %if.end13, %if.end8, %land.lhs.true4, %lor.lhs.false, %entry
-  %retval.3 = phi i8 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true4 ], [ 0, %if.end8 ], [ 0, %if.end13 ], [ 0, %for.inc ], [ 1, %invoke.cont24 ]
-  ret i8 %retval.3
+  %retval.0 = phi i8 [ 0, %entry ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true4 ], [ 0, %if.end8 ], [ 0, %if.end13 ], [ 0, %for.inc ], [ 1, %invoke.cont24 ]
+  ret i8 %retval.0
 }
 
 declare noundef i32 @_ZN6icu_7510UCharsTrie4nextENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef, i32 noundef) local_unnamed_addr #1

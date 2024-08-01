@@ -961,8 +961,8 @@ define range(i32 -1, 1) i32 @ompi_datatype_get_pack_description(ptr noundef %0, 
   br label %26
 
 26:                                               ; preds = %22, %18
-  %.0 = phi ptr [ %19, %18 ], [ %25, %22 ]
-  store ptr %.0, ptr %4, align 8
+  %.1 = phi ptr [ %19, %18 ], [ %25, %22 ]
+  store ptr %.1, ptr %4, align 8
   call fastcc void @__ompi_datatype_pack_description(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %.val = load i16, ptr %16, align 8
   %27 = and i16 %.val, 512
@@ -970,13 +970,13 @@ define range(i32 -1, 1) i32 @ompi_datatype_get_pack_description(ptr noundef %0, 
   br i1 %.not23, label %28, label %._crit_edge25
 
 ._crit_edge25:                                    ; preds = %26
-  %.pre = ptrtoint ptr %.0 to i64
+  %.pre = ptrtoint ptr %.1 to i64
   br label %34
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %4, align 8
   %30 = ptrtoint ptr %29 to i64
-  %31 = ptrtoint ptr %.0 to i64
+  %31 = ptrtoint ptr %.1 to i64
   %32 = sub i64 %30, %31
   %33 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %32, ptr %33, align 8
@@ -994,8 +994,8 @@ define range(i32 -1, 1) i32 @ompi_datatype_get_pack_description(ptr noundef %0, 
   br label %38
 
 38:                                               ; preds = %34, %35, %2
-  %.1 = phi ptr [ %.0, %34 ], [ %37, %35 ], [ %10, %2 ]
-  %39 = icmp eq ptr %.1, inttoptr (i64 1 to ptr)
+  %.0 = phi ptr [ %.1, %34 ], [ %37, %35 ], [ %10, %2 ]
+  %39 = icmp eq ptr %.0, inttoptr (i64 1 to ptr)
   br i1 %39, label %40, label %48
 
 40:                                               ; preds = %38
@@ -1016,7 +1016,7 @@ define range(i32 -1, 1) i32 @ompi_datatype_get_pack_description(ptr noundef %0, 
   br label %48
 
 48:                                               ; preds = %._crit_edge, %38
-  %.2 = phi ptr [ %47, %._crit_edge ], [ %.1, %38 ]
+  %.2 = phi ptr [ %47, %._crit_edge ], [ %.0, %38 ]
   store ptr %.2, ptr %1, align 8
   br label %49
 

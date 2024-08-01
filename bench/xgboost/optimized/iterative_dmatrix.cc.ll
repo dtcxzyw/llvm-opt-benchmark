@@ -1451,10 +1451,10 @@ _ZN7xgboost4data16IterativeDMatrix12InitFromCUDAEPKNS_7ContextERKNS_10BatchParam
 164:                                              ; preds = %.loopexit61, %152
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.loopexit61 ], [ %153, %152 ]
   %.118 = phi ptr [ %71, %.loopexit61 ], [ %.017, %152 ]
-  %.1 = phi i1 [ %163, %.loopexit61 ], [ false, %152 ]
+  %.0 = phi i1 [ %163, %.loopexit61 ], [ false, %152 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #8
   %165 = icmp eq ptr %14, %.118
-  %or.cond = select i1 %.1, i1 true, i1 %165
+  %or.cond = select i1 %.0, i1 true, i1 %165
   br i1 %or.cond, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %164, %.preheader
@@ -2713,9 +2713,9 @@ thread-pre-split:                                 ; preds = %1343
 
 252:                                              ; preds = %thread-pre-split, %206
   %253 = phi i64 [ %.pr, %thread-pre-split ], [ 0, %206 ]
-  %.sroa.16.0 = phi ptr [ %.sroa.16.3, %thread-pre-split ], [ null, %206 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.4, %thread-pre-split ], [ null, %206 ]
   %.sroa.11.0 = phi ptr [ %.sroa.11.1, %thread-pre-split ], [ null, %206 ]
-  %.sroa.0695.0 = phi ptr [ %.sroa.0695.3, %thread-pre-split ], [ null, %206 ]
+  %.sroa.0695.0 = phi ptr [ %.sroa.0695.4, %thread-pre-split ], [ null, %206 ]
   %.063 = phi i64 [ %1339, %thread-pre-split ], [ 0, %206 ]
   %.062 = phi i64 [ %251, %thread-pre-split ], [ 0, %206 ]
   %254 = icmp eq i64 %253, 0
@@ -2809,15 +2809,15 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit:            ; preds = %._ZNSt6vectorImSaIm
   br label %317
 
 .loopexit823:                                     ; preds = %289, %284, %255, %317, %257, %.noexc95, %274, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit.i.i, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit30.i.i, %_ZNSt3anyD2Ev.exit35.i.i, %.noexc108, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit41.i.i, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit51.i.i, %_ZNSt3anyD2Ev.exit66.i.i, %.noexc112, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit138.i.i, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit148.i.i, %_ZNSt3anyD2Ev.exit163.i.i, %.noexc116, %1277, %_ZN4dmlc15LogMessageFatalC2EPKci.exit.i.i, %_ZNSt3anyD2Ev.exit244.i.i, %1328, %_ZNSt6vectorImSaImEE9push_backEOm.exit
-  %.sroa.16.1.ph = phi ptr [ %.sroa.16.0, %284 ], [ %.sroa.16.0, %289 ], [ %.sroa.16.0, %255 ], [ %.sroa.16.0, %257 ], [ %.sroa.16.0, %.noexc95 ], [ %.sroa.16.0, %274 ], [ %.sroa.16.0, %317 ], [ %.sroa.16.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit.i.i ], [ %.sroa.16.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit41.i.i ], [ %.sroa.16.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit138.i.i ], [ %.sroa.16.0, %1277 ], [ %.sroa.16.0, %_ZN4dmlc15LogMessageFatalC2EPKci.exit.i.i ], [ %.sroa.16.0, %_ZNSt3anyD2Ev.exit244.i.i ], [ %.sroa.16.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit148.i.i ], [ %.sroa.16.0, %_ZNSt3anyD2Ev.exit163.i.i ], [ %.sroa.16.0, %.noexc116 ], [ %.sroa.16.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit51.i.i ], [ %.sroa.16.0, %_ZNSt3anyD2Ev.exit66.i.i ], [ %.sroa.16.0, %.noexc112 ], [ %.sroa.16.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit30.i.i ], [ %.sroa.16.0, %_ZNSt3anyD2Ev.exit35.i.i ], [ %.sroa.16.0, %.noexc108 ], [ %.sroa.16.0, %1328 ], [ %.sroa.16.3, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
-  %.sroa.0695.1.ph = phi ptr [ %.sroa.0695.0, %284 ], [ %.sroa.0695.0, %289 ], [ %.sroa.0695.0, %255 ], [ %.sroa.0695.0, %257 ], [ %.sroa.0695.0, %.noexc95 ], [ %.sroa.0695.0, %274 ], [ %.sroa.0695.0, %317 ], [ %.sroa.0695.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit.i.i ], [ %.sroa.0695.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit41.i.i ], [ %.sroa.0695.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit138.i.i ], [ %.sroa.0695.0, %1277 ], [ %.sroa.0695.0, %_ZN4dmlc15LogMessageFatalC2EPKci.exit.i.i ], [ %.sroa.0695.0, %_ZNSt3anyD2Ev.exit244.i.i ], [ %.sroa.0695.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit148.i.i ], [ %.sroa.0695.0, %_ZNSt3anyD2Ev.exit163.i.i ], [ %.sroa.0695.0, %.noexc116 ], [ %.sroa.0695.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit51.i.i ], [ %.sroa.0695.0, %_ZNSt3anyD2Ev.exit66.i.i ], [ %.sroa.0695.0, %.noexc112 ], [ %.sroa.0695.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit30.i.i ], [ %.sroa.0695.0, %_ZNSt3anyD2Ev.exit35.i.i ], [ %.sroa.0695.0, %.noexc108 ], [ %.sroa.0695.0, %1328 ], [ %.sroa.0695.3, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
+  %.sroa.16.1.ph = phi ptr [ %.sroa.16.0, %284 ], [ %.sroa.16.0, %289 ], [ %.sroa.16.0, %255 ], [ %.sroa.16.0, %257 ], [ %.sroa.16.0, %.noexc95 ], [ %.sroa.16.0, %274 ], [ %.sroa.16.0, %317 ], [ %.sroa.16.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit.i.i ], [ %.sroa.16.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit41.i.i ], [ %.sroa.16.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit138.i.i ], [ %.sroa.16.0, %1277 ], [ %.sroa.16.0, %_ZN4dmlc15LogMessageFatalC2EPKci.exit.i.i ], [ %.sroa.16.0, %_ZNSt3anyD2Ev.exit244.i.i ], [ %.sroa.16.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit148.i.i ], [ %.sroa.16.0, %_ZNSt3anyD2Ev.exit163.i.i ], [ %.sroa.16.0, %.noexc116 ], [ %.sroa.16.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit51.i.i ], [ %.sroa.16.0, %_ZNSt3anyD2Ev.exit66.i.i ], [ %.sroa.16.0, %.noexc112 ], [ %.sroa.16.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit30.i.i ], [ %.sroa.16.0, %_ZNSt3anyD2Ev.exit35.i.i ], [ %.sroa.16.0, %.noexc108 ], [ %.sroa.16.0, %1328 ], [ %.sroa.16.4, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
+  %.sroa.0695.1.ph = phi ptr [ %.sroa.0695.0, %284 ], [ %.sroa.0695.0, %289 ], [ %.sroa.0695.0, %255 ], [ %.sroa.0695.0, %257 ], [ %.sroa.0695.0, %.noexc95 ], [ %.sroa.0695.0, %274 ], [ %.sroa.0695.0, %317 ], [ %.sroa.0695.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit.i.i ], [ %.sroa.0695.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit41.i.i ], [ %.sroa.0695.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit138.i.i ], [ %.sroa.0695.0, %1277 ], [ %.sroa.0695.0, %_ZN4dmlc15LogMessageFatalC2EPKci.exit.i.i ], [ %.sroa.0695.0, %_ZNSt3anyD2Ev.exit244.i.i ], [ %.sroa.0695.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit148.i.i ], [ %.sroa.0695.0, %_ZNSt3anyD2Ev.exit163.i.i ], [ %.sroa.0695.0, %.noexc116 ], [ %.sroa.0695.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit51.i.i ], [ %.sroa.0695.0, %_ZNSt3anyD2Ev.exit66.i.i ], [ %.sroa.0695.0, %.noexc112 ], [ %.sroa.0695.0, %_ZNK7xgboost4data12DMatrixProxy7AdapterEv.exit30.i.i ], [ %.sroa.0695.0, %_ZNSt3anyD2Ev.exit35.i.i ], [ %.sroa.0695.0, %.noexc108 ], [ %.sroa.0695.0, %1328 ], [ %.sroa.0695.4, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
   %lpad.loopexit827 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp824:                            ; preds = %_ZN7xgboost4data13DataIterProxyIFvPvEFiS2_EE5ResetEv.exit, %1349, %1353, %1358, %1418, %1422, %1322, %1344, %1407, %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i128
-  %.sroa.16.1.ph825 = phi ptr [ %.sroa.16.3, %1344 ], [ %.sroa.16.3, %_ZN7xgboost4data13DataIterProxyIFvPvEFiS2_EE5ResetEv.exit ], [ %.sroa.16.3, %1349 ], [ %.sroa.16.3, %1353 ], [ %.sroa.16.3, %1358 ], [ %.sroa.16.3, %1407 ], [ %.sroa.16.3, %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i128 ], [ %.sroa.16.3, %1418 ], [ %.sroa.16.3, %1422 ], [ %.sroa.16.0, %1322 ]
-  %.sroa.0695.1.ph826 = phi ptr [ %.sroa.0695.3, %1344 ], [ %.sroa.0695.3, %_ZN7xgboost4data13DataIterProxyIFvPvEFiS2_EE5ResetEv.exit ], [ %.sroa.0695.3, %1349 ], [ %.sroa.0695.3, %1353 ], [ %.sroa.0695.3, %1358 ], [ %.sroa.0695.3, %1407 ], [ %.sroa.0695.3, %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i128 ], [ %.sroa.0695.3, %1418 ], [ %.sroa.0695.3, %1422 ], [ %.sroa.0695.0, %1322 ]
+  %.sroa.16.1.ph825 = phi ptr [ %.sroa.16.4, %1344 ], [ %.sroa.16.4, %_ZN7xgboost4data13DataIterProxyIFvPvEFiS2_EE5ResetEv.exit ], [ %.sroa.16.4, %1349 ], [ %.sroa.16.4, %1353 ], [ %.sroa.16.4, %1358 ], [ %.sroa.16.4, %1407 ], [ %.sroa.16.4, %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i128 ], [ %.sroa.16.4, %1418 ], [ %.sroa.16.4, %1422 ], [ %.sroa.16.0, %1322 ]
+  %.sroa.0695.1.ph826 = phi ptr [ %.sroa.0695.4, %1344 ], [ %.sroa.0695.4, %_ZN7xgboost4data13DataIterProxyIFvPvEFiS2_EE5ResetEv.exit ], [ %.sroa.0695.4, %1349 ], [ %.sroa.0695.4, %1353 ], [ %.sroa.0695.4, %1358 ], [ %.sroa.0695.4, %1407 ], [ %.sroa.0695.4, %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i128 ], [ %.sroa.0695.4, %1418 ], [ %.sroa.0695.4, %1422 ], [ %.sroa.0695.0, %1322 ]
   %lpad.loopexit.split-lp828 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5649,9 +5649,9 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
 
 _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, %1316
   %1338 = phi i64 [ %.pre1258, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.016.i.i, %1316 ]
-  %.sroa.16.3 = phi ptr [ %1337, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.sroa.16.0, %1316 ]
+  %.sroa.16.4 = phi ptr [ %1337, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.sroa.16.0, %1316 ]
   %.pn802 = phi ptr [ %1335, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.sroa.11.0, %1316 ]
-  %.sroa.0695.3 = phi ptr [ %1331, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.sroa.0695.0, %1316 ]
+  %.sroa.0695.4 = phi ptr [ %1331, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %.sroa.0695.0, %1316 ]
   %.sroa.11.1 = getelementptr inbounds i8, ptr %.pn802, i64 8
   %1339 = add i64 %1338, %.063
   %1340 = load i64, ptr %152, align 8
@@ -7046,7 +7046,7 @@ _ZNSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEED2Ev.exit.i: ; preds = %_ZNSt
   unreachable
 
 _ZNSt3anyD2Ev.exit33.i:                           ; preds = %1843, %_ZNSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEED2Ev.exit.i
-  %1847 = getelementptr inbounds i64, ptr %.sroa.0695.3, i64 %storemerge
+  %1847 = getelementptr inbounds i64, ptr %.sroa.0695.4, i64 %storemerge
   %1848 = load i64, ptr %1847, align 8
   %1849 = load ptr, ptr %189, align 8
   %1850 = load ptr, ptr %1849, align 8
@@ -7344,7 +7344,7 @@ _ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i: ; preds = %_ZNSt16_
   unreachable
 
 _ZNSt3anyD2Ev.exit60.i:                           ; preds = %1946, %_ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i
-  %1950 = getelementptr inbounds i64, ptr %.sroa.0695.3, i64 %storemerge
+  %1950 = getelementptr inbounds i64, ptr %.sroa.0695.4, i64 %storemerge
   %1951 = load i64, ptr %1950, align 8
   %1952 = load ptr, ptr %189, align 8
   %1953 = load ptr, ptr %1952, align 8
@@ -7646,7 +7646,7 @@ _ZNSt10shared_ptrIN7xgboost4data15ColumnarAdapterEED2Ev.exit.i: ; preds = %_ZNSt
   unreachable
 
 _ZNSt3anyD2Ev.exit87.i:                           ; preds = %2052, %_ZNSt10shared_ptrIN7xgboost4data15ColumnarAdapterEED2Ev.exit.i
-  %2056 = getelementptr inbounds i64, ptr %.sroa.0695.3, i64 %storemerge
+  %2056 = getelementptr inbounds i64, ptr %.sroa.0695.4, i64 %storemerge
   %2057 = load i64, ptr %2056, align 8
   %2058 = load ptr, ptr %189, align 8
   %2059 = load ptr, ptr %2058, align 8
@@ -8561,7 +8561,7 @@ _ZNSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEED2Ev.exit.i383: ; preds = %_Z
 
 _ZNSt3anyD2Ev.exit33.i385:                        ; preds = %2365, %_ZNSt10shared_ptrIN7xgboost4data15CSRArrayAdapterEED2Ev.exit.i383
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47)
-  %2369 = getelementptr inbounds i64, ptr %.sroa.0695.3, i64 %storemerge74
+  %2369 = getelementptr inbounds i64, ptr %.sroa.0695.4, i64 %storemerge74
   %2370 = load i64, ptr %2369, align 8
   %2371 = load ptr, ptr %189, align 8
   %2372 = load ptr, ptr %2371, align 8
@@ -8875,7 +8875,7 @@ _ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i360: ; preds = %_ZNSt
 
 _ZNSt3anyD2Ev.exit60.i362:                        ; preds = %2477, %_ZNSt10shared_ptrIN7xgboost4data12ArrayAdapterEED2Ev.exit.i360
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42)
-  %2481 = getelementptr inbounds i64, ptr %.sroa.0695.3, i64 %storemerge74
+  %2481 = getelementptr inbounds i64, ptr %.sroa.0695.4, i64 %storemerge74
   %2482 = load i64, ptr %2481, align 8
   %2483 = load ptr, ptr %189, align 8
   %2484 = load ptr, ptr %2483, align 8
@@ -9193,7 +9193,7 @@ _ZNSt10shared_ptrIN7xgboost4data15ColumnarAdapterEED2Ev.exit.i337: ; preds = %_Z
 
 _ZNSt3anyD2Ev.exit87.i339:                        ; preds = %2592, %_ZNSt10shared_ptrIN7xgboost4data15ColumnarAdapterEED2Ev.exit.i337
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
-  %2596 = getelementptr inbounds i64, ptr %.sroa.0695.3, i64 %storemerge74
+  %2596 = getelementptr inbounds i64, ptr %.sroa.0695.4, i64 %storemerge74
   %2597 = load i64, ptr %2596, align 8
   %2598 = load ptr, ptr %189, align 8
   %2599 = load ptr, ptr %2598, align 8
@@ -10973,14 +10973,14 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   br label %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EED2Ev.exit: ; preds = %3196, %3198
-  %.not.i.i.i586 = icmp eq ptr %.sroa.0695.3, null
+  %.not.i.i.i586 = icmp eq ptr %.sroa.0695.4, null
   br i1 %.not.i.i.i586, label %_ZNSt6vectorImSaImEED2Ev.exit, label %3204
 
 3204:                                             ; preds = %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EED2Ev.exit
-  %3205 = ptrtoint ptr %.sroa.16.3 to i64
-  %3206 = ptrtoint ptr %.sroa.0695.3 to i64
+  %3205 = ptrtoint ptr %.sroa.16.4 to i64
+  %3206 = ptrtoint ptr %.sroa.0695.4 to i64
   %3207 = sub i64 %3205, %3206
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0695.3, i64 noundef %3207) #26
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0695.4, i64 noundef %3207) #26
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN7xgboost11FeatureTypeESaIS1_EED2Ev.exit, %3204
@@ -11032,17 +11032,17 @@ _ZNSt6vectorImSaImEED2Ev.exit591:                 ; preds = %_ZNSt10unique_ptrIN
   br label %.body
 
 .body:                                            ; preds = %.loopexit823, %.loopexit.split-lp824, %3220, %.body195, %common.resume.i.i.i, %719, %common.resume.i75.i.i, %972, %common.resume.i172.i.i, %1273, %1311, %1419, %1581, %316, %282
-  %.sroa.16.4 = phi ptr [ %.sroa.16.3, %1581 ], [ %.sroa.16.3, %1419 ], [ %.sroa.16.0, %282 ], [ %.sroa.16.0, %316 ], [ %.sroa.16.0, %1311 ], [ %.sroa.16.0, %1273 ], [ %.sroa.16.0, %common.resume.i172.i.i ], [ %.sroa.16.0, %972 ], [ %.sroa.16.0, %common.resume.i75.i.i ], [ %.sroa.16.0, %719 ], [ %.sroa.16.0, %common.resume.i.i.i ], [ %.sroa.16.3, %.body195 ], [ %.sroa.16.3, %3220 ], [ %.sroa.16.1.ph, %.loopexit823 ], [ %.sroa.16.1.ph825, %.loopexit.split-lp824 ]
-  %.sroa.0695.4 = phi ptr [ %.sroa.0695.3, %1581 ], [ %.sroa.0695.3, %1419 ], [ %.sroa.0695.0, %282 ], [ %.sroa.0695.0, %316 ], [ %.sroa.0695.0, %1311 ], [ %.sroa.0695.0, %1273 ], [ %.sroa.0695.0, %common.resume.i172.i.i ], [ %.sroa.0695.0, %972 ], [ %.sroa.0695.0, %common.resume.i75.i.i ], [ %.sroa.0695.0, %719 ], [ %.sroa.0695.0, %common.resume.i.i.i ], [ %.sroa.0695.3, %.body195 ], [ %.sroa.0695.3, %3220 ], [ %.sroa.0695.1.ph, %.loopexit823 ], [ %.sroa.0695.1.ph826, %.loopexit.split-lp824 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.4, %1581 ], [ %.sroa.16.4, %1419 ], [ %.sroa.16.0, %282 ], [ %.sroa.16.0, %316 ], [ %.sroa.16.0, %1311 ], [ %.sroa.16.0, %1273 ], [ %.sroa.16.0, %common.resume.i172.i.i ], [ %.sroa.16.0, %972 ], [ %.sroa.16.0, %common.resume.i75.i.i ], [ %.sroa.16.0, %719 ], [ %.sroa.16.0, %common.resume.i.i.i ], [ %.sroa.16.4, %.body195 ], [ %.sroa.16.4, %3220 ], [ %.sroa.16.1.ph, %.loopexit823 ], [ %.sroa.16.1.ph825, %.loopexit.split-lp824 ]
+  %.sroa.0695.2 = phi ptr [ %.sroa.0695.4, %1581 ], [ %.sroa.0695.4, %1419 ], [ %.sroa.0695.0, %282 ], [ %.sroa.0695.0, %316 ], [ %.sroa.0695.0, %1311 ], [ %.sroa.0695.0, %1273 ], [ %.sroa.0695.0, %common.resume.i172.i.i ], [ %.sroa.0695.0, %972 ], [ %.sroa.0695.0, %common.resume.i75.i.i ], [ %.sroa.0695.0, %719 ], [ %.sroa.0695.0, %common.resume.i.i.i ], [ %.sroa.0695.4, %.body195 ], [ %.sroa.0695.4, %3220 ], [ %.sroa.0695.1.ph, %.loopexit823 ], [ %.sroa.0695.1.ph826, %.loopexit.split-lp824 ]
   %.pn85.pn = phi { ptr, i32 } [ %.pn66, %1581 ], [ %1420, %1419 ], [ %283, %282 ], [ %.pn, %316 ], [ %.pn.i.i, %1311 ], [ %.pn19.i.i, %1273 ], [ %common.resume.op.i173.i.i, %common.resume.i172.i.i ], [ %.pn21.i.i, %972 ], [ %common.resume.op.i76.i.i, %common.resume.i75.i.i ], [ %.pn23.i.i, %719 ], [ %common.resume.op.i.i.i, %common.resume.i.i.i ], [ %.pn85, %.body195 ], [ %.pn85, %3220 ], [ %lpad.loopexit827, %.loopexit823 ], [ %lpad.loopexit.split-lp828, %.loopexit.split-lp824 ]
-  %.not.i.i.i594 = icmp eq ptr %.sroa.0695.4, null
+  %.not.i.i.i594 = icmp eq ptr %.sroa.0695.2, null
   br i1 %.not.i.i.i594, label %_ZNSt6vectorImSaImEED2Ev.exit595, label %3226
 
 3226:                                             ; preds = %.body
-  %3227 = ptrtoint ptr %.sroa.16.4 to i64
-  %3228 = ptrtoint ptr %.sroa.0695.4 to i64
+  %3227 = ptrtoint ptr %.sroa.16.2 to i64
+  %3228 = ptrtoint ptr %.sroa.0695.2 to i64
   %3229 = sub i64 %3227, %3228
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0695.4, i64 noundef %3229) #26
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0695.2, i64 noundef %3229) #26
   br label %_ZNSt6vectorImSaImEED2Ev.exit595
 
 _ZNSt6vectorImSaImEED2Ev.exit595:                 ; preds = %.body, %3226
@@ -16733,7 +16733,7 @@ _ZNK7xgboost6common13HistogramCuts4PtrsEv.exit:   ; preds = %_ZNK7xgboost6common
   br i1 %.fr258, label %.preheader.i.i.i.us.us, label %.preheader.i.i.i.us
 
 .preheader.i.i.i.us.us:                           ; preds = %.lr.ph44.i.i.i.split.us, %.loopexit.i.i.i.us.us
-  %.0.us.us = phi i64 [ %.3.us.us, %.loopexit.i.i.i.us.us ], [ 0, %.lr.ph44.i.i.i.split.us ]
+  %.4.us.us = phi i64 [ %.5.us.us, %.loopexit.i.i.i.us.us ], [ 0, %.lr.ph44.i.i.i.split.us ]
   %148 = phi i64 [ %156, %.loopexit.i.i.i.us.us ], [ 0, %.lr.ph44.i.i.i.split.us ]
   %.043.i.i.i.us.us = phi i64 [ %152, %.loopexit.i.i.i.us.us ], [ 0, %.lr.ph44.i.i.i.split.us ]
   %149 = load ptr, ptr %43, align 8
@@ -16746,13 +16746,13 @@ _ZNK7xgboost6common13HistogramCuts4PtrsEv.exit:   ; preds = %_ZNK7xgboost6common
   br i1 %155, label %.lr.ph42.i.i.i.us.us.us, label %.loopexit.i.i.i.us.us
 
 .loopexit.i.i.i.us.us:                            ; preds = %_ZNK7xgboost6common5IndexixEm.exit.i.i.i.us.us.us, %.preheader.i.i.i.us.us
-  %.3.us.us = phi i64 [ %.0.us.us, %.preheader.i.i.i.us.us ], [ %191, %_ZNK7xgboost6common5IndexixEm.exit.i.i.i.us.us.us ]
+  %.5.us.us = phi i64 [ %.4.us.us, %.preheader.i.i.i.us.us ], [ %191, %_ZNK7xgboost6common5IndexixEm.exit.i.i.i.us.us.us ]
   %156 = phi i64 [ %148, %.preheader.i.i.i.us.us ], [ %191, %_ZNK7xgboost6common5IndexixEm.exit.i.i.i.us.us.us ]
   %157 = icmp ult i64 %152, %spec.select.i.i
   br i1 %157, label %.preheader.i.i.i.us.us, label %.loopexit225, !llvm.loop !318
 
 .lr.ph42.i.i.i.us.us.us:                          ; preds = %.preheader.i.i.i.us.us, %_ZNK7xgboost6common5IndexixEm.exit.i.i.i.us.us.us
-  %.1.us.us.us = phi i64 [ %191, %_ZNK7xgboost6common5IndexixEm.exit.i.i.i.us.us.us ], [ %.0.us.us, %.preheader.i.i.i.us.us ]
+  %.7.us.us.us = phi i64 [ %191, %_ZNK7xgboost6common5IndexixEm.exit.i.i.i.us.us.us ], [ %.4.us.us, %.preheader.i.i.i.us.us ]
   %158 = phi i64 [ %191, %_ZNK7xgboost6common5IndexixEm.exit.i.i.i.us.us.us ], [ %148, %.preheader.i.i.i.us.us ]
   %.02841.i.i.i.us.us.us = phi i64 [ %192, %_ZNK7xgboost6common5IndexixEm.exit.i.i.i.us.us.us ], [ %151, %.preheader.i.i.i.us.us ]
   %159 = sub nuw i64 %.02841.i.i.i.us.us.us, %151
@@ -16800,11 +16800,11 @@ _ZNK7xgboost6common5IndexixEm.exit.i.i.i.us.us.us: ; preds = %177, %.noexc53.us.
   %.0.in.i.i.i.i.i.us.us.us = select i1 %182, ptr %184, ptr %188
   %.012.i.i.i.i.us.us.us = load i32, ptr %.0.in.i.i.i.i.i.us.us.us, align 4
   %189 = load ptr, ptr %113, align 8
-  %190 = getelementptr inbounds %"struct.xgboost::Entry", ptr %189, i64 %.1.us.us.us
+  %190 = getelementptr inbounds %"struct.xgboost::Entry", ptr %189, i64 %.7.us.us.us
   store i32 %160, ptr %190, align 4
   %.sroa_idx9.i.i.i.i.us.us.us = getelementptr inbounds i8, ptr %190, i64 4
   store i32 %.012.i.i.i.i.us.us.us, ptr %.sroa_idx9.i.i.i.i.us.us.us, align 4
-  %191 = add i64 %.1.us.us.us, 1
+  %191 = add i64 %.7.us.us.us, 1
   %192 = add i64 %.02841.i.i.i.us.us.us, 1
   %exitcond47.not.i.i.i.us.us.us = icmp eq i64 %192, %154
   br i1 %exitcond47.not.i.i.i.us.us.us, label %.loopexit.i.i.i.us.us, label %.lr.ph42.i.i.i.us.us.us, !llvm.loop !319
@@ -16815,7 +16815,7 @@ _ZNK7xgboost6common5IndexixEm.exit.i.i.i.us.us.us: ; preds = %177, %.noexc53.us.
   br label %.body60
 
 .preheader.i.i.i.us:                              ; preds = %.lr.ph44.i.i.i.split.us, %.loopexit.i.i.i.us
-  %.0.us = phi i64 [ %.3.us, %.loopexit.i.i.i.us ], [ 0, %.lr.ph44.i.i.i.split.us ]
+  %.4.us = phi i64 [ %.5.us, %.loopexit.i.i.i.us ], [ 0, %.lr.ph44.i.i.i.split.us ]
   %193 = phi i64 [ %244, %.loopexit.i.i.i.us ], [ 0, %.lr.ph44.i.i.i.split.us ]
   %.043.i.i.i.us = phi i64 [ %197, %.loopexit.i.i.i.us ], [ 0, %.lr.ph44.i.i.i.split.us ]
   %194 = load ptr, ptr %43, align 8
@@ -16828,7 +16828,7 @@ _ZNK7xgboost6common5IndexixEm.exit.i.i.i.us.us.us: ; preds = %177, %.noexc53.us.
   br i1 %200, label %.lr.ph42.i.i.i.us, label %.loopexit.i.i.i.us
 
 .lr.ph42.i.i.i.us:                                ; preds = %.preheader.i.i.i.us, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.i.i.us"
-  %.1.us = phi i64 [ %242, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.i.i.us" ], [ %.0.us, %.preheader.i.i.i.us ]
+  %.7.us = phi i64 [ %242, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.i.i.us" ], [ %.4.us, %.preheader.i.i.i.us ]
   %201 = phi i64 [ %242, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.i.i.us" ], [ %193, %.preheader.i.i.i.us ]
   %.02841.i.i.i.us = phi i64 [ %243, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.i.i.us" ], [ %196, %.preheader.i.i.i.us ]
   %202 = sub nuw i64 %.02841.i.i.i.us, %196
@@ -16896,17 +16896,17 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %.0.in.i.i.i.i.us = phi ptr [ %229, %226 ], [ %.0.in.i.i.i.i.i.us, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i.i.i.i.us ]
   %.012.i.i.i.i.us = load i32, ptr %.0.in.i.i.i.i.us, align 4
   %240 = load ptr, ptr %113, align 8
-  %241 = getelementptr inbounds %"struct.xgboost::Entry", ptr %240, i64 %.1.us
+  %241 = getelementptr inbounds %"struct.xgboost::Entry", ptr %240, i64 %.7.us
   store i32 %203, ptr %241, align 4
   %.sroa_idx9.i.i.i.i.us = getelementptr inbounds i8, ptr %241, i64 4
   store i32 %.012.i.i.i.i.us, ptr %.sroa_idx9.i.i.i.i.us, align 4
-  %242 = add i64 %.1.us, 1
+  %242 = add i64 %.7.us, 1
   %243 = add i64 %.02841.i.i.i.us, 1
   %exitcond47.not.i.i.i.us = icmp eq i64 %243, %199
   br i1 %exitcond47.not.i.i.i.us, label %.loopexit.i.i.i.us, label %.lr.ph42.i.i.i.us, !llvm.loop !319
 
 .loopexit.i.i.i.us:                               ; preds = %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.i.i.us", %.preheader.i.i.i.us
-  %.3.us = phi i64 [ %.0.us, %.preheader.i.i.i.us ], [ %242, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.i.i.us" ]
+  %.5.us = phi i64 [ %.4.us, %.preheader.i.i.i.us ], [ %242, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.i.i.us" ]
   %244 = phi i64 [ %193, %.preheader.i.i.i.us ], [ %242, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.i.i.us" ]
   %245 = icmp ult i64 %197, %spec.select.i.i
   br i1 %245, label %.preheader.i.i.i.us, label %.loopexit225, !llvm.loop !318
@@ -16920,7 +16920,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %.fr258, label %.lr.ph44.i.i.i.split.split.us, label %.lr.ph44.i.i.i.split.split
 
 .lr.ph44.i.i.i.split.split.us:                    ; preds = %.lr.ph44.i.i.i.split, %.loopexit.i.i.i.us253
-  %.0.us251 = phi i64 [ %.3.us254, %.loopexit.i.i.i.us253 ], [ 0, %.lr.ph44.i.i.i.split ]
+  %.4.us251 = phi i64 [ %.5.us254, %.loopexit.i.i.i.us253 ], [ 0, %.lr.ph44.i.i.i.split ]
   %246 = phi i64 [ %259, %.loopexit.i.i.i.us253 ], [ 0, %.lr.ph44.i.i.i.split ]
   %.043.i.i.i.us252 = phi i64 [ %250, %.loopexit.i.i.i.us253 ], [ 0, %.lr.ph44.i.i.i.split ]
   %247 = load ptr, ptr %43, align 8
@@ -16938,13 +16938,13 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %258, label %.lr.ph.i.i.i.us.us, label %.loopexit.i.i.i.us253
 
 .loopexit.i.i.i.us253:                            ; preds = %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i.i.i.us.us, %.lr.ph44.i.i.i.split.split.us
-  %.3.us254 = phi i64 [ %.0.us251, %.lr.ph44.i.i.i.split.split.us ], [ %283, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i.i.i.us.us ]
+  %.5.us254 = phi i64 [ %.4.us251, %.lr.ph44.i.i.i.split.split.us ], [ %283, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i.i.i.us.us ]
   %259 = phi i64 [ %246, %.lr.ph44.i.i.i.split.split.us ], [ %283, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i.i.i.us.us ]
   %260 = icmp ult i64 %250, %spec.select.i.i
   br i1 %260, label %.lr.ph44.i.i.i.split.split.us, label %.loopexit225, !llvm.loop !318
 
 .lr.ph.i.i.i.us.us:                               ; preds = %.lr.ph44.i.i.i.split.split.us, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i.i.i.us.us
-  %.2.us.us = phi i64 [ %283, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i.i.i.us.us ], [ %.0.us251, %.lr.ph44.i.i.i.split.split.us ]
+  %.6.us.us = phi i64 [ %283, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i.i.i.us.us ], [ %.4.us251, %.lr.ph44.i.i.i.split.split.us ]
   %261 = phi i64 [ %283, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i.i.i.us.us ], [ %246, %.lr.ph44.i.i.i.split.split.us ]
   %.02640.i.i.i.us.us = phi i64 [ %284, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i.i.i.us.us ], [ %249, %.lr.ph44.i.i.i.split.split.us ]
   %.02739.i.i.i.us.us = phi i32 [ %.1.i.i.i.us.us, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i.i.i.us.us ], [ 0, %.lr.ph44.i.i.i.split.split.us ]
@@ -16982,13 +16982,13 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   store i32 %.1.i.i.i.us.us, ptr %282, align 4
   %.sroa_idx9.i36.i.i.i.us.us = getelementptr inbounds i8, ptr %282, i64 4
   store i32 %.012.i35.i.i.i.us.us, ptr %.sroa_idx9.i36.i.i.i.us.us, align 4
-  %283 = add i64 %.2.us.us, 1
+  %283 = add i64 %.6.us.us, 1
   %284 = add nuw i64 %.02640.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %284, %252
   br i1 %exitcond.not.i.i.i.us.us, label %.loopexit.i.i.i.us253, label %.lr.ph.i.i.i.us.us, !llvm.loop !321
 
 .lr.ph44.i.i.i.split.split:                       ; preds = %.lr.ph44.i.i.i.split, %.loopexit.i.i.i
-  %.0 = phi i64 [ %.3, %.loopexit.i.i.i ], [ 0, %.lr.ph44.i.i.i.split ]
+  %.4 = phi i64 [ %.5, %.loopexit.i.i.i ], [ 0, %.lr.ph44.i.i.i.split ]
   %285 = phi i64 [ %332, %.loopexit.i.i.i ], [ 0, %.lr.ph44.i.i.i.split ]
   %.043.i.i.i = phi i64 [ %289, %.loopexit.i.i.i ], [ 0, %.lr.ph44.i.i.i.split ]
   %286 = load ptr, ptr %43, align 8
@@ -17010,7 +17010,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   unreachable
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph44.i.i.i.split.split, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i.i.i"
-  %.2 = phi i64 [ %330, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i.i.i" ], [ %.0, %.lr.ph44.i.i.i.split.split ]
+  %.6 = phi i64 [ %330, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i.i.i" ], [ %.4, %.lr.ph44.i.i.i.split.split ]
   %298 = phi i64 [ %330, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i.i.i" ], [ %285, %.lr.ph44.i.i.i.split.split ]
   %.02640.i.i.i = phi i64 [ %331, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i.i.i" ], [ %288, %.lr.ph44.i.i.i.split.split ]
   %.02739.i.i.i = phi i32 [ %.1.i.i.i, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i.i.i" ], [ 0, %.lr.ph44.i.i.i.split.split ]
@@ -17072,13 +17072,13 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   store i32 %.1.i.i.i, ptr %329, align 4
   %.sroa_idx9.i36.i.i.i = getelementptr inbounds i8, ptr %329, i64 4
   store i32 %.012.i35.i.i.i, ptr %.sroa_idx9.i36.i.i.i, align 4
-  %330 = add i64 %.2, 1
+  %330 = add i64 %.6, 1
   %331 = add nuw i64 %.02640.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %331, %291
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !321
 
 .loopexit.i.i.i:                                  ; preds = %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i.i.i", %.lr.ph44.i.i.i.split.split
-  %.3 = phi i64 [ %.0, %.lr.ph44.i.i.i.split.split ], [ %330, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i.i.i" ]
+  %.5 = phi i64 [ %.4, %.lr.ph44.i.i.i.split.split ], [ %330, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i.i.i" ]
   %332 = phi i64 [ %285, %.lr.ph44.i.i.i.split.split ], [ %330, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i.i.i" ]
   %333 = icmp ult i64 %289, %spec.select.i.i
   br i1 %333, label %.lr.ph44.i.i.i.split.split, label %.loopexit225, !llvm.loop !318
@@ -17102,7 +17102,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %.fr246, label %.preheader.i24.i.i.us.us, label %.preheader.i24.i.i.us
 
 .preheader.i24.i.i.us.us:                         ; preds = %.lr.ph44.i7.i.i.split.us, %.loopexit.i9.i.i.us.us
-  %.4.us.us = phi i64 [ %.7.us.us, %.loopexit.i9.i.i.us.us ], [ 0, %.lr.ph44.i7.i.i.split.us ]
+  %.0.us.us = phi i64 [ %.1.us.us, %.loopexit.i9.i.i.us.us ], [ 0, %.lr.ph44.i7.i.i.split.us ]
   %342 = phi i64 [ %350, %.loopexit.i9.i.i.us.us ], [ 0, %.lr.ph44.i7.i.i.split.us ]
   %.043.i8.i.i.us.us = phi i64 [ %346, %.loopexit.i9.i.i.us.us ], [ 0, %.lr.ph44.i7.i.i.split.us ]
   %343 = load ptr, ptr %43, align 8
@@ -17115,13 +17115,13 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %349, label %.lr.ph42.i25.i.i.us.us.us, label %.loopexit.i9.i.i.us.us
 
 .loopexit.i9.i.i.us.us:                           ; preds = %_ZNK7xgboost6common5IndexixEm.exit.i27.i.i.us.us.us, %.preheader.i24.i.i.us.us
-  %.7.us.us = phi i64 [ %.4.us.us, %.preheader.i24.i.i.us.us ], [ %385, %_ZNK7xgboost6common5IndexixEm.exit.i27.i.i.us.us.us ]
+  %.1.us.us = phi i64 [ %.0.us.us, %.preheader.i24.i.i.us.us ], [ %385, %_ZNK7xgboost6common5IndexixEm.exit.i27.i.i.us.us.us ]
   %350 = phi i64 [ %342, %.preheader.i24.i.i.us.us ], [ %385, %_ZNK7xgboost6common5IndexixEm.exit.i27.i.i.us.us.us ]
   %351 = icmp ult i64 %346, %spec.select.i.i
   br i1 %351, label %.preheader.i24.i.i.us.us, label %.loopexit225, !llvm.loop !322
 
 .lr.ph42.i25.i.i.us.us.us:                        ; preds = %.preheader.i24.i.i.us.us, %_ZNK7xgboost6common5IndexixEm.exit.i27.i.i.us.us.us
-  %.5.us.us.us = phi i64 [ %385, %_ZNK7xgboost6common5IndexixEm.exit.i27.i.i.us.us.us ], [ %.4.us.us, %.preheader.i24.i.i.us.us ]
+  %.3.us.us.us = phi i64 [ %385, %_ZNK7xgboost6common5IndexixEm.exit.i27.i.i.us.us.us ], [ %.0.us.us, %.preheader.i24.i.i.us.us ]
   %352 = phi i64 [ %385, %_ZNK7xgboost6common5IndexixEm.exit.i27.i.i.us.us.us ], [ %342, %.preheader.i24.i.i.us.us ]
   %.02841.i26.i.i.us.us.us = phi i64 [ %386, %_ZNK7xgboost6common5IndexixEm.exit.i27.i.i.us.us.us ], [ %345, %.preheader.i24.i.i.us.us ]
   %353 = sub nuw i64 %.02841.i26.i.i.us.us.us, %345
@@ -17169,11 +17169,11 @@ _ZNK7xgboost6common5IndexixEm.exit.i27.i.i.us.us.us: ; preds = %371, %.noexc55.u
   %.0.in.i.i.i32.i.i.us.us.us = select i1 %376, ptr %378, ptr %382
   %.012.i.i35.i.i.us.us.us = load i32, ptr %.0.in.i.i.i32.i.i.us.us.us, align 4
   %383 = load ptr, ptr %113, align 8
-  %384 = getelementptr inbounds %"struct.xgboost::Entry", ptr %383, i64 %.5.us.us.us
+  %384 = getelementptr inbounds %"struct.xgboost::Entry", ptr %383, i64 %.3.us.us.us
   store i32 %354, ptr %384, align 4
   %.sroa_idx9.i.i36.i.i.us.us.us = getelementptr inbounds i8, ptr %384, i64 4
   store i32 %.012.i.i35.i.i.us.us.us, ptr %.sroa_idx9.i.i36.i.i.us.us.us, align 4
-  %385 = add i64 %.5.us.us.us, 1
+  %385 = add i64 %.3.us.us.us, 1
   %386 = add i64 %.02841.i26.i.i.us.us.us, 1
   %exitcond47.not.i37.i.i.us.us.us = icmp eq i64 %386, %348
   br i1 %exitcond47.not.i37.i.i.us.us.us, label %.loopexit.i9.i.i.us.us, label %.lr.ph42.i25.i.i.us.us.us, !llvm.loop !323
@@ -17184,7 +17184,7 @@ _ZNK7xgboost6common5IndexixEm.exit.i27.i.i.us.us.us: ; preds = %371, %.noexc55.u
   br label %.body60
 
 .preheader.i24.i.i.us:                            ; preds = %.lr.ph44.i7.i.i.split.us, %.loopexit.i9.i.i.us
-  %.4.us = phi i64 [ %.7.us, %.loopexit.i9.i.i.us ], [ 0, %.lr.ph44.i7.i.i.split.us ]
+  %.0.us = phi i64 [ %.1.us, %.loopexit.i9.i.i.us ], [ 0, %.lr.ph44.i7.i.i.split.us ]
   %387 = phi i64 [ %438, %.loopexit.i9.i.i.us ], [ 0, %.lr.ph44.i7.i.i.split.us ]
   %.043.i8.i.i.us = phi i64 [ %391, %.loopexit.i9.i.i.us ], [ 0, %.lr.ph44.i7.i.i.split.us ]
   %388 = load ptr, ptr %43, align 8
@@ -17197,7 +17197,7 @@ _ZNK7xgboost6common5IndexixEm.exit.i27.i.i.us.us.us: ; preds = %371, %.noexc55.u
   br i1 %394, label %.lr.ph42.i25.i.i.us, label %.loopexit.i9.i.i.us
 
 .lr.ph42.i25.i.i.us:                              ; preds = %.preheader.i24.i.i.us, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i33.i.i.us"
-  %.5.us = phi i64 [ %436, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i33.i.i.us" ], [ %.4.us, %.preheader.i24.i.i.us ]
+  %.3.us = phi i64 [ %436, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i33.i.i.us" ], [ %.0.us, %.preheader.i24.i.i.us ]
   %395 = phi i64 [ %436, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i33.i.i.us" ], [ %387, %.preheader.i24.i.i.us ]
   %.02841.i26.i.i.us = phi i64 [ %437, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i33.i.i.us" ], [ %390, %.preheader.i24.i.i.us ]
   %396 = sub nuw i64 %.02841.i26.i.i.us, %390
@@ -17265,17 +17265,17 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %.0.in.i.i34.i.i.us = phi ptr [ %423, %420 ], [ %.0.in.i.i.i32.i.i.us, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i.i31.i.i.us ]
   %.012.i.i35.i.i.us = load i32, ptr %.0.in.i.i34.i.i.us, align 4
   %434 = load ptr, ptr %113, align 8
-  %435 = getelementptr inbounds %"struct.xgboost::Entry", ptr %434, i64 %.5.us
+  %435 = getelementptr inbounds %"struct.xgboost::Entry", ptr %434, i64 %.3.us
   store i32 %397, ptr %435, align 4
   %.sroa_idx9.i.i36.i.i.us = getelementptr inbounds i8, ptr %435, i64 4
   store i32 %.012.i.i35.i.i.us, ptr %.sroa_idx9.i.i36.i.i.us, align 4
-  %436 = add i64 %.5.us, 1
+  %436 = add i64 %.3.us, 1
   %437 = add i64 %.02841.i26.i.i.us, 1
   %exitcond47.not.i37.i.i.us = icmp eq i64 %437, %393
   br i1 %exitcond47.not.i37.i.i.us, label %.loopexit.i9.i.i.us, label %.lr.ph42.i25.i.i.us, !llvm.loop !323
 
 .loopexit.i9.i.i.us:                              ; preds = %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i33.i.i.us", %.preheader.i24.i.i.us
-  %.7.us = phi i64 [ %.4.us, %.preheader.i24.i.i.us ], [ %436, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i33.i.i.us" ]
+  %.1.us = phi i64 [ %.0.us, %.preheader.i24.i.i.us ], [ %436, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i33.i.i.us" ]
   %438 = phi i64 [ %387, %.preheader.i24.i.i.us ], [ %436, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i33.i.i.us" ]
   %439 = icmp ult i64 %391, %spec.select.i.i
   br i1 %439, label %.preheader.i24.i.i.us, label %.loopexit225, !llvm.loop !322
@@ -17289,7 +17289,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %.fr246, label %.lr.ph44.i7.i.i.split.split.us, label %.lr.ph44.i7.i.i.split.split
 
 .lr.ph44.i7.i.i.split.split.us:                   ; preds = %.lr.ph44.i7.i.i.split, %.loopexit.i9.i.i.us243
-  %.4.us241 = phi i64 [ %.7.us244, %.loopexit.i9.i.i.us243 ], [ 0, %.lr.ph44.i7.i.i.split ]
+  %.0.us241 = phi i64 [ %.1.us244, %.loopexit.i9.i.i.us243 ], [ 0, %.lr.ph44.i7.i.i.split ]
   %440 = phi i64 [ %453, %.loopexit.i9.i.i.us243 ], [ 0, %.lr.ph44.i7.i.i.split ]
   %.043.i8.i.i.us242 = phi i64 [ %444, %.loopexit.i9.i.i.us243 ], [ 0, %.lr.ph44.i7.i.i.split ]
   %441 = load ptr, ptr %43, align 8
@@ -17307,13 +17307,13 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %452, label %.lr.ph.i10.i.i.us.us, label %.loopexit.i9.i.i.us243
 
 .loopexit.i9.i.i.us243:                           ; preds = %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i17.i.i.us.us, %.lr.ph44.i7.i.i.split.split.us
-  %.7.us244 = phi i64 [ %.4.us241, %.lr.ph44.i7.i.i.split.split.us ], [ %477, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i17.i.i.us.us ]
+  %.1.us244 = phi i64 [ %.0.us241, %.lr.ph44.i7.i.i.split.split.us ], [ %477, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i17.i.i.us.us ]
   %453 = phi i64 [ %440, %.lr.ph44.i7.i.i.split.split.us ], [ %477, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i17.i.i.us.us ]
   %454 = icmp ult i64 %444, %spec.select.i.i
   br i1 %454, label %.lr.ph44.i7.i.i.split.split.us, label %.loopexit225, !llvm.loop !322
 
 .lr.ph.i10.i.i.us.us:                             ; preds = %.lr.ph44.i7.i.i.split.split.us, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i17.i.i.us.us
-  %.6.us.us = phi i64 [ %477, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i17.i.i.us.us ], [ %.4.us241, %.lr.ph44.i7.i.i.split.split.us ]
+  %.2.us.us = phi i64 [ %477, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i17.i.i.us.us ], [ %.0.us241, %.lr.ph44.i7.i.i.split.split.us ]
   %455 = phi i64 [ %477, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i17.i.i.us.us ], [ %440, %.lr.ph44.i7.i.i.split.split.us ]
   %.02640.i11.i.i.us.us = phi i64 [ %478, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i17.i.i.us.us ], [ %443, %.lr.ph44.i7.i.i.split.split.us ]
   %.02739.i12.i.i.us.us = phi i32 [ %.1.i13.i.i.us.us, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i17.i.i.us.us ], [ 0, %.lr.ph44.i7.i.i.split.split.us ]
@@ -17351,13 +17351,13 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   store i32 %.1.i13.i.i.us.us, ptr %476, align 4
   %.sroa_idx9.i36.i22.i.i.us.us = getelementptr inbounds i8, ptr %476, i64 4
   store i32 %.012.i35.i21.i.i.us.us, ptr %.sroa_idx9.i36.i22.i.i.us.us, align 4
-  %477 = add i64 %.6.us.us, 1
+  %477 = add i64 %.2.us.us, 1
   %478 = add nuw i64 %.02640.i11.i.i.us.us, 1
   %exitcond.not.i23.i.i.us.us = icmp eq i64 %478, %446
   br i1 %exitcond.not.i23.i.i.us.us, label %.loopexit.i9.i.i.us243, label %.lr.ph.i10.i.i.us.us, !llvm.loop !325
 
 .lr.ph44.i7.i.i.split.split:                      ; preds = %.lr.ph44.i7.i.i.split, %.loopexit.i9.i.i
-  %.4 = phi i64 [ %.7, %.loopexit.i9.i.i ], [ 0, %.lr.ph44.i7.i.i.split ]
+  %.0 = phi i64 [ %.1, %.loopexit.i9.i.i ], [ 0, %.lr.ph44.i7.i.i.split ]
   %479 = phi i64 [ %526, %.loopexit.i9.i.i ], [ 0, %.lr.ph44.i7.i.i.split ]
   %.043.i8.i.i = phi i64 [ %483, %.loopexit.i9.i.i ], [ 0, %.lr.ph44.i7.i.i.split ]
   %480 = load ptr, ptr %43, align 8
@@ -17379,7 +17379,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   unreachable
 
 .lr.ph.i10.i.i:                                   ; preds = %.lr.ph44.i7.i.i.split.split, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i19.i.i"
-  %.6 = phi i64 [ %524, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i19.i.i" ], [ %.4, %.lr.ph44.i7.i.i.split.split ]
+  %.2 = phi i64 [ %524, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i19.i.i" ], [ %.0, %.lr.ph44.i7.i.i.split.split ]
   %492 = phi i64 [ %524, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i19.i.i" ], [ %479, %.lr.ph44.i7.i.i.split.split ]
   %.02640.i11.i.i = phi i64 [ %525, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i19.i.i" ], [ %482, %.lr.ph44.i7.i.i.split.split ]
   %.02739.i12.i.i = phi i32 [ %.1.i13.i.i, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i19.i.i" ], [ 0, %.lr.ph44.i7.i.i.split.split ]
@@ -17441,13 +17441,13 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   store i32 %.1.i13.i.i, ptr %523, align 4
   %.sroa_idx9.i36.i22.i.i = getelementptr inbounds i8, ptr %523, i64 4
   store i32 %.012.i35.i21.i.i, ptr %.sroa_idx9.i36.i22.i.i, align 4
-  %524 = add i64 %.6, 1
+  %524 = add i64 %.2, 1
   %525 = add nuw i64 %.02640.i11.i.i, 1
   %exitcond.not.i23.i.i = icmp eq i64 %525, %485
   br i1 %exitcond.not.i23.i.i, label %.loopexit.i9.i.i, label %.lr.ph.i10.i.i, !llvm.loop !325
 
 .loopexit.i9.i.i:                                 ; preds = %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i19.i.i", %.lr.ph44.i7.i.i.split.split
-  %.7 = phi i64 [ %.4, %.lr.ph44.i7.i.i.split.split ], [ %524, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i19.i.i" ]
+  %.1 = phi i64 [ %.0, %.lr.ph44.i7.i.i.split.split ], [ %524, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i19.i.i" ]
   %526 = phi i64 [ %479, %.lr.ph44.i7.i.i.split.split ], [ %524, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i19.i.i" ]
   %527 = icmp ult i64 %483, %spec.select.i.i
   br i1 %527, label %.lr.ph44.i7.i.i.split.split, label %.loopexit225, !llvm.loop !322
@@ -17522,7 +17522,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i.i: ; preds = %.noexc.i.i, %.noe
   br i1 %549, label %.preheader.i.us, label %.lr.ph44.i.split
 
 .preheader.i.us:                                  ; preds = %.lr.ph44.i, %.loopexit.i.us
-  %.8.us = phi i64 [ %.11.us, %.loopexit.i.us ], [ 0, %.lr.ph44.i ]
+  %.8.us = phi i64 [ %.9.us, %.loopexit.i.us ], [ 0, %.lr.ph44.i ]
   %.043.i.us = phi i64 [ %555, %.loopexit.i.us ], [ 0, %.lr.ph44.i ]
   %552 = load ptr, ptr %43, align 8
   %553 = getelementptr inbounds i64, ptr %552, i64 %.043.i.us
@@ -17534,7 +17534,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i.i: ; preds = %.noexc.i.i, %.noe
   br i1 %558, label %.lr.ph42.i.preheader.us, label %.loopexit.i.us
 
 .lr.ph42.i.us:                                    ; preds = %.lr.ph42.i.preheader.us, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.us"
-  %.9.us = phi i64 [ %599, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.us" ], [ %.8.us, %.lr.ph42.i.preheader.us ]
+  %.11.us = phi i64 [ %599, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.us" ], [ %.8.us, %.lr.ph42.i.preheader.us ]
   %.02841.i.us = phi i64 [ %600, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.us" ], [ %554, %.lr.ph42.i.preheader.us ]
   %559 = sub nuw i64 %.02841.i.us, %554
   %560 = trunc i64 %559 to i32
@@ -17546,7 +17546,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i.i: ; preds = %.noexc.i.i, %.noe
   br i1 %563, label %577, label %566
 
 566:                                              ; preds = %.lr.ph42.i.us
-  %567 = invoke noundef i32 %564(ptr noundef %565, i64 noundef %.9.us)
+  %567 = invoke noundef i32 %564(ptr noundef %565, i64 noundef %.11.us)
           to label %.noexc143.us unwind label %.loopexit.split.us.split
 
 .noexc143.us:                                     ; preds = %566
@@ -17554,7 +17554,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i.i: ; preds = %.noexc.i.i, %.noe
   %569 = ptrtoint ptr %561 to i64
   %570 = sub i64 %568, %569
   %571 = ashr exact i64 %570, 2
-  %572 = urem i64 %.9.us, %571
+  %572 = urem i64 %.11.us, %571
   %573 = load ptr, ptr %546, align 8
   %574 = getelementptr inbounds i32, ptr %573, i64 %572
   %575 = load i32, ptr %574, align 4
@@ -17562,7 +17562,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i.i: ; preds = %.noexc.i.i, %.noe
   br label %_ZNK7xgboost6common5IndexixEm.exit.i.us
 
 577:                                              ; preds = %.lr.ph42.i.us
-  %578 = invoke noundef i32 %564(ptr noundef %565, i64 noundef %.9.us)
+  %578 = invoke noundef i32 %564(ptr noundef %565, i64 noundef %.11.us)
           to label %_ZNK7xgboost6common5IndexixEm.exit.i.us unwind label %.loopexit.split.us.split
 
 _ZNK7xgboost6common5IndexixEm.exit.i.us:          ; preds = %577, %.noexc143.us
@@ -17601,17 +17601,17 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %.0.in.i.i.us = phi ptr [ %586, %583 ], [ %.0.in.i.i.i.us, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i.i.us ]
   %.012.i.i.us = load i32, ptr %.0.in.i.i.us, align 4
   %597 = load ptr, ptr %113, align 8
-  %598 = getelementptr inbounds %"struct.xgboost::Entry", ptr %597, i64 %.9.us
+  %598 = getelementptr inbounds %"struct.xgboost::Entry", ptr %597, i64 %.11.us
   store i32 %560, ptr %598, align 4
   %.sroa_idx9.i.i.us = getelementptr inbounds i8, ptr %598, i64 4
   store i32 %.012.i.i.us, ptr %.sroa_idx9.i.i.us, align 4
-  %599 = add i64 %.9.us, 1
+  %599 = add i64 %.11.us, 1
   %600 = add i64 %.02841.i.us, 1
   %exitcond47.not.i.us = icmp eq i64 %600, %557
   br i1 %exitcond47.not.i.us, label %.loopexit.i.us, label %.lr.ph42.i.us, !llvm.loop !326
 
 .loopexit.i.us:                                   ; preds = %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.us", %_ZNK7xgboost6common5IndexixEm.exit.i.us.us, %.preheader.i.us
-  %.11.us = phi i64 [ %.8.us, %.preheader.i.us ], [ %634, %_ZNK7xgboost6common5IndexixEm.exit.i.us.us ], [ %599, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.us" ]
+  %.9.us = phi i64 [ %.8.us, %.preheader.i.us ], [ %634, %_ZNK7xgboost6common5IndexixEm.exit.i.us.us ], [ %599, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit.i.us" ]
   %601 = icmp ult i64 %555, %spec.select.i.i
   br i1 %601, label %.preheader.i.us, label %.loopexit225, !llvm.loop !327
 
@@ -17619,7 +17619,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %.fr265, label %.lr.ph42.i.us.us, label %.lr.ph42.i.us
 
 .lr.ph42.i.us.us:                                 ; preds = %.lr.ph42.i.preheader.us, %_ZNK7xgboost6common5IndexixEm.exit.i.us.us
-  %.9.us.us = phi i64 [ %634, %_ZNK7xgboost6common5IndexixEm.exit.i.us.us ], [ %.8.us, %.lr.ph42.i.preheader.us ]
+  %.11.us.us = phi i64 [ %634, %_ZNK7xgboost6common5IndexixEm.exit.i.us.us ], [ %.8.us, %.lr.ph42.i.preheader.us ]
   %.02841.i.us.us = phi i64 [ %635, %_ZNK7xgboost6common5IndexixEm.exit.i.us.us ], [ %554, %.lr.ph42.i.preheader.us ]
   %602 = sub nuw i64 %.02841.i.us.us, %554
   %603 = trunc i64 %602 to i32
@@ -17631,7 +17631,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %606, label %620, label %609
 
 609:                                              ; preds = %.lr.ph42.i.us.us
-  %610 = invoke noundef i32 %607(ptr noundef %608, i64 noundef %.9.us.us)
+  %610 = invoke noundef i32 %607(ptr noundef %608, i64 noundef %.11.us.us)
           to label %.noexc143.us.us unwind label %.loopexit.split.us.split.us
 
 .noexc143.us.us:                                  ; preds = %609
@@ -17639,7 +17639,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %612 = ptrtoint ptr %604 to i64
   %613 = sub i64 %611, %612
   %614 = ashr exact i64 %613, 2
-  %615 = urem i64 %.9.us.us, %614
+  %615 = urem i64 %.11.us.us, %614
   %616 = load ptr, ptr %546, align 8
   %617 = getelementptr inbounds i32, ptr %616, i64 %615
   %618 = load i32, ptr %617, align 4
@@ -17647,7 +17647,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br label %_ZNK7xgboost6common5IndexixEm.exit.i.us.us
 
 620:                                              ; preds = %.lr.ph42.i.us.us
-  %621 = invoke noundef i32 %607(ptr noundef %608, i64 noundef %.9.us.us)
+  %621 = invoke noundef i32 %607(ptr noundef %608, i64 noundef %.11.us.us)
           to label %_ZNK7xgboost6common5IndexixEm.exit.i.us.us unwind label %.loopexit.split.us.split.us
 
 _ZNK7xgboost6common5IndexixEm.exit.i.us.us:       ; preds = %620, %.noexc143.us.us
@@ -17666,11 +17666,11 @@ _ZNK7xgboost6common5IndexixEm.exit.i.us.us:       ; preds = %620, %.noexc143.us.
   %.0.in.i.i.i.us.us = select i1 %625, ptr %627, ptr %631
   %.012.i.i.us.us = load i32, ptr %.0.in.i.i.i.us.us, align 4
   %632 = load ptr, ptr %113, align 8
-  %633 = getelementptr inbounds %"struct.xgboost::Entry", ptr %632, i64 %.9.us.us
+  %633 = getelementptr inbounds %"struct.xgboost::Entry", ptr %632, i64 %.11.us.us
   store i32 %603, ptr %633, align 4
   %.sroa_idx9.i.i.us.us = getelementptr inbounds i8, ptr %633, i64 4
   store i32 %.012.i.i.us.us, ptr %.sroa_idx9.i.i.us.us, align 4
-  %634 = add i64 %.9.us.us, 1
+  %634 = add i64 %.11.us.us, 1
   %635 = add i64 %.02841.i.us.us, 1
   %exitcond47.not.i.us.us = icmp eq i64 %635, %557
   br i1 %exitcond47.not.i.us.us, label %.loopexit.i.us, label %.lr.ph42.i.us.us, !llvm.loop !326
@@ -17686,7 +17686,7 @@ _ZNK7xgboost6common5IndexixEm.exit.i.us.us:       ; preds = %620, %.noexc143.us.
   br label %.body60
 
 .lr.ph44.i.split:                                 ; preds = %.lr.ph44.i, %.loopexit.i
-  %.8 = phi i64 [ %.11, %.loopexit.i ], [ 0, %.lr.ph44.i ]
+  %.8 = phi i64 [ %.9, %.loopexit.i ], [ 0, %.lr.ph44.i ]
   %.043.i = phi i64 [ %639, %.loopexit.i ], [ 0, %.lr.ph44.i ]
   %636 = load ptr, ptr %43, align 8
   %637 = getelementptr inbounds i64, ptr %636, i64 %.043.i
@@ -17818,7 +17818,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !329
 
 .loopexit.i:                                      ; preds = %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i", %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i.us, %.lr.ph44.i.split
-  %.11 = phi i64 [ %.8, %.lr.ph44.i.split ], [ %668, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i.us ], [ %700, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i" ]
+  %.9 = phi i64 [ %.8, %.lr.ph44.i.split ], [ %668, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread.i32.i.us ], [ %700, %"_ZZN7xgboost4data16IterativeDMatrix13GetExtBatchesEPKNS_7ContextERKNS_10BatchParamEENK3$_0clIjEEDaT_mmj.exit37.i" ]
   %702 = icmp ult i64 %639, %spec.select.i.i
   br i1 %702, label %.lr.ph44.i.split, label %.loopexit225, !llvm.loop !327
 

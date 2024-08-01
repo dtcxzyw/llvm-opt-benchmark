@@ -919,13 +919,13 @@ if.then9:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then9, %if.then
-  %version.0 = phi ptr [ %call10, %if.then9 ], [ %call5, %if.then ]
-  %call11 = tail call ptr @sdscat(ptr noundef %version.0, ptr noundef nonnull @.str.65) #15
+  %version.1 = phi ptr [ %call10, %if.then9 ], [ %call5, %if.then ]
+  %call11 = tail call ptr @sdscat(ptr noundef %version.1, ptr noundef nonnull @.str.65) #15
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end, %entry
-  %version.1 = phi ptr [ %call11, %if.end ], [ %call1, %entry ]
-  ret ptr %version.1
+  %version.0 = phi ptr [ %call11, %if.end ], [ %call1, %entry ]
+  ret ptr %version.0
 }
 
 ; Function Attrs: nofree nounwind

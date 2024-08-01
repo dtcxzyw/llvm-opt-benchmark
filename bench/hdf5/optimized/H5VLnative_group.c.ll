@@ -114,7 +114,7 @@ define ptr @H5VL__native_group_create(ptr noundef %0, ptr nocapture noundef read
   br label %45
 
 45:                                               ; preds = %41, %38
-  %.119 = phi ptr [ null, %41 ], [ %25, %38 ]
+  %.2 = phi ptr [ null, %41 ], [ %25, %38 ]
   %46 = call i32 @H5O_dec_rc_by_loc(ptr noundef %39) #3
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %.thread
@@ -126,8 +126,8 @@ define ptr @H5VL__native_group_create(ptr noundef %0, ptr nocapture noundef read
   br label %.thread
 
 .thread:                                          ; preds = %27, %14, %34, %31, %48, %45
-  %.2 = phi ptr [ null, %48 ], [ %.119, %45 ], [ %32, %31 ], [ null, %34 ], [ null, %27 ], [ null, %14 ]
-  ret ptr %.2
+  %.119 = phi ptr [ null, %48 ], [ %.2, %45 ], [ %32, %31 ], [ null, %34 ], [ null, %27 ], [ null, %14 ]
+  ret ptr %.119
 }
 
 declare i32 @H5G_loc_real(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

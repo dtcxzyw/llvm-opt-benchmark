@@ -5000,7 +5000,7 @@ do.end43.i:                                       ; preds = %if.else20.i
   br label %do.end536
 
 do.end536:                                        ; preds = %do.end43.i, %if.else.i344, %do.end13.i
-  %op.1 = phi ptr [ %op.0485, %if.else.i344 ], [ %op.0485, %do.end13.i ], [ %add.ptr44.i, %do.end43.i ]
+  %op.2 = phi ptr [ %op.0485, %if.else.i344 ], [ %op.0485, %do.end13.i ], [ %add.ptr44.i, %do.end43.i ]
   %.sink.i339 = phi i32 [ 4, %if.else.i344 ], [ 2, %do.end13.i ], [ 2, %do.end43.i ]
   store i32 %.sink.i339, ptr %streamStage, align 4
   %add.ptr537 = getelementptr inbounds i8, ptr %ip.0488.ph, i64 %retval.0.i332437
@@ -5059,7 +5059,7 @@ if.then593:                                       ; preds = %if.end590.thread446
 
 if.end597:                                        ; preds = %do.end582, %if.then593, %if.end590
   %loadedSize.0445 = phi i64 [ %loadedSize.0449, %if.then593 ], [ 0, %if.end590 ], [ 0, %do.end582 ]
-  %ip.1 = phi ptr [ %add.ptr594, %if.then593 ], [ %ip.0488.ph, %if.end590 ], [ %ip.0488.ph, %do.end582 ]
+  %ip.2 = phi ptr [ %add.ptr594, %if.then593 ], [ %ip.0488.ph, %if.end590 ], [ %ip.0488.ph, %do.end582 ]
   %cmp598 = icmp ult i64 %loadedSize.0445, %sub549
   br i1 %cmp598, label %while.end, label %if.end601
 
@@ -5118,14 +5118,14 @@ do.end43.i367:                                    ; preds = %if.else20.i358
   br label %ZSTD_decompressContinueStream.exit393
 
 ZSTD_decompressContinueStream.exit393:            ; preds = %do.end13.i384, %if.else.i387, %do.end43.i367
-  %op.3 = phi ptr [ %op.0485, %if.else.i387 ], [ %op.0485, %do.end13.i384 ], [ %add.ptr44.i368, %do.end43.i367 ]
+  %op.4 = phi ptr [ %op.0485, %if.else.i387 ], [ %op.0485, %do.end13.i384 ], [ %add.ptr44.i368, %do.end43.i367 ]
   %.sink.i370 = phi i32 [ 4, %if.else.i387 ], [ 2, %do.end13.i384 ], [ 2, %do.end43.i367 ]
   store i32 %.sink.i370, ptr %streamStage, align 4
   br label %while.body.outer.backedge
 
 while.body.outer.backedge:                        ; preds = %ZSTD_decompressContinueStream.exit393, %do.end536, %if.end226
-  %ip.0488.ph.be = phi ptr [ %add.ptr232, %if.end226 ], [ %add.ptr537, %do.end536 ], [ %ip.1, %ZSTD_decompressContinueStream.exit393 ]
-  %op.0485.ph.be = phi ptr [ %op.0485, %if.end226 ], [ %op.1, %do.end536 ], [ %op.3, %ZSTD_decompressContinueStream.exit393 ]
+  %ip.0488.ph.be = phi ptr [ %add.ptr232, %if.end226 ], [ %add.ptr537, %do.end536 ], [ %ip.2, %ZSTD_decompressContinueStream.exit393 ]
+  %op.0485.ph.be = phi ptr [ %op.0485, %if.end226 ], [ %op.2, %do.end536 ], [ %op.4, %ZSTD_decompressContinueStream.exit393 ]
   br label %while.body.outer, !llvm.loop !33
 
 sw.bb620:                                         ; preds = %while.body
@@ -5177,27 +5177,27 @@ do.end659:                                        ; preds = %land.lhs.true648
   br label %while.body.backedge
 
 while.end.sink.split:                             ; preds = %ZSTD_nextSrcSizeToDecompressWithInputSize.exit, %do.end270
-  %op.5.ph.ph = phi ptr [ %cond277, %do.end270 ], [ %op.0485, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ]
-  %ip.2.ph.ph = phi ptr [ %add.ptr271, %do.end270 ], [ %ip.0488.ph, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ]
+  %op.1.ph.ph = phi ptr [ %cond277, %do.end270 ], [ %op.0485, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ]
+  %ip.1.ph.ph = phi ptr [ %add.ptr271, %do.end270 ], [ %ip.0488.ph, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ]
   store i32 0, ptr %streamStage, align 4
   br label %while.end
 
 while.end:                                        ; preds = %ZSTD_limitCopy.exit400, %if.end597, %if.end538, %while.end.sink.split
-  %op.5.ph = phi ptr [ %op.5.ph.ph, %while.end.sink.split ], [ %cond636, %ZSTD_limitCopy.exit400 ], [ %op.0485, %if.end597 ], [ %op.0485, %if.end538 ]
-  %ip.2.ph = phi ptr [ %ip.2.ph.ph, %while.end.sink.split ], [ %ip.0488.ph, %ZSTD_limitCopy.exit400 ], [ %add.ptr6, %if.end538 ], [ %ip.1, %if.end597 ]
+  %op.1.ph = phi ptr [ %op.1.ph.ph, %while.end.sink.split ], [ %cond636, %ZSTD_limitCopy.exit400 ], [ %op.0485, %if.end597 ], [ %op.0485, %if.end538 ]
+  %ip.1.ph = phi ptr [ %ip.1.ph.ph, %while.end.sink.split ], [ %ip.0488.ph, %ZSTD_limitCopy.exit400 ], [ %add.ptr6, %if.end538 ], [ %ip.2, %if.end597 ]
   %88 = load ptr, ptr %input, align 8
-  %sub.ptr.lhs.cast675 = ptrtoint ptr %ip.2.ph to i64
+  %sub.ptr.lhs.cast675 = ptrtoint ptr %ip.1.ph to i64
   %sub.ptr.rhs.cast676 = ptrtoint ptr %88 to i64
   %sub.ptr.sub677 = sub i64 %sub.ptr.lhs.cast675, %sub.ptr.rhs.cast676
   store i64 %sub.ptr.sub677, ptr %pos, align 8
   %89 = load ptr, ptr %output, align 8
-  %sub.ptr.lhs.cast680 = ptrtoint ptr %op.5.ph to i64
+  %sub.ptr.lhs.cast680 = ptrtoint ptr %op.1.ph to i64
   %sub.ptr.rhs.cast681 = ptrtoint ptr %89 to i64
   %sub.ptr.sub682 = sub i64 %sub.ptr.lhs.cast680, %sub.ptr.rhs.cast681
   store i64 %sub.ptr.sub682, ptr %pos11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %expectedOutBuffer.i, ptr noundef nonnull align 8 dereferenceable(24) %output, i64 24, i1 false)
-  %cmp685 = icmp eq ptr %ip.2.ph, %add.ptr
-  %cmp688 = icmp eq ptr %op.5.ph, %add.ptr15
+  %cmp685 = icmp eq ptr %ip.1.ph, %add.ptr
+  %cmp688 = icmp eq ptr %op.1.ph, %add.ptr15
   %or.cond287 = select i1 %cmp685, i1 %cmp688, i1 false
   %noForwardProgress = getelementptr inbounds i8, ptr %zds, i64 30332
   br i1 %or.cond287, label %if.then690, label %if.else724

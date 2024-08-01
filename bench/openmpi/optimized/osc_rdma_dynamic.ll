@@ -494,7 +494,7 @@ find_insertion_point.exit:                        ; preds = %tailrecurse.outer.i
   br label %161
 
 161:                                              ; preds = %.loopexit, %.thread, %find_insertion_point.exit, %151
-  %.1122 = phi i32 [ %.tr34.ph.lcssa.i, %151 ], [ %.tr34.ph.lcssa.i, %find_insertion_point.exit ], [ 0, %.thread ], [ 0, %.loopexit ]
+  %.0121 = phi i32 [ %.tr34.ph.lcssa.i, %151 ], [ %.tr34.ph.lcssa.i, %find_insertion_point.exit ], [ 0, %.thread ], [ 0, %.loopexit ]
   %.082 = phi ptr [ %149, %151 ], [ %149, %find_insertion_point.exit ], [ %80, %.thread ], [ %80, %.loopexit ]
   store i64 %78, ptr %.082, align 8
   %162 = getelementptr inbounds i8, ptr %.082, i64 8
@@ -624,7 +624,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i112, %206
   %222 = call fastcc i32 @ompi_osc_rdma_add_attachment(ptr noundef nonnull %164, i64 noundef %72, i64 noundef %2)
   %223 = getelementptr inbounds i8, ptr %8, i64 1152
   %224 = load ptr, ptr %223, align 64
-  %225 = sext i32 %.1122 to i64
+  %225 = sext i32 %.0121 to i64
   %226 = getelementptr inbounds ptr, ptr %224, i64 %225
   store ptr %164, ptr %226, align 8
   %227 = add i64 %61, 4294967296

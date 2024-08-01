@@ -80,7 +80,7 @@ define range(i32 -1, 1) i32 @setvbuf(ptr nocapture noundef %0, ptr noundef %1, i
 
 36:                                               ; preds = %20, %30, %28
   %.052 = phi ptr [ %.055, %28 ], [ %31, %30 ], [ null, %20 ]
-  %.151 = phi i8 [ %29, %28 ], [ %.050, %30 ], [ %23, %20 ]
+  %.2 = phi i8 [ %29, %28 ], [ %.050, %30 ], [ %23, %20 ]
   %.not60 = icmp ne ptr %17, null
   %37 = and i8 %22, 8
   %38 = icmp eq i8 %37, 0
@@ -102,8 +102,8 @@ define range(i32 -1, 1) i32 @setvbuf(ptr nocapture noundef %0, ptr noundef %1, i
   br label %44
 
 44:                                               ; preds = %40, %33
-  %.2 = phi i8 [ %.151, %40 ], [ %35, %33 ]
-  store i8 %.2, ptr %21, align 2
+  %.151 = phi i8 [ %.2, %40 ], [ %35, %33 ]
+  store i8 %.151, ptr %21, align 2
   tail call void @funlockfile(ptr noundef nonnull %0)
   br label %48
 

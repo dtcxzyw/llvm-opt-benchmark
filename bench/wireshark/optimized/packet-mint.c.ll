@@ -462,16 +462,16 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   br label %118
 
 118:                                              ; preds = %112, %109
-  %.0 = phi i32 [ %117, %112 ], [ %104, %109 ]
+  %.1 = phi i32 [ %117, %112 ], [ %104, %109 ]
   %119 = add i32 %4, -2
-  %120 = icmp ult i32 %.0, %119
+  %120 = icmp ult i32 %.1, %119
   br i1 %120, label %.lr.ph268, label %.loopexit258
 
 .lr.ph268:                                        ; preds = %118, %.loopexit
-  %.1267 = phi i32 [ %.4, %.loopexit ], [ %.0, %118 ]
-  %121 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1267) #4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %.0245, ptr noundef %0, i32 noundef %.1267, i32 noundef 1, i32 noundef 0) #4
-  %123 = add nuw i32 %.1267, 1
+  %.2267 = phi i32 [ %.5, %.loopexit ], [ %.1, %118 ]
+  %121 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2267) #4
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %.0245, ptr noundef %0, i32 noundef %.2267, i32 noundef 1, i32 noundef 0) #4
+  %123 = add nuw i32 %.2267, 1
   %124 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %123) #4
   %125 = icmp eq i8 %121, 1
   %126 = icmp eq i8 %124, -128
@@ -481,16 +481,16 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
 127:                                              ; preds = %.lr.ph268
   %128 = load i32, ptr @hf_mint_router_array, align 4
   %129 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %128, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #4
-  %130 = add i32 %.1267, 2
+  %130 = add i32 %.2267, 2
   %131 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %130) #4
   br label %132
 
 132:                                              ; preds = %127, %.lr.ph268
   %.0247 = phi i8 [ %131, %127 ], [ %124, %.lr.ph268 ]
-  %.2 = phi i32 [ %130, %127 ], [ %123, %.lr.ph268 ]
+  %.3 = phi i32 [ %130, %127 ], [ %123, %.lr.ph268 ]
   %133 = load i32, ptr @hf_mint_router_length, align 4
-  %134 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %133, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #4
-  %135 = add i32 %.2, 1
+  %134 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %133, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef 0) #4
+  %135 = add i32 %.3, 1
   %136 = zext i8 %.0247 to i32
   %137 = add i32 %135, %136
   %138 = icmp ugt i32 %137, %4
@@ -505,10 +505,10 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   br i1 %140, label %.lr.ph265, label %.loopexit
 
 .lr.ph265:                                        ; preds = %.preheader, %.lr.ph265
-  %.3264 = phi i32 [ %143, %.lr.ph265 ], [ %135, %.preheader ]
+  %.4264 = phi i32 [ %143, %.lr.ph265 ], [ %135, %.preheader ]
   %141 = load i32, ptr @hf_mint_router_element, align 4
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %141, ptr noundef %0, i32 noundef %.3264, i32 noundef %.0246, i32 noundef 0) #4
-  %143 = add i32 %.3264, %.0246
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %141, ptr noundef %0, i32 noundef %.4264, i32 noundef %.0246, i32 noundef 0) #4
+  %143 = add i32 %.4264, %.0246
   %144 = icmp ult i32 %143, %137
   br i1 %144, label %.lr.ph265, label %.loopexit, !llvm.loop !4
 
@@ -518,8 +518,8 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph265, %.preheader, %145
-  %.4 = phi i32 [ %137, %145 ], [ %135, %.preheader ], [ %143, %.lr.ph265 ]
-  %148 = icmp ult i32 %.4, %119
+  %.5 = phi i32 [ %137, %145 ], [ %135, %.preheader ], [ %143, %.lr.ph265 ]
+  %148 = icmp ult i32 %.5, %119
   br i1 %148, label %.lr.ph268, label %.loopexit258, !llvm.loop !6
 
 149:                                              ; preds = %6
@@ -555,14 +555,14 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   br i1 %176, label %.lr.ph, label %.loopexit258
 
 .lr.ph:                                           ; preds = %163, %187
-  %.5261 = phi i32 [ %185, %187 ], [ %174, %163 ]
+  %.6261 = phi i32 [ %185, %187 ], [ %174, %163 ]
   %177 = load i32, ptr @hf_mint_mlcp_type, align 4
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %177, ptr noundef %0, i32 noundef %.5261, i32 noundef 1, i32 noundef 0) #4
-  %179 = add nuw i32 %.5261, 1
+  %178 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %177, ptr noundef %0, i32 noundef %.6261, i32 noundef 1, i32 noundef 0) #4
+  %179 = add nuw i32 %.6261, 1
   %180 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %179) #4
   %181 = load i32, ptr @hf_mint_mlcp_length, align 4
   %182 = tail call ptr @proto_tree_add_item(ptr noundef %168, i32 noundef %181, ptr noundef %0, i32 noundef %179, i32 noundef 1, i32 noundef 0) #4
-  %183 = add i32 %.5261, 2
+  %183 = add i32 %.6261, 2
   %184 = zext i8 %180 to i32
   %185 = add i32 %183, %184
   %186 = icmp ugt i32 %185, %4
@@ -598,7 +598,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit258
 
 .loopexit258:                                     ; preds = %.lr.ph, %187, %132, %.loopexit, %163, %118, %56, %72, %42, %52, %195, %149
-  %.6 = phi i32 [ %199, %195 ], [ %162, %149 ], [ %75, %72 ], [ %70, %56 ], [ %55, %52 ], [ %50, %42 ], [ %.0, %118 ], [ %174, %163 ], [ %135, %132 ], [ %.4, %.loopexit ], [ %183, %.lr.ph ], [ %185, %187 ]
+  %.0 = phi i32 [ %199, %195 ], [ %162, %149 ], [ %75, %72 ], [ %70, %56 ], [ %55, %52 ], [ %50, %42 ], [ %.1, %118 ], [ %174, %163 ], [ %135, %132 ], [ %.5, %.loopexit ], [ %183, %.lr.ph ], [ %185, %187 ]
   %200 = load i32, ptr @ett_mint, align 4
   tail call void @tree_expanded_set(i32 noundef %200, i32 noundef 1) #4
   %201 = load i32, ptr @ett_mint_ethshim, align 4
@@ -609,7 +609,7 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
   tail call void @tree_expanded_set(i32 noundef %203, i32 noundef 1) #4
   %204 = load i32, ptr @ett_mint_data, align 4
   tail call void @tree_expanded_set(i32 noundef %204, i32 noundef 1) #4
-  ret i32 %.6
+  ret i32 %.0
 }
 
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1

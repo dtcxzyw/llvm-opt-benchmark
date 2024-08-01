@@ -21964,10 +21964,10 @@ switch.lookup:                                    ; preds = %3
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %switch.lookup, %3
-  %.6.i = phi i64 [ 0, %3 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i64 [ 0, %3 ], [ %switch.load, %switch.lookup ]
   %8 = shl i64 %2, 2
   %9 = and i64 %8, 48
-  %10 = add nuw nsw i64 %.6.i, %9
+  %10 = add nuw nsw i64 %.0.i, %9
   call void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i64 noundef %10)
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EES5_OS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %11 unwind label %18
@@ -22021,10 +22021,10 @@ switch.lookup:                                    ; preds = %3
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %switch.lookup, %3
-  %.6.i = phi i64 [ 0, %3 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i64 [ 0, %3 ], [ %switch.load, %switch.lookup ]
   %8 = shl i64 %2, 2
   %9 = and i64 %8, 48
-  %10 = add nuw nsw i64 %.6.i, %9
+  %10 = add nuw nsw i64 %.0.i, %9
   call void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i64 noundef %10)
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EES5_OS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i8 noundef signext 45, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %11 unwind label %18
@@ -22077,10 +22077,10 @@ switch.lookup:                                    ; preds = %3
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %switch.lookup, %3
-  %.6.i = phi i64 [ 0, %3 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i64 [ 0, %3 ], [ %switch.load, %switch.lookup ]
   %7 = shl i64 %2, 2
   %8 = and i64 %7, 48
-  %9 = add nuw nsw i64 %.6.i, %8
+  %9 = add nuw nsw i64 %.0.i, %8
   tail call void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %9)
   ret void
 }
@@ -22105,10 +22105,10 @@ switch.lookup:                                    ; preds = %3
   br label %_ZN6insn_t21zcmp_stack_adjustmentEi.exit
 
 _ZN6insn_t21zcmp_stack_adjustmentEi.exit:         ; preds = %switch.lookup, %3
-  %.6.i = phi i64 [ 0, %3 ], [ %switch.load, %switch.lookup ]
+  %.0.i = phi i64 [ 0, %3 ], [ %switch.load, %switch.lookup ]
   %7 = shl i64 %2, 2
   %8 = and i64 %7, 48
-  %9 = add nuw nsw i64 %.6.i, %8
+  %9 = add nuw nsw i64 %.0.i, %8
   tail call void @_ZNSt7__cxx119to_stringEm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 noundef %9)
   ret void
 }

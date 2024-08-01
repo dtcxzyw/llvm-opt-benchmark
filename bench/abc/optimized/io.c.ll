@@ -2846,20 +2846,20 @@ define internal range(i32 0, 2) i32 @IoCommandWriteBlif(ptr nocapture noundef re
 
 .loopexit.sink.split:                             ; preds = %8, %6
   %.str.218.sink = phi ptr [ @.str.217, %6 ], [ @.str.218, %8 ]
-  %.2.ph = phi ptr [ %.036.ph, %6 ], [ %11, %8 ]
+  %.137.ph = phi ptr [ %.036.ph, %6 ], [ %11, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.218.sink)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %.loopexit.sink.split, %27
-  %.2 = phi ptr [ %.036.ph, %27 ], [ %.2.ph, %.loopexit.sink.split ], [ %.036.ph, %4 ]
+  %.137 = phi ptr [ %.036.ph, %27 ], [ %.137.ph, %.loopexit.sink.split ], [ %.036.ph, %4 ]
   %38 = getelementptr inbounds i8, ptr %0, i64 136
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i64 @fwrite(ptr nonnull @.str.219, i64 41, i64 1, ptr %39)
   %41 = load ptr, ptr %38, align 8
   %42 = tail call i64 @fwrite(ptr nonnull @.str.211, i64 46, i64 1, ptr %41)
   %43 = load ptr, ptr %38, align 8
-  %.not46 = icmp eq ptr %.2, null
-  %44 = select i1 %.not46, ptr @.str.221, ptr %.2
+  %.not46 = icmp eq ptr %.137, null
+  %44 = select i1 %.not46, ptr @.str.221, ptr %.137
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.220, ptr noundef nonnull %44) #15
   %46 = load ptr, ptr %38, align 8
   %.not47 = icmp eq i32 %.033.ph91, 0
@@ -4383,17 +4383,17 @@ define internal range(i32 0, 2) i32 @IoCommandWriteSortCnf(ptr nocapture noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %17, %8, %.loopexit.sink.split, %24
-  %.224 = phi i32 [ %.022.ph, %24 ], [ %.022.ph, %.loopexit.sink.split ], [ %.022.ph, %4 ], [ %.022.ph, %17 ], [ %12, %8 ]
-  %.2 = phi i32 [ %.0, %24 ], [ %.0, %.loopexit.sink.split ], [ %21, %17 ], [ %.0, %4 ], [ %.0, %8 ]
+  %.123 = phi i32 [ %.022.ph, %24 ], [ %.022.ph, %.loopexit.sink.split ], [ %.022.ph, %4 ], [ %.022.ph, %17 ], [ %12, %8 ]
+  %.1 = phi i32 [ %.0, %24 ], [ %.0, %.loopexit.sink.split ], [ %21, %17 ], [ %.0, %4 ], [ %.0, %8 ]
   %33 = getelementptr inbounds i8, ptr %0, i64 136
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i64 @fwrite(ptr nonnull @.str.329, i64 53, i64 1, ptr %34)
   %36 = load ptr, ptr %33, align 8
   %37 = tail call i64 @fwrite(ptr nonnull @.str.330, i64 36, i64 1, ptr %36)
   %38 = load ptr, ptr %33, align 8
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.331, i32 noundef %.224) #15
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.331, i32 noundef %.123) #15
   %40 = load ptr, ptr %33, align 8
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.332, i32 noundef %.2) #15
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.332, i32 noundef %.1) #15
   %42 = load ptr, ptr %33, align 8
   %43 = tail call i64 @fwrite(ptr nonnull @.str.193, i64 33, i64 1, ptr %42)
   %44 = load ptr, ptr %33, align 8

@@ -594,7 +594,7 @@ if.else:                                          ; preds = %if.then75
 if.end83:                                         ; preds = %if.then78, %remote_exists.exit99
   %63 = phi i32 [ %.pre196, %if.then78 ], [ %ret.0.i97, %remote_exists.exit99 ]
   %64 = phi ptr [ %62, %if.then78 ], [ %60, %remote_exists.exit99 ]
-  %info_ref_lock.0 = phi ptr [ %call76, %if.then78 ], [ null, %remote_exists.exit99 ]
+  %info_ref_lock.1 = phi ptr [ %call76, %if.then78 ], [ null, %remote_exists.exit99 ]
   %tobool85.not = icmp eq i32 %63, 0
   br i1 %tobool85.not, label %if.end88, label %if.then86
 
@@ -687,7 +687,7 @@ if.then112:                                       ; preds = %if.then109
 for.body118:                                      ; preds = %for.cond116.preheader, %for.inc298
   %ref.0179 = phi ptr [ %76, %for.cond116.preheader ], [ %110, %for.inc298 ]
   %new_refs.0178 = phi i32 [ 0, %for.cond116.preheader ], [ %new_refs.1, %for.inc298 ]
-  %rc.0177 = phi i32 [ 0, %for.cond116.preheader ], [ %rc.3, %for.inc298 ]
+  %rc.1177 = phi i32 [ 0, %for.cond116.preheader ], [ %rc.2, %for.inc298 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %commit_argv, ptr noundef nonnull align 8 dereferenceable(24) @__const.cmd_main.commit_argv, i64 24, i1 false)
   %peer_ref = getelementptr inbounds i8, ptr %ref.0179, i64 168
   %79 = load ptr, ptr %peer_ref, align 8
@@ -750,12 +750,12 @@ if.else140:                                       ; preds = %if.then125
 
 if.end147.sink.split:                             ; preds = %if.else140, %if.then129
   %.str.15.sink = phi ptr [ @.str.15, %if.then129 ], [ @.str.19, %if.else140 ]
-  %rc.1.ph = phi i32 [ -4, %if.then129 ], [ %rc.0177, %if.else140 ]
+  %rc.3.ph = phi i32 [ -4, %if.then129 ], [ %rc.1177, %if.else140 ]
   %call138 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.15.sink, ptr noundef nonnull %name)
   br label %if.end147
 
 if.end147:                                        ; preds = %if.end147.sink.split, %if.then129, %if.else140
-  %rc.1 = phi i32 [ %rc.0177, %if.else140 ], [ -4, %if.then129 ], [ %rc.1.ph, %if.end147.sink.split ]
+  %rc.3 = phi i32 [ %rc.1177, %if.else140 ], [ -4, %if.then129 ], [ %rc.3.ph, %if.end147.sink.split ]
   %inc148 = add nsw i32 %new_refs.0178, 1
   br label %for.inc298
 
@@ -1008,7 +1008,7 @@ lor.lhs.false280:                                 ; preds = %if.end278
   br i1 %tobool283.not, label %if.end289, label %if.end285
 
 if.end285:                                        ; preds = %lor.lhs.false280
-  %tobool286.not = icmp eq i32 %rc.0177, 0
+  %tobool286.not = icmp eq i32 %rc.1177, 0
   br i1 %tobool286.not, label %if.then287, label %if.end289
 
 if.then287:                                       ; preds = %if.end285
@@ -1018,7 +1018,7 @@ if.then287:                                       ; preds = %if.end285
 
 if.end289:                                        ; preds = %lor.lhs.false280, %if.end278, %if.then287, %if.end285
   %tobool286.not136 = phi ptr [ @.str.36, %if.then287 ], [ @.str.37, %if.end285 ], [ @.str.37, %if.end278 ], [ @.str.37, %lor.lhs.false280 ]
-  %rc.2135 = phi i32 [ 0, %if.then287 ], [ %rc.0177, %if.end285 ], [ 1, %if.end278 ], [ 1, %lor.lhs.false280 ]
+  %rc.4135 = phi i32 [ 0, %if.then287 ], [ %rc.1177, %if.end285 ], [ 1, %if.end278 ], [ 1, %lor.lhs.false280 ]
   %.b79 = load i1, ptr @helper_status, align 4
   br i1 %.b79, label %if.then291, label %if.end296
 
@@ -1034,7 +1034,7 @@ if.end296:                                        ; preds = %if.then291, %if.end
   br label %for.inc298
 
 for.inc298:                                       ; preds = %if.then238, %if.then243, %if.then184, %if.then193, %if.then226, %if.then228, %if.end160, %if.then162, %for.body118, %if.end296, %if.end147
-  %rc.3 = phi i32 [ %rc.1, %if.end147 ], [ %rc.0177, %if.then162 ], [ %rc.0177, %if.end160 ], [ %rc.0177, %if.then228 ], [ %rc.0177, %if.then226 ], [ %rc.2135, %if.end296 ], [ %rc.0177, %for.body118 ], [ -2, %if.then193 ], [ -2, %if.then184 ], [ 1, %if.then243 ], [ 1, %if.then238 ]
+  %rc.2 = phi i32 [ %rc.3, %if.end147 ], [ %rc.1177, %if.then162 ], [ %rc.1177, %if.end160 ], [ %rc.1177, %if.then228 ], [ %rc.1177, %if.then226 ], [ %rc.4135, %if.end296 ], [ %rc.1177, %for.body118 ], [ -2, %if.then193 ], [ -2, %if.then184 ], [ 1, %if.then243 ], [ 1, %if.then238 ]
   %new_refs.1 = phi i32 [ %inc148, %if.end147 ], [ %new_refs.0178, %if.then162 ], [ %new_refs.0178, %if.end160 ], [ %inc203, %if.then228 ], [ %inc203, %if.then226 ], [ %inc203, %if.end296 ], [ %new_refs.0178, %for.body118 ], [ %new_refs.0178, %if.then193 ], [ %new_refs.0178, %if.then184 ], [ %inc203, %if.then243 ], [ %inc203, %if.then238 ]
   %110 = load ptr, ptr %ref.0179, align 8
   %tobool117.not = icmp eq ptr %110, null
@@ -1050,7 +1050,7 @@ for.end299:                                       ; preds = %for.inc298
   br i1 %or.cond1, label %if.then304, label %cleanup
 
 if.then304:                                       ; preds = %for.end299
-  %tobool305.not = icmp eq ptr %info_ref_lock.0, null
+  %tobool305.not = icmp eq ptr %info_ref_lock.1, null
   br i1 %tobool305.not, label %if.else314, label %land.lhs.true306
 
 land.lhs.true306:                                 ; preds = %if.then304
@@ -1066,7 +1066,7 @@ if.then309:                                       ; preds = %land.lhs.true306
   br i1 %.b77, label %if.then319, label %if.then312
 
 if.then312:                                       ; preds = %if.then309
-  call fastcc void @update_remote_info_refs(ptr noundef nonnull %info_ref_lock.0)
+  call fastcc void @update_remote_info_refs(ptr noundef nonnull %info_ref_lock.1)
   br label %if.then319
 
 if.else314:                                       ; preds = %land.lhs.true306, %if.then304
@@ -1075,17 +1075,17 @@ if.else314:                                       ; preds = %land.lhs.true306, %
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then109, %if.then112, %if.end103, %for.end299, %if.else314, %if.then92, %if.then99, %if.then96
-  %rc.4 = phi i32 [ 0, %if.then99 ], [ 0, %if.then96 ], [ 0, %if.then92 ], [ %rc.3, %if.else314 ], [ %rc.3, %for.end299 ], [ -1, %if.end103 ], [ 0, %if.then112 ], [ 0, %if.then109 ]
-  %tobool318.not = icmp eq ptr %info_ref_lock.0, null
+  %rc.0 = phi i32 [ 0, %if.then99 ], [ 0, %if.then96 ], [ 0, %if.then92 ], [ %rc.2, %if.else314 ], [ %rc.2, %for.end299 ], [ -1, %if.end103 ], [ 0, %if.then112 ], [ 0, %if.then109 ]
+  %tobool318.not = icmp eq ptr %info_ref_lock.1, null
   br i1 %tobool318.not, label %if.end321, label %if.then319
 
 if.then319:                                       ; preds = %if.then312, %if.then309, %cleanup
-  %rc.4146 = phi i32 [ %rc.4, %cleanup ], [ %rc.3, %if.then309 ], [ %rc.3, %if.then312 ]
-  call fastcc void @unlock_remote(ptr noundef nonnull %info_ref_lock.0)
+  %rc.0146 = phi i32 [ %rc.0, %cleanup ], [ %rc.2, %if.then309 ], [ %rc.2, %if.then312 ]
+  call fastcc void @unlock_remote(ptr noundef nonnull %info_ref_lock.1)
   br label %if.end321
 
 if.end321:                                        ; preds = %locking_available.exit, %if.else, %if.then319, %cleanup
-  %rc.4140 = phi i32 [ %rc.4146, %if.then319 ], [ %rc.4, %cleanup ], [ 1, %if.else ], [ 1, %locking_available.exit ]
+  %rc.0140 = phi i32 [ %rc.0146, %if.then319 ], [ %rc.0, %cleanup ], [ 1, %if.else ], [ 1, %locking_available.exit ]
   %118 = load ptr, ptr @repo, align 8
   call void @free(ptr noundef %118) #14
   call void @http_cleanup() #14
@@ -1130,7 +1130,7 @@ release_request.exit:                             ; preds = %while.cond.i, %if.e
   br i1 %cmp322.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %release_request.exit, %if.end321
-  ret i32 %rc.4140
+  ret i32 %rc.0140
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

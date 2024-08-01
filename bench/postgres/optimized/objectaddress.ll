@@ -588,7 +588,7 @@ list_length.exit21.i:                             ; preds = %list_length.exit.i
   br label %get_object_address_attribute.exit
 
 get_object_address_attribute.exit:                ; preds = %122, %123
-  %.2 = phi ptr [ null, %122 ], [ %111, %123 ]
+  %.3 = phi ptr [ null, %122 ], [ %111, %123 ]
   %.sroa.3.0.i = phi i64 [ 1259, %122 ], [ %127, %123 ]
   %.sroa.5.0.i = phi i32 [ 0, %122 ], [ %124, %123 ]
   %.sroa.0181.sroa.0.0.extract.trunc222 = trunc i64 %.sroa.3.0.i to i32
@@ -665,7 +665,7 @@ list_length.exit27.i:                             ; preds = %list_length.exit.i2
   br label %get_object_address_attrdef.exit
 
 get_object_address_attrdef.exit:                  ; preds = %158, %159
-  %.3 = phi ptr [ null, %158 ], [ %142, %159 ]
+  %.4 = phi ptr [ null, %158 ], [ %142, %159 ]
   %.sroa.3.0.i281 = phi i64 [ 2604, %158 ], [ %162, %159 ]
   %.sroa.0181.sroa.0.0.extract.trunc221 = trunc i64 %.sroa.3.0.i281 to i32
   %.sroa.0181.sroa.34.0.extract.shift240 = lshr i64 %.sroa.3.0.i281, 32
@@ -764,7 +764,7 @@ get_object_address_attrdef.exit:                  ; preds = %158, %159
   br label %get_object_address_relobject.exit
 
 get_object_address_relobject.exit:                ; preds = %184, %187, %190, %193, %200, %201
-  %.4 = phi ptr [ null, %193 ], [ null, %200 ], [ %178, %201 ], [ null, %190 ], [ null, %187 ], [ null, %184 ]
+  %.5 = phi ptr [ null, %193 ], [ null, %200 ], [ %178, %201 ], [ null, %190 ], [ null, %187 ], [ null, %184 ]
   %.sroa.5.039.i = phi i64 [ 0, %193 ], [ 0, %200 ], [ %203, %201 ], [ 0, %190 ], [ 0, %187 ], [ 0, %184 ]
   %.sroa.030.037.i = phi i64 [ 3256, %193 ], [ %.sroa.030.0.i, %200 ], [ %.sroa.030.0.i, %201 ], [ 2606, %190 ], [ 2620, %187 ], [ 2618, %184 ]
   %.sroa.030.0.insert.insert.i = or disjoint i64 %.sroa.030.037.i, %.sroa.5.039.i
@@ -1326,7 +1326,7 @@ get_object_address_usermapping.exit:              ; preds = %378, %394, %403, %4
   br label %get_object_address_publication_rel.exit
 
 get_object_address_publication_rel.exit:          ; preds = %435, %445, %461, %462
-  %.5 = phi ptr [ null, %435 ], [ null, %445 ], [ null, %461 ], [ %438, %462 ]
+  %.6 = phi ptr [ null, %435 ], [ null, %445 ], [ null, %461 ], [ %438, %462 ]
   %.sroa.217.0.i = phi i64 [ 6106, %435 ], [ 6106, %445 ], [ 6106, %461 ], [ %465, %462 ]
   %.sroa.0181.sroa.0.0.extract.trunc213 = trunc i64 %.sroa.217.0.i to i32
   %.sroa.0181.sroa.34.0.extract.shift224 = lshr i64 %.sroa.217.0.i, 32
@@ -1482,7 +1482,7 @@ get_object_address_unqualified.exit:              ; preds = %242, %10
   %.sroa.0181.sroa.0.1328 = phi i32 [ %.sroa.0181.sroa.0.1, %get_object_address_unqualified.exit ], [ %.sroa.0181.sroa.0.0.extract.trunc223, %get_relation_by_qualified_name.exit ], [ %.sroa.0181.sroa.0.0.extract.trunc222, %get_object_address_attribute.exit ], [ %.sroa.0181.sroa.0.0.extract.trunc221, %get_object_address_attrdef.exit ], [ 2606, %204 ], [ 1255, %244 ], [ 2617, %246 ], [ 3456, %248 ], [ 2607, %250 ], [ 2613, %338 ], [ 2605, %345 ], [ 3576, %352 ], [ 3601, %361 ], [ 3600, %363 ], [ 3764, %365 ], [ 3602, %367 ], [ %.sroa.0181.sroa.0.0.extract.trunc215, %get_object_address_usermapping.exit ], [ %.sroa.0181.sroa.0.0.extract.trunc213, %get_object_address_publication_rel.exit ], [ %.sroa.0181.sroa.0.0.extract.trunc, %get_object_address_defacl.exit ], [ 3381, %531 ], [ 2753, %260 ], [ 2616, %258 ], [ 6237, %426 ], [ 6100, %237 ], [ 6104, %235 ], [ 6243, %233 ], [ 3466, %231 ], [ 1417, %229 ], [ 2328, %227 ], [ 2612, %225 ], [ 2615, %223 ], [ 1260, %221 ], [ 1213, %219 ], [ 3079, %217 ], [ 1262, %215 ], [ 2601, %213 ], [ %.sroa.0181.sroa.0.0.extract.trunc220, %get_object_address_relobject.exit ], [ %.sroa.0181.sroa.0.0.extract.trunc216, %get_object_address_opf_member.exit ]
   %.sroa.0181.sroa.34.1327 = phi i32 [ %.sroa.0181.sroa.34.1, %get_object_address_unqualified.exit ], [ %.sroa.0181.sroa.34.0.extract.trunc245, %get_relation_by_qualified_name.exit ], [ %.sroa.0181.sroa.34.0.extract.trunc243, %get_object_address_attribute.exit ], [ %.sroa.0181.sroa.34.0.extract.trunc241, %get_object_address_attrdef.exit ], [ %211, %204 ], [ %245, %244 ], [ %247, %246 ], [ %249, %248 ], [ %251, %250 ], [ %339, %338 ], [ %351, %345 ], [ %360, %352 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %.sroa.0181.sroa.34.0.extract.trunc229, %get_object_address_usermapping.exit ], [ %.sroa.0181.sroa.34.0.extract.trunc225, %get_object_address_publication_rel.exit ], [ %.sroa.0181.sroa.34.0.extract.trunc, %get_object_address_defacl.exit ], [ %532, %531 ], [ %261, %260 ], [ %259, %258 ], [ %430, %426 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %224, %223 ], [ %222, %221 ], [ %220, %219 ], [ %218, %217 ], [ %216, %215 ], [ %214, %213 ], [ %.sroa.0181.sroa.34.0.extract.trunc239, %get_object_address_relobject.exit ], [ %.sroa.0181.sroa.34.0.extract.trunc231, %get_object_address_opf_member.exit ]
   %.sroa.54.1326 = phi i32 [ %.sroa.54.1, %get_object_address_unqualified.exit ], [ 0, %get_relation_by_qualified_name.exit ], [ %.sroa.5.0.i, %get_object_address_attribute.exit ], [ 0, %get_object_address_attrdef.exit ], [ 0, %204 ], [ 0, %244 ], [ 0, %246 ], [ 0, %248 ], [ 0, %250 ], [ 0, %338 ], [ 0, %345 ], [ 0, %352 ], [ 0, %361 ], [ 0, %363 ], [ 0, %365 ], [ 0, %367 ], [ 0, %get_object_address_usermapping.exit ], [ 0, %get_object_address_publication_rel.exit ], [ 0, %get_object_address_defacl.exit ], [ 0, %531 ], [ 0, %260 ], [ 0, %258 ], [ 0, %426 ], [ 0, %237 ], [ 0, %235 ], [ 0, %233 ], [ 0, %231 ], [ 0, %229 ], [ 0, %227 ], [ 0, %225 ], [ 0, %223 ], [ 0, %221 ], [ 0, %219 ], [ 0, %217 ], [ 0, %215 ], [ 0, %213 ], [ 0, %get_object_address_relobject.exit ], [ 0, %get_object_address_opf_member.exit ]
-  %.6325 = phi ptr [ null, %get_object_address_unqualified.exit ], [ %14, %get_relation_by_qualified_name.exit ], [ %.2, %get_object_address_attribute.exit ], [ %.3, %get_object_address_attrdef.exit ], [ null, %204 ], [ null, %244 ], [ null, %246 ], [ null, %248 ], [ null, %250 ], [ null, %338 ], [ null, %345 ], [ null, %352 ], [ null, %361 ], [ null, %363 ], [ null, %365 ], [ null, %367 ], [ null, %get_object_address_usermapping.exit ], [ %.5, %get_object_address_publication_rel.exit ], [ null, %get_object_address_defacl.exit ], [ null, %531 ], [ null, %260 ], [ null, %258 ], [ null, %426 ], [ null, %237 ], [ null, %235 ], [ null, %233 ], [ null, %231 ], [ null, %229 ], [ null, %227 ], [ null, %225 ], [ null, %223 ], [ null, %221 ], [ null, %219 ], [ null, %217 ], [ null, %215 ], [ null, %213 ], [ %.4, %get_object_address_relobject.exit ], [ null, %get_object_address_opf_member.exit ]
+  %.1325 = phi ptr [ null, %get_object_address_unqualified.exit ], [ %14, %get_relation_by_qualified_name.exit ], [ %.3, %get_object_address_attribute.exit ], [ %.4, %get_object_address_attrdef.exit ], [ null, %204 ], [ null, %244 ], [ null, %246 ], [ null, %248 ], [ null, %250 ], [ null, %338 ], [ null, %345 ], [ null, %352 ], [ null, %361 ], [ null, %363 ], [ null, %365 ], [ null, %367 ], [ null, %get_object_address_usermapping.exit ], [ %.6, %get_object_address_publication_rel.exit ], [ null, %get_object_address_defacl.exit ], [ null, %531 ], [ null, %260 ], [ null, %258 ], [ null, %426 ], [ null, %237 ], [ null, %235 ], [ null, %233 ], [ null, %231 ], [ null, %229 ], [ null, %227 ], [ null, %225 ], [ null, %223 ], [ null, %221 ], [ null, %219 ], [ null, %217 ], [ null, %215 ], [ null, %213 ], [ %.5, %get_object_address_relobject.exit ], [ null, %get_object_address_opf_member.exit ]
   %.not260 = icmp eq i32 %.sroa.0181.sroa.34.1327, 0
   br i1 %.not260, label %.loopexit, label %536
 
@@ -1533,7 +1533,7 @@ get_object_address_unqualified.exit:              ; preds = %242, %10
 551:                                              ; preds = %549, %550, %546
   %552 = load i64, ptr @SharedInvalidMessageCounter, align 8
   %553 = icmp eq i64 %11, %552
-  %554 = icmp ne ptr %.6325, null
+  %554 = icmp ne ptr %.1325, null
   %or.cond = or i1 %554, %553
   br i1 %or.cond, label %555, label %10
 
@@ -1541,7 +1541,7 @@ get_object_address_unqualified.exit:              ; preds = %242, %10
   %.sroa.0181.sroa.0.1328.lcssa395 = phi i32 [ %.sroa.0181.sroa.0.0, %537 ], [ %.sroa.0181.sroa.0.1328, %551 ]
   %.sroa.0181.sroa.34.1327.lcssa393 = phi i32 [ %.sroa.0181.sroa.34.0, %537 ], [ %.sroa.0181.sroa.34.1327, %551 ]
   %.sroa.54.1326.lcssa391 = phi i32 [ %.sroa.54.0, %537 ], [ %.sroa.54.1326, %551 ]
-  store ptr %.6325, ptr %2, align 8
+  store ptr %.1325, ptr %2, align 8
   %556 = zext i32 %.sroa.0181.sroa.34.1327.lcssa393 to i64
   %557 = shl nuw i64 %556, 32
   br label %.loopexit
@@ -1687,7 +1687,7 @@ define dso_local { i64, i32 } @get_object_address_rv(i32 noundef %0, ptr noundef
   br label %17
 
 17:                                               ; preds = %14, %7
-  %.0 = phi ptr [ %16, %14 ], [ %11, %7 ]
+  %.1 = phi ptr [ %16, %14 ], [ %11, %7 ]
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not21 = icmp eq ptr %19, null
@@ -1695,12 +1695,12 @@ define dso_local { i64, i32 } @get_object_address_rv(i32 noundef %0, ptr noundef
 
 20:                                               ; preds = %17
   %21 = tail call ptr @makeString(ptr noundef nonnull %19) #9
-  %22 = tail call ptr @lcons(ptr noundef %21, ptr noundef %.0) #9
+  %22 = tail call ptr @lcons(ptr noundef %21, ptr noundef %.1) #9
   br label %23
 
 23:                                               ; preds = %17, %20, %6
-  %.1 = phi ptr [ %22, %20 ], [ %.0, %17 ], [ %2, %6 ]
-  %24 = tail call { i64, i32 } @get_object_address(i32 noundef %0, ptr noundef %.1, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5)
+  %.0 = phi ptr [ %22, %20 ], [ %.1, %17 ], [ %2, %6 ]
+  %24 = tail call { i64, i32 } @get_object_address(i32 noundef %0, ptr noundef %.0, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5)
   ret { i64, i32 } %24
 }
 
@@ -5359,7 +5359,7 @@ get_object_attnum_namespace.exit:                 ; preds = %50, %60
   br i1 %.not.i.i45, label %82, label %.thread74
 
 .thread74:                                        ; preds = %get_object_attnum_namespace.exit, %76
-  %.079 = phi i32 [ %77, %76 ], [ 0, %get_object_attnum_namespace.exit ]
+  %.279 = phi i32 [ %77, %76 ], [ 0, %get_object_attnum_namespace.exit ]
   %78 = phi ptr [ %.pre, %76 ], [ %.08.i.i44, %get_object_attnum_namespace.exit ]
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8
@@ -5367,7 +5367,7 @@ get_object_attnum_namespace.exit:                 ; preds = %50, %60
   br i1 %81, label %get_object_namensp_unique.exit, label %82
 
 82:                                               ; preds = %.thread74, %76
-  %.077 = phi i32 [ %.079, %.thread74 ], [ %77, %76 ]
+  %.277 = phi i32 [ %.279, %.thread74 ], [ %77, %76 ]
   br label %84
 
 83:                                               ; preds = %84
@@ -5395,7 +5395,7 @@ get_object_attnum_namespace.exit:                 ; preds = %50, %60
   unreachable
 
 get_object_namensp_unique.exit:                   ; preds = %.thread74, %89
-  %.078 = phi i32 [ %.077, %89 ], [ %.079, %.thread74 ]
+  %.278 = phi i32 [ %.277, %89 ], [ %.279, %.thread74 ]
   %93 = phi ptr [ %85, %89 ], [ %78, %.thread74 ]
   %94 = getelementptr inbounds i8, ptr %93, i64 40
   %95 = load i8, ptr %94, align 8
@@ -5430,27 +5430,27 @@ get_object_attnum_name.exit:                      ; preds = %get_object_namensp_
   br label %112
 
 112:                                              ; preds = %get_object_namensp_unique.exit, %109, %get_object_attnum_name.exit, %get_object_attnum_oid.exit
-  %.031 = phi ptr [ %111, %109 ], [ null, %get_object_attnum_name.exit ], [ null, %get_object_namensp_unique.exit ], [ null, %get_object_attnum_oid.exit ]
-  %.1 = phi i32 [ %.078, %109 ], [ %.078, %get_object_attnum_name.exit ], [ %.078, %get_object_namensp_unique.exit ], [ 0, %get_object_attnum_oid.exit ]
+  %.132 = phi ptr [ %111, %109 ], [ null, %get_object_attnum_name.exit ], [ null, %get_object_namensp_unique.exit ], [ null, %get_object_attnum_oid.exit ]
+  %.1 = phi i32 [ %.278, %109 ], [ %.278, %get_object_attnum_name.exit ], [ %.278, %get_object_namensp_unique.exit ], [ 0, %get_object_attnum_oid.exit ]
   call void @table_close(ptr noundef %29, i32 noundef 1) #9
   br label %is_objectclass_supported.exit.thread
 
 is_objectclass_supported.exit.thread:             ; preds = %.lr.ph, %112, %is_objectclass_supported.exit
-  %.132 = phi ptr [ %.031, %112 ], [ null, %is_objectclass_supported.exit ], [ null, %.lr.ph ]
-  %.2 = phi i32 [ %.1, %112 ], [ 0, %is_objectclass_supported.exit ], [ 0, %.lr.ph ]
+  %.031 = phi ptr [ %.132, %112 ], [ null, %is_objectclass_supported.exit ], [ null, %.lr.ph ]
+  %.0 = phi i32 [ %.1, %112 ], [ 0, %is_objectclass_supported.exit ], [ 0, %.lr.ph ]
   %113 = call ptr @getObjectTypeDescription(ptr noundef nonnull %2, i1 noundef zeroext true)
   %114 = call ptr @cstring_to_text(ptr noundef %113) #9
   %115 = ptrtoint ptr %114 to i64
   store i64 %115, ptr %3, align 16
   store i8 0, ptr %4, align 1
   %116 = call ptr @getObjectIdentityParts(ptr noundef nonnull %2, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
-  %117 = icmp ne i32 %.2, 0
+  %117 = icmp ne i32 %.0, 0
   %118 = icmp ne ptr %116, null
   %or.cond = select i1 %117, i1 %118, i1 false
   br i1 %or.cond, label %119, label %125
 
 119:                                              ; preds = %is_objectclass_supported.exit.thread
-  %120 = call ptr @get_namespace_name(i32 noundef %.2) #9
+  %120 = call ptr @get_namespace_name(i32 noundef %.0) #9
   %121 = call ptr @quote_identifier(ptr noundef %120) #9
   %122 = call ptr @cstring_to_text(ptr noundef %121) #9
   %123 = ptrtoint ptr %122 to i64
@@ -5462,12 +5462,12 @@ is_objectclass_supported.exit.thread:             ; preds = %.lr.ph, %112, %is_o
   %.sink = phi i8 [ 0, %119 ], [ 1, %is_objectclass_supported.exit.thread ]
   %126 = getelementptr inbounds i8, ptr %4, i64 1
   store i8 %.sink, ptr %126, align 1
-  %127 = icmp ne ptr %.132, null
+  %127 = icmp ne ptr %.031, null
   %or.cond3 = select i1 %127, i1 %118, i1 false
   br i1 %or.cond3, label %.thread, label %132
 
 .thread:                                          ; preds = %125
-  %128 = call ptr @cstring_to_text(ptr noundef nonnull %.132) #9
+  %128 = call ptr @cstring_to_text(ptr noundef nonnull %.031) #9
   %129 = ptrtoint ptr %128 to i64
   %130 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 %129, ptr %130, align 16

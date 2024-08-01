@@ -2229,7 +2229,7 @@ if.then42:                                        ; preds = %if.then37
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then37, %if.then42, %if.end31
-  %rv.0 = phi i32 [ %call39, %if.then42 ], [ %call39, %if.then37 ], [ 0, %if.end31 ]
+  %rv.1 = phi i32 [ %call39, %if.then42 ], [ %call39, %if.then37 ], [ 0, %if.end31 ]
   %9 = load ptr, ptr %ssl, align 8
   %cmp46.not = icmp eq ptr %9, null
   br i1 %cmp46.not, label %end, label %if.then48
@@ -2245,11 +2245,11 @@ if.then53:                                        ; preds = %if.then48
   br label %end
 
 end:                                              ; preds = %if.end44, %if.then53, %if.then48, %if.end14, %if.end, %if.then, %if.then29
-  %rv.1 = phi i32 [ 0, %if.then ], [ 0, %if.end ], [ 0, %if.end14 ], [ 0, %if.then29 ], [ %call50, %if.then53 ], [ %call50, %if.then48 ], [ %rv.0, %if.end44 ]
+  %rv.0 = phi i32 [ 0, %if.then ], [ 0, %if.end ], [ 0, %if.end14 ], [ 0, %if.then29 ], [ %call50, %if.then53 ], [ %call50, %if.then48 ], [ %rv.1, %if.end44 ]
   %11 = load ptr, ptr %dhpkey, align 8
   call void @EVP_PKEY_free(ptr noundef %11) #8
   %call56 = call i32 @BIO_free(ptr noundef %call7) #8
-  %cmp57 = icmp sgt i32 %rv.1, 0
+  %cmp57 = icmp sgt i32 %rv.0, 0
   %conv58 = zext i1 %cmp57 to i32
   br label %return
 
@@ -2277,7 +2277,7 @@ if.then1:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then1, %if.then
-  %rv.0 = phi i32 [ %call3, %if.then1 ], [ 0, %if.then ]
+  %rv.1 = phi i32 [ %call3, %if.then1 ], [ 0, %if.then ]
   %ssl = getelementptr inbounds i8, ptr %cctx, i64 32
   %1 = load ptr, ptr %ssl, align 8
   %tobool4.not = icmp eq ptr %1, null
@@ -2289,8 +2289,8 @@ if.then5:                                         ; preds = %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %if.then5, %entry
-  %rv.1 = phi i32 [ %call8, %if.then5 ], [ %rv.0, %if.end ], [ 0, %entry ]
-  ret i32 %rv.1
+  %rv.0 = phi i32 [ %call8, %if.then5 ], [ %rv.1, %if.end ], [ 0, %entry ]
+  ret i32 %rv.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2312,7 +2312,7 @@ if.then1:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then1, %if.then
-  %rv.0 = phi i32 [ %call3, %if.then1 ], [ 0, %if.then ]
+  %rv.1 = phi i32 [ %call3, %if.then1 ], [ 0, %if.then ]
   %ssl = getelementptr inbounds i8, ptr %cctx, i64 32
   %1 = load ptr, ptr %ssl, align 8
   %tobool4.not = icmp eq ptr %1, null
@@ -2324,8 +2324,8 @@ if.then5:                                         ; preds = %if.end
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %if.then5, %entry
-  %rv.1 = phi i32 [ %call8, %if.then5 ], [ %rv.0, %if.end ], [ 0, %entry ]
-  ret i32 %rv.1
+  %rv.0 = phi i32 [ %call8, %if.then5 ], [ %rv.1, %if.end ], [ 0, %entry ]
+  ret i32 %rv.0
 }
 
 declare i64 @SSL_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1

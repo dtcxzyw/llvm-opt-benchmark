@@ -348,7 +348,7 @@ Abc_UtilStrsav.exit:                              ; preds = %39, %42
   br label %58
 
 58:                                               ; preds = %56, %54
-  %.058.ph = phi ptr [ null, %54 ], [ %57, %56 ]
+  %.1.ph = phi ptr [ null, %54 ], [ %57, %56 ]
   tail call fastcc void @Psr_ManVecFree(ptr noundef nonnull %53)
   br label %79
 
@@ -380,7 +380,7 @@ sub_0:                                            ; preds = %49
   br label %70
 
 70:                                               ; preds = %68, %66
-  %.1.ph = phi ptr [ null, %66 ], [ %69, %68 ]
+  %.2.ph = phi ptr [ null, %66 ], [ %69, %68 ]
   tail call fastcc void @Psr_ManVecFree(ptr noundef nonnull %65)
   br label %79
 
@@ -405,7 +405,7 @@ sub_0:                                            ; preds = %49
   br label %86
 
 79:                                               ; preds = %64, %52, %.tail.thread, %58, %76, %70, %48
-  %.3 = phi ptr [ %34, %48 ], [ %77, %76 ], [ %.1.ph, %70 ], [ %.058.ph, %58 ], [ null, %.tail.thread ], [ null, %52 ], [ null, %64 ]
+  %.058 = phi ptr [ %34, %48 ], [ %77, %76 ], [ %.2.ph, %70 ], [ %.1.ph, %58 ], [ null, %.tail.thread ], [ null, %52 ], [ null, %64 ]
   %80 = getelementptr i8, ptr %0, i64 528
   %.val.i = load ptr, ptr %80, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
@@ -416,7 +416,7 @@ sub_0:                                            ; preds = %49
   br label %Bac_AbcUpdateMan.exit
 
 Bac_AbcUpdateMan.exit:                            ; preds = %79, %81
-  store ptr %.3, ptr %80, align 8
+  store ptr %.058, ptr %80, align 8
   br label %86
 
 82:                                               ; preds = %4
@@ -985,10 +985,10 @@ Bac_NtkPrintStats.exit.i:                         ; preds = %Bac_ManNtkIsOk.exit
   br i1 %.not.not.i, label %Bac_ManNtk.exit.i, label %Bac_ManPrintStats.exit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %5, %10, %9
-  %.2 = phi i32 [ %.014.ph, %9 ], [ %.014.ph, %5 ], [ %14, %10 ]
+  %.115 = phi i32 [ %.014.ph, %9 ], [ %.014.ph, %5 ], [ %14, %10 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.49)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.50)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.51, i32 noundef %.2)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.51, i32 noundef %.115)
   %.not23 = icmp eq i32 %.0, 0
   %189 = select i1 %.not23, ptr @.str.32, ptr @.str.31
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.34, ptr noundef nonnull %189)

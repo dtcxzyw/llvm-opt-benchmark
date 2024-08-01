@@ -1702,7 +1702,7 @@ _ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %145
   br label %_ZN4Luau9UnionTypeD2Ev.exit262
 
 _ZN4Luau9UnionTypeD2Ev.exit:                      ; preds = %166, %164, %151
-  %.0 = phi ptr [ undef, %151 ], [ %163, %164 ], [ %163, %166 ]
+  %.1 = phi ptr [ undef, %151 ], [ %163, %164 ], [ %163, %166 ]
   %186 = load ptr, ptr %11, align 16
   %.not.i.i.i = icmp eq ptr %186, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, label %187
@@ -2576,8 +2576,8 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit294
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit264
 
 _ZN4Luau3getINS_7AnyTypeEEEPKT_PKNS_4TypeE.exit:  ; preds = %43, %43, %9, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit257.thread, %135, %._crit_edge430, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.thread, %130, %111, %104, %77, %70
-  %.1 = phi ptr [ %42, %70 ], [ %42, %77 ], [ %42, %130 ], [ %.0, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit ], [ %42, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ %42, %104 ], [ %42, %111 ], [ %42, %._crit_edge430 ], [ %42, %135 ], [ %spec.select, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit257.thread ], [ %42, %43 ], [ %6, %9 ], [ %42, %43 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %42, %70 ], [ %42, %77 ], [ %42, %130 ], [ %.1, %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit ], [ %42, %_ZN4Luau3getINS_9UnionTypeEEEPKT_PKNS_4TypeE.exit.thread ], [ %42, %104 ], [ %42, %111 ], [ %42, %._crit_edge430 ], [ %42, %135 ], [ %spec.select, %_ZN4Luau3getINS_8FreeTypeEEEPKT_PKNS_4TypeE.exit257.thread ], [ %42, %43 ], [ %6, %9 ], [ %42, %43 ]
+  ret ptr %.0
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit264:  ; preds = %194, %_ZN4Luau9UnionTypeD2Ev.exit262, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit294, %293, %.body, %175
   %.pn245 = phi { ptr, i32 } [ %294, %293 ], [ %eh.lpad-body, %.body ], [ %.pn241, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit294 ], [ %.pn, %175 ], [ %.pn233, %_ZN4Luau9UnionTypeD2Ev.exit262 ], [ %.pn233, %194 ]

@@ -204,7 +204,7 @@ Vec_WrdPush.exit:
 
 .lr.ph.preheader:                                 ; preds = %.critedge4, %Vec_WrdPush.exit
   %.0117 = phi i32 [ 0, %Vec_WrdPush.exit ], [ %54, %.critedge4 ]
-  %.val84115 = phi i32 [ 1, %Vec_WrdPush.exit ], [ %.2, %.critedge4 ]
+  %.val84115 = phi i32 [ 1, %Vec_WrdPush.exit ], [ %.1, %.critedge4 ]
   %.val90 = load ptr, ptr %8, align 8
   %17 = zext nneg i32 %.val84115 to i64
   br label %.lr.ph
@@ -331,7 +331,7 @@ Vec_WrdPush.exit:
   br label %75
 
 75:                                               ; preds = %.lr.ph113, %94
-  %.069112 = phi i32 [ 0, %.lr.ph113 ], [ %.1, %94 ]
+  %.069112 = phi i32 [ 0, %.lr.ph113 ], [ %.2, %94 ]
   %.272111 = phi i32 [ 0, %.lr.ph113 ], [ %.pre-phi, %94 ]
   %76 = sext i32 %.272111 to i64
   %77 = getelementptr inbounds i64, ptr %.val93, i64 %76
@@ -367,14 +367,14 @@ Vec_WrdPush.exit:
 
 94:                                               ; preds = %._crit_edge, %90
   %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %79, %90 ]
-  %.1 = phi i32 [ %.069112, %._crit_edge ], [ %91, %90 ]
+  %.2 = phi i32 [ %.069112, %._crit_edge ], [ %91, %90 ]
   %95 = icmp slt i32 %.pre-phi, %.val87
   br i1 %95, label %75, label %.critedge4, !llvm.loop !10
 
 .critedge4:                                       ; preds = %94, %81
-  %.2 = phi i32 [ %82, %81 ], [ %.1, %94 ]
-  store i32 %.2, ptr %6, align 4
-  %96 = icmp sgt i32 %.2, 0
+  %.1 = phi i32 [ %82, %81 ], [ %.2, %94 ]
+  store i32 %.1, ptr %6, align 4
+  %96 = icmp sgt i32 %.1, 0
   br i1 %96, label %.lr.ph.preheader, label %.thread, !llvm.loop !11
 
 .thread:                                          ; preds = %.critedge4, %.critedge4.thread
@@ -703,7 +703,7 @@ Vec_WrdPush.exit:
 .lr.ph192:                                        ; preds = %.lr.ph132, %120
   %indvars.iv.next152191 = phi i64 [ %indvars.iv.next152, %120 ], [ 1, %.lr.ph132 ]
   %108 = phi i64 [ %122, %120 ], [ %106, %.lr.ph132 ]
-  %.0131190 = phi i32 [ %.1, %120 ], [ 0, %.lr.ph132 ]
+  %.0131190 = phi i32 [ %.2, %120 ], [ 0, %.lr.ph132 ]
   %109 = getelementptr inbounds i64, ptr %.val95, i64 %indvars.iv.next152191
   %110 = load i64, ptr %109, align 8
   %111 = add i64 %108, 1
@@ -725,7 +725,7 @@ Vec_WrdPush.exit:
   br label %120
 
 120:                                              ; preds = %114, %116
-  %.1 = phi i32 [ %117, %116 ], [ %.0131190, %114 ]
+  %.2 = phi i32 [ %117, %116 ], [ %.0131190, %114 ]
   %121 = getelementptr inbounds i64, ptr %.val95, i64 %indvars.iv.next152191
   %122 = load i64, ptr %121, align 8
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv.next152191, 1
@@ -733,7 +733,7 @@ Vec_WrdPush.exit:
   br i1 %123, label %.critedge4, label %.lr.ph192
 
 .critedge4:                                       ; preds = %120, %.lr.ph132
-  %.0131.lcssa = phi i32 [ 0, %.lr.ph132 ], [ %.1, %120 ]
+  %.0131.lcssa = phi i32 [ 0, %.lr.ph132 ], [ %.2, %120 ]
   %.lcssa184 = phi i64 [ %106, %.lr.ph132 ], [ %122, %120 ]
   %124 = add nsw i32 %.0131.lcssa, 1
   %125 = sext i32 %.0131.lcssa to i64

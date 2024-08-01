@@ -572,7 +572,7 @@ Vec_IntGrow.exit.i166:                            ; preds = %195, %193
 
 221:                                              ; preds = %.lr.ph212, %221
   %indvars.iv227 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next228, %221 ]
-  %.0117210 = phi i32 [ 0, %.lr.ph212 ], [ %231, %221 ]
+  %.1118210 = phi i32 [ 0, %.lr.ph212 ], [ %231, %221 ]
   %222 = getelementptr inbounds i32, ptr %.val131, i64 %indvars.iv227
   %223 = load i32, ptr %222, align 4
   %224 = sext i32 %223 to i64
@@ -583,7 +583,7 @@ Vec_IntGrow.exit.i166:                            ; preds = %195, %193
   %.val141 = load i32, ptr %227, align 4
   %228 = sub nsw i32 %.val140, %.val141
   %229 = call i32 @llvm.abs.i32(i32 %228, i1 true)
-  %230 = add nuw nsw i32 %.0117210, 1
+  %230 = add nuw nsw i32 %.1118210, 1
   %231 = add nuw nsw i32 %230, %229
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count
@@ -627,9 +627,9 @@ Vec_IntGrow.exit.i166:                            ; preds = %195, %193
   br label %.critedge7
 
 .critedge7:                                       ; preds = %221, %.preheader, %209, %216, %232, %245
-  %.1118 = phi i32 [ %218, %216 ], [ %244, %232 ], [ %254, %245 ], [ 1, %209 ], [ 0, %.preheader ], [ %231, %221 ]
+  %.0117 = phi i32 [ %218, %216 ], [ %244, %232 ], [ %254, %245 ], [ 1, %209 ], [ 0, %.preheader ], [ %231, %221 ]
   %255 = load i32, ptr %7, align 4
-  %256 = call fastcc i32 @Smt_PrsCreateNode(ptr noundef %0, i32 noundef %.0.i, i32 noundef %255, i32 noundef %.1118, ptr noundef nonnull %137, ptr noundef %4)
+  %256 = call fastcc i32 @Smt_PrsCreateNode(ptr noundef %0, i32 noundef %.0.i, i32 noundef %255, i32 noundef %.0117, ptr noundef nonnull %137, ptr noundef %4)
   %257 = load ptr, ptr %140, align 8
   %.not.i168 = icmp eq ptr %257, null
   br i1 %.not.i168, label %Vec_IntFree.exit169, label %258
@@ -1305,9 +1305,9 @@ Vec_IntFree.exit:                                 ; preds = %262, %266
   br label %276
 
 276:                                              ; preds = %272, %270
-  %.1 = phi i32 [ %275, %272 ], [ %2, %270 ]
-  %277 = ashr i32 %.1, 5
-  %278 = and i32 %.1, 31
+  %.2 = phi i32 [ %275, %272 ], [ %2, %270 ]
+  %277 = ashr i32 %.2, 5
+  %278 = and i32 %.2, 31
   %279 = icmp ne i32 %278, 0
   %280 = zext i1 %279 to i32
   %281 = add nsw i32 %277, %280
@@ -1359,11 +1359,11 @@ Vec_IntFill.exit89:                               ; preds = %292, %Vec_IntGrow.e
   %294 = phi ptr [ %8, %Vec_IntGrow.exit.i81 ], [ %291, %292 ]
   store i32 %281, ptr %7, align 4
   %invariant.gep = getelementptr inbounds i8, ptr %1, i64 2
-  %295 = icmp sgt i32 %.1, 0
+  %295 = icmp sgt i32 %.2, 0
   br i1 %295, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %Vec_IntFill.exit89
-  %wide.trip.count = zext nneg i32 %.1 to i64
+  %wide.trip.count = zext nneg i32 %.2 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %310
@@ -1378,7 +1378,7 @@ Vec_IntFill.exit89:                               ; preds = %292, %Vec_IntGrow.e
 297:                                              ; preds = %.lr.ph
   %298 = trunc nuw nsw i64 %indvars.iv to i32
   %299 = xor i32 %298, -1
-  %300 = add nsw i32 %.1, %299
+  %300 = add nsw i32 %.2, %299
   %301 = and i32 %300, 31
   %302 = shl nuw i32 1, %301
   %303 = ashr i32 %300, 5
@@ -1418,9 +1418,9 @@ Vec_IntFree.exit91:                               ; preds = %308, %309
   br label %317
 
 317:                                              ; preds = %313, %311
-  %.2 = phi i32 [ %316, %313 ], [ %2, %311 ]
-  %318 = ashr i32 %.2, 5
-  %319 = and i32 %.2, 31
+  %.3 = phi i32 [ %316, %313 ], [ %2, %311 ]
+  %318 = ashr i32 %.3, 5
+  %319 = and i32 %.3, 31
   %320 = icmp ne i32 %319, 0
   %321 = zext i1 %320 to i32
   %322 = add nsw i32 %318, %321
@@ -1554,7 +1554,7 @@ Abc_TtReadHexDigit.exit.i121:                     ; preds = %360, %358, %354
 
 Abc_TtReadHexNumber.exit127:                      ; preds = %Abc_TtReadHexDigit.exit.i121, %Vec_IntFill.exit101, %.preheader.i109
   %.0.lcssa31.i126 = phi i32 [ 0, %.preheader.i109 ], [ 0, %Vec_IntFill.exit101 ], [ %indvars.i110, %Abc_TtReadHexDigit.exit.i121 ]
-  %372 = add nsw i32 %.2, 3
+  %372 = add nsw i32 %.3, 3
   %373 = sdiv i32 %372, 4
   %.not58 = icmp eq i32 %.0.lcssa31.i126, %373
   br i1 %.not58, label %.loopexit, label %374
@@ -1585,8 +1585,8 @@ Vec_IntFree.exit131:                              ; preds = %377, %378
   br label %382
 
 .loopexit:                                        ; preds = %310, %Vec_IntFill.exit89, %Abc_TtReadHexNumber.exit127, %Abc_TtReadHexNumber.exit
-  %.3 = phi i32 [ %.049, %Abc_TtReadHexNumber.exit ], [ %.2, %Abc_TtReadHexNumber.exit127 ], [ %.1, %Vec_IntFill.exit89 ], [ %.1, %310 ]
-  %379 = tail call fastcc i32 @Smt_PrsCreateNode(ptr noundef %0, i32 noundef 6, i32 noundef 0, i32 noundef %.3, ptr noundef nonnull %6, ptr noundef %3)
+  %.1 = phi i32 [ %.049, %Abc_TtReadHexNumber.exit ], [ %.3, %Abc_TtReadHexNumber.exit127 ], [ %.2, %Vec_IntFill.exit89 ], [ %.2, %310 ]
+  %379 = tail call fastcc i32 @Smt_PrsCreateNode(ptr noundef %0, i32 noundef 6, i32 noundef 0, i32 noundef %.1, ptr noundef nonnull %6, ptr noundef %3)
   %380 = load ptr, ptr %9, align 8
   %.not.i132 = icmp eq ptr %380, null
   br i1 %.not.i132, label %Vec_IntFree.exit133, label %381
@@ -2734,8 +2734,8 @@ Smt_VecEntryNode.exit279:                         ; preds = %.lr.ph377
   br i1 %260, label %.lr.ph331, label %Smt_VecEntryIsType.exit276.thread, !llvm.loop !21
 
 Smt_VecEntryIsType.exit276.thread:                ; preds = %Smt_VecEntryNode.exit279, %.lr.ph331, %.lr.ph377, %.lr.ph331.preheader, %Smt_VecEntryNode.exit272, %242
-  %.1166 = phi i32 [ %244, %242 ], [ %244, %Smt_VecEntryNode.exit272 ], [ %244, %.lr.ph331.preheader ], [ %255, %.lr.ph377 ], [ %255, %.lr.ph331 ], [ %255, %Smt_VecEntryNode.exit279 ]
-  %261 = tail call i32 @Smt_PrsBuildNode(ptr noundef %27, ptr noundef nonnull %0, i32 noundef %.1166, i32 noundef -1, ptr noundef null)
+  %.0165 = phi i32 [ %244, %242 ], [ %244, %Smt_VecEntryNode.exit272 ], [ %244, %.lr.ph331.preheader ], [ %255, %.lr.ph377 ], [ %255, %.lr.ph331 ], [ %255, %Smt_VecEntryNode.exit279 ]
+  %261 = tail call i32 @Smt_PrsBuildNode(ptr noundef %27, ptr noundef nonnull %0, i32 noundef %.0165, i32 noundef -1, ptr noundef null)
   %.not176 = icmp eq i32 %261, 0
   br i1 %.not176, label %262, label %263
 
@@ -3691,7 +3691,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 312:                                              ; preds = %.lr.ph333, %312
   %indvars.iv362 = phi i64 [ 0, %.lr.ph333 ], [ %indvars.iv.next363, %312 ]
-  %.0223332 = phi i32 [ 0, %.lr.ph333 ], [ %322, %312 ]
+  %.1224332 = phi i32 [ 0, %.lr.ph333 ], [ %322, %312 ]
   %313 = getelementptr inbounds i32, ptr %.val256, i64 %indvars.iv362
   %314 = load i32, ptr %313, align 4
   %315 = sext i32 %314 to i64
@@ -3702,7 +3702,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val283 = load i32, ptr %318, align 4
   %319 = sub nsw i32 %.val282, %.val283
   %320 = tail call i32 @llvm.abs.i32(i32 %319, i1 true)
-  %321 = add nuw nsw i32 %.0223332, 1
+  %321 = add nuw nsw i32 %.1224332, 1
   %322 = add nuw nsw i32 %321, %320
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count
@@ -3741,7 +3741,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.critedge13
 
 .critedge13:                                      ; preds = %312, %.critedge13.sink.split, %.preheader, %.critedge9
-  %.1224 = phi i32 [ 1, %.critedge9 ], [ 0, %.preheader ], [ %339, %.critedge13.sink.split ], [ %322, %312 ]
+  %.0223 = phi i32 [ 1, %.critedge9 ], [ 0, %.preheader ], [ %339, %.critedge13.sink.split ], [ %322, %312 ]
   %340 = load i32, ptr %9, align 4
   %.not241 = icmp eq ptr %4, null
   br i1 %.not241, label %341, label %348
@@ -3758,7 +3758,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 348:                                              ; preds = %.critedge13, %341
   %349 = phi ptr [ @Smt_PrsGenName.Buffer, %341 ], [ %4, %.critedge13 ]
-  %350 = tail call fastcc i32 @Smt_PrsCreateNode(ptr noundef %0, i32 noundef %263, i32 noundef %340, i32 noundef %.1224, ptr noundef %266, ptr noundef nonnull %349)
+  %350 = tail call fastcc i32 @Smt_PrsCreateNode(ptr noundef %0, i32 noundef %263, i32 noundef %340, i32 noundef %.0223, ptr noundef %266, ptr noundef nonnull %349)
   tail call fastcc void @Vec_IntFree(ptr noundef %266)
   br label %.loopexit
 

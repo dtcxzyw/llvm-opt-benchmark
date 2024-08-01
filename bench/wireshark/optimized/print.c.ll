@@ -2728,9 +2728,9 @@ ek_check_protocolfilter.exit77:                   ; preds = %207
   br label %210
 
 210:                                              ; preds = %ek_check_protocolfilter.exit77, %ek_check_protocolfilter.exit77.thread
-  %.593.in.in = phi ptr [ %196, %ek_check_protocolfilter.exit77.thread ], [ %209, %ek_check_protocolfilter.exit77 ]
-  %.593.in = ptrtoint ptr %.593.in.in to i64
-  %211 = and i64 %.593.in, 1
+  %.793.in.in = phi ptr [ %196, %ek_check_protocolfilter.exit77.thread ], [ %209, %ek_check_protocolfilter.exit77 ]
+  %.793.in = ptrtoint ptr %.793.in.in to i64
+  %211 = and i64 %.793.in, 1
   %.not55 = icmp eq i64 %211, 0
   br i1 %.not55, label %.thread, label %212
 
@@ -4489,7 +4489,7 @@ proto_node_to_json_key.exit:                      ; preds = %20, %23
   br label %check_protocolfilter.exit
 
 check_protocolfilter.exit:                        ; preds = %27, %29, %.sink.split.i
-  %.089 = phi i32 [ %33, %.sink.split.i ], [ 0, %27 ], [ 0, %29 ]
+  %.1 = phi i32 [ %33, %.sink.split.i ], [ 0, %27 ], [ 0, %29 ]
   %.not61 = phi i1 [ false, %.sink.split.i ], [ true, %27 ], [ true, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.pre = load ptr, ptr %15, align 8
@@ -4499,7 +4499,7 @@ check_protocolfilter.exit:                        ; preds = %27, %29, %.sink.spl
 34:                                               ; preds = %check_protocolfilter.exit, %proto_node_to_json_key.exit
   %35 = phi ptr [ %16, %proto_node_to_json_key.exit ], [ %.pre93, %check_protocolfilter.exit ]
   %36 = phi ptr [ %.val, %proto_node_to_json_key.exit ], [ %.pre, %check_protocolfilter.exit ]
-  %.1 = phi i32 [ 0, %proto_node_to_json_key.exit ], [ %.089, %check_protocolfilter.exit ]
+  %.089 = phi i32 [ 0, %proto_node_to_json_key.exit ], [ %.1, %check_protocolfilter.exit ]
   %37 = phi i1 [ false, %proto_node_to_json_key.exit ], [ %.not61, %check_protocolfilter.exit ]
   %38 = getelementptr inbounds i8, ptr %36, i64 48
   %39 = load ptr, ptr %38, align 8
@@ -4649,7 +4649,7 @@ write_json_proto_node.exit:                       ; preds = %60, %._crit_edge.i.
   br label %181
 
 110:                                              ; preds = %108
-  %111 = and i32 %.1, 1
+  %111 = and i32 %.089, 1
   %.not64 = icmp eq i32 %111, 0
   br i1 %.not64, label %114, label %112
 

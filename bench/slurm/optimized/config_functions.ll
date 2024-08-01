@@ -304,7 +304,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
 
 74:                                               ; preds = %.preheader, %86
   %indvars.iv79 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next80, %86 ]
-  %.076 = phi i1 [ true, %.preheader ], [ %.2, %86 ]
+  %.076 = phi i1 [ true, %.preheader ], [ %.1, %86 ]
   %75 = getelementptr inbounds [3 x i64], ptr %73, i64 0, i64 %indvars.iv79
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %76, 0
@@ -326,7 +326,7 @@ define dso_local i32 @sacctmgr_list_stats(i32 noundef %0, ptr noundef %1) local_
   br label %86
 
 86:                                               ; preds = %74, %82
-  %.2 = phi i1 [ %.076, %74 ], [ false, %82 ]
+  %.1 = phi i1 [ %.076, %74 ], [ false, %82 ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next80, 3
   br i1 %exitcond81.not, label %.loopexit, label %74, !llvm.loop !11

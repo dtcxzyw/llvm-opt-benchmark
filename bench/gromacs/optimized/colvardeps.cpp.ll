@@ -2409,7 +2409,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %389, %395, %_ZNSt6v
           to label %636 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 636:                                              ; preds = %632, %625, %.split.us, %598, %592, %.critedge, %504, %498, %333, %349, %343, %269, %289, %283, %188, %216, %207, %111, %160, %127
-  %.0 = phi i32 [ 1, %127 ], [ 1, %160 ], [ 1, %111 ], [ 1, %207 ], [ 1, %216 ], [ 1, %188 ], [ 1, %283 ], [ 1, %289 ], [ 1, %269 ], [ 1, %343 ], [ 1, %349 ], [ 1, %333 ], [ 1, %498 ], [ 1, %504 ], [ 1, %.critedge ], [ 1, %592 ], [ 1, %598 ], [ 1, %.split.us ], [ 0, %625 ], [ 0, %632 ]
+  %.1 = phi i32 [ 1, %127 ], [ 1, %160 ], [ 1, %111 ], [ 1, %207 ], [ 1, %216 ], [ 1, %188 ], [ 1, %283 ], [ 1, %289 ], [ 1, %269 ], [ 1, %343 ], [ 1, %349 ], [ 1, %333 ], [ 1, %498 ], [ 1, %504 ], [ 1, %.critedge ], [ 1, %592 ], [ 1, %598 ], [ 1, %.split.us ], [ 0, %625 ], [ 0, %632 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   br label %637
 
@@ -2419,8 +2419,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %389, %395, %_ZNSt6v
   br label %638
 
 637:                                              ; preds = %75, %74, %636
-  %.1 = phi i32 [ %.0, %636 ], [ 0, %74 ], [ 0, %75 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %636 ], [ 0, %74 ], [ 0, %75 ]
+  ret i32 %.0
 
 638:                                              ; preds = %.body259, %.body
   %.pn240.pn.pn = phi { ptr, i32 } [ %.pn237.pn, %.body259 ], [ %eh.lpad-body, %.body ]

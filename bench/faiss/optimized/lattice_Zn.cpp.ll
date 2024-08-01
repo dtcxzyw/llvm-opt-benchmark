@@ -1481,7 +1481,7 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit35.i:      ; preds = %37, %36
 
 60:                                               ; preds = %.preheader.us, %86
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %86 ]
-  %.02581.us = phi i64 [ 0, %.preheader.us ], [ %.2.us, %86 ]
+  %.02581.us = phi i64 [ 0, %.preheader.us ], [ %.3.us, %86 ]
   %.02680.us = phi i32 [ 0, %.preheader.us ], [ %.228.us, %86 ]
   %.02978.us = phi i32 [ 0, %.preheader.us ], [ %.130.us, %86 ]
   %61 = lshr i64 %indvars.iv, 6
@@ -1525,14 +1525,14 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us:       ; preds = %74, %72
 
 84:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us, %67
   %.127.us = phi i32 [ %73, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us ], [ %.02680.us, %67 ]
-  %.1.us = phi i64 [ %80, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us ], [ %.02581.us, %67 ]
+  %.2.us = phi i64 [ %80, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us ], [ %.02581.us, %67 ]
   %85 = add nsw i32 %.02978.us, 1
   br label %86
 
 86:                                               ; preds = %84, %60
   %.130.us = phi i32 [ %85, %84 ], [ %.02978.us, %60 ]
   %.228.us = phi i32 [ %.127.us, %84 ], [ %.02680.us, %60 ]
-  %.2.us = phi i64 [ %.1.us, %84 ], [ %.02581.us, %60 ]
+  %.3.us = phi i64 [ %.2.us, %84 ], [ %.02581.us, %60 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us_crit_edge, label %60, !llvm.loop !21
@@ -1543,7 +1543,7 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us:       ; preds = %74, %72
 
 _ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us: ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us, %._ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us_crit_edge
   %87 = phi i32 [ %.pre, %._ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us_crit_edge ], [ %73, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us ]
-  %.3.us = phi i64 [ %.2.us, %._ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us_crit_edge ], [ %80, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us ]
+  %.1.us = phi i64 [ %.3.us, %._ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us_crit_edge ], [ %80, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.us ]
   %88 = icmp sgt i32 %87, %.03386.us
   br i1 %88, label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit48.us, label %89
 
@@ -1557,7 +1557,7 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us: ; preds = %_ZNK5faiss12_G
 
 _ZNK5faiss12_GLOBAL__N_14CombclEii.exit48.us:     ; preds = %89, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us
   %.0.i47.us = phi i64 [ %94, %89 ], [ 0, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit._crit_edge.us ]
-  %95 = mul i64 %.3.us, %.03188.us
+  %95 = mul i64 %.1.us, %.03188.us
   %96 = add i64 %95, %.03287.us
   %97 = mul i64 %.0.i47.us, %.03188.us
   %98 = sub nsw i32 %.03386.us, %87

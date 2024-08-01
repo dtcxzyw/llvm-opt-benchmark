@@ -679,7 +679,7 @@ ehcleanup:                                        ; preds = %lpad154, %lpad146
   br label %ehcleanup222
 
 cleanup:                                          ; preds = %if.then110, %if.end221
-  %retval.0 = phi i1 [ true, %if.end221 ], [ %call119, %if.then110 ]
+  %retval.3 = phi i1 [ true, %if.end221 ], [ %call119, %if.then110 ]
   br i1 %tobool.not.i108, label %cleanup223, label %if.then.i.i.i151
 
 if.then.i.i.i151:                                 ; preds = %cleanup
@@ -707,7 +707,7 @@ ehcleanup222:                                     ; preds = %ehcleanup, %lpad85
   br label %ehcleanup224
 
 cleanup223:                                       ; preds = %for.body.preheader.i.i, %if.then2.i.i.i156, %if.then.i.i.i151, %cleanup, %invoke.cont33, %invoke.cont35
-  %retval.1 = phi i1 [ false, %invoke.cont35 ], [ false, %invoke.cont33 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i151 ], [ %retval.0, %if.then2.i.i.i156 ], [ false, %for.body.preheader.i.i ]
+  %retval.2 = phi i1 [ false, %invoke.cont35 ], [ false, %invoke.cont33 ], [ %retval.3, %cleanup ], [ %retval.3, %if.then.i.i.i151 ], [ %retval.3, %if.then2.i.i.i156 ], [ false, %for.body.preheader.i.i ]
   %101 = load ptr, ptr %new_body, align 8
   %tobool.not.i.i157 = icmp eq ptr %101, null
   br i1 %tobool.not.i.i157, label %cleanup225, label %if.then.i.i.i158
@@ -738,7 +738,7 @@ ehcleanup224:                                     ; preds = %ehcleanup222, %lpad
   br label %ehcleanup226
 
 cleanup225:                                       ; preds = %if.then2.i.i.i163, %if.then.i.i.i158, %cleanup223, %invoke.cont22
-  %retval.2 = phi i1 [ false, %invoke.cont22 ], [ %retval.1, %cleanup223 ], [ %retval.1, %if.then.i.i.i158 ], [ %retval.1, %if.then2.i.i.i163 ]
+  %retval.1 = phi i1 [ false, %invoke.cont22 ], [ %retval.2, %cleanup223 ], [ %retval.2, %if.then.i.i.i158 ], [ %retval.2, %if.then2.i.i.i163 ]
   %106 = load ptr, ptr %def, align 8
   %tobool.not.i.i165 = icmp eq ptr %106, null
   br i1 %tobool.not.i.i165, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i166
@@ -795,8 +795,8 @@ ehcleanup226:                                     ; preds = %ehcleanup224, %lpad
   resume { ptr, i32 } %.pn30.pn.pn
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i66, %if.end12, %if.end, %entry, %if.then2.i.i.i179, %if.then.i.i.i174, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %_ZNK17arith_recognizers6is_addEPK4expr.exit, %_ZNK11ast_manager5is_eqEPK4expr.exit, %_Z9is_forallPK3ast.exit
-  %retval.3 = phi i1 [ false, %_Z9is_forallPK3ast.exit ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ false, %_ZNK17arith_recognizers6is_addEPK4expr.exit ], [ %retval.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %retval.2, %if.then.i.i.i174 ], [ %retval.2, %if.then2.i.i.i179 ], [ false, %entry ], [ false, %if.end ], [ false, %if.end12 ], [ false, %land.rhs.i.i66 ], [ false, %land.rhs.i.i ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ false, %_Z9is_forallPK3ast.exit ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ false, %_ZNK17arith_recognizers6is_addEPK4expr.exit ], [ %retval.1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %retval.1, %if.then.i.i.i174 ], [ %retval.1, %if.then2.i.i.i179 ], [ false, %entry ], [ false, %if.end ], [ false, %if.end12 ], [ false, %land.rhs.i.i66 ], [ false, %land.rhs.i.i ]
+  ret i1 %retval.0
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -1819,7 +1819,7 @@ ehcleanup214:                                     ; preds = %ehcleanup, %lpad142
   br label %ehcleanup215
 
 cleanup:                                          ; preds = %if.then110, %invoke.cont212
-  %retval.0 = phi i1 [ true, %invoke.cont212 ], [ %call115, %if.then110 ]
+  %retval.3 = phi i1 [ true, %invoke.cont212 ], [ %call115, %if.then110 ]
   br i1 %tobool.not.i106, label %cleanup216, label %if.then.i.i.i164
 
 if.then.i.i.i164:                                 ; preds = %cleanup
@@ -1847,7 +1847,7 @@ ehcleanup215:                                     ; preds = %ehcleanup214, %lpad
   br label %ehcleanup217
 
 cleanup216:                                       ; preds = %for.body.preheader.i.i, %if.then2.i.i.i169, %if.then.i.i.i164, %cleanup, %invoke.cont33, %invoke.cont35
-  %retval.1 = phi i1 [ false, %invoke.cont35 ], [ false, %invoke.cont33 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i164 ], [ %retval.0, %if.then2.i.i.i169 ], [ false, %for.body.preheader.i.i ]
+  %retval.2 = phi i1 [ false, %invoke.cont35 ], [ false, %invoke.cont33 ], [ %retval.3, %cleanup ], [ %retval.3, %if.then.i.i.i164 ], [ %retval.3, %if.then2.i.i.i169 ], [ false, %for.body.preheader.i.i ]
   %107 = load ptr, ptr %new_body, align 8
   %tobool.not.i.i170 = icmp eq ptr %107, null
   br i1 %tobool.not.i.i170, label %cleanup218, label %if.then.i.i.i171
@@ -1878,7 +1878,7 @@ ehcleanup217:                                     ; preds = %ehcleanup215, %lpad
   br label %ehcleanup219
 
 cleanup218:                                       ; preds = %if.then2.i.i.i176, %if.then.i.i.i171, %cleanup216, %invoke.cont22
-  %retval.2 = phi i1 [ false, %invoke.cont22 ], [ %retval.1, %cleanup216 ], [ %retval.1, %if.then.i.i.i171 ], [ %retval.1, %if.then2.i.i.i176 ]
+  %retval.1 = phi i1 [ false, %invoke.cont22 ], [ %retval.2, %cleanup216 ], [ %retval.2, %if.then.i.i.i171 ], [ %retval.2, %if.then2.i.i.i176 ]
   %112 = load ptr, ptr %def, align 8
   %tobool.not.i.i178 = icmp eq ptr %112, null
   br i1 %tobool.not.i.i178, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i179
@@ -1935,8 +1935,8 @@ ehcleanup219:                                     ; preds = %ehcleanup217, %lpad
   resume { ptr, i32 } %.pn28.pn.pn
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i64, %if.end12, %if.end, %entry, %if.then2.i.i.i192, %if.then.i.i.i187, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %_ZNK17arith_recognizers6is_addEPK4expr.exit, %_ZNK11ast_manager5is_eqEPK4expr.exit, %_Z9is_forallPK3ast.exit
-  %retval.3 = phi i1 [ false, %_Z9is_forallPK3ast.exit ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ false, %_ZNK17arith_recognizers6is_addEPK4expr.exit ], [ %retval.2, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %retval.2, %if.then.i.i.i187 ], [ %retval.2, %if.then2.i.i.i192 ], [ false, %entry ], [ false, %if.end ], [ false, %if.end12 ], [ false, %land.rhs.i.i64 ], [ false, %land.rhs.i.i ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ false, %_Z9is_forallPK3ast.exit ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit ], [ false, %_ZNK17arith_recognizers6is_addEPK4expr.exit ], [ %retval.1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ %retval.1, %if.then.i.i.i187 ], [ %retval.1, %if.then2.i.i.i192 ], [ false, %entry ], [ false, %if.end ], [ false, %if.end12 ], [ false, %land.rhs.i.i64 ], [ false, %land.rhs.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -2596,11 +2596,11 @@ _ZN5Ipopt9TimedTask5StartEv.exit:                 ; preds = %26, %32
 
 76:                                               ; preds = %72, %74
   %.pn = phi { ptr, i32 } [ %75, %74 ], [ %73, %72 ]
-  %.1 = phi i1 [ %.023, %74 ], [ true, %72 ]
+  %.2 = phi i1 [ %.023, %74 ], [ true, %72 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
-  br i1 %.1, label %77, label %205
+  br i1 %.2, label %77, label %205
 
 77:                                               ; preds = %.thread, %76
   %.pn.pn37 = phi { ptr, i32 } [ %71, %.thread ], [ %.pn, %76 ]
@@ -3538,11 +3538,11 @@ _ZN5Ipopt9TimedTask5StartEv.exit90:               ; preds = %261, %267
 
 301:                                              ; preds = %297, %299
   %.pn = phi { ptr, i32 } [ %300, %299 ], [ %298, %297 ]
-  %.1 = phi i1 [ %.065, %299 ], [ true, %297 ]
+  %.2 = phi i1 [ %.065, %299 ], [ true, %297 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #13
-  br i1 %.1, label %302, label %435
+  br i1 %.2, label %302, label %435
 
 302:                                              ; preds = %.thread, %301
   %.pn.pn100 = phi { ptr, i32 } [ %296, %.thread ], [ %.pn, %301 ]

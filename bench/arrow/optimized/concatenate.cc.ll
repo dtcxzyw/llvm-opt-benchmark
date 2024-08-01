@@ -20087,7 +20087,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.en
   br i1 %cmp31106.i, label %while.body32.i, label %_ZN5arrow6StatusD2Ev.exit96
 
 while.body32.i:                                   ; preds = %.noexc37, %if.end64.i
-  %position.0107.i = phi i64 [ %position.3.i, %if.end64.i ], [ 0, %.noexc37 ]
+  %position.0107.i = phi i64 [ %position.2.i, %if.end64.i ], [ 0, %.noexc37 ]
   %call33.i38 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i)
           to label %call33.i.noexc unwind label %lpad.loopexit
 
@@ -20144,9 +20144,9 @@ if.then40.i:                                      ; preds = %if.else.i
 
 for.body52.i:                                     ; preds = %for.cond48.preheader.i, %for.inc59.i
   %i47.0101.i = phi i64 [ %inc60.i, %for.inc59.i ], [ 0, %for.cond48.preheader.i ]
-  %position.2100.i = phi i64 [ %inc61.i, %for.inc59.i ], [ %position.0107.i, %for.cond48.preheader.i ]
+  %position.3100.i = phi i64 [ %inc61.i, %for.inc59.i ], [ %position.0107.i, %for.cond48.preheader.i ]
   %63 = load i64, ptr %offset27.i, align 8, !noalias !579
-  %add54.i = add nsw i64 %63, %position.2100.i
+  %add54.i = add nsw i64 %63, %position.3100.i
   %shr.i.i = lshr i64 %add54.i, 3
   %arrayidx.i69.i = getelementptr inbounds i8, ptr %cond.i32, i64 %shr.i.i
   %64 = load i8, ptr %arrayidx.i69.i, align 1, !noalias !579
@@ -20156,7 +20156,7 @@ for.body52.i:                                     ; preds = %for.cond48.preheade
   %66 = shl nuw nsw i32 1, %sh_prom.i.i
   %67 = and i32 %66, %conv.i.i
   %tobool.i.not.i = icmp eq i32 %67, 0
-  %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr, i64 %position.2100.i
+  %arrayidx.i = getelementptr inbounds i32, ptr %add.ptr, i64 %position.3100.i
   br i1 %tobool.i.not.i, label %if.else57.i, label %if.then56.i
 
 if.then56.i:                                      ; preds = %for.body52.i
@@ -20165,10 +20165,10 @@ if.then56.i:                                      ; preds = %for.body52.i
   br i1 %cmp.i71.i, label %if.then.i72.i, label %for.inc59.i
 
 if.then.i72.i:                                    ; preds = %if.then56.i
-  %arrayidx2.i73.i = getelementptr inbounds i32, ptr %cond.i.i97.i, i64 %position.2100.i
+  %arrayidx2.i73.i = getelementptr inbounds i32, ptr %cond.i.i97.i, i64 %position.3100.i
   %69 = load i32, ptr %arrayidx2.i73.i, align 4, !noalias !579
   %add.i.i74.i = add i32 %69, %conv
-  %arrayidx9.i75.i = getelementptr inbounds i32, ptr %add.ptr33, i64 %position.2100.i
+  %arrayidx9.i75.i = getelementptr inbounds i32, ptr %add.ptr33, i64 %position.3100.i
   store i32 %add.i.i74.i, ptr %arrayidx9.i75.i, align 4, !noalias !579
   br label %for.inc59.i
 
@@ -20178,14 +20178,14 @@ if.else57.i:                                      ; preds = %for.body52.i
 
 for.inc59.i:                                      ; preds = %if.else57.i, %if.then.i72.i, %if.then56.i
   %inc60.i = add nuw nsw i64 %i47.0101.i, 1
-  %inc61.i = add nsw i64 %position.2100.i, 1
+  %inc61.i = add nsw i64 %position.3100.i, 1
   %exitcond.not.i = icmp eq i64 %inc60.i, %conv50.i
   br i1 %exitcond.not.i, label %if.end64.i, label %for.body52.i, !llvm.loop !586
 
 if.end64.i:                                       ; preds = %for.inc59.i, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIiEENS_6StatusERKNS_9ArrayDataEPT_RKNS_6BufferES6_S7_ENKUllE_clEl.exit.i, %if.then40.i, %for.cond48.preheader.i, %for.cond.preheader.i
-  %position.3.i = phi i64 [ %add.i34, %if.then40.i ], [ %position.0107.i, %for.cond.preheader.i ], [ %position.0107.i, %for.cond48.preheader.i ], [ %inc38.i, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIiEENS_6StatusERKNS_9ArrayDataEPT_RKNS_6BufferES6_S7_ENKUllE_clEl.exit.i ], [ %inc61.i, %for.inc59.i ]
+  %position.2.i = phi i64 [ %add.i34, %if.then40.i ], [ %position.0107.i, %for.cond.preheader.i ], [ %position.0107.i, %for.cond48.preheader.i ], [ %inc38.i, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIiEENS_6StatusERKNS_9ArrayDataEPT_RKNS_6BufferES6_S7_ENKUllE_clEl.exit.i ], [ %inc61.i, %for.inc59.i ]
   %70 = load i64, ptr %length28.i, align 8, !noalias !579
-  %cmp31.i = icmp slt i64 %position.3.i, %70
+  %cmp31.i = icmp slt i64 %position.2.i, %70
   br i1 %cmp31.i, label %while.body32.i, label %_ZN5arrow6StatusD2Ev.exit96, !llvm.loop !587
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %.noexc36
@@ -20848,7 +20848,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %if.en
   br i1 %cmp31106.i, label %while.body32.i, label %for.inc
 
 while.body32.i:                                   ; preds = %.noexc37, %if.end64.i
-  %position.0107.i = phi i64 [ %position.3.i, %if.end64.i ], [ 0, %.noexc37 ]
+  %position.0107.i = phi i64 [ %position.2.i, %if.end64.i ], [ 0, %.noexc37 ]
   %call33.i38 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i)
           to label %call33.i.noexc unwind label %lpad.loopexit
 
@@ -20905,9 +20905,9 @@ if.then40.i:                                      ; preds = %if.else.i
 
 for.body52.i:                                     ; preds = %for.cond48.preheader.i, %for.inc59.i
   %i47.0101.i = phi i64 [ %inc60.i, %for.inc59.i ], [ 0, %for.cond48.preheader.i ]
-  %position.2100.i = phi i64 [ %inc61.i, %for.inc59.i ], [ %position.0107.i, %for.cond48.preheader.i ]
+  %position.3100.i = phi i64 [ %inc61.i, %for.inc59.i ], [ %position.0107.i, %for.cond48.preheader.i ]
   %63 = load i64, ptr %offset27.i, align 8, !noalias !614
-  %add54.i = add nsw i64 %63, %position.2100.i
+  %add54.i = add nsw i64 %63, %position.3100.i
   %shr.i.i = lshr i64 %add54.i, 3
   %arrayidx.i69.i = getelementptr inbounds i8, ptr %cond.i32, i64 %shr.i.i
   %64 = load i8, ptr %arrayidx.i69.i, align 1, !noalias !614
@@ -20917,7 +20917,7 @@ for.body52.i:                                     ; preds = %for.cond48.preheade
   %66 = shl nuw nsw i32 1, %sh_prom.i.i
   %67 = and i32 %66, %conv.i.i
   %tobool.i.not.i = icmp eq i32 %67, 0
-  %arrayidx.i = getelementptr inbounds i64, ptr %add.ptr, i64 %position.2100.i
+  %arrayidx.i = getelementptr inbounds i64, ptr %add.ptr, i64 %position.3100.i
   br i1 %tobool.i.not.i, label %if.else57.i, label %if.then56.i
 
 if.then56.i:                                      ; preds = %for.body52.i
@@ -20926,10 +20926,10 @@ if.then56.i:                                      ; preds = %for.body52.i
   br i1 %cmp.i71.i, label %if.then.i72.i, label %for.inc59.i
 
 if.then.i72.i:                                    ; preds = %if.then56.i
-  %arrayidx2.i73.i = getelementptr inbounds i64, ptr %cond.i.i97.i, i64 %position.2100.i
+  %arrayidx2.i73.i = getelementptr inbounds i64, ptr %cond.i.i97.i, i64 %position.3100.i
   %69 = load i64, ptr %arrayidx2.i73.i, align 8, !noalias !614
   %add.i.i74.i = add i64 %69, %sub
-  %arrayidx9.i75.i = getelementptr inbounds i64, ptr %add.ptr33, i64 %position.2100.i
+  %arrayidx9.i75.i = getelementptr inbounds i64, ptr %add.ptr33, i64 %position.3100.i
   store i64 %add.i.i74.i, ptr %arrayidx9.i75.i, align 8, !noalias !614
   br label %for.inc59.i
 
@@ -20939,14 +20939,14 @@ if.else57.i:                                      ; preds = %for.body52.i
 
 for.inc59.i:                                      ; preds = %if.else57.i, %if.then.i72.i, %if.then56.i
   %inc60.i = add nuw nsw i64 %i47.0101.i, 1
-  %inc61.i = add nsw i64 %position.2100.i, 1
+  %inc61.i = add nsw i64 %position.3100.i, 1
   %exitcond.not.i = icmp eq i64 %inc60.i, %conv50.i
   br i1 %exitcond.not.i, label %if.end64.i, label %for.body52.i, !llvm.loop !621
 
 if.end64.i:                                       ; preds = %for.inc59.i, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIlEENS_6StatusERKNS_9ArrayDataEPT_RKNS_6BufferES6_S7_ENKUllE_clEl.exit.i, %if.then40.i, %for.cond48.preheader.i, %for.cond.preheader.i
-  %position.3.i = phi i64 [ %add.i34, %if.then40.i ], [ %position.0107.i, %for.cond.preheader.i ], [ %position.0107.i, %for.cond48.preheader.i ], [ %inc38.i, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIlEENS_6StatusERKNS_9ArrayDataEPT_RKNS_6BufferES6_S7_ENKUllE_clEl.exit.i ], [ %inc61.i, %for.inc59.i ]
+  %position.2.i = phi i64 [ %add.i34, %if.then40.i ], [ %position.0107.i, %for.cond.preheader.i ], [ %position.0107.i, %for.cond48.preheader.i ], [ %inc38.i, %_ZZN5arrow12_GLOBAL__N_118PutListViewOffsetsIlEENS_6StatusERKNS_9ArrayDataEPT_RKNS_6BufferES6_S7_ENKUllE_clEl.exit.i ], [ %inc61.i, %for.inc59.i ]
   %70 = load i64, ptr %length28.i, align 8, !noalias !614
-  %cmp31.i = icmp slt i64 %position.3.i, %70
+  %cmp31.i = icmp slt i64 %position.2.i, %70
   br i1 %cmp31.i, label %while.body32.i, label %for.inc, !llvm.loop !622
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %.noexc36

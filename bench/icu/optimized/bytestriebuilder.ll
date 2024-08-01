@@ -443,9 +443,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2078,11 +2078,11 @@ if.else29:                                        ; preds = %if.else22
 
 if.end34:                                         ; preds = %if.else29, %if.then24
   %.sink = phi i8 [ %conv27, %if.then24 ], [ 126, %if.else29 ]
-  %length.0 = phi i32 [ 1, %if.then24 ], [ 2, %if.else29 ]
+  %length.2 = phi i32 [ 1, %if.then24 ], [ 2, %if.else29 ]
   %shr35 = lshr i32 %i, 8
   %conv36 = trunc i32 %shr35 to i8
-  %inc = add nuw nsw i32 %length.0, 1
-  %idxprom = zext nneg i32 %length.0 to i64
+  %inc = add nuw nsw i32 %length.2, 1
+  %idxprom = zext nneg i32 %length.2 to i64
   %arrayidx37 = getelementptr inbounds [5 x i8], ptr %intBytes, i64 0, i64 %idxprom
   store i8 %conv36, ptr %arrayidx37, align 1
   br label %if.end38
@@ -2100,12 +2100,12 @@ if.end38:                                         ; preds = %if.end34, %if.then1
 
 if.end43:                                         ; preds = %if.end38, %if.then5
   %shl46 = phi i8 [ -2, %if.then5 ], [ %4, %if.end38 ]
-  %length.2 = phi i32 [ 5, %if.then5 ], [ %inc40, %if.end38 ]
+  %length.0 = phi i32 [ 5, %if.then5 ], [ %inc40, %if.end38 ]
   %or48 = or i8 %shl46, %isFinal
   store i8 %or48, ptr %intBytes, align 1
   %bytesLength.i = getelementptr inbounds i8, ptr %this, i64 52
   %5 = load i32, ptr %bytesLength.i, align 4
-  %add.i = add nsw i32 %5, %length.2
+  %add.i = add nsw i32 %5, %length.0
   %bytes.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %bytes.i.i, align 8
   %cmp.i.i = icmp eq ptr %6, null
@@ -2160,7 +2160,7 @@ if.then.i:                                        ; preds = %_ZN6icu_7516BytesTr
   %sub.i = sub nsw i32 %12, %add.i
   %idx.ext.i = sext i32 %sub.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %13, i64 %idx.ext.i
-  %conv.i = zext nneg i32 %length.2 to i64
+  %conv.i = zext nneg i32 %length.0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %intBytes, i64 %conv.i, i1 false)
   br label %_ZN6icu_7516BytesTrieBuilder5writeEPKci.exit
 
@@ -2247,12 +2247,12 @@ if.else15.i:                                      ; preds = %if.else11.i
 
 if.end20.i:                                       ; preds = %if.else15.i, %if.else11.i
   %.sink.i = phi i8 [ -1, %if.else15.i ], [ -2, %if.else11.i ]
-  %length.0.i = phi i32 [ 2, %if.else15.i ], [ 1, %if.else11.i ]
+  %length.2.i = phi i32 [ 2, %if.else15.i ], [ 1, %if.else11.i ]
   store i8 %.sink.i, ptr %intBytes, align 1
   %shr21.i = lshr i32 %sub, 16
   %conv22.i = trunc i32 %shr21.i to i8
-  %inc.i = add nuw nsw i32 %length.0.i, 1
-  %idxprom.i = zext nneg i32 %length.0.i to i64
+  %inc.i = add nuw nsw i32 %length.2.i, 1
+  %idxprom.i = zext nneg i32 %length.2.i to i64
   %arrayidx23.i = getelementptr inbounds i8, ptr %intBytes, i64 %idxprom.i
   store i8 %conv22.i, ptr %arrayidx23.i, align 1
   br label %if.end24.i
@@ -2268,10 +2268,10 @@ if.end24.i:                                       ; preds = %if.end20.i, %if.the
   br label %_ZN6icu_7516BytesTrieBuilder19internalEncodeDeltaEiPc.exit
 
 _ZN6icu_7516BytesTrieBuilder19internalEncodeDeltaEiPc.exit: ; preds = %if.then2.i, %if.end24.i
-  %length.2.i = phi i32 [ 1, %if.then2.i ], [ %inc27.i, %if.end24.i ]
+  %length.0.i = phi i32 [ 1, %if.then2.i ], [ %inc27.i, %if.end24.i ]
   %conv31.i = trunc i32 %sub to i8
-  %inc32.i = add nuw nsw i32 %length.2.i, 1
-  %idxprom33.i = zext nneg i32 %length.2.i to i64
+  %inc32.i = add nuw nsw i32 %length.0.i, 1
+  %idxprom33.i = zext nneg i32 %length.0.i to i64
   %arrayidx34.i = getelementptr inbounds i8, ptr %intBytes, i64 %idxprom33.i
   store i8 %conv31.i, ptr %arrayidx34.i, align 1
   %add.i = add nsw i32 %inc32.i, %0
@@ -2388,12 +2388,12 @@ if.else15:                                        ; preds = %if.else11
 
 if.end20:                                         ; preds = %if.else11, %if.else15
   %.sink = phi i8 [ -1, %if.else15 ], [ -2, %if.else11 ]
-  %length.0 = phi i32 [ 2, %if.else15 ], [ 1, %if.else11 ]
+  %length.2 = phi i32 [ 2, %if.else15 ], [ 1, %if.else11 ]
   store i8 %.sink, ptr %intBytes, align 1
   %shr21 = lshr i32 %i, 16
   %conv22 = trunc i32 %shr21 to i8
-  %inc = add nuw nsw i32 %length.0, 1
-  %idxprom = zext nneg i32 %length.0 to i64
+  %inc = add nuw nsw i32 %length.2, 1
+  %idxprom = zext nneg i32 %length.2 to i64
   %arrayidx23 = getelementptr inbounds i8, ptr %intBytes, i64 %idxprom
   store i8 %conv22, ptr %arrayidx23, align 1
   br label %if.end24
@@ -2409,10 +2409,10 @@ if.end24:                                         ; preds = %if.end20, %if.then6
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end24, %if.then2
-  %length.2 = phi i32 [ 1, %if.then2 ], [ %inc27, %if.end24 ]
+  %length.0 = phi i32 [ 1, %if.then2 ], [ %inc27, %if.end24 ]
   %conv31 = trunc i32 %i to i8
-  %inc32 = add nuw nsw i32 %length.2, 1
-  %idxprom33 = zext nneg i32 %length.2 to i64
+  %inc32 = add nuw nsw i32 %length.0, 1
+  %idxprom33 = zext nneg i32 %length.0 to i64
   %arrayidx34 = getelementptr inbounds i8, ptr %intBytes, i64 %idxprom33
   store i8 %conv31, ptr %arrayidx34, align 1
   br label %return

@@ -1095,7 +1095,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113: ;
   br label %.loopexit.split-lp
 
 301:                                              ; preds = %.invoke, %_ZN5ceres8internal11ContextImpl8TearDownEv.exit108, %_ZN5ceres8internal11ContextImpl8TearDownEv.exit, %295, %180
-  %.0 = phi i1 [ false, %180 ], [ true, %295 ], [ false, %_ZN5ceres8internal11ContextImpl8TearDownEv.exit ], [ false, %_ZN5ceres8internal11ContextImpl8TearDownEv.exit108 ], [ false, %.invoke ]
+  %.1 = phi i1 [ false, %180 ], [ true, %295 ], [ false, %_ZN5ceres8internal11ContextImpl8TearDownEv.exit ], [ false, %_ZN5ceres8internal11ContextImpl8TearDownEv.exit108 ], [ false, %.invoke ]
   call void @_ZN5ceres8internal11EventLoggerD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %21) #11
   br label %302
 
@@ -1105,8 +1105,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113: ;
   br label %common.resume
 
 302:                                              ; preds = %2, %301
-  %.1 = phi i1 [ %.0, %301 ], [ true, %2 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %301 ], [ true, %2 ]
+  ret i1 %.0
 }
 
 declare i32 @cudaGetDevice(ptr noundef) local_unnamed_addr #1

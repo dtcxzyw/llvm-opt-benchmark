@@ -382,7 +382,7 @@ _ZN5ZXing6Pdf417L26AdjustRowNumbersFromBothRIERSt6vectorINS_8NullableINS0_21Dete
 .lr.ph49.i.i.i:                                   ; preds = %97, %.loopexit.i4.i.i
   %102 = phi ptr [ %166, %.loopexit.i4.i.i ], [ %101, %97 ]
   %103 = phi ptr [ %167, %.loopexit.i4.i.i ], [ %100, %97 ]
-  %.02148.i.i.i = phi i32 [ %.3.i.i.i, %.loopexit.i4.i.i ], [ 0, %97 ]
+  %.02148.i.i.i = phi i32 [ %.122.i.i.i, %.loopexit.i4.i.i ], [ 0, %97 ]
   %.02345.i.i.i = phi i64 [ %168, %.loopexit.i4.i.i ], [ 0, %97 ]
   %104 = getelementptr inbounds %"class.ZXing::Nullable.7", ptr %102, i64 %.02345.i.i.i
   %105 = load i8, ptr %104, align 4
@@ -409,7 +409,7 @@ _ZN5ZXing6Pdf417L26AdjustRowNumbersFromBothRIERSt6vectorINS_8NullableINS0_21Dete
 .lr.ph.split.us.i.i.i:                            ; preds = %.lr.ph.i5.i.i, %136
   %.sroa.026.044.us.i.i.i = phi ptr [ %.sroa.026.0.us.i.i.i, %136 ], [ %.sroa.026.040.i.i.i, %.lr.ph.i5.i.i ]
   %.02043.us.i.i.i = phi i32 [ %.1.us.i.i.i, %136 ], [ 0, %.lr.ph.i5.i.i ]
-  %.12242.us.i.i.i = phi i32 [ %.2.us.i.i.i, %136 ], [ %.02148.i.i.i, %.lr.ph.i5.i.i ]
+  %.242.us.i.i.i = phi i32 [ %.3.us.i.i.i, %136 ], [ %.02148.i.i.i, %.lr.ph.i5.i.i ]
   %.pn41.us.i.i.i = phi ptr [ %.sroa.026.044.us.i.i.i, %136 ], [ %112, %.lr.ph.i5.i.i ]
   %115 = load i8, ptr %.sroa.026.044.us.i.i.i, align 8
   %116 = trunc i8 %115 to i1
@@ -441,16 +441,16 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i.i.i: ; preds = %123
   %cond.fr.us.i.i.i = freeze i1 %132
   %not.cond.fr.us.i.i.i = xor i1 %cond.fr.us.i.i.i, true
   %133 = zext i1 %not.cond.fr.us.i.i.i to i32
-  %spec.select.us.i.i.i = add nsw i32 %.12242.us.i.i.i, %133
+  %spec.select.us.i.i.i = add nsw i32 %.242.us.i.i.i, %133
   br label %136
 
 _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i.i.i: ; preds = %123
   %134 = add nsw i32 %.02043.us.i.i.i, 1
-  %135 = add nsw i32 %.12242.us.i.i.i, 1
+  %135 = add nsw i32 %.242.us.i.i.i, 1
   br label %136
 
 136:                                              ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i.i.i, %117, %.lr.ph.split.us.i.i.i
-  %.2.us.i.i.i = phi i32 [ %.12242.us.i.i.i, %117 ], [ %.12242.us.i.i.i, %.lr.ph.split.us.i.i.i ], [ %135, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i.i.i ], [ %spec.select.us.i.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i.i.i ]
+  %.3.us.i.i.i = phi i32 [ %.242.us.i.i.i, %117 ], [ %.242.us.i.i.i, %.lr.ph.split.us.i.i.i ], [ %135, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i.i.i ], [ %spec.select.us.i.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i.i.i ]
   %.1.us.i.i.i = phi i32 [ %.02043.us.i.i.i, %117 ], [ %.02043.us.i.i.i, %.lr.ph.split.us.i.i.i ], [ %134, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i.i.i ], [ %spec.select65.i.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i.i.i ]
   %.sroa.026.0.us.i.i.i = getelementptr inbounds i8, ptr %.sroa.026.044.us.i.i.i, i64 160
   %137 = icmp ne ptr %.sroa.026.0.us.i.i.i, %111
@@ -461,7 +461,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i.i.i: ; preds = 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i5.i.i, %162
   %.sroa.026.044.i.i.i = phi ptr [ %.sroa.026.0.i.i.i, %162 ], [ %.sroa.026.040.i.i.i, %.lr.ph.i5.i.i ]
   %.02043.i.i.i = phi i32 [ %.1.i.i.i, %162 ], [ 0, %.lr.ph.i5.i.i ]
-  %.12242.i.i.i = phi i32 [ %.2.i.i.i, %162 ], [ %.02148.i.i.i, %.lr.ph.i5.i.i ]
+  %.242.i.i.i = phi i32 [ %.3.i.i.i, %162 ], [ %.02148.i.i.i, %.lr.ph.i5.i.i ]
   %.pn41.i.i.i = phi ptr [ %.sroa.026.044.i.i.i, %162 ], [ %112, %.lr.ph.i5.i.i ]
   %140 = load i8, ptr %.sroa.026.044.i.i.i, align 8
   %141 = trunc i8 %140 to i1
@@ -507,7 +507,7 @@ _ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread.i.i.i: ;
 
 _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i9.i.i: ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i.i.i.i
   %157 = add nsw i32 %.02043.i.i.i, 1
-  %158 = add nsw i32 %.12242.i.i.i, 1
+  %158 = add nsw i32 %.242.i.i.i, 1
   br label %162
 
 _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i8.i.i: ; preds = %_ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread.i.i.i, %_ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread64.i.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.i.i.i
@@ -518,11 +518,11 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i8.i.i: ; preds = %_ZN5ZXin
   %cond.fr.i.i.i = freeze i1 %160
   %not.cond.fr.i.i.i = xor i1 %cond.fr.i.i.i, true
   %161 = zext i1 %not.cond.fr.i.i.i to i32
-  %spec.select.i.i.i = add nsw i32 %.12242.i.i.i, %161
+  %spec.select.i.i.i = add nsw i32 %.242.i.i.i, %161
   br label %162
 
 162:                                              ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i8.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i9.i.i, %142, %.lr.ph.split.i.i.i
-  %.2.i.i.i = phi i32 [ %.12242.i.i.i, %142 ], [ %.12242.i.i.i, %.lr.ph.split.i.i.i ], [ %158, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i9.i.i ], [ %spec.select.i.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i8.i.i ]
+  %.3.i.i.i = phi i32 [ %.242.i.i.i, %142 ], [ %.242.i.i.i, %.lr.ph.split.i.i.i ], [ %158, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i9.i.i ], [ %spec.select.i.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i8.i.i ]
   %.1.i.i.i = phi i32 [ %.02043.i.i.i, %142 ], [ %.02043.i.i.i, %.lr.ph.split.i.i.i ], [ %157, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i9.i.i ], [ %.0.i34.i.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i8.i.i ]
   %.sroa.026.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.026.044.i.i.i, i64 160
   %163 = icmp ne ptr %.sroa.026.0.i.i.i, %111
@@ -538,7 +538,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i8.i.i: ; preds = %_ZN5ZXin
 .loopexit.i4.i.i:                                 ; preds = %136, %.loopexit.loopexit52.i.i.i, %107, %.lr.ph49.i.i.i
   %166 = phi ptr [ %102, %.lr.ph49.i.i.i ], [ %102, %107 ], [ %.pre54.i.i.i, %.loopexit.loopexit52.i.i.i ], [ %102, %136 ]
   %167 = phi ptr [ %103, %.lr.ph49.i.i.i ], [ %103, %107 ], [ %.pre53.i.i.i, %.loopexit.loopexit52.i.i.i ], [ %103, %136 ]
-  %.3.i.i.i = phi i32 [ %.02148.i.i.i, %.lr.ph49.i.i.i ], [ %.02148.i.i.i, %107 ], [ %.2.i.i.i, %.loopexit.loopexit52.i.i.i ], [ %.2.us.i.i.i, %136 ]
+  %.122.i.i.i = phi i32 [ %.02148.i.i.i, %.lr.ph49.i.i.i ], [ %.02148.i.i.i, %107 ], [ %.3.i.i.i, %.loopexit.loopexit52.i.i.i ], [ %.3.us.i.i.i, %136 ]
   %168 = add nuw i64 %.02345.i.i.i, 1
   %169 = ptrtoint ptr %167 to i64
   %170 = ptrtoint ptr %166 to i64
@@ -548,7 +548,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i8.i.i: ; preds = %_ZN5ZXin
   br i1 %173, label %.lr.ph49.i.i.i, label %_ZN5ZXing6Pdf417L23AdjustRowNumbersFromLRIERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i.i, !llvm.loop !10
 
 _ZN5ZXing6Pdf417L23AdjustRowNumbersFromLRIERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i.i: ; preds = %.loopexit.i4.i.i, %97, %_ZN5ZXing6Pdf417L26AdjustRowNumbersFromBothRIERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i.i
-  %.0.i.i.i = phi i32 [ 0, %_ZN5ZXing6Pdf417L26AdjustRowNumbersFromBothRIERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i.i ], [ 0, %97 ], [ %.3.i.i.i, %.loopexit.i4.i.i ]
+  %.0.i.i.i = phi i32 [ 0, %_ZN5ZXing6Pdf417L26AdjustRowNumbersFromBothRIERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i.i ], [ 0, %97 ], [ %.122.i.i.i, %.loopexit.i4.i.i ]
   %174 = load ptr, ptr %9, align 8
   %175 = getelementptr inbounds i8, ptr %174, i64 -160
   %176 = load i8, ptr %175, align 8
@@ -566,7 +566,7 @@ _ZN5ZXing6Pdf417L23AdjustRowNumbersFromLRIERSt6vectorINS_8NullableINS0_21Detecti
 .lr.ph49.i12.i.i:                                 ; preds = %178, %.loopexit.i15.i.i
   %183 = phi ptr [ %247, %.loopexit.i15.i.i ], [ %182, %178 ]
   %184 = phi ptr [ %248, %.loopexit.i15.i.i ], [ %181, %178 ]
-  %.02148.i13.i.i = phi i32 [ %.3.i16.i.i, %.loopexit.i15.i.i ], [ 0, %178 ]
+  %.02148.i13.i.i = phi i32 [ %.122.i16.i.i, %.loopexit.i15.i.i ], [ 0, %178 ]
   %.02345.i14.i.i = phi i64 [ %249, %.loopexit.i15.i.i ], [ 0, %178 ]
   %185 = getelementptr inbounds %"class.ZXing::Nullable.7", ptr %183, i64 %.02345.i14.i.i
   %186 = load i8, ptr %185, align 4
@@ -593,7 +593,7 @@ _ZN5ZXing6Pdf417L23AdjustRowNumbersFromLRIERSt6vectorINS_8NullableINS0_21Detecti
 .lr.ph.split.us.i52.i.i:                          ; preds = %.lr.ph.i20.i.i, %217
   %.sroa.026.044.us.i53.i.i = phi ptr [ %.sroa.026.0.us.i59.i.i, %217 ], [ %.sroa.026.040.i18.i.i, %.lr.ph.i20.i.i ]
   %.02043.us.i54.i.i = phi i32 [ %.1.us.i58.i.i, %217 ], [ 0, %.lr.ph.i20.i.i ]
-  %.12242.us.i55.i.i = phi i32 [ %.2.us.i57.i.i, %217 ], [ %.02148.i13.i.i, %.lr.ph.i20.i.i ]
+  %.242.us.i55.i.i = phi i32 [ %.3.us.i57.i.i, %217 ], [ %.02148.i13.i.i, %.lr.ph.i20.i.i ]
   %.pn41.us.i56.i.i = phi ptr [ %.sroa.026.044.us.i53.i.i, %217 ], [ %193, %.lr.ph.i20.i.i ]
   %196 = load i8, ptr %.sroa.026.044.us.i53.i.i, align 8
   %197 = trunc i8 %196 to i1
@@ -625,16 +625,16 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i61.i.i: ; preds = %20
   %cond.fr.us.i63.i.i = freeze i1 %213
   %not.cond.fr.us.i64.i.i = xor i1 %cond.fr.us.i63.i.i, true
   %214 = zext i1 %not.cond.fr.us.i64.i.i to i32
-  %spec.select.us.i65.i.i = add nsw i32 %.12242.us.i55.i.i, %214
+  %spec.select.us.i65.i.i = add nsw i32 %.242.us.i55.i.i, %214
   br label %217
 
 _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i66.i.i: ; preds = %204
   %215 = add nsw i32 %.02043.us.i54.i.i, 1
-  %216 = add nsw i32 %.12242.us.i55.i.i, 1
+  %216 = add nsw i32 %.242.us.i55.i.i, 1
   br label %217
 
 217:                                              ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i66.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i61.i.i, %198, %.lr.ph.split.us.i52.i.i
-  %.2.us.i57.i.i = phi i32 [ %.12242.us.i55.i.i, %198 ], [ %.12242.us.i55.i.i, %.lr.ph.split.us.i52.i.i ], [ %216, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i66.i.i ], [ %spec.select.us.i65.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i61.i.i ]
+  %.3.us.i57.i.i = phi i32 [ %.242.us.i55.i.i, %198 ], [ %.242.us.i55.i.i, %.lr.ph.split.us.i52.i.i ], [ %216, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i66.i.i ], [ %spec.select.us.i65.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i61.i.i ]
   %.1.us.i58.i.i = phi i32 [ %.02043.us.i54.i.i, %198 ], [ %.02043.us.i54.i.i, %.lr.ph.split.us.i52.i.i ], [ %215, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i66.i.i ], [ %spec.select65.i62.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.us.i61.i.i ]
   %.sroa.026.0.us.i59.i.i = getelementptr inbounds i8, ptr %.sroa.026.044.us.i53.i.i, i64 160
   %218 = icmp ne ptr %.sroa.026.0.us.i59.i.i, %192
@@ -645,7 +645,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.us.i66.i.i: ; preds 
 .lr.ph.split.i22.i.i:                             ; preds = %.lr.ph.i20.i.i, %243
   %.sroa.026.044.i23.i.i = phi ptr [ %.sroa.026.0.i29.i.i, %243 ], [ %.sroa.026.040.i18.i.i, %.lr.ph.i20.i.i ]
   %.02043.i24.i.i = phi i32 [ %.1.i28.i.i, %243 ], [ 0, %.lr.ph.i20.i.i ]
-  %.12242.i25.i.i = phi i32 [ %.2.i27.i.i, %243 ], [ %.02148.i13.i.i, %.lr.ph.i20.i.i ]
+  %.242.i25.i.i = phi i32 [ %.3.i27.i.i, %243 ], [ %.02148.i13.i.i, %.lr.ph.i20.i.i ]
   %.pn41.i26.i.i = phi ptr [ %.sroa.026.044.i23.i.i, %243 ], [ %193, %.lr.ph.i20.i.i ]
   %221 = load i8, ptr %.sroa.026.044.i23.i.i, align 8
   %222 = trunc i8 %221 to i1
@@ -691,7 +691,7 @@ _ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread.i49.i.i:
 
 _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i51.i.i: ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i.i50.i.i
   %238 = add nsw i32 %.02043.i24.i.i, 1
-  %239 = add nsw i32 %.12242.i25.i.i, 1
+  %239 = add nsw i32 %.242.i25.i.i, 1
   br label %243
 
 _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i43.i.i: ; preds = %_ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread.i49.i.i, %_ZN5ZXing6Pdf417L22AdjustRowNumberIfValidEiiRNS0_8CodewordE.exit.thread64.i38.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i.i36.i.i
@@ -702,11 +702,11 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i43.i.i: ; preds = %_ZN5ZXi
   %cond.fr.i46.i.i = freeze i1 %241
   %not.cond.fr.i47.i.i = xor i1 %cond.fr.i46.i.i, true
   %242 = zext i1 %not.cond.fr.i47.i.i to i32
-  %spec.select.i48.i.i = add nsw i32 %.12242.i25.i.i, %242
+  %spec.select.i48.i.i = add nsw i32 %.242.i25.i.i, %242
   br label %243
 
 243:                                              ; preds = %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i43.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i51.i.i, %223, %.lr.ph.split.i22.i.i
-  %.2.i27.i.i = phi i32 [ %.12242.i25.i.i, %223 ], [ %.12242.i25.i.i, %.lr.ph.split.i22.i.i ], [ %239, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i51.i.i ], [ %spec.select.i48.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i43.i.i ]
+  %.3.i27.i.i = phi i32 [ %.242.i25.i.i, %223 ], [ %.242.i25.i.i, %.lr.ph.split.i22.i.i ], [ %239, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i51.i.i ], [ %spec.select.i48.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i43.i.i ]
   %.1.i28.i.i = phi i32 [ %.02043.i24.i.i, %223 ], [ %.02043.i24.i.i, %.lr.ph.split.i22.i.i ], [ %238, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.thread.i51.i.i ], [ %.0.i34.i45.i.i, %_ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i43.i.i ]
   %.sroa.026.0.i29.i.i = getelementptr inbounds i8, ptr %.sroa.026.044.i23.i.i, i64 160
   %244 = icmp ne ptr %.sroa.026.0.i29.i.i, %192
@@ -722,7 +722,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i43.i.i: ; preds = %_ZN5ZXi
 .loopexit.i15.i.i:                                ; preds = %217, %.loopexit.loopexit52.i30.i.i, %188, %.lr.ph49.i12.i.i
   %247 = phi ptr [ %183, %.lr.ph49.i12.i.i ], [ %183, %188 ], [ %.pre54.i32.i.i, %.loopexit.loopexit52.i30.i.i ], [ %183, %217 ]
   %248 = phi ptr [ %184, %.lr.ph49.i12.i.i ], [ %184, %188 ], [ %.pre53.i31.i.i, %.loopexit.loopexit52.i30.i.i ], [ %184, %217 ]
-  %.3.i16.i.i = phi i32 [ %.02148.i13.i.i, %.lr.ph49.i12.i.i ], [ %.02148.i13.i.i, %188 ], [ %.2.i27.i.i, %.loopexit.loopexit52.i30.i.i ], [ %.2.us.i57.i.i, %217 ]
+  %.122.i16.i.i = phi i32 [ %.02148.i13.i.i, %.lr.ph49.i12.i.i ], [ %.02148.i13.i.i, %188 ], [ %.3.i27.i.i, %.loopexit.loopexit52.i30.i.i ], [ %.3.us.i57.i.i, %217 ]
   %249 = add nuw i64 %.02345.i14.i.i, 1
   %250 = ptrtoint ptr %248 to i64
   %251 = ptrtoint ptr %247 to i64
@@ -732,7 +732,7 @@ _ZNK5ZXing6Pdf4178Codeword17hasValidRowNumberEv.exit.i43.i.i: ; preds = %_ZN5ZXi
   br i1 %254, label %.lr.ph49.i12.i.i, label %_ZN5ZXing6Pdf417L21AdjustRowNumbersByRowERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i, !llvm.loop !12
 
 _ZN5ZXing6Pdf417L21AdjustRowNumbersByRowERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i: ; preds = %.loopexit.i15.i.i, %178, %_ZN5ZXing6Pdf417L23AdjustRowNumbersFromLRIERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i.i
-  %.0.i10.i.i = phi i32 [ 0, %_ZN5ZXing6Pdf417L23AdjustRowNumbersFromLRIERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i.i ], [ 0, %178 ], [ %.3.i16.i.i, %.loopexit.i15.i.i ]
+  %.0.i10.i.i = phi i32 [ 0, %_ZN5ZXing6Pdf417L23AdjustRowNumbersFromLRIERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.i.i ], [ 0, %178 ], [ %.122.i16.i.i, %.loopexit.i15.i.i ]
   %255 = add nsw i32 %.0.i10.i.i, %.0.i.i.i
   %256 = icmp eq i32 %255, 0
   br i1 %256, label %_ZN5ZXing6Pdf417L16AdjustRowNumbersERSt6vectorINS_8NullableINS0_21DetectionResultColumnEEESaIS4_EE.exit.thread, label %.preheader.i

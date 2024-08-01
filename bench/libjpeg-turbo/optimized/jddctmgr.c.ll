@@ -88,7 +88,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
   %indvars.iv105 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next106, %.loopexit ]
   %.06184 = phi ptr [ %6, %.lr.ph ], [ %95, %.loopexit ]
   %.06283 = phi i32 [ 0, %.lr.ph ], [ %.163, %.loopexit ]
-  %.06482 = phi ptr [ null, %.lr.ph ], [ %.6, %.loopexit ]
+  %.06482 = phi ptr [ null, %.lr.ph ], [ %.165, %.loopexit ]
   %13 = getelementptr inbounds i8, ptr %.06184, i64 36
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %44 [
@@ -207,10 +207,10 @@ define internal void @start_pass(ptr noundef %0) #0 {
   br label %52
 
 52:                                               ; preds = %12, %25, %27, %29, %31, %44, %43, %42, %41, %40, %39, %38, %37, %36, %22, %21, %20, %18, %17, %15
-  %.6 = phi ptr [ %.06482, %44 ], [ @jpeg_idct_16x16, %43 ], [ @jpeg_idct_15x15, %42 ], [ @jpeg_idct_14x14, %41 ], [ @jpeg_idct_13x13, %40 ], [ @jpeg_idct_12x12, %39 ], [ @jpeg_idct_11x11, %38 ], [ @jpeg_idct_10x10, %37 ], [ @jpeg_idct_9x9, %36 ], [ %.06482, %31 ], [ %jpeg_idct_float.jsimd_idct_float, %29 ], [ %jpeg_idct_ifast.jsimd_idct_ifast, %27 ], [ %jpeg_idct_islow.jsimd_idct_islow, %25 ], [ @jpeg_idct_7x7, %22 ], [ @jpeg_idct_6x6, %21 ], [ @jpeg_idct_5x5, %20 ], [ %jpeg_idct_4x4.jsimd_idct_4x4, %18 ], [ @jpeg_idct_3x3, %17 ], [ %jpeg_idct_2x2.jsimd_idct_2x2, %15 ], [ @jpeg_idct_1x1, %12 ]
+  %.165 = phi ptr [ %.06482, %44 ], [ @jpeg_idct_16x16, %43 ], [ @jpeg_idct_15x15, %42 ], [ @jpeg_idct_14x14, %41 ], [ @jpeg_idct_13x13, %40 ], [ @jpeg_idct_12x12, %39 ], [ @jpeg_idct_11x11, %38 ], [ @jpeg_idct_10x10, %37 ], [ @jpeg_idct_9x9, %36 ], [ %.06482, %31 ], [ %jpeg_idct_float.jsimd_idct_float, %29 ], [ %jpeg_idct_ifast.jsimd_idct_ifast, %27 ], [ %jpeg_idct_islow.jsimd_idct_islow, %25 ], [ @jpeg_idct_7x7, %22 ], [ @jpeg_idct_6x6, %21 ], [ @jpeg_idct_5x5, %20 ], [ %jpeg_idct_4x4.jsimd_idct_4x4, %18 ], [ @jpeg_idct_3x3, %17 ], [ %jpeg_idct_2x2.jsimd_idct_2x2, %15 ], [ @jpeg_idct_1x1, %12 ]
   %.163 = phi i32 [ %.06283, %44 ], [ 0, %43 ], [ 0, %42 ], [ 0, %41 ], [ 0, %40 ], [ 0, %39 ], [ 0, %38 ], [ 0, %37 ], [ 0, %36 ], [ %.06283, %31 ], [ 2, %29 ], [ 1, %27 ], [ 0, %25 ], [ 0, %22 ], [ 0, %21 ], [ 0, %20 ], [ 0, %18 ], [ 0, %17 ], [ 0, %15 ], [ 0, %12 ]
   %53 = getelementptr inbounds [10 x ptr], ptr %10, i64 0, i64 %indvars.iv105
-  store ptr %.6, ptr %53, align 8
+  store ptr %.165, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %.06184, i64 48
   %55 = load i32, ptr %54, align 8
   %.not73 = icmp eq i32 %55, 0

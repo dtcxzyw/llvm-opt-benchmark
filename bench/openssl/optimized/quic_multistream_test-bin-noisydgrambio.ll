@@ -188,7 +188,7 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
   %thismsg.081 = phi ptr [ %msg, %for.body27.lr.ph ], [ %incdec.ptr, %for.inc99 ]
   %msg_cnt.080 = phi i64 [ %2, %for.body27.lr.ph ], [ %msg_cnt.1, %for.inc99 ]
   %i.178 = phi i64 [ 0, %for.body27.lr.ph ], [ %inc100, %for.inc99 ]
-  %flip_offset.077 = phi i64 [ undef, %for.body27.lr.ph ], [ %flip_offset.2, %for.inc99 ]
+  %flip_offset.077 = phi i64 [ undef, %for.body27.lr.ph ], [ %flip_offset.1, %for.inc99 ]
   %3 = load i64, ptr %reinject_dgram, align 8
   %cmp28.not = icmp eq i64 %3, 0
   br i1 %cmp28.not, label %if.end54, label %land.lhs.true
@@ -282,9 +282,9 @@ if.then15.i:                                      ; preds = %cond.end.i
 
 get_noise.exit:                                   ; preds = %if.end54, %cond.end.thread.i, %cond.end.i, %if.then15.i
   %reinject.0 = phi i64 [ %add1212.i, %cond.end.thread.i ], [ %conv11.i, %if.then15.i ], [ %conv11.i, %cond.end.i ], [ 0, %if.end54 ]
-  %should_drop.0.shrunk = phi i1 [ %7, %cond.end.thread.i ], [ %7, %if.then15.i ], [ %7, %cond.end.i ], [ false, %if.end54 ]
-  %flip.0 = phi i16 [ 0, %cond.end.thread.i ], [ %conv21.i, %if.then15.i ], [ 0, %cond.end.i ], [ 0, %if.end54 ]
-  %flip_offset.1 = phi i64 [ %flip_offset.077, %cond.end.thread.i ], [ %conv25.i, %if.then15.i ], [ %flip_offset.077, %cond.end.i ], [ %flip_offset.077, %if.end54 ]
+  %should_drop.1.shrunk = phi i1 [ %7, %cond.end.thread.i ], [ %7, %if.then15.i ], [ %7, %cond.end.i ], [ false, %if.end54 ]
+  %flip.1 = phi i16 [ 0, %cond.end.thread.i ], [ %conv21.i, %if.then15.i ], [ 0, %cond.end.i ], [ 0, %if.end54 ]
+  %flip_offset.2 = phi i64 [ %flip_offset.077, %cond.end.thread.i ], [ %conv25.i, %if.then15.i ], [ %flip_offset.077, %cond.end.i ], [ %flip_offset.077, %if.end54 ]
   %9 = load i32, ptr %backoff, align 8
   %tobool59.not = icmp eq i32 %9, 0
   br i1 %tobool59.not, label %if.end62, label %if.end62.thread
@@ -296,18 +296,18 @@ if.end62.thread:                                  ; preds = %get_noise.exit
 if.end62:                                         ; preds = %get_noise.exit
   %data_len64 = getelementptr inbounds i8, ptr %thismsg.081, i64 8
   %10 = load i64, ptr %data_len64, align 8
-  %cmp.i = icmp eq i16 %flip.0, 0
+  %cmp.i = icmp eq i16 %flip.1, 0
   %cmp2.i = icmp ult i64 %10, 2
   %or.cond.i55 = or i1 %cmp.i, %cmp2.i
   br i1 %or.cond.i55, label %flip_bits.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end62
   %11 = load ptr, ptr %thismsg.081, align 8
-  %add.i56 = add i64 %flip_offset.1, 2
+  %add.i56 = add i64 %flip_offset.2, 2
   %cmp6.i = icmp ugt i64 %add.i56, %10
   %sub.i = add i64 %10, -2
-  %spec.select.i = select i1 %cmp6.i, i64 %sub.i, i64 %flip_offset.1
-  %shr.i = lshr i16 %flip.0, 8
+  %spec.select.i = select i1 %cmp6.i, i64 %sub.i, i64 %flip_offset.2
+  %shr.i = lshr i16 %flip.1, 8
   %arrayidx.i = getelementptr inbounds i8, ptr %11, i64 %spec.select.i
   %12 = load i8, ptr %arrayidx.i, align 1
   %13 = trunc nuw nsw i16 %shr.i to i8
@@ -315,13 +315,13 @@ if.end5.i:                                        ; preds = %if.end62
   store i8 %conv12.i, ptr %arrayidx.i, align 1
   %arrayidx15.i = getelementptr i8, ptr %arrayidx.i, i64 1
   %14 = load i8, ptr %arrayidx15.i, align 1
-  %15 = trunc i16 %flip.0 to i8
+  %15 = trunc i16 %flip.1 to i8
   %conv18.i = xor i8 %14, %15
   store i8 %conv18.i, ptr %arrayidx15.i, align 1
   br label %flip_bits.exit
 
 flip_bits.exit:                                   ; preds = %if.end62.thread, %if.end62, %if.end5.i
-  %should_drop.164.shrunk = phi i1 [ false, %if.end62.thread ], [ %should_drop.0.shrunk, %if.end62 ], [ %should_drop.0.shrunk, %if.end5.i ]
+  %should_drop.064.shrunk = phi i1 [ false, %if.end62.thread ], [ %should_drop.1.shrunk, %if.end62 ], [ %should_drop.1.shrunk, %if.end5.i ]
   %cmp65.not = icmp eq i64 %reinject.0, 0
   br i1 %cmp65.not, label %if.end79, label %land.lhs.true67
 
@@ -342,7 +342,7 @@ if.end76:                                         ; preds = %if.then71
   br label %if.end79
 
 if.end79:                                         ; preds = %if.end76, %land.lhs.true67, %flip_bits.exit
-  br i1 %should_drop.164.shrunk, label %for.cond83, label %for.inc99
+  br i1 %should_drop.064.shrunk, label %for.cond83, label %for.inc99
 
 for.cond83:                                       ; preds = %if.end79, %for.body86
   %j.1.in = phi i64 [ %j.1, %for.body86 ], [ %i.178, %if.end79 ]
@@ -362,7 +362,7 @@ for.end96:                                        ; preds = %for.cond83
   br label %for.inc99
 
 for.inc99:                                        ; preds = %if.end79, %for.end96, %if.end49
-  %flip_offset.2 = phi i64 [ %flip_offset.1, %if.end79 ], [ %flip_offset.1, %for.end96 ], [ %flip_offset.077, %if.end49 ]
+  %flip_offset.1 = phi i64 [ %flip_offset.2, %if.end79 ], [ %flip_offset.2, %for.end96 ], [ %flip_offset.077, %if.end49 ]
   %msg_cnt.1 = phi i64 [ %msg_cnt.080, %if.end79 ], [ %dec97, %for.end96 ], [ %inc50, %if.end49 ]
   %inc100 = add nuw i64 %i.178, 1
   %incdec.ptr = getelementptr inbounds i8, ptr %thismsg.081, i64 40

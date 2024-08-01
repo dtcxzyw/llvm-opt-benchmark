@@ -89,21 +89,21 @@ if.then:                                          ; preds = %land.lhs.true.i, %e
   br label %if.end
 
 if.end:                                           ; preds = %land.lhs.true.i, %entry, %if.then
-  %Pos.054 = phi ptr [ %add.ptr6.i, %if.then ], [ %add.ptr.i, %entry ], [ %add.ptr.i, %land.lhs.true.i ]
+  %Pos.554 = phi ptr [ %add.ptr6.i, %if.then ], [ %add.ptr.i, %entry ], [ %add.ptr.i, %land.lhs.true.i ]
   %SkipBlanks = getelementptr inbounds i8, ptr %this, i64 9
   %5 = load i8, ptr %SkipBlanks, align 1
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.else.thread, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %6 = load i8, ptr %Pos.054, align 1
+  %6 = load i8, ptr %Pos.554, align 1
   switch i8 %6, label %if.else [
     i8 10, label %while.cond37.preheader
     i8 13, label %land.lhs.true.i5
   ]
 
 land.lhs.true.i5:                                 ; preds = %land.lhs.true
-  %add.ptr.i6 = getelementptr inbounds i8, ptr %Pos.054, i64 1
+  %add.ptr.i6 = getelementptr inbounds i8, ptr %Pos.554, i64 1
   %7 = load i8, ptr %add.ptr.i6, align 1
   %cmp4.i7 = icmp eq i8 %7, 10
   br i1 %cmp4.i7, label %while.cond37.preheader, label %if.else
@@ -138,13 +138,13 @@ for.cond.us.preheader:                            ; preds = %for.cond.preheader.
 
 for.cond.us:                                      ; preds = %for.cond.us.preheader, %if.end27.us
   %11 = phi i32 [ %inc29.us, %if.end27.us ], [ %LineNumber28.promoted99, %for.cond.us.preheader ]
-  %Pos.3.us = phi ptr [ %add.ptr6.i35.us, %if.end27.us ], [ %Pos.054, %for.cond.us.preheader ]
-  %12 = load i8, ptr %Pos.3.us, align 1
+  %Pos.2.us = phi ptr [ %add.ptr6.i35.us, %if.end27.us ], [ %Pos.554, %for.cond.us.preheader ]
+  %12 = load i8, ptr %Pos.2.us, align 1
   %cmp19.us = icmp eq i8 %12, %10
   br i1 %cmp19.us, label %do.body.us, label %if.end24.us
 
 do.body.us:                                       ; preds = %for.cond.us, %do.body.us.backedge
-  %Pos.4.us = phi ptr [ %incdec.ptr.us, %do.body.us.backedge ], [ %Pos.3.us, %for.cond.us ]
+  %Pos.4.us = phi ptr [ %incdec.ptr.us, %do.body.us.backedge ], [ %Pos.2.us, %for.cond.us ]
   %incdec.ptr.us = getelementptr inbounds i8, ptr %Pos.4.us, i64 1
   %13 = load i8, ptr %incdec.ptr.us, align 1
   switch i8 %13, label %do.body.us.backedge [
@@ -169,16 +169,16 @@ if.end24.us:                                      ; preds = %for.cond.us
   ]
 
 land.lhs.true.i29.us:                             ; preds = %land.lhs.true.i23.us, %if.end24.us
-  %Pos.5.ph.ph.us104 = phi ptr [ %Pos.3.us, %if.end24.us ], [ %incdec.ptr.us, %land.lhs.true.i23.us ]
-  %add.ptr.i30.us = getelementptr inbounds i8, ptr %Pos.5.ph.ph.us104, i64 1
+  %Pos.3.ph.ph.us104 = phi ptr [ %Pos.2.us, %if.end24.us ], [ %incdec.ptr.us, %land.lhs.true.i23.us ]
+  %add.ptr.i30.us = getelementptr inbounds i8, ptr %Pos.3.ph.ph.us104, i64 1
   %15 = load i8, ptr %add.ptr.i30.us, align 1
   %cmp4.i31.us = icmp eq i8 %15, 10
   br i1 %cmp4.i31.us, label %if.end27.us, label %while.cond37.preheader
 
 if.end27.us:                                      ; preds = %do.body.us, %land.lhs.true.i29.us, %if.end24.us
-  %Pos.5.ph68.us = phi ptr [ %Pos.3.us, %if.end24.us ], [ %Pos.5.ph.ph.us104, %land.lhs.true.i29.us ], [ %incdec.ptr.us, %do.body.us ]
+  %Pos.3.ph68.us = phi ptr [ %Pos.2.us, %if.end24.us ], [ %Pos.3.ph.ph.us104, %land.lhs.true.i29.us ], [ %incdec.ptr.us, %do.body.us ]
   %.sink.i34.us = phi i64 [ 1, %if.end24.us ], [ 2, %land.lhs.true.i29.us ], [ 1, %do.body.us ]
-  %add.ptr6.i35.us = getelementptr inbounds i8, ptr %Pos.5.ph68.us, i64 %.sink.i34.us
+  %add.ptr6.i35.us = getelementptr inbounds i8, ptr %Pos.3.ph68.us, i64 %.sink.i34.us
   %inc29.us = add i32 %11, 1
   store i32 %inc29.us, ptr %LineNumber2898, align 4
   br label %for.cond.us, !llvm.loop !6
@@ -190,7 +190,7 @@ while.cond.preheader:                             ; preds = %if.else.thread, %if
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.body
   %16 = phi i32 [ %inc8, %while.body ], [ %LineNumber7.promoted, %while.cond.preheader ]
-  %Pos.1 = phi ptr [ %add.ptr6.i15, %while.body ], [ %Pos.054, %while.cond.preheader ]
+  %Pos.1 = phi ptr [ %add.ptr6.i15, %while.body ], [ %Pos.554, %while.cond.preheader ]
   %17 = load i8, ptr %Pos.1, align 1
   switch i8 %17, label %if.end31 [
     i8 10, label %while.body
@@ -212,15 +212,15 @@ while.body:                                       ; preds = %land.lhs.true.i9, %
 
 for.cond:                                         ; preds = %for.cond.preheader, %if.end27
   %19 = phi i32 [ %inc29, %if.end27 ], [ %LineNumber28.promoted, %for.cond.preheader ]
-  %Pos.3 = phi ptr [ %add.ptr6.i35, %if.end27 ], [ %Pos.054, %for.cond.preheader ]
-  %20 = load i8, ptr %Pos.3, align 1
+  %Pos.2 = phi ptr [ %add.ptr6.i35, %if.end27 ], [ %Pos.554, %for.cond.preheader ]
+  %20 = load i8, ptr %Pos.2, align 1
   switch i8 %20, label %if.end15 [
     i8 10, label %while.cond37.preheader
     i8 13, label %land.lhs.true.i17
   ]
 
 land.lhs.true.i17:                                ; preds = %for.cond
-  %add.ptr.i18 = getelementptr inbounds i8, ptr %Pos.3, i64 1
+  %add.ptr.i18 = getelementptr inbounds i8, ptr %Pos.2, i64 1
   %21 = load i8, ptr %add.ptr.i18, align 1
   %cmp4.i19.not = icmp eq i8 %21, 10
   br i1 %cmp4.i19.not, label %while.cond37.preheader, label %if.end15
@@ -230,7 +230,7 @@ if.end15:                                         ; preds = %land.lhs.true.i17, 
   br i1 %cmp19, label %do.body, label %if.end24
 
 do.body:                                          ; preds = %if.end15, %do.body.backedge
-  %Pos.4 = phi ptr [ %incdec.ptr, %do.body.backedge ], [ %Pos.3, %if.end15 ]
+  %Pos.4 = phi ptr [ %incdec.ptr, %do.body.backedge ], [ %Pos.2, %if.end15 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %Pos.4, i64 1
   %22 = load i8, ptr %incdec.ptr, align 1
   switch i8 %22, label %do.body.backedge [
@@ -255,30 +255,30 @@ if.end24:                                         ; preds = %if.end15
   ]
 
 land.lhs.true.i29:                                ; preds = %land.lhs.true.i23, %if.end24
-  %Pos.5.ph.ph110 = phi ptr [ %Pos.3, %if.end24 ], [ %incdec.ptr, %land.lhs.true.i23 ]
-  %add.ptr.i30 = getelementptr inbounds i8, ptr %Pos.5.ph.ph110, i64 1
+  %Pos.3.ph.ph110 = phi ptr [ %Pos.2, %if.end24 ], [ %incdec.ptr, %land.lhs.true.i23 ]
+  %add.ptr.i30 = getelementptr inbounds i8, ptr %Pos.3.ph.ph110, i64 1
   %24 = load i8, ptr %add.ptr.i30, align 1
   %cmp4.i31 = icmp eq i8 %24, 10
   br i1 %cmp4.i31, label %if.end27, label %while.cond37.preheader
 
 if.end27:                                         ; preds = %do.body, %land.lhs.true.i29, %if.end24
-  %Pos.5.ph68 = phi ptr [ %Pos.3, %if.end24 ], [ %Pos.5.ph.ph110, %land.lhs.true.i29 ], [ %incdec.ptr, %do.body ]
+  %Pos.3.ph68 = phi ptr [ %Pos.2, %if.end24 ], [ %Pos.3.ph.ph110, %land.lhs.true.i29 ], [ %incdec.ptr, %do.body ]
   %.sink.i34 = phi i64 [ 1, %if.end24 ], [ 2, %land.lhs.true.i29 ], [ 1, %do.body ]
-  %add.ptr6.i35 = getelementptr inbounds i8, ptr %Pos.5.ph68, i64 %.sink.i34
+  %add.ptr6.i35 = getelementptr inbounds i8, ptr %Pos.3.ph68, i64 %.sink.i34
   %inc29 = add i32 %19, 1
   store i32 %inc29, ptr %LineNumber28, align 4
   br label %for.cond, !llvm.loop !6
 
 if.end31:                                         ; preds = %if.end24, %if.end24.us, %while.cond
   %25 = phi i8 [ %17, %while.cond ], [ %12, %if.end24.us ], [ %20, %if.end24 ]
-  %Pos.7 = phi ptr [ %Pos.1, %while.cond ], [ %Pos.3.us, %if.end24.us ], [ %Pos.3, %if.end24 ]
+  %Pos.0 = phi ptr [ %Pos.1, %while.cond ], [ %Pos.2.us, %if.end24.us ], [ %Pos.2, %if.end24 ]
   %cmp33 = icmp eq i8 %25, 0
   br i1 %cmp33, label %if.then34, label %while.cond37.preheader
 
 while.cond37.preheader:                           ; preds = %land.lhs.true.i29, %for.cond, %land.lhs.true.i17, %land.lhs.true.i29.us, %land.lhs.true.i9, %land.lhs.true, %land.lhs.true.i5, %if.end31
-  %Pos.7115 = phi ptr [ %Pos.7, %if.end31 ], [ %Pos.054, %land.lhs.true ], [ %Pos.054, %land.lhs.true.i5 ], [ %Pos.1, %land.lhs.true.i9 ], [ %Pos.5.ph.ph.us104, %land.lhs.true.i29.us ], [ %Pos.3, %land.lhs.true.i17 ], [ %Pos.3, %for.cond ], [ %Pos.5.ph.ph110, %land.lhs.true.i29 ]
+  %Pos.0115 = phi ptr [ %Pos.0, %if.end31 ], [ %Pos.554, %land.lhs.true ], [ %Pos.554, %land.lhs.true.i5 ], [ %Pos.1, %land.lhs.true.i9 ], [ %Pos.3.ph.ph.us104, %land.lhs.true.i29.us ], [ %Pos.2, %land.lhs.true.i17 ], [ %Pos.2, %for.cond ], [ %Pos.3.ph.ph110, %land.lhs.true.i29 ]
   %26 = phi i8 [ %25, %if.end31 ], [ %6, %land.lhs.true ], [ 13, %land.lhs.true.i5 ], [ 13, %land.lhs.true.i9 ], [ 13, %land.lhs.true.i29.us ], [ 13, %land.lhs.true.i17 ], [ %20, %for.cond ], [ 13, %land.lhs.true.i29 ]
-  %invariant.gep = getelementptr i8, ptr %Pos.7115, i64 1
+  %invariant.gep = getelementptr i8, ptr %Pos.0115, i64 1
   br label %while.cond37
 
 if.then34:                                        ; preds = %do.body, %do.body.us, %if.end31
@@ -303,12 +303,12 @@ land.lhs.true.i37:                                ; preds = %while.cond37
 
 while.body45:                                     ; preds = %while.cond37, %land.lhs.true.i37
   %inc46 = add i64 %Length.0, 1
-  %arrayidx.phi.trans.insert = getelementptr inbounds i8, ptr %Pos.7115, i64 %inc46
+  %arrayidx.phi.trans.insert = getelementptr inbounds i8, ptr %Pos.0115, i64 %inc46
   %.pre = load i8, ptr %arrayidx.phi.trans.insert, align 1
   br label %while.cond37, !llvm.loop !8
 
 while.end47:                                      ; preds = %while.cond37, %while.cond37, %land.lhs.true.i37
-  store ptr %Pos.7115, ptr %CurrentLine, align 8
+  store ptr %Pos.0115, ptr %CurrentLine, align 8
   store i64 %Length.0, ptr %Length.i, align 8
   br label %return
 

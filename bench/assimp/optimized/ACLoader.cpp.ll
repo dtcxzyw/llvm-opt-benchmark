@@ -4489,9 +4489,9 @@ for.body389:                                      ; preds = %for.cond383.prehead
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc573 ], [ 0, %for.cond383.preheader ]
   %139 = phi ptr [ %207, %for.inc573 ], [ %117, %for.cond383.preheader ]
   %faces242.1739 = phi ptr [ %faces242.2, %for.inc573 ], [ %faces242.0767, %for.cond383.preheader ]
-  %vertices275.2738 = phi ptr [ %vertices275.4, %for.inc573 ], [ %vertices275.0766, %for.cond383.preheader ]
+  %vertices275.2738 = phi ptr [ %vertices275.3, %for.inc573 ], [ %vertices275.0766, %for.cond383.preheader ]
   %cur.2737 = phi i32 [ %cur.3, %for.inc573 ], [ %cur.0765, %for.cond383.preheader ]
-  %uv.4736 = phi ptr [ %uv.8, %for.inc573 ], [ %uv.1764, %for.cond383.preheader ]
+  %uv.4736 = phi ptr [ %uv.5, %for.inc573 ], [ %uv.1764, %for.cond383.preheader ]
   %add.ptr.i431 = getelementptr inbounds %"struct.std::pair", ptr %139, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %add.ptr.i432 = getelementptr inbounds %"struct.std::pair", ptr %139, i64 %indvars.iv.next
@@ -4630,7 +4630,7 @@ if.then469:                                       ; preds = %invoke.cont464
   br label %invoke.cont484
 
 invoke.cont484:                                   ; preds = %invoke.cont464, %if.then469
-  %uv.5 = phi ptr [ %incdec.ptr476, %if.then469 ], [ null, %invoke.cont464 ]
+  %uv.6 = phi ptr [ %incdec.ptr476, %if.then469 ], [ null, %invoke.cont464 ]
   %172 = load i32, ptr %add.ptr.i432, align 4
   %conv481 = zext i32 %172 to i64
   %173 = load ptr, ptr %vertices, align 8
@@ -4645,7 +4645,7 @@ invoke.cont484:                                   ; preds = %invoke.cont464, %if
   store <2 x float> %176, ptr %incdec.ptr467, align 4
   %ref.tmp478.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %vertices275.2738, i64 20
   store float %add5.i482, ptr %ref.tmp478.sroa.2.0..sroa_idx, align 4
-  %tobool488.not = icmp eq ptr %uv.5, null
+  %tobool488.not = icmp eq ptr %uv.6, null
   br i1 %tobool488.not, label %if.end539, label %if.end539.sink.split
 
 invoke.cont505:                                   ; preds = %invoke.cont443
@@ -4673,7 +4673,7 @@ if.then510:                                       ; preds = %invoke.cont505
   br label %invoke.cont525
 
 invoke.cont525:                                   ; preds = %invoke.cont505, %if.then510
-  %uv.6 = phi ptr [ %incdec.ptr517, %if.then510 ], [ null, %invoke.cont505 ]
+  %uv.8 = phi ptr [ %incdec.ptr517, %if.then510 ], [ null, %invoke.cont505 ]
   %185 = load i32, ptr %add.ptr.i431, align 4
   %conv522 = zext i32 %185 to i64
   %186 = load ptr, ptr %vertices, align 8
@@ -4688,27 +4688,27 @@ invoke.cont525:                                   ; preds = %invoke.cont505, %if
   store <2 x float> %189, ptr %incdec.ptr467, align 4
   %ref.tmp519.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %vertices275.2738, i64 20
   store float %add5.i506, ptr %ref.tmp519.sroa.2.0..sroa_idx, align 4
-  %tobool529.not = icmp eq ptr %uv.6, null
+  %tobool529.not = icmp eq ptr %uv.8, null
   br i1 %tobool529.not, label %if.end539, label %if.end539.sink.split
 
 if.end539.sink.split:                             ; preds = %invoke.cont525, %invoke.cont484
   %add.ptr.i431.sink827 = phi ptr [ %add.ptr.i432, %invoke.cont484 ], [ %add.ptr.i431, %invoke.cont525 ]
-  %uv.6.sink826 = phi ptr [ %uv.5, %invoke.cont484 ], [ %uv.6, %invoke.cont525 ]
+  %uv.8.sink826 = phi ptr [ %uv.6, %invoke.cont484 ], [ %uv.8, %invoke.cont525 ]
   %second531 = getelementptr inbounds i8, ptr %add.ptr.i431.sink827, i64 4
   %192 = load float, ptr %second531, align 4
-  store float %192, ptr %uv.6.sink826, align 4
+  store float %192, ptr %uv.8.sink826, align 4
   %y535 = getelementptr inbounds i8, ptr %add.ptr.i431.sink827, i64 8
   %193 = load float, ptr %y535, align 4
-  %y536 = getelementptr inbounds i8, ptr %uv.6.sink826, i64 4
+  %y536 = getelementptr inbounds i8, ptr %uv.8.sink826, i64 4
   store float %193, ptr %y536, align 4
-  %incdec.ptr537 = getelementptr inbounds i8, ptr %uv.6.sink826, i64 12
+  %incdec.ptr537 = getelementptr inbounds i8, ptr %uv.8.sink826, i64 12
   br label %if.end539
 
 if.end539:                                        ; preds = %if.end539.sink.split, %invoke.cont525, %invoke.cont484
   %uv.7 = phi ptr [ null, %invoke.cont525 ], [ null, %invoke.cont484 ], [ %incdec.ptr537, %if.end539.sink.split ]
-  %vertices275.3 = getelementptr inbounds i8, ptr %vertices275.2738, i64 24
+  %vertices275.4 = getelementptr inbounds i8, ptr %vertices275.2738, i64 24
   %194 = load ptr, ptr %mVertices.i352, align 8
-  %sub.ptr.lhs.cast541 = ptrtoint ptr %vertices275.3 to i64
+  %sub.ptr.lhs.cast541 = ptrtoint ptr %vertices275.4 to i64
   %sub.ptr.rhs.cast542 = ptrtoint ptr %194 to i64
   %sub.ptr.sub543 = sub i64 %sub.ptr.lhs.cast541, %sub.ptr.rhs.cast542
   %sub.ptr.div544 = sdiv exact i64 %sub.ptr.sub543, 12
@@ -4741,7 +4741,7 @@ invoke.cont559:                                   ; preds = %if.end539
   %203 = load float, ptr %z4.i493, align 4
   %add5.i518 = fadd float %202, %203
   %incdec.ptr562 = getelementptr inbounds i8, ptr %vertices275.2738, i64 36
-  store <2 x float> %201, ptr %vertices275.3, align 4
+  store <2 x float> %201, ptr %vertices275.4, align 4
   %ref.tmp553.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %vertices275.2738, i64 32
   store float %add5.i518, ptr %ref.tmp553.sroa.2.0..sroa_idx, align 4
   %tobool563.not = icmp eq ptr %uv.7, null
@@ -4759,9 +4759,9 @@ if.then564:                                       ; preds = %invoke.cont559
   br label %for.inc573
 
 for.inc573:                                       ; preds = %invoke.cont559, %if.then564, %if.then433
-  %uv.8 = phi ptr [ %uv.4736, %if.then433 ], [ %incdec.ptr571, %if.then564 ], [ null, %invoke.cont559 ]
+  %uv.5 = phi ptr [ %uv.4736, %if.then433 ], [ %incdec.ptr571, %if.then564 ], [ null, %invoke.cont559 ]
   %cur.3 = phi i32 [ %cur.2737, %if.then433 ], [ %inc452, %if.then564 ], [ %inc452, %invoke.cont559 ]
-  %vertices275.4 = phi ptr [ %vertices275.2738, %if.then433 ], [ %incdec.ptr562, %if.then564 ], [ %incdec.ptr562, %invoke.cont559 ]
+  %vertices275.3 = phi ptr [ %vertices275.2738, %if.then433 ], [ %incdec.ptr562, %if.then564 ], [ %incdec.ptr562, %invoke.cont559 ]
   %faces242.2 = phi ptr [ %faces242.1739, %if.then433 ], [ %incdec.ptr439, %if.then564 ], [ %incdec.ptr439, %invoke.cont559 ]
   %206 = load ptr, ptr %_M_finish.i426, align 8
   %207 = load ptr, ptr %entries384, align 8
@@ -4903,9 +4903,9 @@ for.inc666:                                       ; preds = %if.end647, %if.then
   br i1 %exitcond.not, label %for.inc672, label %for.body593, !llvm.loop !58
 
 for.inc672:                                       ; preds = %for.inc573, %for.inc373, %for.inc666, %for.cond383.preheader, %invoke.cont334, %if.else576, %for.body312, %if.then323
-  %uv.12 = phi ptr [ %uv.1764, %if.then323 ], [ %uv.1764, %for.body312 ], [ %uv.1764, %if.else576 ], [ %uv.1764, %invoke.cont334 ], [ %uv.1764, %for.cond383.preheader ], [ %uv.11, %for.inc666 ], [ %uv.3, %for.inc373 ], [ %uv.8, %for.inc573 ]
+  %uv.12 = phi ptr [ %uv.1764, %if.then323 ], [ %uv.1764, %for.body312 ], [ %uv.1764, %if.else576 ], [ %uv.1764, %invoke.cont334 ], [ %uv.1764, %for.cond383.preheader ], [ %uv.11, %for.inc666 ], [ %uv.3, %for.inc373 ], [ %uv.5, %for.inc573 ]
   %cur.5 = phi i32 [ %cur.0765, %if.then323 ], [ %cur.0765, %for.body312 ], [ %cur.0765, %if.else576 ], [ %cur.0765, %invoke.cont334 ], [ %cur.0765, %for.cond383.preheader ], [ %inc603, %for.inc666 ], [ %inc346, %for.inc373 ], [ %cur.3, %for.inc573 ]
-  %vertices275.6 = phi ptr [ %vertices275.0766, %if.then323 ], [ %vertices275.0766, %for.body312 ], [ %vertices275.0766, %if.else576 ], [ %vertices275.0766, %invoke.cont334 ], [ %vertices275.0766, %for.cond383.preheader ], [ %incdec.ptr653, %for.inc666 ], [ %incdec.ptr375, %for.inc373 ], [ %vertices275.4, %for.inc573 ]
+  %vertices275.6 = phi ptr [ %vertices275.0766, %if.then323 ], [ %vertices275.0766, %for.body312 ], [ %vertices275.0766, %if.else576 ], [ %vertices275.0766, %invoke.cont334 ], [ %vertices275.0766, %for.cond383.preheader ], [ %incdec.ptr653, %for.inc666 ], [ %incdec.ptr375, %for.inc373 ], [ %vertices275.3, %for.inc573 ]
   %faces242.4 = phi ptr [ %incdec.ptr324, %if.then323 ], [ %faces242.0767, %for.body312 ], [ %faces242.0767, %if.else576 ], [ %incdec.ptr324, %invoke.cont334 ], [ %faces242.0767, %for.cond383.preheader ], [ %incdec.ptr595, %for.inc666 ], [ %incdec.ptr324, %for.inc373 ], [ %faces242.2, %for.inc573 ]
   %incdec.ptr.i533 = getelementptr inbounds i8, ptr %it.sroa.0.1763, i64 32
   %cmp.i414.not = icmp eq ptr %incdec.ptr.i533, %2
@@ -5576,10 +5576,10 @@ while.body.i.preheader:                           ; preds = %if.then.i43, %_ZN6A
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end15.i
-  %out.addr.123.i = phi ptr [ %out.addr.2.i, %if.end15.i ], [ %out.addr.123.i.ph, %while.body.i.preheader ]
+  %out.addr.123.i = phi ptr [ %out.addr.3.i, %if.end15.i ], [ %out.addr.123.i.ph, %while.body.i.preheader ]
   %mustPrint.022.i = phi i1 [ %or.cond1.i41, %if.end15.i ], [ false, %while.body.i.preheader ]
   %cur.021.i = phi i32 [ %div16.i, %if.end15.i ], [ 1000000000, %while.body.i.preheader ]
-  %written.120.i = phi i32 [ %written.2.i, %if.end15.i ], [ %written.120.i.ph, %while.body.i.preheader ]
+  %written.120.i = phi i32 [ %written.3.i, %if.end15.i ], [ %written.120.i.ph, %while.body.i.preheader ]
   %number.addr.119.i = phi i32 [ %number.addr.2.i, %if.end15.i ], [ %number.addr.119.i.ph, %while.body.i.preheader ]
   %div.i = sdiv i32 %number.addr.119.i, %cur.021.i
   %sub11.i42.recomposed = srem i32 %number.addr.119.i, %cur.021.i
@@ -5600,15 +5600,15 @@ if.then6.i:                                       ; preds = %while.body.i
 
 if.end15.i:                                       ; preds = %if.then6.i, %while.body.i
   %number.addr.2.i = phi i32 [ %sub11.i42.recomposed, %if.then6.i ], [ %number.addr.119.i, %while.body.i ]
-  %written.2.i = phi i32 [ %inc10.i, %if.then6.i ], [ %written.120.i, %while.body.i ]
-  %out.addr.2.i = phi ptr [ %incdec.ptr9.i, %if.then6.i ], [ %out.addr.123.i, %while.body.i ]
+  %written.3.i = phi i32 [ %inc10.i, %if.then6.i ], [ %written.120.i, %while.body.i ]
+  %out.addr.3.i = phi ptr [ %incdec.ptr9.i, %if.then6.i ], [ %out.addr.123.i, %while.body.i ]
   %div16.i = sdiv i32 %cur.021.i, 10
-  %cmp2.i = icmp ult i32 %written.2.i, 3
+  %cmp2.i = icmp ult i32 %written.3.i, 3
   br i1 %cmp2.i, label %while.body.i, label %_ZN6Assimp13ASSIMP_itoa10EPcji.exit, !llvm.loop !62
 
 _ZN6Assimp13ASSIMP_itoa10EPcji.exit:              ; preds = %if.then6.i, %if.end15.i
-  %out.addr.3.i = phi ptr [ %incdec.ptr9.i, %if.then6.i ], [ %out.addr.2.i, %if.end15.i ]
-  store i8 0, ptr %out.addr.3.i, align 1
+  %out.addr.2.i = phi ptr [ %incdec.ptr9.i, %if.then6.i ], [ %out.addr.3.i, %if.end15.i ]
+  store i8 0, ptr %out.addr.2.i, align 1
   %call28 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
           to label %invoke.cont27 unwind label %lpad11
 

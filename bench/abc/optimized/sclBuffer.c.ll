@@ -652,7 +652,7 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
   %.195 = phi i32 [ %.0102, %.lr.ph ], [ %37, %68 ]
   %.15394 = phi i32 [ %.052101, %.lr.ph ], [ %.254, %68 ]
-  %.15693 = phi i32 [ %.055100, %.lr.ph ], [ %.358, %68 ]
+  %.15693 = phi i32 [ %.055100, %.lr.ph ], [ %.257, %68 ]
   %.val71 = load ptr, ptr %19, align 8
   %.val72 = load ptr, ptr %27, align 8
   %30 = getelementptr i8, ptr %.val71, i64 32
@@ -714,7 +714,7 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
 
 61:                                               ; preds = %52, %55
   %62 = phi i32 [ %.pre, %55 ], [ %50, %52 ]
-  %.257 = phi i32 [ %60, %55 ], [ %.15693, %52 ]
+  %.358 = phi i32 [ %60, %55 ], [ %.15693, %52 ]
   %.val67 = load ptr, ptr %3, align 8
   %63 = getelementptr i8, ptr %.val67, i64 8
   %.val67.val = load ptr, ptr %63, align 8
@@ -728,7 +728,7 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
 
 68:                                               ; preds = %29, %61
   %.val70 = phi i32 [ %.val70.pre, %61 ], [ %.val70118, %29 ]
-  %.358 = phi i32 [ %.257, %61 ], [ %.15693, %29 ]
+  %.257 = phi i32 [ %.358, %61 ], [ %.15693, %29 ]
   %.254 = phi i32 [ %67, %61 ], [ %.15394, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %69 = sext i32 %.val70 to i64
@@ -741,7 +741,7 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.preheader, %21, %15
   %71 = phi ptr [ %16, %15 ], [ %16, %21 ], [ %16, %.preheader ], [ %.pre120, %.critedge2.loopexit ]
-  %.4 = phi i32 [ %.055100, %15 ], [ %.055100, %21 ], [ %.055100, %.preheader ], [ %.358, %.critedge2.loopexit ]
+  %.4 = phi i32 [ %.055100, %15 ], [ %.055100, %21 ], [ %.055100, %.preheader ], [ %.257, %.critedge2.loopexit ]
   %.3 = phi i32 [ %.052101, %15 ], [ %.052101, %21 ], [ %.052101, %.preheader ], [ %.254, %.critedge2.loopexit ]
   %.2 = phi i32 [ %.0102, %15 ], [ %.0102, %21 ], [ %.0102, %.preheader ], [ %37, %.critedge2.loopexit ]
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
@@ -939,8 +939,8 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 .lr.ph74:                                         ; preds = %Vec_IntStart.exit, %.critedge2
   %18 = phi ptr [ %65, %.critedge2 ], [ %.val59, %Vec_IntStart.exit ]
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.critedge2 ], [ 0, %Vec_IntStart.exit ]
-  %.073 = phi i32 [ %.2, %.critedge2 ], [ 0, %Vec_IntStart.exit ]
-  %.04172 = phi i32 [ %.3, %.critedge2 ], [ 0, %Vec_IntStart.exit ]
+  %.073 = phi i32 [ %.1, %.critedge2 ], [ 0, %Vec_IntStart.exit ]
+  %.04172 = phi i32 [ %.142, %.critedge2 ], [ 0, %Vec_IntStart.exit ]
   %19 = getelementptr i8, ptr %18, i64 8
   %.val54.val = load ptr, ptr %19, align 8
   %20 = getelementptr inbounds ptr, ptr %.val54.val, i64 %indvars.iv78
@@ -977,8 +977,8 @@ Abc_SclObjIsBufInv.exit:                          ; preds = %23
 
 31:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %.168 = phi i32 [ %.073, %.lr.ph ], [ %39, %62 ]
-  %.14267 = phi i32 [ %.04172, %.lr.ph ], [ %.243, %62 ]
+  %.268 = phi i32 [ %.073, %.lr.ph ], [ %39, %62 ]
+  %.24367 = phi i32 [ %.04172, %.lr.ph ], [ %.3, %62 ]
   %.val57 = load ptr, ptr %21, align 8
   %.val58 = load ptr, ptr %29, align 8
   %32 = getelementptr i8, ptr %.val57, i64 32
@@ -990,7 +990,7 @@ Abc_SclObjIsBufInv.exit:                          ; preds = %23
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds ptr, ptr %.val57.val.val, i64 %36
   %38 = load ptr, ptr %37, align 8
-  %39 = add nsw i32 %.168, 1
+  %39 = add nsw i32 %.268, 1
   %40 = tail call i32 @Abc_SclGetRealFaninLit(ptr noundef %38)
   %41 = ashr i32 %40, 1
   %.val53 = load ptr, ptr %3, align 8
@@ -1027,11 +1027,11 @@ Abc_SclObjIsBufInv.exit:                          ; preds = %23
   %59 = load i32, ptr %58, align 4
   %60 = xor i32 %59, %56
   store i32 %60, ptr %58, align 4
-  %61 = add nsw i32 %.14267, 1
+  %61 = add nsw i32 %.24367, 1
   br label %62
 
 62:                                               ; preds = %50, %52, %47, %31
-  %.243 = phi i32 [ %.14267, %31 ], [ %.14267, %47 ], [ %61, %52 ], [ %.14267, %50 ]
+  %.3 = phi i32 [ %.24367, %31 ], [ %.24367, %47 ], [ %61, %52 ], [ %.24367, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val56 = load i32, ptr %27, align 4
   %63 = sext i32 %.val56 to i64
@@ -1044,8 +1044,8 @@ Abc_SclObjIsBufInv.exit:                          ; preds = %23
 
 .critedge2:                                       ; preds = %23, %.critedge2.loopexit, %.preheader, %.lr.ph74, %Abc_SclObjIsBufInv.exit
   %65 = phi ptr [ %18, %.lr.ph74 ], [ %18, %Abc_SclObjIsBufInv.exit ], [ %18, %23 ], [ %18, %.preheader ], [ %.pre, %.critedge2.loopexit ]
-  %.3 = phi i32 [ %.04172, %.lr.ph74 ], [ %.04172, %Abc_SclObjIsBufInv.exit ], [ %.04172, %23 ], [ %.04172, %.preheader ], [ %.243, %.critedge2.loopexit ]
-  %.2 = phi i32 [ %.073, %.lr.ph74 ], [ %.073, %Abc_SclObjIsBufInv.exit ], [ %.073, %23 ], [ %.073, %.preheader ], [ %39, %.critedge2.loopexit ]
+  %.142 = phi i32 [ %.04172, %.lr.ph74 ], [ %.04172, %Abc_SclObjIsBufInv.exit ], [ %.04172, %23 ], [ %.04172, %.preheader ], [ %.3, %.critedge2.loopexit ]
+  %.1 = phi i32 [ %.073, %.lr.ph74 ], [ %.073, %Abc_SclObjIsBufInv.exit ], [ %.073, %23 ], [ %.073, %.preheader ], [ %39, %.critedge2.loopexit ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %66 = getelementptr i8, ptr %65, i64 4
   %.val = load i32, ptr %66, align 4
@@ -1054,11 +1054,11 @@ Abc_SclObjIsBufInv.exit:                          ; preds = %23
   br i1 %68, label %.lr.ph74, label %.critedge.loopexit, !llvm.loop !18
 
 .critedge.loopexit:                               ; preds = %.critedge2
-  %69 = sitofp i32 %.2 to double
+  %69 = sitofp i32 %.1 to double
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Vec_IntStart.exit
-  %.041.lcssa = phi i32 [ 0, %Vec_IntStart.exit ], [ %.3, %.critedge.loopexit ]
+  %.041.lcssa = phi i32 [ 0, %Vec_IntStart.exit ], [ %.142, %.critedge.loopexit ]
   %.0.lcssa = phi double [ 0.000000e+00, %Vec_IntStart.exit ], [ %69, %.critedge.loopexit ]
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.thread, label %71
@@ -1212,7 +1212,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %2, %Vec_IntFill.exi
 
 56:                                               ; preds = %.lr.ph83, %110
   %indvars.iv92 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next93, %110 ]
-  %.182 = phi i32 [ %.086, %.lr.ph83 ], [ %.2, %110 ]
+  %.282 = phi i32 [ %.086, %.lr.ph83 ], [ %.3, %110 ]
   %.val44 = load ptr, ptr %47, align 8
   %.val45 = load ptr, ptr %54, align 8
   %57 = getelementptr i8, ptr %.val44, i64 32
@@ -1339,7 +1339,7 @@ Vec_IntFillExtra.exit:                            ; preds = %56, %._crit_edge.i
   br label %110
 
 110:                                              ; preds = %Vec_IntFillExtra.exit, %108
-  %.2 = phi i32 [ %.182, %Vec_IntFillExtra.exit ], [ 0, %108 ]
+  %.3 = phi i32 [ %.282, %Vec_IntFillExtra.exit ], [ 0, %108 ]
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %.val43 = load i32, ptr %52, align 4
   %111 = sext i32 %.val43 to i64
@@ -1347,7 +1347,7 @@ Vec_IntFillExtra.exit:                            ; preds = %56, %._crit_edge.i
   br i1 %112, label %56, label %.critedge4, !llvm.loop !21
 
 .critedge4:                                       ; preds = %110, %.preheader
-  %.1.lcssa = phi i32 [ %.086, %.preheader ], [ %.2, %110 ]
+  %.2.lcssa = phi i32 [ %.086, %.preheader ], [ %.3, %110 ]
   %.val53 = load ptr, ptr %47, align 8
   %113 = getelementptr i8, ptr %47, i64 16
   %.val54 = load i32, ptr %113, align 8
@@ -1397,11 +1397,11 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %.critedge4, %123, %
   br label %.critedge2.thread
 
 133:                                              ; preds = %Abc_ObjIsBarBuf.exit.thread
-  %.not39 = icmp eq i32 %.1.lcssa, 0
+  %.not39 = icmp eq i32 %.2.lcssa, 0
   br i1 %.not39, label %.critedge2.thread, label %.critedge
 
 .critedge:                                        ; preds = %49, %.lr.ph87, %133, %Abc_ObjIsBarBuf.exit
-  %.4 = phi i32 [ %.086, %.lr.ph87 ], [ %.1.lcssa, %Abc_ObjIsBarBuf.exit ], [ 1, %133 ], [ %.086, %49 ]
+  %.4 = phi i32 [ %.086, %.lr.ph87 ], [ %.2.lcssa, %Abc_ObjIsBarBuf.exit ], [ 1, %133 ], [ %.086, %49 ]
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %134 = load ptr, ptr %26, align 8
   %135 = getelementptr i8, ptr %134, i64 4
@@ -1422,8 +1422,8 @@ Abc_ObjIsBarBuf.exit.thread:                      ; preds = %.critedge4, %123, %
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %133, %.thread, %140, %.critedge2
-  %.567 = phi i32 [ %.0.lcssa, %140 ], [ %.0.lcssa, %.critedge2 ], [ 0, %.thread ], [ 0, %133 ]
-  ret i32 %.567
+  %.167 = phi i32 [ %.0.lcssa, %140 ], [ %.0.lcssa, %.critedge2 ], [ 0, %.thread ], [ 0, %133 ]
+  ret i32 %.167
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1742,12 +1742,12 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
   br label %67
 
 67:                                               ; preds = %._crit_edge, %.thread, %63, %25
-  %.1 = phi i32 [ %66, %63 ], [ %1, %.thread ], [ %1, %25 ], [ %.066.lcssa.fr, %._crit_edge ]
-  %68 = icmp sgt i32 %.1, 0
+  %.0 = phi i32 [ %66, %63 ], [ %1, %.thread ], [ %1, %25 ], [ %.066.lcssa.fr, %._crit_edge ]
+  %68 = icmp sgt i32 %.0, 0
   br i1 %68, label %.lr.ph99.preheader, label %.critedge2
 
 .lr.ph99.preheader:                               ; preds = %67
-  %wide.trip.count108 = zext nneg i32 %.1 to i64
+  %wide.trip.count108 = zext nneg i32 %.0 to i64
   br label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
@@ -1773,7 +1773,7 @@ Vec_PtrSort.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
   br i1 %74, label %.lr.ph103, label %.critedge4
 
 .lr.ph103:                                        ; preds = %71
-  %75 = add nsw i32 %.1, -1
+  %75 = add nsw i32 %.0, -1
   %76 = zext i32 %75 to i64
   br label %77
 

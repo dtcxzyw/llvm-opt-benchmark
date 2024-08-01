@@ -410,8 +410,8 @@ default.unreachable:                              ; preds = %._crit_edge
   br label %180
 
 180:                                              ; preds = %._crit_edge, %155
-  %.13 = phi i32 [ %179, %155 ], [ %.0.lcssa, %._crit_edge ]
-  ret i32 %.13
+  %.12 = phi i32 [ %179, %155 ], [ %.0.lcssa, %._crit_edge ]
+  ret i32 %.12
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

@@ -432,9 +432,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1462,7 +1462,7 @@ if.end:                                           ; preds = %entry
 for.cond:                                         ; preds = %if.end31, %if.end
   %2 = phi ptr [ %1, %if.end ], [ %12, %if.end31 ]
   %3 = phi ptr [ %.pre, %if.end ], [ %30, %if.end31 ]
-  %p.0 = phi ptr [ %1, %if.end ], [ %p.2, %if.end31 ]
+  %p.0 = phi ptr [ %1, %if.end ], [ %p.3, %if.end31 ]
   %prevCC.0 = phi i16 [ 0, %if.end ], [ %retval.0.i, %if.end31 ]
   %4 = load ptr, ptr %nfcImpl, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0, i64 2
@@ -1512,7 +1512,7 @@ if.then9.i:                                       ; preds = %land.lhs.true5.i
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then9.i, %land.lhs.true5.i, %if.end.i
-  %p.1 = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %incdec.ptr11.i, %if.then9.i ], [ %incdec.ptr.i, %land.lhs.true5.i ]
+  %p.2 = phi ptr [ %incdec.ptr.i, %if.end.i ], [ %incdec.ptr11.i, %if.then9.i ], [ %incdec.ptr.i, %land.lhs.true5.i ]
   %c.0.i = phi i32 [ %conv.i11, %if.end.i ], [ %sub.i, %if.then9.i ], [ %conv.i11, %land.lhs.true5.i ]
   %call13.i = tail call noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %4, i32 noundef %c.0.i)
   %.pre74 = load ptr, ptr %pos, align 8
@@ -1520,7 +1520,7 @@ if.end12.i:                                       ; preds = %if.then9.i, %land.l
 
 _ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit: ; preds = %for.cond, %lor.lhs.false.i, %if.end12.i
   %12 = phi ptr [ %2, %for.cond ], [ %2, %lor.lhs.false.i ], [ %.pre74, %if.end12.i ]
-  %p.2 = phi ptr [ %incdec.ptr.i, %for.cond ], [ %incdec.ptr.i, %lor.lhs.false.i ], [ %p.1, %if.end12.i ]
+  %p.3 = phi ptr [ %incdec.ptr.i, %for.cond ], [ %incdec.ptr.i, %lor.lhs.false.i ], [ %p.2, %if.end12.i ]
   %retval.0.i = phi i16 [ 0, %for.cond ], [ 0, %lor.lhs.false.i ], [ %call13.i, %if.end12.i ]
   %13 = lshr i16 %retval.0.i, 8
   %cmp = icmp ugt i16 %retval.0.i, 255
@@ -1554,15 +1554,15 @@ do.body.preheader:                                ; preds = %lor.lhs.false, %lor
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %_ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47
-  %p.3 = phi ptr [ %p.4, %_ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47 ], [ %p.2, %do.body.preheader ]
+  %p.1 = phi ptr [ %p.4, %_ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47 ], [ %p.3, %do.body.preheader ]
   %15 = load ptr, ptr %rawLimit, align 8
-  %cmp19.not = icmp eq ptr %p.3, %15
+  %cmp19.not = icmp eq ptr %p.1, %15
   %.pre76 = load ptr, ptr %nfcImpl, align 8
   br i1 %cmp19.not, label %do.end, label %land.rhs
 
 land.rhs:                                         ; preds = %do.body
-  %incdec.ptr.i14 = getelementptr inbounds i8, ptr %p.3, i64 2
-  %16 = load i16, ptr %p.3, align 2
+  %incdec.ptr.i14 = getelementptr inbounds i8, ptr %p.1, i64 2
+  %16 = load i16, ptr %p.1, align 2
   %conv.i15 = zext i16 %16 to i32
   %minDecompNoCP.i16 = getelementptr inbounds i8, ptr %.pre76, i64 8
   %17 = load i16, ptr %minDecompNoCP.i16, align 8
@@ -1604,7 +1604,7 @@ if.then9.i42:                                     ; preds = %land.lhs.true5.i34
   %shl.i43 = shl nuw nsw i32 %conv.i15, 10
   %add.i44 = add nsw i32 %shl.i43, -56613888
   %sub.i45 = add nuw nsw i32 %add.i44, %conv6.i35
-  %incdec.ptr11.i46 = getelementptr inbounds i8, ptr %p.3, i64 4
+  %incdec.ptr11.i46 = getelementptr inbounds i8, ptr %p.1, i64 4
   br label %_ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47
 
 _ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47: ; preds = %if.end.i29, %land.lhs.true5.i34, %if.then9.i42
@@ -1622,12 +1622,12 @@ do.end:                                           ; preds = %land.rhs, %lor.lhs.
   %23 = phi ptr [ %.pre75, %_ZNK6icu_7515Normalizer2Impl9nextFCD16ERPKDsS2_.exit47.do.end_crit_edge ], [ %.pre76, %do.body ], [ %.pre76, %lor.lhs.false.i18 ], [ %.pre76, %land.rhs ]
   %24 = load ptr, ptr %pos, align 8
   %normalized.i = getelementptr inbounds i8, ptr %this, i64 456
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %p.3 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %p.1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 1
   %conv.i48 = trunc i64 %sub.ptr.div.i to i32
-  tail call void @_ZNK6icu_7515Normalizer2Impl9decomposeEPKDsS2_RNS_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %23, ptr noundef %24, ptr noundef nonnull %p.3, ptr noundef nonnull align 8 dereferenceable(64) %normalized.i, i32 noundef %conv.i48, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  tail call void @_ZNK6icu_7515Normalizer2Impl9decomposeEPKDsS2_RNS_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %23, ptr noundef %24, ptr noundef nonnull %p.1, ptr noundef nonnull align 8 dereferenceable(64) %normalized.i, i32 noundef %conv.i48, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %25 = load i32, ptr %errorCode, align 4
   %cmp.i.i49 = icmp slt i32 %25, 1
   br i1 %cmp.i.i49, label %if.end.i51, label %return
@@ -1636,7 +1636,7 @@ if.end.i51:                                       ; preds = %do.end
   %segmentStart.i = getelementptr inbounds i8, ptr %this, i64 424
   store ptr %24, ptr %segmentStart.i, align 8
   %segmentLimit.i = getelementptr inbounds i8, ptr %this, i64 432
-  store ptr %p.3, ptr %segmentLimit.i, align 8
+  store ptr %p.1, ptr %segmentLimit.i, align 8
   %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 464
   %26 = load i16, ptr %fUnion.i.i, align 8
   %conv1.i.i = zext i16 %26 to i32
@@ -1677,7 +1677,7 @@ if.end29:                                         ; preds = %if.else9.i.i, %if.t
 
 if.end31:                                         ; preds = %lor.lhs.false, %if.end8
   %30 = load ptr, ptr %rawLimit, align 8
-  %cmp34 = icmp eq ptr %p.2, %30
+  %cmp34 = icmp eq ptr %p.3, %30
   %31 = and i16 %retval.0.i, 255
   %cmp37 = icmp eq i16 %31, 0
   %or.cond = or i1 %cmp37, %cmp34
@@ -1685,9 +1685,9 @@ if.end31:                                         ; preds = %lor.lhs.false, %if.
 
 if.then38:                                        ; preds = %if.end31
   %segmentLimit39 = getelementptr inbounds i8, ptr %this, i64 432
-  store ptr %p.2, ptr %segmentLimit39, align 8
+  store ptr %p.3, ptr %segmentLimit39, align 8
   %limit40 = getelementptr inbounds i8, ptr %this, i64 408
-  store ptr %p.2, ptr %limit40, align 8
+  store ptr %p.3, ptr %limit40, align 8
   br label %for.end
 
 for.end:                                          ; preds = %if.then38, %if.end29, %if.then7
@@ -2166,7 +2166,7 @@ if.end:                                           ; preds = %entry
 for.cond:                                         ; preds = %if.end36, %if.end
   %2 = phi ptr [ %1, %if.end ], [ %12, %if.end36 ]
   %3 = phi ptr [ %.pre, %if.end ], [ %31, %if.end36 ]
-  %p.0 = phi ptr [ %1, %if.end ], [ %p.2, %if.end36 ]
+  %p.0 = phi ptr [ %1, %if.end ], [ %p.3, %if.end36 ]
   %nextCC.0 = phi i32 [ 0, %if.end ], [ %shr, %if.end36 ]
   %4 = load ptr, ptr %nfcImpl, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0, i64 -2
@@ -2218,7 +2218,7 @@ if.then11.i:                                      ; preds = %land.lhs.true.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then11.i, %land.lhs.true.i, %if.else.i, %if.then4.i
-  %p.1 = phi ptr [ %add.ptr.i, %if.then11.i ], [ %incdec.ptr.i, %land.lhs.true.i ], [ %incdec.ptr.i, %if.else.i ], [ %incdec.ptr.i, %if.then4.i ]
+  %p.2 = phi ptr [ %add.ptr.i, %if.then11.i ], [ %incdec.ptr.i, %land.lhs.true.i ], [ %incdec.ptr.i, %if.else.i ], [ %incdec.ptr.i, %if.then4.i ]
   %c.0.i = phi i32 [ %sub.i, %if.then11.i ], [ %conv.i14, %land.lhs.true.i ], [ %conv.i14, %if.else.i ], [ %conv.i14, %if.then4.i ]
   %call16.i = tail call noundef zeroext i16 @_ZNK6icu_7515Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %4, i32 noundef %c.0.i)
   %.pre82 = load ptr, ptr %pos, align 8
@@ -2226,7 +2226,7 @@ if.end15.i:                                       ; preds = %if.then11.i, %land.
 
 _ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit: ; preds = %for.cond, %if.then4.i, %if.end15.i
   %12 = phi ptr [ %2, %for.cond ], [ %.pre82, %if.end15.i ], [ %2, %if.then4.i ]
-  %p.2 = phi ptr [ %incdec.ptr.i, %for.cond ], [ %p.1, %if.end15.i ], [ %incdec.ptr.i, %if.then4.i ]
+  %p.3 = phi ptr [ %incdec.ptr.i, %for.cond ], [ %p.2, %if.end15.i ], [ %incdec.ptr.i, %if.then4.i ]
   %retval.0.i = phi i16 [ 0, %for.cond ], [ %call16.i, %if.end15.i ], [ 0, %if.then4.i ]
   %13 = and i16 %retval.0.i, 255
   %conv3 = zext nneg i16 %13 to i32
@@ -2262,19 +2262,19 @@ do.body.preheader:                                ; preds = %lor.lhs.false, %lor
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %_ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit50
-  %p.3 = phi ptr [ %p.4, %_ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit50 ], [ %p.2, %do.body.preheader ]
+  %p.1 = phi ptr [ %p.4, %_ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit50 ], [ %p.3, %do.body.preheader ]
   %fcd16.0 = phi i16 [ %call16.i37, %_ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit50 ], [ %retval.0.i, %do.body.preheader ]
   %cmp21 = icmp ugt i16 %fcd16.0, 255
   br i1 %cmp21, label %land.lhs.true22, label %do.end
 
 land.lhs.true22:                                  ; preds = %do.body
   %14 = load ptr, ptr %rawStart, align 8
-  %cmp24.not = icmp eq ptr %p.3, %14
+  %cmp24.not = icmp eq ptr %p.1, %14
   br i1 %cmp24.not, label %do.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true22
   %15 = load ptr, ptr %nfcImpl, align 8
-  %incdec.ptr.i17 = getelementptr inbounds i8, ptr %p.3, i64 -2
+  %incdec.ptr.i17 = getelementptr inbounds i8, ptr %p.1, i64 -2
   %16 = load i16, ptr %incdec.ptr.i17, align 2
   %conv.i18 = zext i16 %16 to i32
   %minDecompNoCP.i19 = getelementptr inbounds i8, ptr %15, i64 8
@@ -2309,7 +2309,7 @@ if.else.i39:                                      ; preds = %if.end.i21
   br i1 %cmp7.i40, label %land.lhs.true.i41, label %_ZNK6icu_7515Normalizer2Impl13previousFCD16EPKDsRS2_.exit50
 
 land.lhs.true.i41:                                ; preds = %if.else.i39
-  %add.ptr.i42 = getelementptr inbounds i8, ptr %p.3, i64 -4
+  %add.ptr.i42 = getelementptr inbounds i8, ptr %p.1, i64 -4
   %22 = load i16, ptr %add.ptr.i42, align 2
   %conv8.i43 = zext i16 %22 to i32
   %and9.i44 = and i32 %conv8.i43, 64512
@@ -2334,18 +2334,18 @@ do.end:                                           ; preds = %if.then4.i24, %land
   %24 = load ptr, ptr %nfcImpl, align 8
   %normalized.i = getelementptr inbounds i8, ptr %this, i64 456
   %sub.ptr.lhs.cast.i = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %p.3 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %p.1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 1
   %conv.i51 = trunc i64 %sub.ptr.div.i to i32
-  tail call void @_ZNK6icu_7515Normalizer2Impl9decomposeEPKDsS2_RNS_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %24, ptr noundef nonnull %p.3, ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(64) %normalized.i, i32 noundef %conv.i51, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
+  tail call void @_ZNK6icu_7515Normalizer2Impl9decomposeEPKDsS2_RNS_13UnicodeStringEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %24, ptr noundef nonnull %p.1, ptr noundef %23, ptr noundef nonnull align 8 dereferenceable(64) %normalized.i, i32 noundef %conv.i51, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   %25 = load i32, ptr %errorCode, align 4
   %cmp.i.i52 = icmp slt i32 %25, 1
   br i1 %cmp.i.i52, label %if.end.i54, label %return
 
 if.end.i54:                                       ; preds = %do.end
   %segmentStart.i = getelementptr inbounds i8, ptr %this, i64 424
-  store ptr %p.3, ptr %segmentStart.i, align 8
+  store ptr %p.1, ptr %segmentStart.i, align 8
   %segmentLimit.i = getelementptr inbounds i8, ptr %this, i64 432
   store ptr %23, ptr %segmentLimit.i, align 8
   %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 464
@@ -2390,16 +2390,16 @@ if.end36:                                         ; preds = %lor.lhs.false, %if.
   %30 = lshr i16 %retval.0.i, 8
   %shr = zext nneg i16 %30 to i32
   %31 = load ptr, ptr %rawStart, align 8
-  %cmp40 = icmp eq ptr %p.2, %31
+  %cmp40 = icmp eq ptr %p.3, %31
   %cmp43 = icmp ult i16 %retval.0.i, 256
   %or.cond = or i1 %cmp43, %cmp40
   br i1 %or.cond, label %if.then44, label %for.cond, !llvm.loop !10
 
 if.then44:                                        ; preds = %if.end36
   %segmentStart45 = getelementptr inbounds i8, ptr %this, i64 424
-  store ptr %p.2, ptr %segmentStart45, align 8
+  store ptr %p.3, ptr %segmentStart45, align 8
   %start46 = getelementptr inbounds i8, ptr %this, i64 392
-  store ptr %p.2, ptr %start46, align 8
+  store ptr %p.3, ptr %start46, align 8
   br label %for.end
 
 for.end:                                          ; preds = %if.then44, %if.end34, %if.then6

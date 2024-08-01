@@ -575,7 +575,7 @@ lpad30:                                           ; preds = %invoke.cont29
   br label %ehcleanup
 
 cleanup:                                          ; preds = %if.then13.i.i65, %if.then.i.i59, %invoke.cont31, %if.then13
-  %retval.0 = phi ptr [ %12, %if.then13 ], [ %30, %invoke.cont31 ], [ %30, %if.then.i.i59 ], [ %30, %if.then13.i.i65 ]
+  %retval.1 = phi ptr [ %12, %if.then13 ], [ %30, %invoke.cont31 ], [ %30, %if.then.i.i59 ], [ %30, %if.then13.i.i65 ]
   %39 = load ptr, ptr %key, align 8
   %bf.load.i.i.i66 = load i64, ptr %39, align 8
   %40 = and i64 %bf.load.i.i.i66, 1152920405095219200
@@ -608,8 +608,8 @@ ehcleanup:                                        ; preds = %lpad30, %lpad23, %l
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.then13.i.i.i74, %if.then.i.i.i68, %cleanup, %if.end, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ null, %if.end ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i68 ], [ %retval.0, %if.then13.i.i.i74 ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ null, %if.end ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i68 ], [ %retval.1, %if.then13.i.i.i74 ]
+  ret ptr %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0

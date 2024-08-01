@@ -1797,14 +1797,14 @@ define internal i32 @H5VL_pass_through_link_create(ptr noundef %0, ptr noundef r
   br label %20
 
 20:                                               ; preds = %18, %16
-  %.1 = phi i64 [ %19, %18 ], [ %.0, %16 ]
+  %.2 = phi i64 [ %19, %18 ], [ %.0, %16 ]
   %21 = getelementptr inbounds i8, ptr %15, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %14, align 8
   br label %23
 
 23:                                               ; preds = %13, %20, %10
-  %.2 = phi i64 [ %.1, %20 ], [ %.0, %13 ], [ %.0, %10 ]
+  %.1 = phi i64 [ %.2, %20 ], [ %.0, %13 ], [ %.0, %10 ]
   br i1 %.not, label %27, label %24
 
 24:                                               ; preds = %23
@@ -1814,7 +1814,7 @@ define internal i32 @H5VL_pass_through_link_create(ptr noundef %0, ptr noundef r
 
 27:                                               ; preds = %23, %24
   %28 = phi ptr [ %26, %24 ], [ null, %23 ]
-  %29 = tail call i32 @H5VLlink_create(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %2, i64 noundef %.2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #10
+  %29 = tail call i32 @H5VLlink_create(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %2, i64 noundef %.1, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #10
   %.not30 = icmp eq ptr %6, null
   br i1 %.not30, label %36, label %30
 
@@ -1827,8 +1827,8 @@ define internal i32 @H5VL_pass_through_link_create(ptr noundef %0, ptr noundef r
   %33 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
   %34 = getelementptr inbounds i8, ptr %33, i64 8
   store ptr %31, ptr %34, align 8
-  store i64 %.2, ptr %33, align 8
-  %35 = tail call i32 @H5Iinc_ref(i64 noundef %.2) #10
+  store i64 %.1, ptr %33, align 8
+  %35 = tail call i32 @H5Iinc_ref(i64 noundef %.1) #10
   store ptr %33, ptr %6, align 8
   br label %36
 

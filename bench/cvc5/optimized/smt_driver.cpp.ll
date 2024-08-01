@@ -492,14 +492,14 @@ ehcleanup:                                        ; preds = %lpad23, %lpad.i, %l
 
 catch.dispatch:                                   ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit40, %lpad.loopexit ], [ %lpad.loopexit.split-lp41, %lpad.loopexit.split-lp ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn.pn, 1
   %9 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal14LogicExceptionE) #14
-  %matches = icmp eq i32 %ehselector.slot.1, %9
+  %matches = icmp eq i32 %ehselector.slot.0, %9
   br i1 %matches, label %catch53, label %catch.fallthrough
 
 catch53:                                          ; preds = %catch.dispatch
-  %10 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #14
+  %10 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #14
   %11 = load ptr, ptr %d_smt, align 8
   %call59 = invoke noundef ptr @_ZN4cvc58internal3smt9SmtSolver13getPropEngineEv(ptr noundef nonnull align 8 dereferenceable(1216) %11)
           to label %invoke.cont58 unwind label %lpad57
@@ -514,11 +514,11 @@ invoke.cont60:                                    ; preds = %invoke.cont58
 
 catch.fallthrough:                                ; preds = %catch.dispatch
   %12 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal28TypeCheckingExceptionPrivateE) #14
-  %matches45 = icmp eq i32 %ehselector.slot.1, %12
+  %matches45 = icmp eq i32 %ehselector.slot.0, %12
   br i1 %matches45, label %catch, label %ehcleanup71
 
 catch:                                            ; preds = %catch.fallthrough
-  %13 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #14
+  %13 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #14
   %14 = load ptr, ptr %d_smt, align 8
   %call49 = invoke noundef ptr @_ZN4cvc58internal3smt9SmtSolver13getPropEngineEv(ptr noundef nonnull align 8 dereferenceable(1216) %14)
           to label %invoke.cont48 unwind label %lpad47

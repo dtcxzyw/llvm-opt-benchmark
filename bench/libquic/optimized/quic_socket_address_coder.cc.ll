@@ -229,8 +229,8 @@ if.then.i.i.i20:                                  ; preds = %ehcleanup20
   br label %eh.resume
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %sw.epilog, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %sw.epilog ], [ true, %cleanup ], [ %cmp8.not, %if.then.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %sw.epilog ], [ true, %cleanup ], [ %cmp8.not, %if.then.i.i.i ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i20, %ehcleanup20
   resume { ptr, i32 } %.pn.pn

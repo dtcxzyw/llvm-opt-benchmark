@@ -626,8 +626,8 @@ define hidden noundef ptr @_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb
   br i1 %21, label %.preheader, label %29
 
 .preheader:                                       ; preds = %17, %.preheader
-  %.026 = phi ptr [ %22, %.preheader ], [ %9, %17 ]
-  %22 = getelementptr inbounds i8, ptr %.026, i64 1
+  %.1 = phi ptr [ %22, %.preheader ], [ %9, %17 ]
+  %22 = getelementptr inbounds i8, ptr %.1, i64 1
   %23 = icmp ult ptr %22, %19
   %24 = load i8, ptr %22, align 1
   %25 = icmp eq i8 %24, 91
@@ -647,8 +647,8 @@ define hidden noundef ptr @_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb
   br label %_ZN4UTF87strrchrEPKaia.exit.thread
 
 29:                                               ; preds = %.critedge, %17
-  %.1 = phi ptr [ %22, %.critedge ], [ %9, %17 ]
-  %.not = icmp ult ptr %.1, %19
+  %.026 = phi ptr [ %22, %.critedge ], [ %9, %17 ]
+  %.not = icmp ult ptr %.026, %19
   br i1 %.not, label %32, label %30
 
 30:                                               ; preds = %29
@@ -660,7 +660,7 @@ define hidden noundef ptr @_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb
   br label %_ZN4UTF87strrchrEPKaia.exit.thread
 
 32:                                               ; preds = %29
-  %33 = ptrtoint ptr %.1 to i64
+  %33 = ptrtoint ptr %.026 to i64
   %34 = ptrtoint ptr %9 to i64
   %35 = sub i64 %33, %34
   %36 = trunc i64 %35 to i32
@@ -1146,8 +1146,8 @@ _ZL25get_jimage_version_stringv.exit:             ; preds = %4, %13
   br i1 %43, label %.preheader.i, label %49
 
 .preheader.i:                                     ; preds = %39, %.preheader.i
-  %.026.i = phi ptr [ %44, %.preheader.i ], [ %31, %39 ]
-  %44 = getelementptr inbounds i8, ptr %.026.i, i64 1
+  %.1.i = phi ptr [ %44, %.preheader.i ], [ %31, %39 ]
+  %44 = getelementptr inbounds i8, ptr %.1.i, i64 1
   %45 = icmp ult ptr %44, %41
   %46 = load i8, ptr %44, align 1
   %47 = icmp eq i8 %46, 91
@@ -1159,12 +1159,12 @@ _ZL25get_jimage_version_stringv.exit:             ; preds = %4, %13
   br i1 %48, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60.thread, label %49
 
 49:                                               ; preds = %.critedge.i, %39
-  %.1.i = phi ptr [ %44, %.critedge.i ], [ %31, %39 ]
-  %.not.i25 = icmp ult ptr %.1.i, %41
+  %.026.i = phi ptr [ %44, %.critedge.i ], [ %31, %39 ]
+  %.not.i25 = icmp ult ptr %.026.i, %41
   br i1 %.not.i25, label %_ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60.thread
 
 _ZN11ClassLoader23package_from_class_nameEPK6SymbolPb.exit: ; preds = %49
-  %50 = ptrtoint ptr %.1.i to i64
+  %50 = ptrtoint ptr %.026.i to i64
   %51 = ptrtoint ptr %31 to i64
   %52 = sub i64 %50, %51
   %53 = trunc i64 %52 to i32
@@ -1255,7 +1255,7 @@ _ZL25get_jimage_version_stringv.exit30:           ; preds = %95, %103
   br label %108
 
 108:                                              ; preds = %_ZL25get_jimage_version_stringv.exit30, %79
-  %.017 = phi i64 [ %107, %_ZL25get_jimage_version_stringv.exit30 ], [ 0, %79 ]
+  %.2 = phi i64 [ %107, %_ZL25get_jimage_version_stringv.exit30 ], [ 0, %79 ]
   %109 = load ptr, ptr %83, align 8
   %.not.i.i.i.i = icmp eq ptr %109, null
   br i1 %.not.i.i.i.i, label %111, label %110
@@ -1281,14 +1281,14 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60.thread: ; preds = %33, %_ZN11Class
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60:    ; preds = %113, %111, %_ZL25get_jimage_version_stringv.exit28, %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit
-  %.1.ph = phi i64 [ %.017, %113 ], [ %.017, %111 ], [ %75, %_ZL25get_jimage_version_stringv.exit28 ], [ 0, %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit ]
+  %.1.ph = phi i64 [ %.2, %113 ], [ %.2, %111 ], [ %75, %_ZL25get_jimage_version_stringv.exit28 ], [ 0, %_ZN11ClassLoader17get_package_entryEP6SymbolP15ClassLoaderData.exit ]
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %55) #20
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %22) #20
   %.not24 = icmp eq i64 %.1.ph, 0
   br i1 %.not24, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread63, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread
 
 _ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread:    ; preds = %_ZL25get_jimage_version_stringv.exit, %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60
-  %.258 = phi i64 [ %.1.ph, %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60 ], [ %17, %_ZL25get_jimage_version_stringv.exit ]
+  %.01758 = phi i64 [ %.1.ph, %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread60 ], [ %17, %_ZL25get_jimage_version_stringv.exit ]
   %114 = load i8, ptr @UsePerfData, align 1
   %115 = trunc i8 %114 to i1
   br i1 %115, label %116, label %123
@@ -1312,7 +1312,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit33.thread:    ; preds = %_ZL25get_jimage_ver
   %129 = load ptr, ptr %128, align 8
   %130 = call noundef ptr %129(ptr noundef nonnull align 8 dereferenceable(24) %0) #20
   %131 = load i64, ptr %5, align 8
-  %132 = call noundef i64 %126(ptr noundef %130, i64 noundef %.258, ptr noundef %125, i64 noundef %131) #20
+  %132 = call noundef i64 %126(ptr noundef %130, i64 noundef %.01758, ptr noundef %125, i64 noundef %131) #20
   %133 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20
   %134 = load i64, ptr %5, align 8
   %135 = trunc i64 %134 to i32
@@ -3676,7 +3676,7 @@ define hidden noundef ptr @_ZN11ClassLoader10load_classEP6SymbolP12PackageEntryb
   br i1 %.not64, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %43, %49
-  %.04166 = phi i16 [ %52, %49 ], [ 1, %43 ]
+  %.14266 = phi i16 [ %52, %49 ], [ 1, %43 ]
   %.04365 = phi ptr [ %51, %49 ], [ %44, %43 ]
   %45 = load ptr, ptr %.04365, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 64
@@ -3689,7 +3689,7 @@ define hidden noundef ptr @_ZN11ClassLoader10load_classEP6SymbolP12PackageEntryb
   %50 = getelementptr inbounds i8, ptr %.04365, i64 8
   %51 = load volatile ptr, ptr %50, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !9
-  %52 = add i16 %.04166, 1
+  %52 = add i16 %.14266, 1
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !24
 
@@ -3697,23 +3697,23 @@ define hidden noundef ptr @_ZN11ClassLoader10load_classEP6SymbolP12PackageEntryb
   br i1 %42, label %.thread, label %.thread56
 
 .thread56:                                        ; preds = %.lr.ph, %53
-  %.360 = phi ptr [ %.1, %53 ], [ %48, %.lr.ph ]
-  %.14259 = phi i16 [ 0, %53 ], [ %.04166, %.lr.ph ]
+  %.260 = phi ptr [ %.1, %53 ], [ %48, %.lr.ph ]
+  %.04159 = phi i16 [ 0, %53 ], [ %.14266, %.lr.ph ]
   %54 = load i16, ptr @_ZN14ClassLoaderExt28_app_class_paths_start_indexE, align 2
-  %55 = icmp sle i16 %54, %.14259
+  %55 = icmp sle i16 %54, %.04159
   %56 = zext i1 %55 to i8
-  %57 = getelementptr inbounds i8, ptr %.360, i64 40
+  %57 = getelementptr inbounds i8, ptr %.260, i64 40
   store i8 %56, ptr %57, align 8
   %58 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %7, i8 0, i64 27, i1 false)
-  %59 = call noundef ptr @_ZN12KlassFactory18create_from_streamEP15ClassFileStreamP6SymbolP15ClassLoaderDataRK13ClassLoadInfoP10JavaThread(ptr noundef nonnull %.360, ptr noundef nonnull %0, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(27) %7, ptr noundef %3) #20
+  %59 = call noundef ptr @_ZN12KlassFactory18create_from_streamEP15ClassFileStreamP6SymbolP15ClassLoaderDataRK13ClassLoadInfoP10JavaThread(ptr noundef nonnull %.260, ptr noundef nonnull %0, ptr noundef %58, ptr noundef nonnull align 8 dereferenceable(27) %7, ptr noundef %3) #20
   %60 = getelementptr inbounds i8, ptr %3, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not62 = icmp eq ptr %61, null
   br i1 %.not62, label %62, label %.thread
 
 62:                                               ; preds = %.thread56
-  call void @_ZN13InstanceKlass19set_classpath_indexEs(ptr noundef nonnull align 8 dereferenceable(464) %59, i16 noundef signext %.14259) #20
+  call void @_ZN13InstanceKlass19set_classpath_indexEs(ptr noundef nonnull align 8 dereferenceable(464) %59, i16 noundef signext %.04159) #20
   br label %.thread
 
 .thread:                                          ; preds = %49, %43, %.thread56, %53, %62

@@ -363,8 +363,8 @@ if.end12:                                         ; preds = %read_all.exit
   br i1 %tobool15.not, label %end, label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end12, %sw.bb, %if.end
-  %cms.0 = phi ptr [ null, %if.end ], [ %call13, %if.end12 ], [ %call2, %sw.bb ]
-  %buf.0 = phi ptr [ null, %if.end ], [ %retval.0.i, %if.end12 ], [ null, %sw.bb ]
+  %cms.1 = phi ptr [ null, %if.end ], [ %call13, %if.end12 ], [ %call2, %sw.bb ]
+  %buf.1 = phi ptr [ null, %if.end ], [ %retval.0.i, %if.end12 ], [ null, %sw.bb ]
   %call18 = call i64 @ERR_peek_error() #4
   %conv = trunc i64 %call18 to i32
   %call19 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 373, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.36, i32 noundef %conv, i32 noundef 0) #4
@@ -373,12 +373,12 @@ sw.epilog:                                        ; preds = %if.end12, %sw.bb, %
   br label %end
 
 end:                                              ; preds = %sw.epilog, %if.end12, %read_all.exit, %sw.bb, %entry
-  %cms.1 = phi ptr [ %call13, %if.end12 ], [ null, %read_all.exit ], [ %call2, %sw.bb ], [ null, %entry ], [ %cms.0, %sw.epilog ]
-  %buf.1 = phi ptr [ %retval.0.i, %if.end12 ], [ %retval.0.i, %read_all.exit ], [ null, %sw.bb ], [ null, %entry ], [ %buf.0, %sw.epilog ]
+  %cms.0 = phi ptr [ %call13, %if.end12 ], [ null, %read_all.exit ], [ %call2, %sw.bb ], [ null, %entry ], [ %cms.1, %sw.epilog ]
+  %buf.0 = phi ptr [ %retval.0.i, %if.end12 ], [ %retval.0.i, %read_all.exit ], [ null, %sw.bb ], [ null, %entry ], [ %buf.1, %sw.epilog ]
   %ret.0 = phi i32 [ 0, %if.end12 ], [ 0, %read_all.exit ], [ 0, %sw.bb ], [ 0, %entry ], [ %spec.select, %sw.epilog ]
-  call void @CMS_ContentInfo_free(ptr noundef %cms.1) #4
+  call void @CMS_ContentInfo_free(ptr noundef %cms.0) #4
   %call23 = call i32 @BIO_free(ptr noundef %call) #4
-  call void @CRYPTO_free(ptr noundef %buf.1, ptr noundef nonnull @.str.14, i32 noundef 380) #4
+  call void @CRYPTO_free(ptr noundef %buf.0, ptr noundef nonnull @.str.14, i32 noundef 380) #4
   ret i32 %ret.0
 }
 

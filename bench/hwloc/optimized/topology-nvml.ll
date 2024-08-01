@@ -270,7 +270,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
 134:                                              ; preds = %129, %231
   %indvars.iv234 = phi i64 [ 0, %129 ], [ %indvars.iv.next235, %231 ]
   %.1136205 = phi i32 [ %.0135208, %129 ], [ %.2137, %231 ]
-  %.1184204 = phi i32 [ %.0183207, %129 ], [ %.4187, %231 ]
+  %.1184204 = phi i32 [ %.0183207, %129 ], [ %.2185, %231 ]
   %135 = trunc nuw nsw i64 %indvars.iv234 to i32
   %136 = add nuw i64 %132, %indvars.iv234
   %137 = and i64 %136, 4294967295
@@ -495,14 +495,14 @@ hwloc__nvml_store_peer_obj.exit:                  ; preds = %hwloc__nvml_get_pee
   br label %231
 
 231:                                              ; preds = %hwloc__nvml_get_peer_obj_by_pci.exit.thread, %143, %hwloc__nvml_store_peer_obj.exit, %141
-  %.4187 = phi i32 [ %.3186, %hwloc__nvml_store_peer_obj.exit ], [ %.1184204, %143 ], [ %.1184204, %141 ], [ %.1184204, %hwloc__nvml_get_peer_obj_by_pci.exit.thread ]
+  %.2185 = phi i32 [ %.3186, %hwloc__nvml_store_peer_obj.exit ], [ %.1184204, %143 ], [ %.1184204, %141 ], [ %.1184204, %hwloc__nvml_get_peer_obj_by_pci.exit.thread ]
   %.2137 = phi i32 [ %144, %hwloc__nvml_store_peer_obj.exit ], [ %144, %143 ], [ %.1136205, %141 ], [ %144, %hwloc__nvml_get_peer_obj_by_pci.exit.thread ]
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next235, 12
   br i1 %exitcond.not, label %232, label %134, !llvm.loop !9
 
 232:                                              ; preds = %231, %134
-  %.1184.lcssa = phi i32 [ %.4187, %231 ], [ %.1184204, %134 ]
+  %.1184.lcssa = phi i32 [ %.2185, %231 ], [ %.1184204, %134 ]
   %.1136.lcssa = phi i32 [ %.2137, %231 ], [ %.1136205, %134 ]
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %233 = load i32, ptr %5, align 4

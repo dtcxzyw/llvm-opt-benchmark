@@ -17296,9 +17296,9 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   br i1 %35, label %37, label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h3989b82e5a09dde3E.exit.thread176"
 
 "_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h3989b82e5a09dde3E.exit.thread176": ; preds = %83, %196, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h3989b82e5a09dde3E.exit", %3
-  %.sroa.13.0 = phi i64 [ %21, %3 ], [ %.sroa.15.1.ph, %196 ], [ %21, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h3989b82e5a09dde3E.exit" ], [ %.sroa.15.1.ph, %83 ]
-  %.sroa.10.0 = phi i64 [ %34, %3 ], [ %.sroa.9105.1.ph, %196 ], [ %34, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h3989b82e5a09dde3E.exit" ], [ %.sroa.9105.1.ph, %83 ]
-  %.sroa.0.0 = phi ptr [ %15, %3 ], [ %.sroa.0104.1.ph, %196 ], [ %15, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h3989b82e5a09dde3E.exit" ], [ %.sroa.0104.1.ph, %83 ]
+  %.sroa.13.0 = phi i64 [ %21, %3 ], [ %.sroa.15.0.ph, %196 ], [ %21, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h3989b82e5a09dde3E.exit" ], [ %.sroa.15.0.ph, %83 ]
+  %.sroa.10.0 = phi i64 [ %34, %3 ], [ %.sroa.9105.0.ph, %196 ], [ %34, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h3989b82e5a09dde3E.exit" ], [ %.sroa.9105.0.ph, %83 ]
+  %.sroa.0.0 = phi ptr [ %15, %3 ], [ %.sroa.0104.0.ph, %196 ], [ %15, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h3989b82e5a09dde3E.exit" ], [ %.sroa.0104.0.ph, %83 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   %36 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %.sroa.0.0, ptr %36, align 8
@@ -17424,10 +17424,10 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   br label %83
 
 83:                                               ; preds = %86, %90, %75, %80
-  %.sroa.15.1.ph = phi i64 [ %76, %75 ], [ %82, %80 ], [ %21, %90 ], [ %21, %86 ]
-  %.sroa.9105.1.ph = phi i64 [ %34, %75 ], [ %.sroa.3.0.i, %80 ], [ %.sroa.3.0.i92, %90 ], [ %34, %86 ]
-  %.sroa.0104.1.ph = phi ptr [ %15, %75 ], [ %.sroa.06.0.i, %80 ], [ %.sroa.06.0.i91, %90 ], [ %15, %86 ]
-  %.pr = load ptr, ptr %.sroa.0104.1.ph, align 8, !noalias !2706
+  %.sroa.15.0.ph = phi i64 [ %76, %75 ], [ %82, %80 ], [ %21, %90 ], [ %21, %86 ]
+  %.sroa.9105.0.ph = phi i64 [ %34, %75 ], [ %.sroa.3.0.i, %80 ], [ %.sroa.3.0.i92, %90 ], [ %34, %86 ]
+  %.sroa.0104.0.ph = phi ptr [ %15, %75 ], [ %.sroa.06.0.i, %80 ], [ %.sroa.06.0.i91, %90 ], [ %15, %86 ]
+  %.pr = load ptr, ptr %.sroa.0104.0.ph, align 8, !noalias !2706
   %84 = icmp eq ptr %.pr, null
   br i1 %84, label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h3989b82e5a09dde3E.exit.thread176", label %91
 
@@ -17498,7 +17498,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   br i1 %94, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %91
-  %95 = add i64 %.sroa.9105.1.ph, 1
+  %95 = add i64 %.sroa.9105.0.ph, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.noexc100
@@ -17744,11 +17744,11 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
   %197 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.0104.1.ph, ptr %197, align 8
+  store ptr %.sroa.0104.0.ph, ptr %197, align 8
   %.sroa.8.0..sroa_idx73 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.sroa.9105.1.ph, ptr %.sroa.8.0..sroa_idx73, align 8
+  store i64 %.sroa.9105.0.ph, ptr %.sroa.8.0..sroa_idx73, align 8
   %.sroa.1075.0..sroa_idx76 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 %.sroa.15.1.ph, ptr %.sroa.1075.0..sroa_idx76, align 8
+  store i64 %.sroa.15.0.ph, ptr %.sroa.1075.0..sroa_idx76, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   br label %198
 

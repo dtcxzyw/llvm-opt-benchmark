@@ -505,7 +505,7 @@ isdumpline.exit:                                  ; preds = %75, %.preheader.i, 
   br label %135
 
 135:                                              ; preds = %.lr.ph160, %.loopexit
-  %.073158 = phi i32 [ 0, %.lr.ph160 ], [ %.2, %.loopexit ]
+  %.073158 = phi i32 [ 0, %.lr.ph160 ], [ %.1, %.loopexit ]
   %.074157 = phi i32 [ 0, %.lr.ph160 ], [ %217, %.loopexit ]
   %136 = call ptr @file_gets(ptr noundef nonnull %7, i32 noundef 240, ptr noundef %0) #7
   %137 = icmp eq ptr %136, null
@@ -628,7 +628,7 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
 
 .lr.ph154:                                        ; preds = %.preheader, %186
   %181 = phi i8 [ %190, %186 ], [ %174, %.preheader ]
-  %.1153 = phi i32 [ %187, %186 ], [ %.073158, %.preheader ]
+  %.2153 = phi i32 [ %187, %186 ], [ %.073158, %.preheader ]
   %182 = zext i8 %181 to i64
   %183 = getelementptr i16, ptr %.pre.i, i64 %182
   %184 = load i16, ptr %183, align 2
@@ -637,7 +637,7 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
   br i1 %.not97, label %186, label %.critedge3
 
 186:                                              ; preds = %.lr.ph154
-  %187 = add i32 %.1153, 1
+  %187 = add i32 %.2153, 1
   %188 = sext i32 %187 to i64
   %189 = getelementptr [241 x i8], ptr %7, i64 0, i64 %188
   %190 = load i8, ptr %189, align 1
@@ -645,13 +645,13 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
   br i1 %.not96, label %.critedge3, label %.lr.ph154, !llvm.loop !13
 
 .critedge3:                                       ; preds = %186, %.lr.ph154, %.preheader, %141
-  %.2 = phi i32 [ %.073158, %141 ], [ %.073158, %.preheader ], [ %187, %186 ], [ %.1153, %.lr.ph154 ]
+  %.1 = phi i32 [ %.073158, %141 ], [ %.073158, %.preheader ], [ %187, %186 ], [ %.2153, %.lr.ph154 ]
   %191 = zext i32 %.074157 to i64
   %192 = load i32, ptr %8, align 4
   %193 = sub i32 %192, %.074157
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6)
   store i8 0, ptr %132, align 1
-  %194 = sext i32 %.2 to i64
+  %194 = sext i32 %.1 to i64
   %195 = getelementptr i8, ptr %133, i64 %194
   %196 = call i64 @strtoul(ptr nocapture noundef readonly %195, ptr noundef null, i32 noundef 16) #7
   %sext.i = shl i64 %196, 32
@@ -666,7 +666,7 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
 
 .lr.ph.i130:                                      ; preds = %198
   %200 = call i32 @llvm.umin.i32(i32 %193, i32 16)
-  %201 = add i32 %.2, 1
+  %201 = add i32 %.1, 1
   %wide.trip.count.i = zext nneg i32 %200 to i64
   br label %202
 
@@ -674,7 +674,7 @@ isdumpline.exit128.thread:                        ; preds = %152, %.preheader.i1
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i130 ], [ %indvars.iv.next.i, %202 ]
   %203 = getelementptr [16 x i32], ptr @parse_single_hex_dump_line.offsets, i64 0, i64 %indvars.iv.i
   %204 = load i32, ptr %203, align 4
-  %205 = add i32 %204, %.2
+  %205 = add i32 %204, %.1
   %206 = sext i32 %205 to i64
   %207 = getelementptr i8, ptr %7, i64 %206
   %208 = load i8, ptr %207, align 1

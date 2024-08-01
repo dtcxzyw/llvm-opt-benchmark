@@ -994,8 +994,8 @@ define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr nocapture noundef %0) local
   br label %201
 
 201:                                              ; preds = %154, %184, %150, %145, %.critedge, %200
-  %.2 = phi i32 [ -1, %200 ], [ -1, %.critedge ], [ 0, %145 ], [ 0, %150 ], [ 0, %184 ], [ 0, %154 ]
-  ret i32 %.2
+  %.1 = phi i32 [ -1, %200 ], [ -1, %.critedge ], [ 0, %145 ], [ 0, %150 ], [ 0, %184 ], [ 0, %154 ]
+  ret i32 %.1
 }
 
 declare i64 @H5P_copy_plist(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
@@ -1146,13 +1146,13 @@ define range(i32 -1, 1) i32 @H5CX_free_state(ptr noundef %0) local_unnamed_addr 
   br label %75
 
 75:                                               ; preds = %67, %71, %54
-  %.0 = phi i32 [ -1, %71 ], [ 0, %67 ], [ 0, %54 ]
+  %.1 = phi i32 [ -1, %71 ], [ 0, %67 ], [ 0, %54 ]
   %76 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5CX_state_t_reg_free_list, ptr noundef nonnull %0) #13
   br label %77
 
 77:                                               ; preds = %75, %63, %50, %40, %29, %18, %7
-  %.1 = phi i32 [ -1, %7 ], [ -1, %18 ], [ -1, %29 ], [ -1, %40 ], [ -1, %50 ], [ -1, %63 ], [ %.0, %75 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %7 ], [ -1, %18 ], [ -1, %29 ], [ -1, %40 ], [ -1, %50 ], [ -1, %63 ], [ %.1, %75 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable

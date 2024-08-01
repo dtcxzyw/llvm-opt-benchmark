@@ -1255,7 +1255,7 @@ write_audio.exit.sink.split:                      ; preds = %if.then24.i, %if.el
   br label %write_audio.exit
 
 write_audio.exit:                                 ; preds = %while.body.i79, %write_audio.exit.sink.split
-  %stop.1 = phi i32 [ 0, %write_audio.exit.sink.split ], [ 1, %while.body.i79 ]
+  %stop.4 = phi i32 [ 0, %write_audio.exit.sink.split ], [ 1, %while.body.i79 ]
   %written.030.i = phi i32 [ %add22.i, %write_audio.exit.sink.split ], [ %written.032.i, %while.body.i79 ]
   %addr.028.i = phi i32 [ %add.i82, %write_audio.exit.sink.split ], [ %addr.034.i, %while.body.i79 ]
   store i32 %addr.028.i, ptr %bd.i, align 4
@@ -1294,7 +1294,7 @@ if.end24.i101:                                    ; preds = %while.body.i96
   br i1 %tobool9.not.i, label %read_audio.exit, label %while.body.i96, !llvm.loop !11
 
 read_audio.exit:                                  ; preds = %if.end24.i101, %while.body.i96
-  %stop.3 = phi i32 [ 0, %if.end24.i101 ], [ 1, %while.body.i96 ]
+  %stop.6 = phi i32 [ 0, %if.end24.i101 ], [ 1, %while.body.i96 ]
   %nread.026.i = phi i32 [ %add29.i, %if.end24.i101 ], [ %nread.027.i, %while.body.i96 ]
   %addr.024.i = phi i32 [ %add.i104, %if.end24.i101 ], [ %addr.029.i, %while.body.i96 ]
   store i32 %addr.024.i, ptr %bd.i, align 4
@@ -1303,7 +1303,7 @@ read_audio.exit:                                  ; preds = %if.end24.i101, %whi
 
 sw.epilog53:                                      ; preds = %read_audio.exit, %write_audio.exit
   %nread.026.i.sink = phi i32 [ %nread.026.i, %read_audio.exit ], [ %written.030.i, %write_audio.exit ]
-  %stop.5 = phi i32 [ %stop.3, %read_audio.exit ], [ %stop.1, %write_audio.exit ]
+  %stop.1 = phi i32 [ %stop.6, %read_audio.exit ], [ %stop.4, %write_audio.exit ]
   %shr48 = lshr i32 %nread.026.i.sink, 1
   %32 = load i16, ptr %picb.i, align 4
   %33 = trunc i32 %shr48 to i16
@@ -1360,7 +1360,7 @@ if.else:                                          ; preds = %if.then56
   br label %if.end86
 
 if.end86:                                         ; preds = %if.else, %if.then71
-  %stop.6 = phi i32 [ 1, %if.then71 ], [ %stop.5, %if.else ]
+  %stop.3 = phi i32 [ 1, %if.then71 ], [ %stop.1, %if.else ]
   %new_sr.1 = phi i32 [ %or72, %if.then71 ], [ %spec.select, %if.else ]
   %and.i123 = and i32 %new_sr.1, 28
   %47 = load i16, ptr %sr, align 2
@@ -1401,7 +1401,7 @@ land.lhs.true.i:                                  ; preds = %if.else.i126
   br label %if.end.i127
 
 if.end.i127:                                      ; preds = %land.lhs.true.i, %if.else.i126
-  %event.0.i = phi i1 [ true, %if.else.i126 ], [ %53, %land.lhs.true.i ]
+  %event.1.i = phi i1 [ true, %if.else.i126 ], [ %53, %land.lhs.true.i ]
   %and10.i = and i32 %new_sr.1, 8
   %tobool11.not.i = icmp eq i32 %and10.i, 0
   br i1 %tobool11.not.i, label %if.end20.i, label %land.lhs.true12.i
@@ -1420,7 +1420,7 @@ if.end20.thread29.i:                              ; preds = %land.lhs.true12.i
 if.end20.i:                                       ; preds = %land.lhs.true12.i, %if.end.i127
   %conv21.i136 = trunc nuw i32 %new_sr.1 to i16
   store i16 %conv21.i136, ptr %sr, align 2
-  br i1 %event.0.i, label %if.end87, label %if.then27.i129
+  br i1 %event.1.i, label %if.end87, label %if.then27.i129
 
 if.then27.i129:                                   ; preds = %if.end20.i, %if.end20.thread29.i
   %56 = load i32, ptr %arrayidx.i134, align 4
@@ -1431,9 +1431,9 @@ if.then27.i129:                                   ; preds = %if.end20.i, %if.end
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then27.i129, %if.end20.i, %if.end25.thread.i, %if.end20.thread.i, %sw.epilog53
-  %stop.7 = phi i32 [ %stop.5, %sw.epilog53 ], [ %stop.6, %if.end20.thread.i ], [ %stop.6, %if.end25.thread.i ], [ %stop.6, %if.end20.i ], [ %stop.6, %if.then27.i129 ]
+  %stop.2 = phi i32 [ %stop.1, %sw.epilog53 ], [ %stop.3, %if.end20.thread.i ], [ %stop.3, %if.end25.thread.i ], [ %stop.3, %if.end20.i ], [ %stop.3, %if.then27.i129 ]
   %tobool14 = icmp ugt i32 %elapsed.addr.1, 1
-  %tobool15.not = icmp eq i32 %stop.7, 0
+  %tobool15.not = icmp eq i32 %stop.2, 0
   %58 = and i1 %tobool14, %tobool15.not
   br i1 %58, label %while.body, label %while.end, !llvm.loop !12
 
@@ -1915,7 +1915,7 @@ land.lhs.true.i.i:                                ; preds = %if.else.i.i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i.i, %if.else.i.i
-  %event.0.i.i = phi i1 [ true, %if.else.i.i ], [ %36, %land.lhs.true.i.i ]
+  %event.1.i.i = phi i1 [ true, %if.else.i.i ], [ %36, %land.lhs.true.i.i ]
   %and10.i.i = and i32 %and73.i, 8
   %tobool11.not.i.i = icmp eq i32 %and10.i.i, 0
   br i1 %tobool11.not.i.i, label %if.end20.i.i, label %land.lhs.true12.i.i
@@ -1935,7 +1935,7 @@ if.end20.thread29.i.i:                            ; preds = %land.lhs.true12.i.i
 if.end20.i.i:                                     ; preds = %land.lhs.true12.i.i, %if.end.i.i
   %conv21.i.i = trunc nuw i32 %and73.i to i16
   store i16 %conv21.i.i, ptr %sr66.i, align 2
-  br i1 %event.0.i.i, label %sw.epilog, label %if.then27.i.i
+  br i1 %event.1.i.i, label %sw.epilog, label %if.then27.i.i
 
 if.then27.i.i:                                    ; preds = %if.end20.i.i, %if.end20.thread29.i.i
   %arrayidx.i.i = getelementptr [3 x i32], ptr @__const.update_sr.masks, i64 0, i64 %idxprom63.i
@@ -2011,7 +2011,7 @@ land.lhs.true.i.i24:                              ; preds = %if.else.i.i21
   br label %if.end.i.i26
 
 if.end.i.i26:                                     ; preds = %land.lhs.true.i.i24, %if.else.i.i21
-  %event.0.i.i27 = phi i1 [ true, %if.else.i.i21 ], [ %49, %land.lhs.true.i.i24 ]
+  %event.1.i.i27 = phi i1 [ true, %if.else.i.i21 ], [ %49, %land.lhs.true.i.i24 ]
   %and10.i.i28 = and i32 %and6.i, 8
   %tobool11.not.i.i29 = icmp eq i32 %and10.i.i28, 0
   br i1 %tobool11.not.i.i29, label %if.end20.i.i39, label %land.lhs.true12.i.i30
@@ -2031,7 +2031,7 @@ if.end20.thread29.i.i33:                          ; preds = %land.lhs.true12.i.i
 if.end20.i.i39:                                   ; preds = %land.lhs.true12.i.i30, %if.end.i.i26
   %conv21.i.i40 = trunc nuw i32 %and6.i to i16
   store i16 %conv21.i.i40, ptr %sr.i14, align 2
-  br i1 %event.0.i.i27, label %sw.epilog, label %if.then27.i.i35
+  br i1 %event.1.i.i27, label %sw.epilog, label %if.then27.i.i35
 
 if.then27.i.i35:                                  ; preds = %if.end20.i.i39, %if.end20.thread29.i.i33
   %arrayidx.i.i36 = getelementptr [3 x i32], ptr @__const.update_sr.masks, i64 0, i64 %idxprom.i12

@@ -599,13 +599,13 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256E15BytecodeCPEn
   br label %155
 
 155:                                              ; preds = %._crit_edge, %_ZN12ConstantPool10copy_cp_toEiiRK18constantPoolHandleiP10JavaThread.exit
-  %.0 = phi ptr [ null, %_ZN12ConstantPool10copy_cp_toEiiRK18constantPoolHandleiP10JavaThread.exit ], [ %., %._crit_edge ]
+  %.1 = phi ptr [ null, %_ZN12ConstantPool10copy_cp_toEiiRK18constantPoolHandleiP10JavaThread.exit ], [ %., %._crit_edge ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
   br label %156
 
 156:                                              ; preds = %2, %9, %155
-  %.1 = phi ptr [ %.0, %155 ], [ null, %9 ], [ %8, %2 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %155 ], [ null, %9 ], [ %8, %2 ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZN12ConstantPool8allocateEP15ClassLoaderDataiP10JavaThread(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2

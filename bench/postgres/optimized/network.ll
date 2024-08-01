@@ -2759,18 +2759,18 @@ define dso_local noundef i64 @inet_merge(ptr nocapture noundef readonly %0) loca
   br label %46
 
 46:                                               ; preds = %46, %.thread.i
-  %.1.i = phi i32 [ %.01722.i, %.thread.i ], [ %49, %46 ]
-  %47 = sub i32 8, %.1.i
+  %.2.i = phi i32 [ %.01722.i, %.thread.i ], [ %49, %46 ]
+  %47 = sub i32 8, %.2.i
   %48 = lshr i32 %45, %47
   %.not19.i = icmp eq i32 %48, 0
-  %49 = add i32 %.1.i, -1
+  %49 = add i32 %.2.i, -1
   br i1 %.not19.i, label %bitncommon.exit, label %46, !llvm.loop !27
 
 bitncommon.exit:                                  ; preds = %46, %._crit_edge.i
   %.025.i = phi i32 [ %.0.lcssa.i, %._crit_edge.i ], [ %.024.i, %46 ]
-  %.2.i = phi i32 [ 0, %._crit_edge.i ], [ %.1.i, %46 ]
+  %.1.i = phi i32 [ 0, %._crit_edge.i ], [ %.2.i, %46 ]
   %50 = shl i32 %.025.i, 3
-  %51 = add i32 %.2.i, %50
+  %51 = add i32 %.1.i, %50
   %52 = tail call ptr @palloc0(i64 noundef 22) #13
   %53 = load i8, ptr %5, align 1
   %54 = and i8 %53, 1
@@ -2807,7 +2807,7 @@ bitncommon.exit:                                  ; preds = %46, %._crit_edge.i
   %77 = sdiv i32 %76, 8
   %78 = sext i32 %77 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %71, ptr nonnull align 1 %75, i64 %78, i1 false)
-  %79 = and i32 %.2.i, 7
+  %79 = and i32 %.1.i, 7
   %.not33.i = icmp eq i32 %79, 0
   br i1 %.not33.i, label %cidr_set_masklen_internal.exit, label %80
 
@@ -2887,18 +2887,18 @@ define dso_local i32 @bitncommon(ptr nocapture noundef readonly %0, ptr nocaptur
   br label %20
 
 20:                                               ; preds = %20, %.thread
-  %.1 = phi i32 [ %.01722, %.thread ], [ %23, %20 ]
-  %21 = sub i32 8, %.1
+  %.2 = phi i32 [ %.01722, %.thread ], [ %23, %20 ]
+  %21 = sub i32 8, %.2
   %22 = lshr i32 %19, %21
   %.not19 = icmp eq i32 %22, 0
-  %23 = add i32 %.1, -1
+  %23 = add i32 %.2, -1
   br i1 %.not19, label %.loopexit, label %20, !llvm.loop !27
 
 .loopexit:                                        ; preds = %20, %._crit_edge
   %.025 = phi i32 [ %.0.lcssa, %._crit_edge ], [ %.024, %20 ]
-  %.2 = phi i32 [ 0, %._crit_edge ], [ %.1, %20 ]
+  %.1 = phi i32 [ 0, %._crit_edge ], [ %.2, %20 ]
   %24 = shl i32 %.025, 3
-  %25 = add i32 %.2, %24
+  %25 = add i32 %.1, %24
   ret i32 %25
 }
 
@@ -3718,7 +3718,7 @@ define dso_local i64 @inetmi(ptr nocapture noundef readonly %0) local_unnamed_ad
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %52
   %indvars.iv58 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next59, %52 ]
   %indvars.iv = phi i64 [ %26, %.lr.ph.preheader ], [ %indvars.iv.next, %52 ]
-  %.054 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1, %52 ]
+  %.154 = phi i64 [ 0, %.lr.ph.preheader ], [ %.2, %52 ]
   %.03953 = phi i32 [ 1, %.lr.ph.preheader ], [ %53, %52 ]
   %28 = getelementptr i8, ptr %22, i64 %indvars.iv
   %29 = load i8, ptr %28, align 1
@@ -3737,11 +3737,11 @@ define dso_local i64 @inetmi(ptr nocapture noundef readonly %0) local_unnamed_ad
   %40 = zext nneg i32 %37 to i64
   %41 = shl nuw nsw i64 %indvars.iv58, 3
   %42 = shl nuw i64 %40, %41
-  %43 = or i64 %42, %.054
+  %43 = or i64 %42, %.154
   br label %52
 
 44:                                               ; preds = %.lr.ph
-  %45 = icmp slt i64 %.054, 0
+  %45 = icmp slt i64 %.154, 0
   br i1 %45, label %46, label %47
 
 46:                                               ; preds = %44
@@ -3761,7 +3761,7 @@ define dso_local i64 @inetmi(ptr nocapture noundef readonly %0) local_unnamed_ad
   unreachable
 
 52:                                               ; preds = %46, %47, %39
-  %.1 = phi i64 [ %43, %39 ], [ %.054, %46 ], [ %.054, %47 ]
+  %.2 = phi i64 [ %43, %39 ], [ %.154, %46 ], [ %.154, %47 ]
   %53 = lshr i32 %36, 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -3776,8 +3776,8 @@ define dso_local i64 @inetmi(ptr nocapture noundef readonly %0) local_unnamed_ad
   %57 = zext nneg i32 %56 to i64
   %58 = shl nsw i64 -1, %57
   %59 = select i1 %or.cond, i64 %58, i64 0
-  %.2 = or i64 %59, %.1
-  ret i64 %.2
+  %.0 = or i64 %59, %.2
+  ret i64 %.0
 }
 
 declare i32 @pg_inet_net_pton(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2

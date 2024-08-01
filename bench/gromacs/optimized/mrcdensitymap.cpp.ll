@@ -1042,17 +1042,17 @@ define void @_ZN3gmx34MrcDensityMapOfFloatFromFileReader4ImplC2ERKNSt10filesyste
   br label %44
 
 44:                                               ; preds = %42, %40
-  %.131.i = phi i1 [ %.030.i, %42 ], [ true, %40 ]
+  %.434.i = phi i1 [ %.030.i, %42 ], [ true, %40 ]
   %.pn.i = phi { ptr, i32 } [ %43, %42 ], [ %41, %40 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #18, !noalias !7
   br label %45
 
 45:                                               ; preds = %44, %38
-  %.232.i = phi i1 [ %.131.i, %44 ], [ true, %38 ]
+  %.333.i = phi i1 [ %.434.i, %44 ], [ true, %38 ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %44 ], [ %39, %38 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18, !noalias !7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18, !noalias !7
-  br i1 %.232.i, label %46, label %common.resume
+  br i1 %.333.i, label %46, label %common.resume
 
 46:                                               ; preds = %45, %.thread55.i, %.thread.i
   %.pn.pn.pn.pn54.i = phi { ptr, i32 } [ %36, %.thread.i ], [ %.pn.pn.i, %45 ], [ %37, %.thread55.i ]
@@ -1173,16 +1173,16 @@ define void @_ZN3gmx34MrcDensityMapOfFloatFromFileReader4ImplC2ERKNSt10filesyste
 
 93:                                               ; preds = %91, %89
   %.pn39.i = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ]
-  %.1.i = phi i1 [ %.0.i, %91 ], [ true, %89 ]
+  %.4.i = phi i1 [ %.0.i, %91 ], [ true, %89 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #18
   br label %94
 
 94:                                               ; preds = %93, %87
   %.pn39.pn.i = phi { ptr, i32 } [ %.pn39.i, %93 ], [ %88, %87 ]
-  %.2.i = phi i1 [ %.1.i, %93 ], [ true, %87 ]
+  %.3.i = phi i1 [ %.4.i, %93 ], [ true, %87 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #18
-  br i1 %.2.i, label %95, label %96
+  br i1 %.3.i, label %95, label %96
 
 95:                                               ; preds = %94, %.thread62.i, %.thread58.i
   %.pn39.pn.pn.pn61.i = phi { ptr, i32 } [ %85, %.thread58.i ], [ %.pn39.pn.i, %94 ], [ %86, %.thread62.i ]
@@ -1407,16 +1407,16 @@ _ZNSt10unique_ptrIN3gmx26MrcDensityMapOfFloatReaderESt14default_deleteIS1_EED2Ev
 
 158:                                              ; preds = %156, %154
   %.pn = phi { ptr, i32 } [ %157, %156 ], [ %155, %154 ]
-  %.18 = phi i1 [ %.07, %156 ], [ true, %154 ]
+  %.411 = phi i1 [ %.07, %156 ], [ true, %154 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15) #18
   br label %159
 
 159:                                              ; preds = %152, %158
   %.pn.pn = phi { ptr, i32 } [ %.pn, %158 ], [ %153, %152 ]
-  %.29 = phi i1 [ %.18, %158 ], [ true, %152 ]
+  %.310 = phi i1 [ %.411, %158 ], [ true, %152 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #18
-  br i1 %.29, label %160, label %.body44
+  br i1 %.310, label %160, label %.body44
 
 160:                                              ; preds = %.thread84, %.thread, %159
   %.pn.pn.pn.pn83 = phi { ptr, i32 } [ %150, %.thread ], [ %.pn.pn, %159 ], [ %151, %.thread84 ]
@@ -1533,16 +1533,16 @@ _ZNK3gmx7extentsIJLln1ELln1ELln1EEE6extentEm.exit.i: ; preds = %_ZNK3gmx7extents
 
 202:                                              ; preds = %200, %198
   %.pn32 = phi { ptr, i32 } [ %201, %200 ], [ %199, %198 ]
-  %.1 = phi i1 [ %.0, %200 ], [ true, %198 ]
+  %.4 = phi i1 [ %.0, %200 ], [ true, %198 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %21) #18
   br label %203
 
 203:                                              ; preds = %196, %202
   %.pn32.pn = phi { ptr, i32 } [ %.pn32, %202 ], [ %197, %196 ]
-  %.2 = phi i1 [ %.1, %202 ], [ true, %196 ]
+  %.3 = phi i1 [ %.4, %202 ], [ true, %196 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #18
-  br i1 %.2, label %204, label %.body44
+  br i1 %.3, label %204, label %.body44
 
 204:                                              ; preds = %.thread91, %.thread87, %203
   %.pn32.pn.pn.pn90 = phi { ptr, i32 } [ %194, %.thread87 ], [ %.pn32.pn, %203 ], [ %195, %.thread91 ]

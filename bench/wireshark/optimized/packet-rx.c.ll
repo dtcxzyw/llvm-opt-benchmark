@@ -352,43 +352,43 @@ define internal i32 @dissect_rx(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br label %97
 
 97:                                               ; preds = %93, %89
-  %.1.i = phi i32 [ %96, %93 ], [ %90, %89 ]
-  %98 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #2
+  %.2.i = phi i32 [ %96, %93 ], [ %90, %89 ]
+  %98 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i) #2
   %99 = icmp sgt i32 %98, 3
   br i1 %99, label %100, label %104
 
 100:                                              ; preds = %97
   %101 = load i32, ptr @hf_rx_ifmtu, align 4
-  %102 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %101, ptr noundef %0, i32 noundef %.1.i, i32 noundef 4, i32 noundef 0) #2
-  %103 = add i32 %.1.i, 4
+  %102 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %101, ptr noundef %0, i32 noundef %.2.i, i32 noundef 4, i32 noundef 0) #2
+  %103 = add i32 %.2.i, 4
   br label %104
 
 104:                                              ; preds = %100, %97
-  %.2.i = phi i32 [ %103, %100 ], [ %.1.i, %97 ]
-  %105 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i) #2
+  %.3.i = phi i32 [ %103, %100 ], [ %.2.i, %97 ]
+  %105 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3.i) #2
   %106 = icmp sgt i32 %105, 3
   br i1 %106, label %107, label %111
 
 107:                                              ; preds = %104
   %108 = load i32, ptr @hf_rx_rwind, align 4
-  %109 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %108, ptr noundef %0, i32 noundef %.2.i, i32 noundef 4, i32 noundef 0) #2
-  %110 = add i32 %.2.i, 4
+  %109 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %108, ptr noundef %0, i32 noundef %.3.i, i32 noundef 4, i32 noundef 0) #2
+  %110 = add i32 %.3.i, 4
   br label %111
 
 111:                                              ; preds = %107, %104
-  %.3.i = phi i32 [ %110, %107 ], [ %.2.i, %104 ]
-  %112 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3.i) #2
+  %.4.i = phi i32 [ %110, %107 ], [ %.3.i, %104 ]
+  %112 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4.i) #2
   %113 = icmp sgt i32 %112, 3
   br i1 %113, label %114, label %dissect_rx_acks.exit
 
 114:                                              ; preds = %111
   %115 = load i32, ptr @hf_rx_maxpackets, align 4
-  %116 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %115, ptr noundef %0, i32 noundef %.3.i, i32 noundef 4, i32 noundef 0) #2
-  %117 = add i32 %.3.i, 4
+  %116 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %115, ptr noundef %0, i32 noundef %.4.i, i32 noundef 4, i32 noundef 0) #2
+  %117 = add i32 %.4.i, 4
   br label %dissect_rx_acks.exit
 
 dissect_rx_acks.exit:                             ; preds = %._crit_edge.i, %111, %114
-  %.4.i = phi i32 [ %117, %114 ], [ %.3.i, %111 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %.1.i = phi i32 [ %117, %114 ], [ %.4.i, %111 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %118 = load ptr, ptr %14, align 8
   %119 = zext i8 %76 to i32
   %120 = call ptr @val_to_str(i32 noundef %119, ptr noundef nonnull @rx_reason, ptr noundef nonnull @.str.123) #2
@@ -404,7 +404,7 @@ dissect_rx_acks.exit:                             ; preds = %._crit_edge.i, %111
   %130 = load i32, ptr %129, align 8
   %131 = call ptr @udp_port_to_display(ptr noundef %128, i32 noundef %130) #2
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %118, i32 noundef 25, ptr noundef nonnull @.str.122, ptr noundef %120, i64 noundef %121, i64 noundef %122, ptr noundef %127, ptr noundef %131) #2
-  %132 = add i32 %.4.i, -28
+  %132 = add i32 %.1.i, -28
   call void @proto_item_set_len(ptr noundef %63, i32 noundef %132) #2
   br label %259
 

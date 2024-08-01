@@ -186,7 +186,7 @@ if.else110:                                       ; preds = %if.then106
 
 if.end112:                                        ; preds = %lor.lhs.false89, %if.then106, %if.else110, %if.end103
   %key10480 = phi ptr [ %key104, %if.end103 ], [ %key104, %if.else110 ], [ %key104, %if.then106 ], [ %key90, %lor.lhs.false89 ]
-  %tkey.1 = phi ptr [ %call93, %if.end103 ], [ null, %if.else110 ], [ null, %if.then106 ], [ null, %lor.lhs.false89 ]
+  %tkey.2 = phi ptr [ %call93, %if.end103 ], [ null, %if.else110 ], [ null, %if.then106 ], [ null, %lor.lhs.false89 ]
   %tobool178.not = phi i1 [ true, %if.end103 ], [ true, %if.else110 ], [ false, %if.then106 ], [ true, %lor.lhs.false89 ]
   %keylen113 = getelementptr inbounds i8, ptr %ec, i64 40
   %17 = load i64, ptr %keylen113, align 8
@@ -213,13 +213,13 @@ if.else127:                                       ; preds = %lor.lhs.false124
   %20 = load ptr, ptr %key10480, align 8
   %21 = load i64, ptr %keylen113, align 8
   call void @CRYPTO_clear_free(ptr noundef %20, i64 noundef %21, ptr noundef nonnull @.str, i32 noundef 153) #3
-  store ptr %tkey.1, ptr %key10480, align 8
+  store ptr %tkey.2, ptr %key10480, align 8
   store i64 %conv87, ptr %keylen113, align 8
   call void @ERR_clear_error() #3
   br label %if.end134
 
 if.end134:                                        ; preds = %if.then116, %if.else127, %if.end112
-  %tkey.2 = phi ptr [ null, %if.else127 ], [ %tkey.1, %if.then116 ], [ %tkey.1, %if.end112 ]
+  %tkey.3 = phi ptr [ null, %if.else127 ], [ %tkey.2, %if.then116 ], [ %tkey.2, %if.end112 ]
   %22 = load ptr, ptr %ctx, align 8
   %23 = load ptr, ptr %key10480, align 8
   %call136 = call i32 @EVP_CipherInit_ex(ptr noundef %22, ptr noundef null, ptr noundef null, ptr noundef %23, ptr noundef %piv.0, i32 noundef %cond) #3
@@ -276,7 +276,7 @@ err.thread.sink.split:                            ; preds = %if.end163, %if.then
   %.sink100 = phi i32 [ 73, %if.then27 ], [ 79, %if.then19 ], [ 86, %lor.lhs.false ], [ 86, %if.then36 ], [ 92, %if.end46 ], [ 103, %if.else60 ], [ 111, %land.lhs.true ], [ 149, %lor.lhs.false124 ], [ 149, %if.then122 ], [ 163, %if.end134 ], [ 169, %if.then142 ], [ 181, %if.end163 ]
   %.sink = phi i32 [ 148, %if.then27 ], [ 101, %if.then19 ], [ 194, %lor.lhs.false ], [ 194, %if.then36 ], [ 524294, %if.end46 ], [ 102, %if.else60 ], [ 184, %land.lhs.true ], [ 118, %lor.lhs.false124 ], [ 118, %if.then122 ], [ 101, %if.end134 ], [ 524301, %if.then142 ], [ 102, %if.end163 ]
   %fetched_ciph.073.ph.ph = phi ptr [ null, %if.then27 ], [ %call21, %if.then19 ], [ %call21, %lor.lhs.false ], [ %call21, %if.then36 ], [ %call21, %if.end46 ], [ %call21, %if.else60 ], [ %call21, %land.lhs.true ], [ %call21, %lor.lhs.false124 ], [ %call21, %if.then122 ], [ %call21, %if.end134 ], [ %call21, %if.then142 ], [ %call21, %if.end163 ]
-  %tkey.3.ph.ph = phi ptr [ null, %if.then27 ], [ null, %if.then19 ], [ null, %lor.lhs.false ], [ null, %if.then36 ], [ null, %if.end46 ], [ null, %if.else60 ], [ null, %land.lhs.true ], [ %tkey.1, %lor.lhs.false124 ], [ %tkey.1, %if.then122 ], [ %tkey.2, %if.end134 ], [ %tkey.2, %if.then142 ], [ %tkey.2, %if.end163 ]
+  %tkey.0.ph.ph = phi ptr [ null, %if.then27 ], [ null, %if.then19 ], [ null, %lor.lhs.false ], [ null, %if.then36 ], [ null, %if.end46 ], [ null, %if.else60 ], [ null, %land.lhs.true ], [ %tkey.2, %lor.lhs.false124 ], [ %tkey.2, %if.then122 ], [ %tkey.3, %if.end134 ], [ %tkey.3, %if.then142 ], [ %tkey.3, %if.end163 ]
   %tkeylen.0.ph.ph = phi i64 [ 0, %if.then27 ], [ 0, %if.then19 ], [ 0, %lor.lhs.false ], [ 0, %if.then36 ], [ 0, %if.end46 ], [ 0, %if.else60 ], [ 0, %land.lhs.true ], [ %conv87, %lor.lhs.false124 ], [ %conv87, %if.then122 ], [ %conv87, %if.end134 ], [ %conv87, %if.then142 ], [ %conv87, %if.end163 ]
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink100, ptr noundef nonnull @__func__.ossl_cms_EncryptedContent_init_bio) #3
@@ -285,7 +285,7 @@ err.thread.sink.split:                            ; preds = %if.end163, %if.then
 
 err.thread:                                       ; preds = %err.thread.sink.split, %if.then52, %if.end81, %if.then92, %if.end97, %if.then153
   %fetched_ciph.073.ph = phi ptr [ %call21, %if.end97 ], [ %call21, %if.then92 ], [ %call21, %if.then153 ], [ %call21, %if.end81 ], [ %call21, %if.then52 ], [ %fetched_ciph.073.ph.ph, %err.thread.sink.split ]
-  %tkey.3.ph = phi ptr [ %call93, %if.end97 ], [ null, %if.then92 ], [ %tkey.2, %if.then153 ], [ null, %if.end81 ], [ null, %if.then52 ], [ %tkey.3.ph.ph, %err.thread.sink.split ]
+  %tkey.0.ph = phi ptr [ %call93, %if.end97 ], [ null, %if.then92 ], [ %tkey.3, %if.then153 ], [ null, %if.end81 ], [ null, %if.then52 ], [ %tkey.0.ph.ph, %err.thread.sink.split ]
   %tkeylen.0.ph = phi i64 [ %conv87, %if.end97 ], [ %conv87, %if.then92 ], [ %conv87, %if.then153 ], [ 0, %if.end81 ], [ 0, %if.then52 ], [ %tkeylen.0.ph.ph, %err.thread.sink.split ]
   call void @EVP_CIPHER_free(ptr noundef %fetched_ciph.073.ph) #3
   %key182.c = getelementptr inbounds i8, ptr %ec, i64 32
@@ -294,7 +294,7 @@ err.thread:                                       ; preds = %err.thread.sink.spl
   %30 = load i64, ptr %keylen183.c, align 8
   call void @CRYPTO_clear_free(ptr noundef %29, i64 noundef %30, ptr noundef nonnull @.str, i32 noundef 195) #3
   store ptr null, ptr %key182.c, align 8
-  call void @CRYPTO_clear_free(ptr noundef %tkey.3.ph, i64 noundef %tkeylen.0.ph, ptr noundef nonnull @.str, i32 noundef 198) #3
+  call void @CRYPTO_clear_free(ptr noundef %tkey.0.ph, i64 noundef %tkeylen.0.ph, ptr noundef nonnull @.str, i32 noundef 198) #3
   %call189 = call i32 @BIO_free(ptr noundef nonnull %call4) #3
   br label %return
 
@@ -303,7 +303,7 @@ err:                                              ; preds = %if.end140, %if.then
   br i1 %tobool178.not, label %if.end185, label %if.end185.thread
 
 if.end185.thread:                                 ; preds = %err
-  call void @CRYPTO_clear_free(ptr noundef %tkey.2, i64 noundef %conv87, ptr noundef nonnull @.str, i32 noundef 198) #3
+  call void @CRYPTO_clear_free(ptr noundef %tkey.3, i64 noundef %conv87, ptr noundef nonnull @.str, i32 noundef 198) #3
   br label %return
 
 if.end185:                                        ; preds = %err
@@ -312,7 +312,7 @@ if.end185:                                        ; preds = %err
   %32 = load i64, ptr %keylen113, align 8
   call void @CRYPTO_clear_free(ptr noundef %31, i64 noundef %32, ptr noundef nonnull @.str, i32 noundef 195) #3
   store ptr null, ptr %key182, align 8
-  call void @CRYPTO_clear_free(ptr noundef %tkey.2, i64 noundef %conv87, ptr noundef nonnull @.str, i32 noundef 198) #3
+  call void @CRYPTO_clear_free(ptr noundef %tkey.3, i64 noundef %conv87, ptr noundef nonnull @.str, i32 noundef 198) #3
   br label %return
 
 return:                                           ; preds = %if.end185, %if.end185.thread, %err.thread, %if.then

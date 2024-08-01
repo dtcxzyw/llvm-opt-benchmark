@@ -26,10 +26,10 @@ if.end:                                           ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end82, %if.end
-  %key.addr.0 = phi ptr [ %key, %if.end ], [ %key.addr.3, %if.end82 ]
-  %iv.addr.0 = phi ptr [ %iv, %if.end ], [ %iv.addr.3, %if.end82 ]
-  %niv.0 = phi i32 [ %1, %if.end ], [ %niv.2, %if.end82 ]
-  %nkey.0 = phi i32 [ %0, %if.end ], [ %nkey.2, %if.end82 ]
+  %key.addr.0 = phi ptr [ %key, %if.end ], [ %key.addr.1, %if.end82 ]
+  %iv.addr.0 = phi ptr [ %iv, %if.end ], [ %iv.addr.1, %if.end82 ]
+  %niv.0 = phi i32 [ %1, %if.end ], [ %niv.1, %if.end82 ]
+  %nkey.0 = phi i32 [ %0, %if.end ], [ %nkey.1, %if.end82 ]
   %addmd.0 = phi i32 [ 0, %if.end ], [ %inc, %if.end82 ]
   %call = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %c, ptr noundef %md, ptr noundef null) #2
   %tobool.not = icmp eq i32 %call, 0
@@ -97,27 +97,27 @@ for.end:                                          ; preds = %for.cond27, %for.co
 
 lor.lhs.false48:                                  ; preds = %for.end, %if.end56
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end56 ], [ 0, %for.end ]
-  %key.addr.1 = phi ptr [ %key.addr.2, %if.end56 ], [ %key.addr.0, %for.end ]
-  %nkey.1 = phi i32 [ %dec, %if.end56 ], [ %nkey.0, %for.end ]
+  %key.addr.2 = phi ptr [ %key.addr.3, %if.end56 ], [ %key.addr.0, %for.end ]
+  %nkey.2 = phi i32 [ %dec, %if.end56 ], [ %nkey.0, %for.end ]
   %4 = load i32, ptr %mds, align 4
   %5 = zext i32 %4 to i64
   %cmp49 = icmp eq i64 %indvars.iv, %5
   br i1 %cmp49, label %if.end59.loopexit.split.loop.exit34, label %if.end52
 
 if.end52:                                         ; preds = %lor.lhs.false48
-  %cmp53.not = icmp eq ptr %key.addr.1, null
+  %cmp53.not = icmp eq ptr %key.addr.2, null
   br i1 %cmp53.not, label %if.end56, label %if.then55
 
 if.then55:                                        ; preds = %if.end52
   %arrayidx = getelementptr inbounds [64 x i8], ptr %md_buf, i64 0, i64 %indvars.iv
   %6 = load i8, ptr %arrayidx, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %key.addr.1, i64 1
-  store i8 %6, ptr %key.addr.1, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %key.addr.2, i64 1
+  store i8 %6, ptr %key.addr.2, align 1
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then55, %if.end52
-  %key.addr.2 = phi ptr [ %incdec.ptr, %if.then55 ], [ null, %if.end52 ]
-  %dec = add i32 %nkey.1, -1
+  %key.addr.3 = phi ptr [ %incdec.ptr, %if.then55 ], [ null, %if.end52 ]
+  %dec = add i32 %nkey.2, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp46.old = icmp eq i32 %dec, 0
   br i1 %cmp46.old, label %if.end59, label %lor.lhs.false48
@@ -127,49 +127,49 @@ if.end59.loopexit.split.loop.exit34:              ; preds = %lor.lhs.false48
   br label %if.end59
 
 if.end59:                                         ; preds = %if.end56, %if.end59.loopexit.split.loop.exit34, %for.end
-  %key.addr.3 = phi ptr [ %key.addr.0, %for.end ], [ %key.addr.1, %if.end59.loopexit.split.loop.exit34 ], [ %key.addr.2, %if.end56 ]
-  %nkey.2 = phi i32 [ 0, %for.end ], [ %nkey.1, %if.end59.loopexit.split.loop.exit34 ], [ 0, %if.end56 ]
-  %i.2 = phi i32 [ 0, %for.end ], [ %7, %if.end59.loopexit.split.loop.exit34 ], [ %nkey.0, %if.end56 ]
+  %key.addr.1 = phi ptr [ %key.addr.0, %for.end ], [ %key.addr.2, %if.end59.loopexit.split.loop.exit34 ], [ %key.addr.3, %if.end56 ]
+  %nkey.1 = phi i32 [ 0, %for.end ], [ %nkey.2, %if.end59.loopexit.split.loop.exit34 ], [ 0, %if.end56 ]
+  %i.1 = phi i32 [ 0, %for.end ], [ %7, %if.end59.loopexit.split.loop.exit34 ], [ %nkey.0, %if.end56 ]
   %tobool60.not = icmp eq i32 %niv.0, 0
   br i1 %tobool60.not, label %if.end82, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end59
   %8 = load i32, ptr %mds, align 4
-  %cmp61 = icmp eq i32 %i.2, %8
+  %cmp61 = icmp eq i32 %i.1, %8
   br i1 %cmp61, label %if.end82, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %land.lhs.true, %if.end78
-  %iv.addr.1 = phi ptr [ %iv.addr.2, %if.end78 ], [ %iv.addr.0, %land.lhs.true ]
-  %niv.1 = phi i32 [ %dec79, %if.end78 ], [ %niv.0, %land.lhs.true ]
-  %i.3 = phi i32 [ %inc80, %if.end78 ], [ %i.2, %land.lhs.true ]
+  %iv.addr.2 = phi ptr [ %iv.addr.3, %if.end78 ], [ %iv.addr.0, %land.lhs.true ]
+  %niv.2 = phi i32 [ %dec79, %if.end78 ], [ %niv.0, %land.lhs.true ]
+  %i.3 = phi i32 [ %inc80, %if.end78 ], [ %i.1, %land.lhs.true ]
   %9 = load i32, ptr %mds, align 4
   %cmp68 = icmp eq i32 %i.3, %9
   br i1 %cmp68, label %if.end82, label %if.end71
 
 if.end71:                                         ; preds = %lor.lhs.false67
-  %cmp72.not = icmp eq ptr %iv.addr.1, null
+  %cmp72.not = icmp eq ptr %iv.addr.2, null
   br i1 %cmp72.not, label %if.end78, label %if.then74
 
 if.then74:                                        ; preds = %if.end71
   %idxprom75 = zext i32 %i.3 to i64
   %arrayidx76 = getelementptr inbounds [64 x i8], ptr %md_buf, i64 0, i64 %idxprom75
   %10 = load i8, ptr %arrayidx76, align 1
-  %incdec.ptr77 = getelementptr inbounds i8, ptr %iv.addr.1, i64 1
-  store i8 %10, ptr %iv.addr.1, align 1
+  %incdec.ptr77 = getelementptr inbounds i8, ptr %iv.addr.2, i64 1
+  store i8 %10, ptr %iv.addr.2, align 1
   br label %if.end78
 
 if.end78:                                         ; preds = %if.then74, %if.end71
-  %iv.addr.2 = phi ptr [ %incdec.ptr77, %if.then74 ], [ null, %if.end71 ]
-  %dec79 = add i32 %niv.1, -1
+  %iv.addr.3 = phi ptr [ %incdec.ptr77, %if.then74 ], [ null, %if.end71 ]
+  %dec79 = add i32 %niv.2, -1
   %inc80 = add i32 %i.3, 1
   %cmp65.old = icmp eq i32 %dec79, 0
   br i1 %cmp65.old, label %if.end82, label %lor.lhs.false67
 
 if.end82:                                         ; preds = %lor.lhs.false67, %if.end78, %land.lhs.true, %if.end59
-  %iv.addr.3 = phi ptr [ %iv.addr.0, %land.lhs.true ], [ %iv.addr.0, %if.end59 ], [ %iv.addr.2, %if.end78 ], [ %iv.addr.1, %lor.lhs.false67 ]
-  %niv.2 = phi i32 [ %niv.0, %land.lhs.true ], [ 0, %if.end59 ], [ 0, %if.end78 ], [ %niv.1, %lor.lhs.false67 ]
-  %cmp83 = icmp eq i32 %nkey.2, 0
-  %cmp86 = icmp eq i32 %niv.2, 0
+  %iv.addr.1 = phi ptr [ %iv.addr.0, %land.lhs.true ], [ %iv.addr.0, %if.end59 ], [ %iv.addr.3, %if.end78 ], [ %iv.addr.2, %lor.lhs.false67 ]
+  %niv.1 = phi i32 [ %niv.0, %land.lhs.true ], [ 0, %if.end59 ], [ 0, %if.end78 ], [ %niv.2, %lor.lhs.false67 ]
+  %cmp83 = icmp eq i32 %nkey.1, 0
+  %cmp86 = icmp eq i32 %niv.1, 0
   %or.cond = select i1 %cmp83, i1 %cmp86, i1 false
   br i1 %or.cond, label %for.end90, label %for.cond
 

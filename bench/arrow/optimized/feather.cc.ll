@@ -4320,7 +4320,7 @@ do.end5.i:                                        ; preds = %if.end81.i.i.i
 for.cond.i:                                       ; preds = %for.inc.i, %do.end5.i
   %fb_columns.sroa.11.0.i = phi ptr [ null, %do.end5.i ], [ %fb_columns.sroa.11.1.i, %for.inc.i ]
   %fb_columns.sroa.6.0.i = phi ptr [ null, %do.end5.i ], [ %fb_columns.sroa.6.1.i, %for.inc.i ]
-  %fb_columns.sroa.0.0.i = phi ptr [ null, %do.end5.i ], [ %fb_columns.sroa.0.1.i, %for.inc.i ]
+  %fb_columns.sroa.0.0.i = phi ptr [ null, %do.end5.i ], [ %fb_columns.sroa.0.2.i, %for.inc.i ]
   %i.0.i = phi i32 [ 0, %do.end5.i ], [ %inc.i, %for.inc.i ]
   %5 = load ptr, ptr %schema_.i.i, align 8, !noalias !73
   %call2.i58.i = invoke noundef i32 @_ZNK5arrow6Schema10num_fieldsEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -4929,7 +4929,7 @@ _ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3f
 for.inc.i:                                        ; preds = %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i, %if.then.i208.i
   %fb_columns.sroa.11.1.i = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %fb_columns.sroa.11.0.i, %if.then.i208.i ]
   %__cur.0.lcssa.i.i.i.i.i.pn.i = phi ptr [ %__cur.0.lcssa.i.i.i.i.i.i, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %fb_columns.sroa.6.0.i, %if.then.i208.i ]
-  %fb_columns.sroa.0.1.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %fb_columns.sroa.0.0.i, %if.then.i208.i ]
+  %fb_columns.sroa.0.2.i = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIN22arrow_vendored_private11flatbuffers6OffsetIN5arrow3ipc7feather3fbs6ColumnEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i ], [ %fb_columns.sroa.0.0.i, %if.then.i208.i ]
   %fb_columns.sroa.6.1.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i.pn.i, i64 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %timezone.i.i) #22, !noalias !73
   %inc.i = add nuw nsw i32 %i.0.i, 1
@@ -13592,12 +13592,12 @@ nrvo.skipdtor24:                                  ; preds = %_ZN5arrow6StatusD2E
   br label %return
 
 if.end29:                                         ; preds = %nrvo.skipdtor24.thread, %nrvo.skipdtor.thread
-  %bytes_written.2 = phi i64 [ %mul.i.i, %nrvo.skipdtor.thread ], [ %mul.i.i46, %nrvo.skipdtor24.thread ]
+  %bytes_written.0 = phi i64 [ %mul.i.i, %nrvo.skipdtor.thread ], [ %mul.i.i46, %nrvo.skipdtor24.thread ]
   %meta = getelementptr inbounds i8, ptr %this, i64 16
   %15 = load ptr, ptr %meta, align 8
   %total_bytes = getelementptr inbounds i8, ptr %15, i64 32
   %16 = load i64, ptr %total_bytes, align 8
-  %add = add nsw i64 %16, %bytes_written.2
+  %add = add nsw i64 %16, %bytes_written.0
   store i64 %add, ptr %total_bytes, align 8
   br label %return
 

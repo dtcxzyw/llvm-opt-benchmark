@@ -255,7 +255,7 @@ if.end88:                                         ; preds = %if.then81
   br i1 %tobool93.not, label %err, label %if.end97
 
 if.end97:                                         ; preds = %if.end79, %if.end88, %if.end65
-  %have_ks1.0 = phi i32 [ 0, %if.end79 ], [ 1, %if.end88 ], [ 0, %if.end65 ]
+  %have_ks1.1 = phi i32 [ 0, %if.end79 ], [ 1, %if.end88 ], [ 0, %if.end65 ]
   %call98 = call i32 @ossl_qrl_get_suite_hdr_prot_cipher_id(i32 noundef %suite_id) #5
   %call100 = call i32 @ossl_quic_hdr_protector_init(ptr noundef nonnull %retval.0.i, ptr noundef %libctx, ptr noundef %propq, i32 noundef %call98, ptr noundef nonnull %hpr_key, i64 noundef %conv36) #5
   %tobool101.not = icmp eq i32 %call100, 0
@@ -268,7 +268,7 @@ if.end103:                                        ; preds = %if.end97
   br label %return
 
 err:                                              ; preds = %if.end97, %if.end88, %if.then81, %if.then68, %if.end61, %if.end49
-  %have_ks1.1 = phi i32 [ %have_ks1.0, %if.end97 ], [ 1, %if.end88 ], [ 0, %if.then81 ], [ 0, %if.then68 ], [ 0, %if.end61 ], [ 0, %if.end49 ]
+  %have_ks1.0 = phi i32 [ %have_ks1.1, %if.end97 ], [ 1, %if.end88 ], [ 0, %if.then81 ], [ 0, %if.then68 ], [ 0, %if.end61 ], [ 0, %if.end49 ]
   %tobool113.not = phi i1 [ false, %if.end97 ], [ false, %if.end88 ], [ false, %if.then81 ], [ false, %if.then68 ], [ true, %if.end61 ], [ true, %if.end49 ]
   store i32 0, ptr %suite_id53, align 8
   store ptr null, ptr %md52, align 8
@@ -328,7 +328,7 @@ if.end7.i:                                        ; preds = %if.then2.i, %if.end
   br label %if.end115
 
 if.end115:                                        ; preds = %if.end7.i, %ossl_qrl_enc_level_set_has_keyslot.exit.i, %sw.bb9.i.i, %if.end.i13.i, %ossl_qrl_enc_level_set_get.exit.i.i, %err
-  %tobool116.not = icmp eq i32 %have_ks1.1, 0
+  %tobool116.not = icmp eq i32 %have_ks1.0, 0
   br i1 %tobool116.not, label %if.end122, label %if.then117
 
 if.then117:                                       ; preds = %if.end115

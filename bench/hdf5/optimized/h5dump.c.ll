@@ -440,7 +440,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 .preheader.i:                                     ; preds = %.loopexit185.i, %.preheader.lr.ph.i
   %14 = phi i32 [ %12, %.preheader.lr.ph.i ], [ %316, %.loopexit185.i ]
   %.0112350.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.2.i, %.loopexit185.i ]
-  %.0119349.i = phi ptr [ null, %.preheader.lr.ph.i ], [ %.2121.i, %.loopexit185.i ]
+  %.0119349.i = phi ptr [ null, %.preheader.lr.ph.i ], [ %.1120.i, %.loopexit185.i ]
   %15 = getelementptr inbounds i8, ptr %.0119349.i, i64 16
   br label %.loopexit.i
 
@@ -1293,7 +1293,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %342
 
 .loopexit185.i:                                   ; preds = %89, %81, %73, %59, %51, %43, %312, %310, %307, %305, %303, %300, %295, %294, %292, %.tail.i, %251, %249, %248, %247, %241, %240, %parse_mask_list.exit.i, %set_sort_order.exit.thread.i, %set_sort_by.exit.thread.i, %143, %141, %132, %96, %92, %88, %84, %80, %76, %72, %70, %67, %62, %58, %54, %50, %46, %42, %38, %35, %34, %33, %32, %29, %26, %25, %24, %23, %21, %19, %18, %17
-  %.2121.i = phi ptr [ %.0119349.i, %312 ], [ %.0119349.i, %310 ], [ %.0119349.i, %307 ], [ %.0119349.i, %305 ], [ %.0119349.i, %303 ], [ %.0119349.i, %300 ], [ %.0119349.i, %295 ], [ %.0119349.i, %292 ], [ %.0119349.i, %294 ], [ %.0119349.i, %.tail.i ], [ %.0119349.i, %251 ], [ %.0119349.i, %249 ], [ %.0119349.i, %248 ], [ %.0119349.i, %247 ], [ %.0119349.i, %241 ], [ %.0119349.i, %240 ], [ %.0119349.i, %parse_mask_list.exit.i ], [ %.0119349.i, %141 ], [ %.0119349.i, %132 ], [ %.0119349.i, %96 ], [ %.0119349.i, %70 ], [ %.0119349.i, %38 ], [ %.0119349.i, %35 ], [ %.0119349.i, %34 ], [ %.0119349.i, %32 ], [ %.0119349.i, %29 ], [ %.0119349.i, %33 ], [ %.0119349.i, %26 ], [ %.0119349.i, %25 ], [ %.0119349.i, %24 ], [ %.0119349.i, %23 ], [ %.0119349.i, %21 ], [ %.0119349.i, %19 ], [ %.0119349.i, %18 ], [ %.0119349.i, %17 ], [ %.0119349.i, %46 ], [ %.0119349.i, %54 ], [ %60, %67 ], [ %60, %62 ], [ %.0119349.i, %76 ], [ %.0119349.i, %84 ], [ %.0119349.i, %92 ], [ %.0119349.i, %143 ], [ %.0119349.i, %set_sort_by.exit.thread.i ], [ %.0119349.i, %set_sort_order.exit.thread.i ], [ %.0119349.i, %42 ], [ %.0119349.i, %50 ], [ %.0119349.i, %58 ], [ %.0119349.i, %72 ], [ %.0119349.i, %80 ], [ %.0119349.i, %88 ], [ %.0119349.i, %43 ], [ %.0119349.i, %51 ], [ %.0119349.i, %59 ], [ %.0119349.i, %73 ], [ %.0119349.i, %81 ], [ %.0119349.i, %89 ]
+  %.1120.i = phi ptr [ %.0119349.i, %312 ], [ %.0119349.i, %310 ], [ %.0119349.i, %307 ], [ %.0119349.i, %305 ], [ %.0119349.i, %303 ], [ %.0119349.i, %300 ], [ %.0119349.i, %295 ], [ %.0119349.i, %292 ], [ %.0119349.i, %294 ], [ %.0119349.i, %.tail.i ], [ %.0119349.i, %251 ], [ %.0119349.i, %249 ], [ %.0119349.i, %248 ], [ %.0119349.i, %247 ], [ %.0119349.i, %241 ], [ %.0119349.i, %240 ], [ %.0119349.i, %parse_mask_list.exit.i ], [ %.0119349.i, %141 ], [ %.0119349.i, %132 ], [ %.0119349.i, %96 ], [ %.0119349.i, %70 ], [ %.0119349.i, %38 ], [ %.0119349.i, %35 ], [ %.0119349.i, %34 ], [ %.0119349.i, %32 ], [ %.0119349.i, %29 ], [ %.0119349.i, %33 ], [ %.0119349.i, %26 ], [ %.0119349.i, %25 ], [ %.0119349.i, %24 ], [ %.0119349.i, %23 ], [ %.0119349.i, %21 ], [ %.0119349.i, %19 ], [ %.0119349.i, %18 ], [ %.0119349.i, %17 ], [ %.0119349.i, %46 ], [ %.0119349.i, %54 ], [ %60, %67 ], [ %60, %62 ], [ %.0119349.i, %76 ], [ %.0119349.i, %84 ], [ %.0119349.i, %92 ], [ %.0119349.i, %143 ], [ %.0119349.i, %set_sort_by.exit.thread.i ], [ %.0119349.i, %set_sort_order.exit.thread.i ], [ %.0119349.i, %42 ], [ %.0119349.i, %50 ], [ %.0119349.i, %58 ], [ %.0119349.i, %72 ], [ %.0119349.i, %80 ], [ %.0119349.i, %88 ], [ %.0119349.i, %43 ], [ %.0119349.i, %51 ], [ %.0119349.i, %59 ], [ %.0119349.i, %73 ], [ %.0119349.i, %81 ], [ %.0119349.i, %89 ]
   %.2.i = phi i32 [ %.1.i, %312 ], [ %.1.i, %310 ], [ %.1.i, %307 ], [ %.1.i, %305 ], [ %.1.i, %303 ], [ %.1.i, %300 ], [ %.1.i, %295 ], [ %.1.i, %292 ], [ %.1.i, %294 ], [ %.1.i, %.tail.i ], [ %.1.i, %251 ], [ %.1.i, %249 ], [ %.1.i, %248 ], [ %.1.i, %247 ], [ %.1.i, %241 ], [ %.1.i, %240 ], [ 1, %parse_mask_list.exit.i ], [ %.1.i, %141 ], [ 0, %132 ], [ %.1.i, %96 ], [ %.1.i, %70 ], [ 0, %38 ], [ %.1.i, %35 ], [ 0, %34 ], [ %.1.i, %32 ], [ %.1.i, %29 ], [ 0, %33 ], [ 0, %26 ], [ %.1.i, %25 ], [ %.1.i, %24 ], [ %.1.i, %23 ], [ 0, %21 ], [ 0, %19 ], [ 0, %18 ], [ %.1.i, %17 ], [ 0, %46 ], [ 0, %54 ], [ 1, %67 ], [ 1, %62 ], [ 0, %76 ], [ 0, %84 ], [ 0, %92 ], [ 0, %143 ], [ %.1.i, %set_sort_by.exit.thread.i ], [ %.1.i, %set_sort_order.exit.thread.i ], [ 0, %42 ], [ 0, %50 ], [ 1, %58 ], [ 0, %72 ], [ 0, %80 ], [ 0, %88 ], [ 0, %43 ], [ 0, %51 ], [ 1, %59 ], [ 0, %73 ], [ 0, %81 ], [ 0, %89 ]
   %316 = tail call i32 @H5_get_option(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.43, ptr noundef nonnull @l_opts) #22
   %.not.i = icmp eq i32 %316, -1
@@ -1483,20 +1483,20 @@ parse_command_line.exit:                          ; preds = %.thread.i, %.sink.s
   br label %612
 
 382:                                              ; preds = %375, %378
-  %.072 = phi i64 [ %380, %378 ], [ 0, %375 ]
+  %.173 = phi i64 [ %380, %378 ], [ 0, %375 ]
   %383 = load i32, ptr @H5_optind, align 4
   %384 = icmp slt i32 %383, %0
   br i1 %384, label %.lr.ph393, label %._crit_edge394
 
 .lr.ph393:                                        ; preds = %382
-  %385 = icmp ne i64 %.072, 0
+  %385 = icmp ne i64 %.173, 0
   %386 = icmp sgt i32 %0, 0
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %387
 
 387:                                              ; preds = %.lr.ph393, %608
   %388 = phi i32 [ %383, %.lr.ph393 ], [ %609, %608 ]
-  %.0391 = phi i64 [ -1, %.lr.ph393 ], [ %408, %608 ]
+  %.1391 = phi i64 [ -1, %.lr.ph393 ], [ %408, %608 ]
   %389 = add nsw i32 %388, 1
   store i32 %389, ptr @H5_optind, align 4
   %390 = sext i32 %388 to i64
@@ -1508,13 +1508,13 @@ parse_command_line.exit:                          ; preds = %.thread.i, %.sink.s
 
 394:                                              ; preds = %387
   %395 = call i64 @H5FDperform_init(ptr noundef nonnull @H5FD_onion_init) #22
-  %396 = call i64 @H5Pget_driver(i64 noundef %.072) #22
+  %396 = call i64 @H5Pget_driver(i64 noundef %.173) #22
   %397 = icmp eq i64 %395, %396
   br i1 %397, label %398, label %405
 
 398:                                              ; preds = %394
   store i64 0, ptr %4, align 8
-  %399 = call i32 @H5FDonion_get_revision_count(ptr noundef %393, i64 noundef %.072, ptr noundef nonnull %4) #22
+  %399 = call i32 @H5FDonion_get_revision_count(ptr noundef %393, i64 noundef %.173, ptr noundef nonnull %4) #22
   %400 = icmp slt i32 %399, 0
   br i1 %400, label %401, label %402
 
@@ -1531,7 +1531,7 @@ parse_command_line.exit:                          ; preds = %.thread.i, %.sink.s
 405:                                              ; preds = %394, %387
   %406 = call i32 @H5check_version(i32 noundef 1, i32 noundef 15, i32 noundef 0) #22
   %407 = call i32 @H5open() #22
-  %408 = call i64 @h5tools_fopen(ptr noundef %393, i32 noundef 0, i64 noundef %.072, i1 noundef zeroext %385, ptr noundef null, i64 noundef 0) #22
+  %408 = call i64 @h5tools_fopen(ptr noundef %393, i32 noundef 0, i64 noundef %.173, i1 noundef zeroext %385, ptr noundef null, i64 noundef 0) #22
   %409 = icmp slt i64 %408, 0
   br i1 %409, label %410, label %411
 
@@ -2057,16 +2057,16 @@ init_prefix.exit:                                 ; preds = %413, %415
   br label %622
 
 .thread590:                                       ; preds = %516, %531, %533, %561, %436, %431, %427, %410, %402, %401
-  %.1 = phi i64 [ %.0391, %401 ], [ %.0391, %402 ], [ %408, %410 ], [ %408, %431 ], [ %408, %436 ], [ %408, %561 ], [ %408, %533 ], [ %408, %531 ], [ %408, %427 ], [ %408, %516 ]
+  %.0 = phi i64 [ %.1391, %401 ], [ %.1391, %402 ], [ %408, %410 ], [ %408, %431 ], [ %408, %436 ], [ %408, %561 ], [ %408, %533 ], [ %408, %531 ], [ %408, %427 ], [ %408, %516 ]
   call fastcc void @table_list_free()
-  %.not184 = icmp eq i64 %.072, 0
+  %.not184 = icmp eq i64 %.173, 0
   br i1 %.not184, label %616, label %612
 
 612:                                              ; preds = %.thread200, %.thread590
-  %.1207 = phi i64 [ -1, %.thread200 ], [ %.1, %.thread590 ]
-  %.2206 = phi ptr [ null, %.thread200 ], [ %393, %.thread590 ]
-  %.173205 = phi i64 [ %380, %.thread200 ], [ %.072, %.thread590 ]
-  %613 = call i32 @H5Pclose(i64 noundef %.173205) #22
+  %.0207 = phi i64 [ -1, %.thread200 ], [ %.0, %.thread590 ]
+  %.068206 = phi ptr [ null, %.thread200 ], [ %393, %.thread590 ]
+  %.072205 = phi i64 [ %380, %.thread200 ], [ %.173, %.thread590 ]
+  %613 = call i32 @H5Pclose(i64 noundef %.072205) #22
   %614 = icmp sgt i32 %613, 0
   br i1 %614, label %615, label %616
 
@@ -2076,13 +2076,13 @@ init_prefix.exit:                                 ; preds = %413, %415
   br label %616
 
 616:                                              ; preds = %615, %612, %.thread590
-  %.1199 = phi i64 [ %.1207, %615 ], [ %.1207, %612 ], [ %.1, %.thread590 ]
-  %.2198 = phi ptr [ %.2206, %615 ], [ %.2206, %612 ], [ %393, %.thread590 ]
-  %617 = icmp sgt i64 %.1199, -1
+  %.0199 = phi i64 [ %.0207, %615 ], [ %.0207, %612 ], [ %.0, %.thread590 ]
+  %.068198 = phi ptr [ %.068206, %615 ], [ %.068206, %612 ], [ %393, %.thread590 ]
+  %617 = icmp sgt i64 %.0199, -1
   br i1 %617, label %618, label %622
 
 618:                                              ; preds = %616
-  %619 = call i32 @H5Fclose(i64 noundef %.1199) #22
+  %619 = call i32 @H5Fclose(i64 noundef %.0199) #22
   %620 = icmp slt i32 %619, 0
   br i1 %620, label %621, label %622
 
@@ -2091,7 +2091,7 @@ init_prefix.exit:                                 ; preds = %413, %415
   br label %622
 
 622:                                              ; preds = %.thread208, %618, %621, %616
-  %.2198211 = phi ptr [ null, %.thread208 ], [ %.2198, %618 ], [ %.2198, %621 ], [ %.2198, %616 ]
+  %.068198211 = phi ptr [ null, %.thread208 ], [ %.068198, %618 ], [ %.068198, %621 ], [ %.068198, %616 ]
   %623 = load ptr, ptr @prefix, align 8
   %.not185 = icmp eq ptr %623, null
   br i1 %.not185, label %625, label %624
@@ -2102,11 +2102,11 @@ init_prefix.exit:                                 ; preds = %413, %415
   br label %625
 
 625:                                              ; preds = %624, %622
-  %.not186 = icmp eq ptr %.2198211, null
+  %.not186 = icmp eq ptr %.068198211, null
   br i1 %.not186, label %627, label %626
 
 626:                                              ; preds = %625
-  call void @free(ptr noundef nonnull %.2198211) #22
+  call void @free(ptr noundef nonnull %.068198211) #22
   br label %627
 
 627:                                              ; preds = %626, %625

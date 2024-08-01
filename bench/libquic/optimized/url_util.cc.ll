@@ -1826,7 +1826,7 @@ if.end60.i:                                       ; preds = %if.else.i, %cleanup
           to label %cleanup63.i unwind label %lpad.loopexit.split-lp.i
 
 cleanup63.i:                                      ; preds = %if.end60.i, %land.end54.i, %cleanup.thread.i, %invoke.cont18.i
-  %retval.1.i = phi i1 [ false, %invoke.cont18.i ], [ %call58.i, %land.end54.i ], [ %call62.i, %if.end60.i ], [ %call36.i, %cleanup.thread.i ]
+  %retval.0.i = phi i1 [ false, %invoke.cont18.i ], [ %call58.i, %land.end54.i ], [ %call62.i, %if.end60.i ], [ %call36.i, %cleanup.thread.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %whitespace_buffer.i, align 8
   %39 = load ptr, ptr %buffer_.i.i.i, align 8
   %cmp.not.i63.i = icmp eq ptr %39, %fixed_buffer_.i.i
@@ -1861,7 +1861,7 @@ _ZN3url12_GLOBAL__N_117DoResolveRelativeIcEEbPKciRKNS_6ParsedEPKT_iPNS_16Charset
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %relative_component.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %base_parsed_authority.i)
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %temporary_output.i)
-  ret i1 %retval.1.i
+  ret i1 %retval.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2160,7 +2160,7 @@ if.end59.i:                                       ; preds = %if.else.i, %cleanup
           to label %cleanup62.i unwind label %lpad.loopexit.split-lp.i
 
 cleanup62.i:                                      ; preds = %if.end59.i, %land.end53.i, %cleanup.thread.i, %invoke.cont17.i
-  %retval.1.i = phi i1 [ false, %invoke.cont17.i ], [ %call57.i, %land.end53.i ], [ %call61.i, %if.end59.i ], [ %call35.i, %cleanup.thread.i ]
+  %retval.0.i = phi i1 [ false, %invoke.cont17.i ], [ %call57.i, %land.end53.i ], [ %call61.i, %if.end59.i ], [ %call35.i, %cleanup.thread.i ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %whitespace_buffer.i, align 8
   %39 = load ptr, ptr %buffer_.i.i.i, align 8
   %cmp.not.i63.i = icmp eq ptr %39, %fixed_buffer_.i.i
@@ -2195,7 +2195,7 @@ _ZN3url12_GLOBAL__N_117DoResolveRelativeItEEbPKciRKNS_6ParsedEPKT_iPNS_16Charset
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %relative_component.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %base_parsed_authority.i)
   call void @llvm.lifetime.end.p0(i64 1048, ptr nonnull %temporary_output.i)
-  ret i1 %retval.1.i
+  ret i1 %retval.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3202,7 +3202,7 @@ if.end5.i57:                                      ; preds = %if.end.i.i54
 for.inc.sink.split:                               ; preds = %.noexc68, %if.else5, %.noexc43, %if.else, %.noexc, %if.then2
   %.sink2.i61.sink = phi i32 [ %17, %.noexc ], [ %2, %if.then2 ], [ %21, %.noexc43 ], [ %1, %if.else ], [ %24, %.noexc68 ], [ %3, %if.else5 ]
   %.sink = phi i8 [ %add21.i, %.noexc ], [ %add21.i, %if.then2 ], [ 37, %.noexc43 ], [ 37, %if.else ], [ %4, %.noexc68 ], [ %4, %if.else5 ]
-  %i.1.ph = phi i32 [ %add23.i, %.noexc ], [ %add23.i, %if.then2 ], [ %storemerge191, %.noexc43 ], [ %storemerge191, %if.else ], [ %storemerge191, %.noexc68 ], [ %storemerge191, %if.else5 ]
+  %i.0.ph = phi i32 [ %add23.i, %.noexc ], [ %add23.i, %if.then2 ], [ %storemerge191, %.noexc43 ], [ %storemerge191, %if.else ], [ %storemerge191, %.noexc68 ], [ %storemerge191, %if.else5 ]
   %.sink.i63 = load ptr, ptr %buffer_.i.i, align 8
   %idxprom8.i64 = sext i32 %.sink2.i61.sink to i64
   %arrayidx9.i65 = getelementptr inbounds i8, ptr %.sink.i63, i64 %idxprom8.i64
@@ -3216,8 +3216,8 @@ for.inc:                                          ; preds = %do.body.i.i51, %do.
   %26 = phi i32 [ %inc11.i66, %for.inc.sink.split ], [ %1, %do.body.i.i26 ], [ %1, %do.body.i.i ], [ %1, %do.body.i.i51 ]
   %27 = phi i32 [ %inc11.i66, %for.inc.sink.split ], [ %1, %do.body.i.i26 ], [ %2, %do.body.i.i ], [ %2, %do.body.i.i51 ]
   %28 = phi i32 [ %inc11.i66, %for.inc.sink.split ], [ %1, %do.body.i.i26 ], [ %2, %do.body.i.i ], [ %3, %do.body.i.i51 ]
-  %i.1 = phi i32 [ %i.1.ph, %for.inc.sink.split ], [ %storemerge191, %do.body.i.i26 ], [ %add23.i, %do.body.i.i ], [ %storemerge191, %do.body.i.i51 ]
-  %inc = add nsw i32 %i.1, 1
+  %i.0 = phi i32 [ %i.0.ph, %for.inc.sink.split ], [ %storemerge191, %do.body.i.i26 ], [ %add23.i, %do.body.i.i ], [ %storemerge191, %do.body.i.i51 ]
+  %inc = add nsw i32 %i.0, 1
   %cmp = icmp slt i32 %inc, %length
   br i1 %cmp, label %for.body, label %for.cond11.preheader, !llvm.loop !9
 

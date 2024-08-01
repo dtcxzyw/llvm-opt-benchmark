@@ -22,7 +22,7 @@ define zeroext i1 @nxsched_merge_pending() local_unnamed_addr #0 {
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %22
-  %.041 = phi i1 [ %.1, %22 ], [ false, %5 ]
+  %.141 = phi i1 [ %.2, %22 ], [ false, %5 ]
   %.02840 = phi ptr [ %7, %22 ], [ %6, %5 ]
   %.02939 = phi ptr [ %.02840, %22 ], [ %1, %5 ]
   %7 = load ptr, ptr %.02840, align 16
@@ -65,7 +65,7 @@ define zeroext i1 @nxsched_merge_pending() local_unnamed_addr #0 {
 
 22:                                               ; preds = %21, %19
   %.sink = phi i8 [ 3, %19 ], [ 2, %21 ]
-  %.1 = phi i1 [ true, %19 ], [ %.041, %21 ]
+  %.2 = phi i1 [ true, %19 ], [ %.141, %21 ]
   store ptr %.02840, ptr %15, align 8
   %23 = getelementptr inbounds i8, ptr %.02840, i64 48
   store i8 %.sink, ptr %23, align 16
@@ -73,13 +73,13 @@ define zeroext i1 @nxsched_merge_pending() local_unnamed_addr #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %22, %5
-  %.0.lcssa = phi i1 [ false, %5 ], [ %.1, %22 ]
+  %.1.lcssa = phi i1 [ false, %5 ], [ %.2, %22 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @g_pendingtasks, i8 0, i64 16, i1 false)
   br label %24
 
 24:                                               ; preds = %._crit_edge, %0
-  %.2 = phi i1 [ %.0.lcssa, %._crit_edge ], [ false, %0 ]
-  ret i1 %.2
+  %.0 = phi i1 [ %.1.lcssa, %._crit_edge ], [ false, %0 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

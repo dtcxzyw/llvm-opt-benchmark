@@ -106,7 +106,7 @@ define dso_local { i64, i32 } @ExecSecLabelStmt(ptr nocapture noundef readonly %
   unreachable
 
 .loopexit:                                        ; preds = %30, %20
-  %.1 = phi ptr [ %22, %20 ], [ %32, %30 ]
+  %.0 = phi ptr [ %22, %20 ], [ %32, %30 ]
   %40 = getelementptr inbounds i8, ptr %0, i64 4
   %41 = load i32, ptr %40, align 4
   switch i32 %41, label %42 [
@@ -193,12 +193,12 @@ SecLabelSupportsObjectType.exit:                  ; preds = %.loopexit, %.loopex
   unreachable
 
 74:                                               ; preds = %54, %54, %54, %54, %54, %54, %SecLabelSupportsObjectType.exit
-  %75 = getelementptr inbounds i8, ptr %.1, i64 8
+  %75 = getelementptr inbounds i8, ptr %.0, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %0, i64 24
   %78 = load ptr, ptr %77, align 8
   call void %76(ptr noundef nonnull %2, ptr noundef %78) #8
-  %79 = load ptr, ptr %.1, align 8
+  %79 = load ptr, ptr %.0, align 8
   %80 = load ptr, ptr %77, align 8
   call void @SetSecurityLabel(ptr noundef nonnull %2, ptr noundef %79, ptr noundef %80)
   %81 = load ptr, ptr %3, align 8

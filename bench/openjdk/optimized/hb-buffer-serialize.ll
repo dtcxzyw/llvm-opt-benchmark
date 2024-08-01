@@ -252,12 +252,12 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   br label %84
 
 84:                                               ; preds = %._crit_edge185.i, %69
-  %.3.i = phi ptr [ %83, %._crit_edge185.i ], [ %.2.i, %69 ]
+  %.4.i = phi ptr [ %83, %._crit_edge185.i ], [ %.2.i, %69 ]
   br i1 %.not121.i, label %85, label %101
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %.3.i, i64 1
-  store i8 43, ptr %.3.i, align 1
+  %86 = getelementptr inbounds i8, ptr %.4.i, i64 1
+  store i8 43, ptr %.4.i, align 1
   %87 = ptrtoint ptr %86 to i64
   %88 = sub i64 %.neg116.i, %87
   %89 = load i32, ptr %70, align 4
@@ -280,7 +280,7 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   br label %101
 
 101:                                              ; preds = %95, %85, %84, %68
-  %.4.i = phi ptr [ %.2.i, %68 ], [ %.3.i, %84 ], [ %100, %95 ], [ %92, %85 ]
+  %.3.i = phi ptr [ %.2.i, %68 ], [ %.4.i, %84 ], [ %100, %95 ], [ %92, %85 ]
   br i1 %.not125.i, label %112, label %102
 
 102:                                              ; preds = %101
@@ -291,16 +291,16 @@ define hidden i32 @hb_buffer_serialize_glyphs(ptr noundef %0, i32 noundef %1, i3
   br i1 %.not126.i, label %112, label %106
 
 106:                                              ; preds = %102
-  %107 = ptrtoint ptr %.4.i to i64
+  %107 = ptrtoint ptr %.3.i to i64
   %108 = sub i64 %.neg116.i, %107
-  %109 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.4.i, i64 noundef %108, ptr noundef nonnull @.str.7, i32 noundef %105) #11
+  %109 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.3.i, i64 noundef %108, ptr noundef nonnull @.str.7, i32 noundef %105) #11
   %.sroa.speculated142.i = call i32 @llvm.smax.i32(i32 %109, i32 0)
   %110 = zext nneg i32 %.sroa.speculated142.i to i64
-  %111 = getelementptr inbounds i8, ptr %.4.i, i64 %110
+  %111 = getelementptr inbounds i8, ptr %.3.i, i64 %110
   br label %112
 
 112:                                              ; preds = %106, %102, %101
-  %.5.i = phi ptr [ %111, %106 ], [ %.4.i, %102 ], [ %.4.i, %101 ]
+  %.5.i = phi ptr [ %111, %106 ], [ %.3.i, %102 ], [ %.3.i, %101 ]
   br i1 %.not128.i, label %125, label %113
 
 113:                                              ; preds = %112
@@ -1233,17 +1233,17 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   br label %78
 
 78:                                               ; preds = %226, %.preheader.i
-  %.sroa.0.0.i = phi i32 [ %.sroa.0.3.i, %226 ], [ 0, %.preheader.i ]
-  %.sroa.22.0.i = phi i32 [ %.sroa.22.3.i, %226 ], [ 0, %.preheader.i ]
-  %.sroa.25.0.i = phi i32 [ %.sroa.25.2.i, %226 ], [ 0, %.preheader.i ]
-  %.sroa.26.0.i = phi i32 [ %.sroa.26.3.i, %226 ], [ 0, %.preheader.i ]
-  %.0207.i = phi ptr [ %.1208.i, %226 ], [ null, %.preheader.i ]
-  %.0205.i = phi i32 [ %107, %226 ], [ 14, %.preheader.i ]
-  %.2.i = phi ptr [ %227, %226 ], [ %.1.i, %.preheader.i ]
-  %79 = shl nsw i32 %.0205.i, 1
+  %.sroa.0.1.i = phi i32 [ %.sroa.0.2.i, %226 ], [ 0, %.preheader.i ]
+  %.sroa.22.1.i = phi i32 [ %.sroa.22.2.i, %226 ], [ 0, %.preheader.i ]
+  %.sroa.25.1.i = phi i32 [ %.sroa.25.2.i, %226 ], [ 0, %.preheader.i ]
+  %.sroa.26.1.i = phi i32 [ %.sroa.26.2.i, %226 ], [ 0, %.preheader.i ]
+  %.1208.i = phi ptr [ %.2209.i, %226 ], [ null, %.preheader.i ]
+  %.1206.i = phi i32 [ %107, %226 ], [ 14, %.preheader.i ]
+  %.4.i = phi ptr [ %227, %226 ], [ %.1.i, %.preheader.i ]
+  %79 = shl nsw i32 %.1206.i, 1
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i8, ptr @_ZL35_deserialize_text_glyphs_trans_keys, i64 %80
-  %82 = sext i32 %.0205.i to i64
+  %82 = sext i32 %.1206.i to i64
   %83 = getelementptr inbounds [27 x i16], ptr @_ZL38_deserialize_text_glyphs_index_offsets, i64 0, i64 %82
   %84 = load i16, ptr %83, align 2
   %85 = sext i16 %84 to i64
@@ -1253,7 +1253,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   %89 = sext i8 %88 to i32
   %90 = load i8, ptr %81, align 2
   %91 = zext i8 %90 to i32
-  %92 = load i8, ptr %.2.i, align 1
+  %92 = load i8, ptr %.4.i, align 1
   %93 = sext i8 %92 to i32
   %.not222.i = icmp sgt i32 %91, %93
   br i1 %.not222.i, label %99, label %94
@@ -1307,19 +1307,19 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_glyphs(ptr noundef %0, 
   br label %224
 
 114:                                              ; preds = %110
-  %115 = ptrtoint ptr %.2.i to i64
-  %116 = ptrtoint ptr %.0207.i to i64
+  %115 = ptrtoint ptr %.4.i to i64
+  %116 = ptrtoint ptr %.1208.i to i64
   %117 = sub i64 %115, %116
   %118 = trunc i64 %117 to i32
-  %119 = call i32 @hb_font_glyph_from_string(ptr noundef %.026, ptr noundef %.0207.i, i32 noundef %118, ptr noundef nonnull %37)
+  %119 = call i32 @hb_font_glyph_from_string(ptr noundef %.026, ptr noundef %.1208.i, i32 noundef %118, ptr noundef nonnull %37)
   %.not228.i = icmp eq i32 %119, 0
   br i1 %.not228.i, label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit, label %224
 
 120:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36)
-  store ptr %.0207.i, ptr %36, align 8
-  %121 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %36, ptr noundef nonnull %.2.i, ptr noundef nonnull %35, i1 noundef zeroext true, i32 noundef 10)
+  store ptr %.1208.i, ptr %36, align 8
+  %121 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %36, ptr noundef nonnull %.4.i, ptr noundef nonnull %35, i1 noundef zeroext true, i32 noundef 10)
   br i1 %121, label %_ZL10parse_uintPKcS0_Pj.exit.thread.i, label %_ZL10parse_uintPKcS0_Pj.exit.i
 
 _ZL10parse_uintPKcS0_Pj.exit.thread.i:            ; preds = %120
@@ -1337,8 +1337,8 @@ _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %120
 123:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34)
-  store ptr %.0207.i, ptr %34, align 8
-  %124 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %34, ptr noundef nonnull %.2.i, ptr noundef nonnull %33, i1 noundef zeroext true)
+  store ptr %.1208.i, ptr %34, align 8
+  %124 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %34, ptr noundef nonnull %.4.i, ptr noundef nonnull %33, i1 noundef zeroext true)
   br i1 %124, label %_ZL9parse_intPKcS0_Pi.exit.thread.i, label %_ZL9parse_intPKcS0_Pi.exit.i
 
 _ZL9parse_intPKcS0_Pi.exit.thread.i:              ; preds = %123
@@ -1355,8 +1355,8 @@ _ZL9parse_intPKcS0_Pi.exit.i:                     ; preds = %123
 126:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
-  store ptr %.0207.i, ptr %32, align 8
-  %127 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %32, ptr noundef nonnull %.2.i, ptr noundef nonnull %31, i1 noundef zeroext true)
+  store ptr %.1208.i, ptr %32, align 8
+  %127 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %32, ptr noundef nonnull %.4.i, ptr noundef nonnull %31, i1 noundef zeroext true)
   br i1 %127, label %_ZL9parse_intPKcS0_Pi.exit234.thread.i, label %_ZL9parse_intPKcS0_Pi.exit234.i
 
 _ZL9parse_intPKcS0_Pi.exit234.thread.i:           ; preds = %126
@@ -1373,8 +1373,8 @@ _ZL9parse_intPKcS0_Pi.exit234.i:                  ; preds = %126
 129:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
-  store ptr %.0207.i, ptr %30, align 8
-  %130 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %30, ptr noundef nonnull %.2.i, ptr noundef nonnull %29, i1 noundef zeroext true)
+  store ptr %.1208.i, ptr %30, align 8
+  %130 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %30, ptr noundef nonnull %.4.i, ptr noundef nonnull %29, i1 noundef zeroext true)
   br i1 %130, label %_ZL9parse_intPKcS0_Pi.exit235.thread.i, label %_ZL9parse_intPKcS0_Pi.exit235.i
 
 _ZL9parse_intPKcS0_Pi.exit235.thread.i:           ; preds = %129
@@ -1391,8 +1391,8 @@ _ZL9parse_intPKcS0_Pi.exit235.i:                  ; preds = %129
 132:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28)
-  store ptr %.0207.i, ptr %28, align 8
-  %133 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %28, ptr noundef nonnull %.2.i, ptr noundef nonnull %27, i1 noundef zeroext true)
+  store ptr %.1208.i, ptr %28, align 8
+  %133 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %28, ptr noundef nonnull %.4.i, ptr noundef nonnull %27, i1 noundef zeroext true)
   br i1 %133, label %_ZL9parse_intPKcS0_Pi.exit236.thread.i, label %_ZL9parse_intPKcS0_Pi.exit236.i
 
 _ZL9parse_intPKcS0_Pi.exit236.thread.i:           ; preds = %132
@@ -1411,11 +1411,11 @@ _ZL9parse_intPKcS0_Pi.exit236.i:                  ; preds = %132
   br label %224
 
 136:                                              ; preds = %110
-  %137 = ptrtoint ptr %.2.i to i64
-  %138 = ptrtoint ptr %.0207.i to i64
+  %137 = ptrtoint ptr %.4.i to i64
+  %138 = ptrtoint ptr %.1208.i to i64
   %139 = sub i64 %137, %138
   %140 = trunc i64 %139 to i32
-  %141 = call i32 @hb_font_glyph_from_string(ptr noundef %.026, ptr noundef %.0207.i, i32 noundef %140, ptr noundef nonnull %37)
+  %141 = call i32 @hb_font_glyph_from_string(ptr noundef %.026, ptr noundef %.1208.i, i32 noundef %140, ptr noundef nonnull %37)
   %.not227.i = icmp eq i32 %141, 0
   br i1 %.not227.i, label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit, label %142
 
@@ -1431,23 +1431,23 @@ _ZL9parse_intPKcS0_Pi.exit236.i:                  ; preds = %132
   %148 = add i32 %147, -1
   %149 = zext i32 %148 to i64
   %150 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %146, i64 %149
-  store i32 %.sroa.0.0.i, ptr %150, align 4
+  store i32 %.sroa.0.1.i, ptr %150, align 4
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %150, i64 4
-  store i32 %.sroa.22.0.i, ptr %.sroa.22.0..sroa_idx.i, align 4
+  store i32 %.sroa.22.1.i, ptr %.sroa.22.0..sroa_idx.i, align 4
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %150, i64 8
-  store i32 %.sroa.25.0.i, ptr %.sroa.25.0..sroa_idx.i, align 4
+  store i32 %.sroa.25.1.i, ptr %.sroa.25.0..sroa_idx.i, align 4
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds i8, ptr %150, i64 12
-  store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx.i, align 4
+  store i32 %.sroa.26.1.i, ptr %.sroa.26.0..sroa_idx.i, align 4
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds i8, ptr %150, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx.i, align 4
-  store ptr %.2.i, ptr %spec.select, align 8
+  store ptr %.4.i, ptr %spec.select, align 8
   br label %224
 
 151:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
-  store ptr %.0207.i, ptr %26, align 8
-  %152 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %26, ptr noundef nonnull %.2.i, ptr noundef nonnull %25, i1 noundef zeroext true, i32 noundef 10)
+  store ptr %.1208.i, ptr %26, align 8
+  %152 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %26, ptr noundef nonnull %.4.i, ptr noundef nonnull %25, i1 noundef zeroext true, i32 noundef 10)
   br i1 %152, label %153, label %_ZL10parse_uintPKcS0_Pj.exit237.i
 
 _ZL10parse_uintPKcS0_Pj.exit237.i:                ; preds = %151
@@ -1471,23 +1471,23 @@ _ZL10parse_uintPKcS0_Pj.exit237.i:                ; preds = %151
   %160 = add i32 %159, -1
   %161 = zext i32 %160 to i64
   %162 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %158, i64 %161
-  store i32 %.sroa.0.0.i, ptr %162, align 4
+  store i32 %.sroa.0.1.i, ptr %162, align 4
   %.sroa.22.0..sroa_idx260.i = getelementptr inbounds i8, ptr %162, i64 4
-  store i32 %.sroa.22.0.i, ptr %.sroa.22.0..sroa_idx260.i, align 4
+  store i32 %.sroa.22.1.i, ptr %.sroa.22.0..sroa_idx260.i, align 4
   %.sroa.25.0..sroa_idx286.i = getelementptr inbounds i8, ptr %162, i64 8
-  store i32 %.sroa.25.0.i, ptr %.sroa.25.0..sroa_idx286.i, align 4
+  store i32 %.sroa.25.1.i, ptr %.sroa.25.0..sroa_idx286.i, align 4
   %.sroa.26.0..sroa_idx312.i = getelementptr inbounds i8, ptr %162, i64 12
-  store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx312.i, align 4
+  store i32 %.sroa.26.1.i, ptr %.sroa.26.0..sroa_idx312.i, align 4
   %.sroa.29.0..sroa_idx338.i = getelementptr inbounds i8, ptr %162, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx338.i, align 4
-  store ptr %.2.i, ptr %spec.select, align 8
+  store ptr %.4.i, ptr %spec.select, align 8
   br label %224
 
 163:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
-  store ptr %.0207.i, ptr %24, align 8
-  %164 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %24, ptr noundef nonnull %.2.i, ptr noundef nonnull %23, i1 noundef zeroext true)
+  store ptr %.1208.i, ptr %24, align 8
+  %164 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %24, ptr noundef nonnull %.4.i, ptr noundef nonnull %23, i1 noundef zeroext true)
   br i1 %164, label %165, label %_ZL9parse_intPKcS0_Pi.exit238.i
 
 _ZL9parse_intPKcS0_Pi.exit238.i:                  ; preds = %163
@@ -1510,23 +1510,23 @@ _ZL9parse_intPKcS0_Pi.exit238.i:                  ; preds = %163
   %172 = add i32 %171, -1
   %173 = zext i32 %172 to i64
   %174 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %170, i64 %173
-  store i32 %.sroa.0.0.i, ptr %174, align 4
+  store i32 %.sroa.0.1.i, ptr %174, align 4
   %.sroa.22.0..sroa_idx262.i = getelementptr inbounds i8, ptr %174, i64 4
-  store i32 %.sroa.22.0.i, ptr %.sroa.22.0..sroa_idx262.i, align 4
+  store i32 %.sroa.22.1.i, ptr %.sroa.22.0..sroa_idx262.i, align 4
   %.sroa.25.0..sroa_idx288.i = getelementptr inbounds i8, ptr %174, i64 8
-  store i32 %.sroa.25.0.i, ptr %.sroa.25.0..sroa_idx288.i, align 4
+  store i32 %.sroa.25.1.i, ptr %.sroa.25.0..sroa_idx288.i, align 4
   %.sroa.26.0..sroa_idx314.i = getelementptr inbounds i8, ptr %174, i64 12
   store i32 %166, ptr %.sroa.26.0..sroa_idx314.i, align 4
   %.sroa.29.0..sroa_idx340.i = getelementptr inbounds i8, ptr %174, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx340.i, align 4
-  store ptr %.2.i, ptr %spec.select, align 8
+  store ptr %.4.i, ptr %spec.select, align 8
   br label %224
 
 175:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
-  store ptr %.0207.i, ptr %22, align 8
-  %176 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %22, ptr noundef nonnull %.2.i, ptr noundef nonnull %21, i1 noundef zeroext true)
+  store ptr %.1208.i, ptr %22, align 8
+  %176 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %22, ptr noundef nonnull %.4.i, ptr noundef nonnull %21, i1 noundef zeroext true)
   br i1 %176, label %177, label %_ZL9parse_intPKcS0_Pi.exit239.i
 
 _ZL9parse_intPKcS0_Pi.exit239.i:                  ; preds = %175
@@ -1551,21 +1551,21 @@ _ZL9parse_intPKcS0_Pi.exit239.i:                  ; preds = %175
   %186 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %182, i64 %185
   store i32 %178, ptr %186, align 4
   %.sroa.22.0..sroa_idx264.i = getelementptr inbounds i8, ptr %186, i64 4
-  store i32 %.sroa.22.0.i, ptr %.sroa.22.0..sroa_idx264.i, align 4
+  store i32 %.sroa.22.1.i, ptr %.sroa.22.0..sroa_idx264.i, align 4
   %.sroa.25.0..sroa_idx290.i = getelementptr inbounds i8, ptr %186, i64 8
-  store i32 %.sroa.25.0.i, ptr %.sroa.25.0..sroa_idx290.i, align 4
+  store i32 %.sroa.25.1.i, ptr %.sroa.25.0..sroa_idx290.i, align 4
   %.sroa.26.0..sroa_idx316.i = getelementptr inbounds i8, ptr %186, i64 12
-  store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx316.i, align 4
+  store i32 %.sroa.26.1.i, ptr %.sroa.26.0..sroa_idx316.i, align 4
   %.sroa.29.0..sroa_idx342.i = getelementptr inbounds i8, ptr %186, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx342.i, align 4
-  store ptr %.2.i, ptr %spec.select, align 8
+  store ptr %.4.i, ptr %spec.select, align 8
   br label %224
 
 187:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
-  store ptr %.0207.i, ptr %20, align 8
-  %188 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %20, ptr noundef nonnull %.2.i, ptr noundef nonnull %19, i1 noundef zeroext true)
+  store ptr %.1208.i, ptr %20, align 8
+  %188 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %20, ptr noundef nonnull %.4.i, ptr noundef nonnull %19, i1 noundef zeroext true)
   br i1 %188, label %189, label %_ZL9parse_intPKcS0_Pi.exit240.i
 
 _ZL9parse_intPKcS0_Pi.exit240.i:                  ; preds = %187
@@ -1588,23 +1588,23 @@ _ZL9parse_intPKcS0_Pi.exit240.i:                  ; preds = %187
   %196 = add i32 %195, -1
   %197 = zext i32 %196 to i64
   %198 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %194, i64 %197
-  store i32 %.sroa.0.0.i, ptr %198, align 4
+  store i32 %.sroa.0.1.i, ptr %198, align 4
   %.sroa.22.0..sroa_idx266.i = getelementptr inbounds i8, ptr %198, i64 4
   store i32 %190, ptr %.sroa.22.0..sroa_idx266.i, align 4
   %.sroa.25.0..sroa_idx292.i = getelementptr inbounds i8, ptr %198, i64 8
-  store i32 %.sroa.25.0.i, ptr %.sroa.25.0..sroa_idx292.i, align 4
+  store i32 %.sroa.25.1.i, ptr %.sroa.25.0..sroa_idx292.i, align 4
   %.sroa.26.0..sroa_idx318.i = getelementptr inbounds i8, ptr %198, i64 12
-  store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx318.i, align 4
+  store i32 %.sroa.26.1.i, ptr %.sroa.26.0..sroa_idx318.i, align 4
   %.sroa.29.0..sroa_idx344.i = getelementptr inbounds i8, ptr %198, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx344.i, align 4
-  store ptr %.2.i, ptr %spec.select, align 8
+  store ptr %.4.i, ptr %spec.select, align 8
   br label %224
 
 199:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  store ptr %.0207.i, ptr %18, align 8
-  %200 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %18, ptr noundef nonnull %.2.i, ptr noundef nonnull %17, i1 noundef zeroext true, i32 noundef 10)
+  store ptr %.1208.i, ptr %18, align 8
+  %200 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %18, ptr noundef nonnull %.4.i, ptr noundef nonnull %17, i1 noundef zeroext true, i32 noundef 10)
   br i1 %200, label %201, label %_ZL10parse_uintPKcS0_Pj.exit241.i
 
 _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
@@ -1628,27 +1628,27 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
   %208 = add i32 %207, -1
   %209 = zext i32 %208 to i64
   %210 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %206, i64 %209
-  store i32 %.sroa.0.0.i, ptr %210, align 4
+  store i32 %.sroa.0.1.i, ptr %210, align 4
   %.sroa.22.0..sroa_idx268.i = getelementptr inbounds i8, ptr %210, i64 4
-  store i32 %.sroa.22.0.i, ptr %.sroa.22.0..sroa_idx268.i, align 4
+  store i32 %.sroa.22.1.i, ptr %.sroa.22.0..sroa_idx268.i, align 4
   %.sroa.25.0..sroa_idx294.i = getelementptr inbounds i8, ptr %210, i64 8
-  store i32 %.sroa.25.0.i, ptr %.sroa.25.0..sroa_idx294.i, align 4
+  store i32 %.sroa.25.1.i, ptr %.sroa.25.0..sroa_idx294.i, align 4
   %.sroa.26.0..sroa_idx320.i = getelementptr inbounds i8, ptr %210, i64 12
-  store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx320.i, align 4
+  store i32 %.sroa.26.1.i, ptr %.sroa.26.0..sroa_idx320.i, align 4
   %.sroa.29.0..sroa_idx346.i = getelementptr inbounds i8, ptr %210, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx346.i, align 4
-  store ptr %.2.i, ptr %spec.select, align 8
+  store ptr %.4.i, ptr %spec.select, align 8
   br label %224
 
 211:                                              ; preds = %110
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %37, i8 0, i64 20, i1 false)
-  %212 = call i32 @hb_font_glyph_from_string(ptr noundef %.026, ptr noundef nonnull %.2.i, i32 noundef 0, ptr noundef nonnull %37)
+  %212 = call i32 @hb_font_glyph_from_string(ptr noundef %.026, ptr noundef nonnull %.4.i, i32 noundef 0, ptr noundef nonnull %37)
   %.not226.i = icmp eq i32 %212, 0
   br i1 %.not226.i, label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit, label %224
 
 213:                                              ; preds = %110
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %37, i8 0, i64 20, i1 false)
-  %214 = call i32 @hb_font_glyph_from_string(ptr noundef %.026, ptr noundef nonnull %.2.i, i32 noundef 0, ptr noundef nonnull %37)
+  %214 = call i32 @hb_font_glyph_from_string(ptr noundef %.026, ptr noundef nonnull %.4.i, i32 noundef 0, ptr noundef nonnull %37)
   %.not225.i = icmp eq i32 %214, 0
   br i1 %.not225.i, label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit, label %215
 
@@ -1665,36 +1665,36 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
   %222 = zext i32 %221 to i64
   %223 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %219, i64 %222
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %223, i8 0, i64 20, i1 false)
-  store ptr %.2.i, ptr %spec.select, align 8
+  store ptr %.4.i, ptr %spec.select, align 8
   br label %224
 
 224:                                              ; preds = %218, %211, %205, %193, %181, %169, %157, %145, %135, %_ZL9parse_intPKcS0_Pi.exit236.thread.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i, %114, %113, %110, %99
-  %.sroa.0.3.i = phi i32 [ %.sroa.0.0.i, %110 ], [ 0, %218 ], [ 0, %211 ], [ %.sroa.0.0.i, %205 ], [ %.sroa.0.0.i, %193 ], [ %178, %181 ], [ %.sroa.0.0.i, %169 ], [ %.sroa.0.0.i, %157 ], [ %.sroa.0.0.i, %145 ], [ 0, %135 ], [ %.sroa.0.0.i, %114 ], [ %.sroa.0.0.i, %113 ], [ %.sroa.0.0.i, %99 ], [ %.sroa.0.0.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.sroa.0.0.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.sroa.0.0.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %131, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.sroa.0.0.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
-  %.sroa.22.3.i = phi i32 [ %.sroa.22.0.i, %110 ], [ 0, %218 ], [ 0, %211 ], [ %.sroa.22.0.i, %205 ], [ %190, %193 ], [ %.sroa.22.0.i, %181 ], [ %.sroa.22.0.i, %169 ], [ %.sroa.22.0.i, %157 ], [ %.sroa.22.0.i, %145 ], [ 0, %135 ], [ %.sroa.22.0.i, %114 ], [ %.sroa.22.0.i, %113 ], [ %.sroa.22.0.i, %99 ], [ %.sroa.22.0.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.sroa.22.0.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.sroa.22.0.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.sroa.22.0.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %134, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
-  %.sroa.25.2.i = phi i32 [ %.sroa.25.0.i, %110 ], [ 0, %218 ], [ 0, %211 ], [ %.sroa.25.0.i, %205 ], [ %.sroa.25.0.i, %193 ], [ %.sroa.25.0.i, %181 ], [ %.sroa.25.0.i, %169 ], [ %.sroa.25.0.i, %157 ], [ %.sroa.25.0.i, %145 ], [ 0, %135 ], [ %.sroa.25.0.i, %114 ], [ %.sroa.25.0.i, %113 ], [ %.sroa.25.0.i, %99 ], [ %.sroa.25.0.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %125, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.sroa.25.0.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.sroa.25.0.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.sroa.25.0.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
-  %.sroa.26.3.i = phi i32 [ %.sroa.26.0.i, %110 ], [ 0, %218 ], [ 0, %211 ], [ %.sroa.26.0.i, %205 ], [ %.sroa.26.0.i, %193 ], [ %.sroa.26.0.i, %181 ], [ %166, %169 ], [ %.sroa.26.0.i, %157 ], [ %.sroa.26.0.i, %145 ], [ 0, %135 ], [ %.sroa.26.0.i, %114 ], [ %.sroa.26.0.i, %113 ], [ %.sroa.26.0.i, %99 ], [ %.sroa.26.0.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.sroa.26.0.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %128, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.sroa.26.0.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.sroa.26.0.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
-  %.1208.i = phi ptr [ %.0207.i, %110 ], [ %.2.i, %218 ], [ %.2.i, %211 ], [ %.0207.i, %205 ], [ %.0207.i, %193 ], [ %.0207.i, %181 ], [ %.0207.i, %169 ], [ %.0207.i, %157 ], [ %.0207.i, %145 ], [ %.2.i, %135 ], [ %.0207.i, %114 ], [ %.2.i, %113 ], [ %.0207.i, %99 ], [ %.0207.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.0207.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.0207.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.0207.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.0207.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
+  %.sroa.0.2.i = phi i32 [ %.sroa.0.1.i, %110 ], [ 0, %218 ], [ 0, %211 ], [ %.sroa.0.1.i, %205 ], [ %.sroa.0.1.i, %193 ], [ %178, %181 ], [ %.sroa.0.1.i, %169 ], [ %.sroa.0.1.i, %157 ], [ %.sroa.0.1.i, %145 ], [ 0, %135 ], [ %.sroa.0.1.i, %114 ], [ %.sroa.0.1.i, %113 ], [ %.sroa.0.1.i, %99 ], [ %.sroa.0.1.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.sroa.0.1.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.sroa.0.1.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %131, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.sroa.0.1.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
+  %.sroa.22.2.i = phi i32 [ %.sroa.22.1.i, %110 ], [ 0, %218 ], [ 0, %211 ], [ %.sroa.22.1.i, %205 ], [ %190, %193 ], [ %.sroa.22.1.i, %181 ], [ %.sroa.22.1.i, %169 ], [ %.sroa.22.1.i, %157 ], [ %.sroa.22.1.i, %145 ], [ 0, %135 ], [ %.sroa.22.1.i, %114 ], [ %.sroa.22.1.i, %113 ], [ %.sroa.22.1.i, %99 ], [ %.sroa.22.1.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.sroa.22.1.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.sroa.22.1.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.sroa.22.1.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %134, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
+  %.sroa.25.2.i = phi i32 [ %.sroa.25.1.i, %110 ], [ 0, %218 ], [ 0, %211 ], [ %.sroa.25.1.i, %205 ], [ %.sroa.25.1.i, %193 ], [ %.sroa.25.1.i, %181 ], [ %.sroa.25.1.i, %169 ], [ %.sroa.25.1.i, %157 ], [ %.sroa.25.1.i, %145 ], [ 0, %135 ], [ %.sroa.25.1.i, %114 ], [ %.sroa.25.1.i, %113 ], [ %.sroa.25.1.i, %99 ], [ %.sroa.25.1.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %125, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.sroa.25.1.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.sroa.25.1.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.sroa.25.1.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
+  %.sroa.26.2.i = phi i32 [ %.sroa.26.1.i, %110 ], [ 0, %218 ], [ 0, %211 ], [ %.sroa.26.1.i, %205 ], [ %.sroa.26.1.i, %193 ], [ %.sroa.26.1.i, %181 ], [ %166, %169 ], [ %.sroa.26.1.i, %157 ], [ %.sroa.26.1.i, %145 ], [ 0, %135 ], [ %.sroa.26.1.i, %114 ], [ %.sroa.26.1.i, %113 ], [ %.sroa.26.1.i, %99 ], [ %.sroa.26.1.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.sroa.26.1.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %128, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.sroa.26.1.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.sroa.26.1.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
+  %.2209.i = phi ptr [ %.1208.i, %110 ], [ %.4.i, %218 ], [ %.4.i, %211 ], [ %.1208.i, %205 ], [ %.1208.i, %193 ], [ %.1208.i, %181 ], [ %.1208.i, %169 ], [ %.1208.i, %157 ], [ %.1208.i, %145 ], [ %.4.i, %135 ], [ %.1208.i, %114 ], [ %.4.i, %113 ], [ %.1208.i, %99 ], [ %.1208.i, %_ZL10parse_uintPKcS0_Pj.exit.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit234.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit235.thread.i ], [ %.1208.i, %_ZL9parse_intPKcS0_Pi.exit236.thread.i ]
   %225 = icmp eq i8 %103, 1
   br i1 %225, label %.loopexit452.i, label %226
 
 226:                                              ; preds = %224
-  %227 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %227 = getelementptr inbounds i8, ptr %.4.i, i64 1
   %.not229.i = icmp eq ptr %227, %.0202.i
   br i1 %.not229.i, label %.loopexit453.i, label %78
 
 .loopexit453.i:                                   ; preds = %226, %71
-  %.sroa.0.4.i = phi i32 [ 0, %71 ], [ %.sroa.0.3.i, %226 ]
-  %.sroa.22.4.i = phi i32 [ 0, %71 ], [ %.sroa.22.3.i, %226 ]
-  %.sroa.25.3.i = phi i32 [ 0, %71 ], [ %.sroa.25.2.i, %226 ]
-  %.sroa.26.4.i = phi i32 [ 0, %71 ], [ %.sroa.26.3.i, %226 ]
-  %.2209.i = phi ptr [ null, %71 ], [ %.1208.i, %226 ]
-  %.1206.i = phi i32 [ 14, %71 ], [ %107, %226 ]
-  %.3.i = phi ptr [ %.1.i, %71 ], [ %227, %226 ]
-  %228 = icmp eq ptr %.3.i, %.0202.i
+  %.sroa.0.0.i = phi i32 [ 0, %71 ], [ %.sroa.0.2.i, %226 ]
+  %.sroa.22.0.i = phi i32 [ 0, %71 ], [ %.sroa.22.2.i, %226 ]
+  %.sroa.25.0.i = phi i32 [ 0, %71 ], [ %.sroa.25.2.i, %226 ]
+  %.sroa.26.0.i = phi i32 [ 0, %71 ], [ %.sroa.26.2.i, %226 ]
+  %.0207.i = phi ptr [ null, %71 ], [ %.2209.i, %226 ]
+  %.0205.i = phi i32 [ 14, %71 ], [ %107, %226 ]
+  %.2.i = phi ptr [ %.1.i, %71 ], [ %227, %226 ]
+  %228 = icmp eq ptr %.2.i, %.0202.i
   br i1 %228, label %229, label %.loopexit452.i
 
 229:                                              ; preds = %.loopexit453.i
-  %230 = sext i32 %.1206.i to i64
+  %230 = sext i32 %.0205.i to i64
   %231 = getelementptr inbounds [27 x i8], ptr @_ZL36_deserialize_text_glyphs_eof_actions, i64 0, i64 %230
   %232 = load i8, ptr %231, align 1
   switch i8 %232, label %.loopexit452.i [
@@ -1709,10 +1709,10 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
 
 233:                                              ; preds = %229
   %234 = ptrtoint ptr %.0202.i to i64
-  %235 = ptrtoint ptr %.2209.i to i64
+  %235 = ptrtoint ptr %.0207.i to i64
   %236 = sub i64 %234, %235
   %237 = trunc i64 %236 to i32
-  %238 = call i32 @hb_font_glyph_from_string(ptr noundef %.026, ptr noundef %.2209.i, i32 noundef %237, ptr noundef nonnull %37)
+  %238 = call i32 @hb_font_glyph_from_string(ptr noundef %.026, ptr noundef %.0207.i, i32 noundef %237, ptr noundef nonnull %37)
   %.not231.i = icmp eq i32 %238, 0
   br i1 %.not231.i, label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit, label %239
 
@@ -1731,13 +1731,13 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
   %248 = add i32 %247, -1
   %249 = zext i32 %248 to i64
   %250 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %245, i64 %249
-  store i32 %.sroa.0.4.i, ptr %250, align 4
+  store i32 %.sroa.0.0.i, ptr %250, align 4
   %.sroa.22.0..sroa_idx272.i = getelementptr inbounds i8, ptr %250, i64 4
-  store i32 %.sroa.22.4.i, ptr %.sroa.22.0..sroa_idx272.i, align 4
+  store i32 %.sroa.22.0.i, ptr %.sroa.22.0..sroa_idx272.i, align 4
   %.sroa.25.0..sroa_idx298.i = getelementptr inbounds i8, ptr %250, i64 8
-  store i32 %.sroa.25.3.i, ptr %.sroa.25.0..sroa_idx298.i, align 4
+  store i32 %.sroa.25.0.i, ptr %.sroa.25.0..sroa_idx298.i, align 4
   %.sroa.26.0..sroa_idx324.i = getelementptr inbounds i8, ptr %250, i64 12
-  store i32 %.sroa.26.4.i, ptr %.sroa.26.0..sroa_idx324.i, align 4
+  store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx324.i, align 4
   %.sroa.29.0..sroa_idx350.i = getelementptr inbounds i8, ptr %250, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx350.i, align 4
   br label %.loopexit452.sink.split.i
@@ -1745,8 +1745,8 @@ _ZL10parse_uintPKcS0_Pj.exit241.i:                ; preds = %199
 251:                                              ; preds = %229
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  store ptr %.2209.i, ptr %16, align 8
-  %252 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %16, ptr noundef nonnull %.3.i, ptr noundef nonnull %15, i1 noundef zeroext true, i32 noundef 10)
+  store ptr %.0207.i, ptr %16, align 8
+  %252 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %16, ptr noundef nonnull %.2.i, ptr noundef nonnull %15, i1 noundef zeroext true, i32 noundef 10)
   br i1 %252, label %253, label %_ZL10parse_uintPKcS0_Pj.exit242.i
 
 _ZL10parse_uintPKcS0_Pj.exit242.i:                ; preds = %251
@@ -1774,13 +1774,13 @@ _ZL10parse_uintPKcS0_Pj.exit242.i:                ; preds = %251
   %264 = add i32 %263, -1
   %265 = zext i32 %264 to i64
   %266 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %261, i64 %265
-  store i32 %.sroa.0.4.i, ptr %266, align 4
+  store i32 %.sroa.0.0.i, ptr %266, align 4
   %.sroa.22.0..sroa_idx274.i = getelementptr inbounds i8, ptr %266, i64 4
-  store i32 %.sroa.22.4.i, ptr %.sroa.22.0..sroa_idx274.i, align 4
+  store i32 %.sroa.22.0.i, ptr %.sroa.22.0..sroa_idx274.i, align 4
   %.sroa.25.0..sroa_idx300.i = getelementptr inbounds i8, ptr %266, i64 8
-  store i32 %.sroa.25.3.i, ptr %.sroa.25.0..sroa_idx300.i, align 4
+  store i32 %.sroa.25.0.i, ptr %.sroa.25.0..sroa_idx300.i, align 4
   %.sroa.26.0..sroa_idx326.i = getelementptr inbounds i8, ptr %266, i64 12
-  store i32 %.sroa.26.4.i, ptr %.sroa.26.0..sroa_idx326.i, align 4
+  store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx326.i, align 4
   %.sroa.29.0..sroa_idx352.i = getelementptr inbounds i8, ptr %266, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx352.i, align 4
   br label %.loopexit452.sink.split.i
@@ -1788,8 +1788,8 @@ _ZL10parse_uintPKcS0_Pj.exit242.i:                ; preds = %251
 267:                                              ; preds = %229
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  store ptr %.2209.i, ptr %14, align 8
-  %268 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %14, ptr noundef nonnull %.3.i, ptr noundef nonnull %13, i1 noundef zeroext true)
+  store ptr %.0207.i, ptr %14, align 8
+  %268 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %14, ptr noundef nonnull %.2.i, ptr noundef nonnull %13, i1 noundef zeroext true)
   br i1 %268, label %269, label %_ZL9parse_intPKcS0_Pi.exit243.i
 
 _ZL9parse_intPKcS0_Pi.exit243.i:                  ; preds = %267
@@ -1815,11 +1815,11 @@ _ZL9parse_intPKcS0_Pi.exit243.i:                  ; preds = %267
   %279 = add i32 %278, -1
   %280 = zext i32 %279 to i64
   %281 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %276, i64 %280
-  store i32 %.sroa.0.4.i, ptr %281, align 4
+  store i32 %.sroa.0.0.i, ptr %281, align 4
   %.sroa.22.0..sroa_idx276.i = getelementptr inbounds i8, ptr %281, i64 4
-  store i32 %.sroa.22.4.i, ptr %.sroa.22.0..sroa_idx276.i, align 4
+  store i32 %.sroa.22.0.i, ptr %.sroa.22.0..sroa_idx276.i, align 4
   %.sroa.25.0..sroa_idx302.i = getelementptr inbounds i8, ptr %281, i64 8
-  store i32 %.sroa.25.3.i, ptr %.sroa.25.0..sroa_idx302.i, align 4
+  store i32 %.sroa.25.0.i, ptr %.sroa.25.0..sroa_idx302.i, align 4
   %.sroa.26.0..sroa_idx328.i = getelementptr inbounds i8, ptr %281, i64 12
   store i32 %270, ptr %.sroa.26.0..sroa_idx328.i, align 4
   %.sroa.29.0..sroa_idx354.i = getelementptr inbounds i8, ptr %281, i64 16
@@ -1829,8 +1829,8 @@ _ZL9parse_intPKcS0_Pi.exit243.i:                  ; preds = %267
 282:                                              ; preds = %229
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  store ptr %.2209.i, ptr %12, align 8
-  %283 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %12, ptr noundef nonnull %.3.i, ptr noundef nonnull %11, i1 noundef zeroext true)
+  store ptr %.0207.i, ptr %12, align 8
+  %283 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %12, ptr noundef nonnull %.2.i, ptr noundef nonnull %11, i1 noundef zeroext true)
   br i1 %283, label %284, label %_ZL9parse_intPKcS0_Pi.exit244.i
 
 _ZL9parse_intPKcS0_Pi.exit244.i:                  ; preds = %282
@@ -1858,11 +1858,11 @@ _ZL9parse_intPKcS0_Pi.exit244.i:                  ; preds = %282
   %296 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %291, i64 %295
   store i32 %285, ptr %296, align 4
   %.sroa.22.0..sroa_idx278.i = getelementptr inbounds i8, ptr %296, i64 4
-  store i32 %.sroa.22.4.i, ptr %.sroa.22.0..sroa_idx278.i, align 4
+  store i32 %.sroa.22.0.i, ptr %.sroa.22.0..sroa_idx278.i, align 4
   %.sroa.25.0..sroa_idx304.i = getelementptr inbounds i8, ptr %296, i64 8
-  store i32 %.sroa.25.3.i, ptr %.sroa.25.0..sroa_idx304.i, align 4
+  store i32 %.sroa.25.0.i, ptr %.sroa.25.0..sroa_idx304.i, align 4
   %.sroa.26.0..sroa_idx330.i = getelementptr inbounds i8, ptr %296, i64 12
-  store i32 %.sroa.26.4.i, ptr %.sroa.26.0..sroa_idx330.i, align 4
+  store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx330.i, align 4
   %.sroa.29.0..sroa_idx356.i = getelementptr inbounds i8, ptr %296, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx356.i, align 4
   br label %.loopexit452.sink.split.i
@@ -1870,8 +1870,8 @@ _ZL9parse_intPKcS0_Pi.exit244.i:                  ; preds = %282
 297:                                              ; preds = %229
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  store ptr %.2209.i, ptr %10, align 8
-  %298 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %10, ptr noundef nonnull %.3.i, ptr noundef nonnull %9, i1 noundef zeroext true)
+  store ptr %.0207.i, ptr %10, align 8
+  %298 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %10, ptr noundef nonnull %.2.i, ptr noundef nonnull %9, i1 noundef zeroext true)
   br i1 %298, label %299, label %_ZL9parse_intPKcS0_Pi.exit245.i
 
 _ZL9parse_intPKcS0_Pi.exit245.i:                  ; preds = %297
@@ -1897,13 +1897,13 @@ _ZL9parse_intPKcS0_Pi.exit245.i:                  ; preds = %297
   %309 = add i32 %308, -1
   %310 = zext i32 %309 to i64
   %311 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %306, i64 %310
-  store i32 %.sroa.0.4.i, ptr %311, align 4
+  store i32 %.sroa.0.0.i, ptr %311, align 4
   %.sroa.22.0..sroa_idx280.i = getelementptr inbounds i8, ptr %311, i64 4
   store i32 %300, ptr %.sroa.22.0..sroa_idx280.i, align 4
   %.sroa.25.0..sroa_idx306.i = getelementptr inbounds i8, ptr %311, i64 8
-  store i32 %.sroa.25.3.i, ptr %.sroa.25.0..sroa_idx306.i, align 4
+  store i32 %.sroa.25.0.i, ptr %.sroa.25.0..sroa_idx306.i, align 4
   %.sroa.26.0..sroa_idx332.i = getelementptr inbounds i8, ptr %311, i64 12
-  store i32 %.sroa.26.4.i, ptr %.sroa.26.0..sroa_idx332.i, align 4
+  store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx332.i, align 4
   %.sroa.29.0..sroa_idx358.i = getelementptr inbounds i8, ptr %311, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx358.i, align 4
   br label %.loopexit452.sink.split.i
@@ -1911,8 +1911,8 @@ _ZL9parse_intPKcS0_Pi.exit245.i:                  ; preds = %297
 312:                                              ; preds = %229
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store ptr %.2209.i, ptr %8, align 8
-  %313 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %8, ptr noundef nonnull %.3.i, ptr noundef nonnull %7, i1 noundef zeroext true, i32 noundef 10)
+  store ptr %.0207.i, ptr %8, align 8
+  %313 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %8, ptr noundef nonnull %.2.i, ptr noundef nonnull %7, i1 noundef zeroext true, i32 noundef 10)
   br i1 %313, label %314, label %_ZL10parse_uintPKcS0_Pj.exit246.i
 
 _ZL10parse_uintPKcS0_Pj.exit246.i:                ; preds = %312
@@ -1940,20 +1940,20 @@ _ZL10parse_uintPKcS0_Pj.exit246.i:                ; preds = %312
   %325 = add i32 %324, -1
   %326 = zext i32 %325 to i64
   %327 = getelementptr inbounds %struct.hb_glyph_position_t, ptr %322, i64 %326
-  store i32 %.sroa.0.4.i, ptr %327, align 4
+  store i32 %.sroa.0.0.i, ptr %327, align 4
   %.sroa.22.0..sroa_idx282.i = getelementptr inbounds i8, ptr %327, i64 4
-  store i32 %.sroa.22.4.i, ptr %.sroa.22.0..sroa_idx282.i, align 4
+  store i32 %.sroa.22.0.i, ptr %.sroa.22.0..sroa_idx282.i, align 4
   %.sroa.25.0..sroa_idx308.i = getelementptr inbounds i8, ptr %327, i64 8
-  store i32 %.sroa.25.3.i, ptr %.sroa.25.0..sroa_idx308.i, align 4
+  store i32 %.sroa.25.0.i, ptr %.sroa.25.0..sroa_idx308.i, align 4
   %.sroa.26.0..sroa_idx334.i = getelementptr inbounds i8, ptr %327, i64 12
-  store i32 %.sroa.26.4.i, ptr %.sroa.26.0..sroa_idx334.i, align 4
+  store i32 %.sroa.26.0.i, ptr %.sroa.26.0..sroa_idx334.i, align 4
   %.sroa.29.0..sroa_idx360.i = getelementptr inbounds i8, ptr %327, i64 16
   store i32 0, ptr %.sroa.29.0..sroa_idx360.i, align 4
   br label %.loopexit452.sink.split.i
 
 328:                                              ; preds = %229
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %37, i8 0, i64 20, i1 false)
-  %329 = call i32 @hb_font_glyph_from_string(ptr noundef %.026, ptr noundef nonnull %.3.i, i32 noundef 0, ptr noundef nonnull %37)
+  %329 = call i32 @hb_font_glyph_from_string(ptr noundef %.026, ptr noundef nonnull %.2.i, i32 noundef 0, ptr noundef nonnull %37)
   %.not230.i = icmp eq i32 %329, 0
   br i1 %.not230.i, label %_ZL34_hb_buffer_deserialize_text_glyphsP11hb_buffer_tPKcjPS2_P9hb_font_t.exit, label %330
 
@@ -1976,11 +1976,11 @@ _ZL10parse_uintPKcS0_Pj.exit246.i:                ; preds = %312
   br label %.loopexit452.sink.split.i
 
 .loopexit452.sink.split.i:                        ; preds = %334, %320, %304, %289, %274, %259, %243
-  store ptr %.3.i, ptr %spec.select, align 8
+  store ptr %.2.i, ptr %spec.select, align 8
   br label %.loopexit452.i
 
 .loopexit452.i:                                   ; preds = %224, %.loopexit452.sink.split.i, %229, %.loopexit453.i
-  %.4.i = phi ptr [ %.3.i, %229 ], [ %.3.i, %.loopexit453.i ], [ %.3.i, %.loopexit452.sink.split.i ], [ %.2.i, %224 ]
+  %.3.i = phi ptr [ %.2.i, %229 ], [ %.2.i, %.loopexit453.i ], [ %.2.i, %.loopexit452.sink.split.i ], [ %.4.i, %224 ]
   %342 = icmp ult ptr %.0202.i, %55
   br i1 %342, label %343, label %349
 
@@ -1991,14 +1991,14 @@ _ZL10parse_uintPKcS0_Pj.exit246.i:                ; preds = %312
 
 346:                                              ; preds = %343
   %347 = getelementptr inbounds i8, ptr %.0202.i, i64 1
-  %348 = icmp eq ptr %.4.i, %347
+  %348 = icmp eq ptr %.3.i, %347
   %spec.select.idx.i = zext i1 %348 to i64
-  %spec.select.i = getelementptr inbounds i8, ptr %.4.i, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds i8, ptr %.3.i, i64 %spec.select.idx.i
   br label %349
 
 349:                                              ; preds = %346, %343, %.loopexit452.i
   %.1203.i = phi ptr [ %.0202.i, %343 ], [ %.0202.i, %.loopexit452.i ], [ %347, %346 ]
-  %.5.i = phi ptr [ %.4.i, %343 ], [ %.4.i, %.loopexit452.i ], [ %spec.select.i, %346 ]
+  %.5.i = phi ptr [ %.3.i, %343 ], [ %.3.i, %.loopexit452.i ], [ %spec.select.i, %346 ]
   store ptr %.5.i, ptr %spec.select, align 8
   %350 = icmp eq ptr %.5.i, %.1203.i
   %351 = zext i1 %350 to i32
@@ -2107,13 +2107,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
   br label %56
 
 56:                                               ; preds = %.preheader, %243
-  %.sroa.0.0 = phi i32 [ %.sroa.0.3, %243 ], [ 0, %.preheader ]
-  %.sroa.13.0 = phi i32 [ %.sroa.13.3, %243 ], [ 0, %.preheader ]
-  %.sroa.15.0 = phi i32 [ %.sroa.15.3, %243 ], [ 0, %.preheader ]
-  %.sroa.17.0 = phi i32 [ %.sroa.17.3, %243 ], [ 0, %.preheader ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.1, %243 ], [ 0, %.preheader ]
+  %.sroa.13.0 = phi i32 [ %.sroa.13.1, %243 ], [ 0, %.preheader ]
+  %.sroa.15.0 = phi i32 [ %.sroa.15.1, %243 ], [ 0, %.preheader ]
+  %.sroa.17.0 = phi i32 [ %.sroa.17.1, %243 ], [ 0, %.preheader ]
   %.0141 = phi i32 [ %86, %243 ], [ 1, %.preheader ]
   %.0139 = phi ptr [ %.1140, %243 ], [ null, %.preheader ]
-  %.2 = phi ptr [ %244, %243 ], [ %.1, %.preheader ]
+  %.3 = phi ptr [ %244, %243 ], [ %.1, %.preheader ]
   %57 = shl nsw i32 %.0141, 1
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr @_ZL28_deserialize_json_trans_keys, i64 %58
@@ -2131,7 +2131,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
 68:                                               ; preds = %56
   %69 = load i8, ptr %59, align 2
   %70 = zext i8 %69 to i32
-  %71 = load i8, ptr %.2, align 1
+  %71 = load i8, ptr %.3, align 1
   %72 = sext i8 %71 to i32
   %.not149 = icmp sgt i32 %70, %72
   br i1 %.not149, label %78, label %73
@@ -2207,7 +2207,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
   store i32 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx, align 4
   %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %98, i64 16
   store i32 0, ptr %.sroa.19.0..sroa_idx, align 4
-  store ptr %.2, ptr %3, align 8
+  store ptr %.3, ptr %3, align 8
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 99:                                               ; preds = %78
@@ -2237,7 +2237,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
 
 106:                                              ; preds = %78
   %107 = getelementptr inbounds i8, ptr %.0139, i64 1
-  %108 = ptrtoint ptr %.2 to i64
+  %108 = ptrtoint ptr %.3 to i64
   %109 = ptrtoint ptr %.0139 to i64
   %110 = sub i64 %108, %109
   %111 = trunc i64 %110 to i32
@@ -2250,7 +2250,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL27_hb_buffer_deserialize_
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33)
   store ptr %.0139, ptr %33, align 8
-  %115 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %33, ptr noundef %.2, ptr noundef nonnull %32, i1 noundef zeroext true, i32 noundef 10)
+  %115 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %33, ptr noundef %.3, ptr noundef nonnull %32, i1 noundef zeroext true, i32 noundef 10)
   br i1 %115, label %_ZL10parse_uintPKcS0_Pj.exit.thread, label %_ZL10parse_uintPKcS0_Pj.exit
 
 _ZL10parse_uintPKcS0_Pj.exit.thread:              ; preds = %114
@@ -2269,7 +2269,7 @@ _ZL10parse_uintPKcS0_Pj.exit:                     ; preds = %114
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
   store ptr %.0139, ptr %31, align 8
-  %118 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %31, ptr noundef %.2, ptr noundef nonnull %30, i1 noundef zeroext true, i32 noundef 10)
+  %118 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %31, ptr noundef %.3, ptr noundef nonnull %30, i1 noundef zeroext true, i32 noundef 10)
   br i1 %118, label %_ZL10parse_uintPKcS0_Pj.exit156.thread, label %_ZL10parse_uintPKcS0_Pj.exit156
 
 _ZL10parse_uintPKcS0_Pj.exit156.thread:           ; preds = %117
@@ -2288,7 +2288,7 @@ _ZL10parse_uintPKcS0_Pj.exit156:                  ; preds = %117
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
   store ptr %.0139, ptr %29, align 8
-  %121 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %29, ptr noundef %.2, ptr noundef nonnull %28, i1 noundef zeroext true)
+  %121 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %29, ptr noundef %.3, ptr noundef nonnull %28, i1 noundef zeroext true)
   br i1 %121, label %_ZL9parse_intPKcS0_Pi.exit.thread, label %_ZL9parse_intPKcS0_Pi.exit
 
 _ZL9parse_intPKcS0_Pi.exit.thread:                ; preds = %120
@@ -2306,7 +2306,7 @@ _ZL9parse_intPKcS0_Pi.exit:                       ; preds = %120
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27)
   store ptr %.0139, ptr %27, align 8
-  %124 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %27, ptr noundef %.2, ptr noundef nonnull %26, i1 noundef zeroext true)
+  %124 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %27, ptr noundef %.3, ptr noundef nonnull %26, i1 noundef zeroext true)
   br i1 %124, label %_ZL9parse_intPKcS0_Pi.exit157.thread, label %_ZL9parse_intPKcS0_Pi.exit157
 
 _ZL9parse_intPKcS0_Pi.exit157.thread:             ; preds = %123
@@ -2324,7 +2324,7 @@ _ZL9parse_intPKcS0_Pi.exit157:                    ; preds = %123
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   store ptr %.0139, ptr %25, align 8
-  %127 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %25, ptr noundef %.2, ptr noundef nonnull %24, i1 noundef zeroext true)
+  %127 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %25, ptr noundef %.3, ptr noundef nonnull %24, i1 noundef zeroext true)
   br i1 %127, label %_ZL9parse_intPKcS0_Pi.exit158.thread, label %_ZL9parse_intPKcS0_Pi.exit158
 
 _ZL9parse_intPKcS0_Pi.exit158.thread:             ; preds = %126
@@ -2342,7 +2342,7 @@ _ZL9parse_intPKcS0_Pi.exit158:                    ; preds = %126
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
   store ptr %.0139, ptr %23, align 8
-  %130 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %23, ptr noundef %.2, ptr noundef nonnull %22, i1 noundef zeroext true)
+  %130 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %23, ptr noundef %.3, ptr noundef nonnull %22, i1 noundef zeroext true)
   br i1 %130, label %_ZL9parse_intPKcS0_Pi.exit159.thread, label %_ZL9parse_intPKcS0_Pi.exit159
 
 _ZL9parse_intPKcS0_Pi.exit159.thread:             ; preds = %129
@@ -2360,7 +2360,7 @@ _ZL9parse_intPKcS0_Pi.exit159:                    ; preds = %129
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21)
   store ptr %.0139, ptr %21, align 8
-  %133 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %21, ptr noundef %.2, ptr noundef nonnull %20, i1 noundef zeroext true, i32 noundef 10)
+  %133 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %21, ptr noundef %.3, ptr noundef nonnull %20, i1 noundef zeroext true, i32 noundef 10)
   br i1 %133, label %_ZL10parse_uintPKcS0_Pj.exit160.thread, label %_ZL10parse_uintPKcS0_Pj.exit160
 
 _ZL10parse_uintPKcS0_Pj.exit160.thread:           ; preds = %132
@@ -2399,7 +2399,7 @@ _ZL10parse_uintPKcS0_Pj.exit160:                  ; preds = %132
 
 141:                                              ; preds = %78
   %142 = getelementptr inbounds i8, ptr %.0139, i64 1
-  %143 = ptrtoint ptr %.2 to i64
+  %143 = ptrtoint ptr %.3 to i64
   %144 = ptrtoint ptr %.0139 to i64
   %145 = sub i64 %143, %144
   %146 = trunc i64 %145 to i32
@@ -2429,14 +2429,14 @@ _ZL10parse_uintPKcS0_Pj.exit160:                  ; preds = %132
   store i32 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx212, align 4
   %.sroa.19.0..sroa_idx228 = getelementptr inbounds i8, ptr %157, i64 16
   store i32 0, ptr %.sroa.19.0..sroa_idx228, align 4
-  store ptr %.2, ptr %3, align 8
+  store ptr %.3, ptr %3, align 8
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 158:                                              ; preds = %78
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   store ptr %.0139, ptr %19, align 8
-  %159 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %19, ptr noundef %.2, ptr noundef nonnull %18, i1 noundef zeroext true, i32 noundef 10)
+  %159 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %19, ptr noundef %.3, ptr noundef nonnull %18, i1 noundef zeroext true, i32 noundef 10)
   br i1 %159, label %160, label %_ZL10parse_uintPKcS0_Pj.exit165
 
 _ZL10parse_uintPKcS0_Pj.exit165:                  ; preds = %158
@@ -2469,14 +2469,14 @@ _ZL10parse_uintPKcS0_Pj.exit165:                  ; preds = %158
   store i32 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx214, align 4
   %.sroa.19.0..sroa_idx230 = getelementptr inbounds i8, ptr %169, i64 16
   store i32 0, ptr %.sroa.19.0..sroa_idx230, align 4
-  store ptr %.2, ptr %3, align 8
+  store ptr %.3, ptr %3, align 8
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 170:                                              ; preds = %78
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   store ptr %.0139, ptr %17, align 8
-  %171 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %17, ptr noundef %.2, ptr noundef nonnull %16, i1 noundef zeroext true, i32 noundef 10)
+  %171 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %17, ptr noundef %.3, ptr noundef nonnull %16, i1 noundef zeroext true, i32 noundef 10)
   br i1 %171, label %172, label %_ZL10parse_uintPKcS0_Pj.exit166
 
 _ZL10parse_uintPKcS0_Pj.exit166:                  ; preds = %170
@@ -2509,14 +2509,14 @@ _ZL10parse_uintPKcS0_Pj.exit166:                  ; preds = %170
   store i32 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx216, align 4
   %.sroa.19.0..sroa_idx232 = getelementptr inbounds i8, ptr %181, i64 16
   store i32 0, ptr %.sroa.19.0..sroa_idx232, align 4
-  store ptr %.2, ptr %3, align 8
+  store ptr %.3, ptr %3, align 8
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 182:                                              ; preds = %78
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
   store ptr %.0139, ptr %15, align 8
-  %183 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %15, ptr noundef %.2, ptr noundef nonnull %14, i1 noundef zeroext true)
+  %183 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %15, ptr noundef %.3, ptr noundef nonnull %14, i1 noundef zeroext true)
   br i1 %183, label %184, label %_ZL9parse_intPKcS0_Pi.exit167
 
 _ZL9parse_intPKcS0_Pi.exit167:                    ; preds = %182
@@ -2548,14 +2548,14 @@ _ZL9parse_intPKcS0_Pi.exit167:                    ; preds = %182
   store i32 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx218, align 4
   %.sroa.19.0..sroa_idx234 = getelementptr inbounds i8, ptr %193, i64 16
   store i32 0, ptr %.sroa.19.0..sroa_idx234, align 4
-  store ptr %.2, ptr %3, align 8
+  store ptr %.3, ptr %3, align 8
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 194:                                              ; preds = %78
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
   store ptr %.0139, ptr %13, align 8
-  %195 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %13, ptr noundef %.2, ptr noundef nonnull %12, i1 noundef zeroext true)
+  %195 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %13, ptr noundef %.3, ptr noundef nonnull %12, i1 noundef zeroext true)
   br i1 %195, label %196, label %_ZL9parse_intPKcS0_Pi.exit168
 
 _ZL9parse_intPKcS0_Pi.exit168:                    ; preds = %194
@@ -2587,14 +2587,14 @@ _ZL9parse_intPKcS0_Pi.exit168:                    ; preds = %194
   store i32 %197, ptr %.sroa.17.0..sroa_idx220, align 4
   %.sroa.19.0..sroa_idx236 = getelementptr inbounds i8, ptr %205, i64 16
   store i32 0, ptr %.sroa.19.0..sroa_idx236, align 4
-  store ptr %.2, ptr %3, align 8
+  store ptr %.3, ptr %3, align 8
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 206:                                              ; preds = %78
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %.0139, ptr %11, align 8
-  %207 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %11, ptr noundef %.2, ptr noundef nonnull %10, i1 noundef zeroext true)
+  %207 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %11, ptr noundef %.3, ptr noundef nonnull %10, i1 noundef zeroext true)
   br i1 %207, label %208, label %_ZL9parse_intPKcS0_Pi.exit169
 
 _ZL9parse_intPKcS0_Pi.exit169:                    ; preds = %206
@@ -2626,14 +2626,14 @@ _ZL9parse_intPKcS0_Pi.exit169:                    ; preds = %206
   store i32 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx222, align 4
   %.sroa.19.0..sroa_idx238 = getelementptr inbounds i8, ptr %217, i64 16
   store i32 0, ptr %.sroa.19.0..sroa_idx238, align 4
-  store ptr %.2, ptr %3, align 8
+  store ptr %.3, ptr %3, align 8
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 218:                                              ; preds = %78
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %.0139, ptr %9, align 8
-  %219 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %9, ptr noundef %.2, ptr noundef nonnull %8, i1 noundef zeroext true)
+  %219 = call noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef nonnull %9, ptr noundef %.3, ptr noundef nonnull %8, i1 noundef zeroext true)
   br i1 %219, label %220, label %_ZL9parse_intPKcS0_Pi.exit170
 
 _ZL9parse_intPKcS0_Pi.exit170:                    ; preds = %218
@@ -2665,14 +2665,14 @@ _ZL9parse_intPKcS0_Pi.exit170:                    ; preds = %218
   store i32 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx224, align 4
   %.sroa.19.0..sroa_idx240 = getelementptr inbounds i8, ptr %229, i64 16
   store i32 0, ptr %.sroa.19.0..sroa_idx240, align 4
-  store ptr %.2, ptr %3, align 8
+  store ptr %.3, ptr %3, align 8
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 230:                                              ; preds = %78
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %.0139, ptr %7, align 8
-  %231 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %7, ptr noundef %.2, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 10)
+  %231 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %7, ptr noundef %.3, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 10)
   br i1 %231, label %232, label %_ZL10parse_uintPKcS0_Pj.exit171
 
 _ZL10parse_uintPKcS0_Pj.exit171:                  ; preds = %230
@@ -2705,20 +2705,20 @@ _ZL10parse_uintPKcS0_Pj.exit171:                  ; preds = %230
   store i32 %.sroa.17.0, ptr %.sroa.17.0..sroa_idx226, align 4
   %.sroa.19.0..sroa_idx242 = getelementptr inbounds i8, ptr %241, i64 16
   store i32 0, ptr %.sroa.19.0..sroa_idx242, align 4
-  store ptr %.2, ptr %3, align 8
+  store ptr %.3, ptr %3, align 8
   br label %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
 
 _ZN11hb_buffer_t13ensure_glyphsEv.exit.thread:    ; preds = %140, %138, %137, %135, %105, %103, %102, %100, %_ZL10parse_uintPKcS0_Pj.exit160.thread, %_ZL9parse_intPKcS0_Pi.exit159.thread, %_ZL9parse_intPKcS0_Pi.exit158.thread, %_ZL9parse_intPKcS0_Pi.exit157.thread, %_ZL9parse_intPKcS0_Pi.exit.thread, %_ZL10parse_uintPKcS0_Pj.exit156.thread, %_ZL10parse_uintPKcS0_Pj.exit.thread, %78, %89, %93, %99, %152, %164, %176, %188, %200, %212, %224, %236, %106
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0, %78 ], [ %.sroa.0.0, %224 ], [ %209, %212 ], [ %.sroa.0.0, %200 ], [ %.sroa.0.0, %188 ], [ %.sroa.0.0, %176 ], [ %.sroa.0.0, %164 ], [ %.sroa.0.0, %152 ], [ %.sroa.0.0, %106 ], [ %.sroa.0.0, %99 ], [ %.sroa.0.0, %93 ], [ 0, %89 ], [ %.sroa.0.0, %236 ], [ %.sroa.0.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.0.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.sroa.0.0, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.sroa.0.0, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %128, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.sroa.0.0, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.0.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.0.0, %100 ], [ %.sroa.0.0, %102 ], [ %.sroa.0.0, %103 ], [ %.sroa.0.0, %105 ], [ %.sroa.0.0, %135 ], [ %.sroa.0.0, %137 ], [ %.sroa.0.0, %138 ], [ %.sroa.0.0, %140 ]
-  %.sroa.13.3 = phi i32 [ %.sroa.13.0, %78 ], [ %221, %224 ], [ %.sroa.13.0, %212 ], [ %.sroa.13.0, %200 ], [ %.sroa.13.0, %188 ], [ %.sroa.13.0, %176 ], [ %.sroa.13.0, %164 ], [ %.sroa.13.0, %152 ], [ %.sroa.13.0, %106 ], [ %.sroa.13.0, %99 ], [ %.sroa.13.0, %93 ], [ 0, %89 ], [ %.sroa.13.0, %236 ], [ %.sroa.13.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.13.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.sroa.13.0, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.sroa.13.0, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.sroa.13.0, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %131, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.13.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.13.0, %100 ], [ %.sroa.13.0, %102 ], [ %.sroa.13.0, %103 ], [ %.sroa.13.0, %105 ], [ %.sroa.13.0, %135 ], [ %.sroa.13.0, %137 ], [ %.sroa.13.0, %138 ], [ %.sroa.13.0, %140 ]
-  %.sroa.15.3 = phi i32 [ %.sroa.15.0, %78 ], [ %.sroa.15.0, %224 ], [ %.sroa.15.0, %212 ], [ %.sroa.15.0, %200 ], [ %185, %188 ], [ %.sroa.15.0, %176 ], [ %.sroa.15.0, %164 ], [ %.sroa.15.0, %152 ], [ %.sroa.15.0, %106 ], [ %.sroa.15.0, %99 ], [ %.sroa.15.0, %93 ], [ 0, %89 ], [ %.sroa.15.0, %236 ], [ %.sroa.15.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.15.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %122, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.sroa.15.0, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.sroa.15.0, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.sroa.15.0, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.15.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.15.0, %100 ], [ %.sroa.15.0, %102 ], [ %.sroa.15.0, %103 ], [ %.sroa.15.0, %105 ], [ %.sroa.15.0, %135 ], [ %.sroa.15.0, %137 ], [ %.sroa.15.0, %138 ], [ %.sroa.15.0, %140 ]
-  %.sroa.17.3 = phi i32 [ %.sroa.17.0, %78 ], [ %.sroa.17.0, %224 ], [ %.sroa.17.0, %212 ], [ %197, %200 ], [ %.sroa.17.0, %188 ], [ %.sroa.17.0, %176 ], [ %.sroa.17.0, %164 ], [ %.sroa.17.0, %152 ], [ %.sroa.17.0, %106 ], [ %.sroa.17.0, %99 ], [ %.sroa.17.0, %93 ], [ 0, %89 ], [ %.sroa.17.0, %236 ], [ %.sroa.17.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.17.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.sroa.17.0, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %125, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.sroa.17.0, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.sroa.17.0, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.17.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.17.0, %100 ], [ %.sroa.17.0, %102 ], [ %.sroa.17.0, %103 ], [ %.sroa.17.0, %105 ], [ %.sroa.17.0, %135 ], [ %.sroa.17.0, %137 ], [ %.sroa.17.0, %138 ], [ %.sroa.17.0, %140 ]
-  %.1140 = phi ptr [ %.0139, %78 ], [ %.0139, %224 ], [ %.0139, %212 ], [ %.0139, %200 ], [ %.0139, %188 ], [ %.0139, %176 ], [ %.0139, %164 ], [ %.0139, %152 ], [ %.0139, %106 ], [ %.2, %99 ], [ %.0139, %93 ], [ %.0139, %89 ], [ %.0139, %236 ], [ %.0139, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.0139, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.0139, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.0139, %100 ], [ %.0139, %102 ], [ %.0139, %103 ], [ %.0139, %105 ], [ %.2, %135 ], [ %.2, %137 ], [ %.2, %138 ], [ %.2, %140 ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %78 ], [ %.sroa.0.0, %224 ], [ %209, %212 ], [ %.sroa.0.0, %200 ], [ %.sroa.0.0, %188 ], [ %.sroa.0.0, %176 ], [ %.sroa.0.0, %164 ], [ %.sroa.0.0, %152 ], [ %.sroa.0.0, %106 ], [ %.sroa.0.0, %99 ], [ %.sroa.0.0, %93 ], [ 0, %89 ], [ %.sroa.0.0, %236 ], [ %.sroa.0.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.0.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.sroa.0.0, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.sroa.0.0, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %128, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.sroa.0.0, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.0.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.0.0, %100 ], [ %.sroa.0.0, %102 ], [ %.sroa.0.0, %103 ], [ %.sroa.0.0, %105 ], [ %.sroa.0.0, %135 ], [ %.sroa.0.0, %137 ], [ %.sroa.0.0, %138 ], [ %.sroa.0.0, %140 ]
+  %.sroa.13.1 = phi i32 [ %.sroa.13.0, %78 ], [ %221, %224 ], [ %.sroa.13.0, %212 ], [ %.sroa.13.0, %200 ], [ %.sroa.13.0, %188 ], [ %.sroa.13.0, %176 ], [ %.sroa.13.0, %164 ], [ %.sroa.13.0, %152 ], [ %.sroa.13.0, %106 ], [ %.sroa.13.0, %99 ], [ %.sroa.13.0, %93 ], [ 0, %89 ], [ %.sroa.13.0, %236 ], [ %.sroa.13.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.13.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.sroa.13.0, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.sroa.13.0, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.sroa.13.0, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %131, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.13.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.13.0, %100 ], [ %.sroa.13.0, %102 ], [ %.sroa.13.0, %103 ], [ %.sroa.13.0, %105 ], [ %.sroa.13.0, %135 ], [ %.sroa.13.0, %137 ], [ %.sroa.13.0, %138 ], [ %.sroa.13.0, %140 ]
+  %.sroa.15.1 = phi i32 [ %.sroa.15.0, %78 ], [ %.sroa.15.0, %224 ], [ %.sroa.15.0, %212 ], [ %.sroa.15.0, %200 ], [ %185, %188 ], [ %.sroa.15.0, %176 ], [ %.sroa.15.0, %164 ], [ %.sroa.15.0, %152 ], [ %.sroa.15.0, %106 ], [ %.sroa.15.0, %99 ], [ %.sroa.15.0, %93 ], [ 0, %89 ], [ %.sroa.15.0, %236 ], [ %.sroa.15.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.15.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %122, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.sroa.15.0, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.sroa.15.0, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.sroa.15.0, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.15.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.15.0, %100 ], [ %.sroa.15.0, %102 ], [ %.sroa.15.0, %103 ], [ %.sroa.15.0, %105 ], [ %.sroa.15.0, %135 ], [ %.sroa.15.0, %137 ], [ %.sroa.15.0, %138 ], [ %.sroa.15.0, %140 ]
+  %.sroa.17.1 = phi i32 [ %.sroa.17.0, %78 ], [ %.sroa.17.0, %224 ], [ %.sroa.17.0, %212 ], [ %197, %200 ], [ %.sroa.17.0, %188 ], [ %.sroa.17.0, %176 ], [ %.sroa.17.0, %164 ], [ %.sroa.17.0, %152 ], [ %.sroa.17.0, %106 ], [ %.sroa.17.0, %99 ], [ %.sroa.17.0, %93 ], [ 0, %89 ], [ %.sroa.17.0, %236 ], [ %.sroa.17.0, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.sroa.17.0, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.sroa.17.0, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %125, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.sroa.17.0, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.sroa.17.0, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.sroa.17.0, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.sroa.17.0, %100 ], [ %.sroa.17.0, %102 ], [ %.sroa.17.0, %103 ], [ %.sroa.17.0, %105 ], [ %.sroa.17.0, %135 ], [ %.sroa.17.0, %137 ], [ %.sroa.17.0, %138 ], [ %.sroa.17.0, %140 ]
+  %.1140 = phi ptr [ %.0139, %78 ], [ %.0139, %224 ], [ %.0139, %212 ], [ %.0139, %200 ], [ %.0139, %188 ], [ %.0139, %176 ], [ %.0139, %164 ], [ %.0139, %152 ], [ %.0139, %106 ], [ %.3, %99 ], [ %.0139, %93 ], [ %.0139, %89 ], [ %.0139, %236 ], [ %.0139, %_ZL10parse_uintPKcS0_Pj.exit.thread ], [ %.0139, %_ZL10parse_uintPKcS0_Pj.exit156.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit157.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit158.thread ], [ %.0139, %_ZL9parse_intPKcS0_Pi.exit159.thread ], [ %.0139, %_ZL10parse_uintPKcS0_Pj.exit160.thread ], [ %.0139, %100 ], [ %.0139, %102 ], [ %.0139, %103 ], [ %.0139, %105 ], [ %.3, %135 ], [ %.3, %137 ], [ %.3, %138 ], [ %.3, %140 ]
   %242 = icmp eq i8 %82, 1
   br i1 %242, label %.loopexit, label %243
 
 243:                                              ; preds = %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
-  %244 = getelementptr inbounds i8, ptr %.2, i64 1
+  %244 = getelementptr inbounds i8, ptr %.3, i64 1
   %.not153 = icmp eq ptr %244, %36
   br i1 %.not153, label %.loopexit.thread, label %56
 
@@ -2727,8 +2727,8 @@ _ZN11hb_buffer_t13ensure_glyphsEv.exit.thread:    ; preds = %140, %138, %137, %1
   br label %246
 
 .loopexit:                                        ; preds = %_ZN11hb_buffer_t13ensure_glyphsEv.exit.thread
-  store ptr %.2, ptr %3, align 8
-  %245 = icmp eq ptr %.2, %36
+  store ptr %.3, ptr %3, align 8
+  %245 = icmp eq ptr %.3, %36
   br i1 %245, label %246, label %_ZN11hb_buffer_t13ensure_glyphsEv.exit
 
 246:                                              ; preds = %.loopexit.thread, %.loopexit
@@ -2862,13 +2862,13 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_unicode(ptr noundef %0,
   br label %55
 
 55:                                               ; preds = %129, %.preheader.i
-  %.0102.i = phi ptr [ %.1103.i, %129 ], [ null, %.preheader.i ]
-  %.0100.i = phi i32 [ %84, %129 ], [ 1, %.preheader.i ]
-  %.2.i = phi ptr [ %130, %129 ], [ %.1.i, %.preheader.i ]
-  %56 = shl nsw i32 %.0100.i, 1
+  %.1103.i = phi ptr [ %.2104.i, %129 ], [ null, %.preheader.i ]
+  %.1101.i = phi i32 [ %84, %129 ], [ 1, %.preheader.i ]
+  %.4.i = phi ptr [ %130, %129 ], [ %.1.i, %.preheader.i ]
+  %56 = shl nsw i32 %.1101.i, 1
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr @_ZL36_deserialize_text_unicode_trans_keys, i64 %57
-  %59 = sext i32 %.0100.i to i64
+  %59 = sext i32 %.1101.i to i64
   %60 = getelementptr inbounds [9 x i16], ptr @_ZL39_deserialize_text_unicode_index_offsets, i64 0, i64 %59
   %61 = load i16, ptr %60, align 2
   %62 = sext i16 %61 to i64
@@ -2878,7 +2878,7 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_unicode(ptr noundef %0,
   %66 = sext i8 %65 to i32
   %67 = load i8, ptr %58, align 2
   %68 = zext i8 %67 to i32
-  %69 = load i8, ptr %.2.i, align 1
+  %69 = load i8, ptr %.4.i, align 1
   %70 = sext i8 %69 to i32
   %.not117.i = icmp sgt i32 %68, %70
   br i1 %.not117.i, label %76, label %71
@@ -2927,8 +2927,8 @@ define hidden range(i32 0, 2) i32 @hb_buffer_deserialize_unicode(ptr noundef %0,
 92:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  store ptr %.0102.i, ptr %15, align 8
-  %93 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %15, ptr noundef nonnull %.2.i, ptr noundef nonnull %14, i1 noundef zeroext true, i32 noundef 16)
+  store ptr %.1103.i, ptr %15, align 8
+  %93 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %15, ptr noundef nonnull %.4.i, ptr noundef nonnull %14, i1 noundef zeroext true, i32 noundef 16)
   br i1 %93, label %_ZL9parse_hexPKcS0_Pj.exit.thread.i, label %_ZL9parse_hexPKcS0_Pj.exit.i
 
 _ZL9parse_hexPKcS0_Pj.exit.thread.i:              ; preds = %92
@@ -2946,8 +2946,8 @@ _ZL9parse_hexPKcS0_Pj.exit.i:                     ; preds = %92
 95:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  store ptr %.0102.i, ptr %13, align 8
-  %96 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %13, ptr noundef nonnull %.2.i, ptr noundef nonnull %12, i1 noundef zeroext true, i32 noundef 16)
+  store ptr %.1103.i, ptr %13, align 8
+  %96 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %13, ptr noundef nonnull %.4.i, ptr noundef nonnull %12, i1 noundef zeroext true, i32 noundef 16)
   br i1 %96, label %97, label %_ZL9parse_hexPKcS0_Pj.exit123.i
 
 _ZL9parse_hexPKcS0_Pj.exit123.i:                  ; preds = %95
@@ -2980,14 +2980,14 @@ _ZL9parse_hexPKcS0_Pj.exit123.i:                  ; preds = %95
   br label %110
 
 110:                                              ; preds = %104, %101
-  store ptr %.2.i, ptr %spec.select, align 8
+  store ptr %.4.i, ptr %spec.select, align 8
   br label %127
 
 111:                                              ; preds = %87
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  store ptr %.0102.i, ptr %11, align 8
-  %112 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %11, ptr noundef nonnull %.2.i, ptr noundef nonnull %10, i1 noundef zeroext true, i32 noundef 10)
+  store ptr %.1103.i, ptr %11, align 8
+  %112 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %11, ptr noundef nonnull %.4.i, ptr noundef nonnull %10, i1 noundef zeroext true, i32 noundef 10)
   br i1 %112, label %113, label %_ZL10parse_uintPKcS0_Pj.exit.i
 
 _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %111
@@ -3020,16 +3020,16 @@ _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %111
   br label %126
 
 126:                                              ; preds = %120, %117
-  store ptr %.2.i, ptr %spec.select, align 8
+  store ptr %.4.i, ptr %spec.select, align 8
   br label %127
 
 127:                                              ; preds = %126, %110, %_ZL9parse_hexPKcS0_Pj.exit.thread.i, %91, %90, %87, %76
-  %.1103.i = phi ptr [ %.0102.i, %76 ], [ %.0102.i, %87 ], [ %.0102.i, %126 ], [ %.0102.i, %110 ], [ %.2.i, %91 ], [ %.0102.i, %90 ], [ %.0102.i, %_ZL9parse_hexPKcS0_Pj.exit.thread.i ]
+  %.2104.i = phi ptr [ %.1103.i, %76 ], [ %.1103.i, %87 ], [ %.1103.i, %126 ], [ %.1103.i, %110 ], [ %.4.i, %91 ], [ %.1103.i, %90 ], [ %.1103.i, %_ZL9parse_hexPKcS0_Pj.exit.thread.i ]
   %128 = icmp eq i8 %80, 1
   br i1 %128, label %.loopexit1.i, label %129
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %130 = getelementptr inbounds i8, ptr %.4.i, i64 1
   %.not120.i = icmp eq ptr %130, %.097.i
   br i1 %.not120.i, label %.loopexit2.loopexit.i, label %55
 
@@ -3038,14 +3038,14 @@ _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %111
   br label %.loopexit2.i
 
 .loopexit2.i:                                     ; preds = %.loopexit2.loopexit.i, %48
-  %.2104.i = phi ptr [ null, %48 ], [ %.1103.i, %.loopexit2.loopexit.i ]
-  %.1101.i = phi i64 [ 1, %48 ], [ %131, %.loopexit2.loopexit.i ]
-  %.3.i = phi ptr [ %.1.i, %48 ], [ %130, %.loopexit2.loopexit.i ]
-  %132 = icmp eq ptr %.3.i, %.097.i
+  %.0102.i = phi ptr [ null, %48 ], [ %.2104.i, %.loopexit2.loopexit.i ]
+  %.0100.i = phi i64 [ 1, %48 ], [ %131, %.loopexit2.loopexit.i ]
+  %.2.i = phi ptr [ %.1.i, %48 ], [ %130, %.loopexit2.loopexit.i ]
+  %132 = icmp eq ptr %.2.i, %.097.i
   br i1 %132, label %133, label %.loopexit1.i
 
 133:                                              ; preds = %.loopexit2.i
-  %134 = getelementptr inbounds [9 x i8], ptr @_ZL37_deserialize_text_unicode_eof_actions, i64 0, i64 %.1101.i
+  %134 = getelementptr inbounds [9 x i8], ptr @_ZL37_deserialize_text_unicode_eof_actions, i64 0, i64 %.0100.i
   %135 = load i8, ptr %134, align 1
   switch i8 %135, label %.loopexit1.i [
     i8 3, label %136
@@ -3055,8 +3055,8 @@ _ZL10parse_uintPKcS0_Pj.exit.i:                   ; preds = %111
 136:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store ptr %.2104.i, ptr %9, align 8
-  %137 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %9, ptr noundef nonnull %.3.i, ptr noundef nonnull %8, i1 noundef zeroext true, i32 noundef 16)
+  store ptr %.0102.i, ptr %9, align 8
+  %137 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %9, ptr noundef nonnull %.2.i, ptr noundef nonnull %8, i1 noundef zeroext true, i32 noundef 16)
   br i1 %137, label %138, label %_ZL9parse_hexPKcS0_Pj.exit124.i
 
 _ZL9parse_hexPKcS0_Pj.exit124.i:                  ; preds = %136
@@ -3084,8 +3084,8 @@ _ZL9parse_hexPKcS0_Pj.exit124.i:                  ; preds = %136
 147:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store ptr %.2104.i, ptr %7, align 8
-  %148 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %7, ptr noundef nonnull %.3.i, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 10)
+  store ptr %.0102.i, ptr %7, align 8
+  %148 = call noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef nonnull %7, ptr noundef nonnull %.2.i, ptr noundef nonnull %6, i1 noundef zeroext true, i32 noundef 10)
   br i1 %148, label %149, label %_ZL10parse_uintPKcS0_Pj.exit125.i
 
 _ZL10parse_uintPKcS0_Pj.exit125.i:                ; preds = %147
@@ -3123,11 +3123,11 @@ _ZL10parse_uintPKcS0_Pj.exit125.i:                ; preds = %147
   br label %.loopexit1.sink.split.i
 
 .loopexit1.sink.split.i:                          ; preds = %.loopexit1.sink.split.sink.split.i, %155, %143
-  store ptr %.3.i, ptr %spec.select, align 8
+  store ptr %.2.i, ptr %spec.select, align 8
   br label %.loopexit1.i
 
 .loopexit1.i:                                     ; preds = %127, %.loopexit1.sink.split.i, %133, %.loopexit2.i
-  %.4.i = phi ptr [ %.3.i, %133 ], [ %.3.i, %.loopexit2.i ], [ %.3.i, %.loopexit1.sink.split.i ], [ %.2.i, %127 ]
+  %.3.i = phi ptr [ %.2.i, %133 ], [ %.2.i, %.loopexit2.i ], [ %.2.i, %.loopexit1.sink.split.i ], [ %.4.i, %127 ]
   %166 = icmp ult ptr %.097.i, %33
   br i1 %166, label %167, label %173
 
@@ -3138,14 +3138,14 @@ _ZL10parse_uintPKcS0_Pj.exit125.i:                ; preds = %147
 
 170:                                              ; preds = %167
   %171 = getelementptr inbounds i8, ptr %.097.i, i64 1
-  %172 = icmp eq ptr %.4.i, %171
+  %172 = icmp eq ptr %.3.i, %171
   %spec.select.idx.i = zext i1 %172 to i64
-  %spec.select.i = getelementptr inbounds i8, ptr %.4.i, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds i8, ptr %.3.i, i64 %spec.select.idx.i
   br label %173
 
 173:                                              ; preds = %170, %167, %.loopexit1.i
   %.198.i = phi ptr [ %.097.i, %167 ], [ %.097.i, %.loopexit1.i ], [ %171, %170 ]
-  %.5.i = phi ptr [ %.4.i, %167 ], [ %.4.i, %.loopexit1.i ], [ %spec.select.i, %170 ]
+  %.5.i = phi ptr [ %.3.i, %167 ], [ %.3.i, %.loopexit1.i ], [ %spec.select.i, %170 ]
   store ptr %.5.i, ptr %spec.select, align 8
   %174 = icmp eq ptr %.5.i, %.198.i
   %175 = zext i1 %174 to i32

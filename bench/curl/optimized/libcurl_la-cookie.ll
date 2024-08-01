@@ -203,20 +203,20 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %tobool37.not, label %while.cond39, label %if.end48
 
 while.cond39:                                     ; preds = %while.body, %while.body47
-  %lineptr.0 = phi ptr [ %incdec.ptr, %while.body47 ], [ %arrayidx, %while.body ]
-  %8 = load i8, ptr %lineptr.0, align 1
+  %lineptr.1 = phi ptr [ %incdec.ptr, %while.body47 ], [ %arrayidx, %while.body ]
+  %8 = load i8, ptr %lineptr.1, align 1
   switch i8 %8, label %if.end48 [
     i8 9, label %while.body47
     i8 32, label %while.body47
   ]
 
 while.body47:                                     ; preds = %while.cond39, %while.cond39
-  %incdec.ptr = getelementptr inbounds i8, ptr %lineptr.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %lineptr.1, i64 1
   br label %while.cond39, !llvm.loop !6
 
 if.end48:                                         ; preds = %while.cond39, %while.body
-  %lineptr.1 = phi ptr [ %call30, %while.body ], [ %lineptr.0, %while.cond39 ]
-  %call50 = tail call ptr @Curl_cookie_add(ptr noundef nonnull %data, ptr noundef nonnull %c.0, i1 noundef zeroext %tobool37.not, i1 noundef zeroext true, ptr noundef nonnull %lineptr.1, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
+  %lineptr.0 = phi ptr [ %call30, %while.body ], [ %lineptr.1, %while.cond39 ]
+  %call50 = tail call ptr @Curl_cookie_add(ptr noundef nonnull %data, ptr noundef nonnull %c.0, i1 noundef zeroext %tobool37.not, i1 noundef zeroext true, ptr noundef nonnull %lineptr.0, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   %call34 = tail call ptr @Curl_get_line(ptr noundef nonnull %call30, i32 noundef 5000, ptr noundef nonnull %fp.046) #12
   %tobool35.not = icmp eq ptr %call34, null
   br i1 %tobool35.not, label %while.end51, label %while.body, !llvm.loop !7
@@ -362,7 +362,7 @@ if.then14:                                        ; preds = %if.then10
 
 do.body16:                                        ; preds = %do.body16.preheader, %if.then398
   %ptr.0 = phi ptr [ %incdec.ptr399, %if.then398 ], [ %lineptr, %do.body16.preheader ]
-  %badcookie.0 = phi i8 [ %badcookie.1, %if.then398 ], [ 0, %do.body16.preheader ]
+  %badcookie.0 = phi i8 [ %badcookie.2, %if.then398 ], [ 0, %do.body16.preheader ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %do.body16
@@ -850,7 +850,7 @@ if.then366:                                       ; preds = %if.else362
 
 if.end378:                                        ; preds = %if.else217, %land.lhs.true239, %land.lhs.true220, %sanitize_cookie_path.exit.thread, %land.lhs.true299, %if.then196, %if.then206, %lor.lhs.false164, %while.end, %if.else207, %if.then292, %land.lhs.true284, %if.end277, %if.then279, %if.then326, %if.else335, %if.then333, %sw.bb321, %sw.bb, %if.then309, %if.then346, %if.else362, %if.then366, %if.then360, %land.lhs.true343, %sanitize_cookie_path.exit
   %ptr.3 = phi ptr [ %ptr.2, %if.else207 ], [ %ptr.2, %sanitize_cookie_path.exit ], [ %ptr.2, %if.then292 ], [ %ptr.2, %land.lhs.true284 ], [ %ptr.2, %if.end277 ], [ %ptr.2, %if.then279 ], [ %ptr.2, %land.lhs.true299 ], [ %ptr.2, %if.then309 ], [ %ptr.2, %if.then333 ], [ %ptr.2, %if.else335 ], [ %ptr.2, %if.then326 ], [ %ptr.2, %sw.bb321 ], [ %ptr.2, %sw.bb ], [ %ptr.2, %if.then360 ], [ %ptr.2, %if.then366 ], [ %ptr.2, %if.else362 ], [ %ptr.2, %if.then346 ], [ %ptr.2, %land.lhs.true343 ], [ %ptr.1, %while.end ], [ %ptr.2, %lor.lhs.false164 ], [ %ptr.2, %if.then206 ], [ %ptr.2, %if.then196 ], [ %ptr.2, %sanitize_cookie_path.exit.thread ], [ %ptr.2, %land.lhs.true220 ], [ %ptr.2, %land.lhs.true239 ], [ %ptr.2, %if.else217 ]
-  %badcookie.1 = phi i8 [ %badcookie.0, %if.else207 ], [ %badcookie.0, %sanitize_cookie_path.exit ], [ 1, %if.then292 ], [ 1, %land.lhs.true284 ], [ %badcookie.0, %if.end277 ], [ %badcookie.0, %if.then279 ], [ %badcookie.0, %land.lhs.true299 ], [ %badcookie.0, %if.then309 ], [ %badcookie.0, %if.then333 ], [ %badcookie.0, %if.else335 ], [ %badcookie.0, %if.then326 ], [ %badcookie.0, %sw.bb321 ], [ %badcookie.0, %sw.bb ], [ %badcookie.0, %if.then360 ], [ %badcookie.0, %if.then366 ], [ %badcookie.0, %if.else362 ], [ %badcookie.0, %if.then346 ], [ %badcookie.0, %land.lhs.true343 ], [ %badcookie.0, %while.end ], [ %badcookie.0, %lor.lhs.false164 ], [ %badcookie.0, %if.then206 ], [ %badcookie.0, %if.then196 ], [ %badcookie.0, %sanitize_cookie_path.exit.thread ], [ %badcookie.0, %land.lhs.true220 ], [ %badcookie.0, %land.lhs.true239 ], [ %badcookie.0, %if.else217 ]
+  %badcookie.2 = phi i8 [ %badcookie.0, %if.else207 ], [ %badcookie.0, %sanitize_cookie_path.exit ], [ 1, %if.then292 ], [ 1, %land.lhs.true284 ], [ %badcookie.0, %if.end277 ], [ %badcookie.0, %if.then279 ], [ %badcookie.0, %land.lhs.true299 ], [ %badcookie.0, %if.then309 ], [ %badcookie.0, %if.then333 ], [ %badcookie.0, %if.else335 ], [ %badcookie.0, %if.then326 ], [ %badcookie.0, %sw.bb321 ], [ %badcookie.0, %sw.bb ], [ %badcookie.0, %if.then360 ], [ %badcookie.0, %if.then366 ], [ %badcookie.0, %if.else362 ], [ %badcookie.0, %if.then346 ], [ %badcookie.0, %land.lhs.true343 ], [ %badcookie.0, %while.end ], [ %badcookie.0, %lor.lhs.false164 ], [ %badcookie.0, %if.then206 ], [ %badcookie.0, %if.then196 ], [ %badcookie.0, %sanitize_cookie_path.exit.thread ], [ %badcookie.0, %land.lhs.true220 ], [ %badcookie.0, %land.lhs.true239 ], [ %badcookie.0, %if.else217 ]
   br label %while.cond379
 
 while.cond379:                                    ; preds = %while.body392, %if.end378
@@ -871,7 +871,7 @@ if.then398:                                       ; preds = %while.cond379
   br label %do.body16
 
 do.end402:                                        ; preds = %while.cond379
-  %tobool403 = trunc nuw i8 %badcookie.1 to i1
+  %tobool403 = trunc nuw i8 %badcookie.2 to i1
   br i1 %tobool403, label %if.end417, label %land.lhs.true404
 
 land.lhs.true404:                                 ; preds = %do.end402
@@ -886,11 +886,11 @@ if.then409:                                       ; preds = %land.lhs.true404
   %call410 = call ptr %45(ptr noundef nonnull %domain) #12
   store ptr %call410, ptr %domain273, align 8
   %tobool413.not = icmp eq ptr %call410, null
-  %spec.select380 = select i1 %tobool413.not, i8 1, i8 %badcookie.1
+  %spec.select380 = select i1 %tobool413.not, i8 1, i8 %badcookie.2
   br label %if.end417
 
 if.end417:                                        ; preds = %if.then409, %land.lhs.true404, %do.end402
-  %badcookie.3 = phi i8 [ %badcookie.1, %do.end402 ], [ %badcookie.1, %land.lhs.true404 ], [ %spec.select380, %if.then409 ]
+  %badcookie.3 = phi i8 [ %badcookie.2, %do.end402 ], [ %badcookie.2, %land.lhs.true404 ], [ %spec.select380, %if.then409 ]
   %tobool418 = trunc nuw i8 %badcookie.3 to i1
   br i1 %tobool418, label %if.end453, label %land.lhs.true419
 
@@ -1169,11 +1169,11 @@ if.end533:                                        ; preds = %land.lhs.true515, %
   store ptr %call540, ptr %spath527, align 8
   %tobool543.not = icmp eq ptr %call540, null
   %76 = select i1 %tobool543.not, i1 true, i1 %tobool537.not
-  %badcookie.7 = select i1 %76, i8 1, i8 %badcookie.5491
+  %badcookie.8 = select i1 %76, i8 1, i8 %badcookie.5491
   br label %sw.bb547
 
 sw.bb547:                                         ; preds = %if.end533, %for.body
-  %badcookie.8 = phi i8 [ %badcookie.5491, %for.body ], [ %badcookie.7, %if.end533 ]
+  %badcookie.6 = phi i8 [ %badcookie.5491, %for.body ], [ %badcookie.8, %if.end533 ]
   store i8 0, ptr %secure548, align 1
   %call549 = call i32 @curl_strequal(ptr noundef nonnull %ptr464.0492, ptr noundef nonnull @.str.18) #12
   %tobool550.not = icmp eq i32 %call549, 0
@@ -1236,7 +1236,7 @@ sw.bb596:                                         ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.bb491, %sw.bb596, %sw.bb563, %sanitize_cookie_path.exit437, %sw.bb569, %lor.lhs.false554, %if.then518, %for.body, %sw.bb505, %if.then558, %sw.bb547, %if.then579, %if.then588, %if.else584
-  %badcookie.9 = phi i8 [ %badcookie.5491, %for.body ], [ %badcookie.5491, %if.then579 ], [ %badcookie.5491, %if.then588 ], [ %badcookie.5491, %if.else584 ], [ %badcookie.8, %if.then558 ], [ %badcookie.8, %sw.bb547 ], [ %badcookie.5491, %sw.bb505 ], [ 1, %if.then518 ], [ %spec.select383, %sanitize_cookie_path.exit437 ], [ 1, %lor.lhs.false554 ], [ %spec.select385, %sw.bb563 ], [ 1, %sw.bb569 ], [ %spec.select386, %sw.bb596 ], [ %spec.select395, %sw.bb491 ]
+  %badcookie.9 = phi i8 [ %badcookie.5491, %for.body ], [ %badcookie.5491, %if.then579 ], [ %badcookie.5491, %if.then588 ], [ %badcookie.5491, %if.else584 ], [ %badcookie.6, %if.then558 ], [ %badcookie.6, %sw.bb547 ], [ %badcookie.5491, %sw.bb505 ], [ 1, %if.then518 ], [ %spec.select383, %sanitize_cookie_path.exit437 ], [ 1, %lor.lhs.false554 ], [ %spec.select385, %sw.bb563 ], [ 1, %sw.bb569 ], [ %spec.select386, %sw.bb596 ], [ %spec.select395, %sw.bb491 ]
   %fields.2 = phi i32 [ %fields.0494, %for.body ], [ 5, %if.then579 ], [ 5, %if.then588 ], [ 5, %if.else584 ], [ 3, %if.then558 ], [ 3, %sw.bb547 ], [ 1, %sw.bb505 ], [ 2, %if.then518 ], [ 2, %sanitize_cookie_path.exit437 ], [ 3, %lor.lhs.false554 ], [ 4, %sw.bb563 ], [ 5, %sw.bb569 ], [ 6, %sw.bb596 ], [ 0, %sw.bb491 ]
   %call604 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.17, ptr noundef nonnull %tok_buf) #12
   %inc605 = add nsw i32 %fields.2, 1
@@ -1476,7 +1476,7 @@ while.body741:                                    ; preds = %while.body741.lr.ph
   %clist.0514 = phi ptr [ %clist.0508, %while.body741.lr.ph ], [ %clist.0, %if.end902 ]
   %replace_co.0513 = phi ptr [ null, %while.body741.lr.ph ], [ %replace_co.1, %if.end902 ]
   %replace_clist.0511 = phi ptr [ null, %while.body741.lr.ph ], [ %replace_clist.1, %if.end902 ]
-  %replace_old.0510 = phi i8 [ 0, %while.body741.lr.ph ], [ %replace_old.3, %if.end902 ]
+  %replace_old.0510 = phi i8 [ 0, %while.body741.lr.ph ], [ %replace_old.1, %if.end902 ]
   %name742 = getelementptr inbounds i8, ptr %clist.0514, i64 8
   %122 = load ptr, ptr %name742, align 8
   %123 = load ptr, ptr %name743, align 8
@@ -1610,8 +1610,8 @@ land.lhs.true855:                                 ; preds = %if.then830
   br label %if.end860
 
 if.end860:                                        ; preds = %land.lhs.true833, %land.lhs.true855, %land.lhs.true841, %if.then836
-  %replace_old.1 = phi i8 [ %replace_old.0510, %if.then836 ], [ %spec.select389, %land.lhs.true841 ], [ %spec.select390, %land.lhs.true855 ], [ %replace_old.0510, %land.lhs.true833 ]
-  %tobool861 = trunc nuw i8 %replace_old.1 to i1
+  %replace_old.2 = phi i8 [ %replace_old.0510, %if.then836 ], [ %spec.select389, %land.lhs.true841 ], [ %spec.select390, %land.lhs.true855 ], [ %replace_old.0510, %land.lhs.true833 ]
+  %tobool861 = trunc nuw i8 %replace_old.2 to i1
   br i1 %tobool861, label %if.then862, label %if.end887
 
 if.then862:                                       ; preds = %if.end860
@@ -1641,12 +1641,12 @@ if.else874:                                       ; preds = %land.lhs.true868.if
   %tobool876.not = icmp eq ptr %143, null
   %144 = icmp ne ptr %142, null
   %cmp882.not = xor i1 %tobool876.not, %144
-  %spec.select391 = select i1 %cmp882.not, i8 %replace_old.1, i8 0
+  %spec.select391 = select i1 %cmp882.not, i8 %replace_old.2, i8 0
   br label %if.end887
 
 if.end887:                                        ; preds = %if.else874, %if.end860
-  %replace_old.2 = phi i8 [ %replace_old.1, %if.end860 ], [ %spec.select391, %if.else874 ]
-  %tobool888 = trunc nuw i8 %replace_old.2 to i1
+  %replace_old.3 = phi i8 [ %replace_old.2, %if.end860 ], [ %spec.select391, %if.else874 ]
+  %tobool888 = trunc nuw i8 %replace_old.3 to i1
   br i1 %tobool888, label %land.lhs.true890, label %if.end902
 
 land.lhs.true890:                                 ; preds = %if.end887
@@ -1665,7 +1665,7 @@ if.then897:                                       ; preds = %land.lhs.true893
   br label %return
 
 if.end902:                                        ; preds = %land.lhs.true868, %if.end887, %land.lhs.true893, %land.lhs.true890, %land.lhs.true825, %if.end823
-  %replace_old.3 = phi i8 [ %replace_old.0510, %if.end823 ], [ %replace_old.0510, %land.lhs.true825 ], [ %replace_old.2, %if.end887 ], [ %replace_old.2, %land.lhs.true893 ], [ %replace_old.2, %land.lhs.true890 ], [ 0, %land.lhs.true868 ]
+  %replace_old.1 = phi i8 [ %replace_old.0510, %if.end823 ], [ %replace_old.0510, %land.lhs.true825 ], [ %replace_old.3, %if.end887 ], [ %replace_old.3, %land.lhs.true893 ], [ %replace_old.3, %land.lhs.true890 ], [ 0, %land.lhs.true868 ]
   %replace_clist.1 = phi ptr [ %replace_clist.0511, %if.end823 ], [ %replace_clist.0511, %land.lhs.true825 ], [ %replace_clist.0511, %if.end887 ], [ %clist.0514, %land.lhs.true893 ], [ %clist.0514, %land.lhs.true890 ], [ %replace_clist.0511, %land.lhs.true868 ]
   %replace_co.1 = phi ptr [ %replace_co.0513, %if.end823 ], [ null, %land.lhs.true825 ], [ null, %if.end887 ], [ %call6, %land.lhs.true893 ], [ %call6, %land.lhs.true890 ], [ null, %land.lhs.true868 ]
   %clist.0 = load ptr, ptr %clist.0514, align 8
@@ -1673,7 +1673,7 @@ if.end902:                                        ; preds = %land.lhs.true868, %
   br i1 %tobool740.not, label %while.end903, label %while.body741, !llvm.loop !16
 
 while.end903:                                     ; preds = %if.end902
-  %147 = trunc nuw i8 %replace_old.3 to i1
+  %147 = trunc nuw i8 %replace_old.1 to i1
   %tobool904.not = icmp eq ptr %replace_co.1, null
   br i1 %tobool904.not, label %if.end915, label %if.then905
 
@@ -2229,8 +2229,8 @@ if.end:                                           ; preds = %lor.lhs.false
 
 while.body:                                       ; preds = %if.end, %if.end48
   %co.099 = phi ptr [ %co.0, %if.end48 ], [ %co.095, %if.end ]
-  %mainco.098 = phi ptr [ %mainco.1, %if.end48 ], [ null, %if.end ]
-  %matches.097 = phi i64 [ %matches.1, %if.end48 ], [ 0, %if.end ]
+  %mainco.098 = phi ptr [ %mainco.2, %if.end48 ], [ null, %if.end ]
+  %matches.097 = phi i64 [ %matches.2, %if.end48 ], [ 0, %if.end ]
   %secure7 = getelementptr inbounds i8, ptr %co.099, i64 57
   %1 = load i8, ptr %secure7, align 1
   %tobool8 = trunc i8 %1 to i1
@@ -2508,32 +2508,32 @@ if.then42:                                        ; preds = %land.lhs.true40
   br label %if.then51
 
 if.end48:                                         ; preds = %if.then12.i, %if.end.i53, %pathmatch.exit.thread76, %lor.lhs.false20, %while.body, %land.lhs.true25, %if.then37, %pathmatch.exit
-  %matches.1 = phi i64 [ %inc, %if.then37 ], [ %matches.097, %pathmatch.exit ], [ %matches.097, %land.lhs.true25 ], [ %matches.097, %while.body ], [ %matches.097, %lor.lhs.false20 ], [ %matches.097, %pathmatch.exit.thread76 ], [ %matches.097, %if.end.i53 ], [ %matches.097, %if.then12.i ]
-  %mainco.1 = phi ptr [ %call.i57, %if.then37 ], [ %mainco.098, %pathmatch.exit ], [ %mainco.098, %land.lhs.true25 ], [ %mainco.098, %while.body ], [ %mainco.098, %lor.lhs.false20 ], [ %mainco.098, %pathmatch.exit.thread76 ], [ %mainco.098, %if.end.i53 ], [ %mainco.098, %if.then12.i ]
+  %matches.2 = phi i64 [ %inc, %if.then37 ], [ %matches.097, %pathmatch.exit ], [ %matches.097, %land.lhs.true25 ], [ %matches.097, %while.body ], [ %matches.097, %lor.lhs.false20 ], [ %matches.097, %pathmatch.exit.thread76 ], [ %matches.097, %if.end.i53 ], [ %matches.097, %if.then12.i ]
+  %mainco.2 = phi ptr [ %call.i57, %if.then37 ], [ %mainco.098, %pathmatch.exit ], [ %mainco.098, %land.lhs.true25 ], [ %mainco.098, %while.body ], [ %mainco.098, %lor.lhs.false20 ], [ %mainco.098, %pathmatch.exit.thread76 ], [ %mainco.098, %if.end.i53 ], [ %mainco.098, %if.then12.i ]
   %co.0 = load ptr, ptr %co.099, align 8
   %tobool6.not = icmp eq ptr %co.0, null
   br i1 %tobool6.not, label %while.end, label %while.body, !llvm.loop !20
 
 while.end:                                        ; preds = %if.end48
-  %tobool50.not = icmp eq i64 %matches.1, 0
+  %tobool50.not = icmp eq i64 %matches.2, 0
   br i1 %tobool50.not, label %return, label %if.then51
 
 if.then51:                                        ; preds = %do.body, %land.lhs.true40, %if.then42, %while.end
-  %mainco.286 = phi ptr [ %mainco.1, %while.end ], [ %call.i57, %if.then42 ], [ %call.i57, %land.lhs.true40 ], [ %call.i57, %do.body ]
-  %matches.285 = phi i64 [ %matches.1, %while.end ], [ %inc, %if.then42 ], [ %inc, %land.lhs.true40 ], [ %inc, %do.body ]
+  %mainco.186 = phi ptr [ %mainco.2, %while.end ], [ %call.i57, %if.then42 ], [ %call.i57, %land.lhs.true40 ], [ %call.i57, %do.body ]
+  %matches.185 = phi i64 [ %matches.2, %while.end ], [ %inc, %if.then42 ], [ %inc, %land.lhs.true40 ], [ %inc, %do.body ]
   %43 = load ptr, ptr @Curl_cmalloc, align 8
-  %mul = shl i64 %matches.285, 3
+  %mul = shl i64 %matches.185, 3
   %call52 = tail call ptr %43(i64 noundef %mul) #12
   %tobool53.not = icmp eq ptr %call52, null
   br i1 %tobool53.not, label %fail, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then51
-  %tobool56.not101 = icmp eq ptr %mainco.286, null
+  %tobool56.not101 = icmp eq ptr %mainco.186, null
   br i1 %tobool56.not101, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %i.0103 = phi i64 [ %inc57, %for.body ], [ 0, %for.cond.preheader ]
-  %co.1102 = phi ptr [ %44, %for.body ], [ %mainco.286, %for.cond.preheader ]
+  %co.1102 = phi ptr [ %44, %for.body ], [ %mainco.186, %for.cond.preheader ]
   %inc57 = add i64 %i.0103, 1
   %arrayidx58 = getelementptr inbounds ptr, ptr %call52, i64 %i.0103
   store ptr %co.1102, ptr %arrayidx58, align 8
@@ -2542,9 +2542,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %tobool56.not, label %for.end, label %for.body, !llvm.loop !21
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  tail call void @qsort(ptr noundef nonnull %call52, i64 noundef %matches.285, i64 noundef 8, ptr noundef nonnull @cookie_sort) #12
+  tail call void @qsort(ptr noundef nonnull %call52, i64 noundef %matches.185, i64 noundef 8, ptr noundef nonnull @cookie_sort) #12
   %45 = load ptr, ptr %call52, align 8
-  %sub = add i64 %matches.285, -1
+  %sub = add i64 %matches.185, -1
   %cmp62104.not = icmp eq i64 %sub, 0
   br i1 %cmp62104.not, label %for.end69, label %for.body63
 
@@ -2567,12 +2567,12 @@ for.end69:                                        ; preds = %for.body63, %for.en
   br label %return
 
 fail:                                             ; preds = %if.then34, %fail.i, %if.then51
-  %mainco.4 = phi ptr [ %mainco.286, %if.then51 ], [ %mainco.098, %fail.i ], [ %mainco.098, %if.then34 ]
-  %tobool.not3.i = icmp eq ptr %mainco.4, null
+  %mainco.3 = phi ptr [ %mainco.186, %if.then51 ], [ %mainco.098, %fail.i ], [ %mainco.098, %if.then34 ]
+  %tobool.not3.i = icmp eq ptr %mainco.3, null
   br i1 %tobool.not3.i, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %fail, %while.body.i
-  %co.addr.04.i = phi ptr [ %50, %while.body.i ], [ %mainco.4, %fail ]
+  %co.addr.04.i = phi ptr [ %50, %while.body.i ], [ %mainco.3, %fail ]
   %50 = load ptr, ptr %co.addr.04.i, align 8
   %51 = load ptr, ptr @Curl_cfree, align 8
   %domain.i.i63 = getelementptr inbounds i8, ptr %co.addr.04.i, i64 40
@@ -2600,7 +2600,7 @@ while.body.i:                                     ; preds = %fail, %while.body.i
   br i1 %tobool.not.i68, label %return, label %while.body.i, !llvm.loop !8
 
 return:                                           ; preds = %while.body.i, %if.end, %fail, %while.end, %for.end69, %entry, %lor.lhs.false
-  %retval.0 = phi ptr [ null, %lor.lhs.false ], [ null, %entry ], [ %45, %for.end69 ], [ %mainco.1, %while.end ], [ null, %fail ], [ null, %if.end ], [ null, %while.body.i ]
+  %retval.0 = phi ptr [ null, %lor.lhs.false ], [ null, %entry ], [ %45, %for.end69 ], [ %mainco.2, %while.end ], [ null, %fail ], [ null, %if.end ], [ null, %while.body.i ]
   ret ptr %retval.0
 }
 

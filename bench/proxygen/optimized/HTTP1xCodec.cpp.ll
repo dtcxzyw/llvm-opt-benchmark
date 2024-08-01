@@ -1592,7 +1592,7 @@ invoke.cont13:                                    ; preds = %if.end12
   br i1 %call14, label %cleanup.thread, label %cleanup
 
 cleanup.thread:                                   ; preds = %invoke.cont7, %invoke.cont13
-  %totalBytesParsed.1.ph = phi i64 [ %totalBytesParsed.0, %invoke.cont7 ], [ %add, %invoke.cont13 ]
+  %totalBytesParsed.2.ph = phi i64 [ %totalBytesParsed.0, %invoke.cont7 ], [ %add, %invoke.cont13 ]
   call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %currentReadBuf) #25
   br label %while.end
 
@@ -1603,8 +1603,8 @@ cleanup:                                          ; preds = %invoke.cont13
   br label %while.cond
 
 while.end:                                        ; preds = %if.end.i, %while.cond.i, %cleanup.thread
-  %totalBytesParsed.2 = phi i64 [ %totalBytesParsed.1.ph, %cleanup.thread ], [ %totalBytesParsed.0, %while.cond.i ], [ %totalBytesParsed.0, %if.end.i ]
-  ret i64 %totalBytesParsed.2
+  %totalBytesParsed.1 = phi i64 [ %totalBytesParsed.2.ph, %cleanup.thread ], [ %totalBytesParsed.0, %while.cond.i ], [ %totalBytesParsed.0, %if.end.i ]
+  ret i64 %totalBytesParsed.1
 }
 
 ; Function Attrs: nounwind
@@ -3021,7 +3021,7 @@ lpad266:                                          ; preds = %invoke.cont274, %in
 
 cleanup280:                                       ; preds = %invoke.cont249, %if.then252, %invoke.cont225, %invoke.cont276, %if.then229
   %cond1 = phi i1 [ false, %if.then229 ], [ false, %invoke.cont276 ], [ true, %invoke.cont225 ], [ true, %if.then252 ], [ true, %invoke.cont249 ]
-  %retval.2 = phi i32 [ 1, %if.then229 ], [ -1, %invoke.cont276 ], [ -1, %invoke.cont225 ], [ -1, %if.then252 ], [ -1, %invoke.cont249 ]
+  %retval.4 = phi i32 [ 1, %if.then229 ], [ -1, %invoke.cont276 ], [ -1, %invoke.cont225 ], [ -1, %if.then252 ], [ -1, %invoke.cont249 ]
   %76 = load i8, ptr %hasValue.i.i89, align 8
   %tobool.i.i.i118 = trunc i8 %76 to i1
   br i1 %tobool.i.i.i118, label %if.then.i.i.i119, label %_ZN5folly8OptionalISt4pairIN8proxygen13CodecProtocolENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit
@@ -3660,7 +3660,7 @@ lpad546:                                          ; preds = %if.end539
   br label %if.then.i328
 
 if.then.i:                                        ; preds = %invoke.cont198, %invoke.cont421, %invoke.cont439, %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, %_ZN5folly8OptionalISt4pairIN8proxygen13CodecProtocolENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit
-  %retval.3 = phi i32 [ -1, %invoke.cont421 ], [ %ignoreBody.0, %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit ], [ -1, %invoke.cont439 ], [ -1, %invoke.cont198 ], [ %retval.2, %_ZN5folly8OptionalISt4pairIN8proxygen13CodecProtocolENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit ]
+  %retval.3 = phi i32 [ -1, %invoke.cont421 ], [ %ignoreBody.0, %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit ], [ -1, %invoke.cont439 ], [ -1, %invoke.cont198 ], [ %retval.4, %_ZN5folly8OptionalISt4pairIN8proxygen13CodecProtocolENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.exit ]
   %136 = load i8, ptr %transportDirection_, align 1
   %cmp.i.i.i324 = icmp ne i8 %136, 1
   %status_code.i.i.i = getelementptr inbounds i8, ptr %this, i64 84
@@ -3690,8 +3690,8 @@ if.then.i.i.i335:                                 ; preds = %if.then.i328
   br label %eh.resume
 
 return:                                           ; preds = %if.then.i.i.i326, %if.then.i, %cleanup, %if.then, %invoke.cont31, %invoke.cont18
-  %retval.4 = phi i32 [ -1, %invoke.cont31 ], [ -1, %cleanup ], [ -1, %invoke.cont18 ], [ -1, %if.then ], [ %retval.3, %if.then.i ], [ %retval.3, %if.then.i.i.i326 ]
-  ret i32 %retval.4
+  %retval.0 = phi i32 [ -1, %invoke.cont31 ], [ -1, %cleanup ], [ -1, %invoke.cont18 ], [ -1, %if.then ], [ %retval.3, %if.then.i ], [ %retval.3, %if.then.i.i.i326 ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i335, %if.then.i328, %ehcleanup144, %lpad28, %lpad
   %.pn23 = phi { ptr, i32 } [ %18, %lpad28 ], [ %.pn.pn, %ehcleanup144 ], [ %10, %lpad ], [ %.pn21, %if.then.i328 ], [ %.pn21, %if.then.i.i.i335 ]
@@ -5032,11 +5032,11 @@ land.lhs.true226:                                 ; preds = %if.end222
   br label %if.end230
 
 if.end230:                                        ; preds = %land.lhs.true226, %if.end222
-  %version.sroa.0.1 = phi i8 [ %version.sroa.0.0, %if.end222 ], [ %spec.select385, %land.lhs.true226 ]
-  %version.sroa.15.1 = phi i8 [ %version.sroa.15.0, %if.end222 ], [ %spec.select386, %land.lhs.true226 ]
+  %version.sroa.0.2 = phi i8 [ %version.sroa.0.0, %if.end222 ], [ %spec.select385, %land.lhs.true226 ]
+  %version.sroa.15.2 = phi i8 [ %version.sroa.15.0, %if.end222 ], [ %spec.select386, %land.lhs.true226 ]
   store i64 5, ptr %len, align 8
   call void @_ZN5folly10IOBufQueue6appendEPKvm(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef nonnull @.str.15, i64 noundef 5)
-  %conv232 = zext i8 %version.sroa.0.1 to i64
+  %conv232 = zext i8 %version.sroa.0.2 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i)
   br label %do.body.i.i
 
@@ -5080,7 +5080,7 @@ _ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit: ; preds = %while.bo
   %add233 = add i64 %add.i, 1
   store i64 %add233, ptr %len, align 8
   call void @_ZN5folly10IOBufQueue6appendEPKvm(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef nonnull @.str.16, i64 noundef 1)
-  %conv234 = zext i8 %version.sroa.15.1 to i64
+  %conv234 = zext i8 %version.sroa.15.2 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i107)
   br label %do.body.i.i108
 
@@ -5191,8 +5191,8 @@ land.lhs.true243:                                 ; preds = %sw.bb238
   br label %if.end247
 
 if.end247:                                        ; preds = %land.lhs.true243, %sw.bb238
-  %version.sroa.0.2 = phi i8 [ %version.sroa.0.0, %sw.bb238 ], [ %spec.select387, %land.lhs.true243 ]
-  %version.sroa.15.2 = phi i8 [ %version.sroa.15.0, %sw.bb238 ], [ %spec.select388, %land.lhs.true243 ]
+  %version.sroa.0.3 = phi i8 [ %version.sroa.0.0, %sw.bb238 ], [ %spec.select387, %land.lhs.true243 ]
+  %version.sroa.15.3 = phi i8 [ %version.sroa.15.0, %sw.bb238 ], [ %spec.select388, %land.lhs.true243 ]
   %upgradeWebsocket_.i165 = getelementptr inbounds i8, ptr %msg, i64 532
   %50 = load i32, ptr %upgradeWebsocket_.i165, align 4
   %cmp.i166 = icmp eq i32 %50, 2
@@ -5295,9 +5295,9 @@ if.end273:                                        ; preds = %if.else270, %_ZNK8p
   %59 = phi i64 [ %add.i196, %_ZNK8proxygen11HTTPHeaders16getSingleOrEmptyINS_14HTTPHeaderCodeEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit ], [ %add.i206, %if.else270 ]
   store i64 %59, ptr %len, align 8
   %60 = load i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, align 1
-  %cmp.i.i207 = icmp ne i8 %version.sroa.0.2, %60
+  %cmp.i.i207 = icmp ne i8 %version.sroa.0.3, %60
   %61 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, i64 1), align 1
-  %cmp6.i.i = icmp ne i8 %version.sroa.15.2, %61
+  %cmp6.i.i = icmp ne i8 %version.sroa.15.3, %61
   %.not.i = select i1 %cmp.i.i207, i1 true, i1 %cmp6.i.i
   br i1 %.not.i, label %if.then275, label %if.end282
 
@@ -5305,7 +5305,7 @@ if.then275:                                       ; preds = %if.end273
   %add276 = add i64 %59, 6
   store i64 %add276, ptr %len, align 8
   call void @_ZN5folly10IOBufQueue6appendEPKvm(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef nonnull @.str.18, i64 noundef 6)
-  %conv278 = zext i8 %version.sroa.0.2 to i64
+  %conv278 = zext i8 %version.sroa.0.3 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i208)
   br label %do.body.i.i209
 
@@ -5349,7 +5349,7 @@ _ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit230: ; preds = %while
   %add279 = add i64 %add.i223, 1
   store i64 %add279, ptr %len, align 8
   call void @_ZN5folly10IOBufQueue6appendEPKvm(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef nonnull @.str.16, i64 noundef 1)
-  %conv281 = zext i8 %version.sroa.15.2 to i64
+  %conv281 = zext i8 %version.sroa.15.3 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i231)
   br label %do.body.i.i232
 
@@ -5394,8 +5394,8 @@ _ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit253: ; preds = %while
   br label %if.end282
 
 if.end282:                                        ; preds = %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit253, %if.end273
-  %cmp285 = icmp eq i8 %version.sroa.0.2, 1
-  %cmp289 = icmp ne i8 %version.sroa.15.2, 0
+  %cmp285 = icmp eq i8 %version.sroa.0.3, 1
+  %cmp289 = icmp ne i8 %version.sroa.15.3, 0
   %70 = select i1 %cmp285, i1 %cmp289, i1 false
   %bf.load291 = load i32, ptr %keepalive_, align 8
   %bf.shl292 = select i1 %70, i32 65536, i32 0
@@ -5427,8 +5427,8 @@ lpad298:                                          ; preds = %invoke.cont299, %if
   br label %common.resume
 
 sw.epilog:                                        ; preds = %if.end282, %invoke.cont301, %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit152, %if.end203
-  %version.sroa.0.3 = phi i8 [ %version.sroa.0.0, %if.end203 ], [ %version.sroa.0.2, %if.end282 ], [ %version.sroa.0.2, %invoke.cont301 ], [ %version.sroa.0.1, %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit152 ]
-  %version.sroa.15.3 = phi i8 [ %version.sroa.15.0, %if.end203 ], [ %version.sroa.15.2, %if.end282 ], [ %version.sroa.15.2, %invoke.cont301 ], [ %version.sroa.15.1, %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit152 ]
+  %version.sroa.0.1 = phi i8 [ %version.sroa.0.0, %if.end203 ], [ %version.sroa.0.3, %if.end282 ], [ %version.sroa.0.3, %invoke.cont301 ], [ %version.sroa.0.2, %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit152 ]
+  %version.sroa.15.1 = phi i8 [ %version.sroa.15.0, %if.end203 ], [ %version.sroa.15.3, %if.end282 ], [ %version.sroa.15.3, %invoke.cont301 ], [ %version.sroa.15.2, %_ZN12_GLOBAL__N_110appendUintERN5folly10IOBufQueueERmm.exit152 ]
   %72 = load i64, ptr %len, align 8
   %add305 = add i64 %72, 2
   store i64 %add305, ptr %len, align 8
@@ -5442,7 +5442,7 @@ land.lhs.true311:                                 ; preds = %sw.epilog
   %bf.load.i254 = load i8, ptr %chunked_.i, align 2
   %74 = and i8 %bf.load.i254, 16
   %bf.cast.i255 = icmp ne i8 %74, 0
-  %cmp316 = icmp ne i8 %version.sroa.0.3, 0
+  %cmp316 = icmp ne i8 %version.sroa.0.1, 0
   %or.cond2.not = and i1 %cmp316, %bf.cast.i255
   br i1 %or.cond2.not, label %lor.lhs.false317, label %if.then323
 
@@ -5451,9 +5451,9 @@ lor.lhs.false317:                                 ; preds = %land.lhs.true311
 
 land.lhs.true319:                                 ; preds = %lor.lhs.false317
   %75 = load i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion10E, align 1
-  %cmp.i256 = icmp ne i8 %version.sroa.0.3, %75
+  %cmp.i256 = icmp ne i8 %version.sroa.0.1, %75
   %76 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion10E, i64 1), align 1
-  %cmp6.i258 = icmp ne i8 %version.sroa.15.3, %76
+  %cmp6.i258 = icmp ne i8 %version.sroa.15.1, %76
   %.not = select i1 %cmp.i256, i1 true, i1 %cmp6.i258
   %keepaliveRequested_ = getelementptr inbounds i8, ptr %this, i64 382
   %77 = load i8, ptr %keepaliveRequested_, align 2
@@ -5473,9 +5473,9 @@ if.end328:                                        ; preds = %if.then323, %land.l
   %bf.set345 = and i32 %79, %bf.load330
   store i32 %bf.set345, ptr %keepalive_, align 8
   %80 = load i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, align 1
-  %cmp.i259 = icmp eq i8 %version.sroa.0.3, %80
+  %cmp.i259 = icmp eq i8 %version.sroa.0.1, %80
   %81 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN8proxygen11HTTPMessage14kHTTPVersion09E, i64 1), align 1
-  %cmp6.i261 = icmp eq i8 %version.sroa.15.3, %81
+  %cmp6.i261 = icmp eq i8 %version.sroa.15.1, %81
   %82 = select i1 %cmp.i259, i1 %cmp6.i261, i1 false
   br i1 %82, label %if.then348, label %if.end350
 
@@ -7155,7 +7155,7 @@ cleanup.done:                                     ; preds = %if.then
   br i1 %cmp14.not.i, label %if.end, label %for.body.i
 
 for.body.i:                                       ; preds = %cleanup.done, %for.inc.i
-  %len.0 = phi i64 [ %len.1, %for.inc.i ], [ 3, %cleanup.done ]
+  %len.1 = phi i64 [ %len.2, %for.inc.i ], [ 3, %cleanup.done ]
   %6 = phi i64 [ %9, %for.inc.i ], [ %5, %cleanup.done ]
   %i.015.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %cleanup.done ]
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %i.015.i
@@ -7174,7 +7174,7 @@ if.then.i:                                        ; preds = %for.body.i
   %call.i1.i.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx6.i) #25
   %call3.i3.i.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx6.i) #25
   tail call void @_ZN5folly10IOBufQueue6appendEPKvm(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef %call.i1.i.i, i64 noundef %call3.i3.i.i)
-  %add.i.i.i = add i64 %len.0, 4
+  %add.i.i.i = add i64 %len.1, 4
   %add.i.i = add i64 %add.i.i.i, %call3.i.i.i
   %add3.i.i = add i64 %add.i.i, %call3.i3.i.i
   tail call void @_ZN5folly10IOBufQueue6appendEPKvm(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef nonnull @.str.26, i64 noundef 2)
@@ -7182,15 +7182,15 @@ if.then.i:                                        ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
-  %len.1 = phi i64 [ %len.0, %for.body.i ], [ %add3.i.i, %if.then.i ]
+  %len.2 = phi i64 [ %len.1, %for.body.i ], [ %add3.i.i, %if.then.i ]
   %9 = phi i64 [ %6, %for.body.i ], [ %.pre.i, %if.then.i ]
   %inc.i = add nuw i64 %i.015.i, 1
   %cmp.i = icmp ult i64 %inc.i, %9
   br i1 %cmp.i, label %for.body.i, label %if.end, !llvm.loop !57
 
 if.end:                                           ; preds = %for.inc.i, %cleanup.done, %entry
-  %len.3 = phi i64 [ 0, %entry ], [ 3, %cleanup.done ], [ %len.1, %for.inc.i ]
-  ret i64 %len.3
+  %len.0 = phi i64 [ 0, %entry ], [ 3, %cleanup.done ], [ %len.2, %for.inc.i ]
+  ret i64 %len.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7253,12 +7253,12 @@ if.then52:                                        ; preds = %if.else
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then52, %if.else
-  %len.0 = phi i64 [ 2, %if.else ], [ 5, %if.then52 ]
+  %len.1 = phi i64 [ 2, %if.else ], [ 5, %if.then52 ]
   tail call void @_ZN5folly10IOBufQueue6appendEPKvm(ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef nonnull @.str.26, i64 noundef 2)
   br label %if.end56
 
 if.end56:                                         ; preds = %if.then31, %if.end53, %entry
-  %len.1 = phi i64 [ 0, %if.then31 ], [ %len.0, %if.end53 ], [ 0, %entry ]
+  %len.0 = phi i64 [ 0, %if.then31 ], [ %len.1, %if.end53 ], [ 0, %entry ]
   %transportDirection_57 = getelementptr inbounds i8, ptr %this, i64 381
   %6 = load i8, ptr %transportDirection_57, align 1
   switch i8 %6, label %sw.epilog [
@@ -7277,7 +7277,7 @@ sw.epilog.sink.split:                             ; preds = %if.end56, %sw.bb61
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end56
-  ret i64 %len.1
+  ret i64 %len.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

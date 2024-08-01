@@ -553,7 +553,7 @@ if.end129:                                        ; preds = %if.end108
 
 cleanup134:                                       ; preds = %if.end108, %if.else, %_ZN6hermes2vm24ScopedNativeDepthReducerC2ERNS0_7RuntimeE.exit, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit64", %if.end129
   %retval.sroa.0.1 = phi i32 [ 1, %if.end129 ], [ 0, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit64" ], [ 0, %_ZN6hermes2vm24ScopedNativeDepthReducerC2ERNS0_7RuntimeE.exit ], [ 0, %if.else ], [ 0, %if.end108 ]
-  %retval.sroa.9.0 = phi i64 [ %retval.sroa.0.0.copyload.i.i.i, %if.end129 ], [ undef, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit64" ], [ undef, %_ZN6hermes2vm24ScopedNativeDepthReducerC2ERNS0_7RuntimeE.exit ], [ undef, %if.else ], [ undef, %if.end108 ]
+  %retval.sroa.9.1 = phi i64 [ %retval.sroa.0.0.copyload.i.i.i, %if.end129 ], [ undef, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm16errorStackGetterEPvRNS3_7RuntimeENS3_10NativeArgsEE3$_0ED2Ev.exit64" ], [ undef, %_ZN6hermes2vm24ScopedNativeDepthReducerC2ERNS0_7RuntimeE.exit ], [ undef, %if.else ], [ undef, %if.end108 ]
   %36 = load ptr, ptr %stack, align 8
   %cmp.i.i.i.i = icmp eq ptr %36, %add.ptr.i.i.i.i.i.i23
   br i1 %cmp.i.i.i.i, label %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit, label %if.then.i.i.i65
@@ -572,11 +572,11 @@ if.then.i68:                                      ; preds = %_ZN6hermes2vm12Smal
   br label %cleanup136
 
 cleanup136:                                       ; preds = %if.then.i68, %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit, %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_8JSObjectEEENS0_6HandleIT_EEv.exit, %if.then12
-  %retval.sroa.0.2 = phi i32 [ 1, %if.then12 ], [ 0, %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_8JSObjectEEENS0_6HandleIT_EEv.exit ], [ %retval.sroa.0.1, %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit ], [ %retval.sroa.0.1, %if.then.i68 ]
-  %retval.sroa.9.1 = phi i64 [ %or.i.i.i, %if.then12 ], [ undef, %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_8JSObjectEEENS0_6HandleIT_EEv.exit ], [ %retval.sroa.9.0, %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit ], [ %retval.sroa.9.0, %if.then.i68 ]
+  %retval.sroa.0.0 = phi i32 [ 1, %if.then12 ], [ 0, %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_8JSObjectEEENS0_6HandleIT_EEv.exit ], [ %retval.sroa.0.1, %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit ], [ %retval.sroa.0.1, %if.then.i68 ]
+  %retval.sroa.9.0 = phi i64 [ %or.i.i.i, %if.then12 ], [ undef, %_ZNK6hermes2vm10NativeArgs11dyncastThisINS0_8JSObjectEEENS0_6HandleIT_EEv.exit ], [ %retval.sroa.9.1, %_ZN6hermes2vm12SmallXStringIDsLj32EED2Ev.exit ], [ %retval.sroa.9.1, %if.then.i68 ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #17
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.2, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.9.1, 1
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.9.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 
@@ -734,16 +734,16 @@ _ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11P
   br label %cleanup
 
 cleanup:                                          ; preds = %for.body, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit
-  %retval.sroa.0.0 = phi i32 [ 1, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit ], [ 0, %for.body ]
-  %retval.sroa.5.0 = phi i64 [ %retval.sroa.0.0.copyload.i27, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit ], [ undef, %for.body ]
+  %retval.sroa.0.1 = phi i32 [ 1, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit ], [ 0, %for.body ]
+  %retval.sroa.5.1 = phi i64 [ %retval.sroa.0.0.copyload.i27, %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit ], [ undef, %for.body ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #17
   br label %return
 
 return:                                           ; preds = %cond.end, %cleanup, %if.then18
-  %retval.sroa.0.1 = phi i32 [ %retval.sroa.0.0, %cleanup ], [ 1, %if.then18 ], [ 0, %cond.end ]
-  %retval.sroa.5.1 = phi i64 [ %retval.sroa.5.0, %cleanup ], [ %retval.sroa.0.0.copyload.i, %if.then18 ], [ undef, %cond.end ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.5.1, 1
+  %retval.sroa.0.0 = phi i32 [ %retval.sroa.0.1, %cleanup ], [ 1, %if.then18 ], [ 0, %cond.end ]
+  %retval.sroa.5.0 = phi i64 [ %retval.sroa.5.1, %cleanup ], [ %retval.sroa.0.0.copyload.i, %if.then18 ], [ undef, %cond.end ]
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.5.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 
@@ -1721,16 +1721,16 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then40, %for.end
-  %retval.0 = phi i32 [ 1, %for.end ], [ 0, %if.then40 ]
+  %retval.1 = phi i32 [ 1, %for.end ], [ 0, %if.then40 ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope) #17
   br label %cleanup165
 
 cleanup165:                                       ; preds = %cleanup, %if.then
-  %retval.1 = phi i32 [ %call4, %if.then ], [ %retval.0, %cleanup ]
+  %retval.0 = phi i32 [ %call4, %if.then ], [ %retval.1, %cleanup ]
   %138 = load i32, ptr %nativeCallFrameDepth_.i, align 8
   %dec.i = add i32 %138, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
-  ret i32 %retval.1
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind
@@ -2286,8 +2286,8 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i.i.
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i.i, %cleanup, %if.end78, %if.end71, %if.else57, %if.end33, %if.else, %entry
-  %retval.sroa.0.1 = phi ptr [ inttoptr (i64 -1 to ptr), %entry ], [ inttoptr (i64 -1 to ptr), %if.else ], [ inttoptr (i64 -1 to ptr), %if.end33 ], [ inttoptr (i64 -1 to ptr), %if.else57 ], [ %retval.0.i.i.i.i.i.i44, %if.end71 ], [ %retval.0.i.i.i.i.i.i18, %if.end78 ], [ inttoptr (i64 -1 to ptr), %cleanup ], [ %42, %if.then.i.i.i.i ]
-  ret ptr %retval.sroa.0.1
+  %retval.sroa.0.0 = phi ptr [ inttoptr (i64 -1 to ptr), %entry ], [ inttoptr (i64 -1 to ptr), %if.else ], [ inttoptr (i64 -1 to ptr), %if.end33 ], [ inttoptr (i64 -1 to ptr), %if.else57 ], [ %retval.0.i.i.i.i.i.i44, %if.end71 ], [ %retval.0.i.i.i.i.i.i18, %if.end78 ], [ inttoptr (i64 -1 to ptr), %cleanup ], [ %42, %if.then.i.i.i.i ]
+  ret ptr %retval.sroa.0.0
 }
 
 declare ptr @_ZN6hermes2vm12toString_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832), ptr) local_unnamed_addr #2
@@ -3351,12 +3351,12 @@ for.end.loopexit.i:                               ; preds = %for.inc.i
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %for.end.loopexit.i, %if.then117.i, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit.i
-  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %if.then117.i ], [ %retval.sroa.0.0.copyload.pre.i, %for.end.loopexit.i ], [ %retval.0.i.i.i.i.i.i.i207, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit.i ]
+  %retval.sroa.0.1.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %if.then117.i ], [ %retval.sroa.0.0.copyload.pre.i, %for.end.loopexit.i ], [ %retval.0.i.i.i.i.i.i.i207, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit.i ]
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i) #17
   br label %_ZN6hermes2vmL25getCallStackFunctionNamesERNS0_7RuntimeEbm.exit
 
 _ZN6hermes2vmL25getCallStackFunctionNamesERNS0_7RuntimeEbm.exit: ; preds = %if.then.i222, %cleanup.i
-  %retval.sroa.0.1.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %if.then.i222 ], [ %retval.sroa.0.0.i, %cleanup.i ]
+  %retval.sroa.0.0.i = phi ptr [ @_ZN6hermes2vm15HandleRootOwner12nullPointer_E, %if.then.i222 ], [ %retval.sroa.0.1.i, %cleanup.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %names.i)
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %gcScope.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %desc.i)
@@ -3387,7 +3387,7 @@ _ZNSt10unique_ptrISt6vectorIN6hermes2vm14StackTraceInfoESaIS3_EESt14default_dele
   %and.i.i.i.i.i226 = and i64 %agg.tmp.sroa.0.0.copyload.i.i225, 281474976710655
   %105 = inttoptr i64 %and.i.i.i.i.i226 to ptr
   %funcNames_ = getelementptr inbounds i8, ptr %105, i64 44
-  %retval.sroa.0.0.copyload.i.i.i227 = load i64, ptr %retval.sroa.0.1.i, align 8
+  %retval.sroa.0.0.copyload.i.i.i227 = load i64, ptr %retval.sroa.0.0.i, align 8
   %and.i.i.i.i.i228 = and i64 %retval.sroa.0.0.copyload.i.i.i227, 281474976710655
   %106 = load ptr, ptr %youngGen_.i.i.i.i, align 8
   %107 = ptrtoint ptr %funcNames_ to i64
@@ -3423,8 +3423,8 @@ _ZNKSt14default_deleteISt6vectorIN6hermes2vm14StackTraceInfoESaIS3_EEEclEPS5_.ex
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteISt6vectorIN6hermes2vm14StackTraceInfoESaIS3_EEEclEPS5_.exit.i, %cleanup, %_ZNK6hermes2vm14StackFramePtrTILb0EE18getCalleeCodeBlockERNS0_7RuntimeE.exit, %entry
-  %retval.1 = phi i32 [ 1, %entry ], [ 1, %_ZNK6hermes2vm14StackFramePtrTILb0EE18getCalleeCodeBlockERNS0_7RuntimeE.exit ], [ 1, %cleanup ], [ 0, %_ZNKSt14default_deleteISt6vectorIN6hermes2vm14StackTraceInfoESaIS3_EEEclEPS5_.exit.i ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 1, %entry ], [ 1, %_ZNK6hermes2vm14StackFramePtrTILb0EE18getCalleeCodeBlockERNS0_7RuntimeE.exit ], [ 1, %cleanup ], [ 0, %_ZNKSt14default_deleteISt6vectorIN6hermes2vm14StackTraceInfoESaIS3_EEEclEPS5_.exit.i ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

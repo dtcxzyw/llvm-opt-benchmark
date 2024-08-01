@@ -1457,7 +1457,7 @@ define double @StressMajorizationSmoother_smooth(ptr nocapture noundef readonly 
 
 .lr.ph274.i:                                      ; preds = %.loopexit.i, %.lr.ph274.preheader.i
   %indvars.iv332.i = phi i64 [ 0, %.lr.ph274.preheader.i ], [ %indvars.iv.next333.i, %.loopexit.i ]
-  %.1224271.i = phi i32 [ 0, %.lr.ph274.preheader.i ], [ %.5.i, %.loopexit.i ]
+  %.1224271.i = phi i32 [ 0, %.lr.ph274.preheader.i ], [ %.2225.i, %.loopexit.i ]
   %80 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv332.i
   %81 = load i32, ptr %80, align 4
   %82 = sext i32 %81 to i64
@@ -1493,14 +1493,14 @@ define double @StressMajorizationSmoother_smooth(ptr nocapture noundef readonly 
   %107 = fmul double %93, %99
   %108 = fdiv double %57, %107
   %109 = load i32, ptr %83, align 4
-  %.2225252.i = add i32 %.1224271.i, 1
+  %.3252.i = add i32 %.1224271.i, 1
   %110 = load i32, ptr %94, align 4
   %111 = icmp slt i32 %109, %110
   br i1 %111, label %.lr.ph256.i, label %._crit_edge257.i
 
 .lr.ph256.i:                                      ; preds = %91
   %112 = fneg double %106
-  %113 = sext i32 %.2225252.i to i64
+  %113 = sext i32 %.3252.i to i64
   %114 = sext i32 %109 to i64
   br label %115
 
@@ -1530,7 +1530,7 @@ define double @StressMajorizationSmoother_smooth(ptr nocapture noundef readonly 
 ._crit_edge257.i:                                 ; preds = %._crit_edge257.loopexit.i, %91
   %125 = phi i32 [ %110, %91 ], [ %121, %._crit_edge257.loopexit.i ]
   %126 = phi i32 [ %109, %91 ], [ %.pre.i, %._crit_edge257.loopexit.i ]
-  %.2225.lcssa.i = phi i32 [ %.2225252.i, %91 ], [ %124, %._crit_edge257.loopexit.i ]
+  %.3.lcssa.i = phi i32 [ %.3252.i, %91 ], [ %124, %._crit_edge257.loopexit.i ]
   %127 = icmp slt i32 %126, %125
   br i1 %127, label %.lr.ph269.i, label %.loopexit.i
 
@@ -1541,10 +1541,10 @@ define double @StressMajorizationSmoother_smooth(ptr nocapture noundef readonly 
 
 130:                                              ; preds = %._crit_edge264.i, %.lr.ph269.i
   %indvars.iv329.i = phi i64 [ %129, %.lr.ph269.i ], [ %indvars.iv.next330.i, %._crit_edge264.i ]
-  %.3266.i = phi i32 [ %.2225.lcssa.i, %.lr.ph269.i ], [ %.4.lcssa.i, %._crit_edge264.i ]
+  %.4266.i = phi i32 [ %.3.lcssa.i, %.lr.ph269.i ], [ %.5.lcssa.i, %._crit_edge264.i ]
   %131 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv329.i
   %132 = load i32, ptr %131, align 4
-  %133 = sext i32 %.3266.i to i64
+  %133 = sext i32 %.4266.i to i64
   %134 = getelementptr inbounds i32, ptr %.0213.i, i64 %133
   store i32 %132, ptr %134, align 4
   %135 = getelementptr inbounds i32, ptr %.0211.i, i64 %133
@@ -1552,7 +1552,7 @@ define double @StressMajorizationSmoother_smooth(ptr nocapture noundef readonly 
   %136 = getelementptr inbounds double, ptr %.0210.i, i64 %133
   store double %128, ptr %136, align 8
   %137 = load i32, ptr %83, align 4
-  %.4259.i = add i32 %.3266.i, 1
+  %.5259.i = add i32 %.4266.i, 1
   %138 = load i32, ptr %94, align 4
   %139 = icmp slt i32 %137, %138
   br i1 %139, label %.lr.ph263.preheader.i, label %.._crit_edge264_crit_edge.i
@@ -1562,7 +1562,7 @@ define double @StressMajorizationSmoother_smooth(ptr nocapture noundef readonly 
   br label %._crit_edge264.i
 
 .lr.ph263.preheader.i:                            ; preds = %130
-  %140 = sext i32 %.4259.i to i64
+  %140 = sext i32 %.5259.i to i64
   %141 = sext i32 %137 to i64
   br label %.lr.ph263.i
 
@@ -1590,19 +1590,19 @@ define double @StressMajorizationSmoother_smooth(ptr nocapture noundef readonly 
 
 ._crit_edge264.i:                                 ; preds = %._crit_edge264.loopexit.i, %.._crit_edge264_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre337.i, %.._crit_edge264_crit_edge.i ], [ %148, %._crit_edge264.loopexit.i ]
-  %.4.lcssa.i = phi i32 [ %.4259.i, %.._crit_edge264_crit_edge.i ], [ %150, %._crit_edge264.loopexit.i ]
+  %.5.lcssa.i = phi i32 [ %.5259.i, %.._crit_edge264_crit_edge.i ], [ %150, %._crit_edge264.loopexit.i ]
   %indvars.iv.next330.i = add nsw i64 %indvars.iv329.i, 1
   %151 = icmp slt i64 %indvars.iv.next330.i, %.pre-phi.i
   br i1 %151, label %130, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %._crit_edge264.i, %._crit_edge257.i, %.lr.ph274.i
-  %.5.i = phi i32 [ %.1224271.i, %.lr.ph274.i ], [ %.2225.lcssa.i, %._crit_edge257.i ], [ %.4.lcssa.i, %._crit_edge264.i ]
+  %.2225.i = phi i32 [ %.1224271.i, %.lr.ph274.i ], [ %.3.lcssa.i, %._crit_edge257.i ], [ %.5.lcssa.i, %._crit_edge264.i ]
   %indvars.iv.next333.i = add nuw nsw i64 %indvars.iv332.i, 1
   %exitcond336.not.i = icmp eq i64 %indvars.iv.next333.i, %wide.trip.count335.i
   br i1 %exitcond336.not.i, label %._crit_edge275.i, label %.lr.ph274.i
 
 ._crit_edge275.i:                                 ; preds = %.loopexit.i, %78
-  %.1224.lcssa.i = phi i32 [ 0, %78 ], [ %.5.i, %.loopexit.i ]
+  %.1224.lcssa.i = phi i32 [ 0, %78 ], [ %.2225.i, %.loopexit.i ]
   %152 = tail call ptr @SparseMatrix_from_coordinate_arrays(i32 noundef %.1224.lcssa.i, i32 noundef %12, i32 noundef %12, ptr noundef %.0213.i, ptr noundef %.0211.i, ptr noundef %.0210.i, i32 noundef 1, i64 noundef 8) #18
   br label %get_edge_label_matrix.exit
 
@@ -1765,9 +1765,9 @@ get_edge_label_matrix.exit:                       ; preds = %._crit_edge275.i, %
   br label %get_edge_label_matrix.exit.thread
 
 get_edge_label_matrix.exit.thread:                ; preds = %153, %get_edge_label_matrix.exit, %217, %22
-  %.0178 = phi ptr [ %.0209.i, %get_edge_label_matrix.exit ], [ %.0209.i, %217 ], [ null, %22 ], [ null, %153 ]
-  %.0176 = phi ptr [ null, %get_edge_label_matrix.exit ], [ %.0.i, %217 ], [ null, %22 ], [ null, %153 ]
-  %.0 = phi ptr [ %6, %get_edge_label_matrix.exit ], [ %218, %217 ], [ %6, %22 ], [ %6, %153 ]
+  %.1179 = phi ptr [ %.0209.i, %get_edge_label_matrix.exit ], [ %.0209.i, %217 ], [ null, %22 ], [ null, %153 ]
+  %.1177 = phi ptr [ null, %get_edge_label_matrix.exit ], [ %.0.i, %217 ], [ null, %22 ], [ null, %153 ]
+  %.1 = phi ptr [ %6, %get_edge_label_matrix.exit ], [ %218, %217 ], [ %6, %22 ], [ %6, %153 ]
   %219 = icmp sgt i32 %3, 0
   br i1 %219, label %.preheader196.lr.ph, label %._crit_edge223
 
@@ -1995,7 +1995,7 @@ get_edge_label_matrix.exit.thread:                ; preds = %153, %get_edge_labe
 314:                                              ; preds = %.preheader.us, %314
   %indvars.iv256 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next257, %314 ]
   %315 = add nuw nsw i64 %indvars.iv256, %313
-  %316 = getelementptr inbounds double, ptr %.0178, i64 %315
+  %316 = getelementptr inbounds double, ptr %.1179, i64 %315
   %317 = load double, ptr %316, align 8
   %318 = getelementptr inbounds double, ptr %21, i64 %315
   %319 = load double, ptr %318, align 8
@@ -2013,13 +2013,13 @@ get_edge_label_matrix.exit.thread:                ; preds = %153, %get_edge_labe
 .loopexit.thread:                                 ; preds = %.preheader192.lr.ph, %.preheader.lr.ph, %.loopexit195.thread
   %321 = load double, ptr %223, align 8
   %322 = load i32, ptr %224, align 8
-  %323 = tail call double @SparseMatrix_solve(ptr noundef %.0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %21, double noundef %321, i32 noundef %322) #18
+  %323 = tail call double @SparseMatrix_solve(ptr noundef %.1, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %21, double noundef %321, i32 noundef %322) #18
   br label %total_distance.exit
 
 .loopexit:                                        ; preds = %._crit_edge221.us, %.loopexit195
   %324 = load double, ptr %223, align 8
   %325 = load i32, ptr %224, align 8
-  %326 = tail call double @SparseMatrix_solve(ptr noundef %.0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %21, double noundef %324, i32 noundef %325) #18
+  %326 = tail call double @SparseMatrix_solve(ptr noundef %.1, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %21, double noundef %324, i32 noundef %325) #18
   br i1 %or.cond.i172, label %.preheader.us.i, label %total_distance.exit
 
 .preheader.us.i:                                  ; preds = %.loopexit, %._crit_edge.us.i
@@ -2062,31 +2062,31 @@ total_distance.exit:                              ; preds = %._crit_edge.us.i, %
   br i1 %344, label %.preheader196, label %._crit_edge223
 
 ._crit_edge223:                                   ; preds = %total_distance.exit, %get_edge_label_matrix.exit.thread
-  %.0143.lcssa = phi double [ 1.000000e+00, %get_edge_label_matrix.exit.thread ], [ %340, %total_distance.exit ]
+  %.1144.lcssa = phi double [ 1.000000e+00, %get_edge_label_matrix.exit.thread ], [ %340, %total_distance.exit ]
   tail call void @SparseMatrix_delete(ptr noundef %11) #18
-  %.not170 = icmp eq ptr %.0176, null
+  %.not170 = icmp eq ptr %.1177, null
   br i1 %.not170, label %346, label %345
 
 345:                                              ; preds = %._crit_edge223
-  tail call void @SparseMatrix_delete(ptr noundef nonnull %.0176) #18
+  tail call void @SparseMatrix_delete(ptr noundef nonnull %.1177) #18
   br label %.sink.split
 
 .sink.split:                                      ; preds = %16, %4, %345
-  %.sink289 = phi ptr [ %.0, %345 ], [ %11, %4 ], [ %11, %16 ]
-  %.1144191.ph = phi double [ %.0143.lcssa, %345 ], [ 1.000000e+00, %4 ], [ 1.000000e+00, %16 ]
+  %.sink289 = phi ptr [ %.1, %345 ], [ %11, %4 ], [ %11, %16 ]
+  %.0143191.ph = phi double [ %.1144.lcssa, %345 ], [ 1.000000e+00, %4 ], [ 1.000000e+00, %16 ]
   %.0147190.ph = phi ptr [ %21, %345 ], [ null, %4 ], [ null, %16 ]
-  %.1179189.ph = phi ptr [ %.0178, %345 ], [ null, %4 ], [ null, %16 ]
+  %.0178189.ph = phi ptr [ %.1179, %345 ], [ null, %4 ], [ null, %16 ]
   tail call void @SparseMatrix_delete(ptr noundef %.sink289) #18
   br label %346
 
 346:                                              ; preds = %.sink.split, %._crit_edge223
-  %.1144191 = phi double [ %.0143.lcssa, %._crit_edge223 ], [ %.1144191.ph, %.sink.split ]
+  %.0143191 = phi double [ %.1144.lcssa, %._crit_edge223 ], [ %.0143191.ph, %.sink.split ]
   %.0147190 = phi ptr [ %21, %._crit_edge223 ], [ %.0147190.ph, %.sink.split ]
-  %.1179189 = phi ptr [ %.0178, %._crit_edge223 ], [ %.1179189.ph, %.sink.split ]
+  %.0178189 = phi ptr [ %.1179, %._crit_edge223 ], [ %.0178189.ph, %.sink.split ]
   tail call void @free(ptr noundef %15) #18
   tail call void @free(ptr noundef %.0147190) #18
-  tail call void @free(ptr noundef %.1179189) #18
-  ret double %.1144191
+  tail call void @free(ptr noundef %.0178189) #18
+  ret double %.0143191
 }
 
 declare ptr @SparseMatrix_copy(ptr noundef) local_unnamed_addr #3

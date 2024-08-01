@@ -900,7 +900,7 @@ while.cond139.preheader:                          ; preds = %invoke.cont136
 while.body144:                                    ; preds = %while.cond139.preheader, %invoke.cont163
   %32 = phi ptr [ %37, %invoke.cont163 ], [ %31, %while.cond139.preheader ]
   %33 = phi ptr [ %add.ptr169, %invoke.cont163 ], [ %30, %while.cond139.preheader ]
-  %out.031 = phi ptr [ %add.ptr165, %invoke.cont163 ], [ %26, %while.cond139.preheader ]
+  %out.131 = phi ptr [ %add.ptr165, %invoke.cont163 ], [ %26, %while.cond139.preheader ]
   %34 = load i16, ptr %33, align 2
   %add.ptr148 = getelementptr inbounds i8, ptr %33, i64 4
   store ptr %add.ptr148, ptr %mP, align 8
@@ -936,11 +936,11 @@ lpad158:                                          ; preds = %if.then156
   br label %ehcleanup
 
 if.end160:                                        ; preds = %while.body144
-  %call164 = invoke noundef i64 @_ZN6Assimp11Compression15decompressBlockEPKvmPcm(ptr noundef nonnull align 8 dereferenceable(8) %compression, ptr noundef nonnull %add.ptr148, i64 noundef %idx.ext151, ptr noundef %out.031, i64 noundef 32786)
+  %call164 = invoke noundef i64 @_ZN6Assimp11Compression15decompressBlockEPKvmPcm(ptr noundef nonnull align 8 dereferenceable(8) %compression, ptr noundef nonnull %add.ptr148, i64 noundef %idx.ext151, ptr noundef %out.131, i64 noundef 32786)
           to label %invoke.cont163 unwind label %lpad131.loopexit
 
 invoke.cont163:                                   ; preds = %if.end160
-  %add.ptr165 = getelementptr inbounds i8, ptr %out.031, i64 %call164
+  %add.ptr165 = getelementptr inbounds i8, ptr %out.131, i64 %call164
   %36 = load ptr, ptr %mP, align 8
   %add.ptr169 = getelementptr inbounds i8, ptr %36, i64 %idx.ext151
   store ptr %add.ptr169, ptr %mP, align 8
@@ -950,15 +950,15 @@ invoke.cont163:                                   ; preds = %if.end160
   br i1 %cmp143, label %while.body144, label %while.end170, !llvm.loop !6
 
 while.end170:                                     ; preds = %invoke.cont163, %while.cond139.preheader
-  %out.0.lcssa = phi ptr [ %26, %while.cond139.preheader ], [ %add.ptr165, %invoke.cont163 ]
+  %out.1.lcssa = phi ptr [ %26, %while.cond139.preheader ], [ %add.ptr165, %invoke.cont163 ]
   %call172 = invoke noundef zeroext i1 @_ZN6Assimp11Compression5closeEv(ptr noundef nonnull align 8 dereferenceable(8) %compression)
           to label %if.end173 unwind label %lpad131.loopexit.split-lp
 
 if.end173:                                        ; preds = %while.end170, %invoke.cont136
-  %out.1 = phi ptr [ %out.0.lcssa, %while.end170 ], [ %26, %invoke.cont136 ]
+  %out.0 = phi ptr [ %out.1.lcssa, %while.end170 ], [ %26, %invoke.cont136 ]
   %38 = load ptr, ptr %uncompressed, align 8
   store ptr %38, ptr %mP, align 8
-  store ptr %out.1, ptr %mEnd, align 8
+  store ptr %out.0, ptr %mEnd, align 8
   %call178 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
           to label %invoke.cont177 unwind label %lpad131.loopexit.split-lp
 

@@ -5091,10 +5091,10 @@ define internal { i1, i8 } @"_ZN4core4iter5range110_$LT$impl$u20$core..iter..tra
   br label %.critedge
 
 .critedge:                                        ; preds = %19, %21, %5, %2, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread"
-  %.sroa.5.1 = phi i8 [ undef, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread" ], [ undef, %2 ], [ undef, %5 ], [ %15, %21 ], [ %15, %19 ]
-  %.sroa.0.1 = phi i1 [ false, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread" ], [ false, %2 ], [ false, %5 ], [ true, %21 ], [ true, %19 ]
-  %22 = insertvalue { i1, i8 } poison, i1 %.sroa.0.1, 0
-  %23 = insertvalue { i1, i8 } %22, i8 %.sroa.5.1, 1
+  %.sroa.5.0 = phi i8 [ undef, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread" ], [ undef, %2 ], [ undef, %5 ], [ %15, %21 ], [ %15, %19 ]
+  %.sroa.0.0 = phi i1 [ false, %"_ZN46_$LT$u8$u20$as$u20$core..iter..range..Step$GT$15forward_checked17hd3e51c602623172fE.exit.thread" ], [ false, %2 ], [ false, %5 ], [ true, %21 ], [ true, %19 ]
+  %22 = insertvalue { i1, i8 } poison, i1 %.sroa.0.0, 0
+  %23 = insertvalue { i1, i8 } %22, i8 %.sroa.5.0, 1
   ret { i1, i8 } %23
 }
 
@@ -6504,7 +6504,7 @@ _ZN4core3ops8function5FnMut8call_mut17h4a06fdf24d9155ddE.exit.i251: ; preds = %"
   br i1 %128, label %131, label %132
 
 .loopexit:                                        ; preds = %119, %123, %111
-  %.sroa.5.1.i268.ph = phi i64 [ 0, %111 ], [ %.011.i.i265, %123 ], [ %114, %119 ]
+  %.sroa.5.0.i268.ph = phi i64 [ 0, %111 ], [ %.011.i.i265, %123 ], [ %114, %119 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   %129 = icmp eq ptr %.0.i233, null
   %130 = getelementptr inbounds { i8, [15 x i8] }, ptr %50, i64 %.011.i.i
@@ -6543,7 +6543,7 @@ _ZN4core3ops8function5FnMut8call_mut17h4a06fdf24d9155ddE.exit.i251: ; preds = %"
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h26348923a0637481E.exit278" unwind label %71
 
 135:                                              ; preds = %.loopexit
-  %136 = getelementptr inbounds { i8, [15 x i8] }, ptr %115, i64 %.sroa.5.1.i268.ph
+  %136 = getelementptr inbounds { i8, [15 x i8] }, ptr %115, i64 %.sroa.5.0.i268.ph
   store i64 1, ptr %14, align 8
   %.sroa.0183.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %50, ptr %.sroa.0183.sroa.4.0..sroa_idx, align 8
@@ -6562,7 +6562,7 @@ _ZN4core3ops8function5FnMut8call_mut17h4a06fdf24d9155ddE.exit.i251: ; preds = %"
 
 137:                                              ; preds = %.loopexit
   %138 = load i8, ptr %.0.i233, align 1, !noundef !4
-  %139 = getelementptr inbounds { i8, [15 x i8] }, ptr %115, i64 %.sroa.5.1.i268.ph
+  %139 = getelementptr inbounds { i8, [15 x i8] }, ptr %115, i64 %.sroa.5.0.i268.ph
   call void @llvm.experimental.noalias.scope.decl(metadata !1288)
   call void @llvm.experimental.noalias.scope.decl(metadata !1291)
   %140 = getelementptr inbounds i8, ptr %15, i64 56

@@ -323,7 +323,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %22
 
 22:                                               ; preds = %19, %13
-  %.0 = phi i32 [ %9, %13 ], [ %20, %19 ]
+  %.1 = phi i32 [ %9, %13 ], [ %20, %19 ]
   br i1 %3, label %23, label %24
 
 23:                                               ; preds = %22
@@ -343,12 +343,12 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %31
 
 31:                                               ; preds = %24, %28, %23
-  %32 = add nsw i32 %.0, 8
+  %32 = add nsw i32 %.1, 8
   %33 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %32) #3
   br label %34
 
 34:                                               ; preds = %31, %13
-  %.1 = phi i32 [ %9, %13 ], [ %32, %31 ]
+  %.2 = phi i32 [ %9, %13 ], [ %32, %31 ]
   br i1 %3, label %35, label %36
 
 35:                                               ; preds = %34
@@ -367,12 +367,12 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %42
 
 42:                                               ; preds = %36, %40, %35
-  %43 = add nsw i32 %.1, 16
+  %43 = add nsw i32 %.2, 16
   %44 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %43) #3
   br label %45
 
 45:                                               ; preds = %42, %13
-  %.2 = phi i32 [ %9, %13 ], [ %43, %42 ]
+  %.3 = phi i32 [ %9, %13 ], [ %43, %42 ]
   br i1 %3, label %46, label %47
 
 46:                                               ; preds = %45
@@ -391,7 +391,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %53
 
 53:                                               ; preds = %47, %51, %46
-  %54 = add nsw i32 %.2, 24
+  %54 = add nsw i32 %.3, 24
   %55 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %54) #3
   br label %56
 
@@ -404,7 +404,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %62
 
 62:                                               ; preds = %56, %4
-  %.3 = phi i32 [ %60, %56 ], [ %9, %4 ]
+  %.0 = phi i32 [ %60, %56 ], [ %9, %4 ]
   %63 = load i8, ptr @_ZN20AbstractDisassembler14_show_data_intE, align 1
   %64 = trunc i8 %63 to i1
   br i1 %64, label %65, label %94
@@ -434,12 +434,12 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %74
 
 74:                                               ; preds = %68, %72, %67
-  %75 = add nsw i32 %.3, 16
+  %75 = add nsw i32 %.0, 16
   %76 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %75) #3
   br label %77
 
 77:                                               ; preds = %74, %65
-  %.4 = phi i32 [ %.3, %65 ], [ %75, %74 ]
+  %.5 = phi i32 [ %.0, %65 ], [ %75, %74 ]
   br i1 %3, label %78, label %79
 
 78:                                               ; preds = %77
@@ -458,7 +458,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %85
 
 85:                                               ; preds = %79, %83, %78
-  %86 = add nsw i32 %.4, 24
+  %86 = add nsw i32 %.5, 24
   %87 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %86) #3
   br label %88
 
@@ -471,7 +471,7 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %94
 
 94:                                               ; preds = %88, %62
-  %.5 = phi i32 [ %92, %88 ], [ %.3, %62 ]
+  %.4 = phi i32 [ %92, %88 ], [ %.0, %62 ]
   %95 = load i8, ptr @_ZN20AbstractDisassembler16_show_data_floatE, align 1
   %96 = trunc i8 %95 to i1
   br i1 %96, label %97, label %121
@@ -502,12 +502,12 @@ define hidden noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12output
   br label %107
 
 107:                                              ; preds = %100, %104, %99
-  %108 = add nsw i32 %.5, 16
+  %108 = add nsw i32 %.4, 16
   %109 = tail call noundef i32 @_ZN12outputStream7fill_toEi(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %108) #3
   br label %110
 
 110:                                              ; preds = %107, %97
-  %.6 = phi i32 [ %.5, %97 ], [ %108, %107 ]
+  %.6 = phi i32 [ %.4, %97 ], [ %108, %107 ]
   br i1 %3, label %111, label %112
 
 111:                                              ; preds = %110

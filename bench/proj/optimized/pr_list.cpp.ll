@@ -194,8 +194,8 @@ define hidden noundef ptr @_Z10pj_get_defPK8PJconstsi(ptr nocapture noundef read
 
 .lr.ph:                                           ; preds = %4, %27
   %.02839 = phi ptr [ %.028, %27 ], [ %.02835, %4 ]
-  %.02438 = phi i64 [ %.2, %27 ], [ 10, %4 ]
-  %.02537 = phi ptr [ %.227, %27 ], [ %3, %4 ]
+  %.02438 = phi i64 [ %.1, %27 ], [ 10, %4 ]
+  %.02537 = phi ptr [ %.126, %27 ], [ %3, %4 ]
   %6 = getelementptr inbounds i8, ptr %.02839, i64 8
   %7 = load i8, ptr %6, align 8
   %.not32 = icmp eq i8 %7, 0
@@ -231,23 +231,23 @@ define hidden noundef ptr @_Z10pj_get_defPK8PJconstsi(ptr nocapture noundef read
   br label %.loopexit
 
 25:                                               ; preds = %22, %8
-  %.126 = phi ptr [ %21, %22 ], [ %.02537, %8 ]
-  %.1 = phi i64 [ %20, %22 ], [ %.02438, %8 ]
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.126)
-  %endptr = getelementptr inbounds i8, ptr %.126, i64 %strlen
+  %.227 = phi ptr [ %21, %22 ], [ %.02537, %8 ]
+  %.2 = phi i64 [ %20, %22 ], [ %.02438, %8 ]
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.227)
+  %endptr = getelementptr inbounds i8, ptr %.227, i64 %strlen
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %endptr, ptr noundef nonnull align 1 dereferenceable(3) @.str.1, i64 3, i1 false)
-  %26 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.126, ptr noundef nonnull dereferenceable(1) %9) #11
+  %26 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.227, ptr noundef nonnull dereferenceable(1) %9) #11
   br label %27
 
 27:                                               ; preds = %.lr.ph, %25
-  %.227 = phi ptr [ %.126, %25 ], [ %.02537, %.lr.ph ]
-  %.2 = phi i64 [ %.1, %25 ], [ %.02438, %.lr.ph ]
+  %.126 = phi ptr [ %.227, %25 ], [ %.02537, %.lr.ph ]
+  %.1 = phi i64 [ %.2, %25 ], [ %.02438, %.lr.ph ]
   %.028 = load ptr, ptr %.02839, align 8
   %.not31 = icmp eq ptr %.028, null
   br i1 %.not31, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
 .loopexit:                                        ; preds = %27, %4, %2, %24
-  %.0 = phi ptr [ null, %24 ], [ null, %2 ], [ %3, %4 ], [ %.227, %27 ]
+  %.0 = phi ptr [ null, %24 ], [ null, %2 ], [ %3, %4 ], [ %.126, %27 ]
   ret ptr %.0
 }
 

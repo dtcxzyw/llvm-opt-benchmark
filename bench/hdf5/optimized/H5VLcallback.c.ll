@@ -2942,7 +2942,7 @@ H5VL__dataset_read.exit.thread40:                 ; preds = %18
 
 .lr.ph:                                           ; preds = %.thread57, %25
   %.pre63 = phi ptr [ %.pre60, %.thread57 ], [ %.pre, %25 ]
-  %.03161 = phi ptr [ %20, %.thread57 ], [ %9, %25 ]
+  %.13261 = phi ptr [ %20, %.thread57 ], [ %9, %25 ]
   %26 = getelementptr inbounds i8, ptr %.pre63, i64 8
   br label %29
 
@@ -2956,7 +2956,7 @@ H5VL__dataset_read.exit.thread40:                 ; preds = %18
   %30 = getelementptr inbounds ptr, ptr %1, i64 %.03053
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds ptr, ptr %.03161, i64 %.03053
+  %33 = getelementptr inbounds ptr, ptr %.13261, i64 %.03053
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -2977,7 +2977,7 @@ H5VL__dataset_read.exit.thread40:                 ; preds = %18
   br label %H5VL__dataset_read.exit
 
 ._crit_edge:                                      ; preds = %27, %.._crit_edge_crit_edge
-  %.03162 = phi ptr [ %9, %.._crit_edge_crit_edge ], [ %.03161, %27 ]
+  %.13262 = phi ptr [ %9, %.._crit_edge_crit_edge ], [ %.13261, %27 ]
   %47 = phi ptr [ %.pre56, %.._crit_edge_crit_edge ], [ %40, %27 ]
   %48 = getelementptr i8, ptr %47, i64 216
   %.val = load ptr, ptr %48, align 8
@@ -2991,7 +2991,7 @@ H5VL__dataset_read.exit.thread40:                 ; preds = %18
   br label %61
 
 54:                                               ; preds = %._crit_edge
-  %55 = call i32 %.val(i64 noundef %0, ptr noundef nonnull %.03162, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #6
+  %55 = call i32 %.val(i64 noundef %0, ptr noundef nonnull %.13262, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #6
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %H5VL__dataset_read.exit
 
@@ -3009,7 +3009,7 @@ H5VL__dataset_read.exit.thread40:                 ; preds = %18
 
 H5VL__dataset_read.exit:                          ; preds = %43, %61, %54, %H5VL__dataset_read.exit.thread40
   %.045 = phi i32 [ -1, %H5VL__dataset_read.exit.thread40 ], [ -1, %43 ], [ -1, %61 ], [ 0, %54 ]
-  %.13244 = phi ptr [ null, %H5VL__dataset_read.exit.thread40 ], [ %.03161, %43 ], [ %.03162, %61 ], [ %.03162, %54 ]
+  %.03144 = phi ptr [ null, %H5VL__dataset_read.exit.thread40 ], [ %.13261, %43 ], [ %.13262, %61 ], [ %.13262, %54 ]
   %65 = call i32 @H5VL_reset_vol_wrapper() #6
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %67, label %71
@@ -3022,11 +3022,11 @@ H5VL__dataset_read.exit:                          ; preds = %43, %61, %54, %H5VL
 
 71:                                               ; preds = %67, %H5VL__dataset_read.exit
   %.1 = phi i32 [ -1, %67 ], [ %.045, %H5VL__dataset_read.exit ]
-  %.not38 = icmp eq ptr %.13244, %9
+  %.not38 = icmp eq ptr %.03144, %9
   br i1 %.not38, label %73, label %72
 
 72:                                               ; preds = %71
-  call void @free(ptr noundef %.13244) #6
+  call void @free(ptr noundef %.03144) #6
   br label %73
 
 73:                                               ; preds = %.thread, %72, %71
@@ -3272,7 +3272,7 @@ H5VL__dataset_write.exit.thread40:                ; preds = %18
 
 .lr.ph:                                           ; preds = %.thread57, %25
   %.pre63 = phi ptr [ %.pre60, %.thread57 ], [ %.pre, %25 ]
-  %.03161 = phi ptr [ %20, %.thread57 ], [ %9, %25 ]
+  %.13261 = phi ptr [ %20, %.thread57 ], [ %9, %25 ]
   %26 = getelementptr inbounds i8, ptr %.pre63, i64 8
   br label %29
 
@@ -3286,7 +3286,7 @@ H5VL__dataset_write.exit.thread40:                ; preds = %18
   %30 = getelementptr inbounds ptr, ptr %1, i64 %.03053
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds ptr, ptr %.03161, i64 %.03053
+  %33 = getelementptr inbounds ptr, ptr %.13261, i64 %.03053
   store ptr %32, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -3307,7 +3307,7 @@ H5VL__dataset_write.exit.thread40:                ; preds = %18
   br label %H5VL__dataset_write.exit
 
 ._crit_edge:                                      ; preds = %27, %.._crit_edge_crit_edge
-  %.03162 = phi ptr [ %9, %.._crit_edge_crit_edge ], [ %.03161, %27 ]
+  %.13262 = phi ptr [ %9, %.._crit_edge_crit_edge ], [ %.13261, %27 ]
   %47 = phi ptr [ %.pre56, %.._crit_edge_crit_edge ], [ %40, %27 ]
   %48 = getelementptr i8, ptr %47, i64 224
   %.val = load ptr, ptr %48, align 8
@@ -3321,7 +3321,7 @@ H5VL__dataset_write.exit.thread40:                ; preds = %18
   br label %61
 
 54:                                               ; preds = %._crit_edge
-  %55 = call i32 %.val(i64 noundef %0, ptr noundef nonnull %.03162, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #6
+  %55 = call i32 %.val(i64 noundef %0, ptr noundef nonnull %.13262, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #6
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %H5VL__dataset_write.exit
 
@@ -3339,7 +3339,7 @@ H5VL__dataset_write.exit.thread40:                ; preds = %18
 
 H5VL__dataset_write.exit:                         ; preds = %43, %61, %54, %H5VL__dataset_write.exit.thread40
   %.045 = phi i32 [ -1, %H5VL__dataset_write.exit.thread40 ], [ -1, %43 ], [ -1, %61 ], [ 0, %54 ]
-  %.13244 = phi ptr [ null, %H5VL__dataset_write.exit.thread40 ], [ %.03161, %43 ], [ %.03162, %61 ], [ %.03162, %54 ]
+  %.03144 = phi ptr [ null, %H5VL__dataset_write.exit.thread40 ], [ %.13261, %43 ], [ %.13262, %61 ], [ %.13262, %54 ]
   %65 = call i32 @H5VL_reset_vol_wrapper() #6
   %66 = icmp slt i32 %65, 0
   br i1 %66, label %67, label %71
@@ -3352,11 +3352,11 @@ H5VL__dataset_write.exit:                         ; preds = %43, %61, %54, %H5VL
 
 71:                                               ; preds = %67, %H5VL__dataset_write.exit
   %.1 = phi i32 [ -1, %67 ], [ %.045, %H5VL__dataset_write.exit ]
-  %.not38 = icmp eq ptr %.13244, %9
+  %.not38 = icmp eq ptr %.03144, %9
   br i1 %.not38, label %73, label %72
 
 72:                                               ; preds = %71
-  call void @free(ptr noundef %.13244) #6
+  call void @free(ptr noundef %.03144) #6
   br label %73
 
 73:                                               ; preds = %.thread, %72, %71
@@ -5422,7 +5422,7 @@ define internal range(i32 -1, 2) i32 @H5VL__file_open_find_connector_cb(i32 %0, 
   br label %118
 
 111:                                              ; preds = %25, %18, %103, %100
-  %.1.ph = phi i32 [ -1, %18 ], [ -1, %25 ], [ %.0.ph.ph, %100 ], [ -1, %103 ]
+  %.2.ph = phi i32 [ -1, %18 ], [ -1, %25 ], [ %.0.ph.ph, %100 ], [ -1, %103 ]
   %112 = call i32 @H5I_dec_app_ref(i64 noundef %11) #6
   %113 = icmp slt i32 %112, 0
   br i1 %113, label %114, label %118
@@ -5434,8 +5434,8 @@ define internal range(i32 -1, 2) i32 @H5VL__file_open_find_connector_cb(i32 %0, 
   br label %118
 
 118:                                              ; preds = %107, %95, %111, %114
-  %.2 = phi i32 [ -1, %114 ], [ %.1.ph, %111 ], [ -1, %107 ], [ 1, %95 ]
-  ret i32 %.2
+  %.1 = phi i32 [ -1, %114 ], [ %.2.ph, %111 ], [ -1, %107 ], [ 1, %95 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable

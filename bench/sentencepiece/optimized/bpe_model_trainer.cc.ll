@@ -1200,7 +1200,7 @@ _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit:
   br label %267
 
 267:                                              ; preds = %221, %265
-  %.0 = phi ptr [ %266, %265 ], [ null, %221 ]
+  %.1 = phi ptr [ %266, %265 ], [ null, %221 ]
   %268 = load ptr, ptr %6, align 8
   %.not.i.i.i53 = icmp eq ptr %268, null
   br i1 %.not.i.i.i53, label %_ZNSt6vectorIjSaIjEED2Ev.exit54, label %269
@@ -1215,8 +1215,8 @@ _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit:
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit54
 
 _ZNSt6vectorIjSaIjEED2Ev.exit54:                  ; preds = %269, %267, %3, %10, %14, %_ZNSt13unordered_mapImPN13sentencepiece3bpe7Trainer6SymbolESt4hashImESt8equal_toImESaISt4pairIKmS4_EEE4findERSA_.exit
-  %.1 = phi ptr [ %101, %_ZNSt13unordered_mapImPN13sentencepiece3bpe7Trainer6SymbolESt4hashImESt8equal_toImESaISt4pairIKmS4_EEE4findERSA_.exit ], [ null, %14 ], [ null, %10 ], [ null, %3 ], [ %.0, %267 ], [ %.0, %269 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %101, %_ZNSt13unordered_mapImPN13sentencepiece3bpe7Trainer6SymbolESt4hashImESt8equal_toImESaISt4pairIKmS4_EEE4findERSA_.exit ], [ null, %14 ], [ null, %10 ], [ null, %3 ], [ %.1, %267 ], [ %.1, %269 ]
+  ret ptr %.0
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %178, %.loopexit.split-lp, %175, %173
   %.pn = phi { ptr, i32 } [ %176, %175 ], [ %174, %173 ], [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi, %178 ]
@@ -1899,9 +1899,9 @@ define void @_ZN13sentencepiece3bpe7Trainer19UpdateActiveSymbolsEv(ptr noundef n
 
 .lr.ph:                                           ; preds = %1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit
   %.sroa.035.073 = phi ptr [ %.sroa.035.0, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ %.sroa.035.068, %1 ]
-  %.sroa.038.072 = phi ptr [ %.sroa.038.2, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ null, %1 ]
-  %.sroa.12.071 = phi ptr [ %.sroa.12.2, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ null, %1 ]
-  %.sroa.18.070 = phi ptr [ %.sroa.18.2, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ null, %1 ]
+  %.sroa.038.072 = phi ptr [ %.sroa.038.1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ null, %1 ]
+  %.sroa.12.071 = phi ptr [ %.sroa.12.1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ null, %1 ]
+  %.sroa.18.070 = phi ptr [ %.sroa.18.1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ], [ null, %1 ]
   %4 = getelementptr inbounds i8, ptr %.sroa.035.073, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -1989,17 +1989,17 @@ _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJR
   br label %290
 
 _ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit: ; preds = %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %12, %.lr.ph
-  %.sroa.18.2 = phi ptr [ %.sroa.18.070, %.lr.ph ], [ %35, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %.sroa.18.070, %12 ]
-  %.sroa.12.2 = phi ptr [ %.sroa.12.071, %.lr.ph ], [ %33, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %13, %12 ]
-  %.sroa.038.2 = phi ptr [ %.sroa.038.072, %.lr.ph ], [ %28, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %.sroa.038.072, %12 ]
+  %.sroa.18.1 = phi ptr [ %.sroa.18.070, %.lr.ph ], [ %35, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %.sroa.18.070, %12 ]
+  %.sroa.12.1 = phi ptr [ %.sroa.12.071, %.lr.ph ], [ %33, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %13, %12 ]
+  %.sroa.038.1 = phi ptr [ %.sroa.038.072, %.lr.ph ], [ %28, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %.sroa.038.072, %12 ]
   %.sroa.035.0 = load ptr, ptr %.sroa.035.073, align 8
   %.not = icmp eq ptr %.sroa.035.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit, %1
-  %.sroa.18.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.18.2, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ]
-  %.sroa.12.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.12.2, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ]
-  %.sroa.038.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.038.2, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ]
+  %.sroa.18.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.18.1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ]
+  %.sroa.12.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.12.1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ]
+  %.sroa.038.0.lcssa = phi ptr [ null, %1 ], [ %.sroa.038.1, %_ZNSt6vectorIPN13sentencepiece3bpe7Trainer6SymbolESaIS4_EE9push_backERKS4_.exit ]
   %36 = getelementptr inbounds i8, ptr %0, i64 728
   %37 = load i64, ptr %36, align 8
   %38 = uitofp i64 %37 to float

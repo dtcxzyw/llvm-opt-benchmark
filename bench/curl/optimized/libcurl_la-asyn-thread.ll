@@ -600,7 +600,7 @@ if.then22.i:                                      ; preds = %if.end15.i
   br label %err_exit.i
 
 err_exit.i:                                       ; preds = %if.then22.i, %if.end8.i
-  %err.0.i = phi i32 [ %23, %if.then22.i ], [ 12, %if.end8.i ]
+  %err.1.i = phi i32 [ %23, %if.then22.i ], [ 12, %if.end8.i ]
   tail call fastcc void @destroy_async_data(ptr noundef nonnull %async.i)
   br label %if.end17
 
@@ -609,9 +609,9 @@ if.then16:                                        ; preds = %if.end15.i
   br label %return
 
 if.end17:                                         ; preds = %err_exit.i, %if.then6.i, %if.end9
-  %err.1.i = phi i32 [ %err.0.i, %err_exit.i ], [ 12, %if.then6.i ], [ 12, %if.end9 ]
+  %err.0.i = phi i32 [ %err.1.i, %err_exit.i ], [ 12, %if.then6.i ], [ 12, %if.end9 ]
   %call27.i = tail call ptr @__errno_location() #9
-  store i32 %err.1.i, ptr %call27.i, align 4
+  store i32 %err.0.i, ptr %call27.i, align 4
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str) #8
   br label %return
 

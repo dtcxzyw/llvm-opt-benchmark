@@ -6346,9 +6346,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN26ZPageTableParallelIterator8
   br label %50
 
 50:                                               ; preds = %48, %41
-  %.1.ph.i.i.i.i.i.i.i.i.i = phi i64 [ %39, %41 ], [ %47, %48 ]
+  %.027.ph.i.i.i.i.i.i.i.i.i = phi i64 [ %39, %41 ], [ %47, %48 ]
   %.026.ph.i.i.i.i.i.i.i.i.i = phi i64 [ %.0917.i.i.i.i.i.i.i, %41 ], [ %49, %48 ]
-  %51 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i.i.i.i.i, i1 true)
+  %51 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i.i.i.i.i, i1 true)
   %52 = add i64 %.026.ph.i.i.i.i.i.i.i.i.i, %51
   %53 = icmp ult i64 %52, %30
   br i1 %53, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i.i.i.i.i, label %_ZZN32ZGenerationPagesParallelIterator8do_pagesIZN20ZRemapYoungRootsTask4workEvEUlP5ZPageE_EEvT_ENKUlS3_E_clES3_.exit

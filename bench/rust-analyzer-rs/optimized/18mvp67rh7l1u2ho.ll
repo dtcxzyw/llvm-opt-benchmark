@@ -29,8 +29,8 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   br label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2ceb6e9df9121e61E.llvm.4272966154850254059.exit"
 
 "_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h2ceb6e9df9121e61E.llvm.4272966154850254059.exit": ; preds = %2, %2, %9
-  %.1.i.i = phi i1 [ false, %2 ], [ false, %2 ], [ %.not.i.i, %9 ]
-  ret i1 %.1.i.i
+  %.0.i.i = phi i1 [ false, %2 ], [ false, %2 ], [ %.not.i.i, %9 ]
+  ret i1 %.0.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable
@@ -56,8 +56,8 @@ define hidden noundef zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5ch
   br label %"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059.exit"
 
 "_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059.exit": ; preds = %2, %2, %8
-  %.1.i = phi i1 [ false, %2 ], [ false, %2 ], [ %.not.i, %8 ]
-  ret i1 %.1.i
+  %.0.i = phi i1 [ false, %2 ], [ false, %2 ], [ %.not.i, %8 ]
+  ret i1 %.0.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -81,8 +81,8 @@ define hidden noundef zeroext i1 @"_ZN10line_index9LineIndex12try_line_col28_$u7
   br label %.critedge
 
 .critedge:                                        ; preds = %8, %2, %2
-  %.1 = phi i1 [ true, %2 ], [ true, %2 ], [ %.not, %8 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %2 ], [ true, %2 ], [ %.not, %8 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)

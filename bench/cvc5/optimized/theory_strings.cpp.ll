@@ -4735,9 +4735,9 @@ cond.true.lr.ph:                                  ; preds = %invoke.cont59
 
 cond.true:                                        ; preds = %cond.true.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483
   %47 = phi i64 [ 0, %cond.true.lr.ph ], [ %inc, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483 ]
-  %len_splits.sroa.0.06498 = phi ptr [ null, %cond.true.lr.ph ], [ %len_splits.sroa.0.5, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483 ]
-  %len_splits.sroa.7.06497 = phi ptr [ null, %cond.true.lr.ph ], [ %len_splits.sroa.7.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483 ]
-  %len_splits.sroa.13.06496 = phi ptr [ null, %cond.true.lr.ph ], [ %len_splits.sroa.13.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483 ]
+  %len_splits.sroa.0.06498 = phi ptr [ null, %cond.true.lr.ph ], [ %len_splits.sroa.0.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483 ]
+  %len_splits.sroa.7.06497 = phi ptr [ null, %cond.true.lr.ph ], [ %len_splits.sroa.7.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483 ]
+  %len_splits.sroa.13.06496 = phi ptr [ null, %cond.true.lr.ph ], [ %len_splits.sroa.13.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483 ]
   %48 = load ptr, ptr %lts, align 8
   %add.ptr.i365 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %48, i64 %47
   %49 = load ptr, ptr %add.ptr.i365, align 8
@@ -4929,7 +4929,7 @@ lpad63:                                           ; preds = %if.then13.i.i372
   br label %ehcleanup1754
 
 lpad96.loopexit:                                  ; preds = %invoke.cont105, %invoke.cont108, %if.then115, %invoke.cont116, %if.then155, %if.then13.i.i.i, %if.else, %invoke.cont133, %if.then13.i.i.i.i.i, %if.else.i, %if.else139, %invoke.cont141, %cond.true.i.i.i, %if.then13.i.i.i.i.i462, %if.else.i469
-  %len_splits.sroa.0.1.ph = phi ptr [ %len_splits.sroa.0.06498, %if.else ], [ %len_splits.sroa.0.06498, %invoke.cont105 ], [ %len_splits.sroa.0.06498, %invoke.cont108 ], [ %len_splits.sroa.0.06498, %if.else139 ], [ %len_splits.sroa.0.06498, %invoke.cont141 ], [ %len_splits.sroa.0.06498, %cond.true.i.i.i ], [ %len_splits.sroa.0.06498, %if.then155 ], [ %len_splits.sroa.0.4, %if.then13.i.i.i.i.i462 ], [ %len_splits.sroa.0.4, %if.else.i469 ], [ %len_splits.sroa.0.06498, %if.then115 ], [ %len_splits.sroa.0.06498, %invoke.cont116 ], [ %len_splits.sroa.0.06498, %invoke.cont133 ], [ %len_splits.sroa.0.06498, %if.then13.i.i.i.i.i ], [ %len_splits.sroa.0.06498, %if.else.i ], [ %len_splits.sroa.0.06498, %if.then13.i.i.i ]
+  %len_splits.sroa.0.1.ph = phi ptr [ %len_splits.sroa.0.06498, %if.else ], [ %len_splits.sroa.0.06498, %invoke.cont105 ], [ %len_splits.sroa.0.06498, %invoke.cont108 ], [ %len_splits.sroa.0.06498, %if.else139 ], [ %len_splits.sroa.0.06498, %invoke.cont141 ], [ %len_splits.sroa.0.06498, %cond.true.i.i.i ], [ %len_splits.sroa.0.06498, %if.then155 ], [ %len_splits.sroa.0.5, %if.then13.i.i.i.i.i462 ], [ %len_splits.sroa.0.5, %if.else.i469 ], [ %len_splits.sroa.0.06498, %if.then115 ], [ %len_splits.sroa.0.06498, %invoke.cont116 ], [ %len_splits.sroa.0.06498, %invoke.cont133 ], [ %len_splits.sroa.0.06498, %if.then13.i.i.i.i.i ], [ %len_splits.sroa.0.06498, %if.else.i ], [ %len_splits.sroa.0.06498, %if.then13.i.i.i ]
   %lpad.loopexit6240 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup166
@@ -5210,7 +5210,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__nor
 if.end162:                                        ; preds = %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i434, %invoke.cont156
   %len_splits.sroa.13.2 = phi ptr [ %len_splits.sroa.13.06496, %invoke.cont156 ], [ %add.ptr28.i.i, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %len_splits.sroa.13.06496, %if.then.i434 ]
   %len_splits.sroa.7.2 = phi ptr [ %len_splits.sroa.7.06497, %invoke.cont156 ], [ %incdec.ptr.i.i444, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %incdec.ptr.i435, %if.then.i434 ]
-  %len_splits.sroa.0.4 = phi ptr [ %len_splits.sroa.0.06498, %invoke.cont156 ], [ %cond.i17.i.i, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %len_splits.sroa.0.06498, %if.then.i434 ]
+  %len_splits.sroa.0.5 = phi ptr [ %len_splits.sroa.0.06498, %invoke.cont156 ], [ %cond.i17.i.i, %_ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJRmS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %len_splits.sroa.0.06498, %if.then.i434 ]
   %101 = load ptr, ptr %_M_finish.i449, align 8
   %102 = load ptr, ptr %_M_end_of_storage.i450, align 8
   %cmp.not.i451 = icmp eq ptr %101, %102
@@ -5243,9 +5243,9 @@ if.else.i469:                                     ; preds = %if.end162
 if.end165.sink.split.sink.split:                  ; preds = %if.then.i452, %if.then.i411
   %bf.load.i.i.i.i.i453.sink6922 = phi i64 [ %bf.load.i.i.i.i.i, %if.then.i411 ], [ %bf.load.i.i.i.i.i453, %if.then.i452 ]
   %.sink6921 = phi ptr [ %83, %if.then.i411 ], [ %103, %if.then.i452 ]
-  %len_splits.sroa.13.3.ph.ph = phi ptr [ %len_splits.sroa.13.06496, %if.then.i411 ], [ %len_splits.sroa.13.2, %if.then.i452 ]
-  %len_splits.sroa.7.3.ph.ph = phi ptr [ %len_splits.sroa.7.06497, %if.then.i411 ], [ %len_splits.sroa.7.2, %if.then.i452 ]
-  %len_splits.sroa.0.5.ph.ph = phi ptr [ %len_splits.sroa.0.06498, %if.then.i411 ], [ %len_splits.sroa.0.4, %if.then.i452 ]
+  %len_splits.sroa.13.1.ph.ph = phi ptr [ %len_splits.sroa.13.06496, %if.then.i411 ], [ %len_splits.sroa.13.2, %if.then.i452 ]
+  %len_splits.sroa.7.1.ph.ph = phi ptr [ %len_splits.sroa.7.06497, %if.then.i411 ], [ %len_splits.sroa.7.2, %if.then.i452 ]
+  %len_splits.sroa.0.2.ph.ph = phi ptr [ %len_splits.sroa.0.06498, %if.then.i411 ], [ %len_splits.sroa.0.5, %if.then.i452 ]
   %bf.value.i.i.i.i.i465 = add i64 %bf.load.i.i.i.i.i453.sink6922, 1099511627776
   %bf.shl.i.i.i.i.i466 = and i64 %bf.value.i.i.i.i.i465, 1152920405095219200
   %bf.clear7.i.i.i.i.i467 = and i64 %bf.load.i.i.i.i.i453.sink6922, -1152920405095219201
@@ -5254,18 +5254,18 @@ if.end165.sink.split.sink.split:                  ; preds = %if.then.i452, %if.t
   br label %if.end165.sink.split
 
 if.end165.sink.split:                             ; preds = %if.end165.sink.split.sink.split, %if.else.i.i.i.i.i457, %if.then13.i.i.i.i.i462, %if.else.i.i.i.i.i, %if.then13.i.i.i.i.i
-  %len_splits.sroa.13.3.ph = phi ptr [ %len_splits.sroa.13.06496, %if.then13.i.i.i.i.i ], [ %len_splits.sroa.13.06496, %if.else.i.i.i.i.i ], [ %len_splits.sroa.13.2, %if.then13.i.i.i.i.i462 ], [ %len_splits.sroa.13.2, %if.else.i.i.i.i.i457 ], [ %len_splits.sroa.13.3.ph.ph, %if.end165.sink.split.sink.split ]
-  %len_splits.sroa.7.3.ph = phi ptr [ %len_splits.sroa.7.06497, %if.then13.i.i.i.i.i ], [ %len_splits.sroa.7.06497, %if.else.i.i.i.i.i ], [ %len_splits.sroa.7.2, %if.then13.i.i.i.i.i462 ], [ %len_splits.sroa.7.2, %if.else.i.i.i.i.i457 ], [ %len_splits.sroa.7.3.ph.ph, %if.end165.sink.split.sink.split ]
-  %len_splits.sroa.0.5.ph = phi ptr [ %len_splits.sroa.0.06498, %if.then13.i.i.i.i.i ], [ %len_splits.sroa.0.06498, %if.else.i.i.i.i.i ], [ %len_splits.sroa.0.4, %if.then13.i.i.i.i.i462 ], [ %len_splits.sroa.0.4, %if.else.i.i.i.i.i457 ], [ %len_splits.sroa.0.5.ph.ph, %if.end165.sink.split.sink.split ]
+  %len_splits.sroa.13.1.ph = phi ptr [ %len_splits.sroa.13.06496, %if.then13.i.i.i.i.i ], [ %len_splits.sroa.13.06496, %if.else.i.i.i.i.i ], [ %len_splits.sroa.13.2, %if.then13.i.i.i.i.i462 ], [ %len_splits.sroa.13.2, %if.else.i.i.i.i.i457 ], [ %len_splits.sroa.13.1.ph.ph, %if.end165.sink.split.sink.split ]
+  %len_splits.sroa.7.1.ph = phi ptr [ %len_splits.sroa.7.06497, %if.then13.i.i.i.i.i ], [ %len_splits.sroa.7.06497, %if.else.i.i.i.i.i ], [ %len_splits.sroa.7.2, %if.then13.i.i.i.i.i462 ], [ %len_splits.sroa.7.2, %if.else.i.i.i.i.i457 ], [ %len_splits.sroa.7.1.ph.ph, %if.end165.sink.split.sink.split ]
+  %len_splits.sroa.0.2.ph = phi ptr [ %len_splits.sroa.0.06498, %if.then13.i.i.i.i.i ], [ %len_splits.sroa.0.06498, %if.else.i.i.i.i.i ], [ %len_splits.sroa.0.5, %if.then13.i.i.i.i.i462 ], [ %len_splits.sroa.0.5, %if.else.i.i.i.i.i457 ], [ %len_splits.sroa.0.2.ph.ph, %if.end165.sink.split.sink.split ]
   %105 = load ptr, ptr %_M_finish.i449, align 8
   %incdec.ptr.i460 = getelementptr inbounds i8, ptr %105, i64 8
   store ptr %incdec.ptr.i460, ptr %_M_finish.i449, align 8
   br label %if.end165
 
 if.end165:                                        ; preds = %if.end165.sink.split, %if.else.i469, %if.else.i, %if.then13.i.i403, %if.then.i.i397, %invoke.cont103
-  %len_splits.sroa.13.3 = phi ptr [ %len_splits.sroa.13.06496, %invoke.cont103 ], [ %len_splits.sroa.13.06496, %if.then.i.i397 ], [ %len_splits.sroa.13.06496, %if.then13.i.i403 ], [ %len_splits.sroa.13.06496, %if.else.i ], [ %len_splits.sroa.13.2, %if.else.i469 ], [ %len_splits.sroa.13.3.ph, %if.end165.sink.split ]
-  %len_splits.sroa.7.3 = phi ptr [ %len_splits.sroa.7.06497, %invoke.cont103 ], [ %len_splits.sroa.7.06497, %if.then.i.i397 ], [ %len_splits.sroa.7.06497, %if.then13.i.i403 ], [ %len_splits.sroa.7.06497, %if.else.i ], [ %len_splits.sroa.7.2, %if.else.i469 ], [ %len_splits.sroa.7.3.ph, %if.end165.sink.split ]
-  %len_splits.sroa.0.5 = phi ptr [ %len_splits.sroa.0.06498, %invoke.cont103 ], [ %len_splits.sroa.0.06498, %if.then.i.i397 ], [ %len_splits.sroa.0.06498, %if.then13.i.i403 ], [ %len_splits.sroa.0.06498, %if.else.i ], [ %len_splits.sroa.0.4, %if.else.i469 ], [ %len_splits.sroa.0.5.ph, %if.end165.sink.split ]
+  %len_splits.sroa.13.1 = phi ptr [ %len_splits.sroa.13.06496, %invoke.cont103 ], [ %len_splits.sroa.13.06496, %if.then.i.i397 ], [ %len_splits.sroa.13.06496, %if.then13.i.i403 ], [ %len_splits.sroa.13.06496, %if.else.i ], [ %len_splits.sroa.13.2, %if.else.i469 ], [ %len_splits.sroa.13.1.ph, %if.end165.sink.split ]
+  %len_splits.sroa.7.1 = phi ptr [ %len_splits.sroa.7.06497, %invoke.cont103 ], [ %len_splits.sroa.7.06497, %if.then.i.i397 ], [ %len_splits.sroa.7.06497, %if.then13.i.i403 ], [ %len_splits.sroa.7.06497, %if.else.i ], [ %len_splits.sroa.7.2, %if.else.i469 ], [ %len_splits.sroa.7.1.ph, %if.end165.sink.split ]
+  %len_splits.sroa.0.2 = phi ptr [ %len_splits.sroa.0.06498, %invoke.cont103 ], [ %len_splits.sroa.0.06498, %if.then.i.i397 ], [ %len_splits.sroa.0.06498, %if.then13.i.i403 ], [ %len_splits.sroa.0.06498, %if.else.i ], [ %len_splits.sroa.0.5, %if.else.i469 ], [ %len_splits.sroa.0.2.ph, %if.end165.sink.split ]
   %106 = load ptr, ptr %len_value, align 8
   %bf.load.i.i473 = load i64, ptr %106, align 8
   %107 = and i64 %bf.load.i.i473, 1152920405095219200
@@ -5300,14 +5300,14 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483: ; preds = %if.end165, %if.the
   br i1 %cmp, label %cond.true, label %cond.true170, !llvm.loop !31
 
 ehcleanup166:                                     ; preds = %lpad96.loopexit, %lpad96.loopexit.split-lp, %lpad144, %lpad.i.i, %lpad122, %lpad102
-  %len_splits.sroa.0.6 = phi ptr [ %len_splits.sroa.0.06498, %lpad102 ], [ %len_splits.sroa.0.06498, %lpad122 ], [ %len_splits.sroa.0.06498, %lpad.i.i ], [ %len_splits.sroa.0.06498, %lpad144 ], [ %len_splits.sroa.0.1.ph, %lpad96.loopexit ], [ %len_splits.sroa.0.06498, %lpad96.loopexit.split-lp ]
+  %len_splits.sroa.0.4 = phi ptr [ %len_splits.sroa.0.06498, %lpad102 ], [ %len_splits.sroa.0.06498, %lpad122 ], [ %len_splits.sroa.0.06498, %lpad.i.i ], [ %len_splits.sroa.0.06498, %lpad144 ], [ %len_splits.sroa.0.1.ph, %lpad96.loopexit ], [ %len_splits.sroa.0.06498, %lpad96.loopexit.split-lp ]
   %.pn161 = phi { ptr, i32 } [ %72, %lpad102 ], [ %85, %lpad122 ], [ %54, %lpad.i.i ], [ %93, %lpad144 ], [ %lpad.loopexit6240, %lpad96.loopexit ], [ %lpad.loopexit.split-lp6241, %lpad96.loopexit.split-lp ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %len_value) #22
   br label %ehcleanup1754
 
 cond.true170:                                     ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483, %invoke.cont59
-  %len_splits.sroa.7.0.lcssa = phi ptr [ null, %invoke.cont59 ], [ %len_splits.sroa.7.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483 ]
-  %len_splits.sroa.0.0.lcssa = phi ptr [ null, %invoke.cont59 ], [ %len_splits.sroa.0.5, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483 ]
+  %len_splits.sroa.7.0.lcssa = phi ptr [ null, %invoke.cont59 ], [ %len_splits.sroa.7.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483 ]
+  %len_splits.sroa.0.0.lcssa = phi ptr [ null, %invoke.cont59 ], [ %len_splits.sroa.0.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit483 ]
   %111 = getelementptr inbounds i8, ptr %pure_eq_assign, i64 8
   store i32 0, ptr %111, align 8
   %_M_parent.i.i.i.i.i530 = getelementptr inbounds i8, ptr %pure_eq_assign, i64 16
@@ -12331,13 +12331,13 @@ ehcleanup1752:                                    ; preds = %lpad182.loopexit, %
   br label %ehcleanup1754
 
 ehcleanup1754:                                    ; preds = %ehcleanup1752, %ehcleanup166, %lpad63
-  %len_splits.sroa.0.7 = phi ptr [ %len_splits.sroa.0.6, %ehcleanup166 ], [ %len_splits.sroa.0.06498, %lpad63 ], [ %len_splits.sroa.0.0.lcssa, %ehcleanup1752 ]
+  %len_splits.sroa.0.3 = phi ptr [ %len_splits.sroa.0.4, %ehcleanup166 ], [ %len_splits.sroa.0.06498, %lpad63 ], [ %len_splits.sroa.0.0.lcssa, %ehcleanup1752 ]
   %.pn161.pn = phi { ptr, i32 } [ %.pn161, %ehcleanup166 ], [ %71, %lpad63 ], [ %.pn154.pn.pn.pn.pn.pn, %ehcleanup1752 ]
-  %tobool.not.i.i.i6038 = icmp eq ptr %len_splits.sroa.0.7, null
+  %tobool.not.i.i.i6038 = icmp eq ptr %len_splits.sroa.0.3, null
   br i1 %tobool.not.i.i.i6038, label %_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6040, label %if.then.i.i.i6039
 
 if.then.i.i.i6039:                                ; preds = %ehcleanup1754
-  call void @_ZdlPv(ptr noundef nonnull %len_splits.sroa.0.7) #25
+  call void @_ZdlPv(ptr noundef nonnull %len_splits.sroa.0.3) #25
   br label %_ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6040
 
 _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit6040:    ; preds = %ehcleanup1754, %if.then.i.i.i6039
@@ -12368,8 +12368,8 @@ ehcleanup1770:                                    ; preds = %ehcleanup1766, %lpa
   br label %eh.resume
 
 return:                                           ; preds = %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit, %_ZN4cvc58internal8TypeNodeD2Ev.exit207
-  %retval.8 = phi i1 [ false, %_ZN4cvc58internal8TypeNodeD2Ev.exit207 ], [ %cmp1956405, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit ]
-  ret i1 %retval.8
+  %retval.2 = phi i1 [ false, %_ZN4cvc58internal8TypeNodeD2Ev.exit207 ], [ %cmp1956405, %_ZNSt6vectorIS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS5_EED2Ev.exit ]
+  ret i1 %retval.2
 
 eh.resume:                                        ; preds = %ehcleanup1770, %ehcleanup
   %.pn161.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn161.pn.pn.pn.pn.pn, %ehcleanup1770 ], [ %.pn, %ehcleanup ]

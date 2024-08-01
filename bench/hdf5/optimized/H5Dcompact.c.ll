@@ -327,7 +327,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5D__compact_writevv(pt
   br label %46
 
 41:                                               ; preds = %29, %14
-  %.0 = phi i64 [ %23, %14 ], [ %35, %29 ]
+  %.1 = phi i64 [ %23, %14 ], [ %35, %29 ]
   %42 = getelementptr inbounds i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 8
@@ -336,8 +336,8 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5D__compact_writevv(pt
   br label %46
 
 46:                                               ; preds = %41, %37, %25
-  %.1 = phi i64 [ -1, %25 ], [ %.0, %41 ], [ -1, %37 ]
-  ret i64 %.1
+  %.0 = phi i64 [ -1, %25 ], [ %.1, %41 ], [ -1, %37 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -718,11 +718,11 @@ define range(i32 -1, 1) i32 @H5D__compact_copy(ptr noundef %0, ptr nocapture nou
   br label %.thread
 
 .thread:                                          ; preds = %131, %120, %113, %106, %96, %89, %82, %72, %63, %56, %49, %42, %35, %27, %173
-  %.1114167 = phi ptr [ %80, %173 ], [ %80, %131 ], [ %80, %120 ], [ %80, %113 ], [ %80, %106 ], [ %80, %96 ], [ %80, %89 ], [ null, %82 ], [ null, %72 ], [ null, %63 ], [ null, %56 ], [ null, %49 ], [ null, %42 ], [ null, %35 ], [ null, %27 ]
-  %.1116165 = phi ptr [ %94, %173 ], [ %94, %131 ], [ %94, %120 ], [ %94, %113 ], [ %94, %106 ], [ null, %96 ], [ null, %89 ], [ null, %82 ], [ null, %72 ], [ null, %63 ], [ null, %56 ], [ null, %49 ], [ null, %42 ], [ null, %35 ], [ null, %27 ]
-  %.1118163 = phi ptr [ %104, %173 ], [ %104, %131 ], [ %104, %120 ], [ %104, %113 ], [ null, %106 ], [ null, %96 ], [ null, %89 ], [ null, %82 ], [ null, %72 ], [ null, %63 ], [ null, %56 ], [ null, %49 ], [ null, %42 ], [ null, %35 ], [ null, %27 ]
+  %.0113167 = phi ptr [ %80, %173 ], [ %80, %131 ], [ %80, %120 ], [ %80, %113 ], [ %80, %106 ], [ %80, %96 ], [ %80, %89 ], [ null, %82 ], [ null, %72 ], [ null, %63 ], [ null, %56 ], [ null, %49 ], [ null, %42 ], [ null, %35 ], [ null, %27 ]
+  %.0115165 = phi ptr [ %94, %173 ], [ %94, %131 ], [ %94, %120 ], [ %94, %113 ], [ %94, %106 ], [ null, %96 ], [ null, %89 ], [ null, %82 ], [ null, %72 ], [ null, %63 ], [ null, %56 ], [ null, %49 ], [ null, %42 ], [ null, %35 ], [ null, %27 ]
+  %.0117163 = phi ptr [ %104, %173 ], [ %104, %131 ], [ %104, %120 ], [ %104, %113 ], [ null, %106 ], [ null, %96 ], [ null, %89 ], [ null, %82 ], [ null, %72 ], [ null, %63 ], [ null, %56 ], [ null, %49 ], [ null, %42 ], [ null, %35 ], [ null, %27 ]
   %.0119162 = phi i32 [ 0, %173 ], [ -1, %131 ], [ -1, %120 ], [ -1, %113 ], [ -1, %106 ], [ -1, %96 ], [ -1, %89 ], [ -1, %82 ], [ -1, %72 ], [ -1, %63 ], [ -1, %56 ], [ -1, %49 ], [ -1, %42 ], [ -1, %35 ], [ -1, %27 ]
-  %.1123160 = phi ptr [ %87, %173 ], [ %87, %131 ], [ %87, %120 ], [ %87, %113 ], [ %87, %106 ], [ %87, %96 ], [ null, %89 ], [ null, %82 ], [ null, %72 ], [ null, %63 ], [ null, %56 ], [ null, %49 ], [ null, %42 ], [ null, %35 ], [ null, %27 ]
+  %.0122160 = phi ptr [ %87, %173 ], [ %87, %131 ], [ %87, %120 ], [ %87, %113 ], [ %87, %106 ], [ %87, %96 ], [ null, %89 ], [ null, %82 ], [ null, %72 ], [ null, %63 ], [ null, %56 ], [ null, %49 ], [ null, %42 ], [ null, %35 ], [ null, %27 ]
   %174 = call i32 @H5T_close(ptr noundef nonnull %21) #7
   %175 = icmp slt i32 %174, 0
   br i1 %175, label %176, label %.thread192
@@ -741,10 +741,10 @@ define range(i32 -1, 1) i32 @H5D__compact_copy(ptr noundef %0, ptr nocapture nou
 
 .thread192:                                       ; preds = %.thread, %176, %180
   %.1120209 = phi i32 [ -1, %180 ], [ %.0119162, %.thread ], [ -1, %176 ]
-  %.1123161207 = phi ptr [ null, %180 ], [ %.1123160, %.thread ], [ %.1123160, %176 ]
-  %.1118164205 = phi ptr [ null, %180 ], [ %.1118163, %.thread ], [ %.1118163, %176 ]
-  %.1116166203 = phi ptr [ null, %180 ], [ %.1116165, %.thread ], [ %.1116165, %176 ]
-  %.1114168201 = phi ptr [ null, %180 ], [ %.1114167, %.thread ], [ %.1114167, %176 ]
+  %.0122161207 = phi ptr [ null, %180 ], [ %.0122160, %.thread ], [ %.0122160, %176 ]
+  %.0117164205 = phi ptr [ null, %180 ], [ %.0117163, %.thread ], [ %.0117163, %176 ]
+  %.0115166203 = phi ptr [ null, %180 ], [ %.0115165, %.thread ], [ %.0115165, %176 ]
+  %.0113168201 = phi ptr [ null, %180 ], [ %.0113167, %.thread ], [ %.0113167, %176 ]
   %184 = call i32 @H5T_close(ptr noundef nonnull %14) #7
   %185 = icmp slt i32 %184, 0
   br i1 %185, label %186, label %190
@@ -757,11 +757,11 @@ define range(i32 -1, 1) i32 @H5D__compact_copy(ptr noundef %0, ptr nocapture nou
 
 190:                                              ; preds = %186, %.thread192
   %.2 = phi i32 [ -1, %186 ], [ %.1120209, %.thread192 ]
-  %.not148 = icmp eq ptr %.1114168201, null
+  %.not148 = icmp eq ptr %.0113168201, null
   br i1 %.not148, label %198, label %191
 
 191:                                              ; preds = %190
-  %192 = call i32 @H5S_close(ptr noundef nonnull %.1114168201) #7
+  %192 = call i32 @H5S_close(ptr noundef nonnull %.0113168201) #7
   %193 = icmp slt i32 %192, 0
   br i1 %193, label %194, label %198
 
@@ -773,27 +773,27 @@ define range(i32 -1, 1) i32 @H5D__compact_copy(ptr noundef %0, ptr nocapture nou
 
 198:                                              ; preds = %194, %191, %190
   %.3 = phi i32 [ -1, %194 ], [ %.2, %191 ], [ %.2, %190 ]
-  %.not149 = icmp eq ptr %.1116166203, null
+  %.not149 = icmp eq ptr %.0115166203, null
   br i1 %.not149, label %201, label %199
 
 199:                                              ; preds = %198
-  %200 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.1116166203) #7
+  %200 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.0115166203) #7
   br label %201
 
 201:                                              ; preds = %199, %198
-  %.not150 = icmp eq ptr %.1123161207, null
+  %.not150 = icmp eq ptr %.0122161207, null
   br i1 %.not150, label %204, label %202
 
 202:                                              ; preds = %201
-  %203 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.1123161207) #7
+  %203 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.0122161207) #7
   br label %204
 
 204:                                              ; preds = %202, %201
-  %.not151 = icmp eq ptr %.1118164205, null
+  %.not151 = icmp eq ptr %.0117164205, null
   br i1 %.not151, label %.thread249, label %205
 
 205:                                              ; preds = %204
-  %206 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.1118164205) #7
+  %206 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_type_conv_blk_free_list, ptr noundef nonnull %.0117164205) #7
   br label %.thread249
 
 .thread249:                                       ; preds = %.thread210, %152, %16, %205, %204

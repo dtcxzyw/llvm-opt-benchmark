@@ -584,7 +584,7 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %83, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.2149181 = phi i32 [ 0, %.lr.ph.preheader ], [ %95, %.lr.ph ]
+  %.3150181 = phi i32 [ 0, %.lr.ph.preheader ], [ %95, %.lr.ph ]
   %85 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv
   %86 = load i32, ptr %85, align 4
   %87 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv
@@ -596,14 +596,14 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %92 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv
   %93 = load i32, ptr %92, align 4
   %94 = mul i32 %93, %90
-  %95 = xor i32 %94, %.2149181
+  %95 = xor i32 %94, %.3150181
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .lr.ph185:                                        ; preds = %.lr.ph185.preheader, %.lr.ph185
   %indvars.iv226 = phi i64 [ %84, %.lr.ph185.preheader ], [ %indvars.iv.next227, %.lr.ph185 ]
-  %.3150183 = phi i32 [ 0, %.lr.ph185.preheader ], [ %106, %.lr.ph185 ]
+  %.4151183 = phi i32 [ 0, %.lr.ph185.preheader ], [ %106, %.lr.ph185 ]
   %96 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv226
   %97 = load i32, ptr %96, align 4
   %98 = xor i32 %97, -1
@@ -615,7 +615,7 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %103 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv226
   %104 = load i32, ptr %103, align 4
   %105 = mul i32 %104, %101
-  %106 = xor i32 %105, %.3150183
+  %106 = xor i32 %105, %.4151183
   %indvars.iv.next227 = add nsw i64 %indvars.iv226, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count229
   br i1 %exitcond230.not, label %.loopexit, label %.lr.ph185, !llvm.loop !10
@@ -647,7 +647,7 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
 
 .lr.ph197:                                        ; preds = %.lr.ph197.preheader, %.lr.ph197
   %indvars.iv241 = phi i64 [ %110, %.lr.ph197.preheader ], [ %indvars.iv.next242, %.lr.ph197 ]
-  %.4151195 = phi i32 [ 0, %.lr.ph197.preheader ], [ %122, %.lr.ph197 ]
+  %.5152195 = phi i32 [ 0, %.lr.ph197.preheader ], [ %122, %.lr.ph197 ]
   %112 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv241
   %113 = load i32, ptr %112, align 4
   %114 = xor i32 %113, -1
@@ -659,14 +659,14 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %119 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv241
   %120 = load i32, ptr %119, align 4
   %121 = mul i32 %120, %117
-  %122 = xor i32 %121, %.4151195
+  %122 = xor i32 %121, %.5152195
   %indvars.iv.next242 = add nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %wide.trip.count244
   br i1 %exitcond245.not, label %.loopexit, label %.lr.ph197, !llvm.loop !11
 
 .lr.ph201:                                        ; preds = %.lr.ph201.preheader, %.lr.ph201
   %indvars.iv246 = phi i64 [ %111, %.lr.ph201.preheader ], [ %indvars.iv.next247, %.lr.ph201 ]
-  %.5152199 = phi i32 [ 0, %.lr.ph201.preheader ], [ %133, %.lr.ph201 ]
+  %.6153199 = phi i32 [ 0, %.lr.ph201.preheader ], [ %133, %.lr.ph201 ]
   %123 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv246
   %124 = load i32, ptr %123, align 4
   %125 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv246
@@ -678,7 +678,7 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %130 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv246
   %131 = load i32, ptr %130, align 4
   %132 = mul i32 %131, %128
-  %133 = xor i32 %132, %.5152199
+  %133 = xor i32 %132, %.6153199
   %indvars.iv.next247 = add nsw i64 %indvars.iv246, 1
   %exitcond250.not = icmp eq i64 %indvars.iv.next247, %wide.trip.count249
   br i1 %exitcond250.not, label %.loopexit, label %.lr.ph201, !llvm.loop !12
@@ -704,7 +704,7 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
 
 .lr.ph189:                                        ; preds = %.lr.ph189.preheader, %.lr.ph189
   %indvars.iv231 = phi i64 [ %135, %.lr.ph189.preheader ], [ %indvars.iv.next232, %.lr.ph189 ]
-  %.6153187 = phi i32 [ 0, %.lr.ph189.preheader ], [ %147, %.lr.ph189 ]
+  %.7154187 = phi i32 [ 0, %.lr.ph189.preheader ], [ %147, %.lr.ph189 ]
   %137 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv231
   %138 = load i32, ptr %137, align 4
   %139 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv231
@@ -716,14 +716,14 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %144 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv231
   %145 = load i32, ptr %144, align 4
   %146 = mul i32 %145, %142
-  %147 = xor i32 %146, %.6153187
+  %147 = xor i32 %146, %.7154187
   %indvars.iv.next232 = add nsw i64 %indvars.iv231, 1
   %exitcond235.not = icmp eq i64 %indvars.iv.next232, %wide.trip.count234
   br i1 %exitcond235.not, label %.loopexit, label %.lr.ph189, !llvm.loop !13
 
 .lr.ph193:                                        ; preds = %.lr.ph193.preheader, %.lr.ph193
   %indvars.iv236 = phi i64 [ %136, %.lr.ph193.preheader ], [ %indvars.iv.next237, %.lr.ph193 ]
-  %.7154191 = phi i32 [ 0, %.lr.ph193.preheader ], [ %157, %.lr.ph193 ]
+  %.8191 = phi i32 [ 0, %.lr.ph193.preheader ], [ %157, %.lr.ph193 ]
   %148 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv236
   %149 = load i32, ptr %148, align 4
   %150 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv236
@@ -734,26 +734,26 @@ define void @Fraig_NodeSimulate(ptr nocapture noundef %0, i32 noundef %1, i32 no
   %154 = getelementptr inbounds [1024 x i32], ptr @s_FraigPrimes, i64 0, i64 %indvars.iv236
   %155 = load i32, ptr %154, align 4
   %156 = mul i32 %155, %152
-  %157 = xor i32 %156, %.7154191
+  %157 = xor i32 %156, %.8191
   %indvars.iv.next237 = add nsw i64 %indvars.iv236, 1
   %exitcond240.not = icmp eq i64 %indvars.iv.next237, %wide.trip.count239
   br i1 %exitcond240.not, label %.loopexit, label %.lr.ph193, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph185, %.lr.ph189, %.lr.ph193, %.lr.ph197, %.lr.ph201, %.lr.ph205, %.lr.ph209, %.preheader179, %.preheader177, %.preheader175, %.preheader173, %.preheader171, %.preheader169, %.preheader167, %.preheader
-  %.8 = phi i32 [ 0, %.preheader ], [ 0, %.preheader167 ], [ 0, %.preheader169 ], [ 0, %.preheader171 ], [ 0, %.preheader173 ], [ 0, %.preheader175 ], [ 0, %.preheader177 ], [ 0, %.preheader179 ], [ %78, %.lr.ph209 ], [ %67, %.lr.ph205 ], [ %133, %.lr.ph201 ], [ %122, %.lr.ph197 ], [ %157, %.lr.ph193 ], [ %147, %.lr.ph189 ], [ %106, %.lr.ph185 ], [ %95, %.lr.ph ]
+  %.2149 = phi i32 [ 0, %.preheader ], [ 0, %.preheader167 ], [ 0, %.preheader169 ], [ 0, %.preheader171 ], [ 0, %.preheader173 ], [ 0, %.preheader175 ], [ 0, %.preheader177 ], [ 0, %.preheader179 ], [ %78, %.lr.ph209 ], [ %67, %.lr.ph205 ], [ %133, %.lr.ph201 ], [ %122, %.lr.ph197 ], [ %157, %.lr.ph193 ], [ %147, %.lr.ph189 ], [ %106, %.lr.ph185 ], [ %95, %.lr.ph ]
   br i1 %.not, label %162, label %158
 
 158:                                              ; preds = %.loopexit
   %159 = getelementptr inbounds i8, ptr %0, i64 96
   %160 = load i32, ptr %159, align 8
-  %161 = xor i32 %160, %.8
+  %161 = xor i32 %160, %.2149
   store i32 %161, ptr %159, align 8
   br label %166
 
 162:                                              ; preds = %.loopexit
   %163 = getelementptr inbounds i8, ptr %0, i64 100
   %164 = load i32, ptr %163, align 4
-  %165 = xor i32 %164, %.8
+  %165 = xor i32 %164, %.2149
   store i32 %165, ptr %163, align 4
   br label %166
 

@@ -256,7 +256,7 @@ for.body42:                                       ; preds = %for.body42.preheade
   %indvars.iv160 = phi i64 [ 1, %for.body42.preheader ], [ %indvars.iv.next161, %if.end83 ]
   %pcontact.0156 = phi ptr [ %arrayidx.i101, %for.body42.preheader ], [ %pcontact.1, %if.end83 ]
   %last_key.0155 = phi i32 [ %21, %for.body42.preheader ], [ %34, %if.end83 ]
-  %coincident_count.0154 = phi i32 [ 0, %for.body42.preheader ], [ %coincident_count.2, %if.end83 ]
+  %coincident_count.0154 = phi i32 [ 0, %for.body42.preheader ], [ %coincident_count.1, %if.end83 ]
   %arrayidx.i103 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %20, i64 %indvars.iv160
   %34 = load i32, ptr %arrayidx.i103, align 4
   %m_value50 = getelementptr inbounds i8, ptr %arrayidx.i103, i64 4
@@ -362,7 +362,7 @@ if.end9.i:                                        ; preds = %if.else.i, %if.end.
   br label %if.end79
 
 if.end79:                                         ; preds = %if.end9.i, %for.end.i, %if.else74
-  %coincident_count.1 = phi i32 [ %coincident_count.0154, %if.else74 ], [ 0, %for.end.i ], [ 0, %if.end9.i ]
+  %coincident_count.2 = phi i32 [ %coincident_count.0154, %if.else74 ], [ 0, %for.end.i ], [ 0, %if.end9.i ]
   %56 = load i32, ptr %m_allocated_size.i.i68, align 4
   %57 = load i32, ptr %m_size.i, align 8
   %cmp.not.i.i112 = icmp ugt i32 %56, %57
@@ -420,7 +420,7 @@ invoke.cont80:                                    ; preds = %if.end12.i.i.i125, 
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then58, %if.then59, %if.then68, %if.else, %invoke.cont80
-  %coincident_count.2 = phi i32 [ 0, %if.then58 ], [ %inc69, %if.then68 ], [ %coincident_count.0154, %if.then59 ], [ %coincident_count.0154, %if.else ], [ %coincident_count.1, %invoke.cont80 ]
+  %coincident_count.1 = phi i32 [ 0, %if.then58 ], [ %inc69, %if.then68 ], [ %coincident_count.0154, %if.then59 ], [ %coincident_count.0154, %if.else ], [ %coincident_count.2, %invoke.cont80 ]
   %pcontact.1 = phi ptr [ %pcontact.0156, %if.then58 ], [ %pcontact.0156, %if.then68 ], [ %pcontact.0156, %if.then59 ], [ %pcontact.0156, %if.else ], [ %arrayidx.i144, %invoke.cont80 ]
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %cmp41 = icmp ult i64 %indvars.iv.next161, %33

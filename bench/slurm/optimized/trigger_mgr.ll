@@ -2560,17 +2560,17 @@ _dump_trigger_state.exit:                         ; preds = %36, %47
   br i1 %96, label %.lr.ph54, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %93, %72, %89
-  %.0 = phi i32 [ %92, %89 ], [ 0, %72 ], [ 0, %93 ]
+  %.1 = phi i32 [ %92, %89 ], [ 0, %72 ], [ 0, %93 ]
   %97 = call i32 @fsync_and_close(i32 noundef %65, ptr noundef nonnull @.str.13) #14
   %98 = icmp eq i32 %97, 0
-  %99 = icmp ne i32 %.0, 0
+  %99 = icmp ne i32 %.1, 0
   %or.cond = select i1 %98, i1 true, i1 %99
-  %spec.select = select i1 %or.cond, i32 %.0, i32 %97
+  %spec.select = select i1 %or.cond, i32 %.1, i32 %97
   br label %100
 
 100:                                              ; preds = %.loopexit, %67
-  %.1 = phi i32 [ %71, %67 ], [ %spec.select, %.loopexit ]
-  %.not46 = icmp eq i32 %.1, 0
+  %.0 = phi i32 [ %71, %67 ], [ %spec.select, %.loopexit ]
+  %.not46 = icmp eq i32 %.0, 0
   br i1 %.not46, label %101, label %125
 
 101:                                              ; preds = %100
@@ -2628,7 +2628,7 @@ _dump_trigger_state.exit:                         ; preds = %36, %47
   br label %128
 
 128:                                              ; preds = %127, %125
-  ret i32 %.1
+  ret i32 %.0
 }
 
 declare ptr @init_buf(i32 noundef) local_unnamed_addr #1
@@ -2777,7 +2777,7 @@ _open_trigger_state_file.exit.thread:             ; preds = %0, %_open_trigger_s
   br i1 %.not2046, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46, %157
-  %.047 = phi i32 [ %158, %157 ], [ 0, %46 ]
+  %.147 = phi i32 [ %158, %157 ], [ 0, %46 ]
   %51 = load i16, ptr %4, align 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -3017,14 +3017,14 @@ _load_trigger_state.exit:                         ; preds = %.loopexit30, %156
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %158 = add nuw nsw i32 %.047, 1
+  %158 = add nuw nsw i32 %.147, 1
   %159 = load i32, ptr %47, align 8
   %160 = load i32, ptr %48, align 4
   %.not20 = icmp eq i32 %159, %160
   br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 161:                                              ; preds = %_load_trigger_state.exit, %40, %29, %_open_trigger_state_file.exit.thread
-  %.1 = phi i32 [ 0, %_open_trigger_state_file.exit.thread ], [ 0, %40 ], [ %.047, %_load_trigger_state.exit ], [ 0, %29 ]
+  %.0 = phi i32 [ 0, %_open_trigger_state_file.exit.thread ], [ 0, %40 ], [ %.147, %_load_trigger_state.exit ], [ 0, %29 ]
   %162 = load i8, ptr @ignore_state_errors, align 1
   %163 = trunc i8 %162 to i1
   br i1 %163, label %165, label %164
@@ -3038,7 +3038,7 @@ _load_trigger_state.exit:                         ; preds = %.loopexit30, %156
   br label %.loopexit
 
 .loopexit:                                        ; preds = %157, %46, %165
-  %.2 = phi i32 [ %.1, %165 ], [ 0, %46 ], [ %158, %157 ]
+  %.2 = phi i32 [ %.0, %165 ], [ 0, %46 ], [ %158, %157 ]
   %167 = call i32 @get_log_level() #14
   %168 = icmp sgt i32 %167, 3
   br i1 %168, label %169, label %170

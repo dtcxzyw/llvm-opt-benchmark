@@ -262,14 +262,14 @@ H5R__encode_obj_token.exit:                       ; preds = %5
   br label %.thread
 
 .thread:                                          ; preds = %42, %40, %50
-  %.257 = phi ptr [ %56, %50 ], [ null, %40 ], [ %.156, %42 ]
-  %.2 = phi i64 [ %57, %50 ], [ %.154, %40 ], [ %.154, %42 ]
+  %.358 = phi ptr [ %56, %50 ], [ null, %40 ], [ %.156, %42 ]
+  %.3 = phi i64 [ %57, %50 ], [ %.154, %40 ], [ %.154, %42 ]
   %58 = add nuw nsw i64 %41, %35
   br label %59
 
 59:                                               ; preds = %.thread, %33
-  %.358 = phi ptr [ %.257, %.thread ], [ %.156, %33 ]
-  %.3 = phi i64 [ %.2, %.thread ], [ %.154, %33 ]
+  %.257 = phi ptr [ %.358, %.thread ], [ %.156, %33 ]
+  %.2 = phi i64 [ %.3, %.thread ], [ %.154, %33 ]
   %.052 = phi i64 [ %58, %.thread ], [ %35, %33 ]
   %60 = getelementptr inbounds i8, ptr %1, i64 44
   %61 = load i8, ptr %60, align 4
@@ -298,24 +298,24 @@ H5R__encode_obj_token.exit:                       ; preds = %5
   br label %108
 
 71:                                               ; preds = %62
-  %.not.i74 = icmp eq ptr %.358, null
+  %.not.i74 = icmp eq ptr %.257, null
   %.pre.i = add nuw i64 %65, 8
-  %.not23.i = icmp ult i64 %.3, %.pre.i
+  %.not23.i = icmp ult i64 %.2, %.pre.i
   %or.cond119 = select i1 %.not.i74, i1 true, i1 %.not23.i
   br i1 %or.cond119, label %._crit_edge.i, label %72
 
 72:                                               ; preds = %71
   %73 = trunc i64 %65 to i8
-  store i8 %73, ptr %.358, align 1
-  %74 = getelementptr inbounds i8, ptr %.358, i64 1
+  store i8 %73, ptr %.257, align 1
+  %74 = getelementptr inbounds i8, ptr %.257, i64 1
   %75 = lshr i64 %65, 8
   %76 = trunc i64 %75 to i8
   store i8 %76, ptr %74, align 1
-  %77 = getelementptr inbounds i8, ptr %.358, i64 2
+  %77 = getelementptr inbounds i8, ptr %.257, i64 2
   %78 = lshr i64 %65, 16
   %79 = trunc i64 %78 to i8
   store i8 %79, ptr %77, align 1
-  %80 = getelementptr inbounds i8, ptr %.358, i64 3
+  %80 = getelementptr inbounds i8, ptr %.257, i64 3
   %81 = lshr i64 %65, 24
   %82 = trunc i64 %81 to i8
   store i8 %82, ptr %80, align 1
@@ -330,22 +330,22 @@ H5R__encode_obj_token.exit:                       ; preds = %5
   br label %108
 
 89:                                               ; preds = %72
-  %90 = getelementptr inbounds i8, ptr %.358, i64 4
+  %90 = getelementptr inbounds i8, ptr %.257, i64 4
   %91 = trunc i32 %83 to i8
   store i8 %91, ptr %90, align 1
-  %92 = getelementptr inbounds i8, ptr %.358, i64 5
+  %92 = getelementptr inbounds i8, ptr %.257, i64 5
   %93 = lshr i32 %83, 8
   %94 = trunc i32 %93 to i8
   store i8 %94, ptr %92, align 1
-  %95 = getelementptr inbounds i8, ptr %.358, i64 6
+  %95 = getelementptr inbounds i8, ptr %.257, i64 6
   %96 = lshr i32 %83, 16
   %97 = trunc i32 %96 to i8
   store i8 %97, ptr %95, align 1
-  %98 = getelementptr inbounds i8, ptr %.358, i64 7
+  %98 = getelementptr inbounds i8, ptr %.257, i64 7
   %99 = lshr i32 %83, 24
   %100 = trunc nuw nsw i32 %99 to i8
   store i8 %100, ptr %98, align 1
-  %101 = getelementptr inbounds i8, ptr %.358, i64 8
+  %101 = getelementptr inbounds i8, ptr %.257, i64 8
   store ptr %101, ptr %6, align 8
   %102 = call i32 @H5S_select_serialize(ptr noundef %64, ptr noundef nonnull %6) #15
   %103 = icmp slt i32 %102, 0
@@ -378,19 +378,19 @@ H5R__encode_obj_token.exit:                       ; preds = %5
 
 118:                                              ; preds = %113
   %119 = add nuw nsw i64 %116, 2
-  %.not.i76 = icmp eq ptr %.358, null
-  %.not21.i77 = icmp ult i64 %.3, %119
+  %.not.i76 = icmp eq ptr %.257, null
+  %.not21.i77 = icmp ult i64 %.2, %119
   %or.cond = select i1 %.not.i76, i1 true, i1 %.not21.i77
   br i1 %or.cond, label %133, label %120
 
 120:                                              ; preds = %118
   %121 = trunc i64 %116 to i8
-  store i8 %121, ptr %.358, align 1
-  %122 = getelementptr inbounds i8, ptr %.358, i64 1
+  store i8 %121, ptr %.257, align 1
+  %122 = getelementptr inbounds i8, ptr %.257, i64 1
   %123 = lshr i64 %116, 8
   %124 = trunc i64 %123 to i8
   store i8 %124, ptr %122, align 1
-  %125 = getelementptr inbounds i8, ptr %.358, i64 2
+  %125 = getelementptr inbounds i8, ptr %.257, i64 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %125, ptr readonly align 1 %115, i64 %116, i1 false)
   br label %133
 
@@ -1452,8 +1452,8 @@ define range(i32 -1, 1) i32 @H5R__decode(ptr noundef %0, ptr nocapture noundef %
   br label %.thread90
 
 .thread90:                                        ; preds = %8, %16, %39, %75, %124, %123, %119
-  %.2 = phi i32 [ 0, %119 ], [ -1, %123 ], [ -1, %124 ], [ -1, %75 ], [ -1, %39 ], [ -1, %16 ], [ -1, %8 ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %119 ], [ -1, %123 ], [ -1, %124 ], [ -1, %75 ], [ -1, %39 ], [ -1, %16 ], [ -1, %8 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable

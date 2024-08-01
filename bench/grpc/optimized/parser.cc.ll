@@ -1930,12 +1930,12 @@ lpad17.i.i:                                       ; preds = %if.then.i.i30.i.i
 
 sw.epilog.i.i.sink.split:                         ; preds = %if.then7.i.i, %invoke.cont.i14.i
   %.sink = phi i32 [ 1, %invoke.cont.i14.i ], [ %., %if.then7.i.i ]
-  %found_body_start.0.ph = phi i1 [ false, %invoke.cont.i14.i ], [ %cmp9.i13.i, %if.then7.i.i ]
+  %found_body_start.1.ph = phi i1 [ false, %invoke.cont.i14.i ], [ %cmp9.i13.i, %if.then7.i.i ]
   store i32 %.sink, ptr %parser, align 8, !noalias !14
   br label %sw.epilog.i.i
 
 sw.epilog.i.i:                                    ; preds = %sw.epilog.i.i.sink.split, %_ZN4absl12lts_202308026StatusD2Ev.exit37.i.i, %if.then7.i
-  %found_body_start.0 = phi i1 [ false, %if.then7.i ], [ false, %_ZN4absl12lts_202308026StatusD2Ev.exit37.i.i ], [ %found_body_start.0.ph, %sw.epilog.i.i.sink.split ]
+  %found_body_start.1 = phi i1 [ false, %if.then7.i ], [ false, %_ZN4absl12lts_202308026StatusD2Ev.exit37.i.i ], [ %found_body_start.1.ph, %sw.epilog.i.i.sink.split ]
   store i64 0, ptr %cur_line_length.i, align 8, !noalias !14
   br label %_ZL11finish_lineP16grpc_http_parserPb.exit.i
 
@@ -1949,7 +1949,7 @@ ehcleanup.i.i:                                    ; preds = %lpad.i.i.loopexit, 
   br label %common.resume.i
 
 _ZL11finish_lineP16grpc_http_parserPb.exit.i:     ; preds = %sw.epilog.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit37.i.i, %invoke.cont.i14.i
-  %found_body_start.1 = phi i1 [ %found_body_start.0, %sw.epilog.i.i ], [ false, %_ZN4absl12lts_202308026StatusD2Ev.exit37.i.i ], [ false, %invoke.cont.i14.i ]
+  %found_body_start.0 = phi i1 [ %found_body_start.1, %sw.epilog.i.i ], [ false, %_ZN4absl12lts_202308026StatusD2Ev.exit37.i.i ], [ false, %invoke.cont.i14.i ]
   %.sink.i.i = phi i64 [ 0, %sw.epilog.i.i ], [ %169, %_ZN4absl12lts_202308026StatusD2Ev.exit37.i.i ], [ %134, %invoke.cont.i14.i ]
   store i64 %.sink.i.i, ptr %agg.result, align 8, !alias.scope !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %err.i.i), !noalias !7
@@ -2356,7 +2356,7 @@ _ZL7addbyteP16grpc_http_parserhPb.exitthread-pre-split: ; preds = %if.then.i.i.i
 
 _ZL7addbyteP16grpc_http_parserhPb.exit:           ; preds = %_ZL7addbyteP16grpc_http_parserhPb.exitthread-pre-split, %_ZL11finish_lineP16grpc_http_parserPb.exit.i
   %219 = phi i64 [ %.pr, %_ZL7addbyteP16grpc_http_parserhPb.exitthread-pre-split ], [ %.sink.i.i, %_ZL11finish_lineP16grpc_http_parserPb.exit.i ]
-  %found_body_start.2 = phi i1 [ false, %_ZL7addbyteP16grpc_http_parserhPb.exitthread-pre-split ], [ %found_body_start.1, %_ZL11finish_lineP16grpc_http_parserPb.exit.i ]
+  %found_body_start.2 = phi i1 [ false, %_ZL7addbyteP16grpc_http_parserhPb.exitthread-pre-split ], [ %found_body_start.0, %_ZL11finish_lineP16grpc_http_parserPb.exit.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp12.i)

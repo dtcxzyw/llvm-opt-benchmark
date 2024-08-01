@@ -425,7 +425,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
           to label %155 unwind label %.thread112
 
 153:                                              ; preds = %202
-  br i1 %.2, label %.thread, label %126
+  br i1 %.3, label %.thread, label %126
 
 .thread112:                                       ; preds = %155, %152
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -600,13 +600,13 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
           to label %210 unwind label %203
 
 202:                                              ; preds = %215, %211, %206, %203
-  %.2 = phi i1 [ %.3, %203 ], [ %.4, %215 ], [ true, %211 ], [ true, %206 ]
+  %.3 = phi i1 [ %.2, %203 ], [ %.5, %215 ], [ true, %211 ], [ true, %206 ]
   %.pn96 = phi { ptr, i32 } [ %204, %203 ], [ %.pn94, %215 ], [ %212, %211 ], [ %207, %206 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %58) #8
           to label %153 unwind label %106
 
 203:                                              ; preds = %368, %201, %200
-  %.3 = phi i1 [ false, %368 ], [ true, %201 ], [ true, %200 ]
+  %.2 = phi i1 [ false, %368 ], [ true, %201 ], [ true, %200 ]
   %204 = landingpad { ptr, i32 }
           cleanup
   br label %202
@@ -650,13 +650,13 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
           to label %209 unwind label %211
 
 215:                                              ; preds = %410, %393, %389, %273, %247, %236, %220, %216
-  %.4 = phi i1 [ %.5, %216 ], [ true, %410 ], [ true, %393 ], [ true, %389 ], [ true, %273 ], [ true, %247 ], [ true, %236 ], [ true, %220 ]
+  %.5 = phi i1 [ %.4, %216 ], [ true, %410 ], [ true, %393 ], [ true, %389 ], [ true, %273 ], [ true, %247 ], [ true, %236 ], [ true, %220 ]
   %.pn94 = phi { ptr, i32 } [ %217, %216 ], [ %.pn91.pn, %410 ], [ %.pn83, %393 ], [ %390, %389 ], [ %.pn78.pn, %273 ], [ %.pn71, %247 ], [ %.pn69, %236 ], [ %221, %220 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %54) #8
           to label %202 unwind label %106
 
 216:                                              ; preds = %.invoke, %387, %386, %378, %234, %233, %225, %224, %223, %209
-  %.5 = phi i1 [ true, %387 ], [ true, %386 ], [ true, %378 ], [ true, %224 ], [ true, %234 ], [ true, %233 ], [ true, %225 ], [ true, %223 ], [ true, %209 ], [ false, %.invoke ]
+  %.4 = phi i1 [ true, %387 ], [ true, %386 ], [ true, %378 ], [ true, %224 ], [ true, %234 ], [ true, %233 ], [ true, %225 ], [ true, %223 ], [ true, %209 ], [ false, %.invoke ]
   %217 = landingpad { ptr, i32 }
           cleanup
   br label %215
@@ -1840,10 +1840,10 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 12:                                               ; preds = %30, %14
   %.pn17 = phi { ptr, i32 } [ %16, %14 ], [ %31, %30 ]
-  %.09 = phi i1 [ %15, %14 ], [ false, %30 ]
+  %.110 = phi i1 [ %15, %14 ], [ false, %30 ]
   %13 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %.not = icmp eq i64 %13, -9223372036854775807
-  %brmerge = or i1 %.09, %.not
+  %brmerge = or i1 %.110, %.not
   br i1 %brmerge, label %.thread41, label %53
 
 14:                                               ; preds = %.thread39, %20, %2
@@ -4788,13 +4788,13 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
           to label %983 unwind label %981
 
 979:                                              ; preds = %1031, %981
-  %.0118 = phi i8 [ %.1, %981 ], [ %.2, %1031 ]
+  %.1 = phi i8 [ %.0118, %981 ], [ %.2, %1031 ]
   %.pn147 = phi { ptr, i32 } [ %982, %981 ], [ %.pn145, %1031 ]
-  %980 = trunc nuw i8 %.0118 to i1
+  %980 = trunc nuw i8 %.1 to i1
   br i1 %980, label %.thread, label %276
 
 981:                                              ; preds = %1040, %1022, %989, %988, %973
-  %.1 = phi i8 [ %.2, %1040 ], [ 1, %1022 ], [ 1, %988 ], [ 1, %989 ], [ 1, %973 ]
+  %.0118 = phi i8 [ %.2, %1040 ], [ 1, %1022 ], [ 1, %988 ], [ 1, %989 ], [ 1, %973 ]
   %982 = landingpad { ptr, i32 }
           cleanup
   br label %979

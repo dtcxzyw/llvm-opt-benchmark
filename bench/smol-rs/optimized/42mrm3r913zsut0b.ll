@@ -626,9 +626,9 @@ define hidden void @"_ZN14event_listener22EventListener$LT$T$GT$6listen17h38504a
   br label %"_ZN14event_listener14Event$LT$T$GT$5inner17hb6a2b1266ddccc8cE.exit"
 
 "_ZN14event_listener14Event$LT$T$GT$5inner17hb6a2b1266ddccc8cE.exit": ; preds = %2, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h0efe5785251ec4ccE.exit.i", %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17hd957adfad4458f36E.exit.i"
-  %.1.i = phi ptr [ %19, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17hd957adfad4458f36E.exit.i" ], [ %9, %2 ], [ %.sroa.5.0..sroa_idx.i.i, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h0efe5785251ec4ccE.exit.i" ]
-  %25 = getelementptr inbounds i8, ptr %.1.i, i64 -16
-  %26 = icmp ne ptr %.1.i, null
+  %.0.i = phi ptr [ %19, %"_ZN4core3ptr82drop_in_place$LT$alloc..sync..Arc$LT$event_listener..Inner$LT$$LP$$RP$$GT$$GT$$GT$17hd957adfad4458f36E.exit.i" ], [ %9, %2 ], [ %.sroa.5.0..sroa_idx.i.i, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h0efe5785251ec4ccE.exit.i" ]
+  %25 = getelementptr inbounds i8, ptr %.0.i, i64 -16
+  %26 = icmp ne ptr %.0.i, null
   call void @llvm.assume(i1 %26)
   %27 = atomicrmw add ptr %25, i64 1 monotonic, align 8
   %28 = icmp slt i64 %27, 0
@@ -1373,13 +1373,13 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
   br label %61
 
 61:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17hb7087cd532a83203E.llvm.6090777742988092048.exit39", %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.llvm.6090777742988092048.exit", %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$$GT$17hfc769ba67d444591E.llvm.6090777742988092048.exit"
-  %.023 = phi i8 [ 1, %"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17hb7087cd532a83203E.llvm.6090777742988092048.exit39" ], [ 0, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.llvm.6090777742988092048.exit" ], [ 1, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$$GT$17hfc769ba67d444591E.llvm.6090777742988092048.exit" ]
+  %.2 = phi i8 [ 1, %"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17hb7087cd532a83203E.llvm.6090777742988092048.exit39" ], [ 0, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.llvm.6090777742988092048.exit" ], [ 1, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$$GT$17hfc769ba67d444591E.llvm.6090777742988092048.exit" ]
   %.1 = phi i8 [ 1, %"_ZN4core3ptr58drop_in_place$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$17hb7087cd532a83203E.llvm.6090777742988092048.exit39" ], [ 1, %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.llvm.6090777742988092048.exit" ], [ 0, %"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$event_listener..State$LT$$LP$$RP$$GT$$GT$$GT$17hfc769ba67d444591E.llvm.6090777742988092048.exit" ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h529bc74fdfa98867E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12)
           to label %119 unwind label %117
 
 62:                                               ; preds = %96, %94, %63, %41
-  %.124 = phi i8 [ %.2, %94 ], [ 0, %96 ], [ 0, %63 ], [ 1, %41 ]
+  %.124 = phi i8 [ %.023, %94 ], [ 0, %96 ], [ 0, %63 ], [ 1, %41 ]
   %.pn = phi { ptr, i32 } [ %95, %94 ], [ %lpad.phi44, %96 ], [ %lpad.thr_comm.split-lp, %63 ], [ %42, %41 ]
   invoke void @"_ZN4core3ptr66drop_in_place$LT$event_listener..sys..ListLock$LT$$LP$$RP$$GT$$GT$17h529bc74fdfa98867E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #17
           to label %115 unwind label %97
@@ -1489,7 +1489,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
           to label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.llvm.6090777742988092048.exit" unwind label %94
 
 94:                                               ; preds = %114, %104, %93, %85, %32
-  %.2 = phi i8 [ 1, %32 ], [ 0, %85 ], [ 0, %93 ], [ 1, %104 ], [ 1, %114 ]
+  %.023 = phi i8 [ 1, %32 ], [ 0, %85 ], [ 0, %93 ], [ 1, %104 ], [ 1, %114 ]
   %95 = landingpad { ptr, i32 }
           cleanup
   br label %62
@@ -1556,7 +1556,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
   br label %61
 
 115:                                              ; preds = %117, %62
-  %.3 = phi i8 [ %.023, %117 ], [ %.124, %62 ]
+  %.3 = phi i8 [ %.2, %117 ], [ %.124, %62 ]
   %.pn28 = phi { ptr, i32 } [ %118, %117 ], [ %.pn, %62 ]
   %116 = load i8, ptr %11, align 8, !range !115, !noundef !4
   %cond = icmp eq i8 %116, 2
@@ -1578,7 +1578,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
   br label %31
 
 121:                                              ; preds = %119
-  %122 = trunc nuw i8 %.023 to i1
+  %122 = trunc nuw i8 %.2 to i1
   br i1 %122, label %123, label %"_ZN4core3ptr41drop_in_place$LT$event_listener..Task$GT$17hcea77a4079e3135fE.llvm.6090777742988092048.exit41"
 
 123:                                              ; preds = %121

@@ -680,7 +680,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %174
 
 174:                                              ; preds = %.sink.split, %159
-  %.018 = phi i1 [ true, %159 ], [ false, %.sink.split ]
+  %.220 = phi i1 [ true, %159 ], [ false, %.sink.split ]
   store ptr getelementptr inbounds (i8, ptr @_ZTV20cmBasicUVPipeIStreamIcSt11char_traitsIcEE, i64 24), ptr %15, align 8
   %175 = getelementptr inbounds i8, ptr %15, i64 152
   store ptr getelementptr inbounds (i8, ptr @_ZTV20cmBasicUVPipeIStreamIcSt11char_traitsIcEE, i64 64), ptr %175, align 8
@@ -706,7 +706,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %180
 
 179:                                              ; preds = %174, %77
-  %.119 = phi i1 [ false, %77 ], [ %.018, %174 ]
+  %.119 = phi i1 [ false, %77 ], [ %.220, %174 ]
   call void @_ZN16cmUVProcessChainD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #15
   br label %181
 
@@ -716,7 +716,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %202
 
 181:                                              ; preds = %179, %35
-  %.220 = phi i1 [ false, %35 ], [ %.119, %179 ]
+  %.018 = phi i1 [ false, %35 ], [ %.119, %179 ]
   %182 = load ptr, ptr %6, align 8
   %183 = getelementptr inbounds i8, ptr %6, i64 8
   %184 = load ptr, ptr %183, align 8
@@ -800,7 +800,7 @@ _ZSt8_DestroyIPN23cmUVProcessChainBuilder20ProcessConfigurationES1_EvT_S3_RSaIT0
   br label %_ZN23cmUVProcessChainBuilderD2Ev.exit
 
 _ZN23cmUVProcessChainBuilderD2Ev.exit:            ; preds = %_ZSt8_DestroyIPN23cmUVProcessChainBuilder20ProcessConfigurationES1_EvT_S3_RSaIT0_E.exit.i.i, %201
-  ret i1 %.220
+  ret i1 %.018
 
 202:                                              ; preds = %180, %78, %.body41, %.body
   %.pn34.pn = phi { ptr, i32 } [ %.pn34, %.body41 ], [ %.pn31.pn, %180 ], [ %79, %78 ], [ %.pn, %.body ]

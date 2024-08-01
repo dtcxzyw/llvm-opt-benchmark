@@ -642,7 +642,7 @@ define dso_local void @LogicalTapeRewindForRead(ptr nocapture noundef %0, i64 no
   br label %13
 
 13:                                               ; preds = %2, %7
-  %.1 = phi i32 [ %12, %7 ], [ 8192, %2 ]
+  %.031 = phi i32 [ %12, %7 ], [ 8192, %2 ]
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
@@ -687,7 +687,7 @@ define dso_local void @LogicalTapeRewindForRead(ptr nocapture noundef %0, i64 no
 38:                                               ; preds = %37, %34
   store ptr null, ptr %35, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 %.1, ptr %39, align 8
+  store i32 %.031, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 72
   %41 = load ptr, ptr %40, align 8
   %.not34 = icmp eq ptr %41, null

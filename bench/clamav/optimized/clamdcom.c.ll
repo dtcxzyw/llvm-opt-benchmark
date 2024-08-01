@@ -953,7 +953,7 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
 
 .thread125:                                       ; preds = %.thread125.backedge, %.preheader
   %.not89 = phi i1 [ true, %.preheader ], [ false, %.thread125.backedge ]
-  %.0 = phi i32 [ 0, %.preheader ], [ %.0.be, %.thread125.backedge ]
+  %.1 = phi i32 [ 0, %.preheader ], [ %.1.be, %.thread125.backedge ]
   %75 = call i32 @recvln(ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8)
   switch i32 %75, label %76 [
     i32 0, label %138
@@ -1046,7 +1046,7 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
   br i1 %.not, label %.thread125.backedge, label %110
 
 .thread125.backedge:                              ; preds = %109, %125, %134, %136, %132, %115, %121, %124, %.thread127, %120, %80
-  %.0.be = phi i32 [ %.0, %109 ], [ %.0, %125 ], [ %.0, %134 ], [ %.0, %136 ], [ %.0, %132 ], [ %116, %115 ], [ %116, %121 ], [ %116, %124 ], [ %.1124129, %.thread127 ], [ %.1124129, %120 ], [ %.0, %80 ]
+  %.1.be = phi i32 [ %.1, %109 ], [ %.1, %125 ], [ %.1, %134 ], [ %.1, %136 ], [ %.1, %132 ], [ %116, %115 ], [ %116, %121 ], [ %116, %124 ], [ %.3124129, %.thread127 ], [ %.3124129, %120 ], [ %.1, %80 ]
   br label %.thread125
 
 110:                                              ; preds = %109
@@ -1055,20 +1055,20 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
   br i1 %.not98, label %.thread127, label %112
 
 112:                                              ; preds = %110
-  %113 = add nsw i32 %.0, 1
+  %113 = add nsw i32 %.1, 1
   %114 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) @dsresult.last_filename, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4096) #14
   store i8 0, ptr getelementptr inbounds (i8, ptr @dsresult.last_filename, i64 4096), align 16
   br label %.thread127
 
 115:                                              ; preds = %108
-  %116 = add nsw i32 %.0, 1
+  %116 = add nsw i32 %.1, 1
   br i1 %.not, label %.thread125.backedge, label %117
 
 117:                                              ; preds = %115
   br i1 %69, label %.thread127, label %121
 
 .thread127:                                       ; preds = %110, %112, %117
-  %.1124129 = phi i32 [ %116, %117 ], [ %.0, %110 ], [ %113, %112 ]
+  %.3124129 = phi i32 [ %116, %117 ], [ %.1, %110 ], [ %113, %112 ]
   %118 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.32, ptr noundef nonnull %2, ptr noundef nonnull %.066121) #14
   %119 = load ptr, ptr @action, align 8
   %.not100 = icmp eq ptr %119, null
@@ -1158,8 +1158,8 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread125, %chkpath.exit, %99, %102, %71, %72, %138, %150, %155, %145, %140, %60, %43, %30
-  %.3 = phi i32 [ 0, %chkpath.exit ], [ %.0, %138 ], [ -1, %145 ], [ %.0, %150 ], [ -1, %155 ], [ -1, %140 ], [ -1, %60 ], [ -1, %43 ], [ -1, %30 ], [ %.065114, %72 ], [ %.065114, %71 ], [ -1, %102 ], [ -1, %99 ], [ %75, %.thread125 ]
-  ret i32 %.3
+  %.0 = phi i32 [ 0, %chkpath.exit ], [ %.1, %138 ], [ -1, %145 ], [ %.1, %150 ], [ -1, %155 ], [ -1, %140 ], [ -1, %60 ], [ -1, %43 ], [ -1, %30 ], [ %.065114, %72 ], [ %.065114, %71 ], [ -1, %102 ], [ -1, %99 ], [ %75, %.thread125 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

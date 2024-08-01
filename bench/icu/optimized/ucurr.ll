@@ -787,9 +787,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1262,7 +1262,7 @@ for.cond.preheader:                               ; preds = %if.then75
 
 for.body:                                         ; preds = %for.cond.preheader, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit
   %i.081 = phi i32 [ %inc, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit ], [ 0, %for.cond.preheader ]
-  %s.080 = phi ptr [ %s.1, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit ], [ null, %for.cond.preheader ]
+  %s.280 = phi ptr [ %s.4, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit ], [ null, %for.cond.preheader ]
   %call80 = invoke ptr @ures_getByIndex_75(ptr noundef %call71, i32 noundef %i.081, ptr noundef null, ptr noundef nonnull %localStatus)
           to label %invoke.cont81 unwind label %lpad.loopexit
 
@@ -1284,7 +1284,7 @@ lor.rhs:                                          ; preds = %invoke.cont85
 
 lor.end:                                          ; preds = %lor.rhs
   %cmp92 = icmp ne i32 %call91, 0
-  %cmp95 = icmp eq ptr %s.080, null
+  %cmp95 = icmp eq ptr %s.280, null
   %or.cond2.not = select i1 %cmp92, i1 true, i1 %cmp95
   br i1 %or.cond2.not, label %if.end97, label %cleanup
 
@@ -1300,7 +1300,7 @@ if.end97:                                         ; preds = %invoke.cont85, %lor
           to label %cleanup unwind label %lpad82
 
 cleanup:                                          ; preds = %if.end97, %lor.end
-  %s.1 = phi ptr [ %s.080, %lor.end ], [ %call101, %if.end97 ]
+  %s.4 = phi ptr [ %s.280, %lor.end ], [ %call101, %if.end97 ]
   %cleanup.dest.slot.0 = phi i1 [ false, %lor.end ], [ %20, %if.end97 ]
   %cmp.not.i = icmp eq ptr %call80, null
   br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i64
@@ -1323,10 +1323,10 @@ _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit: ; preds = %cleanup, %if.then.i
   br i1 %or.cond99, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, %for.cond.preheader
-  %s.2 = phi ptr [ null, %for.cond.preheader ], [ %s.1, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit ]
+  %s.3 = phi ptr [ null, %for.cond.preheader ], [ %s.4, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit ]
   %23 = load i32, ptr %localStatus, align 4
   %cmp.i66 = icmp slt i32 %23, 1
-  %cmp109 = icmp eq ptr %s.2, null
+  %cmp109 = icmp eq ptr %s.3, null
   %or.cond3 = select i1 %cmp.i66, i1 %cmp109, i1 false
   br i1 %or.cond3, label %if.then110, label %if.end112
 
@@ -1335,7 +1335,7 @@ if.then110:                                       ; preds = %for.end
   br label %if.end112
 
 if.end112:                                        ; preds = %for.end, %if.then110, %invoke.cont70
-  %s.3 = phi ptr [ null, %if.then110 ], [ %s.2, %for.end ], [ null, %invoke.cont70 ]
+  %s.1 = phi ptr [ null, %if.then110 ], [ %s.3, %for.end ], [ null, %invoke.cont70 ]
   invoke void @ures_close_75(ptr noundef %call71)
           to label %if.end114 unwind label %lpad.loopexit.split-lp
 
@@ -1345,7 +1345,7 @@ if.end114:                                        ; preds = %if.end112
   br i1 %cmp.i68, label %if.end134, label %land.lhs.true118
 
 land.lhs.true118:                                 ; preds = %if.end114.thread, %if.end114
-  %s.489 = phi ptr [ null, %if.end114.thread ], [ %s.3, %if.end114 ]
+  %s.089 = phi ptr [ null, %if.end114.thread ], [ %s.1, %if.end114 ]
   %24 = phi i32 [ 2, %if.end114.thread ], [ %.pre85, %if.end114 ]
   %call120 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %id, i32 noundef 95) #20
   %cmp121.not = icmp eq ptr %call120, null
@@ -1403,12 +1403,12 @@ if.end134:                                        ; preds = %if.end114
 
 if.then138:                                       ; preds = %land.lhs.true118, %if.end134
   %30 = phi i32 [ %.pre85, %if.end134 ], [ %24, %land.lhs.true118 ]
-  %s.49096 = phi ptr [ %s.3, %if.end134 ], [ %s.489, %land.lhs.true118 ]
+  %s.09096 = phi ptr [ %s.1, %if.end134 ], [ %s.089, %land.lhs.true118 ]
   store i32 %30, ptr %ec, align 4
   br label %if.end139
 
 if.end139:                                        ; preds = %if.end134, %if.then138
-  %s.49095 = phi ptr [ %s.3, %if.end134 ], [ %s.49096, %if.then138 ]
+  %s.09095 = phi ptr [ %s.1, %if.end134 ], [ %s.09096, %if.then138 ]
   %31 = phi i32 [ %29, %if.end134 ], [ %30, %if.then138 ]
   %cmp.i72 = icmp slt i32 %31, 1
   %32 = load i32, ptr %resLen, align 4
@@ -1417,7 +1417,7 @@ if.end139:                                        ; preds = %if.end134, %if.then
   br i1 %or.cond50, label %if.then145, label %if.end30.invoke
 
 if.then145:                                       ; preds = %if.end139
-  %call147 = invoke ptr @u_strcpy_75(ptr noundef %buff, ptr noundef %s.49095)
+  %call147 = invoke ptr @u_strcpy_75(ptr noundef %buff, ptr noundef %s.09095)
           to label %if.then145.if.end149_crit_edge unwind label %lpad.loopexit.split-lp
 
 if.then145.if.end149_crit_edge:                   ; preds = %if.then145
@@ -1425,7 +1425,7 @@ if.then145.if.end149_crit_edge:                   ; preds = %if.then145
   br label %if.end30.invoke
 
 cleanup152:                                       ; preds = %if.end30.invoke, %invoke.cont34, %invoke.cont131
-  %retval.0 = phi i32 [ %call132, %invoke.cont131 ], [ 0, %invoke.cont34 ], [ %11, %if.end30.invoke ]
+  %retval.1 = phi i32 [ %call132, %invoke.cont131 ], [ 0, %invoke.cont34 ], [ %11, %if.end30.invoke ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %currency) #17
   br label %return
 
@@ -1435,8 +1435,8 @@ ehcleanup153:                                     ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn48
 
 return:                                           ; preds = %entry, %cleanup152, %if.then3
-  %retval.1 = phi i32 [ 0, %if.then3 ], [ %retval.0, %cleanup152 ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then3 ], [ %retval.1, %cleanup152 ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN6icu_7518CharStringByteSinkC1EPNS_10CharStringE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #5
@@ -1680,7 +1680,7 @@ if.end61:                                         ; preds = %if.then59, %invoke.
   br i1 %cmp62, label %if.then63, label %if.end81
 
 if.then63:                                        ; preds = %invoke.cont20, %if.end61
-  %choice.246 = phi i32 [ %choice.1.ph, %if.end61 ], [ %nameStyle, %invoke.cont20 ]
+  %choice.046 = phi i32 [ %choice.1.ph, %if.end61 ], [ %nameStyle, %invoke.cont20 ]
   %call69 = invoke ptr @ures_getByKey_75(ptr noundef %call19, ptr noundef nonnull @_ZL10CURRENCIES, ptr noundef %call19, ptr noundef nonnull %ec2)
           to label %invoke.cont68 unwind label %lpad27
 
@@ -1689,7 +1689,7 @@ invoke.cont68:                                    ; preds = %if.then63
           to label %invoke.cont75 unwind label %lpad27
 
 invoke.cont75:                                    ; preds = %invoke.cont68
-  %call80 = invoke ptr @ures_getStringByIndex_75(ptr noundef %call19, i32 noundef %choice.246, ptr noundef %len, ptr noundef nonnull %ec2)
+  %call80 = invoke ptr @ures_getStringByIndex_75(ptr noundef %call19, i32 noundef %choice.046, ptr noundef %len, ptr noundef nonnull %ec2)
           to label %if.end81 unwind label %lpad27
 
 if.end81:                                         ; preds = %invoke.cont75, %if.end61
@@ -1734,7 +1734,7 @@ invoke.cont101:                                   ; preds = %if.end100
   br label %cleanup103
 
 cleanup103:                                       ; preds = %if.end95, %invoke.cont101
-  %retval.1 = phi ptr [ %currency, %invoke.cont101 ], [ %s.2, %if.end95 ]
+  %retval.3 = phi ptr [ %currency, %invoke.cont101 ], [ %s.2, %if.end95 ]
   %cmp.not.i = icmp eq ptr %call19, null
   br i1 %cmp.not.i, label %cleanup104, label %if.then.i
 
@@ -1755,7 +1755,7 @@ ehcleanup:                                        ; preds = %lpad29, %lpad27
   br label %ehcleanup105
 
 cleanup104:                                       ; preds = %if.then.i, %cleanup103, %if.then9
-  %retval.2 = phi ptr [ null, %if.then9 ], [ %retval.1, %cleanup103 ], [ %retval.1, %if.then.i ]
+  %retval.1 = phi ptr [ null, %if.then9 ], [ %retval.3, %cleanup103 ], [ %retval.3, %if.then.i ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %loc) #17
   br label %return
 
@@ -1765,8 +1765,8 @@ ehcleanup105:                                     ; preds = %ehcleanup, %lpad4, 
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %entry, %cleanup104, %if.then2
-  %retval.3 = phi ptr [ null, %if.then2 ], [ %retval.2, %cleanup104 ], [ null, %entry ]
-  ret ptr %retval.3
+  %retval.0 = phi ptr [ null, %if.then2 ], [ %retval.1, %cleanup104 ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 declare void @ulocimp_getName_75(ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #5
@@ -1901,12 +1901,12 @@ invoke.cont46:                                    ; preds = %if.end45
 
 cleanup.sink.split:                               ; preds = %land.lhs.true, %if.then40, %invoke.cont2, %invoke.cont46
   %.sink = phi i32 [ -127, %invoke.cont46 ], [ 1, %invoke.cont2 ], [ %8, %if.then40 ], [ %8, %land.lhs.true ]
-  %retval.0.ph = phi ptr [ %currency, %invoke.cont46 ], [ null, %invoke.cont2 ], [ %s.0, %if.then40 ], [ %s.0, %land.lhs.true ]
+  %retval.1.ph = phi ptr [ %currency, %invoke.cont46 ], [ null, %invoke.cont2 ], [ %s.0, %if.then40 ], [ %s.0, %land.lhs.true ]
   store i32 %.sink, ptr %ec, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %land.lhs.true, %if.then40, %invoke.cont31
-  %retval.0 = phi ptr [ %call33, %invoke.cont31 ], [ %s.0, %if.then40 ], [ %s.0, %land.lhs.true ], [ %retval.0.ph, %cleanup.sink.split ]
+  %retval.1 = phi ptr [ %call33, %invoke.cont31 ], [ %s.0, %if.then40 ], [ %s.0, %land.lhs.true ], [ %retval.1.ph, %cleanup.sink.split ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %loc) #17
   br label %return
 
@@ -1916,8 +1916,8 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi ptr [ %retval.0, %cleanup ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.1, %cleanup ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2223,8 +2223,8 @@ for.cond.preheader.i.i:                           ; preds = %if.end.i.i
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %invoke.cont52.i.i, %for.cond.preheader.i.i
-  %total_currency_name_count.0 = phi i32 [ 0, %for.cond.preheader.i.i ], [ %total_currency_name_count.5, %invoke.cont52.i.i ]
-  %total_currency_symbol_count.0 = phi i32 [ 0, %for.cond.preheader.i.i ], [ %total_currency_symbol_count.3, %invoke.cont52.i.i ]
+  %total_currency_name_count.9 = phi i32 [ 0, %for.cond.preheader.i.i ], [ %total_currency_name_count.11, %invoke.cont52.i.i ]
+  %total_currency_symbol_count.7 = phi i32 [ 0, %for.cond.preheader.i.i ], [ %total_currency_symbol_count.8, %invoke.cont52.i.i ]
   store i32 0, ptr %ec2.i.i, align 4
   %12 = load ptr, ptr %locale.i.i, align 8
   %call7.i.i = invoke ptr @ures_open_75(ptr noundef nonnull @.str.1, ptr noundef %12, ptr noundef nonnull %ec2.i.i)
@@ -2243,12 +2243,12 @@ for.cond12.preheader.i.i:                         ; preds = %invoke.cont8.i.i
   br i1 %cmp38.i.i, label %for.body.i.preheader.i, label %for.end.i.i
 
 for.body.i.preheader.i:                           ; preds = %for.cond12.preheader.i.i
-  %13 = add i32 %total_currency_name_count.0, %call11.i.i
+  %13 = add i32 %total_currency_name_count.9, %call11.i.i
   br i1 %cmp17.not.i.i, label %for.body.i.us.i.preheader, label %for.body.i.i
 
 for.body.i.us.i.preheader:                        ; preds = %for.body.i.preheader.i
   %14 = shl nuw i32 %call11.i.i, 1
-  %15 = add i32 %total_currency_symbol_count.0, %14
+  %15 = add i32 %total_currency_symbol_count.7, %14
   br label %for.body.i.us.i
 
 for.body.i.us.i:                                  ; preds = %for.body.i.us.i.preheader, %for.inc.i.us.i
@@ -2275,7 +2275,7 @@ lpad.loopexit.split-lp28.loopexit.i.split.us.i:   ; preds = %invoke.cont15.i.us.
   br label %ehcleanup58.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.preheader.i, %for.inc.i.i
-  %total_currency_symbol_count.2 = phi i32 [ %inc27.i.i, %for.inc.i.i ], [ %total_currency_symbol_count.0, %for.body.i.preheader.i ]
+  %total_currency_symbol_count.9 = phi i32 [ %inc27.i.i, %for.inc.i.i ], [ %total_currency_symbol_count.7, %for.body.i.preheader.i ]
   %i.039.i.i = phi i32 [ %inc30.i.i, %for.inc.i.i ], [ 0, %for.body.i.preheader.i ]
   %call14.i.i = invoke ptr @ures_getByIndex_75(ptr noundef %call9.i.i, i32 noundef %i.039.i.i, ptr noundef null, ptr noundef nonnull %ec2.i.i)
           to label %invoke.cont13.i.i unwind label %lpad.loopexit.split-lp28.loopexit.i.split.i
@@ -2386,15 +2386,15 @@ ehcleanup.i.i:                                    ; preds = %lpad23.i.i, %lpad21
   br label %ehcleanup58.i.i
 
 for.inc.i.i:                                      ; preds = %invoke.cont24.i.i
-  %add.i.i = add i32 %total_currency_symbol_count.2, 2
+  %add.i.i = add i32 %total_currency_symbol_count.9, 2
   %inc27.i.i = add i32 %add.i.i, %result.0.lcssa.i.i.i
   %inc30.i.i = add nuw nsw i32 %i.039.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %inc30.i.i, %call11.i.i
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !10
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %for.inc.i.us.i, %for.cond12.preheader.i.i
-  %total_currency_name_count.3 = phi i32 [ %total_currency_name_count.0, %for.cond12.preheader.i.i ], [ %13, %for.inc.i.us.i ], [ %13, %for.inc.i.i ]
-  %total_currency_symbol_count.3 = phi i32 [ %total_currency_symbol_count.0, %for.cond12.preheader.i.i ], [ %15, %for.inc.i.us.i ], [ %inc27.i.i, %for.inc.i.i ]
+  %total_currency_name_count.10 = phi i32 [ %total_currency_name_count.9, %for.cond12.preheader.i.i ], [ %13, %for.inc.i.us.i ], [ %13, %for.inc.i.i ]
+  %total_currency_symbol_count.8 = phi i32 [ %total_currency_symbol_count.7, %for.cond12.preheader.i.i ], [ %15, %for.inc.i.us.i ], [ %inc27.i.i, %for.inc.i.i ]
   store i32 0, ptr %ec3.i.i, align 4
   %call32.i.i = invoke ptr @ures_getByKey_75(ptr noundef %call7.i.i, ptr noundef nonnull @_ZL15CURRENCYPLURALS, ptr noundef null, ptr noundef nonnull %ec3.i.i)
           to label %invoke.cont31.i.i unwind label %lpad.loopexit.split-lp28.loopexit.split-lp.loopexit.i.i
@@ -2408,7 +2408,7 @@ for.cond36.preheader.i.i:                         ; preds = %invoke.cont31.i.i
   br i1 %cmp3740.i.i, label %for.body38.i.i, label %for.end48.i.i
 
 for.body38.i.i:                                   ; preds = %for.cond36.preheader.i.i, %for.inc46.i.i
-  %total_currency_name_count.4 = phi i32 [ %add44.i.i, %for.inc46.i.i ], [ %total_currency_name_count.3, %for.cond36.preheader.i.i ]
+  %total_currency_name_count.12 = phi i32 [ %add44.i.i, %for.inc46.i.i ], [ %total_currency_name_count.10, %for.cond36.preheader.i.i ]
   %i35.041.i.i = phi i32 [ %inc47.i.i, %for.inc46.i.i ], [ 0, %for.cond36.preheader.i.i ]
   %call41.i.i = invoke ptr @ures_getByIndex_75(ptr noundef %call32.i.i, i32 noundef %i35.041.i.i, ptr noundef null, ptr noundef nonnull %ec3.i.i)
           to label %invoke.cont40.i.i unwind label %lpad.loopexit27.i.i
@@ -2422,13 +2422,13 @@ invoke.cont42.i.i:                                ; preds = %invoke.cont40.i.i
           to label %for.inc46.i.i unwind label %lpad.loopexit27.i.i
 
 for.inc46.i.i:                                    ; preds = %invoke.cont42.i.i
-  %add44.i.i = add nsw i32 %call43.i.i, %total_currency_name_count.4
+  %add44.i.i = add nsw i32 %call43.i.i, %total_currency_name_count.12
   %inc47.i.i = add nuw nsw i32 %i35.041.i.i, 1
   %exitcond42.not.i.i = icmp eq i32 %inc47.i.i, %call34.i.i
   br i1 %exitcond42.not.i.i, label %for.end48.i.i, label %for.body38.i.i, !llvm.loop !13
 
 for.end48.i.i:                                    ; preds = %for.inc46.i.i, %for.cond36.preheader.i.i
-  %total_currency_name_count.5 = phi i32 [ %total_currency_name_count.3, %for.cond36.preheader.i.i ], [ %add44.i.i, %for.inc46.i.i ]
+  %total_currency_name_count.11 = phi i32 [ %total_currency_name_count.10, %for.cond36.preheader.i.i ], [ %add44.i.i, %for.inc46.i.i ]
   invoke void @ures_close_75(ptr noundef %call32.i.i)
           to label %invoke.cont49.i.i unwind label %lpad.loopexit.split-lp28.loopexit.split-lp.loopexit.i.i
 
@@ -2454,8 +2454,8 @@ ehcleanup58.i.i:                                  ; preds = %ehcleanup.i.i, %lpa
   br label %ehcleanup209.i
 
 invoke.cont5.i:                                   ; preds = %invoke.cont52.i.i, %invoke.cont1.i.i
-  %total_currency_name_count.6 = phi i32 [ 0, %invoke.cont1.i.i ], [ %total_currency_name_count.5, %invoke.cont52.i.i ]
-  %total_currency_symbol_count.4 = phi i32 [ 0, %invoke.cont1.i.i ], [ %total_currency_symbol_count.3, %invoke.cont52.i.i ]
+  %total_currency_name_count.0 = phi i32 [ 0, %invoke.cont1.i.i ], [ %total_currency_name_count.11, %invoke.cont52.i.i ]
+  %total_currency_symbol_count.0 = phi i32 [ 0, %invoke.cont1.i.i ], [ %total_currency_symbol_count.8, %invoke.cont52.i.i ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %locale.i.i) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %locale.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i.i)
@@ -2465,13 +2465,13 @@ invoke.cont5.i:                                   ; preds = %invoke.cont52.i.i, 
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp19.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec3.i.i)
-  %conv.i = sext i32 %total_currency_name_count.6 to i64
+  %conv.i = sext i32 %total_currency_name_count.0 to i64
   %mul.i = mul nsw i64 %conv.i, 24
   %call7.i = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul.i) #18
           to label %invoke.cont6.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont6.i:                                   ; preds = %invoke.cont5.i
-  %conv8.i = sext i32 %total_currency_symbol_count.4 to i64
+  %conv8.i = sext i32 %total_currency_symbol_count.0 to i64
   %mul9.i = mul nsw i64 %conv8.i, 24
   %call11.i = invoke noalias ptr @uprv_malloc_75(i64 noundef %mul9.i) #18
           to label %invoke.cont10.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
@@ -2498,8 +2498,8 @@ for.cond.preheader.i:                             ; preds = %invoke.cont19.i
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %invoke.cont187.i, %for.cond.preheader.i
-  %total_currency_name_count.7 = phi i32 [ 0, %for.cond.preheader.i ], [ %total_currency_name_count.14, %invoke.cont187.i ]
-  %total_currency_symbol_count.5 = phi i32 [ 0, %for.cond.preheader.i ], [ %total_currency_symbol_count.10, %invoke.cont187.i ]
+  %total_currency_name_count.1 = phi i32 [ 0, %for.cond.preheader.i ], [ %total_currency_name_count.3, %invoke.cont187.i ]
+  %total_currency_symbol_count.1 = phi i32 [ 0, %for.cond.preheader.i ], [ %total_currency_symbol_count.2, %invoke.cont187.i ]
   %localeLevel.0.i = phi i32 [ 0, %for.cond.preheader.i ], [ %inc193.i, %invoke.cont187.i ]
   store i32 0, ptr %ec2.i, align 4
   %30 = load ptr, ptr %loc.i, align 8
@@ -2523,8 +2523,8 @@ for.body.lr.ph.i:                                 ; preds = %for.cond30.preheade
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %total_currency_name_count.8 = phi i32 [ %total_currency_name_count.7, %for.body.lr.ph.i ], [ %total_currency_name_count.9, %for.inc.i ]
-  %total_currency_symbol_count.6 = phi i32 [ %total_currency_symbol_count.5, %for.body.lr.ph.i ], [ %total_currency_symbol_count.7, %for.inc.i ]
+  %total_currency_name_count.7 = phi i32 [ %total_currency_name_count.1, %for.body.lr.ph.i ], [ %total_currency_name_count.8, %for.inc.i ]
+  %total_currency_symbol_count.3 = phi i32 [ %total_currency_symbol_count.1, %for.body.lr.ph.i ], [ %total_currency_symbol_count.4, %for.inc.i ]
   %i.0166.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc124.i, %for.inc.i ]
   %call33.i = invoke ptr @ures_getByIndex_75(ptr noundef %call27.i, i32 noundef %i.0166.i, ptr noundef null, ptr noundef nonnull %ec2.i)
           to label %invoke.cont32.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -2553,13 +2553,13 @@ invoke.cont42.i:                                  ; preds = %if.else.i
   br i1 %cmp44.not.i, label %if.then39.invoke.i, label %if.then45.invoke.i
 
 if.then45.invoke.i:                               ; preds = %invoke.cont115.i, %invoke.cont42.i
-  %total_currency_name_count.9 = phi i32 [ %inc100.i, %invoke.cont115.i ], [ %total_currency_name_count.8, %invoke.cont42.i ]
-  %total_currency_symbol_count.7 = phi i32 [ %inc119.i, %invoke.cont115.i ], [ %total_currency_symbol_count.6, %invoke.cont42.i ]
+  %total_currency_name_count.8 = phi i32 [ %inc100.i, %invoke.cont115.i ], [ %total_currency_name_count.7, %invoke.cont42.i ]
+  %total_currency_symbol_count.4 = phi i32 [ %inc119.i, %invoke.cont115.i ], [ %total_currency_symbol_count.3, %invoke.cont42.i ]
   invoke void @ures_close_75(ptr noundef %call33.i)
           to label %for.inc.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 if.end51.i:                                       ; preds = %if.then39.invoke.i
-  %idxprom.i = sext i32 %total_currency_symbol_count.6 to i64
+  %idxprom.i = sext i32 %total_currency_symbol_count.3 to i64
   %arrayidx.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %idxprom.i
   store ptr %call37.i, ptr %arrayidx.i, align 8
   %currencyName.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %idxprom.i, i32 1
@@ -2567,7 +2567,7 @@ if.end51.i:                                       ; preds = %if.then39.invoke.i
   %flag.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %idxprom.i, i32 3
   store i32 0, ptr %flag.i, align 4
   %32 = load i32, ptr %len.i, align 4
-  %inc.i = add i32 %total_currency_symbol_count.6, 1
+  %inc.i = add i32 %total_currency_symbol_count.3, 1
   %currencyNameLen.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %idxprom.i, i32 2
   store i32 %32, ptr %currencyNameLen.i, align 8
   br i1 %cmp58.not.i, label %if.end86.i, label %if.then59.i
@@ -2694,12 +2694,12 @@ while.end.i:                                      ; preds = %call8.i.i.noexc.i, 
   br label %if.end86.i
 
 if.end86.i:                                       ; preds = %while.end.i, %if.end51.i
-  %total_currency_symbol_count.9 = phi i32 [ %inc.i, %if.end51.i ], [ %51, %while.end.i ]
+  %total_currency_symbol_count.6 = phi i32 [ %inc.i, %if.end51.i ], [ %51, %while.end.i ]
   %call88.i = invoke ptr @ures_getStringByIndex_75(ptr noundef %call33.i, i32 noundef 1, ptr noundef nonnull %len.i, ptr noundef nonnull %ec2.i)
           to label %invoke.cont87.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 invoke.cont87.i:                                  ; preds = %if.end86.i
-  %idxprom89.i = sext i32 %total_currency_name_count.8 to i64
+  %idxprom89.i = sext i32 %total_currency_name_count.7 to i64
   %arrayidx90.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %idxprom89.i
   store ptr %call37.i, ptr %arrayidx90.i, align 8
   %52 = load i32, ptr %len.i, align 4
@@ -2736,10 +2736,10 @@ invoke.cont92.i:                                  ; preds = %if.then.i.i, %call2
   %flag99.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %idxprom89.i, i32 3
   store i32 1, ptr %flag99.i, align 4
   %54 = load i32, ptr %len.i, align 4
-  %inc100.i = add nsw i32 %total_currency_name_count.8, 1
+  %inc100.i = add nsw i32 %total_currency_name_count.7, 1
   %currencyNameLen103.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call7.i, i64 %idxprom89.i, i32 2
   store i32 %54, ptr %currencyNameLen103.i, align 8
-  %idxprom104.i = sext i32 %total_currency_symbol_count.9 to i64
+  %idxprom104.i = sext i32 %total_currency_symbol_count.6 to i64
   %arrayidx105.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %idxprom104.i
   store ptr %call37.i, ptr %arrayidx105.i, align 8
   %call108.i = invoke noalias dereferenceable_or_null(6) ptr @uprv_malloc_75(i64 noundef 6) #18
@@ -2754,7 +2754,7 @@ invoke.cont107.i:                                 ; preds = %invoke.cont92.i
 invoke.cont115.i:                                 ; preds = %invoke.cont107.i
   %flag118.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %idxprom104.i, i32 3
   store i32 1, ptr %flag118.i, align 4
-  %inc119.i = add nsw i32 %total_currency_symbol_count.9, 1
+  %inc119.i = add nsw i32 %total_currency_symbol_count.6, 1
   %currencyNameLen122.i = getelementptr inbounds %struct.CurrencyNameStruct, ptr %call11.i, i64 %idxprom104.i, i32 2
   store i32 3, ptr %currencyNameLen122.i, align 8
   br label %if.then45.invoke.i
@@ -2765,8 +2765,8 @@ for.inc.i:                                        ; preds = %if.then45.invoke.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !16
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond30.preheader.i
-  %total_currency_name_count.10 = phi i32 [ %total_currency_name_count.7, %for.cond30.preheader.i ], [ %total_currency_name_count.9, %for.inc.i ]
-  %total_currency_symbol_count.10 = phi i32 [ %total_currency_symbol_count.5, %for.cond30.preheader.i ], [ %total_currency_symbol_count.7, %for.inc.i ]
+  %total_currency_name_count.2 = phi i32 [ %total_currency_name_count.1, %for.cond30.preheader.i ], [ %total_currency_name_count.8, %for.inc.i ]
+  %total_currency_symbol_count.2 = phi i32 [ %total_currency_symbol_count.1, %for.cond30.preheader.i ], [ %total_currency_symbol_count.4, %for.inc.i ]
   store i32 0, ptr %ec5.i, align 4
   %call126.i = invoke ptr @ures_getByKey_75(ptr noundef %call25.i, ptr noundef nonnull @_ZL15CURRENCYPLURALS, ptr noundef null, ptr noundef nonnull %ec5.i)
           to label %invoke.cont125.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
@@ -2784,7 +2784,7 @@ for.body132.lr.ph.i:                              ; preds = %for.cond130.prehead
   br label %for.body132.i
 
 for.body132.i:                                    ; preds = %for.inc181.i, %for.body132.lr.ph.i
-  %total_currency_name_count.11 = phi i32 [ %total_currency_name_count.10, %for.body132.lr.ph.i ], [ %total_currency_name_count.13, %for.inc181.i ]
+  %total_currency_name_count.4 = phi i32 [ %total_currency_name_count.2, %for.body132.lr.ph.i ], [ %total_currency_name_count.5, %for.inc181.i ]
   %i129.0170.i = phi i32 [ 0, %for.body132.lr.ph.i ], [ %inc182.i, %for.inc181.i ]
   %call135.i = invoke ptr @ures_getByIndex_75(ptr noundef %call126.i, i32 noundef %i129.0170.i, ptr noundef null, ptr noundef nonnull %ec5.i)
           to label %invoke.cont134.i unwind label %lpad.loopexit.split-lp.loopexit.i
@@ -2817,7 +2817,7 @@ for.cond156.preheader.i:                          ; preds = %if.end152.i
   br i1 %cmp157167.i, label %for.body158.i.preheader, label %for.end179.invoke.i
 
 for.body158.i.preheader:                          ; preds = %for.cond156.preheader.i
-  %56 = sext i32 %total_currency_name_count.11 to i64
+  %56 = sext i32 %total_currency_name_count.4 to i64
   br label %for.body158.i
 
 for.body158.i:                                    ; preds = %for.body158.i.preheader, %invoke.cont165.i
@@ -2875,7 +2875,7 @@ for.end179.invoke.i.loopexit:                     ; preds = %invoke.cont165.i
   br label %for.end179.invoke.i
 
 for.end179.invoke.i:                              ; preds = %for.end179.invoke.i.loopexit, %for.cond156.preheader.i, %invoke.cont143.i
-  %total_currency_name_count.13 = phi i32 [ %total_currency_name_count.11, %for.cond156.preheader.i ], [ %total_currency_name_count.11, %invoke.cont143.i ], [ %60, %for.end179.invoke.i.loopexit ]
+  %total_currency_name_count.5 = phi i32 [ %total_currency_name_count.4, %for.cond156.preheader.i ], [ %total_currency_name_count.4, %invoke.cont143.i ], [ %60, %for.end179.invoke.i.loopexit ]
   invoke void @ures_close_75(ptr noundef %call135.i)
           to label %for.inc181.i unwind label %lpad.loopexit.split-lp.loopexit.i
 
@@ -2885,7 +2885,7 @@ for.inc181.i:                                     ; preds = %for.end179.invoke.i
   br i1 %exitcond174.not.i, label %for.end183.i, label %for.body132.i, !llvm.loop !18
 
 for.end183.i:                                     ; preds = %for.inc181.i, %for.cond130.preheader.i
-  %total_currency_name_count.14 = phi i32 [ %total_currency_name_count.10, %for.cond130.preheader.i ], [ %total_currency_name_count.13, %for.inc181.i ]
+  %total_currency_name_count.3 = phi i32 [ %total_currency_name_count.2, %for.cond130.preheader.i ], [ %total_currency_name_count.5, %for.inc181.i ]
   invoke void @ures_close_75(ptr noundef %call126.i)
           to label %invoke.cont184.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
@@ -2915,12 +2915,12 @@ invoke.cont195.i:                                 ; preds = %for.end194.i
           to label %invoke.cont196.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont196.i:                                 ; preds = %invoke.cont195.i
-  %conv197.i = sext i32 %total_currency_name_count.14 to i64
+  %conv197.i = sext i32 %total_currency_name_count.3 to i64
   invoke void @qsort(ptr noundef %call7.i, i64 noundef %conv197.i, i64 noundef 24, ptr noundef nonnull @_ZL22currencyNameComparatorPKvS0_)
           to label %invoke.cont198.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 invoke.cont198.i:                                 ; preds = %invoke.cont196.i
-  %conv199.i = sext i32 %total_currency_symbol_count.10 to i64
+  %conv199.i = sext i32 %total_currency_symbol_count.2 to i64
   invoke void @qsort(ptr noundef %call11.i, i64 noundef %conv199.i, i64 noundef 24, ptr noundef nonnull @_ZL22currencyNameComparatorPKvS0_)
           to label %invoke.cont200.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
@@ -2945,8 +2945,8 @@ ehcleanup209.i:                                   ; preds = %lpad65.i, %lpad61.i
   resume { ptr, i32 } %.pn.i
 
 _ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit: ; preds = %invoke.cont10.i, %if.end204.i, %cleanup.sink.split.i
-  %total_currency_name_count.15 = phi i32 [ %total_currency_name_count.14, %if.end204.i ], [ %total_currency_name_count.14, %cleanup.sink.split.i ], [ %total_currency_name_count.6, %invoke.cont10.i ]
-  %total_currency_symbol_count.11 = phi i32 [ %total_currency_symbol_count.10, %if.end204.i ], [ %total_currency_symbol_count.10, %cleanup.sink.split.i ], [ %total_currency_symbol_count.4, %invoke.cont10.i ]
+  %total_currency_name_count.15 = phi i32 [ %total_currency_name_count.3, %if.end204.i ], [ %total_currency_name_count.3, %cleanup.sink.split.i ], [ %total_currency_name_count.0, %invoke.cont10.i ]
+  %total_currency_symbol_count.11 = phi i32 [ %total_currency_symbol_count.2, %if.end204.i ], [ %total_currency_symbol_count.2, %cleanup.sink.split.i ], [ %total_currency_symbol_count.0, %invoke.cont10.i ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %loc.i) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ec2.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %loc.i)
@@ -3096,12 +3096,12 @@ _ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit56: ; preds = %for.inc.i53, %
   br label %if.end67
 
 if.end67:                                         ; preds = %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit56, %if.end51
-  %cacheEntry.1 = phi ptr [ %call52, %if.end51 ], [ %73, %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit56 ]
+  %cacheEntry.2 = phi ptr [ %call52, %if.end51 ], [ %73, %_ZL19deleteCurrencyNamesP18CurrencyNameStructi.exit56 ]
   call void @umtx_unlock_75(ptr noundef nonnull @_ZL19gCurrencyCacheMutex)
   br label %return
 
 return:                                           ; preds = %if.end12, %if.end67, %_ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit
-  %retval.0 = phi ptr [ null, %_ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit ], [ %cacheEntry.1, %if.end67 ], [ %1, %if.end12 ]
+  %retval.0 = phi ptr [ null, %_ZL20collectCurrencyNamesPKcPP18CurrencyNameStructPiS3_S4_R10UErrorCode.exit ], [ %cacheEntry.2, %if.end67 ], [ %1, %if.end12 ]
   ret ptr %retval.0
 }
 
@@ -4070,7 +4070,7 @@ for.cond.preheader:                               ; preds = %if.end8
   br i1 %cmp1736, label %for.body, label %if.end49
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end47
-  %currCount.038 = phi i32 [ %currCount.2, %if.end47 ], [ 0, %for.cond.preheader ]
+  %currCount.138 = phi i32 [ %currCount.3, %if.end47 ], [ 0, %for.cond.preheader ]
   %i.037 = phi i32 [ %inc48, %if.end47 ], [ 0, %for.cond.preheader ]
   %call18 = call ptr @ures_getByIndex_75(ptr noundef %call12, i32 noundef %i.037, ptr noundef null, ptr noundef nonnull %localStatus)
   store i32 0, ptr %fromLength, align 4
@@ -4108,11 +4108,11 @@ land.lhs.true39:                                  ; preds = %if.then27
   br i1 %cmp40, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %land.lhs.true39
-  %inc = add nsw i32 %currCount.038, 1
+  %inc = add nsw i32 %currCount.138, 1
   br label %if.end42
 
 if.end42:                                         ; preds = %if.then41, %land.lhs.true39, %if.then27
-  %currCount.1 = phi i32 [ %inc, %if.then41 ], [ %currCount.038, %land.lhs.true39 ], [ %currCount.038, %if.then27 ]
+  %currCount.2 = phi i32 [ %inc, %if.then41 ], [ %currCount.138, %land.lhs.true39 ], [ %currCount.138, %if.then27 ]
   call void @ures_close_75(ptr noundef %call28)
   br label %if.end47
 
@@ -4121,11 +4121,11 @@ if.else:                                          ; preds = %for.body
   br i1 %cmp43, label %if.end47, label %if.then44
 
 if.then44:                                        ; preds = %if.else
-  %inc45 = add nsw i32 %currCount.038, 1
+  %inc45 = add nsw i32 %currCount.138, 1
   br label %if.end47
 
 if.end47:                                         ; preds = %if.else, %if.then44, %if.end42
-  %currCount.2 = phi i32 [ %currCount.1, %if.end42 ], [ %inc45, %if.then44 ], [ %currCount.038, %if.else ]
+  %currCount.3 = phi i32 [ %currCount.2, %if.end42 ], [ %inc45, %if.then44 ], [ %currCount.138, %if.else ]
   call void @ures_close_75(ptr noundef %call18)
   call void @ures_close_75(ptr noundef %call19)
   %inc48 = add nuw nsw i32 %i.037, 1
@@ -4134,7 +4134,7 @@ if.end47:                                         ; preds = %if.else, %if.then44
   br i1 %cmp17, label %for.body, label %if.end49, !llvm.loop !32
 
 if.end49:                                         ; preds = %if.end47, %for.cond.preheader, %if.end8
-  %currCount.3 = phi i32 [ 0, %if.end8 ], [ 0, %for.cond.preheader ], [ %currCount.2, %if.end47 ]
+  %currCount.0 = phi i32 [ 0, %if.end8 ], [ 0, %for.cond.preheader ], [ %currCount.3, %if.end47 ]
   call void @ures_close_75(ptr noundef %call12)
   %7 = load i32, ptr %ec, align 4
   %cmp50 = icmp eq i32 %7, 0
@@ -4156,7 +4156,7 @@ if.end58:                                         ; preds = %if.end53, %land.lhs
   br label %return
 
 return:                                           ; preds = %if.end53, %if.then, %if.end58
-  %retval.0 = phi i32 [ 0, %if.end58 ], [ 0, %if.then ], [ %currCount.3, %if.end53 ]
+  %retval.0 = phi i32 [ 0, %if.end58 ], [ 0, %if.then ], [ %currCount.0, %if.end53 ]
   ret i32 %retval.0
 }
 
@@ -4235,7 +4235,7 @@ for.cond:                                         ; preds = %if.end65
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %currIndex.058 = phi i32 [ %currIndex.2, %for.cond ], [ 0, %for.cond.preheader ]
-  %matchFound.057 = phi i8 [ %matchFound.2, %for.cond ], [ 0, %for.cond.preheader ]
+  %matchFound.157 = phi i8 [ %matchFound.3, %for.cond ], [ 0, %for.cond.preheader ]
   %i.056 = phi i32 [ %inc69, %for.cond ], [ 0, %for.cond.preheader ]
   %call29 = call ptr @ures_getByIndex_75(ptr noundef %call17, i32 noundef %i.056, ptr noundef null, ptr noundef nonnull %localStatus)
   %call30 = call ptr @ures_getStringByKey_75(ptr noundef %call29, ptr noundef nonnull @.str.4, ptr noundef nonnull %resLen, ptr noundef nonnull %localStatus)
@@ -4276,11 +4276,11 @@ land.lhs.true51:                                  ; preds = %if.then39
 if.then53:                                        ; preds = %land.lhs.true51
   %inc = add nsw i32 %currIndex.058, 1
   %cmp54 = icmp eq i32 %inc, %index
-  %spec.select = select i1 %cmp54, i8 1, i8 %matchFound.057
+  %spec.select = select i1 %cmp54, i8 1, i8 %matchFound.157
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then53, %land.lhs.true51, %if.then39
-  %matchFound.1 = phi i8 [ %matchFound.057, %land.lhs.true51 ], [ %matchFound.057, %if.then39 ], [ %spec.select, %if.then53 ]
+  %matchFound.2 = phi i8 [ %matchFound.157, %land.lhs.true51 ], [ %matchFound.157, %if.then39 ], [ %spec.select, %if.then53 ]
   %currIndex.1 = phi i32 [ %currIndex.058, %land.lhs.true51 ], [ %currIndex.058, %if.then39 ], [ %inc, %if.then53 ]
   call void @ures_close_75(ptr noundef %call40)
   br label %if.end65
@@ -4292,25 +4292,25 @@ if.else:                                          ; preds = %for.body
 if.then59:                                        ; preds = %if.else
   %inc60 = add nsw i32 %currIndex.058, 1
   %cmp61 = icmp eq i32 %inc60, %index
-  %spec.select47 = select i1 %cmp61, i8 1, i8 %matchFound.057
+  %spec.select47 = select i1 %cmp61, i8 1, i8 %matchFound.157
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then59, %if.else, %if.end57
-  %matchFound.2 = phi i8 [ %matchFound.1, %if.end57 ], [ %matchFound.057, %if.else ], [ %spec.select47, %if.then59 ]
+  %matchFound.3 = phi i8 [ %matchFound.2, %if.end57 ], [ %matchFound.157, %if.else ], [ %spec.select47, %if.then59 ]
   %currIndex.2 = phi i32 [ %currIndex.1, %if.end57 ], [ %currIndex.058, %if.else ], [ %inc60, %if.then59 ]
   call void @ures_close_75(ptr noundef %call29)
   call void @ures_close_75(ptr noundef %call31)
-  %tobool66 = trunc nuw i8 %matchFound.2 to i1
+  %tobool66 = trunc nuw i8 %matchFound.3 to i1
   br i1 %tobool66, label %if.end70.loopexit, label %for.cond
 
 if.end70.loopexit:                                ; preds = %for.cond, %if.end65
-  %7 = trunc nuw i8 %matchFound.2 to i1
+  %7 = trunc nuw i8 %matchFound.3 to i1
   %8 = xor i1 %7, true
   br label %if.end70
 
 if.end70:                                         ; preds = %if.end70.loopexit, %for.cond.preheader, %if.end13
-  %matchFound.3 = phi i1 [ true, %if.end13 ], [ true, %for.cond.preheader ], [ %8, %if.end70.loopexit ]
-  %s.1 = phi ptr [ null, %if.end13 ], [ null, %for.cond.preheader ], [ %call30, %if.end70.loopexit ]
+  %matchFound.0 = phi i1 [ true, %if.end13 ], [ true, %for.cond.preheader ], [ %8, %if.end70.loopexit ]
+  %s.0 = phi ptr [ null, %if.end13 ], [ null, %for.cond.preheader ], [ %call30, %if.end70.loopexit ]
   call void @ures_close_75(ptr noundef %call17)
   %9 = load i32, ptr %ec, align 4
   %cmp71 = icmp eq i32 %9, 0
@@ -4331,11 +4331,11 @@ if.end75:                                         ; preds = %if.end70, %if.then7
 if.then78:                                        ; preds = %if.end75
   %12 = load i32, ptr %resLen, align 4
   %cmp79 = icmp sge i32 %12, %buffCapacity
-  %brmerge = select i1 %cmp79, i1 true, i1 %matchFound.3
+  %brmerge = select i1 %cmp79, i1 true, i1 %matchFound.0
   br i1 %brmerge, label %return, label %if.then82
 
 if.then82:                                        ; preds = %if.then78
-  %call83 = call ptr @u_strcpy_75(ptr noundef %buff, ptr noundef %s.1)
+  %call83 = call ptr @u_strcpy_75(ptr noundef %buff, ptr noundef %s.0)
   br label %if.end86
 
 if.end86:                                         ; preds = %if.then82, %if.end75
@@ -4647,13 +4647,13 @@ if.then5:                                         ; preds = %if.then
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then5, %if.then
-  %code.0 = phi i32 [ 0, %if.then ], [ %spec.select, %if.then5 ]
+  %code.1 = phi i32 [ 0, %if.then ], [ %spec.select, %if.then5 ]
   call void @ures_close_75(ptr noundef %call1)
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end15, %land.lhs.true, %entry
-  %code.1 = phi i32 [ %code.0, %if.end15 ], [ 0, %land.lhs.true ], [ 0, %entry ]
-  ret i32 %code.1
+  %code.0 = phi i32 [ %code.1, %if.end15 ], [ 0, %land.lhs.true ], [ 0, %entry ]
+  ret i32 %code.0
 }
 
 declare i32 @ures_getInt_75(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -5128,7 +5128,7 @@ if.end4.i.i.i.i:                                  ; preds = %call8.i.i41.i.noexc
   br label %invoke.cont5.i.i.i
 
 invoke.cont5.i.i.i:                               ; preds = %if.end4.i.i.i.i, %call8.i.i41.i.noexc.i.i, %if.then.i.i.i.i.i, %call.i.i40.i.noexc.i.i
-  %leftIter.sroa.6.0.i.i.i = phi ptr [ %exemplar.i.i, %call.i.i40.i.noexc.i.i ], [ %call.i.i40.i16.i.i, %if.end4.i.i.i.i ], [ %exemplar.i.i, %call8.i.i41.i.noexc.i.i ], [ %exemplar.i.i, %if.then.i.i.i.i.i ]
+  %leftIter.sroa.6.1.i.i.i = phi ptr [ %exemplar.i.i, %call.i.i40.i.noexc.i.i ], [ %call.i.i40.i16.i.i, %if.end4.i.i.i.i ], [ %exemplar.i.i, %call8.i.i41.i.noexc.i.i ], [ %exemplar.i.i, %if.then.i.i.i.i.i ]
   %retval.0.i39.i.i.i = phi ptr [ null, %call.i.i40.i.noexc.i.i ], [ %call.i.i40.i16.i.i, %if.end4.i.i.i.i ], [ null, %call8.i.i41.i.noexc.i.i ], [ null, %if.then.i.i.i.i.i ]
   %35 = load ptr, ptr %call.i, align 8
   %call.i.i72.i18.i.i = invoke noundef ptr @uhash_get_75(ptr noundef %35, ptr noundef nonnull %value.i.i)
@@ -5185,7 +5185,7 @@ _ZN6icu_7513EquivIterator4nextEv.exit75.i.i.i:    ; preds = %call8.i.i74.i.noexc
 while.body.i.i.i:                                 ; preds = %_ZN6icu_7513EquivIterator4nextEv.exit75.i.i.i, %while.body.i.i.i.backedge
   %nextLeft.0244.i.i.i = phi ptr [ %retval.0.i141.i.i.i, %while.body.i.i.i.backedge ], [ %retval.0.i39.i.i.i, %_ZN6icu_7513EquivIterator4nextEv.exit75.i.i.i ]
   %nextRight.0243.i.i.i = phi ptr [ %call.i.i194.i24.i.i, %while.body.i.i.i.backedge ], [ %call.i.i72.i18.i.i, %_ZN6icu_7513EquivIterator4nextEv.exit75.i.i.i ]
-  %leftIter.sroa.6.1242.i.i.i = phi ptr [ %leftIter.sroa.6.2.i.i.i, %while.body.i.i.i.backedge ], [ %leftIter.sroa.6.0.i.i.i, %_ZN6icu_7513EquivIterator4nextEv.exit75.i.i.i ]
+  %leftIter.sroa.6.0242.i.i.i = phi ptr [ %leftIter.sroa.6.2.i.i.i, %while.body.i.i.i.backedge ], [ %leftIter.sroa.6.1.i.i.i, %_ZN6icu_7513EquivIterator4nextEv.exit75.i.i.i ]
   %fUnion.i.i76.i.i.i = getelementptr inbounds i8, ptr %nextLeft.0244.i.i.i, i64 8
   %43 = load i16, ptr %fUnion.i.i76.i.i.i, align 8
   %conv2.i14.i77.i.i.i = and i16 %43, 1
@@ -5267,7 +5267,7 @@ call8.i126128.i.noexc.i.i:                        ; preds = %land.rhs.i125.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %call8.i126128.i.noexc.i.i, %if.else.i111.i.i.i, %if.then.i106.i.i.i
   %57 = load ptr, ptr %call.i, align 8
-  %call.i.i160.i22.i.i = invoke noundef ptr @uhash_get_75(ptr noundef %57, ptr noundef nonnull %leftIter.sroa.6.1242.i.i.i)
+  %call.i.i160.i22.i.i = invoke noundef ptr @uhash_get_75(ptr noundef %57, ptr noundef nonnull %leftIter.sroa.6.0242.i.i.i)
           to label %call.i.i160.i.noexc.i.i unwind label %lpad15.loopexit.i.i
 
 call.i.i160.i.noexc.i.i:                          ; preds = %if.end15.i.i.i
@@ -5318,7 +5318,7 @@ if.end4.i142.i.i.i:                               ; preds = %call8.i.i162.i.noex
   br label %invoke.cont16.i.i.i
 
 invoke.cont16.i.i.i:                              ; preds = %if.end4.i142.i.i.i, %call8.i.i162.i.noexc.i.i, %if.then.i.i137.i.i.i, %call.i.i160.i.noexc.i.i
-  %leftIter.sroa.6.2.i.i.i = phi ptr [ %leftIter.sroa.6.1242.i.i.i, %call.i.i160.i.noexc.i.i ], [ %call.i.i160.i22.i.i, %if.end4.i142.i.i.i ], [ %leftIter.sroa.6.1242.i.i.i, %call8.i.i162.i.noexc.i.i ], [ %leftIter.sroa.6.1242.i.i.i, %if.then.i.i137.i.i.i ]
+  %leftIter.sroa.6.2.i.i.i = phi ptr [ %leftIter.sroa.6.0242.i.i.i, %call.i.i160.i.noexc.i.i ], [ %call.i.i160.i22.i.i, %if.end4.i142.i.i.i ], [ %leftIter.sroa.6.0242.i.i.i, %call8.i.i162.i.noexc.i.i ], [ %leftIter.sroa.6.0242.i.i.i, %if.then.i.i137.i.i.i ]
   %retval.0.i141.i.i.i = phi ptr [ null, %call.i.i160.i.noexc.i.i ], [ %call.i.i160.i22.i.i, %if.end4.i142.i.i.i ], [ null, %call8.i.i162.i.noexc.i.i ], [ null, %if.then.i.i137.i.i.i ]
   %65 = load ptr, ptr %call.i, align 8
   %call.i.i194.i24.i.i = invoke noundef ptr @uhash_get_75(ptr noundef %65, ptr noundef nonnull %nextRight.0243.i.i.i)

@@ -2296,7 +2296,7 @@ _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %253, %.n
 
 310:                                              ; preds = %.lr.ph, %_ZL14accumulate_rgbPA3_fiiffff.exit
   %.0138244 = phi i32 [ %.0.i180254, %.lr.ph ], [ %515, %_ZL14accumulate_rgbPA3_fiiffff.exit ]
-  %.0139243 = phi i32 [ -1, %.lr.ph ], [ %.2, %_ZL14accumulate_rgbPA3_fiiffff.exit ]
+  %.0139243 = phi i32 [ -1, %.lr.ph ], [ %.1140, %_ZL14accumulate_rgbPA3_fiiffff.exit ]
   %311 = load ptr, ptr getelementptr inbounds (i8, ptr @cfile, i64 280), align 8
   %312 = invoke ptr @frame_data_sequence_find(ptr noundef %311, i32 noundef %.0138244)
           to label %313 unwind label %.loopexit
@@ -2369,7 +2369,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit185:  ; preds = %313
           to label %345 unwind label %.loopexit
 
 345:                                              ; preds = %344, %336
-  %.1140 = phi i32 [ %.0139243, %336 ], [ -1, %344 ]
+  %.2 = phi i32 [ %.0139243, %336 ], [ -1, %344 ]
   %346 = fcmp ult float %341, %292
   br i1 %346, label %347, label %._crit_edge
 
@@ -2658,7 +2658,7 @@ _ZL14accumulate_rgbPA3_fiiffff.exit198:           ; preds = %.lr.ph.i193
   br i1 %exitcond.not.i207, label %_ZL14accumulate_rgbPA3_fiiffff.exit, label %.lr.ph.i203, !llvm.loop !14
 
 _ZL14accumulate_rgbPA3_fiiffff.exit:              ; preds = %.lr.ph.i203, %.lr.ph.i187, %499, %355, %347, %320, %332, %_ZN16WirelessTimeline14get_wlan_radioEj.exit185
-  %.2 = phi i32 [ %.0139243, %_ZN16WirelessTimeline14get_wlan_radioEj.exit185 ], [ %.0139243, %320 ], [ %.0139243, %332 ], [ %.1140, %347 ], [ %.1140, %355 ], [ -1, %499 ], [ %343, %.lr.ph.i187 ], [ %501, %.lr.ph.i203 ]
+  %.1140 = phi i32 [ %.0139243, %_ZN16WirelessTimeline14get_wlan_radioEj.exit185 ], [ %.0139243, %320 ], [ %.0139243, %332 ], [ %.2, %347 ], [ %.2, %355 ], [ -1, %499 ], [ %343, %.lr.ph.i187 ], [ %501, %.lr.ph.i203 ]
   %515 = add i32 %.0138244, 1
   %516 = load i32, ptr getelementptr inbounds (i8, ptr @cfile, i64 80), align 8
   %.not161 = icmp ugt i32 %515, %516

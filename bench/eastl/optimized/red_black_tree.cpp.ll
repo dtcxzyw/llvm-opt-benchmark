@@ -18,22 +18,22 @@ while.cond:                                       ; preds = %entry, %while.cond
   br i1 %tobool2.not, label %if.end12, label %while.cond, !llvm.loop !5
 
 while.cond4:                                      ; preds = %entry, %while.cond4
-  %pNode.addr.1 = phi ptr [ %pNodeTemp.0, %while.cond4 ], [ %pNode, %entry ]
-  %pNodeTemp.0.in = getelementptr inbounds i8, ptr %pNode.addr.1, i64 16
+  %pNode.addr.2 = phi ptr [ %pNodeTemp.0, %while.cond4 ], [ %pNode, %entry ]
+  %pNodeTemp.0.in = getelementptr inbounds i8, ptr %pNode.addr.2, i64 16
   %pNodeTemp.0 = load ptr, ptr %pNodeTemp.0.in, align 8
   %2 = load ptr, ptr %pNodeTemp.0, align 8
-  %cmp = icmp eq ptr %pNode.addr.1, %2
+  %cmp = icmp eq ptr %pNode.addr.2, %2
   br i1 %cmp, label %while.cond4, label %while.end8, !llvm.loop !7
 
 while.end8:                                       ; preds = %while.cond4
-  %3 = load ptr, ptr %pNode.addr.1, align 8
+  %3 = load ptr, ptr %pNode.addr.2, align 8
   %cmp10.not = icmp eq ptr %3, %pNodeTemp.0
-  %spec.select = select i1 %cmp10.not, ptr %pNode.addr.1, ptr %pNodeTemp.0
+  %spec.select = select i1 %cmp10.not, ptr %pNode.addr.2, ptr %pNodeTemp.0
   br label %if.end12
 
 if.end12:                                         ; preds = %while.cond, %while.end8
-  %pNode.addr.2 = phi ptr [ %spec.select, %while.end8 ], [ %pNode.addr.0, %while.cond ]
-  ret ptr %pNode.addr.2
+  %pNode.addr.1 = phi ptr [ %spec.select, %while.end8 ], [ %pNode.addr.0, %while.cond ]
+  ret ptr %pNode.addr.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -107,8 +107,8 @@ for.inc:                                          ; preds = %for.body
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.inc, %for.body, %entry
-  %nCount.2 = phi i64 [ 0, %entry ], [ %spec.select, %for.body ], [ %spec.select, %for.inc ]
-  ret i64 %nCount.2
+  %nCount.1 = phi i64 [ 0, %entry ], [ %spec.select, %for.body ], [ %spec.select, %for.inc ]
+  ret i64 %nCount.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -233,7 +233,7 @@ if.end19:                                         ; preds = %if.end19.sink.split
 
 land.rhs:                                         ; preds = %if.end19, %if.end80
   %3 = phi ptr [ %31, %if.end80 ], [ %2, %if.end19 ]
-  %pNode.addr.0104 = phi ptr [ %pNode.addr.3, %if.end80 ], [ %pNode, %if.end19 ]
+  %pNode.addr.0104 = phi ptr [ %pNode.addr.2, %if.end80 ], [ %pNode, %if.end19 ]
   %mpNodeParent21 = getelementptr inbounds i8, ptr %pNode.addr.0104, i64 16
   %4 = load ptr, ptr %mpNodeParent21, align 8
   %mColor22 = getelementptr inbounds i8, ptr %4, i64 24
@@ -410,7 +410,7 @@ _ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit88: ; preds = %if.en
 
 if.end74:                                         ; preds = %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit88, %if.else67
   %25 = phi ptr [ %.pre106, %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit88 ], [ %4, %if.else67 ]
-  %pNode.addr.2 = phi ptr [ %4, %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit88 ], [ %pNode.addr.0104, %if.else67 ]
+  %pNode.addr.3 = phi ptr [ %4, %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit88 ], [ %pNode.addr.0104, %if.else67 ]
   %mColor76 = getelementptr inbounds i8, ptr %25, i64 24
   store i8 1, ptr %mColor76, align 8
   %mColor77 = getelementptr inbounds i8, ptr %6, i64 24
@@ -452,9 +452,9 @@ _ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit102: ; preds = %if.en
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then62, %_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit102, %if.then34, %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit
-  %pNode.addr.3 = phi ptr [ %6, %if.then34 ], [ %pNode.addr.1, %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit ], [ %6, %if.then62 ], [ %pNode.addr.2, %_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit102 ]
+  %pNode.addr.2 = phi ptr [ %6, %if.then34 ], [ %pNode.addr.1, %_ZN5eastl17RBTreeRotateRightEPNS_16rbtree_node_baseES1_.exit ], [ %6, %if.then62 ], [ %pNode.addr.3, %_ZN5eastl16RBTreeRotateLeftEPNS_16rbtree_node_baseES1_.exit102 ]
   %31 = load ptr, ptr %mpNodeParent, align 8
-  %cmp20.not = icmp eq ptr %pNode.addr.3, %31
+  %cmp20.not = icmp eq ptr %pNode.addr.2, %31
   br i1 %cmp20.not, label %while.end, label %land.rhs, !llvm.loop !11
 
 while.end:                                        ; preds = %land.rhs, %if.end80, %if.end19
@@ -485,21 +485,21 @@ if.then14.thread:                                 ; preds = %if.else
   br label %if.then17
 
 while.cond:                                       ; preds = %if.else, %while.cond
-  %pNodeSuccessor.0 = phi ptr [ %3, %while.cond ], [ %1, %if.else ]
-  %mpNodeLeft9 = getelementptr inbounds i8, ptr %pNodeSuccessor.0, i64 8
+  %pNodeSuccessor.1 = phi ptr [ %3, %while.cond ], [ %1, %if.else ]
+  %mpNodeLeft9 = getelementptr inbounds i8, ptr %pNodeSuccessor.1, i64 8
   %3 = load ptr, ptr %mpNodeLeft9, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end12, label %while.cond, !llvm.loop !12
 
 if.end12:                                         ; preds = %while.cond
-  %4 = load ptr, ptr %pNodeSuccessor.0, align 8
-  %cmp13 = icmp eq ptr %pNodeSuccessor.0, %pNode
+  %4 = load ptr, ptr %pNodeSuccessor.1, align 8
+  %cmp13 = icmp eq ptr %pNodeSuccessor.1, %pNode
   br i1 %cmp13, label %if.then14, label %if.else57
 
 if.then14:                                        ; preds = %entry, %if.end12
   %pNodeChild.0225 = phi ptr [ %4, %if.end12 ], [ %1, %entry ]
-  %pNodeSuccessor.1224 = phi ptr [ %pNodeSuccessor.0, %if.end12 ], [ %pNode, %entry ]
-  %mpNodeParent15 = getelementptr inbounds i8, ptr %pNodeSuccessor.1224, i64 16
+  %pNodeSuccessor.0224 = phi ptr [ %pNodeSuccessor.1, %if.end12 ], [ %pNode, %entry ]
+  %mpNodeParent15 = getelementptr inbounds i8, ptr %pNodeSuccessor.0224, i64 16
   %5 = load ptr, ptr %mpNodeParent15, align 8
   %tobool16.not = icmp eq ptr %pNodeChild.0225, null
   br i1 %tobool16.not, label %if.end20, label %if.then17
@@ -586,17 +586,17 @@ if.else53:                                        ; preds = %if.then46
   br label %if.end94
 
 if.else57:                                        ; preds = %if.end12
-  %mpNodeLeft9.le = getelementptr inbounds i8, ptr %pNodeSuccessor.0, i64 8
+  %mpNodeLeft9.le = getelementptr inbounds i8, ptr %pNodeSuccessor.1, i64 8
   %mpNodeParent59 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %pNodeSuccessor.0, ptr %mpNodeParent59, align 8
+  store ptr %pNodeSuccessor.1, ptr %mpNodeParent59, align 8
   %19 = load ptr, ptr %mpNodeLeft1, align 8
   store ptr %19, ptr %mpNodeLeft9.le, align 8
   %20 = load ptr, ptr %pNode, align 8
-  %cmp63 = icmp eq ptr %pNodeSuccessor.0, %20
+  %cmp63 = icmp eq ptr %pNodeSuccessor.1, %20
   br i1 %cmp63, label %if.end76, label %if.else65
 
 if.else65:                                        ; preds = %if.else57
-  %mpNodeParent66 = getelementptr inbounds i8, ptr %pNodeSuccessor.0, i64 16
+  %mpNodeParent66 = getelementptr inbounds i8, ptr %pNodeSuccessor.1, i64 16
   %21 = load ptr, ptr %mpNodeParent66, align 8
   %tobool67.not = icmp eq ptr %4, null
   br i1 %tobool67.not, label %if.end70, label %if.then68
@@ -610,13 +610,13 @@ if.end70:                                         ; preds = %if.then68, %if.else
   %mpNodeLeft71 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %4, ptr %mpNodeLeft71, align 8
   %22 = load ptr, ptr %pNode, align 8
-  store ptr %22, ptr %pNodeSuccessor.0, align 8
+  store ptr %22, ptr %pNodeSuccessor.1, align 8
   %mpNodeParent75 = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr %pNodeSuccessor.0, ptr %mpNodeParent75, align 8
+  store ptr %pNodeSuccessor.1, ptr %mpNodeParent75, align 8
   br label %if.end76
 
 if.end76:                                         ; preds = %if.else57, %if.end70
-  %pNodeChildParent.0 = phi ptr [ %21, %if.end70 ], [ %pNodeSuccessor.0, %if.else57 ]
+  %pNodeChildParent.1 = phi ptr [ %21, %if.end70 ], [ %pNodeSuccessor.1, %if.else57 ]
   %23 = load ptr, ptr %mpNodeParent, align 8
   %cmp77 = icmp eq ptr %23, %pNode
   br i1 %cmp77, label %if.end90, label %if.else79
@@ -632,12 +632,12 @@ if.else79:                                        ; preds = %if.end76
 
 if.end90:                                         ; preds = %if.else79, %if.end76
   %mpNodeLeft81.sink = phi ptr [ %mpNodeParent, %if.end76 ], [ %mpNodeLeft81., %if.else79 ]
-  store ptr %pNodeSuccessor.0, ptr %mpNodeLeft81.sink, align 8
+  store ptr %pNodeSuccessor.1, ptr %mpNodeLeft81.sink, align 8
   %mpNodeParent91 = getelementptr inbounds i8, ptr %pNode, i64 16
   %26 = load ptr, ptr %mpNodeParent91, align 8
-  %mpNodeParent92 = getelementptr inbounds i8, ptr %pNodeSuccessor.0, i64 16
+  %mpNodeParent92 = getelementptr inbounds i8, ptr %pNodeSuccessor.1, i64 16
   store ptr %26, ptr %mpNodeParent92, align 8
-  %mColor = getelementptr inbounds i8, ptr %pNodeSuccessor.0, i64 24
+  %mColor = getelementptr inbounds i8, ptr %pNodeSuccessor.1, i64 24
   %mColor93 = getelementptr inbounds i8, ptr %pNode, i64 24
   %27 = load i8, ptr %mColor, align 1
   %28 = load i8, ptr %mColor93, align 1
@@ -647,7 +647,7 @@ if.end90:                                         ; preds = %if.else79, %if.end7
 
 if.end94:                                         ; preds = %if.end44, %if.else53, %_ZN5eastl17RBTreeGetMaxChildEPKNS_16rbtree_node_baseE.exit, %if.end90
   %pNodeChild.0226 = phi ptr [ %pNodeChild.0225232, %_ZN5eastl17RBTreeGetMaxChildEPKNS_16rbtree_node_baseE.exit ], [ %pNodeChild.0225232, %if.else53 ], [ %pNodeChild.0225232, %if.end44 ], [ %4, %if.end90 ]
-  %pNodeChildParent.1 = phi ptr [ %7, %_ZN5eastl17RBTreeGetMaxChildEPKNS_16rbtree_node_baseE.exit ], [ %7, %if.else53 ], [ %7, %if.end44 ], [ %pNodeChildParent.0, %if.end90 ]
+  %pNodeChildParent.0 = phi ptr [ %7, %_ZN5eastl17RBTreeGetMaxChildEPKNS_16rbtree_node_baseE.exit ], [ %7, %if.else53 ], [ %7, %if.end44 ], [ %pNodeChildParent.1, %if.end90 ]
   %mColor95 = getelementptr inbounds i8, ptr %pNode, i64 24
   %29 = load i8, ptr %mColor95, align 8
   %cmp96 = icmp eq i8 %29, 1
@@ -659,7 +659,7 @@ while.cond98.preheader:                           ; preds = %if.end94
   br i1 %cmp99.not247, label %while.end218, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond98.preheader, %if.end217
-  %pNodeChildParent.2249 = phi ptr [ %pNodeChildParent.3, %if.end217 ], [ %pNodeChildParent.1, %while.cond98.preheader ]
+  %pNodeChildParent.2249 = phi ptr [ %pNodeChildParent.3, %if.end217 ], [ %pNodeChildParent.0, %while.cond98.preheader ]
   %pNodeChild.1248 = phi ptr [ %pNodeChildParent.2249, %if.end217 ], [ %pNodeChild.0226, %while.cond98.preheader ]
   %cmp100 = icmp eq ptr %pNodeChild.1248, null
   br i1 %cmp100, label %while.body104, label %lor.rhs

@@ -269,7 +269,7 @@ if.else20:                                        ; preds = %if.else11
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else20, %if.then13
-  %char_offset.0 = phi i64 [ %inc18, %if.then13 ], [ %inc31, %if.else20 ]
+  %char_offset.2 = phi i64 [ %inc18, %if.then13 ], [ %inc31, %if.else20 ]
   %shr34 = lshr i32 %code_point, 6
   %6 = trunc i32 %shr34 to i8
   %7 = and i8 %6, 63
@@ -277,19 +277,19 @@ if.end33:                                         ; preds = %if.else20, %if.then
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end33, %if.then6
-  %char_offset.0.sink = phi i64 [ %char_offset.0, %if.end33 ], [ %call, %if.then6 ]
+  %char_offset.2.sink = phi i64 [ %char_offset.2, %if.end33 ], [ %call, %if.then6 ]
   %conv37.sink = phi i8 [ %conv37, %if.end33 ], [ %conv7, %if.then6 ]
   %call38 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef 0)
-  %arrayidx40 = getelementptr inbounds i8, ptr %call38, i64 %char_offset.0.sink
+  %arrayidx40 = getelementptr inbounds i8, ptr %call38, i64 %char_offset.2.sink
   store i8 %conv37.sink, ptr %arrayidx40, align 1
   %8 = trunc i32 %code_point to i8
   %9 = and i8 %8, 63
   %conv44 = or disjoint i8 %9, -128
   %call45 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef 0)
-  %10 = getelementptr i8, ptr %call45, i64 %char_offset.0.sink
+  %10 = getelementptr i8, ptr %call45, i64 %char_offset.2.sink
   %arrayidx47 = getelementptr i8, ptr %10, i64 1
   store i8 %conv44, ptr %arrayidx47, align 1
-  %inc46 = add i64 %char_offset.0.sink, 2
+  %inc46 = add i64 %char_offset.2.sink, 2
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %output, i64 noundef %inc46)
   %sub = sub i64 %inc46, %call
   br label %return

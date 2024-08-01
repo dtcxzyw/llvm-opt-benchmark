@@ -159,10 +159,10 @@ if.then:                                          ; preds = %land.lhs.true
 
 for.body:                                         ; preds = %if.then, %for.inc
   %i.066 = phi i64 [ %inc, %for.inc ], [ 1, %if.then ]
-  %remaining.065 = phi i64 [ %7, %for.inc ], [ %conv, %if.then ]
+  %remaining.165 = phi i64 [ %7, %for.inc ], [ %conv, %if.then ]
   %add.ptr.i = getelementptr inbounds i64, ptr %2, i64 %i.066
   %4 = load i64, ptr %add.ptr.i, align 8
-  %5 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %remaining.065, i64 %4)
+  %5 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %remaining.165, i64 %4)
   %6 = extractvalue { i64, i1 } %5, 1
   br i1 %6, label %if.then7, label %for.inc
 
@@ -177,8 +177,8 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond.not, label %if.end8, label %for.body, !llvm.loop !4
 
 if.end8:                                          ; preds = %for.inc, %if.then
-  %remaining.0.lcssa = phi i64 [ %conv, %if.then ], [ %7, %for.inc ]
-  %cmp9 = icmp eq i64 %remaining.0.lcssa, 0
+  %remaining.1.lcssa = phi i64 [ %conv, %if.then ], [ %7, %for.inc ]
+  %cmp9 = icmp eq i64 %remaining.1.lcssa, 0
   br i1 %cmp9, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %land.lhs.true, %entry, %if.end8
@@ -197,7 +197,7 @@ if.end13:                                         ; preds = %if.end8
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end13
-  store i64 %remaining.0.lcssa, ptr %8, align 8
+  store i64 %remaining.1.lcssa, ptr %8, align 8
   %10 = load ptr, ptr %_M_finish.i19, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %10, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i19, align 8
@@ -233,7 +233,7 @@ cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIlSaIl
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i
   %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i ]
   %add.ptr.i.i = getelementptr inbounds i64, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
-  store i64 %remaining.0.lcssa, ptr %add.ptr.i.i, align 8
+  store i64 %remaining.1.lcssa, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit17.i.i
 
@@ -265,7 +265,7 @@ _ZNSt6vectorIlSaIlEE9push_backERKl.exit:          ; preds = %if.then.i, %_ZNSt6v
 for.body17:                                       ; preds = %_ZNSt6vectorIlSaIlEE9push_backERKl.exit, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit54
   %14 = phi ptr [ %21, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit54 ], [ %13, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
   %i14.069 = phi i64 [ %inc20, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit54 ], [ 1, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
-  %remaining.268 = phi i64 [ %div, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit54 ], [ %remaining.0.lcssa, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
+  %remaining.268 = phi i64 [ %div, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit54 ], [ %remaining.1.lcssa, %_ZNSt6vectorIlSaIlEE9push_backERKl.exit ]
   %15 = load ptr, ptr %shape, align 8
   %add.ptr.i20 = getelementptr inbounds i64, ptr %15, i64 %i14.069
   %16 = load i64, ptr %add.ptr.i20, align 8
@@ -382,10 +382,10 @@ if.then:                                          ; preds = %land.lhs.true
 
 for.body:                                         ; preds = %if.then, %for.inc
   %i.070 = phi i64 [ %inc, %for.inc ], [ 0, %if.then ]
-  %total.069 = phi i64 [ %7, %for.inc ], [ %conv, %if.then ]
+  %total.169 = phi i64 [ %7, %for.inc ], [ %conv, %if.then ]
   %add.ptr.i = getelementptr inbounds i64, ptr %2, i64 %i.070
   %4 = load i64, ptr %add.ptr.i, align 8
-  %5 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %total.069, i64 %4)
+  %5 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %total.169, i64 %4)
   %6 = extractvalue { i64, i1 } %5, 1
   br i1 %6, label %if.then7, label %for.inc
 

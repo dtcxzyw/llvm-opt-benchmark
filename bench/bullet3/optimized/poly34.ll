@@ -961,9 +961,9 @@ if.end52:                                         ; preds = %for.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end76
   %cnt.1 = phi i32 [ %inc58, %if.end76 ], [ 10, %do.body.preheader ]
-  %x0.3 = phi float [ %x0.3.x2.3, %if.end76 ], [ %x0.1.div, %do.body.preheader ]
-  %x1.3 = phi float [ %x2.3.x1.3, %if.end76 ], [ %div.x1.1, %do.body.preheader ]
-  %x2.2 = phi float [ %x2.4, %if.end76 ], [ %div, %do.body.preheader ]
+  %x0.3 = phi float [ %x0.3.x2.4, %if.end76 ], [ %x0.1.div, %do.body.preheader ]
+  %x1.3 = phi float [ %x2.4.x1.3, %if.end76 ], [ %div.x1.1, %do.body.preheader ]
+  %x2.2 = phi float [ %x2.5, %if.end76 ], [ %div, %do.body.preheader ]
   %dx.0 = phi float [ %dx.1, %if.end76 ], [ 0.000000e+00, %do.body.preheader ]
   %inc58 = add nuw nsw i32 %cnt.1, 1
   %exitcond102 = icmp eq i32 %cnt.1, 51
@@ -975,36 +975,36 @@ if.end61:                                         ; preds = %do.body
   %or.cond = select i1 %cmp62, i1 %cmp63, i1 false
   %add65 = fadd float %x0.3, %x1.3
   %div66 = fmul float %add65, 5.000000e-01
-  %x2.3 = select i1 %or.cond, float %x2.2, float %div66
-  %add68 = fadd float %x2.3, %a
-  %19 = tail call float @llvm.fmuladd.f32(float %add68, float %x2.3, float %b)
-  %20 = tail call float @llvm.fmuladd.f32(float %19, float %x2.3, float %c)
-  %21 = tail call float @llvm.fmuladd.f32(float %20, float %x2.3, float %d)
-  %22 = tail call float @llvm.fmuladd.f32(float %21, float %x2.3, float %e)
+  %x2.4 = select i1 %or.cond, float %x2.2, float %div66
+  %add68 = fadd float %x2.4, %a
+  %19 = tail call float @llvm.fmuladd.f32(float %add68, float %x2.4, float %b)
+  %20 = tail call float @llvm.fmuladd.f32(float %19, float %x2.4, float %c)
+  %21 = tail call float @llvm.fmuladd.f32(float %20, float %x2.4, float %d)
+  %22 = tail call float @llvm.fmuladd.f32(float %21, float %x2.4, float %e)
   %23 = tail call noundef float @llvm.fabs.f32(float %22)
   %cmp74 = fcmp olt float %23, 0x3E80000000000000
   br i1 %cmp74, label %return, label %if.end76
 
 if.end76:                                         ; preds = %if.end61
   %cmp77 = fcmp ogt float %22, 0.000000e+00
-  %x0.3.x2.3 = select i1 %cmp77, float %x0.3, float %x2.3
-  %x2.3.x1.3 = select i1 %cmp77, float %x2.3, float %x1.3
-  %24 = tail call float @llvm.fmuladd.f32(float %x2.3, float 5.000000e+00, float %mul82)
-  %25 = tail call float @llvm.fmuladd.f32(float %24, float %x2.3, float %mul84)
-  %26 = tail call float @llvm.fmuladd.f32(float %25, float %x2.3, float %mul86)
-  %27 = tail call float @llvm.fmuladd.f32(float %26, float %x2.3, float %d)
+  %x0.3.x2.4 = select i1 %cmp77, float %x0.3, float %x2.4
+  %x2.4.x1.3 = select i1 %cmp77, float %x2.4, float %x1.3
+  %24 = tail call float @llvm.fmuladd.f32(float %x2.4, float 5.000000e+00, float %mul82)
+  %25 = tail call float @llvm.fmuladd.f32(float %24, float %x2.4, float %mul84)
+  %26 = tail call float @llvm.fmuladd.f32(float %25, float %x2.4, float %mul86)
+  %27 = tail call float @llvm.fmuladd.f32(float %26, float %x2.4, float %d)
   %28 = tail call noundef float @llvm.fabs.f32(float %27)
   %cmp89 = fcmp olt float %28, 0x3E80000000000000
   %div92 = fdiv float %22, %27
-  %sub = fsub float %x2.3, %div92
-  %x2.4 = select i1 %cmp89, float 0x7FF0000000000000, float %sub
+  %sub = fsub float %x2.4, %div92
+  %x2.5 = select i1 %cmp89, float 0x7FF0000000000000, float %sub
   %dx.1 = select i1 %cmp89, float %dx.0, float %div92
   %29 = tail call noundef float @llvm.fabs.f32(float %dx.1)
   %cmp94 = fcmp ogt float %29, 0x3E80000000000000
   br i1 %cmp94, label %do.body, label %return, !llvm.loop !9
 
 return:                                           ; preds = %for.body, %if.end76, %do.body, %if.end61, %if.end37, %if.end33, %entry
-  %retval.0 = phi float [ 0.000000e+00, %entry ], [ %x0.0, %if.end33 ], [ %x1.0, %if.end37 ], [ %x2.4, %if.end76 ], [ %x2.2, %do.body ], [ %x2.3, %if.end61 ], [ %div, %for.body ]
+  %retval.0 = phi float [ 0.000000e+00, %entry ], [ %x0.0, %if.end33 ], [ %x1.0, %if.end37 ], [ %x2.5, %if.end76 ], [ %x2.2, %do.body ], [ %x2.4, %if.end61 ], [ %div, %for.body ]
   ret float %retval.0
 }
 

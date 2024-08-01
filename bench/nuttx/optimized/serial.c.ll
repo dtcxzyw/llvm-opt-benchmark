@@ -230,17 +230,17 @@ define internal i32 @uart_open(ptr nocapture noundef readonly %0) #0 {
   br label %up_irq_restore.exit37
 
 up_irq_restore.exit37:                            ; preds = %52, %47, %14
-  %.027 = phi i32 [ %8, %14 ], [ %35, %47 ], [ %35, %52 ]
+  %.1 = phi i32 [ %8, %14 ], [ %35, %47 ], [ %35, %52 ]
   store i8 %12, ptr %6, align 8
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %46, %44, %29, %27, %10, %up_irq_restore.exit37
-  %.1 = phi i32 [ %.027, %up_irq_restore.exit37 ], [ -24, %10 ], [ %25, %27 ], [ %25, %29 ], [ %35, %44 ], [ %35, %46 ]
+  %.027 = phi i32 [ %.1, %up_irq_restore.exit37 ], [ -24, %10 ], [ %25, %27 ], [ %25, %29 ], [ %35, %44 ], [ %35, %46 ]
   %53 = call i32 @nxmutex_unlock(ptr noundef nonnull %7) #5
   br label %54
 
 54:                                               ; preds = %1, %up_irq_restore.exit
-  %.0 = phi i32 [ %.1, %up_irq_restore.exit ], [ %8, %1 ]
+  %.0 = phi i32 [ %.027, %up_irq_restore.exit ], [ %8, %1 ]
   ret i32 %.0
 }
 
@@ -391,7 +391,7 @@ define internal i64 @uart_read(ptr nocapture noundef readonly %0, ptr nocapture 
 
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %uart_putxmitchar.exit
   %.073.ph.ph234 = phi i1 [ false, %.lr.ph.lr.ph.lr.ph ], [ %.174, %uart_putxmitchar.exit ]
-  %.075.ph.ph233 = phi i64 [ 0, %.lr.ph.lr.ph.lr.ph ], [ %.176, %uart_putxmitchar.exit ]
+  %.075.ph.ph233 = phi i64 [ 0, %.lr.ph.lr.ph.lr.ph ], [ %.2, %uart_putxmitchar.exit ]
   %.078.ph.ph232 = phi ptr [ %1, %.lr.ph.lr.ph.lr.ph ], [ %.179, %uart_putxmitchar.exit ]
   br label %.lr.ph
 
@@ -811,9 +811,9 @@ up_irq_restore.exit122:                           ; preds = %201, %203
 
 uart_putxmitchar.exit:                            ; preds = %.split170, %up_irq_restore.exit.us.i, %up_irq_restore.exit.us.i116, %.split24.us.i111, %.split24.us.i, %up_irq_restore.exit120, %up_irq_restore.exit122, %.loopexit127
   %.179 = phi ptr [ %50, %.loopexit127 ], [ %.078.ph223, %up_irq_restore.exit120 ], [ %.078.ph223, %up_irq_restore.exit122 ], [ %50, %.split24.us.i ], [ %50, %.split24.us.i111 ], [ %50, %up_irq_restore.exit.us.i116 ], [ %50, %up_irq_restore.exit.us.i ], [ %50, %.split170 ]
-  %.176 = phi i64 [ %51, %.loopexit127 ], [ %.075.ph225, %up_irq_restore.exit120 ], [ %.075.ph225, %up_irq_restore.exit122 ], [ %51, %.split24.us.i ], [ %51, %.split24.us.i111 ], [ %51, %up_irq_restore.exit.us.i116 ], [ %51, %up_irq_restore.exit.us.i ], [ %51, %.split170 ]
+  %.2 = phi i64 [ %51, %.loopexit127 ], [ %.075.ph225, %up_irq_restore.exit120 ], [ %.075.ph225, %up_irq_restore.exit122 ], [ %51, %.split24.us.i ], [ %51, %.split24.us.i111 ], [ %51, %up_irq_restore.exit.us.i116 ], [ %51, %up_irq_restore.exit.us.i ], [ %51, %.split170 ]
   %.174 = phi i1 [ %.073.ph.ph234, %.loopexit127 ], [ %.073.ph.ph234, %up_irq_restore.exit120 ], [ %.073.ph.ph234, %up_irq_restore.exit122 ], [ true, %.split24.us.i ], [ true, %.split24.us.i111 ], [ true, %up_irq_restore.exit.us.i116 ], [ true, %up_irq_restore.exit.us.i ], [ %.073.ph.ph234, %.split170 ]
-  %207 = icmp ult i64 %.176, %2
+  %207 = icmp ult i64 %.2, %2
   br i1 %207, label %.lr.ph.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit.loopexit286.split.loop.exit319:         ; preds = %.outer.backedge
@@ -823,11 +823,11 @@ uart_putxmitchar.exit:                            ; preds = %.split170, %up_irq_
 
 .loopexit:                                        ; preds = %uart_putxmitchar.exit, %.lr.ph.split.us.split.us, %170, %173, %60, %.loopexit.loopexit286.split.loop.exit319
   %.073.ph.ph156 = phi i1 [ %.073.ph.ph234, %.loopexit.loopexit286.split.loop.exit319 ], [ %.073.ph.ph234, %60 ], [ %.073.ph.ph234, %173 ], [ %.073.ph.ph234, %170 ], [ %.073.ph.ph234, %.lr.ph.split.us.split.us ], [ %.174, %uart_putxmitchar.exit ]
-  %.2 = phi i64 [ %umax.le, %.loopexit.loopexit286.split.loop.exit319 ], [ %.075.ph225, %60 ], [ -77, %170 ], [ -11, %173 ], [ %.075.ph225, %.lr.ph.split.us.split.us ], [ %.176, %uart_putxmitchar.exit ]
+  %.176 = phi i64 [ %umax.le, %.loopexit.loopexit286.split.loop.exit319 ], [ %.075.ph225, %60 ], [ -77, %170 ], [ -11, %173 ], [ %.075.ph225, %.lr.ph.split.us.split.us ], [ %.2, %uart_putxmitchar.exit ]
   br i1 %.073.ph.ph156, label %209, label %.loopexit.thread
 
 209:                                              ; preds = %198, %.loopexit
-  %.2281 = phi i64 [ %spec.select95, %198 ], [ %.2, %.loopexit ]
+  %.176281 = phi i64 [ %spec.select95, %198 ], [ %.176, %.loopexit ]
   %210 = getelementptr inbounds i8, ptr %11, i64 272
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds i8, ptr %211, i64 72
@@ -836,7 +836,7 @@ uart_putxmitchar.exit:                            ; preds = %.split170, %up_irq_
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %198, %209, %.loopexit
-  %.2280 = phi i64 [ %.2281, %209 ], [ %.2, %.loopexit ], [ %spec.select95, %198 ], [ 0, %.preheader ]
+  %.176280 = phi i64 [ %.176281, %209 ], [ %.176, %.loopexit ], [ %spec.select95, %198 ], [ 0, %.preheader ]
   %214 = getelementptr inbounds i8, ptr %11, i64 272
   %215 = load ptr, ptr %214, align 8
   %216 = getelementptr inbounds i8, ptr %215, i64 48
@@ -846,7 +846,7 @@ uart_putxmitchar.exit:                            ; preds = %.split170, %up_irq_
   br label %219
 
 219:                                              ; preds = %.loopexit.thread, %29
-  %.077 = phi i64 [ %30, %29 ], [ %.2280, %.loopexit.thread ]
+  %.077 = phi i64 [ %30, %29 ], [ %.176280, %.loopexit.thread ]
   ret i64 %.077
 }
 
@@ -897,8 +897,8 @@ define internal i64 @uart_write(ptr nocapture noundef readonly %0, ptr nocapture
   %26 = and i32 %22, 8
   %.not17.i = icmp eq i32 %26, 0
   %spec.select.i = select i1 %.not17.i, i32 13, i32 10
-  %.0.i = select i1 %25, i32 %spec.select.i, i32 %21
-  %27 = icmp eq i32 %.0.i, 10
+  %.1.i = select i1 %25, i32 %spec.select.i, i32 %21
+  %27 = icmp eq i32 %.1.i, 10
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %24
@@ -921,7 +921,7 @@ uart_putc.exit.i:                                 ; preds = %.preheader.i
   br label %37
 
 37:                                               ; preds = %uart_putc.exit.i, %28, %24, %18
-  %.1.i = phi i32 [ 10, %uart_putc.exit.i ], [ 10, %28 ], [ %.0.i, %24 ], [ %21, %18 ]
+  %.0.i = phi i32 [ 10, %uart_putc.exit.i ], [ 10, %28 ], [ %.1.i, %24 ], [ %21, %18 ]
   br label %38
 
 38:                                               ; preds = %38, %37
@@ -935,7 +935,7 @@ uart_putc.exit19.i:                               ; preds = %38
   %43 = load ptr, ptr %17, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 64
   %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull %10, i32 noundef %.1.i) #5
+  call void %45(ptr noundef nonnull %10, i32 noundef %.0.i) #5
   %46 = add i64 %.01321.i, -1
   %.not.i = icmp eq i64 %46, 0
   br i1 %.not.i, label %uart_irqwrite.exit, label %18, !llvm.loop !13
@@ -1079,7 +1079,7 @@ up_irq_restore.exit.us.i:                         ; preds = %104, %102
   br label %113
 
 113:                                              ; preds = %80, %75, %70, %.split24.us.i
-  %.1.ph = phi i8 [ 10, %.split24.us.i ], [ %72, %70 ], [ %72, %75 ], [ 10, %80 ]
+  %.040.ph = phi i8 [ 10, %.split24.us.i ], [ %72, %70 ], [ %72, %75 ], [ 10, %80 ]
   %114 = load volatile i16, ptr %65, align 8
   %115 = sext i16 %114 to i32
   %116 = add nsw i32 %115, 1
@@ -1150,7 +1150,7 @@ up_irq_restore.exit.us.i66:                       ; preds = %135, %133
   %142 = load volatile i16, ptr %65, align 8
   %143 = sext i16 %142 to i64
   %144 = getelementptr inbounds i8, ptr %141, i64 %143
-  store i8 %.1.ph, ptr %144, align 1
+  store i8 %.040.ph, ptr %144, align 1
   %145 = trunc i32 %spec.store.select.i56 to i16
   store volatile i16 %145, ptr %65, align 8
   %146 = add i64 %.04584, -1
@@ -1705,7 +1705,7 @@ define internal fastcc i32 @uart_tcdrain(ptr noundef %0, i64 noundef %1) unnamed
 
 .critedge:                                        ; preds = %15, %.lr.ph, %7
   %.not.lcssa = phi i1 [ %.not1, %7 ], [ %.not, %15 ], [ %.not2, %.lr.ph ]
-  %.022.lcssa = phi i32 [ 0, %7 ], [ %21, %.lr.ph ], [ %21, %15 ]
+  %.1.lcssa = phi i32 [ 0, %7 ], [ %21, %.lr.ph ], [ %21, %15 ]
   %26 = and i64 %8, 512
   %.not.i = icmp eq i64 %26, 0
   br i1 %.not.i, label %up_irq_restore.exit, label %27
@@ -1733,7 +1733,7 @@ up_irq_restore.exit:                              ; preds = %.critedge, %27
   br i1 %.not24, label %.preheader, label %.sink.split, !llvm.loop !17
 
 .sink.split:                                      ; preds = %.preheader, %33, %up_irq_restore.exit
-  %.0.ph = phi i32 [ %.022.lcssa, %up_irq_restore.exit ], [ -110, %33 ], [ %.022.lcssa, %.preheader ]
+  %.0.ph = phi i32 [ %.1.lcssa, %up_irq_restore.exit ], [ -110, %33 ], [ %.1.lcssa, %.preheader ]
   %37 = call i32 @nxmutex_unlock(ptr noundef nonnull %4) #5
   br label %38
 

@@ -861,20 +861,20 @@ define hidden range(i32 0, 134217728) i32 @zdp_parse_chanmask(ptr noundef %0, pt
   br i1 %.not40, label %37, label %.preheader
 
 .preheader:                                       ; preds = %30, %.preheader
-  %.3 = phi i32 [ %35, %.preheader ], [ %.244, %30 ]
-  %33 = shl i32 2, %.3
+  %.4 = phi i32 [ %35, %.preheader ], [ %.244, %30 ]
+  %33 = shl i32 2, %.4
   %34 = and i32 %33, %9
   %.not41 = icmp eq i32 %34, 0
-  %35 = add i32 %.3, 1
+  %35 = add i32 %.4, 1
   br i1 %.not41, label %36, label %.preheader, !llvm.loop !6
 
 36:                                               ; preds = %.preheader
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.120, i32 noundef %.3) #4
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %13, ptr noundef nonnull @.str.120, i32 noundef %.4) #4
   br label %37
 
 37:                                               ; preds = %30, %36, %.lr.ph
-  %.4 = phi i32 [ %.3, %36 ], [ %.244, %30 ], [ %.244, %.lr.ph ]
-  %38 = add i32 %.4, 1
+  %.3 = phi i32 [ %.4, %36 ], [ %.244, %30 ], [ %.244, %.lr.ph ]
+  %38 = add i32 %.3, 1
   %39 = icmp slt i32 %38, 32
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 

@@ -55,7 +55,7 @@ define range(i32 -22, 1) i32 @nxsig_procmask(i32 noundef %0, ptr noundef %1, ptr
   br label %22
 
 22:                                               ; preds = %11, %19, %16, %13
-  %.0 = phi i32 [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ -22, %11 ]
+  %.1 = phi i32 [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ -22, %11 ]
   %23 = and i64 %12, 512
   %.not.i = icmp eq i64 %23, 0
   br i1 %.not.i, label %up_irq_restore.exit, label %24
@@ -69,9 +69,9 @@ up_irq_restore.exit:                              ; preds = %22, %24
   br label %26
 
 26:                                               ; preds = %up_irq_restore.exit, %10
-  %.1 = phi i32 [ %.0, %up_irq_restore.exit ], [ 0, %10 ]
+  %.0 = phi i32 [ %.1, %up_irq_restore.exit ], [ 0, %10 ]
   %27 = call i32 @sched_unlock() #3
-  ret i32 %.1
+  ret i32 %.0
 }
 
 declare i32 @sched_lock() local_unnamed_addr #1

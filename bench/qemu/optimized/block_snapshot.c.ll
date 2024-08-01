@@ -1046,7 +1046,7 @@ if.then2:                                         ; preds = %if.then
 
 while.body:                                       ; preds = %if.then, %if.end7
   %devices.addr.020 = phi ptr [ %1, %if.end7 ], [ %devices, %if.then ]
-  %bdrvs.019 = phi ptr [ %call8, %if.end7 ], [ null, %if.then ]
+  %bdrvs.119 = phi ptr [ %call8, %if.end7 ], [ null, %if.then ]
   %value = getelementptr inbounds i8, ptr %devices.addr.020, i64 8
   %0 = load ptr, ptr %value, align 8
   %call = tail call ptr @bdrv_find_node(ptr noundef %0) #6
@@ -1054,7 +1054,7 @@ while.body:                                       ; preds = %if.then, %if.end7
   br i1 %tobool4.not, label %cleanup, label %if.end7
 
 if.end7:                                          ; preds = %while.body
-  %call8 = tail call ptr @g_list_append(ptr noundef %bdrvs.019, ptr noundef nonnull %call) #6
+  %call8 = tail call ptr @g_list_append(ptr noundef %bdrvs.119, ptr noundef nonnull %call) #6
   %1 = load ptr, ptr %devices.addr.020, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end14, label %while.body, !llvm.loop !12
@@ -1066,8 +1066,8 @@ if.else:                                          ; preds = %entry
 
 for.body:                                         ; preds = %if.else, %for.body
   %bs9.018 = phi ptr [ %call13, %for.body ], [ %call10, %if.else ]
-  %bdrvs.117 = phi ptr [ %call12, %for.body ], [ null, %if.else ]
-  %call12 = call ptr @g_list_append(ptr noundef %bdrvs.117, ptr noundef nonnull %bs9.018) #6
+  %bdrvs.317 = phi ptr [ %call12, %for.body ], [ null, %if.else ]
+  %call12 = call ptr @g_list_append(ptr noundef %bdrvs.317, ptr noundef nonnull %bs9.018) #6
   %call13 = call ptr @bdrv_next(ptr noundef nonnull %it) #6
   %tobool11.not = icmp eq ptr %call13, null
   br i1 %tobool11.not, label %if.end14, label %for.body, !llvm.loop !13
@@ -1081,11 +1081,11 @@ cleanup:                                          ; preds = %while.body
   %value.le = getelementptr inbounds i8, ptr %devices.addr.020, i64 8
   %2 = load ptr, ptr %value.le, align 8
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.7, i32 noundef 495, ptr noundef nonnull @__func__.bdrv_all_get_snapshot_devices, ptr noundef nonnull @.str.32, ptr noundef %2) #6
-  %tobool.not.i.i = icmp eq ptr %bdrvs.019, null
+  %tobool.not.i.i = icmp eq ptr %bdrvs.119, null
   br i1 %tobool.not.i.i, label %glib_autoptr_cleanup_GList.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
-  tail call void @g_list_free(ptr noundef nonnull %bdrvs.019) #6
+  tail call void @g_list_free(ptr noundef nonnull %bdrvs.119) #6
   br label %glib_autoptr_cleanup_GList.exit
 
 glib_autoptr_cleanup_GList.exit:                  ; preds = %if.end14, %if.then2, %cleanup, %if.then.i.i

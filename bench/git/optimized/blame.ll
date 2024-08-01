@@ -1178,14 +1178,14 @@ add_prefix.exit99:                                ; preds = %if.end501, %cond.tr
 
 if.end506:                                        ; preds = %add_prefix.exit99, %add_prefix.exit84
   %.pre-phi = phi i64 [ %42, %add_prefix.exit99 ], [ 3, %add_prefix.exit84 ]
-  %path.0 = phi ptr [ %call1.i98, %add_prefix.exit99 ], [ %call1.i83, %add_prefix.exit84 ]
+  %path.1 = phi ptr [ %call1.i98, %add_prefix.exit99 ], [ %call1.i83, %add_prefix.exit84 ]
   %46 = getelementptr ptr, ptr %argv, i64 %.pre-phi
   %arrayidx509 = getelementptr i8, ptr %46, i64 -8
   store ptr @.str.56, ptr %arrayidx509, align 8
   br label %if.end510
 
 if.end510:                                        ; preds = %if.end506, %add_prefix.exit
-  %path.1 = phi ptr [ %call1.i74, %add_prefix.exit ], [ %path.0, %if.end506 ]
+  %path.0 = phi ptr [ %call1.i74, %add_prefix.exit ], [ %path.1, %if.end506 ]
   %argc.addr.0 = phi i32 [ %dec, %add_prefix.exit ], [ %call388, %if.end506 ]
   %disable_stdin = getelementptr inbounds i8, ptr %revs, i64 292
   %bf.load = load i32, ptr %disable_stdin, align 4
@@ -1237,7 +1237,7 @@ if.end524:                                        ; preds = %if.end523, %land.lh
   %repo527 = getelementptr inbounds i8, ptr %sb, i64 48
   store ptr %51, ptr %repo527, align 8
   %path528 = getelementptr inbounds i8, ptr %sb, i64 64
-  store ptr %path.1, ptr %path528, align 8
+  store ptr %path.0, ptr %path528, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i100)
   %ignore_list.i = getelementptr inbounds i8, ptr %sb, i64 96
   call void @oidset_init(ptr noundef nonnull %ignore_list.i, i64 noundef 0) #17

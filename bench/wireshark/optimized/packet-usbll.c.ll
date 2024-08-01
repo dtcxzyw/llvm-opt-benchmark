@@ -1814,7 +1814,7 @@ usbll_is_split_data_from_device.exit278.i:        ; preds = %558, %539, %539, %5
   br label %dissect_usbll_data.exit
 
 dissect_usbll_data.exit:                          ; preds = %273, %275, %280, %296, %is_set_address.exit.thread.i, %367, %usbll_is_data_from_host.exit.i, %383, %394, %395, %usbll_is_split_data_from_device.exit.i, %478, %487, %usbll_is_split_data_from_device.exit276.i, %usbll_is_split_data_from_device.exit278.i, %562, %268
-  %.0129 = phi i32 [ -1, %268 ], [ %233, %562 ], [ %233, %usbll_is_split_data_from_device.exit278.i ], [ %233, %usbll_is_split_data_from_device.exit276.i ], [ %233, %487 ], [ %233, %478 ], [ %233, %usbll_is_split_data_from_device.exit.i ], [ %233, %395 ], [ %233, %394 ], [ %233, %383 ], [ %233, %usbll_is_data_from_host.exit.i ], [ %233, %367 ], [ 8, %is_set_address.exit.thread.i ], [ 8, %296 ], [ 8, %280 ], [ 8, %275 ], [ %233, %273 ]
+  %.1130 = phi i32 [ -1, %268 ], [ %233, %562 ], [ %233, %usbll_is_split_data_from_device.exit278.i ], [ %233, %usbll_is_split_data_from_device.exit276.i ], [ %233, %487 ], [ %233, %478 ], [ %233, %usbll_is_split_data_from_device.exit.i ], [ %233, %395 ], [ %233, %394 ], [ %233, %383 ], [ %233, %usbll_is_data_from_host.exit.i ], [ %233, %367 ], [ 8, %is_set_address.exit.thread.i ], [ 8, %296 ], [ 8, %280 ], [ 8, %275 ], [ %233, %273 ]
   %576 = add nuw i32 %.0239.i, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %dissect_usbll_token.exitthread-pre-split
@@ -2218,7 +2218,7 @@ usbll_is_stalled_data_from_host.exit.i:           ; preds = %636, %usbll_is_data
 
 dissect_usbll_token.exitthread-pre-split:         ; preds = %70, %71, %79, %678, %dissect_usbll_data.exit, %80, %229, %577, %usbll_is_data_ack.exit.thread.i, %675, %757
   %.0132136147159.ph = phi ptr [ %.0.ph191, %757 ], [ %.0.ph191, %675 ], [ %.0.ph191, %usbll_is_data_ack.exit.thread.i ], [ %.0.ph191, %577 ], [ %.0.ph191, %229 ], [ %.0.ph191, %80 ], [ %.0132.ph, %70 ], [ %.0132.ph, %71 ], [ %.0.ph191, %dissect_usbll_data.exit ], [ %.0.ph191, %678 ], [ %.0.ph191, %79 ]
-  %.1130.ph = phi i32 [ -1, %757 ], [ 0, %675 ], [ 0, %usbll_is_data_ack.exit.thread.i ], [ 0, %577 ], [ -1, %229 ], [ -1, %80 ], [ -1, %70 ], [ -1, %71 ], [ %.0129, %dissect_usbll_data.exit ], [ -1, %678 ], [ -1, %79 ]
+  %.0129.ph = phi i32 [ -1, %757 ], [ 0, %675 ], [ 0, %usbll_is_data_ack.exit.thread.i ], [ 0, %577 ], [ -1, %229 ], [ -1, %80 ], [ -1, %70 ], [ -1, %71 ], [ %.1130, %dissect_usbll_data.exit ], [ -1, %678 ], [ -1, %79 ]
   %.097.ph = phi i32 [ 4, %757 ], [ 1, %675 ], [ 1, %usbll_is_data_ack.exit.thread.i ], [ 1, %577 ], [ 3, %229 ], [ 3, %80 ], [ 1, %70 ], [ 3, %71 ], [ %576, %dissect_usbll_data.exit ], [ 3, %678 ], [ 1, %79 ]
   %.pr169 = load i32, ptr %.0132136147159.ph, align 8
   br label %dissect_usbll_token.exit
@@ -2226,7 +2226,7 @@ dissect_usbll_token.exitthread-pre-split:         ; preds = %70, %71, %79, %678,
 dissect_usbll_token.exit:                         ; preds = %dissect_usbll_token.exitthread-pre-split, %.sink.split.i117
   %784 = phi i32 [ %.pr169, %dissect_usbll_token.exitthread-pre-split ], [ %switch.load194, %.sink.split.i117 ]
   %.0132136147159 = phi ptr [ %.0132136147159.ph, %dissect_usbll_token.exitthread-pre-split ], [ %.0.ph191, %.sink.split.i117 ]
-  %.1130 = phi i32 [ %.1130.ph, %dissect_usbll_token.exitthread-pre-split ], [ -1, %.sink.split.i117 ]
+  %.0129 = phi i32 [ %.0129.ph, %dissect_usbll_token.exitthread-pre-split ], [ -1, %.sink.split.i117 ]
   %.097 = phi i32 [ %.097.ph, %dissect_usbll_token.exitthread-pre-split ], [ 4, %.sink.split.i117 ]
   switch i32 %784, label %833 [
     i32 0, label %usbll_generate_address.exit
@@ -2491,14 +2491,14 @@ usbll_generate_address.exit:                      ; preds = %dissect_usbll_token
 .sink.split:                                      ; preds = %usbll_generate_address.exit, %587, %838
   %ei_conflicting_subpid.sink = phi ptr [ @ei_conflicting_subpid, %838 ], [ @ei_invalid_pid_sequence, %587 ], [ @ei_invalid_pid_sequence, %usbll_generate_address.exit ]
   %.0132136147159173185.ph = phi ptr [ %.0132136147159, %838 ], [ %.0.ph191, %587 ], [ %.0132136147159, %usbll_generate_address.exit ]
-  %.1130174183.ph = phi i32 [ %.1130, %838 ], [ 0, %587 ], [ %.1130, %usbll_generate_address.exit ]
+  %.0129174183.ph = phi i32 [ %.0129, %838 ], [ 0, %587 ], [ %.0129, %usbll_generate_address.exit ]
   %.097175181.ph = phi i32 [ %.097, %838 ], [ 1, %587 ], [ %.097, %usbll_generate_address.exit ]
   %839 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %9, ptr noundef nonnull %ei_conflicting_subpid.sink) #13
   br label %840
 
 840:                                              ; preds = %.sink.split, %usbll_generate_address.exit
   %.0132136147159173185 = phi ptr [ %.0132136147159, %usbll_generate_address.exit ], [ %.0132136147159173185.ph, %.sink.split ]
-  %.1130174183 = phi i32 [ %.1130, %usbll_generate_address.exit ], [ %.1130174183.ph, %.sink.split ]
+  %.0129174183 = phi i32 [ %.0129, %usbll_generate_address.exit ], [ %.0129174183.ph, %.sink.split ]
   %.097175181 = phi i32 [ %.097, %usbll_generate_address.exit ], [ %.097175181.ph, %.sink.split ]
   %841 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.097175181) #13
   %842 = icmp sgt i32 %841, 0
@@ -2512,7 +2512,7 @@ usbll_generate_address.exit:                      ; preds = %dissect_usbll_token
 
 847:                                              ; preds = %843, %840
   %.1 = phi i32 [ %846, %843 ], [ %.097175181, %840 ]
-  %848 = icmp sgt i32 %.1130174183, -1
+  %848 = icmp sgt i32 %.0129174183, -1
   br i1 %848, label %849, label %899
 
 849:                                              ; preds = %847
@@ -2551,7 +2551,7 @@ usbll_generate_address.exit:                      ; preds = %dissect_usbll_token
   br i1 %.not37.i, label %.thread.i126, label %868
 
 868:                                              ; preds = %865, %862
-  %869 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef %.1130174183) #13
+  %869 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 1, i32 noundef %.0129174183) #13
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %869, ptr noundef nonnull @.str.204) #13
   br label %875
 
@@ -2559,7 +2559,7 @@ usbll_generate_address.exit:                      ; preds = %dissect_usbll_token
   %870 = phi i32 [ 0, %862 ], [ 0, %865 ], [ %861, %856 ]
   %871 = getelementptr inbounds i8, ptr %855, i64 4
   %872 = load i32, ptr %871, align 4
-  %873 = call ptr @fragment_add_check_with_fallback(ptr noundef nonnull @usbll_reassembly_table, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, i32 noundef %857, ptr noundef null, i32 noundef %872, i32 noundef %.1130174183, i32 noundef %870, i32 noundef %857) #13
+  %873 = call ptr @fragment_add_check_with_fallback(ptr noundef nonnull @usbll_reassembly_table, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, i32 noundef %857, ptr noundef null, i32 noundef %872, i32 noundef %.0129174183, i32 noundef %870, i32 noundef %857) #13
   %874 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull @.str.204, ptr noundef %873, ptr noundef nonnull @usbll_frag_items, ptr noundef null, ptr noundef %11) #13
   br label %875
 

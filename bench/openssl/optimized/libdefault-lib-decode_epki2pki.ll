@@ -122,16 +122,16 @@ if.else25:                                        ; preds = %if.else
   br label %if.end27
 
 if.end27:                                         ; preds = %if.else, %if.else25
-  %der_len.0 = phi i64 [ %conv26, %if.else25 ], [ %3, %if.else ]
-  %der.0 = phi ptr [ %10, %if.else25 ], [ %2, %if.else ]
-  %ok.0 = phi i32 [ 1, %if.else25 ], [ 0, %if.else ]
+  %der_len.1 = phi i64 [ %conv26, %if.else25 ], [ %3, %if.else ]
+  %der.1 = phi ptr [ %10, %if.else25 ], [ %2, %if.else ]
+  %ok.1 = phi i32 [ 1, %if.else25 ], [ 0, %if.else ]
   store ptr null, ptr %alg, align 8
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end27, %if.then14
-  %der_len.1 = phi i64 [ %der_len.0, %if.end27 ], [ %3, %if.then14 ]
-  %der.1 = phi ptr [ %der.0, %if.end27 ], [ %2, %if.then14 ]
-  %ok.1 = phi i32 [ %ok.0, %if.end27 ], [ 0, %if.then14 ]
+  %der_len.0 = phi i64 [ %der_len.1, %if.end27 ], [ %3, %if.then14 ]
+  %der.0 = phi ptr [ %der.1, %if.end27 ], [ %2, %if.then14 ]
+  %ok.0 = phi i32 [ %ok.1, %if.end27 ], [ 0, %if.then14 ]
   call void @X509_SIG_free(ptr noundef nonnull %call7) #4
   br label %if.end31
 
@@ -140,9 +140,9 @@ if.else29:                                        ; preds = %if.end5
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else29, %if.end28
-  %der_len.2 = phi i64 [ %der_len.1, %if.end28 ], [ %3, %if.else29 ]
-  %der.2 = phi ptr [ %der.1, %if.end28 ], [ %2, %if.else29 ]
-  %ok.2 = phi i32 [ %ok.1, %if.end28 ], [ 1, %if.else29 ]
+  %der_len.2 = phi i64 [ %der_len.0, %if.end28 ], [ %3, %if.else29 ]
+  %der.2 = phi ptr [ %der.0, %if.end28 ], [ %2, %if.else29 ]
+  %ok.2 = phi i32 [ %ok.0, %if.end28 ], [ 1, %if.else29 ]
   %call32 = call i32 @ERR_set_mark() #4
   store ptr %der.2, ptr %pder, align 8
   %call33 = call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef nonnull %pder, i64 noundef %der_len.2) #4

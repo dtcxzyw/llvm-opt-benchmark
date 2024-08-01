@@ -22,16 +22,16 @@ define hidden void @PMurHash32_Process(ptr nocapture noundef %0, ptr nocapture n
 
 12:                                               ; preds = %.preheader, %30
   %.in = phi i32 [ %9, %.preheader ], [ %13, %30 ]
-  %.06997 = phi i32 [ %7, %.preheader ], [ %.170, %30 ]
-  %.07296 = phi i32 [ %5, %.preheader ], [ %.173, %30 ]
-  %.07795 = phi ptr [ %2, %.preheader ], [ %14, %30 ]
-  %.08194 = phi i32 [ %6, %.preheader ], [ %.182, %30 ]
+  %.17097 = phi i32 [ %7, %.preheader ], [ %.271, %30 ]
+  %.17396 = phi i32 [ %5, %.preheader ], [ %.274, %30 ]
+  %.17895 = phi ptr [ %2, %.preheader ], [ %14, %30 ]
+  %.18294 = phi i32 [ %6, %.preheader ], [ %.283, %30 ]
   %13 = add nsw i32 %.in, -1
-  %14 = getelementptr inbounds i8, ptr %.07795, i64 1
-  %15 = load i8, ptr %.07795, align 1
+  %14 = getelementptr inbounds i8, ptr %.17895, i64 1
+  %15 = load i8, ptr %.17895, align 1
   %16 = zext i8 %15 to i32
-  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %.08194, i32 24)
-  %18 = add nuw nsw i32 %.06997, 1
+  %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %.18294, i32 24)
+  %18 = add nuw nsw i32 %.17097, 1
   %19 = icmp eq i32 %18, 4
   br i1 %19, label %20, label %30
 
@@ -41,16 +41,16 @@ define hidden void @PMurHash32_Process(ptr nocapture noundef %0, ptr nocapture n
   %23 = lshr i32 %21, 17
   %24 = or disjoint i32 %23, %22
   %25 = mul i32 %24, 461845907
-  %26 = xor i32 %25, %.07296
+  %26 = xor i32 %25, %.17396
   %27 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 13)
   %28 = mul i32 %27, 5
   %29 = add i32 %28, -430675100
   br label %30
 
 30:                                               ; preds = %20, %12
-  %.182 = phi i32 [ %25, %20 ], [ %17, %12 ]
-  %.173 = phi i32 [ %29, %20 ], [ %.07296, %12 ]
-  %.170 = phi i32 [ 0, %20 ], [ %18, %12 ]
+  %.283 = phi i32 [ %25, %20 ], [ %17, %12 ]
+  %.274 = phi i32 [ %29, %20 ], [ %.17396, %12 ]
+  %.271 = phi i32 [ 0, %20 ], [ %18, %12 ]
   %.not92 = icmp eq i32 %13, 0
   br i1 %.not92, label %.loopexit.loopexit, label %12
 
@@ -59,20 +59,20 @@ define hidden void @PMurHash32_Process(ptr nocapture noundef %0, ptr nocapture n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
-  %.283 = phi i32 [ %6, %4 ], [ %.182, %.loopexit.loopexit ]
-  %.178 = phi ptr [ %2, %4 ], [ %11, %.loopexit.loopexit ]
-  %.274 = phi i32 [ %5, %4 ], [ %.173, %.loopexit.loopexit ]
-  %.271 = phi i32 [ %7, %4 ], [ %.170, %.loopexit.loopexit ]
-  %.1 = phi i32 [ %3, %4 ], [ %31, %.loopexit.loopexit ]
-  %32 = and i32 %.1, -4
+  %.081 = phi i32 [ %6, %4 ], [ %.283, %.loopexit.loopexit ]
+  %.077 = phi ptr [ %2, %4 ], [ %11, %.loopexit.loopexit ]
+  %.072 = phi i32 [ %5, %4 ], [ %.274, %.loopexit.loopexit ]
+  %.069 = phi i32 [ %7, %4 ], [ %.271, %.loopexit.loopexit ]
+  %.068 = phi i32 [ %3, %4 ], [ %31, %.loopexit.loopexit ]
+  %32 = and i32 %.068, -4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %.178, i64 %33
+  %34 = getelementptr inbounds i8, ptr %.077, i64 %33
   %35 = icmp sgt i32 %32, 0
   br i1 %35, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.loopexit, %.lr.ph
-  %.375100 = phi i32 [ %45, %.lr.ph ], [ %.274, %.loopexit ]
-  %.27999 = phi ptr [ %46, %.lr.ph ], [ %.178, %.loopexit ]
+  %.375100 = phi i32 [ %45, %.lr.ph ], [ %.072, %.loopexit ]
+  %.27999 = phi ptr [ %46, %.lr.ph ], [ %.077, %.loopexit ]
   %36 = load i32, ptr %.27999, align 4
   %37 = mul i32 %36, -862048943
   %38 = mul i32 %36, 380141568
@@ -88,18 +88,18 @@ define hidden void @PMurHash32_Process(ptr nocapture noundef %0, ptr nocapture n
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
-  %.279.lcssa = phi ptr [ %.178, %.loopexit ], [ %46, %.lr.ph ]
-  %.375.lcssa = phi i32 [ %.274, %.loopexit ], [ %45, %.lr.ph ]
-  %48 = and i32 %.1, 3
+  %.279.lcssa = phi ptr [ %.077, %.loopexit ], [ %46, %.lr.ph ]
+  %.375.lcssa = phi i32 [ %.072, %.loopexit ], [ %45, %.lr.ph ]
+  %48 = and i32 %.068, 3
   %.not93102 = icmp eq i32 %48, 0
   br i1 %.not93102, label %._crit_edge109, label %.lr.ph108
 
 .lr.ph108:                                        ; preds = %._crit_edge, %66
   %.in113 = phi i32 [ %49, %66 ], [ %48, %._crit_edge ]
-  %.3106 = phi i32 [ %.4, %66 ], [ %.271, %._crit_edge ]
+  %.3106 = phi i32 [ %.4, %66 ], [ %.069, %._crit_edge ]
   %.476105 = phi i32 [ %.5, %66 ], [ %.375.lcssa, %._crit_edge ]
   %.380104 = phi ptr [ %50, %66 ], [ %.279.lcssa, %._crit_edge ]
-  %.384103 = phi i32 [ %.485, %66 ], [ %.283, %._crit_edge ]
+  %.384103 = phi i32 [ %.485, %66 ], [ %.081, %._crit_edge ]
   %49 = add nsw i32 %.in113, -1
   %50 = getelementptr inbounds i8, ptr %.380104, i64 1
   %51 = load i8, ptr %.380104, align 1
@@ -129,9 +129,9 @@ define hidden void @PMurHash32_Process(ptr nocapture noundef %0, ptr nocapture n
   br i1 %.not93, label %._crit_edge109, label %.lr.ph108
 
 ._crit_edge109:                                   ; preds = %66, %._crit_edge
-  %.384.lcssa = phi i32 [ %.283, %._crit_edge ], [ %.485, %66 ]
+  %.384.lcssa = phi i32 [ %.081, %._crit_edge ], [ %.485, %66 ]
   %.476.lcssa = phi i32 [ %.375.lcssa, %._crit_edge ], [ %.5, %66 ]
-  %.3.lcssa = phi i32 [ %.271, %._crit_edge ], [ %.4, %66 ]
+  %.3.lcssa = phi i32 [ %.069, %._crit_edge ], [ %.4, %66 ]
   store i32 %.476.lcssa, ptr %0, align 4
   %67 = and i32 %.384.lcssa, -256
   %68 = or i32 %.3.lcssa, %67

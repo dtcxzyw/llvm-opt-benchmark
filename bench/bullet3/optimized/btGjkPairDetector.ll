@@ -851,7 +851,7 @@ for.end.loopexit:                                 ; preds = %_ZL11btDoSimplexP9b
   br label %for.end
 
 for.end:                                          ; preds = %if.end36.i.i, %if.end29.i.i, %if.end22.i.i, %if.end15.i.i, %if.end.i13.i, %if.then.i200, %if.end48, %for.body, %for.inc, %if.else6.i, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit, %for.end.loopexit
-  %status.2 = phi i32 [ %call5.i, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit ], [ -1, %if.else6.i ], [ 0, %if.end36.i.i ], [ 0, %if.end29.i.i ], [ 0, %if.end22.i.i ], [ 0, %if.end15.i.i ], [ 0, %if.end.i13.i ], [ 0, %if.then.i200 ], [ -1, %if.end48 ], [ -1, %for.body ], [ %spec.select, %for.inc ], [ 0, %for.end.loopexit ]
+  %status.1 = phi i32 [ %call5.i, %_ZL11btDoSimplexP9btSimplexP9btVector3.exit ], [ -1, %if.else6.i ], [ 0, %if.end36.i.i ], [ 0, %if.end29.i.i ], [ 0, %if.end22.i.i ], [ 0, %if.end15.i.i ], [ 0, %if.end.i13.i ], [ 0, %if.then.i200 ], [ -1, %if.end48 ], [ -1, %for.body ], [ %spec.select, %for.inc ], [ 0, %for.end.loopexit ]
   %m_simplexSolver = getelementptr inbounds i8, ptr %this, i64 32
   %353 = load ptr, ptr %m_simplexSolver, align 8
   call void @_ZN22btVoronoiSimplexSolver5resetEv(ptr noundef nonnull align 4 dereferenceable(357) %353)
@@ -1185,7 +1185,7 @@ land.rhs194:                                      ; preds = %if.end187
 
 land.lhs.true200:                                 ; preds = %if.end187, %land.rhs194
   %.not = phi i1 [ true, %if.end187 ], [ %cmp196, %land.rhs194 ]
-  %cmp204 = icmp ne i32 %status.2, 0
+  %cmp204 = icmp ne i32 %status.1, 0
   %not. = select i1 %isValid.0, i1 %.not, i1 false
   %or.cond57 = select i1 %not., i1 %cmp204, i1 false
   %brmerge = select i1 %or.cond57, i1 true, i1 %tobool190.not
@@ -2034,9 +2034,9 @@ if.then65:                                        ; preds = %if.then63
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then65, %if.else57
-  %dist.0.in = phi float [ %call60, %if.then65 ], [ %call58, %if.else57 ]
+  %dist.1.in = phi float [ %call60, %if.then65 ], [ %call58, %if.else57 ]
   %call68 = call noundef float @_Z23btVec3PointSegmentDist2PK9btVector3S1_S1_PS_(ptr noundef nonnull %P, ptr noundef nonnull %B, ptr noundef nonnull %C, ptr noundef nonnull %witness2)
-  %cmp70 = fcmp olt float %call68, %dist.0.in
+  %cmp70 = fcmp olt float %call68, %dist.1.in
   br i1 %cmp70, label %if.then71, label %if.end76
 
 if.end67.thread:                                  ; preds = %if.then63
@@ -2056,8 +2056,8 @@ if.then73:                                        ; preds = %if.then71
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then71.thread, %if.end67.thread, %if.end67, %if.then73, %if.then71, %if.then41, %if.else
-  %dist.1 = phi float [ %80, %if.then41 ], [ %86, %if.else ], [ %call68, %if.then73 ], [ %call68, %if.then71 ], [ %dist.0.in, %if.end67 ], [ %call60, %if.end67.thread ], [ %call68253, %if.then71.thread ]
-  ret float %dist.1
+  %dist.0 = phi float [ %80, %if.then41 ], [ %86, %if.else ], [ %call68, %if.then73 ], [ %call68, %if.then71 ], [ %dist.1.in, %if.end67 ], [ %call60, %if.end67.thread ], [ %call68253, %if.then71.thread ]
+  ret float %dist.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

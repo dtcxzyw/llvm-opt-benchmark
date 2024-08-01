@@ -780,8 +780,8 @@ define hidden noundef ptr @_ZN6uucore8features7fsxattr11copy_xattrs17h12b6565331
           to label %49 unwind label %.loopexit68
 
 47:                                               ; preds = %"_ZN4core3ptr52drop_in_place$LT$xattr..sys..linux_macos..XAttrs$GT$17h71e1e2ed474d04faE.exit62", %2, %"_ZN4core3ptr52drop_in_place$LT$xattr..sys..linux_macos..XAttrs$GT$17h71e1e2ed474d04faE.exit47"
-  %.0 = phi ptr [ null, %"_ZN4core3ptr52drop_in_place$LT$xattr..sys..linux_macos..XAttrs$GT$17h71e1e2ed474d04faE.exit47" ], [ %.1, %"_ZN4core3ptr52drop_in_place$LT$xattr..sys..linux_macos..XAttrs$GT$17h71e1e2ed474d04faE.exit62" ], [ %20, %2 ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %"_ZN4core3ptr52drop_in_place$LT$xattr..sys..linux_macos..XAttrs$GT$17h71e1e2ed474d04faE.exit47" ], [ %.2, %"_ZN4core3ptr52drop_in_place$LT$xattr..sys..linux_macos..XAttrs$GT$17h71e1e2ed474d04faE.exit62" ], [ %20, %2 ]
+  ret ptr %.1
 
 48:                                               ; preds = %.loopexit68, %.loopexit.split-lp69, %56
   %.pn = phi { ptr, i32 } [ %57, %56 ], [ %lpad.loopexit70, %.loopexit68 ], [ %lpad.loopexit.split-lp71, %.loopexit.split-lp69 ]
@@ -882,7 +882,7 @@ _ZN5xattr3set17h77893874901a5c4bE.exit:           ; preds = %52
   br label %.loopexit73
 
 .loopexit73:                                      ; preds = %49, %75
-  %.1 = phi ptr [ %55, %75 ], [ %51, %49 ]
+  %.2 = phi ptr [ %55, %75 ], [ %51, %49 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !215
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17habe40f0d5c9900f0E.llvm.13937331920422269825"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10)
           to label %.noexc54 unwind label %.loopexit.split-lp

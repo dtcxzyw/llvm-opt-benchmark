@@ -439,9 +439,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2258,13 +2258,13 @@ for.end:                                          ; preds = %if.end237, %if.then
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont230, %for.end, %if.end234
-  %retval.0 = phi i8 [ 1, %for.end ], [ 1, %if.end234 ], [ 0, %invoke.cont230 ]
+  %retval.1 = phi i8 [ 1, %for.end ], [ 1, %if.end234 ], [ 0, %invoke.cont230 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %s) #15
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i8 [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i8 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -3335,13 +3335,13 @@ for.end:                                          ; preds = %if.end76, %if.then1
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont67, %for.end, %invoke.cont73
-  %retval.0 = phi i8 [ 1, %for.end ], [ 1, %invoke.cont73 ], [ 0, %invoke.cont67 ]
+  %retval.1 = phi i8 [ 1, %for.end ], [ 1, %invoke.cont73 ], [ 0, %invoke.cont67 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %s) #15
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i8 [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i8 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

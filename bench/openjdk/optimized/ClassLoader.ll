@@ -144,7 +144,7 @@ getUTF.exit59:                                    ; preds = %50, %59
   br label %72
 
 72:                                               ; preds = %getUTF.exit59.thread, %67, %71
-  %.044 = phi ptr [ %68, %71 ], [ %68, %67 ], [ null, %getUTF.exit59.thread ]
+  %.1 = phi ptr [ %68, %71 ], [ %68, %67 ], [ null, %getUTF.exit59.thread ]
   %73 = icmp ne ptr %.045, null
   %74 = icmp ne ptr %.045, %10
   %or.cond5 = and i1 %73, %74
@@ -155,12 +155,12 @@ getUTF.exit59:                                    ; preds = %50, %59
   br label %76
 
 76:                                               ; preds = %getUTF.exit.thread, %72, %75, %22
-  %.1 = phi ptr [ null, %22 ], [ %.044, %75 ], [ %.044, %72 ], [ null, %getUTF.exit.thread ]
+  %.044 = phi ptr [ null, %22 ], [ %.1, %75 ], [ %.1, %72 ], [ null, %getUTF.exit.thread ]
   call void @free(ptr noundef nonnull %19) #4
   br label %77
 
 77:                                               ; preds = %76, %21, %16, %13
-  %.046 = phi ptr [ null, %13 ], [ null, %16 ], [ null, %21 ], [ %.1, %76 ]
+  %.046 = phi ptr [ null, %13 ], [ null, %16 ], [ null, %21 ], [ %.044, %76 ]
   ret ptr %.046
 }
 

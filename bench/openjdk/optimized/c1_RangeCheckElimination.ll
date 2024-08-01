@@ -1429,7 +1429,7 @@ define hidden void @_ZN20RangeCheckEliminator7Visitor6do_PhiEP3Phi(ptr nocapture
 20:                                               ; preds = %.lr.ph, %170
   %.057102 = phi i1 [ true, %.lr.ph ], [ %.1, %170 ]
   %.058101 = phi i1 [ true, %.lr.ph ], [ %.159, %170 ]
-  %.06098 = phi ptr [ null, %.lr.ph ], [ %.161, %170 ]
+  %.06098 = phi ptr [ null, %.lr.ph ], [ %.2, %170 ]
   %.06297 = phi i32 [ 0, %.lr.ph ], [ %171, %170 ]
   %21 = tail call noundef ptr @_ZNK3Phi10operand_atEi(ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %.06297) #13
   %22 = icmp eq ptr %21, %1
@@ -1703,7 +1703,7 @@ _ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit:  ; preds = %167, %168
   br label %170
 
 170:                                              ; preds = %68, %66, %56, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit, %_ZN20RangeCheckEliminator5Bound4copyEv.exit, %20
-  %.161 = phi ptr [ %.06098, %20 ], [ %.06098, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ], [ %.0.i.i.i.i, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ %.06098, %56 ], [ %.06098, %66 ], [ %.06098, %68 ]
+  %.2 = phi ptr [ %.06098, %20 ], [ %.06098, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ], [ %.0.i.i.i.i, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ %.06098, %56 ], [ %.06098, %66 ], [ %.06098, %68 ]
   %.159 = phi i1 [ %.058101, %20 ], [ %.058101, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ], [ %.058101, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ %.058101, %56 ], [ false, %66 ], [ %spec.select82, %68 ]
   %.1 = phi i1 [ %.057102, %20 ], [ %.057102, %_ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit ], [ %.057102, %_ZN20RangeCheckEliminator5Bound4copyEv.exit ], [ false, %56 ], [ false, %66 ], [ %.057102, %68 ]
   %171 = add nuw nsw i32 %.06297, 1
@@ -1711,7 +1711,7 @@ _ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit:  ; preds = %167, %168
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %170
-  %.not80 = icmp eq ptr %.161, null
+  %.not80 = icmp eq ptr %.2, null
   br i1 %.not80, label %._crit_edge..thread91_crit_edge, label %172
 
 ._crit_edge..thread91_crit_edge:                  ; preds = %15, %._crit_edge
@@ -1722,8 +1722,8 @@ _ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit:  ; preds = %167, %168
   br i1 %.1, label %175, label %173
 
 173:                                              ; preds = %172
-  store i32 2147483647, ptr %.161, align 8
-  %174 = getelementptr inbounds i8, ptr %.161, i64 8
+  store i32 2147483647, ptr %.2, align 8
+  %174 = getelementptr inbounds i8, ptr %.2, i64 8
   store ptr null, ptr %174, align 8
   br label %175
 
@@ -1731,9 +1731,9 @@ _ZN20RangeCheckEliminator5Bound5or_opEPS0_.exit:  ; preds = %167, %168
   br i1 %.159, label %.sink.split, label %176
 
 176:                                              ; preds = %175
-  %177 = getelementptr inbounds i8, ptr %.161, i64 16
+  %177 = getelementptr inbounds i8, ptr %.2, i64 16
   store i32 -2147483648, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %.161, i64 24
+  %178 = getelementptr inbounds i8, ptr %.2, i64 24
   br label %.sink.split.sink.split
 
 .thread91:                                        ; preds = %_ZN22CompilationResourceObjnwEm.exit, %._crit_edge..thread91_crit_edge
@@ -1779,12 +1779,12 @@ _ZN22CompilationResourceObjnwEm.exit87:           ; preds = %192, %194
 
 .sink.split.sink.split:                           ; preds = %176, %197
   %.sink = phi ptr [ %200, %197 ], [ %178, %176 ]
-  %.0.i.i.i86.sink.ph = phi ptr [ %.0.i.i.i86, %197 ], [ %.161, %176 ]
+  %.0.i.i.i86.sink.ph = phi ptr [ %.0.i.i.i86, %197 ], [ %.2, %176 ]
   store ptr null, ptr %.sink, align 8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %_ZN22CompilationResourceObjnwEm.exit87, %175
-  %.0.i.i.i86.sink = phi ptr [ %.161, %175 ], [ %.0.i.i.i86, %_ZN22CompilationResourceObjnwEm.exit87 ], [ %.0.i.i.i86.sink.ph, %.sink.split.sink.split ]
+  %.0.i.i.i86.sink = phi ptr [ %.2, %175 ], [ %.0.i.i.i86, %_ZN22CompilationResourceObjnwEm.exit87 ], [ %.0.i.i.i86.sink.ph, %.sink.split.sink.split ]
   %201 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.0.i.i.i86.sink, ptr %201, align 8
   br label %202
@@ -3520,8 +3520,8 @@ define hidden void @_ZN20RangeCheckEliminator15in_block_motionEP10BlockBeginR13G
 .lr.ph321:                                        ; preds = %18, %139
   %indvars.iv = phi i64 [ %indvars.iv.next, %139 ], [ 0, %18 ]
   %.0133320 = phi i32 [ %.1, %139 ], [ -1, %18 ]
-  %.sroa.17.0318 = phi ptr [ %.sroa.17.2, %139 ], [ %19, %18 ]
-  %.sroa.10.0317 = phi i32 [ %.sroa.10.2, %139 ], [ 2, %18 ]
+  %.sroa.17.0318 = phi ptr [ %.sroa.17.1, %139 ], [ %19, %18 ]
+  %.sroa.10.0317 = phi i32 [ %.sroa.10.1, %139 ], [ 2, %18 ]
   %.sroa.0.0315 = phi i32 [ %.sroa.0.1, %139 ], [ 0, %18 ]
   %25 = load ptr, ptr %13, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
@@ -3623,11 +3623,11 @@ _ZN13GrowableArrayIP13AccessIndexedE8allocateEv.exit.i: ; preds = %56
   br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i, !llvm.loop !9
 
 _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS1_.exit: ; preds = %.lr.ph19.preheader.i, %.preheader16.i, %56
-  %.sroa.10.1 = phi i32 [ %.sroa.10.0317, %56 ], [ %.0.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i, %.lr.ph19.preheader.i ]
-  %.sroa.17.1 = phi ptr [ %.sroa.17.0318, %56 ], [ %67, %.preheader16.i ], [ %67, %.lr.ph19.preheader.i ]
+  %.sroa.10.2 = phi i32 [ %.sroa.10.0317, %56 ], [ %.0.i.i.i.i, %.preheader16.i ], [ %.0.i.i.i.i, %.lr.ph19.preheader.i ]
+  %.sroa.17.2 = phi ptr [ %.sroa.17.0318, %56 ], [ %67, %.preheader16.i ], [ %67, %.lr.ph19.preheader.i ]
   %81 = add nsw i32 %.sroa.0.0315, 1
   %82 = sext i32 %.sroa.0.0315 to i64
-  %83 = getelementptr inbounds ptr, ptr %.sroa.17.1, i64 %82
+  %83 = getelementptr inbounds ptr, ptr %.sroa.17.2, i64 %82
   store ptr %27, ptr %83, align 8
   br label %139
 
@@ -3737,8 +3737,8 @@ _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS
 
 139:                                              ; preds = %.critedge, %52, %_ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS1_.exit, %41, %.lr.ph321, %30
   %.sroa.0.1 = phi i32 [ %.sroa.0.0315, %.critedge ], [ %81, %_ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.sroa.0.0315, %52 ], [ %.sroa.0.0315, %41 ], [ %.sroa.0.0315, %30 ], [ %.sroa.0.0315, %.lr.ph321 ]
-  %.sroa.10.2 = phi i32 [ %.sroa.10.0317, %.critedge ], [ %.sroa.10.1, %_ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.sroa.10.0317, %52 ], [ %.sroa.10.0317, %41 ], [ %.sroa.10.0317, %30 ], [ %.sroa.10.0317, %.lr.ph321 ]
-  %.sroa.17.2 = phi ptr [ %.sroa.17.0318, %.critedge ], [ %.sroa.17.1, %_ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.sroa.17.0318, %52 ], [ %.sroa.17.0318, %41 ], [ %.sroa.17.0318, %30 ], [ %.sroa.17.0318, %.lr.ph321 ]
+  %.sroa.10.1 = phi i32 [ %.sroa.10.0317, %.critedge ], [ %.sroa.10.2, %_ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.sroa.10.0317, %52 ], [ %.sroa.10.0317, %41 ], [ %.sroa.10.0317, %30 ], [ %.sroa.10.0317, %.lr.ph321 ]
+  %.sroa.17.1 = phi ptr [ %.sroa.17.0318, %.critedge ], [ %.sroa.17.2, %_ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.sroa.17.0318, %52 ], [ %.sroa.17.0318, %41 ], [ %.sroa.17.0318, %30 ], [ %.sroa.17.0318, %.lr.ph321 ]
   %.1 = phi i32 [ %.0133320, %.critedge ], [ %49, %_ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %.0133320, %52 ], [ %.0133320, %41 ], [ %.0133320, %30 ], [ %.0133320, %.lr.ph321 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %140 = load i32, ptr %2, align 8
@@ -3748,7 +3748,7 @@ _ZN26GrowableArrayWithAllocatorIP13AccessIndexed13GrowableArrayIS1_EE6appendERKS
 
 ._crit_edge:                                      ; preds = %139, %18
   %.sroa.0.0.lcssa = phi i32 [ 0, %18 ], [ %.sroa.0.1, %139 ]
-  %.sroa.17.0.lcssa = phi ptr [ %19, %18 ], [ %.sroa.17.2, %139 ]
+  %.sroa.17.0.lcssa = phi ptr [ %19, %18 ], [ %.sroa.17.1, %139 ]
   %.0133.lcssa = phi i32 [ -1, %18 ], [ %.1, %139 ]
   %143 = load i8, ptr %14, align 4
   %144 = trunc i8 %143 to i1
@@ -6543,29 +6543,29 @@ thread-pre-split:                                 ; preds = %47
 .sink.split:                                      ; preds = %63, %78
   %.sink = phi ptr [ %30, %78 ], [ %70, %63 ]
   %.pn = phi ptr [ %84, %78 ], [ %69, %63 ]
-  %.0.ph.in = getelementptr inbounds i8, ptr %.pn, i64 16
-  %.0.ph = load i32, ptr %.0.ph.in, align 8
+  %.1.ph.in = getelementptr inbounds i8, ptr %.pn, i64 16
+  %.1.ph = load i32, ptr %.1.ph.in, align 8
   %85 = load ptr, ptr %.sink, align 8
   br label %86
 
 86:                                               ; preds = %.sink.split, %71
-  %.029 = phi ptr [ %2, %71 ], [ %85, %.sink.split ]
-  %.0 = phi i32 [ 0, %71 ], [ %.0.ph, %.sink.split ]
+  %.130 = phi ptr [ %2, %71 ], [ %85, %.sink.split ]
+  %.1 = phi i32 [ 0, %71 ], [ %.1.ph, %.sink.split ]
   %87 = load i32, ptr %44, align 8
   %88 = icmp eq i32 %87, 100
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %86
-  %.not42 = icmp eq i32 %.0, -2147483648
-  %90 = sub nsw i32 0, %.0
-  %spec.select = select i1 %.not42, ptr %2, ptr %.029
+  %.not42 = icmp eq i32 %.1, -2147483648
+  %90 = sub nsw i32 0, %.1
+  %spec.select = select i1 %.not42, ptr %2, ptr %.130
   %spec.select43 = select i1 %.not42, i32 0, i32 %90
   br label %91
 
 91:                                               ; preds = %89, %28, %36, %54, %86, %19
-  %.130 = phi ptr [ null, %19 ], [ %2, %36 ], [ %.029, %86 ], [ %2, %54 ], [ %2, %28 ], [ %spec.select, %89 ]
-  %.1 = phi i32 [ %27, %19 ], [ 0, %36 ], [ %.0, %86 ], [ 0, %54 ], [ 0, %28 ], [ %spec.select43, %89 ]
-  tail call void @_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %.130, i32 noundef %.1)
+  %.029 = phi ptr [ null, %19 ], [ %2, %36 ], [ %.130, %86 ], [ %2, %54 ], [ %2, %28 ], [ %spec.select, %89 ]
+  %.0 = phi i32 [ %27, %19 ], [ 0, %36 ], [ %.1, %86 ], [ 0, %54 ], [ 0, %28 ], [ %spec.select43, %89 ]
+  tail call void @_ZN20RangeCheckEliminator12update_boundER13GrowableArrayIiEP11InstructionNS3_9ConditionES4_i(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %3, i32 noundef %4, ptr noundef %.029, i32 noundef %.0)
   br label %92
 
 92:                                               ; preds = %5, %91

@@ -1937,7 +1937,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 81:                                               ; preds = %.lr.ph, %107
   %.0126 = phi i64 [ 0, %.lr.ph ], [ %108, %107 ]
-  %.2125 = phi i64 [ 0, %.lr.ph ], [ %.3, %107 ]
+  %.3125 = phi i64 [ 0, %.lr.ph ], [ %.4, %107 ]
   %.283124 = phi i64 [ 0, %.lr.ph ], [ %.384, %107 ]
   %82 = getelementptr inbounds i64, ptr %42, i64 %.283124
   %83 = load i64, ptr %82, align 8
@@ -1945,14 +1945,14 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   br i1 %84, label %85, label %._crit_edge138
 
 ._crit_edge138:                                   ; preds = %81
-  %.phi.trans.insert = getelementptr inbounds float, ptr %48, i64 %.2125
+  %.phi.trans.insert = getelementptr inbounds float, ptr %48, i64 %.3125
   %.pre = load float, ptr %.phi.trans.insert, align 4
   br label %95
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds float, ptr %44, i64 %.283124
   %87 = load float, ptr %86, align 4
-  %88 = getelementptr inbounds float, ptr %48, i64 %.2125
+  %88 = getelementptr inbounds float, ptr %48, i64 %.3125
   %89 = load float, ptr %88, align 4
   %90 = fcmp ogt float %87, %89
   br i1 %90, label %91, label %95
@@ -1973,12 +1973,12 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 99:                                               ; preds = %95
   store float %96, ptr %98, align 4
-  %100 = getelementptr inbounds i64, ptr %46, i64 %.2125
+  %100 = getelementptr inbounds i64, ptr %46, i64 %.3125
   %101 = load i64, ptr %100, align 8
   %102 = add nsw i64 %51, %101
   %103 = getelementptr inbounds i64, ptr %.sroa.0106.0120, i64 %.0126
   store i64 %102, ptr %103, align 8
-  %104 = add i64 %.2125, 1
+  %104 = add i64 %.3125, 1
   br label %107
 
 105:                                              ; preds = %95
@@ -1989,14 +1989,14 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
 
 107:                                              ; preds = %91, %105, %99
   %.384 = phi i64 [ %94, %91 ], [ %.283124, %99 ], [ %.283124, %105 ]
-  %.3 = phi i64 [ %.2125, %91 ], [ %104, %99 ], [ %.2125, %105 ]
+  %.4 = phi i64 [ %.3125, %91 ], [ %104, %99 ], [ %.3125, %105 ]
   %108 = add nuw i64 %.0126, 1
   %exitcond.not = icmp eq i64 %108, %40
   br i1 %exitcond.not, label %.loopexit, label %81, !llvm.loop !39
 
 .loopexit:                                        ; preds = %107, %79, %.preheader122, %.preheader
-  %.4 = phi i64 [ 0, %.preheader ], [ 0, %.preheader122 ], [ %.1, %79 ], [ %.3, %107 ]
-  %109 = add i64 %38, %.4
+  %.2 = phi i64 [ 0, %.preheader ], [ 0, %.preheader122 ], [ %.1, %79 ], [ %.4, %107 ]
+  %109 = add i64 %38, %.2
   store i64 %109, ptr %12, align 8
   %110 = shl i64 %40, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %44, ptr align 4 %.sroa.0.0, i64 %110, i1 false)
@@ -3014,13 +3014,13 @@ define noundef zeroext i1 @_ZN5faiss12check_openmpEv() local_unnamed_addr #1 per
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %.thread7, %12, %16
-  %.05 = phi i1 [ false, %16 ], [ false, %12 ], [ %15, %.thread7 ]
+  %.15 = phi i1 [ false, %16 ], [ false, %12 ], [ %15, %.thread7 ]
   call void @_ZdlPv(ptr noundef nonnull %.pr.pre) #27
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.thread, %16, %0
-  %.1 = phi i1 [ false, %0 ], [ false, %16 ], [ %.05, %.thread ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %0 ], [ false, %16 ], [ %.15, %.thread ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nounwind

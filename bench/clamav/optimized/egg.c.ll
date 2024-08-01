@@ -2502,7 +2502,7 @@ define range(i32 0, 28) i32 @cli_egg_deflate_decompress(ptr noundef %0, i64 noun
 .lr.ph:                                           ; preds = %.preheader, %42
   %.04590 = phi i32 [ %.1, %42 ], [ 8192, %.preheader ]
   %.04689 = phi i32 [ %.147, %42 ], [ 0, %.preheader ]
-  %.04888 = phi ptr [ %.149, %42 ], [ %12, %.preheader ]
+  %.14988 = phi ptr [ %.2, %42 ], [ %12, %.preheader ]
   %31 = load i32, ptr %19, align 8
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %42
@@ -2510,7 +2510,7 @@ define range(i32 0, 28) i32 @cli_egg_deflate_decompress(ptr noundef %0, i64 noun
 33:                                               ; preds = %.lr.ph
   %34 = add i32 %.04590, 8192
   %35 = zext i32 %34 to i64
-  %36 = call ptr @cli_safer_realloc(ptr noundef %.04888, i64 noundef %35) #11
+  %36 = call ptr @cli_safer_realloc(ptr noundef %.14988, i64 noundef %35) #11
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.thread, label %38
 
@@ -2523,7 +2523,7 @@ define range(i32 0, 28) i32 @cli_egg_deflate_decompress(ptr noundef %0, i64 noun
   br label %42
 
 42:                                               ; preds = %38, %.lr.ph
-  %.149 = phi ptr [ %36, %38 ], [ %.04888, %.lr.ph ]
+  %.2 = phi ptr [ %36, %38 ], [ %.14988, %.lr.ph ]
   %.147 = phi i32 [ %41, %38 ], [ %.04689, %.lr.ph ]
   %.1 = phi i32 [ %34, %38 ], [ %.04590, %.lr.ph ]
   %43 = call i32 @inflate(ptr noundef nonnull %5, i32 noundef 0) #11
@@ -2540,7 +2540,7 @@ define range(i32 0, 28) i32 @cli_egg_deflate_decompress(ptr noundef %0, i64 noun
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %48 = phi i32 [ %27, %.preheader ], [ %45, %._crit_edge.loopexit ]
   %49 = phi i32 [ %24, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
-  %.048.lcssa = phi ptr [ %12, %.preheader ], [ %.149, %._crit_edge.loopexit ]
+  %.149.lcssa = phi ptr [ %12, %.preheader ], [ %.2, %._crit_edge.loopexit ]
   %.046.lcssa = phi i32 [ 0, %.preheader ], [ %.147, %._crit_edge.loopexit ]
   %.043.lcssa = phi i32 [ %22, %.preheader ], [ %43, %._crit_edge.loopexit ]
   %reass.sub = sub i32 %.046.lcssa, %49
@@ -2586,7 +2586,7 @@ define range(i32 0, 28) i32 @cli_egg_deflate_decompress(ptr noundef %0, i64 noun
   br label %.thread.thread77
 
 .thread.thread77:                                 ; preds = %52, %64, %62
-  store ptr %.048.lcssa, ptr %2, align 8
+  store ptr %.149.lcssa, ptr %2, align 8
   %65 = zext i32 %50 to i64
   store i64 %65, ptr %3, align 8
   %66 = call i32 @inflateEnd(ptr noundef nonnull %5) #11
@@ -2595,13 +2595,13 @@ define range(i32 0, 28) i32 @cli_egg_deflate_decompress(ptr noundef %0, i64 noun
 .thread:                                          ; preds = %33
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.53) #11
   %67 = call i32 @inflateEnd(ptr noundef nonnull %5) #11
-  %.not61 = icmp eq ptr %.04888, null
+  %.not61 = icmp eq ptr %.14988, null
   br i1 %.not61, label %.thread.thread, label %68
 
 68:                                               ; preds = %.thread.thread81, %.thread.thread71, %.thread
-  %.26576 = phi ptr [ %12, %.thread.thread71 ], [ %.04888, %.thread ], [ %12, %.thread.thread81 ]
+  %.0486576 = phi ptr [ %12, %.thread.thread71 ], [ %.14988, %.thread ], [ %12, %.thread.thread81 ]
   %.06675 = phi i32 [ 20, %.thread.thread71 ], [ 20, %.thread ], [ 27, %.thread.thread81 ]
-  call void @free(ptr noundef nonnull %.26576) #11
+  call void @free(ptr noundef nonnull %.0486576) #11
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %10, %13, %.thread.thread77, %68, %.thread
@@ -2683,7 +2683,7 @@ define range(i32 0, 28) i32 @cli_egg_bzip2_decompress(ptr noundef %0, i64 nounde
 .lr.ph:                                           ; preds = %.preheader, %43
   %.04172 = phi i32 [ %.1, %43 ], [ 8192, %.preheader ]
   %.04271 = phi i32 [ %.143, %43 ], [ 0, %.preheader ]
-  %.04470 = phi ptr [ %.145, %43 ], [ %12, %.preheader ]
+  %.14570 = phi ptr [ %.2, %43 ], [ %12, %.preheader ]
   %32 = load i32, ptr %19, align 8
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %43
@@ -2691,7 +2691,7 @@ define range(i32 0, 28) i32 @cli_egg_bzip2_decompress(ptr noundef %0, i64 nounde
 34:                                               ; preds = %.lr.ph
   %35 = add i32 %.04172, 8192
   %36 = zext i32 %35 to i64
-  %37 = call ptr @cli_safer_realloc(ptr noundef %.04470, i64 noundef %36) #11
+  %37 = call ptr @cli_safer_realloc(ptr noundef %.14570, i64 noundef %36) #11
   %38 = icmp eq ptr %37, null
   br i1 %38, label %64, label %39
 
@@ -2704,7 +2704,7 @@ define range(i32 0, 28) i32 @cli_egg_bzip2_decompress(ptr noundef %0, i64 nounde
   br label %43
 
 43:                                               ; preds = %39, %.lr.ph
-  %.145 = phi ptr [ %37, %39 ], [ %.04470, %.lr.ph ]
+  %.2 = phi ptr [ %37, %39 ], [ %.14570, %.lr.ph ]
   %.143 = phi i32 [ %42, %39 ], [ %.04271, %.lr.ph ]
   %.1 = phi i32 [ %35, %39 ], [ %.04172, %.lr.ph ]
   %44 = call i32 @BZ2_bzDecompress(ptr noundef nonnull %5) #11
@@ -2721,7 +2721,7 @@ define range(i32 0, 28) i32 @cli_egg_bzip2_decompress(ptr noundef %0, i64 nounde
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %49 = phi i32 [ %28, %.preheader ], [ %46, %._crit_edge.loopexit ]
   %50 = phi i32 [ %25, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
-  %.044.lcssa = phi ptr [ %12, %.preheader ], [ %.145, %._crit_edge.loopexit ]
+  %.145.lcssa = phi ptr [ %12, %.preheader ], [ %.2, %._crit_edge.loopexit ]
   %.042.lcssa = phi i32 [ 0, %.preheader ], [ %.143, %._crit_edge.loopexit ]
   %.040.lcssa = phi i32 [ %23, %.preheader ], [ %44, %._crit_edge.loopexit ]
   %reass.sub = sub i32 %.042.lcssa, %50
@@ -2755,7 +2755,7 @@ define range(i32 0, 28) i32 @cli_egg_bzip2_decompress(ptr noundef %0, i64 nounde
 
 61:                                               ; preds = %57, %60, %53
   %.pre-phi = phi i64 [ %58, %57 ], [ 0, %60 ], [ %55, %53 ]
-  store ptr %.044.lcssa, ptr %2, align 8
+  store ptr %.145.lcssa, ptr %2, align 8
   store i64 %.pre-phi, ptr %3, align 8
   br label %.thread
 
@@ -2772,13 +2772,13 @@ define range(i32 0, 28) i32 @cli_egg_bzip2_decompress(ptr noundef %0, i64 nounde
 64:                                               ; preds = %34
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.63) #11
   %65 = call i32 @BZ2_bzDecompressEnd(ptr noundef nonnull %5) #11
-  %.not54 = icmp eq ptr %.04470, null
+  %.not54 = icmp eq ptr %.14570, null
   br i1 %.not54, label %67, label %66
 
 66:                                               ; preds = %.thread61, %64
   %.066 = phi i32 [ %.0.ph60, %.thread61 ], [ 20, %64 ]
-  %.265 = phi ptr [ %12, %.thread61 ], [ %.04470, %64 ]
-  call void @free(ptr noundef nonnull %.265) #11
+  %.04465 = phi ptr [ %12, %.thread61 ], [ %.14570, %64 ]
+  call void @free(ptr noundef nonnull %.04465) #11
   br label %67
 
 67:                                               ; preds = %.thread, %66, %64
@@ -2860,7 +2860,7 @@ define range(i32 0, 28) i32 @cli_egg_lzma_decompress(ptr noundef %0, i64 noundef
 .lr.ph:                                           ; preds = %.preheader, %40
   %.04487 = phi i32 [ %.1, %40 ], [ 8192, %.preheader ]
   %.04586 = phi i32 [ %.146, %40 ], [ 0, %.preheader ]
-  %.04785 = phi ptr [ %.148, %40 ], [ %12, %.preheader ]
+  %.14885 = phi ptr [ %.2, %40 ], [ %12, %.preheader ]
   %29 = load i64, ptr %18, align 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %31, label %40
@@ -2868,7 +2868,7 @@ define range(i32 0, 28) i32 @cli_egg_lzma_decompress(ptr noundef %0, i64 noundef
 31:                                               ; preds = %.lr.ph
   %32 = add i32 %.04487, 8192
   %33 = zext i32 %32 to i64
-  %34 = call ptr @cli_safer_realloc(ptr noundef %.04785, i64 noundef %33) #11
+  %34 = call ptr @cli_safer_realloc(ptr noundef %.14885, i64 noundef %33) #11
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.thread, label %36
 
@@ -2881,7 +2881,7 @@ define range(i32 0, 28) i32 @cli_egg_lzma_decompress(ptr noundef %0, i64 noundef
   br label %40
 
 40:                                               ; preds = %36, %.lr.ph
-  %.148 = phi ptr [ %34, %36 ], [ %.04785, %.lr.ph ]
+  %.2 = phi ptr [ %34, %36 ], [ %.14885, %.lr.ph ]
   %.146 = phi i32 [ %39, %36 ], [ %.04586, %.lr.ph ]
   %.1 = phi i32 [ %32, %36 ], [ %.04487, %.lr.ph ]
   %41 = call i32 @cli_LzmaDecode(ptr noundef nonnull %5) #11
@@ -2898,7 +2898,7 @@ define range(i32 0, 28) i32 @cli_egg_lzma_decompress(ptr noundef %0, i64 noundef
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %46 = phi i64 [ %26, %.preheader ], [ %43, %._crit_edge.loopexit ]
   %47 = phi i64 [ %23, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
-  %.047.lcssa = phi ptr [ %12, %.preheader ], [ %.148, %._crit_edge.loopexit ]
+  %.148.lcssa = phi ptr [ %12, %.preheader ], [ %.2, %._crit_edge.loopexit ]
   %.045.lcssa = phi i32 [ 0, %.preheader ], [ %.146, %._crit_edge.loopexit ]
   %.042.lcssa = phi i32 [ %21, %.preheader ], [ %41, %._crit_edge.loopexit ]
   %48 = trunc i64 %47 to i32
@@ -2932,7 +2932,7 @@ define range(i32 0, 28) i32 @cli_egg_lzma_decompress(ptr noundef %0, i64 noundef
 
 .thread.thread74:                                 ; preds = %52, %58, %55
   %.pre-phi = phi i64 [ %54, %52 ], [ 0, %58 ], [ %56, %55 ]
-  store ptr %.047.lcssa, ptr %2, align 8
+  store ptr %.148.lcssa, ptr %2, align 8
   store i64 %.pre-phi, ptr %3, align 8
   call void @cli_LzmaShutdown(ptr noundef nonnull %5) #11
   br label %.thread.thread
@@ -2940,13 +2940,13 @@ define range(i32 0, 28) i32 @cli_egg_lzma_decompress(ptr noundef %0, i64 noundef
 .thread:                                          ; preds = %31
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.72) #11
   call void @cli_LzmaShutdown(ptr noundef nonnull %5) #11
-  %.not58 = icmp eq ptr %.04785, null
+  %.not58 = icmp eq ptr %.14885, null
   br i1 %.not58, label %.thread.thread, label %59
 
 59:                                               ; preds = %.thread.thread78, %.thread.thread68, %.thread
-  %.26273 = phi ptr [ %12, %.thread.thread68 ], [ %.04785, %.thread ], [ %12, %.thread.thread78 ]
+  %.0476273 = phi ptr [ %12, %.thread.thread68 ], [ %.14885, %.thread ], [ %12, %.thread.thread78 ]
   %.06372 = phi i32 [ 20, %.thread.thread68 ], [ 20, %.thread ], [ 27, %.thread.thread78 ]
-  call void @free(ptr noundef nonnull %.26273) #11
+  call void @free(ptr noundef nonnull %.0476273) #11
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %10, %13, %.thread.thread74, %59, %.thread
@@ -3071,9 +3071,9 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef wr
   br label %60
 
 60:                                               ; preds = %.lr.ph, %156
-  %.091171 = phi ptr [ null, %.lr.ph ], [ %.1122, %156 ]
+  %.2171 = phi ptr [ null, %.lr.ph ], [ %.3122, %156 ]
   %.092170 = phi i64 [ 0, %.lr.ph ], [ %158, %156 ]
-  %.093169 = phi i64 [ 0, %.lr.ph ], [ %.194121, %156 ]
+  %.194169 = phi i64 [ 0, %.lr.ph ], [ %.295121, %156 ]
   %61 = load ptr, ptr %59, align 8
   %62 = getelementptr inbounds ptr, ptr %61, i64 %.092170
   %63 = load ptr, ptr %62, align 8
@@ -3110,17 +3110,17 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef wr
 
 77:                                               ; preds = %74
   %78 = zext i32 %72 to i64
-  %79 = add i64 %.093169, %78
-  %80 = call ptr @cli_safer_realloc(ptr noundef %.091171, i64 noundef %79) #11
+  %79 = add i64 %.194169, %78
+  %80 = call ptr @cli_safer_realloc(ptr noundef %.2171, i64 noundef %79) #11
   %81 = icmp eq ptr %80, null
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %77
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.86, i64 noundef %.093169) #11
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.86, i64 noundef %.194169) #11
   br label %.thread124
 
 83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %80, i64 %.093169
+  %84 = getelementptr inbounds i8, ptr %80, i64 %.194169
   %85 = getelementptr inbounds i8, ptr %63, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr %63, align 8
@@ -3132,7 +3132,7 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef wr
   %92 = getelementptr inbounds i8, ptr %91, i64 10
   %93 = load i32, ptr %92, align 1
   %94 = zext i32 %93 to i64
-  %95 = add i64 %.093169, %94
+  %95 = add i64 %.194169, %94
   br label %.thread
 
 96:                                               ; preds = %67
@@ -3154,24 +3154,24 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef wr
 
 105:                                              ; preds = %96
   %106 = load i64, ptr %6, align 8
-  %107 = add i64 %106, %.093169
-  %108 = call ptr @cli_safer_realloc(ptr noundef %.091171, i64 noundef %107) #11
+  %107 = add i64 %106, %.194169
+  %108 = call ptr @cli_safer_realloc(ptr noundef %.2171, i64 noundef %107) #11
   %109 = icmp eq ptr %108, null
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %105
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.86, i64 noundef %.093169) #11
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.86, i64 noundef %.194169) #11
   %111 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %111) #11
   br label %.thread124
 
 112:                                              ; preds = %105
-  %113 = getelementptr inbounds i8, ptr %108, i64 %.093169
+  %113 = getelementptr inbounds i8, ptr %108, i64 %.194169
   %114 = load ptr, ptr %5, align 8
   %115 = load i64, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr align 1 %114, i64 %115, i1 false)
   %116 = load i64, ptr %6, align 8
-  %117 = add i64 %116, %.093169
+  %117 = add i64 %116, %.194169
   %118 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %118) #11
   br label %.thread
@@ -3195,24 +3195,24 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef wr
 
 128:                                              ; preds = %119
   %129 = load i64, ptr %8, align 8
-  %130 = add i64 %129, %.093169
-  %131 = call ptr @cli_safer_realloc(ptr noundef %.091171, i64 noundef %130) #11
+  %130 = add i64 %129, %.194169
+  %131 = call ptr @cli_safer_realloc(ptr noundef %.2171, i64 noundef %130) #11
   %132 = icmp eq ptr %131, null
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %128
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.86, i64 noundef %.093169) #11
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.86, i64 noundef %.194169) #11
   %134 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %134) #11
   br label %.thread124
 
 135:                                              ; preds = %128
-  %136 = getelementptr inbounds i8, ptr %131, i64 %.093169
+  %136 = getelementptr inbounds i8, ptr %131, i64 %.194169
   %137 = load ptr, ptr %7, align 8
   %138 = load i64, ptr %8, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %136, ptr align 1 %137, i64 %138, i1 false)
   %139 = load i64, ptr %8, align 8
-  %140 = add i64 %139, %.093169
+  %140 = add i64 %139, %.194169
   %141 = load ptr, ptr %7, align 8
   call void @free(ptr noundef %141) #11
   br label %.thread
@@ -3238,8 +3238,8 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef wr
   br label %.thread
 
 .thread:                                          ; preds = %83, %112, %135, %146
-  %.1122 = phi ptr [ %.091171, %146 ], [ %80, %83 ], [ %108, %112 ], [ %131, %135 ]
-  %.194121 = phi i64 [ %.093169, %146 ], [ %95, %83 ], [ %117, %112 ], [ %140, %135 ]
+  %.3122 = phi ptr [ %.2171, %146 ], [ %80, %83 ], [ %108, %112 ], [ %131, %135 ]
+  %.295121 = phi i64 [ %.194169, %146 ], [ %95, %83 ], [ %117, %112 ], [ %140, %135 ]
   %148 = load i64, ptr %50, align 8
   %149 = add i64 %148, -1
   %150 = icmp eq i64 %.092170, %149
@@ -3249,11 +3249,11 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef wr
   %152 = load ptr, ptr %34, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 8
   %154 = load i64, ptr %153, align 1
-  %.not115 = icmp eq i64 %.194121, %154
+  %.not115 = icmp eq i64 %.295121, %154
   br i1 %.not115, label %156, label %155
 
 155:                                              ; preds = %151
-  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.93, i64 noundef %154, i64 noundef %.194121) #11
+  call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.93, i64 noundef %154, i64 noundef %.295121) #11
   %.pre200 = load i64, ptr %50, align 8
   br label %156
 
@@ -3264,15 +3264,15 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef wr
   br i1 %159, label %60, label %.loopexit
 
 .loopexit:                                        ; preds = %156, %57, %66, %46
-  %.295 = phi i64 [ 0, %46 ], [ %.093169, %66 ], [ 0, %57 ], [ %.194121, %156 ]
-  %.2 = phi ptr [ null, %46 ], [ %.091171, %66 ], [ null, %57 ], [ %.1122, %156 ]
+  %.093 = phi i64 [ 0, %46 ], [ %.194169, %66 ], [ 0, %57 ], [ %.295121, %156 ]
+  %.1 = phi ptr [ null, %46 ], [ %.2171, %66 ], [ null, %57 ], [ %.3122, %156 ]
   %160 = load ptr, ptr %42, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.94, ptr noundef %160) #11
   %161 = load ptr, ptr %42, align 8
   %162 = call noalias ptr @strdup(ptr noundef %161) #11
   store ptr %162, ptr %1, align 8
-  store ptr %.2, ptr %2, align 8
-  store i64 %.295, ptr %3, align 8
+  store ptr %.1, ptr %2, align 8
+  store i64 %.093, ptr %3, align 8
   br label %.thread124.thread
 
 .thread124.thread:                                ; preds = %45, %40, %36, %29, %.critedge, %.loopexit
@@ -3289,11 +3289,11 @@ define range(i32 0, 28) i32 @cli_egg_extract_file(ptr noundef %0, ptr noundef wr
   %167 = load i64, ptr %166, align 8
   %168 = add i64 %167, 1
   store i64 %168, ptr %166, align 8
-  %.not117 = icmp eq ptr %.091171, null
+  %.not117 = icmp eq ptr %.2171, null
   br i1 %.not117, label %170, label %169
 
 169:                                              ; preds = %.thread124
-  call void @free(ptr noundef nonnull %.091171) #11
+  call void @free(ptr noundef nonnull %.2171) #11
   br label %170
 
 170:                                              ; preds = %.thread124.thread, %.thread139, %169, %.thread124

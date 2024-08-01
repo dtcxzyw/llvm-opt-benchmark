@@ -1119,8 +1119,8 @@ _ZN15ciInstanceKlass19get_field_by_offsetEib.exit: ; preds = %_ZN15ciInstanceKla
   br label %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit
 
 _ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit: ; preds = %34, %36
-  %.0.i = phi i32 [ %35, %34 ], [ %37, %36 ]
-  %38 = icmp eq i32 %.0.i, 0
+  %.0.i18 = phi i32 [ %35, %34 ], [ %37, %36 ]
+  %38 = icmp eq i32 %.0.i18, 0
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit
@@ -1248,7 +1248,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %53
 
 53:                                               ; preds = %46, %52, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %.0 = phi ptr [ null, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %50, %52 ], [ null, %46 ]
+  %.1 = phi ptr [ null, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %50, %52 ], [ null, %46 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %44) #11
   %54 = getelementptr inbounds i8, ptr %27, i64 408
   %55 = load ptr, ptr %54, align 8
@@ -1286,8 +1286,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %53, %59
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %23, %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.1 = phi ptr [ %.0, %_ZN17HandleMarkCleanerD2Ev.exit ], [ null, %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit ], [ %19, %17 ], [ null, %23 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ null, %_ZN15ciInstanceKlass20nof_nonstatic_fieldsEv.exit ], [ %19, %17 ], [ null, %23 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
@@ -1950,7 +1950,7 @@ _ZN5ciEnv12get_metadataEP8Metadata.exit.i:        ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN5ciEnv18get_instance_klassEP5Klass.exit
 
 _ZN5ciEnv18get_instance_klassEP5Klass.exit:       ; preds = %_ZN5ciEnv12get_metadataEP8Metadata.exit.i, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %.0 = phi ptr [ null, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %43, %_ZN5ciEnv12get_metadataEP8Metadata.exit.i ]
+  %.1 = phi ptr [ null, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %43, %_ZN5ciEnv12get_metadataEP8Metadata.exit.i ]
   %44 = getelementptr inbounds i8, ptr %21, i64 408
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 16
@@ -1987,8 +1987,8 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN5ciEnv18get_inst
   br label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread15
 
 _ZN15ciInstanceKlass12has_subklassEv.exit.thread15: ; preds = %16, %_ZN15ciInstanceKlass12has_subklassEv.exit, %_ZNK10ciMetadata9is_loadedEv.exit.thread, %_ZNK10ciMetadata9is_loadedEv.exit, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.1 = phi ptr [ %.0, %_ZN17HandleMarkCleanerD2Ev.exit ], [ null, %_ZNK10ciMetadata9is_loadedEv.exit ], [ null, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ null, %_ZN15ciInstanceKlass12has_subklassEv.exit ], [ null, %16 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %_ZN17HandleMarkCleanerD2Ev.exit ], [ null, %_ZNK10ciMetadata9is_loadedEv.exit ], [ null, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ null, %_ZN15ciInstanceKlass12has_subklassEv.exit ], [ null, %16 ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZN5Klass16up_cast_abstractEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #1
@@ -3339,7 +3339,7 @@ _ZN5ciEnv18get_instance_klassEP5Klass.exit:       ; preds = %28
   br label %35
 
 35:                                               ; preds = %28, %_ZN5ciEnv18get_instance_klassEP5Klass.exit, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit
-  %.0 = phi ptr [ %34, %_ZN5ciEnv18get_instance_klassEP5Klass.exit ], [ null, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %0, %28 ]
+  %.2 = phi ptr [ %34, %_ZN5ciEnv18get_instance_klassEP5Klass.exit ], [ null, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ %0, %28 ]
   %36 = getelementptr inbounds i8, ptr %11, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 16
@@ -3376,13 +3376,13 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %35, %41
   br label %55
 
 55:                                               ; preds = %5, %_ZN17HandleMarkCleanerD2Ev.exit
-  %.1 = phi ptr [ %.0, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %0, %5 ]
+  %.1 = phi ptr [ %.2, %_ZN17HandleMarkCleanerD2Ev.exit ], [ %0, %5 ]
   store ptr %.1, ptr %2, align 8
   br label %56
 
 56:                                               ; preds = %55, %1
-  %.2 = phi ptr [ %.1, %55 ], [ %3, %1 ]
-  ret ptr %.2
+  %.0 = phi ptr [ %.1, %55 ], [ %3, %1 ]
+  ret ptr %.0
 }
 
 declare noundef ptr @_ZNK13InstanceKlass11implementorEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #1

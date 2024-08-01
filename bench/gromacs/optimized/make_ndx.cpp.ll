@@ -988,9 +988,9 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 .lr.ph31.i.i.i:                                   ; preds = %.preheader.i.i.i, %.lr.ph31.i.i.i
   %storemerge.i.i534.i = phi ptr [ %storemerge.i.i.i, %.lr.ph31.i.i.i ], [ %storemerge28.i.i.i, %.preheader.i.i.i ]
-  %.0413.i = phi i32 [ %storemerge24.i.i.i, %.lr.ph31.i.i.i ], [ %isdigittmp.i.i.i, %.preheader.i.i.i ]
+  %.1414.i = phi i32 [ %storemerge24.i.i.i, %.lr.ph31.i.i.i ], [ %isdigittmp.i.i.i, %.preheader.i.i.i ]
   %259 = phi i32 [ %263, %.lr.ph31.i.i.i ], [ %258, %.preheader.i.i.i ]
-  %260 = mul nsw i32 %.0413.i, 10
+  %260 = mul nsw i32 %.1414.i, 10
   %261 = add nsw i32 %259, -48
   %storemerge24.i.i.i = add i32 %261, %260
   %storemerge.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i534.i, i64 1
@@ -1006,7 +1006,7 @@ sub_2.i:                                          ; preds = %sub_1.i
 
 ._crit_edge32.i.i.i:                              ; preds = %._crit_edge32.i.i.loopexit.i, %.preheader.i.i.i
   %.promoted535613.i = phi ptr [ %storemerge28.i.i.i, %.preheader.i.i.i ], [ %storemerge.i.i.i, %._crit_edge32.i.i.loopexit.i ]
-  %.1414.i = phi i32 [ %isdigittmp.i.i.i, %.preheader.i.i.i ], [ %storemerge24.i.i.i, %._crit_edge32.i.i.loopexit.i ]
+  %.0413.i = phi i32 [ %isdigittmp.i.i.i, %.preheader.i.i.i ], [ %storemerge24.i.i.i, %._crit_edge32.i.i.loopexit.i ]
   %264 = phi ptr [ %.pn27.i.i.i, %.preheader.i.i.i ], [ %storemerge.i.i534.i, %._crit_edge32.i.i.loopexit.i ]
   %.lcssa25.i.i.i = phi i8 [ %257, %.preheader.i.i.i ], [ %262, %._crit_edge32.i.i.loopexit.i ]
   %.lcssa.i.i.i = phi i32 [ %258, %.preheader.i.i.i ], [ %263, %._crit_edge32.i.i.loopexit.i ]
@@ -1091,9 +1091,9 @@ _ZL9parse_intPPcPi.exit.i:                        ; preds = %_ZL9parse_intPPcPi.
 
 .lr.ph31.i.i198.i:                                ; preds = %.preheader.i.i183.i, %.lr.ph31.i.i198.i
   %storemerge.i.i201539.i = phi ptr [ %storemerge.i.i201.i, %.lr.ph31.i.i198.i ], [ %storemerge28.i.i185.i, %.preheader.i.i183.i ]
-  %.0415.i = phi i32 [ %storemerge24.i.i199.i, %.lr.ph31.i.i198.i ], [ %isdigittmp.i.i180.i, %.preheader.i.i183.i ]
+  %.2417.i = phi i32 [ %storemerge24.i.i199.i, %.lr.ph31.i.i198.i ], [ %isdigittmp.i.i180.i, %.preheader.i.i183.i ]
   %290 = phi i32 [ %294, %.lr.ph31.i.i198.i ], [ %289, %.preheader.i.i183.i ]
-  %291 = mul nsw i32 %.0415.i, 10
+  %291 = mul nsw i32 %.2417.i, 10
   %292 = add nsw i32 %290, -48
   %storemerge24.i.i199.i = add i32 %292, %291
   %storemerge.i.i201.i = getelementptr inbounds i8, ptr %storemerge.i.i201539.i, i64 1
@@ -1150,7 +1150,7 @@ _ZL9parse_intPPcPi.exit205.loopexit.i:            ; preds = %_ZL9parse_intPPcPi.
 
 _ZL9parse_intPPcPi.exit205.i:                     ; preds = %_ZL9parse_intPPcPi.exit205.loopexit.i, %304, %_ZL14parse_int_charPPcPiPh.exit.i194.i, %303, %.thread.i196.i, %._crit_edge.i.i179.i
   %.promoted540.i = phi ptr [ %.promoted540616.i, %.thread.i196.i ], [ %279, %303 ], [ %298, %_ZL14parse_int_charPPcPiPh.exit.i194.i ], [ %279, %304 ], [ %.pn27.i.i184.i, %._crit_edge.i.i179.i ], [ %274, %_ZL9parse_intPPcPi.exit205.loopexit.i ]
-  %.3418.i = phi i32 [ %.1416.i, %.thread.i196.i ], [ %.1416.i, %303 ], [ %.1416.i, %_ZL14parse_int_charPPcPiPh.exit.i194.i ], [ %.1416.i, %304 ], [ -92637, %._crit_edge.i.i179.i ], [ %.1414.i, %_ZL9parse_intPPcPi.exit205.loopexit.i ]
+  %.0415.i = phi i32 [ %.1416.i, %.thread.i196.i ], [ %.1416.i, %303 ], [ %.1416.i, %_ZL14parse_int_charPPcPiPh.exit.i194.i ], [ %.1416.i, %304 ], [ -92637, %._crit_edge.i.i179.i ], [ %.0413.i, %_ZL9parse_intPPcPi.exit205.loopexit.i ]
   br label %305
 
 305:                                              ; preds = %308, %_ZL9parse_intPPcPi.exit205.i
@@ -1167,7 +1167,7 @@ _ZL9parse_intPPcPi.exit205.i:                     ; preds = %_ZL9parse_intPPcPi.
 
 310:                                              ; preds = %305
   store ptr %306, ptr %7, align 8
-  call fastcc void @_ZL12remove_groupiiPSt6vectorI10IndexGroupSaIS0_EE(i32 noundef %.1414.i, i32 noundef %.3418.i, ptr noundef nonnull %35)
+  call fastcc void @_ZL12remove_groupiiPSt6vectorI10IndexGroupSaIS0_EE(i32 noundef %.0413.i, i32 noundef %.0415.i, ptr noundef nonnull %35)
   br label %_ZL9parse_intPPcPi.exit.thread.i
 
 311:                                              ; preds = %305
@@ -1214,9 +1214,9 @@ _ZL9parse_intPPcPi.exit205.i:                     ; preds = %_ZL9parse_intPPcPi.
 
 .lr.ph31.i.i225.i:                                ; preds = %.preheader.i.i210.i, %.lr.ph31.i.i225.i
   %storemerge.i.i228532.i = phi ptr [ %storemerge.i.i228.i, %.lr.ph31.i.i225.i ], [ %storemerge28.i.i212.i, %.preheader.i.i210.i ]
-  %.3.i = phi i32 [ %storemerge24.i.i226.i, %.lr.ph31.i.i225.i ], [ %isdigittmp.i.i207.i, %.preheader.i.i210.i ]
+  %.4.i = phi i32 [ %storemerge24.i.i226.i, %.lr.ph31.i.i225.i ], [ %isdigittmp.i.i207.i, %.preheader.i.i210.i ]
   %328 = phi i32 [ %332, %.lr.ph31.i.i225.i ], [ %327, %.preheader.i.i210.i ]
-  %329 = mul nsw i32 %.3.i, 10
+  %329 = mul nsw i32 %.4.i, 10
   %330 = add nsw i32 %328, -48
   %storemerge24.i.i226.i = add i32 %330, %329
   %storemerge.i.i228.i = getelementptr inbounds i8, ptr %storemerge.i.i228532.i, i64 1
@@ -1231,7 +1231,7 @@ _ZL9parse_intPPcPi.exit205.i:                     ; preds = %_ZL9parse_intPPcPi.
   br label %._crit_edge32.i.i215.i
 
 ._crit_edge32.i.i215.i:                           ; preds = %._crit_edge32.i.i215.loopexit.i, %.preheader.i.i210.i
-  %.4.i = phi i32 [ %isdigittmp.i.i207.i, %.preheader.i.i210.i ], [ %storemerge24.i.i226.i, %._crit_edge32.i.i215.loopexit.i ]
+  %.3.i = phi i32 [ %isdigittmp.i.i207.i, %.preheader.i.i210.i ], [ %storemerge24.i.i226.i, %._crit_edge32.i.i215.loopexit.i ]
   %333 = phi ptr [ %.pn27.i.i211.i, %.preheader.i.i210.i ], [ %storemerge.i.i228532.i, %._crit_edge32.i.i215.loopexit.i ]
   %.lcssa25.i.i216.i = phi i8 [ %326, %.preheader.i.i210.i ], [ %331, %._crit_edge32.i.i215.loopexit.i ]
   %.lcssa.i.i217.i = phi i32 [ %327, %.preheader.i.i210.i ], [ %332, %._crit_edge32.i.i215.loopexit.i ]
@@ -1267,7 +1267,7 @@ _ZL14parse_int_charPPcPiPh.exit.i221.i:           ; preds = %335
   br label %_ZL9parse_intPPcPi.exit.thread.i
 
 _ZL9parse_intPPcPi.exit232.i:                     ; preds = %_ZL14parse_int_charPPcPiPh.exit.i221.i, %.thread.i223.i
-  %343 = add nsw i32 %.4.i, 1
+  %343 = add nsw i32 %.3.i, 1
   %344 = load ptr, ptr %171, align 8
   %345 = load ptr, ptr %35, align 16
   %346 = ptrtoint ptr %344 to i64
@@ -1277,7 +1277,7 @@ _ZL9parse_intPPcPi.exit232.i:                     ; preds = %_ZL14parse_int_char
   %350 = trunc i64 %349 to i32
   %351 = add i32 %350, -1
   call fastcc void @_ZL12remove_groupiiPSt6vectorI10IndexGroupSaIS0_EE(i32 noundef %343, i32 noundef %351, ptr noundef nonnull %35)
-  %352 = add nsw i32 %.4.i, -1
+  %352 = add nsw i32 %.3.i, -1
   call fastcc void @_ZL12remove_groupiiPSt6vectorI10IndexGroupSaIS0_EE(i32 noundef 0, i32 noundef %352, ptr noundef nonnull %35)
   br label %_ZL9parse_intPPcPi.exit.thread.i
 
@@ -1320,9 +1320,9 @@ _ZL9parse_intPPcPi.exit232.i:                     ; preds = %_ZL14parse_int_char
 
 .lr.ph31.i.i252.i:                                ; preds = %.preheader.i.i237.i, %.lr.ph31.i.i252.i
   %storemerge.i.i255530.i = phi ptr [ %storemerge.i.i255.i, %.lr.ph31.i.i252.i ], [ %storemerge28.i.i239.i, %.preheader.i.i237.i ]
-  %.6.i = phi i32 [ %storemerge24.i.i253.i, %.lr.ph31.i.i252.i ], [ %isdigittmp.i.i234.i, %.preheader.i.i237.i ]
+  %.7.i = phi i32 [ %storemerge24.i.i253.i, %.lr.ph31.i.i252.i ], [ %isdigittmp.i.i234.i, %.preheader.i.i237.i ]
   %368 = phi i32 [ %372, %.lr.ph31.i.i252.i ], [ %367, %.preheader.i.i237.i ]
-  %369 = mul nsw i32 %.6.i, 10
+  %369 = mul nsw i32 %.7.i, 10
   %370 = add nsw i32 %368, -48
   %storemerge24.i.i253.i = add i32 %370, %369
   %storemerge.i.i255.i = getelementptr inbounds i8, ptr %storemerge.i.i255530.i, i64 1
@@ -1338,7 +1338,7 @@ _ZL9parse_intPPcPi.exit232.i:                     ; preds = %_ZL14parse_int_char
 
 ._crit_edge32.i.i242.i:                           ; preds = %._crit_edge32.i.i242.loopexit.i, %.preheader.i.i237.i
   %373 = phi ptr [ %storemerge28.i.i239.i, %.preheader.i.i237.i ], [ %storemerge.i.i255.i, %._crit_edge32.i.i242.loopexit.i ]
-  %.7.i = phi i32 [ %isdigittmp.i.i234.i, %.preheader.i.i237.i ], [ %storemerge24.i.i253.i, %._crit_edge32.i.i242.loopexit.i ]
+  %.6.i = phi i32 [ %isdigittmp.i.i234.i, %.preheader.i.i237.i ], [ %storemerge24.i.i253.i, %._crit_edge32.i.i242.loopexit.i ]
   %374 = phi ptr [ %.pn27.i.i238.i, %.preheader.i.i237.i ], [ %storemerge.i.i255530.i, %._crit_edge32.i.i242.loopexit.i ]
   %.lcssa25.i.i243.i = phi i8 [ %366, %.preheader.i.i237.i ], [ %371, %._crit_edge32.i.i242.loopexit.i ]
   %.lcssa.i.i244.i = phi i32 [ %367, %.preheader.i.i237.i ], [ %372, %._crit_edge32.i.i242.loopexit.i ]
@@ -1375,11 +1375,11 @@ _ZL14parse_int_charPPcPiPh.exit.i248.i:           ; preds = %376
 
 _ZL9parse_intPPcPi.exit259.i:                     ; preds = %_ZL14parse_int_charPPcPiPh.exit.i248.i, %.thread.i250.i
   %384 = phi ptr [ %373, %.thread.i250.i ], [ %377, %_ZL14parse_int_charPPcPiPh.exit.i248.i ]
-  %385 = icmp sgt i32 %.7.i, -1
+  %385 = icmp sgt i32 %.6.i, -1
   br i1 %385, label %386, label %_ZL9parse_intPPcPi.exit.thread.i
 
 386:                                              ; preds = %_ZL9parse_intPPcPi.exit259.i
-  %387 = zext nneg i32 %.7.i to i64
+  %387 = zext nneg i32 %.6.i to i64
   %388 = load ptr, ptr %171, align 8
   %389 = load ptr, ptr %35, align 16
   %390 = ptrtoint ptr %388 to i64
@@ -1547,9 +1547,9 @@ _ZL13list_residuesPK7t_atoms.exit.i:              ; preds = %.loopexit.i.i, %415
 
 .lr.ph31.i.i281.i:                                ; preds = %.preheader.i.i266.i, %.lr.ph31.i.i281.i
   %storemerge.i.i284528.i = phi ptr [ %storemerge.i.i284.i, %.lr.ph31.i.i281.i ], [ %storemerge28.i.i268.i, %.preheader.i.i266.i ]
-  %.9.i = phi i32 [ %storemerge24.i.i282.i, %.lr.ph31.i.i281.i ], [ %isdigittmp.i.i263.i, %.preheader.i.i266.i ]
+  %.10.i = phi i32 [ %storemerge24.i.i282.i, %.lr.ph31.i.i281.i ], [ %isdigittmp.i.i263.i, %.preheader.i.i266.i ]
   %472 = phi i32 [ %476, %.lr.ph31.i.i281.i ], [ %471, %.preheader.i.i266.i ]
-  %473 = mul nsw i32 %.9.i, 10
+  %473 = mul nsw i32 %.10.i, 10
   %474 = add nsw i32 %472, -48
   %storemerge24.i.i282.i = add i32 %474, %473
   %storemerge.i.i284.i = getelementptr inbounds i8, ptr %storemerge.i.i284528.i, i64 1
@@ -1564,7 +1564,7 @@ _ZL13list_residuesPK7t_atoms.exit.i:              ; preds = %.loopexit.i.i, %415
   br label %._crit_edge32.i.i271.i
 
 ._crit_edge32.i.i271.i:                           ; preds = %._crit_edge32.i.i271.loopexit.i, %.preheader.i.i266.i
-  %.10.i = phi i32 [ %isdigittmp.i.i263.i, %.preheader.i.i266.i ], [ %storemerge24.i.i282.i, %._crit_edge32.i.i271.loopexit.i ]
+  %.9.i = phi i32 [ %isdigittmp.i.i263.i, %.preheader.i.i266.i ], [ %storemerge24.i.i282.i, %._crit_edge32.i.i271.loopexit.i ]
   %477 = phi ptr [ %.pn27.i.i267.i, %.preheader.i.i266.i ], [ %storemerge.i.i284528.i, %._crit_edge32.i.i271.loopexit.i ]
   %.lcssa25.i.i272.i = phi i8 [ %470, %.preheader.i.i266.i ], [ %475, %._crit_edge32.i.i271.loopexit.i ]
   %.lcssa.i.i273.i = phi i32 [ %471, %.preheader.i.i266.i ], [ %476, %._crit_edge32.i.i271.loopexit.i ]
@@ -1600,11 +1600,11 @@ _ZL14parse_int_charPPcPiPh.exit.i277.i:           ; preds = %479
   br label %_ZL9parse_intPPcPi.exit.thread.i
 
 _ZL9parse_intPPcPi.exit288.i:                     ; preds = %_ZL14parse_int_charPPcPiPh.exit.i277.i, %.thread.i279.i
-  %487 = icmp sgt i32 %.10.i, -1
+  %487 = icmp sgt i32 %.9.i, -1
   br i1 %487, label %488, label %_ZL9parse_intPPcPi.exit.thread.i
 
 488:                                              ; preds = %_ZL9parse_intPPcPi.exit288.i
-  %489 = zext nneg i32 %.10.i to i64
+  %489 = zext nneg i32 %.9.i to i64
   %490 = load ptr, ptr %171, align 8
   %491 = load ptr, ptr %35, align 16
   %492 = ptrtoint ptr %490 to i64
@@ -1868,9 +1868,9 @@ sub_2144.i.i:                                     ; preds = %sub_1143.i.i
 
 612:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i, %.lr.ph194.i.i
   %.sroa.0111.0192.i.i = phi ptr [ %607, %.lr.ph194.i.i ], [ %642, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
-  %.sroa.15.1191.i.i = phi ptr [ null, %.lr.ph194.i.i ], [ %.sroa.15.3.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
-  %.sroa.8.1190.i.i = phi ptr [ null, %.lr.ph194.i.i ], [ %.sroa.8.3.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
-  %.sroa.0114.1189.i.i = phi ptr [ null, %.lr.ph194.i.i ], [ %.sroa.0114.3.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
+  %.sroa.15.1191.i.i = phi ptr [ null, %.lr.ph194.i.i ], [ %.sroa.15.2.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
+  %.sroa.8.1190.i.i = phi ptr [ null, %.lr.ph194.i.i ], [ %.sroa.8.2.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
+  %.sroa.0114.1189.i.i = phi ptr [ null, %.lr.ph194.i.i ], [ %.sroa.0114.2.i.i, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i ]
   %613 = load i32, ptr %.sroa.0111.0192.i.i, align 4
   %614 = load i32, ptr %610, align 4
   %.not.i294.i = icmp slt i32 %613, %614
@@ -1955,15 +1955,15 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %683
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i:      ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i, %618, %615, %612
-  %.sroa.0114.3.i.i = phi ptr [ %.sroa.0114.1189.i.i, %612 ], [ %.sroa.0114.1189.i.i, %615 ], [ %634, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %.sroa.0114.1189.i.i, %618 ]
-  %.sroa.8.3.i.i = phi ptr [ %.sroa.8.1190.i.i, %612 ], [ %.sroa.8.1190.i.i, %615 ], [ %639, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %619, %618 ]
-  %.sroa.15.3.i.i = phi ptr [ %.sroa.15.1191.i.i, %612 ], [ %.sroa.15.1191.i.i, %615 ], [ %641, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %.sroa.15.1191.i.i, %618 ]
+  %.sroa.0114.2.i.i = phi ptr [ %.sroa.0114.1189.i.i, %612 ], [ %.sroa.0114.1189.i.i, %615 ], [ %634, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %.sroa.0114.1189.i.i, %618 ]
+  %.sroa.8.2.i.i = phi ptr [ %.sroa.8.1190.i.i, %612 ], [ %.sroa.8.1190.i.i, %615 ], [ %639, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %619, %618 ]
+  %.sroa.15.2.i.i = phi ptr [ %.sroa.15.1191.i.i, %612 ], [ %.sroa.15.1191.i.i, %615 ], [ %641, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %.sroa.15.1191.i.i, %618 ]
   %642 = getelementptr inbounds i8, ptr %.sroa.0111.0192.i.i, i64 4
   %.not139.i.i = icmp eq ptr %642, %609
   br i1 %.not139.i.i, label %._crit_edge195.i.i, label %612
 
 ._crit_edge195.i.i:                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i
-  %643 = icmp eq ptr %.sroa.0114.3.i.i, %.sroa.8.3.i.i
+  %643 = icmp eq ptr %.sroa.0114.2.i.i, %.sroa.8.2.i.i
   br i1 %643, label %681, label %644
 
 644:                                              ; preds = %._crit_edge195.i.i
@@ -1994,8 +1994,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i:      ; preds = %_ZNSt6vectorIiSaIiE
   br label %.body.i.i
 
 656:                                              ; preds = %.noexc102.i.i
-  %657 = ptrtoint ptr %.sroa.8.3.i.i to i64
-  %658 = ptrtoint ptr %.sroa.0114.3.i.i to i64
+  %657 = ptrtoint ptr %.sroa.8.2.i.i to i64
+  %658 = ptrtoint ptr %.sroa.0114.2.i.i to i64
   %659 = sub i64 %657, %658
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %181, i8 0, i64 24, i1 false)
   %660 = icmp ugt i64 %659, 9223372036854775804
@@ -2017,7 +2017,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i.i: ; preds = %656
   store ptr %661, ptr %182, align 8
   %663 = getelementptr inbounds i8, ptr %661, i64 %659
   store ptr %663, ptr %183, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %661, ptr align 4 %.sroa.0114.3.i.i, i64 %659, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %661, ptr align 4 %.sroa.0114.2.i.i, i64 %659, i1 false)
   store ptr %663, ptr %182, align 8
   %664 = load ptr, ptr %171, align 8
   %665 = load ptr, ptr %179, align 16
@@ -2091,11 +2091,11 @@ _ZN10IndexGroupD2Ev.exit.i.i:                     ; preds = %675, %_ZNSt6vectorI
   br label %683
 
 681:                                              ; preds = %_ZN10IndexGroupD2Ev.exit.i.i, %._crit_edge195.i.i
-  %.not.i.i.i107.i.i = icmp eq ptr %.sroa.0114.3.i.i, null
+  %.not.i.i.i107.i.i = icmp eq ptr %.sroa.0114.2.i.i, null
   br i1 %.not.i.i.i107.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i, label %682
 
 682:                                              ; preds = %681
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0114.3.i.i) #26
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0114.2.i.i) #26
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit.i.i
 
 _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %682, %681, %.preheader.i293.i
@@ -2104,7 +2104,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit.i.i:                ; preds = %682, %681, %.prehea
   br i1 %exitcond237.not.i.i, label %_ZL11split_chainPK7t_atomsPA3_KfiPSt6vectorI10IndexGroupSaIS6_EE.exit.i, label %.preheader.i293.i, !llvm.loop !22
 
 683:                                              ; preds = %.body.i.i, %.loopexit.split-lp.i.i, %.loopexit.i296.i
-  %.sroa.0114.1159.i.i = phi ptr [ %.sroa.0114.3.i.i, %.body.i.i ], [ %.sroa.0114.1189.i.i, %.loopexit.i296.i ], [ %.sroa.0114.1189.i.i, %.loopexit.split-lp.i.i ]
+  %.sroa.0114.1159.i.i = phi ptr [ %.sroa.0114.2.i.i, %.body.i.i ], [ %.sroa.0114.1189.i.i, %.loopexit.i296.i ], [ %.sroa.0114.1189.i.i, %.loopexit.split-lp.i.i ]
   %.pn94.i.i = phi { ptr, i32 } [ %.pn.i.i, %.body.i.i ], [ %lpad.loopexit.i.i, %.loopexit.i296.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   %.not.i.i.i108.i.i = icmp eq ptr %.sroa.0114.1159.i.i, null
   br i1 %.not.i.i.i108.i.i, label %.body, label %684
@@ -2168,9 +2168,9 @@ _ZL11split_chainPK7t_atomsPA3_KfiPSt6vectorI10IndexGroupSaIS6_EE.exit.i: ; preds
 
 .lr.ph31.i.i319.i:                                ; preds = %.preheader.i.i304.i, %.lr.ph31.i.i319.i
   %storemerge.i.i322526.i = phi ptr [ %storemerge.i.i322.i, %.lr.ph31.i.i319.i ], [ %storemerge28.i.i306.i, %.preheader.i.i304.i ]
-  %.12.i = phi i32 [ %storemerge24.i.i320.i, %.lr.ph31.i.i319.i ], [ %isdigittmp.i.i301.i, %.preheader.i.i304.i ]
+  %.13.i = phi i32 [ %storemerge24.i.i320.i, %.lr.ph31.i.i319.i ], [ %isdigittmp.i.i301.i, %.preheader.i.i304.i ]
   %700 = phi i32 [ %704, %.lr.ph31.i.i319.i ], [ %699, %.preheader.i.i304.i ]
-  %701 = mul nsw i32 %.12.i, 10
+  %701 = mul nsw i32 %.13.i, 10
   %702 = add nsw i32 %700, -48
   %storemerge24.i.i320.i = add i32 %702, %701
   %storemerge.i.i322.i = getelementptr inbounds i8, ptr %storemerge.i.i322526.i, i64 1
@@ -2185,7 +2185,7 @@ _ZL11split_chainPK7t_atomsPA3_KfiPSt6vectorI10IndexGroupSaIS6_EE.exit.i: ; preds
   br label %._crit_edge32.i.i309.i
 
 ._crit_edge32.i.i309.i:                           ; preds = %._crit_edge32.i.i309.loopexit.i, %.preheader.i.i304.i
-  %.13.i = phi i32 [ %isdigittmp.i.i301.i, %.preheader.i.i304.i ], [ %storemerge24.i.i320.i, %._crit_edge32.i.i309.loopexit.i ]
+  %.12.i = phi i32 [ %isdigittmp.i.i301.i, %.preheader.i.i304.i ], [ %storemerge24.i.i320.i, %._crit_edge32.i.i309.loopexit.i ]
   %705 = phi ptr [ %.pn27.i.i305.i, %.preheader.i.i304.i ], [ %storemerge.i.i322526.i, %._crit_edge32.i.i309.loopexit.i ]
   %.lcssa25.i.i310.i = phi i8 [ %698, %.preheader.i.i304.i ], [ %703, %._crit_edge32.i.i309.loopexit.i ]
   %.lcssa.i.i311.i = phi i32 [ %699, %.preheader.i.i304.i ], [ %704, %._crit_edge32.i.i309.loopexit.i ]
@@ -2221,11 +2221,11 @@ _ZL14parse_int_charPPcPiPh.exit.i315.i:           ; preds = %707
   br label %_ZL9parse_intPPcPi.exit.thread.i
 
 _ZL9parse_intPPcPi.exit326.i:                     ; preds = %_ZL14parse_int_charPPcPiPh.exit.i315.i, %.thread.i317.i
-  %715 = icmp sgt i32 %.13.i, -1
+  %715 = icmp sgt i32 %.12.i, -1
   br i1 %715, label %716, label %_ZL9parse_intPPcPi.exit.thread.i
 
 716:                                              ; preds = %_ZL9parse_intPPcPi.exit326.i
-  %717 = zext nneg i32 %.13.i to i64
+  %717 = zext nneg i32 %.12.i to i64
   %718 = load ptr, ptr %171, align 8
   %719 = load ptr, ptr %35, align 16
   %720 = ptrtoint ptr %718 to i64
@@ -2274,9 +2274,9 @@ _ZL9parse_intPPcPi.exit326.i:                     ; preds = %_ZL14parse_int_char
 
 .lr.ph31.i.i347.i:                                ; preds = %.preheader.i.i332.i, %.lr.ph31.i.i347.i
   %storemerge.i.i350524.i = phi ptr [ %storemerge.i.i350.i, %.lr.ph31.i.i347.i ], [ %storemerge28.i.i334.i, %.preheader.i.i332.i ]
-  %.15.i = phi i32 [ %storemerge24.i.i348.i, %.lr.ph31.i.i347.i ], [ %isdigittmp.i.i329.i, %.preheader.i.i332.i ]
+  %.16.i = phi i32 [ %storemerge24.i.i348.i, %.lr.ph31.i.i347.i ], [ %isdigittmp.i.i329.i, %.preheader.i.i332.i ]
   %740 = phi i32 [ %744, %.lr.ph31.i.i347.i ], [ %739, %.preheader.i.i332.i ]
-  %741 = mul nsw i32 %.15.i, 10
+  %741 = mul nsw i32 %.16.i, 10
   %742 = add nsw i32 %740, -48
   %storemerge24.i.i348.i = add i32 %742, %741
   %storemerge.i.i350.i = getelementptr inbounds i8, ptr %storemerge.i.i350524.i, i64 1
@@ -2291,7 +2291,7 @@ _ZL9parse_intPPcPi.exit326.i:                     ; preds = %_ZL14parse_int_char
   br label %._crit_edge32.i.i337.i
 
 ._crit_edge32.i.i337.i:                           ; preds = %._crit_edge32.i.i337.loopexit.i, %.preheader.i.i332.i
-  %.16.i = phi i32 [ %isdigittmp.i.i329.i, %.preheader.i.i332.i ], [ %storemerge24.i.i348.i, %._crit_edge32.i.i337.loopexit.i ]
+  %.15.i = phi i32 [ %isdigittmp.i.i329.i, %.preheader.i.i332.i ], [ %storemerge24.i.i348.i, %._crit_edge32.i.i337.loopexit.i ]
   %745 = phi ptr [ %.pn27.i.i333.i, %.preheader.i.i332.i ], [ %storemerge.i.i350524.i, %._crit_edge32.i.i337.loopexit.i ]
   %.lcssa25.i.i338.i = phi i8 [ %738, %.preheader.i.i332.i ], [ %743, %._crit_edge32.i.i337.loopexit.i ]
   %.lcssa.i.i339.i = phi i32 [ %739, %.preheader.i.i332.i ], [ %744, %._crit_edge32.i.i337.loopexit.i ]
@@ -2327,11 +2327,11 @@ _ZL14parse_int_charPPcPiPh.exit.i343.i:           ; preds = %747
   br label %_ZL9parse_intPPcPi.exit.thread.i
 
 _ZL9parse_intPPcPi.exit354.i:                     ; preds = %_ZL14parse_int_charPPcPiPh.exit.i343.i, %.thread.i345.i
-  %755 = icmp sgt i32 %.16.i, -1
+  %755 = icmp sgt i32 %.15.i, -1
   br i1 %755, label %756, label %_ZL9parse_intPPcPi.exit.thread.i
 
 756:                                              ; preds = %_ZL9parse_intPPcPi.exit354.i
-  %757 = zext nneg i32 %.16.i to i64
+  %757 = zext nneg i32 %.15.i to i64
   %758 = load ptr, ptr %171, align 8
   %759 = load ptr, ptr %35, align 16
   %760 = ptrtoint ptr %758 to i64
@@ -2342,7 +2342,7 @@ _ZL9parse_intPPcPi.exit354.i:                     ; preds = %_ZL14parse_int_char
   br i1 %764, label %.invoke, label %_ZL9parse_intPPcPi.exit.thread.i
 
 .invoke:                                          ; preds = %756, %716
-  %765 = phi i32 [ %.13.i, %716 ], [ %.16.i, %756 ]
+  %765 = phi i32 [ %.12.i, %716 ], [ %.15.i, %756 ]
   invoke fastcc void @_ZL11split_groupPK7t_atomsiPSt6vectorI10IndexGroupSaIS3_EEb(ptr noundef nonnull %24, i32 noundef %765, ptr noundef nonnull %35, i1 noundef zeroext %687)
           to label %_ZL9parse_intPPcPi.exit.thread.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -5731,7 +5731,7 @@ define internal fastcc noundef i32 @_ZL21select_residueindicesPPcPK7t_atomsihPiS
 
 _ZL14parse_int_charPPcPiPh.exit:                  ; preds = %103, %52
   %.061 = phi i8 [ %3, %52 ], [ %.162, %103 ]
-  %.059 = phi i32 [ %2, %52 ], [ %.2, %103 ]
+  %.059 = phi i32 [ %2, %52 ], [ %.160, %103 ]
   %55 = load i32, ptr %1, align 8
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph79, label %._crit_edge80
@@ -5808,9 +5808,9 @@ _ZL14parse_int_charPPcPiPh.exit:                  ; preds = %103, %52
 
 .lr.ph31.i:                                       ; preds = %.preheader.i, %.lr.ph31.i
   %storemerge.i82 = phi ptr [ %storemerge.i, %.lr.ph31.i ], [ %storemerge28.i, %.preheader.i ]
-  %.160 = phi i32 [ %storemerge24.i, %.lr.ph31.i ], [ %isdigittmp.i, %.preheader.i ]
+  %.2 = phi i32 [ %storemerge24.i, %.lr.ph31.i ], [ %isdigittmp.i, %.preheader.i ]
   %94 = phi i32 [ %98, %.lr.ph31.i ], [ %93, %.preheader.i ]
-  %95 = mul nsw i32 %.160, 10
+  %95 = mul nsw i32 %.2, 10
   %96 = add nsw i32 %94, -48
   %storemerge24.i = add i32 %96, %95
   %storemerge.i = getelementptr inbounds i8, ptr %storemerge.i82, i64 1
@@ -5823,7 +5823,7 @@ _ZL14parse_int_charPPcPiPh.exit:                  ; preds = %103, %52
 
 ._crit_edge32.i:                                  ; preds = %.lr.ph31.i, %.preheader.i
   %99 = phi ptr [ %90, %.preheader.i ], [ %storemerge.i82, %.lr.ph31.i ]
-  %.2 = phi i32 [ %isdigittmp.i, %.preheader.i ], [ %storemerge24.i, %.lr.ph31.i ]
+  %.160 = phi i32 [ %isdigittmp.i, %.preheader.i ], [ %storemerge24.i, %.lr.ph31.i ]
   %.lcssa25.i = phi i8 [ %92, %.preheader.i ], [ %97, %.lr.ph31.i ]
   %.lcssa.i = phi i32 [ %93, %.preheader.i ], [ %98, %.lr.ph31.i ]
   %100 = tail call i32 @isalpha(i32 noundef %.lcssa.i) #27
@@ -5968,7 +5968,7 @@ define internal fastcc noundef i32 @_ZL21select_residuenumbersPPcPK7t_atomsihPiS
 
 _ZL14parse_int_charPPcPiPh.exit:                  ; preds = %109, %56
   %.059 = phi i8 [ %3, %56 ], [ %.160, %109 ]
-  %.057 = phi i32 [ %2, %56 ], [ %.2, %109 ]
+  %.057 = phi i32 [ %2, %56 ], [ %.158, %109 ]
   %59 = load i32, ptr %1, align 8
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %.lr.ph77, label %._crit_edge78
@@ -6047,9 +6047,9 @@ _ZL14parse_int_charPPcPiPh.exit:                  ; preds = %109, %56
 
 .lr.ph31.i:                                       ; preds = %.preheader.i, %.lr.ph31.i
   %storemerge.i80 = phi ptr [ %storemerge.i, %.lr.ph31.i ], [ %storemerge28.i, %.preheader.i ]
-  %.158 = phi i32 [ %storemerge24.i, %.lr.ph31.i ], [ %isdigittmp.i, %.preheader.i ]
+  %.2 = phi i32 [ %storemerge24.i, %.lr.ph31.i ], [ %isdigittmp.i, %.preheader.i ]
   %100 = phi i32 [ %104, %.lr.ph31.i ], [ %99, %.preheader.i ]
-  %101 = mul nsw i32 %.158, 10
+  %101 = mul nsw i32 %.2, 10
   %102 = add nsw i32 %100, -48
   %storemerge24.i = add i32 %102, %101
   %storemerge.i = getelementptr inbounds i8, ptr %storemerge.i80, i64 1
@@ -6062,7 +6062,7 @@ _ZL14parse_int_charPPcPiPh.exit:                  ; preds = %109, %56
 
 ._crit_edge32.i:                                  ; preds = %.lr.ph31.i, %.preheader.i
   %105 = phi ptr [ %96, %.preheader.i ], [ %storemerge.i80, %.lr.ph31.i ]
-  %.2 = phi i32 [ %isdigittmp.i, %.preheader.i ], [ %storemerge24.i, %.lr.ph31.i ]
+  %.158 = phi i32 [ %isdigittmp.i, %.preheader.i ], [ %storemerge24.i, %.lr.ph31.i ]
   %.lcssa25.i = phi i8 [ %98, %.preheader.i ], [ %103, %.lr.ph31.i ]
   %.lcssa.i = phi i32 [ %99, %.preheader.i ], [ %104, %.lr.ph31.i ]
   %106 = tail call i32 @isalpha(i32 noundef %.lcssa.i) #27

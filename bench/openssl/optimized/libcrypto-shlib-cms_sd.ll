@@ -1642,7 +1642,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc42
-  %ret.062 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.2, %for.inc42 ]
+  %ret.062 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.1, %for.inc42 ]
   %i.061 = phi i32 [ 0, %for.body.lr.ph ], [ %inc43, %for.inc42 ]
   %4 = load ptr, ptr %signerInfos, align 8
   %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %i.061) #7
@@ -1714,7 +1714,7 @@ for.inc:                                          ; preds = %for.body14, %CMS_Si
   br i1 %cmp13, label %for.body14, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %for.cond10.preheader, %CMS_SignerInfo_set1_signer_cert.exit
-  %ret.1 = phi i32 [ %inc, %CMS_SignerInfo_set1_signer_cert.exit ], [ %ret.062, %for.cond10.preheader ], [ %ret.062, %for.inc ]
+  %ret.2 = phi i32 [ %inc, %CMS_SignerInfo_set1_signer_cert.exit ], [ %ret.062, %for.cond10.preheader ], [ %ret.062, %for.inc ]
   %12 = load ptr, ptr %signer, align 8
   %cmp23.not = icmp eq ptr %12, null
   %or.cond = and i1 %tobool.not, %cmp23.not
@@ -1780,7 +1780,7 @@ CMS_SignerInfo_set1_signer_cert.exit46:           ; preds = %if.then36, %if.then
   %20 = load ptr, ptr %signer, align 8
   tail call void @X509_free(ptr noundef %20) #7
   store ptr %14, ptr %signer, align 8
-  %inc37 = add nsw i32 %ret.1, 1
+  %inc37 = add nsw i32 %ret.2, 1
   br label %for.inc42
 
 for.inc39:                                        ; preds = %if.end33, %CMS_SignerInfo_cert_cmp.exit38, %for.body29
@@ -1790,7 +1790,7 @@ for.inc39:                                        ; preds = %if.end33, %CMS_Sign
   br i1 %cmp28, label %for.body29, label %for.inc42, !llvm.loop !10
 
 for.inc42:                                        ; preds = %for.inc39, %for.cond26.preheader, %CMS_SignerInfo_set1_signer_cert.exit46, %for.end, %for.body
-  %ret.2 = phi i32 [ %ret.062, %for.body ], [ %ret.1, %for.end ], [ %inc37, %CMS_SignerInfo_set1_signer_cert.exit46 ], [ %ret.1, %for.cond26.preheader ], [ %ret.1, %for.inc39 ]
+  %ret.1 = phi i32 [ %ret.062, %for.body ], [ %ret.2, %for.end ], [ %inc37, %CMS_SignerInfo_set1_signer_cert.exit46 ], [ %ret.2, %for.cond26.preheader ], [ %ret.2, %for.inc39 ]
   %inc43 = add nuw nsw i32 %i.061, 1
   %21 = load ptr, ptr %signerInfos, align 8
   %call2 = tail call i32 @OPENSSL_sk_num(ptr noundef %21) #7
@@ -1798,7 +1798,7 @@ for.inc42:                                        ; preds = %for.inc39, %for.con
   br i1 %cmp3, label %for.body, label %return, !llvm.loop !11
 
 return:                                           ; preds = %for.inc42, %if.end, %cms_get0_signed.exit.thread, %cms_get0_signed.exit
-  %retval.0 = phi i32 [ -1, %cms_get0_signed.exit ], [ -1, %cms_get0_signed.exit.thread ], [ 0, %if.end ], [ %ret.2, %for.inc42 ]
+  %retval.0 = phi i32 [ -1, %cms_get0_signed.exit ], [ -1, %cms_get0_signed.exit.thread ], [ 0, %if.end ], [ %ret.1, %for.inc42 ]
   ret i32 %retval.0
 }
 
@@ -2086,10 +2086,10 @@ if.end91.i:                                       ; preds = %if.end84.i
   br label %cms_SignerInfo_content_sign.exit
 
 cms_SignerInfo_content_sign.exit:                 ; preds = %if.then3.i, %if.end4.i, %land.lhs.true.i, %if.then18.i, %if.end24.i, %if.end28.i, %if.end32.i, %if.then43.i, %if.end50.i, %lor.lhs.false.i, %if.then64.i, %if.end65.i, %if.then72.i, %if.end73.i, %lor.lhs.false78.i, %if.then90.i, %if.end91.i
-  %pctx.1.i = phi ptr [ null, %if.then3.i ], [ null, %if.end28.i ], [ null, %if.end24.i ], [ null, %if.then18.i ], [ %9, %if.end50.i ], [ %9, %lor.lhs.false.i ], [ %9, %if.then64.i ], [ %9, %if.then43.i ], [ null, %if.then72.i ], [ null, %if.end73.i ], [ null, %lor.lhs.false78.i ], [ null, %if.then90.i ], [ null, %land.lhs.true.i ], [ null, %if.end4.i ], [ %9, %if.end65.i ], [ null, %if.end91.i ], [ null, %if.end32.i ]
+  %pctx.0.i = phi ptr [ null, %if.then3.i ], [ null, %if.end28.i ], [ null, %if.end24.i ], [ null, %if.then18.i ], [ %9, %if.end50.i ], [ %9, %lor.lhs.false.i ], [ %9, %if.then64.i ], [ %9, %if.then43.i ], [ null, %if.then72.i ], [ null, %if.end73.i ], [ null, %lor.lhs.false78.i ], [ null, %if.then90.i ], [ null, %land.lhs.true.i ], [ null, %if.end4.i ], [ %9, %if.end65.i ], [ null, %if.end91.i ], [ null, %if.end32.i ]
   %r.0.i = phi i32 [ 0, %if.then3.i ], [ 0, %if.end28.i ], [ 0, %if.end24.i ], [ 0, %if.then18.i ], [ 0, %if.end50.i ], [ 0, %lor.lhs.false.i ], [ 0, %if.then64.i ], [ 0, %if.then43.i ], [ 0, %if.then72.i ], [ 0, %if.end73.i ], [ 0, %lor.lhs.false78.i ], [ 0, %if.then90.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end4.i ], [ 1, %if.end65.i ], [ 1, %if.end91.i ], [ %call33.i, %if.end32.i ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %call.i) #7
-  call void @EVP_PKEY_CTX_free(ptr noundef %pctx.1.i) #7
+  call void @EVP_PKEY_CTX_free(ptr noundef %pctx.0.i) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mdlen.addr.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %computed_md.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %siglen.i)

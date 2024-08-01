@@ -3107,21 +3107,21 @@ define dso_local noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef %
   br i1 %.not31, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %6, %.preheader
-  %.026 = phi ptr [ %10, %.preheader ], [ %0, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.026, i64 8
+  %.1 = phi ptr [ %10, %.preheader ], [ %0, %6 ]
+  %9 = getelementptr inbounds i8, ptr %.1, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not32 = icmp eq ptr %10, null
   br i1 %.not32, label %.loopexit, label %.preheader, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader, %6, %3
-  %.1 = phi ptr [ %0, %3 ], [ %8, %6 ], [ %.026, %.preheader ]
-  %11 = getelementptr inbounds i8, ptr %.1, i64 8
+  %.026 = phi ptr [ %0, %3 ], [ %8, %6 ], [ %.1, %.preheader ]
+  %11 = getelementptr inbounds i8, ptr %.026, i64 8
   store ptr %1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %.1, ptr %12, align 8
+  store ptr %.026, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 80
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %.1, i64 80
+  %15 = getelementptr inbounds i8, ptr %.026, i64 80
   %16 = load ptr, ptr %15, align 8
   store ptr null, ptr %15, align 8
   store ptr null, ptr %13, align 8
@@ -3356,21 +3356,21 @@ _ZN7AstNode4op1pEPS_.exit:                        ; preds = %7
   br i1 %.not31.i.i, label %.preheader.i.i, label %_ZN7AstNode7addNextEPS_.exit
 
 .preheader.i.i:                                   ; preds = %14, %.preheader.i.i
-  %.026.i.i = phi ptr [ %18, %.preheader.i.i ], [ %9, %14 ]
-  %17 = getelementptr inbounds i8, ptr %.026.i.i, i64 8
+  %.1.i.i = phi ptr [ %18, %.preheader.i.i ], [ %9, %14 ]
+  %17 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not32.i.i = icmp eq ptr %18, null
   br i1 %.not32.i.i, label %_ZN7AstNode7addNextEPS_.exit, label %.preheader.i.i, !llvm.loop !25
 
 _ZN7AstNode7addNextEPS_.exit:                     ; preds = %.preheader.i.i, %11, %14
-  %.1.i.i = phi ptr [ %9, %11 ], [ %16, %14 ], [ %.026.i.i, %.preheader.i.i ]
-  %19 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %.026.i.i = phi ptr [ %9, %11 ], [ %16, %14 ], [ %.1.i.i, %.preheader.i.i ]
+  %19 = getelementptr inbounds i8, ptr %.026.i.i, i64 8
   store ptr %1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %.1.i.i, ptr %20, align 8
+  store ptr %.026.i.i, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 80
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %.1.i.i, i64 80
+  %23 = getelementptr inbounds i8, ptr %.026.i.i, i64 80
   %24 = load ptr, ptr %23, align 8
   store ptr null, ptr %23, align 8
   store ptr null, ptr %21, align 8
@@ -3424,21 +3424,21 @@ _ZN7AstNode4op2pEPS_.exit:                        ; preds = %7
   br i1 %.not31.i.i, label %.preheader.i.i, label %_ZN7AstNode7addNextEPS_.exit
 
 .preheader.i.i:                                   ; preds = %14, %.preheader.i.i
-  %.026.i.i = phi ptr [ %18, %.preheader.i.i ], [ %9, %14 ]
-  %17 = getelementptr inbounds i8, ptr %.026.i.i, i64 8
+  %.1.i.i = phi ptr [ %18, %.preheader.i.i ], [ %9, %14 ]
+  %17 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not32.i.i = icmp eq ptr %18, null
   br i1 %.not32.i.i, label %_ZN7AstNode7addNextEPS_.exit, label %.preheader.i.i, !llvm.loop !25
 
 _ZN7AstNode7addNextEPS_.exit:                     ; preds = %.preheader.i.i, %11, %14
-  %.1.i.i = phi ptr [ %9, %11 ], [ %16, %14 ], [ %.026.i.i, %.preheader.i.i ]
-  %19 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %.026.i.i = phi ptr [ %9, %11 ], [ %16, %14 ], [ %.1.i.i, %.preheader.i.i ]
+  %19 = getelementptr inbounds i8, ptr %.026.i.i, i64 8
   store ptr %1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %.1.i.i, ptr %20, align 8
+  store ptr %.026.i.i, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 80
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %.1.i.i, i64 80
+  %23 = getelementptr inbounds i8, ptr %.026.i.i, i64 80
   %24 = load ptr, ptr %23, align 8
   store ptr null, ptr %23, align 8
   store ptr null, ptr %21, align 8
@@ -3492,21 +3492,21 @@ _ZN7AstNode4op3pEPS_.exit:                        ; preds = %7
   br i1 %.not31.i.i, label %.preheader.i.i, label %_ZN7AstNode7addNextEPS_.exit
 
 .preheader.i.i:                                   ; preds = %14, %.preheader.i.i
-  %.026.i.i = phi ptr [ %18, %.preheader.i.i ], [ %9, %14 ]
-  %17 = getelementptr inbounds i8, ptr %.026.i.i, i64 8
+  %.1.i.i = phi ptr [ %18, %.preheader.i.i ], [ %9, %14 ]
+  %17 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not32.i.i = icmp eq ptr %18, null
   br i1 %.not32.i.i, label %_ZN7AstNode7addNextEPS_.exit, label %.preheader.i.i, !llvm.loop !25
 
 _ZN7AstNode7addNextEPS_.exit:                     ; preds = %.preheader.i.i, %11, %14
-  %.1.i.i = phi ptr [ %9, %11 ], [ %16, %14 ], [ %.026.i.i, %.preheader.i.i ]
-  %19 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %.026.i.i = phi ptr [ %9, %11 ], [ %16, %14 ], [ %.1.i.i, %.preheader.i.i ]
+  %19 = getelementptr inbounds i8, ptr %.026.i.i, i64 8
   store ptr %1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %.1.i.i, ptr %20, align 8
+  store ptr %.026.i.i, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 80
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %.1.i.i, i64 80
+  %23 = getelementptr inbounds i8, ptr %.026.i.i, i64 80
   %24 = load ptr, ptr %23, align 8
   store ptr null, ptr %23, align 8
   store ptr null, ptr %21, align 8
@@ -3560,21 +3560,21 @@ _ZN7AstNode4op4pEPS_.exit:                        ; preds = %7
   br i1 %.not31.i.i, label %.preheader.i.i, label %_ZN7AstNode7addNextEPS_.exit
 
 .preheader.i.i:                                   ; preds = %14, %.preheader.i.i
-  %.026.i.i = phi ptr [ %18, %.preheader.i.i ], [ %9, %14 ]
-  %17 = getelementptr inbounds i8, ptr %.026.i.i, i64 8
+  %.1.i.i = phi ptr [ %18, %.preheader.i.i ], [ %9, %14 ]
+  %17 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not32.i.i = icmp eq ptr %18, null
   br i1 %.not32.i.i, label %_ZN7AstNode7addNextEPS_.exit, label %.preheader.i.i, !llvm.loop !25
 
 _ZN7AstNode7addNextEPS_.exit:                     ; preds = %.preheader.i.i, %11, %14
-  %.1.i.i = phi ptr [ %9, %11 ], [ %16, %14 ], [ %.026.i.i, %.preheader.i.i ]
-  %19 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %.026.i.i = phi ptr [ %9, %11 ], [ %16, %14 ], [ %.1.i.i, %.preheader.i.i ]
+  %19 = getelementptr inbounds i8, ptr %.026.i.i, i64 8
   store ptr %1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %.1.i.i, ptr %20, align 8
+  store ptr %.026.i.i, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %1, i64 80
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %.1.i.i, i64 80
+  %23 = getelementptr inbounds i8, ptr %.026.i.i, i64 80
   %24 = load ptr, ptr %23, align 8
   store ptr null, ptr %23, align 8
   store ptr null, ptr %21, align 8
@@ -6713,20 +6713,20 @@ _ZN7AstNode4op2pEPS_.exit.i.i.i.i.i:              ; preds = %.noexc25
   br i1 %.not31.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, label %_ZN7AstNode7addNextEPS_.exit.i.i.i.i.i
 
 .preheader.i.i.i.i.i.i.i:                         ; preds = %38, %.preheader.i.i.i.i.i.i.i
-  %.026.i.i.i.i.i.i.i = phi ptr [ %42, %.preheader.i.i.i.i.i.i.i ], [ %34, %38 ]
-  %41 = getelementptr inbounds i8, ptr %.026.i.i.i.i.i.i.i, i64 8
+  %.1.i.i.i.i.i.i.i = phi ptr [ %42, %.preheader.i.i.i.i.i.i.i ], [ %34, %38 ]
+  %41 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i.i, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not32.i.i.i.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not32.i.i.i.i.i.i.i, label %_ZN7AstNode7addNextEPS_.exit.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i, !llvm.loop !25
 
 _ZN7AstNode7addNextEPS_.exit.i.i.i.i.i:           ; preds = %.preheader.i.i.i.i.i.i.i, %38, %35
-  %.1.i.i.i.i.i.i.i = phi ptr [ %34, %35 ], [ %40, %38 ], [ %.026.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i ]
-  %43 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i.i, i64 8
+  %.026.i.i.i.i.i.i.i = phi ptr [ %34, %35 ], [ %40, %38 ], [ %.1.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i ]
+  %43 = getelementptr inbounds i8, ptr %.026.i.i.i.i.i.i.i, i64 8
   store ptr %0, ptr %43, align 8
-  store ptr %.1.i.i.i.i.i.i.i, ptr %12, align 8
+  store ptr %.026.i.i.i.i.i.i.i, ptr %12, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 80
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i.i, i64 80
+  %46 = getelementptr inbounds i8, ptr %.026.i.i.i.i.i.i.i, i64 80
   %47 = load ptr, ptr %46, align 8
   store ptr null, ptr %46, align 8
   store ptr null, ptr %44, align 8

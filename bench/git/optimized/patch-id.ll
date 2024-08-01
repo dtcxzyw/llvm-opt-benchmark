@@ -281,8 +281,8 @@ while.cond.backedge.i.i:                          ; preds = %if.then57.i.i, %if.
   br i1 %cmp.not.i.i, label %if.then136.critedge.i.i, label %while.body.i.i, !llvm.loop !5
 
 if.end12.i.i:                                     ; preds = %do.body.i.i.i, %do.body.i44.i.i, %land.lhs.true5.i.i, %land.lhs.true3.i.i
-  %p.2.i.i = phi ptr [ %14, %land.lhs.true3.i.i ], [ %14, %land.lhs.true5.i.i ], [ %scevgep171.i.i, %do.body.i44.i.i ], [ %scevgep.i.i, %do.body.i.i.i ]
-  %call13.i.i = call i32 @get_oid_hex(ptr noundef %p.2.i.i, ptr noundef nonnull %n.i) #9
+  %p.0.i.i = phi ptr [ %14, %land.lhs.true3.i.i ], [ %14, %land.lhs.true5.i.i ], [ %scevgep171.i.i, %do.body.i44.i.i ], [ %scevgep.i.i, %do.body.i.i.i ]
+  %call13.i.i = call i32 @get_oid_hex(ptr noundef %p.0.i.i, ptr noundef nonnull %n.i) #9
   %tobool14.not.i.i = icmp eq i32 %call13.i.i, 0
   br i1 %tobool14.not.i.i, label %get_one_patchid.exit.i, label %if.end16.i.i
 
@@ -406,8 +406,8 @@ if.then79.i.i:                                    ; preds = %if.end77.i.i
   br label %while.cond.outer.outer.backedge.i.i
 
 while.cond.outer.outer.backedge.i.i:              ; preds = %cond.end.i.i, %if.then33.i.i.i, %if.end22.i.i.i, %lor.lhs.false14.i.i.i, %lor.lhs.false.i.i.i, %if.end.i.i.i, %if.then79.i.i
-  %before.0.ph.ph.be.i.i = phi i32 [ %before.5.i.i, %cond.end.i.i ], [ %spec.select.i.i, %if.then79.i.i ], [ %before.3.i.i, %if.then33.i.i.i ], [ %before.3.i.i, %if.end22.i.i.i ], [ %before.3.i.i, %if.end.i.i.i ], [ %before.3.i.i, %lor.lhs.false.i.i.i ], [ %before.3.i.i, %lor.lhs.false14.i.i.i ]
-  %after.0.ph.ph.be.i.i = phi i32 [ %after.5.i.i, %cond.end.i.i ], [ %after.1.i.i, %if.then79.i.i ], [ %call37.i.i.i, %if.then33.i.i.i ], [ 1, %if.end22.i.i.i ], [ 0, %if.end.i.i.i ], [ 0, %lor.lhs.false.i.i.i ], [ 0, %lor.lhs.false14.i.i.i ]
+  %before.0.ph.ph.be.i.i = phi i32 [ %before.4.i.i, %cond.end.i.i ], [ %spec.select.i.i, %if.then79.i.i ], [ %before.5.i.i, %if.then33.i.i.i ], [ %before.5.i.i, %if.end22.i.i.i ], [ %before.5.i.i, %if.end.i.i.i ], [ %before.5.i.i, %lor.lhs.false.i.i.i ], [ %before.5.i.i, %lor.lhs.false14.i.i.i ]
+  %after.0.ph.ph.be.i.i = phi i32 [ %after.3.i.i, %cond.end.i.i ], [ %after.1.i.i, %if.then79.i.i ], [ %call37.i.i.i, %if.then33.i.i.i ], [ 1, %if.end22.i.i.i ], [ 0, %if.end.i.i.i ], [ 0, %lor.lhs.false.i.i.i ], [ 0, %lor.lhs.false14.i.i.i ]
   %diff_is_binary.0.ph.ph.be.i.i = phi i32 [ 0, %cond.end.i.i ], [ %spec.select92.i.i, %if.then79.i.i ], [ 0, %if.then33.i.i.i ], [ 0, %if.end22.i.i.i ], [ 0, %if.end.i.i.i ], [ 0, %lor.lhs.false.i.i.i ], [ 0, %lor.lhs.false14.i.i.i ]
   %patchlen.0.ph.ph.be.i.i = phi i32 [ %add.i.i, %cond.end.i.i ], [ %patchlen.0.ph96125.i.i, %if.then79.i.i ], [ %patchlen.0.ph96125.i.i, %if.then33.i.i.i ], [ %patchlen.0.ph96125.i.i, %if.end22.i.i.i ], [ %patchlen.0.ph96125.i.i, %if.end.i.i.i ], [ %patchlen.0.ph96125.i.i, %lor.lhs.false.i.i.i ], [ %patchlen.0.ph96125.i.i, %lor.lhs.false14.i.i.i ]
   %35 = load ptr, ptr @stdin, align 8
@@ -445,7 +445,7 @@ if.then.i65.i.i:                                  ; preds = %if.then93.i.i
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i65.i.i, %if.then93.i.i
-  %before.3.i.i = phi i32 [ %call4.i.i.i, %if.then.i65.i.i ], [ 1, %if.then93.i.i ]
+  %before.5.i.i = phi i32 [ %call4.i.i.i, %if.then.i65.i.i ], [ 1, %if.then93.i.i ]
   %q.0.i.i.i = phi ptr [ %add.ptr3.i.i.i, %if.then.i65.i.i ], [ %add.ptr.i.i.i, %if.then93.i.i ]
   %n.0.in.i.i.i = phi i64 [ %call5.i.i.i, %if.then.i65.i.i ], [ %call.i.i.i, %if.then93.i.i ]
   %37 = and i64 %n.0.in.i.i.i, 4294967295
@@ -498,8 +498,8 @@ if.then101.i.i:                                   ; preds = %if.end99.i.i
   br label %if.end103.i.i
 
 if.end103.i.i:                                    ; preds = %if.then101.i.i, %if.end99.i.i, %if.end84.i.i
-  %before.4.i.i = phi i32 [ %before.1.i.i, %if.end84.i.i ], [ -1, %if.then101.i.i ], [ -1, %if.end99.i.i ]
-  %after.4.i.i = phi i32 [ %after.1.i.i, %if.end84.i.i ], [ -1, %if.then101.i.i ], [ -1, %if.end99.i.i ]
+  %before.3.i.i = phi i32 [ %before.1.i.i, %if.end84.i.i ], [ -1, %if.then101.i.i ], [ -1, %if.end99.i.i ]
+  %after.2.i.i = phi i32 [ %after.1.i.i, %if.end84.i.i ], [ -1, %if.then101.i.i ], [ -1, %if.end99.i.i ]
   %41 = load i8, ptr %14, align 1
   switch i8 %41, label %if.end114.i.i [
     i8 45, label %if.then113.i.i
@@ -507,22 +507,22 @@ if.end103.i.i:                                    ; preds = %if.then101.i.i, %if
   ]
 
 if.then113.i.i:                                   ; preds = %if.end103.i.i, %if.end103.i.i
-  %dec.i.i = add nsw i32 %before.4.i.i, -1
+  %dec.i.i = add nsw i32 %before.3.i.i, -1
   br label %if.end114.i.i
 
 if.end114.i.i:                                    ; preds = %if.then113.i.i, %if.end103.i.i
-  %before.5.i.i = phi i32 [ %before.4.i.i, %if.end103.i.i ], [ %dec.i.i, %if.then113.i.i ]
+  %before.4.i.i = phi i32 [ %before.3.i.i, %if.end103.i.i ], [ %dec.i.i, %if.then113.i.i ]
   switch i8 %41, label %if.end126.i.i [
     i8 43, label %if.then124.i.i
     i8 32, label %if.then124.i.i
   ]
 
 if.then124.i.i:                                   ; preds = %if.end114.i.i, %if.end114.i.i
-  %dec125.i.i = add nsw i32 %after.4.i.i, -1
+  %dec125.i.i = add nsw i32 %after.2.i.i, -1
   br label %if.end126.i.i
 
 if.end126.i.i:                                    ; preds = %if.then124.i.i, %if.end114.i.i
-  %after.5.i.i = phi i32 [ %after.4.i.i, %if.end114.i.i ], [ %dec125.i.i, %if.then124.i.i ]
+  %after.3.i.i = phi i32 [ %after.2.i.i, %if.end114.i.i ], [ %dec125.i.i, %if.then124.i.i ]
   br i1 %tobool8.not.i.i, label %cond.false.i.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end126.i.i

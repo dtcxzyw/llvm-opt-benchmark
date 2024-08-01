@@ -72,10 +72,10 @@ define hidden i64 @png_safecat(ptr noundef writeonly %0, i64 noundef %1, i64 nou
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %12 = phi i8 [ %16, %.lr.ph ], [ %8, %.preheader ]
   %.020 = phi ptr [ %13, %.lr.ph ], [ %3, %.preheader ]
-  %.01219 = phi i64 [ %14, %.lr.ph ], [ %2, %.preheader ]
+  %.219 = phi i64 [ %14, %.lr.ph ], [ %2, %.preheader ]
   %13 = getelementptr inbounds i8, ptr %.020, i64 1
-  %14 = add nuw i64 %.01219, 1
-  %15 = getelementptr inbounds i8, ptr %0, i64 %.01219
+  %14 = add nuw i64 %.219, 1
+  %15 = getelementptr inbounds i8, ptr %0, i64 %.219
   store i8 %12, ptr %15, align 1
   %16 = load i8, ptr %13, align 1
   %17 = icmp ne i8 %16, 0
@@ -90,8 +90,8 @@ define hidden i64 @png_safecat(ptr noundef writeonly %0, i64 noundef %1, i64 nou
   br label %21
 
 21:                                               ; preds = %.loopexit, %4
-  %.2 = phi i64 [ %.1, %.loopexit ], [ %2, %4 ]
-  ret i64 %.2
+  %.012 = phi i64 [ %.1, %.loopexit ], [ %2, %4 ]
+  ret i64 %.012
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -269,16 +269,16 @@ define hidden void @png_warning(ptr noalias noundef %0, ptr noundef %1) local_un
   br label %21
 
 .thread21.loopexit:                               ; preds = %.preheader, %9
-  %.123.ph = phi i64 [ 15, %9 ], [ %indvars.iv, %.preheader ]
-  %13 = and i64 %.123.ph, 4294967295
+  %.023.ph = phi i64 [ 15, %9 ], [ %indvars.iv, %.preheader ]
+  %13 = and i64 %.023.ph, 4294967295
   br label %.thread21
 
 .thread21:                                        ; preds = %.thread21.loopexit, %3
-  %.123 = phi i64 [ 0, %3 ], [ %13, %.thread21.loopexit ]
+  %.023 = phi i64 [ 0, %3 ], [ %13, %.thread21.loopexit ]
   %14 = getelementptr inbounds i8, ptr %0, i64 232
   %15 = load ptr, ptr %14, align 8
   %.not17 = icmp eq ptr %15, null
-  %16 = getelementptr inbounds i8, ptr %1, i64 %.123
+  %16 = getelementptr inbounds i8, ptr %1, i64 %.023
   br i1 %.not17, label %.split14, label %20
 
 .split14:                                         ; preds = %.thread21
@@ -321,14 +321,14 @@ define hidden void @png_warning_parameter(ptr noundef writeonly %0, i32 noundef 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %11 = phi i8 [ %15, %.lr.ph.i ], [ %10, %.preheader.i ]
   %.020.i = phi ptr [ %12, %.lr.ph.i ], [ %2, %.preheader.i ]
-  %.01219.i = phi i64 [ %13, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %.219.i = phi i64 [ %13, %.lr.ph.i ], [ 0, %.preheader.i ]
   %12 = getelementptr inbounds i8, ptr %.020.i, i64 1
-  %13 = add nuw nsw i64 %.01219.i, 1
-  %14 = getelementptr inbounds i8, ptr %8, i64 %.01219.i
+  %13 = add nuw nsw i64 %.219.i, 1
+  %14 = getelementptr inbounds i8, ptr %8, i64 %.219.i
   store i8 %11, ptr %14, align 1
   %15 = load i8, ptr %12, align 1
   %16 = icmp ne i8 %15, 0
-  %17 = icmp ult i64 %.01219.i, 30
+  %17 = icmp ult i64 %.219.i, 30
   %18 = and i1 %17, %16
   br i1 %18, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !6
 
@@ -367,14 +367,14 @@ define hidden void @png_warning_parameter_unsigned(ptr noundef writeonly %0, i32
 .lr.ph.i.i:                                       ; preds = %13, %.lr.ph.i.i
   %15 = phi i8 [ %19, %.lr.ph.i.i ], [ %14, %13 ]
   %.020.i.i = phi ptr [ %16, %.lr.ph.i.i ], [ %7, %13 ]
-  %.01219.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ 0, %13 ]
+  %.219.i.i = phi i64 [ %17, %.lr.ph.i.i ], [ 0, %13 ]
   %16 = getelementptr inbounds i8, ptr %.020.i.i, i64 1
-  %17 = add nuw nsw i64 %.01219.i.i, 1
-  %18 = getelementptr inbounds i8, ptr %12, i64 %.01219.i.i
+  %17 = add nuw nsw i64 %.219.i.i, 1
+  %18 = getelementptr inbounds i8, ptr %12, i64 %.219.i.i
   store i8 %15, ptr %18, align 1
   %19 = load i8, ptr %16, align 1
   %20 = icmp ne i8 %19, 0
-  %21 = icmp ult i64 %.01219.i.i, 30
+  %21 = icmp ult i64 %.219.i.i, 30
   %22 = and i1 %21, %20
   br i1 %22, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !6
 
@@ -430,14 +430,14 @@ define hidden void @png_warning_parameter_signed(ptr noundef writeonly %0, i32 n
 .lr.ph.i.i:                                       ; preds = %19, %.lr.ph.i.i
   %21 = phi i8 [ %25, %.lr.ph.i.i ], [ %20, %19 ]
   %.020.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %.0, %19 ]
-  %.01219.i.i = phi i64 [ %23, %.lr.ph.i.i ], [ 0, %19 ]
+  %.219.i.i = phi i64 [ %23, %.lr.ph.i.i ], [ 0, %19 ]
   %22 = getelementptr inbounds i8, ptr %.020.i.i, i64 1
-  %23 = add nuw nsw i64 %.01219.i.i, 1
-  %24 = getelementptr inbounds i8, ptr %18, i64 %.01219.i.i
+  %23 = add nuw nsw i64 %.219.i.i, 1
+  %24 = getelementptr inbounds i8, ptr %18, i64 %.219.i.i
   store i8 %21, ptr %24, align 1
   %25 = load i8, ptr %22, align 1
   %26 = icmp ne i8 %25, 0
-  %27 = icmp ult i64 %.01219.i.i, 30
+  %27 = icmp ult i64 %.219.i.i, 30
   %28 = and i1 %27, %26
   br i1 %28, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !6
 
@@ -581,16 +581,16 @@ define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef re
   br label %png_warning.exit
 
 .thread21.loopexit.i:                             ; preds = %38, %.preheader.i
-  %.123.ph.i = phi i64 [ 15, %38 ], [ %indvars.iv.i, %.preheader.i ]
-  %42 = and i64 %.123.ph.i, 4294967295
+  %.023.ph.i = phi i64 [ 15, %38 ], [ %indvars.iv.i, %.preheader.i ]
+  %42 = and i64 %.023.ph.i, 4294967295
   br label %.thread21.i
 
 .thread21.i:                                      ; preds = %.thread21.loopexit.i, %32
-  %.123.i = phi i64 [ 0, %32 ], [ %42, %.thread21.loopexit.i ]
+  %.023.i = phi i64 [ 0, %32 ], [ %42, %.thread21.loopexit.i ]
   %43 = getelementptr inbounds i8, ptr %0, i64 232
   %44 = load ptr, ptr %43, align 8, !alias.scope !13
   %.not17.i = icmp eq ptr %44, null
-  %45 = getelementptr inbounds i8, ptr %4, i64 %.123.i
+  %45 = getelementptr inbounds i8, ptr %4, i64 %.023.i
   br i1 %.not17.i, label %.split14.i, label %49
 
 .split14.i:                                       ; preds = %.thread21.i
@@ -650,16 +650,16 @@ define hidden void @png_benign_error(ptr noalias noundef %0, ptr noundef %1) loc
   br i1 %exitcond.not.i, label %.thread21.loopexit.i, label %.preheader.i, !llvm.loop !9
 
 .thread21.loopexit.i:                             ; preds = %20, %.preheader.i
-  %.123.ph.i = phi i64 [ 15, %20 ], [ %indvars.iv.i, %.preheader.i ]
-  %21 = and i64 %.123.ph.i, 4294967295
+  %.023.ph.i = phi i64 [ 15, %20 ], [ %indvars.iv.i, %.preheader.i ]
+  %21 = and i64 %.023.ph.i, 4294967295
   br label %.thread21.i
 
 .thread21.i:                                      ; preds = %.thread21.loopexit.i, %14
-  %.123.i = phi i64 [ 0, %14 ], [ %21, %.thread21.loopexit.i ]
+  %.023.i = phi i64 [ 0, %14 ], [ %21, %.thread21.loopexit.i ]
   %22 = getelementptr inbounds i8, ptr %0, i64 232
   %23 = load ptr, ptr %22, align 8, !alias.scope !16
   %.not17.i = icmp eq ptr %23, null
-  %24 = getelementptr inbounds i8, ptr %1, i64 %.123.i
+  %24 = getelementptr inbounds i8, ptr %1, i64 %.023.i
   br i1 %.not17.i, label %.split14.i, label %28
 
 .split14.i:                                       ; preds = %.thread21.i
@@ -823,16 +823,16 @@ define hidden void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) lo
   br i1 %exitcond.not.i9, label %.thread21.loopexit.i, label %.preheader.i, !llvm.loop !9
 
 .thread21.loopexit.i:                             ; preds = %64, %.preheader.i
-  %.123.ph.i = phi i64 [ 15, %64 ], [ %indvars.iv.i7, %.preheader.i ]
-  %65 = and i64 %.123.ph.i, 4294967295
+  %.023.ph.i = phi i64 [ 15, %64 ], [ %indvars.iv.i7, %.preheader.i ]
+  %65 = and i64 %.023.ph.i, 4294967295
   br label %.thread21.i
 
 .thread21.i:                                      ; preds = %.thread21.loopexit.i, %58
-  %.123.i = phi i64 [ 0, %58 ], [ %65, %.thread21.loopexit.i ]
+  %.023.i = phi i64 [ 0, %58 ], [ %65, %.thread21.loopexit.i ]
   %66 = getelementptr inbounds i8, ptr %0, i64 232
   %67 = load ptr, ptr %66, align 8, !alias.scope !24
   %.not17.i = icmp eq ptr %67, null
-  %68 = getelementptr inbounds i8, ptr %3, i64 %.123.i
+  %68 = getelementptr inbounds i8, ptr %3, i64 %.023.i
   br i1 %.not17.i, label %.split14.i, label %72
 
 .split14.i:                                       ; preds = %.thread21.i
@@ -895,16 +895,16 @@ define hidden void @png_app_warning(ptr noalias noundef %0, ptr noundef %1) loca
   br i1 %exitcond.not.i, label %.thread21.loopexit.i, label %.preheader.i, !llvm.loop !9
 
 .thread21.loopexit.i:                             ; preds = %12, %.preheader.i
-  %.123.ph.i = phi i64 [ 15, %12 ], [ %indvars.iv.i, %.preheader.i ]
-  %13 = and i64 %.123.ph.i, 4294967295
+  %.023.ph.i = phi i64 [ 15, %12 ], [ %indvars.iv.i, %.preheader.i ]
+  %13 = and i64 %.023.ph.i, 4294967295
   br label %.thread21.i
 
 .thread21.i:                                      ; preds = %.thread21.loopexit.i, %6
-  %.123.i = phi i64 [ 0, %6 ], [ %13, %.thread21.loopexit.i ]
+  %.023.i = phi i64 [ 0, %6 ], [ %13, %.thread21.loopexit.i ]
   %14 = getelementptr inbounds i8, ptr %0, i64 232
   %15 = load ptr, ptr %14, align 8, !alias.scope !27
   %.not17.i = icmp eq ptr %15, null
-  %16 = getelementptr inbounds i8, ptr %1, i64 %.123.i
+  %16 = getelementptr inbounds i8, ptr %1, i64 %.023.i
   br i1 %.not17.i, label %.split14.i, label %20
 
 .split14.i:                                       ; preds = %.thread21.i
@@ -953,16 +953,16 @@ define hidden void @png_app_error(ptr noalias noundef %0, ptr noundef %1) local_
   br i1 %exitcond.not.i, label %.thread21.loopexit.i, label %.preheader.i, !llvm.loop !9
 
 .thread21.loopexit.i:                             ; preds = %12, %.preheader.i
-  %.123.ph.i = phi i64 [ 15, %12 ], [ %indvars.iv.i, %.preheader.i ]
-  %13 = and i64 %.123.ph.i, 4294967295
+  %.023.ph.i = phi i64 [ 15, %12 ], [ %indvars.iv.i, %.preheader.i ]
+  %13 = and i64 %.023.ph.i, 4294967295
   br label %.thread21.i
 
 .thread21.i:                                      ; preds = %.thread21.loopexit.i, %6
-  %.123.i = phi i64 [ 0, %6 ], [ %13, %.thread21.loopexit.i ]
+  %.023.i = phi i64 [ 0, %6 ], [ %13, %.thread21.loopexit.i ]
   %14 = getelementptr inbounds i8, ptr %0, i64 232
   %15 = load ptr, ptr %14, align 8, !alias.scope !30
   %.not17.i = icmp eq ptr %15, null
-  %16 = getelementptr inbounds i8, ptr %1, i64 %.123.i
+  %16 = getelementptr inbounds i8, ptr %1, i64 %.023.i
   br i1 %.not17.i, label %.split14.i, label %20
 
 .split14.i:                                       ; preds = %.thread21.i
@@ -1136,8 +1136,8 @@ define hidden void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly
   br i1 %.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %2, %7
-  %.0 = phi i32 [ %10, %7 ], [ 0, %2 ]
-  %4 = zext nneg i32 %.0 to i64
+  %.1 = phi i32 [ %10, %7 ], [ 0, %2 ]
+  %4 = zext nneg i32 %.1 to i64
   %5 = getelementptr inbounds i8, ptr %1, i64 %4
   %6 = load i8, ptr %5, align 1
   %.not13 = icmp eq i8 %6, 0
@@ -1147,19 +1147,19 @@ define hidden void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly
   %8 = add nuw nsw i64 %4, 24
   %9 = getelementptr inbounds [220 x i8], ptr %3, i64 0, i64 %8
   store i8 %6, ptr %9, align 1
-  %10 = add nuw nsw i32 %.0, 1
+  %10 = add nuw nsw i32 %.1, 1
   %exitcond.not = icmp eq i32 %10, 195
   br i1 %exitcond.not, label %.critedge.loopexit, label %.preheader
 
 .critedge.loopexit:                               ; preds = %7, %.preheader
-  %.1.ph = phi i32 [ 195, %7 ], [ %.0, %.preheader ]
-  %narrow = add nuw i32 %.1.ph, 24
+  %.0.ph = phi i32 [ 195, %7 ], [ %.1, %.preheader ]
+  %narrow = add nuw i32 %.0.ph, 24
   %11 = zext i32 %narrow to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %2
-  %.1 = phi i64 [ 24, %2 ], [ %11, %.critedge.loopexit ]
-  %12 = getelementptr inbounds [220 x i8], ptr %3, i64 0, i64 %.1
+  %.0 = phi i64 [ 24, %2 ], [ %11, %.critedge.loopexit ]
+  %12 = getelementptr inbounds [220 x i8], ptr %3, i64 0, i64 %.0
   store i8 0, ptr %12, align 1
   call void @png_error(ptr noundef %0, ptr noundef nonnull %3) #19
   unreachable
@@ -1380,14 +1380,14 @@ define hidden void @png_safe_error(ptr nocapture noundef readonly %0, ptr nounde
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %8 = phi i8 [ %12, %.lr.ph.i ], [ %7, %.preheader.i ]
   %.020.i = phi ptr [ %9, %.lr.ph.i ], [ %1, %.preheader.i ]
-  %.01219.i = phi i64 [ %10, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %.219.i = phi i64 [ %10, %.lr.ph.i ], [ 0, %.preheader.i ]
   %9 = getelementptr inbounds i8, ptr %.020.i, i64 1
-  %10 = add nuw nsw i64 %.01219.i, 1
-  %11 = getelementptr inbounds i8, ptr %6, i64 %.01219.i
+  %10 = add nuw nsw i64 %.219.i, 1
+  %11 = getelementptr inbounds i8, ptr %6, i64 %.219.i
   store i8 %8, ptr %11, align 1
   %12 = load i8, ptr %9, align 1
   %13 = icmp ne i8 %12, 0
-  %14 = icmp ult i64 %.01219.i, 62
+  %14 = icmp ult i64 %.219.i, 62
   %15 = and i1 %14, %13
   br i1 %15, label %.lr.ph.i, label %png_safecat.exit, !llvm.loop !6
 
@@ -1419,10 +1419,10 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %5, %.pre
 .lr.ph.i17:                                       ; preds = %.lr.ph.i17.preheader, %.lr.ph.i17
   %25 = phi i8 [ %29, %.lr.ph.i17 ], [ 98, %.lr.ph.i17.preheader ]
   %.020.i18 = phi ptr [ %26, %.lr.ph.i17 ], [ @.str.3, %.lr.ph.i17.preheader ]
-  %.01219.i19 = phi i64 [ %27, %.lr.ph.i17 ], [ 0, %.lr.ph.i17.preheader ]
+  %.219.i19 = phi i64 [ %27, %.lr.ph.i17 ], [ 0, %.lr.ph.i17.preheader ]
   %26 = getelementptr inbounds i8, ptr %.020.i18, i64 1
-  %27 = add nuw nsw i64 %.01219.i19, 1
-  %28 = getelementptr inbounds i8, ptr %6, i64 %.01219.i19
+  %27 = add nuw nsw i64 %.219.i19, 1
+  %28 = getelementptr inbounds i8, ptr %6, i64 %.219.i19
   store i8 %25, ptr %28, align 1
   %29 = load i8, ptr %26, align 1
   %exitcond.not = icmp eq i64 %27, 13
@@ -1441,14 +1441,14 @@ png_safecat.exit:                                 ; preds = %.lr.ph.i, %5, %.pre
 .lr.ph.i25:                                       ; preds = %.preheader.i23, %.lr.ph.i25
   %33 = phi i8 [ %37, %.lr.ph.i25 ], [ %32, %.preheader.i23 ]
   %.020.i26 = phi ptr [ %34, %.lr.ph.i25 ], [ %1, %.preheader.i23 ]
-  %.01219.i27 = phi i64 [ %35, %.lr.ph.i25 ], [ 13, %.preheader.i23 ]
+  %.219.i27 = phi i64 [ %35, %.lr.ph.i25 ], [ 13, %.preheader.i23 ]
   %34 = getelementptr inbounds i8, ptr %.020.i26, i64 1
-  %35 = add nuw nsw i64 %.01219.i27, 1
-  %36 = getelementptr inbounds i8, ptr %6, i64 %.01219.i27
+  %35 = add nuw nsw i64 %.219.i27, 1
+  %36 = getelementptr inbounds i8, ptr %6, i64 %.219.i27
   store i8 %33, ptr %36, align 1
   %37 = load i8, ptr %34, align 1
   %38 = icmp ne i8 %37, 0
-  %39 = icmp ult i64 %.01219.i27, 62
+  %39 = icmp ult i64 %.219.i27, 62
   %40 = and i1 %39, %38
   br i1 %40, label %.lr.ph.i25, label %png_safecat.exit28, !llvm.loop !6
 
@@ -1485,14 +1485,14 @@ define hidden void @png_safe_warning(ptr nocapture noundef readonly %0, ptr noun
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %11 = phi i8 [ %15, %.lr.ph.i ], [ %10, %.preheader.i ]
   %.020.i = phi ptr [ %12, %.lr.ph.i ], [ %1, %.preheader.i ]
-  %.01219.i = phi i64 [ %13, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %.219.i = phi i64 [ %13, %.lr.ph.i ], [ 0, %.preheader.i ]
   %12 = getelementptr inbounds i8, ptr %.020.i, i64 1
-  %13 = add nuw nsw i64 %.01219.i, 1
-  %14 = getelementptr inbounds i8, ptr %9, i64 %.01219.i
+  %13 = add nuw nsw i64 %.219.i, 1
+  %14 = getelementptr inbounds i8, ptr %9, i64 %.219.i
   store i8 %11, ptr %14, align 1
   %15 = load i8, ptr %12, align 1
   %16 = icmp ne i8 %15, 0
-  %17 = icmp ult i64 %.01219.i, 62
+  %17 = icmp ult i64 %.219.i, 62
   %18 = and i1 %17, %16
   br i1 %18, label %.lr.ph.i, label %png_safecat.exit, !llvm.loop !6
 

@@ -531,9 +531,9 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
   br i1 %36, label %.lr.ph.i.i, label %.lr.ph.preheader.i22.i
 
 .lr.ph.i.i:                                       ; preds = %33, %.lr.ph.i.i
-  %.066 = phi i64 [ %spec.select, %.lr.ph.i.i ], [ 0, %33 ]
-  %.062 = phi i64 [ %.163, %.lr.ph.i.i ], [ 0, %33 ]
-  %.060 = phi i64 [ %.161, %.lr.ph.i.i ], [ 0, %33 ]
+  %.167 = phi i64 [ %spec.select, %.lr.ph.i.i ], [ 0, %33 ]
+  %.163 = phi i64 [ %.264, %.lr.ph.i.i ], [ 0, %33 ]
+  %.161 = phi i64 [ %.2, %.lr.ph.i.i ], [ 0, %33 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %33 ]
   %37 = getelementptr %struct.SyncRepStandbyData, ptr %.pre, i64 %indvars.iv.i.i
   %38 = getelementptr inbounds i8, ptr %37, i64 8
@@ -545,15 +545,15 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
   %44 = getelementptr inbounds i8, ptr %37, i64 24
   %45 = load i64, ptr %44, align 8
   %46 = freeze i64 %45
-  %47 = add i64 %.066, -1
+  %47 = add i64 %.167, -1
   %or.cond.not.i.i = icmp ult i64 %47, %40
-  %spec.select = select i1 %or.cond.not.i.i, i64 %.066, i64 %40
-  %48 = add i64 %.062, -1
+  %spec.select = select i1 %or.cond.not.i.i, i64 %.167, i64 %40
+  %48 = add i64 %.163, -1
   %or.cond26.not.i.i = icmp ult i64 %48, %43
-  %.163 = select i1 %or.cond26.not.i.i, i64 %.062, i64 %43
-  %49 = add i64 %.060, -1
+  %.264 = select i1 %or.cond26.not.i.i, i64 %.163, i64 %43
+  %49 = add i64 %.161, -1
   %or.cond27.not.i.i = icmp ult i64 %49, %46
-  %.161 = select i1 %or.cond27.not.i.i, i64 %.060, i64 %46
+  %.2 = select i1 %or.cond27.not.i.i, i64 %.161, i64 %46
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
   br i1 %exitcond.not.i.i, label %.sink.split.i, label %.lr.ph.i.i, !llvm.loop !12
@@ -604,17 +604,17 @@ SyncRepGetNthLatestSyncRecPtr.exit.i:             ; preds = %.lr.ph.i24.i
 
 .sink.split.i:                                    ; preds = %24, %.lr.ph.i.i, %.loopexit.i, %21, %SyncRepGetNthLatestSyncRecPtr.exit.i
   %.05971 = phi i8 [ 1, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 1, %.loopexit.i ], [ 0, %21 ], [ 1, %.lr.ph.i.i ], [ 0, %24 ]
-  %.268 = phi i64 [ %68, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %spec.select, %.lr.ph.i.i ], [ 0, %24 ]
-  %.264 = phi i64 [ %70, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %.163, %.lr.ph.i.i ], [ 0, %24 ]
-  %.2 = phi i64 [ %72, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %.161, %.lr.ph.i.i ], [ 0, %24 ]
+  %.066 = phi i64 [ %68, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %spec.select, %.lr.ph.i.i ], [ 0, %24 ]
+  %.062 = phi i64 [ %70, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %.264, %.lr.ph.i.i ], [ 0, %24 ]
+  %.060 = phi i64 [ %72, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %.2, %.lr.ph.i.i ], [ 0, %24 ]
   %.019.ph.i = phi i1 [ true, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ false, %.loopexit.i ], [ false, %21 ], [ true, %.lr.ph.i.i ], [ false, %24 ]
   tail call void @pfree(ptr noundef %.pre) #10
   br label %SyncRepGetSyncRecPtr.exit
 
 SyncRepGetSyncRecPtr.exit:                        ; preds = %15, %.sink.split.i
-  %.369 = phi i64 [ 0, %15 ], [ %.268, %.sink.split.i ]
-  %.365 = phi i64 [ 0, %15 ], [ %.264, %.sink.split.i ]
-  %.3 = phi i64 [ 0, %15 ], [ %.2, %.sink.split.i ]
+  %.369 = phi i64 [ 0, %15 ], [ %.066, %.sink.split.i ]
+  %.365 = phi i64 [ 0, %15 ], [ %.062, %.sink.split.i ]
+  %.3 = phi i64 [ 0, %15 ], [ %.060, %.sink.split.i ]
   %.1 = phi i8 [ 0, %15 ], [ %.05971, %.sink.split.i ]
   %.019.i = phi i1 [ false, %15 ], [ %.019.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)

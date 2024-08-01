@@ -1923,7 +1923,7 @@ lpad31:                                           ; preds = %invoke.cont29
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont24, %invoke.cont32
-  %retval.0 = phi i32 [ %call33, %invoke.cont32 ], [ 0, %invoke.cont24 ]
+  %retval.2 = phi i32 [ %call33, %invoke.cont32 ], [ 0, %invoke.cont24 ]
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %numberUniset) #18
   br label %cleanup34
 
@@ -1933,7 +1933,7 @@ ehcleanup:                                        ; preds = %lpad31, %lpad23
   br label %ehcleanup35
 
 cleanup34:                                        ; preds = %invoke.cont, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %invoke.cont ]
+  %retval.1 = phi i32 [ %retval.2, %cleanup ], [ 0, %invoke.cont ]
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %affixUniset) #18
   br label %return
 
@@ -1943,8 +1943,8 @@ ehcleanup35:                                      ; preds = %ehcleanup, %lpad
   resume { ptr, i32 } %.pn.pn
 
 return:                                           ; preds = %cond.end.thread, %cond.end, %cleanup34
-  %retval.2 = phi i32 [ %retval.1, %cleanup34 ], [ 0, %cond.end ], [ 0, %cond.end.thread ]
-  ret i32 %retval.2
+  %retval.0 = phi i32 [ %retval.1, %cleanup34 ], [ 0, %cond.end ], [ 0, %cond.end.thread ]
+  ret i32 %retval.0
 }
 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7520DecimalFormatSymbols28getPatternForCurrencySpacingE16UCurrencySpacingaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883), i32 noundef, i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8

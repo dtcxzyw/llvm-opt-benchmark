@@ -182,7 +182,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
 
 .lr.ph99:                                         ; preds = %.lr.ph.split.us.split, %33
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %33 ], [ 0, %.lr.ph.split.us.split ]
-  %.061.us97 = phi ptr [ %.1.us, %33 ], [ %7, %.lr.ph.split.us.split ]
+  %.061.us97 = phi ptr [ %.2.us, %33 ], [ %7, %.lr.ph.split.us.split ]
   %16 = load ptr, ptr %11, align 8
   %17 = getelementptr %union.ListCell, ptr %16, i64 %indvars.iv115
   %18 = load ptr, ptr %17, align 8
@@ -207,14 +207,14 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   br label %27
 
 27:                                               ; preds = %23, %21
-  %.1.us = phi ptr [ %26, %23 ], [ %.061.us97, %21 ]
-  %28 = getelementptr inbounds i8, ptr %.1.us, i64 96
+  %.2.us = phi ptr [ %26, %23 ], [ %.061.us97, %21 ]
+  %28 = getelementptr inbounds i8, ptr %.2.us, i64 96
   store i64 %0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %.1.us, i64 104
+  %29 = getelementptr inbounds i8, ptr %.2.us, i64 104
   store i8 %5, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %18, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = tail call zeroext i1 @ExecCheck(ptr noundef %31, ptr noundef %.1.us) #4
+  %32 = tail call zeroext i1 @ExecCheck(ptr noundef %31, ptr noundef %.2.us) #4
   br i1 %32, label %33, label %.split66.us
 
 33:                                               ; preds = %27
@@ -230,7 +230,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
 .lr.ph89:                                         ; preds = %.lr.ph.split.split.split, %86
   %37 = phi i32 [ %87, %86 ], [ %14, %.lr.ph.split.split.split ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ 0, %.lr.ph.split.split.split ]
-  %.06187 = phi ptr [ %.2, %86 ], [ %7, %.lr.ph.split.split.split ]
+  %.06187 = phi ptr [ %.3, %86 ], [ %7, %.lr.ph.split.split.split ]
   %38 = load ptr, ptr %11, align 8
   %39 = getelementptr %union.ListCell, ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
@@ -269,7 +269,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
   br label %57
 
 57:                                               ; preds = %53, %51
-  %.1 = phi ptr [ %56, %53 ], [ %.06187, %51 ]
+  %.2 = phi ptr [ %56, %53 ], [ %.06187, %51 ]
   %58 = load ptr, ptr %13, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 8
   %60 = load i16, ptr %59, align 8
@@ -282,13 +282,13 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
 
 63:                                               ; preds = %57, %61
   %64 = phi i64 [ %62, %61 ], [ %0, %57 ]
-  %65 = getelementptr inbounds i8, ptr %.1, i64 96
+  %65 = getelementptr inbounds i8, ptr %.2, i64 96
   store i64 %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %.1, i64 104
+  %66 = getelementptr inbounds i8, ptr %.2, i64 104
   store i8 %5, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %40, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call zeroext i1 @ExecCheck(ptr noundef %68, ptr noundef %.1) #4
+  %69 = tail call zeroext i1 @ExecCheck(ptr noundef %68, ptr noundef %.2) #4
   br i1 %69, label %._crit_edge, label %.split66.us
 
 ._crit_edge:                                      ; preds = %63
@@ -297,7 +297,7 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
 
 .split66.us:                                      ; preds = %63, %27
   %.us-phi67 = phi ptr [ %18, %27 ], [ %40, %63 ]
-  %.us-phi68 = phi ptr [ %.1.us, %27 ], [ %.1, %63 ]
+  %.us-phi68 = phi ptr [ %.2.us, %27 ], [ %.2, %63 ]
   %70 = tail call zeroext i1 @errsave_start(ptr noundef %3, ptr noundef null) #4
   br i1 %70, label %71, label %.thread46
 
@@ -327,20 +327,20 @@ define internal fastcc void @domain_check_input(i64 noundef %0, i1 noundef zeroe
 
 86:                                               ; preds = %._crit_edge, %.lr.ph89
   %87 = phi i32 [ %.pre, %._crit_edge ], [ %37, %.lr.ph89 ]
-  %.2 = phi ptr [ %.1, %._crit_edge ], [ %.06187, %.lr.ph89 ]
+  %.3 = phi ptr [ %.2, %._crit_edge ], [ %.06187, %.lr.ph89 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next, %88
   br i1 %89, label %.lr.ph89, label %.thread
 
 .thread:                                          ; preds = %86, %4, %.lr.ph.split.split.split, %.lr.ph.split.us.split, %44, %.split70.us
-  %.053 = phi ptr [ %.061.us97, %44 ], [ %.061.us97, %.split70.us ], [ %7, %4 ], [ %7, %.lr.ph.split.us.split ], [ %7, %.lr.ph.split.split.split ], [ %.2, %86 ]
+  %.053 = phi ptr [ %.061.us97, %44 ], [ %.061.us97, %.split70.us ], [ %7, %4 ], [ %7, %.lr.ph.split.us.split ], [ %7, %.lr.ph.split.split.split ], [ %.3, %86 ]
   %.not42 = icmp eq ptr %.053, null
   br i1 %.not42, label %90, label %.thread46
 
 .thread46:                                        ; preds = %33, %.split66.us, %71, %.thread
-  %.349 = phi ptr [ %.053, %.thread ], [ %.us-phi68, %71 ], [ %.us-phi68, %.split66.us ], [ %.1.us, %33 ]
-  tail call void @ReScanExprContext(ptr noundef nonnull %.349) #4
+  %.149 = phi ptr [ %.053, %.thread ], [ %.us-phi68, %71 ], [ %.us-phi68, %.split66.us ], [ %.2.us, %33 ]
+  tail call void @ReScanExprContext(ptr noundef nonnull %.149) #4
   br label %90
 
 90:                                               ; preds = %.thread46, %.thread

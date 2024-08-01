@@ -40,7 +40,7 @@ watcher_root_RB_MINMAX.exit.preheader:            ; preds = %10
   br label %12
 
 12:                                               ; preds = %.lr.ph75, %watcher_root_RB_MINMAX.exit
-  %.05774 = phi ptr [ %.0.i, %.lr.ph75 ], [ %.2.i, %watcher_root_RB_MINMAX.exit ]
+  %.05774 = phi ptr [ %.0.i, %.lr.ph75 ], [ %.1.i, %watcher_root_RB_MINMAX.exit ]
   %13 = getelementptr inbounds i8, ptr %.05774, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i68 = icmp eq ptr %14, null
@@ -67,8 +67,8 @@ watcher_root_RB_MINMAX.exit.preheader:            ; preds = %10
   br label %22
 
 22:                                               ; preds = %.preheader, %25
-  %.1.i = phi ptr [ %24, %25 ], [ %.05774, %.preheader ]
-  %23 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %.2.i = phi ptr [ %24, %25 ], [ %.05774, %.preheader ]
+  %23 = getelementptr inbounds i8, ptr %.2.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not19.i = icmp eq ptr %24, null
   br i1 %.not19.i, label %watcher_root_RB_NEXT.exit, label %25
@@ -76,11 +76,11 @@ watcher_root_RB_MINMAX.exit.preheader:            ; preds = %10
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %.1.i, %27
+  %28 = icmp eq ptr %.2.i, %27
   br i1 %28, label %22, label %watcher_root_RB_NEXT.exit, !llvm.loop !8
 
 watcher_root_RB_NEXT.exit:                        ; preds = %.preheader.i, %22, %25, %19
-  %.2.i = phi ptr [ %18, %19 ], [ null, %22 ], [ %24, %25 ], [ %.0.i69, %.preheader.i ]
+  %.1.i = phi ptr [ %18, %19 ], [ null, %22 ], [ %24, %25 ], [ %.0.i69, %.preheader.i ]
   %29 = getelementptr inbounds i8, ptr %.05774, i64 48
   store i32 1, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %.05774, i64 32
@@ -208,7 +208,7 @@ uv_fs_event_stop.exit:                            ; preds = %39, %71
 watcher_root_RB_MINMAX.exit:                      ; preds = %uv_fs_event_stop.exit, %.thread, %33
   store i32 0, ptr %29, align 8
   call fastcc void @maybe_free_watcher_list(ptr noundef nonnull %.05774, ptr noundef %0)
-  %.not64 = icmp eq ptr %.2.i, null
+  %.not64 = icmp eq ptr %.1.i, null
   br i1 %.not64, label %.critedge, label %12, !llvm.loop !11
 
 .critedge:                                        ; preds = %watcher_root_RB_MINMAX.exit
@@ -860,13 +860,13 @@ split.thread.i.i:                                 ; preds = %107, %129, %split.t
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %70, %.critedge.sink.split.i.i
-  %.2178.i.i = phi ptr [ %226, %.critedge.sink.split.i.i ], [ %.0176.i.i, %70 ]
-  %.not208.i.i = icmp eq ptr %.2178.i.i, null
+  %.1177.i.i = phi ptr [ %226, %.critedge.sink.split.i.i ], [ %.0176.i.i, %70 ]
+  %.not208.i.i = icmp eq ptr %.1177.i.i, null
   br i1 %.not208.i.i, label %watcher_root_RB_REMOVE.exit, label %.critedge.thread.i.i
 
 .critedge.thread.i.i:                             ; preds = %66, %.critedge.i.i
-  %.2178211.i.i = phi ptr [ %.2178.i.i, %.critedge.i.i ], [ %.0176.i.i, %66 ]
-  %227 = getelementptr inbounds i8, ptr %.2178211.i.i, i64 24
+  %.1177211.i.i = phi ptr [ %.1177.i.i, %.critedge.i.i ], [ %.0176.i.i, %66 ]
+  %227 = getelementptr inbounds i8, ptr %.1177211.i.i, i64 24
   store i32 0, ptr %227, align 8
   br label %watcher_root_RB_REMOVE.exit
 
@@ -1068,7 +1068,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %157, %125, %119, %85
-  %.0.be.i.i = phi ptr [ %75, %85 ], [ %75, %125 ], [ %.1.i.i, %119 ], [ %.2.i.i, %157 ]
+  %.0.be.i.i = phi ptr [ %75, %85 ], [ %75, %125 ], [ %.1.i.i, %119 ], [ %.3.i.i, %157 ]
   %87 = getelementptr inbounds i8, ptr %.0.be.i.i, i64 16
   %88 = load ptr, ptr %87, align 8
   %.not.i.i56 = icmp eq ptr %88, null
@@ -1218,7 +1218,7 @@ init_inotify.exit.thread:                         ; preds = %8, %16, %init_inoti
 
 142:                                              ; preds = %141, %127
   %.1115.i.i = phi ptr [ %.0132.i.i, %141 ], [ %69, %127 ]
-  %.2.i.i = phi ptr [ %69, %141 ], [ %.0132.i.i, %127 ]
+  %.3.i.i = phi ptr [ %69, %141 ], [ %.0132.i.i, %127 ]
   %143 = getelementptr inbounds i8, ptr %.1115.i.i, i64 24
   store i32 0, ptr %143, align 8
   %144 = getelementptr inbounds i8, ptr %75, i64 24

@@ -62,13 +62,13 @@ define hidden ptr @find_line_end(ptr noundef %0, ptr noundef %1, ptr nocapture n
   br label %25
 
 25:                                               ; preds = %20, %16, %17, %24
-  %.0 = phi ptr [ %7, %16 ], [ %7, %17 ], [ %7, %24 ], [ %spec.select, %20 ]
-  %26 = getelementptr i8, ptr %.0, i64 1
+  %.1 = phi ptr [ %7, %16 ], [ %7, %17 ], [ %7, %24 ], [ %spec.select, %20 ]
+  %26 = getelementptr i8, ptr %.1, i64 1
   br label %27
 
 27:                                               ; preds = %25, %9
-  %.1 = phi ptr [ %1, %9 ], [ %26, %25 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %1, %9 ], [ %26, %25 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -399,7 +399,7 @@ define range(i32 0, 2) i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr nounde
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.thread.us._crit_edge
   %33 = phi i8 [ %54, %.thread.us._crit_edge ], [ %8, %.lr.ph.split.us.preheader ]
-  %.03370.us = phi ptr [ %53, %.thread.us._crit_edge ], [ %0, %.lr.ph.split.us.preheader ]
+  %.170.us = phi ptr [ %53, %.thread.us._crit_edge ], [ %0, %.lr.ph.split.us.preheader ]
   %34 = zext i8 %33 to i64
   %35 = getelementptr [256 x i8], ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
@@ -407,7 +407,7 @@ define range(i32 0, 2) i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr nounde
   br i1 %37, label %.split.us, label %38
 
 38:                                               ; preds = %.lr.ph.split.us
-  %39 = getelementptr i8, ptr %.03370.us, i64 1
+  %39 = getelementptr i8, ptr %.170.us, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i64
   %42 = getelementptr [256 x i8], ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 0, i64 %41
@@ -420,13 +420,13 @@ define range(i32 0, 2) i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr nounde
   %47 = add i8 %43, %46
   store i8 %47, ptr %6, align 1
   %48 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 1) #13
-  %49 = getelementptr i8, ptr %.03370.us, i64 2
+  %49 = getelementptr i8, ptr %.170.us, i64 2
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, %24
   br i1 %51, label %52, label %.thread.us
 
 52:                                               ; preds = %45
-  %53 = getelementptr i8, ptr %.03370.us, i64 3
+  %53 = getelementptr i8, ptr %.170.us, i64 3
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i64
   %56 = getelementptr [256 x i8], ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 0, i64 %55
@@ -435,7 +435,7 @@ define range(i32 0, 2) i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr nounde
   br i1 %58, label %.thread.us._crit_edge, label %.thread.us
 
 .thread.us:                                       ; preds = %52, %45
-  %59 = getelementptr i8, ptr %.03370.us, i64 2
+  %59 = getelementptr i8, ptr %.170.us, i64 2
   %.not45.us = icmp eq i8 %50, 0
   br i1 %.not45.us, label %.thread58, label %93
 
@@ -460,7 +460,7 @@ define range(i32 0, 2) i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr nounde
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %77
   %65 = phi i8 [ %82, %77 ], [ %8, %.lr.ph.split.split.us.preheader ]
-  %.03370.us78 = phi ptr [ %81, %77 ], [ %0, %.lr.ph.split.split.us.preheader ]
+  %.170.us78 = phi ptr [ %81, %77 ], [ %0, %.lr.ph.split.split.us.preheader ]
   %66 = zext i8 %65 to i64
   %67 = getelementptr [256 x i8], ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1
@@ -468,7 +468,7 @@ define range(i32 0, 2) i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr nounde
   br i1 %69, label %.split.us, label %70
 
 70:                                               ; preds = %.lr.ph.split.split.us
-  %71 = getelementptr i8, ptr %.03370.us78, i64 1
+  %71 = getelementptr i8, ptr %.170.us78, i64 1
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i64
   %74 = getelementptr [256 x i8], ptr @hex_str_to_bytes_encoding.str_to_nibble, i64 0, i64 %73
@@ -481,7 +481,7 @@ define range(i32 0, 2) i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr nounde
   %79 = add i8 %75, %78
   store i8 %79, ptr %6, align 1
   %80 = call ptr @g_byte_array_append(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef 1) #13
-  %81 = getelementptr i8, ptr %.03370.us78, i64 2
+  %81 = getelementptr i8, ptr %.170.us78, i64 2
   %82 = load i8, ptr %81, align 1
   %.not43.us79 = icmp eq i8 %82, 0
   br i1 %.not43.us79, label %.thread58, label %.lr.ph.split.split.us, !llvm.loop !8
@@ -493,7 +493,7 @@ define range(i32 0, 2) i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr nounde
   br i1 %83, label %.split.us, label %84
 
 .split.us:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split.split.us, %.lr.ph.split.split
-  %.us-phi = phi ptr [ %0, %.lr.ph.split.split ], [ %.03370.us78, %.lr.ph.split.split.us ], [ %.03370.us, %.lr.ph.split.us ]
+  %.us-phi = phi ptr [ %0, %.lr.ph.split.split ], [ %.170.us78, %.lr.ph.split.split.us ], [ %.170.us, %.lr.ph.split.us ]
   %.not48.not = icmp eq i32 %4, 0
   br i1 %.not48.not, label %.thread58, label %.thread
 
@@ -506,7 +506,7 @@ define range(i32 0, 2) i32 @hex_str_to_bytes_encoding(ptr noundef %0, ptr nounde
   br i1 %89, label %.split72.us, label %.threadthread-pre-split
 
 .split72.us:                                      ; preds = %38, %70, %84
-  %.us-phi73 = phi ptr [ %0, %84 ], [ %.03370.us78, %70 ], [ %.03370.us, %38 ]
+  %.us-phi73 = phi ptr [ %0, %84 ], [ %.170.us78, %70 ], [ %.170.us, %38 ]
   %.not47.not = icmp eq i32 %4, 0
   br i1 %.not47.not, label %.thread58, label %.thread
 

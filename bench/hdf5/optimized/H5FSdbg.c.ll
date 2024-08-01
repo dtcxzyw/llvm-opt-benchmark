@@ -199,7 +199,7 @@ define range(i32 -1, 1) i32 @H5FS_sects_debug(ptr noundef %0, i64 noundef %1, pt
   br label %27
 
 27:                                               ; preds = %23, %18
-  %.0 = phi i32 [ -1, %23 ], [ 0, %18 ]
+  %.1 = phi i32 [ -1, %23 ], [ 0, %18 ]
   %28 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.26, i32 noundef %3, ptr noundef nonnull @.str.3) #6
   switch i32 %20, label %49 [
     i32 0, label %29
@@ -239,8 +239,8 @@ define range(i32 -1, 1) i32 @H5FS_sects_debug(ptr noundef %0, i64 noundef %1, pt
   br label %51
 
 51:                                               ; preds = %14, %35, %45, %39, %29, %49
-  %.1 = phi i32 [ -1, %14 ], [ %.0, %49 ], [ -1, %45 ], [ %.0, %39 ], [ -1, %35 ], [ %.0, %29 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %14 ], [ %.1, %49 ], [ -1, %45 ], [ %.1, %39 ], [ -1, %35 ], [ %.1, %29 ]
+  ret i32 %.0
 }
 
 declare i32 @H5HF_sects_debug(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

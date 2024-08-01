@@ -1916,7 +1916,7 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %22
-  %.291 = phi i32 [ %.089, %22 ], [ %37, %.loopexit.loopexit ]
+  %.190 = phi i32 [ %.089, %22 ], [ %37, %.loopexit.loopexit ]
   %38 = load i32, ptr %4, align 4
   %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %38) #14
   %40 = load i32, ptr %4, align 4
@@ -1924,7 +1924,7 @@ define void @get_CDR_fixed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   store i32 %41, ptr %4, align 4
   %42 = lshr i8 %39, 4
   %43 = or disjoint i8 %42, 48
-  %44 = zext i32 %.291 to i64
+  %44 = zext i32 %.190 to i64
   %45 = getelementptr i8, ptr %13, i64 %44
   store i8 %43, ptr %45, align 1
   %46 = and i8 %39, 15
@@ -4117,13 +4117,13 @@ get_CDR_ulong.exit:                               ; preds = %113, %115
   store i32 %117, ptr %118, align 4
   %119 = load i8, ptr %86, align 1
   %.not124 = icmp eq i8 %119, 7
-  %spec.select132 = select i1 %.not124, i32 4, i32 0
-  %120 = call i32 @tvb_captured_length_remaining(ptr noundef %.0112, i32 noundef %spec.select132) #14
+  %spec.select133 = select i1 %.not124, i32 4, i32 0
+  %120 = call i32 @tvb_captured_length_remaining(ptr noundef %.0112, i32 noundef %spec.select133) #14
   %121 = load i8, ptr %99, align 2
   %122 = and i8 %121, 2
   %123 = zext nneg i8 %122 to i32
-  %124 = call ptr @fragment_add_seq_next(ptr noundef nonnull @giop_reassembly_table, ptr noundef %.0112, i32 noundef %spec.select132, ptr noundef nonnull %1, i32 noundef %117, ptr noundef null, i32 noundef %120, i32 noundef %123) #14
-  %125 = call ptr @process_reassembled_data(ptr noundef %.0112, i32 noundef %spec.select132, ptr noundef nonnull %1, ptr noundef nonnull @.str.256, ptr noundef %124, ptr noundef nonnull @giop_frag_items, ptr noundef null, ptr noundef %2) #14
+  %124 = call ptr @fragment_add_seq_next(ptr noundef nonnull @giop_reassembly_table, ptr noundef %.0112, i32 noundef %spec.select133, ptr noundef nonnull %1, i32 noundef %117, ptr noundef null, i32 noundef %120, i32 noundef %123) #14
+  %125 = call ptr @process_reassembled_data(ptr noundef %.0112, i32 noundef %spec.select133, ptr noundef nonnull %1, ptr noundef nonnull @.str.256, ptr noundef %124, ptr noundef nonnull @giop_frag_items, ptr noundef null, ptr noundef %2) #14
   %.not125 = icmp eq ptr %125, null
   %spec.select = select i1 %.not125, ptr %.0112, ptr %125
   %126 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #14
@@ -4179,7 +4179,7 @@ get_CDR_ulong.exit:                               ; preds = %113, %115
   br label %159
 
 159:                                              ; preds = %138, %149, %146, %110
-  %.2 = phi ptr [ %spec.select, %138 ], [ %spec.select, %146 ], [ %spec.select, %149 ], [ %.0112, %110 ]
+  %.1 = phi ptr [ %spec.select, %138 ], [ %spec.select, %146 ], [ %spec.select, %149 ], [ %.0112, %110 ]
   %160 = load i8, ptr %86, align 1
   switch i8 %160, label %175 [
     i8 0, label %161
@@ -4196,11 +4196,11 @@ get_CDR_ulong.exit:                               ; preds = %113, %115
   br i1 %163, label %164, label %165
 
 164:                                              ; preds = %161
-  call fastcc void @dissect_giop_request_1_1(ptr noundef %.2, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_request_1_1(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
   br label %175
 
 165:                                              ; preds = %161
-  call fastcc void @dissect_giop_request_1_2(ptr noundef %.2, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_request_1_2(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
   br label %175
 
 166:                                              ; preds = %159
@@ -4209,27 +4209,27 @@ get_CDR_ulong.exit:                               ; preds = %113, %115
   br i1 %168, label %169, label %170
 
 169:                                              ; preds = %166
-  call fastcc void @dissect_giop_reply(ptr noundef %.2, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_reply(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
   br label %175
 
 170:                                              ; preds = %166
-  call fastcc void @dissect_giop_reply_1_2(ptr noundef %.2, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_reply_1_2(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
   br label %175
 
 171:                                              ; preds = %159
-  call fastcc void @dissect_giop_cancel_request(ptr noundef %.2, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_cancel_request(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0.i)
   br label %175
 
 172:                                              ; preds = %159
-  call fastcc void @dissect_giop_locate_request(ptr noundef %.2, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_locate_request(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
   br label %175
 
 173:                                              ; preds = %159
-  call fastcc void @dissect_giop_locate_reply(ptr noundef %.2, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_locate_reply(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5, i32 noundef %.0.i)
   br label %175
 
 174:                                              ; preds = %159
-  call fastcc void @dissect_giop_fragment(ptr noundef %.2, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0.i)
+  call fastcc void @dissect_giop_fragment(ptr noundef %.1, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.0.i)
   br label %175
 
 175:                                              ; preds = %159, %169, %170, %164, %165, %174, %173, %172, %171

@@ -3348,16 +3348,16 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr nocapture nounde
   br label %194
 
 194:                                              ; preds = %192, %187
-  %.027 = phi ptr [ %.330, %192 ], [ null, %187 ]
-  %.0 = phi i32 [ %.3, %192 ], [ 0, %187 ]
+  %.128 = phi ptr [ %.734, %192 ], [ null, %187 ]
+  %.1 = phi i32 [ %.7, %192 ], [ 0, %187 ]
   %195 = phi i1 [ %193, %192 ], [ true, %187 ]
   %196 = load i32, ptr %104, align 8
   %197 = icmp sgt i32 %196, 0
   br i1 %197, label %.preheader107, label %.loopexit.i
 
 .preheader108:                                    ; preds = %187, %280
-  %.128 = phi ptr [ %.330, %280 ], [ null, %187 ]
-  %.1 = phi i32 [ %.3, %280 ], [ 0, %187 ]
+  %.532 = phi ptr [ %.734, %280 ], [ null, %187 ]
+  %.5 = phi i32 [ %.7, %280 ], [ 0, %187 ]
   %198 = phi i64 [ %282, %280 ], [ 0, %187 ]
   %199 = phi i32 [ %281, %280 ], [ 0, %187 ]
   %200 = load ptr, ptr %101, align 8
@@ -3428,15 +3428,15 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr nocapture nounde
   br i1 %219, label %240, label %.thread36.i
 
 240:                                              ; preds = %239
-  %241 = add i32 %.1, 1
+  %241 = add i32 %.5, 1
   %242 = zext i32 %241 to i64
   %243 = mul nuw nsw i64 %242, 24
-  %244 = call ptr @krealloc(ptr noundef %.128, i64 noundef %243, i32 noundef 3264) #14
+  %244 = call ptr @krealloc(ptr noundef %.532, i64 noundef %243, i32 noundef 3264) #14
   %245 = icmp eq ptr %244, null
   br i1 %245, label %.thread46, label %246
 
 246:                                              ; preds = %240
-  %247 = zext i32 %.1 to i64
+  %247 = zext i32 %.5 to i64
   %248 = getelementptr %struct.drm_out_fence_state, ptr %244, i64 %247
   %249 = getelementptr inbounds i8, ptr %248, i64 8
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %249, i8 0, i64 16, i1 false)
@@ -3498,14 +3498,14 @@ select.unfold.i:                                  ; preds = %265, %256, %252
   br label %.thread36.i
 
 .thread36.i:                                      ; preds = %276, %239, %204
-  %.229 = phi ptr [ %244, %276 ], [ %.128, %239 ], [ %.128, %204 ]
-  %.2 = phi i32 [ %241, %276 ], [ %.1, %239 ], [ %.1, %204 ]
+  %.633 = phi ptr [ %244, %276 ], [ %.532, %239 ], [ %.532, %204 ]
+  %.6 = phi i32 [ %241, %276 ], [ %.5, %239 ], [ %.5, %204 ]
   %279 = add i32 %199, 1
   br label %280
 
 280:                                              ; preds = %.thread36.i, %235, %.preheader108
-  %.330 = phi ptr [ %.128, %.preheader108 ], [ %.229, %.thread36.i ], [ %.128, %235 ]
-  %.3 = phi i32 [ %.1, %.preheader108 ], [ %.2, %.thread36.i ], [ %.1, %235 ]
+  %.734 = phi ptr [ %.532, %.preheader108 ], [ %.633, %.thread36.i ], [ %.532, %235 ]
+  %.7 = phi i32 [ %.5, %.preheader108 ], [ %.6, %.thread36.i ], [ %.5, %235 ]
   %281 = phi i32 [ %199, %.preheader108 ], [ %279, %.thread36.i ], [ %199, %235 ]
   %282 = add nuw nsw i64 %198, 1
   %283 = load ptr, ptr %100, align 8
@@ -3516,8 +3516,8 @@ select.unfold.i:                                  ; preds = %265, %256, %252
   br i1 %287, label %.preheader108, label %192, !llvm.loop !40
 
 .preheader107:                                    ; preds = %194, %345
-  %.431 = phi ptr [ %.532, %345 ], [ %.027, %194 ]
-  %.4 = phi i32 [ %.5, %345 ], [ %.0, %194 ]
+  %.330 = phi ptr [ %.431, %345 ], [ %.128, %194 ]
+  %.3 = phi i32 [ %.4, %345 ], [ %.1, %194 ]
   %288 = phi i64 [ %346, %345 ], [ 0, %194 ]
   %289 = load ptr, ptr %105, align 8
   %290 = getelementptr %struct.__drm_connnectors_state, ptr %289, i64 %288
@@ -3544,15 +3544,15 @@ select.unfold.i:                                  ; preds = %265, %256, %252
   br i1 %305, label %345, label %306
 
 306:                                              ; preds = %299
-  %307 = add i32 %.4, 1
+  %307 = add i32 %.3, 1
   %308 = zext i32 %307 to i64
   %309 = mul nuw nsw i64 %308, 24
-  %310 = call ptr @krealloc(ptr noundef %.431, i64 noundef %309, i32 noundef 3264) #14
+  %310 = call ptr @krealloc(ptr noundef %.330, i64 noundef %309, i32 noundef 3264) #14
   %311 = icmp eq ptr %310, null
   br i1 %311, label %.thread46, label %312
 
 312:                                              ; preds = %306
-  %313 = zext i32 %.4 to i64
+  %313 = zext i32 %.3 to i64
   %314 = getelementptr %struct.drm_out_fence_state, ptr %310, i64 %313
   %315 = getelementptr inbounds i8, ptr %314, i64 8
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %315, i8 0, i64 16, i1 false)
@@ -3614,8 +3614,8 @@ select.unfold40.i:                                ; preds = %331, %322, %318
   br label %345
 
 345:                                              ; preds = %342, %299, %293, %.preheader107
-  %.532 = phi ptr [ %.431, %.preheader107 ], [ %.431, %293 ], [ %.431, %299 ], [ %310, %342 ]
-  %.5 = phi i32 [ %.4, %.preheader107 ], [ %.4, %293 ], [ %.4, %299 ], [ %307, %342 ]
+  %.431 = phi ptr [ %.330, %.preheader107 ], [ %.330, %293 ], [ %.330, %299 ], [ %310, %342 ]
+  %.4 = phi i32 [ %.3, %.preheader107 ], [ %.3, %293 ], [ %.3, %299 ], [ %307, %342 ]
   %346 = add nuw nsw i64 %288, 1
   %347 = load i32, ptr %104, align 8
   %348 = sext i32 %347 to i64
@@ -3623,8 +3623,8 @@ select.unfold40.i:                                ; preds = %331, %322, %318
   br i1 %349, label %.preheader107, label %.loopexit.i, !llvm.loop !41
 
 .loopexit.i:                                      ; preds = %345, %194
-  %.633 = phi ptr [ %.027, %194 ], [ %.532, %345 ]
-  %.6 = phi i32 [ %.0, %194 ], [ %.5, %345 ]
+  %.229 = phi ptr [ %.128, %194 ], [ %.431, %345 ]
+  %.2 = phi i32 [ %.1, %194 ], [ %.4, %345 ]
   %.pre = load i32, ptr %1, align 8
   %350 = and i32 %.pre, 1
   %351 = icmp ne i32 %350, 0
@@ -3645,8 +3645,8 @@ select.unfold40.i:                                ; preds = %331, %322, %318
 
 prepare_signaling.exit:                           ; preds = %.loopexit.i, %.loopexit61
   %357 = phi i32 [ %.pre, %.loopexit.i ], [ %184, %.loopexit61 ]
-  %.734 = phi ptr [ %.633, %.loopexit.i ], [ null, %.loopexit61 ]
-  %.7 = phi i32 [ %.6, %.loopexit.i ], [ 0, %.loopexit61 ]
+  %.835 = phi ptr [ %.229, %.loopexit.i ], [ null, %.loopexit61 ]
+  %.8 = phi i32 [ %.2, %.loopexit.i ], [ 0, %.loopexit61 ]
   %358 = and i32 %357, 2
   %359 = icmp eq i32 %358, 0
   br i1 %359, label %361, label %360
@@ -3686,8 +3686,8 @@ prepare_signaling.exit:                           ; preds = %.loopexit.i, %.loop
 
 .thread46:                                        ; preds = %.preheader59, %246, %240, %221, %312, %306, %338, %340, %341, %272, %274, %275, %.thread37.i, %355, %.thread, %125, %134, %146, %374
   %377 = phi i32 [ %375, %374 ], [ %.ph, %.thread ], [ -2, %125 ], [ -2, %134 ], [ -14, %146 ], [ %.ph.i, %338 ], [ %.ph.i, %340 ], [ %.ph.i, %341 ], [ %.ph26.i, %272 ], [ %.ph26.i, %274 ], [ %.ph26.i, %275 ], [ %237, %.thread37.i ], [ -22, %355 ], [ -12, %306 ], [ -12, %312 ], [ -12, %221 ], [ -12, %240 ], [ -12, %246 ], [ -14, %.preheader59 ]
-  %.850 = phi i32 [ %.7, %374 ], [ 0, %.thread ], [ 0, %125 ], [ 0, %134 ], [ 0, %146 ], [ %307, %338 ], [ %307, %340 ], [ %307, %341 ], [ %241, %272 ], [ %241, %274 ], [ %241, %275 ], [ %.1, %.thread37.i ], [ %.6, %355 ], [ %.4, %306 ], [ %.4, %312 ], [ %.1, %221 ], [ %.1, %240 ], [ %.1, %246 ], [ 0, %.preheader59 ]
-  %.83549 = phi ptr [ %.734, %374 ], [ null, %.thread ], [ null, %125 ], [ null, %134 ], [ null, %146 ], [ %310, %338 ], [ %310, %340 ], [ %310, %341 ], [ %244, %272 ], [ %244, %274 ], [ %244, %275 ], [ %.128, %.thread37.i ], [ %.633, %355 ], [ %310, %312 ], [ %.431, %306 ], [ %244, %246 ], [ %.128, %240 ], [ %.128, %221 ], [ null, %.preheader59 ]
+  %.050 = phi i32 [ %.8, %374 ], [ 0, %.thread ], [ 0, %125 ], [ 0, %134 ], [ 0, %146 ], [ %307, %338 ], [ %307, %340 ], [ %307, %341 ], [ %241, %272 ], [ %241, %274 ], [ %241, %275 ], [ %.5, %.thread37.i ], [ %.2, %355 ], [ %.3, %306 ], [ %.3, %312 ], [ %.5, %221 ], [ %.5, %240 ], [ %.5, %246 ], [ 0, %.preheader59 ]
+  %.02749 = phi ptr [ %.835, %374 ], [ null, %.thread ], [ null, %125 ], [ null, %134 ], [ null, %146 ], [ %310, %338 ], [ %310, %340 ], [ %310, %341 ], [ %244, %272 ], [ %244, %274 ], [ %244, %275 ], [ %.532, %.thread37.i ], [ %.229, %355 ], [ %310, %312 ], [ %.330, %306 ], [ %244, %246 ], [ %.532, %240 ], [ %.532, %221 ], [ null, %.preheader59 ]
   %378 = load ptr, ptr %100, align 8
   %379 = getelementptr inbounds i8, ptr %378, i64 728
   %380 = load i32, ptr %379, align 8
@@ -3695,13 +3695,13 @@ prepare_signaling.exit:                           ; preds = %.loopexit.i, %.loop
   br i1 %381, label %.preheader55, label %.loopexit56
 
 382:                                              ; preds = %374
-  %383 = icmp eq i32 %.7, 0
+  %383 = icmp eq i32 %.8, 0
   br i1 %383, label %.thread163, label %.preheader51
 
 .preheader51:                                     ; preds = %382, %.preheader51
   %384 = phi i32 [ %392, %.preheader51 ], [ 0, %382 ]
   %385 = sext i32 %384 to i64
-  %386 = getelementptr %struct.drm_out_fence_state, ptr %.734, i64 %385
+  %386 = getelementptr %struct.drm_out_fence_state, ptr %.835, i64 %385
   %387 = getelementptr inbounds i8, ptr %386, i64 16
   %388 = load i32, ptr %387, align 8
   %389 = getelementptr inbounds i8, ptr %386, i64 8
@@ -3709,11 +3709,11 @@ prepare_signaling.exit:                           ; preds = %.loopexit.i, %.loop
   %391 = load ptr, ptr %390, align 8
   call void @fd_install(i32 noundef %388, ptr noundef %391) #12
   %392 = add nuw i32 %384, 1
-  %393 = icmp eq i32 %392, %.7
+  %393 = icmp eq i32 %392, %.8
   br i1 %393, label %.thread163, label %.preheader51, !llvm.loop !42
 
 .thread163:                                       ; preds = %.preheader51, %382
-  call void @kfree(ptr noundef %.734) #12
+  call void @kfree(ptr noundef %.835) #12
   br label %.loopexit167
 
 .preheader55:                                     ; preds = %.thread46, %415
@@ -3761,17 +3761,17 @@ prepare_signaling.exit:                           ; preds = %.loopexit.i, %.loop
   br i1 %421, label %.preheader55, label %.loopexit56, !llvm.loop !43
 
 .loopexit56:                                      ; preds = %415, %.thread46
-  %422 = icmp eq ptr %.83549, null
+  %422 = icmp eq ptr %.02749, null
   br i1 %422, label %457, label %423
 
 423:                                              ; preds = %.loopexit56
-  %424 = icmp eq i32 %.850, 0
+  %424 = icmp eq i32 %.050, 0
   br i1 %424, label %.loopexit54, label %.preheader53
 
 .preheader53:                                     ; preds = %423, %454
   %425 = phi i32 [ %455, %454 ], [ 0, %423 ]
   %426 = sext i32 %425 to i64
-  %427 = getelementptr %struct.drm_out_fence_state, ptr %.83549, i64 %426
+  %427 = getelementptr %struct.drm_out_fence_state, ptr %.02749, i64 %426
   %428 = getelementptr inbounds i8, ptr %427, i64 8
   %429 = load ptr, ptr %428, align 8
   %430 = icmp eq ptr %429, null
@@ -3822,11 +3822,11 @@ prepare_signaling.exit:                           ; preds = %.loopexit.i, %.loop
 
 454:                                              ; preds = %452, %441, %438
   %455 = add nuw i32 %425, 1
-  %456 = icmp eq i32 %455, %.850
+  %456 = icmp eq i32 %455, %.050
   br i1 %456, label %.loopexit54, label %.preheader53, !llvm.loop !45
 
 .loopexit54:                                      ; preds = %454, %423
-  call void @kfree(ptr noundef nonnull %.83549) #12
+  call void @kfree(ptr noundef nonnull %.02749) #12
   br label %457
 
 457:                                              ; preds = %.loopexit54, %.loopexit56

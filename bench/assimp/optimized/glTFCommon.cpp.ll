@@ -55,8 +55,8 @@ if.then22:                                        ; preds = %if.then10
   br i1 %cmp2571, label %land.lhs.true26, label %if.end33
 
 land.lhs.true26:                                  ; preds = %if.then22, %for.inc
-  %i.072 = phi i64 [ %inc, %for.inc ], [ 5, %if.then22 ]
-  %arrayidx27 = getelementptr inbounds i8, ptr %const_uri, i64 %i.072
+  %i.172 = phi i64 [ %inc, %for.inc ], [ 5, %if.then22 ]
+  %arrayidx27 = getelementptr inbounds i8, ptr %const_uri, i64 %i.172
   %3 = load i8, ptr %arrayidx27, align 1
   switch i8 %3, label %for.inc [
     i8 59, label %if.end33
@@ -64,17 +64,17 @@ land.lhs.true26:                                  ; preds = %if.then22, %for.inc
   ]
 
 for.inc:                                          ; preds = %land.lhs.true26
-  %inc = add nuw i64 %i.072, 1
+  %inc = add nuw i64 %i.172, 1
   %exitcond.not = icmp eq i64 %inc, %uriLen
   br i1 %exitcond.not, label %if.else76, label %land.lhs.true26, !llvm.loop !4
 
 if.end33:                                         ; preds = %land.lhs.true26, %land.lhs.true26, %if.then22, %if.then10, %if.then10
-  %i.1 = phi i64 [ 5, %if.then10 ], [ 5, %if.then10 ], [ 5, %if.then22 ], [ %i.072, %land.lhs.true26 ], [ %i.072, %land.lhs.true26 ]
-  %cmp3482 = icmp ult i64 %i.1, %uriLen
+  %i.0 = phi i64 [ 5, %if.then10 ], [ 5, %if.then10 ], [ 5, %if.then22 ], [ %i.172, %land.lhs.true26 ], [ %i.172, %land.lhs.true26 ]
+  %cmp3482 = icmp ult i64 %i.0, %uriLen
   br i1 %cmp3482, label %land.rhs35, label %if.else76
 
 land.rhs35:                                       ; preds = %if.end33, %if.end69
-  %i.283 = phi i64 [ %i.3.lcssa, %if.end69 ], [ %i.1, %if.end33 ]
+  %i.283 = phi i64 [ %i.3.lcssa, %if.end69 ], [ %i.0, %if.end33 ]
   %arrayidx36 = getelementptr inbounds i8, ptr %const_uri, i64 %i.283
   %4 = load i8, ptr %arrayidx36, align 1
   %cmp38 = icmp eq i8 %4, 59

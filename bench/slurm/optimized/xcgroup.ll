@@ -422,12 +422,12 @@ define i32 @xcgroup_ns_find_by_pid(ptr noundef %0, ptr nocapture noundef writeon
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %19, %44
-  %.022 = phi i32 [ %46, %44 ], [ -1, %19 ], [ -1, %.backedge ]
+  %.1 = phi i32 [ %46, %44 ], [ -1, %19 ], [ -1, %.backedge ]
   call void @slurm_xfree(ptr noundef nonnull %5) #6
   br label %47
 
 47:                                               ; preds = %16, %.loopexit, %15, %12, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %12 ], [ -1, %15 ], [ %.022, %.loopexit ], [ %17, %16 ]
+  %.0 = phi i32 [ -1, %9 ], [ -1, %12 ], [ -1, %15 ], [ %.1, %.loopexit ], [ %17, %16 ]
   ret i32 %.0
 }
 
@@ -654,8 +654,8 @@ define i32 @xcgroup_get_uint32_param(ptr nocapture noundef readonly %0, ptr noun
   br label %41
 
 41:                                               ; preds = %17, %14, %11, %40
-  %.1 = phi i32 [ -1, %17 ], [ -1, %14 ], [ -1, %11 ], [ %19, %40 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %17 ], [ -1, %14 ], [ -1, %11 ], [ %19, %40 ]
+  ret i32 %.0
 }
 
 declare i32 @common_file_read_uints(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -738,8 +738,8 @@ define i32 @xcgroup_get_uint64_param(ptr nocapture noundef readonly %0, ptr noun
   br label %41
 
 41:                                               ; preds = %17, %14, %11, %40
-  %.1 = phi i32 [ -1, %17 ], [ -1, %14 ], [ -1, %11 ], [ %19, %40 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %17 ], [ -1, %14 ], [ -1, %11 ], [ %19, %40 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

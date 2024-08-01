@@ -278,7 +278,7 @@ if.then51:                                        ; preds = %land.lhs.true47
   br label %exit
 
 if.end53:                                         ; preds = %if.end41, %land.lhs.true47, %if.end25
-  %ret.06771 = phi i32 [ 0, %if.end41 ], [ 0, %land.lhs.true47 ], [ %call20, %if.end25 ]
+  %ret.16771 = phi i32 [ 0, %if.end41 ], [ 0, %land.lhs.true47 ], [ %call20, %if.end25 ]
   %5 = load i32, ptr %num_children, align 8
   %conv55 = sext i32 %5 to i64
   %call56 = tail call noalias ptr @g_malloc0_n(i64 noundef %conv55, i64 noundef 8) #18
@@ -328,7 +328,7 @@ if.end77:                                         ; preds = %if.end68
   br i1 %cmp61, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %if.end77, %if.end53
-  %ret.1.lcssa = phi i32 [ %ret.06771, %if.end53 ], [ %call63, %if.end77 ]
+  %ret.2.lcssa = phi i32 [ %ret.16771, %if.end53 ], [ %call63, %if.end77 ]
   %.lcssa = phi i32 [ %7, %if.end53 ], [ %13, %if.end77 ]
   %next_child_index = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %.lcssa, ptr %next_child_index, align 4
@@ -401,9 +401,9 @@ for.end96:                                        ; preds = %for.inc94, %if.then
 
 exit:                                             ; preds = %if.then2.i, %if.then.i, %if.end5, %for.end96, %quorum_refresh_flags.exit, %if.then51, %if.then40, %if.then24, %if.then4, %if.then
   %opts.0 = phi ptr [ null, %if.then ], [ null, %if.then4 ], [ %call6, %if.then24 ], [ %call6, %if.then40 ], [ %call6, %if.then51 ], [ %call6, %for.end96 ], [ %call6, %quorum_refresh_flags.exit ], [ %call6, %if.end5 ], [ %call6, %if.then.i ], [ %call6, %if.then2.i ]
-  %ret.2 = phi i32 [ -22, %if.then ], [ -22, %if.then4 ], [ %call20, %if.then24 ], [ -22, %if.then40 ], [ -22, %if.then51 ], [ -22, %for.end96 ], [ %ret.1.lcssa, %quorum_refresh_flags.exit ], [ -22, %if.end5 ], [ -34, %if.then.i ], [ -34, %if.then2.i ]
+  %ret.0 = phi i32 [ -22, %if.then ], [ -22, %if.then4 ], [ %call20, %if.then24 ], [ -22, %if.then40 ], [ -22, %if.then51 ], [ -22, %for.end96 ], [ %ret.2.lcssa, %quorum_refresh_flags.exit ], [ -22, %if.end5 ], [ -34, %if.then.i ], [ -34, %if.then2.i ]
   call void @qemu_opts_del(ptr noundef %opts.0) #17
-  ret i32 %ret.2
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -949,7 +949,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %pnum_zero.025 = phi i64 [ %pnum_zero.1, %for.inc ], [ %count, %entry ]
-  %pnum_data.024 = phi i64 [ %pnum_data.1, %for.inc ], [ 0, %entry ]
+  %pnum_data.024 = phi i64 [ %pnum_data.2, %for.inc ], [ 0, %entry ]
   %2 = load ptr, ptr %0, align 8
   %arrayidx = getelementptr ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
@@ -989,7 +989,7 @@ if.else:                                          ; preds = %if.end
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then8, %if.else
-  %pnum_data.1 = phi i64 [ %pnum_data.024, %if.then8 ], [ %cond15, %if.else ]
+  %pnum_data.2 = phi i64 [ %pnum_data.024, %if.then8 ], [ %cond15, %if.else ]
   %pnum_zero.1 = phi i64 [ %cond, %if.then8 ], [ %pnum_zero.025, %if.else ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %num_children, align 8
@@ -999,11 +999,11 @@ for.inc:                                          ; preds = %if.then8, %if.else
 
 for.end:                                          ; preds = %for.inc, %entry, %quorum_report_bad.exit
   %pnum_zero.021 = phi i64 [ %pnum_zero.025, %quorum_report_bad.exit ], [ %count, %entry ], [ %pnum_zero.1, %for.inc ]
-  %pnum_data.2 = phi i64 [ %count, %quorum_report_bad.exit ], [ 0, %entry ], [ %pnum_data.1, %for.inc ]
-  %tobool17.not = icmp eq i64 %pnum_data.2, 0
-  %pnum_zero.0.pnum_data.2 = select i1 %tobool17.not, i64 %pnum_zero.021, i64 %pnum_data.2
+  %pnum_data.1 = phi i64 [ %count, %quorum_report_bad.exit ], [ 0, %entry ], [ %pnum_data.2, %for.inc ]
+  %tobool17.not = icmp eq i64 %pnum_data.1, 0
+  %pnum_zero.0.pnum_data.1 = select i1 %tobool17.not, i64 %pnum_zero.021, i64 %pnum_data.1
   %. = select i1 %tobool17.not, i32 2, i32 1
-  store i64 %pnum_zero.0.pnum_data.2, ptr %pnum, align 8
+  store i64 %pnum_zero.0.pnum_data.1, ptr %pnum, align 8
   ret i32 %.
 }
 
@@ -2261,7 +2261,7 @@ for.body.lr.ph.i98:                               ; preds = %if.then71
 
 for.body.i100:                                    ; preds = %for.inc7.i109, %for.body.lr.ph.i98
   %version.027.i = phi ptr [ %version.024.i, %for.body.lr.ph.i98 ], [ %version.0.i111, %for.inc7.i109 ]
-  %count.026.i = phi i32 [ 0, %for.body.lr.ph.i98 ], [ %count.2.i, %for.inc7.i109 ]
+  %count.026.i = phi i32 [ 0, %for.body.lr.ph.i98 ], [ %count.1.i, %for.inc7.i109 ]
   %81 = load ptr, ptr %compare.i99, align 8
   %call.i101 = call zeroext i1 %81(ptr noundef nonnull %version.027.i, ptr noundef %winner.0.lcssa.i) #17
   br i1 %call.i101, label %for.inc7.i109, label %if.end.i102
@@ -2274,15 +2274,15 @@ if.end.i102:                                      ; preds = %for.body.i100
 
 for.body6.i104:                                   ; preds = %if.end.i102, %for.body6.i104
   %item.023.i = phi ptr [ %item.0.i107, %for.body6.i104 ], [ %item.020.i, %if.end.i102 ]
-  %count.122.i = phi i32 [ %inc.i105, %for.body6.i104 ], [ %count.026.i, %if.end.i102 ]
-  %inc.i105 = add i32 %count.122.i, 1
+  %count.222.i = phi i32 [ %inc.i105, %for.body6.i104 ], [ %count.026.i, %if.end.i102 ]
+  %inc.i105 = add i32 %count.222.i, 1
   %next.i106 = getelementptr inbounds i8, ptr %item.023.i, i64 8
   %item.0.i107 = load ptr, ptr %next.i106, align 8
   %tobool5.not.i108 = icmp eq ptr %item.0.i107, null
   br i1 %tobool5.not.i108, label %for.inc7.i109, label %for.body6.i104, !llvm.loop !36
 
 for.inc7.i109:                                    ; preds = %for.body6.i104, %if.end.i102, %for.body.i100
-  %count.2.i = phi i32 [ %count.026.i, %for.body.i100 ], [ %count.026.i, %if.end.i102 ], [ %inc.i105, %for.body6.i104 ]
+  %count.1.i = phi i32 [ %count.026.i, %for.body.i100 ], [ %count.026.i, %if.end.i102 ], [ %inc.i105, %for.body6.i104 ]
   %next8.i110 = getelementptr inbounds i8, ptr %version.027.i, i64 48
   %version.0.i111 = load ptr, ptr %next8.i110, align 8
   %tobool.not.i112 = icmp eq ptr %version.0.i111, null
@@ -2291,7 +2291,7 @@ for.inc7.i109:                                    ; preds = %for.body6.i104, %if
 for.end10.i:                                      ; preds = %for.inc7.i109
   %version.132.pre.i = load ptr, ptr %votes59, align 8
   %rewrite_count.i = getelementptr inbounds i8, ptr %acb, i64 64
-  store i32 %count.2.i, ptr %rewrite_count.i, align 8
+  store i32 %count.1.i, ptr %rewrite_count.i, align 8
   %tobool15.not33.i = icmp eq ptr %version.132.pre.i, null
   br i1 %tobool15.not33.i, label %quorum_rewrite_bad_versions.exit, label %for.body16.lr.ph.i
 
@@ -2692,7 +2692,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc7
   %version.027 = phi ptr [ %version.024, %for.body.lr.ph ], [ %version.0, %for.inc7 ]
-  %count.026 = phi i32 [ 0, %for.body.lr.ph ], [ %count.2, %for.inc7 ]
+  %count.026 = phi i32 [ 0, %for.body.lr.ph ], [ %count.1, %for.inc7 ]
   %0 = load ptr, ptr %compare, align 8
   %call = tail call zeroext i1 %0(ptr noundef nonnull %version.027, ptr noundef %value) #17
   br i1 %call, label %for.inc7, label %if.end
@@ -2705,15 +2705,15 @@ if.end:                                           ; preds = %for.body
 
 for.body6:                                        ; preds = %if.end, %for.body6
   %item.023 = phi ptr [ %item.0, %for.body6 ], [ %item.020, %if.end ]
-  %count.122 = phi i32 [ %inc, %for.body6 ], [ %count.026, %if.end ]
-  %inc = add i32 %count.122, 1
+  %count.222 = phi i32 [ %inc, %for.body6 ], [ %count.026, %if.end ]
+  %inc = add i32 %count.222, 1
   %next = getelementptr inbounds i8, ptr %item.023, i64 8
   %item.0 = load ptr, ptr %next, align 8
   %tobool5.not = icmp eq ptr %item.0, null
   br i1 %tobool5.not, label %for.inc7, label %for.body6, !llvm.loop !36
 
 for.inc7:                                         ; preds = %for.body6, %if.end, %for.body
-  %count.2 = phi i32 [ %count.026, %for.body ], [ %count.026, %if.end ], [ %inc, %for.body6 ]
+  %count.1 = phi i32 [ %count.026, %for.body ], [ %count.026, %if.end ], [ %inc, %for.body6 ]
   %next8 = getelementptr inbounds i8, ptr %version.027, i64 48
   %version.0 = load ptr, ptr %next8, align 8
   %tobool.not = icmp eq ptr %version.0, null
@@ -2722,7 +2722,7 @@ for.inc7:                                         ; preds = %for.body6, %if.end,
 for.end10:                                        ; preds = %for.inc7
   %version.132.pre = load ptr, ptr %votes, align 8
   %rewrite_count = getelementptr inbounds i8, ptr %acb, i64 64
-  store i32 %count.2, ptr %rewrite_count, align 8
+  store i32 %count.1, ptr %rewrite_count, align 8
   %tobool15.not33 = icmp eq ptr %version.132.pre, null
   br i1 %tobool15.not33, label %for.end37, label %for.body16.lr.ph
 
@@ -2762,7 +2762,7 @@ for.inc34:                                        ; preds = %for.body27, %if.end
   br i1 %tobool15.not, label %for.end37, label %for.body16, !llvm.loop !39
 
 for.end37:                                        ; preds = %for.inc34, %for.end10.thread, %for.end10
-  %count.0.lcssa40 = phi i32 [ 0, %for.end10.thread ], [ %count.2, %for.end10 ], [ %count.2, %for.inc34 ]
+  %count.0.lcssa40 = phi i32 [ 0, %for.end10.thread ], [ %count.1, %for.end10 ], [ %count.1, %for.inc34 ]
   %tobool38 = icmp ne i32 %count.0.lcssa40, 0
   ret i1 %tobool38
 }

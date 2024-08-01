@@ -2468,14 +2468,14 @@ _ZN3gmx12_GLOBAL__N_114OptionsAdapter10copyValuesEv.exit: ; preds = %689, %._cri
 
 .body:                                            ; preds = %67, %64, %692
   %.pn49.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn49.pn.pn.pn, %692 ], [ %65, %67 ], [ %65, %64 ]
-  %.544 = extractvalue { ptr, i32 } %.pn49.pn.pn.pn.pn, 1
+  %.039 = extractvalue { ptr, i32 } %.pn49.pn.pn.pn.pn, 1
   %693 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #19
-  %694 = icmp eq i32 %.544, %693
+  %694 = icmp eq i32 %.039, %693
   br i1 %694, label %695, label %700
 
 695:                                              ; preds = %.body
-  %.5 = extractvalue { ptr, i32 } %.pn49.pn.pn.pn.pn, 0
-  %696 = call ptr @__cxa_begin_catch(ptr %.5) #19
+  %.034 = extractvalue { ptr, i32 } %.pn49.pn.pn.pn.pn, 0
+  %696 = call ptr @__cxa_begin_catch(ptr %.034) #19
   invoke void @_ZN3gmx28processExceptionAsFatalErrorERKSt9exception(ptr noundef nonnull align 8 dereferenceable(8) %696) #18
           to label %697 unwind label %698
 

@@ -101,28 +101,28 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br i1 %39, label %.outer.us.outer, label %.preheader.split
 
 .outer.us.outer:                                  ; preds = %.preheader, %72
-  %.0196.ph.us.ph = phi i32 [ %spec.select229.us, %72 ], [ 0, %.preheader ]
-  %.0193.ph.us.ph = phi i32 [ %.0193.ph.us.ph408, %72 ], [ 0, %.preheader ]
-  %.0189.ph.us.ph = phi i32 [ %.0189.ph.us.ph413, %72 ], [ 0, %.preheader ]
-  %.0186.ph.us.ph = phi ptr [ %.0186.ph.us.ph410, %72 ], [ null, %.preheader ]
-  %.0184.ph.us.ph = phi ptr [ %.0184.ph.us.ph411.ph, %72 ], [ null, %.preheader ]
+  %.1197.ph.us.ph = phi i32 [ %spec.select229.us, %72 ], [ 0, %.preheader ]
+  %.1194.ph.us.ph = phi i32 [ %.1194.ph.us.ph408, %72 ], [ 0, %.preheader ]
+  %.1190.ph.us.ph = phi i32 [ %.1190.ph.us.ph413, %72 ], [ 0, %.preheader ]
+  %.1187.ph.us.ph = phi ptr [ %.1187.ph.us.ph410, %72 ], [ null, %.preheader ]
+  %.1185.ph.us.ph = phi ptr [ %.1185.ph.us.ph411.ph, %72 ], [ null, %.preheader ]
   br label %.outer.us.outer407.outer
 
 .outer.us.outer407.outer:                         ; preds = %70, %.outer.us.outer
-  %.0193.ph.us.ph408.ph = phi i32 [ 1, %70 ], [ %.0193.ph.us.ph, %.outer.us.outer ]
-  %.0189.ph.us.ph409.ph = phi i32 [ %.0189.ph.us.ph413, %70 ], [ %.0189.ph.us.ph, %.outer.us.outer ]
-  %.0186.ph.us.ph410.ph = phi ptr [ %.1187.us, %70 ], [ %.0186.ph.us.ph, %.outer.us.outer ]
-  %.0184.ph.us.ph411.ph = phi ptr [ %71, %70 ], [ %.0184.ph.us.ph, %.outer.us.outer ]
+  %.1194.ph.us.ph408.ph = phi i32 [ 1, %70 ], [ %.1194.ph.us.ph, %.outer.us.outer ]
+  %.1190.ph.us.ph409.ph = phi i32 [ %.1190.ph.us.ph413, %70 ], [ %.1190.ph.us.ph, %.outer.us.outer ]
+  %.1187.ph.us.ph410.ph = phi ptr [ %.3.us, %70 ], [ %.1187.ph.us.ph, %.outer.us.outer ]
+  %.1185.ph.us.ph411.ph = phi ptr [ %71, %70 ], [ %.1185.ph.us.ph, %.outer.us.outer ]
   br label %.outer.us.outer407
 
 .outer.us.outer407:                               ; preds = %.outer.us.outer407.outer, %68
-  %.0193.ph.us.ph408 = phi i32 [ 1, %68 ], [ %.0193.ph.us.ph408.ph, %.outer.us.outer407.outer ]
-  %.0189.ph.us.ph409 = phi i32 [ %.0189.ph.us.ph413, %68 ], [ %.0189.ph.us.ph409.ph, %.outer.us.outer407.outer ]
-  %.0186.ph.us.ph410 = phi ptr [ %.1187.us, %68 ], [ %.0186.ph.us.ph410.ph, %.outer.us.outer407.outer ]
+  %.1194.ph.us.ph408 = phi i32 [ 1, %68 ], [ %.1194.ph.us.ph408.ph, %.outer.us.outer407.outer ]
+  %.1190.ph.us.ph409 = phi i32 [ %.1190.ph.us.ph413, %68 ], [ %.1190.ph.us.ph409.ph, %.outer.us.outer407.outer ]
+  %.1187.ph.us.ph410 = phi ptr [ %.3.us, %68 ], [ %.1187.ph.us.ph410.ph, %.outer.us.outer407.outer ]
   br label %.outer.us.outer412
 
 .outer.us.outer412:                               ; preds = %.outer.us.outer407, %.critedge.us.thread
-  %.0189.ph.us.ph413 = phi i32 [ %.0189.ph.us.ph409, %.outer.us.outer407 ], [ %spec.select230.us, %.critedge.us.thread ]
+  %.1190.ph.us.ph413 = phi i32 [ %.1190.ph.us.ph409, %.outer.us.outer407 ], [ %spec.select230.us, %.critedge.us.thread ]
   br label %.outer.us
 
 .outer.us:                                        ; preds = %.outer.us.backedge, %.outer.us.outer412
@@ -171,7 +171,7 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   %.0181.lcssa.us315 = phi ptr [ %56, %.critedge20.us ], [ %.0181.lcssa.us, %.critedge.us ]
   %60 = call i32 @g_ascii_strncasecmp(ptr noundef %.0181.lcssa.us315, ptr noundef nonnull @.str.7, i64 noundef 7) #6
   %61 = icmp eq i32 %60, 0
-  %spec.select230.us = select i1 %61, i32 1, i32 %.0189.ph.us.ph413
+  %spec.select230.us = select i1 %61, i32 1, i32 %.1190.ph.us.ph413
   br label %.outer.us.outer412
 
 62:                                               ; preds = %46
@@ -179,18 +179,18 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br label %64
 
 64:                                               ; preds = %64, %62
-  %.1187.us = phi ptr [ %63, %62 ], [ %67, %64 ]
-  %65 = load i8, ptr %.1187.us, align 1
+  %.3.us = phi ptr [ %63, %62 ], [ %67, %64 ]
+  %65 = load i8, ptr %.3.us, align 1
   %66 = icmp eq i8 %65, 32
-  %67 = getelementptr i8, ptr %.1187.us, i64 1
+  %67 = getelementptr i8, ptr %.3.us, i64 1
   br i1 %66, label %64, label %68, !llvm.loop !6
 
 68:                                               ; preds = %64
-  %69 = call ptr @g_strchomp(ptr noundef nonnull %.1187.us) #6
+  %69 = call ptr @g_strchomp(ptr noundef nonnull %.3.us) #6
   br i1 %15, label %70, label %.outer.us.outer407
 
 70:                                               ; preds = %68
-  %71 = call ptr @dissector_get_string_handle(ptr noundef nonnull %7, ptr noundef nonnull %.1187.us) #6
+  %71 = call ptr @dissector_get_string_handle(ptr noundef nonnull %7, ptr noundef nonnull %.3.us) #6
   br label %.outer.us.outer407.outer
 
 72:                                               ; preds = %.split269.us.us
@@ -201,7 +201,7 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   %77 = load i32, ptr %12, align 4
   %78 = icmp sgt i32 %77, -1
   %or.cond18.us = select i1 %76, i1 %78, i1 false
-  %spec.select229.us = select i1 %or.cond18.us, i32 1, i32 %.0196.ph.us.ph
+  %spec.select229.us = select i1 %or.cond18.us, i32 1, i32 %.1197.ph.us.ph
   br label %.outer.us.outer
 
 79:                                               ; preds = %91, %.outer.us
@@ -282,27 +282,27 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br i1 %113, label %.loopexit234, label %.outer
 
 .loopexit234:                                     ; preds = %.loopexit235, %89, %42, %38
-  %.2198 = phi i32 [ 0, %42 ], [ 0, %38 ], [ %.0196.ph.us.ph, %89 ], [ 0, %.loopexit235 ]
-  %.2195 = phi i32 [ 0, %42 ], [ 0, %38 ], [ %.0193.ph.us.ph408, %89 ], [ 0, %.loopexit235 ]
-  %.2191 = phi i32 [ 0, %42 ], [ 0, %38 ], [ %.0189.ph.us.ph413, %89 ], [ 0, %.loopexit235 ]
-  %.3 = phi ptr [ null, %42 ], [ null, %38 ], [ %.0186.ph.us.ph410, %89 ], [ null, %.loopexit235 ]
-  %.2 = phi ptr [ null, %42 ], [ null, %38 ], [ %.0184.ph.us.ph411.ph, %89 ], [ null, %.loopexit235 ]
+  %.0196 = phi i32 [ 0, %42 ], [ 0, %38 ], [ %.1197.ph.us.ph, %89 ], [ 0, %.loopexit235 ]
+  %.0193 = phi i32 [ 0, %42 ], [ 0, %38 ], [ %.1194.ph.us.ph408, %89 ], [ 0, %.loopexit235 ]
+  %.0189 = phi i32 [ 0, %42 ], [ 0, %38 ], [ %.1190.ph.us.ph413, %89 ], [ 0, %.loopexit235 ]
+  %.0186 = phi ptr [ null, %42 ], [ null, %38 ], [ %.1187.ph.us.ph410, %89 ], [ null, %.loopexit235 ]
+  %.0184 = phi ptr [ null, %42 ], [ null, %38 ], [ %.1185.ph.us.ph411.ph, %89 ], [ null, %.loopexit235 ]
   br i1 %40, label %114, label %118
 
 114:                                              ; preds = %.loopexit234
-  %115 = icmp ne i32 %.2191, 0
+  %115 = icmp ne i32 %.0189, 0
   %or.cond22 = select i1 %39, i1 %115, i1 false
-  %116 = icmp ne ptr %.2, null
+  %116 = icmp ne ptr %.0184, null
   %or.cond24 = select i1 %or.cond22, i1 %116, i1 false
   %or.cond26 = and i1 %16, %or.cond24
   br i1 %or.cond26, label %117, label %118
 
 117:                                              ; preds = %114
-  store ptr %.2, ptr %8, align 8
+  store ptr %.0184, ptr %8, align 8
   br label %118
 
 118:                                              ; preds = %.loopexit234, %114, %117
-  %.3192 = phi i32 [ 1, %117 ], [ %.2191, %114 ], [ 1, %.loopexit234 ]
+  %.3192 = phi i32 [ 1, %117 ], [ %.0189, %114 ], [ 1, %.loopexit234 ]
   %119 = phi i1 [ true, %117 ], [ false, %114 ], [ true, %.loopexit234 ]
   br i1 %39, label %120, label %.loopexit
 
@@ -449,7 +449,7 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br i1 %or.cond28, label %.loopexit, label %.lr.ph387, !llvm.loop !7
 
 179:                                              ; preds = %120
-  %.not217 = icmp eq i32 %.2198, 0
+  %.not217 = icmp eq i32 %.0196, 0
   br i1 %.not217, label %212, label %180
 
 180:                                              ; preds = %179
@@ -458,11 +458,11 @@ starts_with_chunk_size.exit:                      ; preds = %23, %33, %35
   br i1 %182, label %183, label %196
 
 183:                                              ; preds = %180
-  %.not220 = icmp eq i32 %.2195, 0
+  %.not220 = icmp eq i32 %.0193, 0
   br i1 %.not220, label %187, label %184
 
 184:                                              ; preds = %183
-  %185 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.3, ptr noundef nonnull dereferenceable(16) @.str.9, i64 noundef 15) #7
+  %185 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0186, ptr noundef nonnull dereferenceable(16) @.str.9, i64 noundef 15) #7
   %186 = icmp eq i32 %185, 0
   br i1 %186, label %.loopexit, label %187
 

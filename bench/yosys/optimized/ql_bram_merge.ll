@@ -10115,63 +10115,63 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
 
 140:                                              ; preds = %139, %130
   %.pn.pn = phi { ptr, i32 } [ %133, %139 ], [ %131, %130 ]
-  %.123 = phi i1 [ true, %139 ], [ false, %130 ]
+  %.931 = phi i1 [ true, %139 ], [ false, %130 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #17
   br label %141
 
 141:                                              ; preds = %140, %128
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %140 ], [ %129, %128 ]
-  %.224 = phi i1 [ %.123, %140 ], [ false, %128 ]
+  %.830 = phi i1 [ %.931, %140 ], [ false, %128 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #17
   br label %142
 
 142:                                              ; preds = %141, %126
-  %.574 = phi ptr [ %54, %141 ], [ %48, %126 ]
+  %.1180 = phi ptr [ %54, %141 ], [ %48, %126 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %141 ], [ %127, %126 ]
-  %.325 = phi i1 [ %.224, %141 ], [ false, %126 ]
+  %.729 = phi i1 [ %.830, %141 ], [ false, %126 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %10) #17
   br label %143
 
 143:                                              ; preds = %142, %124
-  %.675 = phi ptr [ %.574, %142 ], [ %48, %124 ]
+  %.1079 = phi ptr [ %.1180, %142 ], [ %48, %124 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %142 ], [ %125, %124 ]
-  %.426 = phi i1 [ %.325, %142 ], [ false, %124 ]
+  %.628 = phi i1 [ %.729, %142 ], [ false, %124 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9) #17
   br label %144
 
 144:                                              ; preds = %143, %122
-  %.776 = phi ptr [ %.675, %143 ], [ %42, %122 ]
+  %.978 = phi ptr [ %.1079, %143 ], [ %42, %122 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %143 ], [ %123, %122 ]
-  %.527 = phi i1 [ %.426, %143 ], [ false, %122 ]
+  %.527 = phi i1 [ %.628, %143 ], [ false, %122 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8) #17
   br label %145
 
 145:                                              ; preds = %144, %120
-  %.877 = phi ptr [ %.776, %144 ], [ %42, %120 ]
+  %.877 = phi ptr [ %.978, %144 ], [ %42, %120 ]
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %144 ], [ %121, %120 ]
-  %.628 = phi i1 [ %.527, %144 ], [ false, %120 ]
+  %.426 = phi i1 [ %.527, %144 ], [ false, %120 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #17
   br label %146
 
 146:                                              ; preds = %145, %118
-  %.978 = phi ptr [ %.877, %145 ], [ %36, %118 ]
+  %.776 = phi ptr [ %.877, %145 ], [ %36, %118 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %145 ], [ %119, %118 ]
-  %.729 = phi i1 [ %.628, %145 ], [ false, %118 ]
+  %.325 = phi i1 [ %.426, %145 ], [ false, %118 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #17
   br label %147
 
 147:                                              ; preds = %116, %146
-  %.1079 = phi ptr [ %.978, %146 ], [ %36, %116 ]
+  %.675 = phi ptr [ %.776, %146 ], [ %36, %116 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %146 ], [ %117, %116 ]
-  %.830 = phi i1 [ %.729, %146 ], [ false, %116 ]
+  %.224 = phi i1 [ %.325, %146 ], [ false, %116 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #17
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #17
-  %148 = icmp eq ptr %3, %.1079
-  %or.cond = select i1 %.830, i1 true, i1 %148
+  %148 = icmp eq ptr %3, %.675
+  %or.cond = select i1 %.224, i1 true, i1 %148
   br i1 %or.cond, label %.loopexit24, label %.preheader23
 
 .preheader23:                                     ; preds = %147, %.preheader23
-  %149 = phi ptr [ %150, %.preheader23 ], [ %.1079, %147 ]
+  %149 = phi ptr [ %150, %.preheader23 ], [ %.675, %147 ]
   %150 = getelementptr inbounds i8, ptr %149, i64 -8
   call void @_ZNSt4pairIN5Yosys5RTLIL8IdStringES2_ED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %150) #17
   %151 = icmp eq ptr %150, %3
@@ -10247,63 +10247,63 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
 
 178:                                              ; preds = %177, %168
   %.pn95.pn = phi { ptr, i32 } [ %171, %177 ], [ %169, %168 ]
-  %.1 = phi i1 [ true, %177 ], [ false, %168 ]
+  %.9 = phi i1 [ true, %177 ], [ false, %168 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %24) #17
   br label %179
 
 179:                                              ; preds = %178, %166
   %.pn95.pn.pn = phi { ptr, i32 } [ %.pn95.pn, %178 ], [ %167, %166 ]
-  %.2 = phi i1 [ %.1, %178 ], [ false, %166 ]
+  %.8 = phi i1 [ %.9, %178 ], [ false, %166 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %23) #17
   br label %180
 
 180:                                              ; preds = %179, %164
   %.pn95.pn.pn.pn = phi { ptr, i32 } [ %.pn95.pn.pn, %179 ], [ %165, %164 ]
-  %.516 = phi ptr [ %98, %179 ], [ %92, %164 ]
-  %.3 = phi i1 [ %.2, %179 ], [ false, %164 ]
+  %.11 = phi ptr [ %98, %179 ], [ %92, %164 ]
+  %.7 = phi i1 [ %.8, %179 ], [ false, %164 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %22) #17
   br label %181
 
 181:                                              ; preds = %180, %162
   %.pn95.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn95.pn.pn.pn, %180 ], [ %163, %162 ]
-  %.617 = phi ptr [ %.516, %180 ], [ %92, %162 ]
-  %.4 = phi i1 [ %.3, %180 ], [ false, %162 ]
+  %.1021 = phi ptr [ %.11, %180 ], [ %92, %162 ]
+  %.6 = phi i1 [ %.7, %180 ], [ false, %162 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %21) #17
   br label %182
 
 182:                                              ; preds = %181, %160
   %.pn95.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn95.pn.pn.pn.pn, %181 ], [ %161, %160 ]
-  %.718 = phi ptr [ %.617, %181 ], [ %86, %160 ]
-  %.5 = phi i1 [ %.4, %181 ], [ false, %160 ]
+  %.920 = phi ptr [ %.1021, %181 ], [ %86, %160 ]
+  %.5 = phi i1 [ %.6, %181 ], [ false, %160 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %20) #17
   br label %183
 
 183:                                              ; preds = %182, %158
   %.pn95.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn95.pn.pn.pn.pn.pn, %182 ], [ %159, %158 ]
-  %.819 = phi ptr [ %.718, %182 ], [ %86, %158 ]
-  %.6 = phi i1 [ %.5, %182 ], [ false, %158 ]
+  %.819 = phi ptr [ %.920, %182 ], [ %86, %158 ]
+  %.4 = phi i1 [ %.5, %182 ], [ false, %158 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %19) #17
   br label %184
 
 184:                                              ; preds = %183, %156
   %.pn95.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn95.pn.pn.pn.pn.pn.pn, %183 ], [ %157, %156 ]
-  %.920 = phi ptr [ %.819, %183 ], [ %80, %156 ]
-  %.7 = phi i1 [ %.6, %183 ], [ false, %156 ]
+  %.718 = phi ptr [ %.819, %183 ], [ %80, %156 ]
+  %.3 = phi i1 [ %.4, %183 ], [ false, %156 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %18) #17
   br label %185
 
 185:                                              ; preds = %154, %184
   %.pn95.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn95.pn.pn.pn.pn.pn.pn.pn, %184 ], [ %155, %154 ]
-  %.1021 = phi ptr [ %.920, %184 ], [ %80, %154 ]
-  %.8 = phi i1 [ %.7, %184 ], [ false, %154 ]
+  %.617 = phi ptr [ %.718, %184 ], [ %80, %154 ]
+  %.2 = phi i1 [ %.3, %184 ], [ false, %154 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %17) #17
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %16) #17
-  %186 = icmp eq ptr %15, %.1021
-  %or.cond4 = select i1 %.8, i1 true, i1 %186
+  %186 = icmp eq ptr %15, %.617
+  %or.cond4 = select i1 %.2, i1 true, i1 %186
   br i1 %or.cond4, label %.loopexit24, label %.preheader
 
 .preheader:                                       ; preds = %185, %.preheader
-  %187 = phi ptr [ %188, %.preheader ], [ %.1021, %185 ]
+  %187 = phi ptr [ %188, %.preheader ], [ %.617, %185 ]
   %188 = getelementptr inbounds i8, ptr %187, i64 -8
   call void @_ZNSt4pairIN5Yosys5RTLIL8IdStringES2_ED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %188) #17
   %189 = icmp eq ptr %188, %15
@@ -11111,189 +11111,189 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
 
 320:                                              ; preds = %319, %310
   %.pn.pn = phi { ptr, i32 } [ %313, %319 ], [ %311, %310 ]
-  %.141 = phi i1 [ true, %319 ], [ false, %310 ]
+  %.2767 = phi i1 [ true, %319 ], [ false, %310 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %30) #17
   br label %321
 
 321:                                              ; preds = %320, %308
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %320 ], [ %309, %308 ]
-  %.242 = phi i1 [ %.141, %320 ], [ false, %308 ]
+  %.2666 = phi i1 [ %.2767, %320 ], [ false, %308 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %29) #17
   br label %322
 
 322:                                              ; preds = %321, %306
-  %.14182 = phi ptr [ %144, %321 ], [ %138, %306 ]
+  %.38206 = phi ptr [ %144, %321 ], [ %138, %306 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %321 ], [ %307, %306 ]
-  %.343 = phi i1 [ %.242, %321 ], [ false, %306 ]
+  %.2565 = phi i1 [ %.2666, %321 ], [ false, %306 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %28) #17
   br label %323
 
 323:                                              ; preds = %322, %304
-  %.15183 = phi ptr [ %.14182, %322 ], [ %138, %304 ]
+  %.37205 = phi ptr [ %.38206, %322 ], [ %138, %304 ]
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %322 ], [ %305, %304 ]
-  %.444 = phi i1 [ %.343, %322 ], [ false, %304 ]
+  %.2464 = phi i1 [ %.2565, %322 ], [ false, %304 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %27) #17
   br label %324
 
 324:                                              ; preds = %323, %302
-  %.16184 = phi ptr [ %.15183, %323 ], [ %132, %302 ]
+  %.36204 = phi ptr [ %.37205, %323 ], [ %132, %302 ]
   %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %323 ], [ %303, %302 ]
-  %.545 = phi i1 [ %.444, %323 ], [ false, %302 ]
+  %.2363 = phi i1 [ %.2464, %323 ], [ false, %302 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %26) #17
   br label %325
 
 325:                                              ; preds = %324, %300
-  %.17185 = phi ptr [ %.16184, %324 ], [ %132, %300 ]
+  %.35203 = phi ptr [ %.36204, %324 ], [ %132, %300 ]
   %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %324 ], [ %301, %300 ]
-  %.646 = phi i1 [ %.545, %324 ], [ false, %300 ]
+  %.2262 = phi i1 [ %.2363, %324 ], [ false, %300 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %25) #17
   br label %326
 
 326:                                              ; preds = %325, %298
-  %.18186 = phi ptr [ %.17185, %325 ], [ %126, %298 ]
+  %.34202 = phi ptr [ %.35203, %325 ], [ %126, %298 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %325 ], [ %299, %298 ]
-  %.747 = phi i1 [ %.646, %325 ], [ false, %298 ]
+  %.2161 = phi i1 [ %.2262, %325 ], [ false, %298 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %24) #17
   br label %327
 
 327:                                              ; preds = %326, %296
-  %.19187 = phi ptr [ %.18186, %326 ], [ %126, %296 ]
+  %.33201 = phi ptr [ %.34202, %326 ], [ %126, %296 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn, %326 ], [ %297, %296 ]
-  %.848 = phi i1 [ %.747, %326 ], [ false, %296 ]
+  %.2060 = phi i1 [ %.2161, %326 ], [ false, %296 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %23) #17
   br label %328
 
 328:                                              ; preds = %327, %294
-  %.20188 = phi ptr [ %.19187, %327 ], [ %120, %294 ]
+  %.32200 = phi ptr [ %.33201, %327 ], [ %120, %294 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn, %327 ], [ %295, %294 ]
-  %.949 = phi i1 [ %.848, %327 ], [ false, %294 ]
+  %.1959 = phi i1 [ %.2060, %327 ], [ false, %294 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %22) #17
   br label %329
 
 329:                                              ; preds = %328, %292
-  %.21189 = phi ptr [ %.20188, %328 ], [ %120, %292 ]
+  %.31199 = phi ptr [ %.32200, %328 ], [ %120, %292 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %328 ], [ %293, %292 ]
-  %.1050 = phi i1 [ %.949, %328 ], [ false, %292 ]
+  %.1858 = phi i1 [ %.1959, %328 ], [ false, %292 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %21) #17
   br label %330
 
 330:                                              ; preds = %329, %290
-  %.22190 = phi ptr [ %.21189, %329 ], [ %114, %290 ]
+  %.30198 = phi ptr [ %.31199, %329 ], [ %114, %290 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %329 ], [ %291, %290 ]
-  %.1151 = phi i1 [ %.1050, %329 ], [ false, %290 ]
+  %.1757 = phi i1 [ %.1858, %329 ], [ false, %290 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %20) #17
   br label %331
 
 331:                                              ; preds = %330, %288
-  %.23191 = phi ptr [ %.22190, %330 ], [ %114, %288 ]
+  %.29197 = phi ptr [ %.30198, %330 ], [ %114, %288 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %330 ], [ %289, %288 ]
-  %.1252 = phi i1 [ %.1151, %330 ], [ false, %288 ]
+  %.1656 = phi i1 [ %.1757, %330 ], [ false, %288 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %19) #17
   br label %332
 
 332:                                              ; preds = %331, %286
-  %.24192 = phi ptr [ %.23191, %331 ], [ %108, %286 ]
+  %.28196 = phi ptr [ %.29197, %331 ], [ %108, %286 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %331 ], [ %287, %286 ]
-  %.1353 = phi i1 [ %.1252, %331 ], [ false, %286 ]
+  %.1555 = phi i1 [ %.1656, %331 ], [ false, %286 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %18) #17
   br label %333
 
 333:                                              ; preds = %332, %284
-  %.25193 = phi ptr [ %.24192, %332 ], [ %108, %284 ]
+  %.27195 = phi ptr [ %.28196, %332 ], [ %108, %284 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %332 ], [ %285, %284 ]
-  %.1454 = phi i1 [ %.1353, %332 ], [ false, %284 ]
+  %.1454 = phi i1 [ %.1555, %332 ], [ false, %284 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %17) #17
   br label %334
 
 334:                                              ; preds = %333, %282
-  %.26194 = phi ptr [ %.25193, %333 ], [ %102, %282 ]
+  %.26194 = phi ptr [ %.27195, %333 ], [ %102, %282 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %333 ], [ %283, %282 ]
-  %.1555 = phi i1 [ %.1454, %333 ], [ false, %282 ]
+  %.1353 = phi i1 [ %.1454, %333 ], [ false, %282 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %16) #17
   br label %335
 
 335:                                              ; preds = %334, %280
-  %.27195 = phi ptr [ %.26194, %334 ], [ %102, %280 ]
+  %.25193 = phi ptr [ %.26194, %334 ], [ %102, %280 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %334 ], [ %281, %280 ]
-  %.1656 = phi i1 [ %.1555, %334 ], [ false, %280 ]
+  %.1252 = phi i1 [ %.1353, %334 ], [ false, %280 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %15) #17
   br label %336
 
 336:                                              ; preds = %335, %278
-  %.28196 = phi ptr [ %.27195, %335 ], [ %96, %278 ]
+  %.24192 = phi ptr [ %.25193, %335 ], [ %96, %278 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %335 ], [ %279, %278 ]
-  %.1757 = phi i1 [ %.1656, %335 ], [ false, %278 ]
+  %.1151 = phi i1 [ %.1252, %335 ], [ false, %278 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %14) #17
   br label %337
 
 337:                                              ; preds = %336, %276
-  %.29197 = phi ptr [ %.28196, %336 ], [ %96, %276 ]
+  %.23191 = phi ptr [ %.24192, %336 ], [ %96, %276 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %336 ], [ %277, %276 ]
-  %.1858 = phi i1 [ %.1757, %336 ], [ false, %276 ]
+  %.1050 = phi i1 [ %.1151, %336 ], [ false, %276 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %13) #17
   br label %338
 
 338:                                              ; preds = %337, %274
-  %.30198 = phi ptr [ %.29197, %337 ], [ %90, %274 ]
+  %.22190 = phi ptr [ %.23191, %337 ], [ %90, %274 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %337 ], [ %275, %274 ]
-  %.1959 = phi i1 [ %.1858, %337 ], [ false, %274 ]
+  %.949 = phi i1 [ %.1050, %337 ], [ false, %274 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %12) #17
   br label %339
 
 339:                                              ; preds = %338, %272
-  %.31199 = phi ptr [ %.30198, %338 ], [ %90, %272 ]
+  %.21189 = phi ptr [ %.22190, %338 ], [ %90, %272 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %338 ], [ %273, %272 ]
-  %.2060 = phi i1 [ %.1959, %338 ], [ false, %272 ]
+  %.848 = phi i1 [ %.949, %338 ], [ false, %272 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %11) #17
   br label %340
 
 340:                                              ; preds = %339, %270
-  %.32200 = phi ptr [ %.31199, %339 ], [ %84, %270 ]
+  %.20188 = phi ptr [ %.21189, %339 ], [ %84, %270 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %339 ], [ %271, %270 ]
-  %.2161 = phi i1 [ %.2060, %339 ], [ false, %270 ]
+  %.747 = phi i1 [ %.848, %339 ], [ false, %270 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %10) #17
   br label %341
 
 341:                                              ; preds = %340, %268
-  %.33201 = phi ptr [ %.32200, %340 ], [ %84, %268 ]
+  %.19187 = phi ptr [ %.20188, %340 ], [ %84, %268 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %340 ], [ %269, %268 ]
-  %.2262 = phi i1 [ %.2161, %340 ], [ false, %268 ]
+  %.646 = phi i1 [ %.747, %340 ], [ false, %268 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9) #17
   br label %342
 
 342:                                              ; preds = %341, %266
-  %.34202 = phi ptr [ %.33201, %341 ], [ %78, %266 ]
+  %.18186 = phi ptr [ %.19187, %341 ], [ %78, %266 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %341 ], [ %267, %266 ]
-  %.2363 = phi i1 [ %.2262, %341 ], [ false, %266 ]
+  %.545 = phi i1 [ %.646, %341 ], [ false, %266 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8) #17
   br label %343
 
 343:                                              ; preds = %342, %264
-  %.35203 = phi ptr [ %.34202, %342 ], [ %78, %264 ]
+  %.17185 = phi ptr [ %.18186, %342 ], [ %78, %264 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %342 ], [ %265, %264 ]
-  %.2464 = phi i1 [ %.2363, %342 ], [ false, %264 ]
+  %.444 = phi i1 [ %.545, %342 ], [ false, %264 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %7) #17
   br label %344
 
 344:                                              ; preds = %343, %262
-  %.36204 = phi ptr [ %.35203, %343 ], [ %72, %262 ]
+  %.16184 = phi ptr [ %.17185, %343 ], [ %72, %262 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %343 ], [ %263, %262 ]
-  %.2565 = phi i1 [ %.2464, %343 ], [ false, %262 ]
+  %.343 = phi i1 [ %.444, %343 ], [ false, %262 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %6) #17
   br label %345
 
 345:                                              ; preds = %260, %344
-  %.37205 = phi ptr [ %.36204, %344 ], [ %72, %260 ]
+  %.15183 = phi ptr [ %.16184, %344 ], [ %72, %260 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %344 ], [ %261, %260 ]
-  %.2666 = phi i1 [ %.2565, %344 ], [ false, %260 ]
+  %.242 = phi i1 [ %.343, %344 ], [ false, %260 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #17
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #17
-  %346 = icmp eq ptr %3, %.37205
-  %or.cond = select i1 %.2666, i1 true, i1 %346
+  %346 = icmp eq ptr %3, %.15183
+  %or.cond = select i1 %.242, i1 true, i1 %346
   br i1 %or.cond, label %.loopexit24, label %.preheader23
 
 .preheader23:                                     ; preds = %345, %.preheader23
-  %347 = phi ptr [ %348, %.preheader23 ], [ %.37205, %345 ]
+  %347 = phi ptr [ %348, %.preheader23 ], [ %.15183, %345 ]
   %348 = getelementptr inbounds i8, ptr %347, i64 -8
   call void @_ZNSt4pairIN5Yosys5RTLIL8IdStringES2_ED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %348) #17
   %349 = icmp eq ptr %348, %3
@@ -11459,189 +11459,189 @@ define internal fastcc noundef nonnull align 8 dereferenceable(49) ptr @_ZN12_GL
 
 412:                                              ; preds = %411, %402
   %.pn239.pn = phi { ptr, i32 } [ %405, %411 ], [ %403, %402 ]
-  %.1 = phi i1 [ true, %411 ], [ false, %402 ]
+  %.27 = phi i1 [ true, %411 ], [ false, %402 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %60) #17
   br label %413
 
 413:                                              ; preds = %412, %400
   %.pn239.pn.pn = phi { ptr, i32 } [ %.pn239.pn, %412 ], [ %401, %400 ]
-  %.2 = phi i1 [ %.1, %412 ], [ false, %400 ]
+  %.26 = phi i1 [ %.27, %412 ], [ false, %400 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %59) #17
   br label %414
 
 414:                                              ; preds = %413, %398
   %.pn239.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn, %413 ], [ %399, %398 ]
-  %.1425 = phi ptr [ %242, %413 ], [ %236, %398 ]
-  %.3 = phi i1 [ %.2, %413 ], [ false, %398 ]
+  %.38 = phi ptr [ %242, %413 ], [ %236, %398 ]
+  %.25 = phi i1 [ %.26, %413 ], [ false, %398 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %58) #17
   br label %415
 
 415:                                              ; preds = %414, %396
   %.pn239.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn, %414 ], [ %397, %396 ]
-  %.1526 = phi ptr [ %.1425, %414 ], [ %236, %396 ]
-  %.4 = phi i1 [ %.3, %414 ], [ false, %396 ]
+  %.37 = phi ptr [ %.38, %414 ], [ %236, %396 ]
+  %.24 = phi i1 [ %.25, %414 ], [ false, %396 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %57) #17
   br label %416
 
 416:                                              ; preds = %415, %394
   %.pn239.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn, %415 ], [ %395, %394 ]
-  %.1627 = phi ptr [ %.1526, %415 ], [ %230, %394 ]
-  %.5 = phi i1 [ %.4, %415 ], [ false, %394 ]
+  %.36 = phi ptr [ %.37, %415 ], [ %230, %394 ]
+  %.23 = phi i1 [ %.24, %415 ], [ false, %394 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %56) #17
   br label %417
 
 417:                                              ; preds = %416, %392
   %.pn239.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn, %416 ], [ %393, %392 ]
-  %.1728 = phi ptr [ %.1627, %416 ], [ %230, %392 ]
-  %.6 = phi i1 [ %.5, %416 ], [ false, %392 ]
+  %.35 = phi ptr [ %.36, %416 ], [ %230, %392 ]
+  %.22 = phi i1 [ %.23, %416 ], [ false, %392 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %55) #17
   br label %418
 
 418:                                              ; preds = %417, %390
   %.pn239.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn, %417 ], [ %391, %390 ]
-  %.1829 = phi ptr [ %.1728, %417 ], [ %224, %390 ]
-  %.7 = phi i1 [ %.6, %417 ], [ false, %390 ]
+  %.34 = phi ptr [ %.35, %417 ], [ %224, %390 ]
+  %.21 = phi i1 [ %.22, %417 ], [ false, %390 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %54) #17
   br label %419
 
 419:                                              ; preds = %418, %388
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn, %418 ], [ %389, %388 ]
-  %.1930 = phi ptr [ %.1829, %418 ], [ %224, %388 ]
-  %.8 = phi i1 [ %.7, %418 ], [ false, %388 ]
+  %.33 = phi ptr [ %.34, %418 ], [ %224, %388 ]
+  %.20 = phi i1 [ %.21, %418 ], [ false, %388 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %53) #17
   br label %420
 
 420:                                              ; preds = %419, %386
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn, %419 ], [ %387, %386 ]
-  %.2031 = phi ptr [ %.1930, %419 ], [ %218, %386 ]
-  %.9 = phi i1 [ %.8, %419 ], [ false, %386 ]
+  %.32 = phi ptr [ %.33, %419 ], [ %218, %386 ]
+  %.19 = phi i1 [ %.20, %419 ], [ false, %386 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %52) #17
   br label %421
 
 421:                                              ; preds = %420, %384
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn, %420 ], [ %385, %384 ]
-  %.2132 = phi ptr [ %.2031, %420 ], [ %218, %384 ]
-  %.10 = phi i1 [ %.9, %420 ], [ false, %384 ]
+  %.31 = phi ptr [ %.32, %420 ], [ %218, %384 ]
+  %.18 = phi i1 [ %.19, %420 ], [ false, %384 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %51) #17
   br label %422
 
 422:                                              ; preds = %421, %382
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %421 ], [ %383, %382 ]
-  %.2233 = phi ptr [ %.2132, %421 ], [ %212, %382 ]
-  %.11 = phi i1 [ %.10, %421 ], [ false, %382 ]
+  %.30 = phi ptr [ %.31, %421 ], [ %212, %382 ]
+  %.17 = phi i1 [ %.18, %421 ], [ false, %382 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %50) #17
   br label %423
 
 423:                                              ; preds = %422, %380
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %422 ], [ %381, %380 ]
-  %.2334 = phi ptr [ %.2233, %422 ], [ %212, %380 ]
-  %.12 = phi i1 [ %.11, %422 ], [ false, %380 ]
+  %.29 = phi ptr [ %.30, %422 ], [ %212, %380 ]
+  %.16 = phi i1 [ %.17, %422 ], [ false, %380 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %49) #17
   br label %424
 
 424:                                              ; preds = %423, %378
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %423 ], [ %379, %378 ]
-  %.2435 = phi ptr [ %.2334, %423 ], [ %206, %378 ]
-  %.13 = phi i1 [ %.12, %423 ], [ false, %378 ]
+  %.2839 = phi ptr [ %.29, %423 ], [ %206, %378 ]
+  %.15 = phi i1 [ %.16, %423 ], [ false, %378 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %48) #17
   br label %425
 
 425:                                              ; preds = %424, %376
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %424 ], [ %377, %376 ]
-  %.2536 = phi ptr [ %.2435, %424 ], [ %206, %376 ]
-  %.14 = phi i1 [ %.13, %424 ], [ false, %376 ]
+  %.2738 = phi ptr [ %.2839, %424 ], [ %206, %376 ]
+  %.14 = phi i1 [ %.15, %424 ], [ false, %376 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %47) #17
   br label %426
 
 426:                                              ; preds = %425, %374
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %425 ], [ %375, %374 ]
-  %.2637 = phi ptr [ %.2536, %425 ], [ %200, %374 ]
-  %.15 = phi i1 [ %.14, %425 ], [ false, %374 ]
+  %.2637 = phi ptr [ %.2738, %425 ], [ %200, %374 ]
+  %.13 = phi i1 [ %.14, %425 ], [ false, %374 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %46) #17
   br label %427
 
 427:                                              ; preds = %426, %372
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %426 ], [ %373, %372 ]
-  %.2738 = phi ptr [ %.2637, %426 ], [ %200, %372 ]
-  %.16 = phi i1 [ %.15, %426 ], [ false, %372 ]
+  %.2536 = phi ptr [ %.2637, %426 ], [ %200, %372 ]
+  %.12 = phi i1 [ %.13, %426 ], [ false, %372 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %45) #17
   br label %428
 
 428:                                              ; preds = %427, %370
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %427 ], [ %371, %370 ]
-  %.2839 = phi ptr [ %.2738, %427 ], [ %194, %370 ]
-  %.17 = phi i1 [ %.16, %427 ], [ false, %370 ]
+  %.2435 = phi ptr [ %.2536, %427 ], [ %194, %370 ]
+  %.11 = phi i1 [ %.12, %427 ], [ false, %370 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %44) #17
   br label %429
 
 429:                                              ; preds = %428, %368
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %428 ], [ %369, %368 ]
-  %.29 = phi ptr [ %.2839, %428 ], [ %194, %368 ]
-  %.18 = phi i1 [ %.17, %428 ], [ false, %368 ]
+  %.2334 = phi ptr [ %.2435, %428 ], [ %194, %368 ]
+  %.10 = phi i1 [ %.11, %428 ], [ false, %368 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %43) #17
   br label %430
 
 430:                                              ; preds = %429, %366
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %429 ], [ %367, %366 ]
-  %.30 = phi ptr [ %.29, %429 ], [ %188, %366 ]
-  %.19 = phi i1 [ %.18, %429 ], [ false, %366 ]
+  %.2233 = phi ptr [ %.2334, %429 ], [ %188, %366 ]
+  %.9 = phi i1 [ %.10, %429 ], [ false, %366 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %42) #17
   br label %431
 
 431:                                              ; preds = %430, %364
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %430 ], [ %365, %364 ]
-  %.31 = phi ptr [ %.30, %430 ], [ %188, %364 ]
-  %.20 = phi i1 [ %.19, %430 ], [ false, %364 ]
+  %.2132 = phi ptr [ %.2233, %430 ], [ %188, %364 ]
+  %.8 = phi i1 [ %.9, %430 ], [ false, %364 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %41) #17
   br label %432
 
 432:                                              ; preds = %431, %362
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %431 ], [ %363, %362 ]
-  %.32 = phi ptr [ %.31, %431 ], [ %182, %362 ]
-  %.21 = phi i1 [ %.20, %431 ], [ false, %362 ]
+  %.2031 = phi ptr [ %.2132, %431 ], [ %182, %362 ]
+  %.7 = phi i1 [ %.8, %431 ], [ false, %362 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %40) #17
   br label %433
 
 433:                                              ; preds = %432, %360
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %432 ], [ %361, %360 ]
-  %.33 = phi ptr [ %.32, %432 ], [ %182, %360 ]
-  %.22 = phi i1 [ %.21, %432 ], [ false, %360 ]
+  %.1930 = phi ptr [ %.2031, %432 ], [ %182, %360 ]
+  %.6 = phi i1 [ %.7, %432 ], [ false, %360 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %39) #17
   br label %434
 
 434:                                              ; preds = %433, %358
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %433 ], [ %359, %358 ]
-  %.34 = phi ptr [ %.33, %433 ], [ %176, %358 ]
-  %.23 = phi i1 [ %.22, %433 ], [ false, %358 ]
+  %.1829 = phi ptr [ %.1930, %433 ], [ %176, %358 ]
+  %.5 = phi i1 [ %.6, %433 ], [ false, %358 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %38) #17
   br label %435
 
 435:                                              ; preds = %434, %356
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %434 ], [ %357, %356 ]
-  %.35 = phi ptr [ %.34, %434 ], [ %176, %356 ]
-  %.24 = phi i1 [ %.23, %434 ], [ false, %356 ]
+  %.1728 = phi ptr [ %.1829, %434 ], [ %176, %356 ]
+  %.4 = phi i1 [ %.5, %434 ], [ false, %356 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %37) #17
   br label %436
 
 436:                                              ; preds = %435, %354
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %435 ], [ %355, %354 ]
-  %.36 = phi ptr [ %.35, %435 ], [ %170, %354 ]
-  %.25 = phi i1 [ %.24, %435 ], [ false, %354 ]
+  %.1627 = phi ptr [ %.1728, %435 ], [ %170, %354 ]
+  %.3 = phi i1 [ %.4, %435 ], [ false, %354 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %36) #17
   br label %437
 
 437:                                              ; preds = %352, %436
   %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn239.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %436 ], [ %353, %352 ]
-  %.37 = phi ptr [ %.36, %436 ], [ %170, %352 ]
-  %.26 = phi i1 [ %.25, %436 ], [ false, %352 ]
+  %.1526 = phi ptr [ %.1627, %436 ], [ %170, %352 ]
+  %.2 = phi i1 [ %.3, %436 ], [ false, %352 ]
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %35) #17
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %34) #17
-  %438 = icmp eq ptr %33, %.37
-  %or.cond4 = select i1 %.26, i1 true, i1 %438
+  %438 = icmp eq ptr %33, %.1526
+  %or.cond4 = select i1 %.2, i1 true, i1 %438
   br i1 %or.cond4, label %.loopexit24, label %.preheader
 
 .preheader:                                       ; preds = %437, %.preheader
-  %439 = phi ptr [ %440, %.preheader ], [ %.37, %437 ]
+  %439 = phi ptr [ %440, %.preheader ], [ %.1526, %437 ]
   %440 = getelementptr inbounds i8, ptr %439, i64 -8
   call void @_ZNSt4pairIN5Yosys5RTLIL8IdStringES2_ED2Ev(ptr noundef nonnull align 4 dereferenceable(8) %440) #17
   %441 = icmp eq ptr %440, %33

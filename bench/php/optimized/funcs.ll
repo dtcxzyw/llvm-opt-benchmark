@@ -98,8 +98,8 @@ define hidden range(i32 -1, 1) i32 @file_checkfmt(ptr noundef %0, i64 noundef %1
   br i1 %memchr14.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.03849 = phi ptr [ %13, %.lr.ph ], [ %7, %.preheader ]
-  %13 = getelementptr inbounds i8, ptr %.03849, i64 1
+  %.149 = phi ptr [ %13, %.lr.ph ], [ %7, %.preheader ]
+  %13 = getelementptr inbounds i8, ptr %.149, i64 1
   %.pr = load i8, ptr %13, align 1
   %14 = zext nneg i8 %.pr to i64
   %memchr.bounds = icmp ugt i8 %.pr, 63
@@ -111,7 +111,7 @@ define hidden range(i32 -1, 1) i32 @file_checkfmt(ptr noundef %0, i64 noundef %1
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa = phi i8 [ %8, %.preheader ], [ %.pr, %.lr.ph ]
-  %.038.lcssa = phi ptr [ %7, %.preheader ], [ %13, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %7, %.preheader ], [ %13, %.lr.ph ]
   switch i8 %.lcssa, label %.lr.ph.i [
     i8 42, label %17
     i8 0, label %file_checkfield.exit32
@@ -133,7 +133,7 @@ define hidden range(i32 -1, 1) i32 @file_checkfmt(ptr noundef %0, i64 noundef %1
 22:                                               ; preds = %28, %.lr.ph.i
   %23 = phi i8 [ %.lcssa, %.lr.ph.i ], [ %34, %28 ]
   %.021.i = phi i32 [ 0, %.lr.ph.i ], [ %33, %28 ]
-  %.01320.i = phi ptr [ %.038.lcssa, %.lr.ph.i ], [ %31, %28 ]
+  %.01320.i = phi ptr [ %.1.lcssa, %.lr.ph.i ], [ %31, %28 ]
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds i16, ptr %21, i64 %24
   %26 = load i16, ptr %25, align 2
@@ -219,7 +219,7 @@ file_checkfield.exit:                             ; preds = %.critedge.i
 
 file_checkfield.exit32:                           ; preds = %._crit_edge, %.critedge.i27, %41, %file_checkfield.exit
   %64 = phi i8 [ %35, %file_checkfield.exit ], [ 0, %41 ], [ %59, %.critedge.i27 ], [ %.lcssa, %._crit_edge ]
-  %.3 = phi ptr [ %.013.lcssa.i, %file_checkfield.exit ], [ %42, %41 ], [ %.013.lcssa.i28, %.critedge.i27 ], [ %.038.lcssa, %._crit_edge ]
+  %.2 = phi ptr [ %.013.lcssa.i, %file_checkfield.exit ], [ %42, %41 ], [ %.013.lcssa.i28, %.critedge.i27 ], [ %.1.lcssa, %._crit_edge ]
   %65 = tail call ptr @__ctype_b_loc() #18
   %66 = load ptr, ptr %65, align 8
   %67 = zext i8 %64 to i64
@@ -239,8 +239,8 @@ file_checkfield.exit32:                           ; preds = %._crit_edge, %.crit
   br label %file_checkfield.exit.thread
 
 75:                                               ; preds = %4, %file_checkfield.exit32, %6
-  %.4 = phi ptr [ %storemerge, %4 ], [ %7, %6 ], [ %.3, %file_checkfield.exit32 ]
-  %76 = getelementptr inbounds i8, ptr %.4, i64 1
+  %.038 = phi ptr [ %storemerge, %4 ], [ %7, %6 ], [ %.2, %file_checkfield.exit32 ]
+  %76 = getelementptr inbounds i8, ptr %.038, i64 1
   br label %4
 
 file_checkfield.exit.thread:                      ; preds = %4, %61, %62, %37, %38, %71, %72, %17, %18
@@ -626,7 +626,7 @@ define hidden range(i32 1, 0) i32 @file_buffer(ptr noundef %0, ptr noundef %1, p
 checkdone.exit.thread:                            ; preds = %43, %39, %28
   %46 = phi i32 [ %.pre172, %39 ], [ %29, %28 ], [ %.pre171, %43 ]
   %.1131 = phi i32 [ 0, %39 ], [ 0, %28 ], [ %spec.select161, %43 ]
-  %.077 = phi i32 [ 0, %39 ], [ 0, %28 ], [ %33, %43 ]
+  %.1 = phi i32 [ 0, %39 ], [ 0, %28 ], [ %33, %43 ]
   %47 = and i32 %46, 4194304
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %checkdone.exit120.thread
@@ -664,7 +664,7 @@ checkdone.exit.thread:                            ; preds = %43, %39, %28
 checkdone.exit120.thread:                         ; preds = %60, %56, %checkdone.exit.thread
   %63 = phi i32 [ %.pre174, %56 ], [ %46, %checkdone.exit.thread ], [ %.pre173, %60 ]
   %.3133 = phi i32 [ %.1131, %56 ], [ %.1131, %checkdone.exit.thread ], [ %spec.select162, %60 ]
-  %.1 = phi i32 [ 0, %56 ], [ %.077, %checkdone.exit.thread ], [ %50, %60 ]
+  %.3 = phi i32 [ 0, %56 ], [ %.1, %checkdone.exit.thread ], [ %50, %60 ]
   %64 = and i32 %63, 524288
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %checkdone.exit122.thread
@@ -702,8 +702,8 @@ checkdone.exit120.thread:                         ; preds = %60, %56, %checkdone
 
 checkdone.exit122.thread:                         ; preds = %78, %74, %checkdone.exit120.thread
   %81 = phi i32 [ %.pre176, %74 ], [ %63, %checkdone.exit120.thread ], [ %.pre175, %78 ]
-  %.5135 = phi i32 [ %.3133, %74 ], [ %.3133, %checkdone.exit120.thread ], [ %spec.select163, %78 ]
-  %.2 = phi i32 [ 0, %74 ], [ %.1, %checkdone.exit120.thread ], [ %68, %78 ]
+  %.4134 = phi i32 [ %.3133, %74 ], [ %.3133, %checkdone.exit120.thread ], [ %spec.select163, %78 ]
+  %.4 = phi i32 [ 0, %74 ], [ %.3, %checkdone.exit120.thread ], [ %68, %78 ]
   %82 = and i32 %81, 8388608
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %checkdone.exit124.thread
@@ -734,14 +734,14 @@ checkdone.exit122.thread:                         ; preds = %78, %74, %checkdone
 95:                                               ; preds = %92
   %96 = call range(i32 -1, 1) i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %97 = icmp eq i32 %96, -1
-  %spec.select164 = select i1 %97, i32 -1, i32 %.5135
+  %spec.select164 = select i1 %97, i32 -1, i32 %.4134
   %.pre177 = load i32, ptr %22, align 4
   br label %checkdone.exit124.thread
 
 checkdone.exit124.thread:                         ; preds = %95, %91, %checkdone.exit122.thread
   %98 = phi i32 [ %.pre178, %91 ], [ %81, %checkdone.exit122.thread ], [ %.pre177, %95 ]
-  %.7137 = phi i32 [ %.5135, %91 ], [ %.5135, %checkdone.exit122.thread ], [ %spec.select164, %95 ]
-  %.3 = phi i32 [ 0, %91 ], [ %.2, %checkdone.exit122.thread ], [ %85, %95 ]
+  %.5135 = phi i32 [ %.4134, %91 ], [ %.4134, %checkdone.exit122.thread ], [ %spec.select164, %95 ]
+  %.5 = phi i32 [ 0, %91 ], [ %.4, %checkdone.exit122.thread ], [ %85, %95 ]
   %99 = and i32 %98, 262144
   %100 = icmp eq i32 %99, 0
   br i1 %100, label %101, label %checkdone.exit126.thread
@@ -772,14 +772,14 @@ checkdone.exit124.thread:                         ; preds = %95, %91, %checkdone
 112:                                              ; preds = %109
   %113 = call range(i32 -1, 1) i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %114 = icmp eq i32 %113, -1
-  %spec.select165 = select i1 %114, i32 -1, i32 %.7137
+  %spec.select165 = select i1 %114, i32 -1, i32 %.5135
   %.pre179 = load i32, ptr %22, align 4
   br label %checkdone.exit126.thread
 
 checkdone.exit126.thread:                         ; preds = %112, %108, %checkdone.exit124.thread
   %115 = phi i32 [ %.pre180, %108 ], [ %98, %checkdone.exit124.thread ], [ %.pre179, %112 ]
-  %.9 = phi i32 [ %.7137, %108 ], [ %.7137, %checkdone.exit124.thread ], [ %spec.select165, %112 ]
-  %.4 = phi i32 [ 0, %108 ], [ %.3, %checkdone.exit124.thread ], [ %102, %112 ]
+  %.6136 = phi i32 [ %.5135, %108 ], [ %.5135, %checkdone.exit124.thread ], [ %spec.select165, %112 ]
+  %.6 = phi i32 [ 0, %108 ], [ %.5, %checkdone.exit124.thread ], [ %102, %112 ]
   %116 = and i32 %115, 16384
   %117 = icmp eq i32 %116, 0
   br i1 %117, label %118, label %checkdone.exit128.thread
@@ -810,14 +810,14 @@ checkdone.exit126.thread:                         ; preds = %112, %108, %checkdo
 129:                                              ; preds = %126
   %130 = call range(i32 -1, 1) i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11)
   %131 = icmp eq i32 %130, -1
-  %spec.select166 = select i1 %131, i32 -1, i32 %.9
+  %spec.select166 = select i1 %131, i32 -1, i32 %.6136
   %.pre181 = load i32, ptr %22, align 4
   br label %checkdone.exit128.thread
 
 checkdone.exit128.thread:                         ; preds = %129, %checkdone.exit126.thread
   %132 = phi i32 [ %115, %checkdone.exit126.thread ], [ %.pre181, %129 ]
-  %.11 = phi i32 [ %.9, %checkdone.exit126.thread ], [ %spec.select166, %129 ]
-  %.5 = phi i32 [ %.4, %checkdone.exit126.thread ], [ %119, %129 ]
+  %.7137 = phi i32 [ %.6136, %checkdone.exit126.thread ], [ %spec.select166, %129 ]
+  %.7 = phi i32 [ %.6, %checkdone.exit126.thread ], [ %119, %129 ]
   %133 = and i32 %132, 131072
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %137, label %146
@@ -828,7 +828,7 @@ checkdone.exit128.thread.thread:                  ; preds = %125
   br i1 %136, label %137, label %.thread
 
 137:                                              ; preds = %checkdone.exit128.thread.thread, %checkdone.exit128.thread
-  %.11191 = phi i32 [ %.9, %checkdone.exit128.thread.thread ], [ %.11, %checkdone.exit128.thread ]
+  %.7137191 = phi i32 [ %.6136, %checkdone.exit128.thread.thread ], [ %.7137, %checkdone.exit128.thread ]
   %138 = call i32 @file_ascmagic(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %.080) #17
   %139 = load i32, ptr %22, align 4
   %140 = and i32 %139, 1
@@ -845,7 +845,7 @@ checkdone.exit128.thread.thread:                  ; preds = %125
   br i1 %145, label %.thread, label %checkdone.exit
 
 146:                                              ; preds = %checkdone.exit128.thread
-  %.old2 = icmp eq i32 %.5, 0
+  %.old2 = icmp eq i32 %.7, 0
   br i1 %.old2, label %.thread, label %checkdone.exit
 
 .thread:                                          ; preds = %checkdone.exit128.thread.thread, %16, %20, %144, %146
@@ -900,8 +900,8 @@ file_default.exit:                                ; preds = %162
   br label %checkdone.exit
 
 checkdone.exit:                                   ; preds = %file_default.exit, %164, %159, %152, %156, %126, %109, %92, %75, %57, %40, %146, %144
-  %.13 = phi i32 [ %.11191, %144 ], [ %.11, %146 ], [ 0, %40 ], [ %.1131, %57 ], [ %.3133, %75 ], [ %.5135, %92 ], [ %.7137, %109 ], [ %.9, %126 ], [ %.12.i, %164 ], [ %..i, %159 ], [ -1, %152 ], [ 1, %156 ], [ %spec.select167, %file_default.exit ]
-  %.7 = phi i32 [ %138, %144 ], [ %.5, %146 ], [ %33, %40 ], [ %50, %57 ], [ %68, %75 ], [ %85, %92 ], [ %102, %109 ], [ %119, %126 ], [ 1, %164 ], [ 1, %159 ], [ 1, %152 ], [ 1, %156 ], [ 1, %file_default.exit ]
+  %.2132 = phi i32 [ %.7137191, %144 ], [ %.7137, %146 ], [ 0, %40 ], [ %.1131, %57 ], [ %.3133, %75 ], [ %.4134, %92 ], [ %.5135, %109 ], [ %.6136, %126 ], [ %.12.i, %164 ], [ %..i, %159 ], [ -1, %152 ], [ 1, %156 ], [ %spec.select167, %file_default.exit ]
+  %.2 = phi i32 [ %138, %144 ], [ %.7, %146 ], [ %33, %40 ], [ %50, %57 ], [ %68, %75 ], [ %85, %92 ], [ %102, %109 ], [ %119, %126 ], [ 1, %164 ], [ 1, %159 ], [ 1, %152 ], [ 1, %156 ], [ 1, %file_default.exit ]
   %169 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %169, align 8
   %170 = icmp eq ptr %.val, null
@@ -938,24 +938,24 @@ trim_separator.exit:                              ; preds = %checkdone.exit, %17
 184:                                              ; preds = %182
   %185 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.29)
   %186 = icmp eq i32 %185, -1
-  %spec.select168 = select i1 %186, i32 -1, i32 %.13
+  %spec.select168 = select i1 %186, i32 -1, i32 %.2132
   br label %187
 
 187:                                              ; preds = %184, %182
-  %.14 = phi i32 [ %.13, %182 ], [ %spec.select168, %184 ]
+  %.9 = phi i32 [ %.2132, %182 ], [ %spec.select168, %184 ]
   %188 = load ptr, ptr %8, align 8
   %189 = call i32 (ptr, ptr, ...) @file_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.27, ptr noundef %188)
   %190 = icmp eq i32 %189, -1
-  %spec.select169 = select i1 %190, i32 -1, i32 %.14
+  %spec.select169 = select i1 %190, i32 -1, i32 %.9
   br label %191
 
 191:                                              ; preds = %187, %trim_separator.exit
-  %.15 = phi i32 [ %.13, %trim_separator.exit ], [ %spec.select169, %187 ]
-  %.15.fr = freeze i32 %.15
+  %.8 = phi i32 [ %.2132, %trim_separator.exit ], [ %spec.select169, %187 ]
+  %.8.fr = freeze i32 %.8
   call void @_efree(ptr noundef null) #17
   call void @buffer_fini(ptr noundef nonnull %10) #17
-  %.not118 = icmp eq i32 %.15.fr, 0
-  %spec.select170 = select i1 %.not118, i32 %.7, i32 %.15.fr
+  %.not118 = icmp eq i32 %.8.fr, 0
+  %spec.select170 = select i1 %.not118, i32 %.2, i32 %.8.fr
   ret i32 %spec.select170
 }
 

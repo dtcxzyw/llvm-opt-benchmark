@@ -160,21 +160,21 @@ refdict.exit:                                     ; preds = %11, %14
   br i1 %or.cond, label %48, label %37
 
 37:                                               ; preds = %33, %31
-  %.025 = phi ptr [ %32, %31 ], [ %34, %33 ]
-  %38 = getelementptr inbounds i8, ptr %.025, i64 16
+  %.1 = phi ptr [ %32, %31 ], [ %34, %33 ]
+  %38 = getelementptr inbounds i8, ptr %.1, i64 16
   %39 = select i1 %2, i64 -9223372036854775807, i64 1
   store i64 %39, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.025, i64 32
+  %40 = getelementptr inbounds i8, ptr %.1, i64 32
   %41 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %1) #8
-  %42 = getelementptr inbounds i8, ptr %.025, i64 24
+  %42 = getelementptr inbounds i8, ptr %.1, i64 24
   store ptr %40, ptr %42, align 8
   %43 = load ptr, ptr %17, align 8
-  %44 = call ptr %43(ptr noundef nonnull %17, ptr noundef %.025, i32 noundef 1) #8
+  %44 = call ptr %43(ptr noundef nonnull %17, ptr noundef %.1, i32 noundef 1) #8
   br label %45
 
 45:                                               ; preds = %37, %21
-  %.1 = phi ptr [ %20, %21 ], [ %.025, %37 ]
-  %46 = getelementptr inbounds i8, ptr %.1, i64 24
+  %.025 = phi ptr [ %20, %21 ], [ %.1, %37 ]
+  %46 = getelementptr inbounds i8, ptr %.025, i64 24
   %47 = load ptr, ptr %46, align 8
   br label %48
 

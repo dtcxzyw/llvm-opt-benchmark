@@ -1094,7 +1094,7 @@ trace_mptsas_scsi_overflow.exit.i.i:              ; preds = %if.else.i.i77.i.i, 
   br label %free_bad.i.i
 
 free_bad.i.i:                                     ; preds = %trace_mptsas_scsi_overflow.exit.i.i, %trace_mptsas_sgl_overflow.exit.i.i, %mptsas_build_sgl.exit.i.i
-  %status.0.i.i = phi i16 [ 3, %mptsas_build_sgl.exit.i.i ], [ 3, %trace_mptsas_sgl_overflow.exit.i.i ], [ 68, %trace_mptsas_scsi_overflow.exit.i.i ]
+  %status.1.i.i = phi i16 [ 3, %mptsas_build_sgl.exit.i.i ], [ 3, %trace_mptsas_sgl_overflow.exit.i.i ], [ 68, %trace_mptsas_scsi_overflow.exit.i.i ]
   %sreq.i.i.i = getelementptr inbounds i8, ptr %call9.i.i, i64 48
   %67 = load ptr, ptr %sreq.i.i.i, align 8
   %cmp.not.i82.i.i = icmp eq ptr %67, null
@@ -1114,7 +1114,7 @@ mptsas_free_request.exit.i.i:                     ; preds = %if.then.i.i.i, %fre
   br label %bad.i.i
 
 bad.i.i:                                          ; preds = %mptsas_free_request.exit.i.i, %if.end4.i.i.i, %if.end.i.i.i, %trace_mptsas_process_scsi_io_request.exit.i.i
-  %status.1.i.i = phi i16 [ %status.0.i.i, %mptsas_free_request.exit.i.i ], [ 66, %if.end.i.i.i ], [ 65, %trace_mptsas_process_scsi_io_request.exit.i.i ], [ 67, %if.end4.i.i.i ]
+  %status.0.i.i = phi i16 [ %status.1.i.i, %mptsas_free_request.exit.i.i ], [ 66, %if.end.i.i.i ], [ 65, %trace_mptsas_process_scsi_io_request.exit.i.i ], [ 67, %if.end4.i.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %3, i8 0, i64 30, i1 false)
   %69 = load i8, ptr %req.i, align 16
   store i8 %69, ptr %reply.i.i, align 1
@@ -1130,7 +1130,7 @@ bad.i.i:                                          ; preds = %mptsas_free_request
   %74 = load i32, ptr %MsgContext.i.i, align 8
   store i32 %74, ptr %MsgContext81.i.i, align 1
   store i8 4, ptr %SCSIState.i.i, align 1
-  store i16 %status.1.i.i, ptr %IOCStatus.i.i, align 1
+  store i16 %status.0.i.i, ptr %IOCStatus.i.i, align 1
   call void @mptsas_fix_scsi_io_reply_endianness(ptr noundef nonnull %reply.i.i) #12
   %75 = load i8, ptr %doorbell_state.i.i.i, align 1
   %cmp.i.i.i = icmp eq i8 %75, 1
@@ -2011,7 +2011,7 @@ if.end67.i:                                       ; preds = %if.end58.i
   br i1 %tobool72.not118.i, label %if.end94.i, label %land.rhs73.i
 
 land.rhs73.i:                                     ; preds = %if.end67.i, %for.inc88.i
-  %count.0120.i = phi i32 [ %count.1.i, %for.inc88.i ], [ 0, %if.end67.i ]
+  %count.1120.i = phi i32 [ %count.2.i, %for.inc88.i ], [ 0, %if.end67.i ]
   %r.1119.i = phi ptr [ %32, %for.inc88.i ], [ %31, %if.end67.i ]
   %next74.i = getelementptr inbounds i8, ptr %r.1119.i, i64 392
   %32 = load ptr, ptr %next74.i, align 8
@@ -2021,7 +2021,7 @@ land.rhs73.i:                                     ; preds = %if.end67.i, %for.in
   br i1 %tobool78.not.i, label %for.inc88.i, label %if.then79.i
 
 if.then79.i:                                      ; preds = %land.rhs73.i
-  %inc.i = add i32 %count.0120.i, 1
+  %inc.i = add i32 %count.1120.i, 1
   %call81.i = call noalias dereferenceable_or_null(40) ptr @g_malloc_n(i64 noundef 1, i64 noundef 40) #14
   %s82.i = getelementptr inbounds i8, ptr %call81.i, i64 24
   store ptr %s, ptr %s82.i, align 8
@@ -2032,29 +2032,29 @@ if.then79.i:                                      ; preds = %land.rhs73.i
   br label %for.inc88.i
 
 for.inc88.i:                                      ; preds = %if.then79.i, %land.rhs73.i
-  %count.1.i = phi i32 [ %inc.i, %if.then79.i ], [ %count.0120.i, %land.rhs73.i ]
+  %count.2.i = phi i32 [ %inc.i, %if.then79.i ], [ %count.1120.i, %land.rhs73.i ]
   %tobool72.not.i = icmp eq ptr %32, null
   br i1 %tobool72.not.i, label %reply_maybe_async.i, label %land.rhs73.i, !llvm.loop !9
 
 reply_maybe_async.i:                              ; preds = %for.inc88.i, %if.else37.i
-  %count.2.i = phi i32 [ 1, %if.else37.i ], [ %count.1.i, %for.inc88.i ]
+  %count.0.i = phi i32 [ 1, %if.else37.i ], [ %count.2.i, %for.inc88.i ]
   %reply_async.0.i = phi ptr [ %call38.i, %if.else37.i ], [ %call68.i, %for.inc88.i ]
   %TerminationCount.i = getelementptr inbounds i8, ptr %reply_async.0.i, i64 20
   %34 = load i32, ptr %TerminationCount.i, align 1
-  %cmp90.i = icmp ult i32 %34, %count.2.i
+  %cmp90.i = icmp ult i32 %34, %count.0.i
   br i1 %cmp90.i, label %if.then92.i, label %if.end94.i
 
 if.then92.i:                                      ; preds = %reply_maybe_async.i
   %IOCLogInfo93.i = getelementptr inbounds i8, ptr %reply_async.0.i, i64 16
-  store i32 %count.2.i, ptr %IOCLogInfo93.i, align 1
+  store i32 %count.0.i, ptr %IOCLogInfo93.i, align 1
   br label %mptsas_process_scsi_task_mgmt.exit
 
 if.end94.i:                                       ; preds = %reply_maybe_async.i, %if.end67.i
   %reply_async.0130.i = phi ptr [ %reply_async.0.i, %reply_maybe_async.i ], [ %call68.i, %if.end67.i ]
-  %count.2129.i = phi i32 [ %count.2.i, %reply_maybe_async.i ], [ 0, %if.end67.i ]
+  %count.0129.i = phi i32 [ %count.0.i, %reply_maybe_async.i ], [ 0, %if.end67.i ]
   call void @g_free(ptr noundef nonnull %reply_async.0130.i) #12
   %TerminationCount95.i = getelementptr inbounds i8, ptr %reply.i, i64 20
-  store i32 %count.2129.i, ptr %TerminationCount95.i, align 1
+  store i32 %count.0129.i, ptr %TerminationCount95.i, align 1
   br label %out.i
 
 sw.bb96.i:                                        ; preds = %sw.bb

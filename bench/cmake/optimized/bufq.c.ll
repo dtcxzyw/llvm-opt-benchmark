@@ -197,16 +197,16 @@ define dso_local i64 @Curl_bufq_space(ptr nocapture noundef readonly %0) local_u
 
 .preheader:                                       ; preds = %8, %.preheader
   %.024 = phi ptr [ %14, %.preheader ], [ %10, %8 ]
-  %.123 = phi i64 [ %13, %.preheader ], [ %.015, %8 ]
+  %.223 = phi i64 [ %13, %.preheader ], [ %.015, %8 ]
   %11 = getelementptr inbounds i8, ptr %.024, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = add i64 %12, %.123
+  %13 = add i64 %12, %.223
   %14 = load ptr, ptr %.024, align 8
   %.not21 = icmp eq ptr %14, null
   br i1 %.not21, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %8
-  %.2 = phi i64 [ %.015, %8 ], [ %13, %.preheader ]
+  %.1 = phi i64 [ %.015, %8 ], [ %13, %.preheader ]
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 40
@@ -219,11 +219,11 @@ define dso_local i64 @Curl_bufq_space(ptr nocapture noundef readonly %0) local_u
   %22 = getelementptr inbounds i8, ptr %0, i64 48
   %23 = load i64, ptr %22, align 8
   %24 = mul i64 %23, %21
-  %25 = add i64 %24, %.2
+  %25 = add i64 %24, %.1
   br label %26
 
 26:                                               ; preds = %20, %.loopexit
-  %.3 = phi i64 [ %25, %20 ], [ %.2, %.loopexit ]
+  %.3 = phi i64 [ %25, %20 ], [ %.1, %.loopexit ]
   ret i64 %.3
 }
 

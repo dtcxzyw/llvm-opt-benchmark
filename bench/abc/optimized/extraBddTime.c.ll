@@ -637,7 +637,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   br label %217
 
 206:                                              ; preds = %202, %198
-  %.0215 = phi ptr [ %201, %198 ], [ %203, %202 ]
+  %.1 = phi ptr [ %201, %198 ], [ %203, %202 ]
   %207 = load i32, ptr %188, align 4
   %208 = add i32 %207, -1
   store i32 %208, ptr %188, align 4
@@ -645,7 +645,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
 
 209:                                              ; preds = %182, %144, %206, %160
   %.sink = phi ptr [ %176, %206 ], [ %166, %160 ], [ %123, %144 ], [ %176, %182 ]
-  %.1 = phi ptr [ %.0215, %206 ], [ %163, %160 ], [ %107, %144 ], [ %170, %182 ]
+  %.0215 = phi ptr [ %.1, %206 ], [ %163, %160 ], [ %107, %144 ], [ %170, %182 ]
   %210 = load i32, ptr %.sink, align 4
   %211 = add i32 %210, -1
   store i32 %211, ptr %.sink, align 4
@@ -660,11 +660,11 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   br i1 %.not243, label %217, label %216
 
 216:                                              ; preds = %213, %209
-  tail call void @cuddCacheInsert(ptr noundef %0, i64 noundef 6, ptr noundef %spec.select252, ptr noundef %spec.select, ptr noundef nonnull %.0212, ptr noundef %.1) #5
+  tail call void @cuddCacheInsert(ptr noundef %0, i64 noundef 6, ptr noundef %spec.select252, ptr noundef %spec.select, ptr noundef nonnull %.0212, ptr noundef %.0215) #5
   br label %217
 
 217:                                              ; preds = %213, %216, %169, %115, %118, %104, %67, %64, %17, %5, %205, %197, %181, %159, %143, %56, %29, %26, %22
-  %.0 = phi ptr [ %23, %22 ], [ %27, %26 ], [ %30, %29 ], [ %57, %56 ], [ null, %143 ], [ null, %159 ], [ null, %181 ], [ null, %197 ], [ null, %205 ], [ %10, %5 ], [ %7, %17 ], [ %65, %64 ], [ null, %67 ], [ null, %104 ], [ %107, %118 ], [ %107, %115 ], [ null, %169 ], [ %.1, %216 ], [ %.1, %213 ]
+  %.0 = phi ptr [ %23, %22 ], [ %27, %26 ], [ %30, %29 ], [ %57, %56 ], [ null, %143 ], [ null, %159 ], [ null, %181 ], [ null, %197 ], [ null, %205 ], [ %10, %5 ], [ %7, %17 ], [ %65, %64 ], [ null, %67 ], [ null, %104 ], [ %107, %118 ], [ %107, %115 ], [ null, %169 ], [ %.0215, %216 ], [ %.0215, %213 ]
   ret ptr %.0
 }
 

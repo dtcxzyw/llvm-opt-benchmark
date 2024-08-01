@@ -372,7 +372,7 @@ define internal i32 @dissect_quake3(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %dissect_quake3_ConnectionlessPacket.exit
 
 dissect_quake3_ConnectionlessPacket.exit:         ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %80, %.thread104.i, %122, %123
-  %.035 = phi i32 [ %.sink.i, %122 ], [ %.sink.i, %123 ], [ 4, %80 ], [ 4, %.thread104.i ], [ 4, %.lr.ph.split.us.i ], [ 4, %.lr.ph.split.i ]
+  %.1 = phi i32 [ %.sink.i, %122 ], [ %.sink.i, %123 ], [ 4, %80 ], [ 4, %.thread104.i ], [ 4, %.lr.ph.split.us.i ], [ 4, %.lr.ph.split.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %dissect_quake3_GamePacket.exit
 
@@ -451,20 +451,20 @@ dissect_quake3_ConnectionlessPacket.exit:         ; preds = %.lr.ph.split.i, %.l
   br label %dissect_quake3_GamePacket.exit
 
 dissect_quake3_GamePacket.exit:                   ; preds = %.sink.split.i, %170, %dissect_quake3_ConnectionlessPacket.exit
-  %.1 = phi i32 [ %.035, %dissect_quake3_ConnectionlessPacket.exit ], [ %134, %170 ], [ %134, %.sink.split.i ]
-  %176 = icmp ne i32 %.1, 0
+  %.035 = phi i32 [ %.1, %dissect_quake3_ConnectionlessPacket.exit ], [ %134, %170 ], [ %134, %.sink.split.i ]
+  %176 = icmp ne i32 %.035, 0
   %177 = icmp ne ptr %.025, null
   %or.cond = select i1 %176, i1 %177, i1 false
   br i1 %or.cond, label %178, label %180
 
 178:                                              ; preds = %dissect_quake3_GamePacket.exit
-  %179 = call ptr @val_to_str(i32 noundef %.1, ptr noundef nonnull @names_direction, ptr noundef nonnull @.str.43) #4
+  %179 = call ptr @val_to_str(i32 noundef %.035, ptr noundef nonnull @names_direction, ptr noundef nonnull @.str.43) #4
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %.025, ptr noundef nonnull @.str.42, ptr noundef %179) #4
   br label %180
 
 180:                                              ; preds = %178, %dissect_quake3_GamePacket.exit
   %181 = load ptr, ptr %6, align 8
-  %182 = call ptr @val_to_str(i32 noundef %.1, ptr noundef nonnull @names_direction, ptr noundef nonnull @.str.43) #4
+  %182 = call ptr @val_to_str(i32 noundef %.035, ptr noundef nonnull @names_direction, ptr noundef nonnull @.str.43) #4
   call void @col_append_str(ptr noundef %181, i32 noundef 25, ptr noundef %182) #4
   %183 = call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %183

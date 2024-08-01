@@ -82,7 +82,7 @@ sw.bb12:                                          ; preds = %if.end2
   br i1 %tobool.not21.i, label %traverse_string.exit.thread, label %while.body.i
 
 while.body.i:                                     ; preds = %sw.bb12, %if.end44.i
-  %nchar.0 = phi i32 [ %inc.i, %if.end44.i ], [ 0, %sw.bb12 ]
+  %nchar.1 = phi i32 [ %inc.i, %if.end44.i ], [ 0, %sw.bb12 ]
   %p.addr.023.i = phi ptr [ %add.ptr.i, %if.end44.i ], [ %in, %sw.bb12 ]
   %len.addr.022.i = phi i32 [ %sub33.i, %if.end44.i ], [ %len.addr.0, %sw.bb12 ]
   %call.i = call i32 @UTF8_getc(ptr noundef %p.addr.023.i, i32 noundef %len.addr.022.i, ptr noundef nonnull %value.i) #9
@@ -90,7 +90,7 @@ while.body.i:                                     ; preds = %sw.bb12, %if.end44.
   br i1 %cmp30.i, label %if.then16, label %if.end44.i
 
 if.end44.i:                                       ; preds = %while.body.i
-  %inc.i = add nuw nsw i32 %nchar.0, 1
+  %inc.i = add nuw nsw i32 %nchar.1, 1
   %idx.ext.i = zext nneg i32 %call.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %p.addr.023.i, i64 %idx.ext.i
   %sub33.i = sub nsw i32 %len.addr.022.i, %call.i
@@ -98,7 +98,7 @@ if.end44.i:                                       ; preds = %while.body.i
   br i1 %tobool.not.i, label %traverse_string.exit.thread, label %while.body.i, !llvm.loop !7
 
 traverse_string.exit.thread:                      ; preds = %if.end44.i, %sw.bb12
-  %nchar.1.ph = phi i32 [ 0, %sw.bb12 ], [ %inc.i, %if.end44.i ]
+  %nchar.2.ph = phi i32 [ 0, %sw.bb12 ], [ %inc.i, %if.end44.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i)
   br label %sw.epilog
 
@@ -112,9 +112,9 @@ sw.default:                                       ; preds = %if.end2
   br label %return
 
 sw.epilog:                                        ; preds = %if.end2, %traverse_string.exit.thread, %if.end10, %if.end5
-  %nchar.2 = phi i32 [ %shr11, %if.end10 ], [ %shr, %if.end5 ], [ %nchar.1.ph, %traverse_string.exit.thread ], [ %len.addr.0, %if.end2 ]
+  %nchar.0 = phi i32 [ %shr11, %if.end10 ], [ %shr, %if.end5 ], [ %nchar.2.ph, %traverse_string.exit.thread ], [ %len.addr.0, %if.end2 ]
   %cmp19 = icmp sgt i64 %minsize, 0
-  %conv21 = sext i32 %nchar.2 to i64
+  %conv21 = sext i32 %nchar.0 to i64
   %cmp22 = icmp slt i64 %conv21, %minsize
   %or.cond = select i1 %cmp19, i1 %cmp22, i1 false
   br i1 %or.cond, label %if.then24, label %if.end27
@@ -238,16 +238,16 @@ if.end91:                                         ; preds = %if.end83
   ]
 
 sw.bb92:                                          ; preds = %if.end91
-  store i32 %nchar.2, ptr %outlen, align 4
+  store i32 %nchar.0, ptr %outlen, align 4
   br label %sw.epilog98
 
 sw.bb93:                                          ; preds = %if.end91
-  %shl = shl i32 %nchar.2, 1
+  %shl = shl i32 %nchar.0, 1
   store i32 %shl, ptr %outlen, align 4
   br label %sw.epilog98
 
 sw.bb94:                                          ; preds = %if.end91
-  %shl95 = shl i32 %nchar.2, 2
+  %shl95 = shl i32 %nchar.0, 2
   store i32 %shl95, ptr %outlen, align 4
   br label %sw.epilog98
 
@@ -258,7 +258,7 @@ sw.bb96:                                          ; preds = %if.end91
   br label %sw.epilog98
 
 sw.epilog98:                                      ; preds = %sw.bb96, %sw.bb94, %sw.bb93, %sw.bb92, %if.end91
-  %3 = phi i32 [ 0, %if.end91 ], [ %.pre, %sw.bb96 ], [ %shl95, %sw.bb94 ], [ %shl, %sw.bb93 ], [ %nchar.2, %sw.bb92 ]
+  %3 = phi i32 [ 0, %if.end91 ], [ %.pre, %sw.bb96 ], [ %shl95, %sw.bb94 ], [ %shl, %sw.bb93 ], [ %nchar.0, %sw.bb92 ]
   %cpyfunc.0 = phi ptr [ null, %if.end91 ], [ @cpy_utf8, %sw.bb96 ], [ @cpy_univ, %sw.bb94 ], [ @cpy_bmp, %sw.bb93 ], [ @cpy_asc, %sw.bb92 ]
   %add = add nsw i32 %3, 1
   %conv99 = sext i32 %add to i64

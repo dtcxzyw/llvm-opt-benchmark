@@ -2310,7 +2310,7 @@ _ZL12can_use_baseP17gmx_ana_poscalc_t.exit.i:     ; preds = %12, %11, %7
 
 26:                                               ; preds = %_ZL12can_use_baseP17gmx_ana_poscalc_t.exit55.thread.i, %.lr.ph.i
   %.064.i = phi ptr [ %24, %.lr.ph.i ], [ %28, %_ZL12can_use_baseP17gmx_ana_poscalc_t.exit55.thread.i ]
-  %.04063.i = phi ptr [ %0, %.lr.ph.i ], [ %.3.i, %_ZL12can_use_baseP17gmx_ana_poscalc_t.exit55.thread.i ]
+  %.04063.i = phi ptr [ %0, %.lr.ph.i ], [ %.1.i, %_ZL12can_use_baseP17gmx_ana_poscalc_t.exit55.thread.i ]
   %27 = getelementptr inbounds i8, ptr %.064.i, i64 112
   %28 = load ptr, ptr %27, align 8
   %.not45.i = icmp eq ptr %.064.i, %0
@@ -2417,10 +2417,10 @@ _ZL12should_mergeP17gmx_ana_poscalc_tS0_P15gmx_ana_index_tS2_.exit.thread.i: ; p
   br label %79
 
 79:                                               ; preds = %77, %76
-  %.1.i = phi ptr [ %78, %77 ], [ %.064.i, %76 ]
-  call fastcc void @_ZL13merge_to_baseP17gmx_ana_poscalc_tS0_(ptr noundef %.1.i, ptr noundef nonnull %0)
-  store ptr %.1.i, ptr %25, align 8
-  %80 = getelementptr inbounds i8, ptr %.1.i, i64 128
+  %.2.i = phi ptr [ %78, %77 ], [ %.064.i, %76 ]
+  call fastcc void @_ZL13merge_to_baseP17gmx_ana_poscalc_tS0_(ptr noundef %.2.i, ptr noundef nonnull %0)
+  store ptr %.2.i, ptr %25, align 8
+  %80 = getelementptr inbounds i8, ptr %.2.i, i64 128
   %81 = load i32, ptr %80, align 8
   %82 = add nsw i32 %81, 1
   store i32 %82, ptr %80, align 8
@@ -2525,10 +2525,10 @@ _ZL11merge_basesP17gmx_ana_poscalc_tS0_.exit.i:   ; preds = %123, %_ZN3gmx29Posi
   br label %126
 
 126:                                              ; preds = %_ZL11merge_basesP17gmx_ana_poscalc_tS0_.exit.i, %84, %79
-  %.2.i = phi ptr [ %.1.i, %79 ], [ %.04063.i, %_ZL11merge_basesP17gmx_ana_poscalc_tS0_.exit.i ], [ %.04063.i, %84 ]
-  %127 = getelementptr inbounds i8, ptr %.2.i, i64 32
+  %.3.i = phi ptr [ %.2.i, %79 ], [ %.04063.i, %_ZL11merge_basesP17gmx_ana_poscalc_tS0_.exit.i ], [ %.04063.i, %84 ]
+  %127 = getelementptr inbounds i8, ptr %.3.i, i64 32
   %128 = load i32, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %.2.i, i64 40
+  %129 = getelementptr inbounds i8, ptr %.3.i, i64 40
   %130 = load ptr, ptr %129, align 8
   call void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr noundef nonnull %4, i32 noundef %128, ptr noundef %130, i32 noundef 0)
   %131 = load i32, ptr %16, align 8
@@ -2536,7 +2536,7 @@ _ZL11merge_basesP17gmx_ana_poscalc_tS0_.exit.i:   ; preds = %123, %_ZN3gmx29Posi
   br label %_ZL12can_use_baseP17gmx_ana_poscalc_t.exit55.thread.i
 
 _ZL12can_use_baseP17gmx_ana_poscalc_t.exit55.thread.i: ; preds = %126, %_ZL12should_mergeP17gmx_ana_poscalc_tS0_P15gmx_ana_index_tS2_.exit.thread.i, %38, %34, %32, %29, %26
-  %.3.i = phi ptr [ %.04063.i, %29 ], [ %.2.i, %126 ], [ %.04063.i, %26 ], [ %.04063.i, %_ZL12should_mergeP17gmx_ana_poscalc_tS0_P15gmx_ana_index_tS2_.exit.thread.i ], [ %.04063.i, %32 ], [ %.04063.i, %34 ], [ %.04063.i, %38 ]
+  %.1.i = phi ptr [ %.04063.i, %29 ], [ %.3.i, %126 ], [ %.04063.i, %26 ], [ %.04063.i, %_ZL12should_mergeP17gmx_ana_poscalc_tS0_P15gmx_ana_index_tS2_.exit.thread.i ], [ %.04063.i, %32 ], [ %.04063.i, %34 ], [ %.04063.i, %38 ]
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %._crit_edge.i, label %26, !llvm.loop !22
 
@@ -2943,7 +2943,7 @@ define internal fastcc void @_ZL13merge_to_baseP17gmx_ana_poscalc_tS0_(ptr nound
 
 74:                                               ; preds = %.lr.ph, %116
   %indvars.iv96 = phi i64 [ %73, %.lr.ph ], [ %indvars.iv.next97, %116 ]
-  %.07090 = phi i32 [ %68, %.lr.ph ], [ %.2, %116 ]
+  %.07090 = phi i32 [ %68, %.lr.ph ], [ %.1, %116 ]
   %.27389 = phi i32 [ %69, %.lr.ph ], [ %.3, %116 ]
   %.17588 = phi i32 [ %70, %.lr.ph ], [ %.276, %116 ]
   %indvars.iv.next97 = add nsw i64 %indvars.iv96, -1
@@ -3000,7 +3000,7 @@ define internal fastcc void @_ZL13merge_to_baseP17gmx_ana_poscalc_tS0_(ptr nound
   br label %113
 
 113:                                              ; preds = %100, %98
-  %.1 = phi i32 [ %.07090, %98 ], [ %spec.select, %100 ]
+  %.2 = phi i32 [ %.07090, %98 ], [ %spec.select, %100 ]
   %114 = load i32, ptr %79, align 4
   %.neg = sub i32 %114, %81
   %115 = add nsw i32 %.27389, -1
@@ -3009,7 +3009,7 @@ define internal fastcc void @_ZL13merge_to_baseP17gmx_ana_poscalc_tS0_(ptr nound
 116:                                              ; preds = %113, %90
   %.neg80.pn = phi i32 [ %.neg80, %90 ], [ %.neg, %113 ]
   %.3 = phi i32 [ %.27389, %90 ], [ %115, %113 ]
-  %.2 = phi i32 [ %97, %90 ], [ %.1, %113 ]
+  %.1 = phi i32 [ %97, %90 ], [ %.2, %113 ]
   %.276 = add i32 %.neg80.pn, %.17588
   %117 = add nsw i32 %.276, 1
   %118 = and i64 %indvars.iv.next97, 4294967295

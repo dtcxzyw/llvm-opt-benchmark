@@ -286,10 +286,10 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
   br i1 %exitcond321.not, label %.preheader191, label %.lr.ph225.split.us, !llvm.loop !9
 
 .preheader191:                                    ; preds = %.loopexit, %74
-  %.0137.lcssa = phi i32 [ 0, %74 ], [ %.1138.lcssa, %.loopexit ]
+  %.0137.lcssa = phi i32 [ 0, %74 ], [ %.2139.lcssa, %.loopexit ]
   %.0135.lcssa = phi i32 [ %75, %74 ], [ %80, %.loopexit ]
   %.0133.lcssa = phi i32 [ %72, %74 ], [ %83, %.loopexit ]
-  %.2126.lcssa = phi i32 [ 0, %74 ], [ %.3127.lcssa, %.loopexit ]
+  %.2126.lcssa = phi i32 [ 0, %74 ], [ %.4.lcssa, %.loopexit ]
   %76 = icmp slt i32 %1, 15
   br i1 %76, label %.lr.ph267, label %._crit_edge268
 
@@ -305,11 +305,11 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 .lr.ph225.split:                                  ; preds = %.lr.ph225, %.loopexit
   %indvars.iv312 = phi i64 [ %indvars.iv.next313, %.loopexit ], [ 1, %.lr.ph225 ]
-  %.2126221 = phi i32 [ %.3127.lcssa, %.loopexit ], [ 0, %.lr.ph225 ]
+  %.2126221 = phi i32 [ %.4.lcssa, %.loopexit ], [ 0, %.lr.ph225 ]
   %.0128219 = phi i32 [ %110, %.loopexit ], [ 2, %.lr.ph225 ]
   %.0133218 = phi i32 [ %83, %.loopexit ], [ 1, %.lr.ph225 ]
   %.0135217 = phi i32 [ %80, %.loopexit ], [ 1, %.lr.ph225 ]
-  %.0137216 = phi i32 [ %.1138.lcssa, %.loopexit ], [ 0, %.lr.ph225 ]
+  %.0137216 = phi i32 [ %.2139.lcssa, %.loopexit ], [ 0, %.lr.ph225 ]
   %79 = shl nuw i32 %.0133218, 1
   %80 = add nsw i32 %79, %.0135217
   %81 = getelementptr inbounds [16 x i32], ptr %6, i64 0, i64 %indvars.iv312
@@ -333,11 +333,11 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 91:                                               ; preds = %.lr.ph213, %GetNextKey.exit
   %indvars.iv309 = phi i64 [ %90, %.lr.ph213 ], [ %indvars.iv.next310, %GetNextKey.exit ]
-  %.1138211 = phi i32 [ %.0137216, %.lr.ph213 ], [ %106, %GetNextKey.exit ]
+  %.2139211 = phi i32 [ %.0137216, %.lr.ph213 ], [ %106, %GetNextKey.exit ]
   %92 = phi i32 [ %82, %.lr.ph213 ], [ %107, %GetNextKey.exit ]
   %93 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv309
   %94 = load i16, ptr %93, align 2
-  %95 = zext i32 %.1138211 to i64
+  %95 = zext i32 %.2139211 to i64
   %96 = getelementptr inbounds %struct.HuffmanCode, ptr %0, i64 %95
   %.sroa.24.0.insert.ext = zext i16 %94 to i32
   %.sroa.24.0.insert.shift = shl nuw i32 %.sroa.24.0.insert.ext, 16
@@ -355,7 +355,7 @@ define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, pt
 
 ReplicateValue.exit164:                           ; preds = %97, %ReplicateValue.exit164
   %.0.i165 = phi i32 [ %103, %ReplicateValue.exit164 ], [ %89, %97 ]
-  %102 = and i32 %.0.i165, %.1138211
+  %102 = and i32 %.0.i165, %.2139211
   %.not.i = icmp eq i32 %102, 0
   %103 = lshr i32 %.0.i165, 1
   br i1 %.not.i, label %GetNextKey.exit, label %ReplicateValue.exit164, !llvm.loop !10
@@ -363,7 +363,7 @@ ReplicateValue.exit164:                           ; preds = %97, %ReplicateValue
 GetNextKey.exit:                                  ; preds = %ReplicateValue.exit164
   %indvars.iv.next310 = add nsw i64 %indvars.iv309, 1
   %104 = add i32 %.0.i165, -1
-  %105 = and i32 %104, %.1138211
+  %105 = and i32 %104, %.2139211
   %106 = add i32 %105, %.0.i165
   %107 = add nsw i32 %92, -1
   %108 = icmp sgt i32 %92, 1
@@ -375,8 +375,8 @@ GetNextKey.exit:                                  ; preds = %ReplicateValue.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %..loopexit_crit_edge, %.preheader193
-  %.1138.lcssa = phi i32 [ %106, %..loopexit_crit_edge ], [ %.0137216, %.preheader193 ]
-  %.3127.lcssa = phi i32 [ %109, %..loopexit_crit_edge ], [ %.2126221, %.preheader193 ]
+  %.2139.lcssa = phi i32 [ %106, %..loopexit_crit_edge ], [ %.0137216, %.preheader193 ]
+  %.4.lcssa = phi i32 [ %109, %..loopexit_crit_edge ], [ %.2126221, %.preheader193 ]
   %indvars.iv.next313 = add nuw nsw i64 %indvars.iv312, 1
   %110 = shl i32 %.0128219, 1
   %exitcond316.not = icmp eq i64 %indvars.iv.next313, %wide.trip.count320
@@ -417,7 +417,7 @@ GetNextKey.exit:                                  ; preds = %ReplicateValue.exit
   br i1 %119, label %.lr.ph239.split.us, label %.lr.ph239.split
 
 .lr.ph239.split.us:                               ; preds = %.lr.ph239, %GetNextKey.exit170.us
-  %.1238.us = phi ptr [ %.3179.us, %GetNextKey.exit170.us ], [ %.0117264, %.lr.ph239 ]
+  %.1238.us = phi ptr [ %.2179.us, %GetNextKey.exit170.us ], [ %.0117264, %.lr.ph239 ]
   %.1119237.us = phi i32 [ %.2120178.us, %GetNextKey.exit170.us ], [ %.0118263, %.lr.ph239 ]
   %.6236.us = phi i32 [ %.7.us, %GetNextKey.exit170.us ], [ %.5261, %.lr.ph239 ]
   %.1131235.us = phi i32 [ %.2132177.us, %GetNextKey.exit170.us ], [ %.0130258, %.lr.ph239 ]
@@ -450,7 +450,7 @@ NextTableBitSize.exit.us:                         ; preds = %.lr.ph239.split.us
   br i1 %.not158, label %ReplicateValue.exit167.us, label %138
 
 138:                                              ; preds = %137, %.thread180.us
-  %.3189.us = phi ptr [ %128, %.thread180.us ], [ %.1238.us, %137 ]
+  %.2189.us = phi ptr [ %128, %.thread180.us ], [ %.1238.us, %137 ]
   %.2120188.us = phi i32 [ %126, %.thread180.us ], [ %.1119237.us, %137 ]
   %.2132187.us = phi i32 [ %122, %.thread180.us ], [ %.1131235.us, %137 ]
   %.2144186.us = phi i32 [ %125, %.thread180.us ], [ %.1143233.us, %137 ]
@@ -459,7 +459,7 @@ NextTableBitSize.exit.us:                         ; preds = %.lr.ph239.split.us
   %141 = load i16, ptr %140, align 2
   %142 = lshr i32 %.4141234.us, %1
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds %struct.HuffmanCode, ptr %.3189.us, i64 %143
+  %144 = getelementptr inbounds %struct.HuffmanCode, ptr %.2189.us, i64 %143
   %.sroa.21.0.insert.ext.us = zext i16 %141 to i32
   %.sroa.21.0.insert.shift.us = shl nuw i32 %.sroa.21.0.insert.ext.us, 16
   %.sroa.0.0.insert.insert.us = or disjoint i32 %.sroa.21.0.insert.shift.us, %.sroa.0.0.insert.ext
@@ -479,7 +479,7 @@ ReplicateValue.exit167.us.loopexit:               ; preds = %145
   br label %ReplicateValue.exit167.us
 
 ReplicateValue.exit167.us:                        ; preds = %ReplicateValue.exit167.us.loopexit, %137, %NextTableBitSize.exit.us
-  %.3179.us = phi ptr [ %.1238.us, %137 ], [ %.1238.us, %NextTableBitSize.exit.us ], [ %.3189.us, %ReplicateValue.exit167.us.loopexit ]
+  %.2179.us = phi ptr [ %.1238.us, %137 ], [ %.1238.us, %NextTableBitSize.exit.us ], [ %.2189.us, %ReplicateValue.exit167.us.loopexit ]
   %.2120178.us = phi i32 [ %.1119237.us, %137 ], [ %126, %NextTableBitSize.exit.us ], [ %.2120188.us, %ReplicateValue.exit167.us.loopexit ]
   %.2132177.us = phi i32 [ %.1131235.us, %137 ], [ %122, %NextTableBitSize.exit.us ], [ %.2132187.us, %ReplicateValue.exit167.us.loopexit ]
   %.2144176.us = phi i32 [ %.1143233.us, %137 ], [ %125, %NextTableBitSize.exit.us ], [ %.2144186.us, %ReplicateValue.exit167.us.loopexit ]
@@ -504,7 +504,7 @@ GetNextKey.exit170.us:                            ; preds = %151
   br i1 %159, label %.lr.ph239.split.us, label %._crit_edge240, !llvm.loop !12
 
 .lr.ph239.split:                                  ; preds = %.lr.ph239, %GetNextKey.exit170
-  %.1238 = phi ptr [ %.3179, %GetNextKey.exit170 ], [ %.0117264, %.lr.ph239 ]
+  %.1238 = phi ptr [ %.2179, %GetNextKey.exit170 ], [ %.0117264, %.lr.ph239 ]
   %.1119237 = phi i32 [ %.2120178, %GetNextKey.exit170 ], [ %.0118263, %.lr.ph239 ]
   %.6236 = phi i32 [ %.7, %GetNextKey.exit170 ], [ %.5261, %.lr.ph239 ]
   %.1131235 = phi i32 [ %.2132177, %GetNextKey.exit170 ], [ %.0130258, %.lr.ph239 ]
@@ -564,7 +564,7 @@ GetNextKey.exit170.us:                            ; preds = %151
   br i1 %.not158, label %ReplicateValue.exit167, label %183
 
 183:                                              ; preds = %.thread180, %182
-  %.3189 = phi ptr [ %162, %.thread180 ], [ %.1238, %182 ]
+  %.2189 = phi ptr [ %162, %.thread180 ], [ %.1238, %182 ]
   %.2120188 = phi i32 [ %172, %.thread180 ], [ %.1119237, %182 ]
   %.2132187 = phi i32 [ %171, %.thread180 ], [ %.1131235, %182 ]
   %.2144186 = phi i32 [ %160, %.thread180 ], [ %.1143233, %182 ]
@@ -573,7 +573,7 @@ GetNextKey.exit170.us:                            ; preds = %151
   %186 = load i16, ptr %185, align 2
   %187 = lshr i32 %.4141234, %1
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds %struct.HuffmanCode, ptr %.3189, i64 %188
+  %189 = getelementptr inbounds %struct.HuffmanCode, ptr %.2189, i64 %188
   %.sroa.21.0.insert.ext = zext i16 %186 to i32
   %.sroa.21.0.insert.shift = shl nuw i32 %.sroa.21.0.insert.ext, 16
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.21.0.insert.shift, %.sroa.0.0.insert.ext
@@ -593,7 +593,7 @@ ReplicateValue.exit167.loopexit:                  ; preds = %190
   br label %ReplicateValue.exit167
 
 ReplicateValue.exit167:                           ; preds = %ReplicateValue.exit167.loopexit, %._crit_edge.loopexit.i, %182
-  %.3179 = phi ptr [ %.1238, %182 ], [ %.1238, %._crit_edge.loopexit.i ], [ %.3189, %ReplicateValue.exit167.loopexit ]
+  %.2179 = phi ptr [ %.1238, %182 ], [ %.1238, %._crit_edge.loopexit.i ], [ %.2189, %ReplicateValue.exit167.loopexit ]
   %.2120178 = phi i32 [ %.1119237, %182 ], [ %172, %._crit_edge.loopexit.i ], [ %.2120188, %ReplicateValue.exit167.loopexit ]
   %.2132177 = phi i32 [ %.1131235, %182 ], [ %171, %._crit_edge.loopexit.i ], [ %.2132187, %ReplicateValue.exit167.loopexit ]
   %.2144176 = phi i32 [ %.1143233, %182 ], [ %160, %._crit_edge.loopexit.i ], [ %.2144186, %ReplicateValue.exit167.loopexit ]
@@ -623,7 +623,7 @@ GetNextKey.exit170:                               ; preds = %196
   %.1131.lcssa = phi i32 [ %.0130258, %.preheader ], [ %.2132177.us, %GetNextKey.exit170.us ], [ %.2132177, %GetNextKey.exit170 ]
   %.6.lcssa = phi i32 [ %.5261, %.preheader ], [ %.7.us, %GetNextKey.exit170.us ], [ %.7, %GetNextKey.exit170 ]
   %.1119.lcssa = phi i32 [ %.0118263, %.preheader ], [ %.2120178.us, %GetNextKey.exit170.us ], [ %.2120178, %GetNextKey.exit170 ]
-  %.1.lcssa = phi ptr [ %.0117264, %.preheader ], [ %.3179.us, %GetNextKey.exit170.us ], [ %.3179, %GetNextKey.exit170 ]
+  %.1.lcssa = phi ptr [ %.0117264, %.preheader ], [ %.2179.us, %GetNextKey.exit170.us ], [ %.2179, %GetNextKey.exit170 ]
   %205 = shl i32 %.1129259, 1
   %206 = and i64 %indvars.iv.next323, 4294967295
   %exitcond325.not = icmp eq i64 %206, 15

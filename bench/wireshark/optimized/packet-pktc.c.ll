@@ -684,21 +684,21 @@ proto_item_set_hidden.exit:                       ; preds = %13, %16, %19
 
 .lr.ph:                                           ; preds = %.preheader61, %.lr.ph
   %.164 = phi i8 [ %49, %.lr.ph ], [ 0, %.preheader61 ]
-  %.15963 = phi i32 [ %48, %.lr.ph ], [ %23, %.preheader61 ]
+  %.263 = phi i32 [ %48, %.lr.ph ], [ %23, %.preheader61 ]
   %37 = load i32, ptr @hf_pktc_ipsecAuthenticationAlgorithm, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %37, ptr noundef %2, i32 noundef %.15963, i32 noundef 1, i32 noundef 0) #4
-  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.15963) #4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %37, ptr noundef %2, i32 noundef %.263, i32 noundef 1, i32 noundef 0) #4
+  %39 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.263) #4
   %40 = zext i8 %39 to i32
   %41 = tail call ptr @val_to_str(i32 noundef %40, ptr noundef nonnull @ipsec_authentication_algorithm_vals, ptr noundef nonnull @.str.123) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.122, ptr noundef %41) #4
-  %42 = add i32 %.15963, 1
+  %42 = add i32 %.263, 1
   %43 = load i32, ptr @hf_pktc_ipsecEncryptionTransformID, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %43, ptr noundef %2, i32 noundef %42, i32 noundef 1, i32 noundef 0) #4
   %45 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %42) #4
   %46 = zext i8 %45 to i32
   %47 = tail call ptr @val_to_str(i32 noundef %46, ptr noundef nonnull @ipsec_transform_id_vals, ptr noundef nonnull @.str.123) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.124, ptr noundef %47) #4
-  %48 = add i32 %.15963, 2
+  %48 = add i32 %.263, 2
   %49 = add nuw i8 %.164, 1
   %exitcond.not = icmp eq i8 %49, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
@@ -708,10 +708,10 @@ proto_item_set_hidden.exit:                       ; preds = %13, %16, %19
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph67, %.preheader61, %.preheader, %50
-  %.2 = phi i32 [ %23, %50 ], [ %23, %.preheader ], [ %23, %.preheader61 ], [ %35, %.lr.ph67 ], [ %48, %.lr.ph ]
-  %52 = sub i32 %.2, %3
+  %.159 = phi i32 [ %23, %50 ], [ %23, %.preheader ], [ %23, %.preheader61 ], [ %35, %.lr.ph67 ], [ %48, %.lr.ph ]
+  %52 = sub i32 %.159, %3
   tail call void @proto_item_set_len(ptr noundef %7, i32 noundef %52) #4
-  ret i32 %.2
+  ret i32 %.159
 }
 
 declare i32 @dissect_snmp_engineid(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

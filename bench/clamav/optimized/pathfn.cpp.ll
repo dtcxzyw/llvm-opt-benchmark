@@ -1907,7 +1907,7 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef %0, ptr nounde
 
 17:                                               ; preds = %64, %4
   %.0120 = phi i32 [ 0, %4 ], [ %65, %64 ]
-  %.0114 = phi i32 [ 0, %4 ], [ %.4118, %64 ]
+  %.0114 = phi i32 [ 0, %4 ], [ %.1115, %64 ]
   %.0109 = phi i1 [ false, %4 ], [ %.1, %64 ]
   %18 = zext i32 %.0120 to i64
   %19 = getelementptr inbounds [128 x i32], ptr %5, i64 0, i64 %18
@@ -1932,15 +1932,15 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef %0, ptr nounde
   %27 = icmp eq i32 %25, 68
   %28 = icmp eq i32 %25, 89
   %or.cond = or i1 %27, %28
-  %.2116 = select i1 %or.cond, i32 0, i32 %spec.select138
-  %29 = icmp ne i32 %.2116, 0
+  %.3117 = select i1 %or.cond, i32 0, i32 %spec.select138
+  %29 = icmp ne i32 %.3117, 0
   %30 = icmp eq i32 %25, 77
   %or.cond3 = and i1 %30, %29
   br i1 %or.cond3, label %.thread, label %32
 
 .thread:                                          ; preds = %24
   store i32 73, ptr %19, align 4
-  %31 = add nsw i32 %.2116, -1
+  %31 = add nsw i32 %.3117, -1
   br label %64
 
 32:                                               ; preds = %24
@@ -1993,7 +1993,7 @@ define internal fastcc void @_ZL10GenArcNamePwmPKwjRb(ptr noundef %0, ptr nounde
 
 64:                                               ; preds = %.thread, %32, %23, %60, %21
   %.1121 = phi i32 [ %.0120, %21 ], [ %.0120, %23 ], [ %63, %60 ], [ %.0120, %32 ], [ %.0120, %.thread ]
-  %.4118 = phi i32 [ %.0114, %21 ], [ %.0114, %23 ], [ %.2116, %60 ], [ %.2116, %32 ], [ %31, %.thread ]
+  %.1115 = phi i32 [ %.0114, %21 ], [ %.0114, %23 ], [ %.3117, %60 ], [ %.3117, %32 ], [ %31, %.thread ]
   %.1 = phi i1 [ %22, %21 ], [ true, %23 ], [ false, %60 ], [ false, %32 ], [ false, %.thread ]
   %65 = add i32 %.1121, 1
   br label %17, !llvm.loop !26

@@ -2116,7 +2116,7 @@ _ZN4LuauL4nextERNS_5LexerE.exit64.i:              ; preds = %.noexc63.i, %.noexc
 
 46:                                               ; preds = %_ZN4LuauL4nextERNS_5LexerE.exit72.i, %_ZN4LuauL4nextERNS_5LexerE.exit64.i
   %47 = phi i32 [ %41, %_ZN4LuauL4nextERNS_5LexerE.exit64.i ], [ %.pre, %_ZN4LuauL4nextERNS_5LexerE.exit72.i ]
-  %.024.i = phi i1 [ false, %_ZN4LuauL4nextERNS_5LexerE.exit64.i ], [ %.327.i, %_ZN4LuauL4nextERNS_5LexerE.exit72.i ]
+  %.024.i = phi i1 [ false, %_ZN4LuauL4nextERNS_5LexerE.exit64.i ], [ %.125.i, %_ZN4LuauL4nextERNS_5LexerE.exit72.i ]
   br i1 %.024.i, label %48, label %88
 
 48:                                               ; preds = %46
@@ -2637,14 +2637,14 @@ _ZN4LuauL4nextERNS_5LexerE.exit102.i:             ; preds = %.critedge59.i, %.in
 
 _ZN4LuauL4nextERNS_5LexerE.exit72.sink.split.i:   ; preds = %.noexc101.i, %.noexc79.i, %.critedge58.i, %.noexc100.i, %.noexc78.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i
   %.sink187.i = phi ptr [ %10, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i ], [ %10, %.noexc78.i ], [ %12, %.critedge58.i ], [ %12, %.noexc100.i ], [ %10, %.noexc79.i ], [ %12, %.noexc101.i ]
-  %.327.ph.i = phi i1 [ true, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i ], [ true, %.noexc78.i ], [ false, %.critedge58.i ], [ %138, %.noexc100.i ], [ true, %.noexc79.i ], [ %138, %.noexc101.i ]
+  %.125.ph.i = phi i1 [ true, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i ], [ true, %.noexc78.i ], [ false, %.critedge58.i ], [ %138, %.noexc100.i ], [ true, %.noexc79.i ], [ %138, %.noexc101.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink187.i) #17
   %.pre.pre = load i32, ptr %25, align 8, !noalias !10
   br label %_ZN4LuauL4nextERNS_5LexerE.exit72.i
 
 _ZN4LuauL4nextERNS_5LexerE.exit72.i:              ; preds = %.noexc87.i, %.noexc71.i, %_ZN4LuauL4nextERNS_5LexerE.exit72.sink.split.i, %.noexc86.i, %101, %.noexc70.i, %_ZN4LuauL4nextERNS_5LexerE.exit68.i
   %.pre = phi i32 [ %60, %.noexc70.i ], [ %106, %.noexc86.i ], [ %57, %_ZN4LuauL4nextERNS_5LexerE.exit68.i ], [ %103, %101 ], [ %.pre.pre, %_ZN4LuauL4nextERNS_5LexerE.exit72.sink.split.i ], [ %62, %.noexc71.i ], [ %108, %.noexc87.i ]
-  %.327.i = phi i1 [ false, %.noexc70.i ], [ false, %.noexc86.i ], [ false, %_ZN4LuauL4nextERNS_5LexerE.exit68.i ], [ false, %101 ], [ %.327.ph.i, %_ZN4LuauL4nextERNS_5LexerE.exit72.sink.split.i ], [ false, %.noexc71.i ], [ false, %.noexc87.i ]
+  %.125.i = phi i1 [ false, %.noexc70.i ], [ false, %.noexc86.i ], [ false, %_ZN4LuauL4nextERNS_5LexerE.exit68.i ], [ false, %101 ], [ %.125.ph.i, %_ZN4LuauL4nextERNS_5LexerE.exit72.sink.split.i ], [ false, %.noexc71.i ], [ false, %.noexc87.i ]
   br label %46, !llvm.loop !14
 
 .critedge54.i:                                    ; preds = %75, %87

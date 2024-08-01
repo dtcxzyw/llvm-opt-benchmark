@@ -228,15 +228,15 @@ if.then17:                                        ; preds = %if.end13
   %cmp18 = icmp sgt i32 %rem, 0
   %sub = add nuw nsw i32 %rem, -60
   %add.neg = sext i1 %cmp18 to i32
-  %offset_minutes.0.neg = sub nsw i32 %add.neg, %div
-  %offset_seconds.0 = select i1 %cmp18, i32 %sub, i32 %rem
-  %sub21 = sub nsw i32 0, %offset_seconds.0
+  %offset_minutes.1.neg = sub nsw i32 %add.neg, %div
+  %offset_seconds.1 = select i1 %cmp18, i32 %sub, i32 %rem
+  %sub21 = sub nsw i32 0, %offset_seconds.1
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then17, %if.end13
-  %offset_minutes.1 = phi i32 [ %offset_minutes.0.neg, %if.then17 ], [ %div, %if.end13 ]
-  %offset_seconds.1 = phi i32 [ %sub21, %if.then17 ], [ %rem, %if.end13 ]
-  %div24.lhs.trunc = trunc i32 %offset_minutes.1 to i16
+  %offset_minutes.0 = phi i32 [ %offset_minutes.1.neg, %if.then17 ], [ %div, %if.end13 ]
+  %offset_seconds.0 = phi i32 [ %sub21, %if.then17 ], [ %rem, %if.end13 ]
+  %div24.lhs.trunc = trunc i32 %offset_minutes.0 to i16
   %div2460 = sdiv i16 %div24.lhs.trunc, 60
   %rem2561 = srem i16 %div24.lhs.trunc, 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %buf, ptr noundef nonnull align 1 dereferenceable(9) @_ZN4absl13time_internal4cctz12_GLOBAL__N_116kFixedZonePrefixE, i64 9, i1 false)
@@ -273,7 +273,7 @@ if.end23:                                         ; preds = %if.then17, %if.end1
   store i8 %9, ptr %incdec.ptr.i37, align 2
   %incdec.ptr30 = getelementptr inbounds i8, ptr %buf, i64 16
   store i8 58, ptr %incdec.ptr4.i41, align 1
-  %div.i42.lhs.trunc = trunc nsw i32 %offset_seconds.1 to i8
+  %div.i42.lhs.trunc = trunc nsw i32 %offset_seconds.0 to i8
   %div.i4266 = sdiv i8 %div.i42.lhs.trunc, 10
   %idxprom.i44 = sext i8 %div.i4266 to i64
   %arrayidx.i45 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i44

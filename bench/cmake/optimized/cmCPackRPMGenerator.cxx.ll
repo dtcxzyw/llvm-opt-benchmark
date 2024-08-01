@@ -2660,7 +2660,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit305: ;
   br i1 %.not422508, label %._crit_edge515.thread, label %.lr.ph514
 
 .lr.ph514:                                        ; preds = %427, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit316.thread
-  %.5512 = phi i32 [ %.6, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit316.thread ], [ 1, %427 ]
+  %.6512 = phi i32 [ %.7, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit316.thread ], [ 1, %427 ]
   %.sroa.0351.0510 = phi ptr [ %456, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit316.thread ], [ %430, %427 ]
   %.sroa.0355.0509 = phi ptr [ %.sroa.0355.1, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit316.thread ], [ %428, %427 ]
   %431 = getelementptr inbounds i8, ptr %.sroa.0351.0510, i64 32
@@ -2716,19 +2716,19 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
           to label %454 unwind label %451
 
 454:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit316.thread407
-  %455 = and i32 %453, %.5512
+  %455 = and i32 %453, %.6512
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit316.thread
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit316.thread: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit316, %445, %454
   %.sroa.0355.1 = phi ptr [ %.sroa.0355.0509, %454 ], [ %.sroa.0351.0510, %445 ], [ %.sroa.0351.0510, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit316 ]
-  %.6 = phi i32 [ %455, %454 ], [ %.5512, %445 ], [ %.5512, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit316 ]
+  %.7 = phi i32 [ %455, %454 ], [ %.6512, %445 ], [ %.6512, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit316 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #15
   %456 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0351.0510) #17
   %.not422 = icmp eq ptr %456, %428
   br i1 %.not422, label %._crit_edge515, label %.lr.ph514, !llvm.loop !24
 
 ._crit_edge515:                                   ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit316.thread
-  %457 = icmp eq i32 %.6, 0
+  %457 = icmp eq i32 %.7, 0
   br i1 %457, label %482, label %._crit_edge515.thread
 
 ._crit_edge515.thread:                            ; preds = %427, %._crit_edge515
@@ -2825,7 +2825,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit321: ;
   br label %482
 
 482:                                              ; preds = %.sink.split, %.invoke, %._crit_edge515, %._crit_edge505
-  %.7 = phi i32 [ 0, %._crit_edge515 ], [ 0, %._crit_edge505 ], [ %405, %.invoke ], [ 0, %.sink.split ]
+  %.5 = phi i32 [ 0, %._crit_edge515 ], [ 0, %._crit_edge505 ], [ %405, %.invoke ], [ 0, %.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #15
   br label %.loopexit
 
@@ -2888,7 +2888,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit328: ;
   br label %499
 
 499:                                              ; preds = %.lr.ph522, %513
-  %.8520 = phi i32 [ 1, %.lr.ph522 ], [ %514, %513 ]
+  %.9520 = phi i32 [ 1, %.lr.ph522 ], [ %514, %513 ]
   %.sroa.0345.0519 = phi ptr [ %496, %.lr.ph522 ], [ %515, %513 ]
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %53)
           to label %500 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -2924,7 +2924,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit330:             ; preds = %509
           to label %513 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 513:                                              ; preds = %_ZN10cmCPackLog3LogEiPKciS1_.exit330
-  %514 = and i32 %512, %.8520
+  %514 = and i32 %512, %.9520
   %515 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0345.0519) #17
   %.not415 = icmp eq ptr %515, %497
   br i1 %.not415, label %._crit_edge523, label %499, !llvm.loop !25
@@ -2962,7 +2962,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit330:             ; preds = %509
   br label %.loopexit.split-lp
 
 ._crit_edge523:                                   ; preds = %513, %494
-  %.8.lcssa = phi i32 [ 1, %494 ], [ %514, %513 ]
+  %.9.lcssa = phi i32 [ 1, %494 ], [ %514, %513 ]
   %525 = getelementptr inbounds i8, ptr %0, i64 256
   %526 = load ptr, ptr %525, align 8
   %527 = getelementptr inbounds i8, ptr %0, i64 240
@@ -2974,7 +2974,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit330:             ; preds = %509
   br label %529
 
 529:                                              ; preds = %.lr.ph529, %557
-  %.9527 = phi i32 [ %.8.lcssa, %.lr.ph529 ], [ %.10, %557 ]
+  %.10527 = phi i32 [ %.9.lcssa, %.lr.ph529 ], [ %.11, %557 ]
   %.sroa.0339.0526 = phi ptr [ %526, %.lr.ph529 ], [ %558, %557 ]
   %530 = getelementptr inbounds i8, ptr %.sroa.0339.0526, i64 32
   %531 = getelementptr inbounds i8, ptr %.sroa.0339.0526, i64 128
@@ -3021,7 +3021,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit332:             ; preds = %546
           to label %550 unwind label %.loopexit.split-lp.loopexit
 
 550:                                              ; preds = %_ZN10cmCPackLog3LogEiPKciS1_.exit332
-  %551 = and i32 %549, %.9527
+  %551 = and i32 %549, %.10527
   br label %557
 
 552:                                              ; preds = %544, %542, %540, %537, %535
@@ -3041,7 +3041,7 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit332:             ; preds = %546
   br label %.loopexit.split-lp
 
 557:                                              ; preds = %529, %550
-  %.10 = phi i32 [ %551, %550 ], [ %.9527, %529 ]
+  %.11 = phi i32 [ %551, %550 ], [ %.10527, %529 ]
   %558 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0339.0526) #17
   %.not416 = icmp eq ptr %558, %527
   br i1 %.not416, label %.loopexit, label %529, !llvm.loop !26
@@ -3054,14 +3054,14 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit332:             ; preds = %546
   br i1 %.not417531, label %.loopexit.thread, label %.lr.ph535
 
 .lr.ph535:                                        ; preds = %559, %565
-  %.11533 = phi i32 [ %566, %565 ], [ 1, %559 ]
+  %.12533 = phi i32 [ %566, %565 ], [ 1, %559 ]
   %.sroa.0335.0532 = phi ptr [ %567, %565 ], [ %561, %559 ]
   %563 = getelementptr inbounds i8, ptr %.sroa.0335.0532, i64 32
   %564 = invoke noundef i32 @_ZN19cmCPackRPMGenerator14PackageOnePackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %563)
           to label %565 unwind label %.loopexit424
 
 565:                                              ; preds = %.lr.ph535
-  %566 = and i32 %564, %.11533
+  %566 = and i32 %564, %.12533
   %567 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0335.0532) #17
   %.not417 = icmp eq ptr %567, %562
   br i1 %.not417, label %.loopexit, label %.lr.ph535, !llvm.loop !27
@@ -3116,8 +3116,8 @@ _ZN10cmCPackLog3LogEiPKciS1_.exit332:             ; preds = %546
   br label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %557, %565, %._crit_edge523, %482
-  %.12 = phi i32 [ %.7, %482 ], [ %.8.lcssa, %._crit_edge523 ], [ %566, %565 ], [ %.10, %557 ]
-  %.not201 = icmp eq i32 %.12, 0
+  %.8 = phi i32 [ %.5, %482 ], [ %.9.lcssa, %._crit_edge523 ], [ %566, %565 ], [ %.11, %557 ]
+  %.not201 = icmp eq i32 %.8, 0
   br i1 %.not201, label %586, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %559, %.loopexit

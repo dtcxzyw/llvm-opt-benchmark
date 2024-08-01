@@ -37,11 +37,11 @@ define void @ADIOI_GEN_WriteContig(ptr nocapture noundef %0, ptr nocapture nound
 
 23:                                               ; preds = %.lr.ph, %35
   %.046 = phi ptr [ %1, %.lr.ph ], [ %37, %35 ]
-  %.03645 = phi i64 [ 0, %.lr.ph ], [ %36, %35 ]
-  %24 = sub nsw i64 %15, %.03645
+  %.145 = phi i64 [ 0, %.lr.ph ], [ %36, %35 ]
+  %24 = sub nsw i64 %15, %.145
   %spec.store.select = call i64 @llvm.umin.i64(i64 %24, i64 2147483647)
   %25 = load i32, ptr %22, align 4
-  %26 = add nsw i64 %.03645, %.035
+  %26 = add nsw i64 %.145, %.035
   %27 = call i64 @pwrite(i32 noundef %25, ptr noundef %.046, i64 noundef %spec.store.select, i64 noundef %26) #6
   %28 = icmp eq i64 %27, -1
   br i1 %28, label %29, label %35
@@ -57,15 +57,15 @@ define void @ADIOI_GEN_WriteContig(ptr nocapture noundef %0, ptr nocapture nound
   br label %51
 
 35:                                               ; preds = %23
-  %36 = add nsw i64 %27, %.03645
+  %36 = add nsw i64 %27, %.145
   %37 = getelementptr inbounds i8, ptr %.046, i64 %27
   %38 = icmp slt i64 %36, %15
   br i1 %38, label %23, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %35, %20
-  %.037.lcssa = phi i64 [ -1, %20 ], [ %27, %35 ]
-  %.036.lcssa = phi i64 [ 0, %20 ], [ %36, %35 ]
-  %39 = add nsw i64 %.036.lcssa, %.035
+  %.138.lcssa = phi i64 [ -1, %20 ], [ %27, %35 ]
+  %.1.lcssa = phi i64 [ 0, %20 ], [ %36, %35 ]
+  %39 = add nsw i64 %.1.lcssa, %.035
   %40 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %39, ptr %40, align 8
   br i1 %16, label %41, label %45
@@ -73,20 +73,20 @@ define void @ADIOI_GEN_WriteContig(ptr nocapture noundef %0, ptr nocapture nound
 41:                                               ; preds = %._crit_edge
   %42 = getelementptr inbounds i8, ptr %0, i64 40
   %43 = load i64, ptr %42, align 8
-  %44 = add nsw i64 %43, %.036.lcssa
+  %44 = add nsw i64 %43, %.1.lcssa
   store i64 %44, ptr %42, align 8
   br label %45
 
 45:                                               ; preds = %8, %._crit_edge, %41
-  %.138 = phi i64 [ %.037.lcssa, %41 ], [ %.037.lcssa, %._crit_edge ], [ 0, %8 ]
-  %.1 = phi i64 [ %.036.lcssa, %41 ], [ %.036.lcssa, %._crit_edge ], [ 0, %8 ]
-  %46 = icmp ne i64 %.138, -1
+  %.037 = phi i64 [ %.138.lcssa, %41 ], [ %.138.lcssa, %._crit_edge ], [ 0, %8 ]
+  %.036 = phi i64 [ %.1.lcssa, %41 ], [ %.1.lcssa, %._crit_edge ], [ 0, %8 ]
+  %46 = icmp ne i64 %.037, -1
   %47 = icmp ne ptr %6, null
   %or.cond = and i1 %47, %46
   br i1 %or.cond, label %48, label %50
 
 48:                                               ; preds = %45
-  %49 = call i32 @mca_io_romio_dist_MPIR_Status_set_bytes(ptr noundef nonnull %6, ptr noundef %3, i64 noundef %.1) #6
+  %49 = call i32 @mca_io_romio_dist_MPIR_Status_set_bytes(ptr noundef nonnull %6, ptr noundef %3, i64 noundef %.036) #6
   br label %50
 
 50:                                               ; preds = %48, %45

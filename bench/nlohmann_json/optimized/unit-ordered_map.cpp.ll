@@ -1989,12 +1989,12 @@ lpad288:                                          ; preds = %invoke.cont287
 
 ehcleanup292:                                     ; preds = %lpad288, %lpad286
   %.pn26 = phi { ptr, i32 } [ %75, %lpad288 ], [ %74, %lpad286 ]
-  %exn.slot.16 = extractvalue { ptr, i32 } %.pn26, 0
-  %ehselector.slot.16 = extractvalue { ptr, i32 } %.pn26, 1
+  %exn.slot.22 = extractvalue { ptr, i32 } %.pn26, 0
+  %ehselector.slot.22 = extractvalue { ptr, i32 } %.pn26, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp285) #16
   %76 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #16
-  %matches = icmp eq i32 %ehselector.slot.16, %76
-  %77 = call ptr @__cxa_begin_catch(ptr %exn.slot.16) #16
+  %matches = icmp eq i32 %ehselector.slot.22, %76
+  %77 = call ptr @__cxa_begin_catch(ptr %exn.slot.22) #16
   br i1 %matches, label %catch299, label %catch
 
 catch299:                                         ; preds = %ehcleanup292
@@ -2114,12 +2114,12 @@ lpad329:                                          ; preds = %invoke.cont328
 
 ehcleanup333:                                     ; preds = %lpad329, %lpad327
   %.pn30 = phi { ptr, i32 } [ %84, %lpad329 ], [ %83, %lpad327 ]
-  %exn.slot.18 = extractvalue { ptr, i32 } %.pn30, 0
-  %ehselector.slot.18 = extractvalue { ptr, i32 } %.pn30, 1
+  %exn.slot.24 = extractvalue { ptr, i32 } %.pn30, 0
+  %ehselector.slot.24 = extractvalue { ptr, i32 } %.pn30, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp326) #16
   %85 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #16
-  %matches336 = icmp eq i32 %ehselector.slot.18, %85
-  %86 = call ptr @__cxa_begin_catch(ptr %exn.slot.18) #16
+  %matches336 = icmp eq i32 %ehselector.slot.24, %85
+  %86 = call ptr @__cxa_begin_catch(ptr %exn.slot.24) #16
   br i1 %matches336, label %catch345, label %catch337
 
 catch345:                                         ; preds = %ehcleanup333
@@ -2833,12 +2833,12 @@ lpad599:                                          ; preds = %invoke.cont598
 
 ehcleanup603:                                     ; preds = %lpad599, %lpad597
   %.pn58 = phi { ptr, i32 } [ %144, %lpad599 ], [ %143, %lpad597 ]
-  %exn.slot.38 = extractvalue { ptr, i32 } %.pn58, 0
-  %ehselector.slot.38 = extractvalue { ptr, i32 } %.pn58, 1
+  %exn.slot.44 = extractvalue { ptr, i32 } %.pn58, 0
+  %ehselector.slot.44 = extractvalue { ptr, i32 } %.pn58, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp596) #16
   %145 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #16
-  %matches606 = icmp eq i32 %ehselector.slot.38, %145
-  %146 = call ptr @__cxa_begin_catch(ptr %exn.slot.38) #16
+  %matches606 = icmp eq i32 %ehselector.slot.44, %145
+  %146 = call ptr @__cxa_begin_catch(ptr %exn.slot.44) #16
   br i1 %matches606, label %catch615, label %catch607
 
 catch615:                                         ; preds = %ehcleanup603
@@ -2958,12 +2958,12 @@ lpad650:                                          ; preds = %invoke.cont649
 
 ehcleanup654:                                     ; preds = %lpad650, %lpad648
   %.pn62 = phi { ptr, i32 } [ %153, %lpad650 ], [ %152, %lpad648 ]
-  %exn.slot.40 = extractvalue { ptr, i32 } %.pn62, 0
-  %ehselector.slot.40 = extractvalue { ptr, i32 } %.pn62, 1
+  %exn.slot.46 = extractvalue { ptr, i32 } %.pn62, 0
+  %ehselector.slot.46 = extractvalue { ptr, i32 } %.pn62, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp647) #16
   %154 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt12out_of_range) #16
-  %matches657 = icmp eq i32 %ehselector.slot.40, %154
-  %155 = call ptr @__cxa_begin_catch(ptr %exn.slot.40) #16
+  %matches657 = icmp eq i32 %ehselector.slot.46, %154
+  %155 = call ptr @__cxa_begin_catch(ptr %exn.slot.46) #16
   br i1 %matches657, label %catch666, label %catch658
 
 catch666:                                         ; preds = %ehcleanup654

@@ -7769,16 +7769,16 @@ define void @_ZN7meshlab30loadMeshWithStandardParametersB5cxx11ERK7QStringR12Mes
 .thread:                                          ; preds = %23
   %38 = landingpad { ptr, i32 }
           cleanup
-  %.395 = extractvalue { ptr, i32 } %38, 0
-  %.33696 = extractvalue { ptr, i32 } %38, 1
+  %.295 = extractvalue { ptr, i32 } %38, 0
+  %.23596 = extractvalue { ptr, i32 } %38, 1
   br label %48
 
 .thread99:                                        ; preds = %25
   %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #25
-  %.3102 = extractvalue { ptr, i32 } %39, 0
-  %.336103 = extractvalue { ptr, i32 } %39, 1
+  %.2102 = extractvalue { ptr, i32 } %39, 0
+  %.235103 = extractvalue { ptr, i32 } %39, 1
   br label %48
 
 40:                                               ; preds = %26
@@ -7799,23 +7799,23 @@ define void @_ZN7meshlab30loadMeshWithStandardParametersB5cxx11ERK7QStringR12Mes
   br label %46
 
 46:                                               ; preds = %44, %42
-  %.144 = phi i1 [ %.043, %44 ], [ true, %42 ]
+  %.447 = phi i1 [ %.043, %44 ], [ true, %42 ]
   %.pn53 = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
   br label %47
 
 47:                                               ; preds = %40, %46
-  %.245 = phi i1 [ %.144, %46 ], [ true, %40 ]
+  %.346 = phi i1 [ %.447, %46 ], [ true, %40 ]
   %.pn53.pn = phi { ptr, i32 } [ %.pn53, %46 ], [ %41, %40 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #25
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #25
-  %.3 = extractvalue { ptr, i32 } %.pn53.pn, 0
-  %.336 = extractvalue { ptr, i32 } %.pn53.pn, 1
-  br i1 %.245, label %48, label %177
+  %.2 = extractvalue { ptr, i32 } %.pn53.pn, 0
+  %.235 = extractvalue { ptr, i32 } %.pn53.pn, 1
+  br i1 %.346, label %48, label %177
 
 48:                                               ; preds = %.thread99, %.thread, %47
-  %.33698 = phi i32 [ %.33696, %.thread ], [ %.336, %47 ], [ %.336103, %.thread99 ]
-  %.397 = phi ptr [ %.395, %.thread ], [ %.3, %47 ], [ %.3102, %.thread99 ]
+  %.23598 = phi i32 [ %.23596, %.thread ], [ %.235, %47 ], [ %.235103, %.thread99 ]
+  %.297 = phi ptr [ %.295, %.thread ], [ %.2, %47 ], [ %.2102, %.thread99 ]
   call void @__cxa_free_exception(ptr %24) #25
   br label %177
 
@@ -8011,8 +8011,8 @@ _ZN7QStringD2Ev.exit63:                           ; preds = %_ZN7QStringD2Ev.exi
 
 114:                                              ; preds = %112, %110
   %.pn = phi { ptr, i32 } [ %113, %112 ], [ %111, %110 ]
-  %.4 = extractvalue { ptr, i32 } %.pn, 0
-  %.437 = extractvalue { ptr, i32 } %.pn, 1
+  %.7 = extractvalue { ptr, i32 } %.pn, 0
+  %.740 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #25
   br label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit78
 
@@ -8180,8 +8180,8 @@ _ZN11MLExceptionC2ERKS_.exit:                     ; preds = %_ZN7QStringC2ERKS_.
           to label %184 unwind label %.loopexit.split-lp
 
 172:                                              ; preds = %153, %138
-  %.538 = phi i32 [ %155, %153 ], [ %141, %138 ]
-  %.5 = phi ptr [ %154, %153 ], [ %140, %138 ]
+  %.942 = phi i32 [ %155, %153 ], [ %141, %138 ]
+  %.9 = phi ptr [ %154, %153 ], [ %140, %138 ]
   %173 = load ptr, ptr %15, align 8
   %.not8.i.i.i74 = icmp eq ptr %173, %15
   br i1 %.not8.i.i.i74, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit78, label %.lr.ph.i.i.i75
@@ -8194,8 +8194,8 @@ _ZN11MLExceptionC2ERKS_.exit:                     ; preds = %_ZN7QStringC2ERKS_.
   br i1 %.not.i.i.i77, label %_ZNSt7__cxx114listIiSaIiEED2Ev.exit78, label %.lr.ph.i.i.i75, !llvm.loop !133
 
 _ZNSt7__cxx114listIiSaIiEED2Ev.exit78:            ; preds = %.lr.ph.i.i.i75, %172, %115, %114
-  %.639 = phi i32 [ %118, %115 ], [ %.437, %114 ], [ %.538, %172 ], [ %.538, %.lr.ph.i.i.i75 ]
-  %.6 = phi ptr [ %117, %115 ], [ %.4, %114 ], [ %.5, %172 ], [ %.5, %.lr.ph.i.i.i75 ]
+  %.841 = phi i32 [ %118, %115 ], [ %.740, %114 ], [ %.942, %172 ], [ %.942, %.lr.ph.i.i.i75 ]
+  %.8 = phi ptr [ %117, %115 ], [ %.7, %114 ], [ %.9, %172 ], [ %.9, %.lr.ph.i.i.i75 ]
   %175 = load ptr, ptr %0, align 8
   %.not8.i.i.i79 = icmp eq ptr %175, %0
   br i1 %.not8.i.i.i79, label %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i80
@@ -8208,23 +8208,23 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit78:            ; preds = %.lr.ph.i.i.i75, %17
   br i1 %.not.i.i.i82, label %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i80, !llvm.loop !134
 
 _ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit:  ; preds = %.lr.ph.i.i.i80, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit78, %76
-  %.740 = phi i32 [ %78, %76 ], [ %.639, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit78 ], [ %.639, %.lr.ph.i.i.i80 ]
-  %.7 = phi ptr [ %77, %76 ], [ %.6, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit78 ], [ %.6, %.lr.ph.i.i.i80 ]
+  %.639 = phi i32 [ %78, %76 ], [ %.841, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit78 ], [ %.841, %.lr.ph.i.i.i80 ]
+  %.6 = phi ptr [ %77, %76 ], [ %.8, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit78 ], [ %.8, %.lr.ph.i.i.i80 ]
   call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #25
   br label %177
 
 177:                                              ; preds = %47, %48, %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit, %34
-  %.841 = phi i32 [ %.33698, %48 ], [ %.336, %47 ], [ %.740, %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit ], [ %37, %34 ]
-  %.8 = phi ptr [ %.397, %48 ], [ %.3, %47 ], [ %.7, %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit ], [ %36, %34 ]
+  %.134 = phi i32 [ %.23598, %48 ], [ %.235, %47 ], [ %.639, %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit ], [ %37, %34 ]
+  %.1 = phi ptr [ %.297, %48 ], [ %.2, %47 ], [ %.6, %_ZNSt7__cxx114listIP9MeshModelSaIS2_EED2Ev.exit ], [ %36, %34 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #25
   br label %178
 
 178:                                              ; preds = %177, %30
-  %.942 = phi i32 [ %.841, %177 ], [ %33, %30 ]
-  %.9 = phi ptr [ %.8, %177 ], [ %32, %30 ]
+  %.033 = phi i32 [ %.134, %177 ], [ %33, %30 ]
+  %.0 = phi ptr [ %.1, %177 ], [ %32, %30 ]
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #25
-  %179 = insertvalue { ptr, i32 } poison, ptr %.9, 0
-  %180 = insertvalue { ptr, i32 } %179, i32 %.942, 1
+  %179 = insertvalue { ptr, i32 } poison, ptr %.0, 0
+  %180 = insertvalue { ptr, i32 } %179, i32 %.033, 1
   resume { ptr, i32 } %180
 
 181:                                              ; preds = %153
@@ -8714,17 +8714,17 @@ define void @_ZN7meshlab10reloadMeshERK7QStringRKNSt7__cxx114listIP9MeshModelSaI
   br label %41
 
 41:                                               ; preds = %39, %37
-  %.136 = phi i1 [ %.035, %39 ], [ true, %37 ]
+  %.439 = phi i1 [ %.035, %39 ], [ true, %37 ]
   %.pn44 = phi { ptr, i32 } [ %40, %39 ], [ %38, %37 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #25
   br label %42
 
 42:                                               ; preds = %35, %41
-  %.237 = phi i1 [ %.136, %41 ], [ true, %35 ]
+  %.338 = phi i1 [ %.439, %41 ], [ true, %35 ]
   %.pn44.pn = phi { ptr, i32 } [ %.pn44, %41 ], [ %36, %35 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #25
-  br i1 %.237, label %43, label %98
+  br i1 %.338, label %43, label %98
 
 43:                                               ; preds = %.thread66, %.thread, %42
   %.pn44.pn.pn.pn65 = phi { ptr, i32 } [ %33, %.thread ], [ %.pn44.pn, %42 ], [ %34, %.thread66 ]
@@ -9062,16 +9062,16 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNO7QString7toLowe
 
 48:                                               ; preds = %46, %44
   %.pn35 = phi { ptr, i32 } [ %47, %46 ], [ %45, %44 ]
-  %.1 = phi i1 [ %.0, %46 ], [ true, %44 ]
+  %.4 = phi i1 [ %.0, %46 ], [ true, %44 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
   br label %49
 
 49:                                               ; preds = %42, %48
   %.pn35.pn = phi { ptr, i32 } [ %.pn35, %48 ], [ %43, %42 ]
-  %.2 = phi i1 [ %.1, %48 ], [ true, %42 ]
+  %.3 = phi i1 [ %.4, %48 ], [ true, %42 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #25
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #25
-  br i1 %.2, label %50, label %101
+  br i1 %.3, label %50, label %101
 
 50:                                               ; preds = %.thread63, %.thread, %49
   %.pn35.pn.pn.pn62 = phi { ptr, i32 } [ %40, %.thread ], [ %.pn35.pn, %49 ], [ %41, %.thread63 ]
@@ -10779,16 +10779,16 @@ _ZN7QStringD2Ev.exit:                             ; preds = %21, %_ZN9QtPrivate8
 
 62:                                               ; preds = %60, %58
   %.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
-  %.1 = phi i1 [ %.0, %60 ], [ true, %58 ]
+  %.4 = phi i1 [ %.0, %60 ], [ true, %58 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
   br label %63
 
 63:                                               ; preds = %56, %62
   %.pn.pn = phi { ptr, i32 } [ %.pn, %62 ], [ %57, %56 ]
-  %.2 = phi i1 [ %.1, %62 ], [ true, %56 ]
+  %.3 = phi i1 [ %.4, %62 ], [ true, %56 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #25
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #25
-  br i1 %.2, label %64, label %65
+  br i1 %.3, label %64, label %65
 
 64:                                               ; preds = %.thread43, %.thread, %63
   %.pn.pn.pn.pn42 = phi { ptr, i32 } [ %54, %.thread ], [ %.pn.pn, %63 ], [ %55, %.thread43 ]
@@ -11215,16 +11215,16 @@ _ZN7QStringD2Ev.exit65:                           ; preds = %_ZN9QtPrivate8RefCo
 
 105:                                              ; preds = %103, %101
   %.pn35 = phi { ptr, i32 } [ %104, %103 ], [ %102, %101 ]
-  %.1 = phi i1 [ %.0, %103 ], [ true, %101 ]
+  %.4 = phi i1 [ %.0, %103 ], [ true, %101 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #25
   br label %106
 
 106:                                              ; preds = %99, %105
   %.pn35.pn = phi { ptr, i32 } [ %.pn35, %105 ], [ %100, %99 ]
-  %.2 = phi i1 [ %.1, %105 ], [ true, %99 ]
+  %.3 = phi i1 [ %.4, %105 ], [ true, %99 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #25
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #25
-  br i1 %.2, label %107, label %122
+  br i1 %.3, label %107, label %122
 
 107:                                              ; preds = %.thread75, %.thread, %106
   %.pn35.pn.pn.pn74 = phi { ptr, i32 } [ %97, %.thread ], [ %.pn35.pn, %106 ], [ %98, %.thread75 ]
@@ -11998,16 +11998,16 @@ define void @_ZN7meshlab11loadProjectERK11QStringListR12MeshDocumentP11GLLogStre
 
 56:                                               ; preds = %54, %52
   %.pn46 = phi { ptr, i32 } [ %55, %54 ], [ %53, %52 ]
-  %.117 = phi i1 [ %.016, %54 ], [ true, %52 ]
+  %.420 = phi i1 [ %.016, %54 ], [ true, %52 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
   br label %57
 
 57:                                               ; preds = %50, %56
   %.pn46.pn = phi { ptr, i32 } [ %.pn46, %56 ], [ %51, %50 ]
-  %.218 = phi i1 [ %.117, %56 ], [ true, %50 ]
+  %.319 = phi i1 [ %.420, %56 ], [ true, %50 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #25
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #25
-  br i1 %.218, label %58, label %143
+  br i1 %.319, label %58, label %143
 
 58:                                               ; preds = %.thread57, %.thread, %57
   %.pn46.pn.pn.pn56 = phi { ptr, i32 } [ %48, %.thread ], [ %.pn46.pn, %57 ], [ %49, %.thread57 ]
@@ -12113,19 +12113,19 @@ define void @_ZN7meshlab11loadProjectERK11QStringListR12MeshDocumentP11GLLogStre
 
 106:                                              ; preds = %104, %102
   %.pn = phi { ptr, i32 } [ %105, %104 ], [ %103, %102 ]
-  %.1 = phi i1 [ %.0, %104 ], [ true, %102 ]
+  %.5 = phi i1 [ %.0, %104 ], [ true, %102 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #25
   br label %107
 
 107:                                              ; preds = %106, %100
   %.pn.pn = phi { ptr, i32 } [ %.pn, %106 ], [ %101, %100 ]
-  %.2 = phi i1 [ %.1, %106 ], [ true, %100 ]
+  %.4 = phi i1 [ %.5, %106 ], [ true, %100 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #25
   br label %108
 
 108:                                              ; preds = %98, %107
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %107 ], [ %99, %98 ]
-  %.3 = phi i1 [ %.2, %107 ], [ true, %98 ]
+  %.3 = phi i1 [ %.4, %107 ], [ true, %98 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #25
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #25
   br i1 %.3, label %109, label %142
@@ -12994,16 +12994,16 @@ define void @_ZN7meshlab11saveProjectERK7QStringRK12MeshDocumentbSt6vectorI15MLR
 
 39:                                               ; preds = %37, %35
   %.pn27 = phi { ptr, i32 } [ %38, %37 ], [ %36, %35 ]
-  %.1 = phi i1 [ %.0, %37 ], [ true, %35 ]
+  %.4 = phi i1 [ %.0, %37 ], [ true, %35 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #25
   br label %40
 
 40:                                               ; preds = %33, %39
   %.pn27.pn = phi { ptr, i32 } [ %.pn27, %39 ], [ %34, %33 ]
-  %.2 = phi i1 [ %.1, %39 ], [ true, %33 ]
+  %.3 = phi i1 [ %.4, %39 ], [ true, %33 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #25
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #25
-  br i1 %.2, label %41, label %98
+  br i1 %.3, label %41, label %98
 
 41:                                               ; preds = %.thread37, %.thread, %40
   %.pn27.pn.pn.pn36 = phi { ptr, i32 } [ %31, %.thread ], [ %.pn27.pn, %40 ], [ %32, %.thread37 ]
@@ -13464,36 +13464,36 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vc
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, %60, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %40, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.418.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.2.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.12.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.8.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
   call void @_ZdlPv(ptr noundef nonnull %31) #24
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i, %58, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %59, %58 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %32, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.620.i = phi ptr [ %22, %58 ], [ %.418.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.4.i = phi i1 [ false, %58 ], [ %.2.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.1024.i = phi ptr [ %22, %58 ], [ %.12.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.6.i = phi i1 [ false, %58 ], [ %.8.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
   call void @_ZdlPv(ptr noundef nonnull %23) #24
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i, %56, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %57, %56 ], [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %24, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.822.i = phi ptr [ %14, %56 ], [ %.620.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.6.i = phi i1 [ false, %56 ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.822.i = phi ptr [ %14, %56 ], [ %.1024.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.4.i = phi i1 [ false, %56 ], [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
   call void @_ZdlPv(ptr noundef nonnull %15) #24
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.1024.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.8.i = phi i1 [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #24
-  %75 = icmp eq ptr %1, %.1024.i
-  %or.cond.i = select i1 %.8.i, i1 true, i1 %75
+  %75 = icmp eq ptr %1, %.620.i
+  %or.cond.i = select i1 %.2.i, i1 true, i1 %75
   br i1 %or.cond.i, label %.body.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i
-  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.1024.i, %.body.i ]
+  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.620.i, %.body.i ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -32
   %78 = getelementptr inbounds i8, ptr %76, i64 -24
   %79 = load ptr, ptr %78, align 8

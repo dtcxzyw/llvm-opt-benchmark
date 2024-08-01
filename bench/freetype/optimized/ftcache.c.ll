@@ -528,7 +528,7 @@ define internal fastcc i32 @FTC_MruList_New(ptr nocapture noundef %0, ptr nounde
   br label %27
 
 27:                                               ; preds = %17, %20, %22
-  %.027 = phi ptr [ %26, %22 ], [ null, %20 ], [ null, %17 ]
+  %.128 = phi ptr [ %26, %22 ], [ null, %20 ], [ null, %17 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
@@ -551,21 +551,21 @@ FTC_MruNode_Prepend.exit:                         ; preds = %27, %30
   %34 = load i32, ptr %0, align 8
   %35 = add i32 %34, 1
   store i32 %35, ptr %0, align 8
-  %.not34 = icmp eq ptr %.027, null
+  %.not34 = icmp eq ptr %.128, null
   br i1 %.not34, label %52, label %36
 
 36:                                               ; preds = %FTC_MruNode_Prepend.exit
-  %37 = getelementptr inbounds i8, ptr %.027, i64 8
+  %37 = getelementptr inbounds i8, ptr %.128, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %.027, align 8
+  %39 = load ptr, ptr %.128, align 8
   store ptr %39, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 8
   store ptr %38, ptr %40, align 8
-  %41 = icmp eq ptr %39, %.027
+  %41 = icmp eq ptr %39, %.128
   br i1 %41, label %.sink.split.i, label %42
 
 42:                                               ; preds = %36
-  %43 = icmp eq ptr %9, %.027
+  %43 = icmp eq ptr %9, %.128
   br i1 %43, label %.sink.split.i, label %FTC_MruNode_Remove.exit
 
 .sink.split.i:                                    ; preds = %42, %36
@@ -580,8 +580,8 @@ FTC_MruNode_Remove.exit:                          ; preds = %42, %.sink.split.i
   br label %46
 
 46:                                               ; preds = %11, %FTC_MruNode_Remove.exit
-  %.128 = phi ptr [ %.027, %FTC_MruNode_Remove.exit ], [ %9, %11 ]
-  %.0 = phi ptr [ %9, %FTC_MruNode_Remove.exit ], [ null, %11 ]
+  %.027 = phi ptr [ %.128, %FTC_MruNode_Remove.exit ], [ %9, %11 ]
+  %.1 = phi ptr [ %9, %FTC_MruNode_Remove.exit ], [ null, %11 ]
   %47 = getelementptr inbounds i8, ptr %0, i64 48
   %48 = load ptr, ptr %47, align 8
   %.not35 = icmp eq ptr %48, null
@@ -589,18 +589,18 @@ FTC_MruNode_Remove.exit:                          ; preds = %42, %.sink.split.i
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %14, align 8
-  call void %48(ptr noundef %.128, ptr noundef %50) #12
+  call void %48(ptr noundef %.027, ptr noundef %50) #12
   br label %51
 
 51:                                               ; preds = %46, %49
-  call void @ft_mem_free(ptr noundef %6, ptr noundef %.128) #12
+  call void @ft_mem_free(ptr noundef %6, ptr noundef %.027) #12
   %.pre = load i32, ptr %4, align 4
   br label %52
 
 52:                                               ; preds = %FTC_MruNode_Prepend.exit, %3, %51
   %53 = phi i32 [ %10, %3 ], [ %.pre, %51 ], [ 0, %FTC_MruNode_Prepend.exit ]
-  %.1 = phi ptr [ %9, %3 ], [ %.0, %51 ], [ %9, %FTC_MruNode_Prepend.exit ]
-  store ptr %.1, ptr %2, align 8
+  %.0 = phi ptr [ %9, %3 ], [ %.1, %51 ], [ %9, %FTC_MruNode_Prepend.exit ]
+  store ptr %.0, ptr %2, align 8
   ret i32 %53
 }
 
@@ -1592,7 +1592,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %48, %5
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %..loopexit_crit_edge, %103
   %121 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %92, %103 ], [ %115, %.loopexit.loopexit ]
-  %.288 = phi ptr [ %.086139, %..loopexit_crit_edge ], [ %114, %103 ], [ %120, %.loopexit.loopexit ]
+  %.187 = phi ptr [ %.086139, %..loopexit_crit_edge ], [ %114, %103 ], [ %120, %.loopexit.loopexit ]
   %.085 = phi ptr [ %90, %..loopexit_crit_edge ], [ %114, %103 ], [ %114, %.loopexit.loopexit ]
   %.not114 = icmp eq ptr %92, %121
   br i1 %.not114, label %128, label %122
@@ -1600,7 +1600,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %.preheader, %48, %5
 122:                                              ; preds = %.loopexit
   %123 = getelementptr inbounds i8, ptr %92, i64 16
   %124 = load ptr, ptr %123, align 8
-  store ptr %124, ptr %.288, align 8
+  store ptr %124, ptr %.187, align 8
   %125 = load ptr, ptr %.085, align 8
   %126 = load ptr, ptr %8, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 16
@@ -2179,7 +2179,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %59, %63, %67, %71, 
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %..loopexit_crit_edge, %129
   %147 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %118, %129 ], [ %141, %.loopexit.loopexit ]
-  %.289 = phi ptr [ %.087139, %..loopexit_crit_edge ], [ %140, %129 ], [ %146, %.loopexit.loopexit ]
+  %.188 = phi ptr [ %.087139, %..loopexit_crit_edge ], [ %140, %129 ], [ %146, %.loopexit.loopexit ]
   %.086 = phi ptr [ %116, %..loopexit_crit_edge ], [ %140, %129 ], [ %140, %.loopexit.loopexit ]
   %.not115 = icmp eq ptr %118, %147
   br i1 %.not115, label %154, label %148
@@ -2187,7 +2187,7 @@ ftc_basic_family_compare.exit.thread:             ; preds = %59, %63, %67, %71, 
 148:                                              ; preds = %.loopexit
   %149 = getelementptr inbounds i8, ptr %118, i64 16
   %150 = load ptr, ptr %149, align 8
-  store ptr %150, ptr %.289, align 8
+  store ptr %150, ptr %.188, align 8
   %151 = load ptr, ptr %.086, align 8
   %152 = load ptr, ptr %9, align 8
   %153 = getelementptr inbounds i8, ptr %152, i64 16
@@ -2701,8 +2701,8 @@ FTC_Manager_LookupFace.exit.thread:               ; preds = %84, %.loopexit.i
   br label %126
 
 126:                                              ; preds = %113, %116, %105
-  %.069 = phi i32 [ %115, %113 ], [ %125, %116 ], [ 0, %105 ]
-  %127 = trunc i32 %.069 to i16
+  %.1 = phi i32 [ %115, %113 ], [ %125, %116 ], [ 0, %105 ]
+  %127 = trunc i32 %.1 to i16
   %128 = load i32, ptr %73, align 4
   %129 = sub i32 %3, %128
   %130 = zext i32 %129 to i64
@@ -2711,7 +2711,7 @@ FTC_Manager_LookupFace.exit.thread:               ; preds = %84, %.loopexit.i
   br label %132
 
 132:                                              ; preds = %FTC_Manager_LookupFace.exit.thread, %._crit_edge, %126, %77, %.thread, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %.thread ], [ 0, %._crit_edge ], [ %.069, %126 ], [ %82, %77 ], [ 0, %FTC_Manager_LookupFace.exit.thread ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %.thread ], [ 0, %._crit_edge ], [ %.1, %126 ], [ %82, %77 ], [ 0, %FTC_Manager_LookupFace.exit.thread ]
   ret i32 %.0
 }
 
@@ -5314,8 +5314,8 @@ FTC_Manager_LookupFace.exit.thread.i:             ; preds = %.loopexit.i.i, %3
   br label %48
 
 48:                                               ; preds = %38, %34
-  %.0.i = phi i32 [ %37, %34 ], [ %47, %38 ]
-  %.not17.i = icmp eq i32 %.0.i, 0
+  %.1.i = phi i32 [ %37, %34 ], [ %47, %38 ]
+  %.not17.i = icmp eq i32 %.1.i, 0
   %.pre.i = load ptr, ptr %5, align 8
   br i1 %.not17.i, label %51, label %49
 
@@ -5324,7 +5324,7 @@ FTC_Manager_LookupFace.exit.thread.i:             ; preds = %.loopexit.i.i, %3
   br label %ftc_scaler_lookup_size.exit.thread
 
 ftc_scaler_lookup_size.exit.thread:               ; preds = %23, %49, %FTC_Manager_LookupFace.exit.thread.i
-  %.1.i.ph = phi i32 [ %.023.i.ph.i, %FTC_Manager_LookupFace.exit.thread.i ], [ %.0.i, %49 ], [ %27, %23 ]
+  %.0.i.ph = phi i32 [ %.023.i.ph.i, %FTC_Manager_LookupFace.exit.thread.i ], [ %.1.i, %49 ], [ %27, %23 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br label %54
 
@@ -5337,8 +5337,8 @@ ftc_scaler_lookup_size.exit.thread:               ; preds = %23, %49, %FTC_Manag
   br label %54
 
 54:                                               ; preds = %ftc_scaler_lookup_size.exit.thread, %51
-  %.1.i11 = phi i32 [ %.1.i.ph, %ftc_scaler_lookup_size.exit.thread ], [ 0, %51 ]
-  ret i32 %.1.i11
+  %.0.i11 = phi i32 [ %.0.i.ph, %ftc_scaler_lookup_size.exit.thread ], [ 0, %51 ]
+  ret i32 %.0.i11
 }
 
 ; Function Attrs: nounwind uwtable

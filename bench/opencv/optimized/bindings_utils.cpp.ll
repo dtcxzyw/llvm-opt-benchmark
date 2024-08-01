@@ -304,8 +304,8 @@ define void @_ZN2cv5utils14dumpInputArrayB5cxx11ERKNS_11_InputArrayE(ptr dead_on
 
 94:                                               ; preds = %.loopexit, %.loopexit.split-lp, %92, %70, %68, %66, %46, %44
   %.pn = phi { ptr, i32 } [ %93, %92 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %47, %46 ], [ %45, %44 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.019 = extractvalue { ptr, i32 } %.pn, 0
-  %95 = call ptr @__cxa_begin_catch(ptr %.019) #9
+  %.2 = extractvalue { ptr, i32 } %.pn, 0
+  %95 = call ptr @__cxa_begin_catch(ptr %.2) #9
   %96 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.13)
           to label %97 unwind label %100
 
@@ -661,8 +661,8 @@ define void @_ZN2cv5utils22dumpInputArrayOfArraysB5cxx11ERKNS_11_InputArrayE(ptr
 
 100:                                              ; preds = %.loopexit, %.loopexit.split-lp, %98, %96, %94, %92, %90, %88, %48, %46
   %.pn = phi { ptr, i32 } [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %49, %48 ], [ %47, %46 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.024 = extractvalue { ptr, i32 } %.pn, 0
-  %101 = call ptr @__cxa_begin_catch(ptr %.024) #9
+  %.2 = extractvalue { ptr, i32 } %.pn, 0
+  %101 = call ptr @__cxa_begin_catch(ptr %.2) #9
   %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.13)
           to label %103 unwind label %117
 
@@ -975,8 +975,8 @@ define void @_ZN2cv5utils20dumpInputOutputArrayB5cxx11ERKNS_17_InputOutputArrayE
 
 94:                                               ; preds = %.loopexit, %.loopexit.split-lp, %92, %70, %68, %66, %46, %44
   %.pn = phi { ptr, i32 } [ %93, %92 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %47, %46 ], [ %45, %44 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.019 = extractvalue { ptr, i32 } %.pn, 0
-  %95 = call ptr @__cxa_begin_catch(ptr %.019) #9
+  %.2 = extractvalue { ptr, i32 } %.pn, 0
+  %95 = call ptr @__cxa_begin_catch(ptr %.2) #9
   %96 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.13)
           to label %97 unwind label %100
 
@@ -1268,8 +1268,8 @@ define void @_ZN2cv5utils28dumpInputOutputArrayOfArraysB5cxx11ERKNS_17_InputOutp
 
 100:                                              ; preds = %.loopexit, %.loopexit.split-lp, %98, %96, %94, %92, %90, %88, %48, %46
   %.pn = phi { ptr, i32 } [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %49, %48 ], [ %47, %46 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.024 = extractvalue { ptr, i32 } %.pn, 0
-  %101 = call ptr @__cxa_begin_catch(ptr %.024) #9
+  %.2 = extractvalue { ptr, i32 } %.pn, 0
+  %101 = call ptr @__cxa_begin_catch(ptr %.2) #9
   %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.13)
           to label %103 unwind label %117
 

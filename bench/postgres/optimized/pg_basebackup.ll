@@ -1084,7 +1084,7 @@ sub_1128:                                         ; preds = %sub_0127
 
 backup_parse_compress_options.exit:               ; preds = %293, %297
   %spec.select103.idx.sink = phi i64 [ %spec.select103.idx, %297 ], [ 7, %293 ]
-  %.183 = phi i32 [ %spec.select, %297 ], [ 2, %293 ]
+  %.3 = phi i32 [ %spec.select, %297 ], [ 2, %293 ]
   %spec.select103 = getelementptr i8, ptr %294, i64 %spec.select103.idx.sink
   call void @parse_compress_options(ptr noundef %spec.select103, ptr noundef nonnull %25, ptr noundef nonnull %26) #17
   br label %.backedge
@@ -1127,7 +1127,7 @@ backup_parse_compress_options.exit:               ; preds = %293, %297
   br i1 %313, label %.backedge, label %314
 
 .backedge:                                        ; preds = %311, %270, %290, %280, %101, %111, %74, %79, %308, %307, %306, %305, %304, %303, %300, %backup_parse_compress_options.exit, %292, %257, %256, %253, %250, %tablespace_list_append.exit, %192, %189, %186, %181, %parse_max_rate.exit, %127, %124, %123, %122, %119, %116, %113, %86, %83, %82
-  %.082.be = phi i32 [ %.082, %311 ], [ %.082, %308 ], [ %.082, %307 ], [ %.082, %306 ], [ %.082, %305 ], [ %.082, %304 ], [ %.082, %303 ], [ %.082, %300 ], [ %.183, %backup_parse_compress_options.exit ], [ 0, %292 ], [ %.082, %270 ], [ %.082, %280 ], [ %.082, %290 ], [ %.082, %257 ], [ %.082, %256 ], [ %.082, %253 ], [ %.082, %250 ], [ %.082, %tablespace_list_append.exit ], [ %.082, %192 ], [ %.082, %189 ], [ %.082, %186 ], [ %.082, %181 ], [ %.082, %parse_max_rate.exit ], [ %.082, %127 ], [ %.082, %124 ], [ %.082, %123 ], [ %.082, %122 ], [ %.082, %119 ], [ %.082, %116 ], [ %.082, %113 ], [ %.082, %101 ], [ %.082, %111 ], [ %.082, %86 ], [ %.082, %83 ], [ %.082, %82 ], [ %.082, %74 ], [ %.082, %79 ]
+  %.082.be = phi i32 [ %.082, %311 ], [ %.082, %308 ], [ %.082, %307 ], [ %.082, %306 ], [ %.082, %305 ], [ %.082, %304 ], [ %.082, %303 ], [ %.082, %300 ], [ %.3, %backup_parse_compress_options.exit ], [ 0, %292 ], [ %.082, %270 ], [ %.082, %280 ], [ %.082, %290 ], [ %.082, %257 ], [ %.082, %256 ], [ %.082, %253 ], [ %.082, %250 ], [ %.082, %tablespace_list_append.exit ], [ %.082, %192 ], [ %.082, %189 ], [ %.082, %186 ], [ %.082, %181 ], [ %.082, %parse_max_rate.exit ], [ %.082, %127 ], [ %.082, %124 ], [ %.082, %123 ], [ %.082, %122 ], [ %.082, %119 ], [ %.082, %116 ], [ %.082, %113 ], [ %.082, %101 ], [ %.082, %111 ], [ %.082, %86 ], [ %.082, %83 ], [ %.082, %82 ], [ %.082, %74 ], [ %.082, %79 ]
   %.0.be = phi ptr [ %.0, %311 ], [ %.0, %308 ], [ %.0, %307 ], [ %.0, %306 ], [ %.0, %305 ], [ %.0, %304 ], [ %.0, %303 ], [ %.0, %300 ], [ %.0, %backup_parse_compress_options.exit ], [ %.0, %292 ], [ %.0, %270 ], [ %.0, %280 ], [ %.0, %290 ], [ %.0, %257 ], [ %.0, %256 ], [ %.0, %253 ], [ %.0, %250 ], [ %.0, %tablespace_list_append.exit ], [ %.0, %192 ], [ %.0, %189 ], [ %.0, %186 ], [ %.0, %181 ], [ %.0, %parse_max_rate.exit ], [ %.0, %127 ], [ %.0, %124 ], [ %.0, %123 ], [ %.0, %122 ], [ %.0, %119 ], [ %118, %116 ], [ %.0, %113 ], [ %.0, %101 ], [ %.0, %111 ], [ %.0, %86 ], [ %.0, %83 ], [ %.0, %82 ], [ %.0, %74 ], [ %.0, %79 ]
   br label %68, !llvm.loop !9
 
@@ -1290,7 +1290,7 @@ backup_parse_compress_options.exit:               ; preds = %293, %297
   unreachable
 
 378:                                              ; preds = %355, %354
-  %.389 = phi i32 [ 2, %355 ], [ %.082, %354 ]
+  %.289 = phi i32 [ 2, %355 ], [ %.082, %354 ]
   store i32 0, ptr %27, align 8
   %379 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 0, ptr %379, align 4
@@ -1312,7 +1312,7 @@ backup_parse_compress_options.exit:               ; preds = %293, %297
   %387 = phi i1 [ %375, %.thread277 ], [ %383, %378 ]
   %388 = phi i32 [ %374, %.thread277 ], [ %382, %378 ]
   %389 = phi ptr [ null, %.thread277 ], [ %344, %378 ]
-  %.3859398280 = phi i32 [ 1, %.thread277 ], [ %.389, %378 ]
+  %.2859398280 = phi i32 [ 1, %.thread277 ], [ %.289, %378 ]
   %390 = phi i8 [ %370, %.thread277 ], [ %345, %378 ]
   %391 = phi i1 [ %371, %.thread277 ], [ %381, %378 ]
   %392 = icmp eq i8 %390, 116
@@ -1943,16 +1943,16 @@ sub_1136:                                         ; preds = %sub_0135
   br i1 %506, label %.thread226.i, label %.thread224.i
 
 636:                                              ; preds = %629, %628
-  %637 = icmp eq i32 %.3859398280, 2
+  %637 = icmp eq i32 %.2859398280, 2
   br i1 %637, label %.thread227.i, label %641
 
 .thread226.i:                                     ; preds = %635
   call void @AppendStringCommandOption(ptr noundef nonnull %17, i1 noundef zeroext true, ptr noundef nonnull @.str.196, ptr noundef nonnull @.str.60) #17
-  %638 = icmp eq i32 %.3859398280, 2
+  %638 = icmp eq i32 %.2859398280, 2
   br i1 %638, label %.thread227.i, label %641
 
 .thread224.i:                                     ; preds = %635
-  %639 = icmp eq i32 %.3859398280, 2
+  %639 = icmp eq i32 %.2859398280, 2
   br i1 %639, label %.thread225.i, label %641
 
 .thread225.i:                                     ; preds = %.thread224.i
@@ -4311,15 +4311,15 @@ sub_091:                                          ; preds = %66
   br label %112
 
 112:                                              ; preds = %97, %101, %108, %104, %99
-  %.064 = phi ptr [ %100, %99 ], [ %103, %101 ], [ %107, %104 ], [ %111, %108 ], [ null, %97 ]
+  %.1 = phi ptr [ %100, %99 ], [ %103, %101 ], [ %107, %104 ], [ %111, %108 ], [ null, %97 ]
   br i1 %56, label %113, label %115
 
 113:                                              ; preds = %112
-  %114 = call ptr @bbstreamer_tar_archiver_new(ptr noundef %.064) #17
+  %114 = call ptr @bbstreamer_tar_archiver_new(ptr noundef %.1) #17
   br label %115
 
 115:                                              ; preds = %113, %112
-  %.1 = phi ptr [ %114, %113 ], [ %.064, %112 ]
+  %.2 = phi ptr [ %114, %113 ], [ %.1, %112 ]
   %.b3.i = load i1, ptr @showprogress, align 1
   %116 = load i32, ptr @verbose, align 4
   %117 = icmp ne i32 %116, 0
@@ -4334,7 +4334,7 @@ sub_091:                                          ; preds = %66
   br label %progress_update_filename.exit
 
 progress_update_filename.exit:                    ; preds = %118, %115, %86
-  %.2 = phi ptr [ %87, %86 ], [ %.1, %115 ], [ %.1, %118 ]
+  %.064 = phi ptr [ %87, %86 ], [ %.2, %115 ], [ %.2, %118 ]
   %121 = icmp eq ptr %1, null
   br i1 %121, label %122, label %126
 
@@ -4344,11 +4344,11 @@ progress_update_filename.exit:                    ; preds = %118, %115, %86
 
 123:                                              ; preds = %122
   %124 = load ptr, ptr @recoveryconfcontents, align 8
-  %125 = call ptr @bbstreamer_recovery_injector_new(ptr noundef %.2, i1 noundef zeroext %3, ptr noundef %124) #17
+  %125 = call ptr @bbstreamer_recovery_injector_new(ptr noundef %.064, i1 noundef zeroext %3, ptr noundef %124) #17
   br label %126
 
 126:                                              ; preds = %123, %122, %progress_update_filename.exit
-  %.3 = phi ptr [ %125, %123 ], [ %.2, %122 ], [ %.2, %progress_update_filename.exit ]
+  %.3 = phi ptr [ %125, %123 ], [ %.064, %122 ], [ %.064, %progress_update_filename.exit ]
   br i1 %56, label %127, label %129
 
 127:                                              ; preds = %126
@@ -4391,7 +4391,7 @@ progress_update_filename.exit:                    ; preds = %118, %115, %86
 
 144:                                              ; preds = %136, %141, %142, %139, %132
   %.5 = phi ptr [ %137, %136 ], [ %140, %139 ], [ %143, %142 ], [ %.4, %141 ], [ %.4, %132 ]
-  %spec.select83 = select i1 %24, ptr %.2, ptr null
+  %spec.select83 = select i1 %24, ptr %.064, ptr null
   store ptr %spec.select83, ptr %2, align 8
   ret ptr %.5
 }

@@ -1223,7 +1223,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 
 .outer:                                           ; preds = %.outer.backedge, %160
   %.0269.ph = phi i32 [ 0, %160 ], [ %.1270, %.outer.backedge ]
-  %.0.ph = phi i32 [ 5, %160 ], [ %.2, %.outer.backedge ]
+  %.0.ph = phi i32 [ 5, %160 ], [ %.1, %.outer.backedge ]
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.outer
@@ -1465,9 +1465,9 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
   br label %.loopexit433
 
 .loopexit433:                                     ; preds = %.lr.ph, %.critedge389
-  %.0287.in = phi ptr [ %247, %.critedge389 ], [ %241, %.lr.ph ]
-  %.0287 = load ptr, ptr %.0287.in, align 16
-  %.not328 = icmp eq ptr %.0287, null
+  %.1288.in = phi ptr [ %247, %.critedge389 ], [ %241, %.lr.ph ]
+  %.1288 = load ptr, ptr %.1288.in, align 16
+  %.not328 = icmp eq ptr %.1288, null
   br i1 %.not328, label %.thread, label %251
 
 .thread:                                          ; preds = %.loopexit433, %.preheader432, %240
@@ -1487,7 +1487,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
   br label %.loopexit434
 
 256:                                              ; preds = %228, %.critedge8.thread, %251
-  %.1288 = phi ptr [ %175, %228 ], [ %175, %.critedge8.thread ], [ %.0287, %251 ]
+  %.0287 = phi ptr [ %175, %228 ], [ %175, %.critedge8.thread ], [ %.1288, %251 ]
   %.0283 = phi ptr [ %222, %228 ], [ %204, %.critedge8.thread ], [ %252, %251 ]
   %.1270 = phi i32 [ %176, %228 ], [ %176, %.critedge8.thread ], [ %.0269, %251 ]
   br i1 %.not17.i, label %.loopexit431, label %.lr.ph.i
@@ -1499,7 +1499,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
   br i1 %.not13.i, label %260, label %258
 
 258:                                              ; preds = %.lr.ph.i
-  %259 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %257, ptr noundef nonnull readonly dereferenceable(1) %.1288) #16
+  %259 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %257, ptr noundef nonnull readonly dereferenceable(1) %.0287) #16
   %.not14.i = icmp eq i32 %259, 0
   br i1 %.not14.i, label %optget_i.exit, label %260
 
@@ -1510,7 +1510,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
   br i1 %.not15.i, label %265, label %263
 
 263:                                              ; preds = %260
-  %264 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %262, ptr noundef nonnull readonly dereferenceable(1) %.1288) #16
+  %264 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %262, ptr noundef nonnull readonly dereferenceable(1) %.0287) #16
   %.not16.i = icmp eq i32 %264, 0
   br i1 %.not16.i, label %optget_i.exit, label %265
 
@@ -1527,7 +1527,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 
 269:                                              ; preds = %.loopexit431
   %270 = load ptr, ptr @stderr, align 8
-  %271 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %270, ptr noundef nonnull @.str.712, ptr noundef nonnull %0, i32 noundef %.1270, ptr noundef nonnull %.1288) #19
+  %271 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %270, ptr noundef nonnull @.str.712, ptr noundef nonnull %0, i32 noundef %.1270, ptr noundef nonnull %.0287) #19
   br label %.loopexit434
 
 optget_i.exit:                                    ; preds = %263, %258
@@ -1589,7 +1589,7 @@ optget_i.exit._crit_edge:                         ; preds = %optget_i.exit, %277
   br i1 %.not368, label %310, label %299
 
 299:                                              ; preds = %298
-  %300 = call fastcc i32 @optaddarg(ptr noundef nonnull %161, ptr noundef nonnull %.1288, ptr noundef nonnull @.str.132, i64 noundef 1)
+  %300 = call fastcc i32 @optaddarg(ptr noundef nonnull %161, ptr noundef nonnull %.0287, ptr noundef nonnull @.str.132, i64 noundef 1)
   %301 = icmp slt i32 %300, 0
   br i1 %301, label %302, label %.backedge.backedge
 
@@ -1602,7 +1602,7 @@ optget_i.exit._crit_edge:                         ; preds = %optget_i.exit, %277
   br i1 %140, label %304, label %306
 
 304:                                              ; preds = %302
-  %305 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %303, ptr noundef nonnull @.str.716, ptr noundef nonnull %.1288) #19
+  %305 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %303, ptr noundef nonnull @.str.716, ptr noundef nonnull %.0287) #19
   br label %.loopexit434
 
 306:                                              ; preds = %302
@@ -1675,7 +1675,7 @@ optget_i.exit._crit_edge:                         ; preds = %optget_i.exit, %277
   %344 = getelementptr inbounds i8, ptr %276, i64 24
   %345 = load ptr, ptr @stderr, align 8
   %346 = load ptr, ptr %344, align 8
-  %347 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %345, ptr noundef nonnull @.str.721, ptr noundef %346, ptr noundef nonnull %.1288) #19
+  %347 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %345, ptr noundef nonnull @.str.721, ptr noundef %346, ptr noundef nonnull %.0287) #19
   br label %.loopexit434
 
 348:                                              ; preds = %336
@@ -1689,7 +1689,7 @@ optget_i.exit._crit_edge:                         ; preds = %optget_i.exit, %277
 
 352:                                              ; preds = %351
   %353 = load ptr, ptr @stderr, align 8
-  %354 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %353, ptr noundef nonnull @.str.722, ptr noundef nonnull %.1288) #19
+  %354 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %353, ptr noundef nonnull @.str.722, ptr noundef nonnull %.0287) #19
   br label %.loopexit434
 
 355:                                              ; preds = %351
@@ -1712,7 +1712,7 @@ optget_i.exit._crit_edge:                         ; preds = %optget_i.exit, %277
 
 366:                                              ; preds = %329, %333, %348
   %.1284 = phi ptr [ %.0283, %348 ], [ %.0283, %333 ], [ @.str.159, %329 ]
-  %.2 = phi i32 [ %spec.select, %348 ], [ %.0.ph, %333 ], [ %.0.ph, %329 ]
+  %.1 = phi i32 [ %spec.select, %348 ], [ %.0.ph, %333 ], [ %.0.ph, %329 ]
   %367 = getelementptr inbounds i8, ptr %276, i64 20
   %368 = load i32, ptr %367, align 4
   switch i32 %368, label %.thread407 [
@@ -1733,11 +1733,11 @@ optget_i.exit._crit_edge:                         ; preds = %optget_i.exit, %277
   br label %373
 
 373:                                              ; preds = %370, %369
-  %.2285 = phi ptr [ %.1284, %369 ], [ %372, %370 ]
+  %.3286 = phi ptr [ %.1284, %369 ], [ %372, %370 ]
   br i1 %140, label %.thread422, label %374
 
 374:                                              ; preds = %373
-  %char0363 = load i8, ptr %.2285, align 1
+  %char0363 = load i8, ptr %.3286, align 1
   %.not364 = icmp eq i8 %char0363, 0
   br i1 %.not364, label %375, label %.thread418
 
@@ -1822,7 +1822,7 @@ optget_i.exit._crit_edge:                         ; preds = %optget_i.exit, %277
 
 411:                                              ; preds = %410
   %412 = load ptr, ptr @stderr, align 8
-  %413 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %412, ptr noundef nonnull @.str.727, ptr noundef nonnull %.1288) #19
+  %413 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %412, ptr noundef nonnull @.str.727, ptr noundef nonnull %.0287) #19
   br label %.loopexit434
 
 414:                                              ; preds = %410
@@ -1905,9 +1905,9 @@ sub_1:                                            ; preds = %sub_0
   br label %.thread407
 
 .thread407:                                       ; preds = %.thread404, %434, %431, %366, %386, %387, %390, %436, %.tail, %445
-  %.3286.ph = phi ptr [ null, %445 ], [ null, %.tail ], [ null, %436 ], [ null, %390 ], [ null, %387 ], [ null, %386 ], [ %.1284, %366 ], [ null, %431 ], [ null, %434 ], [ null, %.thread404 ]
-  %.2267.ph = phi i64 [ %spec.select391, %445 ], [ 1, %.tail ], [ 1, %436 ], [ 0, %390 ], [ %389, %387 ], [ 0, %386 ], [ -1, %366 ], [ 9223372036854775807, %431 ], [ 9223372036854775807, %434 ], [ %spec.select430, %.thread404 ]
-  %447 = call fastcc i32 @optaddarg(ptr noundef nonnull %161, ptr noundef nonnull %.1288, ptr noundef %.3286.ph, i64 noundef %.2267.ph)
+  %.2285.ph = phi ptr [ null, %445 ], [ null, %.tail ], [ null, %436 ], [ null, %390 ], [ null, %387 ], [ null, %386 ], [ %.1284, %366 ], [ null, %431 ], [ null, %434 ], [ null, %.thread404 ]
+  %.0265.ph = phi i64 [ %spec.select391, %445 ], [ 1, %.tail ], [ 1, %436 ], [ 0, %390 ], [ %389, %387 ], [ 0, %386 ], [ -1, %366 ], [ 9223372036854775807, %431 ], [ 9223372036854775807, %434 ], [ %spec.select430, %.thread404 ]
+  %447 = call fastcc i32 @optaddarg(ptr noundef nonnull %161, ptr noundef nonnull %.0287, ptr noundef %.2285.ph, i64 noundef %.0265.ph)
   %448 = icmp slt i32 %447, 0
   br i1 %448, label %457, label %.outer.backedge
 
@@ -1916,18 +1916,18 @@ sub_1:                                            ; preds = %sub_0
 
 .thread407.thread:                                ; preds = %.thread402
   %449 = load ptr, ptr @stderr, align 8
-  %450 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %449, ptr noundef nonnull @.str.730, ptr noundef nonnull %.1288, i64 noundef 9223372036854775807) #19
-  %451 = call fastcc i32 @optaddarg(ptr noundef nonnull %161, ptr noundef nonnull %.1288, ptr noundef null, i64 noundef 9223372036854775807)
+  %450 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %449, ptr noundef nonnull @.str.730, ptr noundef nonnull %.0287, i64 noundef 9223372036854775807) #19
+  %451 = call fastcc i32 @optaddarg(ptr noundef nonnull %161, ptr noundef nonnull %.0287, ptr noundef null, i64 noundef 9223372036854775807)
   %452 = icmp slt i32 %451, 0
   br i1 %452, label %.thread425, label %.outer.backedge
 
 .thread422:                                       ; preds = %373
-  %453 = call fastcc i32 @optaddarg(ptr noundef nonnull %161, ptr noundef nonnull %.1288, ptr noundef %.2285, i64 noundef -1)
+  %453 = call fastcc i32 @optaddarg(ptr noundef nonnull %161, ptr noundef nonnull %.0287, ptr noundef %.3286, i64 noundef -1)
   %454 = icmp slt i32 %453, 0
   br i1 %454, label %.thread425, label %.outer.backedge
 
 .thread418:                                       ; preds = %374
-  %455 = call fastcc i32 @optaddarg(ptr noundef nonnull %161, ptr noundef nonnull %.1288, ptr noundef nonnull %.2285, i64 noundef -1)
+  %455 = call fastcc i32 @optaddarg(ptr noundef nonnull %161, ptr noundef nonnull %.0287, ptr noundef nonnull %.3286, i64 noundef -1)
   %456 = icmp slt i32 %455, 0
   br i1 %456, label %.thread421, label %.outer.backedge
 
@@ -1936,7 +1936,7 @@ sub_1:                                            ; preds = %sub_0
 
 .thread425:                                       ; preds = %.thread407.thread, %.thread422, %457
   %458 = load ptr, ptr @stderr, align 8
-  %459 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %458, ptr noundef nonnull @.str.716, ptr noundef nonnull %.1288) #19
+  %459 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %458, ptr noundef nonnull @.str.716, ptr noundef nonnull %.0287) #19
   br label %.loopexit434
 
 .thread421:                                       ; preds = %.thread418, %457
@@ -2793,8 +2793,8 @@ sub_0:                                            ; preds = %167
 
 177:                                              ; preds = %.thread146, %134, %137, %138, %141, %142, %145, %167, %.tail, %.tail.thread, %.thread148
   %.090.ph = phi ptr [ null, %.thread148 ], [ null, %.tail.thread ], [ null, %.tail ], [ null, %167 ], [ null, %145 ], [ null, %142 ], [ null, %141 ], [ %140, %138 ], [ %1, %137 ], [ %1, %134 ], [ null, %.thread146 ]
-  %.2.ph = phi i64 [ 4294967295, %.thread148 ], [ %spec.select137, %.tail.thread ], [ 1, %.tail ], [ 1, %167 ], [ 0, %145 ], [ %144, %142 ], [ 0, %141 ], [ -1, %138 ], [ -1, %137 ], [ -1, %134 ], [ %spec.select159, %.thread146 ]
-  %178 = call fastcc i32 @optaddarg(ptr noundef nonnull %.pre195.pre, ptr noundef nonnull %0, ptr noundef %.090.ph, i64 noundef %.2.ph)
+  %.087.ph = phi i64 [ 4294967295, %.thread148 ], [ %spec.select137, %.tail.thread ], [ 1, %.tail ], [ 1, %167 ], [ 0, %145 ], [ %144, %142 ], [ 0, %141 ], [ -1, %138 ], [ -1, %137 ], [ -1, %134 ], [ %spec.select159, %.thread146 ]
+  %178 = call fastcc i32 @optaddarg(ptr noundef nonnull %.pre195.pre, ptr noundef nonnull %0, ptr noundef %.090.ph, i64 noundef %.087.ph)
   %179 = icmp slt i32 %178, 0
   br i1 %179, label %180, label %185
 

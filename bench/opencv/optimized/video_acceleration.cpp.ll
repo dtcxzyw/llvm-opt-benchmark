@@ -1237,7 +1237,7 @@ _ZN10FPSCounter8NewFrameEb.exit.backedge:         ; preds = %410, %415
   br label %.body162
 
 433:                                              ; preds = %281, %.loopexit179
-  %.0 = phi i32 [ 0, %.loopexit179 ], [ 1, %281 ]
+  %.2 = phi i32 [ 0, %.loopexit179 ], [ 1, %281 ]
   call void @_ZN2cv11VideoWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %41) #12
   br label %434
 
@@ -1247,7 +1247,7 @@ _ZN10FPSCounter8NewFrameEb.exit.backedge:         ; preds = %410, %415
   br label %435
 
 434:                                              ; preds = %191, %433
-  %.1 = phi i32 [ %.0, %433 ], [ 1, %191 ]
+  %.1 = phi i32 [ %.2, %433 ], [ 1, %191 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %38) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #12
@@ -1287,9 +1287,9 @@ _ZN10FPSCounter8NewFrameEb.exit.backedge:         ; preds = %410, %415
   br label %441
 
 440:                                              ; preds = %73, %434
-  %.2 = phi i32 [ %.1, %434 ], [ 0, %73 ]
+  %.0 = phi i32 [ %.1, %434 ], [ 0, %73 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #12
-  ret i32 %.2
+  ret i32 %.0
 
 441:                                              ; preds = %439, %124, %84, %83
   %.pn136 = phi { ptr, i32 } [ %85, %84 ], [ %.pn127.pn.pn.pn.pn.pn.pn.pn, %439 ], [ %.pn95, %124 ], [ %.pn93, %83 ]

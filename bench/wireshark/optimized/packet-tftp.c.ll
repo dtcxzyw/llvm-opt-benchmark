@@ -633,9 +633,9 @@ define internal fastcc void @dissect_tftp_message(ptr noundef %0, ptr noundef %1
   br label %31
 
 31:                                               ; preds = %28, %25
-  %.0283 = phi ptr [ %27, %25 ], [ %30, %28 ]
+  %.1 = phi ptr [ %27, %25 ], [ %30, %28 ]
   %32 = load i32, ptr @hf_tftp_destination_file, align 4
-  %33 = tail call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %32, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef %.0283) #6
+  %33 = tail call ptr @proto_tree_add_string(ptr noundef %13, i32 noundef %32, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef %.1) #6
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %proto_item_set_generated.exit, label %34
 
@@ -676,7 +676,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %34, %37
   br label %proto_item_set_generated.exit323
 
 proto_item_set_generated.exit323:                 ; preds = %49, %46, %proto_item_set_generated.exit, %4
-  %.1 = phi ptr [ null, %4 ], [ %.0283, %proto_item_set_generated.exit ], [ %.0283, %46 ], [ %.0283, %49 ]
+  %.0283 = phi ptr [ null, %4 ], [ %.1, %proto_item_set_generated.exit ], [ %.1, %46 ], [ %.1, %49 ]
   switch i16 %14, label %375 [
     i16 1, label %53
     i16 2, label %74
@@ -910,7 +910,7 @@ proto_item_set_generated.exit326:                 ; preds = %123, %127, %130
   br i1 %.not313, label %199, label %192
 
 192:                                              ; preds = %187
-  store ptr %.1, ptr %7, align 8
+  store ptr %.0283, ptr %7, align 8
   %193 = load ptr, ptr @heur_subdissector_list, align 8
   %194 = call i32 @dissector_try_heuristic(ptr noundef %193, ptr noundef nonnull %.0284, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
   %.not314 = icmp eq i32 %194, 0
@@ -950,7 +950,7 @@ proto_item_set_generated.exit326:                 ; preds = %123, %127, %130
   %212 = getelementptr inbounds i8, ptr %0, i64 80
   %213 = load i32, ptr %212, align 8
   %214 = icmp ne i32 %213, 0
-  %215 = icmp ne ptr %.1, null
+  %215 = icmp ne ptr %.0283, null
   %or.cond7 = and i1 %215, %214
   br i1 %or.cond7, label %216, label %.thread336
 
@@ -1017,7 +1017,7 @@ proto_item_set_generated.exit326:                 ; preds = %123, %127, %130
   %252 = getelementptr inbounds i8, ptr %2, i64 408
   %253 = load ptr, ptr %252, align 8
   %254 = call noalias ptr @wmem_alloc(ptr noundef %253, i64 noundef 24) #6
-  %255 = call noalias ptr @g_strdup(ptr noundef nonnull %.1) #6
+  %255 = call noalias ptr @g_strdup(ptr noundef nonnull %.0283) #6
   store ptr %255, ptr %254, align 8
   %256 = getelementptr inbounds i8, ptr %0, i64 48
   %257 = load i32, ptr %256, align 8

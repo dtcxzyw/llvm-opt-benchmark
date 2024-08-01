@@ -71,7 +71,7 @@ define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef reado
 
 22:                                               ; preds = %20, %17
   %23 = phi i8 [ %.pr, %20 ], [ %19, %17 ]
-  %.1 = phi ptr [ %21, %20 ], [ %18, %17 ]
+  %.2 = phi ptr [ %21, %20 ], [ %18, %17 ]
   %.0 = phi i8 [ %19, %20 ], [ 0, %17 ]
   switch i8 %23, label %215 [
     i8 37, label %24
@@ -435,7 +435,7 @@ append_int.exit:                                  ; preds = %94, %96
 
 210:                                              ; preds = %206, %194, %182, %170
   %.059 = phi i64 [ %209, %206 ], [ %196, %194 ], [ %184, %182 ], [ %172, %170 ]
-  %211 = load i8, ptr %.1, align 1
+  %211 = load i8, ptr %.2, align 1
   switch i8 %211, label %214 [
     i8 111, label %212
     i8 117, label %213
@@ -458,8 +458,8 @@ append_int.exit:                                  ; preds = %94, %96
   br label %217
 
 217:                                              ; preds = %24, %37, %append_int.exit, %215, %111, %117, %131, %153, %147, %214, %213, %212, %15
-  %.2 = phi ptr [ %.058, %15 ], [ %.058, %215 ], [ %.1, %214 ], [ %.1, %213 ], [ %.1, %212 ], [ %.1, %153 ], [ %.1, %147 ], [ %.1, %117 ], [ %.1, %111 ], [ %.1, %131 ], [ %.1, %append_int.exit ], [ %.1, %37 ], [ %.1, %24 ]
-  %218 = getelementptr inbounds i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %.058, %15 ], [ %.058, %215 ], [ %.2, %214 ], [ %.2, %213 ], [ %.2, %212 ], [ %.2, %153 ], [ %.2, %147 ], [ %.2, %117 ], [ %.2, %111 ], [ %.2, %131 ], [ %.2, %append_int.exit ], [ %.2, %37 ], [ %.2, %24 ]
+  %218 = getelementptr inbounds i8, ptr %.1, i64 1
   br label %13, !llvm.loop !5
 
 .loopexit:                                        ; preds = %13, %11

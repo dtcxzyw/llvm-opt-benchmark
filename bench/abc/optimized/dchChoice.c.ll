@@ -422,7 +422,7 @@ define void @Dch_CheckChoices(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 29:                                               ; preds = %26, %24
   %30 = phi i64 [ %.pre, %26 ], [ %.val60, %24 ]
-  %.1 = phi i32 [ 1, %26 ], [ %.066, %24 ]
+  %.2 = phi i32 [ 1, %26 ], [ %.066, %24 ]
   %31 = or i64 %30, 16
   store i64 %31, ptr %16, align 8
   br i1 %.not52, label %47, label %32
@@ -482,14 +482,14 @@ Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSu
 
 63:                                               ; preds = %60, %58
   %64 = phi i64 [ %.pre68, %60 ], [ %57, %58 ]
-  %.2 = phi i32 [ 1, %60 ], [ %.1, %58 ]
+  %.4 = phi i32 [ 1, %60 ], [ %.2, %58 ]
   %65 = or i64 %64, 16
   store i64 %65, ptr %56, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %47, %63
   %66 = phi i64 [ %65, %63 ], [ %57, %47 ]
-  %.3 = phi i32 [ %.2, %63 ], [ %.1, %47 ]
+  %.3 = phi i32 [ %.4, %63 ], [ %.2, %47 ]
   %67 = trunc i64 %66 to i32
   %.not55 = icmp ult i32 %67, 64
   br i1 %.not55, label %72, label %68
@@ -502,7 +502,7 @@ Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSu
 
 72:                                               ; preds = %._crit_edge, %68, %20
   %.042 = phi ptr [ %50, %68 ], [ %50, %._crit_edge ], [ %13, %20 ]
-  %.4 = phi i32 [ %.3, %68 ], [ %.3, %._crit_edge ], [ %.066, %20 ]
+  %.1 = phi i32 [ %.3, %68 ], [ %.3, %._crit_edge ], [ %.066, %20 ]
   %73 = load ptr, ptr %8, align 8
   %.not56 = icmp eq ptr %73, null
   br i1 %.not56, label %88, label %74
@@ -530,7 +530,7 @@ Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSu
   br label %88
 
 88:                                               ; preds = %15, %9, %77, %81, %74, %72
-  %.5 = phi i32 [ %.066, %9 ], [ 1, %81 ], [ %.4, %77 ], [ %.4, %74 ], [ %.4, %72 ], [ %.066, %15 ]
+  %.5 = phi i32 [ %.066, %9 ], [ 1, %81 ], [ %.1, %77 ], [ %.1, %74 ], [ %.1, %72 ], [ %.066, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %89 = load ptr, ptr %3, align 8
   %90 = getelementptr i8, ptr %89, i64 4
@@ -827,8 +827,8 @@ define range(i32 0, 2) i32 @Aig_ManCheckAcyclic(ptr noundef %0, i32 noundef %1) 
   br i1 %28, label %8, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %24, %2, %21, %22
-  %.2 = phi i32 [ 0, %22 ], [ 0, %21 ], [ 1, %2 ], [ 1, %24 ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %22 ], [ 0, %21 ], [ 1, %2 ], [ 1, %24 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

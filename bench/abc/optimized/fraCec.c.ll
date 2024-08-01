@@ -895,7 +895,7 @@ Abc_Clock.exit103:                                ; preds = %134, %141
   br label %150
 
 150:                                              ; preds = %Abc_Clock.exit101, %Abc_Clock.exit103, %Aig_ManCountXors.exit
-  %.170 = phi ptr [ %133, %Abc_Clock.exit103 ], [ %133, %Abc_Clock.exit101 ], [ %.069138, %Aig_ManCountXors.exit ]
+  %.271 = phi ptr [ %133, %Abc_Clock.exit103 ], [ %133, %Abc_Clock.exit101 ], [ %.069138, %Aig_ManCountXors.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %151 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #9
   %152 = icmp slt i32 %151, 0
@@ -912,8 +912,8 @@ Abc_Clock.exit103:                                ; preds = %134, %141
 Abc_Clock.exit105:                                ; preds = %150, %153
   %.0.i104.neg = phi i64 [ %.neg132, %153 ], [ 1, %150 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %156 = call ptr @Fra_FraigPerform(ptr noundef %.170, ptr noundef nonnull %18) #9
-  call void @Aig_ManStop(ptr noundef %.170) #9
+  %156 = call ptr @Fra_FraigPerform(ptr noundef %.271, ptr noundef nonnull %18) #9
+  call void @Aig_ManStop(ptr noundef %.271) #9
   br i1 %.not, label %174, label %157
 
 157:                                              ; preds = %Abc_Clock.exit105
@@ -1047,10 +1047,10 @@ Abc_Clock.exit113:                                ; preds = %211, %214
 
 220:                                              ; preds = %Abc_Clock.exit113
   %221 = getelementptr i8, ptr %183, i64 148
-  %.271.val = load i32, ptr %221, align 4
+  %.170.val = load i32, ptr %221, align 4
   %222 = getelementptr i8, ptr %183, i64 152
-  %.271.val91 = load i32, ptr %222, align 8
-  %223 = add nsw i32 %.271.val91, %.271.val
+  %.170.val91 = load i32, ptr %222, align 8
+  %223 = add nsw i32 %.170.val91, %.170.val
   %224 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %223)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -1077,9 +1077,9 @@ Abc_Clock.exit115:                                ; preds = %220, %227
   br label %.thread
 
 .thread:                                          ; preds = %200, %174, %Abc_Clock.exit113, %Abc_Clock.exit115, %209
-  %.271118 = phi ptr [ %183, %Abc_Clock.exit115 ], [ %183, %Abc_Clock.exit113 ], [ %183, %209 ], [ %156, %174 ], [ %183, %200 ]
+  %.170118 = phi ptr [ %183, %Abc_Clock.exit115 ], [ %183, %Abc_Clock.exit113 ], [ %183, %209 ], [ %156, %174 ], [ %183, %200 ]
   %.2 = phi i32 [ %219, %Abc_Clock.exit115 ], [ %219, %Abc_Clock.exit113 ], [ %201, %209 ], [ %175, %174 ], [ %201, %200 ]
-  store ptr %.271118, ptr %0, align 8
+  store ptr %.170118, ptr %0, align 8
   br label %237
 
 237:                                              ; preds = %58, %.thread, %28
@@ -1191,7 +1191,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %45, label %.lr.ph.split, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %38, %43, %.lr.ph.split, %16, %21, %.lr.ph.split.us, %6
-  %.2 = phi i32 [ 1, %6 ], [ %15, %.lr.ph.split.us ], [ 1, %21 ], [ %17, %16 ], [ %37, %.lr.ph.split ], [ 1, %43 ], [ %39, %38 ]
+  %.132 = phi i32 [ 1, %6 ], [ %15, %.lr.ph.split.us ], [ 1, %21 ], [ %17, %16 ], [ %37, %.lr.ph.split ], [ 1, %43 ], [ %39, %38 ]
   %.1 = phi i32 [ -1, %6 ], [ %14, %.lr.ph.split.us ], [ %14, %21 ], [ %14, %16 ], [ %26, %.lr.ph.split ], [ %26, %43 ], [ %26, %38 ]
   %.not39 = icmp eq i32 %5, 0
   br i1 %.not39, label %50, label %46
@@ -1203,7 +1203,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %50
 
 50:                                               ; preds = %46, %.critedge
-  %51 = icmp eq i32 %.2, -1
+  %51 = icmp eq i32 %.132, -1
   %.val4066.pre87 = load i32, ptr %9, align 4
   br i1 %51, label %52, label %56
 
@@ -1247,7 +1247,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge2, %66
   tail call void @free(ptr noundef nonnull %8) #9
-  ret i32 %.2
+  ret i32 %.132
 }
 
 declare ptr @Aig_ManMiterPartitioned(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

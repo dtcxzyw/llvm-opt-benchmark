@@ -293,7 +293,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
 
 .lr.ph93.i:                                       ; preds = %.lr.ph93.i, %.lr.ph93.preheader.i
   %indvars.iv119.i = phi i64 [ 1, %.lr.ph93.preheader.i ], [ %indvars.iv.next120.i, %.lr.ph93.i ]
-  %.07391.i = phi i32 [ 0, %.lr.ph93.preheader.i ], [ %.275.i, %.lr.ph93.i ]
+  %.07391.i = phi i32 [ 0, %.lr.ph93.preheader.i ], [ %.174.i, %.lr.ph93.i ]
   %.07690.i = phi i32 [ 1, %.lr.ph93.preheader.i ], [ %141, %.lr.ph93.i ]
   %.07889.i = phi i32 [ 1, %.lr.ph93.preheader.i ], [ %.179.i, %.lr.ph93.i ]
   %136 = getelementptr %struct.SortItem, ptr %67, i64 %indvars.iv119.i
@@ -306,7 +306,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
   %140 = add i32 %.07690.i, 1
   %narrow.i = select i1 %.not.i, i1 %138, i1 false
   %spec.select.i = zext i1 %narrow.i to i32
-  %.275.i = add i32 %.07391.i, %spec.select.i
+  %.174.i = add i32 %.07391.i, %spec.select.i
   %141 = select i1 %.not.i, i32 1, i32 %140
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
   %exitcond123.not.i = icmp eq i64 %indvars.iv.next120.i, %wide.trip.count122.i
@@ -315,7 +315,7 @@ generator_next.exit:                              ; preds = %generator_next.exit
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph93.i
   %142 = icmp eq i32 %141, 1
   %143 = zext i1 %142 to i32
-  %144 = add i32 %.275.i, %143
+  %144 = add i32 %.174.i, %143
   %145 = sitofp i32 %.179.i to double
   br label %ndistinct_for_combination.exit
 

@@ -242,10 +242,10 @@ define internal i32 @archive_compressor_compress_write(ptr nocapture noundef rea
   br label %49
 
 49:                                               ; preds = %60, %47
-  %.075 = phi i32 [ %36, %47 ], [ %spec.select, %60 ]
-  %50 = add i32 %.075, %.072.neg
+  %.176 = phi i32 [ %36, %47 ], [ %spec.select, %60 ]
+  %50 = add i32 %.176, %.072.neg
   %51 = icmp slt i32 %50, 0
-  %.reass = add i32 %.075, %invariant.op
+  %.reass = add i32 %.176, %invariant.op
   %spec.select = select i1 %51, i32 %.reass, i32 %50
   %52 = sext i32 %spec.select to i64
   %53 = getelementptr inbounds [69001 x i32], ptr %18, i64 0, i64 %52
@@ -265,7 +265,7 @@ define internal i32 @archive_compressor_compress_write(ptr nocapture noundef rea
   br i1 %61, label %49, label %.loopexit
 
 .loopexit:                                        ; preds = %60, %45
-  %.2 = phi i32 [ %36, %45 ], [ %spec.select, %60 ]
+  %.075 = phi i32 [ %36, %45 ], [ %spec.select, %60 ]
   %62 = tail call fastcc i32 @output_code(ptr noundef %0, i32 noundef %33)
   %.not92 = icmp eq i32 %62, 0
   br i1 %.not92, label %63, label %.loopexit95
@@ -281,7 +281,7 @@ define internal i32 @archive_compressor_compress_write(ptr nocapture noundef rea
   %68 = add nsw i32 %64, 1
   store i32 %68, ptr %20, align 4
   %69 = trunc i32 %64 to i16
-  %70 = sext i32 %.2 to i64
+  %70 = sext i32 %.075 to i64
   %71 = getelementptr inbounds [69001 x i16], ptr %19, i64 0, i64 %70
   store i16 %69, ptr %71, align 2
   %72 = load i32, ptr %17, align 8

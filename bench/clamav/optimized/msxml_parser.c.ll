@@ -461,7 +461,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 106:                                              ; preds = %._crit_edge, %99
   %107 = phi i32 [ %.pre, %._crit_edge ], [ %100, %99 ]
-  %.1195 = phi ptr [ %105, %._crit_edge ], [ %88, %99 ]
+  %.2196 = phi ptr [ %105, %._crit_edge ], [ %88, %99 ]
   %108 = and i32 %107, 1024
   %.not243 = icmp eq i32 %108, 0
   br i1 %.not243, label %.loopexit, label %109
@@ -474,7 +474,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   ]
 
 111:                                              ; preds = %109
-  %112 = call ptr @cli_jsonobj(ptr noundef nonnull %.1195, ptr noundef nonnull @.str.20) #8
+  %112 = call ptr @cli_jsonobj(ptr noundef nonnull %.2196, ptr noundef nonnull @.str.20) #8
   %.not244 = icmp eq ptr %112, null
   br i1 %.not244, label %.thread, label %.preheader279
 
@@ -492,7 +492,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br i1 %119, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader279, %109, %106, %75
-  %.2196 = phi ptr [ %.1195, %106 ], [ null, %75 ], [ %.1195, %109 ], [ %.1195, %.preheader279 ], [ %.1195, %.lr.ph ]
+  %.0194 = phi ptr [ %.2196, %106 ], [ null, %75 ], [ %.2196, %109 ], [ %.2196, %.preheader279 ], [ %.2196, %.lr.ph ]
   %120 = load i32, ptr %68, align 8
   %121 = and i32 %120, 2
   %.not245 = icmp eq i32 %121, 0
@@ -556,7 +556,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br label %.critedge
 
 .critedge:                                        ; preds = %135, %.critedge.loopexit.split.loop.exit, %132, %122, %.loopexit
-  %.2 = phi i32 [ 0, %122 ], [ 0, %.loopexit ], [ 0, %132 ], [ %140, %.critedge.loopexit.split.loop.exit ], [ 20, %135 ]
+  %.0192 = phi i32 [ 0, %122 ], [ 0, %.loopexit ], [ 0, %132 ], [ %140, %.critedge.loopexit.split.loop.exit ], [ 20, %135 ]
   %141 = call i32 @xmlTextReaderMoveToElement(ptr noundef %1) #8
   %142 = icmp eq i32 %141, -1
   br i1 %142, label %.thread, label %143
@@ -593,12 +593,12 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 .preheader:                                       ; preds = %149
   %151 = getelementptr inbounds i8, ptr %0, i64 16
   %152 = getelementptr inbounds i8, ptr %0, i64 24
-  %.not255 = icmp eq ptr %.2196, null
+  %.not255 = icmp eq ptr %.0194, null
   %153 = getelementptr inbounds i8, ptr %16, i64 16
   %154 = getelementptr inbounds i8, ptr %0, i64 8
   %155 = getelementptr inbounds i8, ptr %16, i64 48
   %156 = add nsw i32 %2, 1
-  %157 = select i1 %.not255, ptr %3, ptr %.2196
+  %157 = select i1 %.not255, ptr %3, ptr %.0194
   br label %160
 
 158:                                              ; preds = %149
@@ -648,7 +648,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br i1 %or.cond327, label %177, label %175
 
 175:                                              ; preds = %172
-  %176 = call fastcc i32 @msxml_parse_value(ptr noundef nonnull %.2196, ptr noundef %173)
+  %176 = call fastcc i32 @msxml_parse_value(ptr noundef nonnull %.0194, ptr noundef %173)
   %.not257 = icmp eq i32 %176, 0
   br i1 %.not257, label %._crit_edge304, label %.thread
 
@@ -712,7 +712,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %205 = load i32, ptr %9, align 4
   %206 = load ptr, ptr %8, align 8
   %207 = load ptr, ptr %154, align 8
-  %208 = call i32 %204(i32 noundef %205, ptr noundef %206, ptr noundef nonnull %16, i32 noundef %.2, ptr noundef nonnull %5, ptr noundef %207) #8
+  %208 = call i32 %204(i32 noundef %205, ptr noundef %206, ptr noundef nonnull %16, i32 noundef %.0192, ptr noundef nonnull %5, ptr noundef %207) #8
   %209 = load i32, ptr %9, align 4
   %210 = call i32 @close(i32 noundef %209) #8
   %211 = load ptr, ptr %155, align 8
@@ -859,7 +859,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 275:                                              ; preds = %273
   %276 = load ptr, ptr %152, align 8
-  %277 = call i32 %274(ptr noundef %270, ptr noundef %16, ptr noundef %.2196, ptr noundef %276) #8
+  %277 = call i32 %274(ptr noundef %270, ptr noundef %16, ptr noundef %.0194, ptr noundef %276) #8
   %.not254 = icmp eq i32 %277, 0
   br i1 %.not254, label %278, label %.thread
 

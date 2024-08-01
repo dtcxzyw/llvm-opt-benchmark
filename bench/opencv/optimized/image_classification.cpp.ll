@@ -413,7 +413,7 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %84
   br label %156
 
 155:                                              ; preds = %69, %153
-  %.0 = phi i32 [ 0, %153 ], [ -3, %69 ]
+  %.2 = phi i32 [ 0, %153 ], [ -3, %69 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #7
   br label %157
 
@@ -423,7 +423,7 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %84
   br label %158
 
 157:                                              ; preds = %49, %155
-  %.1 = phi i32 [ %.0, %155 ], [ -2, %49 ]
+  %.1 = phi i32 [ %.2, %155 ], [ -2, %49 ]
   call void @_ZN2cv3dnn14dnn4_v202405213NetD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
@@ -451,8 +451,8 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %84
   br label %163
 
 162:                                              ; preds = %157, %26
-  %.2 = phi i32 [ -1, %26 ], [ %.1, %157 ]
-  ret i32 %.2
+  %.0 = phi i32 [ -1, %26 ], [ %.1, %157 ]
+  ret i32 %.0
 
 163:                                              ; preds = %161, %51
   %.pn43.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn43.pn.pn.pn, %161 ], [ %52, %51 ]

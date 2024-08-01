@@ -3140,10 +3140,10 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   br i1 %.not.i.i, label %83, label %_ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit, !llvm.loop !21
 
 _ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit: ; preds = %87, %83, %75
-  %.sroa.0.1 = phi ptr [ %1, %75 ], [ null, %83 ], [ %1, %87 ]
-  %.sroa.4.1 = phi i64 [ %2, %75 ], [ 0, %83 ], [ %85, %87 ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.1, 1
+  %.sroa.0.0 = phi ptr [ %1, %75 ], [ null, %83 ], [ %1, %87 ]
+  %.sroa.4.0 = phi i64 [ %2, %75 ], [ 0, %83 ], [ %85, %87 ]
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %.fca.1.insert
 
 94:                                               ; preds = %58

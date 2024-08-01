@@ -502,8 +502,8 @@ land.rhs:                                         ; preds = %if.then5
   br label %if.end
 
 if.end:                                           ; preds = %land.rhs, %if.then
-  %ret.0 = phi i32 [ %call4, %if.then ], [ %0, %land.rhs ]
-  %tobool13.not = icmp eq i32 %ret.0, 0
+  %ret.1 = phi i32 [ %call4, %if.then ], [ %0, %land.rhs ]
+  %tobool13.not = icmp eq i32 %ret.1, 0
   br i1 %tobool13.not, label %land.end27.critedge, label %land.rhs14
 
 land.rhs14:                                       ; preds = %if.end
@@ -527,11 +527,11 @@ land.end27.critedge:                              ; preds = %if.then5, %if.end
   br label %if.end29
 
 if.end29:                                         ; preds = %land.rhs14, %land.rhs23, %land.end27.critedge, %entry
-  %ret.1 = phi i32 [ %call4, %entry ], [ 0, %land.rhs14 ], [ %1, %land.rhs23 ], [ 0, %land.end27.critedge ]
+  %ret.0 = phi i32 [ %call4, %entry ], [ 0, %land.rhs14 ], [ %1, %land.rhs23 ], [ 0, %land.end27.critedge ]
   tail call void @X509_STORE_CTX_free(ptr noundef %call2) #3
   tail call void @OPENSSL_sk_free(ptr noundef %call1) #3
   tail call void @X509_free(ptr noundef %call) #3
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #2

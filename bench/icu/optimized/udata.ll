@@ -444,9 +444,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2323,7 +2323,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 cleanup:                                          ; preds = %for.body, %for.cond.preheader, %if.end4
   %switch = phi i1 [ false, %if.end4 ], [ true, %for.cond.preheader ], [ %cmp13.not, %for.body ]
-  %retval.0 = phi ptr [ %1, %if.end4 ], [ undef, %for.cond.preheader ], [ null, %for.body ]
+  %retval.1 = phi ptr [ %1, %if.end4 ], [ undef, %for.cond.preheader ], [ null, %for.body ]
   invoke void @umtx_unlock_75(ptr noundef null)
           to label %_ZN6icu_755MutexD2Ev.exit unwind label %terminate.lpad.i
 
@@ -2473,7 +2473,7 @@ invoke.cont58:                                    ; preds = %if.end57
           to label %cleanup61 unwind label %lpad.loopexit.split-lp
 
 cleanup61:                                        ; preds = %invoke.cont58, %while.end, %if.then56
-  %retval.1 = phi ptr [ null, %if.then56 ], [ null, %while.end ], [ %call60, %invoke.cont58 ]
+  %retval.2 = phi ptr [ null, %if.then56 ], [ null, %while.end ], [ %call60, %invoke.cont58 ]
   %packageStub.i40 = getelementptr inbounds i8, ptr %iter, i64 176
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %packageStub.i40) #12
   %pathBuffer.i41 = getelementptr inbounds i8, ptr %iter, i64 112
@@ -2483,8 +2483,8 @@ cleanup61:                                        ; preds = %invoke.cont58, %whi
   br label %return
 
 return:                                           ; preds = %if.end29, %cleanup.cont, %_ZL20udata_findCachedDataPKcR10UErrorCode.exit, %lor.lhs.false, %if.then24, %if.then27, %_ZN6icu_755MutexD2Ev.exit, %if.then1, %entry, %cleanup61
-  %retval.2 = phi ptr [ %retval.0, %_ZN6icu_755MutexD2Ev.exit ], [ %retval.1, %cleanup61 ], [ null, %entry ], [ null, %if.then1 ], [ null, %if.then27 ], [ null, %if.then24 ], [ null, %lor.lhs.false ], [ %12, %_ZL20udata_findCachedDataPKcR10UErrorCode.exit ], [ %6, %cleanup.cont ], [ null, %if.end29 ]
-  ret ptr %retval.2
+  %retval.0 = phi ptr [ %retval.1, %_ZN6icu_755MutexD2Ev.exit ], [ %retval.2, %cleanup61 ], [ null, %entry ], [ null, %if.then1 ], [ null, %if.then27 ], [ null, %if.then24 ], [ null, %lor.lhs.false ], [ %12, %_ZL20udata_findCachedDataPKcR10UErrorCode.exit ], [ %6, %cleanup.cont ], [ null, %if.end29 ]
+  ret ptr %retval.0
 }
 
 declare signext i8 @UDataMemory_isLoaded_75(ptr noundef) local_unnamed_addr #5

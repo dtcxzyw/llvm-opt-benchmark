@@ -269,7 +269,7 @@ if.then7:                                         ; preds = %if.then5
 
 if.end12:                                         ; preds = %if.then7, %if.then5
   %ctx.addr.0 = phi ptr [ %call8, %if.then7 ], [ %ctx, %if.then5 ]
-  %new_ctx.0 = phi ptr [ %call8, %if.then7 ], [ null, %if.then5 ]
+  %new_ctx.1 = phi ptr [ %call8, %if.then7 ], [ null, %if.then5 ]
   br i1 %cmp1, label %land.lhs.true14, label %if.end21
 
 land.lhs.true14:                                  ; preds = %if.end12
@@ -312,12 +312,12 @@ land.lhs.true39:                                  ; preds = %if.end37
   br i1 %tobool42.not, label %err, label %if.end46
 
 if.end46:                                         ; preds = %land.lhs.true23, %if.end21, %land.lhs.true39, %if.end37, %if.end
-  %new_ctx.1 = phi ptr [ %new_ctx.0, %land.lhs.true23 ], [ %new_ctx.0, %if.end21 ], [ null, %land.lhs.true39 ], [ null, %if.end37 ], [ null, %if.end ]
+  %new_ctx.0 = phi ptr [ %new_ctx.1, %land.lhs.true23 ], [ %new_ctx.1, %if.end21 ], [ null, %land.lhs.true39 ], [ null, %if.end37 ], [ null, %if.end ]
   br label %err
 
 err:                                              ; preds = %land.lhs.true39, %land.lhs.true32, %land.lhs.true23, %land.lhs.true14, %if.end46
   %ret.0 = phi i32 [ 1, %if.end46 ], [ 0, %land.lhs.true23 ], [ 0, %land.lhs.true14 ], [ 0, %land.lhs.true39 ], [ 0, %land.lhs.true32 ]
-  %new_ctx.2 = phi ptr [ %new_ctx.1, %if.end46 ], [ %new_ctx.0, %land.lhs.true23 ], [ %new_ctx.0, %land.lhs.true14 ], [ null, %land.lhs.true39 ], [ null, %land.lhs.true32 ]
+  %new_ctx.2 = phi ptr [ %new_ctx.0, %if.end46 ], [ %new_ctx.1, %land.lhs.true23 ], [ %new_ctx.1, %land.lhs.true14 ], [ null, %land.lhs.true39 ], [ null, %land.lhs.true32 ]
   tail call void @BN_CTX_free(ptr noundef %new_ctx.2) #5
   br label %return
 
@@ -654,13 +654,13 @@ land.lhs.true43:                                  ; preds = %if.end41
   br i1 %tobool46.not, label %err, label %if.end49
 
 if.end49:                                         ; preds = %if.end41, %land.lhs.true43, %if.end19, %land.lhs.true21
-  %new_ctx.1 = phi ptr [ %new_ctx.0, %land.lhs.true21 ], [ %new_ctx.0, %if.end19 ], [ null, %land.lhs.true43 ], [ null, %if.end41 ]
+  %new_ctx.2 = phi ptr [ %new_ctx.0, %land.lhs.true21 ], [ %new_ctx.0, %if.end19 ], [ null, %land.lhs.true43 ], [ null, %if.end41 ]
   br label %err
 
 err:                                              ; preds = %land.lhs.true43, %land.lhs.true36, %land.lhs.true29, %land.lhs.true21, %land.lhs.true13, %land.lhs.true, %if.end49
-  %new_ctx.2 = phi ptr [ %new_ctx.1, %if.end49 ], [ %new_ctx.0, %land.lhs.true21 ], [ %new_ctx.0, %land.lhs.true13 ], [ %new_ctx.0, %land.lhs.true ], [ null, %land.lhs.true43 ], [ null, %land.lhs.true36 ], [ null, %land.lhs.true29 ]
+  %new_ctx.1 = phi ptr [ %new_ctx.2, %if.end49 ], [ %new_ctx.0, %land.lhs.true21 ], [ %new_ctx.0, %land.lhs.true13 ], [ %new_ctx.0, %land.lhs.true ], [ null, %land.lhs.true43 ], [ null, %land.lhs.true36 ], [ null, %land.lhs.true29 ]
   %ret.0 = phi i32 [ 1, %if.end49 ], [ 0, %land.lhs.true21 ], [ 0, %land.lhs.true13 ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true43 ], [ 0, %land.lhs.true36 ], [ 0, %land.lhs.true29 ]
-  tail call void @BN_CTX_free(ptr noundef %new_ctx.2) #5
+  tail call void @BN_CTX_free(ptr noundef %new_ctx.1) #5
   br label %return
 
 return:                                           ; preds = %if.then2, %err

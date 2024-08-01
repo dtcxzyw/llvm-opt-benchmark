@@ -633,9 +633,9 @@ do.body4.i.i:                                     ; preds = %if.then.i
   br label %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ED2Ev.exit"
 
 "_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_0ED2Ev.exit": ; preds = %entry, %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_1ED2Ev.exit"
-  %retval.1 = phi i1 [ %cmp812, %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_1ED2Ev.exit" ], [ false, %entry ]
+  %retval.0 = phi i1 [ %cmp812, %"_ZN4node16OnScopeLeaveImplIZNS_6Dotenv9ParsePathESt17basic_string_viewIcSt11char_traitsIcEEE3$_1ED2Ev.exit" ], [ false, %entry ]
   call void @uv_fs_req_cleanup(ptr noundef nonnull %req) #14
-  ret i1 %retval.1
+  ret i1 %retval.0
 }
 
 declare i32 @uv_fs_open(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0

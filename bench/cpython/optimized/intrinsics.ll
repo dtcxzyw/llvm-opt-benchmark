@@ -1250,7 +1250,7 @@ if.else64.i:                                      ; preds = %if.else59.i
   br label %if.end67.i
 
 if.end67.i:                                       ; preds = %if.else64.i, %if.then62.i, %if.end54.i
-  %err.1.i = phi i32 [ %call63.i, %if.then62.i ], [ %call65.i, %if.else64.i ], [ -1, %if.end54.i ]
+  %err.3.i = phi i32 [ %call63.i, %if.then62.i ], [ %call65.i, %if.else64.i ], [ -1, %if.end54.i ]
   %42 = load i64, ptr %call1563.i, align 8
   %43 = and i64 %42, 2147483648
   %cmp.i146.not.i = icmp eq i64 %43, 0
@@ -1286,11 +1286,11 @@ if.then1.i.i.i:                                   ; preds = %if.end.i.i53.i
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %if.then1.i.i.i, %if.end.i.i53.i, %if.then.i51.i, %Py_DECREF.exit80.i
-  %cmp68.i = icmp slt i32 %err.1.i, 0
+  %cmp68.i = icmp slt i32 %err.3.i, 0
   br i1 %cmp68.i, label %for.end.i, label %for.inc.i
 
 for.inc.i:                                        ; preds = %Py_XDECREF.exit.i, %if.then1.i87.i, %if.end.i84.i, %if.then52.i
-  %err.2.i = phi i32 [ %err.062.i, %if.then52.i ], [ %err.062.i, %if.then1.i87.i ], [ %err.062.i, %if.end.i84.i ], [ %err.1.i, %Py_XDECREF.exit.i ]
+  %err.2.i = phi i32 [ %err.062.i, %if.then52.i ], [ %err.062.i, %if.then1.i87.i ], [ %err.062.i, %if.end.i84.i ], [ %err.3.i, %Py_XDECREF.exit.i ]
   %46 = freeze i32 %err.2.i
   %inc.i = add i32 %pos.061.i, 1
   %47 = load ptr, ptr %all.i, align 8
@@ -1300,7 +1300,7 @@ for.inc.i:                                        ; preds = %Py_XDECREF.exit.i, 
   br i1 %cmp16.i, label %if.then18.i.loopexit, label %if.end22.i
 
 for.end.i:                                        ; preds = %Py_XDECREF.exit.i, %if.then1.i96.i, %if.end.i93.i, %Py_DECREF.exit107.i, %if.then1.i114.i, %if.end.i111.i, %if.then30.i, %if.else.i, %if.then18.i
-  %err.3.i = phi i1 [ %err.0.lcssa.i, %if.else.i ], [ true, %if.then18.i ], [ true, %if.then30.i ], [ true, %if.then1.i114.i ], [ true, %if.end.i111.i ], [ true, %Py_DECREF.exit107.i ], [ true, %if.then1.i96.i ], [ true, %if.end.i93.i ], [ true, %Py_XDECREF.exit.i ]
+  %err.1.i = phi i1 [ %err.0.lcssa.i, %if.else.i ], [ true, %if.then18.i ], [ true, %if.then30.i ], [ true, %if.then1.i114.i ], [ true, %if.end.i111.i ], [ true, %Py_DECREF.exit107.i ], [ true, %if.then1.i96.i ], [ true, %if.end.i93.i ], [ true, %Py_XDECREF.exit.i ]
   %48 = load ptr, ptr %all.i, align 8
   %49 = load i64, ptr %48, align 8
   %50 = and i64 %49, 2147483648
@@ -1327,7 +1327,7 @@ import_all_from.exit:                             ; preds = %for.end.i, %if.end.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %all.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %dict.i)
   call void @_PyFrame_LocalsToFast(ptr noundef %0, i32 noundef 0) #4
-  br i1 %err.3.i, label %51, label %return
+  br i1 %err.1.i, label %51, label %return
 
 51:                                               ; preds = %import_all_from.exit.thread, %import_all_from.exit
   br label %return

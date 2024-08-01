@@ -2085,7 +2085,7 @@ _ZN7testing7MessageD2Ev.exit89:                   ; preds = %ehcleanup95, %_ZNKS
   br label %ehcleanup100
 
 cleanup97:                                        ; preds = %invoke.cont79, %_ZN7testing7MessageD2Ev.exit84
-  %cleanup.dest.slot.1 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit84 ], [ 0, %invoke.cont79 ]
+  %cleanup.dest.slot.2 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit84 ], [ 0, %invoke.cont79 ]
   %59 = load ptr, ptr %message_.i.i74, align 8
   %cmp.not.i.i91 = icmp eq ptr %59, null
   br i1 %cmp.not.i.i91, label %cleanup101, label %cleanup101.sink.split
@@ -2093,18 +2093,18 @@ cleanup97:                                        ; preds = %invoke.cont79, %_ZN
 cleanup101.sink.split:                            ; preds = %cleanup97, %_ZN7testing7MessageD2Ev.exit
   %.sink114 = phi ptr [ %43, %_ZN7testing7MessageD2Ev.exit ], [ %59, %cleanup97 ]
   %message_.i.i.sink.ph = phi ptr [ %message_.i.i, %_ZN7testing7MessageD2Ev.exit ], [ %message_.i.i74, %cleanup97 ]
-  %cleanup.dest.slot.2.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ %cleanup.dest.slot.1, %cleanup97 ]
+  %cleanup.dest.slot.1.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ %cleanup.dest.slot.2, %cleanup97 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink114) #27
   call void @_ZdlPv(ptr noundef nonnull %.sink114) #31
   br label %cleanup101
 
 cleanup101:                                       ; preds = %cleanup101.sink.split, %cleanup97, %_ZN7testing7MessageD2Ev.exit
   %message_.i.i.sink = phi ptr [ %message_.i.i, %_ZN7testing7MessageD2Ev.exit ], [ %message_.i.i74, %cleanup97 ], [ %message_.i.i.sink.ph, %cleanup101.sink.split ]
-  %cleanup.dest.slot.2 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ %cleanup.dest.slot.1, %cleanup97 ], [ %cleanup.dest.slot.2.ph, %cleanup101.sink.split ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ %cleanup.dest.slot.2, %cleanup97 ], [ %cleanup.dest.slot.1.ph, %cleanup101.sink.split ]
   store ptr null, ptr %message_.i.i.sink, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_122) #27
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_112) #27
-  %switch = icmp eq i32 %cleanup.dest.slot.2, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
   br i1 %switch, label %for.cond3, label %for.end111
 
 ehcleanup100:                                     ; preds = %_ZN7testing7MessageD2Ev.exit89, %lpad80
@@ -2670,8 +2670,8 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %cmp10, label %while.body, label %if.end13, !llvm.loop !59
 
 if.end13:                                         ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28, %if.then6, %if.end
-  %product.1 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i31, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28 ]
-  %shr.i = lshr i64 %product.1, 32
+  %product.0 = phi i64 [ %mul.i, %if.end ], [ %mul.i, %if.then6 ], [ %mul.i31, %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit28 ]
+  %shr.i = lshr i64 %product.0, 32
   %conv.i32 = trunc nuw i64 %shr.i to i32
   br label %return
 
@@ -3569,7 +3569,7 @@ _ZN7testing7MessageD2Ev.exit89:                   ; preds = %ehcleanup91, %_ZNKS
   br label %ehcleanup96
 
 cleanup93:                                        ; preds = %invoke.cont76, %_ZN7testing7MessageD2Ev.exit84
-  %cleanup.dest.slot.1 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit84 ], [ 0, %invoke.cont76 ]
+  %cleanup.dest.slot.2 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit84 ], [ 0, %invoke.cont76 ]
   %59 = load ptr, ptr %message_.i.i74, align 8
   %cmp.not.i.i91 = icmp eq ptr %59, null
   br i1 %cmp.not.i.i91, label %cleanup97, label %cleanup97.sink.split
@@ -3577,18 +3577,18 @@ cleanup93:                                        ; preds = %invoke.cont76, %_ZN
 cleanup97.sink.split:                             ; preds = %cleanup93, %_ZN7testing7MessageD2Ev.exit
   %.sink112 = phi ptr [ %42, %_ZN7testing7MessageD2Ev.exit ], [ %59, %cleanup93 ]
   %message_.i.i.sink.ph = phi ptr [ %message_.i.i, %_ZN7testing7MessageD2Ev.exit ], [ %message_.i.i74, %cleanup93 ]
-  %cleanup.dest.slot.2.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ %cleanup.dest.slot.1, %cleanup93 ]
+  %cleanup.dest.slot.1.ph = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ %cleanup.dest.slot.2, %cleanup93 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink112) #27
   call void @_ZdlPv(ptr noundef nonnull %.sink112) #31
   br label %cleanup97
 
 cleanup97:                                        ; preds = %cleanup97.sink.split, %cleanup93, %_ZN7testing7MessageD2Ev.exit
   %message_.i.i.sink = phi ptr [ %message_.i.i, %_ZN7testing7MessageD2Ev.exit ], [ %message_.i.i74, %cleanup93 ], [ %message_.i.i.sink.ph, %cleanup97.sink.split ]
-  %cleanup.dest.slot.2 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ %cleanup.dest.slot.1, %cleanup93 ], [ %cleanup.dest.slot.2.ph, %cleanup97.sink.split ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit ], [ %cleanup.dest.slot.2, %cleanup93 ], [ %cleanup.dest.slot.1.ph, %cleanup97.sink.split ]
   store ptr null, ptr %message_.i.i.sink, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_156) #27
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_146) #27
-  %switch = icmp eq i32 %cleanup.dest.slot.2, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
   br i1 %switch, label %for.cond3, label %for.end107
 
 ehcleanup96:                                      ; preds = %_ZN7testing7MessageD2Ev.exit89, %lpad81

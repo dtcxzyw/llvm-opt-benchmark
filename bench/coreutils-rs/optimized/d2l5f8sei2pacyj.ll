@@ -442,13 +442,13 @@ define internal fastcc noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterato
   %.lcssa.sink.i.i19 = phi ptr [ %.sink14.i.i.i.i, %68 ], [ %.lcssa.sink.i.i20, %66 ]
   %70 = phi i8 [ %17, %68 ], [ 1, %66 ]
   %.pn27 = phi i64 [ %20, %68 ], [ %14, %66 ]
-  %.sroa.4.1.i.i.ph = sub i64 %.pn27, %.lcssa25
-  %.not.i.i.i6 = icmp eq i64 %.sroa.4.1.i.i.ph, 1
+  %.sroa.4.0.i.i.ph = sub i64 %.pn27, %.lcssa25
+  %.not.i.i.i6 = icmp eq i64 %.sroa.4.0.i.i.ph, 1
   br i1 %.not.i.i.i6, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h79327661fbd07518E.exit", label %.critedge.backedge
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h79327661fbd07518E.exit": ; preds = %._crit_edge.i.i.i
-  %.sroa.0.1.i.i.ph = getelementptr inbounds i8, ptr %.val.i.i, i64 %.lcssa25
-  %lhsc.i.i = load i8, ptr %.sroa.0.1.i.i.ph, align 1, !alias.scope !102
+  %.sroa.0.0.i.i.ph = getelementptr inbounds i8, ptr %.val.i.i, i64 %.lcssa25
+  %lhsc.i.i = load i8, ptr %.sroa.0.0.i.i.ph, align 1, !alias.scope !102
   %71 = icmp eq i8 %lhsc.i.i, 45
   br i1 %71, label %.critedge._crit_edge, label %.critedge.backedge
 

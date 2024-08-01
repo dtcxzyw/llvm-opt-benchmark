@@ -1693,8 +1693,8 @@ proto_item_set_generated.exit.i:                  ; preds = %54, %51, %44, %10
   br label %dissect_iso14443_attrib.exit
 
 dissect_iso14443_attrib.exit:                     ; preds = %107, %79, %76, %4, %109
-  %.1 = phi i32 [ %spec.select, %107 ], [ %117, %109 ], [ 0, %4 ], [ %spec.select.i, %76 ], [ %88, %79 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %spec.select, %107 ], [ %117, %109 ], [ 0, %4 ], [ %spec.select.i, %76 ], [ %88, %79 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

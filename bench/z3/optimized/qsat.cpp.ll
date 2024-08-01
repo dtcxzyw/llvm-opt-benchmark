@@ -1861,8 +1861,8 @@ _ZN2qe9max_level5mergeERKS0_.exit:                ; preds = %if.then.i.i.i52, %i
   br label %if.end14
 
 if.end14:                                         ; preds = %for.body.i.i.i30, %for.inc36.i.i.i41, %for.body20.i.i.i38, %for.cond18.preheader.i.i.i36, %_ZN2qe9max_level5mergeERKS0_.exit
-  %lvl.sroa.5.0191 = phi i32 [ %lvl.sroa.5.0.extract.trunc, %_ZN2qe9max_level5mergeERKS0_.exit ], [ -1, %for.cond18.preheader.i.i.i36 ], [ -1, %for.body20.i.i.i38 ], [ -1, %for.inc36.i.i.i41 ], [ -1, %for.body.i.i.i30 ]
-  %lvl.sroa.0.0190 = phi i32 [ %lvl.sroa.0.0.extract.trunc, %_ZN2qe9max_level5mergeERKS0_.exit ], [ -1, %for.cond18.preheader.i.i.i36 ], [ -1, %for.body20.i.i.i38 ], [ -1, %for.inc36.i.i.i41 ], [ -1, %for.body.i.i.i30 ]
+  %lvl.sroa.5.1191 = phi i32 [ %lvl.sroa.5.0.extract.trunc, %_ZN2qe9max_level5mergeERKS0_.exit ], [ -1, %for.cond18.preheader.i.i.i36 ], [ -1, %for.body20.i.i.i38 ], [ -1, %for.inc36.i.i.i41 ], [ -1, %for.body.i.i.i30 ]
+  %lvl.sroa.0.1190 = phi i32 [ %lvl.sroa.0.0.extract.trunc, %_ZN2qe9max_level5mergeERKS0_.exit ], [ -1, %for.cond18.preheader.i.i.i36 ], [ -1, %for.body20.i.i.i38 ], [ -1, %for.inc36.i.i.i41 ], [ -1, %for.body.i.i.i30 ]
   %m_num_args.i = getelementptr inbounds i8, ptr %11, i64 24
   %29 = load i32, ptr %m_num_args.i, align 8
   %idx.ext.i60 = zext i32 %29 to i64
@@ -1879,8 +1879,8 @@ for.body.preheader:                               ; preds = %if.end14
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %has_new.0228 = phi i1 [ %has_new.1, %for.inc ], [ false, %for.body.preheader ]
   %__begin2.0227 = phi ptr [ %incdec.ptr, %for.inc ], [ %m_args.i.ptr, %for.body.preheader ]
-  %lvl0.sroa.0.1226 = phi i32 [ %lvl0.sroa.0.2, %for.inc ], [ %lvl.sroa.0.0190, %for.body.preheader ]
-  %lvl0.sroa.6.1224 = phi i32 [ %lvl0.sroa.6.2, %for.inc ], [ %lvl.sroa.5.0191, %for.body.preheader ]
+  %lvl0.sroa.0.1226 = phi i32 [ %lvl0.sroa.0.2, %for.inc ], [ %lvl.sroa.0.1190, %for.body.preheader ]
+  %lvl0.sroa.6.1224 = phi i32 [ %lvl0.sroa.6.2, %for.inc ], [ %lvl.sroa.5.1191, %for.body.preheader ]
   %31 = load ptr, ptr %__begin2.0227, align 8
   %m_kind.i.i = getelementptr inbounds i8, ptr %31, i64 4
   %bf.load.i.i = load i32, ptr %m_kind.i.i, align 4
@@ -2124,8 +2124,8 @@ for.end:                                          ; preds = %for.inc
   br i1 %has_new.1, label %while.cond.backedge, label %if.then34
 
 if.then34:                                        ; preds = %if.end14, %for.end
-  %lvl0.sroa.0.1.lcssa250 = phi i32 [ %lvl0.sroa.0.2, %for.end ], [ %lvl.sroa.0.0190, %if.end14 ]
-  %lvl0.sroa.6.1.lcssa249 = phi i32 [ %lvl0.sroa.6.2, %for.end ], [ %lvl.sroa.5.0191, %if.end14 ]
+  %lvl0.sroa.0.1.lcssa250 = phi i32 [ %lvl0.sroa.0.2, %for.end ], [ %lvl.sroa.0.1190, %if.end14 ]
+  %lvl0.sroa.6.1.lcssa249 = phi i32 [ %lvl0.sroa.6.2, %for.end ], [ %lvl.sroa.5.1191, %if.end14 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %11, ptr %ref.tmp.i, align 8
   %lvl0.sroa.6.0.insert.ext = zext i32 %lvl0.sroa.6.1.lcssa249 to i64

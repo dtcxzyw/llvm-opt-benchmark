@@ -83,8 +83,8 @@ define internal i32 @dissect_rfc7468(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph:                                           ; preds = %4, %.loopexit148
   %.098170 = phi i32 [ %41, %.loopexit148 ], [ 0, %4 ]
-  %.0127169 = phi i32 [ %.1128.ph, %.loopexit148 ], [ 0, %4 ]
-  %.0130168 = phi ptr [ %.1131.ph, %.loopexit148 ], [ null, %4 ]
+  %.0127169 = phi i32 [ %.4.ph, %.loopexit148 ], [ 0, %4 ]
+  %.0130168 = phi ptr [ %.2132.ph, %.loopexit148 ], [ null, %4 ]
   %15 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.098170, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #3
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %.loopexit244, label %17
@@ -140,8 +140,8 @@ define internal i32 @dissect_rfc7468(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %or.cond.i, label %.loopexit148, label %34
 
 .loopexit148:                                     ; preds = %.lr.ph.i, %17, %21, %22, %29, %29
-  %.1131.ph = phi ptr [ %.0130168, %21 ], [ %.0130168, %22 ], [ %26, %29 ], [ %26, %29 ], [ %.0130168, %17 ], [ %26, %.lr.ph.i ]
-  %.1128.ph = phi i32 [ %.0127169, %21 ], [ %.0127169, %22 ], [ %27, %29 ], [ %27, %29 ], [ %.0127169, %17 ], [ %27, %.lr.ph.i ]
+  %.2132.ph = phi ptr [ %.0130168, %21 ], [ %.0130168, %22 ], [ %26, %29 ], [ %26, %29 ], [ %.0130168, %17 ], [ %26, %.lr.ph.i ]
+  %.4.ph = phi i32 [ %.0127169, %21 ], [ %.0127169, %22 ], [ %27, %29 ], [ %27, %29 ], [ %.0127169, %17 ], [ %27, %.lr.ph.i ]
   %38 = load i32, ptr %5, align 4
   %39 = sub i32 %38, %.098170
   %40 = call ptr @proto_tree_add_format_text(ptr noundef %11, ptr noundef %0, i32 noundef %.098170, i32 noundef %39) #3
@@ -152,8 +152,8 @@ define internal i32 @dissect_rfc7468(ptr noundef %0, ptr noundef %1, ptr noundef
 
 line_is_eb.exit:                                  ; preds = %.loopexit148, %25, %31, %34, %4
   %.098164 = phi i32 [ 0, %4 ], [ %.098170, %34 ], [ %41, %.loopexit148 ], [ %.098170, %25 ], [ %.098170, %31 ]
-  %.2132 = phi ptr [ null, %4 ], [ %26, %34 ], [ %.1131.ph, %.loopexit148 ], [ %26, %25 ], [ %26, %31 ]
-  %.2129 = phi i32 [ 0, %4 ], [ %27, %34 ], [ %.1128.ph, %.loopexit148 ], [ 0, %25 ], [ %27, %31 ]
+  %.1131 = phi ptr [ null, %4 ], [ %26, %34 ], [ %.2132.ph, %.loopexit148 ], [ %26, %25 ], [ %26, %31 ]
+  %.1128 = phi i32 [ 0, %4 ], [ %27, %34 ], [ %.4.ph, %.loopexit148 ], [ 0, %25 ], [ %27, %31 ]
   %43 = load i32, ptr %5, align 4
   %44 = sub i32 %43, %.098164
   %45 = call ptr @proto_tree_add_format_text(ptr noundef %11, ptr noundef %0, i32 noundef %.098164, i32 noundef %44) #3
@@ -161,11 +161,11 @@ line_is_eb.exit:                                  ; preds = %.loopexit148, %25, 
   %47 = call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46) #3
   %48 = getelementptr inbounds i8, ptr %1, i64 408
   %49 = load ptr, ptr %48, align 8
-  %50 = sext i32 %.2129 to i64
-  %51 = call noalias ptr @wmem_strndup(ptr noundef %49, ptr noundef %.2132, i64 noundef %50) #3
+  %50 = sext i32 %.1128 to i64
+  %51 = call noalias ptr @wmem_strndup(ptr noundef %49, ptr noundef %.1131, i64 noundef %50) #3
   %52 = load i32, ptr @hf_rfc7468_preeb_label, align 4
   %53 = add i32 %.098164, 11
-  %54 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef %.2129, i32 noundef 0) #3
+  %54 = call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef %.1128, i32 noundef 0) #3
   %55 = load ptr, ptr %12, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.14, ptr noundef %51) #3
   %.1181 = load i32, ptr %5, align 4
@@ -221,7 +221,7 @@ line_is_blank.exit:                               ; preds = %.loopexit146, %.lr.
   %.099190 = phi i32 [ %108, %.loopexit ], [ 0, %line_is_blank.exit ]
   %.0100189 = phi i64 [ %101, %.loopexit ], [ 0, %line_is_blank.exit ]
   %.0101188 = phi ptr [ %103, %.loopexit ], [ null, %line_is_blank.exit ]
-  %.3187 = phi i32 [ %.4.ph, %.loopexit ], [ %.2129, %line_is_blank.exit ]
+  %.2129187 = phi i32 [ %.5.ph, %.loopexit ], [ %.1128, %line_is_blank.exit ]
   %71 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef %.2191, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 0) #3
   %72 = icmp eq i32 %71, -1
   br i1 %72, label %.loopexit244, label %73
@@ -277,7 +277,7 @@ line_is_blank.exit:                               ; preds = %.loopexit146, %.lr.
   br i1 %or.cond.i122, label %.loopexit, label %90
 
 .loopexit:                                        ; preds = %.lr.ph.i118, %73, %77, %78, %85, %85
-  %.4.ph = phi i32 [ %.3187, %77 ], [ %.3187, %78 ], [ %83, %85 ], [ %83, %85 ], [ %.3187, %73 ], [ %83, %.lr.ph.i118 ]
+  %.5.ph = phi i32 [ %.2129187, %77 ], [ %.2129187, %78 ], [ %83, %85 ], [ %83, %85 ], [ %.2129187, %73 ], [ %83, %.lr.ph.i118 ]
   %94 = load i32, ptr %5, align 4
   %95 = sub i32 %94, %.2191
   %96 = call ptr @proto_tree_add_format_text(ptr noundef %11, ptr noundef %0, i32 noundef %.2191, i32 noundef %95) #3
@@ -302,7 +302,7 @@ line_is_eb.exit124:                               ; preds = %.loopexit, %81, %87
   %.0101158 = phi ptr [ %.0101188, %90 ], [ %103, %.loopexit ], [ %.0101188, %81 ], [ %.0101188, %87 ]
   %.099155 = phi i32 [ %.099190, %90 ], [ %108, %.loopexit ], [ %.099190, %81 ], [ %.099190, %87 ]
   %.2152 = phi i32 [ %.2191, %90 ], [ %109, %.loopexit ], [ %.2191, %81 ], [ %.2191, %87 ]
-  %.5 = phi i32 [ %83, %90 ], [ %.4.ph, %.loopexit ], [ 0, %81 ], [ %83, %87 ]
+  %.3 = phi i32 [ %83, %90 ], [ %.5.ph, %.loopexit ], [ 0, %81 ], [ %83, %87 ]
   %.not110 = icmp eq i32 %.099155, 0
   br i1 %.not110, label %line_is_eb.exit124.thread, label %111
 
@@ -324,7 +324,7 @@ line_is_eb.exit124:                               ; preds = %.loopexit, %81, %87
   br label %line_is_eb.exit124.thread
 
 line_is_eb.exit124.thread:                        ; preds = %line_is_blank.exit, %111, %116, %line_is_eb.exit124
-  %.5228 = phi i32 [ %.5, %111 ], [ %.5, %116 ], [ %.5, %line_is_eb.exit124 ], [ %.2129, %line_is_blank.exit ]
+  %.3228 = phi i32 [ %.3, %111 ], [ %.3, %116 ], [ %.3, %line_is_eb.exit124 ], [ %.1128, %line_is_blank.exit ]
   %.2152227 = phi i32 [ %.2152, %111 ], [ %.2152, %116 ], [ %.2152, %line_is_eb.exit124 ], [ %.1161, %line_is_blank.exit ]
   %123 = load i32, ptr %5, align 4
   %124 = sub i32 %123, %.2152227
@@ -333,7 +333,7 @@ line_is_eb.exit124.thread:                        ; preds = %line_is_blank.exit,
   %127 = call ptr @proto_item_add_subtree(ptr noundef %125, i32 noundef %126) #3
   %128 = load i32, ptr @hf_rfc7468_posteb_label, align 4
   %129 = add i32 %.2152227, 9
-  %130 = call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %128, ptr noundef %0, i32 noundef %129, i32 noundef %.5228, i32 noundef 0) #3
+  %130 = call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %128, ptr noundef %0, i32 noundef %129, i32 noundef %.3228, i32 noundef 0) #3
   br label %.loopexit244
 
 .loopexit244:                                     ; preds = %.lr.ph, %.lr.ph184, %.lr.ph192, %line_is_eb.exit124.thread

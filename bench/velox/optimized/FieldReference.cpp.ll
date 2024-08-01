@@ -650,7 +650,7 @@ invoke.cont52:                                    ; preds = %if.then51
           to label %cleanup unwind label %lpad4
 
 if.end56:                                         ; preds = %invoke.cont46, %invoke.cont32
-  %nonNullRows.0 = phi ptr [ %33, %invoke.cont46 ], [ %rows, %invoke.cont32 ]
+  %nonNullRows.1 = phi ptr [ %33, %invoke.cont46 ], [ %rows, %invoke.cont32 ]
   %isIdentityMapping_.i = getelementptr inbounds i8, ptr %decoded, i64 58
   %36 = load i8, ptr %isIdentityMapping_.i, align 2
   %tobool.i52 = trunc i8 %36 to i1
@@ -720,7 +720,7 @@ if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %if.then.i.i.i.i.i.i
 _ZSt10_ConstructISt10shared_ptrIN8facebook5velox10BaseVectorEEJRKS4_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i.i, %call5.i.i.i.i.noexc.i
   %_M_finish.i.i58 = getelementptr inbounds i8, ptr %ref.tmp64, i64 8
   store ptr %add.ptr.i1.i, ptr %_M_finish.i.i58, align 8
-  invoke void @_ZN8facebook5velox4exec14PeeledEncoding4peelERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaIS6_EERKNS0_17SelectivityVectorERNS1_18LocalDecodedVectorEbRS8_(ptr nonnull sret(%"class.std::shared_ptr.34") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp64, ptr noundef nonnull align 8 dereferenceable(38) %nonNullRows.0, ptr noundef nonnull align 8 dereferenceable(16) %localDecoded, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %peeledVectors)
+  invoke void @_ZN8facebook5velox4exec14PeeledEncoding4peelERKSt6vectorISt10shared_ptrINS0_10BaseVectorEESaIS6_EERKNS0_17SelectivityVectorERNS1_18LocalDecodedVectorEbRS8_(ptr nonnull sret(%"class.std::shared_ptr.34") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp64, ptr noundef nonnull align 8 dereferenceable(38) %nonNullRows.1, ptr noundef nonnull align 8 dereferenceable(16) %localDecoded, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(24) %peeledVectors)
           to label %invoke.cont70 unwind label %lpad69
 
 lpad.i:                                           ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit
@@ -1338,7 +1338,7 @@ if.end119:                                        ; preds = %if.else112
   br label %if.end124
 
 if.end124:                                        ; preds = %if.then.i.i.i197, %invoke.cont.i195, %if.end119, %if.then
-  %nonNullRows.1 = phi ptr [ %rows, %if.then ], [ %nonNullRows.0, %if.end119 ], [ %nonNullRows.0, %invoke.cont.i195 ], [ %nonNullRows.0, %if.then.i.i.i197 ]
+  %nonNullRows.0 = phi ptr [ %rows, %if.then ], [ %nonNullRows.1, %if.end119 ], [ %nonNullRows.1, %invoke.cont.i195 ], [ %nonNullRows.1, %if.then.i.i.i197 ]
   %useDecode.0.shrunk = phi i1 [ false, %if.then ], [ false, %if.end119 ], [ %lnot59, %invoke.cont.i195 ], [ %lnot59, %if.then.i.i.i197 ]
   %row.0 = phi ptr [ %3, %if.then ], [ %142, %if.end119 ], [ %125, %invoke.cont.i195 ], [ %125, %if.then.i.i.i197 ]
   %index_125 = getelementptr inbounds i8, ptr %this, i64 480
@@ -1599,7 +1599,7 @@ if.else.i.i.i.i.i294:                             ; preds = %if.then.i.i.i289
   br label %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit295
 
 _ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit295: ; preds = %invoke.cont174, %if.then.i.i.i.i.i292, %if.else.i.i.i.i.i294
-  invoke void @_ZNK8facebook5velox4exec14PeeledEncoding4wrapERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolES3_INS0_10BaseVectorEERKNS0_17SelectivityVectorE(ptr nonnull sret(%"class.std::shared_ptr.29") align 8 %ref.tmp172, ptr noundef nonnull align 8 dereferenceable(32) %178, ptr noundef nonnull align 8 dereferenceable(16) %type_, ptr noundef %180, ptr noundef nonnull %agg.tmp176, ptr noundef nonnull align 8 dereferenceable(38) %nonNullRows.1)
+  invoke void @_ZNK8facebook5velox4exec14PeeledEncoding4wrapERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolES3_INS0_10BaseVectorEERKNS0_17SelectivityVectorE(ptr nonnull sret(%"class.std::shared_ptr.29") align 8 %ref.tmp172, ptr noundef nonnull align 8 dereferenceable(32) %178, ptr noundef nonnull align 8 dereferenceable(16) %type_, ptr noundef %180, ptr noundef nonnull %agg.tmp176, ptr noundef nonnull align 8 dereferenceable(38) %nonNullRows.0)
           to label %invoke.cont178 unwind label %lpad177
 
 invoke.cont178:                                   ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit295
@@ -1837,7 +1837,7 @@ if.end181:                                        ; preds = %if.end8.sink.split.
   %vtable = load ptr, ptr %221, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
   %223 = load ptr, ptr %vfn, align 8
-  invoke void %223(ptr noundef nonnull align 8 dereferenceable(99) %221, ptr noundef %222, ptr noundef nonnull align 8 dereferenceable(38) %nonNullRows.1, ptr noundef null)
+  invoke void %223(ptr noundef nonnull align 8 dereferenceable(99) %221, ptr noundef %222, ptr noundef nonnull align 8 dereferenceable(38) %nonNullRows.0, ptr noundef null)
           to label %if.end223 unwind label %lpad158
 
 if.else185:                                       ; preds = %if.end166
@@ -1851,7 +1851,7 @@ land.lhs.true187:                                 ; preds = %if.else185
   br i1 %cmp.i394, label %if.then191, label %cleanup.done.critedge
 
 if.then191:                                       ; preds = %land.lhs.true187
-  %end_.i395 = getelementptr inbounds i8, ptr %nonNullRows.1, i64 32
+  %end_.i395 = getelementptr inbounds i8, ptr %nonNullRows.0, i64 32
   %226 = load i32, ptr %end_.i395, align 8
   store ptr %224, ptr %agg.tmp195, align 8
   %_M_refcount.i.i396 = getelementptr inbounds i8, ptr %agg.tmp195, i64 8
@@ -2138,7 +2138,7 @@ if.else.i.i.i.i.i511:                             ; preds = %if.then.i.i.i506
   br label %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit512
 
 _ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit512: ; preds = %invoke.cont206, %if.then.i.i.i.i.i509, %if.else.i.i.i.i.i511
-  invoke void @_ZNK8facebook5velox4exec14PeeledEncoding4wrapERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolES3_INS0_10BaseVectorEERKNS0_17SelectivityVectorE(ptr nonnull sret(%"class.std::shared_ptr.29") align 8 %ref.tmp203, ptr noundef nonnull align 8 dereferenceable(32) %266, ptr noundef nonnull align 8 dereferenceable(16) %type_205, ptr noundef %268, ptr noundef nonnull %agg.tmp208, ptr noundef nonnull align 8 dereferenceable(38) %nonNullRows.1)
+  invoke void @_ZNK8facebook5velox4exec14PeeledEncoding4wrapERKSt10shared_ptrIKNS0_4TypeEEPNS0_6memory10MemoryPoolES3_INS0_10BaseVectorEERKNS0_17SelectivityVectorE(ptr nonnull sret(%"class.std::shared_ptr.29") align 8 %ref.tmp203, ptr noundef nonnull align 8 dereferenceable(32) %266, ptr noundef nonnull align 8 dereferenceable(16) %type_205, ptr noundef %268, ptr noundef nonnull %agg.tmp208, ptr noundef nonnull align 8 dereferenceable(38) %nonNullRows.0)
           to label %cond.end213 unwind label %lpad209
 
 cond.end213:                                      ; preds = %_ZNSt10shared_ptrIN8facebook5velox10BaseVectorEEC2ERKS3_.exit512

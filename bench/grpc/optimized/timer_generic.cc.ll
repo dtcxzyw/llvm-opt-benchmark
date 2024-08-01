@@ -1308,7 +1308,7 @@ if.end14:                                         ; preds = %if.then11, %if.then
 
 while.body:                                       ; preds = %if.end14, %_ZL20note_deadline_changeP11timer_shard.exit
   %11 = phi ptr [ %66, %_ZL20note_deadline_changeP11timer_shard.exit ], [ %9, %if.end14 ]
-  %result.0172 = phi i32 [ %spec.select, %_ZL20note_deadline_changeP11timer_shard.exit ], [ 1, %if.end14 ]
+  %result.1172 = phi i32 [ %spec.select, %_ZL20note_deadline_changeP11timer_shard.exit ], [ 1, %if.end14 ]
   %12 = load i64, ptr %error, align 8
   store i64 %12, ptr %agg.tmp32, align 8
   %and.i.i.i = and i64 %12, 1
@@ -1646,7 +1646,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i32
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont, %if.then.i.i32
-  %spec.select = select i1 %cmp35.not, i32 %result.0172, i32 2
+  %spec.select = select i1 %cmp35.not, i32 %result.1172, i32 2
   %43 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_timer_check_trace, i64 16) monotonic, align 8
   %tobool.i.i.i34 = trunc i8 %43 to i1
   br i1 %tobool.i.i.i34, label %if.then40, label %if.end52
@@ -1772,7 +1772,7 @@ _ZL20note_deadline_changeP11timer_shard.exit:     ; preds = %land.rhs9.i, %while
 
 while.end:                                        ; preds = %_ZL20note_deadline_changeP11timer_shard.exit, %if.end14
   %.lcssa160 = phi ptr [ %.pre, %if.end14 ], [ %48, %_ZL20note_deadline_changeP11timer_shard.exit ]
-  %result.0.lcssa = phi i32 [ 1, %if.end14 ], [ %spec.select, %_ZL20note_deadline_changeP11timer_shard.exit ]
+  %result.1.lcssa = phi i32 [ 1, %if.end14 ], [ %spec.select, %_ZL20note_deadline_changeP11timer_shard.exit ]
   %.lcssa = phi i64 [ %10, %if.end14 ], [ %67, %_ZL20note_deadline_changeP11timer_shard.exit ]
   %tobool56.not = icmp eq ptr %next, null
   br i1 %tobool56.not, label %if.end61, label %if.then57
@@ -1794,7 +1794,7 @@ if.end61:                                         ; preds = %if.then57, %while.e
   br label %return
 
 return:                                           ; preds = %if.end7, %if.end61, %if.then, %if.then5
-  %retval.0 = phi i32 [ 1, %if.then5 ], [ 1, %if.then ], [ %result.0.lcssa, %if.end61 ], [ 0, %if.end7 ]
+  %retval.0 = phi i32 [ 1, %if.then5 ], [ 1, %if.then ], [ %result.1.lcssa, %if.end61 ], [ 0, %if.end7 ]
   ret i32 %retval.0
 }
 

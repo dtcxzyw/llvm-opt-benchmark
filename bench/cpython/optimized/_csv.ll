@@ -3518,7 +3518,7 @@ if.end85:                                         ; preds = %if.else
   br i1 %cmp81.not, label %if.then91, label %if.end89
 
 if.end89:                                         ; preds = %if.end85, %if.end85.thread
-  %rec_len.387 = phi i64 [ %inc74, %if.end85.thread ], [ %rec_len.2102, %if.end85 ]
+  %rec_len.487 = phi i64 [ %inc74, %if.end85.thread ], [ %rec_len.2102, %if.end85 ]
   store i32 1, ptr %quoted, align 4
   br label %do.body117
 
@@ -3555,7 +3555,7 @@ if.end111:                                        ; preds = %do.body105.thread, 
   br label %do.body117
 
 do.body117:                                       ; preds = %if.end89, %lor.lhs.false44, %if.end111
-  %rec_len.5 = phi i64 [ %inc112, %if.end111 ], [ %rec_len.387, %if.end89 ], [ %rec_len.2102, %lor.lhs.false44 ]
+  %rec_len.5 = phi i64 [ %inc112, %if.end111 ], [ %rec_len.487, %if.end89 ], [ %rec_len.2102, %lor.lhs.false44 ]
   br i1 %tobool11.not, label %do.body123, label %do.body123.thread
 
 do.body123.thread:                                ; preds = %do.body117

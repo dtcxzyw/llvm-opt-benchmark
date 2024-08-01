@@ -159,21 +159,21 @@ define void @PHP_WHIRLPOOLUpdate(ptr nocapture noundef %0, ptr nocapture noundef
   br label %72
 
 72:                                               ; preds = %71, %66
-  %.279 = phi i32 [ 0, %71 ], [ %69, %66 ]
-  %.2 = phi i32 [ 0, %71 ], [ %67, %66 ]
+  %.380 = phi i32 [ 0, %71 ], [ %69, %66 ]
+  %.3 = phi i32 [ 0, %71 ], [ %67, %66 ]
   %73 = shl nuw nsw i32 %57, %68
   %74 = trunc i32 %73 to i8
-  %75 = sext i32 %.2 to i64
+  %75 = sext i32 %.3 to i64
   %76 = getelementptr inbounds i8, ptr %9, i64 %75
   store i8 %74, ptr %76, align 1
-  %77 = add nsw i32 %.279, %8
+  %77 = add nsw i32 %.380, %8
   br label %78
 
 78:                                               ; preds = %72, %.thread
-  %.380 = phi i32 [ %65, %.thread ], [ %77, %72 ]
-  %.3 = phi i32 [ %.076.lcssa, %.thread ], [ %.2, %72 ]
-  store i32 %.380, ptr %6, align 4
-  store i32 %.3, ptr %5, align 8
+  %.279 = phi i32 [ %65, %.thread ], [ %77, %72 ]
+  %.2 = phi i32 [ %.076.lcssa, %.thread ], [ %.3, %72 ]
+  store i32 %.279, ptr %6, align 4
+  store i32 %.2, ptr %5, align 8
   ret void
 }
 

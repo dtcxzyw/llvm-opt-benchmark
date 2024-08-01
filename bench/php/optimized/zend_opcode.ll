@@ -4319,10 +4319,10 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
 
 .lr.ph:                                           ; preds = %.preheader97, %30
   %20 = phi ptr [ %31, %30 ], [ %14, %.preheader97 ]
-  %.079101 = phi i32 [ %21, %30 ], [ %2, %.preheader97 ]
+  %.2101 = phi i32 [ %21, %30 ], [ %2, %.preheader97 ]
   %.080100 = phi i32 [ %.181, %30 ], [ 0, %.preheader97 ]
   %.08499 = phi ptr [ %20, %30 ], [ %9, %.preheader97 ]
-  %21 = add i32 %.079101, 1
+  %21 = add i32 %.2101, 1
   %22 = getelementptr inbounds i8, ptr %.08499, i64 60
   %23 = load i8, ptr %22, align 4
   switch i8 %23, label %30 [
@@ -4359,9 +4359,9 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %26, %30, %.preheader97
-  %.1 = phi i32 [ %2, %.preheader97 ], [ %21, %30 ], [ %21, %26 ]
+  %.3 = phi i32 [ %2, %.preheader97 ], [ %21, %30 ], [ %21, %26 ]
   %33 = add nuw i32 %2, 1
-  %34 = add i32 %.1, 1
+  %34 = add i32 %.3, 1
   %35 = getelementptr inbounds i8, ptr %0, i64 128
   %36 = load i32, ptr %35, align 8
   %37 = add nsw i32 %36, 1
@@ -4392,8 +4392,8 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   br i1 %55, label %149, label %._crit_edge105
 
 ._crit_edge105:                                   ; preds = %5, %._crit_edge
-  %.2 = phi i32 [ %.1, %._crit_edge ], [ %2, %5 ]
-  %56 = add i32 %.2, 1
+  %.079 = phi i32 [ %.3, %._crit_edge ], [ %2, %5 ]
+  %56 = add i32 %.079, 1
   %.not94 = icmp eq ptr %4, null
   br i1 %.not94, label %127, label %57
 
@@ -4520,7 +4520,7 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
 
 127:                                              ; preds = %5, %._crit_edge105, %57, %70, %18, %16
   %.082 = phi i32 [ 0, %57 ], [ 0, %._crit_edge105 ], [ 2, %16 ], [ 1, %18 ], [ 0, %70 ], [ 3, %5 ]
-  %.3 = phi i32 [ %56, %57 ], [ %56, %._crit_edge105 ], [ %17, %16 ], [ %19, %18 ], [ %71, %70 ], [ %2, %5 ]
+  %.1 = phi i32 [ %56, %57 ], [ %56, %._crit_edge105 ], [ %17, %16 ], [ %19, %18 ], [ %71, %70 ], [ %2, %5 ]
   %128 = getelementptr inbounds i8, ptr %0, i64 128
   %129 = load i32, ptr %128, align 8
   %130 = add nsw i32 %129, 1
@@ -4531,7 +4531,7 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   %134 = mul nsw i64 %133, 12
   %135 = tail call ptr @_erealloc(ptr noundef %132, i64 noundef %134) #15
   store ptr %135, ptr %131, align 8
-  %136 = icmp ult i32 %.3, %3
+  %136 = icmp ult i32 %.1, %3
   tail call void @llvm.assume(i1 %136)
   %137 = load i32, ptr %128, align 8
   %138 = sext i32 %137 to i64
@@ -4545,7 +4545,7 @@ define internal fastcc void @emit_live_range(ptr noundef %0, i32 noundef %1, i32
   %146 = or disjoint i32 %145, %.082
   store i32 %146, ptr %140, align 4
   %147 = getelementptr i8, ptr %139, i64 -8
-  store i32 %.3, ptr %147, align 4
+  store i32 %.1, ptr %147, align 4
   %148 = getelementptr i8, ptr %139, i64 -4
   store i32 %3, ptr %148, align 4
   br label %149

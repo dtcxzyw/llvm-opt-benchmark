@@ -586,7 +586,7 @@ define dso_local ptr @archive_entry_fflags_text(ptr noundef %0) local_unnamed_ad
 .preheader.i:                                     ; preds = %41, %.loopexit.i
   %44 = phi ptr [ %68, %.loopexit.i ], [ @.str.1, %41 ]
   %.14373.i = phi ptr [ %67, %.loopexit.i ], [ @fileflags, %41 ]
-  %.04871.i = phi ptr [ %.3.i, %.loopexit.i ], [ %42, %41 ]
+  %.04871.i = phi ptr [ %.149.i, %.loopexit.i ], [ %42, %41 ]
   %.05169.i = phi i64 [ %.152.i, %.loopexit.i ], [ %19, %41 ]
   %.05367.i = phi i64 [ %.154.i, %.loopexit.i ], [ %16, %41 ]
   %45 = getelementptr inbounds i8, ptr %.14373.i, i64 16
@@ -627,30 +627,30 @@ define dso_local ptr @archive_entry_fflags_text(ptr noundef %0) local_unnamed_ad
   br label %.preheader
 
 .preheader:                                       ; preds = %61, %55
-  %.2.i.ph = phi ptr [ %.04871.i, %55 ], [ %62, %61 ]
+  %.3.i.ph = phi ptr [ %.04871.i, %55 ], [ %62, %61 ]
   br label %63
 
 63:                                               ; preds = %.preheader, %63
-  %.2.i = phi ptr [ %66, %63 ], [ %.2.i.ph, %.preheader ]
+  %.3.i = phi ptr [ %66, %63 ], [ %.3.i.ph, %.preheader ]
   %.147.i = phi ptr [ %64, %63 ], [ %.046.i, %.preheader ]
   %64 = getelementptr inbounds i8, ptr %.147.i, i64 1
   %65 = load i8, ptr %.147.i, align 1
-  %66 = getelementptr inbounds i8, ptr %.2.i, i64 1
-  store i8 %65, ptr %.2.i, align 1
+  %66 = getelementptr inbounds i8, ptr %.3.i, i64 1
+  store i8 %65, ptr %.3.i, align 1
   %.not62.i = icmp eq i8 %65, 0
   br i1 %.not62.i, label %.loopexit.i, label %63, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %63, %52
   %.154.i = phi i64 [ %.05367.i, %52 ], [ %58, %63 ]
   %.152.i = phi i64 [ %.05169.i, %52 ], [ %59, %63 ]
-  %.3.i = phi ptr [ %.04871.i, %52 ], [ %.2.i, %63 ]
+  %.149.i = phi ptr [ %.04871.i, %52 ], [ %.3.i, %63 ]
   %67 = getelementptr inbounds i8, ptr %.14373.i, i64 32
   %68 = load ptr, ptr %67, align 8
   %.not57.i = icmp eq ptr %68, null
   br i1 %.not57.i, label %ae_fflagstostr.exit, label %.preheader.i, !llvm.loop !10
 
 ae_fflagstostr.exit:                              ; preds = %.loopexit.i
-  store i8 0, ptr %.3.i, align 1
+  store i8 0, ptr %.149.i, align 1
   %69 = call i32 @archive_mstring_copy_mbs(ptr noundef nonnull %4, ptr noundef nonnull %42) #20
   call void @free(ptr noundef nonnull %42) #20
   %70 = load ptr, ptr %0, align 8

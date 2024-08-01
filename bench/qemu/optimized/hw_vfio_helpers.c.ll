@@ -1683,8 +1683,8 @@ vfio_get_region_info_cap.exit:                    ; preds = %for.body.i.i, %for.
   br label %if.end4
 
 if.end4:                                          ; preds = %vfio_get_region_info_cap.exit, %entry
-  %ret.1 = phi i1 [ false, %entry ], [ %retval.0.i, %vfio_get_region_info_cap.exit ]
-  ret i1 %ret.1
+  %ret.0 = phi i1 [ false, %entry ], [ %retval.0.i, %vfio_get_region_info_cap.exit ]
+  ret i1 %ret.0
 }
 
 ; Function Attrs: nofree nounwind

@@ -183,7 +183,7 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
 
 25:                                               ; preds = %.lr.ph, %232
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %232 ]
-  %.0208209 = phi i64 [ %.0.i.i, %.lr.ph ], [ %.1, %232 ]
+  %.0208209 = phi i64 [ %.0.i.i, %.lr.ph ], [ %.0207, %232 ]
   %26 = load ptr, ptr %24, align 8
   %27 = getelementptr %struct.sqlvar_compat, ptr %26, i64 %indvars.iv
   %28 = load i16, ptr %27, align 8
@@ -405,7 +405,7 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
   br label %154
 
 154:                                              ; preds = %123, %120
-  %.0207 = phi i64 [ %102, %120 ], [ %136, %123 ]
+  %.1 = phi i64 [ %102, %120 ], [ %136, %123 ]
   tail call void @PGTYPESnumeric_free(ptr noundef nonnull %115) #6
   br label %205
 
@@ -487,7 +487,7 @@ sqlda_compat_empty_size.exit:                     ; preds = %.lr.ph.i, %8
   br label %205
 
 205:                                              ; preds = %182, %199, %173, %164, %155, %154, %119, %109, %89, %80, %71, %65, %56, %47, %38, %29
-  %.1 = phi i64 [ %192, %199 ], [ %192, %182 ], [ %177, %173 ], [ %168, %164 ], [ %159, %155 ], [ %102, %119 ], [ %.0207, %154 ], [ %102, %109 ], [ %93, %89 ], [ %84, %80 ], [ %75, %71 ], [ %66, %65 ], [ %60, %56 ], [ %51, %47 ], [ %42, %38 ], [ %33, %29 ]
+  %.0207 = phi i64 [ %192, %199 ], [ %192, %182 ], [ %177, %173 ], [ %168, %164 ], [ %159, %155 ], [ %102, %119 ], [ %.1, %154 ], [ %102, %109 ], [ %93, %89 ], [ %84, %80 ], [ %75, %71 ], [ %66, %65 ], [ %60, %56 ], [ %51, %47 ], [ %42, %38 ], [ %33, %29 ]
   %.0144 = phi i1 [ true, %199 ], [ true, %182 ], [ true, %173 ], [ true, %164 ], [ true, %155 ], [ false, %119 ], [ false, %154 ], [ false, %109 ], [ true, %89 ], [ true, %80 ], [ true, %71 ], [ true, %65 ], [ true, %56 ], [ true, %47 ], [ true, %38 ], [ true, %29 ]
   %206 = trunc nuw nsw i64 %indvars.iv to i32
   %207 = tail call i32 @PQgetisnull(ptr noundef %2, i32 noundef %3, i32 noundef %206) #6
@@ -650,7 +650,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
 
 18:                                               ; preds = %.lr.ph, %181
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %181 ]
-  %.0194195 = phi i64 [ %16, %.lr.ph ], [ %.1, %181 ]
+  %.0194195 = phi i64 [ %16, %.lr.ph ], [ %.0193, %181 ]
   %19 = getelementptr [1 x %struct.sqlvar_struct], ptr %17, i64 0, i64 %indvars.iv
   %20 = load i16, ptr %19, align 8
   switch i16 %20, label %154 [
@@ -854,7 +854,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   br label %129
 
 129:                                              ; preds = %102, %99
-  %.0193 = phi i64 [ %86, %99 ], [ %115, %102 ]
+  %.1 = phi i64 [ %86, %99 ], [ %115, %102 ]
   tail call void @PGTYPESnumeric_free(ptr noundef nonnull %96) #6
   br label %169
 
@@ -922,7 +922,7 @@ define void @ecpg_set_native_sqlda(i32 noundef %0, ptr nocapture noundef readonl
   br label %169
 
 169:                                              ; preds = %154, %146, %138, %130, %129, %98, %92, %74, %66, %58, %53, %45, %37, %29, %21
-  %.1 = phi i64 [ %164, %154 ], [ %150, %146 ], [ %142, %138 ], [ %134, %130 ], [ %86, %98 ], [ %.0193, %129 ], [ %86, %92 ], [ %78, %74 ], [ %70, %66 ], [ %62, %58 ], [ %54, %53 ], [ %49, %45 ], [ %41, %37 ], [ %33, %29 ], [ %25, %21 ]
+  %.0193 = phi i64 [ %164, %154 ], [ %150, %146 ], [ %142, %138 ], [ %134, %130 ], [ %86, %98 ], [ %.1, %129 ], [ %86, %92 ], [ %78, %74 ], [ %70, %66 ], [ %62, %58 ], [ %54, %53 ], [ %49, %45 ], [ %41, %37 ], [ %33, %29 ], [ %25, %21 ]
   %.0131.not = phi i1 [ false, %154 ], [ false, %146 ], [ false, %138 ], [ false, %130 ], [ true, %98 ], [ true, %129 ], [ true, %92 ], [ false, %74 ], [ false, %66 ], [ false, %58 ], [ false, %53 ], [ false, %45 ], [ false, %37 ], [ false, %29 ], [ false, %21 ]
   %170 = trunc nuw nsw i64 %indvars.iv to i32
   %171 = tail call i32 @PQgetisnull(ptr noundef %2, i32 noundef %3, i32 noundef %170) #6
@@ -962,7 +962,7 @@ define internal fastcc i64 @sqlda_common_total_size(ptr noundef %0, i32 noundef 
 
 .lr.ph:                                           ; preds = %4, %97
   %.072 = phi i32 [ %98, %97 ], [ 0, %4 ]
-  %.07071 = phi i64 [ %.1, %97 ], [ %3, %4 ]
+  %.07071 = phi i64 [ %.069, %97 ], [ %3, %4 ]
   %7 = tail call i32 @PQftype(ptr noundef %0, i32 noundef %.072) #6
   %8 = tail call i32 @sqlda_dynamic_type(i32 noundef %7, i32 noundef %2) #6
   switch i32 %8, label %88 [
@@ -1093,7 +1093,7 @@ define internal fastcc i64 @sqlda_common_total_size(ptr noundef %0, i32 noundef 
   br label %72
 
 72:                                               ; preds = %58, %55
-  %.069 = phi i64 [ %50, %55 ], [ %71, %58 ]
+  %.1 = phi i64 [ %50, %55 ], [ %71, %58 ]
   tail call void @PGTYPESnumeric_free(ptr noundef nonnull %54) #6
   br label %97
 
@@ -1139,13 +1139,13 @@ define internal fastcc i64 @sqlda_common_total_size(ptr noundef %0, i32 noundef 
   br label %97
 
 97:                                               ; preds = %46, %72, %52, %88, %83, %78, %73, %41, %36, %31, %29, %24, %19, %14, %9
-  %.1 = phi i64 [ %96, %88 ], [ %87, %83 ], [ %82, %78 ], [ %77, %73 ], [ %50, %52 ], [ %.069, %72 ], [ %50, %46 ], [ %45, %41 ], [ %40, %36 ], [ %35, %31 ], [ %30, %29 ], [ %28, %24 ], [ %23, %19 ], [ %18, %14 ], [ %13, %9 ]
+  %.069 = phi i64 [ %96, %88 ], [ %87, %83 ], [ %82, %78 ], [ %77, %73 ], [ %50, %52 ], [ %.1, %72 ], [ %50, %46 ], [ %45, %41 ], [ %40, %36 ], [ %35, %31 ], [ %30, %29 ], [ %28, %24 ], [ %23, %19 ], [ %18, %14 ], [ %13, %9 ]
   %98 = add nuw nsw i32 %.072, 1
   %exitcond.not = icmp eq i32 %98, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %97, %4
-  %.070.lcssa = phi i64 [ %3, %4 ], [ %.1, %97 ]
+  %.070.lcssa = phi i64 [ %3, %4 ], [ %.069, %97 ]
   ret i64 %.070.lcssa
 }
 

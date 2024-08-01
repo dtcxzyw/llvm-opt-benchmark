@@ -819,10 +819,10 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   br i1 %126, label %.lr.ph616, label %.loopexit
 
 .lr.ph616:                                        ; preds = %124, %.lr.ph616
-  %.3615 = phi i32 [ %129, %.lr.ph616 ], [ %109, %124 ]
+  %.4615 = phi i32 [ %129, %.lr.ph616 ], [ %109, %124 ]
   %127 = load i32, ptr @hf_bacnet_dnet, align 4
-  %128 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %127, ptr noundef %0, i32 noundef %.3615, i32 noundef 2, i32 noundef 0) #2
-  %129 = add i32 %.3615, 2
+  %128 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %127, ptr noundef %0, i32 noundef %.4615, i32 noundef 2, i32 noundef 0) #2
+  %129 = add i32 %.4615, 2
   %130 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %129) #2
   %131 = icmp sgt i32 %130, 1
   br i1 %131, label %.lr.ph616, label %.loopexit, !llvm.loop !4
@@ -839,18 +839,18 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   br i1 %140, label %.lr.ph613, label %.loopexit
 
 .lr.ph613:                                        ; preds = %132, %.lr.ph613
-  %.4612 = phi i32 [ %154, %.lr.ph613 ], [ %136, %132 ]
+  %.5612 = phi i32 [ %154, %.lr.ph613 ], [ %136, %132 ]
   %.0568611 = phi i8 [ %155, %.lr.ph613 ], [ 0, %132 ]
   %141 = load i32, ptr @hf_bacnet_dnet, align 4
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %141, ptr noundef %0, i32 noundef %.4612, i32 noundef 2, i32 noundef 0) #2
-  %143 = add i32 %.4612, 2
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %141, ptr noundef %0, i32 noundef %.5612, i32 noundef 2, i32 noundef 0) #2
+  %143 = add i32 %.5612, 2
   %144 = load i32, ptr @hf_bacnet_portid, align 4
   %145 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %144, ptr noundef %0, i32 noundef %143, i32 noundef 1, i32 noundef 0) #2
-  %146 = add i32 %.4612, 3
+  %146 = add i32 %.5612, 3
   %147 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %146) #2
   %148 = load i32, ptr @hf_bacnet_pinfolen, align 4
   %149 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %148, ptr noundef %0, i32 noundef %146, i32 noundef 1, i32 noundef 0) #2
-  %150 = add i32 %.4612, 4
+  %150 = add i32 %.5612, 4
   %151 = load i32, ptr @hf_bacnet_pinfo, align 4
   %152 = zext i8 %147 to i32
   %153 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %151, ptr noundef %0, i32 noundef %150, i32 noundef %152, i32 noundef 0) #2
@@ -999,14 +999,14 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   br i1 %248, label %.lr.ph609, label %.loopexit
 
 .lr.ph609:                                        ; preds = %242, %.lr.ph609
-  %.5608 = phi i32 [ %254, %.lr.ph609 ], [ %244, %242 ]
+  %.6608 = phi i32 [ %254, %.lr.ph609 ], [ %244, %242 ]
   %.0567607 = phi i8 [ %255, %.lr.ph609 ], [ %243, %242 ]
   %249 = load i32, ptr @hf_bacnet_security_response_key_algo, align 4
-  %250 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %249, ptr noundef %0, i32 noundef %.5608, i32 noundef 1, i32 noundef 0) #2
-  %251 = add i32 %.5608, 1
+  %250 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %249, ptr noundef %0, i32 noundef %.6608, i32 noundef 1, i32 noundef 0) #2
+  %251 = add i32 %.6608, 1
   %252 = load i32, ptr @hf_bacnet_security_response_key_id, align 4
   %253 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %252, ptr noundef %0, i32 noundef %251, i32 noundef 1, i32 noundef 0) #2
-  %254 = add i32 %.5608, 2
+  %254 = add i32 %.6608, 2
   %255 = add i8 %.0567607, -1
   %256 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %254) #2
   %257 = icmp sgt i32 %256, 1
@@ -1102,14 +1102,14 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   br label %326
 
 326:                                              ; preds = %316, %309
-  %.6 = phi i32 [ %325, %316 ], [ %314, %309 ]
+  %.7 = phi i32 [ %325, %316 ], [ %314, %309 ]
   %327 = and i32 %315, 64
   %.not586 = icmp eq i32 %327, 0
   br i1 %.not586, label %.loopexit594, label %328
 
 328:                                              ; preds = %326
-  %329 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.6) #2
-  %330 = add nuw i32 %.6, 1
+  %329 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.7) #2
+  %330 = add nuw i32 %.7, 1
   %331 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %330) #2
   %332 = icmp sgt i32 %331, 1
   %333 = icmp ne i8 %329, 0
@@ -1117,16 +1117,16 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   br i1 %334, label %.lr.ph601, label %.loopexit594
 
 .lr.ph601:                                        ; preds = %328, %.lr.ph601
-  %.7600 = phi i32 [ %346, %.lr.ph601 ], [ %330, %328 ]
+  %.9600 = phi i32 [ %346, %.lr.ph601 ], [ %330, %328 ]
   %.1569599 = phi i8 [ %347, %.lr.ph601 ], [ 0, %328 ]
   %335 = load i32, ptr @hf_bacnet_security_set1_key_algo, align 4
-  %336 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %335, ptr noundef %0, i32 noundef %.7600, i32 noundef 1, i32 noundef 0) #2
-  %337 = add i32 %.7600, 1
+  %336 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %335, ptr noundef %0, i32 noundef %.9600, i32 noundef 1, i32 noundef 0) #2
+  %337 = add i32 %.9600, 1
   %338 = load i32, ptr @hf_bacnet_security_set1_key_id, align 4
   %339 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %338, ptr noundef %0, i32 noundef %337, i32 noundef 1, i32 noundef 0) #2
-  %340 = add i32 %.7600, 2
+  %340 = add i32 %.9600, 2
   %341 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %340) #2
-  %342 = add i32 %.7600, 3
+  %342 = add i32 %.9600, 3
   %343 = load i32, ptr @hf_bacnet_security_set1_key_data, align 4
   %344 = zext i8 %341 to i32
   %345 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %343, ptr noundef %0, i32 noundef %342, i32 noundef %344, i32 noundef 0) #2
@@ -1139,7 +1139,7 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   br i1 %351, label %.lr.ph601, label %.loopexit594, !llvm.loop !8
 
 .loopexit594:                                     ; preds = %.lr.ph601, %328, %326
-  %.8 = phi i32 [ %.6, %326 ], [ %330, %328 ], [ %346, %.lr.ph601 ]
+  %.8 = phi i32 [ %.7, %326 ], [ %330, %328 ], [ %346, %.lr.ph601 ]
   %352 = and i32 %315, 16
   %.not587 = icmp eq i32 %352, 0
   br i1 %.not587, label %363, label %353
@@ -1157,14 +1157,14 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   br label %363
 
 363:                                              ; preds = %353, %.loopexit594
-  %.9 = phi i32 [ %362, %353 ], [ %.8, %.loopexit594 ]
+  %.10 = phi i32 [ %362, %353 ], [ %.8, %.loopexit594 ]
   %364 = and i32 %315, 8
   %.not588 = icmp eq i32 %364, 0
   br i1 %.not588, label %.loopexit, label %365
 
 365:                                              ; preds = %363
-  %366 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.9) #2
-  %367 = add i32 %.9, 1
+  %366 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.10) #2
+  %367 = add i32 %.10, 1
   %368 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %367) #2
   %369 = icmp sgt i32 %368, 1
   %370 = icmp ne i8 %366, 0
@@ -1172,16 +1172,16 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   br i1 %371, label %.lr.ph605, label %.loopexit
 
 .lr.ph605:                                        ; preds = %365, %.lr.ph605
-  %.10604 = phi i32 [ %383, %.lr.ph605 ], [ %367, %365 ]
+  %.11604 = phi i32 [ %383, %.lr.ph605 ], [ %367, %365 ]
   %.2570603 = phi i8 [ %384, %.lr.ph605 ], [ 0, %365 ]
   %372 = load i32, ptr @hf_bacnet_security_set2_key_algo, align 4
-  %373 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %372, ptr noundef %0, i32 noundef %.10604, i32 noundef 1, i32 noundef 0) #2
-  %374 = add i32 %.10604, 1
+  %373 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %372, ptr noundef %0, i32 noundef %.11604, i32 noundef 1, i32 noundef 0) #2
+  %374 = add i32 %.11604, 1
   %375 = load i32, ptr @hf_bacnet_security_set2_key_id, align 4
   %376 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %375, ptr noundef %0, i32 noundef %374, i32 noundef 1, i32 noundef 0) #2
-  %377 = add i32 %.10604, 2
+  %377 = add i32 %.11604, 2
   %378 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %377) #2
-  %379 = add i32 %.10604, 3
+  %379 = add i32 %.11604, 3
   %380 = load i32, ptr @hf_bacnet_security_set2_key_data, align 4
   %381 = zext i8 %378 to i32
   %382 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %380, ptr noundef %0, i32 noundef %379, i32 noundef %381, i32 noundef 0) #2
@@ -1233,21 +1233,21 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
 
 417:                                              ; preds = %411
   %418 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %412) #2
-  %.11596 = add nuw i32 %412, 1
-  %419 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.11596) #2
+  %.12596 = add nuw i32 %412, 1
+  %419 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.12596) #2
   %420 = icmp sgt i32 %419, 1
   %421 = icmp ne i8 %418, 0
   %422 = select i1 %420, i1 %421, i1 false
   br i1 %422, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %417, %.lr.ph
-  %.11598 = phi i32 [ %.11, %.lr.ph ], [ %.11596, %417 ]
+  %.12598 = phi i32 [ %.12, %.lr.ph ], [ %.12596, %417 ]
   %.0597 = phi i8 [ %425, %.lr.ph ], [ %418, %417 ]
   %423 = load i32, ptr @hf_bacnet_security_master_key_algo, align 4
-  %424 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %423, ptr noundef %0, i32 noundef %.11598, i32 noundef 1, i32 noundef 0) #2
+  %424 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %423, ptr noundef %0, i32 noundef %.12598, i32 noundef 1, i32 noundef 0) #2
   %425 = add i8 %.0597, -1
-  %.11 = add i32 %.11598, 1
-  %426 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.11) #2
+  %.12 = add i32 %.12598, 1
+  %426 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.12) #2
   %427 = icmp sgt i32 %426, 1
   %428 = icmp ne i8 %425, 0
   %429 = select i1 %427, i1 %428, i1 false
@@ -1300,9 +1300,9 @@ define internal fastcc i32 @dissect_bacnet_npdu(ptr noundef %0, ptr noundef %1, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph605, %.lr.ph609, %.lr.ph613, %.lr.ph616, %417, %365, %242, %132, %124, %110, %117, %160, %167, %171, %184, %281, %395, %436, %102, %220, %271, %267, %260, %235, %231, %363, %451, %460, %449, %101
-  %.12 = phi i32 [ %462, %460 ], [ %457, %451 ], [ %109, %449 ], [ %448, %436 ], [ %410, %395 ], [ %.9, %363 ], [ %302, %281 ], [ %230, %220 ], [ %234, %231 ], [ %241, %235 ], [ %266, %260 ], [ %270, %267 ], [ %274, %271 ], [ %193, %184 ], [ %177, %171 ], [ %109, %102 ], [ %170, %167 ], [ %166, %160 ], [ %123, %117 ], [ %116, %110 ], [ %.2, %101 ], [ %109, %124 ], [ %136, %132 ], [ %244, %242 ], [ %367, %365 ], [ %.11596, %417 ], [ %129, %.lr.ph616 ], [ %154, %.lr.ph613 ], [ %254, %.lr.ph609 ], [ %383, %.lr.ph605 ], [ %.11, %.lr.ph ]
-  tail call void @proto_item_set_len(ptr noundef %13, i32 noundef %.12) #2
-  %463 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.12) #2
+  %.3 = phi i32 [ %462, %460 ], [ %457, %451 ], [ %109, %449 ], [ %448, %436 ], [ %410, %395 ], [ %.10, %363 ], [ %302, %281 ], [ %230, %220 ], [ %234, %231 ], [ %241, %235 ], [ %266, %260 ], [ %270, %267 ], [ %274, %271 ], [ %193, %184 ], [ %177, %171 ], [ %109, %102 ], [ %170, %167 ], [ %166, %160 ], [ %123, %117 ], [ %116, %110 ], [ %.2, %101 ], [ %109, %124 ], [ %136, %132 ], [ %244, %242 ], [ %367, %365 ], [ %.12596, %417 ], [ %129, %.lr.ph616 ], [ %154, %.lr.ph613 ], [ %254, %.lr.ph609 ], [ %383, %.lr.ph605 ], [ %.12, %.lr.ph ]
+  tail call void @proto_item_set_len(ptr noundef %13, i32 noundef %.3) #2
+  %463 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.3) #2
   br i1 %.not584, label %466, label %464
 
 464:                                              ; preds = %.loopexit

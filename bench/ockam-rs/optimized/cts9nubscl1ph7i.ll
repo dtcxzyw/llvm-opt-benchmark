@@ -21014,34 +21014,34 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hbc31ff1c915b0653E(ptr noa
   br i1 %44, label %.loopexit, label %.lr.ph318
 
 .loopexit:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit157", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit140", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit123", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit106", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit89", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit174", %.preheader277, %.preheader275, %.preheader273, %.preheader271, %.preheader269, %.preheader
-  %.sroa.27.1 = phi i64 [ %43, %.preheader ], [ %43, %.preheader269 ], [ %43, %.preheader271 ], [ %43, %.preheader273 ], [ %43, %.preheader275 ], [ %43, %.preheader277 ], [ %92, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit174" ], [ %49, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit89" ], [ %58, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit106" ], [ %67, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit123" ], [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit140" ], [ %84, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit157" ]
-  %45 = sub i64 %.0.i.i.i, %.sroa.27.1
+  %.sroa.27.6 = phi i64 [ %43, %.preheader ], [ %43, %.preheader269 ], [ %43, %.preheader271 ], [ %43, %.preheader273 ], [ %43, %.preheader275 ], [ %43, %.preheader277 ], [ %92, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit174" ], [ %49, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit89" ], [ %58, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit106" ], [ %67, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit123" ], [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit140" ], [ %84, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit157" ]
+  %45 = sub i64 %.0.i.i.i, %.sroa.27.6
   store i64 %45, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %16
 
 .lr.ph313:                                        ; preds = %.preheader269, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit89"
-  %.sroa.27.0312 = phi i64 [ %49, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit89" ], [ %43, %.preheader269 ]
-  %.sroa.016.0311 = phi ptr [ %48, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit89" ], [ %42, %.preheader269 ]
+  %.sroa.27.1312 = phi i64 [ %49, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit89" ], [ %43, %.preheader269 ]
+  %.sroa.016.1311 = phi ptr [ %48, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit89" ], [ %42, %.preheader269 ]
   %.sroa.0179.0310 = phi ptr [ %47, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit89" ], [ %12, %.preheader269 ]
   %46 = getelementptr i8, ptr %.sroa.0179.0310, i64 16
   %.val3.i = load i64, ptr %46, align 8, !noalias !4354, !noundef !4
-  %.not.i85 = icmp ugt i64 %.val3.i, %.sroa.27.0312
+  %.not.i85 = icmp ugt i64 %.val3.i, %.sroa.27.1312
   br i1 %.not.i85, label %.invoke, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit89"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit89": ; preds = %.lr.ph313
   %.val.i = load ptr, ptr %.sroa.0179.0310, align 8, !noalias !4354, !nonnull !4, !noundef !4
   %47 = getelementptr inbounds i8, ptr %.sroa.0179.0310, i64 24
-  %48 = getelementptr inbounds i8, ptr %.sroa.016.0311, i64 %.val3.i
-  %49 = sub nuw i64 %.sroa.27.0312, %.val3.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.0311, ptr nonnull readonly align 1 %.val.i, i64 %.val3.i, i1 false), !alias.scope !4357, !noalias !4361
+  %48 = getelementptr inbounds i8, ptr %.sroa.016.1311, i64 %.val3.i
+  %49 = sub nuw i64 %.sroa.27.1312, %.val3.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.1311, ptr nonnull readonly align 1 %.val.i, i64 %.val3.i, i1 false), !alias.scope !4357, !noalias !4361
   %50 = icmp eq ptr %47, %7
   br i1 %50, label %.loopexit, label %.lr.ph313
 
 .lr.ph308:                                        ; preds = %.preheader271, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit106"
   %.sroa.27.2307 = phi i64 [ %58, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit106" ], [ %43, %.preheader271 ]
-  %.sroa.016.1306 = phi ptr [ %57, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit106" ], [ %42, %.preheader271 ]
+  %.sroa.016.2306 = phi ptr [ %57, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit106" ], [ %42, %.preheader271 ]
   %.sroa.0186.0305 = phi ptr [ %51, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit106" ], [ %12, %.preheader271 ]
   %51 = getelementptr inbounds i8, ptr %.sroa.0186.0305, i64 24
   %.val.i90 = load ptr, ptr %.sroa.0186.0305, align 8, !noalias !4363, !nonnull !4, !noundef !4
@@ -21053,12 +21053,12 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hbc31ff1c915b0653E(ptr noa
 53:                                               ; preds = %.lr.ph308
   %54 = add i64 %.sroa.27.2307, -1
   %55 = load i8, ptr %3, align 1, !alias.scope !4366, !noalias !4370
-  store i8 %55, ptr %.sroa.016.1306, align 1, !alias.scope !4366, !noalias !4370
+  store i8 %55, ptr %.sroa.016.2306, align 1, !alias.scope !4366, !noalias !4370
   %.not.i101 = icmp ugt i64 %.val3.i91, %54
   br i1 %.not.i101, label %.invoke, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit106"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit106": ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %.sroa.016.1306, i64 1
+  %56 = getelementptr inbounds i8, ptr %.sroa.016.2306, i64 1
   %57 = getelementptr inbounds i8, ptr %56, i64 %.val3.i91
   %58 = sub nuw i64 %54, %.val3.i91
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %.val.i90, i64 %.val3.i91, i1 false), !alias.scope !4372, !noalias !4376
@@ -21067,7 +21067,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hbc31ff1c915b0653E(ptr noa
 
 .lr.ph303:                                        ; preds = %.preheader273, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit123"
   %.sroa.27.3302 = phi i64 [ %67, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit123" ], [ %43, %.preheader273 ]
-  %.sroa.016.2301 = phi ptr [ %66, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit123" ], [ %42, %.preheader273 ]
+  %.sroa.016.3301 = phi ptr [ %66, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit123" ], [ %42, %.preheader273 ]
   %.sroa.0196.0300 = phi ptr [ %60, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit123" ], [ %12, %.preheader273 ]
   %60 = getelementptr inbounds i8, ptr %.sroa.0196.0300, i64 24
   %.val.i107 = load ptr, ptr %.sroa.0196.0300, align 8, !noalias !4378, !nonnull !4, !noundef !4
@@ -21079,12 +21079,12 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hbc31ff1c915b0653E(ptr noa
 62:                                               ; preds = %.lr.ph303
   %63 = add i64 %.sroa.27.3302, -2
   %64 = load i16, ptr %3, align 1, !alias.scope !4381, !noalias !4385
-  store i16 %64, ptr %.sroa.016.2301, align 1, !alias.scope !4381, !noalias !4385
+  store i16 %64, ptr %.sroa.016.3301, align 1, !alias.scope !4381, !noalias !4385
   %.not.i118 = icmp ugt i64 %.val3.i108, %63
   br i1 %.not.i118, label %.invoke, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit123"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit123": ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %.sroa.016.2301, i64 2
+  %65 = getelementptr inbounds i8, ptr %.sroa.016.3301, i64 2
   %66 = getelementptr inbounds i8, ptr %65, i64 %.val3.i108
   %67 = sub nuw i64 %63, %.val3.i108
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %65, ptr nonnull readonly align 1 %.val.i107, i64 %.val3.i108, i1 false), !alias.scope !4387, !noalias !4391
@@ -21093,7 +21093,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hbc31ff1c915b0653E(ptr noa
 
 .lr.ph298:                                        ; preds = %.preheader275, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit140"
   %.sroa.27.4297 = phi i64 [ %75, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit140" ], [ %43, %.preheader275 ]
-  %.sroa.016.3296 = phi ptr [ %74, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit140" ], [ %42, %.preheader275 ]
+  %.sroa.016.4296 = phi ptr [ %74, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit140" ], [ %42, %.preheader275 ]
   %.sroa.0206.0295 = phi ptr [ %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit140" ], [ %12, %.preheader275 ]
   %69 = getelementptr inbounds i8, ptr %.sroa.0206.0295, i64 24
   %.val.i124 = load ptr, ptr %.sroa.0206.0295, align 8, !noalias !4393, !nonnull !4, !noundef !4
@@ -21104,12 +21104,12 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hbc31ff1c915b0653E(ptr noa
 
 71:                                               ; preds = %.lr.ph298
   %72 = add i64 %.sroa.27.4297, -3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.016.3296, ptr noundef nonnull readonly align 1 dereferenceable(3) %3, i64 3, i1 false), !alias.scope !4396, !noalias !4400
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.016.4296, ptr noundef nonnull readonly align 1 dereferenceable(3) %3, i64 3, i1 false), !alias.scope !4396, !noalias !4400
   %.not.i135 = icmp ugt i64 %.val3.i125, %72
   br i1 %.not.i135, label %.invoke, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit140"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit140": ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %.sroa.016.3296, i64 3
+  %73 = getelementptr inbounds i8, ptr %.sroa.016.4296, i64 3
   %74 = getelementptr inbounds i8, ptr %73, i64 %.val3.i125
   %75 = sub nuw i64 %72, %.val3.i125
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %73, ptr nonnull readonly align 1 %.val.i124, i64 %.val3.i125, i1 false), !alias.scope !4402, !noalias !4406
@@ -21118,7 +21118,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hbc31ff1c915b0653E(ptr noa
 
 .lr.ph:                                           ; preds = %.preheader277, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit157"
   %.sroa.27.5294 = phi i64 [ %84, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit157" ], [ %43, %.preheader277 ]
-  %.sroa.016.4293 = phi ptr [ %83, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit157" ], [ %42, %.preheader277 ]
+  %.sroa.016.5293 = phi ptr [ %83, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit157" ], [ %42, %.preheader277 ]
   %.sroa.0216.0292 = phi ptr [ %77, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit157" ], [ %12, %.preheader277 ]
   %77 = getelementptr inbounds i8, ptr %.sroa.0216.0292, i64 24
   %.val.i141 = load ptr, ptr %.sroa.0216.0292, align 8, !noalias !4408, !nonnull !4, !noundef !4
@@ -21130,12 +21130,12 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hbc31ff1c915b0653E(ptr noa
 79:                                               ; preds = %.lr.ph
   %80 = add i64 %.sroa.27.5294, -4
   %81 = load i32, ptr %3, align 1, !alias.scope !4411, !noalias !4415
-  store i32 %81, ptr %.sroa.016.4293, align 1, !alias.scope !4411, !noalias !4415
+  store i32 %81, ptr %.sroa.016.5293, align 1, !alias.scope !4411, !noalias !4415
   %.not.i152 = icmp ugt i64 %.val3.i142, %80
   br i1 %.not.i152, label %.invoke, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit157"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit157": ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %.sroa.016.4293, i64 4
+  %82 = getelementptr inbounds i8, ptr %.sroa.016.5293, i64 4
   %83 = getelementptr inbounds i8, ptr %82, i64 %.val3.i142
   %84 = sub nuw i64 %80, %.val3.i142
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr nonnull readonly align 1 %.val.i141, i64 %.val3.i142, i1 false), !alias.scope !4417, !noalias !4421
@@ -21143,19 +21143,19 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hbc31ff1c915b0653E(ptr noa
   br i1 %85, label %.loopexit, label %.lr.ph
 
 .lr.ph318:                                        ; preds = %.preheader, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit174"
-  %.sroa.27.6317 = phi i64 [ %92, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit174" ], [ %43, %.preheader ]
-  %.sroa.016.5316 = phi ptr [ %91, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit174" ], [ %42, %.preheader ]
+  %.sroa.27.0317 = phi i64 [ %92, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit174" ], [ %43, %.preheader ]
+  %.sroa.016.0316 = phi ptr [ %91, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit174" ], [ %42, %.preheader ]
   %.sroa.0226.0315 = phi ptr [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit174" ], [ %12, %.preheader ]
   %86 = getelementptr inbounds i8, ptr %.sroa.0226.0315, i64 24
   %.val.i158 = load ptr, ptr %.sroa.0226.0315, align 8, !noalias !4423, !nonnull !4, !noundef !4
   %87 = getelementptr i8, ptr %.sroa.0226.0315, i64 16
   %.val3.i159 = load i64, ptr %87, align 8, !noalias !4423, !noundef !4
-  %.not.i163 = icmp ult i64 %.sroa.27.6317, %4
+  %.not.i163 = icmp ult i64 %.sroa.27.0317, %4
   br i1 %.not.i163, label %.invoke, label %88
 
 88:                                               ; preds = %.lr.ph318
-  %89 = sub nuw i64 %.sroa.27.6317, %4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.5316, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !alias.scope !4426, !noalias !4430
+  %89 = sub nuw i64 %.sroa.27.0317, %4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.016.0316, ptr nonnull readonly align 1 %3, i64 %4, i1 false), !alias.scope !4426, !noalias !4430
   %.not.i169 = icmp ugt i64 %.val3.i159, %89
   br i1 %.not.i169, label %.invoke, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit174"
 
@@ -21167,7 +21167,7 @@ define hidden void @_ZN5alloc3str17join_generic_copy17hbc31ff1c915b0653E(ptr noa
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h23fe13fa5796b121E.exit174": ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %.sroa.016.5316, i64 %4
+  %90 = getelementptr inbounds i8, ptr %.sroa.016.0316, i64 %4
   %91 = getelementptr inbounds i8, ptr %90, i64 %.val3.i159
   %92 = sub nuw i64 %89, %.val3.i159
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %90, ptr nonnull readonly align 1 %.val.i158, i64 %.val3.i159, i1 false), !alias.scope !4432, !noalias !4436
@@ -38773,11 +38773,11 @@ define hidden void @"_ZN102_$LT$ockam_identity..models..credential..Credential$u
           to label %29 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %205, %199, %189, %143, %97, %89, %80
-  %.0144 = phi i1 [ false, %89 ], [ false, %97 ], [ false, %80 ], [ false, %143 ], [ false, %199 ], [ false, %205 ], [ false, %189 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ %.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.1145 = phi i1 [ false, %89 ], [ false, %97 ], [ false, %80 ], [ false, %143 ], [ false, %199 ], [ false, %205 ], [ false, %189 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ %.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %90, %89 ], [ %90, %97 ], [ %81, %80 ], [ %144, %143 ], [ %200, %199 ], [ %200, %205 ], [ %190, %189 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit281, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp282, %.loopexit.split-lp.loopexit.split-lp ]
   %28 = load ptr, ptr %26, align 8, !noundef !4
   %.not159 = icmp eq ptr %28, null
-  %brmerge166 = or i1 %.0144, %.not159
+  %brmerge166 = or i1 %.1145, %.not159
   br i1 %brmerge166, label %.thread, label %223
 
 .loopexit:                                        ; preds = %105, %163, %164, %165, %171
@@ -38855,7 +38855,7 @@ define hidden void @"_ZN102_$LT$ockam_identity..models..credential..Credential$u
 
 51:                                               ; preds = %.lr.ph, %82
   %.sroa.012.0313 = phi i64 [ 0, %.lr.ph ], [ %52, %82 ]
-  %.sroa.045.0312 = phi i8 [ 2, %.lr.ph ], [ %.sroa.045.2, %82 ]
+  %.sroa.045.0312 = phi i8 [ 2, %.lr.ph ], [ %.sroa.045.3, %82 ]
   %52 = add nuw i64 %.sroa.012.0313, 1
   switch i64 %.sroa.012.0313, label %54 [
     i64 0, label %55
@@ -38863,7 +38863,7 @@ define hidden void @"_ZN102_$LT$ockam_identity..models..credential..Credential$u
   ]
 
 .thread250:                                       ; preds = %82, %.preheader280, %118
-  %.sroa.045.1 = phi i8 [ %.sroa.045.4, %118 ], [ 2, %.preheader280 ], [ %.sroa.045.2, %82 ]
+  %.sroa.045.2 = phi i8 [ %.sroa.045.1, %118 ], [ 2, %.preheader280 ], [ %.sroa.045.3, %82 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   %53 = load ptr, ptr %26, align 8, !noundef !4
   %.not156 = icmp ne ptr %53, null
@@ -38966,7 +38966,7 @@ define hidden void @"_ZN102_$LT$ockam_identity..models..credential..Credential$u
   br label %82
 
 82:                                               ; preds = %101, %85, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hce8ca8944c10b949E.exit"
-  %.sroa.045.2 = phi i8 [ %.sroa.045.0312, %101 ], [ %.sroa.053.0.copyload, %85 ], [ %.sroa.045.0312, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hce8ca8944c10b949E.exit" ]
+  %.sroa.045.3 = phi i8 [ %.sroa.045.0312, %101 ], [ %.sroa.053.0.copyload, %85 ], [ %.sroa.045.0312, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hce8ca8944c10b949E.exit" ]
   %exitcond.not = icmp eq i64 %52, %35
   br i1 %exitcond.not, label %.thread250, label %51
 
@@ -39033,7 +39033,7 @@ define hidden void @"_ZN102_$LT$ockam_identity..models..credential..Credential$u
 
 105:                                              ; preds = %.preheader, %191
   %.0146 = phi i32 [ %192, %191 ], [ 0, %.preheader ]
-  %.sroa.045.4 = phi i8 [ %.sroa.045.5, %191 ], [ 2, %.preheader ]
+  %.sroa.045.1 = phi i8 [ %.sroa.045.5, %191 ], [ 2, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22)
   invoke void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
           to label %106 unwind label %.loopexit
@@ -39101,7 +39101,7 @@ define hidden void @"_ZN102_$LT$ockam_identity..models..credential..Credential$u
 
 122:                                              ; preds = %.thread250
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
-  %.not157 = icmp eq i8 %.sroa.045.1, 2
+  %.not157 = icmp eq i8 %.sroa.045.2, 2
   br i1 %.not157, label %125, label %124
 
 123:                                              ; preds = %.thread250
@@ -39117,7 +39117,7 @@ define hidden void @"_ZN102_$LT$ockam_identity..models..credential..Credential$u
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   %.sroa.578.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i8 %.sroa.045.1, ptr %.sroa.578.0..sroa_idx, align 8
+  store i8 %.sroa.045.2, ptr %.sroa.578.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(64) %.sroa.548, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
@@ -39242,10 +39242,10 @@ define hidden void @"_ZN102_$LT$ockam_identity..models..credential..Credential$u
   br label %142
 
 161:                                              ; preds = %48, %119, %102, %92, %77, %210, %202, %186, %111, %142
-  %.9 = phi i1 [ %.not156, %142 ], [ false, %111 ], [ false, %186 ], [ false, %202 ], [ false, %210 ], [ false, %77 ], [ false, %92 ], [ false, %102 ], [ false, %119 ], [ false, %48 ]
+  %.7 = phi i1 [ %.not156, %142 ], [ false, %111 ], [ false, %186 ], [ false, %202 ], [ false, %210 ], [ false, %77 ], [ false, %92 ], [ false, %102 ], [ false, %119 ], [ false, %48 ]
   %162 = load ptr, ptr %26, align 8, !noundef !4
   %.not160 = icmp eq ptr %162, null
-  %brmerge = or i1 %.9, %.not160
+  %brmerge = or i1 %.7, %.not160
   br i1 %brmerge, label %213, label %214
 
 163:                                              ; preds = %.critedge
@@ -39345,7 +39345,7 @@ define hidden void @"_ZN102_$LT$ockam_identity..models..credential..Credential$u
   br label %191
 
 191:                                              ; preds = %209, %195, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hce8ca8944c10b949E.exit180"
-  %.sroa.045.5 = phi i8 [ %.sroa.045.4, %209 ], [ %.sroa.051.0.copyload, %195 ], [ %.sroa.045.4, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hce8ca8944c10b949E.exit180" ]
+  %.sroa.045.5 = phi i8 [ %.sroa.045.1, %209 ], [ %.sroa.051.0.copyload, %195 ], [ %.sroa.045.1, %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hce8ca8944c10b949E.exit180" ]
   %192 = add i32 %.0146, 1
   br label %105
 
@@ -39647,13 +39647,13 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..credential..Cre
 
 83:                                               ; preds = %.lr.ph482, %98
   %.sroa.039.0481 = phi i64 [ 0, %.lr.ph482 ], [ %84, %98 ]
-  %.sroa.077.0480 = phi i1 [ false, %.lr.ph482 ], [ %.sroa.077.3, %98 ]
+  %.sroa.077.0480 = phi i1 [ false, %.lr.ph482 ], [ %.sroa.077.4, %98 ]
   %84 = add nuw i64 %.sroa.039.0481, 1
   %85 = icmp eq i64 %.sroa.039.0481, 0
   br i1 %85, label %86, label %88
 
 .thread400:                                       ; preds = %98
-  br i1 %.sroa.077.3, label %117, label %.critedge489
+  br i1 %.sroa.077.4, label %117, label %.critedge489
 
 86:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %28)
@@ -39708,7 +39708,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..credential..Cre
   br label %206
 
 98:                                               ; preds = %104, %91
-  %.sroa.077.3 = phi i1 [ true, %91 ], [ %.sroa.077.0480, %104 ]
+  %.sroa.077.4 = phi i1 [ true, %91 ], [ %.sroa.077.0480, %104 ]
   %exitcond504.not = icmp eq i64 %84, %65
   br i1 %exitcond504.not, label %.thread400, label %83
 
@@ -39745,7 +39745,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..credential..Cre
 
 107:                                              ; preds = %.lr.ph486, %132
   %.0329485 = phi i32 [ 0, %.lr.ph486 ], [ %133, %132 ]
-  %.sroa.077.4484 = phi i1 [ false, %.lr.ph486 ], [ %.sroa.077.6, %132 ]
+  %.sroa.077.1484 = phi i1 [ false, %.lr.ph486 ], [ %.sroa.077.6, %132 ]
   %108 = load i8, ptr %78, align 8, !range !7625, !noundef !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26)
   %.not348 = icmp eq i8 %108, 25
@@ -39784,7 +39784,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..credential..Cre
 
 114:                                              ; preds = %110
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %23)
-  br i1 %.sroa.077.4484, label %117, label %.critedge489
+  br i1 %.sroa.077.1484, label %117, label %.critedge489
 
 115:                                              ; preds = %110
   %.sroa.4260.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
@@ -39873,7 +39873,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..credential..Cre
   br label %206
 
 132:                                              ; preds = %138, %125
-  %.sroa.077.6 = phi i1 [ true, %125 ], [ %.sroa.077.4484, %138 ]
+  %.sroa.077.6 = phi i1 [ true, %125 ], [ %.sroa.077.1484, %138 ]
   %133 = add i32 %.0329485, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26)
   call void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %26, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
@@ -39945,14 +39945,14 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..credential..Cre
   br label %206
 
 151:                                              ; preds = %.lr.ph, %166
-  %.sroa.0158.0475 = phi i1 [ false, %.lr.ph ], [ %.sroa.0158.3, %166 ]
+  %.sroa.0158.0475 = phi i1 [ false, %.lr.ph ], [ %.sroa.0158.4, %166 ]
   %.sroa.0118.0474 = phi i64 [ 0, %.lr.ph ], [ %152, %166 ]
   %152 = add nuw i64 %.sroa.0118.0474, 1
   %153 = icmp eq i64 %.sroa.0118.0474, 0
   br i1 %153, label %154, label %156
 
 .thread427:                                       ; preds = %166
-  br i1 %.sroa.0158.3, label %182, label %.critedge490
+  br i1 %.sroa.0158.4, label %182, label %.critedge490
 
 154:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %18)
@@ -40007,7 +40007,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..credential..Cre
   br label %206
 
 166:                                              ; preds = %169, %159
-  %.sroa.0158.3 = phi i1 [ true, %159 ], [ %.sroa.0158.0475, %169 ]
+  %.sroa.0158.4 = phi i1 [ true, %159 ], [ %.sroa.0158.0475, %169 ]
   %exitcond.not = icmp eq i64 %152, %72
   br i1 %exitcond.not, label %.thread427, label %151
 
@@ -40033,7 +40033,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..credential..Cre
   br label %206
 
 172:                                              ; preds = %.lr.ph478, %197
-  %.sroa.0158.4477 = phi i1 [ false, %.lr.ph478 ], [ %.sroa.0158.6, %197 ]
+  %.sroa.0158.1477 = phi i1 [ false, %.lr.ph478 ], [ %.sroa.0158.6, %197 ]
   %.0328476 = phi i32 [ 0, %.lr.ph478 ], [ %198, %197 ]
   %173 = load i8, ptr %146, align 8, !range !7625, !noundef !4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
@@ -40073,7 +40073,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..credential..Cre
 
 179:                                              ; preds = %175
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %13)
-  br i1 %.sroa.0158.4477, label %182, label %.critedge490
+  br i1 %.sroa.0158.1477, label %182, label %.critedge490
 
 180:                                              ; preds = %175
   %.sroa.4315.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
@@ -40162,7 +40162,7 @@ define internal fastcc void @"_ZN111_$LT$ockam_identity..models..credential..Cre
   br label %206
 
 197:                                              ; preds = %203, %190
-  %.sroa.0158.6 = phi i1 [ true, %190 ], [ %.sroa.0158.4477, %203 ]
+  %.sroa.0158.6 = phi i1 [ true, %190 ], [ %.sroa.0158.1477, %203 ]
   %198 = add i32 %.0328476, 1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16)
   call void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
@@ -40271,10 +40271,10 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
 
 .thread395:                                       ; preds = %.thread459.loopexit, %.thread459.loopexit.split-lp, %.thread443.loopexit, %.thread443.loopexit.split-lp, %.thread416.loopexit, %.thread416.loopexit.split-lp, %.thread400.loopexit, %.thread400.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %306, %277, %144, %114, %298, %269, %136, %106, %351, %344, %338, %327, %316, %290, %189, %182, %176, %165, %154, %128
   %54 = phi i64 [ %84, %189 ], [ %84, %182 ], [ %166, %165 ], [ %166, %176 ], [ %84, %136 ], [ %84, %154 ], [ %84, %106 ], [ %84, %128 ], [ %198, %351 ], [ %198, %344 ], [ %328, %327 ], [ %328, %338 ], [ %198, %298 ], [ %198, %316 ], [ %198, %269 ], [ %198, %290 ], [ %84, %114 ], [ %84, %144 ], [ %198, %277 ], [ %198, %306 ], [ %198, %.loopexit ], [ %84, %.loopexit.split-lp.loopexit ], [ %55, %.loopexit.split-lp.loopexit.split-lp ], [ %84, %.thread400.loopexit.split-lp ], [ %84, %.thread400.loopexit ], [ %84, %.thread416.loopexit.split-lp ], [ %84, %.thread416.loopexit ], [ %198, %.thread443.loopexit.split-lp ], [ %198, %.thread443.loopexit ], [ %198, %.thread459.loopexit.split-lp ], [ %198, %.thread459.loopexit ]
-  %.0308 = phi i1 [ false, %189 ], [ false, %182 ], [ false, %165 ], [ false, %176 ], [ false, %136 ], [ false, %154 ], [ false, %106 ], [ false, %128 ], [ false, %351 ], [ false, %344 ], [ false, %327 ], [ false, %338 ], [ false, %298 ], [ false, %316 ], [ false, %269 ], [ false, %290 ], [ false, %114 ], [ false, %144 ], [ false, %277 ], [ false, %306 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ %.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ false, %.thread400.loopexit.split-lp ], [ false, %.thread400.loopexit ], [ false, %.thread416.loopexit.split-lp ], [ false, %.thread416.loopexit ], [ false, %.thread443.loopexit.split-lp ], [ false, %.thread443.loopexit ], [ false, %.thread459.loopexit.split-lp ], [ false, %.thread459.loopexit ]
+  %.1309 = phi i1 [ false, %189 ], [ false, %182 ], [ false, %165 ], [ false, %176 ], [ false, %136 ], [ false, %154 ], [ false, %106 ], [ false, %128 ], [ false, %351 ], [ false, %344 ], [ false, %327 ], [ false, %338 ], [ false, %298 ], [ false, %316 ], [ false, %269 ], [ false, %290 ], [ false, %114 ], [ false, %144 ], [ false, %277 ], [ false, %306 ], [ false, %.loopexit ], [ false, %.loopexit.split-lp.loopexit ], [ %.ph.ph, %.loopexit.split-lp.loopexit.split-lp ], [ false, %.thread400.loopexit.split-lp ], [ false, %.thread400.loopexit ], [ false, %.thread416.loopexit.split-lp ], [ false, %.thread416.loopexit ], [ false, %.thread443.loopexit.split-lp ], [ false, %.thread443.loopexit ], [ false, %.thread459.loopexit.split-lp ], [ false, %.thread459.loopexit ]
   %.pn344 = phi { ptr, i32 } [ %190, %189 ], [ %183, %182 ], [ %.pn335, %165 ], [ %.pn335, %176 ], [ %lpad.thr_comm.split-lp415, %136 ], [ %lpad.thr_comm.split-lp415, %154 ], [ %lpad.thr_comm.split-lp, %106 ], [ %lpad.thr_comm.split-lp, %128 ], [ %352, %351 ], [ %345, %344 ], [ %.pn, %327 ], [ %.pn, %338 ], [ %lpad.thr_comm.split-lp458, %298 ], [ %lpad.thr_comm.split-lp458, %316 ], [ %lpad.thr_comm.split-lp442, %269 ], [ %lpad.thr_comm.split-lp442, %290 ], [ %115, %114 ], [ %145, %144 ], [ %278, %277 ], [ %307, %306 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit478, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp479, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp484, %.thread400.loopexit.split-lp ], [ %lpad.loopexit483, %.thread400.loopexit ], [ %lpad.loopexit.split-lp, %.thread416.loopexit.split-lp ], [ %lpad.loopexit481, %.thread416.loopexit ], [ %lpad.loopexit.split-lp475, %.thread443.loopexit.split-lp ], [ %lpad.loopexit474, %.thread443.loopexit ], [ %lpad.loopexit.split-lp472, %.thread459.loopexit.split-lp ], [ %lpad.loopexit471, %.thread459.loopexit ]
   %.not346 = icmp eq i64 %54, 0
-  %brmerge353 = or i1 %.0308, %.not346
+  %brmerge353 = or i1 %.1309, %.not346
   br i1 %brmerge353, label %.thread, label %362
 
 .loopexit:                                        ; preds = %197, %250, %251, %252, %253, %254, %258
@@ -40363,12 +40363,12 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
 83:                                               ; preds = %.lr.ph, %123
   %84 = phi i64 [ 0, %.lr.ph ], [ %124, %123 ]
   %.sroa.016.0724 = phi i64 [ 0, %.lr.ph ], [ %85, %123 ]
-  %.sroa.4132.0723 = phi i64 [ undef, %.lr.ph ], [ %.sroa.4132.2, %123 ]
-  %.sroa.0131.0722 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0131.2, %123 ]
-  %.sroa.4122.0721 = phi i64 [ undef, %.lr.ph ], [ %.sroa.4122.2, %123 ]
-  %.sroa.0121.0720 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0121.2, %123 ]
-  %.sroa.079.0719 = phi i8 [ 0, %.lr.ph ], [ %.sroa.079.3, %123 ]
-  %.sroa.095.0718 = phi i8 [ 0, %.lr.ph ], [ %.sroa.095.2, %123 ]
+  %.sroa.4132.0723 = phi i64 [ undef, %.lr.ph ], [ %.sroa.4132.3, %123 ]
+  %.sroa.0131.0722 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0131.3, %123 ]
+  %.sroa.4122.0721 = phi i64 [ undef, %.lr.ph ], [ %.sroa.4122.3, %123 ]
+  %.sroa.0121.0720 = phi i64 [ 0, %.lr.ph ], [ %.sroa.0121.3, %123 ]
+  %.sroa.079.0719 = phi i8 [ 0, %.lr.ph ], [ %.sroa.079.4, %123 ]
+  %.sroa.095.0718 = phi i8 [ 0, %.lr.ph ], [ %.sroa.095.3, %123 ]
   %85 = add nuw i64 %.sroa.016.0724, 1
   switch i64 %.sroa.016.0724, label %87 [
     i64 0, label %88
@@ -40380,14 +40380,14 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
 
 .thread391:                                       ; preds = %123, %210
   %86 = phi i64 [ %198, %210 ], [ %124, %123 ]
-  %.sroa.095.1 = phi i8 [ %.sroa.095.4, %210 ], [ %.sroa.095.2, %123 ]
-  %.sroa.079.1 = phi i8 [ %.sroa.079.4, %210 ], [ %.sroa.079.3, %123 ]
-  %.sroa.0121.1 = phi i64 [ %.sroa.0121.4, %210 ], [ %.sroa.0121.2, %123 ]
-  %.sroa.4122.1 = phi i64 [ %.sroa.4122.4, %210 ], [ %.sroa.4122.2, %123 ]
-  %.sroa.0131.1 = phi i64 [ %.sroa.0131.4, %210 ], [ %.sroa.0131.2, %123 ]
-  %.sroa.4132.1 = phi i64 [ %.sroa.4132.4, %210 ], [ %.sroa.4132.2, %123 ]
+  %.sroa.095.2 = phi i8 [ %.sroa.095.1, %210 ], [ %.sroa.095.3, %123 ]
+  %.sroa.079.2 = phi i8 [ %.sroa.079.1, %210 ], [ %.sroa.079.4, %123 ]
+  %.sroa.0121.2 = phi i64 [ %.sroa.0121.1, %210 ], [ %.sroa.0121.3, %123 ]
+  %.sroa.4122.2 = phi i64 [ %.sroa.4122.1, %210 ], [ %.sroa.4122.3, %123 ]
+  %.sroa.0131.2 = phi i64 [ %.sroa.0131.1, %210 ], [ %.sroa.0131.3, %123 ]
+  %.sroa.4132.2 = phi i64 [ %.sroa.4132.1, %210 ], [ %.sroa.4132.3, %123 ]
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.9157)
-  %.not341 = icmp eq i8 %.sroa.079.1, 2
+  %.not341 = icmp eq i8 %.sroa.079.2, 2
   br i1 %.not341, label %215, label %213
 
 87:                                               ; preds = %83
@@ -40451,7 +40451,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
           to label %109 unwind label %106
 
 105:                                              ; preds = %122, %102
-  %.sroa.079.2 = phi i8 [ %.sroa.087.0.copyload, %102 ], [ %.sroa.079.0719, %122 ]
+  %.sroa.079.3 = phi i8 [ %.sroa.087.0.copyload, %102 ], [ %.sroa.079.0719, %122 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %50)
   br label %123
 
@@ -40526,12 +40526,12 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
 
 123:                                              ; preds = %194, %186, %179, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit", %135, %105
   %124 = phi i64 [ %84, %194 ], [ %84, %186 ], [ %84, %179 ], [ 1, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit" ], [ %84, %135 ], [ %84, %105 ]
-  %.sroa.095.2 = phi i8 [ %.sroa.095.0718, %194 ], [ %.sroa.095.0718, %186 ], [ %.sroa.095.0718, %179 ], [ %.sroa.095.0718, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit" ], [ %.sroa.095.3, %135 ], [ %.sroa.095.0718, %105 ]
-  %.sroa.079.3 = phi i8 [ %.sroa.079.0719, %194 ], [ %.sroa.079.0719, %186 ], [ %.sroa.079.0719, %179 ], [ %.sroa.079.0719, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit" ], [ %.sroa.079.0719, %135 ], [ %.sroa.079.2, %105 ]
-  %.sroa.0121.2 = phi i64 [ %.sroa.0121.0720, %194 ], [ %.sroa.0121.0720, %186 ], [ 1, %179 ], [ %.sroa.0121.0720, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit" ], [ %.sroa.0121.0720, %135 ], [ %.sroa.0121.0720, %105 ]
-  %.sroa.4122.2 = phi i64 [ %.sroa.4122.0721, %194 ], [ %.sroa.4122.0721, %186 ], [ %94, %179 ], [ %.sroa.4122.0721, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit" ], [ %.sroa.4122.0721, %135 ], [ %.sroa.4122.0721, %105 ]
-  %.sroa.0131.2 = phi i64 [ %.sroa.0131.0722, %194 ], [ 1, %186 ], [ %.sroa.0131.0722, %179 ], [ %.sroa.0131.0722, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit" ], [ %.sroa.0131.0722, %135 ], [ %.sroa.0131.0722, %105 ]
-  %.sroa.4132.2 = phi i64 [ %.sroa.4132.0723, %194 ], [ %98, %186 ], [ %.sroa.4132.0723, %179 ], [ %.sroa.4132.0723, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit" ], [ %.sroa.4132.0723, %135 ], [ %.sroa.4132.0723, %105 ]
+  %.sroa.095.3 = phi i8 [ %.sroa.095.0718, %194 ], [ %.sroa.095.0718, %186 ], [ %.sroa.095.0718, %179 ], [ %.sroa.095.0718, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit" ], [ %.sroa.095.4, %135 ], [ %.sroa.095.0718, %105 ]
+  %.sroa.079.4 = phi i8 [ %.sroa.079.0719, %194 ], [ %.sroa.079.0719, %186 ], [ %.sroa.079.0719, %179 ], [ %.sroa.079.0719, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit" ], [ %.sroa.079.0719, %135 ], [ %.sroa.079.3, %105 ]
+  %.sroa.0121.3 = phi i64 [ %.sroa.0121.0720, %194 ], [ %.sroa.0121.0720, %186 ], [ 1, %179 ], [ %.sroa.0121.0720, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit" ], [ %.sroa.0121.0720, %135 ], [ %.sroa.0121.0720, %105 ]
+  %.sroa.4122.3 = phi i64 [ %.sroa.4122.0721, %194 ], [ %.sroa.4122.0721, %186 ], [ %94, %179 ], [ %.sroa.4122.0721, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit" ], [ %.sroa.4122.0721, %135 ], [ %.sroa.4122.0721, %105 ]
+  %.sroa.0131.3 = phi i64 [ %.sroa.0131.0722, %194 ], [ 1, %186 ], [ %.sroa.0131.0722, %179 ], [ %.sroa.0131.0722, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit" ], [ %.sroa.0131.0722, %135 ], [ %.sroa.0131.0722, %105 ]
+  %.sroa.4132.3 = phi i64 [ %.sroa.4132.0723, %194 ], [ %98, %186 ], [ %.sroa.4132.0723, %179 ], [ %.sroa.4132.0723, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit" ], [ %.sroa.4132.0723, %135 ], [ %.sroa.4132.0723, %105 ]
   %exitcond.not = icmp eq i64 %85, %62
   br i1 %exitcond.not, label %.thread391, label %83
 
@@ -40564,7 +40564,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
           to label %139 unwind label %136
 
 135:                                              ; preds = %152, %132
-  %.sroa.095.3 = phi i8 [ %.sroa.0103.0.copyload, %132 ], [ %.sroa.095.0718, %152 ]
+  %.sroa.095.4 = phi i8 [ %.sroa.0103.0.copyload, %132 ], [ %.sroa.095.0718, %152 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %47)
   br label %123
 
@@ -40804,12 +40804,12 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
 
 197:                                              ; preds = %.preheader, %286
   %198 = phi i64 [ %287, %286 ], [ 0, %.preheader ]
-  %.sroa.095.4 = phi i8 [ %.sroa.095.5, %286 ], [ 0, %.preheader ]
-  %.sroa.079.4 = phi i8 [ %.sroa.079.6, %286 ], [ 0, %.preheader ]
-  %.sroa.0121.4 = phi i64 [ %.sroa.0121.5, %286 ], [ 0, %.preheader ]
-  %.sroa.4122.4 = phi i64 [ %.sroa.4122.5, %286 ], [ undef, %.preheader ]
-  %.sroa.0131.4 = phi i64 [ %.sroa.0131.5, %286 ], [ 0, %.preheader ]
-  %.sroa.4132.4 = phi i64 [ %.sroa.4132.5, %286 ], [ undef, %.preheader ]
+  %.sroa.095.1 = phi i8 [ %.sroa.095.5, %286 ], [ 0, %.preheader ]
+  %.sroa.079.1 = phi i8 [ %.sroa.079.6, %286 ], [ 0, %.preheader ]
+  %.sroa.0121.1 = phi i64 [ %.sroa.0121.5, %286 ], [ 0, %.preheader ]
+  %.sroa.4122.1 = phi i64 [ %.sroa.4122.5, %286 ], [ undef, %.preheader ]
+  %.sroa.0131.1 = phi i64 [ %.sroa.0131.5, %286 ], [ 0, %.preheader ]
+  %.sroa.4132.1 = phi i64 [ %.sroa.4132.5, %286 ], [ undef, %.preheader ]
   %.0310 = phi i32 [ %288, %286 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %39)
   invoke void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
@@ -40878,25 +40878,25 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
   br label %248
 
 213:                                              ; preds = %.thread391.thread, %.thread391
-  %.sroa.4132.1891 = phi i64 [ undef, %.thread391.thread ], [ %.sroa.4132.1, %.thread391 ]
-  %.sroa.0131.1889 = phi i64 [ 0, %.thread391.thread ], [ %.sroa.0131.1, %.thread391 ]
-  %.sroa.4122.1887 = phi i64 [ undef, %.thread391.thread ], [ %.sroa.4122.1, %.thread391 ]
-  %.sroa.0121.1885 = phi i64 [ 0, %.thread391.thread ], [ %.sroa.0121.1, %.thread391 ]
-  %.sroa.079.1883 = phi i8 [ 0, %.thread391.thread ], [ %.sroa.079.1, %.thread391 ]
-  %.sroa.095.1882 = phi i8 [ 0, %.thread391.thread ], [ %.sroa.095.1, %.thread391 ]
+  %.sroa.4132.2891 = phi i64 [ undef, %.thread391.thread ], [ %.sroa.4132.2, %.thread391 ]
+  %.sroa.0131.2889 = phi i64 [ 0, %.thread391.thread ], [ %.sroa.0131.2, %.thread391 ]
+  %.sroa.4122.2887 = phi i64 [ undef, %.thread391.thread ], [ %.sroa.4122.2, %.thread391 ]
+  %.sroa.0121.2885 = phi i64 [ 0, %.thread391.thread ], [ %.sroa.0121.2, %.thread391 ]
+  %.sroa.079.2883 = phi i8 [ 0, %.thread391.thread ], [ %.sroa.079.2, %.thread391 ]
+  %.sroa.095.2882 = phi i8 [ 0, %.thread391.thread ], [ %.sroa.095.2, %.thread391 ]
   %214 = phi i64 [ 0, %.thread391.thread ], [ %86, %.thread391 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %.sroa.3160, ptr noundef nonnull align 1 dereferenceable(32) %.sroa.582, i64 32, i1 false)
   br label %215
 
 215:                                              ; preds = %.thread391, %213
-  %.sroa.4132.1890 = phi i64 [ %.sroa.4132.1891, %213 ], [ %.sroa.4132.1, %.thread391 ]
-  %.sroa.0131.1888 = phi i64 [ %.sroa.0131.1889, %213 ], [ %.sroa.0131.1, %.thread391 ]
-  %.sroa.4122.1886 = phi i64 [ %.sroa.4122.1887, %213 ], [ %.sroa.4122.1, %.thread391 ]
-  %.sroa.0121.1884 = phi i64 [ %.sroa.0121.1885, %213 ], [ %.sroa.0121.1, %.thread391 ]
-  %.sroa.095.1881 = phi i8 [ %.sroa.095.1882, %213 ], [ %.sroa.095.1, %.thread391 ]
+  %.sroa.4132.2890 = phi i64 [ %.sroa.4132.2891, %213 ], [ %.sroa.4132.2, %.thread391 ]
+  %.sroa.0131.2888 = phi i64 [ %.sroa.0131.2889, %213 ], [ %.sroa.0131.2, %.thread391 ]
+  %.sroa.4122.2886 = phi i64 [ %.sroa.4122.2887, %213 ], [ %.sroa.4122.2, %.thread391 ]
+  %.sroa.0121.2884 = phi i64 [ %.sroa.0121.2885, %213 ], [ %.sroa.0121.2, %.thread391 ]
+  %.sroa.095.2881 = phi i8 [ %.sroa.095.2882, %213 ], [ %.sroa.095.2, %.thread391 ]
   %216 = phi i64 [ %214, %213 ], [ %86, %.thread391 ]
-  %.sroa.0158.0 = phi i8 [ %.sroa.079.1883, %213 ], [ 0, %.thread391 ]
-  %.not342 = icmp eq i8 %.sroa.095.1881, 2
+  %.sroa.0158.0 = phi i8 [ %.sroa.079.2883, %213 ], [ 0, %.thread391 ]
+  %.not342 = icmp eq i8 %.sroa.095.2881, 2
   br i1 %.not342, label %218, label %217
 
 217:                                              ; preds = %215
@@ -40904,7 +40904,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
   br label %218
 
 218:                                              ; preds = %215, %217
-  %.sroa.0163.0 = phi i8 [ %.sroa.095.1881, %217 ], [ 0, %215 ]
+  %.sroa.0163.0 = phi i8 [ %.sroa.095.2881, %217 ], [ 0, %215 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26)
   %.not343 = icmp ne i64 %216, 0
   br i1 %.not343, label %219, label %222
@@ -40912,7 +40912,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
 219:                                              ; preds = %218
   %220 = getelementptr inbounds i8, ptr %52, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %220, i64 32, i1 false)
-  %221 = icmp eq i64 %.sroa.0121.1884, 1
+  %221 = icmp eq i64 %.sroa.0121.2884, 1
   br i1 %221, label %223, label %225
 
 222:                                              ; preds = %218
@@ -40925,7 +40925,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
           to label %244 unwind label %242
 
 223:                                              ; preds = %219
-  %224 = icmp eq i64 %.sroa.0131.1888, 1
+  %224 = icmp eq i64 %.sroa.0131.2888, 1
   br i1 %224, label %226, label %227
 
 225:                                              ; preds = %219
@@ -40939,9 +40939,9 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %26)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %220, i64 32, i1 false)
   %.sroa.5154.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.4122.1886, ptr %.sroa.5154.0..sroa_idx, align 8
+  store i64 %.sroa.4122.2886, ptr %.sroa.5154.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.sroa.4132.1890, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %.sroa.4132.2890, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7155.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store i8 %.sroa.0158.0, ptr %.sroa.7155.0..sroa_idx, align 8
   %.sroa.7155.sroa.5.0..sroa.7155.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 49
@@ -41054,9 +41054,9 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
 
 248:                                              ; preds = %81, %211, %195, %187, %180, %173, %143, %113, %357, %349, %342, %335, %305, %276, %204, %241
   %249 = phi i64 [ %216, %241 ], [ %198, %204 ], [ %198, %276 ], [ %198, %305 ], [ %198, %335 ], [ %198, %342 ], [ %198, %349 ], [ %198, %357 ], [ %84, %113 ], [ %84, %143 ], [ %84, %173 ], [ %84, %180 ], [ %84, %187 ], [ %84, %195 ], [ %198, %211 ], [ 0, %81 ]
-  %.11 = phi i1 [ %.not343, %241 ], [ false, %204 ], [ false, %276 ], [ false, %305 ], [ false, %335 ], [ false, %342 ], [ false, %349 ], [ false, %357 ], [ false, %113 ], [ false, %143 ], [ false, %173 ], [ false, %180 ], [ false, %187 ], [ false, %195 ], [ false, %211 ], [ false, %81 ]
+  %.9 = phi i1 [ %.not343, %241 ], [ false, %204 ], [ false, %276 ], [ false, %305 ], [ false, %335 ], [ false, %342 ], [ false, %349 ], [ false, %357 ], [ false, %113 ], [ false, %143 ], [ false, %173 ], [ false, %180 ], [ false, %187 ], [ false, %195 ], [ false, %211 ], [ false, %81 ]
   %.not347 = icmp eq i64 %249, 0
-  %brmerge352 = or i1 %.11, %.not347
+  %brmerge352 = or i1 %.9, %.not347
   br i1 %brmerge352, label %359, label %360
 
 250:                                              ; preds = %.critedge
@@ -41120,7 +41120,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
           to label %272 unwind label %269
 
 268:                                              ; preds = %285, %265
-  %.sroa.079.5 = phi i8 [ %.sroa.085.0.copyload, %265 ], [ %.sroa.079.4, %285 ]
+  %.sroa.079.5 = phi i8 [ %.sroa.085.0.copyload, %265 ], [ %.sroa.079.1, %285 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %38)
   br label %286
 
@@ -41195,12 +41195,12 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
 
 286:                                              ; preds = %356, %348, %341, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378", %297, %268
   %287 = phi i64 [ %198, %356 ], [ %198, %348 ], [ %198, %341 ], [ 1, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378" ], [ %198, %297 ], [ %198, %268 ]
-  %.sroa.095.5 = phi i8 [ %.sroa.095.4, %356 ], [ %.sroa.095.4, %348 ], [ %.sroa.095.4, %341 ], [ %.sroa.095.4, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378" ], [ %.sroa.095.6, %297 ], [ %.sroa.095.4, %268 ]
-  %.sroa.079.6 = phi i8 [ %.sroa.079.4, %356 ], [ %.sroa.079.4, %348 ], [ %.sroa.079.4, %341 ], [ %.sroa.079.4, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378" ], [ %.sroa.079.4, %297 ], [ %.sroa.079.5, %268 ]
-  %.sroa.0121.5 = phi i64 [ %.sroa.0121.4, %356 ], [ %.sroa.0121.4, %348 ], [ 1, %341 ], [ %.sroa.0121.4, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378" ], [ %.sroa.0121.4, %297 ], [ %.sroa.0121.4, %268 ]
-  %.sroa.4122.5 = phi i64 [ %.sroa.4122.4, %356 ], [ %.sroa.4122.4, %348 ], [ %257, %341 ], [ %.sroa.4122.4, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378" ], [ %.sroa.4122.4, %297 ], [ %.sroa.4122.4, %268 ]
-  %.sroa.0131.5 = phi i64 [ %.sroa.0131.4, %356 ], [ 1, %348 ], [ %.sroa.0131.4, %341 ], [ %.sroa.0131.4, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378" ], [ %.sroa.0131.4, %297 ], [ %.sroa.0131.4, %268 ]
-  %.sroa.4132.5 = phi i64 [ %.sroa.4132.4, %356 ], [ %261, %348 ], [ %.sroa.4132.4, %341 ], [ %.sroa.4132.4, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378" ], [ %.sroa.4132.4, %297 ], [ %.sroa.4132.4, %268 ]
+  %.sroa.095.5 = phi i8 [ %.sroa.095.1, %356 ], [ %.sroa.095.1, %348 ], [ %.sroa.095.1, %341 ], [ %.sroa.095.1, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378" ], [ %.sroa.095.6, %297 ], [ %.sroa.095.1, %268 ]
+  %.sroa.079.6 = phi i8 [ %.sroa.079.1, %356 ], [ %.sroa.079.1, %348 ], [ %.sroa.079.1, %341 ], [ %.sroa.079.1, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378" ], [ %.sroa.079.1, %297 ], [ %.sroa.079.5, %268 ]
+  %.sroa.0121.5 = phi i64 [ %.sroa.0121.1, %356 ], [ %.sroa.0121.1, %348 ], [ 1, %341 ], [ %.sroa.0121.1, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378" ], [ %.sroa.0121.1, %297 ], [ %.sroa.0121.1, %268 ]
+  %.sroa.4122.5 = phi i64 [ %.sroa.4122.1, %356 ], [ %.sroa.4122.1, %348 ], [ %257, %341 ], [ %.sroa.4122.1, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378" ], [ %.sroa.4122.1, %297 ], [ %.sroa.4122.1, %268 ]
+  %.sroa.0131.5 = phi i64 [ %.sroa.0131.1, %356 ], [ 1, %348 ], [ %.sroa.0131.1, %341 ], [ %.sroa.0131.1, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378" ], [ %.sroa.0131.1, %297 ], [ %.sroa.0131.1, %268 ]
+  %.sroa.4132.5 = phi i64 [ %.sroa.4132.1, %356 ], [ %261, %348 ], [ %.sroa.4132.1, %341 ], [ %.sroa.4132.1, %"_ZN4core3ptr95drop_in_place$LT$core..option..Option$LT$ockam_identity..models..credential..Attributes$GT$$GT$17h069ba3b5d19e1141E.exit378" ], [ %.sroa.4132.1, %297 ], [ %.sroa.4132.1, %268 ]
   %288 = add i32 %.0310, 1
   br label %197
 
@@ -41227,7 +41227,7 @@ define hidden void @"_ZN106_$LT$ockam_identity..models..credential..CredentialDa
           to label %301 unwind label %298
 
 297:                                              ; preds = %314, %294
-  %.sroa.095.6 = phi i8 [ %.sroa.0101.0.copyload, %294 ], [ %.sroa.095.4, %314 ]
+  %.sroa.095.6 = phi i8 [ %.sroa.0101.0.copyload, %294 ], [ %.sroa.095.1, %314 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %35)
   br label %286
 
@@ -41602,8 +41602,8 @@ define internal fastcc void @"_ZN102_$LT$ockam_identity..models..credential..Att
 
 49:                                               ; preds = %.lr.ph, %64
   %.sroa.012.0277 = phi i64 [ 0, %.lr.ph ], [ %51, %64 ]
-  %.sroa.456.0276 = phi i64 [ undef, %.lr.ph ], [ %.sroa.456.3, %64 ]
-  %.sroa.055.0275 = phi i64 [ 0, %.lr.ph ], [ %.sroa.055.3, %64 ]
+  %.sroa.456.0276 = phi i64 [ undef, %.lr.ph ], [ %.sroa.456.4, %64 ]
+  %.sroa.055.0275 = phi i64 [ 0, %.lr.ph ], [ %.sroa.055.4, %64 ]
   %50 = phi i64 [ 0, %.lr.ph ], [ %65, %64 ]
   %51 = add nuw i64 %.sroa.012.0277, 1
   switch i64 %.sroa.012.0277, label %54 [
@@ -41613,16 +41613,16 @@ define internal fastcc void @"_ZN102_$LT$ockam_identity..models..credential..Att
 
 .thread212.loopexit:                              ; preds = %64, %.preheader230
   %.lcssa269 = phi i64 [ 0, %.preheader230 ], [ %65, %64 ]
-  %.sroa.055.0.lcssa = phi i64 [ 0, %.preheader230 ], [ %.sroa.055.3, %64 ]
-  %.sroa.456.0.lcssa = phi i64 [ undef, %.preheader230 ], [ %.sroa.456.3, %64 ]
+  %.sroa.055.0.lcssa = phi i64 [ 0, %.preheader230 ], [ %.sroa.055.4, %64 ]
+  %.sroa.456.0.lcssa = phi i64 [ undef, %.preheader230 ], [ %.sroa.456.4, %64 ]
   store i64 %.lcssa269, ptr %29, align 8
   br label %.thread212
 
 .thread212:                                       ; preds = %.thread212.loopexit, %104
   %52 = phi i64 [ %93, %104 ], [ %.lcssa269, %.thread212.loopexit ]
-  %.sroa.055.1 = phi i64 [ %.sroa.055.4, %104 ], [ %.sroa.055.0.lcssa, %.thread212.loopexit ]
-  %.sroa.456.1 = phi i64 [ %.sroa.456.4, %104 ], [ %.sroa.456.0.lcssa, %.thread212.loopexit ]
-  %53 = icmp eq i64 %.sroa.055.1, 1
+  %.sroa.055.2 = phi i64 [ %.sroa.055.1, %104 ], [ %.sroa.055.0.lcssa, %.thread212.loopexit ]
+  %.sroa.456.2 = phi i64 [ %.sroa.456.1, %104 ], [ %.sroa.456.0.lcssa, %.thread212.loopexit ]
+  %53 = icmp eq i64 %.sroa.055.2, 1
   br i1 %53, label %106, label %107
 
 54:                                               ; preds = %49
@@ -41671,8 +41671,8 @@ define internal fastcc void @"_ZN102_$LT$ockam_identity..models..credential..Att
 
 64:                                               ; preds = %90, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$minicbor..bytes..ByteVec$C$minicbor..bytes..ByteVec$GT$$GT$$GT$17hd61cc69ce9c2b11eE.exit", %62
   %65 = phi i64 [ %50, %90 ], [ 1, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$minicbor..bytes..ByteVec$C$minicbor..bytes..ByteVec$GT$$GT$$GT$17hd61cc69ce9c2b11eE.exit" ], [ %50, %62 ]
-  %.sroa.055.3 = phi i64 [ %.sroa.055.0275, %90 ], [ %.sroa.055.0275, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$minicbor..bytes..ByteVec$C$minicbor..bytes..ByteVec$GT$$GT$$GT$17hd61cc69ce9c2b11eE.exit" ], [ 1, %62 ]
-  %.sroa.456.3 = phi i64 [ %.sroa.456.0276, %90 ], [ %.sroa.456.0276, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$minicbor..bytes..ByteVec$C$minicbor..bytes..ByteVec$GT$$GT$$GT$17hd61cc69ce9c2b11eE.exit" ], [ %58, %62 ]
+  %.sroa.055.4 = phi i64 [ %.sroa.055.0275, %90 ], [ %.sroa.055.0275, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$minicbor..bytes..ByteVec$C$minicbor..bytes..ByteVec$GT$$GT$$GT$17hd61cc69ce9c2b11eE.exit" ], [ 1, %62 ]
+  %.sroa.456.4 = phi i64 [ %.sroa.456.0276, %90 ], [ %.sroa.456.0276, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$minicbor..bytes..ByteVec$C$minicbor..bytes..ByteVec$GT$$GT$$GT$17hd61cc69ce9c2b11eE.exit" ], [ %58, %62 ]
   %exitcond.not = icmp eq i64 %51, %37
   br i1 %exitcond.not, label %.thread212.loopexit, label %49
 
@@ -41773,8 +41773,8 @@ define internal fastcc void @"_ZN102_$LT$ockam_identity..models..credential..Att
 
 92:                                               ; preds = %.preheader, %136
   %93 = phi i64 [ %137, %136 ], [ 0, %.preheader ]
-  %.sroa.055.4 = phi i64 [ %.sroa.055.6, %136 ], [ 0, %.preheader ]
-  %.sroa.456.4 = phi i64 [ %.sroa.456.6, %136 ], [ undef, %.preheader ]
+  %.sroa.055.1 = phi i64 [ %.sroa.055.6, %136 ], [ 0, %.preheader ]
+  %.sroa.456.1 = phi i64 [ %.sroa.456.6, %136 ], [ undef, %.preheader ]
   %.0170 = phi i32 [ %138, %136 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %24)
   invoke void @_ZN8minicbor6decode7decoder7Decoder8datatype17h9d7a2e53823e6fc3E(ptr noalias nocapture noundef nonnull sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
@@ -41850,7 +41850,7 @@ define internal fastcc void @"_ZN102_$LT$ockam_identity..models..credential..Att
 108:                                              ; preds = %106
   %109 = getelementptr inbounds i8, ptr %29, i64 8
   %110 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.456.1, ptr %110, align 8
+  store i64 %.sroa.456.2, ptr %110, align 8
   %.sroa.588.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.588.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
   store i64 2, ptr %0, align 8
@@ -41972,8 +41972,8 @@ define internal fastcc void @"_ZN102_$LT$ockam_identity..models..credential..Att
 
 136:                                              ; preds = %164, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$minicbor..bytes..ByteVec$C$minicbor..bytes..ByteVec$GT$$GT$$GT$17hd61cc69ce9c2b11eE.exit205", %134
   %137 = phi i64 [ %93, %164 ], [ 1, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$minicbor..bytes..ByteVec$C$minicbor..bytes..ByteVec$GT$$GT$$GT$17hd61cc69ce9c2b11eE.exit205" ], [ %93, %134 ]
-  %.sroa.055.6 = phi i64 [ %.sroa.055.4, %164 ], [ %.sroa.055.4, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$minicbor..bytes..ByteVec$C$minicbor..bytes..ByteVec$GT$$GT$$GT$17hd61cc69ce9c2b11eE.exit205" ], [ 1, %134 ]
-  %.sroa.456.6 = phi i64 [ %.sroa.456.4, %164 ], [ %.sroa.456.4, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$minicbor..bytes..ByteVec$C$minicbor..bytes..ByteVec$GT$$GT$$GT$17hd61cc69ce9c2b11eE.exit205" ], [ %130, %134 ]
+  %.sroa.055.6 = phi i64 [ %.sroa.055.1, %164 ], [ %.sroa.055.1, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$minicbor..bytes..ByteVec$C$minicbor..bytes..ByteVec$GT$$GT$$GT$17hd61cc69ce9c2b11eE.exit205" ], [ 1, %134 ]
+  %.sroa.456.6 = phi i64 [ %.sroa.456.1, %164 ], [ %.sroa.456.1, %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$alloc..collections..btree..map..BTreeMap$LT$minicbor..bytes..ByteVec$C$minicbor..bytes..ByteVec$GT$$GT$$GT$17hd61cc69ce9c2b11eE.exit205" ], [ %130, %134 ]
   %138 = add i32 %.0170, 1
   br label %92
 

@@ -434,9 +434,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2291,7 +2291,7 @@ lpad.loopexit59:                                  ; preds = %while.cond, %while.
   br label %ehcleanup51
 
 if.end13:                                         ; preds = %if.then1, %if.end
-  %ownedKeywords.sroa.0.1 = phi ptr [ null, %if.end ], [ %call2, %if.then1 ]
+  %ownedKeywords.sroa.0.0 = phi ptr [ null, %if.end ], [ %call2, %if.then1 ]
   %keywords.addr.0 = phi ptr [ %keywords, %if.end ], [ %call2, %if.then1 ]
   %len.i = getelementptr inbounds i8, ptr %value, i64 56
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -2532,7 +2532,7 @@ cleanup48.critedge:                               ; preds = %invoke.cont22, %if.
   br label %cleanup48
 
 cleanup48:                                        ; preds = %invoke.cont14, %invoke.cont42, %cleanup48.critedge, %if.then1
-  %ownedKeywords.sroa.0.2 = phi ptr [ %ownedKeywords.sroa.0.1, %cleanup48.critedge ], [ %call2, %if.then1 ], [ %ownedKeywords.sroa.0.1, %invoke.cont42 ], [ %ownedKeywords.sroa.0.1, %invoke.cont14 ]
+  %ownedKeywords.sroa.0.2 = phi ptr [ %ownedKeywords.sroa.0.0, %cleanup48.critedge ], [ %call2, %if.then1 ], [ %ownedKeywords.sroa.0.0, %invoke.cont42 ], [ %ownedKeywords.sroa.0.0, %invoke.cont14 ]
   %isnull.i45 = icmp eq ptr %ownedKeywords.sroa.0.2, null
   br i1 %isnull.i45, label %cleanup.cont50, label %delete.notnull.i46
 
@@ -2548,14 +2548,14 @@ cleanup.cont50:                                   ; preds = %delete.notnull.i46,
 
 ehcleanup51:                                      ; preds = %lpad.loopexit59, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit61, %lpad.loopexit59 ]
-  %isnull.i49 = icmp eq ptr %ownedKeywords.sroa.0.1, null
+  %isnull.i49 = icmp eq ptr %ownedKeywords.sroa.0.0, null
   br i1 %isnull.i49, label %_ZN6icu_7512LocalPointerINS_17StringEnumerationEED2Ev.exit53, label %delete.notnull.i50
 
 delete.notnull.i50:                               ; preds = %ehcleanup51
-  %vtable.i51 = load ptr, ptr %ownedKeywords.sroa.0.1, align 8
+  %vtable.i51 = load ptr, ptr %ownedKeywords.sroa.0.0, align 8
   %vfn.i52 = getelementptr inbounds i8, ptr %vtable.i51, i64 8
   %22 = load ptr, ptr %vfn.i52, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(116) %ownedKeywords.sroa.0.1) #13
+  call void %22(ptr noundef nonnull align 8 dereferenceable(116) %ownedKeywords.sroa.0.0) #13
   br label %_ZN6icu_7512LocalPointerINS_17StringEnumerationEED2Ev.exit53
 
 _ZN6icu_7512LocalPointerINS_17StringEnumerationEED2Ev.exit53: ; preds = %ehcleanup51, %delete.notnull.i50

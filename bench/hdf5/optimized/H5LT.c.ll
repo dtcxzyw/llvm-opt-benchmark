@@ -2854,7 +2854,7 @@ indentation.exit565:                              ; preds = %390, %392
 
 449:                                              ; preds = %447, %445, %431, %410, %396
   %.0402 = phi i64 [ %371, %396 ], [ %371, %410 ], [ %418, %431 ], [ %418, %445 ], [ %418, %447 ]
-  %.0399 = phi ptr [ %397, %396 ], [ %411, %410 ], [ %432, %431 ], [ %446, %445 ], [ %448, %447 ]
+  %.1 = phi ptr [ %397, %396 ], [ %411, %410 ], [ %432, %431 ], [ %446, %445 ], [ %448, %447 ]
   %450 = call i32 @H5Tclose(i64 noundef %.0402) #20
   %451 = call i32 @H5Tclose(i64 noundef %307) #20
   %452 = load i64, ptr @indent, align 8
@@ -2875,7 +2875,7 @@ indentation.exit565:                              ; preds = %390, %392
   br label %indentation.exit566
 
 indentation.exit566:                              ; preds = %455, %457
-  %458 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.0399, ptr noundef nonnull %19)
+  %458 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef nonnull %3, ptr noundef nonnull %.1, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %19)
   %.not525 = icmp eq ptr %458, null
   br i1 %.not525, label %realloc_and_append.exit.thread, label %459
@@ -3254,19 +3254,19 @@ indentation.exit574:                              ; preds = %594, %596
 
 .lr.ph607:                                        ; preds = %.lr.ph607.preheader, %604
   %indvars.iv = phi i64 [ 0, %.lr.ph607.preheader ], [ %indvars.iv.next, %604 ]
-  %.1606 = phi ptr [ %597, %.lr.ph607.preheader ], [ %609, %604 ]
+  %.2606 = phi ptr [ %597, %.lr.ph607.preheader ], [ %609, %604 ]
   %605 = getelementptr inbounds [32 x i64], ptr %28, i64 0, i64 %indvars.iv
   %606 = load i64, ptr %605, align 8
   %607 = trunc i64 %606 to i32
   %608 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %24, i64 noundef 256, ptr noundef nonnull @.str.64, i32 noundef %607) #20
-  %609 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %.1606, ptr noundef nonnull %24)
+  %609 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %.2606, ptr noundef nonnull %24)
   %.not487 = icmp eq ptr %609, null
   br i1 %.not487, label %realloc_and_append.exit.thread, label %604
 
 ._crit_edge608:                                   ; preds = %604, %.preheader
-  %.1.lcssa = phi ptr [ %597, %.preheader ], [ %609, %604 ]
+  %.2.lcssa = phi ptr [ %597, %.preheader ], [ %609, %604 ]
   store i16 32, ptr %24, align 16
-  %610 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %.1.lcssa, ptr noundef nonnull %24)
+  %610 = call fastcc ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %.2.lcssa, ptr noundef nonnull %24)
   %.not481 = icmp eq ptr %610, null
   br i1 %.not481, label %realloc_and_append.exit.thread, label %611
 
@@ -3365,7 +3365,7 @@ indentation.exit575:                              ; preds = %635, %637
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %644, %649
-  %.2604 = phi ptr [ %706, %649 ], [ %.0.i588, %644 ]
+  %.3604 = phi ptr [ %706, %649 ], [ %.0.i588, %644 ]
   %.1401603 = phi i32 [ %650, %649 ], [ 0, %644 ]
   %651 = call ptr @H5Tget_member_name(i64 noundef %0, i32 noundef %.1401603) #20
   %652 = icmp eq ptr %651, null
@@ -3395,7 +3395,7 @@ indentation.exit575:                              ; preds = %635, %637
   br label %indentation.exit576
 
 indentation.exit576:                              ; preds = %661, %663
-  %664 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %.2604, ptr noundef nonnull %9)
+  %664 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %.3604, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9)
   %.not475 = icmp eq ptr %664, null
   br i1 %.not475, label %realloc_and_append.exit.thread, label %665
@@ -3514,7 +3514,7 @@ H5LTdtype_to_text.exit.thread:                    ; preds = %673
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %644
   %707 = phi i64 [ %648, %644 ], [ %.pre, %._crit_edge.loopexit ]
-  %.2.lcssa = phi ptr [ %.0.i588, %644 ], [ %706, %._crit_edge.loopexit ]
+  %.3.lcssa = phi ptr [ %.0.i588, %644 ], [ %706, %._crit_edge.loopexit ]
   %708 = add i64 %707, -3
   store i64 %708, ptr @indent, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
@@ -3532,7 +3532,7 @@ H5LTdtype_to_text.exit.thread:                    ; preds = %673
   br label %indentation.exit582
 
 indentation.exit582:                              ; preds = %710, %712
-  %713 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %.2.lcssa, ptr noundef nonnull %6)
+  %713 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %4, ptr noundef %3, ptr noundef nonnull %.3.lcssa, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   %.not473 = icmp eq ptr %713, null
   br i1 %.not473, label %realloc_and_append.exit.thread, label %714
@@ -3765,7 +3765,7 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef %1, p
 
 40:                                               ; preds = %.lr.ph150, %39
   %indvars.iv159 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next160, %39 ]
-  %.095147 = phi ptr [ %1, %.lr.ph150 ], [ %65, %39 ]
+  %.196147 = phi ptr [ %1, %.lr.ph150 ], [ %65, %39 ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6)
   br i1 %37, label %41, label %42
 
@@ -3779,7 +3779,7 @@ define internal fastcc noundef ptr @print_enum(i64 noundef %0, ptr noundef %1, p
   br label %indentation.exit
 
 indentation.exit:                                 ; preds = %41, %42
-  %43 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef %.095147, ptr noundef nonnull %6)
+  %43 = call fastcc noundef ptr @realloc_and_append(i1 noundef zeroext %3, ptr noundef %2, ptr noundef %.196147, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %.loopexit, label %44

@@ -325,10 +325,10 @@ common.resume:                                    ; preds = %12, %26
   br label %28
 
 28:                                               ; preds = %"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hb482b6c1dc632b72E.exit", %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$ockam_multiaddr..registry..Registry$GT$$GT$17hf62a56e9d9a5f6b2E.exit", %1
-  %.1 = phi ptr [ %4, %1 ], [ %20, %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$ockam_multiaddr..registry..Registry$GT$$GT$17hf62a56e9d9a5f6b2E.exit" ], [ %9, %"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hb482b6c1dc632b72E.exit" ]
-  %29 = icmp ne ptr %.1, null
+  %.0 = phi ptr [ %4, %1 ], [ %20, %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$ockam_multiaddr..registry..Registry$GT$$GT$17hf62a56e9d9a5f6b2E.exit" ], [ %9, %"_ZN9once_cell4race8once_box16OnceBox$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17hb482b6c1dc632b72E.exit" ]
+  %29 = icmp ne ptr %.0, null
   tail call void @llvm.assume(i1 %29)
-  ret ptr %.1
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

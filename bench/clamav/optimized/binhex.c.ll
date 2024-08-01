@@ -71,8 +71,8 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   %.0187 = phi i32 [ 0, %24 ], [ %.0187.be, %.thread277.backedge ]
   %.0185 = phi i32 [ 0, %24 ], [ %203, %.thread277.backedge ]
   %.0183 = phi i32 [ 0, %24 ], [ %204, %.thread277.backedge ]
-  %.0179 = phi i32 [ 0, %24 ], [ %.3182, %.thread277.backedge ]
-  %.0174 = phi i32 [ 0, %24 ], [ %.4178, %.thread277.backedge ]
+  %.0179 = phi i32 [ 0, %24 ], [ %.1180, %.thread277.backedge ]
+  %.0174 = phi i32 [ 0, %24 ], [ %.1175, %.thread277.backedge ]
   %.not242 = phi i1 [ true, %24 ], [ %.not242.be, %.thread277.backedge ]
   %.0171 = phi i32 [ 0, %24 ], [ %.0171.be, %.thread277.backedge ]
   %.0161 = phi i32 [ 0, %24 ], [ %.0161.be, %.thread277.backedge ]
@@ -184,19 +184,19 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   br label %107
 
 107:                                              ; preds = %98, %31
-  %.1188 = phi i32 [ %105, %98 ], [ %.0187, %31 ]
-  %.1180 = phi i32 [ %64, %98 ], [ %.0179, %31 ]
+  %.2189 = phi i32 [ %105, %98 ], [ %.0187, %31 ]
+  %.2181 = phi i32 [ %64, %98 ], [ %.0179, %31 ]
   %.2176 = phi i32 [ %spec.select249, %98 ], [ %.0174, %31 ]
-  %.1162 = phi i32 [ 2, %98 ], [ %.0161, %31 ]
-  %108 = icmp ne i32 %.1188, 0
-  %109 = icmp eq i32 %.1162, 2
+  %.2 = phi i32 [ 2, %98 ], [ %.0161, %31 ]
+  %108 = icmp ne i32 %.2189, 0
+  %109 = icmp eq i32 %.2, 2
   %or.cond3 = select i1 %108, i1 %109, i1 false
   br i1 %or.cond3, label %110, label %131
 
 110:                                              ; preds = %107
-  %111 = call i32 @llvm.umin.i32(i32 %.1188, i32 %.1180)
-  %112 = sub i32 %.1180, %111
-  %113 = sub i32 %.1188, %111
+  %111 = call i32 @llvm.umin.i32(i32 %.2189, i32 %.2181)
+  %112 = sub i32 %.2181, %111
+  %113 = sub i32 %.2189, %111
   %114 = load i32, ptr %3, align 4
   %115 = zext i32 %111 to i64
   %116 = call i64 @cli_writen(i32 noundef %114, ptr noundef nonnull %2, i64 noundef %115) #7
@@ -225,7 +225,7 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not233, label %127, label %.loopexit
 
 127:                                              ; preds = %123, %117
-  %.2 = phi i32 [ 2, %117 ], [ 3, %123 ]
+  %.4 = phi i32 [ 2, %117 ], [ 3, %123 ]
   %.not234 = icmp eq i32 %113, 0
   br i1 %.not234, label %.thread255.thread, label %128
 
@@ -236,16 +236,16 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   br label %131
 
 131:                                              ; preds = %128, %107
-  %.2189 = phi i32 [ %113, %128 ], [ %.1188, %107 ]
-  %.2181 = phi i32 [ %112, %128 ], [ %.1180, %107 ]
-  %.3 = phi i32 [ %.2, %128 ], [ %.1162, %107 ]
-  %132 = icmp ne i32 %.2189, 0
+  %.3190 = phi i32 [ %113, %128 ], [ %.2189, %107 ]
+  %.3182 = phi i32 [ %112, %128 ], [ %.2181, %107 ]
+  %.3 = phi i32 [ %.4, %128 ], [ %.2, %107 ]
+  %132 = icmp ne i32 %.3190, 0
   %133 = icmp eq i32 %.3, 3
   %or.cond5 = select i1 %132, i1 %133, i1 false
   br i1 %or.cond5, label %134, label %143
 
 134:                                              ; preds = %131
-  %135 = icmp ugt i32 %.2189, 1
+  %135 = icmp ugt i32 %.3190, 1
   br i1 %135, label %136, label %.thread255.thread
 
 136:                                              ; preds = %134
@@ -257,7 +257,7 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 139:                                              ; preds = %136
-  %140 = add i32 %.2189, -2
+  %140 = add i32 %.3190, -2
   %.not235 = icmp eq i32 %140, 0
   br i1 %.not235, label %.thread255.thread, label %141
 
@@ -280,7 +280,7 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 148:                                              ; preds = %145
-  %149 = add i32 %.2189, -1
+  %149 = add i32 %.3190, -1
   %.not236 = icmp eq i32 %149, 0
   br i1 %.not236, label %.thread268, label %150
 
@@ -290,21 +290,21 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread255
 
 .thread255.thread:                                ; preds = %134, %139, %127
-  %.2181254260.ph = phi i32 [ %112, %127 ], [ %.2181, %139 ], [ %.2181, %134 ]
-  %.5.ph = phi i32 [ %.2, %127 ], [ 5, %139 ], [ 4, %134 ]
-  %152 = icmp eq i32 %.5.ph, 5
+  %.3182254260.ph = phi i32 [ %112, %127 ], [ %.3182, %139 ], [ %.3182, %134 ]
+  %.6.ph = phi i32 [ %.4, %127 ], [ 5, %139 ], [ 4, %134 ]
+  %152 = icmp eq i32 %.6.ph, 5
   br label %171
 
 .thread255:                                       ; preds = %141, %150, %143
-  %.4191 = phi i32 [ %149, %150 ], [ %.2189, %143 ], [ %140, %141 ]
-  %.5 = phi i32 [ 5, %150 ], [ %.3, %143 ], [ 5, %141 ]
-  %153 = icmp ne i32 %.4191, 0
-  %154 = icmp eq i32 %.5, 5
+  %.5192 = phi i32 [ %149, %150 ], [ %.3190, %143 ], [ %140, %141 ]
+  %.6 = phi i32 [ 5, %150 ], [ %.3, %143 ], [ 5, %141 ]
+  %153 = icmp ne i32 %.5192, 0
+  %154 = icmp eq i32 %.6, 5
   %or.cond9 = select i1 %153, i1 %154, i1 false
   br i1 %or.cond9, label %155, label %171
 
 155:                                              ; preds = %.thread255
-  %156 = call i32 @llvm.umin.i32(i32 %.4191, i32 %.2176)
+  %156 = call i32 @llvm.umin.i32(i32 %.5192, i32 %.2176)
   %157 = load i32, ptr %4, align 4
   %158 = zext i32 %156 to i64
   %159 = call i64 @cli_writen(i32 noundef %157, ptr noundef nonnull %2, i64 noundef %158) #7
@@ -334,20 +334,20 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
 
 171:                                              ; preds = %.thread255.thread, %.thread255
   %172 = phi i1 [ %154, %.thread255 ], [ %152, %.thread255.thread ]
-  %.5288 = phi i32 [ %.5, %.thread255 ], [ %.5.ph, %.thread255.thread ]
-  %.2181254260287 = phi i32 [ %.2181, %.thread255 ], [ %.2181254260.ph, %.thread255.thread ]
-  %.5192 = phi i32 [ %.4191, %.thread255 ], [ 0, %.thread255.thread ]
+  %.6288 = phi i32 [ %.6, %.thread255 ], [ %.6.ph, %.thread255.thread ]
+  %.3182254260287 = phi i32 [ %.3182, %.thread255 ], [ %.3182254260.ph, %.thread255.thread ]
+  %.6193 = phi i32 [ %.5192, %.thread255 ], [ 0, %.thread255.thread ]
   br i1 %29, label %174, label %194
 
 .thread:                                          ; preds = %160
-  %173 = sub i32 %.4191, %156
+  %173 = sub i32 %.5192, %156
   br i1 %29, label %.thread276, label %194
 
 .thread268:                                       ; preds = %148
   br i1 %29, label %.thread276, label %194
 
 174:                                              ; preds = %171
-  %175 = icmp eq i32 %.5288, 2
+  %175 = icmp eq i32 %.6288, 2
   br i1 %175, label %176, label %185
 
 176:                                              ; preds = %174
@@ -388,10 +388,10 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 194:                                              ; preds = %.thread, %.thread268, %171, %.thread277
-  %.6193 = phi i32 [ %.5192, %171 ], [ %.0187, %.thread277 ], [ 0, %.thread268 ], [ %173, %.thread ]
-  %.3182 = phi i32 [ %.2181254260287, %171 ], [ %.0179, %.thread277 ], [ %.2181, %.thread268 ], [ %.2181, %.thread ]
-  %.4178 = phi i32 [ %.2176, %171 ], [ %.0174, %.thread277 ], [ %.2176, %.thread268 ], [ %161, %.thread ]
-  %.6 = phi i32 [ %.5288, %171 ], [ %.0161, %.thread277 ], [ 5, %.thread268 ], [ 5, %.thread ]
+  %.1188 = phi i32 [ %.6193, %171 ], [ %.0187, %.thread277 ], [ 0, %.thread268 ], [ %173, %.thread ]
+  %.1180 = phi i32 [ %.3182254260287, %171 ], [ %.0179, %.thread277 ], [ %.3182, %.thread268 ], [ %.3182, %.thread ]
+  %.1175 = phi i32 [ %.2176, %171 ], [ %.0174, %.thread277 ], [ %.2176, %.thread268 ], [ %161, %.thread ]
+  %.1162 = phi i32 [ %.6288, %171 ], [ %.0161, %.thread277 ], [ 5, %.thread268 ], [ 5, %.thread ]
   %.not240 = icmp eq i32 %.0185, 0
   br i1 %.not240, label %195, label %202
 
@@ -427,10 +427,10 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
 .thread277.backedge:                              ; preds = %.lr.ph, %202, %202, %.preheader, %228, %246, %210, %215, %244, %213
   %.0201.be = phi i8 [ %.0201, %215 ], [ %.2200, %246 ], [ %.0201, %228 ], [ %.0201, %210 ], [ %.0201, %244 ], [ %.0201, %213 ], [ %.0201, %.preheader ], [ %.0201, %202 ], [ %.0201, %202 ], [ %.0201, %.lr.ph ]
   %.0197.be = phi i8 [ %.0197, %215 ], [ %226, %246 ], [ %226, %228 ], [ %.0197, %210 ], [ %226, %244 ], [ %.0197, %213 ], [ %226, %.preheader ], [ %.0197, %202 ], [ %.0197, %202 ], [ %226, %.lr.ph ]
-  %.0187.be = phi i32 [ %.6193, %215 ], [ %247, %246 ], [ %.6193, %228 ], [ %.6193, %210 ], [ %.6193, %244 ], [ %.6193, %213 ], [ %.6193, %.preheader ], [ %.6193, %202 ], [ %.6193, %202 ], [ %240, %.lr.ph ]
+  %.0187.be = phi i32 [ %.1188, %215 ], [ %247, %246 ], [ %.1188, %228 ], [ %.1188, %210 ], [ %.1188, %244 ], [ %.1188, %213 ], [ %.1188, %.preheader ], [ %.1188, %202 ], [ %.1188, %202 ], [ %240, %.lr.ph ]
   %.not242.be = phi i1 [ false, %215 ], [ false, %246 ], [ false, %228 ], [ true, %210 ], [ false, %244 ], [ false, %213 ], [ false, %.preheader ], [ false, %202 ], [ false, %202 ], [ false, %.lr.ph ]
   %.0171.be = phi i32 [ %.0171, %215 ], [ 0, %246 ], [ %.0171, %228 ], [ %.0171, %210 ], [ 1, %244 ], [ %.0171, %213 ], [ 0, %.preheader ], [ %.0171, %202 ], [ %.0171, %202 ], [ 0, %.lr.ph ]
-  %.0161.be = phi i32 [ %.6, %215 ], [ %.6, %246 ], [ %.6, %228 ], [ %.6, %210 ], [ %.6, %244 ], [ 1, %213 ], [ %.6, %.preheader ], [ %.6, %202 ], [ %.6, %202 ], [ %.6, %.lr.ph ]
+  %.0161.be = phi i32 [ %.1162, %215 ], [ %.1162, %246 ], [ %.1162, %228 ], [ %.1162, %210 ], [ %.1162, %244 ], [ 1, %213 ], [ %.1162, %.preheader ], [ %.1162, %202 ], [ %.1162, %202 ], [ %.1162, %.lr.ph ]
   %.0159.be = phi i8 [ %.0159, %215 ], [ %.1160, %246 ], [ %229, %228 ], [ %.0159, %210 ], [ %.1160, %244 ], [ %.0159, %213 ], [ %.1160, %.preheader ], [ %.0159, %202 ], [ %.0159, %202 ], [ %.1160, %.lr.ph ]
   br label %.thread277
 
@@ -438,7 +438,7 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not242, label %.thread277.backedge, label %211
 
 211:                                              ; preds = %210
-  %212 = icmp eq i32 %.6, 0
+  %212 = icmp eq i32 %.1162, 0
   %.not243 = icmp eq i8 %207, 58
   br i1 %212, label %213, label %215
 
@@ -513,7 +513,7 @@ default.unreachable298:                           ; preds = %225
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %239 = phi i8 [ %243, %.lr.ph ], [ %238, %.preheader ]
-  %.7194293 = phi i32 [ %240, %.lr.ph ], [ %.6193, %.preheader ]
+  %.7194293 = phi i32 [ %240, %.lr.ph ], [ %.1188, %.preheader ]
   %240 = add i32 %.7194293, 1
   %241 = zext i32 %.7194293 to i64
   %242 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %241
@@ -528,14 +528,14 @@ default.unreachable298:                           ; preds = %225
 
 246:                                              ; preds = %237, %244
   %.2200 = phi i8 [ %.0198, %244 ], [ -112, %237 ]
-  %247 = add i32 %.6193, 1
-  %248 = zext i32 %.6193 to i64
+  %247 = add i32 %.1188, 1
+  %248 = zext i32 %.1188 to i64
   %249 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %248
   store i8 %.2200, ptr %249, align 1
   br label %.thread277.backedge
 
 .loopexit:                                        ; preds = %195, %155, %110, %123, %95, %181, %190, %185, %223, %214, %189, %180, %167, %166, %147, %138, %122, %94, %34
-  %.6169 = phi i32 [ 0, %94 ], [ 0, %138 ], [ 0, %147 ], [ 0, %214 ], [ 0, %223 ], [ 13, %180 ], [ %184, %181 ], [ 13, %189 ], [ %193, %190 ], [ 0, %185 ], [ 13, %166 ], [ %170, %167 ], [ 13, %122 ], [ 0, %34 ], [ 12, %195 ], [ 14, %155 ], [ 14, %110 ], [ %126, %123 ], [ %97, %95 ]
+  %.4167 = phi i32 [ 0, %94 ], [ 0, %138 ], [ 0, %147 ], [ 0, %214 ], [ 0, %223 ], [ 13, %180 ], [ %184, %181 ], [ 13, %189 ], [ %193, %190 ], [ 0, %185 ], [ 13, %166 ], [ %170, %167 ], [ 13, %122 ], [ 0, %34 ], [ 12, %195 ], [ 14, %155 ], [ 14, %110 ], [ %126, %123 ], [ %97, %95 ]
   %250 = load i32, ptr %3, align 4
   %251 = call i32 @close(i32 noundef %250) #7
   %252 = load i32, ptr %4, align 4
@@ -551,9 +551,9 @@ default.unreachable298:                           ; preds = %225
   %259 = load ptr, ptr %5, align 8
   %260 = call i32 @cli_unlink(ptr noundef %259) #7
   %261 = icmp ne i32 %260, 0
-  %262 = icmp ne i32 %.6169, 1
+  %262 = icmp ne i32 %.4167, 1
   %or.cond14 = select i1 %261, i1 %262, i1 false
-  %spec.store.select = select i1 %or.cond14, i32 10, i32 %.6169
+  %spec.store.select = select i1 %or.cond14, i32 10, i32 %.4167
   %263 = load ptr, ptr %6, align 8
   %264 = call i32 @cli_unlink(ptr noundef %263) #7
   %265 = icmp ne i32 %264, 0
@@ -563,7 +563,7 @@ default.unreachable298:                           ; preds = %225
   br label %267
 
 267:                                              ; preds = %258, %.loopexit
-  %.7170 = phi i32 [ %.6169, %.loopexit ], [ %spec.store.select17, %258 ]
+  %.7170 = phi i32 [ %.4167, %.loopexit ], [ %spec.store.select17, %258 ]
   %268 = load ptr, ptr %5, align 8
   call void @free(ptr noundef %268) #7
   br label %.sink.split

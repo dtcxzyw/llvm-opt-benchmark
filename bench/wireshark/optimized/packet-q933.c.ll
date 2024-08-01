@@ -1560,12 +1560,12 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
   br i1 %.old1.i, label %dissect_q933_segmented_message_ie.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %437, %.preheader.i
-  %.065.i = phi i32 [ %440, %.preheader.i ], [ %435, %437 ]
+  %.166.i = phi i32 [ %440, %.preheader.i ], [ %435, %437 ]
   %.063.i = phi i32 [ %441, %.preheader.i ], [ 0, %437 ]
-  %.0.i202 = phi i32 [ %439, %.preheader.i ], [ %434, %437 ]
-  %438 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.i202) #3
-  %439 = add i32 %.0.i202, 1
-  %440 = add i32 %.065.i, -1
+  %.1.i202 = phi i32 [ %439, %.preheader.i ], [ %434, %437 ]
+  %438 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1.i202) #3
+  %439 = add i32 %.1.i202, 1
+  %440 = add i32 %.166.i, -1
   %441 = add nuw i32 %.063.i, 1
   %442 = icmp slt i8 %438, 0
   %443 = icmp eq i32 %440, 0
@@ -1578,38 +1578,38 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
   br label %447
 
 447:                                              ; preds = %444, %419
-  %.169.i = phi i8 [ %438, %444 ], [ %421, %419 ]
-  %.267.i = phi i32 [ %440, %444 ], [ %435, %419 ]
-  %.2.i204 = phi i32 [ %439, %444 ], [ %434, %419 ]
-  %448 = and i8 %.169.i, 32
+  %.068.i = phi i8 [ %438, %444 ], [ %421, %419 ]
+  %.065.i = phi i32 [ %440, %444 ], [ %435, %419 ]
+  %.0.i204 = phi i32 [ %439, %444 ], [ %434, %419 ]
+  %448 = and i8 %.068.i, 32
   %449 = icmp eq i8 %448, 0
-  %450 = icmp eq i32 %.267.i, 0
+  %450 = icmp eq i32 %.065.i, 0
   %or.cond4.i = select i1 %449, i1 true, i1 %450
   br i1 %or.cond4.i, label %dissect_q933_segmented_message_ie.exit, label %451
 
 451:                                              ; preds = %447
-  %452 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2.i204) #3
+  %452 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0.i204) #3
   %453 = zext i8 %452 to i32
   %454 = and i8 %452, 96
   %455 = load i32, ptr @hf_q933_coding_standard, align 4
-  %456 = call ptr @proto_tree_add_uint(ptr noundef %136, i32 noundef %455, ptr noundef %0, i32 noundef %.2.i204, i32 noundef 1, i32 noundef %453) #3
+  %456 = call ptr @proto_tree_add_uint(ptr noundef %136, i32 noundef %455, ptr noundef %0, i32 noundef %.0.i204, i32 noundef 1, i32 noundef %453) #3
   %.not75.i = icmp eq i8 %454, 0
   br i1 %.not75.i, label %460, label %457
 
 457:                                              ; preds = %451
   %458 = load i32, ptr @hf_q933_data, align 4
-  %459 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %458, ptr noundef %0, i32 noundef %.2.i204, i32 noundef %.267.i, i32 noundef 0) #3
+  %459 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %458, ptr noundef %0, i32 noundef %.0.i204, i32 noundef %.065.i, i32 noundef 0) #3
   br label %dissect_q933_segmented_message_ie.exit
 
 460:                                              ; preds = %451
   %461 = load i32, ptr @hf_q933_channel_indicated_by, align 4
-  %462 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %461, ptr noundef %0, i32 noundef %.2.i204, i32 noundef 1, i32 noundef 0) #3
+  %462 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %461, ptr noundef %0, i32 noundef %.0.i204, i32 noundef 1, i32 noundef 0) #3
   %463 = and i32 %453, 16
   %.not76.i = icmp eq i32 %463, 0
   %464 = load i32, ptr @hf_q933_map_element_type, align 4
   %465 = load i32, ptr @hf_q933_channel_type, align 4
   %466 = select i1 %.not76.i, i32 %465, i32 %464
-  %467 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %466, ptr noundef %0, i32 noundef %.2.i204, i32 noundef 1, i32 noundef 0) #3
+  %467 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %466, ptr noundef %0, i32 noundef %.0.i204, i32 noundef 1, i32 noundef 0) #3
   br label %dissect_q933_segmented_message_ie.exit
 
 468:                                              ; preds = %126
@@ -2131,16 +2131,16 @@ define internal fastcc range(i32 -1, 4) i32 @dissect_q933_guint16_value(ptr noun
   br label %36
 
 30:                                               ; preds = %16, %8
-  %.043 = phi i32 [ %11, %8 ], [ %19, %16 ]
+  %.1 = phi i32 [ %11, %8 ], [ %19, %16 ]
   %31 = tail call ptr @proto_registrar_get_name(i32 noundef %5) #3
-  %32 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @ei_q933_invalid_length, ptr noundef %0, i32 noundef %.043, i32 noundef 0, ptr noundef nonnull @.str.556, ptr noundef %31) #3
+  %32 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @ei_q933_invalid_length, ptr noundef %0, i32 noundef %.1, i32 noundef 0, ptr noundef nonnull @.str.556, ptr noundef %31) #3
   br label %36
 
 33:                                               ; preds = %22, %14, %6
-  %.145 = phi i32 [ %3, %6 ], [ %12, %14 ], [ %20, %22 ]
-  %.1 = phi i32 [ %2, %6 ], [ %11, %14 ], [ %19, %22 ]
+  %.044 = phi i32 [ %3, %6 ], [ %12, %14 ], [ %20, %22 ]
+  %.043 = phi i32 [ %2, %6 ], [ %11, %14 ], [ %19, %22 ]
   %34 = tail call ptr @proto_registrar_get_name(i32 noundef %5) #3
-  %35 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @ei_q933_invalid_length, ptr noundef %0, i32 noundef %.1, i32 noundef %.145, ptr noundef nonnull @.str.557, ptr noundef %34) #3
+  %35 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @ei_q933_invalid_length, ptr noundef %0, i32 noundef %.043, i32 noundef %.044, ptr noundef nonnull @.str.557, ptr noundef %34) #3
   br label %36
 
 36:                                               ; preds = %33, %30, %24

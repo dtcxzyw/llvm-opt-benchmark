@@ -1043,7 +1043,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit
   %startIslandIndex.0111 = phi i32 [ 0, %for.body.lr.ph ], [ %endIslandIndex.0.lcssa, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit ]
   %startManifoldIndex.0110 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select26, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit ]
-  %endManifoldIndex.0109 = phi i32 [ 1, %for.body.lr.ph ], [ %endManifoldIndex.2, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit ]
+  %endManifoldIndex.0109 = phi i32 [ 1, %for.body.lr.ph ], [ %endManifoldIndex.1, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit ]
   %11 = load ptr, ptr %m_data.i.i, align 8
   %idxprom.i.i = sext i32 %startIslandIndex.0111 to i64
   %arrayidx.i.i = getelementptr inbounds %struct.btElement, ptr %11, i64 %idxprom.i.i
@@ -1234,12 +1234,12 @@ for.end77.split.loop.exit120:                     ; preds = %_Z11getIslandIdPK20
   br label %for.end77
 
 for.end77:                                        ; preds = %for.cond64, %for.end77.split.loop.exit120
-  %endManifoldIndex.1.lcssa = phi i32 [ %45, %for.end77.split.loop.exit120 ], [ %smax114, %for.cond64 ]
-  %sub = sub nsw i32 %endManifoldIndex.1.lcssa, %startManifoldIndex.0110
+  %endManifoldIndex.2.lcssa = phi i32 [ %45, %for.end77.split.loop.exit120 ], [ %smax114, %for.cond64 ]
+  %sub = sub nsw i32 %endManifoldIndex.2.lcssa, %startManifoldIndex.0110
   br label %if.end79
 
 if.end79:                                         ; preds = %_Z11getIslandIdPK20btPersistentManifold.exit, %for.end77, %for.end
-  %endManifoldIndex.2 = phi i32 [ %endManifoldIndex.1.lcssa, %for.end77 ], [ %endManifoldIndex.0109, %_Z11getIslandIdPK20btPersistentManifold.exit ], [ %endManifoldIndex.0109, %for.end ]
+  %endManifoldIndex.1 = phi i32 [ %endManifoldIndex.2.lcssa, %for.end77 ], [ %endManifoldIndex.0109, %_Z11getIslandIdPK20btPersistentManifold.exit ], [ %endManifoldIndex.0109, %for.end ]
   %numIslandManifolds.0 = phi i32 [ %sub, %for.end77 ], [ 0, %_Z11getIslandIdPK20btPersistentManifold.exit ], [ 0, %for.end ]
   %startManifold.0 = phi ptr [ %arrayidx.i54, %for.end77 ], [ null, %_Z11getIslandIdPK20btPersistentManifold.exit ], [ null, %for.end ]
   %.pre116 = load i32, ptr %m_size.i.i44, align 4
@@ -1260,7 +1260,7 @@ if.then81.if.end91_crit_edge:                     ; preds = %if.then81
 if.end91:                                         ; preds = %if.then81.if.end91_crit_edge, %if.end79
   %48 = phi i32 [ %.pre, %if.then81.if.end91_crit_edge ], [ %.pre116, %if.end79 ]
   %tobool92.not = icmp eq i32 %numIslandManifolds.0, 0
-  %spec.select26 = select i1 %tobool92.not, i32 %startManifoldIndex.0110, i32 %endManifoldIndex.2
+  %spec.select26 = select i1 %tobool92.not, i32 %startManifoldIndex.0110, i32 %endManifoldIndex.1
   %cmp3.i = icmp slt i32 %48, 0
   br i1 %cmp3.i, label %if.then4.i, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit
 

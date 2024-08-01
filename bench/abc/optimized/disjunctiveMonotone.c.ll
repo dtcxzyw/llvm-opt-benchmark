@@ -434,7 +434,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 
 189:                                              ; preds = %.lr.ph307, %210
   %indvars.iv330 = phi i64 [ 0, %.lr.ph307 ], [ %indvars.iv.next331, %210 ]
-  %.0195305 = phi ptr [ %185, %.lr.ph307 ], [ %212, %210 ]
+  %.1196305 = phi ptr [ %185, %.lr.ph307 ], [ %212, %210 ]
   %.val234 = load ptr, ptr %188, align 8
   %190 = getelementptr inbounds i32, ptr %.val234, i64 %indvars.iv330
   %191 = load i32, ptr %190, align 4
@@ -468,7 +468,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 
 210:                                              ; preds = %202, %199
   %211 = phi ptr [ %201, %199 ], [ %209, %202 ]
-  %212 = tail call ptr @Aig_Or(ptr noundef nonnull %13, ptr noundef %211, ptr noundef %.0195305) #13
+  %212 = tail call ptr @Aig_Or(ptr noundef nonnull %13, ptr noundef %211, ptr noundef %.1196305) #13
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
   %.val229 = load i32, ptr %186, align 4
   %213 = sext i32 %.val229 to i64
@@ -476,7 +476,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   br i1 %214, label %189, label %.critedge8, !llvm.loop !9
 
 .critedge8:                                       ; preds = %210, %.preheader, %180
-  %.1196 = phi ptr [ %185, %180 ], [ %185, %.preheader ], [ %212, %210 ]
+  %.0195 = phi ptr [ %185, %180 ], [ %185, %.preheader ], [ %212, %210 ]
   %.val230 = load i32, ptr %50, align 4
   %215 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %216 = add i32 %.val230, -1
@@ -562,7 +562,7 @@ Vec_PtrAlloc.exit264:                             ; preds = %Vec_PtrAlloc.exit26
 
 257:                                              ; preds = %249, %246
   %258 = phi ptr [ %248, %246 ], [ %256, %249 ]
-  %259 = tail call ptr @Aig_Or(ptr noundef nonnull %13, ptr noundef %258, ptr noundef %.1196) #13
+  %259 = tail call ptr @Aig_Or(ptr noundef nonnull %13, ptr noundef %258, ptr noundef %.0195) #13
   %.val220 = load ptr, ptr %59, align 8
   %260 = getelementptr inbounds ptr, ptr %.val220, i64 %indvars.iv333
   %261 = load ptr, ptr %260, align 8

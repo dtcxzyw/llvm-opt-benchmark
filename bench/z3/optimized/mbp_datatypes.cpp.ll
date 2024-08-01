@@ -2688,8 +2688,8 @@ ehcleanup:                                        ; preds = %lpad.loopexit131, %
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %land.rhs.i.i, %if.end, %if.then2.i.i.i129, %if.then.i.i.i124, %cleanup70, %_ZNK8datatype4util14is_constructorEPK3app.exit, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
-  %retval.4 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %_ZNK8datatype4util14is_constructorEPK3app.exit ], [ %cmp13.lcssa, %cleanup70 ], [ %cmp13.lcssa, %if.then.i.i.i124 ], [ %cmp13.lcssa, %if.then2.i.i.i129 ], [ false, %if.end ], [ false, %land.rhs.i.i ]
-  ret i1 %retval.4
+  %retval.0 = phi i1 [ true, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit ], [ false, %_ZNK8datatype4util14is_constructorEPK3app.exit ], [ %cmp13.lcssa, %cleanup70 ], [ %cmp13.lcssa, %if.then.i.i.i124 ], [ %cmp13.lcssa, %if.then2.i.i.i129 ], [ false, %if.end ], [ false, %land.rhs.i.i ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN3mbp14project_plugin13pick_equalityER11ast_managerR5modelP4expr(ptr sret(%class.obj_ref.85) align 8, ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(160), ptr noundef) local_unnamed_addr #0
@@ -3518,7 +3518,7 @@ for.cond18.preheader:                             ; preds = %for.inc.thread, %fo
 
 for.cond18:                                       ; preds = %for.cond18.preheader, %for.inc32
   %storemerge = phi i32 [ %inc, %for.inc32 ], [ 0, %for.cond18.preheader ]
-  %reduced.0 = phi i1 [ %reduced.1, %for.inc32 ], [ false, %for.cond18.preheader ]
+  %reduced.1 = phi i1 [ %reduced.2, %for.inc32 ], [ false, %for.cond18.preheader ]
   store i32 %storemerge, ptr %i, align 4
   %17 = load ptr, ptr %m_nodes.i26, align 8
   %cmp.i.i = icmp eq ptr %17, null
@@ -3583,13 +3583,13 @@ if.then29:                                        ; preds = %invoke.cont27
           to label %for.inc32 unwind label %lpad3.loopexit
 
 for.inc32:                                        ; preds = %land.rhs.i.i.i, %for.body21, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %land.lhs.true.i, %if.then29, %invoke.cont27
-  %reduced.1 = phi i1 [ %reduced.0, %invoke.cont27 ], [ true, %if.then29 ], [ %reduced.0, %land.lhs.true.i ], [ %reduced.0, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ %reduced.0, %for.body21 ], [ %reduced.0, %land.rhs.i.i.i ]
+  %reduced.2 = phi i1 [ %reduced.1, %invoke.cont27 ], [ true, %if.then29 ], [ %reduced.1, %land.lhs.true.i ], [ %reduced.1, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ %reduced.1, %for.body21 ], [ %reduced.1, %land.rhs.i.i.i ]
   %28 = load i32, ptr %i, align 4
   %inc = add i32 %28, 1
   br label %for.cond18, !llvm.loop !13
 
 if.end34:                                         ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %invoke.cont4, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %for.end
-  %reduced.2 = phi i1 [ false, %for.end ], [ false, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ false, %invoke.cont4 ], [ %reduced.0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
+  %reduced.0 = phi i1 [ false, %for.end ], [ false, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ false, %invoke.cont4 ], [ %reduced.1, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
   %m_data.i.i = getelementptr inbounds i8, ptr %has_var, i64 16
   %29 = load ptr, ptr %m_data.i.i, align 8
   %cmp.i.i.i31 = icmp eq ptr %29, null
@@ -3624,7 +3624,7 @@ terminate.lpad.i.i36:                             ; preds = %if.end.i.i.i35
   unreachable
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit37: ; preds = %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit, %if.end.i.i.i35
-  ret i1 %reduced.2
+  ret i1 %reduced.0
 }
 
 declare noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0

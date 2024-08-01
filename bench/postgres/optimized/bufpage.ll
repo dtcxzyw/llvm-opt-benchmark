@@ -106,8 +106,8 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br label %12
 
 12:                                               ; preds = %8, %6
-  %.031 = phi i8 [ 0, %6 ], [ %spec.select, %8 ]
-  %.0 = phi i16 [ 0, %6 ], [ %9, %8 ]
+  %.132 = phi i8 [ 0, %6 ], [ %spec.select, %8 ]
+  %.1 = phi i16 [ 0, %6 ], [ %9, %8 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 10
   %14 = load i16, ptr %13, align 2
   %15 = icmp ult i16 %14, 8
@@ -136,13 +136,13 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %24
-  %30 = trunc nuw i8 %.031 to i1
+  %30 = trunc nuw i8 %.132 to i1
   br i1 %30, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %12, %16, %20, %24, %29, %3
-  %.132 = phi i8 [ 0, %3 ], [ %.031, %29 ], [ %.031, %24 ], [ %.031, %20 ], [ %.031, %16 ], [ %.031, %12 ]
-  %.130.shrunk = phi i1 [ false, %3 ], [ true, %29 ], [ false, %24 ], [ false, %20 ], [ false, %16 ], [ false, %12 ]
-  %.1 = phi i16 [ 0, %3 ], [ %.0, %29 ], [ %.0, %24 ], [ %.0, %20 ], [ %.0, %16 ], [ %.0, %12 ]
+  %.031 = phi i8 [ 0, %3 ], [ %.132, %29 ], [ %.132, %24 ], [ %.132, %20 ], [ %.132, %16 ], [ %.132, %12 ]
+  %.029.shrunk = phi i1 [ false, %3 ], [ true, %29 ], [ false, %24 ], [ false, %20 ], [ false, %16 ], [ false, %12 ]
+  %.0 = phi i16 [ 0, %3 ], [ %.1, %29 ], [ %.1, %24 ], [ %.1, %20 ], [ %.1, %16 ], [ %.1, %12 ]
   br label %32
 
 31:                                               ; preds = %32
@@ -158,7 +158,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br i1 %.not40, label %31, label %35
 
 35:                                               ; preds = %32
-  %36 = trunc nuw i8 %.132 to i1
+  %36 = trunc nuw i8 %.031 to i1
   br i1 %36, label %37, label %55
 
 37:                                               ; preds = %35
@@ -172,7 +172,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
 
 41:                                               ; preds = %39
   %42 = tail call i32 @errcode(i32 noundef 16779816) #11
-  %43 = zext i16 %.1 to i32
+  %43 = zext i16 %.0 to i32
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   %45 = load i16, ptr %44, align 4
   %46 = zext i16 %45 to i32
@@ -190,7 +190,7 @@ define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 
   br label %51
 
 51:                                               ; preds = %50, %48
-  br i1 %.130.shrunk, label %52, label %55
+  br i1 %.029.shrunk, label %52, label %55
 
 52:                                               ; preds = %51
   %53 = load i8, ptr @ignore_checksum_failure, align 1
@@ -318,8 +318,8 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
   br label %56
 
 56:                                               ; preds = %.lr.ph, %61
-  %.072101 = phi i16 [ 1, %.lr.ph ], [ %62, %61 ]
-  %57 = zext i16 %.072101 to i64
+  %.1101 = phi i16 [ 1, %.lr.ph ], [ %62, %61 ]
+  %57 = zext i16 %.1101 to i64
   %58 = add nsw i64 %57, -1
   %59 = getelementptr [0 x %struct.ItemIdData], ptr %55, i64 0, i64 %58
   %60 = load i32, ptr %59, align 4
@@ -327,20 +327,20 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
   br i1 %or.cond90, label %.loopexit, label %61
 
 61:                                               ; preds = %56
-  %62 = add i16 %.072101, 1
+  %62 = add i16 %.1101, 1
   %.not = icmp ugt i16 %62, %.0.i
   br i1 %.not, label %._crit_edge, label %56, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %61, %.preheader
-  %.072.lcssa = phi i16 [ 1, %.preheader ], [ %62, %61 ]
+  %.1.lcssa = phi i16 [ 1, %.preheader ], [ %62, %61 ]
   %63 = and i16 %.val91, -2
   store i16 %63, ptr %53, align 2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %51, %41, %._crit_edge, %40
-  %.1 = phi i16 [ %3, %40 ], [ %.072.lcssa, %._crit_edge ], [ %3, %41 ], [ %3, %51 ], [ %.072101, %56 ]
+  %.072 = phi i16 [ %3, %40 ], [ %.1.lcssa, %._crit_edge ], [ %3, %41 ], [ %3, %51 ], [ %.1101, %56 ]
   %.0 = phi i1 [ false, %40 ], [ false, %._crit_edge ], [ false, %41 ], [ %.not84, %51 ], [ false, %56 ]
-  %64 = icmp ugt i16 %.1, %narrow
+  %64 = icmp ugt i16 %.072, %narrow
   br i1 %64, label %65, label %.thread92
 
 65:                                               ; preds = %.loopexit
@@ -354,12 +354,12 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
 
 .thread92:                                        ; preds = %52, %.loopexit
   %.096 = phi i1 [ %.0, %.loopexit ], [ false, %52 ]
-  %.195 = phi i16 [ %.1, %.loopexit ], [ %narrow, %52 ]
-  %69 = zext i16 %.195 to i64
+  %.07295 = phi i16 [ %.072, %.loopexit ], [ %narrow, %52 ]
+  %69 = zext i16 %.07295 to i64
   %70 = zext i16 %narrow to i64
   %71 = and i32 %4, 2
   %72 = icmp ne i32 %71, 0
-  %73 = icmp ugt i16 %.195, 291
+  %73 = icmp ugt i16 %.07295, 291
   %or.cond = and i1 %72, %73
   br i1 %or.cond, label %74, label %78
 
@@ -373,7 +373,7 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
   br label %104
 
 78:                                               ; preds = %.thread92
-  %79 = icmp eq i16 %.195, %narrow
+  %79 = icmp eq i16 %.07295, %narrow
   %brmerge = or i1 %.096, %79
   %80 = add nuw nsw i32 %32, 4
   %spec.select97 = select i1 %brmerge, i32 %80, i32 %32
@@ -414,7 +414,7 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
   br label %104
 
 104:                                              ; preds = %78, %76, %74, %67, %65, %49, %47, %95
-  %.071 = phi i16 [ %.195, %95 ], [ 0, %47 ], [ 0, %49 ], [ 0, %65 ], [ 0, %67 ], [ 0, %74 ], [ 0, %76 ], [ 0, %78 ]
+  %.071 = phi i16 [ %.07295, %95 ], [ 0, %47 ], [ 0, %49 ], [ 0, %65 ], [ 0, %67 ], [ 0, %74 ], [ 0, %76 ], [ 0, %78 ]
   ret i16 %.071
 }
 
@@ -885,9 +885,9 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   br label %90
 
 90:                                               ; preds = %100, %85
-  %.4117 = phi i32 [ 0, %85 ], [ %102, %100 ]
-  %.3 = phi i32 [ %88, %85 ], [ %101, %100 ]
-  %91 = zext nneg i32 %.4117 to i64
+  %.5118 = phi i32 [ 0, %85 ], [ %102, %100 ]
+  %.5 = phi i32 [ %88, %85 ], [ %101, %100 ]
+  %91 = zext nneg i32 %.5118 to i64
   %92 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %91
   %93 = getelementptr inbounds i8, ptr %92, i64 2
   %94 = load i16, ptr %93, align 2
@@ -896,45 +896,45 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %97 to i32
   %99 = add nsw i32 %98, %95
-  %.not = icmp eq i32 %.3, %99
+  %.not = icmp eq i32 %.5, %99
   br i1 %.not, label %100, label %103
 
 100:                                              ; preds = %90
-  %101 = sub nsw i32 %.3, %98
-  %102 = add nuw nsw i32 %.4117, 1
+  %101 = sub nsw i32 %.5, %98
+  %102 = add nuw nsw i32 %.5118, 1
   %exitcond.not = icmp eq i32 %102, %89
   br i1 %exitcond.not, label %103, label %90, !llvm.loop !12
 
 103:                                              ; preds = %90, %100
-  %.5118 = phi i32 [ %.4117, %90 ], [ %89, %100 ]
-  %.4 = phi i32 [ %.3, %90 ], [ %101, %100 ]
+  %.6119 = phi i32 [ %.5118, %90 ], [ %89, %100 ]
+  %.6 = phi i32 [ %.5, %90 ], [ %101, %100 ]
   %104 = getelementptr inbounds i8, ptr %2, i64 14
   %105 = load i16, ptr %104, align 2
   %106 = zext i16 %105 to i32
   %107 = zext i16 %105 to i64
   %108 = getelementptr i8, ptr %5, i64 %107
   %109 = getelementptr i8, ptr %2, i64 %107
-  %110 = sub nsw i32 %.4, %106
+  %110 = sub nsw i32 %.6, %106
   %111 = sext i32 %110 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %108, ptr align 1 %109, i64 %111, i1 false)
   br label %112
 
 112:                                              ; preds = %103, %81
   %.pre-phi180 = phi i32 [ %99, %103 ], [ %.pre179, %81 ]
-  %.6119 = phi i32 [ %.5118, %103 ], [ 0, %81 ]
-  %.5 = phi i32 [ %.4, %103 ], [ %84, %81 ]
-  %113 = icmp slt i32 %.6119, %1
+  %.4117 = phi i32 [ %.6119, %103 ], [ 0, %81 ]
+  %.4 = phi i32 [ %.6, %103 ], [ %84, %81 ]
+  %113 = icmp slt i32 %.4117, %1
   br i1 %113, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %112
   %114 = getelementptr inbounds i8, ptr %2, i64 24
-  %115 = zext nneg i32 %.6119 to i64
+  %115 = zext nneg i32 %.4117 to i64
   %wide.trip.count159 = zext i32 %1 to i64
   br label %116
 
 116:                                              ; preds = %.lr.ph, %142
   %indvars.iv156 = phi i64 [ %115, %.lr.ph ], [ %indvars.iv.next157, %142 ]
-  %.6135 = phi i32 [ %.5, %.lr.ph ], [ %143, %142 ]
+  %.7135 = phi i32 [ %.4, %.lr.ph ], [ %143, %142 ]
   %.2109134 = phi i32 [ %.pre-phi180, %.lr.ph ], [ %.3110, %142 ]
   %.1112133 = phi i32 [ %.pre-phi180, %.lr.ph ], [ %.pre-phi182, %142 ]
   %117 = getelementptr %struct.itemIdCompactData, ptr %0, i64 %indvars.iv156
@@ -954,7 +954,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   br i1 %.not128, label %142, label %130
 
 130:                                              ; preds = %116
-  %131 = sext i32 %.6135 to i64
+  %131 = sext i32 %.7135 to i64
   %132 = getelementptr i8, ptr %2, i64 %131
   %133 = sext i32 %.1112133 to i64
   %134 = getelementptr i8, ptr %5, i64 %133
@@ -972,7 +972,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   %.pre-phi182 = phi i32 [ %138, %130 ], [ %125, %116 ]
   %.pre-phi181 = phi i32 [ %140, %130 ], [ %128, %116 ]
   %.3110 = phi i32 [ %141, %130 ], [ %.2109134, %116 ]
-  %143 = sub i32 %.6135, %.pre-phi181
+  %143 = sub i32 %.7135, %.pre-phi181
   %144 = load i32, ptr %122, align 4
   %145 = and i32 %143, 32767
   %146 = and i32 %144, -32768
@@ -985,8 +985,8 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
 ._crit_edge:                                      ; preds = %142, %112
   %.1112.lcssa = phi i32 [ %.pre-phi180, %112 ], [ %.pre-phi182, %142 ]
   %.2109.lcssa = phi i32 [ %.pre-phi180, %112 ], [ %.3110, %142 ]
-  %.6.lcssa = phi i32 [ %.5, %112 ], [ %143, %142 ]
-  %148 = sext i32 %.6.lcssa to i64
+  %.7.lcssa = phi i32 [ %.4, %112 ], [ %143, %142 ]
+  %148 = sext i32 %.7.lcssa to i64
   %149 = getelementptr i8, ptr %2, i64 %148
   %150 = sext i32 %.1112.lcssa to i64
   %151 = getelementptr i8, ptr %5, i64 %150
@@ -996,8 +996,8 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef readonly %0
   br label %154
 
 154:                                              ; preds = %._crit_edge, %._crit_edge144
-  %.7 = phi i32 [ %.2.lcssa, %._crit_edge144 ], [ %.6.lcssa, %._crit_edge ]
-  %155 = trunc i32 %.7 to i16
+  %.3 = phi i32 [ %.2.lcssa, %._crit_edge144 ], [ %.7.lcssa, %._crit_edge ]
+  %155 = trunc i32 %.3 to i16
   %156 = getelementptr inbounds i8, ptr %2, i64 14
   store i16 %155, ptr %156, align 2
   ret void

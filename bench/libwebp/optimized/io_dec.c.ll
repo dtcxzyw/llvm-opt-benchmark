@@ -713,9 +713,9 @@ define internal noundef i32 @EmitAlphaRGBA4444(ptr nocapture noundef readonly %0
   br label %28
 
 28:                                               ; preds = %22, %20
-  %.039 = phi ptr [ %5, %20 ], [ %27, %22 ]
+  %.140 = phi ptr [ %5, %20 ], [ %27, %22 ]
   %.037 = phi i32 [ %21, %20 ], [ %15, %22 ]
-  %.0.i = phi i32 [ 0, %20 ], [ %23, %22 ]
+  %.1.i = phi i32 [ 0, %20 ], [ %23, %22 ]
   %29 = getelementptr inbounds i8, ptr %0, i64 128
   %30 = load i32, ptr %29, align 8
   %31 = add i32 %15, %13
@@ -723,15 +723,15 @@ define internal noundef i32 @EmitAlphaRGBA4444(ptr nocapture noundef readonly %0
   %33 = getelementptr inbounds i8, ptr %0, i64 132
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %32, %34
-  %36 = sub i32 %31, %.0.i
+  %36 = sub i32 %31, %.1.i
   %spec.select = select i1 %35, i32 %36, i32 %.037
   br label %GetAlphaSourceRow.exit
 
 GetAlphaSourceRow.exit:                           ; preds = %28, %6
-  %.140 = phi ptr [ %5, %6 ], [ %.039, %28 ]
+  %.2 = phi ptr [ %5, %6 ], [ %.140, %28 ]
   %.138 = phi i32 [ %15, %6 ], [ %spec.select, %28 ]
-  %.1.i = phi i32 [ %13, %6 ], [ %.0.i, %28 ]
-  %37 = sext i32 %.1.i to i64
+  %.0.i = phi i32 [ %13, %6 ], [ %.1.i, %28 ]
+  %37 = sext i32 %.0.i to i64
   %38 = load ptr, ptr %11, align 8
   %39 = getelementptr inbounds i8, ptr %9, i64 24
   %40 = load i32, ptr %39, align 8
@@ -752,13 +752,13 @@ GetAlphaSourceRow.exit:                           ; preds = %28, %6
   %.047.us = phi ptr [ %63, %._crit_edge.us ], [ %46, %.preheader.us.preheader ]
   %.02946.us = phi i32 [ %64, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
   %.03145.us = phi i32 [ %57, %._crit_edge.us ], [ 15, %.preheader.us.preheader ]
-  %.244.us = phi ptr [ %60, %._crit_edge.us ], [ %.140, %.preheader.us.preheader ]
+  %.03944.us = phi ptr [ %60, %._crit_edge.us ], [ %.2, %.preheader.us.preheader ]
   br label %47
 
 47:                                               ; preds = %.preheader.us, %47
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %47 ]
   %.142.us = phi i32 [ %.03145.us, %.preheader.us ], [ %57, %47 ]
-  %48 = getelementptr inbounds i8, ptr %.244.us, i64 %indvars.iv
+  %48 = getelementptr inbounds i8, ptr %.03944.us, i64 %indvars.iv
   %49 = load i8, ptr %48, align 1
   %50 = lshr i8 %49, 4
   %51 = zext nneg i8 %50 to i32
@@ -776,7 +776,7 @@ GetAlphaSourceRow.exit:                           ; preds = %28, %6
 ._crit_edge.us:                                   ; preds = %47
   %58 = load i32, ptr %0, align 8
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %.244.us, i64 %59
+  %60 = getelementptr inbounds i8, ptr %.03944.us, i64 %59
   %61 = load i32, ptr %39, align 8
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds i8, ptr %.047.us, i64 %62
@@ -845,7 +845,7 @@ define internal noundef i32 @EmitAlphaRGB(ptr nocapture noundef readonly %0, ptr
 32:                                               ; preds = %26, %24
   %.025 = phi ptr [ %5, %24 ], [ %31, %26 ]
   %.0 = phi i32 [ %25, %24 ], [ %19, %26 ]
-  %.0.i = phi i32 [ 0, %24 ], [ %27, %26 ]
+  %.1.i = phi i32 [ 0, %24 ], [ %27, %26 ]
   %33 = getelementptr inbounds i8, ptr %0, i64 128
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %19, %17
@@ -853,15 +853,15 @@ define internal noundef i32 @EmitAlphaRGB(ptr nocapture noundef readonly %0, ptr
   %37 = getelementptr inbounds i8, ptr %0, i64 132
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %36, %38
-  %40 = sub i32 %35, %.0.i
+  %40 = sub i32 %35, %.1.i
   %spec.select = select i1 %39, i32 %40, i32 %.0
   br label %GetAlphaSourceRow.exit
 
 GetAlphaSourceRow.exit:                           ; preds = %32, %6
   %.126 = phi ptr [ %5, %6 ], [ %.025, %32 ]
   %.1 = phi i32 [ %19, %6 ], [ %spec.select, %32 ]
-  %.1.i = phi i32 [ %17, %6 ], [ %.0.i, %32 ]
-  %41 = sext i32 %.1.i to i64
+  %.0.i = phi i32 [ %17, %6 ], [ %.1.i, %32 ]
+  %41 = sext i32 %.0.i to i64
   %42 = load ptr, ptr %15, align 8
   %43 = getelementptr inbounds i8, ptr %9, i64 24
   %44 = load i32, ptr %43, align 8

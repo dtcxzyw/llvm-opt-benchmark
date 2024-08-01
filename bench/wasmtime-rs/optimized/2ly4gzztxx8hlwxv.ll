@@ -3944,8 +3944,8 @@ _ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.ex
   br label %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread
 
 _ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit.thread: ; preds = %37, %76, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit, %91, %85, %79, %70, %62, %54, %46, %30, %102
-  %.2 = phi i1 [ true, %102 ], [ true, %30 ], [ true, %46 ], [ true, %54 ], [ true, %62 ], [ true, %70 ], [ true, %79 ], [ false, %85 ], [ false, %91 ], [ false, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit ], [ false, %76 ], [ true, %37 ]
-  ret i1 %.2
+  %.1 = phi i1 [ true, %102 ], [ true, %30 ], [ true, %46 ], [ true, %54 ], [ true, %62 ], [ true, %70 ], [ true, %79 ], [ false, %85 ], [ false, %91 ], [ false, %_ZN17cranelift_codegen2ir8memflags8MemFlags12alias_region17h043d417cd197e07cE.exit ], [ false, %76 ], [ true, %37 ]
+  ret i1 %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -36424,8 +36424,8 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10323
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit10330" unwind label %.thread18328.loopexit
 
 9797:                                             ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10323, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10321
-  %.sroa.615286.5.ph = phi i64 [ %9795, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10323 ], [ %.sroa.415282.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10321 ]
-  switch i64 %.sroa.615286.5.ph, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10328" [
+  %.sroa.615286.6.ph = phi i64 [ %9795, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10323 ], [ %.sroa.415282.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10321 ]
+  switch i64 %.sroa.615286.6.ph, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10328" [
     i64 -1, label %9798
     i64 0, label %9884
     i64 1, label %9969
@@ -37688,8 +37688,8 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10512
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit10519" unwind label %.thread18421.loopexit
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10517": ; preds = %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10512, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10510
-  %.sroa.615396.5 = phi i64 [ %.sroa.415392.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10510 ], [ %10082, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10512 ]
-  %10084 = icmp eq i64 %.sroa.615396.5, 0
+  %.sroa.615396.6 = phi i64 [ %.sroa.415392.0.copyload, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.i10510 ], [ %10082, %_ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit.thread.i10512 ]
+  %10084 = icmp eq i64 %.sroa.615396.6, 0
   br i1 %10084, label %10085, label %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10517.thread"
 
 "_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10517.thread": ; preds = %10063, %10103, %"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$19iconst_sextend_etor17hb67067e35d6c9ce1E.exit10517"

@@ -540,9 +540,9 @@ sub_0.lr.ph.i:                                    ; preds = %213
 
 sub_0.i:                                          ; preds = %.loopexit.i, %sub_0.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %sub_0.lr.ph.i ], [ %indvars.iv.next.i, %.loopexit.i ]
-  %.085184.i = phi ptr [ %218, %sub_0.lr.ph.i ], [ %.3.i, %.loopexit.i ]
-  %.0123183.i = phi i32 [ 16, %sub_0.lr.ph.i ], [ %.5128.i, %.loopexit.i ]
-  %.0129182.i = phi i32 [ 0, %sub_0.lr.ph.i ], [ %.3132.i, %.loopexit.i ]
+  %.085184.i = phi ptr [ %218, %sub_0.lr.ph.i ], [ %.186.i, %.loopexit.i ]
+  %.0123183.i = phi i32 [ 16, %sub_0.lr.ph.i ], [ %.1124.i, %.loopexit.i ]
+  %.0129182.i = phi i32 [ 0, %sub_0.lr.ph.i ], [ %.1130.i, %.loopexit.i ]
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr %struct.TheLexeme, ptr %223, i64 %indvars.iv.i
   %225 = load ptr, ptr %224, align 8
@@ -577,7 +577,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   br label %addCompiledLexeme.exit.i
 
 addCompiledLexeme.exit.i:                         ; preds = %237, %234
-  %.1124.i = phi i32 [ %.0123183.i, %234 ], [ %238, %237 ]
+  %.4127.i = phi i32 [ %.0123183.i, %234 ], [ %238, %237 ]
   %.0.i.i = phi ptr [ %.085184.i, %234 ], [ %241, %237 ]
   %242 = call ptr @palloc(i64 noundef 24) #10
   %243 = sext i32 %.0129182.i to i64
@@ -655,9 +655,9 @@ addCompiledLexeme.exit.i:                         ; preds = %237, %234
 
 .lr.ph178.i:                                      ; preds = %277, %.critedge.i37
   %.083177.i = phi ptr [ %.1.lcssa.ph.i, %.critedge.i37 ], [ %278, %277 ]
-  %.186176.i = phi ptr [ %.2.lcssa.ph.i, %.critedge.i37 ], [ %.085184.i, %277 ]
+  %.2176.i = phi ptr [ %.3.lcssa.ph.i, %.critedge.i37 ], [ %.085184.i, %277 ]
   %.2125175.i = phi i32 [ %.3126.lcssa.ph.i, %.critedge.i37 ], [ %.0123183.i, %277 ]
-  %.1130174.i = phi i32 [ %.2131.lcssa.ph.i, %.critedge.i37 ], [ %.0129182.i, %277 ]
+  %.2131174.i = phi i32 [ %.3132.lcssa.ph.i, %.critedge.i37 ], [ %.0129182.i, %277 ]
   %293 = load i16, ptr %.083177.i, align 8
   %294 = getelementptr i8, ptr %.083177.i, i64 24
   %295 = load ptr, ptr %294, align 8
@@ -687,9 +687,9 @@ addCompiledLexeme.exit.i:                         ; preds = %237, %234
 .lr.ph163.i:                                      ; preds = %addCompiledLexeme.exit101.i, %.lr.ph163.preheader.i
   %302 = phi ptr [ %334, %addCompiledLexeme.exit101.i ], [ %301, %.lr.ph163.preheader.i ]
   %.1161.i = phi ptr [ %333, %addCompiledLexeme.exit101.i ], [ %.083177.i, %.lr.ph163.preheader.i ]
-  %.2160.i = phi ptr [ %.0.i100.i, %addCompiledLexeme.exit101.i ], [ %.186176.i, %.lr.ph163.preheader.i ]
-  %.3126159.i = phi i32 [ %.4127.i, %addCompiledLexeme.exit101.i ], [ %.2125175.i, %.lr.ph163.preheader.i ]
-  %.2131158.i = phi i32 [ %332, %addCompiledLexeme.exit101.i ], [ %.1130174.i, %.lr.ph163.preheader.i ]
+  %.3160.i = phi ptr [ %.0.i100.i, %addCompiledLexeme.exit101.i ], [ %.2176.i, %.lr.ph163.preheader.i ]
+  %.3126159.i = phi i32 [ %.5128.i, %addCompiledLexeme.exit101.i ], [ %.2125175.i, %.lr.ph163.preheader.i ]
+  %.3132158.i = phi i32 [ %332, %addCompiledLexeme.exit101.i ], [ %.2131174.i, %.lr.ph163.preheader.i ]
   %303 = load i16, ptr %.1161.i, align 8
   %304 = icmp eq i16 %303, %293
   br i1 %304, label %305, label %.critedge.i37
@@ -698,21 +698,21 @@ addCompiledLexeme.exit.i:                         ; preds = %237, %234
   %306 = load ptr, ptr %222, align 8
   %307 = getelementptr %struct.TheLexeme, ptr %306, i64 %indvars.iv.i, i32 1
   %308 = load ptr, ptr %307, align 8
-  %.not.i99.i = icmp slt i32 %.2131158.i, %.3126159.i
+  %.not.i99.i = icmp slt i32 %.3132158.i, %.3126159.i
   br i1 %.not.i99.i, label %314, label %309
 
 309:                                              ; preds = %305
   %310 = shl i32 %.3126159.i, 1
   %311 = sext i32 %310 to i64
   %312 = shl nsw i64 %311, 4
-  %313 = call ptr @repalloc(ptr noundef %.2160.i, i64 noundef %312) #10
+  %313 = call ptr @repalloc(ptr noundef %.3160.i, i64 noundef %312) #10
   br label %314
 
 314:                                              ; preds = %309, %305
-  %.4127.i = phi i32 [ %.3126159.i, %305 ], [ %310, %309 ]
-  %.0.i100.i = phi ptr [ %.2160.i, %305 ], [ %313, %309 ]
+  %.5128.i = phi i32 [ %.3126159.i, %305 ], [ %310, %309 ]
+  %.0.i100.i = phi ptr [ %.3160.i, %305 ], [ %313, %309 ]
   %315 = call ptr @palloc(i64 noundef 24) #10
-  %316 = sext i32 %.2131158.i to i64
+  %316 = sext i32 %.3132158.i to i64
   %317 = getelementptr %struct.TheLexeme, ptr %.0.i100.i, i64 %316, i32 1
   store ptr %315, ptr %317, align 8
   %318 = load ptr, ptr %302, align 8
@@ -743,7 +743,7 @@ addCompiledLexeme.exit101.i:                      ; preds = %319, %314
   %330 = load ptr, ptr %317, align 8
   %331 = getelementptr inbounds i8, ptr %330, i64 8
   store ptr null, ptr %331, align 8
-  %332 = add i32 %.2131158.i, 1
+  %332 = add i32 %.3132158.i, 1
   %333 = getelementptr i8, ptr %.1161.i, i64 16
   %334 = getelementptr i8, ptr %.1161.i, i64 24
   %335 = load ptr, ptr %334, align 8
@@ -751,9 +751,9 @@ addCompiledLexeme.exit101.i:                      ; preds = %319, %314
   br i1 %.not98.i39, label %.critedge.i37, label %.lr.ph163.i, !llvm.loop !10
 
 .critedge.i37:                                    ; preds = %addCompiledLexeme.exit101.i, %.lr.ph163.i
-  %.2131.lcssa.ph.i = phi i32 [ %.2131158.i, %.lr.ph163.i ], [ %332, %addCompiledLexeme.exit101.i ]
-  %.3126.lcssa.ph.i = phi i32 [ %.3126159.i, %.lr.ph163.i ], [ %.4127.i, %addCompiledLexeme.exit101.i ]
-  %.2.lcssa.ph.i = phi ptr [ %.2160.i, %.lr.ph163.i ], [ %.0.i100.i, %addCompiledLexeme.exit101.i ]
+  %.3132.lcssa.ph.i = phi i32 [ %.3132158.i, %.lr.ph163.i ], [ %332, %addCompiledLexeme.exit101.i ]
+  %.3126.lcssa.ph.i = phi i32 [ %.3126159.i, %.lr.ph163.i ], [ %.5128.i, %addCompiledLexeme.exit101.i ]
+  %.3.lcssa.ph.i = phi ptr [ %.3160.i, %.lr.ph163.i ], [ %.0.i100.i, %addCompiledLexeme.exit101.i ]
   %.1.lcssa.ph.i = phi ptr [ %.1161.i, %.lr.ph163.i ], [ %333, %addCompiledLexeme.exit101.i ]
   %336 = getelementptr inbounds i8, ptr %.1.lcssa.ph.i, i64 8
   %337 = load ptr, ptr %336, align 8
@@ -761,9 +761,9 @@ addCompiledLexeme.exit101.i:                      ; preds = %319, %314
   br i1 %.not95.i38, label %.loopexit.i, label %.lr.ph178.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %.critedge.i37, %addCompiledLexeme.exit.i
-  %.3132.i = phi i32 [ %255, %addCompiledLexeme.exit.i ], [ %.2131.lcssa.ph.i, %.critedge.i37 ]
-  %.5128.i = phi i32 [ %.1124.i, %addCompiledLexeme.exit.i ], [ %.3126.lcssa.ph.i, %.critedge.i37 ]
-  %.3.i = phi ptr [ %.0.i.i, %addCompiledLexeme.exit.i ], [ %.2.lcssa.ph.i, %.critedge.i37 ]
+  %.1130.i = phi i32 [ %255, %addCompiledLexeme.exit.i ], [ %.3132.lcssa.ph.i, %.critedge.i37 ]
+  %.1124.i = phi i32 [ %.4127.i, %addCompiledLexeme.exit.i ], [ %.3126.lcssa.ph.i, %.critedge.i37 ]
+  %.186.i = phi ptr [ %.0.i.i, %addCompiledLexeme.exit.i ], [ %.3.lcssa.ph.i, %.critedge.i37 ]
   %338 = load ptr, ptr %222, align 8
   %339 = getelementptr %struct.TheLexeme, ptr %338, i64 %indvars.iv.i
   %340 = load ptr, ptr %339, align 8
@@ -779,9 +779,9 @@ addCompiledLexeme.exit101.i:                      ; preds = %319, %314
   br i1 %346, label %sub_0.i, label %._crit_edge186.i, !llvm.loop !12
 
 ._crit_edge186.i:                                 ; preds = %.loopexit.i, %213
-  %.0129.lcssa.i = phi i32 [ 0, %213 ], [ %.3132.i, %.loopexit.i ]
-  %.0123.lcssa.i = phi i32 [ 16, %213 ], [ %.5128.i, %.loopexit.i ]
-  %.085.lcssa.i = phi ptr [ %218, %213 ], [ %.3.i, %.loopexit.i ]
+  %.0129.lcssa.i = phi i32 [ 0, %213 ], [ %.1130.i, %.loopexit.i ]
+  %.0123.lcssa.i = phi i32 [ 16, %213 ], [ %.1124.i, %.loopexit.i ]
+  %.085.lcssa.i = phi ptr [ %218, %213 ], [ %.186.i, %.loopexit.i ]
   %347 = getelementptr inbounds i8, ptr %6, i64 16
   %348 = load ptr, ptr %347, align 8
   %.not.i31 = icmp eq ptr %348, null
@@ -1508,7 +1508,7 @@ define internal fastcc ptr @findVariant(ptr noundef %0, ptr noundef readonly %1,
   br label %.preheader80.us
 
 8:                                                ; preds = %._crit_edge.us
-  %9 = load i32, ptr %.2.us, align 8
+  %9 = load i32, ptr %.1.us, align 8
   br i1 %.not.i, label %.loopexit82.us, label %.preheader.i.us
 
 .preheader.i.us:                                  ; preds = %8, %12
@@ -1540,12 +1540,12 @@ define internal fastcc ptr @findVariant(ptr noundef %0, ptr noundef readonly %1,
   br i1 %.not7.i75.us, label %matchIdSubst.exit77.us, label %.preheader.i73.us, !llvm.loop !23
 
 matchIdSubst.exit77.us:                           ; preds = %18, %.loopexit82.us
-  %21 = getelementptr inbounds i8, ptr %.2.us, i64 16
+  %21 = getelementptr inbounds i8, ptr %.1.us, i64 16
   store ptr %.065.us, ptr %21, align 8
   br label %.lr.ph103.us.preheader
 
 .lr.ph103.us.preheader:                           ; preds = %12, %.preheader.i73.us, %._crit_edge.us, %matchIdSubst.exit77.us
-  %.166.us = phi ptr [ %.2.us, %matchIdSubst.exit77.us ], [ %.065.us, %._crit_edge.us ], [ %.065.us, %.preheader.i73.us ], [ %.065.us, %12 ]
+  %.166.us = phi ptr [ %.1.us, %matchIdSubst.exit77.us ], [ %.065.us, %._crit_edge.us ], [ %.065.us, %.preheader.i73.us ], [ %.065.us, %12 ]
   br label %.lr.ph103.us
 
 .lr.ph103.us:                                     ; preds = %.lr.ph103.us.preheader, %.lr.ph103.us
@@ -1599,15 +1599,15 @@ matchIdSubst.exit77.us:                           ; preds = %18, %.loopexit82.us
 
 ._crit_edge:                                      ; preds = %.preheader.us, %39
   %48 = phi i32 [ %32, %39 ], [ %33, %.preheader.us ]
-  %.1.us = phi ptr [ %31, %39 ], [ %.099.us, %.preheader.us ]
+  %.2.us = phi ptr [ %31, %39 ], [ %.099.us, %.preheader.us ]
   %.not70.us = icmp eq i32 %32, %48
   %spec.select.us = select i1 %.not70.us, i32 %.06198.us, i32 -1
-  %spec.select71.us = select i1 %.not70.us, ptr %.1.us, ptr %31
+  %spec.select71.us = select i1 %.not70.us, ptr %.2.us, ptr %31
   br label %49
 
 49:                                               ; preds = %._crit_edge, %.critedge.us
   %.162.us = phi i32 [ -1, %.critedge.us ], [ %spec.select.us, %._crit_edge ]
-  %.2.us = phi ptr [ %26, %.critedge.us ], [ %spec.select71.us, %._crit_edge ]
+  %.1.us = phi ptr [ %26, %.critedge.us ], [ %spec.select71.us, %._crit_edge ]
   %50 = add i32 %.162.us, 1
   %51 = icmp slt i32 %50, %4
   br i1 %51, label %.preheader80.us, label %._crit_edge.us, !llvm.loop !25
@@ -1620,7 +1620,7 @@ matchIdSubst.exit77.us:                           ; preds = %18, %.loopexit82.us
   br i1 %.not.us, label %.critedge.thread, label %.lr.ph.us, !llvm.loop !26
 
 .preheader80.us:                                  ; preds = %.preheader80.lr.ph.us, %49
-  %.099.us = phi ptr [ %7, %.preheader80.lr.ph.us ], [ %.2.us, %49 ]
+  %.099.us = phi ptr [ %7, %.preheader80.lr.ph.us ], [ %.1.us, %49 ]
   %.06198.us = phi i32 [ 0, %.preheader80.lr.ph.us ], [ %50, %49 ]
   %55 = sext i32 %.06198.us to i64
   %56 = getelementptr ptr, ptr %3, i64 %55

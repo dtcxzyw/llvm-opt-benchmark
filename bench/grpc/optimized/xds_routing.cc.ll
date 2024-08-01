@@ -205,8 +205,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %best_match_type.074 = phi i32 [ 4, %for.body.lr.ph ], [ %best_match_type.1.lcssa97, %for.inc36 ]
   %longest_match.073 = phi i64 [ 0, %for.body.lr.ph ], [ %longest_match.1.lcssa96, %for.inc36 ]
   %storemerge72 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc36 ]
-  %retval.sroa.2.071 = phi i8 [ 0, %for.body.lr.ph ], [ %retval.sroa.2.1.lcssa94, %for.inc36 ]
-  %retval.sroa.0.070 = phi i64 [ undef, %for.body.lr.ph ], [ %retval.sroa.0.1.lcssa92, %for.inc36 ]
+  %retval.sroa.2.071 = phi i8 [ 0, %for.body.lr.ph ], [ %retval.sroa.2.2.lcssa94, %for.inc36 ]
+  %retval.sroa.0.070 = phi i64 [ undef, %for.body.lr.ph ], [ %retval.sroa.0.2.lcssa92, %for.inc36 ]
   %vtable1 = load ptr, ptr %vhost_iterator, align 8
   %vfn2 = getelementptr inbounds i8, ptr %vtable1, i64 24
   %3 = load ptr, ptr %vfn2, align 8
@@ -218,10 +218,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.i.not57, label %for.inc36, label %for.body9
 
 for.body9:                                        ; preds = %for.body, %for.inc
-  %best_match_type.162 = phi i32 [ %best_match_type.2, %for.inc ], [ %best_match_type.074, %for.body ]
-  %longest_match.161 = phi i64 [ %longest_match.2, %for.inc ], [ %longest_match.073, %for.body ]
-  %retval.sroa.2.160 = phi i8 [ %retval.sroa.2.2, %for.inc ], [ %retval.sroa.2.071, %for.body ]
-  %retval.sroa.0.159 = phi i64 [ %retval.sroa.0.2, %for.inc ], [ %retval.sroa.0.070, %for.body ]
+  %best_match_type.162 = phi i32 [ %best_match_type.3, %for.inc ], [ %best_match_type.074, %for.body ]
+  %longest_match.161 = phi i64 [ %longest_match.3, %for.inc ], [ %longest_match.073, %for.body ]
+  %retval.sroa.2.260 = phi i8 [ %retval.sroa.2.4, %for.inc ], [ %retval.sroa.2.071, %for.body ]
+  %retval.sroa.0.259 = phi i64 [ %retval.sroa.0.4, %for.inc ], [ %retval.sroa.0.070, %for.body ]
   %__begin2.sroa.0.058 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %4, %for.body ]
   %call11 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.058) #20
   %6 = extractvalue { i64, ptr } %call11, 0
@@ -470,23 +470,23 @@ for.inc.critedge:                                 ; preds = %_ZNSt11char_traitsI
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.critedge, %if.end27, %if.end.i.i.i, %land.lhs.true, %do.end
-  %retval.sroa.0.2 = phi i64 [ %retval.sroa.0.159, %do.end ], [ %storemerge72, %if.end27 ], [ %retval.sroa.0.159, %if.end.i.i.i ], [ %retval.sroa.0.159, %land.lhs.true ], [ %retval.sroa.0.159, %for.inc.critedge ]
-  %retval.sroa.2.2 = phi i8 [ %retval.sroa.2.160, %do.end ], [ 1, %if.end27 ], [ %retval.sroa.2.160, %if.end.i.i.i ], [ %retval.sroa.2.160, %land.lhs.true ], [ %retval.sroa.2.160, %for.inc.critedge ]
-  %longest_match.2 = phi i64 [ %longest_match.161, %do.end ], [ %call28, %if.end27 ], [ %longest_match.161, %if.end.i.i.i ], [ %longest_match.161, %land.lhs.true ], [ %longest_match.161, %for.inc.critedge ]
-  %best_match_type.2 = phi i32 [ %best_match_type.162, %do.end ], [ %retval.0.i.ph, %if.end27 ], [ %best_match_type.162, %if.end.i.i.i ], [ %best_match_type.162, %land.lhs.true ], [ %best_match_type.162, %for.inc.critedge ]
+  %retval.sroa.0.4 = phi i64 [ %retval.sroa.0.259, %do.end ], [ %storemerge72, %if.end27 ], [ %retval.sroa.0.259, %if.end.i.i.i ], [ %retval.sroa.0.259, %land.lhs.true ], [ %retval.sroa.0.259, %for.inc.critedge ]
+  %retval.sroa.2.4 = phi i8 [ %retval.sroa.2.260, %do.end ], [ 1, %if.end27 ], [ %retval.sroa.2.260, %if.end.i.i.i ], [ %retval.sroa.2.260, %land.lhs.true ], [ %retval.sroa.2.260, %for.inc.critedge ]
+  %longest_match.3 = phi i64 [ %longest_match.161, %do.end ], [ %call28, %if.end27 ], [ %longest_match.161, %if.end.i.i.i ], [ %longest_match.161, %land.lhs.true ], [ %longest_match.161, %for.inc.critedge ]
+  %best_match_type.3 = phi i32 [ %best_match_type.162, %do.end ], [ %retval.0.i.ph, %if.end27 ], [ %best_match_type.162, %if.end.i.i.i ], [ %best_match_type.162, %land.lhs.true ], [ %best_match_type.162, %for.inc.critedge ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.058, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %5
   br i1 %cmp.i.not, label %for.end, label %for.body9
 
 for.end:                                          ; preds = %for.inc
-  %cmp33 = icmp eq i32 %best_match_type.2, 0
+  %cmp33 = icmp eq i32 %best_match_type.3, 0
   br i1 %cmp33, label %for.end37, label %for.inc36
 
 for.inc36:                                        ; preds = %for.body, %for.end
-  %best_match_type.1.lcssa97 = phi i32 [ %best_match_type.2, %for.end ], [ %best_match_type.074, %for.body ]
-  %longest_match.1.lcssa96 = phi i64 [ %longest_match.2, %for.end ], [ %longest_match.073, %for.body ]
-  %retval.sroa.2.1.lcssa94 = phi i8 [ %retval.sroa.2.2, %for.end ], [ %retval.sroa.2.071, %for.body ]
-  %retval.sroa.0.1.lcssa92 = phi i64 [ %retval.sroa.0.2, %for.end ], [ %retval.sroa.0.070, %for.body ]
+  %best_match_type.1.lcssa97 = phi i32 [ %best_match_type.3, %for.end ], [ %best_match_type.074, %for.body ]
+  %longest_match.1.lcssa96 = phi i64 [ %longest_match.3, %for.end ], [ %longest_match.073, %for.body ]
+  %retval.sroa.2.2.lcssa94 = phi i8 [ %retval.sroa.2.4, %for.end ], [ %retval.sroa.2.071, %for.body ]
+  %retval.sroa.0.2.lcssa92 = phi i64 [ %retval.sroa.0.4, %for.end ], [ %retval.sroa.0.070, %for.body ]
   %inc = add nuw i64 %storemerge72, 1
   %vtable = load ptr, ptr %vhost_iterator, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -496,10 +496,10 @@ for.inc36:                                        ; preds = %for.body, %for.end
   br i1 %cmp, label %for.body, label %for.end37, !llvm.loop !7
 
 for.end37:                                        ; preds = %for.inc36, %for.end, %if.end27, %if.end27.thread, %entry
-  %retval.sroa.0.4 = phi i64 [ undef, %entry ], [ %storemerge72, %if.end27.thread ], [ %storemerge72, %if.end27 ], [ %retval.sroa.0.1.lcssa92, %for.inc36 ], [ %retval.sroa.0.2, %for.end ]
-  %retval.sroa.2.4 = phi i8 [ 0, %entry ], [ 1, %if.end27.thread ], [ 1, %if.end27 ], [ %retval.sroa.2.1.lcssa94, %for.inc36 ], [ %retval.sroa.2.2, %for.end ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.4, 0
-  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.4, 1
+  %retval.sroa.0.1 = phi i64 [ undef, %entry ], [ %storemerge72, %if.end27.thread ], [ %storemerge72, %if.end27 ], [ %retval.sroa.0.2.lcssa92, %for.inc36 ], [ %retval.sroa.0.4, %for.end ]
+  %retval.sroa.2.1 = phi i8 [ 0, %entry ], [ 1, %if.end27.thread ], [ 1, %if.end27 ], [ %retval.sroa.2.2.lcssa94, %for.inc36 ], [ %retval.sroa.2.4, %for.end ]
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.1, 0
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.1, 1
   ret { i64, i8 } %.fca.1.insert
 }
 

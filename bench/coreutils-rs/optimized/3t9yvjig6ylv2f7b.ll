@@ -1305,8 +1305,8 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
           to label %311 unwind label %36
 
 52:                                               ; preds = %53, %42, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit145"
-  %.sroa.10.0 = phi ptr [ %.sroa.10.3, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit145" ], [ undef, %42 ], [ undef, %53 ]
-  %.sroa.011.0 = phi ptr [ %.sroa.011.3, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit145" ], [ null, %42 ], [ null, %53 ]
+  %.sroa.10.0 = phi ptr [ %.sroa.10.2, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit145" ], [ undef, %42 ], [ undef, %53 ]
+  %.sroa.011.0 = phi ptr [ %.sroa.011.2, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit145" ], [ null, %42 ], [ null, %53 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28)
   br label %302
 
@@ -1749,8 +1749,8 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
   br label %.loopexit160
 
 .loopexit160:                                     ; preds = %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.us", %272, %248, %202
-  %.sroa.10.1 = phi ptr [ @anon.93245e8f96c02d2faf95a87e43b1c55b.45.llvm.15234885945043149955, %272 ], [ %250, %248 ], [ %204, %202 ], [ %109, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.us" ]
-  %.sroa.011.1 = phi ptr [ %260, %272 ], [ %249, %248 ], [ %203, %202 ], [ %.pr.us, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.us" ]
+  %.sroa.10.3 = phi ptr [ @anon.93245e8f96c02d2faf95a87e43b1c55b.45.llvm.15234885945043149955, %272 ], [ %250, %248 ], [ %204, %202 ], [ %109, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.us" ]
+  %.sroa.011.3 = phi ptr [ %260, %272 ], [ %249, %248 ], [ %203, %202 ], [ %.pr.us, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.us" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !260
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha4bb5b5b7e5d75bbE.llvm.1206798258238166277"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23)
@@ -1868,10 +1868,10 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
   br label %245
 
 245:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit147", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit130"
-  %.sroa.10.2 = phi ptr [ %.sroa.10.4, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit147" ], [ undef, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit130" ]
-  %.sroa.011.2 = phi ptr [ %.sroa.011.4, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit147" ], [ null, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit130" ]
-  %246 = insertvalue { ptr, ptr } poison, ptr %.sroa.011.2, 0
-  %247 = insertvalue { ptr, ptr } %246, ptr %.sroa.10.2, 1
+  %.sroa.10.4 = phi ptr [ %.sroa.10.1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit147" ], [ undef, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit130" ]
+  %.sroa.011.4 = phi ptr [ %.sroa.011.1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit147" ], [ null, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit130" ]
+  %246 = insertvalue { ptr, ptr } poison, ptr %.sroa.011.4, 0
+  %247 = insertvalue { ptr, ptr } %246, ptr %.sroa.10.4, 1
   ret { ptr, ptr } %247
 
 248:                                              ; preds = %221
@@ -1981,8 +1981,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %.split.us
   br label %274
 
 274:                                              ; preds = %134, %273
-  %.sroa.10.3 = phi ptr [ %.sroa.10.1, %273 ], [ %140, %134 ]
-  %.sroa.011.3 = phi ptr [ %.sroa.011.1, %273 ], [ %138, %134 ]
+  %.sroa.10.2 = phi ptr [ %.sroa.10.3, %273 ], [ %140, %134 ]
+  %.sroa.011.2 = phi ptr [ %.sroa.011.3, %273 ], [ %138, %134 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !312)
   %275 = load ptr, ptr %64, align 8, !alias.scope !315, !nonnull !5, !noundef !5
   %276 = load i64, ptr %65, align 8, !alias.scope !315, !noundef !5
@@ -2062,8 +2062,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %.split.us
   br label %52
 
 302:                                              ; preds = %311, %52
-  %.sroa.10.4 = phi ptr [ %313, %311 ], [ %.sroa.10.0, %52 ]
-  %.sroa.011.4 = phi ptr [ %312, %311 ], [ %.sroa.011.0, %52 ]
+  %.sroa.10.1 = phi ptr [ %313, %311 ], [ %.sroa.10.0, %52 ]
+  %.sroa.011.1 = phi ptr [ %312, %311 ], [ %.sroa.011.0, %52 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !333
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha4bb5b5b7e5d75bbE.llvm.1206798258238166277"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %30)
   %303 = getelementptr inbounds i8, ptr %6, i64 8
@@ -2177,8 +2177,8 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
   br i1 %50, label %51, label %45
 
 51:                                               ; preds = %47, %43, %276, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit162"
-  %.sroa.9.0 = phi ptr [ %278, %276 ], [ %.sroa.9.4, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit162" ], [ undef, %43 ], [ undef, %47 ]
-  %.sroa.07.0 = phi ptr [ %277, %276 ], [ %.sroa.07.4, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit162" ], [ null, %43 ], [ null, %47 ]
+  %.sroa.9.0 = phi ptr [ %278, %276 ], [ %.sroa.9.2, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit162" ], [ undef, %43 ], [ undef, %47 ]
+  %.sroa.07.0 = phi ptr [ %277, %276 ], [ %.sroa.07.2, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit162" ], [ null, %43 ], [ null, %47 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !340
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha4bb5b5b7e5d75bbE.llvm.1206798258238166277"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %24)
   %52 = getelementptr inbounds i8, ptr %13, i64 8
@@ -2550,8 +2550,8 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
   br label %.loopexit169
 
 .loopexit169:                                     ; preds = %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit", %241, %172
-  %.sroa.9.1 = phi ptr [ %243, %241 ], [ %174, %172 ], [ %162, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit" ]
-  %.sroa.07.1 = phi ptr [ %242, %241 ], [ %173, %172 ], [ %.pr, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit" ]
+  %.sroa.9.3 = phi ptr [ %243, %241 ], [ %174, %172 ], [ %162, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit" ]
+  %.sroa.07.3 = phi ptr [ %242, %241 ], [ %173, %172 ], [ %.pr, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !381
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha4bb5b5b7e5d75bbE.llvm.1206798258238166277"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16)
           to label %.noexc142 unwind label %.loopexit.split-lp
@@ -2727,10 +2727,10 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
   br label %237
 
 237:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit153", %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit"
-  %.sroa.9.2 = phi ptr [ %.sroa.9.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit" ], [ undef, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit153" ]
-  %.sroa.07.2 = phi ptr [ %.sroa.07.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit" ], [ null, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit153" ]
-  %238 = insertvalue { ptr, ptr } poison, ptr %.sroa.07.2, 0
-  %239 = insertvalue { ptr, ptr } %238, ptr %.sroa.9.2, 1
+  %.sroa.9.1 = phi ptr [ %.sroa.9.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit" ], [ undef, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit153" ]
+  %.sroa.07.1 = phi ptr [ %.sroa.07.0, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit" ], [ null, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit153" ]
+  %238 = insertvalue { ptr, ptr } poison, ptr %.sroa.07.1, 0
+  %239 = insertvalue { ptr, ptr } %238, ptr %.sroa.9.1, 1
   ret { ptr, ptr } %239
 
 240:                                              ; preds = %204, %201, %.noexc145
@@ -2745,8 +2745,8 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
   br label %.loopexit169
 
 244:                                              ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit143", %247
-  %.sroa.9.3 = phi ptr [ %249, %247 ], [ %.sroa.9.1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit143" ]
-  %.sroa.07.3 = phi ptr [ %248, %247 ], [ %.sroa.07.1, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit143" ]
+  %.sroa.9.4 = phi ptr [ %249, %247 ], [ %.sroa.9.3, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit143" ]
+  %.sroa.07.4 = phi ptr [ %248, %247 ], [ %.sroa.07.3, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h1007a174d87f2f34E.exit143" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18)
@@ -2764,8 +2764,8 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
   br label %244
 
 250:                                              ; preds = %87, %244
-  %.sroa.9.4 = phi ptr [ %.sroa.9.3, %244 ], [ %93, %87 ]
-  %.sroa.07.4 = phi ptr [ %.sroa.07.3, %244 ], [ %91, %87 ]
+  %.sroa.9.2 = phi ptr [ %.sroa.9.4, %244 ], [ %93, %87 ]
+  %.sroa.07.2 = phi ptr [ %.sroa.07.4, %244 ], [ %91, %87 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !419)
   %251 = load ptr, ptr %63, align 8, !alias.scope !422, !nonnull !5, !noundef !5
   %252 = load i64, ptr %64, align 8, !alias.scope !422, !noundef !5
@@ -3274,8 +3274,8 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit: ; preds = %.split.split
   br label %.loopexit96
 
 .loopexit96:                                      ; preds = %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.us", %203, %200, %143
-  %.sroa.7.0 = phi ptr [ %205, %203 ], [ %202, %200 ], [ %145, %143 ], [ %93, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.us" ]
-  %.sroa.02.0 = phi ptr [ %204, %203 ], [ %201, %200 ], [ %144, %143 ], [ %.pr.us, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.us" ]
+  %.sroa.7.1 = phi ptr [ %205, %203 ], [ %202, %200 ], [ %145, %143 ], [ %93, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.us" ]
+  %.sroa.02.1 = phi ptr [ %204, %203 ], [ %201, %200 ], [ %144, %143 ], [ %.pr.us, %"_ZN85_$LT$alloc..vec..Vec$LT$uu_split..OutFile$GT$$u20$as$u20$uu_split..ManageOutFiles$GT$10get_writer17h32cf95f0bba485dfE.exit.us" ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !472
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17ha4bb5b5b7e5d75bbE.llvm.1206798258238166277"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15)
           to label %.noexc78 unwind label %.loopexit.split-lp98
@@ -3414,10 +3414,10 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit: ; preds = %.split.split
   br label %197
 
 197:                                              ; preds = %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit95", %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit"
-  %.sroa.7.1 = phi ptr [ %.sroa.7.2, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit95" ], [ undef, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit" ]
-  %.sroa.02.1 = phi ptr [ %.sroa.02.2, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit95" ], [ null, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit" ]
-  %198 = insertvalue { ptr, ptr } poison, ptr %.sroa.02.1, 0
-  %199 = insertvalue { ptr, ptr } %198, ptr %.sroa.7.1, 1
+  %.sroa.7.2 = phi ptr [ %.sroa.7.0, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit95" ], [ undef, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit" ]
+  %.sroa.02.2 = phi ptr [ %.sroa.02.0, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit95" ], [ null, %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h9cddb17fcacb61b5E.exit" ]
+  %198 = insertvalue { ptr, ptr } poison, ptr %.sroa.02.2, 0
+  %199 = insertvalue { ptr, ptr } %198, ptr %.sroa.7.2, 1
   ret { ptr, ptr } %199
 
 200:                                              ; preds = %160
@@ -3436,8 +3436,8 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit: ; preds = %.split.split
   br label %207
 
 207:                                              ; preds = %35, %206
-  %.sroa.7.2 = phi ptr [ %.sroa.7.0, %206 ], [ %41, %35 ]
-  %.sroa.02.2 = phi ptr [ %.sroa.02.0, %206 ], [ %39, %35 ]
+  %.sroa.7.0 = phi ptr [ %.sroa.7.1, %206 ], [ %41, %35 ]
+  %.sroa.02.0 = phi ptr [ %.sroa.02.1, %206 ], [ %39, %35 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !500)
   %208 = load ptr, ptr %22, align 8, !alias.scope !503, !nonnull !5, !noundef !5
   %209 = load i64, ptr %23, align 8, !alias.scope !503, !noundef !5

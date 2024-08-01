@@ -8088,9 +8088,9 @@ if.end20.thread:                                  ; preds = %if.end
 
 for.body:                                         ; preds = %if.end, %for.inc
   %is_all_null.090 = phi i1 [ %spec.select, %for.inc ], [ false, %if.end ]
-  %arrays_with_nulls.sroa.0.089 = phi ptr [ %arrays_with_nulls.sroa.0.2, %for.inc ], [ null, %if.end ]
-  %arrays_with_nulls.sroa.12.088 = phi ptr [ %arrays_with_nulls.sroa.12.2, %for.inc ], [ null, %if.end ]
-  %arrays_with_nulls.sroa.19.087 = phi ptr [ %arrays_with_nulls.sroa.19.2, %for.inc ], [ null, %if.end ]
+  %arrays_with_nulls.sroa.0.089 = phi ptr [ %arrays_with_nulls.sroa.0.1, %for.inc ], [ null, %if.end ]
+  %arrays_with_nulls.sroa.12.088 = phi ptr [ %arrays_with_nulls.sroa.12.1, %for.inc ], [ null, %if.end ]
+  %arrays_with_nulls.sroa.19.087 = phi ptr [ %arrays_with_nulls.sroa.19.1, %for.inc ], [ null, %if.end ]
   %__begin2.sroa.0.086 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %2, %if.end ]
   %call6 = tail call fastcc noundef i32 @_ZN5arrow7compute6detail12_GLOBAL__N_118NullGeneralization3GetERKNS0_9ExecValueE(ptr noundef nonnull align 8 dereferenceable(136) %__begin2.sroa.0.086)
   %cmp7 = icmp eq i32 %call6, 2
@@ -8114,7 +8114,7 @@ lpad.loopexit70:                                  ; preds = %cond.true.i.i.i.i
   br label %lpad
 
 lpad.loopexit.split-lp71:                         ; preds = %if.then17, %if.then26, %if.then.i.i.i.i
-  %arrays_with_nulls.sroa.0.080 = phi ptr [ %arrays_with_nulls.sroa.0.2, %if.then17 ], [ %arrays_with_nulls.sroa.0.0.lcssa104113, %if.then26 ], [ %arrays_with_nulls.sroa.0.089, %if.then.i.i.i.i ]
+  %arrays_with_nulls.sroa.0.080 = phi ptr [ %arrays_with_nulls.sroa.0.1, %if.then17 ], [ %arrays_with_nulls.sroa.0.0.lcssa104113, %if.then26 ], [ %arrays_with_nulls.sroa.0.089, %if.then.i.i.i.i ]
   %lpad.loopexit.split-lp73 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
@@ -8126,7 +8126,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN5arrow9ArraySpanESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad.thread.loopexit, %lpad.thread.loopexit.split-lp, %lpad
-  %arrays_with_nulls.sroa.0.081 = phi ptr [ %arrays_with_nulls.sroa.0.079, %lpad ], [ %arrays_with_nulls.sroa.0.2, %lpad.thread.loopexit ], [ %arrays_with_nulls.sroa.0.2, %lpad.thread.loopexit.split-lp ]
+  %arrays_with_nulls.sroa.0.081 = phi ptr [ %arrays_with_nulls.sroa.0.079, %lpad ], [ %arrays_with_nulls.sroa.0.1, %lpad.thread.loopexit ], [ %arrays_with_nulls.sroa.0.1, %lpad.thread.loopexit.split-lp ]
   %lpad.phi67 = phi { ptr, i32 } [ %lpad.phi74, %lpad ], [ %lpad.loopexit, %lpad.thread.loopexit ], [ %lpad.loopexit.split-lp, %lpad.thread.loopexit.split-lp ]
   tail call void @_ZdlPv(ptr noundef nonnull %arrays_with_nulls.sroa.0.081) #26
   br label %_ZNSt6vectorIPKN5arrow9ArraySpanESaIS3_EED2Ev.exit
@@ -8205,9 +8205,9 @@ _ZNSt6vectorIPKN5arrow9ArraySpanESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPKN5arrow9ArraySpanESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %if.then.i.i, %for.body, %land.lhs.true
-  %arrays_with_nulls.sroa.19.2 = phi ptr [ %arrays_with_nulls.sroa.19.087, %for.body ], [ %arrays_with_nulls.sroa.19.087, %land.lhs.true ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIPKN5arrow9ArraySpanESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %arrays_with_nulls.sroa.19.087, %if.then.i.i ]
-  %arrays_with_nulls.sroa.12.2 = phi ptr [ %arrays_with_nulls.sroa.12.088, %for.body ], [ %arrays_with_nulls.sroa.12.088, %land.lhs.true ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPKN5arrow9ArraySpanESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
-  %arrays_with_nulls.sroa.0.2 = phi ptr [ %arrays_with_nulls.sroa.0.089, %for.body ], [ %arrays_with_nulls.sroa.0.089, %land.lhs.true ], [ %cond.i10.i.i.i, %_ZNSt6vectorIPKN5arrow9ArraySpanESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %arrays_with_nulls.sroa.0.089, %if.then.i.i ]
+  %arrays_with_nulls.sroa.19.1 = phi ptr [ %arrays_with_nulls.sroa.19.087, %for.body ], [ %arrays_with_nulls.sroa.19.087, %land.lhs.true ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIPKN5arrow9ArraySpanESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %arrays_with_nulls.sroa.19.087, %if.then.i.i ]
+  %arrays_with_nulls.sroa.12.1 = phi ptr [ %arrays_with_nulls.sroa.12.088, %for.body ], [ %arrays_with_nulls.sroa.12.088, %land.lhs.true ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIPKN5arrow9ArraySpanESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ]
+  %arrays_with_nulls.sroa.0.1 = phi ptr [ %arrays_with_nulls.sroa.0.089, %for.body ], [ %arrays_with_nulls.sroa.0.089, %land.lhs.true ], [ %cond.i10.i.i.i, %_ZNSt6vectorIPKN5arrow9ArraySpanESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %arrays_with_nulls.sroa.0.089, %if.then.i.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.086, i64 136
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i.not, label %for.end, label %for.body
@@ -8230,12 +8230,12 @@ if.then17:                                        ; preds = %for.end
 if.end20:                                         ; preds = %for.end
   %null_count21 = getelementptr inbounds i8, ptr %out, i64 16
   store i64 -1, ptr %null_count21, align 8
-  %cmp.i.i = icmp eq ptr %arrays_with_nulls.sroa.0.2, %arrays_with_nulls.sroa.12.2
+  %cmp.i.i = icmp eq ptr %arrays_with_nulls.sroa.0.1, %arrays_with_nulls.sroa.12.1
   br i1 %cmp.i.i, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %if.end20.thread, %if.end20
   %null_count21114 = phi ptr [ %null_count21111, %if.end20.thread ], [ %null_count21, %if.end20 ]
-  %arrays_with_nulls.sroa.0.0.lcssa104113 = phi ptr [ null, %if.end20.thread ], [ %arrays_with_nulls.sroa.0.2, %if.end20 ]
+  %arrays_with_nulls.sroa.0.0.lcssa104113 = phi ptr [ null, %if.end20.thread ], [ %arrays_with_nulls.sroa.0.1, %if.end20 ]
   %10 = phi ptr [ %4, %if.end20.thread ], [ %7, %if.end20 ]
   store i64 0, ptr %null_count21114, align 8
   %cmp25.not = icmp eq ptr %10, null
@@ -8250,12 +8250,12 @@ if.then26:                                        ; preds = %if.then23
           to label %cleanup unwind label %lpad.loopexit.split-lp71
 
 if.else:                                          ; preds = %if.end20
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %arrays_with_nulls.sroa.12.2 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %arrays_with_nulls.sroa.0.2 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %arrays_with_nulls.sroa.12.1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %arrays_with_nulls.sroa.0.1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp32 = icmp eq i64 %sub.ptr.sub.i, 8
-  %13 = load ptr, ptr %arrays_with_nulls.sroa.0.2, align 8
+  %13 = load ptr, ptr %arrays_with_nulls.sroa.0.1, align 8
   br i1 %cmp32, label %if.then33, label %if.else44
 
 if.then33:                                        ; preds = %if.else
@@ -8274,7 +8274,7 @@ if.then33:                                        ; preds = %if.else
           to label %if.then.i.i.i36 unwind label %lpad.thread.loopexit.split-lp
 
 if.else44:                                        ; preds = %if.else
-  %add.ptr.i = getelementptr inbounds i8, ptr %arrays_with_nulls.sroa.0.2, i64 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %arrays_with_nulls.sroa.0.1, i64 8
   %19 = load ptr, ptr %add.ptr.i, align 8
   %20 = getelementptr i8, ptr %13, i64 24
   %.val = load i64, ptr %20, align 8
@@ -8297,7 +8297,7 @@ for.cond48.preheader:                             ; preds = %if.else44
 
 for.body51:                                       ; preds = %for.cond48.preheader, %for.inc54
   %i.094 = phi i64 [ %inc, %for.inc54 ], [ 2, %for.cond48.preheader ]
-  %add.ptr.i32 = getelementptr inbounds ptr, ptr %arrays_with_nulls.sroa.0.2, i64 %i.094
+  %add.ptr.i32 = getelementptr inbounds ptr, ptr %arrays_with_nulls.sroa.0.1, i64 %i.094
   %26 = load ptr, ptr %add.ptr.i32, align 8
   %.val16 = load i64, ptr %25, align 8
   %.val17 = load ptr, ptr %buffers, align 8
@@ -8315,12 +8315,12 @@ for.inc54:                                        ; preds = %for.body51
   br i1 %exitcond.not, label %cleanup, label %for.body51, !llvm.loop !121
 
 cleanup:                                          ; preds = %for.inc54, %for.cond48.preheader, %if.then26, %if.then23, %if.then17
-  %arrays_with_nulls.sroa.0.0.lcssa105 = phi ptr [ %arrays_with_nulls.sroa.0.2, %for.cond48.preheader ], [ %arrays_with_nulls.sroa.0.0.lcssa104113, %if.then26 ], [ %arrays_with_nulls.sroa.0.0.lcssa104113, %if.then23 ], [ %arrays_with_nulls.sroa.0.2, %if.then17 ], [ %arrays_with_nulls.sroa.0.2, %for.inc54 ]
+  %arrays_with_nulls.sroa.0.0.lcssa105 = phi ptr [ %arrays_with_nulls.sroa.0.1, %for.cond48.preheader ], [ %arrays_with_nulls.sroa.0.0.lcssa104113, %if.then26 ], [ %arrays_with_nulls.sroa.0.0.lcssa104113, %if.then23 ], [ %arrays_with_nulls.sroa.0.1, %if.then17 ], [ %arrays_with_nulls.sroa.0.1, %for.inc54 ]
   %tobool.not.i.i.i35 = icmp eq ptr %arrays_with_nulls.sroa.0.0.lcssa105, null
   br i1 %tobool.not.i.i.i35, label %cleanup.cont, label %if.then.i.i.i36
 
 if.then.i.i.i36:                                  ; preds = %if.then33, %cleanup
-  %arrays_with_nulls.sroa.0.0.lcssa106 = phi ptr [ %arrays_with_nulls.sroa.0.2, %if.then33 ], [ %arrays_with_nulls.sroa.0.0.lcssa105, %cleanup ]
+  %arrays_with_nulls.sroa.0.0.lcssa106 = phi ptr [ %arrays_with_nulls.sroa.0.1, %if.then33 ], [ %arrays_with_nulls.sroa.0.0.lcssa105, %cleanup ]
   tail call void @_ZdlPv(ptr noundef nonnull %arrays_with_nulls.sroa.0.0.lcssa106) #26
   br label %cleanup.cont
 

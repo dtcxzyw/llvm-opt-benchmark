@@ -543,7 +543,7 @@ define internal noundef i32 @setup_slub_debug(ptr noundef %0) #2 section ".init.
 
 .preheader:                                       ; preds = %13, %43
   %18 = phi i8 [ %.pr, %43 ], [ %15, %13 ]
-  %.0 = phi i32 [ %.1, %43 ], [ 0, %13 ]
+  %.1 = phi i32 [ %.2, %43 ], [ 0, %13 ]
   %19 = phi ptr [ %45, %43 ], [ %14, %13 ]
   %20 = phi i8 [ %44, %43 ], [ 0, %13 ]
   switch i8 %18, label %21 [
@@ -574,23 +574,23 @@ define internal noundef i32 @setup_slub_debug(ptr noundef %0) #2 section ".init.
   br label %43
 
 29:                                               ; preds = %21
-  %30 = or i32 %.0, 256
+  %30 = or i32 %.1, 256
   br label %43
 
 31:                                               ; preds = %21
-  %32 = or i32 %.0, 1024
+  %32 = or i32 %.1, 1024
   br label %43
 
 33:                                               ; preds = %21
-  %34 = or i32 %.0, 2048
+  %34 = or i32 %.1, 2048
   br label %43
 
 35:                                               ; preds = %21
-  %36 = or i32 %.0, 65536
+  %36 = or i32 %.1, 65536
   br label %43
 
 37:                                               ; preds = %21
-  %38 = or i32 %.0, 2097152
+  %38 = or i32 %.1, 2097152
   br label %43
 
 39:                                               ; preds = %21
@@ -602,7 +602,7 @@ define internal noundef i32 @setup_slub_debug(ptr noundef %0) #2 section ".init.
   br label %43
 
 43:                                               ; preds = %40, %39, %37, %35, %33, %31, %29, %28, %21
-  %.1 = phi i32 [ %.0, %40 ], [ %.0, %39 ], [ %.0, %21 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ 0, %28 ]
+  %.2 = phi i32 [ %.1, %40 ], [ %.1, %39 ], [ %.1, %21 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ 0, %28 ]
   %44 = phi i8 [ %20, %40 ], [ 1, %39 ], [ %20, %21 ], [ %20, %37 ], [ %20, %35 ], [ %20, %33 ], [ %20, %31 ], [ %20, %29 ], [ %20, %28 ]
   %45 = getelementptr i8, ptr %19, i64 1
   %.pr = load i8, ptr %45, align 1
@@ -614,7 +614,7 @@ define internal noundef i32 @setup_slub_debug(ptr noundef %0) #2 section ".init.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %46
-  %.2 = phi i32 [ %.0, %46 ], [ 68864, %13 ]
+  %.0 = phi i32 [ %.1, %46 ], [ 68864, %13 ]
   %49 = phi i8 [ %18, %46 ], [ %15, %13 ]
   %50 = phi ptr [ %19, %46 ], [ %14, %13 ]
   %51 = phi i1 [ %48, %46 ], [ false, %13 ]
@@ -659,7 +659,7 @@ parse_slub_debug_flags.exit:                      ; preds = %65, %66
   br i1 %69, label %74, label %70
 
 70:                                               ; preds = %parse_slub_debug_flags.exit
-  %71 = and i32 %.2, 65536
+  %71 = and i32 %.0, 65536
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %74, label %73
 
@@ -670,7 +670,7 @@ parse_slub_debug_flags.exit:                      ; preds = %65, %66
 74:                                               ; preds = %73, %70, %parse_slub_debug_flags.exit
   %75 = phi i8 [ 1, %73 ], [ 1, %70 ], [ %12, %parse_slub_debug_flags.exit ]
   %76 = phi i8 [ %11, %73 ], [ %11, %70 ], [ 1, %parse_slub_debug_flags.exit ]
-  %77 = phi i32 [ %10, %73 ], [ %10, %70 ], [ %.2, %parse_slub_debug_flags.exit ]
+  %77 = phi i32 [ %10, %73 ], [ %10, %70 ], [ %.0, %parse_slub_debug_flags.exit ]
   %78 = icmp eq ptr %61, null
   %79 = or i1 %78, %67
   br i1 %79, label %80, label %.preheader8, !llvm.loop !13
@@ -777,7 +777,7 @@ define dso_local i32 @kmem_cache_flags(i32 %0, i32 noundef %1, ptr nocapture nou
 
 .preheader:                                       ; preds = %.preheader8, %40
   %20 = phi i8 [ %.pr, %40 ], [ %17, %.preheader8 ]
-  %.0 = phi i32 [ %.1, %40 ], [ 0, %.preheader8 ]
+  %.1 = phi i32 [ %.2, %40 ], [ 0, %.preheader8 ]
   %21 = phi ptr [ %41, %40 ], [ %16, %.preheader8 ]
   switch i8 %20, label %22 [
     i8 0, label %.loopexit
@@ -805,33 +805,33 @@ define dso_local i32 @kmem_cache_flags(i32 %0, i32 noundef %1, ptr nocapture nou
   br label %40
 
 30:                                               ; preds = %22
-  %31 = or i32 %.0, 256
+  %31 = or i32 %.1, 256
   br label %40
 
 32:                                               ; preds = %22
-  %33 = or i32 %.0, 1024
+  %33 = or i32 %.1, 1024
   br label %40
 
 34:                                               ; preds = %22
-  %35 = or i32 %.0, 2048
+  %35 = or i32 %.1, 2048
   br label %40
 
 36:                                               ; preds = %22
-  %37 = or i32 %.0, 65536
+  %37 = or i32 %.1, 65536
   br label %40
 
 38:                                               ; preds = %22
-  %39 = or i32 %.0, 2097152
+  %39 = or i32 %.1, 2097152
   br label %40
 
 40:                                               ; preds = %22, %38, %36, %34, %32, %30, %29
-  %.1 = phi i32 [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ 0, %29 ], [ %.0, %22 ]
+  %.2 = phi i32 [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ 0, %29 ], [ %.1, %22 ]
   %41 = getelementptr i8, ptr %21, i64 1
   %.pr = load i8, ptr %41, align 1
   br label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader8, %.preheader, %.preheader, %.preheader
-  %.2 = phi i32 [ %.0, %.preheader ], [ %.0, %.preheader ], [ %.0, %.preheader ], [ 68864, %.preheader8 ]
+  %.0 = phi i32 [ %.1, %.preheader ], [ %.1, %.preheader ], [ %.1, %.preheader ], [ 68864, %.preheader8 ]
   %42 = phi i8 [ %20, %.preheader ], [ %20, %.preheader ], [ %20, %.preheader ], [ %17, %.preheader8 ]
   %43 = phi ptr [ %21, %.preheader ], [ %21, %.preheader ], [ %21, %.preheader ], [ %16, %.preheader8 ]
   %44 = icmp ne i8 %42, 44
@@ -915,7 +915,7 @@ parse_slub_debug_flags.exit:                      ; preds = %52
   br label %92
 
 90:                                               ; preds = %.lr.ph
-  %91 = or i32 %.2, %1
+  %91 = or i32 %.0, %1
   br label %92
 
 92:                                               ; preds = %90, %88, %3

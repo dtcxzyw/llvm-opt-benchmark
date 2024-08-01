@@ -635,13 +635,13 @@ if.end11:                                         ; preds = %if.end7
   br i1 %or.cond, label %while.cond, label %cleanup, !llvm.loop !14
 
 cleanup:                                          ; preds = %if.end11, %if.end7, %land.lhs.true
-  %retval.0 = phi i1 [ true, %land.lhs.true ], [ false, %if.end7 ], [ true, %if.end11 ]
+  %retval.1 = phi i1 [ true, %land.lhs.true ], [ false, %if.end7 ], [ true, %if.end11 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #13
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ %when_empty_return, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ %when_empty_return, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind

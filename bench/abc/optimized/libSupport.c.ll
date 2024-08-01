@@ -67,7 +67,7 @@ define void @open_libs() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %51
   %19 = phi ptr [ %52, %51 ], [ %18, %.preheader ]
-  %.151 = phi i32 [ %.3, %51 ], [ %.0.ph, %.preheader ]
+  %.151 = phi i32 [ %.2, %51 ], [ %.0.ph, %.preheader ]
   %20 = getelementptr inbounds i8, ptr %19, i64 19
   %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(8) @.str.1, ptr noundef nonnull dereferenceable(1) %20, i64 noundef 7) #11
   %22 = icmp eq i32 %21, 0
@@ -114,7 +114,7 @@ define void @open_libs() local_unnamed_addr #0 {
   br label %49
 
 49:                                               ; preds = %46, %43
-  %.2 = phi i32 [ %45, %43 ], [ %.151, %46 ]
+  %.3 = phi i32 [ %45, %43 ], [ %.151, %46 ]
   %.not48 = icmp eq ptr %37, null
   br i1 %.not48, label %51, label %50
 
@@ -123,13 +123,13 @@ define void @open_libs() local_unnamed_addr #0 {
   br label %51
 
 51:                                               ; preds = %31, %49, %50, %23, %.lr.ph
-  %.3 = phi i32 [ %.151, %31 ], [ %.2, %50 ], [ %.2, %49 ], [ %.151, %23 ], [ %.151, %.lr.ph ]
+  %.2 = phi i32 [ %.151, %31 ], [ %.3, %50 ], [ %.3, %49 ], [ %.151, %23 ], [ %.151, %.lr.ph ]
   %52 = tail call ptr @readdir(ptr noundef nonnull %16) #9
   %.not45 = icmp eq ptr %52, null
   br i1 %.not45, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %51, %.preheader
-  %.1.lcssa = phi i32 [ %.0.ph, %.preheader ], [ %.3, %51 ]
+  %.1.lcssa = phi i32 [ %.0.ph, %.preheader ], [ %.2, %51 ]
   %53 = tail call i32 @closedir(ptr noundef nonnull %16)
   %54 = getelementptr inbounds i8, ptr %13, i64 1
   br i1 %.not, label %55, label %.outer

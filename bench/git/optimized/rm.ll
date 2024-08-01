@@ -308,7 +308,7 @@ for.body90.lr.ph:                                 ; preds = %if.then85
 for.body90:                                       ; preds = %for.body90.lr.ph, %for.inc125
   %indvars.iv124 = phi i64 [ 0, %for.body90.lr.ph ], [ %indvars.iv.next125, %for.inc125 ]
   %seen_any.0103 = phi i32 [ 0, %for.body90.lr.ph ], [ %seen_any.2, %for.inc125 ]
-  %skip_worktree_seen.0102 = phi ptr [ null, %for.body90.lr.ph ], [ %skip_worktree_seen.3, %for.inc125 ]
+  %skip_worktree_seen.0102 = phi ptr [ null, %for.body90.lr.ph ], [ %skip_worktree_seen.2, %for.inc125 ]
   %27 = load ptr, ptr %items, align 8
   %original93 = getelementptr inbounds %struct.pathspec_item, ptr %27, i64 %indvars.iv124, i32 1
   %28 = load ptr, ptr %original93, align 8
@@ -336,8 +336,8 @@ if.then.i38:                                      ; preds = %land.lhs.true103
   br label %matches_skip_worktree.exit
 
 matches_skip_worktree.exit:                       ; preds = %land.lhs.true103, %if.then.i38
-  %skip_worktree_seen.1 = phi ptr [ %call.i39, %if.then.i38 ], [ %skip_worktree_seen.0102, %land.lhs.true103 ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %skip_worktree_seen.1, i64 %indvars.iv124
+  %skip_worktree_seen.3 = phi ptr [ %call.i39, %if.then.i38 ], [ %skip_worktree_seen.0102, %land.lhs.true103 ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %skip_worktree_seen.3, i64 %indvars.iv124
   %32 = load i8, ptr %arrayidx.i, align 1
   %tobool105.not = icmp eq i8 %32, 0
   br i1 %tobool105.not, label %if.else108, label %if.then106
@@ -352,7 +352,7 @@ if.else108:                                       ; preds = %matches_skip_worktr
   unreachable
 
 if.end112:                                        ; preds = %for.body90, %if.then106
-  %skip_worktree_seen.2 = phi ptr [ %skip_worktree_seen.1, %if.then106 ], [ %skip_worktree_seen.0102, %for.body90 ]
+  %skip_worktree_seen.1 = phi ptr [ %skip_worktree_seen.3, %if.then106 ], [ %skip_worktree_seen.0102, %for.body90 ]
   %seen_any.1 = phi i32 [ %seen_any.0103, %if.then106 ], [ 1, %for.body90 ]
   %33 = load i32, ptr @recursive, align 4
   %tobool113.not = icmp eq i32 %33, 0
@@ -372,7 +372,7 @@ if.then120:                                       ; preds = %land.lhs.true114
   unreachable
 
 for.inc125:                                       ; preds = %if.end112, %land.lhs.true114, %if.else98
-  %skip_worktree_seen.3 = phi ptr [ %skip_worktree_seen.2, %land.lhs.true114 ], [ %skip_worktree_seen.2, %if.end112 ], [ %skip_worktree_seen.0102, %if.else98 ]
+  %skip_worktree_seen.2 = phi ptr [ %skip_worktree_seen.1, %land.lhs.true114 ], [ %skip_worktree_seen.1, %if.end112 ], [ %skip_worktree_seen.0102, %if.else98 ]
   %seen_any.2 = phi i32 [ %seen_any.1, %land.lhs.true114 ], [ %seen_any.1, %if.end112 ], [ %seen_any.0103, %if.else98 ]
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %36 = load i32, ptr %pathspec, align 8
@@ -392,20 +392,20 @@ if.then130:                                       ; preds = %for.end127
 
 if.end131:                                        ; preds = %if.then85, %if.then130, %for.end127
   %seen_any.0.lcssa137 = phi i32 [ %seen_any.2, %if.then130 ], [ %seen_any.2, %for.end127 ], [ 0, %if.then85 ]
-  %skip_worktree_seen.0.lcssa136 = phi ptr [ %skip_worktree_seen.3, %if.then130 ], [ %skip_worktree_seen.3, %for.end127 ], [ null, %if.then85 ]
-  %ret.0 = phi i32 [ 1, %if.then130 ], [ 0, %for.end127 ], [ 0, %if.then85 ]
+  %skip_worktree_seen.0.lcssa136 = phi ptr [ %skip_worktree_seen.2, %if.then130 ], [ %skip_worktree_seen.2, %for.end127 ], [ null, %if.then85 ]
+  %ret.1 = phi i32 [ 1, %if.then130 ], [ 0, %for.end127 ], [ 0, %if.then85 ]
   call void @free(ptr noundef %skip_worktree_seen.0.lcssa136) #13
   call void @string_list_clear(ptr noundef nonnull %only_match_skip_worktree, i32 noundef 0) #13
   %tobool132.not = icmp eq i32 %seen_any.0.lcssa137, 0
   br i1 %tobool132.not, label %if.then133, label %if.end136
 
 if.then133:                                       ; preds = %if.end131
-  %call134 = call i32 @common_exit(ptr noundef nonnull @.str.10, i32 noundef 359, i32 noundef %ret.0) #13
+  %call134 = call i32 @common_exit(ptr noundef nonnull @.str.10, i32 noundef 359, i32 noundef %ret.1) #13
   call void @exit(i32 noundef %call134) #14
   unreachable
 
 if.end136:                                        ; preds = %if.end131, %for.end
-  %ret.1 = phi i32 [ %ret.0, %if.end131 ], [ 0, %for.end ]
+  %ret.0 = phi i32 [ %ret.1, %if.end131 ], [ 0, %for.end ]
   call void @clear_pathspec(ptr noundef nonnull %pathspec) #13
   call void @free(ptr noundef %call24) #13
   %38 = load i32, ptr @index_only, align 4
@@ -1084,7 +1084,7 @@ if.then217:                                       ; preds = %if.end214
   unreachable
 
 return:                                           ; preds = %if.end214, %for.end170
-  %retval.0 = phi i32 [ 0, %for.end170 ], [ %ret.1, %if.end214 ]
+  %retval.0 = phi i32 [ 0, %for.end170 ], [ %ret.0, %if.end214 ]
   ret i32 %retval.0
 }
 

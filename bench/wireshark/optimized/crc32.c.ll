@@ -211,25 +211,25 @@ define range(i32 0, 16777216) i32 @crc32_0x5D6DCB_seed(ptr nocapture noundef rea
 
 .preheader:                                       ; preds = %3, %.preheader
   %.013 = phi ptr [ %5, %.preheader ], [ %0, %3 ]
-  %.0712 = phi i32 [ %12, %.preheader ], [ %2, %3 ]
+  %.112 = phi i32 [ %12, %.preheader ], [ %2, %3 ]
   %.0811 = phi i32 [ %4, %.preheader ], [ %1, %3 ]
   %4 = add i32 %.0811, -1
   %5 = getelementptr i8, ptr %.013, i64 1
   %6 = load i8, ptr %.013, align 1
-  %7 = lshr i32 %.0712, 16
+  %7 = lshr i32 %.112, 16
   %.tr = trunc i32 %7 to i8
   %.narrow = xor i8 %6, %.tr
   %8 = zext i8 %.narrow to i64
   %9 = getelementptr [256 x i32], ptr @crc32_5D6DCB, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
-  %11 = shl i32 %.0712, 8
+  %11 = shl i32 %.112, 8
   %12 = xor i32 %10, %11
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %3
-  %.1 = phi i32 [ %2, %3 ], [ %12, %.preheader ]
-  %13 = and i32 %.1, 16777215
+  %.07 = phi i32 [ %2, %3 ], [ %12, %.preheader ]
+  %13 = and i32 %.07, 16777215
   ret i32 %13
 }
 

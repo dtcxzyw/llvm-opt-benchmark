@@ -2090,8 +2090,8 @@ construct_path_with_fanout.exit68.us.us:          ; preds = %sw.bb45.split.us.sp
   br label %sw.epilog.us.us
 
 sw.epilog.us.us:                                  ; preds = %sw.bb.split.us.split.us.us.us, %construct_path_with_fanout.exit68.us.us
-  %ret.3.us.us = phi i32 [ %call52.us.us, %construct_path_with_fanout.exit68.us.us ], [ %call3.us.us, %sw.bb.split.us.split.us.us.us ]
-  %tobool53.not.us.us = icmp eq i32 %ret.3.us.us, 0
+  %ret.2.us.us = phi i32 [ %call52.us.us, %construct_path_with_fanout.exit68.us.us ], [ %call3.us.us, %sw.bb.split.us.split.us.us.us ]
+  %tobool53.not.us.us = icmp eq i32 %ret.2.us.us, 0
   br i1 %tobool53.not.us.us, label %for.cond.us.us, label %return
 
 for.cond.us.us:                                   ; preds = %redo.us.us.us.us, %sw.epilog.us.us
@@ -2189,8 +2189,8 @@ construct_path_with_fanout.exit68.us:             ; preds = %sw.bb45.split.us.sp
   br label %sw.epilog.us
 
 sw.epilog.us:                                     ; preds = %sw.bb.split.us.split.us80, %construct_path_with_fanout.exit68.us
-  %ret.3.us = phi i32 [ %call52.us, %construct_path_with_fanout.exit68.us ], [ %call3.us, %sw.bb.split.us.split.us80 ]
-  %tobool53.not.us = icmp eq i32 %ret.3.us, 0
+  %ret.2.us = phi i32 [ %call52.us, %construct_path_with_fanout.exit68.us ], [ %call3.us, %sw.bb.split.us.split.us80 ]
+  %tobool53.not.us = icmp eq i32 %ret.2.us, 0
   br i1 %tobool53.not.us, label %for.cond.us, label %return
 
 for.cond.us:                                      ; preds = %redo.preheader.us, %redo.preheader.us, %sw.epilog.us
@@ -2359,12 +2359,12 @@ construct_path_with_fanout.exit68:                ; preds = %sw.bb45.split, %whi
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end, %redo, %construct_path_with_fanout.exit68, %sw.bb.split
-  %ret.3 = phi i32 [ %call52, %construct_path_with_fanout.exit68 ], [ %call3, %sw.bb.split ], [ %call30, %if.end ], [ %ret.1, %redo ]
-  %tobool53.not = icmp eq i32 %ret.3, 0
+  %ret.2 = phi i32 [ %call52, %construct_path_with_fanout.exit68 ], [ %call3, %sw.bb.split ], [ %call30, %if.end ], [ %ret.1, %redo ]
+  %tobool53.not = icmp eq i32 %ret.2, 0
   br i1 %tobool53.not, label %for.cond, label %return
 
 return:                                           ; preds = %sw.epilog, %for.cond, %for.cond.us, %sw.epilog.us, %for.cond.us.us, %sw.epilog.us.us
-  %.us-phi85 = phi i32 [ %ret.3.us.us, %sw.epilog.us.us ], [ 0, %for.cond.us.us ], [ %ret.3.us, %sw.epilog.us ], [ 0, %for.cond.us ], [ %ret.3, %sw.epilog ], [ 0, %for.cond ]
+  %.us-phi85 = phi i32 [ %ret.2.us.us, %sw.epilog.us.us ], [ 0, %for.cond.us.us ], [ %ret.2.us, %sw.epilog.us ], [ 0, %for.cond.us ], [ %ret.2, %sw.epilog ], [ 0, %for.cond ]
   ret i32 %.us-phi85
 }
 

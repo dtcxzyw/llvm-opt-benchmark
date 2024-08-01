@@ -866,8 +866,8 @@ while.cond.preheader.i.i:                         ; preds = %sw.bb158
   br i1 %cmp.i1.i16.i.i, label %while.end.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.cond.preheader.i.i, %while.body.i.i
-  %it.sroa.0.017.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i ], [ %7, %while.cond.preheader.i.i ]
-  %28 = load i8, ptr %it.sroa.0.017.i.i, align 1
+  %it.sroa.0.117.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i ], [ %7, %while.cond.preheader.i.i ]
+  %28 = load i8, ptr %it.sroa.0.117.i.i, align 1
   switch i8 %28, label %while.body.i.i [
     i8 13, label %while.end.i.i
     i8 10, label %while.end.i.i
@@ -876,51 +876,51 @@ land.rhs.i.i:                                     ; preds = %while.cond.preheade
   ]
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.017.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.sroa.0.117.i.i, i64 1
   %cmp.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %agg.tmp2.sroa.0.0.copyload.i
   %cmp.i1.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i.i
   %retval.0.i.i.i = or i1 %cmp.i.i.i.i, %cmp.i1.i.i.i
   br i1 %retval.0.i.i.i, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !10
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %land.rhs.i.i, %land.rhs.i.i, %land.rhs.i.i, %land.rhs.i.i, %while.cond.preheader.i.i
-  %it.sroa.0.0.lcssa.i.i = phi ptr [ %7, %while.cond.preheader.i.i ], [ %it.sroa.0.017.i.i, %land.rhs.i.i ], [ %it.sroa.0.017.i.i, %land.rhs.i.i ], [ %it.sroa.0.017.i.i, %land.rhs.i.i ], [ %it.sroa.0.017.i.i, %land.rhs.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i ]
-  %cmp.i2.not.i.i = icmp eq ptr %it.sroa.0.0.lcssa.i.i, %agg.tmp2.sroa.0.0.copyload.i
+  %it.sroa.0.1.lcssa.i.i = phi ptr [ %7, %while.cond.preheader.i.i ], [ %it.sroa.0.117.i.i, %land.rhs.i.i ], [ %it.sroa.0.117.i.i, %land.rhs.i.i ], [ %it.sroa.0.117.i.i, %land.rhs.i.i ], [ %it.sroa.0.117.i.i, %land.rhs.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i ]
+  %cmp.i2.not.i.i = icmp eq ptr %it.sroa.0.1.lcssa.i.i, %agg.tmp2.sroa.0.0.copyload.i
   br i1 %cmp.i2.not.i.i, label %if.end12.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %while.end.i.i
-  %incdec.ptr.i3.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i.i, i64 1
+  %incdec.ptr.i3.i.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i.i, i64 1
   %29 = load i32, ptr %m_uiLine.i66, align 8
   %inc.i.i = add i32 %29, 1
   store i32 %inc.i.i, ptr %m_uiLine.i66, align 8
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.then10.i.i, %while.end.i.i
-  %it.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i3.i.i, %if.then10.i.i ], [ %it.sroa.0.0.lcssa.i.i, %while.end.i.i ]
-  %cmp.i4.not25.i.i = icmp eq ptr %it.sroa.0.1.i.i, %agg.tmp2.sroa.0.0.copyload.i
+  %it.sroa.0.2.i.i = phi ptr [ %incdec.ptr.i3.i.i, %if.then10.i.i ], [ %it.sroa.0.1.lcssa.i.i, %while.end.i.i ]
+  %cmp.i4.not25.i.i = icmp eq ptr %it.sroa.0.2.i.i, %agg.tmp2.sroa.0.0.copyload.i
   br i1 %cmp.i4.not25.i.i, label %_ZN6Assimp13ObjFileParser10getCommentEv.exit, label %land.rhs15.preheader.i.i
 
 land.rhs15.preheader.i.i:                         ; preds = %if.end12.i.i
-  %it.sroa.0.130.i.i = ptrtoint ptr %it.sroa.0.1.i.i to i64
-  %30 = sub i64 %end.coerce29.i.i, %it.sroa.0.130.i.i
-  %scevgep.i.i = getelementptr i8, ptr %it.sroa.0.1.i.i, i64 %30
+  %it.sroa.0.230.i.i = ptrtoint ptr %it.sroa.0.2.i.i to i64
+  %30 = sub i64 %end.coerce29.i.i, %it.sroa.0.230.i.i
+  %scevgep.i.i = getelementptr i8, ptr %it.sroa.0.2.i.i, i64 %30
   br label %land.rhs15.i.i
 
 land.rhs15.i.i:                                   ; preds = %while.body21.i.i, %land.rhs15.preheader.i.i
-  %it.sroa.0.226.i.i = phi ptr [ %incdec.ptr.i5.i.i, %while.body21.i.i ], [ %it.sroa.0.1.i.i, %land.rhs15.preheader.i.i ]
-  %31 = load i8, ptr %it.sroa.0.226.i.i, align 1
+  %it.sroa.0.326.i.i = phi ptr [ %incdec.ptr.i5.i.i, %while.body21.i.i ], [ %it.sroa.0.2.i.i, %land.rhs15.preheader.i.i ]
+  %31 = load i8, ptr %it.sroa.0.326.i.i, align 1
   switch i8 %31, label %_ZN6Assimp13ObjFileParser10getCommentEv.exit [
     i8 9, label %while.body21.i.i
     i8 32, label %while.body21.i.i
   ]
 
 while.body21.i.i:                                 ; preds = %land.rhs15.i.i, %land.rhs15.i.i
-  %incdec.ptr.i5.i.i = getelementptr inbounds i8, ptr %it.sroa.0.226.i.i, i64 1
+  %incdec.ptr.i5.i.i = getelementptr inbounds i8, ptr %it.sroa.0.326.i.i, i64 1
   %cmp.i4.not.i.i = icmp eq ptr %incdec.ptr.i5.i.i, %agg.tmp2.sroa.0.0.copyload.i
   br i1 %cmp.i4.not.i.i, label %_ZN6Assimp13ObjFileParser10getCommentEv.exit, label %land.rhs15.i.i, !llvm.loop !11
 
 _ZN6Assimp13ObjFileParser10getCommentEv.exit:     ; preds = %land.rhs15.i.i, %while.body21.i.i, %sw.bb158, %if.end12.i.i
-  %it.sroa.0.3.i.i = phi ptr [ %7, %sw.bb158 ], [ %it.sroa.0.1.i.i, %if.end12.i.i ], [ %scevgep.i.i, %while.body21.i.i ], [ %it.sroa.0.226.i.i, %land.rhs15.i.i ]
-  store ptr %it.sroa.0.3.i.i, ptr %this, align 8
+  %it.sroa.0.0.i.i = phi ptr [ %7, %sw.bb158 ], [ %it.sroa.0.2.i.i, %if.end12.i.i ], [ %scevgep.i.i, %while.body21.i.i ], [ %it.sroa.0.326.i.i, %land.rhs15.i.i ]
+  store ptr %it.sroa.0.0.i.i, ptr %this, align 8
   br label %while.cond.backedge
 
 sw.bb160:                                         ; preds = %if.end26
@@ -1008,8 +1008,8 @@ while.cond.preheader.i.i70:                       ; preds = %if.then208
   br i1 %cmp.i1.i16.i.i72, label %while.end.i.i75, label %land.rhs.i.i73
 
 land.rhs.i.i73:                                   ; preds = %while.cond.preheader.i.i70, %while.body.i.i92
-  %it.sroa.0.017.i.i74 = phi ptr [ %incdec.ptr.i.i.i93, %while.body.i.i92 ], [ %agg.tmp.sroa.0.0.copyload.i63, %while.cond.preheader.i.i70 ]
-  %34 = load i8, ptr %it.sroa.0.017.i.i74, align 1
+  %it.sroa.0.117.i.i74 = phi ptr [ %incdec.ptr.i.i.i93, %while.body.i.i92 ], [ %agg.tmp.sroa.0.0.copyload.i63, %while.cond.preheader.i.i70 ]
+  %34 = load i8, ptr %it.sroa.0.117.i.i74, align 1
   switch i8 %34, label %while.body.i.i92 [
     i8 13, label %while.end.i.i75
     i8 10, label %while.end.i.i75
@@ -1018,51 +1018,51 @@ land.rhs.i.i73:                                   ; preds = %while.cond.preheade
   ]
 
 while.body.i.i92:                                 ; preds = %land.rhs.i.i73
-  %incdec.ptr.i.i.i93 = getelementptr inbounds i8, ptr %it.sroa.0.017.i.i74, i64 1
+  %incdec.ptr.i.i.i93 = getelementptr inbounds i8, ptr %it.sroa.0.117.i.i74, i64 1
   %cmp.i.i.i.i94 = icmp eq ptr %incdec.ptr.i.i.i93, %agg.tmp2.sroa.0.0.copyload.i65
   %cmp.i1.i.i.i95 = icmp eq ptr %incdec.ptr.i.i.i.i71, %incdec.ptr.i.i.i93
   %retval.0.i.i.i96 = or i1 %cmp.i.i.i.i94, %cmp.i1.i.i.i95
   br i1 %retval.0.i.i.i96, label %while.end.i.i75, label %land.rhs.i.i73, !llvm.loop !10
 
 while.end.i.i75:                                  ; preds = %while.body.i.i92, %land.rhs.i.i73, %land.rhs.i.i73, %land.rhs.i.i73, %land.rhs.i.i73, %while.cond.preheader.i.i70
-  %it.sroa.0.0.lcssa.i.i76 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i63, %while.cond.preheader.i.i70 ], [ %it.sroa.0.017.i.i74, %land.rhs.i.i73 ], [ %it.sroa.0.017.i.i74, %land.rhs.i.i73 ], [ %it.sroa.0.017.i.i74, %land.rhs.i.i73 ], [ %it.sroa.0.017.i.i74, %land.rhs.i.i73 ], [ %incdec.ptr.i.i.i93, %while.body.i.i92 ]
-  %cmp.i2.not.i.i77 = icmp eq ptr %it.sroa.0.0.lcssa.i.i76, %agg.tmp2.sroa.0.0.copyload.i65
+  %it.sroa.0.1.lcssa.i.i76 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i63, %while.cond.preheader.i.i70 ], [ %it.sroa.0.117.i.i74, %land.rhs.i.i73 ], [ %it.sroa.0.117.i.i74, %land.rhs.i.i73 ], [ %it.sroa.0.117.i.i74, %land.rhs.i.i73 ], [ %it.sroa.0.117.i.i74, %land.rhs.i.i73 ], [ %incdec.ptr.i.i.i93, %while.body.i.i92 ]
+  %cmp.i2.not.i.i77 = icmp eq ptr %it.sroa.0.1.lcssa.i.i76, %agg.tmp2.sroa.0.0.copyload.i65
   br i1 %cmp.i2.not.i.i77, label %if.end12.i.i81, label %if.then10.i.i78
 
 if.then10.i.i78:                                  ; preds = %while.end.i.i75
-  %incdec.ptr.i3.i.i79 = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i.i76, i64 1
+  %incdec.ptr.i3.i.i79 = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i.i76, i64 1
   %35 = load i32, ptr %m_uiLine.i66, align 8
   %inc.i.i80 = add i32 %35, 1
   store i32 %inc.i.i80, ptr %m_uiLine.i66, align 8
   br label %if.end12.i.i81
 
 if.end12.i.i81:                                   ; preds = %if.then10.i.i78, %while.end.i.i75
-  %it.sroa.0.1.i.i82 = phi ptr [ %incdec.ptr.i3.i.i79, %if.then10.i.i78 ], [ %it.sroa.0.0.lcssa.i.i76, %while.end.i.i75 ]
-  %cmp.i4.not25.i.i83 = icmp eq ptr %it.sroa.0.1.i.i82, %agg.tmp2.sroa.0.0.copyload.i65
+  %it.sroa.0.2.i.i82 = phi ptr [ %incdec.ptr.i3.i.i79, %if.then10.i.i78 ], [ %it.sroa.0.1.lcssa.i.i76, %while.end.i.i75 ]
+  %cmp.i4.not25.i.i83 = icmp eq ptr %it.sroa.0.2.i.i82, %agg.tmp2.sroa.0.0.copyload.i65
   br i1 %cmp.i4.not25.i.i83, label %_ZN6Assimp13ObjFileParser27getGroupNumberAndResolutionEv.exit, label %land.rhs15.preheader.i.i84
 
 land.rhs15.preheader.i.i84:                       ; preds = %if.end12.i.i81
-  %it.sroa.0.130.i.i85 = ptrtoint ptr %it.sroa.0.1.i.i82 to i64
-  %36 = sub i64 %end.coerce29.i.i67, %it.sroa.0.130.i.i85
-  %scevgep.i.i86 = getelementptr i8, ptr %it.sroa.0.1.i.i82, i64 %36
+  %it.sroa.0.230.i.i85 = ptrtoint ptr %it.sroa.0.2.i.i82 to i64
+  %36 = sub i64 %end.coerce29.i.i67, %it.sroa.0.230.i.i85
+  %scevgep.i.i86 = getelementptr i8, ptr %it.sroa.0.2.i.i82, i64 %36
   br label %land.rhs15.i.i87
 
 land.rhs15.i.i87:                                 ; preds = %while.body21.i.i89, %land.rhs15.preheader.i.i84
-  %it.sroa.0.226.i.i88 = phi ptr [ %incdec.ptr.i5.i.i90, %while.body21.i.i89 ], [ %it.sroa.0.1.i.i82, %land.rhs15.preheader.i.i84 ]
-  %37 = load i8, ptr %it.sroa.0.226.i.i88, align 1
+  %it.sroa.0.326.i.i88 = phi ptr [ %incdec.ptr.i5.i.i90, %while.body21.i.i89 ], [ %it.sroa.0.2.i.i82, %land.rhs15.preheader.i.i84 ]
+  %37 = load i8, ptr %it.sroa.0.326.i.i88, align 1
   switch i8 %37, label %_ZN6Assimp13ObjFileParser27getGroupNumberAndResolutionEv.exit [
     i8 9, label %while.body21.i.i89
     i8 32, label %while.body21.i.i89
   ]
 
 while.body21.i.i89:                               ; preds = %land.rhs15.i.i87, %land.rhs15.i.i87
-  %incdec.ptr.i5.i.i90 = getelementptr inbounds i8, ptr %it.sroa.0.226.i.i88, i64 1
+  %incdec.ptr.i5.i.i90 = getelementptr inbounds i8, ptr %it.sroa.0.326.i.i88, i64 1
   %cmp.i4.not.i.i91 = icmp eq ptr %incdec.ptr.i5.i.i90, %agg.tmp2.sroa.0.0.copyload.i65
   br i1 %cmp.i4.not.i.i91, label %_ZN6Assimp13ObjFileParser27getGroupNumberAndResolutionEv.exit, label %land.rhs15.i.i87, !llvm.loop !11
 
 _ZN6Assimp13ObjFileParser27getGroupNumberAndResolutionEv.exit: ; preds = %land.rhs15.i.i87, %while.body21.i.i89, %if.then208, %if.end12.i.i81
-  %it.sroa.0.3.i.i69 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i63, %if.then208 ], [ %it.sroa.0.1.i.i82, %if.end12.i.i81 ], [ %scevgep.i.i86, %while.body21.i.i89 ], [ %it.sroa.0.226.i.i88, %land.rhs15.i.i87 ]
-  store ptr %it.sroa.0.3.i.i69, ptr %this, align 8
+  %it.sroa.0.0.i.i69 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i63, %if.then208 ], [ %it.sroa.0.2.i.i82, %if.end12.i.i81 ], [ %scevgep.i.i86, %while.body21.i.i89 ], [ %it.sroa.0.326.i.i88, %land.rhs15.i.i87 ]
+  store ptr %it.sroa.0.0.i.i69, ptr %this, align 8
   br label %cleanup.thread
 
 if.else210:                                       ; preds = %if.end205
@@ -1094,8 +1094,8 @@ while.cond.preheader.i.i106:                      ; preds = %sw.bb220
   br i1 %cmp.i1.i16.i.i108, label %while.end.i.i111, label %land.rhs.i.i109
 
 land.rhs.i.i109:                                  ; preds = %while.cond.preheader.i.i106, %while.body.i.i128
-  %it.sroa.0.017.i.i110 = phi ptr [ %incdec.ptr.i.i.i129, %while.body.i.i128 ], [ %7, %while.cond.preheader.i.i106 ]
-  %38 = load i8, ptr %it.sroa.0.017.i.i110, align 1
+  %it.sroa.0.117.i.i110 = phi ptr [ %incdec.ptr.i.i.i129, %while.body.i.i128 ], [ %7, %while.cond.preheader.i.i106 ]
+  %38 = load i8, ptr %it.sroa.0.117.i.i110, align 1
   switch i8 %38, label %while.body.i.i128 [
     i8 13, label %while.end.i.i111
     i8 10, label %while.end.i.i111
@@ -1104,51 +1104,51 @@ land.rhs.i.i109:                                  ; preds = %while.cond.preheade
   ]
 
 while.body.i.i128:                                ; preds = %land.rhs.i.i109
-  %incdec.ptr.i.i.i129 = getelementptr inbounds i8, ptr %it.sroa.0.017.i.i110, i64 1
+  %incdec.ptr.i.i.i129 = getelementptr inbounds i8, ptr %it.sroa.0.117.i.i110, i64 1
   %cmp.i.i.i.i130 = icmp eq ptr %incdec.ptr.i.i.i129, %agg.tmp2.sroa.0.0.copyload.i101
   %cmp.i1.i.i.i131 = icmp eq ptr %incdec.ptr.i.i.i.i107, %incdec.ptr.i.i.i129
   %retval.0.i.i.i132 = or i1 %cmp.i.i.i.i130, %cmp.i1.i.i.i131
   br i1 %retval.0.i.i.i132, label %while.end.i.i111, label %land.rhs.i.i109, !llvm.loop !10
 
 while.end.i.i111:                                 ; preds = %while.body.i.i128, %land.rhs.i.i109, %land.rhs.i.i109, %land.rhs.i.i109, %land.rhs.i.i109, %while.cond.preheader.i.i106
-  %it.sroa.0.0.lcssa.i.i112 = phi ptr [ %7, %while.cond.preheader.i.i106 ], [ %it.sroa.0.017.i.i110, %land.rhs.i.i109 ], [ %it.sroa.0.017.i.i110, %land.rhs.i.i109 ], [ %it.sroa.0.017.i.i110, %land.rhs.i.i109 ], [ %it.sroa.0.017.i.i110, %land.rhs.i.i109 ], [ %incdec.ptr.i.i.i129, %while.body.i.i128 ]
-  %cmp.i2.not.i.i113 = icmp eq ptr %it.sroa.0.0.lcssa.i.i112, %agg.tmp2.sroa.0.0.copyload.i101
+  %it.sroa.0.1.lcssa.i.i112 = phi ptr [ %7, %while.cond.preheader.i.i106 ], [ %it.sroa.0.117.i.i110, %land.rhs.i.i109 ], [ %it.sroa.0.117.i.i110, %land.rhs.i.i109 ], [ %it.sroa.0.117.i.i110, %land.rhs.i.i109 ], [ %it.sroa.0.117.i.i110, %land.rhs.i.i109 ], [ %incdec.ptr.i.i.i129, %while.body.i.i128 ]
+  %cmp.i2.not.i.i113 = icmp eq ptr %it.sroa.0.1.lcssa.i.i112, %agg.tmp2.sroa.0.0.copyload.i101
   br i1 %cmp.i2.not.i.i113, label %if.end12.i.i117, label %if.then10.i.i114
 
 if.then10.i.i114:                                 ; preds = %while.end.i.i111
-  %incdec.ptr.i3.i.i115 = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i.i112, i64 1
+  %incdec.ptr.i3.i.i115 = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i.i112, i64 1
   %39 = load i32, ptr %m_uiLine.i66, align 8
   %inc.i.i116 = add i32 %39, 1
   store i32 %inc.i.i116, ptr %m_uiLine.i66, align 8
   br label %if.end12.i.i117
 
 if.end12.i.i117:                                  ; preds = %if.then10.i.i114, %while.end.i.i111
-  %it.sroa.0.1.i.i118 = phi ptr [ %incdec.ptr.i3.i.i115, %if.then10.i.i114 ], [ %it.sroa.0.0.lcssa.i.i112, %while.end.i.i111 ]
-  %cmp.i4.not25.i.i119 = icmp eq ptr %it.sroa.0.1.i.i118, %agg.tmp2.sroa.0.0.copyload.i101
+  %it.sroa.0.2.i.i118 = phi ptr [ %incdec.ptr.i3.i.i115, %if.then10.i.i114 ], [ %it.sroa.0.1.lcssa.i.i112, %while.end.i.i111 ]
+  %cmp.i4.not25.i.i119 = icmp eq ptr %it.sroa.0.2.i.i118, %agg.tmp2.sroa.0.0.copyload.i101
   br i1 %cmp.i4.not25.i.i119, label %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit, label %land.rhs15.preheader.i.i120
 
 land.rhs15.preheader.i.i120:                      ; preds = %if.end12.i.i117
-  %it.sroa.0.130.i.i121 = ptrtoint ptr %it.sroa.0.1.i.i118 to i64
-  %40 = sub i64 %end.coerce29.i.i103, %it.sroa.0.130.i.i121
-  %scevgep.i.i122 = getelementptr i8, ptr %it.sroa.0.1.i.i118, i64 %40
+  %it.sroa.0.230.i.i121 = ptrtoint ptr %it.sroa.0.2.i.i118 to i64
+  %40 = sub i64 %end.coerce29.i.i103, %it.sroa.0.230.i.i121
+  %scevgep.i.i122 = getelementptr i8, ptr %it.sroa.0.2.i.i118, i64 %40
   br label %land.rhs15.i.i123
 
 land.rhs15.i.i123:                                ; preds = %while.body21.i.i125, %land.rhs15.preheader.i.i120
-  %it.sroa.0.226.i.i124 = phi ptr [ %incdec.ptr.i5.i.i126, %while.body21.i.i125 ], [ %it.sroa.0.1.i.i118, %land.rhs15.preheader.i.i120 ]
-  %41 = load i8, ptr %it.sroa.0.226.i.i124, align 1
+  %it.sroa.0.326.i.i124 = phi ptr [ %incdec.ptr.i5.i.i126, %while.body21.i.i125 ], [ %it.sroa.0.2.i.i118, %land.rhs15.preheader.i.i120 ]
+  %41 = load i8, ptr %it.sroa.0.326.i.i124, align 1
   switch i8 %41, label %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit [
     i8 9, label %while.body21.i.i125
     i8 32, label %while.body21.i.i125
   ]
 
 while.body21.i.i125:                              ; preds = %land.rhs15.i.i123, %land.rhs15.i.i123
-  %incdec.ptr.i5.i.i126 = getelementptr inbounds i8, ptr %it.sroa.0.226.i.i124, i64 1
+  %incdec.ptr.i5.i.i126 = getelementptr inbounds i8, ptr %it.sroa.0.326.i.i124, i64 1
   %cmp.i4.not.i.i127 = icmp eq ptr %incdec.ptr.i5.i.i126, %agg.tmp2.sroa.0.0.copyload.i101
   br i1 %cmp.i4.not.i.i127, label %_ZN6Assimp13ObjFileParser14getGroupNumberEv.exit, label %land.rhs15.i.i123, !llvm.loop !11
 
 _ZN6Assimp13ObjFileParser14getGroupNumberEv.exit: ; preds = %land.rhs15.i.i123, %while.body21.i.i125, %sw.bb220, %if.end12.i.i117
-  %it.sroa.0.3.i.i105 = phi ptr [ %7, %sw.bb220 ], [ %it.sroa.0.1.i.i118, %if.end12.i.i117 ], [ %scevgep.i.i122, %while.body21.i.i125 ], [ %it.sroa.0.226.i.i124, %land.rhs15.i.i123 ]
-  store ptr %it.sroa.0.3.i.i105, ptr %this, align 8
+  %it.sroa.0.0.i.i105 = phi ptr [ %7, %sw.bb220 ], [ %it.sroa.0.2.i.i118, %if.end12.i.i117 ], [ %scevgep.i.i122, %while.body21.i.i125 ], [ %it.sroa.0.326.i.i124, %land.rhs15.i.i123 ]
+  store ptr %it.sroa.0.0.i.i105, ptr %this, align 8
   br label %while.cond.backedge
 
 sw.bb222:                                         ; preds = %if.end26
@@ -1193,8 +1193,8 @@ while.cond.preheader.i:                           ; preds = %pf_skip_line
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i, %while.body.i ], [ %agg.tmp243.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %43 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i, %while.body.i ], [ %agg.tmp243.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %43 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %43, label %while.body.i [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -1203,51 +1203,51 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
   ]
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp245.sroa.0.0.copyload
   %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i135, %incdec.ptr.i.i
   %retval.0.i.i = or i1 %cmp.i.i.i, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp243.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i, %while.body.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp245.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp243.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i, %while.body.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp245.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %44 = load i32, ptr %m_uiLine.i66, align 8
   %inc.i = add i32 %44, 1
   store i32 %inc.i, ptr %m_uiLine.i66, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp245.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp245.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %invoke.cont249, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %45 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %45
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %45 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %45
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %46 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %46 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %46, label %invoke.cont249 [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp245.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %invoke.cont249, label %land.rhs15.i, !llvm.loop !11
 
 invoke.cont249:                                   ; preds = %while.body21.i, %land.rhs15.i, %if.end12.i, %pf_skip_line
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp243.sroa.0.0.copyload, %pf_skip_line ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp243.sroa.0.0.copyload, %pf_skip_line ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %invoke.cont
@@ -1783,8 +1783,8 @@ _ZN6Assimp10SkipSpacesIcEEbPPKT_.exit14:          ; preds = %while.cond.i.i7
   br i1 %end_of_definition.1, label %while.end, label %while.body, !llvm.loop !18
 
 while.end:                                        ; preds = %_ZN6Assimp10SkipSpacesIcEEbPPKT_.exit14, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i, %while.cond.i.i7, %while.cond.i.i7, %while.cond.i.i7, %while.cond.i.i7
-  %numComponents.2 = phi i64 [ %spec.select3, %while.cond.i.i7 ], [ %spec.select3, %while.cond.i.i7 ], [ %spec.select3, %while.cond.i.i7 ], [ %spec.select3, %while.cond.i.i7 ], [ %numComponents.0, %while.cond.i.i ], [ %numComponents.0, %while.cond.i.i ], [ %numComponents.0, %while.cond.i.i ], [ %numComponents.0, %while.cond.i.i ], [ %spec.select3, %_ZN6Assimp10SkipSpacesIcEEbPPKT_.exit14 ]
-  ret i64 %numComponents.2
+  %numComponents.1 = phi i64 [ %spec.select3, %while.cond.i.i7 ], [ %spec.select3, %while.cond.i.i7 ], [ %spec.select3, %while.cond.i.i7 ], [ %spec.select3, %while.cond.i.i7 ], [ %numComponents.0, %while.cond.i.i ], [ %numComponents.0, %while.cond.i.i ], [ %numComponents.0, %while.cond.i.i ], [ %numComponents.0, %while.cond.i.i ], [ %spec.select3, %_ZN6Assimp10SkipSpacesIcEEbPPKT_.exit14 ]
+  ret i64 %numComponents.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2185,8 +2185,8 @@ while.cond.preheader.i:                           ; preds = %_ZNSt6vectorI10aiVe
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i101
 
 land.rhs.i101:                                    ; preds = %while.cond.preheader.i, %while.body.i104
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i105, %while.body.i104 ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %26 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i105, %while.body.i104 ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %26 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %26, label %while.body.i104 [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -2195,51 +2195,51 @@ land.rhs.i101:                                    ; preds = %while.cond.preheade
   ]
 
 while.body.i104:                                  ; preds = %land.rhs.i101
-  %incdec.ptr.i.i105 = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i105 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i106 = icmp eq ptr %incdec.ptr.i.i105, %agg.tmp15.sroa.0.0.copyload
   %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i100, %incdec.ptr.i.i105
   %retval.0.i.i = or i1 %cmp.i.i.i106, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i101, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i104, %land.rhs.i101, %land.rhs.i101, %land.rhs.i101, %land.rhs.i101, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i105, %while.body.i104 ], [ %it.sroa.0.017.i, %land.rhs.i101 ], [ %it.sroa.0.017.i, %land.rhs.i101 ], [ %it.sroa.0.017.i, %land.rhs.i101 ], [ %it.sroa.0.017.i, %land.rhs.i101 ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp15.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i105, %while.body.i104 ], [ %it.sroa.0.117.i, %land.rhs.i101 ], [ %it.sroa.0.117.i, %land.rhs.i101 ], [ %it.sroa.0.117.i, %land.rhs.i101 ], [ %it.sroa.0.117.i, %land.rhs.i101 ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp15.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %27 = load i32, ptr %m_uiLine, align 8
   %inc.i102 = add i32 %27, 1
   store i32 %inc.i102, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp15.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp15.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %28 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %28
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %28 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %28
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i103, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %29 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i103, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %29 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %29, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i103 = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i103 = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i103, %agg.tmp15.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.i, !llvm.loop !11
 
 _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit: ; preds = %land.rhs15.i, %while.body21.i, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit, %if.end12.i
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   ret void
 }
 
@@ -2761,8 +2761,8 @@ while.cond.preheader.i:                           ; preds = %_ZNSt6vectorI10aiVe
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i152
 
 land.rhs.i152:                                    ; preds = %while.cond.preheader.i, %while.body.i155
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i156, %while.body.i155 ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %39 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i156, %while.body.i155 ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %39 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %39, label %while.body.i155 [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -2771,51 +2771,51 @@ land.rhs.i152:                                    ; preds = %while.cond.preheade
   ]
 
 while.body.i155:                                  ; preds = %land.rhs.i152
-  %incdec.ptr.i.i156 = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i156 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i157 = icmp eq ptr %incdec.ptr.i.i156, %agg.tmp25.sroa.0.0.copyload
   %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i151, %incdec.ptr.i.i156
   %retval.0.i.i = or i1 %cmp.i.i.i157, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i152, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i155, %land.rhs.i152, %land.rhs.i152, %land.rhs.i152, %land.rhs.i152, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i156, %while.body.i155 ], [ %it.sroa.0.017.i, %land.rhs.i152 ], [ %it.sroa.0.017.i, %land.rhs.i152 ], [ %it.sroa.0.017.i, %land.rhs.i152 ], [ %it.sroa.0.017.i, %land.rhs.i152 ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp25.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i156, %while.body.i155 ], [ %it.sroa.0.117.i, %land.rhs.i152 ], [ %it.sroa.0.117.i, %land.rhs.i152 ], [ %it.sroa.0.117.i, %land.rhs.i152 ], [ %it.sroa.0.117.i, %land.rhs.i152 ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp25.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %40 = load i32, ptr %m_uiLine, align 8
   %inc.i153 = add i32 %40, 1
   store i32 %inc.i153, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp25.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp25.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %41 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %41
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %41 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %41
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i154, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %42 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i154, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %42 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %42, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i154 = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i154 = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i154, %agg.tmp25.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.i, !llvm.loop !11
 
 _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit: ; preds = %land.rhs15.i, %while.body21.i, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJfffEEERS1_DpOT_.exit, %if.end12.i
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJfffEEERS1_DpOT_.exit ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJfffEEERS1_DpOT_.exit ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   ret void
 }
 
@@ -3597,8 +3597,8 @@ while.cond.preheader.i:                           ; preds = %_ZNSt6vectorI10aiVe
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i289
 
 land.rhs.i289:                                    ; preds = %while.cond.preheader.i, %while.body.i292
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i293, %while.body.i292 ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %52 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i293, %while.body.i292 ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %52 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %52, label %while.body.i292 [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -3607,51 +3607,51 @@ land.rhs.i289:                                    ; preds = %while.cond.preheade
   ]
 
 while.body.i292:                                  ; preds = %land.rhs.i289
-  %incdec.ptr.i.i293 = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i293 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i294 = icmp eq ptr %incdec.ptr.i.i293, %agg.tmp31.sroa.0.0.copyload
   %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i288, %incdec.ptr.i.i293
   %retval.0.i.i = or i1 %cmp.i.i.i294, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i289, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i292, %land.rhs.i289, %land.rhs.i289, %land.rhs.i289, %land.rhs.i289, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i293, %while.body.i292 ], [ %it.sroa.0.017.i, %land.rhs.i289 ], [ %it.sroa.0.017.i, %land.rhs.i289 ], [ %it.sroa.0.017.i, %land.rhs.i289 ], [ %it.sroa.0.017.i, %land.rhs.i289 ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp31.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i293, %while.body.i292 ], [ %it.sroa.0.117.i, %land.rhs.i289 ], [ %it.sroa.0.117.i, %land.rhs.i289 ], [ %it.sroa.0.117.i, %land.rhs.i289 ], [ %it.sroa.0.117.i, %land.rhs.i289 ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp31.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %53 = load i32, ptr %m_uiLine, align 8
   %inc.i290 = add i32 %53, 1
   store i32 %inc.i290, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp31.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp31.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %54 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %54
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %54 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %54
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i291, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %55 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i291, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %55 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %55, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i291 = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i291 = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i291, %agg.tmp31.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.i, !llvm.loop !11
 
 _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit: ; preds = %land.rhs15.i, %while.body21.i, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit286, %if.end12.i
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit286 ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit286 ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   ret void
 }
 
@@ -4294,8 +4294,8 @@ while.cond.preheader.i:                           ; preds = %_ZNSt6vectorI10aiVe
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i199
 
 land.rhs.i199:                                    ; preds = %while.cond.preheader.i, %while.body.i202
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i203, %while.body.i202 ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %47 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i203, %while.body.i202 ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %47 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %47, label %while.body.i202 [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -4304,51 +4304,51 @@ land.rhs.i199:                                    ; preds = %while.cond.preheade
   ]
 
 while.body.i202:                                  ; preds = %land.rhs.i199
-  %incdec.ptr.i.i203 = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i203 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i204 = icmp eq ptr %incdec.ptr.i.i203, %agg.tmp39.sroa.0.0.copyload
   %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i198, %incdec.ptr.i.i203
   %retval.0.i.i = or i1 %cmp.i.i.i204, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i199, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i202, %land.rhs.i199, %land.rhs.i199, %land.rhs.i199, %land.rhs.i199, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i203, %while.body.i202 ], [ %it.sroa.0.017.i, %land.rhs.i199 ], [ %it.sroa.0.017.i, %land.rhs.i199 ], [ %it.sroa.0.017.i, %land.rhs.i199 ], [ %it.sroa.0.017.i, %land.rhs.i199 ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp39.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i203, %while.body.i202 ], [ %it.sroa.0.117.i, %land.rhs.i199 ], [ %it.sroa.0.117.i, %land.rhs.i199 ], [ %it.sroa.0.117.i, %land.rhs.i199 ], [ %it.sroa.0.117.i, %land.rhs.i199 ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp39.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %48 = load i32, ptr %m_uiLine, align 8
   %inc.i200 = add i32 %48, 1
   store i32 %inc.i200, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp39.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp39.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %49 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %49
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %49 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %49
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i201, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %50 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i201, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %50 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %50, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i201 = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i201 = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i201, %agg.tmp39.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.i, !llvm.loop !11
 
 _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit: ; preds = %land.rhs15.i, %while.body21.i, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit, %if.end12.i
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %_ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRfS5_S5_EEERS1_DpOT_.exit ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   ret i64 %call
 }
 
@@ -4475,7 +4475,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %11 = phi ptr [ %agg.tmp2.sroa.0.0.copyload, %while.body.lr.ph ], [ %59, %if.end144 ]
   %12 = phi ptr [ %2, %while.body.lr.ph ], [ %add.ptr.i, %if.end144 ]
   %hasNormal.0372 = phi i1 [ false, %while.body.lr.ph ], [ %hasNormal.1, %if.end144 ]
-  %iPos.0371 = phi i32 [ 0, %while.body.lr.ph ], [ %iPos.2, %if.end144 ]
+  %iPos.0371 = phi i32 [ 0, %while.body.lr.ph ], [ %iPos.1, %if.end144 ]
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %11 to i64
   %15 = load i8, ptr %12, align 1
@@ -4559,24 +4559,24 @@ if.end81:                                         ; preds = %invoke.cont78, %if.
   br i1 %cmp87.not366, label %while.end90, label %while.body88
 
 while.body88:                                     ; preds = %if.end81, %while.body88
-  %iStep.1368 = phi i32 [ %inc89, %while.body88 ], [ %spec.select, %if.end81 ]
+  %iStep.2368 = phi i32 [ %inc89, %while.body88 ], [ %spec.select, %if.end81 ]
   %tmp.0367 = phi i32 [ %div, %while.body88 ], [ %iVal.0, %if.end81 ]
   %div = sdiv i32 %tmp.0367, 10
-  %inc89 = add nuw nsw i32 %iStep.1368, 1
+  %inc89 = add nuw nsw i32 %iStep.2368, 1
   %tmp.0.off = add nsw i32 %div, 9
   %cmp87.not = icmp ult i32 %tmp.0.off, 19
   br i1 %cmp87.not, label %while.end90, label %while.body88, !llvm.loop !44
 
 while.end90:                                      ; preds = %while.body88, %if.end81
-  %iStep.1.lcssa = phi i32 [ %spec.select, %if.end81 ], [ %inc89, %while.body88 ]
+  %iStep.2.lcssa = phi i32 [ %spec.select, %if.end81 ], [ %inc89, %while.body88 ]
   %cmp91 = icmp ne i32 %iPos.0371, 1
   %brmerge = or i1 %cmp.i.i, %cmp91
-  %iPos.1 = select i1 %brmerge, i32 %iPos.0371, i32 %spec.select25
+  %iPos.2 = select i1 %brmerge, i32 %iPos.0371, i32 %spec.select25
   %cmp96 = icmp sgt i32 %iVal.0, 0
   br i1 %cmp96, label %if.then97, label %if.else115
 
 if.then97:                                        ; preds = %while.end90
-  switch i32 %iPos.1, label %if.else111 [
+  switch i32 %iPos.2, label %if.else111 [
     i32 0, label %if.then99
     i32 1, label %if.then103
     i32 2, label %if.then108
@@ -4802,8 +4802,8 @@ while.cond.preheader.i.i:                         ; preds = %if.else111
   br i1 %cmp.i1.i16.i.i, label %while.end.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.cond.preheader.i.i, %while.body.i.i116
-  %it.sroa.0.017.i.i = phi ptr [ %incdec.ptr.i.i.i117, %while.body.i.i116 ], [ %agg.tmp.sroa.0.0.copyload.i, %while.cond.preheader.i.i ]
-  %34 = load i8, ptr %it.sroa.0.017.i.i, align 1
+  %it.sroa.0.117.i.i = phi ptr [ %incdec.ptr.i.i.i117, %while.body.i.i116 ], [ %agg.tmp.sroa.0.0.copyload.i, %while.cond.preheader.i.i ]
+  %34 = load i8, ptr %it.sroa.0.117.i.i, align 1
   switch i8 %34, label %while.body.i.i116 [
     i8 13, label %while.end.i.i
     i8 10, label %while.end.i.i
@@ -4812,51 +4812,51 @@ land.rhs.i.i:                                     ; preds = %while.cond.preheade
   ]
 
 while.body.i.i116:                                ; preds = %land.rhs.i.i
-  %incdec.ptr.i.i.i117 = getelementptr inbounds i8, ptr %it.sroa.0.017.i.i, i64 1
+  %incdec.ptr.i.i.i117 = getelementptr inbounds i8, ptr %it.sroa.0.117.i.i, i64 1
   %cmp.i.i.i.i118 = icmp eq ptr %incdec.ptr.i.i.i117, %agg.tmp2.sroa.0.0.copyload.i
   %cmp.i1.i.i.i119 = icmp eq ptr %incdec.ptr.i.i.i.i, %incdec.ptr.i.i.i117
   %retval.0.i.i.i120 = or i1 %cmp.i.i.i.i118, %cmp.i1.i.i.i119
   br i1 %retval.0.i.i.i120, label %while.end.i.i, label %land.rhs.i.i, !llvm.loop !10
 
 while.end.i.i:                                    ; preds = %while.body.i.i116, %land.rhs.i.i, %land.rhs.i.i, %land.rhs.i.i, %land.rhs.i.i, %while.cond.preheader.i.i
-  %it.sroa.0.0.lcssa.i.i = phi ptr [ %agg.tmp.sroa.0.0.copyload.i, %while.cond.preheader.i.i ], [ %it.sroa.0.017.i.i, %land.rhs.i.i ], [ %it.sroa.0.017.i.i, %land.rhs.i.i ], [ %it.sroa.0.017.i.i, %land.rhs.i.i ], [ %it.sroa.0.017.i.i, %land.rhs.i.i ], [ %incdec.ptr.i.i.i117, %while.body.i.i116 ]
-  %cmp.i2.not.i.i = icmp eq ptr %it.sroa.0.0.lcssa.i.i, %agg.tmp2.sroa.0.0.copyload.i
+  %it.sroa.0.1.lcssa.i.i = phi ptr [ %agg.tmp.sroa.0.0.copyload.i, %while.cond.preheader.i.i ], [ %it.sroa.0.117.i.i, %land.rhs.i.i ], [ %it.sroa.0.117.i.i, %land.rhs.i.i ], [ %it.sroa.0.117.i.i, %land.rhs.i.i ], [ %it.sroa.0.117.i.i, %land.rhs.i.i ], [ %incdec.ptr.i.i.i117, %while.body.i.i116 ]
+  %cmp.i2.not.i.i = icmp eq ptr %it.sroa.0.1.lcssa.i.i, %agg.tmp2.sroa.0.0.copyload.i
   br i1 %cmp.i2.not.i.i, label %if.end12.i.i, label %if.then10.i.i
 
 if.then10.i.i:                                    ; preds = %while.end.i.i
-  %incdec.ptr.i3.i.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i.i, i64 1
+  %incdec.ptr.i3.i.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i.i, i64 1
   %35 = load i32, ptr %m_uiLine.i226, align 8
   %inc.i.i = add i32 %35, 1
   store i32 %inc.i.i, ptr %m_uiLine.i226, align 8
   br label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.then10.i.i, %while.end.i.i
-  %it.sroa.0.1.i.i = phi ptr [ %incdec.ptr.i3.i.i, %if.then10.i.i ], [ %it.sroa.0.0.lcssa.i.i, %while.end.i.i ]
-  %cmp.i4.not25.i.i = icmp eq ptr %it.sroa.0.1.i.i, %agg.tmp2.sroa.0.0.copyload.i
+  %it.sroa.0.2.i.i = phi ptr [ %incdec.ptr.i3.i.i, %if.then10.i.i ], [ %it.sroa.0.1.lcssa.i.i, %while.end.i.i ]
+  %cmp.i4.not25.i.i = icmp eq ptr %it.sroa.0.2.i.i, %agg.tmp2.sroa.0.0.copyload.i
   br i1 %cmp.i4.not25.i.i, label %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit, label %land.rhs15.preheader.i.i
 
 land.rhs15.preheader.i.i:                         ; preds = %if.end12.i.i
-  %it.sroa.0.130.i.i = ptrtoint ptr %it.sroa.0.1.i.i to i64
-  %36 = sub i64 %end.coerce29.i.i, %it.sroa.0.130.i.i
-  %scevgep.i.i = getelementptr i8, ptr %it.sroa.0.1.i.i, i64 %36
+  %it.sroa.0.230.i.i = ptrtoint ptr %it.sroa.0.2.i.i to i64
+  %36 = sub i64 %end.coerce29.i.i, %it.sroa.0.230.i.i
+  %scevgep.i.i = getelementptr i8, ptr %it.sroa.0.2.i.i, i64 %36
   br label %land.rhs15.i.i
 
 land.rhs15.i.i:                                   ; preds = %while.body21.i.i, %land.rhs15.preheader.i.i
-  %it.sroa.0.226.i.i = phi ptr [ %incdec.ptr.i5.i.i, %while.body21.i.i ], [ %it.sroa.0.1.i.i, %land.rhs15.preheader.i.i ]
-  %37 = load i8, ptr %it.sroa.0.226.i.i, align 1
+  %it.sroa.0.326.i.i = phi ptr [ %incdec.ptr.i5.i.i, %while.body21.i.i ], [ %it.sroa.0.2.i.i, %land.rhs15.preheader.i.i ]
+  %37 = load i8, ptr %it.sroa.0.326.i.i, align 1
   switch i8 %37, label %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit [
     i8 9, label %while.body21.i.i
     i8 32, label %while.body21.i.i
   ]
 
 while.body21.i.i:                                 ; preds = %land.rhs15.i.i, %land.rhs15.i.i
-  %incdec.ptr.i5.i.i = getelementptr inbounds i8, ptr %it.sroa.0.226.i.i, i64 1
+  %incdec.ptr.i5.i.i = getelementptr inbounds i8, ptr %it.sroa.0.326.i.i, i64 1
   %cmp.i4.not.i.i = icmp eq ptr %incdec.ptr.i5.i.i, %agg.tmp2.sroa.0.0.copyload.i
   br i1 %cmp.i4.not.i.i, label %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit, label %land.rhs15.i.i, !llvm.loop !11
 
 _ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit: ; preds = %land.rhs15.i.i, %while.body21.i.i, %if.else111, %if.end12.i.i
-  %it.sroa.0.3.i.i = phi ptr [ %agg.tmp.sroa.0.0.copyload.i, %if.else111 ], [ %it.sroa.0.1.i.i, %if.end12.i.i ], [ %scevgep.i.i, %while.body21.i.i ], [ %it.sroa.0.226.i.i, %land.rhs15.i.i ]
-  store ptr %it.sroa.0.3.i.i, ptr %this, align 8
+  %it.sroa.0.0.i.i = phi ptr [ %agg.tmp.sroa.0.0.copyload.i, %if.else111 ], [ %it.sroa.0.2.i.i, %if.end12.i.i ], [ %scevgep.i.i, %while.body21.i.i ], [ %it.sroa.0.326.i.i, %land.rhs15.i.i ]
+  store ptr %it.sroa.0.0.i.i, ptr %this, align 8
   %call6.i = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call6.i, ptr noundef nonnull @.str.20)
   br label %if.end144
@@ -4865,7 +4865,7 @@ if.else115:                                       ; preds = %while.end90
   br i1 %cmp82, label %if.then117, label %delete.end
 
 if.then117:                                       ; preds = %if.else115
-  switch i32 %iPos.1, label %if.else134 [
+  switch i32 %iPos.2, label %if.else134 [
     i32 0, label %if.then119
     i32 1, label %if.then124
     i32 2, label %if.then130
@@ -5091,8 +5091,8 @@ while.cond.preheader.i.i231:                      ; preds = %if.else134
   br i1 %cmp.i1.i16.i.i233, label %while.end.i.i236, label %land.rhs.i.i234
 
 land.rhs.i.i234:                                  ; preds = %while.cond.preheader.i.i231, %while.body.i.i253
-  %it.sroa.0.017.i.i235 = phi ptr [ %incdec.ptr.i.i.i254, %while.body.i.i253 ], [ %agg.tmp.sroa.0.0.copyload.i223, %while.cond.preheader.i.i231 ]
-  %53 = load i8, ptr %it.sroa.0.017.i.i235, align 1
+  %it.sroa.0.117.i.i235 = phi ptr [ %incdec.ptr.i.i.i254, %while.body.i.i253 ], [ %agg.tmp.sroa.0.0.copyload.i223, %while.cond.preheader.i.i231 ]
+  %53 = load i8, ptr %it.sroa.0.117.i.i235, align 1
   switch i8 %53, label %while.body.i.i253 [
     i8 13, label %while.end.i.i236
     i8 10, label %while.end.i.i236
@@ -5101,51 +5101,51 @@ land.rhs.i.i234:                                  ; preds = %while.cond.preheade
   ]
 
 while.body.i.i253:                                ; preds = %land.rhs.i.i234
-  %incdec.ptr.i.i.i254 = getelementptr inbounds i8, ptr %it.sroa.0.017.i.i235, i64 1
+  %incdec.ptr.i.i.i254 = getelementptr inbounds i8, ptr %it.sroa.0.117.i.i235, i64 1
   %cmp.i.i.i.i255 = icmp eq ptr %incdec.ptr.i.i.i254, %agg.tmp2.sroa.0.0.copyload.i225
   %cmp.i1.i.i.i256 = icmp eq ptr %incdec.ptr.i.i.i.i232, %incdec.ptr.i.i.i254
   %retval.0.i.i.i257 = or i1 %cmp.i.i.i.i255, %cmp.i1.i.i.i256
   br i1 %retval.0.i.i.i257, label %while.end.i.i236, label %land.rhs.i.i234, !llvm.loop !10
 
 while.end.i.i236:                                 ; preds = %while.body.i.i253, %land.rhs.i.i234, %land.rhs.i.i234, %land.rhs.i.i234, %land.rhs.i.i234, %while.cond.preheader.i.i231
-  %it.sroa.0.0.lcssa.i.i237 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i223, %while.cond.preheader.i.i231 ], [ %it.sroa.0.017.i.i235, %land.rhs.i.i234 ], [ %it.sroa.0.017.i.i235, %land.rhs.i.i234 ], [ %it.sroa.0.017.i.i235, %land.rhs.i.i234 ], [ %it.sroa.0.017.i.i235, %land.rhs.i.i234 ], [ %incdec.ptr.i.i.i254, %while.body.i.i253 ]
-  %cmp.i2.not.i.i238 = icmp eq ptr %it.sroa.0.0.lcssa.i.i237, %agg.tmp2.sroa.0.0.copyload.i225
+  %it.sroa.0.1.lcssa.i.i237 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i223, %while.cond.preheader.i.i231 ], [ %it.sroa.0.117.i.i235, %land.rhs.i.i234 ], [ %it.sroa.0.117.i.i235, %land.rhs.i.i234 ], [ %it.sroa.0.117.i.i235, %land.rhs.i.i234 ], [ %it.sroa.0.117.i.i235, %land.rhs.i.i234 ], [ %incdec.ptr.i.i.i254, %while.body.i.i253 ]
+  %cmp.i2.not.i.i238 = icmp eq ptr %it.sroa.0.1.lcssa.i.i237, %agg.tmp2.sroa.0.0.copyload.i225
   br i1 %cmp.i2.not.i.i238, label %if.end12.i.i242, label %if.then10.i.i239
 
 if.then10.i.i239:                                 ; preds = %while.end.i.i236
-  %incdec.ptr.i3.i.i240 = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i.i237, i64 1
+  %incdec.ptr.i3.i.i240 = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i.i237, i64 1
   %54 = load i32, ptr %m_uiLine.i226, align 8
   %inc.i.i241 = add i32 %54, 1
   store i32 %inc.i.i241, ptr %m_uiLine.i226, align 8
   br label %if.end12.i.i242
 
 if.end12.i.i242:                                  ; preds = %if.then10.i.i239, %while.end.i.i236
-  %it.sroa.0.1.i.i243 = phi ptr [ %incdec.ptr.i3.i.i240, %if.then10.i.i239 ], [ %it.sroa.0.0.lcssa.i.i237, %while.end.i.i236 ]
-  %cmp.i4.not25.i.i244 = icmp eq ptr %it.sroa.0.1.i.i243, %agg.tmp2.sroa.0.0.copyload.i225
+  %it.sroa.0.2.i.i243 = phi ptr [ %incdec.ptr.i3.i.i240, %if.then10.i.i239 ], [ %it.sroa.0.1.lcssa.i.i237, %while.end.i.i236 ]
+  %cmp.i4.not25.i.i244 = icmp eq ptr %it.sroa.0.2.i.i243, %agg.tmp2.sroa.0.0.copyload.i225
   br i1 %cmp.i4.not25.i.i244, label %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit258, label %land.rhs15.preheader.i.i245
 
 land.rhs15.preheader.i.i245:                      ; preds = %if.end12.i.i242
-  %it.sroa.0.130.i.i246 = ptrtoint ptr %it.sroa.0.1.i.i243 to i64
-  %55 = sub i64 %end.coerce29.i.i227, %it.sroa.0.130.i.i246
-  %scevgep.i.i247 = getelementptr i8, ptr %it.sroa.0.1.i.i243, i64 %55
+  %it.sroa.0.230.i.i246 = ptrtoint ptr %it.sroa.0.2.i.i243 to i64
+  %55 = sub i64 %end.coerce29.i.i227, %it.sroa.0.230.i.i246
+  %scevgep.i.i247 = getelementptr i8, ptr %it.sroa.0.2.i.i243, i64 %55
   br label %land.rhs15.i.i248
 
 land.rhs15.i.i248:                                ; preds = %while.body21.i.i250, %land.rhs15.preheader.i.i245
-  %it.sroa.0.226.i.i249 = phi ptr [ %incdec.ptr.i5.i.i251, %while.body21.i.i250 ], [ %it.sroa.0.1.i.i243, %land.rhs15.preheader.i.i245 ]
-  %56 = load i8, ptr %it.sroa.0.226.i.i249, align 1
+  %it.sroa.0.326.i.i249 = phi ptr [ %incdec.ptr.i5.i.i251, %while.body21.i.i250 ], [ %it.sroa.0.2.i.i243, %land.rhs15.preheader.i.i245 ]
+  %56 = load i8, ptr %it.sroa.0.326.i.i249, align 1
   switch i8 %56, label %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit258 [
     i8 9, label %while.body21.i.i250
     i8 32, label %while.body21.i.i250
   ]
 
 while.body21.i.i250:                              ; preds = %land.rhs15.i.i248, %land.rhs15.i.i248
-  %incdec.ptr.i5.i.i251 = getelementptr inbounds i8, ptr %it.sroa.0.226.i.i249, i64 1
+  %incdec.ptr.i5.i.i251 = getelementptr inbounds i8, ptr %it.sroa.0.326.i.i249, i64 1
   %cmp.i4.not.i.i252 = icmp eq ptr %incdec.ptr.i5.i.i251, %agg.tmp2.sroa.0.0.copyload.i225
   br i1 %cmp.i4.not.i.i252, label %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit258, label %land.rhs15.i.i248, !llvm.loop !11
 
 _ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit258: ; preds = %land.rhs15.i.i248, %while.body21.i.i250, %if.else134, %if.end12.i.i242
-  %it.sroa.0.3.i.i229 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i223, %if.else134 ], [ %it.sroa.0.1.i.i243, %if.end12.i.i242 ], [ %scevgep.i.i247, %while.body21.i.i250 ], [ %it.sroa.0.226.i.i249, %land.rhs15.i.i248 ]
-  store ptr %it.sroa.0.3.i.i229, ptr %this, align 8
+  %it.sroa.0.0.i.i229 = phi ptr [ %agg.tmp.sroa.0.0.copyload.i223, %if.else134 ], [ %it.sroa.0.2.i.i243, %if.end12.i.i242 ], [ %scevgep.i.i247, %while.body21.i.i250 ], [ %it.sroa.0.326.i.i249, %land.rhs15.i.i248 ]
+  store ptr %it.sroa.0.0.i.i229, ptr %this, align 8
   %call6.i230 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call6.i230, ptr noundef nonnull @.str.20)
   br label %if.end144
@@ -5168,10 +5168,10 @@ lpad139:                                          ; preds = %delete.end
   br label %eh.resume
 
 if.end144:                                        ; preds = %while.body, %while.body, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i218, %if.then.i.i192, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i184, %if.then.i.i158, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i150, %if.then.i.i124, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i111, %if.then.i.i85, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i77, %if.then.i.i51, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %if.then.i.i, %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit258, %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit, %if.end49
-  %iStep.2 = phi i32 [ 1, %if.end49 ], [ %iStep.1.lcssa, %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit ], [ %iStep.1.lcssa, %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit258 ], [ %iStep.1.lcssa, %if.then.i.i ], [ %iStep.1.lcssa, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %iStep.1.lcssa, %if.then.i.i51 ], [ %iStep.1.lcssa, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i77 ], [ %iStep.1.lcssa, %if.then.i.i85 ], [ %iStep.1.lcssa, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i111 ], [ %iStep.1.lcssa, %if.then.i.i124 ], [ %iStep.1.lcssa, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i150 ], [ %iStep.1.lcssa, %if.then.i.i158 ], [ %iStep.1.lcssa, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i184 ], [ %iStep.1.lcssa, %if.then.i.i192 ], [ %iStep.1.lcssa, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i218 ], [ 1, %while.body ], [ 1, %while.body ]
-  %iPos.2 = phi i32 [ %inc, %if.end49 ], [ %iPos.1, %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit ], [ %iPos.1, %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit258 ], [ 0, %if.then.i.i ], [ 0, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ 1, %if.then.i.i51 ], [ 1, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i77 ], [ 2, %if.then.i.i85 ], [ 2, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i111 ], [ 0, %if.then.i.i124 ], [ 0, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i150 ], [ 1, %if.then.i.i158 ], [ 1, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i184 ], [ 2, %if.then.i.i192 ], [ 2, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i218 ], [ 0, %while.body ], [ 0, %while.body ]
+  %iStep.0 = phi i32 [ 1, %if.end49 ], [ %iStep.2.lcssa, %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit ], [ %iStep.2.lcssa, %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit258 ], [ %iStep.2.lcssa, %if.then.i.i ], [ %iStep.2.lcssa, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %iStep.2.lcssa, %if.then.i.i51 ], [ %iStep.2.lcssa, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i77 ], [ %iStep.2.lcssa, %if.then.i.i85 ], [ %iStep.2.lcssa, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i111 ], [ %iStep.2.lcssa, %if.then.i.i124 ], [ %iStep.2.lcssa, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i150 ], [ %iStep.2.lcssa, %if.then.i.i158 ], [ %iStep.2.lcssa, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i184 ], [ %iStep.2.lcssa, %if.then.i.i192 ], [ %iStep.2.lcssa, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i218 ], [ 1, %while.body ], [ 1, %while.body ]
+  %iPos.1 = phi i32 [ %inc, %if.end49 ], [ %iPos.2, %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit ], [ %iPos.2, %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit258 ], [ 0, %if.then.i.i ], [ 0, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ 1, %if.then.i.i51 ], [ 1, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i77 ], [ 2, %if.then.i.i85 ], [ 2, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i111 ], [ 0, %if.then.i.i124 ], [ 0, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i150 ], [ 1, %if.then.i.i158 ], [ 1, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i184 ], [ 2, %if.then.i.i192 ], [ 2, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i218 ], [ 0, %while.body ], [ 0, %while.body ]
   %hasNormal.1 = phi i1 [ %hasNormal.0372, %if.end49 ], [ %hasNormal.0372, %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit ], [ %hasNormal.0372, %_ZN6Assimp13ObjFileParser22reportErrorTokenInFaceEv.exit258 ], [ %hasNormal.0372, %if.then.i.i ], [ %hasNormal.0372, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i ], [ %hasNormal.0372, %if.then.i.i51 ], [ %hasNormal.0372, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i77 ], [ true, %if.then.i.i85 ], [ true, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i111 ], [ %hasNormal.0372, %if.then.i.i124 ], [ %hasNormal.0372, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i150 ], [ %hasNormal.0372, %if.then.i.i158 ], [ %hasNormal.0372, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i184 ], [ true, %if.then.i.i192 ], [ true, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i218 ], [ %hasNormal.0372, %while.body ], [ %hasNormal.0372, %while.body ]
-  %conv145 = sext i32 %iStep.2 to i64
+  %conv145 = sext i32 %iStep.0 to i64
   %58 = load ptr, ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %58, i64 %conv145
   store ptr %add.ptr.i, ptr %this, align 8
@@ -5203,8 +5203,8 @@ while.cond.preheader.i:                           ; preds = %if.then151
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i262
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i263, %while.body.i262 ], [ %agg.tmp154.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %60 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i263, %while.body.i262 ], [ %agg.tmp154.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %60 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %60, label %while.body.i262 [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -5213,51 +5213,51 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
   ]
 
 while.body.i262:                                  ; preds = %land.rhs.i
-  %incdec.ptr.i.i263 = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i263 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i264 = icmp eq ptr %incdec.ptr.i.i263, %agg.tmp156.sroa.0.0.copyload
   %cmp.i1.i.i265 = icmp eq ptr %incdec.ptr.i.i.i261, %incdec.ptr.i.i263
   %retval.0.i.i266 = or i1 %cmp.i.i.i264, %cmp.i1.i.i265
   br i1 %retval.0.i.i266, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i262, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp154.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i263, %while.body.i262 ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp156.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp154.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i263, %while.body.i262 ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp156.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %61 = load i32, ptr %m_uiLine, align 8
   %inc.i = add i32 %61, 1
   store i32 %inc.i, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp156.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp156.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %delete.notnull164, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %62 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %62
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %62 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %62
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %63 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %63 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %63, label %delete.notnull164 [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp156.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %delete.notnull164, label %land.rhs15.i, !llvm.loop !11
 
 delete.notnull164:                                ; preds = %while.body21.i, %land.rhs15.i, %if.end12.i, %if.then151
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp154.sroa.0.0.copyload, %if.then151 ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp154.sroa.0.0.copyload, %if.then151 ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   %m_texturCoords.i = getelementptr inbounds i8, ptr %call11, i64 56
   %64 = load ptr, ptr %m_texturCoords.i, align 8
   %tobool.not.i.i.i.i267 = icmp eq ptr %64, null
@@ -5541,8 +5541,8 @@ while.cond.preheader.i300:                        ; preds = %if.end232
   br i1 %cmp.i1.i16.i302, label %while.end.i305, label %land.rhs.i303
 
 land.rhs.i303:                                    ; preds = %while.cond.preheader.i300, %while.body.i322
-  %it.sroa.0.017.i304 = phi ptr [ %incdec.ptr.i.i323, %while.body.i322 ], [ %agg.tmp234.sroa.0.0.copyload, %while.cond.preheader.i300 ]
-  %99 = load i8, ptr %it.sroa.0.017.i304, align 1
+  %it.sroa.0.117.i304 = phi ptr [ %incdec.ptr.i.i323, %while.body.i322 ], [ %agg.tmp234.sroa.0.0.copyload, %while.cond.preheader.i300 ]
+  %99 = load i8, ptr %it.sroa.0.117.i304, align 1
   switch i8 %99, label %while.body.i322 [
     i8 13, label %while.end.i305
     i8 10, label %while.end.i305
@@ -5551,51 +5551,51 @@ land.rhs.i303:                                    ; preds = %while.cond.preheade
   ]
 
 while.body.i322:                                  ; preds = %land.rhs.i303
-  %incdec.ptr.i.i323 = getelementptr inbounds i8, ptr %it.sroa.0.017.i304, i64 1
+  %incdec.ptr.i.i323 = getelementptr inbounds i8, ptr %it.sroa.0.117.i304, i64 1
   %cmp.i.i.i324 = icmp eq ptr %incdec.ptr.i.i323, %agg.tmp236.sroa.0.0.copyload
   %cmp.i1.i.i325 = icmp eq ptr %incdec.ptr.i.i.i301, %incdec.ptr.i.i323
   %retval.0.i.i326 = or i1 %cmp.i.i.i324, %cmp.i1.i.i325
   br i1 %retval.0.i.i326, label %while.end.i305, label %land.rhs.i303, !llvm.loop !10
 
 while.end.i305:                                   ; preds = %while.body.i322, %land.rhs.i303, %land.rhs.i303, %land.rhs.i303, %land.rhs.i303, %while.cond.preheader.i300
-  %it.sroa.0.0.lcssa.i306 = phi ptr [ %agg.tmp234.sroa.0.0.copyload, %while.cond.preheader.i300 ], [ %incdec.ptr.i.i323, %while.body.i322 ], [ %it.sroa.0.017.i304, %land.rhs.i303 ], [ %it.sroa.0.017.i304, %land.rhs.i303 ], [ %it.sroa.0.017.i304, %land.rhs.i303 ], [ %it.sroa.0.017.i304, %land.rhs.i303 ]
-  %cmp.i2.not.i307 = icmp eq ptr %it.sroa.0.0.lcssa.i306, %agg.tmp236.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i306 = phi ptr [ %agg.tmp234.sroa.0.0.copyload, %while.cond.preheader.i300 ], [ %incdec.ptr.i.i323, %while.body.i322 ], [ %it.sroa.0.117.i304, %land.rhs.i303 ], [ %it.sroa.0.117.i304, %land.rhs.i303 ], [ %it.sroa.0.117.i304, %land.rhs.i303 ], [ %it.sroa.0.117.i304, %land.rhs.i303 ]
+  %cmp.i2.not.i307 = icmp eq ptr %it.sroa.0.1.lcssa.i306, %agg.tmp236.sroa.0.0.copyload
   br i1 %cmp.i2.not.i307, label %if.end12.i311, label %if.then10.i308
 
 if.then10.i308:                                   ; preds = %while.end.i305
-  %incdec.ptr.i3.i309 = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i306, i64 1
+  %incdec.ptr.i3.i309 = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i306, i64 1
   %100 = load i32, ptr %m_uiLine238, align 8
   %inc.i310 = add i32 %100, 1
   store i32 %inc.i310, ptr %m_uiLine238, align 8
   br label %if.end12.i311
 
 if.end12.i311:                                    ; preds = %if.then10.i308, %while.end.i305
-  %it.sroa.0.1.i312 = phi ptr [ %incdec.ptr.i3.i309, %if.then10.i308 ], [ %it.sroa.0.0.lcssa.i306, %while.end.i305 ]
-  %cmp.i4.not25.i313 = icmp eq ptr %it.sroa.0.1.i312, %agg.tmp236.sroa.0.0.copyload
+  %it.sroa.0.2.i312 = phi ptr [ %incdec.ptr.i3.i309, %if.then10.i308 ], [ %it.sroa.0.1.lcssa.i306, %while.end.i305 ]
+  %cmp.i4.not25.i313 = icmp eq ptr %it.sroa.0.2.i312, %agg.tmp236.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i313, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit327, label %land.rhs15.preheader.i314
 
 land.rhs15.preheader.i314:                        ; preds = %if.end12.i311
-  %it.sroa.0.130.i315 = ptrtoint ptr %it.sroa.0.1.i312 to i64
-  %101 = sub i64 %end.coerce29.i297, %it.sroa.0.130.i315
-  %scevgep.i316 = getelementptr i8, ptr %it.sroa.0.1.i312, i64 %101
+  %it.sroa.0.230.i315 = ptrtoint ptr %it.sroa.0.2.i312 to i64
+  %101 = sub i64 %end.coerce29.i297, %it.sroa.0.230.i315
+  %scevgep.i316 = getelementptr i8, ptr %it.sroa.0.2.i312, i64 %101
   br label %land.rhs15.i317
 
 land.rhs15.i317:                                  ; preds = %while.body21.i319, %land.rhs15.preheader.i314
-  %it.sroa.0.226.i318 = phi ptr [ %incdec.ptr.i5.i320, %while.body21.i319 ], [ %it.sroa.0.1.i312, %land.rhs15.preheader.i314 ]
-  %102 = load i8, ptr %it.sroa.0.226.i318, align 1
+  %it.sroa.0.326.i318 = phi ptr [ %incdec.ptr.i5.i320, %while.body21.i319 ], [ %it.sroa.0.2.i312, %land.rhs15.preheader.i314 ]
+  %102 = load i8, ptr %it.sroa.0.326.i318, align 1
   switch i8 %102, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit327 [
     i8 9, label %while.body21.i319
     i8 32, label %while.body21.i319
   ]
 
 while.body21.i319:                                ; preds = %land.rhs15.i317, %land.rhs15.i317
-  %incdec.ptr.i5.i320 = getelementptr inbounds i8, ptr %it.sroa.0.226.i318, i64 1
+  %incdec.ptr.i5.i320 = getelementptr inbounds i8, ptr %it.sroa.0.326.i318, i64 1
   %cmp.i4.not.i321 = icmp eq ptr %incdec.ptr.i5.i320, %agg.tmp236.sroa.0.0.copyload
   br i1 %cmp.i4.not.i321, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit327, label %land.rhs15.i317, !llvm.loop !11
 
 _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit327: ; preds = %land.rhs15.i317, %while.body21.i319, %if.end232, %if.end12.i311
-  %it.sroa.0.3.i299 = phi ptr [ %agg.tmp234.sroa.0.0.copyload, %if.end232 ], [ %it.sroa.0.1.i312, %if.end12.i311 ], [ %it.sroa.0.226.i318, %land.rhs15.i317 ], [ %scevgep.i316, %while.body21.i319 ]
-  store ptr %it.sroa.0.3.i299, ptr %this, align 8
+  %it.sroa.0.0.i299 = phi ptr [ %agg.tmp234.sroa.0.0.copyload, %if.end232 ], [ %it.sroa.0.2.i312, %if.end12.i311 ], [ %it.sroa.0.326.i318, %land.rhs15.i317 ], [ %scevgep.i316, %while.body21.i319 ]
+  store ptr %it.sroa.0.0.i299, ptr %this, align 8
   br label %return
 
 return:                                           ; preds = %_ZN6Assimp7ObjFile4FaceD2Ev.exit, %_ZN6Assimp12getNextTokenIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_.exit, %lor.lhs.false, %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit327
@@ -5623,8 +5623,8 @@ while.cond.preheader.i:                           ; preds = %entry
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i, %while.body.i ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %0 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i, %while.body.i ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %0 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %0, label %while.body.i [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -5633,51 +5633,51 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
   ]
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
   %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
   %retval.0.i.i = or i1 %cmp.i.i.i, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i, %while.body.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp2.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i, %while.body.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp2.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %1 = load i32, ptr %m_uiLine, align 8
   %inc.i = add i32 %1, 1
   store i32 %inc.i, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp2.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp2.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %2 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %2
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %2 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %2
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %3 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %3 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %3, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp2.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.i, !llvm.loop !11
 
 _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit: ; preds = %land.rhs15.i, %while.body21.i, %entry, %if.end12.i
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %entry ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %entry ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   ret void
 }
 
@@ -6156,8 +6156,8 @@ while.cond.preheader.i:                           ; preds = %if.end107
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i28
 
 land.rhs.i28:                                     ; preds = %while.cond.preheader.i, %while.body.i29
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i30, %while.body.i29 ], [ %agg.tmp109.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %40 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i30, %while.body.i29 ], [ %agg.tmp109.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %40 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %40, label %while.body.i29 [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -6166,51 +6166,51 @@ land.rhs.i28:                                     ; preds = %while.cond.preheade
   ]
 
 while.body.i29:                                   ; preds = %land.rhs.i28
-  %incdec.ptr.i.i30 = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i30 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i31 = icmp eq ptr %incdec.ptr.i.i30, %agg.tmp111.sroa.0.0.copyload
   %cmp.i1.i.i32 = icmp eq ptr %incdec.ptr.i.i.i27, %incdec.ptr.i.i30
   %retval.0.i.i33 = or i1 %cmp.i.i.i31, %cmp.i1.i.i32
   br i1 %retval.0.i.i33, label %while.end.i, label %land.rhs.i28, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i29, %land.rhs.i28, %land.rhs.i28, %land.rhs.i28, %land.rhs.i28, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp109.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i30, %while.body.i29 ], [ %it.sroa.0.017.i, %land.rhs.i28 ], [ %it.sroa.0.017.i, %land.rhs.i28 ], [ %it.sroa.0.017.i, %land.rhs.i28 ], [ %it.sroa.0.017.i, %land.rhs.i28 ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp111.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp109.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i30, %while.body.i29 ], [ %it.sroa.0.117.i, %land.rhs.i28 ], [ %it.sroa.0.117.i, %land.rhs.i28 ], [ %it.sroa.0.117.i, %land.rhs.i28 ], [ %it.sroa.0.117.i, %land.rhs.i28 ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp111.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %41 = load i32, ptr %m_uiLine, align 8
   %inc.i = add i32 %41, 1
   store i32 %inc.i, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp111.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp111.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %invoke.cont115, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %42 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %42
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %42 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %42
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %43 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %43 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %43, label %invoke.cont115 [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp111.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %invoke.cont115, label %land.rhs15.i, !llvm.loop !11
 
 invoke.cont115:                                   ; preds = %while.body21.i, %land.rhs15.i, %if.end12.i, %if.end107
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp109.sroa.0.0.copyload, %if.end107 ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp109.sroa.0.0.copyload, %if.end107 ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %strName) #22
   br label %return
 
@@ -6244,8 +6244,8 @@ while.cond.preheader.i:                           ; preds = %entry
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i, %while.body.i ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %0 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i, %while.body.i ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %0 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %0, label %while.body.i [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -6254,51 +6254,51 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
   ]
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
   %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
   %retval.0.i.i = or i1 %cmp.i.i.i, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i, %while.body.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp2.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i, %while.body.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp2.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %1 = load i32, ptr %m_uiLine, align 8
   %inc.i = add i32 %1, 1
   store i32 %inc.i, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp2.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp2.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %2 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %2
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %2 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %2
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %3 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %3 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %3, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp2.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.i, !llvm.loop !11
 
 _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit: ; preds = %land.rhs15.i, %while.body21.i, %entry, %if.end12.i
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %entry ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %entry ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   ret void
 }
 
@@ -6619,8 +6619,8 @@ while.cond.preheader.i:                           ; preds = %invoke.cont92
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i40
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i41, %while.body.i40 ], [ %agg.tmp94.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %20 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i41, %while.body.i40 ], [ %agg.tmp94.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %20 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %20, label %while.body.i40 [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -6629,51 +6629,51 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
   ]
 
 while.body.i40:                                   ; preds = %land.rhs.i
-  %incdec.ptr.i.i41 = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i41 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i42 = icmp eq ptr %incdec.ptr.i.i41, %agg.tmp96.sroa.0.0.copyload
   %cmp.i1.i.i43 = icmp eq ptr %incdec.ptr.i.i.i39, %incdec.ptr.i.i41
   %retval.0.i.i44 = or i1 %cmp.i.i.i42, %cmp.i1.i.i43
   br i1 %retval.0.i.i44, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i40, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp94.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i41, %while.body.i40 ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp96.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp94.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i41, %while.body.i40 ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp96.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %21 = load i32, ptr %m_uiLine, align 8
   %inc.i = add i32 %21, 1
   store i32 %inc.i, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp96.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp96.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %invoke.cont100, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %22 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %22
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %22 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %22
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %23 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %23 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %23, label %invoke.cont100 [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp96.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %invoke.cont100, label %land.rhs15.i, !llvm.loop !11
 
 invoke.cont100:                                   ; preds = %while.body21.i, %land.rhs15.i, %if.end12.i, %invoke.cont92
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp94.sroa.0.0.copyload, %invoke.cont92 ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp94.sroa.0.0.copyload, %invoke.cont92 ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %strMatFallbackName) #22
   br label %cleanup116
 
@@ -6989,8 +6989,8 @@ while.cond.preheader.i:                           ; preds = %if.end63
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i8
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i9, %while.body.i8 ], [ %agg.tmp65.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %14 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i9, %while.body.i8 ], [ %agg.tmp65.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %14 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %14, label %while.body.i8 [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -6999,51 +6999,51 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
   ]
 
 while.body.i8:                                    ; preds = %land.rhs.i
-  %incdec.ptr.i.i9 = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i9 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i10 = icmp eq ptr %incdec.ptr.i.i9, %agg.tmp67.sroa.0.0.copyload
   %cmp.i1.i.i11 = icmp eq ptr %incdec.ptr.i.i.i7, %incdec.ptr.i.i9
   %retval.0.i.i12 = or i1 %cmp.i.i.i10, %cmp.i1.i.i11
   br i1 %retval.0.i.i12, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i8, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp65.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i9, %while.body.i8 ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp67.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp65.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i9, %while.body.i8 ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp67.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %15 = load i32, ptr %m_uiLine, align 8
   %inc.i = add i32 %15, 1
   store i32 %inc.i, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp67.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp67.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %invoke.cont71, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %16 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %16
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %16 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %16
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %17 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %17 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %17, label %invoke.cont71 [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp67.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %invoke.cont71, label %land.rhs15.i, !llvm.loop !11
 
 invoke.cont71:                                    ; preds = %while.body21.i, %land.rhs15.i, %if.end12.i, %if.end63
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp65.sroa.0.0.copyload, %if.end63 ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp65.sroa.0.0.copyload, %if.end63 ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont13, %invoke.cont71
@@ -7068,8 +7068,8 @@ while.cond.preheader.i:                           ; preds = %entry
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i, %while.body.i ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %0 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i, %while.body.i ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %0 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %0, label %while.body.i [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -7078,51 +7078,51 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
   ]
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
   %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
   %retval.0.i.i = or i1 %cmp.i.i.i, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i, %while.body.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp2.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i, %while.body.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp2.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %1 = load i32, ptr %m_uiLine, align 8
   %inc.i = add i32 %1, 1
   store i32 %inc.i, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp2.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp2.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %2 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %2
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %2 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %2
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %3 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %3 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %3, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp2.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.i, !llvm.loop !11
 
 _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit: ; preds = %land.rhs15.i, %while.body21.i, %entry, %if.end12.i
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %entry ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %entry ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   ret void
 }
 
@@ -7318,8 +7318,8 @@ while.cond.preheader.i:                           ; preds = %if.end53
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i9
 
 land.rhs.i9:                                      ; preds = %while.cond.preheader.i, %while.body.i10
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i11, %while.body.i10 ], [ %agg.tmp55.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %18 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i11, %while.body.i10 ], [ %agg.tmp55.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %18 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %18, label %while.body.i10 [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -7328,51 +7328,51 @@ land.rhs.i9:                                      ; preds = %while.cond.preheade
   ]
 
 while.body.i10:                                   ; preds = %land.rhs.i9
-  %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i11 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i12 = icmp eq ptr %incdec.ptr.i.i11, %agg.tmp57.sroa.0.0.copyload
   %cmp.i1.i.i13 = icmp eq ptr %incdec.ptr.i.i.i8, %incdec.ptr.i.i11
   %retval.0.i.i14 = or i1 %cmp.i.i.i12, %cmp.i1.i.i13
   br i1 %retval.0.i.i14, label %while.end.i, label %land.rhs.i9, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i10, %land.rhs.i9, %land.rhs.i9, %land.rhs.i9, %land.rhs.i9, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp55.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i11, %while.body.i10 ], [ %it.sroa.0.017.i, %land.rhs.i9 ], [ %it.sroa.0.017.i, %land.rhs.i9 ], [ %it.sroa.0.017.i, %land.rhs.i9 ], [ %it.sroa.0.017.i, %land.rhs.i9 ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp57.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp55.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i11, %while.body.i10 ], [ %it.sroa.0.117.i, %land.rhs.i9 ], [ %it.sroa.0.117.i, %land.rhs.i9 ], [ %it.sroa.0.117.i, %land.rhs.i9 ], [ %it.sroa.0.117.i, %land.rhs.i9 ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp57.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %19 = load i32, ptr %m_uiLine, align 8
   %inc.i = add i32 %19, 1
   store i32 %inc.i, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp57.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp57.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %invoke.cont61, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %20 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %20
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %20 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %20
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %21 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %21 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %21, label %invoke.cont61 [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp57.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %invoke.cont61, label %land.rhs15.i, !llvm.loop !11
 
 invoke.cont61:                                    ; preds = %while.body21.i, %land.rhs15.i, %if.end12.i, %if.end53
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp55.sroa.0.0.copyload, %if.end53 ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp55.sroa.0.0.copyload, %if.end53 ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %strObjectName) #22
   br label %return
 
@@ -7839,8 +7839,8 @@ while.cond.preheader.i:                           ; preds = %_ZNSt6vectorI10aiVe
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i53
 
 land.rhs.i53:                                     ; preds = %while.cond.preheader.i, %while.body.i56
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i57, %while.body.i56 ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %20 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i57, %while.body.i56 ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %20 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %20, label %while.body.i56 [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -7849,51 +7849,51 @@ land.rhs.i53:                                     ; preds = %while.cond.preheade
   ]
 
 while.body.i56:                                   ; preds = %land.rhs.i53
-  %incdec.ptr.i.i57 = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i57 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i58 = icmp eq ptr %incdec.ptr.i.i57, %agg.tmp10.sroa.0.0.copyload
   %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i52, %incdec.ptr.i.i57
   %retval.0.i.i = or i1 %cmp.i.i.i58, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i53, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i56, %land.rhs.i53, %land.rhs.i53, %land.rhs.i53, %land.rhs.i53, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i57, %while.body.i56 ], [ %it.sroa.0.017.i, %land.rhs.i53 ], [ %it.sroa.0.017.i, %land.rhs.i53 ], [ %it.sroa.0.017.i, %land.rhs.i53 ], [ %it.sroa.0.017.i, %land.rhs.i53 ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp10.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i57, %while.body.i56 ], [ %it.sroa.0.117.i, %land.rhs.i53 ], [ %it.sroa.0.117.i, %land.rhs.i53 ], [ %it.sroa.0.117.i, %land.rhs.i53 ], [ %it.sroa.0.117.i, %land.rhs.i53 ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp10.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %21 = load i32, ptr %m_uiLine, align 8
   %inc.i54 = add i32 %21, 1
   store i32 %inc.i54, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp10.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp10.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %22 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %22
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %22 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %22
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i55, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %23 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i55, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %23 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %23, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i55 = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i55 = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i55, %agg.tmp10.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.i, !llvm.loop !11
 
 _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit: ; preds = %land.rhs15.i, %while.body21.i, %_ZNSt6vectorI10aiVector2tIfESaIS1_EE12emplace_backIJRfS5_EEERS1_DpOT_.exit, %if.end12.i
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %_ZNSt6vectorI10aiVector2tIfESaIS1_EE12emplace_backIJRfS5_EEERS1_DpOT_.exit ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %_ZNSt6vectorI10aiVector2tIfESaIS1_EE12emplace_backIJRfS5_EEERS1_DpOT_.exit ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   ret void
 }
 
@@ -7926,8 +7926,8 @@ while.cond.preheader.i:                           ; preds = %entry
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i, %while.body.i ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %0 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i, %while.body.i ], [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %0 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %0, label %while.body.i [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -7936,51 +7936,51 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
   ]
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i = icmp eq ptr %incdec.ptr.i.i, %agg.tmp2.sroa.0.0.copyload
   %cmp.i1.i.i = icmp eq ptr %incdec.ptr.i.i.i, %incdec.ptr.i.i
   %retval.0.i.i = or i1 %cmp.i.i.i, %cmp.i1.i.i
   br i1 %retval.0.i.i, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i, %while.body.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp2.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i, %while.body.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp2.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %1 = load i32, ptr %m_uiLine, align 8
   %inc.i = add i32 %1, 1
   store i32 %inc.i, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp2.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp2.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %2 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %2
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %2 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %2
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %3 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %3 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %3, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp2.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %_ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit, label %land.rhs15.i, !llvm.loop !11
 
 _ZN6Assimp8skipLineIN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEEET_S8_S8_Rj.exit: ; preds = %land.rhs15.i, %while.body21.i, %entry, %if.end12.i
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %entry ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp.sroa.0.0.copyload, %entry ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   %call6 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call6, ptr noundef nonnull @.str.20)
   ret void
@@ -9047,8 +9047,8 @@ while.cond.preheader.i:                           ; preds = %if.end62
   br i1 %cmp.i1.i16.i, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %while.cond.preheader.i, %while.body.i17
-  %it.sroa.0.017.i = phi ptr [ %incdec.ptr.i.i18, %while.body.i17 ], [ %agg.tmp64.sroa.0.0.copyload, %while.cond.preheader.i ]
-  %25 = load i8, ptr %it.sroa.0.017.i, align 1
+  %it.sroa.0.117.i = phi ptr [ %incdec.ptr.i.i18, %while.body.i17 ], [ %agg.tmp64.sroa.0.0.copyload, %while.cond.preheader.i ]
+  %25 = load i8, ptr %it.sroa.0.117.i, align 1
   switch i8 %25, label %while.body.i17 [
     i8 13, label %while.end.i
     i8 10, label %while.end.i
@@ -9057,51 +9057,51 @@ land.rhs.i:                                       ; preds = %while.cond.preheade
   ]
 
 while.body.i17:                                   ; preds = %land.rhs.i
-  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %it.sroa.0.017.i, i64 1
+  %incdec.ptr.i.i18 = getelementptr inbounds i8, ptr %it.sroa.0.117.i, i64 1
   %cmp.i.i.i19 = icmp eq ptr %incdec.ptr.i.i18, %agg.tmp66.sroa.0.0.copyload
   %cmp.i1.i.i20 = icmp eq ptr %incdec.ptr.i.i.i16, %incdec.ptr.i.i18
   %retval.0.i.i21 = or i1 %cmp.i.i.i19, %cmp.i1.i.i20
   br i1 %retval.0.i.i21, label %while.end.i, label %land.rhs.i, !llvm.loop !10
 
 while.end.i:                                      ; preds = %while.body.i17, %land.rhs.i, %land.rhs.i, %land.rhs.i, %land.rhs.i, %while.cond.preheader.i
-  %it.sroa.0.0.lcssa.i = phi ptr [ %agg.tmp64.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i18, %while.body.i17 ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ], [ %it.sroa.0.017.i, %land.rhs.i ]
-  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.0.lcssa.i, %agg.tmp66.sroa.0.0.copyload
+  %it.sroa.0.1.lcssa.i = phi ptr [ %agg.tmp64.sroa.0.0.copyload, %while.cond.preheader.i ], [ %incdec.ptr.i.i18, %while.body.i17 ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ], [ %it.sroa.0.117.i, %land.rhs.i ]
+  %cmp.i2.not.i = icmp eq ptr %it.sroa.0.1.lcssa.i, %agg.tmp66.sroa.0.0.copyload
   br i1 %cmp.i2.not.i, label %if.end12.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %while.end.i
-  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.0.lcssa.i, i64 1
+  %incdec.ptr.i3.i = getelementptr inbounds i8, ptr %it.sroa.0.1.lcssa.i, i64 1
   %26 = load i32, ptr %m_uiLine, align 8
   %inc.i = add i32 %26, 1
   store i32 %inc.i, ptr %m_uiLine, align 8
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.then10.i, %while.end.i
-  %it.sroa.0.1.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.0.lcssa.i, %while.end.i ]
-  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.1.i, %agg.tmp66.sroa.0.0.copyload
+  %it.sroa.0.2.i = phi ptr [ %incdec.ptr.i3.i, %if.then10.i ], [ %it.sroa.0.1.lcssa.i, %while.end.i ]
+  %cmp.i4.not25.i = icmp eq ptr %it.sroa.0.2.i, %agg.tmp66.sroa.0.0.copyload
   br i1 %cmp.i4.not25.i, label %invoke.cont70, label %land.rhs15.preheader.i
 
 land.rhs15.preheader.i:                           ; preds = %if.end12.i
-  %it.sroa.0.130.i = ptrtoint ptr %it.sroa.0.1.i to i64
-  %27 = sub i64 %end.coerce29.i, %it.sroa.0.130.i
-  %scevgep.i = getelementptr i8, ptr %it.sroa.0.1.i, i64 %27
+  %it.sroa.0.230.i = ptrtoint ptr %it.sroa.0.2.i to i64
+  %27 = sub i64 %end.coerce29.i, %it.sroa.0.230.i
+  %scevgep.i = getelementptr i8, ptr %it.sroa.0.2.i, i64 %27
   br label %land.rhs15.i
 
 land.rhs15.i:                                     ; preds = %while.body21.i, %land.rhs15.preheader.i
-  %it.sroa.0.226.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.1.i, %land.rhs15.preheader.i ]
-  %28 = load i8, ptr %it.sroa.0.226.i, align 1
+  %it.sroa.0.326.i = phi ptr [ %incdec.ptr.i5.i, %while.body21.i ], [ %it.sroa.0.2.i, %land.rhs15.preheader.i ]
+  %28 = load i8, ptr %it.sroa.0.326.i, align 1
   switch i8 %28, label %invoke.cont70 [
     i8 9, label %while.body21.i
     i8 32, label %while.body21.i
   ]
 
 while.body21.i:                                   ; preds = %land.rhs15.i, %land.rhs15.i
-  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.226.i, i64 1
+  %incdec.ptr.i5.i = getelementptr inbounds i8, ptr %it.sroa.0.326.i, i64 1
   %cmp.i4.not.i = icmp eq ptr %incdec.ptr.i5.i, %agg.tmp66.sroa.0.0.copyload
   br i1 %cmp.i4.not.i, label %invoke.cont70, label %land.rhs15.i, !llvm.loop !11
 
 invoke.cont70:                                    ; preds = %while.body21.i, %land.rhs15.i, %if.end12.i, %if.end62
-  %it.sroa.0.3.i = phi ptr [ %agg.tmp64.sroa.0.0.copyload, %if.end62 ], [ %it.sroa.0.1.i, %if.end12.i ], [ %it.sroa.0.226.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
-  store ptr %it.sroa.0.3.i, ptr %this, align 8
+  %it.sroa.0.0.i = phi ptr [ %agg.tmp64.sroa.0.0.copyload, %if.end62 ], [ %it.sroa.0.2.i, %if.end12.i ], [ %it.sroa.0.326.i, %land.rhs15.i ], [ %scevgep.i, %while.body21.i ]
+  store ptr %it.sroa.0.0.i, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %strMat) #22
   br label %return
 

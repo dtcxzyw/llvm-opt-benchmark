@@ -542,9 +542,9 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %245
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1d98076ef6d62a1bE.exit.i.i.i.i.i.i": ; preds = %192, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h20cf0cee51dcced2E.exit.i.i.i.i.i.i.i.i", %173
   %200 = invoke { i64, ptr } @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hac976cc8fe4ac177E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.26.0..sroa_idx.i.i.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.47.0..sroa_idx.i.i.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %11)
-          to label %.noexc30.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.loopexit.split-lp, !noalias !25
+          to label %.noexc31.i.i.i.i.i unwind label %.loopexit.i.i.i.i.i.loopexit.split-lp, !noalias !25
 
-.noexc30.i.i.i.i.i:                               ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1d98076ef6d62a1bE.exit.i.i.i.i.i.i"
+.noexc31.i.i.i.i.i:                               ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1d98076ef6d62a1bE.exit.i.i.i.i.i.i"
   %.fca.0.extract.i.i.i.i.i.i.i = extractvalue { i64, ptr } %200, 0
   %.fca.1.extract.i.i.i.i.i.i.i = extractvalue { i64, ptr } %200, 1
   %switch.i.i.i.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i.i.i.i, 0
@@ -552,19 +552,19 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %245
   %or.cond.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i1 true, i1 %201
   br i1 %or.cond.i.i.i.i.i, label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf7aaf9b11974c5e2E.exit.thread.i.i.i.i.i", label %206
 
-"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf7aaf9b11974c5e2E.exit.thread.i.i.i.i.i": ; preds = %245, %.noexc30.i.i.i.i.i, %192, %188
+"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf7aaf9b11974c5e2E.exit.thread.i.i.i.i.i": ; preds = %245, %.noexc31.i.i.i.i.i, %192, %188
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11), !noalias !25
   %202 = atomicrmw sub ptr %93, i32 1 release, align 4, !noalias !82
   %203 = add i32 %202, -1
   %204 = and i32 %203, -1073741825
-  %or.cond.not.i.i31.i.i.i.i.i = icmp eq i32 %204, -2147483648
-  br i1 %or.cond.not.i.i31.i.i.i.i.i, label %205, label %"_ZN14async_executor6Runner8runnable28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3be15edcaab43ff2E.exit.i.i.i.i"
+  %or.cond.not.i.i32.i.i.i.i.i = icmp eq i32 %204, -2147483648
+  br i1 %or.cond.not.i.i32.i.i.i.i.i, label %205, label %"_ZN14async_executor6Runner8runnable28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3be15edcaab43ff2E.exit.i.i.i.i"
 
 205:                                              ; preds = %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf7aaf9b11974c5e2E.exit.thread.i.i.i.i.i"
   invoke void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock22wake_writer_or_readers17h1ce3f7153fe8125aE(ptr noundef nonnull align 4 %93, i32 noundef %203)
           to label %"_ZN14async_executor6Runner8runnable28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3be15edcaab43ff2E.exit.i.i.i.i" unwind label %.loopexit.i.i
 
-206:                                              ; preds = %.noexc30.i.i.i.i.i
+206:                                              ; preds = %.noexc31.i.i.i.i.i
   %207 = load ptr, ptr %.fca.1.extract.i.i.i.i.i.i.i, align 8, !nonnull !5, !noundef !5
   %208 = getelementptr inbounds i8, ptr %207, i64 128
   %209 = load ptr, ptr %75, align 8, !noalias !25, !nonnull !5, !noundef !5
@@ -659,8 +659,8 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %245
   %241 = atomicrmw sub ptr %93, i32 1 release, align 4, !noalias !97
   %242 = add i32 %241, -1
   %243 = and i32 %242, -1073741825
-  %or.cond.not.i.i33.i.i.i.i.i = icmp eq i32 %243, -2147483648
-  br i1 %or.cond.not.i.i33.i.i.i.i.i, label %244, label %.noexc22.i.i
+  %or.cond.not.i.i34.i.i.i.i.i = icmp eq i32 %243, -2147483648
+  br i1 %or.cond.not.i.i34.i.i.i.i.i, label %244, label %.noexc22.i.i
 
 244:                                              ; preds = %239
   invoke void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock22wake_writer_or_readers17h1ce3f7153fe8125aE(ptr noundef nonnull align 4 %93, i32 noundef %242)

@@ -495,7 +495,7 @@ land.rhs.lr.ph:                                   ; preds = %for.end
   br i1 %cmp95, label %for.body154, label %for.end166
 
 for.body154:                                      ; preds = %land.rhs.lr.ph, %set_reflog_expiry_param.exit
-  %status.08097 = phi i32 [ %or, %set_reflog_expiry_param.exit ], [ 0, %land.rhs.lr.ph ]
+  %status.18097 = phi i32 [ %or, %set_reflog_expiry_param.exit ], [ 0, %land.rhs.lr.ph ]
   %item.08196 = phi ptr [ %incdec.ptr165, %set_reflog_expiry_param.exit ], [ %18, %land.rhs.lr.ph ]
   store i32 0, ptr %cb, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mark_list, i8 0, i64 16, i1 false)
@@ -593,7 +593,7 @@ set_reflog_expiry_param.exit:                     ; preds = %for.body154, %if.en
   %32 = load ptr, ptr %item.08196, align 8
   %33 = load i32, ptr %flags, align 4
   %call163 = call i32 @reflog_expire(ptr noundef %32, i32 noundef %33, ptr noundef nonnull @reflog_expiry_prepare, ptr noundef nonnull %spec.select, ptr noundef nonnull @reflog_expiry_cleanup, ptr noundef nonnull %cb) #10
-  %or = or i32 %call163, %status.08097
+  %or = or i32 %call163, %status.18097
   %incdec.ptr165 = getelementptr inbounds i8, ptr %item.08196, i64 16
   %34 = load ptr, ptr %10, align 8
   %35 = load i64, ptr %nr, align 8
@@ -602,12 +602,12 @@ set_reflog_expiry_param.exit:                     ; preds = %for.body154, %if.en
   br i1 %cmp, label %for.body154, label %for.end166
 
 for.end166:                                       ; preds = %set_reflog_expiry_param.exit, %land.rhs.lr.ph, %for.end
-  %status.0.lcssa = phi i32 [ 0, %for.end ], [ 0, %land.rhs.lr.ph ], [ %or, %set_reflog_expiry_param.exit ]
+  %status.1.lcssa = phi i32 [ 0, %for.end ], [ 0, %land.rhs.lr.ph ], [ %or, %set_reflog_expiry_param.exit ]
   call void @string_list_clear(ptr noundef nonnull %10, i32 noundef 0) #10
   br label %if.end168
 
 if.end168:                                        ; preds = %for.end166, %if.end138
-  %status.1 = phi i32 [ %status.0.lcssa, %for.end166 ], [ 0, %if.end138 ]
+  %status.0 = phi i32 [ %status.1.lcssa, %for.end166 ], [ 0, %if.end138 ]
   %cmp17083 = icmp sgt i32 %call119, 0
   br i1 %cmp17083, label %for.body171.lr.ph, label %for.end200
 
@@ -624,7 +624,7 @@ for.body171.lr.ph:                                ; preds = %if.end168
 
 for.body171:                                      ; preds = %for.body171.lr.ph, %for.inc199
   %indvars.iv = phi i64 [ 0, %for.body171.lr.ph ], [ %indvars.iv.next, %for.inc199 ]
-  %status.285 = phi i32 [ %status.1, %for.body171.lr.ph ], [ %status.3, %for.inc199 ]
+  %status.285 = phi i32 [ %status.0, %for.body171.lr.ph ], [ %status.3, %for.inc199 ]
   store i32 0, ptr %cb172, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mark_list174, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cmd176, ptr noundef nonnull align 8 dereferenceable(32) %cmd, i64 32, i1 false)
@@ -753,7 +753,7 @@ for.inc199:                                       ; preds = %set_reflog_expiry_p
   br i1 %exitcond.not, label %for.end200, label %for.body171, !llvm.loop !8
 
 for.end200:                                       ; preds = %for.inc199, %if.end168
-  %status.2.lcssa = phi i32 [ %status.1, %if.end168 ], [ %status.3, %for.inc199 ]
+  %status.2.lcssa = phi i32 [ %status.0, %if.end168 ], [ %status.3, %for.inc199 ]
   ret i32 %status.2.lcssa
 }
 

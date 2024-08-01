@@ -129,23 +129,23 @@ next_num.exit76:                                  ; preds = %lor.lhs.false2.i65
 
 if.end38:                                         ; preds = %if.end14, %land.lhs.true16, %next_num.exit76, %cond.end
   %16 = phi ptr [ %15, %next_num.exit76 ], [ %9, %cond.end ], [ %9, %land.lhs.true16 ], [ null, %if.end14 ]
-  %s.1 = phi i32 [ %conv7.i72, %next_num.exit76 ], [ 1, %cond.end ], [ 1, %land.lhs.true16 ], [ 1, %if.end14 ]
+  %s.0 = phi i32 [ %conv7.i72, %next_num.exit76 ], [ 1, %cond.end ], [ 1, %land.lhs.true16 ], [ 1, %if.end14 ]
   %cmp39 = icmp slt i32 %conv7.i50, %conv7.i
   br i1 %cmp39, label %return, label %while.body46.preheader
 
 while.body46.preheader:                           ; preds = %if.end4, %next_token.exit41, %if.end38
-  %s.1121 = phi i32 [ %s.1, %if.end38 ], [ 1, %next_token.exit41 ], [ 1, %if.end4 ]
-  %b.1120 = phi i32 [ %conv7.i50, %if.end38 ], [ %conv7.i, %next_token.exit41 ], [ %conv7.i, %if.end4 ]
+  %s.0121 = phi i32 [ %s.0, %if.end38 ], [ 1, %next_token.exit41 ], [ 1, %if.end4 ]
+  %b.0120 = phi i32 [ %conv7.i50, %if.end38 ], [ %conv7.i, %next_token.exit41 ], [ %conv7.i, %if.end4 ]
   %17 = phi ptr [ %16, %if.end38 ], [ %4, %next_token.exit41 ], [ null, %if.end4 ]
   br label %while.body46
 
 while.body46:                                     ; preds = %while.body46.preheader, %cond.end53
-  %a.2115 = phi i32 [ %add, %cond.end53 ], [ %conv7.i, %while.body46.preheader ]
-  %cmp48 = icmp ult i32 %a.2115, 1024
+  %a.1115 = phi i32 [ %add, %cond.end53 ], [ %conv7.i, %while.body46.preheader ]
+  %cmp48 = icmp ult i32 %a.1115, 1024
   br i1 %cmp48, label %cond.true50, label %cond.end53
 
 cond.true50:                                      ; preds = %while.body46
-  %conv47 = zext nneg i32 %a.2115 to i64
+  %conv47 = zext nneg i32 %a.1115 to i64
   %rem = and i64 %conv47, 63
   %shl = shl nuw i64 1, %rem
   %div5119 = lshr i64 %conv47, 6
@@ -156,8 +156,8 @@ cond.true50:                                      ; preds = %while.body46
   br label %cond.end53
 
 cond.end53:                                       ; preds = %while.body46, %cond.true50
-  %add = add nsw i32 %a.2115, %s.1121
-  %cmp44.not = icmp sgt i32 %add, %b.1120
+  %add = add nsw i32 %a.1115, %s.0121
+  %cmp44.not = icmp sgt i32 %add, %b.0120
   br i1 %cmp44.not, label %while.cond.loopexit, label %while.body46, !llvm.loop !7
 
 while.end55:                                      ; preds = %while.cond.loopexit

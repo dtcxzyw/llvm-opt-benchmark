@@ -12087,12 +12087,12 @@ lpad24:                                           ; preds = %invoke.cont27, %inv
   br label %ehcleanup33
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont29
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont29 ], [ 0, %invoke.cont16 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont29 ], [ 0, %invoke.cont16 ]
   invoke void @__cxa_end_catch()
           to label %cleanup35 unwind label %lpad31
 
 cleanup35:                                        ; preds = %cleanup, %invoke.cont9
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.0, %cleanup ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.1, %cleanup ]
   %21 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %21, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEESt14default_deleteIS7_EED2Ev.exit, label %delete.notnull.i.i
@@ -12142,7 +12142,7 @@ _ZNKSt14default_deleteIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpe
 
 _ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEESt14default_deleteIS7_EED2Ev.exit: ; preds = %cleanup35, %_ZNKSt14default_deleteIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEEEclEPS7_.exit.i
   store ptr null, ptr %t_ptr, align 8
-  %cond1 = icmp eq i32 %cleanup.dest.slot.1, 0
+  %cond1 = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond1, label %for.cond4, label %return
 
 lpad31:                                           ; preds = %cleanup
@@ -12154,14 +12154,14 @@ lpad31:                                           ; preds = %cleanup
 
 ehcleanup33:                                      ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %lpad24, %lpad15
   %.pn = phi { ptr, i32 } [ %20, %lpad24 ], [ %19, %lpad15 ], [ %lpad.loopexit31, %lpad13.loopexit ], [ %lpad.loopexit.split-lp32, %lpad13.loopexit.split-lp ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup38 unwind label %terminate.lpad
 
 ehcleanup38:                                      ; preds = %lpad8, %ehcleanup33, %lpad31
-  %exn.slot.1 = phi ptr [ %30, %lpad31 ], [ %exn.slot.0, %ehcleanup33 ], [ %10, %lpad8 ]
-  %ehselector.slot.1 = phi i32 [ %31, %lpad31 ], [ %ehselector.slot.0, %ehcleanup33 ], [ %11, %lpad8 ]
+  %exn.slot.1 = phi ptr [ %30, %lpad31 ], [ %exn.slot.2, %ehcleanup33 ], [ %10, %lpad8 ]
+  %ehselector.slot.1 = phi i32 [ %31, %lpad31 ], [ %ehselector.slot.2, %ehcleanup33 ], [ %11, %lpad8 ]
   call void @_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEESt14default_deleteIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %t_ptr) #18
   br label %ehcleanup43
 
@@ -12171,11 +12171,11 @@ for.inc44:                                        ; preds = %for.cond4, %for.con
   br label %for.cond, !llvm.loop !114
 
 ehcleanup43:                                      ; preds = %ehcleanup38, %lpad
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %ehcleanup38 ], [ %7, %lpad ]
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %ehcleanup38 ], [ %8, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup38 ], [ %7, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup38 ], [ %8, %lpad ]
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %ct) #18
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val47 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val47 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val47
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ESaIS5_EEESt14default_deleteIS7_EED2Ev.exit
@@ -14538,12 +14538,12 @@ lpad22:                                           ; preds = %invoke.cont25, %inv
   br label %ehcleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont27
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont27 ], [ 0, %invoke.cont16 ]
   invoke void @__cxa_end_catch()
           to label %cleanup31 unwind label %lpad28
 
 cleanup31:                                        ; preds = %cleanup, %invoke.cont9
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.0, %cleanup ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont9 ], [ %cleanup.dest.slot.1, %cleanup ]
   %21 = load ptr, ptr %t_ptr, align 8
   %cmp.not.i = icmp eq ptr %21, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEESt14default_deleteIS9_EED2Ev.exit, label %delete.notnull.i.i
@@ -14700,7 +14700,7 @@ _ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17Thro
 
 _ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEESt14default_deleteIS9_EED2Ev.exit: ; preds = %cleanup31, %_ZN4absl10FixedArrayIN7testing13ThrowingValueILNS1_8TypeSpecE0EEELm25ENS1_17ThrowingAllocatorIS4_LNS1_9AllocSpecE0EEEE7StorageD2Ev.exit
   store ptr null, ptr %t_ptr, align 8
-  %cond1 = icmp eq i32 %cleanup.dest.slot.1, 0
+  %cond1 = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %cond1, label %for.cond4, label %return
 
 lpad28:                                           ; preds = %cleanup
@@ -14712,14 +14712,14 @@ lpad28:                                           ; preds = %cleanup
 
 ehcleanup:                                        ; preds = %lpad13.loopexit, %lpad13.loopexit.split-lp, %lpad22, %lpad15
   %.pn = phi { ptr, i32 } [ %20, %lpad22 ], [ %19, %lpad15 ], [ %lpad.loopexit33, %lpad13.loopexit ], [ %lpad.loopexit.split-lp34, %lpad13.loopexit.split-lp ]
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
   invoke void @__cxa_end_catch()
           to label %ehcleanup34 unwind label %terminate.lpad
 
 ehcleanup34:                                      ; preds = %lpad8, %ehcleanup, %lpad28
-  %exn.slot.1 = phi ptr [ %47, %lpad28 ], [ %exn.slot.0, %ehcleanup ], [ %10, %lpad8 ]
-  %ehselector.slot.1 = phi i32 [ %48, %lpad28 ], [ %ehselector.slot.0, %ehcleanup ], [ %11, %lpad8 ]
+  %exn.slot.1 = phi ptr [ %47, %lpad28 ], [ %exn.slot.2, %ehcleanup ], [ %10, %lpad8 ]
+  %ehselector.slot.1 = phi i32 [ %48, %lpad28 ], [ %ehselector.slot.2, %ehcleanup ], [ %11, %lpad8 ]
   call void @_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEESt14default_deleteIS9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %t_ptr) #18
   br label %ehcleanup39
 
@@ -14729,11 +14729,11 @@ for.inc40:                                        ; preds = %for.cond4, %for.con
   br label %for.cond, !llvm.loop !160
 
 ehcleanup39:                                      ; preds = %ehcleanup34, %lpad
-  %exn.slot.2 = phi ptr [ %exn.slot.1, %ehcleanup34 ], [ %7, %lpad ]
-  %ehselector.slot.2 = phi i32 [ %ehselector.slot.1, %ehcleanup34 ], [ %8, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.1, %ehcleanup34 ], [ %7, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.1, %ehcleanup34 ], [ %8, %lpad ]
   call void @_ZN7testing19exceptions_internal18ConstructorTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %ct) #18
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val43 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   resume { ptr, i32 } %lpad.val43
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN4absl10FixedArrayIN7testing13ThrowingValueILNS2_8TypeSpecE0EEELm25ENS2_17ThrowingAllocatorIS5_LNS2_9AllocSpecE0EEEEESt14default_deleteIS9_EED2Ev.exit

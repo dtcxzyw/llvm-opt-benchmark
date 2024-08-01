@@ -1066,18 +1066,18 @@ _ZN24ciExceptionHandlerStreamC2EP8ciMethod.exit:  ; preds = %74
   %116 = getelementptr inbounds i8, ptr %99, i64 24
   %117 = load i32, ptr %116, align 4
   %spec.select = call i32 @llvm.smin.i32(i32 %101, i32 %115)
-  %.040 = call i32 @llvm.smax.i32(i32 %103, i32 %117)
+  %.141 = call i32 @llvm.smax.i32(i32 %103, i32 %117)
   %118 = and i32 %111, -3
   br label %119
 
 119:                                              ; preds = %113, %109
   %120 = phi i32 [ %118, %113 ], [ %111, %109 ]
-  %.141 = phi i32 [ %.040, %113 ], [ %103, %109 ]
-  %.1 = phi i32 [ %spec.select, %113 ], [ %101, %109 ]
+  %.040 = phi i32 [ %.141, %113 ], [ %103, %109 ]
+  %.0 = phi i32 [ %spec.select, %113 ], [ %101, %109 ]
   %121 = getelementptr inbounds i8, ptr %99, i64 20
-  store i32 %.1, ptr %121, align 4
+  store i32 %.0, ptr %121, align 4
   %122 = getelementptr inbounds i8, ptr %99, i64 24
-  store i32 %.141, ptr %122, align 4
+  store i32 %.040, ptr %122, align 4
   %123 = or i32 %120, 2
   store i32 %123, ptr %110, align 4
   call void @_ZN24ciExceptionHandlerStream4nextEv(ptr noundef nonnull align 8 dereferenceable(29) %4)

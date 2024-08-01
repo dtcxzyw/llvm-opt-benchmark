@@ -339,16 +339,16 @@ define void @_ZN3gmx11HelpManager10enterTopicEPKc(ptr nocapture noundef nonnull 
 
 45:                                               ; preds = %43, %41
   %.pn = phi { ptr, i32 } [ %44, %43 ], [ %42, %41 ]
-  %.115 = phi i1 [ %.014, %43 ], [ true, %41 ]
+  %.418 = phi i1 [ %.014, %43 ], [ true, %41 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #13
   br label %46
 
 46:                                               ; preds = %39, %45
   %.pn.pn = phi { ptr, i32 } [ %.pn, %45 ], [ %40, %39 ]
-  %.216 = phi i1 [ %.115, %45 ], [ true, %39 ]
+  %.317 = phi i1 [ %.418, %45 ], [ true, %39 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #13
-  br i1 %.216, label %.sink.split, label %127
+  br i1 %.317, label %.sink.split, label %127
 
 47:                                               ; preds = %2
   %48 = load ptr, ptr %21, align 8
@@ -427,10 +427,10 @@ define void @_ZN3gmx11HelpManager10enterTopicEPKc(ptr nocapture noundef nonnull 
 
 77:                                               ; preds = %73, %75
   %.pn45 = phi { ptr, i32 } [ %76, %75 ], [ %74, %73 ]
-  %.111 = phi i1 [ %.010, %75 ], [ true, %73 ]
+  %.313 = phi i1 [ %.010, %75 ], [ true, %73 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %9) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #13
-  br i1 %.111, label %.sink.split, label %127
+  br i1 %.313, label %.sink.split, label %127
 
 78:                                               ; preds = %57
   %79 = load ptr, ptr %0, align 8
@@ -499,16 +499,16 @@ define void @_ZN3gmx11HelpManager10enterTopicEPKc(ptr nocapture noundef nonnull 
 
 96:                                               ; preds = %94, %92
   %.pn40 = phi { ptr, i32 } [ %95, %94 ], [ %93, %92 ]
-  %.1 = phi i1 [ %.0, %94 ], [ true, %92 ]
+  %.4 = phi i1 [ %.0, %94 ], [ true, %92 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13) #13
   br label %97
 
 97:                                               ; preds = %90, %96
   %.pn40.pn = phi { ptr, i32 } [ %.pn40, %96 ], [ %91, %90 ]
-  %.2 = phi i1 [ %.1, %96 ], [ true, %90 ]
+  %.3 = phi i1 [ %.4, %96 ], [ true, %90 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #13
-  br i1 %.2, label %.sink.split, label %127
+  br i1 %.3, label %.sink.split, label %127
 
 98:                                               ; preds = %47
   %99 = getelementptr inbounds i8, ptr %53, i64 24

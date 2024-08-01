@@ -139,7 +139,7 @@ define noalias ptr @freshdbdir() local_unnamed_addr #1 {
   br label %48
 
 48:                                               ; preds = %46, %40
-  %.034 = phi ptr [ %47, %46 ], [ %1, %40 ]
+  %.1 = phi ptr [ %47, %46 ], [ %1, %40 ]
   tail call void @cl_cvdfree(ptr noundef nonnull %39) #18
   br label %51
 
@@ -149,7 +149,7 @@ define noalias ptr @freshdbdir() local_unnamed_addr #1 {
   br label %51
 
 51:                                               ; preds = %49, %48
-  %.1 = phi ptr [ %50, %49 ], [ %.034, %48 ]
+  %.2 = phi ptr [ %50, %49 ], [ %.1, %48 ]
   tail call void @cl_cvdfree(ptr noundef nonnull %30) #18
   br label %55
 
@@ -162,8 +162,8 @@ define noalias ptr @freshdbdir() local_unnamed_addr #1 {
   br label %57
 
 55:                                               ; preds = %3, %51, %52, %7
-  %.2.ph = phi ptr [ %1, %3 ], [ %1, %7 ], [ %.1, %51 ], [ %1, %52 ]
-  %56 = tail call noalias ptr @strdup(ptr noundef %.2.ph) #18
+  %.034.ph = phi ptr [ %1, %3 ], [ %1, %7 ], [ %.2, %51 ], [ %1, %52 ]
+  %56 = tail call noalias ptr @strdup(ptr noundef %.034.ph) #18
   tail call void @optfree(ptr noundef nonnull %2) #18
   br label %57
 
@@ -286,12 +286,12 @@ define void @print_version(ptr noundef %0) local_unnamed_addr #1 {
   br label %36
 
 36:                                               ; preds = %32, %28
-  %.1 = phi i32 [ %30, %32 ], [ %.0, %28 ]
+  %.2 = phi i32 [ %30, %32 ], [ %.0, %28 ]
   tail call void @cl_cvdfree(ptr noundef nonnull %27) #18
   br label %37
 
 37:                                               ; preds = %26, %36, %23
-  %.2 = phi i32 [ %.0, %23 ], [ %.1, %36 ], [ %.0, %26 ]
+  %.1 = phi i32 [ %.0, %23 ], [ %.2, %36 ], [ %.0, %26 ]
   br i1 %.not, label %38, label %39
 
 38:                                               ; preds = %37
@@ -299,12 +299,12 @@ define void @print_version(ptr noundef %0) local_unnamed_addr #1 {
   br label %39
 
 39:                                               ; preds = %38, %37
-  %.not41 = icmp eq i32 %.2, 0
+  %.not41 = icmp eq i32 %.1, 0
   br i1 %.not41, label %43, label %40
 
 40:                                               ; preds = %39
   %41 = call ptr @ctime(ptr noundef nonnull %2) #18
-  %42 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull @.str, i32 noundef %.2, ptr noundef %41)
+  %42 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef nonnull @.str, i32 noundef %.1, ptr noundef %41)
   br label %45
 
 43:                                               ; preds = %39

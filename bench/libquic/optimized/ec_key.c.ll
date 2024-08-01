@@ -617,9 +617,9 @@ if.then52:                                        ; preds = %if.end47
 err:                                              ; preds = %if.end28, %if.end47, %if.end8, %if.then52, %if.then46, %if.then36, %if.then27, %if.then16, %if.then7
   %ok.0 = phi i32 [ 0, %if.then7 ], [ 0, %if.end8 ], [ 0, %if.then36 ], [ 0, %if.then46 ], [ 0, %if.then52 ], [ 0, %if.then27 ], [ 0, %if.then16 ], [ 1, %if.end47 ], [ 1, %if.end28 ]
   %ctx.0 = phi ptr [ null, %if.then7 ], [ null, %if.end8 ], [ %call9, %if.then36 ], [ %call9, %if.then46 ], [ %call9, %if.then52 ], [ %call9, %if.then27 ], [ %call9, %if.then16 ], [ %call9, %if.end47 ], [ %call9, %if.end28 ]
-  %point.1 = phi ptr [ null, %if.then7 ], [ null, %if.end8 ], [ null, %if.then36 ], [ %call39, %if.then46 ], [ %call39, %if.then52 ], [ null, %if.then27 ], [ null, %if.then16 ], [ %call39, %if.end47 ], [ null, %if.end28 ]
+  %point.0 = phi ptr [ null, %if.then7 ], [ null, %if.end8 ], [ null, %if.then36 ], [ %call39, %if.then46 ], [ %call39, %if.then52 ], [ null, %if.then27 ], [ null, %if.then16 ], [ %call39, %if.end47 ], [ null, %if.end28 ]
   tail call void @BN_CTX_free(ptr noundef %ctx.0) #8
-  tail call void @EC_POINT_free(ptr noundef %point.1) #8
+  tail call void @EC_POINT_free(ptr noundef %point.0) #8
   br label %return
 
 return:                                           ; preds = %err, %if.then
@@ -769,17 +769,17 @@ if.then3.if.end8_crit_edge:                       ; preds = %if.then3
 
 if.end8:                                          ; preds = %if.then3.if.end8_crit_edge, %if.end
   %2 = phi ptr [ %.pre, %if.then3.if.end8_crit_edge ], [ %0, %if.end ]
-  %priv_key.0 = phi ptr [ %call, %if.then3.if.end8_crit_edge ], [ %1, %if.end ]
+  %priv_key.1 = phi ptr [ %call, %if.then3.if.end8_crit_edge ], [ %1, %if.end ]
   %call10 = tail call ptr @EC_GROUP_get0_order(ptr noundef %2) #8
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.end8
-  %call11 = tail call i32 @BN_rand_range(ptr noundef nonnull %priv_key.0, ptr noundef %call10) #8
+  %call11 = tail call i32 @BN_rand_range(ptr noundef nonnull %priv_key.1, ptr noundef %call10) #8
   %tobool12.not = icmp eq i32 %call11, 0
   br i1 %tobool12.not, label %err, label %do.cond
 
 do.cond:                                          ; preds = %do.body
-  %call15 = tail call i32 @BN_is_zero(ptr noundef nonnull %priv_key.0) #8
+  %call15 = tail call i32 @BN_is_zero(ptr noundef nonnull %priv_key.1) #8
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %do.end, label %do.body, !llvm.loop !7
 
@@ -796,28 +796,28 @@ if.then19:                                        ; preds = %do.end
   br i1 %cmp22, label %err, label %if.end27
 
 if.end27:                                         ; preds = %do.end, %if.then19
-  %pub_key.0 = phi ptr [ %call21, %if.then19 ], [ %3, %do.end ]
+  %pub_key.1 = phi ptr [ %call21, %if.then19 ], [ %3, %do.end ]
   %5 = load ptr, ptr %eckey, align 8
-  %call29 = tail call i32 @EC_POINT_mul(ptr noundef %5, ptr noundef nonnull %pub_key.0, ptr noundef nonnull %priv_key.0, ptr noundef null, ptr noundef null, ptr noundef null) #8
+  %call29 = tail call i32 @EC_POINT_mul(ptr noundef %5, ptr noundef nonnull %pub_key.1, ptr noundef nonnull %priv_key.1, ptr noundef null, ptr noundef null, ptr noundef null) #8
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %err, label %if.end32
 
 if.end32:                                         ; preds = %if.end27
-  store ptr %priv_key.0, ptr %priv_key2, align 8
-  store ptr %pub_key.0, ptr %pub_key17, align 8
+  store ptr %priv_key.1, ptr %priv_key2, align 8
+  store ptr %pub_key.1, ptr %pub_key17, align 8
   br label %err
 
 err:                                              ; preds = %do.body, %if.end27, %if.then19, %if.then3, %if.end32
   %ok.0 = phi i32 [ 0, %if.then3 ], [ 0, %if.then19 ], [ 1, %if.end32 ], [ 0, %if.end27 ], [ 0, %do.body ]
-  %priv_key.1 = phi ptr [ null, %if.then3 ], [ %priv_key.0, %if.then19 ], [ %priv_key.0, %if.end32 ], [ %priv_key.0, %if.end27 ], [ %priv_key.0, %do.body ]
-  %pub_key.1 = phi ptr [ null, %if.then3 ], [ null, %if.then19 ], [ %pub_key.0, %if.end32 ], [ %pub_key.0, %if.end27 ], [ null, %do.body ]
+  %priv_key.0 = phi ptr [ null, %if.then3 ], [ %priv_key.1, %if.then19 ], [ %priv_key.1, %if.end32 ], [ %priv_key.1, %if.end27 ], [ %priv_key.1, %do.body ]
+  %pub_key.0 = phi ptr [ null, %if.then3 ], [ null, %if.then19 ], [ %pub_key.1, %if.end32 ], [ %pub_key.1, %if.end27 ], [ null, %do.body ]
   %pub_key35 = getelementptr inbounds i8, ptr %eckey, i64 8
   %6 = load ptr, ptr %pub_key35, align 8
   %cmp36 = icmp eq ptr %6, null
   br i1 %cmp36, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %err
-  tail call void @EC_POINT_free(ptr noundef %pub_key.1) #8
+  tail call void @EC_POINT_free(ptr noundef %pub_key.0) #8
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then37, %err
@@ -826,7 +826,7 @@ if.end38:                                         ; preds = %if.then37, %err
   br i1 %cmp40, label %if.then41, label %return
 
 if.then41:                                        ; preds = %if.end38
-  tail call void @BN_free(ptr noundef %priv_key.1) #8
+  tail call void @BN_free(ptr noundef %priv_key.0) #8
   br label %return
 
 return:                                           ; preds = %if.end38, %if.then41, %if.then

@@ -2887,8 +2887,8 @@ _ZN14regex_automata3nfa8thompson12literal_trie5State18active_chunk_start17hd17bf
   br label %662
 
 662:                                              ; preds = %.backedge, %656
-  %.sroa.7.035.i.i = phi ptr [ %661, %656 ], [ %.sroa.7.2.ph.i.i, %.backedge ]
-  %.sroa.0.0.i43.i = phi ptr [ %658, %656 ], [ %.sroa.0.2.ph.i.i, %.backedge ]
+  %.sroa.7.035.i.i = phi ptr [ %661, %656 ], [ %.sroa.7.1.ph.i.i, %.backedge ]
+  %.sroa.0.0.i43.i = phi ptr [ %658, %656 ], [ %.sroa.0.1.ph.i.i, %.backedge ]
   %.0.i44.i = phi i32 [ 0, %656 ], [ %.0.i44.i.be, %.backedge ]
   %663 = load i8, ptr %344, align 8, !range !11, !alias.scope !401, !noalias !406, !noundef !4
   %664 = trunc nuw i8 %663 to i1
@@ -2914,8 +2914,8 @@ _ZN14regex_automata3nfa8thompson12literal_trie5State18active_chunk_start17hd17bf
 
 672:                                              ; preds = %670, %667
   %.sroa.0.0.sink.i.i = phi ptr [ %.sroa.0.0.i43.i, %667 ], [ %671, %670 ]
-  %.sroa.7.2.ph.i.i = phi ptr [ %.sroa.7.035.i.i, %667 ], [ %671, %670 ]
-  %.sroa.0.2.ph.i.i = phi ptr [ %668, %667 ], [ %.sroa.0.0.i43.i, %670 ]
+  %.sroa.7.1.ph.i.i = phi ptr [ %.sroa.7.035.i.i, %667 ], [ %671, %670 ]
+  %.sroa.0.1.ph.i.i = phi ptr [ %668, %667 ], [ %.sroa.0.0.i43.i, %670 ]
   %673 = load i8, ptr %.sroa.0.0.sink.i.i, align 1, !alias.scope !404, !noalias !408, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !409)
   %674 = zext i32 %.0.i44.i to i64

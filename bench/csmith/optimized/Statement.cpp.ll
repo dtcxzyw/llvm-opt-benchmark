@@ -1020,7 +1020,7 @@ default.unreachable:                              ; preds = %63
           to label %108 unwind label %69
 
 108:                                              ; preds = %106, %100, %91
-  %.1 = phi ptr [ null, %91 ], [ %101, %100 ], [ %.0, %106 ]
+  %.2 = phi ptr [ null, %91 ], [ %101, %100 ], [ %.0, %106 ]
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #24
   %109 = load ptr, ptr %5, align 8
   %.not.i.i.i = icmp eq ptr %109, null
@@ -1041,8 +1041,8 @@ default.unreachable:                              ; preds = %63
   br label %common.resume
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %_ZL20StatementProbabilityPK15StatementFilter.exit.thread, %110, %108, %_ZL20StatementProbabilityPK15StatementFilter.exit, %2
-  %.2 = phi ptr [ null, %_ZL20StatementProbabilityPK15StatementFilter.exit ], [ null, %2 ], [ %.1, %108 ], [ %.1, %110 ], [ null, %_ZL20StatementProbabilityPK15StatementFilter.exit.thread ]
-  ret ptr %.2
+  %.035 = phi ptr [ null, %_ZL20StatementProbabilityPK15StatementFilter.exit ], [ null, %2 ], [ %.2, %108 ], [ %.2, %110 ], [ null, %_ZL20StatementProbabilityPK15StatementFilter.exit.thread ]
+  ret ptr %.035
 }
 
 declare noundef i32 @_ZN9DepthSpec19depth_guard_by_typeE5dTypei(i32 noundef, i32 noundef) local_unnamed_addr #0
@@ -3456,8 +3456,8 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %59, %62
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit22
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit22:          ; preds = %28, %.preheader, %67, %65, %3
-  %.1 = phi i1 [ false, %3 ], [ %57, %65 ], [ %57, %67 ], [ true, %.preheader ], [ true, %28 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %3 ], [ %57, %65 ], [ %57, %67 ], [ true, %.preheader ], [ true, %28 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3552,8 +3552,8 @@ _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit:           ; preds = %30, %32
   br label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17
 
 _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit17:         ; preds = %.preheader, %34, %._crit_edge, %2
-  %.1 = phi i1 [ true, %2 ], [ %.lcssa, %._crit_edge ], [ %.lcssa, %34 ], [ %.not.not, %.preheader ]
-  ret i1 %.1
+  %.012 = phi i1 [ true, %2 ], [ %.lcssa, %._crit_edge ], [ %.lcssa, %34 ], [ %.not.not, %.preheader ]
+  ret i1 %.012
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4353,8 +4353,8 @@ _ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EED2Ev.exit: ; preds = %46, %49
   br label %_ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EED2Ev.exit9
 
 _ZNSt6vectorIPK22FunctionInvocationUserSaIS2_EED2Ev.exit9: ; preds = %.thread, %._crit_edge, %_ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEEixEOS2_.exit
-  %.1 = phi i1 [ true, %_ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEEixEOS2_.exit ], [ false, %._crit_edge ], [ %51, %.thread ]
-  ret i1 %.1
+  %.07 = phi i1 [ true, %_ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEEixEOS2_.exit ], [ false, %._crit_edge ], [ %51, %.thread ]
+  ret i1 %.07
 }
 
 declare noundef zeroext i1 @_ZNK6Effect19union_field_is_readEv(ptr noundef nonnull align 8 dereferenceable(74)) local_unnamed_addr #0

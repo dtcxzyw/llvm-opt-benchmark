@@ -437,9 +437,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1339,7 +1339,7 @@ if.end52:                                         ; preds = %if.then46, %if.else
   br i1 %cmp.i35, label %cleanup, label %if.then37.invoke
 
 cleanup:                                          ; preds = %if.then37.invoke, %if.end52
-  %retval.0 = phi ptr [ %call17, %if.end52 ], [ null, %if.then37.invoke ]
+  %retval.1 = phi ptr [ %call17, %if.end52 ], [ null, %if.then37.invoke ]
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(53) %buffer) #14
   br label %arraydestroy.body.i37
 
@@ -1391,8 +1391,8 @@ arraydestroy.body4.i46:                           ; preds = %arraydestroy.body4.
   br i1 %arraydestroy.done7.i49, label %common.resume, label %arraydestroy.body4.i46
 
 return:                                           ; preds = %arraydestroy.body4.i, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %retval.0, %arraydestroy.body4.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.1, %arraydestroy.body4.i ]
+  ret ptr %retval.0
 }
 
 declare ptr @ucol_open_75(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -1880,7 +1880,7 @@ land.lhs.true2.lr.ph:                             ; preds = %while.cond.preheade
 
 land.lhs.true2:                                   ; preds = %land.lhs.true2.lr.ph, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit
   %indvars.iv = phi i64 [ 0, %land.lhs.true2.lr.ph ], [ %indvars.iv.next, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit ]
-  %string.addr.048 = phi ptr [ %string, %land.lhs.true2.lr.ph ], [ %string.addr.3, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit ]
+  %string.addr.048 = phi ptr [ %string, %land.lhs.true2.lr.ph ], [ %string.addr.4, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit ]
   %1 = load i8, ptr %string.addr.048, align 1
   switch i8 %1, label %while.body.i [
     i8 0, label %while.end.thread
@@ -1888,7 +1888,7 @@ land.lhs.true2:                                   ; preds = %land.lhs.true2.lr.p
   ]
 
 while.body.i:                                     ; preds = %land.lhs.true2, %if.end27.i
-  %string.addr.1 = phi ptr [ %incdec.ptr.i, %if.end27.i ], [ %string.addr.048, %land.lhs.true2 ]
+  %string.addr.2 = phi ptr [ %incdec.ptr.i, %if.end27.i ], [ %string.addr.048, %land.lhs.true2 ]
   %2 = phi i8 [ %6, %if.end27.i ], [ %1, %land.lhs.true2 ]
   %noDigits.021.i = phi i32 [ %inc.i, %if.end27.i ], [ 0, %land.lhs.true2 ]
   %result.020.i = phi i16 [ %or.i, %if.end27.i ], [ 0, %land.lhs.true2 ]
@@ -1913,7 +1913,7 @@ if.end27.i:                                       ; preds = %if.else15.i, %if.el
   %shl.i = shl i16 %result.020.i, 4
   %or.i = or i16 %add.i, %shl.i
   %inc.i = add nuw nsw i32 %noDigits.021.i, 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %string.addr.1, i64 1
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %string.addr.2, i64 1
   %6 = load i8, ptr %incdec.ptr.i, align 1
   %cmp.i11 = icmp ne i8 %6, 0
   %cmp1.i = icmp ult i32 %noDigits.021.i, 3
@@ -1924,13 +1924,13 @@ while.end.i:                                      ; preds = %if.end27.i
   br i1 %cmp1.i, label %return.sink.split.i, label %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit
 
 return.sink.split.i:                              ; preds = %if.else15.i, %while.end.i
-  %string.addr.2 = phi ptr [ %incdec.ptr.i, %while.end.i ], [ %string.addr.1, %if.else15.i ]
+  %string.addr.3 = phi ptr [ %incdec.ptr.i, %while.end.i ], [ %string.addr.2, %if.else15.i ]
   %retval.0.ph.i = phi i16 [ %or.i, %while.end.i ], [ 0, %if.else15.i ]
   store i32 1, ptr %status, align 4
   br label %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit
 
 _ZL15readHexCodeUnitPPKcP10UErrorCode.exit:       ; preds = %while.end.i, %return.sink.split.i
-  %string.addr.3 = phi ptr [ %string.addr.2, %return.sink.split.i ], [ %incdec.ptr.i, %while.end.i ]
+  %string.addr.4 = phi ptr [ %string.addr.3, %return.sink.split.i ], [ %incdec.ptr.i, %while.end.i ]
   %retval.0.i = phi i16 [ %retval.0.ph.i, %return.sink.split.i ], [ %or.i, %while.end.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [32 x i16], ptr %variableTopString, i64 0, i64 %indvars.iv
@@ -1955,7 +1955,7 @@ while.end:                                        ; preds = %_ZL15readHexCodeUni
   br i1 %cmp7, label %land.lhs.true8, label %if.end17
 
 land.lhs.true8:                                   ; preds = %while.end
-  %11 = load i8, ptr %string.addr.3, align 1
+  %11 = load i8, ptr %string.addr.4, align 1
   switch i8 %11, label %if.end17.thread [
     i8 0, label %if.end17
     i8 95, label %if.end17
@@ -1971,7 +1971,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp19.not.i13, label %return.sink.split.i23, label %while.body.i14
 
 while.body.i14:                                   ; preds = %if.else, %if.end27.i26
-  %string.addr.4 = phi ptr [ %incdec.ptr.i32, %if.end27.i26 ], [ %string, %if.else ]
+  %string.addr.5 = phi ptr [ %incdec.ptr.i32, %if.end27.i26 ], [ %string, %if.else ]
   %13 = phi i8 [ %17, %if.end27.i26 ], [ %12, %if.else ]
   %noDigits.021.i15 = phi i32 [ %inc.i31, %if.end27.i26 ], [ 0, %if.else ]
   %result.020.i16 = phi i16 [ %or.i30, %if.end27.i26 ], [ 0, %if.else ]
@@ -1996,7 +1996,7 @@ if.end27.i26:                                     ; preds = %if.else15.i21, %if.
   %shl.i29 = shl i16 %result.020.i16, 4
   %or.i30 = or i16 %add.i28, %shl.i29
   %inc.i31 = add nuw nsw i32 %noDigits.021.i15, 1
-  %incdec.ptr.i32 = getelementptr inbounds i8, ptr %string.addr.4, i64 1
+  %incdec.ptr.i32 = getelementptr inbounds i8, ptr %string.addr.5, i64 1
   %17 = load i8, ptr %incdec.ptr.i32, align 1
   %cmp.i33 = icmp ne i8 %17, 0
   %cmp1.i34 = icmp ult i32 %noDigits.021.i15, 3
@@ -2007,13 +2007,13 @@ while.end.i35:                                    ; preds = %if.end27.i26
   br i1 %cmp1.i34, label %return.sink.split.i23, label %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit36
 
 return.sink.split.i23:                            ; preds = %if.else15.i21, %while.end.i35, %if.else
-  %string.addr.5 = phi ptr [ %string, %if.else ], [ %incdec.ptr.i32, %while.end.i35 ], [ %string.addr.4, %if.else15.i21 ]
+  %string.addr.6 = phi ptr [ %string, %if.else ], [ %incdec.ptr.i32, %while.end.i35 ], [ %string.addr.5, %if.else15.i21 ]
   %retval.0.ph.i24 = phi i16 [ 0, %if.else ], [ %or.i30, %while.end.i35 ], [ 0, %if.else15.i21 ]
   store i32 1, ptr %status, align 4
   br label %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit36
 
 _ZL15readHexCodeUnitPPKcP10UErrorCode.exit36:     ; preds = %while.end.i35, %return.sink.split.i23
-  %string.addr.6 = phi ptr [ %string.addr.5, %return.sink.split.i23 ], [ %incdec.ptr.i32, %while.end.i35 ]
+  %string.addr.7 = phi ptr [ %string.addr.6, %return.sink.split.i23 ], [ %incdec.ptr.i32, %while.end.i35 ]
   %retval.0.i25 = phi i16 [ %retval.0.ph.i24, %return.sink.split.i23 ], [ %or.i30, %while.end.i35 ]
   %conv16 = zext i16 %retval.0.i25 to i32
   %variableTopValue = getelementptr inbounds i8, ptr %spec, i64 480
@@ -2021,7 +2021,7 @@ _ZL15readHexCodeUnitPPKcP10UErrorCode.exit36:     ; preds = %while.end.i35, %ret
   br label %if.end17
 
 if.end17:                                         ; preds = %while.end.thread56, %while.end.thread, %land.lhs.true8, %land.lhs.true8, %while.end, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit36
-  %string.addr.7.ph = phi ptr [ %string, %while.end.thread56 ], [ %string.addr.048, %while.end.thread ], [ %string.addr.6, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit36 ], [ %string.addr.3, %while.end ], [ %string.addr.3, %land.lhs.true8 ], [ %string.addr.3, %land.lhs.true8 ]
+  %string.addr.1.ph = phi ptr [ %string, %while.end.thread56 ], [ %string.addr.048, %while.end.thread ], [ %string.addr.7, %_ZL15readHexCodeUnitPPKcP10UErrorCode.exit36 ], [ %string.addr.4, %while.end ], [ %string.addr.4, %land.lhs.true8 ], [ %string.addr.4, %land.lhs.true8 ]
   %.pr = load i32, ptr %status, align 4
   %cmp.i37 = icmp sgt i32 %.pr, 0
   br i1 %cmp.i37, label %if.end21, label %if.then20
@@ -2032,8 +2032,8 @@ if.then20:                                        ; preds = %if.end17
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end17.thread, %if.then20, %if.end17
-  %string.addr.763 = phi ptr [ %string.addr.3, %if.end17.thread ], [ %string.addr.7.ph, %if.then20 ], [ %string.addr.7.ph, %if.end17 ]
-  ret ptr %string.addr.763
+  %string.addr.163 = phi ptr [ %string.addr.4, %if.end17.thread ], [ %string.addr.1.ph, %if.then20 ], [ %string.addr.1.ph, %if.end17 ]
+  ret ptr %string.addr.163
 }
 
 ; Function Attrs: mustprogress uwtable

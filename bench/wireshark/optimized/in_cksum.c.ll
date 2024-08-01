@@ -15,9 +15,9 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   br label %5
 
 5:                                                ; preds = %.lr.ph205, %91
-  %.sroa.026.0203 = phi i8 [ undef, %.lr.ph205 ], [ %.sroa.026.2, %91 ]
-  %.0140202 = phi i32 [ 0, %.lr.ph205 ], [ %.6, %91 ]
-  %.0143201 = phi i32 [ 0, %.lr.ph205 ], [ %.11, %91 ]
+  %.sroa.026.0203 = phi i8 [ undef, %.lr.ph205 ], [ %.sroa.026.1, %91 ]
+  %.0140202 = phi i32 [ 0, %.lr.ph205 ], [ %.1141, %91 ]
+  %.0143201 = phi i32 [ 0, %.lr.ph205 ], [ %.3146, %91 ]
   %.0155200 = phi ptr [ %0, %.lr.ph205 ], [ %92, %91 ]
   %.0156199 = phi i32 [ %1, %.lr.ph205 ], [ %93, %91 ]
   %6 = icmp eq i32 %.0156199, 1
@@ -36,7 +36,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   br label %13
 
 13:                                               ; preds = %7, %5
-  %.2145 = phi i32 [ %spec.select, %7 ], [ %.0143201, %5 ]
+  %.1144 = phi i32 [ %spec.select, %7 ], [ %.0143201, %5 ]
   %14 = getelementptr inbounds i8, ptr %.0155200, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
@@ -52,7 +52,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   %.sroa.5.0.insert.ext = zext i8 %21 to i32
   %.sroa.5.0.insert.shift = shl nuw nsw i32 %.sroa.5.0.insert.ext, 8
   %.sroa.026.0.insert.ext = zext i8 %.sroa.026.0203 to i32
-  %.sroa.026.0.insert.insert = add i32 %.2145, %.sroa.026.0.insert.ext
+  %.sroa.026.0.insert.insert = add i32 %.1144, %.sroa.026.0.insert.ext
   %22 = add i32 %.sroa.026.0.insert.insert, %.sroa.5.0.insert.shift
   %23 = getelementptr i8, ptr %18, i64 1
   %24 = add i32 %15, -1
@@ -60,18 +60,18 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
 
 25:                                               ; preds = %17, %20
   %.0150 = phi ptr [ %23, %20 ], [ %18, %17 ]
-  %.3146 = phi i32 [ %22, %20 ], [ %.2145, %17 ]
-  %.1141 = phi i32 [ %24, %20 ], [ %15, %17 ]
+  %.4147 = phi i32 [ %22, %20 ], [ %.1144, %17 ]
+  %.2142 = phi i32 [ %24, %20 ], [ %15, %17 ]
   %26 = ptrtoint ptr %.0150 to i64
   %27 = and i64 %26, 1
   %28 = icmp eq i64 %27, 0
-  %29 = icmp slt i32 %.1141, 1
+  %29 = icmp slt i32 %.2142, 1
   %or.cond3.not = or i1 %28, %29
   br i1 %or.cond3.not, label %40, label %30
 
 30:                                               ; preds = %25
-  %.sroa.10.0.extract.shift14 = lshr i32 %.3146, 16
-  %31 = and i32 %.3146, 65535
+  %.sroa.10.0.extract.shift14 = lshr i32 %.4147, 16
+  %31 = and i32 %.4147, 65535
   %32 = add nuw nsw i32 %31, %.sroa.10.0.extract.shift14
   %33 = icmp ugt i32 %32, 65535
   %34 = shl nuw nsw i32 %32, 8
@@ -79,72 +79,72 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   %36 = select i1 %33, i32 %35, i32 %34
   %37 = load i8, ptr %.0150, align 1
   %38 = getelementptr i8, ptr %.0150, i64 1
-  %39 = add nsw i32 %.1141, -1
+  %39 = add nsw i32 %.2142, -1
   br label %40
 
 40:                                               ; preds = %30, %25
   %.1151 = phi ptr [ %38, %30 ], [ %.0150, %25 ]
-  %.5148 = phi i32 [ %36, %30 ], [ %.3146, %25 ]
-  %.2142 = phi i32 [ %39, %30 ], [ %.1141, %25 ]
-  %.sroa.026.1 = phi i8 [ %37, %30 ], [ %.sroa.026.0203, %25 ]
-  %41 = add i32 %.2142, -32
+  %.5148 = phi i32 [ %36, %30 ], [ %.4147, %25 ]
+  %.3 = phi i32 [ %39, %30 ], [ %.2142, %25 ]
+  %.sroa.026.2 = phi i8 [ %37, %30 ], [ %.sroa.026.0203, %25 ]
+  %41 = add i32 %.3, -32
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %.lr.ph, label %.preheader
 
 .preheader.loopexit:                              ; preds = %.lr.ph
-  %43 = and i32 %.2142, 31
+  %43 = and i32 %.3, 31
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %40
   %.2152.lcssa = phi ptr [ %.1151, %40 ], [ %49, %.preheader.loopexit ]
-  %.6149.lcssa = phi i32 [ %.5148, %40 ], [ %op.rdx233, %.preheader.loopexit ]
-  %.3.lcssa = phi i32 [ %.2142, %40 ], [ %43, %.preheader.loopexit ]
-  %44 = icmp sgt i32 %.3.lcssa, 7
+  %.7.lcssa = phi i32 [ %.5148, %40 ], [ %op.rdx233, %.preheader.loopexit ]
+  %.4.lcssa = phi i32 [ %.3, %40 ], [ %43, %.preheader.loopexit ]
+  %44 = icmp sgt i32 %.4.lcssa, 7
   br i1 %44, label %.lr.ph186, label %._crit_edge
 
 .lr.ph:                                           ; preds = %40, %.lr.ph
   %45 = phi i32 [ %50, %.lr.ph ], [ %41, %40 ]
-  %.6149180 = phi i32 [ %op.rdx233, %.lr.ph ], [ %.5148, %40 ]
+  %.7180 = phi i32 [ %op.rdx233, %.lr.ph ], [ %.5148, %40 ]
   %.2152179 = phi ptr [ %49, %.lr.ph ], [ %.1151, %40 ]
   %46 = load <16 x i16>, ptr %.2152179, align 2
   %47 = zext <16 x i16> %46 to <16 x i32>
   %48 = tail call i32 @llvm.vector.reduce.add.v16i32(<16 x i32> %47)
-  %op.rdx233 = add i32 %48, %.6149180
+  %op.rdx233 = add i32 %48, %.7180
   %49 = getelementptr i8, ptr %.2152179, i64 32
   %50 = add nsw i32 %45, -32
   %51 = icmp ugt i32 %45, 31
   br i1 %51, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !4
 
 .lr.ph186:                                        ; preds = %.preheader, %.lr.ph186
-  %.4185 = phi i32 [ %52, %.lr.ph186 ], [ %.3.lcssa, %.preheader ]
-  %.7184 = phi i32 [ %op.rdx, %.lr.ph186 ], [ %.6149.lcssa, %.preheader ]
+  %.5185 = phi i32 [ %52, %.lr.ph186 ], [ %.4.lcssa, %.preheader ]
+  %.8184 = phi i32 [ %op.rdx, %.lr.ph186 ], [ %.7.lcssa, %.preheader ]
   %.3153183 = phi ptr [ %56, %.lr.ph186 ], [ %.2152.lcssa, %.preheader ]
-  %52 = add nsw i32 %.4185, -8
+  %52 = add nsw i32 %.5185, -8
   %53 = load <4 x i16>, ptr %.3153183, align 2
   %54 = zext <4 x i16> %53 to <4 x i32>
   %55 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %54)
-  %op.rdx = add i32 %55, %.7184
+  %op.rdx = add i32 %55, %.8184
   %56 = getelementptr i8, ptr %.3153183, i64 8
-  %57 = icmp ugt i32 %.4185, 15
+  %57 = icmp ugt i32 %.5185, 15
   br i1 %57, label %.lr.ph186, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph186, %.preheader
   %.3153.lcssa = phi ptr [ %.2152.lcssa, %.preheader ], [ %56, %.lr.ph186 ]
-  %.7.lcssa = phi i32 [ %.6149.lcssa, %.preheader ], [ %op.rdx, %.lr.ph186 ]
-  %.4.lcssa = phi i32 [ %.3.lcssa, %.preheader ], [ %52, %.lr.ph186 ]
-  %58 = icmp eq i32 %.4.lcssa, 0
+  %.8.lcssa = phi i32 [ %.7.lcssa, %.preheader ], [ %op.rdx, %.lr.ph186 ]
+  %.5.lcssa = phi i32 [ %.4.lcssa, %.preheader ], [ %52, %.lr.ph186 ]
+  %58 = icmp eq i32 %.5.lcssa, 0
   %or.cond5 = and i1 %or.cond3.not, %58
   br i1 %or.cond5, label %91, label %59
 
 59:                                               ; preds = %._crit_edge
-  %.sroa.10.0.extract.shift16 = lshr i32 %.7.lcssa, 16
-  %60 = and i32 %.7.lcssa, 65535
+  %.sroa.10.0.extract.shift16 = lshr i32 %.8.lcssa, 16
+  %60 = and i32 %.8.lcssa, 65535
   %61 = add nuw nsw i32 %60, %.sroa.10.0.extract.shift16
   %62 = icmp ugt i32 %61, 65535
   %63 = add nsw i32 %61, -65535
   %spec.select177 = select i1 %62, i32 %63, i32 %61
-  %64 = add nsw i32 %.4.lcssa, -2
-  %65 = icmp sgt i32 %.4.lcssa, 1
+  %64 = add nsw i32 %.5.lcssa, -2
+  %65 = icmp sgt i32 %.5.lcssa, 1
   br i1 %65, label %.lr.ph193.preheader, label %._crit_edge194
 
 .lr.ph193.preheader:                              ; preds = %59
@@ -153,30 +153,30 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
 
 .lr.ph193:                                        ; preds = %.lr.ph193.preheader, %.lr.ph193
   %67 = phi i32 [ %72, %.lr.ph193 ], [ %64, %.lr.ph193.preheader ]
-  %.9191 = phi i32 [ %71, %.lr.ph193 ], [ %spec.select177, %.lr.ph193.preheader ]
+  %.10191 = phi i32 [ %71, %.lr.ph193 ], [ %spec.select177, %.lr.ph193.preheader ]
   %.4154190 = phi ptr [ %68, %.lr.ph193 ], [ %.3153.lcssa, %.lr.ph193.preheader ]
   %68 = getelementptr i8, ptr %.4154190, i64 2
   %69 = load i16, ptr %.4154190, align 2
   %70 = zext i16 %69 to i32
-  %71 = add i32 %.9191, %70
+  %71 = add i32 %.10191, %70
   %72 = add nsw i32 %67, -2
   %73 = icmp ugt i32 %67, 1
   br i1 %73, label %.lr.ph193, label %._crit_edge194.loopexit, !llvm.loop !7
 
 ._crit_edge194.loopexit:                          ; preds = %.lr.ph193
-  %74 = add nsw i32 %.4.lcssa, -4
+  %74 = add nsw i32 %.5.lcssa, -4
   %75 = sub i32 %74, %66
   br label %._crit_edge194
 
 ._crit_edge194:                                   ; preds = %._crit_edge194.loopexit, %59
   %.4154.lcssa = phi ptr [ %.3153.lcssa, %59 ], [ %68, %._crit_edge194.loopexit ]
-  %.9.lcssa = phi i32 [ %spec.select177, %59 ], [ %71, %._crit_edge194.loopexit ]
+  %.10.lcssa = phi i32 [ %spec.select177, %59 ], [ %71, %._crit_edge194.loopexit ]
   %.lcssa = phi i32 [ %64, %59 ], [ %75, %._crit_edge194.loopexit ]
   br i1 %or.cond3.not, label %87, label %76
 
 76:                                               ; preds = %._crit_edge194
-  %.sroa.10.0.extract.shift18 = lshr i32 %.9.lcssa, 16
-  %77 = and i32 %.9.lcssa, 65535
+  %.sroa.10.0.extract.shift18 = lshr i32 %.10.lcssa, 16
+  %77 = and i32 %.10.lcssa, 65535
   %78 = add nuw nsw i32 %77, %.sroa.10.0.extract.shift18
   %79 = icmp ugt i32 %78, 65535
   %80 = shl nuw nsw i32 %78, 8
@@ -189,7 +189,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   %85 = load i8, ptr %.4154.lcssa, align 1
   %.sroa.5.0.insert.ext36 = zext i8 %85 to i32
   %.sroa.5.0.insert.shift37 = shl nuw nsw i32 %.sroa.5.0.insert.ext36, 8
-  %.sroa.026.0.insert.ext28 = zext i8 %.sroa.026.1 to i32
+  %.sroa.026.0.insert.ext28 = zext i8 %.sroa.026.2 to i32
   %.sroa.026.0.insert.insert30 = or disjoint i32 %82, %.sroa.026.0.insert.ext28
   %86 = add nuw nsw i32 %.sroa.026.0.insert.insert30, %.sroa.5.0.insert.shift37
   br label %91
@@ -203,19 +203,19 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr nocapture noundef reado
   br label %91
 
 91:                                               ; preds = %76, %84, %89, %87, %._crit_edge, %13
-  %.11 = phi i32 [ %.2145, %13 ], [ %.7.lcssa, %._crit_edge ], [ %86, %84 ], [ %.9.lcssa, %89 ], [ %.9.lcssa, %87 ], [ %82, %76 ]
-  %.6 = phi i32 [ %.0140202, %13 ], [ 0, %._crit_edge ], [ 0, %84 ], [ -1, %89 ], [ %.lcssa, %87 ], [ -1, %76 ]
-  %.sroa.026.2 = phi i8 [ %.sroa.026.0203, %13 ], [ %.sroa.026.1, %._crit_edge ], [ %.sroa.026.1, %84 ], [ %90, %89 ], [ %.sroa.026.1, %87 ], [ %.sroa.026.1, %76 ]
+  %.3146 = phi i32 [ %.1144, %13 ], [ %.8.lcssa, %._crit_edge ], [ %86, %84 ], [ %.10.lcssa, %89 ], [ %.10.lcssa, %87 ], [ %82, %76 ]
+  %.1141 = phi i32 [ %.0140202, %13 ], [ 0, %._crit_edge ], [ 0, %84 ], [ -1, %89 ], [ %.lcssa, %87 ], [ -1, %76 ]
+  %.sroa.026.1 = phi i8 [ %.sroa.026.0203, %13 ], [ %.sroa.026.2, %._crit_edge ], [ %.sroa.026.2, %84 ], [ %90, %89 ], [ %.sroa.026.2, %87 ], [ %.sroa.026.2, %76 ]
   %92 = getelementptr i8, ptr %.0155200, i64 16
   %93 = add i32 %.0156199, -1
   %.not = icmp eq i32 %93, 0
   br i1 %.not, label %._crit_edge206.loopexit, label %5, !llvm.loop !8
 
 ._crit_edge206.loopexit:                          ; preds = %91
-  %94 = icmp eq i32 %.6, -1
-  %95 = zext i8 %.sroa.026.2 to i32
+  %94 = icmp eq i32 %.1141, -1
+  %95 = zext i8 %.sroa.026.1 to i32
   %96 = select i1 %94, i32 %95, i32 0
-  %97 = add i32 %96, %.11
+  %97 = add i32 %96, %.3146
   br label %._crit_edge206
 
 ._crit_edge206:                                   ; preds = %._crit_edge206.loopexit, %3

@@ -407,8 +407,8 @@ define internal fastcc i64 @getShortest(ptr noundef %0, ptr noundef %1, ptr noun
   br label %49
 
 49:                                               ; preds = %24, %39, %45
-  %.sroa.038.0 = phi i32 [ %42, %45 ], [ %42, %39 ], [ %., %24 ]
-  %.sroa.11.0 = phi i32 [ %44, %45 ], [ %44, %39 ], [ %.49, %24 ]
+  %.sroa.038.1 = phi i32 [ %42, %45 ], [ %42, %39 ], [ %., %24 ]
+  %.sroa.11.1 = phi i32 [ %44, %45 ], [ %44, %39 ], [ %.49, %24 ]
   %50 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #11
   store ptr %50, ptr %5, align 8
   %51 = icmp eq ptr %50, null
@@ -417,14 +417,14 @@ define internal fastcc i64 @getShortest(ptr noundef %0, ptr noundef %1, ptr noun
 52:                                               ; preds = %49
   %53 = and i64 %6, 1
   %.not47 = icmp eq i64 %53, 0
-  %spec.select = select i1 %.not47, i32 %.sroa.038.0, i32 %.sroa.11.0
-  %spec.select50 = select i1 %.not47, i32 %.sroa.11.0, i32 %.sroa.038.0
+  %spec.select = select i1 %.not47, i32 %.sroa.038.1, i32 %.sroa.11.1
+  %spec.select50 = select i1 %.not47, i32 %.sroa.11.1, i32 %.sroa.038.1
   br label %67
 
 54:                                               ; preds = %49
-  store i32 %.sroa.038.0, ptr %50, align 4
+  store i32 %.sroa.038.1, ptr %50, align 4
   %55 = getelementptr inbounds i8, ptr %50, i64 4
-  store i32 %.sroa.11.0, ptr %55, align 4
+  store i32 %.sroa.11.1, ptr %55, align 4
   %56 = call i32 @st__insert(ptr noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %50) #10
   %57 = and i64 %6, 1
   %.not46 = icmp eq i64 %57, 0
@@ -444,11 +444,11 @@ define internal fastcc i64 @getShortest(ptr noundef %0, ptr noundef %1, ptr noun
   br label %67
 
 67:                                               ; preds = %52, %59, %63, %13, %17
-  %.sroa.038.1 = phi i32 [ %15, %13 ], [ %18, %17 ], [ %61, %59 ], [ %64, %63 ], [ %spec.select, %52 ]
-  %.sroa.11.1 = phi i32 [ %16, %13 ], [ %20, %17 ], [ %62, %59 ], [ %66, %63 ], [ %spec.select50, %52 ]
-  %.sroa.11.0.insert.ext = zext i32 %.sroa.11.1 to i64
+  %.sroa.038.0 = phi i32 [ %15, %13 ], [ %18, %17 ], [ %61, %59 ], [ %64, %63 ], [ %spec.select, %52 ]
+  %.sroa.11.0 = phi i32 [ %16, %13 ], [ %20, %17 ], [ %62, %59 ], [ %66, %63 ], [ %spec.select50, %52 ]
+  %.sroa.11.0.insert.ext = zext i32 %.sroa.11.0 to i64
   %.sroa.11.0.insert.shift = shl nuw i64 %.sroa.11.0.insert.ext, 32
-  %.sroa.038.0.insert.ext = zext i32 %.sroa.038.1 to i64
+  %.sroa.038.0.insert.ext = zext i32 %.sroa.038.0 to i64
   %.sroa.038.0.insert.insert = or disjoint i64 %.sroa.11.0.insert.shift, %.sroa.038.0.insert.ext
   ret i64 %.sroa.038.0.insert.insert
 }
@@ -749,8 +749,8 @@ define internal fastcc i64 @getLargest(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %35
 
 35:                                               ; preds = %22, %24
-  %.sroa.024.0 = phi i32 [ %32, %24 ], [ %., %22 ]
-  %.sroa.11.0 = phi i32 [ %34, %24 ], [ %.32, %22 ]
+  %.sroa.024.1 = phi i32 [ %32, %24 ], [ %., %22 ]
+  %.sroa.11.1 = phi i32 [ %34, %24 ], [ %.32, %22 ]
   %36 = call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #11
   store ptr %36, ptr %3, align 8
   %37 = icmp eq ptr %36, null
@@ -759,14 +759,14 @@ define internal fastcc i64 @getLargest(ptr noundef %0, ptr noundef %1) unnamed_a
 38:                                               ; preds = %35
   %39 = and i64 %4, 1
   %.not30 = icmp eq i64 %39, 0
-  %spec.select = select i1 %.not30, i32 %.sroa.024.0, i32 %.sroa.11.0
-  %spec.select33 = select i1 %.not30, i32 %.sroa.11.0, i32 %.sroa.024.0
+  %spec.select = select i1 %.not30, i32 %.sroa.024.1, i32 %.sroa.11.1
+  %spec.select33 = select i1 %.not30, i32 %.sroa.11.1, i32 %.sroa.024.1
   br label %53
 
 40:                                               ; preds = %35
-  store i32 %.sroa.024.0, ptr %36, align 4
+  store i32 %.sroa.024.1, ptr %36, align 4
   %41 = getelementptr inbounds i8, ptr %36, i64 4
-  store i32 %.sroa.11.0, ptr %41, align 4
+  store i32 %.sroa.11.1, ptr %41, align 4
   %42 = call i32 @st__insert(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %36) #10
   %43 = and i64 %4, 1
   %.not29 = icmp eq i64 %43, 0
@@ -786,11 +786,11 @@ define internal fastcc i64 @getLargest(ptr noundef %0, ptr noundef %1) unnamed_a
   br label %53
 
 53:                                               ; preds = %38, %45, %49, %11, %15
-  %.sroa.024.1 = phi i32 [ %13, %11 ], [ %16, %15 ], [ %47, %45 ], [ %50, %49 ], [ %spec.select, %38 ]
-  %.sroa.11.1 = phi i32 [ %14, %11 ], [ %18, %15 ], [ %48, %45 ], [ %52, %49 ], [ %spec.select33, %38 ]
-  %.sroa.11.0.insert.ext = zext i32 %.sroa.11.1 to i64
+  %.sroa.024.0 = phi i32 [ %13, %11 ], [ %16, %15 ], [ %47, %45 ], [ %50, %49 ], [ %spec.select, %38 ]
+  %.sroa.11.0 = phi i32 [ %14, %11 ], [ %18, %15 ], [ %48, %45 ], [ %52, %49 ], [ %spec.select33, %38 ]
+  %.sroa.11.0.insert.ext = zext i32 %.sroa.11.0 to i64
   %.sroa.11.0.insert.shift = shl nuw i64 %.sroa.11.0.insert.ext, 32
-  %.sroa.024.0.insert.ext = zext i32 %.sroa.024.1 to i64
+  %.sroa.024.0.insert.ext = zext i32 %.sroa.024.0 to i64
   %.sroa.024.0.insert.insert = or disjoint i64 %.sroa.11.0.insert.shift, %.sroa.024.0.insert.ext
   ret i64 %.sroa.024.0.insert.insert
 }

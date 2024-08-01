@@ -339,23 +339,23 @@ if.then141:                                       ; preds = %sw.bb32, %opthelp, 
   %ctx.0.ph = phi ptr [ %call50, %if.then63 ], [ %call50, %if.then81 ], [ %call50, %if.then104 ], [ %call50, %if.then110 ], [ %call50, %if.then120 ], [ %call50, %if.then115 ], [ %call50, %if.then94 ], [ %call50, %if.end73 ], [ %call50, %if.end69 ], [ %call50, %if.then55 ], [ null, %if.end49 ], [ null, %opthelp ], [ null, %sw.bb32 ]
   %in.0.ph = phi ptr [ null, %if.then63 ], [ %call70, %if.then81 ], [ %call70, %if.then104 ], [ %call70, %if.then110 ], [ %call70, %if.then120 ], [ %call70, %if.then115 ], [ %call70, %if.then94 ], [ %call70, %if.end73 ], [ null, %if.end69 ], [ null, %if.then55 ], [ null, %if.end49 ], [ null, %opthelp ], [ null, %sw.bb32 ]
   %out.0.ph = phi ptr [ null, %if.then63 ], [ %call75, %if.then81 ], [ %call75, %if.then104 ], [ %call75, %if.then110 ], [ %call75, %if.then120 ], [ %call75, %if.then115 ], [ %call75, %if.then94 ], [ null, %if.end73 ], [ null, %if.end69 ], [ null, %if.then55 ], [ null, %if.end49 ], [ null, %opthelp ], [ null, %sw.bb32 ]
-  %digest.3.ph = phi ptr [ %digest.0, %if.then63 ], [ %digest.0, %if.then81 ], [ %digest.0, %if.then104 ], [ %digest.0, %if.then110 ], [ %digest.0, %if.then120 ], [ %digest.0, %if.then115 ], [ %digest.0, %if.then94 ], [ %digest.0, %if.end73 ], [ %digest.0, %if.end69 ], [ %digest.0, %if.then55 ], [ %digest.0, %if.end49 ], [ %digest.1, %opthelp ], [ %digest.0, %sw.bb32 ]
-  %cipher.3.ph = phi ptr [ %cipher.0, %if.then63 ], [ %cipher.0, %if.then81 ], [ %cipher.0, %if.then104 ], [ %cipher.0, %if.then110 ], [ %cipher.0, %if.then120 ], [ %cipher.0, %if.then115 ], [ %cipher.0, %if.then94 ], [ %cipher.0, %if.end73 ], [ %cipher.0, %if.end69 ], [ %cipher.0, %if.then55 ], [ %cipher.0, %if.end49 ], [ %cipher.1, %opthelp ], [ %cipher.0, %sw.bb32 ]
+  %digest.2.ph = phi ptr [ %digest.0, %if.then63 ], [ %digest.0, %if.then81 ], [ %digest.0, %if.then104 ], [ %digest.0, %if.then110 ], [ %digest.0, %if.then120 ], [ %digest.0, %if.then115 ], [ %digest.0, %if.then94 ], [ %digest.0, %if.end73 ], [ %digest.0, %if.end69 ], [ %digest.0, %if.then55 ], [ %digest.0, %if.end49 ], [ %digest.1, %opthelp ], [ %digest.0, %sw.bb32 ]
+  %cipher.2.ph = phi ptr [ %cipher.0, %if.then63 ], [ %cipher.0, %if.then81 ], [ %cipher.0, %if.then104 ], [ %cipher.0, %if.then110 ], [ %cipher.0, %if.then120 ], [ %cipher.0, %if.then115 ], [ %cipher.0, %if.then94 ], [ %cipher.0, %if.end73 ], [ %cipher.0, %if.end69 ], [ %cipher.0, %if.then55 ], [ %cipher.0, %if.end49 ], [ %cipher.1, %opthelp ], [ %cipher.0, %sw.bb32 ]
   %23 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %23) #3
   br label %if.end142
 
 if.end142:                                        ; preds = %sw.bb, %for.end, %if.then135, %if.then124, %if.then141
-  %cipher.364 = phi ptr [ %cipher.3.ph, %if.then141 ], [ %cipher.0, %sw.bb ], [ %cipher.0, %for.end ], [ %cipher.0, %if.then135 ], [ %cipher.0, %if.then124 ]
-  %digest.362 = phi ptr [ %digest.3.ph, %if.then141 ], [ %digest.0, %sw.bb ], [ %digest.0, %for.end ], [ %digest.0, %if.then135 ], [ %digest.0, %if.then124 ]
+  %cipher.264 = phi ptr [ %cipher.2.ph, %if.then141 ], [ %cipher.0, %sw.bb ], [ %cipher.0, %for.end ], [ %cipher.0, %if.then135 ], [ %cipher.0, %if.then124 ]
+  %digest.262 = phi ptr [ %digest.2.ph, %if.then141 ], [ %digest.0, %sw.bb ], [ %digest.0, %for.end ], [ %digest.0, %if.then135 ], [ %digest.0, %if.then124 ]
   %out.060 = phi ptr [ %out.0.ph, %if.then141 ], [ null, %sw.bb ], [ %call75, %for.end ], [ %call75, %if.then135 ], [ %call75, %if.then124 ]
   %in.058 = phi ptr [ %in.0.ph, %if.then141 ], [ null, %sw.bb ], [ %call70, %for.end ], [ %call70, %if.then135 ], [ %call70, %if.then124 ]
   %ctx.056 = phi ptr [ %ctx.0.ph, %if.then141 ], [ null, %sw.bb ], [ %call50, %for.end ], [ %call50, %if.then135 ], [ %call50, %if.then124 ]
   %ret.054 = phi i32 [ 1, %if.then141 ], [ 0, %sw.bb ], [ 0, %for.end ], [ 0, %if.then135 ], [ 0, %if.then124 ]
   %mac.152 = phi ptr [ %mac.1.ph, %if.then141 ], [ null, %sw.bb ], [ %call44, %for.end ], [ %call44, %if.then135 ], [ %call44, %if.then124 ]
   call void @CRYPTO_clear_free(ptr noundef %call1, i64 noundef 8192, ptr noundef nonnull @.str.31, i32 noundef 227) #3
-  call void @CRYPTO_free(ptr noundef %cipher.364, ptr noundef nonnull @.str.31, i32 noundef 228) #3
-  call void @CRYPTO_free(ptr noundef %digest.362, ptr noundef nonnull @.str.31, i32 noundef 229) #3
+  call void @CRYPTO_free(ptr noundef %cipher.264, ptr noundef nonnull @.str.31, i32 noundef 228) #3
+  call void @CRYPTO_free(ptr noundef %digest.262, ptr noundef nonnull @.str.31, i32 noundef 229) #3
   %24 = load ptr, ptr %opts, align 8
   call void @OPENSSL_sk_free(ptr noundef %24) #3
   %call144 = call i32 @BIO_free(ptr noundef %in.058) #3

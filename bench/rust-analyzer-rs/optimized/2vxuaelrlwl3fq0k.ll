@@ -5833,7 +5833,7 @@ define hidden { ptr, ptr } @"_ZN3hir11term_search7tactics11impl_method28_$u7b$$u
   store ptr %39, ptr %4, align 8
   %41 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %40, ptr %41, align 8
-  %.sroa.0.0 = select i1 %35, ptr %39, ptr null
+  %.sroa.0.1 = select i1 %35, ptr %39, ptr null
   br i1 %35, label %42, label %43
 
 42:                                               ; preds = %43, %38
@@ -5848,10 +5848,10 @@ define hidden { ptr, ptr } @"_ZN3hir11term_search7tactics11impl_method28_$u7b$$u
           to label %42 unwind label %36
 
 44:                                               ; preds = %42, %20
-  %.sroa.4.1 = phi ptr [ %40, %42 ], [ %21, %20 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %42 ], [ %10, %20 ]
-  %45 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %46 = insertvalue { ptr, ptr } %45, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %40, %42 ], [ %21, %20 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %42 ], [ %10, %20 ]
+  %45 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %46 = insertvalue { ptr, ptr } %45, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %46
 
 47:                                               ; preds = %36, %49
@@ -6057,7 +6057,7 @@ define hidden { ptr, ptr } @"_ZN3hir11term_search7tactics13free_function28_$u7b$
   store ptr %39, ptr %4, align 8
   %41 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %40, ptr %41, align 8
-  %.sroa.0.0 = select i1 %35, ptr %39, ptr null
+  %.sroa.0.1 = select i1 %35, ptr %39, ptr null
   br i1 %35, label %42, label %43
 
 42:                                               ; preds = %43, %38
@@ -6072,10 +6072,10 @@ define hidden { ptr, ptr } @"_ZN3hir11term_search7tactics13free_function28_$u7b$
           to label %42 unwind label %36
 
 44:                                               ; preds = %42, %20
-  %.sroa.4.1 = phi ptr [ %40, %42 ], [ %21, %20 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %42 ], [ %10, %20 ]
-  %45 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %46 = insertvalue { ptr, ptr } %45, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %40, %42 ], [ %21, %20 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %42 ], [ %10, %20 ]
+  %45 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %46 = insertvalue { ptr, ptr } %45, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %46
 
 47:                                               ; preds = %36, %49
@@ -6536,7 +6536,7 @@ define hidden { ptr, ptr } @"_ZN3hir11term_search7tactics18impl_static_method28_
   store ptr %63, ptr %6, align 8
   %65 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %64, ptr %65, align 8
-  %.sroa.0.0 = select i1 %59, ptr %63, ptr null
+  %.sroa.0.1 = select i1 %59, ptr %63, ptr null
   br i1 %59, label %66, label %67
 
 66:                                               ; preds = %67, %62
@@ -6551,10 +6551,10 @@ define hidden { ptr, ptr } @"_ZN3hir11term_search7tactics18impl_static_method28_
           to label %66 unwind label %60
 
 68:                                               ; preds = %66, %24
-  %.sroa.4.1 = phi ptr [ %64, %66 ], [ %25, %24 ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %66 ], [ %14, %24 ]
-  %69 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1, 0
-  %70 = insertvalue { ptr, ptr } %69, ptr %.sroa.4.1, 1
+  %.sroa.4.0 = phi ptr [ %64, %66 ], [ %25, %24 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %66 ], [ %14, %24 ]
+  %69 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %70 = insertvalue { ptr, ptr } %69, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %70
 
 71:                                               ; preds = %60, %73

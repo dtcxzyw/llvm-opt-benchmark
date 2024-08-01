@@ -887,7 +887,7 @@ if.else:                                          ; preds = %entry
   br label %while.cond
 
 while.cond:                                       ; preds = %while.body, %if.else
-  %len.0 = phi i32 [ 0, %if.else ], [ %inc, %while.body ]
+  %len.1 = phi i32 [ 0, %if.else ], [ %inc, %while.body ]
   %p.0 = phi ptr [ %add.ptr.i, %if.else ], [ %add.ptr19.i, %while.body ]
   %1 = load i8, ptr %p.0, align 1
   switch i8 %1, label %if.then.i.i.i [
@@ -937,21 +937,21 @@ while.body:                                       ; preds = %if.end.i.i25.i, %if
   %add3.i.i = add i32 %add2.i.i, %conv.i6.i.i
   %idx.ext18.i = zext i32 %add3.i.i to i64
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 %idx.ext18.i
-  %inc = add i32 %len.0, 1
+  %inc = add i32 %len.1, 1
   br label %while.cond, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
-  %cmp7 = icmp ult i32 %len.0, 254
+  %cmp7 = icmp ult i32 %len.1, 254
   br i1 %cmp7, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %while.end
-  %conv10 = trunc nuw i32 %len.0 to i8
+  %conv10 = trunc nuw i32 %len.1 to i8
   store i8 %conv10, ptr %zm, align 1
   br label %if.end12
 
 if.end12:                                         ; preds = %while.end, %if.then9, %if.then
-  %len.1 = phi i32 [ %conv, %if.then ], [ %len.0, %if.then9 ], [ %len.0, %while.end ]
-  ret i32 %len.1
+  %len.0 = phi i32 [ %conv, %if.then ], [ %len.1, %if.then9 ], [ %len.1, %while.end ]
+  ret i32 %len.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

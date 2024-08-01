@@ -543,7 +543,7 @@ sidePt.exit.i:                                    ; preds = %243, %234, %225, %2
 
 .lr.ph225.i:                                      ; preds = %sidePt.exit.i, %380
   %254 = phi ptr [ %382, %380 ], [ %252, %sidePt.exit.i ]
-  %.sroa.097.0223.i = phi i64 [ %.sroa.097.2.i, %380 ], [ 0, %sidePt.exit.i ]
+  %.sroa.097.0223.i = phi i64 [ %.sroa.097.1.i, %380 ], [ 0, %sidePt.exit.i ]
   %.1222.i = phi ptr [ %.2.i, %380 ], [ %197, %sidePt.exit.i ]
   %.0110221.i = phi ptr [ %381, %380 ], [ %199, %sidePt.exit.i ]
   %.0111220.i = phi ptr [ %.0110221.i, %380 ], [ %197, %sidePt.exit.i ]
@@ -676,7 +676,7 @@ cellOf.exit.i:                                    ; preds = %264, %260, %.lr.ph2
 .thread198.i:                                     ; preds = %.thread177.i
   %343 = fcmp ogt double %.sroa.014.0217.i, %.sroa.019.0215.i
   %.138201.i = select i1 %343, i32 4, i32 2
-  %.1122202.i = select i1 %340, i32 0, i32 %.138201.i
+  %.2123202.i = select i1 %340, i32 0, i32 %.138201.i
   %.139.i = select i1 %342, i32 4, i32 2
   br label %353
 
@@ -704,12 +704,12 @@ cellOf.exit.i:                                    ; preds = %264, %260, %.lr.ph2
 351:                                              ; preds = %327
   %352 = fcmp ogt double %.sroa.014.0217.i, %.sroa.019.0215.i
   %.138.i = select i1 %352, i32 4, i32 2
-  %.1122.i = select i1 %331, i32 0, i32 %.138.i
+  %.2123.i = select i1 %331, i32 0, i32 %.138.i
   br label %353
 
 353:                                              ; preds = %351, %.thread198.i
-  %.1122208.i = phi i32 [ %.1122202.i, %.thread198.i ], [ %.1122.i, %351 ]
-  %.1119.i = phi i32 [ %.139.i, %.thread198.i ], [ 0, %351 ]
+  %.2123208.i = phi i32 [ %.2123202.i, %.thread198.i ], [ %.2123.i, %351 ]
+  %.2120.i = phi i32 [ %.139.i, %.thread198.i ], [ 0, %351 ]
   %354 = phi <2 x double> [ %337, %.thread198.i ], [ %328, %351 ]
   %355 = getelementptr inbounds i8, ptr %.1114219.i, i64 72
   %356 = getelementptr inbounds i8, ptr %.1114219.i, i64 80
@@ -719,8 +719,8 @@ cellOf.exit.i:                                    ; preds = %264, %260, %.lr.ph2
   %.sink.i = phi i64 [ 80, %353 ], [ 72, %347 ]
   %358 = phi i8 [ 1, %353 ], [ 0, %347 ]
   %.0126.in.i = phi ptr [ %356, %353 ], [ %349, %347 ]
-  %.2123.i = phi i32 [ %.1122208.i, %353 ], [ %.0121197.i, %347 ]
-  %.2120.i = phi i32 [ %.1119.i, %353 ], [ %.0118.i, %347 ]
+  %.1122.i = phi i32 [ %.2123208.i, %353 ], [ %.0121197.i, %347 ]
+  %.1119.i = phi i32 [ %.2120.i, %353 ], [ %.0118.i, %347 ]
   %.0116.in.i = phi ptr [ %355, %353 ], [ %350, %347 ]
   %359 = phi <2 x double> [ %354, %353 ], [ %348, %347 ]
   %360 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.sink.i
@@ -736,8 +736,8 @@ cellOf.exit.i:                                    ; preds = %264, %260, %.lr.ph2
 setSeg.exit.i:                                    ; preds = %362, %357
   %.sink25.i.i = phi double [ %.0124.i, %362 ], [ %.0126.i, %357 ]
   %.sink24.i.i = phi double [ %.0126.i, %362 ], [ %.0124.i, %357 ]
-  %.sink23.i.i = phi i32 [ %.2120.i, %362 ], [ %.2123.i, %357 ]
-  %.sink.i.i = phi i32 [ %.2123.i, %362 ], [ %.2120.i, %357 ]
+  %.sink23.i.i = phi i32 [ %.1119.i, %362 ], [ %.1122.i, %357 ]
+  %.sink.i.i = phi i32 [ %.1122.i, %362 ], [ %.1119.i, %357 ]
   %363 = add i64 %.sroa.097.0223.i, 1
   %364 = getelementptr inbounds %struct.segment, ptr %196, i64 %.sroa.097.0223.i
   store i8 %358, ptr %364, align 8
@@ -773,7 +773,7 @@ sidePt.exit153.i:                                 ; preds = %setSeg.exit.i
   %375 = fcmp ogt double %.sroa.019.0215.i, %369
   %.141.i = select i1 %375, i32 4, i32 2
   %.1125.in.i = select i1 %371, ptr %373, ptr %374
-  %.5.i = select i1 %371, i32 %.140.i, i32 %.141.i
+  %.4.i = select i1 %371, i32 %.140.i, i32 %.141.i
   %.1117.in.i = select i1 %371, ptr %374, ptr %373
   %.1117.i = load double, ptr %.1117.in.i, align 8
   %.1125.i = load double, ptr %.1125.in.i, align 8
@@ -791,7 +791,7 @@ sidePt.exit153.i:                                 ; preds = %setSeg.exit.i
   %.sroa.10.0..sroa_idx167.i = getelementptr inbounds i8, ptr %379, i64 32
   store i32 0, ptr %.sroa.10.0..sroa_idx167.i, align 8
   %.sroa.12.0..sroa_idx169.i = getelementptr inbounds i8, ptr %379, i64 36
-  store i32 %.5.i, ptr %.sroa.12.0..sroa_idx169.i, align 4
+  store i32 %.4.i, ptr %.sroa.12.0..sroa_idx169.i, align 4
   %.sroa.14172.0..sroa_idx173.i = getelementptr inbounds i8, ptr %379, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14172.0..sroa_idx173.i, i8 0, i64 16, i1 false)
   br label %380
@@ -804,26 +804,26 @@ sidePt.exit153.i:                                 ; preds = %setSeg.exit.i
   %.sroa.4.1.i = phi double [ %.sroa.4.0218.i, %275 ], [ %.sroa.5.0213.i, %sidePt.exit153.i ], [ %.sroa.5.0213.i, %setSeg.exit.i ]
   %.2115.i = phi ptr [ %.1114219.i, %275 ], [ %.0.i.i, %sidePt.exit153.i ], [ %.0.i.i, %setSeg.exit.i ]
   %.2.i = phi ptr [ %.1222.i, %275 ], [ %.0110221.i, %sidePt.exit153.i ], [ %.0110221.i, %setSeg.exit.i ]
-  %.sroa.097.2.i = phi i64 [ %.sroa.097.0223.i, %275 ], [ %378, %sidePt.exit153.i ], [ %363, %setSeg.exit.i ]
+  %.sroa.097.1.i = phi i64 [ %.sroa.097.0223.i, %275 ], [ %378, %sidePt.exit153.i ], [ %363, %setSeg.exit.i ]
   %382 = getelementptr inbounds i8, ptr %381, i64 8
   %383 = load ptr, ptr %382, align 8
   %.not129.i = icmp eq ptr %383, null
   br i1 %.not129.i, label %._crit_edge226.i, label %.lr.ph225.i
 
 ._crit_edge226.i:                                 ; preds = %380
-  %384 = icmp ugt i64 %.sroa.097.2.i, 288230376151711743
+  %384 = icmp ugt i64 %.sroa.097.1.i, 288230376151711743
   br i1 %384, label %385, label %388
 
 385:                                              ; preds = %._crit_edge226.i
   %386 = load ptr, ptr @stderr, align 8
-  %387 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %386, ptr noundef nonnull @.str.2, i64 noundef %.sroa.097.2.i, i64 noundef 64) #18
+  %387 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %386, ptr noundef nonnull @.str.2, i64 noundef %.sroa.097.1.i, i64 noundef 64) #18
   tail call fastcc void @graphviz_exit() #19
   unreachable
 
 388:                                              ; preds = %._crit_edge226.i
   %389 = shl i64 %.0112.lcssa.i, 6
-  %390 = shl nuw i64 %.sroa.097.2.i, 6
-  %391 = icmp eq i64 %.sroa.097.2.i, 0
+  %390 = shl nuw i64 %.sroa.097.1.i, 6
+  %391 = icmp eq i64 %.sroa.097.1.i, 0
   br i1 %391, label %gv_recalloc.exit.i, label %392
 
 392:                                              ; preds = %388
@@ -854,7 +854,7 @@ gv_recalloc.exit.i:                               ; preds = %388, %sidePt.exit.i
 .lr.ph231.i:                                      ; preds = %400, %398
   %invariant.gep248.i = getelementptr i8, ptr %393, i64 -64
   %invariant.gep228249.i = getelementptr i8, ptr %393, i64 64
-  %403 = add nsw i64 %.sroa.097.2.i, -1
+  %403 = add nsw i64 %.sroa.097.1.i, -1
   br label %404
 
 404:                                              ; preds = %411, %.lr.ph231.i
@@ -880,12 +880,12 @@ gv_recalloc.exit.i:                               ; preds = %388, %sidePt.exit.i
 
 411:                                              ; preds = %409, %407
   %412 = add nuw i64 %.0230.i, 1
-  %exitcond.not.i = icmp eq i64 %412, %.sroa.097.2.i
+  %exitcond.not.i = icmp eq i64 %412, %.sroa.097.1.i
   br i1 %exitcond.not.i, label %convertSPtoRoute.exit, label %404
 
 convertSPtoRoute.exit:                            ; preds = %411, %gv_recalloc.exit.i
   %.0.i.i253.i = phi ptr [ null, %gv_recalloc.exit.i ], [ %393, %411 ]
-  %.sroa.097.0.lcssa241244251.i = phi i64 [ 0, %gv_recalloc.exit.i ], [ %.sroa.097.2.i, %411 ]
+  %.sroa.097.0.lcssa241244251.i = phi i64 [ 0, %gv_recalloc.exit.i ], [ %.sroa.097.1.i, %411 ]
   store i64 %.sroa.097.0.lcssa241244251.i, ptr %191, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %191, i64 8
   store ptr %.0.i.i253.i, ptr %.sroa.2.0..sroa_idx, align 8
@@ -2858,8 +2858,8 @@ is_parallel.exit.i46:                             ; preds = %81
 
 .loopexit84:                                      ; preds = %92, %68, %139, %60
   %.0129.shrunk.i55.ph = phi i1 [ %61, %60 ], [ %.0129.shrunk.i.ph118, %139 ], [ %.0129.shrunk.i.ph118, %68 ], [ %.0129.shrunk.i.ph118, %92 ]
-  %.sroa.6.5.ph = phi i32 [ 0, %60 ], [ %spec.select25.i.i41, %139 ], [ 0, %68 ], [ 0, %92 ]
-  %.sroa.0.5.ph = phi i32 [ 0, %60 ], [ %.02453.i25, %139 ], [ %93, %92 ], [ %.02453.i25, %68 ]
+  %.sroa.6.8.ph = phi i32 [ 0, %60 ], [ %spec.select25.i.i41, %139 ], [ 0, %68 ], [ 0, %92 ]
+  %.sroa.0.8.ph = phi i32 [ 0, %60 ], [ %.02453.i25, %139 ], [ %93, %92 ], [ %.02453.i25, %68 ]
   %.0129.i58.ph = zext i1 %.0129.shrunk.i55.ph to i32
   %141 = xor i32 %.0129.i58.ph, 1
   %.0.in.i49.i = getelementptr inbounds i8, ptr %27, i64 56
@@ -3006,20 +3006,20 @@ is_parallel.exit.i16:                             ; preds = %155
   br i1 %exitcond.not.i.i, label %.loopexit, label %186
 
 .loopexit:                                        ; preds = %166, %142, %213, %.loopexit84
-  %.sroa.6.6.ph = phi i32 [ 0, %.loopexit84 ], [ %spec.select25.i.i, %213 ], [ 0, %142 ], [ 0, %166 ]
-  %.sroa.0.6.ph = phi i32 [ 0, %.loopexit84 ], [ %.02453.i, %213 ], [ %167, %166 ], [ %.02453.i, %142 ]
-  switch i32 %.sroa.6.5.ph, label %default.unreachable [
+  %.sroa.6.7.ph = phi i32 [ 0, %.loopexit84 ], [ %spec.select25.i.i, %213 ], [ 0, %142 ], [ 0, %166 ]
+  %.sroa.0.7.ph = phi i32 [ 0, %.loopexit84 ], [ %.02453.i, %213 ], [ %167, %166 ], [ %.02453.i, %142 ]
+  switch i32 %.sroa.6.8.ph, label %default.unreachable [
     i32 -1, label %215
     i32 0, label %268
     i32 1, label %278
   ]
 
 215:                                              ; preds = %.loopexit
-  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %27, i32 noundef %.0129.i58.ph, i32 noundef 0, i32 noundef %.sroa.0.5.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %27, i32 noundef %.0129.i58.ph, i32 noundef 0, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
   %216 = load ptr, ptr %28, align 8
   %217 = load ptr, ptr %19, align 8
-  tail call fastcc void @set_parallel_edges(ptr noundef %216, ptr noundef %217, i32 noundef %141, i32 noundef 1, i32 noundef %.sroa.0.6.ph, ptr noundef readonly %1)
-  %218 = icmp eq i32 %.sroa.6.6.ph, 1
+  tail call fastcc void @set_parallel_edges(ptr noundef %216, ptr noundef %217, i32 noundef %141, i32 noundef 1, i32 noundef %.sroa.0.7.ph, ptr noundef readonly %1)
+  %218 = icmp eq i32 %.sroa.6.7.ph, 1
   br i1 %218, label %219, label %is_parallel.exit.thread.i
 
 219:                                              ; preds = %215
@@ -3100,39 +3100,39 @@ removeEdge.exit.i:                                ; preds = %244, %is_parallel.e
   br label %is_parallel.exit.thread.i
 
 268:                                              ; preds = %.loopexit
-  switch i32 %.sroa.6.6.ph, label %default.unreachable [
+  switch i32 %.sroa.6.7.ph, label %default.unreachable [
     i32 -1, label %269
     i32 0, label %272
     i32 1, label %275
   ]
 
 269:                                              ; preds = %268
-  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %27, i32 noundef %.0129.i58.ph, i32 noundef 0, i32 noundef %.sroa.0.5.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %29, ptr noundef %27, i32 noundef %.0129.i58.ph, i32 noundef 0, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
   %270 = load ptr, ptr %28, align 8
   %271 = load ptr, ptr %19, align 8
-  tail call fastcc void @set_parallel_edges(ptr noundef %270, ptr noundef %271, i32 noundef %141, i32 noundef 1, i32 noundef %.sroa.0.6.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %270, ptr noundef %271, i32 noundef %141, i32 noundef 1, i32 noundef %.sroa.0.7.ph, ptr noundef readonly %1)
   br label %is_parallel.exit.thread.i
 
 272:                                              ; preds = %268
-  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.5.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
   %273 = load ptr, ptr %19, align 8
   %274 = load ptr, ptr %28, align 8
-  tail call fastcc void @set_parallel_edges(ptr noundef %273, ptr noundef %274, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.6.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %273, ptr noundef %274, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.7.ph, ptr noundef readonly %1)
   br label %is_parallel.exit.thread.i
 
 275:                                              ; preds = %268
-  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.5.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
   %276 = load ptr, ptr %19, align 8
   %277 = load ptr, ptr %28, align 8
-  tail call fastcc void @set_parallel_edges(ptr noundef %276, ptr noundef %277, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.6.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %276, ptr noundef %277, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.7.ph, ptr noundef readonly %1)
   br label %is_parallel.exit.thread.i
 
 278:                                              ; preds = %.loopexit
-  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.5.ph, ptr noundef readonly %1)
+  tail call fastcc void @set_parallel_edges(ptr noundef %27, ptr noundef %29, i32 noundef 0, i32 noundef %.0129.i58.ph, i32 noundef %.sroa.0.8.ph, ptr noundef readonly %1)
   %279 = load ptr, ptr %19, align 8
   %280 = load ptr, ptr %28, align 8
-  tail call fastcc void @set_parallel_edges(ptr noundef %279, ptr noundef %280, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.6.ph, ptr noundef readonly %1)
-  %281 = icmp eq i32 %.sroa.6.6.ph, -1
+  tail call fastcc void @set_parallel_edges(ptr noundef %279, ptr noundef %280, i32 noundef 1, i32 noundef %141, i32 noundef %.sroa.0.7.ph, ptr noundef readonly %1)
+  %281 = icmp eq i32 %.sroa.6.7.ph, -1
   br i1 %281, label %282, label %is_parallel.exit.thread.i
 
 282:                                              ; preds = %278

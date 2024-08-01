@@ -700,7 +700,7 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.0180 = phi ptr [ %68, %.lr.ph.preheader.i ], [ %98, %.lr.ph.i ]
+  %.3 = phi ptr [ %68, %.lr.ph.preheader.i ], [ %98, %.lr.ph.i ]
   %91 = phi i32 [ %.0133.lcssa, %.lr.ph.preheader.i ], [ %100, %.lr.ph.i ]
   %92 = phi i32 [ 32, %.lr.ph.preheader.i ], [ %101, %.lr.ph.i ]
   %93 = add nsw i32 %92, -8
@@ -709,8 +709,8 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   %95 = xor i32 %94, -1
   %96 = lshr i32 %91, %93
   %97 = trunc i32 %96 to i8
-  store i8 %97, ptr %.0180, align 1
-  %98 = getelementptr inbounds i8, ptr %.0180, i64 1
+  store i8 %97, ptr %.3, align 1
+  %98 = getelementptr inbounds i8, ptr %.3, i64 1
   %99 = load i32, ptr %0, align 4
   %100 = and i32 %99, %95
   store i32 %100, ptr %0, align 4
@@ -744,7 +744,7 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
   %106 = phi i32 [ %101, %.preheader189.preheader ], [ %201, %203 ]
   %107 = phi i32 [ %100, %.preheader189.preheader ], [ %202, %203 ]
   %indvars.iv256 = phi i64 [ 0, %.preheader189.preheader ], [ %indvars.iv.next257, %203 ]
-  %.2182213 = phi ptr [ %98, %.preheader189.preheader ], [ %.11, %203 ]
+  %.0180213 = phi ptr [ %98, %.preheader189.preheader ], [ %.19, %203 ]
   %.idx = mul i64 %indvars.iv256, 12
   %invariant.gep = getelementptr i8, ptr %1, i64 %.idx
   br label %108
@@ -824,7 +824,7 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
   br i1 %132, label %.lr.ph.i.i, label %Ptngc_out8bits.exit.i
 
 .lr.ph.i.i:                                       ; preds = %128, %.lr.ph.i.i
-  %.3 = phi ptr [ %140, %.lr.ph.i.i ], [ %.2182213, %128 ]
+  %.7 = phi ptr [ %140, %.lr.ph.i.i ], [ %.0180213, %128 ]
   %133 = phi i32 [ %142, %.lr.ph.i.i ], [ %131, %128 ]
   %134 = phi i32 [ %143, %.lr.ph.i.i ], [ %130, %128 ]
   %135 = add nsw i32 %134, -8
@@ -833,8 +833,8 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
   %137 = xor i32 %136, -1
   %138 = lshr i32 %133, %135
   %139 = trunc i32 %138 to i8
-  store i8 %139, ptr %.3, align 1
-  %140 = getelementptr inbounds i8, ptr %.3, i64 1
+  store i8 %139, ptr %.7, align 1
+  %140 = getelementptr inbounds i8, ptr %.7, i64 1
   %141 = load i32, ptr %0, align 4
   %142 = and i32 %141, %137
   store i32 %142, ptr %0, align 4
@@ -845,7 +845,7 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
 Ptngc_out8bits.exit.i:                            ; preds = %.lr.ph.i.i, %128
   %145 = phi i32 [ %130, %128 ], [ %143, %.lr.ph.i.i ]
   %146 = phi i32 [ %131, %128 ], [ %142, %.lr.ph.i.i ]
-  %.4 = phi ptr [ %.2182213, %128 ], [ %140, %.lr.ph.i.i ]
+  %.5 = phi ptr [ %.0180213, %128 ], [ %140, %.lr.ph.i.i ]
   %147 = icmp sgt i32 %.0.i, 7
   %148 = add nsw i32 %.0.i, -8
   %149 = shl i32 255, %148
@@ -858,14 +858,14 @@ Ptngc_out8bits.exit.i:                            ; preds = %.lr.ph.i.i, %128
 153:                                              ; preds = %Ptngc_write32bits.exit, %Ptngc_out8bits.exit.i
   %.pre26.i = phi i32 [ %145, %Ptngc_out8bits.exit.i ], [ %201, %Ptngc_write32bits.exit ]
   %.pre.i165 = phi i32 [ %146, %Ptngc_out8bits.exit.i ], [ %202, %Ptngc_write32bits.exit ]
-  %.5 = phi ptr [ %.4, %Ptngc_out8bits.exit.i ], [ %.11, %Ptngc_write32bits.exit ]
+  %.6 = phi ptr [ %.5, %Ptngc_out8bits.exit.i ], [ %.19, %Ptngc_write32bits.exit ]
   %indvars.iv44.i = phi i64 [ 0, %Ptngc_out8bits.exit.i ], [ %indvars.iv.next45.i, %Ptngc_write32bits.exit ]
   %154 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv44.i
   %155 = load i32, ptr %154, align 4
   br i1 %152, label %.lr.ph.i164, label %._crit_edge.i160
 
 .lr.ph.i164:                                      ; preds = %153, %Ptngc_out8bits.exit.i166
-  %.6 = phi ptr [ %.8, %Ptngc_out8bits.exit.i166 ], [ %.5, %153 ]
+  %.16 = phi ptr [ %.17, %Ptngc_out8bits.exit.i166 ], [ %.6, %153 ]
   %156 = phi i32 [ %177, %Ptngc_out8bits.exit.i166 ], [ %.pre26.i, %153 ]
   %157 = phi i32 [ %178, %Ptngc_out8bits.exit.i166 ], [ %.pre.i165, %153 ]
   %.123.i = phi i32 [ %179, %Ptngc_out8bits.exit.i166 ], [ %.0.i159, %153 ]
@@ -882,7 +882,7 @@ Ptngc_out8bits.exit.i:                            ; preds = %.lr.ph.i.i, %128
   br i1 %164, label %.lr.ph.i.i167, label %Ptngc_out8bits.exit.i166
 
 .lr.ph.i.i167:                                    ; preds = %.lr.ph.i164, %.lr.ph.i.i167
-  %.7 = phi ptr [ %172, %.lr.ph.i.i167 ], [ %.6, %.lr.ph.i164 ]
+  %.18 = phi ptr [ %172, %.lr.ph.i.i167 ], [ %.16, %.lr.ph.i164 ]
   %165 = phi i32 [ %174, %.lr.ph.i.i167 ], [ %163, %.lr.ph.i164 ]
   %166 = phi i32 [ %175, %.lr.ph.i.i167 ], [ %160, %.lr.ph.i164 ]
   %167 = add nsw i32 %166, -8
@@ -891,8 +891,8 @@ Ptngc_out8bits.exit.i:                            ; preds = %.lr.ph.i.i, %128
   %169 = xor i32 %168, -1
   %170 = lshr i32 %165, %167
   %171 = trunc i32 %170 to i8
-  store i8 %171, ptr %.7, align 1
-  %172 = getelementptr inbounds i8, ptr %.7, i64 1
+  store i8 %171, ptr %.18, align 1
+  %172 = getelementptr inbounds i8, ptr %.18, i64 1
   %173 = load i32, ptr %0, align 4
   %174 = and i32 %173, %169
   store i32 %174, ptr %0, align 4
@@ -903,7 +903,7 @@ Ptngc_out8bits.exit.i:                            ; preds = %.lr.ph.i.i, %128
 Ptngc_out8bits.exit.i166:                         ; preds = %.lr.ph.i.i167, %.lr.ph.i164
   %177 = phi i32 [ %160, %.lr.ph.i164 ], [ %175, %.lr.ph.i.i167 ]
   %178 = phi i32 [ %163, %.lr.ph.i164 ], [ %174, %.lr.ph.i.i167 ]
-  %.8 = phi ptr [ %.6, %.lr.ph.i164 ], [ %172, %.lr.ph.i.i167 ]
+  %.17 = phi ptr [ %.16, %.lr.ph.i164 ], [ %172, %.lr.ph.i.i167 ]
   %179 = lshr i32 %.123.i, 8
   %180 = icmp sgt i32 %.01922.i, 16
   br i1 %180, label %.lr.ph.i164, label %._crit_edge.i160, !llvm.loop !7
@@ -911,7 +911,7 @@ Ptngc_out8bits.exit.i166:                         ; preds = %.lr.ph.i.i167, %.lr
 ._crit_edge.i160:                                 ; preds = %Ptngc_out8bits.exit.i166, %153
   %181 = phi i32 [ %.pre26.i, %153 ], [ %177, %Ptngc_out8bits.exit.i166 ]
   %182 = phi i32 [ %.pre.i165, %153 ], [ %178, %Ptngc_out8bits.exit.i166 ]
-  %.9 = phi ptr [ %.5, %153 ], [ %.8, %Ptngc_out8bits.exit.i166 ]
+  %.14 = phi ptr [ %.6, %153 ], [ %.17, %Ptngc_out8bits.exit.i166 ]
   %.019.lcssa.i = phi i32 [ %.0.i, %153 ], [ %158, %Ptngc_out8bits.exit.i166 ]
   %.1.lcssa.i161 = phi i32 [ %.0.i159, %153 ], [ %179, %Ptngc_out8bits.exit.i166 ]
   %.not.i162 = icmp eq i32 %.019.lcssa.i, 0
@@ -928,7 +928,7 @@ Ptngc_out8bits.exit.i166:                         ; preds = %.lr.ph.i.i167, %.lr
   br i1 %188, label %.lr.ph.i.i.i163, label %Ptngc_write32bits.exit
 
 .lr.ph.i.i.i163:                                  ; preds = %183, %.lr.ph.i.i.i163
-  %.10 = phi ptr [ %196, %.lr.ph.i.i.i163 ], [ %.9, %183 ]
+  %.15 = phi ptr [ %196, %.lr.ph.i.i.i163 ], [ %.14, %183 ]
   %189 = phi i32 [ %198, %.lr.ph.i.i.i163 ], [ %187, %183 ]
   %190 = phi i32 [ %199, %.lr.ph.i.i.i163 ], [ %186, %183 ]
   %191 = add nsw i32 %190, -8
@@ -937,8 +937,8 @@ Ptngc_out8bits.exit.i166:                         ; preds = %.lr.ph.i.i167, %.lr
   %193 = xor i32 %192, -1
   %194 = lshr i32 %189, %191
   %195 = trunc i32 %194 to i8
-  store i8 %195, ptr %.10, align 1
-  %196 = getelementptr inbounds i8, ptr %.10, i64 1
+  store i8 %195, ptr %.15, align 1
+  %196 = getelementptr inbounds i8, ptr %.15, i64 1
   %197 = load i32, ptr %0, align 4
   %198 = and i32 %197, %193
   store i32 %198, ptr %0, align 4
@@ -949,7 +949,7 @@ Ptngc_out8bits.exit.i166:                         ; preds = %.lr.ph.i.i167, %.lr
 Ptngc_write32bits.exit:                           ; preds = %.lr.ph.i.i.i163, %._crit_edge.i160, %183
   %201 = phi i32 [ %181, %._crit_edge.i160 ], [ %186, %183 ], [ %199, %.lr.ph.i.i.i163 ]
   %202 = phi i32 [ %182, %._crit_edge.i160 ], [ %187, %183 ], [ %198, %.lr.ph.i.i.i163 ]
-  %.11 = phi ptr [ %.9, %._crit_edge.i160 ], [ %.9, %183 ], [ %196, %.lr.ph.i.i.i163 ]
+  %.19 = phi ptr [ %.14, %._crit_edge.i160 ], [ %.14, %183 ], [ %196, %.lr.ph.i.i.i163 ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 3
   br i1 %exitcond47.not.i, label %203, label %153, !llvm.loop !19
@@ -965,7 +965,7 @@ pack_triplet.exit:                                ; preds = %126
 
 .lr.ph218:                                        ; preds = %.preheader188, %pack_stopbits_item.exit
   %indvars.iv261 = phi i64 [ %indvars.iv.next262, %pack_stopbits_item.exit ], [ 0, %.preheader188 ]
-  %.13216 = phi ptr [ %.16, %pack_stopbits_item.exit ], [ %68, %.preheader188 ]
+  %.2182216 = phi ptr [ %.10, %pack_stopbits_item.exit ], [ %68, %.preheader188 ]
   %204 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv261
   %205 = load i32, ptr %204, align 4
   %206 = icmp sgt i32 %205, 0
@@ -991,7 +991,7 @@ pack_triplet.exit:                                ; preds = %126
   br label %216
 
 216:                                              ; preds = %.preheader, %Ptngc_out8bits.exit.i.i
-  %.14 = phi ptr [ %.16, %Ptngc_out8bits.exit.i.i ], [ %.13216, %.preheader ]
+  %.9 = phi ptr [ %.10, %Ptngc_out8bits.exit.i.i ], [ %.2182216, %.preheader ]
   %.021.i.i = phi i32 [ %spec.store.select.i.i, %Ptngc_out8bits.exit.i.i ], [ %4, %.preheader ]
   %.020.i.i = phi i32 [ %221, %Ptngc_out8bits.exit.i.i ], [ %.020.i.i.ph, %.preheader ]
   %217 = shl nsw i32 -1, %.021.i.i
@@ -1023,7 +1023,7 @@ pack_triplet.exit:                                ; preds = %126
   br i1 %233, label %.lr.ph.i.i.i, label %Ptngc_out8bits.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %226, %.lr.ph.i.i.i
-  %.15 = phi ptr [ %241, %.lr.ph.i.i.i ], [ %.14, %226 ]
+  %.11 = phi ptr [ %241, %.lr.ph.i.i.i ], [ %.9, %226 ]
   %234 = phi i32 [ %243, %.lr.ph.i.i.i ], [ %232, %226 ]
   %235 = phi i32 [ %244, %.lr.ph.i.i.i ], [ %231, %226 ]
   %236 = add nsw i32 %235, -8
@@ -1032,8 +1032,8 @@ pack_triplet.exit:                                ; preds = %126
   %238 = xor i32 %237, -1
   %239 = lshr i32 %234, %236
   %240 = trunc i32 %239 to i8
-  store i8 %240, ptr %.15, align 1
-  %241 = getelementptr inbounds i8, ptr %.15, i64 1
+  store i8 %240, ptr %.11, align 1
+  %241 = getelementptr inbounds i8, ptr %.11, i64 1
   %242 = load i32, ptr %0, align 4
   %243 = and i32 %242, %238
   store i32 %243, ptr %0, align 4
@@ -1043,7 +1043,7 @@ pack_triplet.exit:                                ; preds = %126
 
 Ptngc_out8bits.exit.i.i:                          ; preds = %.lr.ph.i.i.i, %226
   %246 = phi i32 [ %231, %226 ], [ %244, %.lr.ph.i.i.i ]
-  %.16 = phi ptr [ %.14, %226 ], [ %241, %.lr.ph.i.i.i ]
+  %.10 = phi ptr [ %.9, %226 ], [ %241, %.lr.ph.i.i.i ]
   %247 = lshr i32 %.021.i.i, 1
   %.inv.i.i = icmp ugt i32 %.021.i.i, 1
   %spec.store.select.i.i = select i1 %.inv.i.i, i32 %247, i32 1
@@ -1061,7 +1061,7 @@ pack_stopbits_item.exit:                          ; preds = %Ptngc_out8bits.exit
 
 .loopexit:                                        ; preds = %203, %pack_stopbits_item.exit, %.preheader188..loopexit_crit_edge, %.preheader190
   %253 = phi i32 [ %.pre, %.preheader188..loopexit_crit_edge ], [ %101, %.preheader190 ], [ %246, %pack_stopbits_item.exit ], [ %201, %203 ]
-  %.17 = phi ptr [ %68, %.preheader188..loopexit_crit_edge ], [ %98, %.preheader190 ], [ %.16, %pack_stopbits_item.exit ], [ %.11, %203 ]
+  %.1181 = phi ptr [ %68, %.preheader188..loopexit_crit_edge ], [ %98, %.preheader190 ], [ %.10, %pack_stopbits_item.exit ], [ %.19, %203 ]
   %254 = getelementptr inbounds i8, ptr %0, i64 4
   %255 = icmp sgt i32 %253, 0
   br i1 %255, label %._crit_edge.i.i, label %Ptngc_pack_flush.exit
@@ -1074,7 +1074,7 @@ pack_stopbits_item.exit:                          ; preds = %Ptngc_out8bits.exit
   br label %.lr.ph.i.i.i158
 
 .lr.ph.i.i.i158:                                  ; preds = %.lr.ph.i.i.i158, %._crit_edge.i.i
-  %.18 = phi ptr [ %.17, %._crit_edge.i.i ], [ %266, %.lr.ph.i.i.i158 ]
+  %.12 = phi ptr [ %.1181, %._crit_edge.i.i ], [ %266, %.lr.ph.i.i.i158 ]
   %259 = phi i32 [ %258, %._crit_edge.i.i ], [ %268, %.lr.ph.i.i.i158 ]
   %260 = phi i32 [ 8, %._crit_edge.i.i ], [ %269, %.lr.ph.i.i.i158 ]
   %261 = add nsw i32 %260, -8
@@ -1083,8 +1083,8 @@ pack_stopbits_item.exit:                          ; preds = %Ptngc_out8bits.exit
   %263 = xor i32 %262, -1
   %264 = lshr i32 %259, %261
   %265 = trunc i32 %264 to i8
-  store i8 %265, ptr %.18, align 1
-  %266 = getelementptr inbounds i8, ptr %.18, i64 1
+  store i8 %265, ptr %.12, align 1
+  %266 = getelementptr inbounds i8, ptr %.12, i64 1
   %267 = load i32, ptr %0, align 4
   %268 = and i32 %267, %263
   store i32 %268, ptr %0, align 4
@@ -1093,8 +1093,8 @@ pack_stopbits_item.exit:                          ; preds = %Ptngc_out8bits.exit
   br i1 %270, label %.lr.ph.i.i.i158, label %Ptngc_pack_flush.exit, !llvm.loop !4
 
 Ptngc_pack_flush.exit:                            ; preds = %.lr.ph.i.i.i158, %.loopexit
-  %.19 = phi ptr [ %.17, %.loopexit ], [ %266, %.lr.ph.i.i.i158 ]
-  %271 = ptrtoint ptr %.19 to i64
+  %.13 = phi ptr [ %.1181, %.loopexit ], [ %266, %.lr.ph.i.i.i158 ]
+  %271 = ptrtoint ptr %.13 to i64
   %272 = ptrtoint ptr %68 to i64
   %273 = sub i64 %271, %272
   %274 = trunc i64 %273 to i32

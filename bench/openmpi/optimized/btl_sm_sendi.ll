@@ -531,17 +531,17 @@ define internal fastcc noundef zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef %0,
 
 .critedge:                                        ; preds = %43, %57
   %.pre-phi = phi i64 [ %54, %43 ], [ %.pre114, %57 ]
-  %.091 = phi i32 [ %32, %43 ], [ 32, %57 ]
-  %.089 = phi i32 [ %53, %43 ], [ %67, %57 ]
-  %.087 = phi ptr [ %40, %43 ], [ %69, %57 ]
-  %.0 = phi i8 [ %27, %43 ], [ %63, %57 ]
+  %.192 = phi i32 [ %32, %43 ], [ 32, %57 ]
+  %.190 = phi i32 [ %53, %43 ], [ %67, %57 ]
+  %.188 = phi ptr [ %40, %43 ], [ %69, %57 ]
+  %.1 = phi i8 [ %27, %43 ], [ %63, %57 ]
   %70 = icmp ugt i64 %38, %.pre-phi
   br i1 %70, label %71, label %77
 
 71:                                               ; preds = %.critedge
-  %72 = zext nneg i8 %.0 to i32
+  %72 = zext nneg i8 %.1 to i32
   %73 = shl nuw i32 %72, 31
-  %74 = or disjoint i32 %73, %.091
+  %74 = or disjoint i32 %73, %.192
   store i32 %74, ptr %24, align 4
   fence release
   %75 = load i8, ptr @opal_uses_threads, align 1
@@ -549,11 +549,11 @@ define internal fastcc noundef zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef %0,
   br i1 %76, label %.sink.split, label %107
 
 77:                                               ; preds = %.critedge, %22
-  %.192 = phi i32 [ %.091, %.critedge ], [ %32, %22 ]
-  %.190 = phi i32 [ %.089, %.critedge ], [ %36, %22 ]
-  %.188 = phi ptr [ %.087, %.critedge ], [ %40, %22 ]
-  %.1 = phi i8 [ %.0, %.critedge ], [ %27, %22 ]
-  %78 = getelementptr inbounds i8, ptr %.188, i64 8
+  %.091 = phi i32 [ %.192, %.critedge ], [ %32, %22 ]
+  %.089 = phi i32 [ %.190, %.critedge ], [ %36, %22 ]
+  %.087 = phi ptr [ %.188, %.critedge ], [ %40, %22 ]
+  %.0 = phi i8 [ %.1, %.critedge ], [ %27, %22 ]
+  %78 = getelementptr inbounds i8, ptr %.087, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %78, ptr align 1 %2, i64 %3, i1 false)
   %.not106 = icmp eq ptr %4, null
   br i1 %.not106, label %81, label %79
@@ -565,16 +565,16 @@ define internal fastcc noundef zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef %0,
 
 81:                                               ; preds = %79, %77
   %82 = trunc i64 %38 to i32
-  %83 = add nuw i32 %.192, %82
+  %83 = add nuw i32 %.091, %82
   %84 = icmp eq i32 %7, %83
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %81
-  %86 = xor i8 %.1, 1
+  %86 = xor i8 %.0, 1
   br label %94
 
 87:                                               ; preds = %81
-  %88 = zext i32 %.190 to i64
+  %88 = zext i32 %.089 to i64
   %89 = icmp ult i64 %38, %88
   br i1 %89, label %90, label %94
 
@@ -587,16 +587,16 @@ define internal fastcc noundef zeroext i1 @mca_btl_sm_fbox_sendi(ptr noundef %0,
 
 94:                                               ; preds = %87, %90, %85
   %.293 = phi i32 [ 32, %85 ], [ %83, %90 ], [ %83, %87 ]
-  %.2 = phi i8 [ %86, %85 ], [ %.1, %90 ], [ %.1, %87 ]
+  %.2 = phi i8 [ %86, %85 ], [ %.0, %90 ], [ %.0, %87 ]
   %95 = getelementptr inbounds i8, ptr %0, i64 88
   %96 = load i16, ptr %95, align 8
   %97 = add i16 %96, 1
   store i16 %97, ptr %95, align 8
   %98 = trunc nuw nsw i64 %8 to i32
-  %99 = getelementptr inbounds i8, ptr %.188, i64 4
+  %99 = getelementptr inbounds i8, ptr %.087, i64 4
   store i32 0, ptr %99, align 4
   fence release
-  store i32 %98, ptr %.188, align 8
+  store i32 %98, ptr %.087, align 8
   fence release
   %.sroa.3.4.insert.ext.i111 = zext i16 %96 to i32
   %.sroa.3.4.insert.shift.i112 = shl nuw i32 %.sroa.3.4.insert.ext.i111, 16

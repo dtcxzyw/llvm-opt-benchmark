@@ -293,12 +293,12 @@ define dso_local void @ReorderBufferReturnChange(ptr nocapture noundef %0, ptr n
   br label %16
 
 16:                                               ; preds = %12, %7
-  %.0.i = phi i64 [ %15, %12 ], [ 80, %7 ]
+  %.1.i = phi i64 [ %15, %12 ], [ 80, %7 ]
   %.not27.i = icmp eq ptr %11, null
   br i1 %.not27.i, label %ReorderBufferChangeSize.exit, label %17
 
 17:                                               ; preds = %16
-  %18 = add nuw nsw i64 %.0.i, 24
+  %18 = add nuw nsw i64 %.1.i, 24
   %19 = load i32, ptr %11, align 8
   %20 = zext i32 %19 to i64
   %21 = add nuw nsw i64 %18, %20
@@ -344,12 +344,12 @@ define dso_local void @ReorderBufferReturnChange(ptr nocapture noundef %0, ptr n
   br label %ReorderBufferChangeSize.exit.thread
 
 ReorderBufferChangeSize.exit:                     ; preds = %4, %16, %17
-  %.1.i = phi i64 [ 80, %4 ], [ %21, %17 ], [ %.0.i, %16 ]
+  %.0.i = phi i64 [ 80, %4 ], [ %21, %17 ], [ %.1.i, %16 ]
   %53 = icmp eq i32 %6, 7
   br i1 %53, label %ReorderBufferChangeMemoryUpdate.exit, label %ReorderBufferChangeSize.exit.thread
 
 ReorderBufferChangeSize.exit.thread:              ; preds = %48, %36, %30, %22, %ReorderBufferChangeSize.exit
-  %.1.i42 = phi i64 [ %.1.i, %ReorderBufferChangeSize.exit ], [ %29, %22 ], [ %35, %30 ], [ %47, %36 ], [ %52, %48 ]
+  %.0.i42 = phi i64 [ %.0.i, %ReorderBufferChangeSize.exit ], [ %29, %22 ], [ %35, %30 ], [ %47, %36 ], [ %52, %48 ]
   %54 = getelementptr inbounds i8, ptr %1, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 48
@@ -360,13 +360,13 @@ ReorderBufferChangeSize.exit.thread:              ; preds = %48, %36, %30, %22, 
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 296
   %61 = getelementptr inbounds i8, ptr %..i, i64 280
-  %62 = sub i64 %59, %.1.i42
+  %62 = sub i64 %59, %.0.i42
   store i64 %62, ptr %58, align 8
   %63 = load i64, ptr %60, align 8
-  %64 = sub i64 %63, %.1.i42
+  %64 = sub i64 %63, %.0.i42
   store i64 %64, ptr %60, align 8
   %65 = load i64, ptr %61, align 8
-  %66 = sub i64 %65, %.1.i42
+  %66 = sub i64 %65, %.0.i42
   store i64 %66, ptr %61, align 8
   br label %ReorderBufferChangeMemoryUpdate.exit
 
@@ -602,12 +602,12 @@ dlist_push_tail.exit:                             ; preds = %20, %27
   br label %44
 
 44:                                               ; preds = %40, %35
-  %.0.i = phi i64 [ %43, %40 ], [ 80, %35 ]
+  %.1.i = phi i64 [ %43, %40 ], [ 80, %35 ]
   %.not27.i = icmp eq ptr %39, null
   br i1 %.not27.i, label %ReorderBufferChangeSize.exit, label %45
 
 45:                                               ; preds = %44
-  %46 = add nuw nsw i64 %.0.i, 24
+  %46 = add nuw nsw i64 %.1.i, 24
   %47 = load i32, ptr %39, align 8
   %48 = zext i32 %47 to i64
   %49 = add nuw nsw i64 %46, %48
@@ -653,12 +653,12 @@ dlist_push_tail.exit:                             ; preds = %20, %27
   br label %ReorderBufferChangeSize.exit.thread
 
 ReorderBufferChangeSize.exit:                     ; preds = %dlist_push_tail.exit, %44, %45
-  %.1.i = phi i64 [ 80, %dlist_push_tail.exit ], [ %49, %45 ], [ %.0.i, %44 ]
+  %.0.i = phi i64 [ 80, %dlist_push_tail.exit ], [ %49, %45 ], [ %.1.i, %44 ]
   %81 = icmp eq i32 %34, 7
   br i1 %81, label %ReorderBufferChangeMemoryUpdate.exit, label %ReorderBufferChangeSize.exit.thread
 
 ReorderBufferChangeSize.exit.thread:              ; preds = %76, %64, %58, %50, %ReorderBufferChangeSize.exit
-  %.1.i43 = phi i64 [ %.1.i, %ReorderBufferChangeSize.exit ], [ %57, %50 ], [ %63, %58 ], [ %75, %64 ], [ %80, %76 ]
+  %.0.i43 = phi i64 [ %.0.i, %ReorderBufferChangeSize.exit ], [ %57, %50 ], [ %63, %58 ], [ %75, %64 ], [ %80, %76 ]
   %82 = load ptr, ptr %21, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 48
   %84 = load ptr, ptr %83, align 8
@@ -668,13 +668,13 @@ ReorderBufferChangeSize.exit.thread:              ; preds = %76, %64, %58, %50, 
   %86 = load i64, ptr %85, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 296
   %88 = getelementptr inbounds i8, ptr %..i, i64 280
-  %89 = add i64 %86, %.1.i43
+  %89 = add i64 %86, %.0.i43
   store i64 %89, ptr %85, align 8
   %90 = load i64, ptr %87, align 8
-  %91 = add i64 %90, %.1.i43
+  %91 = add i64 %90, %.0.i43
   store i64 %91, ptr %87, align 8
   %92 = load i64, ptr %88, align 8
-  %93 = add i64 %92, %.1.i43
+  %93 = add i64 %92, %.0.i43
   store i64 %93, ptr %88, align 8
   br label %ReorderBufferChangeMemoryUpdate.exit
 
@@ -4382,23 +4382,23 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   br label %271
 
 271:                                              ; preds = %269, %SetupCheckXidLive.exit, %SetupCheckXidLive.exit, %SetupCheckXidLive.exit
-  %.0 = phi ptr [ %189, %SetupCheckXidLive.exit ], [ %189, %SetupCheckXidLive.exit ], [ %189, %SetupCheckXidLive.exit ], [ %.0..0..0..0.92, %269 ]
-  %272 = getelementptr inbounds i8, ptr %.0, i64 32
+  %.1 = phi ptr [ %189, %SetupCheckXidLive.exit ], [ %189, %SetupCheckXidLive.exit ], [ %189, %SetupCheckXidLive.exit ], [ %.0..0..0..0.92, %269 ]
+  %272 = getelementptr inbounds i8, ptr %.1, i64 32
   %273 = load i32, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %.0, i64 40
+  %274 = getelementptr inbounds i8, ptr %.1, i64 40
   %275 = load i32, ptr %274, align 8
   %276 = call i32 @RelidByRelfilenumber(i32 noundef %273, i32 noundef %275) #17
   %277 = icmp eq i32 %276, 0
   br i1 %277, label %278, label %.critedge
 
 278:                                              ; preds = %271
-  %279 = getelementptr inbounds i8, ptr %.0, i64 56
+  %279 = getelementptr inbounds i8, ptr %.1, i64 56
   %280 = load ptr, ptr %279, align 8
   %281 = icmp eq ptr %280, null
   br i1 %281, label %282, label %286
 
 282:                                              ; preds = %278
-  %283 = getelementptr inbounds i8, ptr %.0, i64 48
+  %283 = getelementptr inbounds i8, ptr %.1, i64 48
   %284 = load ptr, ptr %283, align 8
   %285 = icmp eq ptr %284, null
   br i1 %285, label %585, label %286
@@ -4406,7 +4406,7 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
 286:                                              ; preds = %278, %282
   %287 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   call void @llvm.assume(i1 %287)
-  %288 = getelementptr inbounds i8, ptr %.0, i64 36
+  %288 = getelementptr inbounds i8, ptr %.1, i64 36
   %289 = load i32, ptr %288, align 4
   %290 = load i32, ptr %272, align 8
   %291 = load i32, ptr %274, align 8
@@ -4423,7 +4423,7 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
 295:                                              ; preds = %.critedge
   %296 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
   call void @llvm.assume(i1 %296)
-  %297 = getelementptr inbounds i8, ptr %.0, i64 36
+  %297 = getelementptr inbounds i8, ptr %.1, i64 36
   %298 = load i32, ptr %297, align 4
   %299 = load i32, ptr %272, align 8
   %300 = load i32, ptr %274, align 8
@@ -4485,7 +4485,7 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   br i1 %332, label %ReorderBufferToastReplace.exit, label %333
 
 333:                                              ; preds = %330
-  %334 = getelementptr inbounds i8, ptr %.0, i64 8
+  %334 = getelementptr inbounds i8, ptr %.1, i64 8
   %335 = load i32, ptr %334, align 8
   switch i32 %335, label %ReorderBufferChangeSize.exit.i [
     i32 0, label %336
@@ -4499,9 +4499,9 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   ]
 
 336:                                              ; preds = %333, %333, %333, %333
-  %337 = getelementptr inbounds i8, ptr %.0, i64 48
+  %337 = getelementptr inbounds i8, ptr %.1, i64 48
   %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds i8, ptr %.0, i64 56
+  %339 = getelementptr inbounds i8, ptr %.1, i64 56
   %340 = load ptr, ptr %339, align 8
   %.not.i.i = icmp eq ptr %338, null
   br i1 %.not.i.i, label %345, label %341
@@ -4513,12 +4513,12 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   br label %345
 
 345:                                              ; preds = %341, %336
-  %.0.i.i = phi i64 [ %344, %341 ], [ 80, %336 ]
+  %.1.i.i = phi i64 [ %344, %341 ], [ 80, %336 ]
   %.not27.i.i = icmp eq ptr %340, null
   br i1 %.not27.i.i, label %ReorderBufferChangeSize.exit.i, label %346
 
 346:                                              ; preds = %345
-  %347 = add nuw nsw i64 %.0.i.i, 24
+  %347 = add nuw nsw i64 %.1.i.i, 24
   %348 = load i32, ptr %340, align 8
   %349 = zext i32 %348 to i64
   %350 = add nuw nsw i64 %347, %349
@@ -4559,7 +4559,7 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   br label %ReorderBufferChangeSize.exit.i
 
 ReorderBufferChangeSize.exit.i:                   ; preds = %373, %362, %357, %351, %346, %345, %333
-  %.1.i.i = phi i64 [ 80, %333 ], [ %376, %373 ], [ %372, %362 ], [ %361, %357 ], [ %356, %351 ], [ %350, %346 ], [ %.0.i.i, %345 ]
+  %.0.i.i = phi i64 [ 80, %333 ], [ %376, %373 ], [ %372, %362 ], [ %361, %357 ], [ %356, %351 ], [ %350, %346 ], [ %.1.i.i, %345 ]
   %377 = load ptr, ptr %87, align 8
   %378 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %377, ptr @CurrentMemoryContext, align 8
@@ -4596,7 +4596,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %373, %362, %357, %3
   %402 = load i32, ptr %380, align 8
   %403 = sext i32 %402 to i64
   %404 = call ptr @palloc0(i64 noundef %403) #17
-  %405 = getelementptr inbounds i8, ptr %.0, i64 56
+  %405 = getelementptr inbounds i8, ptr %.1, i64 56
   %406 = load ptr, ptr %405, align 8
   call void @heap_deform_tuple(ptr noundef %406, ptr noundef nonnull %380, ptr noundef %398, ptr noundef %401) #17
   %407 = load i32, ptr %380, align 8
@@ -4772,7 +4772,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %373, %362, %357, %3
   br i1 %503, label %ReorderBufferToastReplace.exit, label %ReorderBufferChangeMemoryUpdate.exit.i
 
 ReorderBufferChangeMemoryUpdate.exit.i:           ; preds = %._crit_edge122.i
-  %504 = getelementptr inbounds i8, ptr %.0, i64 16
+  %504 = getelementptr inbounds i8, ptr %.1, i64 16
   %505 = load ptr, ptr %504, align 8
   %506 = getelementptr inbounds i8, ptr %505, i64 48
   %507 = load ptr, ptr %506, align 8
@@ -4781,13 +4781,13 @@ ReorderBufferChangeMemoryUpdate.exit.i:           ; preds = %._crit_edge122.i
   %508 = getelementptr inbounds i8, ptr %505, i64 272
   %509 = load i64, ptr %508, align 8
   %510 = getelementptr inbounds i8, ptr %..i.i, i64 280
-  %511 = sub i64 %509, %.1.i.i
+  %511 = sub i64 %509, %.0.i.i
   store i64 %511, ptr %508, align 8
   %512 = load i64, ptr %166, align 8
-  %513 = sub i64 %512, %.1.i.i
+  %513 = sub i64 %512, %.0.i.i
   store i64 %513, ptr %166, align 8
   %514 = load i64, ptr %510, align 8
-  %515 = sub i64 %514, %.1.i.i
+  %515 = sub i64 %514, %.0.i.i
   store i64 %515, ptr %510, align 8
   %.pr.i = load i32, ptr %334, align 8
   switch i32 %.pr.i, label %ReorderBufferChangeSize.exit103.i [
@@ -4802,7 +4802,7 @@ ReorderBufferChangeMemoryUpdate.exit.i:           ; preds = %._crit_edge122.i
   ]
 
 516:                                              ; preds = %ReorderBufferChangeMemoryUpdate.exit.i, %ReorderBufferChangeMemoryUpdate.exit.i, %ReorderBufferChangeMemoryUpdate.exit.i, %ReorderBufferChangeMemoryUpdate.exit.i
-  %517 = getelementptr inbounds i8, ptr %.0, i64 48
+  %517 = getelementptr inbounds i8, ptr %.1, i64 48
   %518 = load ptr, ptr %517, align 8
   %519 = load ptr, ptr %405, align 8
   %.not.i100.i = icmp eq ptr %518, null
@@ -4815,12 +4815,12 @@ ReorderBufferChangeMemoryUpdate.exit.i:           ; preds = %._crit_edge122.i
   br label %524
 
 524:                                              ; preds = %520, %516
-  %.0.i101.i = phi i64 [ %523, %520 ], [ 80, %516 ]
+  %.1.i101.i = phi i64 [ %523, %520 ], [ 80, %516 ]
   %.not27.i102.i = icmp eq ptr %519, null
   br i1 %.not27.i102.i, label %ReorderBufferChangeSize.exit103.i, label %525
 
 525:                                              ; preds = %524
-  %526 = add nuw nsw i64 %.0.i101.i, 24
+  %526 = add nuw nsw i64 %.1.i101.i, 24
   %527 = load i32, ptr %519, align 8
   %528 = zext i32 %527 to i64
   %529 = add nuw nsw i64 %526, %528
@@ -4861,12 +4861,12 @@ ReorderBufferChangeMemoryUpdate.exit.i:           ; preds = %._crit_edge122.i
   br label %ReorderBufferChangeSize.exit103.thread.i
 
 ReorderBufferChangeSize.exit103.i:                ; preds = %525, %524, %ReorderBufferChangeMemoryUpdate.exit.i
-  %.1.i99.i = phi i64 [ 80, %ReorderBufferChangeMemoryUpdate.exit.i ], [ %529, %525 ], [ %.0.i101.i, %524 ]
+  %.0.i99.i = phi i64 [ 80, %ReorderBufferChangeMemoryUpdate.exit.i ], [ %529, %525 ], [ %.1.i101.i, %524 ]
   %556 = icmp eq i32 %.pr.i, 7
   br i1 %556, label %ReorderBufferToastReplace.exit, label %ReorderBufferChangeSize.exit103.thread.i
 
 ReorderBufferChangeSize.exit103.thread.i:         ; preds = %ReorderBufferChangeSize.exit103.i, %552, %541, %536, %530
-  %.1.i99108.i = phi i64 [ %.1.i99.i, %ReorderBufferChangeSize.exit103.i ], [ %535, %530 ], [ %540, %536 ], [ %551, %541 ], [ %555, %552 ]
+  %.0.i99108.i = phi i64 [ %.0.i99.i, %ReorderBufferChangeSize.exit103.i ], [ %535, %530 ], [ %540, %536 ], [ %551, %541 ], [ %555, %552 ]
   %557 = load ptr, ptr %504, align 8
   %558 = getelementptr inbounds i8, ptr %557, i64 48
   %559 = load ptr, ptr %558, align 8
@@ -4875,13 +4875,13 @@ ReorderBufferChangeSize.exit103.thread.i:         ; preds = %ReorderBufferChange
   %560 = getelementptr inbounds i8, ptr %557, i64 272
   %561 = load i64, ptr %560, align 8
   %562 = getelementptr inbounds i8, ptr %..i105.i, i64 280
-  %563 = add i64 %561, %.1.i99108.i
+  %563 = add i64 %561, %.0.i99108.i
   store i64 %563, ptr %560, align 8
   %564 = load i64, ptr %166, align 8
-  %565 = add i64 %564, %.1.i99108.i
+  %565 = add i64 %564, %.0.i99108.i
   store i64 %565, ptr %166, align 8
   %566 = load i64, ptr %562, align 8
-  %567 = add i64 %566, %.1.i99108.i
+  %567 = add i64 %566, %.0.i99108.i
   store i64 %567, ptr %562, align 8
   br label %ReorderBufferToastReplace.exit
 
@@ -4889,8 +4889,8 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %568 = load ptr, ptr %167, align 8
-  call void %568(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %294, ptr noundef nonnull %.0) #17
-  %569 = getelementptr inbounds i8, ptr %.0, i64 44
+  call void %568(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %294, ptr noundef nonnull %.1) #17
+  %569 = getelementptr inbounds i8, ptr %.1, i64 44
   %570 = load i8, ptr %569, align 4
   %571 = trunc i8 %570 to i1
   br i1 %571, label %572, label %585
@@ -4900,14 +4900,14 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
   br label %585
 
 573:                                              ; preds = %328
-  %574 = getelementptr inbounds i8, ptr %.0, i64 8
+  %574 = getelementptr inbounds i8, ptr %.1, i64 8
   %575 = load i32, ptr %574, align 8
   %576 = icmp eq i32 %575, 0
   br i1 %576, label %577, label %585
 
 577:                                              ; preds = %573
-  %578 = getelementptr inbounds i8, ptr %.0, i64 64
-  %579 = getelementptr inbounds i8, ptr %.0, i64 72
+  %578 = getelementptr inbounds i8, ptr %.1, i64 64
+  %579 = getelementptr inbounds i8, ptr %.1, i64 72
   %580 = load ptr, ptr %579, align 8
   %581 = load ptr, ptr %578, align 8
   %582 = getelementptr inbounds i8, ptr %581, i64 8
@@ -4916,7 +4916,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %330, %._crit_edge12
   store ptr %583, ptr %580, align 8
   %584 = getelementptr i8, ptr %294, i64 64
   %.val256 = load ptr, ptr %584, align 8
-  call fastcc void @ReorderBufferToastAppendChunk(ptr noundef %0, ptr noundef %1, ptr %.val256, ptr noundef nonnull %.0)
+  call fastcc void @ReorderBufferToastAppendChunk(ptr noundef %0, ptr noundef %1, ptr %.val256, ptr noundef nonnull %.1)
   br label %585
 
 585:                                              ; preds = %572, %ReorderBufferToastReplace.exit, %577, %573, %324, %321, %303, %306, %312, %315, %282
@@ -5396,14 +5396,14 @@ ReorderBufferCopySnap.exit301:                    ; preds = %765, %._crit_edge.l
   unreachable
 
 ReorderBufferExecuteInvalidations.exit:           ; preds = %.lr.ph.i274, %.lr.ph359, %._crit_edge.thread, %._crit_edge, %647, %757, %806, %596, %597, %587, %588, %755, %638, %591, %SetupCheckXidLive.exit
-  %.1 = phi ptr [ %189, %SetupCheckXidLive.exit ], [ %189, %806 ], [ %189, %757 ], [ %189, %755 ], [ %189, %638 ], [ %189, %597 ], [ %189, %596 ], [ %189, %591 ], [ %.0, %588 ], [ %.0, %587 ], [ %189, %647 ], [ %189, %._crit_edge ], [ %189, %._crit_edge.thread ], [ %189, %.lr.ph359 ], [ %189, %.lr.ph.i274 ]
+  %.0 = phi ptr [ %189, %SetupCheckXidLive.exit ], [ %189, %806 ], [ %189, %757 ], [ %189, %755 ], [ %189, %638 ], [ %189, %597 ], [ %189, %596 ], [ %189, %591 ], [ %.1, %588 ], [ %.1, %587 ], [ %189, %647 ], [ %189, %._crit_edge ], [ %189, %._crit_edge.thread ], [ %189, %.lr.ph359 ], [ %189, %.lr.ph.i274 ]
   %812 = add i32 %.0219361, 1
   %813 = icmp sgt i32 %812, 99
   br i1 %813, label %814, label %817
 
 814:                                              ; preds = %ReorderBufferExecuteInvalidations.exit
   %815 = load ptr, ptr %168, align 8
-  %816 = load i64, ptr %.1, align 8
+  %816 = load i64, ptr %.0, align 8
   call void %815(ptr noundef %0, ptr noundef %1, i64 noundef %816) #17
   br label %817
 
@@ -6404,12 +6404,12 @@ ReorderBufferSerializeReserve.exit.i:             ; preds = %.sink.split.i.i, %6
 
 82:                                               ; preds = %78, %73
   %.0126.i = phi i64 [ %80, %78 ], [ 0, %73 ]
-  %.0123.i = phi i64 [ %81, %78 ], [ 88, %73 ]
+  %.1.i = phi i64 [ %81, %78 ], [ 88, %73 ]
   %.not135.i = icmp eq ptr %77, null
   br i1 %.not135.i, label %88, label %83
 
 83:                                               ; preds = %82
-  %84 = add nuw nsw i64 %.0123.i, 24
+  %84 = add nuw nsw i64 %.1.i, 24
   %85 = load i32, ptr %77, align 8
   %86 = zext i32 %85 to i64
   %87 = add nuw nsw i64 %84, %86
@@ -6417,29 +6417,29 @@ ReorderBufferSerializeReserve.exit.i:             ; preds = %.sink.split.i.i, %6
 
 88:                                               ; preds = %83, %82
   %.0127.i = phi i64 [ %86, %83 ], [ 0, %82 ]
-  %.1.i = phi i64 [ %87, %83 ], [ %.0123.i, %82 ]
+  %.2.i = phi i64 [ %87, %83 ], [ %.1.i, %82 ]
   %89 = load i64, ptr %25, align 8
   %.not.i140.i = icmp eq i64 %89, 0
   br i1 %.not.i140.i, label %90, label %93
 
 90:                                               ; preds = %88
   %91 = load ptr, ptr %27, align 8
-  %92 = call ptr @MemoryContextAlloc(ptr noundef %91, i64 noundef %.1.i) #17
+  %92 = call ptr @MemoryContextAlloc(ptr noundef %91, i64 noundef %.2.i) #17
   br label %.sink.split.i141.i
 
 93:                                               ; preds = %88
-  %94 = icmp ult i64 %89, %.1.i
+  %94 = icmp ult i64 %89, %.2.i
   %.pre163.i = load ptr, ptr %26, align 8
   br i1 %94, label %95, label %ReorderBufferSerializeReserve.exit142.i
 
 95:                                               ; preds = %93
-  %96 = call ptr @repalloc(ptr noundef %.pre163.i, i64 noundef %.1.i) #17
+  %96 = call ptr @repalloc(ptr noundef %.pre163.i, i64 noundef %.2.i) #17
   br label %.sink.split.i141.i
 
 .sink.split.i141.i:                               ; preds = %95, %90
   %storemerge158.i = phi ptr [ %96, %95 ], [ %92, %90 ]
   store ptr %storemerge158.i, ptr %26, align 8
-  store i64 %.1.i, ptr %25, align 8
+  store i64 %.2.i, ptr %25, align 8
   br label %ReorderBufferSerializeReserve.exit142.i
 
 ReorderBufferSerializeReserve.exit142.i:          ; preds = %.sink.split.i141.i, %93
@@ -6667,9 +6667,9 @@ ReorderBufferSerializeReserve.exit154.i:          ; preds = %.sink.split.i153.i,
   br label %211
 
 211:                                              ; preds = %ReorderBufferSerializeReserve.exit154.i, %189, %187, %ReorderBufferSerializeReserve.exit148.i, %ReorderBufferSerializeReserve.exit145.i, %105, %104, %ReorderBufferSerializeReserve.exit.i
-  %.2.i = phi i64 [ 88, %ReorderBufferSerializeReserve.exit.i ], [ %198, %ReorderBufferSerializeReserve.exit154.i ], [ %165, %189 ], [ %165, %187 ], [ %141, %ReorderBufferSerializeReserve.exit148.i ], [ %117, %ReorderBufferSerializeReserve.exit145.i ], [ %.1.i, %105 ], [ %.1.i, %104 ]
+  %.0123.i = phi i64 [ 88, %ReorderBufferSerializeReserve.exit.i ], [ %198, %ReorderBufferSerializeReserve.exit154.i ], [ %165, %189 ], [ %165, %187 ], [ %141, %ReorderBufferSerializeReserve.exit148.i ], [ %117, %ReorderBufferSerializeReserve.exit145.i ], [ %.2.i, %105 ], [ %.2.i, %104 ]
   %.0.i = phi ptr [ %69, %ReorderBufferSerializeReserve.exit.i ], [ %207, %ReorderBufferSerializeReserve.exit154.i ], [ %174, %189 ], [ %174, %187 ], [ %150, %ReorderBufferSerializeReserve.exit148.i ], [ %126, %ReorderBufferSerializeReserve.exit145.i ], [ %97, %105 ], [ %97, %104 ]
-  store i64 %.2.i, ptr %.0.i, align 8
+  store i64 %.0123.i, ptr %.0.i, align 8
   %212 = tail call ptr @__errno_location() #22
   store i32 0, ptr %212, align 4
   %213 = load ptr, ptr @my_wait_event_info, align 8
@@ -7243,12 +7243,12 @@ dlist_push_tail.exit.i:                           ; preds = %240, %236
   br label %256
 
 256:                                              ; preds = %252, %247
-  %.0.i.i = phi i64 [ %255, %252 ], [ 80, %247 ]
+  %.1.i.i = phi i64 [ %255, %252 ], [ 80, %247 ]
   %.not27.i.i = icmp eq ptr %251, null
   br i1 %.not27.i.i, label %ReorderBufferChangeSize.exit.i, label %257
 
 257:                                              ; preds = %256
-  %258 = add nuw nsw i64 %.0.i.i, 24
+  %258 = add nuw nsw i64 %.1.i.i, 24
   %259 = load i32, ptr %251, align 8
   %260 = zext i32 %259 to i64
   %261 = add nuw nsw i64 %258, %260
@@ -7294,12 +7294,12 @@ dlist_push_tail.exit.i:                           ; preds = %240, %236
   br label %ReorderBufferChangeSize.exit.thread.i
 
 ReorderBufferChangeSize.exit.i:                   ; preds = %257, %256, %dlist_push_tail.exit.i
-  %.1.i.i = phi i64 [ 80, %dlist_push_tail.exit.i ], [ %261, %257 ], [ %.0.i.i, %256 ]
+  %.0.i.i = phi i64 [ 80, %dlist_push_tail.exit.i ], [ %261, %257 ], [ %.1.i.i, %256 ]
   %293 = icmp eq i32 %246, 7
   br i1 %293, label %ReorderBufferRestoreChange.exit, label %ReorderBufferChangeSize.exit.thread.i
 
 ReorderBufferChangeSize.exit.thread.i:            ; preds = %ReorderBufferChangeSize.exit.i, %288, %276, %270, %262
-  %.1.i96.i = phi i64 [ %.1.i.i, %ReorderBufferChangeSize.exit.i ], [ %269, %262 ], [ %275, %270 ], [ %287, %276 ], [ %292, %288 ]
+  %.0.i96.i = phi i64 [ %.0.i.i, %ReorderBufferChangeSize.exit.i ], [ %269, %262 ], [ %275, %270 ], [ %287, %276 ], [ %292, %288 ]
   %294 = getelementptr inbounds i8, ptr %144, i64 16
   %295 = load ptr, ptr %294, align 8
   %296 = getelementptr inbounds i8, ptr %295, i64 48
@@ -7309,13 +7309,13 @@ ReorderBufferChangeSize.exit.thread.i:            ; preds = %ReorderBufferChange
   %298 = getelementptr inbounds i8, ptr %295, i64 272
   %299 = load i64, ptr %298, align 8
   %300 = getelementptr inbounds i8, ptr %..i.i, i64 280
-  %301 = add i64 %299, %.1.i96.i
+  %301 = add i64 %299, %.0.i96.i
   store i64 %301, ptr %298, align 8
   %302 = load i64, ptr %31, align 8
-  %303 = add i64 %302, %.1.i96.i
+  %303 = add i64 %302, %.0.i96.i
   store i64 %303, ptr %31, align 8
   %304 = load i64, ptr %300, align 8
-  %305 = add i64 %304, %.1.i96.i
+  %305 = add i64 %304, %.0.i96.i
   store i64 %305, ptr %300, align 8
   br label %ReorderBufferRestoreChange.exit
 

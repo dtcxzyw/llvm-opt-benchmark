@@ -403,10 +403,10 @@ dissect_gif_data_block_seq.exit:                  ; preds = %95
   br label %156
 
 156:                                              ; preds = %151, %147
-  %.2 = phi i32 [ %155, %151 ], [ %150, %147 ]
+  %.4 = phi i32 [ %155, %151 ], [ %150, %147 ]
   %157 = load i32, ptr @hf_image_code_size, align 4
-  %158 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %157, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef -2147483648) #2
-  %159 = add i32 %.2, 1
+  %158 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %157, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef -2147483648) #2
+  %159 = add i32 %.4, 1
   br label %160
 
 160:                                              ; preds = %160, %156

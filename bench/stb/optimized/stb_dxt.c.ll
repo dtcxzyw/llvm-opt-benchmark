@@ -1048,7 +1048,7 @@ if.then46:                                        ; preds = %if.else
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else, %if.then46
-  %mask.0 = phi i32 [ %call, %if.then46 ], [ 0, %if.else ]
+  %mask.1 = phi i32 [ %call, %if.then46 ], [ 0, %if.else ]
   %arrayidx12.i.i40 = getelementptr inbounds i8, ptr %color, i64 1
   %arrayidx16.i.i43 = getelementptr inbounds i8, ptr %color, i64 2
   %arrayidx17.i.i44 = getelementptr inbounds i8, ptr %color, i64 3
@@ -1069,9 +1069,9 @@ for.cond50:                                       ; preds = %if.end67
   br i1 %cmp51, label %for.body53, label %if.end75, !llvm.loop !17
 
 for.body53:                                       ; preds = %if.end49, %for.cond50
-  %mask.196 = phi i32 [ %mask.0, %if.end49 ], [ %call64, %for.cond50 ]
+  %mask.296 = phi i32 [ %mask.1, %if.end49 ], [ %call64, %for.cond50 ]
   %cmp5197 = phi i1 [ true, %if.end49 ], [ false, %for.cond50 ]
-  %call54 = call i32 @stb__RefineBlock(ptr noundef nonnull %block, ptr noundef nonnull %max16, ptr noundef nonnull %min16, i32 noundef %mask.196)
+  %call54 = call i32 @stb__RefineBlock(ptr noundef nonnull %block, ptr noundef nonnull %max16, ptr noundef nonnull %min16, i32 noundef %mask.296)
   %tobool55.not = icmp eq i32 %call54, 0
   %.pre.pre = load i16, ptr %max16, align 2
   %.pre99.pre = load i16, ptr %min16, align 2
@@ -1147,18 +1147,18 @@ if.end67:                                         ; preds = %if.then56
   %conv17.i47.i88 = trunc nuw i16 %div.i121718.i46.i87 to i8
   store i8 %conv17.i47.i88, ptr %arrayidx18.i48.i89, align 2
   %call64 = call i32 @stb__MatchColorsBlock(ptr noundef nonnull %block, ptr noundef nonnull %color)
-  %cmp68 = icmp eq i32 %call64, %mask.196
+  %cmp68 = icmp eq i32 %call64, %mask.296
   br i1 %cmp68, label %if.end75, label %for.cond50
 
 if.end75:                                         ; preds = %for.body53, %if.then56, %for.cond50, %if.end67, %if.then4
   %23 = phi i16 [ %or40, %if.then4 ], [ %.pre99.pre, %if.end67 ], [ %.pre99.pre, %for.cond50 ], [ %.pre99.pre, %if.then56 ], [ %.pre99.pre, %for.body53 ]
   %24 = phi i16 [ %or23, %if.then4 ], [ %.pre.pre, %if.end67 ], [ %.pre.pre, %for.cond50 ], [ %.pre.pre, %if.then56 ], [ %.pre.pre, %for.body53 ]
-  %mask.3 = phi i32 [ -1431655766, %if.then4 ], [ %mask.196, %for.body53 ], [ 0, %if.then56 ], [ %call64, %for.cond50 ], [ %mask.196, %if.end67 ]
+  %mask.0 = phi i32 [ -1431655766, %if.then4 ], [ %mask.296, %for.body53 ], [ 0, %if.then56 ], [ %call64, %for.cond50 ], [ %mask.296, %if.end67 ]
   %cmp78 = icmp ult i16 %24, %23
-  %xor = xor i32 %mask.3, 1431655765
+  %xor = xor i32 %mask.0, 1431655765
   %25 = tail call i16 @llvm.umin.i16(i16 %24, i16 %23)
   %26 = tail call i16 @llvm.umax.i16(i16 %24, i16 %23)
-  %mask.4 = select i1 %cmp78, i32 %xor, i32 %mask.3
+  %mask.4 = select i1 %cmp78, i32 %xor, i32 %mask.0
   %conv82 = trunc i16 %26 to i8
   store i8 %conv82, ptr %dest, align 1
   %27 = lshr i16 %26, 8

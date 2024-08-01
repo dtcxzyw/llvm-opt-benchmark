@@ -1091,7 +1091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit56: ; 
   br label %174
 
 173:                                              ; preds = %160, %168, %159, %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit51
-  %.010 = phi i1 [ false, %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit51 ], [ false, %159 ], [ true, %168 ], [ true, %160 ]
+  %.111 = phi i1 [ false, %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit51 ], [ false, %159 ], [ true, %168 ], [ true, %160 ]
   call void @_ZN23cmComputeComponentGraphD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %7) #19
   br label %175
 
@@ -1101,9 +1101,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit56: ; 
   br label %176
 
 175:                                              ; preds = %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit, %173
-  %.111 = phi i1 [ %.010, %173 ], [ false, %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit ]
+  %.010 = phi i1 [ %.111, %173 ], [ false, %_ZN22cmComputeTargetDepends15CheckComponentsERK23cmComputeComponentGraph.exit ]
   call void @_ZN23cmComputeComponentGraphD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %4) #19
-  ret i1 %.111
+  ret i1 %.010
 
 176:                                              ; preds = %.loopexit58, %.loopexit.split-lp59, %174, %.body29
   %.pn17.pn.pn = phi { ptr, i32 } [ %.pn17.pn, %174 ], [ %.pn13, %.body29 ], [ %lpad.loopexit60, %.loopexit58 ], [ %lpad.loopexit.split-lp61, %.loopexit.split-lp59 ]

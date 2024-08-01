@@ -320,7 +320,7 @@ entry:
 
 do.body:                                          ; preds = %do.cond, %entry
   %cep.0 = phi ptr [ %add.ptr, %entry ], [ %incdec.ptr, %do.cond ]
-  %last_nr.0 = phi i32 [ %spec.select, %entry ], [ %last_nr.2, %do.cond ]
+  %last_nr.0 = phi i32 [ %spec.select, %entry ], [ %last_nr.1, %do.cond ]
   %nr.1 = phi i32 [ %spec.select, %entry ], [ %dec, %do.cond ]
   %incdec.ptr = getelementptr inbounds i8, ptr %cep.0, i64 8
   %5 = load ptr, ptr %cep.0, align 8
@@ -366,7 +366,7 @@ if.then31:                                        ; preds = %if.end27
 
 if.end39:                                         ; preds = %if.then31, %if.end27
   %and.i.pre-phi = phi i32 [ %.pre50, %if.then31 ], [ %and9, %if.end27 ]
-  %last_nr.1 = phi i32 [ %nr.1, %if.then31 ], [ %last_nr.0, %if.end27 ]
+  %last_nr.2 = phi i32 [ %nr.1, %if.then31 ], [ %last_nr.0, %if.end27 ]
   %ce_namelen.i = getelementptr inbounds i8, ptr %5, i64 64
   %14 = load i32, ptr %ce_namelen.i, align 8
   %cmp.i = icmp eq i32 %and.i.pre-phi, 16384
@@ -438,7 +438,7 @@ if.then8.i:                                       ; preds = %if.end.i
   br label %do.cond
 
 do.cond:                                          ; preds = %if.then8.i, %if.end.i, %if.then.i, %land.lhs.true.i, %if.end57, %if.end53, %if.end47, %if.end43, %if.end39, %if.end8, %do.body
-  %last_nr.2 = phi i32 [ %last_nr.0, %do.body ], [ %last_nr.0, %if.end8 ], [ %last_nr.1, %if.end43 ], [ %last_nr.1, %if.end47 ], [ %last_nr.1, %if.end53 ], [ %last_nr.1, %if.end39 ], [ %last_nr.1, %if.end57 ], [ %last_nr.1, %land.lhs.true.i ], [ %last_nr.1, %if.then.i ], [ %last_nr.1, %if.end.i ], [ %last_nr.1, %if.then8.i ]
+  %last_nr.1 = phi i32 [ %last_nr.0, %do.body ], [ %last_nr.0, %if.end8 ], [ %last_nr.2, %if.end43 ], [ %last_nr.2, %if.end47 ], [ %last_nr.2, %if.end53 ], [ %last_nr.2, %if.end39 ], [ %last_nr.2, %if.end57 ], [ %last_nr.2, %land.lhs.true.i ], [ %last_nr.2, %if.then.i ], [ %last_nr.2, %if.end.i ], [ %last_nr.2, %if.then8.i ]
   %dec = add nsw i32 %nr.1, -1
   %cmp59 = icmp sgt i32 %nr.1, 1
   br i1 %cmp59, label %do.body, label %do.end, !llvm.loop !9
@@ -454,7 +454,7 @@ if.then63:                                        ; preds = %do.end
   %progress68 = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load ptr, ptr %progress68, align 8
   %25 = load i64, ptr %23, align 8
-  %conv70 = sext i32 %last_nr.2 to i64
+  %conv70 = sext i32 %last_nr.1 to i64
   %add71 = add i64 %25, %conv70
   call void @display_progress(ptr noundef %24, i64 noundef %add71) #8
   %call73 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex66) #8

@@ -228,12 +228,12 @@ do.body:                                          ; preds = %if.end52
 if.end73:                                         ; preds = %if.then36.if.end73_crit_edge, %do.body
   %idx.ext77.pre-phi = phi i64 [ %.pre112, %if.then36.if.end73_crit_edge ], [ %conv60, %do.body ]
   %12 = phi ptr [ %.pre, %if.then36.if.end73_crit_edge ], [ %call55, %do.body ]
-  %lastRow.0 = phi ptr [ %call19, %if.then36.if.end73_crit_edge ], [ %add.ptr69, %do.body ]
-  %firstRow.0 = phi ptr [ %call18, %if.then36.if.end73_crit_edge ], [ %add.ptr, %do.body ]
+  %lastRow.1 = phi ptr [ %call19, %if.then36.if.end73_crit_edge ], [ %add.ptr69, %do.body ]
+  %firstRow.1 = phi ptr [ %call18, %if.then36.if.end73_crit_edge ], [ %add.ptr, %do.body ]
   %mul75 = mul nsw i32 %9, %1
   %idx.ext = sext i32 %mul75 to i64
   %add.ptr76 = getelementptr inbounds i32, ptr %12, i64 %idx.ext
-  %add.ptr78 = getelementptr inbounds i32, ptr %lastRow.0, i64 %idx.ext77.pre-phi
+  %add.ptr78 = getelementptr inbounds i32, ptr %lastRow.1, i64 %idx.ext77.pre-phi
   %sub.ptr.lhs.cast79 = ptrtoint ptr %add.ptr76 to i64
   %sub.ptr.rhs.cast80 = ptrtoint ptr %add.ptr78 to i64
   %sub.ptr.sub81 = sub i64 %sub.ptr.lhs.cast79, %sub.ptr.rhs.cast80
@@ -247,7 +247,7 @@ do.body86:                                        ; preds = %if.end73
   %add90 = add nuw nsw i32 %add88, %conv40
   %mul91 = mul nsw i32 %add90, %1
   %idx.ext92 = sext i32 %mul91 to i64
-  %add.ptr93 = getelementptr inbounds i32, ptr %lastRow.0, i64 %idx.ext92
+  %add.ptr93 = getelementptr inbounds i32, ptr %lastRow.1, i64 %idx.ext92
   %conv97 = and i64 %sub.ptr.sub81, 4294967295
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr93, ptr align 4 %add.ptr78, i64 %conv97, i1 false)
   br label %if.end99
@@ -257,41 +257,41 @@ if.end99:                                         ; preds = %do.body86, %if.end7
   br i1 %5, label %if.then106, label %if.end127
 
 if.then106:                                       ; preds = %if.end99
-  %sub.ptr.lhs.cast107 = ptrtoint ptr %lastRow.0 to i64
-  %sub.ptr.rhs.cast108 = ptrtoint ptr %firstRow.0 to i64
+  %sub.ptr.lhs.cast107 = ptrtoint ptr %lastRow.1 to i64
+  %sub.ptr.rhs.cast108 = ptrtoint ptr %firstRow.1 to i64
   %sub.ptr.sub109 = sub i64 %sub.ptr.lhs.cast107, %sub.ptr.rhs.cast108
   %sub.ptr.div110 = lshr exact i64 %sub.ptr.sub109, 2
   %13 = trunc i64 %sub.ptr.div110 to i32
   %conv113 = add i32 %1, %13
-  %add.ptr116 = getelementptr inbounds i32, ptr %firstRow.0, i64 %idx.ext77.pre-phi
+  %add.ptr116 = getelementptr inbounds i32, ptr %firstRow.1, i64 %idx.ext77.pre-phi
   %conv117 = sext i32 %conv113 to i64
   %mul118 = shl nsw i64 %conv117, 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr116, ptr align 4 %firstRow.0, i64 %mul118, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %add.ptr116, ptr align 4 %firstRow.1, i64 %mul118, i1 false)
   store i32 %start, ptr %add.ptr116, align 4
-  %arrayidx124 = getelementptr inbounds i8, ptr %firstRow.0, i64 4
+  %arrayidx124 = getelementptr inbounds i8, ptr %firstRow.1, i64 4
   store i32 %start, ptr %arrayidx124, align 4
   br label %if.end127
 
 if.end127:                                        ; preds = %if.then106, %if.end99
-  %lastRow.1 = phi ptr [ %add.ptr78, %if.then106 ], [ %lastRow.0, %if.end99 ]
-  %firstRow.1 = phi ptr [ %add.ptr116, %if.then106 ], [ %firstRow.0, %if.end99 ]
+  %lastRow.2 = phi ptr [ %add.ptr78, %if.then106 ], [ %lastRow.1, %if.end99 ]
+  %firstRow.2 = phi ptr [ %add.ptr116, %if.then106 ], [ %firstRow.1, %if.end99 ]
   br i1 %8, label %do.body130, label %if.end140
 
 do.body130:                                       ; preds = %if.end127
-  %add.ptr132 = getelementptr inbounds i32, ptr %lastRow.1, i64 %idx.ext77.pre-phi
+  %add.ptr132 = getelementptr inbounds i32, ptr %lastRow.2, i64 %idx.ext77.pre-phi
   %mul134 = shl nsw i64 %idx.ext77.pre-phi, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr132, ptr align 4 %lastRow.1, i64 %mul134, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr132, ptr align 4 %lastRow.2, i64 %mul134, i1 false)
   store i32 %add, ptr %add.ptr132, align 4
-  %arrayidx138 = getelementptr inbounds i8, ptr %lastRow.1, i64 4
+  %arrayidx138 = getelementptr inbounds i8, ptr %lastRow.2, i64 4
   store i32 %add, ptr %arrayidx138, align 4
   br label %if.end140
 
 if.end140:                                        ; preds = %land.end31.if.end140_crit_edge, %if.end127, %do.body130
   %conv146.pre-phi = phi i64 [ %.pre113, %land.end31.if.end140_crit_edge ], [ %idx.ext77.pre-phi, %if.end127 ], [ %idx.ext77.pre-phi, %do.body130 ]
-  %lastRow.2 = phi ptr [ %call19, %land.end31.if.end140_crit_edge ], [ %lastRow.1, %if.end127 ], [ %lastRow.1, %do.body130 ]
-  %firstRow.2 = phi ptr [ %call18, %land.end31.if.end140_crit_edge ], [ %firstRow.1, %if.end127 ], [ %firstRow.1, %do.body130 ]
+  %lastRow.0 = phi ptr [ %call19, %land.end31.if.end140_crit_edge ], [ %lastRow.2, %if.end127 ], [ %lastRow.2, %do.body130 ]
+  %firstRow.0 = phi ptr [ %call18, %land.end31.if.end140_crit_edge ], [ %firstRow.2, %if.end127 ], [ %firstRow.2, %do.body130 ]
   %14 = load ptr, ptr %pv, align 8
-  %sub.ptr.lhs.cast142 = ptrtoint ptr %lastRow.2 to i64
+  %sub.ptr.lhs.cast142 = ptrtoint ptr %lastRow.0 to i64
   %sub.ptr.rhs.cast143 = ptrtoint ptr %14 to i64
   %sub.ptr.sub144 = sub i64 %sub.ptr.lhs.cast142, %sub.ptr.rhs.cast143
   %sub.ptr.div145 = ashr exact i64 %sub.ptr.sub144, 2
@@ -300,14 +300,14 @@ if.end140:                                        ; preds = %land.end31.if.end14
   %prevRow = getelementptr inbounds i8, ptr %pv, i64 20
   store i32 %conv147, ptr %prevRow, align 4
   %idx.ext148 = zext nneg i32 %add17 to i64
-  %add.ptr149 = getelementptr inbounds i32, ptr %firstRow.2, i64 %idx.ext148
-  %add.ptr151 = getelementptr inbounds i32, ptr %lastRow.2, i64 %idx.ext148
+  %add.ptr149 = getelementptr inbounds i32, ptr %firstRow.0, i64 %idx.ext148
+  %add.ptr151 = getelementptr inbounds i32, ptr %lastRow.0, i64 %idx.ext148
   %not = xor i32 %mask, -1
   %15 = load i32, ptr %add.ptr149, align 4
   %and152108 = and i32 %15, %not
   %or109 = or disjoint i32 %and152108, %and
   store i32 %or109, ptr %add.ptr149, align 4
-  %cmp153110 = icmp eq ptr %firstRow.2, %lastRow.2
+  %cmp153110 = icmp eq ptr %firstRow.0, %lastRow.0
   br i1 %cmp153110, label %for.end, label %if.end155
 
 if.end155:                                        ; preds = %if.end140, %if.end155

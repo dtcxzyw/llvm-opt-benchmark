@@ -841,14 +841,14 @@ define internal noundef i32 @dissect_saphdb_tcp(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph.i:                                         ; preds = %84, %100
   %.03.i = phi i16 [ %103, %100 ], [ 1, %84 ]
-  %.01242.i = phi i32 [ %102, %100 ], [ 32, %84 ]
-  %98 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.01242.i) #3
+  %.12.i = phi i32 [ %102, %100 ], [ 32, %84 ]
+  %98 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.12.i) #3
   %99 = icmp sgt i32 %98, 12
   br i1 %99, label %100, label %dissect_saphdb_message.exit
 
 100:                                              ; preds = %.lr.ph.i
-  %101 = call fastcc i32 @dissect_saphdb_segment(ptr noundef %0, ptr noundef %1, ptr noundef %88, i32 noundef %.01242.i, i16 noundef signext %61, i16 noundef zeroext %.03.i, i32 noundef %66)
-  %102 = add i32 %101, %.01242.i
+  %101 = call fastcc i32 @dissect_saphdb_segment(ptr noundef %0, ptr noundef %1, ptr noundef %88, i32 noundef %.12.i, i16 noundef signext %61, i16 noundef zeroext %.03.i, i32 noundef %66)
+  %102 = add i32 %101, %.12.i
   %103 = add i16 %.03.i, 1
   %exitcond.not = icmp eq i16 %.03.i, %61
   br i1 %exitcond.not, label %dissect_saphdb_message.exit, label %.lr.ph.i, !llvm.loop !4
@@ -859,9 +859,9 @@ define internal noundef i32 @dissect_saphdb_tcp(ptr noundef %0, ptr noundef %1, 
   br label %dissect_saphdb_message.exit
 
 dissect_saphdb_message.exit:                      ; preds = %.lr.ph.i, %100, %14, %24, %31, %45, %89, %96, %104
-  %.1.i = phi i32 [ 14, %24 ], [ 6, %31 ], [ %91, %96 ], [ %91, %89 ], [ 32, %104 ], [ 0, %45 ], [ 0, %14 ], [ %102, %100 ], [ %.01242.i, %.lr.ph.i ]
+  %.0124.i = phi i32 [ 14, %24 ], [ 6, %31 ], [ %91, %96 ], [ %91, %89 ], [ 32, %104 ], [ 0, %45 ], [ 0, %14 ], [ %102, %100 ], [ %.12.i, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  ret i32 %.1.i
+  ret i32 %.0124.i
 }
 
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -1036,7 +1036,7 @@ define internal fastcc noundef i32 @dissect_saphdb_segment(ptr noundef %0, ptr n
 99:                                               ; preds = %93, %dissect_saphdb_part.exit
   %100 = phi i32 [ 1, %93 ], [ %316, %dissect_saphdb_part.exit ]
   %.05 = phi i16 [ 1, %93 ], [ %315, %dissect_saphdb_part.exit ]
-  %.14 = phi i32 [ 24, %93 ], [ %314, %dissect_saphdb_part.exit ]
+  %.24 = phi i32 [ 24, %93 ], [ %314, %dissect_saphdb_part.exit ]
   %.11472 = phi i32 [ %.0146, %93 ], [ %.pre-phi, %dissect_saphdb_part.exit ]
   %101 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.11472) #3
   %102 = icmp sgt i32 %101, 15
@@ -1452,19 +1452,19 @@ dissect_saphdb_part.exit:                         ; preds = %148, %dissect_saphd
   %.0.i = phi i32 [ 16, %148 ], [ %313, %dissect_saphdb_part_buffer.exit.i ]
   call void @proto_item_set_len(ptr noundef %107, i32 noundef %.0.i) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %314 = add i32 %.0.i, %.14
+  %314 = add i32 %.0.i, %.24
   %315 = add nuw i16 %.05, 1
   %316 = zext i16 %315 to i32
   %.not154.not = icmp ult i16 %.05, %23
   br i1 %.not154.not, label %99, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %99, %dissect_saphdb_part.exit, %90
-  %.2 = phi i32 [ 24, %90 ], [ %314, %dissect_saphdb_part.exit ], [ %.14, %99 ]
-  call void @proto_item_set_len(ptr noundef %13, i32 noundef %.2) #3
+  %.1 = phi i32 [ 24, %90 ], [ %314, %dissect_saphdb_part.exit ], [ %.24, %99 ]
+  call void @proto_item_set_len(ptr noundef %13, i32 noundef %.1) #3
   br label %317
 
 317:                                              ; preds = %89, %.critedge
-  %.0145 = phi i32 [ %.2, %.critedge ], [ 24, %89 ]
+  %.0145 = phi i32 [ %.1, %.critedge ], [ 24, %89 ]
   ret i32 %.0145
 }
 

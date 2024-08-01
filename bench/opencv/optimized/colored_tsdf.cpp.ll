@@ -3751,7 +3751,7 @@ _ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit196:
   br i1 %462, label %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit196._crit_edge, label %463
 
 463:                                              ; preds = %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit196, %_ZNK2cv3Mat2atINS_5kinfu12RGBTsdfVoxelEEERKT_i.exit
-  %.1137 = phi float [ %397, %_ZNK2cv3Mat2atINS_5kinfu12RGBTsdfVoxelEEERKT_i.exit ], [ %458, %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit196 ]
+  %.2 = phi float [ %397, %_ZNK2cv3Mat2atINS_5kinfu12RGBTsdfVoxelEEERKT_i.exit ], [ %458, %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit196 ]
   %.1 = phi float [ %.0135425, %_ZNK2cv3Mat2atINS_5kinfu12RGBTsdfVoxelEEERKT_i.exit ], [ %458, %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit196 ]
   %464 = add nuw nsw i32 %.0138424, 1
   %exitcond.not = icmp eq i32 %464, %343
@@ -3762,9 +3762,9 @@ _ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit196.
   %.0135.lcssa = phi float [ %339, %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit ], [ %.0135425, %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit196 ], [ %.1, %463 ]
   %.sroa.0272.1 = phi <2 x float> [ %267, %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit ], [ %354, %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit196 ], [ %354, %463 ]
   %.sroa.15.1 = phi float [ %268, %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit ], [ %355, %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit196 ], [ %355, %463 ]
-  %.2 = phi float [ %339, %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit ], [ %458, %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit196 ], [ %.1137, %463 ]
+  %.1137 = phi float [ %339, %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit ], [ %458, %_ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit196 ], [ %.2, %463 ]
   %465 = fcmp ogt float %.0135.lcssa, 0.000000e+00
-  %466 = fcmp olt float %.2, 0.000000e+00
+  %466 = fcmp olt float %.1137, 0.000000e+00
   %or.cond = and i1 %465, %466
   br i1 %or.cond, label %467, label %_ZN2cv5kinfu5isNaNENS_7Point3_IfEE.exit.thread
 
@@ -4605,11 +4605,11 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv5kinfu20ColoredTSDFVol
   %192 = extractelement <2 x float> %158, i64 0
   %193 = fcmp ogt float %192, 2.550000e+02
   %.sroa.055.0.vec.insert61 = insertelement <2 x float> %158, float 2.550000e+02, i64 0
-  %.sroa.055.0 = select i1 %193, <2 x float> %.sroa.055.0.vec.insert61, <2 x float> %158
-  %.sroa.055.4.vec.extract = extractelement <2 x float> %.sroa.055.0, i64 1
+  %.sroa.055.1 = select i1 %193, <2 x float> %.sroa.055.0.vec.insert61, <2 x float> %158
+  %.sroa.055.4.vec.extract = extractelement <2 x float> %.sroa.055.1, i64 1
   %194 = fcmp ogt float %.sroa.055.4.vec.extract, 2.550000e+02
-  %.sroa.055.4.vec.insert68 = insertelement <2 x float> %.sroa.055.0, float 2.550000e+02, i64 1
-  %.sroa.055.1 = select i1 %194, <2 x float> %.sroa.055.4.vec.insert68, <2 x float> %.sroa.055.0
+  %.sroa.055.4.vec.insert68 = insertelement <2 x float> %.sroa.055.1, float 2.550000e+02, i64 1
+  %.sroa.055.2 = select i1 %194, <2 x float> %.sroa.055.4.vec.insert68, <2 x float> %.sroa.055.1
   %195 = fcmp ogt float %191, 2.550000e+02
   br i1 %195, label %196, label %_ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit
 
@@ -4617,10 +4617,10 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv5kinfu20ColoredTSDFVol
   br label %_ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit
 
 _ZN2cv5kinfu8colorFixERNS_7Point3_IfEE.exit:      ; preds = %196, %75, %42
-  %.sroa.055.2 = phi <2 x float> [ %43, %42 ], [ %.sroa.055.1, %75 ], [ %.sroa.055.1, %196 ]
-  %.sroa.11.1 = phi float [ %44, %42 ], [ %191, %75 ], [ 2.550000e+02, %196 ]
-  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.055.2, 0
-  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %.sroa.11.1, 1
+  %.sroa.055.0 = phi <2 x float> [ %43, %42 ], [ %.sroa.055.2, %75 ], [ %.sroa.055.2, %196 ]
+  %.sroa.11.0 = phi float [ %44, %42 ], [ %191, %75 ], [ 2.550000e+02, %196 ]
+  %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.055.0, 0
+  %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %.sroa.11.0, 1
   ret { <2 x float>, float } %.fca.1.insert
 }
 

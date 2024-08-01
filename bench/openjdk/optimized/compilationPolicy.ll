@@ -265,8 +265,8 @@ _ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit: ; preds = %_ZN14Compil
   %61 = trunc i64 %60 to i32
   %62 = icmp sgt i32 %44, %61
   %63 = tail call i32 @llvm.smax.i32(i32 %61, i32 %55)
-  %.0 = select i1 %62, i32 %63, i32 %44
-  %64 = zext nneg i32 %.0 to i64
+  %.1 = select i1 %62, i32 %63, i32 %44
+  %64 = zext nneg i32 %.1 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store i64 %64, ptr %1, align 8
   %65 = call noundef i32 @_ZN13JVMFlagAccess13set_or_assertE12JVMFlagsEnumiPv13JVMFlagOrigin(i32 noundef 657, i32 noundef 3, ptr noundef nonnull %1, i32 noundef 5) #12
@@ -274,18 +274,18 @@ _ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit: ; preds = %_ZN14Compil
   br label %66
 
 66:                                               ; preds = %54, %29
-  %.1 = phi i32 [ %.0, %54 ], [ %8, %29 ]
+  %.0 = phi i32 [ %.1, %54 ], [ %8, %29 ]
   br i1 %15, label %67, label %68
 
 67:                                               ; preds = %66
-  store i32 %.1, ptr @_ZN17CompilationPolicy9_c1_countE, align 4
+  store i32 %.0, ptr @_ZN17CompilationPolicy9_c1_countE, align 4
   br label %89
 
 68:                                               ; preds = %66
   br i1 %24, label %69, label %70
 
 69:                                               ; preds = %68
-  store i32 %.1, ptr @_ZN17CompilationPolicy9_c2_countE, align 4
+  store i32 %.0, ptr @_ZN17CompilationPolicy9_c2_countE, align 4
   br label %89
 
 70:                                               ; preds = %68
@@ -299,22 +299,22 @@ _ZN14CompilerConfig28is_c2_or_jvmci_compiler_onlyEv.exit: ; preds = %_ZN14Compil
   br i1 %75, label %76, label %84
 
 76:                                               ; preds = %73
-  %77 = sitofp i32 %.1 to double
+  %77 = sitofp i32 %.0 to double
   %78 = load double, ptr @JVMCINativeLibraryThreadFraction, align 8
   %79 = fmul double %78, %77
   %80 = fptosi double %79 to i32
   %81 = call noundef i32 @llvm.smax.i32(i32 %80, i32 1)
-  %82 = sub nsw i32 %.1, %81
+  %82 = sub nsw i32 %.0, %81
   %83 = call noundef i32 @llvm.smax.i32(i32 %82, i32 1)
   store i32 %81, ptr @_ZN17CompilationPolicy9_c2_countE, align 4
   store i32 %83, ptr @_ZN17CompilationPolicy9_c1_countE, align 4
   br label %89
 
 84:                                               ; preds = %73, %70
-  %85 = sdiv i32 %.1, 3
+  %85 = sdiv i32 %.0, 3
   %86 = call noundef i32 @llvm.smax.i32(i32 %85, i32 1)
   store i32 %86, ptr @_ZN17CompilationPolicy9_c1_countE, align 4
-  %87 = sub nsw i32 %.1, %86
+  %87 = sub nsw i32 %.0, %86
   %88 = call noundef i32 @llvm.smax.i32(i32 %87, i32 1)
   store i32 %88, ptr @_ZN17CompilationPolicy9_c2_countE, align 4
   br label %89
@@ -1408,10 +1408,10 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit72.thread: ; preds = %1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.055.ph99 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.2, %.outer ]
+  %.055.ph99 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.1, %.outer ]
   %.056.ph98 = phi ptr [ %8, %.lr.ph.lr.ph ], [ %15, %.outer ]
-  %.058.ph97 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.260, %.outer ]
-  %.061.ph96 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.263, %.outer ]
+  %.058.ph97 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.159, %.outer ]
+  %.061.ph96 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.162, %.outer ]
   br label %13
 
 13:                                               ; preds = %.lr.ph, %17
@@ -1573,8 +1573,8 @@ _ZN17CompilationPolicy8is_staleEllRK12methodHandle.exit.thread: ; preds = %_ZNK6
   br label %100
 
 100:                                              ; preds = %99, %97
-  %.162 = phi ptr [ %20, %99 ], [ %.061.ph96, %97 ]
-  %.159 = phi ptr [ %.05689, %99 ], [ %.058.ph97, %97 ]
+  %.263 = phi ptr [ %20, %99 ], [ %.061.ph96, %97 ]
+  %.260 = phi ptr [ %.05689, %99 ], [ %.058.ph97, %97 ]
   %101 = load i8, ptr %48, align 2
   %102 = trunc i8 %101 to i1
   br i1 %102, label %103, label %.outer
@@ -1593,17 +1593,17 @@ _ZN17CompilationPolicy8is_staleEllRK12methodHandle.exit.thread: ; preds = %_ZNK6
   br label %.outer
 
 .outer:                                           ; preds = %100, %109, %105, %_ZN6Method28clear_queued_for_compilationEv.exit
-  %.263 = phi ptr [ %.061.ph96, %_ZN6Method28clear_queued_for_compilationEv.exit ], [ %.162, %105 ], [ %.162, %109 ], [ %.162, %100 ]
-  %.260 = phi ptr [ %.058.ph97, %_ZN6Method28clear_queued_for_compilationEv.exit ], [ %.159, %105 ], [ %.159, %109 ], [ %.159, %100 ]
-  %.2 = phi ptr [ %.055.ph99, %_ZN6Method28clear_queued_for_compilationEv.exit ], [ %.055.ph99, %105 ], [ %.05689, %109 ], [ %.055.ph99, %100 ]
+  %.162 = phi ptr [ %.061.ph96, %_ZN6Method28clear_queued_for_compilationEv.exit ], [ %.263, %105 ], [ %.263, %109 ], [ %.263, %100 ]
+  %.159 = phi ptr [ %.058.ph97, %_ZN6Method28clear_queued_for_compilationEv.exit ], [ %.260, %105 ], [ %.260, %109 ], [ %.260, %100 ]
+  %.1 = phi ptr [ %.055.ph99, %_ZN6Method28clear_queued_for_compilationEv.exit ], [ %.055.ph99, %105 ], [ %.05689, %109 ], [ %.055.ph99, %100 ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #12
   %.not88 = icmp eq ptr %15, null
   br i1 %.not88, label %.outer._crit_edge, label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %.outer, %17
-  %.061.ph.lcssa = phi ptr [ %.061.ph96, %17 ], [ %.263, %.outer ]
-  %.058.ph.lcssa = phi ptr [ %.058.ph97, %17 ], [ %.260, %.outer ]
-  %.055.ph.lcssa = phi ptr [ %.055.ph99, %17 ], [ %.2, %.outer ]
+  %.061.ph.lcssa = phi ptr [ %.061.ph96, %17 ], [ %.162, %.outer ]
+  %.058.ph.lcssa = phi ptr [ %.058.ph97, %17 ], [ %.159, %.outer ]
+  %.055.ph.lcssa = phi ptr [ %.055.ph99, %17 ], [ %.1, %.outer ]
   %.not65 = icmp eq ptr %.055.ph.lcssa, null
   br i1 %.not65, label %113, label %110
 
@@ -2543,23 +2543,23 @@ _ZN17CompilationPolicy10call_eventERK12methodHandle9CompLevelP6Thread.exit: ; pr
   br i1 %77, label %.thread85, label %79
 
 .thread85:                                        ; preds = %.thread, %.thread81
-  %.0808487 = phi i8 [ 0, %.thread81 ], [ %.0.i66, %.thread ]
+  %.1808487 = phi i8 [ 0, %.thread81 ], [ %.0.i66, %.thread ]
   %78 = load ptr, ptr %0, align 8
   tail call void @_ZN17CompilationPolicy11print_eventENS_9EventTypeEPK6MethodS3_i9CompLevel(i32 noundef 6, ptr noundef %78, ptr noundef %78, i32 noundef %72, i8 noundef signext %3)
   br label %79
 
 79:                                               ; preds = %.thread81, %.thread85, %.thread
-  %.08083 = phi i8 [ 0, %.thread81 ], [ %.0808487, %.thread85 ], [ %.0.i66, %.thread ]
+  %.18083 = phi i8 [ 0, %.thread81 ], [ %.1808487, %.thread85 ], [ %.0.i66, %.thread ]
   %80 = tail call noundef zeroext i1 @_ZN7nmethod16make_not_entrantEv(ptr noundef nonnull align 8 dereferenceable(214) %4) #12
   br label %81
 
 81:                                               ; preds = %73, %79, %_ZN17CompilationPolicy10call_eventERK12methodHandle9CompLevelP6Thread.exit
-  %.1 = phi i8 [ %.08083, %79 ], [ %.0.i66, %73 ], [ %.0.i66, %_ZN17CompilationPolicy10call_eventERK12methodHandle9CompLevelP6Thread.exit ]
+  %.0 = phi i8 [ %.18083, %79 ], [ %.0.i66, %73 ], [ %.0.i66, %_ZN17CompilationPolicy10call_eventERK12methodHandle9CompLevelP6Thread.exit ]
   %82 = icmp eq i8 %.0.i67, 2
   %83 = icmp eq i32 %sext, 50331648
   %or.cond = and i1 %83, %82
   %spec.store.select = select i1 %or.cond, i8 3, i8 %.0.i67
-  %.not63 = icmp eq i8 %.1, %spec.store.select
+  %.not63 = icmp eq i8 %.0, %spec.store.select
   br i1 %.not63, label %_ZN17CompilationPolicy22is_compilation_enabledEv.exit.thread, label %84
 
 84:                                               ; preds = %81
@@ -3084,13 +3084,13 @@ _ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit: ; preds = %
   br label %76
 
 76:                                               ; preds = %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread, %_ZN12methodHandleC2EP6ThreadP6Method.exit, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit, %67
-  %.0 = phi i1 [ true, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit ], [ %75, %67 ], [ false, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ true, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread ]
+  %.1 = phi i1 [ true, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit ], [ %75, %67 ], [ false, %_ZN12methodHandleC2EP6ThreadP6Method.exit ], [ true, %_ZN13CallPredicate12apply_scaledERK12methodHandle9CompLeveliid.exit.thread ]
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
   br label %77
 
 77:                                               ; preds = %1, %76
-  %.1 = phi i1 [ %.0, %76 ], [ false, %1 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %76 ], [ false, %1 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

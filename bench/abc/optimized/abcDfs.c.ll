@@ -2395,7 +2395,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge, %Vec_Int
 .lr.ph98:                                         ; preds = %.preheader79, %126
   %.val69.val97 = phi i32 [ %.val69.val, %126 ], [ %.val69.val93, %.preheader79 ]
   %.val6996 = phi ptr [ %.val69, %126 ], [ %.val6992, %.preheader79 ]
-  %.295 = phi i32 [ %spec.select63, %126 ], [ 0, %.preheader79 ]
+  %.395 = phi i32 [ %spec.select63, %126 ], [ 0, %.preheader79 ]
   %.35894 = phi i32 [ %127, %126 ], [ 0, %.preheader79 ]
   %89 = load i32, ptr %62, align 4
   %90 = icmp slt i32 %.35894, %89
@@ -2422,7 +2422,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge, %Vec_Int
   %103 = getelementptr inbounds i8, ptr %101, i64 20
   %104 = load i32, ptr %103, align 4
   %105 = lshr i32 %104, 12
-  %spec.select63 = tail call i32 @llvm.smax.i32(i32 %.295, i32 %105)
+  %spec.select63 = tail call i32 @llvm.smax.i32(i32 %.395, i32 %105)
   %106 = load i32, ptr %62, align 4
   %107 = icmp slt i32 %.35894, %106
   br i1 %107, label %108, label %126
@@ -2467,8 +2467,8 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge, %Vec_Int
   br i1 %129, label %.lr.ph98, label %.critedge4, !llvm.loop !29
 
 .critedge4:                                       ; preds = %126, %84, %.preheader79, %.preheader
-  %.4 = phi i32 [ 0, %.preheader ], [ 0, %.preheader79 ], [ %.1, %84 ], [ %spec.select63, %126 ]
-  ret i32 %.4
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader79 ], [ %.1, %84 ], [ %spec.select63, %126 ]
+  ret i32 %.2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9206,8 +9206,8 @@ Abc_ObjFanin0Ntk.exit:                            ; preds = %.lr.ph, %53
   br i1 %86, label %.lr.ph, label %.critedge, !llvm.loop !86
 
 .critedge:                                        ; preds = %83, %Abc_NtkIncrementTravId.exit31, %73
-  %.2 = phi i32 [ 0, %73 ], [ 1, %Abc_NtkIncrementTravId.exit31 ], [ 1, %83 ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %73 ], [ 1, %Abc_NtkIncrementTravId.exit31 ], [ 1, %83 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9814,8 +9814,8 @@ Abc_ObjFanin0Ntk.exit83:                          ; preds = %97, %111
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge42, %.loopexit.sink.split, %.critedge42.preheader
-  %.5 = phi i32 [ 1, %.critedge42.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %.critedge42 ]
-  ret i32 %.5
+  %.3 = phi i32 [ 1, %.critedge42.preheader ], [ 0, %.loopexit.sink.split ], [ 1, %.critedge42 ]
+  ret i32 %.3
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9899,13 +9899,13 @@ define i32 @Abc_NodeSetChoiceLevel_rec(ptr nocapture noundef %0, i32 noundef %1)
   br label %47
 
 47:                                               ; preds = %45, %43
-  %.025 = phi i32 [ %44, %43 ], [ %46, %45 ]
+  %.1 = phi i32 [ %44, %43 ], [ %46, %45 ]
   %.02637 = load ptr, ptr %39, align 8
   %.not3038 = icmp eq ptr %.02637, null
   br i1 %.not3038, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %47
-  %48 = sext i32 %.025 to i64
+  %48 = sext i32 %.1 to i64
   %49 = inttoptr i64 %48 to ptr
   br label %50
 
@@ -9919,15 +9919,15 @@ define i32 @Abc_NodeSetChoiceLevel_rec(ptr nocapture noundef %0, i32 noundef %1)
   br i1 %.not30, label %.loopexit, label %50, !llvm.loop !90
 
 .loopexit:                                        ; preds = %50, %47, %17
-  %.1 = phi i32 [ %38, %17 ], [ %.025, %47 ], [ %.025, %50 ]
-  %53 = sext i32 %.1 to i64
+  %.025 = phi i32 [ %38, %17 ], [ %.1, %47 ], [ %.1, %50 ]
+  %53 = sext i32 %.025 to i64
   %54 = inttoptr i64 %53 to ptr
   %55 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %54, ptr %55, align 8
   br label %56
 
 56:                                               ; preds = %.loopexit, %12
-  %.0 = phi i32 [ %16, %12 ], [ %.1, %.loopexit ]
+  %.0 = phi i32 [ %16, %12 ], [ %.025, %.loopexit ]
   ret i32 %.0
 }
 

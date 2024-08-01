@@ -578,8 +578,8 @@ define hidden void @_ZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartA
   br i1 %29, label %.lr.ph.i, label %"_ZN11PSCardTable30preprocess_card_table_parallelIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S5_S5_jj.exit"
 
 .lr.ph.i:                                         ; preds = %7, %128
-  %.sroa.0.0 = phi ptr [ %.sroa.0.2, %128 ], [ null, %7 ]
-  %.sroa.6.0 = phi ptr [ %.sroa.6.2, %128 ], [ %2, %7 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %128 ], [ null, %7 ]
+  %.sroa.6.1 = phi ptr [ %.sroa.6.2, %128 ], [ %2, %7 ]
   %.020.i = phi ptr [ %129, %128 ], [ %23, %7 ]
   %30 = load i8, ptr %.020.i, align 1
   %.not.i = icmp eq i8 %30, -1
@@ -594,7 +594,7 @@ define hidden void @_ZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartA
   %37 = zext nneg i32 %36 to i64
   %38 = shl i64 %35, %37
   %39 = inttoptr i64 %38 to ptr
-  %40 = icmp ugt ptr %.sroa.6.0, %39
+  %40 = icmp ugt ptr %.sroa.6.1, %39
   br i1 %40, label %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit", label %41
 
 41:                                               ; preds = %31
@@ -683,15 +683,15 @@ _ZN7oopDesc4sizeEv.exit.i27:                      ; preds = %93, %73, %66, %63
   br label %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit"
 
 "_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit": ; preds = %31, %_ZN7oopDesc4sizeEv.exit.i27
-  %.sroa.0.1 = phi ptr [ %42, %_ZN7oopDesc4sizeEv.exit.i27 ], [ %.sroa.0.0, %31 ]
-  %.sroa.6.1 = phi ptr [ %98, %_ZN7oopDesc4sizeEv.exit.i27 ], [ %.sroa.6.0, %31 ]
-  %99 = icmp eq ptr %.sroa.0.1, %39
+  %.sroa.0.5 = phi ptr [ %42, %_ZN7oopDesc4sizeEv.exit.i27 ], [ %.sroa.0.1, %31 ]
+  %.sroa.6.5 = phi ptr [ %98, %_ZN7oopDesc4sizeEv.exit.i27 ], [ %.sroa.6.1, %31 ]
+  %99 = icmp eq ptr %.sroa.0.5, %39
   br i1 %99, label %128, label %100
 
 100:                                              ; preds = %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit"
   %101 = load i8, ptr @UseCompressedClassPointers, align 1
   %102 = trunc i8 %101 to i1
-  %103 = getelementptr inbounds i8, ptr %.sroa.0.1, i64 8
+  %103 = getelementptr inbounds i8, ptr %.sroa.0.5, i64 8
   br i1 %102, label %104, label %114
 
 104:                                              ; preds = %100
@@ -719,7 +719,7 @@ _ZNK7oopDesc8is_arrayEv.exit.i:                   ; preds = %114, %104
 
 119:                                              ; preds = %_ZNK7oopDesc8is_arrayEv.exit.i
   %120 = load ptr, ptr %14, align 8
-  %121 = ptrtoint ptr %.sroa.0.1 to i64
+  %121 = ptrtoint ptr %.sroa.0.5 to i64
   %122 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
   %123 = zext nneg i32 %122 to i64
   %124 = lshr i64 %121, %123
@@ -733,8 +733,8 @@ _ZNK7oopDesc8is_arrayEv.exit.i:                   ; preds = %114, %104
   br label %128
 
 128:                                              ; preds = %127, %119, %_ZNK7oopDesc8is_arrayEv.exit.i, %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit", %.lr.ph.i
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit" ], [ %.sroa.0.1, %_ZNK7oopDesc8is_arrayEv.exit.i ], [ %.sroa.0.1, %119 ], [ %.sroa.0.1, %127 ], [ %.sroa.0.0, %.lr.ph.i ]
-  %.sroa.6.2 = phi ptr [ %.sroa.6.1, %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit" ], [ %.sroa.6.1, %_ZNK7oopDesc8is_arrayEv.exit.i ], [ %.sroa.6.1, %119 ], [ %.sroa.6.1, %127 ], [ %.sroa.6.0, %.lr.ph.i ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.5, %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit" ], [ %.sroa.0.5, %_ZNK7oopDesc8is_arrayEv.exit.i ], [ %.sroa.0.5, %119 ], [ %.sroa.0.5, %127 ], [ %.sroa.0.1, %.lr.ph.i ]
+  %.sroa.6.2 = phi ptr [ %.sroa.6.5, %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit" ], [ %.sroa.6.5, %_ZNK7oopDesc8is_arrayEv.exit.i ], [ %.sroa.6.5, %119 ], [ %.sroa.6.5, %127 ], [ %.sroa.6.1, %.lr.ph.i ]
   %129 = getelementptr inbounds i8, ptr %.020.i, i64 %13
   %130 = icmp ult ptr %129, %28
   br i1 %130, label %.lr.ph.i, label %"_ZN11PSCardTable30preprocess_card_table_parallelIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S5_S5_jj.exit", !llvm.loop !7
@@ -800,8 +800,8 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %141, %144
 
 164:                                              ; preds = %.lr.ph61, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit"
   %.058 = phi ptr [ %152, %.lr.ph61 ], [ %441, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
-  %.sroa.6.357 = phi ptr [ %2, %.lr.ph61 ], [ %.sroa.6.6, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
-  %.sroa.0.356 = phi ptr [ null, %.lr.ph61 ], [ %.sroa.0.6, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
+  %.sroa.6.057 = phi ptr [ %2, %.lr.ph61 ], [ %.sroa.6.4, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
+  %.sroa.0.056 = phi ptr [ null, %.lr.ph61 ], [ %.sroa.0.4, %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit" ]
   %165 = getelementptr inbounds ptr, ptr %.058, i64 %149
   %166 = icmp ult ptr %165, %3
   %167 = select i1 %166, ptr %165, ptr %3
@@ -841,8 +841,8 @@ _ZN9SpinYield4waitEv.exit:                        ; preds = %141, %144
   br i1 %193, label %.lr.ph.i23, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit"
 
 .lr.ph.i23:                                       ; preds = %164, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i
-  %.sroa.0.4 = phi ptr [ %.sroa.0.5, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.0.356, %164 ]
-  %.sroa.6.4 = phi ptr [ %.sroa.6.5, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.6.357, %164 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.0.056, %164 ]
+  %.sroa.6.3 = phi ptr [ %.sroa.6.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.6.057, %164 ]
   %.09.i = phi ptr [ %430, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.058, %164 ]
   %194 = load ptr, ptr %155, align 8
   %195 = ptrtoint ptr %.09.i to i64
@@ -896,7 +896,7 @@ _ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i: ; preds = %.l
   %217 = inttoptr i64 %216 to ptr
   %218 = icmp ugt ptr %167, %217
   %219 = select i1 %218, ptr %217, ptr %167
-  %220 = icmp ugt ptr %.sroa.6.4, %213
+  %220 = icmp ugt ptr %.sroa.6.3, %213
   br i1 %220, label %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit36", label %221
 
 221:                                              ; preds = %208
@@ -985,8 +985,8 @@ _ZN7oopDesc4sizeEv.exit.i32:                      ; preds = %273, %253, %246, %2
   br label %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit36"
 
 "_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit36": ; preds = %208, %_ZN7oopDesc4sizeEv.exit.i32
-  %.sroa.0.5 = phi ptr [ %222, %_ZN7oopDesc4sizeEv.exit.i32 ], [ %.sroa.0.4, %208 ]
-  %.sroa.6.5 = phi ptr [ %278, %_ZN7oopDesc4sizeEv.exit.i32 ], [ %.sroa.6.4, %208 ]
+  %.sroa.0.6 = phi ptr [ %222, %_ZN7oopDesc4sizeEv.exit.i32 ], [ %.sroa.0.3, %208 ]
+  %.sroa.6.6 = phi ptr [ %278, %_ZN7oopDesc4sizeEv.exit.i32 ], [ %.sroa.6.3, %208 ]
   %279 = icmp ugt ptr %.09.i, %.058
   %280 = sub i64 %175, %212
   %281 = lshr i64 %280, 3
@@ -996,7 +996,7 @@ _ZN7oopDesc4sizeEv.exit.i32:                      ; preds = %273, %253, %246, %2
   br label %285
 
 285:                                              ; preds = %_ZN11PSCardTable19scan_obj_with_limitEP18PSPromotionManagerP7oopDescPP12HeapWordImplS6_.exit.i, %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit36"
-  %.041.i = phi ptr [ %.sroa.0.5, %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit36" ], [ %342, %_ZN11PSCardTable19scan_obj_with_limitEP18PSPromotionManagerP7oopDescPP12HeapWordImplS6_.exit.i ]
+  %.041.i = phi ptr [ %.sroa.0.6, %"_ZZN11PSCardTable26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS4_P18PSPromotionManagerjjENK3$_0clES4_.exit36" ], [ %342, %_ZN11PSCardTable19scan_obj_with_limitEP18PSPromotionManagerP7oopDescPP12HeapWordImplS6_.exit.i ]
   %286 = load i8, ptr @UseCompressedClassPointers, align 1
   %287 = trunc i8 %286 to i1
   %288 = getelementptr inbounds i8, ptr %.041.i, i64 8
@@ -1263,8 +1263,8 @@ _ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i: ; preds = %439, %429
   br i1 %440, label %.lr.ph.i23, label %"_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit", !llvm.loop !15
 
 "_ZN11PSCardTable13process_rangeIRZNS_26scavenge_contents_parallelEP16ObjectStartArrayPP12HeapWordImplS5_P18PSPromotionManagerjjE3$_0EEvOT_S7_S5_S5_.exit": ; preds = %.lr.ph.i23, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i, %202, %164
-  %.sroa.0.6 = phi ptr [ %.sroa.0.356, %164 ], [ %.sroa.0.4, %202 ], [ %.sroa.0.4, %.lr.ph.i23 ], [ %.sroa.0.5, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.0.4, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i ]
-  %.sroa.6.6 = phi ptr [ %.sroa.6.357, %164 ], [ %.sroa.6.4, %202 ], [ %.sroa.6.4, %.lr.ph.i23 ], [ %.sroa.6.5, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.6.4, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.056, %164 ], [ %.sroa.0.3, %202 ], [ %.sroa.0.3, %.lr.ph.i23 ], [ %.sroa.0.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.0.3, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i ]
+  %.sroa.6.4 = phi ptr [ %.sroa.6.057, %164 ], [ %.sroa.6.3, %202 ], [ %.sroa.6.3, %.lr.ph.i23 ], [ %.sroa.6.6, %_ZN18PSPromotionManager23drain_stacks_cond_depthEv.exit.i ], [ %.sroa.6.3, %_ZN23PSStripeShadowCardTable21find_first_clean_cardEPKhS1_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10)
   %441 = getelementptr inbounds ptr, ptr %.058, i64 %150
   %442 = icmp ult ptr %441, %3
@@ -5716,9 +5716,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %59
 
 59:                                               ; preds = %57, %50
-  %.1.ph.i.i.i.i.i = phi i64 [ %48, %50 ], [ %56, %57 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %48, %50 ], [ %56, %57 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %50 ], [ %58, %57 ]
-  %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %61 = add i64 %.026.ph.i.i.i.i.i, %60
   %62 = icmp ult i64 %61, %38
   br i1 %62, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
@@ -6238,9 +6238,9 @@ _ZN33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureE6do_bitE
   br label %48
 
 48:                                               ; preds = %46, %39
-  %.1.ph.i.i.i.i = phi i64 [ %37, %39 ], [ %45, %46 ]
+  %.027.ph.i.i.i.i = phi i64 [ %37, %39 ], [ %45, %46 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %39 ], [ %47, %46 ]
-  %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %50 = add i64 %.026.ph.i.i.i.i, %49
   %51 = icmp ult i64 %50, %25
   br i1 %51, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc21PSPushContentsClosureEEEbPT_mm.exit
@@ -8714,9 +8714,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass29oop_oop_iterate_s
   br label %64
 
 64:                                               ; preds = %62, %55
-  %.1.ph.i.i.i.i.i = phi i64 [ %53, %55 ], [ %61, %62 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %53, %55 ], [ %61, %62 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %55 ], [ %63, %62 ]
-  %65 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %65 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %66 = add i64 %.026.ph.i.i.i.i.i, %65
   %67 = icmp ult i64 %66, %43
   br i1 %67, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPushContentsClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
@@ -11132,9 +11132,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %54
 
 54:                                               ; preds = %52, %45
-  %.1.ph.i.i.i.i = phi i64 [ %43, %45 ], [ %51, %52 ]
+  %.027.ph.i.i.i.i = phi i64 [ %43, %45 ], [ %51, %52 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %45 ], [ %53, %52 ]
-  %55 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %55 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %56 = add i64 %.026.ph.i.i.i.i, %55
   %57 = icmp ult i64 %56, %25
   br i1 %57, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop22PSCheckForUnmarkedOopsEEEbPT_mm.exit
@@ -11280,9 +11280,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %63
 
 63:                                               ; preds = %61, %54
-  %.1.ph.i.i.i.i.i = phi i64 [ %52, %54 ], [ %60, %61 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %52, %54 ], [ %60, %61 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %54 ], [ %62, %61 ]
-  %64 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %64 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %65 = add i64 %.026.ph.i.i.i.i.i, %64
   %66 = icmp ult i64 %65, %38
   br i1 %66, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc22PSCheckForUnmarkedOopsEEvP17stackChunkOopDescPT0_PlS8_.exit

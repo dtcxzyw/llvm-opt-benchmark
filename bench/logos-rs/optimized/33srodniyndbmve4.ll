@@ -675,9 +675,9 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
           to label %150 unwind label %.body138.thread190
 
 149:                                              ; preds = %178, %.body132
-  %.sroa.089.0 = phi i1 [ %208, %.body132 ], [ %.sroa.089.2, %178 ]
+  %.sroa.089.1 = phi i1 [ %208, %.body132 ], [ %.sroa.089.2, %178 ]
   %.pn127 = phi { ptr, i32 } [ %eh.lpad-body133, %.body132 ], [ %.pn125, %178 ]
-  br i1 %.sroa.089.0, label %.thread180, label %.thread
+  br i1 %.sroa.089.1, label %.thread180, label %.thread
 
 .body138.thread190:                               ; preds = %.invoke, %147, %190, %242, %240, %175
   %lpad.thr_comm188 = landingpad { ptr, i32 }

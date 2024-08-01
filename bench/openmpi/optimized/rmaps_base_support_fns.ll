@@ -734,7 +734,7 @@ pmix_pointer_array_get_item.exit469.lr.ph:        ; preds = %281
 pmix_pointer_array_get_item.exit469:              ; preds = %pmix_pointer_array_get_item.exit469.lr.ph, %414
   %indvars.iv = phi i64 [ 1, %pmix_pointer_array_get_item.exit469.lr.ph ], [ %indvars.iv.next, %414 ]
   %289 = phi ptr [ %282, %pmix_pointer_array_get_item.exit469.lr.ph ], [ %415, %414 ]
-  %.1332532 = phi ptr [ %.0331, %pmix_pointer_array_get_item.exit469.lr.ph ], [ %.3, %414 ]
+  %.1332532 = phi ptr [ %.0331, %pmix_pointer_array_get_item.exit469.lr.ph ], [ %.2333, %414 ]
   %290 = getelementptr inbounds i8, ptr %289, i64 152
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds ptr, ptr %291, i64 %indvars.iv
@@ -909,8 +909,8 @@ pmix_pointer_array_get_item.exit469:              ; preds = %pmix_pointer_array_
   br label %414
 
 .lr.ph:                                           ; preds = %.preheader520, %391
-  %.2333531 = phi ptr [ %383, %391 ], [ %.1332532, %.preheader520 ]
-  %382 = getelementptr inbounds i8, ptr %.2333531, i64 128
+  %.3531 = phi ptr [ %383, %391 ], [ %.1332532, %.preheader520 ]
+  %382 = getelementptr inbounds i8, ptr %.3531, i64 128
   %383 = load ptr, ptr %382, align 8
   %384 = icmp eq ptr %286, %383
   br i1 %384, label %385, label %391
@@ -935,8 +935,8 @@ pmix_pointer_array_get_item.exit469:              ; preds = %pmix_pointer_array_
   br i1 %396, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %391, %.preheader520
-  %.2333.lcssa = phi ptr [ %.1332532, %.preheader520 ], [ %383, %391 ]
-  %397 = getelementptr inbounds i8, ptr %.2333.lcssa, i64 120
+  %.3.lcssa = phi ptr [ %.1332532, %.preheader520 ], [ %383, %391 ]
+  %397 = getelementptr inbounds i8, ptr %.3.lcssa, i64 120
   %398 = load ptr, ptr %397, align 8
   %399 = icmp eq ptr %398, %286
   br i1 %399, label %400, label %405
@@ -972,7 +972,7 @@ pmix_pointer_array_get_item.exit469:              ; preds = %pmix_pointer_array_
   br label %414
 
 414:                                              ; preds = %pmix_pointer_array_get_item.exit469, %411, %375, %336, %338, %343, %322, %324, %329, %312, %314, %319, %294, %311
-  %.3 = phi ptr [ %.1332532, %294 ], [ %.1332532, %311 ], [ %.1332532, %319 ], [ %.1332532, %314 ], [ %.1332532, %312 ], [ %.1332532, %329 ], [ %.1332532, %324 ], [ %.1332532, %322 ], [ %293, %375 ], [ %.val446, %411 ], [ %.1332532, %343 ], [ %.1332532, %338 ], [ %.1332532, %336 ], [ %.1332532, %pmix_pointer_array_get_item.exit469 ]
+  %.2333 = phi ptr [ %.1332532, %294 ], [ %.1332532, %311 ], [ %.1332532, %319 ], [ %.1332532, %314 ], [ %.1332532, %312 ], [ %.1332532, %329 ], [ %.1332532, %324 ], [ %.1332532, %322 ], [ %293, %375 ], [ %.val446, %411 ], [ %.1332532, %343 ], [ %.1332532, %338 ], [ %.1332532, %336 ], [ %.1332532, %pmix_pointer_array_get_item.exit469 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %415 = load ptr, ptr @prte_node_pool, align 8
   %416 = getelementptr inbounds i8, ptr %415, i64 128
@@ -1258,7 +1258,7 @@ pmix_obj_run_destructors.exit480:                 ; preds = %.lr.ph.i477, %533
   br label %558
 
 558:                                              ; preds = %.lr.ph559, %851
-  %.0325555 = phi i32 [ 0, %.lr.ph559 ], [ %.1326, %851 ]
+  %.1326555 = phi i32 [ 0, %.lr.ph559 ], [ %.2, %851 ]
   %.1335554 = phi ptr [ %465, %.lr.ph559 ], [ %.2329557, %851 ]
   %.2329.in556 = getelementptr inbounds i8, ptr %.1335554, i64 120
   %.2329557 = load ptr, ptr %.2329.in556, align 8
@@ -1688,7 +1688,7 @@ pmix_obj_run_destructors.exit504:                 ; preds = %.lr.ph.i501, %745
   br label %781
 
 781:                                              ; preds = %777, %772, %769
-  %782 = add nsw i32 %.0, %.0325555
+  %782 = add nsw i32 %.0, %.1326555
   %783 = getelementptr inbounds i8, ptr %.1335554, i64 192
   %784 = load ptr, ptr %783, align 8
   %785 = getelementptr inbounds i8, ptr %.1335554, i64 184
@@ -1812,12 +1812,12 @@ pmix_obj_run_destructors.exit510:                 ; preds = %.lr.ph.i507, %837
   br label %851
 
 851:                                              ; preds = %848, %850, %756, %758, %707, %709, %658, %660, %607, %609, %831, %739, %690, %641, %590, %800, %781
-  %.1326 = phi i32 [ %.0325555, %590 ], [ %.0325555, %641 ], [ %.0325555, %690 ], [ %.0325555, %739 ], [ %782, %781 ], [ %.0325555, %831 ], [ %.0325555, %800 ], [ %.0325555, %609 ], [ %.0325555, %607 ], [ %.0325555, %660 ], [ %.0325555, %658 ], [ %.0325555, %709 ], [ %.0325555, %707 ], [ %.0325555, %758 ], [ %.0325555, %756 ], [ %.0325555, %850 ], [ %.0325555, %848 ]
+  %.2 = phi i32 [ %.1326555, %590 ], [ %.1326555, %641 ], [ %.1326555, %690 ], [ %.1326555, %739 ], [ %782, %781 ], [ %.1326555, %831 ], [ %.1326555, %800 ], [ %.1326555, %609 ], [ %.1326555, %607 ], [ %.1326555, %660 ], [ %.1326555, %658 ], [ %.1326555, %709 ], [ %.1326555, %707 ], [ %.1326555, %758 ], [ %.1326555, %756 ], [ %.1326555, %850 ], [ %.1326555, %848 ]
   %.not396 = icmp eq ptr %.2329557, %463
   br i1 %.not396, label %.loopexit, label %558, !llvm.loop !12
 
 .loopexit:                                        ; preds = %553, %851, %466, %554
-  %.2 = phi i32 [ 0, %554 ], [ 2147483647, %466 ], [ %.1326, %851 ], [ 2147483647, %553 ]
+  %.0325 = phi i32 [ 0, %554 ], [ 2147483647, %466 ], [ %.2, %851 ], [ 2147483647, %553 ]
   %852 = getelementptr inbounds i8, ptr %0, i64 264
   %853 = load volatile i64, ptr %852, align 8
   %854 = icmp eq i64 %853, 0
@@ -1831,7 +1831,7 @@ pmix_obj_run_destructors.exit510:                 ; preds = %.lr.ph.i507, %837
   br label %pmix_obj_run_destructors.exit
 
 858:                                              ; preds = %.loopexit
-  store i32 %.2, ptr %1, align 4
+  store i32 %.0325, ptr %1, align 4
   %859 = getelementptr inbounds i8, ptr %2, i64 480
   %860 = load ptr, ptr %859, align 8
   %.not.i512 = icmp eq ptr %860, null

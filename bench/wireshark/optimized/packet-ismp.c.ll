@@ -432,21 +432,21 @@ define internal i32 @dissect_ismp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %118
 
 118:                                              ; preds = %121, %112
-  %.0217.i = phi i32 [ %110, %112 ], [ %129, %121 ]
+  %.1217.i = phi i32 [ %110, %112 ], [ %129, %121 ]
   %.0197216.i = phi i32 [ 0, %112 ], [ %123, %121 ]
-  %119 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0217.i) #4
+  %119 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1217.i) #4
   %120 = icmp sgt i32 %119, 9
   br i1 %120, label %121, label %.critedge.i
 
 121:                                              ; preds = %118
   %122 = load i32, ptr @ett_ismp_edp_neighbors_leaf, align 4
   %123 = add nuw nsw i32 %.0197216.i, 1
-  %124 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %117, ptr noundef %0, i32 noundef %.0217.i, i32 noundef 10, i32 noundef %122, ptr noundef null, ptr noundef nonnull @.str.149, i32 noundef %123) #4
+  %124 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %117, ptr noundef %0, i32 noundef %.1217.i, i32 noundef 10, i32 noundef %122, ptr noundef null, ptr noundef nonnull @.str.149, i32 noundef %123) #4
   %125 = load i32, ptr @hf_ismp_neighborhood_mac_address, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %0, i32 noundef %.0217.i, i32 noundef 6, i32 noundef 0) #4
+  %126 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %125, ptr noundef %0, i32 noundef %.1217.i, i32 noundef 6, i32 noundef 0) #4
   %127 = load i32, ptr @hf_ismp_assigned_neighbor_state, align 4
-  %128 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %127, ptr noundef %0, i32 noundef %.0217.i, i32 noundef 4, i32 noundef 0) #4
-  %129 = add nuw nsw i32 %.0217.i, 10
+  %128 = call ptr @proto_tree_add_item(ptr noundef %124, i32 noundef %127, ptr noundef %0, i32 noundef %.1217.i, i32 noundef 4, i32 noundef 0) #4
+  %129 = add nuw nsw i32 %.1217.i, 10
   %exitcond.not.i = icmp eq i32 %123, %111
   br i1 %exitcond.not.i, label %.critedge.thread.i, label %118, !llvm.loop !4
 
@@ -455,36 +455,36 @@ define internal i32 @dissect_ismp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not203.i, label %.critedge.thread.i, label %130
 
 130:                                              ; preds = %.critedge.i
-  %131 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_ismp_malformed, ptr noundef %0, i32 noundef %.0217.i, i32 noundef -1) #4
+  %131 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_ismp_malformed, ptr noundef %0, i32 noundef %.1217.i, i32 noundef -1) #4
   br label %dissect_ismp_edp.exit
 
 .critedge.thread.i:                               ; preds = %121, %.critedge.i, %105
-  %.1.i = phi i32 [ %.0217.i, %.critedge.i ], [ %110, %105 ], [ %129, %121 ]
-  %132 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #4
+  %.0.i = phi i32 [ %.1217.i, %.critedge.i ], [ %110, %105 ], [ %129, %121 ]
+  %132 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i) #4
   %.not204.i = icmp eq i32 %132, 0
   br i1 %.not204.i, label %142, label %133
 
 133:                                              ; preds = %.critedge.thread.i
-  %134 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #4
+  %134 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i) #4
   %135 = icmp sgt i32 %134, 1
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %133
-  %137 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.1.i) #4
+  %137 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0.i) #4
   %138 = load i32, ptr @hf_ismp_edp_num_tuples, align 4
-  %139 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %138, ptr noundef %0, i32 noundef %.1.i, i32 noundef 2, i32 noundef 0) #4
-  %140 = add i32 %.1.i, 2
+  %139 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %138, ptr noundef %0, i32 noundef %.0.i, i32 noundef 2, i32 noundef 0) #4
+  %140 = add i32 %.0.i, 2
   %141 = zext i16 %137 to i32
   %.not205.i = icmp eq i16 %137, 0
   br i1 %.not205.i, label %dissect_ismp_edp.exit, label %147
 
 142:                                              ; preds = %133, %.critedge.thread.i
-  %143 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #4
+  %143 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i) #4
   %144 = icmp sgt i32 %143, 0
   br i1 %144, label %145, label %dissect_ismp_edp.exit
 
 145:                                              ; preds = %142
-  %146 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_ismp_malformed, ptr noundef %0, i32 noundef %.1.i, i32 noundef -1) #4
+  %146 = call ptr @proto_tree_add_expert(ptr noundef %41, ptr noundef %1, ptr noundef nonnull @ei_ismp_malformed, ptr noundef %0, i32 noundef %.0.i, i32 noundef -1) #4
   br label %dissect_ismp_edp.exit
 
 147:                                              ; preds = %136

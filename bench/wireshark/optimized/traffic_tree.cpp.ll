@@ -3321,8 +3321,8 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %_ZN7QStringD2Ev.exi
   br label %113
 
 113:                                              ; preds = %.critedge, %38, %110, %_ZN7QStringD2Ev.exit, %_ZNK11QModelIndex7isValidEv.exit.thread
-  %.1 = phi i1 [ false, %110 ], [ %112, %_ZNK11QModelIndex7isValidEv.exit.thread ], [ false, %_ZN7QStringD2Ev.exit ], [ false, %38 ], [ false, %.critedge ]
-  ret i1 %.1
+  %.026 = phi i1 [ false, %110 ], [ %112, %_ZNK11QModelIndex7isValidEv.exit.thread ], [ false, %_ZN7QStringD2Ev.exit ], [ false, %38 ], [ false, %.critedge ]
+  ret i1 %.026
 
 114:                                              ; preds = %78, %111, %40
   %.sink = phi ptr [ %7, %40 ], [ %13, %111 ], [ %13, %78 ]
@@ -4089,7 +4089,7 @@ _ZN7QStringD2Ev.exit160:                          ; preds = %_ZN17QArrayDataPoin
   br i1 %164, label %185, label %.thread
 
 185:                                              ; preds = %171, %144, %_ZNK8QVariant5valueIjEET_v.exit148, %_ZN7QStringD2Ev.exit160
-  %.0106219 = phi i8 [ %132, %_ZNK8QVariant5valueIjEET_v.exit148 ], [ %152, %_ZN7QStringD2Ev.exit160 ], [ %146, %144 ], [ %152, %171 ]
+  %.1107219 = phi i8 [ %132, %_ZNK8QVariant5valueIjEET_v.exit148 ], [ %152, %_ZN7QStringD2Ev.exit160 ], [ %146, %144 ], [ %152, %171 ]
   %186 = invoke noundef ptr @_ZNK11QMetaObject4castEPK7QObject(ptr noundef nonnull align 8 dereferenceable(56) @_ZN21ConversationDataModel16staticMetaObjectE, ptr noundef nonnull %65)
           to label %_Z12qobject_castIP21ConversationDataModelET_P7QObject.exit170 unwind label %87
 
@@ -4170,12 +4170,12 @@ _Z12qobject_castIP21ConversationDataModelET_P7QObject.exit170: ; preds = %185
 
 .sink.split:                                      ; preds = %214, %200
   %.sink = phi ptr [ %18, %200 ], [ %22, %214 ]
-  %.0111.ph = phi i32 [ 1, %200 ], [ 3, %214 ]
+  %.1112.ph = phi i32 [ 1, %200 ], [ 3, %214 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %.sink, i64 24, i1 false)
   br label %221
 
 221:                                              ; preds = %.sink.split, %187
-  %.0111 = phi i32 [ 1, %187 ], [ %.0111.ph, %.sink.split ]
+  %.1112 = phi i32 [ 1, %187 ], [ %.1112.ph, %.sink.split ]
   %222 = load ptr, ptr %65, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 144
   %224 = load ptr, ptr %223, align 8
@@ -4488,10 +4488,10 @@ _ZN7QStringD2Ev.exit217:                          ; preds = %318, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit164
 
 320:                                              ; preds = %_ZNK8QVariant5valueIjEET_v.exit174, %_ZN7QStringD2Ev.exit201, %_Z12qobject_castIP21ConversationDataModelET_P7QObject.exit170
-  %.1112 = phi i32 [ %.0111, %_ZNK8QVariant5valueIjEET_v.exit174 ], [ %.0111, %_ZN7QStringD2Ev.exit201 ], [ 1, %_Z12qobject_castIP21ConversationDataModelET_P7QObject.exit170 ]
+  %.0111 = phi i32 [ %.1112, %_ZNK8QVariant5valueIjEET_v.exit174 ], [ %.1112, %_ZN7QStringD2Ev.exit201 ], [ 1, %_Z12qobject_castIP21ConversationDataModelET_P7QObject.exit170 ]
   %.1110.in = phi i1 [ %235, %_ZNK8QVariant5valueIjEET_v.exit174 ], [ %273, %_ZN7QStringD2Ev.exit201 ], [ true, %_Z12qobject_castIP21ConversationDataModelET_P7QObject.exit170 ]
-  %.1107 = phi i8 [ %234, %_ZNK8QVariant5valueIjEET_v.exit174 ], [ %249, %_ZN7QStringD2Ev.exit201 ], [ %.0106219, %_Z12qobject_castIP21ConversationDataModelET_P7QObject.exit170 ]
-  %321 = trunc nuw i8 %.1107 to i1
+  %.2108 = phi i8 [ %234, %_ZNK8QVariant5valueIjEET_v.exit174 ], [ %249, %_ZN7QStringD2Ev.exit201 ], [ %.1107219, %_Z12qobject_castIP21ConversationDataModelET_P7QObject.exit170 ]
+  %321 = trunc nuw i8 %.2108 to i1
   %.1110.in.not = xor i1 %.1110.in, true
   %brmerge = or i1 %.1110.in.not, %321
   br i1 %brmerge, label %.thread, label %322
@@ -4513,7 +4513,7 @@ _ZN7QStringD2Ev.exit217:                          ; preds = %318, %_ZN17QArrayDa
   %329 = load ptr, ptr %65, align 8
   %330 = getelementptr inbounds i8, ptr %329, i64 96
   %331 = load ptr, ptr %330, align 8
-  invoke void %331(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %37, ptr noundef nonnull align 8 dereferenceable(16) %65, i32 noundef %326, i32 noundef %.1112, ptr noundef nonnull align 8 dereferenceable(24) %38)
+  invoke void %331(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %37, ptr noundef nonnull align 8 dereferenceable(16) %65, i32 noundef %326, i32 noundef %.0111, ptr noundef nonnull align 8 dereferenceable(24) %38)
           to label %332 unwind label %87
 
 332:                                              ; preds = %325
@@ -4538,7 +4538,7 @@ _ZN7QStringD2Ev.exit217:                          ; preds = %318, %_ZN17QArrayDa
   %342 = load ptr, ptr %65, align 8
   %343 = getelementptr inbounds i8, ptr %342, i64 96
   %344 = load ptr, ptr %343, align 8
-  invoke void %344(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %40, ptr noundef nonnull align 8 dereferenceable(16) %65, i32 noundef %339, i32 noundef %.1112, ptr noundef nonnull align 8 dereferenceable(24) %41)
+  invoke void %344(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %40, ptr noundef nonnull align 8 dereferenceable(16) %65, i32 noundef %339, i32 noundef %.0111, ptr noundef nonnull align 8 dereferenceable(24) %41)
           to label %345 unwind label %87
 
 345:                                              ; preds = %338
@@ -4570,8 +4570,8 @@ _ZN7QStringD2Ev.exit217:                          ; preds = %318, %_ZN17QArrayDa
   br label %_ZN7QStringD2Ev.exit164
 
 .thread:                                          ; preds = %171, %144, %_ZNK8QVariant5valueIjEET_v.exit148, %_ZN7QStringD2Ev.exit160, %320, %117, %324, %110
-  %.2108 = phi i8 [ %112, %110 ], [ %.1107, %320 ], [ %.1107, %324 ], [ 0, %117 ], [ %152, %171 ], [ %146, %144 ], [ %132, %_ZNK8QVariant5valueIjEET_v.exit148 ], [ %152, %_ZN7QStringD2Ev.exit160 ]
-  %357 = trunc nuw i8 %.2108 to i1
+  %.0106 = phi i8 [ %112, %110 ], [ %.2108, %320 ], [ %.2108, %324 ], [ 0, %117 ], [ %152, %171 ], [ %146, %144 ], [ %132, %_ZNK8QVariant5valueIjEET_v.exit148 ], [ %152, %_ZN7QStringD2Ev.exit160 ]
+  %357 = trunc nuw i8 %.0106 to i1
   br label %359
 
 .critedge:                                        ; preds = %91, %_Z12qobject_castIP21ConversationDataModelET_P7QObject.exit, %93
@@ -4579,7 +4579,7 @@ _ZN7QStringD2Ev.exit217:                          ; preds = %318, %_ZN17QArrayDa
           to label %359 unwind label %87
 
 359:                                              ; preds = %.critedge, %.thread, %351
-  %.0 = phi i1 [ %357, %.thread ], [ %352, %351 ], [ %358, %.critedge ]
+  %.1 = phi i1 [ %357, %.thread ], [ %352, %351 ], [ %358, %.critedge ]
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   br label %_ZNK11QModelIndex7isValidEv.exit.thread
@@ -4595,8 +4595,8 @@ _ZN7QStringD2Ev.exit164:                          ; preds = %183, %_ZN17QArrayDa
   resume { ptr, i32 } %.pn133.pn
 
 _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %52, %3, %63, %66, %61, %50, %359
-  %.1 = phi i1 [ %.0, %359 ], [ false, %50 ], [ false, %61 ], [ false, %66 ], [ false, %63 ], [ false, %3 ], [ false, %52 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %359 ], [ false, %50 ], [ false, %61 ], [ false, %66 ], [ false, %63 ], [ false, %3 ], [ false, %52 ]
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_ZNK13ATapDataModel14portsAreHiddenEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #1

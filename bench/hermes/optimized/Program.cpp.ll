@@ -486,7 +486,7 @@ if.end91:                                         ; preds = %if.end84
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then59, %for.end, %lor.lhs.false, %if.end91, %if.then86, %if.then66
-  %retval.0 = phi i1 [ false, %if.then86 ], [ true, %if.end91 ], [ false, %if.then66 ], [ false, %lor.lhs.false ], [ false, %for.end ], [ false, %if.then59 ]
+  %retval.1 = phi i1 [ false, %if.then86 ], [ true, %if.end91 ], [ false, %if.then66 ], [ false, %lor.lhs.false ], [ false, %for.end ], [ false, %if.then59 ]
   br label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %arraydestroy.body, %cleanup
@@ -606,7 +606,7 @@ sw.epilog:                                        ; preds = %if.end94
   br label %cleanup155
 
 cleanup155:                                       ; preds = %arraydestroy.body, %if.else132, %if.end106, %if.then101, %sw.epilog, %if.then127, %sw.bb
-  %retval.1 = phi i1 [ true, %sw.epilog ], [ false, %if.then127 ], [ false, %sw.bb ], [ false, %if.then101 ], [ false, %if.end106 ], [ false, %if.else132 ], [ %retval.0, %arraydestroy.body ]
+  %retval.2 = phi i1 [ true, %sw.epilog ], [ false, %if.then127 ], [ false, %sw.bb ], [ false, %if.then101 ], [ false, %if.end106 ], [ false, %if.else132 ], [ %retval.1, %arraydestroy.body ]
   %tobool.not.i.i.i117 = icmp eq ptr %EnvVector.sroa.0.0, null
   br i1 %tobool.not.i.i.i117, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit119, label %if.then.i.i.i118
 
@@ -677,8 +677,8 @@ if.then.i.i6.i:                                   ; preds = %_ZN4llvh11SmallVect
   br label %return
 
 return:                                           ; preds = %if.then.i.i6.i, %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i, %if.then, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit66
-  %retval.2 = phi i1 [ false, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit66 ], [ false, %if.then ], [ %retval.1, %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i ], [ %retval.1, %if.then.i.i6.i ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ false, %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit66 ], [ false, %if.then ], [ %retval.2, %_ZN4llvh11SmallVectorISt4pairIPvmELj0EED2Ev.exit.i ], [ %retval.2, %if.then.i.i6.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1948,13 +1948,13 @@ if.end26:                                         ; preds = %if.end18
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end26, %if.then21, %if.then11
-  %retval.0 = phi i1 [ true, %if.then11 ], [ true, %if.then21 ], [ false, %if.end26 ]
+  %retval.1 = phi i1 [ true, %if.then11 ], [ true, %if.then21 ], [ false, %if.end26 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %File) #21
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind

@@ -225,20 +225,20 @@ select.unfold.i.i:                                ; preds = %"_ZN97_$LT$core..st
   %.pre.i.i.i16.i.i = phi i64 [ %75, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %.pre.i.i.i1718.i.i, %61 ], [ %.pre.i.i.i1718.i.i, %30 ]
   %78 = phi i1 [ false, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ true, %61 ], [ true, %30 ]
   %.pn25.i.i = phi i64 [ %31, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17h1daae34ffda03130E.exit.i.i.i.i.i" ], [ %.sroa.5.0.i.i, %61 ], [ %.sroa.5.0.i.i, %30 ]
-  %.sroa.4.1.i.i.ph.i.i = sub i64 %.pn25.i.i, %.pre.i.i.i1718.i.i
-  %.sroa.0.1.i.i.ph.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %.pre.i.i.i1718.i.i
-  switch i64 %.sroa.4.1.i.i.ph.i.i, label %.critedge.backedge.i.i [
+  %.sroa.4.0.i.i.ph.i.i = sub i64 %.pn25.i.i, %.pre.i.i.i1718.i.i
+  %.sroa.0.0.i.i.ph.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 %.pre.i.i.i1718.i.i
+  switch i64 %.sroa.4.0.i.i.ph.i.i, label %.critedge.backedge.i.i [
     i64 1, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h0462692abe0194adE.exit.i.i"
     i64 2, label %79
   ]
 
 79:                                               ; preds = %select.unfold.i.i
-  %bcmp.i12.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %.sroa.0.1.i.i.ph.i.i, ptr noundef nonnull readonly dereferenceable(2) @anon.8193b3a1c1e29bd1080c20fb878f7e0e.10, i64 2), !alias.scope !58, !noalias !62
+  %bcmp.i12.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %.sroa.0.0.i.i.ph.i.i, ptr noundef nonnull readonly dereferenceable(2) @anon.8193b3a1c1e29bd1080c20fb878f7e0e.10, i64 2), !alias.scope !58, !noalias !62
   %80 = icmp eq i32 %bcmp.i12.i.i.i.i, 0
   br i1 %80, label %98, label %.critedge.backedge.i.i
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h0462692abe0194adE.exit.i.i": ; preds = %select.unfold.i.i
-  %lhsc.i.i.i.i = load i8, ptr %.sroa.0.1.i.i.ph.i.i, align 1, !alias.scope !63, !noalias !62
+  %lhsc.i.i.i.i = load i8, ptr %.sroa.0.0.i.i.ph.i.i, align 1, !alias.scope !63, !noalias !62
   %81 = icmp eq i8 %lhsc.i.i.i.i, 46
   br i1 %81, label %98, label %.critedge.backedge.i.i
 
@@ -427,8 +427,8 @@ _ZN6uu_pwd12logical_path16looks_reasonable17h399c14b1c4cc3467E.exit.thread: ; pr
 _ZN6uu_pwd12logical_path16looks_reasonable17h399c14b1c4cc3467E.exit: ; preds = %.noexc.i
   %129 = icmp eq i64 %.sroa.1037.0.copyload.i, %.sroa.843.0.copyload.i
   %130 = icmp eq i64 %.sroa.1138.0.copyload.i, %.sroa.944.0.copyload.i
-  %.1.i = select i1 %129, i1 %130, i1 false
-  br i1 %.1.i, label %.thread21, label %_ZN6uu_pwd12logical_path16looks_reasonable17h399c14b1c4cc3467E.exit.thread
+  %.2.i = select i1 %129, i1 %130, i1 false
+  br i1 %.2.i, label %.thread21, label %_ZN6uu_pwd12logical_path16looks_reasonable17h399c14b1c4cc3467E.exit.thread
 
 .thread21:                                        ; preds = %_ZN6uu_pwd12logical_path16looks_reasonable17h399c14b1c4cc3467E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)

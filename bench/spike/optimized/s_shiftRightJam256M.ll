@@ -15,11 +15,11 @@ define void @softfloat_shiftRightJam256M(ptr nocapture noundef readonly %0, i64 
   br label %7
 
 7:                                                ; preds = %7, %4
-  %.036 = phi ptr [ %0, %4 ], [ %9, %7 ]
+  %.137 = phi ptr [ %0, %4 ], [ %9, %7 ]
   %.035 = phi i8 [ %6, %4 ], [ %10, %7 ]
-  %8 = load i64, ptr %.036, align 8
+  %8 = load i64, ptr %.137, align 8
   %.not45 = icmp ne i64 %8, 0
-  %9 = getelementptr inbounds i8, ptr %.036, i64 8
+  %9 = getelementptr inbounds i8, ptr %.137, i64 8
   %10 = add nsw i8 %.035, -1
   %.not46 = icmp eq i8 %10, 0
   %or.cond = select i1 %.not45, i1 true, i1 %.not46
@@ -99,11 +99,11 @@ softfloat_shortShiftRightJamM.exit:               ; preds = %29
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.065 = phi ptr [ %41, %.lr.ph ], [ %37, %.lr.ph.preheader ]
   %.164 = phi i8 [ %43, %.lr.ph ], [ %39, %.lr.ph.preheader ]
-  %.263 = phi ptr [ %42, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %.363 = phi ptr [ %42, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %40 = load i64, ptr %.065, align 8
-  store i64 %40, ptr %.263, align 8
+  store i64 %40, ptr %.363, align 8
   %41 = getelementptr inbounds i8, ptr %.065, i64 8
-  %42 = getelementptr inbounds i8, ptr %.263, i64 8
+  %42 = getelementptr inbounds i8, ptr %.363, i64 8
   %43 = add nsw i8 %.164, -1
   %.not48 = icmp eq i8 %43, 0
   br i1 %.not48, label %.loopexit60, label %.lr.ph, !llvm.loop !7

@@ -4072,18 +4072,18 @@ if.then141:                                       ; preds = %if.then131
   br label %if.end148
 
 if.end148:                                        ; preds = %if.then141, %if.then131
-  %impulse116.sroa.0.0 = phi <2 x float> [ %683, %if.then141 ], [ %666, %if.then131 ]
-  %impulse116.sroa.10.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i782, %if.then141 ], [ %retval.sroa.3.12.vec.insert.i.i746, %if.then131 ]
-  %684 = fadd <2 x float> %670, %impulse116.sroa.0.0
+  %impulse116.sroa.0.1 = phi <2 x float> [ %683, %if.then141 ], [ %666, %if.then131 ]
+  %impulse116.sroa.10.1 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i782, %if.then141 ], [ %retval.sroa.3.12.vec.insert.i.i746, %if.then131 ]
+  %684 = fadd <2 x float> %670, %impulse116.sroa.0.1
   store <2 x float> %684, ptr %m_accMotorImpulse, align 8
-  %impulse116.sroa.10.8.vec.extract1634 = extractelement <2 x float> %impulse116.sroa.10.0, i64 0
+  %impulse116.sroa.10.8.vec.extract1634 = extractelement <2 x float> %impulse116.sroa.10.1, i64 0
   %add13.i = fadd float %672, %impulse116.sroa.10.8.vec.extract1634
   store float %add13.i, ptr %arrayidx11.i753, align 8
   br label %if.end151
 
 if.end151:                                        ; preds = %if.then109, %if.end148
   %impulse116.sroa.10.8.vec.extract1636.pre-phi = phi float [ %impulse116.sroa.10.8.vec.extract1634, %if.end148 ], [ %mul8.i.i743, %if.then109 ]
-  %685 = phi <2 x float> [ %impulse116.sroa.0.0, %if.end148 ], [ %666, %if.then109 ]
+  %685 = phi <2 x float> [ %impulse116.sroa.0.1, %if.end148 ], [ %666, %if.then109 ]
   %686 = extractelement <2 x float> %685, i64 1
   %mul8.i.i.i792 = fmul float %686, %686
   %687 = extractelement <2 x float> %685, i64 0
@@ -6391,11 +6391,11 @@ if.then.i71:                                      ; preds = %if.then32
   br label %if.end.i64
 
 if.end.i64:                                       ; preds = %if.then.i71, %if.then32
-  %twistAngle.0 = phi float [ %mul.i15.i, %if.then.i71 ], [ %mul.i.i62, %if.then32 ]
+  %twistAngle.1 = phi float [ %mul.i15.i, %if.then.i71 ], [ %mul.i.i62, %if.then32 ]
   %qMinTwist.sroa.0.0.i = phi <2 x float> [ %123, %if.then.i71 ], [ %102, %if.then32 ]
   %qMinTwist.sroa.4.0.i = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i.i, %if.then.i71 ], [ %103, %if.then32 ]
   %qMinTwist.sroa.4.8.vec.extract.i = extractelement <2 x float> %qMinTwist.sroa.4.0.i, i64 0
-  %cmp12.i = fcmp ogt float %twistAngle.0, 0x3E80000000000000
+  %cmp12.i = fcmp ogt float %twistAngle.1, 0x3E80000000000000
   br i1 %cmp12.i, label %if.then13.i, label %_ZN21btConeTwistConstraint21computeTwistLimitInfoERK12btQuaternionRfR9btVector3.exit
 
 if.then13.i:                                      ; preds = %if.end.i64
@@ -6415,32 +6415,32 @@ if.then13.i:                                      ; preds = %if.end.i64
 _ZN21btConeTwistConstraint21computeTwistLimitInfoERK12btQuaternionRfR9btVector3.exit: ; preds = %if.end.i64, %if.then13.i
   %twistAxis.sroa.8.0 = phi float [ %mul7.i.i.i.i70, %if.then13.i ], [ %qMinTwist.sroa.4.8.vec.extract.i, %if.end.i64 ]
   %132 = phi <2 x float> [ %131, %if.then13.i ], [ %qMinTwist.sroa.0.0.i, %if.end.i64 ]
-  %133 = tail call noundef float @llvm.fabs.f32(float %twistAngle.0)
+  %133 = tail call noundef float @llvm.fabs.f32(float %twistAngle.1)
   %cmp34 = fcmp ogt float %133, 0x3E80000000000000
   br i1 %cmp34, label %if.then35, label %if.end55
 
 if.then35:                                        ; preds = %_ZN21btConeTwistConstraint21computeTwistLimitInfoERK12btQuaternionRfR9btVector3.exit
   %134 = load float, ptr %m_twistSpan, align 4
-  %cmp38 = fcmp ogt float %twistAngle.0, %134
+  %cmp38 = fcmp ogt float %twistAngle.1, %134
   br i1 %cmp38, label %if.end52, label %if.else42
 
 if.else42:                                        ; preds = %if.then35
   %fneg44 = fneg float %134
-  %cmp46 = fcmp olt float %twistAngle.0, %fneg44
+  %cmp46 = fcmp olt float %twistAngle.1, %fneg44
   br i1 %cmp46, label %if.then47, label %if.end52
 
 if.then47:                                        ; preds = %if.else42
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then35, %if.else42, %if.then47
-  %twistAngle.1 = phi float [ %fneg44, %if.then47 ], [ %twistAngle.0, %if.else42 ], [ %134, %if.then35 ]
+  %twistAngle.0 = phi float [ %fneg44, %if.then47 ], [ %twistAngle.1, %if.else42 ], [ %134, %if.then35 ]
   %135 = fmul <2 x float> %132, %132
   %mul8.i.i.i.i.i75 = extractelement <2 x float> %135, i64 1
   %136 = extractelement <2 x float> %132, i64 0
   %137 = tail call float @llvm.fmuladd.f32(float %136, float %136, float %mul8.i.i.i.i.i75)
   %138 = tail call noundef float @llvm.fmuladd.f32(float %twistAxis.sroa.8.0, float %twistAxis.sroa.8.0, float %137)
   %sqrt.i.i.i77 = tail call noundef float @llvm.sqrt.f32(float %138)
-  %mul.i.i78 = fmul float %twistAngle.1, 5.000000e-01
+  %mul.i.i78 = fmul float %twistAngle.0, 5.000000e-01
   %call.i.i.i79 = tail call noundef float @sinf(float noundef %mul.i.i78) #20
   %div.i.i80 = fdiv float %call.i.i.i79, %sqrt.i.i.i77
   %139 = insertelement <2 x float> poison, float %div.i.i80, i64 0

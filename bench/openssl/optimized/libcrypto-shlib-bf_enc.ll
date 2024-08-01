@@ -1113,27 +1113,27 @@ sw.bb123:                                         ; preds = %if.then117
 
 sw.bb130:                                         ; preds = %sw.bb123, %if.then117
   %in.addr.2 = phi ptr [ %add.ptr118, %if.then117 ], [ %incdec.ptr124, %sw.bb123 ]
-  %tin1.1 = phi i32 [ 0, %if.then117 ], [ %shl126, %sw.bb123 ]
+  %tin1.2 = phi i32 [ 0, %if.then117 ], [ %shl126, %sw.bb123 ]
   %incdec.ptr131 = getelementptr inbounds i8, ptr %in.addr.2, i64 -1
   %19 = load i8, ptr %incdec.ptr131, align 1
   %conv132 = zext i8 %19 to i32
   %shl133 = shl nuw nsw i32 %conv132, 16
-  %20 = or i32 %shl133, %tin1.1
+  %20 = or i32 %shl133, %tin1.2
   br label %sw.bb137
 
 sw.bb137:                                         ; preds = %sw.bb130, %if.then117
   %in.addr.3 = phi ptr [ %add.ptr118, %if.then117 ], [ %incdec.ptr131, %sw.bb130 ]
-  %tin1.2 = phi i32 [ 0, %if.then117 ], [ %20, %sw.bb130 ]
+  %tin1.3 = phi i32 [ 0, %if.then117 ], [ %20, %sw.bb130 ]
   %incdec.ptr138 = getelementptr inbounds i8, ptr %in.addr.3, i64 -1
   %21 = load i8, ptr %incdec.ptr138, align 1
   %conv139 = zext i8 %21 to i32
   %shl140 = shl nuw i32 %conv139, 24
-  %or142 = or i32 %shl140, %tin1.2
+  %or142 = or i32 %shl140, %tin1.3
   br label %sw.bb144
 
 sw.bb144:                                         ; preds = %sw.bb137, %if.then117
   %in.addr.4 = phi ptr [ %add.ptr118, %if.then117 ], [ %incdec.ptr138, %sw.bb137 ]
-  %tin1.3 = phi i32 [ 0, %if.then117 ], [ %or142, %sw.bb137 ]
+  %tin1.4 = phi i32 [ 0, %if.then117 ], [ %or142, %sw.bb137 ]
   %incdec.ptr145 = getelementptr inbounds i8, ptr %in.addr.4, i64 -1
   %22 = load i8, ptr %incdec.ptr145, align 1
   %23 = zext i8 %22 to i32
@@ -1141,42 +1141,42 @@ sw.bb144:                                         ; preds = %sw.bb137, %if.then1
 
 sw.bb148:                                         ; preds = %sw.bb144, %if.then117
   %in.addr.5 = phi ptr [ %add.ptr118, %if.then117 ], [ %incdec.ptr145, %sw.bb144 ]
-  %tin0.0 = phi i32 [ 0, %if.then117 ], [ %23, %sw.bb144 ]
-  %tin1.4 = phi i32 [ 0, %if.then117 ], [ %tin1.3, %sw.bb144 ]
+  %tin0.1 = phi i32 [ 0, %if.then117 ], [ %23, %sw.bb144 ]
+  %tin1.5 = phi i32 [ 0, %if.then117 ], [ %tin1.4, %sw.bb144 ]
   %incdec.ptr149 = getelementptr inbounds i8, ptr %in.addr.5, i64 -1
   %24 = load i8, ptr %incdec.ptr149, align 1
   %conv150 = zext i8 %24 to i32
   %shl151 = shl nuw nsw i32 %conv150, 8
-  %or153 = or disjoint i32 %shl151, %tin0.0
+  %or153 = or disjoint i32 %shl151, %tin0.1
   br label %sw.bb155
 
 sw.bb155:                                         ; preds = %sw.bb148, %if.then117
   %in.addr.6 = phi ptr [ %add.ptr118, %if.then117 ], [ %incdec.ptr149, %sw.bb148 ]
-  %tin0.1 = phi i32 [ 0, %if.then117 ], [ %or153, %sw.bb148 ]
-  %tin1.5 = phi i32 [ 0, %if.then117 ], [ %tin1.4, %sw.bb148 ]
+  %tin0.2 = phi i32 [ 0, %if.then117 ], [ %or153, %sw.bb148 ]
+  %tin1.6 = phi i32 [ 0, %if.then117 ], [ %tin1.5, %sw.bb148 ]
   %incdec.ptr156 = getelementptr inbounds i8, ptr %in.addr.6, i64 -1
   %25 = load i8, ptr %incdec.ptr156, align 1
   %conv157 = zext i8 %25 to i32
   %shl158 = shl nuw nsw i32 %conv157, 16
-  %26 = or i32 %shl158, %tin0.1
+  %26 = or i32 %shl158, %tin0.2
   br label %sw.bb162
 
 sw.bb162:                                         ; preds = %if.then117, %sw.bb155
   %in.addr.7 = phi ptr [ %add.ptr118, %if.then117 ], [ %incdec.ptr156, %sw.bb155 ]
-  %tin0.2 = phi i32 [ 0, %if.then117 ], [ %26, %sw.bb155 ]
-  %tin1.6 = phi i32 [ 0, %if.then117 ], [ %tin1.5, %sw.bb155 ]
+  %tin0.3 = phi i32 [ 0, %if.then117 ], [ %26, %sw.bb155 ]
+  %tin1.7 = phi i32 [ 0, %if.then117 ], [ %tin1.6, %sw.bb155 ]
   %incdec.ptr163 = getelementptr inbounds i8, ptr %in.addr.7, i64 -1
   %27 = load i8, ptr %incdec.ptr163, align 1
   %conv164 = zext i8 %27 to i32
   %shl165 = shl nuw i32 %conv164, 24
-  %or167 = or i32 %shl165, %tin0.2
+  %or167 = or i32 %shl165, %tin0.3
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb162, %if.then117
-  %tin0.3 = phi i32 [ 0, %if.then117 ], [ %or167, %sw.bb162 ]
-  %tin1.7 = phi i32 [ 0, %if.then117 ], [ %tin1.6, %sw.bb162 ]
-  %xor169 = xor i32 %tin0.3, %tout0.0.lcssa
-  %xor170 = xor i32 %tin1.7, %tout1.0.lcssa
+  %tin0.0 = phi i32 [ 0, %if.then117 ], [ %or167, %sw.bb162 ]
+  %tin1.0 = phi i32 [ 0, %if.then117 ], [ %tin1.7, %sw.bb162 ]
+  %xor169 = xor i32 %tin0.0, %tout0.0.lcssa
+  %xor170 = xor i32 %tin1.0, %tout1.0.lcssa
   store i32 %xor169, ptr %tin, align 4
   %arrayidx172 = getelementptr inbounds i8, ptr %tin, i64 4
   store i32 %xor170, ptr %arrayidx172, align 4

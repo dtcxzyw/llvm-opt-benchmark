@@ -1523,8 +1523,8 @@ cleanup50:                                        ; preds = %invoke.cont36, %inv
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false.i, %invoke.cont17, %if.end, %lor.lhs.false7, %_ZN4base12_GLOBAL__N_131FinalExtensionSeparatorPositionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %cleanup50
-  %retval.3 = phi i64 [ %call2, %invoke.cont17 ], [ %.us-phi31, %cleanup50 ], [ %call2.i, %_ZN4base12_GLOBAL__N_131FinalExtensionSeparatorPositionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %call2.i, %lor.lhs.false7 ], [ %call2.i, %if.end ], [ -1, %lor.lhs.false.i ], [ -1, %entry ]
-  ret i64 %retval.3
+  %retval.0 = phi i64 [ %call2, %invoke.cont17 ], [ %.us-phi31, %cleanup50 ], [ %call2.i, %_ZN4base12_GLOBAL__N_131FinalExtensionSeparatorPositionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %call2.i, %lor.lhs.false7 ], [ %call2.i, %if.end ], [ -1, %lor.lhs.false.i ], [ -1, %entry ]
+  ret i64 %retval.0
 
 eh.resume:                                        ; preds = %lpad31, %lpad24, %lpad13, %lpad
   %.pn = phi { ptr, i32 } [ %10, %lpad13 ], [ %9, %lpad ], [ %.us-phi, %lpad31 ], [ %25, %lpad24 ]

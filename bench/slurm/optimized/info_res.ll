@@ -214,7 +214,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
   br label %.loopexit101
 
 .loopexit101:                                     ; preds = %61, %.loopexit101.loopexit, %42, %59
-  %.2 = phi i32 [ 1, %59 ], [ 0, %42 ], [ %65, %.loopexit101.loopexit ], [ 0, %61 ]
+  %.1 = phi i32 [ 1, %59 ], [ 0, %42 ], [ %65, %.loopexit101.loopexit ], [ 0, %61 ]
   %66 = load ptr, ptr @mime_type, align 8
   %.not69 = icmp eq ptr %66, null
   br i1 %.not69, label %.preheader, label %68
@@ -228,7 +228,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
   %69 = load i64, ptr %33, align 8
   store i64 %69, ptr %7, align 8
   %70 = getelementptr inbounds i8, ptr %7, i64 8
-  store i32 %.2, ptr %70, align 8
+  store i32 %.1, ptr %70, align 8
   %71 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr null, ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %8, i64 8
@@ -237,14 +237,14 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
   store ptr %7, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %8, i64 32
   store i64 %69, ptr %75, align 8
-  %76 = sext i32 %.2 to i64
+  %76 = sext i32 %.1 to i64
   %77 = call ptr @slurm_xcalloc(i64 noundef %76, i64 noundef 168, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 147, ptr noundef nonnull @__func__.scontrol_print_res) #7
   store ptr %77, ptr %71, align 8
-  %78 = icmp sgt i32 %.2, 0
+  %78 = icmp sgt i32 %.1, 0
   br i1 %78, label %.lr.ph107, label %.loopexit126
 
 .lr.ph107:                                        ; preds = %68
-  %wide.trip.count = zext nneg i32 %.2 to i64
+  %wide.trip.count = zext nneg i32 %.1 to i64
   br label %79
 
 79:                                               ; preds = %.lr.ph107, %79
@@ -327,7 +327,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
 .loopexit:                                        ; preds = %.lr.ph110, %.preheader, %103
   %109 = load ptr, ptr @mime_type, align 8
   %110 = icmp ne ptr %109, null
-  %111 = icmp ne i32 %.2, 0
+  %111 = icmp ne i32 %.1, 0
   %or.cond3 = select i1 %110, i1 true, i1 %111
   br i1 %or.cond3, label %120, label %112
 

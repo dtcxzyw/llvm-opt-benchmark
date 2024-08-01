@@ -1327,7 +1327,7 @@ _ZL5myexpddd.exit177:                             ; preds = %_ZL5myexpddd.exit17
 
 259:                                              ; preds = %_ZL5myexpddd.exit183, %254
   %indvars.iv235 = phi i64 [ %indvars.iv.next236, %_ZL5myexpddd.exit183 ], [ 0, %254 ]
-  %.0143 = phi double [ %279, %_ZL5myexpddd.exit183 ], [ 0.000000e+00, %254 ]
+  %.2145 = phi double [ %279, %_ZL5myexpddd.exit183 ], [ 0.000000e+00, %254 ]
   br i1 %or.cond.i161, label %_Z11effnNparamsi.exit180, label %260
 
 260:                                              ; preds = %259
@@ -1362,14 +1362,14 @@ _Z11effnNparamsi.exit180:                         ; preds = %259, %260
 
 _ZL5myexpddd.exit183:                             ; preds = %266, %275
   %.0.i182 = phi double [ %278, %275 ], [ 0.000000e+00, %266 ]
-  %279 = tail call double @llvm.fmuladd.f64(double %269, double %.0.i182, double %.0143)
+  %279 = tail call double @llvm.fmuladd.f64(double %269, double %.0.i182, double %.2145)
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   br label %259, !llvm.loop !9
 
 280:                                              ; preds = %.lr.ph222, %280
   %281 = phi double [ %.pre258, %.lr.ph222 ], [ %289, %280 ]
   %indvars.iv238 = phi i64 [ 0, %.lr.ph222 ], [ %indvars.iv.next239, %280 ]
-  %.1144220 = phi double [ 0.000000e+00, %.lr.ph222 ], [ %294, %280 ]
+  %.3146220 = phi double [ 0.000000e+00, %.lr.ph222 ], [ %294, %280 ]
   %282 = load ptr, ptr %206, align 8
   %283 = getelementptr inbounds double, ptr %38, i64 %indvars.iv238
   %284 = tail call noundef double %282(double noundef %281, ptr noundef %10)
@@ -1383,16 +1383,16 @@ _ZL5myexpddd.exit183:                             ; preds = %266, %275
   %291 = fsub double %289, %290
   %292 = fadd double %284, %288
   %293 = fmul double %292, %291
-  %294 = tail call double @llvm.fmuladd.f64(double %293, double 5.000000e-01, double %.1144220)
+  %294 = tail call double @llvm.fmuladd.f64(double %293, double 5.000000e-01, double %.3146220)
   %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
   br i1 %exitcond242.not, label %.loopexit, label %280, !llvm.loop !10
 
 .loopexit:                                        ; preds = %_Z11effnNparamsi.exit180, %280, %.preheader215, %_ZL5myexpddd.exit177, %_ZL5myexpddd.exit171, %_ZL5myexpddd.exit
-  %.2145 = phi double [ %253, %_ZL5myexpddd.exit177 ], [ %228, %_ZL5myexpddd.exit171 ], [ %215, %_ZL5myexpddd.exit ], [ 0.000000e+00, %.preheader215 ], [ %294, %280 ], [ %.0143, %_Z11effnNparamsi.exit180 ]
+  %.1144 = phi double [ %253, %_ZL5myexpddd.exit177 ], [ %228, %_ZL5myexpddd.exit171 ], [ %215, %_ZL5myexpddd.exit ], [ 0.000000e+00, %.preheader215 ], [ %294, %280 ], [ %.2145, %_Z11effnNparamsi.exit180 ]
   br i1 %8, label %295, label %298
 
 295:                                              ; preds = %.loopexit
-  %296 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, double noundef %.2145)
+  %296 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, double noundef %.1144)
   %.off = add i32 %9, -4
   %switch = icmp ult i32 %.off, 3
   br i1 %switch, label %297, label %298
@@ -1564,11 +1564,11 @@ _Z11effnNparamsi.exit192.us:                      ; preds = %_Z11effnNparamsi.ex
   br label %349
 
 349:                                              ; preds = %196, %._crit_edge230, %298, %85
-  %.3146 = phi double [ 0.000000e+00, %85 ], [ %.2145, %._crit_edge230 ], [ %.2145, %298 ], [ 0.000000e+00, %196 ]
+  %.0143 = phi double [ 0.000000e+00, %85 ], [ %.1144, %._crit_edge230 ], [ %.1144, %298 ], [ 0.000000e+00, %196 ]
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 725, ptr noundef %38)
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23, i32 noundef 726, ptr noundef %39)
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.23, i32 noundef 727, ptr noundef %40)
-  %350 = fptrunc double %.3146 to float
+  %350 = fptrunc double %.0143 to float
   ret float %350
 }
 

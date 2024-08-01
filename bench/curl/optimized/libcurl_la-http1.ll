@@ -316,16 +316,16 @@ if.end80.i:                                       ; preds = %if.then78.i, %if.el
   br label %start_req.exit
 
 start_req.exit.thread:                            ; preds = %if.else39.i, %if.end52.i, %land.lhs.true63.i, %for.end.i, %if.then10, %if.then48.i, %if.end.i34, %for.inc.i
-  %url.2.i.ph = phi ptr [ null, %for.inc.i ], [ null, %if.else39.i ], [ %call49.i, %if.end52.i ], [ null, %land.lhs.true63.i ], [ null, %for.end.i ], [ null, %if.then10 ], [ null, %if.then48.i ], [ null, %if.end.i34 ]
+  %url.0.i.ph = phi ptr [ null, %for.inc.i ], [ null, %if.else39.i ], [ %call49.i, %if.end52.i ], [ null, %land.lhs.true63.i ], [ null, %for.end.i ], [ null, %if.then10 ], [ null, %if.then48.i ], [ null, %if.end.i34 ]
   %result.0.i.ph = phi i32 [ 3, %for.inc.i ], [ 3, %if.else39.i ], [ 3, %if.end52.i ], [ 3, %land.lhs.true63.i ], [ 3, %for.end.i ], [ 3, %if.then10 ], [ 27, %if.then48.i ], [ 3, %if.end.i34 ]
-  call void @curl_url_cleanup(ptr noundef %url.2.i.ph) #6
+  call void @curl_url_cleanup(ptr noundef %url.0.i.ph) #6
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %tmp.i)
   br label %out.sink.split
 
 start_req.exit:                                   ; preds = %if.then72.i, %if.end80.i
-  %url.2.i = phi ptr [ %call49.i, %if.then72.i ], [ null, %if.end80.i ]
+  %url.0.i = phi ptr [ %call49.i, %if.then72.i ], [ null, %if.end80.i ]
   %result.0.i = phi i32 [ %call73.i, %if.then72.i ], [ %call82.i, %if.end80.i ]
-  call void @curl_url_cleanup(ptr noundef %url.2.i) #6
+  call void @curl_url_cleanup(ptr noundef %url.0.i) #6
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %tmp.i)
   store i32 %result.0.i, ptr %err, align 4
   %tobool12.not = icmp eq i32 %result.0.i, 0

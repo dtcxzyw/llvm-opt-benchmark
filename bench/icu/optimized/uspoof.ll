@@ -1237,7 +1237,7 @@ ehcleanup:                                        ; preds = %lpad22, %lpad19
   br label %ehcleanup57
 
 cleanup:                                          ; preds = %if.then.i.i, %if.else.i.i, %invoke.cont14, %invoke.cont7, %if.end38
-  %retval.0 = phi i32 [ %result.3, %if.end38 ], [ 0, %invoke.cont7 ], [ 0, %invoke.cont14 ], [ 0, %if.else.i.i ], [ 0, %if.then.i.i ]
+  %retval.1 = phi i32 [ %result.3, %if.end38 ], [ 0, %invoke.cont7 ], [ 0, %invoke.cont14 ], [ 0, %if.else.i.i ], [ 0, %if.then.i.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %id2Skeleton) #6
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %id1Skeleton) #6
   br label %return
@@ -1253,8 +1253,8 @@ ehcleanup59:                                      ; preds = %ehcleanup57, %lpad
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %entry, %cleanup, %if.then2
-  %retval.1 = phi i32 [ 0, %if.then2 ], [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then2 ], [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1689,7 +1689,7 @@ ehcleanup:                                        ; preds = %lpad22, %lpad19
   br label %ehcleanup41
 
 cleanup:                                          ; preds = %if.then.i.i, %if.else.i.i, %invoke.cont14, %invoke.cont7, %if.end38
-  %retval.0 = phi i32 [ %and40, %if.end38 ], [ 0, %invoke.cont7 ], [ 0, %invoke.cont14 ], [ 0, %if.else.i.i ], [ 0, %if.then.i.i ]
+  %retval.1 = phi i32 [ %and40, %if.end38 ], [ 0, %invoke.cont7 ], [ 0, %invoke.cont14 ], [ 0, %if.else.i.i ], [ 0, %if.then.i.i ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %id2Skeleton) #6
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %id1Skeleton) #6
   br label %return
@@ -1705,8 +1705,8 @@ ehcleanup43:                                      ; preds = %ehcleanup41, %lpad
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %entry, %cleanup, %if.then2
-  %retval.1 = phi i32 [ 0, %if.then2 ], [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then2 ], [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1958,7 +1958,7 @@ if.then:                                          ; preds = %entry
 
 if.end4:                                          ; preds = %if.then, %entry
   %2 = phi i32 [ %.pre, %if.then ], [ %0, %entry ]
-  %result.1 = phi i32 [ %spec.select, %if.then ], [ 0, %entry ]
+  %result.0 = phi i32 [ %spec.select, %if.then ], [ 0, %entry ]
   %and6 = and i32 %2, 128
   %cmp7.not = icmp eq i32 %and6, 0
   br i1 %cmp7.not, label %if.end17, label %if.then8
@@ -1985,15 +1985,15 @@ lpad:                                             ; preds = %invoke.cont9, %invo
 
 invoke.cont15:                                    ; preds = %invoke.cont9
   %cmp11 = icmp sgt i32 %call10, 1
-  %or13 = or disjoint i32 %result.1, 128
-  %spec.select42 = select i1 %cmp11, i32 %or13, i32 %result.1
+  %or13 = or disjoint i32 %result.0, 128
+  %spec.select42 = select i1 %cmp11, i32 %or13, i32 %result.0
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %numerics) #6
   %.pre68 = load i32, ptr %fChecks, align 4
   br label %if.end17
 
 if.end17:                                         ; preds = %invoke.cont15, %if.end4
   %4 = phi i32 [ %.pre68, %invoke.cont15 ], [ %2, %if.end4 ]
-  %result.3 = phi i32 [ %spec.select42, %invoke.cont15 ], [ %result.1, %if.end4 ]
+  %result.2 = phi i32 [ %spec.select42, %invoke.cont15 ], [ %result.0, %if.end4 ]
   %and19 = and i32 %4, 256
   %cmp20.not = icmp eq i32 %and19, 0
   br i1 %cmp20.not, label %if.end27, label %if.then21
@@ -2001,14 +2001,14 @@ if.end17:                                         ; preds = %invoke.cont15, %if.
 if.then21:                                        ; preds = %if.end17
   %call22 = call noundef i32 @_ZNK6icu_759SpoofImpl17findHiddenOverlayERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(44) %This, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %cmp23.not = icmp eq i32 %call22, -1
-  %or25 = or i32 %result.3, 256
-  %spec.select43 = select i1 %cmp23.not, i32 %result.3, i32 %or25
+  %or25 = or i32 %result.2, 256
+  %spec.select43 = select i1 %cmp23.not, i32 %result.2, i32 %or25
   %.pre69 = load i32, ptr %fChecks, align 4
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then21, %if.end17
   %5 = phi i32 [ %4, %if.end17 ], [ %.pre69, %if.then21 ]
-  %result.4 = phi i32 [ %result.3, %if.end17 ], [ %spec.select43, %if.then21 ]
+  %result.4 = phi i32 [ %result.2, %if.end17 ], [ %spec.select43, %if.then21 ]
   %and29 = and i32 %5, 64
   %cmp30.not = icmp eq i32 %and29, 0
   br i1 %cmp30.not, label %if.end40, label %if.then31
@@ -2181,7 +2181,7 @@ if.end85:                                         ; preds = %invoke.cont80
           to label %for.cond53 unwind label %lpad56.loopexit.split, !llvm.loop !8
 
 for.end88:                                        ; preds = %for.cond53.outer.split.us, %for.cond53, %if.then83
-  %result.6 = phi i32 [ %or84, %if.then83 ], [ %result.5, %for.cond53 ], [ %result.5, %for.cond53.outer.split.us ]
+  %result.7 = phi i32 [ %or84, %if.then83 ], [ %result.5, %for.cond53 ], [ %result.5, %for.cond53.outer.split.us ]
   call void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %marksSeenSoFar) #6
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %nfdText) #6
   br label %if.end89
@@ -2192,9 +2192,9 @@ ehcleanup:                                        ; preds = %lpad56, %lpad45
   br label %eh.resume
 
 if.end89:                                         ; preds = %for.end88, %if.end40
-  %result.7 = phi i32 [ %result.6, %for.end88 ], [ %result.5, %if.end40 ]
+  %result.6 = phi i32 [ %result.7, %for.end88 ], [ %result.5, %if.end40 ]
   %fChecks90 = getelementptr inbounds i8, ptr %checkResult, i64 12
-  store i32 %result.7, ptr %fChecks90, align 4
+  store i32 %result.6, ptr %fChecks90, align 4
   %17 = load i32, ptr %fChecks, align 4
   %call92 = call noundef i32 @_ZN6icu_7511CheckResult17toCombinedBitmaskEi(ptr noundef nonnull align 8 dereferenceable(220) %checkResult, i32 noundef %17)
   ret i32 %call92
@@ -2502,14 +2502,14 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont11, %invoke.cont22
-  %retval.0 = phi i32 [ %7, %invoke.cont22 ], [ 0, %invoke.cont11 ]
+  %retval.1 = phi i32 [ %7, %invoke.cont22 ], [ 0, %invoke.cont11 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %destStr) #6
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %srcStr) #6
   br label %return
 
 return:                                           ; preds = %entry, %cleanup, %if.then6
-  %retval.1 = phi i32 [ 0, %if.then6 ], [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then6 ], [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @u_strToUTF8_75(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -2595,14 +2595,14 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont3, %invoke.cont13
-  %retval.0 = phi i32 [ %6, %invoke.cont13 ], [ 0, %invoke.cont3 ]
+  %retval.1 = phi i32 [ %6, %invoke.cont13 ], [ 0, %invoke.cont3 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %destStr) #6
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %srcStr) #6
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.1 = phi i32 [ 0, %if.then ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

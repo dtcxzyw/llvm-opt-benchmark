@@ -667,7 +667,7 @@ if.end34:                                         ; preds = %do.end
   br label %err_guest_notifiers
 
 err_guest_notifiers:                              ; preds = %if.end34, %if.then18
-  %ret.0 = phi i32 [ %call16, %if.then18 ], [ %call31, %if.end34 ]
+  %ret.1 = phi i32 [ %call16, %if.then18 ], [ %call31, %if.end34 ]
   %9 = load ptr, ptr %set_guest_notifiers, align 8
   %10 = load ptr, ptr %parent, align 8
   %11 = load i32, ptr %nvqs, align 8
@@ -675,12 +675,12 @@ err_guest_notifiers:                              ; preds = %if.end34, %if.then1
   br label %err_host_notifiers
 
 err_host_notifiers:                               ; preds = %err_guest_notifiers, %if.then12
-  %ret.1 = phi i32 [ %call10, %if.then12 ], [ %ret.0, %err_guest_notifiers ]
+  %ret.0 = phi i32 [ %call10, %if.then12 ], [ %ret.1, %err_guest_notifiers ]
   tail call void @vhost_dev_disable_notifiers(ptr noundef nonnull %vhost_dev5, ptr noundef %vdev) #7
   br label %return
 
 return:                                           ; preds = %do.end, %err_host_notifiers, %if.then7, %if.then
-  %retval.0 = phi i32 [ %call6, %if.then7 ], [ %ret.1, %err_host_notifiers ], [ -38, %if.then ], [ 0, %do.end ]
+  %retval.0 = phi i32 [ %call6, %if.then7 ], [ %ret.0, %err_host_notifiers ], [ -38, %if.then ], [ 0, %do.end ]
   ret i32 %retval.0
 }
 

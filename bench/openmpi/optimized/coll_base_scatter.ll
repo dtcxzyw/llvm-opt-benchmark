@@ -216,7 +216,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i161, %87
 107:                                              ; preds = %opal_obj_run_destructors.exit, %54
   %.0 = phi i64 [ %57, %54 ], [ 1, %opal_obj_run_destructors.exit ]
   %.0123 = phi ptr [ %0, %54 ], [ %85, %opal_obj_run_destructors.exit ]
-  %.0121 = phi ptr [ null, %54 ], [ %85, %opal_obj_run_destructors.exit ]
+  %.1122 = phi ptr [ null, %54 ], [ %85, %opal_obj_run_destructors.exit ]
   %.0119 = phi ptr [ %2, %54 ], [ @ompi_mpi_packed, %opal_obj_run_destructors.exit ]
   %.0118 = phi i32 [ %1, %54 ], [ %106, %opal_obj_run_destructors.exit ]
   %108 = mul nsw i32 %.0118, %.val.val
@@ -294,7 +294,7 @@ opal_convertor_get_packed_size.exit169:           ; preds = %109, %131
   %.1174 = phi i64 [ %.0, %107 ], [ 1, %148 ]
   %.0125 = phi i32 [ %108, %107 ], [ %151, %148 ]
   %.1124 = phi ptr [ %.0123, %107 ], [ %143, %148 ]
-  %.1122 = phi ptr [ %.0121, %107 ], [ %143, %148 ]
+  %.2 = phi ptr [ %.1122, %107 ], [ %143, %148 ]
   %.1120 = phi ptr [ %.0119, %107 ], [ @ompi_mpi_packed, %148 ]
   %.1 = phi i32 [ %.0118, %107 ], [ %134, %148 ]
   %.not149 = icmp eq ptr %3, inttoptr (i64 1 to ptr)
@@ -340,22 +340,22 @@ opal_convertor_get_packed_size.exit169:           ; preds = %109, %131
   br i1 %.not152, label %160, label %.loopexit, !llvm.loop !7
 
 179:                                              ; preds = %160
-  %.not151 = icmp eq ptr %.1122, null
+  %.not151 = icmp eq ptr %.2, null
   br i1 %.not151, label %.thread177, label %180
 
 180:                                              ; preds = %179
-  call void @free(ptr noundef nonnull %.1122) #5
+  call void @free(ptr noundef nonnull %.2) #5
   br label %.thread177
 
 .loopexit:                                        ; preds = %163, %153
   %.0127 = phi i32 [ %154, %153 ], [ %178, %163 ]
-  %.not154 = icmp eq ptr %.1122, null
+  %.not154 = icmp eq ptr %.2, null
   br i1 %.not154, label %.thread177, label %.thread181
 
 .thread181:                                       ; preds = %145, %.loopexit
-  %.2186 = phi ptr [ %.1122, %.loopexit ], [ %143, %145 ]
+  %.0121186 = phi ptr [ %.2, %.loopexit ], [ %143, %145 ]
   %.0127185 = phi i32 [ %.0127, %.loopexit ], [ %147, %145 ]
-  call void @free(ptr noundef nonnull %.2186) #5
+  call void @free(ptr noundef nonnull %.0121186) #5
   br label %.thread177
 
 .thread177:                                       ; preds = %36, %opal_convertor_get_packed_size.exit169, %opal_convertor_get_packed_size.exit, %thread-pre-split, %.loopexit, %.thread181, %179, %180
@@ -492,10 +492,10 @@ define i32 @ompi_coll_base_scatter_intra_linear_nb(ptr noundef %0, i32 noundef %
 
 25:                                               ; preds = %22, %20
   %.078 = phi i32 [ 0, %20 ], [ %9, %22 ]
-  %.073 = phi i32 [ %21, %20 ], [ %24, %22 ]
+  %.174 = phi i32 [ %21, %20 ], [ %24, %22 ]
   %26 = getelementptr inbounds i8, ptr %8, i64 584
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call ptr @ompi_coll_base_comm_get_reqs(ptr noundef %27, i32 noundef %.073) #5
+  %28 = tail call ptr @ompi_coll_base_comm_get_reqs(ptr noundef %27, i32 noundef %.174) #5
   %29 = icmp eq ptr %28, null
   br i1 %29, label %ompi_coll_base_free_reqs.exit, label %30
 
@@ -557,9 +557,9 @@ define i32 @ompi_coll_base_scatter_intra_linear_nb(ptr noundef %0, i32 noundef %
   br label %51
 
 51:                                               ; preds = %49, %45
-  %.176.us = phi i32 [ %50, %49 ], [ %48, %45 ]
+  %.2.us = phi i32 [ %50, %49 ], [ %48, %45 ]
   %.1.us = phi ptr [ %.0118.us, %49 ], [ %47, %45 ]
-  %.not97.us = icmp eq i32 %.176.us, 0
+  %.not97.us = icmp eq i32 %.2.us, 0
   br i1 %.not97.us, label %.thread.us, label %.loopexit114
 
 .thread.us:                                       ; preds = %51
@@ -599,9 +599,9 @@ define i32 @ompi_coll_base_scatter_intra_linear_nb(ptr noundef %0, i32 noundef %
   br label %67
 
 67:                                               ; preds = %60, %64, %56
-  %.176 = phi i32 [ %57, %56 ], [ %63, %60 ], [ %66, %64 ]
+  %.2 = phi i32 [ %57, %56 ], [ %63, %60 ], [ %66, %64 ]
   %.1 = phi ptr [ %.0118, %56 ], [ %62, %60 ], [ %.0118, %64 ]
-  %.not97 = icmp eq i32 %.176, 0
+  %.not97 = icmp eq i32 %.2, 0
   br i1 %.not97, label %.thread, label %.loopexit114
 
 .thread:                                          ; preds = %55, %67
@@ -623,16 +623,16 @@ define i32 @ompi_coll_base_scatter_intra_linear_nb(ptr noundef %0, i32 noundef %
   br i1 %.not93, label %ompi_coll_base_free_reqs.exit, label %.loopexit114
 
 .loopexit114:                                     ; preds = %67, %51, %38, %._crit_edge
-  %.2 = phi i32 [ %75, %._crit_edge ], [ %41, %38 ], [ %.176.us, %51 ], [ %.176, %67 ]
-  %76 = icmp eq i32 %.2, 18
+  %.075 = phi i32 [ %75, %._crit_edge ], [ %41, %38 ], [ %.2.us, %51 ], [ %.2, %67 ]
+  %76 = icmp eq i32 %.075, 18
   br i1 %76, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit114
-  %77 = icmp sgt i32 %.073, 0
+  %77 = icmp sgt i32 %.174, 0
   br i1 %77, label %.lr.ph123.preheader, label %ompi_coll_base_free_reqs.exit
 
 .lr.ph123.preheader:                              ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %.073 to i64
+  %wide.trip.count = zext nneg i32 %.174 to i64
   br label %.lr.ph123
 
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %84
@@ -656,12 +656,12 @@ define i32 @ompi_coll_base_scatter_intra_linear_nb(ptr noundef %0, i32 noundef %
   br i1 %exitcond136.not, label %.loopexit, label %.lr.ph123, !llvm.loop !10
 
 .loopexit:                                        ; preds = %84, %81, %.loopexit114
-  %.3 = phi i32 [ %.2, %.loopexit114 ], [ 18, %84 ], [ %83, %81 ]
-  %85 = icmp sgt i32 %.073, 0
+  %.4 = phi i32 [ %.075, %.loopexit114 ], [ 18, %84 ], [ %83, %81 ]
+  %85 = icmp sgt i32 %.174, 0
   br i1 %85, label %.lr.ph.preheader.i, label %ompi_coll_base_free_reqs.exit
 
 .lr.ph.preheader.i:                               ; preds = %.loopexit
-  %wide.trip.count.i = zext nneg i32 %.073 to i64
+  %wide.trip.count.i = zext nneg i32 %.174 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %102, %.lr.ph.preheader.i
@@ -705,7 +705,7 @@ ompi_request_cancel.exit.i:                       ; preds = %94, %91
   br i1 %exitcond.not.i, label %ompi_coll_base_free_reqs.exit, label %.lr.ph.i, !llvm.loop !11
 
 ompi_coll_base_free_reqs.exit:                    ; preds = %102, %.preheader, %14, %25, %.loopexit, %._crit_edge
-  %.077 = phi i32 [ 0, %._crit_edge ], [ %.3, %.loopexit ], [ -2, %25 ], [ %17, %14 ], [ 18, %.preheader ], [ %.3, %102 ]
+  %.077 = phi i32 [ 0, %._crit_edge ], [ %.4, %.loopexit ], [ -2, %25 ], [ %17, %14 ], [ 18, %.preheader ], [ %.4, %102 ]
   ret i32 %.077
 }
 

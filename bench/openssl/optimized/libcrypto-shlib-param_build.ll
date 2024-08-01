@@ -348,7 +348,7 @@ if.end21:                                         ; preds = %if.end16
 
 if.end31:                                         ; preds = %if.end21, %if.end
   %sz.addr.0 = phi i64 [ %sz, %if.end ], [ %spec.select14, %if.end21 ]
-  %secure.1 = phi i32 [ 0, %if.end ], [ %spec.select, %if.end21 ]
+  %secure.0 = phi i32 [ 0, %if.end ], [ %spec.select, %if.end21 ]
   %call.i = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 56, ptr noundef nonnull @.str, i32 noundef 55) #7
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.end.i
@@ -365,8 +365,8 @@ if.end.i:                                         ; preds = %if.end31
   %alloc_blocks.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 %call4.i, ptr %alloc_blocks.i, align 8
   %secure5.i = getelementptr inbounds i8, ptr %call.i, i64 12
-  store i32 %secure.1, ptr %secure5.i, align 4
-  %cmp6.not.i = icmp eq i32 %secure.1, 0
+  store i32 %secure.0, ptr %secure5.i, align 4
+  %cmp6.not.i = icmp eq i32 %secure.0, 0
   %bld.sink13.idx.i = select i1 %cmp6.not.i, i64 0, i64 8
   %bld.sink13.i = getelementptr inbounds i8, ptr %bld, i64 %bld.sink13.idx.i
   %2 = load i64, ptr %bld.sink13.i, align 8

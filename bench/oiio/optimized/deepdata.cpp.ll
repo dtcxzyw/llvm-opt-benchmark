@@ -1976,8 +1976,8 @@ if.else205:                                       ; preds = %_ZNK18OpenImageIO_v
   %cmp4.i437 = icmp uge i64 %sub3.i.i.i, %call2.i311
   %or.cond.i438 = or i1 %cmp4.i437, %cmp2.i436
   %n.addr.0.i = select i1 %or.cond.i438, i64 %call2.i311, i64 %add207
-  %ref.tmp206.sroa.0.1 = select i1 %cmp.not.i.not, ptr null, ptr %call.i309
-  %ref.tmp206.sroa.3.1 = select i1 %cmp.not.i.not, i64 0, i64 %n.addr.0.i
+  %ref.tmp206.sroa.0.3 = select i1 %cmp.not.i.not, ptr null, ptr %call.i309
+  %ref.tmp206.sroa.3.3 = select i1 %cmp.not.i.not, i64 0, i64 %n.addr.0.i
   %cmp.not.i442 = icmp ugt i64 %call2.i311, %add207
   br i1 %cmp.not.i442, label %if.end.i444, label %if.end210
 
@@ -1987,8 +1987,8 @@ if.end.i444:                                      ; preds = %if.else205
   br label %if.end210
 
 if.end210:                                        ; preds = %for.end.i.i.i.i.i, %invoke.cont6.i.i, %if.end.i444, %if.else205, %_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit
-  %prefix.sroa.0.0 = phi ptr [ null, %_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit ], [ %ref.tmp206.sroa.0.1, %if.else205 ], [ %ref.tmp206.sroa.0.1, %if.end.i444 ], [ null, %invoke.cont6.i.i ], [ null, %for.end.i.i.i.i.i ]
-  %prefix.sroa.5.0 = phi i64 [ 0, %_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit ], [ %ref.tmp206.sroa.3.1, %if.else205 ], [ %ref.tmp206.sroa.3.1, %if.end.i444 ], [ 0, %invoke.cont6.i.i ], [ 0, %for.end.i.i.i.i.i ]
+  %prefix.sroa.0.0 = phi ptr [ null, %_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit ], [ %ref.tmp206.sroa.0.3, %if.else205 ], [ %ref.tmp206.sroa.0.3, %if.end.i444 ], [ null, %invoke.cont6.i.i ], [ null, %for.end.i.i.i.i.i ]
+  %prefix.sroa.5.0 = phi i64 [ 0, %_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit ], [ %ref.tmp206.sroa.3.3, %if.else205 ], [ %ref.tmp206.sroa.3.3, %if.end.i444 ], [ 0, %invoke.cont6.i.i ], [ 0, %for.end.i.i.i.i.i ]
   %suffix.sroa.4.0 = phi i64 [ %call2.i311, %_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit ], [ 0, %if.else205 ], [ %sub.i447, %if.end.i444 ], [ %call2.i311, %invoke.cont6.i.i ], [ %call2.i311, %for.end.i.i.i.i.i ]
   %suffix.sroa.0.0 = phi ptr [ %call.i309, %_ZNK18OpenImageIO_v2_6_017basic_string_viewIcSt11char_traitsIcEE12find_last_ofEcm.exit ], [ null, %if.else205 ], [ %add.ptr.i449, %if.end.i444 ], [ %call.i309, %invoke.cont6.i.i ], [ %call.i309, %for.end.i.i.i.i.i ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp213) #26
@@ -10450,8 +10450,8 @@ if.end46:                                         ; preds = %if.else35
 for.body54:                                       ; preds = %if.end46, %for.body54
   %__i50.066 = phi i64 [ %inc58, %for.body54 ], [ 0, %if.end46 ]
   %__q47.065 = phi ptr [ %incdec.ptr56, %for.body54 ], [ %add.ptr40, %if.end46 ]
-  %__p.264 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
-  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.264, i64 -4
+  %__p.364 = phi ptr [ %incdec.ptr55, %for.body54 ], [ %add.ptr49, %if.end46 ]
+  %incdec.ptr55 = getelementptr inbounds i8, ptr %__p.364, i64 -4
   %incdec.ptr56 = getelementptr inbounds i8, ptr %__q47.065, i64 -4
   %6 = load i32, ptr %incdec.ptr55, align 4
   %7 = load i32, ptr %incdec.ptr56, align 4
@@ -10462,7 +10462,7 @@ for.body54:                                       ; preds = %if.end46, %for.body
   br i1 %exitcond.not, label %for.end59, label %for.body54, !llvm.loop !96
 
 for.end59:                                        ; preds = %for.body54, %if.end46
-  %__p.2.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
+  %__p.3.lcssa = phi ptr [ %add.ptr49, %if.end46 ], [ %__p.0, %for.body54 ]
   %rem60 = srem i64 %__n.0, %sub15
   %cmp61 = icmp eq i64 %rem60, 0
   br i1 %cmp61, label %return, label %for.cond.backedge
@@ -10470,7 +10470,7 @@ for.end59:                                        ; preds = %for.body54, %if.end
 for.cond.backedge:                                ; preds = %for.end59, %if.end33
   %__n.0.be = phi i64 [ %__k.0, %if.end33 ], [ %sub15, %for.end59 ]
   %__k.0.be = phi i64 [ %sub34, %if.end33 ], [ %rem60, %for.end59 ]
-  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.2.lcssa, %for.end59 ]
+  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end33 ], [ %__p.3.lcssa, %for.end59 ]
   br label %for.cond, !llvm.loop !97
 
 return:                                           ; preds = %for.end59, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPiS0_ET0_T_S2_S1_.exit

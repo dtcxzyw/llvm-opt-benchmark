@@ -629,21 +629,21 @@ define hidden noundef i32 @_ZN2os12get_priorityEPK6ThreadR14ThreadPriority(ptr n
   br i1 %16, label %.preheader, label %.critedge, !llvm.loop !6
 
 .preheader15:                                     ; preds = %5, %21
-  %.117 = phi i32 [ %22, %21 ], [ 10, %5 ]
-  %17 = zext nneg i32 %.117 to i64
+  %.217 = phi i32 [ %22, %21 ], [ 10, %5 ]
+  %17 = zext nneg i32 %.217 to i64
   %18 = getelementptr inbounds [12 x i32], ptr @_ZN2os19java_to_os_priorityE, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp slt i32 %19, %9
   br i1 %20, label %21, label %.critedge
 
 21:                                               ; preds = %.preheader15
-  %22 = add nsw i32 %.117, -1
-  %23 = icmp ugt i32 %.117, 2
+  %22 = add nsw i32 %.217, -1
+  %23 = icmp ugt i32 %.217, 2
   br i1 %23, label %.preheader15, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.preheader15, %21, %.preheader, %14
-  %.2 = phi i32 [ 1, %14 ], [ %.01318, %.preheader ], [ 1, %21 ], [ %.117, %.preheader15 ]
-  store i32 %.2, ptr %1, align 4
+  %.1 = phi i32 [ 1, %14 ], [ %.01318, %.preheader ], [ 1, %21 ], [ %.217, %.preheader15 ]
+  store i32 %.1, ptr %1, align 4
   br label %24
 
 24:                                               ; preds = %2, %.critedge
@@ -843,9 +843,9 @@ _ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66: ; preds = %81, %84
   br label %87
 
 87:                                               ; preds = %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit, %.thread, %41, %_ZL25free_array_of_char_arraysPPcm.exit, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66, %4
-  %.3 = phi i1 [ %.0.i, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit ], [ false, %.thread ], [ %.lcssa78, %_ZL25free_array_of_char_arraysPPcm.exit ], [ false, %41 ], [ %.0.i65, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66 ], [ false, %4 ]
+  %.0 = phi i1 [ %.0.i, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit ], [ false, %.thread ], [ %.lcssa78, %_ZL25free_array_of_char_arraysPPcm.exit ], [ false, %41 ], [ %.0.i65, %_ZL24conc_path_file_and_checkPcS_mPKccS1_.exit66 ], [ false, %4 ]
   call void @_Z8FreeHeapPv(ptr noundef %12) #28
-  ret i1 %.3
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

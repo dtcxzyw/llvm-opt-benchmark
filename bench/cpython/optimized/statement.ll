@@ -203,30 +203,30 @@ if.then22:                                        ; preds = %sw.bb17
   br label %while.cond24
 
 while.cond24:                                     ; preds = %while.body38, %if.then22
-  %pos.2 = phi ptr [ %add.ptr23, %if.then22 ], [ %incdec.ptr39, %while.body38 ]
-  %4 = load i8, ptr %pos.2, align 1
+  %pos.3 = phi ptr [ %add.ptr23, %if.then22 ], [ %incdec.ptr39, %while.body38 ]
+  %4 = load i8, ptr %pos.3, align 1
   switch i8 %4, label %while.body38 [
     i8 0, label %return
     i8 42, label %lor.rhs
   ]
 
 lor.rhs:                                          ; preds = %while.cond24
-  %arrayidx33 = getelementptr i8, ptr %pos.2, i64 1
+  %arrayidx33 = getelementptr i8, ptr %pos.3, i64 1
   %5 = load i8, ptr %arrayidx33, align 1
   %cmp35.not = icmp eq i8 %5, 47
   br i1 %cmp35.not, label %for.inc.loopexit36, label %while.body38
 
 while.body38:                                     ; preds = %while.cond24, %lor.rhs
-  %incdec.ptr39 = getelementptr i8, ptr %pos.2, i64 1
+  %incdec.ptr39 = getelementptr i8, ptr %pos.3, i64 1
   br label %while.cond24, !llvm.loop !6
 
 for.inc.loopexit36:                               ; preds = %lor.rhs
-  %arrayidx33.le = getelementptr i8, ptr %pos.2, i64 1
+  %arrayidx33.le = getelementptr i8, ptr %pos.3, i64 1
   br label %for.inc
 
 for.inc:                                          ; preds = %while.cond, %for.inc.loopexit36, %for.cond, %for.cond, %for.cond, %for.cond, %for.cond
-  %pos.3 = phi ptr [ %pos.0, %for.cond ], [ %pos.0, %for.cond ], [ %pos.0, %for.cond ], [ %pos.0, %for.cond ], [ %pos.0, %for.cond ], [ %arrayidx33.le, %for.inc.loopexit36 ], [ %pos.1, %while.cond ]
-  %incdec.ptr49 = getelementptr i8, ptr %pos.3, i64 1
+  %pos.2 = phi ptr [ %pos.0, %for.cond ], [ %pos.0, %for.cond ], [ %pos.0, %for.cond ], [ %pos.0, %for.cond ], [ %pos.0, %for.cond ], [ %arrayidx33.le, %for.inc.loopexit36 ], [ %pos.1, %while.cond ]
+  %incdec.ptr49 = getelementptr i8, ptr %pos.2, i64 1
   br label %for.cond, !llvm.loop !7
 
 return.loopexit50:                                ; preds = %for.cond, %sw.bb1, %sw.bb17

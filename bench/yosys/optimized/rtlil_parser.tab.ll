@@ -641,31 +641,31 @@ define noundef range(i32 0, 3) i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_
   br label %101
 
 99:                                               ; preds = %2907, %2911, %222
-  %.0300 = phi ptr [ %2892, %2907 ], [ %2892, %2911 ], [ %223, %222 ]
-  %.0284 = phi ptr [ %2891, %2907 ], [ %2891, %2911 ], [ %.2286, %222 ]
-  %.0 = phi i32 [ %2910, %2907 ], [ %2914, %2911 ], [ %206, %222 ]
-  %100 = getelementptr inbounds i8, ptr %.0284, i64 1
+  %.1301 = phi ptr [ %2892, %2907 ], [ %2892, %2911 ], [ %223, %222 ]
+  %.1285 = phi ptr [ %2891, %2907 ], [ %2891, %2911 ], [ %.2286, %222 ]
+  %.1 = phi i32 [ %2910, %2907 ], [ %2914, %2911 ], [ %206, %222 ]
+  %100 = getelementptr inbounds i8, ptr %.1285, i64 1
   br label %101
 
 101:                                              ; preds = %99, %49
-  %.1301 = phi ptr [ %4, %49 ], [ %.0300, %99 ]
+  %.0300 = phi ptr [ %4, %49 ], [ %.1301, %99 ]
   %.0298 = phi ptr [ %4, %49 ], [ %.1299, %99 ]
-  %.1285 = phi ptr [ %3, %49 ], [ %100, %99 ]
+  %.0284 = phi ptr [ %3, %49 ], [ %100, %99 ]
   %.0281 = phi ptr [ %3, %49 ], [ %.1282, %99 ]
   %.0279 = phi i64 [ 200, %49 ], [ %.1280, %99 ]
-  %.1 = phi i32 [ 0, %49 ], [ %.0, %99 ]
+  %.0 = phi i32 [ 0, %49 ], [ %.1, %99 ]
   %102 = load i32, ptr @rtlil_frontend_yydebug, align 4
   %.not355 = icmp eq i32 %102, 0
   br i1 %.not355, label %106, label %103
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr @stderr, align 8
-  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.4, i32 noundef %.1) #24
+  %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %104, ptr noundef nonnull @.str.4, i32 noundef %.0) #24
   br label %106
 
 106:                                              ; preds = %101, %103
-  %107 = trunc i32 %.1 to i8
-  store i8 %107, ptr %.1285, align 1
+  %107 = trunc i32 %.0 to i8
+  store i8 %107, ptr %.0284, align 1
   %108 = load i32, ptr @rtlil_frontend_yydebug, align 4
   %.not356 = icmp eq i32 %108, 0
   br i1 %.not356, label %118, label %109
@@ -673,7 +673,7 @@ define noundef range(i32 0, 3) i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_
 109:                                              ; preds = %106
   %110 = load ptr, ptr @stderr, align 8
   %111 = call i64 @fwrite(ptr nonnull @.str.36, i64 9, i64 1, ptr %110) #23
-  %.not4.i = icmp ugt ptr %.0281, %.1285
+  %.not4.i = icmp ugt ptr %.0281, %.0284
   br i1 %.not4.i, label %_ZL14yy_stack_printPhS_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %109, %.lr.ph.i
@@ -683,7 +683,7 @@ define noundef range(i32 0, 3) i32 @_Z22rtlil_frontend_yyparsev() local_unnamed_
   %114 = load ptr, ptr @stderr, align 8
   %115 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef nonnull @.str.37, i32 noundef %113) #24
   %116 = getelementptr inbounds i8, ptr %.05.i, i64 1
-  %.not.i = icmp ugt ptr %116, %.1285
+  %.not.i = icmp ugt ptr %116, %.0284
   br i1 %.not.i, label %_ZL14yy_stack_printPhS_.exit, label %.lr.ph.i, !llvm.loop !8
 
 _ZL14yy_stack_printPhS_.exit:                     ; preds = %.lr.ph.i, %109
@@ -694,11 +694,11 @@ _ZL14yy_stack_printPhS_.exit:                     ; preds = %.lr.ph.i, %109
 118:                                              ; preds = %106, %_ZL14yy_stack_printPhS_.exit
   %119 = getelementptr inbounds i8, ptr %.0281, i64 %.0279
   %120 = getelementptr inbounds i8, ptr %119, i64 -1
-  %.not357 = icmp ugt ptr %120, %.1285
+  %.not357 = icmp ugt ptr %120, %.0284
   br i1 %.not357, label %147, label %121
 
 121:                                              ; preds = %118
-  %122 = ptrtoint ptr %.1285 to i64
+  %122 = ptrtoint ptr %.0284 to i64
   %123 = ptrtoint ptr %.0281 to i64
   %124 = sub i64 %122, %123
   %125 = add nsw i64 %124, 1
@@ -746,16 +746,16 @@ _ZL14yy_stack_printPhS_.exit:                     ; preds = %.lr.ph.i, %109
   br i1 %.not361, label %147, label %.loopexit
 
 147:                                              ; preds = %146, %118
-  %.2302 = phi ptr [ %141, %146 ], [ %.1301, %118 ]
+  %.2302 = phi ptr [ %141, %146 ], [ %.0300, %118 ]
   %.1299 = phi ptr [ %135, %146 ], [ %.0298, %118 ]
-  %.2286 = phi ptr [ %139, %146 ], [ %.1285, %118 ]
+  %.2286 = phi ptr [ %139, %146 ], [ %.0284, %118 ]
   %.1282 = phi ptr [ %131, %146 ], [ %.0281, %118 ]
   %.1280 = phi i64 [ %spec.store.select, %146 ], [ %.0279, %118 ]
-  %148 = icmp eq i32 %.1, 3
+  %148 = icmp eq i32 %.0, 3
   br i1 %148, label %.loopexit, label %149
 
 149:                                              ; preds = %147
-  %150 = sext i32 %.1 to i64
+  %150 = sext i32 %.0 to i64
   %151 = getelementptr inbounds [181 x i16], ptr @_ZL6yypact, i64 0, i64 %150
   %152 = load i16, ptr %151, align 2
   %153 = sext i16 %152 to i32
@@ -7035,13 +7035,13 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1013.thread.us.
 
 .lr.ph1795.split:                                 ; preds = %.lr.ph1795, %2949
   %2923 = phi i32 [ %2950, %2949 ], [ 1, %.lr.ph1795 ]
-  %.21793 = phi i32 [ %2952, %2949 ], [ %.1, %.lr.ph1795 ]
-  %.32871792 = phi ptr [ %2951, %2949 ], [ %.2286, %.lr.ph1795 ]
+  %.21793 = phi i32 [ %2952, %2949 ], [ %.0, %.lr.ph1795 ]
+  %.41792 = phi ptr [ %2951, %2949 ], [ %.2286, %.lr.ph1795 ]
   %.not3.i1009 = icmp eq i32 %2923, 0
   br i1 %.not3.i1009, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1013.thread, label %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1013
 
 _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1013.thread: ; preds = %.lr.ph1795.split
-  %2924 = getelementptr inbounds i8, ptr %.32871792, i64 -1
+  %2924 = getelementptr inbounds i8, ptr %.41792, i64 -1
   %2925 = load i8, ptr %2924, align 1
   br label %2949
 
@@ -7062,7 +7062,7 @@ _ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1013: ; preds =
   %2937 = load ptr, ptr @stderr, align 8
   %fputc.i1012 = call i32 @fputc(i32 10, ptr %2937)
   %.pr = load i32, ptr @rtlil_frontend_yydebug, align 4
-  %2938 = getelementptr inbounds i8, ptr %.32871792, i64 -1
+  %2938 = getelementptr inbounds i8, ptr %.41792, i64 -1
   %2939 = load i8, ptr %2938, align 1
   %.not394 = icmp eq i32 %.pr, 0
   br i1 %.not394, label %2949, label %2940
@@ -7103,7 +7103,7 @@ _ZL14yy_stack_printPhS_.exit1019:                 ; preds = %.lr.ph.i1015, %2940
 
 .loopexit:                                        ; preds = %146, %147, %2949, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1013.thread.us.preheader, %2918, %2954
   %.0308 = phi i32 [ 2, %2954 ], [ 1, %2918 ], [ 1, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1013.thread.us.preheader ], [ 1, %2949 ], [ 1, %146 ], [ 0, %147 ]
-  %.5 = phi ptr [ %.1285, %2954 ], [ %.2286, %2918 ], [ %scevgep, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1013.thread.us.preheader ], [ %2951, %2949 ], [ %139, %146 ], [ %.2286, %147 ]
+  %.5 = phi ptr [ %.0284, %2954 ], [ %.2286, %2918 ], [ %scevgep, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1013.thread.us.preheader ], [ %2951, %2949 ], [ %139, %146 ], [ %.2286, %147 ]
   %.3 = phi ptr [ %.0281, %2954 ], [ %.1282, %2918 ], [ %.1282, %_ZL10yydestructPKc15yysymbol_kind_tP22RTLIL_FRONTEND_YYSTYPE.exit1013.thread.us.preheader ], [ %.1282, %2949 ], [ %131, %146 ], [ %.1282, %147 ]
   %2955 = load i32, ptr @rtlil_frontend_yychar, align 4
   %.not395 = icmp eq i32 %2955, -2

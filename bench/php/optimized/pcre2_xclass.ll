@@ -349,9 +349,9 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
 
 257:                                              ; preds = %169, %197, %240, %229, %183, %161
   %.1259 = phi i32 [ %176, %169 ], [ %192, %183 ], [ %212, %197 ], [ %238, %229 ], [ %255, %240 ], [ %164, %161 ]
-  %.3 = phi ptr [ %172, %169 ], [ %193, %183 ], [ %213, %197 ], [ %239, %229 ], [ %256, %240 ], [ %162, %161 ]
-  %258 = getelementptr inbounds i8, ptr %.3, i64 1
-  %259 = load i8, ptr %.3, align 1
+  %.4 = phi ptr [ %172, %169 ], [ %193, %183 ], [ %213, %197 ], [ %239, %229 ], [ %256, %240 ], [ %162, %161 ]
+  %258 = getelementptr inbounds i8, ptr %.4, i64 1
+  %259 = load i8, ptr %.4, align 1
   %260 = zext i8 %259 to i32
   %261 = icmp ugt i8 %259, -65
   br i1 %261, label %262, label %353
@@ -364,7 +364,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
 265:                                              ; preds = %262
   %266 = shl nuw nsw i32 %260, 6
   %267 = and i32 %266, 1984
-  %268 = getelementptr inbounds i8, ptr %.3, i64 2
+  %268 = getelementptr inbounds i8, ptr %.4, i64 2
   %269 = load i8, ptr %258, align 1
   %270 = and i8 %269, 63
   %271 = zext nneg i8 %270 to i32
@@ -384,12 +384,12 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
   %281 = and i32 %280, 61440
   %282 = shl nuw nsw i32 %278, 6
   %283 = or disjoint i32 %282, %281
-  %284 = getelementptr inbounds i8, ptr %.3, i64 2
+  %284 = getelementptr inbounds i8, ptr %.4, i64 2
   %285 = load i8, ptr %284, align 1
   %286 = and i8 %285, 63
   %287 = zext nneg i8 %286 to i32
   %288 = or disjoint i32 %283, %287
-  %289 = getelementptr inbounds i8, ptr %.3, i64 3
+  %289 = getelementptr inbounds i8, ptr %.4, i64 3
   br label %353
 
 290:                                              ; preds = %273
@@ -402,32 +402,32 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
   %295 = and i32 %294, 1835008
   %296 = shl nuw nsw i32 %278, 12
   %297 = or disjoint i32 %296, %295
-  %298 = getelementptr inbounds i8, ptr %.3, i64 2
+  %298 = getelementptr inbounds i8, ptr %.4, i64 2
   %299 = load i8, ptr %298, align 1
   %300 = and i8 %299, 63
   %301 = zext nneg i8 %300 to i32
   %302 = shl nuw nsw i32 %301, 6
   %303 = or disjoint i32 %297, %302
-  %304 = getelementptr inbounds i8, ptr %.3, i64 3
+  %304 = getelementptr inbounds i8, ptr %.4, i64 3
   %305 = load i8, ptr %304, align 1
   %306 = and i8 %305, 63
   %307 = zext nneg i8 %306 to i32
   %308 = or disjoint i32 %303, %307
-  %309 = getelementptr inbounds i8, ptr %.3, i64 4
+  %309 = getelementptr inbounds i8, ptr %.4, i64 4
   br label %353
 
 310:                                              ; preds = %290
   %311 = and i32 %260, 4
   %312 = icmp eq i32 %311, 0
-  %313 = getelementptr inbounds i8, ptr %.3, i64 2
+  %313 = getelementptr inbounds i8, ptr %.4, i64 2
   %314 = load i8, ptr %313, align 1
   %315 = and i8 %314, 63
   %316 = zext nneg i8 %315 to i32
-  %317 = getelementptr inbounds i8, ptr %.3, i64 3
+  %317 = getelementptr inbounds i8, ptr %.4, i64 3
   %318 = load i8, ptr %317, align 1
   %319 = and i8 %318, 63
   %320 = zext nneg i8 %319 to i32
-  %321 = getelementptr inbounds i8, ptr %.3, i64 4
+  %321 = getelementptr inbounds i8, ptr %.4, i64 4
   %322 = load i8, ptr %321, align 1
   %323 = and i8 %322, 63
   %324 = zext nneg i8 %323 to i32
@@ -443,7 +443,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
   %332 = shl nuw nsw i32 %320, 6
   %333 = or disjoint i32 %331, %332
   %334 = or disjoint i32 %333, %324
-  %335 = getelementptr inbounds i8, ptr %.3, i64 5
+  %335 = getelementptr inbounds i8, ptr %.4, i64 5
   br label %353
 
 336:                                              ; preds = %310
@@ -457,17 +457,17 @@ define hidden range(i32 0, 2) i32 @_pcre2_xclass_8(i32 noundef %0, ptr noundef r
   %344 = or disjoint i32 %342, %343
   %345 = shl nuw nsw i32 %324, 6
   %346 = or disjoint i32 %344, %345
-  %347 = getelementptr inbounds i8, ptr %.3, i64 5
+  %347 = getelementptr inbounds i8, ptr %.4, i64 5
   %348 = load i8, ptr %347, align 1
   %349 = and i8 %348, 63
   %350 = zext nneg i8 %349 to i32
   %351 = or disjoint i32 %346, %350
-  %352 = getelementptr inbounds i8, ptr %.3, i64 6
+  %352 = getelementptr inbounds i8, ptr %.4, i64 6
   br label %353
 
 353:                                              ; preds = %257, %279, %325, %336, %293, %265
   %.0257 = phi i32 [ %272, %265 ], [ %288, %279 ], [ %308, %293 ], [ %334, %325 ], [ %351, %336 ], [ %260, %257 ]
-  %.4 = phi ptr [ %268, %265 ], [ %289, %279 ], [ %309, %293 ], [ %335, %325 ], [ %352, %336 ], [ %258, %257 ]
+  %.5 = phi ptr [ %268, %265 ], [ %289, %279 ], [ %309, %293 ], [ %335, %325 ], [ %352, %336 ], [ %258, %257 ]
   %.not287 = icmp ugt i32 %.1259, %0
   %.not288 = icmp ult i32 %.0257, %0
   %or.cond289 = select i1 %.not287, i1 true, i1 %.not288
@@ -876,7 +876,7 @@ switch.early.test:                                ; preds = %511
   br label %.backedge
 
 .backedge:                                        ; preds = %548, %353, %157
-  %.1.be = phi ptr [ %.2, %157 ], [ %.4, %353 ], [ %549, %548 ]
+  %.1.be = phi ptr [ %.2, %157 ], [ %.5, %353 ], [ %549, %548 ]
   br label %58
 
 .loopexit:                                        ; preds = %58, %356, %13, %546, %541, %529, %515, %503, %484, %473, %469, %465, %451, %441, %437, %427, %404, %396, %387, %374, %369, %354, %159, %35, %14

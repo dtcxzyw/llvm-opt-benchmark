@@ -767,18 +767,18 @@ _ZN15StatementAssign21AssignOpWorksForFloatE10eAssignOps.exit: ; preds = %switch
   br label %221
 
 221:                                              ; preds = %.sink.split, %213, %161
-  %.0 = phi ptr [ null, %161 ], [ %212, %213 ], [ null, %.sink.split ]
+  %.1 = phi ptr [ null, %161 ], [ %212, %213 ], [ null, %.sink.split ]
   call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %11) #19
   br label %222
 
 222:                                              ; preds = %100, %102, %59, %61, %54, %221
-  %.1 = phi ptr [ %.0, %221 ], [ null, %54 ], [ null, %61 ], [ null, %59 ], [ null, %102 ], [ null, %100 ]
+  %.0 = phi ptr [ %.1, %221 ], [ null, %54 ], [ null, %61 ], [ null, %59 ], [ null, %102 ], [ null, %100 ]
   call void @_ZN12CVQualifiersD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #19
   call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %7) #19
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %6) #19
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %5) #19
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %4) #19
-  ret ptr %.1
+  ret ptr %.0
 
 223:                                              ; preds = %134, %115, %74, %40
   %.pn = phi { ptr, i32 } [ %135, %134 ], [ %41, %40 ], [ %75, %74 ], [ %116, %115 ]
@@ -1532,7 +1532,7 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
           to label %115 unwind label %85
 
 115:                                              ; preds = %112, %84
-  %.0 = phi i1 [ %83, %84 ], [ true, %112 ]
+  %.1 = phi i1 [ %83, %84 ], [ true, %112 ]
   call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %12) #19
   br label %117
 
@@ -1542,7 +1542,7 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
   br label %119
 
 117:                                              ; preds = %115, %43
-  %.1 = phi i1 [ %.0, %115 ], [ %42, %43 ]
+  %.0 = phi i1 [ %.1, %115 ], [ %42, %43 ]
   call void @_ZN9CGContextD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %9) #19
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %8) #19
   call void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74) %7) #19
@@ -1555,7 +1555,7 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
 
 _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %117, %118
-  ret i1 %.1
+  ret i1 %.0
 
 119:                                              ; preds = %116, %58, %52
   %.pn28.pn = phi { ptr, i32 } [ %.pn28, %116 ], [ %53, %52 ], [ %.pn, %58 ]

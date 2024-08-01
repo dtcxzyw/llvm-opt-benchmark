@@ -199,8 +199,8 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
 
 .lr.ph174:                                        ; preds = %.lr.ph174.preheader, %.lr.ph174
   %indvars.iv182 = phi i64 [ 0, %.lr.ph174.preheader ], [ %indvars.iv.next183, %.lr.ph174 ]
-  %.0152172 = phi float [ %9, %.lr.ph174.preheader ], [ %157, %.lr.ph174 ]
-  %.0154171 = phi float [ %14, %.lr.ph174.preheader ], [ %160, %.lr.ph174 ]
+  %.1153172 = phi float [ %9, %.lr.ph174.preheader ], [ %157, %.lr.ph174 ]
+  %.1155171 = phi float [ %14, %.lr.ph174.preheader ], [ %160, %.lr.ph174 ]
   %gep195 = getelementptr i64, ptr %invariant.gep194, i64 %indvars.iv182
   %117 = load i64, ptr %gep195, align 8
   %118 = inttoptr i64 %117 to ptr
@@ -232,7 +232,7 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   store i32 %137, ptr %139, align 4
   %140 = getelementptr inbounds i8, ptr %118, i64 16
   %141 = load float, ptr %140, align 8
-  %142 = fadd float %.0152172, %141
+  %142 = fadd float %.1153172, %141
   %143 = fcmp olt float %142, 0.000000e+00
   %144 = tail call float @llvm.floor.f32(float %142)
   %.sink204 = select i1 %143, float %144, float %142
@@ -242,7 +242,7 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   store i32 %145, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %118, i64 20
   %149 = load float, ptr %148, align 4
-  %150 = fadd float %.0154171, %149
+  %150 = fadd float %.1155171, %149
   %151 = fcmp olt float %150, 0.000000e+00
   %152 = tail call float @llvm.floor.f32(float %150)
   %.sink207 = select i1 %151, float %152, float %150
@@ -251,17 +251,17 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %155 = getelementptr inbounds %struct.ImageRef, ptr %154, i64 %indvars.iv182, i32 7
   store i32 %153, ptr %155, align 4
   %156 = load float, ptr %118, align 8
-  %157 = fadd float %.0152172, %156
+  %157 = fadd float %.1153172, %156
   %158 = getelementptr inbounds i8, ptr %118, i64 4
   %159 = load float, ptr %158, align 4
-  %160 = fadd float %.0154171, %159
+  %160 = fadd float %.1155171, %159
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
   br i1 %exitcond186.not, label %.loopexit, label %.lr.ph174, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph174, %._crit_edge
-  %.1155 = phi float [ %14, %._crit_edge ], [ %160, %.lr.ph174 ]
-  %.1153 = phi float [ %9, %._crit_edge ], [ %157, %.lr.ph174 ]
+  %.0154 = phi float [ %14, %._crit_edge ], [ %160, %.lr.ph174 ]
+  %.0152 = phi float [ %9, %._crit_edge ], [ %157, %.lr.ph174 ]
   %161 = load ptr, ptr %0, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 1784
   %163 = load ptr, ptr %162, align 8
@@ -269,18 +269,18 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.not168, label %164, label %173
 
 164:                                              ; preds = %.loopexit.thread, %.loopexit
-  %.1153190 = phi float [ %9, %.loopexit.thread ], [ %.1153, %.loopexit ]
-  %.1155189 = phi float [ %14, %.loopexit.thread ], [ %.1155, %.loopexit ]
+  %.0152190 = phi float [ %9, %.loopexit.thread ], [ %.0152, %.loopexit ]
+  %.0154189 = phi float [ %14, %.loopexit.thread ], [ %.0154, %.loopexit ]
   %165 = load ptr, ptr %0, align 8
   %166 = getelementptr inbounds i8, ptr %165, i64 888
   %167 = load ptr, ptr %166, align 8
   %168 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 232), align 8
-  tail call void %167(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, float noundef %.1153190) #10
+  tail call void %167(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %168, float noundef %.0152190) #10
   %169 = load ptr, ptr %0, align 8
   %170 = getelementptr inbounds i8, ptr %169, i64 888
   %171 = load ptr, ptr %170, align 8
   %172 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 240), align 8
-  tail call void %171(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %172, float noundef %.1155189) #10
+  tail call void %171(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %172, float noundef %.0154189) #10
   br label %173
 
 173:                                              ; preds = %.loopexit, %164, %32, %60, %47
@@ -1280,8 +1280,8 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
 
 179:                                              ; preds = %.lr.ph270, %249
   %indvars.iv278 = phi i64 [ 0, %.lr.ph270 ], [ %indvars.iv.next279, %249 ]
-  %.0235268 = phi float [ %9, %.lr.ph270 ], [ %259, %249 ]
-  %.0237267 = phi float [ %14, %.lr.ph270 ], [ %262, %249 ]
+  %.1236268 = phi float [ %9, %.lr.ph270 ], [ %259, %249 ]
+  %.1238267 = phi float [ %14, %.lr.ph270 ], [ %262, %249 ]
   %gep291 = getelementptr i64, ptr %invariant.gep290, i64 %indvars.iv278
   %180 = load i64, ptr %gep291, align 8
   %181 = inttoptr i64 %180 to ptr
@@ -1326,8 +1326,8 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not261, label %238, label %209
 
 209:                                              ; preds = %187
-  %210 = fadd float %.0235268, 0xBFD5555540000000
-  %211 = fadd float %.0237267, 0xBFD5555540000000
+  %210 = fadd float %.1236268, 0xBFD5555540000000
+  %211 = fadd float %.1238267, 0xBFD5555540000000
   %212 = getelementptr inbounds i8, ptr %181, i64 16
   %213 = load float, ptr %212, align 8
   %214 = fadd float %210, %213
@@ -1368,7 +1368,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
 238:                                              ; preds = %187
   %239 = getelementptr inbounds i8, ptr %181, i64 16
   %240 = load float, ptr %239, align 8
-  %241 = fadd float %.0235268, %240
+  %241 = fadd float %.1236268, %240
   %242 = fcmp olt float %241, 0.000000e+00
   %243 = tail call float @llvm.floor.f32(float %241)
   %.sink306 = select i1 %242, float %243, float %241
@@ -1382,7 +1382,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   br label %249
 
 249:                                              ; preds = %229, %231, %238
-  %.0231 = phi float [ %211, %229 ], [ %211, %231 ], [ %.0237267, %238 ]
+  %.0231 = phi float [ %211, %229 ], [ %211, %231 ], [ %.1238267, %238 ]
   %250 = getelementptr inbounds i8, ptr %181, i64 20
   %251 = load float, ptr %250, align 4
   %252 = fadd float %.0231, %251
@@ -1394,17 +1394,17 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %257 = getelementptr inbounds %struct.ImageRef, ptr %256, i64 %indvars.iv278, i32 7
   store i32 %255, ptr %257, align 4
   %258 = load float, ptr %181, align 8
-  %259 = fadd float %.0235268, %258
+  %259 = fadd float %.1236268, %258
   %260 = getelementptr inbounds i8, ptr %181, i64 4
   %261 = load float, ptr %260, align 4
-  %262 = fadd float %.0237267, %261
+  %262 = fadd float %.1238267, %261
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond282.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count281
   br i1 %exitcond282.not, label %.loopexit, label %179, !llvm.loop !13
 
 .loopexit:                                        ; preds = %249, %._crit_edge
-  %.1238 = phi float [ %14, %._crit_edge ], [ %262, %249 ]
-  %.1236 = phi float [ %9, %._crit_edge ], [ %259, %249 ]
+  %.0237 = phi float [ %14, %._crit_edge ], [ %262, %249 ]
+  %.0235 = phi float [ %9, %._crit_edge ], [ %259, %249 ]
   %263 = load ptr, ptr %0, align 8
   %264 = getelementptr inbounds i8, ptr %263, i64 1784
   %265 = load ptr, ptr %264, align 8
@@ -1412,18 +1412,18 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not260, label %266, label %275
 
 266:                                              ; preds = %.loopexit.thread, %.loopexit
-  %.1236286 = phi float [ %9, %.loopexit.thread ], [ %.1236, %.loopexit ]
-  %.1238285 = phi float [ %14, %.loopexit.thread ], [ %.1238, %.loopexit ]
+  %.0235286 = phi float [ %9, %.loopexit.thread ], [ %.0235, %.loopexit ]
+  %.0237285 = phi float [ %14, %.loopexit.thread ], [ %.0237, %.loopexit ]
   %267 = load ptr, ptr %0, align 8
   %268 = getelementptr inbounds i8, ptr %267, i64 888
   %269 = load ptr, ptr %268, align 8
   %270 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 232), align 8
-  tail call void %269(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %270, float noundef %.1236286) #10
+  tail call void %269(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %270, float noundef %.0235286) #10
   %271 = load ptr, ptr %0, align 8
   %272 = getelementptr inbounds i8, ptr %271, i64 888
   %273 = load ptr, ptr %272, align 8
   %274 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 240), align 8
-  tail call void %273(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %274, float noundef %.1238285) #10
+  tail call void %273(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %274, float noundef %.0237285) #10
   br label %275
 
 275:                                              ; preds = %.loopexit, %266, %32, %183, %96, %83, %61, %52

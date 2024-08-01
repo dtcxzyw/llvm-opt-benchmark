@@ -249,7 +249,7 @@ proto_item_set_generated.exit270:                 ; preds = %74, %79, %82
   br label %.critedge
 
 .critedge:                                        ; preds = %51, %66, %87, %62, %proto_item_set_generated.exit270
-  %.1233 = phi i1 [ false, %proto_item_set_generated.exit270 ], [ %.not257.not, %87 ], [ true, %62 ], [ true, %66 ], [ true, %51 ]
+  %.0232 = phi i1 [ false, %proto_item_set_generated.exit270 ], [ %.not257.not, %87 ], [ true, %62 ], [ true, %66 ], [ true, %51 ]
   %.0229 = phi ptr [ %65, %proto_item_set_generated.exit270 ], [ null, %87 ], [ null, %62 ], [ null, %66 ], [ null, %51 ]
   %.0228 = phi ptr [ %86, %proto_item_set_generated.exit270 ], [ null, %87 ], [ null, %62 ], [ null, %66 ], [ null, %51 ]
   %88 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #3
@@ -471,7 +471,7 @@ proto_item_set_generated.exit270:                 ; preds = %74, %79, %82
 
 .thread299:                                       ; preds = %.thread, %190, %193, %.thread295, %178, %174, %164
   %.0237286292308 = phi i32 [ 0, %.thread ], [ 0, %190 ], [ 0, %193 ], [ %.0237286292309316, %.thread295 ], [ %132, %178 ], [ %132, %174 ], [ %132, %164 ]
-  br i1 %.1233, label %208, label %215
+  br i1 %.0232, label %208, label %215
 
 208:                                              ; preds = %.thread299
   %209 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0237286292308) #3
@@ -654,9 +654,9 @@ proto_item_set_generated.exit276:                 ; preds = %proto_item_set_gene
   br label %313
 
 313:                                              ; preds = %310, %303
-  %.1238 = phi i32 [ %307, %303 ], [ 4, %310 ]
-  %.2236 = phi i64 [ %309, %303 ], [ %spec.select266, %310 ]
-  %.1 = phi i8 [ 2, %303 ], [ %spec.select267, %310 ]
+  %.3240 = phi i32 [ %307, %303 ], [ 4, %310 ]
+  %.3 = phi i64 [ %309, %303 ], [ %spec.select266, %310 ]
+  %.2 = phi i8 [ 2, %303 ], [ %spec.select267, %310 ]
   %314 = getelementptr inbounds i8, ptr %1, i64 80
   %315 = load ptr, ptr %314, align 8
   %316 = getelementptr inbounds i8, ptr %315, i64 50
@@ -673,15 +673,15 @@ proto_item_set_generated.exit276:                 ; preds = %proto_item_set_gene
   %324 = getelementptr inbounds i8, ptr %257, i64 32
   store i64 %323, ptr %324, align 8
   %325 = getelementptr inbounds i8, ptr %257, i64 40
-  store i8 %.1, ptr %325, align 8
+  store i8 %.2, ptr %325, align 8
   %326 = getelementptr inbounds i8, ptr %257, i64 48
-  store i64 %.2236, ptr %326, align 8
+  store i64 %.3, ptr %326, align 8
   br label %327
 
 327:                                              ; preds = %313, %320, %284
-  %.2239 = phi i32 [ %.1238, %320 ], [ %.1238, %313 ], [ 0, %284 ]
-  %.3 = phi i64 [ %.2236, %320 ], [ %.2236, %313 ], [ %.1235, %284 ]
-  %.2 = phi i8 [ %.1, %320 ], [ %.1, %313 ], [ %.0, %284 ]
+  %.2239 = phi i32 [ %.3240, %320 ], [ %.3240, %313 ], [ 0, %284 ]
+  %.2236 = phi i64 [ %.3, %320 ], [ %.3, %313 ], [ %.1235, %284 ]
+  %.1 = phi i8 [ %.2, %320 ], [ %.2, %313 ], [ %.0, %284 ]
   %328 = load ptr, ptr %13, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %328, i32 noundef 25, ptr noundef nonnull @.str.30, ptr noundef nonnull %.0226) #3
   %329 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2239) #3
@@ -689,7 +689,7 @@ proto_item_set_generated.exit276:                 ; preds = %proto_item_set_gene
   br i1 %330, label %377, label %331
 
 331:                                              ; preds = %327
-  %332 = icmp eq i8 %.2, 2
+  %332 = icmp eq i8 %.1, 2
   br i1 %332, label %333, label %348
 
 333:                                              ; preds = %331
@@ -700,7 +700,7 @@ proto_item_set_generated.exit276:                 ; preds = %proto_item_set_gene
   %338 = call ptr @proto_tree_add_item_ret_string(ptr noundef %19, i32 noundef %334, ptr noundef %0, i32 noundef %.2239, i32 noundef %335, i32 noundef 0, ptr noundef %337, ptr noundef nonnull %12) #3
   %339 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2239) #3
   %340 = sext i32 %339 to i64
-  %341 = icmp slt i64 %.3, %340
+  %341 = icmp slt i64 %.2236, %340
   br i1 %341, label %342, label %344
 
 342:                                              ; preds = %333

@@ -211,9 +211,9 @@ for.body.i.i.i.preheader.i5:                      ; preds = %_ZN19OpenColorIO_v2
   br label %for.body.i.i.i.i7
 
 for.body.i.i.i.i7:                                ; preds = %if.end16.i.i.i.i9, %for.body.i.i.i.preheader.i5
-  %agg.tmp.sroa.0.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i8.i.i.i.i, %if.end16.i.i.i.i9 ], [ %11, %for.body.i.i.i.preheader.i5 ]
+  %agg.tmp.sroa.0.3.i.i.i = phi ptr [ %incdec.ptr.i.i.i8.i.i.i.i, %if.end16.i.i.i.i9 ], [ %11, %for.body.i.i.i.preheader.i5 ]
   %__trip_count.032.i.i.i.i = phi i64 [ %dec.i.i.i.i10, %if.end16.i.i.i.i9 ], [ %shr.i.i.i.i2, %for.body.i.i.i.preheader.i5 ]
-  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -1
+  %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -1
   %13 = load i8, ptr %incdec.ptr.i.i.i.i.i.i.i, align 1, !noalias !9
   switch i8 %13, label %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbcEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit17.i.i.i [
     i8 32, label %if.end.i.i.i.i8
@@ -225,7 +225,7 @@ for.body.i.i.i.i7:                                ; preds = %if.end16.i.i.i.i9, 
   ]
 
 if.end.i.i.i.i8:                                  ; preds = %for.body.i.i.i.i7, %for.body.i.i.i.i7, %for.body.i.i.i.i7, %for.body.i.i.i.i7, %for.body.i.i.i.i7, %for.body.i.i.i.i7
-  %incdec.ptr.i.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -2
+  %incdec.ptr.i.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -2
   %14 = load i8, ptr %incdec.ptr.i.i.i2.i.i.i.i, align 1, !noalias !9
   switch i8 %14, label %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbcEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit15.i.i.i [
     i8 32, label %if.end6.i.i.i.i
@@ -237,7 +237,7 @@ if.end.i.i.i.i8:                                  ; preds = %for.body.i.i.i.i7, 
   ]
 
 if.end6.i.i.i.i:                                  ; preds = %if.end.i.i.i.i8, %if.end.i.i.i.i8, %if.end.i.i.i.i8, %if.end.i.i.i.i8, %if.end.i.i.i.i8, %if.end.i.i.i.i8
-  %incdec.ptr.i.i.i5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -3
+  %incdec.ptr.i.i.i5.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -3
   %15 = load i8, ptr %incdec.ptr.i.i.i5.i.i.i.i, align 1, !noalias !9
   switch i8 %15, label %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbcEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit13.i.i.i [
     i8 32, label %if.end11.i.i.i.i
@@ -249,7 +249,7 @@ if.end6.i.i.i.i:                                  ; preds = %if.end.i.i.i.i8, %i
   ]
 
 if.end11.i.i.i.i:                                 ; preds = %if.end6.i.i.i.i, %if.end6.i.i.i.i, %if.end6.i.i.i.i, %if.end6.i.i.i.i, %if.end6.i.i.i.i, %if.end6.i.i.i.i
-  %incdec.ptr.i.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -4
+  %incdec.ptr.i.i.i8.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -4
   %16 = load i8, ptr %incdec.ptr.i.i.i8.i.i.i.i, align 1, !noalias !9
   switch i8 %16, label %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbcEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i.i [
     i8 32, label %if.end16.i.i.i.i9
@@ -270,7 +270,7 @@ for.end.loopexit.i.i.i.i12:                       ; preds = %if.end16.i.i.i.i9
   br label %for.end.i.i.i.i3
 
 for.end.i.i.i.i3:                                 ; preds = %for.end.loopexit.i.i.i.i12, %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %agg.tmp.sroa.0.1.i.i.i = phi ptr [ %scevgep.i6, %for.end.loopexit.i.i.i.i12 ], [ %11, %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %agg.tmp.sroa.0.0.i.i.i = phi ptr [ %scevgep.i6, %for.end.loopexit.i.i.i.i12 ], [ %11, %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %18 = phi i64 [ %17, %for.end.loopexit.i.i.i.i12 ], [ %9, %_ZN19OpenColorIO_v2_4devL5LTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %sub.ptr.sub.i.i15.i.i.i.i = sub i64 %18, %10
   switch i64 %sub.ptr.sub.i.i15.i.i.i.i, label %_ZN19OpenColorIO_v2_4devL5RTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit [
@@ -280,7 +280,7 @@ for.end.i.i.i.i3:                                 ; preds = %for.end.loopexit.i.
   ]
 
 sw.bb.i.i.i.i4:                                   ; preds = %for.end.i.i.i.i3
-  %incdec.ptr.i.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.1.i.i.i, i64 -1
+  %incdec.ptr.i.i.i16.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -1
   %19 = load i8, ptr %incdec.ptr.i.i.i16.i.i.i.i, align 1, !noalias !9
   switch i8 %19, label %_ZN19OpenColorIO_v2_4dev10IsNotSpaceEc.exit9.thread.i [
     i8 32, label %sw.bb24.i.i.i.i
@@ -292,11 +292,11 @@ sw.bb.i.i.i.i4:                                   ; preds = %for.end.i.i.i.i3
   ]
 
 _ZN19OpenColorIO_v2_4dev10IsNotSpaceEc.exit9.thread.i: ; preds = %sw.bb.i.i.i.i4
-  %20 = ptrtoint ptr %agg.tmp.sroa.0.1.i.i.i to i64
+  %20 = ptrtoint ptr %agg.tmp.sroa.0.0.i.i.i to i64
   br label %_ZN19OpenColorIO_v2_4devL5RTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 sw.bb24.i.i.i.i:                                  ; preds = %sw.bb.i.i.i.i4, %sw.bb.i.i.i.i4, %sw.bb.i.i.i.i4, %sw.bb.i.i.i.i4, %sw.bb.i.i.i.i4, %sw.bb.i.i.i.i4, %for.end.i.i.i.i3
-  %.ptr35.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.1.i.i.i, %for.end.i.i.i.i3 ], [ %incdec.ptr.i.i.i16.i.i.i.i, %sw.bb.i.i.i.i4 ], [ %incdec.ptr.i.i.i16.i.i.i.i, %sw.bb.i.i.i.i4 ], [ %incdec.ptr.i.i.i16.i.i.i.i, %sw.bb.i.i.i.i4 ], [ %incdec.ptr.i.i.i16.i.i.i.i, %sw.bb.i.i.i.i4 ], [ %incdec.ptr.i.i.i16.i.i.i.i, %sw.bb.i.i.i.i4 ], [ %incdec.ptr.i.i.i16.i.i.i.i, %sw.bb.i.i.i.i4 ]
+  %.ptr35.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.0.i.i.i, %for.end.i.i.i.i3 ], [ %incdec.ptr.i.i.i16.i.i.i.i, %sw.bb.i.i.i.i4 ], [ %incdec.ptr.i.i.i16.i.i.i.i, %sw.bb.i.i.i.i4 ], [ %incdec.ptr.i.i.i16.i.i.i.i, %sw.bb.i.i.i.i4 ], [ %incdec.ptr.i.i.i16.i.i.i.i, %sw.bb.i.i.i.i4 ], [ %incdec.ptr.i.i.i16.i.i.i.i, %sw.bb.i.i.i.i4 ], [ %incdec.ptr.i.i.i16.i.i.i.i, %sw.bb.i.i.i.i4 ]
   %incdec.ptr.i.i.i19.i.i.i.i = getelementptr inbounds i8, ptr %.ptr35.i.i.i.i, i64 -1
   %21 = load i8, ptr %incdec.ptr.i.i.i19.i.i.i.i, align 1, !noalias !9
   switch i8 %21, label %_ZN19OpenColorIO_v2_4dev10IsNotSpaceEc.exit6.thread.i [
@@ -313,7 +313,7 @@ _ZN19OpenColorIO_v2_4dev10IsNotSpaceEc.exit6.thread.i: ; preds = %sw.bb24.i.i.i.
   br label %_ZN19OpenColorIO_v2_4devL5RTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 sw.bb30.i.i.i.i:                                  ; preds = %sw.bb24.i.i.i.i, %sw.bb24.i.i.i.i, %sw.bb24.i.i.i.i, %sw.bb24.i.i.i.i, %sw.bb24.i.i.i.i, %sw.bb24.i.i.i.i, %for.end.i.i.i.i3
-  %.ptr37.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.1.i.i.i, %for.end.i.i.i.i3 ], [ %incdec.ptr.i.i.i19.i.i.i.i, %sw.bb24.i.i.i.i ], [ %incdec.ptr.i.i.i19.i.i.i.i, %sw.bb24.i.i.i.i ], [ %incdec.ptr.i.i.i19.i.i.i.i, %sw.bb24.i.i.i.i ], [ %incdec.ptr.i.i.i19.i.i.i.i, %sw.bb24.i.i.i.i ], [ %incdec.ptr.i.i.i19.i.i.i.i, %sw.bb24.i.i.i.i ], [ %incdec.ptr.i.i.i19.i.i.i.i, %sw.bb24.i.i.i.i ]
+  %.ptr37.i.i.i.i = phi ptr [ %agg.tmp.sroa.0.0.i.i.i, %for.end.i.i.i.i3 ], [ %incdec.ptr.i.i.i19.i.i.i.i, %sw.bb24.i.i.i.i ], [ %incdec.ptr.i.i.i19.i.i.i.i, %sw.bb24.i.i.i.i ], [ %incdec.ptr.i.i.i19.i.i.i.i, %sw.bb24.i.i.i.i ], [ %incdec.ptr.i.i.i19.i.i.i.i, %sw.bb24.i.i.i.i ], [ %incdec.ptr.i.i.i19.i.i.i.i, %sw.bb24.i.i.i.i ], [ %incdec.ptr.i.i.i19.i.i.i.i, %sw.bb24.i.i.i.i ]
   %incdec.ptr.i.i.i22.i.i.i.i = getelementptr inbounds i8, ptr %.ptr37.i.i.i.i, i64 -1
   %23 = load i8, ptr %incdec.ptr.i.i.i22.i.i.i.i, align 1, !noalias !9
   switch i8 %23, label %24 [
@@ -330,22 +330,22 @@ sw.bb30.i.i.i.i:                                  ; preds = %sw.bb24.i.i.i.i, %s
   br label %_ZN19OpenColorIO_v2_4devL5RTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbcEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i.i: ; preds = %if.end11.i.i.i.i
-  %incdec.ptr.i.i.i5.i.i.i.i.le = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -3
+  %incdec.ptr.i.i.i5.i.i.i.i.le = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -3
   %26 = ptrtoint ptr %incdec.ptr.i.i.i5.i.i.i.i.le to i64
   br label %_ZN19OpenColorIO_v2_4devL5RTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbcEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit13.i.i.i: ; preds = %if.end6.i.i.i.i
-  %incdec.ptr.i.i.i2.i.i.i.i.le = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -2
+  %incdec.ptr.i.i.i2.i.i.i.i.le = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -2
   %27 = ptrtoint ptr %incdec.ptr.i.i.i2.i.i.i.i.le to i64
   br label %_ZN19OpenColorIO_v2_4devL5RTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbcEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit15.i.i.i: ; preds = %if.end.i.i.i.i8
-  %incdec.ptr.i.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.i.i.i, i64 -1
+  %incdec.ptr.i.i.i.i.i.i.i.le = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.3.i.i.i, i64 -1
   %28 = ptrtoint ptr %incdec.ptr.i.i.i.i.i.i.i.le to i64
   br label %_ZN19OpenColorIO_v2_4devL5RTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbcEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit17.i.i.i: ; preds = %for.body.i.i.i.i7
-  %29 = ptrtoint ptr %agg.tmp.sroa.0.0.i.i.i to i64
+  %29 = ptrtoint ptr %agg.tmp.sroa.0.3.i.i.i to i64
   br label %_ZN19OpenColorIO_v2_4devL5RTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN19OpenColorIO_v2_4devL5RTrimERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %for.end.i.i.i.i3, %_ZN19OpenColorIO_v2_4dev10IsNotSpaceEc.exit9.thread.i, %_ZN19OpenColorIO_v2_4dev10IsNotSpaceEc.exit6.thread.i, %sw.bb30.i.i.i.i, %sw.bb30.i.i.i.i, %sw.bb30.i.i.i.i, %sw.bb30.i.i.i.i, %sw.bb30.i.i.i.i, %sw.bb30.i.i.i.i, %24, %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbcEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit.i.i.i, %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbcEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit13.i.i.i, %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbcEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit15.i.i.i, %_ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS1_5__ops10_Iter_predIPFbcEEEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit17.i.i.i

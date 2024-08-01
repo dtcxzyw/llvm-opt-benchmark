@@ -3427,7 +3427,7 @@ if.then37:                                        ; preds = %land.lhs.true
 
 if.end40:                                         ; preds = %lor.lhs.false9, %land.lhs.true, %if.end26, %if.then37
   %oldloc.0 = phi ptr [ %call22, %if.then37 ], [ %call22, %if.end26 ], [ %call22, %land.lhs.true ], [ null, %lor.lhs.false9 ]
-  %loc.1 = phi i1 [ false, %if.then37 ], [ true, %if.end26 ], [ true, %land.lhs.true ], [ true, %lor.lhs.false9 ]
+  %loc.0 = phi i1 [ false, %if.then37 ], [ true, %if.end26 ], [ true, %land.lhs.true ], [ true, %lor.lhs.false9 ]
   %5 = load ptr, ptr %lc, align 8
   %call42 = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %5, ptr noundef null) #16
   store ptr %call42, ptr %decimal_point, align 8
@@ -3444,7 +3444,7 @@ if.end46:                                         ; preds = %if.end40
 
 done:                                             ; preds = %if.end46, %if.end40
   %res.0 = phi i32 [ -1, %if.end40 ], [ %spec.select, %if.end46 ]
-  br i1 %loc.1, label %if.end57, label %if.then55
+  br i1 %loc.0, label %if.end57, label %if.then55
 
 if.then55:                                        ; preds = %done
   %call56 = tail call ptr @setlocale(i32 noundef 0, ptr noundef %oldloc.0) #16

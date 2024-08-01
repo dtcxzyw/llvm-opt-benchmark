@@ -237,7 +237,7 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
 
 for.body.i:                                       ; preds = %rcu_read_auto_lock.exit, %while.end16.i
   %kid.014.in.i = phi i64 [ %7, %while.end16.i ], [ %2, %rcu_read_auto_lock.exit ]
-  %retval1.013.i = phi ptr [ %retval1.1.i, %while.end16.i ], [ null, %rcu_read_auto_lock.exit ]
+  %retval1.013.i = phi ptr [ %retval1.2.i, %while.end16.i ], [ null, %rcu_read_auto_lock.exit ]
   %kid.014.i = inttoptr i64 %kid.014.in.i to ptr
   %child.i = getelementptr inbounds i8, ptr %kid.014.i, i64 16
   %3 = load ptr, ptr %child.i, align 8
@@ -265,7 +265,7 @@ if.end.i:                                         ; preds = %if.then.i
   br label %while.end16.i
 
 while.end16.i:                                    ; preds = %if.end.i, %land.lhs.true.i, %for.body.i
-  %retval1.1.i = phi ptr [ %retval1.013.i, %land.lhs.true.i ], [ %retval1.013.i, %for.body.i ], [ %spec.select.i, %if.end.i ]
+  %retval1.2.i = phi ptr [ %retval1.013.i, %land.lhs.true.i ], [ %retval1.013.i, %for.body.i ], [ %spec.select.i, %if.end.i ]
   %sibling.i = getelementptr inbounds i8, ptr %kid.014.i, i64 32
   %7 = load atomic i64, ptr %sibling.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !7
@@ -273,15 +273,15 @@ while.end16.i:                                    ; preds = %if.end.i, %land.lhs
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %while.end16.i
-  %tobool18.not.i = icmp eq ptr %retval1.1.i, null
+  %tobool18.not.i = icmp eq ptr %retval1.2.i, null
   br i1 %tobool18.not.i, label %if.then.i.i, label %land.lhs.true21.i
 
 land.lhs.true21.i:                                ; preds = %if.then.i, %for.end.i
-  %retval1.2.i4 = phi ptr [ %retval1.1.i, %for.end.i ], [ %call.i.i1, %if.then.i ]
-  %realized.i.i = getelementptr inbounds i8, ptr %retval1.2.i4, i64 56
+  %retval1.1.i4 = phi ptr [ %retval1.2.i, %for.end.i ], [ %call.i.i1, %if.then.i ]
+  %realized.i.i = getelementptr inbounds i8, ptr %retval1.1.i4, i64 56
   %8 = load atomic i8, ptr %realized.i.i acquire, align 8
   %tobool.i.i = trunc i8 %8 to i1
-  %spec.select10.i = select i1 %tobool.i.i, ptr %retval1.2.i4, ptr null
+  %spec.select10.i = select i1 %tobool.i.i, ptr %retval1.1.i4, ptr null
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true21.i, %for.end.i, %rcu_read_auto_lock.exit
@@ -348,7 +348,7 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
 
 for.body.i:                                       ; preds = %rcu_read_auto_lock.exit, %while.end16.i
   %kid.014.in.i = phi i64 [ %7, %while.end16.i ], [ %2, %rcu_read_auto_lock.exit ]
-  %retval1.013.i = phi ptr [ %retval1.1.i, %while.end16.i ], [ null, %rcu_read_auto_lock.exit ]
+  %retval1.013.i = phi ptr [ %retval1.2.i, %while.end16.i ], [ null, %rcu_read_auto_lock.exit ]
   %kid.014.i = inttoptr i64 %kid.014.in.i to ptr
   %child.i = getelementptr inbounds i8, ptr %kid.014.i, i64 16
   %3 = load ptr, ptr %child.i, align 8
@@ -376,7 +376,7 @@ if.end.i:                                         ; preds = %if.then.i
   br label %while.end16.i
 
 while.end16.i:                                    ; preds = %if.end.i, %land.lhs.true.i, %for.body.i
-  %retval1.1.i = phi ptr [ %retval1.013.i, %land.lhs.true.i ], [ %retval1.013.i, %for.body.i ], [ %spec.select.i, %if.end.i ]
+  %retval1.2.i = phi ptr [ %retval1.013.i, %land.lhs.true.i ], [ %retval1.013.i, %for.body.i ], [ %spec.select.i, %if.end.i ]
   %sibling.i = getelementptr inbounds i8, ptr %kid.014.i, i64 32
   %7 = load atomic i64, ptr %sibling.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !7
@@ -384,22 +384,22 @@ while.end16.i:                                    ; preds = %if.end.i, %land.lhs
   br i1 %tobool.not.i, label %for.end.i, label %for.body.i, !llvm.loop !8
 
 for.end.i:                                        ; preds = %while.end16.i
-  %tobool18.not.i = icmp eq ptr %retval1.1.i, null
+  %tobool18.not.i = icmp eq ptr %retval1.2.i, null
   br i1 %tobool18.not.i, label %if.then.i.i, label %land.lhs.true21.i
 
 land.lhs.true21.i:                                ; preds = %if.then.i, %for.end.i
-  %retval1.2.i6 = phi ptr [ %retval1.1.i, %for.end.i ], [ %call.i.i3, %if.then.i ]
-  %realized.i.i = getelementptr inbounds i8, ptr %retval1.2.i6, i64 56
+  %retval1.1.i6 = phi ptr [ %retval1.2.i, %for.end.i ], [ %call.i.i3, %if.then.i ]
+  %realized.i.i = getelementptr inbounds i8, ptr %retval1.1.i6, i64 56
   %8 = load atomic i8, ptr %realized.i.i acquire, align 8
   %tobool.i.i = trunc i8 %8 to i1
   br i1 %tobool.i.i, label %if.then, label %if.then.i.i
 
 if.then:                                          ; preds = %land.lhs.true21.i
-  %call2 = tail call ptr @object_ref(ptr noundef nonnull %retval1.2.i6) #15
+  %call2 = tail call ptr @object_ref(ptr noundef nonnull %retval1.1.i6) #15
   br label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %rcu_read_auto_lock.exit, %land.lhs.true21.i, %for.end.i, %if.then
-  %retval1.3.i9 = phi ptr [ %retval1.2.i6, %if.then ], [ null, %rcu_read_auto_lock.exit ], [ null, %land.lhs.true21.i ], [ null, %for.end.i ]
+  %retval1.3.i9 = phi ptr [ %retval1.1.i6, %if.then ], [ null, %rcu_read_auto_lock.exit ], [ null, %land.lhs.true21.i ], [ null, %for.end.i ]
   %call.i.i.i.i = tail call ptr @get_ptr_rcu_reader() #15
   %depth.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   %9 = load i32, ptr %depth.i.i.i.i, align 4
@@ -4750,7 +4750,7 @@ rcu_read_auto_lock.exit:                          ; preds = %entry, %while.end.i
 
 for.body.i:                                       ; preds = %rcu_read_auto_lock.exit, %while.end16.i
   %kid.014.in.i = phi i64 [ %7, %while.end16.i ], [ %2, %rcu_read_auto_lock.exit ]
-  %retval1.013.i = phi ptr [ %retval1.1.i, %while.end16.i ], [ null, %rcu_read_auto_lock.exit ]
+  %retval1.013.i = phi ptr [ %retval1.2.i, %while.end16.i ], [ null, %rcu_read_auto_lock.exit ]
   %kid.014.i = inttoptr i64 %kid.014.in.i to ptr
   %child.i = getelementptr inbounds i8, ptr %kid.014.i, i64 16
   %3 = load ptr, ptr %child.i, align 8
@@ -4778,7 +4778,7 @@ if.end.i:                                         ; preds = %if.then.i
   br label %while.end16.i
 
 while.end16.i:                                    ; preds = %if.end.i, %land.lhs.true.i, %for.body.i
-  %retval1.1.i = phi ptr [ %retval1.013.i, %land.lhs.true.i ], [ %retval1.013.i, %for.body.i ], [ %spec.select.i, %if.end.i ]
+  %retval1.2.i = phi ptr [ %retval1.013.i, %land.lhs.true.i ], [ %retval1.013.i, %for.body.i ], [ %spec.select.i, %if.end.i ]
   %sibling.i = getelementptr inbounds i8, ptr %kid.014.i, i64 32
   %7 = load atomic i64, ptr %sibling.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !7
@@ -4786,17 +4786,17 @@ while.end16.i:                                    ; preds = %if.end.i, %land.lhs
   br i1 %tobool.not.i, label %do_scsi_device_find.exit, label %for.body.i, !llvm.loop !8
 
 do_scsi_device_find.exit:                         ; preds = %while.end16.i
-  %tobool.not = icmp eq ptr %retval1.1.i, null
+  %tobool.not = icmp eq ptr %retval1.2.i, null
   br i1 %tobool.not, label %if.end5, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %do_scsi_device_find.exit
-  %lun2.phi.trans.insert = getelementptr inbounds i8, ptr %retval1.1.i, i64 556
+  %lun2.phi.trans.insert = getelementptr inbounds i8, ptr %retval1.2.i, i64 556
   %.pre = load i32, ptr %lun2.phi.trans.insert, align 4
   %cmp = icmp eq i32 %.pre, %lun
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %if.then.i, %land.lhs.true
-  %retval1.3.i1318 = phi ptr [ %retval1.1.i, %land.lhs.true ], [ %call.i.i7, %if.then.i ]
+  %retval1.3.i1318 = phi ptr [ %retval1.2.i, %land.lhs.true ], [ %call.i.i7, %if.then.i ]
   %tobool3.not = icmp eq ptr %p_dev, null
   br i1 %tobool3.not, label %if.then.i.i, label %if.then.i.i.sink.split
 

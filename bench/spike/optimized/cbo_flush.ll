@@ -427,13 +427,13 @@ _ZN5mmu_t7in_mprvEv.exit.i:                       ; preds = %39
   br label %_ZN5mmu_t7in_mprvEv.exit.thread.i
 
 _ZN5mmu_t7in_mprvEv.exit.thread.i:                ; preds = %49, %_ZN5mmu_t7in_mprvEv.exit.i, %39, %33
-  %.09.i = phi i8 [ %28, %_ZN5mmu_t7in_mprvEv.exit.i ], [ %spec.select.i, %49 ], [ %28, %39 ], [ %28, %33 ]
-  %.0.i = phi i64 [ %30, %_ZN5mmu_t7in_mprvEv.exit.i ], [ %51, %49 ], [ %30, %39 ], [ %30, %33 ]
+  %.110.i = phi i8 [ %28, %_ZN5mmu_t7in_mprvEv.exit.i ], [ %spec.select.i, %49 ], [ %28, %39 ], [ %28, %33 ]
+  %.1.i = phi i64 [ %30, %_ZN5mmu_t7in_mprvEv.exit.i ], [ %51, %49 ], [ %30, %39 ], [ %30, %33 ]
   store i64 %1, ptr %6, align 8, !alias.scope !6
   %55 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %.0.i, ptr %55, align 8, !alias.scope !6
+  store i64 %.1.i, ptr %55, align 8, !alias.scope !6
   %56 = getelementptr inbounds i8, ptr %6, i64 16
-  store i8 %.09.i, ptr %56, align 8, !alias.scope !6
+  store i8 %.110.i, ptr %56, align 8, !alias.scope !6
   %57 = getelementptr inbounds i8, ptr %6, i64 17
   store i8 0, ptr %57, align 1, !alias.scope !6
   br label %58

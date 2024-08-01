@@ -994,19 +994,19 @@ _ZN11actix_files5named9NamedFile4etag17ha3bbef69975ebe76E.exit: ; preds = %.noex
   br i1 %.not128, label %162, label %154
 
 .body320:                                         ; preds = %.body337, %865, %784, %782, %.body
-  %.099 = phi i8 [ %.2101, %784 ], [ %.2101, %782 ], [ %.2101, %.body ], [ %.9108, %865 ], [ %.9108, %.body337 ]
-  %.097 = phi i1 [ %.2, %784 ], [ %.2, %782 ], [ %.2, %.body ], [ %.9, %865 ], [ %.9, %.body337 ]
+  %.1100 = phi i8 [ %.3102, %784 ], [ %.3102, %782 ], [ %.3102, %.body ], [ %.10109, %865 ], [ %.10109, %.body337 ]
+  %.198 = phi i1 [ %.3, %784 ], [ %.3, %782 ], [ %.3, %.body ], [ %.10, %865 ], [ %.10, %.body337 ]
   %.pn173 = phi { ptr, i32 } [ %.pn162, %784 ], [ %.pn162, %782 ], [ %.pn162, %.body ], [ %.pn171, %865 ], [ %.pn171, %.body337 ]
-  br i1 %.097, label %.body320.thread, label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hdcf0eb9a2b9c1ef6E.exit381"
+  br i1 %.198, label %.body320.thread, label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hdcf0eb9a2b9c1ef6E.exit381"
 
 .thread:                                          ; preds = %129, %134, %"_ZN11actix_files5named9NamedFile4etag28_$u7b$$u7b$closure$u7d$$u7d$17h636510d61324ee30E.exit.i", %.noexc185, %769
-  %.1100.ph = phi i8 [ %.4103, %769 ], [ 1, %.noexc185 ], [ 1, %"_ZN11actix_files5named9NamedFile4etag28_$u7b$$u7b$closure$u7d$$u7d$17h636510d61324ee30E.exit.i" ], [ 1, %134 ], [ 1, %129 ]
+  %.099.ph = phi i8 [ %.4103, %769 ], [ 1, %.noexc185 ], [ 1, %"_ZN11actix_files5named9NamedFile4etag28_$u7b$$u7b$closure$u7d$$u7d$17h636510d61324ee30E.exit.i" ], [ 1, %134 ], [ 1, %129 ]
   %lpad.thr_comm456 = landingpad { ptr, i32 }
           cleanup
   br label %.body320.thread
 
 153:                                              ; preds = %935, %704
-  %.1100.ph455 = phi i8 [ %.8107, %935 ], [ %.4103, %704 ]
+  %.099.ph455 = phi i8 [ %.8107, %935 ], [ %.4103, %704 ]
   %lpad.thr_comm.split-lp457 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hdcf0eb9a2b9c1ef6E.exit381"
@@ -1168,18 +1168,18 @@ _ZN11actix_files5named9any_match17hc85251025c2971e8E.exit.thread: ; preds = %200
   unreachable
 
 .body:                                            ; preds = %.body223, %390, %313, %230, %233, %188, %185, %206
-  %.1111 = phi i8 [ 1, %188 ], [ 1, %185 ], [ %.2112, %206 ], [ 1, %233 ], [ 1, %230 ], [ 1, %313 ], [ %.3113, %390 ], [ %.3113, %.body223 ]
-  %.2101 = phi i8 [ 1, %188 ], [ 1, %185 ], [ %.3102, %206 ], [ 1, %233 ], [ 1, %230 ], [ 1, %313 ], [ %.5104, %390 ], [ %.5104, %.body223 ]
-  %.2 = phi i1 [ true, %188 ], [ true, %185 ], [ %.3, %206 ], [ true, %233 ], [ true, %230 ], [ true, %313 ], [ %.4, %390 ], [ %.4, %.body223 ]
+  %.2112 = phi i8 [ 1, %188 ], [ 1, %185 ], [ %.1111, %206 ], [ 1, %233 ], [ 1, %230 ], [ 1, %313 ], [ %.4114, %390 ], [ %.4114, %.body223 ]
+  %.3102 = phi i8 [ 1, %188 ], [ 1, %185 ], [ %.2101, %206 ], [ 1, %233 ], [ 1, %230 ], [ 1, %313 ], [ %.6105, %390 ], [ %.6105, %.body223 ]
+  %.3 = phi i1 [ true, %188 ], [ true, %185 ], [ %.2, %206 ], [ true, %233 ], [ true, %230 ], [ true, %313 ], [ %.5, %390 ], [ %.5, %.body223 ]
   %.pn162 = phi { ptr, i32 } [ %186, %188 ], [ %186, %185 ], [ %207, %206 ], [ %231, %233 ], [ %231, %230 ], [ %314, %313 ], [ %.pn160, %390 ], [ %.pn160, %.body223 ]
   %205 = load i64, ptr %110, align 8, !range !19, !noundef !5
   %.not164 = icmp eq i64 %205, -9223372036854775808
   br i1 %.not164, label %.body320, label %782
 
 206:                                              ; preds = %765, %690, %246, %.thread14.i, %226, %222, %216, %210, %202, %184, %180, %176, %170, %162, %157, %297, %293, %288, %286, %281, %276, %263, %259, %254, %252, %208
-  %.2112 = phi i8 [ 1, %297 ], [ 1, %293 ], [ 1, %288 ], [ 1, %286 ], [ 1, %281 ], [ 1, %276 ], [ 1, %263 ], [ 1, %259 ], [ 1, %254 ], [ 1, %252 ], [ 1, %208 ], [ 1, %157 ], [ 1, %162 ], [ 1, %170 ], [ 1, %176 ], [ 1, %180 ], [ 1, %184 ], [ 1, %202 ], [ 1, %210 ], [ 1, %216 ], [ 1, %222 ], [ 1, %226 ], [ 1, %.thread14.i ], [ 1, %246 ], [ %.7117, %690 ], [ %.7117, %765 ]
-  %.3102 = phi i8 [ 1, %297 ], [ 1, %293 ], [ 1, %288 ], [ 1, %286 ], [ 1, %281 ], [ 1, %276 ], [ 1, %263 ], [ 1, %259 ], [ 1, %254 ], [ 1, %252 ], [ 1, %208 ], [ 1, %157 ], [ 1, %162 ], [ 1, %170 ], [ 1, %176 ], [ 1, %180 ], [ 1, %184 ], [ 1, %202 ], [ 1, %210 ], [ 1, %216 ], [ 1, %222 ], [ 1, %226 ], [ 1, %.thread14.i ], [ 1, %246 ], [ %.4103, %690 ], [ %.4103, %765 ]
-  %.3 = phi i1 [ true, %297 ], [ true, %293 ], [ true, %288 ], [ true, %286 ], [ true, %281 ], [ true, %276 ], [ true, %263 ], [ true, %259 ], [ true, %254 ], [ true, %252 ], [ true, %208 ], [ true, %157 ], [ true, %162 ], [ true, %170 ], [ true, %176 ], [ true, %180 ], [ true, %184 ], [ true, %202 ], [ true, %210 ], [ true, %216 ], [ true, %222 ], [ true, %226 ], [ true, %.thread14.i ], [ true, %246 ], [ false, %690 ], [ true, %765 ]
+  %.1111 = phi i8 [ 1, %297 ], [ 1, %293 ], [ 1, %288 ], [ 1, %286 ], [ 1, %281 ], [ 1, %276 ], [ 1, %263 ], [ 1, %259 ], [ 1, %254 ], [ 1, %252 ], [ 1, %208 ], [ 1, %157 ], [ 1, %162 ], [ 1, %170 ], [ 1, %176 ], [ 1, %180 ], [ 1, %184 ], [ 1, %202 ], [ 1, %210 ], [ 1, %216 ], [ 1, %222 ], [ 1, %226 ], [ 1, %.thread14.i ], [ 1, %246 ], [ %.7117, %690 ], [ %.7117, %765 ]
+  %.2101 = phi i8 [ 1, %297 ], [ 1, %293 ], [ 1, %288 ], [ 1, %286 ], [ 1, %281 ], [ 1, %276 ], [ 1, %263 ], [ 1, %259 ], [ 1, %254 ], [ 1, %252 ], [ 1, %208 ], [ 1, %157 ], [ 1, %162 ], [ 1, %170 ], [ 1, %176 ], [ 1, %180 ], [ 1, %184 ], [ 1, %202 ], [ 1, %210 ], [ 1, %216 ], [ 1, %222 ], [ 1, %226 ], [ 1, %.thread14.i ], [ 1, %246 ], [ %.4103, %690 ], [ %.4103, %765 ]
+  %.2 = phi i1 [ true, %297 ], [ true, %293 ], [ true, %288 ], [ true, %286 ], [ true, %281 ], [ true, %276 ], [ true, %263 ], [ true, %259 ], [ true, %254 ], [ true, %252 ], [ true, %208 ], [ true, %157 ], [ true, %162 ], [ true, %170 ], [ true, %176 ], [ true, %180 ], [ true, %184 ], [ true, %202 ], [ true, %210 ], [ true, %216 ], [ true, %222 ], [ true, %226 ], [ true, %.thread14.i ], [ true, %246 ], [ false, %690 ], [ true, %765 ]
   %207 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1193,7 +1193,7 @@ _ZN11actix_files5named9any_match17hc85251025c2971e8E.exit: ; preds = %182, %184
           to label %249 unwind label %206
 
 210:                                              ; preds = %275, %249, %_ZN11actix_files5named9any_match17hc85251025c2971e8E.exit
-  %.0121 = phi i1 [ true, %_ZN11actix_files5named9any_match17hc85251025c2971e8E.exit ], [ %.1122, %275 ], [ false, %249 ]
+  %.0121 = phi i1 [ true, %_ZN11actix_files5named9any_match17hc85251025c2971e8E.exit ], [ %.2123, %275 ], [ false, %249 ]
   %211 = load i64, ptr %110, align 8, !range !19, !noundef !5
   %212 = icmp eq i64 %211, -9223372036854775808
   %.180 = select i1 %212, ptr null, ptr %110
@@ -1384,7 +1384,7 @@ _ZN11actix_files5named10none_match17h15dbef8a48879156E.exit.thread: ; preds = %2
   br label %275
 
 275:                                              ; preds = %264, %269
-  %.1122 = phi i1 [ %274, %269 ], [ false, %264 ]
+  %.2123 = phi i1 [ %274, %269 ], [ false, %264 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %108)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %109)
   br label %210
@@ -1463,13 +1463,13 @@ _ZN11actix_files5named10none_match17h15dbef8a48879156E.exit: ; preds = %_ZN10act
   br label %309
 
 309:                                              ; preds = %298, %303
-  %.1119 = phi i1 [ %308, %303 ], [ false, %298 ]
+  %.2120 = phi i1 [ %308, %303 ], [ false, %298 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %104)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %105)
   br label %310
 
 310:                                              ; preds = %280, %283, %309, %_ZN11actix_files5named10none_match17h15dbef8a48879156E.exit.thread, %_ZN11actix_files5named10none_match17h15dbef8a48879156E.exit
-  %.0118 = phi i1 [ true, %_ZN11actix_files5named10none_match17h15dbef8a48879156E.exit ], [ false, %280 ], [ %.1119, %309 ], [ false, %283 ], [ true, %_ZN11actix_files5named10none_match17h15dbef8a48879156E.exit.thread ]
+  %.0118 = phi i1 [ true, %_ZN11actix_files5named10none_match17h15dbef8a48879156E.exit ], [ false, %280 ], [ %.2120, %309 ], [ false, %283 ], [ true, %_ZN11actix_files5named10none_match17h15dbef8a48879156E.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %101)
   %311 = load i16, ptr %117, align 4, !range !234, !noundef !5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %72)
@@ -1672,9 +1672,9 @@ _ZN11actix_files5named10none_match17h15dbef8a48879156E.exit: ; preds = %_ZN10act
   unreachable
 
 .body223:                                         ; preds = %391, %366, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit"
-  %.3113 = phi i8 [ %.5115, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit" ], [ %.4114, %391 ], [ 1, %366 ]
-  %.5104 = phi i8 [ %.4103, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit" ], [ %.6105, %391 ], [ 1, %366 ]
-  %.4 = phi i1 [ %.6, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit" ], [ %.5, %391 ], [ true, %366 ]
+  %.4114 = phi i8 [ %.5115, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit" ], [ %.3113, %391 ], [ 1, %366 ]
+  %.6105 = phi i8 [ %.4103, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit" ], [ %.5104, %391 ], [ 1, %366 ]
+  %.5 = phi i1 [ %.6, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit" ], [ %.4, %391 ], [ true, %366 ]
   %.pn160 = phi { ptr, i32 } [ %.pn158, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit" ], [ %392, %391 ], [ %367, %366 ]
   %388 = load i64, ptr %101, align 8, !range !62, !alias.scope !281, !noundef !5
   %389 = icmp eq i64 %388, 3
@@ -1685,9 +1685,9 @@ _ZN11actix_files5named10none_match17h15dbef8a48879156E.exit: ; preds = %_ZN10act
           to label %.body unwind label %458
 
 391:                                              ; preds = %337, %686, %650, %393
-  %.4114 = phi i8 [ %.7117, %650 ], [ %.7117, %686 ], [ 1, %393 ], [ 1, %337 ]
-  %.6105 = phi i8 [ %.4103, %650 ], [ %.4103, %686 ], [ 1, %393 ], [ 1, %337 ]
-  %.5 = phi i1 [ true, %650 ], [ false, %686 ], [ true, %393 ], [ true, %337 ]
+  %.3113 = phi i8 [ %.7117, %650 ], [ %.7117, %686 ], [ 1, %393 ], [ 1, %337 ]
+  %.5104 = phi i8 [ %.4103, %650 ], [ %.4103, %686 ], [ 1, %393 ], [ 1, %337 ]
+  %.4 = phi i1 [ true, %650 ], [ false, %686 ], [ true, %393 ], [ true, %337 ]
   %392 = landingpad { ptr, i32 }
           cleanup
   br label %.body223
@@ -2926,7 +2926,7 @@ _ZN9actix_web8response7builder19HttpResponseBuilder4body17h28e678b2f55982feE.exi
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hdcf0eb9a2b9c1ef6E.exit" unwind label %945
 
 782:                                              ; preds = %.body
-  %783 = trunc nuw i8 %.1111 to i1
+  %783 = trunc nuw i8 %.2112 to i1
   br i1 %783, label %784, label %.body320
 
 784:                                              ; preds = %782
@@ -3136,8 +3136,8 @@ _ZN9actix_web8response7builder19HttpResponseBuilder4body17h28e678b2f55982feE.exi
   unreachable
 
 .body337:                                         ; preds = %866, %841, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit357"
-  %.9108 = phi i8 [ %.8107, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit357" ], [ %.10109, %866 ], [ 1, %841 ]
-  %.9 = phi i1 [ %.11, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit357" ], [ %.10, %866 ], [ true, %841 ]
+  %.10109 = phi i8 [ %.8107, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit357" ], [ %.9108, %866 ], [ 1, %841 ]
+  %.10 = phi i1 [ %.11, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit357" ], [ %.9, %866 ], [ true, %841 ]
   %.pn171 = phi { ptr, i32 } [ %.pn169, %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17h240c1798042ad677E.exit357" ], [ %867, %866 ], [ %842, %841 ]
   %863 = load i64, ptr %116, align 8, !range !62, !alias.scope !548, !noundef !5
   %864 = icmp eq i64 %863, 3
@@ -3148,8 +3148,8 @@ _ZN9actix_web8response7builder19HttpResponseBuilder4body17h28e678b2f55982feE.exi
           to label %.body320 unwind label %458
 
 866:                                              ; preds = %812, %931, %868
-  %.10109 = phi i8 [ %.8107, %931 ], [ 1, %868 ], [ 1, %812 ]
-  %.10 = phi i1 [ false, %931 ], [ true, %868 ], [ true, %812 ]
+  %.9108 = phi i8 [ %.8107, %931 ], [ 1, %868 ], [ 1, %812 ]
+  %.9 = phi i1 [ false, %931 ], [ true, %868 ], [ true, %812 ]
   %867 = landingpad { ptr, i32 }
           cleanup
   br label %.body337
@@ -3454,21 +3454,21 @@ switch.lookup463:                                 ; preds = %898
 
 "_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hdcf0eb9a2b9c1ef6E.exit381": ; preds = %153, %.body320.thread, %.body320
   %.pn173447 = phi { ptr, i32 } [ %.pn173448, %.body320.thread ], [ %.pn173, %.body320 ], [ %lpad.thr_comm.split-lp457, %153 ]
-  %.099445 = phi i8 [ %.099446, %.body320.thread ], [ %.099, %.body320 ], [ %.1100.ph455, %153 ]
+  %.1100445 = phi i8 [ %.1100446, %.body320.thread ], [ %.1100, %.body320 ], [ %.099.ph455, %153 ]
   %962 = getelementptr inbounds i8, ptr %1, i64 264
   invoke void @"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hf773fa666f5b1a1cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %962) #21
           to label %966 unwind label %458
 
 .body320.thread:                                  ; preds = %.thread, %787, %.body320
   %.pn173448 = phi { ptr, i32 } [ %.pn173, %.body320 ], [ %788, %787 ], [ %lpad.thr_comm456, %.thread ]
-  %.099446 = phi i8 [ %.099, %.body320 ], [ 1, %787 ], [ %.1100.ph, %.thread ]
+  %.1100446 = phi i8 [ %.1100, %.body320 ], [ 1, %787 ], [ %.099.ph, %.thread ]
   %963 = getelementptr inbounds i8, ptr %1, i64 352
   %964 = load i32, ptr %963, align 8, !alias.scope !593, !noundef !5
   %965 = invoke noundef i32 @close(i32 noundef %964)
           to label %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hdcf0eb9a2b9c1ef6E.exit381" unwind label %458
 
 966:                                              ; preds = %"_ZN4core3ptr34drop_in_place$LT$std..fs..File$GT$17hdcf0eb9a2b9c1ef6E.exit381"
-  %967 = trunc nuw i8 %.099445 to i1
+  %967 = trunc nuw i8 %.1100445 to i1
   br i1 %967, label %970, label %968
 
 968:                                              ; preds = %970, %966

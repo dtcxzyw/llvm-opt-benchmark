@@ -137,7 +137,7 @@ if.then37:                                        ; preds = %sw.bb31
 
 do.body41:                                        ; preds = %do.cond48, %if.then37
   %cmp42 = phi i1 [ true, %if.then37 ], [ false, %do.cond48 ]
-  %ret.2 = phi i32 [ 0, %if.then37 ], [ -108, %do.cond48 ]
+  %ret.3 = phi i32 [ 0, %if.then37 ], [ -108, %do.cond48 ]
   br i1 %cmp42, label %if.then44, label %do.cond48
 
 if.then44:                                        ; preds = %do.body41
@@ -145,19 +145,19 @@ if.then44:                                        ; preds = %do.body41
   br label %do.cond48
 
 do.cond48:                                        ; preds = %do.body41, %if.then44
-  %ret.3 = phi i32 [ %call46, %if.then44 ], [ %ret.2, %do.body41 ]
-  %cmp49 = icmp eq i32 %ret.3, -108
+  %ret.4 = phi i32 [ %call46, %if.then44 ], [ %ret.3, %do.body41 ]
+  %cmp49 = icmp eq i32 %ret.4, -108
   br i1 %cmp49, label %do.body41, label %do.end51, !llvm.loop !6
 
 do.end51:                                         ; preds = %do.cond48
-  %cmp52 = icmp sgt i32 %ret.3, -1
+  %cmp52 = icmp sgt i32 %ret.4, -1
   %1 = load ptr, ptr %plain_ptr, align 8
   %tobool = icmp ne ptr %1, null
   %or.cond6 = select i1 %cmp52, i1 %tobool, i1 false
   br i1 %or.cond6, label %if.then54, label %return
 
 if.then54:                                        ; preds = %do.end51
-  %cmp55 = icmp eq i32 %ret.3, %hash_len
+  %cmp55 = icmp eq i32 %ret.4, %hash_len
   br i1 %cmp55, label %land.lhs.true57, label %if.else
 
 land.lhs.true57:                                  ; preds = %if.then54
@@ -170,7 +170,7 @@ if.else:                                          ; preds = %land.lhs.true57, %i
   br label %return
 
 return:                                           ; preds = %do.end25, %sw.bb31, %land.lhs.true57, %do.end51, %if.else, %if.end18, %if.end12, %wc_SignatureGetSize.exit, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ -173, %wc_SignatureGetSize.exit ], [ %call13, %if.end12 ], [ %spec.store.select, %do.end25 ], [ -229, %if.else ], [ %ret.3, %do.end51 ], [ 0, %land.lhs.true57 ], [ -125, %sw.bb31 ], [ -173, %if.end18 ]
+  %retval.0 = phi i32 [ -173, %entry ], [ -173, %wc_SignatureGetSize.exit ], [ %call13, %if.end12 ], [ %spec.store.select, %do.end25 ], [ -229, %if.else ], [ %ret.4, %do.end51 ], [ 0, %land.lhs.true57 ], [ -125, %sw.bb31 ], [ -173, %if.end18 ]
   ret i32 %retval.0
 }
 
@@ -261,8 +261,8 @@ if.end29:                                         ; preds = %if.end.i
   br i1 %cmp30, label %if.then31, label %return
 
 if.then31:                                        ; preds = %if.end.i, %if.then24, %if.end29
-  %hash_enc_len.131 = phi i32 [ %add, %if.end29 ], [ %call13, %if.then24 ], [ %call1.i, %if.end.i ]
-  %call33 = call i32 @wc_SignatureVerifyHash(i32 noundef %hash_type, i32 noundef %sig_type, ptr noundef nonnull %hash_data, i32 noundef %hash_enc_len.131, ptr noundef nonnull %sig, i32 noundef %sig_len, ptr noundef nonnull %key, i32 noundef %key_len)
+  %hash_enc_len.031 = phi i32 [ %add, %if.end29 ], [ %call13, %if.then24 ], [ %call1.i, %if.end.i ]
+  %call33 = call i32 @wc_SignatureVerifyHash(i32 noundef %hash_type, i32 noundef %sig_type, ptr noundef nonnull %hash_data, i32 noundef %hash_enc_len.031, ptr noundef nonnull %sig, i32 noundef %sig_len, ptr noundef nonnull %key, i32 noundef %key_len)
   br label %return
 
 return:                                           ; preds = %if.then26, %if.end18, %if.then31, %if.end29, %if.end12, %wc_SignatureGetSize.exit, %entry
@@ -380,7 +380,7 @@ do.cond:                                          ; preds = %do.body21, %if.then
 
 do.body29:                                        ; preds = %do.body29.preheader, %do.cond34
   %cmp30 = phi i1 [ false, %do.cond34 ], [ true, %do.body29.preheader ]
-  %ret.2 = phi i32 [ -108, %do.cond34 ], [ 0, %do.body29.preheader ]
+  %ret.3 = phi i32 [ -108, %do.cond34 ], [ 0, %do.body29.preheader ]
   br i1 %cmp30, label %if.then31, label %do.cond34
 
 if.then31:                                        ; preds = %do.body29
@@ -389,21 +389,21 @@ if.then31:                                        ; preds = %do.body29
   br label %do.cond34
 
 do.cond34:                                        ; preds = %do.body29, %if.then31
-  %ret.3 = phi i32 [ %call32, %if.then31 ], [ %ret.2, %do.body29 ]
-  %cmp35 = icmp eq i32 %ret.3, -108
+  %ret.4 = phi i32 [ %call32, %if.then31 ], [ %ret.3, %do.body29 ]
+  %cmp35 = icmp eq i32 %ret.4, -108
   br i1 %cmp35, label %do.body29, label %do.end36, !llvm.loop !8
 
 do.end36:                                         ; preds = %do.cond34
-  %cmp37 = icmp sgt i32 %ret.3, -1
+  %cmp37 = icmp sgt i32 %ret.4, -1
   br i1 %cmp37, label %if.then38, label %return
 
 if.then38:                                        ; preds = %do.end36
-  store i32 %ret.3, ptr %sig_len, align 4
+  store i32 %ret.4, ptr %sig_len, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %do.cond, %if.then38
-  %ret.4 = phi i32 [ 0, %if.then38 ], [ %ret.1, %do.cond ]
-  %cmp41 = icmp eq i32 %ret.4, 0
+  %ret.2 = phi i32 [ 0, %if.then38 ], [ %ret.1, %do.cond ]
+  %cmp41 = icmp eq i32 %ret.2, 0
   %tobool = icmp ne i32 %verify, 0
   %or.cond5 = and i1 %tobool, %cmp41
   br i1 %or.cond5, label %if.then42, label %return
@@ -414,7 +414,7 @@ if.then42:                                        ; preds = %sw.epilog
   br label %return
 
 return:                                           ; preds = %if.end20, %do.end36, %sw.epilog, %if.then42, %if.end14, %wc_SignatureGetSize.exit, %entry, %lor.lhs.false6
-  %retval.0 = phi i32 [ -173, %lor.lhs.false6 ], [ -173, %entry ], [ -173, %wc_SignatureGetSize.exit ], [ %call15, %if.end14 ], [ %call43, %if.then42 ], [ %ret.4, %sw.epilog ], [ -173, %if.end20 ], [ %ret.3, %do.end36 ]
+  %retval.0 = phi i32 [ -173, %lor.lhs.false6 ], [ -173, %entry ], [ -173, %wc_SignatureGetSize.exit ], [ %call15, %if.end14 ], [ %call43, %if.then42 ], [ %ret.2, %sw.epilog ], [ -173, %if.end20 ], [ %ret.4, %do.end36 ]
   ret i32 %retval.0
 }
 

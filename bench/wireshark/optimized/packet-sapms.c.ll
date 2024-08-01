@@ -1499,12 +1499,12 @@ dissect_sapms_opcode.exit:                        ; preds = %.lr.ph.i, %175, %.l
   %413 = load i32, ptr @hf_sapms_adm_recno, align 4
   %414 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %413, ptr noundef %0, i32 noundef 135, i32 noundef 11, i32 noundef 0) #4
   %415 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 146) #4
-  %or.cond177 = icmp sgt i32 %415, 103
-  br i1 %or.cond177, label %.lr.ph.i175, label %dissect_sapms_adm_record.exit
+  %or.cond176 = icmp sgt i32 %415, 103
+  br i1 %or.cond176, label %.lr.ph.i175, label %dissect_sapms_adm_record.exit
 
 .lr.ph.i175:                                      ; preds = %404, %486
-  %.0119.i = phi i32 [ %.2.i176, %486 ], [ 146, %404 ]
-  %.0115118.i = phi i32 [ %.2117.i, %486 ], [ %415, %404 ]
+  %.0119.i = phi i32 [ %.1.i, %486 ], [ 146, %404 ]
+  %.0115118.i = phi i32 [ %.1116.i, %486 ], [ %415, %404 ]
   %416 = load i32, ptr @hf_sapms_adm_record, align 4
   %417 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %416, ptr noundef %0, i32 noundef %.0119.i, i32 noundef 104, i32 noundef 0) #4
   %418 = load i32, ptr @ett_sapms, align 4
@@ -1601,9 +1601,9 @@ dissect_sapms_opcode.exit:                        ; preds = %.lr.ph.i, %175, %.l
   br label %486
 
 486:                                              ; preds = %484, %480, %450, %438, %435
-  %.2.i176 = add i32 %.0119.i, 104
-  %.2117.i = add nsw i32 %.0115118.i, -104
-  %487 = icmp ugt i32 %.2117.i, 103
+  %.1.i = add i32 %.0119.i, 104
+  %.1116.i = add nsw i32 %.0115118.i, -104
+  %487 = icmp ugt i32 %.1116.i, 103
   br i1 %487, label %.lr.ph.i175, label %dissect_sapms_adm_record.exit, !llvm.loop !8
 
 dissect_sapms_adm_record.exit:                    ; preds = %486, %76, %dissect_sapms_opcode.exit, %77, %404, %4

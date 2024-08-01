@@ -1313,7 +1313,7 @@ _ZN11cmXMLWriter7ElementIlEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %372
 
 371:                                              ; preds = %331, %353, %365
-  %.1 = phi i32 [ -1, %365 ], [ 1, %331 ], [ 0, %353 ]
+  %.3 = phi i32 [ -1, %365 ], [ 1, %331 ], [ 0, %353 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #10
   br label %373
 
@@ -1323,7 +1323,7 @@ _ZN11cmXMLWriter7ElementIlEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %374
 
 373:                                              ; preds = %371, %117
-  %.2 = phi i32 [ -1, %117 ], [ %.1, %371 ]
+  %.1 = phi i32 [ -1, %117 ], [ %.3, %371 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #10
   br label %375
 
@@ -1333,9 +1333,9 @@ _ZN11cmXMLWriter7ElementIlEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %376
 
 375:                                              ; preds = %373, %84
-  %.3 = phi i32 [ -1, %84 ], [ %.2, %373 ]
+  %.0 = phi i32 [ -1, %84 ], [ %.1, %373 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #10
-  ret i32 %.3
+  ret i32 %.0
 
 376:                                              ; preds = %374, %.body93, %100, %94
   %.pn86.pn = phi { ptr, i32 } [ %.pn86, %100 ], [ %95, %94 ], [ %.pn83.pn, %374 ], [ %.pn45, %.body93 ]

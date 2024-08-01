@@ -1086,7 +1086,7 @@ Kit_TruthIsEqual.exit.thread:                     ; preds = %31, %23
 
 95:                                               ; preds = %.lr.ph225, %.loopexit212
   %indvars.iv = phi i64 [ 0, %.lr.ph225 ], [ %indvars.iv.next, %.loopexit212 ]
-  %.0154221 = phi i32 [ 0, %.lr.ph225 ], [ %.4, %.loopexit212 ]
+  %.0154221 = phi i32 [ 0, %.lr.ph225 ], [ %.1155, %.loopexit212 ]
   %96 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 8
   %.not258 = icmp eq ptr %97, null
@@ -1102,7 +1102,7 @@ Kit_TruthIsEqual.exit.thread:                     ; preds = %31, %23
 
 100:                                              ; preds = %.lr.ph218, %184
   %indvars.iv242 = phi i64 [ %indvars.iv, %.lr.ph218 ], [ %indvars.iv.next243, %184 ]
-  %.1155216 = phi i32 [ %.0154221, %.lr.ph218 ], [ %.3, %184 ]
+  %.2216 = phi i32 [ %.0154221, %.lr.ph218 ], [ %.3, %184 ]
   %101 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv242
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
@@ -1240,14 +1240,14 @@ Rpo_CheckORGroup.exit:                            ; preds = %143, %144
   %159 = load i32, ptr %158, align 4
   %160 = add nsw i32 %159, 1
   store i32 %160, ptr %158, align 4
-  %161 = add nsw i32 %.1155216, 1
-  %162 = sext i32 %.1155216 to i64
+  %161 = add nsw i32 %.2216, 1
+  %162 = sext i32 %.2216 to i64
   %163 = getelementptr inbounds ptr, ptr %84, i64 %162
   store ptr %154, ptr %163, align 8
   br label %164
 
 164:                                              ; preds = %153, %Rpo_CheckORGroup.exit
-  %.2 = phi i32 [ %161, %153 ], [ %.1155216, %Rpo_CheckORGroup.exit ]
+  %.4 = phi i32 [ %161, %153 ], [ %.2216, %Rpo_CheckORGroup.exit ]
   %.not177 = icmp eq i32 %.044.i, 0
   br i1 %.not177, label %184, label %165
 
@@ -1284,26 +1284,26 @@ Rpo_CheckORGroup.exit:                            ; preds = %143, %144
   %179 = load i32, ptr %178, align 4
   %180 = add nsw i32 %179, 1
   store i32 %180, ptr %178, align 4
-  %181 = add nsw i32 %.2, 1
-  %182 = sext i32 %.2 to i64
+  %181 = add nsw i32 %.4, 1
+  %182 = sext i32 %.4 to i64
   %183 = getelementptr inbounds ptr, ptr %84, i64 %182
   store ptr %174, ptr %183, align 8
   br label %184
 
 184:                                              ; preds = %164, %173, %100
-  %.3 = phi i32 [ %.1155216, %100 ], [ %181, %173 ], [ %.2, %164 ]
+  %.3 = phi i32 [ %.2216, %100 ], [ %181, %173 ], [ %.4, %164 ]
   %indvars.iv.next243 = add nuw nsw i64 %indvars.iv242, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next243, %wide.trip.count246
   br i1 %exitcond.not, label %.loopexit212, label %100, !llvm.loop !18
 
 .loopexit212:                                     ; preds = %184, %95
-  %.4 = phi i32 [ %.0154221, %95 ], [ %.3, %184 ]
+  %.1155 = phi i32 [ %.0154221, %95 ], [ %.3, %184 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next, %wide.trip.count246
   br i1 %exitcond247.not, label %._crit_edge226, label %95, !llvm.loop !19
 
 ._crit_edge226:                                   ; preds = %.loopexit212, %86
-  %.0154.lcssa = phi i32 [ 0, %86 ], [ %.4, %.loopexit212 ]
+  %.0154.lcssa = phi i32 [ 0, %86 ], [ %.1155, %.loopexit212 ]
   br i1 %.not, label %186, label %185
 
 185:                                              ; preds = %._crit_edge226

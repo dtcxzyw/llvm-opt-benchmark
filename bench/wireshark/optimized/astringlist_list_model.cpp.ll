@@ -1968,8 +1968,8 @@ _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit39: ; preds = %_ZN7QStringD2
   resume { ptr, i32 } %.pn.pn.pn
 
 _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit: ; preds = %201, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i, %_ZN7QStringD2Ev.exit33, %3
-  %.4 = phi i1 [ true, %3 ], [ %.not6576, %_ZN7QStringD2Ev.exit33 ], [ %.not6576, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i ], [ %.not6576, %201 ]
-  ret i1 %.4
+  %.014 = phi i1 [ true, %3 ], [ %.not6576, %_ZN7QStringD2Ev.exit33 ], [ %.not6576, %_ZN17QArrayDataPointerIiE5derefEv.exit.i.i.i ], [ %.not6576, %201 ]
+  ret i1 %.014
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

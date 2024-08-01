@@ -244,7 +244,7 @@ if.then6.i:                                       ; preds = %if.then3.i
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %if.end32.i.i, %if.then6.i
-  %i.0.i.i = phi i64 [ 0, %if.then6.i ], [ %i.4.i.i, %if.end32.i.i ]
+  %i.0.i.i = phi i64 [ 0, %if.then6.i ], [ %i.3.i.i, %if.end32.i.i ]
   %arrayidx.i21.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %i.0.i.i
   %3 = load i8, ptr %arrayidx.i21.i, align 1
   %cmp.not.i.i = icmp eq i8 %3, 0
@@ -269,47 +269,47 @@ if.then.i.i:                                      ; preds = %land.lhs.true.i.i
   br label %while.cond10.i.i
 
 while.cond10.i.i:                                 ; preds = %while.cond10.i.i, %if.then.i.i
-  %i.1.i.i = phi i64 [ %add9.i.i, %if.then.i.i ], [ %inc.i23.i, %while.cond10.i.i ]
-  %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %i.1.i.i
+  %i.2.i.i = phi i64 [ %add9.i.i, %if.then.i.i ], [ %inc.i23.i, %while.cond10.i.i ]
+  %arrayidx11.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %i.2.i.i
   %8 = load i8, ptr %arrayidx11.i.i, align 1
   %9 = and i8 %8, -33
   %10 = add i8 %9, -65
   %11 = icmp ult i8 %10, 26
   %cmp15.i.i = icmp eq i8 %8, 95
   %or.cond21.i.i = or i1 %cmp15.i.i, %11
-  %inc.i23.i = add i64 %i.1.i.i, 1
+  %inc.i23.i = add i64 %i.2.i.i, 1
   br i1 %or.cond21.i.i, label %while.cond10.i.i, label %if.end.i.i, !llvm.loop !5
 
 if.end.i.i:                                       ; preds = %while.cond10.i.i, %while.body.i.i
   %12 = phi i8 [ %3, %while.body.i.i ], [ %8, %while.cond10.i.i ]
-  %i.2.i.i = phi i64 [ %i.0.i.i, %while.body.i.i ], [ %i.1.i.i, %while.cond10.i.i ]
+  %i.1.i.i = phi i64 [ %i.0.i.i, %while.body.i.i ], [ %i.2.i.i, %while.cond10.i.i ]
   %cmp19.i.i = icmp eq i8 %12, 46
   br i1 %cmp19.i.i, label %land.lhs.true20.i.i, label %if.end32.i.i
 
 land.lhs.true20.i.i:                              ; preds = %if.end.i.i, %land.lhs.true.i.i
   %parsed.026.i.i = phi i1 [ %cmp3.i22.i, %if.end.i.i ], [ false, %land.lhs.true.i.i ]
-  %i.225.i.i = phi i64 [ %i.2.i.i, %if.end.i.i ], [ %i.0.i.i, %land.lhs.true.i.i ]
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %i.225.i.i
+  %i.125.i.i = phi i64 [ %i.1.i.i, %if.end.i.i ], [ %i.0.i.i, %land.lhs.true.i.i ]
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %i.125.i.i
   %13 = load i8, ptr %gep.i.i, align 1
   %14 = add i8 %13, -48
   %15 = icmp ult i8 %14, 10
   br i1 %15, label %if.then24.i.i, label %if.end32.i.i
 
 if.then24.i.i:                                    ; preds = %land.lhs.true20.i.i
-  %add25.i.i = add i64 %i.225.i.i, 2
+  %add25.i.i = add i64 %i.125.i.i, 2
   br label %while.cond26.i.i
 
 while.cond26.i.i:                                 ; preds = %while.cond26.i.i, %if.then24.i.i
-  %i.3.i.i = phi i64 [ %add25.i.i, %if.then24.i.i ], [ %inc30.i.i, %while.cond26.i.i ]
-  %arrayidx27.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %i.3.i.i
+  %i.4.i.i = phi i64 [ %add25.i.i, %if.then24.i.i ], [ %inc30.i.i, %while.cond26.i.i ]
+  %arrayidx27.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 %i.4.i.i
   %16 = load i8, ptr %arrayidx27.i.i, align 1
   %17 = add i8 %16, -48
   %18 = icmp ult i8 %17, 10
-  %inc30.i.i = add i64 %i.3.i.i, 1
+  %inc30.i.i = add i64 %i.4.i.i, 1
   br i1 %18, label %while.cond26.i.i, label %if.end32.i.i, !llvm.loop !7
 
 if.end32.i.i:                                     ; preds = %while.cond26.i.i, %land.lhs.true20.i.i, %if.end.i.i
-  %i.4.i.i = phi i64 [ %i.225.i.i, %land.lhs.true20.i.i ], [ %i.2.i.i, %if.end.i.i ], [ %i.3.i.i, %while.cond26.i.i ]
+  %i.3.i.i = phi i64 [ %i.125.i.i, %land.lhs.true20.i.i ], [ %i.1.i.i, %if.end.i.i ], [ %i.4.i.i, %while.cond26.i.i ]
   %parsed.1.i.i = phi i1 [ %parsed.026.i.i, %land.lhs.true20.i.i ], [ %cmp3.i22.i, %if.end.i.i ], [ true, %while.cond26.i.i ]
   br i1 %parsed.1.i.i, label %while.cond.i.i, label %if.end12.i, !llvm.loop !8
 

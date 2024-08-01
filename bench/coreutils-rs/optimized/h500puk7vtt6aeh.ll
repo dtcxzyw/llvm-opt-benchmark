@@ -4112,7 +4112,7 @@ default.unreachable221:                           ; preds = %74, %28, %"_ZN3std2
 
 54:                                               ; preds = %50, %45
   %.sink = phi { ptr, ptr } [ %42, %45 ], [ %49, %50 ]
-  %.sroa.0.0 = phi ptr [ %46, %45 ], [ %51, %50 ]
+  %.sroa.0.1 = phi ptr [ %46, %45 ], [ %51, %50 ]
   %55 = extractvalue { ptr, ptr } %.sink, 1
   %56 = icmp ne ptr %55, null
   call void @llvm.assume(i1 %56)
@@ -4124,8 +4124,8 @@ default.unreachable221:                           ; preds = %74, %28, %"_ZN3std2
   br label %57
 
 57:                                               ; preds = %212, %.loopexit188, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..LinesChunkBuffer$GT$17hd2531515139c78f6E.exit158", %108, %.loopexit183, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..BytesChunkBuffer$GT$17hae76ba740bd1eae9E.exit150"
-  %.sroa.15.1 = phi ptr [ %110, %108 ], [ %.sroa.15.2, %.loopexit183 ], [ %55, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..BytesChunkBuffer$GT$17hae76ba740bd1eae9E.exit150" ], [ %214, %212 ], [ %.sroa.15.5, %.loopexit188 ], [ %137, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..LinesChunkBuffer$GT$17hd2531515139c78f6E.exit158" ]
-  %.sroa.0.1 = phi ptr [ %109, %108 ], [ %.sroa.0.2, %.loopexit183 ], [ %.sroa.0.0, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..BytesChunkBuffer$GT$17hae76ba740bd1eae9E.exit150" ], [ %213, %212 ], [ %.sroa.0.5, %.loopexit188 ], [ %.sroa.0.4, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..LinesChunkBuffer$GT$17hd2531515139c78f6E.exit158" ]
+  %.sroa.15.2 = phi ptr [ %110, %108 ], [ %.sroa.15.4, %.loopexit183 ], [ %55, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..BytesChunkBuffer$GT$17hae76ba740bd1eae9E.exit150" ], [ %214, %212 ], [ %.sroa.15.6, %.loopexit188 ], [ %137, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..LinesChunkBuffer$GT$17hd2531515139c78f6E.exit158" ]
+  %.sroa.0.2 = phi ptr [ %109, %108 ], [ %.sroa.0.4, %.loopexit183 ], [ %.sroa.0.1, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..BytesChunkBuffer$GT$17hae76ba740bd1eae9E.exit150" ], [ %213, %212 ], [ %.sroa.0.6, %.loopexit188 ], [ %.sroa.0.5, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..LinesChunkBuffer$GT$17hd2531515139c78f6E.exit158" ]
   call void @"_ZN4core3ptr94drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..StdoutLock$GT$$GT$17ha2294f6f4e3d68eaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
@@ -4234,8 +4234,8 @@ default.unreachable221:                           ; preds = %74, %28, %"_ZN3std2
   br label %.loopexit183
 
 .loopexit183:                                     ; preds = %67, %71, %99, %96
-  %.sroa.15.2 = phi ptr [ %98, %96 ], [ %73, %71 ], [ %101, %99 ], [ undef, %67 ]
-  %.sroa.0.2 = phi ptr [ %97, %96 ], [ %72, %71 ], [ %100, %99 ], [ null, %67 ]
+  %.sroa.15.4 = phi ptr [ %98, %96 ], [ %73, %71 ], [ %101, %99 ], [ undef, %67 ]
+  %.sroa.0.4 = phi ptr [ %97, %96 ], [ %72, %71 ], [ %100, %99 ], [ null, %67 ]
   call void @llvm.lifetime.end.p0(i64 8200, ptr nonnull %6)
   br label %57
 
@@ -4322,7 +4322,7 @@ default.unreachable221:                           ; preds = %74, %28, %"_ZN3std2
 
 136:                                              ; preds = %132, %127
   %.sink241 = phi { ptr, ptr } [ %124, %127 ], [ %131, %132 ]
-  %.sroa.0.4 = phi ptr [ %128, %127 ], [ %133, %132 ]
+  %.sroa.0.5 = phi ptr [ %128, %127 ], [ %133, %132 ]
   %137 = extractvalue { ptr, ptr } %.sink241, 1
   %138 = icmp ne ptr %137, null
   call void @llvm.assume(i1 %138)
@@ -4495,8 +4495,8 @@ _ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; pr
   br label %.loopexit188
 
 .loopexit188:                                     ; preds = %148, %194, %203
-  %.sroa.15.5 = phi ptr [ %205, %203 ], [ %195, %194 ], [ %151, %148 ]
-  %.sroa.0.5 = phi ptr [ %204, %203 ], [ %192, %194 ], [ %150, %148 ]
+  %.sroa.15.6 = phi ptr [ %205, %203 ], [ %195, %194 ], [ %151, %148 ]
+  %.sroa.0.6 = phi ptr [ %204, %203 ], [ %192, %194 ], [ %150, %148 ]
   call void @llvm.lifetime.end.p0(i64 8216, ptr nonnull %11)
   br label %57
 
@@ -4518,10 +4518,10 @@ _ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; pr
   br label %57
 
 215:                                              ; preds = %57, %31
-  %.sroa.15.6 = phi ptr [ undef, %31 ], [ %.sroa.15.1, %57 ]
-  %.sroa.0.6 = phi ptr [ null, %31 ], [ %.sroa.0.1, %57 ]
-  %216 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.6, 0
-  %217 = insertvalue { ptr, ptr } %216, ptr %.sroa.15.6, 1
+  %.sroa.15.0 = phi ptr [ undef, %31 ], [ %.sroa.15.2, %57 ]
+  %.sroa.0.0 = phi ptr [ null, %31 ], [ %.sroa.0.2, %57 ]
+  %216 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %217 = insertvalue { ptr, ptr } %216, ptr %.sroa.15.0, 1
   ret { ptr, ptr } %217
 }
 
@@ -4697,7 +4697,7 @@ default.unreachable230:                           ; preds = %80, %28, %"_ZN3std2
 
 60:                                               ; preds = %56, %51
   %.sink = phi { ptr, ptr } [ %48, %51 ], [ %55, %56 ]
-  %.sroa.0.0 = phi ptr [ %52, %51 ], [ %57, %56 ]
+  %.sroa.0.1 = phi ptr [ %52, %51 ], [ %57, %56 ]
   %61 = extractvalue { ptr, ptr } %.sink, 1
   %62 = icmp ne ptr %61, null
   call void @llvm.assume(i1 %62)
@@ -4709,8 +4709,8 @@ default.unreachable230:                           ; preds = %80, %28, %"_ZN3std2
   br label %63
 
 63:                                               ; preds = %222, %.loopexit197, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..LinesChunkBuffer$GT$17hd2531515139c78f6E.exit167", %113, %.loopexit192, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..BytesChunkBuffer$GT$17hae76ba740bd1eae9E.exit154"
-  %.sroa.15.1 = phi ptr [ %115, %113 ], [ %.sroa.15.2, %.loopexit192 ], [ %61, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..BytesChunkBuffer$GT$17hae76ba740bd1eae9E.exit154" ], [ %224, %222 ], [ %.sroa.15.5, %.loopexit197 ], [ %148, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..LinesChunkBuffer$GT$17hd2531515139c78f6E.exit167" ]
-  %.sroa.0.1 = phi ptr [ %114, %113 ], [ %.sroa.0.2, %.loopexit192 ], [ %.sroa.0.0, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..BytesChunkBuffer$GT$17hae76ba740bd1eae9E.exit154" ], [ %223, %222 ], [ %.sroa.0.5, %.loopexit197 ], [ %.sroa.0.4, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..LinesChunkBuffer$GT$17hd2531515139c78f6E.exit167" ]
+  %.sroa.15.2 = phi ptr [ %115, %113 ], [ %.sroa.15.4, %.loopexit192 ], [ %61, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..BytesChunkBuffer$GT$17hae76ba740bd1eae9E.exit154" ], [ %224, %222 ], [ %.sroa.15.6, %.loopexit197 ], [ %148, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..LinesChunkBuffer$GT$17hd2531515139c78f6E.exit167" ]
+  %.sroa.0.2 = phi ptr [ %114, %113 ], [ %.sroa.0.4, %.loopexit192 ], [ %.sroa.0.1, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..BytesChunkBuffer$GT$17hae76ba740bd1eae9E.exit154" ], [ %223, %222 ], [ %.sroa.0.6, %.loopexit197 ], [ %.sroa.0.5, %"_ZN4core3ptr54drop_in_place$LT$uu_tail..chunks..LinesChunkBuffer$GT$17hd2531515139c78f6E.exit167" ]
   call void @"_ZN4core3ptr94drop_in_place$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..StdoutLock$GT$$GT$17ha2294f6f4e3d68eaE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %14)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
@@ -4819,8 +4819,8 @@ default.unreachable230:                           ; preds = %80, %28, %"_ZN3std2
   br label %.loopexit192
 
 .loopexit192:                                     ; preds = %73, %77, %105, %102
-  %.sroa.15.2 = phi ptr [ %104, %102 ], [ %79, %77 ], [ %107, %105 ], [ undef, %73 ]
-  %.sroa.0.2 = phi ptr [ %103, %102 ], [ %78, %77 ], [ %106, %105 ], [ null, %73 ]
+  %.sroa.15.4 = phi ptr [ %104, %102 ], [ %79, %77 ], [ %107, %105 ], [ undef, %73 ]
+  %.sroa.0.4 = phi ptr [ %103, %102 ], [ %78, %77 ], [ %106, %105 ], [ null, %73 ]
   call void @llvm.lifetime.end.p0(i64 8200, ptr nonnull %6)
   br label %63
 
@@ -4919,7 +4919,7 @@ default.unreachable230:                           ; preds = %80, %28, %"_ZN3std2
 
 147:                                              ; preds = %143, %138
   %.sink250 = phi { ptr, ptr } [ %135, %138 ], [ %142, %143 ]
-  %.sroa.0.4 = phi ptr [ %139, %138 ], [ %144, %143 ]
+  %.sroa.0.5 = phi ptr [ %139, %138 ], [ %144, %143 ]
   %148 = extractvalue { ptr, ptr } %.sink250, 1
   %149 = icmp ne ptr %148, null
   call void @llvm.assume(i1 %149)
@@ -5092,8 +5092,8 @@ _ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; pr
   br label %.loopexit197
 
 .loopexit197:                                     ; preds = %159, %205, %214
-  %.sroa.15.5 = phi ptr [ %216, %214 ], [ %206, %205 ], [ %162, %159 ]
-  %.sroa.0.5 = phi ptr [ %215, %214 ], [ %203, %205 ], [ %161, %159 ]
+  %.sroa.15.6 = phi ptr [ %216, %214 ], [ %206, %205 ], [ %162, %159 ]
+  %.sroa.0.6 = phi ptr [ %215, %214 ], [ %203, %205 ], [ %161, %159 ]
   call void @llvm.lifetime.end.p0(i64 8216, ptr nonnull %11)
   br label %63
 
@@ -5115,10 +5115,10 @@ _ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; pr
   br label %63
 
 225:                                              ; preds = %63, %31
-  %.sroa.15.6 = phi ptr [ undef, %31 ], [ %.sroa.15.1, %63 ]
-  %.sroa.0.6 = phi ptr [ null, %31 ], [ %.sroa.0.1, %63 ]
-  %226 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.6, 0
-  %227 = insertvalue { ptr, ptr } %226, ptr %.sroa.15.6, 1
+  %.sroa.15.0 = phi ptr [ undef, %31 ], [ %.sroa.15.2, %63 ]
+  %.sroa.0.0 = phi ptr [ null, %31 ], [ %.sroa.0.2, %63 ]
+  %226 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %227 = insertvalue { ptr, ptr } %226, ptr %.sroa.15.0, 1
   ret { ptr, ptr } %227
 }
 

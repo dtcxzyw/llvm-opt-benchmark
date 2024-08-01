@@ -456,7 +456,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noca
 
 12:                                               ; preds = %.lr.ph37, %60
   %indvars.iv44 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next45, %60 ]
-  %.02235 = phi i32 [ 0, %.lr.ph37 ], [ %.2, %60 ]
+  %.02235 = phi i32 [ 0, %.lr.ph37 ], [ %.1, %60 ]
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv44
   %15 = load ptr, ptr %14, align 8
@@ -501,7 +501,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noca
 
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %.132 = phi i32 [ %.02235, %.lr.ph ], [ %49, %39 ]
+  %.232 = phi i32 [ %.02235, %.lr.ph ], [ %49, %39 ]
   %40 = load ptr, ptr %38, align 8
   %41 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %40, i64 %indvars.iv
   %42 = load i64, ptr %41, align 4
@@ -509,13 +509,13 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noca
   %.sroa.2.0.extract.shift = lshr i64 %42, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %43 = load ptr, ptr %8, align 8
-  %44 = add i32 %.132, 1
+  %44 = add i32 %.232, 1
   %45 = getelementptr inbounds i8, ptr %43, i64 4
-  %46 = sext i32 %.132 to i64
+  %46 = sext i32 %.232 to i64
   %47 = getelementptr inbounds i32, ptr %45, i64 %46
   store i32 %.sroa.0.0.extract.trunc, ptr %47, align 4
   %48 = load ptr, ptr %8, align 8
-  %49 = add i32 %.132, 2
+  %49 = add i32 %.232, 2
   %50 = getelementptr inbounds i8, ptr %48, i64 4
   %51 = sext i32 %44 to i64
   %52 = getelementptr inbounds i32, ptr %50, i64 %51
@@ -525,7 +525,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noca
   br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %39, %34
-  %.1.lcssa = phi i32 [ %.02235, %34 ], [ %49, %39 ]
+  %.2.lcssa = phi i32 [ %.02235, %34 ], [ %49, %39 ]
   %53 = icmp eq i32 %16, 0
   br i1 %53, label %54, label %57
 
@@ -542,7 +542,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noca
   br label %60
 
 60:                                               ; preds = %54, %57, %20
-  %.2 = phi i32 [ %28, %20 ], [ %.1.lcssa, %54 ], [ %.1.lcssa, %57 ]
+  %.1 = phi i32 [ %28, %20 ], [ %.2.lcssa, %54 ], [ %.2.lcssa, %57 ]
   %61 = sitofp i32 %16 to double
   %62 = load ptr, ptr %1, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 8
@@ -555,7 +555,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noca
   br i1 %67, label %12, label %._crit_edge38.loopexit, !llvm.loop !12
 
 ._crit_edge38.loopexit:                           ; preds = %60
-  %68 = or i32 %.2, -1073741824
+  %68 = or i32 %.1, -1073741824
   br label %._crit_edge38
 
 ._crit_edge38:                                    ; preds = %.._crit_edge38_crit_edge, %._crit_edge38.loopexit

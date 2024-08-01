@@ -382,7 +382,7 @@ if.end131:                                        ; preds = %if.then127
   br label %if.end133
 
 if.end133:                                        ; preds = %if.end125, %if.end131
-  %pkey.0 = phi ptr [ %call128, %if.end131 ], [ %16, %if.end125 ]
+  %pkey.1 = phi ptr [ %call128, %if.end131 ], [ %16, %if.end125 ]
   store ptr null, ptr %tmppkey, align 8
   br label %if.end188
 
@@ -498,13 +498,13 @@ if.end186:                                        ; preds = %land.lhs.true181, %
   br label %if.end188
 
 if.end188:                                        ; preds = %if.end186, %if.end172, %if.end133
-  %pkey.1 = phi ptr [ %pkey.0, %if.end133 ], [ %call173, %if.end172 ], [ %39, %if.end186 ]
-  %in.0 = phi ptr [ null, %if.end133 ], [ %call135, %if.end172 ], [ %call135, %if.end186 ]
+  %pkey.2 = phi ptr [ %pkey.1, %if.end133 ], [ %call173, %if.end172 ], [ %39, %if.end186 ]
+  %in.1 = phi ptr [ null, %if.end133 ], [ %call135, %if.end172 ], [ %call135, %if.end186 ]
   %tobool189.not = icmp eq i32 %text.0, 0
   br i1 %tobool189.not, label %if.end192, label %if.then190
 
 if.then190:                                       ; preds = %if.end188
-  %call191 = call i32 @EVP_PKEY_print_params(ptr noundef nonnull %call69, ptr noundef %pkey.1, i32 noundef 4, ptr noundef null) #2
+  %call191 = call i32 @EVP_PKEY_print_params(ptr noundef nonnull %call69, ptr noundef %pkey.2, i32 noundef 4, ptr noundef null) #2
   br label %if.end192
 
 if.end192:                                        ; preds = %if.then190, %if.end188
@@ -514,7 +514,7 @@ if.end192:                                        ; preds = %if.then190, %if.end
 if.then194:                                       ; preds = %if.end192
   %call195 = call ptr @app_get0_libctx() #2
   %call196 = call ptr @app_get0_propq() #2
-  %call197 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %call195, ptr noundef %pkey.1, ptr noundef %call196) #2
+  %call197 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %call195, ptr noundef %pkey.2, ptr noundef %call196) #2
   %cmp198 = icmp eq ptr %call197, null
   br i1 %cmp198, label %if.then200, label %if.end202
 
@@ -538,7 +538,7 @@ if.end208:                                        ; preds = %if.end202
   br label %if.end210
 
 if.end210:                                        ; preds = %if.end208, %if.end192
-  %ctx.1 = phi ptr [ %call197, %if.end208 ], [ null, %if.end192 ]
+  %ctx.2 = phi ptr [ %call197, %if.end208 ], [ null, %if.end192 ]
   %tobool211.not = icmp eq i32 %noout.0, 0
   br i1 %tobool211.not, label %if.then212, label %if.end229
 
@@ -546,7 +546,7 @@ if.then212:                                       ; preds = %if.end210
   %42 = load i32, ptr %outformat, align 4
   %cmp213 = icmp eq i32 %42, 4
   %cond215 = select i1 %cmp213, ptr @.str.62, ptr @.str.63
-  %call216 = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %pkey.1, i32 noundef 4, ptr noundef nonnull %cond215, ptr noundef null, ptr noundef null) #2
+  %call216 = call ptr @OSSL_ENCODER_CTX_new_for_pkey(ptr noundef %pkey.2, i32 noundef 4, ptr noundef nonnull %cond215, ptr noundef null, ptr noundef null) #2
   %cmp217 = icmp eq ptr %call216, null
   br i1 %cmp217, label %if.then222, label %lor.lhs.false219
 
@@ -566,26 +566,26 @@ if.end224:                                        ; preds = %lor.lhs.false219
   br label %if.end229
 
 if.then228:                                       ; preds = %sw.bb30, %sw.bb36, %opthelp, %if.then66, %if.end68, %if.then89, %if.then100, %if.then107, %if.end121, %if.then127, %if.then200, %if.then206, %if.then222, %if.then113, %if.then118, %if.else134, %if.then163, %if.end172, %if.then170, %if.then184, %if.end54
-  %pkey.2.ph = phi ptr [ null, %if.end54 ], [ null, %if.then184 ], [ null, %if.then170 ], [ null, %if.end172 ], [ null, %if.then163 ], [ null, %if.else134 ], [ null, %if.then118 ], [ null, %if.then113 ], [ %pkey.1, %if.then222 ], [ %pkey.1, %if.then206 ], [ %pkey.1, %if.then200 ], [ null, %if.then127 ], [ null, %if.end121 ], [ null, %if.then107 ], [ null, %if.then100 ], [ null, %if.then89 ], [ null, %if.end68 ], [ null, %if.then66 ], [ null, %opthelp ], [ null, %sw.bb36 ], [ null, %sw.bb30 ]
-  %ctx.2.ph = phi ptr [ null, %if.end54 ], [ null, %if.then184 ], [ null, %if.then170 ], [ null, %if.end172 ], [ null, %if.then163 ], [ null, %if.else134 ], [ %call87, %if.then118 ], [ %call87, %if.then113 ], [ %ctx.1, %if.then222 ], [ %call197, %if.then206 ], [ null, %if.then200 ], [ null, %if.then127 ], [ %call87, %if.end121 ], [ %call87, %if.then107 ], [ %call87, %if.then100 ], [ null, %if.then89 ], [ null, %if.end68 ], [ null, %if.then66 ], [ null, %opthelp ], [ null, %sw.bb36 ], [ null, %sw.bb30 ]
+  %pkey.0.ph = phi ptr [ null, %if.end54 ], [ null, %if.then184 ], [ null, %if.then170 ], [ null, %if.end172 ], [ null, %if.then163 ], [ null, %if.else134 ], [ null, %if.then118 ], [ null, %if.then113 ], [ %pkey.2, %if.then222 ], [ %pkey.2, %if.then206 ], [ %pkey.2, %if.then200 ], [ null, %if.then127 ], [ null, %if.end121 ], [ null, %if.then107 ], [ null, %if.then100 ], [ null, %if.then89 ], [ null, %if.end68 ], [ null, %if.then66 ], [ null, %opthelp ], [ null, %sw.bb36 ], [ null, %sw.bb30 ]
+  %ctx.0.ph = phi ptr [ null, %if.end54 ], [ null, %if.then184 ], [ null, %if.then170 ], [ null, %if.end172 ], [ null, %if.then163 ], [ null, %if.else134 ], [ %call87, %if.then118 ], [ %call87, %if.then113 ], [ %ctx.2, %if.then222 ], [ %call197, %if.then206 ], [ null, %if.then200 ], [ null, %if.then127 ], [ %call87, %if.end121 ], [ %call87, %if.then107 ], [ %call87, %if.then100 ], [ null, %if.then89 ], [ null, %if.end68 ], [ null, %if.then66 ], [ null, %opthelp ], [ null, %sw.bb36 ], [ null, %sw.bb30 ]
   %out.0.ph = phi ptr [ null, %if.end54 ], [ %call69, %if.then184 ], [ %call69, %if.then170 ], [ %call69, %if.end172 ], [ %call69, %if.then163 ], [ %call69, %if.else134 ], [ %call69, %if.then118 ], [ %call69, %if.then113 ], [ %call69, %if.then222 ], [ %call69, %if.then206 ], [ %call69, %if.then200 ], [ %call69, %if.then127 ], [ %call69, %if.end121 ], [ %call69, %if.then107 ], [ %call69, %if.then100 ], [ %call69, %if.then89 ], [ null, %if.end68 ], [ null, %if.then66 ], [ null, %opthelp ], [ null, %sw.bb36 ], [ null, %sw.bb30 ]
-  %in.1.ph = phi ptr [ null, %if.end54 ], [ %call135, %if.then184 ], [ %call135, %if.then170 ], [ %call135, %if.end172 ], [ %call135, %if.then163 ], [ null, %if.else134 ], [ null, %if.then118 ], [ null, %if.then113 ], [ %in.0, %if.then222 ], [ %in.0, %if.then206 ], [ %in.0, %if.then200 ], [ null, %if.then127 ], [ null, %if.end121 ], [ null, %if.then107 ], [ null, %if.then100 ], [ null, %if.then89 ], [ null, %if.end68 ], [ null, %if.then66 ], [ null, %opthelp ], [ null, %sw.bb36 ], [ null, %sw.bb30 ]
+  %in.0.ph = phi ptr [ null, %if.end54 ], [ %call135, %if.then184 ], [ %call135, %if.then170 ], [ %call135, %if.end172 ], [ %call135, %if.then163 ], [ null, %if.else134 ], [ null, %if.then118 ], [ null, %if.then113 ], [ %in.1, %if.then222 ], [ %in.1, %if.then206 ], [ %in.1, %if.then200 ], [ null, %if.then127 ], [ null, %if.end121 ], [ null, %if.then107 ], [ null, %if.then100 ], [ null, %if.then89 ], [ null, %if.end68 ], [ null, %if.then66 ], [ null, %opthelp ], [ null, %sw.bb36 ], [ null, %sw.bb30 ]
   %44 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %44) #2
   br label %if.end229
 
 if.end229:                                        ; preds = %sw.bb3, %if.end224, %if.end210, %if.then228
-  %in.169 = phi ptr [ %in.1.ph, %if.then228 ], [ null, %sw.bb3 ], [ %in.0, %if.end224 ], [ %in.0, %if.end210 ]
+  %in.069 = phi ptr [ %in.0.ph, %if.then228 ], [ null, %sw.bb3 ], [ %in.1, %if.end224 ], [ %in.1, %if.end210 ]
   %ret.067 = phi i32 [ 1, %if.then228 ], [ 0, %sw.bb3 ], [ 0, %if.end224 ], [ 0, %if.end210 ]
   %out.065 = phi ptr [ %out.0.ph, %if.then228 ], [ null, %sw.bb3 ], [ %call69, %if.end224 ], [ %call69, %if.end210 ]
-  %ctx.263 = phi ptr [ %ctx.2.ph, %if.then228 ], [ null, %sw.bb3 ], [ %ctx.1, %if.end224 ], [ %ctx.1, %if.end210 ]
-  %pkey.261 = phi ptr [ %pkey.2.ph, %if.then228 ], [ null, %sw.bb3 ], [ %pkey.1, %if.end224 ], [ %pkey.1, %if.end210 ]
-  %call230 = call i32 @BIO_free(ptr noundef %in.169) #2
+  %ctx.063 = phi ptr [ %ctx.0.ph, %if.then228 ], [ null, %sw.bb3 ], [ %ctx.2, %if.end224 ], [ %ctx.2, %if.end210 ]
+  %pkey.061 = phi ptr [ %pkey.0.ph, %if.then228 ], [ null, %sw.bb3 ], [ %pkey.2, %if.end224 ], [ %pkey.2, %if.end210 ]
+  %call230 = call i32 @BIO_free(ptr noundef %in.069) #2
   call void @BIO_free_all(ptr noundef %out.065) #2
-  call void @EVP_PKEY_free(ptr noundef %pkey.261) #2
+  call void @EVP_PKEY_free(ptr noundef %pkey.061) #2
   %45 = load ptr, ptr %tmppkey, align 8
   call void @EVP_PKEY_free(ptr noundef %45) #2
-  call void @EVP_PKEY_CTX_free(ptr noundef %ctx.263) #2
+  call void @EVP_PKEY_CTX_free(ptr noundef %ctx.063) #2
   call void @release_engine(ptr noundef %e.0) #2
   ret i32 %ret.067
 }
@@ -716,7 +716,7 @@ lor.lhs.false30:                                  ; preds = %lor.lhs.false27
 
 err.sink.split:                                   ; preds = %if.end22, %lor.lhs.false27, %lor.lhs.false30, %if.end, %lor.lhs.false8, %lor.lhs.false11, %lor.lhs.false14, %lor.lhs.false17, %entry, %lor.lhs.false, %lor.lhs.false3
   %tmpl.0.ph = phi ptr [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ %call7, %lor.lhs.false17 ], [ %call7, %lor.lhs.false14 ], [ %call7, %lor.lhs.false11 ], [ %call7, %lor.lhs.false8 ], [ %call7, %if.end ], [ %call7, %lor.lhs.false30 ], [ %call7, %lor.lhs.false27 ], [ %call7, %if.end22 ]
-  %params.1.ph = phi ptr [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %lor.lhs.false17 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false11 ], [ null, %lor.lhs.false8 ], [ null, %if.end ], [ %call18, %lor.lhs.false30 ], [ %call18, %lor.lhs.false27 ], [ %call18, %if.end22 ]
+  %params.0.ph = phi ptr [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %lor.lhs.false17 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false11 ], [ null, %lor.lhs.false8 ], [ null, %if.end ], [ %call18, %lor.lhs.false30 ], [ %call18, %lor.lhs.false27 ], [ %call18, %if.end22 ]
   %ctx.0.ph = phi ptr [ null, %lor.lhs.false3 ], [ null, %lor.lhs.false ], [ null, %entry ], [ null, %lor.lhs.false17 ], [ null, %lor.lhs.false14 ], [ null, %lor.lhs.false11 ], [ null, %lor.lhs.false8 ], [ null, %if.end ], [ %call25, %lor.lhs.false30 ], [ %call25, %lor.lhs.false27 ], [ %call25, %if.end22 ]
   %3 = load ptr, ptr @bio_err, align 8
   %call34 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull @.str.75) #2
@@ -724,10 +724,10 @@ err.sink.split:                                   ; preds = %if.end22, %lor.lhs.
 
 err:                                              ; preds = %err.sink.split, %lor.lhs.false30
   %tmpl.0 = phi ptr [ %call7, %lor.lhs.false30 ], [ %tmpl.0.ph, %err.sink.split ]
-  %params.1 = phi ptr [ %call18, %lor.lhs.false30 ], [ %params.1.ph, %err.sink.split ]
+  %params.0 = phi ptr [ %call18, %lor.lhs.false30 ], [ %params.0.ph, %err.sink.split ]
   %ctx.0 = phi ptr [ %call25, %lor.lhs.false30 ], [ %ctx.0.ph, %err.sink.split ]
   call void @EVP_PKEY_CTX_free(ptr noundef %ctx.0) #2
-  call void @OSSL_PARAM_free(ptr noundef %params.1) #2
+  call void @OSSL_PARAM_free(ptr noundef %params.0) #2
   call void @OSSL_PARAM_BLD_free(ptr noundef %tmpl.0) #2
   %4 = load ptr, ptr %bn_p, align 8
   call void @BN_free(ptr noundef %4) #2

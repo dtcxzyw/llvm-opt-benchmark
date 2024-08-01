@@ -454,7 +454,7 @@ for.body.lr.ph:                                   ; preds = %_ZN6vectorIN3sat7li
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %retval.022 = phi i1 [ undef, %for.body.lr.ph ], [ %retval.2, %for.inc ]
+  %retval.122 = phi i1 [ undef, %for.body.lr.ph ], [ %retval.2, %for.inc ]
   %__begin1.021 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
   %lit.sroa.0.0.copyload = load i32, ptr %__begin1.021, align 4
   %shr.i.i = lshr i32 %lit.sroa.0.0.copyload, 1
@@ -555,14 +555,14 @@ if.end48:                                         ; preds = %invoke.cont45
 
 cleanupthread-pre-split:                          ; preds = %invoke.cont20, %if.end31, %if.end48, %invoke.cont11, %invoke.cont14, %invoke.cont28, %invoke.cont45
   %cleanup.dest.slot.0.ph = phi i32 [ 1, %invoke.cont45 ], [ 1, %invoke.cont28 ], [ 3, %invoke.cont14 ], [ 3, %invoke.cont11 ], [ 0, %if.end48 ], [ 0, %if.end31 ], [ 0, %invoke.cont20 ]
-  %retval.1.ph = phi i1 [ true, %invoke.cont45 ], [ true, %invoke.cont28 ], [ %retval.022, %invoke.cont14 ], [ %retval.022, %invoke.cont11 ], [ %retval.022, %if.end48 ], [ %retval.022, %if.end31 ], [ %retval.022, %invoke.cont20 ]
+  %retval.3.ph = phi i1 [ true, %invoke.cont45 ], [ true, %invoke.cont28 ], [ %retval.122, %invoke.cont14 ], [ %retval.122, %invoke.cont11 ], [ %retval.122, %if.end48 ], [ %retval.122, %if.end31 ], [ %retval.122, %invoke.cont20 ]
   %.pr = load ptr, ptr %res, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanupthread-pre-split, %if.end48, %if.end31
   %23 = phi ptr [ %.pr, %cleanupthread-pre-split ], [ %21, %if.end48 ], [ %17, %if.end31 ]
   %cleanup.dest.slot.0 = phi i32 [ %cleanup.dest.slot.0.ph, %cleanupthread-pre-split ], [ 1, %if.end48 ], [ 1, %if.end31 ]
-  %retval.1 = phi i1 [ %retval.1.ph, %cleanupthread-pre-split ], [ false, %if.end48 ], [ false, %if.end31 ]
+  %retval.3 = phi i1 [ %retval.3.ph, %cleanupthread-pre-split ], [ false, %if.end48 ], [ false, %if.end31 ]
   %tobool.not.i.i = icmp eq ptr %23, null
   br i1 %tobool.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %if.then.i.i.i
 
@@ -616,14 +616,14 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit19:       ; preds = %_ZN7obj_refI4expr11
   br i1 %switch, label %return, label %for.inc
 
 for.inc:                                          ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit19, %_ZNK3smt7context11is_relevantEN3sat7literalE.exit
-  %retval.2 = phi i1 [ %retval.1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit19 ], [ %retval.022, %_ZNK3smt7context11is_relevantEN3sat7literalE.exit ]
+  %retval.2 = phi i1 [ %retval.3, %_ZN7obj_refI4expr11ast_managerED2Ev.exit19 ], [ %retval.122, %_ZNK3smt7context11is_relevantEN3sat7literalE.exit ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.021, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %return, label %for.body
 
 return:                                           ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit19, %for.inc, %if.end, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit, %entry
-  %retval.3 = phi i1 [ true, %entry ], [ true, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit ], [ true, %if.end ], [ %retval.1, %_ZN7obj_refI4expr11ast_managerED2Ev.exit19 ], [ true, %for.inc ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ true, %entry ], [ true, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit ], [ true, %if.end ], [ %retval.3, %_ZN7obj_refI4expr11ast_managerED2Ev.exit19 ], [ true, %for.inc ]
+  ret i1 %retval.0
 }
 
 declare i32 @__gxx_personality_v0(...)

@@ -2215,10 +2215,10 @@ define internal range(i32 0, 2) i32 @CmdCommandSGen(ptr noundef %0, i32 noundef 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %8, %.loopexit.sink.split
-  %.2 = phi i32 [ %.020.ph, %.loopexit.sink.split ], [ %.020.ph, %4 ], [ %12, %8 ]
+  %.121 = phi i32 [ %.020.ph, %.loopexit.sink.split ], [ %.020.ph, %4 ], [ %12, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.249)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.250)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.251, i32 noundef %.2)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.251, i32 noundef %.121)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.252, i32 noundef %.018.ph74)
   %.not31 = icmp eq i32 %.0, 0
   %33 = select i1 %.not31, ptr @.str.80, ptr @.str.79
@@ -3134,10 +3134,10 @@ define internal range(i32 0, 2) i32 @CmdCommandStarter(ptr nocapture noundef rea
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %8, %.loopexit.sink.split
-  %.2 = phi i32 [ %.023.ph78, %.loopexit.sink.split ], [ %.023.ph78, %4 ], [ %12, %8 ]
+  %.124 = phi i32 [ %.023.ph78, %.loopexit.sink.split ], [ %.023.ph78, %4 ], [ %12, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.225)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.226)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.227, i32 noundef %.2)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.227, i32 noundef %.124)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.228)
   %.not39 = icmp eq i32 %.0, 0
   %42 = select i1 %.not39, ptr @.str.80, ptr @.str.79
@@ -3296,10 +3296,10 @@ define internal range(i32 0, 2) i32 @CmdCommandAutoTuner(ptr nocapture readnone 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %4, %8, %.loopexit.sink.split
-  %.2 = phi i32 [ %.030.ph118, %.loopexit.sink.split ], [ %.030.ph118, %4 ], [ %12, %8 ]
+  %.131 = phi i32 [ %.030.ph118, %.loopexit.sink.split ], [ %.030.ph118, %4 ], [ %12, %8 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.238)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.239)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.240, i32 noundef %.2)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.240, i32 noundef %.131)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.241)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.242)
   %.not52 = icmp eq i32 %.0, 0

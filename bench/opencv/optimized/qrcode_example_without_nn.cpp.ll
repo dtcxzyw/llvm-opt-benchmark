@@ -200,8 +200,8 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 
 51:                                               ; preds = %50, %44
   %.pn.pn = phi { ptr, i32 } [ %.pn, %50 ], [ %45, %44 ]
-  %.125 = extractvalue { ptr, i32 } %.pn.pn, 0
-  %.127 = extractvalue { ptr, i32 } %.pn.pn, 1
+  %.024 = extractvalue { ptr, i32 } %.pn.pn, 0
+  %.026 = extractvalue { ptr, i32 } %.pn.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #15
   br label %304
 
@@ -779,8 +779,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 265:                                              ; preds = %191, %258, %193, %189
   %.pn51 = phi { ptr, i32 } [ %194, %193 ], [ %190, %189 ], [ %.pn46.pn, %258 ], [ %192, %191 ]
-  %.8 = extractvalue { ptr, i32 } %.pn51, 0
-  %.834 = extractvalue { ptr, i32 } %.pn51, 1
+  %.4 = extractvalue { ptr, i32 } %.pn51, 0
+  %.430 = extractvalue { ptr, i32 } %.pn51, 1
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #15
   br label %303
@@ -860,8 +860,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit81
 
 303:                                              ; preds = %159, %265, %185, %163, %.body
-  %.935 = phi i32 [ %.834, %265 ], [ %188, %185 ], [ %166, %163 ], [ %162, %159 ], [ %144, %.body ]
-  %.9 = phi ptr [ %.8, %265 ], [ %187, %185 ], [ %165, %163 ], [ %161, %159 ], [ %143, %.body ]
+  %.329 = phi i32 [ %.430, %265 ], [ %188, %185 ], [ %166, %163 ], [ %162, %159 ], [ %144, %.body ]
+  %.3 = phi ptr [ %.4, %265 ], [ %187, %185 ], [ %165, %163 ], [ %161, %159 ], [ %143, %.body ]
   call void @_ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #15
   br label %304
 
@@ -870,11 +870,11 @@ _ZN2cv3PtrINS_13wechat_qrcode12WeChatQRCodeEED2Ev.exit81: ; preds = %_ZNSt16_Sp_
   ret i32 0
 
 304:                                              ; preds = %303, %61, %51
-  %.1036 = phi i32 [ %.935, %303 ], [ %.127, %51 ], [ %64, %61 ]
-  %.10 = phi ptr [ %.9, %303 ], [ %.125, %51 ], [ %63, %61 ]
+  %.228 = phi i32 [ %.329, %303 ], [ %.026, %51 ], [ %64, %61 ]
+  %.2 = phi ptr [ %.3, %303 ], [ %.024, %51 ], [ %63, %61 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #15
-  %305 = insertvalue { ptr, i32 } poison, ptr %.10, 0
-  %306 = insertvalue { ptr, i32 } %305, i32 %.1036, 1
+  %305 = insertvalue { ptr, i32 } poison, ptr %.2, 0
+  %306 = insertvalue { ptr, i32 } %305, i32 %.228, 1
   resume { ptr, i32 } %306
 
 307:                                              ; preds = %159

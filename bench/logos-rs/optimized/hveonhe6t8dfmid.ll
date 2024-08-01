@@ -62,7 +62,7 @@ define hidden void @_ZN13logos_codegen6parser10definition10Definition10named_att
           to label %24 unwind label %203
 
 .thread52:                                        ; preds = %.invoke, %89, %185
-  %.sroa.014.1.ph = phi i8 [ 1, %185 ], [ %.sroa.014.4, %89 ], [ 0, %.invoke ]
+  %.sroa.014.0.ph = phi i8 [ 1, %185 ], [ %.sroa.014.4, %89 ], [ 0, %.invoke ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -81,8 +81,8 @@ define hidden void @_ZN13logos_codegen6parser10definition10Definition10named_att
           to label %37 unwind label %35
 
 .thread56:                                        ; preds = %125, %.thread63, %149, %142, %35
-  %.sroa.011.0 = phi i1 [ %.sroa.011.1, %35 ], [ false, %149 ], [ false, %142 ], [ false, %.thread63 ], [ false, %125 ]
-  %.sroa.09.0 = phi i8 [ %.sroa.09.1, %35 ], [ 1, %149 ], [ 1, %142 ], [ 1, %.thread63 ], [ 1, %125 ]
+  %.sroa.011.1 = phi i1 [ %.sroa.011.0, %35 ], [ false, %149 ], [ false, %142 ], [ false, %.thread63 ], [ false, %125 ]
+  %.sroa.09.1 = phi i8 [ %.sroa.09.0, %35 ], [ 1, %149 ], [ 1, %142 ], [ 1, %.thread63 ], [ 1, %125 ]
   %.pn41 = phi { ptr, i32 } [ %36, %35 ], [ %.pn39, %149 ], [ %lpad.thr_comm.split-lp62, %142 ], [ %lpad.thr_comm61, %.thread63 ], [ %126, %125 ]
   %32 = load i64, ptr %29, align 8
   %33 = add i64 %32, 9223372036854775807
@@ -93,8 +93,8 @@ define hidden void @_ZN13logos_codegen6parser10definition10Definition10named_att
   ]
 
 35:                                               ; preds = %.invoke74, %183, %177, %77, %72, %54, %46, %38, %24
-  %.sroa.011.1 = phi i1 [ false, %177 ], [ false, %183 ], [ true, %77 ], [ true, %72 ], [ true, %54 ], [ true, %46 ], [ true, %38 ], [ true, %24 ], [ true, %.invoke74 ]
-  %.sroa.09.1 = phi i8 [ 1, %177 ], [ 1, %183 ], [ 0, %77 ], [ 1, %72 ], [ 1, %54 ], [ 1, %46 ], [ 1, %38 ], [ 1, %24 ], [ 1, %.invoke74 ]
+  %.sroa.011.0 = phi i1 [ false, %177 ], [ false, %183 ], [ true, %77 ], [ true, %72 ], [ true, %54 ], [ true, %46 ], [ true, %38 ], [ true, %24 ], [ true, %.invoke74 ]
+  %.sroa.09.0 = phi i8 [ 1, %177 ], [ 1, %183 ], [ 0, %77 ], [ 1, %72 ], [ 1, %54 ], [ 1, %46 ], [ 1, %38 ], [ 1, %24 ], [ 1, %.invoke74 ]
   %36 = landingpad { ptr, i32 }
           cleanup
   br label %.thread56
@@ -219,13 +219,13 @@ define hidden void @_ZN13logos_codegen6parser10definition10Definition10named_att
           to label %.invoke unwind label %92
 
 91:                                               ; preds = %.invoke76, %199, %198, %197, %92
-  %.sroa.014.5 = phi i8 [ %.sroa.014.6, %92 ], [ %.sroa.09.0, %197 ], [ %.sroa.09.0, %199 ], [ %.sroa.09.0, %198 ], [ %.sroa.09.0, %.invoke76 ]
+  %.sroa.014.6 = phi i8 [ %.sroa.014.5, %92 ], [ %.sroa.09.1, %197 ], [ %.sroa.09.1, %199 ], [ %.sroa.09.1, %198 ], [ %.sroa.09.1, %.invoke76 ]
   %.pn43 = phi { ptr, i32 } [ %93, %92 ], [ %.pn41, %197 ], [ %.pn41, %199 ], [ %.pn41, %198 ], [ %.pn41, %.invoke76 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6babfb2ad2ffb03eE"(ptr nonnull align 8 %22) #10
           to label %.thread unwind label %140
 
 92:                                               ; preds = %.invoke75, %192, %184, %90, %88
-  %.sroa.014.6 = phi i8 [ 1, %192 ], [ 1, %184 ], [ 0, %88 ], [ 0, %90 ], [ 1, %.invoke75 ]
+  %.sroa.014.5 = phi i8 [ 1, %192 ], [ 1, %184 ], [ 0, %88 ], [ 0, %90 ], [ 1, %.invoke75 ]
   %93 = landingpad { ptr, i32 }
           cleanup
   br label %91
@@ -498,10 +498,10 @@ define hidden void @_ZN13logos_codegen6parser10definition10Definition10named_att
           to label %91 unwind label %140
 
 198:                                              ; preds = %.thread56
-  br i1 %.sroa.011.0, label %.invoke76, label %91
+  br i1 %.sroa.011.1, label %.invoke76, label %91
 
 199:                                              ; preds = %.thread56
-  %200 = trunc nuw i8 %.sroa.09.0 to i1
+  %200 = trunc nuw i8 %.sroa.09.1 to i1
   br i1 %200, label %.invoke76, label %91
 
 .invoke76:                                        ; preds = %199, %198
@@ -511,8 +511,8 @@ define hidden void @_ZN13logos_codegen6parser10definition10Definition10named_att
 
 .thread:                                          ; preds = %91, %.thread52
   %.pn4551 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread52 ], [ %.pn43, %91 ]
-  %.sroa.014.050 = phi i8 [ %.sroa.014.1.ph, %.thread52 ], [ %.sroa.014.5, %91 ]
-  %202 = trunc nuw i8 %.sroa.014.050 to i1
+  %.sroa.014.150 = phi i8 [ %.sroa.014.0.ph, %.thread52 ], [ %.sroa.014.6, %91 ]
+  %202 = trunc nuw i8 %.sroa.014.150 to i1
   br i1 %202, label %.thread.thread, label %204
 
 203:                                              ; preds = %4

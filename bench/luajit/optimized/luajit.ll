@@ -127,7 +127,7 @@ entry:
   br i1 %cmp.not36.i, label %if.end3, label %for.body.i
 
 for.body.i:                                       ; preds = %entry, %for.inc.i
-  %flags.0 = phi i32 [ %flags.4, %for.inc.i ], [ 0, %entry ]
+  %flags.0 = phi i32 [ %flags.2, %for.inc.i ], [ 0, %entry ]
   %.pre.i = phi ptr [ %8, %for.inc.i ], [ %1, %entry ]
   %i.037.i = phi i32 [ %inc64.i, %for.inc.i ], [ 1, %entry ]
   %2 = load i8, ptr %.pre.i, align 1
@@ -178,8 +178,8 @@ sw.bb38.i:                                        ; preds = %if.end.i
   br label %sw.bb40.i
 
 sw.bb40.i:                                        ; preds = %sw.bb38.i, %if.end.i, %if.end.i
-  %flags.2 = phi i32 [ %flags.0, %if.end.i ], [ %flags.0, %if.end.i ], [ %or39.i, %sw.bb38.i ]
-  %or41.i = or i32 %flags.2, 8
+  %flags.3 = phi i32 [ %flags.0, %if.end.i ], [ %flags.0, %if.end.i ], [ %or39.i, %sw.bb38.i ]
+  %or41.i = or i32 %flags.3, 8
   %arrayidx44.i = getelementptr inbounds i8, ptr %.pre.i, i64 2
   %6 = load i8, ptr %arrayidx44.i, align 1
   %cmp46.i = icmp eq i8 %6, 0
@@ -202,13 +202,13 @@ if.end59.i:                                       ; preds = %sw.bb57.i
   br label %collectargs.exit
 
 for.inc.sink.split.i:                             ; preds = %sw.bb28.i.thread, %sw.bb28.i, %if.end.i
-  %flags.3 = phi i32 [ %flags.0, %if.end.i ], [ %flags.0, %sw.bb28.i ], [ %or.i, %sw.bb28.i.thread ]
+  %flags.1 = phi i32 [ %flags.0, %if.end.i ], [ %flags.0, %sw.bb28.i ], [ %or.i, %sw.bb28.i.thread ]
   %.sink57.i = phi i32 [ 16, %if.end.i ], [ 2, %sw.bb28.i ], [ 2, %sw.bb28.i.thread ]
-  %or37.i = or i32 %.sink57.i, %flags.3
+  %or37.i = or i32 %.sink57.i, %flags.1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.sink.split.i, %if.then48.i, %sw.bb40.i, %if.end.i
-  %flags.4 = phi i32 [ %or37.i, %for.inc.sink.split.i ], [ %flags.0, %if.end.i ], [ %or41.i, %if.then48.i ], [ %or41.i, %sw.bb40.i ]
+  %flags.2 = phi i32 [ %or37.i, %for.inc.sink.split.i ], [ %flags.0, %if.end.i ], [ %or41.i, %if.then48.i ], [ %or41.i, %sw.bb40.i ]
   %i.1.i = phi i32 [ %i.037.i, %for.inc.sink.split.i ], [ %i.037.i, %if.end.i ], [ %inc.i, %if.then48.i ], [ %i.037.i, %sw.bb40.i ]
   %inc64.i = add nsw i32 %i.1.i, 1
   %idxprom.i = sext i32 %inc64.i to i64
@@ -218,7 +218,7 @@ for.inc.i:                                        ; preds = %for.inc.sink.split.
   br i1 %cmp.not.i, label %collectargs.exit, label %for.body.i, !llvm.loop !4
 
 collectargs.exit:                                 ; preds = %if.end.i, %for.body.i, %for.inc.i, %sw.bb.i, %if.end59.i
-  %flags.5 = phi i32 [ 4, %if.end59.i ], [ %flags.0, %sw.bb.i ], [ %flags.0, %if.end.i ], [ %flags.0, %for.body.i ], [ %flags.4, %for.inc.i ]
+  %flags.5 = phi i32 [ 4, %if.end59.i ], [ %flags.0, %sw.bb.i ], [ %flags.0, %if.end.i ], [ %flags.0, %for.body.i ], [ %flags.2, %for.inc.i ]
   %retval.0.i = phi i32 [ %add61.i, %if.end59.i ], [ %add.i, %sw.bb.i ], [ %i.037.i, %if.end.i ], [ %i.037.i, %for.body.i ], [ %inc64.i, %for.inc.i ]
   %cmp = icmp slt i32 %retval.0.i, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -344,29 +344,29 @@ if.end.i41:                                       ; preds = %for.body.i37
   %arrayidx4.i = getelementptr inbounds i8, ptr %24, i64 1
   %25 = load i8, ptr %arrayidx4.i, align 1
   switch i8 %25, label %for.inc.i44 [
-    i8 101, label %sw.bb.i47
+    i8 101, label %sw.bb.i48
     i8 108, label %sw.bb18.i
     i8 106, label %sw.bb33.i
     i8 79, label %sw.bb49.i
     i8 98, label %sw.bb57.i42
   ]
 
-sw.bb.i47:                                        ; preds = %if.end.i41
-  %add.ptr.i48 = getelementptr inbounds i8, ptr %24, i64 2
-  %26 = load i8, ptr %add.ptr.i48, align 1
+sw.bb.i48:                                        ; preds = %if.end.i41
+  %add.ptr.i49 = getelementptr inbounds i8, ptr %24, i64 2
+  %26 = load i8, ptr %add.ptr.i49, align 1
   %cmp8.i = icmp eq i8 %26, 0
   br i1 %cmp8.i, label %if.then10.i, label %if.end13.i
 
-if.then10.i:                                      ; preds = %sw.bb.i47
+if.then10.i:                                      ; preds = %sw.bb.i48
   %inc.i55 = add nsw i32 %i.046.i, 1
   %idxprom11.i = sext i32 %inc.i55 to i64
   %arrayidx12.i56 = getelementptr inbounds ptr, ptr %0, i64 %idxprom11.i
   %27 = load ptr, ptr %arrayidx12.i56, align 8
   br label %if.end13.i
 
-if.end13.i:                                       ; preds = %if.then10.i, %sw.bb.i47
-  %i.1.i49 = phi i32 [ %inc.i55, %if.then10.i ], [ %i.046.i, %sw.bb.i47 ]
-  %chunk.0.i = phi ptr [ %27, %if.then10.i ], [ %add.ptr.i48, %sw.bb.i47 ]
+if.end13.i:                                       ; preds = %if.then10.i, %sw.bb.i48
+  %i.2.i = phi i32 [ %inc.i55, %if.then10.i ], [ %i.046.i, %sw.bb.i48 ]
+  %chunk.0.i = phi ptr [ %27, %if.then10.i ], [ %add.ptr.i49, %sw.bb.i48 ]
   %call.i.i50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %chunk.0.i) #10
   %call1.i.i = tail call i32 @luaL_loadbuffer(ptr noundef %L, ptr noundef %chunk.0.i, i64 noundef %call.i.i50, ptr noundef nonnull @.str.11) #8
   %tobool.not.i.i51 = icmp eq i32 %call1.i.i, 0
@@ -393,14 +393,14 @@ if.then25.i:                                      ; preds = %sw.bb18.i
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then25.i, %sw.bb18.i
-  %i.2.i = phi i32 [ %inc26.i, %if.then25.i ], [ %i.046.i, %sw.bb18.i ]
+  %i.3.i = phi i32 [ %inc26.i, %if.then25.i ], [ %i.046.i, %sw.bb18.i ]
   %filename.0.i = phi ptr [ %30, %if.then25.i ], [ %add.ptr21.i, %sw.bb18.i ]
   tail call void @lua_getfield(ptr noundef %L, i32 noundef -10002, ptr noundef nonnull @.str.12) #8
   tail call void @lua_pushstring(ptr noundef %L, ptr noundef %filename.0.i) #8
   %call.i28.i = tail call fastcc i32 @docall(ptr noundef %L, i32 noundef 1, i32 noundef 1)
   %call1.i29.i = tail call fastcc i32 @report(ptr noundef %L, i32 noundef %call.i28.i)
-  %tobool.not.i46 = icmp eq i32 %call.i28.i, 0
-  br i1 %tobool.not.i46, label %for.inc.i44, label %runargs.exit.thread
+  %tobool.not.i47 = icmp eq i32 %call.i28.i, 0
+  br i1 %tobool.not.i47, label %for.inc.i44, label %runargs.exit.thread
 
 sw.bb33.i:                                        ; preds = %if.end.i41
   %add.ptr36.i = getelementptr inbounds i8, ptr %24, i64 2
@@ -416,7 +416,7 @@ if.then40.i:                                      ; preds = %sw.bb33.i
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then40.i, %sw.bb33.i
-  %i.3.i = phi i32 [ %inc41.i, %if.then40.i ], [ %i.046.i, %sw.bb33.i ]
+  %i.4.i = phi i32 [ %inc41.i, %if.then40.i ], [ %i.046.i, %sw.bb33.i ]
   %cmd.0.i = phi ptr [ %32, %if.then40.i ], [ %add.ptr36.i, %sw.bb33.i ]
   %call.i30.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %cmd.0.i, i32 noundef 61) #10
   %tobool.not.i31.i = icmp eq ptr %call.i30.i, null
@@ -519,10 +519,10 @@ for.end.i.i:                                      ; preds = %for.body.i.i, %if.e
   br label %return.sink.split.i43
 
 for.inc.i44:                                      ; preds = %sw.bb49.i, %dojitcmd.exit.i, %if.end29.i, %dostring.exit.i, %if.end.i41, %for.body.i37
-  %i.4.i = phi i32 [ %i.046.i, %for.body.i37 ], [ %i.046.i, %if.end.i41 ], [ %i.046.i, %sw.bb49.i ], [ %i.3.i, %dojitcmd.exit.i ], [ %i.2.i, %if.end29.i ], [ %i.1.i49, %dostring.exit.i ]
-  %inc60.i = add nsw i32 %i.4.i, 1
-  %cmp.i45 = icmp slt i32 %inc60.i, %retval.0.i7984
-  br i1 %cmp.i45, label %for.body.i37, label %if.end25, !llvm.loop !8
+  %i.1.i45 = phi i32 [ %i.046.i, %for.body.i37 ], [ %i.046.i, %if.end.i41 ], [ %i.046.i, %sw.bb49.i ], [ %i.4.i, %dojitcmd.exit.i ], [ %i.3.i, %if.end29.i ], [ %i.2.i, %dostring.exit.i ]
+  %inc60.i = add nsw i32 %i.1.i45, 1
+  %cmp.i46 = icmp slt i32 %inc60.i, %retval.0.i7984
+  br i1 %cmp.i46, label %for.body.i37, label %if.end25, !llvm.loop !8
 
 return.sink.split.i43:                            ; preds = %if.end13.i, %for.end.i.i
   %call10.i.sink.i = phi i32 [ %call10.i.i, %for.end.i.i ], [ 1, %if.end13.i ]
@@ -1270,8 +1270,8 @@ if.else9:                                         ; preds = %for.end
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %if.else9, %land.lhs.true, %entry
-  %narg.1 = phi i32 [ %inc.lcssa28, %if.then8 ], [ %inc, %if.else9 ], [ 0, %land.lhs.true ], [ 0, %entry ]
-  %call12 = tail call i32 @lua_pcall(ptr noundef %L, i32 noundef %narg.1, i32 noundef 0, i32 noundef 0) #8
+  %narg.0 = phi i32 [ %inc.lcssa28, %if.then8 ], [ %inc, %if.else9 ], [ 0, %land.lhs.true ], [ 0, %entry ]
+  %call12 = tail call i32 @lua_pcall(ptr noundef %L, i32 noundef %narg.0, i32 noundef 0, i32 noundef 0) #8
   %call13 = tail call fastcc i32 @report(ptr noundef %L, i32 noundef %call12)
   ret i32 %call12
 }

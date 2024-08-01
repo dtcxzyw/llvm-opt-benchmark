@@ -5001,14 +5001,14 @@ if.end829:                                        ; preds = %if.end819
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end819, %if.end789, %for.end779, %if.end652, %if.end642, %for.end632, %if.end505, %for.end495, %if.end297, %if.end, %if.end829
-  %retval.0 = phi i32 [ 0, %if.end829 ], [ %call25, %if.end ], [ %call305, %if.end297 ], [ %call500, %for.end495 ], [ %call512, %if.end505 ], [ %call637, %for.end632 ], [ %call647, %if.end642 ], [ %call659, %if.end652 ], [ %call784, %for.end779 ], [ %call790, %if.end789 ], [ %call824, %if.end819 ]
+  %retval.1 = phi i32 [ 0, %if.end829 ], [ %call25, %if.end ], [ %call305, %if.end297 ], [ %call500, %for.end495 ], [ %call512, %if.end505 ], [ %call637, %for.end632 ], [ %call647, %if.end642 ], [ %call659, %if.end652 ], [ %call784, %for.end779 ], [ %call790, %if.end789 ], [ %call824, %if.end819 ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #20
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #20
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 10, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 10, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #0
@@ -5278,9 +5278,9 @@ _ZNSt10unique_ptrI7hostentN4node15FunctionDeleterIS0_XadL_Z17ares_free_hostentEE
   br label %cleanup153
 
 cleanup153:                                       ; preds = %sw.epilog, %_ZNSt10unique_ptrI7hostentN4node15FunctionDeleterIS0_XadL_Z17ares_free_hostentEEEEED2Ev.exit
-  %retval.1 = phi i32 [ 0, %_ZNSt10unique_ptrI7hostentN4node15FunctionDeleterIS0_XadL_Z17ares_free_hostentEEEEED2Ev.exit ], [ %status.0, %sw.epilog ]
+  %retval.0 = phi i32 [ 0, %_ZNSt10unique_ptrI7hostentN4node15FunctionDeleterIS0_XadL_Z17ares_free_hostentEEEEED2Ev.exit ], [ %status.0, %sw.epilog ]
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #20
-  ret i32 %retval.1
+  ret i32 %retval.0
 }
 
 declare noundef i32 @_ZNK2v85Array6LengthEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
@@ -5456,7 +5456,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %current.088.us = phi ptr [ %21, %for.inc.us ], [ %1, %for.body.lr.ph ]
-  %i.087.us = phi i32 [ %i.2.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
+  %i.087.us = phi i32 [ %i.1.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %j.086.us = phi i32 [ %inc143.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %txt_chunk.sroa.0.085.us = phi ptr [ %txt_chunk.sroa.0.1.us, %for.inc.us ], [ null, %for.body.lr.ph ]
   %2 = load ptr, ptr %isolate_.i, align 8
@@ -5538,7 +5538,7 @@ if.then.i364.us:                                  ; preds = %_ZNK2v85MaybeIbE5Ch
   br label %if.end128.us
 
 if.end128.us:                                     ; preds = %if.then.i364.us, %_ZNK2v85MaybeIbE5CheckEv.exit372.us, %if.then13.us
-  %i.1.us = phi i32 [ %i.087.us, %if.then13.us ], [ %inc.us, %if.then.i364.us ], [ %inc.us, %_ZNK2v85MaybeIbE5CheckEv.exit372.us ]
+  %i.2.us = phi i32 [ %i.087.us, %if.then13.us ], [ %inc.us, %if.then.i364.us ], [ %inc.us, %_ZNK2v85MaybeIbE5CheckEv.exit372.us ]
   %18 = load ptr, ptr %isolate_.i, align 8
   %call131.us = call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %18, i32 noundef 0) #20
   br label %if.end135.us
@@ -5546,7 +5546,7 @@ if.end128.us:                                     ; preds = %if.then.i364.us, %_
 if.end135.us:                                     ; preds = %if.end128.us, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit.us
   %txt_chunk.sroa.0.1.us = phi ptr [ %call131.us, %if.end128.us ], [ %txt_chunk.sroa.0.085.us, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit.us ]
   %j.1.us = phi i32 [ 0, %if.end128.us ], [ %j.086.us, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit.us ]
-  %i.2.us = phi i32 [ %i.1.us, %if.end128.us ], [ %i.087.us, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit.us ]
+  %i.1.us = phi i32 [ %i.2.us, %if.end128.us ], [ %i.087.us, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit.us ]
   %19 = load ptr, ptr %principal_realm_.i.i52, align 8
   %vtable.i58.us = load ptr, ptr %19, align 8
   %vfn.i59.us = getelementptr inbounds i8, ptr %vtable.i58.us, i64 64
@@ -5568,7 +5568,7 @@ for.inc.us:                                       ; preds = %if.then.i350.us, %i
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %current.088 = phi ptr [ %31, %for.inc ], [ %1, %for.body.lr.ph ]
-  %i.087 = phi i32 [ %i.2, %for.inc ], [ 0, %for.body.lr.ph ]
+  %i.087 = phi i32 [ %i.1, %for.inc ], [ 0, %for.body.lr.ph ]
   %j.086 = phi i32 [ %inc143, %for.inc ], [ 0, %for.body.lr.ph ]
   %txt_chunk.sroa.0.085 = phi ptr [ %txt_chunk.sroa.0.1, %for.inc ], [ null, %for.body.lr.ph ]
   %22 = load ptr, ptr %isolate_.i, align 8
@@ -5612,7 +5612,7 @@ if.then.i357:                                     ; preds = %if.then15
   br label %if.end128
 
 if.end128:                                        ; preds = %if.then.i357, %if.then15, %if.then13
-  %i.1 = phi i32 [ %i.087, %if.then13 ], [ %inc113, %if.then.i357 ], [ %inc113, %if.then15 ]
+  %i.2 = phi i32 [ %i.087, %if.then13 ], [ %inc113, %if.then.i357 ], [ %inc113, %if.then15 ]
   %28 = load ptr, ptr %isolate_.i, align 8
   %call131 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEi(ptr noundef %28, i32 noundef 0) #20
   br label %if.end135
@@ -5620,7 +5620,7 @@ if.end128:                                        ; preds = %if.then.i357, %if.t
 if.end135:                                        ; preds = %if.end128, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit
   %txt_chunk.sroa.0.1 = phi ptr [ %call131, %if.end128 ], [ %txt_chunk.sroa.0.085, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit ]
   %j.1 = phi i32 [ 0, %if.end128 ], [ %j.086, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit ]
-  %i.2 = phi i32 [ %i.1, %if.end128 ], [ %i.087, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit ]
+  %i.1 = phi i32 [ %i.2, %if.end128 ], [ %i.087, %_ZN4node13OneByteStringEPN2v87IsolateEPKhi.exit ]
   %29 = load ptr, ptr %principal_realm_.i.i52, align 8
   %vtable.i58 = load ptr, ptr %29, align 8
   %vfn.i59 = getelementptr inbounds i8, ptr %vtable.i58, i64 64
@@ -5642,7 +5642,7 @@ for.inc:                                          ; preds = %if.end135, %if.then
 
 if.then157:                                       ; preds = %for.inc, %for.inc.us
   %txt_chunk.sroa.0.0.lcssa = phi ptr [ %txt_chunk.sroa.0.1.us, %for.inc.us ], [ %txt_chunk.sroa.0.1, %for.inc ]
-  %i.0.lcssa = phi i32 [ %i.2.us, %for.inc.us ], [ %i.2, %for.inc ]
+  %i.0.lcssa = phi i32 [ %i.1.us, %for.inc.us ], [ %i.1, %for.inc ]
   br i1 %need_type, label %if.then159, label %if.else252
 
 if.then159:                                       ; preds = %if.then157
@@ -6195,8 +6195,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %retval.0204 = phi i32 [ undef, %for.body.lr.ph ], [ %retval.3, %for.inc ]
-  %ptr.0203 = phi ptr [ %add.ptr6, %for.body.lr.ph ], [ %ptr.2, %for.inc ]
+  %retval.2204 = phi i32 [ undef, %for.body.lr.ph ], [ %retval.3, %for.inc ]
+  %ptr.0203 = phi ptr [ %add.ptr6, %for.body.lr.ph ], [ %ptr.1, %for.inc ]
   %i.0202 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   store ptr null, ptr %rr_name_temp, align 8
   %call13 = call i32 @ares_expand_name(ptr noundef %ptr.0203, ptr noundef %buf, i32 noundef %len, ptr noundef nonnull %rr_name_temp, ptr noundef nonnull %rr_temp_len) #20
@@ -6525,8 +6525,8 @@ _ZNK2v85MaybeIbE5CheckEv.exit:                    ; preds = %if.then.i, %_ZNK2v8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end55, %_ZNK2v85MaybeIbE5CheckEv.exit
-  %cleanup.dest.slot.0 = phi i32 [ 2, %_ZNK2v85MaybeIbE5CheckEv.exit ], [ 1, %if.end55 ]
-  %retval.1 = phi i32 [ %retval.0204, %_ZNK2v85MaybeIbE5CheckEv.exit ], [ 10, %if.end55 ]
+  %cleanup.dest.slot.2 = phi i32 [ 2, %_ZNK2v85MaybeIbE5CheckEv.exit ], [ 1, %if.end55 ]
+  %retval.5 = phi i32 [ %retval.2204, %_ZNK2v85MaybeIbE5CheckEv.exit ], [ 10, %if.end55 ]
   %cmp.not.i = icmp eq ptr %10, null
   br i1 %cmp.not.i, label %cleanup373, label %if.then.i190
 
@@ -6535,9 +6535,9 @@ if.then.i190:                                     ; preds = %cleanup
   br label %cleanup373
 
 cleanup373:                                       ; preds = %if.then.i190, %cleanup, %if.then49
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then49 ], [ %cleanup.dest.slot.0, %cleanup ], [ %cleanup.dest.slot.0, %if.then.i190 ]
-  %ptr.1 = phi ptr [ %add.ptr46, %if.then49 ], [ %add.ptr56, %cleanup ], [ %add.ptr56, %if.then.i190 ]
-  %retval.2 = phi i32 [ %cond54, %if.then49 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i190 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then49 ], [ %cleanup.dest.slot.2, %cleanup ], [ %cleanup.dest.slot.2, %if.then.i190 ]
+  %ptr.2 = phi ptr [ %add.ptr46, %if.then49 ], [ %add.ptr56, %cleanup ], [ %add.ptr56, %if.then.i190 ]
+  %retval.4 = phi i32 [ %cond54, %if.then49 ], [ %retval.5, %cleanup ], [ %retval.5, %if.then.i190 ]
   %cmp.not.i191 = icmp eq ptr %8, null
   br i1 %cmp.not.i191, label %cleanup377, label %if.then.i192
 
@@ -6558,9 +6558,9 @@ if.end374:                                        ; preds = %if.end28
   br label %cleanup377
 
 cleanup377:                                       ; preds = %if.then.i192, %cleanup373, %if.end21, %if.end374, %if.then39
-  %cleanup.dest.slot.2 = phi i32 [ 1, %if.then39 ], [ 0, %if.end374 ], [ 1, %if.end21 ], [ %cleanup.dest.slot.1, %cleanup373 ], [ %cleanup.dest.slot.1, %if.then.i192 ]
-  %ptr.2 = phi ptr [ %add.ptr23, %if.then39 ], [ %add.ptr376, %if.end374 ], [ %add.ptr22, %if.end21 ], [ %ptr.1, %cleanup373 ], [ %ptr.1, %if.then.i192 ]
-  %retval.3 = phi i32 [ %cond44, %if.then39 ], [ %retval.0204, %if.end374 ], [ 10, %if.end21 ], [ %retval.2, %cleanup373 ], [ %retval.2, %if.then.i192 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %if.then39 ], [ 0, %if.end374 ], [ 1, %if.end21 ], [ %cleanup.dest.slot.1, %cleanup373 ], [ %cleanup.dest.slot.1, %if.then.i192 ]
+  %ptr.1 = phi ptr [ %add.ptr23, %if.then39 ], [ %add.ptr376, %if.end374 ], [ %add.ptr22, %if.end21 ], [ %ptr.2, %cleanup373 ], [ %ptr.2, %if.then.i192 ]
+  %retval.3 = phi i32 [ %cond44, %if.then39 ], [ %retval.2204, %if.end374 ], [ 10, %if.end21 ], [ %retval.4, %cleanup373 ], [ %retval.4, %if.then.i192 ]
   %cmp.not.i194 = icmp eq ptr %5, null
   br i1 %cmp.not.i194, label %_ZNSt10unique_ptrIA_cZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS1_11EnvironmentEPhiPN2v85LocalINS7_6ObjectEEEE11AresDeleterED2Ev.exit196, label %if.then.i195
 
@@ -6569,7 +6569,7 @@ if.then.i195:                                     ; preds = %cleanup377
   br label %_ZNSt10unique_ptrIA_cZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS1_11EnvironmentEPhiPN2v85LocalINS7_6ObjectEEEE11AresDeleterED2Ev.exit196
 
 _ZNSt10unique_ptrIA_cZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS1_11EnvironmentEPhiPN2v85LocalINS7_6ObjectEEEE11AresDeleterED2Ev.exit196: ; preds = %cleanup377, %if.then.i195
-  switch i32 %cleanup.dest.slot.2, label %cleanup378.loopexit [
+  switch i32 %cleanup.dest.slot.0, label %cleanup378.loopexit [
     i32 0, label %for.inc
     i32 2, label %cleanup378
   ]
@@ -6583,7 +6583,7 @@ cleanup378.loopexit:                              ; preds = %_ZNSt10unique_ptrIA
   br label %cleanup378
 
 cleanup378:                                       ; preds = %_ZNSt10unique_ptrIA_cZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS1_11EnvironmentEPhiPN2v85LocalINS7_6ObjectEEEE11AresDeleterED2Ev.exit196, %for.inc, %cleanup378.loopexit, %for.cond.preheader, %if.end, %if.then15
-  %retval.4 = phi i32 [ %cond20, %if.then15 ], [ 10, %if.end ], [ 0, %for.cond.preheader ], [ %retval.3, %cleanup378.loopexit ], [ 0, %for.inc ], [ 0, %_ZNSt10unique_ptrIA_cZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS1_11EnvironmentEPhiPN2v85LocalINS7_6ObjectEEEE11AresDeleterED2Ev.exit196 ]
+  %retval.1 = phi i32 [ %cond20, %if.then15 ], [ 10, %if.end ], [ 0, %for.cond.preheader ], [ %retval.3, %cleanup378.loopexit ], [ 0, %for.inc ], [ 0, %_ZNSt10unique_ptrIA_cZN4node10cares_wrap12_GLOBAL__N_113ParseSoaReplyEPNS1_11EnvironmentEPhiPN2v85LocalINS7_6ObjectEEEE11AresDeleterED2Ev.exit196 ]
   %cmp.not.i197 = icmp eq ptr %2, null
   br i1 %cmp.not.i197, label %cleanup379, label %if.then.i198
 
@@ -6592,9 +6592,9 @@ if.then.i198:                                     ; preds = %cleanup378
   br label %cleanup379
 
 cleanup379:                                       ; preds = %if.then.i198, %cleanup378, %if.then
-  %retval.5 = phi i32 [ %cond, %if.then ], [ %retval.4, %cleanup378 ], [ %retval.4, %if.then.i198 ]
+  %retval.0 = phi i32 [ %cond, %if.then ], [ %retval.1, %cleanup378 ], [ %retval.1, %if.then.i198 ]
   call void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #20
-  ret i32 %retval.5
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7039,14 +7039,14 @@ _ZN4node10cares_wrap12_GLOBAL__N_114AddrTTLToArrayI12ares_addrttlEEN2v85LocalINS
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %_ZN4node10cares_wrap12_GLOBAL__N_114AddrTTLToArrayI12ares_addrttlEEN2v85LocalINS4_5ArrayEEEPNS_11EnvironmentEPKT_m.exit
-  %retval.0 = phi i32 [ 0, %_ZN4node10cares_wrap12_GLOBAL__N_114AddrTTLToArrayI12ares_addrttlEEN2v85LocalINS4_5ArrayEEEPNS_11EnvironmentEPKT_m.exit ], [ %call25, %if.end ]
+  %retval.1 = phi i32 [ 0, %_ZN4node10cares_wrap12_GLOBAL__N_114AddrTTLToArrayI12ares_addrttlEEN2v85LocalINS4_5ArrayEEEPNS_11EnvironmentEPKT_m.exit ], [ %call25, %if.end ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #20
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #20
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 10, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 10, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7344,14 +7344,14 @@ _ZN4node10cares_wrap12_GLOBAL__N_114AddrTTLToArrayI13ares_addr6ttlEEN2v85LocalIN
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %_ZN4node10cares_wrap12_GLOBAL__N_114AddrTTLToArrayI13ares_addr6ttlEEN2v85LocalINS4_5ArrayEEEPNS_11EnvironmentEPKT_m.exit
-  %retval.0 = phi i32 [ 0, %_ZN4node10cares_wrap12_GLOBAL__N_114AddrTTLToArrayI13ares_addr6ttlEEN2v85LocalINS4_5ArrayEEEPNS_11EnvironmentEPKT_m.exit ], [ %call25, %if.end ]
+  %retval.1 = phi i32 [ 0, %_ZN4node10cares_wrap12_GLOBAL__N_114AddrTTLToArrayI13ares_addr6ttlEEN2v85LocalINS4_5ArrayEEEPNS_11EnvironmentEPKT_m.exit ], [ %call25, %if.end ]
   call void @_ZN2v87Context4ExitEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #20
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #20
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 10, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 10, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7567,8 +7567,8 @@ cleanup:                                          ; preds = %if.end, %if.end25
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7786,8 +7786,8 @@ cleanup:                                          ; preds = %if.end, %if.end25
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8003,8 +8003,8 @@ cleanup:                                          ; preds = %if.end, %if.end25
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8222,8 +8222,8 @@ cleanup:                                          ; preds = %if.end, %if.end25
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8439,8 +8439,8 @@ cleanup:                                          ; preds = %if.end, %if.end25
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8656,8 +8656,8 @@ cleanup:                                          ; preds = %if.end, %if.end25
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8875,8 +8875,8 @@ cleanup:                                          ; preds = %if.end, %if.end25
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9092,8 +9092,8 @@ cleanup:                                          ; preds = %if.end, %if.end25
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call23, %cleanup ], [ 10, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9482,8 +9482,8 @@ cleanup:                                          ; preds = %if.end, %_ZNK2v85Ma
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %call14, %cleanup ], [ 10, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call14, %cleanup ], [ 10, %entry ]
+  ret i32 %retval.0
 }
 
 declare i32 @ares_parse_soa_reply(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0

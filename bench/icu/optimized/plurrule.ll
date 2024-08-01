@@ -598,9 +598,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1079,8 +1079,8 @@ delete.notnull.i:                                 ; preds = %_ZN6icu_7512LocalPo
   br label %return
 
 return:                                           ; preds = %new.cont, %if.then.i, %_ZN6icu_7512LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit, %delete.notnull.i, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ null, %delete.notnull.i ], [ %call1, %_ZN6icu_7512LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit ], [ null, %if.then.i ], [ null, %new.cont ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %entry ], [ null, %delete.notnull.i ], [ %call1, %_ZN6icu_7512LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit ], [ null, %if.then.i ], [ null, %new.cont ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1154,7 +1154,7 @@ delete.notnull.i17:                               ; preds = %invoke.cont3
   br label %_ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit20
 
 _ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit20: ; preds = %if.then.i, %new.cont, %invoke.cont12, %delete.notnull.i13, %delete.notnull.i17
-  %retval.031 = phi ptr [ null, %delete.notnull.i17 ], [ null, %delete.notnull.i13 ], [ %call1, %invoke.cont12 ], [ null, %new.cont ], [ null, %if.then.i ]
+  %retval.131 = phi ptr [ null, %delete.notnull.i17 ], [ null, %delete.notnull.i13 ], [ %call1, %invoke.cont12 ], [ null, %new.cont ], [ null, %if.then.i ]
   call void @_ZN6icu_7516PluralRuleParserD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %parser) #26
   br label %return
 
@@ -1164,8 +1164,8 @@ ehcleanup:                                        ; preds = %delete.notnull.i, %
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %_ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit20
-  %retval.1 = phi ptr [ %retval.031, %_ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit20 ], [ null, %entry ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %retval.131, %_ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit20 ], [ null, %entry ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2152,8 +2152,8 @@ delete.notnull.i20:                               ; preds = %cleanup26
   br label %_ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit
 
 _ZN6icu_7512LocalPointerINS_11PluralRulesEED2Ev.exit: ; preds = %if.end18, %cleanup26, %delete.notnull.i20
-  %retval.146 = phi ptr [ null, %cleanup26 ], [ null, %delete.notnull.i20 ], [ %call7, %if.end18 ]
-  ret ptr %retval.146
+  %retval.046 = phi ptr [ null, %cleanup26 ], [ null, %delete.notnull.i20 ], [ %call7, %if.end18 ]
+  ret ptr %retval.046
 
 eh.resume:                                        ; preds = %delete.notnull.i, %lpad
   %.pn.pn = phi { ptr, i32 } [ %4, %lpad ], [ %7, %delete.notnull.i ]
@@ -2321,8 +2321,8 @@ delete.notnull.i23:                               ; preds = %lpad4, %ehcleanup39
   br label %eh.resume
 
 return:                                           ; preds = %new.cont, %if.then.i, %cleanup40.thread45, %delete.notnull.i21, %entry, %if.then1
-  %retval.2 = phi ptr [ null, %if.then1 ], [ null, %entry ], [ null, %delete.notnull.i21 ], [ %call3, %cleanup40.thread45 ], [ null, %if.then.i ], [ null, %new.cont ]
-  ret ptr %retval.2
+  %retval.0 = phi ptr [ null, %if.then1 ], [ null, %entry ], [ null, %delete.notnull.i21 ], [ %call3, %cleanup40.thread45 ], [ null, %if.then.i ], [ null, %new.cont ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %delete.notnull.i23, %lpad
   %.pn.pn.pn = phi { ptr, i32 } [ %3, %lpad ], [ %.pn.pn, %delete.notnull.i23 ]
@@ -2698,10 +2698,10 @@ if.then61.critedge:                               ; preds = %invoke.cont41
   br label %cleanup118.sink.split
 
 if.end62:                                         ; preds = %invoke.cont27, %if.end59
-  %s.267 = phi ptr [ %call54, %if.end59 ], [ %call28, %invoke.cont27 ]
+  %s.067 = phi ptr [ %call54, %if.end59 ], [ %call28, %invoke.cont27 ]
   %16 = load i32, ptr %resLen, align 4
   %add = add nsw i32 %16, 1
-  invoke void @u_UCharsToChars_75(ptr noundef nonnull %s.267, ptr noundef nonnull %setKey, i32 noundef %add)
+  invoke void @u_UCharsToChars_75(ptr noundef nonnull %s.067, ptr noundef nonnull %setKey, i32 noundef %add)
           to label %invoke.cont63 unwind label %lpad17
 
 invoke.cont63:                                    ; preds = %if.end62
@@ -3416,8 +3416,8 @@ delete.notnull.i:                                 ; preds = %_ZN6icu_7512LocalPo
   br label %return
 
 return:                                           ; preds = %new.cont, %if.then.i, %_ZN6icu_7512LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit, %delete.notnull.i, %entry, %if.then4
-  %retval.1 = phi ptr [ null, %if.then4 ], [ null, %entry ], [ null, %delete.notnull.i ], [ %call7, %_ZN6icu_7512LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit ], [ null, %if.then.i ], [ null, %new.cont ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then4 ], [ null, %entry ], [ null, %delete.notnull.i ], [ %call7, %_ZN6icu_7512LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit ], [ null, %if.then.i ], [ null, %new.cont ]
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -3641,7 +3641,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 for.cond:                                         ; preds = %for.cond.preheader, %cleanup127
   %sampleStartIdx.0 = phi i32 [ %sampleStartIdx.1, %cleanup127 ], [ 0, %for.cond.preheader ]
-  %sampleCount.0 = phi i32 [ %sampleCount.7, %cleanup127 ], [ 0, %for.cond.preheader ]
+  %sampleCount.0 = phi i32 [ %sampleCount.8, %cleanup127 ], [ 0, %for.cond.preheader ]
   %cmp6 = icmp slt i32 %sampleCount.0, %destCapacity
   br i1 %cmp6, label %land.rhs, label %return
 
@@ -3749,7 +3749,7 @@ if.else:                                          ; preds = %invoke.cont18
           to label %if.end35 unwind label %lpad20
 
 if.end35:                                         ; preds = %if.else, %invoke.cont25, %if.then28
-  %sampleCount.1 = phi i32 [ %sampleCount.0, %invoke.cont25 ], [ %inc, %if.then28 ], [ %inc30, %if.else ]
+  %sampleCount.2 = phi i32 [ %sampleCount.0, %invoke.cont25 ], [ %inc, %if.then28 ], [ %inc30, %if.else ]
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %dq) #26
   br label %if.end125
 
@@ -3870,7 +3870,7 @@ while.body.preheader:                             ; preds = %while.body.lr.ph
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us
   %dblValue73.072.us = phi double [ %call117.us, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us ], [ %call76, %while.body.lr.ph ]
-  %sampleCount.271.us = phi i32 [ %sampleCount.3.us, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us ], [ %sampleCount.0, %while.body.lr.ph ]
+  %sampleCount.571.us = phi i32 [ %sampleCount.7.us, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us ], [ %sampleCount.0, %while.body.lr.ph ]
   %21 = call double @llvm.floor.f64(double %dblValue73.072.us)
   %cmp82.us = fcmp oeq double %dblValue73.072.us, %21
   br i1 %cmp82.us, label %land.lhs.true83.us, label %if.then87.us
@@ -3884,15 +3884,15 @@ invoke.cont84.us:                                 ; preds = %land.lhs.true83.us
   br i1 %cmp86.us, label %if.end98.us, label %if.then87.us
 
 if.then87.us:                                     ; preds = %invoke.cont84.us, %while.body.us
-  %inc88.us = add nsw i32 %sampleCount.271.us, 1
-  %idxprom89.us = sext i32 %sampleCount.271.us to i64
+  %inc88.us = add nsw i32 %sampleCount.571.us, 1
+  %idxprom89.us = sext i32 %sampleCount.571.us to i64
   %arrayidx90.us = getelementptr inbounds double, ptr %destDbl, i64 %idxprom89.us
   store double %dblValue73.072.us, ptr %arrayidx90.us, align 8
   br label %if.end98.us
 
 if.end98.us:                                      ; preds = %if.then87.us, %invoke.cont84.us
-  %sampleCount.3.us = phi i32 [ %sampleCount.271.us, %invoke.cont84.us ], [ %inc88.us, %if.then87.us ]
-  %cmp99.not.us = icmp slt i32 %sampleCount.3.us, %destCapacity
+  %sampleCount.7.us = phi i32 [ %sampleCount.571.us, %invoke.cont84.us ], [ %inc88.us, %if.then87.us ]
+  %cmp99.not.us = icmp slt i32 %sampleCount.7.us, %destCapacity
   br i1 %cmp99.not.us, label %if.end101.us, label %while.end
 
 if.end101.us:                                     ; preds = %if.end98.us
@@ -4090,7 +4090,7 @@ while.end.loopexit88.split.loop.exit92:           ; preds = %_ZN6icu_756number4i
   br label %while.end
 
 while.end:                                        ; preds = %if.end98, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us, %if.end98.us, %while.end.loopexit88.split.loop.exit92, %while.cond.preheader
-  %sampleCount.4 = phi i32 [ %sampleCount.0, %while.cond.preheader ], [ %34, %while.end.loopexit88.split.loop.exit92 ], [ %sampleCount.3.us, %if.end98.us ], [ %sampleCount.3.us, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us ], [ %smax, %if.end98 ]
+  %sampleCount.6 = phi i32 [ %sampleCount.0, %while.cond.preheader ], [ %34, %while.end.loopexit88.split.loop.exit92 ], [ %sampleCount.7.us, %if.end98.us ], [ %sampleCount.7.us, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us ], [ %smax, %if.end98 ]
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %dq71) #26
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %incrementDq) #26
   br label %cleanup
@@ -4098,7 +4098,7 @@ while.end:                                        ; preds = %if.end98, %_ZN6icu_
 cleanup:                                          ; preds = %invoke.cont45, %while.end, %if.then56
   %cond = phi i1 [ false, %if.then56 ], [ true, %while.end ], [ false, %invoke.cont45 ]
   %cleanup.dest.slot.0 = phi i32 [ 2, %if.then56 ], [ 0, %while.end ], [ 2, %invoke.cont45 ]
-  %sampleCount.5 = phi i32 [ %sampleCount.0, %if.then56 ], [ %sampleCount.4, %while.end ], [ %sampleCount.0, %invoke.cont45 ]
+  %sampleCount.4 = phi i32 [ %sampleCount.0, %if.then56 ], [ %sampleCount.6, %while.end ], [ %sampleCount.0, %invoke.cont45 ]
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rangeHi) #26
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rangeLo) #26
   br i1 %cond, label %if.end125, label %cleanup127
@@ -4124,14 +4124,14 @@ ehcleanup124:                                     ; preds = %ehcleanup122, %lpad
   br label %ehcleanup130
 
 if.end125:                                        ; preds = %cleanup, %if.end35
-  %sampleCount.6 = phi i32 [ %sampleCount.1, %if.end35 ], [ %sampleCount.5, %cleanup ]
+  %sampleCount.3 = phi i32 [ %sampleCount.2, %if.end35 ], [ %sampleCount.4, %cleanup ]
   %add126 = add nsw i32 %sampleEndIdx.0, 1
   br label %cleanup127
 
 cleanup127:                                       ; preds = %cleanup, %if.end125
   %cleanup.dest.slot.1 = phi i32 [ 0, %if.end125 ], [ %cleanup.dest.slot.0, %cleanup ]
   %sampleStartIdx.1 = phi i32 [ %add126, %if.end125 ], [ %sampleStartIdx.0, %cleanup ]
-  %sampleCount.7 = phi i32 [ %sampleCount.6, %if.end125 ], [ %sampleCount.5, %cleanup ]
+  %sampleCount.8 = phi i32 [ %sampleCount.3, %if.end125 ], [ %sampleCount.4, %cleanup ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #26
   %switch = icmp eq i32 %cleanup.dest.slot.1, 0
   br i1 %switch, label %for.cond, label %return
@@ -4142,7 +4142,7 @@ ehcleanup130:                                     ; preds = %ehcleanup124, %lpad
   resume { ptr, i32 } %.pn54
 
 return:                                           ; preds = %land.rhs, %for.cond, %cleanup127, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ %sampleCount.0, %for.cond ], [ %sampleCount.0, %land.rhs ], [ %sampleCount.7, %cleanup127 ]
+  %retval.0 = phi i32 [ 0, %if.then ], [ %sampleCount.0, %for.cond ], [ %sampleCount.0, %land.rhs ], [ %sampleCount.8, %cleanup127 ]
   ret i32 %retval.0
 }
 
@@ -4419,7 +4419,7 @@ _ZNK6icu_7511PluralRules11getKeywordsER10UErrorCode.exit: ; preds = %_ZN6icu_751
   br i1 %cmp.i.i5, label %if.end.i7, label %return
 
 if.end.i7:                                        ; preds = %_ZN6icu_7512LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit.i, %_ZNK6icu_7511PluralRules11getKeywordsER10UErrorCode.exit
-  %retval.1.i59 = phi ptr [ null, %_ZNK6icu_7511PluralRules11getKeywordsER10UErrorCode.exit ], [ %call7.i, %_ZN6icu_7512LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit.i ]
+  %retval.0.i59 = phi ptr [ null, %_ZNK6icu_7511PluralRules11getKeywordsER10UErrorCode.exit ], [ %call7.i, %_ZN6icu_7512LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit.i ]
   %mInternalStatus.i8 = getelementptr inbounds i8, ptr %other, i64 24
   %5 = load i32, ptr %mInternalStatus.i8, align 8
   %cmp.i5.i9 = icmp slt i32 %5, 1
@@ -4491,30 +4491,30 @@ lpad4.loopexit.split-lp:                          ; preds = %if.end8
 
 lpad4:                                            ; preds = %lpad4.loopexit.split-lp, %lpad4.loopexit
   %lpad.phi80 = phi { ptr, i32 } [ %lpad.loopexit78, %lpad4.loopexit ], [ %lpad.loopexit.split-lp79, %lpad4.loopexit.split-lp ]
-  %isnull.i = icmp eq ptr %retval.1.i6100, null
+  %isnull.i = icmp eq ptr %retval.0.i6100, null
   br i1 %isnull.i, label %delete.notnull.i39, label %delete.notnull.i
 
 delete.notnull.i:                                 ; preds = %lpad4.thread.loopexit, %lpad4.thread.loopexit.split-lp, %lpad4
   %lpad.phi62 = phi { ptr, i32 } [ %lpad.phi80, %lpad4 ], [ %lpad.loopexit, %lpad4.thread.loopexit ], [ %lpad.loopexit.split-lp, %lpad4.thread.loopexit.split-lp ]
-  %vtable.i = load ptr, ptr %retval.1.i6100, align 8
+  %vtable.i = load ptr, ptr %retval.0.i6100, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
   %11 = load ptr, ptr %vfn.i, align 8
-  call void %11(ptr noundef nonnull align 8 dereferenceable(116) %retval.1.i6100) #26
+  call void %11(ptr noundef nonnull align 8 dereferenceable(116) %retval.0.i6100) #26
   br label %ehcleanup
 
 if.end8:                                          ; preds = %_ZN6icu_7512LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit.i17, %invoke.cont
-  %retval.1.i6100 = phi ptr [ null, %invoke.cont ], [ %call7.i12, %_ZN6icu_7512LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit.i17 ]
-  %vtable = load ptr, ptr %retval.1.i59, align 8
+  %retval.0.i6100 = phi ptr [ null, %invoke.cont ], [ %call7.i12, %_ZN6icu_7512LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit.i17 ]
+  %vtable = load ptr, ptr %retval.0.i59, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %12 = load ptr, ptr %vfn, align 8
-  %call12 = invoke noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(116) %retval.1.i59, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call12 = invoke noundef i32 %12(ptr noundef nonnull align 8 dereferenceable(116) %retval.0.i59, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont11 unwind label %lpad4.loopexit.split-lp
 
 invoke.cont11:                                    ; preds = %if.end8
-  %vtable15 = load ptr, ptr %retval.1.i6100, align 8
+  %vtable15 = load ptr, ptr %retval.0.i6100, align 8
   %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 32
   %13 = load ptr, ptr %vfn16, align 8
-  %call18 = invoke noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(116) %retval.1.i6100, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call18 = invoke noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(116) %retval.0.i6100, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont17 unwind label %lpad4.thread.loopexit.split-lp
 
 invoke.cont17:                                    ; preds = %invoke.cont11
@@ -4522,17 +4522,17 @@ invoke.cont17:                                    ; preds = %invoke.cont11
   br i1 %cmp19.not, label %if.end21, label %delete.notnull.i29
 
 if.end21:                                         ; preds = %invoke.cont17
-  %vtable24 = load ptr, ptr %retval.1.i59, align 8
+  %vtable24 = load ptr, ptr %retval.0.i59, align 8
   %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 64
   %14 = load ptr, ptr %vfn25, align 8
-  invoke void %14(ptr noundef nonnull align 8 dereferenceable(116) %retval.1.i59, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void %14(ptr noundef nonnull align 8 dereferenceable(116) %retval.0.i59, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %while.cond unwind label %lpad4.thread.loopexit.split-lp
 
 while.cond:                                       ; preds = %if.end21, %invoke.cont34
-  %vtable29 = load ptr, ptr %retval.1.i59, align 8
+  %vtable29 = load ptr, ptr %retval.0.i59, align 8
   %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 56
   %15 = load ptr, ptr %vfn30, align 8
-  %call32 = invoke noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(116) %retval.1.i59, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call32 = invoke noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(116) %retval.0.i59, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont31 unwind label %lpad4.loopexit
 
 invoke.cont31:                                    ; preds = %while.cond
@@ -4548,17 +4548,17 @@ invoke.cont34:                                    ; preds = %while.body
   br i1 %tobool36.not, label %delete.notnull.i29, label %while.cond, !llvm.loop !41
 
 while.end:                                        ; preds = %invoke.cont31
-  %vtable41 = load ptr, ptr %retval.1.i6100, align 8
+  %vtable41 = load ptr, ptr %retval.0.i6100, align 8
   %vfn42 = getelementptr inbounds i8, ptr %vtable41, i64 64
   %16 = load ptr, ptr %vfn42, align 8
-  invoke void %16(ptr noundef nonnull align 8 dereferenceable(116) %retval.1.i6100, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke void %16(ptr noundef nonnull align 8 dereferenceable(116) %retval.0.i6100, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %while.cond44 unwind label %lpad4.thread.loopexit.split-lp
 
 while.cond44:                                     ; preds = %while.end, %invoke.cont53
-  %vtable47 = load ptr, ptr %retval.1.i6100, align 8
+  %vtable47 = load ptr, ptr %retval.0.i6100, align 8
   %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 56
   %17 = load ptr, ptr %vfn48, align 8
-  %call50 = invoke noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(116) %retval.1.i6100, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %call50 = invoke noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(116) %retval.0.i6100, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont49 unwind label %lpad4.thread.loopexit
 
 invoke.cont49:                                    ; preds = %while.cond44
@@ -4579,41 +4579,41 @@ while.end58:                                      ; preds = %invoke.cont49
   br label %delete.notnull.i29
 
 delete.notnull.i29:                               ; preds = %invoke.cont34, %invoke.cont53, %invoke.cont17, %while.end58
-  %retval.066 = phi i1 [ %cmp.i26, %while.end58 ], [ false, %invoke.cont17 ], [ false, %invoke.cont53 ], [ false, %invoke.cont34 ]
-  %vtable.i30 = load ptr, ptr %retval.1.i6100, align 8
+  %retval.166 = phi i1 [ %cmp.i26, %while.end58 ], [ false, %invoke.cont17 ], [ false, %invoke.cont53 ], [ false, %invoke.cont34 ]
+  %vtable.i30 = load ptr, ptr %retval.0.i6100, align 8
   %vfn.i31 = getelementptr inbounds i8, ptr %vtable.i30, i64 8
   %19 = load ptr, ptr %vfn.i31, align 8
-  call void %19(ptr noundef nonnull align 8 dereferenceable(116) %retval.1.i6100) #26
+  call void %19(ptr noundef nonnull align 8 dereferenceable(116) %retval.0.i6100) #26
   br label %_ZN6icu_7512LocalPointerINS_17StringEnumerationEED2Ev.exit32
 
 _ZN6icu_7512LocalPointerINS_17StringEnumerationEED2Ev.exit32: ; preds = %new.cont.i22, %if.then.i.i24, %if.then4.i10, %invoke.cont, %delete.notnull.i29
-  %retval.067 = phi i1 [ %retval.066, %delete.notnull.i29 ], [ false, %invoke.cont ], [ false, %if.then4.i10 ], [ false, %if.then.i.i24 ], [ false, %new.cont.i22 ]
-  %isnull.i33 = icmp eq ptr %retval.1.i59, null
+  %retval.167 = phi i1 [ %retval.166, %delete.notnull.i29 ], [ false, %invoke.cont ], [ false, %if.then4.i10 ], [ false, %if.then.i.i24 ], [ false, %new.cont.i22 ]
+  %isnull.i33 = icmp eq ptr %retval.0.i59, null
   br i1 %isnull.i33, label %return, label %delete.notnull.i34
 
 delete.notnull.i34:                               ; preds = %_ZN6icu_7512LocalPointerINS_17StringEnumerationEED2Ev.exit32
-  %vtable.i35 = load ptr, ptr %retval.1.i59, align 8
+  %vtable.i35 = load ptr, ptr %retval.0.i59, align 8
   %vfn.i36 = getelementptr inbounds i8, ptr %vtable.i35, i64 8
   %20 = load ptr, ptr %vfn.i36, align 8
-  call void %20(ptr noundef nonnull align 8 dereferenceable(116) %retval.1.i59) #26
+  call void %20(ptr noundef nonnull align 8 dereferenceable(116) %retval.0.i59) #26
   br label %return
 
 ehcleanup:                                        ; preds = %delete.notnull.i, %lpad.i16
   %.pn = phi { ptr, i32 } [ %9, %lpad.i16 ], [ %lpad.phi62, %delete.notnull.i ]
-  %isnull.i38 = icmp eq ptr %retval.1.i59, null
+  %isnull.i38 = icmp eq ptr %retval.0.i59, null
   br i1 %isnull.i38, label %common.resume, label %delete.notnull.i39
 
 delete.notnull.i39:                               ; preds = %lpad4, %ehcleanup
   %.pn72 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.phi80, %lpad4 ]
-  %vtable.i40 = load ptr, ptr %retval.1.i59, align 8
+  %vtable.i40 = load ptr, ptr %retval.0.i59, align 8
   %vfn.i41 = getelementptr inbounds i8, ptr %vtable.i40, i64 8
   %21 = load ptr, ptr %vfn.i41, align 8
-  call void %21(ptr noundef nonnull align 8 dereferenceable(116) %retval.1.i59) #26
+  call void %21(ptr noundef nonnull align 8 dereferenceable(116) %retval.0.i59) #26
   br label %common.resume
 
 return:                                           ; preds = %if.end6.i, %if.end.i, %_ZNK6icu_7511PluralRules11getKeywordsER10UErrorCode.exit, %delete.notnull.i34, %_ZN6icu_7512LocalPointerINS_17StringEnumerationEED2Ev.exit32, %entry
-  %retval.1 = phi i1 [ true, %entry ], [ %retval.067, %_ZN6icu_7512LocalPointerINS_17StringEnumerationEED2Ev.exit32 ], [ %retval.067, %delete.notnull.i34 ], [ false, %_ZNK6icu_7511PluralRules11getKeywordsER10UErrorCode.exit ], [ false, %if.end.i ], [ false, %if.end6.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %entry ], [ %retval.167, %_ZN6icu_7512LocalPointerINS_17StringEnumerationEED2Ev.exit32 ], [ %retval.167, %delete.notnull.i34 ], [ false, %_ZNK6icu_7511PluralRules11getKeywordsER10UErrorCode.exit ], [ false, %if.end.i ], [ false, %if.end6.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4962,13 +4962,13 @@ sw.default:                                       ; preds = %if.end18
 sw.epilog:                                        ; preds = %sw.bb63, %_ZNK6icu_7513UnicodeString6charAtEi.exit135, %if.then26, %if.else, %sw.default, %if.end89, %if.then86, %while.end61, %while.end44, %sw.bb
   %67 = phi i32 [ %.pre349, %sw.default ], [ %20, %if.then86 ], [ %20, %if.end89 ], [ %20, %while.end61 ], [ %20, %while.end44 ], [ %20, %if.then26 ], [ %20, %if.else ], [ %20, %sw.bb ], [ %20, %_ZNK6icu_7513UnicodeString6charAtEi.exit135 ], [ %20, %sw.bb63 ]
   %68 = phi ptr [ %.pre348, %sw.default ], [ %1, %if.then86 ], [ %1, %if.end89 ], [ %1, %while.end61 ], [ %1, %while.end44 ], [ %1, %if.then26 ], [ %1, %if.else ], [ %1, %sw.bb ], [ %1, %_ZNK6icu_7513UnicodeString6charAtEi.exit135 ], [ %1, %sw.bb63 ]
-  %curIndex.4 = phi i32 [ %inc92, %sw.default ], [ %add76, %if.then86 ], [ %add91, %if.end89 ], [ %.lcssa395, %while.end61 ], [ %.lcssa, %while.end44 ], [ %add27, %if.then26 ], [ %add, %if.else ], [ %inc21, %sw.bb ], [ %add64, %_ZNK6icu_7513UnicodeString6charAtEi.exit135 ], [ %add64, %sw.bb63 ]
-  %sub = sub nsw i32 %curIndex.4, %67
+  %curIndex.0 = phi i32 [ %inc92, %sw.default ], [ %add76, %if.then86 ], [ %add91, %if.end89 ], [ %.lcssa395, %while.end61 ], [ %.lcssa, %while.end44 ], [ %add27, %if.then26 ], [ %add, %if.else ], [ %inc21, %sw.bb ], [ %add64, %_ZNK6icu_7513UnicodeString6charAtEi.exit135 ], [ %add64, %sw.bb63 ]
+  %sub = sub nsw i32 %curIndex.0, %67
   call void @_ZN6icu_7513UnicodeStringC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %68, i32 noundef %67, i32 noundef %sub)
   %token = getelementptr inbounds i8, ptr %this, i64 24
   %call96 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %token, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #26
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #26
-  store i32 %curIndex.4, ptr %ruleIndex, align 8
+  store i32 %curIndex.0, ptr %ruleIndex, align 8
   br label %return
 
 return:                                           ; preds = %entry, %sw.epilog, %if.then16

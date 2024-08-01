@@ -692,9 +692,9 @@ if.end24.loopexit19.split.loop.exit20:            ; preds = %land.rhs
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %while.cond, %do.body, %if.end24.loopexit, %if.end24.loopexit19.split.loop.exit20
-  %index.2.sink = phi i32 [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit19.split.loop.exit20 ], [ 0, %do.body ], [ %smax, %while.cond ]
+  %index.1.sink = phi i32 [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit19.split.loop.exit20 ], [ 0, %do.body ], [ %smax, %while.cond ]
   %retval.0.ph = phi i32 [ %7, %if.end24.loopexit ], [ %8, %if.end24.loopexit19.split.loop.exit20 ], [ -1, %do.body ], [ %smax, %while.cond ]
-  store i32 %index.2.sink, ptr %lastIndex, align 8
+  store i32 %index.1.sink, ptr %lastIndex, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry
@@ -764,9 +764,9 @@ if.end24.loopexit19.split.loop.exit20.i:          ; preds = %land.rhs.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %while.cond.i, %do.body.i, %if.end24.loopexit19.split.loop.exit20.i, %if.end24.loopexit.i
-  %index.2.sink.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit19.split.loop.exit20.i ], [ 0, %do.body.i ], [ %smax.i, %while.cond.i ]
+  %index.1.sink.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit19.split.loop.exit20.i ], [ 0, %do.body.i ], [ %smax.i, %while.cond.i ]
   %retval.0.ph.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit19.split.loop.exit20.i ], [ -1, %do.body.i ], [ %smax.i, %while.cond.i ]
-  store i32 %index.2.sink.i, ptr %lastIndex.i, align 8
+  store i32 %index.1.sink.i, ptr %lastIndex.i, align 8
   %9 = add nsw i32 %retval.0.ph.i, 1
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit
 
@@ -841,13 +841,13 @@ if.end24.loopexit19.split.loop.exit20.i:          ; preds = %land.rhs.i
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit
 
 _ZNK7msdfgen8Scanline6moveToEd.exit:              ; preds = %while.cond.i, %if.end24.loopexit.i, %if.end24.loopexit19.split.loop.exit20.i
-  %index.2.sink.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit19.split.loop.exit20.i ], [ %smax.i, %while.cond.i ]
-  store i32 %index.2.sink.i, ptr %lastIndex.i, align 8
-  %cmp = icmp sgt i32 %index.2.sink.i, -1
+  %index.1.sink.i = phi i32 [ %7, %if.end24.loopexit.i ], [ %8, %if.end24.loopexit19.split.loop.exit20.i ], [ %smax.i, %while.cond.i ]
+  store i32 %index.1.sink.i, ptr %lastIndex.i, align 8
+  %cmp = icmp sgt i32 %index.1.sink.i, -1
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %_ZNK7msdfgen8Scanline6moveToEd.exit
-  %conv = zext nneg i32 %index.2.sink.i to i64
+  %conv = zext nneg i32 %index.1.sink.i to i64
   %direction = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv, i32 1
   %9 = load i32, ptr %direction, align 8
   br label %return
@@ -923,13 +923,13 @@ if.end24.loopexit19.split.loop.exit20.i.i:        ; preds = %land.rhs.i.i
   br label %_ZNK7msdfgen8Scanline6moveToEd.exit.i
 
 _ZNK7msdfgen8Scanline6moveToEd.exit.i:            ; preds = %while.cond.i.i, %if.end24.loopexit19.split.loop.exit20.i.i, %if.end24.loopexit.i.i
-  %index.2.sink.i.i = phi i32 [ %7, %if.end24.loopexit.i.i ], [ %8, %if.end24.loopexit19.split.loop.exit20.i.i ], [ %smax.i.i, %while.cond.i.i ]
-  store i32 %index.2.sink.i.i, ptr %lastIndex.i.i, align 8
-  %cmp.i = icmp sgt i32 %index.2.sink.i.i, -1
+  %index.1.sink.i.i = phi i32 [ %7, %if.end24.loopexit.i.i ], [ %8, %if.end24.loopexit19.split.loop.exit20.i.i ], [ %smax.i.i, %while.cond.i.i ]
+  store i32 %index.1.sink.i.i, ptr %lastIndex.i.i, align 8
+  %cmp.i = icmp sgt i32 %index.1.sink.i.i, -1
   br i1 %cmp.i, label %if.then.i, label %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit
 
 if.then.i:                                        ; preds = %_ZNK7msdfgen8Scanline6moveToEd.exit.i
-  %conv.i = zext nneg i32 %index.2.sink.i.i to i64
+  %conv.i = zext nneg i32 %index.1.sink.i.i to i64
   %direction.i = getelementptr inbounds %"struct.msdfgen::Scanline::Intersection", ptr %0, i64 %conv.i, i32 1
   %9 = load i32, ptr %direction.i, align 8
   br label %_ZNK7msdfgen8Scanline16sumIntersectionsEd.exit

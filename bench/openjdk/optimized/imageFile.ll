@@ -992,7 +992,7 @@ _ZN20ImageFileReaderTable3addEP15ImageFileReader.exit: ; preds = %._crit_edge.i,
   br label %84
 
 84:                                               ; preds = %_ZN20ImageFileReaderTable3addEP15ImageFileReader.exit, %_ZN15ImageFileReader5closeEv.exit
-  %.0 = phi ptr [ %42, %_ZN15ImageFileReader5closeEv.exit ], [ %20, %_ZN20ImageFileReaderTable3addEP15ImageFileReader.exit ]
+  %.1 = phi ptr [ %42, %_ZN15ImageFileReader5closeEv.exit ], [ %20, %_ZN20ImageFileReaderTable3addEP15ImageFileReader.exit ]
   invoke void @_ZN21SimpleCriticalSection4exitEv(ptr noundef nonnull align 8 dereferenceable(40) @_reader_table_lock)
           to label %_ZN25SimpleCriticalSectionLockD2Ev.exit31 unwind label %85
 
@@ -1004,8 +1004,8 @@ _ZN20ImageFileReaderTable3addEP15ImageFileReader.exit: ; preds = %._crit_edge.i,
   unreachable
 
 _ZN25SimpleCriticalSectionLockD2Ev.exit31:        ; preds = %84, %_ZN15ImageFileReader10find_imageEPKc.exit, %33
-  %.1 = phi ptr [ null, %33 ], [ %.0.i, %_ZN15ImageFileReader10find_imageEPKc.exit ], [ %.0, %84 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %33 ], [ %.0.i, %_ZN15ImageFileReader10find_imageEPKc.exit ], [ %.1, %84 ]
+  ret ptr %.0
 
 _ZN25SimpleCriticalSectionLockD2Ev.exit:          ; preds = %63, %34
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %64, %63 ]

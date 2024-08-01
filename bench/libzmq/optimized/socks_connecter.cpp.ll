@@ -886,13 +886,13 @@ if.then20:                                        ; preds = %if.end14
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end14, %if.then20
-  %retval.0 = phi i32 [ -1, %if.then20 ], [ 0, %if.end14 ]
+  %retval.1 = phi i32 [ -1, %if.then20 ], [ 0, %if.end14 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %port_str) #13
   br label %return
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.1 = phi i32 [ -1, %if.then ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN3zmq23socks_request_encoder_t6encodeERKNS_15socks_request_tE(ptr noundef nonnull align 8 dereferenceable(278), ptr noundef nonnull align 8 dereferenceable(42)) local_unnamed_addr #1

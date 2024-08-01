@@ -129,19 +129,19 @@ define hidden range(i32 -42, 1) i32 @mbedtls_base64_encode(ptr noundef %0, i64 n
 
 75:                                               ; preds = %59, %71
   %storemerge = phi i8 [ %74, %71 ], [ 61, %59 ]
-  %.1 = getelementptr inbounds i8, ptr %.0.lcssa, i64 3
+  %.2 = getelementptr inbounds i8, ptr %.0.lcssa, i64 3
   store i8 %storemerge, ptr %70, align 1
   %76 = getelementptr inbounds i8, ptr %.0.lcssa, i64 4
-  store i8 61, ptr %.1, align 1
+  store i8 61, ptr %.2, align 1
   br label %77
 
 77:                                               ; preds = %75, %._crit_edge
-  %.2 = phi ptr [ %76, %75 ], [ %.0.lcssa, %._crit_edge ]
-  %78 = ptrtoint ptr %.2 to i64
+  %.1 = phi ptr [ %76, %75 ], [ %.0.lcssa, %._crit_edge ]
+  %78 = ptrtoint ptr %.1 to i64
   %79 = ptrtoint ptr %0 to i64
   %80 = sub i64 %78, %79
   store i64 %80, ptr %2, align 8
-  store i8 0, ptr %.2, align 1
+  store i8 0, ptr %.1, align 1
   br label %81
 
 81:                                               ; preds = %77, %20, %15, %7
@@ -157,7 +157,7 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   br i1 %.not, label %.loopexit.sink.split, label %.preheader90
 
 .preheader90:                                     ; preds = %5, %40
-  %.06497 = phi i32 [ %.266, %40 ], [ 0, %5 ]
+  %.06497 = phi i32 [ %.165, %40 ], [ 0, %5 ]
   %.07296 = phi i64 [ %.173, %40 ], [ 0, %5 ]
   %.07495 = phi i64 [ %41, %40 ], [ 0, %5 ]
   %6 = add nuw i64 %.07495, 1
@@ -174,20 +174,20 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   br i1 %13, label %.lr.ph121, label %.critedge, !llvm.loop !6
 
 .lr.ph121:                                        ; preds = %.preheader90, %10
-  %.17593120 = phi i64 [ %14, %10 ], [ %.07495, %.preheader90 ]
-  %14 = add i64 %.17593120, 1
+  %.27693120 = phi i64 [ %14, %10 ], [ %.07495, %.preheader90 ]
+  %14 = add i64 %.27693120, 1
   %exitcond.not = icmp eq i64 %14, %umax
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !6
 
 .critedge:                                        ; preds = %10, %.lr.ph121, %.preheader90
-  %.175.lcssa = phi i64 [ %.07495, %.preheader90 ], [ %14, %10 ], [ %umax, %.lr.ph121 ]
-  %15 = icmp eq i64 %.175.lcssa, %4
+  %.276.lcssa = phi i64 [ %.07495, %.preheader90 ], [ %14, %10 ], [ %umax, %.lr.ph121 ]
+  %15 = icmp eq i64 %.276.lcssa, %4
   br i1 %15, label %.critedge._crit_edge, label %16
 
 16:                                               ; preds = %.critedge
-  %17 = sub i64 %4, %.175.lcssa
+  %17 = sub i64 %4, %.276.lcssa
   %18 = icmp ugt i64 %17, 1
-  %19 = getelementptr inbounds i8, ptr %3, i64 %.175.lcssa
+  %19 = getelementptr inbounds i8, ptr %3, i64 %.276.lcssa
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 13
   %or.cond119 = select i1 %18, i1 %21, i1 false
@@ -231,21 +231,21 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %35, %31
-  %.165 = phi i32 [ %32, %31 ], [ 0, %35 ]
+  %.266 = phi i32 [ %32, %31 ], [ 0, %35 ]
   %39 = add i64 %.07296, 1
   br label %40
 
 40:                                               ; preds = %._crit_edge, %22, %38
   %.173 = phi i64 [ %.07296, %22 ], [ %.07296, %._crit_edge ], [ %39, %38 ]
-  %.266 = phi i32 [ %.06497, %22 ], [ %.06497, %._crit_edge ], [ %.165, %38 ]
-  %41 = add i64 %.175.lcssa, 1
+  %.165 = phi i32 [ %.06497, %22 ], [ %.06497, %._crit_edge ], [ %.266, %38 ]
+  %41 = add i64 %.276.lcssa, 1
   %42 = icmp ult i64 %41, %4
   br i1 %42, label %.preheader90, label %.critedge._crit_edge, !llvm.loop !7
 
 .critedge._crit_edge:                             ; preds = %40, %.critedge
   %.072.lcssa.ph = phi i64 [ %.173, %40 ], [ %.07296, %.critedge ]
-  %.064.lcssa.ph = phi i32 [ %.266, %40 ], [ %.06497, %.critedge ]
-  %.276.ph = phi i64 [ %41, %40 ], [ %4, %.critedge ]
+  %.064.lcssa.ph = phi i32 [ %.165, %40 ], [ %.06497, %.critedge ]
+  %.175.ph = phi i64 [ %41, %40 ], [ %4, %.critedge ]
   %43 = icmp eq i64 %.072.lcssa.ph, 0
   br i1 %43, label %.loopexit.sink.split, label %44
 
@@ -265,15 +265,15 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   br i1 %or.cond, label %.loopexit.sink.split, label %.preheader
 
 .preheader:                                       ; preds = %44
-  %.not87103 = icmp eq i64 %.276.ph, 0
+  %.not87103 = icmp eq i64 %.175.ph, 0
   br i1 %.not87103, label %._crit_edge110, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.thread
-  %.0109 = phi ptr [ %.2, %.thread ], [ %0, %.preheader ]
-  %.3108 = phi i32 [ %.5, %.thread ], [ 0, %.preheader ]
+  %.0109 = phi ptr [ %.1, %.thread ], [ %0, %.preheader ]
+  %.3108 = phi i32 [ %.4, %.thread ], [ 0, %.preheader ]
   %.067107 = phi i32 [ %.168, %.thread ], [ 0, %.preheader ]
-  %.069106 = phi i32 [ %.271, %.thread ], [ 0, %.preheader ]
-  %.377105 = phi i64 [ %82, %.thread ], [ %.276.ph, %.preheader ]
+  %.069106 = phi i32 [ %.170, %.thread ], [ 0, %.preheader ]
+  %.377105 = phi i64 [ %82, %.thread ], [ %.175.ph, %.preheader ]
   %.079104 = phi ptr [ %83, %.thread ], [ %3, %.preheader ]
   %56 = load i8, ptr %.079104, align 1
   switch i8 %56, label %57 [
@@ -298,46 +298,46 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   br label %66
 
 66:                                               ; preds = %62, %60
-  %.170 = phi i32 [ %58, %60 ], [ %65, %62 ]
-  %.4 = phi i32 [ %61, %60 ], [ %.3108, %62 ]
+  %.271 = phi i32 [ %58, %60 ], [ %65, %62 ]
+  %.5 = phi i32 [ %61, %60 ], [ %.3108, %62 ]
   %67 = add i32 %.067107, 1
   %68 = icmp eq i32 %67, 4
   br i1 %68, label %69, label %.thread
 
 69:                                               ; preds = %66
-  %70 = lshr i32 %.170, 16
+  %70 = lshr i32 %.271, 16
   %71 = trunc i32 %70 to i8
   %72 = getelementptr inbounds i8, ptr %.0109, i64 1
   store i8 %71, ptr %.0109, align 1
-  %73 = icmp ult i32 %.4, 2
+  %73 = icmp ult i32 %.5, 2
   br i1 %73, label %74, label %.thread
 
 74:                                               ; preds = %69
-  %75 = lshr i32 %.170, 8
+  %75 = lshr i32 %.271, 8
   %76 = trunc i32 %75 to i8
   %77 = getelementptr inbounds i8, ptr %.0109, i64 2
   store i8 %76, ptr %72, align 1
-  %78 = icmp eq i32 %.4, 0
+  %78 = icmp eq i32 %.5, 0
   br i1 %78, label %79, label %.thread
 
 79:                                               ; preds = %74
-  %80 = trunc i32 %.170 to i8
+  %80 = trunc i32 %.271 to i8
   %81 = getelementptr inbounds i8, ptr %.0109, i64 3
   store i8 %80, ptr %77, align 1
   br label %.thread
 
 .thread:                                          ; preds = %69, %.lr.ph, %.lr.ph, %.lr.ph, %66, %79, %74
-  %.271 = phi i32 [ %.069106, %.lr.ph ], [ %.170, %79 ], [ %.170, %74 ], [ %.170, %66 ], [ %.069106, %.lr.ph ], [ %.069106, %.lr.ph ], [ %.170, %69 ]
+  %.170 = phi i32 [ %.069106, %.lr.ph ], [ %.271, %79 ], [ %.271, %74 ], [ %.271, %66 ], [ %.069106, %.lr.ph ], [ %.069106, %.lr.ph ], [ %.271, %69 ]
   %.168 = phi i32 [ %.067107, %.lr.ph ], [ 0, %79 ], [ 0, %74 ], [ %67, %66 ], [ %.067107, %.lr.ph ], [ %.067107, %.lr.ph ], [ 0, %69 ]
-  %.5 = phi i32 [ %.3108, %.lr.ph ], [ 0, %79 ], [ 1, %74 ], [ %.4, %66 ], [ %.3108, %.lr.ph ], [ %.3108, %.lr.ph ], [ %.4, %69 ]
-  %.2 = phi ptr [ %.0109, %.lr.ph ], [ %81, %79 ], [ %77, %74 ], [ %.0109, %66 ], [ %.0109, %.lr.ph ], [ %.0109, %.lr.ph ], [ %72, %69 ]
+  %.4 = phi i32 [ %.3108, %.lr.ph ], [ 0, %79 ], [ 1, %74 ], [ %.5, %66 ], [ %.3108, %.lr.ph ], [ %.3108, %.lr.ph ], [ %.5, %69 ]
+  %.1 = phi ptr [ %.0109, %.lr.ph ], [ %81, %79 ], [ %77, %74 ], [ %.0109, %66 ], [ %.0109, %.lr.ph ], [ %.0109, %.lr.ph ], [ %72, %69 ]
   %82 = add i64 %.377105, -1
   %83 = getelementptr inbounds i8, ptr %.079104, i64 1
   %.not87 = icmp eq i64 %82, 0
   br i1 %.not87, label %._crit_edge110, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge110:                                   ; preds = %.thread, %.preheader
-  %.0.lcssa = phi ptr [ %0, %.preheader ], [ %.2, %.thread ]
+  %.0.lcssa = phi ptr [ %0, %.preheader ], [ %.1, %.thread ]
   %84 = ptrtoint ptr %.0.lcssa to i64
   %85 = ptrtoint ptr %0 to i64
   %86 = sub i64 %84, %85

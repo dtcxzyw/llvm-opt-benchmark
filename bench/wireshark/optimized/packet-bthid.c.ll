@@ -267,10 +267,10 @@ define internal i32 @dissect_bthid(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %.thread139
 
 .thread139:                                       ; preds = %52, %57
-  %.0141 = phi i32 [ 2, %57 ], [ 1, %52 ]
+  %.1141 = phi i32 [ 2, %57 ], [ 1, %52 ]
   %60 = load i32, ptr @hf_bthid_buffer_size, align 4
-  %61 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %60, ptr noundef %0, i32 noundef %.0141, i32 noundef 2, i32 noundef -2147483648) #2
-  %62 = add nuw nsw i32 %.0141, 2
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %60, ptr noundef %0, i32 noundef %.1141, i32 noundef 2, i32 noundef -2147483648) #2
+  %62 = add nuw nsw i32 %.1141, 2
   br label %dissect_hid_data.exit
 
 63:                                               ; preds = %4
@@ -388,8 +388,8 @@ define internal i32 @dissect_bthid(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %dissect_hid_data.exit
 
 dissect_hid_data.exit:                            ; preds = %.critedge, %.sink.split.i, %125, %112, %.thread142, %28, %37, %.thread139, %97, %85, %75, %63, %23, %4
-  %.1 = phi i32 [ 0, %4 ], [ 2, %97 ], [ 1, %85 ], [ 2, %75 ], [ %74, %63 ], [ %62, %.thread139 ], [ 1, %23 ], [ 1, %37 ], [ 1, %28 ], [ 2, %.thread142 ], [ 2, %112 ], [ 2, %125 ], [ %131, %.sink.split.i ], [ 1, %.critedge ]
-  ret i32 %.1
+  %.0 = phi i32 [ 0, %4 ], [ 2, %97 ], [ 1, %85 ], [ 2, %75 ], [ %74, %63 ], [ %62, %.thread139 ], [ 1, %23 ], [ 1, %37 ], [ 1, %28 ], [ 2, %.thread142 ], [ 2, %112 ], [ 2, %125 ], [ %131, %.sink.split.i ], [ 1, %.critedge ]
+  ret i32 %.0
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

@@ -4206,7 +4206,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.
   br label %invoke.cont762
 
 invoke.cont762:                                   ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc1186, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i
-  %bmap.sroa.0.1 = phi ptr [ %call5.i.i.i.i2.i.i1187, %call5.i.i.i.i2.i.i.noexc1186 ], [ %call5.i.i.i.i2.i.i1187, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %bmap.sroa.0.2 = phi ptr [ %call5.i.i.i.i2.i.i1187, %call5.i.i.i.i2.i.i.noexc1186 ], [ %call5.i.i.i.i2.i.i1187, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i ]
   %319 = icmp ugt i64 %.pre1931, 2305843009213693951
   %320 = shl i64 %.pre1931, 3
   %321 = select i1 %319, i64 -1, i64 %320
@@ -4299,7 +4299,7 @@ arrayctor.cont800:                                ; preds = %new.ctorloop794, %i
   store i32 %inc802, ptr %mNumBones, align 8
   %331 = load i32, ptr %_M_storage.i.i, align 4
   %conv805 = zext i32 %331 to i64
-  %add.ptr.i1199 = getelementptr inbounds i32, ptr %bmap.sroa.0.1, i64 %conv805
+  %add.ptr.i1199 = getelementptr inbounds i32, ptr %bmap.sroa.0.2, i64 %conv805
   store i32 %330, ptr %add.ptr.i1199, align 4
   %call.i1200 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.01766) #22
   %cmp.i1190.not = icmp eq ptr %call.i1200, %251
@@ -4327,11 +4327,11 @@ lpad765.loopexit.split-lp:                        ; preds = %invoke.cont762
 
 lpad765:                                          ; preds = %lpad765.loopexit.split-lp, %lpad765.loopexit
   %lpad.phi1597 = phi { ptr, i32 } [ %lpad.loopexit1595, %lpad765.loopexit ], [ %lpad.loopexit.split-lp1596, %lpad765.loopexit.split-lp ]
-  %tobool.not.i.i.i = icmp eq ptr %bmap.sroa.0.1, null
+  %tobool.not.i.i.i = icmp eq ptr %bmap.sroa.0.2, null
   br i1 %tobool.not.i.i.i, label %ehcleanup866, label %if.then.i.i.i1202
 
 if.then.i.i.i1202:                                ; preds = %lpad765
-  call void @_ZdlPv(ptr noundef nonnull %bmap.sroa.0.1) #24
+  call void @_ZdlPv(ptr noundef nonnull %bmap.sroa.0.2) #24
   br label %ehcleanup866
 
 for.body815:                                      ; preds = %for.cond812.preheader, %for.inc861
@@ -4365,7 +4365,7 @@ for.body835:                                      ; preds = %for.body825, %for.i
 if.end841:                                        ; preds = %for.body835
   %336 = load ptr, ptr %mBones.i, align 8
   %conv843 = zext i32 %335 to i64
-  %add.ptr.i1206 = getelementptr inbounds i32, ptr %bmap.sroa.0.1, i64 %conv843
+  %add.ptr.i1206 = getelementptr inbounds i32, ptr %bmap.sroa.0.2, i64 %conv843
   %337 = load i32, ptr %add.ptr.i1206, align 4
   %idxprom845 = zext i32 %337 to i64
   %arrayidx846 = getelementptr inbounds ptr, ptr %336, i64 %idxprom845
@@ -4404,11 +4404,11 @@ for.inc861:                                       ; preds = %for.inc857
   br i1 %cmp814, label %for.body815, label %for.end863, !llvm.loop !35
 
 for.end863:                                       ; preds = %for.inc861, %for.cond812.preheader
-  %tobool.not.i.i.i1208 = icmp eq ptr %bmap.sroa.0.1, null
+  %tobool.not.i.i.i1208 = icmp eq ptr %bmap.sroa.0.2, null
   br i1 %tobool.not.i.i.i1208, label %if.end865, label %if.then.i.i.i1209
 
 if.then.i.i.i1209:                                ; preds = %for.end863
-  call void @_ZdlPv(ptr noundef nonnull %bmap.sroa.0.1) #24
+  call void @_ZdlPv(ptr noundef nonnull %bmap.sroa.0.2) #24
   br label %if.end865
 
 if.end865:                                        ; preds = %arrayctor.cont620, %if.then.i.i.i1209, %for.end863, %for.end756

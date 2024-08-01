@@ -7441,7 +7441,7 @@ common.resume:                                    ; preds = %79, %622, %78
   resume { ptr, i32 } %common.resume.op
 
 79:                                               ; preds = %218
-  br i1 %.5, label %622, label %common.resume
+  br i1 %.4, label %622, label %common.resume
 
 .thread:                                          ; preds = %614, %617
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -7504,7 +7504,7 @@ common.resume:                                    ; preds = %79, %622, %78
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit" unwind label %.loopexit.split-lp
 
 .body:                                            ; preds = %.loopexit376, %.loopexit.split-lp377, %.loopexit, %.loopexit.split-lp, %120, %137, %190
-  %.2 = phi i1 [ %.4, %190 ], [ true, %120 ], [ true, %137 ], [ true, %.loopexit ], [ %.3.ph, %.loopexit.split-lp ], [ true, %.loopexit.split-lp377 ], [ true, %.loopexit376 ]
+  %.3 = phi i1 [ %.6, %190 ], [ true, %120 ], [ true, %137 ], [ true, %.loopexit ], [ %.2.ph, %.loopexit.split-lp ], [ true, %.loopexit.split-lp377 ], [ true, %.loopexit376 ]
   %.pn = phi { ptr, i32 } [ %191, %190 ], [ %121, %120 ], [ %138, %137 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp379, %.loopexit.split-lp377 ], [ %lpad.loopexit378, %.loopexit376 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$alloc..vec..Vec$LT$regex_automata..util..primitives..StateID$GT$$GT$17hb6b242916587e3aeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40) #25
           to label %218 unwind label %297
@@ -7515,7 +7515,7 @@ common.resume:                                    ; preds = %79, %622, %78
   br label %.body
 
 .loopexit.split-lp:                               ; preds = %.invoke705, %.invoke703, %.invoke, %103, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit", %122, %139, %"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i", %._crit_edge, %203, %207
-  %.3.ph = phi i1 [ false, %207 ], [ false, %203 ], [ true, %._crit_edge ], [ true, %"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i" ], [ true, %139 ], [ true, %122 ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit" ], [ true, %103 ], [ true, %.invoke ], [ true, %.invoke703 ], [ true, %.invoke705 ]
+  %.2.ph = phi i1 [ false, %207 ], [ false, %203 ], [ true, %._crit_edge ], [ true, %"_ZN104_$LT$regex_automata..util..primitives..StateIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e122d8aa485a8f0E.exit.i" ], [ true, %139 ], [ true, %122 ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17ha595d3efd23d31c7E.exit" ], [ true, %103 ], [ true, %.invoke ], [ true, %.invoke703 ], [ true, %.invoke705 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -7739,7 +7739,7 @@ default.unreachable609:                           ; preds = %177
   br label %194
 
 190:                                              ; preds = %.invoke707, %201, %._crit_edge494
-  %.4 = phi i1 [ false, %201 ], [ true, %._crit_edge494 ], [ true, %.invoke707 ]
+  %.6 = phi i1 [ false, %201 ], [ true, %._crit_edge494 ], [ true, %.invoke707 ]
   %191 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr48drop_in_place$LT$alloc..vec..Vec$LT$bool$GT$$GT$17h89fcbf0a99d0f209E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #25
@@ -7811,7 +7811,7 @@ default.unreachable609:                           ; preds = %177
           to label %.noexc194 unwind label %219
 
 218:                                              ; preds = %219, %.body
-  %.5 = phi i1 [ %129, %219 ], [ %.2, %.body ]
+  %.4 = phi i1 [ %129, %219 ], [ %.3, %.body ]
   %.pn133 = phi { ptr, i32 } [ %220, %219 ], [ %.pn, %.body ]
   invoke void @"_ZN4core3ptr137drop_in_place$LT$alloc..vec..Vec$LT$$LP$regex_automata..util..primitives..StateID$C$regex_automata..util..primitives..StateID$RP$$GT$$GT$17h64ea0705481a4980E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41) #25
           to label %79 unwind label %297

@@ -196,16 +196,16 @@ push.exit.cont.i.i:                               ; preds = %findCenterNode.exit
   br i1 %.not35.i.i, label %.lr.ph24.i, label %.lr.ph.i29
 
 pull.exit.usthread-pre-split.i.i:                 ; preds = %.loopexit.us.i.i
-  %.pr.i.i = load ptr, ptr %.sroa.0.3.lcssa.us.i.i, align 8
-  %91 = getelementptr inbounds i8, ptr %.sroa.0.3.lcssa.us.i.i, i64 8
+  %.pr.i.i = load ptr, ptr %.sroa.0.1.lcssa.us.i.i, align 8
+  %91 = getelementptr inbounds i8, ptr %.sroa.0.1.lcssa.us.i.i, i64 8
   %92 = load ptr, ptr %91, align 8
-  tail call void @free(ptr noundef nonnull %.sroa.0.3.lcssa.us.i.i) #13
+  tail call void @free(ptr noundef nonnull %.sroa.0.1.lcssa.us.i.i) #13
   %.not.us.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %.not.us.i.i, label %setNStepsToCenter.exit.i, label %.lr.ph24.i
 
 .lr.ph24.i:                                       ; preds = %push.exit.cont.i.i, %pull.exit.usthread-pre-split.i.i
   %93 = phi ptr [ %92, %pull.exit.usthread-pre-split.i.i ], [ null, %push.exit.cont.i.i ]
-  %.sroa.6.059.us.i23.i = phi ptr [ %.sroa.6.2.lcssa.us.i.i, %pull.exit.usthread-pre-split.i.i ], [ %86, %push.exit.cont.i.i ]
+  %.sroa.6.059.us.i23.i = phi ptr [ %.sroa.6.1.lcssa.us.i.i, %pull.exit.usthread-pre-split.i.i ], [ %86, %push.exit.cont.i.i ]
   %94 = phi ptr [ %.pr.i.i, %pull.exit.usthread-pre-split.i.i ], [ %.022, %push.exit.cont.i.i ]
   %.not10.i.us.i.i = icmp eq ptr %93, null
   %spec.select48.us.i.i = select i1 %.not10.i.us.i.i, ptr null, ptr %.sroa.6.059.us.i23.i
@@ -221,15 +221,15 @@ pull.exit.usthread-pre-split.i.i:                 ; preds = %.loopexit.us.i.i
   br i1 %.not3451.us.i.i, label %.loopexit.us.i.i, label %streq.exit.thread.us.us.i.i
 
 .loopexit.us.i.i:                                 ; preds = %push.exit41.cont.us.us.i.i, %.lr.ph24.i
-  %.sroa.0.3.lcssa.us.i.i = phi ptr [ %93, %.lr.ph24.i ], [ %.sroa.0.5.us.us.i.i, %push.exit41.cont.us.us.i.i ]
-  %.sroa.6.2.lcssa.us.i.i = phi ptr [ %spec.select48.us.i.i, %.lr.ph24.i ], [ %.sroa.6.3.us.us.i.i, %push.exit41.cont.us.us.i.i ]
-  %.not.i37.us.i.i = icmp eq ptr %.sroa.0.3.lcssa.us.i.i, null
+  %.sroa.0.1.lcssa.us.i.i = phi ptr [ %93, %.lr.ph24.i ], [ %.sroa.0.2.us.us.i.i, %push.exit41.cont.us.us.i.i ]
+  %.sroa.6.1.lcssa.us.i.i = phi ptr [ %spec.select48.us.i.i, %.lr.ph24.i ], [ %.sroa.6.2.us.us.i.i, %push.exit41.cont.us.us.i.i ]
+  %.not.i37.us.i.i = icmp eq ptr %.sroa.0.1.lcssa.us.i.i, null
   br i1 %.not.i37.us.i.i, label %setNStepsToCenter.exit.i, label %pull.exit.usthread-pre-split.i.i
 
 streq.exit.thread.us.us.i.i:                      ; preds = %.lr.ph24.i, %push.exit41.cont.us.us.i.i
   %.054.us.us.i.i = phi ptr [ %137, %push.exit41.cont.us.us.i.i ], [ %102, %.lr.ph24.i ]
-  %.sroa.6.253.us.us.i.i = phi ptr [ %.sroa.6.3.us.us.i.i, %push.exit41.cont.us.us.i.i ], [ %spec.select48.us.i.i, %.lr.ph24.i ]
-  %.sroa.0.352.us.us.i.i = phi ptr [ %.sroa.0.5.us.us.i.i, %push.exit41.cont.us.us.i.i ], [ %93, %.lr.ph24.i ]
+  %.sroa.6.153.us.us.i.i = phi ptr [ %.sroa.6.2.us.us.i.i, %push.exit41.cont.us.us.i.i ], [ %spec.select48.us.i.i, %.lr.ph24.i ]
+  %.sroa.0.152.us.us.i.i = phi ptr [ %.sroa.0.2.us.us.i.i, %push.exit41.cont.us.us.i.i ], [ %93, %.lr.ph24.i ]
   %103 = load i32, ptr %.054.us.us.i.i, align 8
   %104 = and i32 %103, 3
   %105 = icmp eq i32 %104, 3
@@ -279,38 +279,38 @@ streq.exit.thread.us.us.i.i:                      ; preds = %.lr.ph24.i, %push.e
 
 push.exit41.us.us.i.i:                            ; preds = %123
   store ptr %.029.us.us.i.i, ptr %134, align 8
-  %.not.i39.us.us.i.i = icmp eq ptr %.sroa.6.253.us.us.i.i, null
+  %.not.i39.us.us.i.i = icmp eq ptr %.sroa.6.153.us.us.i.i, null
   br i1 %.not.i39.us.us.i.i, label %push.exit41.cont.us.us.i.i, label %push.exit41.else.us.us.i.i
 
 push.exit41.else.us.us.i.i:                       ; preds = %push.exit41.us.us.i.i
-  %136 = getelementptr inbounds i8, ptr %.sroa.6.253.us.us.i.i, i64 8
+  %136 = getelementptr inbounds i8, ptr %.sroa.6.153.us.us.i.i, i64 8
   store ptr %134, ptr %136, align 8
   br label %push.exit41.cont.us.us.i.i
 
 push.exit41.cont.us.us.i.i:                       ; preds = %push.exit41.else.us.us.i.i, %push.exit41.us.us.i.i, %115
-  %.sroa.0.5.us.us.i.i = phi ptr [ %.sroa.0.352.us.us.i.i, %115 ], [ %.sroa.0.352.us.us.i.i, %push.exit41.else.us.us.i.i ], [ %134, %push.exit41.us.us.i.i ]
-  %.sroa.6.3.us.us.i.i = phi ptr [ %.sroa.6.253.us.us.i.i, %115 ], [ %134, %push.exit41.else.us.us.i.i ], [ %134, %push.exit41.us.us.i.i ]
+  %.sroa.0.2.us.us.i.i = phi ptr [ %.sroa.0.152.us.us.i.i, %115 ], [ %.sroa.0.152.us.us.i.i, %push.exit41.else.us.us.i.i ], [ %134, %push.exit41.us.us.i.i ]
+  %.sroa.6.2.us.us.i.i = phi ptr [ %.sroa.6.153.us.us.i.i, %115 ], [ %134, %push.exit41.else.us.us.i.i ], [ %134, %push.exit41.us.us.i.i ]
   %137 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.054.us.us.i.i, ptr noundef nonnull %94) #13
   %.not34.us.us.i.i = icmp eq ptr %137, null
   br i1 %.not34.us.us.i.i, label %.loopexit.us.i.i, label %streq.exit.thread.us.us.i.i
 
 .loopexit.i.i:                                    ; preds = %push.exit41.cont.i.i, %.lr.ph.i29
-  %.sroa.0.3.lcssa.i.i = phi ptr [ %140, %.lr.ph.i29 ], [ %.sroa.0.5.i.i, %push.exit41.cont.i.i ]
-  %.sroa.6.2.lcssa.i.i = phi ptr [ %spec.select48.i.i, %.lr.ph.i29 ], [ %.sroa.6.3.i.i, %push.exit41.cont.i.i ]
-  %.not.i37.i.i = icmp eq ptr %.sroa.0.3.lcssa.i.i, null
+  %.sroa.0.1.lcssa.i.i = phi ptr [ %140, %.lr.ph.i29 ], [ %.sroa.0.2.i.i, %push.exit41.cont.i.i ]
+  %.sroa.6.1.lcssa.i.i = phi ptr [ %spec.select48.i.i, %.lr.ph.i29 ], [ %.sroa.6.2.i.i, %push.exit41.cont.i.i ]
+  %.not.i37.i.i = icmp eq ptr %.sroa.0.1.lcssa.i.i, null
   br i1 %.not.i37.i.i, label %setNStepsToCenter.exit.i, label %pull.exitthread-pre-split.i.i
 
 pull.exitthread-pre-split.i.i:                    ; preds = %.loopexit.i.i
-  %.pr62.i.i = load ptr, ptr %.sroa.0.3.lcssa.i.i, align 8
-  %138 = getelementptr inbounds i8, ptr %.sroa.0.3.lcssa.i.i, i64 8
+  %.pr62.i.i = load ptr, ptr %.sroa.0.1.lcssa.i.i, align 8
+  %138 = getelementptr inbounds i8, ptr %.sroa.0.1.lcssa.i.i, i64 8
   %139 = load ptr, ptr %138, align 8
-  tail call void @free(ptr noundef nonnull %.sroa.0.3.lcssa.i.i) #13
+  tail call void @free(ptr noundef nonnull %.sroa.0.1.lcssa.i.i) #13
   %.not.i.i33 = icmp eq ptr %.pr62.i.i, null
   br i1 %.not.i.i33, label %setNStepsToCenter.exit.i, label %.lr.ph.i29
 
 .lr.ph.i29:                                       ; preds = %push.exit.cont.i.i, %pull.exitthread-pre-split.i.i
   %140 = phi ptr [ %139, %pull.exitthread-pre-split.i.i ], [ null, %push.exit.cont.i.i ]
-  %.sroa.6.059.i21.i = phi ptr [ %.sroa.6.2.lcssa.i.i, %pull.exitthread-pre-split.i.i ], [ %86, %push.exit.cont.i.i ]
+  %.sroa.6.059.i21.i = phi ptr [ %.sroa.6.1.lcssa.i.i, %pull.exitthread-pre-split.i.i ], [ %86, %push.exit.cont.i.i ]
   %141 = phi ptr [ %.pr62.i.i, %pull.exitthread-pre-split.i.i ], [ %.022, %push.exit.cont.i.i ]
   %.not10.i.i.i = icmp eq ptr %140, null
   %spec.select48.i.i = select i1 %.not10.i.i.i, ptr null, ptr %.sroa.6.059.i21.i
@@ -327,8 +327,8 @@ pull.exitthread-pre-split.i.i:                    ; preds = %.loopexit.i.i
 
 .lr.ph.i.i30:                                     ; preds = %.lr.ph.i29, %push.exit41.cont.i.i
   %.054.i.i = phi ptr [ %191, %push.exit41.cont.i.i ], [ %149, %.lr.ph.i29 ]
-  %.sroa.6.253.i.i = phi ptr [ %.sroa.6.3.i.i, %push.exit41.cont.i.i ], [ %spec.select48.i.i, %.lr.ph.i29 ]
-  %.sroa.0.352.i.i = phi ptr [ %.sroa.0.5.i.i, %push.exit41.cont.i.i ], [ %140, %.lr.ph.i29 ]
+  %.sroa.6.153.i.i = phi ptr [ %.sroa.6.2.i.i, %push.exit41.cont.i.i ], [ %spec.select48.i.i, %.lr.ph.i29 ]
+  %.sroa.0.152.i.i = phi ptr [ %.sroa.0.2.i.i, %push.exit41.cont.i.i ], [ %140, %.lr.ph.i29 ]
   %150 = tail call ptr @agxget(ptr noundef nonnull %.054.i.i, ptr noundef nonnull %.fr.i.i) #13
   %151 = load i8, ptr %150, align 1
   %.not.i38.i.i = icmp eq i8 %151, 48
@@ -396,17 +396,17 @@ streq.exit.thread.i.i:                            ; preds = %streq.exit.i.i, %.l
 
 push.exit41.i.i:                                  ; preds = %175
   store ptr %.029.i.i32, ptr %186, align 8
-  %.not.i39.i.i = icmp eq ptr %.sroa.6.253.i.i, null
+  %.not.i39.i.i = icmp eq ptr %.sroa.6.153.i.i, null
   br i1 %.not.i39.i.i, label %push.exit41.cont.i.i, label %push.exit41.else.i.i
 
 push.exit41.else.i.i:                             ; preds = %push.exit41.i.i
-  %190 = getelementptr inbounds i8, ptr %.sroa.6.253.i.i, i64 8
+  %190 = getelementptr inbounds i8, ptr %.sroa.6.153.i.i, i64 8
   store ptr %186, ptr %190, align 8
   br label %push.exit41.cont.i.i
 
 push.exit41.cont.i.i:                             ; preds = %push.exit41.else.i.i, %push.exit41.i.i, %167, %streq.exit.i.i
-  %.sroa.0.5.i.i = phi ptr [ %.sroa.0.352.i.i, %167 ], [ %.sroa.0.352.i.i, %streq.exit.i.i ], [ %.sroa.0.352.i.i, %push.exit41.else.i.i ], [ %186, %push.exit41.i.i ]
-  %.sroa.6.3.i.i = phi ptr [ %.sroa.6.253.i.i, %167 ], [ %.sroa.6.253.i.i, %streq.exit.i.i ], [ %186, %push.exit41.else.i.i ], [ %186, %push.exit41.i.i ]
+  %.sroa.0.2.i.i = phi ptr [ %.sroa.0.152.i.i, %167 ], [ %.sroa.0.152.i.i, %streq.exit.i.i ], [ %.sroa.0.152.i.i, %push.exit41.else.i.i ], [ %186, %push.exit41.i.i ]
+  %.sroa.6.2.i.i = phi ptr [ %.sroa.6.153.i.i, %167 ], [ %.sroa.6.153.i.i, %streq.exit.i.i ], [ %186, %push.exit41.else.i.i ], [ %186, %push.exit41.i.i ]
   %191 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.054.i.i, ptr noundef nonnull %141) #13
   %.not34.i.i = icmp eq ptr %191, null
   br i1 %.not34.i.i, label %.loopexit.i.i, label %.lr.ph.i.i30

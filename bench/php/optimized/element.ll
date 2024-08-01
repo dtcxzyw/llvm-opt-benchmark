@@ -1102,9 +1102,9 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef %1
   br label %27
 
 .loopexit.i:                                      ; preds = %81, %._crit_edge.i
-  %.190.lcssa.i = phi ptr [ %.089121.i, %._crit_edge.i ], [ %.392.i, %81 ]
+  %.190.lcssa.i = phi ptr [ %.089121.i, %._crit_edge.i ], [ %.291.i, %81 ]
   %.187.lcssa.i = phi i64 [ %28, %._crit_edge.i ], [ %.288.i, %81 ]
-  %.183.lcssa.i = phi i64 [ %.082123.i, %._crit_edge.i ], [ %.385.i, %81 ]
+  %.183.lcssa.i = phi i64 [ %.082123.i, %._crit_edge.i ], [ %.284.i, %81 ]
   %.not.i = icmp eq i64 %.187.lcssa.i, 0
   br i1 %.not.i, label %dom_deep_ns_redef.exit, label %27
 
@@ -1139,15 +1139,15 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef %1
 
 45:                                               ; preds = %41, %39
   %46 = phi ptr [ %.pre.i, %41 ], [ %30, %39 ]
-  %.081.i = phi ptr [ %44, %41 ], [ %35, %39 ]
+  %.1.i = phi ptr [ %44, %41 ], [ %35, %39 ]
   %47 = getelementptr inbounds i8, ptr %46, i64 72
-  store ptr %.081.i, ptr %47, align 8
+  store ptr %.1.i, ptr %47, align 8
   %.pre126.i = load ptr, ptr %29, align 8
   br label %48
 
 48:                                               ; preds = %45, %27
   %49 = phi ptr [ %.pre126.i, %45 ], [ %30, %27 ]
-  %.1.i = phi ptr [ %.081.i, %45 ], [ %35, %27 ]
+  %.081.i = phi ptr [ %.1.i, %45 ], [ %35, %27 ]
   %50 = getelementptr inbounds i8, ptr %49, i64 88
   %.080106.i = load ptr, ptr %50, align 8
   %.not97107.i = icmp eq ptr %.080106.i, null
@@ -1155,7 +1155,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef %1
 
 .lr.ph.i:                                         ; preds = %48, %62
   %.080109.i = phi ptr [ %.080.i, %62 ], [ %.080106.i, %48 ]
-  %.2108.i = phi ptr [ %.4.i, %62 ], [ %.1.i, %48 ]
+  %.2108.i = phi ptr [ %.4.i, %62 ], [ %.081.i, %48 ]
   %51 = getelementptr inbounds i8, ptr %.080109.i, i64 72
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %1
@@ -1190,7 +1190,7 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef %1
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %48
   %64 = phi ptr [ %49, %48 ], [ %.pre127.i, %._crit_edge.loopexit.i ]
-  %.2.lcssa.i = phi ptr [ %.1.i, %48 ], [ %.4.i, %._crit_edge.loopexit.i ]
+  %.2.lcssa.i = phi ptr [ %.081.i, %48 ], [ %.4.i, %._crit_edge.loopexit.i ]
   %65 = getelementptr inbounds i8, ptr %64, i64 24
   %.0110.i = load ptr, ptr %65, align 8
   %.not98111.i = icmp eq ptr %.0110.i, null
@@ -1198,9 +1198,9 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef %1
 
 .lr.ph117.i:                                      ; preds = %._crit_edge.i, %81
   %.0115.i = phi ptr [ %.0.i, %81 ], [ %.0110.i, %._crit_edge.i ]
-  %.183114.i = phi i64 [ %.385.i, %81 ], [ %.082123.i, %._crit_edge.i ]
+  %.183114.i = phi i64 [ %.284.i, %81 ], [ %.082123.i, %._crit_edge.i ]
   %.187113.i = phi i64 [ %.288.i, %81 ], [ %28, %._crit_edge.i ]
-  %.190112.i = phi ptr [ %.392.i, %81 ], [ %.089121.i, %._crit_edge.i ]
+  %.190112.i = phi ptr [ %.291.i, %81 ], [ %.089121.i, %._crit_edge.i ]
   %66 = getelementptr inbounds i8, ptr %.0115.i, i64 8
   %67 = load i32, ptr %66, align 8
   %.not99.i = icmp eq i32 %67, 1
@@ -1222,9 +1222,9 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef %1
   br label %77
 
 77:                                               ; preds = %72, %68
-  %.291.i = phi ptr [ %76, %72 ], [ %.190112.i, %68 ]
-  %.284.i = phi i64 [ %74, %72 ], [ %.183114.i, %68 ]
-  %78 = getelementptr inbounds %struct._dom_deep_ns_redef_item, ptr %.291.i, i64 %.187113.i
+  %.392.i = phi ptr [ %76, %72 ], [ %.190112.i, %68 ]
+  %.385.i = phi i64 [ %74, %72 ], [ %.183114.i, %68 ]
+  %78 = getelementptr inbounds %struct._dom_deep_ns_redef_item, ptr %.392.i, i64 %.187113.i
   store ptr %.0115.i, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 8
   store ptr %.2.lcssa.i, ptr %79, align 8
@@ -1232,9 +1232,9 @@ define internal fastcc void @dom_remove_attribute(ptr noundef %0, ptr noundef %1
   br label %81
 
 81:                                               ; preds = %77, %.lr.ph117.i
-  %.392.i = phi ptr [ %.190112.i, %.lr.ph117.i ], [ %.291.i, %77 ]
+  %.291.i = phi ptr [ %.190112.i, %.lr.ph117.i ], [ %.392.i, %77 ]
   %.288.i = phi i64 [ %.187113.i, %.lr.ph117.i ], [ %80, %77 ]
-  %.385.i = phi i64 [ %.183114.i, %.lr.ph117.i ], [ %.284.i, %77 ]
+  %.284.i = phi i64 [ %.183114.i, %.lr.ph117.i ], [ %.385.i, %77 ]
   %82 = getelementptr inbounds i8, ptr %.0115.i, i64 48
   %.0.i = load ptr, ptr %82, align 8
   %.not98.i = icmp eq ptr %.0.i, null
@@ -2288,8 +2288,8 @@ dom_remove_eliminated_ns_single_element.exit31.i.i: ; preds = %91, %85
   br label %.lr.ph.i.i
 
 .preheader.i.i:                                   ; preds = %95, %101
-  %.1.i.i = phi ptr [ %99, %101 ], [ %.035.i.i, %95 ]
-  %98 = getelementptr inbounds i8, ptr %.1.i.i, i64 40
+  %.2.i.i = phi ptr [ %99, %101 ], [ %.035.i.i, %95 ]
+  %98 = getelementptr inbounds i8, ptr %.2.i.i, i64 40
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, %29
   br i1 %100, label %dom_eliminate_ns.exit, label %101

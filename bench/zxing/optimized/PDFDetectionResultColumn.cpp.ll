@@ -441,8 +441,8 @@ _ZN5ZXing6Pdf417L24RemoveIncorrectCodewordsEbRSt6vectorINS_8NullableINS0_8Codewo
 
 101:                                              ; preds = %.lr.ph90, %144
   %indvars.iv94 = phi i64 [ %99, %.lr.ph90 ], [ %indvars.iv.next95, %144 ]
-  %.04389 = phi i32 [ -1, %.lr.ph90 ], [ %.2, %144 ]
-  %.04586 = phi i32 [ 1, %.lr.ph90 ], [ %.247, %144 ]
+  %.04389 = phi i32 [ -1, %.lr.ph90 ], [ %.1, %144 ]
+  %.04586 = phi i32 [ 1, %.lr.ph90 ], [ %.146, %144 ]
   %.07385 = phi i32 [ 0, %.lr.ph90 ], [ %.174, %144 ]
   %.07584 = phi i32 [ 1, %.lr.ph90 ], [ %.176, %144 ]
   %102 = load ptr, ptr %6, align 8
@@ -469,10 +469,10 @@ _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %101
   br label %114
 
 114:                                              ; preds = %108, %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit
-  %.146 = phi i32 [ %.04586, %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit ], [ %spec.select, %108 ]
-  %.1 = phi i32 [ %.04389, %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit ], [ %spec.select80, %108 ]
-  %115 = sub nsw i32 %.sroa.1.0.copyload, %.1
-  %116 = icmp eq i32 %.sroa.1.0.copyload, %.1
+  %.247 = phi i32 [ %.04586, %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit ], [ %spec.select, %108 ]
+  %.2 = phi i32 [ %.04389, %_ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit ], [ %spec.select80, %108 ]
+  %115 = sub nsw i32 %.sroa.1.0.copyload, %.2
+  %116 = icmp eq i32 %.sroa.1.0.copyload, %.2
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %114
@@ -480,7 +480,7 @@ _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %101
   br label %144
 
 119:                                              ; preds = %114
-  %120 = icmp eq i32 %115, %.146
+  %120 = icmp eq i32 %115, %.247
   br i1 %120, label %121, label %122
 
 121:                                              ; preds = %119
@@ -542,8 +542,8 @@ _ZNK5ZXing8NullableINS_6Pdf4178CodewordEEcvS2_Ev.exit: ; preds = %101
 144:                                              ; preds = %._crit_edge, %117, %130, %143, %121, %101
   %.176 = phi i32 [ %.07584, %101 ], [ %.07584, %117 ], [ %.sroa.speculated, %121 ], [ %.07584, %130 ], [ %.07584, %143 ], [ %.07584, %._crit_edge ]
   %.174 = phi i32 [ %.07385, %101 ], [ %118, %117 ], [ 1, %121 ], [ %.07385, %130 ], [ %.07385, %143 ], [ 1, %._crit_edge ]
-  %.247 = phi i32 [ %.04586, %101 ], [ %.146, %117 ], [ %.146, %121 ], [ %.146, %130 ], [ %.146, %143 ], [ %.146, %._crit_edge ]
-  %.2 = phi i32 [ %.04389, %101 ], [ %.sroa.1.0.copyload, %117 ], [ %.sroa.1.0.copyload, %121 ], [ %.1, %130 ], [ %.1, %143 ], [ %.sroa.1.0.copyload, %._crit_edge ]
+  %.146 = phi i32 [ %.04586, %101 ], [ %.247, %117 ], [ %.247, %121 ], [ %.247, %130 ], [ %.247, %143 ], [ %.247, %._crit_edge ]
+  %.1 = phi i32 [ %.04389, %101 ], [ %.sroa.1.0.copyload, %117 ], [ %.sroa.1.0.copyload, %121 ], [ %.2, %130 ], [ %.2, %143 ], [ %.sroa.1.0.copyload, %._crit_edge ]
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
   %145 = icmp slt i64 %indvars.iv.next95, %100
   br i1 %145, label %101, label %.loopexit, !llvm.loop !7
@@ -1118,13 +1118,13 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %70
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %105, %94, %91, %81, %76, %71
-  %.020.ph = phi i1 [ true, %105 ], [ false, %71 ], [ false, %76 ], [ false, %81 ], [ false, %91 ], [ false, %94 ]
+  %.1.ph = phi i1 [ true, %105 ], [ false, %71 ], [ false, %76 ], [ false, %81 ], [ false, %91 ], [ false, %94 ]
   %.pr = load ptr, ptr %10, align 8
   br label %109
 
 109:                                              ; preds = %thread-pre-split, %86
   %110 = phi ptr [ %.pr, %thread-pre-split ], [ %87, %86 ]
-  %.020 = phi i1 [ %.020.ph, %thread-pre-split ], [ false, %86 ]
+  %.1 = phi i1 [ %.1.ph, %thread-pre-split ], [ false, %86 ]
   %.not.i.i.i33 = icmp eq ptr %110, null
   br i1 %.not.i.i.i33, label %_ZNSt6vectorIiSaIiEED2Ev.exit34, label %111
 
@@ -1240,8 +1240,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit49:                  ; preds = %.loopexit, %.loopex
   resume { ptr, i32 } %.pn30
 
 _ZN5ZXing6Pdf41712BarcodeValueD2Ev.exit43:        ; preds = %_ZN5ZXing6Pdf41712BarcodeValueD2Ev.exit42, %2
-  %.1 = phi i1 [ false, %2 ], [ %.020, %_ZN5ZXing6Pdf41712BarcodeValueD2Ev.exit42 ]
-  ret i1 %.1
+  %.020 = phi i1 [ false, %2 ], [ %.1, %_ZN5ZXing6Pdf41712BarcodeValueD2Ev.exit42 ]
+  ret i1 %.020
 }
 
 declare void @_ZN5ZXing6Pdf41712BarcodeValue8setValueEi(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #2

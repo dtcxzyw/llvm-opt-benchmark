@@ -7463,7 +7463,7 @@ _ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i67: 
   br label %ehcleanup52.thread100
 
 cleanup:                                          ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit65
-  %retval.0 = phi i1 [ %call50, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit65 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ true, %if.end8.sink.split.i.i.i.i ]
+  %retval.1 = phi i1 [ %call50, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit65 ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ true, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ true, %if.end8.sink.split.i.i.i.i ]
   %62 = load i8, ptr %_M_engaged.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %62 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i71, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
@@ -7549,8 +7549,8 @@ if.then3.i.i:                                     ; preds = %_ZNKSt14default_del
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i71, %cleanup, %if.then3.i.i
-  %retval.193 = phi i1 [ true, %if.then3.i.i ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i.i.i71 ], [ %retval.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i ], [ %retval.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %retval.0, %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i ]
-  ret i1 %retval.193
+  %retval.093 = phi i1 [ true, %if.then3.i.i ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i.i.i71 ], [ %retval.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i ], [ %retval.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i ], [ %retval.1, %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i ]
+  ret i1 %retval.093
 
 ehcleanup52.thread100:                            ; preds = %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i67, %lpad48, %lpad36, %_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEENUlRKNS_6StatusEE_D2Ev.exit51
   %.pn.ph = phi { ptr, i32 } [ %55, %lpad36 ], [ %eh.lpad-body, %_ZZN5arrow4util12_GLOBAL__N_131ThrottledAsyncTaskSchedulerImpl7AddTaskESt10unique_ptrINS0_18AsyncTaskScheduler4TaskESt14default_deleteIS5_EEENUlRKNS_6StatusEE_D2Ev.exit51 ], [ %59, %lpad48 ], [ %59, %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i67 ]
@@ -8084,7 +8084,7 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.preheader
-  %lk.sroa.7.0 = phi i8 [ 1, %while.cond.preheader ], [ %lk.sroa.7.8, %while.cond.backedge ]
+  %lk.sroa.7.0 = phi i8 [ 1, %while.cond.preheader ], [ %lk.sroa.7.2, %while.cond.backedge ]
   %2 = load ptr, ptr %queue_, align 8
   %vtable = load ptr, ptr %2, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
@@ -8214,13 +8214,13 @@ lpad:                                             ; preds = %invoke.cont17, %inv
   br label %ehcleanup64
 
 lpad26.loopexit:                                  ; preds = %if.else, %if.then33
-  %lk.sroa.7.2.ph = phi i8 [ %lk.sroa.7.0, %if.else ], [ 0, %if.then33 ]
+  %lk.sroa.7.1.ph = phi i8 [ %lk.sroa.7.0, %if.else ], [ 0, %if.then33 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup60
 
 lpad26.loopexit.split-lp:                         ; preds = %if.then.i, %if.then.i.i
-  %lk.sroa.7.2.ph80 = phi i8 [ %lk.sroa.7.0, %if.then.i ], [ 0, %if.then.i.i ]
+  %lk.sroa.7.1.ph80 = phi i8 [ %lk.sroa.7.0, %if.then.i ], [ 0, %if.then.i.i ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup60
@@ -8314,7 +8314,7 @@ if.then.i.i41:                                    ; preds = %if.else4.i38
 
 cleanup:                                          ; preds = %if.else4.i38, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit
   %lk.sroa.7.6 = phi i8 [ 0, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit ], [ 1, %if.else4.i38 ]
-  %cleanup.dest.slot.0 = phi i32 [ 1, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit ], [ 0, %if.else4.i38 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit ], [ 0, %if.else4.i38 ]
   %33 = load ptr, ptr %next_task, align 8
   %cmp.not.i48 = icmp eq ptr %33, null
   br i1 %cmp.not.i48, label %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit52, label %_ZNKSt14default_deleteIN5arrow4util18AsyncTaskScheduler4TaskEEclEPS3_.exit.i49
@@ -8349,8 +8349,8 @@ _ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EE
   br label %ehcleanup60
 
 cleanup57:                                        ; preds = %if.else4.i, %invoke.cont31, %invoke.cont35, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit52
-  %lk.sroa.7.8 = phi i8 [ 0, %invoke.cont31 ], [ 0, %invoke.cont35 ], [ %lk.sroa.7.6, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit52 ], [ 1, %if.else4.i ]
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont31 ], [ 1, %invoke.cont35 ], [ %cleanup.dest.slot.0, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit52 ], [ 2, %if.else4.i ]
+  %lk.sroa.7.2 = phi i8 [ 0, %invoke.cont31 ], [ 0, %invoke.cont35 ], [ %lk.sroa.7.6, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit52 ], [ 1, %if.else4.i ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont31 ], [ 1, %invoke.cont35 ], [ %cleanup.dest.slot.1, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit52 ], [ 2, %if.else4.i ]
   %37 = load i8, ptr %_M_engaged.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %37 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt8optionalIN5arrow6FutureINS0_8internal5EmptyEEEED2Ev.exit
@@ -8430,7 +8430,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt8optionalIN5arrow6FutureINS0_8internal5EmptyEEEED2Ev.exit
 
 _ZNSt8optionalIN5arrow6FutureINS0_8internal5EmptyEEEED2Ev.exit: ; preds = %cleanup57, %if.then.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i.i.i.i.i.i
-  switch i32 %cleanup.dest.slot.1, label %cleanup61 [
+  switch i32 %cleanup.dest.slot.0, label %cleanup61 [
     i32 0, label %while.cond.backedge
     i32 2, label %while.cond.backedge
   ]
@@ -8439,14 +8439,14 @@ while.cond.backedge:                              ; preds = %_ZNSt8optionalIN5ar
   br label %while.cond, !llvm.loop !104
 
 ehcleanup60:                                      ; preds = %lpad26.loopexit, %lpad26.loopexit.split-lp, %if.then.i.i5.i, %lpad.i, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit57
-  %lk.sroa.7.9 = phi i8 [ %lk.sroa.7.7, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit57 ], [ 0, %if.then.i.i5.i ], [ 0, %lpad.i ], [ %lk.sroa.7.2.ph, %lpad26.loopexit ], [ %lk.sroa.7.2.ph80, %lpad26.loopexit.split-lp ]
+  %lk.sroa.7.4 = phi i8 [ %lk.sroa.7.7, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit57 ], [ 0, %if.then.i.i5.i ], [ 0, %lpad.i ], [ %lk.sroa.7.1.ph, %lpad26.loopexit ], [ %lk.sroa.7.1.ph80, %lpad26.loopexit.split-lp ]
   %.pn4 = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIN5arrow4util18AsyncTaskScheduler4TaskESt14default_deleteIS3_EED2Ev.exit57 ], [ %15, %if.then.i.i5.i ], [ %15, %lpad.i ], [ %lpad.loopexit, %lpad26.loopexit ], [ %lpad.loopexit.split-lp, %lpad26.loopexit.split-lp ]
   call void @_ZNSt8optionalIN5arrow6FutureINS0_8internal5EmptyEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %maybe_backoff) #20
   br label %ehcleanup64
 
 cleanup61:                                        ; preds = %invoke.cont, %_ZNSt8optionalIN5arrow6FutureINS0_8internal5EmptyEEEED2Ev.exit
-  %lk.sroa.7.10 = phi i8 [ %lk.sroa.7.0, %invoke.cont ], [ %lk.sroa.7.8, %_ZNSt8optionalIN5arrow6FutureINS0_8internal5EmptyEEEED2Ev.exit ]
-  %tobool.i59 = trunc nuw i8 %lk.sroa.7.10 to i1
+  %lk.sroa.7.8 = phi i8 [ %lk.sroa.7.0, %invoke.cont ], [ %lk.sroa.7.2, %_ZNSt8optionalIN5arrow6FutureINS0_8internal5EmptyEEEED2Ev.exit ]
+  %tobool.i59 = trunc nuw i8 %lk.sroa.7.8 to i1
   br i1 %tobool.i59, label %if.then3.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 if.then3.i.i:                                     ; preds = %cleanup61
@@ -8457,9 +8457,9 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %cleanup61, %if.then
   ret void
 
 ehcleanup64:                                      ; preds = %ehcleanup60, %lpad
-  %lk.sroa.7.11 = phi i8 [ %lk.sroa.7.9, %ehcleanup60 ], [ %lk.sroa.7.0, %lpad ]
+  %lk.sroa.7.3 = phi i8 [ %lk.sroa.7.4, %ehcleanup60 ], [ %lk.sroa.7.0, %lpad ]
   %.pn4.pn = phi { ptr, i32 } [ %.pn4, %ehcleanup60 ], [ %23, %lpad ]
-  %tobool.i62 = trunc nuw i8 %lk.sroa.7.11 to i1
+  %tobool.i62 = trunc nuw i8 %lk.sroa.7.3 to i1
   br i1 %tobool.i62, label %if.then3.i.i65, label %_ZNSt11unique_lockISt5mutexED2Ev.exit67
 
 if.then3.i.i65:                                   ; preds = %ehcleanup64

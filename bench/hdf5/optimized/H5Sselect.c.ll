@@ -698,8 +698,8 @@ switch.lookup:                                    ; preds = %19
   br label %47
 
 47:                                               ; preds = %switch.lookup, %.thread, %15
-  %.1 = phi i32 [ -1, %.thread ], [ %42, %switch.lookup ], [ -1, %15 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %.thread ], [ %42, %switch.lookup ], [ -1, %15 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2532,8 +2532,8 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   br label %116
 
 116:                                              ; preds = %91, %95, %114, %38, %48
-  %.063 = phi ptr [ %30, %38 ], [ %30, %48 ], [ %74, %114 ], [ %74, %95 ], [ %74, %91 ]
-  store ptr %.063, ptr %1, align 8
+  %.1 = phi ptr [ %30, %38 ], [ %30, %48 ], [ %74, %114 ], [ %74, %95 ], [ %74, %91 ]
+  store ptr %.1, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %117
 
@@ -2552,8 +2552,8 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   br label %.thread
 
 123:                                              ; preds = %44, %51, %87
-  %.1 = phi ptr [ %30, %44 ], [ %30, %51 ], [ %74, %87 ]
-  %124 = call i32 @H5S_close(ptr noundef nonnull %.1) #7
+  %.063 = phi ptr [ %30, %44 ], [ %30, %51 ], [ %74, %87 ]
+  %124 = call i32 @H5S_close(ptr noundef nonnull %.063) #7
   %125 = icmp slt i32 %124, 0
   br i1 %125, label %126, label %.thread
 
@@ -2953,7 +2953,7 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
   br label %234
 
 .loopexit158:                                     ; preds = %126, %105
-  %.0104 = phi ptr [ null, %105 ], [ %109, %126 ]
+  %.2106 = phi ptr [ null, %105 ], [ %109, %126 ]
   %.0 = phi ptr [ %2, %105 ], [ %109, %126 ]
   %136 = load ptr, ptr %53, align 8
   %137 = load i32, ptr %136, align 8
@@ -3109,15 +3109,15 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
   br label %234
 
 .loopexit:                                        ; preds = %223, %62, %227, %91, %98, %41
-  %.1105 = phi ptr [ null, %41 ], [ null, %62 ], [ null, %91 ], [ null, %98 ], [ %.0104, %227 ], [ %.0104, %223 ]
-  %.099 = phi i1 [ false, %41 ], [ false, %62 ], [ false, %91 ], [ false, %98 ], [ false, %227 ], [ true, %223 ]
+  %.1105 = phi ptr [ null, %41 ], [ null, %62 ], [ null, %91 ], [ null, %98 ], [ %.2106, %227 ], [ %.2106, %223 ]
+  %.1100 = phi i1 [ false, %41 ], [ false, %62 ], [ false, %91 ], [ false, %98 ], [ false, %227 ], [ true, %223 ]
   store ptr %23, ptr %3, align 8
   br label %.thread
 
 234:                                              ; preds = %32, %44, %65, %79, %86, %94, %101, %111, %118, %132, %146, %153, %162, %172, %179, %190, %197, %207, %219, %230
-  %.2106 = phi ptr [ null, %32 ], [ null, %44 ], [ null, %65 ], [ null, %79 ], [ null, %86 ], [ null, %94 ], [ null, %101 ], [ null, %111 ], [ %109, %118 ], [ %109, %132 ], [ %.0104, %146 ], [ %.0104, %153 ], [ %.0104, %162 ], [ %.0104, %172 ], [ %.0104, %179 ], [ %.0104, %190 ], [ %.0104, %197 ], [ %.0104, %207 ], [ %.0104, %219 ], [ %.0104, %230 ]
-  %.1103 = phi i1 [ false, %32 ], [ false, %44 ], [ false, %65 ], [ false, %79 ], [ false, %86 ], [ false, %94 ], [ false, %101 ], [ false, %111 ], [ false, %118 ], [ false, %132 ], [ false, %146 ], [ false, %153 ], [ true, %162 ], [ true, %172 ], [ true, %179 ], [ true, %190 ], [ true, %197 ], [ true, %207 ], [ true, %219 ], [ false, %230 ]
-  %.1100 = phi i1 [ false, %32 ], [ false, %44 ], [ false, %65 ], [ false, %79 ], [ false, %86 ], [ false, %94 ], [ false, %101 ], [ false, %111 ], [ false, %118 ], [ false, %132 ], [ false, %146 ], [ false, %153 ], [ false, %162 ], [ true, %172 ], [ true, %179 ], [ true, %190 ], [ true, %197 ], [ true, %207 ], [ true, %219 ], [ false, %230 ]
+  %.0104 = phi ptr [ null, %32 ], [ null, %44 ], [ null, %65 ], [ null, %79 ], [ null, %86 ], [ null, %94 ], [ null, %101 ], [ null, %111 ], [ %109, %118 ], [ %109, %132 ], [ %.2106, %146 ], [ %.2106, %153 ], [ %.2106, %162 ], [ %.2106, %172 ], [ %.2106, %179 ], [ %.2106, %190 ], [ %.2106, %197 ], [ %.2106, %207 ], [ %.2106, %219 ], [ %.2106, %230 ]
+  %.0102 = phi i1 [ false, %32 ], [ false, %44 ], [ false, %65 ], [ false, %79 ], [ false, %86 ], [ false, %94 ], [ false, %101 ], [ false, %111 ], [ false, %118 ], [ false, %132 ], [ false, %146 ], [ false, %153 ], [ true, %162 ], [ true, %172 ], [ true, %179 ], [ true, %190 ], [ true, %197 ], [ true, %207 ], [ true, %219 ], [ false, %230 ]
+  %.099 = phi i1 [ false, %32 ], [ false, %44 ], [ false, %65 ], [ false, %79 ], [ false, %86 ], [ false, %94 ], [ false, %101 ], [ false, %111 ], [ false, %118 ], [ false, %132 ], [ false, %146 ], [ false, %153 ], [ false, %162 ], [ true, %172 ], [ true, %179 ], [ true, %190 ], [ true, %197 ], [ true, %207 ], [ true, %219 ], [ false, %230 ]
   %235 = call i32 @H5S_close(ptr noundef nonnull %23) #7
   %236 = icmp slt i32 %235, 0
   br i1 %236, label %237, label %.thread
@@ -3129,15 +3129,15 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
   br label %.thread
 
 .thread:                                          ; preds = %.loopexit, %234, %237
-  %.1100131 = phi i1 [ %.1100, %237 ], [ %.1100, %234 ], [ %.099, %.loopexit ]
-  %.1103129 = phi i1 [ %.1103, %237 ], [ %.1103, %234 ], [ %.099, %.loopexit ]
-  %.2106128 = phi ptr [ %.2106, %237 ], [ %.2106, %234 ], [ %.1105, %.loopexit ]
+  %.099131 = phi i1 [ %.099, %237 ], [ %.099, %234 ], [ %.1100, %.loopexit ]
+  %.0102129 = phi i1 [ %.0102, %237 ], [ %.0102, %234 ], [ %.1100, %.loopexit ]
+  %.0104128 = phi ptr [ %.0104, %237 ], [ %.0104, %234 ], [ %.1105, %.loopexit ]
   %.1 = phi i32 [ -1, %237 ], [ -1, %234 ], [ 0, %.loopexit ]
-  %.not120 = icmp eq ptr %.2106128, null
+  %.not120 = icmp eq ptr %.0104128, null
   br i1 %.not120, label %248, label %241
 
 241:                                              ; preds = %.thread
-  %242 = call i32 @H5S_close(ptr noundef nonnull %.2106128) #7
+  %242 = call i32 @H5S_close(ptr noundef nonnull %.0104128) #7
   %243 = icmp slt i32 %242, 0
   br i1 %243, label %244, label %248
 
@@ -3145,10 +3145,10 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
   %245 = load i64, ptr @H5E_DATASPACE_g, align 8
   %246 = load i64, ptr @H5E_CANTRELEASE_g, align 8
   %247 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5S_select_project_intersection, i32 noundef 2607, i64 noundef %245, i64 noundef %246, ptr noundef nonnull @.str.75) #7
-  br i1 %.1103129, label %249, label %259
+  br i1 %.0102129, label %249, label %259
 
 248:                                              ; preds = %241, %.thread
-  br i1 %.1103129, label %249, label %259
+  br i1 %.0102129, label %249, label %259
 
 249:                                              ; preds = %244, %248
   %.2150 = phi i32 [ -1, %244 ], [ %.1, %248 ]
@@ -3163,11 +3163,11 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
   %256 = load i64, ptr @H5E_DATASPACE_g, align 8
   %257 = load i64, ptr @H5E_CANTRELEASE_g, align 8
   %258 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5S_select_project_intersection, i32 noundef 2609, i64 noundef %256, i64 noundef %257, ptr noundef nonnull @.str.76) #7
-  br i1 %.1100131, label %260, label %.thread151
+  br i1 %.099131, label %260, label %.thread151
 
 259:                                              ; preds = %244, %249, %248
   %.3 = phi i32 [ %.2150, %249 ], [ %.1, %248 ], [ -1, %244 ]
-  br i1 %.1100131, label %260, label %.thread151
+  br i1 %.099131, label %260, label %.thread151
 
 260:                                              ; preds = %255, %259
   %.3157 = phi i32 [ -1, %255 ], [ %.3, %259 ]

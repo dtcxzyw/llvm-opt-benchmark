@@ -364,7 +364,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %tobool12.not, label %err, label %if.end15
 
 if.end15:                                         ; preds = %if.then7, %if.end
-  %spriv.0 = phi ptr [ %call10, %if.then7 ], [ null, %if.end ]
+  %spriv.1 = phi ptr [ %call10, %if.then7 ], [ null, %if.end ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %secret.i)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %enc.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %secretlen.i)
@@ -405,7 +405,7 @@ if.then6.i:                                       ; preds = %if.end.i
   br i1 %tobool10.not.i, label %do_encap.exit, label %if.end19.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %call14.i = call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %call.i, ptr noundef %spriv.0, ptr noundef nonnull %params.i) #5
+  %call14.i = call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %call.i, ptr noundef %spriv.1, ptr noundef nonnull %params.i) #5
   %call15.i = call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 673, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.50, i32 noundef %call14.i, i32 noundef 1) #5
   %tobool16.not.i = icmp eq i32 %call15.i, 0
   br i1 %tobool16.not.i, label %do_encap.exit, label %if.end19.i
@@ -457,9 +457,9 @@ do_encap.exit:                                    ; preds = %if.end15, %if.then6
   br label %err
 
 err:                                              ; preds = %if.then7, %entry, %do_encap.exit
-  %spriv.1 = phi ptr [ %spriv.0, %do_encap.exit ], [ %call10, %if.then7 ], [ null, %entry ]
+  %spriv.0 = phi ptr [ %spriv.1, %do_encap.exit ], [ %call10, %if.then7 ], [ null, %entry ]
   %ret.0 = phi i32 [ %ret.0.i, %do_encap.exit ], [ 0, %if.then7 ], [ 0, %entry ]
-  call void @EVP_PKEY_free(ptr noundef %spriv.1) #5
+  call void @EVP_PKEY_free(ptr noundef %spriv.0) #5
   call void @EVP_PKEY_free(ptr noundef %call) #5
   ret i32 %ret.0
 }
@@ -502,7 +502,7 @@ if.then7:                                         ; preds = %if.end
   br i1 %tobool12.not, label %err, label %if.end15
 
 if.end15:                                         ; preds = %if.then7, %if.end
-  %spub.0 = phi ptr [ %call10, %if.then7 ], [ null, %if.end ]
+  %spub.1 = phi ptr [ %call10, %if.then7 ], [ null, %if.end ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %secret.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %secretlen.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %secret.i, i8 0, i64 256, i1 false)
@@ -523,7 +523,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %tobool6.not.i, label %do_decap.exit, label %if.end14.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %call9.i = tail call i32 @EVP_PKEY_auth_decapsulate_init(ptr noundef %call.i, ptr noundef %spub.0, ptr noundef nonnull @opparam) #5
+  %call9.i = tail call i32 @EVP_PKEY_auth_decapsulate_init(ptr noundef %call.i, ptr noundef %spub.1, ptr noundef nonnull @opparam) #5
   %call10.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.47, i32 noundef 703, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.50, i32 noundef %call9.i, i32 noundef 1) #5
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %do_decap.exit, label %if.end14.i
@@ -563,9 +563,9 @@ do_decap.exit:                                    ; preds = %if.end15, %if.then3
   br label %err
 
 err:                                              ; preds = %if.then7, %entry, %do_decap.exit
-  %spub.1 = phi ptr [ %spub.0, %do_decap.exit ], [ %call10, %if.then7 ], [ null, %entry ]
+  %spub.0 = phi ptr [ %spub.1, %do_decap.exit ], [ %call10, %if.then7 ], [ null, %entry ]
   %ret.0 = phi i32 [ %ret.0.i, %do_decap.exit ], [ 0, %if.then7 ], [ 0, %entry ]
-  call void @EVP_PKEY_free(ptr noundef %spub.1) #5
+  call void @EVP_PKEY_free(ptr noundef %spub.0) #5
   call void @EVP_PKEY_free(ptr noundef %call) #5
   ret i32 %ret.0
 }
@@ -1272,20 +1272,20 @@ land.lhs.true18:                                  ; preds = %lor.lhs.false16
   br i1 %tobool21.not, label %err, label %if.end24
 
 if.end24:                                         ; preds = %lor.lhs.false16, %land.lhs.true18, %lor.lhs.false, %land.lhs.true
-  %recip.0 = phi ptr [ %call, %land.lhs.true ], [ %call, %lor.lhs.false ], [ %call13, %land.lhs.true18 ], [ %call13, %lor.lhs.false16 ]
-  %sender_auth.0 = phi ptr [ %call8, %land.lhs.true ], [ null, %lor.lhs.false ], [ %call19, %land.lhs.true18 ], [ null, %lor.lhs.false16 ]
+  %recip.1 = phi ptr [ %call, %land.lhs.true ], [ %call, %lor.lhs.false ], [ %call13, %land.lhs.true18 ], [ %call13, %lor.lhs.false16 ]
+  %sender_auth.1 = phi ptr [ %call8, %land.lhs.true ], [ null, %lor.lhs.false ], [ %call19, %land.lhs.true18 ], [ null, %lor.lhs.false16 ]
   %5 = load ptr, ptr @libctx, align 8
-  %call25 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %5, ptr noundef %recip.0, ptr noundef null) #5
+  %call25 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %5, ptr noundef %recip.1, ptr noundef null) #5
   %call26 = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 545, ptr noundef nonnull @.str.124, ptr noundef %call25) #5
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %err, label %land.lhs.true28
 
 land.lhs.true28:                                  ; preds = %if.end24
-  %cmp29 = icmp eq ptr %sender_auth.0, null
+  %cmp29 = icmp eq ptr %sender_auth.1, null
   br i1 %cmp29, label %lor.lhs.false38, label %lor.lhs.false31
 
 lor.lhs.false31:                                  ; preds = %land.lhs.true28
-  %call32 = tail call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %call25, ptr noundef nonnull %sender_auth.0, ptr noundef null) #5
+  %call32 = tail call i32 @EVP_PKEY_auth_encapsulate_init(ptr noundef %call25, ptr noundef nonnull %sender_auth.1, ptr noundef null) #5
   %call33 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 548, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.50, i32 noundef %call32, i32 noundef 1) #5
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %err, label %land.lhs.true42
@@ -1312,7 +1312,7 @@ land.lhs.true51:                                  ; preds = %land.lhs.true46
   br i1 %cmp29, label %lor.lhs.false61, label %lor.lhs.false54
 
 lor.lhs.false54:                                  ; preds = %land.lhs.true51
-  %call55 = call i32 @EVP_PKEY_auth_decapsulate_init(ptr noundef %call25, ptr noundef nonnull %sender_auth.0, ptr noundef null) #5
+  %call55 = call i32 @EVP_PKEY_auth_decapsulate_init(ptr noundef %call25, ptr noundef nonnull %sender_auth.1, ptr noundef null) #5
   %call56 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 556, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.50, i32 noundef %call55, i32 noundef 1) #5
   %tobool57.not = icmp eq i32 %call56, 0
   br i1 %tobool57.not, label %err, label %land.lhs.true65
@@ -1346,12 +1346,12 @@ land.rhs:                                         ; preds = %land.lhs.true69
 
 err:                                              ; preds = %if.end24, %lor.lhs.false31, %lor.lhs.false38, %land.lhs.true42, %land.lhs.true46, %lor.lhs.false54, %lor.lhs.false61, %land.lhs.true65, %land.lhs.true69, %land.rhs, %if.else, %land.lhs.true18, %if.then4, %land.lhs.true
   %ctx.0 = phi ptr [ null, %land.lhs.true ], [ null, %if.then4 ], [ null, %land.lhs.true18 ], [ null, %if.else ], [ %call25, %land.rhs ], [ %call25, %land.lhs.true69 ], [ %call25, %land.lhs.true65 ], [ %call25, %lor.lhs.false61 ], [ %call25, %lor.lhs.false54 ], [ %call25, %land.lhs.true46 ], [ %call25, %land.lhs.true42 ], [ %call25, %lor.lhs.false38 ], [ %call25, %lor.lhs.false31 ], [ %call25, %if.end24 ]
-  %recip.1 = phi ptr [ %call, %land.lhs.true ], [ %call, %if.then4 ], [ %call13, %land.lhs.true18 ], [ %call13, %if.else ], [ %recip.0, %land.rhs ], [ %recip.0, %land.lhs.true69 ], [ %recip.0, %land.lhs.true65 ], [ %recip.0, %lor.lhs.false61 ], [ %recip.0, %lor.lhs.false54 ], [ %recip.0, %land.lhs.true46 ], [ %recip.0, %land.lhs.true42 ], [ %recip.0, %lor.lhs.false38 ], [ %recip.0, %lor.lhs.false31 ], [ %recip.0, %if.end24 ]
-  %sender_auth.1 = phi ptr [ %call8, %land.lhs.true ], [ null, %if.then4 ], [ %call19, %land.lhs.true18 ], [ null, %if.else ], [ %sender_auth.0, %land.rhs ], [ %sender_auth.0, %land.lhs.true69 ], [ %sender_auth.0, %land.lhs.true65 ], [ null, %lor.lhs.false61 ], [ %sender_auth.0, %lor.lhs.false54 ], [ %sender_auth.0, %land.lhs.true46 ], [ %sender_auth.0, %land.lhs.true42 ], [ null, %lor.lhs.false38 ], [ %sender_auth.0, %lor.lhs.false31 ], [ %sender_auth.0, %if.end24 ]
+  %recip.0 = phi ptr [ %call, %land.lhs.true ], [ %call, %if.then4 ], [ %call13, %land.lhs.true18 ], [ %call13, %if.else ], [ %recip.1, %land.rhs ], [ %recip.1, %land.lhs.true69 ], [ %recip.1, %land.lhs.true65 ], [ %recip.1, %lor.lhs.false61 ], [ %recip.1, %lor.lhs.false54 ], [ %recip.1, %land.lhs.true46 ], [ %recip.1, %land.lhs.true42 ], [ %recip.1, %lor.lhs.false38 ], [ %recip.1, %lor.lhs.false31 ], [ %recip.1, %if.end24 ]
+  %sender_auth.0 = phi ptr [ %call8, %land.lhs.true ], [ null, %if.then4 ], [ %call19, %land.lhs.true18 ], [ null, %if.else ], [ %sender_auth.1, %land.rhs ], [ %sender_auth.1, %land.lhs.true69 ], [ %sender_auth.1, %land.lhs.true65 ], [ null, %lor.lhs.false61 ], [ %sender_auth.1, %lor.lhs.false54 ], [ %sender_auth.1, %land.lhs.true46 ], [ %sender_auth.1, %land.lhs.true42 ], [ null, %lor.lhs.false38 ], [ %sender_auth.1, %lor.lhs.false31 ], [ %sender_auth.1, %if.end24 ]
   %ret.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.then4 ], [ 0, %land.lhs.true18 ], [ 0, %if.else ], [ %9, %land.rhs ], [ 0, %land.lhs.true69 ], [ 0, %land.lhs.true65 ], [ 0, %lor.lhs.false61 ], [ 0, %lor.lhs.false54 ], [ 0, %land.lhs.true46 ], [ 0, %land.lhs.true42 ], [ 0, %lor.lhs.false38 ], [ 0, %lor.lhs.false31 ], [ 0, %if.end24 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %ctx.0) #5
-  call void @EVP_PKEY_free(ptr noundef %sender_auth.1) #5
-  call void @EVP_PKEY_free(ptr noundef %recip.1) #5
+  call void @EVP_PKEY_free(ptr noundef %sender_auth.0) #5
+  call void @EVP_PKEY_free(ptr noundef %recip.0) #5
   ret i32 %ret.0
 }
 
@@ -2075,7 +2075,7 @@ if.end28:                                         ; preds = %if.end24
   br i1 %tobool30.not, label %if.then58, label %if.end33
 
 if.end33:                                         ; preds = %if.end28, %if.then13
-  %privbn.0 = phi ptr [ null, %if.then13 ], [ %call20, %if.end28 ]
+  %privbn.1 = phi ptr [ null, %if.then13 ], [ %call20, %if.end28 ]
   %cmp34.not = icmp eq ptr %pub, null
   br i1 %cmp34.not, label %if.end41, label %if.then36
 
@@ -2105,16 +2105,16 @@ err.if.then58_crit_edge:                          ; preds = %err
 
 if.then58:                                        ; preds = %err.if.then58_crit_edge, %if.end24, %if.end28, %if.else18, %if.then13, %if.then36, %if.end46, %if.end41, %if.end6
   %2 = phi ptr [ %.pre, %err.if.then58_crit_edge ], [ null, %if.end24 ], [ null, %if.end28 ], [ null, %if.else18 ], [ null, %if.then13 ], [ null, %if.then36 ], [ null, %if.end46 ], [ null, %if.end41 ], [ null, %if.end6 ]
-  %privbn.126 = phi ptr [ %privbn.0, %err.if.then58_crit_edge ], [ %call20, %if.end24 ], [ %call20, %if.end28 ], [ null, %if.else18 ], [ null, %if.then13 ], [ %privbn.0, %if.then36 ], [ %privbn.0, %if.end46 ], [ %privbn.0, %if.end41 ], [ null, %if.end6 ]
+  %privbn.026 = phi ptr [ %privbn.1, %err.if.then58_crit_edge ], [ %call20, %if.end24 ], [ %call20, %if.end28 ], [ null, %if.else18 ], [ null, %if.then13 ], [ %privbn.1, %if.then36 ], [ %privbn.1, %if.end46 ], [ %privbn.1, %if.end41 ], [ null, %if.end6 ]
   %params.024 = phi ptr [ %call42, %err.if.then58_crit_edge ], [ null, %if.end24 ], [ null, %if.end28 ], [ null, %if.else18 ], [ null, %if.then13 ], [ null, %if.then36 ], [ %call42, %if.end46 ], [ null, %if.end41 ], [ null, %if.end6 ]
   call void @EVP_PKEY_free(ptr noundef %2) #5
   store ptr null, ptr %key, align 8
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then58, %err
-  %privbn.125 = phi ptr [ %privbn.126, %if.then58 ], [ %privbn.0, %err ]
+  %privbn.025 = phi ptr [ %privbn.026, %if.then58 ], [ %privbn.1, %err ]
   %params.023 = phi ptr [ %params.024, %if.then58 ], [ %call42, %err ]
-  call void @BN_free(ptr noundef %privbn.125) #5
+  call void @BN_free(ptr noundef %privbn.025) #5
   call void @OSSL_PARAM_free(ptr noundef %params.023) #5
   call void @OSSL_PARAM_BLD_free(ptr noundef %call7) #5
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %call2) #5

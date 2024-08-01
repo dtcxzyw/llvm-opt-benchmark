@@ -673,7 +673,7 @@ if.then90:                                        ; preds = %if.end88
 
 if.then95:                                        ; preds = %if.then19, %if.then27, %if.then87, %if.then90, %if.then79, %if.then70, %if.then66, %if.then51, %if.then56, %if.then42, %if.then36
   %.pre = phi ptr [ null, %if.then36 ], [ null, %if.then42 ], [ %2, %if.then56 ], [ %.pre.pre, %if.then51 ], [ %5, %if.then66 ], [ %5, %if.then70 ], [ %5, %if.then79 ], [ %5, %if.then90 ], [ %5, %if.then87 ], [ null, %if.then27 ], [ null, %if.then19 ]
-  %m.1.ph = phi ptr [ %call25, %if.then36 ], [ %call25, %if.then42 ], [ %call25, %if.then56 ], [ %call25, %if.then51 ], [ %call25, %if.then66 ], [ %call25, %if.then70 ], [ %call25, %if.then79 ], [ %call25, %if.then90 ], [ %call25, %if.then87 ], [ null, %if.then27 ], [ null, %if.then19 ]
+  %m.0.ph = phi ptr [ %call25, %if.then36 ], [ %call25, %if.then42 ], [ %call25, %if.then56 ], [ %call25, %if.then51 ], [ %call25, %if.then66 ], [ %call25, %if.then70 ], [ %call25, %if.then79 ], [ %call25, %if.then90 ], [ %call25, %if.then87 ], [ null, %if.then27 ], [ null, %if.then19 ]
   %ctx.0.ph = phi ptr [ %call22, %if.then36 ], [ %call22, %if.then42 ], [ %call22, %if.then56 ], [ %call22, %if.then51 ], [ %call22, %if.then66 ], [ %call22, %if.then70 ], [ %call22, %if.then79 ], [ %call22, %if.then90 ], [ %call22, %if.then87 ], [ %call22, %if.then27 ], [ null, %if.then19 ]
   tail call void @ECDSA_SIG_free(ptr noundef nonnull %call8) #3
   br label %if.end96
@@ -681,10 +681,10 @@ if.then95:                                        ; preds = %if.then19, %if.then
 if.end96:                                         ; preds = %if.end80, %if.then95
   %11 = phi ptr [ %.pre, %if.then95 ], [ %5, %if.end80 ]
   %ctx.058 = phi ptr [ %ctx.0.ph, %if.then95 ], [ %call22, %if.end80 ]
-  %m.156 = phi ptr [ %m.1.ph, %if.then95 ], [ %call25, %if.end80 ]
+  %m.056 = phi ptr [ %m.0.ph, %if.then95 ], [ %call25, %if.end80 ]
   %ret.0 = phi ptr [ null, %if.then95 ], [ %call8, %if.end80 ]
   tail call void @BN_CTX_free(ptr noundef %ctx.058) #3
-  tail call void @BN_clear_free(ptr noundef %m.156) #3
+  tail call void @BN_clear_free(ptr noundef %m.056) #3
   tail call void @BN_clear_free(ptr noundef %11) #3
   br label %return
 

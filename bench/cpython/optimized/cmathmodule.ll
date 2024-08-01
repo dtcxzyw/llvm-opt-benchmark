@@ -882,12 +882,12 @@ land.lhs.true39:                                  ; preds = %if.else
   br i1 %tobool41.not, label %if.end44, label %exit
 
 if.end44:                                         ; preds = %if.else, %land.lhs.true39, %if.then33
-  %rel_tol.0 = phi double [ %.val26, %if.then33 ], [ -1.000000e+00, %land.lhs.true39 ], [ %call37, %if.else ]
+  %rel_tol.2 = phi double [ %.val26, %if.then33 ], [ -1.000000e+00, %land.lhs.true39 ], [ %call37, %if.else ]
   %tobool45.not = icmp eq i64 %add3741, 3
   br i1 %tobool45.not, label %skip_optional_kwonly, label %if.end48
 
 if.end48:                                         ; preds = %if.end44, %if.end26
-  %rel_tol.1 = phi double [ %rel_tol.0, %if.end44 ], [ 1.000000e-09, %if.end26 ]
+  %rel_tol.1 = phi double [ %rel_tol.2, %if.end44 ], [ 1.000000e-09, %if.end26 ]
   %arrayidx49 = getelementptr i8, ptr %cond1042, i64 24
   %12 = load ptr, ptr %arrayidx49, align 8
   %13 = getelementptr i8, ptr %12, i64 8
@@ -912,8 +912,8 @@ land.lhs.true59:                                  ; preds = %if.else55
 
 skip_optional_kwonly:                             ; preds = %if.then52, %if.else55, %if.end44, %if.end23
   %abs_tol.0 = phi double [ %.val27, %if.then52 ], [ %call57, %if.else55 ], [ 0.000000e+00, %if.end44 ], [ 0.000000e+00, %if.end23 ]
-  %rel_tol.2 = phi double [ %rel_tol.1, %if.then52 ], [ %rel_tol.1, %if.else55 ], [ %rel_tol.0, %if.end44 ], [ 1.000000e-09, %if.end23 ]
-  %cmp.i30 = fcmp olt double %rel_tol.2, 0.000000e+00
+  %rel_tol.0 = phi double [ %rel_tol.1, %if.then52 ], [ %rel_tol.1, %if.else55 ], [ %rel_tol.2, %if.end44 ], [ 1.000000e-09, %if.end23 ]
+  %cmp.i30 = fcmp olt double %rel_tol.0, 0.000000e+00
   %cmp1.i = fcmp olt double %abs_tol.0, 0.000000e+00
   %or.cond.i = or i1 %cmp1.i, %cmp.i30
   br i1 %or.cond.i, label %land.lhs.true67, label %if.end.i
@@ -942,13 +942,13 @@ if.end22.i:                                       ; preds = %if.end7.i
   %23 = extractvalue { double, double } %call.i, 1
   %call23.i = call double @_Py_c_abs(double %22, double %23) #10
   %call24.i = call double @_Py_c_abs(double %7, double %8) #10
-  %mul.i = fmul double %rel_tol.2, %call24.i
+  %mul.i = fmul double %rel_tol.0, %call24.i
   %cmp25.i = fcmp ugt double %call23.i, %mul.i
   br i1 %cmp25.i, label %lor.lhs.false26.i, label %if.end71
 
 lor.lhs.false26.i:                                ; preds = %if.end22.i
   %call27.i = call double @_Py_c_abs(double %4, double %5) #10
-  %mul28.i = fmul double %rel_tol.2, %call27.i
+  %mul28.i = fmul double %rel_tol.0, %call27.i
   %cmp29.i = fcmp ugt double %call23.i, %mul28.i
   br i1 %cmp29.i, label %lor.rhs.i, label %if.end71
 
@@ -2428,10 +2428,10 @@ if.else79:                                        ; preds = %if.end69
   br label %return
 
 return:                                           ; preds = %if.then77, %if.else79, %if.then33, %if.else35
-  %retval.sroa.0.2 = phi double [ %31, %if.then77 ], [ %33, %if.else79 ], [ %retval.sroa.0.0, %if.else35 ], [ %retval.sroa.0.0, %if.then33 ]
-  %retval.sroa.7.2 = phi double [ %32, %if.then77 ], [ %34, %if.else79 ], [ %retval.sroa.7.0, %if.else35 ], [ %retval.sroa.7.0, %if.then33 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.2, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.7.2, 1
+  %retval.sroa.0.1 = phi double [ %31, %if.then77 ], [ %33, %if.else79 ], [ %retval.sroa.0.0, %if.else35 ], [ %retval.sroa.0.0, %if.then33 ]
+  %retval.sroa.7.1 = phi double [ %32, %if.then77 ], [ %34, %if.else79 ], [ %retval.sroa.7.0, %if.else35 ], [ %retval.sroa.7.0, %if.then33 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.1, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.7.1, 1
   ret { double, double } %.fca.1.insert
 }
 
@@ -2946,17 +2946,17 @@ if.else59:                                        ; preds = %if.end41
   br label %if.end76
 
 if.end76:                                         ; preds = %if.else59, %if.then45
-  %retval.sroa.0.1 = phi double [ %11, %if.then45 ], [ %div70, %if.else59 ]
-  %retval.sroa.6.1 = phi double [ %mul57, %if.then45 ], [ %mul74, %if.else59 ]
+  %retval.sroa.0.2 = phi double [ %11, %if.then45 ], [ %div70, %if.else59 ]
+  %retval.sroa.6.2 = phi double [ %mul57, %if.then45 ], [ %mul74, %if.else59 ]
   %call77 = tail call ptr @__errno_location() #11
   store i32 0, ptr %call77, align 4
   br label %return
 
 return:                                           ; preds = %if.then36, %if.else38, %if.end76
-  %retval.sroa.0.2 = phi double [ %retval.sroa.0.1, %if.end76 ], [ %retval.sroa.0.0, %if.then36 ], [ %retval.sroa.0.0, %if.else38 ]
-  %retval.sroa.6.2 = phi double [ %retval.sroa.6.1, %if.end76 ], [ %retval.sroa.6.0, %if.then36 ], [ %retval.sroa.6.0, %if.else38 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.2, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.6.2, 1
+  %retval.sroa.0.1 = phi double [ %retval.sroa.0.2, %if.end76 ], [ %retval.sroa.0.0, %if.then36 ], [ %retval.sroa.0.0, %if.else38 ]
+  %retval.sroa.6.1 = phi double [ %retval.sroa.6.2, %if.end76 ], [ %retval.sroa.6.0, %if.then36 ], [ %retval.sroa.6.0, %if.else38 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %retval.sroa.0.1, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %retval.sroa.6.1, 1
   ret { double, double } %.fca.1.insert
 }
 

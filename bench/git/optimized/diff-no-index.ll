@@ -416,8 +416,8 @@ get_mode.exit:                                    ; preds = %if.else4.i
   br label %return
 
 lor.lhs.false:                                    ; preds = %land.lhs.true.i.thread, %land.lhs.true.i, %if.then25.i.cont, %land.lhs.true21.i, %land.lhs.true18.i, %if.end12.i
-  %special1.2 = phi i32 [ 0, %land.lhs.true.i ], [ 2, %if.then25.i.cont ], [ 0, %land.lhs.true21.i ], [ 0, %land.lhs.true18.i ], [ 0, %if.end12.i ], [ 1, %land.lhs.true.i.thread ]
-  %mode1.1.ph = phi i32 [ %storemerge.i, %land.lhs.true.i ], [ 33188, %if.then25.i.cont ], [ %storemerge.i, %land.lhs.true21.i ], [ %storemerge.i, %land.lhs.true18.i ], [ %storemerge.i, %if.end12.i ], [ 33188, %land.lhs.true.i.thread ]
+  %special1.0 = phi i32 [ 0, %land.lhs.true.i ], [ 2, %if.then25.i.cont ], [ 0, %land.lhs.true21.i ], [ 0, %land.lhs.true18.i ], [ 0, %if.end12.i ], [ 1, %land.lhs.true.i.thread ]
+  %mode1.4.ph = phi i32 [ %storemerge.i, %land.lhs.true.i ], [ 33188, %if.then25.i.cont ], [ %storemerge.i, %land.lhs.true21.i ], [ %storemerge.i, %land.lhs.true18.i ], [ %storemerge.i, %if.end12.i ], [ 33188, %land.lhs.true.i.thread ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i)
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i33)
   %tobool.not.i34 = icmp eq ptr %name2, null
@@ -479,18 +479,18 @@ get_mode.exit63:                                  ; preds = %if.else4.i40
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true.i51.thread, %land.lhs.true.i51, %if.then25.i60.cont, %land.lhs.true21.i56, %land.lhs.true18.i53, %if.end12.i48
-  %special2.2 = phi i32 [ 0, %land.lhs.true.i51 ], [ 2, %if.then25.i60.cont ], [ 0, %land.lhs.true21.i56 ], [ 0, %land.lhs.true18.i53 ], [ 0, %if.end12.i48 ], [ 1, %land.lhs.true.i51.thread ]
-  %mode2.1.ph = phi i32 [ %storemerge.i49, %land.lhs.true.i51 ], [ 33188, %if.then25.i60.cont ], [ %storemerge.i49, %land.lhs.true21.i56 ], [ %storemerge.i49, %land.lhs.true18.i53 ], [ %storemerge.i49, %if.end12.i48 ], [ 33188, %land.lhs.true.i51.thread ]
+  %special2.0 = phi i32 [ 0, %land.lhs.true.i51 ], [ 2, %if.then25.i60.cont ], [ 0, %land.lhs.true21.i56 ], [ 0, %land.lhs.true18.i53 ], [ 0, %if.end12.i48 ], [ 1, %land.lhs.true.i51.thread ]
+  %mode2.4.ph = phi i32 [ %storemerge.i49, %land.lhs.true.i51 ], [ 33188, %if.then25.i60.cont ], [ %storemerge.i49, %land.lhs.true21.i56 ], [ %storemerge.i49, %land.lhs.true18.i53 ], [ %storemerge.i49, %if.end12.i48 ], [ 33188, %land.lhs.true.i51.thread ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st.i33)
-  %tobool9 = icmp ne i32 %mode1.1.ph, 0
-  %tobool10 = icmp ne i32 %mode2.1.ph, 0
+  %tobool9 = icmp ne i32 %mode1.4.ph, 0
+  %tobool10 = icmp ne i32 %mode2.4.ph, 0
   %or.cond = select i1 %tobool9, i1 %tobool10, i1 false
   br i1 %or.cond, label %land.lhs.true11, label %if.end28
 
 land.lhs.true11:                                  ; preds = %if.end
-  %and = and i32 %mode1.1.ph, 61440
+  %and = and i32 %mode1.4.ph, 61440
   %cmp = icmp eq i32 %and, 16384
-  %and12 = and i32 %mode2.1.ph, 61440
+  %and12 = and i32 %mode2.4.ph, 61440
   %6 = icmp ne i32 %and12, 16384
   %cmp15.not = xor i1 %cmp, %6
   br i1 %cmp15.not, label %if.end28, label %if.then17
@@ -500,32 +500,32 @@ if.then17:                                        ; preds = %land.lhs.true11
 
 if.then21:                                        ; preds = %if.then17
   %call22 = tail call fastcc ptr @noindex_filespec(ptr noundef null, i32 noundef 0, i32 noundef 0)
-  %call23 = tail call fastcc ptr @noindex_filespec(ptr noundef %name2, i32 noundef %mode2.1.ph, i32 noundef %special2.2)
+  %call23 = tail call fastcc ptr @noindex_filespec(ptr noundef %name2, i32 noundef %mode2.4.ph, i32 noundef %special2.0)
   br label %if.end26
 
 if.else:                                          ; preds = %if.then17
-  %call24 = tail call fastcc ptr @noindex_filespec(ptr noundef %name1, i32 noundef %mode1.1.ph, i32 noundef %special1.2)
+  %call24 = tail call fastcc ptr @noindex_filespec(ptr noundef %name1, i32 noundef %mode1.4.ph, i32 noundef %special1.0)
   %call25 = tail call fastcc ptr @noindex_filespec(ptr noundef null, i32 noundef 0, i32 noundef 0)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else, %if.then21
-  %mode1.2 = phi i32 [ %mode1.1.ph, %if.then21 ], [ 0, %if.else ]
-  %mode2.2 = phi i32 [ 0, %if.then21 ], [ %mode2.1.ph, %if.else ]
-  %name2.addr.0 = phi ptr [ null, %if.then21 ], [ %name2, %if.else ]
-  %name1.addr.0 = phi ptr [ %name1, %if.then21 ], [ null, %if.else ]
+  %mode1.1 = phi i32 [ %mode1.4.ph, %if.then21 ], [ 0, %if.else ]
+  %mode2.1 = phi i32 [ 0, %if.then21 ], [ %mode2.4.ph, %if.else ]
+  %name2.addr.1 = phi ptr [ null, %if.then21 ], [ %name2, %if.else ]
+  %name1.addr.1 = phi ptr [ %name1, %if.then21 ], [ null, %if.else ]
   %d2.0 = phi ptr [ %call23, %if.then21 ], [ %call25, %if.else ]
   %d1.0 = phi ptr [ %call22, %if.then21 ], [ %call24, %if.else ]
   %call27 = tail call ptr @diff_queue(ptr noundef nonnull @diff_queued_diff, ptr noundef %d1.0, ptr noundef %d2.0) #12
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end26, %land.lhs.true11, %if.end
-  %mode1.3 = phi i32 [ %mode1.1.ph, %land.lhs.true11 ], [ %mode1.2, %if.end26 ], [ %mode1.1.ph, %if.end ]
-  %mode2.3 = phi i32 [ %mode2.1.ph, %land.lhs.true11 ], [ %mode2.2, %if.end26 ], [ %mode2.1.ph, %if.end ]
-  %name2.addr.1 = phi ptr [ %name2, %land.lhs.true11 ], [ %name2.addr.0, %if.end26 ], [ %name2, %if.end ]
-  %name1.addr.1 = phi ptr [ %name1, %land.lhs.true11 ], [ %name1.addr.0, %if.end26 ], [ %name1, %if.end ]
-  %and29 = and i32 %mode1.3, 61440
+  %mode1.0 = phi i32 [ %mode1.4.ph, %land.lhs.true11 ], [ %mode1.1, %if.end26 ], [ %mode1.4.ph, %if.end ]
+  %mode2.0 = phi i32 [ %mode2.4.ph, %land.lhs.true11 ], [ %mode2.1, %if.end26 ], [ %mode2.4.ph, %if.end ]
+  %name2.addr.0 = phi ptr [ %name2, %land.lhs.true11 ], [ %name2.addr.1, %if.end26 ], [ %name2, %if.end ]
+  %name1.addr.0 = phi ptr [ %name1, %land.lhs.true11 ], [ %name1.addr.1, %if.end26 ], [ %name1, %if.end ]
+  %and29 = and i32 %mode1.0, 61440
   %cmp30 = icmp eq i32 %and29, 16384
-  %and33 = and i32 %mode2.3, 61440
+  %and33 = and i32 %mode2.0, 61440
   %cmp34 = icmp eq i32 %and33, 16384
   %or.cond166 = select i1 %cmp30, i1 true, i1 %cmp34
   br i1 %or.cond166, label %if.then36, label %if.else104
@@ -539,11 +539,11 @@ if.then36:                                        ; preds = %if.end28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %p2, i8 0, i64 40, i1 false)
   %8 = getelementptr inbounds i8, ptr %p2, i64 24
   store i8 1, ptr %8, align 8
-  %tobool37.not = icmp eq ptr %name1.addr.1, null
+  %tobool37.not = icmp eq ptr %name1.addr.0, null
   br i1 %tobool37.not, label %if.end42, label %land.lhs.true38
 
 land.lhs.true38:                                  ; preds = %if.then36
-  %call.i64 = tail call ptr @opendir(ptr noundef nonnull %name1.addr.1)
+  %call.i64 = tail call ptr @opendir(ptr noundef nonnull %name1.addr.0)
   %tobool.not.i65 = icmp eq ptr %call.i64, null
   br i1 %tobool.not.i65, label %read_directory_contents.exit, label %while.cond.preheader.i
 
@@ -565,15 +565,15 @@ read_directory_contents.exit.thread:              ; preds = %while.body.i, %whil
   br label %if.end42
 
 read_directory_contents.exit:                     ; preds = %land.lhs.true38
-  %call1.i = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull %name1.addr.1) #12
+  %call1.i = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull %name1.addr.0) #12
   br label %return
 
 if.end42:                                         ; preds = %read_directory_contents.exit.thread, %if.then36
-  %tobool43.not = icmp eq ptr %name2.addr.1, null
+  %tobool43.not = icmp eq ptr %name2.addr.0, null
   br i1 %tobool43.not, label %if.end48, label %land.lhs.true44
 
 land.lhs.true44:                                  ; preds = %if.end42
-  %call.i68 = call ptr @opendir(ptr noundef nonnull %name2.addr.1)
+  %call.i68 = call ptr @opendir(ptr noundef nonnull %name2.addr.0)
   %tobool.not.i69 = icmp eq ptr %call.i68, null
   br i1 %tobool.not.i69, label %if.then47, label %while.cond.preheader.i70
 
@@ -595,7 +595,7 @@ read_directory_contents.exit84.thread:            ; preds = %while.body.i73, %wh
   br label %if.end48
 
 if.then47:                                        ; preds = %land.lhs.true44
-  %call1.i83 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull %name2.addr.1) #12
+  %call1.i83 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef nonnull %name2.addr.0) #12
   call void @string_list_clear(ptr noundef nonnull %p1, i32 noundef 0) #12
   br label %return
 
@@ -603,8 +603,8 @@ if.end48:                                         ; preds = %read_directory_cont
   br i1 %tobool37.not, label %if.end51, label %if.then50
 
 if.then50:                                        ; preds = %if.end48
-  %call.i85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name1.addr.1) #14
-  call void @strbuf_add(ptr noundef nonnull %buffer1, ptr noundef nonnull %name1.addr.1, i64 noundef %call.i85) #12
+  %call.i85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name1.addr.0) #14
+  call void @strbuf_add(ptr noundef nonnull %buffer1, ptr noundef nonnull %name1.addr.0, i64 noundef %call.i85) #12
   %len.i = getelementptr inbounds i8, ptr %buffer1, i64 8
   %9 = load i64, ptr %len.i, align 8
   %tobool.not.i86 = icmp eq i64 %9, 0
@@ -653,8 +653,8 @@ if.end51:                                         ; preds = %strbuf_addch.exit.i
   br i1 %tobool43.not, label %if.end55, label %if.then53
 
 if.then53:                                        ; preds = %if.end51
-  %call.i90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name2.addr.1) #14
-  call void @strbuf_add(ptr noundef nonnull %buffer2, ptr noundef nonnull %name2.addr.1, i64 noundef %call.i90) #12
+  %call.i90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name2.addr.0) #14
+  call void @strbuf_add(ptr noundef nonnull %buffer2, ptr noundef nonnull %name2.addr.0, i64 noundef %call.i90) #12
   %len.i91 = getelementptr inbounds i8, ptr %buffer2, i64 8
   %18 = load i64, ptr %len.i91, align 8
   %tobool.not.i92 = icmp eq i64 %18, 0
@@ -831,14 +831,14 @@ do.body:                                          ; preds = %if.else104
   br label %if.end124
 
 if.end124:                                        ; preds = %do.body, %if.else104
-  %special1.3 = phi i32 [ %special1.2, %if.else104 ], [ %special2.2, %do.body ]
-  %special2.3 = phi i32 [ %special2.2, %if.else104 ], [ %special1.2, %do.body ]
-  %mode1.4 = phi i32 [ %mode1.3, %if.else104 ], [ %mode2.3, %do.body ]
-  %mode2.4 = phi i32 [ %mode2.3, %if.else104 ], [ %mode1.3, %do.body ]
-  %name2.addr.2 = phi ptr [ %name2.addr.1, %if.else104 ], [ %name1.addr.1, %do.body ]
-  %name1.addr.2 = phi ptr [ %name1.addr.1, %if.else104 ], [ %name2.addr.1, %do.body ]
-  %call125 = tail call fastcc ptr @noindex_filespec(ptr noundef %name1.addr.2, i32 noundef %mode1.4, i32 noundef %special1.3)
-  %call126 = tail call fastcc ptr @noindex_filespec(ptr noundef %name2.addr.2, i32 noundef %mode2.4, i32 noundef %special2.3)
+  %special1.1 = phi i32 [ %special1.0, %if.else104 ], [ %special2.0, %do.body ]
+  %special2.1 = phi i32 [ %special2.0, %if.else104 ], [ %special1.0, %do.body ]
+  %mode1.2 = phi i32 [ %mode1.0, %if.else104 ], [ %mode2.0, %do.body ]
+  %mode2.2 = phi i32 [ %mode2.0, %if.else104 ], [ %mode1.0, %do.body ]
+  %name2.addr.2 = phi ptr [ %name2.addr.0, %if.else104 ], [ %name1.addr.0, %do.body ]
+  %name1.addr.2 = phi ptr [ %name1.addr.0, %if.else104 ], [ %name2.addr.0, %do.body ]
+  %call125 = tail call fastcc ptr @noindex_filespec(ptr noundef %name1.addr.2, i32 noundef %mode1.2, i32 noundef %special1.1)
+  %call126 = tail call fastcc ptr @noindex_filespec(ptr noundef %name2.addr.2, i32 noundef %mode2.2, i32 noundef %special2.1)
   %call127 = tail call ptr @diff_queue(ptr noundef nonnull @diff_queued_diff, ptr noundef %call125, ptr noundef %call126) #12
   br label %return
 

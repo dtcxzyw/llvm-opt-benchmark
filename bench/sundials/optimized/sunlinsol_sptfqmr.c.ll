@@ -498,8 +498,8 @@ define i32 @SUNLinSolSolve_SPTFQMR(ptr nocapture noundef readonly %0, ptr nocapt
   %.0438635 = phi double [ 0.000000e+00, %.lr.ph ], [ %237, %361 ]
   %.0441634 = phi double [ 0.000000e+00, %.lr.ph ], [ %229, %361 ]
   %.sroa.0.0633 = phi double [ %83, %.lr.ph ], [ %318, %361 ]
-  %.0448632 = phi double [ -1.000000e+00, %.lr.ph ], [ %.2450, %361 ]
-  %.0455631 = phi i32 [ 0, %.lr.ph ], [ %.3458, %361 ]
+  %.0448632 = phi double [ -1.000000e+00, %.lr.ph ], [ %.3451, %361 ]
+  %.0455631 = phi i32 [ 0, %.lr.ph ], [ %.4459, %361 ]
   %.0460630 = phi i32 [ 0, %.lr.ph ], [ %364, %361 ]
   %149 = load i32, ptr %44, align 4
   %150 = add nsw i32 %149, 1
@@ -609,8 +609,8 @@ define i32 @SUNLinSolSolve_SPTFQMR(ptr nocapture noundef readonly %0, ptr nocapt
   %.1629 = phi double [ %.0437636, %199 ], [ %235, %315 ]
   %.1439628 = phi double [ %.0438635, %199 ], [ %237, %315 ]
   %.1442627 = phi double [ %.0441634, %199 ], [ %229, %315 ]
-  %.1449626 = phi double [ %.0448632, %199 ], [ %.2450, %315 ]
-  %.1456625 = phi i32 [ %.0455631, %199 ], [ %.3458, %315 ]
+  %.1449626 = phi double [ %.0448632, %199 ], [ %.3451, %315 ]
+  %.1456625 = phi i32 [ %.0455631, %199 ], [ %.4459, %315 ]
   %203 = phi i1 [ true, %199 ], [ false, %315 ]
   %.0461624 = phi i32 [ 0, %199 ], [ 1, %315 ]
   br i1 %203, label %204, label %225
@@ -655,7 +655,7 @@ define i32 @SUNLinSolSolve_SPTFQMR(ptr nocapture noundef readonly %0, ptr nocapt
 
 225:                                              ; preds = %202, %223, %215, %.thread540
   %.sink = phi ptr [ %24, %.thread540 ], [ %24, %215 ], [ %24, %223 ], [ %14, %202 ]
-  %.2450 = phi double [ %211, %.thread540 ], [ %211, %215 ], [ %211, %223 ], [ %.1449626, %202 ]
+  %.3451 = phi double [ %211, %.thread540 ], [ %211, %215 ], [ %211, %223 ], [ %.1449626, %202 ]
   %.0444 = phi double [ 0.000000e+00, %.thread540 ], [ 0.000000e+00, %215 ], [ %224, %223 ], [ %.1449626, %202 ]
   %226 = fmul double %.1442627, %.1442627
   %227 = fmul double %226, %.1439628
@@ -848,8 +848,8 @@ define i32 @SUNLinSolSolve_SPTFQMR(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %314, label %315, label %.thread542
 
 315:                                              ; preds = %252, %312
-  %.3458 = phi i32 [ 1, %312 ], [ %.1456625, %252 ]
-  %.2447 = phi double [ %313, %312 ], [ %246, %252 ]
+  %.4459 = phi i32 [ 1, %312 ], [ %.1456625, %252 ]
+  %.4 = phi double [ %313, %312 ], [ %246, %252 ]
   br i1 %203, label %202, label %316
 
 316:                                              ; preds = %315
@@ -963,8 +963,8 @@ define i32 @SUNLinSolSolve_SPTFQMR(ptr nocapture noundef readonly %0, ptr nocapt
 
 .thread542:                                       ; preds = %361, %243, %312, %140
   %366 = phi i1 [ false, %140 ], [ %148, %312 ], [ %148, %243 ], [ %365, %361 ]
-  %.4 = phi double [ -1.000000e+00, %140 ], [ %246, %243 ], [ %313, %312 ], [ %.2447, %361 ]
-  %367 = fcmp olt double %.4, %88
+  %.1446 = phi double [ -1.000000e+00, %140 ], [ %246, %243 ], [ %313, %312 ], [ %.4, %361 ]
+  %367 = fcmp olt double %.1446, %88
   %or.cond528 = or i1 %366, %367
   br i1 %or.cond528, label %368, label %386
 

@@ -301,7 +301,7 @@ if.then39:                                        ; preds = %if.end36
 
 if.end43:                                         ; preds = %if.end36.thread, %if.end36, %if.then39, %lj_buf_need.exit
   %p.0 = phi ptr [ %call26, %lj_buf_need.exit ], [ %call41, %if.then39 ], [ %call37, %if.end36 ], [ %call37113, %if.end36.thread ]
-  %sizedbg.1 = phi i32 [ 0, %lj_buf_need.exit ], [ %sub35, %if.then39 ], [ 0, %if.end36 ], [ 0, %if.end36.thread ]
+  %sizedbg.0 = phi i32 [ 0, %lj_buf_need.exit ], [ %sub35, %if.then39 ], [ 0, %if.end36 ], [ 0, %if.end36.thread ]
   %25 = load i32, ptr %sizebc, align 4
   %sub.i = add i32 %25, -1
   %add.ptr1.i = getelementptr inbounds i8, ptr %pt, i64 108
@@ -519,20 +519,20 @@ if.then12.i.i:                                    ; preds = %if.end9.i.i
 
 for.body21.i.i:                                   ; preds = %for.body21.i.i, %if.then12.i.i
   %indvars.iv.i.i = phi i64 [ 0, %if.then12.i.i ], [ %indvars.iv.next.i.i, %for.body21.i.i ]
-  %nhash.030.i.i = phi i32 [ 0, %if.then12.i.i ], [ %add25.i.i, %for.body21.i.i ]
+  %nhash.130.i.i = phi i32 [ 0, %if.then12.i.i ], [ %add25.i.i, %for.body21.i.i ]
   %arrayidx22.i.i = getelementptr inbounds %struct.Node, ptr %59, i64 %indvars.iv.i.i
   %61 = load i64, ptr %arrayidx22.i.i, align 8
   %cmp23.i.i = icmp ne i64 %61, -1
   %lnot.ext.i.i = zext i1 %cmp23.i.i to i32
-  %add25.i.i = add i32 %nhash.030.i.i, %lnot.ext.i.i
+  %add25.i.i = add i32 %nhash.130.i.i, %lnot.ext.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.i.i, label %if.end28.i.i, label %for.body21.i.i, !llvm.loop !8
 
 if.end28.i.i:                                     ; preds = %for.body21.i.i, %if.end9.i.i
-  %nhash.1.i.i = phi i32 [ 0, %if.end9.i.i ], [ %add25.i.i, %for.body21.i.i ]
+  %nhash.0.i.i = phi i32 [ 0, %if.end9.i.i ], [ %add25.i.i, %for.body21.i.i ]
   %call.i38.i = tail call ptr @lj_strfmt_wuleb128(ptr noundef %call33.i, i32 noundef %narray.0.i.i) #7
-  %call29.i.i = tail call ptr @lj_strfmt_wuleb128(ptr noundef %call.i38.i, i32 noundef %nhash.1.i.i) #7
+  %call29.i.i = tail call ptr @lj_strfmt_wuleb128(ptr noundef %call.i38.i, i32 noundef %nhash.0.i.i) #7
   store ptr %call29.i.i, ptr %ctx, align 8
   %tobool.not.i.i = icmp eq i32 %narray.0.i.i, 0
   br i1 %tobool.not.i.i, label %if.end41.i.i, label %if.then30.i.i
@@ -637,7 +637,7 @@ bcwrite_ktabk.exit137.i:                          ; preds = %if.else25.i102.i, %
 
 if.end41.i.i:                                     ; preds = %bcwrite_ktabk.exit137.i, %if.end28.i.i
   %74 = phi ptr [ %call29.i.i, %if.end28.i.i ], [ %storemerge.i105.i, %bcwrite_ktabk.exit137.i ]
-  %tobool42.not.i.i = icmp eq i32 %nhash.1.i.i, 0
+  %tobool42.not.i.i = icmp eq i32 %nhash.0.i.i, 0
   br i1 %tobool42.not.i.i, label %for.inc.i84, label %if.then43.i.i
 
 if.then43.i.i:                                    ; preds = %if.end41.i.i
@@ -651,7 +651,7 @@ if.then43.i.i:                                    ; preds = %if.end41.i.i
 
 for.cond49.i.i:                                   ; preds = %for.inc61.i.i, %if.then43.i.i
   %78 = phi ptr [ %74, %if.then43.i.i ], [ %97, %for.inc61.i.i ]
-  %i44.0.i.i = phi i32 [ %nhash.1.i.i, %if.then43.i.i ], [ %i44.1.i.i, %for.inc61.i.i ]
+  %i44.0.i.i = phi i32 [ %nhash.0.i.i, %if.then43.i.i ], [ %i44.1.i.i, %for.inc61.i.i ]
   %node45.0.i.i = phi ptr [ %add.ptr.i39.i, %if.then43.i.i ], [ %incdec.ptr62.i.i, %for.inc61.i.i ]
   %79 = load i64, ptr %node45.0.i.i, align 8
   %cmp51.i.i = icmp eq i64 %79, -1
@@ -955,7 +955,7 @@ for.inc.i106:                                     ; preds = %if.end39.i, %if.the
 bcwrite_knum.exit:                                ; preds = %for.inc.i106, %lj_buf_more.exit.i98
   %p.0.lcssa.i = phi ptr [ %retval.i.0.i99, %lj_buf_more.exit.i98 ], [ %p.1.i, %for.inc.i106 ]
   store ptr %p.0.lcssa.i, ptr %ctx, align 8
-  %tobool51.not = icmp eq i32 %sizedbg.1, 0
+  %tobool51.not = icmp eq i32 %sizedbg.0, 0
   br i1 %tobool51.not, label %if.end60, label %if.then52
 
 if.then52:                                        ; preds = %bcwrite_knum.exit
@@ -964,11 +964,11 @@ if.then52:                                        ; preds = %bcwrite_knum.exit
   %sub.ptr.rhs.cast.i100 = ptrtoint ptr %p.0.lcssa.i to i64
   %sub.ptr.sub.i101 = sub i64 %sub.ptr.lhs.cast.i99, %sub.ptr.rhs.cast.i100
   %conv.i102 = trunc i64 %sub.ptr.sub.i101 to i32
-  %cmp.i103 = icmp ugt i32 %sizedbg.1, %conv.i102
+  %cmp.i103 = icmp ugt i32 %sizedbg.0, %conv.i102
   br i1 %cmp.i103, label %if.then.i108, label %lj_buf_more.exit
 
 if.then.i108:                                     ; preds = %if.then52
-  %call.i109 = tail call ptr @lj_buf_more2(ptr noundef nonnull %ctx, i32 noundef %sizedbg.1) #7
+  %call.i109 = tail call ptr @lj_buf_more2(ptr noundef nonnull %ctx, i32 noundef %sizedbg.0) #7
   br label %lj_buf_more.exit
 
 lj_buf_more.exit:                                 ; preds = %if.then52, %if.then.i108
@@ -976,7 +976,7 @@ lj_buf_more.exit:                                 ; preds = %if.then52, %if.then
   %lineinfo55 = getelementptr inbounds i8, ptr %pt, i64 80
   %122 = load i64, ptr %lineinfo55, align 8
   %123 = inttoptr i64 %122 to ptr
-  %conv.i88 = zext i32 %sizedbg.1 to i64
+  %conv.i88 = zext i32 %sizedbg.0 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.i95.0, ptr align 1 %123, i64 %conv.i88, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.i95.0, i64 %conv.i88
   store ptr %add.ptr.i, ptr %ctx, align 8

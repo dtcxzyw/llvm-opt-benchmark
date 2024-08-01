@@ -56,7 +56,7 @@ define range(i64 -1, 2147483648) i64 @msgrcv(i32 noundef %0, ptr noundef writeon
   br i1 %.not53.us.us.i, label %._crit_edge56.split.us.us.us.thread.i, label %.lr.ph.us.us.i
 
 ._crit_edge56.split.us.us.us.i:                   ; preds = %48
-  %.not42.us.us.i = icmp eq ptr %.2.us.us.us.i, null
+  %.not42.us.us.i = icmp eq ptr %.3.us.us.us.i, null
   br i1 %.not42.us.us.i, label %._crit_edge56.split.us.us.us.thread.i, label %msgrcv_wait.exit.thread50
 
 ._crit_edge56.split.us.us.us.thread.i:            ; preds = %._crit_edge56.split.us.us.us.i, %.split.us.split.us.i
@@ -86,7 +86,7 @@ define range(i64 -1, 2147483648) i64 @msgrcv(i32 noundef %0, ptr noundef writeon
 
 .lr.ph.us.us.i:                                   ; preds = %.split.us.split.us.i, %48
   %.03955.us.us.us.i = phi ptr [ %.039.us.us.us.i, %48 ], [ %.03952.us.us.i, %.split.us.split.us.i ]
-  %.154.us.us.us.i = phi ptr [ %.2.us.us.us.i, %48 ], [ null, %.split.us.split.us.i ]
+  %.154.us.us.us.i = phi ptr [ %.3.us.us.us.i, %48 ], [ null, %.split.us.split.us.i ]
   %40 = icmp eq ptr %.154.us.us.us.i, null
   br i1 %40, label %47, label %41
 
@@ -102,7 +102,7 @@ define range(i64 -1, 2147483648) i64 @msgrcv(i32 noundef %0, ptr noundef writeon
   br label %48
 
 48:                                               ; preds = %47, %41
-  %.2.us.us.us.i = phi ptr [ %.03955.us.us.us.i, %47 ], [ %.154.us.us.us.i, %41 ]
+  %.3.us.us.us.i = phi ptr [ %.03955.us.us.us.i, %47 ], [ %.154.us.us.us.i, %41 ]
   %49 = getelementptr inbounds i8, ptr %.03955.us.us.us.i, i64 8
   %.039.us.us.us.i = load ptr, ptr %49, align 8
   %.not.us.us.us.i = icmp eq ptr %.039.us.us.us.i, %20
@@ -114,12 +114,12 @@ define range(i64 -1, 2147483648) i64 @msgrcv(i32 noundef %0, ptr noundef writeon
   br i1 %.not53.us.i, label %msgrcv_wait.exit.thread, label %.lr.ph.us.i
 
 ._crit_edge56.split.us.us.i:                      ; preds = %58
-  %.not42.us.i = icmp eq ptr %.2.us.us.i, null
+  %.not42.us.i = icmp eq ptr %.3.us.us.i, null
   br i1 %.not42.us.i, label %msgrcv_wait.exit.thread, label %msgrcv_wait.exit.thread50
 
 .lr.ph.us.i:                                      ; preds = %.split.us.split.i, %58
   %.03955.us.us.i = phi ptr [ %.039.us.us.i, %58 ], [ %.03952.us.i, %.split.us.split.i ]
-  %.154.us.us.i = phi ptr [ %.2.us.us.i, %58 ], [ null, %.split.us.split.i ]
+  %.154.us.us.i = phi ptr [ %.3.us.us.i, %58 ], [ null, %.split.us.split.i ]
   %50 = icmp eq ptr %.154.us.us.i, null
   br i1 %50, label %57, label %51
 
@@ -135,7 +135,7 @@ define range(i64 -1, 2147483648) i64 @msgrcv(i32 noundef %0, ptr noundef writeon
   br label %58
 
 58:                                               ; preds = %57, %51
-  %.2.us.us.i = phi ptr [ %.03955.us.us.i, %57 ], [ %.154.us.us.i, %51 ]
+  %.3.us.us.i = phi ptr [ %.03955.us.us.i, %57 ], [ %.154.us.us.i, %51 ]
   %59 = getelementptr inbounds i8, ptr %.03955.us.us.i, i64 8
   %.039.us.us.i = load ptr, ptr %59, align 8
   %.not.us.us.i = icmp eq ptr %.039.us.us.i, %20
@@ -249,36 +249,36 @@ define range(i64 -1, 2147483648) i64 @msgrcv(i32 noundef %0, ptr noundef writeon
   br i1 %.not42.i, label %msgrcv_wait.exit.thread, label %msgrcv_wait.exit.thread50
 
 msgrcv_wait.exit.thread50:                        ; preds = %.lr.ph.split.split.i, %.lr.ph.us69.i, %.split.split.us.split.us.i, %._crit_edge56.split.us.us.us.i, %._crit_edge56.split.us.us.i, %.lr.ph.split.split.us.i
-  %.347.i = phi ptr [ %.2.us.us.i, %._crit_edge56.split.us.us.i ], [ %.03952.i, %.lr.ph.split.split.us.i ], [ %.2.us.us.us.i, %._crit_edge56.split.us.us.us.i ], [ %.03952.us64.us.i, %.split.split.us.split.us.i ], [ %.03955.us.i, %.lr.ph.us69.i ], [ %.03955.i, %.lr.ph.split.split.i ]
-  %97 = load ptr, ptr %.347.i, align 8
-  %98 = getelementptr inbounds i8, ptr %.347.i, i64 8
+  %.247.i = phi ptr [ %.3.us.us.i, %._crit_edge56.split.us.us.i ], [ %.03952.i, %.lr.ph.split.split.us.i ], [ %.3.us.us.us.i, %._crit_edge56.split.us.us.us.i ], [ %.03952.us64.us.i, %.split.split.us.split.us.i ], [ %.03955.us.i, %.lr.ph.us69.i ], [ %.03955.i, %.lr.ph.split.split.i ]
+  %97 = load ptr, ptr %.247.i, align 8
+  %98 = getelementptr inbounds i8, ptr %.247.i, i64 8
   %99 = load ptr, ptr %98, align 8
   store ptr %97, ptr %99, align 8
   %100 = load ptr, ptr %98, align 8
   %101 = getelementptr inbounds i8, ptr %97, i64 8
   store ptr %100, ptr %101, align 8
   %102 = getelementptr inbounds i8, ptr %10, i64 62
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.347.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.247.i, i8 0, i64 16, i1 false)
   %103 = load i16, ptr %102, align 2
   %104 = add i16 %103, -1
   store i16 %104, ptr %102, align 2
-  %105 = getelementptr inbounds i8, ptr %.347.i, i64 16
+  %105 = getelementptr inbounds i8, ptr %.247.i, i64 16
   %106 = load i16, ptr %105, align 8
   %107 = zext i16 %106 to i64
   %. = call i64 @llvm.umin.i64(i64 %107, i64 %2)
   %108 = trunc nuw nsw i64 %. to i32
-  %109 = getelementptr inbounds i8, ptr %.347.i, i64 24
+  %109 = getelementptr inbounds i8, ptr %.247.i, i64 24
   %110 = load i64, ptr %109, align 8
   store i64 %110, ptr %1, align 8
   %111 = getelementptr inbounds i8, ptr %1, i64 8
-  %112 = getelementptr inbounds i8, ptr %.347.i, i64 32
+  %112 = getelementptr inbounds i8, ptr %.247.i, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %111, ptr nonnull align 8 %112, i64 %., i1 false)
   %113 = load ptr, ptr @g_msgfreelist, align 8
-  store ptr %113, ptr %.347.i, align 8
+  store ptr %113, ptr %.247.i, align 8
   store ptr @g_msgfreelist, ptr %98, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 8
-  store ptr %.347.i, ptr %114, align 8
-  store ptr %.347.i, ptr @g_msgfreelist, align 8
+  store ptr %.247.i, ptr %114, align 8
+  store ptr %.247.i, ptr @g_msgfreelist, align 8
   %115 = getelementptr inbounds i8, ptr %10, i64 32
   %116 = load i16, ptr %115, align 8
   %117 = icmp sgt i16 %116, 0
@@ -320,7 +320,7 @@ msgrcv_wait.exit:                                 ; preds = %89, %71, %38
   br label %msgrcv_wait.exit.thread
 
 msgrcv_wait.exit.thread:                          ; preds = %95, %msgrcv_wait.exit, %.split.us.split.i, %._crit_edge56.split.us.us.i, %.lr.ph.split.split.us.i, %12, %8, %msgrcv_wait.exit.thread50, %135, %130
-  %.037 = phi i32 [ %119, %msgrcv_wait.exit ], [ %108, %135 ], [ %108, %130 ], [ %108, %msgrcv_wait.exit.thread50 ], [ -22, %8 ], [ -90, %12 ], [ -11, %.lr.ph.split.split.us.i ], [ -11, %._crit_edge56.split.us.us.i ], [ -11, %.split.us.split.i ], [ -11, %95 ]
+  %.1 = phi i32 [ %119, %msgrcv_wait.exit ], [ %108, %135 ], [ %108, %130 ], [ %108, %msgrcv_wait.exit.thread50 ], [ -22, %8 ], [ -90, %12 ], [ -11, %.lr.ph.split.split.us.i ], [ -11, %._crit_edge56.split.us.us.i ], [ -11, %.split.us.split.i ], [ -11, %95 ]
   %136 = and i64 %9, 512
   %.not.i44 = icmp eq i64 %136, 0
   br i1 %.not.i44, label %up_irq_restore.exit, label %137
@@ -330,18 +330,18 @@ msgrcv_wait.exit.thread:                          ; preds = %95, %msgrcv_wait.ex
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %137, %msgrcv_wait.exit.thread
-  %138 = icmp slt i32 %.037, 0
+  %138 = icmp slt i32 %.1, 0
   br i1 %138, label %up_irq_restore.exit.thread, label %141
 
 up_irq_restore.exit.thread:                       ; preds = %5, %up_irq_restore.exit
-  %.155 = phi i32 [ %.037, %up_irq_restore.exit ], [ -14, %5 ]
-  %139 = sub nsw i32 0, %.155
+  %.03755 = phi i32 [ %.1, %up_irq_restore.exit ], [ -14, %5 ]
+  %139 = sub nsw i32 0, %.03755
   %140 = call ptr @__errno() #7
   store i32 %139, ptr %140, align 4
   br label %143
 
 141:                                              ; preds = %up_irq_restore.exit
-  %142 = zext nneg i32 %.037 to i64
+  %142 = zext nneg i32 %.1 to i64
   br label %143
 
 143:                                              ; preds = %141, %up_irq_restore.exit.thread

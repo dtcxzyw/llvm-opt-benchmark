@@ -3678,7 +3678,7 @@ define void @_ZN17pyo3_build_config5impl_16find_interpreter17he93c80b7e2e41228E(
           to label %74 unwind label %130, !noalias !21
 
 74:                                               ; preds = %120, %95, %73
-  %.sroa.0.1.ph.i = phi i8 [ 1, %120 ], [ %.sroa.0.4.i, %95 ], [ %.sroa.0.4.i, %73 ]
+  %.sroa.0.1.ph.i = phi i8 [ 1, %120 ], [ %.sroa.0.3.i, %95 ], [ %.sroa.0.3.i, %73 ]
   %.pr.i = load i64, ptr %65, align 8, !noalias !21
   %.not18.i = icmp eq i64 %.pr.i, -9223372036854775808
   br i1 %.not18.i, label %146, label %136
@@ -3747,7 +3747,7 @@ define void @_ZN17pyo3_build_config5impl_16find_interpreter17he93c80b7e2e41228E(
   br label %90
 
 95:                                               ; preds = %129, %89
-  %.sroa.0.4.i = phi i8 [ 0, %89 ], [ 1, %129 ]
+  %.sroa.0.3.i = phi i8 [ 0, %89 ], [ 1, %129 ]
   %96 = load i64, ptr %22, align 8, !noalias !21
   %.not13.i = icmp eq i64 %96, -9223372036854775808
   br i1 %.not13.i, label %74, label %73
@@ -3864,7 +3864,7 @@ define void @_ZN17pyo3_build_config5impl_16find_interpreter17he93c80b7e2e41228E(
   br i1 %.not15.i, label %.body, label %133
 
 133:                                              ; preds = %130
-  %134 = trunc nuw i8 %.sroa.0.4.i to i1
+  %134 = trunc nuw i8 %.sroa.0.3.i to i1
   br i1 %134, label %135, label %.body
 
 135:                                              ; preds = %133
@@ -4093,12 +4093,12 @@ define void @_ZN17pyo3_build_config5impl_25make_cross_compile_config17h501eb9fcd
 
 59:                                               ; preds = %63, %60
   %.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %64, %63 ]
-  %.sroa.0.0.i = phi i1 [ %.sroa.0.1.i, %60 ], [ false, %63 ]
+  %.sroa.0.1.i = phi i1 [ %.sroa.0.0.i, %60 ], [ false, %63 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$target_lexicon..triple..Triple$GT$17he06644e1f4785021E"(ptr nonnull align 8 %50) #10
           to label %66 unwind label %67, !noalias !30
 
 60:                                               ; preds = %65, %1
-  %.sroa.0.1.i = phi i1 [ false, %65 ], [ true, %1 ]
+  %.sroa.0.0.i = phi i1 [ false, %65 ], [ true, %1 ]
   %61 = landingpad { ptr, i32 }
           cleanup
   br label %59
@@ -4119,7 +4119,7 @@ define void @_ZN17pyo3_build_config5impl_25make_cross_compile_config17h501eb9fcd
           to label %_ZN17pyo3_build_config5impl_30cross_compiling_from_cargo_env17h6ab3a96da981ec22E.exit unwind label %60, !noalias !30
 
 66:                                               ; preds = %59
-  br i1 %.sroa.0.0.i, label %69, label %common.resume
+  br i1 %.sroa.0.1.i, label %69, label %common.resume
 
 67:                                               ; preds = %69, %63, %59
   %68 = landingpad { ptr, i32 }

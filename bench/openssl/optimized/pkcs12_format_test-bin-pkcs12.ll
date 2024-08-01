@@ -224,14 +224,14 @@ if.else27:                                        ; preds = %if.then22
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else27, %if.then24
-  %md.0 = phi ptr [ %call26, %if.then24 ], [ %call30, %if.else27 ]
+  %md.2 = phi ptr [ %call26, %if.then24 ], [ %call30, %if.else27 ]
   %pass = getelementptr inbounds i8, ptr %mac, i64 8
   %11 = load ptr, ptr %pass, align 8
   %call33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #7
   %conv = trunc i64 %call33 to i32
   %iter = getelementptr inbounds i8, ptr %mac, i64 16
   %12 = load i32, ptr %iter, align 8
-  %call34 = tail call i32 @PKCS12_set_mac(ptr noundef %p12.0, ptr noundef %11, i32 noundef %conv, ptr noundef null, i32 noundef 0, i32 noundef %12, ptr noundef %md.0) #6
+  %call34 = tail call i32 @PKCS12_set_mac(ptr noundef %p12.0, ptr noundef %11, i32 noundef %conv, ptr noundef null, i32 noundef 0, i32 noundef %12, ptr noundef %md.2) #6
   %cmp35 = icmp ne i32 %call34, 0
   %conv36 = zext i1 %cmp35 to i32
   %call37 = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 176, ptr noundef nonnull @.str.32, i32 noundef %conv36) #6
@@ -243,7 +243,7 @@ if.then39:                                        ; preds = %if.end31
   br label %err
 
 if.end42:                                         ; preds = %if.end31, %if.end18
-  %md.1 = phi ptr [ %md.0, %if.end31 ], [ null, %if.end18 ]
+  %md.1 = phi ptr [ %md.2, %if.end31 ], [ null, %if.end18 ]
   %13 = load ptr, ptr %p12bio, align 8
   %call44 = tail call i32 @i2d_PKCS12_bio(ptr noundef %13, ptr noundef %p12.0) #6
   %14 = load i32, ptr @write_files, align 4
@@ -266,15 +266,15 @@ write_p12.exit:                                   ; preds = %if.then46, %if.end.
   br label %err
 
 err:                                              ; preds = %if.end42, %write_p12.exit, %if.then39
-  %md.2 = phi ptr [ %md.1, %write_p12.exit ], [ %md.1, %if.end42 ], [ %md.0, %if.then39 ]
+  %md.0 = phi ptr [ %md.1, %write_p12.exit ], [ %md.1, %if.end42 ], [ %md.2, %if.then39 ]
   %16 = load i32, ptr @legacy, align 4
   %tobool49 = icmp eq i32 %16, 0
-  %cmp50 = icmp ne ptr %md.2, null
+  %cmp50 = icmp ne ptr %md.0, null
   %or.cond = and i1 %cmp50, %tobool49
   br i1 %or.cond, label %if.then52, label %if.end53
 
 if.then52:                                        ; preds = %err
-  tail call void @EVP_MD_free(ptr noundef nonnull %md.2) #6
+  tail call void @EVP_MD_free(ptr noundef nonnull %md.0) #6
   br label %if.end53
 
 if.end53:                                         ; preds = %err.thread, %if.then52, %err
@@ -916,14 +916,14 @@ if.end37:                                         ; preds = %if.end32
   br i1 %tobool40.not, label %err.sink.split, label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end37, %sw.bb
-  %pkey.0 = phi ptr [ %call15, %sw.bb ], [ %call38, %if.end37 ]
+  %pkey.1 = phi ptr [ %call15, %sw.bb ], [ %call38, %if.end37 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.addr.i)
   store ptr %bytes, ptr %bytes.addr.i, align 8
   %conv.i = sext i32 %len to i64
   %call.i = call ptr @d2i_AutoPrivateKey(ptr noundef null, ptr noundef nonnull %bytes.addr.i, i64 noundef %conv.i) #6
   %call1.i = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull @.str.10, ptr noundef %call.i) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %bytes.addr.i)
-  %call46 = call i32 @EVP_PKEY_eq(ptr noundef %pkey.0, ptr noundef %call.i) #6
+  %call46 = call i32 @EVP_PKEY_eq(ptr noundef %pkey.1, ptr noundef %call.i) #6
   %cmp = icmp ne i32 %call46, 0
   %conv47 = zext i1 %cmp to i32
   %call48 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 640, ptr noundef nonnull @.str.21, i32 noundef %conv47) #6
@@ -932,14 +932,14 @@ sw.epilog:                                        ; preds = %if.end37, %sw.bb
 
 err.sink.split:                                   ; preds = %sw.epilog, %if.end12, %if.end37, %if.end32, %sw.bb
   %ref_pkey.0.ph = phi ptr [ null, %sw.bb ], [ null, %if.end32 ], [ null, %if.end37 ], [ null, %if.end12 ], [ %call.i, %sw.epilog ]
-  %pkey.1.ph = phi ptr [ %call15, %sw.bb ], [ null, %if.end32 ], [ %call38, %if.end37 ], [ null, %if.end12 ], [ %pkey.0, %sw.epilog ]
+  %pkey.0.ph = phi ptr [ %call15, %sw.bb ], [ null, %if.end32 ], [ %call38, %if.end37 ], [ null, %if.end12 ], [ %pkey.1, %sw.epilog ]
   store i32 0, ptr %success, align 8
   br label %err
 
 err:                                              ; preds = %err.sink.split, %sw.epilog
   %ref_pkey.0 = phi ptr [ %call.i, %sw.epilog ], [ %ref_pkey.0.ph, %err.sink.split ]
-  %pkey.1 = phi ptr [ %pkey.0, %sw.epilog ], [ %pkey.1.ph, %err.sink.split ]
-  call void @EVP_PKEY_free(ptr noundef %pkey.1) #6
+  %pkey.0 = phi ptr [ %pkey.1, %sw.epilog ], [ %pkey.0.ph, %err.sink.split ]
+  call void @EVP_PKEY_free(ptr noundef %pkey.0) #6
   call void @EVP_PKEY_free(ptr noundef %ref_pkey.0) #6
   br label %return
 
@@ -1063,13 +1063,13 @@ sw.bb18:                                          ; preds = %if.end
   br i1 %tobool26.not, label %err, label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb18, %sw.bb8, %sw.bb
-  %value.0 = phi ptr [ null, %sw.bb18 ], [ null, %sw.bb8 ], [ %call3, %sw.bb ]
+  %value.1 = phi ptr [ null, %sw.bb18 ], [ null, %sw.bb8 ], [ %call3, %sw.bb ]
   br label %err
 
 err:                                              ; preds = %if.end, %sw.bb18, %sw.bb8, %sw.bb, %entry, %sw.epilog
   %ret.0 = phi i32 [ 0, %if.end ], [ 1, %sw.epilog ], [ 0, %sw.bb18 ], [ 0, %sw.bb8 ], [ 0, %sw.bb ], [ 0, %entry ]
-  %value.1 = phi ptr [ null, %if.end ], [ %value.0, %sw.epilog ], [ null, %sw.bb18 ], [ null, %sw.bb8 ], [ %call3, %sw.bb ], [ null, %entry ]
-  tail call void @CRYPTO_free(ptr noundef %value.1, ptr noundef nonnull @.str, i32 noundef 508) #6
+  %value.0 = phi ptr [ null, %if.end ], [ %value.1, %sw.epilog ], [ null, %sw.bb18 ], [ null, %sw.bb8 ], [ %call3, %sw.bb ], [ null, %entry ]
+  tail call void @CRYPTO_free(ptr noundef %value.0, ptr noundef nonnull @.str, i32 noundef 508) #6
   ret i32 %ret.0
 }
 

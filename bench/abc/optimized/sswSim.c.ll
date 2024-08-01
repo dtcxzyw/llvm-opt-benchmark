@@ -402,7 +402,7 @@ define i32 @Ssw_SmlCountXorImplication(ptr nocapture noundef readonly %0, ptr no
 
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
   %indvars.iv42 = phi i64 [ %67, %.lr.ph37.preheader ], [ %indvars.iv.next43, %.lr.ph37 ]
-  %.136 = phi i32 [ 0, %.lr.ph37.preheader ], [ %96, %.lr.ph37 ]
+  %.236 = phi i32 [ 0, %.lr.ph37.preheader ], [ %96, %.lr.ph37 ]
   %68 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv42
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv42
@@ -430,15 +430,15 @@ define i32 @Ssw_SmlCountXorImplication(ptr nocapture noundef readonly %0, ptr no
   %92 = add nuw nsw i32 %91, %89
   %93 = and i32 %92, 31
   %94 = lshr i32 %92, 16
-  %95 = add nuw nsw i32 %94, %.136
+  %95 = add nuw nsw i32 %94, %.236
   %96 = add nuw nsw i32 %95, %93
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
   br i1 %exitcond46.not, label %.loopexit, label %.lr.ph37, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph37, %36, %66
-  %.2 = phi i32 [ 0, %66 ], [ 0, %36 ], [ %96, %.lr.ph37 ], [ %65, %.lr.ph ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %66 ], [ 0, %36 ], [ %96, %.lr.ph37 ], [ %65, %.lr.ph ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -629,7 +629,7 @@ define i32 @Ssw_SmlNodeCountOnesReal(ptr nocapture noundef readonly %0, ptr noun
 
 .lr.ph24:                                         ; preds = %.lr.ph24.preheader, %.lr.ph24
   %indvars.iv29 = phi i64 [ 0, %.lr.ph24.preheader ], [ %indvars.iv.next30, %.lr.ph24 ]
-  %.123 = phi i32 [ 0, %.lr.ph24.preheader ], [ %66, %.lr.ph24 ]
+  %.223 = phi i32 [ 0, %.lr.ph24.preheader ], [ %66, %.lr.ph24 ]
   %45 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv29
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 1431655765
@@ -650,15 +650,15 @@ define i32 @Ssw_SmlNodeCountOnesReal(ptr nocapture noundef readonly %0, ptr noun
   %62 = add nuw nsw i32 %61, %59
   %63 = and i32 %62, 31
   %64 = lshr i32 %62, 16
-  %65 = add nuw nsw i32 %64, %.123
+  %65 = add nuw nsw i32 %64, %.223
   %66 = add nuw nsw i32 %65, %63
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
   br i1 %exitcond33.not, label %.loopexit, label %.lr.ph24, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph24, %.preheader18, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader18 ], [ %66, %.lr.ph24 ], [ %44, %.lr.ph ]
-  ret i32 %.2
+  %.1 = phi i32 [ 0, %.preheader ], [ 0, %.preheader18 ], [ %66, %.lr.ph24 ], [ %44, %.lr.ph ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

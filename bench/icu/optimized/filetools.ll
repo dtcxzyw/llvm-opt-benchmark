@@ -427,9 +427,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -676,7 +676,7 @@ if.end53:                                         ; preds = %cleanup.thread44, %
   br i1 %cmp7.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.end:                                        ; preds = %if.end53, %while.cond.preheader, %cleanup.thread
-  %isLatest.4 = phi i8 [ 0, %cleanup.thread ], [ 1, %while.cond.preheader ], [ 1, %if.end53 ]
+  %isLatest.1 = phi i8 [ 0, %cleanup.thread ], [ 1, %while.cond.preheader ], [ 1, %if.end53 ]
   %call54 = call i32 @closedir(ptr noundef nonnull %call)
   br label %return
 
@@ -726,8 +726,8 @@ _ZL23whichFileModTimeIsLaterPKcS0_.exit37:        ; preds = %if.else.i34, %if.th
   br label %return
 
 return:                                           ; preds = %cleanup, %_ZL23whichFileModTimeIsLaterPKcS0_.exit37, %while.end, %if.else58, %entry, %if.else55
-  %retval.3 = phi i8 [ 0, %cleanup ], [ 0, %if.else55 ], [ 0, %entry ], [ %isLatest.4, %while.end ], [ %not.or.cond2, %_ZL23whichFileModTimeIsLaterPKcS0_.exit37 ], [ 0, %if.else58 ]
-  ret i8 %retval.3
+  %retval.0 = phi i8 [ 0, %cleanup ], [ 0, %if.else55 ], [ 0, %entry ], [ %isLatest.1, %while.end ], [ %not.or.cond2, %_ZL23whichFileModTimeIsLaterPKcS0_.exit37 ], [ 0, %if.else58 ]
+  ret i8 %retval.0
 }
 
 ; Function Attrs: nofree nounwind

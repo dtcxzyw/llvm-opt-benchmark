@@ -504,7 +504,7 @@ pmix_pointer_array_get_item.exit294.thread:       ; preds = %123, %pmix_pointer_
 154:                                              ; preds = %.lr.ph367, %.critedge284
   %155 = phi ptr [ %.pre423, %.lr.ph367 ], [ %344, %.critedge284 ]
   %indvars.iv417 = phi i64 [ 0, %.lr.ph367 ], [ %indvars.iv.next418, %.critedge284 ]
-  %.0366 = phi i8 [ 0, %.lr.ph367 ], [ %.2, %.critedge284 ]
+  %.0366 = phi i8 [ 0, %.lr.ph367 ], [ %.1, %.critedge284 ]
   %.0207365 = phi i32 [ 0, %.lr.ph367 ], [ %.1208, %.critedge284 ]
   %156 = load i32, ptr getelementptr inbounds (i8, ptr @prte_ras_base_framework, i64 76), align 4
   %or.cond280 = icmp ult i32 %156, 64
@@ -561,7 +561,7 @@ pmix_pointer_array_get_item.exit294.thread:       ; preds = %123, %pmix_pointer_
 184:                                              ; preds = %183, %179, %172, %176, %167
   %.1208 = phi i32 [ %.0207365, %167 ], [ -1, %176 ], [ -1, %172 ], [ %181, %179 ], [ %181, %183 ]
   %.0206 = phi i1 [ false, %167 ], [ false, %176 ], [ false, %172 ], [ true, %179 ], [ true, %183 ]
-  %.2 = phi i8 [ %.0366, %167 ], [ %.0366, %176 ], [ %.0366, %172 ], [ %.0366, %179 ], [ 1, %183 ]
+  %.1 = phi i8 [ %.0366, %167 ], [ %.0366, %176 ], [ %.0366, %172 ], [ %.0366, %179 ], [ 1, %183 ]
   %185 = load ptr, ptr %5, align 8
   %186 = getelementptr inbounds ptr, ptr %185, i64 %indvars.iv417
   %187 = load ptr, ptr %186, align 8
@@ -627,7 +627,7 @@ pmix_pointer_array_get_item.exit294.thread:       ; preds = %123, %pmix_pointer_
   %217 = load i8, ptr %216, align 8
   %218 = or i8 %217, 16
   store i8 %218, ptr %216, align 8
-  %219 = trunc nuw i8 %.2 to i1
+  %219 = trunc nuw i8 %.1 to i1
   br i1 %219, label %220, label %236
 
 220:                                              ; preds = %212
@@ -813,7 +813,7 @@ pmix_obj_new_tma.exit.thread319:                  ; preds = %.lr.ph.i.i, %261
   %304 = load i8, ptr %301, align 8
   %305 = or i8 %304, 16
   store i8 %305, ptr %301, align 8
-  %306 = trunc nuw i8 %.2 to i1
+  %306 = trunc nuw i8 %.1 to i1
   br i1 %306, label %307, label %319
 
 307:                                              ; preds = %302

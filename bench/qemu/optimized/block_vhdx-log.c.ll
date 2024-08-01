@@ -166,14 +166,14 @@ if.end16.i.preheader:                             ; preds = %if.then3.i
   br i1 %cmp19.i32, label %if.then30.i, label %if.end22.i
 
 if.end16.i:                                       ; preds = %if.end22.i
-  %inc.i = add i32 %current.sroa.41.141.i33, 1
+  %inc.i = add i32 %current.sroa.41.241.i33, 1
   %14 = load i8, ptr %seq_valid.i, align 1
   %15 = and i8 %14, 1
   %cmp19.i = icmp eq i8 %15, 0
   br i1 %cmp19.i, label %if.then30.i, label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end16.i.preheader, %if.end16.i
-  %current.sroa.41.141.i33 = phi i32 [ %inc.i, %if.end16.i ], [ 1, %if.end16.i.preheader ]
+  %current.sroa.41.241.i33 = phi i32 [ %inc.i, %if.end16.i ], [ 1, %if.end16.i.preheader ]
   %16 = load i32, ptr %read.i, align 4
   %17 = load i64, ptr %current.sroa.12.64.hdr.sroa_idx.i, align 1
   %call12.i = call fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr noundef %s, ptr noundef nonnull %curr_log.i, i64 noundef %17, ptr noundef nonnull %seq_valid.i, ptr noundef nonnull %hdr.i)
@@ -182,8 +182,8 @@ if.end22.i:                                       ; preds = %if.end16.i.preheade
 
 if.then30.i:                                      ; preds = %if.end16.i, %if.end16.i.preheader
   %call1243.i.lcssa = phi i32 [ %call1239.i, %if.end16.i.preheader ], [ %call12.i, %if.end16.i ]
-  %current.sroa.8.142.i.lcssa = phi i32 [ %11, %if.end16.i.preheader ], [ %16, %if.end16.i ]
-  %current.sroa.41.141.i.lcssa = phi i32 [ 1, %if.end16.i.preheader ], [ %inc.i, %if.end16.i ]
+  %current.sroa.8.242.i.lcssa = phi i32 [ %11, %if.end16.i.preheader ], [ %16, %if.end16.i ]
+  %current.sroa.41.241.i.lcssa = phi i32 [ 1, %if.end16.i.preheader ], [ %inc.i, %if.end16.i ]
   %18 = and i8 %candidate.sroa.0.0.i, 1
   %cmp34.i = icmp eq i8 %18, 0
   %cmp40.i = icmp ugt i64 %current.sroa.12.64.copyload.i, %candidate.sroa.11.0.i
@@ -198,10 +198,10 @@ if.then42.i:                                      ; preds = %if.then30.i
   br label %if.end44.i
 
 if.end44.i:                                       ; preds = %if.then42.i, %if.then30.i, %if.end.i
-  %ret.026.i = phi i32 [ %call1243.i.lcssa, %if.then42.i ], [ %call1243.i.lcssa, %if.then30.i ], [ %call.i, %if.end.i ]
+  %ret.126.i = phi i32 [ %call1243.i.lcssa, %if.then42.i ], [ %call1243.i.lcssa, %if.then30.i ], [ %call.i, %if.end.i ]
   %19 = phi i8 [ 1, %if.then42.i ], [ %candidate.sroa.0.0.i, %if.then30.i ], [ %candidate.sroa.0.0.i, %if.end.i ]
-  %candidate.sroa.6.1.i = phi i32 [ %current.sroa.41.141.i.lcssa, %if.then42.i ], [ %candidate.sroa.6.0.i, %if.then30.i ], [ %candidate.sroa.6.0.i, %if.end.i ]
-  %candidate.sroa.8.1.i = phi i32 [ %current.sroa.8.142.i.lcssa, %if.then42.i ], [ %candidate.sroa.8.0.i, %if.then30.i ], [ %candidate.sroa.8.0.i, %if.end.i ]
+  %candidate.sroa.6.1.i = phi i32 [ %current.sroa.41.241.i.lcssa, %if.then42.i ], [ %candidate.sroa.6.0.i, %if.then30.i ], [ %candidate.sroa.6.0.i, %if.end.i ]
+  %candidate.sroa.8.1.i = phi i32 [ %current.sroa.8.242.i.lcssa, %if.then42.i ], [ %candidate.sroa.8.0.i, %if.then30.i ], [ %candidate.sroa.8.0.i, %if.end.i ]
   %candidate.sroa.9.1.i = phi i32 [ %9, %if.then42.i ], [ %candidate.sroa.9.0.i, %if.then30.i ], [ %candidate.sroa.9.0.i, %if.end.i ]
   %candidate.sroa.11.1.i = phi i64 [ %current.sroa.12.64.copyload.i, %if.then42.i ], [ %candidate.sroa.11.0.i, %if.then30.i ], [ %candidate.sroa.11.0.i, %if.end.i ]
   %20 = load i32, ptr %read.i, align 4
@@ -230,7 +230,7 @@ for.end50.i:                                      ; preds = %if.end44.i
   br i1 %tobool52.i, label %if.then41, label %if.end39
 
 vhdx_log_search.exit.thread:                      ; preds = %if.then3.i, %for.cond.i, %if.end22.i
-  %ret.1.i.ph = phi i32 [ %call12.i, %if.end22.i ], [ %call1239.i, %if.then3.i ], [ %call.i, %for.cond.i ]
+  %ret.0.i.ph = phi i32 [ %call12.i, %if.end22.i ], [ %call1239.i, %if.then3.i ], [ %call.i, %for.cond.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seq_valid.i)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %candidate.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %candidate.sroa.7.i)
@@ -290,7 +290,7 @@ if.end51:                                         ; preds = %if.end46
   br label %exit
 
 exit:                                             ; preds = %if.end39, %vhdx_log_search.exit.thread, %if.end28, %if.end13, %if.end, %if.end51, %if.end46, %if.end23, %if.end18, %if.then43
-  %ret.0 = phi i32 [ 0, %if.end18 ], [ 0, %if.end23 ], [ -1, %if.then43 ], [ %call47, %if.end46 ], [ %call47, %if.end51 ], [ %ret.026.i, %if.end39 ], [ -22, %if.end ], [ -22, %if.end13 ], [ -22, %if.end28 ], [ %ret.1.i.ph, %vhdx_log_search.exit.thread ]
+  %ret.0 = phi i32 [ 0, %if.end18 ], [ 0, %if.end23 ], [ -1, %if.then43 ], [ %call47, %if.end46 ], [ %call47, %if.end51 ], [ %ret.126.i, %if.end39 ], [ -22, %if.end ], [ -22, %if.end13 ], [ -22, %if.end28 ], [ %ret.0.i.ph, %vhdx_log_search.exit.thread ]
   ret i32 %ret.0
 }
 
@@ -505,7 +505,7 @@ if.end28.i:                                       ; preds = %for.body.i
   br i1 %cmp22.i, label %for.body.i, label %for.inc, !llvm.loop !5
 
 vhdx_log_flush_desc.exit.thread:                  ; preds = %if.then.i, %if.end.i45, %for.body.i, %if.else16.i
-  %ret.1.i44.ph = phi i32 [ -22, %if.else16.i ], [ %call24.i, %for.body.i ], [ -14, %if.then.i ], [ -22, %if.end.i45 ]
+  %ret.0.i44.ph = phi i32 [ -22, %if.else16.i ], [ %call24.i, %for.body.i ], [ -14, %if.then.i ], [ -22, %if.end.i45 ]
   call void @qemu_vfree(ptr noundef %call.i43) #8
   br label %exit
 
@@ -561,7 +561,7 @@ if.end69:                                         ; preds = %while.end
 
 exit:                                             ; preds = %if.end3.i, %while.body, %if.end13.i, %if.then52, %if.end10, %if.end56, %if.end14, %if.then25, %vhdx_log_flush_desc.exit.thread, %vhdx_log_read_sectors.exit, %while.end, %entry, %if.end69, %if.then9
   %31 = phi ptr [ null, %entry ], [ null, %if.then9 ], [ %.pre.pre, %vhdx_log_read_sectors.exit ], [ null, %while.end ], [ null, %if.end69 ], [ %.pre.pre, %vhdx_log_flush_desc.exit.thread ], [ %.pre.pre, %if.then25 ], [ null, %if.end13.i ], [ null, %while.body ], [ null, %if.end3.i ], [ %.pre.pre, %if.then52 ], [ null, %if.end10 ], [ %.pre.pre, %if.end56 ], [ %.pre.pre, %if.end14 ]
-  %ret.0 = phi i32 [ %call1, %entry ], [ %conv, %if.then9 ], [ %call.i41, %vhdx_log_read_sectors.exit ], [ %call65, %while.end ], [ %call65, %if.end69 ], [ %ret.1.i44.ph, %vhdx_log_flush_desc.exit.thread ], [ -22, %if.then25 ], [ %call.i, %if.end13.i ], [ -14, %while.body ], [ -22, %if.end3.i ], [ -22, %if.then52 ], [ -22, %if.end10 ], [ %call58, %if.end56 ], [ %call16, %if.end14 ]
+  %ret.0 = phi i32 [ %call1, %entry ], [ %conv, %if.then9 ], [ %call.i41, %vhdx_log_read_sectors.exit ], [ %call65, %while.end ], [ %call65, %if.end69 ], [ %ret.0.i44.ph, %vhdx_log_flush_desc.exit.thread ], [ -22, %if.then25 ], [ %call.i, %if.end13.i ], [ -14, %while.body ], [ -22, %if.end3.i ], [ -22, %if.then52 ], [ -22, %if.end10 ], [ %call58, %if.end56 ], [ %call16, %if.end14 ]
   call void @qemu_vfree(ptr noundef %call) #8
   call void @qemu_vfree(ptr noundef %31) #8
   ret i32 %ret.0
@@ -906,12 +906,12 @@ if.end12.i:                                       ; preds = %if.end7.i
 
 if.end112:                                        ; preds = %while.body.i, %while.body.lr.ph.i, %if.end.i
   %sectors_written.1.ph = phi i32 [ 0, %if.end.i ], [ 0, %while.body.lr.ph.i ], [ %add14.i, %while.body.i ]
-  %ret.1.i.ph = phi i32 [ %call.i94, %if.end.i ], [ %call.i94, %while.body.lr.ph.i ], [ %call.i.i, %while.body.i ]
+  %ret.0.i.ph = phi i32 [ %call.i94, %if.end.i ], [ %call.i94, %while.body.lr.ph.i ], [ %call.i.i, %while.body.i ]
   %cmp114.not = icmp eq i32 %sectors_written.1.ph, %add44
   br i1 %cmp114.not, label %if.end117, label %exit
 
 if.end117:                                        ; preds = %if.end12.i, %if.end112
-  %ret.1.i.ph130 = phi i32 [ %ret.1.i.ph, %if.end112 ], [ %call.i.i, %if.end12.i ]
+  %ret.0.i.ph130 = phi i32 [ %ret.0.i.ph, %if.end112 ], [ %call.i.i, %if.end12.i ]
   %29 = load i64, ptr %sequence, align 8
   %inc120 = add i64 %29, 1
   store i64 %inc120, ptr %sequence, align 8
@@ -922,7 +922,7 @@ if.end117:                                        ; preds = %if.end12.i, %if.end
 exit:                                             ; preds = %if.then80, %if.then65, %if.end7.i, %for.end, %if.end112, %if.end, %entry, %if.end117, %if.then33
   %merged_sector.0 = phi ptr [ null, %if.then33 ], [ %call54, %if.end117 ], [ null, %entry ], [ null, %if.end ], [ %call54, %if.end112 ], [ %call54, %for.end ], [ %call54, %if.end7.i ], [ %call54, %if.then65 ], [ %call54, %if.then80 ]
   %buffer.0 = phi ptr [ null, %if.then33 ], [ %call50, %if.end117 ], [ null, %entry ], [ null, %if.end ], [ %call50, %if.end112 ], [ %call50, %for.end ], [ %call50, %if.end7.i ], [ %call50, %if.then65 ], [ %call50, %if.then80 ]
-  %ret.0 = phi i32 [ %conv34, %if.then33 ], [ %ret.1.i.ph130, %if.end117 ], [ -22, %entry ], [ -95, %if.end ], [ -22, %if.end112 ], [ %call.i94, %for.end ], [ %call.i.i, %if.end7.i ], [ %call.i93, %if.then80 ], [ %call.i, %if.then65 ]
+  %ret.0 = phi i32 [ %conv34, %if.then33 ], [ %ret.0.i.ph130, %if.end117 ], [ -22, %entry ], [ -95, %if.end ], [ -22, %if.end112 ], [ %call.i94, %for.end ], [ %call.i.i, %if.end7.i ], [ %call.i93, %if.then80 ], [ %call.i, %if.then65 ]
   call void @qemu_vfree(ptr noundef %buffer.0) #8
   call void @qemu_vfree(ptr noundef %merged_sector.0) #8
   ret i32 %ret.0
@@ -1041,9 +1041,9 @@ for.body.lr.ph:                                   ; preds = %if.end22
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end37
-  %crc.073.in = phi i32 [ %call24, %for.body.lr.ph ], [ %call38, %if.end37 ]
+  %crc.173.in = phi i32 [ %call24, %for.body.lr.ph ], [ %call38, %if.end37 ]
   %i.072 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end37 ]
-  %crc.073 = xor i32 %crc.073.in, -1
+  %crc.173 = xor i32 %crc.173.in, -1
   %13 = load i32, ptr %read1.i, align 4
   %14 = load i32, ptr %write.i, align 8
   %cmp.i62.not = icmp eq i32 %13, %14
@@ -1069,7 +1069,7 @@ if.end37:                                         ; preds = %if.end.i37.preheade
   %cmp.not.i.i = icmp ugt i64 %17, %conv2.i.i
   %cond.i.i = select i1 %cmp.not.i.i, i32 %add.i.i, i32 0
   store i32 %cond.i.i, ptr %read1.i, align 4
-  %call38 = call i32 @vhdx_checksum_calc(i32 noundef %crc.073, ptr noundef %call25, i64 noundef 4096, i32 noundef -1) #8
+  %call38 = call i32 @vhdx_checksum_calc(i32 noundef %crc.173, ptr noundef %call25, i64 noundef 4096, i32 noundef -1) #8
   %inc = add nuw i32 %i.072, 1
   %exitcond.not = icmp eq i32 %inc, %sub
   br i1 %exitcond.not, label %if.end40, label %for.body, !llvm.loop !11
@@ -1102,10 +1102,10 @@ inc_and_exit:                                     ; preds = %if.end6, %if.end12.
 free_and_exit:                                    ; preds = %for.body, %vhdx_log_read_sectors.exit.thread, %if.end40, %if.end14, %inc_and_exit, %if.end45
   %22 = phi ptr [ null, %inc_and_exit ], [ %.pre, %if.end14 ], [ %.pre, %if.end40 ], [ %.pre, %if.end45 ], [ %.pre, %vhdx_log_read_sectors.exit.thread ], [ %.pre, %for.body ]
   %buffer.0 = phi ptr [ null, %inc_and_exit ], [ null, %if.end14 ], [ %call25, %if.end40 ], [ %call25, %if.end45 ], [ %call25, %vhdx_log_read_sectors.exit.thread ], [ %call25, %for.body ]
-  %ret.2 = phi i32 [ %ret.0.i47, %inc_and_exit ], [ %call18, %if.end14 ], [ %ret.1, %if.end40 ], [ %ret.1, %if.end45 ], [ %call.i40, %vhdx_log_read_sectors.exit.thread ], [ 0, %for.body ]
+  %ret.0 = phi i32 [ %ret.0.i47, %inc_and_exit ], [ %call18, %if.end14 ], [ %ret.1, %if.end40 ], [ %ret.1, %if.end45 ], [ %call.i40, %vhdx_log_read_sectors.exit.thread ], [ 0, %for.body ]
   call void @qemu_vfree(ptr noundef %buffer.0) #8
   call void @qemu_vfree(ptr noundef %22) #8
-  ret i32 %ret.2
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1359,13 +1359,13 @@ if.end44:                                         ; preds = %if.then42, %for.end
   br label %exit
 
 free_and_exit:                                    ; preds = %vhdx_log_desc_is_valid.exit, %for.body, %if.end.i39, %if.end3.i42, %vhdx_log_desc_is_valid.exit.us, %if.end3.i42.us, %if.end.i39.us, %for.body.us, %vhdx_log_read_sectors.exit, %if.end21
-  %ret.0 = phi i32 [ %call.i34, %vhdx_log_read_sectors.exit ], [ -22, %if.end21 ], [ -22, %for.body.us ], [ -22, %if.end.i39.us ], [ -22, %if.end3.i42.us ], [ -22, %vhdx_log_desc_is_valid.exit.us ], [ -22, %if.end3.i42 ], [ -22, %if.end.i39 ], [ -22, %for.body ], [ -22, %vhdx_log_desc_is_valid.exit ]
+  %ret.1 = phi i32 [ %call.i34, %vhdx_log_read_sectors.exit ], [ -22, %if.end21 ], [ -22, %for.body.us ], [ -22, %if.end.i39.us ], [ -22, %if.end3.i42.us ], [ -22, %vhdx_log_desc_is_valid.exit.us ], [ -22, %if.end3.i42 ], [ -22, %if.end.i39 ], [ -22, %for.body ], [ -22, %vhdx_log_desc_is_valid.exit ]
   call void @qemu_vfree(ptr noundef nonnull %call12) #8
   br label %exit
 
 exit:                                             ; preds = %if.end12.i, %if.end.i, %if.end3, %if.end3.i, %if.end, %if.end13.i, %if.end8, %vhdx_log_hdr_is_valid.exit, %free_and_exit, %if.end44
-  %ret.1 = phi i32 [ %ret.0, %free_and_exit ], [ %ret.1.i.ph77, %if.end44 ], [ -22, %vhdx_log_hdr_is_valid.exit ], [ -12, %if.end8 ], [ -22, %if.end3.i ], [ -14, %if.end ], [ %call.i, %if.end13.i ], [ -22, %if.end3 ], [ -22, %if.end.i ], [ -22, %if.end12.i ]
-  ret i32 %ret.1
+  %ret.0 = phi i32 [ %ret.1, %free_and_exit ], [ %ret.1.i.ph77, %if.end44 ], [ -22, %vhdx_log_hdr_is_valid.exit ], [ -12, %if.end8 ], [ -22, %if.end3.i ], [ -14, %if.end ], [ %call.i, %if.end13.i ], [ -22, %if.end3 ], [ -22, %if.end.i ], [ -22, %if.end12.i ]
+  ret i32 %ret.0
 }
 
 declare i32 @vhdx_checksum_calc(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
@@ -1500,8 +1500,8 @@ if.end12:                                         ; preds = %if.end7
   br i1 %tobool.not, label %exit, label %while.body, !llvm.loop !10
 
 exit:                                             ; preds = %if.end12, %while.body, %if.end7, %while.body.lr.ph, %if.end, %entry
-  %ret.1 = phi i32 [ %call, %entry ], [ %call, %if.end ], [ %call, %while.body.lr.ph ], [ %call.i, %if.end7 ], [ %call.i, %while.body ], [ %call.i, %if.end12 ]
-  ret i32 %ret.1
+  %ret.0 = phi i32 [ %call, %entry ], [ %call, %if.end ], [ %call, %while.body.lr.ph ], [ %call.i, %if.end7 ], [ %call.i, %while.body ], [ %call.i, %if.end12 ]
+  ret i32 %ret.0
 }
 
 declare void @assert_bdrv_graph_readable() local_unnamed_addr #2

@@ -687,25 +687,25 @@ default.unreachable:                              ; preds = %270
 
 .sink.split:                                      ; preds = %285, %280, %275
   %.str.4.sink = phi ptr [ @.str.3, %275 ], [ @.str.4, %280 ], [ @.str.6, %285 ]
-  %.0102.ph = phi ptr [ %273, %275 ], [ %278, %280 ], [ %283, %285 ]
+  %.1.ph = phi ptr [ %273, %275 ], [ %278, %280 ], [ %283, %285 ]
   %.0101.ph = phi ptr [ @.str.1, %275 ], [ @.str.5, %280 ], [ @.str.1, %285 ]
   %287 = call i32 @slurm_addto_char_list(ptr noundef %15, ptr noundef nonnull %.str.4.sink) #12
   br label %288
 
 288:                                              ; preds = %.sink.split, %280, %285, %275
-  %.0102 = phi ptr [ %283, %285 ], [ %273, %275 ], [ %278, %280 ], [ %.0102.ph, %.sink.split ]
+  %.1 = phi ptr [ %283, %285 ], [ %273, %275 ], [ %278, %280 ], [ %.1.ph, %.sink.split ]
   %.0101 = phi ptr [ @.str.1, %285 ], [ @.str.1, %275 ], [ @.str.5, %280 ], [ %.0101.ph, %.sink.split ]
   %289 = load ptr, ptr @fed_name, align 8
   %.not149 = icmp eq ptr %289, null
   br i1 %.not149, label %_merge_cluster_groups.exit, label %290
 
 290:                                              ; preds = %288
-  %291 = call i32 @list_count(ptr noundef nonnull %.0102) #12
+  %291 = call i32 @list_count(ptr noundef nonnull %.1) #12
   %292 = icmp slt i32 %291, 2
   br i1 %292, label %_merge_cluster_groups.exit, label %293
 
 293:                                              ; preds = %290
-  %294 = call ptr @list_iterator_create(ptr noundef nonnull %.0102) #12
+  %294 = call ptr @list_iterator_create(ptr noundef nonnull %.1) #12
   %295 = call ptr @list_next(ptr noundef %294) #12
   %.not2733.i = icmp eq ptr %295, null
   br i1 %.not2733.i, label %.outer._crit_edge.i, label %.lr.ph.i173
@@ -1379,8 +1379,8 @@ _setup_grouping_print_fields_list.exit:           ; preds = %494, %495
   %573 = call ptr @list_iterator_create(ptr noundef %572) #12
   %574 = load ptr, ptr @grouping_print_fields_list, align 8
   %575 = call ptr @list_iterator_create(ptr noundef %574) #12
-  call void @list_sort(ptr noundef nonnull %.0102, ptr noundef nonnull @_sort_cluster_grouping_dec) #12
-  %576 = call ptr @list_iterator_create(ptr noundef nonnull %.0102) #12
+  call void @list_sort(ptr noundef nonnull %.1, ptr noundef nonnull @_sort_cluster_grouping_dec) #12
+  %576 = call ptr @list_iterator_create(ptr noundef nonnull %.1) #12
   %577 = call ptr @list_next(ptr noundef %576) #12
   %.not158204 = icmp eq ptr %577, null
   br i1 %.not158204, label %._crit_edge207, label %.lr.ph206
@@ -1575,7 +1575,7 @@ _setup_grouping_print_fields_list.exit:           ; preds = %494, %495
   br label %657
 
 657:                                              ; preds = %_setup_grouping_print_fields_list.exit, %._crit_edge207, %378, %284, %279, %274
-  %.1 = phi ptr [ %.0102, %378 ], [ %.0102, %_setup_grouping_print_fields_list.exit ], [ %.0102, %._crit_edge207 ], [ null, %284 ], [ null, %279 ], [ null, %274 ]
+  %.0102 = phi ptr [ %.1, %378 ], [ %.1, %_setup_grouping_print_fields_list.exit ], [ %.1, %._crit_edge207 ], [ null, %284 ], [ null, %279 ], [ null, %274 ]
   %658 = getelementptr inbounds i8, ptr %8, i64 8
   call void @slurm_xfree(ptr noundef nonnull %658) #12
   %.b135 = load i1, ptr @print_job_count, align 4
@@ -1603,11 +1603,11 @@ _setup_grouping_print_fields_list.exit:           ; preds = %494, %495
   br label %664
 
 664:                                              ; preds = %662, %663
-  %.not170 = icmp eq ptr %.1, null
+  %.not170 = icmp eq ptr %.0102, null
   br i1 %.not170, label %666, label %665
 
 665:                                              ; preds = %664
-  call void @list_destroy(ptr noundef nonnull %.1) #12
+  call void @list_destroy(ptr noundef nonnull %.0102) #12
   br label %666
 
 666:                                              ; preds = %665, %664

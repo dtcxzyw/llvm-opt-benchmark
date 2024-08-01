@@ -11875,25 +11875,25 @@ define noundef zeroext i1 @_ZN19QualityMapperDialog22drawEqualizerHistogramEbb(p
   br i1 %.not2025.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph27.i.i
 
 .lr.ph27.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph27.i.i
-  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.2.i, %.lr.ph27.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ]
+  %.sroa.0.3.i = phi <2 x float> [ %.sroa.0.5.i, %.lr.ph27.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ]
   %28 = phi float [ %32, %.lr.ph27.i.i ], [ 0x47EFFFFFE0000000, %.preheader.i.i ]
   %.sroa.014.026.i.i = phi ptr [ %34, %.lr.ph27.i.i ], [ %21, %.preheader.i.i ]
   %29 = getelementptr inbounds i8, ptr %.sroa.014.026.i.i, i64 36
   %30 = load float, ptr %29, align 4
   %31 = fcmp olt float %30, %28
-  %.sroa.0.0.vec.insert8.i = insertelement <2 x float> %.sroa.0.0.i, float %30, i64 0
-  %.sroa.0.1.i = select i1 %31, <2 x float> %.sroa.0.0.vec.insert8.i, <2 x float> %.sroa.0.0.i
+  %.sroa.0.0.vec.insert8.i = insertelement <2 x float> %.sroa.0.3.i, float %30, i64 0
+  %.sroa.0.4.i = select i1 %31, <2 x float> %.sroa.0.0.vec.insert8.i, <2 x float> %.sroa.0.3.i
   %32 = select i1 %31, float %30, float %28
-  %.sroa.0.4.vec.extract11.i = extractelement <2 x float> %.sroa.0.1.i, i64 1
+  %.sroa.0.4.vec.extract11.i = extractelement <2 x float> %.sroa.0.4.i, i64 1
   %33 = fcmp ogt float %30, %.sroa.0.4.vec.extract11.i
-  %.sroa.0.4.vec.insert13.i = insertelement <2 x float> %.sroa.0.1.i, float %30, i64 1
-  %.sroa.0.2.i = select i1 %33, <2 x float> %.sroa.0.4.vec.insert13.i, <2 x float> %.sroa.0.1.i
+  %.sroa.0.4.vec.insert13.i = insertelement <2 x float> %.sroa.0.4.i, float %30, i64 1
+  %.sroa.0.5.i = select i1 %33, <2 x float> %.sroa.0.4.vec.insert13.i, <2 x float> %.sroa.0.4.i
   %34 = getelementptr inbounds i8, ptr %.sroa.014.026.i.i, i64 48
   %.not20.i.i = icmp eq ptr %34, %20
   br i1 %.not20.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph27.i.i, !llvm.loop !120
 
 .lr.ph.i.i:                                       ; preds = %.preheader21.i.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
-  %.sroa.0.3.i = phi <2 x float> [ %.sroa.0.5.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ]
+  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.1.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ]
   %.sroa.09.024.i.i = phi ptr [ %44, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ], [ %21, %.preheader21.i.i ]
   %35 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i, i64 20
   %36 = load i32, ptr %35, align 4
@@ -11904,26 +11904,26 @@ define noundef zeroext i1 @_ZN19QualityMapperDialog22drawEqualizerHistogramEbb(p
 38:                                               ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i, i64 36
   %40 = load float, ptr %39, align 4
-  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.3.i, i64 0
+  %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.i, i64 0
   %41 = fcmp olt float %40, %.sroa.0.0.vec.extract.i
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> %.sroa.0.3.i, float %40, i64 0
-  %.sroa.0.4.i = select i1 %41, <2 x float> %.sroa.0.0.vec.insert.i, <2 x float> %.sroa.0.3.i
-  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.0.4.i, i64 1
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> %.sroa.0.0.i, float %40, i64 0
+  %.sroa.0.2.i = select i1 %41, <2 x float> %.sroa.0.0.vec.insert.i, <2 x float> %.sroa.0.0.i
+  %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.0.2.i, i64 1
   %42 = fcmp ogt float %40, %.sroa.0.4.vec.extract.i
   br i1 %42, label %43, label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
 
 43:                                               ; preds = %38
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.4.i, float %40, i64 1
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.2.i, float %40, i64 1
   br label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i
 
 _ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i: ; preds = %43, %38, %.lr.ph.i.i
-  %.sroa.0.5.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %43 ], [ %.sroa.0.4.i, %38 ], [ %.sroa.0.3.i, %.lr.ph.i.i ]
+  %.sroa.0.1.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %43 ], [ %.sroa.0.2.i, %38 ], [ %.sroa.0.0.i, %.lr.ph.i.i ]
   %44 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i, i64 48
   %.not.i.i = icmp eq ptr %44, %20
   br i1 %.not.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit, label %.lr.ph.i.i, !llvm.loop !121
 
 _ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_.exit: ; preds = %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i, %.lr.ph27.i.i, %.preheader21.i.i, %.preheader.i.i
-  %.sroa.0.6.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ], [ %.sroa.0.2.i, %.lr.ph27.i.i ], [ %.sroa.0.5.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ]
+  %.sroa.0.6.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i ], [ %.sroa.0.5.i, %.lr.ph27.i.i ], [ %.sroa.0.1.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i ]
   %.sroa.0.0.vec.extract.i19 = extractelement <2 x float> %.sroa.0.6.i, i64 0
   %.sroa.0.4.vec.extract.i20 = extractelement <2 x float> %.sroa.0.6.i, i64 1
   tail call void @_ZN19QualityMapperDialog32ComputePerVertexQualityHistogramER6CMeshO6FrangePN3vcg9HistogramIfEEi(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(1196) %15, <2 x float> %.sroa.0.6.i, ptr noundef nonnull %13, i32 noundef 50000)
@@ -12487,21 +12487,21 @@ define void @_ZN19QualityMapperDialog22initEqualizerSpinboxesEv(ptr nocapture no
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.015 = phi double [ %26, %.lr.ph ], [ %22, %1 ]
-  %.01214 = phi i32 [ %25, %.lr.ph ], [ 0, %1 ]
-  %25 = add nuw nsw i32 %.01214, 1
+  %.114 = phi i32 [ %25, %.lr.ph ], [ 0, %1 ]
+  %25 = add nuw nsw i32 %.114, 1
   %26 = fmul double %.015, 1.000000e+01
   %27 = fcmp olt double %26, 1.000000e-01
   br i1 %27, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !124
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %28 = add nuw nsw i32 %.01214, 3
+  %28 = add nuw nsw i32 %.114, 3
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %1
-  %.1 = phi i32 [ 2, %1 ], [ %28, %.loopexit.loopexit ]
+  %.012 = phi i32 [ 2, %1 ], [ %28, %.loopexit.loopexit ]
   %29 = getelementptr inbounds i8, ptr %0, i64 352
   %30 = load ptr, ptr %29, align 8
-  tail call void @_ZN14QDoubleSpinBox11setDecimalsEi(ptr noundef nonnull align 8 dereferenceable(48) %30, i32 noundef %.1)
+  tail call void @_ZN14QDoubleSpinBox11setDecimalsEi(ptr noundef nonnull align 8 dereferenceable(48) %30, i32 noundef %.012)
   %31 = load ptr, ptr %29, align 8
   %32 = load ptr, ptr %2, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 8
@@ -12518,7 +12518,7 @@ define void @_ZN19QualityMapperDialog22initEqualizerSpinboxesEv(ptr nocapture no
   tail call void @_ZN14QDoubleSpinBox13setSingleStepEd(ptr noundef nonnull align 8 dereferenceable(48) %41, double noundef %22)
   %42 = getelementptr inbounds i8, ptr %0, i64 416
   %43 = load ptr, ptr %42, align 8
-  tail call void @_ZN14QDoubleSpinBox11setDecimalsEi(ptr noundef nonnull align 8 dereferenceable(48) %43, i32 noundef %.1)
+  tail call void @_ZN14QDoubleSpinBox11setDecimalsEi(ptr noundef nonnull align 8 dereferenceable(48) %43, i32 noundef %.012)
   %44 = load ptr, ptr %42, align 8
   %45 = load ptr, ptr %2, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 12
@@ -12535,7 +12535,7 @@ define void @_ZN19QualityMapperDialog22initEqualizerSpinboxesEv(ptr nocapture no
   tail call void @_ZN14QDoubleSpinBox13setSingleStepEd(ptr noundef nonnull align 8 dereferenceable(48) %54, double noundef %22)
   %55 = getelementptr inbounds i8, ptr %0, i64 376
   %56 = load ptr, ptr %55, align 8
-  tail call void @_ZN14QDoubleSpinBox11setDecimalsEi(ptr noundef nonnull align 8 dereferenceable(48) %56, i32 noundef %.1)
+  tail call void @_ZN14QDoubleSpinBox11setDecimalsEi(ptr noundef nonnull align 8 dereferenceable(48) %56, i32 noundef %.012)
   %57 = load ptr, ptr %55, align 8
   %58 = load ptr, ptr %2, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 12
@@ -17421,21 +17421,21 @@ define linkonce_odr void @_ZN18QAlgorithmsPrivate11qSortHelperIN5QListIP8TFHandl
   br label %59
 
 59:                                               ; preds = %.preheader, %64
-  %.sroa.026.143 = phi ptr [ %.sroa.026.047, %.preheader ], [ %65, %64 ]
-  %60 = load ptr, ptr %.sroa.026.143, align 8
+  %.sroa.026.243 = phi ptr [ %.sroa.026.047, %.preheader ], [ %65, %64 ]
+  %60 = load ptr, ptr %.sroa.026.243, align 8
   %61 = load ptr, ptr %1, align 8
   %62 = load ptr, ptr %61, align 8
   %63 = call noundef zeroext i1 %3(ptr noundef %60, ptr noundef %62)
   br i1 %63, label %64, label %.critedge
 
 64:                                               ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %.sroa.026.143, i64 8
+  %65 = getelementptr inbounds i8, ptr %.sroa.026.243, i64 8
   %66 = icmp ult ptr %65, %.sroa.018.046
   br i1 %66, label %59, label %.critedge, !llvm.loop !171
 
 .critedge:                                        ; preds = %64, %59
-  %.sroa.026.1.lcssa = phi ptr [ %65, %64 ], [ %.sroa.026.143, %59 ]
-  %67 = icmp ugt ptr %.sroa.018.046, %.sroa.026.1.lcssa
+  %.sroa.026.2.lcssa = phi ptr [ %65, %64 ], [ %.sroa.026.243, %59 ]
+  %67 = icmp ugt ptr %.sroa.018.046, %.sroa.026.2.lcssa
   br i1 %67, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %.critedge, %72
@@ -17448,27 +17448,27 @@ define linkonce_odr void @_ZN18QAlgorithmsPrivate11qSortHelperIN5QListIP8TFHandl
 
 72:                                               ; preds = %.lr.ph
   %73 = getelementptr inbounds i8, ptr %.sroa.018.144, i64 -8
-  %74 = icmp ugt ptr %73, %.sroa.026.1.lcssa
+  %74 = icmp ugt ptr %73, %.sroa.026.2.lcssa
   br i1 %74, label %.lr.ph, label %.critedge2, !llvm.loop !172
 
 75:                                               ; preds = %.lr.ph
-  %76 = load ptr, ptr %.sroa.026.1.lcssa, align 8
+  %76 = load ptr, ptr %.sroa.026.2.lcssa, align 8
   %77 = load ptr, ptr %.sroa.018.144, align 8
-  store ptr %77, ptr %.sroa.026.1.lcssa, align 8
+  store ptr %77, ptr %.sroa.026.2.lcssa, align 8
   store ptr %76, ptr %.sroa.018.144, align 8
-  %78 = getelementptr inbounds i8, ptr %.sroa.026.1.lcssa, i64 8
+  %78 = getelementptr inbounds i8, ptr %.sroa.026.2.lcssa, i64 8
   %79 = getelementptr inbounds i8, ptr %.sroa.018.144, i64 -8
   %80 = icmp ult ptr %78, %79
   br i1 %80, label %.preheader, label %.critedge2, !llvm.loop !173
 
 .critedge2:                                       ; preds = %75, %.critedge, %72, %54
-  %.sroa.026.2 = phi ptr [ %19, %54 ], [ %.sroa.026.1.lcssa, %72 ], [ %.sroa.026.1.lcssa, %.critedge ], [ %78, %75 ]
-  %81 = load ptr, ptr %.sroa.026.2, align 8
+  %.sroa.026.1 = phi ptr [ %19, %54 ], [ %.sroa.026.2.lcssa, %72 ], [ %.sroa.026.2.lcssa, %.critedge ], [ %78, %75 ]
+  %81 = load ptr, ptr %.sroa.026.1, align 8
   %82 = load ptr, ptr %1, align 8
   %83 = load ptr, ptr %82, align 8
   %84 = call noundef zeroext i1 %3(ptr noundef %81, ptr noundef %83)
   %spec.select.idx = select i1 %84, i64 8, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %.sroa.026.2, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds i8, ptr %.sroa.026.1, i64 %spec.select.idx
   %85 = load ptr, ptr %1, align 8
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr %spec.select, align 8
@@ -18599,36 +18599,36 @@ _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i: ; preds = %_ZNSt4pairIKN3vc
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i, %60, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %40, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.418.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
-  %.2.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.12.i = phi ptr [ %30, %60 ], [ %38, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ %38, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
+  %.8.i = phi i1 [ false, %60 ], [ %74, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit148.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i114.i ]
   call void @_ZdlPv(ptr noundef nonnull %31) #22
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i, %58, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i
   %.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %59, %58 ], [ %.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %32, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.620.i = phi ptr [ %22, %58 ], [ %.418.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
-  %.4.i = phi i1 [ false, %58 ], [ %.2.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.1024.i = phi ptr [ %22, %58 ], [ %.12.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ %30, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
+  %.6.i = phi i1 [ false, %58 ], [ %.8.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit151.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i96.i ]
   call void @_ZdlPv(ptr noundef nonnull %23) #22
   br label %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i
 
 _ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i: ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i, %56, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i
   %.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %57, %56 ], [ %.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %24, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.822.i = phi ptr [ %14, %56 ], [ %.620.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
-  %.6.i = phi i1 [ false, %56 ], [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.822.i = phi ptr [ %14, %56 ], [ %.1024.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ %22, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
+  %.4.i = phi i1 [ false, %56 ], [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit154.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i78.i ]
   call void @_ZdlPv(ptr noundef nonnull %15) #22
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %16, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.1024.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
-  %.8.i = phi i1 [ %.6.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.620.i = phi ptr [ %.822.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ %14, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
+  %.2.i = phi i1 [ %.4.i, %_ZNSt6vectorIN3vcg6Color4IhEESaIS2_EED2Ev.exit157.i ], [ false, %_ZNSt12_Vector_baseIN3vcg6Color4IhEESaIS2_EED2Ev.exit.i60.i ]
   call void @_ZdlPv(ptr noundef nonnull %8) #22
-  %75 = icmp eq ptr %1, %.1024.i
-  %or.cond.i = select i1 %.8.i, i1 true, i1 %75
+  %75 = icmp eq ptr %1, %.620.i
+  %or.cond.i = select i1 %.2.i, i1 true, i1 %75
   br i1 %or.cond.i, label %.body.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.body.i, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i
-  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.1024.i, %.body.i ]
+  %76 = phi ptr [ %77, %_ZNSt4pairIKN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS5_EEED2Ev.exit162.i ], [ %.620.i, %.body.i ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -32
   %78 = getelementptr inbounds i8, ptr %76, i64 -24
   %79 = load ptr, ptr %78, align 8

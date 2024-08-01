@@ -715,7 +715,7 @@ if.end43:                                         ; preds = %invoke.cont29
   br i1 %cmp44.not, label %if.end63, label %if.then45
 
 if.then45:                                        ; preds = %invoke.cont13, %if.end43
-  %t.048 = phi ptr [ %call30, %if.end43 ], [ %call14, %invoke.cont13 ]
+  %t.148 = phi ptr [ %call30, %if.end43 ], [ %call14, %invoke.cont13 ]
   invoke void @umtx_lock_75(ptr noundef null)
           to label %invoke.cont47 unwind label %lpad8
 
@@ -730,7 +730,7 @@ invoke.cont50:                                    ; preds = %invoke.cont47
 
 if.then53:                                        ; preds = %invoke.cont50
   %20 = load ptr, ptr %cache, align 8
-  %call56 = invoke ptr @uhash_iput_75(ptr noundef %20, i32 noundef %source, ptr noundef nonnull %t.048, ptr noundef nonnull %ec)
+  %call56 = invoke ptr @uhash_iput_75(ptr noundef %20, i32 noundef %source, ptr noundef nonnull %t.148, ptr noundef nonnull %ec)
           to label %if.end57 unwind label %lpad49
 
 lpad49:                                           ; preds = %if.then53, %invoke.cont47
@@ -747,8 +747,8 @@ terminate.lpad.i35:                               ; preds = %lpad49
   unreachable
 
 if.end57:                                         ; preds = %invoke.cont50, %if.then53
-  %t.1 = phi ptr [ %t.048, %if.then53 ], [ %call51, %invoke.cont50 ]
-  %rt.0 = phi ptr [ null, %if.then53 ], [ %t.048, %invoke.cont50 ]
+  %t.3 = phi ptr [ %t.148, %if.then53 ], [ %call51, %invoke.cont50 ]
+  %rt.0 = phi ptr [ null, %if.then53 ], [ %t.148, %invoke.cont50 ]
   invoke void @umtx_unlock_75(ptr noundef null)
           to label %_ZN6icu_755MutexD2Ev.exit38 unwind label %terminate.lpad.i37
 
@@ -765,7 +765,7 @@ _ZN6icu_755MutexD2Ev.exit38:                      ; preds = %if.end57
 
 if.end63.sink.split:                              ; preds = %_ZN6icu_755MutexD2Ev.exit38, %invoke.cont29
   %call30.sink50 = phi ptr [ %call30, %invoke.cont29 ], [ %rt.0, %_ZN6icu_755MutexD2Ev.exit38 ]
-  %t.2.ph = phi ptr [ null, %invoke.cont29 ], [ %t.1, %_ZN6icu_755MutexD2Ev.exit38 ]
+  %t.2.ph = phi ptr [ null, %invoke.cont29 ], [ %t.3, %_ZN6icu_755MutexD2Ev.exit38 ]
   %vtable39 = load ptr, ptr %call30.sink50, align 8
   %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 8
   %26 = load ptr, ptr %vfn40, align 8
@@ -773,7 +773,7 @@ if.end63.sink.split:                              ; preds = %_ZN6icu_755MutexD2E
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end63.sink.split, %_ZN6icu_755MutexD2Ev.exit38, %if.end43
-  %t.2 = phi ptr [ %t.1, %_ZN6icu_755MutexD2Ev.exit38 ], [ null, %if.end43 ], [ %t.2.ph, %if.end63.sink.split ]
+  %t.2 = phi ptr [ %t.3, %_ZN6icu_755MutexD2Ev.exit38 ], [ null, %if.end43 ], [ %t.2.ph, %if.end63.sink.split ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %id) #9
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %sourceName) #9
   br label %return

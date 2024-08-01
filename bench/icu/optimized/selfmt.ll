@@ -434,9 +434,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -799,7 +799,7 @@ invoke.cont:                                      ; preds = %if.end
 
 do.body:                                          ; preds = %if.end20, %invoke.cont
   %3 = phi ptr [ %.pre, %invoke.cont ], [ %28, %if.end20 ]
-  %msgStart.0 = phi i32 [ 0, %invoke.cont ], [ %msgStart.1, %if.end20 ]
+  %msgStart.0 = phi i32 [ 0, %invoke.cont ], [ %msgStart.2, %if.end20 ]
   %partIndex.addr.0 = phi i32 [ %partIndex, %invoke.cont ], [ %inc23, %if.end20 ]
   %inc = add nsw i32 %partIndex.addr.0, 1
   %idxprom.i = sext i32 %partIndex.addr.0 to i64
@@ -909,7 +909,7 @@ invoke.cont15:                                    ; preds = %if.then.i.i.i19, %i
   br label %if.end20
 
 if.end20:                                         ; preds = %invoke.cont15, %if.else
-  %msgStart.1 = phi i32 [ %msgStart.0, %if.else ], [ %spec.select, %invoke.cont15 ]
+  %msgStart.2 = phi i32 [ %msgStart.0, %if.else ], [ %spec.select, %invoke.cont15 ]
   %28 = load ptr, ptr %parts.i, align 8
   %idxprom.i.i = sext i32 %inc to i64
   %limitPartIndex.i = getelementptr inbounds %"class.icu_75::MessagePattern::Part", ptr %28, i64 %idxprom.i.i, i32 4
@@ -920,13 +920,13 @@ if.end20:                                         ; preds = %invoke.cont15, %if.
   br i1 %cmp24, label %do.body, label %cleanup, !llvm.loop !5
 
 cleanup:                                          ; preds = %if.end20, %do.body, %invoke.cont10
-  %retval.0 = phi i32 [ %inc, %invoke.cont10 ], [ %msgStart.0, %do.body ], [ %msgStart.1, %if.end20 ]
+  %retval.1 = phi i32 [ %inc, %invoke.cont10 ], [ %msgStart.0, %do.body ], [ %msgStart.2, %if.end20 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %other) #10
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad1, %lpad
   %.pn = phi { ptr, i32 } [ %7, %lpad1 ], [ %5, %lpad ]

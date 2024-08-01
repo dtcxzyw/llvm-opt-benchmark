@@ -216,8 +216,8 @@ Abc_ObjGlobalBdd.exit.i:                          ; preds = %80, %77, %Vec_AttGr
 105:                                              ; preds = %156, %.lr.ph96.i
   %indvars.iv104.i = phi i64 [ 0, %.lr.ph96.i ], [ %indvars.iv.next105.i, %156 ]
   %.val5795.i = phi ptr [ %.val5790.i, %.lr.ph96.i ], [ %.val57.i, %156 ]
-  %.194.i = phi i32 [ 0, %.lr.ph96.i ], [ %158, %156 ]
-  %.15292.i = phi i32 [ 0, %.lr.ph96.i ], [ %161, %156 ]
+  %.294.i = phi i32 [ 0, %.lr.ph96.i ], [ %158, %156 ]
+  %.25392.i = phi i32 [ 0, %.lr.ph96.i ], [ %161, %156 ]
   %106 = getelementptr i8, ptr %.val5795.i, i64 8
   %.val60.val.i = load ptr, ptr %106, align 8
   %107 = getelementptr inbounds ptr, ptr %.val60.val.i, i64 %indvars.iv104.i
@@ -313,10 +313,10 @@ Abc_ObjGlobalBdd.exit77.i:                        ; preds = %145, %142, %Vec_Att
 
 156:                                              ; preds = %153, %Abc_ObjGlobalBdd.exit77.i
   %157 = load i32, ptr %152, align 8
-  %158 = add nsw i32 %157, %.194.i
+  %158 = add nsw i32 %157, %.294.i
   %159 = getelementptr inbounds i8, ptr %152, i64 8
   %160 = load i32, ptr %159, align 8
-  %161 = add nsw i32 %160, %.15292.i
+  %161 = add nsw i32 %160, %.25392.i
   call void @Extra_UnateInfoDissolve(ptr noundef nonnull %152) #11
   %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 1
   %.val57.i = load ptr, ptr %102, align 8
@@ -327,8 +327,8 @@ Abc_ObjGlobalBdd.exit77.i:                        ; preds = %145, %142, %Vec_Att
   br i1 %164, label %105, label %.critedge.i, !llvm.loop !6
 
 .critedge.i:                                      ; preds = %91, %156, %100, %.preheader.i
-  %.253.i = phi i32 [ 0, %100 ], [ 0, %.preheader.i ], [ %161, %156 ], [ %96, %91 ]
-  %.2.i = phi i32 [ 0, %100 ], [ 0, %.preheader.i ], [ %158, %156 ], [ %93, %91 ]
+  %.152.i = phi i32 [ 0, %100 ], [ 0, %.preheader.i ], [ %161, %156 ], [ %96, %91 ]
+  %.1.i = phi i32 [ 0, %100 ], [ 0, %.preheader.i ], [ %158, %156 ], [ %93, %91 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %165 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #11
   %166 = icmp slt i32 %165, 0
@@ -355,7 +355,7 @@ Abc_Clock.exit79.i:                               ; preds = %167, %.critedge.i
   %.val58.i = load ptr, ptr %177, align 8
   %178 = getelementptr i8, ptr %.val58.i, i64 4
   %.val58.val.i = load i32, ptr %178, align 4
-  %179 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.val65.val.i, i32 noundef %.val58.val.i, i32 noundef %.2.i, i32 noundef %.253.i)
+  %179 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.val65.val.i, i32 noundef %.val58.val.i, i32 noundef %.1.i, i32 noundef %.152.i)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
   %180 = sitofp i64 %32 to double
   %181 = fdiv double %180, 1.000000e+06

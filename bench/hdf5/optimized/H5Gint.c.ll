@@ -351,8 +351,8 @@ define ptr @H5G__create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %73
 
 73:                                               ; preds = %64, %40, %71
-  %.4 = phi ptr [ null, %71 ], [ null, %64 ], [ %3, %40 ]
-  ret ptr %.4
+  %.1 = phi ptr [ null, %71 ], [ null, %64 ], [ %3, %40 ]
+  ret ptr %.1
 }
 
 declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #1

@@ -1507,7 +1507,7 @@ _ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.thread: ; preds = %483, %486, %_
           to label %511 unwind label %437
 
 511:                                              ; preds = %482, %508, %408, %429
-  %.0 = phi i1 [ true, %429 ], [ false, %408 ], [ true, %508 ], [ true, %482 ]
+  %.1 = phi i1 [ true, %429 ], [ false, %408 ], [ true, %508 ], [ true, %482 ]
   call void @_ZN18cmWorkingDirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %39) #21
   br label %.thread154
 
@@ -1517,7 +1517,7 @@ _ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.thread: ; preds = %483, %486, %_
   br label %540
 
 .thread154:                                       ; preds = %.thread153, %335, %342, %352, %511, %169
-  %.1 = phi i1 [ true, %169 ], [ %.0, %511 ], [ true, %352 ], [ true, %342 ], [ false, %335 ], [ false, %.thread153 ]
+  %.0 = phi i1 [ true, %169 ], [ %.1, %511 ], [ true, %352 ], [ true, %342 ], [ false, %335 ], [ false, %.thread153 ]
   %513 = load ptr, ptr %7, align 8
   %514 = load ptr, ptr %110, align 8
   %.not4.i.i.i.i = icmp eq ptr %513, %514
@@ -1598,7 +1598,7 @@ _ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.i: ; preds = %529
   unreachable
 
 _ZN12_GLOBAL__N_121SaveRestoreErrorStateD2Ev.exit: ; preds = %520, %_ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.thr_comm.i, %_ZN13cmSystemTools20GetErrorOccurredFlagEv.exit.i, %.sink.split.i
-  ret i1 %.1
+  ret i1 %.0
 
 540:                                              ; preds = %512, %.body124, %369, %364, %357, %.body118, %.body113, %264, %263, %236, %219, %.body108, %197, %.body, %170, %161, %123, %107, %105
   %.pn99.pn.pn = phi { ptr, i32 } [ %.pn99.pn, %170 ], [ %.pn96, %161 ], [ %106, %105 ], [ %.pn93.pn, %512 ], [ %.pn81.pn, %.body124 ], [ %.pn79, %369 ], [ %.pn76, %364 ], [ %.pn74, %357 ], [ %.pn72, %.body118 ], [ %.pn69.pn, %.body113 ], [ %265, %264 ], [ %.pn67, %263 ], [ %.pn65, %236 ], [ %220, %219 ], [ %.pn63, %.body108 ], [ %198, %197 ], [ %.pn, %.body ], [ %124, %123 ], [ %108, %107 ]

@@ -131,7 +131,7 @@ Vec_StrFree.exit:                                 ; preds = %19, %21
 .lr.ph139:                                        ; preds = %.preheader113, %123
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %123 ], [ 0, %.preheader113 ]
   %.069138 = phi i32 [ %.1, %123 ], [ 0, %.preheader113 ]
-  %.070137 = phi i32 [ %.2, %123 ], [ 0, %.preheader113 ]
+  %.070137 = phi i32 [ %.171, %123 ], [ 0, %.preheader113 ]
   %.val83 = load ptr, ptr %4, align 8
   %31 = getelementptr inbounds i32, ptr %.val83, i64 %indvars.iv159
   %32 = load i32, ptr %31, align 4
@@ -348,14 +348,14 @@ Vec_IntRemove.exit104:                            ; preds = %107, %.preheader.i8
 119:                                              ; preds = %Vec_IntRemove.exit104, %.loopexit112, %85
   %120 = phi i32 [ %86, %85 ], [ %83, %Vec_IntRemove.exit104 ], [ %83, %.loopexit112 ]
   %.074.lcssa164 = phi i32 [ %.074.lcssa165, %85 ], [ %.074.lcssa, %Vec_IntRemove.exit104 ], [ %.074.lcssa, %.loopexit112 ]
-  %.171 = phi i32 [ %87, %85 ], [ %.070137, %Vec_IntRemove.exit104 ], [ %.070137, %.loopexit112 ]
+  %.2 = phi i32 [ %87, %85 ], [ %.070137, %Vec_IntRemove.exit104 ], [ %.070137, %.loopexit112 ]
   %121 = tail call ptr @Cudd_bddIthVar(ptr noundef %8, i32 noundef %.074.lcssa164) #15
   %122 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv159
   store ptr %121, ptr %122, align 8
   br label %123
 
 123:                                              ; preds = %Vec_IntRemove.exit, %.loopexit, %119
-  %.2 = phi i32 [ %.171, %119 ], [ %.070137, %Vec_IntRemove.exit ], [ %.070137, %.loopexit ]
+  %.171 = phi i32 [ %.2, %119 ], [ %.070137, %Vec_IntRemove.exit ], [ %.070137, %.loopexit ]
   %.1 = phi i32 [ %120, %119 ], [ %.069138, %Vec_IntRemove.exit ], [ %.069138, %.loopexit ]
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %.val82 = load i32, ptr %3, align 4
@@ -364,7 +364,7 @@ Vec_IntRemove.exit104:                            ; preds = %107, %.preheader.i8
   br i1 %125, label %.lr.ph139, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %123, %.preheader113
-  %.070.lcssa = phi i32 [ 0, %.preheader113 ], [ %.2, %123 ]
+  %.070.lcssa = phi i32 [ 0, %.preheader113 ], [ %.171, %123 ]
   %.069.lcssa = phi i32 [ 0, %.preheader113 ], [ %.1, %123 ]
   store i32 %.070.lcssa, ptr %3, align 4
   %126 = load ptr, ptr %2, align 8

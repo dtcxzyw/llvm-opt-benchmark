@@ -40,7 +40,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 .preheader549:                                    ; preds = %.preheader549.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader549.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %.0458554 = phi i1 [ false, %.preheader549.preheader ], [ %.1459.lcssa, %._crit_edge ]
+  %.1459554 = phi i1 [ false, %.preheader549.preheader ], [ %.2460.lcssa, %._crit_edge ]
   %17 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %18, 1
@@ -52,24 +52,24 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
-  %.1459553 = phi i1 [ %.0458554, %.lr.ph ], [ %26, %22 ]
+  %.2460553 = phi i1 [ %.1459554, %.lr.ph ], [ %26, %22 ]
   %.0461552 = phi i64 [ 1, %.lr.ph ], [ %27, %22 ]
   %23 = getelementptr inbounds float, ptr %21, i64 %.0461552
   %24 = load float, ptr %23, align 4
   %25 = fcmp une float %24, 0.000000e+00
-  %26 = or i1 %.1459553, %25
+  %26 = or i1 %.2460553, %25
   %27 = add nuw i64 %.0461552, 1
   %exitcond.not = icmp eq i64 %27, %18
   br i1 %exitcond.not, label %._crit_edge, label %22
 
 ._crit_edge:                                      ; preds = %22, %.preheader549
-  %.1459.lcssa = phi i1 [ %.0458554, %.preheader549 ], [ %26, %22 ]
+  %.2460.lcssa = phi i1 [ %.1459554, %.preheader549 ], [ %26, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond703.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond703.not, label %._crit_edge556, label %.preheader549
 
 ._crit_edge556:                                   ; preds = %._crit_edge
-  br i1 %.1459.lcssa, label %29, label %.thread
+  br i1 %.2460.lcssa, label %29, label %.thread
 
 .thread:                                          ; preds = %9, %._crit_edge556
   %28 = tail call i32 @stress_majorization_kD_mkernel(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #11
@@ -677,7 +677,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   br label %264
 
 264:                                              ; preds = %.lr.ph680, %._crit_edge676
-  %.0438678 = phi i32 [ 0, %.lr.ph680 ], [ %340, %._crit_edge676 ]
+  %.1439678 = phi i32 [ 0, %.lr.ph680 ], [ %340, %._crit_edge676 ]
   %.0465677 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph680 ], [ %.1464.lcssa, %._crit_edge676 ]
   call void @set_vector_val(i32 noundef %1, double noundef 0.000000e+00, ptr noundef %222) #11
   call void @sqrt_vecf(i32 noundef %152, ptr noundef %.1472, ptr noundef %254) #11
@@ -864,7 +864,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %323 = call double @llvm.fabs.f64(double %322)
   %324 = load double, ptr @Epsilon, align 8
   %325 = fcmp olt double %323, %324
-  %326 = icmp ugt i32 %.0438678, 1
+  %326 = icmp ugt i32 %.1439678, 1
   %327 = fcmp ogt double %.1464.lcssa, %.0465677
   %328 = select i1 %326, i1 %327, i1 false
   %329 = or i1 %328, %325
@@ -895,13 +895,13 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   br i1 %exitcond861.not, label %._crit_edge676, label %.lr.ph675
 
 ._crit_edge676:                                   ; preds = %339, %._crit_edge671
-  %340 = add nuw nsw i32 %.0438678, 1
+  %340 = add nuw nsw i32 %.1439678, 1
   %341 = icmp sge i32 %340, %7
   %.not506 = select i1 %341, i1 true, i1 %329
   br i1 %.not506, label %._crit_edge681, label %264
 
 ._crit_edge681:                                   ; preds = %._crit_edge676, %._crit_edge636
-  %.0438.lcssa = phi i32 [ 0, %._crit_edge636 ], [ %340, %._crit_edge676 ]
+  %.1439.lcssa = phi i32 [ 0, %._crit_edge636 ], [ %340, %._crit_edge676 ]
   %.not507 = icmp eq ptr %200, null
   br i1 %.not507, label %352, label %.preheader531
 
@@ -953,7 +953,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %333, %352
-  %.1439 = phi i32 [ %.0438.lcssa, %352 ], [ -1, %333 ]
+  %.0438 = phi i32 [ %.1439.lcssa, %352 ], [ -1, %333 ]
   %.not509 = icmp eq ptr %258, null
   br i1 %.not509, label %354, label %353
 
@@ -968,7 +968,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   br label %.thread526
 
 .thread526:                                       ; preds = %.loopexit548, %49, %98, %101, %354
-  %.1439525530 = phi i32 [ %.1439, %354 ], [ -1, %101 ], [ -1, %98 ], [ -1, %49 ], [ -1, %.loopexit548 ]
+  %.0438525530 = phi i32 [ %.0438, %354 ], [ -1, %101 ], [ -1, %98 ], [ -1, %49 ], [ -1, %.loopexit548 ]
   %356 = load ptr, ptr %10, align 8
   call void @free(ptr noundef %356) #11
   %357 = load ptr, ptr %11, align 8
@@ -976,7 +976,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   br label %358
 
 358:                                              ; preds = %32, %.thread526, %110, %106, %54, %.thread
-  %.0435 = phi i32 [ %.1439525530, %.thread526 ], [ %56, %54 ], [ 0, %106 ], [ 0, %110 ], [ %28, %.thread ], [ -1, %32 ]
+  %.0435 = phi i32 [ %.0438525530, %.thread526 ], [ %56, %54 ], [ 0, %106 ], [ 0, %110 ], [ %28, %.thread ], [ -1, %32 ]
   ret i32 %.0435
 }
 

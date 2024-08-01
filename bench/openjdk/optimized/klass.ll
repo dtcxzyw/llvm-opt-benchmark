@@ -2042,8 +2042,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %101, %103
   br label %_ZN13PerfTraceTimeD2Ev.exit
 
 _ZN13PerfTraceTimeD2Ev.exit:                      ; preds = %109, %106, %_ZN12ResourceMarkD2Ev.exit, %12, %2, %5
-  %.1 = phi i64 [ %11, %5 ], [ 0, %2 ], [ -1, %12 ], [ %.us-phi, %_ZN12ResourceMarkD2Ev.exit ], [ %.us-phi, %106 ], [ %.us-phi, %109 ]
-  ret i64 %.1
+  %.0 = phi i64 [ %11, %5 ], [ 0, %2 ], [ -1, %12 ], [ %.us-phi, %_ZN12ResourceMarkD2Ev.exit ], [ %.us-phi, %106 ], [ %.us-phi, %109 ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4454,15 +4454,15 @@ _ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit: ; preds = %59, %
   br label %70
 
 70:                                               ; preds = %64, %66, %68
-  %.051 = phi ptr [ %67, %66 ], [ @.str.36, %64 ], [ %69, %68 ]
-  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.051) #23
+  %.152 = phi ptr [ %67, %66 ], [ @.str.36, %64 ], [ %69, %68 ]
+  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.152) #23
   %72 = add i64 %45, 16
   %73 = add i64 %72, %71
   br label %74
 
 74:                                               ; preds = %70, %46, %40
   %.053 = phi ptr [ @.str.36, %46 ], [ @.str.40, %70 ], [ @.str.36, %40 ]
-  %.152 = phi ptr [ @.str.36, %46 ], [ %.051, %70 ], [ @.str.36, %40 ]
+  %.051 = phi ptr [ @.str.36, %46 ], [ %.152, %70 ], [ @.str.36, %40 ]
   %.1 = phi i64 [ %45, %46 ], [ %73, %70 ], [ %45, %40 ]
   %75 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.055) #23
   %76 = select i1 %1, i64 19, i64 18
@@ -4476,7 +4476,7 @@ _ZN15ClassLoaderData25class_loader_data_or_nullEP7oopDesc.exit: ; preds = %59, %
   %82 = select i1 %1, ptr @.str.42, ptr @.str.43
   %83 = select i1 %.054, ptr @.str.44, ptr @.str.36
   %84 = select i1 %.054, ptr %.050, ptr @.str.36
-  %85 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %79, i64 noundef %78, ptr noundef nonnull @.str.41, ptr noundef %4, ptr noundef nonnull %82, ptr noundef nonnull %.055, ptr noundef %.049, ptr noundef nonnull %83, ptr noundef %84, ptr noundef %43, ptr noundef nonnull %.053, ptr noundef %.152) #21
+  %85 = tail call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %79, i64 noundef %78, ptr noundef nonnull @.str.41, ptr noundef %4, ptr noundef nonnull %82, ptr noundef nonnull %.055, ptr noundef %.049, ptr noundef nonnull %83, ptr noundef %84, ptr noundef %43, ptr noundef nonnull %.053, ptr noundef %.051) #21
   br label %86
 
 86:                                               ; preds = %74, %81

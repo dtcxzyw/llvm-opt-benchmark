@@ -291,7 +291,7 @@ define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinder4findERNS_12ErrorHan
   br i1 %50, label %.lr.ph87, label %._crit_edge
 
 .lr.ph87:                                         ; preds = %.critedge, %98
-  %.03886 = phi i32 [ %.2, %98 ], [ 0, %.critedge ]
+  %.03886 = phi i32 [ %.139, %98 ], [ 0, %.critedge ]
   %.14184 = phi i32 [ %99, %98 ], [ %.040.lcssa, %.critedge ]
   %51 = load ptr, ptr %23, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 12
@@ -385,7 +385,7 @@ _ZN5zxing3RefINS_6qrcode16AlignmentPatternEED2Ev.exit57: ; preds = %67, %83, %_Z
   br label %98
 
 98:                                               ; preds = %64, %86, %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEED2Ev.exit57, %92
-  %.2 = phi i32 [ 1, %64 ], [ 1, %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEED2Ev.exit57 ], [ %87, %86 ], [ %spec.select, %92 ]
+  %.139 = phi i32 [ 1, %64 ], [ 1, %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEED2Ev.exit57 ], [ %87, %86 ], [ %spec.select, %92 ]
   %99 = add i32 %.14184, 1
   %exitcond101.not = icmp eq i32 %99, %18
   br i1 %exitcond101.not, label %._crit_edge.loopexit, label %.lr.ph87, !llvm.loop !7

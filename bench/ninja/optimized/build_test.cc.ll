@@ -14457,9 +14457,9 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i: ; preds = %188, %190
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i70
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i70: ; preds = %210, %204
-  %.sroa.10.0.i71 = phi ptr [ %138, %204 ], [ %213, %210 ]
-  %.sroa.17.0.i72 = phi ptr [ %140, %204 ], [ %214, %210 ]
-  %.sroa.25.0.i73 = phi ptr [ %142, %204 ], [ %212, %210 ]
+  %.sroa.10.1.i71 = phi ptr [ %138, %204 ], [ %213, %210 ]
+  %.sroa.17.1.i72 = phi ptr [ %140, %204 ], [ %214, %210 ]
+  %.sroa.25.1.i73 = phi ptr [ %142, %204 ], [ %212, %210 ]
   %storemerge.i.i.i74 = phi ptr [ %205, %204 ], [ %217, %210 ]
   %.not44.i75 = icmp eq ptr %storemerge.i.i.i74, %storemerge.i.i.i168
   br i1 %.not44.i75, label %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit107, label %.lr.ph.i76
@@ -14477,9 +14477,9 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i70: ; preds = %210, %204
   br label %227
 
 227:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87, %.lr.ph.i76
-  %.sroa.25.150.i77 = phi ptr [ %.sroa.25.0.i73, %.lr.ph.i76 ], [ %.sroa.25.2.i91, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87 ]
-  %.sroa.17.149.i78 = phi ptr [ %.sroa.17.0.i72, %.lr.ph.i76 ], [ %.sroa.17.2.i90, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87 ]
-  %.sroa.10.148.i79 = phi ptr [ %.sroa.10.0.i71, %.lr.ph.i76 ], [ %.sroa.10.2.i89, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87 ]
+  %.sroa.25.050.i77 = phi ptr [ %.sroa.25.1.i73, %.lr.ph.i76 ], [ %.sroa.25.2.i91, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87 ]
+  %.sroa.17.049.i78 = phi ptr [ %.sroa.17.1.i72, %.lr.ph.i76 ], [ %.sroa.17.2.i90, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87 ]
+  %.sroa.10.048.i79 = phi ptr [ %.sroa.10.1.i71, %.lr.ph.i76 ], [ %.sroa.10.2.i89, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87 ]
   %.sroa.025.045.i80 = phi ptr [ %storemerge.i.i.i74, %.lr.ph.i76 ], [ %.sroa.025.1.i88, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87 ]
   %228 = load ptr, ptr %.sroa.025.045.i80, align 8
   %229 = load ptr, ptr %136, align 8
@@ -14506,7 +14506,7 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113: ; preds = %227
 
 242:                                              ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113
   %243 = ptrtoint ptr %.sroa.025.045.i80 to i64
-  %244 = ptrtoint ptr %.sroa.10.148.i79 to i64
+  %244 = ptrtoint ptr %.sroa.10.048.i79 to i64
   %245 = sub i64 %243, %244
   %246 = ashr exact i64 %245, 3
   %247 = add nsw i64 %246, 1
@@ -14531,7 +14531,7 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113: ; preds = %227
 
 257:                                              ; preds = %255, %253
   %258 = phi i64 [ %254, %253 ], [ %256, %255 ]
-  %259 = getelementptr inbounds ptr, ptr %.sroa.25.150.i77, i64 %258
+  %259 = getelementptr inbounds ptr, ptr %.sroa.25.050.i77, i64 %258
   %260 = load ptr, ptr %259, align 8, !noalias !175
   %261 = getelementptr inbounds i8, ptr %260, i64 512
   %262 = shl nsw i64 %258, 6
@@ -14540,9 +14540,9 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113: ; preds = %227
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i102
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i102: ; preds = %257, %251
-  %.sroa.59.0.i103 = phi ptr [ %.sroa.17.149.i78, %251 ], [ %261, %257 ]
-  %.sroa.28.0.i104 = phi ptr [ %.sroa.10.148.i79, %251 ], [ %260, %257 ]
-  %.sroa.810.0.i105 = phi ptr [ %.sroa.25.150.i77, %251 ], [ %259, %257 ]
+  %.sroa.59.0.i103 = phi ptr [ %.sroa.17.049.i78, %251 ], [ %261, %257 ]
+  %.sroa.28.0.i104 = phi ptr [ %.sroa.10.048.i79, %251 ], [ %260, %257 ]
+  %.sroa.810.0.i105 = phi ptr [ %.sroa.25.050.i77, %251 ], [ %259, %257 ]
   %storemerge.i.i2.i106 = phi ptr [ %252, %251 ], [ %264, %257 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !178
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !181
@@ -14553,9 +14553,9 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i102: ; preds = %257, %251
   store ptr %140, ptr %219, align 8, !noalias !184
   store ptr %142, ptr %220, align 8, !noalias !184
   store ptr %.sroa.025.045.i80, ptr %5, align 8, !noalias !184
-  store ptr %.sroa.10.148.i79, ptr %221, align 8, !noalias !184
-  store ptr %.sroa.17.149.i78, ptr %222, align 8, !noalias !184
-  store ptr %.sroa.25.150.i77, ptr %223, align 8, !noalias !184
+  store ptr %.sroa.10.048.i79, ptr %221, align 8, !noalias !184
+  store ptr %.sroa.17.049.i78, ptr %222, align 8, !noalias !184
+  store ptr %.sroa.25.050.i77, ptr %223, align 8, !noalias !184
   store ptr %storemerge.i.i2.i106, ptr %6, align 8, !noalias !184
   store ptr %.sroa.28.0.i104, ptr %224, align 8, !noalias !184
   store ptr %.sroa.59.0.i103, ptr %225, align 8, !noalias !184
@@ -14568,18 +14568,18 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i102: ; preds = %257, %251
   br label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85
 
 265:                                              ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit113
-  %266 = icmp eq ptr %.sroa.025.045.i80, %.sroa.10.148.i79
+  %266 = icmp eq ptr %.sroa.025.045.i80, %.sroa.10.048.i79
   br i1 %266, label %267, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i81
 
 267:                                              ; preds = %265
-  %268 = getelementptr inbounds i8, ptr %.sroa.25.150.i77, i64 -8
+  %268 = getelementptr inbounds i8, ptr %.sroa.25.050.i77, i64 -8
   %269 = load ptr, ptr %268, align 8
   %270 = getelementptr inbounds i8, ptr %269, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i81
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i81: ; preds = %267, %265
-  %.sroa.8.0.i.i82 = phi ptr [ %269, %267 ], [ %.sroa.10.148.i79, %265 ]
-  %.sroa.18.0.i.i83 = phi ptr [ %268, %267 ], [ %.sroa.25.150.i77, %265 ]
+  %.sroa.8.1.i.i82 = phi ptr [ %269, %267 ], [ %.sroa.10.048.i79, %265 ]
+  %.sroa.18.1.i.i83 = phi ptr [ %268, %267 ], [ %.sroa.25.050.i77, %265 ]
   %271 = phi ptr [ %270, %267 ], [ %.sroa.025.045.i80, %265 ]
   %.sroa.02.012.i.i84 = getelementptr inbounds i8, ptr %271, i64 -8
   %272 = load ptr, ptr %.sroa.02.012.i.i84, align 8
@@ -14606,22 +14606,22 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112: ; preds = %_ZNSt15_Deque_itera
 .lr.ph.i.i93:                                     ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111
   %.sroa.0.0.i94 = phi ptr [ %.sroa.02.016.i.i95, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 ], [ %.sroa.025.045.i80, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 ]
   %.sroa.02.016.i.i95 = phi ptr [ %.sroa.02.0.i.i101, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 ], [ %.sroa.02.012.i.i84, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 ]
-  %.sroa.18.115.i.i96 = phi ptr [ %.sroa.18.2.i.i100, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 ], [ %.sroa.18.0.i.i83, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 ]
-  %.sroa.8.113.i.i97 = phi ptr [ %.sroa.8.2.i.i99, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 ], [ %.sroa.8.0.i.i82, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 ]
+  %.sroa.18.015.i.i96 = phi ptr [ %.sroa.18.2.i.i100, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 ], [ %.sroa.18.1.i.i83, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 ]
+  %.sroa.8.013.i.i97 = phi ptr [ %.sroa.8.2.i.i99, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 ], [ %.sroa.8.1.i.i82, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 ]
   %284 = load ptr, ptr %.sroa.02.016.i.i95, align 8
   store ptr %284, ptr %.sroa.0.0.i94, align 8
-  %285 = icmp eq ptr %.sroa.02.016.i.i95, %.sroa.8.113.i.i97
+  %285 = icmp eq ptr %.sroa.02.016.i.i95, %.sroa.8.013.i.i97
   br i1 %285, label %286, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i98
 
 286:                                              ; preds = %.lr.ph.i.i93
-  %287 = getelementptr inbounds i8, ptr %.sroa.18.115.i.i96, i64 -8
+  %287 = getelementptr inbounds i8, ptr %.sroa.18.015.i.i96, i64 -8
   %288 = load ptr, ptr %287, align 8
   %289 = getelementptr inbounds i8, ptr %288, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i98
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i98: ; preds = %286, %.lr.ph.i.i93
-  %.sroa.8.2.i.i99 = phi ptr [ %288, %286 ], [ %.sroa.8.113.i.i97, %.lr.ph.i.i93 ]
-  %.sroa.18.2.i.i100 = phi ptr [ %287, %286 ], [ %.sroa.18.115.i.i96, %.lr.ph.i.i93 ]
+  %.sroa.8.2.i.i99 = phi ptr [ %288, %286 ], [ %.sroa.8.013.i.i97, %.lr.ph.i.i93 ]
+  %.sroa.18.2.i.i100 = phi ptr [ %287, %286 ], [ %.sroa.18.015.i.i96, %.lr.ph.i.i93 ]
   %290 = phi ptr [ %289, %286 ], [ %.sroa.02.016.i.i95, %.lr.ph.i.i93 ]
   %.sroa.02.0.i.i101 = getelementptr inbounds i8, ptr %290, i64 -8
   %291 = load ptr, ptr %.sroa.02.0.i.i101, align 8
@@ -14648,20 +14648,20 @@ _ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5_
   %.sink.i86 = phi ptr [ %136, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i102 ], [ %.sroa.025.045.i80, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit112 ], [ %.sroa.02.016.i.i95, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit111 ]
   store ptr %241, ptr %.sink.i86, align 8
   %302 = getelementptr inbounds i8, ptr %.sroa.025.045.i80, i64 8
-  %303 = icmp eq ptr %302, %.sroa.17.149.i78
+  %303 = icmp eq ptr %302, %.sroa.17.049.i78
   br i1 %303, label %304, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87
 
 304:                                              ; preds = %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85
-  %305 = getelementptr inbounds i8, ptr %.sroa.25.150.i77, i64 8
+  %305 = getelementptr inbounds i8, ptr %.sroa.25.050.i77, i64 8
   %306 = load ptr, ptr %305, align 8
   %307 = getelementptr inbounds i8, ptr %306, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i87: ; preds = %304, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85
   %.sroa.025.1.i88 = phi ptr [ %306, %304 ], [ %302, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
-  %.sroa.10.2.i89 = phi ptr [ %306, %304 ], [ %.sroa.10.148.i79, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
-  %.sroa.17.2.i90 = phi ptr [ %307, %304 ], [ %.sroa.17.149.i78, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
-  %.sroa.25.2.i91 = phi ptr [ %305, %304 ], [ %.sroa.25.150.i77, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
+  %.sroa.10.2.i89 = phi ptr [ %306, %304 ], [ %.sroa.10.048.i79, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
+  %.sroa.17.2.i90 = phi ptr [ %307, %304 ], [ %.sroa.17.049.i78, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
+  %.sroa.25.2.i91 = phi ptr [ %305, %304 ], [ %.sroa.25.050.i77, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i85 ]
   %.not.i92 = icmp eq ptr %.sroa.025.1.i88, %storemerge.i.i.i168
   br i1 %.not.i92, label %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit107, label %227, !llvm.loop !188
 
@@ -14718,8 +14718,8 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit5.i: ; preds = %316, %310
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i.i
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i.i: ; preds = %326, %.lr.ph.i.i
-  %.sroa.8.0.i.i.i = phi ptr [ %328, %326 ], [ %.sroa.6.013.i.i, %.lr.ph.i.i ]
-  %.sroa.18.0.i.i.i = phi ptr [ %327, %326 ], [ %.sroa.13.011.i.i, %.lr.ph.i.i ]
+  %.sroa.8.1.i.i.i = phi ptr [ %328, %326 ], [ %.sroa.6.013.i.i, %.lr.ph.i.i ]
+  %.sroa.18.1.i.i.i = phi ptr [ %327, %326 ], [ %.sroa.13.011.i.i, %.lr.ph.i.i ]
   %330 = phi ptr [ %329, %326 ], [ %.sroa.05.014.i.i, %.lr.ph.i.i ]
   %.sroa.02.012.i.i.i = getelementptr inbounds i8, ptr %330, i64 -8
   %331 = load ptr, ptr %.sroa.02.012.i.i.i, align 8
@@ -14746,22 +14746,22 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69:  ; preds = %_ZNSt15_Deque_itera
 .lr.ph.i.i.i:                                     ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit
   %.sroa.0.0.i.i = phi ptr [ %.sroa.02.016.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit ], [ %.sroa.05.014.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69 ]
   %.sroa.02.016.i.i.i = phi ptr [ %.sroa.02.0.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit ], [ %.sroa.02.012.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69 ]
-  %.sroa.18.115.i.i.i = phi ptr [ %.sroa.18.2.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit ], [ %.sroa.18.0.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69 ]
-  %.sroa.8.113.i.i.i = phi ptr [ %.sroa.8.2.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit ], [ %.sroa.8.0.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69 ]
+  %.sroa.18.015.i.i.i = phi ptr [ %.sroa.18.2.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit ], [ %.sroa.18.1.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69 ]
+  %.sroa.8.013.i.i.i = phi ptr [ %.sroa.8.2.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit ], [ %.sroa.8.1.i.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit69 ]
   %343 = load ptr, ptr %.sroa.02.016.i.i.i, align 8
   store ptr %343, ptr %.sroa.0.0.i.i, align 8
-  %344 = icmp eq ptr %.sroa.02.016.i.i.i, %.sroa.8.113.i.i.i
+  %344 = icmp eq ptr %.sroa.02.016.i.i.i, %.sroa.8.013.i.i.i
   br i1 %344, label %345, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i.i
 
 345:                                              ; preds = %.lr.ph.i.i.i
-  %346 = getelementptr inbounds i8, ptr %.sroa.18.115.i.i.i, i64 -8
+  %346 = getelementptr inbounds i8, ptr %.sroa.18.015.i.i.i, i64 -8
   %347 = load ptr, ptr %346, align 8
   %348 = getelementptr inbounds i8, ptr %347, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i.i
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i.i: ; preds = %345, %.lr.ph.i.i.i
-  %.sroa.8.2.i.i.i = phi ptr [ %347, %345 ], [ %.sroa.8.113.i.i.i, %.lr.ph.i.i.i ]
-  %.sroa.18.2.i.i.i = phi ptr [ %346, %345 ], [ %.sroa.18.115.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.8.2.i.i.i = phi ptr [ %347, %345 ], [ %.sroa.8.013.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.18.2.i.i.i = phi ptr [ %346, %345 ], [ %.sroa.18.015.i.i.i, %.lr.ph.i.i.i ]
   %349 = phi ptr [ %348, %345 ], [ %.sroa.02.016.i.i.i, %.lr.ph.i.i.i ]
   %.sroa.02.0.i.i.i = getelementptr inbounds i8, ptr %349, i64 -8
   %350 = load ptr, ptr %.sroa.02.0.i.i.i, align 8
@@ -14837,9 +14837,9 @@ _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i.i: ; preds = %363, %_ZSt25__un
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i65
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i65: ; preds = %378, %372
-  %.sroa.10.0.i = phi ptr [ %138, %372 ], [ %381, %378 ]
-  %.sroa.17.0.i = phi ptr [ %140, %372 ], [ %382, %378 ]
-  %.sroa.25.0.i = phi ptr [ %142, %372 ], [ %380, %378 ]
+  %.sroa.10.1.i = phi ptr [ %138, %372 ], [ %381, %378 ]
+  %.sroa.17.1.i = phi ptr [ %140, %372 ], [ %382, %378 ]
+  %.sroa.25.1.i = phi ptr [ %142, %372 ], [ %380, %378 ]
   %storemerge.i.i.i66 = phi ptr [ %373, %372 ], [ %385, %378 ]
   %.not44.i = icmp eq ptr %storemerge.i.i.i66, %144
   br i1 %.not44.i, label %_ZSt4sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EPFbPKS1_S7_EEvT_SA_T0_.exit, label %.lr.ph.i
@@ -14857,9 +14857,9 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i65: ; preds = %378, %372
   br label %395
 
 395:                                              ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i, %.lr.ph.i
-  %.sroa.25.150.i = phi ptr [ %.sroa.25.0.i, %.lr.ph.i ], [ %.sroa.25.2.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
-  %.sroa.17.149.i = phi ptr [ %.sroa.17.0.i, %.lr.ph.i ], [ %.sroa.17.2.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
-  %.sroa.10.148.i = phi ptr [ %.sroa.10.0.i, %.lr.ph.i ], [ %.sroa.10.2.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
+  %.sroa.25.050.i = phi ptr [ %.sroa.25.1.i, %.lr.ph.i ], [ %.sroa.25.2.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
+  %.sroa.17.049.i = phi ptr [ %.sroa.17.1.i, %.lr.ph.i ], [ %.sroa.17.2.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
+  %.sroa.10.048.i = phi ptr [ %.sroa.10.1.i, %.lr.ph.i ], [ %.sroa.10.2.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
   %.sroa.025.045.i = phi ptr [ %storemerge.i.i.i66, %.lr.ph.i ], [ %.sroa.025.1.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
   %396 = load ptr, ptr %.sroa.025.045.i, align 8
   %397 = load ptr, ptr %136, align 8
@@ -14886,7 +14886,7 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110: ; preds = %395
 
 410:                                              ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110
   %411 = ptrtoint ptr %.sroa.025.045.i to i64
-  %412 = ptrtoint ptr %.sroa.10.148.i to i64
+  %412 = ptrtoint ptr %.sroa.10.048.i to i64
   %413 = sub i64 %411, %412
   %414 = ashr exact i64 %413, 3
   %415 = add nsw i64 %414, 1
@@ -14911,7 +14911,7 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110: ; preds = %395
 
 425:                                              ; preds = %423, %421
   %426 = phi i64 [ %422, %421 ], [ %424, %423 ]
-  %427 = getelementptr inbounds ptr, ptr %.sroa.25.150.i, i64 %426
+  %427 = getelementptr inbounds ptr, ptr %.sroa.25.050.i, i64 %426
   %428 = load ptr, ptr %427, align 8, !noalias !196
   %429 = getelementptr inbounds i8, ptr %428, i64 512
   %430 = shl nsw i64 %426, 6
@@ -14920,9 +14920,9 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110: ; preds = %395
   br label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i: ; preds = %425, %419
-  %.sroa.59.0.i = phi ptr [ %.sroa.17.149.i, %419 ], [ %429, %425 ]
-  %.sroa.28.0.i = phi ptr [ %.sroa.10.148.i, %419 ], [ %428, %425 ]
-  %.sroa.810.0.i = phi ptr [ %.sroa.25.150.i, %419 ], [ %427, %425 ]
+  %.sroa.59.0.i = phi ptr [ %.sroa.17.049.i, %419 ], [ %429, %425 ]
+  %.sroa.28.0.i = phi ptr [ %.sroa.10.048.i, %419 ], [ %428, %425 ]
+  %.sroa.810.0.i = phi ptr [ %.sroa.25.050.i, %419 ], [ %427, %425 ]
   %storemerge.i.i2.i = phi ptr [ %420, %419 ], [ %432, %425 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !199
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8), !noalias !202
@@ -14933,9 +14933,9 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i: ; preds = %425, %419
   store ptr %140, ptr %387, align 8, !noalias !205
   store ptr %142, ptr %388, align 8, !noalias !205
   store ptr %.sroa.025.045.i, ptr %9, align 8, !noalias !205
-  store ptr %.sroa.10.148.i, ptr %389, align 8, !noalias !205
-  store ptr %.sroa.17.149.i, ptr %390, align 8, !noalias !205
-  store ptr %.sroa.25.150.i, ptr %391, align 8, !noalias !205
+  store ptr %.sroa.10.048.i, ptr %389, align 8, !noalias !205
+  store ptr %.sroa.17.049.i, ptr %390, align 8, !noalias !205
+  store ptr %.sroa.25.050.i, ptr %391, align 8, !noalias !205
   store ptr %storemerge.i.i2.i, ptr %10, align 8, !noalias !205
   store ptr %.sroa.28.0.i, ptr %392, align 8, !noalias !205
   store ptr %.sroa.59.0.i, ptr %393, align 8, !noalias !205
@@ -14948,18 +14948,18 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i: ; preds = %425, %419
   br label %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i
 
 433:                                              ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit110
-  %434 = icmp eq ptr %.sroa.025.045.i, %.sroa.10.148.i
+  %434 = icmp eq ptr %.sroa.025.045.i, %.sroa.10.048.i
   br i1 %434, label %435, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i
 
 435:                                              ; preds = %433
-  %436 = getelementptr inbounds i8, ptr %.sroa.25.150.i, i64 -8
+  %436 = getelementptr inbounds i8, ptr %.sroa.25.050.i, i64 -8
   %437 = load ptr, ptr %436, align 8
   %438 = getelementptr inbounds i8, ptr %437, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i.i: ; preds = %435, %433
-  %.sroa.8.0.i.i = phi ptr [ %437, %435 ], [ %.sroa.10.148.i, %433 ]
-  %.sroa.18.0.i.i = phi ptr [ %436, %435 ], [ %.sroa.25.150.i, %433 ]
+  %.sroa.8.1.i.i = phi ptr [ %437, %435 ], [ %.sroa.10.048.i, %433 ]
+  %.sroa.18.1.i.i = phi ptr [ %436, %435 ], [ %.sroa.25.050.i, %433 ]
   %439 = phi ptr [ %438, %435 ], [ %.sroa.025.045.i, %433 ]
   %.sroa.02.012.i.i = getelementptr inbounds i8, ptr %439, i64 -8
   %440 = load ptr, ptr %.sroa.02.012.i.i, align 8
@@ -14986,22 +14986,22 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109: ; preds = %_ZNSt15_Deque_itera
 .lr.ph.i.i68:                                     ; preds = %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108
   %.sroa.0.0.i = phi ptr [ %.sroa.02.016.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 ], [ %.sroa.025.045.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 ]
   %.sroa.02.016.i.i = phi ptr [ %.sroa.02.0.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 ], [ %.sroa.02.012.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 ]
-  %.sroa.18.115.i.i = phi ptr [ %.sroa.18.2.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 ], [ %.sroa.18.0.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 ]
-  %.sroa.8.113.i.i = phi ptr [ %.sroa.8.2.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 ], [ %.sroa.8.0.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 ]
+  %.sroa.18.015.i.i = phi ptr [ %.sroa.18.2.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 ], [ %.sroa.18.1.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 ]
+  %.sroa.8.013.i.i = phi ptr [ %.sroa.8.2.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 ], [ %.sroa.8.1.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 ]
   %452 = load ptr, ptr %.sroa.02.016.i.i, align 8
   store ptr %452, ptr %.sroa.0.0.i, align 8
-  %453 = icmp eq ptr %.sroa.02.016.i.i, %.sroa.8.113.i.i
+  %453 = icmp eq ptr %.sroa.02.016.i.i, %.sroa.8.013.i.i
   br i1 %453, label %454, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i
 
 454:                                              ; preds = %.lr.ph.i.i68
-  %455 = getelementptr inbounds i8, ptr %.sroa.18.115.i.i, i64 -8
+  %455 = getelementptr inbounds i8, ptr %.sroa.18.015.i.i, i64 -8
   %456 = load ptr, ptr %455, align 8
   %457 = getelementptr inbounds i8, ptr %456, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i.i: ; preds = %454, %.lr.ph.i.i68
-  %.sroa.8.2.i.i = phi ptr [ %456, %454 ], [ %.sroa.8.113.i.i, %.lr.ph.i.i68 ]
-  %.sroa.18.2.i.i = phi ptr [ %455, %454 ], [ %.sroa.18.115.i.i, %.lr.ph.i.i68 ]
+  %.sroa.8.2.i.i = phi ptr [ %456, %454 ], [ %.sroa.8.013.i.i, %.lr.ph.i.i68 ]
+  %.sroa.18.2.i.i = phi ptr [ %455, %454 ], [ %.sroa.18.015.i.i, %.lr.ph.i.i68 ]
   %458 = phi ptr [ %457, %454 ], [ %.sroa.02.016.i.i, %.lr.ph.i.i68 ]
   %.sroa.02.0.i.i = getelementptr inbounds i8, ptr %458, i64 -8
   %459 = load ptr, ptr %.sroa.02.0.i.i, align 8
@@ -15028,20 +15028,20 @@ _ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5_
   %.sink.i = phi ptr [ %136, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit3.i ], [ %.sroa.025.045.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit109 ], [ %.sroa.02.016.i.i, %_ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit108 ]
   store ptr %409, ptr %.sink.i, align 8
   %470 = getelementptr inbounds i8, ptr %.sroa.025.045.i, i64 8
-  %471 = icmp eq ptr %470, %.sroa.17.149.i
+  %471 = icmp eq ptr %470, %.sroa.17.049.i
   br i1 %471, label %472, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i
 
 472:                                              ; preds = %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i
-  %473 = getelementptr inbounds i8, ptr %.sroa.25.150.i, i64 8
+  %473 = getelementptr inbounds i8, ptr %.sroa.25.050.i, i64 8
   %474 = load ptr, ptr %473, align 8
   %475 = getelementptr inbounds i8, ptr %474, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i: ; preds = %472, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i
   %.sroa.025.1.i = phi ptr [ %474, %472 ], [ %470, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
-  %.sroa.10.2.i = phi ptr [ %474, %472 ], [ %.sroa.10.148.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
-  %.sroa.17.2.i = phi ptr [ %475, %472 ], [ %.sroa.17.149.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
-  %.sroa.25.2.i = phi ptr [ %473, %472 ], [ %.sroa.25.150.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
+  %.sroa.10.2.i = phi ptr [ %474, %472 ], [ %.sroa.10.048.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
+  %.sroa.17.2.i = phi ptr [ %475, %472 ], [ %.sroa.17.049.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
+  %.sroa.25.2.i = phi ptr [ %473, %472 ], [ %.sroa.25.050.i, %_ZSt25__unguarded_linear_insertISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops14_Val_comp_iterIPFbPKS1_SA_EEEEvT_T0_.exit.i ]
   %.not.i67 = icmp eq ptr %.sroa.025.1.i, %144
   br i1 %.not.i67, label %_ZSt4sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EPFbPKS1_S7_EEvT_SA_T0_.exit, label %395, !llvm.loop !188
 
@@ -99615,15 +99615,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit302: ;
   br label %444
 
 444:                                              ; preds = %_ZN7testing7MessageD2Ev.exit238, %443
-  %.5 = phi i32 [ 0, %443 ], [ 1, %_ZN7testing7MessageD2Ev.exit238 ]
+  %.7 = phi i32 [ 0, %443 ], [ 1, %_ZN7testing7MessageD2Ev.exit238 ]
   call void @_ZN7BuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(320) %18) #23
   br label %445
 
 445:                                              ; preds = %444, %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit212
-  %.6 = phi i32 [ %.5, %444 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit212 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %.4 = phi i32 [ %.7, %444 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit212 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ]
   call void @_ZN7DepsLogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #23
   call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %3) #23
-  %cond = icmp eq i32 %.6, 0
+  %cond = icmp eq i32 %.4, 0
   br i1 %cond, label %446, label %784
 
 446:                                              ; preds = %445
@@ -101892,15 +101892,15 @@ _ZN7testing15AssertionResultD2Ev.exit294:         ; preds = %410, %_ZNKSt14defau
   br label %414
 
 414:                                              ; preds = %_ZN7testing7MessageD2Ev.exit268, %413
-  %.5 = phi i32 [ 0, %413 ], [ 1, %_ZN7testing7MessageD2Ev.exit268 ]
+  %.7 = phi i32 [ 0, %413 ], [ 1, %_ZN7testing7MessageD2Ev.exit268 ]
   call void @_ZN7BuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(320) %26) #23
   br label %415
 
 415:                                              ; preds = %414, %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit239
-  %.6 = phi i32 [ %.5, %414 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit239 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %.4 = phi i32 [ %.7, %414 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit239 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ]
   call void @_ZN7DepsLogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %18) #23
   call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %11) #23
-  %cond = icmp eq i32 %.6, 0
+  %cond = icmp eq i32 %.4, 0
   br i1 %cond, label %416, label %815
 
 416:                                              ; preds = %415
@@ -112449,15 +112449,15 @@ _ZN7testing15AssertionResultD2Ev.exit261:         ; preds = %378, %_ZNKSt14defau
   br label %382
 
 382:                                              ; preds = %_ZN7testing7MessageD2Ev.exit225, %381
-  %.5 = phi i32 [ 0, %381 ], [ 1, %_ZN7testing7MessageD2Ev.exit225 ]
+  %.7 = phi i32 [ 0, %381 ], [ 1, %_ZN7testing7MessageD2Ev.exit225 ]
   call void @_ZN7BuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(320) %18) #23
   br label %383
 
 383:                                              ; preds = %382, %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit199
-  %.6 = phi i32 [ %.5, %382 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit199 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %.4 = phi i32 [ %.7, %382 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit199 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ]
   call void @_ZN7DepsLogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #23
   call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %3) #23
-  %cond = icmp eq i32 %.6, 0
+  %cond = icmp eq i32 %.4, 0
   br i1 %cond, label %384, label %716
 
 384:                                              ; preds = %383
@@ -114599,16 +114599,16 @@ _ZN7testing15AssertionResultD2Ev.exit285:         ; preds = %362, %_ZNKSt14defau
 
 _ZN7testing15AssertionResultD2Ev.exit246:         ; preds = %_ZN7testing15AssertionResultD2Ev.exit285, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i245, %_ZN7testing7MessageD2Ev.exit243
   %.sink = phi ptr [ %264, %_ZN7testing7MessageD2Ev.exit243 ], [ %264, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i245 ], [ %204, %_ZN7testing15AssertionResultD2Ev.exit285 ]
-  %.435 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit243 ], [ 1, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i245 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit285 ]
+  %.637 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit243 ], [ 1, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i245 ], [ 0, %_ZN7testing15AssertionResultD2Ev.exit285 ]
   store ptr null, ptr %.sink, align 8
   call void @_ZN7BuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(320) %19) #23
   br label %365
 
 365:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit246, %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit214
-  %.536 = phi i32 [ %.435, %_ZN7testing15AssertionResultD2Ev.exit246 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit214 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %.334 = phi i32 [ %.637, %_ZN7testing15AssertionResultD2Ev.exit246 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit214 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ]
   call void @_ZN7DepsLogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #23
   call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %7) #23
-  %cond = icmp eq i32 %.536, 0
+  %cond = icmp eq i32 %.334, 0
   br i1 %cond, label %366, label %710
 
 366:                                              ; preds = %365
@@ -156922,15 +156922,15 @@ _ZN7testing7MessageD2Ev.exit381:                  ; preds = %557, %_ZNKSt14defau
   br label %564
 
 564:                                              ; preds = %_ZN7testing7MessageD2Ev.exit362, %_ZN7testing7MessageD2Ev.exit329, %563
-  %.6 = phi i32 [ 0, %563 ], [ 1, %_ZN7testing7MessageD2Ev.exit362 ], [ 1, %_ZN7testing7MessageD2Ev.exit329 ]
+  %.7 = phi i32 [ 0, %563 ], [ 1, %_ZN7testing7MessageD2Ev.exit362 ], [ 1, %_ZN7testing7MessageD2Ev.exit329 ]
   call void @_ZN7BuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(320) %34) #23
   br label %565
 
 565:                                              ; preds = %564, %_ZN7testing15AssertionResultD2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit300
-  %.7 = phi i32 [ %.6, %564 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit300 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %.4 = phi i32 [ %.7, %564 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit300 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit ]
   call void @_ZN7DepsLogD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #23
   call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %19) #23
-  %cond = icmp eq i32 %.7, 0
+  %cond = icmp eq i32 %.4, 0
   br i1 %cond, label %566, label %970
 
 566:                                              ; preds = %565
@@ -165949,44 +165949,44 @@ _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i: ; preds = %_ZNSt15_Deque_ite
   %.sroa.1420.1 = phi ptr [ %.sroa.1420.0, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit6 ], [ %.sroa.1420.1.be, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i.backedge ]
   %.sroa.9.1 = phi ptr [ %.sroa.9.0, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit6 ], [ %.sroa.9.1.be, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i.backedge ]
   %.sroa.017.0 = phi ptr [ %storemerge.i.i5, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit6 ], [ %.sroa.017.0.be, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i.backedge ]
-  %.sroa.14.0 = phi ptr [ %151, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit6 ], [ %.sroa.14.4, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i.backedge ]
-  %.sroa.613.0 = phi ptr [ %150, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit6 ], [ %.sroa.613.4, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i.backedge ]
-  %.sroa.010.0 = phi ptr [ %149, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit6 ], [ %.sroa.010.2, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i.backedge ]
+  %.sroa.14.0 = phi ptr [ %151, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit6 ], [ %.sroa.14.2, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i.backedge ]
+  %.sroa.613.0 = phi ptr [ %150, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit6 ], [ %.sroa.613.2, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i.backedge ]
+  %.sroa.010.0 = phi ptr [ %149, %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit6 ], [ %.sroa.010.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i.backedge ]
   %152 = load ptr, ptr %.sroa.017.0, align 8, !noalias !2062
   %153 = load ptr, ptr %123, align 8, !noalias !2062
   %154 = tail call noundef zeroext i1 %3(ptr noundef %152, ptr noundef %153), !noalias !2062
   br i1 %154, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i
-  %.sroa.21.2 = phi ptr [ %.sroa.21.3, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ], [ %.sroa.21.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ]
-  %.sroa.1420.2 = phi ptr [ %.sroa.1420.3, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ], [ %.sroa.1420.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ]
-  %.sroa.9.2 = phi ptr [ %.sroa.9.3, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ]
-  %.sroa.017.1 = phi ptr [ %.sroa.017.2, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ], [ %.sroa.017.0, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ]
-  %155 = getelementptr inbounds i8, ptr %.sroa.017.1, i64 8
-  %156 = icmp eq ptr %155, %.sroa.1420.2
+  %.sroa.21.4 = phi ptr [ %.sroa.21.5, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ], [ %.sroa.21.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ]
+  %.sroa.1420.4 = phi ptr [ %.sroa.1420.5, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ], [ %.sroa.1420.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ]
+  %.sroa.9.4 = phi ptr [ %.sroa.9.5, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ], [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ]
+  %.sroa.017.3 = phi ptr [ %.sroa.017.4, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ], [ %.sroa.017.0, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ]
+  %155 = getelementptr inbounds i8, ptr %.sroa.017.3, i64 8
+  %156 = icmp eq ptr %155, %.sroa.1420.4
   br i1 %156, label %157, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i
 
 157:                                              ; preds = %.lr.ph.i
-  %158 = getelementptr inbounds i8, ptr %.sroa.21.2, i64 8
+  %158 = getelementptr inbounds i8, ptr %.sroa.21.4, i64 8
   %159 = load ptr, ptr %158, align 8, !noalias !2062
   %160 = getelementptr inbounds i8, ptr %159, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i: ; preds = %157, %.lr.ph.i
-  %.sroa.21.3 = phi ptr [ %158, %157 ], [ %.sroa.21.2, %.lr.ph.i ]
-  %.sroa.1420.3 = phi ptr [ %160, %157 ], [ %.sroa.1420.2, %.lr.ph.i ]
-  %.sroa.9.3 = phi ptr [ %159, %157 ], [ %.sroa.9.2, %.lr.ph.i ]
-  %.sroa.017.2 = phi ptr [ %159, %157 ], [ %155, %.lr.ph.i ]
-  %161 = load ptr, ptr %.sroa.017.2, align 8, !noalias !2062
+  %.sroa.21.5 = phi ptr [ %158, %157 ], [ %.sroa.21.4, %.lr.ph.i ]
+  %.sroa.1420.5 = phi ptr [ %160, %157 ], [ %.sroa.1420.4, %.lr.ph.i ]
+  %.sroa.9.5 = phi ptr [ %159, %157 ], [ %.sroa.9.4, %.lr.ph.i ]
+  %.sroa.017.4 = phi ptr [ %159, %157 ], [ %155, %.lr.ph.i ]
+  %161 = load ptr, ptr %.sroa.017.4, align 8, !noalias !2062
   %162 = load ptr, ptr %123, align 8, !noalias !2062
   %163 = tail call noundef zeroext i1 %3(ptr noundef %161, ptr noundef %162), !noalias !2062
   br i1 %163, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !2065
 
 ._crit_edge.i:                                    ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i
-  %.sroa.21.4 = phi ptr [ %.sroa.21.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ], [ %.sroa.21.3, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
-  %.sroa.1420.4 = phi ptr [ %.sroa.1420.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ], [ %.sroa.1420.3, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
-  %.sroa.9.4 = phi ptr [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ], [ %.sroa.9.3, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
-  %.sroa.017.3 = phi ptr [ %.sroa.017.0, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ], [ %.sroa.017.2, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
+  %.sroa.21.2 = phi ptr [ %.sroa.21.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ], [ %.sroa.21.5, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
+  %.sroa.1420.2 = phi ptr [ %.sroa.1420.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ], [ %.sroa.1420.5, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
+  %.sroa.9.2 = phi ptr [ %.sroa.9.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ], [ %.sroa.9.5, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
+  %.sroa.017.1 = phi ptr [ %.sroa.017.0, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i ], [ %.sroa.017.4, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i ]
   %164 = icmp eq ptr %.sroa.010.0, %.sroa.613.0
   br i1 %164, label %165, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i
 
@@ -166007,22 +166007,22 @@ _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i: ; preds = %165, %._crit_edge.
   br i1 %172, label %.lr.ph33.i, label %._crit_edge34.i
 
 .lr.ph33.i:                                       ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i
-  %.sroa.14.2 = phi ptr [ %.sroa.14.3, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i ], [ %.sroa.14.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ]
-  %.sroa.613.2 = phi ptr [ %.sroa.613.3, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i ], [ %.sroa.613.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ]
-  %.sroa.010.1 = phi ptr [ %storemerge.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i ], [ %storemerge32.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ]
-  %173 = icmp eq ptr %.sroa.010.1, %.sroa.613.2
+  %.sroa.14.3 = phi ptr [ %.sroa.14.4, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i ], [ %.sroa.14.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ]
+  %.sroa.613.3 = phi ptr [ %.sroa.613.4, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i ], [ %.sroa.613.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ]
+  %.sroa.010.2 = phi ptr [ %storemerge.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i ], [ %storemerge32.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ]
+  %173 = icmp eq ptr %.sroa.010.2, %.sroa.613.3
   br i1 %173, label %174, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i
 
 174:                                              ; preds = %.lr.ph33.i
-  %175 = getelementptr inbounds i8, ptr %.sroa.14.2, i64 -8
+  %175 = getelementptr inbounds i8, ptr %.sroa.14.3, i64 -8
   %176 = load ptr, ptr %175, align 8, !noalias !2062
   %177 = getelementptr inbounds i8, ptr %176, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i: ; preds = %174, %.lr.ph33.i
-  %.sroa.14.3 = phi ptr [ %175, %174 ], [ %.sroa.14.2, %.lr.ph33.i ]
-  %.sroa.613.3 = phi ptr [ %176, %174 ], [ %.sroa.613.2, %.lr.ph33.i ]
-  %178 = phi ptr [ %177, %174 ], [ %.sroa.010.1, %.lr.ph33.i ]
+  %.sroa.14.4 = phi ptr [ %175, %174 ], [ %.sroa.14.3, %.lr.ph33.i ]
+  %.sroa.613.4 = phi ptr [ %176, %174 ], [ %.sroa.613.3, %.lr.ph33.i ]
+  %178 = phi ptr [ %177, %174 ], [ %.sroa.010.2, %.lr.ph33.i ]
   %storemerge.i = getelementptr inbounds i8, ptr %178, i64 -8
   %179 = load ptr, ptr %123, align 8, !noalias !2062
   %180 = load ptr, ptr %storemerge.i, align 8, !noalias !2062
@@ -166030,45 +166030,45 @@ _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i: ; preds = %174, %.lr.ph33.i
   br i1 %181, label %.lr.ph33.i, label %._crit_edge34.i, !llvm.loop !2066
 
 ._crit_edge34.i:                                  ; preds = %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i
-  %.sroa.14.4 = phi ptr [ %.sroa.14.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %.sroa.14.3, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i ]
-  %.sroa.613.4 = phi ptr [ %.sroa.613.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %.sroa.613.3, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i ]
-  %.sroa.010.2 = phi ptr [ %storemerge32.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %storemerge.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i ]
-  %182 = icmp eq ptr %.sroa.21.4, %.sroa.14.4
-  %183 = icmp ult ptr %.sroa.017.3, %.sroa.010.2
-  %184 = icmp ult ptr %.sroa.21.4, %.sroa.14.4
+  %.sroa.14.2 = phi ptr [ %.sroa.14.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %.sroa.14.4, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i ]
+  %.sroa.613.2 = phi ptr [ %.sroa.613.1, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %.sroa.613.4, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i ]
+  %.sroa.010.1 = phi ptr [ %storemerge32.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit.i ], [ %storemerge.i, %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EmmEv.exit1.i ]
+  %182 = icmp eq ptr %.sroa.21.2, %.sroa.14.2
+  %183 = icmp ult ptr %.sroa.017.1, %.sroa.010.1
+  %184 = icmp ult ptr %.sroa.21.2, %.sroa.14.2
   %185 = select i1 %182, i1 %183, i1 %184
   br i1 %185, label %186, label %_ZSt21__unguarded_partitionISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET_SE_SE_SE_T0_.exit
 
 186:                                              ; preds = %._crit_edge34.i
-  %187 = load ptr, ptr %.sroa.017.3, align 8, !noalias !2062
-  %188 = load ptr, ptr %.sroa.010.2, align 8, !noalias !2062
-  store ptr %188, ptr %.sroa.017.3, align 8, !noalias !2062
-  store ptr %187, ptr %.sroa.010.2, align 8, !noalias !2062
-  %189 = getelementptr inbounds i8, ptr %.sroa.017.3, i64 8
-  %190 = icmp eq ptr %189, %.sroa.1420.4
+  %187 = load ptr, ptr %.sroa.017.1, align 8, !noalias !2062
+  %188 = load ptr, ptr %.sroa.010.1, align 8, !noalias !2062
+  store ptr %188, ptr %.sroa.017.1, align 8, !noalias !2062
+  store ptr %187, ptr %.sroa.010.1, align 8, !noalias !2062
+  %189 = getelementptr inbounds i8, ptr %.sroa.017.1, i64 8
+  %190 = icmp eq ptr %189, %.sroa.1420.2
   br i1 %190, label %191, label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i.backedge
 
 191:                                              ; preds = %186
-  %192 = getelementptr inbounds i8, ptr %.sroa.21.4, i64 8
+  %192 = getelementptr inbounds i8, ptr %.sroa.21.2, i64 8
   %193 = load ptr, ptr %192, align 8, !noalias !2062
   %194 = getelementptr inbounds i8, ptr %193, i64 512
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i.backedge
 
 _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i.backedge: ; preds = %191, %186
-  %.sroa.21.1.be = phi ptr [ %192, %191 ], [ %.sroa.21.4, %186 ]
-  %.sroa.1420.1.be = phi ptr [ %194, %191 ], [ %.sroa.1420.4, %186 ]
-  %.sroa.9.1.be = phi ptr [ %193, %191 ], [ %.sroa.9.4, %186 ]
+  %.sroa.21.1.be = phi ptr [ %192, %191 ], [ %.sroa.21.2, %186 ]
+  %.sroa.1420.1.be = phi ptr [ %194, %191 ], [ %.sroa.1420.2, %186 ]
+  %.sroa.9.1.be = phi ptr [ %193, %191 ], [ %.sroa.9.2, %186 ]
   %.sroa.017.0.be = phi ptr [ %193, %191 ], [ %189, %186 ]
   br label %_ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit2.i, !llvm.loop !2067
 
 _ZSt21__unguarded_partitionISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEET_SE_SE_SE_T0_.exit: ; preds = %._crit_edge34.i
-  store ptr %.sroa.017.3, ptr %0, align 8, !alias.scope !2062
+  store ptr %.sroa.017.1, ptr %0, align 8, !alias.scope !2062
   %195 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.9.4, ptr %195, align 8, !alias.scope !2062
+  store ptr %.sroa.9.2, ptr %195, align 8, !alias.scope !2062
   %196 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.1420.4, ptr %196, align 8, !alias.scope !2062
+  store ptr %.sroa.1420.2, ptr %196, align 8, !alias.scope !2062
   %197 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.21.4, ptr %197, align 8, !alias.scope !2062
+  store ptr %.sroa.21.2, ptr %197, align 8, !alias.scope !2062
   ret void
 }
 

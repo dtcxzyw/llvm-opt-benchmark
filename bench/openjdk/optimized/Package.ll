@@ -418,10 +418,10 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 
 .body:                                            ; preds = %13, %30, %33, %42
   %.pn7 = phi { ptr, i32 } [ %.pn.pn, %42 ], [ %14, %13 ], [ %34, %33 ], [ %31, %30 ]
-  %.2 = extractvalue { ptr, i32 } %.pn7, 0
+  %.06 = extractvalue { ptr, i32 } %.pn7, 0
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_117FirstLineConsumerE, i64 16), ptr %5, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #11
-  %44 = call ptr @__cxa_begin_catch(ptr %.2) #11
+  %44 = call ptr @__cxa_begin_catch(ptr %.06) #11
   call void @__cxa_end_catch()
   br label %45
 

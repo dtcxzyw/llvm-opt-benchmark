@@ -76,12 +76,12 @@ define internal i32 @mountpoint_filter(ptr noundef %0, ptr noundef %1, ptr nocap
   br label %39
 
 39:                                               ; preds = %34, %24
-  %.0 = phi i32 [ %38, %34 ], [ 0, %24 ]
+  %.1 = phi i32 [ %38, %34 ], [ 0, %24 ]
   store i8 0, ptr %26, align 1
   br label %40
 
 40:                                               ; preds = %3, %9, %12, %39, %15
-  %.020 = phi i32 [ 0, %15 ], [ %.0, %39 ], [ 0, %12 ], [ 0, %9 ], [ 0, %3 ]
+  %.020 = phi i32 [ 0, %15 ], [ %.1, %39 ], [ 0, %12 ], [ 0, %9 ], [ 0, %3 ]
   ret i32 %.020
 }
 

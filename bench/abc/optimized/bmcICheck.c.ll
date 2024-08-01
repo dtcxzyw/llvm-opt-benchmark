@@ -2014,7 +2014,7 @@ Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i123, %53
 
 73:                                               ; preds = %.lr.ph138, %127
   %indvars.iv142 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next143, %127 ]
-  %.2137 = phi i32 [ %.090.lcssa, %.lr.ph138 ], [ %.4, %127 ]
+  %.2137 = phi i32 [ %.090.lcssa, %.lr.ph138 ], [ %.3, %127 ]
   %74 = getelementptr inbounds i32, ptr %.val115, i64 %indvars.iv142
   %75 = load i32, ptr %74, align 4
   %.val114 = load ptr, ptr %24, align 8
@@ -2056,7 +2056,7 @@ Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i123, %53
   br label %93
 
 93:                                               ; preds = %80, %91, %87
-  %.3 = phi i32 [ %.2137, %87 ], [ %92, %91 ], [ %.2137, %80 ]
+  %.4 = phi i32 [ %.2137, %87 ], [ %92, %91 ], [ %.2137, %80 ]
   br i1 %.not100, label %127, label %94
 
 94:                                               ; preds = %93
@@ -2079,12 +2079,12 @@ Vec_IntReverseOrder.exit:                         ; preds = %.lr.ph.i123, %53
   %106 = call i32 @sat_solver_nvars(ptr noundef %23) #12
   %107 = add nsw i32 %105, %106
   %108 = call i32 @sat_solver_nconflicts(ptr noundef %23) #12
-  %109 = sitofp i32 %.3 to double
+  %109 = sitofp i32 %.4 to double
   %110 = fmul double %109, 1.000000e+02
   %.val103 = load i32, ptr %29, align 8
   %111 = sitofp i32 %.val103 to double
   %112 = fdiv double %110, %111
-  %113 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %75, i32 noundef %103, i32 noundef %107, i32 noundef %108, i32 noundef %.3, double noundef %112)
+  %113 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %75, i32 noundef %103, i32 noundef %107, i32 noundef %108, i32 noundef %.4, double noundef %112)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %114 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #12
@@ -2111,13 +2111,13 @@ Abc_Clock.exit127:                                ; preds = %94, %116
   br label %127
 
 127:                                              ; preds = %93, %Abc_Clock.exit127, %73
-  %.4 = phi i32 [ %.2137, %73 ], [ %.3, %Abc_Clock.exit127 ], [ %.3, %93 ]
+  %.3 = phi i32 [ %.2137, %73 ], [ %.4, %Abc_Clock.exit127 ], [ %.4, %93 ]
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
   br i1 %exitcond146.not, label %.critedge, label %73, !llvm.loop !27
 
 .critedge:                                        ; preds = %127, %Vec_IntReverseOrder.exit
-  %.2.lcssa = phi i32 [ %.090.lcssa, %Vec_IntReverseOrder.exit ], [ %.4, %127 ]
+  %.2.lcssa = phi i32 [ %.090.lcssa, %Vec_IntReverseOrder.exit ], [ %.3, %127 ]
   %.not98 = icmp eq i32 %5, 0
   br i1 %.not98, label %167, label %128
 

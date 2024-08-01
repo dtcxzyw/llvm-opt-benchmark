@@ -3049,10 +3049,10 @@ if.end12.i:                                       ; preds = %if.then.i, %while.b
   br i1 %tobool.not.i, label %do_object_child_foreach.exit, label %while.body.i, !llvm.loop !26
 
 do_object_child_foreach.exit:                     ; preds = %if.then.i, %if.end12.i, %entry
-  %ret.2.i = phi i32 [ 0, %entry ], [ 0, %if.end12.i ], [ %call3.i, %if.then.i ]
+  %ret.1.i = phi i32 [ 0, %entry ], [ 0, %if.end12.i ], [ %call3.i, %if.then.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %iter.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %prop.i)
-  ret i32 %ret.2.i
+  ret i32 %ret.1.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -3118,8 +3118,8 @@ if.end12:                                         ; preds = %if.then, %while.bod
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !26
 
 while.end:                                        ; preds = %if.end12, %if.then, %if.end12.us, %if.then.us, %if.end.us, %entry
-  %ret.2 = phi i32 [ 0, %entry ], [ %call7.us, %if.end.us ], [ %call3.us, %if.then.us ], [ 0, %if.end12.us ], [ %call3, %if.then ], [ 0, %if.end12 ]
-  ret i32 %ret.2
+  %ret.1 = phi i32 [ 0, %entry ], [ %call7.us, %if.end.us ], [ %call3.us, %if.then.us ], [ 0, %if.end12.us ], [ %call3, %if.then ], [ 0, %if.end12 ]
+  ret i32 %ret.1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

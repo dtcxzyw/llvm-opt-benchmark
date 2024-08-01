@@ -927,13 +927,13 @@ _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader: ; preds = %.noexc61
   br label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit
 
 _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit:     ; preds = %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74
-  %.sroa.083.0 = phi i32 [ %.sroa.083.4, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 1024, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
-  %.sroa.13.0 = phi i32 [ %.sroa.13.4, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 1, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
+  %.sroa.083.0 = phi i32 [ %.sroa.083.2, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 1024, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
+  %.sroa.13.0 = phi i32 [ %.sroa.13.2, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 1, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
   %.sroa.23.1 = phi i32 [ %.sroa.23.2, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ %.sroa.23.0, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
-  %.sroa.33.0 = phi i32 [ %.sroa.33.5, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 0, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
-  %.sroa.42.0 = phi i32 [ %.sroa.42.4, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 0, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
-  %.sroa.57.0 = phi double [ %.sroa.57.3, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 0.000000e+00, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
-  %.sroa.52.0 = phi double [ %.sroa.52.3, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 0.000000e+00, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
+  %.sroa.33.0 = phi i32 [ %.sroa.33.2, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 0, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
+  %.sroa.42.0 = phi i32 [ %.sroa.42.2, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 0, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
+  %.sroa.57.0 = phi double [ %.sroa.57.2, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 0.000000e+00, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
+  %.sroa.52.0 = phi double [ %.sroa.52.2, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 0.000000e+00, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
   %.028 = phi i8 [ %.230, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 1, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
   %.026 = phi i1 [ %.127133, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ true, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
   %.017 = phi i32 [ %395, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74 ], [ 0, %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit.preheader ]
@@ -997,9 +997,9 @@ _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit:     ; preds = %_ZL13focusDriveEndR
   %300 = fsub double %291, %.sroa.52.0
   %301 = fadd double %.sroa.57.0, 5.000000e-04
   %302 = fcmp ugt double %301, %291
-  %.sroa.33.1 = select i1 %302, i32 %299, i32 0
-  %.sroa.42.1 = select i1 %302, i32 %.sroa.42.0, i32 0
-  %.sroa.57.1 = select i1 %302, double %.sroa.57.0, double %291
+  %.sroa.33.3 = select i1 %302, i32 %299, i32 0
+  %.sroa.42.3 = select i1 %302, i32 %.sroa.42.0, i32 0
+  %.sroa.57.3 = select i1 %302, double %.sroa.57.0, double %291
   br i1 %.026, label %306, label %303
 
 303:                                              ; preds = %.noexc64
@@ -1024,11 +1024,11 @@ _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit:     ; preds = %_ZL13focusDriveEndR
 
 315:                                              ; preds = %308
   %316 = fadd double %291, 5.000000e-04
-  %317 = fcmp olt double %316, %.sroa.57.1
+  %317 = fcmp olt double %316, %.sroa.57.3
   br i1 %317, label %318, label %._crit_edge48.i
 
 318:                                              ; preds = %315
-  %319 = icmp sgt i32 %.sroa.33.1, 3
+  %319 = icmp sgt i32 %.sroa.33.3, 3
   %.pre50.i = sitofp i32 %.sroa.083.0 to double
   br i1 %319, label %._crit_edge.i, label %320
 
@@ -1036,34 +1036,34 @@ _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit:     ; preds = %_ZL13focusDriveEndR
   %321 = sitofp i32 %.sroa.23.1 to double
   %322 = fmul double %321, 1.500000e+00
   %323 = fcmp ogt double %322, %.pre50.i
-  %324 = icmp sgt i32 %.sroa.42.1, %.sroa.083.0
+  %324 = icmp sgt i32 %.sroa.42.3, %.sroa.083.0
   %or.cond.i = select i1 %323, i1 %324, i1 false
   br i1 %or.cond.i, label %._crit_edge.i, label %._crit_edge48.i
 
 ._crit_edge.i:                                    ; preds = %318, %320
-  %325 = icmp sgt i32 %.sroa.42.1, -1
+  %325 = icmp sgt i32 %.sroa.42.3, -1
   %326 = select i1 %325, i32 1, i32 -1
   %327 = fmul double %.pre50.i, 7.500000e-01
   %328 = fptosi double %327 to i32
-  %329 = call i32 @llvm.abs.i32(i32 %.sroa.42.1, i1 true)
+  %329 = call i32 @llvm.abs.i32(i32 %.sroa.42.3, i1 true)
   br label %_ZL12correctFocusbR10FocusStated.exit
 
 ._crit_edge48.i:                                  ; preds = %315, %306, %320, %310, %303
-  %.sroa.083.1 = phi i32 [ %314, %310 ], [ %.sroa.083.0, %320 ], [ %305, %303 ], [ 1024, %306 ], [ %.sroa.083.0, %315 ]
-  %.sroa.13.1 = phi i32 [ %311, %310 ], [ %.sroa.13.0, %320 ], [ %304, %303 ], [ %.sroa.13.0, %306 ], [ %.sroa.13.0, %315 ]
-  %.sroa.33.2 = phi i32 [ 0, %310 ], [ %.sroa.33.1, %320 ], [ 0, %303 ], [ %.sroa.33.1, %306 ], [ %.sroa.33.1, %315 ]
-  %330 = mul nsw i32 %.sroa.13.1, %.sroa.083.1
-  %331 = sub nsw i32 %.sroa.42.1, %330
+  %.sroa.083.3 = phi i32 [ %314, %310 ], [ %.sroa.083.0, %320 ], [ %305, %303 ], [ 1024, %306 ], [ %.sroa.083.0, %315 ]
+  %.sroa.13.3 = phi i32 [ %311, %310 ], [ %.sroa.13.0, %320 ], [ %304, %303 ], [ %.sroa.13.0, %306 ], [ %.sroa.13.0, %315 ]
+  %.sroa.33.4 = phi i32 [ 0, %310 ], [ %.sroa.33.3, %320 ], [ 0, %303 ], [ %.sroa.33.3, %306 ], [ %.sroa.33.3, %315 ]
+  %330 = mul nsw i32 %.sroa.13.3, %.sroa.083.3
+  %331 = sub nsw i32 %.sroa.42.3, %330
   br label %_ZL12correctFocusbR10FocusStated.exit
 
 _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %._crit_edge.i
-  %.sroa.083.2 = phi i32 [ %.sroa.083.1, %._crit_edge48.i ], [ %328, %._crit_edge.i ]
-  %.sroa.13.2 = phi i32 [ %.sroa.13.1, %._crit_edge48.i ], [ %326, %._crit_edge.i ]
-  %.sroa.33.3 = phi i32 [ %.sroa.33.2, %._crit_edge48.i ], [ 0, %._crit_edge.i ]
-  %.sroa.42.2 = phi i32 [ %331, %._crit_edge48.i ], [ 0, %._crit_edge.i ]
-  %.0.i = phi i32 [ %.sroa.083.1, %._crit_edge48.i ], [ %329, %._crit_edge.i ]
+  %.sroa.083.4 = phi i32 [ %.sroa.083.3, %._crit_edge48.i ], [ %328, %._crit_edge.i ]
+  %.sroa.13.4 = phi i32 [ %.sroa.13.3, %._crit_edge48.i ], [ %326, %._crit_edge.i ]
+  %.sroa.33.5 = phi i32 [ %.sroa.33.4, %._crit_edge48.i ], [ 0, %._crit_edge.i ]
+  %.sroa.42.4 = phi i32 [ %331, %._crit_edge48.i ], [ 0, %._crit_edge.i ]
+  %.0.i = phi i32 [ %.sroa.083.3, %._crit_edge48.i ], [ %329, %._crit_edge.i ]
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %.0.i, i32 %.sroa.23.1)
-  %332 = mul nsw i32 %.sroa.speculated, %.sroa.13.2
+  %332 = mul nsw i32 %.sroa.speculated, %.sroa.13.4
   %333 = sitofp i32 %332 to double
   %334 = invoke noundef zeroext i1 @_ZN2cv12VideoCapture3setEid(ptr noundef nonnull align 8 dereferenceable(41) %28, i32 noundef 27, double noundef %333)
           to label %335 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1129,12 +1129,12 @@ _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %.
 .thread:                                          ; preds = %347, %343, %361
   %.127135 = phi i1 [ %.026, %361 ], [ %334, %343 ], [ %.026, %347 ]
   %.129132 = phi i8 [ %.028, %361 ], [ 0, %343 ], [ %.028, %347 ]
-  %.sroa.52.2127 = phi double [ %.sroa.52.0, %361 ], [ %291, %343 ], [ %.sroa.52.0, %347 ]
-  %.sroa.57.2126 = phi double [ %.sroa.57.0, %361 ], [ %.sroa.57.1, %343 ], [ %.sroa.57.0, %347 ]
-  %.sroa.42.3121 = phi i32 [ %.sroa.42.0, %361 ], [ %.sroa.42.2, %343 ], [ %.sroa.42.0, %347 ]
-  %.sroa.33.4118 = phi i32 [ %.sroa.33.0, %361 ], [ %.sroa.33.3, %343 ], [ %.sroa.33.0, %347 ]
-  %.sroa.13.3115 = phi i32 [ %.sroa.13.0, %361 ], [ %.sroa.13.2, %343 ], [ %.sroa.13.0, %347 ]
-  %.sroa.083.3112 = phi i32 [ %.sroa.083.0, %361 ], [ %344, %343 ], [ %.sroa.083.0, %347 ]
+  %.sroa.52.1127 = phi double [ %.sroa.52.0, %361 ], [ %291, %343 ], [ %.sroa.52.0, %347 ]
+  %.sroa.57.1126 = phi double [ %.sroa.57.0, %361 ], [ %.sroa.57.3, %343 ], [ %.sroa.57.0, %347 ]
+  %.sroa.42.1121 = phi i32 [ %.sroa.42.0, %361 ], [ %.sroa.42.4, %343 ], [ %.sroa.42.0, %347 ]
+  %.sroa.33.1118 = phi i32 [ %.sroa.33.0, %361 ], [ %.sroa.33.5, %343 ], [ %.sroa.33.0, %347 ]
+  %.sroa.13.1115 = phi i32 [ %.sroa.13.0, %361 ], [ %.sroa.13.4, %343 ], [ %.sroa.13.0, %347 ]
+  %.sroa.083.1112 = phi i32 [ %.sroa.083.0, %361 ], [ %344, %343 ], [ %.sroa.083.0, %347 ]
   %362 = load i8, ptr getelementptr inbounds (i8, ptr @GlobalArgs, i64 76), align 4
   %363 = trunc i8 %362 to i1
   br i1 %363, label %.thread157, label %391
@@ -1142,12 +1142,12 @@ _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %.
 .thread157:                                       ; preds = %337, %346, %.thread, %361
   %.127134 = phi i1 [ %.127135, %.thread ], [ %.026, %361 ], [ true, %346 ], [ %334, %337 ]
   %.129131 = phi i8 [ %.129132, %.thread ], [ %.028, %361 ], [ %.028, %346 ], [ %.028, %337 ]
-  %.sroa.52.2128 = phi double [ %.sroa.52.2127, %.thread ], [ %.sroa.52.0, %361 ], [ %291, %346 ], [ %291, %337 ]
-  %.sroa.57.2125 = phi double [ %.sroa.57.2126, %.thread ], [ %.sroa.57.0, %361 ], [ %.sroa.57.1, %346 ], [ %.sroa.57.1, %337 ]
-  %.sroa.42.3122 = phi i32 [ %.sroa.42.3121, %.thread ], [ %.sroa.42.0, %361 ], [ %.sroa.42.2, %346 ], [ %.sroa.42.2, %337 ]
-  %.sroa.33.4119 = phi i32 [ %.sroa.33.4118, %.thread ], [ %.sroa.33.0, %361 ], [ %.sroa.33.3, %346 ], [ %.sroa.33.3, %337 ]
-  %.sroa.13.3116 = phi i32 [ %.sroa.13.3115, %.thread ], [ %.sroa.13.0, %361 ], [ %.sroa.13.2, %346 ], [ %.sroa.13.2, %337 ]
-  %.sroa.083.3113 = phi i32 [ %.sroa.083.3112, %.thread ], [ %.sroa.083.0, %361 ], [ %.sroa.083.2, %346 ], [ %.sroa.083.2, %337 ]
+  %.sroa.52.1128 = phi double [ %.sroa.52.1127, %.thread ], [ %.sroa.52.0, %361 ], [ %291, %346 ], [ %291, %337 ]
+  %.sroa.57.1125 = phi double [ %.sroa.57.1126, %.thread ], [ %.sroa.57.0, %361 ], [ %.sroa.57.3, %346 ], [ %.sroa.57.3, %337 ]
+  %.sroa.42.1122 = phi i32 [ %.sroa.42.1121, %.thread ], [ %.sroa.42.0, %361 ], [ %.sroa.42.4, %346 ], [ %.sroa.42.4, %337 ]
+  %.sroa.33.1119 = phi i32 [ %.sroa.33.1118, %.thread ], [ %.sroa.33.0, %361 ], [ %.sroa.33.5, %346 ], [ %.sroa.33.5, %337 ]
+  %.sroa.13.1116 = phi i32 [ %.sroa.13.1115, %.thread ], [ %.sroa.13.0, %361 ], [ %.sroa.13.4, %346 ], [ %.sroa.13.4, %337 ]
+  %.sroa.083.1113 = phi i32 [ %.sroa.083.1112, %.thread ], [ %.sroa.083.0, %361 ], [ %.sroa.083.4, %346 ], [ %.sroa.083.4, %337 ]
   %364 = load i8, ptr getelementptr inbounds (i8, ptr @GlobalArgs, i64 77), align 1
   %365 = trunc i8 %364 to i1
   br i1 %365, label %366, label %391
@@ -1161,7 +1161,7 @@ _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %.
           to label %.noexc65 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc65:                                         ; preds = %368
-  %370 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %369, double noundef %.sroa.52.2128)
+  %370 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %369, double noundef %.sroa.52.1128)
           to label %.noexc66 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc66:                                         ; preds = %.noexc65
@@ -1169,7 +1169,7 @@ _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %.
           to label %.noexc67 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc67:                                         ; preds = %.noexc66
-  %372 = mul nsw i32 %.sroa.083.3113, %.sroa.13.3116
+  %372 = mul nsw i32 %.sroa.083.1113, %.sroa.13.1116
   %373 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %371, i32 noundef %372)
           to label %.noexc68 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1178,7 +1178,7 @@ _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %.
           to label %.noexc69 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc69:                                         ; preds = %.noexc68
-  %375 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %374, i32 noundef %.sroa.33.4119)
+  %375 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %374, i32 noundef %.sroa.33.1119)
           to label %.noexc70 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc70:                                         ; preds = %.noexc69
@@ -1186,7 +1186,7 @@ _ZL12correctFocusbR10FocusStated.exit:            ; preds = %._crit_edge48.i, %.
           to label %.noexc71 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc71:                                         ; preds = %.noexc70
-  %377 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %376, i32 noundef %.sroa.42.3122)
+  %377 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %376, i32 noundef %.sroa.42.1122)
           to label %_ZlsRSoR10FocusState.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZlsRSoR10FocusState.exit:                        ; preds = %.noexc71
@@ -1218,12 +1218,12 @@ _ZlsRSoR10FocusState.exit:                        ; preds = %.noexc71
 391:                                              ; preds = %389, %.thread157, %.thread
   %.127133 = phi i1 [ %.127134, %389 ], [ %.127134, %.thread157 ], [ %.127135, %.thread ]
   %.129130 = phi i8 [ %.129131, %389 ], [ %.129131, %.thread157 ], [ %.129132, %.thread ]
-  %.sroa.52.2129 = phi double [ %.sroa.52.2128, %389 ], [ %.sroa.52.2128, %.thread157 ], [ %.sroa.52.2127, %.thread ]
-  %.sroa.57.2124 = phi double [ %.sroa.57.2125, %389 ], [ %.sroa.57.2125, %.thread157 ], [ %.sroa.57.2126, %.thread ]
-  %.sroa.42.3123 = phi i32 [ %.sroa.42.3122, %389 ], [ %.sroa.42.3122, %.thread157 ], [ %.sroa.42.3121, %.thread ]
-  %.sroa.33.4120 = phi i32 [ %.sroa.33.4119, %389 ], [ %.sroa.33.4119, %.thread157 ], [ %.sroa.33.4118, %.thread ]
-  %.sroa.13.3117 = phi i32 [ %.sroa.13.3116, %389 ], [ %.sroa.13.3116, %.thread157 ], [ %.sroa.13.3115, %.thread ]
-  %.sroa.083.3114 = phi i32 [ %.sroa.083.3113, %389 ], [ %.sroa.083.3113, %.thread157 ], [ %.sroa.083.3112, %.thread ]
+  %.sroa.52.1129 = phi double [ %.sroa.52.1128, %389 ], [ %.sroa.52.1128, %.thread157 ], [ %.sroa.52.1127, %.thread ]
+  %.sroa.57.1124 = phi double [ %.sroa.57.1125, %389 ], [ %.sroa.57.1125, %.thread157 ], [ %.sroa.57.1126, %.thread ]
+  %.sroa.42.1123 = phi i32 [ %.sroa.42.1122, %389 ], [ %.sroa.42.1122, %.thread157 ], [ %.sroa.42.1121, %.thread ]
+  %.sroa.33.1120 = phi i32 [ %.sroa.33.1119, %389 ], [ %.sroa.33.1119, %.thread157 ], [ %.sroa.33.1118, %.thread ]
+  %.sroa.13.1117 = phi i32 [ %.sroa.13.1116, %389 ], [ %.sroa.13.1116, %.thread157 ], [ %.sroa.13.1115, %.thread ]
+  %.sroa.083.1114 = phi i32 [ %.sroa.083.1113, %389 ], [ %.sroa.083.1113, %.thread157 ], [ %.sroa.083.1112, %.thread ]
   %392 = load ptr, ptr @windowOriginal, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %34) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef %392, ptr noundef nonnull align 1 dereferenceable(1) %34)
@@ -1307,13 +1307,13 @@ _ZlsRSoR10FocusState.exit:                        ; preds = %.noexc71
   br label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74
 
 _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74:   ; preds = %.noexc75, %.noexc73, %.invoke, %415, %414, %396
-  %.sroa.083.4 = phi i32 [ %.sroa.083.3114, %396 ], [ %.sroa.083.3114, %415 ], [ 1024, %414 ], [ %.sroa.083.3114, %.invoke ], [ %.sroa.083.3114, %.noexc73 ], [ %.sroa.083.3114, %.noexc75 ]
-  %.sroa.13.4 = phi i32 [ %.sroa.13.3117, %396 ], [ %.sroa.13.3117, %415 ], [ 1, %414 ], [ %.sroa.13.3117, %.invoke ], [ %.sroa.13.3117, %.noexc73 ], [ %.sroa.13.3117, %.noexc75 ]
+  %.sroa.083.2 = phi i32 [ %.sroa.083.1114, %396 ], [ %.sroa.083.1114, %415 ], [ 1024, %414 ], [ %.sroa.083.1114, %.invoke ], [ %.sroa.083.1114, %.noexc73 ], [ %.sroa.083.1114, %.noexc75 ]
+  %.sroa.13.2 = phi i32 [ %.sroa.13.1117, %396 ], [ %.sroa.13.1117, %415 ], [ 1, %414 ], [ %.sroa.13.1117, %.invoke ], [ %.sroa.13.1117, %.noexc73 ], [ %.sroa.13.1117, %.noexc75 ]
   %.sroa.23.2 = phi i32 [ %.sroa.23.1, %396 ], [ %.sroa.23.1, %415 ], [ 0, %414 ], [ %.sroa.23.1, %.invoke ], [ %.sroa.23.1, %.noexc73 ], [ %.sroa.23.1, %.noexc75 ]
-  %.sroa.33.5 = phi i32 [ %.sroa.33.4120, %396 ], [ %.sroa.33.4120, %415 ], [ 0, %414 ], [ %.sroa.33.4120, %.invoke ], [ %.sroa.33.4120, %.noexc73 ], [ %.sroa.33.4120, %.noexc75 ]
-  %.sroa.42.4 = phi i32 [ %.sroa.42.3123, %396 ], [ %.sroa.42.3123, %415 ], [ 0, %414 ], [ %.sroa.42.3123, %.invoke ], [ %.sroa.42.3123, %.noexc73 ], [ %.sroa.42.3123, %.noexc75 ]
-  %.sroa.57.3 = phi double [ %.sroa.57.2124, %396 ], [ %.sroa.57.2124, %415 ], [ 0.000000e+00, %414 ], [ %.sroa.57.2124, %.invoke ], [ %.sroa.57.2124, %.noexc73 ], [ %.sroa.57.2124, %.noexc75 ]
-  %.sroa.52.3 = phi double [ %.sroa.52.2129, %396 ], [ %.sroa.52.2129, %415 ], [ 0.000000e+00, %414 ], [ %.sroa.52.2129, %.invoke ], [ %.sroa.52.2129, %.noexc73 ], [ %.sroa.52.2129, %.noexc75 ]
+  %.sroa.33.2 = phi i32 [ %.sroa.33.1120, %396 ], [ %.sroa.33.1120, %415 ], [ 0, %414 ], [ %.sroa.33.1120, %.invoke ], [ %.sroa.33.1120, %.noexc73 ], [ %.sroa.33.1120, %.noexc75 ]
+  %.sroa.42.2 = phi i32 [ %.sroa.42.1123, %396 ], [ %.sroa.42.1123, %415 ], [ 0, %414 ], [ %.sroa.42.1123, %.invoke ], [ %.sroa.42.1123, %.noexc73 ], [ %.sroa.42.1123, %.noexc75 ]
+  %.sroa.57.2 = phi double [ %.sroa.57.1124, %396 ], [ %.sroa.57.1124, %415 ], [ 0.000000e+00, %414 ], [ %.sroa.57.1124, %.invoke ], [ %.sroa.57.1124, %.noexc73 ], [ %.sroa.57.1124, %.noexc75 ]
+  %.sroa.52.2 = phi double [ %.sroa.52.1129, %396 ], [ %.sroa.52.1129, %415 ], [ 0.000000e+00, %414 ], [ %.sroa.52.1129, %.invoke ], [ %.sroa.52.1129, %.noexc73 ], [ %.sroa.52.1129, %.noexc75 ]
   %.230 = phi i8 [ %.129130, %396 ], [ %416, %415 ], [ 1, %414 ], [ %.129130, %.invoke ], [ %.129130, %.noexc73 ], [ %.129130, %.noexc75 ]
   br label %_ZL13focusDriveEndRN2cv12VideoCaptureEi.exit, !llvm.loop !8
 
@@ -1386,7 +1386,7 @@ _ZL13focusDriveEndRN2cv12VideoCaptureEi.exit74:   ; preds = %.noexc75, %.noexc73
           to label %_ZL8showHelpPKcb.exit49 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZL8showHelpPKcb.exit49:                          ; preds = %.noexc47, %417, %451, %178
-  %.0 = phi i32 [ -2, %178 ], [ 0, %451 ], [ 0, %417 ], [ -1, %.noexc47 ]
+  %.2 = phi i32 [ -2, %178 ], [ 0, %451 ], [ 0, %417 ], [ -1, %.noexc47 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %30) #12
   call void @_ZN2cv11VideoWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %29) #12
   br label %_ZL8showHelpPKcb.exit
@@ -1398,7 +1398,7 @@ _ZL8showHelpPKcb.exit49:                          ; preds = %.noexc47, %417, %45
   br label %453
 
 _ZL8showHelpPKcb.exit:                            ; preds = %.noexc42, %_ZL8showHelpPKcb.exit49
-  %.1 = phi i32 [ %.0, %_ZL8showHelpPKcb.exit49 ], [ -1, %.noexc42 ]
+  %.1 = phi i32 [ %.2, %_ZL8showHelpPKcb.exit49 ], [ -1, %.noexc42 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %28) #12
   br label %454
 
@@ -1408,8 +1408,8 @@ _ZL8showHelpPKcb.exit:                            ; preds = %.noexc42, %_ZL8show
   br label %common.resume
 
 454:                                              ; preds = %_ZL8showHelpPKcb.exit, %136
-  %.2 = phi i32 [ %.1, %_ZL8showHelpPKcb.exit ], [ -1, %136 ]
-  ret i32 %.2
+  %.0 = phi i32 [ %.1, %_ZL8showHelpPKcb.exit ], [ -1, %136 ]
+  ret i32 %.0
 }
 
 declare void @_ZN2cv12VideoCaptureC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(41), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #0

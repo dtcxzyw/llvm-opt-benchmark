@@ -333,17 +333,17 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly %0, ptr noundef 
   br i1 %173, label %.lr.ph275, label %.critedge
 
 .lr.ph275:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.1161233274 = phi i64 [ %179, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.2233274 = phi i64 [ %179, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %174 = phi ptr [ %180, %.lr.ph ], [ %144, %.lr.ph.preheader ]
-  %175 = getelementptr inbounds i8, ptr %.1158252, i64 %.1161233274
+  %175 = getelementptr inbounds i8, ptr %.1158252, i64 %.2233274
   %176 = load i8, ptr %175, align 1
   %.not183 = icmp eq i8 %176, 0
   br i1 %.not183, label %.critedge, label %177
 
 177:                                              ; preds = %.lr.ph275
-  %178 = getelementptr inbounds i8, ptr %.0156, i64 %.1161233274
+  %178 = getelementptr inbounds i8, ptr %.0156, i64 %.2233274
   store i8 %176, ptr %178, align 1
-  %179 = add nuw i64 %.1161233274, 1
+  %179 = add nuw i64 %.2233274, 1
   %180 = load ptr, ptr %95, align 8
   %181 = getelementptr inbounds i8, ptr %180, i64 16
   %182 = load i64, ptr %181, align 8
@@ -356,12 +356,12 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly %0, ptr noundef 
   br label %187
 
 187:                                              ; preds = %188, %184
-  %.2 = phi i64 [ %186, %184 ], [ %189, %188 ]
-  %.not181 = icmp eq i64 %.2, 0
+  %.3 = phi i64 [ %186, %184 ], [ %189, %188 ]
+  %.not181 = icmp eq i64 %.3, 0
   br i1 %.not181, label %.critedge9, label %188
 
 188:                                              ; preds = %187
-  %189 = add i64 %.2, -1
+  %189 = add i64 %.3, -1
   %190 = getelementptr inbounds i8, ptr %.1158252, i64 %189
   %191 = load i8, ptr %190, align 1
   %192 = icmp eq i8 %191, 32
@@ -371,12 +371,12 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly %0, ptr noundef 
   %193 = load ptr, ptr %95, align 8
   %194 = getelementptr inbounds i8, ptr %193, i64 16
   %195 = load i64, ptr %194, align 8
-  %..2 = tail call i64 @llvm.umin.i64(i64 %195, i64 %.2)
+  %..3 = tail call i64 @llvm.umin.i64(i64 %195, i64 %.3)
   %.not182 = icmp eq ptr %.0156, %.1158252
   br i1 %.not182, label %.critedge, label %196
 
 196:                                              ; preds = %.critedge9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0156, ptr align 1 %.1158252, i64 %..2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0156, ptr align 1 %.1158252, i64 %..3, i1 false)
   %.pre = load ptr, ptr %95, align 8
   br label %.critedge
 
@@ -388,7 +388,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly %0, ptr noundef 
 
 .critedge:                                        ; preds = %.lr.ph275, %177, %.lr.ph, %.lr.ph283, %163, %.lr.ph239, %.lr.ph.preheader, %.lr.ph239.preheader, %.preheader229, %.preheader228, %.critedge9, %196
   %201 = phi ptr [ %.pre, %196 ], [ %193, %.critedge9 ], [ %150, %.preheader228 ], [ %144, %.preheader229 ], [ %150, %.lr.ph239.preheader ], [ %144, %.lr.ph.preheader ], [ %166, %.lr.ph239 ], [ %166, %163 ], [ %160, %.lr.ph283 ], [ %180, %.lr.ph ], [ %180, %177 ], [ %174, %.lr.ph275 ]
-  %.3 = phi i64 [ %..2, %196 ], [ %..2, %.critedge9 ], [ 0, %.preheader228 ], [ 0, %.preheader229 ], [ 0, %.lr.ph239.preheader ], [ 0, %.lr.ph.preheader ], [ %165, %.lr.ph239 ], [ %165, %163 ], [ %.0160238282, %.lr.ph283 ], [ %179, %.lr.ph ], [ %179, %177 ], [ %.1161233274, %.lr.ph275 ]
+  %.1161 = phi i64 [ %..3, %196 ], [ %..3, %.critedge9 ], [ 0, %.preheader228 ], [ 0, %.preheader229 ], [ 0, %.lr.ph239.preheader ], [ 0, %.lr.ph.preheader ], [ %165, %.lr.ph239 ], [ %165, %163 ], [ %.0160238282, %.lr.ph283 ], [ %179, %.lr.ph ], [ %179, %177 ], [ %.2233274, %.lr.ph275 ]
   %202 = getelementptr inbounds i8, ptr %201, i64 84
   %203 = load i32, ptr %202, align 4
   switch i32 %203, label %233 [
@@ -400,23 +400,23 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly %0, ptr noundef 
 .preheader226:                                    ; preds = %.critedge
   %204 = getelementptr inbounds i8, ptr %201, i64 16
   %205 = load i64, ptr %204, align 8
-  %206 = icmp ult i64 %.3, %205
+  %206 = icmp ult i64 %.1161, %205
   br i1 %206, label %.lr.ph246, label %.loopexit
 
 .preheader225:                                    ; preds = %.critedge
   %207 = getelementptr inbounds i8, ptr %201, i64 16
   %208 = load i64, ptr %207, align 8
-  %209 = icmp ult i64 %.3, %208
+  %209 = icmp ult i64 %.1161, %208
   br i1 %209, label %.lr.ph248, label %.loopexit
 
 .preheader:                                       ; preds = %.critedge
   %210 = getelementptr inbounds i8, ptr %201, i64 16
   %211 = load i64, ptr %210, align 8
-  %212 = icmp ult i64 %.3, %211
+  %212 = icmp ult i64 %.1161, %211
   br i1 %212, label %.lr.ph250, label %._crit_edge
 
 .lr.ph250:                                        ; preds = %.preheader, %.lr.ph250
-  %.4249 = phi i64 [ %213, %.lr.ph250 ], [ %.3, %.preheader ]
+  %.4249 = phi i64 [ %213, %.lr.ph250 ], [ %.1161, %.preheader ]
   %213 = add nuw i64 %.4249, 1
   %214 = getelementptr inbounds i8, ptr %.0156, i64 %.4249
   store i8 0, ptr %214, align 1
@@ -434,7 +434,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly %0, ptr noundef 
   br label %.loopexit
 
 .lr.ph248:                                        ; preds = %.preheader225, %.lr.ph248
-  %.5247 = phi i64 [ %221, %.lr.ph248 ], [ %.3, %.preheader225 ]
+  %.5247 = phi i64 [ %221, %.lr.ph248 ], [ %.1161, %.preheader225 ]
   %221 = add nuw i64 %.5247, 1
   %222 = getelementptr inbounds i8, ptr %.0156, i64 %.5247
   store i8 0, ptr %222, align 1
@@ -445,7 +445,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly %0, ptr noundef 
   br i1 %226, label %.lr.ph248, label %.loopexit
 
 .lr.ph246:                                        ; preds = %.preheader226, %.lr.ph246
-  %.6245 = phi i64 [ %227, %.lr.ph246 ], [ %.3, %.preheader226 ]
+  %.6245 = phi i64 [ %227, %.lr.ph246 ], [ %.1161, %.preheader226 ]
   %227 = add nuw i64 %.6245, 1
   %228 = getelementptr inbounds i8, ptr %.0156, i64 %.6245
   store i8 32, ptr %228, align 1

@@ -780,7 +780,7 @@ Vec_IntFreeP.exit.i:                              ; preds = %330, %329
   br label %Wlc_NtkAbsRefinement.exit
 
 Wlc_NtkAbsRefinement.exit:                        ; preds = %Vec_IntFree.exit.i74, %Vec_IntFreeP.exit.i
-  %.156.i = phi ptr [ null, %Vec_IntFreeP.exit.i ], [ %203, %Vec_IntFree.exit.i74 ]
+  %.055.i = phi ptr [ null, %Vec_IntFreeP.exit.i ], [ %203, %Vec_IntFree.exit.i74 ]
   call void @Gia_ManStop(ptr noundef %.1) #16
   %331 = load ptr, ptr %60, align 8
   %.not.i79 = icmp eq ptr %331, null
@@ -792,7 +792,7 @@ Wlc_NtkAbsRefinement.exit:                        ; preds = %Vec_IntFree.exit.i7
 
 Vec_IntFree.exit80:                               ; preds = %Wlc_NtkAbsRefinement.exit, %332
   call void @free(ptr noundef nonnull %57) #16
-  %333 = icmp eq ptr %.156.i, null
+  %333 = icmp eq ptr %.055.i, null
   br i1 %333, label %334, label %335
 
 334:                                              ; preds = %Vec_IntFree.exit80
@@ -809,13 +809,13 @@ Vec_IntFree.exit80:                               ; preds = %Wlc_NtkAbsRefinemen
   br label %338
 
 338:                                              ; preds = %337, %335
-  %339 = getelementptr i8, ptr %.156.i, i64 4
+  %339 = getelementptr i8, ptr %.055.i, i64 4
   %.val1316.i = load i32, ptr %339, align 4
   %340 = icmp sgt i32 %.val1316.i, 0
   br i1 %340, label %.lr.ph.i82, label %Wlc_NtkRemoveFromAbstraction.exit
 
 .lr.ph.i82:                                       ; preds = %338
-  %341 = getelementptr i8, ptr %.156.i, i64 8
+  %341 = getelementptr i8, ptr %.055.i, i64 8
   br label %342
 
 342:                                              ; preds = %Wlc_NtkMarkMffc.exit.i, %.lr.ph.i82
@@ -895,7 +895,7 @@ Wlc_NtkRemoveFromAbstraction.exit:                ; preds = %Wlc_NtkMarkMffc.exi
   br label %379
 
 379:                                              ; preds = %375, %Wlc_NtkRemoveFromAbstraction.exit
-  %380 = getelementptr inbounds i8, ptr %.156.i, i64 8
+  %380 = getelementptr inbounds i8, ptr %.055.i, i64 8
   %381 = load ptr, ptr %380, align 8
   %.not.i90 = icmp eq ptr %381, null
   br i1 %.not.i90, label %Vec_IntFree.exit91, label %382
@@ -905,7 +905,7 @@ Wlc_NtkRemoveFromAbstraction.exit:                ; preds = %Wlc_NtkMarkMffc.exi
   br label %Vec_IntFree.exit91
 
 Vec_IntFree.exit91:                               ; preds = %379, %382
-  call void @free(ptr noundef nonnull %.156.i) #16
+  call void @free(ptr noundef nonnull %.055.i) #16
   call void @Abc_CexFree(ptr noundef nonnull %197) #16
   %383 = add nuw nsw i32 %.0124, 1
   %384 = load i32, ptr %33, align 8

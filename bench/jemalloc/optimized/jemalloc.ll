@@ -1750,17 +1750,17 @@ if.then113.i239:                                  ; preds = %if.then.i159.i, %if
   br label %if.then
 
 if.then:                                          ; preds = %land.lhs.true70.i212, %land.lhs.true73.i215, %if.then81.i220, %if.then113.i239
-  %ret.7.ph = phi ptr [ %retval.i441.0, %land.lhs.true70.i212 ], [ %retval.i441.0, %land.lhs.true73.i215 ], [ %retval.i441.0, %if.then81.i220 ], [ null, %if.then113.i239 ]
+  %ret.0.ph = phi ptr [ %retval.i441.0, %land.lhs.true70.i212 ], [ %retval.i441.0, %land.lhs.true73.i215 ], [ %retval.i441.0, %if.then81.i220 ], [ null, %if.then113.i239 ]
   store i64 %size, ptr %args, align 16
   %scevgep = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false)
-  %77 = ptrtoint ptr %ret.7.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 0, ptr noundef %ret.7.ph, i64 noundef %77, ptr noundef nonnull %args) #19
+  %77 = ptrtoint ptr %ret.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 0, ptr noundef %ret.0.ph, i64 noundef %77, ptr noundef nonnull %args) #19
   br label %do.end
 
 do.end:                                           ; preds = %if.then.i42, %if.end62.i, %if.else.i1668, %if.then113.i, %if.then
-  %ret.7833 = phi ptr [ %ret.7.ph, %if.then ], [ null, %if.then.i42 ], [ null, %if.then113.i ], [ %retval.i52.i623.0, %if.else.i1668 ], [ %retval.i52.i623.0, %if.end62.i ]
-  ret ptr %ret.7833
+  %ret.0833 = phi ptr [ %ret.0.ph, %if.then ], [ null, %if.then.i42 ], [ null, %if.then113.i ], [ %retval.i52.i623.0, %if.else.i1668 ], [ %retval.i52.i623.0, %if.end62.i ]
+  ret ptr %ret.0833
 }
 
 declare void @hook_invoke_alloc(i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
@@ -2667,19 +2667,19 @@ if.then121.i361:                                  ; preds = %lor.rhs.i150, %if.e
   br label %if.then
 
 if.then:                                          ; preds = %land.lhs.true70.i215, %land.lhs.true73.i218, %if.then81.i223, %if.then121.i361, %if.then113.i242
-  %ret.7.ph = phi ptr [ %call12.i, %land.lhs.true70.i215 ], [ %call12.i, %land.lhs.true73.i218 ], [ %call12.i, %if.then81.i223 ], [ null, %if.then121.i361 ], [ null, %if.then113.i242 ]
+  %ret.0.ph = phi ptr [ %call12.i, %land.lhs.true70.i215 ], [ %call12.i, %land.lhs.true73.i218 ], [ %call12.i, %if.then81.i223 ], [ null, %if.then121.i361 ], [ null, %if.then113.i242 ]
   store i64 %alignment, ptr %args, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store i64 %size, ptr %arrayinit.element, align 8
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
-  %35 = ptrtoint ptr %ret.7.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 2, ptr noundef %ret.7.ph, i64 noundef %35, ptr noundef nonnull %args) #19
+  %35 = ptrtoint ptr %ret.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 2, ptr noundef %ret.0.ph, i64 noundef %35, ptr noundef nonnull %args) #19
   br label %do.end4
 
 do.end4:                                          ; preds = %if.then.i45, %if.end62.i, %if.else.i1671, %if.then121.i, %if.then113.i, %if.then
-  %ret.7802 = phi ptr [ %ret.7.ph, %if.then ], [ null, %if.then.i45 ], [ null, %if.then113.i ], [ null, %if.then121.i ], [ %call12.i1171, %if.else.i1671 ], [ %call12.i1171, %if.end62.i ]
-  ret ptr %ret.7802
+  %ret.0802 = phi ptr [ %ret.0.ph, %if.then ], [ null, %if.then.i45 ], [ null, %if.then113.i ], [ null, %if.then121.i ], [ %call12.i1171, %if.else.i1671 ], [ %call12.i1171, %if.end62.i ]
+  ret ptr %ret.0802
 }
 
 ; Function Attrs: nounwind allocsize(0,1) uwtable
@@ -3305,19 +3305,19 @@ if.then113.i241:                                  ; preds = %if.then.i159.i, %if
   br label %if.then
 
 if.then:                                          ; preds = %if.else.i1653, %if.end62.i206, %if.then113.i241
-  %ret.7 = phi ptr [ null, %if.then113.i241 ], [ %retval.i443.0, %if.end62.i206 ], [ %retval.i443.0, %if.else.i1653 ]
+  %ret.0 = phi ptr [ null, %if.then113.i241 ], [ %retval.i443.0, %if.end62.i206 ], [ %retval.i443.0, %if.else.i1653 ]
   store i64 %num, ptr %args, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store i64 %size, ptr %arrayinit.element, align 8
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
-  %77 = ptrtoint ptr %ret.7 to i64
-  call void @hook_invoke_alloc(i32 noundef 3, ptr noundef %ret.7, i64 noundef %77, ptr noundef nonnull %args) #19
+  %77 = ptrtoint ptr %ret.0 to i64
+  call void @hook_invoke_alloc(i32 noundef 3, ptr noundef %ret.0, i64 noundef %77, ptr noundef nonnull %args) #19
   br label %do.end3
 
 do.end3:                                          ; preds = %if.then113.i, %if.else.i1670, %if.end62.i, %if.then.i44, %if.then
-  %ret.7867 = phi ptr [ %ret.7, %if.then ], [ %retval.i52.i625.0, %if.end62.i ], [ %retval.i52.i625.0, %if.else.i1670 ], [ null, %if.then113.i ], [ null, %if.then.i44 ]
-  ret ptr %ret.7867
+  %ret.0867 = phi ptr [ %ret.0, %if.then ], [ %retval.i52.i625.0, %if.end62.i ], [ %retval.i52.i625.0, %if.else.i1670 ], [ null, %if.then113.i ], [ null, %if.then.i44 ]
+  ret ptr %ret.0867
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4297,19 +4297,19 @@ if.then81.i223:                                   ; preds = %land.lhs.true73.i21
   br label %if.then
 
 if.then:                                          ; preds = %arena_get_from_ind.exit.i, %sz_s2u.exit.i1337, %if.end5.i, %if.end.i146, %lor.rhs.i150, %if.end26.i.i182, %imalloc_no_sample.exit, %land.lhs.true70.i215, %land.lhs.true73.i218, %if.then81.i223
-  %ret.7.ph = phi ptr [ null, %if.end.i146 ], [ null, %lor.rhs.i150 ], [ null, %if.end26.i.i182 ], [ null, %imalloc_no_sample.exit ], [ %call12.i, %land.lhs.true70.i215 ], [ %call12.i, %land.lhs.true73.i218 ], [ %call12.i, %if.then81.i223 ], [ null, %if.end5.i ], [ null, %sz_s2u.exit.i1337 ], [ null, %arena_get_from_ind.exit.i ]
+  %ret.0.ph = phi ptr [ null, %if.end.i146 ], [ null, %lor.rhs.i150 ], [ null, %if.end26.i.i182 ], [ null, %imalloc_no_sample.exit ], [ %call12.i, %land.lhs.true70.i215 ], [ %call12.i, %land.lhs.true73.i218 ], [ %call12.i, %if.then81.i223 ], [ null, %if.end5.i ], [ null, %sz_s2u.exit.i1337 ], [ null, %arena_get_from_ind.exit.i ]
   store i64 %alignment, ptr %args, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store i64 %size, ptr %arrayinit.element, align 8
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
-  %35 = ptrtoint ptr %ret.7.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 4, ptr noundef %ret.7.ph, i64 noundef %35, ptr noundef nonnull %args) #19
+  %35 = ptrtoint ptr %ret.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 4, ptr noundef %ret.0.ph, i64 noundef %35, ptr noundef nonnull %args) #19
   br label %do.end4
 
 do.end4:                                          ; preds = %sz_s2u.exit.i1463, %if.end5.i1425, %if.then.i45, %if.end.i61, %lor.rhs.i, %if.end26.i.i, %if.end38.i.i, %if.end62.i, %if.else.i1671, %if.then
-  %ret.7790 = phi ptr [ %ret.7.ph, %if.then ], [ null, %if.then.i45 ], [ %call12.i1171, %if.else.i1671 ], [ %call12.i1171, %if.end62.i ], [ null, %if.end38.i.i ], [ null, %if.end26.i.i ], [ null, %lor.rhs.i ], [ null, %if.end.i61 ], [ null, %if.end5.i1425 ], [ null, %sz_s2u.exit.i1463 ]
-  ret ptr %ret.7790
+  %ret.0790 = phi ptr [ %ret.0.ph, %if.then ], [ null, %if.then.i45 ], [ %call12.i1171, %if.else.i1671 ], [ %call12.i1171, %if.end62.i ], [ null, %if.end38.i.i ], [ null, %if.end26.i.i ], [ null, %lor.rhs.i ], [ null, %if.end.i61 ], [ null, %if.end5.i1425 ], [ null, %sz_s2u.exit.i1463 ]
+  ret ptr %ret.0790
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4653,17 +4653,17 @@ if.then81.i222:                                   ; preds = %land.lhs.true73.i21
   br label %if.then
 
 if.then:                                          ; preds = %arena_get_from_ind.exit.i, %sz_s2u.exit.i1336, %if.end26.i.i181, %imalloc_no_sample.exit, %land.lhs.true70.i214, %land.lhs.true73.i217, %if.then81.i222
-  %ret.7.ph = phi ptr [ null, %if.end26.i.i181 ], [ null, %imalloc_no_sample.exit ], [ %call12.i, %land.lhs.true70.i214 ], [ %call12.i, %land.lhs.true73.i217 ], [ %call12.i, %if.then81.i222 ], [ null, %sz_s2u.exit.i1336 ], [ null, %arena_get_from_ind.exit.i ]
+  %ret.0.ph = phi ptr [ null, %if.end26.i.i181 ], [ null, %imalloc_no_sample.exit ], [ %call12.i, %land.lhs.true70.i214 ], [ %call12.i, %land.lhs.true73.i217 ], [ %call12.i, %if.then81.i222 ], [ null, %sz_s2u.exit.i1336 ], [ null, %arena_get_from_ind.exit.i ]
   store i64 %size, ptr %args, align 16
   %scevgep = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false)
-  %35 = ptrtoint ptr %ret.7.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 5, ptr noundef %ret.7.ph, i64 noundef %35, ptr noundef nonnull %args) #19
+  %35 = ptrtoint ptr %ret.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 5, ptr noundef %ret.0.ph, i64 noundef %35, ptr noundef nonnull %args) #19
   br label %do.end3
 
 do.end3:                                          ; preds = %sz_s2u.exit.i1462, %if.then.i44, %if.end26.i.i, %if.end38.i.i, %if.end62.i, %if.else.i1670, %if.then
-  %ret.7786 = phi ptr [ %ret.7.ph, %if.then ], [ null, %if.then.i44 ], [ %call12.i1170, %if.else.i1670 ], [ %call12.i1170, %if.end62.i ], [ null, %if.end38.i.i ], [ null, %if.end26.i.i ], [ null, %sz_s2u.exit.i1462 ]
-  ret ptr %ret.7786
+  %ret.0786 = phi ptr [ %ret.0.ph, %if.then ], [ null, %if.then.i44 ], [ %call12.i1170, %if.else.i1670 ], [ %call12.i1170, %if.end62.i ], [ null, %if.end38.i.i ], [ null, %if.end26.i.i ], [ null, %sz_s2u.exit.i1462 ]
+  ret ptr %ret.0786
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4997,17 +4997,17 @@ if.then81.i222:                                   ; preds = %land.lhs.true73.i21
   br label %if.then
 
 if.then:                                          ; preds = %arena_get_from_ind.exit.i, %sz_s2u.exit.i1336, %if.end26.i.i181, %imalloc_no_sample.exit, %land.lhs.true70.i214, %land.lhs.true73.i217, %if.then81.i222
-  %ret.7.ph = phi ptr [ null, %if.end26.i.i181 ], [ null, %imalloc_no_sample.exit ], [ %call12.i, %land.lhs.true70.i214 ], [ %call12.i, %land.lhs.true73.i217 ], [ %call12.i, %if.then81.i222 ], [ null, %sz_s2u.exit.i1336 ], [ null, %arena_get_from_ind.exit.i ]
+  %ret.0.ph = phi ptr [ null, %if.end26.i.i181 ], [ null, %imalloc_no_sample.exit ], [ %call12.i, %land.lhs.true70.i214 ], [ %call12.i, %land.lhs.true73.i217 ], [ %call12.i, %if.then81.i222 ], [ null, %sz_s2u.exit.i1336 ], [ null, %arena_get_from_ind.exit.i ]
   store i64 %size, ptr %args, align 16
   %scevgep = getelementptr inbounds i8, ptr %args, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %scevgep, i8 0, i64 16, i1 false)
-  %35 = ptrtoint ptr %ret.7.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 6, ptr noundef %ret.7.ph, i64 noundef %35, ptr noundef nonnull %args) #19
+  %35 = ptrtoint ptr %ret.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 6, ptr noundef %ret.0.ph, i64 noundef %35, ptr noundef nonnull %args) #19
   br label %do.end3
 
 do.end3:                                          ; preds = %sz_s2u.exit.i1462, %if.then.i44, %if.end26.i.i, %if.end38.i.i, %if.end62.i, %if.else.i1670, %if.then
-  %ret.7790 = phi ptr [ %ret.7.ph, %if.then ], [ null, %if.then.i44 ], [ %call12.i1170, %if.else.i1670 ], [ %call12.i1170, %if.end62.i ], [ null, %if.end38.i.i ], [ null, %if.end26.i.i ], [ null, %sz_s2u.exit.i1462 ]
-  ret ptr %ret.7790
+  %ret.0790 = phi ptr [ %ret.0.ph, %if.then ], [ null, %if.then.i44 ], [ %call12.i1170, %if.else.i1670 ], [ %call12.i1170, %if.end62.i ], [ null, %if.end38.i.i ], [ null, %if.end26.i.i ], [ null, %sz_s2u.exit.i1462 ]
+  ret ptr %ret.0790
 }
 
 ; Function Attrs: nounwind allocsize(0) uwtable
@@ -5206,9 +5206,9 @@ aligned_usize_get.exit.i:                         ; preds = %if.end18.i1497, %sz
   br i1 %or.cond, label %do.end13, label %if.end24.i
 
 if.end24.i:                                       ; preds = %aligned_usize_get.exit.i.thread823, %aligned_usize_get.exit.i
-  %usize.i83.1828 = phi i64 [ %8, %aligned_usize_get.exit.i.thread823 ], [ %retval.i1451.0, %aligned_usize_get.exit.i ]
+  %usize.i83.0828 = phi i64 [ %8, %aligned_usize_get.exit.i.thread823 ], [ %retval.i1451.0, %aligned_usize_get.exit.i ]
   %ind.i.0827 = phi i32 [ %retval.i151.i.0, %aligned_usize_get.exit.i.thread823 ], [ 0, %aligned_usize_get.exit.i ]
-  %cmp.i161.i = icmp ult i64 %usize.i83.1828, 14337
+  %cmp.i161.i = icmp ult i64 %usize.i83.0828, 14337
   switch i32 %dopts.sroa.60.0, label %if.else28.i.i718 [
     i32 -2, label %if.then5.i.i1077
     i32 -1, label %tcache_get_from_ind.exit.i721
@@ -5259,7 +5259,7 @@ if.end.i733:                                      ; preds = %if.else.i24.i724, %
   br i1 %cmp.i.i, label %if.end.i36.i753, label %if.then4.i1045
 
 if.then4.i1045:                                   ; preds = %if.end.i733
-  %call12.i1201 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1241.0881, ptr noundef %arena.i709.1837, i64 noundef %usize.i83.1828, i64 noundef %dopts.sroa.34.0, i1 noundef zeroext %tobool16.i, i1 noundef zeroext %cmp.i161.i, ptr noundef %tcache.i.i697.0) #19
+  %call12.i1201 = tail call ptr @arena_palloc(ptr noundef nonnull %retval.i1241.0881, ptr noundef %arena.i709.1837, i64 noundef %usize.i83.0828, i64 noundef %dopts.sroa.34.0, i1 noundef zeroext %tobool16.i, i1 noundef zeroext %cmp.i161.i, ptr noundef %tcache.i.i697.0) #19
   br label %imalloc_no_sample.exit1079
 
 if.end.i36.i753:                                  ; preds = %if.end.i733
@@ -5461,11 +5461,11 @@ if.end62.i:                                       ; preds = %imalloc_no_sample.e
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i1691, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i1802, ptr %next_event_fast.i, align 8
   %42 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %add.i1695 = add i64 %42, %usize.i83.1828
+  %add.i1695 = add i64 %42, %usize.i83.0828
   store i64 %add.i1695, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
   %43 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
   %sub.i1697 = sub i64 %43, %42
-  %cmp.i1698 = icmp ult i64 %usize.i83.1828, %sub.i1697
+  %cmp.i1698 = icmp ult i64 %usize.i83.0828, %sub.i1697
   br i1 %cmp.i1698, label %do.end13, label %if.else.i1702
 
 if.else.i1702:                                    ; preds = %if.end62.i
@@ -5625,14 +5625,14 @@ aligned_usize_get.exit.i221:                      ; preds = %if.end18.i, %sz_s2u
   br i1 %or.cond768, label %if.then8, label %if.end24.i222
 
 if.end24.i222:                                    ; preds = %aligned_usize_get.exit.i221.thread852, %aligned_usize_get.exit.i221
-  %usize.i169.1857 = phi i64 [ %50, %aligned_usize_get.exit.i221.thread852 ], [ %retval.i1352.0, %aligned_usize_get.exit.i221 ]
+  %usize.i169.0857 = phi i64 [ %50, %aligned_usize_get.exit.i221.thread852 ], [ %retval.i1352.0, %aligned_usize_get.exit.i221 ]
   %ind.i168.0856 = phi i32 [ %retval.i151.i139.0, %aligned_usize_get.exit.i221.thread852 ], [ 0, %aligned_usize_get.exit.i221 ]
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i2030 = getelementptr inbounds i8, ptr %call13.i, i64 1
   %57 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i2030, align 1
   %cmp35.i277 = icmp sgt i8 %57, 0
   %spec.select = select i1 %cmp35.i277, i32 -1, i32 %dopts.sroa.60.0
   %spec.select769 = select i1 %cmp35.i277, i32 0, i32 %dopts.sroa.66.0
-  %cmp.i161.i231 = icmp ult i64 %usize.i169.1857, 14337
+  %cmp.i161.i231 = icmp ult i64 %usize.i169.0857, 14337
   switch i32 %spec.select, label %if.else28.i.i [
     i32 -2, label %if.then18.i.i
     i32 -1, label %tcache_get_from_ind.exit.i
@@ -5686,7 +5686,7 @@ if.end.i487:                                      ; preds = %if.else.i24.i, %tca
   br i1 %cmp.i.i207, label %if.end.i36.i, label %if.then4.i540
 
 if.then4.i540:                                    ; preds = %if.end.i487
-  %call12.i = tail call ptr @arena_palloc(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1866, i64 noundef %usize.i169.1857, i64 noundef %dopts.sroa.34.0, i1 noundef zeroext %retval.i.i151.0, i1 noundef zeroext %cmp.i161.i231, ptr noundef %tcache.i.i.0) #19
+  %call12.i = tail call ptr @arena_palloc(ptr noundef nonnull %call13.i, ptr noundef %arena.i.1866, i64 noundef %usize.i169.0857, i64 noundef %dopts.sroa.34.0, i1 noundef zeroext %retval.i.i151.0, i1 noundef zeroext %cmp.i161.i231, ptr noundef %tcache.i.i.0) #19
   br label %imalloc_no_sample.exit
 
 if.end.i36.i:                                     ; preds = %if.end.i487
@@ -5888,11 +5888,11 @@ if.end62.i237:                                    ; preds = %imalloc_no_sample.e
   %next_event_fast.i1758 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i, ptr %next_event_fast.i1758, align 8
   %86 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1751, align 8
-  %add.i1679 = add i64 %86, %usize.i169.1857
+  %add.i1679 = add i64 %86, %usize.i169.0857
   store i64 %add.i1679, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i1751, align 8
   %87 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i1839, align 8
   %sub.i1680 = sub i64 %87, %86
-  %cmp.i1681 = icmp ult i64 %usize.i169.1857, %sub.i1680
+  %cmp.i1681 = icmp ult i64 %usize.i169.0857, %sub.i1680
   br i1 %cmp.i1681, label %land.lhs.true70.i245, label %if.else.i1685
 
 if.else.i1685:                                    ; preds = %if.end62.i237
@@ -5908,24 +5908,24 @@ land.lhs.true73.i248:                             ; preds = %land.lhs.true70.i24
   br i1 %tobool74.i249, label %if.then81.i253, label %if.then8
 
 if.then81.i253:                                   ; preds = %land.lhs.true73.i248
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %retval.i474.0, i8 -91, i64 %usize.i169.1857, i1 false)
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %retval.i474.0, i8 -91, i64 %usize.i169.0857, i1 false)
   br label %if.then8
 
 if.then8:                                         ; preds = %if.then.i159.i, %if.end27.i.i, %if.then.i105.i, %arena_get_from_ind.exit.i, %sz_s2u.exit.i1367, %if.end5.i, %if.end.i157.i355, %sz_size2index.exit.i357, %imalloc_no_sample.exit, %aligned_usize_get.exit.i221, %land.lhs.true70.i245, %land.lhs.true73.i248, %if.then81.i253
-  %ret.7.ph = phi ptr [ null, %imalloc_no_sample.exit ], [ null, %aligned_usize_get.exit.i221 ], [ %retval.i474.0, %land.lhs.true70.i245 ], [ %retval.i474.0, %land.lhs.true73.i248 ], [ %retval.i474.0, %if.then81.i253 ], [ null, %sz_size2index.exit.i357 ], [ null, %if.end.i157.i355 ], [ null, %if.end5.i ], [ null, %sz_s2u.exit.i1367 ], [ null, %arena_get_from_ind.exit.i ], [ null, %if.then.i105.i ], [ null, %if.end27.i.i ], [ null, %if.then.i159.i ]
+  %ret.0.ph = phi ptr [ null, %imalloc_no_sample.exit ], [ null, %aligned_usize_get.exit.i221 ], [ %retval.i474.0, %land.lhs.true70.i245 ], [ %retval.i474.0, %land.lhs.true73.i248 ], [ %retval.i474.0, %if.then81.i253 ], [ null, %sz_size2index.exit.i357 ], [ null, %if.end.i157.i355 ], [ null, %if.end5.i ], [ null, %sz_s2u.exit.i1367 ], [ null, %arena_get_from_ind.exit.i ], [ null, %if.then.i105.i ], [ null, %if.end27.i.i ], [ null, %if.then.i159.i ]
   store i64 %size, ptr %args, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   %conv9 = sext i32 %flags to i64
   store i64 %conv9, ptr %arrayinit.element, align 8
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
-  %89 = ptrtoint ptr %ret.7.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 7, ptr noundef %ret.7.ph, i64 noundef %89, ptr noundef nonnull %args) #19
+  %89 = ptrtoint ptr %ret.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 7, ptr noundef %ret.0.ph, i64 noundef %89, ptr noundef nonnull %args) #19
   br label %do.end13
 
 do.end13:                                         ; preds = %if.then.i159.i845, %if.end27.i.i1011, %if.then.i105.i986, %arena_get_from_ind.exit.i732, %sz_s2u.exit.i1494, %if.end5.i1456, %if.end.i157.i, %sz_size2index.exit.i, %if.then.i73, %imalloc_no_sample.exit1079, %aligned_usize_get.exit.i, %if.end62.i, %if.else.i1702, %if.then8
-  %ret.7877 = phi ptr [ %ret.7.ph, %if.then8 ], [ null, %if.then.i73 ], [ %retval.i700.0, %if.else.i1702 ], [ %retval.i700.0, %if.end62.i ], [ null, %aligned_usize_get.exit.i ], [ null, %imalloc_no_sample.exit1079 ], [ null, %sz_size2index.exit.i ], [ null, %if.end.i157.i ], [ null, %if.end5.i1456 ], [ null, %sz_s2u.exit.i1494 ], [ null, %arena_get_from_ind.exit.i732 ], [ null, %if.then.i105.i986 ], [ null, %if.end27.i.i1011 ], [ null, %if.then.i159.i845 ]
-  ret ptr %ret.7877
+  %ret.0877 = phi ptr [ %ret.0.ph, %if.then8 ], [ null, %if.then.i73 ], [ %retval.i700.0, %if.else.i1702 ], [ %retval.i700.0, %if.end62.i ], [ null, %aligned_usize_get.exit.i ], [ null, %imalloc_no_sample.exit1079 ], [ null, %sz_size2index.exit.i ], [ null, %if.end.i157.i ], [ null, %if.end5.i1456 ], [ null, %sz_s2u.exit.i1494 ], [ null, %arena_get_from_ind.exit.i732 ], [ null, %if.then.i105.i986 ], [ null, %if.end27.i.i1011 ], [ null, %if.then.i159.i845 ]
+  ret ptr %ret.0877
 }
 
 ; Function Attrs: nounwind allocsize(1) uwtable
@@ -6167,8 +6167,8 @@ if.end18.i445:                                    ; preds = %sz_s2u.exit38.i518,
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %sz_s2u.exit38.i518, %if.end18.i445, %if.then.i140, %if.end14.i
-  %usize.0 = phi i64 [ %12, %if.then.i140 ], [ %and.i154, %if.end14.i ], [ %retval.i28.i395.0, %sz_s2u.exit38.i518 ], [ %.usize.i402.0, %if.end18.i445 ]
-  %19 = add i64 %usize.0, -8070450532247928833
+  %usize.1 = phi i64 [ %12, %if.then.i140 ], [ %and.i154, %if.end14.i ], [ %retval.i28.i395.0, %sz_s2u.exit38.i518 ], [ %.usize.i402.0, %if.end18.i445 ]
+  %19 = add i64 %usize.1, -8070450532247928833
   %or.cond = icmp ult i64 %19, -8070450532247928832
   br i1 %or.cond, label %return, label %if.end38.i
 
@@ -6183,7 +6183,7 @@ if.end38.i:                                       ; preds = %if.end26.i
   store i64 %conv, ptr %arrayinit.element26, align 8
   %arrayinit.element27 = getelementptr inbounds i8, ptr %hook_args, i64 32
   store i64 0, ptr %arrayinit.element27, align 8
-  %cmp.i.i = icmp ult i64 %usize.0, 14337
+  %cmp.i.i = icmp ult i64 %usize.1, 14337
   br i1 %cmp.i102, label %iralloct_explicit_slab.exit, label %land.lhs.true.i272
 
 land.lhs.true.i272:                               ; preds = %if.end38.i
@@ -6451,11 +6451,11 @@ do.end40:                                         ; preds = %if.then.i612, %if.t
   %next_event_fast.i = getelementptr inbounds i8, ptr %ctx.i687, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event_fast.i.i799, ptr %next_event_fast.i, align 8
   %53 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
-  %add.i691 = add i64 %53, %usize.0
+  %add.i691 = add i64 %53, %usize.1
   store i64 %add.i691, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, align 8
   %54 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_next_event.i, align 8
   %sub.i693 = sub i64 %54, %53
-  %cmp.i694 = icmp ult i64 %usize.0, %sub.i693
+  %cmp.i694 = icmp ult i64 %usize.1, %sub.i693
   br i1 %cmp.i694, label %te_event_advance.exit701, label %if.else.i698
 
 if.else.i698:                                     ; preds = %do.end40
@@ -6491,14 +6491,14 @@ if.else.i681:                                     ; preds = %te_event_advance.ex
 te_event_advance.exit:                            ; preds = %te_event_advance.exit701, %if.else.i681
   %57 = load i8, ptr @opt_junk_alloc, align 1
   %tobool42 = trunc i8 %57 to i1
-  %cmp49 = icmp ule i64 %usize.0, %10
+  %cmp49 = icmp ule i64 %usize.1, %10
   %not.tobool42 = xor i1 %tobool42, true
   %or.cond376 = select i1 %not.tobool42, i1 true, i1 %cmp49
   %brmerge = select i1 %or.cond376, i1 true, i1 %retval.i81.0
   br i1 %brmerge, label %return, label %if.then53
 
 if.then53:                                        ; preds = %te_event_advance.exit
-  %sub = sub nuw nsw i64 %usize.0, %10
+  %sub = sub nuw nsw i64 %usize.1, %10
   %add.ptr = getelementptr inbounds i8, ptr %retval.i256.0410, i64 %10
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr, i8 -91, i64 %sub, i1 false)
   br label %return
@@ -7359,19 +7359,19 @@ if.then113.i259:                                  ; preds = %if.then.i159.i, %if
   br label %if.then18
 
 if.then18:                                        ; preds = %land.lhs.true70.i232, %land.lhs.true73.i235, %if.then81.i240, %if.then113.i259
-  %ret15.7.ph = phi ptr [ %retval.i461.0, %land.lhs.true70.i232 ], [ %retval.i461.0, %land.lhs.true73.i235 ], [ %retval.i461.0, %if.then81.i240 ], [ null, %if.then113.i259 ]
+  %ret15.0.ph = phi ptr [ %retval.i461.0, %land.lhs.true70.i232 ], [ %retval.i461.0, %land.lhs.true73.i235 ], [ %retval.i461.0, %if.then81.i240 ], [ null, %if.then113.i259 ]
   %114 = ptrtoint ptr %ptr to i64
   store i64 %114, ptr %args, align 16
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store i64 %size, ptr %arrayinit.element, align 8
   %arrayinit.cur.ptr = getelementptr inbounds i8, ptr %args, i64 16
   store i64 0, ptr %arrayinit.cur.ptr, align 16
-  %115 = ptrtoint ptr %ret15.7.ph to i64
-  call void @hook_invoke_alloc(i32 noundef 8, ptr noundef %ret15.7.ph, i64 noundef %115, ptr noundef nonnull %args) #19
+  %115 = ptrtoint ptr %ret15.0.ph to i64
+  call void @hook_invoke_alloc(i32 noundef 8, ptr noundef %ret15.0.ph, i64 noundef %115, ptr noundef nonnull %args) #19
   br label %return
 
 return:                                           ; preds = %if.then.i62, %if.end62.i, %if.else.i1688, %if.then113.i, %if.then18, %do_realloc_nonnull_zero.exit, %if.then
-  %retval.0 = phi ptr [ %call, %if.then ], [ %retval.0.i, %do_realloc_nonnull_zero.exit ], [ %ret15.7.ph, %if.then18 ], [ null, %if.then.i62 ], [ null, %if.then113.i ], [ %retval.i52.i643.0, %if.else.i1688 ], [ %retval.i52.i643.0, %if.end62.i ]
+  %retval.0 = phi ptr [ %call, %if.then ], [ %retval.0.i, %do_realloc_nonnull_zero.exit ], [ %ret15.0.ph, %if.then18 ], [ null, %if.then.i62 ], [ null, %if.then113.i ], [ %retval.i52.i643.0, %if.else.i1688 ], [ %retval.i52.i643.0, %if.end62.i ]
   ret ptr %retval.0
 }
 
@@ -7523,7 +7523,7 @@ if.then60:                                        ; preds = %te_event_advance.ex
   br label %label_not_resized
 
 label_not_resized:                                ; preds = %ixallocx_helper.exit.thread, %te_event_advance.exit, %tsdn_rtree_ctx.exit, %if.then60, %ixallocx_helper.exit
-  %extra.addr.1 = phi i64 [ %spec.select, %ixallocx_helper.exit ], [ %spec.select, %if.then60 ], [ %spec.select, %te_event_advance.exit ], [ %extra, %tsdn_rtree_ctx.exit ], [ %spec.select, %ixallocx_helper.exit.thread ]
+  %extra.addr.0 = phi i64 [ %spec.select, %ixallocx_helper.exit ], [ %spec.select, %if.then60 ], [ %spec.select, %te_event_advance.exit ], [ %extra, %tsdn_rtree_ctx.exit ], [ %spec.select, %ixallocx_helper.exit.thread ]
   %usize.0 = phi i64 [ %6, %ixallocx_helper.exit ], [ %spec.select118, %if.then60 ], [ %spec.select118, %te_event_advance.exit ], [ %6, %tsdn_rtree_ctx.exit ], [ %6, %ixallocx_helper.exit.thread ]
   %state.i = getelementptr inbounds i8, ptr %retval.i118.0121128, i64 824
   %13 = load i8, ptr %state.i, align 8
@@ -7535,7 +7535,7 @@ if.then72:                                        ; preds = %label_not_resized
   %arrayinit.element = getelementptr inbounds i8, ptr %args, i64 8
   store i64 %size, ptr %arrayinit.element, align 8
   %arrayinit.element73 = getelementptr inbounds i8, ptr %args, i64 16
-  store i64 %extra.addr.1, ptr %arrayinit.element73, align 16
+  store i64 %extra.addr.0, ptr %arrayinit.element73, align 16
   %arrayinit.element74 = getelementptr inbounds i8, ptr %args, i64 24
   %conv75 = sext i32 %flags to i64
   store i64 %conv75, ptr %arrayinit.element74, align 8
@@ -8128,8 +8128,8 @@ if.end18.i:                                       ; preds = %sz_s2u.exit38.i, %i
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %sz_s2u.exit38.i, %if.end5.i282, %sz_s2u.exit.i, %if.end18.i, %if.then.i156, %if.end.i154, %if.end14.i
-  %usize.i.0 = phi i64 [ %4, %if.then.i156 ], [ %and.i169, %if.end14.i ], [ 0, %if.end.i154 ], [ %retval.i28.i.0, %sz_s2u.exit38.i ], [ 0, %if.end5.i282 ], [ 0, %sz_s2u.exit.i ], [ %.usize.i280.0, %if.end18.i ]
-  %cmp29.i = icmp ugt i64 %usize.i.0, 8070450532247928832
+  %usize.i.1 = phi i64 [ %4, %if.then.i156 ], [ %and.i169, %if.end14.i ], [ 0, %if.end.i154 ], [ %retval.i28.i.0, %sz_s2u.exit38.i ], [ 0, %if.end5.i282 ], [ 0, %sz_s2u.exit.i ], [ %.usize.i280.0, %if.end18.i ]
+  %cmp29.i = icmp ugt i64 %usize.i.1, 8070450532247928832
   %and.i = and i32 %flags, 1048320
   switch i32 %and.i, label %mallocx_tcache_get.exit [
     i32 0, label %if.then.i24
@@ -8191,7 +8191,7 @@ tcache_get_from_ind.exit:                         ; preds = %if.then10.i, %if.el
 
 if.end.i68:                                       ; preds = %tcache_get_from_ind.exit.thread650, %tcache_get_from_ind.exit
   %tcache.i.0652 = phi ptr [ %cant_access_tsd_items_directly_use_a_getter_or_setter_tcache.i, %tcache_get_from_ind.exit.thread650 ], [ %tcache.i.0, %tcache_get_from_ind.exit ]
-  %cmp.i128 = icmp ult i64 %usize.i.0, 4097
+  %cmp.i128 = icmp ult i64 %usize.i.1, 4097
   %cmp.i1039654 = icmp eq ptr %tcache.i.0652, null
   br i1 %cmp.i128, label %if.then25.i94.thread, label %if.end.i132
 
@@ -8202,11 +8202,11 @@ if.then25.i94.thread:                             ; preds = %if.end.i68
   br i1 %cmp.i1039654, label %if.then.i1215, label %if.then.i.i1209
 
 if.then.i1215:                                    ; preds = %if.then25.i94.thread, %if.end.i132
-  tail call fastcc void @arena_sdalloc_no_tcache(ptr noundef nonnull %retval.i224.0, ptr noundef %ptr, i64 noundef %usize.i.0)
+  tail call fastcc void @arena_sdalloc_no_tcache(ptr noundef nonnull %retval.i224.0, ptr noundef %ptr, i64 noundef %usize.i.1)
   br label %if.end34.i90
 
 if.then.i.i1209:                                  ; preds = %if.then25.i94.thread
-  %sub.i.i1211 = add nuw nsw i64 %usize.i.0, 7
+  %sub.i.i1211 = add nuw nsw i64 %usize.i.1, 7
   %shr.i.i1212 = lshr i64 %sub.i.i1211, 3
   %arrayidx.i.i1213 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i1212
   %15 = load i8, ptr %arrayidx.i.i1213, align 1
@@ -8217,7 +8217,7 @@ if.end.i.i1048:                                   ; preds = %if.end.i132
   br i1 %cmp29.i, label %if.else.i.i1067, label %if.end12.i589
 
 if.end12.i589:                                    ; preds = %if.end.i.i1048
-  %shl.i590 = shl nuw i64 %usize.i.0, 1
+  %shl.i590 = shl nuw i64 %usize.i.1, 1
   %sub13.i591 = add i64 %shl.i590, -1
   %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i591, i1 true)
   %17 = trunc nuw nsw i64 %16 to i32
@@ -8225,7 +8225,7 @@ if.end12.i589:                                    ; preds = %if.end.i.i1048
   %sub19.i593 = xor i32 %conv1.i.i.i.i592, 252
   %sub28.i594 = sub nuw nsw i64 60, %16
   %shl31.i596 = shl nsw i64 -1, %sub28.i594
-  %sub32.i597 = add nsw i64 %usize.i.0, -1
+  %sub32.i597 = add nsw i64 %usize.i.1, -1
   %and.i598 = and i64 %shl31.i596, %sub32.i597
   %shr.i599 = lshr i64 %and.i598, %sub28.i594
   %18 = trunc i64 %shr.i599 to i32
@@ -8358,11 +8358,11 @@ if.end34.i90:                                     ; preds = %if.end.i20.i.i1107,
   %next_event_fast14.i1367 = getelementptr inbounds i8, ptr %ctx.i, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i, ptr %next_event_fast14.i1367, align 8
   %42 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i1360, align 8
-  %add.i1299 = add i64 %42, %usize.i.0
+  %add.i1299 = add i64 %42, %usize.i.1
   store i64 %add.i1299, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i1360, align 8
   %43 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i1465, align 8
   %sub.i1300 = sub i64 %43, %42
-  %cmp.i1301 = icmp ult i64 %usize.i.0, %sub.i1300
+  %cmp.i1301 = icmp ult i64 %usize.i.1, %sub.i1300
   br i1 %cmp.i1301, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %if.then18.i, %lor.lhs.false.i, %tcache_get_from_ind.exit
@@ -8375,13 +8375,13 @@ if.else:                                          ; preds = %if.then18.i, %lor.l
   %conv14 = sext i32 %flags to i64
   store i64 %conv14, ptr %arrayinit.element13, align 16
   call void @hook_invoke_dalloc(i32 noundef 2, ptr noundef %ptr, ptr noundef nonnull %args_raw) #19
-  %cmp.i139 = icmp ult i64 %usize.i.0, 4097
+  %cmp.i139 = icmp ult i64 %usize.i.1, 4097
   %45 = load i8, ptr @opt_junk_free, align 1
   %tobool29.i = trunc i8 %45 to i1
   br i1 %tobool29.i, label %if.then31.i, label %if.end32.i
 
 if.then31.i:                                      ; preds = %if.else
-  call void @llvm.memset.p0.i64(ptr align 1 %ptr, i8 90, i64 %usize.i.0, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %ptr, i8 90, i64 %usize.i.1, i1 false)
   br label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.then31.i, %if.else
@@ -8389,14 +8389,14 @@ if.end32.i:                                       ; preds = %if.then31.i, %if.el
   br i1 %cmp.i394, label %if.then.i418, label %if.end.i398
 
 if.then.i418:                                     ; preds = %if.end32.i
-  call fastcc void @arena_sdalloc_no_tcache(ptr noundef nonnull %retval.i224.0, ptr noundef %ptr, i64 noundef %usize.i.0)
+  call fastcc void @arena_sdalloc_no_tcache(ptr noundef nonnull %retval.i224.0, ptr noundef %ptr, i64 noundef %usize.i.1)
   br label %if.end34.i
 
 if.end.i398:                                      ; preds = %if.end32.i
   br i1 %cmp.i139, label %if.then.i.i413, label %if.end.i.i403
 
 if.then.i.i413:                                   ; preds = %if.end.i398
-  %sub.i.i415 = add nuw nsw i64 %usize.i.0, 7
+  %sub.i.i415 = add nuw nsw i64 %usize.i.1, 7
   %shr.i.i416 = lshr i64 %sub.i.i415, 3
   %arrayidx.i.i417 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i.i416
   %46 = load i8, ptr %arrayidx.i.i417, align 1
@@ -8407,7 +8407,7 @@ if.end.i.i403:                                    ; preds = %if.end.i398
   br i1 %cmp29.i, label %if.else.i.i, label %if.end12.i625
 
 if.end12.i625:                                    ; preds = %if.end.i.i403
-  %shl.i626 = shl nuw i64 %usize.i.0, 1
+  %shl.i626 = shl nuw i64 %usize.i.1, 1
   %sub13.i627 = add i64 %shl.i626, -1
   %47 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i627, i1 true)
   %48 = trunc nuw nsw i64 %47 to i32
@@ -8415,7 +8415,7 @@ if.end12.i625:                                    ; preds = %if.end.i.i403
   %sub19.i629 = xor i32 %conv1.i.i.i.i628, 252
   %sub28.i630 = sub nuw nsw i64 60, %47
   %shl31.i632 = shl nsw i64 -1, %sub28.i630
-  %sub32.i633 = add nsw i64 %usize.i.0, -1
+  %sub32.i633 = add nsw i64 %usize.i.1, -1
   %and.i634 = and i64 %shl31.i632, %sub32.i633
   %shr.i635 = lshr i64 %and.i634, %sub28.i630
   %49 = trunc i64 %shr.i635 to i32
@@ -8547,11 +8547,11 @@ if.end34.i:                                       ; preds = %if.end.i20.i.i, %if
   %next_event_fast14.i = getelementptr inbounds i8, ptr %ctx.i1311, i64 32
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event_fast.i.i1453, ptr %next_event_fast14.i, align 8
   %72 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i, align 8
-  %add.i1315 = add i64 %72, %usize.i.0
+  %add.i1315 = add i64 %72, %usize.i.1
   store i64 %add.i1315, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated.i.i, align 8
   %73 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_deallocated_next_event.i, align 8
   %sub.i1317 = sub i64 %73, %72
-  %cmp.i1318 = icmp ult i64 %usize.i.0, %sub.i1317
+  %cmp.i1318 = icmp ult i64 %usize.i.1, %sub.i1317
   br i1 %cmp.i1318, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.end34.i, %if.end34.i90
@@ -8707,10 +8707,10 @@ if.end18.i:                                       ; preds = %sz_s2u.exit38.i, %i
   br i1 %cmp24.i, label %return, label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.end18.i, %if.then.i52, %if.end14.i
-  %usize.i.0 = phi i64 [ %5, %if.then.i52 ], [ %and.i65, %if.end14.i ], [ %usize.i109.0, %if.end18.i ]
-  %usize.i.0.fr = freeze i64 %usize.i.0
-  %cmp29.i = icmp ugt i64 %usize.i.0.fr, 8070450532247928832
-  %spec.select = select i1 %cmp29.i, i64 0, i64 %usize.i.0.fr
+  %usize.i.1 = phi i64 [ %5, %if.then.i52 ], [ %and.i65, %if.end14.i ], [ %usize.i109.0, %if.end18.i ]
+  %usize.i.1.fr = freeze i64 %usize.i.1
+  %cmp29.i = icmp ugt i64 %usize.i.1.fr, 8070450532247928832
+  %spec.select = select i1 %cmp29.i, i64 0, i64 %usize.i.1.fr
   br label %return
 
 return:                                           ; preds = %if.end26.i, %if.end18.i, %sz_s2u.exit.i, %if.end5.i111, %sz_s2u.exit38.i, %if.end.i50, %land.lhs.true.i
@@ -9052,17 +9052,17 @@ if.end18.i:                                       ; preds = %sz_s2u.exit38.i, %i
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %sz_s2u.exit38.i, %if.end18.i, %if.then.i254, %if.end14.i
-  %usize.0 = phi i64 [ %4, %if.then.i254 ], [ %and.i268, %if.end14.i ], [ %retval.i28.i.0, %sz_s2u.exit38.i ], [ %.usize.i365.0, %if.end18.i ]
-  %11 = add i64 %usize.0, -8070450532247928833
+  %usize.1 = phi i64 [ %4, %if.then.i254 ], [ %and.i268, %if.end14.i ], [ %retval.i28.i.0, %sz_s2u.exit38.i ], [ %.usize.i365.0, %if.end18.i ]
+  %11 = add i64 %usize.1, -8070450532247928833
   %or.cond = icmp ult i64 %11, -8070450532247928832
   br i1 %or.cond, label %label_done, label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end26.i
-  %cmp.i210 = icmp ult i64 %usize.0, 4097
+  %cmp.i210 = icmp ult i64 %usize.1, 4097
   br i1 %cmp.i210, label %if.then.i216, label %sz_size2index_compute.exit
 
 if.then.i216:                                     ; preds = %if.end38.i
-  %sub.i297 = add nuw nsw i64 %usize.0, 7
+  %sub.i297 = add nuw nsw i64 %usize.1, 7
   %shr.i298 = lshr i64 %sub.i297, 3
   %arrayidx.i299 = getelementptr inbounds [0 x i8], ptr @sz_size2index_tab, i64 0, i64 %shr.i298
   %12 = load i8, ptr %arrayidx.i299, align 1
@@ -9070,7 +9070,7 @@ if.then.i216:                                     ; preds = %if.end38.i
   br label %sz_size2index.exit218
 
 sz_size2index_compute.exit:                       ; preds = %if.end38.i
-  %shl.i = shl nuw i64 %usize.0, 1
+  %shl.i = shl nuw i64 %usize.1, 1
   %sub13.i = add i64 %shl.i, -1
   %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %sub13.i, i1 true)
   %14 = trunc nuw nsw i64 %13 to i32
@@ -9078,7 +9078,7 @@ sz_size2index_compute.exit:                       ; preds = %if.end38.i
   %sub19.i = xor i32 %conv1.i.i.i.i, 252
   %sub28.i = sub nuw nsw i64 60, %13
   %shl31.i = shl nsw i64 -1, %sub28.i
-  %sub32.i = add nsw i64 %usize.0, -1
+  %sub32.i = add nsw i64 %usize.1, -1
   %and.i214 = and i64 %shl31.i, %sub32.i
   %shr.i215 = lshr i64 %and.i214, %sub28.i
   %15 = trunc i64 %shr.i215 to i32
@@ -9129,10 +9129,10 @@ while.body.lr.ph:                                 ; preds = %if.end29
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end147
-  %bin.0254 = phi ptr [ null, %while.body.lr.ph ], [ %bin.2, %if.end147 ]
-  %filled.0253 = phi i64 [ 0, %while.body.lr.ph ], [ %filled.3, %if.end147 ]
-  %arena.0252 = phi ptr [ null, %while.body.lr.ph ], [ %arena.5, %if.end147 ]
-  %sub = sub nuw i64 %num, %filled.0253
+  %bin.0254 = phi ptr [ null, %while.body.lr.ph ], [ %bin.1, %if.end147 ]
+  %filled.1253 = phi i64 [ 0, %while.body.lr.ph ], [ %filled.4, %if.end147 ]
+  %arena.0252 = phi ptr [ null, %while.body.lr.ph ], [ %arena.1, %if.end147 ]
+  %sub = sub nuw i64 %num, %filled.1253
   %cmp45.not = icmp ult i64 %sub, %nregs.0
   %or.cond206 = select i1 %cmp16, i1 true, i1 %cmp45.not
   br i1 %or.cond206, label %if.end77, label %if.then47
@@ -9160,17 +9160,17 @@ if.end59:                                         ; preds = %arena_get_from_ind.
   br i1 %cmp60, label %label_done, label %if.end70
 
 if.end70:                                         ; preds = %if.else.i222, %if.end59, %if.then47
-  %arena.4 = phi ptr [ %call58, %if.end59 ], [ %arena.0252, %if.then47 ], [ %call1.i, %if.else.i222 ]
+  %arena.2 = phi ptr [ %call58, %if.end59 ], [ %arena.0252, %if.then47 ], [ %call1.i, %if.else.i222 ]
   %rem = urem i64 %sub, %nregs.0
   %sub71 = sub i64 %sub, %rem
-  %add.ptr = getelementptr inbounds ptr, ptr %ptrs, i64 %filled.0253
-  %call74 = call i64 @arena_fill_small_fresh(ptr noundef nonnull %retval.i312.0222, ptr noundef nonnull %arena.4, i32 noundef %retval.i208.0, ptr noundef %add.ptr, i64 noundef %sub71, i1 noundef zeroext %retval.i173.0) #19
-  %add76 = add i64 %call74, %filled.0253
+  %add.ptr = getelementptr inbounds ptr, ptr %ptrs, i64 %filled.1253
+  %call74 = call i64 @arena_fill_small_fresh(ptr noundef nonnull %retval.i312.0222, ptr noundef nonnull %arena.2, i32 noundef %retval.i208.0, ptr noundef %add.ptr, i64 noundef %sub71, i1 noundef zeroext %retval.i173.0) #19
+  %add76 = add i64 %call74, %filled.1253
   br label %if.end77
 
 if.end77:                                         ; preds = %if.end70, %while.body
-  %arena.5 = phi ptr [ %arena.4, %if.end70 ], [ %arena.0252, %while.body ]
-  %filled.1 = phi i64 [ %add76, %if.end70 ], [ %filled.0253, %while.body ]
+  %arena.1 = phi ptr [ %arena.2, %if.end70 ], [ %arena.0252, %while.body ]
+  %filled.2 = phi i64 [ %add76, %if.end70 ], [ %filled.1253, %while.body ]
   %progress.0 = phi i64 [ %call74, %if.end70 ], [ 0, %while.body ]
   switch i32 %and.i, label %mallocx_tcache_get.exit [
     i32 0, label %if.then18.i
@@ -9232,15 +9232,15 @@ land.rhs:                                         ; preds = %land.lhs.true82
 
 if.then111:                                       ; preds = %land.rhs
   %cmp102 = icmp eq ptr %bin.0254, null
-  %bin.1 = select i1 %cmp102, ptr %arrayidx87, ptr %bin.0254
+  %bin.2 = select i1 %cmp102, ptr %arrayidx87, ptr %bin.0254
   %sub112 = sub nuw i64 %sub, %progress.0
-  %add.ptr114 = getelementptr ptr, ptr %ptrs, i64 %filled.1
-  %bin.1.val = load ptr, ptr %bin.1, align 8
-  %25 = getelementptr i8, ptr %bin.1, i64 20
-  %bin.1.val211 = load i16, ptr %25, align 4
-  %26 = ptrtoint ptr %bin.1.val to i64
+  %add.ptr114 = getelementptr ptr, ptr %ptrs, i64 %filled.2
+  %bin.2.val = load ptr, ptr %bin.2, align 8
+  %25 = getelementptr i8, ptr %bin.2, i64 20
+  %bin.2.val211 = load i16, ptr %25, align 4
+  %26 = ptrtoint ptr %bin.2.val to i64
   %conv.i = trunc i64 %26 to i16
-  %sub.i.i218 = sub i16 %bin.1.val211, %conv.i
+  %sub.i.i218 = sub i16 %bin.2.val211, %conv.i
   %27 = lshr i16 %sub.i.i218, 3
   %conv.i242 = zext nneg i16 %27 to i64
   %cmp.i243 = icmp ult i64 %sub112, %conv.i242
@@ -9248,16 +9248,16 @@ if.then111:                                       ; preds = %land.rhs
   %spec.select = select i1 %cmp.i243, i16 %conv2.i, i16 %27
   %conv3.i = zext i16 %spec.select to i64
   %mul.i = shl nuw nsw i64 %conv3.i, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr114, ptr align 8 %bin.1.val, i64 %mul.i, i1 false)
-  %28 = load ptr, ptr %bin.1, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr114, ptr align 8 %bin.2.val, i64 %mul.i, i1 false)
+  %28 = load ptr, ptr %bin.2, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %28, i64 %conv3.i
-  store ptr %add.ptr.i, ptr %bin.1, align 8
+  store ptr %add.ptr.i, ptr %bin.2, align 8
   %bin.val3.i = load i16, ptr %25, align 4
   %29 = ptrtoint ptr %add.ptr.i to i64
   %conv.i.i = trunc i64 %29 to i16
   %sub.i.i.i = sub i16 %bin.val3.i, %conv.i.i
   %30 = lshr i16 %sub.i.i.i, 3
-  %31 = getelementptr i8, ptr %bin.1, i64 16
+  %31 = getelementptr i8, ptr %bin.2, i64 16
   %bin.val4.i = load i16, ptr %31, align 8
   %sub.i.i6.i = sub i16 %bin.val3.i, %bin.val4.i
   %32 = lshr i16 %sub.i.i6.i, 3
@@ -9269,7 +9269,7 @@ if.then.i:                                        ; preds = %if.then111
   br label %cache_bin_low_water_adjust.exit
 
 cache_bin_low_water_adjust.exit:                  ; preds = %if.then111, %if.then.i
-  %tstats = getelementptr inbounds i8, ptr %bin.1, i64 8
+  %tstats = getelementptr inbounds i8, ptr %bin.2, i64 8
   %33 = load i64, ptr %tstats, align 8
   %add117 = add i64 %33, %conv3.i
   store i64 %add117, ptr %tstats, align 8
@@ -9281,21 +9281,21 @@ for.body:                                         ; preds = %cache_bin_low_water
   %i.0250 = phi i64 [ %inc, %for.body ], [ 0, %cache_bin_low_water_adjust.exit ]
   %arrayidx123 = getelementptr ptr, ptr %add.ptr114, i64 %i.0250
   %34 = load ptr, ptr %arrayidx123, align 8
-  call void @llvm.memset.p0.i64(ptr align 1 %34, i8 0, i64 %usize.0, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %34, i8 0, i64 %usize.1, i1 false)
   %inc = add nuw nsw i64 %i.0250, 1
   %exitcond.not = icmp eq i64 %inc, %conv3.i
   br i1 %exitcond.not, label %if.end124, label %for.body, !llvm.loop !14
 
 if.end124:                                        ; preds = %for.body, %cache_bin_low_water_adjust.exit
   %add125 = add i64 %progress.0, %conv3.i
-  %add126 = add i64 %filled.1, %conv3.i
+  %add126 = add i64 %filled.2, %conv3.i
   br label %if.end128
 
 if.end128:                                        ; preds = %if.end77, %mallocx_tcache_get.exit, %if.then18.i, %land.lhs.true82, %tcache_get_from_ind.exit, %if.end124, %land.rhs
-  %filled.2 = phi i64 [ %add126, %if.end124 ], [ %filled.1, %land.rhs ], [ %filled.1, %tcache_get_from_ind.exit ], [ %filled.1, %land.lhs.true82 ], [ %filled.1, %if.then18.i ], [ %filled.1, %mallocx_tcache_get.exit ], [ %filled.1, %if.end77 ]
-  %bin.2 = phi ptr [ %bin.1, %if.end124 ], [ %bin.0254, %land.rhs ], [ %bin.0254, %tcache_get_from_ind.exit ], [ %bin.0254, %land.lhs.true82 ], [ %bin.0254, %if.then18.i ], [ %bin.0254, %mallocx_tcache_get.exit ], [ %bin.0254, %if.end77 ]
+  %filled.3 = phi i64 [ %add126, %if.end124 ], [ %filled.2, %land.rhs ], [ %filled.2, %tcache_get_from_ind.exit ], [ %filled.2, %land.lhs.true82 ], [ %filled.2, %if.then18.i ], [ %filled.2, %mallocx_tcache_get.exit ], [ %filled.2, %if.end77 ]
+  %bin.1 = phi ptr [ %bin.2, %if.end124 ], [ %bin.0254, %land.rhs ], [ %bin.0254, %tcache_get_from_ind.exit ], [ %bin.0254, %land.lhs.true82 ], [ %bin.0254, %if.then18.i ], [ %bin.0254, %mallocx_tcache_get.exit ], [ %bin.0254, %if.end77 ]
   %progress.1 = phi i64 [ %add125, %if.end124 ], [ %progress.0, %land.rhs ], [ %progress.0, %tcache_get_from_ind.exit ], [ %progress.0, %land.lhs.true82 ], [ %progress.0, %if.then18.i ], [ %progress.0, %mallocx_tcache_get.exit ], [ %progress.0, %if.end77 ]
-  %mul = mul i64 %progress.1, %usize.0
+  %mul = mul i64 %progress.1, %usize.1
   store i8 1, ptr %ctx.i, align 8
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i.i.i, ptr %current.i, align 8
   store ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated_last_event.i, ptr %last_event.i, align 8
@@ -9323,19 +9323,19 @@ if.then133:                                       ; preds = %te_event_advance.ex
   br i1 %cmp135, label %label_done, label %if.end138
 
 if.end138:                                        ; preds = %if.then133
-  %inc145 = add i64 %filled.2, 1
-  %arrayidx146 = getelementptr inbounds ptr, ptr %ptrs, i64 %filled.2
+  %inc145 = add i64 %filled.3, 1
+  %arrayidx146 = getelementptr inbounds ptr, ptr %ptrs, i64 %filled.3
   store ptr %call134, ptr %arrayidx146, align 8
   br label %if.end147
 
 if.end147:                                        ; preds = %te_event_advance.exit, %if.end138
-  %filled.3 = phi i64 [ %inc145, %if.end138 ], [ %filled.2, %te_event_advance.exit ]
-  %cmp30 = icmp ult i64 %filled.3, %num
+  %filled.4 = phi i64 [ %inc145, %if.end138 ], [ %filled.3, %te_event_advance.exit ]
+  %cmp30 = icmp ult i64 %filled.4, %num
   br i1 %cmp30, label %while.body, label %label_done, !llvm.loop !15
 
 label_done:                                       ; preds = %arena_get_from_ind.exit, %if.end59, %if.then133, %if.end147, %if.end29, %sz_s2u.exit.i, %if.end5.i367, %if.end.i252, %tsd_fetch_impl.exit, %if.end26.i, %lor.rhs
-  %filled.4 = phi i64 [ 0, %lor.rhs ], [ 0, %if.end26.i ], [ 0, %tsd_fetch_impl.exit ], [ 0, %if.end.i252 ], [ 0, %if.end5.i367 ], [ 0, %sz_s2u.exit.i ], [ 0, %if.end29 ], [ %filled.0253, %arena_get_from_ind.exit ], [ %filled.0253, %if.end59 ], [ %filled.2, %if.then133 ], [ %filled.3, %if.end147 ]
-  ret i64 %filled.4
+  %filled.0 = phi i64 [ 0, %lor.rhs ], [ 0, %if.end26.i ], [ 0, %tsd_fetch_impl.exit ], [ 0, %if.end.i252 ], [ 0, %if.end5.i367 ], [ 0, %sz_s2u.exit.i ], [ 0, %if.end29 ], [ %filled.1253, %arena_get_from_ind.exit ], [ %filled.1253, %if.end59 ], [ %filled.3, %if.then133 ], [ %filled.4, %if.end147 ]
+  ret i64 %filled.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9490,13 +9490,13 @@ if.then61.i:                                      ; preds = %percpu_arena_choose
   br label %if.end63.i
 
 if.end63.i:                                       ; preds = %if.then61.i, %percpu_arena_choose.exit.i
-  %ret.1.i = phi ptr [ %19, %if.then61.i ], [ %ret.0.i, %percpu_arena_choose.exit.i ]
-  %last_thd65.i = getelementptr inbounds i8, ptr %ret.1.i, i64 16
+  %ret.2.i = phi ptr [ %19, %if.then61.i ], [ %ret.0.i, %percpu_arena_choose.exit.i ]
+  %last_thd65.i = getelementptr inbounds i8, ptr %ret.2.i, i64 16
   store ptr %tsd, ptr %last_thd65.i, align 16
   br label %arena_choose_impl.exit
 
 arena_choose_impl.exit:                           ; preds = %entry, %if.then5.i, %arena_init_locked.exit.i.i, %if.end43.i, %land.lhs.true47.i, %land.lhs.true52.i, %if.end63.i
-  %retval.0.i = phi ptr [ %arena, %entry ], [ %ret.1.i, %if.end63.i ], [ %ret.0.i, %land.lhs.true52.i ], [ %ret.0.i, %land.lhs.true47.i ], [ %ret.0.i, %if.end43.i ], [ %2, %if.then5.i ], [ %retval.0.i.i.i, %arena_init_locked.exit.i.i ]
+  %retval.0.i = phi ptr [ %arena, %entry ], [ %ret.2.i, %if.end63.i ], [ %ret.0.i, %land.lhs.true52.i ], [ %ret.0.i, %land.lhs.true47.i ], [ %ret.0.i, %if.end43.i ], [ %2, %if.then5.i ], [ %retval.0.i.i.i, %arena_init_locked.exit.i.i ]
   ret ptr %retval.0.i
 }
 
@@ -10461,7 +10461,7 @@ sw.epilog25.i:                                    ; preds = %for.body9.i
 
 while.body:                                       ; preds = %sw.bb21.i, %if.end18.i
   %opts.1 = phi ptr [ %opts.247.i, %sw.bb21.i ], [ %incdec.ptr12.i, %if.end18.i ]
-  %vlen.2 = phi i64 [ %sub22.i, %sw.bb21.i ], [ %sub20.i, %if.end18.i ]
+  %vlen.4 = phi i64 [ %sub22.i, %sw.bb21.i ], [ %sub20.i, %if.end18.i ]
   %cmp16 = icmp eq i64 %sub3.i, 12
   br i1 %cmp16, label %land.lhs.true18, label %if.end54
 
@@ -10471,7 +10471,7 @@ land.lhs.true18:                                  ; preds = %while.body
   br i1 %cmp20, label %if.then22, label %if.end54.thread
 
 if.then22:                                        ; preds = %land.lhs.true18
-  switch i64 %vlen.2, label %if.else37 [
+  switch i64 %vlen.4, label %if.else37 [
     i64 4, label %land.lhs.true25
     i64 5, label %land.lhs.true32
   ]
@@ -10490,7 +10490,7 @@ if.else37:                                        ; preds = %if.then22, %land.lh
   br i1 %initial_call, label %while.cond.backedge, label %if.then39
 
 if.then39:                                        ; preds = %if.else37
-  %conv1.i = trunc i64 %vlen.2 to i32
+  %conv1.i = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 12, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i = icmp eq i32 %call2.i, 0
@@ -10510,7 +10510,7 @@ land.lhs.true44:                                  ; preds = %if.end42
   br i1 %tobool45, label %if.then50, label %while.cond.backedge
 
 if.then50:                                        ; preds = %land.lhs.true44
-  %conv52 = trunc i64 %vlen.2 to i32
+  %conv52 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 12, ptr noundef nonnull %opts.02193, i32 noundef %conv52, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -10539,7 +10539,7 @@ land.lhs.true60:                                  ; preds = %if.end57
   br i1 %cmp62, label %if.then64, label %if.end217
 
 if.then64:                                        ; preds = %land.lhs.true60
-  switch i64 %vlen.2, label %if.then82 [
+  switch i64 %vlen.4, label %if.then82 [
     i64 4, label %land.lhs.true67
     i64 5, label %land.lhs.true75
   ]
@@ -10555,7 +10555,7 @@ land.lhs.true75:                                  ; preds = %if.then64
   br i1 %cmp77, label %land.lhs.true87, label %if.then82
 
 if.then82:                                        ; preds = %if.then64, %land.lhs.true67, %land.lhs.true75
-  %conv1.i396 = trunc i64 %vlen.2 to i32
+  %conv1.i396 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 5, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i396, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i397 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i398 = icmp eq i32 %call2.i397, 0
@@ -10573,7 +10573,7 @@ land.lhs.true87:                                  ; preds = %land.lhs.true75, %l
   br i1 %tobool88, label %if.then93, label %while.cond.backedge
 
 if.then93:                                        ; preds = %land.lhs.true87
-  %conv95 = trunc i64 %vlen.2 to i32
+  %conv95 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 5, ptr noundef nonnull %opts.02193, i32 noundef %conv95, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -10583,7 +10583,7 @@ land.lhs.true100:                                 ; preds = %if.end57
   br i1 %cmp102, label %if.then104, label %if.end217
 
 if.then104:                                       ; preds = %land.lhs.true100
-  switch i64 %vlen.2, label %if.then122 [
+  switch i64 %vlen.4, label %if.then122 [
     i64 4, label %land.lhs.true107
     i64 5, label %land.lhs.true115
   ]
@@ -10599,7 +10599,7 @@ land.lhs.true115:                                 ; preds = %if.then104
   br i1 %cmp117, label %land.lhs.true127, label %if.then122
 
 if.then122:                                       ; preds = %if.then104, %land.lhs.true107, %land.lhs.true115
-  %conv1.i402 = trunc i64 %vlen.2 to i32
+  %conv1.i402 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 10, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i402, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i403 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i404 = icmp eq i32 %call2.i403, 0
@@ -10617,7 +10617,7 @@ land.lhs.true127:                                 ; preds = %land.lhs.true115, %
   br i1 %tobool128, label %if.then133, label %while.cond.backedge
 
 if.then133:                                       ; preds = %land.lhs.true127
-  %conv135 = trunc i64 %vlen.2 to i32
+  %conv135 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 10, ptr noundef nonnull %opts.02193, i32 noundef %conv135, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -10627,7 +10627,7 @@ land.lhs.true140:                                 ; preds = %if.end57
   br i1 %cmp142, label %if.then144, label %if.end217
 
 if.then144:                                       ; preds = %land.lhs.true140
-  switch i64 %vlen.2, label %if.then162 [
+  switch i64 %vlen.4, label %if.then162 [
     i64 4, label %land.lhs.true147
     i64 5, label %land.lhs.true155
   ]
@@ -10643,7 +10643,7 @@ land.lhs.true155:                                 ; preds = %if.then144
   br i1 %cmp157, label %land.lhs.true167, label %if.then162
 
 if.then162:                                       ; preds = %if.then144, %land.lhs.true147, %land.lhs.true155
-  %conv1.i408 = trunc i64 %vlen.2 to i32
+  %conv1.i408 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 15, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i408, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i409 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i410 = icmp eq i32 %call2.i409, 0
@@ -10661,7 +10661,7 @@ land.lhs.true167:                                 ; preds = %land.lhs.true155, %
   br i1 %tobool168, label %if.then173, label %while.cond.backedge
 
 if.then173:                                       ; preds = %land.lhs.true167
-  %conv175 = trunc i64 %vlen.2 to i32
+  %conv175 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 15, ptr noundef nonnull %opts.02193, i32 noundef %conv175, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -10671,7 +10671,7 @@ land.lhs.true180:                                 ; preds = %if.end57
   br i1 %cmp182, label %if.then184, label %if.end217.thread
 
 if.then184:                                       ; preds = %land.lhs.true180
-  switch i64 %vlen.2, label %if.then202 [
+  switch i64 %vlen.4, label %if.then202 [
     i64 4, label %land.lhs.true187
     i64 5, label %land.lhs.true195
   ]
@@ -10687,7 +10687,7 @@ land.lhs.true195:                                 ; preds = %if.then184
   br i1 %cmp197, label %land.lhs.true207, label %if.then202
 
 if.then202:                                       ; preds = %if.then184, %land.lhs.true187, %land.lhs.true195
-  %conv1.i414 = trunc i64 %vlen.2 to i32
+  %conv1.i414 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 13, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i414, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i415 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i416 = icmp eq i32 %call2.i415, 0
@@ -10705,7 +10705,7 @@ land.lhs.true207:                                 ; preds = %land.lhs.true195, %
   br i1 %tobool208, label %if.then213, label %while.cond.backedge
 
 if.then213:                                       ; preds = %land.lhs.true207
-  %conv215 = trunc i64 %vlen.2 to i32
+  %conv215 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 13, ptr noundef nonnull %opts.02193, i32 noundef %conv215, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -10728,7 +10728,7 @@ for.body225:                                      ; preds = %for.body225.prehead
   %indvars.iv2236 = phi i64 [ %indvars.iv.next2237, %for.inc ], [ 0, %for.body225.preheader ]
   %arrayidx227 = getelementptr inbounds [0 x ptr], ptr @metadata_thp_mode_names, i64 0, i64 %indvars.iv2236
   %27 = load ptr, ptr %arrayidx227, align 8
-  %call228 = call i32 @strncmp(ptr noundef %27, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2) #23
+  %call228 = call i32 @strncmp(ptr noundef %27, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #23
   %cmp229 = icmp eq i32 %call228, 0
   br i1 %cmp229, label %land.lhs.true240, label %for.inc
 
@@ -10739,7 +10739,7 @@ for.inc:                                          ; preds = %for.body225
 
 if.then236:                                       ; preds = %for.inc
   %conv.i419 = trunc i64 %sub3.i to i32
-  %conv1.i420 = trunc i64 %vlen.2 to i32
+  %conv1.i420 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef %conv.i419, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i420, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i421 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i422 = icmp eq i32 %call2.i421, 0
@@ -10758,7 +10758,7 @@ land.lhs.true240:                                 ; preds = %for.body225
 
 if.then246:                                       ; preds = %land.lhs.true240
   %conv247 = trunc i64 %sub3.i to i32
-  %conv248 = trunc i64 %vlen.2 to i32
+  %conv248 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv247, ptr noundef nonnull %opts.02193, i32 noundef %conv248, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -10772,7 +10772,7 @@ land.lhs.true253:                                 ; preds = %if.end250
   br i1 %cmp255, label %if.then257, label %if.end290
 
 if.then257:                                       ; preds = %land.lhs.true253
-  switch i64 %vlen.2, label %if.then275 [
+  switch i64 %vlen.4, label %if.then275 [
     i64 4, label %land.lhs.true260
     i64 5, label %land.lhs.true268
   ]
@@ -10788,7 +10788,7 @@ land.lhs.true268:                                 ; preds = %if.then257
   br i1 %cmp270, label %land.lhs.true280, label %if.then275
 
 if.then275:                                       ; preds = %if.then257, %land.lhs.true260, %land.lhs.true268
-  %conv1.i426 = trunc i64 %vlen.2 to i32
+  %conv1.i426 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 6, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i426, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i427 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i428 = icmp eq i32 %call2.i427, 0
@@ -10806,7 +10806,7 @@ land.lhs.true280:                                 ; preds = %land.lhs.true268, %
   br i1 %tobool281, label %if.then286, label %while.cond.backedge
 
 if.then286:                                       ; preds = %land.lhs.true280
-  %conv288 = trunc i64 %vlen.2 to i32
+  %conv288 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 6, ptr noundef nonnull %opts.02193, i32 noundef %conv288, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -10821,7 +10821,7 @@ if.end290:                                        ; preds = %if.end217.thread, %
 
 for.cond297.preheader:                            ; preds = %if.end290
   %conv.i431 = trunc i64 %sub3.i to i32
-  %conv1.i432 = trunc i64 %vlen.2 to i32
+  %conv1.i432 = trunc i64 %vlen.4 to i32
   br label %for.body300
 
 for.body300:                                      ; preds = %for.cond297.preheader, %for.inc317
@@ -10829,7 +10829,7 @@ for.body300:                                      ; preds = %for.cond297.prehead
   %cur_opt_valid.72190 = phi i1 [ true, %for.cond297.preheader ], [ %cur_opt_valid.8, %for.inc317 ]
   %arrayidx302 = getelementptr inbounds [0 x ptr], ptr @dss_prec_names, i64 0, i64 %indvars.iv2233
   %31 = load ptr, ptr %arrayidx302, align 8
-  %call303 = call i32 @strncmp(ptr noundef %31, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2) #23
+  %call303 = call i32 @strncmp(ptr noundef %31, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #23
   %cmp304 = icmp eq i32 %call303, 0
   br i1 %cmp304, label %if.then306, label %for.inc317
 
@@ -10885,7 +10885,7 @@ land.lhs.true340:                                 ; preds = %if.end337
   br i1 %cmp342, label %if.then344, label %if.end405
 
 if.then344:                                       ; preds = %land.lhs.true340
-  %cmp345 = icmp eq i64 %vlen.2, 7
+  %cmp345 = icmp eq i64 %vlen.4, 7
   br i1 %cmp345, label %land.lhs.true347, label %if.then370
 
 land.lhs.true347:                                 ; preds = %if.then344
@@ -10915,11 +10915,11 @@ lor.lhs.false:                                    ; preds = %if.then370
   %37 = load ptr, ptr %end, align 8
   %38 = ptrtoint ptr %37 to i64
   %sub = sub i64 %38, %12
-  %cmp375.not = icmp eq i64 %sub, %vlen.2
+  %cmp375.not = icmp eq i64 %sub, %vlen.4
   br i1 %cmp375.not, label %if.else381, label %if.then379
 
 if.then379:                                       ; preds = %if.then370, %lor.lhs.false
-  %conv1.i446 = trunc i64 %vlen.2 to i32
+  %conv1.i446 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 7, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i446, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i447 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i448 = icmp eq i32 %call2.i447, 0
@@ -10934,7 +10934,7 @@ if.else381:                                       ; preds = %lor.lhs.false
   br i1 %cmp382, label %if.then386, label %land.lhs.true393
 
 if.then386:                                       ; preds = %if.else381
-  %conv1.i452 = trunc i64 %vlen.2 to i32
+  %conv1.i452 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.104, i32 noundef 7, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i452, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i453 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i454 = icmp eq i32 %call2.i453, 0
@@ -10952,7 +10952,7 @@ land.lhs.true393:                                 ; preds = %if.else381
   br i1 %tobool394, label %if.then399, label %while.cond.backedge
 
 if.then399:                                       ; preds = %land.lhs.true393
-  %conv401 = trunc i64 %vlen.2 to i32
+  %conv401 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 7, ptr noundef nonnull %opts.02193, i32 noundef %conv401, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -10972,12 +10972,12 @@ lor.lhs.false418:                                 ; preds = %if.then412
   %40 = load ptr, ptr %end413, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %40 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %12
-  %cmp419.not = icmp eq i64 %sub.ptr.sub, %vlen.2
+  %cmp419.not = icmp eq i64 %sub.ptr.sub, %vlen.4
   br i1 %cmp419.not, label %land.lhs.true427, label %if.then423
 
 if.then423:                                       ; preds = %if.then412, %lor.lhs.false418
   %conv.i457 = trunc i64 %sub3.i to i32
-  %conv1.i458 = trunc i64 %vlen.2 to i32
+  %conv1.i458 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef %conv.i457, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i458, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i459 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i460 = icmp eq i32 %call2.i459, 0
@@ -10994,7 +10994,7 @@ land.lhs.true427:                                 ; preds = %lor.lhs.false418
 
 if.then433:                                       ; preds = %land.lhs.true427
   %conv434 = trunc i64 %sub3.i to i32
-  %conv435 = trunc i64 %vlen.2 to i32
+  %conv435 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv434, ptr noundef nonnull %opts.02193, i32 noundef %conv435, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11008,7 +11008,7 @@ land.lhs.true440:                                 ; preds = %if.end437
 
 if.then444:                                       ; preds = %land.lhs.true440
   store ptr %incdec.ptr2.i, ptr %bin_shards_segment_cur, align 8
-  store i64 %vlen.2, ptr %vlen_left, align 8
+  store i64 %vlen.4, ptr %vlen_left, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %if.then444
@@ -11024,7 +11024,7 @@ lor.lhs.false450:                                 ; preds = %do.body
 
 if.then455:                                       ; preds = %do.body, %lor.lhs.false450
   %conv.i463 = trunc i64 %sub3.i to i32
-  %conv1.i464 = trunc i64 %vlen.2 to i32
+  %conv1.i464 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.107, i32 noundef %conv.i463, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i464, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i465 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i466 = icmp eq i32 %call2.i465, 0
@@ -11046,7 +11046,7 @@ land.lhs.true461:                                 ; preds = %do.cond
 
 if.then467:                                       ; preds = %land.lhs.true461
   %conv468 = trunc i64 %sub3.i to i32
-  %conv469 = trunc i64 %vlen.2 to i32
+  %conv469 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv468, ptr noundef nonnull %opts.02193, i32 noundef %conv469, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11060,11 +11060,11 @@ land.lhs.true474:                                 ; preds = %if.end471
   br i1 %cmp476, label %if.then478, label %if.end893
 
 if.then478:                                       ; preds = %land.lhs.true474
-  %call480 = call zeroext i1 @tcache_bin_info_default_init(ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2) #19
+  %call480 = call zeroext i1 @tcache_bin_info_default_init(ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #19
   br i1 %call480, label %if.then485, label %land.lhs.true489
 
 if.then485:                                       ; preds = %if.then478
-  %conv1.i470 = trunc i64 %vlen.2 to i32
+  %conv1.i470 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.109, i32 noundef 18, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i470, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i471 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i472 = icmp eq i32 %call2.i471, 0
@@ -11080,7 +11080,7 @@ land.lhs.true489:                                 ; preds = %if.then478
   br i1 %tobool490, label %if.then495, label %while.cond.backedge
 
 if.then495:                                       ; preds = %land.lhs.true489
-  %conv497 = trunc i64 %vlen.2 to i32
+  %conv497 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 18, ptr noundef nonnull %opts.02193, i32 noundef %conv497, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11111,11 +11111,11 @@ lor.lhs.false513:                                 ; preds = %if.then506
   %49 = load ptr, ptr %end508, align 8
   %50 = ptrtoint ptr %49 to i64
   %sub514 = sub i64 %50, %12
-  %cmp515.not = icmp eq i64 %sub514, %vlen.2
+  %cmp515.not = icmp eq i64 %sub514, %vlen.4
   br i1 %cmp515.not, label %if.else521, label %if.then519
 
 if.then519:                                       ; preds = %if.then506, %lor.lhs.false513
-  %conv1.i478 = trunc i64 %vlen.2 to i32
+  %conv1.i478 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 14, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i478, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i479 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i480 = icmp eq i32 %call2.i479, 0
@@ -11130,7 +11130,7 @@ if.else521:                                       ; preds = %lor.lhs.false513
   br i1 %cmp522, label %if.then526, label %land.lhs.true532
 
 if.then526:                                       ; preds = %if.else521
-  %conv1.i484 = trunc i64 %vlen.2 to i32
+  %conv1.i484 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.104, i32 noundef 14, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i484, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i485 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i486 = icmp eq i32 %call2.i485, 0
@@ -11147,7 +11147,7 @@ land.lhs.true532:                                 ; preds = %if.else521
   br i1 %tobool533, label %if.then538, label %while.cond.backedge
 
 if.then538:                                       ; preds = %land.lhs.true532
-  %conv540 = trunc i64 %vlen.2 to i32
+  %conv540 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 14, ptr noundef nonnull %opts.02193, i32 noundef %conv540, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11168,11 +11168,11 @@ lor.lhs.false556:                                 ; preds = %if.then549
   %53 = load ptr, ptr %end551, align 8
   %54 = ptrtoint ptr %53 to i64
   %sub557 = sub i64 %54, %12
-  %cmp558.not = icmp eq i64 %sub557, %vlen.2
+  %cmp558.not = icmp eq i64 %sub557, %vlen.4
   br i1 %cmp558.not, label %if.else564, label %if.then562
 
 if.then562:                                       ; preds = %if.then549, %lor.lhs.false556
-  %conv1.i492 = trunc i64 %vlen.2 to i32
+  %conv1.i492 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 14, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i492, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i493 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i494 = icmp eq i32 %call2.i493, 0
@@ -11188,7 +11188,7 @@ if.else564:                                       ; preds = %lor.lhs.false556
   br i1 %or.cond, label %if.then572, label %land.lhs.true578
 
 if.then572:                                       ; preds = %if.else564
-  %conv1.i498 = trunc i64 %vlen.2 to i32
+  %conv1.i498 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.104, i32 noundef 14, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i498, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i499 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i500 = icmp eq i32 %call2.i499, 0
@@ -11205,7 +11205,7 @@ land.lhs.true578:                                 ; preds = %if.else564
   br i1 %tobool579, label %if.then584, label %while.cond.backedge
 
 if.then584:                                       ; preds = %land.lhs.true578
-  %conv586 = trunc i64 %vlen.2 to i32
+  %conv586 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 14, ptr noundef nonnull %opts.02193, i32 noundef %conv586, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11226,11 +11226,11 @@ lor.lhs.false602:                                 ; preds = %if.then595
   %58 = load ptr, ptr %end597, align 8
   %59 = ptrtoint ptr %58 to i64
   %sub603 = sub i64 %59, %12
-  %cmp604.not = icmp eq i64 %sub603, %vlen.2
+  %cmp604.not = icmp eq i64 %sub603, %vlen.4
   br i1 %cmp604.not, label %if.else610, label %if.then608
 
 if.then608:                                       ; preds = %if.then595, %lor.lhs.false602
-  %conv1.i506 = trunc i64 %vlen.2 to i32
+  %conv1.i506 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 14, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i506, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i507 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i508 = icmp eq i32 %call2.i507, 0
@@ -11246,7 +11246,7 @@ if.else610:                                       ; preds = %lor.lhs.false602
   br i1 %or.cond1, label %if.then618, label %land.lhs.true624
 
 if.then618:                                       ; preds = %if.else610
-  %conv1.i512 = trunc i64 %vlen.2 to i32
+  %conv1.i512 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.104, i32 noundef 14, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i512, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i513 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i514 = icmp eq i32 %call2.i513, 0
@@ -11263,7 +11263,7 @@ land.lhs.true624:                                 ; preds = %if.else610
   br i1 %tobool625, label %if.then630, label %while.cond.backedge
 
 if.then630:                                       ; preds = %land.lhs.true624
-  %conv632 = trunc i64 %vlen.2 to i32
+  %conv632 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 14, ptr noundef nonnull %opts.02193, i32 noundef %conv632, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11273,7 +11273,7 @@ land.lhs.true637:                                 ; preds = %if.end499
   br i1 %cmp639, label %if.then641, label %if.end893
 
 if.then641:                                       ; preds = %land.lhs.true637
-  switch i64 %vlen.2, label %if.then659 [
+  switch i64 %vlen.4, label %if.then659 [
     i64 4, label %land.lhs.true644
     i64 5, label %land.lhs.true652
   ]
@@ -11289,7 +11289,7 @@ land.lhs.true652:                                 ; preds = %if.then641
   br i1 %cmp654, label %land.lhs.true664, label %if.then659
 
 if.then659:                                       ; preds = %if.then641, %land.lhs.true644, %land.lhs.true652
-  %conv1.i518 = trunc i64 %vlen.2 to i32
+  %conv1.i518 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 11, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i518, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i519 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i520 = icmp eq i32 %call2.i519, 0
@@ -11307,7 +11307,7 @@ land.lhs.true664:                                 ; preds = %land.lhs.true652, %
   br i1 %tobool665, label %if.then670, label %while.cond.backedge
 
 if.then670:                                       ; preds = %land.lhs.true664
-  %conv672 = trunc i64 %vlen.2 to i32
+  %conv672 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 11, ptr noundef nonnull %opts.02193, i32 noundef %conv672, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11317,7 +11317,7 @@ land.lhs.true677:                                 ; preds = %if.end499
   br i1 %cmp679, label %if.then681, label %if.end893
 
 if.then681:                                       ; preds = %land.lhs.true677
-  %cmp11.not.i = icmp eq i64 %vlen.2, 0
+  %cmp11.not.i = icmp eq i64 %vlen.4, 0
   br i1 %cmp11.not.i, label %init_opt_stats_opts.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then681
@@ -11359,7 +11359,7 @@ if.end.i527:                                      ; preds = %sw.epilog.i526
 for.inc.i:                                        ; preds = %if.end.i527, %sw.epilog.i526, %for.body.i524
   %opts_len.1.i = phi i64 [ %opts_len.012.i, %for.body.i524 ], [ %opts_len.012.i, %sw.epilog.i526 ], [ %inc.i, %if.end.i527 ]
   %inc20.i = add nuw i64 %i.013.i, 1
-  %exitcond.not.i = icmp eq i64 %inc20.i, %vlen.2
+  %exitcond.not.i = icmp eq i64 %inc20.i, %vlen.4
   br i1 %exitcond.not.i, label %init_opt_stats_opts.exit, label %for.body.i524, !llvm.loop !27
 
 init_opt_stats_opts.exit:                         ; preds = %for.inc.i, %if.then681
@@ -11368,7 +11368,7 @@ init_opt_stats_opts.exit:                         ; preds = %for.inc.i, %if.then
   br i1 %tobool684, label %if.then689, label %while.cond.backedge
 
 if.then689:                                       ; preds = %init_opt_stats_opts.exit
-  %conv691 = trunc i64 %vlen.2 to i32
+  %conv691 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 16, ptr noundef nonnull %opts.02193, i32 noundef %conv691, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11389,11 +11389,11 @@ lor.lhs.false707:                                 ; preds = %if.then700
   %66 = load ptr, ptr %end702, align 8
   %67 = ptrtoint ptr %66 to i64
   %sub708 = sub i64 %67, %12
-  %cmp709.not = icmp eq i64 %sub708, %vlen.2
+  %cmp709.not = icmp eq i64 %sub708, %vlen.4
   br i1 %cmp709.not, label %if.else715, label %if.then713
 
 if.then713:                                       ; preds = %if.then700, %lor.lhs.false707
-  %conv1.i531 = trunc i64 %vlen.2 to i32
+  %conv1.i531 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 14, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i531, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i532 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i533 = icmp eq i32 %call2.i532, 0
@@ -11408,7 +11408,7 @@ if.else715:                                       ; preds = %lor.lhs.false707
   br i1 %cmp716, label %if.then720, label %land.lhs.true726
 
 if.then720:                                       ; preds = %if.else715
-  %conv1.i537 = trunc i64 %vlen.2 to i32
+  %conv1.i537 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.104, i32 noundef 14, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i537, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i538 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i539 = icmp eq i32 %call2.i538, 0
@@ -11425,7 +11425,7 @@ land.lhs.true726:                                 ; preds = %if.else715
   br i1 %tobool727, label %if.then732, label %while.cond.backedge
 
 if.then732:                                       ; preds = %land.lhs.true726
-  %conv734 = trunc i64 %vlen.2 to i32
+  %conv734 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 14, ptr noundef nonnull %opts.02193, i32 noundef %conv734, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11435,7 +11435,7 @@ land.lhs.true739:                                 ; preds = %if.end499
   br i1 %cmp741, label %if.then743, label %if.end893
 
 if.then743:                                       ; preds = %land.lhs.true739
-  %cmp11.not.i542 = icmp eq i64 %vlen.2, 0
+  %cmp11.not.i542 = icmp eq i64 %vlen.4, 0
   br i1 %cmp11.not.i542, label %init_opt_stats_opts.exit561, label %for.body.preheader.i543
 
 for.body.preheader.i543:                          ; preds = %if.then743
@@ -11477,7 +11477,7 @@ if.end.i557:                                      ; preds = %sw.epilog.i549
 for.inc.i553:                                     ; preds = %if.end.i557, %sw.epilog.i549, %for.body.i545
   %opts_len.1.i554 = phi i64 [ %opts_len.012.i547, %for.body.i545 ], [ %opts_len.012.i547, %sw.epilog.i549 ], [ %inc.i558, %if.end.i557 ]
   %inc20.i555 = add nuw i64 %i.013.i546, 1
-  %exitcond.not.i556 = icmp eq i64 %inc20.i555, %vlen.2
+  %exitcond.not.i556 = icmp eq i64 %inc20.i555, %vlen.4
   br i1 %exitcond.not.i556, label %init_opt_stats_opts.exit561, label %for.body.i545, !llvm.loop !27
 
 init_opt_stats_opts.exit561:                      ; preds = %for.inc.i553, %if.then743
@@ -11486,7 +11486,7 @@ init_opt_stats_opts.exit561:                      ; preds = %for.inc.i553, %if.t
   br i1 %tobool746, label %if.then751, label %while.cond.backedge
 
 if.then751:                                       ; preds = %init_opt_stats_opts.exit561
-  %conv753 = trunc i64 %vlen.2 to i32
+  %conv753 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 19, ptr noundef nonnull %opts.02193, i32 noundef %conv753, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11496,7 +11496,7 @@ land.lhs.true758:                                 ; preds = %if.end499
   br i1 %cmp760, label %if.then762, label %land.lhs.true816
 
 if.then762:                                       ; preds = %land.lhs.true758
-  switch i64 %vlen.2, label %if.then796 [
+  switch i64 %vlen.4, label %if.then796 [
     i64 4, label %land.lhs.true765
     i64 5, label %land.lhs.true773
   ]
@@ -11546,7 +11546,7 @@ if.then793:                                       ; preds = %land.lhs.true789
   br label %land.lhs.true803
 
 if.then796:                                       ; preds = %if.then762, %land.lhs.true781, %land.lhs.true789
-  %conv1.i563 = trunc i64 %vlen.2 to i32
+  %conv1.i563 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 4, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i563, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i564 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i565 = icmp eq i32 %call2.i564, 0
@@ -11562,7 +11562,7 @@ land.lhs.true803:                                 ; preds = %if.then769, %if.the
   br i1 %tobool804, label %if.then809, label %while.cond.backedge
 
 if.then809:                                       ; preds = %land.lhs.true803
-  %conv811 = trunc i64 %vlen.2 to i32
+  %conv811 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 4, ptr noundef nonnull %opts.02193, i32 noundef %conv811, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11572,7 +11572,7 @@ land.lhs.true816:                                 ; preds = %land.lhs.true758
   br i1 %cmp818, label %if.then820, label %if.end893
 
 if.then820:                                       ; preds = %land.lhs.true816
-  switch i64 %vlen.2, label %if.then838 [
+  switch i64 %vlen.4, label %if.then838 [
     i64 4, label %land.lhs.true823
     i64 5, label %land.lhs.true831
   ]
@@ -11588,7 +11588,7 @@ land.lhs.true831:                                 ; preds = %if.then820
   br i1 %cmp833, label %land.lhs.true843, label %if.then838
 
 if.then838:                                       ; preds = %if.then820, %land.lhs.true823, %land.lhs.true831
-  %conv1.i569 = trunc i64 %vlen.2 to i32
+  %conv1.i569 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 4, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i569, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i570 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i571 = icmp eq i32 %call2.i570, 0
@@ -11606,7 +11606,7 @@ land.lhs.true843:                                 ; preds = %land.lhs.true831, %
   br i1 %tobool844, label %if.then849, label %while.cond.backedge
 
 if.then849:                                       ; preds = %land.lhs.true843
-  %conv851 = trunc i64 %vlen.2 to i32
+  %conv851 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 4, ptr noundef nonnull %opts.02193, i32 noundef %conv851, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11616,7 +11616,7 @@ land.lhs.true856:                                 ; preds = %if.end499
   br i1 %cmp858, label %if.then860, label %if.end893
 
 if.then860:                                       ; preds = %land.lhs.true856
-  switch i64 %vlen.2, label %if.then878 [
+  switch i64 %vlen.4, label %if.then878 [
     i64 4, label %land.lhs.true863
     i64 5, label %land.lhs.true871
   ]
@@ -11632,7 +11632,7 @@ land.lhs.true871:                                 ; preds = %if.then860
   br i1 %cmp873, label %land.lhs.true883, label %if.then878
 
 if.then878:                                       ; preds = %if.then860, %land.lhs.true863, %land.lhs.true871
-  %conv1.i575 = trunc i64 %vlen.2 to i32
+  %conv1.i575 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 27, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i575, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i576 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i577 = icmp eq i32 %call2.i576, 0
@@ -11650,7 +11650,7 @@ land.lhs.true883:                                 ; preds = %land.lhs.true871, %
   br i1 %tobool884, label %if.then889, label %while.cond.backedge
 
 if.then889:                                       ; preds = %land.lhs.true883
-  %conv891 = trunc i64 %vlen.2 to i32
+  %conv891 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 27, ptr noundef nonnull %opts.02193, i32 noundef %conv891, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11665,7 +11665,7 @@ land.lhs.true896:                                 ; preds = %if.end893
   br i1 %cmp898, label %if.then900, label %if.end933
 
 if.then900:                                       ; preds = %land.lhs.true896
-  switch i64 %vlen.2, label %if.then918 [
+  switch i64 %vlen.4, label %if.then918 [
     i64 4, label %land.lhs.true903
     i64 5, label %land.lhs.true911
   ]
@@ -11682,7 +11682,7 @@ land.lhs.true911:                                 ; preds = %if.then900
 
 if.then918:                                       ; preds = %if.then900, %land.lhs.true903, %land.lhs.true911
   %conv.i580 = trunc i64 %sub3.i to i32
-  %conv1.i581 = trunc i64 %vlen.2 to i32
+  %conv1.i581 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef %conv.i580, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i581, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i582 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i583 = icmp eq i32 %call2.i582, 0
@@ -11701,7 +11701,7 @@ land.lhs.true923:                                 ; preds = %land.lhs.true911, %
 
 if.then929:                                       ; preds = %land.lhs.true923
   %conv930 = trunc i64 %sub3.i to i32
-  %conv931 = trunc i64 %vlen.2 to i32
+  %conv931 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv930, ptr noundef nonnull %opts.02193, i32 noundef %conv931, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11725,12 +11725,12 @@ lor.lhs.false947:                                 ; preds = %if.then940
   %76 = load ptr, ptr %end942, align 8
   %77 = ptrtoint ptr %76 to i64
   %sub948 = sub i64 %77, %12
-  %cmp949.not = icmp eq i64 %sub948, %vlen.2
+  %cmp949.not = icmp eq i64 %sub948, %vlen.4
   br i1 %cmp949.not, label %if.else955, label %if.then953
 
 if.then953:                                       ; preds = %if.then940, %lor.lhs.false947
   %conv.i588 = trunc i64 %sub3.i to i32
-  %conv1.i589 = trunc i64 %vlen.2 to i32
+  %conv1.i589 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef %conv.i588, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i589, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i590 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i591 = icmp eq i32 %call2.i590, 0
@@ -11749,7 +11749,7 @@ if.else955:                                       ; preds = %lor.lhs.false947
 
 if.then969:                                       ; preds = %if.else955
   %conv970 = trunc i64 %sub3.i to i32
-  %conv971 = trunc i64 %vlen.2 to i32
+  %conv971 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv970, ptr noundef nonnull %opts.02193, i32 noundef %conv971, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11773,12 +11773,12 @@ lor.lhs.false987:                                 ; preds = %if.then980
   %80 = load ptr, ptr %end982, align 8
   %81 = ptrtoint ptr %80 to i64
   %sub988 = sub i64 %81, %12
-  %cmp989.not = icmp eq i64 %sub988, %vlen.2
+  %cmp989.not = icmp eq i64 %sub988, %vlen.4
   br i1 %cmp989.not, label %land.lhs.true1002, label %if.then993
 
 if.then993:                                       ; preds = %if.then980, %lor.lhs.false987
   %conv.i596 = trunc i64 %sub3.i to i32
-  %conv1.i597 = trunc i64 %vlen.2 to i32
+  %conv1.i597 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef %conv.i596, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i597, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i598 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i599 = icmp eq i32 %call2.i598, 0
@@ -11798,7 +11798,7 @@ land.lhs.true1002:                                ; preds = %lor.lhs.false987
 
 if.then1008:                                      ; preds = %land.lhs.true1002
   %conv1009 = trunc i64 %sub3.i to i32
-  %conv1010 = trunc i64 %vlen.2 to i32
+  %conv1010 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv1009, ptr noundef nonnull %opts.02193, i32 noundef %conv1010, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11823,11 +11823,11 @@ lor.lhs.false1026:                                ; preds = %if.then1019
   %84 = load ptr, ptr %end1021, align 8
   %85 = ptrtoint ptr %84 to i64
   %sub1027 = sub i64 %85, %12
-  %cmp1028.not = icmp eq i64 %sub1027, %vlen.2
+  %cmp1028.not = icmp eq i64 %sub1027, %vlen.4
   br i1 %cmp1028.not, label %if.else1034, label %if.then1032
 
 if.then1032:                                      ; preds = %if.then1019, %lor.lhs.false1026
-  %conv1.i605 = trunc i64 %vlen.2 to i32
+  %conv1.i605 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 20, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i605, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i606 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i607 = icmp eq i32 %call2.i606, 0
@@ -11843,7 +11843,7 @@ if.else1034:                                      ; preds = %lor.lhs.false1026
   br i1 %or.cond2, label %if.then1042, label %land.lhs.true1048
 
 if.then1042:                                      ; preds = %if.else1034
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.104, ptr noundef nonnull %opts.02193, i64 noundef 20, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.104, ptr noundef nonnull %opts.02193, i64 noundef 20, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1048:                                ; preds = %if.else1034
@@ -11853,7 +11853,7 @@ land.lhs.true1048:                                ; preds = %if.else1034
   br i1 %tobool1049, label %if.then1054, label %while.cond.backedge
 
 if.then1054:                                      ; preds = %land.lhs.true1048
-  %conv1056 = trunc i64 %vlen.2 to i32
+  %conv1056 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 20, ptr noundef nonnull %opts.02193, i32 noundef %conv1056, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11878,11 +11878,11 @@ lor.lhs.false1072:                                ; preds = %if.then1065
   %89 = load ptr, ptr %end1067, align 8
   %90 = ptrtoint ptr %89 to i64
   %sub1073 = sub i64 %90, %12
-  %cmp1074.not = icmp eq i64 %sub1073, %vlen.2
+  %cmp1074.not = icmp eq i64 %sub1073, %vlen.4
   br i1 %cmp1074.not, label %if.else1080, label %if.then1078
 
 if.then1078:                                      ; preds = %if.then1065, %lor.lhs.false1072
-  %conv1.i613 = trunc i64 %vlen.2 to i32
+  %conv1.i613 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 23, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i613, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i614 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i615 = icmp eq i32 %call2.i614, 0
@@ -11903,7 +11903,7 @@ if.else1080:                                      ; preds = %lor.lhs.false1072
   br i1 %tobool1095, label %if.then1100, label %while.cond.backedge
 
 if.then1100:                                      ; preds = %if.else1080
-  %conv1102 = trunc i64 %vlen.2 to i32
+  %conv1102 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 23, ptr noundef nonnull %opts.02193, i32 noundef %conv1102, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11924,11 +11924,11 @@ lor.lhs.false1118:                                ; preds = %if.then1111
   %93 = load ptr, ptr %end1113, align 8
   %94 = ptrtoint ptr %93 to i64
   %sub1119 = sub i64 %94, %12
-  %cmp1120.not = icmp eq i64 %sub1119, %vlen.2
+  %cmp1120.not = icmp eq i64 %sub1119, %vlen.4
   br i1 %cmp1120.not, label %if.else1126, label %if.then1124
 
 if.then1124:                                      ; preds = %if.then1111, %lor.lhs.false1118
-  %conv1.i621 = trunc i64 %vlen.2 to i32
+  %conv1.i621 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 23, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i621, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i622 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i623 = icmp eq i32 %call2.i622, 0
@@ -11949,7 +11949,7 @@ if.else1126:                                      ; preds = %lor.lhs.false1118
   br i1 %tobool1141, label %if.then1146, label %while.cond.backedge
 
 if.then1146:                                      ; preds = %if.else1126
-  %conv1148 = trunc i64 %vlen.2 to i32
+  %conv1148 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 23, ptr noundef nonnull %opts.02193, i32 noundef %conv1148, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -11973,12 +11973,12 @@ lor.lhs.false1164:                                ; preds = %if.then1157
   %97 = load ptr, ptr %end1159, align 8
   %98 = ptrtoint ptr %97 to i64
   %sub1165 = sub i64 %98, %12
-  %cmp1166.not = icmp eq i64 %sub1165, %vlen.2
+  %cmp1166.not = icmp eq i64 %sub1165, %vlen.4
   br i1 %cmp1166.not, label %if.else1172, label %if.then1170
 
 if.then1170:                                      ; preds = %if.then1157, %lor.lhs.false1164
   %conv.i628 = trunc i64 %sub3.i to i32
-  %conv1.i629 = trunc i64 %vlen.2 to i32
+  %conv1.i629 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef %conv.i628, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i629, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i630 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i631 = icmp eq i32 %call2.i630, 0
@@ -12000,7 +12000,7 @@ if.else1172:                                      ; preds = %lor.lhs.false1164
 
 if.then1192:                                      ; preds = %if.else1172
   %conv1193 = trunc i64 %sub3.i to i32
-  %conv1194 = trunc i64 %vlen.2 to i32
+  %conv1194 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv1193, ptr noundef nonnull %opts.02193, i32 noundef %conv1194, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12024,11 +12024,11 @@ lor.lhs.false1210:                                ; preds = %if.then1203
   %101 = load ptr, ptr %end1205, align 8
   %102 = ptrtoint ptr %101 to i64
   %sub1211 = sub i64 %102, %12
-  %cmp1212.not = icmp eq i64 %sub1211, %vlen.2
+  %cmp1212.not = icmp eq i64 %sub1211, %vlen.4
   br i1 %cmp1212.not, label %if.else1218, label %if.then1216
 
 if.then1216:                                      ; preds = %if.then1203, %lor.lhs.false1210
-  %conv1.i637 = trunc i64 %vlen.2 to i32
+  %conv1.i637 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 20, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i637, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i638 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i639 = icmp eq i32 %call2.i638, 0
@@ -12046,7 +12046,7 @@ if.else1218:                                      ; preds = %lor.lhs.false1210
   br i1 %tobool1227, label %if.then1232, label %while.cond.backedge
 
 if.then1232:                                      ; preds = %if.else1218
-  %conv1234 = trunc i64 %vlen.2 to i32
+  %conv1234 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 20, ptr noundef nonnull %opts.02193, i32 noundef %conv1234, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12074,11 +12074,11 @@ lor.lhs.false1250:                                ; preds = %if.then1243
   %105 = load ptr, ptr %end1245, align 8
   %106 = ptrtoint ptr %105 to i64
   %sub1251 = sub i64 %106, %12
-  %cmp1252.not = icmp eq i64 %sub1251, %vlen.2
+  %cmp1252.not = icmp eq i64 %sub1251, %vlen.4
   br i1 %cmp1252.not, label %land.lhs.true1261, label %if.then1256
 
 if.then1256:                                      ; preds = %if.then1243, %lor.lhs.false1250
-  %conv1.i645 = trunc i64 %vlen.2 to i32
+  %conv1.i645 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 21, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i645, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i646 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i647 = icmp eq i32 %call2.i646, 0
@@ -12095,7 +12095,7 @@ land.lhs.true1261:                                ; preds = %lor.lhs.false1250
   br i1 %tobool1262, label %if.then1267, label %while.cond.backedge
 
 if.then1267:                                      ; preds = %land.lhs.true1261
-  %conv1269 = trunc i64 %vlen.2 to i32
+  %conv1269 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 21, ptr noundef nonnull %opts.02193, i32 noundef %conv1269, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12116,11 +12116,11 @@ lor.lhs.false1285:                                ; preds = %if.then1278
   %109 = load ptr, ptr %end1280, align 8
   %110 = ptrtoint ptr %109 to i64
   %sub1286 = sub i64 %110, %12
-  %cmp1287.not = icmp eq i64 %sub1286, %vlen.2
+  %cmp1287.not = icmp eq i64 %sub1286, %vlen.4
   br i1 %cmp1287.not, label %if.else1293, label %if.then1291
 
 if.then1291:                                      ; preds = %if.then1278, %lor.lhs.false1285
-  %conv1.i653 = trunc i64 %vlen.2 to i32
+  %conv1.i653 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.93, i32 noundef 25, ptr noundef nonnull %opts.02193, i32 noundef %conv1.i653, ptr noundef nonnull %incdec.ptr2.i) #19
   %call2.i654 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %opts.02193, ptr noundef nonnull dereferenceable(14) @.str.164, i64 noundef 13) #23
   %cmp.i655 = icmp eq i32 %call2.i654, 0
@@ -12141,7 +12141,7 @@ if.else1293:                                      ; preds = %lor.lhs.false1285
   br i1 %tobool1308, label %if.then1313, label %while.cond.backedge
 
 if.then1313:                                      ; preds = %if.else1293
-  %conv1315 = trunc i64 %vlen.2 to i32
+  %conv1315 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 25, ptr noundef nonnull %opts.02193, i32 noundef %conv1315, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12162,11 +12162,11 @@ lor.lhs.false1331:                                ; preds = %if.then1324
   %113 = load ptr, ptr %end1326, align 8
   %114 = ptrtoint ptr %113 to i64
   %sub1332 = sub i64 %114, %12
-  %cmp1333.not = icmp eq i64 %sub1332, %vlen.2
+  %cmp1333.not = icmp eq i64 %sub1332, %vlen.4
   br i1 %cmp1333.not, label %if.else1339, label %land.lhs.true1353.thread
 
 land.lhs.true1353.thread:                         ; preds = %lor.lhs.false1331, %if.then1324
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 25, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 25, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1339:                                      ; preds = %lor.lhs.false1331
@@ -12180,7 +12180,7 @@ if.else1339:                                      ; preds = %lor.lhs.false1331
   br i1 %tobool1354, label %if.then1359, label %while.cond.backedge
 
 if.then1359:                                      ; preds = %if.else1339
-  %conv1361 = trunc i64 %vlen.2 to i32
+  %conv1361 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 25, ptr noundef nonnull %opts.02193, i32 noundef %conv1361, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12201,11 +12201,11 @@ lor.lhs.false1377:                                ; preds = %if.then1370
   %117 = load ptr, ptr %end1372, align 8
   %118 = ptrtoint ptr %117 to i64
   %sub1378 = sub i64 %118, %12
-  %cmp1379.not = icmp eq i64 %sub1378, %vlen.2
+  %cmp1379.not = icmp eq i64 %sub1378, %vlen.4
   br i1 %cmp1379.not, label %land.lhs.true1389, label %land.lhs.true1389.thread
 
 land.lhs.true1389.thread:                         ; preds = %lor.lhs.false1377, %if.then1370
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 26, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 26, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1389:                                ; preds = %lor.lhs.false1377
@@ -12216,7 +12216,7 @@ land.lhs.true1389:                                ; preds = %lor.lhs.false1377
   br i1 %tobool1390, label %if.then1395, label %while.cond.backedge
 
 if.then1395:                                      ; preds = %land.lhs.true1389
-  %conv1397 = trunc i64 %vlen.2 to i32
+  %conv1397 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 26, ptr noundef nonnull %opts.02193, i32 noundef %conv1397, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12240,11 +12240,11 @@ lor.lhs.false1413:                                ; preds = %if.then1406
   %121 = load ptr, ptr %end1408, align 8
   %122 = ptrtoint ptr %121 to i64
   %sub1414 = sub i64 %122, %12
-  %cmp1415.not = icmp eq i64 %sub1414, %vlen.2
+  %cmp1415.not = icmp eq i64 %sub1414, %vlen.4
   br i1 %cmp1415.not, label %if.else1421, label %if.then1419
 
 if.then1419:                                      ; preds = %if.then1406, %lor.lhs.false1413
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 18, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 18, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1421:                                      ; preds = %lor.lhs.false1413
@@ -12252,7 +12252,7 @@ if.else1421:                                      ; preds = %lor.lhs.false1413
   br i1 %cmp1422, label %if.then1426, label %land.lhs.true1432
 
 if.then1426:                                      ; preds = %if.else1421
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.104, ptr noundef nonnull %opts.02193, i64 noundef 18, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.104, ptr noundef nonnull %opts.02193, i64 noundef 18, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1432:                                ; preds = %if.else1421
@@ -12262,7 +12262,7 @@ land.lhs.true1432:                                ; preds = %if.else1421
   br i1 %tobool1433, label %if.then1438, label %while.cond.backedge
 
 if.then1438:                                      ; preds = %land.lhs.true1432
-  %conv1440 = trunc i64 %vlen.2 to i32
+  %conv1440 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 18, ptr noundef nonnull %opts.02193, i32 noundef %conv1440, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12287,11 +12287,11 @@ lor.lhs.false1456:                                ; preds = %if.then1449
   %125 = load ptr, ptr %end1451, align 8
   %126 = ptrtoint ptr %125 to i64
   %sub1457 = sub i64 %126, %12
-  %cmp1458.not = icmp eq i64 %sub1457, %vlen.2
+  %cmp1458.not = icmp eq i64 %sub1457, %vlen.4
   br i1 %cmp1458.not, label %if.else1464, label %if.then1462
 
 if.then1462:                                      ; preds = %if.then1449, %lor.lhs.false1456
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 24, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 24, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1464:                                      ; preds = %lor.lhs.false1456
@@ -12299,7 +12299,7 @@ if.else1464:                                      ; preds = %lor.lhs.false1456
   br i1 %cmp1465, label %if.then1469, label %land.lhs.true1475
 
 if.then1469:                                      ; preds = %if.else1464
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.104, ptr noundef nonnull %opts.02193, i64 noundef 24, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.104, ptr noundef nonnull %opts.02193, i64 noundef 24, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1475:                                ; preds = %if.else1464
@@ -12309,7 +12309,7 @@ land.lhs.true1475:                                ; preds = %if.else1464
   br i1 %tobool1476, label %if.then1481, label %while.cond.backedge
 
 if.then1481:                                      ; preds = %land.lhs.true1475
-  %conv1483 = trunc i64 %vlen.2 to i32
+  %conv1483 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 24, ptr noundef nonnull %opts.02193, i32 noundef %conv1483, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12325,7 +12325,7 @@ for.body1495:                                     ; preds = %if.end1485, %for.in
   %indvars.iv2229 = phi i64 [ %indvars.iv.next2230, %for.inc1503 ], [ 0, %if.end1485 ]
   %arrayidx1497 = getelementptr inbounds [0 x ptr], ptr @percpu_arena_mode_names, i64 0, i64 %indvars.iv2229
   %128 = load ptr, ptr %arrayidx1497, align 8
-  %call1498 = call i32 @strncmp(ptr noundef %128, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2) #23
+  %call1498 = call i32 @strncmp(ptr noundef %128, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #23
   %cmp1499 = icmp eq i32 %call1498, 0
   br i1 %cmp1499, label %land.lhs.true1513, label %for.inc1503
 
@@ -12335,7 +12335,7 @@ for.inc1503:                                      ; preds = %for.body1495
   br i1 %exitcond2232.not, label %land.lhs.true1513.thread, label %for.body1495, !llvm.loop !28
 
 land.lhs.true1513.thread:                         ; preds = %for.inc1503
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1513:                                ; preds = %for.body1495
@@ -12347,7 +12347,7 @@ land.lhs.true1513:                                ; preds = %for.body1495
 
 if.then1519:                                      ; preds = %land.lhs.true1513
   %conv1520 = trunc i64 %sub3.i to i32
-  %conv1521 = trunc i64 %vlen.2 to i32
+  %conv1521 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv1520, ptr noundef nonnull %opts.02193, i32 noundef %conv1521, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12361,7 +12361,7 @@ land.lhs.true1526:                                ; preds = %if.end1523
   br i1 %cmp1528, label %if.then1530, label %if.end1693
 
 if.then1530:                                      ; preds = %land.lhs.true1526
-  switch i64 %vlen.2, label %land.lhs.true1553.thread [
+  switch i64 %vlen.4, label %land.lhs.true1553.thread [
     i64 4, label %land.lhs.true1533
     i64 5, label %land.lhs.true1541
   ]
@@ -12377,7 +12377,7 @@ land.lhs.true1541:                                ; preds = %if.then1530
   br i1 %cmp1543, label %land.lhs.true1553, label %land.lhs.true1553.thread
 
 land.lhs.true1553.thread:                         ; preds = %if.then1530, %land.lhs.true1541, %land.lhs.true1533
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 17, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 17, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1553:                                ; preds = %land.lhs.true1541, %land.lhs.true1533
@@ -12388,7 +12388,7 @@ land.lhs.true1553:                                ; preds = %land.lhs.true1541, 
   br i1 %tobool1554, label %if.then1559, label %while.cond.backedge
 
 if.then1559:                                      ; preds = %land.lhs.true1553
-  %conv1561 = trunc i64 %vlen.2 to i32
+  %conv1561 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 17, ptr noundef nonnull %opts.02193, i32 noundef %conv1561, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12415,11 +12415,11 @@ lor.lhs.false1577:                                ; preds = %if.then1570
   %133 = load ptr, ptr %end1572, align 8
   %134 = ptrtoint ptr %133 to i64
   %sub1578 = sub i64 %134, %12
-  %cmp1579.not = icmp eq i64 %sub1578, %vlen.2
+  %cmp1579.not = icmp eq i64 %sub1578, %vlen.4
   br i1 %cmp1579.not, label %if.else1585, label %land.lhs.true1598.thread
 
 land.lhs.true1598.thread:                         ; preds = %lor.lhs.false1577, %if.then1570
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 22, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 22, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1585:                                      ; preds = %lor.lhs.false1577
@@ -12442,7 +12442,7 @@ land.lhs.true1598:                                ; preds = %land.lhs.true1598.s
   br i1 %tobool1599, label %if.then1604, label %while.cond.backedge
 
 if.then1604:                                      ; preds = %land.lhs.true1598
-  %conv1606 = trunc i64 %vlen.2 to i32
+  %conv1606 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 22, ptr noundef nonnull %opts.02193, i32 noundef %conv1606, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12474,7 +12474,7 @@ land.lhs.true1611.tail:                           ; preds = %sub_0, %sub_1, %sub
   br i1 %cmp1613, label %if.then1615, label %if.end1693
 
 if.then1615:                                      ; preds = %land.lhs.true1611.tail
-  switch i64 %vlen.2, label %land.lhs.true1638.thread [
+  switch i64 %vlen.4, label %land.lhs.true1638.thread [
     i64 4, label %land.lhs.true1618
     i64 5, label %land.lhs.true1626
   ]
@@ -12490,7 +12490,7 @@ land.lhs.true1626:                                ; preds = %if.then1615
   br i1 %cmp1628, label %land.lhs.true1638, label %land.lhs.true1638.thread
 
 land.lhs.true1638.thread:                         ; preds = %if.then1615, %land.lhs.true1626, %land.lhs.true1618
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 3, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 3, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1638:                                ; preds = %land.lhs.true1626, %land.lhs.true1618
@@ -12501,7 +12501,7 @@ land.lhs.true1638:                                ; preds = %land.lhs.true1626, 
   br i1 %tobool1639, label %if.then1644, label %while.cond.backedge
 
 if.then1644:                                      ; preds = %land.lhs.true1638
-  %conv1646 = trunc i64 %vlen.2 to i32
+  %conv1646 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 3, ptr noundef nonnull %opts.02193, i32 noundef %conv1646, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12525,11 +12525,11 @@ lor.lhs.false1662:                                ; preds = %if.then1655
   %151 = load ptr, ptr %end1657, align 8
   %152 = ptrtoint ptr %151 to i64
   %sub1663 = sub i64 %152, %12
-  %cmp1664.not = icmp eq i64 %sub1663, %vlen.2
+  %cmp1664.not = icmp eq i64 %sub1663, %vlen.4
   br i1 %cmp1664.not, label %if.else1670, label %land.lhs.true1683.thread
 
 land.lhs.true1683.thread:                         ; preds = %lor.lhs.false1662, %if.then1655
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 18, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 18, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1670:                                      ; preds = %lor.lhs.false1662
@@ -12541,7 +12541,7 @@ if.else1670:                                      ; preds = %lor.lhs.false1662
   br i1 %tobool1684, label %if.then1689, label %while.cond.backedge
 
 if.then1689:                                      ; preds = %if.else1670
-  %conv1691 = trunc i64 %vlen.2 to i32
+  %conv1691 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 18, ptr noundef nonnull %opts.02193, i32 noundef %conv1691, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12566,11 +12566,11 @@ lor.lhs.false1707:                                ; preds = %if.then1700
   %155 = load ptr, ptr %end1702, align 8
   %156 = ptrtoint ptr %155 to i64
   %sub1708 = sub i64 %156, %12
-  %cmp1709.not = icmp eq i64 %sub1708, %vlen.2
+  %cmp1709.not = icmp eq i64 %sub1708, %vlen.4
   br i1 %cmp1709.not, label %if.else1715, label %land.lhs.true1728.thread
 
 land.lhs.true1728.thread:                         ; preds = %lor.lhs.false1707, %if.then1700
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1715:                                      ; preds = %lor.lhs.false1707
@@ -12583,7 +12583,7 @@ if.else1715:                                      ; preds = %lor.lhs.false1707
 
 if.then1734:                                      ; preds = %if.else1715
   %conv1735 = trunc i64 %sub3.i to i32
-  %conv1736 = trunc i64 %vlen.2 to i32
+  %conv1736 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv1735, ptr noundef nonnull %opts.02193, i32 noundef %conv1736, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12604,14 +12604,14 @@ lor.lhs.false1752:                                ; preds = %if.then1745
   %158 = load ptr, ptr %end1746, align 8
   %sub.ptr.lhs.cast1753 = ptrtoint ptr %158 to i64
   %sub.ptr.sub1755 = sub i64 %sub.ptr.lhs.cast1753, %12
-  %cmp1756 = icmp ne i64 %sub.ptr.sub1755, %vlen.2
+  %cmp1756 = icmp ne i64 %sub.ptr.sub1755, %vlen.4
   %159 = load i32, ptr %ratio, align 4
   %cmp1759 = icmp ugt i32 %159, 65536
   %or.cond3 = select i1 %cmp1756, i1 true, i1 %cmp1759
   br i1 %or.cond3, label %land.lhs.true1769.thread, label %land.lhs.true1769
 
 land.lhs.true1769.thread:                         ; preds = %lor.lhs.false1752, %if.then1745
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 32, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 32, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1769:                                ; preds = %lor.lhs.false1752
@@ -12623,7 +12623,7 @@ land.lhs.true1769:                                ; preds = %lor.lhs.false1752
   br i1 %tobool1770, label %if.then1775, label %while.cond.backedge
 
 if.then1775:                                      ; preds = %land.lhs.true1769
-  %conv1777 = trunc i64 %vlen.2 to i32
+  %conv1777 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 32, ptr noundef nonnull %opts.02193, i32 noundef %conv1777, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12647,11 +12647,11 @@ lor.lhs.false1793:                                ; preds = %if.then1786
   %163 = load ptr, ptr %end1788, align 8
   %164 = ptrtoint ptr %163 to i64
   %sub1794 = sub i64 %164, %12
-  %cmp1795.not = icmp eq i64 %sub1794, %vlen.2
+  %cmp1795.not = icmp eq i64 %sub1794, %vlen.4
   br i1 %cmp1795.not, label %land.lhs.true1804, label %land.lhs.true1804.thread
 
 land.lhs.true1804.thread:                         ; preds = %lor.lhs.false1793, %if.then1786
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1804:                                ; preds = %lor.lhs.false1793
@@ -12662,7 +12662,7 @@ land.lhs.true1804:                                ; preds = %lor.lhs.false1793
 
 if.then1810:                                      ; preds = %land.lhs.true1804
   %conv1811 = trunc i64 %sub3.i to i32
-  %conv1812 = trunc i64 %vlen.2 to i32
+  %conv1812 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv1811, ptr noundef nonnull %opts.02193, i32 noundef %conv1812, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12686,11 +12686,11 @@ lor.lhs.false1828:                                ; preds = %if.then1821
   %167 = load ptr, ptr %end1823, align 8
   %168 = ptrtoint ptr %167 to i64
   %sub1829 = sub i64 %168, %12
-  %cmp1830.not = icmp eq i64 %sub1829, %vlen.2
+  %cmp1830.not = icmp eq i64 %sub1829, %vlen.4
   br i1 %cmp1830.not, label %land.lhs.true1839, label %land.lhs.true1839.thread
 
 land.lhs.true1839.thread:                         ; preds = %lor.lhs.false1828, %if.then1821
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1839:                                ; preds = %lor.lhs.false1828
@@ -12701,7 +12701,7 @@ land.lhs.true1839:                                ; preds = %lor.lhs.false1828
 
 if.then1845:                                      ; preds = %land.lhs.true1839
   %conv1846 = trunc i64 %sub3.i to i32
-  %conv1847 = trunc i64 %vlen.2 to i32
+  %conv1847 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv1846, ptr noundef nonnull %opts.02193, i32 noundef %conv1847, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12714,7 +12714,7 @@ land.lhs.true1852:                                ; preds = %if.end1849
   br i1 %cmp1854, label %if.then1856, label %if.end1906
 
 if.then1856:                                      ; preds = %land.lhs.true1852
-  %cmp1857 = icmp eq i64 %vlen.2, 2
+  %cmp1857 = icmp eq i64 %vlen.4, 2
   br i1 %cmp1857, label %sub_02159, label %if.end1875
 
 sub_02159:                                        ; preds = %if.then1856
@@ -12755,11 +12755,11 @@ lor.lhs.false1883:                                ; preds = %if.end1875
   %179 = load ptr, ptr %end1877, align 8
   %sub.ptr.lhs.cast1884 = ptrtoint ptr %179 to i64
   %sub.ptr.sub1886 = sub i64 %sub.ptr.lhs.cast1884, %12
-  %cmp1887.not = icmp eq i64 %sub.ptr.sub1886, %vlen.2
+  %cmp1887.not = icmp eq i64 %sub.ptr.sub1886, %vlen.4
   br i1 %cmp1887.not, label %land.lhs.true1896, label %land.lhs.true1896.thread
 
 land.lhs.true1896.thread:                         ; preds = %lor.lhs.false1883, %if.end1875
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1896:                                ; preds = %lor.lhs.false1883
@@ -12771,7 +12771,7 @@ land.lhs.true1896:                                ; preds = %lor.lhs.false1883
 
 if.then1902:                                      ; preds = %land.lhs.true1896
   %conv1903 = trunc i64 %sub3.i to i32
-  %conv1904 = trunc i64 %vlen.2 to i32
+  %conv1904 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv1903, ptr noundef nonnull %opts.02193, i32 noundef %conv1904, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12795,11 +12795,11 @@ lor.lhs.false1920:                                ; preds = %if.then1913
   %183 = load ptr, ptr %end1915, align 8
   %184 = ptrtoint ptr %183 to i64
   %sub1921 = sub i64 %184, %12
-  %cmp1922.not = icmp eq i64 %sub1921, %vlen.2
+  %cmp1922.not = icmp eq i64 %sub1921, %vlen.4
   br i1 %cmp1922.not, label %land.lhs.true1936, label %land.lhs.true1936.thread
 
 land.lhs.true1936.thread:                         ; preds = %lor.lhs.false1920, %if.then1913
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true1936:                                ; preds = %lor.lhs.false1920
@@ -12810,7 +12810,7 @@ land.lhs.true1936:                                ; preds = %lor.lhs.false1920
 
 if.then1942:                                      ; preds = %land.lhs.true1936
   %conv1943 = trunc i64 %sub3.i to i32
-  %conv1944 = trunc i64 %vlen.2 to i32
+  %conv1944 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv1943, ptr noundef nonnull %opts.02193, i32 noundef %conv1944, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12834,11 +12834,11 @@ lor.lhs.false1960:                                ; preds = %if.then1953
   %187 = load ptr, ptr %end1955, align 8
   %188 = ptrtoint ptr %187 to i64
   %sub1961 = sub i64 %188, %12
-  %cmp1962.not = icmp eq i64 %sub1961, %vlen.2
+  %cmp1962.not = icmp eq i64 %sub1961, %vlen.4
   br i1 %cmp1962.not, label %if.else1968, label %land.lhs.true1976.thread
 
 land.lhs.true1976.thread:                         ; preds = %lor.lhs.false1960, %if.then1953
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 17, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 17, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else1968:                                      ; preds = %lor.lhs.false1960
@@ -12849,7 +12849,7 @@ if.else1968:                                      ; preds = %lor.lhs.false1960
   br i1 %tobool1977, label %if.then1982, label %while.cond.backedge
 
 if.then1982:                                      ; preds = %if.else1968
-  %conv1984 = trunc i64 %vlen.2 to i32
+  %conv1984 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 17, ptr noundef nonnull %opts.02193, i32 noundef %conv1984, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12870,11 +12870,11 @@ lor.lhs.false2000:                                ; preds = %if.then1993
   %191 = load ptr, ptr %end1995, align 8
   %192 = ptrtoint ptr %191 to i64
   %sub2001 = sub i64 %192, %12
-  %cmp2002.not = icmp eq i64 %sub2001, %vlen.2
+  %cmp2002.not = icmp eq i64 %sub2001, %vlen.4
   br i1 %cmp2002.not, label %if.else2008, label %land.lhs.true2016.thread
 
 land.lhs.true2016.thread:                         ; preds = %lor.lhs.false2000, %if.then1993
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 17, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 17, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else2008:                                      ; preds = %lor.lhs.false2000
@@ -12885,7 +12885,7 @@ if.else2008:                                      ; preds = %lor.lhs.false2000
   br i1 %tobool2017, label %if.then2022, label %while.cond.backedge
 
 if.then2022:                                      ; preds = %if.else2008
-  %conv2024 = trunc i64 %vlen.2 to i32
+  %conv2024 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 17, ptr noundef nonnull %opts.02193, i32 noundef %conv2024, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12909,11 +12909,11 @@ lor.lhs.false2040:                                ; preds = %if.then2033
   %195 = load ptr, ptr %end2035, align 8
   %196 = ptrtoint ptr %195 to i64
   %sub2041 = sub i64 %196, %12
-  %cmp2042.not = icmp eq i64 %sub2041, %vlen.2
+  %cmp2042.not = icmp eq i64 %sub2041, %vlen.4
   br i1 %cmp2042.not, label %if.else2048, label %land.lhs.true2056.thread
 
 land.lhs.true2056.thread:                         ; preds = %lor.lhs.false2040, %if.then2033
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else2048:                                      ; preds = %lor.lhs.false2040
@@ -12925,7 +12925,7 @@ if.else2048:                                      ; preds = %lor.lhs.false2040
 
 if.then2062:                                      ; preds = %if.else2048
   %conv2063 = trunc i64 %sub3.i to i32
-  %conv2064 = trunc i64 %vlen.2 to i32
+  %conv2064 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv2063, ptr noundef nonnull %opts.02193, i32 noundef %conv2064, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12949,11 +12949,11 @@ lor.lhs.false2080:                                ; preds = %if.then2073
   %199 = load ptr, ptr %end2075, align 8
   %200 = ptrtoint ptr %199 to i64
   %sub2081 = sub i64 %200, %12
-  %cmp2082.not = icmp eq i64 %sub2081, %vlen.2
+  %cmp2082.not = icmp eq i64 %sub2081, %vlen.4
   br i1 %cmp2082.not, label %if.else2092, label %land.lhs.true2101.thread
 
 land.lhs.true2101.thread:                         ; preds = %lor.lhs.false2080, %if.then2073
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 if.else2092:                                      ; preds = %lor.lhs.false2080
@@ -12965,7 +12965,7 @@ if.else2092:                                      ; preds = %lor.lhs.false2080
 
 if.then2107:                                      ; preds = %if.else2092
   %conv2108 = trunc i64 %sub3.i to i32
-  %conv2109 = trunc i64 %vlen.2 to i32
+  %conv2109 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv2108, ptr noundef nonnull %opts.02193, i32 noundef %conv2109, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -12978,7 +12978,7 @@ land.lhs.true2114:                                ; preds = %if.end2111
   br i1 %cmp2116, label %if.then2118, label %if.end2169
 
 if.then2118:                                      ; preds = %land.lhs.true2114
-  %cmp2119 = icmp eq i64 %vlen.2, 7
+  %cmp2119 = icmp eq i64 %vlen.4, 7
   br i1 %cmp2119, label %land.lhs.true2121, label %if.end2137
 
 land.lhs.true2121:                                ; preds = %if.then2118
@@ -12999,7 +12999,7 @@ if.then2133:                                      ; preds = %if.then2125
 
 if.end2137:                                       ; preds = %land.lhs.true2121, %if.then2118
   store ptr %incdec.ptr2.i, ptr %slab_size_segment_cur, align 8
-  store i64 %vlen.2, ptr %vlen_left2139, align 8
+  store i64 %vlen.4, ptr %vlen_left2139, align 8
   br label %do.body2140
 
 do.body2140:                                      ; preds = %do.cond2151, %if.end2137
@@ -13007,7 +13007,7 @@ do.body2140:                                      ; preds = %do.cond2151, %if.en
   br i1 %call2141, label %land.lhs.true2159.thread, label %do.cond2151
 
 land.lhs.true2159.thread:                         ; preds = %do.body2140
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.151, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.151, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 do.cond2151:                                      ; preds = %do.body2140
@@ -13029,7 +13029,7 @@ land.lhs.true2159:                                ; preds = %do.cond2151
 
 if.then2165:                                      ; preds = %land.lhs.true2159
   %conv2166 = trunc i64 %sub3.i to i32
-  %conv2167 = trunc i64 %vlen.2 to i32
+  %conv2167 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv2166, ptr noundef nonnull %opts.02193, i32 noundef %conv2167, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -13067,7 +13067,7 @@ for.body2182:                                     ; preds = %land.lhs.true2172.t
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc2190 ], [ 0, %land.lhs.true2172.tail ]
   %arrayidx2184 = getelementptr inbounds [0 x ptr], ptr @thp_mode_names, i64 0, i64 %indvars.iv
   %220 = load ptr, ptr %arrayidx2184, align 8
-  %call2185 = call i32 @strncmp(ptr noundef %220, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2) #23
+  %call2185 = call i32 @strncmp(ptr noundef %220, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4) #23
   %cmp2186 = icmp eq i32 %call2185, 0
   br i1 %cmp2186, label %land.lhs.true2200, label %for.inc2190
 
@@ -13077,7 +13077,7 @@ for.inc2190:                                      ; preds = %for.body2182
   br i1 %exitcond.not, label %land.lhs.true2200.thread, label %for.body2182, !llvm.loop !30
 
 land.lhs.true2200.thread:                         ; preds = %for.inc2190
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true2200:                                ; preds = %for.body2182
@@ -13089,7 +13089,7 @@ land.lhs.true2200:                                ; preds = %for.body2182
 
 if.then2206:                                      ; preds = %land.lhs.true2200
   %conv2207 = trunc i64 %sub3.i to i32
-  %conv2208 = trunc i64 %vlen.2 to i32
+  %conv2208 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv2207, ptr noundef nonnull %opts.02193, i32 noundef %conv2208, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -13102,7 +13102,7 @@ land.lhs.true2213:                                ; preds = %if.end2210
   br i1 %cmp2215, label %if.then2217, label %if.end2259
 
 if.then2217:                                      ; preds = %land.lhs.true2213
-  switch i64 %vlen.2, label %land.lhs.true2249.thread [
+  switch i64 %vlen.4, label %land.lhs.true2249.thread [
     i64 5, label %land.lhs.true2220
     i64 4, label %land.lhs.true2228
   ]
@@ -13123,7 +13123,7 @@ land.lhs.true2236:                                ; preds = %land.lhs.true2220
   br i1 %cmp2238, label %land.lhs.true2249, label %land.lhs.true2249.thread
 
 land.lhs.true2249.thread:                         ; preds = %if.then2217, %land.lhs.true2236, %land.lhs.true2228
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 12, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef 12, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true2249:                                ; preds = %land.lhs.true2236, %land.lhs.true2228, %land.lhs.true2220
@@ -13134,7 +13134,7 @@ land.lhs.true2249:                                ; preds = %land.lhs.true2236, 
   br i1 %tobool2250, label %if.then2255, label %while.cond.backedge
 
 if.then2255:                                      ; preds = %land.lhs.true2249
-  %conv2257 = trunc i64 %vlen.2 to i32
+  %conv2257 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef 12, ptr noundef nonnull %opts.02193, i32 noundef %conv2257, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -13158,11 +13158,11 @@ lor.lhs.false2273:                                ; preds = %if.then2266
   %225 = load ptr, ptr %end2268, align 8
   %226 = ptrtoint ptr %225 to i64
   %sub2274 = sub i64 %226, %12
-  %cmp2275.not = icmp eq i64 %sub2274, %vlen.2
+  %cmp2275.not = icmp eq i64 %sub2274, %vlen.4
   br i1 %cmp2275.not, label %land.lhs.true2284, label %land.lhs.true2284.thread
 
 land.lhs.true2284.thread:                         ; preds = %lor.lhs.false2273, %if.then2266
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true2284:                                ; preds = %lor.lhs.false2273
@@ -13173,7 +13173,7 @@ land.lhs.true2284:                                ; preds = %lor.lhs.false2273
 
 if.then2290:                                      ; preds = %land.lhs.true2284
   %conv2291 = trunc i64 %sub3.i to i32
-  %conv2292 = trunc i64 %vlen.2 to i32
+  %conv2292 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv2291, ptr noundef nonnull %opts.02193, i32 noundef %conv2292, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
@@ -13194,11 +13194,11 @@ lor.lhs.false2308:                                ; preds = %if.then2301
   %229 = load ptr, ptr %end2303, align 8
   %230 = ptrtoint ptr %229 to i64
   %sub2309 = sub i64 %230, %12
-  %cmp2310.not = icmp eq i64 %sub2309, %vlen.2
+  %cmp2310.not = icmp eq i64 %sub2309, %vlen.4
   br i1 %cmp2310.not, label %land.lhs.true2319, label %land.lhs.true2319.thread
 
 land.lhs.true2319.thread:                         ; preds = %lor.lhs.false2308, %if.then2301
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.93, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 land.lhs.true2319:                                ; preds = %lor.lhs.false2308
@@ -13209,12 +13209,12 @@ land.lhs.true2319:                                ; preds = %lor.lhs.false2308
 
 if.then2325:                                      ; preds = %land.lhs.true2319
   %conv2326 = trunc i64 %sub3.i to i32
-  %conv2327 = trunc i64 %vlen.2 to i32
+  %conv2327 = trunc i64 %vlen.4 to i32
   call void (ptr, ...) @malloc_printf(ptr noundef nonnull @.str.94, i32 noundef %conv2326, ptr noundef nonnull %opts.02193, i32 noundef %conv2327, ptr noundef nonnull %incdec.ptr2.i) #19
   br label %while.cond.backedge
 
 if.then2331:                                      ; preds = %if.end2259, %land.lhs.true2297
-  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.156, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.2)
+  call fastcc void @malloc_conf_error(ptr noundef nonnull @.str.156, ptr noundef nonnull %opts.02193, i64 noundef %sub3.i, ptr noundef nonnull %incdec.ptr2.i, i64 noundef %vlen.4)
   br label %while.cond.backedge
 
 while.end.sink.split:                             ; preds = %for.body.i, %if.then.i

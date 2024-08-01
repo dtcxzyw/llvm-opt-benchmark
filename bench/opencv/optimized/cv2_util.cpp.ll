@@ -1147,14 +1147,14 @@ _ZN14PyAllowThreadsC2Ev.exit32:                   ; preds = %60
 
 _ZN14PyAllowThreadsD2Ev.exit34:                   ; preds = %72, %70
   %.pn = phi { ptr, i32 } [ %71, %70 ], [ %73, %72 ]
-  %.1 = extractvalue { ptr, i32 } %.pn, 0
-  %.118 = extractvalue { ptr, i32 } %.pn, 1
+  %.2 = extractvalue { ptr, i32 } %.pn, 0
+  %.219 = extractvalue { ptr, i32 } %.pn, 1
   %77 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #17
-  %78 = icmp eq i32 %.118, %77
+  %78 = icmp eq i32 %.219, %77
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %_ZN14PyAllowThreadsD2Ev.exit34
-  %80 = call ptr @__cxa_begin_catch(ptr %.1) #17
+  %80 = call ptr @__cxa_begin_catch(ptr %.2) #17
   invoke void @_Z18pyRaiseCVExceptionRKN2cv9ExceptionE(ptr noundef nonnull align 8 dereferenceable(148) %80)
           to label %81 unwind label %99
 
@@ -1164,8 +1164,8 @@ _ZN14PyAllowThreadsD2Ev.exit34:                   ; preds = %72, %70
 
 82:                                               ; preds = %_ZN14PyAllowThreadsD2Ev.exit34
   %83 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
-  %84 = icmp eq i32 %.118, %83
-  %85 = call ptr @__cxa_begin_catch(ptr %.1) #17
+  %84 = icmp eq i32 %.219, %83
+  %85 = call ptr @__cxa_begin_catch(ptr %.2) #17
   %86 = load ptr, ptr @opencv_error, align 8
   br i1 %84, label %87, label %93
 

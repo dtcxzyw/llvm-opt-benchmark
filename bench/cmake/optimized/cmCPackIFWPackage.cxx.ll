@@ -6405,7 +6405,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   br i1 %.not626739, label %._crit_edge744, label %.lr.ph743
 
 .lr.ph743:                                        ; preds = %476, %490
-  %.0128.in741 = phi i1 [ %484, %490 ], [ %472, %476 ]
+  %.1129.in741 = phi i1 [ %484, %490 ], [ %472, %476 ]
   %.sroa.0579.0740 = phi ptr [ %491, %490 ], [ %477, %476 ]
   br i1 %434, label %478, label %482
 
@@ -6417,7 +6417,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
 
 482:                                              ; preds = %478, %.lr.ph743
   %483 = phi i1 [ false, %.lr.ph743 ], [ %481, %478 ]
-  %484 = or i1 %.0128.in741, %483
+  %484 = or i1 %.1129.in741, %483
   %485 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %96, ptr noundef nonnull @.str.71)
           to label %486 unwind label %.loopexit650
 
@@ -6459,7 +6459,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   br label %510
 
 ._crit_edge744:                                   ; preds = %490, %476
-  %.0128.in.lcssa = phi i1 [ %472, %476 ], [ %484, %490 ]
+  %.1129.in.lcssa = phi i1 [ %472, %476 ], [ %484, %490 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %100) #17
   %496 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %99)
           to label %.noexc388 unwind label %503
@@ -6551,7 +6551,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   br label %.loopexit.split-lp656
 
 511:                                              ; preds = %_ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKS6_RKT_.exit399, %._crit_edge738
-  %.1129 = phi i1 [ false, %._crit_edge738 ], [ %.0128.in.lcssa, %_ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKS6_RKT_.exit399 ]
+  %.0128 = phi i1 [ false, %._crit_edge738 ], [ %.1129.in.lcssa, %_ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKS6_RKT_.exit399 ]
   %512 = getelementptr inbounds i8, ptr %102, i64 8
   store i32 0, ptr %512, align 8
   %513 = getelementptr inbounds i8, ptr %102, i64 16
@@ -6569,7 +6569,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   br i1 %.not627745, label %._crit_edge749.thread, label %.lr.ph748
 
 ._crit_edge749.thread:                            ; preds = %511
-  br i1 %.1129, label %575, label %604
+  br i1 %.0128, label %575, label %604
 
 .lr.ph748:                                        ; preds = %511, %523
   %.sroa.0575.0746 = phi ptr [ %524, %523 ], [ %518, %511 ]
@@ -6614,7 +6614,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
 
 533:                                              ; preds = %529, %527
   %534 = phi i1 [ false, %527 ], [ %532, %529 ]
-  %535 = or i1 %.1129, %534
+  %535 = or i1 %.0128, %534
   %536 = getelementptr inbounds i8, ptr %528, i64 32
   invoke void @_ZNK17cmCPackIFWPackage16DependenceStruct15NameWithCompareB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %104, ptr noundef nonnull align 8 dereferenceable(72) %536)
           to label %537 unwind label %.loopexit.split-lp641
@@ -6630,7 +6630,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   br i1 %.not628750, label %._crit_edge755, label %.lr.ph754
 
 .lr.ph754:                                        ; preds = %539, %553
-  %.2130752 = phi i1 [ %547, %553 ], [ %535, %539 ]
+  %.3131752 = phi i1 [ %547, %553 ], [ %535, %539 ]
   %.sroa.0567.0751 = phi ptr [ %554, %553 ], [ %540, %539 ]
   br i1 %434, label %541, label %545
 
@@ -6642,7 +6642,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
 
 545:                                              ; preds = %541, %.lr.ph754
   %546 = phi i1 [ false, %.lr.ph754 ], [ %544, %541 ]
-  %547 = or i1 %.2130752, %546
+  %547 = or i1 %.3131752, %546
   %548 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef nonnull @.str.71)
           to label %549 unwind label %.loopexit640
 
@@ -6684,7 +6684,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   br label %573
 
 ._crit_edge755:                                   ; preds = %553, %539
-  %.2130.lcssa = phi i1 [ %535, %539 ], [ %547, %553 ]
+  %.3131.lcssa = phi i1 [ %535, %539 ], [ %547, %553 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #17
   %559 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %106)
           to label %.noexc403 unwind label %566
@@ -6742,7 +6742,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %106) #17
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %107) #17
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %103) #17
-  br i1 %.2130.lcssa, label %575, label %604
+  br i1 %.3131.lcssa, label %575, label %604
 
 566:                                              ; preds = %.noexc403, %._crit_edge755
   %567 = landingpad { ptr, i32 }
@@ -6776,7 +6776,7 @@ _ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEv
   br label %844
 
 574:                                              ; preds = %._crit_edge749
-  br i1 %.1129, label %575, label %604
+  br i1 %.0128, label %575, label %604
 
 575:                                              ; preds = %._crit_edge749.thread, %_ZN11cmXMLWriter7ElementINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKS6_RKT_.exit414, %574
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %109)

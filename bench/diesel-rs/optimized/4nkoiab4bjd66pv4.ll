@@ -883,8 +883,8 @@ define void @_ZN20migrations_internals19version_from_string17hf36f9872d8062ebfE(
   br label %67
 
 25:                                               ; preds = %18, %._crit_edge.i.i
-  %.sroa.4.0.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i ]
-  %.sroa.0.0.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i ]
+  %.sroa.4.1.i = phi i64 [ %23, %18 ], [ %17, %._crit_edge.i.i ]
+  %.sroa.0.1.i = phi ptr [ %22, %18 ], [ %16, %._crit_edge.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !201
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !208
@@ -894,13 +894,13 @@ define void @_ZN20migrations_internals19version_from_string17hf36f9872d8062ebfE(
   %.sroa.5.0..sroa_idx.i3 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i3, align 8, !noalias !208
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !208
-  store ptr %.sroa.0.0.i, ptr %5, align 8, !noalias !208
+  store ptr %.sroa.0.1.i, ptr %5, align 8, !noalias !208
   %.sroa.0.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %.sroa.4.0.i, ptr %.sroa.0.sroa.2.0..sroa_idx.i, align 8, !noalias !208
+  store i64 %.sroa.4.1.i, ptr %.sroa.0.sroa.2.0..sroa_idx.i, align 8, !noalias !208
   %.sroa.0.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.0.sroa.3.0..sroa_idx.i, align 8, !noalias !208
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 %.sroa.4.0.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !208
+  store i64 %.sroa.4.1.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !208
   %.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 32
   store i64 1, ptr %.sroa.0.sroa.5.0..sroa_idx.i, align 8, !noalias !208
   %.sroa.0.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 40
@@ -940,7 +940,7 @@ define void @_ZN20migrations_internals19version_from_string17hf36f9872d8062ebfE(
 35:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !213
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !208
-  %36 = sub i64 %.sroa.4.0.i, %.0.i
+  %36 = sub i64 %.sroa.4.1.i, %.0.i
   %37 = load i64, ptr %.sroa.5.0..sroa_idx.i3, align 8, !alias.scope !217, !noalias !222, !noundef !4
   %38 = load i64, ptr %6, align 8, !alias.scope !224, !noalias !222, !noundef !4
   %39 = sub i64 %38, %37
@@ -959,7 +959,7 @@ define void @_ZN20migrations_internals19version_from_string17hf36f9872d8062ebfE(
   %43 = load i64, ptr %26, align 8, !noalias !213, !noundef !4
   %44 = load i64, ptr %27, align 8, !noalias !213, !noundef !4
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !213
-  %45 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %.0.i
+  %45 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 %.0.i
   %46 = sub i64 %43, %.0.i
   %47 = load i64, ptr %.sroa.5.0..sroa_idx.i3, align 8, !alias.scope !227, !noalias !232, !noundef !4
   %48 = load i64, ptr %6, align 8, !alias.scope !234, !noalias !232, !noundef !4
@@ -996,7 +996,7 @@ define void @_ZN20migrations_internals19version_from_string17hf36f9872d8062ebfE(
 
 "_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h1e8341c147104a88E.exit": ; preds = %35, %.noexc14.i
   %61 = phi i64 [ %37, %35 ], [ %.pre.i.i.i, %.noexc14.i ]
-  %62 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %.0.i
+  %62 = getelementptr inbounds i8, ptr %.sroa.0.1.i, i64 %.0.i
   %63 = load ptr, ptr %.sroa.4.0..sroa_idx.i2, align 8, !alias.scope !217, !noalias !222, !nonnull !4, !noundef !4
   %64 = getelementptr inbounds i8, ptr %63, i64 %61
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr nonnull readonly align 1 %62, i64 %36, i1 false), !noalias !212

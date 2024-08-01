@@ -562,14 +562,14 @@ push.exit.thread:                                 ; preds = %push.exit.thread.si
   %.042118 = phi i32 [ 0, %push.exit50 ], [ %.1, %compare.exit.thread ]
   %.075117 = phi ptr [ null, %push.exit50 ], [ %.17693, %compare.exit.thread ]
   %.077116 = phi ptr [ null, %push.exit50 ], [ %.17892, %compare.exit.thread ]
-  %.2115 = phi ptr [ %30, %push.exit50 ], [ %.10, %compare.exit.thread ]
-  %37 = load ptr, ptr %.2115, align 8
+  %.079115 = phi ptr [ %30, %push.exit50 ], [ %.180, %compare.exit.thread ]
+  %37 = load ptr, ptr %.079115, align 8
   %38 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %37) #21
-  %39 = getelementptr inbounds i8, ptr %.2115, i64 8
+  %39 = getelementptr inbounds i8, ptr %.079115, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %.2115, align 8
+  %41 = load ptr, ptr %.079115, align 8
   call void @free(ptr noundef %41) #21
-  call void @free(ptr noundef nonnull %.2115) #21
+  call void @free(ptr noundef nonnull %.079115) #21
   %.not.i52 = icmp eq ptr %40, null
   br i1 %.not.i52, label %pop.exit54, label %42
 
@@ -584,7 +584,7 @@ push.exit.thread:                                 ; preds = %push.exit.thread.si
   br label %pop.exit54
 
 pop.exit54:                                       ; preds = %36, %42
-  %.4 = phi ptr [ null, %36 ], [ %46, %42 ]
+  %.6 = phi ptr [ null, %36 ], [ %46, %42 ]
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #23
   %49 = icmp sgt i64 %48, 0
   br i1 %49, label %.preheader81.preheader.i, label %compare.exit.thread
@@ -746,7 +746,7 @@ compare.exit:                                     ; preds = %._crit_edge108.i, %
 
 110:                                              ; preds = %107
   %111 = getelementptr inbounds i8, ptr %105, i64 8
-  store ptr %.4, ptr %111, align 8
+  store ptr %.6, ptr %111, align 8
   %112 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
   %113 = icmp eq ptr %112, null
   br i1 %113, label %push.exit57.thread, label %114
@@ -773,7 +773,7 @@ push.exit57.thread:                               ; preds = %110, %104, %push.ex
   br label %145
 
 118:                                              ; preds = %push.exit59, %101
-  %.7 = phi ptr [ %112, %push.exit59 ], [ %.4, %101 ]
+  %.2 = phi ptr [ %112, %push.exit59 ], [ %.6, %101 ]
   %119 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.178) #23
   %120 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.176) #23
   %121 = icmp ugt i64 %119, 1
@@ -800,7 +800,7 @@ push.exit57.thread:                               ; preds = %110, %104, %push.ex
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds i8, ptr %127, i64 8
-  store ptr %.7, ptr %133, align 8
+  store ptr %.2, ptr %133, align 8
   %134 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
   %135 = icmp eq ptr %134, null
   br i1 %135, label %push.exit61.thread, label %136
@@ -829,9 +829,9 @@ push.exit61.thread:                               ; preds = %132, %126, %push.ex
 compare.exit.thread:                              ; preds = %pop.exit54, %push.exit63, %123, %compare.exit
   %.17693 = phi ptr [ %.176, %compare.exit ], [ %.176, %push.exit63 ], [ %.176, %123 ], [ %.075117, %pop.exit54 ]
   %.17892 = phi ptr [ %.178, %compare.exit ], [ %.178, %push.exit63 ], [ %.178, %123 ], [ %.077116, %pop.exit54 ]
-  %.10 = phi ptr [ %.4, %compare.exit ], [ %134, %push.exit63 ], [ %.7, %123 ], [ %.4, %pop.exit54 ]
+  %.180 = phi ptr [ %.6, %compare.exit ], [ %134, %push.exit63 ], [ %.2, %123 ], [ %.6, %pop.exit54 ]
   %.1 = phi i32 [ %.042118, %compare.exit ], [ %96, %push.exit63 ], [ %96, %123 ], [ %.042118, %pop.exit54 ]
-  %.not.i = icmp eq ptr %.10, null
+  %.not.i = icmp eq ptr %.180, null
   br i1 %.not.i, label %pop.exit, label %36
 
 pop.exit:                                         ; preds = %compare.exit.thread
@@ -1113,7 +1113,7 @@ thread-pre-split.i:                               ; preds = %46
 
 51:                                               ; preds = %62, %thread-pre-split.i
   %52 = phi i8 [ %.pr.i, %thread-pre-split.i ], [ %63, %62 ]
-  %.072.i = phi ptr [ %.0, %thread-pre-split.i ], [ %.274.i, %62 ]
+  %.072.i = phi ptr [ %.0, %thread-pre-split.i ], [ %.173.i, %62 ]
   %.0.i = phi ptr [ %49, %thread-pre-split.i ], [ %.1.i, %62 ]
   switch i8 %52, label %53 [
     i8 42, label %.preheader108.i
@@ -1127,8 +1127,8 @@ thread-pre-split.i:                               ; preds = %46
   br label %62
 
 .preheader108.i:                                  ; preds = %51, %.preheader108.i
-  %.173.i = phi ptr [ %56, %.preheader108.i ], [ %.072.i, %51 ]
-  %56 = getelementptr inbounds i8, ptr %.173.i, i64 1
+  %.274.i = phi ptr [ %56, %.preheader108.i ], [ %.072.i, %51 ]
+  %56 = getelementptr inbounds i8, ptr %.274.i, i64 1
   %57 = load i8, ptr %56, align 1
   switch i8 %57, label %.preheader108.i [
     i8 0, label %.loopexit109.i
@@ -1136,7 +1136,7 @@ thread-pre-split.i:                               ; preds = %46
   ]
 
 58:                                               ; preds = %.preheader108.i
-  %59 = getelementptr inbounds i8, ptr %.173.i, i64 2
+  %59 = getelementptr inbounds i8, ptr %.274.i, i64 2
   br label %62
 
 60:                                               ; preds = %51
@@ -1145,9 +1145,9 @@ thread-pre-split.i:                               ; preds = %46
   br label %.loopexit109.i
 
 62:                                               ; preds = %58, %53
-  %.274.i = phi ptr [ %54, %53 ], [ %59, %58 ]
+  %.173.i = phi ptr [ %54, %53 ], [ %59, %58 ]
   %.1.i = phi ptr [ %55, %53 ], [ %.0.i, %58 ]
-  %63 = load i8, ptr %.274.i, align 1
+  %63 = load i8, ptr %.173.i, align 1
   %.not94.i = icmp eq i8 %63, 0
   br i1 %.not94.i, label %.loopexit109.i, label %51
 
@@ -1233,8 +1233,8 @@ rfc2231.exit.thread54:                            ; preds = %69
 
 .preheader.i:                                     ; preds = %146, %.preheader.preheader.i
   %.270.i = phi ptr [ %148, %146 ], [ %87, %.preheader.preheader.i ]
-  %.266.i = phi ptr [ %.367.i, %146 ], [ %89, %.preheader.preheader.i ]
-  %.162.i = phi i32 [ %.263.i, %146 ], [ %.061104.i, %.preheader.preheader.i ]
+  %.266.i = phi ptr [ %.4.i, %146 ], [ %89, %.preheader.preheader.i ]
+  %.162.i = phi i32 [ %.3.i, %146 ], [ %.061104.i, %.preheader.preheader.i ]
   %90 = load i8, ptr %.270.i, align 1
   %.not88.i = icmp eq i8 %90, 0
   br i1 %.not88.i, label %150, label %91
@@ -1372,24 +1372,24 @@ default.unreachable:                              ; preds = %91
 
 thread-pre-split105.i:                            ; preds = %144, %hex.exit100.i, %121, %94, %92
   %.371.ph.i = phi ptr [ %.270.i, %94 ], [ %.270.i, %92 ], [ %.270.i, %144 ], [ %119, %hex.exit100.i ], [ %119, %121 ]
-  %.367.ph.i = phi ptr [ %.266.i, %94 ], [ %.266.i, %92 ], [ %145, %144 ], [ %143, %hex.exit100.i ], [ %122, %121 ]
-  %.263.ph.i = phi i32 [ %spec.select95.i, %94 ], [ %spec.select.i, %92 ], [ 2, %144 ], [ 2, %hex.exit100.i ], [ 2, %121 ]
+  %.4.ph.i = phi ptr [ %.266.i, %94 ], [ %.266.i, %92 ], [ %145, %144 ], [ %143, %hex.exit100.i ], [ %122, %121 ]
+  %.3.ph.i = phi i32 [ %spec.select95.i, %94 ], [ %spec.select.i, %92 ], [ 2, %144 ], [ 2, %hex.exit100.i ], [ 2, %121 ]
   %.pr106.i = load i8, ptr %.371.ph.i, align 1
   br label %146
 
 146:                                              ; preds = %thread-pre-split105.i, %98, %98
   %147 = phi i8 [ %.pr106.i, %thread-pre-split105.i ], [ %100, %98 ], [ %100, %98 ]
   %.371.i = phi ptr [ %.371.ph.i, %thread-pre-split105.i ], [ %99, %98 ], [ %99, %98 ]
-  %.367.i = phi ptr [ %.367.ph.i, %thread-pre-split105.i ], [ %.266.i, %98 ], [ %.266.i, %98 ]
-  %.263.i = phi i32 [ %.263.ph.i, %thread-pre-split105.i ], [ 2, %98 ], [ 2, %98 ]
+  %.4.i = phi ptr [ %.4.ph.i, %thread-pre-split105.i ], [ %.266.i, %98 ], [ %.266.i, %98 ]
+  %.3.i = phi i32 [ %.3.ph.i, %thread-pre-split105.i ], [ 2, %98 ], [ 2, %98 ]
   %148 = getelementptr inbounds i8, ptr %.371.i, i64 1
   %149 = icmp eq i8 %147, 0
   br i1 %149, label %150, label %.preheader.i
 
 150:                                              ; preds = %146, %.preheader.i
-  %.4.i = phi ptr [ %.367.i, %146 ], [ %.266.i, %.preheader.i ]
-  %.3.i = phi i32 [ %.263.i, %146 ], [ %.162.i, %.preheader.i ]
-  %.not89.i = icmp eq i32 %.3.i, 2
+  %.367.i = phi ptr [ %.4.i, %146 ], [ %.266.i, %.preheader.i ]
+  %.263.i = phi i32 [ %.3.i, %146 ], [ %.162.i, %.preheader.i ]
+  %.not89.i = icmp eq i32 %.263.i, 2
   br i1 %.not89.i, label %153, label %151
 
 151:                                              ; preds = %150
@@ -1399,7 +1399,7 @@ thread-pre-split105.i:                            ; preds = %144, %hex.exit100.i
   br label %rfc2231.exit
 
 153:                                              ; preds = %150
-  store i8 0, ptr %.4.i, align 1
+  store i8 0, ptr %.367.i, align 1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.133, ptr noundef nonnull %81) #21
   br label %rfc2231.exit
 
@@ -1594,7 +1594,7 @@ define void @messageAddArguments(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %.backedge
 
 .backedge:                                        ; preds = %82, %.thread114, %.critedge2, %15, %50
-  %.0.be = phi ptr [ %16, %15 ], [ %.3, %50 ], [ %.5113, %82 ], [ %.3, %.thread114 ], [ %.4.lcssa, %.critedge2 ]
+  %.0.be = phi ptr [ %16, %15 ], [ %.3, %50 ], [ %.4113, %82 ], [ %.3, %.thread114 ], [ %.5.lcssa, %.critedge2 ]
   %17 = load i8, ptr %.0.be, align 1
   %.not = icmp eq i8 %17, 0
   br i1 %.not, label %.loopexit, label %7
@@ -1727,7 +1727,7 @@ define void @messageAddArguments(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 .lr.ph:                                           ; preds = %.preheader, %70
   %65 = phi i8 [ %72, %70 ], [ %31, %.preheader ]
-  %.4121 = phi ptr [ %71, %70 ], [ %spec.select, %.preheader ]
+  %.5121 = phi ptr [ %71, %70 ], [ %spec.select, %.preheader ]
   %66 = sext i8 %65 to i64
   %67 = getelementptr inbounds i16, ptr %9, i64 %66
   %68 = load i16, ptr %67, align 2
@@ -1736,14 +1736,14 @@ define void @messageAddArguments(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not97, label %70, label %.critedge2
 
 70:                                               ; preds = %.lr.ph
-  %71 = getelementptr inbounds i8, ptr %.4121, i64 1
+  %71 = getelementptr inbounds i8, ptr %.5121, i64 1
   %72 = load i8, ptr %71, align 1
   %.not96 = icmp eq i8 %72, 0
   br i1 %.not96, label %.critedge2, label %.lr.ph
 
 .critedge2:                                       ; preds = %.lr.ph, %70, %.preheader
-  %.4.lcssa = phi ptr [ %spec.select, %.preheader ], [ %71, %70 ], [ %.4121, %.lr.ph ]
-  %73 = ptrtoint ptr %.4.lcssa to i64
+  %.5.lcssa = phi ptr [ %spec.select, %.preheader ], [ %71, %70 ], [ %.5121, %.lr.ph ]
+  %73 = ptrtoint ptr %.5.lcssa to i64
   %74 = ptrtoint ptr %.0125 to i64
   %75 = sub i64 %73, %74
   %76 = add i64 %75, 1
@@ -1764,7 +1764,7 @@ define void @messageAddArguments(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %82
 
 82:                                               ; preds = %79, %.thread108
-  %.5113 = phi ptr [ %.4.lcssa, %.thread108 ], [ %.3, %79 ]
+  %.4113 = phi ptr [ %.5.lcssa, %.thread108 ], [ %.3, %79 ]
   %.076112 = phi ptr [ %77, %.thread108 ], [ %63, %79 ]
   tail call void @messageAddArgument(ptr noundef %0, ptr noundef nonnull %.076112)
   tail call void @free(ptr noundef nonnull %.076112) #21
@@ -2496,7 +2496,7 @@ messageGetMimeType.exit:                          ; preds = %34
 
 65:                                               ; preds = %63, %59, %57, %55
   %66 = phi ptr [ %.pre, %63 ], [ %.pre, %59 ], [ %56, %57 ], [ %56, %55 ]
-  %.045 = phi ptr [ %64, %63 ], [ null, %59 ], [ null, %57 ], [ null, %55 ]
+  %.1 = phi ptr [ %64, %63 ], [ null, %59 ], [ null, %57 ], [ null, %55 ]
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %28, align 8
@@ -2504,7 +2504,7 @@ messageGetMimeType.exit:                          ; preds = %34
 
 69:                                               ; preds = %31, %65, %24
   %70 = phi ptr [ %25, %24 ], [ %.pre69, %31 ], [ %68, %65 ]
-  %.1 = phi ptr [ null, %24 ], [ null, %31 ], [ %.045, %65 ]
+  %.045 = phi ptr [ null, %24 ], [ null, %31 ], [ %.1, %65 ]
   %71 = getelementptr inbounds i8, ptr %0, i64 48
   %72 = icmp eq ptr %70, null
   br i1 %72, label %73, label %74
@@ -2525,11 +2525,11 @@ messageGetMimeType.exit:                          ; preds = %34
   br i1 %.not63, label %96, label %78
 
 78:                                               ; preds = %76
-  %.not64 = icmp eq ptr %.1, null
+  %.not64 = icmp eq ptr %.045, null
   br i1 %.not64, label %82, label %79
 
 79:                                               ; preds = %78
-  %80 = tail call ptr @lineLink(ptr noundef nonnull %.1) #21
+  %80 = tail call ptr @lineLink(ptr noundef nonnull %.045) #21
   %81 = load ptr, ptr %71, align 8
   store ptr %80, ptr %81, align 8
   br label %98
@@ -2589,7 +2589,7 @@ define internal fastcc void @messageDedup(ptr nocapture noundef %0) unnamed_addr
 
 9:                                                ; preds = %.lr.ph65, %.loopexit
   %.064 = phi ptr [ %.062, %.lr.ph65 ], [ %.0, %.loopexit ]
-  %.04163 = phi i64 [ 0, %.lr.ph65 ], [ %.4, %.loopexit ]
+  %.04163 = phi i64 [ 0, %.lr.ph65 ], [ %.1, %.loopexit ]
   %10 = load ptr, ptr %.064, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
@@ -2634,7 +2634,7 @@ define internal fastcc void @messageDedup(ptr nocapture noundef %0) unnamed_addr
 
 .lr.ph:                                           ; preds = %.preheader, %54
   %.04459 = phi ptr [ %.044, %54 ], [ %.04455, %.preheader ]
-  %.158 = phi i64 [ %.3, %54 ], [ %.04163, %.preheader ]
+  %.258 = phi i64 [ %.3, %54 ], [ %.04163, %.preheader ]
   %.04257 = phi i32 [ %.143, %54 ], [ %18, %.preheader ]
   %32 = load ptr, ptr %.04459, align 8
   %33 = icmp eq ptr %32, null
@@ -2657,12 +2657,12 @@ define internal fastcc void @messageDedup(ptr nocapture noundef %0) unnamed_addr
 
 43:                                               ; preds = %40
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #23
-  %45 = add i64 %.158, 1
+  %45 = add i64 %.258, 1
   %46 = add i64 %45, %44
   br label %47
 
 47:                                               ; preds = %43, %40
-  %.2 = phi i64 [ %46, %43 ], [ %.158, %40 ]
+  %.4 = phi i64 [ %46, %43 ], [ %.258, %40 ]
   %48 = tail call ptr @lineLink(ptr noundef nonnull %10) #21
   store ptr %48, ptr %.04459, align 8
   %49 = icmp eq ptr %48, null
@@ -2679,23 +2679,23 @@ define internal fastcc void @messageDedup(ptr nocapture noundef %0) unnamed_addr
 
 54:                                               ; preds = %37, %51, %34, %.lr.ph
   %.143 = phi i32 [ %.04257, %.lr.ph ], [ %.04257, %34 ], [ %52, %51 ], [ %.04257, %37 ]
-  %.3 = phi i64 [ %.158, %.lr.ph ], [ %.158, %34 ], [ %.2, %51 ], [ %.158, %37 ]
+  %.3 = phi i64 [ %.258, %.lr.ph ], [ %.258, %34 ], [ %.4, %51 ], [ %.258, %37 ]
   %.044.in = getelementptr inbounds i8, ptr %.04459, i64 8
   %.044 = load ptr, ptr %.044.in, align 8
   %.not51 = icmp eq ptr %.044, null
   br i1 %.not51, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %51, %54, %.preheader, %29, %26, %23, %20, %16, %12, %9
-  %.4 = phi i64 [ %.04163, %9 ], [ %.04163, %12 ], [ %.04163, %16 ], [ %.04163, %20 ], [ %.04163, %23 ], [ %.04163, %26 ], [ %.04163, %29 ], [ %.04163, %.preheader ], [ %.2, %51 ], [ %.3, %54 ]
+  %.1 = phi i64 [ %.04163, %9 ], [ %.04163, %12 ], [ %.04163, %16 ], [ %.04163, %20 ], [ %.04163, %23 ], [ %.04163, %26 ], [ %.04163, %29 ], [ %.04163, %.preheader ], [ %.4, %51 ], [ %.3, %54 ]
   %55 = getelementptr inbounds i8, ptr %.064, i64 8
   %.0 = load ptr, ptr %55, align 8
   %56 = icmp eq ptr %.0, null
-  %57 = icmp ugt i64 %.4, 99999
+  %57 = icmp ugt i64 %.1, 99999
   %or.cond = select i1 %56, i1 true, i1 %57
   br i1 %or.cond, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
-  %.041.lcssa = phi i64 [ 0, %1 ], [ %.4, %.loopexit ]
+  %.041.lcssa = phi i64 [ 0, %1 ], [ %.1, %.loopexit ]
   %.0.lcssa = phi ptr [ null, %1 ], [ %.0, %.loopexit ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.123, i64 noundef %.041.lcssa) #21
   store ptr %.0.lcssa, ptr %2, align 8
@@ -3064,7 +3064,7 @@ select.unfold:                                    ; preds = %78, %53
 
 .lr.ph:                                           ; preds = %.preheader194, %137
   %107 = phi i8 [ %154, %137 ], [ %50, %.preheader194 ]
-  %.1127210 = phi ptr [ %153, %137 ], [ %2, %.preheader194 ]
+  %.2128210 = phi ptr [ %153, %137 ], [ %2, %.preheader194 ]
   %.1130209 = phi ptr [ %138, %137 ], [ %1, %.preheader194 ]
   %108 = load i32, ptr %6, align 8
   %.not143 = icmp eq i32 %108, 0
@@ -3103,9 +3103,9 @@ select.unfold:                                    ; preds = %78, %53
   br label %124
 
 124:                                              ; preds = %121, %119
-  %.3132 = phi ptr [ %.2131, %119 ], [ %122, %121 ]
-  %.1121 = phi i8 [ %.1112160, %119 ], [ %123, %121 ]
-  %125 = load i8, ptr %.3132, align 1
+  %.4 = phi ptr [ %.2131, %119 ], [ %122, %121 ]
+  %.2122 = phi i8 [ %.1112160, %119 ], [ %123, %121 ]
+  %125 = load i8, ptr %.4, align 1
   %126 = icmp eq i8 %125, 0
   br i1 %126, label %.thread188, label %127
 
@@ -3120,36 +3120,36 @@ select.unfold:                                    ; preds = %78, %53
   br label %134
 
 131:                                              ; preds = %127
-  %132 = getelementptr inbounds i8, ptr %.3132, i64 1
+  %132 = getelementptr inbounds i8, ptr %.4, i64 1
   %133 = tail call zeroext i8 %3(i8 noundef signext %125) #21, !callees !4
   br label %134
 
 134:                                              ; preds = %131, %129
-  %.4 = phi ptr [ %.3132, %129 ], [ %132, %131 ]
-  %.2119 = phi i8 [ %.2161, %129 ], [ %133, %131 ]
-  %135 = load i8, ptr %.4, align 1
+  %.5 = phi ptr [ %.4, %129 ], [ %132, %131 ]
+  %.3 = phi i8 [ %.2161, %129 ], [ %133, %131 ]
+  %135 = load i8, ptr %.5, align 1
   %136 = icmp eq i8 %135, 0
   br i1 %136, label %155, label %137
 
 137:                                              ; preds = %134
-  %138 = getelementptr inbounds i8, ptr %.4, i64 1
+  %138 = getelementptr inbounds i8, ptr %.5, i64 1
   %139 = tail call zeroext i8 %3(i8 noundef signext %135) #21, !callees !4
   %140 = shl i8 %.0123, 2
-  %141 = lshr i8 %.1121, 4
+  %141 = lshr i8 %.2122, 4
   %142 = and i8 %141, 3
   %143 = or disjoint i8 %142, %140
-  %144 = getelementptr inbounds i8, ptr %.1127210, i64 1
-  store i8 %143, ptr %.1127210, align 1
-  %145 = shl i8 %.1121, 4
-  %146 = lshr i8 %.2119, 2
+  %144 = getelementptr inbounds i8, ptr %.2128210, i64 1
+  store i8 %143, ptr %.2128210, align 1
+  %145 = shl i8 %.2122, 4
+  %146 = lshr i8 %.3, 2
   %147 = and i8 %146, 15
   %148 = or disjoint i8 %147, %145
-  %149 = getelementptr inbounds i8, ptr %.1127210, i64 2
+  %149 = getelementptr inbounds i8, ptr %.2128210, i64 2
   store i8 %148, ptr %144, align 1
-  %150 = shl i8 %.2119, 6
+  %150 = shl i8 %.3, 6
   %151 = and i8 %139, 63
   %152 = or disjoint i8 %151, %150
-  %153 = getelementptr inbounds i8, ptr %.1127210, i64 3
+  %153 = getelementptr inbounds i8, ptr %.2128210, i64 3
   store i8 %152, ptr %149, align 1
   %154 = load i8, ptr %138, align 1
   %.not = icmp eq i8 %154, 0
@@ -3157,13 +3157,13 @@ select.unfold:                                    ; preds = %78, %53
 
 155:                                              ; preds = %134
   %156 = getelementptr inbounds i8, ptr %0, i64 122
-  store i8 %.2119, ptr %156, align 2
+  store i8 %.3, ptr %156, align 2
   br label %.thread188
 
 .thread188:                                       ; preds = %124, %155
   %.0186 = phi i32 [ 3, %155 ], [ 2, %124 ]
   %157 = getelementptr inbounds i8, ptr %0, i64 121
-  store i8 %.1121, ptr %157, align 1
+  store i8 %.2122, ptr %157, align 1
   br label %.loopexit196
 
 .loopexit196:                                     ; preds = %114, %.thread188
@@ -3174,7 +3174,7 @@ select.unfold:                                    ; preds = %78, %53
   br label %.loopexit
 
 .loopexit:                                        ; preds = %137, %.lr.ph214, %.preheader194, %.preheader, %.loopexit196, %select.unfold, %92, %79, %102, %95, %51, %18
-  %.0125 = phi ptr [ %2, %18 ], [ %2, %51 ], [ %106, %select.unfold ], [ %104, %102 ], [ %100, %95 ], [ %94, %92 ], [ %90, %79 ], [ %.1127210, %.loopexit196 ], [ %2, %.preheader ], [ %2, %.preheader194 ], [ %46, %.lr.ph214 ], [ %153, %137 ]
+  %.0125 = phi ptr [ %2, %18 ], [ %2, %51 ], [ %106, %select.unfold ], [ %104, %102 ], [ %100, %95 ], [ %94, %92 ], [ %90, %79 ], [ %.2128210, %.loopexit196 ], [ %2, %.preheader ], [ %2, %.preheader194 ], [ %46, %.lr.ph214 ], [ %153, %137 ]
   ret ptr %.0125
 }
 
@@ -3290,7 +3290,7 @@ messageExport.exit.thread13:                      ; preds = %41
 
 47:                                               ; preds = %base64Flush.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %base64Flush.exit.thread.i ]
-  %.0150266.i = phi ptr [ %15, %.lr.ph.i ], [ %.1217237.i, %base64Flush.exit.thread.i ]
+  %.0150266.i = phi ptr [ %15, %.lr.ph.i ], [ %.2217237.i, %base64Flush.exit.thread.i ]
   %48 = load ptr, ptr %0, align 8
   %49 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv.i
   %50 = load i32, ptr %49, align 4
@@ -3318,7 +3318,7 @@ messageExport.exit.thread13:                      ; preds = %41
   br i1 %57, label %58, label %73
 
 58:                                               ; preds = %55, %.thread213.i
-  %.1216.i = phi ptr [ %.0150266.i, %.thread213.i ], [ %52, %55 ]
+  %.2216.i = phi ptr [ %.0150266.i, %.thread213.i ], [ %52, %55 ]
   %59 = load ptr, ptr %44, align 8
   %.not189.i = icmp eq ptr %59, null
   br i1 %.not189.i, label %73, label %60
@@ -3343,12 +3343,12 @@ messageExport.exit.thread13:                      ; preds = %41
   %70 = load i8, ptr %66, align 1
   %.not195.i = icmp eq i8 %70, 0
   %spec.select4.i = select i1 %.not195.i, ptr @.str.99, ptr %66
-  call void @fileblobPartialSet(ptr noundef %.1216.i, ptr noundef nonnull %7, ptr noundef nonnull %spec.select4.i) #21, !callees !6
+  call void @fileblobPartialSet(ptr noundef %.2216.i, ptr noundef nonnull %7, ptr noundef nonnull %spec.select4.i) #21, !callees !6
   call void @free(ptr noundef nonnull %66) #21
   br label %.thread231.i
 
 .critedge202.i:                                   ; preds = %64, %60
-  call void @fileblobPartialSet(ptr noundef %.1216.i, ptr noundef nonnull %7, ptr noundef nonnull @.str.99) #21, !callees !6
+  call void @fileblobPartialSet(ptr noundef %.2216.i, ptr noundef nonnull %7, ptr noundef nonnull @.str.99) #21, !callees !6
   br label %.thread231.i
 
 .thread231.i:                                     ; preds = %.critedge202.i, %67
@@ -3358,7 +3358,7 @@ messageExport.exit.thread13:                      ; preds = %41
   br label %88
 
 73:                                               ; preds = %58, %55
-  %.1218.i = phi ptr [ %52, %55 ], [ %.1216.i, %58 ]
+  %.2218.i = phi ptr [ %52, %55 ], [ %.2216.i, %58 ]
   %74 = icmp eq i32 %50, 5
   br i1 %74, label %75, label %78
 
@@ -3370,7 +3370,7 @@ messageExport.exit.thread13:                      ; preds = %41
   br label %78
 
 78:                                               ; preds = %75, %73
-  %.0162.i = phi i32 [ 0, %75 ], [ %50, %73 ]
+  %.1163.i = phi i32 [ 0, %75 ], [ %50, %73 ]
   %79 = call ptr @messageFindArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.18)
   %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %messageGetFilename.exit.i, label %messageGetFilename.exit.thread.i
@@ -3382,7 +3382,7 @@ messageGetFilename.exit.i:                        ; preds = %78
 
 messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.exit.i, %78
   %.0.i205225.i = phi ptr [ %80, %messageGetFilename.exit.i ], [ %79, %78 ]
-  %82 = icmp eq i32 %.0162.i, 0
+  %82 = icmp eq i32 %.1163.i, 0
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %messageGetFilename.exit.thread.i
@@ -3392,7 +3392,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 .thread240.i:                                     ; preds = %messageGetFilename.exit.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.105) #21
   call void @messageAddArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.97)
-  call void @fileblobPartialSet(ptr noundef %.1218.i, ptr noundef nonnull %7, ptr noundef nonnull @.str.99) #21, !callees !6
+  call void @fileblobPartialSet(ptr noundef %.2218.i, ptr noundef nonnull %7, ptr noundef nonnull @.str.99) #21, !callees !6
   %84 = load ptr, ptr %11, align 8
   br label %88
 
@@ -3400,32 +3400,32 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %86 = load i8, ptr %.0.i205225.i, align 1
   %.not191.i = icmp eq i8 %86, 0
   %spec.select5.i = select i1 %.not191.i, ptr @.str.99, ptr %.0.i205225.i
-  call void @fileblobPartialSet(ptr noundef %.1218.i, ptr noundef nonnull %7, ptr noundef nonnull %spec.select5.i) #21, !callees !6
+  call void @fileblobPartialSet(ptr noundef %.2218.i, ptr noundef nonnull %7, ptr noundef nonnull %spec.select5.i) #21, !callees !6
   %87 = load ptr, ptr %11, align 8
   call void @free(ptr noundef nonnull %.0.i205225.i) #21
   br label %88
 
 88:                                               ; preds = %85, %.thread240.i, %.thread231.i
   %.0152239.i = phi ptr [ %72, %.thread231.i ], [ %87, %85 ], [ %84, %.thread240.i ]
-  %.1163238.i = phi i32 [ 6, %.thread231.i ], [ %.0162.i, %85 ], [ %.0162.i, %.thread240.i ]
-  %.1217237.i = phi ptr [ %.1216.i, %.thread231.i ], [ %.1218.i, %85 ], [ %.1218.i, %.thread240.i ]
-  %.1163238.fr.i = freeze i32 %.1163238.i
+  %.0162238.i = phi i32 [ 6, %.thread231.i ], [ %.1163.i, %85 ], [ %.1163.i, %.thread240.i ]
+  %.2217237.i = phi ptr [ %.2216.i, %.thread231.i ], [ %.2218.i, %85 ], [ %.2218.i, %.thread240.i ]
+  %.0162238.fr.i = freeze i32 %.0162238.i
   %89 = icmp eq ptr %.0152239.i, null
   br i1 %89, label %90, label %91
 
 90:                                               ; preds = %88
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.106) #21
-  call void @fileblobDestroy(ptr noundef %.1217237.i) #21, !callees !9
+  call void @fileblobDestroy(ptr noundef %.2217237.i) #21, !callees !9
   br label %messageExport.exit.thread
 
 91:                                               ; preds = %88
-  switch i32 %.1163238.fr.i, label %.preheader.split.i [
+  switch i32 %.0162238.fr.i, label %.preheader.split.i [
     i32 0, label %134
     i32 6, label %.preheader.split.us.i
   ]
 
 .preheader.split.us.i:                            ; preds = %91, %131
-  %.0158.us.i = phi i64 [ %.2160.us.i, %131 ], [ 0, %91 ]
+  %.0158.us.i = phi i64 [ %.1159.us.i, %131 ], [ 0, %91 ]
   %.1153.us.i = phi ptr [ %133, %131 ], [ %.0152239.i, %91 ]
   %92 = load ptr, ptr %.1153.us.i, align 8
   %93 = call ptr @lineGetData(ptr noundef %92) #21
@@ -3462,7 +3462,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 
 .preheader.i:                                     ; preds = %106, %120
   %109 = phi i8 [ %.pr.i, %120 ], [ %104, %106 ]
-  %.5.i = phi ptr [ %.6.i, %120 ], [ %.0151.us.i, %106 ]
+  %.6.i = phi ptr [ %.7.i, %120 ], [ %.0151.us.i, %106 ]
   %.3.i = phi ptr [ %.4.i, %120 ], [ %93, %106 ]
   switch i8 %109, label %117 [
     i8 0, label %121
@@ -3488,8 +3488,8 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 120:                                              ; preds = %117, %114
   %storemerge119.i = phi i8 [ %119, %117 ], [ %116, %114 ]
   %.4.i = phi ptr [ %118, %117 ], [ %115, %114 ]
-  %.6.i = getelementptr inbounds i8, ptr %.5.i, i64 1
-  store i8 %storemerge119.i, ptr %.5.i, align 1
+  %.7.i = getelementptr inbounds i8, ptr %.6.i, i64 1
+  store i8 %storemerge119.i, ptr %.6.i, align 1
   %.pr.i = load i8, ptr %.4.i, align 1
   br label %.preheader.i
 
@@ -3498,20 +3498,20 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br label %128
 
 121:                                              ; preds = %110, %.preheader.i
-  store i8 0, ptr %.5.i, align 1
-  %.not197.us.i = icmp eq ptr %.5.i, %.0151.us.i
+  store i8 0, ptr %.6.i, align 1
+  %.not197.us.i = icmp eq ptr %.6.i, %.0151.us.i
   br i1 %.not197.us.i, label %128, label %122
 
 122:                                              ; preds = %121
-  %123 = ptrtoint ptr %.5.i to i64
+  %123 = ptrtoint ptr %.6.i to i64
   %124 = ptrtoint ptr %.0151.us.i to i64
   %125 = sub i64 %123, %124
-  %126 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.us.i, i64 noundef %125) #21, !callees !10
+  %126 = call i32 @fileblobAddData(ptr noundef %.2217237.i, ptr noundef nonnull %.0151.us.i, i64 noundef %125) #21, !callees !10
   %127 = add i64 %125, %.0158.us.i
   br label %128
 
 128:                                              ; preds = %.thread, %122, %121
-  %.1159.us.i = phi i64 [ %127, %122 ], [ %.0158.us.i, %121 ], [ %.0158.us.i, %.thread ]
+  %.3161.us.i = phi i64 [ %127, %122 ], [ %.0158.us.i, %121 ], [ %.0158.us.i, %.thread ]
   %129 = icmp eq ptr %.0151.us.i, %.0149.us.i
   br i1 %129, label %130, label %131
 
@@ -3520,7 +3520,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br label %131
 
 131:                                              ; preds = %128, %130, %.preheader.split.us.i
-  %.2160.us.i = phi i64 [ %.0158.us.i, %.preheader.split.us.i ], [ %.1159.us.i, %130 ], [ %.1159.us.i, %128 ]
+  %.1159.us.i = phi i64 [ %.0158.us.i, %.preheader.split.us.i ], [ %.3161.us.i, %130 ], [ %.3161.us.i, %128 ]
   %132 = getelementptr inbounds i8, ptr %.1153.us.i, i64 8
   %133 = load ptr, ptr %132, align 8
   %.not198.us.i = icmp eq ptr %133, null
@@ -3531,11 +3531,11 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %136 = add nsw i32 %135, -1
   %137 = zext i32 %136 to i64
   %138 = icmp eq i64 %indvars.iv.i, %137
-  %139 = call ptr @textToFileblob(ptr noundef nonnull %.0152239.i, ptr noundef %.1217237.i, i32 noundef 0) #21
+  %139 = call ptr @textToFileblob(ptr noundef nonnull %.0152239.i, ptr noundef %.2217237.i, i32 noundef 0) #21
   br i1 %138, label %messageExport.exit, label %base64Flush.exit.thread.i
 
 .preheader.split.i:                               ; preds = %91, %162
-  %.0158.i = phi i64 [ %.1159.i, %162 ], [ 0, %91 ]
+  %.0158.i = phi i64 [ %.3161.i, %162 ], [ 0, %91 ]
   %.1153.i = phi ptr [ %164, %162 ], [ %.0152239.i, %91 ]
   %140 = load ptr, ptr %.1153.i, align 8
   %141 = call ptr @lineGetData(ptr noundef %140) #21
@@ -3563,7 +3563,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %.0151.i = phi ptr [ %146, %145 ], [ %5, %.thread243.i ], [ %5, %.preheader.split.i ]
   %.0149.i = phi ptr [ %146, %145 ], [ null, %.thread243.i ], [ null, %.preheader.split.i ]
   %.0148.i = phi i64 [ %143, %145 ], [ 1024, %.thread243.i ], [ 1024, %.preheader.split.i ]
-  %148 = call ptr @decodeLine(ptr noundef nonnull %0, i32 noundef %.1163238.fr.i, ptr noundef %141, ptr noundef nonnull %.0151.i, i64 noundef %.0148.i)
+  %148 = call ptr @decodeLine(ptr noundef nonnull %0, i32 noundef %.0162238.fr.i, ptr noundef %141, ptr noundef nonnull %.0151.i, i64 noundef %.0148.i)
   %149 = icmp eq ptr %148, null
   br i1 %149, label %.split258.us.i, label %152
 
@@ -3583,12 +3583,12 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %154 = ptrtoint ptr %148 to i64
   %155 = ptrtoint ptr %.0151.i to i64
   %156 = sub i64 %154, %155
-  %157 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.i, i64 noundef %156) #21, !callees !10
+  %157 = call i32 @fileblobAddData(ptr noundef %.2217237.i, ptr noundef nonnull %.0151.i, i64 noundef %156) #21, !callees !10
   %158 = add i64 %156, %.0158.i
   br label %159
 
 159:                                              ; preds = %153, %152
-  %.1159.i = phi i64 [ %158, %153 ], [ %.0158.i, %152 ]
+  %.3161.i = phi i64 [ %158, %153 ], [ %.0158.i, %152 ]
   %160 = icmp eq ptr %.0151.i, %.0149.i
   br i1 %160, label %161, label %162
 
@@ -3603,8 +3603,8 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br i1 %.not198.i, label %.loopexit.i, label %.preheader.split.i
 
 .loopexit.i:                                      ; preds = %131, %95, %162, %151, %.split258.us.i, %.split.us.i
-  %.3161.i = phi i64 [ %.us-phi255.i, %.split.us.i ], [ %.0158.i, %151 ], [ %.0158.i, %.split258.us.i ], [ %.1159.i, %162 ], [ %.2160.us.i, %131 ], [ %.0158.us.i, %95 ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.108, i64 noundef %.3161.i, i32 noundef %.1163238.fr.i) #21
+  %.2160.i = phi i64 [ %.us-phi255.i, %.split.us.i ], [ %.0158.i, %151 ], [ %.0158.i, %.split258.us.i ], [ %.3161.i, %162 ], [ %.1159.us.i, %131 ], [ %.0158.us.i, %95 ]
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.108, i64 noundef %.2160.i, i32 noundef %.0162238.fr.i) #21
   %165 = load i32, ptr %45, align 8
   %.not199.i = icmp eq i32 %165, 0
   br i1 %.not199.i, label %base64Flush.exit.thread.i, label %166
@@ -3624,7 +3624,7 @@ base64Flush.exit.i:                               ; preds = %166
 169:                                              ; preds = %base64Flush.exit.i
   %170 = ptrtoint ptr %168 to i64
   %171 = sub i64 %170, %46
-  %172 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %6, i64 noundef %171) #21, !callees !10
+  %172 = call i32 @fileblobAddData(ptr noundef %.2217237.i, ptr noundef nonnull %6, i64 noundef %171) #21, !callees !10
   br label %base64Flush.exit.thread.i
 
 base64Flush.exit.thread.i:                        ; preds = %134, %169, %base64Flush.exit.i, %166, %.loopexit.i
@@ -3640,7 +3640,7 @@ messageExport.exit.thread:                        ; preds = %90, %4, %messageGet
   br label %177
 
 messageExport.exit:                               ; preds = %base64Flush.exit.thread.i, %134, %messageGetBody.exit204.i, %54
-  %.0.i = phi ptr [ %35, %messageGetBody.exit204.i ], [ %.0150266.i, %54 ], [ %.1217237.i, %134 ], [ %.1217237.i, %base64Flush.exit.thread.i ]
+  %.0.i = phi ptr [ %35, %messageGetBody.exit204.i ], [ %.0150266.i, %54 ], [ %.2217237.i, %134 ], [ %.2217237.i, %base64Flush.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   %.not = icmp eq ptr %.0.i, null
@@ -3769,7 +3769,7 @@ messageGetBody.exit204.i:                         ; preds = %27
 
 44:                                               ; preds = %base64Flush.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %base64Flush.exit.thread.i ]
-  %.0150266.i = phi ptr [ %11, %.lr.ph.i ], [ %.1217237.i, %base64Flush.exit.thread.i ]
+  %.0150266.i = phi ptr [ %11, %.lr.ph.i ], [ %.2217237.i, %base64Flush.exit.thread.i ]
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv.i
   %47 = load i32, ptr %46, align 4
@@ -3797,7 +3797,7 @@ messageGetBody.exit204.i:                         ; preds = %27
   br i1 %54, label %55, label %70
 
 55:                                               ; preds = %52, %.thread213.i
-  %.1216.i = phi ptr [ %.0150266.i, %.thread213.i ], [ %49, %52 ]
+  %.2216.i = phi ptr [ %.0150266.i, %.thread213.i ], [ %49, %52 ]
   %56 = load ptr, ptr %40, align 8
   %.not189.i = icmp eq ptr %56, null
   br i1 %.not189.i, label %70, label %57
@@ -3822,12 +3822,12 @@ messageGetBody.exit204.i:                         ; preds = %27
   %67 = load i8, ptr %63, align 1
   %.not195.i = icmp eq i8 %67, 0
   %spec.select4.i = select i1 %.not195.i, ptr @.str.99, ptr %63
-  call void @fileblobSetFilename(ptr noundef %.1216.i, ptr noundef %1, ptr noundef nonnull %spec.select4.i) #21, !callees !6
+  call void @fileblobSetFilename(ptr noundef %.2216.i, ptr noundef %1, ptr noundef nonnull %spec.select4.i) #21, !callees !6
   call void @free(ptr noundef nonnull %63) #21
   br label %.thread231.i
 
 .critedge202.i:                                   ; preds = %61, %57
-  call void @fileblobSetFilename(ptr noundef %.1216.i, ptr noundef %1, ptr noundef nonnull @.str.99) #21, !callees !6
+  call void @fileblobSetFilename(ptr noundef %.2216.i, ptr noundef %1, ptr noundef nonnull @.str.99) #21, !callees !6
   br label %.thread231.i
 
 .thread231.i:                                     ; preds = %.critedge202.i, %64
@@ -3837,7 +3837,7 @@ messageGetBody.exit204.i:                         ; preds = %27
   br label %85
 
 70:                                               ; preds = %55, %52
-  %.1218.i = phi ptr [ %49, %52 ], [ %.1216.i, %55 ]
+  %.2218.i = phi ptr [ %49, %52 ], [ %.2216.i, %55 ]
   %71 = icmp eq i32 %47, 5
   br i1 %71, label %72, label %75
 
@@ -3849,7 +3849,7 @@ messageGetBody.exit204.i:                         ; preds = %27
   br label %75
 
 75:                                               ; preds = %72, %70
-  %.0162.i = phi i32 [ 0, %72 ], [ %47, %70 ]
+  %.1163.i = phi i32 [ 0, %72 ], [ %47, %70 ]
   %76 = call ptr @messageFindArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.18)
   %.not.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i, label %messageGetFilename.exit.i, label %messageGetFilename.exit.thread.i
@@ -3861,7 +3861,7 @@ messageGetFilename.exit.i:                        ; preds = %75
 
 messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.exit.i, %75
   %.0.i205225.i = phi ptr [ %77, %messageGetFilename.exit.i ], [ %76, %75 ]
-  %79 = icmp eq i32 %.0162.i, 0
+  %79 = icmp eq i32 %.1163.i, 0
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %messageGetFilename.exit.thread.i
@@ -3871,7 +3871,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 .thread240.i:                                     ; preds = %messageGetFilename.exit.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.105) #21
   call void @messageAddArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.97)
-  call void @fileblobSetFilename(ptr noundef %.1218.i, ptr noundef %1, ptr noundef nonnull @.str.99) #21, !callees !6
+  call void @fileblobSetFilename(ptr noundef %.2218.i, ptr noundef %1, ptr noundef nonnull @.str.99) #21, !callees !6
   %81 = load ptr, ptr %7, align 8
   br label %85
 
@@ -3879,32 +3879,32 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %83 = load i8, ptr %.0.i205225.i, align 1
   %.not191.i = icmp eq i8 %83, 0
   %spec.select5.i = select i1 %.not191.i, ptr @.str.99, ptr %.0.i205225.i
-  call void @fileblobSetFilename(ptr noundef %.1218.i, ptr noundef %1, ptr noundef nonnull %spec.select5.i) #21, !callees !6
+  call void @fileblobSetFilename(ptr noundef %.2218.i, ptr noundef %1, ptr noundef nonnull %spec.select5.i) #21, !callees !6
   %84 = load ptr, ptr %7, align 8
   call void @free(ptr noundef nonnull %.0.i205225.i) #21
   br label %85
 
 85:                                               ; preds = %82, %.thread240.i, %.thread231.i
   %.0152239.i = phi ptr [ %69, %.thread231.i ], [ %84, %82 ], [ %81, %.thread240.i ]
-  %.1163238.i = phi i32 [ 6, %.thread231.i ], [ %.0162.i, %82 ], [ %.0162.i, %.thread240.i ]
-  %.1217237.i = phi ptr [ %.1216.i, %.thread231.i ], [ %.1218.i, %82 ], [ %.1218.i, %.thread240.i ]
-  %.1163238.fr.i = freeze i32 %.1163238.i
+  %.0162238.i = phi i32 [ 6, %.thread231.i ], [ %.1163.i, %82 ], [ %.1163.i, %.thread240.i ]
+  %.2217237.i = phi ptr [ %.2216.i, %.thread231.i ], [ %.2218.i, %82 ], [ %.2218.i, %.thread240.i ]
+  %.0162238.fr.i = freeze i32 %.0162238.i
   %86 = icmp eq ptr %.0152239.i, null
   br i1 %86, label %87, label %88
 
 87:                                               ; preds = %85
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.106) #21
-  call void @fileblobDestroy(ptr noundef %.1217237.i) #21, !callees !9
+  call void @fileblobDestroy(ptr noundef %.2217237.i) #21, !callees !9
   br label %messageExport.exit
 
 88:                                               ; preds = %85
-  switch i32 %.1163238.fr.i, label %.preheader.split.i [
+  switch i32 %.0162238.fr.i, label %.preheader.split.i [
     i32 0, label %140
     i32 6, label %.preheader.split.us.i
   ]
 
 .preheader.split.us.i:                            ; preds = %88, %137
-  %.0158.us.i = phi i64 [ %.2160.us.i, %137 ], [ 0, %88 ]
+  %.0158.us.i = phi i64 [ %.1159.us.i, %137 ], [ 0, %88 ]
   %.1153.us.i = phi ptr [ %139, %137 ], [ %.0152239.i, %88 ]
   %89 = load ptr, ptr %.1153.us.i, align 8
   %90 = call ptr @lineGetData(ptr noundef %89) #21
@@ -3941,7 +3941,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 
 .preheader.i:                                     ; preds = %103, %117
   %106 = phi i8 [ %.pr.i, %117 ], [ %101, %103 ]
-  %.5.i = phi ptr [ %.6.i, %117 ], [ %.0151.us.i, %103 ]
+  %.6.i = phi ptr [ %.7.i, %117 ], [ %.0151.us.i, %103 ]
   %.3.i = phi ptr [ %.4.i, %117 ], [ %90, %103 ]
   switch i8 %106, label %114 [
     i8 0, label %118
@@ -3967,8 +3967,8 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 117:                                              ; preds = %114, %111
   %storemerge119.i = phi i8 [ %116, %114 ], [ %113, %111 ]
   %.4.i = phi ptr [ %115, %114 ], [ %112, %111 ]
-  %.6.i = getelementptr inbounds i8, ptr %.5.i, i64 1
-  store i8 %storemerge119.i, ptr %.5.i, align 1
+  %.7.i = getelementptr inbounds i8, ptr %.6.i, i64 1
+  store i8 %storemerge119.i, ptr %.6.i, align 1
   %.pr.i = load i8, ptr %.4.i, align 1
   br label %.preheader.i
 
@@ -3977,20 +3977,20 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br label %125
 
 118:                                              ; preds = %107, %.preheader.i
-  store i8 0, ptr %.5.i, align 1
-  %.not197.us.i = icmp eq ptr %.5.i, %.0151.us.i
+  store i8 0, ptr %.6.i, align 1
+  %.not197.us.i = icmp eq ptr %.6.i, %.0151.us.i
   br i1 %.not197.us.i, label %125, label %119
 
 119:                                              ; preds = %118
-  %120 = ptrtoint ptr %.5.i to i64
+  %120 = ptrtoint ptr %.6.i to i64
   %121 = ptrtoint ptr %.0151.us.i to i64
   %122 = sub i64 %120, %121
-  %123 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.us.i, i64 noundef %122) #21, !callees !10
+  %123 = call i32 @fileblobAddData(ptr noundef %.2217237.i, ptr noundef nonnull %.0151.us.i, i64 noundef %122) #21, !callees !10
   %124 = add i64 %122, %.0158.us.i
   br label %125
 
 125:                                              ; preds = %.thread, %119, %118
-  %.1159.us.i = phi i64 [ %124, %119 ], [ %.0158.us.i, %118 ], [ %.0158.us.i, %.thread ]
+  %.3161.us.i = phi i64 [ %124, %119 ], [ %.0158.us.i, %118 ], [ %.0158.us.i, %.thread ]
   %126 = icmp eq ptr %.0151.us.i, %.0149.us.i
   br i1 %126, label %127, label %128
 
@@ -4015,7 +4015,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br label %137
 
 137:                                              ; preds = %134, %129, %128, %.preheader.split.us.i
-  %.2160.us.i = phi i64 [ %.0158.us.i, %.preheader.split.us.i ], [ %.1159.us.i, %134 ], [ %.1159.us.i, %129 ], [ %.1159.us.i, %128 ]
+  %.1159.us.i = phi i64 [ %.0158.us.i, %.preheader.split.us.i ], [ %.3161.us.i, %134 ], [ %.3161.us.i, %129 ], [ %.3161.us.i, %128 ]
   %138 = getelementptr inbounds i8, ptr %.1153.us.i, i64 8
   %139 = load ptr, ptr %138, align 8
   %.not198.us.i = icmp eq ptr %139, null
@@ -4029,15 +4029,15 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br i1 %144, label %145, label %147
 
 145:                                              ; preds = %140
-  %146 = call ptr @textToFileblob(ptr noundef nonnull %.0152239.i, ptr noundef %.1217237.i, i32 noundef %2) #21, !callees !7
+  %146 = call ptr @textToFileblob(ptr noundef nonnull %.0152239.i, ptr noundef %.2217237.i, i32 noundef %2) #21, !callees !7
   br label %messageExport.exit
 
 147:                                              ; preds = %140
-  %148 = call ptr @textToFileblob(ptr noundef nonnull %.0152239.i, ptr noundef %.1217237.i, i32 noundef 0) #21, !callees !7
+  %148 = call ptr @textToFileblob(ptr noundef nonnull %.0152239.i, ptr noundef %.2217237.i, i32 noundef 0) #21, !callees !7
   br label %base64Flush.exit.thread.i
 
 .preheader.split.i:                               ; preds = %88, %180
-  %.0158.i = phi i64 [ %.1159.i, %180 ], [ 0, %88 ]
+  %.0158.i = phi i64 [ %.3161.i, %180 ], [ 0, %88 ]
   %.1153.i = phi ptr [ %182, %180 ], [ %.0152239.i, %88 ]
   %149 = load ptr, ptr %.1153.i, align 8
   %150 = call ptr @lineGetData(ptr noundef %149) #21
@@ -4065,7 +4065,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %.0151.i = phi ptr [ %155, %154 ], [ %4, %.thread243.i ], [ %4, %.preheader.split.i ]
   %.0149.i = phi ptr [ %155, %154 ], [ null, %.thread243.i ], [ null, %.preheader.split.i ]
   %.0148.i = phi i64 [ %152, %154 ], [ 1024, %.thread243.i ], [ 1024, %.preheader.split.i ]
-  %157 = call ptr @decodeLine(ptr noundef nonnull %0, i32 noundef %.1163238.fr.i, ptr noundef %150, ptr noundef nonnull %.0151.i, i64 noundef %.0148.i)
+  %157 = call ptr @decodeLine(ptr noundef nonnull %0, i32 noundef %.0162238.fr.i, ptr noundef %150, ptr noundef nonnull %.0151.i, i64 noundef %.0148.i)
   %158 = icmp eq ptr %157, null
   br i1 %158, label %.split258.us.i, label %161
 
@@ -4085,12 +4085,12 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %163 = ptrtoint ptr %157 to i64
   %164 = ptrtoint ptr %.0151.i to i64
   %165 = sub i64 %163, %164
-  %166 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.i, i64 noundef %165) #21, !callees !10
+  %166 = call i32 @fileblobAddData(ptr noundef %.2217237.i, ptr noundef nonnull %.0151.i, i64 noundef %165) #21, !callees !10
   %167 = add i64 %165, %.0158.i
   br label %168
 
 168:                                              ; preds = %162, %161
-  %.1159.i = phi i64 [ %167, %162 ], [ %.0158.i, %161 ]
+  %.3161.i = phi i64 [ %167, %162 ], [ %.0158.i, %161 ]
   %169 = icmp eq ptr %.0151.i, %.0149.i
   br i1 %169, label %170, label %171
 
@@ -4122,8 +4122,8 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br i1 %.not198.i, label %.loopexit.i, label %.preheader.split.i
 
 .loopexit.i:                                      ; preds = %137, %92, %180, %160, %.split258.us.i, %.split.us.i
-  %.3161.i = phi i64 [ %.us-phi255.i, %.split.us.i ], [ %.0158.i, %160 ], [ %.0158.i, %.split258.us.i ], [ %.1159.i, %180 ], [ %.2160.us.i, %137 ], [ %.0158.us.i, %92 ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.108, i64 noundef %.3161.i, i32 noundef %.1163238.fr.i) #21
+  %.2160.i = phi i64 [ %.us-phi255.i, %.split.us.i ], [ %.0158.i, %160 ], [ %.0158.i, %.split258.us.i ], [ %.3161.i, %180 ], [ %.1159.us.i, %137 ], [ %.0158.us.i, %92 ]
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.108, i64 noundef %.2160.i, i32 noundef %.0162238.fr.i) #21
   %183 = load i32, ptr %42, align 8
   %.not199.i = icmp eq i32 %183, 0
   br i1 %.not199.i, label %base64Flush.exit.thread.i, label %184
@@ -4143,7 +4143,7 @@ base64Flush.exit.i:                               ; preds = %184
 187:                                              ; preds = %base64Flush.exit.i
   %188 = ptrtoint ptr %186 to i64
   %189 = sub i64 %188, %43
-  %190 = call i32 @fileblobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %5, i64 noundef %189) #21, !callees !10
+  %190 = call i32 @fileblobAddData(ptr noundef %.2217237.i, ptr noundef nonnull %5, i64 noundef %189) #21, !callees !10
   br label %base64Flush.exit.thread.i
 
 base64Flush.exit.thread.i:                        ; preds = %187, %base64Flush.exit.i, %184, %.loopexit.i, %147
@@ -4154,7 +4154,7 @@ base64Flush.exit.thread.i:                        ; preds = %187, %base64Flush.e
   br i1 %193, label %44, label %messageExport.exit
 
 messageExport.exit:                               ; preds = %base64Flush.exit.thread.i, %3, %messageGetBody.exit.i, %10, %messageGetBody.exit204.i, %37, %51, %87, %145
-  %.0.i = phi ptr [ %31, %messageGetBody.exit204.i ], [ %.0150266.i, %51 ], [ null, %87 ], [ null, %3 ], [ null, %messageGetBody.exit.i ], [ null, %10 ], [ %.1217237.i, %145 ], [ %11, %37 ], [ %.1217237.i, %base64Flush.exit.thread.i ]
+  %.0.i = phi ptr [ %31, %messageGetBody.exit204.i ], [ %.0150266.i, %51 ], [ null, %87 ], [ null, %3 ], [ null, %messageGetBody.exit.i ], [ null, %10 ], [ %.2217237.i, %145 ], [ %11, %37 ], [ %.2217237.i, %base64Flush.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %.not = icmp eq i32 %2, 0
@@ -4260,7 +4260,7 @@ messageGetBody.exit204.i:                         ; preds = %26
 
 38:                                               ; preds = %base64Flush.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %base64Flush.exit.thread.i ]
-  %.0150266.i = phi ptr [ %10, %.lr.ph.i ], [ %.1217237.i, %base64Flush.exit.thread.i ]
+  %.0150266.i = phi ptr [ %10, %.lr.ph.i ], [ %.2217237.i, %base64Flush.exit.thread.i ]
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds i32, ptr %39, i64 %indvars.iv.i
   %41 = load i32, ptr %40, align 4
@@ -4288,7 +4288,7 @@ messageGetBody.exit204.i:                         ; preds = %26
   br i1 %48, label %49, label %64
 
 49:                                               ; preds = %46, %.thread213.i
-  %.1216.i = phi ptr [ %.0150266.i, %.thread213.i ], [ %43, %46 ]
+  %.2216.i = phi ptr [ %.0150266.i, %.thread213.i ], [ %43, %46 ]
   %50 = load ptr, ptr %34, align 8
   %.not189.i = icmp eq ptr %50, null
   br i1 %.not189.i, label %64, label %51
@@ -4313,12 +4313,12 @@ messageGetBody.exit204.i:                         ; preds = %26
   %61 = load i8, ptr %57, align 1
   %.not195.i = icmp eq i8 %61, 0
   %spec.select4.i = select i1 %.not195.i, ptr @.str.99, ptr %57
-  call void @blobSetFilename(ptr noundef %.1216.i, ptr noundef null, ptr noundef nonnull %spec.select4.i) #21, !callees !6
+  call void @blobSetFilename(ptr noundef %.2216.i, ptr noundef null, ptr noundef nonnull %spec.select4.i) #21, !callees !6
   call void @free(ptr noundef nonnull %57) #21
   br label %.thread231.i
 
 .critedge202.i:                                   ; preds = %55, %51
-  call void @blobSetFilename(ptr noundef %.1216.i, ptr noundef null, ptr noundef nonnull @.str.99) #21, !callees !6
+  call void @blobSetFilename(ptr noundef %.2216.i, ptr noundef null, ptr noundef nonnull @.str.99) #21, !callees !6
   br label %.thread231.i
 
 .thread231.i:                                     ; preds = %.critedge202.i, %58
@@ -4328,7 +4328,7 @@ messageGetBody.exit204.i:                         ; preds = %26
   br label %79
 
 64:                                               ; preds = %49, %46
-  %.1218.i = phi ptr [ %43, %46 ], [ %.1216.i, %49 ]
+  %.2218.i = phi ptr [ %43, %46 ], [ %.2216.i, %49 ]
   %65 = icmp eq i32 %41, 5
   br i1 %65, label %66, label %69
 
@@ -4340,7 +4340,7 @@ messageGetBody.exit204.i:                         ; preds = %26
   br label %69
 
 69:                                               ; preds = %66, %64
-  %.0162.i = phi i32 [ 0, %66 ], [ %41, %64 ]
+  %.1163.i = phi i32 [ 0, %66 ], [ %41, %64 ]
   %70 = call ptr @messageFindArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.18)
   %.not.i.i = icmp eq ptr %70, null
   br i1 %.not.i.i, label %messageGetFilename.exit.i, label %messageGetFilename.exit.thread.i
@@ -4352,7 +4352,7 @@ messageGetFilename.exit.i:                        ; preds = %69
 
 messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.exit.i, %69
   %.0.i205225.i = phi ptr [ %71, %messageGetFilename.exit.i ], [ %70, %69 ]
-  %73 = icmp eq i32 %.0162.i, 0
+  %73 = icmp eq i32 %.1163.i, 0
   br i1 %73, label %74, label %76
 
 74:                                               ; preds = %messageGetFilename.exit.thread.i
@@ -4362,7 +4362,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 .thread240.i:                                     ; preds = %messageGetFilename.exit.i
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.105) #21
   call void @messageAddArgument(ptr noundef nonnull %0, ptr noundef nonnull @.str.97)
-  call void @blobSetFilename(ptr noundef %.1218.i, ptr noundef null, ptr noundef nonnull @.str.99) #21, !callees !6
+  call void @blobSetFilename(ptr noundef %.2218.i, ptr noundef null, ptr noundef nonnull @.str.99) #21, !callees !6
   %75 = load ptr, ptr %6, align 8
   br label %79
 
@@ -4370,32 +4370,32 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %77 = load i8, ptr %.0.i205225.i, align 1
   %.not191.i = icmp eq i8 %77, 0
   %spec.select5.i = select i1 %.not191.i, ptr @.str.99, ptr %.0.i205225.i
-  call void @blobSetFilename(ptr noundef %.1218.i, ptr noundef null, ptr noundef nonnull %spec.select5.i) #21, !callees !6
+  call void @blobSetFilename(ptr noundef %.2218.i, ptr noundef null, ptr noundef nonnull %spec.select5.i) #21, !callees !6
   %78 = load ptr, ptr %6, align 8
   call void @free(ptr noundef nonnull %.0.i205225.i) #21
   br label %79
 
 79:                                               ; preds = %76, %.thread240.i, %.thread231.i
   %.0152239.i = phi ptr [ %63, %.thread231.i ], [ %78, %76 ], [ %75, %.thread240.i ]
-  %.1163238.i = phi i32 [ 6, %.thread231.i ], [ %.0162.i, %76 ], [ %.0162.i, %.thread240.i ]
-  %.1217237.i = phi ptr [ %.1216.i, %.thread231.i ], [ %.1218.i, %76 ], [ %.1218.i, %.thread240.i ]
-  %.1163238.fr.i = freeze i32 %.1163238.i
+  %.0162238.i = phi i32 [ 6, %.thread231.i ], [ %.1163.i, %76 ], [ %.1163.i, %.thread240.i ]
+  %.2217237.i = phi ptr [ %.2216.i, %.thread231.i ], [ %.2218.i, %76 ], [ %.2218.i, %.thread240.i ]
+  %.0162238.fr.i = freeze i32 %.0162238.i
   %80 = icmp eq ptr %.0152239.i, null
   br i1 %80, label %81, label %82
 
 81:                                               ; preds = %79
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.106) #21
-  call void @blobDestroy(ptr noundef %.1217237.i) #21, !callees !9
+  call void @blobDestroy(ptr noundef %.2217237.i) #21, !callees !9
   br label %messageExport.exit
 
 82:                                               ; preds = %79
-  switch i32 %.1163238.fr.i, label %.preheader.split.i [
+  switch i32 %.0162238.fr.i, label %.preheader.split.i [
     i32 0, label %134
     i32 6, label %.preheader.split.us.i
   ]
 
 .preheader.split.us.i:                            ; preds = %82, %131
-  %.0158.us.i = phi i64 [ %.2160.us.i, %131 ], [ 0, %82 ]
+  %.0158.us.i = phi i64 [ %.1159.us.i, %131 ], [ 0, %82 ]
   %.1153.us.i = phi ptr [ %133, %131 ], [ %.0152239.i, %82 ]
   %83 = load ptr, ptr %.1153.us.i, align 8
   %84 = call ptr @lineGetData(ptr noundef %83) #21
@@ -4432,7 +4432,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 
 .preheader.i:                                     ; preds = %97, %111
   %100 = phi i8 [ %.pr.i, %111 ], [ %95, %97 ]
-  %.5.i = phi ptr [ %.6.i, %111 ], [ %.0151.us.i, %97 ]
+  %.6.i = phi ptr [ %.7.i, %111 ], [ %.0151.us.i, %97 ]
   %.3.i = phi ptr [ %.4.i, %111 ], [ %84, %97 ]
   switch i8 %100, label %108 [
     i8 0, label %112
@@ -4458,8 +4458,8 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
 111:                                              ; preds = %108, %105
   %storemerge119.i = phi i8 [ %110, %108 ], [ %107, %105 ]
   %.4.i = phi ptr [ %109, %108 ], [ %106, %105 ]
-  %.6.i = getelementptr inbounds i8, ptr %.5.i, i64 1
-  store i8 %storemerge119.i, ptr %.5.i, align 1
+  %.7.i = getelementptr inbounds i8, ptr %.6.i, i64 1
+  store i8 %storemerge119.i, ptr %.6.i, align 1
   %.pr.i = load i8, ptr %.4.i, align 1
   br label %.preheader.i
 
@@ -4468,20 +4468,20 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br label %119
 
 112:                                              ; preds = %101, %.preheader.i
-  store i8 0, ptr %.5.i, align 1
-  %.not197.us.i = icmp eq ptr %.5.i, %.0151.us.i
+  store i8 0, ptr %.6.i, align 1
+  %.not197.us.i = icmp eq ptr %.6.i, %.0151.us.i
   br i1 %.not197.us.i, label %119, label %113
 
 113:                                              ; preds = %112
-  %114 = ptrtoint ptr %.5.i to i64
+  %114 = ptrtoint ptr %.6.i to i64
   %115 = ptrtoint ptr %.0151.us.i to i64
   %116 = sub i64 %114, %115
-  %117 = call i32 @blobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.us.i, i64 noundef %116) #21, !callees !10
+  %117 = call i32 @blobAddData(ptr noundef %.2217237.i, ptr noundef nonnull %.0151.us.i, i64 noundef %116) #21, !callees !10
   %118 = add i64 %116, %.0158.us.i
   br label %119
 
 119:                                              ; preds = %.thread, %113, %112
-  %.1159.us.i = phi i64 [ %118, %113 ], [ %.0158.us.i, %112 ], [ %.0158.us.i, %.thread ]
+  %.3161.us.i = phi i64 [ %118, %113 ], [ %.0158.us.i, %112 ], [ %.0158.us.i, %.thread ]
   %120 = icmp eq ptr %.0151.us.i, %.0149.us.i
   br i1 %120, label %121, label %122
 
@@ -4506,7 +4506,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br label %131
 
 131:                                              ; preds = %128, %123, %122, %.preheader.split.us.i
-  %.2160.us.i = phi i64 [ %.0158.us.i, %.preheader.split.us.i ], [ %.1159.us.i, %128 ], [ %.1159.us.i, %123 ], [ %.1159.us.i, %122 ]
+  %.1159.us.i = phi i64 [ %.0158.us.i, %.preheader.split.us.i ], [ %.3161.us.i, %128 ], [ %.3161.us.i, %123 ], [ %.3161.us.i, %122 ]
   %132 = getelementptr inbounds i8, ptr %.1153.us.i, i64 8
   %133 = load ptr, ptr %132, align 8
   %.not198.us.i = icmp eq ptr %133, null
@@ -4520,15 +4520,15 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br i1 %138, label %139, label %141
 
 139:                                              ; preds = %134
-  %140 = call ptr @textToBlob(ptr noundef nonnull %.0152239.i, ptr noundef %.1217237.i, i32 noundef %1) #21, !callees !7
+  %140 = call ptr @textToBlob(ptr noundef nonnull %.0152239.i, ptr noundef %.2217237.i, i32 noundef %1) #21, !callees !7
   br label %messageExport.exit
 
 141:                                              ; preds = %134
-  %142 = call ptr @textToBlob(ptr noundef nonnull %.0152239.i, ptr noundef %.1217237.i, i32 noundef 0) #21, !callees !7
+  %142 = call ptr @textToBlob(ptr noundef nonnull %.0152239.i, ptr noundef %.2217237.i, i32 noundef 0) #21, !callees !7
   br label %base64Flush.exit.thread.i
 
 .preheader.split.i:                               ; preds = %82, %174
-  %.0158.i = phi i64 [ %.1159.i, %174 ], [ 0, %82 ]
+  %.0158.i = phi i64 [ %.3161.i, %174 ], [ 0, %82 ]
   %.1153.i = phi ptr [ %176, %174 ], [ %.0152239.i, %82 ]
   %143 = load ptr, ptr %.1153.i, align 8
   %144 = call ptr @lineGetData(ptr noundef %143) #21
@@ -4556,7 +4556,7 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %.0151.i = phi ptr [ %149, %148 ], [ %3, %.thread243.i ], [ %3, %.preheader.split.i ]
   %.0149.i = phi ptr [ %149, %148 ], [ null, %.thread243.i ], [ null, %.preheader.split.i ]
   %.0148.i = phi i64 [ %146, %148 ], [ 1024, %.thread243.i ], [ 1024, %.preheader.split.i ]
-  %151 = call ptr @decodeLine(ptr noundef nonnull %0, i32 noundef %.1163238.fr.i, ptr noundef %144, ptr noundef nonnull %.0151.i, i64 noundef %.0148.i)
+  %151 = call ptr @decodeLine(ptr noundef nonnull %0, i32 noundef %.0162238.fr.i, ptr noundef %144, ptr noundef nonnull %.0151.i, i64 noundef %.0148.i)
   %152 = icmp eq ptr %151, null
   br i1 %152, label %.split258.us.i, label %155
 
@@ -4576,12 +4576,12 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   %157 = ptrtoint ptr %151 to i64
   %158 = ptrtoint ptr %.0151.i to i64
   %159 = sub i64 %157, %158
-  %160 = call i32 @blobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %.0151.i, i64 noundef %159) #21, !callees !10
+  %160 = call i32 @blobAddData(ptr noundef %.2217237.i, ptr noundef nonnull %.0151.i, i64 noundef %159) #21, !callees !10
   %161 = add i64 %159, %.0158.i
   br label %162
 
 162:                                              ; preds = %156, %155
-  %.1159.i = phi i64 [ %161, %156 ], [ %.0158.i, %155 ]
+  %.3161.i = phi i64 [ %161, %156 ], [ %.0158.i, %155 ]
   %163 = icmp eq ptr %.0151.i, %.0149.i
   br i1 %163, label %164, label %165
 
@@ -4613,8 +4613,8 @@ messageGetFilename.exit.thread.i:                 ; preds = %messageGetFilename.
   br i1 %.not198.i, label %.loopexit.i, label %.preheader.split.i
 
 .loopexit.i:                                      ; preds = %131, %86, %174, %154, %.split258.us.i, %.split.us.i
-  %.3161.i = phi i64 [ %.us-phi255.i, %.split.us.i ], [ %.0158.i, %154 ], [ %.0158.i, %.split258.us.i ], [ %.1159.i, %174 ], [ %.2160.us.i, %131 ], [ %.0158.us.i, %86 ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.108, i64 noundef %.3161.i, i32 noundef %.1163238.fr.i) #21
+  %.2160.i = phi i64 [ %.us-phi255.i, %.split.us.i ], [ %.0158.i, %154 ], [ %.0158.i, %.split258.us.i ], [ %.3161.i, %174 ], [ %.1159.us.i, %131 ], [ %.0158.us.i, %86 ]
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.108, i64 noundef %.2160.i, i32 noundef %.0162238.fr.i) #21
   %177 = load i32, ptr %36, align 8
   %.not199.i = icmp eq i32 %177, 0
   br i1 %.not199.i, label %base64Flush.exit.thread.i, label %178
@@ -4634,7 +4634,7 @@ base64Flush.exit.i:                               ; preds = %178
 181:                                              ; preds = %base64Flush.exit.i
   %182 = ptrtoint ptr %180 to i64
   %183 = sub i64 %182, %37
-  %184 = call i32 @blobAddData(ptr noundef %.1217237.i, ptr noundef nonnull %4, i64 noundef %183) #21, !callees !10
+  %184 = call i32 @blobAddData(ptr noundef %.2217237.i, ptr noundef nonnull %4, i64 noundef %183) #21, !callees !10
   br label %base64Flush.exit.thread.i
 
 base64Flush.exit.thread.i:                        ; preds = %181, %base64Flush.exit.i, %178, %.loopexit.i, %141
@@ -4645,7 +4645,7 @@ base64Flush.exit.thread.i:                        ; preds = %181, %base64Flush.e
   br i1 %187, label %38, label %messageExport.exit
 
 messageExport.exit:                               ; preds = %base64Flush.exit.thread.i, %2, %messageGetBody.exit.i, %9, %messageGetBody.exit204.i, %31, %45, %81, %139
-  %.0.i = phi ptr [ %30, %messageGetBody.exit204.i ], [ %.0150266.i, %45 ], [ null, %81 ], [ null, %2 ], [ null, %messageGetBody.exit.i ], [ null, %9 ], [ %.1217237.i, %139 ], [ %10, %31 ], [ %.1217237.i, %base64Flush.exit.thread.i ]
+  %.0.i = phi ptr [ %30, %messageGetBody.exit204.i ], [ %.0150266.i, %45 ], [ null, %81 ], [ null, %2 ], [ null, %messageGetBody.exit.i ], [ null, %9 ], [ %.2217237.i, %139 ], [ %10, %31 ], [ %.2217237.i, %base64Flush.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %.not = icmp eq i32 %1, 0
@@ -4762,8 +4762,8 @@ messageGetBody.exit:                              ; preds = %6
 
 33:                                               ; preds = %.lr.ph217, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph217 ], [ %indvars.iv.next, %.loopexit ]
-  %.2215 = phi ptr [ null, %.lr.ph217 ], [ %.11, %.loopexit ]
-  %.2111214 = phi ptr [ null, %.lr.ph217 ], [ %.11120, %.loopexit ]
+  %.2215 = phi ptr [ null, %.lr.ph217 ], [ %.5, %.loopexit ]
+  %.2111214 = phi ptr [ null, %.lr.ph217 ], [ %.5114, %.loopexit ]
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
@@ -4899,8 +4899,8 @@ messageGetBody.exit152:                           ; preds = %71, %69, %67
 
 73:                                               ; preds = %.lr.ph200, %116
   %.2108197 = phi ptr [ %.2108193, %.lr.ph200 ], [ %.2108, %116 ]
-  %.5196 = phi ptr [ %.2215, %.lr.ph200 ], [ %.7, %116 ]
-  %.5114195 = phi ptr [ %.2111214, %.lr.ph200 ], [ %.7116, %116 ]
+  %.6196 = phi ptr [ %.2215, %.lr.ph200 ], [ %.8, %116 ]
+  %.6115195 = phi ptr [ %.2111214, %.lr.ph200 ], [ %.8117, %116 ]
   %74 = load ptr, ptr %.2108197, align 8
   %75 = call ptr @lineGetData(ptr noundef %74) #21
   %76 = icmp eq ptr %75, null
@@ -4928,8 +4928,8 @@ messageGetBody.exit152:                           ; preds = %71, %69, %67
   br label %decodeLine.exit.thread
 
 decodeLine.exit.thread:                           ; preds = %.split, %81, %.split, %.split
-  %.7.i = phi ptr [ %14, %81 ], [ %2, %.split ], [ %2, %.split ], [ %2, %.split ]
-  store i8 0, ptr %.7.i, align 1
+  %.190.i = phi ptr [ %14, %81 ], [ %2, %.split ], [ %2, %.split ], [ %2, %.split ]
+  store i8 0, ptr %.190.i, align 1
   br label %87
 
 82:                                               ; preds = %77
@@ -4947,14 +4947,14 @@ decodeLine.exit:                                  ; preds = %79, %.split121
   br i1 %86, label %.thread162, label %87
 
 87:                                               ; preds = %decodeLine.exit.thread, %decodeLine.exit
-  %phi.call161 = phi ptr [ %.7.i, %decodeLine.exit.thread ], [ %phi.call, %decodeLine.exit ]
+  %phi.call161 = phi ptr [ %.190.i, %decodeLine.exit.thread ], [ %phi.call, %decodeLine.exit ]
   %88 = ptrtoint ptr %phi.call161 to i64
   %89 = sub i64 %88, %15
   %90 = icmp ugt i64 %89, 1024
   br i1 %90, label %.thread162.sink.split, label %91
 
 91:                                               ; preds = %87
-  %92 = icmp eq ptr %.5196, null
+  %92 = icmp eq ptr %.6196, null
   br i1 %92, label %93, label %95
 
 93:                                               ; preds = %91
@@ -4962,19 +4962,19 @@ decodeLine.exit:                                  ; preds = %79, %.split121
   br label %99
 
 95:                                               ; preds = %91
-  %.not139 = icmp eq ptr %.5114195, null
+  %.not139 = icmp eq ptr %.6115195, null
   br i1 %.not139, label %.thread162, label %96
 
 96:                                               ; preds = %95
   %97 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
-  %98 = getelementptr inbounds i8, ptr %.5114195, i64 8
+  %98 = getelementptr inbounds i8, ptr %.6115195, i64 8
   store ptr %97, ptr %98, align 8
   br label %99
 
 99:                                               ; preds = %96, %93
-  %.6115 = phi ptr [ %94, %93 ], [ %97, %96 ]
-  %.6 = phi ptr [ %94, %93 ], [ %.5196, %96 ]
-  %100 = icmp eq ptr %.6115, null
+  %.9118 = phi ptr [ %94, %93 ], [ %97, %96 ]
+  %.9 = phi ptr [ %94, %93 ], [ %.6196, %96 ]
+  %100 = icmp eq ptr %.9118, null
   br i1 %100, label %.thread162, label %101
 
 101:                                              ; preds = %99
@@ -5004,7 +5004,7 @@ decodeLine.exit:                                  ; preds = %79, %.split121
 
 113:                                              ; preds = %101, %101, %108, %111
   %.sink = phi ptr [ %110, %108 ], [ %112, %111 ], [ null, %101 ], [ null, %101 ]
-  store ptr %.sink, ptr %.6115, align 8
+  store ptr %.sink, ptr %.9118, align 8
   %or.cond5 = and i1 %72, %78
   br i1 %or.cond5, label %114, label %116
 
@@ -5014,8 +5014,8 @@ decodeLine.exit:                                  ; preds = %79, %.split121
   br i1 %.not140, label %116, label %.thread162
 
 116:                                              ; preds = %73, %113, %114
-  %.7116 = phi ptr [ %.5114195, %73 ], [ %.6115, %114 ], [ %.6115, %113 ]
-  %.7 = phi ptr [ %.5196, %73 ], [ %.6, %114 ], [ %.6, %113 ]
+  %.8117 = phi ptr [ %.6115195, %73 ], [ %.9118, %114 ], [ %.9118, %113 ]
+  %.8 = phi ptr [ %.6196, %73 ], [ %.9, %114 ], [ %.9, %113 ]
   %117 = getelementptr inbounds i8, ptr %.2108197, i64 8
   %.2108 = load ptr, ptr %117, align 8
   %.not138 = icmp eq ptr %.2108, null
@@ -5026,8 +5026,8 @@ decodeLine.exit:                                  ; preds = %79, %.split121
   br label %.thread162
 
 .thread162:                                       ; preds = %116, %decodeLine.exit, %99, %114, %95, %.thread162.sink.split, %messageGetBody.exit152
-  %.8117 = phi ptr [ %.2111214, %messageGetBody.exit152 ], [ %.5114195, %.thread162.sink.split ], [ %.7116, %116 ], [ %.5114195, %decodeLine.exit ], [ null, %99 ], [ %.6115, %114 ], [ null, %95 ]
-  %.8 = phi ptr [ %.2215, %messageGetBody.exit152 ], [ %.5196, %.thread162.sink.split ], [ %.7, %116 ], [ %.5196, %decodeLine.exit ], [ %.6, %99 ], [ %.6, %114 ], [ %.5196, %95 ]
+  %.7116 = phi ptr [ %.2111214, %messageGetBody.exit152 ], [ %.6115195, %.thread162.sink.split ], [ %.8117, %116 ], [ %.6115195, %decodeLine.exit ], [ null, %99 ], [ %.9118, %114 ], [ null, %95 ]
+  %.7 = phi ptr [ %.2215, %messageGetBody.exit152 ], [ %.6196, %.thread162.sink.split ], [ %.8, %116 ], [ %.6196, %decodeLine.exit ], [ %.9, %99 ], [ %.9, %114 ], [ %.6196, %95 ]
   %118 = load i32, ptr %16, align 8
   %.not141 = icmp eq i32 %118, 0
   br i1 %.not141, label %.loopexit, label %119
@@ -5042,7 +5042,7 @@ decodeLine.exit:                                  ; preds = %79, %.split121
   br i1 %or.cond9, label %124, label %.thread165
 
 124:                                              ; preds = %119
-  %125 = icmp eq ptr %.8, null
+  %125 = icmp eq ptr %.7, null
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %124
@@ -5050,35 +5050,35 @@ decodeLine.exit:                                  ; preds = %79, %.split121
   br label %132
 
 128:                                              ; preds = %124
-  %.not142 = icmp eq ptr %.8117, null
+  %.not142 = icmp eq ptr %.7116, null
   br i1 %.not142, label %.thread165, label %129
 
 129:                                              ; preds = %128
   %130 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
-  %131 = getelementptr inbounds i8, ptr %.8117, i64 8
+  %131 = getelementptr inbounds i8, ptr %.7116, i64 8
   store ptr %130, ptr %131, align 8
   br label %132
 
 132:                                              ; preds = %129, %126
-  %.9118 = phi ptr [ %127, %126 ], [ %130, %129 ]
-  %.9 = phi ptr [ %127, %126 ], [ %.8, %129 ]
-  %.not143 = icmp eq ptr %.9118, null
+  %.11120 = phi ptr [ %127, %126 ], [ %130, %129 ]
+  %.11 = phi ptr [ %127, %126 ], [ %.7, %129 ]
+  %.not143 = icmp eq ptr %.11120, null
   br i1 %.not143, label %.thread165, label %133
 
 133:                                              ; preds = %132
   %134 = call ptr @lineCreate(ptr noundef nonnull %3) #21
-  store ptr %134, ptr %.9118, align 8
+  store ptr %134, ptr %.11120, align 8
   br label %.thread165
 
 .thread165:                                       ; preds = %128, %132, %133, %119
-  %.10119 = phi ptr [ %.9118, %133 ], [ null, %132 ], [ %.8117, %119 ], [ null, %128 ]
-  %.10 = phi ptr [ %.9, %133 ], [ %.9, %132 ], [ %.8, %119 ], [ %.8, %128 ]
+  %.10119 = phi ptr [ %.11120, %133 ], [ null, %132 ], [ %.7116, %119 ], [ null, %128 ]
+  %.10 = phi ptr [ %.11, %133 ], [ %.11, %132 ], [ %.7, %119 ], [ %.7, %128 ]
   store i32 0, ptr %16, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %52, %messageGetBody.exit150, %.thread162, %.thread165
-  %.11120 = phi ptr [ %.10119, %.thread165 ], [ %.8117, %.thread162 ], [ %.2111214, %messageGetBody.exit150 ], [ %.4113, %52 ]
-  %.11 = phi ptr [ %.10, %.thread165 ], [ %.8, %.thread162 ], [ %.2215, %messageGetBody.exit150 ], [ %.4, %52 ]
+  %.5114 = phi ptr [ %.10119, %.thread165 ], [ %.7116, %.thread162 ], [ %.2111214, %messageGetBody.exit150 ], [ %.4113, %52 ]
+  %.5 = phi ptr [ %.10, %.thread165 ], [ %.7, %.thread162 ], [ %.2215, %messageGetBody.exit150 ], [ %.4, %52 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %135 = load i32, ptr %7, align 4
   %136 = sext i32 %135 to i64
@@ -5086,16 +5086,16 @@ decodeLine.exit:                                  ; preds = %79, %.split121
   br i1 %137, label %33, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %.not = icmp eq ptr %.11120, null
+  %.not = icmp eq ptr %.5114, null
   br i1 %.not, label %._crit_edge.thread, label %138
 
 138:                                              ; preds = %._crit_edge
-  %139 = getelementptr inbounds i8, ptr %.11120, i64 8
+  %139 = getelementptr inbounds i8, ptr %.5114, i64 8
   store ptr null, ptr %139, align 8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %messageGetBody.exit, %.preheader, %._crit_edge, %138, %62, %66, %54, %58, %47, %.thread156, %._crit_edge226, %24, %25, %5
-  %.0 = phi ptr [ null, %5 ], [ null, %25 ], [ null, %24 ], [ %.1, %._crit_edge226 ], [ null, %.thread156 ], [ null, %47 ], [ null, %58 ], [ null, %54 ], [ null, %66 ], [ null, %62 ], [ %.11, %138 ], [ %.11, %._crit_edge ], [ null, %.preheader ], [ null, %messageGetBody.exit ]
+  %.0 = phi ptr [ null, %5 ], [ null, %25 ], [ null, %24 ], [ %.1, %._crit_edge226 ], [ null, %.thread156 ], [ null, %47 ], [ null, %58 ], [ null, %54 ], [ null, %66 ], [ null, %62 ], [ %.5, %138 ], [ %.5, %._crit_edge ], [ null, %.preheader ], [ null, %messageGetBody.exit ]
   ret ptr %.0
 }
 
@@ -5163,7 +5163,7 @@ define ptr @decodeLine(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nound
 
 .lr.ph:                                           ; preds = %.preheader145, %68
   %.088167 = phi ptr [ %69, %68 ], [ %2, %.preheader145 ]
-  %.190166 = phi ptr [ %.291, %68 ], [ %3, %.preheader145 ]
+  %.291166 = phi ptr [ %.493, %68 ], [ %3, %.preheader145 ]
   %.094165 = phi i64 [ %70, %68 ], [ %4, %.preheader145 ]
   %20 = load i8, ptr %.088167, align 1
   switch i8 %20, label %68 [
@@ -5226,8 +5226,8 @@ hex.exit:                                         ; preds = %32, %36, %40, %42
   ]
 
 45:                                               ; preds = %hex.exit, %hex.exit
-  %46 = getelementptr inbounds i8, ptr %.190166, i64 1
-  store i8 %.0.i, ptr %.190166, align 1
+  %46 = getelementptr inbounds i8, ptr %.291166, i64 1
+  store i8 %.0.i, ptr %.291166, align 1
   br label %.loopexit
 
 47:                                               ; preds = %hex.exit
@@ -5279,15 +5279,15 @@ hex.exit126:                                      ; preds = %56, %60, %64, %66
 68:                                               ; preds = %.lr.ph, %hex.exit126, %47
   %storemerge = phi i8 [ %67, %hex.exit126 ], [ 61, %47 ], [ %20, %.lr.ph ]
   %.2 = phi ptr [ %43, %hex.exit126 ], [ %.088167, %47 ], [ %.088167, %.lr.ph ]
-  %.291 = getelementptr inbounds i8, ptr %.190166, i64 1
-  store i8 %storemerge, ptr %.190166, align 1
+  %.493 = getelementptr inbounds i8, ptr %.291166, i64 1
+  store i8 %storemerge, ptr %.291166, align 1
   %69 = getelementptr inbounds i8, ptr %.2, i64 1
   %70 = add i64 %.094165, -1
   %.not = icmp eq i64 %70, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %68, %.lr.ph, %.preheader145, %45
-  %.392.ph = phi ptr [ %46, %45 ], [ %3, %.preheader145 ], [ %.291, %68 ], [ %.190166, %.lr.ph ]
+  %.392.ph = phi ptr [ %46, %45 ], [ %3, %.preheader145 ], [ %.493, %68 ], [ %.291166, %.lr.ph ]
   %71 = getelementptr inbounds i8, ptr %.392.ph, i64 1
   store i8 10, ptr %.392.ph, align 1
   br label %.critedge
@@ -5465,7 +5465,7 @@ sanitiseBase64.exit:                              ; preds = %.loopexit.i, %85
 
 .lr.ph.i129:                                      ; preds = %153, %191
   %155 = phi i8 [ %210, %191 ], [ %154, %153 ]
-  %.1127210.i = phi ptr [ %209, %191 ], [ %3, %153 ]
+  %.2128210.i = phi ptr [ %209, %191 ], [ %3, %153 ]
   %.1130209.i = phi ptr [ %192, %191 ], [ %.085, %153 ]
   %156 = load i32, ptr %102, align 8
   %.not143.i = icmp eq i32 %156, 0
@@ -5525,10 +5525,10 @@ sanitiseBase64.exit:                              ; preds = %.loopexit.i, %85
 
 .thread214:                                       ; preds = %.thread203, %180
   %.0123.i193200207223 = phi i8 [ %.0113159.i, %180 ], [ %.0123.i193201, %.thread203 ]
-  %.3132.i210221 = phi ptr [ %.1130209.i, %180 ], [ %173, %.thread203 ]
-  %.1121.i211220 = phi i8 [ %.1112160.i, %180 ], [ %..i133, %.thread203 ]
+  %.4.i210221 = phi ptr [ %.1130209.i, %180 ], [ %173, %.thread203 ]
+  %.2122.i211220 = phi i8 [ %.1112160.i, %180 ], [ %..i133, %.thread203 ]
   %182 = phi i8 [ %170, %180 ], [ %178, %.thread203 ]
-  %183 = getelementptr inbounds i8, ptr %.3132.i210221, i64 1
+  %183 = getelementptr inbounds i8, ptr %.4.i210221, i64 1
   %184 = zext i8 %182 to i64
   %185 = getelementptr inbounds [256 x i8], ptr @base64Table, i64 0, i64 %184
   %186 = load i8, ptr %185, align 1
@@ -5538,34 +5538,34 @@ sanitiseBase64.exit:                              ; preds = %.loopexit.i, %85
 
 188:                                              ; preds = %.thread214, %181
   %.0123.i193200207222 = phi i8 [ %.0113159.i, %181 ], [ %.0123.i193200207223, %.thread214 ]
-  %.1121.i211219 = phi i8 [ %.1112160.i, %181 ], [ %.1121.i211220, %.thread214 ]
-  %.4.i = phi ptr [ %.1130209.i, %181 ], [ %183, %.thread214 ]
-  %.2119.i = phi i8 [ %.2161.i, %181 ], [ %..i132, %.thread214 ]
-  %189 = load i8, ptr %.4.i, align 1
+  %.2122.i211219 = phi i8 [ %.1112160.i, %181 ], [ %.2122.i211220, %.thread214 ]
+  %.5.i = phi ptr [ %.1130209.i, %181 ], [ %183, %.thread214 ]
+  %.3.i = phi i8 [ %.2161.i, %181 ], [ %..i132, %.thread214 ]
+  %189 = load i8, ptr %.5.i, align 1
   %190 = icmp eq i8 %189, 0
   br i1 %190, label %211, label %191
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %.4.i, i64 1
+  %192 = getelementptr inbounds i8, ptr %.5.i, i64 1
   %193 = zext i8 %189 to i64
   %194 = getelementptr inbounds [256 x i8], ptr @base64Table, i64 0, i64 %193
   %195 = load i8, ptr %194, align 1
   %196 = shl i8 %.0123.i193200207222, 2
-  %197 = lshr i8 %.1121.i211219, 4
+  %197 = lshr i8 %.2122.i211219, 4
   %198 = and i8 %197, 3
   %199 = or disjoint i8 %198, %196
-  %200 = getelementptr inbounds i8, ptr %.1127210.i, i64 1
-  store i8 %199, ptr %.1127210.i, align 1
-  %201 = shl i8 %.1121.i211219, 4
-  %202 = lshr i8 %.2119.i, 2
+  %200 = getelementptr inbounds i8, ptr %.2128210.i, i64 1
+  store i8 %199, ptr %.2128210.i, align 1
+  %201 = shl i8 %.2122.i211219, 4
+  %202 = lshr i8 %.3.i, 2
   %203 = and i8 %202, 15
   %204 = or disjoint i8 %203, %201
-  %205 = getelementptr inbounds i8, ptr %.1127210.i, i64 2
+  %205 = getelementptr inbounds i8, ptr %.2128210.i, i64 2
   store i8 %204, ptr %200, align 1
-  %206 = shl i8 %.2119.i, 6
+  %206 = shl i8 %.3.i, 6
   %207 = and i8 %195, 63
   %208 = or disjoint i8 %207, %206
-  %209 = getelementptr inbounds i8, ptr %.1127210.i, i64 3
+  %209 = getelementptr inbounds i8, ptr %.2128210.i, i64 3
   store i8 %208, ptr %205, align 1
   %210 = load i8, ptr %192, align 1
   %.not.i130 = icmp eq i8 %210, 0
@@ -5573,15 +5573,15 @@ sanitiseBase64.exit:                              ; preds = %.loopexit.i, %85
 
 211:                                              ; preds = %188
   %212 = getelementptr inbounds i8, ptr %0, i64 122
-  store i8 %.2119.i, ptr %212, align 2
+  store i8 %.3.i, ptr %212, align 2
   br label %.thread188.i
 
 .thread188.i:                                     ; preds = %169, %.thread203, %211
-  %.1121.i212 = phi i8 [ %.1121.i211219, %211 ], [ %.1112160.i, %169 ], [ %..i133, %.thread203 ]
+  %.2122.i212 = phi i8 [ %.2122.i211219, %211 ], [ %.1112160.i, %169 ], [ %..i133, %.thread203 ]
   %.0123.i193200208 = phi i8 [ %.0123.i193200207222, %211 ], [ %.0113159.i, %169 ], [ %.0123.i193201, %.thread203 ]
   %.0186.i = phi i32 [ 3, %211 ], [ 2, %.thread203 ], [ 2, %169 ]
   %213 = getelementptr inbounds i8, ptr %0, i64 121
-  store i8 %.1121.i212, ptr %213, align 1
+  store i8 %.2122.i212, ptr %213, align 1
   br label %.loopexit196.i
 
 .loopexit196.i:                                   ; preds = %157, %.thread, %.thread188.i
@@ -5593,7 +5593,7 @@ sanitiseBase64.exit:                              ; preds = %.loopexit.i, %85
   br label %decode.exit
 
 decode.exit:                                      ; preds = %191, %.lr.ph214.i, %114, %.preheader.i, %153, %.loopexit196.i
-  %.0125.i = phi ptr [ %3, %114 ], [ %.1127210.i, %.loopexit196.i ], [ %3, %.preheader.i ], [ %3, %153 ], [ %151, %.lr.ph214.i ], [ %209, %191 ]
+  %.0125.i = phi ptr [ %3, %114 ], [ %.2128210.i, %.loopexit196.i ], [ %3, %.preheader.i ], [ %3, %153 ], [ %151, %.lr.ph214.i ], [ %209, %191 ]
   %.not116 = icmp eq ptr %.085, %6
   br i1 %.not116, label %.critedge, label %215
 
@@ -5654,7 +5654,7 @@ decode.exit:                                      ; preds = %191, %.lr.ph214.i, 
   br label %246
 
 246:                                              ; preds = %241, %240
-  %.493 = phi ptr [ %3, %240 ], [ %245, %241 ]
+  %.5 = phi ptr [ %3, %240 ], [ %245, %241 ]
   store i32 0, ptr %217, align 8
   br label %.critedge
 
@@ -5674,7 +5674,7 @@ decode.exit:                                      ; preds = %191, %.lr.ph214.i, 
 
 .preheader:                                       ; preds = %252, %266
   %255 = phi i8 [ %.pr, %266 ], [ %250, %252 ]
-  %.5 = phi ptr [ %.6, %266 ], [ %3, %252 ]
+  %.6 = phi ptr [ %.7, %266 ], [ %3, %252 ]
   %.3 = phi ptr [ %.4, %266 ], [ %2, %252 ]
   switch i8 %255, label %263 [
     i8 0, label %.critedge
@@ -5700,18 +5700,18 @@ decode.exit:                                      ; preds = %191, %.lr.ph214.i, 
 266:                                              ; preds = %263, %260
   %storemerge119 = phi i8 [ %265, %263 ], [ %262, %260 ]
   %.4 = phi ptr [ %264, %263 ], [ %261, %260 ]
-  %.6 = getelementptr inbounds i8, ptr %.5, i64 1
-  store i8 %storemerge119, ptr %.5, align 1
+  %.7 = getelementptr inbounds i8, ptr %.6, i64 1
+  store i8 %storemerge119, ptr %.6, align 1
   %.pr = load i8, ptr %.4, align 1
   br label %.preheader
 
 .critedge:                                        ; preds = %21, %21, %.preheader, %256, %252, %247, %249, %231, %227, %224, %221, %216, %decode.exit, %215, %79, %72, %.loopexit, %246, %18
-  %.7 = phi ptr [ %19, %18 ], [ %71, %.loopexit ], [ %3, %72 ], [ %.0125.i, %215 ], [ %.0125.i, %decode.exit ], [ %3, %79 ], [ %3, %216 ], [ %3, %221 ], [ %3, %224 ], [ %3, %227 ], [ %3, %231 ], [ %.493, %246 ], [ %3, %247 ], [ %3, %249 ], [ %3, %252 ], [ %.5, %256 ], [ %.5, %.preheader ], [ %.190166, %21 ], [ %.190166, %21 ]
-  store i8 0, ptr %.7, align 1
+  %.190 = phi ptr [ %19, %18 ], [ %71, %.loopexit ], [ %3, %72 ], [ %.0125.i, %215 ], [ %.0125.i, %decode.exit ], [ %3, %79 ], [ %3, %216 ], [ %3, %221 ], [ %3, %224 ], [ %3, %227 ], [ %3, %231 ], [ %.5, %246 ], [ %3, %247 ], [ %3, %249 ], [ %3, %252 ], [ %.6, %256 ], [ %.6, %.preheader ], [ %.291166, %21 ], [ %.291166, %21 ]
+  store i8 0, ptr %.190, align 1
   br label %267
 
 267:                                              ; preds = %.critedge, %14, %9
-  %.086 = phi ptr [ null, %9 ], [ %15, %14 ], [ %.7, %.critedge ]
+  %.086 = phi ptr [ null, %9 ], [ %15, %14 ], [ %.190, %.critedge ]
   ret ptr %.086
 }
 

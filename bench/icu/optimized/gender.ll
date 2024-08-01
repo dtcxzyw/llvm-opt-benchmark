@@ -446,9 +446,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -831,8 +831,8 @@ terminate.lpad.i23:                               ; preds = %cleanup
   unreachable
 
 return:                                           ; preds = %if.then8.i, %entry, %cleanup, %if.end5, %_ZN6icu_755MutexD2Ev.exit, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
-  %retval.1 = phi ptr [ null, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ %call2, %_ZN6icu_755MutexD2Ev.exit ], [ null, %if.end5 ], [ %cleanup.dest.slot.0, %cleanup ], [ null, %entry ], [ null, %if.then8.i ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ %call2, %_ZN6icu_755MutexD2Ev.exit ], [ null, %if.end5 ], [ %cleanup.dest.slot.0, %cleanup ], [ null, %entry ], [ null, %if.then8.i ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad12, %lpad
   %.pn = phi { ptr, i32 } [ %8, %lpad ], [ %13, %lpad12 ]
@@ -995,11 +995,11 @@ if.then47.critedge:                               ; preds = %invoke.cont30
   br label %cleanup69
 
 if.end48:                                         ; preds = %invoke.cont17, %if.end45
-  %s.130 = phi ptr [ %call43, %if.end45 ], [ %call18, %invoke.cont17 ]
+  %s.030 = phi ptr [ %call43, %if.end45 ], [ %call18, %invoke.cont17 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %type_str, i8 0, i64 256, i1 false)
   %18 = load i32, ptr %resLen, align 4
   %add = add nsw i32 %18, 1
-  invoke void @u_UCharsToChars_75(ptr noundef nonnull %s.130, ptr noundef nonnull %type_str, i32 noundef %add)
+  invoke void @u_UCharsToChars_75(ptr noundef nonnull %s.030, ptr noundef nonnull %type_str, i32 noundef %add)
           to label %invoke.cont49 unwind label %lpad7
 
 invoke.cont49:                                    ; preds = %if.end48
@@ -1030,7 +1030,7 @@ if.end61:                                         ; preds = %if.end55
   br label %cleanup69
 
 cleanup69:                                        ; preds = %if.end61, %if.then59, %if.then53, %if.then47.critedge, %invoke.cont6
-  %retval.0 = phi ptr [ null, %invoke.cont6 ], [ %arrayidx60, %if.then59 ], [ %19, %if.then53 ], [ %17, %if.then47.critedge ], [ %spec.select, %if.end61 ]
+  %retval.1 = phi ptr [ null, %invoke.cont6 ], [ %arrayidx60, %if.then59 ], [ %19, %if.then53 ], [ %17, %if.then47.critedge ], [ %spec.select, %if.end61 ]
   %cmp.not.i = icmp eq ptr %call5, null
   br i1 %cmp.not.i, label %cleanup71, label %if.then.i
 
@@ -1051,7 +1051,7 @@ ehcleanup70:                                      ; preds = %lpad7, %lpad.i, %eh
   br label %ehcleanup72
 
 cleanup71:                                        ; preds = %if.then.i, %cleanup69, %entry
-  %retval.1 = phi ptr [ null, %entry ], [ %retval.0, %cleanup69 ], [ %retval.0, %if.then.i ]
+  %retval.0 = phi ptr [ null, %entry ], [ %retval.1, %cleanup69 ], [ %retval.1, %if.then.i ]
   %cmp.not.i24 = icmp eq ptr %call, null
   br i1 %cmp.not.i24, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit27, label %if.then.i25
 
@@ -1067,7 +1067,7 @@ terminate.lpad.i26:                               ; preds = %if.then.i25
   unreachable
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit27: ; preds = %cleanup71, %if.then.i25
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup72:                                      ; preds = %ehcleanup70, %lpad
   %.pn14.pn = phi { ptr, i32 } [ %.pn14, %ehcleanup70 ], [ %1, %lpad ]

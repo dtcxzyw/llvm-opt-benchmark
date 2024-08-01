@@ -206,16 +206,16 @@ if.end:                                           ; preds = %if.then, %entry
 
 while.body:                                       ; preds = %if.end, %while.body
   %chunk.019 = phi ptr [ %5, %while.body ], [ %3, %if.end ]
-  %space.118 = phi i64 [ %add6, %while.body ], [ %space.0, %if.end ]
+  %space.218 = phi i64 [ %add6, %while.body ], [ %space.0, %if.end ]
   %dlen = getelementptr inbounds i8, ptr %chunk.019, i64 8
   %4 = load i64, ptr %dlen, align 8
-  %add6 = add i64 %4, %space.118
+  %add6 = add i64 %4, %space.218
   %5 = load ptr, ptr %chunk.019, align 8
   %tobool5.not = icmp eq ptr %5, null
   br i1 %tobool5.not, label %if.end7, label %while.body, !llvm.loop !8
 
 if.end7:                                          ; preds = %while.body, %if.end
-  %space.2 = phi i64 [ %space.0, %if.end ], [ %add6, %while.body ]
+  %space.1 = phi i64 [ %space.0, %if.end ], [ %add6, %while.body ]
   %chunk_count = getelementptr inbounds i8, ptr %q, i64 32
   %6 = load i64, ptr %chunk_count, align 8
   %max_chunks = getelementptr inbounds i8, ptr %q, i64 40
@@ -228,11 +228,11 @@ if.then8:                                         ; preds = %if.end7
   %chunk_size = getelementptr inbounds i8, ptr %q, i64 48
   %8 = load i64, ptr %chunk_size, align 8
   %mul = mul i64 %8, %sub
-  %add11 = add i64 %mul, %space.2
+  %add11 = add i64 %mul, %space.1
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then8, %if.end7
-  %space.3 = phi i64 [ %add11, %if.then8 ], [ %space.2, %if.end7 ]
+  %space.3 = phi i64 [ %add11, %if.then8 ], [ %space.1, %if.end7 ]
   ret i64 %space.3
 }
 

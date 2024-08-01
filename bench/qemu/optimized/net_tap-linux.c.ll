@@ -445,38 +445,38 @@ if.then3:                                         ; preds = %if.end
   %spec.select = select i1 %tobool4.not, i32 1, i32 3
   %tobool8.not = icmp eq i32 %tso6, 0
   %or10 = or disjoint i32 %spec.select, 4
-  %offload.1 = select i1 %tobool8.not, i32 %spec.select, i32 %or10
+  %offload.2 = select i1 %tobool8.not, i32 %spec.select, i32 %or10
   %1 = or i32 %tso6, %tso4
   %or.cond = icmp ne i32 %1, 0
   %tobool15 = icmp ne i32 %ecn, 0
   %or.cond1 = and i1 %or.cond, %tobool15
-  %or17 = or disjoint i32 %offload.1, 8
-  %offload.2 = select i1 %or.cond1, i32 %or17, i32 %offload.1
+  %or17 = or disjoint i32 %offload.2, 8
+  %offload.3 = select i1 %or.cond1, i32 %or17, i32 %offload.2
   %tobool19.not = icmp eq i32 %ufo, 0
-  %or21 = or disjoint i32 %offload.2, 16
-  %offload.3 = select i1 %tobool19.not, i32 %offload.2, i32 %or21
+  %or21 = or disjoint i32 %offload.3, 16
+  %offload.4 = select i1 %tobool19.not, i32 %offload.3, i32 %or21
   %tobool23.not = icmp eq i32 %uso4, 0
-  %or25 = or i32 %offload.3, 32
-  %offload.4 = select i1 %tobool23.not, i32 %offload.3, i32 %or25
+  %or25 = or i32 %offload.4, 32
+  %offload.5 = select i1 %tobool23.not, i32 %offload.4, i32 %or25
   %tobool27.not = icmp eq i32 %uso6, 0
-  %or29 = or i32 %offload.4, 64
-  %spec.select18 = select i1 %tobool27.not, i32 %offload.4, i32 %or29
+  %or29 = or i32 %offload.5, 64
+  %spec.select18 = select i1 %tobool27.not, i32 %offload.5, i32 %or29
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then3, %if.end
-  %offload.5 = phi i32 [ 0, %if.end ], [ %spec.select18, %if.then3 ]
-  %call32 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 1074025680, i32 noundef %offload.5) #8
+  %offload.0 = phi i32 [ 0, %if.end ], [ %spec.select18, %if.then3 ]
+  %call32 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 1074025680, i32 noundef %offload.0) #8
   %cmp33.not = icmp eq i32 %call32, 0
   br i1 %cmp33.not, label %if.end47, label %if.then34
 
 if.then34:                                        ; preds = %if.end31
-  %and = and i32 %offload.5, -97
+  %and = and i32 %offload.0, -97
   %call35 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 1074025680, i32 noundef %and) #8
   %cmp36.not = icmp eq i32 %call35, 0
   br i1 %cmp36.not, label %if.end47, label %if.then37
 
 if.then37:                                        ; preds = %if.then34
-  %and38 = and i32 %offload.5, -113
+  %and38 = and i32 %offload.0, -113
   %call39 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %fd, i64 noundef 1074025680, i32 noundef %and38) #8
   %cmp40.not = icmp eq i32 %call39, 0
   br i1 %cmp40.not, label %if.end47, label %if.then41

@@ -54041,7 +54041,7 @@ if.end8.i:                                        ; preds = %land.lhs.true.i, %i
   br i1 %cmp12.not83.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %if.end8.i, %for.inc.i
-  %retval.i.sroa.0.0 = phi <2 x i64> [ %retval.i.sroa.0.2, %for.inc.i ], [ zeroinitializer, %if.end8.i ]
+  %retval.i.sroa.0.1 = phi <2 x i64> [ %retval.i.sroa.0.3, %for.inc.i ], [ zeroinitializer, %if.end8.i ]
   %i.086.i = phi i64 [ %inc38.i, %for.inc.i ], [ %spec.select.i, %if.end8.i ]
   %count.085.i = phi i64 [ %count.1.i, %for.inc.i ], [ 0, %if.end8.i ]
   %20 = phi i64 [ %27, %for.inc.i ], [ 0, %if.end8.i ]
@@ -54106,7 +54106,7 @@ if.end15.i.i:                                     ; preds = %if.end.i.i4
   %shl89.i = shl i64 %or8284.i, 4
   %conv28.i = zext nneg i8 %retval.0.i.i to i64
   %or.i = add nuw nsw i64 %shl89.i, %conv28.i
-  %retval.i.sroa.0.0.vec.insert = insertelement <2 x i64> %retval.i.sroa.0.0, i64 %or.i, i64 0
+  %retval.i.sroa.0.0.vec.insert = insertelement <2 x i64> %retval.i.sroa.0.1, i64 %or.i, i64 0
   br label %if.end37.i
 
 if.end.i67.i:                                     ; preds = %if.end22.i
@@ -54128,18 +54128,18 @@ if.end15.i69.i:                                   ; preds = %if.end.i67.i
   %shl3191.i = shl i64 %20, 4
   %conv34.i = zext nneg i8 %retval.0.i73.i to i64
   %or35.i = add nuw nsw i64 %shl3191.i, %conv34.i
-  %retval.i.sroa.0.8.vec.insert8 = insertelement <2 x i64> %retval.i.sroa.0.0, i64 %or35.i, i64 1
+  %retval.i.sroa.0.8.vec.insert8 = insertelement <2 x i64> %retval.i.sroa.0.1, i64 %or35.i, i64 1
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit76.i", %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit.i"
-  %retval.i.sroa.0.1 = phi <2 x i64> [ %retval.i.sroa.0.0.vec.insert, %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit.i" ], [ %retval.i.sroa.0.8.vec.insert8, %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit76.i" ]
+  %retval.i.sroa.0.2 = phi <2 x i64> [ %retval.i.sroa.0.0.vec.insert, %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit.i" ], [ %retval.i.sroa.0.8.vec.insert8, %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit76.i" ]
   %or80.i = phi i64 [ %or.i, %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit.i" ], [ %or8284.i, %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit76.i" ]
   %26 = phi i64 [ %20, %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit.i" ], [ %or35.i, %"_ZZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tEENK3$_0clEc.exit76.i" ]
   %inc.i = add nuw nsw i64 %count.085.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end37.i, %for.body.i
-  %retval.i.sroa.0.2 = phi <2 x i64> [ %retval.i.sroa.0.0, %for.body.i ], [ %retval.i.sroa.0.1, %if.end37.i ]
+  %retval.i.sroa.0.3 = phi <2 x i64> [ %retval.i.sroa.0.1, %for.body.i ], [ %retval.i.sroa.0.2, %if.end37.i ]
   %or81.i = phi i64 [ %or8284.i, %for.body.i ], [ %or80.i, %if.end37.i ]
   %27 = phi i64 [ %20, %for.body.i ], [ %26, %if.end37.i ]
   %count.1.i = phi i64 [ %count.085.i, %for.body.i ], [ %inc.i, %if.end37.i ]
@@ -54152,13 +54152,13 @@ for.end.loopexit.i:                               ; preds = %for.inc.i
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end8.i
-  %retval.i.sroa.0.3 = phi <2 x i64> [ %retval.i.sroa.0.2, %for.end.loopexit.i ], [ zeroinitializer, %if.end8.i ]
+  %retval.i.sroa.0.0 = phi <2 x i64> [ %retval.i.sroa.0.3, %for.end.loopexit.i ], [ zeroinitializer, %if.end8.i ]
   %xor.i = phi i64 [ %28, %for.end.loopexit.i ], [ -9223372036854775808, %if.end8.i ]
-  %retval.i.sroa.0.8.vec.insert = insertelement <2 x i64> %retval.i.sroa.0.3, i64 %xor.i, i64 1
+  %retval.i.sroa.0.8.vec.insert = insertelement <2 x i64> %retval.i.sroa.0.0, i64 %xor.i, i64 1
   br label %_ZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tE.exit
 
 _ZN6duckdb4UUID10FromStringENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9hugeint_tE.exit: ; preds = %if.end17.i, %switch.early.test.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i, %land.lhs.true.i, %for.end.i
-  %retval.i.sroa.0.4 = phi <2 x i64> [ undef, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %retval.i.sroa.0.8.vec.insert, %for.end.i ], [ undef, %land.lhs.true.i ], [ %retval.i.sroa.0.0, %switch.early.test.i ], [ %retval.i.sroa.0.0, %if.end17.i ]
+  %retval.i.sroa.0.4 = phi <2 x i64> [ undef, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ], [ %retval.i.sroa.0.8.vec.insert, %for.end.i ], [ undef, %land.lhs.true.i ], [ %retval.i.sroa.0.1, %switch.early.test.i ], [ %retval.i.sroa.0.1, %if.end17.i ]
   %cmp.i.i.i.i = icmp eq ptr %.pre, %8
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i2.i
 

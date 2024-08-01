@@ -625,19 +625,19 @@ BufferGetPage.exit:                               ; preds = %32, %38
 
 45:                                               ; preds = %BufferGetPage.exit, %45
   %indvars.iv = phi i64 [ 0, %BufferGetPage.exit ], [ %indvars.iv.next, %45 ]
-  %.237 = phi i32 [ %.02543, %BufferGetPage.exit ], [ %51, %45 ]
-  %.12836 = phi i32 [ %.02742, %BufferGetPage.exit ], [ %56, %45 ]
+  %.337 = phi i32 [ %.02543, %BufferGetPage.exit ], [ %51, %45 ]
+  %.22936 = phi i32 [ %.02742, %BufferGetPage.exit ], [ %56, %45 ]
   %46 = load ptr, ptr @pg_popcount64, align 8
   %47 = getelementptr i64, ptr %44, i64 %indvars.iv
   %48 = load i64, ptr %47, align 8
   %49 = and i64 %48, 6148914691236517205
   %50 = tail call i32 %46(i64 noundef %49) #7
-  %51 = add i32 %50, %.237
+  %51 = add i32 %50, %.337
   %52 = load ptr, ptr @pg_popcount64, align 8
   %53 = load i64, ptr %47, align 8
   %54 = and i64 %53, -6148914691236517206
   %55 = tail call i32 %52(i64 noundef %54) #7
-  %56 = add i32 %55, %.12836
+  %56 = add i32 %55, %.22936
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1021
   br i1 %exitcond.not, label %.loopexit35, label %45, !llvm.loop !7

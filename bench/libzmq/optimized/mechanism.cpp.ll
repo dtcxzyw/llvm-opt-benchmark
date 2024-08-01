@@ -1801,7 +1801,7 @@ invoke.cont42:                                    ; preds = %if.end37
           to label %cleanup unwind label %lpad43
 
 cleanup.thread:                                   ; preds = %invoke.cont, %if.end7
-  %bytes_left.1.ph = phi i64 [ %sub12, %if.end7 ], [ %sub4, %invoke.cont ]
+  %bytes_left.2.ph = phi i64 [ %sub12, %if.end7 ], [ %sub4, %invoke.cont ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #25
   br label %while.end
 
@@ -1838,8 +1838,8 @@ ehcleanup46:                                      ; preds = %ehcleanup, %lpad8
   br label %eh.resume
 
 while.end:                                        ; preds = %cleanup, %entry, %cleanup.thread
-  %bytes_left.2 = phi i64 [ %bytes_left.1.ph, %cleanup.thread ], [ %length_, %entry ], [ %sub17, %cleanup ]
-  %cmp47.not = icmp eq i64 %bytes_left.2, 0
+  %bytes_left.1 = phi i64 [ %bytes_left.2.ph, %cleanup.thread ], [ %length_, %entry ], [ %sub17, %cleanup ]
+  %cmp47.not = icmp eq i64 %bytes_left.1, 0
   br i1 %cmp47.not, label %return, label %if.then48
 
 if.then48:                                        ; preds = %while.body, %while.end

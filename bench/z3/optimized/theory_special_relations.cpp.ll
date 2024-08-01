@@ -1869,7 +1869,7 @@ if.then5.i:                                       ; preds = %_ZNK8dl_graphIN3smt
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then5.i, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i, %if.then.i
-  %r.0.i = phi i1 [ true, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i ], [ %call6.i, %if.then5.i ], [ true, %if.then.i ]
+  %r.1.i = phi i1 [ true, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i ], [ %call6.i, %if.then5.i ], [ true, %if.then.i ]
   %m_enabled_edges.i = getelementptr inbounds i8, ptr %this, i64 136
   %11 = load ptr, ptr %m_enabled_edges.i, align 8
   %cmp.i.i = icmp eq ptr %11, null
@@ -1904,8 +1904,8 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %if.then.i.i, %lor.l
   br label %_ZN8dl_graphIN3smt24theory_special_relations7int_extEE11enable_edgeEi.exit
 
 _ZN8dl_graphIN3smt24theory_special_relations7int_extEE11enable_edgeEi.exit: ; preds = %entry, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
-  %r.1.i = phi i1 [ true, %entry ], [ %r.0.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
-  ret i1 %r.1.i
+  %r.0.i = phi i1 [ true, %entry ], [ %r.1.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
+  ret i1 %r.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3078,7 +3078,7 @@ for.body:                                         ; preds = %_ZNK6vectorIjLb0EjE
   br label %for.cond, !llvm.loop !19
 
 if.end:                                           ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit, %_ZNK7obj_mapI9func_declPN3smt24theory_special_relations8relationEE4findEPS0_RS4_.exit
-  %r.1 = phi ptr [ %9, %_ZNK7obj_mapI9func_declPN3smt24theory_special_relations8relationEE4findEPS0_RS4_.exit ], [ %call4, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
+  %r.0 = phi ptr [ %9, %_ZNK7obj_mapI9func_declPN3smt24theory_special_relations8relationEE4findEPS0_RS4_.exit ], [ %call4, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
   %m_args.i = getelementptr inbounds i8, ptr %atm, i64 32
   %15 = load ptr, ptr %m_args.i, align 8
   %arrayidx.i12 = getelementptr inbounds i8, ptr %atm, i64 40
@@ -3093,7 +3093,7 @@ if.end:                                           ; preds = %_ZNK6vectorIjLb0EjE
   %19 = load i32, ptr %m_id.i, align 8
   call void @_ZN3smt7context14set_var_theoryEji(ptr noundef nonnull align 8 dereferenceable(11616) %18, i32 noundef %call14, i32 noundef %19)
   %call17 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  call void @_ZN3smt24theory_special_relations4atomC2EjRNS0_8relationEii(ptr noundef nonnull align 8 dereferenceable(36) %call17, i32 noundef %call14, ptr noundef nonnull align 8 dereferenceable(552) %r.1, i32 noundef %call12, i32 noundef %call13)
+  call void @_ZN3smt24theory_special_relations4atomC2EjRNS0_8relationEii(ptr noundef nonnull align 8 dereferenceable(36) %call17, i32 noundef %call14, ptr noundef nonnull align 8 dereferenceable(552) %r.0, i32 noundef %call12, i32 noundef %call13)
   %m_atoms = getelementptr inbounds i8, ptr %this, i64 72
   %20 = load ptr, ptr %m_atoms, align 8
   %cmp.i13 = icmp eq ptr %20, null
@@ -4790,7 +4790,7 @@ if.then5.i.i:                                     ; preds = %_ZNK8dl_graphIN3smt
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i.i, %if.then.i.i
-  %r.0.i.i = phi i1 [ true, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i.i ], [ %call6.i.i, %if.then5.i.i ], [ true, %if.then.i.i ]
+  %r.1.i.i = phi i1 [ true, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i.i ], [ %call6.i.i, %if.then5.i.i ], [ true, %if.then.i.i ]
   %m_enabled_edges.i.i = getelementptr inbounds i8, ptr %1, i64 200
   %13 = load ptr, ptr %m_enabled_edges.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %13, null
@@ -4822,7 +4822,7 @@ _ZN3smt24theory_special_relations4atom6enableEv.exit: ; preds = %lor.lhs.false.i
   %19 = load i32, ptr %arrayidx10.i.i.i, align 4
   %inc.i.i.i = add i32 %19, 1
   store i32 %inc.i.i.i, ptr %arrayidx10.i.i.i, align 4
-  br i1 %r.0.i.i, label %return, label %if.then
+  br i1 %r.1.i.i, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN3smt24theory_special_relations4atom6enableEv.exit
   %20 = load ptr, ptr %m_relation.i, align 8
@@ -5491,7 +5491,7 @@ for.body88.lr.ph:                                 ; preds = %_ZNK6vectorIPN3smt2
 
 for.body88:                                       ; preds = %for.body88.lr.ph, %for.inc301
   %indvars.iv = phi i64 [ 0, %for.body88.lr.ph ], [ %indvars.iv.next, %for.inc301 ]
-  %new_assertion.3467 = phi i1 [ %new_assertion.0.lcssa, %for.body88.lr.ph ], [ %new_assertion.6, %for.inc301 ]
+  %new_assertion.3467 = phi i1 [ %new_assertion.0.lcssa, %for.body88.lr.ph ], [ %new_assertion.4, %for.inc301 ]
   %105 = load ptr, ptr %m_asserted_atoms, align 8
   %arrayidx.i126 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv
   %106 = load ptr, ptr %arrayidx.i126, align 8
@@ -6095,7 +6095,7 @@ cleanup:                                          ; preds = %invoke.cont283
   br i1 %tobool.not.i.i374, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit383, label %if.then.i.i.i375
 
 if.then.i.i.i375:                                 ; preds = %invoke.cont201, %cleanup
-  %new_assertion.4481 = phi i1 [ true, %cleanup ], [ %new_assertion.3467, %invoke.cont201 ]
+  %new_assertion.6481 = phi i1 [ true, %cleanup ], [ %new_assertion.3467, %invoke.cont201 ]
   %206 = phi ptr [ %204, %cleanup ], [ %call.i236, %invoke.cont201 ]
   %207 = load ptr, ptr %m_manager.i238, align 8
   %m_ref_count.i.i.i.i377 = getelementptr inbounds i8, ptr %206, i64 8
@@ -6117,7 +6117,7 @@ terminate.lpad.i382:                              ; preds = %if.then2.i.i.i381
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit383:      ; preds = %cleanup, %if.then.i.i.i375, %if.then2.i.i.i381
-  %new_assertion.4482 = phi i1 [ true, %cleanup ], [ %new_assertion.4481, %if.then.i.i.i375 ], [ %new_assertion.4481, %if.then2.i.i.i381 ]
+  %new_assertion.6482 = phi i1 [ true, %cleanup ], [ %new_assertion.6481, %if.then.i.i.i375 ], [ %new_assertion.6481, %if.then2.i.i.i381 ]
   %211 = load ptr, ptr %next2b, align 8
   %tobool.not.i.i384 = icmp eq ptr %211, null
   br i1 %tobool.not.i.i384, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit393, label %if.then.i.i.i385
@@ -6212,7 +6212,7 @@ sw.bb296:                                         ; preds = %invoke.cont136
           to label %sw.epilog unwind label %lpad122
 
 sw.epilog:                                        ; preds = %if.then2.i.i.i411, %if.then.i.i.i405, %_ZN7obj_refI4expr11ast_managerED2Ev.exit403, %sw.bb296, %invoke.cont136
-  %new_assertion.5 = phi i1 [ %new_assertion.3467, %invoke.cont136 ], [ true, %sw.bb296 ], [ %new_assertion.4482, %_ZN7obj_refI4expr11ast_managerED2Ev.exit403 ], [ %new_assertion.4482, %if.then.i.i.i405 ], [ %new_assertion.4482, %if.then2.i.i.i411 ]
+  %new_assertion.5 = phi i1 [ %new_assertion.3467, %invoke.cont136 ], [ true, %sw.bb296 ], [ %new_assertion.6482, %_ZN7obj_refI4expr11ast_managerED2Ev.exit403 ], [ %new_assertion.6482, %if.then.i.i.i405 ], [ %new_assertion.6482, %if.then2.i.i.i411 ]
   %226 = load ptr, ptr %f_app, align 8
   %tobool.not.i.i414 = icmp eq ptr %226, null
   br i1 %tobool.not.i.i414, label %for.inc301, label %if.then.i.i.i415
@@ -6243,13 +6243,13 @@ ehcleanup299:                                     ; preds = %ehcleanup295, %lpad
   br label %ehcleanup308
 
 for.inc301:                                       ; preds = %if.then2.i.i.i421, %if.then.i.i.i415, %sw.epilog, %for.body88, %invoke.cont115
-  %new_assertion.6 = phi i1 [ %new_assertion.3467, %invoke.cont115 ], [ %new_assertion.3467, %for.body88 ], [ %new_assertion.5, %sw.epilog ], [ %new_assertion.5, %if.then.i.i.i415 ], [ %new_assertion.5, %if.then2.i.i.i421 ]
+  %new_assertion.4 = phi i1 [ %new_assertion.3467, %invoke.cont115 ], [ %new_assertion.3467, %for.body88 ], [ %new_assertion.5, %sw.epilog ], [ %new_assertion.5, %if.then.i.i.i415 ], [ %new_assertion.5, %if.then2.i.i.i421 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end302, label %for.body88, !llvm.loop !29
 
 for.end302:                                       ; preds = %for.inc301, %_ZNK6vectorIPN3smt24theory_special_relations4atomELb0EjE4sizeEv.exit
-  %new_assertion.3.lcssa = phi i1 [ %new_assertion.0.lcssa, %_ZNK6vectorIPN3smt24theory_special_relations4atomELb0EjE4sizeEv.exit ], [ %new_assertion.6, %for.inc301 ]
+  %new_assertion.3.lcssa = phi i1 [ %new_assertion.0.lcssa, %_ZNK6vectorIPN3smt24theory_special_relations4atomELb0EjE4sizeEv.exit ], [ %new_assertion.4, %for.inc301 ]
   br i1 %new_assertion.3.lcssa, label %cleanup307, label %if.end304
 
 if.end304:                                        ; preds = %_ZNK6vectorIPN3smt24theory_special_relations4atomELb0EjE4sizeEv.exit.thread, %for.end302
@@ -9651,7 +9651,7 @@ if.then5.i.i:                                     ; preds = %_ZNK8dl_graphIN3smt
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i.i, %if.then.i.i
-  %r.0.i.i = phi i1 [ true, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i.i ], [ %call6.i.i, %if.then5.i.i ], [ true, %if.then.i.i ]
+  %r.1.i.i = phi i1 [ true, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i.i ], [ %call6.i.i, %if.then5.i.i ], [ true, %if.then.i.i ]
   %m_enabled_edges.i.i = getelementptr inbounds i8, ptr %1, i64 200
   %13 = load ptr, ptr %m_enabled_edges.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %13, null
@@ -9683,7 +9683,7 @@ _ZN3smt24theory_special_relations4atom6enableEv.exit: ; preds = %lor.lhs.false.i
   %19 = load i32, ptr %arrayidx10.i.i.i, align 4
   %inc.i.i.i = add i32 %19, 1
   store i32 %inc.i.i.i, ptr %arrayidx10.i.i.i, align 4
-  br i1 %r.0.i.i, label %_ZN3smt24theory_special_relations4atom6enableEv.exit.if.end_crit_edge, label %if.then3
+  br i1 %r.1.i.i, label %_ZN3smt24theory_special_relations4atom6enableEv.exit.if.end_crit_edge, label %if.then3
 
 _ZN3smt24theory_special_relations4atom6enableEv.exit.if.end_crit_edge: ; preds = %_ZN3smt24theory_special_relations4atom6enableEv.exit
   %.pre = load ptr, ptr %m_relation.i, align 8
@@ -10607,7 +10607,7 @@ if.then5.i:                                       ; preds = %_ZNK8dl_graphIN3smt
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then5.i, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i, %if.then.i
-  %r.0.i = phi i1 [ true, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i ], [ %call6.i, %if.then5.i ], [ true, %if.then.i ]
+  %r.1.i = phi i1 [ true, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i ], [ %call6.i, %if.then5.i ], [ true, %if.then.i ]
   %m_enabled_edges.i = getelementptr inbounds i8, ptr %this, i64 136
   %11 = load ptr, ptr %m_enabled_edges.i, align 8
   %cmp.i.i = icmp eq ptr %11, null
@@ -10642,8 +10642,8 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %if.then.i.i, %lor.l
   br label %_ZN8dl_graphIN3smt24theory_special_relations7int_extEE11enable_edgeEi.exit
 
 _ZN8dl_graphIN3smt24theory_special_relations7int_extEE11enable_edgeEi.exit: ; preds = %entry, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
-  %r.1.i = phi i1 [ true, %entry ], [ %r.0.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
-  ret i1 %r.1.i
+  %r.0.i = phi i1 [ true, %entry ], [ %r.1.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
+  ret i1 %r.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10811,7 +10811,7 @@ if.then5.i.i:                                     ; preds = %_ZNK8dl_graphIN3smt
           to label %if.end.i.i50 unwind label %lpad
 
 if.end.i.i50:                                     ; preds = %if.then5.i.i, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i.i, %if.then.i.i
-  %r.0.i.i = phi i1 [ true, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i.i ], [ true, %if.then.i.i ], [ %call6.i.i52, %if.then5.i.i ]
+  %r.1.i.i = phi i1 [ true, %_ZNK8dl_graphIN3smt24theory_special_relations7int_extEE11is_feasibleERK7dl_edgeIS2_E.exit.i.i ], [ true, %if.then.i.i ], [ %call6.i.i52, %if.then5.i.i ]
   %34 = load ptr, ptr %m_enabled_edges.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %34, null
   br i1 %cmp.i.i.i, label %if.then.i, label %lor.lhs.false.i.i.i
@@ -10918,7 +10918,7 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i.i:        ; preds = %.noexc, %lor.lhs.fa
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN6vectorIiLb0EjE9push_backERKi.exit.i.i, %call.i.noexc
-  %r.1.i.i = phi i1 [ true, %call.i.noexc ], [ %r.0.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i.i ]
+  %r.0.i.i = phi i1 [ true, %call.i.noexc ], [ %r.1.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
   %43 = load ptr, ptr %ref.tmp, align 8
   %tobool.not.i.i.i = icmp eq ptr %43, null
@@ -10937,7 +10937,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i53
   unreachable
 
 _ZN7svectorIN3sat7literalEjED2Ev.exit:            ; preds = %invoke.cont, %if.then.i.i.i53
-  br i1 %r.1.i.i, label %for.inc, label %if.then27
+  br i1 %r.0.i.i, label %for.inc, label %if.then27
 
 if.then27:                                        ; preds = %_ZN7svectorIN3sat7literalEjED2Ev.exit
   call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.14, i32 noundef 739, ptr noundef nonnull @.str.19)
@@ -11174,8 +11174,8 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 return:                                           ; preds = %while.cond.backedge, %_ZN6vectorIiLb0EjE9push_backERKi.exit, %if.then.i.i.i, %cleanup, %if.then
-  %retval.1 = phi i1 [ %cmp, %if.then ], [ false, %cleanup ], [ %cmp3.i, %if.then.i.i.i ], [ true, %_ZN6vectorIiLb0EjE9push_backERKi.exit ], [ true, %while.cond.backedge ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %cmp, %if.then ], [ false, %cleanup ], [ %cmp3.i, %if.then.i.i.i ], [ true, %_ZN6vectorIiLb0EjE9push_backERKi.exit ], [ true, %while.cond.backedge ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -24061,8 +24061,8 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !103
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.142 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %2, %for.cond17.preheader ]
-  %m_state.i24 = getelementptr inbounds i8, ptr %curr.142, i64 4
+  %curr.242 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %2, %for.cond17.preheader ]
+  %m_state.i24 = getelementptr inbounds i8, ptr %curr.242, i64 4
   %6 = load i32, ptr %m_state.i24, align 4
   switch i32 %6, label %for.inc34 [
     i32 2, label %if.then21
@@ -24070,30 +24070,30 @@ for.body19:                                       ; preds = %for.cond17.preheade
   ]
 
 if.then21:                                        ; preds = %for.body19
-  %7 = load i32, ptr %curr.142, align 8
+  %7 = load i32, ptr %curr.242, align 8
   %cmp23 = icmp eq i32 %7, %0
   br i1 %cmp23, label %land.lhs.true24, label %for.inc34
 
 land.lhs.true24:                                  ; preds = %if.then21
-  %m_data.i26 = getelementptr inbounds i8, ptr %curr.142, i64 8
+  %m_data.i26 = getelementptr inbounds i8, ptr %curr.242, i64 8
   %8 = load i32, ptr %m_data.i26, align 8
   %cmp.i.i.i27 = icmp eq i32 %8, %0
   br i1 %cmp.i.i.i27, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %land.lhs.true24, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.142, i64 24
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.242, i64 24
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !104
 
 end_remove:                                       ; preds = %land.lhs.true, %land.lhs.true24
-  %curr.2 = phi ptr [ %curr.142, %land.lhs.true24 ], [ %curr.040, %land.lhs.true ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 24
+  %curr.1 = phi ptr [ %curr.242, %land.lhs.true24 ], [ %curr.040, %land.lhs.true ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 24
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %2, ptr %add.ptr37
   %m_state.i30 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %9 = load i32, ptr %m_state.i30, align 4
   %cmp.i31 = icmp eq i32 %9, 0
-  %m_state.i32 = getelementptr inbounds i8, ptr %curr.2, i64 4
+  %m_state.i32 = getelementptr inbounds i8, ptr %curr.1, i64 4
   br i1 %cmp.i31, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove

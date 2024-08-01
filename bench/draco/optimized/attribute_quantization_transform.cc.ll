@@ -570,8 +570,8 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit34: ; preds = %._crit_edge
   br label %53
 
 53:                                               ; preds = %3, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit34
-  %.1 = phi i1 [ %21, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit34 ], [ false, %3 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %21, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit34 ], [ false, %3 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -813,14 +813,14 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit54: ; preds = %_ZNSt6vecto
   br label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51: ; preds = %48, %73, %78, %._crit_edge, %90
-  %.0 = phi i1 [ true, %90 ], [ true, %._crit_edge ], [ false, %78 ], [ false, %73 ], [ false, %48 ]
+  %.1 = phi i1 [ true, %90 ], [ true, %._crit_edge ], [ false, %78 ], [ false, %73 ], [ false, %48 ]
   tail call void @_ZdaPv(ptr noundef nonnull %23) #15
   tail call void @_ZdaPv(ptr noundef nonnull %22) #15
   br label %91
 
 91:                                               ; preds = %3, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51
-  %.1 = phi i1 [ %.0, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51 ], [ false, %3 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51 ], [ false, %3 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

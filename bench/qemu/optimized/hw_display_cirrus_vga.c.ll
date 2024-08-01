@@ -571,7 +571,7 @@ if.then.i17:                                      ; preds = %invalidate_cursor1.
 
 for.body.i:                                       ; preds = %for.body.i, %if.then.i17
   %y_max.043.i = phi i32 [ -1, %if.then.i17 ], [ %y_max.1.i, %for.body.i ]
-  %y_min.042.i = phi i32 [ 64, %if.then.i17 ], [ %y_min.2.i, %for.body.i ]
+  %y_min.042.i = phi i32 [ 64, %if.then.i17 ], [ %y_min.1.i, %for.body.i ]
   %y.041.i = phi i32 [ 0, %if.then.i17 ], [ %inc.i, %for.body.i ]
   %src.040.i = phi ptr [ %add.ptr9.i, %if.then.i17 ], [ %add.ptr27.i, %for.body.i ]
   %17 = load <4 x i32>, ptr %src.040.i, align 4
@@ -579,7 +579,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %tobool17.not.i = icmp eq i32 %18, 0
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %y.041.i, i32 %y_min.042.i)
   %spec.select37.i = tail call i32 @llvm.smax.i32(i32 %y.041.i, i32 %y_max.043.i)
-  %y_min.2.i = select i1 %tobool17.not.i, i32 %y_min.042.i, i32 %spec.select.i
+  %y_min.1.i = select i1 %tobool17.not.i, i32 %y_min.042.i, i32 %spec.select.i
   %y_max.1.i = select i1 %tobool17.not.i, i32 %y_max.043.i, i32 %spec.select37.i
   %add.ptr27.i = getelementptr i8, ptr %src.040.i, i64 16
   %inc.i = add nuw nsw i32 %y.041.i, 1
@@ -594,8 +594,8 @@ if.else.i:                                        ; preds = %invalidate_cursor1.
   br label %for.body39.i
 
 for.body39.i:                                     ; preds = %for.body39.i, %if.else.i
-  %y_max.247.i = phi i32 [ -1, %if.else.i ], [ %y_max.3.i, %for.body39.i ]
-  %y_min.346.i = phi i32 [ 32, %if.else.i ], [ %y_min.5.i, %for.body39.i ]
+  %y_max.347.i = phi i32 [ -1, %if.else.i ], [ %y_max.4.i, %for.body39.i ]
+  %y_min.446.i = phi i32 [ 32, %if.else.i ], [ %y_min.5.i, %for.body39.i ]
   %y.145.i = phi i32 [ 0, %if.else.i ], [ %inc57.i, %for.body39.i ]
   %src.144.i = phi ptr [ %add.ptr35.i, %if.else.i ], [ %add.ptr55.i, %for.body39.i ]
   %20 = load i32, ptr %src.144.i, align 4
@@ -603,21 +603,21 @@ for.body39.i:                                     ; preds = %for.body39.i, %if.e
   %21 = load i32, ptr %add.ptr41.i, align 4
   %or43.i = or i32 %21, %20
   %tobool44.not.i = icmp eq i32 %or43.i, 0
-  %spec.select36.i = tail call i32 @llvm.smin.i32(i32 %y.145.i, i32 %y_min.346.i)
-  %spec.select38.i = tail call i32 @llvm.smax.i32(i32 %y.145.i, i32 %y_max.247.i)
-  %y_min.5.i = select i1 %tobool44.not.i, i32 %y_min.346.i, i32 %spec.select36.i
-  %y_max.3.i = select i1 %tobool44.not.i, i32 %y_max.247.i, i32 %spec.select38.i
+  %spec.select36.i = tail call i32 @llvm.smin.i32(i32 %y.145.i, i32 %y_min.446.i)
+  %spec.select38.i = tail call i32 @llvm.smax.i32(i32 %y.145.i, i32 %y_max.347.i)
+  %y_min.5.i = select i1 %tobool44.not.i, i32 %y_min.446.i, i32 %spec.select36.i
+  %y_max.4.i = select i1 %tobool44.not.i, i32 %y_max.347.i, i32 %spec.select38.i
   %add.ptr55.i = getelementptr i8, ptr %src.144.i, i64 4
   %inc57.i = add nuw nsw i32 %y.145.i, 1
   %exitcond49.not.i = icmp eq i32 %inc57.i, 32
   br i1 %exitcond49.not.i, label %cirrus_cursor_compute_yrange.exit, label %for.body39.i, !llvm.loop !7
 
 cirrus_cursor_compute_yrange.exit:                ; preds = %for.body.i, %for.body39.i
-  %y_min.6.i = phi i32 [ %y_min.5.i, %for.body39.i ], [ %y_min.2.i, %for.body.i ]
-  %y_max.4.i = phi i32 [ %y_max.3.i, %for.body39.i ], [ %y_max.1.i, %for.body.i ]
-  %cmp60.i = icmp sgt i32 %y_min.6.i, %y_max.4.i
-  %add.i18 = add i32 %y_max.4.i, 1
-  %spec.select51.i = select i1 %cmp60.i, i32 0, i32 %y_min.6.i
+  %y_min.3.i = phi i32 [ %y_min.5.i, %for.body39.i ], [ %y_min.1.i, %for.body.i ]
+  %y_max.2.i = phi i32 [ %y_max.4.i, %for.body39.i ], [ %y_max.1.i, %for.body.i ]
+  %cmp60.i = icmp sgt i32 %y_min.3.i, %y_max.2.i
+  %add.i18 = add i32 %y_max.2.i, 1
+  %spec.select51.i = select i1 %cmp60.i, i32 0, i32 %y_min.3.i
   %spec.select52.i = select i1 %cmp60.i, i32 0, i32 %add.i18
   %22 = getelementptr inbounds i8, ptr %s1, i64 78928
   store i32 %spec.select51.i, ptr %22, align 16
@@ -3431,14 +3431,14 @@ if.then44.i.i.i:                                  ; preds = %if.end.i15.i.i
 if.end57.i.i.i:                                   ; preds = %if.then44.i.i.i, %if.end.i15.i.i
   %sx.0.i.i.i = phi i32 [ %sub47.i.i.i, %if.then44.i.i.i ], [ %div10.i.i.i, %if.end.i15.i.i ]
   %sy.0.i.i.i = phi i32 [ %sub53.i.i.i, %if.then44.i.i.i ], [ %div20.i.i.i, %if.end.i15.i.i ]
-  %dx.0.i.i.i = phi i32 [ %sub51.i.i.i, %if.then44.i.i.i ], [ %div30.i.i.i, %if.end.i15.i.i ]
-  %dy.0.i.i.i = phi i32 [ %sub56.i.i.i, %if.then44.i.i.i ], [ %div40.i.i.i, %if.end.i15.i.i ]
+  %dx.1.i.i.i = phi i32 [ %sub51.i.i.i, %if.then44.i.i.i ], [ %div30.i.i.i, %if.end.i15.i.i ]
+  %dy.1.i.i.i = phi i32 [ %sub56.i.i.i, %if.then44.i.i.i ], [ %div40.i.i.i, %if.end.i15.i.i ]
   %cmp58.i.i.i = icmp sgt i32 %sx.0.i.i.i, -1
   %cmp59.i.i.i = icmp sgt i32 %sy.0.i.i.i, -1
   %or.cond.i18.i.i = select i1 %cmp58.i.i.i, i1 %cmp59.i.i.i, i1 false
-  %cmp61.i.i.i = icmp sgt i32 %dx.0.i.i.i, -1
+  %cmp61.i.i.i = icmp sgt i32 %dx.1.i.i.i, -1
   %or.cond1.i.i.i = select i1 %or.cond.i18.i.i, i1 %cmp61.i.i.i, i1 false
-  %cmp63.i.i.i = icmp sgt i32 %dy.0.i.i.i, -1
+  %cmp63.i.i.i = icmp sgt i32 %dy.1.i.i.i, -1
   %or.cond2.i.i.i = select i1 %or.cond1.i.i.i, i1 %cmp63.i.i.i, i1 false
   br i1 %or.cond2.i.i.i, label %land.lhs.true64.i.i.i, label %if.end77.i.i.i
 
@@ -3452,10 +3452,10 @@ land.lhs.true66.i.i.i:                            ; preds = %land.lhs.true64.i.i
   %add67.i.i.i = add nuw i32 %sy.0.i.i.i, %121
   %137 = load i32, ptr %height.i.i.i, align 4
   %cmp68.not.i.i.i = icmp sgt i32 %add67.i.i.i, %137
-  %add70.i.i.i = add i32 %dx.0.i.i.i, %div41.i.i.i
+  %add70.i.i.i = add i32 %dx.1.i.i.i, %div41.i.i.i
   %cmp71.not.i.i.i = icmp sgt i32 %add70.i.i.i, %136
   %or.cond72.i.i.i = select i1 %cmp68.not.i.i.i, i1 true, i1 %cmp71.not.i.i.i
-  %add73.i.i.i = add nuw i32 %dy.0.i.i.i, %121
+  %add73.i.i.i = add nuw i32 %dy.1.i.i.i, %121
   %cmp74.not.i.i.i = icmp sgt i32 %add73.i.i.i, %137
   %or.cond73.i.i.i = select i1 %or.cond72.i.i.i, i1 true, i1 %cmp74.not.i.i.i
   br label %if.end77.i.i.i
@@ -3463,8 +3463,8 @@ land.lhs.true66.i.i.i:                            ; preds = %land.lhs.true64.i.i
 if.end77.i.i.i:                                   ; preds = %land.lhs.true66.i.i.i, %land.lhs.true64.i.i.i, %if.end57.i.i.i, %if.end.i.i235
   %138 = phi i32 [ %132, %land.lhs.true64.i.i.i ], [ %132, %if.end57.i.i.i ], [ %132, %land.lhs.true66.i.i.i ], [ %127, %if.end.i.i235 ]
   %139 = phi i32 [ %133, %land.lhs.true64.i.i.i ], [ %133, %if.end57.i.i.i ], [ %133, %land.lhs.true66.i.i.i ], [ %122, %if.end.i.i235 ]
-  %dx.1.i.i.i = phi i32 [ %dx.0.i.i.i, %land.lhs.true64.i.i.i ], [ %dx.0.i.i.i, %if.end57.i.i.i ], [ %dx.0.i.i.i, %land.lhs.true66.i.i.i ], [ 0, %if.end.i.i235 ]
-  %dy.1.i.i.i = phi i32 [ %dy.0.i.i.i, %land.lhs.true64.i.i.i ], [ %dy.0.i.i.i, %if.end57.i.i.i ], [ %dy.0.i.i.i, %land.lhs.true66.i.i.i ], [ 0, %if.end.i.i235 ]
+  %dx.0.i.i.i = phi i32 [ %dx.1.i.i.i, %land.lhs.true64.i.i.i ], [ %dx.1.i.i.i, %if.end57.i.i.i ], [ %dx.1.i.i.i, %land.lhs.true66.i.i.i ], [ 0, %if.end.i.i235 ]
+  %dy.0.i.i.i = phi i32 [ %dy.1.i.i.i, %land.lhs.true64.i.i.i ], [ %dy.1.i.i.i, %if.end57.i.i.i ], [ %dy.1.i.i.i, %land.lhs.true66.i.i.i ], [ 0, %if.end.i.i235 ]
   %depth.0.i.i.i = phi i32 [ %div.i.i.i, %land.lhs.true64.i.i.i ], [ %div.i.i.i, %if.end57.i.i.i ], [ %div.i.i.i, %land.lhs.true66.i.i.i ], [ 0, %if.end.i.i235 ]
   %tobool83.not.i.i.i = phi i1 [ true, %land.lhs.true64.i.i.i ], [ true, %if.end57.i.i.i ], [ %or.cond73.i.i.i, %land.lhs.true66.i.i.i ], [ true, %if.end.i.i235 ]
   %140 = load ptr, ptr %cirrus_rop.i.i.i, align 8
@@ -3481,7 +3481,7 @@ if.then84.i.i.i:                                  ; preds = %if.end77.i.i.i
   %146 = load i32, ptr %cirrus_blt_width, align 4
   %div87.i.i.i = sdiv i32 %146, %depth.0.i.i.i
   %147 = load i32, ptr %cirrus_blt_height, align 8
-  call void @dpy_gfx_update(ptr noundef %145, i32 noundef %dx.1.i.i.i, i32 noundef %dy.1.i.i.i, i32 noundef %div87.i.i.i, i32 noundef %147) #13
+  call void @dpy_gfx_update(ptr noundef %145, i32 noundef %dx.0.i.i.i, i32 noundef %dy.0.i.i.i, i32 noundef %div87.i.i.i, i32 noundef %147) #13
   br label %if.end89.i.i.i
 
 if.end89.i.i.i:                                   ; preds = %if.then84.i.i.i, %if.end77.i.i.i

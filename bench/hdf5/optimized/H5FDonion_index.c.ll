@@ -265,7 +265,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_revision_record(ptr nocapture no
   br label %163
 
 .loopexit:                                        ; preds = %77, %127
-  %.2110 = phi ptr [ %99, %127 ], [ %50, %77 ]
+  %.3 = phi ptr [ %99, %127 ], [ %50, %77 ]
   %.2 = phi i64 [ %98, %127 ], [ %49, %77 ]
   %134 = getelementptr inbounds i8, ptr %0, i64 72
   %135 = load i32, ptr %134, align 8
@@ -305,7 +305,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_revision_record(ptr nocapture no
   br label %163
 
 155:                                              ; preds = %147, %144
-  %156 = tail call i64 @H5FD__onion_revision_record_decode(ptr noundef nonnull %.2110, ptr noundef nonnull %0)
+  %156 = tail call i64 @H5FD__onion_revision_record_decode(ptr noundef nonnull %.3, ptr noundef nonnull %0)
   %.not128 = icmp eq i64 %156, %.2
   br i1 %.not128, label %161, label %157
 
@@ -316,12 +316,12 @@ define range(i32 -1, 1) i32 @H5FD__onion_ingest_revision_record(ptr nocapture no
   br label %163
 
 161:                                              ; preds = %155
-  %162 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.2110) #11
+  %162 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.3) #11
   br label %169
 
 163:                                              ; preds = %23, %33, %52, %59, %65, %73, %101, %108, %114, %123, %130, %140, %151, %157
-  %.3.ph = phi ptr [ %.2110, %157 ], [ %.2110, %151 ], [ %.2110, %140 ], [ %99, %130 ], [ %99, %123 ], [ %99, %114 ], [ %99, %108 ], [ null, %101 ], [ %50, %73 ], [ %50, %65 ], [ %50, %59 ], [ null, %52 ], [ null, %33 ], [ null, %23 ]
-  %164 = tail call ptr @H5MM_xfree(ptr noundef %.3.ph) #11
+  %.0108.ph = phi ptr [ %.3, %157 ], [ %.3, %151 ], [ %.3, %140 ], [ %99, %130 ], [ %99, %123 ], [ %99, %114 ], [ %99, %108 ], [ null, %101 ], [ %50, %73 ], [ %50, %65 ], [ %50, %59 ], [ null, %52 ], [ null, %33 ], [ null, %23 ]
+  %164 = tail call ptr @H5MM_xfree(ptr noundef %.0108.ph) #11
   %165 = load ptr, ptr %14, align 8
   %166 = tail call ptr @H5MM_xfree(ptr noundef %165) #11
   %167 = load ptr, ptr %17, align 8
@@ -558,10 +558,10 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr nocapture nou
 
 122:                                              ; preds = %.lr.ph, %162
   %.0175252 = phi i64 [ 0, %.lr.ph ], [ %164, %162 ]
-  %.0181251 = phi ptr [ %101, %.lr.ph ], [ %163, %162 ]
+  %.1251 = phi ptr [ %101, %.lr.ph ], [ %163, %162 ]
   %123 = load ptr, ptr %114, align 8
   %124 = getelementptr inbounds %struct.H5FD_onion_index_entry_t, ptr %123, i64 %.0175252
-  %125 = load i64, ptr %.0181251, align 1
+  %125 = load i64, ptr %.1251, align 1
   store i64 %125, ptr %3, align 8
   br label %126
 
@@ -591,7 +591,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr nocapture nou
   br label %206
 
 140:                                              ; preds = %134
-  %141 = getelementptr inbounds i8, ptr %.0181251, i64 8
+  %141 = getelementptr inbounds i8, ptr %.1251, i64 8
   %142 = load i32, ptr %83, align 4
   %143 = zext nneg i32 %142 to i64
   %144 = lshr i64 %132, %143
@@ -616,9 +616,9 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr nocapture nou
 
 155:                                              ; preds = %147
   store i64 %153, ptr %146, align 8
-  %156 = getelementptr inbounds i8, ptr %.0181251, i64 16
+  %156 = getelementptr inbounds i8, ptr %.1251, i64 16
   %.sroa.0.0.copyload189 = load i32, ptr %156, align 1
-  %157 = tail call i32 @H5_checksum_fletcher32(ptr noundef nonnull %.0181251, i64 noundef 16) #11
+  %157 = tail call i32 @H5_checksum_fletcher32(ptr noundef nonnull %.1251, i64 noundef 16) #11
   %.not225 = icmp eq i32 %157, %.sroa.0.0.copyload189
   br i1 %.not225, label %162, label %158
 
@@ -629,13 +629,13 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr nocapture nou
   br label %206
 
 162:                                              ; preds = %155
-  %163 = getelementptr inbounds i8, ptr %.0181251, i64 20
+  %163 = getelementptr inbounds i8, ptr %.1251, i64 20
   %164 = add nuw i64 %.0175252, 1
   %165 = icmp ult i64 %164, %90
   br i1 %165, label %122, label %.loopexit
 
 .loopexit:                                        ; preds = %162, %105
-  %.1 = phi ptr [ %107, %105 ], [ %163, %162 ]
+  %.0181 = phi ptr [ %107, %105 ], [ %163, %162 ]
   %166 = getelementptr inbounds i8, ptr %1, i64 72
   %167 = load i32, ptr %166, align 8
   %168 = icmp eq i32 %167, 0
@@ -669,12 +669,12 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr nocapture nou
 
 182:                                              ; preds = %177
   %183 = zext i32 %100 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %170, ptr nonnull align 1 %.1, i64 %183, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %170, ptr nonnull align 1 %.0181, i64 %183, i1 false)
   br label %184
 
 184:                                              ; preds = %182, %176
   %.pre-phi = phi i64 [ %183, %182 ], [ %.pre, %176 ]
-  %185 = getelementptr inbounds i8, ptr %.1, i64 %.pre-phi
+  %185 = getelementptr inbounds i8, ptr %.0181, i64 %.pre-phi
   %186 = ptrtoint ptr %185 to i64
   %187 = ptrtoint ptr %0 to i64
   %188 = sub i64 %186, %187
@@ -1137,7 +1137,7 @@ H5FD__onion_revision_index_resize.exit:           ; preds = %._crit_edge.i, %.pr
   br label %88
 
 88:                                               ; preds = %.loopexit, %.thread45
-  %.148 = phi ptr [ %66, %.thread45 ], [ %87, %.loopexit ]
+  %.03448 = phi ptr [ %66, %.thread45 ], [ %87, %.loopexit ]
   %89 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #12
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %95
@@ -1154,7 +1154,7 @@ H5FD__onion_revision_index_resize.exit:           ; preds = %._crit_edge.i, %.pr
   store ptr null, ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %89, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  store ptr %89, ptr %.148, align 8
+  store ptr %89, ptr %.03448, align 8
   %98 = load i64, ptr %3, align 8
   %99 = add i64 %98, 1
   store i64 %99, ptr %3, align 8
@@ -1344,7 +1344,7 @@ define i64 @H5FD__onion_revision_record_encode(ptr nocapture noundef readonly %0
   br label %82
 
 82:                                               ; preds = %.lr.ph, %101
-  %.0163207 = phi ptr [ %77, %.lr.ph ], [ %114, %101 ]
+  %.1164207 = phi ptr [ %77, %.lr.ph ], [ %114, %101 ]
   %.0165206 = phi i64 [ 0, %.lr.ph ], [ %115, %101 ]
   %83 = load ptr, ptr %81, align 8
   %84 = getelementptr inbounds %struct.H5FD_onion_index_entry_t, ptr %83, i64 %.0165206
@@ -1353,7 +1353,7 @@ define i64 @H5FD__onion_revision_record_encode(ptr nocapture noundef readonly %0
   br label %87
 
 87:                                               ; preds = %82, %87
-  %.0158202 = phi ptr [ %.0163207, %82 ], [ %89, %87 ]
+  %.0158202 = phi ptr [ %.1164207, %82 ], [ %89, %87 ]
   %.0160201 = phi i64 [ 0, %82 ], [ %90, %87 ]
   %.0162200 = phi i64 [ %86, %82 ], [ %91, %87 ]
   %88 = trunc i64 %.0162200 to i8
@@ -1365,7 +1365,7 @@ define i64 @H5FD__onion_revision_record_encode(ptr nocapture noundef readonly %0
   br i1 %exitcond212.not, label %92, label %87
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds i8, ptr %.0163207, i64 8
+  %93 = getelementptr inbounds i8, ptr %.1164207, i64 8
   %94 = getelementptr inbounds i8, ptr %84, i64 8
   %95 = load i64, ptr %94, align 8
   br label %96
@@ -1383,30 +1383,30 @@ define i64 @H5FD__onion_revision_record_encode(ptr nocapture noundef readonly %0
   br i1 %exitcond213.not, label %101, label %96
 
 101:                                              ; preds = %96
-  %102 = getelementptr inbounds i8, ptr %.0163207, i64 16
-  %103 = tail call i32 @H5_checksum_fletcher32(ptr noundef nonnull %.0163207, i64 noundef 16) #11
+  %102 = getelementptr inbounds i8, ptr %.1164207, i64 16
+  %103 = tail call i32 @H5_checksum_fletcher32(ptr noundef nonnull %.1164207, i64 noundef 16) #11
   %104 = trunc i32 %103 to i8
   store i8 %104, ptr %102, align 1
-  %105 = getelementptr inbounds i8, ptr %.0163207, i64 17
+  %105 = getelementptr inbounds i8, ptr %.1164207, i64 17
   %106 = lshr i32 %103, 8
   %107 = trunc i32 %106 to i8
   store i8 %107, ptr %105, align 1
-  %108 = getelementptr inbounds i8, ptr %.0163207, i64 18
+  %108 = getelementptr inbounds i8, ptr %.1164207, i64 18
   %109 = lshr i32 %103, 16
   %110 = trunc i32 %109 to i8
   store i8 %110, ptr %108, align 1
-  %111 = getelementptr inbounds i8, ptr %.0163207, i64 19
+  %111 = getelementptr inbounds i8, ptr %.1164207, i64 19
   %112 = lshr i32 %103, 24
   %113 = trunc nuw i32 %112 to i8
   store i8 %113, ptr %111, align 1
-  %114 = getelementptr inbounds i8, ptr %.0163207, i64 20
+  %114 = getelementptr inbounds i8, ptr %.1164207, i64 20
   %115 = add nuw i64 %.0165206, 1
   %116 = load i64, ptr %53, align 8
   %117 = icmp ult i64 %115, %116
   br i1 %117, label %82, label %.loopexit
 
 .loopexit:                                        ; preds = %101, %60
-  %.1164 = phi ptr [ %77, %60 ], [ %114, %101 ]
+  %.0163 = phi ptr [ %77, %60 ], [ %114, %101 ]
   %118 = load i32, ptr %62, align 8
   %.not187 = icmp eq i32 %118, 0
   br i1 %.not187, label %126, label %119
@@ -1415,14 +1415,14 @@ define i64 @H5FD__onion_revision_record_encode(ptr nocapture noundef readonly %0
   %120 = getelementptr inbounds i8, ptr %0, i64 80
   %121 = load ptr, ptr %120, align 8
   %122 = zext i32 %118 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.1164, ptr align 1 %121, i64 %122, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0163, ptr align 1 %121, i64 %122, i1 false)
   %123 = load i32, ptr %62, align 8
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds i8, ptr %.1164, i64 %124
+  %125 = getelementptr inbounds i8, ptr %.0163, i64 %124
   br label %126
 
 126:                                              ; preds = %119, %.loopexit
-  %.2 = phi ptr [ %125, %119 ], [ %.1164, %.loopexit ]
+  %.2 = phi ptr [ %125, %119 ], [ %.0163, %.loopexit ]
   %127 = ptrtoint ptr %.2 to i64
   %128 = ptrtoint ptr %1 to i64
   %129 = sub i64 %127, %128
@@ -1635,7 +1635,7 @@ H5FD__onion_archival_index_find.exit:             ; preds = %.lr.ph.i, %70, %74
   br i1 %exitcond93.not, label %._crit_edge77, label %.lr.ph76.split.split
 
 ._crit_edge77:                                    ; preds = %H5FD__onion_archival_index_find.exit, %.lr.ph76.split.split.us, %H5FD__onion_archival_index_find.exit.us, %.._crit_edge77_crit_edge
-  %.04497 = phi ptr [ null, %.._crit_edge77_crit_edge ], [ %29, %H5FD__onion_archival_index_find.exit.us ], [ %29, %.lr.ph76.split.split.us ], [ %29, %H5FD__onion_archival_index_find.exit ]
+  %.197 = phi ptr [ null, %.._crit_edge77_crit_edge ], [ %29, %H5FD__onion_archival_index_find.exit.us ], [ %29, %.lr.ph76.split.split.us ], [ %29, %H5FD__onion_archival_index_find.exit ]
   %78 = phi ptr [ %.pre, %.._crit_edge77_crit_edge ], [ %36, %H5FD__onion_archival_index_find.exit.us ], [ %36, %.lr.ph76.split.split.us ], [ %36, %H5FD__onion_archival_index_find.exit ]
   %.045.lcssa = phi i64 [ 0, %.._crit_edge77_crit_edge ], [ %26, %H5FD__onion_archival_index_find.exit.us ], [ %26, %.lr.ph76.split.split.us ], [ %.146, %H5FD__onion_archival_index_find.exit ]
   %79 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1663,7 +1663,7 @@ H5FD__onion_archival_index_find.exit:             ; preds = %.lr.ph.i, %70, %74
 91:                                               ; preds = %89
   %92 = getelementptr inbounds %struct.H5FD_onion_index_entry_t, ptr %83, i64 %.sroa.2.0.lcssa
   %93 = shl i64 %.045.lcssa, 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %92, ptr align 8 %.04497, i64 %93, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %92, ptr align 8 %.197, i64 %93, i1 false)
   store i64 %81, ptr %25, align 8
   br label %94
 
@@ -1674,9 +1674,9 @@ H5FD__onion_archival_index_find.exit:             ; preds = %.lr.ph.i, %70, %74
 
 96:                                               ; preds = %2, %94, %85, %31, %14
   %.sroa.9.0 = phi ptr [ null, %2 ], [ null, %14 ], [ %8, %85 ], [ %8, %94 ], [ %8, %31 ]
-  %.1 = phi ptr [ null, %2 ], [ null, %14 ], [ %.04497, %85 ], [ %.04497, %94 ], [ null, %31 ]
+  %.044 = phi ptr [ null, %2 ], [ null, %14 ], [ %.197, %85 ], [ %.197, %94 ], [ null, %31 ]
   %.043 = phi i32 [ 0, %2 ], [ -1, %14 ], [ -1, %85 ], [ 0, %94 ], [ -1, %31 ]
-  %97 = tail call ptr @H5MM_xfree(ptr noundef %.1) #11
+  %97 = tail call ptr @H5MM_xfree(ptr noundef %.044) #11
   %98 = tail call ptr @H5MM_xfree(ptr noundef %.sroa.9.0) #11
   ret i32 %.043
 }

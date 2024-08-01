@@ -1754,7 +1754,7 @@ sw.default:                                       ; preds = %if.then31
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then31, %if.then31, %if.then35, %if.else40, %sw.default, %sw.bb46, %sw.bb44
-  %data.0 = phi i16 [ %conv12, %sw.default ], [ %conv12, %if.then31 ], [ %conv12, %if.then31 ], [ %conv12, %sw.bb46 ], [ %conv12, %sw.bb44 ], [ %4, %if.then35 ], [ %conv43, %if.else40 ]
+  %data.1 = phi i16 [ %conv12, %sw.default ], [ %conv12, %if.then31 ], [ %conv12, %if.then31 ], [ %conv12, %sw.bb46 ], [ %conv12, %sw.bb44 ], [ %4, %if.then35 ], [ %conv43, %if.else40 ]
   %idxprom51 = zext nneg i8 %conv10 to i64
   %arrayidx52 = getelementptr [32 x i16], ptr @eepro100_mdi_mask, i64 0, i64 %idxprom51
   %11 = load i16, ptr %arrayidx52, align 2
@@ -1763,7 +1763,7 @@ sw.epilog:                                        ; preds = %if.then31, %if.then
   %12 = load i16, ptr %arrayidx56, align 2
   %and5840 = and i16 %12, %11
   %not = xor i16 %11, -1
-  %and64 = and i16 %data.0, %not
+  %and64 = and i16 %data.1, %not
   %or = or i16 %and5840, %and64
   store i16 %or, ptr %arrayidx56, align 2
   br label %if.end107
@@ -1819,7 +1819,7 @@ sw.epilog102:                                     ; preds = %sw.bb76, %if.then80
   br label %if.end107
 
 if.end107:                                        ; preds = %sw.epilog102, %sw.epilog
-  %data.1 = phi i16 [ %data.0, %sw.epilog ], [ %15, %sw.epilog102 ]
+  %data.2 = phi i16 [ %data.1, %sw.epilog ], [ %15, %sw.epilog102 ]
   %arrayidx108 = getelementptr i8, ptr %s, i64 11889
   %16 = load i8, ptr %arrayidx108, align 1
   %17 = or i8 %16, 8
@@ -1856,9 +1856,9 @@ if.end19.sink.split.i.i:                          ; preds = %if.else.i.i, %if.th
 
 e100_write_reg4.exit:                             ; preds = %if.end107, %e100_read_reg4.exit, %if.else, %if.else22, %if.then.i.i, %if.else.i.i, %if.end19.sink.split.i.i
   %val.0 = phi i32 [ %or113, %if.end107 ], [ %arrayidx.val.i, %e100_read_reg4.exit ], [ %arrayidx.val.i, %if.else ], [ %arrayidx.val.i, %if.else22 ], [ %or113, %if.then.i.i ], [ %or113, %if.else.i.i ], [ %or113, %if.end19.sink.split.i.i ]
-  %data.2 = phi i16 [ %data.1, %if.end107 ], [ 0, %e100_read_reg4.exit ], [ 0, %if.else ], [ 0, %if.else22 ], [ %data.1, %if.then.i.i ], [ %data.1, %if.else.i.i ], [ %data.1, %if.end19.sink.split.i.i ]
+  %data.0 = phi i16 [ %data.2, %if.end107 ], [ 0, %e100_read_reg4.exit ], [ 0, %if.else ], [ 0, %if.else22 ], [ %data.2, %if.then.i.i ], [ %data.2, %if.else.i.i ], [ %data.2, %if.end19.sink.split.i.i ]
   %and121 = and i32 %val.0, -65536
-  %conv122 = zext i16 %data.2 to i32
+  %conv122 = zext i16 %data.0 to i32
   %add = or disjoint i32 %and121, %conv122
   store i32 %add, ptr %arrayidx.i, align 1
   ret void
@@ -2041,9 +2041,9 @@ land.lhs.true.i:                                  ; preds = %if.else31.i
   br i1 %tobool36.i, label %for.body.i41, label %if.end75.i
 
 for.body.i41:                                     ; preds = %land.lhs.true.i, %for.inc.i
-  %tbd_count.0.i = phi i8 [ %inc.i, %for.inc.i ], [ 0, %land.lhs.true.i ]
+  %tbd_count.1.i = phi i8 [ %inc.i, %for.inc.i ], [ 0, %land.lhs.true.i ]
   %tbd_address.0.i = phi i32 [ %add54.i, %for.inc.i ], [ %add.i37, %land.lhs.true.i ]
-  %size.1.i = phi i16 [ %add68.i, %for.inc.i ], [ %size.0.lcssa.i, %land.lhs.true.i ]
+  %size.3.i = phi i16 [ %add68.i, %for.inc.i ], [ %size.0.lcssa.i, %land.lhs.true.i ]
   %conv42.i = zext i32 %tbd_address.0.i to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   fence seq_cst
@@ -2060,7 +2060,7 @@ for.body.i41:                                     ; preds = %land.lhs.true.i, %f
   %call.i.i.i.i.i58.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv51.i, i32 1, ptr noundef nonnull %tx_buffer_el.i, i64 noundef 2, i1 noundef zeroext false) #12
   %20 = load i16, ptr %tx_buffer_size.i, align 2
   %conv55.i = zext i16 %20 to i64
-  %conv56.i = zext i16 %size.1.i to i64
+  %conv56.i = zext i16 %size.3.i to i64
   %sub.i = sub nsw i64 2600, %conv56.i
   %cond.i = call i64 @llvm.umin.i64(i64 %sub.i, i64 %conv55.i)
   %conv59.i = trunc nuw i64 %cond.i to i16
@@ -2072,7 +2072,7 @@ for.body.i41:                                     ; preds = %land.lhs.true.i, %f
   fence seq_cst
   %call.i.i.i.i60.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv61.i, i32 1, ptr noundef %arrayidx63.i, i64 noundef %cond.i, i1 noundef zeroext false) #12
   %22 = load i16, ptr %tx_buffer_size.i, align 2
-  %add68.i = add i16 %22, %size.1.i
+  %add68.i = add i16 %22, %size.3.i
   %23 = load i16, ptr %tx_buffer_el.i, align 2
   %24 = and i16 %23, 1
   %tobool72.not.i = icmp eq i16 %24, 0
@@ -2080,21 +2080,21 @@ for.body.i41:                                     ; preds = %land.lhs.true.i, %f
 
 for.inc.i:                                        ; preds = %for.body.i41
   %add54.i = add i32 %tbd_address.0.i, 8
-  %inc.i = add nuw nsw i8 %tbd_count.0.i, 1
+  %inc.i = add nuw nsw i8 %tbd_count.1.i, 1
   %exitcond.not.i = icmp eq i8 %inc.i, 2
   br i1 %exitcond.not.i, label %if.end75.i, label %for.body.i41
 
 if.end75.i:                                       ; preds = %for.inc.i, %for.body.i41, %land.lhs.true.i, %if.else31.i
-  %tbd_count.1.i = phi i8 [ 0, %land.lhs.true.i ], [ 0, %if.else31.i ], [ %tbd_count.0.i, %for.body.i41 ], [ 2, %for.inc.i ]
+  %tbd_count.0.i = phi i8 [ 0, %land.lhs.true.i ], [ 0, %if.else31.i ], [ %tbd_count.1.i, %for.body.i41 ], [ 2, %for.inc.i ]
   %size.2.i = phi i16 [ %size.0.lcssa.i, %land.lhs.true.i ], [ %size.0.lcssa.i, %if.else31.i ], [ %add68.i, %for.body.i41 ], [ %add68.i, %for.inc.i ]
   %25 = load i8, ptr %tbd_count79.i, align 1
-  %cmp8171.i = icmp ult i8 %tbd_count.1.i, %25
+  %cmp8171.i = icmp ult i8 %tbd_count.0.i, %25
   br i1 %cmp8171.i, label %for.body83.i, label %tx_command.exit
 
 for.body83.i:                                     ; preds = %if.end75.i, %for.inc125.i
-  %size.374.i = phi i16 [ %add118.i, %for.inc125.i ], [ %size.2.i, %if.end75.i ]
+  %size.474.i = phi i16 [ %add118.i, %for.inc125.i ], [ %size.2.i, %if.end75.i ]
   %tbd_address.173.i = phi i32 [ %add98.i, %for.inc125.i ], [ %13, %if.end75.i ]
-  %tbd_count.272.i = phi i8 [ %inc126.i, %for.inc125.i ], [ %tbd_count.1.i, %if.end75.i ]
+  %tbd_count.272.i = phi i8 [ %inc126.i, %for.inc125.i ], [ %tbd_count.0.i, %if.end75.i ]
   %conv85.i = zext i32 %tbd_address.173.i to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   fence seq_cst
@@ -2111,7 +2111,7 @@ for.body83.i:                                     ; preds = %if.end75.i, %for.in
   %call.i.i.i.i.i66.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv95.i, i32 1, ptr noundef nonnull %tx_buffer_el.i, i64 noundef 2, i1 noundef zeroext false) #12
   %26 = load i16, ptr %tx_buffer_size.i, align 2
   %conv99.i = zext i16 %26 to i64
-  %conv100.i = zext i16 %size.374.i to i64
+  %conv100.i = zext i16 %size.474.i to i64
   %sub101.i = sub nsw i64 2600, %conv100.i
   %cond108.i = call i64 @llvm.umin.i64(i64 %sub101.i, i64 %conv99.i)
   %conv109.i = trunc nuw i64 %cond108.i to i16
@@ -2123,7 +2123,7 @@ for.body83.i:                                     ; preds = %if.end75.i, %for.in
   fence seq_cst
   %call.i.i.i.i68.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef %conv111.i, i32 1, ptr noundef %arrayidx113.i, i64 noundef %cond108.i, i1 noundef zeroext false) #12
   %28 = load i16, ptr %tx_buffer_size.i, align 2
-  %add118.i = add i16 %28, %size.374.i
+  %add118.i = add i16 %28, %size.474.i
   %29 = load i16, ptr %tx_buffer_el.i, align 2
   %30 = and i16 %29, 1
   %tobool122.not.i = icmp eq i16 %30, 0
@@ -2137,10 +2137,10 @@ for.inc125.i:                                     ; preds = %for.body83.i
   br i1 %cmp81.i, label %for.body83.i, label %tx_command.exit, !llvm.loop !11
 
 tx_command.exit:                                  ; preds = %for.body83.i, %for.inc125.i, %while.end.i, %if.end75.i
-  %size.4.i = phi i16 [ %size.0.lcssa.i, %while.end.i ], [ %size.2.i, %if.end75.i ], [ %add118.i, %for.inc125.i ], [ %add118.i, %for.body83.i ]
+  %size.1.i = phi i16 [ %size.0.lcssa.i, %while.end.i ], [ %size.2.i, %if.end75.i ], [ %add118.i, %for.inc125.i ], [ %add118.i, %for.body83.i ]
   %32 = load ptr, ptr %nic.i, align 16
   %call129.i = call ptr @qemu_get_queue(ptr noundef %32) #12
-  %conv130.i = zext i16 %size.4.i to i32
+  %conv130.i = zext i16 %size.1.i to i32
   %call131.i = call i64 @qemu_send_packet(ptr noundef %call129.i, ptr noundef nonnull %buf.i, i32 noundef %conv130.i) #12
   %33 = load i32, ptr %statistics.i, align 4
   %inc132.i = add i32 %33, 1

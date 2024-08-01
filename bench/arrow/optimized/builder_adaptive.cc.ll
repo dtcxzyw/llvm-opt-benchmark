@@ -6441,7 +6441,7 @@ while.body.lr.ph:                                 ; preds = %if.then2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
-  %remaining.042 = phi i64 [ %length, %while.body.lr.ph ], [ %dec, %while.body ]
+  %remaining.142 = phi i64 [ %length, %while.body.lr.ph ], [ %dec, %while.body ]
   %bit_mask.041 = phi i8 [ %2, %while.body.lr.ph ], [ %shl, %while.body ]
   %current_byte.040 = phi i8 [ %and23, %while.body.lr.ph ], [ %or, %while.body ]
   %5 = load ptr, ptr %3, align 8
@@ -6462,27 +6462,27 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %mul = select i1 %tobool.i.not, i8 0, i8 %bit_mask.041
   %or = or i8 %mul, %current_byte.040
   %shl = shl i8 %bit_mask.041, 1
-  %dec = add nsw i64 %remaining.042, -1
+  %dec = add nsw i64 %remaining.142, -1
   %cmp8 = icmp ne i8 %shl, 0
-  %cmp9 = icmp ugt i64 %remaining.042, 1
+  %cmp9 = icmp ugt i64 %remaining.142, 1
   %12 = select i1 %cmp8, i1 %cmp9, i1 false
   br i1 %12, label %while.body, label %while.end, !llvm.loop !419
 
 while.end:                                        ; preds = %while.body, %if.then2
   %current_byte.0.lcssa = phi i8 [ %and23, %if.then2 ], [ %or, %while.body ]
-  %remaining.0.lcssa = phi i64 [ %length, %if.then2 ], [ %dec, %while.body ]
+  %remaining.1.lcssa = phi i64 [ %length, %if.then2 ], [ %dec, %while.body ]
   %incdec.ptr = getelementptr inbounds i8, ptr %add.ptr, i64 1
   store i8 %current_byte.0.lcssa, ptr %add.ptr, align 1
   br label %if.end16
 
 if.end16:                                         ; preds = %while.end, %if.end
   %cur.0 = phi ptr [ %incdec.ptr, %while.end ], [ %add.ptr, %if.end ]
-  %remaining.1 = phi i64 [ %remaining.0.lcssa, %while.end ], [ %length, %if.end ]
-  %cmp2046 = icmp sgt i64 %remaining.1, 7
+  %remaining.0 = phi i64 [ %remaining.1.lcssa, %while.end ], [ %length, %if.end ]
+  %cmp2046 = icmp sgt i64 %remaining.0, 7
   br i1 %cmp2046, label %for.cond.preheader.lr.ph, label %while.end58
 
 for.cond.preheader.lr.ph:                         ; preds = %if.end16
-  %div1755 = lshr i64 %remaining.1, 3
+  %div1755 = lshr i64 %remaining.0, 3
   %13 = getelementptr inbounds i8, ptr %g, i64 16
   %14 = getelementptr inbounds i8, ptr %g, i64 8
   %arrayidx28 = getelementptr inbounds i8, ptr %out_results, i64 1
@@ -6555,7 +6555,7 @@ for.end:                                          ; preds = %for.body
 
 while.end58:                                      ; preds = %for.end, %if.end16
   %cur.1.lcssa = phi ptr [ %cur.0, %if.end16 ], [ %incdec.ptr57, %for.end ]
-  %rem59 = srem i64 %remaining.1, 8
+  %rem59 = srem i64 %remaining.0, 8
   %tobool.not = icmp eq i64 %rem59, 0
   br i1 %tobool.not, label %if.end77, label %while.cond61.preheader
 

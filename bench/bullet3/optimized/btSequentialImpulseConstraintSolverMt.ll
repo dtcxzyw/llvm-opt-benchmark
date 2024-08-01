@@ -1698,7 +1698,7 @@ if.then39:                                        ; preds = %if.then33
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then39, %if.then33
-  %solverBodyId.1 = phi i32 [ %20, %if.then39 ], [ %19, %if.then33 ]
+  %solverBodyId.2 = phi i32 [ %20, %if.then39 ], [ %19, %if.then33 ]
   call void @_ZN11btSpinMutex6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) %m_bodySolverArrayMutex35)
   call void @_ZN11btSpinMutex6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) %m_kinematicBodyUniqueIdToSolverBodyTableMutex34)
   br label %if.end70
@@ -1732,8 +1732,8 @@ if.end65:                                         ; preds = %if.then58, %if.then
   br label %if.end70
 
 if.end70:                                         ; preds = %if.else52, %if.end65, %if.end48, %if.end29, %if.then, %if.end
-  %solverBodyId.2 = phi i32 [ %solverBodyId.1, %if.end48 ], [ %17, %if.end29 ], [ %solverBodyId.0, %if.end ], [ %2, %if.then ], [ %.pre, %if.end65 ], [ %22, %if.else52 ]
-  ret i32 %solverBodyId.2
+  %solverBodyId.1 = phi i32 [ %solverBodyId.2, %if.end48 ], [ %17, %if.end29 ], [ %solverBodyId.0, %if.end ], [ %2, %if.then ], [ %.pre, %if.end65 ], [ %22, %if.else52 ]
+  ret i32 %solverBodyId.1
 }
 
 declare void @_ZN11btSpinMutex4lockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
@@ -4530,7 +4530,7 @@ for.body13.preheader:                             ; preds = %if.then
 
 for.body13:                                       ; preds = %for.body13.preheader, %for.body13
   %indvars.iv = phi i64 [ %10, %for.body13.preheader ], [ %indvars.iv.next, %for.body13 ]
-  %leastSquaresResidual.182 = phi float [ %7, %for.body13.preheader ], [ %23, %for.body13 ]
+  %leastSquaresResidual.282 = phi float [ %7, %for.body13.preheader ], [ %23, %for.body13 ]
   %14 = load ptr, ptr %m_data.i53, align 8
   %arrayidx.i55 = getelementptr inbounds %struct.btSolverConstraint, ptr %14, i64 %indvars.iv
   %m_friction = getelementptr inbounds i8, ptr %arrayidx.i55, i64 104
@@ -4551,13 +4551,13 @@ for.body13:                                       ; preds = %for.body13.preheade
   %idxprom.i60 = sext i32 %22 to i64
   %arrayidx.i61 = getelementptr inbounds %struct.btSolverBody, ptr %21, i64 %idxprom.i60
   %call26 = tail call noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i58, ptr noundef nonnull align 8 dereferenceable(248) %arrayidx.i61, ptr noundef nonnull align 8 dereferenceable(160) %arrayidx.i55)
-  %23 = tail call float @llvm.fmuladd.f32(float %call26, float %call26, float %leastSquaresResidual.182)
+  %23 = tail call float @llvm.fmuladd.f32(float %call26, float %call26, float %leastSquaresResidual.282)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %cmp12 = icmp slt i64 %indvars.iv.next, %11
   br i1 %cmp12, label %for.body13, label %if.end, !llvm.loop !37
 
 if.end:                                           ; preds = %for.body13, %if.then
-  %leastSquaresResidual.1.lcssa = phi float [ %7, %if.then ], [ %23, %for.body13 ]
+  %leastSquaresResidual.2.lcssa = phi float [ %7, %if.then ], [ %23, %for.body13 ]
   %24 = load ptr, ptr %m_data.i62, align 8
   %arrayidx.i64 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i45
   %25 = load i32, ptr %arrayidx.i64, align 4
@@ -4571,7 +4571,7 @@ if.then31:                                        ; preds = %if.end
 
 for.body37:                                       ; preds = %if.then31, %if.end41
   %indvars.iv90 = phi i64 [ %26, %if.then31 ], [ %indvars.iv.next91, %if.end41 ]
-  %leastSquaresResidual.384 = phi float [ %leastSquaresResidual.1.lcssa, %if.then31 ], [ %34, %if.end41 ]
+  %leastSquaresResidual.384 = phi float [ %leastSquaresResidual.2.lcssa, %if.then31 ], [ %34, %if.end41 ]
   %28 = load ptr, ptr %m_data.i65, align 8
   %arrayidx.i67 = getelementptr inbounds %struct.btSolverConstraint, ptr %28, i64 %indvars.iv90
   %m_frictionIndex = getelementptr inbounds i8, ptr %arrayidx.i67, i64 148
@@ -4607,7 +4607,7 @@ if.end41:                                         ; preds = %for.body37
   br i1 %cmp36, label %for.body37, label %for.inc65, !llvm.loop !38
 
 for.inc65:                                        ; preds = %for.body37, %if.end41, %for.body, %if.end
-  %leastSquaresResidual.4 = phi float [ %leastSquaresResidual.1.lcssa, %if.end ], [ %7, %for.body ], [ %34, %if.end41 ], [ %leastSquaresResidual.384, %for.body37 ]
+  %leastSquaresResidual.4 = phi float [ %leastSquaresResidual.2.lcssa, %if.end ], [ %7, %for.body ], [ %34, %if.end41 ], [ %leastSquaresResidual.384, %for.body37 ]
   %indvars.iv.next94 = add nsw i64 %indvars.iv93, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next94 to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %batchEnd
@@ -5244,7 +5244,7 @@ lpad6:                                            ; preds = %for.body
 
 for.body19:                                       ; preds = %for.body19.lr.ph, %for.inc45
   %indvars.iv53 = phi i64 [ 0, %for.body19.lr.ph ], [ %indvars.iv.next54, %for.inc45 ]
-  %leastSquaresResidual.050 = phi float [ 0.000000e+00, %for.body19.lr.ph ], [ %leastSquaresResidual.1, %for.inc45 ]
+  %leastSquaresResidual.150 = phi float [ 0.000000e+00, %for.body19.lr.ph ], [ %leastSquaresResidual.2, %for.inc45 ]
   %12 = load ptr, ptr %m_data.i32, align 8
   %arrayidx.i34 = getelementptr inbounds %struct.btSolverConstraint, ptr %12, i64 %indvars.iv53
   %m_frictionIndex = getelementptr inbounds i8, ptr %arrayidx.i34, i64 148
@@ -5284,19 +5284,19 @@ if.then30:                                        ; preds = %if.then24
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %if.then30
-  %20 = call float @llvm.fmuladd.f32(float %call41, float %call41, float %leastSquaresResidual.050)
+  %20 = call float @llvm.fmuladd.f32(float %call41, float %call41, float %leastSquaresResidual.150)
   br label %for.inc45
 
 for.inc45:                                        ; preds = %for.body19, %invoke.cont40, %if.then24
-  %leastSquaresResidual.1 = phi float [ %20, %invoke.cont40 ], [ %leastSquaresResidual.050, %if.then24 ], [ %leastSquaresResidual.050, %for.body19 ]
+  %leastSquaresResidual.2 = phi float [ %20, %invoke.cont40 ], [ %leastSquaresResidual.150, %if.then24 ], [ %leastSquaresResidual.150, %for.body19 ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
   br i1 %exitcond.not, label %if.end48, label %for.body19, !llvm.loop !48
 
 if.end48:                                         ; preds = %invoke.cont15, %for.inc45, %if.then, %for.cond17.preheader
-  %leastSquaresResidual.2 = phi float [ 0.000000e+00, %for.cond17.preheader ], [ 0.000000e+00, %if.then ], [ %leastSquaresResidual.1, %for.inc45 ], [ 0.000000e+00, %invoke.cont15 ]
+  %leastSquaresResidual.0 = phi float [ 0.000000e+00, %for.cond17.preheader ], [ 0.000000e+00, %if.then ], [ %leastSquaresResidual.2, %for.inc45 ], [ 0.000000e+00, %invoke.cont15 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile) #13
-  ret float %leastSquaresResidual.2
+  ret float %leastSquaresResidual.0
 
 ehcleanup:                                        ; preds = %lpad6, %lpad
   %.pn = phi { ptr, i32 } [ %11, %lpad6 ], [ %10, %lpad ]

@@ -2871,16 +2871,16 @@ define internal fastcc void @phar_fancy_stat(ptr nocapture noundef readonly %0, 
   br i1 %41, label %._crit_edge, label %37
 
 ._crit_edge:                                      ; preds = %37, %38, %31
-  %.0393 = phi i32 [ 1, %31 ], [ 8, %38 ], [ 1, %37 ]
-  %.0391 = phi i32 [ 2, %31 ], [ 16, %38 ], [ 2, %37 ]
-  %.0 = phi i32 [ 4, %31 ], [ 32, %38 ], [ 4, %37 ]
+  %.1394 = phi i32 [ 1, %31 ], [ 8, %38 ], [ 1, %37 ]
+  %.1392 = phi i32 [ 2, %31 ], [ 16, %38 ], [ 2, %37 ]
+  %.1 = phi i32 [ 4, %31 ], [ 32, %38 ], [ 4, %37 ]
   tail call void @_efree(ptr noundef %33) #10
   br label %42
 
 42:                                               ; preds = %23, %18, %28, %._crit_edge, %3
-  %.1394 = phi i32 [ %.0393, %._crit_edge ], [ 1, %28 ], [ 1, %3 ], [ 64, %18 ], [ 8, %23 ]
-  %.1392 = phi i32 [ %.0391, %._crit_edge ], [ 2, %28 ], [ 2, %3 ], [ 128, %18 ], [ 16, %23 ]
-  %.1 = phi i32 [ %.0, %._crit_edge ], [ 4, %28 ], [ 4, %3 ], [ 256, %18 ], [ 32, %23 ]
+  %.0393 = phi i32 [ %.1394, %._crit_edge ], [ 1, %28 ], [ 1, %3 ], [ 64, %18 ], [ 8, %23 ]
+  %.0391 = phi i32 [ %.1392, %._crit_edge ], [ 2, %28 ], [ 2, %3 ], [ 128, %18 ], [ 16, %23 ]
+  %.0 = phi i32 [ %.1, %._crit_edge ], [ 4, %28 ], [ 4, %3 ], [ 256, %18 ], [ 32, %23 ]
   switch i32 %1, label %254 [
     i32 0, label %43
     i32 1, label %48
@@ -3059,7 +3059,7 @@ define internal fastcc void @phar_fancy_stat(ptr nocapture noundef readonly %0, 
 116:                                              ; preds = %42
   %117 = getelementptr inbounds i8, ptr %0, i64 24
   %118 = load i32, ptr %117, align 8
-  %119 = and i32 %118, %.1392
+  %119 = and i32 %118, %.0391
   %.not404 = icmp eq i32 %119, 0
   %120 = select i1 %.not404, i32 2, i32 3
   %121 = getelementptr inbounds i8, ptr %2, i64 8
@@ -3069,7 +3069,7 @@ define internal fastcc void @phar_fancy_stat(ptr nocapture noundef readonly %0, 
 122:                                              ; preds = %42
   %123 = getelementptr inbounds i8, ptr %0, i64 24
   %124 = load i32, ptr %123, align 8
-  %125 = and i32 %124, %.1
+  %125 = and i32 %124, %.0
   %.not403 = icmp eq i32 %125, 0
   %126 = select i1 %.not403, i32 2, i32 3
   %127 = getelementptr inbounds i8, ptr %2, i64 8
@@ -3079,7 +3079,7 @@ define internal fastcc void @phar_fancy_stat(ptr nocapture noundef readonly %0, 
 128:                                              ; preds = %42
   %129 = getelementptr inbounds i8, ptr %0, i64 24
   %130 = load i32, ptr %129, align 8
-  %131 = and i32 %130, %.1394
+  %131 = and i32 %130, %.0393
   %.not = icmp eq i32 %131, 0
   %132 = and i32 %130, 61440
   %.not402 = icmp eq i32 %132, 16384

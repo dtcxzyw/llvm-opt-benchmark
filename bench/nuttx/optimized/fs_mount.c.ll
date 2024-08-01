@@ -100,13 +100,13 @@ define range(i32 -2147483648, 1) i32 @nx_mount(ptr noundef %0, ptr noundef %1, p
 
 51:                                               ; preds = %._crit_edge, %39
   %52 = phi ptr [ %.pre35, %39 ], [ %.pre, %._crit_edge ]
-  %.0 = phi i32 [ %40, %39 ], [ -22, %._crit_edge ]
+  %.2 = phi i32 [ %40, %39 ], [ -22, %._crit_edge ]
   call void @inode_release(ptr noundef %52) #5
   %53 = call i32 @inode_remove(ptr noundef %1) #5
   br label %54
 
 54:                                               ; preds = %33, %51, %32
-  %.1 = phi i32 [ %.0, %51 ], [ -20, %32 ], [ %34, %33 ]
+  %.1 = phi i32 [ %.2, %51 ], [ -20, %32 ], [ %34, %33 ]
   call void @inode_unlock() #5
   %55 = load ptr, ptr %23, align 8
   %.not33 = icmp eq ptr %55, null

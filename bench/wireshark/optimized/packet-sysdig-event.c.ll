@@ -1652,7 +1652,7 @@ dissect_header_lens_v1.exit.i:                    ; preds = %._crit_edge.loopexi
   br label %173
 
 173:                                              ; preds = %212, %.lr.ph.i
-  %.0124 = phi ptr [ %28, %.lr.ph.i ], [ %.1125, %212 ]
+  %.1125 = phi ptr [ %28, %.lr.ph.i ], [ %.2, %212 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %212 ]
   %.076.i = phi i32 [ 0, %.lr.ph.i ], [ %214, %212 ]
   %.175.i = phi i32 [ %.059.i, %.lr.ph.i ], [ %213, %212 ]
@@ -1726,7 +1726,7 @@ format_param_str.exit.i:                          ; preds = %193, %189
   br label %212
 
 212:                                              ; preds = %207, %204
-  %.1125 = phi ptr [ %210, %207 ], [ %.0124, %204 ]
+  %.2 = phi ptr [ %210, %207 ], [ %.1125, %204 ]
   %213 = add i32 %.060.i, %.175.i
   %214 = add i32 %.076.i, %.062.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1736,9 +1736,9 @@ format_param_str.exit.i:                          ; preds = %193, %189
   br i1 %217, label %173, label %dissect_event_params.exit, !llvm.loop !12
 
 dissect_event_params.exit:                        ; preds = %.lr.ph154, %212, %173, %170, %103
-  %.3 = phi ptr [ %28, %103 ], [ %28, %170 ], [ %.1125, %212 ], [ %.0124, %173 ], [ %28, %.lr.ph154 ]
+  %.0124 = phi ptr [ %28, %103 ], [ %28, %170 ], [ %.2, %212 ], [ %.1125, %173 ], [ %28, %.lr.ph154 ]
   %218 = load i32, ptr @hf_se_event_name, align 4
-  %219 = call ptr @proto_tree_add_string(ptr noundef %80, i32 noundef %218, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %.3) #4
+  %219 = call ptr @proto_tree_add_string(ptr noundef %80, i32 noundef %218, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %.0124) #4
   %220 = load ptr, ptr @sinsp_dissector_handle, align 8
   %.not116 = icmp eq ptr %220, null
   br i1 %.not116, label %221, label %223

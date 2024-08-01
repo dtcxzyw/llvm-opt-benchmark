@@ -564,19 +564,19 @@ if.end287.sink.split:                             ; preds = %if.else279, %land.l
   br label %if.end287
 
 if.end287:                                        ; preds = %if.end287.sink.split, %if.else279
-  %ret.4 = phi i32 [ %call229, %if.else279 ], [ -1, %if.end287.sink.split ]
+  %ret.7 = phi i32 [ %call229, %if.else279 ], [ -1, %if.end287.sink.split ]
   call void @free(ptr noundef %call261) #11
   br label %if.end288
 
 if.end288:                                        ; preds = %if.end252, %if.then254, %if.end287
-  %ret.5 = phi i32 [ %ret.4, %if.end287 ], [ %call229, %if.then254 ], [ -1, %if.end252 ]
+  %ret.6 = phi i32 [ %ret.7, %if.end287 ], [ %call229, %if.then254 ], [ -1, %if.end252 ]
   %38 = load ptr, ptr %result, align 8
   call void @free(ptr noundef %38) #11
   br label %if.end290
 
 if.end290:                                        ; preds = %if.end288, %for.end
-  %ret.6 = phi i32 [ %ret.5, %if.end288 ], [ %call229, %for.end ]
-  %spec.store.select = call i32 @llvm.smin.i32(i32 %ret.6, i32 127)
+  %ret.4 = phi i32 [ %ret.6, %if.end288 ], [ %call229, %for.end ]
+  %spec.store.select = call i32 @llvm.smin.i32(i32 %ret.4, i32 127)
   br label %cleanup
 
 cleanup.critedge:                                 ; preds = %if.else200, %_.exit, %if.then211
@@ -584,7 +584,7 @@ cleanup.critedge:                                 ; preds = %if.else200, %_.exit
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.critedge, %if.end290
-  %ret.7 = phi i32 [ %spec.store.select, %if.end290 ], [ -1, %cleanup.critedge ]
+  %ret.3 = phi i32 [ %spec.store.select, %if.end290 ], [ -1, %cleanup.critedge ]
   br label %for.body296
 
 for.body296:                                      ; preds = %cleanup, %for.body296
@@ -597,7 +597,7 @@ for.body296:                                      ; preds = %cleanup, %for.body2
   br i1 %exitcond71.not, label %return, label %for.body296, !llvm.loop !7
 
 return:                                           ; preds = %for.body296, %if.then160
-  %retval.0 = phi i32 [ -1, %if.then160 ], [ %ret.7, %for.body296 ]
+  %retval.0 = phi i32 [ -1, %if.then160 ], [ %ret.3, %for.body296 ]
   ret i32 %retval.0
 }
 

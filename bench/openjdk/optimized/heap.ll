@@ -759,9 +759,9 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %.03365 = phi ptr [ %16, %12 ], [ %4, %.lr.ph.preheader ]
   %.03464 = phi ptr [ %.03365, %12 ], [ null, %.lr.ph.preheader ]
-  %.03663 = phi i64 [ %.1, %12 ], [ %8, %.lr.ph.preheader ]
-  %.03762 = phi ptr [ %.138, %12 ], [ null, %.lr.ph.preheader ]
-  %.04061 = phi ptr [ %.141, %12 ], [ null, %.lr.ph.preheader ]
+  %.03663 = phi i64 [ %.2, %12 ], [ %8, %.lr.ph.preheader ]
+  %.03762 = phi ptr [ %.239, %12 ], [ null, %.lr.ph.preheader ]
+  %.04061 = phi ptr [ %.242, %12 ], [ null, %.lr.ph.preheader ]
   %9 = load i32, ptr %.03365, align 8
   %10 = zext i32 %9 to i64
   %11 = icmp eq i64 %6, %10
@@ -771,23 +771,23 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
   %13 = icmp ult i64 %6, %10
   %14 = icmp ugt i64 %.03663, %10
   %or.cond = select i1 %13, i1 %14, i1 false
-  %.141 = select i1 %or.cond, ptr %.03365, ptr %.04061
-  %.138 = select i1 %or.cond, ptr %.03464, ptr %.03762
-  %.1 = select i1 %or.cond, i64 %10, i64 %.03663
+  %.242 = select i1 %or.cond, ptr %.03365, ptr %.04061
+  %.239 = select i1 %or.cond, ptr %.03464, ptr %.03762
+  %.2 = select i1 %or.cond, i64 %10, i64 %.03663
   %15 = getelementptr inbounds i8, ptr %.03365, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %12
-  %17 = icmp eq ptr %.141, null
+  %17 = icmp eq ptr %.242, null
   br i1 %17, label %._crit_edge.thread, label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %._crit_edge
-  %.253 = phi i64 [ %.1, %._crit_edge ], [ %6, %.lr.ph ]
-  %.23952 = phi ptr [ %.138, %._crit_edge ], [ %.03464, %.lr.ph ]
-  %.24251 = phi ptr [ %.141, %._crit_edge ], [ %.03365, %.lr.ph ]
-  %18 = sub i64 %.253, %6
+  %.153 = phi i64 [ %.2, %._crit_edge ], [ %6, %.lr.ph ]
+  %.13852 = phi ptr [ %.239, %._crit_edge ], [ %.03464, %.lr.ph ]
+  %.14151 = phi ptr [ %.242, %._crit_edge ], [ %.03365, %.lr.ph ]
+  %18 = sub i64 %.153, %6
   %19 = icmp ult i64 %18, %5
   br i1 %19, label %20, label %32
 
@@ -796,7 +796,7 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
   %22 = load i32, ptr %21, align 8
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr %21, align 8
-  %24 = icmp eq ptr %.23952, null
+  %24 = icmp eq ptr %.13852, null
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %20
@@ -806,16 +806,16 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
   br label %76
 
 28:                                               ; preds = %20
-  %29 = getelementptr inbounds i8, ptr %.24251, i64 8
+  %29 = getelementptr inbounds i8, ptr %.14151, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.23952, i64 8
+  %31 = getelementptr inbounds i8, ptr %.13852, i64 8
   store ptr %30, ptr %31, align 8
   br label %76
 
 32:                                               ; preds = %.thread
   %33 = getelementptr inbounds i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %.24251 to i64
+  %35 = ptrtoint ptr %.14151 to i64
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = getelementptr inbounds i8, ptr %0, i64 248
@@ -823,7 +823,7 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
   %40 = zext nneg i32 %39 to i64
   %41 = ashr i64 %37, %40
   %42 = add i64 %41, %18
-  %43 = load i32, ptr %.24251, align 8
+  %43 = load i32, ptr %.14151, align 8
   %44 = zext i32 %43 to i64
   %45 = sub i64 %44, %18
   %46 = shl i64 %42, %40
@@ -882,12 +882,12 @@ define hidden noundef ptr @_ZN8CodeHeap15search_freelistEm(ptr nocapture noundef
 
 _ZN8CodeHeap11split_blockEP9HeapBlockm.exit:      ; preds = %73, %32, %64, %65, %.thread.i.i
   %75 = trunc i64 %18 to i32
-  store i32 %75, ptr %.24251, align 8
+  store i32 %75, ptr %.14151, align 8
   br label %76
 
 76:                                               ; preds = %25, %28, %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit
-  %.043 = phi i64 [ %6, %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit ], [ %.253, %28 ], [ %.253, %25 ]
-  %.035 = phi ptr [ %47, %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit ], [ %.24251, %28 ], [ %.24251, %25 ]
+  %.043 = phi i64 [ %6, %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit ], [ %.153, %28 ], [ %.153, %25 ]
+  %.035 = phi ptr [ %47, %_ZN8CodeHeap11split_blockEP9HeapBlockm.exit ], [ %.14151, %28 ], [ %.14151, %25 ]
   %77 = getelementptr inbounds i8, ptr %.035, i64 4
   store i8 1, ptr %77, align 4
   %78 = getelementptr inbounds i8, ptr %0, i64 280

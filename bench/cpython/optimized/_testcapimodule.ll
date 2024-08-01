@@ -3999,7 +3999,7 @@ while.end:                                        ; preds = %while.cond
   br label %if.end57
 
 if.end57:                                         ; preds = %while.end, %if.else35, %if.end28
-  %c_kwargs.0 = phi ptr [ %call44, %while.end ], [ null, %if.else35 ], [ null, %if.end28 ]
+  %c_kwargs.1 = phi ptr [ %call44, %while.end ], [ null, %if.else35 ], [ null, %if.end28 ]
   %c_kwargs_len.0 = phi i64 [ %div, %while.end ], [ %call36, %if.else35 ], [ 0, %if.end28 ]
   %22 = load ptr, ptr %defaults, align 8
   %tobool58.not = icmp eq ptr %22, null
@@ -4065,16 +4065,16 @@ if.end87:                                         ; preds = %land.lhs.true82, %i
   %38 = load ptr, ptr %globals, align 8
   %39 = load ptr, ptr %locals, align 8
   %conv88 = trunc i64 %c_kwargs_len.0 to i32
-  %call90 = call ptr @PyEval_EvalCodeEx(ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %c_args.0, i32 noundef %c_args_len.0, ptr noundef %c_kwargs.0, i32 noundef %conv88, ptr noundef %c_defaults.0, i32 noundef %c_defaults_len.0, ptr noundef %27, ptr noundef %32) #15
+  %call90 = call ptr @PyEval_EvalCodeEx(ptr noundef %37, ptr noundef %38, ptr noundef %39, ptr noundef %c_args.0, i32 noundef %c_args_len.0, ptr noundef %c_kwargs.1, i32 noundef %conv88, ptr noundef %c_defaults.0, i32 noundef %c_defaults_len.0, ptr noundef %27, ptr noundef %32) #15
   br label %exit
 
 exit:                                             ; preds = %if.end87, %if.then86, %if.then79
   %result.0 = phi ptr [ %call90, %if.end87 ], [ null, %if.then86 ], [ null, %if.then79 ]
-  %tobool91.not = icmp eq ptr %c_kwargs.0, null
+  %tobool91.not = icmp eq ptr %c_kwargs.1, null
   br i1 %tobool91.not, label %if.end93, label %if.then92
 
 if.then92:                                        ; preds = %exit
-  call void @PyMem_Free(ptr noundef nonnull %c_kwargs.0) #15
+  call void @PyMem_Free(ptr noundef nonnull %c_kwargs.1) #15
   br label %if.end93
 
 if.end93:                                         ; preds = %entry, %if.then3, %if.then8, %if.then13, %if.then22, %if.then34, %if.then47, %if.then92, %exit

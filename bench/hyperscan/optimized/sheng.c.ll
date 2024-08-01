@@ -48,13 +48,13 @@ if.then.i68:                                      ; preds = %if.then6.i
   %call11.i = tail call ptr @run_accel(ptr noundef nonnull %add.ptr1.i2307, ptr noundef %buffer, ptr noundef %add.ptr10) #10
   %add.ptr.i71 = getelementptr inbounds i8, ptr %buffer, i64 4
   %cmp.i72 = icmp ult ptr %call11.i, %add.ptr.i71
-  %min_accel_dist.i.0.v = select i1 %cmp.i72, i64 32, i64 8
-  %min_accel_dist.i.0 = getelementptr inbounds i8, ptr %call11.i, i64 %min_accel_dist.i.0.v
+  %min_accel_dist.i.1.v = select i1 %cmp.i72, i64 32, i64 8
+  %min_accel_dist.i.1 = getelementptr inbounds i8, ptr %call11.i, i64 %min_accel_dist.i.1.v
   br label %if.end22.i59
 
 if.end22.i59:                                     ; preds = %if.then6.i, %if.then.i68
   %cur_buf.i.0 = phi ptr [ %call11.i, %if.then.i68 ], [ %buffer, %if.then6.i ]
-  %min_accel_dist.i.1 = phi ptr [ %min_accel_dist.i.0, %if.then.i68 ], [ %buffer, %if.then6.i ]
+  %min_accel_dist.i.0 = phi ptr [ %min_accel_dist.i.1, %if.then.i68 ], [ %buffer, %if.then6.i ]
   %6 = and i8 %0, 32
   %tobool25.i.not = icmp eq i8 %6, 0
   br i1 %tobool25.i.not, label %if.end33.i62, label %if.end11.i
@@ -78,17 +78,17 @@ while.body.i.lr.ph.lr.ph:                         ; preds = %if.end33.i62
 
 while.body.i.lr.ph:                               ; preds = %while.body.i.lr.ph.lr.ph, %if.then215.i
   %.ph14211588 = phi <16 x i8> [ %vecinit15.i2793, %while.body.i.lr.ph.lr.ph ], [ %19, %if.then215.i ]
-  %min_accel_dist.i.2.ph1587 = phi ptr [ %min_accel_dist.i.1, %while.body.i.lr.ph.lr.ph ], [ %min_accel_dist.i.3, %if.then215.i ]
+  %min_accel_dist.i.2.ph1587 = phi ptr [ %min_accel_dist.i.0, %while.body.i.lr.ph.lr.ph ], [ %min_accel_dist.i.3, %if.then215.i ]
   %cur_buf.i.1.ph1586 = phi ptr [ %cur_buf.i.0, %while.body.i.lr.ph.lr.ph ], [ %call225.i, %if.then215.i ]
-  %cached_accept_state.0.ph1585 = phi i8 [ 0, %while.body.i.lr.ph.lr.ph ], [ %cached_accept_state.8, %if.then215.i ]
-  %cached_accept_id.0.ph1584 = phi i32 [ 0, %while.body.i.lr.ph.lr.ph ], [ %cached_accept_id.8, %if.then215.i ]
+  %cached_accept_state.1.ph1585 = phi i8 [ 0, %while.body.i.lr.ph.lr.ph ], [ %cached_accept_state.9, %if.then215.i ]
+  %cached_accept_id.1.ph1584 = phi i32 [ 0, %while.body.i.lr.ph.lr.ph ], [ %cached_accept_id.9, %if.then215.i ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %if.end248.i
   %7 = phi <16 x i8> [ %.ph14211588, %while.body.i.lr.ph ], [ %19, %if.end248.i ]
   %cur_buf.i.11571 = phi ptr [ %cur_buf.i.1.ph1586, %while.body.i.lr.ph ], [ %add.ptr282.i, %if.end248.i ]
-  %cached_accept_state.01570 = phi i8 [ %cached_accept_state.0.ph1585, %while.body.i.lr.ph ], [ %cached_accept_state.9, %if.end248.i ]
-  %cached_accept_id.01569 = phi i32 [ %cached_accept_id.0.ph1584, %while.body.i.lr.ph ], [ %cached_accept_id.9, %if.end248.i ]
+  %cached_accept_state.11570 = phi i8 [ %cached_accept_state.1.ph1585, %while.body.i.lr.ph ], [ %cached_accept_state.2, %if.end248.i ]
+  %cached_accept_id.11569 = phi i32 [ %cached_accept_id.1.ph1584, %while.body.i.lr.ph ], [ %cached_accept_id.2, %if.end248.i ]
   %add.ptr40.i = getelementptr inbounds i8, ptr %cur_buf.i.11571, i64 1
   %add.ptr41.i = getelementptr inbounds i8, ptr %cur_buf.i.11571, i64 2
   %add.ptr42.i = getelementptr inbounds i8, ptr %cur_buf.i.11571, i64 3
@@ -142,11 +142,11 @@ if.then98.i:                                      ; preds = %if.then88.i
   br i1 %cmp.i529.i, label %return, label %if.end113.i.thread
 
 land.lhs.true.i442.i:                             ; preds = %if.then88.i
-  %cmp.i445.i = icmp eq i8 %conv45.i, %cached_accept_state.01570
+  %cmp.i445.i = icmp eq i8 %conv45.i, %cached_accept_state.11570
   br i1 %cmp.i445.i, label %if.then.i489.i, label %cond.false.i460.i
 
 if.then.i489.i:                                   ; preds = %land.lhs.true.i442.i
-  %call.i490.i = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub92.i, i32 noundef %cached_accept_id.01569, ptr noundef %context) #10
+  %call.i490.i = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub92.i, i32 noundef %cached_accept_id.11569, ptr noundef %context) #10
   %cmp5.i491.i = icmp eq i32 %call.i490.i, 0
   br i1 %cmp5.i491.i, label %return, label %if.end113.i
 
@@ -194,8 +194,8 @@ fireReports.exit494.i:                            ; preds = %cond.false.i460.i
   br i1 %cmp27.i484.i, label %return, label %if.end113.i
 
 if.end113.i:                                      ; preds = %for.cond.i468.i, %cond.false.i460.i, %if.then.i489.i, %fireReports.exit494.i, %if.then85.i
-  %cached_accept_id.2 = phi i32 [ %26, %fireReports.exit494.i ], [ %cached_accept_id.01569, %if.then85.i ], [ %cached_accept_id.01569, %if.then.i489.i ], [ %cached_accept_id.01569, %cond.false.i460.i ], [ %cached_accept_id.01569, %for.cond.i468.i ]
-  %cached_accept_state.2 = phi i8 [ %conv45.i, %fireReports.exit494.i ], [ %cached_accept_state.01570, %if.then85.i ], [ %cached_accept_state.01570, %if.then.i489.i ], [ %cached_accept_state.01570, %cond.false.i460.i ], [ %cached_accept_state.01570, %for.cond.i468.i ]
+  %cached_accept_id.3 = phi i32 [ %26, %fireReports.exit494.i ], [ %cached_accept_id.11569, %if.then85.i ], [ %cached_accept_id.11569, %if.then.i489.i ], [ %cached_accept_id.11569, %cond.false.i460.i ], [ %cached_accept_id.11569, %for.cond.i468.i ]
+  %cached_accept_state.3 = phi i8 [ %conv45.i, %fireReports.exit494.i ], [ %cached_accept_state.11570, %if.then85.i ], [ %cached_accept_state.11570, %if.then.i489.i ], [ %cached_accept_state.11570, %cond.false.i460.i ], [ %cached_accept_state.11570, %for.cond.i468.i ]
   %and.i2612 = and i8 %conv50.i, 16
   %tobool115.i.not = icmp eq i8 %and.i2612, 0
   br i1 %tobool115.i.not, label %if.end143.i, label %if.then116.i
@@ -219,19 +219,19 @@ if.then116.i:                                     ; preds = %if.end113.i
 
 if.then127.i:                                     ; preds = %if.then116.i.thread, %if.then116.i
   %sub.ptr.sub121.i1896 = phi i64 [ %sub.ptr.sub121.i1893, %if.then116.i.thread ], [ %sub.ptr.sub121.i, %if.then116.i ]
-  %cached_accept_id.218871895 = phi i32 [ %cached_accept_id.01569, %if.then116.i.thread ], [ %cached_accept_id.2, %if.then116.i ]
-  %cached_accept_state.218881894 = phi i8 [ %cached_accept_state.01570, %if.then116.i.thread ], [ %cached_accept_state.2, %if.then116.i ]
+  %cached_accept_id.318871895 = phi i32 [ %cached_accept_id.11569, %if.then116.i.thread ], [ %cached_accept_id.3, %if.then116.i ]
+  %cached_accept_state.318881894 = phi i8 [ %cached_accept_state.11570, %if.then116.i.thread ], [ %cached_accept_state.3, %if.then116.i ]
   %27 = load i32, ptr %report.i67, align 4
   %call.i518.i = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub121.i1896, i32 noundef %27, ptr noundef %context) #10
   %cmp.i519.i = icmp eq i32 %call.i518.i, 0
   br i1 %cmp.i519.i, label %return, label %if.end143.i
 
 land.lhs.true.i372.i:                             ; preds = %if.then116.i
-  %cmp.i375.i = icmp eq i8 %conv50.i, %cached_accept_state.2
+  %cmp.i375.i = icmp eq i8 %conv50.i, %cached_accept_state.3
   br i1 %cmp.i375.i, label %if.then.i419.i, label %cond.false.i390.i
 
 if.then.i419.i:                                   ; preds = %land.lhs.true.i372.i
-  %call.i420.i = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub121.i, i32 noundef %cached_accept_id.2, ptr noundef %context) #10
+  %call.i420.i = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub121.i, i32 noundef %cached_accept_id.3, ptr noundef %context) #10
   %cmp5.i421.i = icmp eq i32 %call.i420.i, 0
   br i1 %cmp5.i421.i, label %return, label %if.end143.i
 
@@ -279,8 +279,8 @@ fireReports.exit424.i:                            ; preds = %cond.false.i390.i
   br i1 %cmp27.i414.i, label %return, label %if.end143.i
 
 if.end143.i:                                      ; preds = %for.cond.i398.i, %cond.false.i390.i, %if.end113.i.thread, %if.then.i419.i, %if.then127.i, %fireReports.exit424.i, %if.end113.i
-  %cached_accept_id.4 = phi i32 [ %cached_accept_id.218871895, %if.then127.i ], [ %33, %fireReports.exit424.i ], [ %cached_accept_id.2, %if.end113.i ], [ %cached_accept_id.2, %if.then.i419.i ], [ %cached_accept_id.01569, %if.end113.i.thread ], [ %cached_accept_id.2, %cond.false.i390.i ], [ %cached_accept_id.2, %for.cond.i398.i ]
-  %cached_accept_state.4 = phi i8 [ %cached_accept_state.218881894, %if.then127.i ], [ %conv50.i, %fireReports.exit424.i ], [ %cached_accept_state.2, %if.end113.i ], [ %conv50.i, %if.then.i419.i ], [ %cached_accept_state.01570, %if.end113.i.thread ], [ %cached_accept_state.2, %cond.false.i390.i ], [ %cached_accept_state.2, %for.cond.i398.i ]
+  %cached_accept_id.5 = phi i32 [ %cached_accept_id.318871895, %if.then127.i ], [ %33, %fireReports.exit424.i ], [ %cached_accept_id.3, %if.end113.i ], [ %cached_accept_id.3, %if.then.i419.i ], [ %cached_accept_id.11569, %if.end113.i.thread ], [ %cached_accept_id.3, %cond.false.i390.i ], [ %cached_accept_id.3, %for.cond.i398.i ]
+  %cached_accept_state.5 = phi i8 [ %cached_accept_state.318881894, %if.then127.i ], [ %conv50.i, %fireReports.exit424.i ], [ %cached_accept_state.3, %if.end113.i ], [ %conv50.i, %if.then.i419.i ], [ %cached_accept_state.11570, %if.end113.i.thread ], [ %cached_accept_state.3, %cond.false.i390.i ], [ %cached_accept_state.3, %for.cond.i398.i ]
   %and.i2608 = and i8 %conv55.i, 16
   %tobool145.i.not = icmp eq i8 %and.i2608, 0
   br i1 %tobool145.i.not, label %if.end173.i, label %if.then146.i
@@ -298,11 +298,11 @@ if.then157.i:                                     ; preds = %if.then146.i
   br i1 %cmp.i509.i, label %return, label %if.end173.i.thread
 
 land.lhs.true.i302.i:                             ; preds = %if.then146.i
-  %cmp.i305.i = icmp eq i8 %conv55.i, %cached_accept_state.4
+  %cmp.i305.i = icmp eq i8 %conv55.i, %cached_accept_state.5
   br i1 %cmp.i305.i, label %if.then.i349.i, label %cond.false.i320.i
 
 if.then.i349.i:                                   ; preds = %land.lhs.true.i302.i
-  %call.i350.i = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub151.i, i32 noundef %cached_accept_id.4, ptr noundef %context) #10
+  %call.i350.i = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub151.i, i32 noundef %cached_accept_id.5, ptr noundef %context) #10
   %cmp5.i351.i = icmp eq i32 %call.i350.i, 0
   br i1 %cmp5.i351.i, label %return, label %if.end173.i
 
@@ -350,8 +350,8 @@ fireReports.exit354.i:                            ; preds = %cond.false.i320.i
   br i1 %cmp27.i344.i, label %return, label %if.end173.i
 
 if.end173.i:                                      ; preds = %for.cond.i328.i, %cond.false.i320.i, %if.then.i349.i, %fireReports.exit354.i, %if.end143.i
-  %cached_accept_id.6 = phi i32 [ %40, %fireReports.exit354.i ], [ %cached_accept_id.4, %if.end143.i ], [ %cached_accept_id.4, %if.then.i349.i ], [ %cached_accept_id.4, %cond.false.i320.i ], [ %cached_accept_id.4, %for.cond.i328.i ]
-  %cached_accept_state.6 = phi i8 [ %conv55.i, %fireReports.exit354.i ], [ %cached_accept_state.4, %if.end143.i ], [ %conv55.i, %if.then.i349.i ], [ %cached_accept_state.4, %cond.false.i320.i ], [ %cached_accept_state.4, %for.cond.i328.i ]
+  %cached_accept_id.7 = phi i32 [ %40, %fireReports.exit354.i ], [ %cached_accept_id.5, %if.end143.i ], [ %cached_accept_id.5, %if.then.i349.i ], [ %cached_accept_id.5, %cond.false.i320.i ], [ %cached_accept_id.5, %for.cond.i328.i ]
+  %cached_accept_state.7 = phi i8 [ %conv55.i, %fireReports.exit354.i ], [ %cached_accept_state.5, %if.end143.i ], [ %conv55.i, %if.then.i349.i ], [ %cached_accept_state.5, %cond.false.i320.i ], [ %cached_accept_state.5, %for.cond.i328.i ]
   %and.i2604 = and i8 %conv60.i, 16
   %tobool175.i.not = icmp eq i8 %and.i2604, 0
   br i1 %tobool175.i.not, label %if.end203.i, label %if.then176.i
@@ -375,19 +375,19 @@ if.then176.i:                                     ; preds = %if.end173.i
 
 if.then187.i:                                     ; preds = %if.then176.i.thread, %if.then176.i
   %sub.ptr.sub181.i1910 = phi i64 [ %sub.ptr.sub181.i1907, %if.then176.i.thread ], [ %sub.ptr.sub181.i, %if.then176.i ]
-  %cached_accept_id.619011909 = phi i32 [ %cached_accept_id.4, %if.then176.i.thread ], [ %cached_accept_id.6, %if.then176.i ]
-  %cached_accept_state.619021908 = phi i8 [ %cached_accept_state.4, %if.then176.i.thread ], [ %cached_accept_state.6, %if.then176.i ]
+  %cached_accept_id.719011909 = phi i32 [ %cached_accept_id.5, %if.then176.i.thread ], [ %cached_accept_id.7, %if.then176.i ]
+  %cached_accept_state.719021908 = phi i8 [ %cached_accept_state.5, %if.then176.i.thread ], [ %cached_accept_state.7, %if.then176.i ]
   %41 = load i32, ptr %report.i67, align 4
   %call.i499.i = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub181.i1910, i32 noundef %41, ptr noundef %context) #10
   %cmp.i500.i = icmp eq i32 %call.i499.i, 0
   br i1 %cmp.i500.i, label %return, label %if.end203.i
 
 land.lhs.true.i.i:                                ; preds = %if.then176.i
-  %cmp.i.i = icmp eq i8 %conv60.i, %cached_accept_state.6
+  %cmp.i.i = icmp eq i8 %conv60.i, %cached_accept_state.7
   br i1 %cmp.i.i, label %if.then.i.i, label %cond.false.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %call.i.i = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub181.i, i32 noundef %cached_accept_id.6, ptr noundef %context) #10
+  %call.i.i = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub181.i, i32 noundef %cached_accept_id.7, ptr noundef %context) #10
   %cmp5.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp5.i.i, label %return, label %if.end203.i
 
@@ -435,8 +435,8 @@ fireReports.exit.i:                               ; preds = %cond.false.i.i
   br i1 %cmp27.i.i, label %return, label %if.end203.i
 
 if.end203.i:                                      ; preds = %for.cond.i.i, %cond.false.i.i, %if.end173.i.thread, %if.then.i.i, %if.then187.i, %fireReports.exit.i, %if.end173.i
-  %cached_accept_id.8 = phi i32 [ %cached_accept_id.619011909, %if.then187.i ], [ %47, %fireReports.exit.i ], [ %cached_accept_id.6, %if.end173.i ], [ %cached_accept_id.6, %if.then.i.i ], [ %cached_accept_id.4, %if.end173.i.thread ], [ %cached_accept_id.6, %cond.false.i.i ], [ %cached_accept_id.6, %for.cond.i.i ]
-  %cached_accept_state.8 = phi i8 [ %cached_accept_state.619021908, %if.then187.i ], [ %conv60.i, %fireReports.exit.i ], [ %cached_accept_state.6, %if.end173.i ], [ %conv60.i, %if.then.i.i ], [ %cached_accept_state.4, %if.end173.i.thread ], [ %cached_accept_state.6, %cond.false.i.i ], [ %cached_accept_state.6, %for.cond.i.i ]
+  %cached_accept_id.9 = phi i32 [ %cached_accept_id.719011909, %if.then187.i ], [ %47, %fireReports.exit.i ], [ %cached_accept_id.7, %if.end173.i ], [ %cached_accept_id.7, %if.then.i.i ], [ %cached_accept_id.5, %if.end173.i.thread ], [ %cached_accept_id.7, %cond.false.i.i ], [ %cached_accept_id.7, %for.cond.i.i ]
+  %cached_accept_state.9 = phi i8 [ %cached_accept_state.719021908, %if.then187.i ], [ %conv60.i, %fireReports.exit.i ], [ %cached_accept_state.7, %if.end173.i ], [ %conv60.i, %if.then.i.i ], [ %cached_accept_state.5, %if.end173.i.thread ], [ %cached_accept_state.7, %cond.false.i.i ], [ %cached_accept_state.7, %for.cond.i.i ]
   %and.i2366 = and i8 %conv60.i, 32
   %tobool205.i.not = icmp eq i8 %and.i2366, 0
   br i1 %tobool205.i.not, label %if.end209.i, label %if.end11.i
@@ -471,8 +471,8 @@ if.then215.i:                                     ; preds = %if.end209.i
   br i1 %cmp35.i1568, label %while.body.i.lr.ph, label %if.end11.i, !llvm.loop !7
 
 if.end248.i:                                      ; preds = %while.body.i, %if.end209.i
-  %cached_accept_id.9 = phi i32 [ %cached_accept_id.8, %if.end209.i ], [ %cached_accept_id.01569, %while.body.i ]
-  %cached_accept_state.9 = phi i8 [ %cached_accept_state.8, %if.end209.i ], [ %cached_accept_state.01570, %while.body.i ]
+  %cached_accept_id.2 = phi i32 [ %cached_accept_id.9, %if.end209.i ], [ %cached_accept_id.11569, %while.body.i ]
+  %cached_accept_state.2 = phi i8 [ %cached_accept_state.9, %if.end209.i ], [ %cached_accept_state.11570, %while.body.i ]
   %add.ptr282.i = getelementptr inbounds i8, ptr %cur_buf.i.11571, i64 4
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr282.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -501,8 +501,8 @@ while.body.i230.lr.ph:                            ; preds = %if.end33.i217
 while.body.i230:                                  ; preds = %while.body.i230.lr.ph, %if.end248.i262
   %cur_buf.i172.11606 = phi ptr [ %buffer, %while.body.i230.lr.ph ], [ %add.ptr282.i265, %if.end248.i262 ]
   %52 = phi <16 x i8> [ %vecinit15.i2760, %while.body.i230.lr.ph ], [ %64, %if.end248.i262 ]
-  %cached_accept_state.111605 = phi i8 [ 0, %while.body.i230.lr.ph ], [ %cached_accept_state.20, %if.end248.i262 ]
-  %cached_accept_id.111604 = phi i32 [ 0, %while.body.i230.lr.ph ], [ %cached_accept_id.20, %if.end248.i262 ]
+  %cached_accept_state.131605 = phi i8 [ 0, %while.body.i230.lr.ph ], [ %cached_accept_state.14, %if.end248.i262 ]
+  %cached_accept_id.131604 = phi i32 [ 0, %while.body.i230.lr.ph ], [ %cached_accept_id.14, %if.end248.i262 ]
   %add.ptr40.i231 = getelementptr inbounds i8, ptr %cur_buf.i172.11606, i64 1
   %add.ptr41.i232 = getelementptr inbounds i8, ptr %cur_buf.i172.11606, i64 2
   %add.ptr42.i233 = getelementptr inbounds i8, ptr %cur_buf.i172.11606, i64 3
@@ -556,11 +556,11 @@ if.then98.i621:                                   ; preds = %if.then88.i555
   br i1 %cmp.i529.i624, label %return, label %if.end113.i289.thread
 
 land.lhs.true.i442.i563:                          ; preds = %if.then88.i555
-  %cmp.i445.i566 = icmp eq i8 %conv45.i238, %cached_accept_state.111605
+  %cmp.i445.i566 = icmp eq i8 %conv45.i238, %cached_accept_state.131605
   br i1 %cmp.i445.i566, label %if.then.i489.i616, label %cond.false.i460.i581
 
 if.then.i489.i616:                                ; preds = %land.lhs.true.i442.i563
-  %call.i490.i617 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub92.i559, i32 noundef %cached_accept_id.111604, ptr noundef %context) #10
+  %call.i490.i617 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub92.i559, i32 noundef %cached_accept_id.131604, ptr noundef %context) #10
   %cmp5.i491.i618 = icmp eq i32 %call.i490.i617, 0
   br i1 %cmp5.i491.i618, label %return, label %if.end113.i289
 
@@ -608,8 +608,8 @@ fireReports.exit494.i592:                         ; preds = %cond.false.i460.i58
   br i1 %cmp27.i484.i611, label %return, label %if.end113.i289
 
 if.end113.i289:                                   ; preds = %for.cond.i468.i589, %cond.false.i460.i581, %if.then.i489.i616, %fireReports.exit494.i592, %if.then85.i286
-  %cached_accept_id.13 = phi i32 [ %71, %fireReports.exit494.i592 ], [ %cached_accept_id.111604, %if.then85.i286 ], [ %cached_accept_id.111604, %if.then.i489.i616 ], [ %cached_accept_id.111604, %cond.false.i460.i581 ], [ %cached_accept_id.111604, %for.cond.i468.i589 ]
-  %cached_accept_state.13 = phi i8 [ %conv45.i238, %fireReports.exit494.i592 ], [ %cached_accept_state.111605, %if.then85.i286 ], [ %cached_accept_state.111605, %if.then.i489.i616 ], [ %cached_accept_state.111605, %cond.false.i460.i581 ], [ %cached_accept_state.111605, %for.cond.i468.i589 ]
+  %cached_accept_id.15 = phi i32 [ %71, %fireReports.exit494.i592 ], [ %cached_accept_id.131604, %if.then85.i286 ], [ %cached_accept_id.131604, %if.then.i489.i616 ], [ %cached_accept_id.131604, %cond.false.i460.i581 ], [ %cached_accept_id.131604, %for.cond.i468.i589 ]
+  %cached_accept_state.15 = phi i8 [ %conv45.i238, %fireReports.exit494.i592 ], [ %cached_accept_state.131605, %if.then85.i286 ], [ %cached_accept_state.131605, %if.then.i489.i616 ], [ %cached_accept_state.131605, %cond.false.i460.i581 ], [ %cached_accept_state.131605, %for.cond.i468.i589 ]
   %and.i2596 = and i8 %conv50.i243, 16
   %tobool115.i291.not = icmp eq i8 %and.i2596, 0
   br i1 %tobool115.i291.not, label %if.end143.i292, label %if.then116.i478
@@ -633,19 +633,19 @@ if.then116.i478:                                  ; preds = %if.end113.i289
 
 if.then127.i544:                                  ; preds = %if.then116.i478.thread, %if.then116.i478
   %sub.ptr.sub121.i4821924 = phi i64 [ %sub.ptr.sub121.i4821921, %if.then116.i478.thread ], [ %sub.ptr.sub121.i482, %if.then116.i478 ]
-  %cached_accept_id.1319151923 = phi i32 [ %cached_accept_id.111604, %if.then116.i478.thread ], [ %cached_accept_id.13, %if.then116.i478 ]
-  %cached_accept_state.1319161922 = phi i8 [ %cached_accept_state.111605, %if.then116.i478.thread ], [ %cached_accept_state.13, %if.then116.i478 ]
+  %cached_accept_id.1519151923 = phi i32 [ %cached_accept_id.131604, %if.then116.i478.thread ], [ %cached_accept_id.15, %if.then116.i478 ]
+  %cached_accept_state.1519161922 = phi i8 [ %cached_accept_state.131605, %if.then116.i478.thread ], [ %cached_accept_state.15, %if.then116.i478 ]
   %72 = load i32, ptr %report.i622, align 4
   %call.i518.i546 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub121.i4821924, i32 noundef %72, ptr noundef %context) #10
   %cmp.i519.i547 = icmp eq i32 %call.i518.i546, 0
   br i1 %cmp.i519.i547, label %return, label %if.end143.i292
 
 land.lhs.true.i372.i486:                          ; preds = %if.then116.i478
-  %cmp.i375.i489 = icmp eq i8 %conv50.i243, %cached_accept_state.13
+  %cmp.i375.i489 = icmp eq i8 %conv50.i243, %cached_accept_state.15
   br i1 %cmp.i375.i489, label %if.then.i419.i539, label %cond.false.i390.i504
 
 if.then.i419.i539:                                ; preds = %land.lhs.true.i372.i486
-  %call.i420.i540 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub121.i482, i32 noundef %cached_accept_id.13, ptr noundef %context) #10
+  %call.i420.i540 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub121.i482, i32 noundef %cached_accept_id.15, ptr noundef %context) #10
   %cmp5.i421.i541 = icmp eq i32 %call.i420.i540, 0
   br i1 %cmp5.i421.i541, label %return, label %if.end143.i292
 
@@ -693,8 +693,8 @@ fireReports.exit424.i515:                         ; preds = %cond.false.i390.i50
   br i1 %cmp27.i414.i534, label %return, label %if.end143.i292
 
 if.end143.i292:                                   ; preds = %for.cond.i398.i512, %cond.false.i390.i504, %if.end113.i289.thread, %if.then.i419.i539, %if.then127.i544, %fireReports.exit424.i515, %if.end113.i289
-  %cached_accept_id.15 = phi i32 [ %cached_accept_id.1319151923, %if.then127.i544 ], [ %78, %fireReports.exit424.i515 ], [ %cached_accept_id.13, %if.end113.i289 ], [ %cached_accept_id.13, %if.then.i419.i539 ], [ %cached_accept_id.111604, %if.end113.i289.thread ], [ %cached_accept_id.13, %cond.false.i390.i504 ], [ %cached_accept_id.13, %for.cond.i398.i512 ]
-  %cached_accept_state.15 = phi i8 [ %cached_accept_state.1319161922, %if.then127.i544 ], [ %conv50.i243, %fireReports.exit424.i515 ], [ %cached_accept_state.13, %if.end113.i289 ], [ %conv50.i243, %if.then.i419.i539 ], [ %cached_accept_state.111605, %if.end113.i289.thread ], [ %cached_accept_state.13, %cond.false.i390.i504 ], [ %cached_accept_state.13, %for.cond.i398.i512 ]
+  %cached_accept_id.17 = phi i32 [ %cached_accept_id.1519151923, %if.then127.i544 ], [ %78, %fireReports.exit424.i515 ], [ %cached_accept_id.15, %if.end113.i289 ], [ %cached_accept_id.15, %if.then.i419.i539 ], [ %cached_accept_id.131604, %if.end113.i289.thread ], [ %cached_accept_id.15, %cond.false.i390.i504 ], [ %cached_accept_id.15, %for.cond.i398.i512 ]
+  %cached_accept_state.17 = phi i8 [ %cached_accept_state.1519161922, %if.then127.i544 ], [ %conv50.i243, %fireReports.exit424.i515 ], [ %cached_accept_state.15, %if.end113.i289 ], [ %conv50.i243, %if.then.i419.i539 ], [ %cached_accept_state.131605, %if.end113.i289.thread ], [ %cached_accept_state.15, %cond.false.i390.i504 ], [ %cached_accept_state.15, %for.cond.i398.i512 ]
   %and.i2592 = and i8 %conv55.i248, 16
   %tobool145.i294.not = icmp eq i8 %and.i2592, 0
   br i1 %tobool145.i294.not, label %if.end173.i295, label %if.then146.i401
@@ -712,11 +712,11 @@ if.then157.i467:                                  ; preds = %if.then146.i401
   br i1 %cmp.i509.i470, label %return, label %if.end173.i295.thread
 
 land.lhs.true.i302.i409:                          ; preds = %if.then146.i401
-  %cmp.i305.i412 = icmp eq i8 %conv55.i248, %cached_accept_state.15
+  %cmp.i305.i412 = icmp eq i8 %conv55.i248, %cached_accept_state.17
   br i1 %cmp.i305.i412, label %if.then.i349.i462, label %cond.false.i320.i427
 
 if.then.i349.i462:                                ; preds = %land.lhs.true.i302.i409
-  %call.i350.i463 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub151.i405, i32 noundef %cached_accept_id.15, ptr noundef %context) #10
+  %call.i350.i463 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub151.i405, i32 noundef %cached_accept_id.17, ptr noundef %context) #10
   %cmp5.i351.i464 = icmp eq i32 %call.i350.i463, 0
   br i1 %cmp5.i351.i464, label %return, label %if.end173.i295
 
@@ -764,8 +764,8 @@ fireReports.exit354.i438:                         ; preds = %cond.false.i320.i42
   br i1 %cmp27.i344.i457, label %return, label %if.end173.i295
 
 if.end173.i295:                                   ; preds = %for.cond.i328.i435, %cond.false.i320.i427, %if.then.i349.i462, %fireReports.exit354.i438, %if.end143.i292
-  %cached_accept_id.17 = phi i32 [ %85, %fireReports.exit354.i438 ], [ %cached_accept_id.15, %if.end143.i292 ], [ %cached_accept_id.15, %if.then.i349.i462 ], [ %cached_accept_id.15, %cond.false.i320.i427 ], [ %cached_accept_id.15, %for.cond.i328.i435 ]
-  %cached_accept_state.17 = phi i8 [ %conv55.i248, %fireReports.exit354.i438 ], [ %cached_accept_state.15, %if.end143.i292 ], [ %conv55.i248, %if.then.i349.i462 ], [ %cached_accept_state.15, %cond.false.i320.i427 ], [ %cached_accept_state.15, %for.cond.i328.i435 ]
+  %cached_accept_id.19 = phi i32 [ %85, %fireReports.exit354.i438 ], [ %cached_accept_id.17, %if.end143.i292 ], [ %cached_accept_id.17, %if.then.i349.i462 ], [ %cached_accept_id.17, %cond.false.i320.i427 ], [ %cached_accept_id.17, %for.cond.i328.i435 ]
+  %cached_accept_state.19 = phi i8 [ %conv55.i248, %fireReports.exit354.i438 ], [ %cached_accept_state.17, %if.end143.i292 ], [ %conv55.i248, %if.then.i349.i462 ], [ %cached_accept_state.17, %cond.false.i320.i427 ], [ %cached_accept_state.17, %for.cond.i328.i435 ]
   %and.i2588 = and i8 %conv60.i253, 16
   %tobool175.i297.not = icmp eq i8 %and.i2588, 0
   br i1 %tobool175.i297.not, label %if.end203.i298, label %if.then176.i324
@@ -789,19 +789,19 @@ if.then176.i324:                                  ; preds = %if.end173.i295
 
 if.then187.i390:                                  ; preds = %if.then176.i324.thread, %if.then176.i324
   %sub.ptr.sub181.i3281938 = phi i64 [ %sub.ptr.sub181.i3281935, %if.then176.i324.thread ], [ %sub.ptr.sub181.i328, %if.then176.i324 ]
-  %cached_accept_id.1719291937 = phi i32 [ %cached_accept_id.15, %if.then176.i324.thread ], [ %cached_accept_id.17, %if.then176.i324 ]
-  %cached_accept_state.1719301936 = phi i8 [ %cached_accept_state.15, %if.then176.i324.thread ], [ %cached_accept_state.17, %if.then176.i324 ]
+  %cached_accept_id.1919291937 = phi i32 [ %cached_accept_id.17, %if.then176.i324.thread ], [ %cached_accept_id.19, %if.then176.i324 ]
+  %cached_accept_state.1919301936 = phi i8 [ %cached_accept_state.17, %if.then176.i324.thread ], [ %cached_accept_state.19, %if.then176.i324 ]
   %86 = load i32, ptr %report.i622, align 4
   %call.i499.i392 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub181.i3281938, i32 noundef %86, ptr noundef %context) #10
   %cmp.i500.i393 = icmp eq i32 %call.i499.i392, 0
   br i1 %cmp.i500.i393, label %return, label %if.end203.i298
 
 land.lhs.true.i.i332:                             ; preds = %if.then176.i324
-  %cmp.i.i335 = icmp eq i8 %conv60.i253, %cached_accept_state.17
+  %cmp.i.i335 = icmp eq i8 %conv60.i253, %cached_accept_state.19
   br i1 %cmp.i.i335, label %if.then.i.i385, label %cond.false.i.i350
 
 if.then.i.i385:                                   ; preds = %land.lhs.true.i.i332
-  %call.i.i386 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub181.i328, i32 noundef %cached_accept_id.17, ptr noundef %context) #10
+  %call.i.i386 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub181.i328, i32 noundef %cached_accept_id.19, ptr noundef %context) #10
   %cmp5.i.i387 = icmp eq i32 %call.i.i386, 0
   br i1 %cmp5.i.i387, label %return, label %if.end203.i298
 
@@ -849,15 +849,15 @@ fireReports.exit.i361:                            ; preds = %cond.false.i.i350
   br i1 %cmp27.i.i380, label %return, label %if.end203.i298
 
 if.end203.i298:                                   ; preds = %for.cond.i.i358, %cond.false.i.i350, %if.end173.i295.thread, %if.then.i.i385, %if.then187.i390, %fireReports.exit.i361, %if.end173.i295
-  %cached_accept_id.19 = phi i32 [ %cached_accept_id.1719291937, %if.then187.i390 ], [ %92, %fireReports.exit.i361 ], [ %cached_accept_id.17, %if.end173.i295 ], [ %cached_accept_id.17, %if.then.i.i385 ], [ %cached_accept_id.15, %if.end173.i295.thread ], [ %cached_accept_id.17, %cond.false.i.i350 ], [ %cached_accept_id.17, %for.cond.i.i358 ]
-  %cached_accept_state.19 = phi i8 [ %cached_accept_state.1719301936, %if.then187.i390 ], [ %conv60.i253, %fireReports.exit.i361 ], [ %cached_accept_state.17, %if.end173.i295 ], [ %conv60.i253, %if.then.i.i385 ], [ %cached_accept_state.15, %if.end173.i295.thread ], [ %cached_accept_state.17, %cond.false.i.i350 ], [ %cached_accept_state.17, %for.cond.i.i358 ]
+  %cached_accept_id.21 = phi i32 [ %cached_accept_id.1919291937, %if.then187.i390 ], [ %92, %fireReports.exit.i361 ], [ %cached_accept_id.19, %if.end173.i295 ], [ %cached_accept_id.19, %if.then.i.i385 ], [ %cached_accept_id.17, %if.end173.i295.thread ], [ %cached_accept_id.19, %cond.false.i.i350 ], [ %cached_accept_id.19, %for.cond.i.i358 ]
+  %cached_accept_state.21 = phi i8 [ %cached_accept_state.1919301936, %if.then187.i390 ], [ %conv60.i253, %fireReports.exit.i361 ], [ %cached_accept_state.19, %if.end173.i295 ], [ %conv60.i253, %if.then.i.i385 ], [ %cached_accept_state.17, %if.end173.i295.thread ], [ %cached_accept_state.19, %cond.false.i.i350 ], [ %cached_accept_state.19, %for.cond.i.i358 ]
   %and.i2358 = and i8 %conv60.i253, 32
   %tobool205.i300.not = icmp eq i8 %and.i2358, 0
   br i1 %tobool205.i300.not, label %if.end248.i262, label %if.end11.i
 
 if.end248.i262:                                   ; preds = %if.end203.i298, %while.body.i230
-  %cached_accept_id.20 = phi i32 [ %cached_accept_id.111604, %while.body.i230 ], [ %cached_accept_id.19, %if.end203.i298 ]
-  %cached_accept_state.20 = phi i8 [ %cached_accept_state.111605, %while.body.i230 ], [ %cached_accept_state.19, %if.end203.i298 ]
+  %cached_accept_id.14 = phi i32 [ %cached_accept_id.131604, %while.body.i230 ], [ %cached_accept_id.21, %if.end203.i298 ]
+  %cached_accept_state.14 = phi i8 [ %cached_accept_state.131605, %while.body.i230 ], [ %cached_accept_state.21, %if.end203.i298 ]
   %add.ptr282.i265 = getelementptr inbounds i8, ptr %cur_buf.i172.11606, i64 4
   %sub.ptr.rhs.cast.i221 = ptrtoint ptr %add.ptr282.i265 to i64
   %sub.ptr.sub.i222 = sub i64 %sub.ptr.lhs.cast.i220, %sub.ptr.rhs.cast.i221
@@ -865,18 +865,18 @@ if.end248.i262:                                   ; preds = %if.end203.i298, %wh
   br i1 %cmp35.i223, label %while.body.i230, label %if.end11.i, !llvm.loop !8
 
 if.end11.i:                                       ; preds = %if.then215.i, %if.end203.i, %if.end248.i, %if.end203.i298, %if.end248.i262, %if.end33.i217, %if.end33.i62, %if.end22.i59, %if.else.i
-  %state.2 = phi i8 [ %0, %if.end22.i59 ], [ %0, %if.else.i ], [ %0, %if.end33.i62 ], [ %0, %if.end33.i217 ], [ %conv60.i253, %if.end248.i262 ], [ %conv60.i253, %if.end203.i298 ], [ %conv60.i, %if.end248.i ], [ %conv60.i, %if.end203.i ], [ %conv60.i, %if.then215.i ]
-  %scanned.2 = phi ptr [ %add.ptr10, %if.end22.i59 ], [ %add.ptr10, %if.else.i ], [ %cur_buf.i.0, %if.end33.i62 ], [ %buffer, %if.end33.i217 ], [ %add.ptr10, %if.end203.i298 ], [ %add.ptr282.i265, %if.end248.i262 ], [ %add.ptr10, %if.end203.i ], [ %add.ptr282.i, %if.end248.i ], [ %call225.i, %if.then215.i ]
-  %cached_accept_id.22 = phi i32 [ 0, %if.end22.i59 ], [ 0, %if.else.i ], [ 0, %if.end33.i62 ], [ 0, %if.end33.i217 ], [ %cached_accept_id.19, %if.end203.i298 ], [ %cached_accept_id.20, %if.end248.i262 ], [ %cached_accept_id.8, %if.end203.i ], [ %cached_accept_id.9, %if.end248.i ], [ %cached_accept_id.8, %if.then215.i ]
-  %cached_accept_state.22 = phi i8 [ 0, %if.end22.i59 ], [ 0, %if.else.i ], [ 0, %if.end33.i62 ], [ 0, %if.end33.i217 ], [ %cached_accept_state.19, %if.end203.i298 ], [ %cached_accept_state.20, %if.end248.i262 ], [ %cached_accept_state.8, %if.end203.i ], [ %cached_accept_state.9, %if.end248.i ], [ %cached_accept_state.8, %if.then215.i ]
-  %93 = and i8 %state.2, 32
+  %state.1 = phi i8 [ %0, %if.end22.i59 ], [ %0, %if.else.i ], [ %0, %if.end33.i62 ], [ %0, %if.end33.i217 ], [ %conv60.i253, %if.end248.i262 ], [ %conv60.i253, %if.end203.i298 ], [ %conv60.i, %if.end248.i ], [ %conv60.i, %if.end203.i ], [ %conv60.i, %if.then215.i ]
+  %scanned.1 = phi ptr [ %add.ptr10, %if.end22.i59 ], [ %add.ptr10, %if.else.i ], [ %cur_buf.i.0, %if.end33.i62 ], [ %buffer, %if.end33.i217 ], [ %add.ptr10, %if.end203.i298 ], [ %add.ptr282.i265, %if.end248.i262 ], [ %add.ptr10, %if.end203.i ], [ %add.ptr282.i, %if.end248.i ], [ %call225.i, %if.then215.i ]
+  %cached_accept_id.11 = phi i32 [ 0, %if.end22.i59 ], [ 0, %if.else.i ], [ 0, %if.end33.i62 ], [ 0, %if.end33.i217 ], [ %cached_accept_id.21, %if.end203.i298 ], [ %cached_accept_id.14, %if.end248.i262 ], [ %cached_accept_id.9, %if.end203.i ], [ %cached_accept_id.2, %if.end248.i ], [ %cached_accept_id.9, %if.then215.i ]
+  %cached_accept_state.11 = phi i8 [ 0, %if.end22.i59 ], [ 0, %if.else.i ], [ 0, %if.end33.i62 ], [ 0, %if.end33.i217 ], [ %cached_accept_state.21, %if.end203.i298 ], [ %cached_accept_state.14, %if.end248.i262 ], [ %cached_accept_state.9, %if.end203.i ], [ %cached_accept_state.2, %if.end248.i ], [ %cached_accept_state.9, %if.then215.i ]
+  %93 = and i8 %state.1, 32
   %tobool.i681.not = icmp ne i8 %93, 0
-  %cmp.i684.not1613 = icmp eq ptr %scanned.2, %add.ptr10
+  %cmp.i684.not1613 = icmp eq ptr %scanned.1, %add.ptr10
   %or.cond2170 = select i1 %tobool.i681.not, i1 true, i1 %cmp.i684.not1613
   br i1 %or.cond2170, label %do.end16, label %while.body.i689.lr.ph
 
 while.body.i689.lr.ph:                            ; preds = %if.end11.i
-  %vecinit.i2712 = insertelement <16 x i8> poison, i8 %state.2, i64 0
+  %vecinit.i2712 = insertelement <16 x i8> poison, i8 %state.1, i64 0
   %vecinit15.i2727 = shufflevector <16 x i8> %vecinit.i2712, <16 x i8> poison, <16 x i32> zeroinitializer
   %sub.ptr.rhs.cast.i695 = ptrtoint ptr %buffer to i64
   %sub.ptr.sub.i696 = add i64 %offset, 1
@@ -887,10 +887,10 @@ while.body.i689.lr.ph:                            ; preds = %if.end11.i
   br i1 %tobool29.i698.not, label %while.body.i689.us, label %while.body.i689
 
 while.body.i689.us:                               ; preds = %while.body.i689.lr.ph, %if.end44.i.us
-  %cur_buf.i676.01616.us = phi ptr [ %incdec.ptr.i.us, %if.end44.i.us ], [ %scanned.2, %while.body.i689.lr.ph ]
+  %cur_buf.i676.01616.us = phi ptr [ %incdec.ptr.i.us, %if.end44.i.us ], [ %scanned.1, %while.body.i689.lr.ph ]
   %94 = phi <16 x i8> [ %97, %if.end44.i.us ], [ %vecinit15.i2727, %while.body.i689.lr.ph ]
-  %cached_accept_state.231615.us = phi i8 [ %cached_accept_state.25.us, %if.end44.i.us ], [ %cached_accept_state.22, %while.body.i689.lr.ph ]
-  %cached_accept_id.231614.us = phi i32 [ %cached_accept_id.25.us, %if.end44.i.us ], [ %cached_accept_id.22, %while.body.i689.lr.ph ]
+  %cached_accept_state.251615.us = phi i8 [ %cached_accept_state.26.us, %if.end44.i.us ], [ %cached_accept_state.11, %while.body.i689.lr.ph ]
+  %cached_accept_id.251614.us = phi i32 [ %cached_accept_id.26.us, %if.end44.i.us ], [ %cached_accept_id.11, %while.body.i689.lr.ph ]
   %95 = load i8, ptr %cur_buf.i676.01616.us, align 1
   %idxprom.i690.us = zext i8 %95 to i64
   %arrayidx.i691.us = getelementptr inbounds <2 x i64>, ptr %add.ptr, i64 %idxprom.i690.us
@@ -904,7 +904,7 @@ while.body.i689.us:                               ; preds = %while.body.i689.lr.
 if.then23.i.us:                                   ; preds = %while.body.i689.us
   %sub.ptr.lhs.cast.i694.us = ptrtoint ptr %cur_buf.i676.01616.us to i64
   %add26.i.us = add i64 %add.i697, %sub.ptr.lhs.cast.i694.us
-  %cmp.i.i704.us = icmp eq i8 %conv10.i692.us, %cached_accept_state.231615.us
+  %cmp.i.i704.us = icmp eq i8 %conv10.i692.us, %cached_accept_state.251615.us
   br i1 %cmp.i.i704.us, label %if.then.i.i753.us, label %cond.false.i.i719.us
 
 cond.false.i.i719.us:                             ; preds = %if.then23.i.us
@@ -946,13 +946,13 @@ fireReports.exit.i730.us:                         ; preds = %cond.false.i.i719.u
   br i1 %cmp27.i.i748.us, label %return, label %if.end44.i.us
 
 if.then.i.i753.us:                                ; preds = %if.then23.i.us
-  %call.i.i754.us = tail call i32 %cb(i64 noundef 0, i64 noundef %add26.i.us, i32 noundef %cached_accept_id.231614.us, ptr noundef %context) #10
+  %call.i.i754.us = tail call i32 %cb(i64 noundef 0, i64 noundef %add26.i.us, i32 noundef %cached_accept_id.251614.us, ptr noundef %context) #10
   %cmp5.i.i755.us = icmp eq i32 %call.i.i754.us, 0
   br i1 %cmp5.i.i755.us, label %return, label %if.end44.i.us
 
 if.end44.i.us:                                    ; preds = %for.cond.i.i727.us, %cond.false.i.i719.us, %if.then.i.i753.us, %fireReports.exit.i730.us, %while.body.i689.us
-  %cached_accept_id.25.us = phi i32 [ %103, %fireReports.exit.i730.us ], [ %cached_accept_id.231614.us, %while.body.i689.us ], [ %cached_accept_id.231614.us, %if.then.i.i753.us ], [ %cached_accept_id.231614.us, %cond.false.i.i719.us ], [ %cached_accept_id.231614.us, %for.cond.i.i727.us ]
-  %cached_accept_state.25.us = phi i8 [ %conv10.i692.us, %fireReports.exit.i730.us ], [ %cached_accept_state.231615.us, %while.body.i689.us ], [ %cached_accept_state.231615.us, %if.then.i.i753.us ], [ %cached_accept_state.231615.us, %cond.false.i.i719.us ], [ %cached_accept_state.231615.us, %for.cond.i.i727.us ]
+  %cached_accept_id.26.us = phi i32 [ %103, %fireReports.exit.i730.us ], [ %cached_accept_id.251614.us, %while.body.i689.us ], [ %cached_accept_id.251614.us, %if.then.i.i753.us ], [ %cached_accept_id.251614.us, %cond.false.i.i719.us ], [ %cached_accept_id.251614.us, %for.cond.i.i727.us ]
+  %cached_accept_state.26.us = phi i8 [ %conv10.i692.us, %fireReports.exit.i730.us ], [ %cached_accept_state.251615.us, %while.body.i689.us ], [ %cached_accept_state.251615.us, %if.then.i.i753.us ], [ %cached_accept_state.251615.us, %cond.false.i.i719.us ], [ %cached_accept_state.251615.us, %for.cond.i.i727.us ]
   %incdec.ptr.i.us = getelementptr inbounds i8, ptr %cur_buf.i676.01616.us, i64 1
   %cmp.i684.not.us = icmp eq ptr %incdec.ptr.i.us, %add.ptr10
   br i1 %cmp.i684.not.us, label %do.end16, label %while.body.i689.us, !llvm.loop !9
@@ -963,7 +963,7 @@ for.body.i.i735.lr.ph.us:                         ; preds = %cond.false.i.i719.u
   br label %for.body.i.i735.us
 
 while.body.i689:                                  ; preds = %while.body.i689.lr.ph, %if.end44.i
-  %cur_buf.i676.01616 = phi ptr [ %incdec.ptr.i, %if.end44.i ], [ %scanned.2, %while.body.i689.lr.ph ]
+  %cur_buf.i676.01616 = phi ptr [ %incdec.ptr.i, %if.end44.i ], [ %scanned.1, %while.body.i689.lr.ph ]
   %104 = phi <16 x i8> [ %107, %if.end44.i ], [ %vecinit15.i2727, %while.body.i689.lr.ph ]
   %105 = load i8, ptr %cur_buf.i676.01616, align 1
   %idxprom.i690 = zext i8 %105 to i64
@@ -1013,12 +1013,12 @@ if.then.i1321:                                    ; preds = %if.then16.i
   %call11.i1326 = tail call ptr @run_accel(ptr noundef nonnull %add.ptr1.i2175, ptr noundef %buffer, ptr noundef %add.ptr10) #10
   %add.ptr.i1327 = getelementptr inbounds i8, ptr %buffer, i64 4
   %cmp.i1328 = icmp ult ptr %call11.i1326, %add.ptr.i1327
-  %min_accel_dist.i860.0.v = select i1 %cmp.i1328, i64 32, i64 8
-  %min_accel_dist.i860.0 = getelementptr inbounds i8, ptr %call11.i1326, i64 %min_accel_dist.i860.0.v
+  %min_accel_dist.i860.1.v = select i1 %cmp.i1328, i64 32, i64 8
+  %min_accel_dist.i860.1 = getelementptr inbounds i8, ptr %call11.i1326, i64 %min_accel_dist.i860.1.v
   br label %if.end33.i905
 
 if.end33.i905:                                    ; preds = %if.then16.i, %if.then.i1321
-  %min_accel_dist.i860.1 = phi ptr [ %min_accel_dist.i860.0, %if.then.i1321 ], [ %buffer, %if.then16.i ]
+  %min_accel_dist.i860.0 = phi ptr [ %min_accel_dist.i860.1, %if.then.i1321 ], [ %buffer, %if.then16.i ]
   %cur_buf.i859.0 = phi ptr [ %call11.i1326, %if.then.i1321 ], [ %buffer, %if.then16.i ]
   %sub.ptr.lhs.cast.i908 = ptrtoint ptr %add.ptr10 to i64
   %invariant.gep1640 = getelementptr inbounds i8, ptr %n, i64 72
@@ -1038,17 +1038,17 @@ while.body.i918.lr.ph.lr.ph:                      ; preds = %if.end33.i905
 
 while.body.i918.lr.ph:                            ; preds = %while.body.i918.lr.ph.lr.ph, %if.then215.i996
   %cur_buf.i859.1.ph1651 = phi ptr [ %cur_buf.i859.0, %while.body.i918.lr.ph.lr.ph ], [ %call225.i1002, %if.then215.i996 ]
-  %min_accel_dist.i860.2.ph1650 = phi ptr [ %min_accel_dist.i860.1, %while.body.i918.lr.ph.lr.ph ], [ %min_accel_dist.i860.3, %if.then215.i996 ]
+  %min_accel_dist.i860.2.ph1650 = phi ptr [ %min_accel_dist.i860.0, %while.body.i918.lr.ph.lr.ph ], [ %min_accel_dist.i860.3, %if.then215.i996 ]
   %.ph1649 = phi <16 x i8> [ %vecinit15.i2694, %while.body.i918.lr.ph.lr.ph ], [ %124, %if.then215.i996 ]
-  %cached_accept_state.27.ph1648 = phi i8 [ 0, %while.body.i918.lr.ph.lr.ph ], [ %cached_accept_state.35, %if.then215.i996 ]
-  %cached_accept_id.27.ph1647 = phi i32 [ 0, %while.body.i918.lr.ph.lr.ph ], [ %cached_accept_id.35, %if.then215.i996 ]
+  %cached_accept_state.30.ph1648 = phi i8 [ 0, %while.body.i918.lr.ph.lr.ph ], [ %cached_accept_state.38, %if.then215.i996 ]
+  %cached_accept_id.30.ph1647 = phi i32 [ 0, %while.body.i918.lr.ph.lr.ph ], [ %cached_accept_id.38, %if.then215.i996 ]
   br label %while.body.i918
 
 while.body.i918:                                  ; preds = %while.body.i918.lr.ph, %if.end248.i950
   %cur_buf.i859.11631 = phi ptr [ %cur_buf.i859.1.ph1651, %while.body.i918.lr.ph ], [ %add.ptr282.i953, %if.end248.i950 ]
   %112 = phi <16 x i8> [ %.ph1649, %while.body.i918.lr.ph ], [ %124, %if.end248.i950 ]
-  %cached_accept_state.271630 = phi i8 [ %cached_accept_state.27.ph1648, %while.body.i918.lr.ph ], [ %cached_accept_state.36, %if.end248.i950 ]
-  %cached_accept_id.271629 = phi i32 [ %cached_accept_id.27.ph1647, %while.body.i918.lr.ph ], [ %cached_accept_id.36, %if.end248.i950 ]
+  %cached_accept_state.301630 = phi i8 [ %cached_accept_state.30.ph1648, %while.body.i918.lr.ph ], [ %cached_accept_state.31, %if.end248.i950 ]
+  %cached_accept_id.301629 = phi i32 [ %cached_accept_id.30.ph1647, %while.body.i918.lr.ph ], [ %cached_accept_id.31, %if.end248.i950 ]
   %add.ptr40.i919 = getelementptr inbounds i8, ptr %cur_buf.i859.11631, i64 1
   %add.ptr41.i920 = getelementptr inbounds i8, ptr %cur_buf.i859.11631, i64 2
   %add.ptr42.i921 = getelementptr inbounds i8, ptr %cur_buf.i859.11631, i64 3
@@ -1102,11 +1102,11 @@ if.then98.i1309:                                  ; preds = %if.then88.i1243
   br i1 %cmp.i529.i1312, label %return, label %if.end113.i977.thread
 
 land.lhs.true.i442.i1251:                         ; preds = %if.then88.i1243
-  %cmp.i445.i1254 = icmp eq i8 %conv45.i926, %cached_accept_state.271630
+  %cmp.i445.i1254 = icmp eq i8 %conv45.i926, %cached_accept_state.301630
   br i1 %cmp.i445.i1254, label %if.then.i489.i1304, label %cond.false.i460.i1269
 
 if.then.i489.i1304:                               ; preds = %land.lhs.true.i442.i1251
-  %call.i490.i1305 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub92.i1247, i32 noundef %cached_accept_id.271629, ptr noundef %context) #10
+  %call.i490.i1305 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub92.i1247, i32 noundef %cached_accept_id.301629, ptr noundef %context) #10
   %cmp5.i491.i1306 = icmp eq i32 %call.i490.i1305, 0
   br i1 %cmp5.i491.i1306, label %return, label %if.end113.i977
 
@@ -1154,8 +1154,8 @@ fireReports.exit494.i1280:                        ; preds = %cond.false.i460.i12
   br i1 %cmp27.i484.i1299, label %return, label %if.end113.i977
 
 if.end113.i977:                                   ; preds = %for.cond.i468.i1277, %cond.false.i460.i1269, %if.then.i489.i1304, %fireReports.exit494.i1280, %if.then85.i974
-  %cached_accept_id.29 = phi i32 [ %131, %fireReports.exit494.i1280 ], [ %cached_accept_id.271629, %if.then85.i974 ], [ %cached_accept_id.271629, %if.then.i489.i1304 ], [ %cached_accept_id.271629, %cond.false.i460.i1269 ], [ %cached_accept_id.271629, %for.cond.i468.i1277 ]
-  %cached_accept_state.29 = phi i8 [ %conv45.i926, %fireReports.exit494.i1280 ], [ %cached_accept_state.271630, %if.then85.i974 ], [ %cached_accept_state.271630, %if.then.i489.i1304 ], [ %cached_accept_state.271630, %cond.false.i460.i1269 ], [ %cached_accept_state.271630, %for.cond.i468.i1277 ]
+  %cached_accept_id.32 = phi i32 [ %131, %fireReports.exit494.i1280 ], [ %cached_accept_id.301629, %if.then85.i974 ], [ %cached_accept_id.301629, %if.then.i489.i1304 ], [ %cached_accept_id.301629, %cond.false.i460.i1269 ], [ %cached_accept_id.301629, %for.cond.i468.i1277 ]
+  %cached_accept_state.32 = phi i8 [ %conv45.i926, %fireReports.exit494.i1280 ], [ %cached_accept_state.301630, %if.then85.i974 ], [ %cached_accept_state.301630, %if.then.i489.i1304 ], [ %cached_accept_state.301630, %cond.false.i460.i1269 ], [ %cached_accept_state.301630, %for.cond.i468.i1277 ]
   %and.i2576 = and i8 %conv50.i931, 16
   %tobool115.i979.not = icmp eq i8 %and.i2576, 0
   br i1 %tobool115.i979.not, label %if.end143.i980, label %if.then116.i1166
@@ -1179,19 +1179,19 @@ if.then116.i1166:                                 ; preds = %if.end113.i977
 
 if.then127.i1232:                                 ; preds = %if.then116.i1166.thread, %if.then116.i1166
   %sub.ptr.sub121.i11701952 = phi i64 [ %sub.ptr.sub121.i11701949, %if.then116.i1166.thread ], [ %sub.ptr.sub121.i1170, %if.then116.i1166 ]
-  %cached_accept_id.2919431951 = phi i32 [ %cached_accept_id.271629, %if.then116.i1166.thread ], [ %cached_accept_id.29, %if.then116.i1166 ]
-  %cached_accept_state.2919441950 = phi i8 [ %cached_accept_state.271630, %if.then116.i1166.thread ], [ %cached_accept_state.29, %if.then116.i1166 ]
+  %cached_accept_id.3219431951 = phi i32 [ %cached_accept_id.301629, %if.then116.i1166.thread ], [ %cached_accept_id.32, %if.then116.i1166 ]
+  %cached_accept_state.3219441950 = phi i8 [ %cached_accept_state.301630, %if.then116.i1166.thread ], [ %cached_accept_state.32, %if.then116.i1166 ]
   %132 = load i32, ptr %report.i1310, align 4
   %call.i518.i1234 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub121.i11701952, i32 noundef %132, ptr noundef %context) #10
   %cmp.i519.i1235 = icmp eq i32 %call.i518.i1234, 0
   br i1 %cmp.i519.i1235, label %return, label %if.end143.i980
 
 land.lhs.true.i372.i1174:                         ; preds = %if.then116.i1166
-  %cmp.i375.i1177 = icmp eq i8 %conv50.i931, %cached_accept_state.29
+  %cmp.i375.i1177 = icmp eq i8 %conv50.i931, %cached_accept_state.32
   br i1 %cmp.i375.i1177, label %if.then.i419.i1227, label %cond.false.i390.i1192
 
 if.then.i419.i1227:                               ; preds = %land.lhs.true.i372.i1174
-  %call.i420.i1228 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub121.i1170, i32 noundef %cached_accept_id.29, ptr noundef %context) #10
+  %call.i420.i1228 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub121.i1170, i32 noundef %cached_accept_id.32, ptr noundef %context) #10
   %cmp5.i421.i1229 = icmp eq i32 %call.i420.i1228, 0
   br i1 %cmp5.i421.i1229, label %return, label %if.end143.i980
 
@@ -1239,8 +1239,8 @@ fireReports.exit424.i1203:                        ; preds = %cond.false.i390.i11
   br i1 %cmp27.i414.i1222, label %return, label %if.end143.i980
 
 if.end143.i980:                                   ; preds = %for.cond.i398.i1200, %cond.false.i390.i1192, %if.end113.i977.thread, %if.then.i419.i1227, %if.then127.i1232, %fireReports.exit424.i1203, %if.end113.i977
-  %cached_accept_id.31 = phi i32 [ %cached_accept_id.2919431951, %if.then127.i1232 ], [ %138, %fireReports.exit424.i1203 ], [ %cached_accept_id.29, %if.end113.i977 ], [ %cached_accept_id.29, %if.then.i419.i1227 ], [ %cached_accept_id.271629, %if.end113.i977.thread ], [ %cached_accept_id.29, %cond.false.i390.i1192 ], [ %cached_accept_id.29, %for.cond.i398.i1200 ]
-  %cached_accept_state.31 = phi i8 [ %cached_accept_state.2919441950, %if.then127.i1232 ], [ %conv50.i931, %fireReports.exit424.i1203 ], [ %cached_accept_state.29, %if.end113.i977 ], [ %conv50.i931, %if.then.i419.i1227 ], [ %cached_accept_state.271630, %if.end113.i977.thread ], [ %cached_accept_state.29, %cond.false.i390.i1192 ], [ %cached_accept_state.29, %for.cond.i398.i1200 ]
+  %cached_accept_id.34 = phi i32 [ %cached_accept_id.3219431951, %if.then127.i1232 ], [ %138, %fireReports.exit424.i1203 ], [ %cached_accept_id.32, %if.end113.i977 ], [ %cached_accept_id.32, %if.then.i419.i1227 ], [ %cached_accept_id.301629, %if.end113.i977.thread ], [ %cached_accept_id.32, %cond.false.i390.i1192 ], [ %cached_accept_id.32, %for.cond.i398.i1200 ]
+  %cached_accept_state.34 = phi i8 [ %cached_accept_state.3219441950, %if.then127.i1232 ], [ %conv50.i931, %fireReports.exit424.i1203 ], [ %cached_accept_state.32, %if.end113.i977 ], [ %conv50.i931, %if.then.i419.i1227 ], [ %cached_accept_state.301630, %if.end113.i977.thread ], [ %cached_accept_state.32, %cond.false.i390.i1192 ], [ %cached_accept_state.32, %for.cond.i398.i1200 ]
   %and.i2572 = and i8 %conv55.i936, 16
   %tobool145.i982.not = icmp eq i8 %and.i2572, 0
   br i1 %tobool145.i982.not, label %if.end173.i983, label %if.then146.i1089
@@ -1258,11 +1258,11 @@ if.then157.i1155:                                 ; preds = %if.then146.i1089
   br i1 %cmp.i509.i1158, label %return, label %if.end173.i983.thread
 
 land.lhs.true.i302.i1097:                         ; preds = %if.then146.i1089
-  %cmp.i305.i1100 = icmp eq i8 %conv55.i936, %cached_accept_state.31
+  %cmp.i305.i1100 = icmp eq i8 %conv55.i936, %cached_accept_state.34
   br i1 %cmp.i305.i1100, label %if.then.i349.i1150, label %cond.false.i320.i1115
 
 if.then.i349.i1150:                               ; preds = %land.lhs.true.i302.i1097
-  %call.i350.i1151 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub151.i1093, i32 noundef %cached_accept_id.31, ptr noundef %context) #10
+  %call.i350.i1151 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub151.i1093, i32 noundef %cached_accept_id.34, ptr noundef %context) #10
   %cmp5.i351.i1152 = icmp eq i32 %call.i350.i1151, 0
   br i1 %cmp5.i351.i1152, label %return, label %if.end173.i983
 
@@ -1310,8 +1310,8 @@ fireReports.exit354.i1126:                        ; preds = %cond.false.i320.i11
   br i1 %cmp27.i344.i1145, label %return, label %if.end173.i983
 
 if.end173.i983:                                   ; preds = %for.cond.i328.i1123, %cond.false.i320.i1115, %if.then.i349.i1150, %fireReports.exit354.i1126, %if.end143.i980
-  %cached_accept_id.33 = phi i32 [ %145, %fireReports.exit354.i1126 ], [ %cached_accept_id.31, %if.end143.i980 ], [ %cached_accept_id.31, %if.then.i349.i1150 ], [ %cached_accept_id.31, %cond.false.i320.i1115 ], [ %cached_accept_id.31, %for.cond.i328.i1123 ]
-  %cached_accept_state.33 = phi i8 [ %conv55.i936, %fireReports.exit354.i1126 ], [ %cached_accept_state.31, %if.end143.i980 ], [ %conv55.i936, %if.then.i349.i1150 ], [ %cached_accept_state.31, %cond.false.i320.i1115 ], [ %cached_accept_state.31, %for.cond.i328.i1123 ]
+  %cached_accept_id.36 = phi i32 [ %145, %fireReports.exit354.i1126 ], [ %cached_accept_id.34, %if.end143.i980 ], [ %cached_accept_id.34, %if.then.i349.i1150 ], [ %cached_accept_id.34, %cond.false.i320.i1115 ], [ %cached_accept_id.34, %for.cond.i328.i1123 ]
+  %cached_accept_state.36 = phi i8 [ %conv55.i936, %fireReports.exit354.i1126 ], [ %cached_accept_state.34, %if.end143.i980 ], [ %conv55.i936, %if.then.i349.i1150 ], [ %cached_accept_state.34, %cond.false.i320.i1115 ], [ %cached_accept_state.34, %for.cond.i328.i1123 ]
   %and.i2568 = and i8 %conv60.i941, 16
   %tobool175.i985.not = icmp eq i8 %and.i2568, 0
   br i1 %tobool175.i985.not, label %if.end209.i989, label %if.then176.i1012
@@ -1335,19 +1335,19 @@ if.then176.i1012:                                 ; preds = %if.end173.i983
 
 if.then187.i1078:                                 ; preds = %if.then176.i1012.thread, %if.then176.i1012
   %sub.ptr.sub181.i10161966 = phi i64 [ %sub.ptr.sub181.i10161963, %if.then176.i1012.thread ], [ %sub.ptr.sub181.i1016, %if.then176.i1012 ]
-  %cached_accept_id.3319571965 = phi i32 [ %cached_accept_id.31, %if.then176.i1012.thread ], [ %cached_accept_id.33, %if.then176.i1012 ]
-  %cached_accept_state.3319581964 = phi i8 [ %cached_accept_state.31, %if.then176.i1012.thread ], [ %cached_accept_state.33, %if.then176.i1012 ]
+  %cached_accept_id.3619571965 = phi i32 [ %cached_accept_id.34, %if.then176.i1012.thread ], [ %cached_accept_id.36, %if.then176.i1012 ]
+  %cached_accept_state.3619581964 = phi i8 [ %cached_accept_state.34, %if.then176.i1012.thread ], [ %cached_accept_state.36, %if.then176.i1012 ]
   %146 = load i32, ptr %report.i1310, align 4
   %call.i499.i1080 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub181.i10161966, i32 noundef %146, ptr noundef %context) #10
   %cmp.i500.i1081 = icmp eq i32 %call.i499.i1080, 0
   br i1 %cmp.i500.i1081, label %return, label %if.end209.i989
 
 land.lhs.true.i.i1020:                            ; preds = %if.then176.i1012
-  %cmp.i.i1023 = icmp eq i8 %conv60.i941, %cached_accept_state.33
+  %cmp.i.i1023 = icmp eq i8 %conv60.i941, %cached_accept_state.36
   br i1 %cmp.i.i1023, label %if.then.i.i1073, label %cond.false.i.i1038
 
 if.then.i.i1073:                                  ; preds = %land.lhs.true.i.i1020
-  %call.i.i1074 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub181.i1016, i32 noundef %cached_accept_id.33, ptr noundef %context) #10
+  %call.i.i1074 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub181.i1016, i32 noundef %cached_accept_id.36, ptr noundef %context) #10
   %cmp5.i.i1075 = icmp eq i32 %call.i.i1074, 0
   br i1 %cmp5.i.i1075, label %return, label %if.end209.i989
 
@@ -1395,8 +1395,8 @@ fireReports.exit.i1049:                           ; preds = %cond.false.i.i1038
   br i1 %cmp27.i.i1068, label %return, label %if.end209.i989
 
 if.end209.i989:                                   ; preds = %for.cond.i.i1046, %cond.false.i.i1038, %if.end173.i983.thread, %if.then.i.i1073, %if.end173.i983, %fireReports.exit.i1049, %if.then187.i1078
-  %cached_accept_id.35 = phi i32 [ %cached_accept_id.3319571965, %if.then187.i1078 ], [ %152, %fireReports.exit.i1049 ], [ %cached_accept_id.33, %if.end173.i983 ], [ %cached_accept_id.33, %if.then.i.i1073 ], [ %cached_accept_id.31, %if.end173.i983.thread ], [ %cached_accept_id.33, %cond.false.i.i1038 ], [ %cached_accept_id.33, %for.cond.i.i1046 ]
-  %cached_accept_state.35 = phi i8 [ %cached_accept_state.3319581964, %if.then187.i1078 ], [ %conv60.i941, %fireReports.exit.i1049 ], [ %cached_accept_state.33, %if.end173.i983 ], [ %conv60.i941, %if.then.i.i1073 ], [ %cached_accept_state.31, %if.end173.i983.thread ], [ %cached_accept_state.33, %cond.false.i.i1038 ], [ %cached_accept_state.33, %for.cond.i.i1046 ]
+  %cached_accept_id.38 = phi i32 [ %cached_accept_id.3619571965, %if.then187.i1078 ], [ %152, %fireReports.exit.i1049 ], [ %cached_accept_id.36, %if.end173.i983 ], [ %cached_accept_id.36, %if.then.i.i1073 ], [ %cached_accept_id.34, %if.end173.i983.thread ], [ %cached_accept_id.36, %cond.false.i.i1038 ], [ %cached_accept_id.36, %for.cond.i.i1046 ]
+  %cached_accept_state.38 = phi i8 [ %cached_accept_state.3619581964, %if.then187.i1078 ], [ %conv60.i941, %fireReports.exit.i1049 ], [ %cached_accept_state.36, %if.end173.i983 ], [ %conv60.i941, %if.then.i.i1073 ], [ %cached_accept_state.34, %if.end173.i983.thread ], [ %cached_accept_state.36, %cond.false.i.i1038 ], [ %cached_accept_state.36, %for.cond.i.i1046 ]
   %cmp210.i990 = icmp ule ptr %cur_buf.i859.11631, %min_accel_dist.i860.2.ph1650
   %and.i2052 = and i8 %conv60.i941, 64
   %tobool214.i995.not = icmp eq i8 %and.i2052, 0
@@ -1426,8 +1426,8 @@ if.then215.i996:                                  ; preds = %if.end209.i989
   br i1 %cmp35.i9111628, label %while.body.i918.lr.ph, label %if.end.i1949, !llvm.loop !10
 
 if.end248.i950:                                   ; preds = %while.body.i918, %if.end209.i989
-  %cached_accept_id.36 = phi i32 [ %cached_accept_id.35, %if.end209.i989 ], [ %cached_accept_id.271629, %while.body.i918 ]
-  %cached_accept_state.36 = phi i8 [ %cached_accept_state.35, %if.end209.i989 ], [ %cached_accept_state.271630, %while.body.i918 ]
+  %cached_accept_id.31 = phi i32 [ %cached_accept_id.38, %if.end209.i989 ], [ %cached_accept_id.301629, %while.body.i918 ]
+  %cached_accept_state.31 = phi i8 [ %cached_accept_state.38, %if.end209.i989 ], [ %cached_accept_state.301630, %while.body.i918 ]
   %add.ptr282.i953 = getelementptr inbounds i8, ptr %cur_buf.i859.11631, i64 4
   %sub.ptr.rhs.cast.i909 = ptrtoint ptr %add.ptr282.i953 to i64
   %sub.ptr.sub.i910 = sub i64 %sub.ptr.lhs.cast.i908, %sub.ptr.rhs.cast.i909
@@ -1451,8 +1451,8 @@ while.body.i1490.lr.ph:                           ; preds = %if.else19.i
 while.body.i1490:                                 ; preds = %while.body.i1490.lr.ph, %if.end248.i1522
   %cur_buf.i1431.11669 = phi ptr [ %buffer, %while.body.i1490.lr.ph ], [ %add.ptr282.i1525, %if.end248.i1522 ]
   %156 = phi <16 x i8> [ %vecinit15.i2661, %while.body.i1490.lr.ph ], [ %168, %if.end248.i1522 ]
-  %cached_accept_state.381668 = phi i8 [ 0, %while.body.i1490.lr.ph ], [ %cached_accept_state.47, %if.end248.i1522 ]
-  %cached_accept_id.381667 = phi i32 [ 0, %while.body.i1490.lr.ph ], [ %cached_accept_id.47, %if.end248.i1522 ]
+  %cached_accept_state.421668 = phi i8 [ 0, %while.body.i1490.lr.ph ], [ %cached_accept_state.43, %if.end248.i1522 ]
+  %cached_accept_id.421667 = phi i32 [ 0, %while.body.i1490.lr.ph ], [ %cached_accept_id.43, %if.end248.i1522 ]
   %add.ptr40.i1491 = getelementptr inbounds i8, ptr %cur_buf.i1431.11669, i64 1
   %add.ptr41.i1492 = getelementptr inbounds i8, ptr %cur_buf.i1431.11669, i64 2
   %add.ptr42.i1493 = getelementptr inbounds i8, ptr %cur_buf.i1431.11669, i64 3
@@ -1505,11 +1505,11 @@ if.then98.i1881:                                  ; preds = %if.then88.i1815
   br i1 %cmp.i529.i1884, label %return, label %if.end113.i1549.thread
 
 land.lhs.true.i442.i1823:                         ; preds = %if.then88.i1815
-  %cmp.i445.i1826 = icmp eq i8 %conv45.i1498, %cached_accept_state.381668
+  %cmp.i445.i1826 = icmp eq i8 %conv45.i1498, %cached_accept_state.421668
   br i1 %cmp.i445.i1826, label %if.then.i489.i1876, label %cond.false.i460.i1841
 
 if.then.i489.i1876:                               ; preds = %land.lhs.true.i442.i1823
-  %call.i490.i1877 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub92.i1819, i32 noundef %cached_accept_id.381667, ptr noundef %context) #10
+  %call.i490.i1877 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub92.i1819, i32 noundef %cached_accept_id.421667, ptr noundef %context) #10
   %cmp5.i491.i1878 = icmp eq i32 %call.i490.i1877, 0
   br i1 %cmp5.i491.i1878, label %return, label %if.end113.i1549
 
@@ -1557,8 +1557,8 @@ fireReports.exit494.i1852:                        ; preds = %cond.false.i460.i18
   br i1 %cmp27.i484.i1871, label %return, label %if.end113.i1549
 
 if.end113.i1549:                                  ; preds = %for.cond.i468.i1849, %cond.false.i460.i1841, %if.then.i489.i1876, %fireReports.exit494.i1852, %if.then85.i1546
-  %cached_accept_id.40 = phi i32 [ %175, %fireReports.exit494.i1852 ], [ %cached_accept_id.381667, %if.then85.i1546 ], [ %cached_accept_id.381667, %if.then.i489.i1876 ], [ %cached_accept_id.381667, %cond.false.i460.i1841 ], [ %cached_accept_id.381667, %for.cond.i468.i1849 ]
-  %cached_accept_state.40 = phi i8 [ %conv45.i1498, %fireReports.exit494.i1852 ], [ %cached_accept_state.381668, %if.then85.i1546 ], [ %cached_accept_state.381668, %if.then.i489.i1876 ], [ %cached_accept_state.381668, %cond.false.i460.i1841 ], [ %cached_accept_state.381668, %for.cond.i468.i1849 ]
+  %cached_accept_id.44 = phi i32 [ %175, %fireReports.exit494.i1852 ], [ %cached_accept_id.421667, %if.then85.i1546 ], [ %cached_accept_id.421667, %if.then.i489.i1876 ], [ %cached_accept_id.421667, %cond.false.i460.i1841 ], [ %cached_accept_id.421667, %for.cond.i468.i1849 ]
+  %cached_accept_state.44 = phi i8 [ %conv45.i1498, %fireReports.exit494.i1852 ], [ %cached_accept_state.421668, %if.then85.i1546 ], [ %cached_accept_state.421668, %if.then.i489.i1876 ], [ %cached_accept_state.421668, %cond.false.i460.i1841 ], [ %cached_accept_state.421668, %for.cond.i468.i1849 ]
   %and.i2560 = and i8 %conv50.i1503, 16
   %tobool115.i1551.not = icmp eq i8 %and.i2560, 0
   br i1 %tobool115.i1551.not, label %if.end143.i1552, label %if.then116.i1738
@@ -1582,19 +1582,19 @@ if.then116.i1738:                                 ; preds = %if.end113.i1549
 
 if.then127.i1804:                                 ; preds = %if.then116.i1738.thread, %if.then116.i1738
   %sub.ptr.sub121.i17421980 = phi i64 [ %sub.ptr.sub121.i17421977, %if.then116.i1738.thread ], [ %sub.ptr.sub121.i1742, %if.then116.i1738 ]
-  %cached_accept_id.4019711979 = phi i32 [ %cached_accept_id.381667, %if.then116.i1738.thread ], [ %cached_accept_id.40, %if.then116.i1738 ]
-  %cached_accept_state.4019721978 = phi i8 [ %cached_accept_state.381668, %if.then116.i1738.thread ], [ %cached_accept_state.40, %if.then116.i1738 ]
+  %cached_accept_id.4419711979 = phi i32 [ %cached_accept_id.421667, %if.then116.i1738.thread ], [ %cached_accept_id.44, %if.then116.i1738 ]
+  %cached_accept_state.4419721978 = phi i8 [ %cached_accept_state.421668, %if.then116.i1738.thread ], [ %cached_accept_state.44, %if.then116.i1738 ]
   %176 = load i32, ptr %report.i1882, align 4
   %call.i518.i1806 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub121.i17421980, i32 noundef %176, ptr noundef %context) #10
   %cmp.i519.i1807 = icmp eq i32 %call.i518.i1806, 0
   br i1 %cmp.i519.i1807, label %return, label %if.end143.i1552
 
 land.lhs.true.i372.i1746:                         ; preds = %if.then116.i1738
-  %cmp.i375.i1749 = icmp eq i8 %conv50.i1503, %cached_accept_state.40
+  %cmp.i375.i1749 = icmp eq i8 %conv50.i1503, %cached_accept_state.44
   br i1 %cmp.i375.i1749, label %if.then.i419.i1799, label %cond.false.i390.i1764
 
 if.then.i419.i1799:                               ; preds = %land.lhs.true.i372.i1746
-  %call.i420.i1800 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub121.i1742, i32 noundef %cached_accept_id.40, ptr noundef %context) #10
+  %call.i420.i1800 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub121.i1742, i32 noundef %cached_accept_id.44, ptr noundef %context) #10
   %cmp5.i421.i1801 = icmp eq i32 %call.i420.i1800, 0
   br i1 %cmp5.i421.i1801, label %return, label %if.end143.i1552
 
@@ -1642,8 +1642,8 @@ fireReports.exit424.i1775:                        ; preds = %cond.false.i390.i17
   br i1 %cmp27.i414.i1794, label %return, label %if.end143.i1552
 
 if.end143.i1552:                                  ; preds = %for.cond.i398.i1772, %cond.false.i390.i1764, %if.end113.i1549.thread, %if.then.i419.i1799, %if.then127.i1804, %fireReports.exit424.i1775, %if.end113.i1549
-  %cached_accept_id.42 = phi i32 [ %cached_accept_id.4019711979, %if.then127.i1804 ], [ %182, %fireReports.exit424.i1775 ], [ %cached_accept_id.40, %if.end113.i1549 ], [ %cached_accept_id.40, %if.then.i419.i1799 ], [ %cached_accept_id.381667, %if.end113.i1549.thread ], [ %cached_accept_id.40, %cond.false.i390.i1764 ], [ %cached_accept_id.40, %for.cond.i398.i1772 ]
-  %cached_accept_state.42 = phi i8 [ %cached_accept_state.4019721978, %if.then127.i1804 ], [ %conv50.i1503, %fireReports.exit424.i1775 ], [ %cached_accept_state.40, %if.end113.i1549 ], [ %conv50.i1503, %if.then.i419.i1799 ], [ %cached_accept_state.381668, %if.end113.i1549.thread ], [ %cached_accept_state.40, %cond.false.i390.i1764 ], [ %cached_accept_state.40, %for.cond.i398.i1772 ]
+  %cached_accept_id.46 = phi i32 [ %cached_accept_id.4419711979, %if.then127.i1804 ], [ %182, %fireReports.exit424.i1775 ], [ %cached_accept_id.44, %if.end113.i1549 ], [ %cached_accept_id.44, %if.then.i419.i1799 ], [ %cached_accept_id.421667, %if.end113.i1549.thread ], [ %cached_accept_id.44, %cond.false.i390.i1764 ], [ %cached_accept_id.44, %for.cond.i398.i1772 ]
+  %cached_accept_state.46 = phi i8 [ %cached_accept_state.4419721978, %if.then127.i1804 ], [ %conv50.i1503, %fireReports.exit424.i1775 ], [ %cached_accept_state.44, %if.end113.i1549 ], [ %conv50.i1503, %if.then.i419.i1799 ], [ %cached_accept_state.421668, %if.end113.i1549.thread ], [ %cached_accept_state.44, %cond.false.i390.i1764 ], [ %cached_accept_state.44, %for.cond.i398.i1772 ]
   %and.i2556 = and i8 %conv55.i1508, 16
   %tobool145.i1554.not = icmp eq i8 %and.i2556, 0
   br i1 %tobool145.i1554.not, label %if.end173.i1555, label %if.then146.i1661
@@ -1661,11 +1661,11 @@ if.then157.i1727:                                 ; preds = %if.then146.i1661
   br i1 %cmp.i509.i1730, label %return, label %if.end173.i1555.thread
 
 land.lhs.true.i302.i1669:                         ; preds = %if.then146.i1661
-  %cmp.i305.i1672 = icmp eq i8 %conv55.i1508, %cached_accept_state.42
+  %cmp.i305.i1672 = icmp eq i8 %conv55.i1508, %cached_accept_state.46
   br i1 %cmp.i305.i1672, label %if.then.i349.i1722, label %cond.false.i320.i1687
 
 if.then.i349.i1722:                               ; preds = %land.lhs.true.i302.i1669
-  %call.i350.i1723 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub151.i1665, i32 noundef %cached_accept_id.42, ptr noundef %context) #10
+  %call.i350.i1723 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub151.i1665, i32 noundef %cached_accept_id.46, ptr noundef %context) #10
   %cmp5.i351.i1724 = icmp eq i32 %call.i350.i1723, 0
   br i1 %cmp5.i351.i1724, label %return, label %if.end173.i1555
 
@@ -1713,8 +1713,8 @@ fireReports.exit354.i1698:                        ; preds = %cond.false.i320.i16
   br i1 %cmp27.i344.i1717, label %return, label %if.end173.i1555
 
 if.end173.i1555:                                  ; preds = %for.cond.i328.i1695, %cond.false.i320.i1687, %if.then.i349.i1722, %fireReports.exit354.i1698, %if.end143.i1552
-  %cached_accept_id.44 = phi i32 [ %189, %fireReports.exit354.i1698 ], [ %cached_accept_id.42, %if.end143.i1552 ], [ %cached_accept_id.42, %if.then.i349.i1722 ], [ %cached_accept_id.42, %cond.false.i320.i1687 ], [ %cached_accept_id.42, %for.cond.i328.i1695 ]
-  %cached_accept_state.44 = phi i8 [ %conv55.i1508, %fireReports.exit354.i1698 ], [ %cached_accept_state.42, %if.end143.i1552 ], [ %conv55.i1508, %if.then.i349.i1722 ], [ %cached_accept_state.42, %cond.false.i320.i1687 ], [ %cached_accept_state.42, %for.cond.i328.i1695 ]
+  %cached_accept_id.48 = phi i32 [ %189, %fireReports.exit354.i1698 ], [ %cached_accept_id.46, %if.end143.i1552 ], [ %cached_accept_id.46, %if.then.i349.i1722 ], [ %cached_accept_id.46, %cond.false.i320.i1687 ], [ %cached_accept_id.46, %for.cond.i328.i1695 ]
+  %cached_accept_state.48 = phi i8 [ %conv55.i1508, %fireReports.exit354.i1698 ], [ %cached_accept_state.46, %if.end143.i1552 ], [ %conv55.i1508, %if.then.i349.i1722 ], [ %cached_accept_state.46, %cond.false.i320.i1687 ], [ %cached_accept_state.46, %for.cond.i328.i1695 ]
   %and.i2552 = and i8 %conv60.i1513, 16
   %tobool175.i1557.not = icmp eq i8 %and.i2552, 0
   br i1 %tobool175.i1557.not, label %if.end248.i1522, label %if.then176.i1584
@@ -1738,19 +1738,19 @@ if.then176.i1584:                                 ; preds = %if.end173.i1555
 
 if.then187.i1650:                                 ; preds = %if.then176.i1584.thread, %if.then176.i1584
   %sub.ptr.sub181.i15881994 = phi i64 [ %sub.ptr.sub181.i15881991, %if.then176.i1584.thread ], [ %sub.ptr.sub181.i1588, %if.then176.i1584 ]
-  %cached_accept_id.4419851993 = phi i32 [ %cached_accept_id.42, %if.then176.i1584.thread ], [ %cached_accept_id.44, %if.then176.i1584 ]
-  %cached_accept_state.4419861992 = phi i8 [ %cached_accept_state.42, %if.then176.i1584.thread ], [ %cached_accept_state.44, %if.then176.i1584 ]
+  %cached_accept_id.4819851993 = phi i32 [ %cached_accept_id.46, %if.then176.i1584.thread ], [ %cached_accept_id.48, %if.then176.i1584 ]
+  %cached_accept_state.4819861992 = phi i8 [ %cached_accept_state.46, %if.then176.i1584.thread ], [ %cached_accept_state.48, %if.then176.i1584 ]
   %190 = load i32, ptr %report.i1882, align 4
   %call.i499.i1652 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub181.i15881994, i32 noundef %190, ptr noundef %context) #10
   %cmp.i500.i1653 = icmp eq i32 %call.i499.i1652, 0
   br i1 %cmp.i500.i1653, label %return, label %if.end248.i1522
 
 land.lhs.true.i.i1592:                            ; preds = %if.then176.i1584
-  %cmp.i.i1595 = icmp eq i8 %conv60.i1513, %cached_accept_state.44
+  %cmp.i.i1595 = icmp eq i8 %conv60.i1513, %cached_accept_state.48
   br i1 %cmp.i.i1595, label %if.then.i.i1645, label %cond.false.i.i1610
 
 if.then.i.i1645:                                  ; preds = %land.lhs.true.i.i1592
-  %call.i.i1646 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub181.i1588, i32 noundef %cached_accept_id.44, ptr noundef %context) #10
+  %call.i.i1646 = tail call i32 %cb(i64 noundef 0, i64 noundef %sub.ptr.sub181.i1588, i32 noundef %cached_accept_id.48, ptr noundef %context) #10
   %cmp5.i.i1647 = icmp eq i32 %call.i.i1646, 0
   br i1 %cmp5.i.i1647, label %return, label %if.end248.i1522
 
@@ -1798,8 +1798,8 @@ fireReports.exit.i1621:                           ; preds = %cond.false.i.i1610
   br i1 %cmp27.i.i1640, label %return, label %if.end248.i1522
 
 if.end248.i1522:                                  ; preds = %for.cond.i.i1618, %cond.false.i.i1610, %if.end173.i1555.thread, %if.then.i.i1645, %if.then187.i1650, %fireReports.exit.i1621, %if.end173.i1555, %while.body.i1490
-  %cached_accept_id.47 = phi i32 [ %cached_accept_id.381667, %while.body.i1490 ], [ %cached_accept_id.4419851993, %if.then187.i1650 ], [ %196, %fireReports.exit.i1621 ], [ %cached_accept_id.44, %if.end173.i1555 ], [ %cached_accept_id.44, %if.then.i.i1645 ], [ %cached_accept_id.42, %if.end173.i1555.thread ], [ %cached_accept_id.44, %cond.false.i.i1610 ], [ %cached_accept_id.44, %for.cond.i.i1618 ]
-  %cached_accept_state.47 = phi i8 [ %cached_accept_state.381668, %while.body.i1490 ], [ %cached_accept_state.4419861992, %if.then187.i1650 ], [ %conv60.i1513, %fireReports.exit.i1621 ], [ %cached_accept_state.44, %if.end173.i1555 ], [ %conv60.i1513, %if.then.i.i1645 ], [ %cached_accept_state.42, %if.end173.i1555.thread ], [ %cached_accept_state.44, %cond.false.i.i1610 ], [ %cached_accept_state.44, %for.cond.i.i1618 ]
+  %cached_accept_id.43 = phi i32 [ %cached_accept_id.421667, %while.body.i1490 ], [ %cached_accept_id.4819851993, %if.then187.i1650 ], [ %196, %fireReports.exit.i1621 ], [ %cached_accept_id.48, %if.end173.i1555 ], [ %cached_accept_id.48, %if.then.i.i1645 ], [ %cached_accept_id.46, %if.end173.i1555.thread ], [ %cached_accept_id.48, %cond.false.i.i1610 ], [ %cached_accept_id.48, %for.cond.i.i1618 ]
+  %cached_accept_state.43 = phi i8 [ %cached_accept_state.421668, %while.body.i1490 ], [ %cached_accept_state.4819861992, %if.then187.i1650 ], [ %conv60.i1513, %fireReports.exit.i1621 ], [ %cached_accept_state.48, %if.end173.i1555 ], [ %conv60.i1513, %if.then.i.i1645 ], [ %cached_accept_state.46, %if.end173.i1555.thread ], [ %cached_accept_state.48, %cond.false.i.i1610 ], [ %cached_accept_state.48, %for.cond.i.i1618 ]
   %add.ptr282.i1525 = getelementptr inbounds i8, ptr %cur_buf.i1431.11669, i64 4
   %sub.ptr.rhs.cast.i1481 = ptrtoint ptr %add.ptr282.i1525 to i64
   %sub.ptr.sub.i1482 = sub i64 %sub.ptr.lhs.cast.i1480, %sub.ptr.rhs.cast.i1481
@@ -1807,15 +1807,15 @@ if.end248.i1522:                                  ; preds = %for.cond.i.i1618, %
   br i1 %cmp35.i1483, label %while.body.i1490, label %if.end.i1949, !llvm.loop !11
 
 if.end.i1949:                                     ; preds = %if.then215.i996, %if.end248.i950, %if.end248.i1522, %if.else19.i, %if.end33.i905
-  %state.6 = phi i8 [ %0, %if.end33.i905 ], [ %0, %if.else19.i ], [ %conv60.i1513, %if.end248.i1522 ], [ %conv60.i941, %if.end248.i950 ], [ %conv60.i941, %if.then215.i996 ]
-  %scanned.5 = phi ptr [ %cur_buf.i859.0, %if.end33.i905 ], [ %buffer, %if.else19.i ], [ %add.ptr282.i1525, %if.end248.i1522 ], [ %add.ptr282.i953, %if.end248.i950 ], [ %call225.i1002, %if.then215.i996 ]
-  %cached_accept_id.49 = phi i32 [ 0, %if.end33.i905 ], [ 0, %if.else19.i ], [ %cached_accept_id.47, %if.end248.i1522 ], [ %cached_accept_id.36, %if.end248.i950 ], [ %cached_accept_id.35, %if.then215.i996 ]
-  %cached_accept_state.49 = phi i8 [ 0, %if.end33.i905 ], [ 0, %if.else19.i ], [ %cached_accept_state.47, %if.end248.i1522 ], [ %cached_accept_state.36, %if.end248.i950 ], [ %cached_accept_state.35, %if.then215.i996 ]
-  %cmp.i1952.not1676 = icmp eq ptr %scanned.5, %add.ptr10
+  %state.7 = phi i8 [ %0, %if.end33.i905 ], [ %0, %if.else19.i ], [ %conv60.i1513, %if.end248.i1522 ], [ %conv60.i941, %if.end248.i950 ], [ %conv60.i941, %if.then215.i996 ]
+  %scanned.4 = phi ptr [ %cur_buf.i859.0, %if.end33.i905 ], [ %buffer, %if.else19.i ], [ %add.ptr282.i1525, %if.end248.i1522 ], [ %add.ptr282.i953, %if.end248.i950 ], [ %call225.i1002, %if.then215.i996 ]
+  %cached_accept_id.40 = phi i32 [ 0, %if.end33.i905 ], [ 0, %if.else19.i ], [ %cached_accept_id.43, %if.end248.i1522 ], [ %cached_accept_id.31, %if.end248.i950 ], [ %cached_accept_id.38, %if.then215.i996 ]
+  %cached_accept_state.40 = phi i8 [ 0, %if.end33.i905 ], [ 0, %if.else19.i ], [ %cached_accept_state.43, %if.end248.i1522 ], [ %cached_accept_state.31, %if.end248.i950 ], [ %cached_accept_state.38, %if.then215.i996 ]
+  %cmp.i1952.not1676 = icmp eq ptr %scanned.4, %add.ptr10
   br i1 %cmp.i1952.not1676, label %do.end16, label %while.body.i1959.lr.ph
 
 while.body.i1959.lr.ph:                           ; preds = %if.end.i1949
-  %vecinit.i = insertelement <16 x i8> poison, i8 %state.6, i64 0
+  %vecinit.i = insertelement <16 x i8> poison, i8 %state.7, i64 0
   %vecinit15.i = shufflevector <16 x i8> %vecinit.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %sub.ptr.rhs.cast.i1974 = ptrtoint ptr %buffer to i64
   %sub.ptr.sub.i1975 = add i64 %offset, 1
@@ -1826,10 +1826,10 @@ while.body.i1959.lr.ph:                           ; preds = %if.end.i1949
   br i1 %tobool29.i1978.not, label %while.body.i1959.us, label %while.body.i1959
 
 while.body.i1959.us:                              ; preds = %while.body.i1959.lr.ph, %if.end44.i1970.us
-  %cur_buf.i1940.01679.us = phi ptr [ %incdec.ptr.i1971.us, %if.end44.i1970.us ], [ %scanned.5, %while.body.i1959.lr.ph ]
+  %cur_buf.i1940.01679.us = phi ptr [ %incdec.ptr.i1971.us, %if.end44.i1970.us ], [ %scanned.4, %while.body.i1959.lr.ph ]
   %197 = phi <16 x i8> [ %200, %if.end44.i1970.us ], [ %vecinit15.i, %while.body.i1959.lr.ph ]
-  %cached_accept_state.501678.us = phi i8 [ %cached_accept_state.52.us, %if.end44.i1970.us ], [ %cached_accept_state.49, %while.body.i1959.lr.ph ]
-  %cached_accept_id.501677.us = phi i32 [ %cached_accept_id.52.us, %if.end44.i1970.us ], [ %cached_accept_id.49, %while.body.i1959.lr.ph ]
+  %cached_accept_state.531678.us = phi i8 [ %cached_accept_state.54.us, %if.end44.i1970.us ], [ %cached_accept_state.40, %while.body.i1959.lr.ph ]
+  %cached_accept_id.531677.us = phi i32 [ %cached_accept_id.54.us, %if.end44.i1970.us ], [ %cached_accept_id.40, %while.body.i1959.lr.ph ]
   %198 = load i8, ptr %cur_buf.i1940.01679.us, align 1
   %idxprom.i1960.us = zext i8 %198 to i64
   %arrayidx.i1961.us = getelementptr inbounds <2 x i64>, ptr %add.ptr, i64 %idxprom.i1960.us
@@ -1843,7 +1843,7 @@ while.body.i1959.us:                              ; preds = %while.body.i1959.lr
 if.then23.i1972.us:                               ; preds = %while.body.i1959.us
   %sub.ptr.lhs.cast.i1973.us = ptrtoint ptr %cur_buf.i1940.01679.us to i64
   %add26.i1977.us = add i64 %add.i1976, %sub.ptr.lhs.cast.i1973.us
-  %cmp.i.i1984.us = icmp eq i8 %conv10.i1964.us, %cached_accept_state.501678.us
+  %cmp.i.i1984.us = icmp eq i8 %conv10.i1964.us, %cached_accept_state.531678.us
   br i1 %cmp.i.i1984.us, label %if.then.i.i2034.us, label %cond.false.i.i1999.us
 
 cond.false.i.i1999.us:                            ; preds = %if.then23.i1972.us
@@ -1885,13 +1885,13 @@ fireReports.exit.i2010.us:                        ; preds = %cond.false.i.i1999.
   br i1 %cmp27.i.i2029.us, label %return, label %if.end44.i1970.us
 
 if.then.i.i2034.us:                               ; preds = %if.then23.i1972.us
-  %call.i.i2035.us = tail call i32 %cb(i64 noundef 0, i64 noundef %add26.i1977.us, i32 noundef %cached_accept_id.501677.us, ptr noundef %context) #10
+  %call.i.i2035.us = tail call i32 %cb(i64 noundef 0, i64 noundef %add26.i1977.us, i32 noundef %cached_accept_id.531677.us, ptr noundef %context) #10
   %cmp5.i.i2036.us = icmp eq i32 %call.i.i2035.us, 0
   br i1 %cmp5.i.i2036.us, label %return, label %if.end44.i1970.us
 
 if.end44.i1970.us:                                ; preds = %for.cond.i.i2007.us, %cond.false.i.i1999.us, %if.then.i.i2034.us, %fireReports.exit.i2010.us, %while.body.i1959.us
-  %cached_accept_id.52.us = phi i32 [ %206, %fireReports.exit.i2010.us ], [ %cached_accept_id.501677.us, %while.body.i1959.us ], [ %cached_accept_id.501677.us, %if.then.i.i2034.us ], [ %cached_accept_id.501677.us, %cond.false.i.i1999.us ], [ %cached_accept_id.501677.us, %for.cond.i.i2007.us ]
-  %cached_accept_state.52.us = phi i8 [ %conv10.i1964.us, %fireReports.exit.i2010.us ], [ %cached_accept_state.501678.us, %while.body.i1959.us ], [ %cached_accept_state.501678.us, %if.then.i.i2034.us ], [ %cached_accept_state.501678.us, %cond.false.i.i1999.us ], [ %cached_accept_state.501678.us, %for.cond.i.i2007.us ]
+  %cached_accept_id.54.us = phi i32 [ %206, %fireReports.exit.i2010.us ], [ %cached_accept_id.531677.us, %while.body.i1959.us ], [ %cached_accept_id.531677.us, %if.then.i.i2034.us ], [ %cached_accept_id.531677.us, %cond.false.i.i1999.us ], [ %cached_accept_id.531677.us, %for.cond.i.i2007.us ]
+  %cached_accept_state.54.us = phi i8 [ %conv10.i1964.us, %fireReports.exit.i2010.us ], [ %cached_accept_state.531678.us, %while.body.i1959.us ], [ %cached_accept_state.531678.us, %if.then.i.i2034.us ], [ %cached_accept_state.531678.us, %cond.false.i.i1999.us ], [ %cached_accept_state.531678.us, %for.cond.i.i2007.us ]
   %incdec.ptr.i1971.us = getelementptr inbounds i8, ptr %cur_buf.i1940.01679.us, i64 1
   %cmp.i1952.not.us = icmp eq ptr %incdec.ptr.i1971.us, %add.ptr10
   br i1 %cmp.i1952.not.us, label %do.end16, label %while.body.i1959.us, !llvm.loop !12
@@ -1902,7 +1902,7 @@ for.body.i.i2016.lr.ph.us:                        ; preds = %cond.false.i.i1999.
   br label %for.body.i.i2016.us
 
 while.body.i1959:                                 ; preds = %while.body.i1959.lr.ph, %if.end44.i1970
-  %cur_buf.i1940.01679 = phi ptr [ %incdec.ptr.i1971, %if.end44.i1970 ], [ %scanned.5, %while.body.i1959.lr.ph ]
+  %cur_buf.i1940.01679 = phi ptr [ %incdec.ptr.i1971, %if.end44.i1970 ], [ %scanned.4, %while.body.i1959.lr.ph ]
   %207 = phi <16 x i8> [ %210, %if.end44.i1970 ], [ %vecinit15.i, %while.body.i1959.lr.ph ]
   %208 = load i8, ptr %cur_buf.i1940.01679, align 1
   %idxprom.i1960 = zext i8 %208 to i64
@@ -1928,11 +1928,11 @@ if.end44.i1970:                                   ; preds = %if.then23.i1972, %w
   br i1 %cmp.i1952.not, label %do.end16, label %while.body.i1959, !llvm.loop !12
 
 do.end16:                                         ; preds = %if.end44.i, %if.end44.i.us, %if.end44.i1970, %if.end44.i1970.us, %if.end.i1949, %if.end11.i
-  %state.8 = phi i8 [ %state.2, %if.end11.i ], [ %state.6, %if.end.i1949 ], [ %conv10.i1964.us, %if.end44.i1970.us ], [ %conv10.i1964, %if.end44.i1970 ], [ %conv10.i692.us, %if.end44.i.us ], [ %conv10.i692, %if.end44.i ]
+  %state.5 = phi i8 [ %state.1, %if.end11.i ], [ %state.7, %if.end.i1949 ], [ %conv10.i1964.us, %if.end44.i1970.us ], [ %conv10.i1964, %if.end44.i1970 ], [ %conv10.i692.us, %if.end44.i.us ], [ %conv10.i692, %if.end44.i ]
   %aux_offset.i = getelementptr inbounds i8, ptr %n, i64 4164
   %212 = load i32, ptr %aux_offset.i, align 4
   %sub.i = add i32 %212, -64
-  %conv1.i = zext i8 %state.8 to i32
+  %conv1.i = zext i8 %state.5 to i32
   %and.i = shl nuw nsw i32 %conv1.i, 4
   %213 = and i32 %and.i, 240
   %add.i = add i32 %sub.i, %213
@@ -2091,8 +2091,8 @@ for.body.i:                                       ; preds = %for.body.i.lr.ph, %
   br i1 %cmp39.i, label %return, label %for.cond.i
 
 if.end30:                                         ; preds = %for.cond.i, %cond.false.i, %if.then15, %if.then.i239, %if.then21.i, %entry
-  %cached_accept_id.2 = phi i32 [ 0, %entry ], [ 0, %if.then15 ], [ 0, %if.then.i239 ], [ %18, %if.then21.i ], [ %17, %cond.false.i ], [ 0, %for.cond.i ]
-  %cached_accept_state.2 = phi i8 [ 0, %entry ], [ 0, %if.then15 ], [ 0, %if.then.i239 ], [ %1, %if.then21.i ], [ 0, %cond.false.i ], [ 0, %for.cond.i ]
+  %cached_accept_id.0 = phi i32 [ 0, %entry ], [ 0, %if.then15 ], [ 0, %if.then.i239 ], [ %18, %if.then21.i ], [ %17, %cond.false.i ], [ 0, %for.cond.i ]
+  %cached_accept_state.0 = phi i8 [ 0, %entry ], [ 0, %if.then15 ], [ 0, %if.then.i239 ], [ %1, %if.then21.i ], [ 0, %cond.false.i ], [ 0, %for.cond.i ]
   %items.i3343 = getelementptr inbounds i8, ptr %q, i64 104
   %cur.i3344 = getelementptr inbounds i8, ptr %q, i64 8
   %20 = load i32, ptr %cur.i3344, align 8
@@ -2147,8 +2147,8 @@ if.end61:                                         ; preds = %if.end48
 while.body:                                       ; preds = %while.body.backedge, %if.end61
   %25 = phi i32 [ %inc, %if.end61 ], [ %.be, %while.body.backedge ]
   %state.0 = phi i8 [ %1, %if.end61 ], [ %state.0.be, %while.body.backedge ]
-  %cached_accept_id.3 = phi i32 [ %cached_accept_id.2, %if.end61 ], [ %cached_accept_id.61, %while.body.backedge ]
-  %cached_accept_state.3 = phi i8 [ %cached_accept_state.2, %if.end61 ], [ %cached_accept_state.61, %while.body.backedge ]
+  %cached_accept_id.3 = phi i32 [ %cached_accept_id.0, %if.end61 ], [ %cached_accept_id.4, %while.body.backedge ]
+  %cached_accept_state.3 = phi i8 [ %cached_accept_state.0, %if.end61 ], [ %cached_accept_state.4, %while.body.backedge ]
   %cur_buf.1 = phi ptr [ %cur_buf.0, %if.end61 ], [ %cur_buf.2, %while.body.backedge ]
   %cur_start.0 = phi i64 [ %21, %if.end61 ], [ %cur_start.1, %while.body.backedge ]
   %idxprom.i3333 = zext i32 %25 to i64
@@ -2195,12 +2195,12 @@ if.then.i3611:                                    ; preds = %if.then6.i3368
   %call11.i3615 = tail call ptr @run_accel(ptr noundef nonnull %gep2910, ptr noundef %add.ptr93, ptr noundef %add.ptr94) #10
   %add.ptr.i3616 = getelementptr inbounds i8, ptr %add.ptr93, i64 4
   %cmp.i3617 = icmp ult ptr %call11.i3615, %add.ptr.i3616
-  %min_accel_dist.i3506.0.v = select i1 %cmp.i3617, i64 32, i64 8
-  %min_accel_dist.i3506.0 = getelementptr inbounds i8, ptr %call11.i3615, i64 %min_accel_dist.i3506.0.v
+  %min_accel_dist.i3506.1.v = select i1 %cmp.i3617, i64 32, i64 8
+  %min_accel_dist.i3506.1 = getelementptr inbounds i8, ptr %call11.i3615, i64 %min_accel_dist.i3506.1.v
   br label %if.end22.i3539
 
 if.end22.i3539:                                   ; preds = %if.then.i3611, %if.then6.i3368
-  %min_accel_dist.i3506.1 = phi ptr [ %min_accel_dist.i3506.0, %if.then.i3611 ], [ %add.ptr93, %if.then6.i3368 ]
+  %min_accel_dist.i3506.0 = phi ptr [ %min_accel_dist.i3506.1, %if.then.i3611 ], [ %add.ptr93, %if.then6.i3368 ]
   %cur_buf.i3505.0 = phi ptr [ %call11.i3615, %if.then.i3611 ], [ %add.ptr93, %if.then6.i3368 ]
   %30 = and i8 %state.0, 32
   %tobool29.i3542.not = icmp eq i8 %30, 0
@@ -2220,7 +2220,7 @@ while.body.i3554.lr.ph.preheader:                 ; preds = %if.end33.i3543
 
 while.body.i3554.lr.ph:                           ; preds = %while.body.i3554.lr.ph.preheader, %if.then255.i3584
   %cur_buf.i3505.1.ph2757 = phi ptr [ %call265.i3591, %if.then255.i3584 ], [ %cur_buf.i3505.0, %while.body.i3554.lr.ph.preheader ]
-  %min_accel_dist.i3506.2.ph2756 = phi ptr [ %min_accel_dist.i3506.3, %if.then255.i3584 ], [ %min_accel_dist.i3506.1, %while.body.i3554.lr.ph.preheader ]
+  %min_accel_dist.i3506.2.ph2756 = phi ptr [ %min_accel_dist.i3506.3, %if.then255.i3584 ], [ %min_accel_dist.i3506.0, %while.body.i3554.lr.ph.preheader ]
   %.ph23752755 = phi <16 x i8> [ %43, %if.then255.i3584 ], [ %vecinit15.i.i, %while.body.i3554.lr.ph.preheader ]
   br label %while.body.i3554
 
@@ -2346,14 +2346,14 @@ if.end248.i3850:                                  ; preds = %while.body.i3824
   br i1 %cmp35.i3817, label %while.body.i3824, label %if.end.i3367, !llvm.loop !14
 
 if.end.i3367:                                     ; preds = %if.then255.i3584, %while.body.i3824, %if.end248.i3850, %while.body.i3554, %if.end281.i3578, %if.end33.i3796, %if.end33.i3543, %if.else.i3366, %if.end22.i3539
-  %state.1 = phi i8 [ %state.0, %if.end22.i3539 ], [ %state.0, %if.else.i3366 ], [ %state.0, %if.end33.i3543 ], [ %state.0, %if.end33.i3796 ], [ %conv60.i3569, %if.end281.i3578 ], [ %conv60.i3569, %while.body.i3554 ], [ %conv60.i3841, %if.end248.i3850 ], [ %conv60.i3841, %while.body.i3824 ], [ %conv60.i3569, %if.then255.i3584 ]
+  %state.2 = phi i8 [ %state.0, %if.end22.i3539 ], [ %state.0, %if.else.i3366 ], [ %state.0, %if.end33.i3543 ], [ %state.0, %if.end33.i3796 ], [ %conv60.i3569, %if.end281.i3578 ], [ %conv60.i3569, %while.body.i3554 ], [ %conv60.i3841, %if.end248.i3850 ], [ %conv60.i3841, %while.body.i3824 ], [ %conv60.i3569, %if.then255.i3584 ]
   %scanned.0 = phi ptr [ %add.ptr94, %if.end22.i3539 ], [ %add.ptr94, %if.else.i3366 ], [ %cur_buf.i3505.0, %if.end33.i3543 ], [ %add.ptr93, %if.end33.i3796 ], [ %add.ptr94, %while.body.i3554 ], [ %add.ptr282.i3579, %if.end281.i3578 ], [ %add.ptr94, %while.body.i3824 ], [ %add.ptr282.i3853, %if.end248.i3850 ], [ %call265.i3591, %if.then255.i3584 ]
-  %62 = and i8 %state.1, 32
+  %62 = and i8 %state.2, 32
   %tobool.i3933.not = icmp eq i8 %62, 0
   br i1 %tobool.i3933.not, label %if.end.i3934, label %if.end154
 
 if.end.i3934:                                     ; preds = %if.end.i3367
-  %vecinit.i.i3935 = insertelement <16 x i8> poison, i8 %state.1, i64 0
+  %vecinit.i.i3935 = insertelement <16 x i8> poison, i8 %state.2, i64 0
   %vecinit15.i.i3950 = shufflevector <16 x i8> %vecinit.i.i3935, <16 x i8> poison, <16 x i32> zeroinitializer
   %cmp.i3952.not2766 = icmp eq ptr %scanned.0, %add.ptr94
   br i1 %cmp.i3952.not2766, label %while.end.i3956, label %while.body.i3958
@@ -2470,13 +2470,13 @@ if.then.i286:                                     ; preds = %if.then6.i
   %call11.i = tail call ptr @run_accel(ptr noundef nonnull %gep2902, ptr noundef %add.ptr102, ptr noundef %add.ptr103) #10
   %add.ptr.i289 = getelementptr inbounds i8, ptr %add.ptr102, i64 4
   %cmp.i290 = icmp ult ptr %call11.i, %add.ptr.i289
-  %min_accel_dist.i.0.v = select i1 %cmp.i290, i64 32, i64 8
-  %min_accel_dist.i.0 = getelementptr inbounds i8, ptr %call11.i, i64 %min_accel_dist.i.0.v
+  %min_accel_dist.i.1.v = select i1 %cmp.i290, i64 32, i64 8
+  %min_accel_dist.i.1 = getelementptr inbounds i8, ptr %call11.i, i64 %min_accel_dist.i.1.v
   br label %if.end22.i276
 
 if.end22.i276:                                    ; preds = %if.then6.i, %if.then.i286
   %cur_buf.i.0 = phi ptr [ %call11.i, %if.then.i286 ], [ %add.ptr102, %if.then6.i ]
-  %min_accel_dist.i.1 = phi ptr [ %min_accel_dist.i.0, %if.then.i286 ], [ %add.ptr102, %if.then6.i ]
+  %min_accel_dist.i.0 = phi ptr [ %min_accel_dist.i.1, %if.then.i286 ], [ %add.ptr102, %if.then6.i ]
   %87 = and i8 %state.0, 32
   %tobool25.i.not = icmp eq i8 %87, 0
   br i1 %tobool25.i.not, label %if.end33.i279, label %if.end11.i
@@ -2496,17 +2496,17 @@ while.body.i.lr.ph.lr.ph:                         ; preds = %if.end33.i279
 
 while.body.i.lr.ph:                               ; preds = %while.body.i.lr.ph.lr.ph, %if.then215.i
   %.ph23842642 = phi <16 x i8> [ %vecinit15.i3011, %while.body.i.lr.ph.lr.ph ], [ %100, %if.then215.i ]
-  %min_accel_dist.i.2.ph2641 = phi ptr [ %min_accel_dist.i.1, %while.body.i.lr.ph.lr.ph ], [ %min_accel_dist.i.3, %if.then215.i ]
+  %min_accel_dist.i.2.ph2641 = phi ptr [ %min_accel_dist.i.0, %while.body.i.lr.ph.lr.ph ], [ %min_accel_dist.i.3, %if.then215.i ]
   %cur_buf.i.1.ph2640 = phi ptr [ %cur_buf.i.0, %while.body.i.lr.ph.lr.ph ], [ %call225.i, %if.then215.i ]
-  %cached_accept_state.4.ph2639 = phi i8 [ %cached_accept_state.3, %while.body.i.lr.ph.lr.ph ], [ %cached_accept_state.12, %if.then215.i ]
-  %cached_accept_id.4.ph2638 = phi i32 [ %cached_accept_id.3, %while.body.i.lr.ph.lr.ph ], [ %cached_accept_id.12, %if.then215.i ]
+  %cached_accept_state.7.ph2639 = phi i8 [ %cached_accept_state.3, %while.body.i.lr.ph.lr.ph ], [ %cached_accept_state.15, %if.then215.i ]
+  %cached_accept_id.7.ph2638 = phi i32 [ %cached_accept_id.3, %while.body.i.lr.ph.lr.ph ], [ %cached_accept_id.15, %if.then215.i ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %if.end248.i
   %88 = phi <16 x i8> [ %.ph23842642, %while.body.i.lr.ph ], [ %100, %if.end248.i ]
   %cur_buf.i.12625 = phi ptr [ %cur_buf.i.1.ph2640, %while.body.i.lr.ph ], [ %add.ptr282.i, %if.end248.i ]
-  %cached_accept_state.42624 = phi i8 [ %cached_accept_state.4.ph2639, %while.body.i.lr.ph ], [ %cached_accept_state.13, %if.end248.i ]
-  %cached_accept_id.42623 = phi i32 [ %cached_accept_id.4.ph2638, %while.body.i.lr.ph ], [ %cached_accept_id.13, %if.end248.i ]
+  %cached_accept_state.72624 = phi i8 [ %cached_accept_state.7.ph2639, %while.body.i.lr.ph ], [ %cached_accept_state.8, %if.end248.i ]
+  %cached_accept_id.72623 = phi i32 [ %cached_accept_id.7.ph2638, %while.body.i.lr.ph ], [ %cached_accept_id.8, %if.end248.i ]
   %add.ptr40.i = getelementptr inbounds i8, ptr %cur_buf.i.12625, i64 1
   %add.ptr41.i = getelementptr inbounds i8, ptr %cur_buf.i.12625, i64 2
   %add.ptr42.i = getelementptr inbounds i8, ptr %cur_buf.i.12625, i64 3
@@ -2560,11 +2560,11 @@ if.then98.i:                                      ; preds = %if.then88.i
   br i1 %cmp.i529.i, label %return, label %if.end113.i.thread
 
 land.lhs.true.i442.i:                             ; preds = %if.then88.i
-  %cmp.i445.i = icmp eq i8 %conv45.i, %cached_accept_state.42624
+  %cmp.i445.i = icmp eq i8 %conv45.i, %cached_accept_state.72624
   br i1 %cmp.i445.i, label %if.then.i489.i, label %cond.false.i460.i
 
 if.then.i489.i:                                   ; preds = %land.lhs.true.i442.i
-  %call.i490.i = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub92.i, i32 noundef %cached_accept_id.42623, ptr noundef %82) #10
+  %call.i490.i = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub92.i, i32 noundef %cached_accept_id.72623, ptr noundef %82) #10
   %cmp5.i491.i = icmp eq i32 %call.i490.i, 0
   br i1 %cmp5.i491.i, label %return, label %if.end113.i
 
@@ -2612,8 +2612,8 @@ fireReports.exit494.i:                            ; preds = %cond.false.i460.i
   br i1 %cmp27.i484.i, label %return, label %if.end113.i
 
 if.end113.i:                                      ; preds = %for.cond.i468.i, %cond.false.i460.i, %if.then.i489.i, %fireReports.exit494.i, %if.then85.i
-  %cached_accept_id.6 = phi i32 [ %107, %fireReports.exit494.i ], [ %cached_accept_id.42623, %if.then85.i ], [ %cached_accept_id.42623, %if.then.i489.i ], [ %cached_accept_id.42623, %cond.false.i460.i ], [ %cached_accept_id.42623, %for.cond.i468.i ]
-  %cached_accept_state.6 = phi i8 [ %conv45.i, %fireReports.exit494.i ], [ %cached_accept_state.42624, %if.then85.i ], [ %cached_accept_state.42624, %if.then.i489.i ], [ %cached_accept_state.42624, %cond.false.i460.i ], [ %cached_accept_state.42624, %for.cond.i468.i ]
+  %cached_accept_id.9 = phi i32 [ %107, %fireReports.exit494.i ], [ %cached_accept_id.72623, %if.then85.i ], [ %cached_accept_id.72623, %if.then.i489.i ], [ %cached_accept_id.72623, %cond.false.i460.i ], [ %cached_accept_id.72623, %for.cond.i468.i ]
+  %cached_accept_state.9 = phi i8 [ %conv45.i, %fireReports.exit494.i ], [ %cached_accept_state.72624, %if.then85.i ], [ %cached_accept_state.72624, %if.then.i489.i ], [ %cached_accept_state.72624, %cond.false.i460.i ], [ %cached_accept_state.72624, %for.cond.i468.i ]
   %and.i2830 = and i8 %conv50.i, 16
   %tobool115.i.not = icmp eq i8 %and.i2830, 0
   br i1 %tobool115.i.not, label %if.end143.i, label %if.then116.i
@@ -2637,19 +2637,19 @@ if.then116.i:                                     ; preds = %if.end113.i
 
 if.then127.i:                                     ; preds = %if.then116.i.thread, %if.then116.i
   %sub.ptr.sub121.i3341 = phi i64 [ %sub.ptr.sub121.i3338, %if.then116.i.thread ], [ %sub.ptr.sub121.i, %if.then116.i ]
-  %cached_accept_id.633323340 = phi i32 [ %cached_accept_id.42623, %if.then116.i.thread ], [ %cached_accept_id.6, %if.then116.i ]
-  %cached_accept_state.633333339 = phi i8 [ %cached_accept_state.42624, %if.then116.i.thread ], [ %cached_accept_state.6, %if.then116.i ]
+  %cached_accept_id.933323340 = phi i32 [ %cached_accept_id.72623, %if.then116.i.thread ], [ %cached_accept_id.9, %if.then116.i ]
+  %cached_accept_state.933333339 = phi i8 [ %cached_accept_state.72624, %if.then116.i.thread ], [ %cached_accept_state.9, %if.then116.i ]
   %108 = load i32, ptr %report.i285, align 4
   %call.i518.i = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub121.i3341, i32 noundef %108, ptr noundef %82) #10
   %cmp.i519.i = icmp eq i32 %call.i518.i, 0
   br i1 %cmp.i519.i, label %return, label %if.end143.i
 
 land.lhs.true.i372.i:                             ; preds = %if.then116.i
-  %cmp.i375.i = icmp eq i8 %conv50.i, %cached_accept_state.6
+  %cmp.i375.i = icmp eq i8 %conv50.i, %cached_accept_state.9
   br i1 %cmp.i375.i, label %if.then.i419.i, label %cond.false.i390.i
 
 if.then.i419.i:                                   ; preds = %land.lhs.true.i372.i
-  %call.i420.i = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub121.i, i32 noundef %cached_accept_id.6, ptr noundef %82) #10
+  %call.i420.i = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub121.i, i32 noundef %cached_accept_id.9, ptr noundef %82) #10
   %cmp5.i421.i = icmp eq i32 %call.i420.i, 0
   br i1 %cmp5.i421.i, label %return, label %if.end143.i
 
@@ -2697,8 +2697,8 @@ fireReports.exit424.i:                            ; preds = %cond.false.i390.i
   br i1 %cmp27.i414.i, label %return, label %if.end143.i
 
 if.end143.i:                                      ; preds = %for.cond.i398.i, %cond.false.i390.i, %if.end113.i.thread, %if.then.i419.i, %if.then127.i, %fireReports.exit424.i, %if.end113.i
-  %cached_accept_id.8 = phi i32 [ %cached_accept_id.633323340, %if.then127.i ], [ %114, %fireReports.exit424.i ], [ %cached_accept_id.6, %if.end113.i ], [ %cached_accept_id.6, %if.then.i419.i ], [ %cached_accept_id.42623, %if.end113.i.thread ], [ %cached_accept_id.6, %cond.false.i390.i ], [ %cached_accept_id.6, %for.cond.i398.i ]
-  %cached_accept_state.8 = phi i8 [ %cached_accept_state.633333339, %if.then127.i ], [ %conv50.i, %fireReports.exit424.i ], [ %cached_accept_state.6, %if.end113.i ], [ %conv50.i, %if.then.i419.i ], [ %cached_accept_state.42624, %if.end113.i.thread ], [ %cached_accept_state.6, %cond.false.i390.i ], [ %cached_accept_state.6, %for.cond.i398.i ]
+  %cached_accept_id.11 = phi i32 [ %cached_accept_id.933323340, %if.then127.i ], [ %114, %fireReports.exit424.i ], [ %cached_accept_id.9, %if.end113.i ], [ %cached_accept_id.9, %if.then.i419.i ], [ %cached_accept_id.72623, %if.end113.i.thread ], [ %cached_accept_id.9, %cond.false.i390.i ], [ %cached_accept_id.9, %for.cond.i398.i ]
+  %cached_accept_state.11 = phi i8 [ %cached_accept_state.933333339, %if.then127.i ], [ %conv50.i, %fireReports.exit424.i ], [ %cached_accept_state.9, %if.end113.i ], [ %conv50.i, %if.then.i419.i ], [ %cached_accept_state.72624, %if.end113.i.thread ], [ %cached_accept_state.9, %cond.false.i390.i ], [ %cached_accept_state.9, %for.cond.i398.i ]
   %and.i2826 = and i8 %conv55.i, 16
   %tobool145.i.not = icmp eq i8 %and.i2826, 0
   br i1 %tobool145.i.not, label %if.end173.i, label %if.then146.i
@@ -2716,11 +2716,11 @@ if.then157.i:                                     ; preds = %if.then146.i
   br i1 %cmp.i509.i, label %return, label %if.end173.i.thread
 
 land.lhs.true.i302.i:                             ; preds = %if.then146.i
-  %cmp.i305.i = icmp eq i8 %conv55.i, %cached_accept_state.8
+  %cmp.i305.i = icmp eq i8 %conv55.i, %cached_accept_state.11
   br i1 %cmp.i305.i, label %if.then.i349.i, label %cond.false.i320.i
 
 if.then.i349.i:                                   ; preds = %land.lhs.true.i302.i
-  %call.i350.i = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub151.i, i32 noundef %cached_accept_id.8, ptr noundef %82) #10
+  %call.i350.i = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub151.i, i32 noundef %cached_accept_id.11, ptr noundef %82) #10
   %cmp5.i351.i = icmp eq i32 %call.i350.i, 0
   br i1 %cmp5.i351.i, label %return, label %if.end173.i
 
@@ -2768,8 +2768,8 @@ fireReports.exit354.i:                            ; preds = %cond.false.i320.i
   br i1 %cmp27.i344.i, label %return, label %if.end173.i
 
 if.end173.i:                                      ; preds = %for.cond.i328.i, %cond.false.i320.i, %if.then.i349.i, %fireReports.exit354.i, %if.end143.i
-  %cached_accept_id.10 = phi i32 [ %121, %fireReports.exit354.i ], [ %cached_accept_id.8, %if.end143.i ], [ %cached_accept_id.8, %if.then.i349.i ], [ %cached_accept_id.8, %cond.false.i320.i ], [ %cached_accept_id.8, %for.cond.i328.i ]
-  %cached_accept_state.10 = phi i8 [ %conv55.i, %fireReports.exit354.i ], [ %cached_accept_state.8, %if.end143.i ], [ %conv55.i, %if.then.i349.i ], [ %cached_accept_state.8, %cond.false.i320.i ], [ %cached_accept_state.8, %for.cond.i328.i ]
+  %cached_accept_id.13 = phi i32 [ %121, %fireReports.exit354.i ], [ %cached_accept_id.11, %if.end143.i ], [ %cached_accept_id.11, %if.then.i349.i ], [ %cached_accept_id.11, %cond.false.i320.i ], [ %cached_accept_id.11, %for.cond.i328.i ]
+  %cached_accept_state.13 = phi i8 [ %conv55.i, %fireReports.exit354.i ], [ %cached_accept_state.11, %if.end143.i ], [ %conv55.i, %if.then.i349.i ], [ %cached_accept_state.11, %cond.false.i320.i ], [ %cached_accept_state.11, %for.cond.i328.i ]
   %and.i2822 = and i8 %conv60.i, 16
   %tobool175.i.not = icmp eq i8 %and.i2822, 0
   br i1 %tobool175.i.not, label %if.end203.i, label %if.then176.i
@@ -2793,19 +2793,19 @@ if.then176.i:                                     ; preds = %if.end173.i
 
 if.then187.i:                                     ; preds = %if.then176.i.thread, %if.then176.i
   %sub.ptr.sub181.i3355 = phi i64 [ %sub.ptr.sub181.i3352, %if.then176.i.thread ], [ %sub.ptr.sub181.i, %if.then176.i ]
-  %cached_accept_id.1033463354 = phi i32 [ %cached_accept_id.8, %if.then176.i.thread ], [ %cached_accept_id.10, %if.then176.i ]
-  %cached_accept_state.1033473353 = phi i8 [ %cached_accept_state.8, %if.then176.i.thread ], [ %cached_accept_state.10, %if.then176.i ]
+  %cached_accept_id.1333463354 = phi i32 [ %cached_accept_id.11, %if.then176.i.thread ], [ %cached_accept_id.13, %if.then176.i ]
+  %cached_accept_state.1333473353 = phi i8 [ %cached_accept_state.11, %if.then176.i.thread ], [ %cached_accept_state.13, %if.then176.i ]
   %122 = load i32, ptr %report.i285, align 4
   %call.i499.i = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub181.i3355, i32 noundef %122, ptr noundef %82) #10
   %cmp.i500.i = icmp eq i32 %call.i499.i, 0
   br i1 %cmp.i500.i, label %return, label %if.end203.i
 
 land.lhs.true.i.i:                                ; preds = %if.then176.i
-  %cmp.i.i = icmp eq i8 %conv60.i, %cached_accept_state.10
+  %cmp.i.i = icmp eq i8 %conv60.i, %cached_accept_state.13
   br i1 %cmp.i.i, label %if.then.i.i, label %cond.false.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %call.i.i = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub181.i, i32 noundef %cached_accept_id.10, ptr noundef %82) #10
+  %call.i.i = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub181.i, i32 noundef %cached_accept_id.13, ptr noundef %82) #10
   %cmp5.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp5.i.i, label %return, label %if.end203.i
 
@@ -2853,8 +2853,8 @@ fireReports.exit.i:                               ; preds = %cond.false.i.i
   br i1 %cmp27.i.i, label %return, label %if.end203.i
 
 if.end203.i:                                      ; preds = %for.cond.i.i, %cond.false.i.i, %if.end173.i.thread, %if.then.i.i, %if.then187.i, %fireReports.exit.i, %if.end173.i
-  %cached_accept_id.12 = phi i32 [ %cached_accept_id.1033463354, %if.then187.i ], [ %128, %fireReports.exit.i ], [ %cached_accept_id.10, %if.end173.i ], [ %cached_accept_id.10, %if.then.i.i ], [ %cached_accept_id.8, %if.end173.i.thread ], [ %cached_accept_id.10, %cond.false.i.i ], [ %cached_accept_id.10, %for.cond.i.i ]
-  %cached_accept_state.12 = phi i8 [ %cached_accept_state.1033473353, %if.then187.i ], [ %conv60.i, %fireReports.exit.i ], [ %cached_accept_state.10, %if.end173.i ], [ %conv60.i, %if.then.i.i ], [ %cached_accept_state.8, %if.end173.i.thread ], [ %cached_accept_state.10, %cond.false.i.i ], [ %cached_accept_state.10, %for.cond.i.i ]
+  %cached_accept_id.15 = phi i32 [ %cached_accept_id.1333463354, %if.then187.i ], [ %128, %fireReports.exit.i ], [ %cached_accept_id.13, %if.end173.i ], [ %cached_accept_id.13, %if.then.i.i ], [ %cached_accept_id.11, %if.end173.i.thread ], [ %cached_accept_id.13, %cond.false.i.i ], [ %cached_accept_id.13, %for.cond.i.i ]
+  %cached_accept_state.15 = phi i8 [ %cached_accept_state.1333473353, %if.then187.i ], [ %conv60.i, %fireReports.exit.i ], [ %cached_accept_state.13, %if.end173.i ], [ %conv60.i, %if.then.i.i ], [ %cached_accept_state.11, %if.end173.i.thread ], [ %cached_accept_state.13, %cond.false.i.i ], [ %cached_accept_state.13, %for.cond.i.i ]
   %and.i2584 = and i8 %conv60.i, 32
   %tobool205.i.not = icmp eq i8 %and.i2584, 0
   br i1 %tobool205.i.not, label %if.end209.i, label %if.end11.i
@@ -2889,8 +2889,8 @@ if.then215.i:                                     ; preds = %if.end209.i
   br i1 %cmp35.i2622, label %while.body.i.lr.ph, label %if.end11.i, !llvm.loop !7
 
 if.end248.i:                                      ; preds = %while.body.i, %if.end209.i
-  %cached_accept_id.13 = phi i32 [ %cached_accept_id.12, %if.end209.i ], [ %cached_accept_id.42623, %while.body.i ]
-  %cached_accept_state.13 = phi i8 [ %cached_accept_state.12, %if.end209.i ], [ %cached_accept_state.42624, %while.body.i ]
+  %cached_accept_id.8 = phi i32 [ %cached_accept_id.15, %if.end209.i ], [ %cached_accept_id.72623, %while.body.i ]
+  %cached_accept_state.8 = phi i8 [ %cached_accept_state.15, %if.end209.i ], [ %cached_accept_state.72624, %while.body.i ]
   %add.ptr282.i = getelementptr inbounds i8, ptr %cur_buf.i.12625, i64 4
   %sub.ptr.rhs.cast.i = ptrtoint ptr %add.ptr282.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -2917,8 +2917,8 @@ while.body.i448.lr.ph:                            ; preds = %if.end33.i435
 while.body.i448:                                  ; preds = %while.body.i448.lr.ph, %if.end248.i480
   %cur_buf.i390.12660 = phi ptr [ %add.ptr102, %while.body.i448.lr.ph ], [ %add.ptr282.i483, %if.end248.i480 ]
   %133 = phi <16 x i8> [ %vecinit15.i2978, %while.body.i448.lr.ph ], [ %145, %if.end248.i480 ]
-  %cached_accept_state.152659 = phi i8 [ %cached_accept_state.3, %while.body.i448.lr.ph ], [ %cached_accept_state.24, %if.end248.i480 ]
-  %cached_accept_id.152658 = phi i32 [ %cached_accept_id.3, %while.body.i448.lr.ph ], [ %cached_accept_id.24, %if.end248.i480 ]
+  %cached_accept_state.192659 = phi i8 [ %cached_accept_state.3, %while.body.i448.lr.ph ], [ %cached_accept_state.20, %if.end248.i480 ]
+  %cached_accept_id.192658 = phi i32 [ %cached_accept_id.3, %while.body.i448.lr.ph ], [ %cached_accept_id.20, %if.end248.i480 ]
   %add.ptr40.i449 = getelementptr inbounds i8, ptr %cur_buf.i390.12660, i64 1
   %add.ptr41.i450 = getelementptr inbounds i8, ptr %cur_buf.i390.12660, i64 2
   %add.ptr42.i451 = getelementptr inbounds i8, ptr %cur_buf.i390.12660, i64 3
@@ -2972,11 +2972,11 @@ if.then98.i839:                                   ; preds = %if.then88.i773
   br i1 %cmp.i529.i842, label %return, label %if.end113.i507.thread
 
 land.lhs.true.i442.i781:                          ; preds = %if.then88.i773
-  %cmp.i445.i784 = icmp eq i8 %conv45.i456, %cached_accept_state.152659
+  %cmp.i445.i784 = icmp eq i8 %conv45.i456, %cached_accept_state.192659
   br i1 %cmp.i445.i784, label %if.then.i489.i834, label %cond.false.i460.i799
 
 if.then.i489.i834:                                ; preds = %land.lhs.true.i442.i781
-  %call.i490.i835 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub92.i777, i32 noundef %cached_accept_id.152658, ptr noundef %82) #10
+  %call.i490.i835 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub92.i777, i32 noundef %cached_accept_id.192658, ptr noundef %82) #10
   %cmp5.i491.i836 = icmp eq i32 %call.i490.i835, 0
   br i1 %cmp5.i491.i836, label %return, label %if.end113.i507
 
@@ -3024,8 +3024,8 @@ fireReports.exit494.i810:                         ; preds = %cond.false.i460.i79
   br i1 %cmp27.i484.i829, label %return, label %if.end113.i507
 
 if.end113.i507:                                   ; preds = %for.cond.i468.i807, %cond.false.i460.i799, %if.then.i489.i834, %fireReports.exit494.i810, %if.then85.i504
-  %cached_accept_id.17 = phi i32 [ %152, %fireReports.exit494.i810 ], [ %cached_accept_id.152658, %if.then85.i504 ], [ %cached_accept_id.152658, %if.then.i489.i834 ], [ %cached_accept_id.152658, %cond.false.i460.i799 ], [ %cached_accept_id.152658, %for.cond.i468.i807 ]
-  %cached_accept_state.17 = phi i8 [ %conv45.i456, %fireReports.exit494.i810 ], [ %cached_accept_state.152659, %if.then85.i504 ], [ %cached_accept_state.152659, %if.then.i489.i834 ], [ %cached_accept_state.152659, %cond.false.i460.i799 ], [ %cached_accept_state.152659, %for.cond.i468.i807 ]
+  %cached_accept_id.21 = phi i32 [ %152, %fireReports.exit494.i810 ], [ %cached_accept_id.192658, %if.then85.i504 ], [ %cached_accept_id.192658, %if.then.i489.i834 ], [ %cached_accept_id.192658, %cond.false.i460.i799 ], [ %cached_accept_id.192658, %for.cond.i468.i807 ]
+  %cached_accept_state.21 = phi i8 [ %conv45.i456, %fireReports.exit494.i810 ], [ %cached_accept_state.192659, %if.then85.i504 ], [ %cached_accept_state.192659, %if.then.i489.i834 ], [ %cached_accept_state.192659, %cond.false.i460.i799 ], [ %cached_accept_state.192659, %for.cond.i468.i807 ]
   %and.i2814 = and i8 %conv50.i461, 16
   %tobool115.i509.not = icmp eq i8 %and.i2814, 0
   br i1 %tobool115.i509.not, label %if.end143.i510, label %if.then116.i696
@@ -3049,19 +3049,19 @@ if.then116.i696:                                  ; preds = %if.end113.i507
 
 if.then127.i762:                                  ; preds = %if.then116.i696.thread, %if.then116.i696
   %sub.ptr.sub121.i7003369 = phi i64 [ %sub.ptr.sub121.i7003366, %if.then116.i696.thread ], [ %sub.ptr.sub121.i700, %if.then116.i696 ]
-  %cached_accept_id.1733603368 = phi i32 [ %cached_accept_id.152658, %if.then116.i696.thread ], [ %cached_accept_id.17, %if.then116.i696 ]
-  %cached_accept_state.1733613367 = phi i8 [ %cached_accept_state.152659, %if.then116.i696.thread ], [ %cached_accept_state.17, %if.then116.i696 ]
+  %cached_accept_id.2133603368 = phi i32 [ %cached_accept_id.192658, %if.then116.i696.thread ], [ %cached_accept_id.21, %if.then116.i696 ]
+  %cached_accept_state.2133613367 = phi i8 [ %cached_accept_state.192659, %if.then116.i696.thread ], [ %cached_accept_state.21, %if.then116.i696 ]
   %153 = load i32, ptr %report.i285, align 4
   %call.i518.i764 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub121.i7003369, i32 noundef %153, ptr noundef %82) #10
   %cmp.i519.i765 = icmp eq i32 %call.i518.i764, 0
   br i1 %cmp.i519.i765, label %return, label %if.end143.i510
 
 land.lhs.true.i372.i704:                          ; preds = %if.then116.i696
-  %cmp.i375.i707 = icmp eq i8 %conv50.i461, %cached_accept_state.17
+  %cmp.i375.i707 = icmp eq i8 %conv50.i461, %cached_accept_state.21
   br i1 %cmp.i375.i707, label %if.then.i419.i757, label %cond.false.i390.i722
 
 if.then.i419.i757:                                ; preds = %land.lhs.true.i372.i704
-  %call.i420.i758 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub121.i700, i32 noundef %cached_accept_id.17, ptr noundef %82) #10
+  %call.i420.i758 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub121.i700, i32 noundef %cached_accept_id.21, ptr noundef %82) #10
   %cmp5.i421.i759 = icmp eq i32 %call.i420.i758, 0
   br i1 %cmp5.i421.i759, label %return, label %if.end143.i510
 
@@ -3109,8 +3109,8 @@ fireReports.exit424.i733:                         ; preds = %cond.false.i390.i72
   br i1 %cmp27.i414.i752, label %return, label %if.end143.i510
 
 if.end143.i510:                                   ; preds = %for.cond.i398.i730, %cond.false.i390.i722, %if.end113.i507.thread, %if.then.i419.i757, %if.then127.i762, %fireReports.exit424.i733, %if.end113.i507
-  %cached_accept_id.19 = phi i32 [ %cached_accept_id.1733603368, %if.then127.i762 ], [ %159, %fireReports.exit424.i733 ], [ %cached_accept_id.17, %if.end113.i507 ], [ %cached_accept_id.17, %if.then.i419.i757 ], [ %cached_accept_id.152658, %if.end113.i507.thread ], [ %cached_accept_id.17, %cond.false.i390.i722 ], [ %cached_accept_id.17, %for.cond.i398.i730 ]
-  %cached_accept_state.19 = phi i8 [ %cached_accept_state.1733613367, %if.then127.i762 ], [ %conv50.i461, %fireReports.exit424.i733 ], [ %cached_accept_state.17, %if.end113.i507 ], [ %conv50.i461, %if.then.i419.i757 ], [ %cached_accept_state.152659, %if.end113.i507.thread ], [ %cached_accept_state.17, %cond.false.i390.i722 ], [ %cached_accept_state.17, %for.cond.i398.i730 ]
+  %cached_accept_id.23 = phi i32 [ %cached_accept_id.2133603368, %if.then127.i762 ], [ %159, %fireReports.exit424.i733 ], [ %cached_accept_id.21, %if.end113.i507 ], [ %cached_accept_id.21, %if.then.i419.i757 ], [ %cached_accept_id.192658, %if.end113.i507.thread ], [ %cached_accept_id.21, %cond.false.i390.i722 ], [ %cached_accept_id.21, %for.cond.i398.i730 ]
+  %cached_accept_state.23 = phi i8 [ %cached_accept_state.2133613367, %if.then127.i762 ], [ %conv50.i461, %fireReports.exit424.i733 ], [ %cached_accept_state.21, %if.end113.i507 ], [ %conv50.i461, %if.then.i419.i757 ], [ %cached_accept_state.192659, %if.end113.i507.thread ], [ %cached_accept_state.21, %cond.false.i390.i722 ], [ %cached_accept_state.21, %for.cond.i398.i730 ]
   %and.i2810 = and i8 %conv55.i466, 16
   %tobool145.i512.not = icmp eq i8 %and.i2810, 0
   br i1 %tobool145.i512.not, label %if.end173.i513, label %if.then146.i619
@@ -3128,11 +3128,11 @@ if.then157.i685:                                  ; preds = %if.then146.i619
   br i1 %cmp.i509.i688, label %return, label %if.end173.i513.thread
 
 land.lhs.true.i302.i627:                          ; preds = %if.then146.i619
-  %cmp.i305.i630 = icmp eq i8 %conv55.i466, %cached_accept_state.19
+  %cmp.i305.i630 = icmp eq i8 %conv55.i466, %cached_accept_state.23
   br i1 %cmp.i305.i630, label %if.then.i349.i680, label %cond.false.i320.i645
 
 if.then.i349.i680:                                ; preds = %land.lhs.true.i302.i627
-  %call.i350.i681 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub151.i623, i32 noundef %cached_accept_id.19, ptr noundef %82) #10
+  %call.i350.i681 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub151.i623, i32 noundef %cached_accept_id.23, ptr noundef %82) #10
   %cmp5.i351.i682 = icmp eq i32 %call.i350.i681, 0
   br i1 %cmp5.i351.i682, label %return, label %if.end173.i513
 
@@ -3180,8 +3180,8 @@ fireReports.exit354.i656:                         ; preds = %cond.false.i320.i64
   br i1 %cmp27.i344.i675, label %return, label %if.end173.i513
 
 if.end173.i513:                                   ; preds = %for.cond.i328.i653, %cond.false.i320.i645, %if.then.i349.i680, %fireReports.exit354.i656, %if.end143.i510
-  %cached_accept_id.21 = phi i32 [ %166, %fireReports.exit354.i656 ], [ %cached_accept_id.19, %if.end143.i510 ], [ %cached_accept_id.19, %if.then.i349.i680 ], [ %cached_accept_id.19, %cond.false.i320.i645 ], [ %cached_accept_id.19, %for.cond.i328.i653 ]
-  %cached_accept_state.21 = phi i8 [ %conv55.i466, %fireReports.exit354.i656 ], [ %cached_accept_state.19, %if.end143.i510 ], [ %conv55.i466, %if.then.i349.i680 ], [ %cached_accept_state.19, %cond.false.i320.i645 ], [ %cached_accept_state.19, %for.cond.i328.i653 ]
+  %cached_accept_id.25 = phi i32 [ %166, %fireReports.exit354.i656 ], [ %cached_accept_id.23, %if.end143.i510 ], [ %cached_accept_id.23, %if.then.i349.i680 ], [ %cached_accept_id.23, %cond.false.i320.i645 ], [ %cached_accept_id.23, %for.cond.i328.i653 ]
+  %cached_accept_state.25 = phi i8 [ %conv55.i466, %fireReports.exit354.i656 ], [ %cached_accept_state.23, %if.end143.i510 ], [ %conv55.i466, %if.then.i349.i680 ], [ %cached_accept_state.23, %cond.false.i320.i645 ], [ %cached_accept_state.23, %for.cond.i328.i653 ]
   %and.i2806 = and i8 %conv60.i471, 16
   %tobool175.i515.not = icmp eq i8 %and.i2806, 0
   br i1 %tobool175.i515.not, label %if.end203.i516, label %if.then176.i542
@@ -3205,19 +3205,19 @@ if.then176.i542:                                  ; preds = %if.end173.i513
 
 if.then187.i608:                                  ; preds = %if.then176.i542.thread, %if.then176.i542
   %sub.ptr.sub181.i5463383 = phi i64 [ %sub.ptr.sub181.i5463380, %if.then176.i542.thread ], [ %sub.ptr.sub181.i546, %if.then176.i542 ]
-  %cached_accept_id.2133743382 = phi i32 [ %cached_accept_id.19, %if.then176.i542.thread ], [ %cached_accept_id.21, %if.then176.i542 ]
-  %cached_accept_state.2133753381 = phi i8 [ %cached_accept_state.19, %if.then176.i542.thread ], [ %cached_accept_state.21, %if.then176.i542 ]
+  %cached_accept_id.2533743382 = phi i32 [ %cached_accept_id.23, %if.then176.i542.thread ], [ %cached_accept_id.25, %if.then176.i542 ]
+  %cached_accept_state.2533753381 = phi i8 [ %cached_accept_state.23, %if.then176.i542.thread ], [ %cached_accept_state.25, %if.then176.i542 ]
   %167 = load i32, ptr %report.i285, align 4
   %call.i499.i610 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub181.i5463383, i32 noundef %167, ptr noundef %82) #10
   %cmp.i500.i611 = icmp eq i32 %call.i499.i610, 0
   br i1 %cmp.i500.i611, label %return, label %if.end203.i516
 
 land.lhs.true.i.i550:                             ; preds = %if.then176.i542
-  %cmp.i.i553 = icmp eq i8 %conv60.i471, %cached_accept_state.21
+  %cmp.i.i553 = icmp eq i8 %conv60.i471, %cached_accept_state.25
   br i1 %cmp.i.i553, label %if.then.i.i603, label %cond.false.i.i568
 
 if.then.i.i603:                                   ; preds = %land.lhs.true.i.i550
-  %call.i.i604 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub181.i546, i32 noundef %cached_accept_id.21, ptr noundef %82) #10
+  %call.i.i604 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub181.i546, i32 noundef %cached_accept_id.25, ptr noundef %82) #10
   %cmp5.i.i605 = icmp eq i32 %call.i.i604, 0
   br i1 %cmp5.i.i605, label %return, label %if.end203.i516
 
@@ -3265,15 +3265,15 @@ fireReports.exit.i579:                            ; preds = %cond.false.i.i568
   br i1 %cmp27.i.i598, label %return, label %if.end203.i516
 
 if.end203.i516:                                   ; preds = %for.cond.i.i576, %cond.false.i.i568, %if.end173.i513.thread, %if.then.i.i603, %if.then187.i608, %fireReports.exit.i579, %if.end173.i513
-  %cached_accept_id.23 = phi i32 [ %cached_accept_id.2133743382, %if.then187.i608 ], [ %173, %fireReports.exit.i579 ], [ %cached_accept_id.21, %if.end173.i513 ], [ %cached_accept_id.21, %if.then.i.i603 ], [ %cached_accept_id.19, %if.end173.i513.thread ], [ %cached_accept_id.21, %cond.false.i.i568 ], [ %cached_accept_id.21, %for.cond.i.i576 ]
-  %cached_accept_state.23 = phi i8 [ %cached_accept_state.2133753381, %if.then187.i608 ], [ %conv60.i471, %fireReports.exit.i579 ], [ %cached_accept_state.21, %if.end173.i513 ], [ %conv60.i471, %if.then.i.i603 ], [ %cached_accept_state.19, %if.end173.i513.thread ], [ %cached_accept_state.21, %cond.false.i.i568 ], [ %cached_accept_state.21, %for.cond.i.i576 ]
+  %cached_accept_id.27 = phi i32 [ %cached_accept_id.2533743382, %if.then187.i608 ], [ %173, %fireReports.exit.i579 ], [ %cached_accept_id.25, %if.end173.i513 ], [ %cached_accept_id.25, %if.then.i.i603 ], [ %cached_accept_id.23, %if.end173.i513.thread ], [ %cached_accept_id.25, %cond.false.i.i568 ], [ %cached_accept_id.25, %for.cond.i.i576 ]
+  %cached_accept_state.27 = phi i8 [ %cached_accept_state.2533753381, %if.then187.i608 ], [ %conv60.i471, %fireReports.exit.i579 ], [ %cached_accept_state.25, %if.end173.i513 ], [ %conv60.i471, %if.then.i.i603 ], [ %cached_accept_state.23, %if.end173.i513.thread ], [ %cached_accept_state.25, %cond.false.i.i568 ], [ %cached_accept_state.25, %for.cond.i.i576 ]
   %and.i2576 = and i8 %conv60.i471, 32
   %tobool205.i518.not = icmp eq i8 %and.i2576, 0
   br i1 %tobool205.i518.not, label %if.end248.i480, label %if.end11.i
 
 if.end248.i480:                                   ; preds = %if.end203.i516, %while.body.i448
-  %cached_accept_id.24 = phi i32 [ %cached_accept_id.152658, %while.body.i448 ], [ %cached_accept_id.23, %if.end203.i516 ]
-  %cached_accept_state.24 = phi i8 [ %cached_accept_state.152659, %while.body.i448 ], [ %cached_accept_state.23, %if.end203.i516 ]
+  %cached_accept_id.20 = phi i32 [ %cached_accept_id.192658, %while.body.i448 ], [ %cached_accept_id.27, %if.end203.i516 ]
+  %cached_accept_state.20 = phi i8 [ %cached_accept_state.192659, %while.body.i448 ], [ %cached_accept_state.27, %if.end203.i516 ]
   %add.ptr282.i483 = getelementptr inbounds i8, ptr %cur_buf.i390.12660, i64 4
   %sub.ptr.rhs.cast.i439 = ptrtoint ptr %add.ptr282.i483 to i64
   %sub.ptr.sub.i440 = sub i64 %sub.ptr.lhs.cast.i438, %sub.ptr.rhs.cast.i439
@@ -3281,18 +3281,18 @@ if.end248.i480:                                   ; preds = %if.end203.i516, %wh
   br i1 %cmp35.i441, label %while.body.i448, label %if.end11.i, !llvm.loop !8
 
 if.end11.i:                                       ; preds = %if.then215.i, %if.end203.i516, %if.end248.i480, %if.end203.i, %if.end248.i, %if.end33.i435, %if.end33.i279, %if.end22.i276, %if.else.i
-  %state.4 = phi i8 [ %state.0, %if.end22.i276 ], [ %state.0, %if.else.i ], [ %state.0, %if.end33.i279 ], [ %state.0, %if.end33.i435 ], [ %conv60.i, %if.end248.i ], [ %conv60.i, %if.end203.i ], [ %conv60.i471, %if.end248.i480 ], [ %conv60.i471, %if.end203.i516 ], [ %conv60.i, %if.then215.i ]
-  %scanned.3 = phi ptr [ %add.ptr103, %if.end22.i276 ], [ %add.ptr103, %if.else.i ], [ %cur_buf.i.0, %if.end33.i279 ], [ %add.ptr102, %if.end33.i435 ], [ %add.ptr103, %if.end203.i ], [ %add.ptr282.i, %if.end248.i ], [ %add.ptr103, %if.end203.i516 ], [ %add.ptr282.i483, %if.end248.i480 ], [ %call225.i, %if.then215.i ]
-  %cached_accept_id.26 = phi i32 [ %cached_accept_id.3, %if.end22.i276 ], [ %cached_accept_id.3, %if.else.i ], [ %cached_accept_id.3, %if.end33.i279 ], [ %cached_accept_id.3, %if.end33.i435 ], [ %cached_accept_id.12, %if.end203.i ], [ %cached_accept_id.13, %if.end248.i ], [ %cached_accept_id.23, %if.end203.i516 ], [ %cached_accept_id.24, %if.end248.i480 ], [ %cached_accept_id.12, %if.then215.i ]
-  %cached_accept_state.26 = phi i8 [ %cached_accept_state.3, %if.end22.i276 ], [ %cached_accept_state.3, %if.else.i ], [ %cached_accept_state.3, %if.end33.i279 ], [ %cached_accept_state.3, %if.end33.i435 ], [ %cached_accept_state.12, %if.end203.i ], [ %cached_accept_state.13, %if.end248.i ], [ %cached_accept_state.23, %if.end203.i516 ], [ %cached_accept_state.24, %if.end248.i480 ], [ %cached_accept_state.12, %if.then215.i ]
-  %174 = and i8 %state.4, 32
+  %state.5 = phi i8 [ %state.0, %if.end22.i276 ], [ %state.0, %if.else.i ], [ %state.0, %if.end33.i279 ], [ %state.0, %if.end33.i435 ], [ %conv60.i, %if.end248.i ], [ %conv60.i, %if.end203.i ], [ %conv60.i471, %if.end248.i480 ], [ %conv60.i471, %if.end203.i516 ], [ %conv60.i, %if.then215.i ]
+  %scanned.2 = phi ptr [ %add.ptr103, %if.end22.i276 ], [ %add.ptr103, %if.else.i ], [ %cur_buf.i.0, %if.end33.i279 ], [ %add.ptr102, %if.end33.i435 ], [ %add.ptr103, %if.end203.i ], [ %add.ptr282.i, %if.end248.i ], [ %add.ptr103, %if.end203.i516 ], [ %add.ptr282.i483, %if.end248.i480 ], [ %call225.i, %if.then215.i ]
+  %cached_accept_id.17 = phi i32 [ %cached_accept_id.3, %if.end22.i276 ], [ %cached_accept_id.3, %if.else.i ], [ %cached_accept_id.3, %if.end33.i279 ], [ %cached_accept_id.3, %if.end33.i435 ], [ %cached_accept_id.15, %if.end203.i ], [ %cached_accept_id.8, %if.end248.i ], [ %cached_accept_id.27, %if.end203.i516 ], [ %cached_accept_id.20, %if.end248.i480 ], [ %cached_accept_id.15, %if.then215.i ]
+  %cached_accept_state.17 = phi i8 [ %cached_accept_state.3, %if.end22.i276 ], [ %cached_accept_state.3, %if.else.i ], [ %cached_accept_state.3, %if.end33.i279 ], [ %cached_accept_state.3, %if.end33.i435 ], [ %cached_accept_state.15, %if.end203.i ], [ %cached_accept_state.8, %if.end248.i ], [ %cached_accept_state.27, %if.end203.i516 ], [ %cached_accept_state.20, %if.end248.i480 ], [ %cached_accept_state.15, %if.then215.i ]
+  %174 = and i8 %state.5, 32
   %tobool.i899.not = icmp ne i8 %174, 0
-  %cmp.i902.not2667 = icmp eq ptr %scanned.3, %add.ptr103
+  %cmp.i902.not2667 = icmp eq ptr %scanned.2, %add.ptr103
   %or.cond3658 = select i1 %tobool.i899.not, i1 true, i1 %cmp.i902.not2667
   br i1 %or.cond3658, label %if.end154, label %while.body.i907.lr.ph
 
 while.body.i907.lr.ph:                            ; preds = %if.end11.i
-  %vecinit.i2930 = insertelement <16 x i8> poison, i8 %state.4, i64 0
+  %vecinit.i2930 = insertelement <16 x i8> poison, i8 %state.5, i64 0
   %vecinit15.i2945 = shufflevector <16 x i8> %vecinit.i2930, <16 x i8> poison, <16 x i32> zeroinitializer
   %invariant.op = add i64 %83, 1
   %sub.ptr.rhs.cast.i913 = ptrtoint ptr %cur_buf.1 to i64
@@ -3300,10 +3300,10 @@ while.body.i907.lr.ph:                            ; preds = %if.end11.i
   br label %while.body.i907
 
 while.body.i907:                                  ; preds = %while.body.i907.lr.ph, %if.end44.i
-  %cur_buf.i894.02670 = phi ptr [ %scanned.3, %while.body.i907.lr.ph ], [ %incdec.ptr.i, %if.end44.i ]
+  %cur_buf.i894.02670 = phi ptr [ %scanned.2, %while.body.i907.lr.ph ], [ %incdec.ptr.i, %if.end44.i ]
   %175 = phi <16 x i8> [ %vecinit15.i2945, %while.body.i907.lr.ph ], [ %178, %if.end44.i ]
-  %cached_accept_state.272669 = phi i8 [ %cached_accept_state.26, %while.body.i907.lr.ph ], [ %cached_accept_state.29, %if.end44.i ]
-  %cached_accept_id.272668 = phi i32 [ %cached_accept_id.26, %while.body.i907.lr.ph ], [ %cached_accept_id.29, %if.end44.i ]
+  %cached_accept_state.312669 = phi i8 [ %cached_accept_state.17, %while.body.i907.lr.ph ], [ %cached_accept_state.32, %if.end44.i ]
+  %cached_accept_id.312668 = phi i32 [ %cached_accept_id.17, %while.body.i907.lr.ph ], [ %cached_accept_id.32, %if.end44.i ]
   %176 = load i8, ptr %cur_buf.i894.02670, align 1
   %idxprom.i908 = zext i8 %176 to i64
   %arrayidx.i909 = getelementptr inbounds <2 x i64>, ptr %sh, i64 %idxprom.i908
@@ -3326,11 +3326,11 @@ if.then30.i976:                                   ; preds = %if.then23.i
   br i1 %cmp.i52.i, label %return, label %if.end44.i
 
 land.lhs.true.i.i919:                             ; preds = %if.then23.i
-  %cmp.i.i922 = icmp eq i8 %conv10.i910, %cached_accept_state.272669
+  %cmp.i.i922 = icmp eq i8 %conv10.i910, %cached_accept_state.312669
   br i1 %cmp.i.i922, label %if.then.i.i971, label %cond.false.i.i937
 
 if.then.i.i971:                                   ; preds = %land.lhs.true.i.i919
-  %call.i.i972 = tail call i32 %81(i64 noundef 0, i64 noundef %add26.i, i32 noundef %cached_accept_id.272668, ptr noundef %82) #10
+  %call.i.i972 = tail call i32 %81(i64 noundef 0, i64 noundef %add26.i, i32 noundef %cached_accept_id.312668, ptr noundef %82) #10
   %cmp5.i.i973 = icmp eq i32 %call.i.i972, 0
   br i1 %cmp5.i.i973, label %return, label %if.end44.i
 
@@ -3378,8 +3378,8 @@ fireReports.exit.i948:                            ; preds = %cond.false.i.i937
   br i1 %cmp27.i.i966, label %return, label %if.end44.i
 
 if.end44.i:                                       ; preds = %for.cond.i.i945, %cond.false.i.i937, %if.then.i.i971, %if.then30.i976, %fireReports.exit.i948, %while.body.i907
-  %cached_accept_id.29 = phi i32 [ %cached_accept_id.272668, %if.then30.i976 ], [ %185, %fireReports.exit.i948 ], [ %cached_accept_id.272668, %while.body.i907 ], [ %cached_accept_id.272668, %if.then.i.i971 ], [ %cached_accept_id.272668, %cond.false.i.i937 ], [ %cached_accept_id.272668, %for.cond.i.i945 ]
-  %cached_accept_state.29 = phi i8 [ %cached_accept_state.272669, %if.then30.i976 ], [ %conv10.i910, %fireReports.exit.i948 ], [ %cached_accept_state.272669, %while.body.i907 ], [ %cached_accept_state.272669, %if.then.i.i971 ], [ %cached_accept_state.272669, %cond.false.i.i937 ], [ %cached_accept_state.272669, %for.cond.i.i945 ]
+  %cached_accept_id.32 = phi i32 [ %cached_accept_id.312668, %if.then30.i976 ], [ %185, %fireReports.exit.i948 ], [ %cached_accept_id.312668, %while.body.i907 ], [ %cached_accept_id.312668, %if.then.i.i971 ], [ %cached_accept_id.312668, %cond.false.i.i937 ], [ %cached_accept_id.312668, %for.cond.i.i945 ]
+  %cached_accept_state.32 = phi i8 [ %cached_accept_state.312669, %if.then30.i976 ], [ %conv10.i910, %fireReports.exit.i948 ], [ %cached_accept_state.312669, %while.body.i907 ], [ %cached_accept_state.312669, %if.then.i.i971 ], [ %cached_accept_state.312669, %cond.false.i.i937 ], [ %cached_accept_state.312669, %for.cond.i.i945 ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %cur_buf.i894.02670, i64 1
   %cmp.i902.not = icmp eq ptr %incdec.ptr.i, %add.ptr103
   br i1 %cmp.i902.not, label %if.end154, label %while.body.i907, !llvm.loop !9
@@ -3406,12 +3406,12 @@ if.then.i1539:                                    ; preds = %if.then16.i
   %call11.i1544 = tail call ptr @run_accel(ptr noundef nonnull %gep2906, ptr noundef %add.ptr102, ptr noundef %add.ptr103) #10
   %add.ptr.i1545 = getelementptr inbounds i8, ptr %add.ptr102, i64 4
   %cmp.i1546 = icmp ult ptr %call11.i1544, %add.ptr.i1545
-  %min_accel_dist.i1078.0.v = select i1 %cmp.i1546, i64 32, i64 8
-  %min_accel_dist.i1078.0 = getelementptr inbounds i8, ptr %call11.i1544, i64 %min_accel_dist.i1078.0.v
+  %min_accel_dist.i1078.1.v = select i1 %cmp.i1546, i64 32, i64 8
+  %min_accel_dist.i1078.1 = getelementptr inbounds i8, ptr %call11.i1544, i64 %min_accel_dist.i1078.1.v
   br label %if.end33.i1123
 
 if.end33.i1123:                                   ; preds = %if.then16.i, %if.then.i1539
-  %min_accel_dist.i1078.1 = phi ptr [ %min_accel_dist.i1078.0, %if.then.i1539 ], [ %add.ptr102, %if.then16.i ]
+  %min_accel_dist.i1078.0 = phi ptr [ %min_accel_dist.i1078.1, %if.then.i1539 ], [ %add.ptr102, %if.then16.i ]
   %cur_buf.i1077.0 = phi ptr [ %call11.i1544, %if.then.i1539 ], [ %add.ptr102, %if.then16.i ]
   %sub.ptr.lhs.cast.i1126 = ptrtoint ptr %add.ptr103 to i64
   %sub.ptr.rhs.cast.i112726822700 = ptrtoint ptr %cur_buf.i1077.0 to i64
@@ -3427,17 +3427,17 @@ while.body.i1136.lr.ph.lr.ph:                     ; preds = %if.end33.i1123
 
 while.body.i1136.lr.ph:                           ; preds = %while.body.i1136.lr.ph.lr.ph, %if.then215.i1214
   %cur_buf.i1077.1.ph2707 = phi ptr [ %cur_buf.i1077.0, %while.body.i1136.lr.ph.lr.ph ], [ %call225.i1220, %if.then215.i1214 ]
-  %min_accel_dist.i1078.2.ph2706 = phi ptr [ %min_accel_dist.i1078.1, %while.body.i1136.lr.ph.lr.ph ], [ %min_accel_dist.i1078.3, %if.then215.i1214 ]
+  %min_accel_dist.i1078.2.ph2706 = phi ptr [ %min_accel_dist.i1078.0, %while.body.i1136.lr.ph.lr.ph ], [ %min_accel_dist.i1078.3, %if.then215.i1214 ]
   %.ph23792705 = phi <16 x i8> [ %vecinit15.i2912, %while.body.i1136.lr.ph.lr.ph ], [ %201, %if.then215.i1214 ]
-  %cached_accept_state.31.ph2704 = phi i8 [ %cached_accept_state.3, %while.body.i1136.lr.ph.lr.ph ], [ %cached_accept_state.39, %if.then215.i1214 ]
-  %cached_accept_id.31.ph2703 = phi i32 [ %cached_accept_id.3, %while.body.i1136.lr.ph.lr.ph ], [ %cached_accept_id.39, %if.then215.i1214 ]
+  %cached_accept_state.36.ph2704 = phi i8 [ %cached_accept_state.3, %while.body.i1136.lr.ph.lr.ph ], [ %cached_accept_state.44, %if.then215.i1214 ]
+  %cached_accept_id.36.ph2703 = phi i32 [ %cached_accept_id.3, %while.body.i1136.lr.ph.lr.ph ], [ %cached_accept_id.44, %if.then215.i1214 ]
   br label %while.body.i1136
 
 while.body.i1136:                                 ; preds = %while.body.i1136.lr.ph, %if.end248.i1168
   %cur_buf.i1077.12687 = phi ptr [ %cur_buf.i1077.1.ph2707, %while.body.i1136.lr.ph ], [ %add.ptr282.i1171, %if.end248.i1168 ]
   %189 = phi <16 x i8> [ %.ph23792705, %while.body.i1136.lr.ph ], [ %201, %if.end248.i1168 ]
-  %cached_accept_state.312686 = phi i8 [ %cached_accept_state.31.ph2704, %while.body.i1136.lr.ph ], [ %cached_accept_state.40, %if.end248.i1168 ]
-  %cached_accept_id.312685 = phi i32 [ %cached_accept_id.31.ph2703, %while.body.i1136.lr.ph ], [ %cached_accept_id.40, %if.end248.i1168 ]
+  %cached_accept_state.362686 = phi i8 [ %cached_accept_state.36.ph2704, %while.body.i1136.lr.ph ], [ %cached_accept_state.37, %if.end248.i1168 ]
+  %cached_accept_id.362685 = phi i32 [ %cached_accept_id.36.ph2703, %while.body.i1136.lr.ph ], [ %cached_accept_id.37, %if.end248.i1168 ]
   %add.ptr40.i1137 = getelementptr inbounds i8, ptr %cur_buf.i1077.12687, i64 1
   %add.ptr41.i1138 = getelementptr inbounds i8, ptr %cur_buf.i1077.12687, i64 2
   %add.ptr42.i1139 = getelementptr inbounds i8, ptr %cur_buf.i1077.12687, i64 3
@@ -3491,11 +3491,11 @@ if.then98.i1527:                                  ; preds = %if.then88.i1461
   br i1 %cmp.i529.i1530, label %return, label %if.end113.i1195.thread
 
 land.lhs.true.i442.i1469:                         ; preds = %if.then88.i1461
-  %cmp.i445.i1472 = icmp eq i8 %conv45.i1144, %cached_accept_state.312686
+  %cmp.i445.i1472 = icmp eq i8 %conv45.i1144, %cached_accept_state.362686
   br i1 %cmp.i445.i1472, label %if.then.i489.i1522, label %cond.false.i460.i1487
 
 if.then.i489.i1522:                               ; preds = %land.lhs.true.i442.i1469
-  %call.i490.i1523 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub92.i1465, i32 noundef %cached_accept_id.312685, ptr noundef %82) #10
+  %call.i490.i1523 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub92.i1465, i32 noundef %cached_accept_id.362685, ptr noundef %82) #10
   %cmp5.i491.i1524 = icmp eq i32 %call.i490.i1523, 0
   br i1 %cmp5.i491.i1524, label %return, label %if.end113.i1195
 
@@ -3543,8 +3543,8 @@ fireReports.exit494.i1498:                        ; preds = %cond.false.i460.i14
   br i1 %cmp27.i484.i1517, label %return, label %if.end113.i1195
 
 if.end113.i1195:                                  ; preds = %for.cond.i468.i1495, %cond.false.i460.i1487, %if.then.i489.i1522, %fireReports.exit494.i1498, %if.then85.i1192
-  %cached_accept_id.33 = phi i32 [ %208, %fireReports.exit494.i1498 ], [ %cached_accept_id.312685, %if.then85.i1192 ], [ %cached_accept_id.312685, %if.then.i489.i1522 ], [ %cached_accept_id.312685, %cond.false.i460.i1487 ], [ %cached_accept_id.312685, %for.cond.i468.i1495 ]
-  %cached_accept_state.33 = phi i8 [ %conv45.i1144, %fireReports.exit494.i1498 ], [ %cached_accept_state.312686, %if.then85.i1192 ], [ %cached_accept_state.312686, %if.then.i489.i1522 ], [ %cached_accept_state.312686, %cond.false.i460.i1487 ], [ %cached_accept_state.312686, %for.cond.i468.i1495 ]
+  %cached_accept_id.38 = phi i32 [ %208, %fireReports.exit494.i1498 ], [ %cached_accept_id.362685, %if.then85.i1192 ], [ %cached_accept_id.362685, %if.then.i489.i1522 ], [ %cached_accept_id.362685, %cond.false.i460.i1487 ], [ %cached_accept_id.362685, %for.cond.i468.i1495 ]
+  %cached_accept_state.38 = phi i8 [ %conv45.i1144, %fireReports.exit494.i1498 ], [ %cached_accept_state.362686, %if.then85.i1192 ], [ %cached_accept_state.362686, %if.then.i489.i1522 ], [ %cached_accept_state.362686, %cond.false.i460.i1487 ], [ %cached_accept_state.362686, %for.cond.i468.i1495 ]
   %and.i2794 = and i8 %conv50.i1149, 16
   %tobool115.i1197.not = icmp eq i8 %and.i2794, 0
   br i1 %tobool115.i1197.not, label %if.end143.i1198, label %if.then116.i1384
@@ -3568,19 +3568,19 @@ if.then116.i1384:                                 ; preds = %if.end113.i1195
 
 if.then127.i1450:                                 ; preds = %if.then116.i1384.thread, %if.then116.i1384
   %sub.ptr.sub121.i13883397 = phi i64 [ %sub.ptr.sub121.i13883394, %if.then116.i1384.thread ], [ %sub.ptr.sub121.i1388, %if.then116.i1384 ]
-  %cached_accept_id.3333883396 = phi i32 [ %cached_accept_id.312685, %if.then116.i1384.thread ], [ %cached_accept_id.33, %if.then116.i1384 ]
-  %cached_accept_state.3333893395 = phi i8 [ %cached_accept_state.312686, %if.then116.i1384.thread ], [ %cached_accept_state.33, %if.then116.i1384 ]
+  %cached_accept_id.3833883396 = phi i32 [ %cached_accept_id.362685, %if.then116.i1384.thread ], [ %cached_accept_id.38, %if.then116.i1384 ]
+  %cached_accept_state.3833893395 = phi i8 [ %cached_accept_state.362686, %if.then116.i1384.thread ], [ %cached_accept_state.38, %if.then116.i1384 ]
   %209 = load i32, ptr %report.i285, align 4
   %call.i518.i1452 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub121.i13883397, i32 noundef %209, ptr noundef %82) #10
   %cmp.i519.i1453 = icmp eq i32 %call.i518.i1452, 0
   br i1 %cmp.i519.i1453, label %return, label %if.end143.i1198
 
 land.lhs.true.i372.i1392:                         ; preds = %if.then116.i1384
-  %cmp.i375.i1395 = icmp eq i8 %conv50.i1149, %cached_accept_state.33
+  %cmp.i375.i1395 = icmp eq i8 %conv50.i1149, %cached_accept_state.38
   br i1 %cmp.i375.i1395, label %if.then.i419.i1445, label %cond.false.i390.i1410
 
 if.then.i419.i1445:                               ; preds = %land.lhs.true.i372.i1392
-  %call.i420.i1446 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub121.i1388, i32 noundef %cached_accept_id.33, ptr noundef %82) #10
+  %call.i420.i1446 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub121.i1388, i32 noundef %cached_accept_id.38, ptr noundef %82) #10
   %cmp5.i421.i1447 = icmp eq i32 %call.i420.i1446, 0
   br i1 %cmp5.i421.i1447, label %return, label %if.end143.i1198
 
@@ -3628,8 +3628,8 @@ fireReports.exit424.i1421:                        ; preds = %cond.false.i390.i14
   br i1 %cmp27.i414.i1440, label %return, label %if.end143.i1198
 
 if.end143.i1198:                                  ; preds = %for.cond.i398.i1418, %cond.false.i390.i1410, %if.end113.i1195.thread, %if.then.i419.i1445, %if.then127.i1450, %fireReports.exit424.i1421, %if.end113.i1195
-  %cached_accept_id.35 = phi i32 [ %cached_accept_id.3333883396, %if.then127.i1450 ], [ %215, %fireReports.exit424.i1421 ], [ %cached_accept_id.33, %if.end113.i1195 ], [ %cached_accept_id.33, %if.then.i419.i1445 ], [ %cached_accept_id.312685, %if.end113.i1195.thread ], [ %cached_accept_id.33, %cond.false.i390.i1410 ], [ %cached_accept_id.33, %for.cond.i398.i1418 ]
-  %cached_accept_state.35 = phi i8 [ %cached_accept_state.3333893395, %if.then127.i1450 ], [ %conv50.i1149, %fireReports.exit424.i1421 ], [ %cached_accept_state.33, %if.end113.i1195 ], [ %conv50.i1149, %if.then.i419.i1445 ], [ %cached_accept_state.312686, %if.end113.i1195.thread ], [ %cached_accept_state.33, %cond.false.i390.i1410 ], [ %cached_accept_state.33, %for.cond.i398.i1418 ]
+  %cached_accept_id.40 = phi i32 [ %cached_accept_id.3833883396, %if.then127.i1450 ], [ %215, %fireReports.exit424.i1421 ], [ %cached_accept_id.38, %if.end113.i1195 ], [ %cached_accept_id.38, %if.then.i419.i1445 ], [ %cached_accept_id.362685, %if.end113.i1195.thread ], [ %cached_accept_id.38, %cond.false.i390.i1410 ], [ %cached_accept_id.38, %for.cond.i398.i1418 ]
+  %cached_accept_state.40 = phi i8 [ %cached_accept_state.3833893395, %if.then127.i1450 ], [ %conv50.i1149, %fireReports.exit424.i1421 ], [ %cached_accept_state.38, %if.end113.i1195 ], [ %conv50.i1149, %if.then.i419.i1445 ], [ %cached_accept_state.362686, %if.end113.i1195.thread ], [ %cached_accept_state.38, %cond.false.i390.i1410 ], [ %cached_accept_state.38, %for.cond.i398.i1418 ]
   %and.i2790 = and i8 %conv55.i1154, 16
   %tobool145.i1200.not = icmp eq i8 %and.i2790, 0
   br i1 %tobool145.i1200.not, label %if.end173.i1201, label %if.then146.i1307
@@ -3647,11 +3647,11 @@ if.then157.i1373:                                 ; preds = %if.then146.i1307
   br i1 %cmp.i509.i1376, label %return, label %if.end173.i1201.thread
 
 land.lhs.true.i302.i1315:                         ; preds = %if.then146.i1307
-  %cmp.i305.i1318 = icmp eq i8 %conv55.i1154, %cached_accept_state.35
+  %cmp.i305.i1318 = icmp eq i8 %conv55.i1154, %cached_accept_state.40
   br i1 %cmp.i305.i1318, label %if.then.i349.i1368, label %cond.false.i320.i1333
 
 if.then.i349.i1368:                               ; preds = %land.lhs.true.i302.i1315
-  %call.i350.i1369 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub151.i1311, i32 noundef %cached_accept_id.35, ptr noundef %82) #10
+  %call.i350.i1369 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub151.i1311, i32 noundef %cached_accept_id.40, ptr noundef %82) #10
   %cmp5.i351.i1370 = icmp eq i32 %call.i350.i1369, 0
   br i1 %cmp5.i351.i1370, label %return, label %if.end173.i1201
 
@@ -3699,8 +3699,8 @@ fireReports.exit354.i1344:                        ; preds = %cond.false.i320.i13
   br i1 %cmp27.i344.i1363, label %return, label %if.end173.i1201
 
 if.end173.i1201:                                  ; preds = %for.cond.i328.i1341, %cond.false.i320.i1333, %if.then.i349.i1368, %fireReports.exit354.i1344, %if.end143.i1198
-  %cached_accept_id.37 = phi i32 [ %222, %fireReports.exit354.i1344 ], [ %cached_accept_id.35, %if.end143.i1198 ], [ %cached_accept_id.35, %if.then.i349.i1368 ], [ %cached_accept_id.35, %cond.false.i320.i1333 ], [ %cached_accept_id.35, %for.cond.i328.i1341 ]
-  %cached_accept_state.37 = phi i8 [ %conv55.i1154, %fireReports.exit354.i1344 ], [ %cached_accept_state.35, %if.end143.i1198 ], [ %conv55.i1154, %if.then.i349.i1368 ], [ %cached_accept_state.35, %cond.false.i320.i1333 ], [ %cached_accept_state.35, %for.cond.i328.i1341 ]
+  %cached_accept_id.42 = phi i32 [ %222, %fireReports.exit354.i1344 ], [ %cached_accept_id.40, %if.end143.i1198 ], [ %cached_accept_id.40, %if.then.i349.i1368 ], [ %cached_accept_id.40, %cond.false.i320.i1333 ], [ %cached_accept_id.40, %for.cond.i328.i1341 ]
+  %cached_accept_state.42 = phi i8 [ %conv55.i1154, %fireReports.exit354.i1344 ], [ %cached_accept_state.40, %if.end143.i1198 ], [ %conv55.i1154, %if.then.i349.i1368 ], [ %cached_accept_state.40, %cond.false.i320.i1333 ], [ %cached_accept_state.40, %for.cond.i328.i1341 ]
   %and.i2786 = and i8 %conv60.i1159, 16
   %tobool175.i1203.not = icmp eq i8 %and.i2786, 0
   br i1 %tobool175.i1203.not, label %if.end209.i1207, label %if.then176.i1230
@@ -3724,19 +3724,19 @@ if.then176.i1230:                                 ; preds = %if.end173.i1201
 
 if.then187.i1296:                                 ; preds = %if.then176.i1230.thread, %if.then176.i1230
   %sub.ptr.sub181.i12343411 = phi i64 [ %sub.ptr.sub181.i12343408, %if.then176.i1230.thread ], [ %sub.ptr.sub181.i1234, %if.then176.i1230 ]
-  %cached_accept_id.3734023410 = phi i32 [ %cached_accept_id.35, %if.then176.i1230.thread ], [ %cached_accept_id.37, %if.then176.i1230 ]
-  %cached_accept_state.3734033409 = phi i8 [ %cached_accept_state.35, %if.then176.i1230.thread ], [ %cached_accept_state.37, %if.then176.i1230 ]
+  %cached_accept_id.4234023410 = phi i32 [ %cached_accept_id.40, %if.then176.i1230.thread ], [ %cached_accept_id.42, %if.then176.i1230 ]
+  %cached_accept_state.4234033409 = phi i8 [ %cached_accept_state.40, %if.then176.i1230.thread ], [ %cached_accept_state.42, %if.then176.i1230 ]
   %223 = load i32, ptr %report.i285, align 4
   %call.i499.i1298 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub181.i12343411, i32 noundef %223, ptr noundef %82) #10
   %cmp.i500.i1299 = icmp eq i32 %call.i499.i1298, 0
   br i1 %cmp.i500.i1299, label %return, label %if.end209.i1207
 
 land.lhs.true.i.i1238:                            ; preds = %if.then176.i1230
-  %cmp.i.i1241 = icmp eq i8 %conv60.i1159, %cached_accept_state.37
+  %cmp.i.i1241 = icmp eq i8 %conv60.i1159, %cached_accept_state.42
   br i1 %cmp.i.i1241, label %if.then.i.i1291, label %cond.false.i.i1256
 
 if.then.i.i1291:                                  ; preds = %land.lhs.true.i.i1238
-  %call.i.i1292 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub181.i1234, i32 noundef %cached_accept_id.37, ptr noundef %82) #10
+  %call.i.i1292 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub181.i1234, i32 noundef %cached_accept_id.42, ptr noundef %82) #10
   %cmp5.i.i1293 = icmp eq i32 %call.i.i1292, 0
   br i1 %cmp5.i.i1293, label %return, label %if.end209.i1207
 
@@ -3784,8 +3784,8 @@ fireReports.exit.i1267:                           ; preds = %cond.false.i.i1256
   br i1 %cmp27.i.i1286, label %return, label %if.end209.i1207
 
 if.end209.i1207:                                  ; preds = %for.cond.i.i1264, %cond.false.i.i1256, %if.end173.i1201.thread, %if.then.i.i1291, %if.end173.i1201, %fireReports.exit.i1267, %if.then187.i1296
-  %cached_accept_id.39 = phi i32 [ %cached_accept_id.3734023410, %if.then187.i1296 ], [ %229, %fireReports.exit.i1267 ], [ %cached_accept_id.37, %if.end173.i1201 ], [ %cached_accept_id.37, %if.then.i.i1291 ], [ %cached_accept_id.35, %if.end173.i1201.thread ], [ %cached_accept_id.37, %cond.false.i.i1256 ], [ %cached_accept_id.37, %for.cond.i.i1264 ]
-  %cached_accept_state.39 = phi i8 [ %cached_accept_state.3734033409, %if.then187.i1296 ], [ %conv60.i1159, %fireReports.exit.i1267 ], [ %cached_accept_state.37, %if.end173.i1201 ], [ %conv60.i1159, %if.then.i.i1291 ], [ %cached_accept_state.35, %if.end173.i1201.thread ], [ %cached_accept_state.37, %cond.false.i.i1256 ], [ %cached_accept_state.37, %for.cond.i.i1264 ]
+  %cached_accept_id.44 = phi i32 [ %cached_accept_id.4234023410, %if.then187.i1296 ], [ %229, %fireReports.exit.i1267 ], [ %cached_accept_id.42, %if.end173.i1201 ], [ %cached_accept_id.42, %if.then.i.i1291 ], [ %cached_accept_id.40, %if.end173.i1201.thread ], [ %cached_accept_id.42, %cond.false.i.i1256 ], [ %cached_accept_id.42, %for.cond.i.i1264 ]
+  %cached_accept_state.44 = phi i8 [ %cached_accept_state.4234033409, %if.then187.i1296 ], [ %conv60.i1159, %fireReports.exit.i1267 ], [ %cached_accept_state.42, %if.end173.i1201 ], [ %conv60.i1159, %if.then.i.i1291 ], [ %cached_accept_state.40, %if.end173.i1201.thread ], [ %cached_accept_state.42, %cond.false.i.i1256 ], [ %cached_accept_state.42, %for.cond.i.i1264 ]
   %cmp210.i1208 = icmp ule ptr %cur_buf.i1077.12687, %min_accel_dist.i1078.2.ph2706
   %and.i2270 = and i8 %conv60.i1159, 64
   %tobool214.i1213.not = icmp eq i8 %and.i2270, 0
@@ -3815,8 +3815,8 @@ if.then215.i1214:                                 ; preds = %if.end209.i1207
   br i1 %cmp35.i11292684, label %while.body.i1136.lr.ph, label %if.end.i2167, !llvm.loop !10
 
 if.end248.i1168:                                  ; preds = %while.body.i1136, %if.end209.i1207
-  %cached_accept_id.40 = phi i32 [ %cached_accept_id.39, %if.end209.i1207 ], [ %cached_accept_id.312685, %while.body.i1136 ]
-  %cached_accept_state.40 = phi i8 [ %cached_accept_state.39, %if.end209.i1207 ], [ %cached_accept_state.312686, %while.body.i1136 ]
+  %cached_accept_id.37 = phi i32 [ %cached_accept_id.44, %if.end209.i1207 ], [ %cached_accept_id.362685, %while.body.i1136 ]
+  %cached_accept_state.37 = phi i8 [ %cached_accept_state.44, %if.end209.i1207 ], [ %cached_accept_state.362686, %while.body.i1136 ]
   %add.ptr282.i1171 = getelementptr inbounds i8, ptr %cur_buf.i1077.12687, i64 4
   %sub.ptr.rhs.cast.i1127 = ptrtoint ptr %add.ptr282.i1171 to i64
   %sub.ptr.sub.i1128 = sub i64 %sub.ptr.lhs.cast.i1126, %sub.ptr.rhs.cast.i1127
@@ -3838,8 +3838,8 @@ while.body.i1708.lr.ph:                           ; preds = %if.else19.i
 while.body.i1708:                                 ; preds = %while.body.i1708.lr.ph, %if.end248.i1740
   %cur_buf.i1649.12725 = phi ptr [ %add.ptr102, %while.body.i1708.lr.ph ], [ %add.ptr282.i1743, %if.end248.i1740 ]
   %233 = phi <16 x i8> [ %vecinit15.i2879, %while.body.i1708.lr.ph ], [ %245, %if.end248.i1740 ]
-  %cached_accept_state.422724 = phi i8 [ %cached_accept_state.3, %while.body.i1708.lr.ph ], [ %cached_accept_state.51, %if.end248.i1740 ]
-  %cached_accept_id.422723 = phi i32 [ %cached_accept_id.3, %while.body.i1708.lr.ph ], [ %cached_accept_id.51, %if.end248.i1740 ]
+  %cached_accept_state.482724 = phi i8 [ %cached_accept_state.3, %while.body.i1708.lr.ph ], [ %cached_accept_state.49, %if.end248.i1740 ]
+  %cached_accept_id.482723 = phi i32 [ %cached_accept_id.3, %while.body.i1708.lr.ph ], [ %cached_accept_id.49, %if.end248.i1740 ]
   %add.ptr40.i1709 = getelementptr inbounds i8, ptr %cur_buf.i1649.12725, i64 1
   %add.ptr41.i1710 = getelementptr inbounds i8, ptr %cur_buf.i1649.12725, i64 2
   %add.ptr42.i1711 = getelementptr inbounds i8, ptr %cur_buf.i1649.12725, i64 3
@@ -3892,11 +3892,11 @@ if.then98.i2099:                                  ; preds = %if.then88.i2033
   br i1 %cmp.i529.i2102, label %return, label %if.end113.i1767.thread
 
 land.lhs.true.i442.i2041:                         ; preds = %if.then88.i2033
-  %cmp.i445.i2044 = icmp eq i8 %conv45.i1716, %cached_accept_state.422724
+  %cmp.i445.i2044 = icmp eq i8 %conv45.i1716, %cached_accept_state.482724
   br i1 %cmp.i445.i2044, label %if.then.i489.i2094, label %cond.false.i460.i2059
 
 if.then.i489.i2094:                               ; preds = %land.lhs.true.i442.i2041
-  %call.i490.i2095 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub92.i2037, i32 noundef %cached_accept_id.422723, ptr noundef %82) #10
+  %call.i490.i2095 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub92.i2037, i32 noundef %cached_accept_id.482723, ptr noundef %82) #10
   %cmp5.i491.i2096 = icmp eq i32 %call.i490.i2095, 0
   br i1 %cmp5.i491.i2096, label %return, label %if.end113.i1767
 
@@ -3944,8 +3944,8 @@ fireReports.exit494.i2070:                        ; preds = %cond.false.i460.i20
   br i1 %cmp27.i484.i2089, label %return, label %if.end113.i1767
 
 if.end113.i1767:                                  ; preds = %for.cond.i468.i2067, %cond.false.i460.i2059, %if.then.i489.i2094, %fireReports.exit494.i2070, %if.then85.i1764
-  %cached_accept_id.44 = phi i32 [ %252, %fireReports.exit494.i2070 ], [ %cached_accept_id.422723, %if.then85.i1764 ], [ %cached_accept_id.422723, %if.then.i489.i2094 ], [ %cached_accept_id.422723, %cond.false.i460.i2059 ], [ %cached_accept_id.422723, %for.cond.i468.i2067 ]
-  %cached_accept_state.44 = phi i8 [ %conv45.i1716, %fireReports.exit494.i2070 ], [ %cached_accept_state.422724, %if.then85.i1764 ], [ %cached_accept_state.422724, %if.then.i489.i2094 ], [ %cached_accept_state.422724, %cond.false.i460.i2059 ], [ %cached_accept_state.422724, %for.cond.i468.i2067 ]
+  %cached_accept_id.50 = phi i32 [ %252, %fireReports.exit494.i2070 ], [ %cached_accept_id.482723, %if.then85.i1764 ], [ %cached_accept_id.482723, %if.then.i489.i2094 ], [ %cached_accept_id.482723, %cond.false.i460.i2059 ], [ %cached_accept_id.482723, %for.cond.i468.i2067 ]
+  %cached_accept_state.50 = phi i8 [ %conv45.i1716, %fireReports.exit494.i2070 ], [ %cached_accept_state.482724, %if.then85.i1764 ], [ %cached_accept_state.482724, %if.then.i489.i2094 ], [ %cached_accept_state.482724, %cond.false.i460.i2059 ], [ %cached_accept_state.482724, %for.cond.i468.i2067 ]
   %and.i2778 = and i8 %conv50.i1721, 16
   %tobool115.i1769.not = icmp eq i8 %and.i2778, 0
   br i1 %tobool115.i1769.not, label %if.end143.i1770, label %if.then116.i1956
@@ -3969,19 +3969,19 @@ if.then116.i1956:                                 ; preds = %if.end113.i1767
 
 if.then127.i2022:                                 ; preds = %if.then116.i1956.thread, %if.then116.i1956
   %sub.ptr.sub121.i19603425 = phi i64 [ %sub.ptr.sub121.i19603422, %if.then116.i1956.thread ], [ %sub.ptr.sub121.i1960, %if.then116.i1956 ]
-  %cached_accept_id.4434163424 = phi i32 [ %cached_accept_id.422723, %if.then116.i1956.thread ], [ %cached_accept_id.44, %if.then116.i1956 ]
-  %cached_accept_state.4434173423 = phi i8 [ %cached_accept_state.422724, %if.then116.i1956.thread ], [ %cached_accept_state.44, %if.then116.i1956 ]
+  %cached_accept_id.5034163424 = phi i32 [ %cached_accept_id.482723, %if.then116.i1956.thread ], [ %cached_accept_id.50, %if.then116.i1956 ]
+  %cached_accept_state.5034173423 = phi i8 [ %cached_accept_state.482724, %if.then116.i1956.thread ], [ %cached_accept_state.50, %if.then116.i1956 ]
   %253 = load i32, ptr %report.i285, align 4
   %call.i518.i2024 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub121.i19603425, i32 noundef %253, ptr noundef %82) #10
   %cmp.i519.i2025 = icmp eq i32 %call.i518.i2024, 0
   br i1 %cmp.i519.i2025, label %return, label %if.end143.i1770
 
 land.lhs.true.i372.i1964:                         ; preds = %if.then116.i1956
-  %cmp.i375.i1967 = icmp eq i8 %conv50.i1721, %cached_accept_state.44
+  %cmp.i375.i1967 = icmp eq i8 %conv50.i1721, %cached_accept_state.50
   br i1 %cmp.i375.i1967, label %if.then.i419.i2017, label %cond.false.i390.i1982
 
 if.then.i419.i2017:                               ; preds = %land.lhs.true.i372.i1964
-  %call.i420.i2018 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub121.i1960, i32 noundef %cached_accept_id.44, ptr noundef %82) #10
+  %call.i420.i2018 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub121.i1960, i32 noundef %cached_accept_id.50, ptr noundef %82) #10
   %cmp5.i421.i2019 = icmp eq i32 %call.i420.i2018, 0
   br i1 %cmp5.i421.i2019, label %return, label %if.end143.i1770
 
@@ -4029,8 +4029,8 @@ fireReports.exit424.i1993:                        ; preds = %cond.false.i390.i19
   br i1 %cmp27.i414.i2012, label %return, label %if.end143.i1770
 
 if.end143.i1770:                                  ; preds = %for.cond.i398.i1990, %cond.false.i390.i1982, %if.end113.i1767.thread, %if.then.i419.i2017, %if.then127.i2022, %fireReports.exit424.i1993, %if.end113.i1767
-  %cached_accept_id.46 = phi i32 [ %cached_accept_id.4434163424, %if.then127.i2022 ], [ %259, %fireReports.exit424.i1993 ], [ %cached_accept_id.44, %if.end113.i1767 ], [ %cached_accept_id.44, %if.then.i419.i2017 ], [ %cached_accept_id.422723, %if.end113.i1767.thread ], [ %cached_accept_id.44, %cond.false.i390.i1982 ], [ %cached_accept_id.44, %for.cond.i398.i1990 ]
-  %cached_accept_state.46 = phi i8 [ %cached_accept_state.4434173423, %if.then127.i2022 ], [ %conv50.i1721, %fireReports.exit424.i1993 ], [ %cached_accept_state.44, %if.end113.i1767 ], [ %conv50.i1721, %if.then.i419.i2017 ], [ %cached_accept_state.422724, %if.end113.i1767.thread ], [ %cached_accept_state.44, %cond.false.i390.i1982 ], [ %cached_accept_state.44, %for.cond.i398.i1990 ]
+  %cached_accept_id.52 = phi i32 [ %cached_accept_id.5034163424, %if.then127.i2022 ], [ %259, %fireReports.exit424.i1993 ], [ %cached_accept_id.50, %if.end113.i1767 ], [ %cached_accept_id.50, %if.then.i419.i2017 ], [ %cached_accept_id.482723, %if.end113.i1767.thread ], [ %cached_accept_id.50, %cond.false.i390.i1982 ], [ %cached_accept_id.50, %for.cond.i398.i1990 ]
+  %cached_accept_state.52 = phi i8 [ %cached_accept_state.5034173423, %if.then127.i2022 ], [ %conv50.i1721, %fireReports.exit424.i1993 ], [ %cached_accept_state.50, %if.end113.i1767 ], [ %conv50.i1721, %if.then.i419.i2017 ], [ %cached_accept_state.482724, %if.end113.i1767.thread ], [ %cached_accept_state.50, %cond.false.i390.i1982 ], [ %cached_accept_state.50, %for.cond.i398.i1990 ]
   %and.i2774 = and i8 %conv55.i1726, 16
   %tobool145.i1772.not = icmp eq i8 %and.i2774, 0
   br i1 %tobool145.i1772.not, label %if.end173.i1773, label %if.then146.i1879
@@ -4048,11 +4048,11 @@ if.then157.i1945:                                 ; preds = %if.then146.i1879
   br i1 %cmp.i509.i1948, label %return, label %if.end173.i1773.thread
 
 land.lhs.true.i302.i1887:                         ; preds = %if.then146.i1879
-  %cmp.i305.i1890 = icmp eq i8 %conv55.i1726, %cached_accept_state.46
+  %cmp.i305.i1890 = icmp eq i8 %conv55.i1726, %cached_accept_state.52
   br i1 %cmp.i305.i1890, label %if.then.i349.i1940, label %cond.false.i320.i1905
 
 if.then.i349.i1940:                               ; preds = %land.lhs.true.i302.i1887
-  %call.i350.i1941 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub151.i1883, i32 noundef %cached_accept_id.46, ptr noundef %82) #10
+  %call.i350.i1941 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub151.i1883, i32 noundef %cached_accept_id.52, ptr noundef %82) #10
   %cmp5.i351.i1942 = icmp eq i32 %call.i350.i1941, 0
   br i1 %cmp5.i351.i1942, label %return, label %if.end173.i1773
 
@@ -4100,8 +4100,8 @@ fireReports.exit354.i1916:                        ; preds = %cond.false.i320.i19
   br i1 %cmp27.i344.i1935, label %return, label %if.end173.i1773
 
 if.end173.i1773:                                  ; preds = %for.cond.i328.i1913, %cond.false.i320.i1905, %if.then.i349.i1940, %fireReports.exit354.i1916, %if.end143.i1770
-  %cached_accept_id.48 = phi i32 [ %266, %fireReports.exit354.i1916 ], [ %cached_accept_id.46, %if.end143.i1770 ], [ %cached_accept_id.46, %if.then.i349.i1940 ], [ %cached_accept_id.46, %cond.false.i320.i1905 ], [ %cached_accept_id.46, %for.cond.i328.i1913 ]
-  %cached_accept_state.48 = phi i8 [ %conv55.i1726, %fireReports.exit354.i1916 ], [ %cached_accept_state.46, %if.end143.i1770 ], [ %conv55.i1726, %if.then.i349.i1940 ], [ %cached_accept_state.46, %cond.false.i320.i1905 ], [ %cached_accept_state.46, %for.cond.i328.i1913 ]
+  %cached_accept_id.54 = phi i32 [ %266, %fireReports.exit354.i1916 ], [ %cached_accept_id.52, %if.end143.i1770 ], [ %cached_accept_id.52, %if.then.i349.i1940 ], [ %cached_accept_id.52, %cond.false.i320.i1905 ], [ %cached_accept_id.52, %for.cond.i328.i1913 ]
+  %cached_accept_state.54 = phi i8 [ %conv55.i1726, %fireReports.exit354.i1916 ], [ %cached_accept_state.52, %if.end143.i1770 ], [ %conv55.i1726, %if.then.i349.i1940 ], [ %cached_accept_state.52, %cond.false.i320.i1905 ], [ %cached_accept_state.52, %for.cond.i328.i1913 ]
   %and.i2770 = and i8 %conv60.i1731, 16
   %tobool175.i1775.not = icmp eq i8 %and.i2770, 0
   br i1 %tobool175.i1775.not, label %if.end248.i1740, label %if.then176.i1802
@@ -4125,19 +4125,19 @@ if.then176.i1802:                                 ; preds = %if.end173.i1773
 
 if.then187.i1868:                                 ; preds = %if.then176.i1802.thread, %if.then176.i1802
   %sub.ptr.sub181.i18063439 = phi i64 [ %sub.ptr.sub181.i18063436, %if.then176.i1802.thread ], [ %sub.ptr.sub181.i1806, %if.then176.i1802 ]
-  %cached_accept_id.4834303438 = phi i32 [ %cached_accept_id.46, %if.then176.i1802.thread ], [ %cached_accept_id.48, %if.then176.i1802 ]
-  %cached_accept_state.4834313437 = phi i8 [ %cached_accept_state.46, %if.then176.i1802.thread ], [ %cached_accept_state.48, %if.then176.i1802 ]
+  %cached_accept_id.5434303438 = phi i32 [ %cached_accept_id.52, %if.then176.i1802.thread ], [ %cached_accept_id.54, %if.then176.i1802 ]
+  %cached_accept_state.5434313437 = phi i8 [ %cached_accept_state.52, %if.then176.i1802.thread ], [ %cached_accept_state.54, %if.then176.i1802 ]
   %267 = load i32, ptr %report.i285, align 4
   %call.i499.i1870 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub181.i18063439, i32 noundef %267, ptr noundef %82) #10
   %cmp.i500.i1871 = icmp eq i32 %call.i499.i1870, 0
   br i1 %cmp.i500.i1871, label %return, label %if.end248.i1740
 
 land.lhs.true.i.i1810:                            ; preds = %if.then176.i1802
-  %cmp.i.i1813 = icmp eq i8 %conv60.i1731, %cached_accept_state.48
+  %cmp.i.i1813 = icmp eq i8 %conv60.i1731, %cached_accept_state.54
   br i1 %cmp.i.i1813, label %if.then.i.i1863, label %cond.false.i.i1828
 
 if.then.i.i1863:                                  ; preds = %land.lhs.true.i.i1810
-  %call.i.i1864 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub181.i1806, i32 noundef %cached_accept_id.48, ptr noundef %82) #10
+  %call.i.i1864 = tail call i32 %81(i64 noundef 0, i64 noundef %sub.ptr.sub181.i1806, i32 noundef %cached_accept_id.54, ptr noundef %82) #10
   %cmp5.i.i1865 = icmp eq i32 %call.i.i1864, 0
   br i1 %cmp5.i.i1865, label %return, label %if.end248.i1740
 
@@ -4185,8 +4185,8 @@ fireReports.exit.i1839:                           ; preds = %cond.false.i.i1828
   br i1 %cmp27.i.i1858, label %return, label %if.end248.i1740
 
 if.end248.i1740:                                  ; preds = %for.cond.i.i1836, %cond.false.i.i1828, %if.end173.i1773.thread, %if.then.i.i1863, %if.then187.i1868, %fireReports.exit.i1839, %if.end173.i1773, %while.body.i1708
-  %cached_accept_id.51 = phi i32 [ %cached_accept_id.422723, %while.body.i1708 ], [ %cached_accept_id.4834303438, %if.then187.i1868 ], [ %273, %fireReports.exit.i1839 ], [ %cached_accept_id.48, %if.end173.i1773 ], [ %cached_accept_id.48, %if.then.i.i1863 ], [ %cached_accept_id.46, %if.end173.i1773.thread ], [ %cached_accept_id.48, %cond.false.i.i1828 ], [ %cached_accept_id.48, %for.cond.i.i1836 ]
-  %cached_accept_state.51 = phi i8 [ %cached_accept_state.422724, %while.body.i1708 ], [ %cached_accept_state.4834313437, %if.then187.i1868 ], [ %conv60.i1731, %fireReports.exit.i1839 ], [ %cached_accept_state.48, %if.end173.i1773 ], [ %conv60.i1731, %if.then.i.i1863 ], [ %cached_accept_state.46, %if.end173.i1773.thread ], [ %cached_accept_state.48, %cond.false.i.i1828 ], [ %cached_accept_state.48, %for.cond.i.i1836 ]
+  %cached_accept_id.49 = phi i32 [ %cached_accept_id.482723, %while.body.i1708 ], [ %cached_accept_id.5434303438, %if.then187.i1868 ], [ %273, %fireReports.exit.i1839 ], [ %cached_accept_id.54, %if.end173.i1773 ], [ %cached_accept_id.54, %if.then.i.i1863 ], [ %cached_accept_id.52, %if.end173.i1773.thread ], [ %cached_accept_id.54, %cond.false.i.i1828 ], [ %cached_accept_id.54, %for.cond.i.i1836 ]
+  %cached_accept_state.49 = phi i8 [ %cached_accept_state.482724, %while.body.i1708 ], [ %cached_accept_state.5434313437, %if.then187.i1868 ], [ %conv60.i1731, %fireReports.exit.i1839 ], [ %cached_accept_state.54, %if.end173.i1773 ], [ %conv60.i1731, %if.then.i.i1863 ], [ %cached_accept_state.52, %if.end173.i1773.thread ], [ %cached_accept_state.54, %cond.false.i.i1828 ], [ %cached_accept_state.54, %for.cond.i.i1836 ]
   %add.ptr282.i1743 = getelementptr inbounds i8, ptr %cur_buf.i1649.12725, i64 4
   %sub.ptr.rhs.cast.i1699 = ptrtoint ptr %add.ptr282.i1743 to i64
   %sub.ptr.sub.i1700 = sub i64 %sub.ptr.lhs.cast.i1698, %sub.ptr.rhs.cast.i1699
@@ -4194,15 +4194,15 @@ if.end248.i1740:                                  ; preds = %for.cond.i.i1836, %
   br i1 %cmp35.i1701, label %while.body.i1708, label %if.end.i2167, !llvm.loop !11
 
 if.end.i2167:                                     ; preds = %if.then215.i1214, %if.end248.i1740, %if.end248.i1168, %if.else19.i, %if.end33.i1123
-  %state.8 = phi i8 [ %state.0, %if.end33.i1123 ], [ %state.0, %if.else19.i ], [ %conv60.i1159, %if.end248.i1168 ], [ %conv60.i1731, %if.end248.i1740 ], [ %conv60.i1159, %if.then215.i1214 ]
-  %scanned.6 = phi ptr [ %cur_buf.i1077.0, %if.end33.i1123 ], [ %add.ptr102, %if.else19.i ], [ %add.ptr282.i1171, %if.end248.i1168 ], [ %add.ptr282.i1743, %if.end248.i1740 ], [ %call225.i1220, %if.then215.i1214 ]
-  %cached_accept_id.53 = phi i32 [ %cached_accept_id.3, %if.end33.i1123 ], [ %cached_accept_id.3, %if.else19.i ], [ %cached_accept_id.40, %if.end248.i1168 ], [ %cached_accept_id.51, %if.end248.i1740 ], [ %cached_accept_id.39, %if.then215.i1214 ]
-  %cached_accept_state.53 = phi i8 [ %cached_accept_state.3, %if.end33.i1123 ], [ %cached_accept_state.3, %if.else19.i ], [ %cached_accept_state.40, %if.end248.i1168 ], [ %cached_accept_state.51, %if.end248.i1740 ], [ %cached_accept_state.39, %if.then215.i1214 ]
-  %cmp.i2170.not2733 = icmp eq ptr %scanned.6, %add.ptr103
+  %state.11 = phi i8 [ %state.0, %if.end33.i1123 ], [ %state.0, %if.else19.i ], [ %conv60.i1159, %if.end248.i1168 ], [ %conv60.i1731, %if.end248.i1740 ], [ %conv60.i1159, %if.then215.i1214 ]
+  %scanned.5 = phi ptr [ %cur_buf.i1077.0, %if.end33.i1123 ], [ %add.ptr102, %if.else19.i ], [ %add.ptr282.i1171, %if.end248.i1168 ], [ %add.ptr282.i1743, %if.end248.i1740 ], [ %call225.i1220, %if.then215.i1214 ]
+  %cached_accept_id.46 = phi i32 [ %cached_accept_id.3, %if.end33.i1123 ], [ %cached_accept_id.3, %if.else19.i ], [ %cached_accept_id.37, %if.end248.i1168 ], [ %cached_accept_id.49, %if.end248.i1740 ], [ %cached_accept_id.44, %if.then215.i1214 ]
+  %cached_accept_state.46 = phi i8 [ %cached_accept_state.3, %if.end33.i1123 ], [ %cached_accept_state.3, %if.else19.i ], [ %cached_accept_state.37, %if.end248.i1168 ], [ %cached_accept_state.49, %if.end248.i1740 ], [ %cached_accept_state.44, %if.then215.i1214 ]
+  %cmp.i2170.not2733 = icmp eq ptr %scanned.5, %add.ptr103
   br i1 %cmp.i2170.not2733, label %if.end154, label %while.body.i2177.lr.ph
 
 while.body.i2177.lr.ph:                           ; preds = %if.end.i2167
-  %vecinit.i = insertelement <16 x i8> poison, i8 %state.8, i64 0
+  %vecinit.i = insertelement <16 x i8> poison, i8 %state.11, i64 0
   %vecinit15.i = shufflevector <16 x i8> %vecinit.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %invariant.op2732 = add i64 %83, 1
   %sub.ptr.rhs.cast.i2192 = ptrtoint ptr %cur_buf.1 to i64
@@ -4210,10 +4210,10 @@ while.body.i2177.lr.ph:                           ; preds = %if.end.i2167
   br label %while.body.i2177
 
 while.body.i2177:                                 ; preds = %while.body.i2177.lr.ph, %if.end44.i2188
-  %cur_buf.i2158.02736 = phi ptr [ %scanned.6, %while.body.i2177.lr.ph ], [ %incdec.ptr.i2189, %if.end44.i2188 ]
+  %cur_buf.i2158.02736 = phi ptr [ %scanned.5, %while.body.i2177.lr.ph ], [ %incdec.ptr.i2189, %if.end44.i2188 ]
   %274 = phi <16 x i8> [ %vecinit15.i, %while.body.i2177.lr.ph ], [ %277, %if.end44.i2188 ]
-  %cached_accept_state.542735 = phi i8 [ %cached_accept_state.53, %while.body.i2177.lr.ph ], [ %cached_accept_state.56, %if.end44.i2188 ]
-  %cached_accept_id.542734 = phi i32 [ %cached_accept_id.53, %while.body.i2177.lr.ph ], [ %cached_accept_id.56, %if.end44.i2188 ]
+  %cached_accept_state.592735 = phi i8 [ %cached_accept_state.46, %while.body.i2177.lr.ph ], [ %cached_accept_state.60, %if.end44.i2188 ]
+  %cached_accept_id.592734 = phi i32 [ %cached_accept_id.46, %while.body.i2177.lr.ph ], [ %cached_accept_id.60, %if.end44.i2188 ]
   %275 = load i8, ptr %cur_buf.i2158.02736, align 1
   %idxprom.i2178 = zext i8 %275 to i64
   %arrayidx.i2179 = getelementptr inbounds <2 x i64>, ptr %sh, i64 %idxprom.i2178
@@ -4236,11 +4236,11 @@ if.then30.i2257:                                  ; preds = %if.then23.i2190
   br i1 %cmp.i52.i2260, label %return, label %if.end44.i2188
 
 land.lhs.true.i.i2199:                            ; preds = %if.then23.i2190
-  %cmp.i.i2202 = icmp eq i8 %conv10.i2182, %cached_accept_state.542735
+  %cmp.i.i2202 = icmp eq i8 %conv10.i2182, %cached_accept_state.592735
   br i1 %cmp.i.i2202, label %if.then.i.i2252, label %cond.false.i.i2217
 
 if.then.i.i2252:                                  ; preds = %land.lhs.true.i.i2199
-  %call.i.i2253 = tail call i32 %81(i64 noundef 0, i64 noundef %add26.i2195, i32 noundef %cached_accept_id.542734, ptr noundef %82) #10
+  %call.i.i2253 = tail call i32 %81(i64 noundef 0, i64 noundef %add26.i2195, i32 noundef %cached_accept_id.592734, ptr noundef %82) #10
   %cmp5.i.i2254 = icmp eq i32 %call.i.i2253, 0
   br i1 %cmp5.i.i2254, label %return, label %if.end44.i2188
 
@@ -4288,8 +4288,8 @@ fireReports.exit.i2228:                           ; preds = %cond.false.i.i2217
   br i1 %cmp27.i.i2247, label %return, label %if.end44.i2188
 
 if.end44.i2188:                                   ; preds = %for.cond.i.i2225, %cond.false.i.i2217, %if.then.i.i2252, %if.then30.i2257, %fireReports.exit.i2228, %while.body.i2177
-  %cached_accept_id.56 = phi i32 [ %cached_accept_id.542734, %if.then30.i2257 ], [ %284, %fireReports.exit.i2228 ], [ %cached_accept_id.542734, %while.body.i2177 ], [ %cached_accept_id.542734, %if.then.i.i2252 ], [ %cached_accept_id.542734, %cond.false.i.i2217 ], [ %cached_accept_id.542734, %for.cond.i.i2225 ]
-  %cached_accept_state.56 = phi i8 [ %cached_accept_state.542735, %if.then30.i2257 ], [ %conv10.i2182, %fireReports.exit.i2228 ], [ %cached_accept_state.542735, %while.body.i2177 ], [ %cached_accept_state.542735, %if.then.i.i2252 ], [ %cached_accept_state.542735, %cond.false.i.i2217 ], [ %cached_accept_state.542735, %for.cond.i.i2225 ]
+  %cached_accept_id.60 = phi i32 [ %cached_accept_id.592734, %if.then30.i2257 ], [ %284, %fireReports.exit.i2228 ], [ %cached_accept_id.592734, %while.body.i2177 ], [ %cached_accept_id.592734, %if.then.i.i2252 ], [ %cached_accept_id.592734, %cond.false.i.i2217 ], [ %cached_accept_id.592734, %for.cond.i.i2225 ]
+  %cached_accept_state.60 = phi i8 [ %cached_accept_state.592735, %if.then30.i2257 ], [ %conv10.i2182, %fireReports.exit.i2228 ], [ %cached_accept_state.592735, %while.body.i2177 ], [ %cached_accept_state.592735, %if.then.i.i2252 ], [ %cached_accept_state.592735, %cond.false.i.i2217 ], [ %cached_accept_state.592735, %for.cond.i.i2225 ]
   %incdec.ptr.i2189 = getelementptr inbounds i8, ptr %cur_buf.i2158.02736, i64 1
   %cmp.i2170.not = icmp eq ptr %incdec.ptr.i2189, %add.ptr103
   br i1 %cmp.i2170.not, label %if.end154, label %while.body.i2177, !llvm.loop !12
@@ -4321,12 +4321,12 @@ if.then.i4451:                                    ; preds = %if.then6.i3399
   %call11.i4455 = tail call ptr @run_accel(ptr noundef nonnull %gep2914, ptr noundef %add.ptr119, ptr noundef %add.ptr120) #10
   %add.ptr.i4456 = getelementptr inbounds i8, ptr %add.ptr119, i64 4
   %cmp.i4457 = icmp ult ptr %call11.i4455, %add.ptr.i4456
-  %min_accel_dist.i4360.0.v = select i1 %cmp.i4457, i64 32, i64 8
-  %min_accel_dist.i4360.0 = getelementptr inbounds i8, ptr %call11.i4455, i64 %min_accel_dist.i4360.0.v
+  %min_accel_dist.i4360.1.v = select i1 %cmp.i4457, i64 32, i64 8
+  %min_accel_dist.i4360.1 = getelementptr inbounds i8, ptr %call11.i4455, i64 %min_accel_dist.i4360.1.v
   br label %if.end22.i4386
 
 if.end22.i4386:                                   ; preds = %if.then6.i3399, %if.then.i4451
-  %min_accel_dist.i4360.1 = phi ptr [ %min_accel_dist.i4360.0, %if.then.i4451 ], [ %add.ptr119, %if.then6.i3399 ]
+  %min_accel_dist.i4360.0 = phi ptr [ %min_accel_dist.i4360.1, %if.then.i4451 ], [ %add.ptr119, %if.then6.i3399 ]
   %cur_buf.i4359.0 = phi ptr [ %call11.i4455, %if.then.i4451 ], [ %add.ptr119, %if.then6.i3399 ]
   %288 = and i8 %state.0, 32
   %tobool25.i4388.not = icmp eq i8 %288, 0
@@ -4346,7 +4346,7 @@ while.body.i4416.lr.ph.preheader:                 ; preds = %lor.lhs.false26.i43
 
 while.body.i4416.lr.ph:                           ; preds = %while.body.i4416.lr.ph.preheader, %if.then156.i
   %cur_buf.i4359.1.ph2813 = phi ptr [ %call166.i, %if.then156.i ], [ %cur_buf.i4359.0, %while.body.i4416.lr.ph.preheader ]
-  %min_accel_dist.i4360.2.ph2812 = phi ptr [ %min_accel_dist.i4360.3, %if.then156.i ], [ %min_accel_dist.i4360.1, %while.body.i4416.lr.ph.preheader ]
+  %min_accel_dist.i4360.2.ph2812 = phi ptr [ %min_accel_dist.i4360.3, %if.then156.i ], [ %min_accel_dist.i4360.0, %while.body.i4416.lr.ph.preheader ]
   %.ph23732811 = phi <16 x i8> [ %301, %if.then156.i ], [ %vecinit15.i.i4406, %while.body.i4416.lr.ph.preheader ]
   br label %while.body.i4416
 
@@ -4534,21 +4534,21 @@ if.end183.i4612:                                  ; preds = %if.end144.i4625, %w
   br i1 %cmp35.i4577, label %while.body.i4584, label %if.end15.i, !llvm.loop !19
 
 if.end15.i:                                       ; preds = %if.then156.i, %if.end144.i4625, %if.end183.i4612, %if.end144.i, %if.end183.i, %lor.lhs.false26.i4555, %lor.lhs.false26.i4389, %if.else.i3392, %if.end22.i4386
-  %state.14 = phi i8 [ %state.0, %if.end22.i4386 ], [ %state.0, %if.else.i3392 ], [ %state.0, %lor.lhs.false26.i4389 ], [ %state.0, %lor.lhs.false26.i4555 ], [ %conv60.i4432, %if.end183.i ], [ %conv60.i4432, %if.end144.i ], [ %conv60.i4601, %if.end183.i4612 ], [ %conv60.i4601, %if.end144.i4625 ], [ %conv60.i4432, %if.then156.i ]
-  %scanned.9 = phi ptr [ %add.ptr120, %if.end22.i4386 ], [ %add.ptr120, %if.else.i3392 ], [ %cur_buf.i4359.0, %lor.lhs.false26.i4389 ], [ %add.ptr119, %lor.lhs.false26.i4555 ], [ %add.ptr120, %if.end144.i ], [ %add.ptr223.i, %if.end183.i ], [ %add.ptr120, %if.end144.i4625 ], [ %add.ptr223.i4615, %if.end183.i4612 ], [ %call166.i, %if.then156.i ]
-  %326 = and i8 %state.14, 32
+  %state.15 = phi i8 [ %state.0, %if.end22.i4386 ], [ %state.0, %if.else.i3392 ], [ %state.0, %lor.lhs.false26.i4389 ], [ %state.0, %lor.lhs.false26.i4555 ], [ %conv60.i4432, %if.end183.i ], [ %conv60.i4432, %if.end144.i ], [ %conv60.i4601, %if.end183.i4612 ], [ %conv60.i4601, %if.end144.i4625 ], [ %conv60.i4432, %if.then156.i ]
+  %scanned.8 = phi ptr [ %add.ptr120, %if.end22.i4386 ], [ %add.ptr120, %if.else.i3392 ], [ %cur_buf.i4359.0, %lor.lhs.false26.i4389 ], [ %add.ptr119, %lor.lhs.false26.i4555 ], [ %add.ptr120, %if.end144.i ], [ %add.ptr223.i, %if.end183.i ], [ %add.ptr120, %if.end144.i4625 ], [ %add.ptr223.i4615, %if.end183.i4612 ], [ %call166.i, %if.then156.i ]
+  %326 = and i8 %state.15, 32
   %tobool.i4704.not = icmp ne i8 %326, 0
-  %cmp.i4723.not2837 = icmp eq ptr %scanned.9, %add.ptr120
+  %cmp.i4723.not2837 = icmp eq ptr %scanned.8, %add.ptr120
   %or.cond3659 = select i1 %tobool.i4704.not, i1 true, i1 %cmp.i4723.not2837
   br i1 %or.cond3659, label %if.end154, label %while.body.i4728.preheader
 
 while.body.i4728.preheader:                       ; preds = %if.end15.i
-  %vecinit.i.i4706 = insertelement <16 x i8> poison, i8 %state.14, i64 0
+  %vecinit.i.i4706 = insertelement <16 x i8> poison, i8 %state.15, i64 0
   %vecinit15.i.i4721 = shufflevector <16 x i8> %vecinit.i.i4706, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i4728
 
 while.body.i4728:                                 ; preds = %while.body.i4728.preheader, %if.end31.i4737
-  %cur_buf.i4694.02838 = phi ptr [ %incdec.ptr.i4738, %if.end31.i4737 ], [ %scanned.9, %while.body.i4728.preheader ]
+  %cur_buf.i4694.02838 = phi ptr [ %incdec.ptr.i4738, %if.end31.i4737 ], [ %scanned.8, %while.body.i4728.preheader ]
   %327 = phi <16 x i8> [ %330, %if.end31.i4737 ], [ %vecinit15.i.i4721, %while.body.i4728.preheader ]
   %328 = load i8, ptr %cur_buf.i4694.02838, align 1
   %idxprom.i4729 = zext i8 %328 to i64
@@ -4587,12 +4587,12 @@ if.then.i5001:                                    ; preds = %if.then20.i
   %call11.i5005 = tail call ptr @run_accel(ptr noundef nonnull %gep2918, ptr noundef %add.ptr119, ptr noundef %add.ptr120) #10
   %add.ptr.i5006 = getelementptr inbounds i8, ptr %add.ptr119, i64 4
   %cmp.i5007 = icmp ult ptr %call11.i5005, %add.ptr.i5006
-  %min_accel_dist.i4835.0.v = select i1 %cmp.i5007, i64 32, i64 8
-  %min_accel_dist.i4835.0 = getelementptr inbounds i8, ptr %call11.i5005, i64 %min_accel_dist.i4835.0.v
+  %min_accel_dist.i4835.1.v = select i1 %cmp.i5007, i64 32, i64 8
+  %min_accel_dist.i4835.1 = getelementptr inbounds i8, ptr %call11.i5005, i64 %min_accel_dist.i4835.1.v
   br label %if.end22.i4869
 
 if.end22.i4869:                                   ; preds = %if.then20.i, %if.then.i5001
-  %min_accel_dist.i4835.1 = phi ptr [ %min_accel_dist.i4835.0, %if.then.i5001 ], [ %add.ptr119, %if.then20.i ]
+  %min_accel_dist.i4835.0 = phi ptr [ %min_accel_dist.i4835.1, %if.then.i5001 ], [ %add.ptr119, %if.then20.i ]
   %cur_buf.i4834.0 = phi ptr [ %call11.i5005, %if.then.i5001 ], [ %add.ptr119, %if.then20.i ]
   %sub.ptr.lhs.cast.i4889 = ptrtoint ptr %add.ptr120 to i64
   %sub.ptr.rhs.cast.i489028552867 = ptrtoint ptr %cur_buf.i4834.0 to i64
@@ -4607,7 +4607,7 @@ while.body.i4899.lr.ph.preheader:                 ; preds = %if.end22.i4869
 
 while.body.i4899.lr.ph:                           ; preds = %while.body.i4899.lr.ph.preheader, %if.then156.i4967
   %cur_buf.i4834.1.ph2872 = phi ptr [ %call166.i4972, %if.then156.i4967 ], [ %cur_buf.i4834.0, %while.body.i4899.lr.ph.preheader ]
-  %min_accel_dist.i4835.2.ph2871 = phi ptr [ %min_accel_dist.i4835.3, %if.then156.i4967 ], [ %min_accel_dist.i4835.1, %while.body.i4899.lr.ph.preheader ]
+  %min_accel_dist.i4835.2.ph2871 = phi ptr [ %min_accel_dist.i4835.3, %if.then156.i4967 ], [ %min_accel_dist.i4835.0, %while.body.i4899.lr.ph.preheader ]
   %.ph2870 = phi <16 x i8> [ %347, %if.then156.i4967 ], [ %vecinit15.i.i4887, %while.body.i4899.lr.ph.preheader ]
   br label %while.body.i4899
 
@@ -4780,18 +4780,18 @@ if.end183.i5166:                                  ; preds = %if.end129.i5181, %w
   br i1 %cmp35.i5128, label %while.body.i5135, label %if.end34.i, !llvm.loop !22
 
 if.end34.i:                                       ; preds = %if.then156.i4967, %if.end183.i5166, %if.end183.i4932, %if.else23.i, %if.end22.i4869
-  %state.18 = phi i8 [ %state.0, %if.end22.i4869 ], [ %state.0, %if.else23.i ], [ %conv60.i4918, %if.end183.i4932 ], [ %conv60.i5152, %if.end183.i5166 ], [ %conv60.i4918, %if.then156.i4967 ]
-  %scanned.13 = phi ptr [ %cur_buf.i4834.0, %if.end22.i4869 ], [ %add.ptr119, %if.else23.i ], [ %add.ptr223.i4935, %if.end183.i4932 ], [ %add.ptr223.i5169, %if.end183.i5166 ], [ %call166.i4972, %if.then156.i4967 ]
-  %cmp.i5274.not2896 = icmp eq ptr %scanned.13, %add.ptr120
+  %state.21 = phi i8 [ %state.0, %if.end22.i4869 ], [ %state.0, %if.else23.i ], [ %conv60.i4918, %if.end183.i4932 ], [ %conv60.i5152, %if.end183.i5166 ], [ %conv60.i4918, %if.then156.i4967 ]
+  %scanned.14 = phi ptr [ %cur_buf.i4834.0, %if.end22.i4869 ], [ %add.ptr119, %if.else23.i ], [ %add.ptr223.i4935, %if.end183.i4932 ], [ %add.ptr223.i5169, %if.end183.i5166 ], [ %call166.i4972, %if.then156.i4967 ]
+  %cmp.i5274.not2896 = icmp eq ptr %scanned.14, %add.ptr120
   br i1 %cmp.i5274.not2896, label %if.end154, label %while.body.i5280.preheader
 
 while.body.i5280.preheader:                       ; preds = %if.end34.i
-  %vecinit.i.i5257 = insertelement <16 x i8> poison, i8 %state.18, i64 0
+  %vecinit.i.i5257 = insertelement <16 x i8> poison, i8 %state.21, i64 0
   %vecinit15.i.i5272 = shufflevector <16 x i8> %vecinit.i.i5257, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %while.body.i5280
 
 while.body.i5280:                                 ; preds = %while.body.i5280.preheader, %if.end31.i5292
-  %cur_buf.i5249.02897 = phi ptr [ %incdec.ptr.i5293, %if.end31.i5292 ], [ %scanned.13, %while.body.i5280.preheader ]
+  %cur_buf.i5249.02897 = phi ptr [ %incdec.ptr.i5293, %if.end31.i5292 ], [ %scanned.14, %while.body.i5280.preheader ]
   %371 = phi <16 x i8> [ %374, %if.end31.i5292 ], [ %vecinit15.i.i5272, %while.body.i5280.preheader ]
   %372 = load i8, ptr %cur_buf.i5249.02897, align 1
   %idxprom.i5281 = zext i8 %372 to i64
@@ -4857,28 +4857,28 @@ do.end134.loopexit3470.split.loop.exit3620:       ; preds = %if.end129.i4623
   br label %do.end134
 
 do.end134:                                        ; preds = %if.then85.i4617, %while.body.i4728, %if.then85.i5171, %while.body.i5280, %if.then85.i4438, %if.then85.i4937, %do.end134.loopexit3470.split.loop.exit, %do.end134.loopexit3470.split.loop.exit3616, %do.end134.loopexit3470.split.loop.exit3620, %do.end134.loopexit3463.split.loop.exit, %do.end134.loopexit3463.split.loop.exit3644, %do.end134.loopexit3463.split.loop.exit3648, %do.end134.loopexit3447.split.loop.exit, %do.end134.loopexit3447.split.loop.exit3602, %do.end134.loopexit3447.split.loop.exit3606, %do.end134.loopexit.split.loop.exit, %do.end134.loopexit.split.loop.exit3630, %do.end134.loopexit.split.loop.exit3634
-  %scanned.162334 = phi ptr [ %add.ptr40.i4900.le, %do.end134.loopexit.split.loop.exit ], [ %add.ptr41.i4901.le, %do.end134.loopexit.split.loop.exit3630 ], [ %add.ptr42.i4902.le, %do.end134.loopexit.split.loop.exit3634 ], [ %add.ptr40.i4417.le, %do.end134.loopexit3447.split.loop.exit ], [ %add.ptr41.i4418.le, %do.end134.loopexit3447.split.loop.exit3602 ], [ %add.ptr42.i4419.le, %do.end134.loopexit3447.split.loop.exit3606 ], [ %add.ptr40.i5136.le, %do.end134.loopexit3463.split.loop.exit ], [ %add.ptr41.i5137.le, %do.end134.loopexit3463.split.loop.exit3644 ], [ %add.ptr42.i5138.le, %do.end134.loopexit3463.split.loop.exit3648 ], [ %add.ptr40.i4585.le, %do.end134.loopexit3470.split.loop.exit ], [ %add.ptr41.i4586.le, %do.end134.loopexit3470.split.loop.exit3616 ], [ %add.ptr42.i4587.le, %do.end134.loopexit3470.split.loop.exit3620 ], [ %cur_buf.i4834.12858, %if.then85.i4937 ], [ %cur_buf.i4359.12799, %if.then85.i4438 ], [ %cur_buf.i5249.02897, %while.body.i5280 ], [ %cur_buf.i5075.02893, %if.then85.i5171 ], [ %cur_buf.i4694.02838, %while.body.i4728 ], [ %cur_buf.i4522.02834, %if.then85.i4617 ]
-  %state.212333 = phi i8 [ %conv50.i4910, %do.end134.loopexit.split.loop.exit ], [ %conv55.i4914, %do.end134.loopexit.split.loop.exit3630 ], [ %conv60.i4918, %do.end134.loopexit.split.loop.exit3634 ], [ %conv50.i4426, %do.end134.loopexit3447.split.loop.exit ], [ %conv55.i4429, %do.end134.loopexit3447.split.loop.exit3602 ], [ %conv60.i4432, %do.end134.loopexit3447.split.loop.exit3606 ], [ %conv50.i5145, %do.end134.loopexit3463.split.loop.exit ], [ %conv55.i5148, %do.end134.loopexit3463.split.loop.exit3644 ], [ %conv60.i5152, %do.end134.loopexit3463.split.loop.exit3648 ], [ %conv50.i4594, %do.end134.loopexit3470.split.loop.exit ], [ %conv55.i4597, %do.end134.loopexit3470.split.loop.exit3616 ], [ %conv60.i4601, %do.end134.loopexit3470.split.loop.exit3620 ], [ %conv45.i4906, %if.then85.i4937 ], [ %conv45.i4423, %if.then85.i4438 ], [ %conv10.i5284, %while.body.i5280 ], [ %conv45.i5142, %if.then85.i5171 ], [ %conv10.i4732, %while.body.i4728 ], [ %conv45.i4591, %if.then85.i4617 ]
+  %scanned.102334 = phi ptr [ %add.ptr40.i4900.le, %do.end134.loopexit.split.loop.exit ], [ %add.ptr41.i4901.le, %do.end134.loopexit.split.loop.exit3630 ], [ %add.ptr42.i4902.le, %do.end134.loopexit.split.loop.exit3634 ], [ %add.ptr40.i4417.le, %do.end134.loopexit3447.split.loop.exit ], [ %add.ptr41.i4418.le, %do.end134.loopexit3447.split.loop.exit3602 ], [ %add.ptr42.i4419.le, %do.end134.loopexit3447.split.loop.exit3606 ], [ %add.ptr40.i5136.le, %do.end134.loopexit3463.split.loop.exit ], [ %add.ptr41.i5137.le, %do.end134.loopexit3463.split.loop.exit3644 ], [ %add.ptr42.i5138.le, %do.end134.loopexit3463.split.loop.exit3648 ], [ %add.ptr40.i4585.le, %do.end134.loopexit3470.split.loop.exit ], [ %add.ptr41.i4586.le, %do.end134.loopexit3470.split.loop.exit3616 ], [ %add.ptr42.i4587.le, %do.end134.loopexit3470.split.loop.exit3620 ], [ %cur_buf.i4834.12858, %if.then85.i4937 ], [ %cur_buf.i4359.12799, %if.then85.i4438 ], [ %cur_buf.i5249.02897, %while.body.i5280 ], [ %cur_buf.i5075.02893, %if.then85.i5171 ], [ %cur_buf.i4694.02838, %while.body.i4728 ], [ %cur_buf.i4522.02834, %if.then85.i4617 ]
+  %state.172333 = phi i8 [ %conv50.i4910, %do.end134.loopexit.split.loop.exit ], [ %conv55.i4914, %do.end134.loopexit.split.loop.exit3630 ], [ %conv60.i4918, %do.end134.loopexit.split.loop.exit3634 ], [ %conv50.i4426, %do.end134.loopexit3447.split.loop.exit ], [ %conv55.i4429, %do.end134.loopexit3447.split.loop.exit3602 ], [ %conv60.i4432, %do.end134.loopexit3447.split.loop.exit3606 ], [ %conv50.i5145, %do.end134.loopexit3463.split.loop.exit ], [ %conv55.i5148, %do.end134.loopexit3463.split.loop.exit3644 ], [ %conv60.i5152, %do.end134.loopexit3463.split.loop.exit3648 ], [ %conv50.i4594, %do.end134.loopexit3470.split.loop.exit ], [ %conv55.i4597, %do.end134.loopexit3470.split.loop.exit3616 ], [ %conv60.i4601, %do.end134.loopexit3470.split.loop.exit3620 ], [ %conv45.i4906, %if.then85.i4937 ], [ %conv45.i4423, %if.then85.i4438 ], [ %conv10.i5284, %while.body.i5280 ], [ %conv45.i5142, %if.then85.i5171 ], [ %conv10.i4732, %while.body.i4728 ], [ %conv45.i4591, %if.then85.i4617 ]
   %376 = load i32, ptr %cur.i3344, align 8
   %dec = add i32 %376, -1
   store i32 %dec, ptr %cur.i3344, align 8
   %idxprom138 = zext i32 %dec to i64
   %arrayidx139 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3343, i64 0, i64 %idxprom138
   store i32 0, ptr %arrayidx139, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %scanned.162334 to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %scanned.102334 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %cur_buf.1 to i64
   %reass.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add = add i64 %reass.sub, 1
   %location144 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3343, i64 0, i64 %idxprom138, i32 1
   store i64 %add, ptr %location144, align 8
   %377 = load ptr, ptr %state1, align 8
-  store i8 %state.212333, ptr %377, align 1
+  store i8 %state.172333, ptr %377, align 1
   br label %return
 
 if.end154:                                        ; preds = %if.end44.i, %if.end44.i2188, %if.end31.i4737, %if.end31.i5292, %if.end34.i, %if.end.i2167, %if.end15.i, %if.end11.i, %while.end.i3956, %sheng_nm.exit, %if.end.i3367, %while.body
-  %state.23 = phi i8 [ %state.0, %while.body ], [ %conv46.i3957, %while.end.i3956 ], [ %conv46.i4294, %sheng_nm.exit ], [ %state.1, %if.end.i3367 ], [ %state.4, %if.end11.i ], [ %state.14, %if.end15.i ], [ %state.8, %if.end.i2167 ], [ %state.18, %if.end34.i ], [ %conv10.i5284, %if.end31.i5292 ], [ %conv10.i4732, %if.end31.i4737 ], [ %conv10.i2182, %if.end44.i2188 ], [ %conv10.i910, %if.end44.i ]
-  %cached_accept_id.61 = phi i32 [ %cached_accept_id.3, %while.body ], [ %cached_accept_id.3, %while.end.i3956 ], [ %cached_accept_id.3, %sheng_nm.exit ], [ %cached_accept_id.3, %if.end.i3367 ], [ %cached_accept_id.26, %if.end11.i ], [ %cached_accept_id.3, %if.end15.i ], [ %cached_accept_id.53, %if.end.i2167 ], [ %cached_accept_id.3, %if.end34.i ], [ %cached_accept_id.3, %if.end31.i5292 ], [ %cached_accept_id.3, %if.end31.i4737 ], [ %cached_accept_id.56, %if.end44.i2188 ], [ %cached_accept_id.29, %if.end44.i ]
-  %cached_accept_state.61 = phi i8 [ %cached_accept_state.3, %while.body ], [ %cached_accept_state.3, %while.end.i3956 ], [ %cached_accept_state.3, %sheng_nm.exit ], [ %cached_accept_state.3, %if.end.i3367 ], [ %cached_accept_state.26, %if.end11.i ], [ %cached_accept_state.3, %if.end15.i ], [ %cached_accept_state.53, %if.end.i2167 ], [ %cached_accept_state.3, %if.end34.i ], [ %cached_accept_state.3, %if.end31.i5292 ], [ %cached_accept_state.3, %if.end31.i4737 ], [ %cached_accept_state.56, %if.end44.i2188 ], [ %cached_accept_state.29, %if.end44.i ]
+  %state.1 = phi i8 [ %state.0, %while.body ], [ %conv46.i3957, %while.end.i3956 ], [ %conv46.i4294, %sheng_nm.exit ], [ %state.2, %if.end.i3367 ], [ %state.5, %if.end11.i ], [ %state.15, %if.end15.i ], [ %state.11, %if.end.i2167 ], [ %state.21, %if.end34.i ], [ %conv10.i5284, %if.end31.i5292 ], [ %conv10.i4732, %if.end31.i4737 ], [ %conv10.i2182, %if.end44.i2188 ], [ %conv10.i910, %if.end44.i ]
+  %cached_accept_id.4 = phi i32 [ %cached_accept_id.3, %while.body ], [ %cached_accept_id.3, %while.end.i3956 ], [ %cached_accept_id.3, %sheng_nm.exit ], [ %cached_accept_id.3, %if.end.i3367 ], [ %cached_accept_id.17, %if.end11.i ], [ %cached_accept_id.3, %if.end15.i ], [ %cached_accept_id.46, %if.end.i2167 ], [ %cached_accept_id.3, %if.end34.i ], [ %cached_accept_id.3, %if.end31.i5292 ], [ %cached_accept_id.3, %if.end31.i4737 ], [ %cached_accept_id.60, %if.end44.i2188 ], [ %cached_accept_id.32, %if.end44.i ]
+  %cached_accept_state.4 = phi i8 [ %cached_accept_state.3, %while.body ], [ %cached_accept_state.3, %while.end.i3956 ], [ %cached_accept_state.3, %sheng_nm.exit ], [ %cached_accept_state.3, %if.end.i3367 ], [ %cached_accept_state.17, %if.end11.i ], [ %cached_accept_state.3, %if.end15.i ], [ %cached_accept_state.46, %if.end.i2167 ], [ %cached_accept_state.3, %if.end34.i ], [ %cached_accept_state.3, %if.end31.i5292 ], [ %cached_accept_state.3, %if.end31.i4737 ], [ %cached_accept_state.60, %if.end44.i2188 ], [ %cached_accept_state.32, %if.end44.i ]
   %cur_start.1 = phi i64 [ %cur_start.0, %while.body ], [ %cur_end.0, %while.end.i3956 ], [ %cur_end.0, %sheng_nm.exit ], [ %cur_end.0, %if.end.i3367 ], [ %cur_end.0, %if.end11.i ], [ %cur_end.0, %if.end15.i ], [ %cur_end.0, %if.end.i2167 ], [ %cur_end.0, %if.end34.i ], [ %cur_end.0, %if.end31.i5292 ], [ %cur_end.0, %if.end31.i4737 ], [ %cur_end.0, %if.end44.i2188 ], [ %cur_end.0, %if.end44.i ]
   br i1 %cmp49.not, label %land.lhs.true157, label %if.end181
 
@@ -4899,7 +4899,7 @@ do.end167:                                        ; preds = %land.lhs.true157
   %location179 = getelementptr inbounds [10 x %struct.mq_item], ptr %items.i3343, i64 0, i64 %idxprom172, i32 1
   store i64 %b_end, ptr %location179, align 8
   %380 = load ptr, ptr %state1, align 8
-  store i8 %state.23, ptr %380, align 1
+  store i8 %state.1, ptr %380, align 1
   br label %return
 
 if.end181:                                        ; preds = %land.lhs.true157, %if.end154
@@ -4927,14 +4927,14 @@ if.end194:                                        ; preds = %if.end190
 
 sw.bb:                                            ; preds = %if.end194
   %383 = load ptr, ptr %state1, align 8
-  store i8 %state.23, ptr %383, align 1
+  store i8 %state.1, ptr %383, align 1
   %384 = load i32, ptr %cur.i3344, align 8
   %inc198 = add i32 %384, 1
   store i32 %inc198, ptr %cur.i3344, align 8
   br i1 %tobool.i.not, label %return, label %if.then202
 
 if.then202:                                       ; preds = %sw.bb
-  %385 = lshr i8 %state.23, 5
+  %385 = lshr i8 %state.1, 5
   %.lobit = and i8 %385, 1
   %conv207 = xor i8 %.lobit, 1
   br label %return
@@ -4951,7 +4951,7 @@ do.end216:                                        ; preds = %sw.bb209
 
 if.else217:                                       ; preds = %sw.bb209
   %388 = load i32, ptr %aux_offset.i.i2511, align 4
-  %389 = shl i8 %state.23, 4
+  %389 = shl i8 %state.1, 4
   %mul.i = zext i8 %389 to i32
   %sub.i = add nsw i32 %mul.i, -64
   %add.i = add i32 %sub.i, %388
@@ -4962,14 +4962,14 @@ if.else217:                                       ; preds = %sw.bb209
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end194, %do.end216, %if.else217
-  %state.24 = phi i8 [ %state.23, %if.end194 ], [ %387, %do.end216 ], [ %conv219, %if.else217 ]
+  %state.24 = phi i8 [ %state.1, %if.end194 ], [ %387, %do.end216 ], [ %conv219, %if.else217 ]
   %inc224 = add i32 %.pre.pre, 1
   store i32 %inc224, ptr %cur.i3344, align 8
   br label %while.body.backedge
 
 while.body.backedge:                              ; preds = %sw.epilog, %if.end190
   %.be = phi i32 [ %.pre.pre, %if.end190 ], [ %inc224, %sw.epilog ]
-  %state.0.be = phi i8 [ %state.23, %if.end190 ], [ %state.24, %sw.epilog ]
+  %state.0.be = phi i8 [ %state.1, %if.end190 ], [ %state.24, %sw.epilog ]
   br label %while.body
 
 return:                                           ; preds = %for.body.i, %if.then.i.i603, %if.then.i349.i680, %if.then.i419.i757, %if.then.i489.i834, %fireReports.exit.i579, %if.then187.i608, %fireReports.exit354.i656, %if.then157.i685, %fireReports.exit424.i733, %if.then127.i762, %fireReports.exit494.i810, %if.then98.i839, %if.then.i.i971, %fireReports.exit.i948, %if.then30.i976, %if.then.i.i1863, %if.then.i349.i1940, %if.then.i419.i2017, %if.then.i489.i2094, %fireReports.exit.i1839, %if.then187.i1868, %fireReports.exit354.i1916, %if.then157.i1945, %fireReports.exit424.i1993, %if.then127.i2022, %fireReports.exit494.i2070, %if.then98.i2099, %if.then.i.i2252, %fireReports.exit.i2228, %if.then30.i2257, %if.then.i.i, %if.then.i349.i, %if.then.i419.i, %if.then.i489.i, %fireReports.exit.i, %if.then187.i, %fireReports.exit354.i, %if.then157.i, %fireReports.exit424.i, %if.then127.i, %fireReports.exit494.i, %if.then98.i, %for.body.i471.i816, %for.body.i401.i739, %for.body.i331.i662, %for.body.i.i585, %for.body.i.i953, %if.then.i.i1291, %if.then.i349.i1368, %if.then.i419.i1445, %if.then.i489.i1522, %fireReports.exit.i1267, %if.then187.i1296, %fireReports.exit354.i1344, %if.then157.i1373, %fireReports.exit424.i1421, %if.then127.i1450, %fireReports.exit494.i1498, %if.then98.i1527, %for.body.i471.i2076, %for.body.i401.i1999, %for.body.i331.i1922, %for.body.i.i1845, %for.body.i.i2234, %for.body.i471.i, %for.body.i401.i, %for.body.i331.i, %for.body.i.i, %for.body.i471.i1504, %for.body.i401.i1427, %for.body.i331.i1350, %for.body.i.i1273, %if.then21.i, %if.then.i239, %if.then15, %sw.bb, %if.then202, %do.end167, %do.end134, %do.end60

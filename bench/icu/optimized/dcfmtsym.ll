@@ -490,9 +490,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -718,13 +718,13 @@ if.then3:                                         ; preds = %if.end
           to label %if.end8 unwind label %lpad
 
 lpad:                                             ; preds = %if.end36, %invoke.cont20, %if.then19, %land.lhs.true15, %land.lhs.true, %if.then3
-  %nsLocal.sroa.0.0 = phi ptr [ %nsLocal.sroa.0.1, %if.end36 ], [ %nsLocal.sroa.0.1, %invoke.cont20 ], [ %nsLocal.sroa.0.1, %if.then19 ], [ %nsLocal.sroa.0.1, %land.lhs.true15 ], [ %nsLocal.sroa.0.1, %land.lhs.true ], [ null, %if.then3 ]
+  %nsLocal.sroa.0.1 = phi ptr [ %nsLocal.sroa.0.0, %if.end36 ], [ %nsLocal.sroa.0.0, %invoke.cont20 ], [ %nsLocal.sroa.0.0, %if.then19 ], [ %nsLocal.sroa.0.0, %land.lhs.true15 ], [ %nsLocal.sroa.0.0, %land.lhs.true ], [ null, %if.then3 ]
   %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup196
 
 if.end8:                                          ; preds = %if.then3, %if.end
-  %nsLocal.sroa.0.1 = phi ptr [ null, %if.end ], [ %call4, %if.then3 ]
+  %nsLocal.sroa.0.0 = phi ptr [ null, %if.end ], [ %call4, %if.then3 ]
   %ns.addr.0 = phi ptr [ %ns, %if.end ], [ %call4, %if.then3 ]
   %2 = load i32, ptr %status, align 4
   %cmp.i53 = icmp sgt i32 %2, 0
@@ -1041,7 +1041,7 @@ _ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPK
 
 for.body131:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit, %for.inc149
   %indvars.iv141 = phi i64 [ 0, %_ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit ], [ %indvars.iv.next142, %for.inc149 ]
-  %tempCodePointZero.0138 = phi i32 [ -1, %_ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit ], [ %tempCodePointZero.1, %for.inc149 ]
+  %tempCodePointZero.0138 = phi i32 [ -1, %_ZN6icu_7512_GLOBAL__N_117DecFmtSymDataSink32resolveMissingMonetarySeparatorsEPKNS_13UnicodeStringE.exit ], [ %tempCodePointZero.2, %for.inc149 ]
   %indvars144 = trunc i64 %indvars.iv141 to i32
   %cmp3.i = icmp eq i64 %indvars.iv141, 0
   %33 = add nuw nsw i64 %indvars.iv141, 17
@@ -1067,15 +1067,15 @@ if.else143:                                       ; preds = %invoke.cont139
   br i1 %cmp145.not, label %for.inc149, label %invoke.cont152
 
 for.inc149:                                       ; preds = %invoke.cont139, %if.else143
-  %tempCodePointZero.1 = phi i32 [ %tempCodePointZero.0138, %if.else143 ], [ %call140, %invoke.cont139 ]
+  %tempCodePointZero.2 = phi i32 [ %tempCodePointZero.0138, %if.else143 ], [ %call140, %invoke.cont139 ]
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, 10
   br i1 %exitcond145.not, label %invoke.cont152, label %for.body131, !llvm.loop !7
 
 invoke.cont152:                                   ; preds = %for.inc149, %invoke.cont134, %if.else143
-  %tempCodePointZero.2 = phi i32 [ %tempCodePointZero.1, %for.inc149 ], [ -1, %invoke.cont134 ], [ -1, %if.else143 ]
+  %tempCodePointZero.1 = phi i32 [ %tempCodePointZero.2, %for.inc149 ], [ -1, %invoke.cont134 ], [ -1, %if.else143 ]
   %fCodePointZero = getelementptr inbounds i8, ptr %this, i64 1928
-  store i32 %tempCodePointZero.2, ptr %fCodePointZero, align 8
+  store i32 %tempCodePointZero.1, ptr %fCodePointZero, align 8
   store i32 0, ptr %internalStatus, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %tempStr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %tempStr, i64 8
@@ -1259,14 +1259,14 @@ terminate.lpad.i110:                              ; preds = %if.then.i109
   unreachable
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit112: ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit107, %if.then.i109
-  %isnull.i113 = icmp eq ptr %nsLocal.sroa.0.1, null
+  %isnull.i113 = icmp eq ptr %nsLocal.sroa.0.0, null
   br i1 %isnull.i113, label %cleanup.cont195, label %delete.notnull.i114
 
 delete.notnull.i114:                              ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit112
-  %vtable.i115 = load ptr, ptr %nsLocal.sroa.0.1, align 8
+  %vtable.i115 = load ptr, ptr %nsLocal.sroa.0.0, align 8
   %vfn.i116 = getelementptr inbounds i8, ptr %vtable.i115, i64 8
   %50 = load ptr, ptr %vfn.i116, align 8
-  call void %50(ptr noundef nonnull align 8 dereferenceable(86) %nsLocal.sroa.0.1) #15
+  call void %50(ptr noundef nonnull align 8 dereferenceable(86) %nsLocal.sroa.0.0) #15
   br label %cleanup.cont195
 
 cleanup.cont195:                                  ; preds = %delete.notnull.i114, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit112, %entry
@@ -1293,7 +1293,7 @@ ehcleanup192:                                     ; preds = %ehcleanup190, %lpad
   br label %ehcleanup196
 
 ehcleanup196:                                     ; preds = %ehcleanup192, %lpad23, %lpad
-  %nsLocal.sroa.0.2 = phi ptr [ %nsLocal.sroa.0.1, %ehcleanup192 ], [ %nsLocal.sroa.0.0, %lpad ], [ %nsLocal.sroa.0.1, %lpad23 ]
+  %nsLocal.sroa.0.2 = phi ptr [ %nsLocal.sroa.0.0, %ehcleanup192 ], [ %nsLocal.sroa.0.1, %lpad ], [ %nsLocal.sroa.0.0, %lpad23 ]
   %.pn49.pn.pn = phi { ptr, i32 } [ %.pn49.pn, %ehcleanup192 ], [ %1, %lpad ], [ %lpad.phi134, %lpad23 ]
   %isnull.i117 = icmp eq ptr %nsLocal.sroa.0.2, null
   br i1 %isnull.i117, label %_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit121, label %delete.notnull.i118

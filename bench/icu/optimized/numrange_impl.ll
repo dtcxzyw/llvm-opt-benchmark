@@ -561,9 +561,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1833,8 +1833,8 @@ if.then30:                                        ; preds = %if.end14
   br label %if.end38
 
 if.end38:                                         ; preds = %if.then30, %land.lhs.true, %if.end14, %if.then17
-  %collapseMiddle.0 = phi i8 [ 1, %if.then17 ], [ %spec.select, %land.lhs.true ], [ 1, %if.end14 ], [ %spec.select120, %if.then30 ]
-  %tobool39 = trunc nuw i8 %collapseMiddle.0 to i1
+  %collapseMiddle.1 = phi i8 [ 1, %if.then17 ], [ %spec.select, %land.lhs.true ], [ 1, %if.end14 ], [ %spec.select120, %if.then30 ]
+  %tobool39 = trunc nuw i8 %collapseMiddle.1 to i1
   %13 = load i32, ptr %fCollapse, align 4
   %cmp41.not = icmp eq i32 %13, 3
   %or.cond = select i1 %tobool39, i1 %cmp41.not, i1 false
@@ -1853,7 +1853,7 @@ if.end43:                                         ; preds = %if.end38
 
 sw.epilog:                                        ; preds = %if.end, %if.end38, %if.end6, %sw.bb, %if.end43
   %collapseInner.0 = phi i1 [ %call47, %if.end43 ], [ false, %sw.bb ], [ false, %if.end6 ], [ false, %if.end38 ], [ false, %if.end ]
-  %collapseMiddle.1 = phi i8 [ %collapseMiddle.0, %if.end43 ], [ 0, %sw.bb ], [ 0, %if.end6 ], [ %collapseMiddle.0, %if.end38 ], [ 0, %if.end ]
+  %collapseMiddle.0 = phi i8 [ %collapseMiddle.1, %if.end43 ], [ 0, %sw.bb ], [ 0, %if.end6 ], [ %collapseMiddle.1, %if.end38 ], [ 0, %if.end ]
   %collapseOuter.0.shrunk = phi i1 [ true, %if.end43 ], [ false, %sw.bb ], [ true, %if.end6 ], [ true, %if.end38 ], [ false, %if.end ]
   %fString.i = getelementptr inbounds i8, ptr %data, i64 8
   store i32 0, ptr %lengthPrefix, align 4
@@ -1883,7 +1883,7 @@ land.rhs:                                         ; preds = %if.end56
 
 land.end:                                         ; preds = %land.rhs, %if.end56
   %23 = phi i1 [ false, %if.end56 ], [ %cmp63, %land.rhs ]
-  %tobool65 = trunc nuw i8 %collapseMiddle.1 to i1
+  %tobool65 = trunc nuw i8 %collapseMiddle.0 to i1
   br i1 %tobool65, label %land.end72, label %land.rhs66
 
 land.rhs66:                                       ; preds = %land.end
@@ -1941,14 +1941,14 @@ if.then92:                                        ; preds = %if.then88
   br label %if.end98
 
 if.end98:                                         ; preds = %if.then92, %if.then88
-  %lengthInfix.0 = phi i32 [ %sub57, %if.then88 ], [ %add97, %if.then92 ]
+  %lengthInfix.1 = phi i32 [ %sub57, %if.then88 ], [ %add97, %if.then92 ]
   %35 = load i32, ptr %lengthPrefix, align 4
   %36 = load i8, ptr %fString.i, align 8
   %tobool.i.i124 = trunc i8 %36 to i1
   %37 = load ptr, ptr %fChars.i.i, align 8
   %cond.i.i126 = select i1 %tobool.i.i124, ptr %37, ptr %fChars.i.i
   %38 = load i32, ptr %fZero.i, align 8
-  %add100 = add i32 %lengthInfix.0, -1
+  %add100 = add i32 %lengthInfix.1, -1
   %sub101 = add i32 %add100, %35
   %add.i128 = add nsw i32 %sub101, %38
   %idxprom.i129 = sext i32 %add.i128 to i64
@@ -1961,15 +1961,15 @@ if.end98:                                         ; preds = %if.then92, %if.then
   br i1 %tobool105.not, label %if.then106, label %if.end114
 
 if.then106:                                       ; preds = %if.end98
-  %add108 = add nsw i32 %.pre185, %lengthInfix.0
+  %add108 = add nsw i32 %.pre185, %lengthInfix.1
   %call111 = call noundef i32 @_ZN6icu_7522FormattedStringBuilder15insertCodePointEiiNS0_5FieldER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i, i32 noundef %add108, i32 noundef 32, i8 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %add112 = add nsw i32 %call111, %lengthInfix.0
+  %add112 = add nsw i32 %call111, %lengthInfix.1
   %.pre = load i32, ptr %lengthPrefix, align 4
   br label %if.end114
 
 if.end114:                                        ; preds = %land.end81, %if.end98, %if.then106
   %40 = phi i32 [ %.pre185, %if.end98 ], [ %.pre, %if.then106 ], [ %.pre184, %land.end81 ]
-  %lengthInfix.1 = phi i32 [ %lengthInfix.0, %if.end98 ], [ %add112, %if.then106 ], [ %sub57, %land.end81 ]
+  %lengthInfix.0 = phi i32 [ %lengthInfix.1, %if.end98 ], [ %add112, %if.then106 ], [ %sub57, %land.end81 ]
   %simple = getelementptr inbounds i8, ptr %micros1, i64 8
   %quantity1 = getelementptr inbounds i8, ptr %data, i64 304
   %call115 = call noundef i32 @_ZN6icu_756number4impl19NumberFormatterImpl11writeNumberERKNS1_16SimpleMicroPropsERNS1_15DecimalQuantityERNS_22FormattedStringBuilderEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(96) %simple, ptr noundef nonnull align 8 dereferenceable(66) %quantity1, ptr noundef nonnull align 8 dereferenceable(136) %fString.i, i32 noundef %40, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1981,7 +1981,7 @@ if.end114:                                        ; preds = %land.end81, %if.end
 
 invoke.cont:                                      ; preds = %if.end114
   %41 = load i32, ptr %lengthPrefix, align 4
-  %add119 = add i32 %call115, %lengthInfix.1
+  %add119 = add i32 %call115, %lengthInfix.0
   %add120 = add i32 %add119, %41
   %call122 = invoke noundef i32 @_ZN6icu_7522FormattedStringBuilder6insertEiRKS0_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %fString.i, i32 noundef %add120, ptr noundef nonnull align 8 dereferenceable(136) %tempString, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont121 unwind label %lpad
@@ -2100,7 +2100,7 @@ invoke.cont154:                                   ; preds = %if.else149
   %modInner157 = getelementptr inbounds i8, ptr %micros2, i64 208
   %64 = load ptr, ptr %modInner157, align 8
   %65 = load i32, ptr %lengthPrefix, align 4
-  %add158 = add i32 %add156, %lengthInfix.1
+  %add158 = add i32 %add156, %lengthInfix.0
   %add159 = add i32 %add158, %65
   %66 = load i32, ptr %lengthSuffix, align 4
   %add162 = add i32 %66, %call122
@@ -2176,7 +2176,7 @@ invoke.cont175:                                   ; preds = %.noexc153, %.noexc1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %parameters.i136)
   %79 = load i32, ptr %lengthPrefix, align 4
   %80 = load i32, ptr %lengthSuffix, align 4
-  %add177 = add i32 %length2.0, %lengthInfix.1
+  %add177 = add i32 %length2.0, %lengthInfix.0
   %add178 = add i32 %add177, %length1.0
   %add179 = add i32 %add178, %79
   %add180 = add nsw i32 %add179, %80
@@ -2226,7 +2226,7 @@ invoke.cont201:                                   ; preds = %if.else196
   %modMiddle204 = getelementptr inbounds i8, ptr %micros2, i64 200
   %89 = load ptr, ptr %modMiddle204, align 8
   %90 = load i32, ptr %lengthPrefix, align 4
-  %add205 = add i32 %add203, %lengthInfix.1
+  %add205 = add i32 %add203, %lengthInfix.0
   %add206 = add i32 %add205, %90
   %91 = load i32, ptr %lengthSuffix, align 4
   %add209 = add i32 %91, %length2.0
@@ -2302,7 +2302,7 @@ invoke.cont222:                                   ; preds = %.noexc176, %.noexc1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %parameters.i159)
   %104 = load i32, ptr %lengthPrefix, align 4
   %105 = load i32, ptr %lengthSuffix, align 4
-  %add224 = add i32 %length2.1, %lengthInfix.1
+  %add224 = add i32 %length2.1, %lengthInfix.0
   %add225 = add i32 %add224, %length1.1
   %add226 = add i32 %add225, %104
   %add227 = add nsw i32 %add226, %105
@@ -2352,7 +2352,7 @@ invoke.cont248:                                   ; preds = %if.else243
   %modOuter251 = getelementptr inbounds i8, ptr %micros2, i64 192
   %114 = load ptr, ptr %modOuter251, align 8
   %115 = load i32, ptr %lengthPrefix, align 4
-  %add252 = add i32 %add250, %lengthInfix.1
+  %add252 = add i32 %add250, %lengthInfix.0
   %add253 = add i32 %add252, %115
   %116 = load i32, ptr %lengthSuffix, align 4
   %add256 = add i32 %116, %length2.1
@@ -2376,7 +2376,7 @@ if.end263:                                        ; preds = %invoke.cont260, %in
 
 invoke.cont264:                                   ; preds = %if.end263
   %119 = load i32, ptr %lengthPrefix, align 4
-  %add265 = add i32 %length1.2, %lengthInfix.1
+  %add265 = add i32 %length1.2, %lengthInfix.0
   %add266 = add i32 %add265, %119
   invoke void @_ZN6icu_7531FormattedValueStringBuilderImpl14appendSpanInfoE14UFieldCategoryiiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(300) %data, i32 noundef 4098, i32 noundef 1, i32 noundef %add266, i32 noundef %length2.2, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont267 unwind label %lpad

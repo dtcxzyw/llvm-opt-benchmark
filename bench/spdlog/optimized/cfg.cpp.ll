@@ -100,7 +100,7 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp.i.not46, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %cleanup
-  %global_level_found.048 = phi i1 [ %global_level_found.2, %cleanup ], [ false, %if.end ]
+  %global_level_found.048 = phi i1 [ %global_level_found.1, %cleanup ], [ false, %if.end ]
   %__begin2.sroa.0.047 = phi ptr [ %4, %cleanup ], [ %0, %if.end ]
   %add.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.047, i64 8
   %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.047, i64 40
@@ -171,14 +171,14 @@ invoke.cont20:                                    ; preds = %if.else
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then19, %invoke.cont20, %invoke.cont14
-  %global_level_found.2 = phi i1 [ %global_level_found.048, %invoke.cont14 ], [ true, %if.then19 ], [ %global_level_found.048, %invoke.cont20 ]
+  %global_level_found.1 = phi i1 [ %global_level_found.048, %invoke.cont14 ], [ true, %if.then19 ], [ %global_level_found.048, %invoke.cont20 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %level_name) #11
   %4 = load ptr, ptr %__begin2.sroa.0.047, align 8
   %cmp.i.not = icmp eq ptr %4, null
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %cleanup, %if.end
-  %global_level_found.0.lcssa = phi i1 [ false, %if.end ], [ %global_level_found.2, %cleanup ]
+  %global_level_found.0.lcssa = phi i1 [ false, %if.end ], [ %global_level_found.1, %cleanup ]
   %call25 = invoke noundef nonnull align 8 dereferenceable(336) ptr @_ZN6spdlog7details8registry8instanceEv()
           to label %invoke.cont24 unwind label %lpad.loopexit.split-lp
 

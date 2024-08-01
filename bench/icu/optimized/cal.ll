@@ -235,7 +235,7 @@ if.then45:                                        ; preds = %if.then35
 
 if.end47:                                         ; preds = %if.then35, %if.then45
   %41 = phi i32 [ %.pre, %if.then45 ], [ %40, %if.then35 ]
-  %printUsage.2 = phi i32 [ 1, %if.then45 ], [ %printUsage.052, %if.then35 ]
+  %printUsage.3 = phi i32 [ 1, %if.then45 ], [ %printUsage.052, %if.then35 ]
   %dec = add nsw i32 %41, -1
   store i32 %dec, ptr %month, align 4
   br label %if.end53
@@ -247,8 +247,8 @@ if.else48:                                        ; preds = %if.then33
 if.end53:                                         ; preds = %for.inc, %if.end47, %if.else48, %for.end
   %useLongNames.04890 = phi i8 [ %useLongNames.048, %if.end47 ], [ %useLongNames.048, %if.else48 ], [ %useLongNames.048, %for.end ], [ %useLongNames.1, %for.inc ]
   %printVersion.05089 = phi i32 [ %printVersion.050, %if.end47 ], [ %printVersion.050, %if.else48 ], [ %printVersion.050, %for.end ], [ %printVersion.1, %for.inc ]
-  %printUsage.3 = phi i32 [ %printUsage.2, %if.end47 ], [ %printUsage.052, %if.else48 ], [ %printUsage.052, %for.end ], [ %printUsage.1, %for.inc ]
-  %tobool.not = icmp eq i32 %printUsage.3, 0
+  %printUsage.2 = phi i32 [ %printUsage.3, %if.end47 ], [ %printUsage.052, %if.else48 ], [ %printUsage.052, %for.end ], [ %printUsage.1, %for.inc ]
+  %tobool.not = icmp eq i32 %printUsage.2, 0
   br i1 %tobool.not, label %if.end55, label %if.then54
 
 if.then54:                                        ; preds = %if.end53

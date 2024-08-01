@@ -1511,21 +1511,21 @@ get_mixed_type.exit:                              ; preds = %25, %26, %27, %30
   br i1 %.not245.i, label %.loopexit244.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %138, %.lr.ph.i
-  %.2247.i = phi i32 [ %153, %.lr.ph.i ], [ 88, %138 ]
+  %.3247.i = phi i32 [ %153, %.lr.ph.i ], [ 88, %138 ]
   %.0222246.i = phi i8 [ %154, %.lr.ph.i ], [ %145, %138 ]
   %148 = load i32, ptr @hf_smc_proposal_ipv6_prefix, align 4
-  %149 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %148, ptr noundef %0, i32 noundef %.2247.i, i32 noundef 16, i32 noundef 0) #3
-  %150 = add nuw nsw i32 %.2247.i, 16
+  %149 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %148, ptr noundef %0, i32 noundef %.3247.i, i32 noundef 16, i32 noundef 0) #3
+  %150 = add nuw nsw i32 %.3247.i, 16
   %151 = load i32, ptr @hf_smc_proposal_ipv6_prefix_length, align 4
   %152 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %151, ptr noundef %0, i32 noundef %150, i32 noundef 1, i32 noundef 0) #3
-  %153 = add nuw nsw i32 %.2247.i, 17
+  %153 = add nuw nsw i32 %.3247.i, 17
   %154 = add i8 %.0222246.i, -1
   %.not.i = icmp eq i8 %154, 0
   br i1 %.not.i, label %.loopexit244.i, label %.lr.ph.i, !llvm.loop !10
 
 .loopexit244.i:                                   ; preds = %.lr.ph.i, %138, %135
-  %.3.i = phi i32 [ 80, %135 ], [ 88, %138 ], [ %153, %.lr.ph.i ]
-  %.not225.i = icmp ult i32 %.0219.i, %.3.i
+  %.2.i = phi i32 [ 80, %135 ], [ 88, %138 ], [ %153, %.lr.ph.i ]
+  %.not225.i = icmp ult i32 %.0219.i, %.2.i
   br i1 %.not225.i, label %disect_smc_proposal.exit, label %155
 
 155:                                              ; preds = %.loopexit244.i

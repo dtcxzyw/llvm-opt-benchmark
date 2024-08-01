@@ -335,7 +335,7 @@ define ptr @Io_ReadAiger(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %Ioa_ReadLoadFileBz2Aig.exit
 
 Ioa_ReadLoadFileBz2Aig.exit:                      ; preds = %12, %16, %46, %53, %.loopexit.i
-  %.0461 = phi i32 [ -1, %12 ], [ -1, %53 ], [ -1, %46 ], [ %.1.i, %.loopexit.i ], [ -1, %16 ]
+  %.1462 = phi i32 [ -1, %12 ], [ -1, %53 ], [ -1, %46 ], [ %.1.i, %.loopexit.i ], [ -1, %16 ]
   %.036.i = phi ptr [ null, %12 ], [ null, %53 ], [ null, %46 ], [ %.042.i, %.loopexit.i ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %sub_0468
@@ -422,7 +422,7 @@ Ioa_ReadLoadFileGzAig.exit:                       ; preds = %Ioa_ReadLoadFileGzA
   br label %sub_0468
 
 sub_0468:                                         ; preds = %Ioa_ReadLoadFileBz2Aig.exit, %86, %Ioa_ReadLoadFileGzAig.exit
-  %.1462 = phi i32 [ %.0461, %Ioa_ReadLoadFileBz2Aig.exit ], [ %84, %Ioa_ReadLoadFileGzAig.exit ], [ %87, %86 ]
+  %.0461 = phi i32 [ %.1462, %Ioa_ReadLoadFileBz2Aig.exit ], [ %84, %Ioa_ReadLoadFileGzAig.exit ], [ %87, %86 ]
   %.0280 = phi ptr [ %.036.i, %Ioa_ReadLoadFileBz2Aig.exit ], [ %.017.lcssa.i, %Ioa_ReadLoadFileGzAig.exit ], [ %90, %86 ]
   %93 = load i8, ptr %.0280, align 1
   %94 = zext i8 %93 to i32
@@ -1405,7 +1405,7 @@ Vec_PtrPush.exit456:                              ; preds = %Vec_PtrPush.exit456
 
 .critedge15:                                      ; preds = %475, %.preheader473, %.critedge17
   store ptr %403, ptr %4, align 8
-  %544 = sext i32 %.1462 to i64
+  %544 = sext i32 %.0461 to i64
   %545 = getelementptr inbounds i8, ptr %.0280, i64 %544
   %546 = icmp ult ptr %403, %545
   br i1 %546, label %547, label %702

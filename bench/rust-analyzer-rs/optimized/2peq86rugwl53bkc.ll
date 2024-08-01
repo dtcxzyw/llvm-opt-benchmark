@@ -2257,13 +2257,13 @@ define hidden noundef zeroext i1 @"_ZN10vfs_notify11NotifyActor10load_entry28_$u
   br label %45
 
 45:                                               ; preds = %18, %27
-  %.0 = phi i1 [ %44, %27 ], [ true, %18 ]
+  %.1 = phi i1 [ %44, %27 ], [ true, %18 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %46
 
 46:                                               ; preds = %2, %45, %26
-  %.1 = phi i1 [ false, %26 ], [ %.0, %45 ], [ true, %2 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %26 ], [ %.1, %45 ], [ true, %2 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

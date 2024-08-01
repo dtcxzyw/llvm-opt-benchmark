@@ -102,7 +102,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i5.i, label %if.then3, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end, %"_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i"
-  %serial.0 = phi ptr [ %serial.1, %"_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i" ], [ null, %if.end ]
+  %serial.1 = phi ptr [ %serial.2, %"_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i" ], [ null, %if.end ]
   %4 = phi i32 [ %11, %"_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i" ], [ %3, %if.end ]
   %chunk.06.i = phi ptr [ %10, %"_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i" ], [ %atomic-temp.i.0.i.i, %if.end ]
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %chunk.06.i, i64 16
@@ -140,7 +140,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br label %"_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i"
 
 "_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i": ; preds = %for.cond.i.i, %if.then.i.i, %for.body.i
-  %serial.1 = phi ptr [ %serial.0, %for.body.i ], [ %atomic-temp.i.0.i7.i.i, %if.then.i.i ], [ %serial.0, %for.cond.i.i ]
+  %serial.2 = phi ptr [ %serial.1, %for.body.i ], [ %atomic-temp.i.0.i7.i.i, %if.then.i.i ], [ %serial.1, %for.cond.i.i ]
   %10 = load ptr, ptr %chunk.06.i, align 8
   %capacity.i.i.i = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load i32, ptr %capacity.i.i.i, align 8
@@ -148,7 +148,7 @@ if.then.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp.i.i, label %"_ZNK6google8protobuf8internal15ThreadSafeArena25WalkConstSerialArenaChunkIZNS2_22GetSerialArenaFallbackEmE3$_0EEvT_.exit", label %for.body.i, !llvm.loop !6
 
 "_ZNK6google8protobuf8internal15ThreadSafeArena25WalkConstSerialArenaChunkIZNS2_22GetSerialArenaFallbackEmE3$_0EEvT_.exit": ; preds = %"_ZZN6google8protobuf8internal15ThreadSafeArena22GetSerialArenaFallbackEmENK3$_0clEPKNS2_16SerialArenaChunkE.exit.i"
-  %tobool.not = icmp eq ptr %serial.1, null
+  %tobool.not = icmp eq ptr %serial.2, null
   br i1 %tobool.not, label %if.then3, label %return
 
 if.then3:                                         ; preds = %if.end, %"_ZNK6google8protobuf8internal15ThreadSafeArena25WalkConstSerialArenaChunkIZNS2_22GetSerialArenaFallbackEmE3$_0EEvT_.exit"
@@ -237,13 +237,13 @@ _ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit: 
   br label %return
 
 return:                                           ; preds = %"_ZNK6google8protobuf8internal15ThreadSafeArena25WalkConstSerialArenaChunkIZNS2_22GetSerialArenaFallbackEmE3$_0EEvT_.exit", %_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit, %if.then
-  %serial.3.sink = phi ptr [ %first_arena_, %if.then ], [ %add.ptr.i.i, %_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit ], [ %serial.1, %"_ZNK6google8protobuf8internal15ThreadSafeArena25WalkConstSerialArenaChunkIZNS2_22GetSerialArenaFallbackEmE3$_0EEvT_.exit" ]
+  %serial.0.sink = phi ptr [ %first_arena_, %if.then ], [ %add.ptr.i.i, %_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm.exit ], [ %serial.2, %"_ZNK6google8protobuf8internal15ThreadSafeArena25WalkConstSerialArenaChunkIZNS2_22GetSerialArenaFallbackEmE3$_0EEvT_.exit" ]
   %last_serial_arena.i4 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %serial.3.sink, ptr %last_serial_arena.i4, align 16
+  store ptr %serial.0.sink, ptr %last_serial_arena.i4, align 16
   %16 = load i64, ptr %this, align 8
   %last_lifecycle_id_seen.i5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %16, ptr %last_lifecycle_id_seen.i5, align 8
-  ret ptr %serial.3.sink
+  ret ptr %serial.0.sink
 }
 
 ; Function Attrs: mustprogress uwtable

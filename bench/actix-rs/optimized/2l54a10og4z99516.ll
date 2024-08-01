@@ -9508,7 +9508,7 @@ common.resume:                                    ; preds = %.thread64, %114, %1
   br i1 %.116, label %110, label %.thread64
 
 .thread:                                          ; preds = %46, %30, %17, %34
-  %.049 = phi i8 [ %.2, %34 ], [ 0, %17 ], [ 1, %30 ], [ 1, %46 ]
+  %.149 = phi i8 [ %.2, %34 ], [ 0, %17 ], [ 1, %30 ], [ 1, %46 ]
   %.01545 = phi i1 [ %.116, %34 ], [ true, %17 ], [ true, %30 ], [ true, %46 ]
   %.pn.pn43 = phi { ptr, i32 } [ %.pn, %34 ], [ %18, %17 ], [ %31, %30 ], [ %47, %46 ]
   %101 = getelementptr inbounds i8, ptr %9, i64 112
@@ -9542,27 +9542,27 @@ common.resume:                                    ; preds = %.thread64, %114, %1
 110:                                              ; preds = %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit34", %100
   %.pn.pn4255 = phi { ptr, i32 } [ %.pn.pn43, %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit34" ], [ %.pn, %100 ]
   %.0114653 = phi i1 [ true, %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit34" ], [ false, %100 ]
-  %.04851 = phi i8 [ %.049, %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit34" ], [ %.2, %100 ]
+  %.14851 = phi i8 [ %.149, %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit34" ], [ %.2, %100 ]
   %111 = getelementptr inbounds i8, ptr %9, i64 24
   invoke void @"_ZN4core3ptr35drop_in_place$LT$http..uri..Uri$GT$17h7fab3f9ca79e82baE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %111) #35
           to label %109 unwind label %98
 
 .thread64:                                        ; preds = %100, %.thread56, %109
-  %.0485062 = phi i8 [ %.0485063, %.thread56 ], [ %.04851, %109 ], [ %.2, %100 ]
+  %.1485062 = phi i8 [ %.1485063, %.thread56 ], [ %.14851, %109 ], [ %.2, %100 ]
   %.pn.pn425460 = phi { ptr, i32 } [ %.pn.pn425461, %.thread56 ], [ %.pn.pn4255, %109 ], [ %.pn, %100 ]
   %112 = load i64, ptr %9, align 8, !range !1076, !noundef !4
   %.not19 = icmp eq i64 %112, 4
   br i1 %.not19, label %common.resume, label %114
 
 .thread56:                                        ; preds = %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit34", %109
-  %.0485063 = phi i8 [ %.04851, %109 ], [ %.049, %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit34" ]
+  %.1485063 = phi i8 [ %.14851, %109 ], [ %.149, %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit34" ]
   %.pn.pn425461 = phi { ptr, i32 } [ %.pn.pn4255, %109 ], [ %.pn.pn43, %"_ZN4core3ptr41drop_in_place$LT$http..method..Method$GT$17h83de65ab4004d5c7E.exit34" ]
   %113 = getelementptr inbounds i8, ptr %9, i64 136
   invoke void @"_ZN4core3ptr55drop_in_place$LT$actix_http..header..map..HeaderMap$GT$17h91bff56007f2f960E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %113) #35
           to label %.thread64 unwind label %98
 
 114:                                              ; preds = %.thread64
-  %115 = trunc nuw i8 %.0485062 to i1
+  %115 = trunc nuw i8 %.1485062 to i1
   br i1 %115, label %116, label %common.resume
 
 116:                                              ; preds = %114

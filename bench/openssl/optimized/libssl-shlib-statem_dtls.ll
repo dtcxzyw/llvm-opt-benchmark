@@ -2027,8 +2027,8 @@ if.else:                                          ; preds = %if.end7
   br i1 %cmp32.not, label %if.end36, label %return
 
 if.end36:                                         ; preds = %if.else, %if.end22
-  %frag.0 = phi ptr [ %call18, %if.end22 ], [ %10, %if.else ]
-  %reassembly = getelementptr inbounds i8, ptr %frag.0, i64 72
+  %frag.1 = phi ptr [ %call18, %if.end22 ], [ %10, %if.else ]
+  %reassembly = getelementptr inbounds i8, ptr %frag.1, i64 72
   %13 = load ptr, ptr %reassembly, align 8
   %cmp37 = icmp eq ptr %13, null
   %method = getelementptr inbounds i8, ptr %s, i64 24
@@ -2054,7 +2054,7 @@ if.end48:                                         ; preds = %if.end36
   %17 = load ptr, ptr %method, align 8
   %ssl_read_bytes50 = getelementptr inbounds i8, ptr %17, i64 128
   %18 = load ptr, ptr %ssl_read_bytes50, align 8
-  %fragment = getelementptr inbounds i8, ptr %frag.0, i64 64
+  %fragment = getelementptr inbounds i8, ptr %frag.1, i64 64
   %19 = load ptr, ptr %fragment, align 8
   %20 = load i64, ptr %frag_off, align 8
   %add.ptr = getelementptr inbounds i8, ptr %19, i64 %20
@@ -2175,7 +2175,7 @@ if.end174:                                        ; preds = %for.body159, %if.en
   br i1 %cmp14, label %if.then177, label %return
 
 if.then177:                                       ; preds = %if.end174
-  %call179 = call ptr @pitem_new(ptr noundef nonnull %seq64be, ptr noundef %frag.0) #9
+  %call179 = call ptr @pitem_new(ptr noundef nonnull %seq64be, ptr noundef %frag.1) #9
   %cmp180 = icmp eq ptr %call179, null
   br i1 %cmp180, label %if.then202, label %if.end183
 
@@ -2189,21 +2189,21 @@ if.end183:                                        ; preds = %if.then177
 
 err:                                              ; preds = %while.body, %if.end48, %if.end124
   %cmp200 = icmp ne ptr %call13, null
-  %tobool.not.i = icmp eq ptr %frag.0, null
+  %tobool.not.i = icmp eq ptr %frag.1, null
   %or.cond85 = or i1 %cmp200, %tobool.not.i
   br i1 %or.cond85, label %return, label %if.end.i
 
 if.then202:                                       ; preds = %if.then177, %if.end183
-  %tobool.not.i.old = icmp eq ptr %frag.0, null
+  %tobool.not.i.old = icmp eq ptr %frag.1, null
   br i1 %tobool.not.i.old, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %err, %if.then202
-  %fragment.i = getelementptr inbounds i8, ptr %frag.0, i64 64
+  %fragment.i = getelementptr inbounds i8, ptr %frag.1, i64 64
   %43 = load ptr, ptr %fragment.i, align 8
   call void @CRYPTO_free(ptr noundef %43, ptr noundef nonnull @.str, i32 noundef 98) #9
   %44 = load ptr, ptr %reassembly, align 8
   call void @CRYPTO_free(ptr noundef %44, ptr noundef nonnull @.str, i32 noundef 99) #9
-  call void @CRYPTO_free(ptr noundef nonnull %frag.0, ptr noundef nonnull @.str, i32 noundef 100) #9
+  call void @CRYPTO_free(ptr noundef nonnull %frag.1, ptr noundef nonnull @.str, i32 noundef 100) #9
   br label %return
 
 return:                                           ; preds = %if.end47, %entry, %lor.lhs.false, %if.then16, %if.else, %if.end.i, %if.then202, %err, %if.end174, %if.end183, %if.end

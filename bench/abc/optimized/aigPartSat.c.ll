@@ -2430,7 +2430,7 @@ Abc_Clock.exit117:                                ; preds = %164, %176
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %185, %Aig_ManPartResetNodePolarity.exit, %195, %.critedge2
-  %.2143 = phi i32 [ 0, %195 ], [ -1, %.critedge2 ], [ 1, %Aig_ManPartResetNodePolarity.exit ], [ 1, %185 ]
+  %.1143 = phi i32 [ 0, %195 ], [ -1, %.critedge2 ], [ 1, %Aig_ManPartResetNodePolarity.exit ], [ 1, %185 ]
   call void @sat_solver_delete(ptr noundef %98) #17
   br i1 %114, label %.lr.ph159, label %.critedge4
 
@@ -2450,7 +2450,7 @@ Abc_Clock.exit117:                                ; preds = %164, %176
   br i1 %exitcond171.not, label %.critedge4.thread, label %197, !llvm.loop !33
 
 .critedge4:                                       ; preds = %.critedge2.thread, %.critedge2.thread.thread
-  %.2143176 = phi i32 [ -1, %.critedge2.thread.thread ], [ %.2143, %.critedge2.thread ]
+  %.1143176 = phi i32 [ -1, %.critedge2.thread.thread ], [ %.1143, %.critedge2.thread ]
   %.phi.trans.insert = getelementptr inbounds i8, ptr %72, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not.i118 = icmp eq ptr %.pre, null
@@ -2458,12 +2458,12 @@ Abc_Clock.exit117:                                ; preds = %164, %176
 
 .critedge4.thread:                                ; preds = %197, %.critedge4
   %200 = phi ptr [ %.pre, %.critedge4 ], [ %.val96, %197 ]
-  %.2143175179 = phi i32 [ %.2143176, %.critedge4 ], [ %.2143, %197 ]
+  %.1143175179 = phi i32 [ %.1143176, %.critedge4 ], [ %.1143, %197 ]
   call void @free(ptr noundef nonnull %200) #17
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge4, %.critedge4.thread
-  %.2143175180 = phi i32 [ %.2143176, %.critedge4 ], [ %.2143175179, %.critedge4.thread ]
+  %.1143175180 = phi i32 [ %.1143176, %.critedge4 ], [ %.1143175179, %.critedge4.thread ]
   call void @free(ptr noundef nonnull %72) #17
   %201 = load ptr, ptr %14, align 8
   %202 = getelementptr i8, ptr %201, i64 4
@@ -2583,7 +2583,7 @@ Vec_IntFree.exit141:                              ; preds = %Vec_VecFree.exit139
   br label %236
 
 236:                                              ; preds = %Vec_IntFree.exit141, %45
-  %.079 = phi i32 [ -1, %45 ], [ %.2143175180, %Vec_IntFree.exit141 ]
+  %.079 = phi i32 [ -1, %45 ], [ %.1143175180, %Vec_IntFree.exit141 ]
   ret i32 %.079
 }
 

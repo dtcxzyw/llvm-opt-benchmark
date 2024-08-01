@@ -299,7 +299,7 @@ define dso_local void @mdcreate(ptr nocapture noundef %0, i32 noundef %1, i1 nou
   unreachable
 
 37:                                               ; preds = %29, %10
-  %.1 = phi i32 [ %32, %29 ], [ %24, %10 ]
+  %.0 = phi i32 [ %32, %29 ], [ %24, %10 ]
   tail call void @pfree(ptr noundef %20) #14
   %38 = getelementptr inbounds i8, ptr %0, i64 40
   %39 = sext i32 %1 to i64
@@ -329,7 +329,7 @@ _fdvec_resize.exit:                               ; preds = %43, %48
   %53 = getelementptr inbounds i8, ptr %0, i64 56
   %54 = getelementptr [4 x ptr], ptr %53, i64 0, i64 %39
   %55 = load ptr, ptr %54, align 8
-  store i32 %.1, ptr %55, align 4
+  store i32 %.0, ptr %55, align 4
   %56 = getelementptr inbounds i8, ptr %55, i64 4
   store i32 0, ptr %56, align 4
   %57 = load i32, ptr %18, align 4

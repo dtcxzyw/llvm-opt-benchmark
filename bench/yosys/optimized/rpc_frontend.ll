@@ -678,9 +678,9 @@ define linkonce_odr void @_ZN5Yosys11RpcFrontend7executeESt6vectorINSt7__cxx1112
   br label %.loopexit
 
 68:                                               ; preds = %42, %64
-  %.1.ph = phi i64 [ %56, %64 ], [ %49, %42 ]
+  %.2.ph = phi i64 [ %56, %64 ], [ %49, %42 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #26
-  %69 = add i64 %.1.ph, 1
+  %69 = add i64 %.2.ph, 1
   %70 = load ptr, ptr %17, align 8
   %71 = load ptr, ptr %1, align 8
   %72 = ptrtoint ptr %70 to i64
@@ -799,7 +799,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not196220, label %._crit_edge227.thread, label %.lr.ph226
 
 .lr.ph226:                                        ; preds = %._crit_edge, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit
-  %.sroa.0155.0224 = phi ptr [ %.sroa.0155.1, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ null, %._crit_edge ]
+  %.sroa.0155.0224 = phi ptr [ %.sroa.0155.2, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ null, %._crit_edge ]
   %.sroa.9.0223 = phi ptr [ %.sroa.9.1, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ null, %._crit_edge ]
   %.sroa.17.0222 = phi ptr [ %.sroa.17.1, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ null, %._crit_edge ]
   %.sroa.0152.0221 = phi ptr [ %133, %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit ], [ %.pre, %._crit_edge ]
@@ -870,7 +870,7 @@ _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iterato
 _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, %111
   %.sroa.17.1 = phi ptr [ %132, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.17.0222, %111 ]
   %.pn197 = phi ptr [ %130, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.9.0223, %111 ]
-  %.sroa.0155.1 = phi ptr [ %126, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.0155.0224, %111 ]
+  %.sroa.0155.2 = phi ptr [ %126, %_ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %.sroa.0155.0224, %111 ]
   %.sroa.9.1 = getelementptr inbounds i8, ptr %.pn197, i64 8
   %133 = getelementptr inbounds i8, ptr %.sroa.0152.0221, i64 32
   %.not196 = icmp eq ptr %133, %.pre244
@@ -887,21 +887,21 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
   br label %.body
 
 .body.loopexit.split-lp:                          ; preds = %.invoke, %146, %140, %117
-  %.sroa.0155.2.ph.ph = phi ptr [ %.sroa.0155.0224, %117 ], [ %.sroa.0155.0.lcssa255, %140 ], [ %.sroa.0155.0.lcssa255, %146 ], [ %.sroa.0155.4, %.invoke ]
+  %.sroa.0155.1.ph.ph = phi ptr [ %.sroa.0155.0224, %117 ], [ %.sroa.0155.0.lcssa255, %140 ], [ %.sroa.0155.0.lcssa255, %146 ], [ %.sroa.0155.3, %.invoke ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.body.loopexit.split-lp, %.body.loopexit
-  %.sroa.0155.2.ph = phi ptr [ %.sroa.0155.0224, %.body.loopexit ], [ %.sroa.0155.2.ph.ph, %.body.loopexit.split-lp ]
+  %.sroa.0155.1.ph = phi ptr [ %.sroa.0155.0224, %.body.loopexit ], [ %.sroa.0155.1.ph.ph, %.body.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.body.loopexit ], [ %lpad.loopexit.split-lp, %.body.loopexit.split-lp ]
-  %.not.i.i.i73 = icmp eq ptr %.sroa.0155.2.ph, null
+  %.not.i.i.i73 = icmp eq ptr %.sroa.0155.1.ph, null
   br i1 %.not.i.i.i73, label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit, label %134
 
 134:                                              ; preds = %.body.thread184, %.body.thread, %.body
   %eh.lpad-body182 = phi { ptr, i32 } [ %196, %.body.thread ], [ %lpad.phi, %.body ], [ %lpad.thr_comm, %.body.thread184 ]
-  %.sroa.0155.3181 = phi ptr [ %.sroa.0155.4, %.body.thread ], [ %.sroa.0155.2.ph, %.body ], [ %.sroa.0155.4, %.body.thread184 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0155.3181) #27
+  %.sroa.0155.4181 = phi ptr [ %.sroa.0155.3, %.body.thread ], [ %.sroa.0155.1.ph, %.body ], [ %.sroa.0155.3, %.body.thread184 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0155.4181) #27
   br label %_ZNSt6vectorIPcSaIS0_EED2Ev.exit
 
 ._crit_edge227:                                   ; preds = %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit
@@ -913,7 +913,7 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit:      ; preds = %_ZNSt6vectorIPcSaIS
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit84
 
 ._crit_edge227.thread:                            ; preds = %._crit_edge.thread, %._crit_edge, %._crit_edge227
-  %.sroa.0155.0.lcssa255 = phi ptr [ %.sroa.0155.1, %._crit_edge227 ], [ null, %._crit_edge ], [ null, %._crit_edge.thread ]
+  %.sroa.0155.0.lcssa255 = phi ptr [ %.sroa.0155.2, %._crit_edge227 ], [ null, %._crit_edge ], [ null, %._crit_edge.thread ]
   %.sroa.17.0.lcssa254 = phi ptr [ %.sroa.17.1, %._crit_edge227 ], [ null, %._crit_edge ], [ null, %._crit_edge.thread ]
   %136 = ptrtoint ptr %.sroa.17.0.lcssa254 to i64
   %137 = ptrtoint ptr %.sroa.0155.0.lcssa255 to i64
@@ -963,7 +963,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i79: ; preds = %1
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit84
 
 _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit84:    ; preds = %135, %153, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i79
-  %.sroa.0155.4 = phi ptr [ %.sroa.0155.1, %135 ], [ %149, %153 ], [ %149, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i79 ]
+  %.sroa.0155.3 = phi ptr [ %.sroa.0155.2, %135 ], [ %149, %153 ], [ %149, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i79 ]
   %154 = call i32 @pipe(ptr noundef nonnull %10) #26
   %.not52 = icmp eq i32 %154, 0
   br i1 %.not52, label %155, label %.invoke
@@ -1016,9 +1016,9 @@ _ZNSt6vectorIPcSaIS0_EE9push_backEOS0_.exit84:    ; preds = %135, %153, %_ZNSt6v
   unreachable
 
 177:                                              ; preds = %170
-  %178 = load ptr, ptr %.sroa.0155.4, align 8
+  %178 = load ptr, ptr %.sroa.0155.3, align 8
   %179 = load ptr, ptr @environ, align 8
-  %180 = invoke i32 @posix_spawnp(ptr noundef nonnull %13, ptr noundef %178, ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull %.sroa.0155.4, ptr noundef %179)
+  %180 = invoke i32 @posix_spawnp(ptr noundef nonnull %13, ptr noundef %178, ptr noundef nonnull %12, ptr noundef null, ptr noundef nonnull %.sroa.0155.3, ptr noundef %179)
           to label %181 unwind label %.body.thread184
 
 181:                                              ; preds = %177
@@ -1260,7 +1260,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5Yosys11FdRpcServerESaIvE
 
 _ZNSt10shared_ptrIN5Yosys11FdRpcServerEED2Ev.exit107: ; preds = %247, %.thread192
   %278 = call i32 @posix_spawn_file_actions_destroy(ptr noundef nonnull %12) #26
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0155.4) #27
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0155.3) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #26
   %.pr194.pre = load ptr, ptr %8, align 8
   %.not198 = icmp eq ptr %.pr194.pre, null

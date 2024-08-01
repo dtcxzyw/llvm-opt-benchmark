@@ -76,7 +76,7 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
 10:                                               ; preds = %48, %.lr.ph.i
   %.0103.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %48 ]
   %.081102.i = phi ptr [ %7, %.lr.ph.i ], [ %.182.i, %48 ]
-  %.083101.i = phi ptr [ %5, %.lr.ph.i ], [ %.285.i, %48 ]
+  %.083101.i = phi ptr [ %5, %.lr.ph.i ], [ %.184.i, %48 ]
   %11 = getelementptr inbounds i8, ptr %.083101.i, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = ashr i32 %12, 1
@@ -104,7 +104,7 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
   br label %27
 
 27:                                               ; preds = %25, %21
-  %.184.i = phi ptr [ %26, %25 ], [ %.083101.i, %21 ]
+  %.285.i = phi ptr [ %26, %25 ], [ %.083101.i, %21 ]
   %.077.i = phi ptr [ %.083101.i, %25 ], [ %16, %21 ]
   store ptr null, ptr %15, align 8
   %28 = getelementptr inbounds i8, ptr %.077.i, i64 16
@@ -120,11 +120,11 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, -2
   store i32 %37, ptr %35, align 8
-  store ptr %.184.i, ptr %.077.i, align 8
-  %38 = getelementptr inbounds i8, ptr %.184.i, i64 8
+  store ptr %.285.i, ptr %.077.i, align 8
+  %38 = getelementptr inbounds i8, ptr %.285.i, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not97.i = icmp eq ptr %39, null
-  %40 = getelementptr inbounds i8, ptr %.184.i, i64 32
+  %40 = getelementptr inbounds i8, ptr %.285.i, i64 32
   br i1 %.not97.i, label %47, label %41
 
 41:                                               ; preds = %27
@@ -148,10 +148,10 @@ define hidden ptr @tm_fiboTreeMin(ptr noundef readonly %0) local_unnamed_addr #4
   br label %48
 
 48:                                               ; preds = %47, %41, %18
-  %.285.i = phi ptr [ %.081102.i, %18 ], [ %.184.i, %41 ], [ %.184.i, %47 ]
+  %.184.i = phi ptr [ %.081102.i, %18 ], [ %.285.i, %41 ], [ %.285.i, %47 ]
   %.182.i = phi ptr [ %20, %18 ], [ %.081102.i, %41 ], [ %.081102.i, %47 ]
   %.2.i = phi i32 [ %spec.select.i, %18 ], [ %.0103.i, %41 ], [ %.0103.i, %47 ]
-  %.not.i = icmp eq ptr %.285.i, %0
+  %.not.i = icmp eq ptr %.184.i, %0
   br i1 %.not.i, label %.lr.ph107.preheader.i, label %10, !llvm.loop !4
 
 .lr.ph107.i:                                      ; preds = %51, %.lr.ph107.preheader.i

@@ -6380,35 +6380,35 @@ _ZNK10RegionNode7is_copyEv.exit.thread19:         ; preds = %2, %_ZNK10RegionNod
   br i1 %.not15, label %.thread26, label %.thread
 
 .thread:                                          ; preds = %19, %23
-  %.125 = phi ptr [ %26, %23 ], [ %.022, %19 ]
-  %27 = getelementptr inbounds i8, ptr %.125, i64 16
+  %.225 = phi ptr [ %26, %23 ], [ %.022, %19 ]
+  %27 = getelementptr inbounds i8, ptr %.225, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.thread30, label %30
 
 30:                                               ; preds = %.thread
-  %31 = getelementptr inbounds i8, ptr %.125, i64 8
+  %31 = getelementptr inbounds i8, ptr %.225, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %.not16 = icmp eq ptr %33, null
   br i1 %.not16, label %.thread26, label %.thread30
 
 .thread30:                                        ; preds = %_ZNK10RegionNode7is_copyEv.exit.thread19, %.thread, %30
-  %.233 = phi ptr [ %33, %30 ], [ %.022, %_ZNK10RegionNode7is_copyEv.exit.thread19 ], [ %.125, %.thread ]
-  %34 = getelementptr inbounds i8, ptr %.233, i64 44
+  %.133 = phi ptr [ %33, %30 ], [ %.022, %_ZNK10RegionNode7is_copyEv.exit.thread19 ], [ %.225, %.thread ]
+  %34 = getelementptr inbounds i8, ptr %.133, i64 44
   %35 = load i32, ptr %34, align 4
   %36 = and i32 %35, 15
   %37 = icmp eq i32 %36, 8
   br i1 %37, label %38, label %.thread26
 
 38:                                               ; preds = %.thread30
-  %39 = getelementptr inbounds i8, ptr %.233, i64 8
+  %39 = getelementptr inbounds i8, ptr %.133, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %40, align 8
   br label %.thread26
 
 .thread26:                                        ; preds = %9, %4, %_ZNK10RegionNode7is_copyEv.exit, %23, %38, %.thread30, %30
-  %.3 = phi ptr [ %41, %38 ], [ %.233, %.thread30 ], [ null, %30 ], [ null, %23 ], [ null, %_ZNK10RegionNode7is_copyEv.exit ], [ null, %4 ], [ null, %9 ]
+  %.3 = phi ptr [ %41, %38 ], [ %.133, %.thread30 ], [ null, %30 ], [ null, %23 ], [ null, %_ZNK10RegionNode7is_copyEv.exit ], [ null, %4 ], [ null, %9 ]
   ret ptr %.3
 }
 
@@ -6432,7 +6432,7 @@ define hidden noundef zeroext i1 @_ZN4Node9dominatesEPS_R9Node_List(ptr noundef 
   br label %.lr.ph102
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %176
-  %.064100 = phi ptr [ %.172, %176 ], [ %1, %.lr.ph102.preheader ]
+  %.064100 = phi ptr [ %.071, %176 ], [ %1, %.lr.ph102.preheader ]
   %.06599 = phi i32 [ %177, %176 ], [ %12, %.lr.ph102.preheader ]
   %.06798 = phi i8 [ %.168, %176 ], [ 0, %.lr.ph102.preheader ]
   %13 = getelementptr inbounds i8, ptr %.064100, i64 16
@@ -6513,35 +6513,35 @@ _ZNK10RegionNode7is_copyEv.exit.thread19.i:       ; preds = %_ZNK10RegionNode7is
   br i1 %.not15.i, label %_ZN4Node18find_exact_controlEPS_.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %52, %48
-  %.125.i = phi ptr [ %55, %52 ], [ %.022.i, %48 ]
-  %56 = getelementptr inbounds i8, ptr %.125.i, i64 16
+  %.225.i = phi ptr [ %55, %52 ], [ %.022.i, %48 ]
+  %56 = getelementptr inbounds i8, ptr %.225.i, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.thread30.i, label %59
 
 59:                                               ; preds = %.thread.i
-  %60 = getelementptr inbounds i8, ptr %.125.i, i64 8
+  %60 = getelementptr inbounds i8, ptr %.225.i, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %61, align 8
   %.not16.i = icmp eq ptr %62, null
   br i1 %.not16.i, label %_ZN4Node18find_exact_controlEPS_.exit, label %.thread30.i
 
 .thread30.i:                                      ; preds = %59, %.thread.i, %_ZNK10RegionNode7is_copyEv.exit.thread19.i
-  %.233.i = phi ptr [ %62, %59 ], [ %.022.i, %_ZNK10RegionNode7is_copyEv.exit.thread19.i ], [ %.125.i, %.thread.i ]
-  %63 = getelementptr inbounds i8, ptr %.233.i, i64 44
+  %.133.i = phi ptr [ %62, %59 ], [ %.022.i, %_ZNK10RegionNode7is_copyEv.exit.thread19.i ], [ %.225.i, %.thread.i ]
+  %63 = getelementptr inbounds i8, ptr %.133.i, i64 44
   %64 = load i32, ptr %63, align 4
   %65 = and i32 %64, 15
   %66 = icmp eq i32 %65, 8
   br i1 %66, label %67, label %_ZN4Node18find_exact_controlEPS_.exit
 
 67:                                               ; preds = %.thread30.i
-  %68 = getelementptr inbounds i8, ptr %.233.i, i64 8
+  %68 = getelementptr inbounds i8, ptr %.133.i, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = load ptr, ptr %69, align 8
   br label %_ZN4Node18find_exact_controlEPS_.exit
 
 _ZN4Node18find_exact_controlEPS_.exit:            ; preds = %40, %_ZNK10RegionNode7is_copyEv.exit.i, %52, %59, %.thread30.i, %67
-  %.3.i = phi ptr [ %70, %67 ], [ %.233.i, %.thread30.i ], [ null, %59 ], [ null, %52 ], [ null, %_ZNK10RegionNode7is_copyEv.exit.i ], [ null, %40 ]
+  %.3.i = phi ptr [ %70, %67 ], [ %.133.i, %.thread30.i ], [ null, %59 ], [ null, %52 ], [ null, %_ZNK10RegionNode7is_copyEv.exit.i ], [ null, %40 ]
   %71 = icmp eq ptr %.064100, %.3.i
   br i1 %71, label %72, label %.critedge80
 
@@ -6687,7 +6687,7 @@ _ZN9Node_List6removeEj.exit:                      ; preds = %112, %_ZN4Copy23con
   br i1 %exitcond.not, label %._crit_edge, label %134, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %143, %141, %.loopexit
-  %.071 = phi ptr [ %.3.i, %.loopexit ], [ %136, %141 ], [ %.3.i, %143 ]
+  %.172 = phi ptr [ %.3.i, %.loopexit ], [ %136, %141 ], [ %.3.i, %143 ]
   %144 = ptrtoint ptr %.064100 to i64
   %.lobit = lshr exact i64 %98, 31
   %145 = xor i64 %.lobit, 1
@@ -6732,13 +6732,13 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %._crit_edge, %150
   br label %.critedge80
 
 .critedge80:                                      ; preds = %80, %_ZN4Node18find_exact_controlEPS_.exit, %87, %_ZN9Node_List4pushEP4Node.exit, %76
-  %.172 = phi ptr [ %79, %76 ], [ %90, %87 ], [ %.071, %_ZN9Node_List4pushEP4Node.exit ], [ %.3.i, %_ZN4Node18find_exact_controlEPS_.exit ], [ %.3.i, %80 ]
+  %.071 = phi ptr [ %79, %76 ], [ %90, %87 ], [ %.172, %_ZN9Node_List4pushEP4Node.exit ], [ %.3.i, %_ZN4Node18find_exact_controlEPS_.exit ], [ %.3.i, %80 ]
   %.2 = phi i32 [ %.166, %76 ], [ %.166, %87 ], [ %93, %_ZN9Node_List4pushEP4Node.exit ], [ %.166, %_ZN4Node18find_exact_controlEPS_.exit ], [ %.166, %80 ]
-  %169 = icmp eq ptr %.172, %.064100
+  %169 = icmp eq ptr %.071, %.064100
   br i1 %169, label %.loopexit85, label %170
 
 170:                                              ; preds = %.critedge80
-  %171 = icmp eq ptr %.172, %1
+  %171 = icmp eq ptr %.071, %1
   br i1 %171, label %172, label %175
 
 172:                                              ; preds = %170
@@ -6753,7 +6753,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %._crit_edge, %150
 
 176:                                              ; preds = %172, %175
   %177 = add nsw i32 %.2, -1
-  %.not = icmp eq ptr %.172, null
+  %.not = icmp eq ptr %.071, null
   br i1 %.not, label %.loopexit85, label %.lr.ph102, !llvm.loop !36
 
 .loopexit85:                                      ; preds = %18, %108, %175, %172, %.critedge80, %21, %.lr.ph102, %176, %3, %33
@@ -6843,12 +6843,12 @@ _ZN9Node_List4pushEP4Node.exit.i:                 ; preds = %38, %36
   br label %55
 
 55:                                               ; preds = %.loopexit.i, %_ZN9Node_List4pushEP4Node.exit.i
-  %.sroa.47.0203.i = phi i32 [ 1, %_ZN9Node_List4pushEP4Node.exit.i ], [ %.sroa.47.5.i, %.loopexit.i ]
-  %.sroa.7.1202.i = phi i32 [ 4, %_ZN9Node_List4pushEP4Node.exit.i ], [ %.sroa.7.11.i, %.loopexit.i ]
-  %.sroa.27.1201.i = phi ptr [ %.0.i.i.i.i.i, %_ZN9Node_List4pushEP4Node.exit.i ], [ %.sroa.27.11.i, %.loopexit.i ]
+  %.sroa.47.0203.i = phi i32 [ 1, %_ZN9Node_List4pushEP4Node.exit.i ], [ %.sroa.47.3.i, %.loopexit.i ]
+  %.sroa.7.0202.i = phi i32 [ 4, %_ZN9Node_List4pushEP4Node.exit.i ], [ %.sroa.7.3.i, %.loopexit.i ]
+  %.sroa.27.0201.i = phi ptr [ %.0.i.i.i.i.i, %_ZN9Node_List4pushEP4Node.exit.i ], [ %.sroa.27.3.i, %.loopexit.i ]
   %56 = add i32 %.sroa.47.0203.i, -1
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %.sroa.27.1201.i, i64 %57
+  %58 = getelementptr inbounds ptr, ptr %.sroa.27.0201.i, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 40
   %61 = load i32, ptr %60, align 8
@@ -6896,7 +6896,7 @@ _ZN9VectorSet8test_setEj.exit.i:                  ; preds = %64, %55
   br i1 %.not90.i, label %361, label %83
 
 83:                                               ; preds = %80
-  %.not.i.i94.i = icmp ugt i32 %.sroa.7.1202.i, %56
+  %.not.i.i94.i = icmp ugt i32 %.sroa.7.0202.i, %56
   br i1 %.not.i.i94.i, label %_ZN9Node_List4pushEP4Node.exit97.i, label %84
 
 84:                                               ; preds = %83
@@ -6906,22 +6906,22 @@ _ZN9VectorSet8test_setEj.exit.i:                  ; preds = %64, %55
   %87 = sub nuw nsw i32 32, %86
   %88 = shl nuw i32 1, %87
   %.0.i.i.i.i.i96.i = select i1 %or.cond.i.i.i.i.i95.i, i32 %.sroa.47.0203.i, i32 %88
-  %89 = zext i32 %.sroa.7.1202.i to i64
+  %89 = zext i32 %.sroa.7.0202.i to i64
   %90 = shl nuw nsw i64 %89, 3
   %91 = zext i32 %.0.i.i.i.i.i96.i to i64
   %92 = shl nuw nsw i64 %91, 3
-  %93 = call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull %.sroa.27.1201.i, i64 noundef %90, i64 noundef %92, i32 noundef 0) #15
+  %93 = call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef nonnull %.sroa.27.0201.i, i64 noundef %90, i64 noundef %92, i32 noundef 0) #15
   %94 = getelementptr inbounds ptr, ptr %93, i64 %89
-  %95 = sub i32 %.0.i.i.i.i.i96.i, %.sroa.7.1202.i
+  %95 = sub i32 %.0.i.i.i.i.i96.i, %.sroa.7.0202.i
   %96 = zext i32 %95 to i64
   %97 = shl nuw nsw i64 %96, 3
   call void @llvm.memset.p0.i64(ptr align 1 %94, i8 0, i64 %97, i1 false)
   br label %_ZN9Node_List4pushEP4Node.exit97.i
 
 _ZN9Node_List4pushEP4Node.exit97.i:               ; preds = %84, %83
-  %.sroa.27.2.i = phi ptr [ %.sroa.27.1201.i, %83 ], [ %93, %84 ]
-  %.sroa.7.2.i = phi i32 [ %.sroa.7.1202.i, %83 ], [ %.0.i.i.i.i.i96.i, %84 ]
-  %98 = getelementptr inbounds ptr, ptr %.sroa.27.2.i, i64 %57
+  %.sroa.27.7.i = phi ptr [ %.sroa.27.0201.i, %83 ], [ %93, %84 ]
+  %.sroa.7.7.i = phi i32 [ %.sroa.7.0202.i, %83 ], [ %.0.i.i.i.i.i96.i, %84 ]
+  %98 = getelementptr inbounds ptr, ptr %.sroa.27.7.i, i64 %57
   store ptr %59, ptr %98, align 8
   %99 = getelementptr inbounds i8, ptr %59, i64 16
   %100 = load ptr, ptr %99, align 8
@@ -6935,8 +6935,8 @@ _ZN9Node_List4pushEP4Node.exit97.i:               ; preds = %84, %83
 .lr.ph188.i:                                      ; preds = %_ZN9Node_List4pushEP4Node.exit97.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i
   %.084187.i = phi ptr [ %.084.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %.084182.i, %_ZN9Node_List4pushEP4Node.exit97.i ]
   %.sroa.47.1186.i = phi i32 [ %.sroa.47.2.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %.sroa.47.0203.i, %_ZN9Node_List4pushEP4Node.exit97.i ]
-  %.sroa.7.3185.i = phi i32 [ %.sroa.7.7.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %.sroa.7.2.i, %_ZN9Node_List4pushEP4Node.exit97.i ]
-  %.sroa.27.3184.i = phi ptr [ %.sroa.27.7.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %.sroa.27.2.i, %_ZN9Node_List4pushEP4Node.exit97.i ]
+  %.sroa.7.1185.i = phi i32 [ %.sroa.7.2.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %.sroa.7.7.i, %_ZN9Node_List4pushEP4Node.exit97.i ]
+  %.sroa.27.1184.i = phi ptr [ %.sroa.27.2.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ], [ %.sroa.27.7.i, %_ZN9Node_List4pushEP4Node.exit97.i ]
   %104 = load ptr, ptr %.084187.i, align 8
   %105 = load ptr, ptr %49, align 8
   %106 = call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %105, ptr noundef %104) #15
@@ -7056,7 +7056,7 @@ _ZN4Node8out_growEj.exit.i.i.i:                   ; preds = %156, %_ZN5Arena7Ama
 
 _ZN4Node7set_reqEjPS_.exit.i:                     ; preds = %_ZN4Node8out_growEj.exit.i.i.i, %128, %_ZN4Node7del_outEPS_.exit.i.i
   %172 = add i32 %.sroa.47.1186.i, 1
-  %.not.i.i102.i = icmp ugt i32 %.sroa.7.3185.i, %.sroa.47.1186.i
+  %.not.i.i102.i = icmp ugt i32 %.sroa.7.1185.i, %.sroa.47.1186.i
   br i1 %.not.i.i102.i, label %_ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i, label %173
 
 173:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit.i
@@ -7066,13 +7066,13 @@ _ZN4Node7set_reqEjPS_.exit.i:                     ; preds = %_ZN4Node8out_growEj
   %176 = sub nuw nsw i32 32, %175
   %177 = shl nuw i32 1, %176
   %.0.i.i.i.i.i104.i = select i1 %or.cond.i.i.i.i.i103.i, i32 %172, i32 %177
-  %178 = zext i32 %.sroa.7.3185.i to i64
+  %178 = zext i32 %.sroa.7.1185.i to i64
   %179 = shl nuw nsw i64 %178, 3
   %180 = zext i32 %.0.i.i.i.i.i104.i to i64
   %181 = shl nuw nsw i64 %180, 3
-  %182 = call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %.sroa.27.3184.i, i64 noundef %179, i64 noundef %181, i32 noundef 0) #15
+  %182 = call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %.sroa.27.1184.i, i64 noundef %179, i64 noundef %181, i32 noundef 0) #15
   %183 = getelementptr inbounds ptr, ptr %182, i64 %178
-  %184 = sub i32 %.0.i.i.i.i.i104.i, %.sroa.7.3185.i
+  %184 = sub i32 %.0.i.i.i.i.i104.i, %.sroa.7.1185.i
   %185 = zext i32 %184 to i64
   %186 = shl nuw nsw i64 %185, 3
   call void @llvm.memset.p0.i64(ptr align 1 %183, i8 0, i64 %186, i1 false)
@@ -7105,7 +7105,7 @@ _ZN4Node7set_reqEjPS_.exit.i:                     ; preds = %_ZN4Node8out_growEj
   call void @_ZN4Node7set_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52) %104, i32 noundef 1, ptr noundef %43)
   call void @_ZN4Node7set_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52) %104, i32 noundef 0, ptr noundef %43)
   %198 = add i32 %.sroa.47.1186.i, 1
-  %.not.i.i106.i = icmp ugt i32 %.sroa.7.3185.i, %.sroa.47.1186.i
+  %.not.i.i106.i = icmp ugt i32 %.sroa.7.1185.i, %.sroa.47.1186.i
   br i1 %.not.i.i106.i, label %_ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i, label %199
 
 199:                                              ; preds = %197
@@ -7115,13 +7115,13 @@ _ZN4Node7set_reqEjPS_.exit.i:                     ; preds = %_ZN4Node8out_growEj
   %202 = sub nuw nsw i32 32, %201
   %203 = shl nuw i32 1, %202
   %.0.i.i.i.i.i108.i = select i1 %or.cond.i.i.i.i.i107.i, i32 %198, i32 %203
-  %204 = zext i32 %.sroa.7.3185.i to i64
+  %204 = zext i32 %.sroa.7.1185.i to i64
   %205 = shl nuw nsw i64 %204, 3
   %206 = zext i32 %.0.i.i.i.i.i108.i to i64
   %207 = shl nuw nsw i64 %206, 3
-  %208 = call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %.sroa.27.3184.i, i64 noundef %205, i64 noundef %207, i32 noundef 0) #15
+  %208 = call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %.sroa.27.1184.i, i64 noundef %205, i64 noundef %207, i32 noundef 0) #15
   %209 = getelementptr inbounds ptr, ptr %208, i64 %204
-  %210 = sub i32 %.0.i.i.i.i.i108.i, %.sroa.7.3185.i
+  %210 = sub i32 %.0.i.i.i.i.i108.i, %.sroa.7.1185.i
   %211 = zext i32 %210 to i64
   %212 = shl nuw nsw i64 %211, 3
   call void @llvm.memset.p0.i64(ptr align 1 %209, i8 0, i64 %212, i1 false)
@@ -7287,7 +7287,7 @@ _ZN4Node7set_reqEjPS_.exit121.i:                  ; preds = %284, %283, %_ZN4Nod
 
 296:                                              ; preds = %295, %291
   %297 = add i32 %.sroa.47.1186.i, 1
-  %.not.i.i122.i = icmp ugt i32 %.sroa.7.3185.i, %.sroa.47.1186.i
+  %.not.i.i122.i = icmp ugt i32 %.sroa.7.1185.i, %.sroa.47.1186.i
   br i1 %.not.i.i122.i, label %_ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i, label %298
 
 298:                                              ; preds = %296
@@ -7297,13 +7297,13 @@ _ZN4Node7set_reqEjPS_.exit121.i:                  ; preds = %284, %283, %_ZN4Nod
   %301 = sub nuw nsw i32 32, %300
   %302 = shl nuw i32 1, %301
   %.0.i.i.i.i.i124.i = select i1 %or.cond.i.i.i.i.i123.i, i32 %297, i32 %302
-  %303 = zext i32 %.sroa.7.3185.i to i64
+  %303 = zext i32 %.sroa.7.1185.i to i64
   %304 = shl nuw nsw i64 %303, 3
   %305 = zext i32 %.0.i.i.i.i.i124.i to i64
   %306 = shl nuw nsw i64 %305, 3
-  %307 = call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %.sroa.27.3184.i, i64 noundef %304, i64 noundef %306, i32 noundef 0) #15
+  %307 = call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %.sroa.27.1184.i, i64 noundef %304, i64 noundef %306, i32 noundef 0) #15
   %308 = getelementptr inbounds ptr, ptr %307, i64 %303
-  %309 = sub i32 %.0.i.i.i.i.i124.i, %.sroa.7.3185.i
+  %309 = sub i32 %.0.i.i.i.i.i124.i, %.sroa.7.1185.i
   %310 = zext i32 %309 to i64
   %311 = shl nuw nsw i64 %310, 3
   call void @llvm.memset.p0.i64(ptr align 1 %308, i8 0, i64 %311, i1 false)
@@ -7379,9 +7379,9 @@ _ZN9Node_List4pushEP4Node.exit.i.i:               ; preds = %335, %329
 
 _ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i: ; preds = %_ZN9Node_List4pushEP4Node.exit.i.i, %298, %296, %199, %197, %173, %_ZN4Node7set_reqEjPS_.exit.i
   %.sink.i = phi i32 [ %331, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.47.1186.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %.sroa.47.1186.i, %173 ], [ %.sroa.47.1186.i, %197 ], [ %.sroa.47.1186.i, %199 ], [ %.sroa.47.1186.i, %296 ], [ %.sroa.47.1186.i, %298 ]
-  %.sink212.i = phi ptr [ %354, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.27.3184.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %182, %173 ], [ %.sroa.27.3184.i, %197 ], [ %208, %199 ], [ %.sroa.27.3184.i, %296 ], [ %307, %298 ]
-  %.sroa.27.7.ph.i = phi ptr [ %.sroa.27.3184.i, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.27.3184.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %182, %173 ], [ %.sroa.27.3184.i, %197 ], [ %208, %199 ], [ %.sroa.27.3184.i, %296 ], [ %307, %298 ]
-  %.sroa.7.7.ph.i = phi i32 [ %.sroa.7.3185.i, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.7.3185.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %.0.i.i.i.i.i104.i, %173 ], [ %.sroa.7.3185.i, %197 ], [ %.0.i.i.i.i.i108.i, %199 ], [ %.sroa.7.3185.i, %296 ], [ %.0.i.i.i.i.i124.i, %298 ]
+  %.sink212.i = phi ptr [ %354, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.27.1184.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %182, %173 ], [ %.sroa.27.1184.i, %197 ], [ %208, %199 ], [ %.sroa.27.1184.i, %296 ], [ %307, %298 ]
+  %.sroa.27.2.ph.i = phi ptr [ %.sroa.27.1184.i, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.27.1184.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %182, %173 ], [ %.sroa.27.1184.i, %197 ], [ %208, %199 ], [ %.sroa.27.1184.i, %296 ], [ %307, %298 ]
+  %.sroa.7.2.ph.i = phi i32 [ %.sroa.7.1185.i, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %.sroa.7.1185.i, %_ZN4Node7set_reqEjPS_.exit.i ], [ %.0.i.i.i.i.i104.i, %173 ], [ %.sroa.7.1185.i, %197 ], [ %.0.i.i.i.i.i108.i, %199 ], [ %.sroa.7.1185.i, %296 ], [ %.0.i.i.i.i.i124.i, %298 ]
   %.sroa.47.2.ph.i = phi i32 [ %.sroa.47.1186.i, %_ZN9Node_List4pushEP4Node.exit.i.i ], [ %172, %_ZN4Node7set_reqEjPS_.exit.i ], [ %172, %173 ], [ %198, %197 ], [ %198, %199 ], [ %297, %296 ], [ %297, %298 ]
   %355 = zext i32 %.sink.i to i64
   %356 = getelementptr inbounds ptr, ptr %.sink212.i, i64 %355
@@ -7389,8 +7389,8 @@ _ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i: ; preds = %_ZN9Node_List4pu
   br label %_ZN16Unique_Node_List4pushEP4Node.exit.i
 
 _ZN16Unique_Node_List4pushEP4Node.exit.i:         ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i, %_ZN9VectorSet8test_setEj.exit.i.i
-  %.sroa.27.7.i = phi ptr [ %.sroa.27.3184.i, %_ZN9VectorSet8test_setEj.exit.i.i ], [ %.sroa.27.7.ph.i, %_ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i ]
-  %.sroa.7.7.i = phi i32 [ %.sroa.7.3185.i, %_ZN9VectorSet8test_setEj.exit.i.i ], [ %.sroa.7.7.ph.i, %_ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i ]
+  %.sroa.27.2.i = phi ptr [ %.sroa.27.1184.i, %_ZN9VectorSet8test_setEj.exit.i.i ], [ %.sroa.27.2.ph.i, %_ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i ]
+  %.sroa.7.2.i = phi i32 [ %.sroa.7.1185.i, %_ZN9VectorSet8test_setEj.exit.i.i ], [ %.sroa.7.2.ph.i, %_ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i ]
   %.sroa.47.2.i = phi i32 [ %.sroa.47.1186.i, %_ZN9VectorSet8test_setEj.exit.i.i ], [ %.sroa.47.2.ph.i, %_ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i ]
   %357 = load ptr, ptr %99, align 8
   %358 = load i32, ptr %81, align 8
@@ -7434,9 +7434,9 @@ _ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i:  ; preds = %370, %361
 
 378:                                              ; preds = %431, %.lr.ph196.i
   %indvars.iv206.i = phi i64 [ 0, %.lr.ph196.i ], [ %indvars.iv.next207.i, %431 ]
-  %.sroa.47.3194.i = phi i32 [ %56, %.lr.ph196.i ], [ %.sroa.47.4.i, %431 ]
-  %.sroa.7.8193.i = phi i32 [ %.sroa.7.1202.i, %.lr.ph196.i ], [ %.sroa.7.10.i, %431 ]
-  %.sroa.27.8192.i = phi ptr [ %.sroa.27.1201.i, %.lr.ph196.i ], [ %.sroa.27.10.i, %431 ]
+  %.sroa.47.4194.i = phi i32 [ %56, %.lr.ph196.i ], [ %.sroa.47.5.i, %431 ]
+  %.sroa.7.4193.i = phi i32 [ %.sroa.7.0202.i, %.lr.ph196.i ], [ %.sroa.7.5.i, %431 ]
+  %.sroa.27.4192.i = phi ptr [ %.sroa.27.0201.i, %.lr.ph196.i ], [ %.sroa.27.5.i, %431 ]
   %379 = load ptr, ptr %377, align 8
   %380 = getelementptr inbounds ptr, ptr %379, i64 %indvars.iv206.i
   %381 = load ptr, ptr %380, align 8
@@ -7467,8 +7467,8 @@ _ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i:  ; preds = %370, %361
   br i1 %.not178.i, label %394, label %431
 
 394:                                              ; preds = %390
-  %395 = add i32 %.sroa.47.3194.i, 1
-  %.not.i.i129.i = icmp ugt i32 %.sroa.7.8193.i, %.sroa.47.3194.i
+  %395 = add i32 %.sroa.47.4194.i, 1
+  %.not.i.i129.i = icmp ugt i32 %.sroa.7.4193.i, %.sroa.47.4194.i
   br i1 %.not.i.i129.i, label %_ZN9Node_List4pushEP4Node.exit132.i, label %396
 
 396:                                              ; preds = %394
@@ -7478,23 +7478,23 @@ _ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i:  ; preds = %370, %361
   %399 = sub nuw nsw i32 32, %398
   %400 = shl nuw i32 1, %399
   %.0.i.i.i.i.i131.i = select i1 %or.cond.i.i.i.i.i130.i, i32 %395, i32 %400
-  %401 = zext i32 %.sroa.7.8193.i to i64
+  %401 = zext i32 %.sroa.7.4193.i to i64
   %402 = shl nuw nsw i64 %401, 3
   %403 = zext i32 %.0.i.i.i.i.i131.i to i64
   %404 = shl nuw nsw i64 %403, 3
-  %405 = call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %.sroa.27.8192.i, i64 noundef %402, i64 noundef %404, i32 noundef 0) #15
+  %405 = call noundef ptr @_ZN5Arena8AreallocEPvmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %24, ptr noundef %.sroa.27.4192.i, i64 noundef %402, i64 noundef %404, i32 noundef 0) #15
   %406 = getelementptr inbounds ptr, ptr %405, i64 %401
-  %407 = sub i32 %.0.i.i.i.i.i131.i, %.sroa.7.8193.i
+  %407 = sub i32 %.0.i.i.i.i.i131.i, %.sroa.7.4193.i
   %408 = zext i32 %407 to i64
   %409 = shl nuw nsw i64 %408, 3
   call void @llvm.memset.p0.i64(ptr align 1 %406, i8 0, i64 %409, i1 false)
   br label %_ZN9Node_List4pushEP4Node.exit132.i
 
 _ZN9Node_List4pushEP4Node.exit132.i:              ; preds = %396, %394
-  %.sroa.27.9.i = phi ptr [ %.sroa.27.8192.i, %394 ], [ %405, %396 ]
-  %.sroa.7.9.i = phi i32 [ %.sroa.7.8193.i, %394 ], [ %.0.i.i.i.i.i131.i, %396 ]
-  %410 = zext i32 %.sroa.47.3194.i to i64
-  %411 = getelementptr inbounds ptr, ptr %.sroa.27.9.i, i64 %410
+  %.sroa.27.11.i = phi ptr [ %.sroa.27.4192.i, %394 ], [ %405, %396 ]
+  %.sroa.7.11.i = phi i32 [ %.sroa.7.4193.i, %394 ], [ %.0.i.i.i.i.i131.i, %396 ]
+  %410 = zext i32 %.sroa.47.4194.i to i64
+  %411 = getelementptr inbounds ptr, ptr %.sroa.27.11.i, i64 %410
   store ptr %381, ptr %411, align 8
   br label %431
 
@@ -7537,9 +7537,9 @@ thread-pre-split.i:                               ; preds = %412
   br label %431
 
 431:                                              ; preds = %424, %423, %414, %_ZN9Node_List4pushEP4Node.exit132.i, %390, %382, %378
-  %.sroa.27.10.i = phi ptr [ %.sroa.27.8192.i, %378 ], [ %.sroa.27.8192.i, %382 ], [ %.sroa.27.8192.i, %390 ], [ %.sroa.27.9.i, %_ZN9Node_List4pushEP4Node.exit132.i ], [ %.sroa.27.8192.i, %414 ], [ %.sroa.27.8192.i, %423 ], [ %.sroa.27.8192.i, %424 ]
-  %.sroa.7.10.i = phi i32 [ %.sroa.7.8193.i, %378 ], [ %.sroa.7.8193.i, %382 ], [ %.sroa.7.8193.i, %390 ], [ %.sroa.7.9.i, %_ZN9Node_List4pushEP4Node.exit132.i ], [ %.sroa.7.8193.i, %414 ], [ %.sroa.7.8193.i, %423 ], [ %.sroa.7.8193.i, %424 ]
-  %.sroa.47.4.i = phi i32 [ %.sroa.47.3194.i, %378 ], [ %.sroa.47.3194.i, %382 ], [ %.sroa.47.3194.i, %390 ], [ %395, %_ZN9Node_List4pushEP4Node.exit132.i ], [ %.sroa.47.3194.i, %414 ], [ %.sroa.47.3194.i, %423 ], [ %.sroa.47.3194.i, %424 ]
+  %.sroa.27.5.i = phi ptr [ %.sroa.27.4192.i, %378 ], [ %.sroa.27.4192.i, %382 ], [ %.sroa.27.4192.i, %390 ], [ %.sroa.27.11.i, %_ZN9Node_List4pushEP4Node.exit132.i ], [ %.sroa.27.4192.i, %414 ], [ %.sroa.27.4192.i, %423 ], [ %.sroa.27.4192.i, %424 ]
+  %.sroa.7.5.i = phi i32 [ %.sroa.7.4193.i, %378 ], [ %.sroa.7.4193.i, %382 ], [ %.sroa.7.4193.i, %390 ], [ %.sroa.7.11.i, %_ZN9Node_List4pushEP4Node.exit132.i ], [ %.sroa.7.4193.i, %414 ], [ %.sroa.7.4193.i, %423 ], [ %.sroa.7.4193.i, %424 ]
+  %.sroa.47.5.i = phi i32 [ %.sroa.47.4194.i, %378 ], [ %.sroa.47.4194.i, %382 ], [ %.sroa.47.4194.i, %390 ], [ %395, %_ZN9Node_List4pushEP4Node.exit132.i ], [ %.sroa.47.4194.i, %414 ], [ %.sroa.47.4194.i, %423 ], [ %.sroa.47.4194.i, %424 ]
   %indvars.iv.next207.i = add nuw nsw i64 %indvars.iv206.i, 1
   %432 = load i32, ptr %375, align 8
   %433 = zext i32 %432 to i64
@@ -7547,18 +7547,18 @@ thread-pre-split.i:                               ; preds = %412
   br i1 %434, label %378, label %._crit_edge197.i, !llvm.loop !39
 
 ._crit_edge197.i:                                 ; preds = %431, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i
-  %.sroa.27.8.lcssa.i = phi ptr [ %.sroa.27.1201.i, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i ], [ %.sroa.27.10.i, %431 ]
-  %.sroa.7.8.lcssa.i = phi i32 [ %.sroa.7.1202.i, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i ], [ %.sroa.7.10.i, %431 ]
-  %.sroa.47.3.lcssa.i = phi i32 [ %56, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i ], [ %.sroa.47.4.i, %431 ]
+  %.sroa.27.4.lcssa.i = phi ptr [ %.sroa.27.0201.i, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i ], [ %.sroa.27.5.i, %431 ]
+  %.sroa.7.4.lcssa.i = phi i32 [ %.sroa.7.0202.i, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i ], [ %.sroa.7.5.i, %431 ]
+  %.sroa.47.4.lcssa.i = phi i32 [ %56, %_ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i ], [ %.sroa.47.5.i, %431 ]
   %435 = load ptr, ptr %40, align 8
   call void @_ZN7Compile19remove_useless_nodeEP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %435, ptr noundef nonnull %59) #15
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit.i, %._crit_edge197.i, %_ZN9Node_List4pushEP4Node.exit97.i
-  %.sroa.27.11.i = phi ptr [ %.sroa.27.8.lcssa.i, %._crit_edge197.i ], [ %.sroa.27.2.i, %_ZN9Node_List4pushEP4Node.exit97.i ], [ %.sroa.27.7.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ]
-  %.sroa.7.11.i = phi i32 [ %.sroa.7.8.lcssa.i, %._crit_edge197.i ], [ %.sroa.7.2.i, %_ZN9Node_List4pushEP4Node.exit97.i ], [ %.sroa.7.7.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ]
-  %.sroa.47.5.i = phi i32 [ %.sroa.47.3.lcssa.i, %._crit_edge197.i ], [ %.sroa.47.0203.i, %_ZN9Node_List4pushEP4Node.exit97.i ], [ %.sroa.47.2.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ]
-  %.not.i = icmp eq i32 %.sroa.47.5.i, 0
+  %.sroa.27.3.i = phi ptr [ %.sroa.27.4.lcssa.i, %._crit_edge197.i ], [ %.sroa.27.7.i, %_ZN9Node_List4pushEP4Node.exit97.i ], [ %.sroa.27.2.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ]
+  %.sroa.7.3.i = phi i32 [ %.sroa.7.4.lcssa.i, %._crit_edge197.i ], [ %.sroa.7.7.i, %_ZN9Node_List4pushEP4Node.exit97.i ], [ %.sroa.7.2.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ]
+  %.sroa.47.3.i = phi i32 [ %.sroa.47.4.lcssa.i, %._crit_edge197.i ], [ %.sroa.47.0203.i, %_ZN9Node_List4pushEP4Node.exit97.i ], [ %.sroa.47.2.i, %_ZN16Unique_Node_List4pushEP4Node.exit.i ]
+  %.not.i = icmp eq i32 %.sroa.47.3.i, 0
   br i1 %.not.i, label %436, label %55, !llvm.loop !40
 
 436:                                              ; preds = %.loopexit.i

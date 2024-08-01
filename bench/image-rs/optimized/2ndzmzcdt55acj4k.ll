@@ -2197,17 +2197,17 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   %.pre.i.i.i23 = phi i64 [ %58, %85 ], [ %.pre.i.i.i24, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hf75163567e8feabbE.exit.i.i" ]
   %87 = phi i8 [ %13, %85 ], [ 1, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hf75163567e8feabbE.exit.i.i" ]
   %.pn31 = phi i64 [ %17, %85 ], [ %.pre5.i.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hf75163567e8feabbE.exit.i.i" ]
-  %.sroa.4.1.i.i = sub i64 %.pn31, %.pre.i.i.i24
-  %.not.i = icmp eq i64 %.sroa.4.1.i.i, 0
+  %.sroa.4.0.i.i = sub i64 %.pn31, %.pre.i.i.i24
+  %.not.i = icmp eq i64 %.sroa.4.0.i.i, 0
   br i1 %.not.i, label %11, label %88
 
 88:                                               ; preds = %select.unfold
-  %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.val.i.i, i64 %.pre.i.i.i24
+  %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.val.i.i, i64 %.pre.i.i.i24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hf75163567e8feabbE.exit.i.i", %11, %88
-  %.sroa.3.0 = phi i64 [ %.sroa.4.1.i.i, %88 ], [ undef, %11 ], [ undef, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hf75163567e8feabbE.exit.i.i" ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1.i.i, %88 ], [ null, %11 ], [ null, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hf75163567e8feabbE.exit.i.i" ]
+  %.sroa.3.0 = phi i64 [ %.sroa.4.0.i.i, %88 ], [ undef, %11 ], [ undef, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hf75163567e8feabbE.exit.i.i" ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i.i, %88 ], [ null, %11 ], [ null, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hf75163567e8feabbE.exit.i.i" ]
   %89 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %90 = insertvalue { ptr, i64 } %89, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %90
@@ -28478,10 +28478,10 @@ define hidden { i64, i64 } @_ZN5image6codecs3bmp7decoder9num_bytes17h6706b8407e8
   br label %16
 
 16:                                               ; preds = %10, %6, %3
-  %.sroa.5.1 = phi i64 [ undef, %3 ], [ undef, %6 ], [ %15, %10 ]
-  %.sroa.0.1 = phi i64 [ 0, %3 ], [ 0, %6 ], [ %spec.select5, %10 ]
-  %17 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %18 = insertvalue { i64, i64 } %17, i64 %.sroa.5.1, 1
+  %.sroa.5.0 = phi i64 [ undef, %3 ], [ undef, %6 ], [ %15, %10 ]
+  %.sroa.0.0 = phi i64 [ 0, %3 ], [ 0, %6 ], [ %spec.select5, %10 ]
+  %17 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %18 = insertvalue { i64, i64 } %17, i64 %.sroa.5.0, 1
   ret { i64, i64 } %18
 }
 
@@ -28975,9 +28975,9 @@ default.unreachable50:                            ; preds = %3
 
 19:                                               ; preds = %22, %7, %12, %9, %15
   %.sroa.11.1 = phi i64 [ %17, %15 ], [ undef, %7 ], [ undef, %9 ], [ %6, %12 ], [ %26, %22 ]
-  %.sroa.0.1.shrunk = phi i1 [ %not., %15 ], [ false, %7 ], [ false, %9 ], [ %14, %12 ], [ %or.cond47, %22 ]
-  %.sroa.0.1 = zext i1 %.sroa.0.1.shrunk to i64
-  %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %.sroa.0.2.shrunk = phi i1 [ %not., %15 ], [ false, %7 ], [ false, %9 ], [ %14, %12 ], [ %or.cond47, %22 ]
+  %.sroa.0.2 = zext i1 %.sroa.0.2.shrunk to i64
+  %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.2, 0
   %21 = insertvalue { i64, i64 } %20, i64 %.sroa.11.1, 1
   ret { i64, i64 } %21
 

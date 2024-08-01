@@ -520,9 +520,9 @@ _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_to
 
 while.body:                                       ; preds = %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertERKS3_.exit, %while.cond.backedge
   %workList.sroa.0.1238 = phi ptr [ %call5.i.i.i.i.i3, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertERKS3_.exit ], [ %workList.sroa.0.2.lcssa, %while.cond.backedge ]
-  %workList.sroa.8.1237 = phi ptr [ %add.ptr29.i.i, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertERKS3_.exit ], [ %workList.sroa.8.1.be, %while.cond.backedge ]
-  %workList.sroa.20.1236 = phi ptr [ %add.ptr29.i.i, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertERKS3_.exit ], [ %workList.sroa.20.2.lcssa, %while.cond.backedge ]
-  %add.ptr.i.i11 = getelementptr inbounds i8, ptr %workList.sroa.8.1237, i64 -8
+  %workList.sroa.8.0237 = phi ptr [ %add.ptr29.i.i, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertERKS3_.exit ], [ %workList.sroa.8.0.be, %while.cond.backedge ]
+  %workList.sroa.20.0236 = phi ptr [ %add.ptr29.i.i, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE6insertERKS3_.exit ], [ %workList.sroa.20.1.lcssa, %while.cond.backedge ]
+  %add.ptr.i.i11 = getelementptr inbounds i8, ptr %workList.sroa.8.0237, i64 -8
   %1 = load ptr, ptr %n, align 8
   %2 = load ptr, ptr %add.ptr.i.i11, align 8
   %cmp.not.i12 = icmp eq ptr %1, %2
@@ -560,8 +560,8 @@ invoke.cont10:                                    ; preds = %_ZN4cvc58internal12
 invoke.cont16:                                    ; preds = %invoke.cont10, %for.inc
   %unprocessedChildren.0230 = phi i1 [ %unprocessedChildren.1, %for.inc ], [ false, %invoke.cont10 ]
   %workList.sroa.0.2229 = phi ptr [ %workList.sroa.0.5, %for.inc ], [ %workList.sroa.0.1238, %invoke.cont10 ]
-  %workList.sroa.8.2227 = phi ptr [ %workList.sroa.8.4, %for.inc ], [ %workList.sroa.8.1237, %invoke.cont10 ]
-  %workList.sroa.20.2225 = phi ptr [ %workList.sroa.20.4, %for.inc ], [ %workList.sroa.20.1236, %invoke.cont10 ]
+  %workList.sroa.8.1227 = phi ptr [ %workList.sroa.8.2, %for.inc ], [ %workList.sroa.8.0237, %invoke.cont10 ]
+  %workList.sroa.20.1225 = phi ptr [ %workList.sroa.20.2, %for.inc ], [ %workList.sroa.20.0236, %invoke.cont10 ]
   %i.sroa.0.0224 = phi ptr [ %incdec.ptr.i28, %for.inc ], [ %spec.select.i.i, %invoke.cont10 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %5 = load ptr, ptr %i.sroa.0.0224, align 8, !noalias !6
@@ -630,16 +630,16 @@ lor.lhs.false.i.i.i.i:                            ; preds = %if.end3.i.i.i.i
 
 invoke.cont28:                                    ; preds = %if.end3.i.i.i.i, %lor.lhs.false.i.i.i.i, %for.cond.i.i, %call2.i.i.i.noexc
   %20 = load ptr, ptr %i.sroa.0.0224, align 8, !noalias !11
-  %cmp.not.i.i = icmp eq ptr %workList.sroa.8.2227, %workList.sroa.20.2225
+  %cmp.not.i.i = icmp eq ptr %workList.sroa.8.1227, %workList.sroa.20.1225
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i22
 
 if.then.i.i22:                                    ; preds = %invoke.cont28
-  store ptr %20, ptr %workList.sroa.8.2227, align 8
-  %incdec.ptr.i.i23 = getelementptr inbounds i8, ptr %workList.sroa.8.2227, i64 8
+  store ptr %20, ptr %workList.sroa.8.1227, align 8
+  %incdec.ptr.i.i23 = getelementptr inbounds i8, ptr %workList.sroa.8.1227, i64 8
   br label %for.inc
 
 if.else.i.i:                                      ; preds = %invoke.cont28
-  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %workList.sroa.8.2227 to i64
+  %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %workList.sroa.8.1227 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %workList.sroa.0.2229 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
@@ -671,7 +671,7 @@ invoke.cont.i.i.i:                                ; preds = %cond.true.i.i.i.i, 
   %cond.i19.i.i.i = phi ptr [ null, %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %call5.i.i.i.i.i.i27, %cond.true.i.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %cond.i19.i.i.i, i64 %sub.ptr.div.i.i.i.i.i
   store ptr %20, ptr %add.ptr.i.i.i, align 8
-  %cmp.not7.i.i.i.i.i.i.i.i = icmp eq ptr %workList.sroa.0.2229, %workList.sroa.8.2227
+  %cmp.not7.i.i.i.i.i.i.i.i = icmp eq ptr %workList.sroa.0.2229, %workList.sroa.8.1227
   br i1 %cmp.not7.i.i.i.i.i.i.i.i, label %invoke.cont14.i.i.i, label %for.inc.i.i.i.i.i.i.i.i
 
 for.inc.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i, %for.inc.i.i.i.i.i.i.i.i
@@ -681,7 +681,7 @@ for.inc.i.i.i.i.i.i.i.i:                          ; preds = %invoke.cont.i.i.i, 
   store ptr %22, ptr %__cur.09.i.i.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.08.i.i.i.i.i.i.i.i, i64 8
   %incdec.ptr1.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.09.i.i.i.i.i.i.i.i, i64 8
-  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %workList.sroa.8.2227
+  %cmp.not.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i, %workList.sroa.8.1227
   br i1 %cmp.not.i.i.i.i.i.i.i.i, label %invoke.cont14.i.i.i, label %for.inc.i.i.i.i.i.i.i.i, !llvm.loop !14
 
 invoke.cont14.i.i.i:                              ; preds = %for.inc.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i
@@ -699,7 +699,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3
   br label %for.inc
 
 lpad2.loopexit:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit, %if.end15.i.i31, %if.then45, %if.end15.i.i92, %if.end82
-  %workList.sroa.0.4.ph = phi ptr [ %workList.sroa.0.1238, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ], [ %workList.sroa.0.2.lcssa, %if.end15.i.i31 ], [ %workList.sroa.0.2.lcssa, %if.then45 ], [ %workList.sroa.0.2.lcssa, %if.end15.i.i92 ], [ %workList.sroa.0.2.lcssa, %if.end82 ]
+  %workList.sroa.0.0.ph = phi ptr [ %workList.sroa.0.1238, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ], [ %workList.sroa.0.2.lcssa, %if.end15.i.i31 ], [ %workList.sroa.0.2.lcssa, %if.then45 ], [ %workList.sroa.0.2.lcssa, %if.end15.i.i92 ], [ %workList.sroa.0.2.lcssa, %if.end82 ]
   %lpad.loopexit198 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup90
@@ -725,8 +725,8 @@ lpad29.loopexit.split-lp:                         ; preds = %if.then.i.i.i.i
   br label %ehcleanup90
 
 for.inc:                                          ; preds = %for.cond.i.i.i.i, %for.body.i.i, %if.then.i.i22, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %if.end.i.i.i.i
-  %workList.sroa.20.4 = phi ptr [ %workList.sroa.20.2225, %if.end.i.i.i.i ], [ %add.ptr29.i.i.i, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %workList.sroa.20.2225, %if.then.i.i22 ], [ %workList.sroa.20.2225, %for.body.i.i ], [ %workList.sroa.20.2225, %for.cond.i.i.i.i ]
-  %workList.sroa.8.4 = phi ptr [ %workList.sroa.8.2227, %if.end.i.i.i.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i23, %if.then.i.i22 ], [ %workList.sroa.8.2227, %for.body.i.i ], [ %workList.sroa.8.2227, %for.cond.i.i.i.i ]
+  %workList.sroa.20.2 = phi ptr [ %workList.sroa.20.1225, %if.end.i.i.i.i ], [ %add.ptr29.i.i.i, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %workList.sroa.20.1225, %if.then.i.i22 ], [ %workList.sroa.20.1225, %for.body.i.i ], [ %workList.sroa.20.1225, %for.cond.i.i.i.i ]
+  %workList.sroa.8.2 = phi ptr [ %workList.sroa.8.1227, %if.end.i.i.i.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i23, %if.then.i.i22 ], [ %workList.sroa.8.1227, %for.body.i.i ], [ %workList.sroa.8.1227, %for.cond.i.i.i.i ]
   %workList.sroa.0.5 = phi ptr [ %workList.sroa.0.2229, %if.end.i.i.i.i ], [ %cond.i19.i.i.i, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %workList.sroa.0.2229, %if.then.i.i22 ], [ %workList.sroa.0.2229, %for.body.i.i ], [ %workList.sroa.0.2229, %for.cond.i.i.i.i ]
   %unprocessedChildren.1 = phi i1 [ %unprocessedChildren.0230, %if.end.i.i.i.i ], [ true, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ true, %if.then.i.i22 ], [ %unprocessedChildren.0230, %for.body.i.i ], [ %unprocessedChildren.0230, %for.cond.i.i.i.i ]
   %incdec.ptr.i28 = getelementptr inbounds i8, ptr %i.sroa.0.0224, i64 8
@@ -739,8 +739,8 @@ invoke.cont33.loopexit:                           ; preds = %for.inc
 
 invoke.cont33:                                    ; preds = %invoke.cont33.loopexit, %invoke.cont10
   %24 = phi ptr [ %4, %invoke.cont10 ], [ %.pre, %invoke.cont33.loopexit ]
-  %workList.sroa.20.2.lcssa = phi ptr [ %workList.sroa.20.1236, %invoke.cont10 ], [ %workList.sroa.20.4, %invoke.cont33.loopexit ]
-  %workList.sroa.8.2.lcssa = phi ptr [ %workList.sroa.8.1237, %invoke.cont10 ], [ %workList.sroa.8.4, %invoke.cont33.loopexit ]
+  %workList.sroa.20.1.lcssa = phi ptr [ %workList.sroa.20.0236, %invoke.cont10 ], [ %workList.sroa.20.2, %invoke.cont33.loopexit ]
+  %workList.sroa.8.1.lcssa = phi ptr [ %workList.sroa.8.0237, %invoke.cont10 ], [ %workList.sroa.8.2, %invoke.cont33.loopexit ]
   %workList.sroa.0.2.lcssa = phi ptr [ %workList.sroa.0.1238, %invoke.cont10 ], [ %workList.sroa.0.5, %invoke.cont33.loopexit ]
   %unprocessedChildren.0.lcssa = phi i1 [ false, %invoke.cont10 ], [ %unprocessedChildren.1, %invoke.cont33.loopexit ]
   %d_kind.i = getelementptr inbounds i8, ptr %24, i64 8
@@ -945,12 +945,12 @@ if.end68:                                         ; preds = %if.end3.i.i.i.i41, 
   br i1 %unprocessedChildren.0.lcssa, label %while.cond.backedge, label %if.end70
 
 while.cond.backedge:                              ; preds = %for.cond.i.i.i.i110, %for.body.i.i120, %if.end.i.i.i.i97, %if.end68, %invoke.cont83
-  %workList.sroa.8.1.be = phi ptr [ %workList.sroa.8.2.lcssa, %if.end68 ], [ %incdec.ptr.i89, %invoke.cont83 ], [ %incdec.ptr.i89, %if.end.i.i.i.i97 ], [ %incdec.ptr.i89, %for.body.i.i120 ], [ %incdec.ptr.i89, %for.cond.i.i.i.i110 ]
-  %cmp.i.i = icmp eq ptr %workList.sroa.0.2.lcssa, %workList.sroa.8.1.be
+  %workList.sroa.8.0.be = phi ptr [ %workList.sroa.8.1.lcssa, %if.end68 ], [ %incdec.ptr.i89, %invoke.cont83 ], [ %incdec.ptr.i89, %if.end.i.i.i.i97 ], [ %incdec.ptr.i89, %for.body.i.i120 ], [ %incdec.ptr.i89, %for.cond.i.i.i.i110 ]
+  %cmp.i.i = icmp eq ptr %workList.sroa.0.2.lcssa, %workList.sroa.8.0.be
   br i1 %cmp.i.i, label %while.end, label %while.body, !llvm.loop !22
 
 if.end70:                                         ; preds = %if.end68
-  %incdec.ptr.i89 = getelementptr inbounds i8, ptr %workList.sroa.8.2.lcssa, i64 -8
+  %incdec.ptr.i89 = getelementptr inbounds i8, ptr %workList.sroa.8.1.lcssa, i64 -8
   %59 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.not.not.i.i91 = icmp eq i64 %59, 0
   br i1 %cmp.not.not.i.i91, label %if.then.i.i114, label %if.end15.i.i92
@@ -1099,15 +1099,15 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit: ; preds = %_
   ret void
 
 ehcleanup90:                                      ; preds = %lpad29.loopexit, %lpad29.loopexit.split-lp, %lpad2.loopexit, %lpad2.loopexit.split-lp, %lpad17, %lpad87, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit17.i, %lpad60
-  %workList.sroa.0.6 = phi ptr [ %workList.sroa.0.2229, %lpad17 ], [ %workList.sroa.0.2.lcssa, %lpad87 ], [ %workList.sroa.0.2.lcssa, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit17.i ], [ %workList.sroa.0.2.lcssa, %lpad60 ], [ %workList.sroa.0.4.ph, %lpad2.loopexit ], [ %call5.i.i.i.i.i3, %lpad2.loopexit.split-lp ], [ %workList.sroa.0.2229, %lpad29.loopexit ], [ %workList.sroa.0.2229, %lpad29.loopexit.split-lp ]
+  %workList.sroa.0.4 = phi ptr [ %workList.sroa.0.2229, %lpad17 ], [ %workList.sroa.0.2.lcssa, %lpad87 ], [ %workList.sroa.0.2.lcssa, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit17.i ], [ %workList.sroa.0.2.lcssa, %lpad60 ], [ %workList.sroa.0.0.ph, %lpad2.loopexit ], [ %call5.i.i.i.i.i3, %lpad2.loopexit.split-lp ], [ %workList.sroa.0.2229, %lpad29.loopexit ], [ %workList.sroa.0.2229, %lpad29.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %23, %lpad17 ], [ %75, %lpad87 ], [ %57, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit17.i ], [ %58, %lpad60 ], [ %lpad.loopexit198, %lpad2.loopexit ], [ %lpad.loopexit.split-lp199, %lpad2.loopexit.split-lp ], [ %lpad.loopexit, %lpad29.loopexit ], [ %lpad.loopexit.split-lp, %lpad29.loopexit.split-lp ]
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %defTrue) #18
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %processed) #18
-  %tobool.not.i.i.i149 = icmp eq ptr %workList.sroa.0.6, null
+  %tobool.not.i.i.i149 = icmp eq ptr %workList.sroa.0.4, null
   br i1 %tobool.not.i.i.i149, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit151, label %if.then.i.i.i150
 
 if.then.i.i.i150:                                 ; preds = %ehcleanup90
-  call void @_ZdlPv(ptr noundef nonnull %workList.sroa.0.6) #20
+  call void @_ZdlPv(ptr noundef nonnull %workList.sroa.0.4) #20
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit151
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit151: ; preds = %ehcleanup90, %if.then.i.i.i150
@@ -2289,11 +2289,11 @@ invoke.cont47:                                    ; preds = %sw.bb4.i, %sw.bb3.i
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont47, %cleanup.done32
-  %e.sroa.0.1 = phi ptr [ %3, %invoke.cont47 ], [ %5, %cleanup.done32 ]
-  %t.sroa.0.1 = phi ptr [ %5, %invoke.cont47 ], [ %3, %cleanup.done32 ]
+  %e.sroa.0.0 = phi ptr [ %3, %invoke.cont47 ], [ %5, %cleanup.done32 ]
+  %t.sroa.0.0 = phi ptr [ %5, %invoke.cont47 ], [ %3, %cleanup.done32 ]
   %k.0 = phi i32 [ %retval.0.i, %invoke.cont47 ], [ %call, %cleanup.done32 ]
-  %cmp.i152 = icmp eq ptr %t.sroa.0.1, %cleft.sroa.0.0482
-  %cmp.i153 = icmp eq ptr %e.sroa.0.1, %cright.sroa.0.0485
+  %cmp.i152 = icmp eq ptr %t.sroa.0.0, %cleft.sroa.0.0482
+  %cmp.i153 = icmp eq ptr %e.sroa.0.0, %cright.sroa.0.0485
   %or.cond490 = select i1 %cmp.i152, i1 %cmp.i153, i1 false
   br i1 %or.cond490, label %if.then54, label %if.end209
 
@@ -2313,7 +2313,7 @@ sw.bb:                                            ; preds = %if.then54, %if.then
           to label %invoke.cont61 unwind label %lpad60
 
 invoke.cont61:                                    ; preds = %sw.bb
-  store ptr %t.sroa.0.1, ptr %agg.tmp63, align 8
+  store ptr %t.sroa.0.0, ptr %agg.tmp63, align 8
   %call67 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %call62, ptr noundef nonnull %agg.tmp63)
           to label %invoke.cont66 unwind label %lpad65
 
@@ -2333,7 +2333,7 @@ invoke.cont72:                                    ; preds = %invoke.cont68
           to label %invoke.cont77 unwind label %lpad76
 
 invoke.cont77:                                    ; preds = %invoke.cont72
-  store ptr %e.sroa.0.1, ptr %agg.tmp79, align 8
+  store ptr %e.sroa.0.0, ptr %agg.tmp79, align 8
   %call83 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %call78, ptr noundef nonnull %agg.tmp79)
           to label %invoke.cont82 unwind label %lpad81
 
@@ -2481,7 +2481,7 @@ sw.bb125:                                         ; preds = %if.then54, %if.then
           to label %invoke.cont132 unwind label %lpad131
 
 invoke.cont132:                                   ; preds = %sw.bb125
-  store ptr %t.sroa.0.1, ptr %agg.tmp134, align 8
+  store ptr %t.sroa.0.0, ptr %agg.tmp134, align 8
   %call138 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %call133, ptr noundef nonnull %agg.tmp134)
           to label %invoke.cont137 unwind label %lpad136
 
@@ -2501,7 +2501,7 @@ invoke.cont145:                                   ; preds = %invoke.cont139
           to label %invoke.cont150 unwind label %lpad149
 
 invoke.cont150:                                   ; preds = %invoke.cont145
-  store ptr %e.sroa.0.1, ptr %agg.tmp152, align 8
+  store ptr %e.sroa.0.0, ptr %agg.tmp152, align 8
   %call156 = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %call151, ptr noundef nonnull %agg.tmp152)
           to label %invoke.cont155 unwind label %lpad154
 
@@ -5177,8 +5177,8 @@ lpad17:                                           ; preds = %invoke.cont18, %sw.
   unreachable
 
 return:                                           ; preds = %sw.bb5, %sw.bb6, %sw.bb7, %sw.bb8, %invoke.cont, %entry, %entry, %entry, %entry, %entry
-  %retval.1 = phi i32 [ %bf.cast.i, %entry ], [ %bf.cast.i, %entry ], [ %bf.cast.i, %entry ], [ %bf.cast.i, %entry ], [ %bf.cast.i, %entry ], [ 6, %sw.bb8 ], [ 71, %sw.bb7 ], [ 73, %sw.bb6 ], [ 70, %sw.bb5 ], [ 72, %invoke.cont ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %bf.cast.i, %entry ], [ %bf.cast.i, %entry ], [ %bf.cast.i, %entry ], [ %bf.cast.i, %entry ], [ %bf.cast.i, %entry ], [ 6, %sw.bb8 ], [ 71, %sw.bb7 ], [ 73, %sw.bb6 ], [ 70, %sw.bb5 ], [ 72, %invoke.cont ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN4cvc58internal11NodeBuilderC1ENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(116), i32 noundef) unnamed_addr #0

@@ -1288,7 +1288,7 @@ for.cond:                                         ; preds = %if.end53, %if.end
   %bf.load59 = phi i8 [ %bf.set64, %if.end53 ], [ %bf.clear, %if.end ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end53 ], [ 0, %if.end ]
   %i.0 = phi i32 [ %i.1, %if.end53 ], [ 0, %if.end ]
-  %j.0 = phi i32 [ %j.2, %if.end53 ], [ 0, %if.end ]
+  %j.0 = phi i32 [ %j.1, %if.end53 ], [ 0, %if.end ]
   %cmp8 = icmp slt i32 %i.0, %2
   %cmp18.not = icmp slt i32 %j.0, %3
   br i1 %cmp8, label %if.else, label %lor.rhs
@@ -1335,7 +1335,7 @@ if.else47:                                        ; preds = %if.else24
 if.end53:                                         ; preds = %if.then20, %if.else47, %if.then32, %if.then16
   %copy.0 = phi ptr [ %arrayidx, %if.then16 ], [ %arrayidx23, %if.then20 ], [ %arrayidx26, %if.then32 ], [ %arrayidx28, %if.else47 ]
   %i.1 = phi i32 [ %i.0, %if.then16 ], [ %inc21, %if.then20 ], [ %inc44, %if.then32 ], [ %i.0, %if.else47 ]
-  %j.2 = phi i32 [ %inc, %if.then16 ], [ %j.0, %if.then20 ], [ %spec.select, %if.then32 ], [ %inc48, %if.else47 ]
+  %j.1 = phi i32 [ %inc, %if.then16 ], [ %j.0, %if.then20 ], [ %spec.select, %if.then32 ], [ %inc48, %if.else47 ]
   %add.ptr = getelementptr inbounds %struct.ossl_property_definition_st, ptr %properties54, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %copy.0, i64 24, i1 false)
   %optional = getelementptr inbounds i8, ptr %copy.0, i64 12

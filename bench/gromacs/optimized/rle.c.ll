@@ -16,7 +16,7 @@ define void @Ptngc_comp_conv_to_rle(ptr nocapture noundef readonly %0, i32 nound
   %indvars.iv59 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next60, %28 ]
   %.049 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1, %28 ]
   %.02148 = phi i32 [ 0, %.lr.ph.preheader ], [ %.122, %28 ]
-  %.03946 = phi i32 [ 0, %.lr.ph.preheader ], [ %.5, %28 ]
+  %.03946 = phi i32 [ 0, %.lr.ph.preheader ], [ %.140, %28 ]
   %.not24 = icmp eq i32 %.02148, 0
   %7 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv59
   %8 = load i32, ptr %7, align 4
@@ -58,10 +58,10 @@ define void @Ptngc_comp_conv_to_rle(ptr nocapture noundef readonly %0, i32 nound
   br label %.lr.ph20.i
 
 .lr.ph20.i:                                       ; preds = %.lr.ph20.i.loopexit, %13, %.preheader.i
-  %.2 = phi i32 [ %.03946, %.preheader.i ], [ %.03946, %13 ], [ %20, %.lr.ph20.i.loopexit ]
+  %.3 = phi i32 [ %.03946, %.preheader.i ], [ %.03946, %13 ], [ %20, %.lr.ph20.i.loopexit ]
   %.01323.i = phi i32 [ 1, %.preheader.i ], [ %.02148, %13 ], [ 1, %.lr.ph20.i.loopexit ]
   %21 = add nsw i32 %.049, 2
-  %22 = sext i32 %.2 to i64
+  %22 = sext i32 %.3 to i64
   br label %23
 
 23:                                               ; preds = %23, %.lr.ph20.i
@@ -80,7 +80,7 @@ add_rle.exit:                                     ; preds = %23
   br label %28
 
 28:                                               ; preds = %.lr.ph, %add_rle.exit, %11
-  %.5 = phi i32 [ %.03946, %11 ], [ %26, %add_rle.exit ], [ %.03946, %.lr.ph ]
+  %.140 = phi i32 [ %.03946, %11 ], [ %26, %add_rle.exit ], [ %.03946, %.lr.ph ]
   %.122 = phi i32 [ %12, %11 ], [ 1, %add_rle.exit ], [ 1, %.lr.ph ]
   %.1 = phi i32 [ %.049, %11 ], [ %27, %add_rle.exit ], [ %8, %.lr.ph ]
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
@@ -101,7 +101,7 @@ add_rle.exit:                                     ; preds = %23
   br i1 %.not41, label %.lr.ph20.i27, label %.lr.ph.i32.preheader
 
 .lr.ph.i32.preheader:                             ; preds = %.preheader.i31
-  %32 = sext i32 %.5 to i64
+  %32 = sext i32 %.140 to i64
   br label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.lr.ph.i32.preheader, %.lr.ph.i32
@@ -120,7 +120,7 @@ add_rle.exit:                                     ; preds = %23
   br label %.lr.ph20.i27
 
 .lr.ph20.i27:                                     ; preds = %.lr.ph20.i27.loopexit, %30, %.preheader.i31
-  %.7 = phi i32 [ %.5, %.preheader.i31 ], [ %.5, %30 ], [ %37, %.lr.ph20.i27.loopexit ]
+  %.7 = phi i32 [ %.140, %.preheader.i31 ], [ %.140, %30 ], [ %37, %.lr.ph20.i27.loopexit ]
   %.01323.i28 = phi i32 [ 1, %.preheader.i31 ], [ %.122, %30 ], [ 1, %.lr.ph20.i27.loopexit ]
   %38 = sext i32 %.7 to i64
   br label %39
@@ -140,8 +140,8 @@ add_rle.exit34.loopexit:                          ; preds = %39
   br label %add_rle.exit34
 
 add_rle.exit34:                                   ; preds = %5, %add_rle.exit34.loopexit, %._crit_edge
-  %.10 = phi i32 [ %.5, %._crit_edge ], [ %42, %add_rle.exit34.loopexit ], [ 0, %5 ]
-  store i32 %.10, ptr %3, align 4
+  %.2 = phi i32 [ %.140, %._crit_edge ], [ %42, %add_rle.exit34.loopexit ], [ 0, %5 ]
+  store i32 %.2, ptr %3, align 4
   ret void
 }
 

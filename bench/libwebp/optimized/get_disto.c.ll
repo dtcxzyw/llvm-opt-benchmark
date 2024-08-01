@@ -60,7 +60,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef re
   %.075121 = phi i32 [ %.176, %57 ], [ 0, %.preheader ]
   %.077120 = phi i32 [ %58, %57 ], [ 1, %.preheader ]
   %.079119 = phi i32 [ %.180, %57 ], [ 0, %.preheader ]
-  %.081118 = phi i32 [ %.182, %57 ], [ 1, %.preheader ]
+  %.081118 = phi i32 [ %.2, %57 ], [ 1, %.preheader ]
   %14 = sext i32 %.077120 to i64
   %15 = getelementptr inbounds ptr, ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8
@@ -159,7 +159,7 @@ sub_2107:                                         ; preds = %sub_1106
   br label %57
 
 57:                                               ; preds = %55, %.tail, %24, %22, %20, %18, %.lr.ph, %51
-  %.182 = phi i32 [ %.081118, %51 ], [ %.081118, %.lr.ph ], [ %.081118, %18 ], [ %.081118, %20 ], [ %.081118, %22 ], [ %.081118, %24 ], [ 0, %.tail ], [ %.081118, %55 ]
+  %.2 = phi i32 [ %.081118, %51 ], [ %.081118, %.lr.ph ], [ %.081118, %18 ], [ %.081118, %20 ], [ %.081118, %22 ], [ %.081118, %24 ], [ 0, %.tail ], [ %.081118, %55 ]
   %.180 = phi i32 [ %.079119, %51 ], [ 1, %.lr.ph ], [ 0, %18 ], [ %.079119, %20 ], [ %.079119, %22 ], [ %.079119, %24 ], [ %.079119, %.tail ], [ %.079119, %55 ]
   %.178 = phi i32 [ %46, %51 ], [ %.077120, %.lr.ph ], [ %.077120, %18 ], [ %.077120, %20 ], [ %.077120, %22 ], [ %.077120, %24 ], [ %.077120, %.tail ], [ %.077120, %55 ]
   %.176 = phi i32 [ %.075121, %51 ], [ %.075121, %.lr.ph ], [ %.075121, %18 ], [ %.075121, %20 ], [ %.075121, %22 ], [ %.075121, %24 ], [ 1, %.tail ], [ %.075121, %55 ]
@@ -187,13 +187,13 @@ sub_2107:                                         ; preds = %sub_1106
   br i1 %60, label %68, label %.thread165
 
 .thread165:                                       ; preds = %.preheader, %65
-  %.081.lcssa163168 = phi i32 [ %.182, %65 ], [ 1, %.preheader ]
+  %.081.lcssa163168 = phi i32 [ %.2, %65 ], [ 1, %.preheader ]
   %66 = load ptr, ptr @stderr, align 8
   %67 = call i64 @fwrite(ptr nonnull @.str.9, i64 26, i64 1, ptr %66) #12
   br label %68
 
 68:                                               ; preds = %.thread165, %65
-  %.081.lcssa163169 = phi i32 [ %.081.lcssa163168, %.thread165 ], [ %.182, %65 ]
+  %.081.lcssa163169 = phi i32 [ %.081.lcssa163168, %.thread165 ], [ %.2, %65 ]
   %69 = load ptr, ptr @stderr, align 8
   %70 = call ptr @WebPGetEnabledInputFileFormats() #11
   %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.19, ptr noundef %70) #14
@@ -369,13 +369,13 @@ sub_2107:                                         ; preds = %sub_1106
   br label %178
 
 178:                                              ; preds = %173, %72, %177, %170, %160, %115, %81, %68, %48
-  %.2 = phi i32 [ %.081118, %48 ], [ %.081.lcssa163169, %68 ], [ %.182, %72 ], [ %.182, %115 ], [ %.182, %170 ], [ 1, %173 ], [ 0, %177 ], [ %.182, %160 ], [ %.182, %81 ]
+  %.182 = phi i32 [ %.081118, %48 ], [ %.081.lcssa163169, %68 ], [ %.2, %72 ], [ %.2, %115 ], [ %.2, %170 ], [ 1, %173 ], [ 0, %177 ], [ %.2, %160 ], [ %.2, %81 ]
   call void @WebPPictureFree(ptr noundef nonnull %3) #11
   call void @WebPPictureFree(ptr noundef nonnull %4) #11
   br label %179
 
 179:                                              ; preds = %178, %11
-  %.0 = phi i32 [ %.2, %178 ], [ 1, %11 ]
+  %.0 = phi i32 [ %.182, %178 ], [ 1, %11 ]
   ret i32 %.0
 }
 

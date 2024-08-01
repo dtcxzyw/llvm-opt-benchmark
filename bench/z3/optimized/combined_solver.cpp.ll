@@ -1702,8 +1702,8 @@ if.end102:                                        ; preds = %if.then95, %if.else
   br label %return
 
 return:                                           ; preds = %_ZN15combined_solver14aux_timeout_ehD2Ev.exit, %if.end22, %lor.lhs.false29, %lor.lhs.false31, %if.end102, %if.then
-  %retval.1 = phi i32 [ %call7, %if.then ], [ %call107, %if.end102 ], [ %r53.020, %_ZN15combined_solver14aux_timeout_ehD2Ev.exit ], [ 0, %lor.lhs.false31 ], [ 0, %lor.lhs.false29 ], [ %call27, %if.end22 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %call7, %if.then ], [ %call107, %if.end102 ], [ %r53.020, %_ZN15combined_solver14aux_timeout_ehD2Ev.exit ], [ 0, %lor.lhs.false31 ], [ 0, %lor.lhs.false29 ], [ %call27, %if.end22 ]
+  ret i32 %retval.0
 
 terminate.lpad:                                   ; preds = %lpad64
   %33 = landingpad { ptr, i32 }

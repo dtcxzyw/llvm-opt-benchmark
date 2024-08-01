@@ -147,7 +147,7 @@ opal_convertor_merge_iov.exit:                    ; preds = %65
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %94
-  %.3256.ph = phi i32 [ 0, %94 ], [ %.3256.ph.be, %.outer.backedge ]
+  %.1254.ph = phi i32 [ 0, %94 ], [ %.1254.ph.be, %.outer.backedge ]
   %.0214.ph = phi ptr [ %54, %94 ], [ %.0214.ph.be, %.outer.backedge ]
   %.1207.ph = phi ptr [ %.0206, %94 ], [ %.1207.ph.be, %.outer.backedge ]
   %.1199.ph = phi i64 [ %.0198, %94 ], [ %.1199.ph.be, %.outer.backedge ]
@@ -158,7 +158,7 @@ opal_convertor_merge_iov.exit:                    ; preds = %65
   br label %98
 
 98:                                               ; preds = %.outer, %._crit_edge
-  %.3256 = phi i32 [ %.4257.lcssa, %._crit_edge ], [ %.3256.ph, %.outer ]
+  %.1254 = phi i32 [ %.2255.lcssa, %._crit_edge ], [ %.1254.ph, %.outer ]
   %.0214 = phi ptr [ %.1215.lcssa, %._crit_edge ], [ %.0214.ph, %.outer ]
   %.1207 = phi ptr [ %.2208.lcssa, %._crit_edge ], [ %.1207.ph, %.outer ]
   %.1199 = phi i64 [ %.2200.lcssa, %._crit_edge ], [ %.1199.ph, %.outer ]
@@ -180,7 +180,7 @@ opal_convertor_merge_iov.exit:                    ; preds = %65
   %.2200313 = phi i64 [ %.3201.lcssa, %169 ], [ %.1199, %98 ]
   %.2208312 = phi ptr [ %151, %169 ], [ %.1207, %98 ]
   %.1215311 = phi ptr [ %154, %169 ], [ %.0214, %98 ]
-  %.4257310 = phi i32 [ %.8261, %169 ], [ %.3256, %98 ]
+  %.2255310 = phi i32 [ %.4257, %169 ], [ %.1254, %98 ]
   %101 = getelementptr inbounds i8, ptr %.1215311, i64 24
   %102 = load i64, ptr %101, align 8
   %103 = getelementptr inbounds i8, ptr %.2208312, i64 %102
@@ -219,8 +219,8 @@ opal_convertor_merge_iov.exit:                    ; preds = %65
   %.0196297 = phi i64 [ 0, %.lr.ph ], [ %146, %140 ]
   %.3201295 = phi i64 [ %.2200313, %.lr.ph ], [ %143, %140 ]
   %.3209294 = phi ptr [ %103, %.lr.ph ], [ %142, %140 ]
-  %.5258293 = phi i32 [ %.4257310, %.lr.ph ], [ %.7260.ph, %140 ]
-  %123 = zext i32 %.5258293 to i64
+  %.3256293 = phi i32 [ %.2255310, %.lr.ph ], [ %.12.ph, %140 ]
+  %123 = zext i32 %.3256293 to i64
   %124 = getelementptr inbounds %struct.iovec, ptr %1, i64 %123
   %125 = getelementptr inbounds i8, ptr %124, i64 8
   %126 = load i64, ptr %125, align 8
@@ -239,7 +239,7 @@ opal_convertor_merge_iov.exit:                    ; preds = %65
   br label %140
 
 133:                                              ; preds = %127
-  %134 = add i32 %.5258293, 1
+  %134 = add i32 %.3256293, 1
   %135 = load i32, ptr %2, align 4
   %136 = icmp eq i32 %134, %135
   br i1 %136, label %opal_convertor_merge_iov.exit238, label %._crit_edge.i234
@@ -250,7 +250,7 @@ opal_convertor_merge_iov.exit:                    ; preds = %65
 
 137:                                              ; preds = %._crit_edge.i234, %122
   %.pre-phi361 = phi i64 [ %.pre.i235, %._crit_edge.i234 ], [ %123, %122 ]
-  %.6259 = phi i32 [ %134, %._crit_edge.i234 ], [ %.5258293, %122 ]
+  %.11 = phi i32 [ %134, %._crit_edge.i234 ], [ %.3256293, %122 ]
   %138 = getelementptr inbounds %struct.iovec, ptr %1, i64 %.pre-phi361
   store ptr %.3209294, ptr %138, align 8
   %139 = getelementptr inbounds %struct.iovec, ptr %1, i64 %.pre-phi361, i32 1
@@ -258,7 +258,7 @@ opal_convertor_merge_iov.exit:                    ; preds = %65
   br label %140
 
 140:                                              ; preds = %131, %137
-  %.7260.ph = phi i32 [ %.5258293, %131 ], [ %.6259, %137 ]
+  %.12.ph = phi i32 [ %.3256293, %131 ], [ %.11, %137 ]
   %141 = load i64, ptr %121, align 8
   %142 = getelementptr inbounds i8, ptr %.3209294, i64 %141
   %143 = add i64 %.3201295, %120
@@ -272,7 +272,7 @@ opal_convertor_merge_iov.exit238:                 ; preds = %140, %133, %112
   %.3209.lcssa = phi ptr [ %103, %112 ], [ %.3209294, %133 ], [ %142, %140 ]
   %.3201.lcssa = phi i64 [ %.2200313, %112 ], [ %.3201295, %133 ], [ %143, %140 ]
   %.3192.lcssa = phi i64 [ %.2191314, %112 ], [ %.3192298, %133 ], [ %145, %140 ]
-  %.8261 = phi i32 [ %.4257310, %112 ], [ %134, %133 ], [ %.7260.ph, %140 ]
+  %.4257 = phi i32 [ %.2255310, %112 ], [ %134, %133 ], [ %.12.ph, %140 ]
   %147 = icmp eq i64 %.3192.lcssa, 0
   br i1 %147, label %148, label %172
 
@@ -319,7 +319,7 @@ opal_convertor_merge_iov.exit238:                 ; preds = %140, %133, %112
 
 ._crit_edge:                                      ; preds = %169, %.._crit_edge_crit_edge
   %177 = phi i16 [ %.pre, %.._crit_edge_crit_edge ], [ %156, %169 ]
-  %.4257.lcssa = phi i32 [ %.3256, %.._crit_edge_crit_edge ], [ %.8261, %169 ]
+  %.2255.lcssa = phi i32 [ %.1254, %.._crit_edge_crit_edge ], [ %.4257, %169 ]
   %.1215.lcssa = phi ptr [ %.0214, %.._crit_edge_crit_edge ], [ %154, %169 ]
   %.2208.lcssa = phi ptr [ %.1207, %.._crit_edge_crit_edge ], [ %151, %169 ]
   %.2200.lcssa = phi i64 [ %.1199, %.._crit_edge_crit_edge ], [ %.3201.lcssa, %169 ]
@@ -344,7 +344,7 @@ opal_convertor_merge_iov.exit238:                 ; preds = %140, %133, %112
   br i1 %185, label %186, label %188
 
 186:                                              ; preds = %183
-  %187 = add i32 %.4257.lcssa, 1
+  %187 = add i32 %.2255.lcssa, 1
   br label %295
 
 188:                                              ; preds = %183
@@ -380,12 +380,12 @@ opal_convertor_merge_iov.exit238:                 ; preds = %140, %133, %112
 
 206:                                              ; preds = %196, %201, %188
   %207 = phi i64 [ %.pre358, %188 ], [ %200, %196 ], [ %205, %201 ]
-  %.2185.in = phi i32 [ %.1184.lcssa, %188 ], [ -1, %196 ], [ %192, %201 ]
-  %.1 = phi ptr [ %190, %188 ], [ %.0182.ph, %196 ], [ %.0182.ph, %201 ]
-  %.2185 = add i32 %.2185.in, 1
+  %.4187.in = phi i32 [ %.1184.lcssa, %188 ], [ -1, %196 ], [ %192, %201 ]
+  %.3 = phi ptr [ %190, %188 ], [ %.0182.ph, %196 ], [ %.0182.ph, %201 ]
+  %.4187 = add i32 %.4187.in, 1
   %208 = load ptr, ptr %44, align 8
   %209 = getelementptr inbounds i8, ptr %208, i64 %207
-  %210 = zext i32 %.2185 to i64
+  %210 = zext i32 %.4187 to i64
   %211 = getelementptr inbounds %union.dt_elem_desc, ptr %36, i64 %210
   %212 = getelementptr inbounds i8, ptr %211, i64 2
   %213 = load i16, ptr %212, align 2
@@ -408,10 +408,10 @@ opal_convertor_merge_iov.exit238:                 ; preds = %140, %133, %112
   br label %.outer.backedge
 
 .loopexit:                                        ; preds = %._crit_edge, %.thread
-  %.2371 = phi ptr [ %.1, %.thread ], [ %.0182.ph, %._crit_edge ]
-  %.3186370 = phi i32 [ %.2185, %.thread ], [ %.1184.lcssa, %._crit_edge ]
-  %.5194369 = phi i64 [ %217, %.thread ], [ %.2191.lcssa, %._crit_edge ]
-  %.4210368 = phi ptr [ %209, %.thread ], [ %.2208.lcssa, %._crit_edge ]
+  %.2371 = phi ptr [ %.3, %.thread ], [ %.0182.ph, %._crit_edge ]
+  %.3186370 = phi i32 [ %.4187, %.thread ], [ %.1184.lcssa, %._crit_edge ]
+  %.6195369 = phi i64 [ %217, %.thread ], [ %.2191.lcssa, %._crit_edge ]
+  %.5211368 = phi ptr [ %209, %.thread ], [ %.2208.lcssa, %._crit_edge ]
   %.2216367 = phi ptr [ %211, %.thread ], [ %.1215.lcssa, %._crit_edge ]
   %224 = getelementptr inbounds i8, ptr %.2216367, i64 4
   %225 = load i32, ptr %224, align 4
@@ -425,11 +425,11 @@ opal_convertor_merge_iov.exit238:                 ; preds = %140, %133, %112
 230:                                              ; preds = %.loopexit
   %231 = getelementptr inbounds i8, ptr %227, i64 24
   %232 = load i64, ptr %231, align 8
-  %.not229323 = icmp eq i64 %.5194369, 0
+  %.not229323 = icmp eq i64 %.6195369, 0
   br i1 %.not229323, label %._crit_edge332, label %.lr.ph331
 
 .lr.ph331:                                        ; preds = %230
-  %233 = getelementptr inbounds i8, ptr %.4210368, i64 %232
+  %233 = getelementptr inbounds i8, ptr %.5211368, i64 %232
   %234 = getelementptr inbounds i8, ptr %227, i64 16
   %235 = getelementptr inbounds i8, ptr %.2216367, i64 24
   %.pre359 = load i64, ptr %234, align 8
@@ -437,11 +437,11 @@ opal_convertor_merge_iov.exit238:                 ; preds = %140, %133, %112
 
 236:                                              ; preds = %.lr.ph331, %257
   %237 = phi i64 [ %.pre359, %.lr.ph331 ], [ %260, %257 ]
-  %.6195328 = phi i64 [ %.5194369, %.lr.ph331 ], [ %262, %257 ]
-  %.4202326 = phi i64 [ %.2200.lcssa, %.lr.ph331 ], [ %261, %257 ]
-  %.5211325 = phi ptr [ %233, %.lr.ph331 ], [ %259, %257 ]
-  %.9324 = phi i32 [ %.4257.lcssa, %.lr.ph331 ], [ %.11.ph, %257 ]
-  %238 = zext i32 %.9324 to i64
+  %.8328 = phi i64 [ %.6195369, %.lr.ph331 ], [ %262, %257 ]
+  %.6204326 = phi i64 [ %.2200.lcssa, %.lr.ph331 ], [ %261, %257 ]
+  %.7213325 = phi ptr [ %233, %.lr.ph331 ], [ %259, %257 ]
+  %.7260324 = phi i32 [ %.2255.lcssa, %.lr.ph331 ], [ %.14.ph, %257 ]
+  %238 = zext i32 %.7260324 to i64
   %239 = getelementptr inbounds %struct.iovec, ptr %1, i64 %238
   %240 = getelementptr inbounds i8, ptr %239, i64 8
   %241 = load i64, ptr %240, align 8
@@ -451,7 +451,7 @@ opal_convertor_merge_iov.exit238:                 ; preds = %140, %133, %112
 242:                                              ; preds = %236
   %243 = load ptr, ptr %239, align 8
   %244 = getelementptr inbounds i8, ptr %243, i64 %241
-  %245 = icmp eq ptr %244, %.5211325
+  %245 = icmp eq ptr %244, %.7213325
   br i1 %245, label %246, label %248
 
 246:                                              ; preds = %242
@@ -460,7 +460,7 @@ opal_convertor_merge_iov.exit238:                 ; preds = %140, %133, %112
   br label %257
 
 248:                                              ; preds = %242
-  %249 = add i32 %.9324, 1
+  %249 = add i32 %.7260324, 1
   %250 = load i32, ptr %2, align 4
   %251 = icmp eq i32 %249, %250
   br i1 %251, label %opal_convertor_merge_iov.exit244, label %._crit_edge.i240
@@ -471,25 +471,25 @@ opal_convertor_merge_iov.exit238:                 ; preds = %140, %133, %112
 
 252:                                              ; preds = %._crit_edge.i240, %236
   %.pre-phi = phi i64 [ %.pre.i241, %._crit_edge.i240 ], [ %238, %236 ]
-  %.10 = phi i32 [ %249, %._crit_edge.i240 ], [ %.9324, %236 ]
+  %.13 = phi i32 [ %249, %._crit_edge.i240 ], [ %.7260324, %236 ]
   %253 = getelementptr inbounds %struct.iovec, ptr %1, i64 %.pre-phi
-  store ptr %.5211325, ptr %253, align 8
+  store ptr %.7213325, ptr %253, align 8
   %254 = getelementptr inbounds %struct.iovec, ptr %1, i64 %.pre-phi, i32 1
   store i64 %237, ptr %254, align 8
   br label %257
 
 opal_convertor_merge_iov.exit244:                 ; preds = %248
   %255 = sub i64 0, %232
-  %256 = getelementptr inbounds i8, ptr %.5211325, i64 %255
+  %256 = getelementptr inbounds i8, ptr %.7213325, i64 %255
   br label %295
 
 257:                                              ; preds = %246, %252
-  %.11.ph = phi i32 [ %.9324, %246 ], [ %.10, %252 ]
+  %.14.ph = phi i32 [ %.7260324, %246 ], [ %.13, %252 ]
   %258 = load i64, ptr %235, align 8
-  %259 = getelementptr inbounds i8, ptr %.5211325, i64 %258
+  %259 = getelementptr inbounds i8, ptr %.7213325, i64 %258
   %260 = load i64, ptr %234, align 8
-  %261 = add i64 %260, %.4202326
-  %262 = add i64 %.6195328, -1
+  %261 = add i64 %260, %.6204326
+  %262 = add i64 %.8328, -1
   %.not229 = icmp eq i64 %262, 0
   br i1 %.not229, label %._crit_edge332.loopexit, label %236, !llvm.loop !7
 
@@ -499,8 +499,8 @@ opal_convertor_merge_iov.exit244:                 ; preds = %248
 
 ._crit_edge332:                                   ; preds = %._crit_edge332.loopexit, %230
   %263 = phi i32 [ %225, %230 ], [ %.pre360, %._crit_edge332.loopexit ]
-  %.9.lcssa = phi i32 [ %.4257.lcssa, %230 ], [ %.11.ph, %._crit_edge332.loopexit ]
-  %.4202.lcssa = phi i64 [ %.2200.lcssa, %230 ], [ %261, %._crit_edge332.loopexit ]
+  %.7260.lcssa = phi i32 [ %.2255.lcssa, %230 ], [ %.14.ph, %._crit_edge332.loopexit ]
+  %.6204.lcssa = phi i64 [ %.2200.lcssa, %230 ], [ %261, %._crit_edge332.loopexit ]
   %264 = add i32 %263, 1
   br label %274
 
@@ -510,7 +510,7 @@ opal_convertor_merge_iov.exit244:                 ; preds = %248
   %267 = getelementptr inbounds i8, ptr %.2371, i64 28
   store i16 0, ptr %267, align 4
   %268 = getelementptr inbounds i8, ptr %.2371, i64 32
-  store i64 %.5194369, ptr %268, align 8
+  store i64 %.6195369, ptr %268, align 8
   %269 = getelementptr inbounds i8, ptr %.2371, i64 16
   %270 = load i64, ptr %269, align 8
   %271 = getelementptr inbounds i8, ptr %.2371, i64 40
@@ -521,16 +521,16 @@ opal_convertor_merge_iov.exit244:                 ; preds = %248
   br label %274
 
 274:                                              ; preds = %265, %._crit_edge332
-  %.12 = phi i32 [ %.4257.lcssa, %265 ], [ %.9.lcssa, %._crit_edge332 ]
-  %.5203 = phi i64 [ %.2200.lcssa, %265 ], [ %.4202.lcssa, %._crit_edge332 ]
+  %.8261 = phi i32 [ %.2255.lcssa, %265 ], [ %.7260.lcssa, %._crit_edge332 ]
+  %.7205 = phi i64 [ %.2200.lcssa, %265 ], [ %.6204.lcssa, %._crit_edge332 ]
   %.pn = phi i32 [ 1, %265 ], [ %264, %._crit_edge332 ]
-  %.3 = phi ptr [ %266, %265 ], [ %.2371, %._crit_edge332 ]
-  %.4187 = add i32 %.pn, %.3186370
+  %.5 = phi ptr [ %266, %265 ], [ %.2371, %._crit_edge332 ]
+  %.6 = add i32 %.pn, %.3186370
   %275 = load ptr, ptr %44, align 8
-  %276 = getelementptr inbounds i8, ptr %.3, i64 16
+  %276 = getelementptr inbounds i8, ptr %.5, i64 16
   %277 = load i64, ptr %276, align 8
   %278 = getelementptr inbounds i8, ptr %275, i64 %277
-  %279 = zext i32 %.4187 to i64
+  %279 = zext i32 %.6 to i64
   %280 = getelementptr inbounds %union.dt_elem_desc, ptr %36, i64 %279
   %281 = getelementptr inbounds i8, ptr %280, i64 2
   %282 = load i16, ptr %281, align 2
@@ -544,13 +544,13 @@ opal_convertor_merge_iov.exit244:                 ; preds = %248
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %284, %288, %.thread372
-  %.3256.ph.be = phi i32 [ %.4257.lcssa, %.thread372 ], [ %.12, %288 ], [ %.12, %284 ]
+  %.1254.ph.be = phi i32 [ %.2255.lcssa, %.thread372 ], [ %.8261, %288 ], [ %.8261, %284 ]
   %.0214.ph.be = phi ptr [ %211, %.thread372 ], [ %280, %288 ], [ %280, %284 ]
   %.1207.ph.be = phi ptr [ %209, %.thread372 ], [ %278, %288 ], [ %278, %284 ]
-  %.1199.ph.be = phi i64 [ %.2200.lcssa, %.thread372 ], [ %.5203, %288 ], [ %.5203, %284 ]
+  %.1199.ph.be = phi i64 [ %.2200.lcssa, %.thread372 ], [ %.7205, %288 ], [ %.7205, %284 ]
   %.1190.ph.be = phi i64 [ %223, %.thread372 ], [ %294, %288 ], [ %287, %284 ]
-  %.0183.ph.be = phi i32 [ %.2185, %.thread372 ], [ %.4187, %288 ], [ %.4187, %284 ]
-  %.0182.ph.be = phi ptr [ %.1, %.thread372 ], [ %.3, %288 ], [ %.3, %284 ]
+  %.0183.ph.be = phi i32 [ %.4187, %.thread372 ], [ %.6, %288 ], [ %.6, %284 ]
+  %.0182.ph.be = phi ptr [ %.3, %.thread372 ], [ %.5, %288 ], [ %.5, %284 ]
   br label %.outer
 
 288:                                              ; preds = %274
@@ -563,18 +563,18 @@ opal_convertor_merge_iov.exit244:                 ; preds = %248
   br label %.outer.backedge
 
 295:                                              ; preds = %opal_convertor_merge_iov.exit244, %186, %172
-  %.14 = phi i32 [ %187, %186 ], [ %249, %opal_convertor_merge_iov.exit244 ], [ %.8261, %172 ]
-  %.7213 = phi ptr [ %.2208.lcssa, %186 ], [ %256, %opal_convertor_merge_iov.exit244 ], [ %176, %172 ]
-  %.7205 = phi i64 [ %.2200.lcssa, %186 ], [ %.4202326, %opal_convertor_merge_iov.exit244 ], [ %.3201.lcssa, %172 ]
-  %.8 = phi i64 [ %.2191.lcssa, %186 ], [ %.6195328, %opal_convertor_merge_iov.exit244 ], [ %.3192.lcssa, %172 ]
-  %.6 = phi i32 [ %.1184.lcssa, %186 ], [ %.3186370, %opal_convertor_merge_iov.exit244 ], [ %.1184315, %172 ]
-  %.5 = phi ptr [ %.0182.ph, %186 ], [ %.2371, %opal_convertor_merge_iov.exit244 ], [ %.0182.ph, %172 ]
+  %.5258 = phi i32 [ %187, %186 ], [ %249, %opal_convertor_merge_iov.exit244 ], [ %.4257, %172 ]
+  %.4210 = phi ptr [ %.2208.lcssa, %186 ], [ %256, %opal_convertor_merge_iov.exit244 ], [ %176, %172 ]
+  %.4202 = phi i64 [ %.2200.lcssa, %186 ], [ %.6204326, %opal_convertor_merge_iov.exit244 ], [ %.3201.lcssa, %172 ]
+  %.5194 = phi i64 [ %.2191.lcssa, %186 ], [ %.8328, %opal_convertor_merge_iov.exit244 ], [ %.3192.lcssa, %172 ]
+  %.2185 = phi i32 [ %.1184.lcssa, %186 ], [ %.3186370, %opal_convertor_merge_iov.exit244 ], [ %.1184315, %172 ]
+  %.1 = phi ptr [ %.0182.ph, %186 ], [ %.2371, %opal_convertor_merge_iov.exit244 ], [ %.0182.ph, %172 ]
   %296 = getelementptr inbounds i8, ptr %0, i64 120
   %297 = load i64, ptr %296, align 8
-  %298 = add i64 %297, %.7205
+  %298 = add i64 %297, %.4202
   store i64 %298, ptr %296, align 8
-  store i64 %.7205, ptr %3, align 8
-  store i32 %.14, ptr %2, align 4
+  store i64 %.4202, ptr %3, align 8
+  store i32 %.5258, ptr %2, align 4
   %299 = load i64, ptr %296, align 8
   %300 = getelementptr inbounds i8, ptr %0, i64 24
   %301 = load i64, ptr %300, align 8
@@ -588,17 +588,17 @@ opal_convertor_merge_iov.exit244:                 ; preds = %248
   br label %317
 
 306:                                              ; preds = %295
-  %307 = getelementptr inbounds i8, ptr %.5, i64 24
-  store i32 %.6, ptr %307, align 8
-  %308 = getelementptr inbounds i8, ptr %.5, i64 28
+  %307 = getelementptr inbounds i8, ptr %.1, i64 24
+  store i32 %.2185, ptr %307, align 8
+  %308 = getelementptr inbounds i8, ptr %.1, i64 28
   store i16 9, ptr %308, align 4
-  %309 = getelementptr inbounds i8, ptr %.5, i64 32
-  store i64 %.8, ptr %309, align 8
+  %309 = getelementptr inbounds i8, ptr %.1, i64 32
+  store i64 %.5194, ptr %309, align 8
   %310 = load ptr, ptr %44, align 8
-  %311 = ptrtoint ptr %.7213 to i64
+  %311 = ptrtoint ptr %.4210 to i64
   %312 = ptrtoint ptr %310 to i64
   %313 = sub i64 %311, %312
-  %314 = getelementptr inbounds i8, ptr %.5, i64 40
+  %314 = getelementptr inbounds i8, ptr %.1, i64 40
   store i64 %313, ptr %314, align 8
   %315 = load i32, ptr %39, align 8
   %316 = add i32 %315, 1

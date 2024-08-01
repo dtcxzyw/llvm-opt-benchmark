@@ -843,13 +843,13 @@ define dso_local ptr @ExecOpenScanRelation(ptr nocapture noundef readonly %0, i3
   br label %ExecGetRangeTableRelation.exit
 
 ExecGetRangeTableRelation.exit:                   ; preds = %3, %24
-  %.1.i = phi ptr [ %25, %24 ], [ %9, %3 ]
+  %.0.i = phi ptr [ %25, %24 ], [ %9, %3 ]
   %28 = and i32 %2, 65
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %43
 
 30:                                               ; preds = %ExecGetRangeTableRelation.exit
-  %31 = getelementptr inbounds i8, ptr %.1.i, i64 56
+  %31 = getelementptr inbounds i8, ptr %.0.i, i64 56
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 125
   %34 = load i8, ptr %33, align 1
@@ -868,7 +868,7 @@ ExecGetRangeTableRelation.exit:                   ; preds = %3, %24
   unreachable
 
 43:                                               ; preds = %30, %ExecGetRangeTableRelation.exit
-  ret ptr %.1.i
+  ret ptr %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -910,8 +910,8 @@ define dso_local ptr @ExecGetRangeTableRelation(ptr nocapture noundef readonly %
   br label %27
 
 27:                                               ; preds = %23, %2
-  %.1 = phi ptr [ %24, %23 ], [ %8, %2 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %24, %23 ], [ %8, %2 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: cold
@@ -998,10 +998,10 @@ define dso_local void @ExecInitResultRelation(ptr nocapture noundef %0, ptr noun
   br label %ExecGetRangeTableRelation.exit
 
 ExecGetRangeTableRelation.exit:                   ; preds = %3, %24
-  %.1.i = phi ptr [ %25, %24 ], [ %9, %3 ]
+  %.0.i = phi ptr [ %25, %24 ], [ %9, %3 ]
   %28 = getelementptr inbounds i8, ptr %0, i64 196
   %29 = load i32, ptr %28, align 4
-  tail call void @InitResultRelInfo(ptr noundef %1, ptr noundef %.1.i, i32 noundef %2, ptr noundef null, i32 noundef %29) #9
+  tail call void @InitResultRelInfo(ptr noundef %1, ptr noundef %.0.i, i32 noundef %2, ptr noundef null, i32 noundef %29) #9
   %30 = getelementptr inbounds i8, ptr %0, i64 96
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null

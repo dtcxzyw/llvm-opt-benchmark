@@ -768,8 +768,8 @@ _ZN3CFF15cff1_cs_opset_tI23cff1_cs_opset_extents_t20cff1_extents_param_t25cff1_p
   br label %_ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE23cff1_cs_opset_extents_t20cff1_extents_param_tE9interpretERS3_.exit
 
 _ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE23cff1_cs_opset_extents_t20cff1_extents_param_tE9interpretERS3_.exit: ; preds = %173, %.noexc17, %.noexc16, %178, %4, %10
-  %.1 = phi i1 [ false, %10 ], [ false, %4 ], [ true, %178 ], [ false, %.noexc16 ], [ false, %.noexc17 ], [ false, %173 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %10 ], [ false, %4 ], [ true, %178 ], [ false, %.noexc16 ], [ false, %.noexc17 ], [ false, %173 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1386,8 +1386,8 @@ _ZN17cff1_path_param_t8end_pathEv.exit:           ; preds = %_ZN15hb_draw_funcs_
   br label %_ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE20cff1_cs_opset_path_t17cff1_path_param_tE9interpretERS3_.exit
 
 _ZN3CFF16cs_interpreter_tINS_20cff1_cs_interp_env_tE20cff1_cs_opset_path_t17cff1_path_param_tE9interpretERS3_.exit: ; preds = %173, %.noexc18, %.noexc17, %_ZN17cff1_path_param_t8end_pathEv.exit, %6, %11
-  %.1 = phi i1 [ false, %11 ], [ false, %6 ], [ true, %_ZN17cff1_path_param_t8end_pathEv.exit ], [ false, %.noexc17 ], [ false, %.noexc18 ], [ false, %173 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %11 ], [ false, %6 ], [ true, %_ZN17cff1_path_param_t8end_pathEv.exit ], [ false, %.noexc17 ], [ false, %.noexc18 ], [ false, %173 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1666,8 +1666,8 @@ _ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_
   br label %138
 
 138:                                              ; preds = %137, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit, %132, %4
-  %.1 = phi i1 [ false, %4 ], [ true, %137 ], [ false, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ false, %132 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %4 ], [ true, %137 ], [ false, %_ZN3CFF20cff1_cs_interp_env_tC2IKN2OT4cff120accelerator_subset_tEEERK10hb_array_tIKhERT_jPKij.exit ], [ false, %132 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

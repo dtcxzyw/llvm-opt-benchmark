@@ -430,7 +430,7 @@ test_tapa_tunnel.exit:                            ; preds = %133
   %hf_tapa_tunnel_seqno.sink.i = phi ptr [ @hf_tapa_tunnel_seqno, %165 ], [ @hf_tapa_tunnel_0804, %148 ]
   %hf_tapa_tunnel_length.sink.i = phi ptr [ @hf_tapa_tunnel_length, %165 ], [ @hf_tapa_tunnel_tagsetc, %148 ]
   %.sink59.i = phi i32 [ 2, %165 ], [ 6, %148 ]
-  %.0.ph.i = phi i32 [ 26, %165 ], [ 30, %148 ]
+  %.1.ph.i = phi i32 [ 26, %165 ], [ 30, %148 ]
   %166 = load i32, ptr %hf_tapa_tunnel_seqno.sink.i, align 4
   %167 = tail call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %166, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0) #3
   %168 = load i32, ptr %hf_tapa_tunnel_length.sink.i, align 4
@@ -438,10 +438,10 @@ test_tapa_tunnel.exit:                            ; preds = %133
   br label %170
 
 170:                                              ; preds = %.sink.split.i, %148
-  %.0.i14 = phi i32 [ 22, %148 ], [ %.0.ph.i, %.sink.split.i ]
+  %.1.i = phi i32 [ 22, %148 ], [ %.1.ph.i, %.sink.split.i ]
   %171 = load i32, ptr @hf_tapa_tunnel_remaining, align 4
-  %172 = sub i32 %140, %.0.i14
-  %173 = tail call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %171, ptr noundef %0, i32 noundef %.0.i14, i32 noundef %172, i32 noundef 0) #3
+  %172 = sub i32 %140, %.1.i
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %171, ptr noundef %0, i32 noundef %.1.i, i32 noundef %172, i32 noundef 0) #3
   br label %dissect_tapa_discover.exit
 
 dissect_tapa_discover.exit:                       ; preds = %43, %test_tapa_discover.exit.thread, %130, %133, %170, %137, %125, %dissect_tapa_discover_unknown_new_tlv.exit.i, %69, %39, %17, %test_tapa_tunnel.exit

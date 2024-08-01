@@ -2136,7 +2136,7 @@ _ZN5ZXing7Content6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.
   br label %_ZN5ZXing8MaxiCode22DecodedBitStreamParserL13ParseECIValueERKNS_9ByteArrayERi.exit
 
 _ZN5ZXing8MaxiCode22DecodedBitStreamParserL13ParseECIValueERKNS_9ByteArrayERi.exit: ; preds = %69, %85, %97, %103
-  %.040 = phi i32 [ %70, %69 ], [ %78, %85 ], [ %90, %97 ], [ %104, %103 ]
+  %.141 = phi i32 [ %70, %69 ], [ %78, %85 ], [ %90, %97 ], [ %104, %103 ]
   %.0.i = phi i32 [ %74, %69 ], [ %88, %85 ], [ %102, %97 ], [ %115, %103 ]
   call void @_ZN5ZXing7Content14switchEncodingENS_3ECIEb(ptr noundef nonnull align 8 dereferenceable(54) %3, i32 noundef %.0.i, i1 noundef zeroext true)
   br label %_ZN5ZXing7Content9push_backEh.exit
@@ -2228,7 +2228,7 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZN5ZXing7Content9push_backEh.exit
 
 _ZN5ZXing7Content9push_backEh.exit:               ; preds = %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i, %131, %_ZN5ZXing8MaxiCode22DecodedBitStreamParserL13ParseECIValueERKNS_9ByteArrayERi.exit, %_ZN5ZXing7Content6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.141 = phi i32 [ %.040, %_ZN5ZXing8MaxiCode22DecodedBitStreamParserL13ParseECIValueERKNS_9ByteArrayERi.exit ], [ %52, %_ZN5ZXing7Content6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %storemerge51, %131 ], [ %storemerge51, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ]
+  %.040 = phi i32 [ %.141, %_ZN5ZXing8MaxiCode22DecodedBitStreamParserL13ParseECIValueERKNS_9ByteArrayERi.exit ], [ %52, %_ZN5ZXing7Content6appendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %storemerge51, %131 ], [ %storemerge51, %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i ]
   %154 = add i32 %.054, -1
   %155 = icmp eq i32 %.054, 0
   %spec.select = select i1 %155, i32 %.02852, i32 %.02653
@@ -2237,9 +2237,9 @@ _ZN5ZXing7Content9push_backEh.exit:               ; preds = %_ZNSt6vectorIhSaIhE
 _ZN5ZXing7Content9push_backEh.exit.thread:        ; preds = %116, %118, %_ZNKSt5arrayIsLm64EE2atEm.exit, %26, %27, %30, %31, %68, %_ZN5ZXing7Content9push_backEh.exit
   %156 = phi i32 [ %154, %_ZN5ZXing7Content9push_backEh.exit ], [ -2, %_ZNKSt5arrayIsLm64EE2atEm.exit ], [ -2, %26 ], [ 0, %27 ], [ 1, %30 ], [ 2, %31 ], [ -2, %68 ], [ -2, %116 ], [ -2, %118 ]
   %.12948 = phi i32 [ %.02852, %_ZN5ZXing7Content9push_backEh.exit ], [ %.02852, %_ZNKSt5arrayIsLm64EE2atEm.exit ], [ %.02852, %26 ], [ %.02653, %27 ], [ %.02653, %30 ], [ %.02653, %31 ], [ %.02852, %68 ], [ %.02852, %116 ], [ %.02852, %118 ]
-  %.14147 = phi i32 [ %.141, %_ZN5ZXing7Content9push_backEh.exit ], [ %storemerge51, %_ZNKSt5arrayIsLm64EE2atEm.exit ], [ %storemerge51, %26 ], [ %storemerge51, %27 ], [ %storemerge51, %30 ], [ %storemerge51, %31 ], [ %storemerge51, %68 ], [ %storemerge51, %116 ], [ %12, %118 ]
+  %.04047 = phi i32 [ %.040, %_ZN5ZXing7Content9push_backEh.exit ], [ %storemerge51, %_ZNKSt5arrayIsLm64EE2atEm.exit ], [ %storemerge51, %26 ], [ %storemerge51, %27 ], [ %storemerge51, %30 ], [ %storemerge51, %31 ], [ %storemerge51, %68 ], [ %storemerge51, %116 ], [ %12, %118 ]
   %157 = phi i32 [ %spec.select, %_ZN5ZXing7Content9push_backEh.exit ], [ 0, %_ZNKSt5arrayIsLm64EE2atEm.exit ], [ 1, %26 ], [ %29, %27 ], [ 0, %30 ], [ 0, %31 ], [ %.02653, %68 ], [ %.02653, %116 ], [ %.02653, %118 ]
-  %158 = add nsw i32 %.14147, 1
+  %158 = add nsw i32 %.04047, 1
   %159 = icmp slt i32 %158, %7
   br i1 %159, label %14, label %._crit_edge, !llvm.loop !18
 

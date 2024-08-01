@@ -1334,9 +1334,9 @@ for.body.lr.ph:                                   ; preds = %cond.true
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %6 = phi ptr [ %.pre, %for.body.lr.ph ], [ %17, %for.inc ]
   %ri.sroa.0.01011 = phi i32 [ %ri.sroa.0.01006, %for.body.lr.ph ], [ %ri.sroa.0.0, %for.inc ]
-  %candidates.sroa.0.01010 = phi ptr [ null, %for.body.lr.ph ], [ %candidates.sroa.0.2, %for.inc ]
-  %candidates.sroa.6.01009 = phi ptr [ null, %for.body.lr.ph ], [ %candidates.sroa.6.2, %for.inc ]
-  %candidates.sroa.11.01008 = phi ptr [ null, %for.body.lr.ph ], [ %candidates.sroa.11.2, %for.inc ]
+  %candidates.sroa.0.01010 = phi ptr [ null, %for.body.lr.ph ], [ %candidates.sroa.0.1, %for.inc ]
+  %candidates.sroa.6.01009 = phi ptr [ null, %for.body.lr.ph ], [ %candidates.sroa.6.1, %for.inc ]
+  %candidates.sroa.11.01008 = phi ptr [ null, %for.body.lr.ph ], [ %candidates.sroa.11.1, %for.inc ]
   %conv.i.i = zext i32 %ri.sroa.0.01011 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %6, i64 %conv.i.i
   %d_colVar.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
@@ -1481,9 +1481,9 @@ _ZNSt6vectorIN4cvc58internal6theory5arith6linear4CandESaIS5_EE17_M_realloc_inser
   br label %for.inc
 
 for.inc:                                          ; preds = %land.rhs, %lor.rhs, %_ZNSt6vectorIN4cvc58internal6theory5arith6linear4CandESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %if.then.i.i, %cond.true59, %for.body
-  %candidates.sroa.11.2 = phi ptr [ %candidates.sroa.11.01008, %for.body ], [ %candidates.sroa.11.01008, %cond.true59 ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIN4cvc58internal6theory5arith6linear4CandESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %candidates.sroa.11.01008, %if.then.i.i ], [ %candidates.sroa.11.01008, %lor.rhs ], [ %candidates.sroa.11.01008, %land.rhs ]
-  %candidates.sroa.6.2 = phi ptr [ %candidates.sroa.6.01009, %for.body ], [ %candidates.sroa.6.01009, %cond.true59 ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN4cvc58internal6theory5arith6linear4CandESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ], [ %candidates.sroa.6.01009, %lor.rhs ], [ %candidates.sroa.6.01009, %land.rhs ]
-  %candidates.sroa.0.2 = phi ptr [ %candidates.sroa.0.01010, %for.body ], [ %candidates.sroa.0.01010, %cond.true59 ], [ %cond.i10.i.i.i, %_ZNSt6vectorIN4cvc58internal6theory5arith6linear4CandESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %candidates.sroa.0.01010, %if.then.i.i ], [ %candidates.sroa.0.01010, %lor.rhs ], [ %candidates.sroa.0.01010, %land.rhs ]
+  %candidates.sroa.11.1 = phi ptr [ %candidates.sroa.11.01008, %for.body ], [ %candidates.sroa.11.01008, %cond.true59 ], [ %add.ptr19.i.i.i, %_ZNSt6vectorIN4cvc58internal6theory5arith6linear4CandESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %candidates.sroa.11.01008, %if.then.i.i ], [ %candidates.sroa.11.01008, %lor.rhs ], [ %candidates.sroa.11.01008, %land.rhs ]
+  %candidates.sroa.6.1 = phi ptr [ %candidates.sroa.6.01009, %for.body ], [ %candidates.sroa.6.01009, %cond.true59 ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN4cvc58internal6theory5arith6linear4CandESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i, %if.then.i.i ], [ %candidates.sroa.6.01009, %lor.rhs ], [ %candidates.sroa.6.01009, %land.rhs ]
+  %candidates.sroa.0.1 = phi ptr [ %candidates.sroa.0.01010, %for.body ], [ %candidates.sroa.0.01010, %cond.true59 ], [ %cond.i10.i.i.i, %_ZNSt6vectorIN4cvc58internal6theory5arith6linear4CandESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ %candidates.sroa.0.01010, %if.then.i.i ], [ %candidates.sroa.0.01010, %lor.rhs ], [ %candidates.sroa.0.01010, %land.rhs ]
   %17 = load ptr, ptr %5, align 8
   %d_nextRow.i.i = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::MatrixEntry", ptr %17, i64 %conv.i.i, i32 2
   %ri.sroa.0.0 = load i32, ptr %d_nextRow.i.i, align 8
@@ -1491,8 +1491,8 @@ for.inc:                                          ; preds = %land.rhs, %lor.rhs,
   br i1 %cmp.i, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %cond.true
-  %candidates.sroa.6.0.lcssa = phi ptr [ null, %cond.true ], [ %candidates.sroa.6.2, %for.inc ]
-  %candidates.sroa.0.0.lcssa = phi ptr [ null, %cond.true ], [ %candidates.sroa.0.2, %for.inc ]
+  %candidates.sroa.6.0.lcssa = phi ptr [ null, %cond.true ], [ %candidates.sroa.6.1, %for.inc ]
+  %candidates.sroa.0.0.lcssa = phi ptr [ null, %cond.true ], [ %candidates.sroa.0.1, %for.inc ]
   %d_linEq101 = getelementptr inbounds i8, ptr %this, i64 120
   %18 = load ptr, ptr %d_linEq101, align 8
   %call103 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
@@ -1555,7 +1555,7 @@ while.body.lr.ph:                                 ; preds = %invoke.cont113
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %cleanup
-  %candidatesAfterFocusImprove.01015 = phi i32 [ 0, %while.body.lr.ph ], [ %candidatesAfterFocusImprove.4, %cleanup ]
+  %candidatesAfterFocusImprove.01015 = phi i32 [ 0, %while.body.lr.ph ], [ %candidatesAfterFocusImprove.3, %cleanup ]
   %end.sroa.0.01014 = phi ptr [ %candidates.sroa.6.0.lcssa, %while.body.lr.ph ], [ %incdec.ptr.i, %cleanup ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %end.sroa.0.01014 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -1678,10 +1678,10 @@ sw.default:                                       ; preds = %if.then199
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont173, %if.then199, %sw.default, %cond.true183
-  %candidatesAfterFocusImprove.4 = phi i32 [ %spec.select, %cond.true183 ], [ %spec.select, %sw.default ], [ 1, %if.then199 ], [ %spec.select, %invoke.cont173 ]
+  %candidatesAfterFocusImprove.3 = phi i32 [ %spec.select, %cond.true183 ], [ %spec.select, %sw.default ], [ 1, %if.then199 ], [ %spec.select, %invoke.cont173 ]
   call void @_ZN4cvc58internal6theory5arith6linear10UpdateInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %currProposal) #20
   %cmp.i529 = icmp ne ptr %candidates.sroa.0.0.lcssa, %incdec.ptr.i
-  %cmp122990 = icmp sge i32 %div, %candidatesAfterFocusImprove.4
+  %cmp122990 = icmp sge i32 %div, %candidatesAfterFocusImprove.3
   %cmp122 = select i1 %cmp114, i1 true, i1 %cmp122990
   %42 = select i1 %cmp.i529, i1 %cmp122, i1 false
   br i1 %42, label %while.body, label %while.end

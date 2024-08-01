@@ -227,7 +227,7 @@ list_length.exit.thread:                          ; preds = %21, %list_length.ex
   br label %112
 
 112:                                              ; preds = %102, %107
-  %.062 = phi i32 [ %111, %107 ], [ 0, %102 ]
+  %.1 = phi i32 [ %111, %107 ], [ 0, %102 ]
   call void @cancel_parser_errposition_callback(ptr noundef nonnull %10) #7
   br label %116
 
@@ -237,19 +237,19 @@ list_length.exit.thread:                          ; preds = %21, %list_length.ex
   br label %116
 
 116:                                              ; preds = %113, %112
-  %.1 = phi i32 [ %.062, %112 ], [ %115, %113 ]
+  %.2 = phi i32 [ %.1, %112 ], [ %115, %113 ]
   %117 = getelementptr inbounds i8, ptr %1, i64 40
   %118 = load ptr, ptr %117, align 8
   %.not70 = icmp eq ptr %118, null
   br i1 %.not70, label %121, label %119
 
 119:                                              ; preds = %116
-  %120 = call i32 @get_array_type(i32 noundef %.1) #7
+  %120 = call i32 @get_array_type(i32 noundef %.2) #7
   br label %121
 
 121:                                              ; preds = %96, %93, %119, %116, %14
-  %.2 = phi i32 [ %16, %14 ], [ %94, %96 ], [ %94, %93 ], [ %120, %119 ], [ %.1, %116 ]
-  %.not71 = icmp eq i32 %.2, 0
+  %.062 = phi i32 [ %16, %14 ], [ %94, %96 ], [ %94, %93 ], [ %120, %119 ], [ %.2, %116 ]
+  %.not71 = icmp eq i32 %.062, 0
   br i1 %.not71, label %.thread, label %122
 
 .thread:                                          ; preds = %84, %121
@@ -257,7 +257,7 @@ list_length.exit.thread:                          ; preds = %21, %list_length.ex
   br i1 %.not72, label %227, label %.sink.split
 
 122:                                              ; preds = %121
-  %123 = zext i32 %.2 to i64
+  %123 = zext i32 %.062 to i64
   %124 = call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %123) #7
   %.not73 = icmp eq ptr %124, null
   br i1 %.not73, label %125, label %128
@@ -265,7 +265,7 @@ list_length.exit.thread:                          ; preds = %21, %list_length.ex
 125:                                              ; preds = %122
   %126 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %126)
-  %127 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %.2) #7
+  %127 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %.062) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.LookupTypeNameExtended) #7
   unreachable
 

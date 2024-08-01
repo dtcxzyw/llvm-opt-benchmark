@@ -212,11 +212,11 @@ if.end23:                                         ; preds = %if.then12.i, %land.
   br label %tunnel_is_established.exit.i
 
 tunnel_is_established.exit.i:                     ; preds = %if.end17, %if.end23
-  %ts.1 = phi ptr [ %call6.i, %if.end23 ], [ %0, %if.end17 ]
+  %ts.0 = phi ptr [ %call6.i, %if.end23 ], [ %0, %if.end17 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %done.i)
   %conn1.i = getelementptr inbounds i8, ptr %cf, i64 24
   %15 = load ptr, ptr %conn1.i, align 8
-  %tunnel_state.i.i38 = getelementptr inbounds i8, ptr %ts.1, i64 280
+  %tunnel_state.i.i38 = getelementptr inbounds i8, ptr %ts.0, i64 280
   %16 = load i32, ptr %tunnel_state.i.i38, align 8
   switch i32 %16, label %do.body.preheader.i [
     i32 4, label %do.body30
@@ -226,17 +226,17 @@ tunnel_is_established.exit.i:                     ; preds = %if.end17, %if.end23
 do.body.preheader.i:                              ; preds = %tunnel_is_established.exit.i
   %verbose.i40 = getelementptr inbounds i8, ptr %data, i64 2706
   %newurl.i.i = getelementptr inbounds i8, ptr %data, i64 368
-  %request_data.i.i = getelementptr inbounds i8, ptr %ts.1, i64 144
-  %nsent.i.i = getelementptr inbounds i8, ptr %ts.1, i64 176
-  %keepon.i.i41 = getelementptr inbounds i8, ptr %ts.1, i64 264
-  %rcvbuf.i.i = getelementptr inbounds i8, ptr %ts.1, i64 112
+  %request_data.i.i = getelementptr inbounds i8, ptr %ts.0, i64 144
+  %nsent.i.i = getelementptr inbounds i8, ptr %ts.0, i64 176
+  %keepon.i.i41 = getelementptr inbounds i8, ptr %ts.0, i64 264
+  %rcvbuf.i.i = getelementptr inbounds i8, ptr %ts.0, i64 112
   %sockindex.i.i = getelementptr inbounds i8, ptr %cf, i64 32
-  %headerlines.i.i = getelementptr inbounds i8, ptr %ts.1, i64 184
+  %headerlines.i.i = getelementptr inbounds i8, ptr %ts.0, i64 184
   %httpcode.i.i = getelementptr inbounds i8, ptr %data, i64 304
   %authproblem.i.i = getelementptr inbounds i8, ptr %data, i64 5044
-  %cl115.i.i = getelementptr inbounds i8, ptr %ts.1, i64 272
-  %chunked_encoding133.i.i = getelementptr inbounds i8, ptr %ts.1, i64 284
-  %ch.i.i.i = getelementptr inbounds i8, ptr %ts.1, i64 192
+  %cl115.i.i = getelementptr inbounds i8, ptr %ts.0, i64 272
+  %chunked_encoding133.i.i = getelementptr inbounds i8, ptr %ts.0, i64 284
+  %ch.i.i.i = getelementptr inbounds i8, ptr %ts.0, i64 192
   %httpproxycode.i.i.i = getelementptr inbounds i8, ptr %data, i64 5060
   %proxyauth.i.i = getelementptr inbounds i8, ptr %data, i64 480
   %avail.i.i = getelementptr inbounds i8, ptr %data, i64 3608
@@ -1123,7 +1123,7 @@ h1_tunnel_go_state.exit151.i:                     ; preds = %if.end133.i.i, %do.
   br label %if.end53.critedge
 
 land.lhs.true163.i:                               ; preds = %do.end149.i
-  call fastcc void @h1_tunnel_go_state(ptr noundef %cf, ptr noundef nonnull %ts.1, i32 noundef 4, ptr noundef nonnull %data)
+  call fastcc void @h1_tunnel_go_state(ptr noundef %cf, ptr noundef nonnull %ts.0, i32 noundef 4, ptr noundef nonnull %data)
   %bf.load166.i = load i64, ptr %verbose.i40, align 2
   %125 = and i64 %bf.load166.i, 536870912
   %tobool170.not.i = icmp eq i64 %125, 0

@@ -73,7 +73,7 @@ for.body.lr.ph:                                   ; preds = %if.then
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %bus.0105 = phi ptr [ %bus.0102, %for.body.lr.ph ], [ %bus.0, %for.inc ]
-  %nr_pcie_buses.0104 = phi i32 [ %conv, %for.body.lr.ph ], [ %nr_pcie_buses.2, %for.inc ]
+  %nr_pcie_buses.1104 = phi i32 [ %conv, %for.body.lr.ph ], [ %nr_pcie_buses.2, %for.inc ]
   %call = call i32 @pci_bus_num(ptr noundef nonnull %bus.0105) #3
   %call5 = call i32 @pci_bus_numa_node(ptr noundef nonnull %bus.0105) #3
   %2 = getelementptr i8, ptr %bus.0105, i64 120
@@ -86,7 +86,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.end:                                           ; preds = %for.body
   %conv10 = and i32 %call, 255
-  %spec.select = call i32 @llvm.smin.i32(i32 %conv10, i32 %nr_pcie_buses.0104)
+  %spec.select = call i32 @llvm.smin.i32(i32 %conv10, i32 %nr_pcie_buses.1104)
   %call16 = call ptr (ptr, ...) @aml_device(ptr noundef nonnull @.str, i32 noundef %conv10) #3
   br i1 %tobool.i.not, label %if.else, label %if.then18
 
@@ -163,14 +163,14 @@ if.end56:                                         ; preds = %if.else55, %if.then
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end56
-  %nr_pcie_buses.2 = phi i32 [ %spec.select, %if.end56 ], [ %nr_pcie_buses.0104, %for.body ]
+  %nr_pcie_buses.2 = phi i32 [ %spec.select, %if.end56 ], [ %nr_pcie_buses.1104, %for.body ]
   %sibling = getelementptr inbounds i8, ptr %bus.0105, i64 2264
   %bus.0 = load ptr, ptr %sibling, align 8
   %tobool3.not = icmp eq ptr %bus.0, null
   br i1 %tobool3.not, label %if.end57, label %for.body, !llvm.loop !5
 
 if.end57:                                         ; preds = %for.inc, %if.then, %entry
-  %nr_pcie_buses.3 = phi i32 [ %conv, %entry ], [ %conv, %if.then ], [ %nr_pcie_buses.2, %for.inc ]
+  %nr_pcie_buses.0 = phi i32 [ %conv, %entry ], [ %conv, %if.then ], [ %nr_pcie_buses.2, %for.inc ]
   %call58 = call ptr (ptr, ...) @aml_device(ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #3
   %call59 = call ptr (ptr, ...) @aml_string(ptr noundef nonnull @.str.3) #3
   %call60 = call ptr @aml_name_decl(ptr noundef nonnull @.str.1, ptr noundef %call59) #3
@@ -203,7 +203,7 @@ if.end57:                                         ; preds = %for.inc, %if.then, 
   call void @aml_append(ptr noundef %call74, ptr noundef %call78) #3
   call void @aml_append(ptr noundef %call58, ptr noundef %call74) #3
   %call79 = call ptr @aml_resource_template() #3
-  %8 = trunc i32 %nr_pcie_buses.3 to i16
+  %8 = trunc i32 %nr_pcie_buses.0 to i16
   %conv80 = add i16 %8, -1
   %call82 = call ptr @aml_word_bus_number(i32 noundef 4, i32 noundef 8, i32 noundef 0, i16 noundef zeroext 0, i16 noundef zeroext 0, i16 noundef zeroext %conv80, i16 noundef zeroext 0, i16 noundef zeroext %8) #3
   call void @aml_append(ptr noundef %call79, ptr noundef %call82) #3

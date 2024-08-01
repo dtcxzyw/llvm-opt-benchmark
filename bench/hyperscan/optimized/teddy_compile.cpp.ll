@@ -1857,9 +1857,9 @@ for.body26.lr.ph.i.i:                             ; preds = %invoke.cont19.i.i
   br label %for.body26.i.i
 
 for.body26.i.i:                                   ; preds = %for.inc59.i.i, %for.body26.lr.ph.i.i
-  %best.1643.i.i = phi i64 [ %best.0653.i.i, %for.body26.lr.ph.i.i ], [ %best.4.i.i, %for.inc59.i.i ]
-  %m1.sroa.0.1642.i.i = phi ptr [ %m1.sroa.0.0652.i.i, %for.body26.lr.ph.i.i ], [ %m1.sroa.0.3.i.i, %for.inc59.i.i ]
-  %m2.sroa.0.1641.i.i = phi ptr [ %m2.sroa.0.0651.i.i, %for.body26.lr.ph.i.i ], [ %m2.sroa.0.3.i.i, %for.inc59.i.i ]
+  %best.1643.i.i = phi i64 [ %best.0653.i.i, %for.body26.lr.ph.i.i ], [ %best.2.i.i, %for.inc59.i.i ]
+  %m1.sroa.0.1642.i.i = phi ptr [ %m1.sroa.0.0652.i.i, %for.body26.lr.ph.i.i ], [ %m1.sroa.0.2.i.i, %for.inc59.i.i ]
+  %m2.sroa.0.1641.i.i = phi ptr [ %m2.sroa.0.0651.i.i, %for.body26.lr.ph.i.i ], [ %m2.sroa.0.2.i.i, %for.inc59.i.i ]
   %i2.sroa.0.0639.i.i = phi ptr [ %call.i.i.i.i.i.i, %for.body26.lr.ph.i.i ], [ %call.i192.i.i, %for.inc59.i.i ]
   %_M_storage.i.i53.i.i = getelementptr inbounds i8, ptr %i2.sroa.0.0639.i.i, i64 32
   %sts.val24.i.i = load i64, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
@@ -2732,8 +2732,8 @@ if.then56.i.i:                                    ; preds = %_ZNK3ue212_GLOBAL__
   br label %cleanup.i.i
 
 cleanup.i.i:                                      ; preds = %if.then56.i.i, %_ZNK3ue212_GLOBAL__N_18TeddySet10isRunProneEv.exit175.i.i, %invoke.cont40.i.i
-  %m2.sroa.0.2.i.i = phi ptr [ %i2.sroa.0.0639.i.i, %if.then56.i.i ], [ %m2.sroa.0.1641.i.i, %_ZNK3ue212_GLOBAL__N_18TeddySet10isRunProneEv.exit175.i.i ], [ %i2.sroa.0.0639.i.i, %invoke.cont40.i.i ]
-  %m1.sroa.0.2.i.i = phi ptr [ %i1.sroa.0.0650.i.i, %if.then56.i.i ], [ %m1.sroa.0.1642.i.i, %_ZNK3ue212_GLOBAL__N_18TeddySet10isRunProneEv.exit175.i.i ], [ %i1.sroa.0.0650.i.i, %invoke.cont40.i.i ]
+  %m2.sroa.0.3.i.i = phi ptr [ %i2.sroa.0.0639.i.i, %if.then56.i.i ], [ %m2.sroa.0.1641.i.i, %_ZNK3ue212_GLOBAL__N_18TeddySet10isRunProneEv.exit175.i.i ], [ %i2.sroa.0.0639.i.i, %invoke.cont40.i.i ]
+  %m1.sroa.0.3.i.i = phi ptr [ %i1.sroa.0.0650.i.i, %if.then56.i.i ], [ %m1.sroa.0.1642.i.i, %_ZNK3ue212_GLOBAL__N_18TeddySet10isRunProneEv.exit175.i.i ], [ %i1.sroa.0.0650.i.i, %invoke.cont40.i.i ]
   %best.3.i.i = phi i64 [ %sub.i.i, %if.then56.i.i ], [ %best.1643.i.i, %_ZNK3ue212_GLOBAL__N_18TeddySet10isRunProneEv.exit175.i.i ], [ %best.1643.i.i, %invoke.cont40.i.i ]
   %143 = load i64, ptr %m_capacity.i.i.i.i7.i.i.i, align 8
   %tobool.not.i.i.i.i.i177.i.i = icmp eq i64 %143, 0
@@ -2763,17 +2763,17 @@ _ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i:   ; preds = %if.then.i.i.i.i.i.i
   br i1 %cmp42.i.i, label %for.inc62.i.i, label %for.inc59.i.i
 
 for.inc59.i.i:                                    ; preds = %for.body.i.i.i.i.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i, %land.lhs.true.i.i
-  %m2.sroa.0.3.i.i = phi ptr [ %m2.sroa.0.2.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i ], [ %m2.sroa.0.1641.i.i, %land.lhs.true.i.i ], [ %m2.sroa.0.1641.i.i, %for.body.i.i.i.i.i.i ]
-  %m1.sroa.0.3.i.i = phi ptr [ %m1.sroa.0.2.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i ], [ %m1.sroa.0.1642.i.i, %land.lhs.true.i.i ], [ %m1.sroa.0.1642.i.i, %for.body.i.i.i.i.i.i ]
-  %best.4.i.i = phi i64 [ %best.3.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i ], [ %best.1643.i.i, %land.lhs.true.i.i ], [ %best.1643.i.i, %for.body.i.i.i.i.i.i ]
+  %m2.sroa.0.2.i.i = phi ptr [ %m2.sroa.0.3.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i ], [ %m2.sroa.0.1641.i.i, %land.lhs.true.i.i ], [ %m2.sroa.0.1641.i.i, %for.body.i.i.i.i.i.i ]
+  %m1.sroa.0.2.i.i = phi ptr [ %m1.sroa.0.3.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i ], [ %m1.sroa.0.1642.i.i, %land.lhs.true.i.i ], [ %m1.sroa.0.1642.i.i, %for.body.i.i.i.i.i.i ]
+  %best.2.i.i = phi i64 [ %best.3.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i ], [ %best.1643.i.i, %land.lhs.true.i.i ], [ %best.1643.i.i, %for.body.i.i.i.i.i.i ]
   %call.i192.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i2.sroa.0.0639.i.i) #18
   %cmp.i52.not.i.i = icmp eq ptr %call.i192.i.i, %7
   br i1 %cmp.i52.not.i.i, label %for.inc62.i.i, label %for.body26.i.i, !llvm.loop !113
 
 for.inc62.i.i:                                    ; preds = %for.inc59.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i, %invoke.cont19.i.i
-  %m2.sroa.0.4.i.i = phi ptr [ %m2.sroa.0.0651.i.i, %invoke.cont19.i.i ], [ %m2.sroa.0.2.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i ], [ %m2.sroa.0.3.i.i, %for.inc59.i.i ]
-  %m1.sroa.0.4.i.i = phi ptr [ %m1.sroa.0.0652.i.i, %invoke.cont19.i.i ], [ %m1.sroa.0.2.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i ], [ %m1.sroa.0.3.i.i, %for.inc59.i.i ]
-  %best.5.i.i = phi i64 [ %best.0653.i.i, %invoke.cont19.i.i ], [ %best.3.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i ], [ %best.4.i.i, %for.inc59.i.i ]
+  %m2.sroa.0.4.i.i = phi ptr [ %m2.sroa.0.0651.i.i, %invoke.cont19.i.i ], [ %m2.sroa.0.3.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i ], [ %m2.sroa.0.2.i.i, %for.inc59.i.i ]
+  %m1.sroa.0.4.i.i = phi ptr [ %m1.sroa.0.0652.i.i, %invoke.cont19.i.i ], [ %m1.sroa.0.3.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i ], [ %m1.sroa.0.2.i.i, %for.inc59.i.i ]
+  %best.5.i.i = phi i64 [ %best.0653.i.i, %invoke.cont19.i.i ], [ %best.3.i.i, %_ZN3ue212_GLOBAL__N_18TeddySetD2Ev.exit191.i.i ], [ %best.2.i.i, %for.inc59.i.i ]
   %call.i193.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i1.sroa.0.0650.i.i) #18
   %cmp.i50.not.i.i = icmp eq ptr %call.i193.i.i, %7
   br i1 %cmp.i50.not.i.i, label %for.end64.i.i, label %invoke.cont19.i.i.backedge

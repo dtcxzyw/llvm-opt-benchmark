@@ -611,7 +611,7 @@ switch.edge:
   %124 = icmp ugt i32 %123, 999999
   %125 = add i32 %123, -1000000
   %126 = zext i1 %124 to i64
-  %.0103 = add i64 %118, %126
+  %.1 = add i64 %118, %126
   %.0 = select i1 %124, i32 %125, i32 %123
   %127 = mul i32 %.0, 1000
   br label %128
@@ -619,7 +619,7 @@ switch.edge:
 128:                                              ; preds = %73, %95, %76
   %not..not115 = phi i32 [ 1, %76 ], [ 1, %95 ], [ 0, %73 ]
   %.0104 = phi i32 [ %94, %76 ], [ %127, %95 ], [ 0, %73 ]
-  %.1 = phi i64 [ %91, %76 ], [ %.0103, %95 ], [ 0, %73 ]
+  %.0103 = phi i64 [ %91, %76 ], [ %.1, %95 ], [ 0, %73 ]
   store i32 0, ptr %0, align 8
   %129 = call ptr @wtap_block_create(i32 noundef 5) #8
   %130 = getelementptr inbounds i8, ptr %0, i64 232
@@ -627,7 +627,7 @@ switch.edge:
   %131 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %not..not115, ptr %131, align 4
   %132 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.1, ptr %132, align 8
+  store i64 %.0103, ptr %132, align 8
   %133 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %.0104, ptr %133, align 8
   %134 = load i64, ptr %21, align 8

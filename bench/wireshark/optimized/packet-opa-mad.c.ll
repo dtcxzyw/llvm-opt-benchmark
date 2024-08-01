@@ -13341,8 +13341,8 @@ define internal fastcc ptr @opa_format_port_select_mask(ptr noundef %0, i32 noun
 
 23:                                               ; preds = %.lr.ph, %37
   %.0575 = phi i64 [ %21, %.lr.ph ], [ %39, %37 ]
-  %.1603 = phi i32 [ %.05910, %.lr.ph ], [ %.3, %37 ]
-  %.1632 = phi i32 [ %.0629, %.lr.ph ], [ %.365, %37 ]
+  %.1603 = phi i32 [ %.05910, %.lr.ph ], [ %.261, %37 ]
+  %.1632 = phi i32 [ %.0629, %.lr.ph ], [ %.264, %37 ]
   %.0671 = phi i32 [ 0, %.lr.ph ], [ %38, %37 ]
   %24 = and i64 %.0575, 1
   %25 = icmp eq i64 %24, 0
@@ -13375,8 +13375,8 @@ define internal fastcc ptr @opa_format_port_select_mask(ptr noundef %0, i32 noun
   br label %37
 
 37:                                               ; preds = %29, %36, %35, %30, %23
-  %.365 = phi i32 [ %.1632, %23 ], [ %27, %30 ], [ %27, %35 ], [ %27, %36 ], [ %27, %29 ]
-  %.3 = phi i32 [ %.1603, %23 ], [ %.1603, %30 ], [ %27, %35 ], [ %27, %36 ], [ %27, %29 ]
+  %.264 = phi i32 [ %.1632, %23 ], [ %27, %30 ], [ %27, %35 ], [ %27, %36 ], [ %27, %29 ]
+  %.261 = phi i32 [ %.1603, %23 ], [ %.1603, %30 ], [ %27, %35 ], [ %27, %36 ], [ %27, %29 ]
   %38 = add nuw nsw i32 %.0671, 1
   %39 = lshr i64 %.0575, 1
   %40 = icmp ugt i64 %.0575, 1
@@ -13385,8 +13385,8 @@ define internal fastcc ptr @opa_format_port_select_mask(ptr noundef %0, i32 noun
   br i1 %42, label %23, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %37, %18
-  %.163.lcssa = phi i32 [ %.0629, %18 ], [ %.365, %37 ]
-  %.160.lcssa = phi i32 [ %.05910, %18 ], [ %.3, %37 ]
+  %.163.lcssa = phi i32 [ %.0629, %18 ], [ %.264, %37 ]
+  %.160.lcssa = phi i32 [ %.05910, %18 ], [ %.261, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %43, label %18, !llvm.loop !74

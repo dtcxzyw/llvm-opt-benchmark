@@ -622,13 +622,13 @@ common.resume:                                    ; preds = %54, %83, %18
           to label %60 unwind label %58
 
 54:                                               ; preds = %58, %56
-  %.1 = phi i8 [ %.2, %56 ], [ %.0, %58 ]
+  %.2 = phi i8 [ %.1, %56 ], [ %.0, %58 ]
   %.pn = phi { ptr, i32 } [ %57, %56 ], [ %59, %58 ]
-  %55 = trunc nuw i8 %.1 to i1
+  %55 = trunc nuw i8 %.2 to i1
   br i1 %55, label %83, label %common.resume
 
 56:                                               ; preds = %.invoke, %60, %40, %35, %30
-  %.2 = phi i8 [ 1, %40 ], [ 1, %35 ], [ 1, %30 ], [ %.0, %60 ], [ 1, %.invoke ]
+  %.1 = phi i8 [ 1, %40 ], [ 1, %35 ], [ 1, %30 ], [ %.0, %60 ], [ 1, %.invoke ]
   %57 = landingpad { ptr, i32 }
           cleanup
   br label %54

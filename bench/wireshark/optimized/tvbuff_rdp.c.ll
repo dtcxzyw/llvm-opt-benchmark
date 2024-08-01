@@ -624,12 +624,12 @@ bitstream_getbits.exit144.loopexit:               ; preds = %.lr.ph.i142
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %bitstream_getbits.exit151
   %222 = phi i32 [ %234, %bitstream_getbits.exit151 ], [ %.promoted248, %.lr.ph.preheader ]
   %.0278 = phi i8 [ %225, %bitstream_getbits.exit151 ], [ 2, %.lr.ph.preheader ]
-  %.072277 = phi i32 [ %224, %bitstream_getbits.exit151 ], [ 4, %.lr.ph.preheader ]
+  %.1277 = phi i32 [ %224, %bitstream_getbits.exit151 ], [ 4, %.lr.ph.preheader ]
   %223 = phi i32 [ %237, %bitstream_getbits.exit151 ], [ %.promoted241, %.lr.ph.preheader ]
   %.promoted240243276 = phi i32 [ %235, %bitstream_getbits.exit151 ], [ %.promoted242, %.lr.ph.preheader ]
   %.promoted239246275 = phi i32 [ %239, %bitstream_getbits.exit151 ], [ %.promoted245, %.lr.ph.preheader ]
   %.promoted238250274 = phi i32 [ %.promoted238249, %bitstream_getbits.exit151 ], [ %.promoted248, %.lr.ph.preheader ]
-  %224 = shl i32 %.072277, 1
+  %224 = shl i32 %.1277, 1
   %225 = add i8 %.0278, 1
   %226 = icmp eq i32 %223, 0
   br i1 %226, label %.split261, label %.preheader.i145
@@ -688,23 +688,23 @@ bitstream_getbits.exit151:                        ; preds = %bitstream_getbits.e
 
 .split:                                           ; preds = %.split.loopexit, %.preheader
   %.pr173252.lcssa = phi i32 [ %219, %.preheader ], [ 1, %.split.loopexit ]
-  %.072.lcssa = phi i32 [ 4, %.preheader ], [ %224, %.split.loopexit ]
+  %.1.lcssa = phi i32 [ 4, %.preheader ], [ %224, %.split.loopexit ]
   %.0.lcssa = phi i8 [ 2, %.preheader ], [ %225, %.split.loopexit ]
   store i32 %.pr173252.lcssa, ptr %4, align 4
   %241 = call fastcc i32 @bitstream_getbits(ptr noundef nonnull %3, i8 noundef zeroext %.0.lcssa, ptr noundef nonnull %4)
-  %242 = add i32 %241, %.072.lcssa
+  %242 = add i32 %241, %.1.lcssa
   %243 = load i32, ptr %4, align 4
   %.not101 = icmp eq i32 %243, 0
   br i1 %.not101, label %zgfx_write_literal.exit.thread, label %244
 
 244:                                              ; preds = %208, %.split
-  %.1 = phi i32 [ %242, %.split ], [ 3, %208 ]
-  %245 = zext i32 %.1 to i64
+  %.072 = phi i32 [ %242, %.split ], [ 3, %208 ]
+  %245 = zext i32 %.072 to i64
   %246 = load i32, ptr %61, align 4
   %247 = zext i32 %246 to i64
   %248 = sub nsw i64 65536, %247
   %249 = icmp ult i64 %248, %245
-  %250 = sub i32 65535, %.1
+  %250 = sub i32 65535, %.072
   %251 = icmp ugt i32 %246, %250
   %or.cond = or i1 %251, %249
   br i1 %or.cond, label %zgfx_write_literal.exit.thread, label %252
@@ -715,7 +715,7 @@ bitstream_getbits.exit151:                        ; preds = %bitstream_getbits.e
   %255 = sub i32 %253, %200
   %256 = add i32 %255, %254
   %257 = urem i32 %256, %254
-  %258 = tail call i32 @llvm.umin.i32(i32 %200, i32 %.1)
+  %258 = tail call i32 @llvm.umin.i32(i32 %200, i32 %.072)
   %259 = getelementptr [65536 x i8], ptr %62, i64 0, i64 %247
   %260 = add i32 %257, %258
   %261 = icmp ult i32 %260, %254
@@ -743,7 +743,7 @@ bitstream_getbits.exit151:                        ; preds = %bitstream_getbits.e
 
 274:                                              ; preds = %266, %262
   %.pre-phi.i = phi i64 [ %.pre.i152, %266 ], [ %265, %262 ]
-  %275 = sub i32 %.1, %258
+  %275 = sub i32 %.072, %258
   %.not62.i = icmp eq i32 %275, 0
   br i1 %.not62.i, label %._crit_edge.i155, label %.lr.ph.preheader.i
 
@@ -772,7 +772,7 @@ bitstream_getbits.exit151:                        ; preds = %bitstream_getbits.e
   %286 = zext i32 %285 to i64
   %287 = getelementptr [65536 x i8], ptr %62, i64 0, i64 %286
   %288 = load i32, ptr %64, align 4
-  %289 = icmp ult i32 %288, %.1
+  %289 = icmp ult i32 %288, %.072
   br i1 %289, label %290, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i155
@@ -780,7 +780,7 @@ bitstream_getbits.exit151:                        ; preds = %bitstream_getbits.e
   br label %295
 
 290:                                              ; preds = %._crit_edge.i155
-  %291 = sub nuw i32 %.1, %288
+  %291 = sub nuw i32 %.072, %288
   %292 = load i32, ptr %63, align 4
   %293 = add i32 %291, %292
   %294 = urem i32 %293, %288
@@ -789,7 +789,7 @@ bitstream_getbits.exit151:                        ; preds = %bitstream_getbits.e
 
 295:                                              ; preds = %290, %._crit_edge.i.i
   %296 = phi i32 [ %294, %290 ], [ %.pre.i.i, %._crit_edge.i.i ]
-  %.0.i.i = phi i32 [ %288, %290 ], [ %.1, %._crit_edge.i.i ]
+  %.0.i.i = phi i32 [ %288, %290 ], [ %.072, %._crit_edge.i.i ]
   %297 = add i32 %.0.i.i, %296
   %.not.i.i = icmp ugt i32 %297, %288
   br i1 %.not.i.i, label %302, label %298
@@ -820,7 +820,7 @@ zgfx_write_from_history.exit:                     ; preds = %298, %302
   %313 = urem i32 %311, %312
   store i32 %313, ptr %63, align 4
   %314 = load i32, ptr %61, align 4
-  %315 = add i32 %314, %.1
+  %315 = add i32 %314, %.072
   store i32 %315, ptr %61, align 4
   br label %.critedgethread-pre-split, !llvm.loop !6
 

@@ -279,9 +279,9 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper14commi
   br label %30
 
 30:                                               ; preds = %28, %17
-  %.1.ph.i.i.i = phi i64 [ %15, %17 ], [ %27, %28 ]
+  %.027.ph.i.i.i = phi i64 [ %15, %17 ], [ %27, %28 ]
   %.026.ph.i.i.i = phi i64 [ %5, %17 ], [ %29, %28 ]
-  %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %32 = add nuw i64 %.026.ph.i.i.i, %31
   %33 = icmp ult i64 %32, %6
   br i1 %33, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit, label %_ZN35G1RegionsLargerThanCommitSizeMapper20is_range_uncommittedEjm.exit.thread
@@ -400,9 +400,9 @@ define linkonce_odr hidden void @_ZN35G1RegionsLargerThanCommitSizeMapper16uncom
   br label %31
 
 31:                                               ; preds = %28, %17
-  %.1.ph.i.i.i = phi i64 [ %15, %17 ], [ %29, %28 ]
+  %.027.ph.i.i.i = phi i64 [ %15, %17 ], [ %29, %28 ]
   %.026.ph.i.i.i = phi i64 [ %4, %17 ], [ %30, %28 ]
-  %32 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %32 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %33 = add nuw i64 %.026.ph.i.i.i, %32
   %34 = icmp ult i64 %33, %5
   br i1 %34, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit, label %_ZN35G1RegionsLargerThanCommitSizeMapper18is_range_committedEjm.exit.thread
@@ -552,9 +552,9 @@ define linkonce_odr hidden void @_ZN36G1RegionsSmallerThanCommitSizeMapper14comm
   br label %44
 
 44:                                               ; preds = %42, %31
-  %.1.ph.i.i.i = phi i64 [ %29, %31 ], [ %41, %42 ]
+  %.027.ph.i.i.i = phi i64 [ %29, %31 ], [ %41, %42 ]
   %.026.ph.i.i.i = phi i64 [ %20, %31 ], [ %43, %42 ]
-  %45 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %45 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %46 = add i64 %.026.ph.i.i.i, %45
   %47 = icmp ult i64 %46, %21
   br i1 %47, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread
@@ -715,9 +715,9 @@ _ZN6BitMap11clear_rangeEmmNS_13RangeSizeHintE.exit: ; preds = %18, %27
   br label %55
 
 55:                                               ; preds = %53, %42
-  %.1.ph.i.i.i = phi i64 [ %40, %42 ], [ %52, %53 ]
+  %.027.ph.i.i.i = phi i64 [ %40, %42 ], [ %52, %53 ]
   %.026.ph.i.i.i = phi i64 [ %31, %42 ], [ %54, %53 ]
-  %56 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i, i1 true)
+  %56 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i, i1 true)
   %57 = add i64 %.026.ph.i.i.i, %56
   %58 = icmp ult i64 %57, %32
   br i1 %58, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit, label %_ZN36G1RegionsSmallerThanCommitSizeMapper17is_page_committedEm.exit.thread

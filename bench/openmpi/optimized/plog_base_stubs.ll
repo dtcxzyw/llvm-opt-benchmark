@@ -174,7 +174,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %52
   %.0136217 = phi i1 [ %.1, %82 ], [ true, %pmix_obj_run_constructors.exit ]
   %.0137216 = phi ptr [ %.1138, %82 ], [ null, %pmix_obj_run_constructors.exit ]
   %.0139215 = phi ptr [ %.1140, %82 ], [ null, %pmix_obj_run_constructors.exit ]
-  %.0143214 = phi i8 [ %.1144, %82 ], [ 0, %pmix_obj_run_constructors.exit ]
+  %.1144214 = phi i8 [ %.2, %82 ], [ 0, %pmix_obj_run_constructors.exit ]
   %.0148213 = phi i64 [ %83, %82 ], [ 0, %pmix_obj_run_constructors.exit ]
   %61 = getelementptr inbounds %struct.pmix_info, ptr %3, i64 %.0148213
   %62 = call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %61, ptr noundef nonnull @.str.1) #10
@@ -214,7 +214,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %52
   br label %82
 
 82:                                               ; preds = %63, %74, %79, %77, %69
-  %.1144 = phi i8 [ %66, %63 ], [ %.0143214, %69 ], [ %.0143214, %74 ], [ %.0143214, %79 ], [ %.0143214, %77 ]
+  %.2 = phi i8 [ %66, %63 ], [ %.1144214, %69 ], [ %.1144214, %74 ], [ %.1144214, %79 ], [ %.1144214, %77 ]
   %.1140 = phi ptr [ %.0139215, %63 ], [ %.0139215, %69 ], [ %76, %74 ], [ %.0139215, %79 ], [ %.0139215, %77 ]
   %.1138 = phi ptr [ %.0137216, %63 ], [ %.0137216, %69 ], [ %.0137216, %74 ], [ %81, %79 ], [ %.0137216, %77 ]
   %.1 = phi i1 [ %.0136217, %63 ], [ %71, %69 ], [ %.0136217, %74 ], [ %.0136217, %79 ], [ %.0136217, %77 ]
@@ -247,12 +247,12 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %52
   br i1 %exitcond255.not, label %.lr.ph232, label %.lr.ph224, !llvm.loop !8
 
 .loopexit210:                                     ; preds = %._crit_edge219, %86, %pmix_obj_run_constructors.exit
-  %.2 = phi i8 [ %.1144, %86 ], [ %.1144, %._crit_edge219 ], [ 0, %pmix_obj_run_constructors.exit ]
+  %.0143 = phi i8 [ %.2, %86 ], [ %.2, %._crit_edge219 ], [ 0, %pmix_obj_run_constructors.exit ]
   %.not254 = icmp eq i64 %2, 0
   br i1 %.not254, label %._crit_edge233, label %.lr.ph232
 
 .lr.ph232:                                        ; preds = %.lr.ph224, %.loopexit210
-  %.2267 = phi i8 [ %.2, %.loopexit210 ], [ %.1144, %.lr.ph224 ]
+  %.0143267 = phi i8 [ %.0143, %.loopexit210 ], [ %.2, %.lr.ph224 ]
   %94 = getelementptr inbounds i8, ptr %8, i64 120
   %95 = getelementptr inbounds i8, ptr %8, i64 248
   %96 = getelementptr inbounds i8, ptr %8, i64 264
@@ -352,7 +352,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader207, %.lo
   br i1 %exitcond257.not, label %._crit_edge233, label %97, !llvm.loop !11
 
 ._crit_edge233:                                   ; preds = %.loopexit208, %.loopexit210
-  %.2268 = phi i8 [ %.2, %.loopexit210 ], [ %.2267, %.loopexit208 ]
+  %.0143268 = phi i8 [ %.0143, %.loopexit210 ], [ %.0143267, %.loopexit208 ]
   %.0141.lcssa = phi i1 [ true, %.loopexit210 ], [ %.1142, %.loopexit208 ]
   %139 = getelementptr inbounds i8, ptr %8, i64 120
   %140 = getelementptr inbounds i8, ptr %8, i64 240
@@ -501,7 +501,7 @@ pmix_obj_run_destructors.exit186:                 ; preds = %.lr.ph.i183, %175
 .lr.ph246:                                        ; preds = %._crit_edge242
   %201 = getelementptr inbounds i8, ptr %29, i64 344
   %202 = getelementptr inbounds i8, ptr %29, i64 352
-  %203 = trunc nuw i8 %.2268 to i1
+  %203 = trunc nuw i8 %.0143268 to i1
   br label %204
 
 204:                                              ; preds = %.lr.ph246, %226

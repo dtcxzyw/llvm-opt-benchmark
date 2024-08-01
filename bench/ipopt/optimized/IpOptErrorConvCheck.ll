@@ -3152,11 +3152,11 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit177: ; preds = %_ZN5Ipopt8Smar
 
 436:                                              ; preds = %432, %434
   %.pn74 = phi { ptr, i32 } [ %435, %434 ], [ %433, %432 ]
-  %.1 = phi i1 [ %.0, %434 ], [ true, %432 ]
+  %.2 = phi i1 [ %.0, %434 ], [ true, %432 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #14
-  br i1 %.1, label %437, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit154
+  br i1 %.2, label %437, label %_ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit154
 
 437:                                              ; preds = %.thread307, %436
   %.pn74.pn310 = phi { ptr, i32 } [ %431, %.thread307 ], [ %.pn74, %436 ]

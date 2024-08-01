@@ -1452,7 +1452,7 @@ define ptr @find_conversation_full(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %23
 
 23:                                               ; preds = %.preheader, %26
-  %.145.i = phi ptr [ %spec.select41.i, %26 ], [ %.02644.i.ph, %.preheader ]
+  %.245.i = phi ptr [ %spec.select41.i, %26 ], [ %.02644.i.ph, %.preheader ]
   %.02644.i = phi ptr [ %30, %26 ], [ %.02644.i.ph, %.preheader ]
   %24 = getelementptr inbounds i8, ptr %.02644.i, i64 28
   %25 = load i32, ptr %24, align 4
@@ -1460,25 +1460,25 @@ define ptr @find_conversation_full(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not39.i, label %.critedge.i, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %.145.i, i64 28
+  %27 = getelementptr inbounds i8, ptr %.245.i, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = icmp ugt i32 %25, %28
-  %spec.select41.i = select i1 %29, ptr %.02644.i, ptr %.145.i
+  %spec.select41.i = select i1 %29, ptr %.02644.i, ptr %.245.i
   %30 = load ptr, ptr %.02644.i, align 8
   %.not38.i = icmp eq ptr %30, null
   br i1 %.not38.i, label %.critedge.i, label %23, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %26, %23
-  %.1.lcssa.i = phi ptr [ %.145.i, %23 ], [ %spec.select41.i, %26 ]
-  %.not40.i = icmp eq ptr %.1.lcssa.i, null
+  %.2.lcssa.i = phi ptr [ %.245.i, %23 ], [ %spec.select41.i, %26 ]
+  %.not40.i = icmp eq ptr %.2.lcssa.i, null
   br i1 %.not40.i, label %conversation_lookup_hashtable.exit, label %31
 
 31:                                               ; preds = %.critedge.i
-  store ptr %.1.lcssa.i, ptr %18, align 8
+  store ptr %.2.lcssa.i, ptr %18, align 8
   br label %conversation_lookup_hashtable.exit
 
 conversation_lookup_hashtable.exit:               ; preds = %31, %.critedge.i, %14, %8, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ %13, %14 ], [ %.1.lcssa.i, %31 ], [ null, %.critedge.i ], [ null, %8 ], [ null, %6 ]
+  %.0 = phi ptr [ null, %2 ], [ %13, %14 ], [ %.2.lcssa.i, %31 ], [ null, %.critedge.i ], [ null, %8 ], [ null, %6 ]
   ret ptr %.0
 }
 
@@ -1580,7 +1580,7 @@ define ptr @find_conversation(i32 noundef %0, ptr noundef %1, ptr noundef %2, i3
   br label %52
 
 52:                                               ; preds = %.preheader466, %55
-  %.145.i.i = phi ptr [ %spec.select41.i.i, %55 ], [ %.02644.i.i.ph, %.preheader466 ]
+  %.245.i.i = phi ptr [ %spec.select41.i.i, %55 ], [ %.02644.i.i.ph, %.preheader466 ]
   %.02644.i.i = phi ptr [ %59, %55 ], [ %.02644.i.i.ph, %.preheader466 ]
   %53 = getelementptr inbounds i8, ptr %.02644.i.i, i64 28
   %54 = load i32, ptr %53, align 4
@@ -1588,25 +1588,25 @@ define ptr @find_conversation(i32 noundef %0, ptr noundef %1, ptr noundef %2, i3
   br i1 %.not39.i.i, label %.critedge.i.i, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %.145.i.i, i64 28
+  %56 = getelementptr inbounds i8, ptr %.245.i.i, i64 28
   %57 = load i32, ptr %56, align 4
   %58 = icmp ugt i32 %54, %57
-  %spec.select41.i.i = select i1 %58, ptr %.02644.i.i, ptr %.145.i.i
+  %spec.select41.i.i = select i1 %58, ptr %.02644.i.i, ptr %.245.i.i
   %59 = load ptr, ptr %.02644.i.i, align 8
   %.not38.i.i = icmp eq ptr %59, null
   br i1 %.not38.i.i, label %.critedge.i.i, label %52, !llvm.loop !11
 
 .critedge.i.i:                                    ; preds = %55, %52
-  %.1.lcssa.i.i = phi ptr [ %.145.i.i, %52 ], [ %spec.select41.i.i, %55 ]
-  %.not40.i.i = icmp eq ptr %.1.lcssa.i.i, null
+  %.2.lcssa.i.i = phi ptr [ %.245.i.i, %52 ], [ %spec.select41.i.i, %55 ]
+  %.not40.i.i = icmp eq ptr %.2.lcssa.i.i, null
   br i1 %.not40.i.i, label %conversation_lookup_exact.exit, label %60
 
 60:                                               ; preds = %.critedge.i.i
-  store ptr %.1.lcssa.i.i, ptr %47, align 8
+  store ptr %.2.lcssa.i.i, ptr %47, align 8
   br label %conversation_lookup_exact.exit
 
 conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.critedge.i.i, %60
-  %.027.i.i = phi ptr [ %42, %43 ], [ %.1.lcssa.i.i, %60 ], [ null, %.critedge.i.i ], [ null, %37 ], [ null, %25 ]
+  %.027.i.i = phi ptr [ %42, %43 ], [ %.2.lcssa.i.i, %60 ], [ null, %.critedge.i.i ], [ null, %37 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %19)
   store i32 1, ptr %19, align 16
@@ -1671,7 +1671,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br label %87
 
 87:                                               ; preds = %.preheader465, %90
-  %.145.i.i206 = phi ptr [ %spec.select41.i.i209, %90 ], [ %.02644.i.i207.ph, %.preheader465 ]
+  %.245.i.i206 = phi ptr [ %spec.select41.i.i209, %90 ], [ %.02644.i.i207.ph, %.preheader465 ]
   %.02644.i.i207 = phi ptr [ %94, %90 ], [ %.02644.i.i207.ph, %.preheader465 ]
   %88 = getelementptr inbounds i8, ptr %.02644.i.i207, i64 28
   %89 = load i32, ptr %88, align 4
@@ -1679,25 +1679,25 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br i1 %.not39.i.i208, label %.critedge.i.i211, label %90
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %.145.i.i206, i64 28
+  %91 = getelementptr inbounds i8, ptr %.245.i.i206, i64 28
   %92 = load i32, ptr %91, align 4
   %93 = icmp ugt i32 %89, %92
-  %spec.select41.i.i209 = select i1 %93, ptr %.02644.i.i207, ptr %.145.i.i206
+  %spec.select41.i.i209 = select i1 %93, ptr %.02644.i.i207, ptr %.245.i.i206
   %94 = load ptr, ptr %.02644.i.i207, align 8
   %.not38.i.i210 = icmp eq ptr %94, null
   br i1 %.not38.i.i210, label %.critedge.i.i211, label %87, !llvm.loop !11
 
 .critedge.i.i211:                                 ; preds = %90, %87
-  %.1.lcssa.i.i212 = phi ptr [ %.145.i.i206, %87 ], [ %spec.select41.i.i209, %90 ]
-  %.not40.i.i213 = icmp eq ptr %.1.lcssa.i.i212, null
+  %.2.lcssa.i.i212 = phi ptr [ %.245.i.i206, %87 ], [ %spec.select41.i.i209, %90 ]
+  %.not40.i.i213 = icmp eq ptr %.2.lcssa.i.i212, null
   br i1 %.not40.i.i213, label %103, label %95
 
 95:                                               ; preds = %.critedge.i.i211
-  store ptr %.1.lcssa.i.i212, ptr %82, align 8
+  store ptr %.2.lcssa.i.i212, ptr %82, align 8
   br label %96
 
 96:                                               ; preds = %95, %78
-  %.027.i.i201 = phi ptr [ %77, %78 ], [ %.1.lcssa.i.i212, %95 ]
+  %.027.i.i201 = phi ptr [ %77, %78 ], [ %.2.lcssa.i.i212, %95 ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %19)
   %.not168 = icmp eq ptr %.027.i.i, null
   br i1 %.not168, label %.thread413, label %97
@@ -1785,7 +1785,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br label %135
 
 135:                                              ; preds = %.preheader464, %138
-  %.145.i.i224 = phi ptr [ %spec.select41.i.i227, %138 ], [ %.02644.i.i225.ph, %.preheader464 ]
+  %.245.i.i224 = phi ptr [ %spec.select41.i.i227, %138 ], [ %.02644.i.i225.ph, %.preheader464 ]
   %.02644.i.i225 = phi ptr [ %142, %138 ], [ %.02644.i.i225.ph, %.preheader464 ]
   %136 = getelementptr inbounds i8, ptr %.02644.i.i225, i64 28
   %137 = load i32, ptr %136, align 4
@@ -1793,21 +1793,21 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br i1 %.not39.i.i226, label %.critedge.i.i229, label %138
 
 138:                                              ; preds = %135
-  %139 = getelementptr inbounds i8, ptr %.145.i.i224, i64 28
+  %139 = getelementptr inbounds i8, ptr %.245.i.i224, i64 28
   %140 = load i32, ptr %139, align 4
   %141 = icmp ugt i32 %137, %140
-  %spec.select41.i.i227 = select i1 %141, ptr %.02644.i.i225, ptr %.145.i.i224
+  %spec.select41.i.i227 = select i1 %141, ptr %.02644.i.i225, ptr %.245.i.i224
   %142 = load ptr, ptr %.02644.i.i225, align 8
   %.not38.i.i228 = icmp eq ptr %142, null
   br i1 %.not38.i.i228, label %.critedge.i.i229, label %135, !llvm.loop !11
 
 .critedge.i.i229:                                 ; preds = %138, %135
-  %.1.lcssa.i.i230 = phi ptr [ %.145.i.i224, %135 ], [ %spec.select41.i.i227, %138 ]
-  %.not40.i.i231 = icmp eq ptr %.1.lcssa.i.i230, null
+  %.2.lcssa.i.i230 = phi ptr [ %.245.i.i224, %135 ], [ %spec.select41.i.i227, %138 ]
+  %.not40.i.i231 = icmp eq ptr %.2.lcssa.i.i230, null
   br i1 %.not40.i.i231, label %.thread420, label %143
 
 143:                                              ; preds = %.critedge.i.i229
-  store ptr %.1.lcssa.i.i230, ptr %130, align 8
+  store ptr %.2.lcssa.i.i230, ptr %130, align 8
   br label %144
 
 .thread420:                                       ; preds = %.critedge.i.i229, %120, %108
@@ -1815,7 +1815,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br label %.thread416
 
 144:                                              ; preds = %143, %126
-  %.027.i.i219 = phi ptr [ %125, %126 ], [ %.1.lcssa.i.i230, %143 ]
+  %.027.i.i219 = phi ptr [ %125, %126 ], [ %.2.lcssa.i.i230, %143 ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %18)
   br label %.thread413
 
@@ -1884,7 +1884,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br label %171
 
 171:                                              ; preds = %.preheader463, %174
-  %.145.i.i242 = phi ptr [ %spec.select41.i.i245, %174 ], [ %.02644.i.i243.ph, %.preheader463 ]
+  %.245.i.i242 = phi ptr [ %spec.select41.i.i245, %174 ], [ %.02644.i.i243.ph, %.preheader463 ]
   %.02644.i.i243 = phi ptr [ %178, %174 ], [ %.02644.i.i243.ph, %.preheader463 ]
   %172 = getelementptr inbounds i8, ptr %.02644.i.i243, i64 28
   %173 = load i32, ptr %172, align 4
@@ -1892,25 +1892,25 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br i1 %.not39.i.i244, label %.critedge.i.i247, label %174
 
 174:                                              ; preds = %171
-  %175 = getelementptr inbounds i8, ptr %.145.i.i242, i64 28
+  %175 = getelementptr inbounds i8, ptr %.245.i.i242, i64 28
   %176 = load i32, ptr %175, align 4
   %177 = icmp ugt i32 %173, %176
-  %spec.select41.i.i245 = select i1 %177, ptr %.02644.i.i243, ptr %.145.i.i242
+  %spec.select41.i.i245 = select i1 %177, ptr %.02644.i.i243, ptr %.245.i.i242
   %178 = load ptr, ptr %.02644.i.i243, align 8
   %.not38.i.i246 = icmp eq ptr %178, null
   br i1 %.not38.i.i246, label %.critedge.i.i247, label %171, !llvm.loop !11
 
 .critedge.i.i247:                                 ; preds = %174, %171
-  %.1.lcssa.i.i248 = phi ptr [ %.145.i.i242, %171 ], [ %spec.select41.i.i245, %174 ]
-  %.not40.i.i249 = icmp eq ptr %.1.lcssa.i.i248, null
+  %.2.lcssa.i.i248 = phi ptr [ %.245.i.i242, %171 ], [ %spec.select41.i.i245, %174 ]
+  %.not40.i.i249 = icmp eq ptr %.2.lcssa.i.i248, null
   br i1 %.not40.i.i249, label %180, label %179
 
 179:                                              ; preds = %.critedge.i.i247
-  store ptr %.1.lcssa.i.i248, ptr %166, align 8
+  store ptr %.2.lcssa.i.i248, ptr %166, align 8
   br label %.thread427
 
 .thread427:                                       ; preds = %179, %162
-  %.027.i.i237 = phi ptr [ %161, %162 ], [ %.1.lcssa.i.i248, %179 ]
+  %.027.i.i237 = phi ptr [ %161, %162 ], [ %.2.lcssa.i.i248, %179 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %17)
   br label %218
 
@@ -1980,7 +1980,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br label %208
 
 208:                                              ; preds = %.preheader462, %211
-  %.145.i.i259 = phi ptr [ %spec.select41.i.i262, %211 ], [ %.02644.i.i260.ph, %.preheader462 ]
+  %.245.i.i259 = phi ptr [ %spec.select41.i.i262, %211 ], [ %.02644.i.i260.ph, %.preheader462 ]
   %.02644.i.i260 = phi ptr [ %215, %211 ], [ %.02644.i.i260.ph, %.preheader462 ]
   %209 = getelementptr inbounds i8, ptr %.02644.i.i260, i64 28
   %210 = load i32, ptr %209, align 4
@@ -1988,21 +1988,21 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br i1 %.not39.i.i261, label %.critedge.i.i264, label %211
 
 211:                                              ; preds = %208
-  %212 = getelementptr inbounds i8, ptr %.145.i.i259, i64 28
+  %212 = getelementptr inbounds i8, ptr %.245.i.i259, i64 28
   %213 = load i32, ptr %212, align 4
   %214 = icmp ugt i32 %210, %213
-  %spec.select41.i.i262 = select i1 %214, ptr %.02644.i.i260, ptr %.145.i.i259
+  %spec.select41.i.i262 = select i1 %214, ptr %.02644.i.i260, ptr %.245.i.i259
   %215 = load ptr, ptr %.02644.i.i260, align 8
   %.not38.i.i263 = icmp eq ptr %215, null
   br i1 %.not38.i.i263, label %.critedge.i.i264, label %208, !llvm.loop !11
 
 .critedge.i.i264:                                 ; preds = %211, %208
-  %.1.lcssa.i.i265 = phi ptr [ %.145.i.i259, %208 ], [ %spec.select41.i.i262, %211 ]
-  %.not40.i.i266 = icmp eq ptr %.1.lcssa.i.i265, null
+  %.2.lcssa.i.i265 = phi ptr [ %.245.i.i259, %208 ], [ %spec.select41.i.i262, %211 ]
+  %.not40.i.i266 = icmp eq ptr %.2.lcssa.i.i265, null
   br i1 %.not40.i.i266, label %.thread432, label %216
 
 216:                                              ; preds = %.critedge.i.i264
-  store ptr %.1.lcssa.i.i265, ptr %203, align 8
+  store ptr %.2.lcssa.i.i265, ptr %203, align 8
   br label %217
 
 .thread432:                                       ; preds = %.critedge.i.i264, %193, %183
@@ -2010,13 +2010,13 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br label %.thread424
 
 217:                                              ; preds = %216, %199
-  %.027.i.i254 = phi ptr [ %198, %199 ], [ %.1.lcssa.i.i265, %216 ]
+  %.027.i.i254 = phi ptr [ %198, %199 ], [ %.2.lcssa.i.i265, %216 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %16)
   br label %218
 
 218:                                              ; preds = %217, %.thread427
-  %.2430 = phi ptr [ %.027.i.i237, %.thread427 ], [ %.027.i.i254, %217 ]
-  %219 = getelementptr inbounds i8, ptr %.2430, i64 56
+  %.3430 = phi ptr [ %.027.i.i237, %.thread427 ], [ %.027.i.i254, %217 ]
+  %219 = getelementptr inbounds i8, ptr %.3430, i64 56
   %220 = load i32, ptr %219, align 8
   %221 = and i32 %220, 1
   %222 = icmp eq i32 %221, 0
@@ -2030,11 +2030,11 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br i1 %.not176, label %226, label %227
 
 226:                                              ; preds = %224
-  call void @conversation_set_addr2(ptr noundef nonnull %.2430, ptr noundef nonnull %spec.store.select4)
+  call void @conversation_set_addr2(ptr noundef nonnull %.3430, ptr noundef nonnull %spec.store.select4)
   br label %.thread413
 
 227:                                              ; preds = %224
-  %228 = call fastcc ptr @conversation_create_from_template(ptr noundef nonnull %.2430, ptr noundef nonnull %spec.store.select4, i32 noundef 0)
+  %228 = call fastcc ptr @conversation_create_from_template(ptr noundef nonnull %.3430, ptr noundef nonnull %spec.store.select4, i32 noundef 0)
   br label %.thread413
 
 .thread424:                                       ; preds = %180, %.thread432
@@ -2102,7 +2102,7 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br label %255
 
 255:                                              ; preds = %.preheader461, %258
-  %.145.i.i277 = phi ptr [ %spec.select41.i.i280, %258 ], [ %.02644.i.i278.ph, %.preheader461 ]
+  %.245.i.i277 = phi ptr [ %spec.select41.i.i280, %258 ], [ %.02644.i.i278.ph, %.preheader461 ]
   %.02644.i.i278 = phi ptr [ %262, %258 ], [ %.02644.i.i278.ph, %.preheader461 ]
   %256 = getelementptr inbounds i8, ptr %.02644.i.i278, i64 28
   %257 = load i32, ptr %256, align 4
@@ -2110,21 +2110,21 @@ conversation_lookup_exact.exit:                   ; preds = %25, %37, %43, %.cri
   br i1 %.not39.i.i279, label %.critedge.i.i282, label %258
 
 258:                                              ; preds = %255
-  %259 = getelementptr inbounds i8, ptr %.145.i.i277, i64 28
+  %259 = getelementptr inbounds i8, ptr %.245.i.i277, i64 28
   %260 = load i32, ptr %259, align 4
   %261 = icmp ugt i32 %257, %260
-  %spec.select41.i.i280 = select i1 %261, ptr %.02644.i.i278, ptr %.145.i.i277
+  %spec.select41.i.i280 = select i1 %261, ptr %.02644.i.i278, ptr %.245.i.i277
   %262 = load ptr, ptr %.02644.i.i278, align 8
   %.not38.i.i281 = icmp eq ptr %262, null
   br i1 %.not38.i.i281, label %.critedge.i.i282, label %255, !llvm.loop !11
 
 .critedge.i.i282:                                 ; preds = %258, %255
-  %.1.lcssa.i.i283 = phi ptr [ %.145.i.i277, %255 ], [ %spec.select41.i.i280, %258 ]
-  %.not40.i.i284 = icmp eq ptr %.1.lcssa.i.i283, null
+  %.2.lcssa.i.i283 = phi ptr [ %.245.i.i277, %255 ], [ %spec.select41.i.i280, %258 ]
+  %.not40.i.i284 = icmp eq ptr %.2.lcssa.i.i283, null
   br i1 %.not40.i.i284, label %conversation_lookup_no_addr2.exit285.thread, label %263
 
 263:                                              ; preds = %.critedge.i.i282
-  store ptr %.1.lcssa.i.i283, ptr %250, align 8
+  store ptr %.2.lcssa.i.i283, ptr %250, align 8
   br label %264
 
 conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %240, %230
@@ -2132,7 +2132,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   br label %272
 
 264:                                              ; preds = %263, %246
-  %.027.i.i272 = phi ptr [ %245, %246 ], [ %.1.lcssa.i.i283, %263 ]
+  %.027.i.i272 = phi ptr [ %245, %246 ], [ %.2.lcssa.i.i283, %263 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15)
   %.not174 = icmp eq i32 %3, 3
   br i1 %.not174, label %.thread413, label %265
@@ -2216,7 +2216,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   br label %299
 
 299:                                              ; preds = %.preheader460, %302
-  %.145.i.i295 = phi ptr [ %spec.select41.i.i298, %302 ], [ %.02644.i.i296.ph, %.preheader460 ]
+  %.245.i.i295 = phi ptr [ %spec.select41.i.i298, %302 ], [ %.02644.i.i296.ph, %.preheader460 ]
   %.02644.i.i296 = phi ptr [ %306, %302 ], [ %.02644.i.i296.ph, %.preheader460 ]
   %300 = getelementptr inbounds i8, ptr %.02644.i.i296, i64 28
   %301 = load i32, ptr %300, align 4
@@ -2224,25 +2224,25 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   br i1 %.not39.i.i297, label %.critedge.i.i300, label %302
 
 302:                                              ; preds = %299
-  %303 = getelementptr inbounds i8, ptr %.145.i.i295, i64 28
+  %303 = getelementptr inbounds i8, ptr %.245.i.i295, i64 28
   %304 = load i32, ptr %303, align 4
   %305 = icmp ugt i32 %301, %304
-  %spec.select41.i.i298 = select i1 %305, ptr %.02644.i.i296, ptr %.145.i.i295
+  %spec.select41.i.i298 = select i1 %305, ptr %.02644.i.i296, ptr %.245.i.i295
   %306 = load ptr, ptr %.02644.i.i296, align 8
   %.not38.i.i299 = icmp eq ptr %306, null
   br i1 %.not38.i.i299, label %.critedge.i.i300, label %299, !llvm.loop !11
 
 .critedge.i.i300:                                 ; preds = %302, %299
-  %.1.lcssa.i.i301 = phi ptr [ %.145.i.i295, %299 ], [ %spec.select41.i.i298, %302 ]
-  %.not40.i.i302 = icmp eq ptr %.1.lcssa.i.i301, null
+  %.2.lcssa.i.i301 = phi ptr [ %.245.i.i295, %299 ], [ %spec.select41.i.i298, %302 ]
+  %.not40.i.i302 = icmp eq ptr %.2.lcssa.i.i301, null
   br i1 %.not40.i.i302, label %308, label %307
 
 307:                                              ; preds = %.critedge.i.i300
-  store ptr %.1.lcssa.i.i301, ptr %294, align 8
+  store ptr %.2.lcssa.i.i301, ptr %294, align 8
   br label %.thread441
 
 .thread441:                                       ; preds = %307, %290
-  %.027.i.i290 = phi ptr [ %289, %290 ], [ %.1.lcssa.i.i301, %307 ]
+  %.027.i.i290 = phi ptr [ %289, %290 ], [ %.2.lcssa.i.i301, %307 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %14)
   br label %346
 
@@ -2311,7 +2311,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   br label %336
 
 336:                                              ; preds = %.preheader459, %339
-  %.145.i.i312 = phi ptr [ %spec.select41.i.i315, %339 ], [ %.02644.i.i313.ph, %.preheader459 ]
+  %.245.i.i312 = phi ptr [ %spec.select41.i.i315, %339 ], [ %.02644.i.i313.ph, %.preheader459 ]
   %.02644.i.i313 = phi ptr [ %343, %339 ], [ %.02644.i.i313.ph, %.preheader459 ]
   %337 = getelementptr inbounds i8, ptr %.02644.i.i313, i64 28
   %338 = load i32, ptr %337, align 4
@@ -2319,21 +2319,21 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   br i1 %.not39.i.i314, label %.critedge.i.i317, label %339
 
 339:                                              ; preds = %336
-  %340 = getelementptr inbounds i8, ptr %.145.i.i312, i64 28
+  %340 = getelementptr inbounds i8, ptr %.245.i.i312, i64 28
   %341 = load i32, ptr %340, align 4
   %342 = icmp ugt i32 %338, %341
-  %spec.select41.i.i315 = select i1 %342, ptr %.02644.i.i313, ptr %.145.i.i312
+  %spec.select41.i.i315 = select i1 %342, ptr %.02644.i.i313, ptr %.245.i.i312
   %343 = load ptr, ptr %.02644.i.i313, align 8
   %.not38.i.i316 = icmp eq ptr %343, null
   br i1 %.not38.i.i316, label %.critedge.i.i317, label %336, !llvm.loop !11
 
 .critedge.i.i317:                                 ; preds = %339, %336
-  %.1.lcssa.i.i318 = phi ptr [ %.145.i.i312, %336 ], [ %spec.select41.i.i315, %339 ]
-  %.not40.i.i319 = icmp eq ptr %.1.lcssa.i.i318, null
+  %.2.lcssa.i.i318 = phi ptr [ %.245.i.i312, %336 ], [ %spec.select41.i.i315, %339 ]
+  %.not40.i.i319 = icmp eq ptr %.2.lcssa.i.i318, null
   br i1 %.not40.i.i319, label %.thread446, label %344
 
 344:                                              ; preds = %.critedge.i.i317
-  store ptr %.1.lcssa.i.i318, ptr %331, align 8
+  store ptr %.2.lcssa.i.i318, ptr %331, align 8
   br label %345
 
 .thread446:                                       ; preds = %.critedge.i.i317, %321, %311
@@ -2341,13 +2341,13 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   br label %.thread438
 
 345:                                              ; preds = %344, %327
-  %.027.i.i307 = phi ptr [ %326, %327 ], [ %.1.lcssa.i.i318, %344 ]
+  %.027.i.i307 = phi ptr [ %326, %327 ], [ %.2.lcssa.i.i318, %344 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13)
   br label %346
 
 346:                                              ; preds = %345, %.thread441
-  %.3444 = phi ptr [ %.027.i.i290, %.thread441 ], [ %.027.i.i307, %345 ]
-  %347 = getelementptr inbounds i8, ptr %.3444, i64 56
+  %.4444 = phi ptr [ %.027.i.i290, %.thread441 ], [ %.027.i.i307, %345 ]
+  %347 = getelementptr inbounds i8, ptr %.4444, i64 56
   %348 = load i32, ptr %347, align 8
   %349 = and i32 %348, 2
   %350 = icmp eq i32 %349, 0
@@ -2361,11 +2361,11 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   br i1 %.not183, label %354, label %355
 
 354:                                              ; preds = %352
-  call void @conversation_set_port2(ptr noundef nonnull %.3444, i32 noundef %5)
+  call void @conversation_set_port2(ptr noundef nonnull %.4444, i32 noundef %5)
   br label %.thread413
 
 355:                                              ; preds = %352
-  %356 = call fastcc ptr @conversation_create_from_template(ptr noundef nonnull %.3444, ptr noundef null, i32 noundef %5)
+  %356 = call fastcc ptr @conversation_create_from_template(ptr noundef nonnull %.4444, ptr noundef null, i32 noundef %5)
   br label %.thread413
 
 .thread438:                                       ; preds = %308, %.thread446
@@ -2432,7 +2432,7 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   br label %383
 
 383:                                              ; preds = %.preheader458, %386
-  %.145.i.i330 = phi ptr [ %spec.select41.i.i333, %386 ], [ %.02644.i.i331.ph, %.preheader458 ]
+  %.245.i.i330 = phi ptr [ %spec.select41.i.i333, %386 ], [ %.02644.i.i331.ph, %.preheader458 ]
   %.02644.i.i331 = phi ptr [ %390, %386 ], [ %.02644.i.i331.ph, %.preheader458 ]
   %384 = getelementptr inbounds i8, ptr %.02644.i.i331, i64 28
   %385 = load i32, ptr %384, align 4
@@ -2440,21 +2440,21 @@ conversation_lookup_no_addr2.exit285.thread:      ; preds = %.critedge.i.i282, %
   br i1 %.not39.i.i332, label %.critedge.i.i335, label %386
 
 386:                                              ; preds = %383
-  %387 = getelementptr inbounds i8, ptr %.145.i.i330, i64 28
+  %387 = getelementptr inbounds i8, ptr %.245.i.i330, i64 28
   %388 = load i32, ptr %387, align 4
   %389 = icmp ugt i32 %385, %388
-  %spec.select41.i.i333 = select i1 %389, ptr %.02644.i.i331, ptr %.145.i.i330
+  %spec.select41.i.i333 = select i1 %389, ptr %.02644.i.i331, ptr %.245.i.i330
   %390 = load ptr, ptr %.02644.i.i331, align 8
   %.not38.i.i334 = icmp eq ptr %390, null
   br i1 %.not38.i.i334, label %.critedge.i.i335, label %383, !llvm.loop !11
 
 .critedge.i.i335:                                 ; preds = %386, %383
-  %.1.lcssa.i.i336 = phi ptr [ %.145.i.i330, %383 ], [ %spec.select41.i.i333, %386 ]
-  %.not40.i.i337 = icmp eq ptr %.1.lcssa.i.i336, null
+  %.2.lcssa.i.i336 = phi ptr [ %.245.i.i330, %383 ], [ %spec.select41.i.i333, %386 ]
+  %.not40.i.i337 = icmp eq ptr %.2.lcssa.i.i336, null
   br i1 %.not40.i.i337, label %conversation_lookup_no_port2.exit338.thread, label %391
 
 391:                                              ; preds = %.critedge.i.i335
-  store ptr %.1.lcssa.i.i336, ptr %378, align 8
+  store ptr %.2.lcssa.i.i336, ptr %378, align 8
   br label %392
 
 conversation_lookup_no_port2.exit338.thread:      ; preds = %.critedge.i.i335, %368, %358
@@ -2462,7 +2462,7 @@ conversation_lookup_no_port2.exit338.thread:      ; preds = %.critedge.i.i335, %
   br label %400
 
 392:                                              ; preds = %391, %374
-  %.027.i.i325 = phi ptr [ %373, %374 ], [ %.1.lcssa.i.i336, %391 ]
+  %.027.i.i325 = phi ptr [ %373, %374 ], [ %.2.lcssa.i.i336, %391 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12)
   %.not181 = icmp eq i32 %3, 3
   br i1 %.not181, label %.thread413, label %393
@@ -2537,7 +2537,7 @@ conversation_lookup_no_port2.exit338.thread:      ; preds = %.critedge.i.i335, %
   br label %423
 
 423:                                              ; preds = %.preheader457, %426
-  %.145.i.i348 = phi ptr [ %spec.select41.i.i351, %426 ], [ %.02644.i.i349.ph, %.preheader457 ]
+  %.245.i.i348 = phi ptr [ %spec.select41.i.i351, %426 ], [ %.02644.i.i349.ph, %.preheader457 ]
   %.02644.i.i349 = phi ptr [ %430, %426 ], [ %.02644.i.i349.ph, %.preheader457 ]
   %424 = getelementptr inbounds i8, ptr %.02644.i.i349, i64 28
   %425 = load i32, ptr %424, align 4
@@ -2545,25 +2545,25 @@ conversation_lookup_no_port2.exit338.thread:      ; preds = %.critedge.i.i335, %
   br i1 %.not39.i.i350, label %.critedge.i.i353, label %426
 
 426:                                              ; preds = %423
-  %427 = getelementptr inbounds i8, ptr %.145.i.i348, i64 28
+  %427 = getelementptr inbounds i8, ptr %.245.i.i348, i64 28
   %428 = load i32, ptr %427, align 4
   %429 = icmp ugt i32 %425, %428
-  %spec.select41.i.i351 = select i1 %429, ptr %.02644.i.i349, ptr %.145.i.i348
+  %spec.select41.i.i351 = select i1 %429, ptr %.02644.i.i349, ptr %.245.i.i348
   %430 = load ptr, ptr %.02644.i.i349, align 8
   %.not38.i.i352 = icmp eq ptr %430, null
   br i1 %.not38.i.i352, label %.critedge.i.i353, label %423, !llvm.loop !11
 
 .critedge.i.i353:                                 ; preds = %426, %423
-  %.1.lcssa.i.i354 = phi ptr [ %.145.i.i348, %423 ], [ %spec.select41.i.i351, %426 ]
-  %.not40.i.i355 = icmp eq ptr %.1.lcssa.i.i354, null
+  %.2.lcssa.i.i354 = phi ptr [ %.245.i.i348, %423 ], [ %spec.select41.i.i351, %426 ]
+  %.not40.i.i355 = icmp eq ptr %.2.lcssa.i.i354, null
   br i1 %.not40.i.i355, label %446, label %431
 
 431:                                              ; preds = %.critedge.i.i353
-  store ptr %.1.lcssa.i.i354, ptr %418, align 8
+  store ptr %.2.lcssa.i.i354, ptr %418, align 8
   br label %432
 
 432:                                              ; preds = %431, %414
-  %.027.i.i343 = phi ptr [ %413, %414 ], [ %.1.lcssa.i.i354, %431 ]
+  %.027.i.i343 = phi ptr [ %413, %414 ], [ %.2.lcssa.i.i354, %431 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %11)
   %.not192 = icmp eq i32 %3, 3
   br i1 %.not192, label %.thread413, label %433
@@ -2664,7 +2664,7 @@ conversation_lookup_no_port2.exit338.thread:      ; preds = %.critedge.i.i335, %
   br label %473
 
 473:                                              ; preds = %.preheader455, %476
-  %.145.i.i365 = phi ptr [ %spec.select41.i.i368, %476 ], [ %.02644.i.i366.ph, %.preheader455 ]
+  %.245.i.i365 = phi ptr [ %spec.select41.i.i368, %476 ], [ %.02644.i.i366.ph, %.preheader455 ]
   %.02644.i.i366 = phi ptr [ %480, %476 ], [ %.02644.i.i366.ph, %.preheader455 ]
   %474 = getelementptr inbounds i8, ptr %.02644.i.i366, i64 28
   %475 = load i32, ptr %474, align 4
@@ -2672,25 +2672,25 @@ conversation_lookup_no_port2.exit338.thread:      ; preds = %.critedge.i.i335, %
   br i1 %.not39.i.i367, label %.critedge.i.i370, label %476
 
 476:                                              ; preds = %473
-  %477 = getelementptr inbounds i8, ptr %.145.i.i365, i64 28
+  %477 = getelementptr inbounds i8, ptr %.245.i.i365, i64 28
   %478 = load i32, ptr %477, align 4
   %479 = icmp ugt i32 %475, %478
-  %spec.select41.i.i368 = select i1 %479, ptr %.02644.i.i366, ptr %.145.i.i365
+  %spec.select41.i.i368 = select i1 %479, ptr %.02644.i.i366, ptr %.245.i.i365
   %480 = load ptr, ptr %.02644.i.i366, align 8
   %.not38.i.i369 = icmp eq ptr %480, null
   br i1 %.not38.i.i369, label %.critedge.i.i370, label %473, !llvm.loop !11
 
 .critedge.i.i370:                                 ; preds = %476, %473
-  %.1.lcssa.i.i371 = phi ptr [ %.145.i.i365, %473 ], [ %spec.select41.i.i368, %476 ]
-  %.not40.i.i372 = icmp eq ptr %.1.lcssa.i.i371, null
+  %.2.lcssa.i.i371 = phi ptr [ %.245.i.i365, %473 ], [ %spec.select41.i.i368, %476 ]
+  %.not40.i.i372 = icmp eq ptr %.2.lcssa.i.i371, null
   br i1 %.not40.i.i372, label %conversation_lookup_no_addr2_or_port2.exit373, label %481
 
 481:                                              ; preds = %.critedge.i.i370
-  store ptr %.1.lcssa.i.i371, ptr %468, align 8
+  store ptr %.2.lcssa.i.i371, ptr %468, align 8
   br label %conversation_lookup_no_addr2_or_port2.exit373
 
 conversation_lookup_no_addr2_or_port2.exit373:    ; preds = %450, %458, %464, %.critedge.i.i370, %481
-  %.027.i.i360 = phi ptr [ %463, %464 ], [ %.1.lcssa.i.i371, %481 ], [ null, %.critedge.i.i370 ], [ null, %458 ], [ null, %450 ]
+  %.027.i.i360 = phi ptr [ %463, %464 ], [ %.2.lcssa.i.i371, %481 ], [ null, %.critedge.i.i370 ], [ null, %458 ], [ null, %450 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10)
   br label %514
 
@@ -2749,7 +2749,7 @@ conversation_lookup_no_addr2_or_port2.exit373:    ; preds = %450, %458, %464, %.
   br label %505
 
 505:                                              ; preds = %.preheader456, %508
-  %.145.i.i383 = phi ptr [ %spec.select41.i.i386, %508 ], [ %.02644.i.i384.ph, %.preheader456 ]
+  %.245.i.i383 = phi ptr [ %spec.select41.i.i386, %508 ], [ %.02644.i.i384.ph, %.preheader456 ]
   %.02644.i.i384 = phi ptr [ %512, %508 ], [ %.02644.i.i384.ph, %.preheader456 ]
   %506 = getelementptr inbounds i8, ptr %.02644.i.i384, i64 28
   %507 = load i32, ptr %506, align 4
@@ -2757,31 +2757,31 @@ conversation_lookup_no_addr2_or_port2.exit373:    ; preds = %450, %458, %464, %.
   br i1 %.not39.i.i385, label %.critedge.i.i388, label %508
 
 508:                                              ; preds = %505
-  %509 = getelementptr inbounds i8, ptr %.145.i.i383, i64 28
+  %509 = getelementptr inbounds i8, ptr %.245.i.i383, i64 28
   %510 = load i32, ptr %509, align 4
   %511 = icmp ugt i32 %507, %510
-  %spec.select41.i.i386 = select i1 %511, ptr %.02644.i.i384, ptr %.145.i.i383
+  %spec.select41.i.i386 = select i1 %511, ptr %.02644.i.i384, ptr %.245.i.i383
   %512 = load ptr, ptr %.02644.i.i384, align 8
   %.not38.i.i387 = icmp eq ptr %512, null
   br i1 %.not38.i.i387, label %.critedge.i.i388, label %505, !llvm.loop !11
 
 .critedge.i.i388:                                 ; preds = %508, %505
-  %.1.lcssa.i.i389 = phi ptr [ %.145.i.i383, %505 ], [ %spec.select41.i.i386, %508 ]
-  %.not40.i.i390 = icmp eq ptr %.1.lcssa.i.i389, null
+  %.2.lcssa.i.i389 = phi ptr [ %.245.i.i383, %505 ], [ %spec.select41.i.i386, %508 ]
+  %.not40.i.i390 = icmp eq ptr %.2.lcssa.i.i389, null
   br i1 %.not40.i.i390, label %conversation_lookup_no_addr2_or_port2.exit391, label %513
 
 513:                                              ; preds = %.critedge.i.i388
-  store ptr %.1.lcssa.i.i389, ptr %500, align 8
+  store ptr %.2.lcssa.i.i389, ptr %500, align 8
   br label %conversation_lookup_no_addr2_or_port2.exit391
 
 conversation_lookup_no_addr2_or_port2.exit391:    ; preds = %482, %490, %496, %.critedge.i.i388, %513
-  %.027.i.i378 = phi ptr [ %495, %496 ], [ %.1.lcssa.i.i389, %513 ], [ null, %.critedge.i.i388 ], [ null, %490 ], [ null, %482 ]
+  %.027.i.i378 = phi ptr [ %495, %496 ], [ %.2.lcssa.i.i389, %513 ], [ null, %.critedge.i.i388 ], [ null, %490 ], [ null, %482 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9)
   br label %514
 
 514:                                              ; preds = %conversation_lookup_no_addr2_or_port2.exit391, %conversation_lookup_no_addr2_or_port2.exit373
-  %.4 = phi ptr [ %.027.i.i360, %conversation_lookup_no_addr2_or_port2.exit373 ], [ %.027.i.i378, %conversation_lookup_no_addr2_or_port2.exit391 ]
-  %.not186 = icmp eq ptr %.4, null
+  %.5 = phi ptr [ %.027.i.i360, %conversation_lookup_no_addr2_or_port2.exit373 ], [ %.027.i.i378, %conversation_lookup_no_addr2_or_port2.exit391 ]
+  %.not186 = icmp eq ptr %.5, null
   br i1 %.not186, label %523, label %515
 
 515:                                              ; preds = %514
@@ -2789,19 +2789,19 @@ conversation_lookup_no_addr2_or_port2.exit391:    ; preds = %482, %490, %496, %.
   br i1 %.not190, label %.thread413, label %516
 
 516:                                              ; preds = %515
-  %517 = getelementptr inbounds i8, ptr %.4, i64 56
+  %517 = getelementptr inbounds i8, ptr %.5, i64 56
   %518 = load i32, ptr %517, align 8
   %519 = and i32 %518, 8
   %.not191 = icmp eq i32 %519, 0
   br i1 %.not191, label %520, label %521
 
 520:                                              ; preds = %516
-  call void @conversation_set_addr2(ptr noundef nonnull %.4, ptr noundef nonnull %spec.store.select)
-  call void @conversation_set_port2(ptr noundef nonnull %.4, i32 noundef %4)
+  call void @conversation_set_addr2(ptr noundef nonnull %.5, ptr noundef nonnull %spec.store.select)
+  call void @conversation_set_port2(ptr noundef nonnull %.5, i32 noundef %4)
   br label %.thread413
 
 521:                                              ; preds = %516
-  %522 = call fastcc ptr @conversation_create_from_template(ptr noundef nonnull %.4, ptr noundef nonnull %spec.store.select, i32 noundef %4)
+  %522 = call fastcc ptr @conversation_create_from_template(ptr noundef nonnull %.5, ptr noundef nonnull %spec.store.select, i32 noundef %4)
   br label %.thread413
 
 523:                                              ; preds = %514, %446
@@ -2863,7 +2863,7 @@ conversation_lookup_no_addr2_or_port2.exit391:    ; preds = %482, %490, %496, %.
   br label %548
 
 548:                                              ; preds = %.preheader, %551
-  %.145.i.i401 = phi ptr [ %spec.select41.i.i404, %551 ], [ %.02644.i.i402.ph, %.preheader ]
+  %.245.i.i401 = phi ptr [ %spec.select41.i.i404, %551 ], [ %.02644.i.i402.ph, %.preheader ]
   %.02644.i.i402 = phi ptr [ %555, %551 ], [ %.02644.i.i402.ph, %.preheader ]
   %549 = getelementptr inbounds i8, ptr %.02644.i.i402, i64 28
   %550 = load i32, ptr %549, align 4
@@ -2871,25 +2871,25 @@ conversation_lookup_no_addr2_or_port2.exit391:    ; preds = %482, %490, %496, %.
   br i1 %.not39.i.i403, label %.critedge.i.i406, label %551
 
 551:                                              ; preds = %548
-  %552 = getelementptr inbounds i8, ptr %.145.i.i401, i64 28
+  %552 = getelementptr inbounds i8, ptr %.245.i.i401, i64 28
   %553 = load i32, ptr %552, align 4
   %554 = icmp ugt i32 %550, %553
-  %spec.select41.i.i404 = select i1 %554, ptr %.02644.i.i402, ptr %.145.i.i401
+  %spec.select41.i.i404 = select i1 %554, ptr %.02644.i.i402, ptr %.245.i.i401
   %555 = load ptr, ptr %.02644.i.i402, align 8
   %.not38.i.i405 = icmp eq ptr %555, null
   br i1 %.not38.i.i405, label %.critedge.i.i406, label %548, !llvm.loop !11
 
 .critedge.i.i406:                                 ; preds = %551, %548
-  %.1.lcssa.i.i407 = phi ptr [ %.145.i.i401, %548 ], [ %spec.select41.i.i404, %551 ]
-  %.not40.i.i408 = icmp eq ptr %.1.lcssa.i.i407, null
+  %.2.lcssa.i.i407 = phi ptr [ %.245.i.i401, %548 ], [ %spec.select41.i.i404, %551 ]
+  %.not40.i.i408 = icmp eq ptr %.2.lcssa.i.i407, null
   br i1 %.not40.i.i408, label %557, label %556
 
 556:                                              ; preds = %.critedge.i.i406
-  store ptr %.1.lcssa.i.i407, ptr %543, align 8
+  store ptr %.2.lcssa.i.i407, ptr %543, align 8
   br label %conversation_lookup_no_ports.exit
 
 conversation_lookup_no_ports.exit:                ; preds = %539, %556
-  %.027.i.i396 = phi ptr [ %538, %539 ], [ %.1.lcssa.i.i407, %556 ]
+  %.027.i.i396 = phi ptr [ %538, %539 ], [ %.2.lcssa.i.i407, %556 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   br label %.thread413
 
@@ -2903,8 +2903,8 @@ conversation_lookup_no_ports.exit:                ; preds = %539, %556
   br label %.thread413
 
 .thread413:                                       ; preds = %96, %97, %103, %conversation_lookup_no_ports.exit, %144, %557, %515, %521, %520, %432, %440, %443, %444, %392, %398, %397, %346, %355, %354, %264, %270, %269, %218, %227, %226, %559
-  %.5 = phi ptr [ %445, %444 ], [ %.027.i.i343, %440 ], [ %.027.i.i343, %443 ], [ %.027.i.i343, %432 ], [ %522, %521 ], [ %.4, %520 ], [ %.4, %515 ], [ %.027.i.i396, %conversation_lookup_no_ports.exit ], [ %558, %557 ], [ null, %559 ], [ %356, %355 ], [ %.3444, %354 ], [ %.3444, %346 ], [ %399, %398 ], [ %.027.i.i325, %397 ], [ %.027.i.i325, %392 ], [ %228, %227 ], [ %.2430, %226 ], [ %.2430, %218 ], [ %271, %270 ], [ %.027.i.i272, %269 ], [ %.027.i.i272, %264 ], [ %.027.i.i219, %144 ], [ %.027.i.i, %103 ], [ %.027.i.i201, %96 ], [ %spec.select, %97 ]
-  ret ptr %.5
+  %.2 = phi ptr [ %445, %444 ], [ %.027.i.i343, %440 ], [ %.027.i.i343, %443 ], [ %.027.i.i343, %432 ], [ %522, %521 ], [ %.5, %520 ], [ %.5, %515 ], [ %.027.i.i396, %conversation_lookup_no_ports.exit ], [ %558, %557 ], [ null, %559 ], [ %356, %355 ], [ %.4444, %354 ], [ %.4444, %346 ], [ %399, %398 ], [ %.027.i.i325, %397 ], [ %.027.i.i325, %392 ], [ %228, %227 ], [ %.3430, %226 ], [ %.3430, %218 ], [ %271, %270 ], [ %.027.i.i272, %269 ], [ %.027.i.i272, %264 ], [ %.027.i.i219, %144 ], [ %.027.i.i, %103 ], [ %.027.i.i201, %96 ], [ %spec.select, %97 ]
+  ret ptr %.2
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3117,7 +3117,7 @@ define internal fastcc ptr @conversation_lookup_no_ports(i32 noundef %0, ptr noc
   br label %28
 
 28:                                               ; preds = %.preheader, %31
-  %.145.i = phi ptr [ %spec.select41.i, %31 ], [ %.02644.i.ph, %.preheader ]
+  %.245.i = phi ptr [ %spec.select41.i, %31 ], [ %.02644.i.ph, %.preheader ]
   %.02644.i = phi ptr [ %35, %31 ], [ %.02644.i.ph, %.preheader ]
   %29 = getelementptr inbounds i8, ptr %.02644.i, i64 28
   %30 = load i32, ptr %29, align 4
@@ -3125,25 +3125,25 @@ define internal fastcc ptr @conversation_lookup_no_ports(i32 noundef %0, ptr noc
   br i1 %.not39.i, label %.critedge.i, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %.145.i, i64 28
+  %32 = getelementptr inbounds i8, ptr %.245.i, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = icmp ugt i32 %30, %33
-  %spec.select41.i = select i1 %34, ptr %.02644.i, ptr %.145.i
+  %spec.select41.i = select i1 %34, ptr %.02644.i, ptr %.245.i
   %35 = load ptr, ptr %.02644.i, align 8
   %.not38.i = icmp eq ptr %35, null
   br i1 %.not38.i, label %.critedge.i, label %28, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %31, %28
-  %.1.lcssa.i = phi ptr [ %.145.i, %28 ], [ %spec.select41.i, %31 ]
-  %.not40.i = icmp eq ptr %.1.lcssa.i, null
+  %.2.lcssa.i = phi ptr [ %.245.i, %28 ], [ %spec.select41.i, %31 ]
+  %.not40.i = icmp eq ptr %.2.lcssa.i, null
   br i1 %.not40.i, label %conversation_lookup_hashtable.exit, label %36
 
 36:                                               ; preds = %.critedge.i
-  store ptr %.1.lcssa.i, ptr %23, align 8
+  store ptr %.2.lcssa.i, ptr %23, align 8
   br label %conversation_lookup_hashtable.exit
 
 conversation_lookup_hashtable.exit:               ; preds = %4, %13, %19, %.critedge.i, %36
-  %.027.i = phi ptr [ %18, %19 ], [ %.1.lcssa.i, %36 ], [ null, %.critedge.i ], [ null, %13 ], [ null, %4 ]
+  %.027.i = phi ptr [ %18, %19 ], [ %.2.lcssa.i, %36 ], [ null, %.critedge.i ], [ null, %13 ], [ null, %4 ]
   ret ptr %.027.i
 }
 
@@ -3197,7 +3197,7 @@ define ptr @find_conversation_by_id(i32 noundef %0, i32 noundef %1, i32 noundef 
   br label %24
 
 24:                                               ; preds = %.preheader, %27
-  %.145.i = phi ptr [ %spec.select41.i, %27 ], [ %.02644.i.ph, %.preheader ]
+  %.245.i = phi ptr [ %spec.select41.i, %27 ], [ %.02644.i.ph, %.preheader ]
   %.02644.i = phi ptr [ %31, %27 ], [ %.02644.i.ph, %.preheader ]
   %25 = getelementptr inbounds i8, ptr %.02644.i, i64 28
   %26 = load i32, ptr %25, align 4
@@ -3205,25 +3205,25 @@ define ptr @find_conversation_by_id(i32 noundef %0, i32 noundef %1, i32 noundef 
   br i1 %.not39.i, label %.critedge.i, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %.145.i, i64 28
+  %28 = getelementptr inbounds i8, ptr %.245.i, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = icmp ugt i32 %26, %29
-  %spec.select41.i = select i1 %30, ptr %.02644.i, ptr %.145.i
+  %spec.select41.i = select i1 %30, ptr %.02644.i, ptr %.245.i
   %31 = load ptr, ptr %.02644.i, align 8
   %.not38.i = icmp eq ptr %31, null
   br i1 %.not38.i, label %.critedge.i, label %24, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %27, %24
-  %.1.lcssa.i = phi ptr [ %.145.i, %24 ], [ %spec.select41.i, %27 ]
-  %.not40.i = icmp eq ptr %.1.lcssa.i, null
+  %.2.lcssa.i = phi ptr [ %.245.i, %24 ], [ %spec.select41.i, %27 ]
+  %.not40.i = icmp eq ptr %.2.lcssa.i, null
   br i1 %.not40.i, label %conversation_lookup_hashtable.exit, label %32
 
 32:                                               ; preds = %.critedge.i
-  store ptr %.1.lcssa.i, ptr %19, align 8
+  store ptr %.2.lcssa.i, ptr %19, align 8
   br label %conversation_lookup_hashtable.exit
 
 conversation_lookup_hashtable.exit:               ; preds = %3, %9, %15, %.critedge.i, %32
-  %.027.i = phi ptr [ %14, %15 ], [ %.1.lcssa.i, %32 ], [ null, %.critedge.i ], [ null, %9 ], [ null, %3 ]
+  %.027.i = phi ptr [ %14, %15 ], [ %.2.lcssa.i, %32 ], [ null, %.critedge.i ], [ null, %9 ], [ null, %3 ]
   ret ptr %.027.i
 }
 
@@ -3533,7 +3533,7 @@ define range(i32 0, 2) i32 @try_conversation_dissector_by_id(i32 noundef %0, i32
   br label %29
 
 29:                                               ; preds = %.preheader, %32
-  %.145.i.i = phi ptr [ %spec.select41.i.i, %32 ], [ %.02644.i.i.ph, %.preheader ]
+  %.245.i.i = phi ptr [ %spec.select41.i.i, %32 ], [ %.02644.i.i.ph, %.preheader ]
   %.02644.i.i = phi ptr [ %36, %32 ], [ %.02644.i.i.ph, %.preheader ]
   %30 = getelementptr inbounds i8, ptr %.02644.i.i, i64 28
   %31 = load i32, ptr %30, align 4
@@ -3541,21 +3541,21 @@ define range(i32 0, 2) i32 @try_conversation_dissector_by_id(i32 noundef %0, i32
   br i1 %.not39.i.i, label %.critedge.i.i, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %.145.i.i, i64 28
+  %33 = getelementptr inbounds i8, ptr %.245.i.i, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = icmp ugt i32 %31, %34
-  %spec.select41.i.i = select i1 %35, ptr %.02644.i.i, ptr %.145.i.i
+  %spec.select41.i.i = select i1 %35, ptr %.02644.i.i, ptr %.245.i.i
   %36 = load ptr, ptr %.02644.i.i, align 8
   %.not38.i.i = icmp eq ptr %36, null
   br i1 %.not38.i.i, label %.critedge.i.i, label %29, !llvm.loop !11
 
 .critedge.i.i:                                    ; preds = %32, %29
-  %.1.lcssa.i.i = phi ptr [ %.145.i.i, %29 ], [ %spec.select41.i.i, %32 ]
-  %.not40.i.i = icmp eq ptr %.1.lcssa.i.i, null
+  %.2.lcssa.i.i = phi ptr [ %.245.i.i, %29 ], [ %spec.select41.i.i, %32 ]
+  %.not40.i.i = icmp eq ptr %.2.lcssa.i.i, null
   br i1 %.not40.i.i, label %find_conversation_by_id.exit.thread, label %37
 
 37:                                               ; preds = %.critedge.i.i
-  store ptr %.1.lcssa.i.i, ptr %24, align 8
+  store ptr %.2.lcssa.i.i, ptr %24, align 8
   br label %38
 
 find_conversation_by_id.exit.thread:              ; preds = %.critedge.i.i, %14, %6
@@ -3563,7 +3563,7 @@ find_conversation_by_id.exit.thread:              ; preds = %.critedge.i.i, %14,
   br label %47
 
 38:                                               ; preds = %37, %20
-  %.027.i.i = phi ptr [ %19, %20 ], [ %.1.lcssa.i.i, %37 ]
+  %.027.i.i = phi ptr [ %19, %20 ], [ %.2.lcssa.i.i, %37 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   %39 = getelementptr inbounds i8, ptr %.027.i.i, i64 48
   %40 = load ptr, ptr %39, align 8
@@ -3831,7 +3831,7 @@ define nonnull ptr @find_or_create_conversation_by_id(ptr nocapture noundef read
   br label %26
 
 26:                                               ; preds = %.preheader, %29
-  %.145.i.i = phi ptr [ %spec.select41.i.i, %29 ], [ %.02644.i.i.ph, %.preheader ]
+  %.245.i.i = phi ptr [ %spec.select41.i.i, %29 ], [ %.02644.i.i.ph, %.preheader ]
   %.02644.i.i = phi ptr [ %33, %29 ], [ %.02644.i.i.ph, %.preheader ]
   %27 = getelementptr inbounds i8, ptr %.02644.i.i, i64 28
   %28 = load i32, ptr %27, align 4
@@ -3839,25 +3839,25 @@ define nonnull ptr @find_or_create_conversation_by_id(ptr nocapture noundef read
   br i1 %.not39.i.i, label %.critedge.i.i, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.145.i.i, i64 28
+  %30 = getelementptr inbounds i8, ptr %.245.i.i, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = icmp ugt i32 %28, %31
-  %spec.select41.i.i = select i1 %32, ptr %.02644.i.i, ptr %.145.i.i
+  %spec.select41.i.i = select i1 %32, ptr %.02644.i.i, ptr %.245.i.i
   %33 = load ptr, ptr %.02644.i.i, align 8
   %.not38.i.i = icmp eq ptr %33, null
   br i1 %.not38.i.i, label %.critedge.i.i, label %26, !llvm.loop !11
 
 .critedge.i.i:                                    ; preds = %29, %26
-  %.1.lcssa.i.i = phi ptr [ %.145.i.i, %26 ], [ %spec.select41.i.i, %29 ]
-  %.not40.i.i = icmp eq ptr %.1.lcssa.i.i, null
+  %.2.lcssa.i.i = phi ptr [ %.245.i.i, %26 ], [ %spec.select41.i.i, %29 ]
+  %.not40.i.i = icmp eq ptr %.2.lcssa.i.i, null
   br i1 %.not40.i.i, label %35, label %34
 
 34:                                               ; preds = %.critedge.i.i
-  store ptr %.1.lcssa.i.i, ptr %21, align 8
+  store ptr %.2.lcssa.i.i, ptr %21, align 8
   br label %find_conversation_by_id.exit
 
 find_conversation_by_id.exit:                     ; preds = %17, %34
-  %.027.i.i = phi ptr [ %16, %17 ], [ %.1.lcssa.i.i, %34 ]
+  %.027.i.i = phi ptr [ %16, %17 ], [ %.2.lcssa.i.i, %34 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   br label %51
 

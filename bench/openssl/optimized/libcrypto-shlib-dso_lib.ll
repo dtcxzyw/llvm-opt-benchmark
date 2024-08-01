@@ -227,8 +227,8 @@ DSO_ctrl.exit:                                    ; preds = %if.then
   br label %if.end8
 
 if.end8:                                          ; preds = %DSO_ctrl.exit, %entry
-  %ret.0 = phi ptr [ %call, %DSO_ctrl.exit ], [ %dso, %entry ]
-  %filename9 = getelementptr inbounds i8, ptr %ret.0, i64 56
+  %ret.1 = phi ptr [ %call, %DSO_ctrl.exit ], [ %dso, %entry ]
+  %filename9 = getelementptr inbounds i8, ptr %ret.1, i64 56
   %0 = load ptr, ptr %filename9, align 8
   %cmp10.not = icmp eq ptr %0, null
   br i1 %cmp10.not, label %if.end13, label %err
@@ -238,7 +238,7 @@ if.end13:                                         ; preds = %if.end8
   br i1 %cmp14.not, label %err, label %if.end.i14
 
 if.end.i14:                                       ; preds = %if.end13
-  %loaded_filename.i = getelementptr inbounds i8, ptr %ret.0, i64 64
+  %loaded_filename.i = getelementptr inbounds i8, ptr %ret.1, i64 64
   %1 = load ptr, ptr %loaded_filename.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.end3.i, label %if.then2.i
@@ -258,14 +258,14 @@ if.end25:                                         ; preds = %if.end3.i
   %2 = load ptr, ptr %filename9, align 8
   tail call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef 241) #3
   store ptr %call.i, ptr %filename9, align 8
-  %3 = load ptr, ptr %ret.0, align 8
+  %3 = load ptr, ptr %ret.1, align 8
   %dso_load = getelementptr inbounds i8, ptr %3, i64 8
   %4 = load ptr, ptr %dso_load, align 8
   %cmp27 = icmp eq ptr %4, null
   br i1 %cmp27, label %err, label %if.end30
 
 if.end30:                                         ; preds = %if.end25
-  %call33 = tail call i32 %4(ptr noundef nonnull %ret.0) #3
+  %call33 = tail call i32 %4(ptr noundef nonnull %ret.1) #3
   %tobool34.not = icmp eq i32 %call33, 0
   br i1 %tobool34.not, label %err, label %return
 
@@ -278,11 +278,11 @@ err:                                              ; preds = %if.end30, %if.end25
   br i1 %cmp.not, label %if.then38, label %return
 
 if.then38:                                        ; preds = %err
-  %call39 = tail call i32 @DSO_free(ptr noundef nonnull %ret.0)
+  %call39 = tail call i32 @DSO_free(ptr noundef nonnull %ret.1)
   br label %return
 
 return:                                           ; preds = %err.thread, %err, %if.then38, %if.end30
-  %retval.0 = phi ptr [ %ret.0, %if.end30 ], [ null, %if.then38 ], [ null, %err ], [ null, %err.thread ]
+  %retval.0 = phi ptr [ %ret.1, %if.end30 ], [ null, %if.then38 ], [ null, %err ], [ null, %err.thread ]
   ret ptr %retval.0
 }
 

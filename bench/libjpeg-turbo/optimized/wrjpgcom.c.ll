@@ -476,7 +476,7 @@ keymatch.exit:                                    ; preds = %35, %147, %59
   br label %._crit_edge280
 
 ._crit_edge280:                                   ; preds = %._crit_edge280.loopexit, %184
-  %.284.lcssa = phi i32 [ 0, %184 ], [ %196, %._crit_edge280.loopexit ]
+  %.385.lcssa = phi i32 [ 0, %184 ], [ %196, %._crit_edge280.loopexit ]
   br i1 %153, label %197, label %199
 
 197:                                              ; preds = %._crit_edge280
@@ -485,7 +485,7 @@ keymatch.exit:                                    ; preds = %35, %147, %59
 
 199:                                              ; preds = %._crit_edge280, %197, %176
   %.391 = phi ptr [ %179, %197 ], [ %179, %._crit_edge280 ], [ %.088.lcssa, %176 ]
-  %.385 = phi i32 [ %.284.lcssa, %197 ], [ %.284.lcssa, %._crit_edge280 ], [ %.082.lcssa, %176 ]
+  %.284 = phi i32 [ %.385.lcssa, %197 ], [ %.385.lcssa, %._crit_edge280 ], [ %.082.lcssa, %176 ]
   %200 = load ptr, ptr @infile, align 8
   %201 = tail call i32 @getc(ptr noundef %200)
   %202 = load ptr, ptr @infile, align 8
@@ -709,7 +709,7 @@ skip_variable.exit.i:                             ; preds = %next_marker.exit.i
 
 scan_JPEG_header.exit:                            ; preds = %next_marker.exit.i, %next_marker.exit.i, %next_marker.exit.i, %next_marker.exit.i, %next_marker.exit.i, %next_marker.exit.i, %next_marker.exit.i, %next_marker.exit.i, %next_marker.exit.i, %next_marker.exit.i, %next_marker.exit.i, %next_marker.exit.i, %next_marker.exit.i, %next_marker.exit.i, %next_marker.exit.us.i, %next_marker.exit.us.i, %next_marker.exit.us.i, %next_marker.exit.us.i, %next_marker.exit.us.i, %next_marker.exit.us.i, %next_marker.exit.us.i, %next_marker.exit.us.i, %next_marker.exit.us.i, %next_marker.exit.us.i, %next_marker.exit.us.i, %next_marker.exit.us.i, %next_marker.exit.us.i, %next_marker.exit.us.i
   %.us-phi.i = phi i32 [ %222, %next_marker.exit.us.i ], [ %222, %next_marker.exit.us.i ], [ %222, %next_marker.exit.us.i ], [ %222, %next_marker.exit.us.i ], [ %222, %next_marker.exit.us.i ], [ %222, %next_marker.exit.us.i ], [ %222, %next_marker.exit.us.i ], [ %222, %next_marker.exit.us.i ], [ %222, %next_marker.exit.us.i ], [ %222, %next_marker.exit.us.i ], [ %222, %next_marker.exit.us.i ], [ %222, %next_marker.exit.us.i ], [ %222, %next_marker.exit.us.i ], [ %222, %next_marker.exit.us.i ], [ %255, %next_marker.exit.i ], [ %255, %next_marker.exit.i ], [ %255, %next_marker.exit.i ], [ %255, %next_marker.exit.i ], [ %255, %next_marker.exit.i ], [ %255, %next_marker.exit.i ], [ %255, %next_marker.exit.i ], [ %255, %next_marker.exit.i ], [ %255, %next_marker.exit.i ], [ %255, %next_marker.exit.i ], [ %255, %next_marker.exit.i ], [ %255, %next_marker.exit.i ], [ %255, %next_marker.exit.i ], [ %255, %next_marker.exit.i ]
-  %.not110 = icmp eq i32 %.385, 0
+  %.not110 = icmp eq i32 %.284, 0
   br i1 %.not110, label %.loopexit, label %275
 
 275:                                              ; preds = %scan_JPEG_header.exit
@@ -717,7 +717,7 @@ scan_JPEG_header.exit:                            ; preds = %next_marker.exit.i,
   %277 = tail call i32 @putc(i32 noundef 255, ptr noundef %276)
   %278 = load ptr, ptr @outfile, align 8
   %279 = tail call i32 @putc(i32 noundef 254, ptr noundef %278)
-  %280 = add i32 %.385, 2
+  %280 = add i32 %.284, 2
   %281 = lshr i32 %280, 8
   %282 = and i32 %281, 255
   %283 = load ptr, ptr @outfile, align 8
@@ -728,7 +728,7 @@ scan_JPEG_header.exit:                            ; preds = %next_marker.exit.i,
   br label %288
 
 288:                                              ; preds = %275, %288
-  %.4283 = phi i32 [ %.385, %275 ], [ %294, %288 ]
+  %.4283 = phi i32 [ %.284, %275 ], [ %294, %288 ]
   %.492282 = phi ptr [ %.391, %275 ], [ %289, %288 ]
   %289 = getelementptr inbounds i8, ptr %.492282, i64 1
   %290 = load i8, ptr %.492282, align 1

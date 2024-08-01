@@ -181,7 +181,7 @@ if.end72.sink.split:                              ; preds = %land.rhs62, %land.r
   br label %if.end72
 
 if.end72:                                         ; preds = %if.end72.sink.split, %lor.lhs.false59, %land.rhs62, %lor.lhs.false, %land.rhs47, %if.then33
-  %success.0.shrunk = phi i1 [ false, %if.then33 ], [ false, %lor.lhs.false ], [ true, %land.rhs47 ], [ false, %lor.lhs.false59 ], [ true, %land.rhs62 ], [ %tobool67, %if.end72.sink.split ]
+  %success.1.shrunk = phi i1 [ false, %if.then33 ], [ false, %lor.lhs.false ], [ true, %land.rhs47 ], [ false, %lor.lhs.false59 ], [ true, %land.rhs62 ], [ %tobool67, %if.end72.sink.split ]
   %24 = load ptr, ptr @b5, align 8
   %25 = load ptr, ptr @b3, align 8
   %26 = load ptr, ptr @b2, align 8
@@ -206,7 +206,7 @@ cond.false82:                                     ; preds = %cond.end77
   unreachable
 
 cond.end83:                                       ; preds = %cond.end77
-  br i1 %success.0.shrunk, label %land.end90, label %if.then93
+  br i1 %success.1.shrunk, label %land.end90, label %if.then93
 
 land.end90:                                       ; preds = %cond.end83
   %30 = load ptr, ptr @b5, align 8

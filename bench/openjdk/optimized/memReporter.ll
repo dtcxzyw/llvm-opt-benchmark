@@ -2235,7 +2235,7 @@ define hidden void @_ZNK21MemDetailDiffReporter17diff_malloc_sitesEv(ptr noundef
   br label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit
 
 _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit: ; preds = %1, %9
-  %.sroa.027.0 = phi ptr [ null, %1 ], [ %11, %9 ]
+  %.sroa.027.2 = phi ptr [ null, %1 ], [ %11, %9 ]
   %12 = icmp eq ptr %7, null
   br i1 %12, label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17, label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17.thread
 
@@ -2249,14 +2249,14 @@ _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17: ; preds = %_ZN18LinkedListI
   br i1 %.not37, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17.thread, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17
-  %.sroa.0.132.ph = phi ptr [ null, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17 ], [ %14, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17.thread ]
+  %.sroa.0.032.ph = phi ptr [ null, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17 ], [ %14, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17.thread ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18
   %.034 = phi ptr [ %.1, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18 ], [ %4, %.lr.ph.preheader ]
   %.01433 = phi ptr [ %.115, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18 ], [ %7, %.lr.ph.preheader ]
-  %.sroa.0.132 = phi ptr [ %.sroa.0.5, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18 ], [ %.sroa.0.132.ph, %.lr.ph.preheader ]
-  %.sroa.027.131 = phi ptr [ %.sroa.027.5, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18 ], [ %.sroa.027.0, %.lr.ph.preheader ]
+  %.sroa.0.032 = phi ptr [ %.sroa.0.1, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18 ], [ %.sroa.0.032.ph, %.lr.ph.preheader ]
+  %.sroa.027.031 = phi ptr [ %.sroa.027.1, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18 ], [ %.sroa.027.2, %.lr.ph.preheader ]
   %15 = icmp eq ptr %.034, null
   br i1 %15, label %16, label %27
 
@@ -2268,11 +2268,11 @@ _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17: ; preds = %_ZN18LinkedListI
   %21 = getelementptr inbounds i8, ptr %.01433, i64 32
   %22 = load i8, ptr %21, align 8
   tail call void @_ZNK21MemDetailDiffReporter16diff_malloc_siteEPK15NativeCallStackmmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(2464) %0, ptr noundef %.01433, i64 noundef %18, i64 noundef %20, i64 noundef 0, i64 noundef 0, i8 noundef zeroext %22)
-  %23 = icmp eq ptr %.sroa.0.132, null
+  %23 = icmp eq ptr %.sroa.0.032, null
   br i1 %23, label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18, label %24
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %.sroa.0.132, i64 72
+  %25 = getelementptr inbounds i8, ptr %.sroa.0.032, i64 72
   %26 = load ptr, ptr %25, align 8
   br label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18
 
@@ -2288,11 +2288,11 @@ _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17: ; preds = %_ZN18LinkedListI
   %34 = getelementptr inbounds i8, ptr %.034, i64 32
   %35 = load i8, ptr %34, align 8
   tail call void @_ZNK21MemDetailDiffReporter16diff_malloc_siteEPK15NativeCallStackmmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(2464) %0, ptr noundef nonnull %.034, i64 noundef 0, i64 noundef 0, i64 noundef %31, i64 noundef %33, i8 noundef zeroext %35)
-  %36 = icmp eq ptr %.sroa.027.131, null
+  %36 = icmp eq ptr %.sroa.027.031, null
   br i1 %36, label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18, label %37
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %.sroa.027.131, i64 72
+  %38 = getelementptr inbounds i8, ptr %.sroa.027.031, i64 72
   %39 = load ptr, ptr %38, align 8
   br label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18
 
@@ -2309,11 +2309,11 @@ _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17: ; preds = %_ZN18LinkedListI
   %48 = getelementptr inbounds i8, ptr %.01433, i64 32
   %49 = load i8, ptr %48, align 8
   tail call void @_ZNK21MemDetailDiffReporter16diff_malloc_siteEPK15NativeCallStackmmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(2464) %0, ptr noundef nonnull %.01433, i64 noundef %45, i64 noundef %47, i64 noundef 0, i64 noundef 0, i8 noundef zeroext %49)
-  %50 = icmp eq ptr %.sroa.0.132, null
+  %50 = icmp eq ptr %.sroa.0.032, null
   br i1 %50, label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18, label %51
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.132, i64 72
+  %52 = getelementptr inbounds i8, ptr %.sroa.0.032, i64 72
   %53 = load ptr, ptr %52, align 8
   br label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18
 
@@ -2329,11 +2329,11 @@ _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17: ; preds = %_ZN18LinkedListI
   %60 = getelementptr inbounds i8, ptr %.034, i64 32
   %61 = load i8, ptr %60, align 8
   tail call void @_ZNK21MemDetailDiffReporter16diff_malloc_siteEPK15NativeCallStackmmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(2464) %0, ptr noundef nonnull %.034, i64 noundef 0, i64 noundef 0, i64 noundef %57, i64 noundef %59, i8 noundef zeroext %61)
-  %62 = icmp eq ptr %.sroa.027.131, null
+  %62 = icmp eq ptr %.sroa.027.031, null
   br i1 %62, label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18, label %63
 
 63:                                               ; preds = %55
-  %64 = getelementptr inbounds i8, ptr %.sroa.027.131, i64 72
+  %64 = getelementptr inbounds i8, ptr %.sroa.027.031, i64 72
   %65 = load ptr, ptr %64, align 8
   br label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18
 
@@ -2372,29 +2372,29 @@ _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit17: ; preds = %_ZN18LinkedListI
   br label %_ZNK21MemDetailDiffReporter16diff_malloc_siteEPK10MallocSiteS2_.exit
 
 _ZNK21MemDetailDiffReporter16diff_malloc_siteEPK10MallocSiteS2_.exit: ; preds = %71, %81
-  %90 = icmp eq ptr %.sroa.027.131, null
+  %90 = icmp eq ptr %.sroa.027.031, null
   br i1 %90, label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit22, label %91
 
 91:                                               ; preds = %_ZNK21MemDetailDiffReporter16diff_malloc_siteEPK10MallocSiteS2_.exit
-  %92 = getelementptr inbounds i8, ptr %.sroa.027.131, i64 72
+  %92 = getelementptr inbounds i8, ptr %.sroa.027.031, i64 72
   %93 = load ptr, ptr %92, align 8
   br label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit22
 
 _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit22: ; preds = %_ZNK21MemDetailDiffReporter16diff_malloc_siteEPK10MallocSiteS2_.exit, %91
-  %.sroa.027.4 = phi ptr [ null, %_ZNK21MemDetailDiffReporter16diff_malloc_siteEPK10MallocSiteS2_.exit ], [ %93, %91 ]
-  %94 = icmp eq ptr %.sroa.0.132, null
+  %.sroa.027.5 = phi ptr [ null, %_ZNK21MemDetailDiffReporter16diff_malloc_siteEPK10MallocSiteS2_.exit ], [ %93, %91 ]
+  %94 = icmp eq ptr %.sroa.0.032, null
   br i1 %94, label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18, label %95
 
 95:                                               ; preds = %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit22
-  %96 = getelementptr inbounds i8, ptr %.sroa.0.132, i64 72
+  %96 = getelementptr inbounds i8, ptr %.sroa.0.032, i64 72
   %97 = load ptr, ptr %96, align 8
   br label %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18
 
 _ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit18: ; preds = %95, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit22, %63, %55, %51, %43, %37, %29, %24, %16
-  %.sroa.027.5 = phi ptr [ %.sroa.027.131, %16 ], [ %.sroa.027.131, %24 ], [ null, %29 ], [ %39, %37 ], [ %.sroa.027.131, %43 ], [ %.sroa.027.131, %51 ], [ null, %55 ], [ %65, %63 ], [ %.sroa.027.4, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit22 ], [ %.sroa.027.4, %95 ]
-  %.sroa.0.5 = phi ptr [ null, %16 ], [ %26, %24 ], [ %.sroa.0.132, %29 ], [ %.sroa.0.132, %37 ], [ null, %43 ], [ %53, %51 ], [ %.sroa.0.132, %55 ], [ %.sroa.0.132, %63 ], [ null, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit22 ], [ %97, %95 ]
-  %.115 = phi ptr [ null, %16 ], [ %.sroa.0.132, %24 ], [ null, %29 ], [ null, %37 ], [ null, %43 ], [ %.sroa.0.132, %51 ], [ %.01433, %55 ], [ %.01433, %63 ], [ null, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit22 ], [ %.sroa.0.132, %95 ]
-  %.1 = phi ptr [ null, %16 ], [ null, %24 ], [ null, %29 ], [ %.sroa.027.131, %37 ], [ %.034, %43 ], [ %.034, %51 ], [ null, %55 ], [ %.sroa.027.131, %63 ], [ %.sroa.027.131, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit22 ], [ %.sroa.027.131, %95 ]
+  %.sroa.027.1 = phi ptr [ %.sroa.027.031, %16 ], [ %.sroa.027.031, %24 ], [ null, %29 ], [ %39, %37 ], [ %.sroa.027.031, %43 ], [ %.sroa.027.031, %51 ], [ null, %55 ], [ %65, %63 ], [ %.sroa.027.5, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit22 ], [ %.sroa.027.5, %95 ]
+  %.sroa.0.1 = phi ptr [ null, %16 ], [ %26, %24 ], [ %.sroa.0.032, %29 ], [ %.sroa.0.032, %37 ], [ null, %43 ], [ %53, %51 ], [ %.sroa.0.032, %55 ], [ %.sroa.0.032, %63 ], [ null, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit22 ], [ %97, %95 ]
+  %.115 = phi ptr [ null, %16 ], [ %.sroa.0.032, %24 ], [ null, %29 ], [ null, %37 ], [ null, %43 ], [ %.sroa.0.032, %51 ], [ %.01433, %55 ], [ %.01433, %63 ], [ null, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit22 ], [ %.sroa.0.032, %95 ]
+  %.1 = phi ptr [ null, %16 ], [ null, %24 ], [ null, %29 ], [ %.sroa.027.031, %37 ], [ %.034, %43 ], [ %.034, %51 ], [ null, %55 ], [ %.sroa.027.031, %63 ], [ %.sroa.027.031, %_ZN18LinkedListIteratorI10MallocSiteE4nextEv.exit22 ], [ %.sroa.027.031, %95 ]
   %98 = icmp ne ptr %.1, null
   %99 = icmp ne ptr %.115, null
   %100 = select i1 %98, i1 true, i1 %99
@@ -2421,7 +2421,7 @@ define hidden void @_ZNK21MemDetailDiffReporter25diff_virtual_memory_sitesEv(ptr
   br label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit
 
 _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit: ; preds = %1, %9
-  %.sroa.035.0 = phi ptr [ null, %1 ], [ %11, %9 ]
+  %.sroa.035.2 = phi ptr [ null, %1 ], [ %11, %9 ]
   %12 = icmp eq ptr %7, null
   br i1 %12, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22.thread
 
@@ -2435,14 +2435,14 @@ _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22: ; preds = 
   br i1 %.not46, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22.thread, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22
-  %.sroa.0.141.ph = phi ptr [ null, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22 ], [ %14, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22.thread ]
+  %.sroa.0.041.ph = phi ptr [ null, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22 ], [ %14, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22.thread ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23
   %.043 = phi ptr [ %.1, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23 ], [ %4, %.lr.ph.preheader ]
   %.01842 = phi ptr [ %.119, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23 ], [ %7, %.lr.ph.preheader ]
-  %.sroa.0.141 = phi ptr [ %.sroa.0.6, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23 ], [ %.sroa.0.141.ph, %.lr.ph.preheader ]
-  %.sroa.035.140 = phi ptr [ %.sroa.035.6, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23 ], [ %.sroa.035.0, %.lr.ph.preheader ]
+  %.sroa.0.041 = phi ptr [ %.sroa.0.1, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23 ], [ %.sroa.0.041.ph, %.lr.ph.preheader ]
+  %.sroa.035.040 = phi ptr [ %.sroa.035.1, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23 ], [ %.sroa.035.2, %.lr.ph.preheader ]
   %15 = icmp eq ptr %.043, null
   br i1 %15, label %16, label %27
 
@@ -2454,11 +2454,11 @@ _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22: ; preds = 
   %21 = getelementptr inbounds i8, ptr %.01842, i64 32
   %22 = load i8, ptr %21, align 8
   tail call void @_ZNK21MemDetailDiffReporter24diff_virtual_memory_siteEPK15NativeCallStackmmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(2464) %0, ptr noundef %.01842, i64 noundef %18, i64 noundef %20, i64 noundef 0, i64 noundef 0, i8 noundef zeroext %22)
-  %23 = icmp eq ptr %.sroa.0.141, null
+  %23 = icmp eq ptr %.sroa.0.041, null
   br i1 %23, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23, label %24
 
 24:                                               ; preds = %16
-  %25 = getelementptr inbounds i8, ptr %.sroa.0.141, i64 64
+  %25 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 64
   %26 = load ptr, ptr %25, align 8
   br label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23
 
@@ -2474,11 +2474,11 @@ _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22: ; preds = 
   %34 = getelementptr inbounds i8, ptr %.043, i64 32
   %35 = load i8, ptr %34, align 8
   tail call void @_ZNK21MemDetailDiffReporter24diff_virtual_memory_siteEPK15NativeCallStackmmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(2464) %0, ptr noundef nonnull %.043, i64 noundef 0, i64 noundef 0, i64 noundef %31, i64 noundef %33, i8 noundef zeroext %35)
-  %36 = icmp eq ptr %.sroa.035.140, null
+  %36 = icmp eq ptr %.sroa.035.040, null
   br i1 %36, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23, label %37
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %.sroa.035.140, i64 64
+  %38 = getelementptr inbounds i8, ptr %.sroa.035.040, i64 64
   %39 = load ptr, ptr %38, align 8
   br label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23
 
@@ -2495,11 +2495,11 @@ _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22: ; preds = 
   %48 = getelementptr inbounds i8, ptr %.01842, i64 32
   %49 = load i8, ptr %48, align 8
   tail call void @_ZNK21MemDetailDiffReporter24diff_virtual_memory_siteEPK15NativeCallStackmmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(2464) %0, ptr noundef nonnull %.01842, i64 noundef %45, i64 noundef %47, i64 noundef 0, i64 noundef 0, i8 noundef zeroext %49)
-  %50 = icmp eq ptr %.sroa.0.141, null
+  %50 = icmp eq ptr %.sroa.0.041, null
   br i1 %50, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23, label %51
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.141, i64 64
+  %52 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 64
   %53 = load ptr, ptr %52, align 8
   br label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23
 
@@ -2515,11 +2515,11 @@ _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22: ; preds = 
   %60 = getelementptr inbounds i8, ptr %.043, i64 32
   %61 = load i8, ptr %60, align 8
   tail call void @_ZNK21MemDetailDiffReporter24diff_virtual_memory_siteEPK15NativeCallStackmmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(2464) %0, ptr noundef nonnull %.043, i64 noundef 0, i64 noundef 0, i64 noundef %57, i64 noundef %59, i8 noundef zeroext %61)
-  %62 = icmp eq ptr %.sroa.035.140, null
+  %62 = icmp eq ptr %.sroa.035.040, null
   br i1 %62, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23, label %63
 
 63:                                               ; preds = %55
-  %64 = getelementptr inbounds i8, ptr %.sroa.035.140, i64 64
+  %64 = getelementptr inbounds i8, ptr %.sroa.035.040, i64 64
   %65 = load ptr, ptr %64, align 8
   br label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23
 
@@ -2537,27 +2537,27 @@ _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit22: ; preds = 
   %74 = getelementptr inbounds i8, ptr %.043, i64 48
   %75 = load i64, ptr %74, align 8
   tail call void @_ZNK21MemDetailDiffReporter24diff_virtual_memory_siteEPK15NativeCallStackmmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(2464) %0, ptr noundef nonnull %.043, i64 noundef 0, i64 noundef 0, i64 noundef %73, i64 noundef %75, i8 noundef zeroext %68)
-  %76 = icmp eq ptr %.sroa.035.140, null
+  %76 = icmp eq ptr %.sroa.035.040, null
   br i1 %76, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27, label %77
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds i8, ptr %.sroa.035.140, i64 64
+  %78 = getelementptr inbounds i8, ptr %.sroa.035.040, i64 64
   %79 = load ptr, ptr %78, align 8
   br label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27
 
 _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27: ; preds = %71, %77
-  %.sroa.035.4 = phi ptr [ null, %71 ], [ %79, %77 ]
+  %.sroa.035.5 = phi ptr [ null, %71 ], [ %79, %77 ]
   %80 = getelementptr inbounds i8, ptr %.01842, i64 40
   %81 = load i64, ptr %80, align 8
   %82 = getelementptr inbounds i8, ptr %.01842, i64 48
   %83 = load i64, ptr %82, align 8
   %84 = load i8, ptr %69, align 8
   tail call void @_ZNK21MemDetailDiffReporter24diff_virtual_memory_siteEPK15NativeCallStackmmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(2464) %0, ptr noundef nonnull %.01842, i64 noundef %81, i64 noundef %83, i64 noundef 0, i64 noundef 0, i8 noundef zeroext %84)
-  %85 = icmp eq ptr %.sroa.0.141, null
+  %85 = icmp eq ptr %.sroa.0.041, null
   br i1 %85, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23, label %86
 
 86:                                               ; preds = %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27
-  %87 = getelementptr inbounds i8, ptr %.sroa.0.141, i64 64
+  %87 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 64
   %88 = load ptr, ptr %87, align 8
   br label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23
 
@@ -2571,29 +2571,29 @@ _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27: ; preds = 
   %96 = getelementptr inbounds i8, ptr %.043, i64 48
   %97 = load i64, ptr %96, align 8
   tail call void @_ZNK21MemDetailDiffReporter24diff_virtual_memory_siteEPK15NativeCallStackmmmm8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(2464) %0, ptr noundef nonnull %.01842, i64 noundef %91, i64 noundef %93, i64 noundef %95, i64 noundef %97, i8 noundef zeroext %68)
-  %98 = icmp eq ptr %.sroa.035.140, null
+  %98 = icmp eq ptr %.sroa.035.040, null
   br i1 %98, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit29, label %99
 
 99:                                               ; preds = %89
-  %100 = getelementptr inbounds i8, ptr %.sroa.035.140, i64 64
+  %100 = getelementptr inbounds i8, ptr %.sroa.035.040, i64 64
   %101 = load ptr, ptr %100, align 8
   br label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit29
 
 _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit29: ; preds = %89, %99
-  %.sroa.035.5 = phi ptr [ null, %89 ], [ %101, %99 ]
-  %102 = icmp eq ptr %.sroa.0.141, null
+  %.sroa.035.6 = phi ptr [ null, %89 ], [ %101, %99 ]
+  %102 = icmp eq ptr %.sroa.0.041, null
   br i1 %102, label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23, label %103
 
 103:                                              ; preds = %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit29
-  %104 = getelementptr inbounds i8, ptr %.sroa.0.141, i64 64
+  %104 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 64
   %105 = load ptr, ptr %104, align 8
   br label %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23
 
 _ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit23: ; preds = %103, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit29, %86, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27, %63, %55, %51, %43, %37, %29, %24, %16
-  %.sroa.035.6 = phi ptr [ %.sroa.035.140, %16 ], [ %.sroa.035.140, %24 ], [ null, %29 ], [ %39, %37 ], [ %.sroa.035.140, %43 ], [ %.sroa.035.140, %51 ], [ null, %55 ], [ %65, %63 ], [ %.sroa.035.4, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27 ], [ %.sroa.035.4, %86 ], [ %.sroa.035.5, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit29 ], [ %.sroa.035.5, %103 ]
-  %.sroa.0.6 = phi ptr [ null, %16 ], [ %26, %24 ], [ %.sroa.0.141, %29 ], [ %.sroa.0.141, %37 ], [ null, %43 ], [ %53, %51 ], [ %.sroa.0.141, %55 ], [ %.sroa.0.141, %63 ], [ null, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27 ], [ %88, %86 ], [ null, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit29 ], [ %105, %103 ]
-  %.119 = phi ptr [ null, %16 ], [ %.sroa.0.141, %24 ], [ null, %29 ], [ null, %37 ], [ null, %43 ], [ %.sroa.0.141, %51 ], [ %.01842, %55 ], [ %.01842, %63 ], [ null, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27 ], [ %.sroa.0.141, %86 ], [ null, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit29 ], [ %.sroa.0.141, %103 ]
-  %.1 = phi ptr [ null, %16 ], [ null, %24 ], [ null, %29 ], [ %.sroa.035.140, %37 ], [ %.043, %43 ], [ %.043, %51 ], [ null, %55 ], [ %.sroa.035.140, %63 ], [ %.sroa.035.140, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27 ], [ %.sroa.035.140, %86 ], [ %.sroa.035.140, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit29 ], [ %.sroa.035.140, %103 ]
+  %.sroa.035.1 = phi ptr [ %.sroa.035.040, %16 ], [ %.sroa.035.040, %24 ], [ null, %29 ], [ %39, %37 ], [ %.sroa.035.040, %43 ], [ %.sroa.035.040, %51 ], [ null, %55 ], [ %65, %63 ], [ %.sroa.035.5, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27 ], [ %.sroa.035.5, %86 ], [ %.sroa.035.6, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit29 ], [ %.sroa.035.6, %103 ]
+  %.sroa.0.1 = phi ptr [ null, %16 ], [ %26, %24 ], [ %.sroa.0.041, %29 ], [ %.sroa.0.041, %37 ], [ null, %43 ], [ %53, %51 ], [ %.sroa.0.041, %55 ], [ %.sroa.0.041, %63 ], [ null, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27 ], [ %88, %86 ], [ null, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit29 ], [ %105, %103 ]
+  %.119 = phi ptr [ null, %16 ], [ %.sroa.0.041, %24 ], [ null, %29 ], [ null, %37 ], [ null, %43 ], [ %.sroa.0.041, %51 ], [ %.01842, %55 ], [ %.01842, %63 ], [ null, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27 ], [ %.sroa.0.041, %86 ], [ null, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit29 ], [ %.sroa.0.041, %103 ]
+  %.1 = phi ptr [ null, %16 ], [ null, %24 ], [ null, %29 ], [ %.sroa.035.040, %37 ], [ %.043, %43 ], [ %.043, %51 ], [ null, %55 ], [ %.sroa.035.040, %63 ], [ %.sroa.035.040, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit27 ], [ %.sroa.035.040, %86 ], [ %.sroa.035.040, %_ZN18LinkedListIteratorI27VirtualMemoryAllocationSiteE4nextEv.exit29 ], [ %.sroa.035.040, %103 ]
   %106 = icmp ne ptr %.1, null
   %107 = icmp ne ptr %.119, null
   %108 = select i1 %106, i1 true, i1 %107

@@ -945,8 +945,8 @@ for.body22.lr.ph:                                 ; preds = %while.end18
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %while.end36
   %cpu.138.in = phi i64 [ %4, %for.body22.lr.ph ], [ %20, %while.end36 ]
-  %res.037 = phi i32 [ 0, %for.body22.lr.ph ], [ %res.1, %while.end36 ]
-  %flag.036 = phi i32 [ 0, %for.body22.lr.ph ], [ %flag.1, %while.end36 ]
+  %res.137 = phi i32 [ 0, %for.body22.lr.ph ], [ %res.2, %while.end36 ]
+  %flag.136 = phi i32 [ 0, %for.body22.lr.ph ], [ %flag.2, %while.end36 ]
   %cpu.138 = inttoptr i64 %cpu.138.in to ptr
   %cpu_index23 = getelementptr inbounds i8, ptr %cpu.138, i64 712
   %5 = load i32, ptr %cpu_index23, align 8
@@ -1040,8 +1040,8 @@ sw.default:                                       ; preds = %for.body22
   br label %while.end36
 
 while.end36:                                      ; preds = %trace_gdbstub_op_stepping.exit, %trace_gdbstub_op_continue_cpu.exit, %sw.default, %for.body22, %for.body22
-  %flag.1 = phi i32 [ %flag.036, %sw.default ], [ 1, %trace_gdbstub_op_continue_cpu.exit ], [ 1, %trace_gdbstub_op_stepping.exit ], [ %flag.036, %for.body22 ], [ %flag.036, %for.body22 ]
-  %res.1 = phi i32 [ -1, %sw.default ], [ %res.037, %trace_gdbstub_op_continue_cpu.exit ], [ %res.037, %trace_gdbstub_op_stepping.exit ], [ %res.037, %for.body22 ], [ %res.037, %for.body22 ]
+  %flag.2 = phi i32 [ %flag.136, %sw.default ], [ 1, %trace_gdbstub_op_continue_cpu.exit ], [ 1, %trace_gdbstub_op_stepping.exit ], [ %flag.136, %for.body22 ], [ %flag.136, %for.body22 ]
+  %res.2 = phi i32 [ -1, %sw.default ], [ %res.137, %trace_gdbstub_op_continue_cpu.exit ], [ %res.137, %trace_gdbstub_op_stepping.exit ], [ %res.137, %for.body22 ], [ %res.137, %for.body22 ]
   %node37 = getelementptr inbounds i8, ptr %cpu.138, i64 568
   %20 = load atomic i64, ptr %node37 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
@@ -1049,7 +1049,7 @@ while.end36:                                      ; preds = %trace_gdbstub_op_st
   br i1 %tobool21.not, label %if.end40, label %for.body22, !llvm.loop !14
 
 if.end40:                                         ; preds = %while.end36
-  %21 = icmp eq i32 %flag.1, 0
+  %21 = icmp eq i32 %flag.2, 0
   br i1 %21, label %return, label %if.then42
 
 if.then42:                                        ; preds = %if.end40
@@ -1057,7 +1057,7 @@ if.then42:                                        ; preds = %if.end40
   br label %return
 
 return:                                           ; preds = %while.end18, %entry, %if.end40, %if.then42, %for.end
-  %retval.0 = phi i32 [ 0, %for.end ], [ %res.1, %if.then42 ], [ %res.1, %if.end40 ], [ 0, %entry ], [ 0, %while.end18 ]
+  %retval.0 = phi i32 [ 0, %for.end ], [ %res.2, %if.then42 ], [ %res.2, %if.end40 ], [ 0, %entry ], [ 0, %while.end18 ]
   ret i32 %retval.0
 }
 

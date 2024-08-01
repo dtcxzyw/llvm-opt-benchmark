@@ -472,7 +472,7 @@ define internal { double, double } @_ZL15stere_e_inverse5PJ_XYP8PJconsts(double 
   br label %46
 
 46:                                               ; preds = %44, %3
-  %.sroa.6.0 = phi double [ %1, %3 ], [ %45, %44 ]
+  %.sroa.6.1 = phi double [ %1, %3 ], [ %45, %44 ]
   %47 = fneg double %6
   %48 = getelementptr inbounds i8, ptr %5, i64 24
   %49 = load double, ptr %48, align 8
@@ -484,9 +484,9 @@ define internal { double, double } @_ZL15stere_e_inverse5PJ_XYP8PJconsts(double 
 .sink.split:                                      ; preds = %30, %46
   %.sink62 = phi double [ -5.000000e-01, %46 ], [ 5.000000e-01, %30 ]
   %.sroa.0.0.ph = phi double [ %0, %46 ], [ %35, %30 ]
-  %.sroa.6.1.ph = phi double [ %.sroa.6.0, %46 ], [ %43, %30 ]
+  %.sroa.6.0.ph = phi double [ %.sroa.6.1, %46 ], [ %43, %30 ]
   %.054.ph = phi double [ %50, %46 ], [ %34, %30 ]
-  %.1.ph = phi double [ %52, %46 ], [ %31, %30 ]
+  %.053.ph = phi double [ %52, %46 ], [ %31, %30 ]
   %.051.ph = phi double [ 0xBFF921FB54442D18, %46 ], [ 0x3FF921FB54442D18, %30 ]
   %53 = getelementptr inbounds i8, ptr %2, i64 208
   %54 = load double, ptr %53, align 8
@@ -495,9 +495,9 @@ define internal { double, double } @_ZL15stere_e_inverse5PJ_XYP8PJconsts(double 
 
 56:                                               ; preds = %.sink.split, %3
   %.sroa.0.0 = phi double [ %0, %3 ], [ %.sroa.0.0.ph, %.sink.split ]
-  %.sroa.6.1 = phi double [ %1, %3 ], [ %.sroa.6.1.ph, %.sink.split ]
+  %.sroa.6.0 = phi double [ %1, %3 ], [ %.sroa.6.0.ph, %.sink.split ]
   %.054 = phi double [ 0.000000e+00, %3 ], [ %.054.ph, %.sink.split ]
-  %.1 = phi double [ 0.000000e+00, %3 ], [ %.1.ph, %.sink.split ]
+  %.053 = phi double [ 0.000000e+00, %3 ], [ %.053.ph, %.sink.split ]
   %.052 = phi double [ 0.000000e+00, %3 ], [ %55, %.sink.split ]
   %.051 = phi double [ 0.000000e+00, %3 ], [ %.051.ph, %.sink.split ]
   %57 = getelementptr inbounds i8, ptr %2, i64 208
@@ -511,7 +511,7 @@ define internal { double, double } @_ZL15stere_e_inverse5PJ_XYP8PJconsts(double 
 
 62:                                               ; preds = %56, %59
   %.058 = phi i32 [ 8, %56 ], [ %60, %59 ]
-  %.257 = phi double [ %.1, %56 ], [ %72, %59 ]
+  %.257 = phi double [ %.053, %56 ], [ %72, %59 ]
   %63 = load double, ptr %57, align 8
   %64 = tail call double @sin(double noundef %.257) #8
   %65 = fmul double %63, %64
@@ -533,12 +533,12 @@ define internal { double, double } @_ZL15stere_e_inverse5PJ_XYP8PJconsts(double 
   %79 = fneg double %72
   %.sroa.3.1 = select i1 %78, double %79, double %72
   %80 = fcmp oeq double %.sroa.0.0, 0.000000e+00
-  %81 = fcmp oeq double %.sroa.6.1, 0.000000e+00
+  %81 = fcmp oeq double %.sroa.6.0, 0.000000e+00
   %or.cond = select i1 %80, i1 %81, i1 false
   br i1 %or.cond, label %86, label %82
 
 82:                                               ; preds = %76
-  %83 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.6.1) #8
+  %83 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.6.0) #8
   br label %86
 
 84:                                               ; preds = %59
@@ -643,7 +643,7 @@ define internal { double, double } @_ZL15stere_e_forward5PJ_LPP8PJconsts(double 
   br label %62
 
 62:                                               ; preds = %54, %57
-  %.sroa.9.0 = phi double [ %61, %57 ], [ 0x7FF0000000000000, %54 ]
+  %.sroa.9.1 = phi double [ %61, %57 ], [ 0x7FF0000000000000, %54 ]
   %.051 = phi double [ %60, %57 ], [ 0.000000e+00, %54 ]
   %63 = fmul double %.052, %.051
   br label %82
@@ -673,20 +673,20 @@ define internal { double, double } @_ZL15stere_e_forward5PJ_LPP8PJconsts(double 
   br label %79
 
 79:                                               ; preds = %68, %72
-  %.sroa.0.0 = phi double [ %78, %72 ], [ 0.000000e+00, %68 ]
-  %80 = fneg double %.sroa.0.0
+  %.sroa.0.1 = phi double [ %78, %72 ], [ 0.000000e+00, %68 ]
+  %80 = fneg double %.sroa.0.1
   %81 = fmul double %.054, %80
   br label %82
 
 82:                                               ; preds = %79, %62, %44, %30
-  %.sroa.9.1 = phi double [ 0.000000e+00, %30 ], [ %81, %79 ], [ %.sroa.9.0, %62 ], [ %52, %44 ]
-  %.sroa.0.1 = phi double [ 0.000000e+00, %30 ], [ %.sroa.0.0, %79 ], [ %63, %62 ], [ %53, %44 ]
-  %83 = fmul double %8, %.sroa.0.1
+  %.sroa.9.0 = phi double [ 0.000000e+00, %30 ], [ %81, %79 ], [ %.sroa.9.1, %62 ], [ %52, %44 ]
+  %.sroa.0.0 = phi double [ 0.000000e+00, %30 ], [ %.sroa.0.1, %79 ], [ %63, %62 ], [ %53, %44 ]
+  %83 = fmul double %8, %.sroa.0.0
   br label %84
 
 84:                                               ; preds = %82, %42
   %.sroa.049.0 = phi double [ %83, %82 ], [ %.sroa.049.0.copyload, %42 ]
-  %.sroa.350.0 = phi double [ %.sroa.9.1, %82 ], [ %.sroa.350.0.copyload, %42 ]
+  %.sroa.350.0 = phi double [ %.sroa.9.0, %82 ], [ %.sroa.350.0.copyload, %42 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.049.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.350.0, 1
   ret { double, double } %.fca.1.insert
@@ -728,7 +728,7 @@ define internal { double, double } @_ZL15stere_s_inverse5PJ_XYP8PJconsts(double 
   br label %23
 
 23:                                               ; preds = %16, %19
-  %.sroa.6.0 = phi double [ %22, %19 ], [ 0.000000e+00, %16 ]
+  %.sroa.6.1 = phi double [ %22, %19 ], [ 0.000000e+00, %16 ]
   %24 = fcmp une double %13, 0.000000e+00
   %25 = fcmp une double %0, 0.000000e+00
   %or.cond = or i1 %25, %24
@@ -764,11 +764,11 @@ define internal { double, double } @_ZL15stere_s_inverse5PJ_XYP8PJconsts(double 
   br label %47
 
 47:                                               ; preds = %36, %33
-  %.sroa.6.1 = phi double [ %35, %33 ], [ %46, %36 ]
+  %.sroa.6.2 = phi double [ %35, %33 ], [ %46, %36 ]
   %48 = load ptr, ptr %4, align 8
   %49 = getelementptr inbounds i8, ptr %48, i64 8
   %50 = load double, ptr %49, align 8
-  %51 = tail call double @sin(double noundef %.sroa.6.1) #8
+  %51 = tail call double @sin(double noundef %.sroa.6.2) #8
   %52 = fneg double %50
   %53 = tail call double @llvm.fmuladd.f64(double %52, double %51, double %13)
   %54 = fcmp une double %53, 0.000000e+00
@@ -809,7 +809,7 @@ define internal { double, double } @_ZL15stere_s_inverse5PJ_XYP8PJconsts(double 
   br label %77
 
 77:                                               ; preds = %72, %69
-  %.sroa.6.2 = phi double [ %71, %69 ], [ %76, %72 ]
+  %.sroa.6.3 = phi double [ %71, %69 ], [ %76, %72 ]
   %78 = fcmp oeq double %0, 0.000000e+00
   %79 = fcmp oeq double %.sroa.8.0, 0.000000e+00
   %or.cond8 = and i1 %78, %79
@@ -820,10 +820,10 @@ define internal { double, double } @_ZL15stere_s_inverse5PJ_XYP8PJconsts(double 
   br label %82
 
 82:                                               ; preds = %80, %77, %56, %47, %26, %23, %3
-  %.sroa.6.3 = phi double [ 0.000000e+00, %3 ], [ %.sroa.6.1, %56 ], [ %.sroa.6.1, %47 ], [ %.sroa.6.0, %26 ], [ %.sroa.6.0, %23 ], [ %.sroa.6.2, %77 ], [ %.sroa.6.2, %80 ]
+  %.sroa.6.0 = phi double [ 0.000000e+00, %3 ], [ %.sroa.6.2, %56 ], [ %.sroa.6.2, %47 ], [ %.sroa.6.1, %26 ], [ %.sroa.6.1, %23 ], [ %.sroa.6.3, %77 ], [ %.sroa.6.3, %80 ]
   %.sroa.051.0 = phi double [ 0.000000e+00, %3 ], [ %63, %56 ], [ 0.000000e+00, %47 ], [ %29, %26 ], [ 0.000000e+00, %23 ], [ 0.000000e+00, %77 ], [ %81, %80 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.051.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.3, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.6.0, 1
   ret { double, double } %.fca.1.insert
 }
 

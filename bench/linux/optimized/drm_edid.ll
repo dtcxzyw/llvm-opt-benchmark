@@ -7274,7 +7274,7 @@ define internal fastcc i32 @_drm_edid_connector_add_modes(ptr noundef %0, ptr no
   br i1 %60, label %drm_for_each_detailed_block.exit, label %.preheader133
 
 .preheader133:                                    ; preds = %56, %do_standard_modes.exit77
-  %.sroa.1282.0 = phi i32 [ %.sroa.1282.3, %do_standard_modes.exit77 ], [ 0, %56 ]
+  %.sroa.1282.1 = phi i32 [ %.sroa.1282.15, %do_standard_modes.exit77 ], [ 0, %56 ]
   %61 = phi i64 [ %87, %do_standard_modes.exit77 ], [ 0, %56 ]
   %62 = load ptr, ptr %19, align 8
   %63 = getelementptr inbounds i8, ptr %62, i64 54
@@ -7300,7 +7300,7 @@ define internal fastcc i32 @_drm_edid_connector_add_modes(ptr noundef %0, ptr no
   br label %77
 
 77:                                               ; preds = %84, %75
-  %.sroa.1282.1 = phi i32 [ %.sroa.1282.0, %75 ], [ %.sroa.1282.2, %84 ]
+  %.sroa.1282.13 = phi i32 [ %.sroa.1282.1, %75 ], [ %.sroa.1282.14, %84 ]
   %78 = phi i64 [ 0, %75 ], [ %85, %84 ]
   %79 = getelementptr [6 x %struct.std_timing], ptr %76, i64 0, i64 %78
   %80 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %79)
@@ -7309,23 +7309,23 @@ define internal fastcc i32 @_drm_edid_connector_add_modes(ptr noundef %0, ptr no
 
 82:                                               ; preds = %77
   call void @drm_mode_probed_add(ptr noundef %0, ptr noundef nonnull %80) #21
-  %83 = add i32 %.sroa.1282.1, 1
+  %83 = add i32 %.sroa.1282.13, 1
   br label %84
 
 84:                                               ; preds = %82, %77
-  %.sroa.1282.2 = phi i32 [ %.sroa.1282.1, %77 ], [ %83, %82 ]
+  %.sroa.1282.14 = phi i32 [ %.sroa.1282.13, %77 ], [ %83, %82 ]
   %85 = add nuw nsw i64 %78, 1
   %86 = icmp eq i64 %85, 6
   br i1 %86, label %do_standard_modes.exit77, label %77, !llvm.loop !76
 
 do_standard_modes.exit77:                         ; preds = %84, %.preheader133, %67, %71
-  %.sroa.1282.3 = phi i32 [ %.sroa.1282.0, %71 ], [ %.sroa.1282.0, %67 ], [ %.sroa.1282.0, %.preheader133 ], [ %.sroa.1282.2, %84 ]
+  %.sroa.1282.15 = phi i32 [ %.sroa.1282.1, %71 ], [ %.sroa.1282.1, %67 ], [ %.sroa.1282.1, %.preheader133 ], [ %.sroa.1282.14, %84 ]
   %87 = add nuw nsw i64 %61, 1
   %88 = icmp eq i64 %87, 4
   br i1 %88, label %.preheader.i, label %.preheader133, !llvm.loop !50
 
 .preheader.i:                                     ; preds = %do_standard_modes.exit77, %.loopexit.i
-  %.sroa.1282.4 = phi i32 [ %.sroa.1282.13, %.loopexit.i ], [ %.sroa.1282.3, %do_standard_modes.exit77 ]
+  %.sroa.1282.2 = phi i32 [ %.sroa.1282.3, %.loopexit.i ], [ %.sroa.1282.15, %do_standard_modes.exit77 ]
   %89 = phi i32 [ %139, %.loopexit.i ], [ 0, %do_standard_modes.exit77 ]
   %90 = load ptr, ptr %19, align 8
   %91 = getelementptr inbounds i8, ptr %90, i64 126
@@ -7429,7 +7429,7 @@ do_standard_modes.exit77:                         ; preds = %84, %.preheader133,
   br label %156
 
 156:                                              ; preds = %do_standard_modes.exit75, %153
-  %.sroa.1282.5 = phi i32 [ %.sroa.1282.4, %153 ], [ %.sroa.1282.8, %do_standard_modes.exit75 ]
+  %.sroa.1282.5 = phi i32 [ %.sroa.1282.2, %153 ], [ %.sroa.1282.12, %do_standard_modes.exit75 ]
   %157 = phi i64 [ 0, %153 ], [ %182, %do_standard_modes.exit75 ]
   %158 = mul nuw nsw i64 %157, 18
   %159 = getelementptr i8, ptr %148, i64 %158
@@ -7454,7 +7454,7 @@ do_standard_modes.exit77:                         ; preds = %84, %.preheader133,
   br label %172
 
 172:                                              ; preds = %179, %170
-  %.sroa.1282.6 = phi i32 [ %.sroa.1282.5, %170 ], [ %.sroa.1282.7, %179 ]
+  %.sroa.1282.10 = phi i32 [ %.sroa.1282.5, %170 ], [ %.sroa.1282.11, %179 ]
   %173 = phi i64 [ 0, %170 ], [ %180, %179 ]
   %174 = getelementptr [6 x %struct.std_timing], ptr %171, i64 0, i64 %173
   %175 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %174)
@@ -7463,17 +7463,17 @@ do_standard_modes.exit77:                         ; preds = %84, %.preheader133,
 
 177:                                              ; preds = %172
   call void @drm_mode_probed_add(ptr noundef %0, ptr noundef nonnull %175) #21
-  %178 = add i32 %.sroa.1282.6, 1
+  %178 = add i32 %.sroa.1282.10, 1
   br label %179
 
 179:                                              ; preds = %177, %172
-  %.sroa.1282.7 = phi i32 [ %.sroa.1282.6, %172 ], [ %178, %177 ]
+  %.sroa.1282.11 = phi i32 [ %.sroa.1282.10, %172 ], [ %178, %177 ]
   %180 = add nuw nsw i64 %173, 1
   %181 = icmp eq i64 %180, 6
   br i1 %181, label %do_standard_modes.exit75, label %172, !llvm.loop !76
 
 do_standard_modes.exit75:                         ; preds = %179, %156, %162, %166
-  %.sroa.1282.8 = phi i32 [ %.sroa.1282.5, %166 ], [ %.sroa.1282.5, %162 ], [ %.sroa.1282.5, %156 ], [ %.sroa.1282.7, %179 ]
+  %.sroa.1282.12 = phi i32 [ %.sroa.1282.5, %166 ], [ %.sroa.1282.5, %162 ], [ %.sroa.1282.5, %156 ], [ %.sroa.1282.11, %179 ]
   %182 = add nuw nsw i64 %157, 1
   %183 = icmp eq i64 %182, %155
   br i1 %183, label %.loopexit.i, label %156, !llvm.loop !51
@@ -7495,7 +7495,7 @@ do_standard_modes.exit75:                         ; preds = %179, %156, %162, %1
   br label %196
 
 196:                                              ; preds = %do_standard_modes.exit, %193
-  %.sroa.1282.9 = phi i32 [ %.sroa.1282.4, %193 ], [ %.sroa.1282.12, %do_standard_modes.exit ]
+  %.sroa.1282.4 = phi i32 [ %.sroa.1282.2, %193 ], [ %.sroa.1282.9, %do_standard_modes.exit ]
   %197 = phi i64 [ 0, %193 ], [ %222, %do_standard_modes.exit ]
   %198 = mul nuw nsw i64 %197, 18
   %199 = getelementptr i8, ptr %187, i64 %198
@@ -7520,7 +7520,7 @@ do_standard_modes.exit75:                         ; preds = %179, %156, %162, %1
   br label %212
 
 212:                                              ; preds = %219, %210
-  %.sroa.1282.10 = phi i32 [ %.sroa.1282.9, %210 ], [ %.sroa.1282.11, %219 ]
+  %.sroa.1282.7 = phi i32 [ %.sroa.1282.4, %210 ], [ %.sroa.1282.8, %219 ]
   %213 = phi i64 [ 0, %210 ], [ %220, %219 ]
   %214 = getelementptr [6 x %struct.std_timing], ptr %211, i64 0, i64 %213
   %215 = call fastcc ptr @drm_mode_std(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %214)
@@ -7529,28 +7529,28 @@ do_standard_modes.exit75:                         ; preds = %179, %156, %162, %1
 
 217:                                              ; preds = %212
   call void @drm_mode_probed_add(ptr noundef %0, ptr noundef nonnull %215) #21
-  %218 = add i32 %.sroa.1282.10, 1
+  %218 = add i32 %.sroa.1282.7, 1
   br label %219
 
 219:                                              ; preds = %217, %212
-  %.sroa.1282.11 = phi i32 [ %.sroa.1282.10, %212 ], [ %218, %217 ]
+  %.sroa.1282.8 = phi i32 [ %.sroa.1282.7, %212 ], [ %218, %217 ]
   %220 = add nuw nsw i64 %213, 1
   %221 = icmp eq i64 %220, 6
   br i1 %221, label %do_standard_modes.exit, label %212, !llvm.loop !76
 
 do_standard_modes.exit:                           ; preds = %219, %196, %202, %206
-  %.sroa.1282.12 = phi i32 [ %.sroa.1282.9, %206 ], [ %.sroa.1282.9, %202 ], [ %.sroa.1282.9, %196 ], [ %.sroa.1282.11, %219 ]
+  %.sroa.1282.9 = phi i32 [ %.sroa.1282.4, %206 ], [ %.sroa.1282.4, %202 ], [ %.sroa.1282.4, %196 ], [ %.sroa.1282.8, %219 ]
   %222 = add nuw nsw i64 %197, 1
   %223 = icmp eq i64 %222, %195
   br i1 %223, label %.loopexit.i, label %196, !llvm.loop !52
 
 .loopexit.i:                                      ; preds = %do_standard_modes.exit, %do_standard_modes.exit75, %184, %150, %144, %142
-  %.sroa.1282.13 = phi i32 [ %.sroa.1282.4, %142 ], [ %.sroa.1282.4, %184 ], [ %.sroa.1282.4, %144 ], [ %.sroa.1282.4, %150 ], [ %.sroa.1282.8, %do_standard_modes.exit75 ], [ %.sroa.1282.12, %do_standard_modes.exit ]
+  %.sroa.1282.3 = phi i32 [ %.sroa.1282.2, %142 ], [ %.sroa.1282.2, %184 ], [ %.sroa.1282.2, %144 ], [ %.sroa.1282.2, %150 ], [ %.sroa.1282.12, %do_standard_modes.exit75 ], [ %.sroa.1282.9, %do_standard_modes.exit ]
   br label %.preheader.i, !llvm.loop !53
 
 drm_for_each_detailed_block.exit:                 ; preds = %130, %56
   %224 = phi ptr [ %57, %56 ], [ %90, %130 ]
-  %.sroa.1282.15 = phi i32 [ 0, %56 ], [ %.sroa.1282.4, %130 ]
+  %.sroa.1282.0 = phi i32 [ 0, %56 ], [ %.sroa.1282.2, %130 ]
   %225 = load ptr, ptr %0, align 8
   %226 = getelementptr inbounds i8, ptr %224, i64 35
   %227 = load i16, ptr %226, align 1
@@ -8846,7 +8846,7 @@ drm_match_hdmi_mode.exit:                         ; preds = %857
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #21
   %1042 = add i32 %41, %31
   %1043 = add i32 %1042, %53
-  %1044 = add i32 %1043, %.sroa.1282.15
+  %1044 = add i32 %1043, %.sroa.1282.0
   %1045 = add i32 %1044, %253
   %1046 = add i32 %1045, %262
   %1047 = add i32 %1046, %766
@@ -11360,7 +11360,7 @@ define internal fastcc ptr @drm_mode_std(ptr noundef readonly %0, ptr noundef %1
   br label %17
 
 17:                                               ; preds = %.preheader49, %get_timing_level.exit21
-  %.0 = phi i32 [ %.1, %get_timing_level.exit21 ], [ 3, %.preheader49 ]
+  %.0 = phi i32 [ %.8, %get_timing_level.exit21 ], [ 3, %.preheader49 ]
   %18 = phi i64 [ %36, %get_timing_level.exit21 ], [ 0, %.preheader49 ]
   %19 = getelementptr [4 x %struct.detailed_timing], ptr %16, i64 0, i64 %18
   %20 = load i16, ptr %19, align 1
@@ -11398,7 +11398,7 @@ define internal fastcc ptr @drm_mode_std(ptr noundef readonly %0, ptr noundef %1
   br label %get_timing_level.exit21
 
 get_timing_level.exit21:                          ; preds = %33, %34, %17, %22, %26, %30, %35
-  %.1 = phi i32 [ %.0, %30 ], [ %.0, %26 ], [ %.0, %22 ], [ %.0, %17 ], [ 2, %33 ], [ 3, %34 ], [ 1, %35 ]
+  %.8 = phi i32 [ %.0, %30 ], [ %.0, %26 ], [ %.0, %22 ], [ %.0, %17 ], [ 2, %33 ], [ 3, %34 ], [ 1, %35 ]
   %36 = add nuw nsw i64 %18, 1
   %37 = icmp eq i64 %36, 4
   br i1 %37, label %.preheader.i.preheader, label %17, !llvm.loop !50
@@ -11420,7 +11420,7 @@ get_timing_level.exit21:                          ; preds = %33, %34, %17, %22, 
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.loopexit.i
-  %.2 = phi i32 [ %.7, %.loopexit.i ], [ %.1, %.preheader.i.preheader ]
+  %.1 = phi i32 [ %.2, %.loopexit.i ], [ %.8, %.preheader.i.preheader ]
   %51 = phi i32 [ %87, %.loopexit.i ], [ 0, %.preheader.i.preheader ]
   br i1 %41, label %80, label %52
 
@@ -11510,7 +11510,7 @@ get_timing_level.exit21:                          ; preds = %33, %34, %17, %22, 
   br label %104
 
 104:                                              ; preds = %get_timing_level.exit20, %101
-  %.3 = phi i32 [ %.2, %101 ], [ %.4, %get_timing_level.exit20 ]
+  %.4 = phi i32 [ %.1, %101 ], [ %.7, %get_timing_level.exit20 ]
   %105 = phi i64 [ 0, %101 ], [ %124, %get_timing_level.exit20 ]
   %106 = mul nuw nsw i64 %105, 18
   %107 = getelementptr i8, ptr %96, i64 %106
@@ -11549,7 +11549,7 @@ get_timing_level.exit21:                          ; preds = %33, %34, %17, %22, 
   br label %get_timing_level.exit20
 
 get_timing_level.exit20:                          ; preds = %121, %122, %104, %110, %114, %118, %123
-  %.4 = phi i32 [ %.3, %118 ], [ %.3, %114 ], [ %.3, %110 ], [ %.3, %104 ], [ 2, %121 ], [ 3, %122 ], [ 1, %123 ]
+  %.7 = phi i32 [ %.4, %118 ], [ %.4, %114 ], [ %.4, %110 ], [ %.4, %104 ], [ 2, %121 ], [ 3, %122 ], [ 1, %123 ]
   %124 = add nuw nsw i64 %105, 1
   %125 = icmp eq i64 %124, %103
   br i1 %125, label %.loopexit.i, label %104, !llvm.loop !51
@@ -11571,7 +11571,7 @@ get_timing_level.exit20:                          ; preds = %121, %122, %104, %1
   br label %138
 
 138:                                              ; preds = %get_timing_level.exit, %135
-  %.5 = phi i32 [ %.2, %135 ], [ %.6, %get_timing_level.exit ]
+  %.3 = phi i32 [ %.1, %135 ], [ %.6, %get_timing_level.exit ]
   %139 = phi i64 [ 0, %135 ], [ %158, %get_timing_level.exit ]
   %140 = mul nuw nsw i64 %139, 18
   %141 = getelementptr i8, ptr %129, i64 %140
@@ -11610,13 +11610,13 @@ get_timing_level.exit20:                          ; preds = %121, %122, %104, %1
   br label %get_timing_level.exit
 
 get_timing_level.exit:                            ; preds = %155, %156, %138, %144, %148, %152, %157
-  %.6 = phi i32 [ %.5, %152 ], [ %.5, %148 ], [ %.5, %144 ], [ %.5, %138 ], [ 2, %155 ], [ 3, %156 ], [ 1, %157 ]
+  %.6 = phi i32 [ %.3, %152 ], [ %.3, %148 ], [ %.3, %144 ], [ %.3, %138 ], [ 2, %155 ], [ 3, %156 ], [ 1, %157 ]
   %158 = add nuw nsw i64 %139, 1
   %159 = icmp eq i64 %158, %137
   br i1 %159, label %.loopexit.i, label %138, !llvm.loop !52
 
 .loopexit.i:                                      ; preds = %get_timing_level.exit, %get_timing_level.exit20, %126, %98, %92, %90
-  %.7 = phi i32 [ %.2, %90 ], [ %.2, %126 ], [ %.2, %92 ], [ %.2, %98 ], [ %.4, %get_timing_level.exit20 ], [ %.6, %get_timing_level.exit ]
+  %.2 = phi i32 [ %.1, %90 ], [ %.1, %126 ], [ %.1, %92 ], [ %.1, %98 ], [ %.7, %get_timing_level.exit20 ], [ %.6, %get_timing_level.exit ]
   br label %.preheader.i, !llvm.loop !53
 
 160:                                              ; preds = %3
@@ -11634,7 +11634,7 @@ get_timing_level.exit:                            ; preds = %155, %156, %138, %1
   br label %drm_for_each_detailed_block.exit
 
 drm_for_each_detailed_block.exit:                 ; preds = %80, %14, %165, %162
-  %168 = phi i32 [ 2, %162 ], [ %167, %165 ], [ 3, %14 ], [ %.2, %80 ]
+  %168 = phi i32 [ 2, %162 ], [ %167, %165 ], [ 3, %14 ], [ %.1, %80 ]
   %169 = load i8, ptr %2, align 1
   %170 = or i8 %169, %6
   %171 = icmp eq i8 %170, 0
@@ -11788,7 +11788,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %80, %14, %165, %162
   br label %258
 
 258:                                              ; preds = %.preheader46, %is_rb.exit23
-  %.025 = phi i8 [ %.126, %is_rb.exit23 ], [ 0, %.preheader46 ]
+  %.025 = phi i8 [ %.833, %is_rb.exit23 ], [ 0, %.preheader46 ]
   %259 = phi i64 [ %280, %is_rb.exit23 ], [ 0, %.preheader46 ]
   %260 = getelementptr [4 x %struct.detailed_timing], ptr %257, i64 0, i64 %259
   %261 = load i16, ptr %260, align 1
@@ -11822,7 +11822,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %80, %14, %165, %162
   br label %is_rb.exit23
 
 is_rb.exit23:                                     ; preds = %275, %258, %263, %267, %271
-  %.126 = phi i8 [ %.025, %271 ], [ %.025, %267 ], [ %.025, %263 ], [ %.025, %258 ], [ %spec.select, %275 ]
+  %.833 = phi i8 [ %.025, %271 ], [ %.025, %267 ], [ %.025, %263 ], [ %.025, %258 ], [ %spec.select, %275 ]
   %280 = add nuw nsw i64 %259, 1
   %281 = icmp eq i64 %280, 4
   br i1 %281, label %.preheader.i13.preheader, label %258, !llvm.loop !50
@@ -11844,7 +11844,7 @@ is_rb.exit23:                                     ; preds = %275, %258, %263, %2
   br label %.preheader.i13
 
 .preheader.i13:                                   ; preds = %.preheader.i13.preheader, %.loopexit.i17
-  %.227 = phi i8 [ %.732, %.loopexit.i17 ], [ %.126, %.preheader.i13.preheader ]
+  %.126 = phi i8 [ %.227, %.loopexit.i17 ], [ %.833, %.preheader.i13.preheader ]
   %295 = phi i32 [ %331, %.loopexit.i17 ], [ 0, %.preheader.i13.preheader ]
   br i1 %285, label %324, label %296
 
@@ -11934,7 +11934,7 @@ is_rb.exit23:                                     ; preds = %275, %258, %263, %2
   br label %348
 
 348:                                              ; preds = %is_rb.exit22, %345
-  %.328 = phi i8 [ %.227, %345 ], [ %.429, %is_rb.exit22 ]
+  %.429 = phi i8 [ %.126, %345 ], [ %.732, %is_rb.exit22 ]
   %349 = phi i64 [ 0, %345 ], [ %371, %is_rb.exit22 ]
   %350 = mul nuw nsw i64 %349, 18
   %351 = getelementptr i8, ptr %340, i64 %350
@@ -11965,11 +11965,11 @@ is_rb.exit23:                                     ; preds = %275, %258, %263, %2
   %368 = load i8, ptr %367, align 1
   %369 = and i8 %368, 16
   %370 = icmp eq i8 %369, 0
-  %spec.select41 = select i1 %370, i8 %.328, i8 1
+  %spec.select41 = select i1 %370, i8 %.429, i8 1
   br label %is_rb.exit22
 
 is_rb.exit22:                                     ; preds = %366, %348, %354, %358, %362
-  %.429 = phi i8 [ %.328, %362 ], [ %.328, %358 ], [ %.328, %354 ], [ %.328, %348 ], [ %spec.select41, %366 ]
+  %.732 = phi i8 [ %.429, %362 ], [ %.429, %358 ], [ %.429, %354 ], [ %.429, %348 ], [ %spec.select41, %366 ]
   %371 = add nuw nsw i64 %349, 1
   %372 = icmp eq i64 %371, %347
   br i1 %372, label %.loopexit.i17, label %348, !llvm.loop !51
@@ -11991,7 +11991,7 @@ is_rb.exit22:                                     ; preds = %366, %348, %354, %3
   br label %385
 
 385:                                              ; preds = %is_rb.exit, %382
-  %.530 = phi i8 [ %.227, %382 ], [ %.631, %is_rb.exit ]
+  %.328 = phi i8 [ %.126, %382 ], [ %.631, %is_rb.exit ]
   %386 = phi i64 [ 0, %382 ], [ %408, %is_rb.exit ]
   %387 = mul nuw nsw i64 %386, 18
   %388 = getelementptr i8, ptr %376, i64 %387
@@ -12022,21 +12022,21 @@ is_rb.exit22:                                     ; preds = %366, %348, %354, %3
   %405 = load i8, ptr %404, align 1
   %406 = and i8 %405, 16
   %407 = icmp eq i8 %406, 0
-  %spec.select42 = select i1 %407, i8 %.530, i8 1
+  %spec.select42 = select i1 %407, i8 %.328, i8 1
   br label %is_rb.exit
 
 is_rb.exit:                                       ; preds = %403, %385, %391, %395, %399
-  %.631 = phi i8 [ %.530, %399 ], [ %.530, %395 ], [ %.530, %391 ], [ %.530, %385 ], [ %spec.select42, %403 ]
+  %.631 = phi i8 [ %.328, %399 ], [ %.328, %395 ], [ %.328, %391 ], [ %.328, %385 ], [ %spec.select42, %403 ]
   %408 = add nuw nsw i64 %386, 1
   %409 = icmp eq i64 %408, %384
   br i1 %409, label %.loopexit.i17, label %385, !llvm.loop !52
 
 .loopexit.i17:                                    ; preds = %is_rb.exit, %is_rb.exit22, %373, %342, %336, %334
-  %.732 = phi i8 [ %.227, %334 ], [ %.227, %373 ], [ %.227, %336 ], [ %.227, %342 ], [ %.429, %is_rb.exit22 ], [ %.631, %is_rb.exit ]
+  %.227 = phi i8 [ %.126, %334 ], [ %.126, %373 ], [ %.126, %336 ], [ %.126, %342 ], [ %.732, %is_rb.exit22 ], [ %.631, %is_rb.exit ]
   br label %.preheader.i13, !llvm.loop !53
 
 drm_for_each_detailed_block.exit19:               ; preds = %324
-  %.not = icmp eq i8 %.227, 0
+  %.not = icmp eq i8 %.126, 0
   br i1 %.not, label %.thread36.preheader, label %.preheader.preheader
 
 410:                                              ; preds = %250

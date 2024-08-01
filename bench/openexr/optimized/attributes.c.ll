@@ -109,13 +109,13 @@ for.cond.preheader:                               ; preds = %if.then2
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.cond.preheader ]
-  %rv.012 = phi i32 [ %spec.select, %for.body ], [ 0, %for.cond.preheader ]
+  %rv.212 = phi i32 [ %spec.select, %for.body ], [ 0, %for.cond.preheader ]
   %2 = load ptr, ptr %entries, align 8
   %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %call = tail call fastcc i32 @attr_destroy(ptr noundef nonnull %ctxt, ptr noundef %3)
   %cmp6.not = icmp eq i32 %call, 0
-  %spec.select = select i1 %cmp6.not, i32 %rv.012, i32 %call
+  %spec.select = select i1 %cmp6.not, i32 %rv.212, i32 %call
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = load i32, ptr %list, align 8
   %5 = sext i32 %4 to i64
@@ -128,19 +128,19 @@ for.end.loopexit:                                 ; preds = %for.body
 
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
   %6 = phi ptr [ %0, %for.cond.preheader ], [ %.pre, %for.end.loopexit ]
-  %rv.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %spec.select, %for.end.loopexit ]
+  %rv.2.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %spec.select, %for.end.loopexit ]
   %free_fn = getelementptr inbounds i8, ptr %ctxt, i64 96
   %7 = load ptr, ptr %free_fn, align 8
   tail call void %7(ptr noundef %6) #8
   br label %if.end10
 
 if.end10:                                         ; preds = %for.end, %if.then2
-  %rv.2 = phi i32 [ %rv.0.lcssa, %for.end ], [ 0, %if.then2 ]
+  %rv.1 = phi i32 [ %rv.2.lcssa, %for.end ], [ 0, %if.then2 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %list, i8 0, i64 24, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end, %if.end10, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ %rv.2, %if.end10 ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ 2, %entry ], [ %rv.1, %if.end10 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 

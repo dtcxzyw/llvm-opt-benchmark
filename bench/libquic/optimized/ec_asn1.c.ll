@@ -75,7 +75,7 @@ if.then22:                                        ; preds = %if.else
   br label %err
 
 if.end24:                                         ; preds = %if.end17, %if.else
-  %group.addr.0 = phi ptr [ %group, %if.else ], [ %call14, %if.end17 ]
+  %group.addr.1 = phi ptr [ %group, %if.else ], [ %call14, %if.end17 ]
   %call25 = call i64 @CBS_len(ptr noundef nonnull %child) #7
   %cmp26.not = icmp eq i64 %call25, 0
   br i1 %cmp26.not, label %if.end32, label %if.then27
@@ -94,13 +94,13 @@ if.then31:                                        ; preds = %if.end29
 
 if.end32:                                         ; preds = %if.end24, %if.end29
   %inner_group.032 = phi ptr [ null, %if.end29 ], [ %call14, %if.end24 ]
-  %group.addr.131 = phi ptr [ %group, %if.end29 ], [ %group.addr.0, %if.end24 ]
+  %group.addr.031 = phi ptr [ %group, %if.end29 ], [ %group.addr.1, %if.end24 ]
   %call33 = call ptr @EC_KEY_new() #7
   %cmp34 = icmp eq ptr %call33, null
   br i1 %cmp34, label %err, label %lor.lhs.false35
 
 lor.lhs.false35:                                  ; preds = %if.end32
-  %call36 = call i32 @EC_KEY_set_group(ptr noundef nonnull %call33, ptr noundef nonnull %group.addr.131) #7
+  %call36 = call i32 @EC_KEY_set_group(ptr noundef nonnull %call33, ptr noundef nonnull %group.addr.031) #7
   %tobool37.not = icmp eq i32 %call36, 0
   br i1 %tobool37.not, label %err, label %if.end39
 
@@ -110,7 +110,7 @@ if.end39:                                         ; preds = %lor.lhs.false35
   %call42 = call ptr @BN_bin2bn(ptr noundef %call40, i64 noundef %call41, ptr noundef null) #7
   %priv_key = getelementptr inbounds i8, ptr %call33, i64 16
   store ptr %call42, ptr %priv_key, align 8
-  %call43 = call ptr @EC_POINT_new(ptr noundef nonnull %group.addr.131) #7
+  %call43 = call ptr @EC_POINT_new(ptr noundef nonnull %group.addr.031) #7
   %pub_key = getelementptr inbounds i8, ptr %call33, i64 8
   store ptr %call43, ptr %pub_key, align 8
   %1 = load ptr, ptr %priv_key, align 8
@@ -120,7 +120,7 @@ if.end39:                                         ; preds = %lor.lhs.false35
   br i1 %or.cond27, label %err, label %if.end50
 
 if.end50:                                         ; preds = %if.end39
-  %call52 = call ptr @EC_GROUP_get0_order(ptr noundef nonnull %group.addr.131) #7
+  %call52 = call ptr @EC_GROUP_get0_order(ptr noundef nonnull %group.addr.031) #7
   %call53 = call i32 @BN_cmp(ptr noundef nonnull %1, ptr noundef %call52) #7
   %cmp54 = icmp sgt i32 %call53, -1
   br i1 %cmp54, label %if.then55, label %if.end56
@@ -161,7 +161,7 @@ lor.lhs.false76:                                  ; preds = %lor.lhs.false72
   %3 = load ptr, ptr %pub_key, align 8
   %call78 = call ptr @CBS_data(ptr noundef nonnull %public_key) #7
   %call79 = call i64 @CBS_len(ptr noundef nonnull %public_key) #7
-  %call80 = call i32 @EC_POINT_oct2point(ptr noundef nonnull %group.addr.131, ptr noundef %3, ptr noundef %call78, i64 noundef %call79, ptr noundef null) #7
+  %call80 = call i32 @EC_POINT_oct2point(ptr noundef nonnull %group.addr.031, ptr noundef %3, ptr noundef %call78, i64 noundef %call79, ptr noundef null) #7
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %if.then86, label %lor.lhs.false82
 
@@ -186,7 +186,7 @@ if.end87:                                         ; preds = %lor.lhs.false82
 if.else90:                                        ; preds = %if.end56
   %6 = load ptr, ptr %pub_key, align 8
   %7 = load ptr, ptr %priv_key, align 8
-  %call93 = call i32 @EC_POINT_mul(ptr noundef nonnull %group.addr.131, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, ptr noundef null) #7
+  %call93 = call i32 @EC_POINT_mul(ptr noundef nonnull %group.addr.031, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, ptr noundef null) #7
   %tobool94.not = icmp eq i32 %call93, 0
   br i1 %tobool94.not, label %err, label %if.end96
 

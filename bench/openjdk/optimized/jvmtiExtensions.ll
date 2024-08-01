@@ -548,7 +548,7 @@ _ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit.thread: ; preds = %_ZN
   br label %95
 
 95:                                               ; preds = %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit, %75, %78, %73, %69, %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit.thread
-  %.017 = phi i32 [ 0, %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit.thread ], [ %72, %69 ], [ 100, %73 ], [ 10, %78 ], [ 10, %75 ], [ 15, %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit ]
+  %.1 = phi i32 [ 0, %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit.thread ], [ %72, %69 ], [ 100, %73 ], [ 10, %78 ], [ 10, %75 ], [ 15, %_ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit ]
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #11
   call void @_ZN27JvmtiVTMSTransitionDisablerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #11
   %96 = getelementptr inbounds i8, ptr %13, i64 928
@@ -576,8 +576,8 @@ _ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit.thread: ; preds = %_ZN
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %101, %99, %1
-  %.1 = phi i32 [ 99, %1 ], [ %.017, %99 ], [ %.017, %101 ]
-  ret i32 %.1
+  %.017 = phi i32 [ 99, %1 ], [ %.1, %99 ], [ %.1, %101 ]
+  ret i32 %.017
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -728,7 +728,7 @@ _ZN12JvmtiEnvBase25get_vthread_or_thread_oopEP10JavaThread.exit: ; preds = %60, 
   br label %79
 
 79:                                               ; preds = %73, %66, %75
-  %.0 = phi i32 [ 0, %75 ], [ %69, %66 ], [ 10, %73 ]
+  %.2 = phi i32 [ 0, %75 ], [ %69, %66 ], [ 10, %73 ]
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #11
   call void @_ZN27JvmtiVTMSTransitionDisablerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #11
   %80 = getelementptr inbounds i8, ptr %14, i64 928
@@ -738,13 +738,13 @@ _ZN12JvmtiEnvBase25get_vthread_or_thread_oopEP10JavaThread.exit: ; preds = %60, 
   br label %81
 
 81:                                               ; preds = %40, %79
-  %.1 = phi i32 [ %.0, %79 ], [ 100, %40 ]
+  %.1 = phi i32 [ %.2, %79 ], [ 100, %40 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #11
   br label %82
 
 82:                                               ; preds = %1, %81
-  %.2 = phi i32 [ %.1, %81 ], [ 99, %1 ]
-  ret i32 %.2
+  %.0 = phi i32 [ %.1, %81 ], [ 99, %1 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1402,8 +1402,8 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
   br label %35
 
 35:                                               ; preds = %33, %32
-  %.0 = phi ptr [ %34, %33 ], [ %21, %32 ]
-  %36 = icmp eq ptr %.0, null
+  %.1 = phi ptr [ %34, %33 ], [ %21, %32 ]
+  %36 = icmp eq ptr %.1, null
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
@@ -1412,7 +1412,7 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
   br label %39
 
 39:                                               ; preds = %30, %37, %35, %8, %16
-  %.025 = phi ptr [ null, %16 ], [ null, %8 ], [ %38, %37 ], [ %.0, %35 ], [ %21, %30 ]
+  %.025 = phi ptr [ null, %16 ], [ null, %8 ], [ %38, %37 ], [ %.1, %35 ], [ %21, %30 ]
   ret ptr %.025
 }
 

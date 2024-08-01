@@ -303,7 +303,7 @@ communityid_calc_wrapper.exit80:                  ; preds = %110, %114
   br i1 %124, label %.thread113, label %.thread103
 
 .thread113:                                       ; preds = %100, %123
-  %.1115 = phi i8 [ %switch.masked, %123 ], [ 0, %100 ]
+  %.053115 = phi i8 [ %switch.masked, %123 ], [ 0, %100 ]
   %125 = getelementptr inbounds i8, ptr %1, i64 360
   %126 = load ptr, ptr %125, align 8
   %127 = call ptr @wmem_list_head(ptr noundef %126) #7
@@ -334,7 +334,7 @@ communityid_calc_wrapper.exit80:                  ; preds = %110, %114
   br i1 %.not67, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %138, %.thread113, %132
-  %.2 = phi i8 [ %137, %132 ], [ %.1115, %.thread113 ], [ %.1115, %138 ]
+  %.2 = phi i8 [ %137, %132 ], [ %.053115, %.thread113 ], [ %.053115, %138 ]
   %.not68 = icmp eq i8 %.2, 0
   br i1 %.not68, label %157, label %141
 

@@ -5826,8 +5826,8 @@ define internal i32 @dissect_gsm_rlcmac_downlink(ptr noundef %0, ptr noundef %1,
   br label %123
 
 123:                                              ; preds = %118, %116
-  %.1.i = phi i32 [ 8, %116 ], [ %122, %118 ]
-  %124 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.1.i, i32 noundef 6) #6
+  %.0.i = phi i32 [ 8, %116 ], [ %122, %118 ]
+  %124 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %.0.i, i32 noundef 6) #6
   store i8 %124, ptr %18, align 4
   %125 = load ptr, ptr %14, align 8
   %126 = zext i8 %124 to i32
@@ -5890,7 +5890,7 @@ define internal i32 @dissect_gsm_rlcmac_downlink(ptr noundef %0, ptr noundef %1,
   br label %170
 
 170:                                              ; preds = %160, %150
-  %.0142.i = phi i32 [ 24, %160 ], [ 16, %150 ]
+  %.1143.i = phi i32 [ 24, %160 ], [ 16, %150 ]
   %171 = icmp eq i8 %40, 1
   %172 = icmp eq i8 %41, 0
   %or.cond5.i = select i1 %171, i1 %172, i1 false
@@ -5898,21 +5898,21 @@ define internal i32 @dissect_gsm_rlcmac_downlink(ptr noundef %0, ptr noundef %1,
 
 173:                                              ; preds = %170
   %174 = load i32, ptr @hf_dl_ctrl_rbsn_e, align 4
-  %175 = tail call ptr @proto_tree_add_bits_item(ptr noundef %141, i32 noundef %174, ptr noundef %0, i32 noundef %.0142.i, i32 noundef 3, i32 noundef 0) #6
-  %176 = or disjoint i32 %.0142.i, 3
+  %175 = tail call ptr @proto_tree_add_bits_item(ptr noundef %141, i32 noundef %174, ptr noundef %0, i32 noundef %.1143.i, i32 noundef 3, i32 noundef 0) #6
+  %176 = or disjoint i32 %.1143.i, 3
   %177 = load i32, ptr @hf_dl_ctrl_fs_e, align 4
-  %178 = or disjoint i32 %.0142.i, 4
+  %178 = or disjoint i32 %.1143.i, 4
   %179 = tail call ptr @proto_tree_add_bits_item(ptr noundef %141, i32 noundef %177, ptr noundef %0, i32 noundef %176, i32 noundef 1, i32 noundef 0) #6
   %180 = load i32, ptr @hf_dl_ctrl_spare, align 4
   %181 = tail call ptr @proto_tree_add_bits_item(ptr noundef %141, i32 noundef %180, ptr noundef %0, i32 noundef %178, i32 noundef 4, i32 noundef 0) #6
-  %182 = add nuw nsw i32 %.0142.i, 8
+  %182 = add nuw nsw i32 %.1143.i, 8
   br label %183
 
 183:                                              ; preds = %173, %170, %132
-  %.1143.i = phi i32 [ %182, %173 ], [ %.0142.i, %170 ], [ 8, %132 ]
+  %.0142.i = phi i32 [ %182, %173 ], [ %.1143.i, %170 ], [ 8, %132 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %184 = load i32, ptr @proto_gsm_rlcmac, align 4
-  %185 = lshr i32 %.1143.i, 3
+  %185 = lshr i32 %.0142.i, 3
   %186 = load i8, ptr %18, align 4
   %187 = zext i8 %186 to i32
   %188 = tail call ptr @val_to_str_ext_const(i32 noundef %187, ptr noundef nonnull @dl_rlc_message_type_vals_ext, ptr noundef nonnull @.str.2669) #6
@@ -5922,8 +5922,8 @@ define internal i32 @dissect_gsm_rlcmac_downlink(ptr noundef %0, ptr noundef %1,
   %192 = load i32, ptr @ett_gsm_rlcmac, align 4
   %193 = tail call ptr @proto_item_add_subtree(ptr noundef %191, i32 noundef %192) #6
   %194 = zext i16 %36 to i32
-  %195 = sub nsw i32 %194, %.1143.i
-  call void @csnStreamInit(ptr noundef nonnull %9, i32 noundef %.1143.i, i32 noundef %195, ptr noundef nonnull %1) #6
+  %195 = sub nsw i32 %194, %.0142.i
+  call void @csnStreamInit(ptr noundef nonnull %9, i32 noundef %.0142.i, i32 noundef %195, ptr noundef nonnull %1) #6
   %196 = load i8, ptr %18, align 4
   %switch.tableidx = add i8 %196, -1
   %197 = icmp ult i8 %switch.tableidx, 55
@@ -6928,16 +6928,16 @@ define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr
 
 24:                                               ; preds = %.preheader, %30
   %.083 = phi i32 [ %31, %30 ], [ %11, %.preheader ]
-  %.05582 = phi i32 [ %28, %30 ], [ %4, %.preheader ]
+  %.15682 = phi i32 [ %28, %30 ], [ %4, %.preheader ]
   %.05781 = phi i32 [ %.158, %30 ], [ 10, %.preheader ]
   %.05980 = phi i32 [ %36, %30 ], [ 1, %.preheader ]
   %.06179 = phi i32 [ %.162, %30 ], [ 0, %.preheader ]
   %.06378 = phi i32 [ %.164, %30 ], [ 1, %.preheader ]
-  %25 = tail call i32 @tvb_get_bits(ptr noundef %1, i32 noundef %.05582, i32 noundef %.05781, i32 noundef 0) #6
+  %25 = tail call i32 @tvb_get_bits(ptr noundef %1, i32 noundef %.15682, i32 noundef %.05781, i32 noundef 0) #6
   %26 = sext i32 %.05980 to i64
   %27 = getelementptr [64 x i32], ptr %8, i64 0, i64 %26
   store i32 %25, ptr %27, align 4
-  %28 = add i32 %.05582, %.05781
+  %28 = add i32 %.15682, %.05781
   %29 = icmp eq i32 %25, 0
   br i1 %29, label %.thread.loopexit, label %30
 
@@ -6955,7 +6955,7 @@ define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr
   br i1 %37, label %24, label %38, !llvm.loop !10
 
 38:                                               ; preds = %30
-  %39 = add i32 %.05582, %.083
+  %39 = add i32 %.15682, %.083
   br label %.thread
 
 .thread.loopexit:                                 ; preds = %24
@@ -6991,8 +6991,8 @@ define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr
   br i1 %.not68, label %.loopexit, label %43, !llvm.loop !11
 
 .loopexit:                                        ; preds = %43, %.thread, %7
-  %.3 = phi i32 [ %4, %7 ], [ %41, %.thread ], [ %41, %43 ]
-  %57 = sub i32 %.3, %4
+  %.055 = phi i32 [ %4, %7 ], [ %41, %.thread ], [ %41, %43 ]
+  %57 = sub i32 %.055, %4
   %58 = trunc i32 %57 to i16
   ret i16 %58
 }

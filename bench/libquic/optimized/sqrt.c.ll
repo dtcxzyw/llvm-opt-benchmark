@@ -71,19 +71,19 @@ if.end32:                                         ; preds = %if.then27
   br i1 %cmp33, label %if.then301, label %if.end36
 
 if.end36:                                         ; preds = %if.then27, %if.end32
-  %ret.1194 = phi ptr [ %call31, %if.end32 ], [ %in, %if.then27 ]
+  %ret.2194 = phi ptr [ %call31, %if.end32 ], [ %in, %if.then27 ]
   %call37 = tail call i32 @BN_is_one(ptr noundef %a) #2
   %conv38 = sext i32 %call37 to i64
-  %call39 = tail call i32 @BN_set_word(ptr noundef nonnull %ret.1194, i64 noundef %conv38) #2
+  %call39 = tail call i32 @BN_set_word(ptr noundef nonnull %ret.2194, i64 noundef %conv38) #2
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then41, label %return
 
 if.then41:                                        ; preds = %if.end36
-  %cmp42.not = icmp eq ptr %ret.1194, %in
+  %cmp42.not = icmp eq ptr %ret.2194, %in
   br i1 %cmp42.not, label %return, label %if.then44
 
 if.then44:                                        ; preds = %if.then41
-  tail call void @BN_free(ptr noundef nonnull %ret.1194) #2
+  tail call void @BN_free(ptr noundef nonnull %ret.2194) #2
   br label %return
 
 if.end47:                                         ; preds = %lor.lhs.false24
@@ -107,7 +107,7 @@ if.end62:                                         ; preds = %if.end57
   br i1 %cmp63, label %if.then301, label %if.end66
 
 if.end66:                                         ; preds = %if.end57, %if.end62
-  %ret.2197 = phi ptr [ %call61, %if.end62 ], [ %in, %if.end57 ]
+  %ret.3197 = phi ptr [ %call61, %if.end62 ], [ %in, %if.end57 ]
   %call67 = tail call i32 @BN_nnmod(ptr noundef %call48, ptr noundef %a, ptr noundef %p, ptr noundef %ctx) #2
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %if.then301, label %while.cond
@@ -138,7 +138,7 @@ if.end79:                                         ; preds = %if.then75
   br i1 %tobool81.not, label %if.then301, label %lor.lhs.false82
 
 lor.lhs.false82:                                  ; preds = %if.end79
-  %call83 = tail call i32 @BN_mod_exp(ptr noundef nonnull %ret.2197, ptr noundef %call48, ptr noundef nonnull %call50, ptr noundef %p, ptr noundef %ctx) #2
+  %call83 = tail call i32 @BN_mod_exp(ptr noundef nonnull %ret.3197, ptr noundef %call48, ptr noundef nonnull %call50, ptr noundef %p, ptr noundef %ctx) #2
   %tobool84.not = icmp eq i32 %call83, 0
   br i1 %tobool84.not, label %if.then301, label %if.then288
 
@@ -185,7 +185,7 @@ lor.lhs.false117:                                 ; preds = %if.end114
   br i1 %tobool119.not, label %if.then301, label %if.end121
 
 if.end121:                                        ; preds = %lor.lhs.false117
-  %call122 = tail call ptr @BN_copy(ptr noundef nonnull %ret.2197, ptr noundef %call52) #2
+  %call122 = tail call ptr @BN_copy(ptr noundef nonnull %ret.3197, ptr noundef %call52) #2
   %tobool123.not = icmp eq ptr %call122, null
   br i1 %tobool123.not, label %if.then301, label %if.then288
 
@@ -304,7 +304,7 @@ if.end206:                                        ; preds = %if.then202
   br i1 %tobool208.not, label %if.else210, label %if.then209
 
 if.then209:                                       ; preds = %if.end206
-  tail call void @BN_zero(ptr noundef nonnull %ret.2197) #2
+  tail call void @BN_zero(ptr noundef nonnull %ret.3197) #2
   br label %if.end306
 
 if.else210:                                       ; preds = %if.end206
@@ -323,7 +323,7 @@ if.end220:                                        ; preds = %if.else216
   br i1 %tobool222.not, label %if.end225, label %if.then223
 
 if.then223:                                       ; preds = %if.end220
-  tail call void @BN_zero(ptr noundef nonnull %ret.2197) #2
+  tail call void @BN_zero(ptr noundef nonnull %ret.3197) #2
   br label %if.end306
 
 if.end225:                                        ; preds = %if.end220, %if.else210
@@ -348,7 +348,7 @@ while.body238:                                    ; preds = %if.end232, %lor.lhs
   br i1 %tobool240.not, label %if.end246, label %if.then241
 
 if.then241:                                       ; preds = %while.body238
-  %call242 = tail call ptr @BN_copy(ptr noundef nonnull %ret.2197, ptr noundef %call52) #2
+  %call242 = tail call ptr @BN_copy(ptr noundef nonnull %ret.3197, ptr noundef %call52) #2
   %tobool243.not = icmp eq ptr %call242, null
   br i1 %tobool243.not, label %if.then301, label %if.then288
 
@@ -415,7 +415,7 @@ lor.lhs.false282:                                 ; preds = %lor.lhs.false279
   br i1 %tobool284.not, label %if.then301, label %while.body238
 
 if.then288:                                       ; preds = %lor.lhs.false82, %if.end121, %if.then241
-  %call289 = tail call i32 @BN_mod_sqr(ptr noundef %call52, ptr noundef nonnull %ret.2197, ptr noundef %p, ptr noundef %ctx) #2
+  %call289 = tail call i32 @BN_mod_sqr(ptr noundef %call52, ptr noundef nonnull %ret.3197, ptr noundef %p, ptr noundef %ctx) #2
   %tobool290.not.not = icmp eq i32 %call289, 0
   br i1 %tobool290.not.not, label %if.then301, label %land.lhs.true
 
@@ -429,21 +429,21 @@ if.then297:                                       ; preds = %land.lhs.true
   br label %if.then301
 
 if.then301:                                       ; preds = %if.end165, %if.then134, %if.then158, %if.then148, %if.else, %lor.lhs.false282, %lor.lhs.false279, %for.end, %while.end265, %if.end246, %if.end260, %for.body, %if.end, %if.end32, %if.end62, %if.then288, %if.then297, %lor.lhs.false82, %if.end79, %if.then75, %if.end121, %lor.lhs.false117, %if.end114, %lor.lhs.false110, %if.end107, %if.end103, %if.end98, %if.end94, %if.then90, %if.then173, %if.then182, %if.then194, %if.then241, %if.then259, %if.end232, %lor.lhs.false228, %if.end225, %if.else210, %if.then202, %if.else216, %if.end195, %if.end187, %if.end183, %if.end126, %if.end66
-  %ret.3.ph = phi ptr [ %ret.2197, %if.end66 ], [ %ret.2197, %if.end126 ], [ %ret.2197, %if.end183 ], [ %ret.2197, %if.end187 ], [ %ret.2197, %if.end195 ], [ %ret.2197, %if.else216 ], [ %ret.2197, %if.then202 ], [ %ret.2197, %if.else210 ], [ %ret.2197, %if.end225 ], [ %ret.2197, %lor.lhs.false228 ], [ %ret.2197, %if.end232 ], [ %ret.2197, %if.then259 ], [ %ret.2197, %if.then241 ], [ %ret.2197, %if.then194 ], [ %ret.2197, %if.then182 ], [ %ret.2197, %if.then173 ], [ %ret.2197, %if.then90 ], [ %ret.2197, %if.end94 ], [ %ret.2197, %if.end98 ], [ %ret.2197, %if.end103 ], [ %ret.2197, %if.end107 ], [ %ret.2197, %lor.lhs.false110 ], [ %ret.2197, %if.end114 ], [ %ret.2197, %lor.lhs.false117 ], [ %ret.2197, %if.end121 ], [ %ret.2197, %if.then75 ], [ %ret.2197, %if.end79 ], [ %ret.2197, %lor.lhs.false82 ], [ %ret.2197, %if.then297 ], [ %ret.2197, %if.then288 ], [ null, %if.end62 ], [ null, %if.end32 ], [ null, %if.end ], [ %ret.2197, %for.body ], [ %ret.2197, %if.end260 ], [ %ret.2197, %if.end246 ], [ %ret.2197, %while.end265 ], [ %ret.2197, %for.end ], [ %ret.2197, %lor.lhs.false279 ], [ %ret.2197, %lor.lhs.false282 ], [ %ret.2197, %if.else ], [ %ret.2197, %if.then148 ], [ %ret.2197, %if.then158 ], [ %ret.2197, %if.then134 ], [ %ret.2197, %if.end165 ]
-  %cmp302.not = icmp eq ptr %ret.3.ph, %in
+  %ret.1.ph = phi ptr [ %ret.3197, %if.end66 ], [ %ret.3197, %if.end126 ], [ %ret.3197, %if.end183 ], [ %ret.3197, %if.end187 ], [ %ret.3197, %if.end195 ], [ %ret.3197, %if.else216 ], [ %ret.3197, %if.then202 ], [ %ret.3197, %if.else210 ], [ %ret.3197, %if.end225 ], [ %ret.3197, %lor.lhs.false228 ], [ %ret.3197, %if.end232 ], [ %ret.3197, %if.then259 ], [ %ret.3197, %if.then241 ], [ %ret.3197, %if.then194 ], [ %ret.3197, %if.then182 ], [ %ret.3197, %if.then173 ], [ %ret.3197, %if.then90 ], [ %ret.3197, %if.end94 ], [ %ret.3197, %if.end98 ], [ %ret.3197, %if.end103 ], [ %ret.3197, %if.end107 ], [ %ret.3197, %lor.lhs.false110 ], [ %ret.3197, %if.end114 ], [ %ret.3197, %lor.lhs.false117 ], [ %ret.3197, %if.end121 ], [ %ret.3197, %if.then75 ], [ %ret.3197, %if.end79 ], [ %ret.3197, %lor.lhs.false82 ], [ %ret.3197, %if.then297 ], [ %ret.3197, %if.then288 ], [ null, %if.end62 ], [ null, %if.end32 ], [ null, %if.end ], [ %ret.3197, %for.body ], [ %ret.3197, %if.end260 ], [ %ret.3197, %if.end246 ], [ %ret.3197, %while.end265 ], [ %ret.3197, %for.end ], [ %ret.3197, %lor.lhs.false279 ], [ %ret.3197, %lor.lhs.false282 ], [ %ret.3197, %if.else ], [ %ret.3197, %if.then148 ], [ %ret.3197, %if.then158 ], [ %ret.3197, %if.then134 ], [ %ret.3197, %if.end165 ]
+  %cmp302.not = icmp eq ptr %ret.1.ph, %in
   br i1 %cmp302.not, label %if.end306, label %if.then304
 
 if.then304:                                       ; preds = %if.then301
-  tail call void @BN_clear_free(ptr noundef %ret.3.ph) #2
+  tail call void @BN_clear_free(ptr noundef %ret.1.ph) #2
   br label %if.end306
 
 if.end306:                                        ; preds = %if.end47, %if.then209, %if.then223, %land.lhs.true, %if.then301, %if.then304
-  %ret.4 = phi ptr [ null, %if.then304 ], [ null, %if.then301 ], [ %ret.2197, %land.lhs.true ], [ %ret.2197, %if.then209 ], [ %ret.2197, %if.then223 ], [ null, %if.end47 ]
+  %ret.4 = phi ptr [ null, %if.then304 ], [ null, %if.then301 ], [ %ret.3197, %land.lhs.true ], [ %ret.3197, %if.then209 ], [ %ret.3197, %if.then223 ], [ null, %if.end47 ]
   tail call void @BN_CTX_end(ptr noundef %ctx) #2
   br label %return
 
 return:                                           ; preds = %if.end36, %if.then41, %if.then44, %if.end10, %if.then14, %if.then17, %if.end306, %if.end20
-  %retval.0 = phi ptr [ %ret.4, %if.end306 ], [ null, %if.end20 ], [ null, %if.then17 ], [ null, %if.then14 ], [ %ret.0191, %if.end10 ], [ null, %if.then44 ], [ null, %if.then41 ], [ %ret.1194, %if.end36 ]
+  %retval.0 = phi ptr [ %ret.4, %if.end306 ], [ null, %if.end20 ], [ null, %if.then17 ], [ null, %if.then14 ], [ %ret.0191, %if.end10 ], [ null, %if.then44 ], [ null, %if.then41 ], [ %ret.2194, %if.end36 ]
   ret ptr %retval.0
 }
 

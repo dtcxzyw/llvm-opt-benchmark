@@ -2548,7 +2548,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %return
 
 if.end10:                                         ; preds = %if.end, %if.else, %land.lhs.true
-  %result.0 = phi i32 [ -1, %land.lhs.true ], [ %call5, %if.else ], [ 0, %if.end ]
+  %result.1 = phi i32 [ -1, %land.lhs.true ], [ %call5, %if.else ], [ 0, %if.end ]
   %2 = load i64, ptr %call, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i13.not = icmp eq i64 %3, 0
@@ -2565,7 +2565,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 return:                                           ; preds = %if.then1.i.i, %if.end.i.i, %if.then.i, %entry, %if.end10, %if.then1.i, %if.end.i, %if.then.split
-  %retval.0 = phi i32 [ %result.0, %if.end10 ], [ %result.0, %if.then1.i ], [ %result.0, %if.end.i ], [ 0, %if.then.split ], [ 0, %entry ], [ -1, %if.then.i ], [ -1, %if.end.i.i ], [ -1, %if.then1.i.i ]
+  %retval.0 = phi i32 [ %result.1, %if.end10 ], [ %result.1, %if.then1.i ], [ %result.1, %if.end.i ], [ 0, %if.then.split ], [ 0, %entry ], [ -1, %if.then.i ], [ -1, %if.end.i.i ], [ -1, %if.then1.i.i ]
   ret i32 %retval.0
 }
 

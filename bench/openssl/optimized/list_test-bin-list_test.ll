@@ -77,11 +77,11 @@ for.body:                                         ; preds = %entry, %for.inc
   %nb.0102 = phi i32 [ %nb.1, %for.inc ], [ 0, %entry ]
   %na.0101 = phi i32 [ %na.1, %for.inc ], [ 0, %entry ]
   %b.sroa.17.099 = phi i64 [ %b.sroa.17.1, %for.inc ], [ 0, %entry ]
-  %b.sroa.8.098 = phi ptr [ %b.sroa.8.2, %for.inc ], [ null, %entry ]
+  %b.sroa.8.098 = phi ptr [ %b.sroa.8.1, %for.inc ], [ null, %entry ]
   %b.sroa.0.097 = phi ptr [ %b.sroa.0.1, %for.inc ], [ null, %entry ]
   %a.sroa.21.096 = phi i64 [ %a.sroa.21.1, %for.inc ], [ 0, %entry ]
   %a.sroa.12.095 = phi ptr [ %a.sroa.12.1, %for.inc ], [ null, %entry ]
-  %a.sroa.0.094 = phi ptr [ %a.sroa.0.2, %for.inc ], [ null, %entry ]
+  %a.sroa.0.094 = phi ptr [ %a.sroa.0.1, %for.inc ], [ null, %entry ]
   %add.ptr = getelementptr inbounds %struct.testl_st, ptr %elem, i64 %indvars.iv
   %ossl_list_fizz.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %ossl_list_buzz.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
@@ -113,7 +113,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end.i, %for.body
-  %a.sroa.0.2 = phi ptr [ %spec.select91, %if.end.i ], [ %a.sroa.0.094, %for.body ]
+  %a.sroa.0.1 = phi ptr [ %spec.select91, %if.end.i ], [ %a.sroa.0.094, %for.body ]
   %a.sroa.12.1 = phi ptr [ %add.ptr, %if.end.i ], [ %a.sroa.12.095, %for.body ]
   %a.sroa.21.1 = phi i64 [ %inc.i, %if.end.i ], [ %a.sroa.21.096, %for.body ]
   %na.1 = phi i32 [ %inc, %if.end.i ], [ %na.0101, %for.body ]
@@ -142,7 +142,7 @@ if.end.i43:                                       ; preds = %if.then.i40, %if.th
 
 for.inc:                                          ; preds = %if.end13, %if.end.i43
   %b.sroa.0.1 = phi ptr [ %add.ptr, %if.end.i43 ], [ %b.sroa.0.097, %if.end13 ]
-  %b.sroa.8.2 = phi ptr [ %spec.select92, %if.end.i43 ], [ %b.sroa.8.098, %if.end13 ]
+  %b.sroa.8.1 = phi ptr [ %spec.select92, %if.end.i43 ], [ %b.sroa.8.098, %if.end13 ]
   %b.sroa.17.1 = phi i64 [ %inc.i47, %if.end.i43 ], [ %b.sroa.17.099, %if.end13 ]
   %nb.1 = phi i32 [ %inc21, %if.end.i43 ], [ %nb.0102, %if.end13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -169,7 +169,7 @@ lor.lhs.false33:                                  ; preds = %lor.lhs.false
   br i1 %tobool37.not, label %return, label %lor.lhs.false38
 
 lor.lhs.false38:                                  ; preds = %lor.lhs.false33
-  %call40 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 62, ptr noundef nonnull @.str.8, ptr noundef %a.sroa.0.2) #3
+  %call40 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 62, ptr noundef nonnull @.str.8, ptr noundef %a.sroa.0.1) #3
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %return, label %lor.lhs.false42
 
@@ -184,12 +184,12 @@ lor.lhs.false46:                                  ; preds = %lor.lhs.false42
   br i1 %tobool49.not, label %return, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %lor.lhs.false46
-  %call52 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 65, ptr noundef nonnull @.str.11, ptr noundef %b.sroa.8.2) #3
+  %call52 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 65, ptr noundef nonnull @.str.11, ptr noundef %b.sroa.8.1) #3
   %tobool53.not = icmp eq i32 %call52, 0
   br i1 %tobool53.not, label %return, label %lor.lhs.false54
 
 lor.lhs.false54:                                  ; preds = %lor.lhs.false50
-  %1 = load i32, ptr %a.sroa.0.2, align 8
+  %1 = load i32, ptr %a.sroa.0.1, align 8
   %call57 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 66, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef %1, i32 noundef 3) #3
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %return, label %lor.lhs.false59
@@ -209,16 +209,16 @@ lor.lhs.false64:                                  ; preds = %lor.lhs.false59
   br i1 %tobool69.not, label %return, label %lor.lhs.false70
 
 lor.lhs.false70:                                  ; preds = %lor.lhs.false64
-  %4 = load i32, ptr %b.sroa.8.2, align 8
+  %4 = load i32, ptr %b.sroa.8.1, align 8
   %call73 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 69, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, i32 noundef %4, i32 noundef 5) #3
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %return, label %if.end.i52
 
 if.end.i52:                                       ; preds = %lor.lhs.false70
-  %ossl_list_fizz.i57 = getelementptr inbounds i8, ptr %a.sroa.0.2, i64 8
+  %ossl_list_fizz.i57 = getelementptr inbounds i8, ptr %a.sroa.0.1, i64 8
   %5 = load ptr, ptr %ossl_list_fizz.i57, align 8
-  %cmp2.i = icmp eq ptr %a.sroa.12.1, %a.sroa.0.2
-  %prev.i54 = getelementptr inbounds i8, ptr %a.sroa.0.2, i64 16
+  %cmp2.i = icmp eq ptr %a.sroa.12.1, %a.sroa.0.1
+  %prev.i54 = getelementptr inbounds i8, ptr %a.sroa.0.1, i64 16
   %6 = load ptr, ptr %prev.i54, align 8
   %cmp9.not.i = icmp eq ptr %6, null
   br i1 %cmp9.not.i, label %if.end17.i, label %if.then10.i
@@ -241,9 +241,9 @@ if.then21.i:                                      ; preds = %if.end17.i
 ossl_list_fizz_remove.exit:                       ; preds = %if.end17.i, %if.then21.i
   %dec.i = add i64 %a.sroa.21.1, -1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ossl_list_fizz.i57, i8 0, i64 16, i1 false)
-  %prev.i62 = getelementptr inbounds i8, ptr %b.sroa.8.2, i64 32
+  %prev.i62 = getelementptr inbounds i8, ptr %b.sroa.8.1, i64 32
   %8 = load ptr, ptr %prev.i62, align 8
-  %ossl_list_buzz7.i = getelementptr inbounds i8, ptr %b.sroa.8.2, i64 24
+  %ossl_list_buzz7.i = getelementptr inbounds i8, ptr %b.sroa.8.1, i64 24
   %cmp9.not.i65 = icmp eq ptr %8, null
   %.pre16.i66 = load ptr, ptr %ossl_list_buzz7.i, align 8
   br i1 %cmp9.not.i65, label %if.end17.i68, label %if.then10.i67

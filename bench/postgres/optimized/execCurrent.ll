@@ -402,7 +402,7 @@ define internal fastcc ptr @search_plan_tree(ptr noundef readonly %0, i32 nounde
 
 18:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %.02944 = phi ptr [ null, %.lr.ph ], [ %.1, %24 ]
+  %.144 = phi ptr [ null, %.lr.ph ], [ %.2, %24 ]
   %19 = load ptr, ptr %10, align 8
   %20 = getelementptr ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
@@ -411,11 +411,11 @@ define internal fastcc ptr @search_plan_tree(ptr noundef readonly %0, i32 nounde
   br i1 %.not, label %24, label %23
 
 23:                                               ; preds = %18
-  %.not33 = icmp eq ptr %.02944, null
+  %.not33 = icmp eq ptr %.144, null
   br i1 %.not33, label %24, label %.thread
 
 24:                                               ; preds = %23, %18
-  %.1 = phi ptr [ %.02944, %18 ], [ %22, %23 ]
+  %.2 = phi ptr [ %.144, %18 ], [ %22, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %7, align 8
   %26 = sext i32 %25 to i64
@@ -433,12 +433,12 @@ define internal fastcc ptr @search_plan_tree(ptr noundef readonly %0, i32 nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %.loopexit.sink.split
-  %.2 = phi ptr [ %31, %.loopexit.sink.split ], [ %.1, %24 ]
-  %.not35 = icmp eq ptr %.2, null
+  %.029 = phi ptr [ %31, %.loopexit.sink.split ], [ %.2, %24 ]
+  %.not35 = icmp eq ptr %.029, null
   br i1 %.not35, label %.thread, label %.thread39
 
 .thread39:                                        ; preds = %14, %.loopexit
-  %.242 = phi ptr [ %.2, %.loopexit ], [ %0, %14 ]
+  %.02942 = phi ptr [ %.029, %.loopexit ], [ %0, %14 ]
   %32 = getelementptr inbounds i8, ptr %0, i64 104
   %33 = load ptr, ptr %32, align 8
   %.not36 = icmp eq ptr %33, null
@@ -449,7 +449,7 @@ define internal fastcc ptr @search_plan_tree(ptr noundef readonly %0, i32 nounde
   br label %.thread
 
 .thread:                                          ; preds = %23, %.preheader, %14, %11, %5, %.loopexit, %.thread39, %34, %3
-  %.0 = phi ptr [ null, %3 ], [ %.242, %34 ], [ %.242, %.thread39 ], [ null, %.loopexit ], [ null, %5 ], [ null, %11 ], [ null, %14 ], [ null, %.preheader ], [ null, %23 ]
+  %.0 = phi ptr [ null, %3 ], [ %.02942, %34 ], [ %.02942, %.thread39 ], [ null, %.loopexit ], [ null, %5 ], [ null, %11 ], [ null, %14 ], [ null, %.preheader ], [ null, %23 ]
   ret ptr %.0
 }
 

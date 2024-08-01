@@ -73,8 +73,8 @@ define hidden void @_ZN4core5slice6rotate10ptr_rotate17h0dbc64fccf577ce9E(i64 no
   br i1 %or.cond152, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.loopexit
-  %.0155 = phi i64 [ %.1, %.loopexit ], [ %0, %3 ]
-  %.0111154 = phi ptr [ %.2113, %.loopexit ], [ %1, %3 ]
+  %.0155 = phi i64 [ %.2, %.loopexit ], [ %0, %3 ]
+  %.0111154 = phi ptr [ %.3, %.loopexit ], [ %1, %3 ]
   %.0114153 = phi i64 [ %.2116, %.loopexit ], [ %2, %3 ]
   %6 = add i64 %.0155, %.0114153
   %7 = icmp ult i64 %6, 24
@@ -146,23 +146,23 @@ _ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit: ; preds = %.lr.ph.i
 
 .loopexit:                                        ; preds = %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit
   %.2116 = phi i64 [ %26, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit ], [ %.0114153, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136 ]
-  %.2113 = phi ptr [ %25, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit ], [ %31, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136 ]
-  %.1 = phi i64 [ %.0155, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit ], [ %35, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136 ]
+  %.3 = phi ptr [ %25, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit ], [ %31, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136 ]
+  %.2 = phi i64 [ %.0155, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit ], [ %35, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136 ]
   %28 = icmp eq i64 %.2116, 0
-  %29 = icmp eq i64 %.1, 0
+  %29 = icmp eq i64 %.2, 0
   %or.cond = or i1 %28, %29
   br i1 %or.cond, label %.thread, label %.lr.ph
 
 30:                                               ; preds = %.preheader140, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136
-  %.3 = phi ptr [ %31, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136 ], [ %.0111154, %.preheader140 ]
-  %.2 = phi i64 [ %35, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136 ], [ %.0155, %.preheader140 ]
-  %31 = getelementptr inbounds { i32, i16, i16 }, ptr %.3, i64 %14
+  %.2113 = phi ptr [ %31, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136 ], [ %.0111154, %.preheader140 ]
+  %.1 = phi i64 [ %35, %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136 ], [ %.0155, %.preheader140 ]
+  %31 = getelementptr inbounds { i32, i16, i16 }, ptr %.2113, i64 %14
   br label %.lr.ph.i131
 
 .lr.ph.i131:                                      ; preds = %30, %.lr.ph.i131
   %.01213.i132 = phi i64 [ %34, %.lr.ph.i131 ], [ 0, %30 ]
   %32 = getelementptr inbounds { [2 x i32] }, ptr %31, i64 %.01213.i132
-  %33 = getelementptr inbounds { [2 x i32] }, ptr %.3, i64 %.01213.i132
+  %33 = getelementptr inbounds { [2 x i32] }, ptr %.2113, i64 %.01213.i132
   %.sroa.0.0.copyload.i133 = load i64, ptr %32, align 4
   %.sroa.09.0.copyload.i134 = load i64, ptr %33, align 4
   store i64 %.sroa.09.0.copyload.i134, ptr %32, align 4
@@ -172,7 +172,7 @@ _ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit: ; preds = %.lr.ph.i
   br i1 %exitcond.not.i135, label %_ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136, label %.lr.ph.i131
 
 _ZN4core3ptr19swap_nonoverlapping17haa9f8296e6e5f6adE.exit136: ; preds = %.lr.ph.i131
-  %35 = sub i64 %.2, %.0114153
+  %35 = sub i64 %.1, %.0114153
   %36 = icmp ult i64 %35, %.0114153
   br i1 %36, label %.loopexit, label %30
 

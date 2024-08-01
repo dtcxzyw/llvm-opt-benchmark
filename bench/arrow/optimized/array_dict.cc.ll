@@ -13919,7 +13919,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont20.threa
   br label %for.body
 
 for.cond:                                         ; preds = %invoke.cont61, %_ZN5arrow6ResultIbED2Ev.exit
-  %changed.1947949 = phi i8 [ %changed.1.ph, %_ZN5arrow6ResultIbED2Ev.exit ], [ %changed.0912, %invoke.cont61 ]
+  %changed.2947949 = phi i8 [ %changed.2.ph, %_ZN5arrow6ResultIbED2Ev.exit ], [ %changed.1912, %invoke.cont61 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load ptr, ptr %type, align 8
   %children_.i56 = getelementptr inbounds i8, ptr %23, i64 48
@@ -13937,7 +13937,7 @@ for.cond:                                         ; preds = %invoke.cont61, %_ZN
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %27 = phi ptr [ %17, %for.body.lr.ph ], [ %23, %for.cond ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
-  %changed.0912 = phi i8 [ 0, %for.body.lr.ph ], [ %changed.1947949, %for.cond ]
+  %changed.1912 = phi i8 [ 0, %for.body.lr.ph ], [ %changed.2947949, %for.cond ]
   %28 = load ptr, ptr %chunks, align 8
   %29 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not15.i = icmp eq ptr %28, %29
@@ -14296,7 +14296,7 @@ _ZNSt10shared_ptrIN5arrow9ArrayDataEEaSEOS2_.exit: ; preds = %for.body67, %_ZN9_
   br i1 %cmp66, label %for.body67, label %cleanup, !llvm.loop !276
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN5arrow9ArrayDataEEaSEOS2_.exit, %for.cond64.preheader, %if.then57
-  %changed.1.ph = phi i8 [ 1, %for.cond64.preheader ], [ %changed.0912, %if.then57 ], [ 1, %_ZNSt10shared_ptrIN5arrow9ArrayDataEEaSEOS2_.exit ]
+  %changed.2.ph = phi i8 [ 1, %for.cond64.preheader ], [ %changed.1912, %if.then57 ], [ 1, %_ZNSt10shared_ptrIN5arrow9ArrayDataEEaSEOS2_.exit ]
   %.pr944 = load ptr, ptr %ref.tmp41, align 8
   %cmp.not.i.i = icmp eq ptr %.pr944, null
   br i1 %cmp.not.i.i, label %_ZN5arrow6ResultIbED2Ev.exit, label %delete.notnull.i.i.i
@@ -14492,7 +14492,7 @@ if.end80.critedge.loopexit:                       ; preds = %for.cond
 if.end80.critedge:                                ; preds = %if.end80.critedge.loopexit, %invoke.cont20
   %116 = phi ptr [ %add.ptr.i.i.i, %invoke.cont20 ], [ %.pre933, %if.end80.critedge.loopexit ]
   %117 = phi ptr [ %call5.i.i.i.i2.i.i55, %invoke.cont20 ], [ %.pre932, %if.end80.critedge.loopexit ]
-  %changed.0.lcssa = phi i8 [ 0, %invoke.cont20 ], [ %changed.1947949, %if.end80.critedge.loopexit ]
+  %changed.1.lcssa = phi i8 [ 0, %invoke.cont20 ], [ %changed.2947949, %if.end80.critedge.loopexit ]
   %cmp.not3.i.i.i.i177 = icmp eq ptr %117, %116
   br i1 %cmp.not3.i.i.i.i177, label %invoke.cont.i197, label %for.body.i.i.i.i178
 
@@ -14590,7 +14590,7 @@ if.then.i.i.i199:                                 ; preds = %invoke.cont.i197
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then.i.i.i199, %invoke.cont.i197, %if.end
-  %changed.2 = phi i8 [ 0, %if.end ], [ %changed.0.lcssa, %invoke.cont.i197 ], [ %changed.0.lcssa, %if.then.i.i.i199 ]
+  %changed.0 = phi i8 [ 0, %if.end ], [ %changed.1.lcssa, %invoke.cont.i197 ], [ %changed.1.lcssa, %if.then.i.i.i199 ]
   %130 = load ptr, ptr %type, align 8
   %id_.i220 = getelementptr inbounds i8, ptr %130, i64 40
   %131 = load i32, ptr %id_.i220, align 8
@@ -15660,7 +15660,7 @@ ehcleanup241:                                     ; preds = %_ZNKSt14default_del
   br label %ehcleanup244
 
 if.end242:                                        ; preds = %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EED2Ev.exit770, %if.end80
-  %changed.3 = phi i8 [ 1, %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EED2Ev.exit770 ], [ %changed.2, %if.end80 ]
+  %changed.3 = phi i8 [ 1, %_ZNSt10unique_ptrIN5arrow17DictionaryUnifierESt14default_deleteIS1_EED2Ev.exit770 ], [ %changed.0, %if.end80 ]
   store ptr null, ptr %agg.result, align 8
   %storage_.i.i776 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %frombool.i.i.i = and i8 %changed.3, 1
@@ -86588,7 +86588,7 @@ if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then7.i.i.i, %if.then5.i.i.i
-  %acc.0.i.i.i = phi i64 [ %add13.i.i.i, %if.then7.i.i.i ], [ %mul.i.i.i, %if.then5.i.i.i ]
+  %acc.2.i.i.i = phi i64 [ %add13.i.i.i, %if.then7.i.i.i ], [ %mul.i.i.i, %if.then5.i.i.i ]
   %add.ptr14.i.i.i = getelementptr inbounds i8, ptr %data, i64 32
   %add.ptr14.val.i.i.i = load i64, ptr %add.ptr14.i.i.i, align 1, !alias.scope !2810
   %10 = getelementptr i8, ptr %data, i64 40
@@ -86601,7 +86601,7 @@ if.end.i.i.i:                                     ; preds = %if.then7.i.i.i, %if
   %shr.i.i.i74.i.i.i = lshr i128 %mul.i.i.i73.i.i.i, 64
   %xor1.i.i75.i.i.i = xor i128 %shr.i.i.i74.i.i.i, %mul.i.i.i73.i.i.i
   %xor.i.i76.i.i.i = trunc i128 %xor1.i.i75.i.i.i to i64
-  %add17.i.i.i = add i64 %acc.0.i.i.i, %xor.i.i76.i.i.i
+  %add17.i.i.i = add i64 %acc.2.i.i.i, %xor.i.i76.i.i.i
   %add.ptr18.i.i.i = getelementptr inbounds i8, ptr %data, i64 %length
   %add.ptr19.i.i.i = getelementptr inbounds i8, ptr %add.ptr18.i.i.i, i64 -48
   %add.ptr19.val.i.i.i = load i64, ptr %add.ptr19.i.i.i, align 1, !alias.scope !2810
@@ -86650,7 +86650,7 @@ if.end23.i.i.i:                                   ; preds = %if.end.i.i.i, %if.t
   br label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i
 
 _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i:      ; preds = %if.end23.i.i.i, %if.then3.i.i
-  %acc.2.i.i.i = phi i64 [ %add32.i.i.i, %if.end23.i.i.i ], [ %mul.i.i.i, %if.then3.i.i ]
+  %acc.0.i.i.i = phi i64 [ %add32.i.i.i, %if.end23.i.i.i ], [ %mul.i.i.i, %if.then3.i.i ]
   %input.val.i.i.i = load i64, ptr %data, align 1, !alias.scope !2810
   %14 = getelementptr i8, ptr %data, i64 8
   %input.val56.i.i.i = load i64, ptr %14, align 1, !alias.scope !2810
@@ -86662,7 +86662,7 @@ _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i:      ; preds = %if.end23.i.i.i, %if
   %shr.i.i.i106.i.i.i = lshr i128 %mul.i.i.i105.i.i.i, 64
   %xor1.i.i107.i.i.i = xor i128 %shr.i.i.i106.i.i.i, %mul.i.i.i105.i.i.i
   %xor.i.i108.i.i.i = trunc i128 %xor1.i.i107.i.i.i to i64
-  %add37.i.i.i = add i64 %acc.2.i.i.i, %xor.i.i108.i.i.i
+  %add37.i.i.i = add i64 %acc.0.i.i.i, %xor.i.i108.i.i.i
   %add.ptr38.i.i.i = getelementptr inbounds i8, ptr %data, i64 %length
   %add.ptr39.i.i.i = getelementptr inbounds i8, ptr %add.ptr38.i.i.i, i64 -16
   %add.ptr39.val.i.i.i = load i64, ptr %add.ptr39.i.i.i, align 1, !alias.scope !2810

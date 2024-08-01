@@ -2508,7 +2508,7 @@ _ZN3std4path4Path4join17h7862befbb5430f8fE.exit.i: ; preds = %56
           to label %96 unwind label %126, !noalias !364
 
 "_ZN4core6option15Option$LT$T$GT$3map17hc5606fbb8b4bcab3E.exit.i": ; preds = %.critedge.i.i, %"_ZN4core3ptr92drop_in_place$LT$ignore..gitignore..gitconfig_home_contents..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha8044fdcf6f663caE.exit.i.i"
-  %.sroa.027.1 = phi i64 [ %.sroa.027.0.copyload28, %.critedge.i.i ], [ -9223372036854775808, %"_ZN4core3ptr92drop_in_place$LT$ignore..gitignore..gitconfig_home_contents..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha8044fdcf6f663caE.exit.i.i" ]
+  %.sroa.027.0 = phi i64 [ %.sroa.027.0.copyload28, %.critedge.i.i ], [ -9223372036854775808, %"_ZN4core3ptr92drop_in_place$LT$ignore..gitignore..gitconfig_home_contents..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha8044fdcf6f663caE.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41), !noalias !364
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43), !noalias !364
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbf0e2d6d7c3efd1E.llvm.12875954175451687458"(ptr noalias noundef nonnull align 8 dereferenceable(16) %46)
@@ -2622,7 +2622,7 @@ common.resume:                                    ; preds = %.body.i.i19, %350, 
 _ZN6ignore9gitignore23gitconfig_home_contents17hc527074c81013d1dE.exit: ; preds = %"_ZN4core3ptr81drop_in_place$LT$std..io..buffered..bufreader..BufReader$LT$std..fs..File$GT$$GT$17hc0353647a80100faE.exit.i", %120, %124
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37), !noalias !436
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48), !noalias !364
-  %145 = icmp eq i64 %.sroa.027.1, -9223372036854775808
+  %145 = icmp eq i64 %.sroa.027.0, -9223372036854775808
   br i1 %145, label %.thread, label %146
 
 .thread:                                          ; preds = %_ZN6ignore9gitignore23gitconfig_home_contents17hc527074c81013d1dE.exit, %_ZN6ignore9gitignore23gitconfig_home_contents17hc527074c81013d1dE.exit.thread
@@ -2634,7 +2634,7 @@ _ZN6ignore9gitignore23gitconfig_home_contents17hc527074c81013d1dE.exit: ; preds 
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, i64 16, i1 false)
-  store i64 %.sroa.027.1, ptr %50, align 8
+  store i64 %.sroa.027.0, ptr %50, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !479)
   %147 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !479, !noalias !482, !nonnull !11, !noundef !11
   %148 = getelementptr inbounds i8, ptr %50, i64 16

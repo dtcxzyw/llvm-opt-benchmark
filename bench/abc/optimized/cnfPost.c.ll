@@ -23,8 +23,8 @@ define void @Cnf_ManPostprocess_old(ptr nocapture noundef readonly %0) local_unn
 
 8:                                                ; preds = %.lr.ph, %.critedge2
   %indvars.iv58 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next59, %.critedge2 ]
-  %.02751 = phi i32 [ 0, %.lr.ph ], [ %.3, %.critedge2 ]
-  %.02850 = phi i32 [ 0, %.lr.ph ], [ %.331, %.critedge2 ]
+  %.02751 = phi i32 [ 0, %.lr.ph ], [ %.1, %.critedge2 ]
+  %.02850 = phi i32 [ 0, %.lr.ph ], [ %.129, %.critedge2 ]
   %9 = getelementptr inbounds ptr, ptr %.val38, i64 %indvars.iv58
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -61,8 +61,8 @@ Aig_ManObj.exit.preheader:                        ; preds = %Aig_ManObj.exit.lr.
 
 Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.preheader, %Aig_ManObj.exit
   %indvars.iv = phi i64 [ 0, %Aig_ManObj.exit.preheader ], [ %indvars.iv.next, %Aig_ManObj.exit ]
-  %.146 = phi i32 [ %.02751, %Aig_ManObj.exit.preheader ], [ %.2, %Aig_ManObj.exit ]
-  %.12945 = phi i32 [ %.02850, %Aig_ManObj.exit.preheader ], [ %.230, %Aig_ManObj.exit ]
+  %.246 = phi i32 [ %.02751, %Aig_ManObj.exit.preheader ], [ %.3, %Aig_ManObj.exit ]
+  %.23045 = phi i32 [ %.02850, %Aig_ManObj.exit.preheader ], [ %.331, %Aig_ManObj.exit ]
   %23 = getelementptr inbounds [4 x i32], ptr inttoptr (i64 8 to ptr), i64 0, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
@@ -78,23 +78,23 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.pre
   %.not35 = icmp eq i64 %.mask36, 64
   %or.cond44 = and i1 %.not35, %narrow.i42
   %32 = zext i1 %or.cond44 to i32
-  %.230 = add nsw i32 %.12945, %32
+  %.331 = add nsw i32 %.23045, %32
   %33 = select i1 %or.cond44, i32 %22, i32 0
-  %.2 = add nsw i32 %.146, %33
+  %.3 = add nsw i32 %.246, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2, label %Aig_ManObj.exit, !llvm.loop !4
 
 .critedge2:                                       ; preds = %Aig_ManObj.exit, %Aig_ManObj.exit.lr.ph, %.preheader, %8, %12
-  %.331 = phi i32 [ %.02850, %8 ], [ %.02850, %12 ], [ %.02850, %.preheader ], [ %.02850, %Aig_ManObj.exit.lr.ph ], [ %.230, %Aig_ManObj.exit ]
-  %.3 = phi i32 [ %.02751, %8 ], [ %.02751, %12 ], [ %.02751, %.preheader ], [ %.02751, %Aig_ManObj.exit.lr.ph ], [ %.2, %Aig_ManObj.exit ]
+  %.129 = phi i32 [ %.02850, %8 ], [ %.02850, %12 ], [ %.02850, %.preheader ], [ %.02850, %Aig_ManObj.exit.lr.ph ], [ %.331, %Aig_ManObj.exit ]
+  %.1 = phi i32 [ %.02751, %8 ], [ %.02751, %12 ], [ %.02751, %.preheader ], [ %.02751, %Aig_ManObj.exit.lr.ph ], [ %.3, %Aig_ManObj.exit ]
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
   br i1 %exitcond62.not, label %.critedge, label %8, !llvm.loop !6
 
 .critedge:                                        ; preds = %.critedge2, %1
-  %.028.lcssa = phi i32 [ 0, %1 ], [ %.331, %.critedge2 ]
-  %.027.lcssa = phi i32 [ 0, %1 ], [ %.3, %.critedge2 ]
+  %.028.lcssa = phi i32 [ 0, %1 ], [ %.129, %.critedge2 ]
+  %.027.lcssa = phi i32 [ 0, %1 ], [ %.1, %.critedge2 ]
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.027.lcssa, i32 noundef %.028.lcssa)
   ret void
 }

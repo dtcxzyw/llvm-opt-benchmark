@@ -143,7 +143,7 @@ define void @constrained_majorization_new_with_gaps(ptr nocapture noundef readon
 .lr.ph.i:                                         ; preds = %49, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %49 ]
   %.038.i = phi float [ -1.000000e+09, %.lr.ph.preheader.i ], [ %.1.i, %49 ]
-  %.02737.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.2.i, %49 ]
+  %.02737.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.128.i, %49 ]
   %.02936.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %.130.i, %49 ]
   %22 = sext i32 %.02737.i to i64
   %.not.i = icmp slt i64 %indvars.iv.i, %22
@@ -161,7 +161,7 @@ define void @constrained_majorization_new_with_gaps(ptr nocapture noundef readon
   br label %30
 
 30:                                               ; preds = %26, %23
-  %.128.i = phi i32 [ %29, %26 ], [ %11, %23 ]
+  %.2.i = phi i32 [ %29, %26 ], [ %11, %23 ]
   %.not34.i = icmp eq i64 %indvars.iv.i, 0
   br i1 %.not34.i, label %37, label %31
 
@@ -176,14 +176,14 @@ define void @constrained_majorization_new_with_gaps(ptr nocapture noundef readon
 
 37:                                               ; preds = %31, %30
   %38 = phi float [ %36, %31 ], [ -1.000000e+09, %30 ]
-  %39 = add nsw i32 %.128.i, -1
+  %39 = add nsw i32 %.2.i, -1
   %40 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @quicksort_placef(ptr noundef %9, ptr noundef %14, i32 noundef %40, i32 noundef %39) #11
   br label %41
 
 41:                                               ; preds = %37, %.lr.ph.i
   %.130.i = phi i32 [ %24, %37 ], [ %.02936.i, %.lr.ph.i ]
-  %.2.i = phi i32 [ %.128.i, %37 ], [ %.02737.i, %.lr.ph.i ]
+  %.128.i = phi i32 [ %.2.i, %37 ], [ %.02737.i, %.lr.ph.i ]
   %.1.i = phi float [ %38, %37 ], [ %.038.i, %.lr.ph.i ]
   %42 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 4
@@ -633,12 +633,12 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   br label %272
 
 271:                                              ; preds = %266
-  %.2.us = select i1 %268, float %83, float %264
+  %.3.us = select i1 %268, float %83, float %264
   br label %272
 
 272:                                              ; preds = %271, %270, %269, %260
-  %.3.us = phi float [ %.2.us, %271 ], [ %262, %270 ], [ %264, %269 ], [ %264, %260 ]
-  %.1.us = phi float [ %.2.us, %271 ], [ %262, %270 ], [ %262, %269 ], [ %262, %260 ]
+  %.2.us = phi float [ %.3.us, %271 ], [ %262, %270 ], [ %264, %269 ], [ %264, %260 ]
+  %.1.us = phi float [ %.3.us, %271 ], [ %262, %270 ], [ %262, %269 ], [ %262, %260 ]
   br i1 %.not441.us, label %.preheader447.us, label %.lr.ph529.us.preheader
 
 .lr.ph529.us.preheader:                           ; preds = %272
@@ -708,7 +708,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   br i1 %308, label %309, label %319
 
 309:                                              ; preds = %._crit_edge537.us
-  %310 = fsub float %.3.us, %83
+  %310 = fsub float %.2.us, %83
   %311 = tail call float @llvm.fabs.f32(float %310)
   %312 = fpext float %311 to double
   %313 = fcmp olt double %312, 1.000000e-02
@@ -754,7 +754,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %335 = sext i32 %334 to i64
   %336 = getelementptr inbounds float, ptr %74, i64 %335
   %337 = load float, ptr %336, align 4
-  %338 = fadd float %.3.us, %337
+  %338 = fadd float %.2.us, %337
   %339 = getelementptr inbounds float, ptr %9, i64 %335
   store float %338, ptr %339, align 4
   %indvars.iv.next606 = add nuw nsw i64 %indvars.iv605, 1
@@ -788,12 +788,12 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   br label %.thread.us
 
 350:                                              ; preds = %345
-  %.0371.us = select i1 %347, float %83, float %343
+  %.1372.us = select i1 %347, float %83, float %343
   br label %.thread.us
 
 .thread.us:                                       ; preds = %350, %349, %348, %342, %.lr.ph524.us
-  %.1372.us = phi float [ %.0371.us, %350 ], [ %341, %349 ], [ %343, %348 ], [ %343, %342 ], [ %341, %.lr.ph524.us ]
-  %.0.us = phi float [ %.0371.us, %350 ], [ %341, %349 ], [ %341, %348 ], [ %341, %342 ], [ %341, %.lr.ph524.us ]
+  %.0371.us = phi float [ %.1372.us, %350 ], [ %341, %349 ], [ %343, %348 ], [ %343, %342 ], [ %341, %.lr.ph524.us ]
+  %.0.us = phi float [ %.1372.us, %350 ], [ %341, %349 ], [ %341, %348 ], [ %341, %342 ], [ %341, %.lr.ph524.us ]
   %351 = trunc i64 %indvars.iv600 to i32
   %352 = sub i32 %.0397.lcssa.us629, %351
   %353 = sitofp i32 %352 to double
@@ -802,7 +802,7 @@ ensureMonotonicOrderingWithGaps.exit:             ; preds = %49
   %356 = fpext float %355 to double
   %357 = trunc nuw nsw i64 %indvars.iv600 to i32
   %358 = uitofp nneg i32 %357 to double
-  %359 = fsub float %.1372.us, %83
+  %359 = fsub float %.0371.us, %83
   %360 = tail call float @llvm.fabs.f32(float %359)
   %361 = fpext float %360 to double
   %362 = fmul double %358, %361

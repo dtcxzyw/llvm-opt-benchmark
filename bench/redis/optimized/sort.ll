@@ -472,9 +472,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %desc.0446 = phi i32 [ 0, %while.body.lr.ph ], [ %desc.1, %if.end153 ]
   %alpha.0445 = phi i32 [ 0, %while.body.lr.ph ], [ %alpha.1, %if.end153 ]
   %j.0444 = phi i32 [ 2, %while.body.lr.ph ], [ %inc154, %if.end153 ]
-  %dontsort.0443 = phi i32 [ 0, %while.body.lr.ph ], [ %dontsort.2, %if.end153 ]
+  %dontsort.0443 = phi i32 [ 0, %while.body.lr.ph ], [ %dontsort.1, %if.end153 ]
   %getop.0442 = phi i32 [ 0, %while.body.lr.ph ], [ %getop.1, %if.end153 ]
-  %sortby.0441 = phi ptr [ null, %while.body.lr.ph ], [ %sortby.1, %if.end153 ]
+  %sortby.0441 = phi ptr [ null, %while.body.lr.ph ], [ %sortby.2, %if.end153 ]
   %storekey.0440 = phi ptr [ null, %while.body.lr.ph ], [ %storekey.1, %if.end153 ]
   %6 = xor i32 %j.0444, -1
   %sub4 = add i32 %5, %6
@@ -718,9 +718,9 @@ if.else145:                                       ; preds = %if.else101
 
 if.end153:                                        ; preds = %if.end94, %if.then70, %lor.lhs.false, %if.else14, %if.else, %while.body, %if.end136, %if.then55
   %storekey.1 = phi ptr [ %13, %if.then55 ], [ %storekey.0440, %if.end136 ], [ %storekey.0440, %while.body ], [ %storekey.0440, %if.else ], [ %storekey.0440, %if.else14 ], [ %storekey.0440, %lor.lhs.false ], [ %storekey.0440, %if.then70 ], [ %storekey.0440, %if.end94 ]
-  %sortby.1 = phi ptr [ %sortby.0441, %if.then55 ], [ %sortby.0441, %if.end136 ], [ %sortby.0441, %while.body ], [ %sortby.0441, %if.else ], [ %sortby.0441, %if.else14 ], [ %sortby.0441, %lor.lhs.false ], [ %14, %if.then70 ], [ %14, %if.end94 ]
+  %sortby.2 = phi ptr [ %sortby.0441, %if.then55 ], [ %sortby.0441, %if.end136 ], [ %sortby.0441, %while.body ], [ %sortby.0441, %if.else ], [ %sortby.0441, %if.else14 ], [ %sortby.0441, %lor.lhs.false ], [ %14, %if.then70 ], [ %14, %if.end94 ]
   %getop.1 = phi i32 [ %getop.0442, %if.then55 ], [ %inc143, %if.end136 ], [ %getop.0442, %while.body ], [ %getop.0442, %if.else ], [ %getop.0442, %if.else14 ], [ %getop.0442, %lor.lhs.false ], [ %getop.0442, %if.then70 ], [ %getop.0442, %if.end94 ]
-  %dontsort.2 = phi i32 [ %dontsort.0443, %if.then55 ], [ %dontsort.0443, %if.end136 ], [ %dontsort.0443, %while.body ], [ %dontsort.0443, %if.else ], [ %dontsort.0443, %if.else14 ], [ %dontsort.0443, %lor.lhs.false ], [ 1, %if.then70 ], [ %dontsort.0443, %if.end94 ]
+  %dontsort.1 = phi i32 [ %dontsort.0443, %if.then55 ], [ %dontsort.0443, %if.end136 ], [ %dontsort.0443, %while.body ], [ %dontsort.0443, %if.else ], [ %dontsort.0443, %if.else14 ], [ %dontsort.0443, %lor.lhs.false ], [ 1, %if.then70 ], [ %dontsort.0443, %if.end94 ]
   %j.1 = phi i32 [ %add57, %if.then55 ], [ %add138, %if.end136 ], [ %j.0444, %while.body ], [ %j.0444, %if.else ], [ %j.0444, %if.else14 ], [ %add37, %lor.lhs.false ], [ %add72, %if.then70 ], [ %add72, %if.end94 ]
   %alpha.1 = phi i32 [ %alpha.0445, %if.then55 ], [ %alpha.0445, %if.end136 ], [ %alpha.0445, %while.body ], [ %alpha.0445, %if.else ], [ 1, %if.else14 ], [ %alpha.0445, %lor.lhs.false ], [ %alpha.0445, %if.then70 ], [ %alpha.0445, %if.end94 ]
   %desc.1 = phi i32 [ %desc.0446, %if.then55 ], [ %desc.0446, %if.end136 ], [ 0, %while.body ], [ 1, %if.else ], [ %desc.0446, %if.else14 ], [ %desc.0446, %lor.lhs.false ], [ %desc.0446, %if.then70 ], [ %desc.0446, %if.end94 ]
@@ -735,9 +735,9 @@ if.then156:                                       ; preds = %if.then30, %lor.lhs
 
 if.end157:                                        ; preds = %if.end153, %entry
   %storekey.0.lcssa = phi ptr [ null, %entry ], [ %storekey.1, %if.end153 ]
-  %sortby.0.lcssa = phi ptr [ null, %entry ], [ %sortby.1, %if.end153 ]
+  %sortby.0.lcssa = phi ptr [ null, %entry ], [ %sortby.2, %if.end153 ]
   %getop.0.lcssa = phi i32 [ 0, %entry ], [ %getop.1, %if.end153 ]
-  %dontsort.0.lcssa = phi i32 [ 0, %entry ], [ %dontsort.2, %if.end153 ]
+  %dontsort.0.lcssa = phi i32 [ 0, %entry ], [ %dontsort.1, %if.end153 ]
   %alpha.0.lcssa = phi i32 [ 0, %entry ], [ %alpha.1, %if.end153 ]
   %desc.0.lcssa = phi i32 [ 0, %entry ], [ %desc.1, %if.end153 ]
   %db = getelementptr inbounds i8, ptr %c, i64 32
@@ -978,7 +978,7 @@ while.end369.loopexit:                            ; preds = %while.body357
   br label %while.end369
 
 while.end369:                                     ; preds = %while.end369.loopexit, %if.then350
-  %j.3.lcssa = phi i32 [ 0, %if.then350 ], [ %50, %while.end369.loopexit ]
+  %j.4.lcssa = phi i32 [ 0, %if.then350 ], [ %50, %while.end369.loopexit ]
   call void @listTypeReleaseIterator(ptr noundef %call352) #12
   br label %if.end498
 
@@ -1010,7 +1010,7 @@ while.end393.loopexit:                            ; preds = %while.body381
   br label %while.end393
 
 while.end393:                                     ; preds = %while.end393.loopexit, %if.then375
-  %j.4.lcssa = phi i32 [ 0, %if.then375 ], [ %51, %while.end393.loopexit ]
+  %j.5.lcssa = phi i32 [ 0, %if.then375 ], [ %51, %while.end393.loopexit ]
   call void @setTypeReleaseIterator(ptr noundef %call376) #12
   br label %if.end498
 
@@ -1141,7 +1141,7 @@ while.end462.loopexit:                            ; preds = %sdslen.exit365
   br label %while.end462
 
 while.end462:                                     ; preds = %while.end462.loopexit, %if.end430
-  %j.5.lcssa = phi i32 [ 0, %if.end430 ], [ %66, %while.end462.loopexit ]
+  %j.6.lcssa = phi i32 [ 0, %if.end430 ], [ %66, %while.end462.loopexit ]
   %sub463 = sub nsw i64 %end.1, %start.0
   br label %if.end498
 
@@ -1218,7 +1218,7 @@ while.end492.loopexit:                            ; preds = %sdslen.exit384
   br label %while.end492
 
 while.end492:                                     ; preds = %while.end492.loopexit, %if.then469
-  %j.6.lcssa = phi i32 [ 0, %if.then469 ], [ %74, %while.end492.loopexit ]
+  %j.7.lcssa = phi i32 [ 0, %if.then469 ], [ %74, %while.end492.loopexit ]
   call void @dictReleaseIterator(ptr noundef %call473) #12
   br label %if.end498
 
@@ -1228,10 +1228,10 @@ if.else493:                                       ; preds = %if.else464
   unreachable
 
 if.end498:                                        ; preds = %while.end369, %while.end462, %while.end492, %while.end393, %if.then310, %while.end342
-  %j.7 = phi i32 [ %j.2.lcssa, %while.end342 ], [ 0, %if.then310 ], [ %j.3.lcssa, %while.end369 ], [ %j.4.lcssa, %while.end393 ], [ %j.5.lcssa, %while.end462 ], [ %j.6.lcssa, %while.end492 ]
+  %j.3 = phi i32 [ %j.2.lcssa, %while.end342 ], [ 0, %if.then310 ], [ %j.4.lcssa, %while.end369 ], [ %j.5.lcssa, %while.end393 ], [ %j.6.lcssa, %while.end462 ], [ %j.7.lcssa, %while.end492 ]
   %end.2 = phi i64 [ %sub343, %while.end342 ], [ %end.1, %if.then310 ], [ %end.1, %while.end369 ], [ %end.1, %while.end393 ], [ %sub463, %while.end462 ], [ %end.1, %while.end492 ]
   %start.1 = phi i64 [ 0, %while.end342 ], [ %start.0, %if.then310 ], [ %start.0, %while.end369 ], [ %start.0, %while.end393 ], [ 0, %while.end462 ], [ %start.0, %while.end492 ]
-  %cmp499 = icmp eq i32 %j.7, %vectorlen.1
+  %cmp499 = icmp eq i32 %j.3, %vectorlen.1
   br i1 %cmp499, label %cond.end509, label %cond.false508
 
 cond.false508:                                    ; preds = %if.end498
@@ -1254,7 +1254,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv517 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next518, %for.inc ]
-  %int_conversion_error.0477 = phi i32 [ 0, %for.body.lr.ph ], [ %int_conversion_error.2, %for.inc ]
+  %int_conversion_error.1477 = phi i32 [ 0, %for.body.lr.ph ], [ %int_conversion_error.2, %for.inc ]
   br i1 %tobool514.not, label %if.end528, label %if.then515
 
 if.then515:                                       ; preds = %for.body
@@ -1327,23 +1327,23 @@ if.else581:                                       ; preds = %if.else538
   unreachable
 
 if.end584:                                        ; preds = %lor.lhs.false559, %if.then575, %if.then567
-  %int_conversion_error.1 = phi i32 [ 1, %if.then567 ], [ %int_conversion_error.0477, %if.then575 ], [ %int_conversion_error.0477, %lor.lhs.false559 ]
+  %int_conversion_error.3 = phi i32 [ 1, %if.then567 ], [ %int_conversion_error.1477, %if.then575 ], [ %int_conversion_error.1477, %lor.lhs.false559 ]
   br i1 %tobool514.not, label %for.inc, label %if.then586
 
 if.then586:                                       ; preds = %if.end584.thread395, %if.end584
-  %int_conversion_error.1399 = phi i32 [ %int_conversion_error.0477, %if.end584.thread395 ], [ %int_conversion_error.1, %if.end584 ]
+  %int_conversion_error.3399 = phi i32 [ %int_conversion_error.1477, %if.end584.thread395 ], [ %int_conversion_error.3, %if.end584 ]
   %byval.0389398 = phi ptr [ %call520, %if.end584.thread395 ], [ %byval.0390, %if.end584 ]
   call void @decrRefCount(ptr noundef nonnull %byval.0389398) #12
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end528, %if.end584, %if.then586, %if.then515
-  %int_conversion_error.2 = phi i32 [ %int_conversion_error.1399, %if.then586 ], [ %int_conversion_error.1, %if.end584 ], [ %int_conversion_error.0477, %if.then515 ], [ %int_conversion_error.0477, %if.end528 ]
+  %int_conversion_error.2 = phi i32 [ %int_conversion_error.3399, %if.then586 ], [ %int_conversion_error.3, %if.end584 ], [ %int_conversion_error.1477, %if.then515 ], [ %int_conversion_error.1477, %if.end528 ]
   %indvars.iv.next518 = add nuw nsw i64 %indvars.iv517, 1
   %exitcond521.not = icmp eq i64 %indvars.iv.next518, %wide.trip.count520
   br i1 %exitcond521.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %int_conversion_error.0.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %int_conversion_error.2, %for.inc ]
+  %int_conversion_error.1.lcssa = phi i32 [ 0, %for.cond.preheader ], [ %int_conversion_error.2, %for.inc ]
   store i32 %desc.0.lcssa, ptr getelementptr inbounds (i8, ptr @server, i64 4968), align 8
   store i32 %alpha.2553, ptr getelementptr inbounds (i8, ptr @server, i64 4972), align 4
   %85 = insertelement <2 x ptr> poison, ptr %sortby.3549, i64 0
@@ -1373,7 +1373,7 @@ if.else604:                                       ; preds = %lor.lhs.false597, %
   br label %if.end607
 
 if.end607:                                        ; preds = %if.then602, %if.else604, %cond.end509
-  %int_conversion_error.3 = phi i32 [ 0, %cond.end509 ], [ %int_conversion_error.0.lcssa, %if.then602 ], [ %int_conversion_error.0.lcssa, %if.else604 ]
+  %int_conversion_error.0 = phi i32 [ 0, %cond.end509 ], [ %int_conversion_error.1.lcssa, %if.then602 ], [ %int_conversion_error.1.lcssa, %if.else604 ]
   %tobool608.not = icmp eq i32 %getop.0.lcssa, 0
   br i1 %tobool608.not, label %cond.false614, label %cond.true609
 
@@ -1391,7 +1391,7 @@ cond.false614:                                    ; preds = %if.end607
 
 cond.end617:                                      ; preds = %cond.false614, %cond.true609
   %cond618 = phi i64 [ %mul613, %cond.true609 ], [ %add616, %cond.false614 ]
-  %tobool620.not = icmp eq i32 %int_conversion_error.3, 0
+  %tobool620.not = icmp eq i32 %int_conversion_error.0, 0
   br i1 %tobool620.not, label %if.else622, label %if.then621
 
 if.then621:                                       ; preds = %cond.end617

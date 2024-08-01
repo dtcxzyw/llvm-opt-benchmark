@@ -109,7 +109,7 @@ define void @display_ini_entries(ptr noundef readonly %0) local_unnamed_addr #0 
   br i1 %.not4491, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %144
-  %.04093 = phi i8 [ %.2, %144 ], [ 1, %5 ]
+  %.04093 = phi i8 [ %.1, %144 ], [ 1, %5 ]
   %.04192 = phi ptr [ %145, %144 ], [ %8, %5 ]
   %16 = getelementptr inbounds i8, ptr %.04192, i64 8
   %17 = load i8, ptr %16, align 8
@@ -133,7 +133,7 @@ define void @display_ini_entries(ptr noundef readonly %0) local_unnamed_addr #0 
   br label %26
 
 26:                                               ; preds = %25, %23
-  %.1 = phi i8 [ 0, %25 ], [ %.04093, %23 ]
+  %.2 = phi i8 [ 0, %25 ], [ %.04093, %23 ]
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 248), align 8
   %.not46 = icmp eq i32 %27, 0
   br i1 %.not46, label %28, label %87
@@ -413,13 +413,13 @@ php_ini_displayer_cb.exit90:                      ; preds = %113, %141, %.thread
   br label %144
 
 144:                                              ; preds = %php_ini_displayer_cb.exit57, %php_ini_displayer_cb.exit90, %19, %.lr.ph
-  %.2 = phi i8 [ %.04093, %.lr.ph ], [ %.04093, %19 ], [ %.1, %php_ini_displayer_cb.exit90 ], [ %.1, %php_ini_displayer_cb.exit57 ]
+  %.1 = phi i8 [ %.04093, %.lr.ph ], [ %.04093, %19 ], [ %.2, %php_ini_displayer_cb.exit90 ], [ %.2, %php_ini_displayer_cb.exit57 ]
   %145 = getelementptr inbounds i8, ptr %.04192, i64 32
   %.not44 = icmp eq ptr %145, %12
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %144
-  %146 = trunc nuw i8 %.2 to i1
+  %146 = trunc nuw i8 %.1 to i1
   br i1 %146, label %._crit_edge.thread, label %147
 
 147:                                              ; preds = %._crit_edge
@@ -550,7 +550,7 @@ append_ini_path.exit:                             ; preds = %18
   br label %27
 
 27:                                               ; preds = %append_ini_path.exit, %18
-  %.0 = phi ptr [ %spec.store.select, %append_ini_path.exit ], [ null, %18 ]
+  %.1 = phi ptr [ %spec.store.select, %append_ini_path.exit ], [ null, %18 ]
   %28 = load i32, ptr getelementptr inbounds (i8, ptr @sapi_module, i64 196), align 4
   %.not232 = icmp eq i32 %28, 0
   br i1 %.not232, label %29, label %34
@@ -625,7 +625,7 @@ append_ini_path.exit273:                          ; preds = %45, %47
   %51 = phi ptr [ null, %17 ], [ %.pre300, %append_ini_path.exit273 ]
   %52 = phi i32 [ %.pre299, %17 ], [ %.pre, %append_ini_path.exit273 ]
   %.0190 = phi ptr [ null, %17 ], [ %24, %append_ini_path.exit273 ]
-  %.1 = phi ptr [ null, %17 ], [ %.0, %append_ini_path.exit273 ]
+  %.0 = phi ptr [ null, %17 ], [ %.1, %append_ini_path.exit273 ]
   store ptr null, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
   %.not236 = icmp ne i32 %52, 0
   %.not237 = icmp eq ptr %51, null
@@ -633,20 +633,20 @@ append_ini_path.exit273:                          ; preds = %45, %47
   br i1 %or.cond264, label %.thread282, label %53
 
 53:                                               ; preds = %50
-  %.not238 = icmp eq ptr %.1, null
+  %.not238 = icmp eq ptr %.0, null
   br i1 %.not238, label %67, label %54
 
 54:                                               ; preds = %.thread314, %53
   %.not246309322 = phi i1 [ true, %.thread314 ], [ %.not229, %53 ]
   %.0190311320 = phi ptr [ %16, %.thread314 ], [ %.0190, %53 ]
-  %.1313319 = phi ptr [ %16, %.thread314 ], [ %.1, %53 ]
-  %55 = load i8, ptr %.1313319, align 1
+  %.0313319 = phi ptr [ %16, %.thread314 ], [ %.0, %53 ]
+  %55 = load i8, ptr %.0313319, align 1
   %.not239 = icmp eq i8 %55, 0
   br i1 %.not239, label %67, label %56
 
 56:                                               ; preds = %54
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
-  %57 = call i32 @stat(ptr noundef nonnull %.1313319, ptr noundef nonnull %2) #15
+  %57 = call i32 @stat(ptr noundef nonnull %.0313319, ptr noundef nonnull %2) #15
   %.not240 = icmp eq i32 %57, 0
   br i1 %.not240, label %58, label %67
 
@@ -658,12 +658,12 @@ append_ini_path.exit273:                          ; preds = %45, %47
   br i1 %62, label %67, label %63
 
 63:                                               ; preds = %58
-  %64 = tail call noalias ptr @fopen(ptr noundef nonnull %.1313319, ptr noundef nonnull @.str.13)
+  %64 = tail call noalias ptr @fopen(ptr noundef nonnull %.0313319, ptr noundef nonnull @.str.13)
   %.not241 = icmp eq ptr %64, null
   br i1 %.not241, label %67, label %65
 
 65:                                               ; preds = %63
-  %66 = tail call ptr @expand_filepath(ptr noundef nonnull %.1313319, ptr noundef null) #15
+  %66 = tail call ptr @expand_filepath(ptr noundef nonnull %.0313319, ptr noundef null) #15
   br i1 %.not246309322, label %.thread331, label %.thread345
 
 67:                                               ; preds = %56, %58, %63, %54, %53
@@ -703,9 +703,9 @@ append_ini_path.exit273:                          ; preds = %45, %47
   br label %112
 
 .thread345:                                       ; preds = %78, %73, %65
-  %.2198329.ph = phi ptr [ %64, %65 ], [ %71, %73 ], [ %77, %78 ]
-  %.2203327.ph = phi ptr [ %66, %65 ], [ %75, %73 ], [ %80, %78 ]
-  %.1205325.ph = phi i1 [ true, %65 ], [ false, %73 ], [ false, %78 ]
+  %.0196329.ph = phi ptr [ %64, %65 ], [ %71, %73 ], [ %77, %78 ]
+  %.0201327.ph = phi ptr [ %66, %65 ], [ %75, %73 ], [ %80, %78 ]
+  %.0204325.ph = phi i1 [ true, %65 ], [ false, %73 ], [ false, %78 ]
   %.0190312324.ph = phi ptr [ %.0190311320, %65 ], [ %.0190311321, %73 ], [ %.0190311321, %78 ]
   call void @_efree(ptr noundef %.0190312324.ph) #15
   br label %.thread331
@@ -716,15 +716,15 @@ append_ini_path.exit273:                          ; preds = %45, %47
   br label %112
 
 .thread331:                                       ; preds = %65, %73, %78, %.thread345
-  %.1205326338 = phi i1 [ %.1205325.ph, %.thread345 ], [ true, %65 ], [ false, %73 ], [ false, %78 ]
-  %.2203328337 = phi ptr [ %.2203327.ph, %.thread345 ], [ %66, %65 ], [ %75, %73 ], [ %80, %78 ]
-  %.2198330336 = phi ptr [ %.2198329.ph, %.thread345 ], [ %64, %65 ], [ %71, %73 ], [ %77, %78 ]
+  %.0204326338 = phi i1 [ %.0204325.ph, %.thread345 ], [ true, %65 ], [ false, %73 ], [ false, %78 ]
+  %.0201328337 = phi ptr [ %.0201327.ph, %.thread345 ], [ %66, %65 ], [ %75, %73 ], [ %80, %78 ]
+  %.0196330336 = phi ptr [ %.0196329.ph, %.thread345 ], [ %64, %65 ], [ %71, %73 ], [ %77, %78 ]
   store ptr %15, ptr getelementptr inbounds (i8, ptr @core_globals, i64 88), align 8
-  call void @zend_stream_init_fp(ptr noundef nonnull %4, ptr noundef nonnull %.2198330336, ptr noundef %.2203328337) #15
+  call void @zend_stream_init_fp(ptr noundef nonnull %4, ptr noundef nonnull %.0196330336, ptr noundef %.0201328337) #15
   store ptr null, ptr @active_ini_hash, align 8
   store i1 false, ptr @is_special_section, align 4
   %82 = call i32 @zend_parse_ini_file(ptr noundef nonnull %4, i1 noundef zeroext true, i32 noundef 0, ptr noundef nonnull @php_ini_parser_cb, ptr noundef nonnull @configuration_hash) #15
-  %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.2203328337) #16
+  %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0201328337) #16
   %84 = and i64 %83, -8
   %85 = add i64 %84, 32
   %86 = call noalias ptr @__zend_malloc(i64 noundef %85) #17
@@ -736,7 +736,7 @@ append_ini_path.exit273:                          ; preds = %45, %47
   %89 = getelementptr inbounds i8, ptr %86, i64 16
   store i64 %83, ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %86, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %90, ptr align 1 %.2203328337, i64 %83, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %90, ptr align 1 %.0201328337, i64 %83, i1 false)
   %91 = getelementptr inbounds [1 x i8], ptr %90, i64 0, i64 %83
   store i8 0, ptr %91, align 1
   store ptr %86, ptr %5, align 8
@@ -775,10 +775,10 @@ append_ini_path.exit273:                          ; preds = %45, %47
   %110 = call noalias ptr @zend_strndup(ptr noundef nonnull %107, i64 noundef %109) #15
   store ptr %110, ptr @php_ini_opened_path, align 8
   call void @zend_destroy_file_handle(ptr noundef nonnull %4) #15
-  br i1 %.1205326338, label %111, label %112
+  br i1 %.0204326338, label %111, label %112
 
 111:                                              ; preds = %105
-  call void @_efree(ptr noundef %.2203328337) #15
+  call void @_efree(ptr noundef %.0201328337) #15
   br label %112
 
 112:                                              ; preds = %81, %.thread339, %105, %111
@@ -846,7 +846,7 @@ append_ini_path.exit273:                          ; preds = %45, %47
 
 138:                                              ; preds = %.preheader, %178
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %178 ]
-  %.1195288 = phi i32 [ %.0194290, %.preheader ], [ %.4, %178 ]
+  %.1195288 = phi i32 [ %.0194290, %.preheader ], [ %.2, %178 ]
   %139 = load ptr, ptr %6, align 8
   %140 = getelementptr inbounds ptr, ptr %139, i64 %indvars.iv
   %141 = load ptr, ptr %140, align 8
@@ -913,19 +913,19 @@ append_ini_path.exit273:                          ; preds = %45, %47
   br label %174
 
 174:                                              ; preds = %167, %164
-  %.2 = phi i32 [ %171, %167 ], [ %.1195288, %164 ]
+  %.4 = phi i32 [ %171, %167 ], [ %.1195288, %164 ]
   call void @zend_destroy_file_handle(ptr noundef nonnull %11) #15
   br label %175
 
 175:                                              ; preds = %158, %174, %162, %155
-  %.3 = phi i32 [ %.2, %174 ], [ %.1195288, %162 ], [ %.1195288, %158 ], [ %.1195288, %155 ]
+  %.3 = phi i32 [ %.4, %174 ], [ %.1195288, %162 ], [ %.1195288, %158 ], [ %.1195288, %155 ]
   %176 = load ptr, ptr %6, align 8
   %177 = getelementptr inbounds ptr, ptr %176, i64 %indvars.iv
   br label %178
 
 178:                                              ; preds = %138, %144, %175
   %.sink360 = phi ptr [ %177, %175 ], [ %140, %144 ], [ %140, %138 ]
-  %.4 = phi i32 [ %.3, %175 ], [ %.1195288, %144 ], [ %.1195288, %138 ]
+  %.2 = phi i32 [ %.3, %175 ], [ %.1195288, %144 ], [ %.1195288, %138 ]
   %179 = load ptr, ptr %.sink360, align 8
   call void @free(ptr noundef %179) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -938,7 +938,7 @@ append_ini_path.exit273:                          ; preds = %45, %47
   br label %182
 
 182:                                              ; preds = %127, %132, %180
-  %.5 = phi i32 [ %.4, %180 ], [ %.0194290, %132 ], [ %.0194290, %127 ]
+  %.5 = phi i32 [ %.2, %180 ], [ %.0194290, %132 ], [ %.0194290, %127 ]
   %.not251 = icmp eq ptr %.0192, null
   br i1 %.not251, label %._crit_edge, label %123
 

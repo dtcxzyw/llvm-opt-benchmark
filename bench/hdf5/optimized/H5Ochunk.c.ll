@@ -98,7 +98,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_add(ptr noundef %0, ptr noundef %1, i32 
   br label %33
 
 33:                                               ; preds = %31, %20
-  %.031 = phi ptr [ %25, %31 ], [ null, %20 ]
+  %.132 = phi ptr [ %25, %31 ], [ null, %20 ]
   %34 = getelementptr inbounds i8, ptr %1, i64 392
   %35 = load ptr, ptr %34, align 8
   %36 = zext i32 %2 to i64
@@ -115,7 +115,7 @@ define range(i32 -1, 1) i32 @H5O__chunk_add(ptr noundef %0, ptr noundef %1, i32 
   br label %45
 
 45:                                               ; preds = %16, %27, %41
-  %.132 = phi ptr [ null, %16 ], [ null, %27 ], [ %.031, %41 ]
+  %.031 = phi ptr [ null, %16 ], [ null, %27 ], [ %.132, %41 ]
   %46 = getelementptr inbounds i8, ptr %8, i64 256
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 @H5O__dec_rc(ptr noundef %47) #3
@@ -137,13 +137,13 @@ H5O__chunk_dest.exit:                             ; preds = %45
   br label %.thread
 
 .thread:                                          ; preds = %33, %H5O__chunk_dest.exit, %51
-  %.13244 = phi ptr [ %.132, %51 ], [ %.132, %H5O__chunk_dest.exit ], [ %.031, %33 ]
+  %.03144 = phi ptr [ %.031, %51 ], [ %.031, %H5O__chunk_dest.exit ], [ %.132, %33 ]
   %.1 = phi i32 [ -1, %51 ], [ -1, %H5O__chunk_dest.exit ], [ 0, %33 ]
-  %.not39 = icmp eq ptr %.13244, null
+  %.not39 = icmp eq ptr %.03144, null
   br i1 %.not39, label %66, label %59
 
 59:                                               ; preds = %.thread
-  %60 = call i32 @H5O__chunk_unprotect(ptr noundef %0, ptr noundef nonnull %.13244, i1 noundef zeroext false)
+  %60 = call i32 @H5O__chunk_unprotect(ptr noundef %0, ptr noundef nonnull %.03144, i1 noundef zeroext false)
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %62, label %66
 

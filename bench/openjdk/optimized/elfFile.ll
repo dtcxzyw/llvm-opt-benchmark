@@ -113,13 +113,13 @@ define hidden noundef range(i32 0, 3) i32 @_ZN10ElfSection12load_sectionEP8_IO_F
   br i1 %.not.i, label %_ZN16MarkedFileReaderD2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %20, %25
-  %.011 = phi i32 [ 2, %25 ], [ 0, %20 ]
+  %.111 = phi i32 [ 2, %25 ], [ 0, %20 ]
   %27 = tail call i32 @fseek(ptr noundef %1, i64 noundef %13, i32 noundef 0)
   br label %_ZN16MarkedFileReaderD2Ev.exit
 
 _ZN16MarkedFileReaderD2Ev.exit:                   ; preds = %.thread, %25, %6, %3
-  %.1 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 2, %25 ], [ %.011, %.thread ]
-  ret i32 %.1
+  %.0 = phi i32 [ 0, %3 ], [ 0, %6 ], [ 2, %25 ], [ %.111, %.thread ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1007,7 +1007,7 @@ _ZN9DwarfFile17LineNumberProgramD2Ev.exit:        ; preds = %54, %52, %21
   br label %_ZN9DwarfFile15CompilationUnitD2Ev.exit
 
 _ZN9DwarfFile15CompilationUnitD2Ev.exit:          ; preds = %58, %_ZN9DwarfFile17LineNumberProgramD2Ev.exit, %6
-  %.2 = phi i1 [ false, %6 ], [ %.1, %_ZN9DwarfFile17LineNumberProgramD2Ev.exit ], [ %.1, %58 ]
+  %.0 = phi i1 [ false, %6 ], [ %.1, %_ZN9DwarfFile17LineNumberProgramD2Ev.exit ], [ %.1, %58 ]
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16MarkedFileReader, i64 16), ptr %12, align 8
   %61 = load i64, ptr %16, align 8
   %.not.i.i.i8 = icmp eq i64 %61, -1
@@ -1019,7 +1019,7 @@ _ZN9DwarfFile15CompilationUnitD2Ev.exit:          ; preds = %58, %_ZN9DwarfFile1
   br label %_ZN9DwarfFile12DebugArangesD2Ev.exit
 
 _ZN9DwarfFile12DebugArangesD2Ev.exit:             ; preds = %_ZN9DwarfFile15CompilationUnitD2Ev.exit, %62
-  ret i1 %.2
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1082,18 +1082,18 @@ define hidden noundef zeroext i1 @_ZNK7ElfFile19read_section_headerEPKcR10Elf64_
   br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %31, %34, %12
-  %.08 = phi i1 [ false, %12 ], [ false, %.lr.ph ], [ true, %31 ], [ false, %34 ]
+  %.1 = phi i1 [ false, %12 ], [ false, %.lr.ph ], [ true, %31 ], [ false, %34 ]
   %.not.i = icmp eq i64 %15, -1
   br i1 %.not.i, label %_ZN16MarkedFileReaderD2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %.preheader, %17, %.loopexit
-  %.0814 = phi i1 [ %.08, %.loopexit ], [ false, %17 ], [ false, %.preheader ]
+  %.114 = phi i1 [ %.1, %.loopexit ], [ false, %17 ], [ false, %.preheader ]
   %39 = call i32 @fseek(ptr noundef %14, i64 noundef %15, i32 noundef 0)
   br label %_ZN16MarkedFileReaderD2Ev.exit
 
 _ZN16MarkedFileReaderD2Ev.exit:                   ; preds = %.thread, %.loopexit, %8, %3
-  %.1 = phi i1 [ false, %3 ], [ false, %8 ], [ %.08, %.loopexit ], [ %.0814, %.thread ]
-  ret i1 %.1
+  %.08 = phi i1 [ false, %3 ], [ false, %8 ], [ %.1, %.loopexit ], [ %.114, %.thread ]
+  ret i1 %.08
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1150,13 +1150,13 @@ define hidden noundef zeroext i1 @_ZNK7ElfFile15read_debug_infoEPNS_9DebugInfoE(
   br i1 %.not.i, label %_ZN16MarkedFileReaderD2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %30, %14, %19, %26, %34
-  %.014 = phi i1 [ false, %34 ], [ false, %26 ], [ false, %19 ], [ false, %14 ], [ %33, %30 ]
+  %.114 = phi i1 [ false, %34 ], [ false, %26 ], [ false, %19 ], [ false, %14 ], [ %33, %30 ]
   %35 = tail call i32 @fseek(ptr noundef %11, i64 noundef %12, i32 noundef 0)
   br label %_ZN16MarkedFileReaderD2Ev.exit
 
 _ZN16MarkedFileReaderD2Ev.exit:                   ; preds = %.thread, %34, %5, %2
-  %.1 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %34 ], [ %.014, %.thread ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %2 ], [ false, %5 ], [ false, %34 ], [ %.114, %.thread ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2060,7 +2060,7 @@ _ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit: ; preds = %44
   br label %61
 
 61:                                               ; preds = %_ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit.thread, %56, %_ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit, %58
-  %.0 = phi i1 [ true, %58 ], [ false, %_ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit ], [ false, %56 ], [ false, %_ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit.thread ]
+  %.1 = phi i1 [ true, %58 ], [ false, %_ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit ], [ false, %56 ], [ false, %_ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit.thread ]
   %62 = load i64, ptr %36, align 8
   %.not.i.i.i = icmp eq i64 %62, -1
   br i1 %.not.i.i.i, label %_ZN9DwarfFile11DebugAbbrevD2Ev.exit, label %63
@@ -2071,8 +2071,8 @@ _ZN9DwarfFile11DebugAbbrev19read_section_headerEj.exit: ; preds = %44
   br label %_ZN9DwarfFile11DebugAbbrevD2Ev.exit
 
 _ZN9DwarfFile11DebugAbbrevD2Ev.exit:              ; preds = %63, %61, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread, %2
-  %.1 = phi i1 [ false, %2 ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread ], [ %.0, %61 ], [ %.0, %63 ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZN9DwarfFile21MarkedDwarfFileReader12read_uleb128EPma.exit.thread ], [ %.1, %61 ], [ %.1, %63 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -266,7 +266,7 @@ _ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit:        ; preds = %5, %_ZN14ZReentrant
   br label %28
 
 28:                                               ; preds = %19, %24, %23
-  %.0 = phi i1 [ false, %23 ], [ true, %24 ], [ true, %19 ]
+  %.1 = phi i1 [ false, %23 ], [ true, %24 ], [ true, %19 ]
   br i1 %.not.i, label %_ZN7ZLockerI14ZReentrantLockED2Ev.exit, label %29
 
 29:                                               ; preds = %28
@@ -284,8 +284,8 @@ _ZN7ZLockerI14ZReentrantLockEC2EPS0_.exit:        ; preds = %5, %_ZN14ZReentrant
   br label %_ZN7ZLockerI14ZReentrantLockED2Ev.exit
 
 _ZN7ZLockerI14ZReentrantLockED2Ev.exit:           ; preds = %34, %29, %28, %2
-  %.1 = phi i1 [ true, %2 ], [ %.0, %28 ], [ %.0, %29 ], [ %.0, %34 ]
-  ret i1 %.1
+  %.0 = phi i1 [ true, %2 ], [ %.1, %28 ], [ %.1, %29 ], [ %.1, %34 ]
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_ZN17BarrierSetNMethod8is_armedEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #1

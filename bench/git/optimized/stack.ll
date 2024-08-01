@@ -1460,7 +1460,7 @@ if.end17.i:                                       ; preds = %while.body.preheade
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end25.i ], [ 0, %while.body.preheader.i ]
   %call1428.i = phi i32 [ %call14.i, %if.end25.i ], [ %call1423.i, %while.body.preheader.i ]
   %cap.026.i = phi i32 [ %cap.1.i, %if.end25.i ], [ 0, %while.body.preheader.i ]
-  %refs.025.i = phi ptr [ %refs.1.i, %if.end25.i ], [ null, %while.body.preheader.i ]
+  %refs.125.i = phi ptr [ %refs.2.i, %if.end25.i ], [ null, %while.body.preheader.i ]
   %cmp18.i = icmp slt i32 %call1428.i, 0
   br i1 %cmp18.i, label %done.loopexit.i, label %if.end20.i
 
@@ -1474,14 +1474,14 @@ if.then22.i:                                      ; preds = %if.end20.i
   %add.i = or disjoint i32 %mul.i, 1
   %conv.i = sext i32 %add.i to i64
   %mul23.i = mul nsw i64 %conv.i, 88
-  %call24.i = call ptr @reftable_realloc(ptr noundef %refs.025.i, i64 noundef %mul23.i) #14
+  %call24.i = call ptr @reftable_realloc(ptr noundef %refs.125.i, i64 noundef %mul23.i) #14
   br label %if.end25.i
 
 if.end25.i:                                       ; preds = %if.then22.i, %if.end20.i
-  %refs.1.i = phi ptr [ %call24.i, %if.then22.i ], [ %refs.025.i, %if.end20.i ]
+  %refs.2.i = phi ptr [ %call24.i, %if.then22.i ], [ %refs.125.i, %if.end20.i ]
   %cap.1.i = phi i32 [ %add.i, %if.then22.i ], [ %cap.026.i, %if.end20.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds %struct.reftable_ref_record, ptr %refs.1.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds %struct.reftable_ref_record, ptr %refs.2.i, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx.i, ptr noundef nonnull align 8 dereferenceable(88) %ref.i, i64 88, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %ref.i, i8 0, i64 88, i1 false)
   %call14.i = call i32 @reftable_iterator_next_ref(ptr noundef nonnull %it.i, ptr noundef nonnull %ref.i) #14
@@ -1493,16 +1493,16 @@ while.end.loopexit.i:                             ; preds = %if.end25.i
   br label %while.end.i
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %while.body.preheader.i
-  %refs.0.lcssa.i = phi ptr [ null, %while.body.preheader.i ], [ %refs.1.i, %while.end.loopexit.i ]
-  %len.0.lcssa.i = phi i32 [ 0, %while.body.preheader.i ], [ %16, %while.end.loopexit.i ]
+  %refs.1.lcssa.i = phi ptr [ null, %while.body.preheader.i ], [ %refs.2.i, %while.end.loopexit.i ]
+  %len.1.lcssa.i = phi i32 [ 0, %while.body.preheader.i ], [ %16, %while.end.loopexit.i ]
   %merged.i.i = getelementptr inbounds i8, ptr %12, i64 64
   %17 = load ptr, ptr %merged.i.i, align 8
   call void @reftable_table_from_merged_table(ptr noundef nonnull %tab.i, ptr noundef %17) #14
-  %conv27.i = zext nneg i32 %len.0.lcssa.i to i64
+  %conv27.i = zext nneg i32 %len.1.lcssa.i to i64
   %18 = load ptr, ptr %tab.i, align 8
   %19 = getelementptr inbounds i8, ptr %tab.i, i64 8
   %20 = load ptr, ptr %19, align 8
-  %call28.i = call i32 @validate_ref_record_addition(ptr %18, ptr %20, ptr noundef %refs.0.lcssa.i, i64 noundef %conv27.i) #14
+  %call28.i = call i32 @validate_ref_record_addition(ptr %18, ptr %20, ptr noundef %refs.1.lcssa.i, i64 noundef %conv27.i) #14
   br label %done.i
 
 done.loopexit.i:                                  ; preds = %if.end17.i
@@ -1511,27 +1511,27 @@ done.loopexit.i:                                  ; preds = %if.end17.i
 
 done.i:                                           ; preds = %done.loopexit.i, %while.end.i
   %err.0.i = phi i32 [ %call28.i, %while.end.i ], [ %call1428.i, %done.loopexit.i ]
-  %refs.2.i = phi ptr [ %refs.0.lcssa.i, %while.end.i ], [ %refs.025.i, %done.loopexit.i ]
-  %len.1.i = phi i32 [ %len.0.lcssa.i, %while.end.i ], [ %21, %done.loopexit.i ]
-  %cmp2930.not.i = icmp eq i32 %len.1.i, 0
+  %refs.0.i = phi ptr [ %refs.1.lcssa.i, %while.end.i ], [ %refs.125.i, %done.loopexit.i ]
+  %len.0.i = phi i32 [ %len.1.lcssa.i, %while.end.i ], [ %21, %done.loopexit.i ]
+  %cmp2930.not.i = icmp eq i32 %len.0.i, 0
   br i1 %cmp2930.not.i, label %stack_check_addition.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %done.i
-  %wide.trip.count.i = zext i32 %len.1.i to i64
+  %wide.trip.count.i = zext i32 %len.0.i to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv36.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next37.i, %for.body.i ]
-  %arrayidx32.i = getelementptr inbounds %struct.reftable_ref_record, ptr %refs.2.i, i64 %indvars.iv36.i
+  %arrayidx32.i = getelementptr inbounds %struct.reftable_ref_record, ptr %refs.0.i, i64 %indvars.iv36.i
   call void @reftable_ref_record_release(ptr noundef %arrayidx32.i) #14
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %stack_check_addition.exit, label %for.body.i, !llvm.loop !19
 
 stack_check_addition.exit:                        ; preds = %for.body.i, %if.end.i, %if.end2.i, %if.end6.i, %if.end10.i, %done.i
-  %refs.244.i = phi ptr [ %refs.2.i, %done.i ], [ null, %if.end.i ], [ null, %if.end2.i ], [ null, %if.end10.i ], [ null, %if.end6.i ], [ %refs.2.i, %for.body.i ]
+  %refs.044.i = phi ptr [ %refs.0.i, %done.i ], [ null, %if.end.i ], [ null, %if.end2.i ], [ null, %if.end10.i ], [ null, %if.end6.i ], [ %refs.0.i, %for.body.i ]
   %err.043.i = phi i32 [ %err.0.i, %done.i ], [ %call.i35, %if.end.i ], [ %call3.i, %if.end2.i ], [ %call7.i, %if.end10.i ], [ 0, %if.end6.i ], [ %err.0.i, %for.body.i ]
-  call void @free(ptr noundef %refs.244.i) #14
+  call void @free(ptr noundef %refs.044.i) #14
   call void @reftable_iterator_destroy(ptr noundef nonnull %it.i) #14
   %22 = load ptr, ptr %rd.i, align 8
   call void @reftable_reader_free(ptr noundef %22) #14
@@ -2104,7 +2104,7 @@ if.end174:                                        ; preds = %if.then172, %while.
 done:                                             ; preds = %if.end174, %if.end164, %if.end45, %stack_uptodate.exit.thread91, %stack_uptodate.exit.thread, %if.then105, %if.then87, %if.then78, %if.then12, %entry, %lor.lhs.false, %if.end63, %for.end, %stack_uptodate.exit, %if.then161, %if.then152, %if.then145
   %lock_file_fd.0 = phi i32 [ -1, %stack_uptodate.exit ], [ -1, %if.end45 ], [ -1, %for.end ], [ -1, %if.end63 ], [ %call75, %if.then145 ], [ -1, %if.then152 ], [ -1, %if.then161 ], [ -1, %lor.lhs.false ], [ -1, %entry ], [ %call9, %if.then12 ], [ %call75, %if.then78 ], [ %call75, %if.then87 ], [ %call75, %if.then105 ], [ -1, %stack_uptodate.exit.thread ], [ -1, %stack_uptodate.exit.thread91 ], [ -1, %if.end164 ], [ -1, %if.end174 ]
   %tobool186.not = phi i1 [ false, %stack_uptodate.exit ], [ false, %if.end45 ], [ false, %for.end ], [ true, %if.end63 ], [ false, %if.then145 ], [ false, %if.then152 ], [ false, %if.then161 ], [ true, %lor.lhs.false ], [ true, %entry ], [ true, %if.then12 ], [ true, %if.then78 ], [ false, %if.then87 ], [ false, %if.then105 ], [ false, %stack_uptodate.exit.thread ], [ false, %stack_uptodate.exit.thread91 ], [ true, %if.end164 ], [ true, %if.end174 ]
-  %err.3 = phi i32 [ %call.i76, %stack_uptodate.exit ], [ %.73, %if.end45 ], [ %call59, %for.end ], [ %call64, %if.end63 ], [ -2, %if.then145 ], [ -2, %if.then152 ], [ -2, %if.then161 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %., %if.then12 ], [ %.74, %if.then78 ], [ -2, %if.then87 ], [ -2, %if.then105 ], [ %call.i76, %stack_uptodate.exit.thread ], [ 1, %stack_uptodate.exit.thread91 ], [ %call167, %if.end164 ], [ %call167, %if.end174 ]
+  %err.0 = phi i32 [ %call.i76, %stack_uptodate.exit ], [ %.73, %if.end45 ], [ %call59, %for.end ], [ %call64, %if.end63 ], [ -2, %if.then145 ], [ -2, %if.then152 ], [ -2, %if.then161 ], [ 0, %lor.lhs.false ], [ 0, %entry ], [ %., %if.then12 ], [ %.74, %if.then78 ], [ -2, %if.then87 ], [ -2, %if.then105 ], [ %call.i76, %stack_uptodate.exit.thread ], [ 1, %stack_uptodate.exit.thread91 ], [ %call167, %if.end164 ], [ %call167, %if.end174 ]
   call void @free_names(ptr noundef %call) #14
   %61 = load ptr, ptr %call5, align 8
   %tobool176.not113 = icmp eq ptr %61, null
@@ -2143,7 +2143,7 @@ if.end190:                                        ; preds = %if.then187, %if.end
   call void @strbuf_release(ptr noundef nonnull %ref_list_contents) #14
   call void @strbuf_release(ptr noundef nonnull %temp_tab_file_name) #14
   call void @strbuf_release(ptr noundef nonnull %lock_file_name) #14
-  ret i32 %err.3
+  ret i32 %err.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2846,11 +2846,11 @@ while.body.preheader.i:                           ; preds = %if.end.i
   br i1 %cmp32.i, label %while.body.outer.us.i, label %while.body.preheader.split.i
 
 while.body.outer.us.i:                            ; preds = %while.body.preheader.i, %if.end41.us.i
-  %entries.0.ph.us.i = phi i64 [ %inc42.us.i, %if.end41.us.i ], [ 0, %while.body.preheader.i ]
+  %entries.1.ph.us.i = phi i64 [ %inc42.us.i, %if.end41.us.i ], [ 0, %while.body.preheader.i ]
   br label %while.body.us.us.i
 
 if.end41.us.i:                                    ; preds = %if.end36.split.us.us.i
-  %inc42.us.i = add i64 %entries.0.ph.us.i, 1
+  %inc42.us.i = add i64 %entries.1.ph.us.i, 1
   br label %while.body.outer.us.i
 
 while.body.us.us.i:                               ; preds = %if.end31.us.us.i, %while.body.outer.us.i
@@ -2878,7 +2878,7 @@ while.body.preheader.split.i:                     ; preds = %while.body.preheade
   br i1 %cmp2462.i, label %if.then26.i, label %if.end27.i
 
 if.then26.i:                                      ; preds = %if.end41.i, %while.body.us.us.i, %while.body.preheader.split.i
-  %.us-phi.i = phi i64 [ 0, %while.body.preheader.split.i ], [ %entries.0.ph.us.i, %while.body.us.us.i ], [ %inc42.i, %if.end41.i ]
+  %.us-phi.i = phi i64 [ 0, %while.body.preheader.split.i ], [ %entries.1.ph.us.i, %while.body.us.us.i ], [ %inc42.i, %if.end41.i ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %it.i) #14
   %19 = load ptr, ptr %mt.i, align 8
   %call43.i = call i32 @reftable_merged_table_seek_log(ptr noundef %19, ptr noundef nonnull %it.i, ptr noundef nonnull @.str.10) #14
@@ -2902,11 +2902,11 @@ if.end53.lr.ph.lr.ph.split.us.i:                  ; preds = %if.end53.lr.ph.lr.p
 
 if.end53.lr.ph.us.us.i:                           ; preds = %if.end53.lr.ph.lr.ph.split.us.i, %if.end91.us.us.i
   %call4965105.us.us.i = phi i32 [ %call4965.us.us.i, %if.end91.us.us.i ], [ %call4965101.i, %if.end53.lr.ph.lr.ph.split.us.i ]
-  %entries.1.ph103.us.us.i = phi i64 [ %inc92.us.us.i, %if.end91.us.us.i ], [ %.us-phi.i, %if.end53.lr.ph.lr.ph.split.us.i ]
+  %entries.2.ph103.us.us.i = phi i64 [ %inc92.us.us.i, %if.end91.us.us.i ], [ %.us-phi.i, %if.end53.lr.ph.lr.ph.split.us.i ]
   br label %if.end53.us.us.us.us.i
 
 if.end91.us.us.i:                                 ; preds = %if.end64.us.split.us.us.us.i
-  %inc92.us.us.i = add i64 %entries.1.ph103.us.us.i, 1
+  %inc92.us.us.i = add i64 %entries.2.ph103.us.us.i, 1
   %call4965.us.us.i = call i32 @reftable_iterator_next_log(ptr noundef nonnull %it.i, ptr noundef nonnull %log.i) #14
   %cmp5066.us.us.i = icmp sgt i32 %call4965.us.us.i, 0
   br i1 %cmp5066.us.us.i, label %done.i, label %if.end53.lr.ph.us.us.i
@@ -2933,12 +2933,12 @@ if.end64.us.split.us.us.us.i:                     ; preds = %if.end57.us.us.us.u
 
 if.end53.lr.ph.us.i:                              ; preds = %if.end53.lr.ph.lr.ph.split.us.i, %if.end91.us.i
   %call4965105.us.i = phi i32 [ %call4965.us.i, %if.end91.us.i ], [ %call4965101.i, %if.end53.lr.ph.lr.ph.split.us.i ]
-  %entries.1.ph103.us.i = phi i64 [ %inc92.us.i, %if.end91.us.i ], [ %.us-phi.i, %if.end53.lr.ph.lr.ph.split.us.i ]
+  %entries.2.ph103.us.i = phi i64 [ %inc92.us.i, %if.end91.us.i ], [ %.us-phi.i, %if.end53.lr.ph.lr.ph.split.us.i ]
   %cmp54.us.us110.i = icmp slt i32 %call4965105.us.i, 0
   br i1 %cmp54.us.us110.i, label %done.i, label %if.end57.us.us108.i
 
 if.end91.us.i:                                    ; preds = %if.end57.us.us108.i
-  %inc92.us.i = add i64 %entries.1.ph103.us.i, 1
+  %inc92.us.i = add i64 %entries.2.ph103.us.i, 1
   %call4965.us.i = call i32 @reftable_iterator_next_log(ptr noundef nonnull %it.i, ptr noundef nonnull %log.i) #14
   %cmp5066.us.i = icmp sgt i32 %call4965.us.i, 0
   br i1 %cmp5066.us.i, label %done.i, label %if.end53.lr.ph.us.i
@@ -2953,11 +2953,11 @@ if.end53.lr.ph.lr.ph.split.i:                     ; preds = %if.end53.lr.ph.lr.p
 
 if.end53.lr.ph.us123.i:                           ; preds = %if.end53.lr.ph.lr.ph.split.i, %if.end91.us126.i
   %call4965105.us124.i = phi i32 [ %call4965.us128.i, %if.end91.us126.i ], [ %call4965101.i, %if.end53.lr.ph.lr.ph.split.i ]
-  %entries.1.ph103.us125.i = phi i64 [ %inc92.us127.i, %if.end91.us126.i ], [ %.us-phi.i, %if.end53.lr.ph.lr.ph.split.i ]
+  %entries.2.ph103.us125.i = phi i64 [ %inc92.us127.i, %if.end91.us126.i ], [ %.us-phi.i, %if.end53.lr.ph.lr.ph.split.i ]
   br label %if.end53.us78.us.i
 
 if.end91.us126.i:                                 ; preds = %if.end86.split.split.us.us.i
-  %inc92.us127.i = add i64 %entries.1.ph103.us125.i, 1
+  %inc92.us127.i = add i64 %entries.2.ph103.us125.i, 1
   %call4965.us128.i = call i32 @reftable_iterator_next_log(ptr noundef nonnull %it.i, ptr noundef nonnull %log.i) #14
   %cmp5066.us129.i = icmp sgt i32 %call4965.us128.i, 0
   br i1 %cmp5066.us129.i, label %done.i, label %if.end53.lr.ph.us123.i
@@ -3000,7 +3000,7 @@ if.end86.split.split.us.us.i:                     ; preds = %land.lhs.true77.us.
 
 if.end27.i:                                       ; preds = %while.body.preheader.split.i, %if.end41.i
   %call2364.i = phi i32 [ %call23.i, %if.end41.i ], [ %call2361.i, %while.body.preheader.split.i ]
-  %entries.0.ph63.i = phi i64 [ %inc42.i, %if.end41.i ], [ 0, %while.body.preheader.split.i ]
+  %entries.1.ph63.i = phi i64 [ %inc42.i, %if.end41.i ], [ 0, %while.body.preheader.split.i ]
   %cmp28.i = icmp slt i32 %call2364.i, 0
   br i1 %cmp28.i, label %done.i, label %if.end31.i
 
@@ -3010,7 +3010,7 @@ if.end31.i:                                       ; preds = %if.end27.i
   br i1 %cmp38.i, label %done.i, label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.end31.i
-  %inc42.i = add i64 %entries.0.ph63.i, 1
+  %inc42.i = add i64 %entries.1.ph63.i, 1
   %call23.i = call i32 @reftable_iterator_next_ref(ptr noundef nonnull %it.i, ptr noundef nonnull %ref.i) #14
   %cmp24.i = icmp sgt i32 %call23.i, 0
   br i1 %cmp24.i, label %if.then26.i, label %if.end27.i
@@ -3047,18 +3047,18 @@ if.end86.split.split.i:                           ; preds = %land.lhs.true77.i
   br i1 %cmp88.i, label %done.i, label %if.end91.i
 
 if.end91.i:                                       ; preds = %if.end86.split.split.i
-  %inc92.i = add i64 %entries.1.ph103.i, 1
+  %inc92.i = add i64 %entries.2.ph103.i, 1
   %call4965.i = call i32 @reftable_iterator_next_log(ptr noundef nonnull %it.i, ptr noundef nonnull %log.i) #14
   %cmp5066.i = icmp sgt i32 %call4965.i, 0
   br i1 %cmp5066.i, label %done.i, label %if.end53.lr.ph.i
 
 if.end53.lr.ph.i:                                 ; preds = %if.end53.lr.ph.lr.ph.split.i, %if.end91.i
   %call4965105.i = phi i32 [ %call4965.i, %if.end91.i ], [ %call4965101.i, %if.end53.lr.ph.lr.ph.split.i ]
-  %entries.1.ph103.i = phi i64 [ %inc92.i, %if.end91.i ], [ %.us-phi.i, %if.end53.lr.ph.lr.ph.split.i ]
+  %entries.2.ph103.i = phi i64 [ %inc92.i, %if.end91.i ], [ %.us-phi.i, %if.end53.lr.ph.lr.ph.split.i ]
   br label %if.end53.i
 
 done.i:                                           ; preds = %if.end31.i, %if.end27.i, %if.end36.split.us.us.i, %if.end27.us.us.i, %if.end91.i, %if.end86.split.split.i, %while.body48.backedge.i, %if.end53.i, %if.end86.split.split.us.us.i, %if.end91.us126.i, %while.body48.backedge.us86.us.i, %if.end53.us78.us.i, %if.end57.us.us108.i, %if.end91.us.i, %if.end53.lr.ph.us.i, %if.end64.us.split.us.us.us.i, %if.end91.us.us.i, %while.body48.backedge.us.us.us.us.i, %if.end53.us.us.us.us.i, %while.body48.preheader.i, %if.then26.i, %if.end.i, %if.then.i
-  %entries.2.i = phi i64 [ 0, %if.then.i ], [ 0, %if.end.i ], [ %.us-phi.i, %if.then26.i ], [ %.us-phi.i, %while.body48.preheader.i ], [ %entries.1.ph103.us.us.i, %if.end53.us.us.us.us.i ], [ %entries.1.ph103.us.us.i, %while.body48.backedge.us.us.us.us.i ], [ %entries.1.ph103.us.us.i, %if.end64.us.split.us.us.us.i ], [ %inc92.us.us.i, %if.end91.us.us.i ], [ %entries.1.ph103.us.i, %if.end57.us.us108.i ], [ %entries.1.ph103.us.i, %if.end53.lr.ph.us.i ], [ %inc92.us.i, %if.end91.us.i ], [ %entries.1.ph103.us125.i, %if.end53.us78.us.i ], [ %entries.1.ph103.us125.i, %while.body48.backedge.us86.us.i ], [ %entries.1.ph103.us125.i, %if.end86.split.split.us.us.i ], [ %inc92.us127.i, %if.end91.us126.i ], [ %entries.1.ph103.i, %if.end53.i ], [ %entries.1.ph103.i, %while.body48.backedge.i ], [ %entries.1.ph103.i, %if.end86.split.split.i ], [ %inc92.i, %if.end91.i ], [ %entries.0.ph.us.i, %if.end27.us.us.i ], [ %entries.0.ph.us.i, %if.end36.split.us.us.i ], [ %entries.0.ph63.i, %if.end27.i ], [ %entries.0.ph63.i, %if.end31.i ]
+  %entries.0.i = phi i64 [ 0, %if.then.i ], [ 0, %if.end.i ], [ %.us-phi.i, %if.then26.i ], [ %.us-phi.i, %while.body48.preheader.i ], [ %entries.2.ph103.us.us.i, %if.end53.us.us.us.us.i ], [ %entries.2.ph103.us.us.i, %while.body48.backedge.us.us.us.us.i ], [ %entries.2.ph103.us.us.i, %if.end64.us.split.us.us.us.i ], [ %inc92.us.us.i, %if.end91.us.us.i ], [ %entries.2.ph103.us.i, %if.end57.us.us108.i ], [ %entries.2.ph103.us.i, %if.end53.lr.ph.us.i ], [ %inc92.us.i, %if.end91.us.i ], [ %entries.2.ph103.us125.i, %if.end53.us78.us.i ], [ %entries.2.ph103.us125.i, %while.body48.backedge.us86.us.i ], [ %entries.2.ph103.us125.i, %if.end86.split.split.us.us.i ], [ %inc92.us127.i, %if.end91.us126.i ], [ %entries.2.ph103.i, %if.end53.i ], [ %entries.2.ph103.i, %while.body48.backedge.i ], [ %entries.2.ph103.i, %if.end86.split.split.i ], [ %inc92.i, %if.end91.i ], [ %entries.1.ph.us.i, %if.end27.us.us.i ], [ %entries.1.ph.us.i, %if.end36.split.us.us.i ], [ %entries.1.ph63.i, %if.end27.i ], [ %entries.1.ph63.i, %if.end31.i ]
   %err.0.i = phi i32 [ %call15.i, %if.then.i ], [ %call18.i, %if.end.i ], [ %call43.i, %if.then26.i ], [ 0, %while.body48.preheader.i ], [ 0, %while.body48.backedge.us.us.us.us.i ], [ %call4967.us.us.us.us.i, %if.end53.us.us.us.us.i ], [ %call87.us.us.i, %if.end64.us.split.us.us.us.i ], [ 0, %if.end91.us.us.i ], [ %call87.us.i, %if.end57.us.us108.i ], [ %call4965105.us.i, %if.end53.lr.ph.us.i ], [ 0, %if.end91.us.i ], [ 0, %while.body48.backedge.us86.us.i ], [ %call4967.us79.us.i, %if.end53.us78.us.i ], [ %call87.us130.i, %if.end86.split.split.us.us.i ], [ 0, %if.end91.us126.i ], [ 0, %while.body48.backedge.i ], [ %call4967.i, %if.end53.i ], [ %call87.i, %if.end86.split.split.i ], [ 0, %if.end91.i ], [ %call23.us.us.i, %if.end27.us.us.i ], [ %call37.us.i, %if.end36.split.us.us.i ], [ %call37.i, %if.end31.i ], [ %call2364.i, %if.end27.i ]
   call void @reftable_iterator_destroy(ptr noundef nonnull %it.i) #14
   %28 = load ptr, ptr %mt.i, align 8
@@ -3076,7 +3076,7 @@ stack_write_compact.exit:                         ; preds = %done.i, %if.then95.
   call void @reftable_log_record_release(ptr noundef nonnull %log.i) #14
   %entries_written.i = getelementptr inbounds i8, ptr %st, i64 80
   %30 = load i64, ptr %entries_written.i, align 8
-  %add98.i = add i64 %30, %entries.2.i
+  %add98.i = add i64 %30, %entries.0.i
   store i64 %add98.i, ptr %entries_written.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mt.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %it.i)

@@ -1779,8 +1779,8 @@ define weak_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE7
   br label %_ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit
 
 _ZN5draco16DirectBitDecoder28DecodeLeastSignificantBits32EiPj.exit: ; preds = %10, %.preheader, %42, %36, %34, %28, %23
-  %.3 = phi i32 [ 0, %36 ], [ %51, %42 ], [ 0, %23 ], [ %31, %34 ], [ %31, %28 ], [ 0, %.preheader ], [ %spec.select, %10 ]
-  ret i32 %.3
+  %.2 = phi i32 [ 0, %36 ], [ %51, %42 ], [ 0, %23 ], [ %31, %34 ], [ %31, %28 ], [ 0, %.preheader ], [ %spec.select, %10 ]
+  ret i32 %.2
 }
 
 ; Function Attrs: mustprogress uwtable

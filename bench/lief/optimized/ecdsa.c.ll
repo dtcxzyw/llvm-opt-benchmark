@@ -512,8 +512,8 @@ define hidden i32 @mbedtls_ecdsa_read_signature_restartable(ptr noundef %0, ptr 
   br i1 %.not23, label %25, label %23
 
 23:                                               ; preds = %21, %19
-  %.0 = phi i32 [ %20, %19 ], [ %22, %21 ]
-  %24 = add nsw i32 %.0, -20352
+  %.1 = phi i32 [ %20, %19 ], [ %22, %21 ]
+  %24 = add nsw i32 %.1, -20352
   br label %30
 
 25:                                               ; preds = %21
@@ -529,10 +529,10 @@ define hidden i32 @mbedtls_ecdsa_read_signature_restartable(ptr noundef %0, ptr 
   br label %30
 
 30:                                               ; preds = %15, %28, %25, %23, %13
-  %.1 = phi i32 [ %14, %13 ], [ %24, %23 ], [ %27, %25 ], [ %spec.select, %28 ], [ -20454, %15 ]
+  %.0 = phi i32 [ %14, %13 ], [ %24, %23 ], [ %27, %25 ], [ %spec.select, %28 ], [ -20454, %15 ]
   call void @mbedtls_mpi_free(ptr noundef nonnull %9) #7
   call void @mbedtls_mpi_free(ptr noundef nonnull %10) #7
-  ret i32 %.1
+  ret i32 %.0
 }
 
 declare i32 @mbedtls_asn1_get_tag(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -669,8 +669,8 @@ define internal fastcc i32 @derive_mpi(ptr noundef %0, ptr noundef %1, ptr nound
   br label %24
 
 24:                                               ; preds = %22, %18, %15, %4
-  %.1 = phi i32 [ %10, %4 ], [ %17, %15 ], [ %23, %22 ], [ 0, %18 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %10, %4 ], [ %17, %15 ], [ %23, %22 ], [ 0, %18 ]
+  ret i32 %.0
 }
 
 declare i32 @mbedtls_mpi_mul_mpi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

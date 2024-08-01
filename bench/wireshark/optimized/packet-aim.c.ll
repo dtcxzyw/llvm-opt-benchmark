@@ -2059,14 +2059,14 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   br i1 %.not134.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %105, %.lr.ph.i
-  %.1133.i = phi i32 [ %109, %.lr.ph.i ], [ 18, %105 ]
-  %109 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.1133.i, ptr noundef %.0, ptr noundef nonnull @aim_fnac_tlvs)
+  %.2133.i = phi i32 [ %109, %.lr.ph.i ], [ 18, %105 ]
+  %109 = tail call fastcc i32 @dissect_aim_tlv(ptr noundef %0, ptr noundef %1, i32 noundef %.2133.i, ptr noundef %.0, ptr noundef nonnull @aim_fnac_tlvs)
   %110 = icmp slt i32 %109, %108
   br i1 %110, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %105, %104
-  %.2.i = phi i32 [ 16, %104 ], [ 18, %105 ], [ %109, %.lr.ph.i ]
-  %111 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2.i) #9
+  %.1.i = phi i32 [ 16, %104 ], [ 18, %105 ], [ %109, %.lr.ph.i ]
+  %111 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1.i) #9
   %112 = icmp ne ptr %.0.i.i, null
   %113 = load ptr, ptr %5, align 8
   br i1 %112, label %114, label %126
@@ -2120,7 +2120,7 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
   br i1 %74, label %140, label %.thread128.i
 
 .thread128.i:                                     ; preds = %133
-  %139 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i) #9
+  %139 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #9
   br label %dissect_aim_newconn.exit
 
 140:                                              ; preds = %133
@@ -2131,7 +2131,7 @@ aim_get_subtype.exit.i:                           ; preds = %.loopexit.i.i, %.lr
 
 143:                                              ; preds = %140, %132
   %.0109.i = phi ptr [ %138, %140 ], [ null, %132 ]
-  %144 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2.i) #9
+  %144 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #9
   %145 = icmp sgt i32 %144, 0
   %or.cond7.i = and i1 %74, %145
   br i1 %or.cond7.i, label %146, label %dissect_aim_newconn.exit

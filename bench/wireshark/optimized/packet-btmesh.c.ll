@@ -6531,7 +6531,7 @@ define internal fastcc range(i32 -1, -2147483647) i32 @compute_ascii_key(ptr noc
 
 44:                                               ; preds = %40, %37
   %45 = phi ptr [ %27, %37 ], [ %43, %40 ]
-  %.072 = phi i32 [ %38, %37 ], [ %23, %40 ]
+  %.173 = phi i32 [ %38, %37 ], [ %23, %40 ]
   %.069 = phi i32 [ 3, %37 ], [ 2, %40 ]
   %.0 = phi i32 [ 1, %37 ], [ 0, %40 ]
   %46 = add i32 %8, -1
@@ -6611,7 +6611,7 @@ define internal fastcc range(i32 -1, -2147483647) i32 @compute_ascii_key(ptr noc
   br label %87
 
 87:                                               ; preds = %5, %._crit_edge, %85, %66, %53, %32
-  %.071 = phi i32 [ -1, %32 ], [ -1, %53 ], [ -1, %66 ], [ -1, %85 ], [ %.072, %._crit_edge ], [ 0, %5 ]
+  %.071 = phi i32 [ -1, %32 ], [ -1, %53 ], [ -1, %66 ], [ -1, %85 ], [ %.173, %._crit_edge ], [ 0, %5 ]
   ret i32 %.071
 }
 
@@ -7793,11 +7793,11 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 .lr.ph4055:                                       ; preds = %72, %.loopexit
   %.039704054 = phi i32 [ %129, %.loopexit ], [ 1, %72 ]
-  %.139724053 = phi i32 [ %.5, %.loopexit ], [ %91, %72 ]
-  %94 = add i32 %.139724053, 2
+  %.24053 = phi i32 [ %.5, %.loopexit ], [ %91, %72 ]
+  %94 = add i32 %.24053, 2
   %95 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %94) #16
   %96 = zext i8 %95 to i32
-  %97 = add i32 %.139724053, 3
+  %97 = add i32 %.24053, 3
   %98 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %97) #16
   %99 = zext i8 %98 to i32
   %100 = shl nuw nsw i32 %96, 1
@@ -7805,14 +7805,14 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   %102 = shl nuw nsw i32 %99, 2
   %103 = add nuw nsw i32 %101, %102
   %104 = load i32, ptr @ett_btmesh_config_model_element, align 4
-  %105 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.139724053, i32 noundef %103, i32 noundef %104, ptr noundef null, ptr noundef nonnull @.str.2196, i32 noundef %.039704054) #16
+  %105 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %10, ptr noundef %0, i32 noundef %.24053, i32 noundef %103, i32 noundef %104, ptr noundef null, ptr noundef nonnull @.str.2196, i32 noundef %.039704054) #16
   %106 = load i32, ptr @hf_btmesh_config_composition_data_status_loc, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %0, i32 noundef %.139724053, i32 noundef 2, i32 noundef -2147483648) #16
+  %107 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %106, ptr noundef %0, i32 noundef %.24053, i32 noundef 2, i32 noundef -2147483648) #16
   %108 = load i32, ptr @hf_btmesh_config_composition_data_status_nums, align 4
   %109 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %108, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef -2147483648) #16
   %110 = load i32, ptr @hf_btmesh_config_composition_data_status_numv, align 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %105, i32 noundef %110, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef -2147483648) #16
-  %112 = add i32 %.139724053, 4
+  %112 = add i32 %.24053, 4
   %.not3976 = icmp eq i8 %95, 0
   br i1 %.not3976, label %.loopexit3980, label %113
 
@@ -7823,10 +7823,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 116:                                              ; preds = %113, %116
   %.04050 = phi i32 [ 0, %113 ], [ %120, %116 ]
-  %.24049 = phi i32 [ %112, %113 ], [ %119, %116 ]
+  %.44049 = phi i32 [ %112, %113 ], [ %119, %116 ]
   %117 = load i32, ptr @hf_btmesh_config_composition_data_status_sig_model, align 4
-  %118 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %117, ptr noundef %0, i32 noundef %.24049, i32 noundef 2, i32 noundef -2147483648) #16
-  %119 = add i32 %.24049, 2
+  %118 = call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %117, ptr noundef %0, i32 noundef %.44049, i32 noundef 2, i32 noundef -2147483648) #16
+  %119 = add i32 %.44049, 2
   %120 = add nuw nsw i32 %.04050, 1
   %exitcond.not = icmp eq i32 %120, %96
   br i1 %exitcond.not, label %.loopexit3980, label %116, !llvm.loop !15
@@ -7843,10 +7843,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
 
 124:                                              ; preds = %121, %124
   %.14052 = phi i32 [ 0, %121 ], [ %128, %124 ]
-  %.44051 = phi i32 [ %.3, %121 ], [ %127, %124 ]
+  %.64051 = phi i32 [ %.3, %121 ], [ %127, %124 ]
   %125 = load i32, ptr @hf_btmesh_config_composition_data_status_vendor_model, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %125, ptr noundef %0, i32 noundef %.44051, i32 noundef 4, i32 noundef -2147483648) #16
-  %127 = add i32 %.44051, 4
+  %126 = call ptr @proto_tree_add_item(ptr noundef %123, i32 noundef %125, ptr noundef %0, i32 noundef %.64051, i32 noundef 4, i32 noundef -2147483648) #16
+  %127 = add i32 %.64051, 4
   %128 = add nuw nsw i32 %.14052, 1
   %exitcond4088.not = icmp eq i32 %128, %99
   br i1 %exitcond4088.not, label %.loopexit, label %124, !llvm.loop !16
@@ -7928,10 +7928,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %192, label %.lr.ph4047, label %.loopexit3981
 
 .lr.ph4047:                                       ; preds = %181, %.lr.ph4047
-  %.64046 = phi i32 [ %195, %.lr.ph4047 ], [ %187, %181 ]
+  %.74046 = phi i32 [ %195, %.lr.ph4047 ], [ %187, %181 ]
   %193 = load i32, ptr @hf_btmesh_health_current_status_fault, align 4
-  %194 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %193, ptr noundef %0, i32 noundef %.64046, i32 noundef 1, i32 noundef -2147483648) #16
-  %195 = add i32 %.64046, 1
+  %194 = call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %193, ptr noundef %0, i32 noundef %.74046, i32 noundef 1, i32 noundef -2147483648) #16
+  %195 = add i32 %.74046, 1
   %196 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %195) #16
   %197 = icmp sgt i32 %196, 0
   br i1 %197, label %.lr.ph4047, label %.loopexit3981, !llvm.loop !18
@@ -7951,10 +7951,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %209, label %.lr.ph4044, label %.loopexit3981
 
 .lr.ph4044:                                       ; preds = %198, %.lr.ph4044
-  %.74043 = phi i32 [ %212, %.lr.ph4044 ], [ %204, %198 ]
+  %.84043 = phi i32 [ %212, %.lr.ph4044 ], [ %204, %198 ]
   %210 = load i32, ptr @hf_btmesh_health_fault_status_fault, align 4
-  %211 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %210, ptr noundef %0, i32 noundef %.74043, i32 noundef 1, i32 noundef -2147483648) #16
-  %212 = add i32 %.74043, 1
+  %211 = call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %210, ptr noundef %0, i32 noundef %.84043, i32 noundef 1, i32 noundef -2147483648) #16
+  %212 = add i32 %.84043, 1
   %213 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %212) #16
   %214 = icmp sgt i32 %213, 0
   br i1 %214, label %.lr.ph4044, label %.loopexit3981, !llvm.loop !19
@@ -8035,37 +8035,37 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %281, label %.lr.ph4041, label %.loopexit3981
 
 .lr.ph4041:                                       ; preds = %264, %303
-  %.84040 = phi i32 [ %304, %303 ], [ %276, %264 ]
-  %282 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.84040) #16
+  %.94040 = phi i32 [ %304, %303 ], [ %276, %264 ]
+  %282 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.94040) #16
   %283 = icmp sgt i32 %282, 2
   br i1 %283, label %284, label %294
 
 284:                                              ; preds = %.lr.ph4041
-  %285 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %.84040, i32 noundef -2147483648) #16
+  %285 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %.94040, i32 noundef -2147483648) #16
   %286 = load i32, ptr @hf_btmesh_config_appkey_list_appkeyindex, align 4
   %287 = and i32 %285, 4095
-  %288 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %286, ptr noundef %0, i32 noundef %.84040, i32 noundef 2, i32 noundef %287) #16
+  %288 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %286, ptr noundef %0, i32 noundef %.94040, i32 noundef 2, i32 noundef %287) #16
   %289 = load i32, ptr @hf_btmesh_config_appkey_list_appkeyindex, align 4
-  %290 = add i32 %.84040, 1
+  %290 = add i32 %.94040, 1
   %291 = lshr i32 %285, 12
   %292 = and i32 %291, 4095
   %293 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %289, ptr noundef %0, i32 noundef %290, i32 noundef 2, i32 noundef %292) #16
   br label %303
 
 294:                                              ; preds = %.lr.ph4041
-  %295 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.84040, i32 noundef -2147483648) #16
+  %295 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.94040, i32 noundef -2147483648) #16
   %296 = zext i16 %295 to i32
   %297 = load i32, ptr @hf_btmesh_config_appkey_list_appkeyindex, align 4
   %298 = and i32 %296, 4095
-  %299 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %297, ptr noundef %0, i32 noundef %.84040, i32 noundef 2, i32 noundef %298) #16
+  %299 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %297, ptr noundef %0, i32 noundef %.94040, i32 noundef 2, i32 noundef %298) #16
   %300 = load i32, ptr @hf_btmesh_config_appkey_list_appkeyindex_rfu, align 4
   %301 = lshr i32 %296, 12
-  %302 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %300, ptr noundef %0, i32 noundef %.84040, i32 noundef 2, i32 noundef %301) #16
+  %302 = call ptr @proto_tree_add_uint(ptr noundef %279, i32 noundef %300, ptr noundef %0, i32 noundef %.94040, i32 noundef 2, i32 noundef %301) #16
   br label %303
 
 303:                                              ; preds = %294, %284
   %.sink = phi i32 [ 2, %294 ], [ 3, %284 ]
-  %304 = add i32 %.84040, %.sink
+  %304 = add i32 %.94040, %.sink
   %305 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %304) #16
   %306 = icmp sgt i32 %305, 1
   br i1 %306, label %.lr.ph4041, label %.loopexit3981, !llvm.loop !20
@@ -8600,10 +8600,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %725, label %.lr.ph4038, label %.loopexit3981
 
 .lr.ph4038:                                       ; preds = %711, %.lr.ph4038
-  %.104037 = phi i32 [ %728, %.lr.ph4038 ], [ %720, %711 ]
+  %.114037 = phi i32 [ %728, %.lr.ph4038 ], [ %720, %711 ]
   %726 = load i32, ptr @hf_btmesh_config_sig_model_subscription_list_address, align 4
-  %727 = call ptr @proto_tree_add_item(ptr noundef %723, i32 noundef %726, ptr noundef %0, i32 noundef %.104037, i32 noundef 2, i32 noundef -2147483648) #16
-  %728 = add i32 %.104037, 2
+  %727 = call ptr @proto_tree_add_item(ptr noundef %723, i32 noundef %726, ptr noundef %0, i32 noundef %.114037, i32 noundef 2, i32 noundef -2147483648) #16
+  %728 = add i32 %.114037, 2
   %729 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %728) #16
   %730 = icmp sgt i32 %729, 1
   br i1 %730, label %.lr.ph4038, label %.loopexit3981, !llvm.loop !21
@@ -8635,10 +8635,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %752, label %.lr.ph4035, label %.loopexit3981
 
 .lr.ph4035:                                       ; preds = %738, %.lr.ph4035
-  %.114034 = phi i32 [ %755, %.lr.ph4035 ], [ %747, %738 ]
+  %.124034 = phi i32 [ %755, %.lr.ph4035 ], [ %747, %738 ]
   %753 = load i32, ptr @hf_btmesh_config_vendor_model_subscription_list_address, align 4
-  %754 = call ptr @proto_tree_add_item(ptr noundef %750, i32 noundef %753, ptr noundef %0, i32 noundef %.114034, i32 noundef 2, i32 noundef -2147483648) #16
-  %755 = add i32 %.114034, 2
+  %754 = call ptr @proto_tree_add_item(ptr noundef %750, i32 noundef %753, ptr noundef %0, i32 noundef %.124034, i32 noundef 2, i32 noundef -2147483648) #16
+  %755 = add i32 %.124034, 2
   %756 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %755) #16
   %757 = icmp sgt i32 %756, 1
   br i1 %757, label %.lr.ph4035, label %.loopexit3981, !llvm.loop !22
@@ -8902,37 +8902,37 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %965, label %.lr.ph4032, label %.loopexit3981
 
 .lr.ph4032:                                       ; preds = %960, %987
-  %.124031 = phi i32 [ %988, %987 ], [ %.03971, %960 ]
-  %966 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.124031) #16
+  %.134031 = phi i32 [ %988, %987 ], [ %.03971, %960 ]
+  %966 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.134031) #16
   %967 = icmp sgt i32 %966, 2
   br i1 %967, label %968, label %978
 
 968:                                              ; preds = %.lr.ph4032
-  %969 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %.124031, i32 noundef -2147483648) #16
+  %969 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %.134031, i32 noundef -2147483648) #16
   %970 = load i32, ptr @hf_btmesh_config_netkey_list_netkeyindex, align 4
   %971 = and i32 %969, 4095
-  %972 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %970, ptr noundef %0, i32 noundef %.124031, i32 noundef 2, i32 noundef %971) #16
+  %972 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %970, ptr noundef %0, i32 noundef %.134031, i32 noundef 2, i32 noundef %971) #16
   %973 = load i32, ptr @hf_btmesh_config_netkey_list_netkeyindex, align 4
-  %974 = add i32 %.124031, 1
+  %974 = add i32 %.134031, 1
   %975 = lshr i32 %969, 12
   %976 = and i32 %975, 4095
   %977 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %973, ptr noundef %0, i32 noundef %974, i32 noundef 2, i32 noundef %976) #16
   br label %987
 
 978:                                              ; preds = %.lr.ph4032
-  %979 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.124031, i32 noundef -2147483648) #16
+  %979 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.134031, i32 noundef -2147483648) #16
   %980 = zext i16 %979 to i32
   %981 = load i32, ptr @hf_btmesh_config_netkey_list_netkeyindex, align 4
   %982 = and i32 %980, 4095
-  %983 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %981, ptr noundef %0, i32 noundef %.124031, i32 noundef 2, i32 noundef %982) #16
+  %983 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %981, ptr noundef %0, i32 noundef %.134031, i32 noundef 2, i32 noundef %982) #16
   %984 = load i32, ptr @hf_btmesh_config_netkey_list_netkeyindex_rfu, align 4
   %985 = lshr i32 %980, 12
-  %986 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %984, ptr noundef %0, i32 noundef %.124031, i32 noundef 2, i32 noundef %985) #16
+  %986 = call ptr @proto_tree_add_uint(ptr noundef %963, i32 noundef %984, ptr noundef %0, i32 noundef %.134031, i32 noundef 2, i32 noundef %985) #16
   br label %987
 
 987:                                              ; preds = %978, %968
   %.sink4120 = phi i32 [ 2, %978 ], [ 3, %968 ]
-  %988 = add i32 %.124031, %.sink4120
+  %988 = add i32 %.134031, %.sink4120
   %989 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %988) #16
   %990 = icmp sgt i32 %989, 1
   br i1 %990, label %.lr.ph4032, label %.loopexit3981, !llvm.loop !23
@@ -9039,37 +9039,37 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %1077, label %.lr.ph4029, label %.loopexit3981
 
 .lr.ph4029:                                       ; preds = %1063, %1099
-  %.144028 = phi i32 [ %1100, %1099 ], [ %1072, %1063 ]
-  %1078 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.144028) #16
+  %.154028 = phi i32 [ %1100, %1099 ], [ %1072, %1063 ]
+  %1078 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.154028) #16
   %1079 = icmp sgt i32 %1078, 2
   br i1 %1079, label %1080, label %1090
 
 1080:                                             ; preds = %.lr.ph4029
-  %1081 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %.144028, i32 noundef -2147483648) #16
+  %1081 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %.154028, i32 noundef -2147483648) #16
   %1082 = load i32, ptr @hf_btmesh_config_sig_model_app_list_appkeyindex, align 4
   %1083 = and i32 %1081, 4095
-  %1084 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1082, ptr noundef %0, i32 noundef %.144028, i32 noundef 2, i32 noundef %1083) #16
+  %1084 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1082, ptr noundef %0, i32 noundef %.154028, i32 noundef 2, i32 noundef %1083) #16
   %1085 = load i32, ptr @hf_btmesh_config_sig_model_app_list_appkeyindex, align 4
-  %1086 = add i32 %.144028, 1
+  %1086 = add i32 %.154028, 1
   %1087 = lshr i32 %1081, 12
   %1088 = and i32 %1087, 4095
   %1089 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1085, ptr noundef %0, i32 noundef %1086, i32 noundef 2, i32 noundef %1088) #16
   br label %1099
 
 1090:                                             ; preds = %.lr.ph4029
-  %1091 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.144028, i32 noundef -2147483648) #16
+  %1091 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.154028, i32 noundef -2147483648) #16
   %1092 = zext i16 %1091 to i32
   %1093 = load i32, ptr @hf_btmesh_config_sig_model_app_list_appkeyindex, align 4
   %1094 = and i32 %1092, 4095
-  %1095 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1093, ptr noundef %0, i32 noundef %.144028, i32 noundef 2, i32 noundef %1094) #16
+  %1095 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1093, ptr noundef %0, i32 noundef %.154028, i32 noundef 2, i32 noundef %1094) #16
   %1096 = load i32, ptr @hf_btmesh_config_sig_model_app_list_appkeyindex_rfu, align 4
   %1097 = lshr i32 %1092, 12
-  %1098 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1096, ptr noundef %0, i32 noundef %.144028, i32 noundef 2, i32 noundef %1097) #16
+  %1098 = call ptr @proto_tree_add_uint(ptr noundef %1075, i32 noundef %1096, ptr noundef %0, i32 noundef %.154028, i32 noundef 2, i32 noundef %1097) #16
   br label %1099
 
 1099:                                             ; preds = %1090, %1080
   %.sink4121 = phi i32 [ 2, %1090 ], [ 3, %1080 ]
-  %1100 = add i32 %.144028, %.sink4121
+  %1100 = add i32 %.154028, %.sink4121
   %1101 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1100) #16
   %1102 = icmp sgt i32 %1101, 1
   br i1 %1102, label %.lr.ph4029, label %.loopexit3981, !llvm.loop !24
@@ -9101,37 +9101,37 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %1124, label %.lr.ph4026, label %.loopexit3981
 
 .lr.ph4026:                                       ; preds = %1110, %1146
-  %.164025 = phi i32 [ %1147, %1146 ], [ %1119, %1110 ]
-  %1125 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.164025) #16
+  %.174025 = phi i32 [ %1147, %1146 ], [ %1119, %1110 ]
+  %1125 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.174025) #16
   %1126 = icmp sgt i32 %1125, 2
   br i1 %1126, label %1127, label %1137
 
 1127:                                             ; preds = %.lr.ph4026
-  %1128 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %.164025, i32 noundef -2147483648) #16
+  %1128 = call i32 @tvb_get_guint24(ptr noundef %0, i32 noundef %.174025, i32 noundef -2147483648) #16
   %1129 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_appkeyindex, align 4
   %1130 = and i32 %1128, 4095
-  %1131 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1129, ptr noundef %0, i32 noundef %.164025, i32 noundef 2, i32 noundef %1130) #16
+  %1131 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1129, ptr noundef %0, i32 noundef %.174025, i32 noundef 2, i32 noundef %1130) #16
   %1132 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_appkeyindex, align 4
-  %1133 = add i32 %.164025, 1
+  %1133 = add i32 %.174025, 1
   %1134 = lshr i32 %1128, 12
   %1135 = and i32 %1134, 4095
   %1136 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1132, ptr noundef %0, i32 noundef %1133, i32 noundef 2, i32 noundef %1135) #16
   br label %1146
 
 1137:                                             ; preds = %.lr.ph4026
-  %1138 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.164025, i32 noundef -2147483648) #16
+  %1138 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %.174025, i32 noundef -2147483648) #16
   %1139 = zext i16 %1138 to i32
   %1140 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_appkeyindex, align 4
   %1141 = and i32 %1139, 4095
-  %1142 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1140, ptr noundef %0, i32 noundef %.164025, i32 noundef 2, i32 noundef %1141) #16
+  %1142 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1140, ptr noundef %0, i32 noundef %.174025, i32 noundef 2, i32 noundef %1141) #16
   %1143 = load i32, ptr @hf_btmesh_config_vendor_model_app_list_appkeyindex_rfu, align 4
   %1144 = lshr i32 %1139, 12
-  %1145 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1143, ptr noundef %0, i32 noundef %.164025, i32 noundef 2, i32 noundef %1144) #16
+  %1145 = call ptr @proto_tree_add_uint(ptr noundef %1122, i32 noundef %1143, ptr noundef %0, i32 noundef %.174025, i32 noundef 2, i32 noundef %1144) #16
   br label %1146
 
 1146:                                             ; preds = %1137, %1127
   %.sink4122 = phi i32 [ 2, %1137 ], [ 3, %1127 ]
-  %1147 = add i32 %.164025, %.sink4122
+  %1147 = add i32 %.174025, %.sink4122
   %1148 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1147) #16
   %1149 = icmp sgt i32 %1148, 1
   br i1 %1149, label %.lr.ph4026, label %.loopexit3981, !llvm.loop !25
@@ -9795,10 +9795,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %1701, label %.lr.ph4023, label %.loopexit3981
 
 .lr.ph4023:                                       ; preds = %1690, %.lr.ph4023
-  %.184022 = phi i32 [ %1704, %.lr.ph4023 ], [ %1696, %1690 ]
+  %.194022 = phi i32 [ %1704, %.lr.ph4023 ], [ %1696, %1690 ]
   %1702 = load i32, ptr @hf_btmesh_scene_register_status_scene, align 4
-  %1703 = call ptr @proto_tree_add_item(ptr noundef %1699, i32 noundef %1702, ptr noundef %0, i32 noundef %.184022, i32 noundef 2, i32 noundef -2147483648) #16
-  %1704 = add i32 %.184022, 2
+  %1703 = call ptr @proto_tree_add_item(ptr noundef %1699, i32 noundef %1702, ptr noundef %0, i32 noundef %.194022, i32 noundef 2, i32 noundef -2147483648) #16
+  %1704 = add i32 %.194022, 2
   %1705 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1704) #16
   %1706 = icmp sgt i32 %1705, 1
   br i1 %1706, label %.lr.ph4023, label %.loopexit3981, !llvm.loop !26
@@ -11368,10 +11368,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %3046, label %.lr.ph4020, label %.loopexit3981
 
 .lr.ph4020:                                       ; preds = %3041, %.lr.ph4020
-  %.194019 = phi i32 [ %3049, %.lr.ph4020 ], [ %.03971, %3041 ]
+  %.204019 = phi i32 [ %3049, %.lr.ph4020 ], [ %.03971, %3041 ]
   %3047 = load i32, ptr @hf_btmesh_generic_manufacturer_properties_status_manufacturer_property_id, align 4
-  %3048 = call ptr @proto_tree_add_item(ptr noundef %3044, i32 noundef %3047, ptr noundef %0, i32 noundef %.194019, i32 noundef 2, i32 noundef -2147483648) #16
-  %3049 = add i32 %.194019, 2
+  %3048 = call ptr @proto_tree_add_item(ptr noundef %3044, i32 noundef %3047, ptr noundef %0, i32 noundef %.204019, i32 noundef 2, i32 noundef -2147483648) #16
+  %3049 = add i32 %.204019, 2
   %3050 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3049) #16
   %3051 = icmp sgt i32 %3050, 1
   br i1 %3051, label %.lr.ph4020, label %.loopexit3981, !llvm.loop !27
@@ -11428,10 +11428,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %3090, label %.lr.ph4017, label %.loopexit3981
 
 .lr.ph4017:                                       ; preds = %3085, %.lr.ph4017
-  %.204016 = phi i32 [ %3093, %.lr.ph4017 ], [ %.03971, %3085 ]
+  %.214016 = phi i32 [ %3093, %.lr.ph4017 ], [ %.03971, %3085 ]
   %3091 = load i32, ptr @hf_btmesh_generic_admin_properties_status_admin_property_id, align 4
-  %3092 = call ptr @proto_tree_add_item(ptr noundef %3088, i32 noundef %3091, ptr noundef %0, i32 noundef %.204016, i32 noundef 2, i32 noundef -2147483648) #16
-  %3093 = add i32 %.204016, 2
+  %3092 = call ptr @proto_tree_add_item(ptr noundef %3088, i32 noundef %3091, ptr noundef %0, i32 noundef %.214016, i32 noundef 2, i32 noundef -2147483648) #16
+  %3093 = add i32 %.214016, 2
   %3094 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3093) #16
   %3095 = icmp sgt i32 %3094, 1
   br i1 %3095, label %.lr.ph4017, label %.loopexit3981, !llvm.loop !28
@@ -11498,10 +11498,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %3144, label %.lr.ph4014, label %.loopexit3981
 
 .lr.ph4014:                                       ; preds = %3139, %.lr.ph4014
-  %.214013 = phi i32 [ %3147, %.lr.ph4014 ], [ %.03971, %3139 ]
+  %.224013 = phi i32 [ %3147, %.lr.ph4014 ], [ %.03971, %3139 ]
   %3145 = load i32, ptr @hf_btmesh_generic_user_properties_status_user_property_id, align 4
-  %3146 = call ptr @proto_tree_add_item(ptr noundef %3142, i32 noundef %3145, ptr noundef %0, i32 noundef %.214013, i32 noundef 2, i32 noundef -2147483648) #16
-  %3147 = add i32 %.214013, 2
+  %3146 = call ptr @proto_tree_add_item(ptr noundef %3142, i32 noundef %3145, ptr noundef %0, i32 noundef %.224013, i32 noundef 2, i32 noundef -2147483648) #16
+  %3147 = add i32 %.224013, 2
   %3148 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3147) #16
   %3149 = icmp sgt i32 %3148, 1
   br i1 %3149, label %.lr.ph4014, label %.loopexit3981, !llvm.loop !29
@@ -11568,10 +11568,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %3196, label %.lr.ph4011, label %.loopexit3981
 
 .lr.ph4011:                                       ; preds = %3191, %.lr.ph4011
-  %.224010 = phi i32 [ %3199, %.lr.ph4011 ], [ %.03971, %3191 ]
+  %.234010 = phi i32 [ %3199, %.lr.ph4011 ], [ %.03971, %3191 ]
   %3197 = load i32, ptr @hf_btmesh_generic_client_properties_status_client_property_id, align 4
-  %3198 = call ptr @proto_tree_add_item(ptr noundef %3194, i32 noundef %3197, ptr noundef %0, i32 noundef %.224010, i32 noundef 2, i32 noundef -2147483648) #16
-  %3199 = add i32 %.224010, 2
+  %3198 = call ptr @proto_tree_add_item(ptr noundef %3194, i32 noundef %3197, ptr noundef %0, i32 noundef %.234010, i32 noundef 2, i32 noundef -2147483648) #16
+  %3199 = add i32 %.234010, 2
   %3200 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3199) #16
   %3201 = icmp sgt i32 %3200, 1
   br i1 %3201, label %.lr.ph4011, label %.loopexit3981, !llvm.loop !30
@@ -11604,24 +11604,24 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br label %.loopexit3981
 
 .lr.ph4008:                                       ; preds = %.preheader, %.lr.ph4008
-  %.234007 = phi i32 [ %3234, %.lr.ph4008 ], [ %.03971, %.preheader ]
+  %.244007 = phi i32 [ %3234, %.lr.ph4008 ], [ %.03971, %.preheader ]
   %3218 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_property_id, align 4
-  %3219 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3218, ptr noundef %0, i32 noundef %.234007, i32 noundef 2, i32 noundef -2147483648) #16
-  %3220 = add i32 %.234007, 2
+  %3219 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3218, ptr noundef %0, i32 noundef %.244007, i32 noundef 2, i32 noundef -2147483648) #16
+  %3220 = add i32 %.244007, 2
   %3221 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_positive_tolerance, align 4
   %3222 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3221, ptr noundef %0, i32 noundef %3220, i32 noundef 3, i32 noundef -2147483648) #16
   %3223 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_negative_tolerance, align 4
   %3224 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3223, ptr noundef %0, i32 noundef %3220, i32 noundef 3, i32 noundef -2147483648) #16
-  %3225 = add i32 %.234007, 5
+  %3225 = add i32 %.244007, 5
   %3226 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_sampling_function, align 4
   %3227 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3226, ptr noundef %0, i32 noundef %3225, i32 noundef 1, i32 noundef -2147483648) #16
-  %3228 = add i32 %.234007, 6
+  %3228 = add i32 %.244007, 6
   %3229 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_measurement_period, align 4
   %3230 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3229, ptr noundef %0, i32 noundef %3228, i32 noundef 1, i32 noundef -2147483648) #16
-  %3231 = add i32 %.234007, 7
+  %3231 = add i32 %.244007, 7
   %3232 = load i32, ptr @hf_btmesh_sensor_descriptor_status_descriptor_sensor_update_interval, align 4
   %3233 = call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %3232, ptr noundef %0, i32 noundef %3231, i32 noundef 1, i32 noundef -2147483648) #16
-  %3234 = add i32 %.234007, 8
+  %3234 = add i32 %.244007, 8
   %3235 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3234) #16
   %3236 = icmp sgt i32 %3235, 0
   br i1 %3236, label %.lr.ph4008, label %.loopexit3981, !llvm.loop !31
@@ -11703,10 +11703,10 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %3298, label %.lr.ph4005, label %.loopexit3981
 
 .lr.ph4005:                                       ; preds = %3293, %.lr.ph4005
-  %.244004 = phi i32 [ %3301, %.lr.ph4005 ], [ %3290, %3293 ]
+  %.254004 = phi i32 [ %3301, %.lr.ph4005 ], [ %3290, %3293 ]
   %3299 = load i32, ptr @hf_btmesh_sensor_settings_status_sensor_setting_property_id, align 4
-  %3300 = call ptr @proto_tree_add_item(ptr noundef %3296, i32 noundef %3299, ptr noundef %0, i32 noundef %.244004, i32 noundef 2, i32 noundef -2147483648) #16
-  %3301 = add i32 %.244004, 2
+  %3300 = call ptr @proto_tree_add_item(ptr noundef %3296, i32 noundef %3299, ptr noundef %0, i32 noundef %.254004, i32 noundef 2, i32 noundef -2147483648) #16
+  %3301 = add i32 %.254004, 2
   %3302 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3301) #16
   %3303 = icmp sgt i32 %3302, 1
   br i1 %3303, label %.lr.ph4005, label %.loopexit3981, !llvm.loop !32
@@ -11782,31 +11782,31 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br label %.loopexit3981
 
 .lr.ph4002:                                       ; preds = %.preheader3997, %3371
-  %.254001 = phi i32 [ %3381, %3371 ], [ %.03971, %.preheader3997 ]
+  %.264001 = phi i32 [ %3381, %3371 ], [ %.03971, %.preheader3997 ]
   %3360 = load i32, ptr @hf_btmesh_sensor_status_mpid_format, align 4
-  %3361 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3360, ptr noundef %0, i32 noundef %.254001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #16
+  %3361 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3360, ptr noundef %0, i32 noundef %.264001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5) #16
   %3362 = load i32, ptr %5, align 4
   %3363 = icmp eq i32 %3362, 0
   br i1 %3363, label %3364, label %3367
 
 3364:                                             ; preds = %.lr.ph4002
   %3365 = load i32, ptr @hf_btmesh_sensor_status_mpid_format_a_length, align 4
-  %3366 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3365, ptr noundef %0, i32 noundef %.254001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #16
+  %3366 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3365, ptr noundef %0, i32 noundef %.264001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #16
   br label %3371
 
 3367:                                             ; preds = %.lr.ph4002
   %3368 = load i32, ptr @hf_btmesh_sensor_status_mpid_format_b_length, align 4
-  %3369 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3368, ptr noundef %0, i32 noundef %.254001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #16
-  %3370 = add i32 %.254001, 1
+  %3369 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3368, ptr noundef %0, i32 noundef %.264001, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7) #16
+  %3370 = add i32 %.264001, 1
   br label %3371
 
 3371:                                             ; preds = %3367, %3364
   %hf_btmesh_sensor_status_mpid_format_b_property_id.sink = phi ptr [ @hf_btmesh_sensor_status_mpid_format_b_property_id, %3367 ], [ @hf_btmesh_sensor_status_mpid_format_a_property_id, %3364 ]
-  %.sink4125 = phi i32 [ %3370, %3367 ], [ %.254001, %3364 ]
+  %.sink4125 = phi i32 [ %3370, %3367 ], [ %.264001, %3364 ]
   %.sink4123 = phi i32 [ 3, %3367 ], [ 2, %3364 ]
   %3372 = load i32, ptr %hf_btmesh_sensor_status_mpid_format_b_property_id.sink, align 4
   %3373 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %10, i32 noundef %3372, ptr noundef %0, i32 noundef %.sink4125, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %6) #16
-  %3374 = add i32 %.254001, %.sink4123
+  %3374 = add i32 %.264001, %.sink4123
   %3375 = load i32, ptr @hf_btmesh_sensor_status_raw_value, align 4
   %3376 = load i32, ptr %6, align 4
   %3377 = trunc i32 %3376 to i16
@@ -11860,9 +11860,9 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br i1 %3414, label %.lr.ph, label %.loopexit3981
 
 .lr.ph:                                           ; preds = %3408, %.lr.ph
-  %.274000 = phi i32 [ %3416, %.lr.ph ], [ %3412, %3408 ]
-  %3415 = call fastcc i32 @dissect_property_raw_value_entry(ptr noundef %10, ptr noundef %0, i32 noundef %.274000, i16 noundef zeroext %3411, ptr noundef nonnull @sensor_series_status_hfs)
-  %3416 = add i32 %3415, %.274000
+  %.284000 = phi i32 [ %3416, %.lr.ph ], [ %3412, %3408 ]
+  %3415 = call fastcc i32 @dissect_property_raw_value_entry(ptr noundef %10, ptr noundef %0, i32 noundef %.284000, i16 noundef zeroext %3411, ptr noundef nonnull @sensor_series_status_hfs)
+  %3416 = add i32 %3415, %.284000
   %3417 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %3416) #16
   %3418 = icmp sgt i32 %3417, 0
   br i1 %3418, label %.lr.ph, label %.loopexit3981, !llvm.loop !34
@@ -11880,13 +11880,13 @@ define internal fastcc void @dissect_btmesh_model_layer(ptr noundef %0, ptr noun
   br label %.loopexit3981
 
 .loopexit3981:                                    ; preds = %.lr.ph, %3371, %.lr.ph4005, %.lr.ph4008, %.lr.ph4011, %.lr.ph4014, %.lr.ph4017, %.lr.ph4020, %.lr.ph4023, %1146, %1099, %987, %.lr.ph4035, %.lr.ph4038, %303, %.lr.ph4044, %.lr.ph4047, %.loopexit, %3408, %.preheader3997, %3293, %.preheader, %3191, %3139, %3085, %3041, %1690, %1110, %1063, %960, %738, %711, %264, %198, %181, %72, %3419, %3421, %3398, %3405, %3353, %3356, %3335, %3345, %3287, %3214, %3202, %3205, %3172, %3179, %42, %3124, %3131, %42, %3070, %3077, %42, %3018, %3024, %2996, %3005, %2974, %2983, %42, %42, %42, %42, %42, %2856, %2868, %42, %2834, %2846, %2806, %2821, %2778, %2793, %42, %42, %42, %2684, %2696, %42, %2662, %2674, %2634, %2649, %2606, %2621, %2587, %2593, %2565, %2574, %2543, %2552, %42, %2524, %2530, %2502, %2511, %2480, %2489, %42, %42, %42, %2411, %2420, %2386, %2398, %2361, %2373, %42, %42, %2326, %2335, %2298, %2313, %2270, %2285, %42, %42, %42, %42, %2211, %2217, %2189, %2198, %2167, %2176, %42, %2148, %2154, %2126, %2135, %2104, %2113, %42, %42, %42, %42, %42, %42, %1741, %1747, %42, %1668, %1677, %1646, %1655, %42, %1624, %1633, %42, %42, %42, %42, %42, %42, %1480, %1486, %1458, %1467, %1436, %1445, %42, %42, %42, %1372, %1381, %1350, %1359, %1328, %1337, %1306, %1315, %1287, %1293, %1265, %1274, %1243, %1252, %42, %1224, %1230, %1202, %1211, %1180, %1189, %42, %42, %42, %42, %929, %933, %906, %910, %880, %884, %42, %42, %42, %42, %42, %650, %654, %633, %637, %616, %620, %599, %603, %579, %583, %562, %566, %548, %552, %531, %535, %514, %518, %465, %469, %413, %417, %42, %42, %42, %42, %42, %173, %177, %3391, %3384, %3323, %3311, %3304, %3283, %3269, %3255, %3241, %3237, %3187, %3163, %3154, %3150, %3112, %3100, %3096, %3063, %3056, %3052, %3037, %2970, %2966, %2962, %2958, %2954, %2950, %2937, %2924, %2914, %2904, %2888, %2878, %2765, %2752, %2742, %2732, %2716, %2706, %2473, %2466, %2456, %2446, %2436, %2351, %2263, %2256, %2252, %2248, %2238, %2234, %2230, %2095, %2086, %2077, %2039, %2035, %2021, %2012, %2002, %1995, %1991, %1987, %1912, %1837, %1762, %1723, %1719, %1715, %1711, %1707, %1602, %1580, %1558, %1539, %1532, %1525, %1521, %1517, %1507, %1503, %1499, %1432, %1428, %1424, %1414, %1404, %1394, %1170, %1160, %1150, %1103, %1056, %1040, %1027, %1017, %1004, %991, %950, %937, %843, %833, %807, %803, %799, %795, %788, %781, %777, %773, %769, %762, %758, %731, %704, %691, %678, %668, %658, %391, %378, %368, %364, %360, %356, %352, %348, %344, %340, %336, %332, %328, %324, %320, %307, %254, %244, %215, %59, %46
-  %.28 = phi i32 [ %3425, %3421 ], [ %.03971, %3419 ], [ %3407, %3405 ], [ %3402, %3398 ], [ %3397, %3391 ], [ %3390, %3384 ], [ %3359, %3356 ], [ %.03971, %3353 ], [ %3352, %3345 ], [ %3342, %3335 ], [ %3334, %3323 ], [ %3322, %3311 ], [ %3310, %3304 ], [ %3290, %3287 ], [ %3286, %3283 ], [ %3282, %3269 ], [ %3268, %3255 ], [ %3254, %3241 ], [ %3240, %3237 ], [ %3217, %3214 ], [ %3208, %3205 ], [ %.03971, %3202 ], [ %3190, %3187 ], [ %3186, %3179 ], [ %3176, %3172 ], [ %3171, %3163 ], [ %3162, %3154 ], [ %3153, %3150 ], [ %3138, %3131 ], [ %3128, %3124 ], [ %3123, %3112 ], [ %3111, %3100 ], [ %3099, %3096 ], [ %3084, %3077 ], [ %3074, %3070 ], [ %3069, %3063 ], [ %3062, %3056 ], [ %3055, %3052 ], [ %3040, %3037 ], [ %3036, %3024 ], [ %3021, %3018 ], [ %3017, %3005 ], [ %3002, %2996 ], [ %2995, %2983 ], [ %2980, %2974 ], [ %2973, %2970 ], [ %2969, %2966 ], [ %2965, %2962 ], [ %2961, %2958 ], [ %2957, %2954 ], [ %2953, %2950 ], [ %2949, %2937 ], [ %2936, %2924 ], [ %2923, %2914 ], [ %2913, %2904 ], [ %2903, %2888 ], [ %2887, %2878 ], [ %2877, %2868 ], [ %2865, %2856 ], [ %2855, %2846 ], [ %2843, %2834 ], [ %2833, %2821 ], [ %2818, %2806 ], [ %2805, %2793 ], [ %2790, %2778 ], [ %2777, %2765 ], [ %2764, %2752 ], [ %2751, %2742 ], [ %2741, %2732 ], [ %2731, %2716 ], [ %2715, %2706 ], [ %2705, %2696 ], [ %2693, %2684 ], [ %2683, %2674 ], [ %2671, %2662 ], [ %2661, %2649 ], [ %2646, %2634 ], [ %2633, %2621 ], [ %2618, %2606 ], [ %2605, %2593 ], [ %2590, %2587 ], [ %2586, %2574 ], [ %2571, %2565 ], [ %2564, %2552 ], [ %2549, %2543 ], [ %2542, %2530 ], [ %2527, %2524 ], [ %2523, %2511 ], [ %2508, %2502 ], [ %2501, %2489 ], [ %2486, %2480 ], [ %2479, %2473 ], [ %2472, %2466 ], [ %2465, %2456 ], [ %2455, %2446 ], [ %2445, %2436 ], [ %2435, %2420 ], [ %2417, %2411 ], [ %2410, %2398 ], [ %2395, %2386 ], [ %2385, %2373 ], [ %2370, %2361 ], [ %2360, %2351 ], [ %2350, %2335 ], [ %2332, %2326 ], [ %2325, %2313 ], [ %2310, %2298 ], [ %2297, %2285 ], [ %2282, %2270 ], [ %2269, %2263 ], [ %2262, %2256 ], [ %2255, %2252 ], [ %2251, %2248 ], [ %2247, %2238 ], [ %2237, %2234 ], [ %2233, %2230 ], [ %2229, %2217 ], [ %2214, %2211 ], [ %2210, %2198 ], [ %2195, %2189 ], [ %2188, %2176 ], [ %2173, %2167 ], [ %2166, %2154 ], [ %2151, %2148 ], [ %2147, %2135 ], [ %2132, %2126 ], [ %2125, %2113 ], [ %2110, %2104 ], [ %2103, %2095 ], [ %2094, %2086 ], [ %2085, %2077 ], [ %2076, %2039 ], [ %2038, %2035 ], [ %2034, %2021 ], [ %2020, %2012 ], [ %2011, %2002 ], [ %2001, %1995 ], [ %1994, %1991 ], [ %1990, %1987 ], [ %1986, %1912 ], [ %1911, %1837 ], [ %1836, %1762 ], [ %1761, %1747 ], [ %1744, %1741 ], [ %1740, %1723 ], [ %1722, %1719 ], [ %1718, %1715 ], [ %1714, %1711 ], [ %1710, %1707 ], [ %1689, %1677 ], [ %1674, %1668 ], [ %1667, %1655 ], [ %1652, %1646 ], [ %1645, %1633 ], [ %1630, %1624 ], [ %1623, %1602 ], [ %1601, %1580 ], [ %1579, %1558 ], [ %1557, %1539 ], [ %1538, %1532 ], [ %1531, %1525 ], [ %1524, %1521 ], [ %1520, %1517 ], [ %1516, %1507 ], [ %1506, %1503 ], [ %1502, %1499 ], [ %1498, %1486 ], [ %1483, %1480 ], [ %1479, %1467 ], [ %1464, %1458 ], [ %1457, %1445 ], [ %1442, %1436 ], [ %1435, %1432 ], [ %1431, %1428 ], [ %1427, %1424 ], [ %1423, %1414 ], [ %1413, %1404 ], [ %1403, %1394 ], [ %1393, %1381 ], [ %1378, %1372 ], [ %1371, %1359 ], [ %1356, %1350 ], [ %1349, %1337 ], [ %1334, %1328 ], [ %1327, %1315 ], [ %1312, %1306 ], [ %1305, %1293 ], [ %1290, %1287 ], [ %1286, %1274 ], [ %1271, %1265 ], [ %1264, %1252 ], [ %1249, %1243 ], [ %1242, %1230 ], [ %1227, %1224 ], [ %1223, %1211 ], [ %1208, %1202 ], [ %1201, %1189 ], [ %1186, %1180 ], [ %1179, %1170 ], [ %1169, %1160 ], [ %1159, %1150 ], [ %1109, %1103 ], [ %1062, %1056 ], [ %1055, %1040 ], [ %1039, %1027 ], [ %1026, %1017 ], [ %1016, %1004 ], [ %1003, %991 ], [ %959, %950 ], [ %949, %937 ], [ %932, %929 ], [ %936, %933 ], [ %909, %906 ], [ %913, %910 ], [ %883, %880 ], [ %887, %884 ], [ %864, %843 ], [ %842, %833 ], [ %832, %807 ], [ %806, %803 ], [ %802, %799 ], [ %798, %795 ], [ %794, %788 ], [ %787, %781 ], [ %780, %777 ], [ %776, %773 ], [ %772, %769 ], [ %768, %762 ], [ %761, %758 ], [ %737, %731 ], [ %710, %704 ], [ %703, %691 ], [ %690, %678 ], [ %677, %668 ], [ %667, %658 ], [ %653, %650 ], [ %657, %654 ], [ %636, %633 ], [ %640, %637 ], [ %619, %616 ], [ %623, %620 ], [ %602, %599 ], [ %606, %603 ], [ %582, %579 ], [ %586, %583 ], [ %565, %562 ], [ %569, %566 ], [ %551, %548 ], [ %555, %552 ], [ %534, %531 ], [ %538, %535 ], [ %517, %514 ], [ %521, %518 ], [ %468, %465 ], [ %472, %469 ], [ %416, %413 ], [ %420, %417 ], [ %406, %391 ], [ %390, %378 ], [ %377, %368 ], [ %367, %364 ], [ %363, %360 ], [ %359, %356 ], [ %355, %352 ], [ %351, %348 ], [ %347, %344 ], [ %343, %340 ], [ %339, %336 ], [ %335, %332 ], [ %331, %328 ], [ %327, %324 ], [ %323, %320 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %319, %307 ], [ %263, %254 ], [ %253, %244 ], [ %243, %215 ], [ %176, %173 ], [ %180, %177 ], [ %71, %59 ], [ %58, %46 ], [ %91, %72 ], [ %187, %181 ], [ %204, %198 ], [ %276, %264 ], [ %720, %711 ], [ %747, %738 ], [ %.03971, %960 ], [ %1072, %1063 ], [ %1119, %1110 ], [ %1696, %1690 ], [ %.03971, %3041 ], [ %.03971, %3085 ], [ %.03971, %3139 ], [ %.03971, %3191 ], [ %.03971, %.preheader ], [ %3290, %3293 ], [ %.03971, %.preheader3997 ], [ %3412, %3408 ], [ %.5, %.loopexit ], [ %195, %.lr.ph4047 ], [ %212, %.lr.ph4044 ], [ %304, %303 ], [ %728, %.lr.ph4038 ], [ %755, %.lr.ph4035 ], [ %988, %987 ], [ %1100, %1099 ], [ %1147, %1146 ], [ %1704, %.lr.ph4023 ], [ %3049, %.lr.ph4020 ], [ %3093, %.lr.ph4017 ], [ %3147, %.lr.ph4014 ], [ %3199, %.lr.ph4011 ], [ %3234, %.lr.ph4008 ], [ %3301, %.lr.ph4005 ], [ %3381, %3371 ], [ %3416, %.lr.ph ]
-  %3426 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.28) #16
+  %.13972 = phi i32 [ %3425, %3421 ], [ %.03971, %3419 ], [ %3407, %3405 ], [ %3402, %3398 ], [ %3397, %3391 ], [ %3390, %3384 ], [ %3359, %3356 ], [ %.03971, %3353 ], [ %3352, %3345 ], [ %3342, %3335 ], [ %3334, %3323 ], [ %3322, %3311 ], [ %3310, %3304 ], [ %3290, %3287 ], [ %3286, %3283 ], [ %3282, %3269 ], [ %3268, %3255 ], [ %3254, %3241 ], [ %3240, %3237 ], [ %3217, %3214 ], [ %3208, %3205 ], [ %.03971, %3202 ], [ %3190, %3187 ], [ %3186, %3179 ], [ %3176, %3172 ], [ %3171, %3163 ], [ %3162, %3154 ], [ %3153, %3150 ], [ %3138, %3131 ], [ %3128, %3124 ], [ %3123, %3112 ], [ %3111, %3100 ], [ %3099, %3096 ], [ %3084, %3077 ], [ %3074, %3070 ], [ %3069, %3063 ], [ %3062, %3056 ], [ %3055, %3052 ], [ %3040, %3037 ], [ %3036, %3024 ], [ %3021, %3018 ], [ %3017, %3005 ], [ %3002, %2996 ], [ %2995, %2983 ], [ %2980, %2974 ], [ %2973, %2970 ], [ %2969, %2966 ], [ %2965, %2962 ], [ %2961, %2958 ], [ %2957, %2954 ], [ %2953, %2950 ], [ %2949, %2937 ], [ %2936, %2924 ], [ %2923, %2914 ], [ %2913, %2904 ], [ %2903, %2888 ], [ %2887, %2878 ], [ %2877, %2868 ], [ %2865, %2856 ], [ %2855, %2846 ], [ %2843, %2834 ], [ %2833, %2821 ], [ %2818, %2806 ], [ %2805, %2793 ], [ %2790, %2778 ], [ %2777, %2765 ], [ %2764, %2752 ], [ %2751, %2742 ], [ %2741, %2732 ], [ %2731, %2716 ], [ %2715, %2706 ], [ %2705, %2696 ], [ %2693, %2684 ], [ %2683, %2674 ], [ %2671, %2662 ], [ %2661, %2649 ], [ %2646, %2634 ], [ %2633, %2621 ], [ %2618, %2606 ], [ %2605, %2593 ], [ %2590, %2587 ], [ %2586, %2574 ], [ %2571, %2565 ], [ %2564, %2552 ], [ %2549, %2543 ], [ %2542, %2530 ], [ %2527, %2524 ], [ %2523, %2511 ], [ %2508, %2502 ], [ %2501, %2489 ], [ %2486, %2480 ], [ %2479, %2473 ], [ %2472, %2466 ], [ %2465, %2456 ], [ %2455, %2446 ], [ %2445, %2436 ], [ %2435, %2420 ], [ %2417, %2411 ], [ %2410, %2398 ], [ %2395, %2386 ], [ %2385, %2373 ], [ %2370, %2361 ], [ %2360, %2351 ], [ %2350, %2335 ], [ %2332, %2326 ], [ %2325, %2313 ], [ %2310, %2298 ], [ %2297, %2285 ], [ %2282, %2270 ], [ %2269, %2263 ], [ %2262, %2256 ], [ %2255, %2252 ], [ %2251, %2248 ], [ %2247, %2238 ], [ %2237, %2234 ], [ %2233, %2230 ], [ %2229, %2217 ], [ %2214, %2211 ], [ %2210, %2198 ], [ %2195, %2189 ], [ %2188, %2176 ], [ %2173, %2167 ], [ %2166, %2154 ], [ %2151, %2148 ], [ %2147, %2135 ], [ %2132, %2126 ], [ %2125, %2113 ], [ %2110, %2104 ], [ %2103, %2095 ], [ %2094, %2086 ], [ %2085, %2077 ], [ %2076, %2039 ], [ %2038, %2035 ], [ %2034, %2021 ], [ %2020, %2012 ], [ %2011, %2002 ], [ %2001, %1995 ], [ %1994, %1991 ], [ %1990, %1987 ], [ %1986, %1912 ], [ %1911, %1837 ], [ %1836, %1762 ], [ %1761, %1747 ], [ %1744, %1741 ], [ %1740, %1723 ], [ %1722, %1719 ], [ %1718, %1715 ], [ %1714, %1711 ], [ %1710, %1707 ], [ %1689, %1677 ], [ %1674, %1668 ], [ %1667, %1655 ], [ %1652, %1646 ], [ %1645, %1633 ], [ %1630, %1624 ], [ %1623, %1602 ], [ %1601, %1580 ], [ %1579, %1558 ], [ %1557, %1539 ], [ %1538, %1532 ], [ %1531, %1525 ], [ %1524, %1521 ], [ %1520, %1517 ], [ %1516, %1507 ], [ %1506, %1503 ], [ %1502, %1499 ], [ %1498, %1486 ], [ %1483, %1480 ], [ %1479, %1467 ], [ %1464, %1458 ], [ %1457, %1445 ], [ %1442, %1436 ], [ %1435, %1432 ], [ %1431, %1428 ], [ %1427, %1424 ], [ %1423, %1414 ], [ %1413, %1404 ], [ %1403, %1394 ], [ %1393, %1381 ], [ %1378, %1372 ], [ %1371, %1359 ], [ %1356, %1350 ], [ %1349, %1337 ], [ %1334, %1328 ], [ %1327, %1315 ], [ %1312, %1306 ], [ %1305, %1293 ], [ %1290, %1287 ], [ %1286, %1274 ], [ %1271, %1265 ], [ %1264, %1252 ], [ %1249, %1243 ], [ %1242, %1230 ], [ %1227, %1224 ], [ %1223, %1211 ], [ %1208, %1202 ], [ %1201, %1189 ], [ %1186, %1180 ], [ %1179, %1170 ], [ %1169, %1160 ], [ %1159, %1150 ], [ %1109, %1103 ], [ %1062, %1056 ], [ %1055, %1040 ], [ %1039, %1027 ], [ %1026, %1017 ], [ %1016, %1004 ], [ %1003, %991 ], [ %959, %950 ], [ %949, %937 ], [ %932, %929 ], [ %936, %933 ], [ %909, %906 ], [ %913, %910 ], [ %883, %880 ], [ %887, %884 ], [ %864, %843 ], [ %842, %833 ], [ %832, %807 ], [ %806, %803 ], [ %802, %799 ], [ %798, %795 ], [ %794, %788 ], [ %787, %781 ], [ %780, %777 ], [ %776, %773 ], [ %772, %769 ], [ %768, %762 ], [ %761, %758 ], [ %737, %731 ], [ %710, %704 ], [ %703, %691 ], [ %690, %678 ], [ %677, %668 ], [ %667, %658 ], [ %653, %650 ], [ %657, %654 ], [ %636, %633 ], [ %640, %637 ], [ %619, %616 ], [ %623, %620 ], [ %602, %599 ], [ %606, %603 ], [ %582, %579 ], [ %586, %583 ], [ %565, %562 ], [ %569, %566 ], [ %551, %548 ], [ %555, %552 ], [ %534, %531 ], [ %538, %535 ], [ %517, %514 ], [ %521, %518 ], [ %468, %465 ], [ %472, %469 ], [ %416, %413 ], [ %420, %417 ], [ %406, %391 ], [ %390, %378 ], [ %377, %368 ], [ %367, %364 ], [ %363, %360 ], [ %359, %356 ], [ %355, %352 ], [ %351, %348 ], [ %347, %344 ], [ %343, %340 ], [ %339, %336 ], [ %335, %332 ], [ %331, %328 ], [ %327, %324 ], [ %323, %320 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %.03971, %42 ], [ %319, %307 ], [ %263, %254 ], [ %253, %244 ], [ %243, %215 ], [ %176, %173 ], [ %180, %177 ], [ %71, %59 ], [ %58, %46 ], [ %91, %72 ], [ %187, %181 ], [ %204, %198 ], [ %276, %264 ], [ %720, %711 ], [ %747, %738 ], [ %.03971, %960 ], [ %1072, %1063 ], [ %1119, %1110 ], [ %1696, %1690 ], [ %.03971, %3041 ], [ %.03971, %3085 ], [ %.03971, %3139 ], [ %.03971, %3191 ], [ %.03971, %.preheader ], [ %3290, %3293 ], [ %.03971, %.preheader3997 ], [ %3412, %3408 ], [ %.5, %.loopexit ], [ %195, %.lr.ph4047 ], [ %212, %.lr.ph4044 ], [ %304, %303 ], [ %728, %.lr.ph4038 ], [ %755, %.lr.ph4035 ], [ %988, %987 ], [ %1100, %1099 ], [ %1147, %1146 ], [ %1704, %.lr.ph4023 ], [ %3049, %.lr.ph4020 ], [ %3093, %.lr.ph4017 ], [ %3147, %.lr.ph4014 ], [ %3199, %.lr.ph4011 ], [ %3234, %.lr.ph4008 ], [ %3301, %.lr.ph4005 ], [ %3381, %3371 ], [ %3416, %.lr.ph ]
+  %3426 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.13972) #16
   %.not3979 = icmp eq i32 %3426, 0
   br i1 %.not3979, label %3429, label %3427
 
 3427:                                             ; preds = %.loopexit3981
-  %3428 = call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_btmesh_unknown_payload, ptr noundef %0, i32 noundef %.28, i32 noundef -1) #16
+  %3428 = call ptr @proto_tree_add_expert(ptr noundef %10, ptr noundef %1, ptr noundef nonnull @ei_btmesh_unknown_payload, ptr noundef %0, i32 noundef %.13972, i32 noundef -1) #16
   br label %3429
 
 3429:                                             ; preds = %3427, %.loopexit3981

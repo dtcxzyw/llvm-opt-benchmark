@@ -75,8 +75,8 @@ entry:
   br i1 %or.cond1, label %label_return.sink.split, label %while.body
 
 while.body:                                       ; preds = %entry, %sw.bb
-  %p.0 = phi ptr [ %incdec.ptr, %sw.bb ], [ %nptr, %entry ]
-  %1 = load i8, ptr %p.0, align 1
+  %p.1 = phi ptr [ %incdec.ptr, %sw.bb ], [ %nptr, %entry ]
+  %1 = load i8, ptr %p.1, align 1
   switch i8 %1, label %label_prefix [
     i8 9, label %sw.bb
     i8 10, label %sw.bb
@@ -89,7 +89,7 @@ while.body:                                       ; preds = %entry, %sw.bb
   ]
 
 sw.bb:                                            ; preds = %while.body, %while.body, %while.body, %while.body, %while.body, %while.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.1, i64 1
   br label %while.body
 
 sw.bb5.loopexit:                                  ; preds = %while.body
@@ -97,19 +97,19 @@ sw.bb5.loopexit:                                  ; preds = %while.body
 
 sw.bb5:                                           ; preds = %while.body, %sw.bb5.loopexit
   %neg.0 = phi i1 [ false, %sw.bb5.loopexit ], [ true, %while.body ]
-  %incdec.ptr6 = getelementptr inbounds i8, ptr %p.0, i64 1
+  %incdec.ptr6 = getelementptr inbounds i8, ptr %p.1, i64 1
   %.pr = load i8, ptr %incdec.ptr6, align 1
   br label %label_prefix
 
 label_prefix:                                     ; preds = %while.body, %sw.bb5
   %2 = phi i8 [ %.pr, %sw.bb5 ], [ %1, %while.body ]
   %neg.1 = phi i1 [ %neg.0, %sw.bb5 ], [ false, %while.body ]
-  %p.1 = phi ptr [ %incdec.ptr6, %sw.bb5 ], [ %p.0, %while.body ]
+  %p.2 = phi ptr [ %incdec.ptr6, %sw.bb5 ], [ %p.1, %while.body ]
   %cmp8 = icmp eq i8 %2, 48
   br i1 %cmp8, label %if.then10, label %if.end39
 
 if.then10:                                        ; preds = %label_prefix
-  %arrayidx = getelementptr inbounds i8, ptr %p.1, i64 1
+  %arrayidx = getelementptr inbounds i8, ptr %p.2, i64 1
   %3 = load i8, ptr %arrayidx, align 1
   switch i8 %3, label %label_return [
     i8 48, label %sw.bb12
@@ -128,11 +128,11 @@ sw.bb12:                                          ; preds = %if.then10, %if.then
   %cmp13 = icmp eq i32 %base, 0
   %spec.store.select = select i1 %cmp13, i32 8, i32 %base
   %cmp17 = icmp eq i32 %spec.store.select, 8
-  %spec.select49 = select i1 %cmp17, ptr %arrayidx, ptr %p.1
+  %spec.select49 = select i1 %cmp17, ptr %arrayidx, ptr %p.2
   br label %if.end39
 
 sw.bb22:                                          ; preds = %if.then10, %if.then10
-  %arrayidx23 = getelementptr inbounds i8, ptr %p.1, i64 2
+  %arrayidx23 = getelementptr inbounds i8, ptr %p.2, i64 2
   %4 = load i8, ptr %arrayidx23, align 1
   switch i8 %4, label %if.end39 [
     i8 48, label %sw.bb25
@@ -163,21 +163,21 @@ sw.bb25:                                          ; preds = %sw.bb22, %sw.bb22, 
   %cmp26 = icmp eq i32 %base, 0
   %spec.store.select2 = select i1 %cmp26, i32 16, i32 %base
   %cmp30 = icmp eq i32 %spec.store.select2, 16
-  %spec.select51 = select i1 %cmp30, ptr %arrayidx23, ptr %p.1
+  %spec.select51 = select i1 %cmp30, ptr %arrayidx23, ptr %p.2
   br label %if.end39
 
 if.end39:                                         ; preds = %sw.bb25, %sw.bb12, %sw.bb22, %label_prefix
   %b.0 = phi i32 [ %base, %sw.bb22 ], [ %base, %label_prefix ], [ %spec.store.select, %sw.bb12 ], [ %spec.store.select2, %sw.bb25 ]
-  %p.2 = phi ptr [ %p.1, %sw.bb22 ], [ %p.1, %label_prefix ], [ %spec.select49, %sw.bb12 ], [ %spec.select51, %sw.bb25 ]
+  %p.3 = phi ptr [ %p.2, %sw.bb22 ], [ %p.2, %label_prefix ], [ %spec.select49, %sw.bb12 ], [ %spec.select51, %sw.bb25 ]
   %cmp40 = icmp eq i32 %b.0, 0
   %spec.store.select3 = select i1 %cmp40, i32 10, i32 %b.0
   %conv86 = zext nneg i32 %spec.store.select3 to i64
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end91, %if.end39
-  %p.3 = phi ptr [ %p.2, %if.end39 ], [ %incdec.ptr92, %if.end91 ]
-  %ret.0 = phi i64 [ 0, %if.end39 ], [ %add87, %if.end91 ]
-  %5 = load i8, ptr %p.3, align 1
+  %p.4 = phi ptr [ %p.3, %if.end39 ], [ %incdec.ptr92, %if.end91 ]
+  %ret.1 = phi i64 [ 0, %if.end39 ], [ %add87, %if.end91 ]
+  %5 = load i8, ptr %p.4, align 1
   %6 = add i8 %5, -48
   %or.cond = icmp ult i8 %6, 10
   br i1 %or.cond, label %land.lhs.true50, label %lor.lhs.false56
@@ -212,44 +212,44 @@ land.rhs:                                         ; preds = %lor.rhs
 while.body85:                                     ; preds = %land.lhs.true64, %land.lhs.true50, %land.rhs
   %digit.0.in = phi i8 [ %6, %land.lhs.true50 ], [ %narrow47, %land.lhs.true64 ], [ %narrow48, %land.rhs ]
   %digit.0 = zext nneg i8 %digit.0.in to i64
-  %mul = mul i64 %ret.0, %conv86
+  %mul = mul i64 %ret.1, %conv86
   %add87 = add i64 %mul, %digit.0
-  %cmp88 = icmp ult i64 %add87, %ret.0
+  %cmp88 = icmp ult i64 %add87, %ret.1
   br i1 %cmp88, label %label_return.sink.split, label %if.end91
 
 if.end91:                                         ; preds = %while.body85
-  %incdec.ptr92 = getelementptr inbounds i8, ptr %p.3, i64 1
+  %incdec.ptr92 = getelementptr inbounds i8, ptr %p.4, i64 1
   br label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %land.lhs.true50, %land.lhs.true64, %lor.rhs, %land.rhs
-  %sub94 = sub nsw i64 0, %ret.0
-  %spec.select54 = select i1 %neg.1, i64 %sub94, i64 %ret.0
-  %cmp96 = icmp eq ptr %p.3, %p.1
+  %sub94 = sub nsw i64 0, %ret.1
+  %spec.select54 = select i1 %neg.1, i64 %sub94, i64 %ret.1
+  %cmp96 = icmp eq ptr %p.4, %p.2
   br i1 %cmp96, label %label_return.sink.split, label %label_return
 
 label_return.sink.split:                          ; preds = %while.body85, %while.end, %entry
   %.sink = phi i32 [ 22, %entry ], [ 22, %while.end ], [ 34, %while.body85 ]
-  %p.4.ph = phi ptr [ %nptr, %entry ], [ %p.1, %while.end ], [ %p.3, %while.body85 ]
-  %ns.0.ph = phi ptr [ %nptr, %entry ], [ %p.1, %while.end ], [ %p.1, %while.body85 ]
+  %p.0.ph = phi ptr [ %nptr, %entry ], [ %p.2, %while.end ], [ %p.4, %while.body85 ]
+  %ns.0.ph = phi ptr [ %nptr, %entry ], [ %p.2, %while.end ], [ %p.2, %while.body85 ]
   %call.i56 = tail call ptr @__errno_location() #14
   store i32 %.sink, ptr %call.i56, align 4
   br label %label_return
 
 label_return:                                     ; preds = %label_return.sink.split, %if.then10, %while.end
-  %p.4 = phi ptr [ %p.3, %while.end ], [ %arrayidx, %if.then10 ], [ %p.4.ph, %label_return.sink.split ]
-  %ns.0 = phi ptr [ %p.1, %while.end ], [ %p.1, %if.then10 ], [ %ns.0.ph, %label_return.sink.split ]
-  %ret.2 = phi i64 [ %spec.select54, %while.end ], [ 0, %if.then10 ], [ -1, %label_return.sink.split ]
+  %p.0 = phi ptr [ %p.4, %while.end ], [ %arrayidx, %if.then10 ], [ %p.0.ph, %label_return.sink.split ]
+  %ns.0 = phi ptr [ %p.2, %while.end ], [ %p.2, %if.then10 ], [ %ns.0.ph, %label_return.sink.split ]
+  %ret.0 = phi i64 [ %spec.select54, %while.end ], [ 0, %if.then10 ], [ -1, %label_return.sink.split ]
   %cmp100.not = icmp eq ptr %endptr, null
   br i1 %cmp100.not, label %if.end107, label %if.then102
 
 if.then102:                                       ; preds = %label_return
-  %cmp103 = icmp eq ptr %p.4, %ns.0
-  %nptr.p.4 = select i1 %cmp103, ptr %nptr, ptr %p.4
-  store ptr %nptr.p.4, ptr %endptr, align 8
+  %cmp103 = icmp eq ptr %p.0, %ns.0
+  %nptr.p.0 = select i1 %cmp103, ptr %nptr, ptr %p.0
+  store ptr %nptr.p.0, ptr %endptr, align 8
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then102, %label_return
-  ret i64 %ret.2
+  ret i64 %ret.0
 }
 
 ; Function Attrs: cold nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable

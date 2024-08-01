@@ -99,8 +99,8 @@ sw.default:                                       ; preds = %if.end19
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb24, %sw.bb21, %sw.bb
-  %filter.0 = phi ptr [ %call25, %sw.bb24 ], [ %call23, %sw.bb21 ], [ %call20, %sw.bb ]
-  %call26 = call ptr @qmp_query_stats(ptr noundef %filter.0, ptr noundef nonnull %err) #5
+  %filter.2 = phi ptr [ %call25, %sw.bb24 ], [ %call23, %sw.bb21 ], [ %call20, %sw.bb ]
+  %call26 = call ptr @qmp_query_stats(ptr noundef %filter.2, ptr noundef nonnull %err) #5
   %3 = load ptr, ptr %err, align 8
   %tobool27.not = icmp eq ptr %3, null
   br i1 %tobool27.not, label %for.cond.preheader, label %if.then32
@@ -402,8 +402,8 @@ exit:                                             ; preds = %print_stats_results
   br i1 %tobool31.not, label %exit_no_print, label %if.then32
 
 if.then32:                                        ; preds = %if.end13, %sw.epilog, %exit
-  %filter.132 = phi ptr [ %filter.0, %exit ], [ null, %if.end13 ], [ %filter.0, %sw.epilog ]
-  %stats.031 = phi ptr [ %call26, %exit ], [ null, %if.end13 ], [ %call26, %sw.epilog ]
+  %filter.132 = phi ptr [ %filter.2, %exit ], [ null, %if.end13 ], [ %filter.2, %sw.epilog ]
+  %stats.131 = phi ptr [ %call26, %exit ], [ null, %if.end13 ], [ %call26, %sw.epilog ]
   %45 = phi ptr [ %.pr.pr, %exit ], [ %2, %if.end13 ], [ %3, %sw.epilog ]
   %call33 = call ptr @error_get_pretty(ptr noundef nonnull %45) #5
   %call34 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.5, ptr noundef %call33) #5
@@ -417,22 +417,22 @@ glib_autoptr_cleanup_StatsResultList.exit.thread: ; preds = %if.then10, %if.then
 
 exit_no_print:                                    ; preds = %for.cond.preheader, %exit, %if.then32
   %47 = phi ptr [ null, %exit ], [ %.pre, %if.then32 ], [ null, %for.cond.preheader ]
-  %stats.1 = phi ptr [ %call26, %exit ], [ %stats.031, %if.then32 ], [ null, %for.cond.preheader ]
-  %filter.2 = phi ptr [ %filter.0, %exit ], [ %filter.132, %if.then32 ], [ %filter.0, %for.cond.preheader ]
+  %stats.0 = phi ptr [ %call26, %exit ], [ %stats.131, %if.then32 ], [ null, %for.cond.preheader ]
+  %filter.0 = phi ptr [ %filter.2, %exit ], [ %filter.132, %if.then32 ], [ %filter.2, %for.cond.preheader ]
   call void @error_free(ptr noundef %47) #5
-  %tobool.not.i.i23 = icmp eq ptr %filter.2, null
+  %tobool.not.i.i23 = icmp eq ptr %filter.0, null
   br i1 %tobool.not.i.i23, label %glib_autoptr_cleanup_StatsFilter.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %exit_no_print
-  call void @qapi_free_StatsFilter(ptr noundef nonnull %filter.2) #5
+  call void @qapi_free_StatsFilter(ptr noundef nonnull %filter.0) #5
   br label %glib_autoptr_cleanup_StatsFilter.exit
 
 glib_autoptr_cleanup_StatsFilter.exit:            ; preds = %exit_no_print, %if.then.i.i
-  %tobool.not.i.i24 = icmp eq ptr %stats.1, null
+  %tobool.not.i.i24 = icmp eq ptr %stats.0, null
   br i1 %tobool.not.i.i24, label %glib_autoptr_cleanup_StatsResultList.exit, label %if.then.i.i25
 
 if.then.i.i25:                                    ; preds = %glib_autoptr_cleanup_StatsFilter.exit
-  call void @qapi_free_StatsResultList(ptr noundef nonnull %stats.1) #5
+  call void @qapi_free_StatsResultList(ptr noundef nonnull %stats.0) #5
   br label %glib_autoptr_cleanup_StatsResultList.exit
 
 glib_autoptr_cleanup_StatsResultList.exit:        ; preds = %glib_autoptr_cleanup_StatsFilter.exit, %if.then.i.i25

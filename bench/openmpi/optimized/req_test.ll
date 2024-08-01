@@ -448,7 +448,7 @@ define i32 @ompi_request_default_test_all(i64 noundef %0, ptr noundef %1, ptr no
 .lr.ph114:                                        ; preds = %.preheader, %97
   %.3113 = phi i64 [ %98, %97 ], [ 0, %.preheader ]
   %.174112 = phi ptr [ %99, %97 ], [ %1, %.preheader ]
-  %.277111 = phi i32 [ %.378, %97 ], [ 0, %.preheader ]
+  %.378111 = phi i32 [ %.4, %97 ], [ 0, %.preheader ]
   %72 = load ptr, ptr %.174112, align 8
   %73 = getelementptr inbounds i8, ptr %72, i64 96
   %74 = load volatile i32, ptr %73, align 8
@@ -497,7 +497,7 @@ define i32 @ompi_request_default_test_all(i64 noundef %0, ptr noundef %1, ptr no
   br label %97
 
 97:                                               ; preds = %88, %91, %96, %.lr.ph114, %87
-  %.378 = phi i32 [ %.277111, %.lr.ph114 ], [ %.277111, %87 ], [ %.277111, %91 ], [ %90, %96 ], [ 18, %88 ]
+  %.4 = phi i32 [ %.378111, %.lr.ph114 ], [ %.378111, %87 ], [ %.378111, %91 ], [ %90, %96 ], [ 18, %88 ]
   %98 = add nuw i64 %.3113, 1
   %99 = getelementptr inbounds i8, ptr %.174112, i64 8
   %exitcond124.not = icmp eq i64 %98, %0
@@ -509,7 +509,7 @@ define i32 @ompi_request_default_test_all(i64 noundef %0, ptr noundef %1, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %69, %91, %97, %.loopexit.sink.split, %39, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ 0, %39 ], [ %.0.ph, %.loopexit.sink.split ], [ %95, %91 ], [ %.378, %97 ], [ %67, %63 ], [ %.176, %69 ]
+  %.0 = phi i32 [ 0, %.preheader ], [ 0, %39 ], [ %.0.ph, %.loopexit.sink.split ], [ %95, %91 ], [ %.4, %97 ], [ %67, %63 ], [ %.176, %69 ]
   ret i32 %.0
 }
 
@@ -603,7 +603,7 @@ define i32 @ompi_request_default_test_some(i64 noundef %0, ptr noundef %1, ptr n
   br i1 %.not, label %.split.us, label %.split.split
 
 .split.us:                                        ; preds = %41, %77
-  %.05787.us = phi i32 [ %.2.us, %77 ], [ 0, %41 ]
+  %.05787.us = phi i32 [ %.1.us, %77 ], [ 0, %41 ]
   %.16386.us = phi i64 [ %78, %77 ], [ 0, %41 ]
   %42 = getelementptr inbounds i32, ptr %3, i64 %.16386.us
   %43 = load i32, ptr %42, align 4
@@ -644,7 +644,7 @@ define i32 @ompi_request_default_test_some(i64 noundef %0, ptr noundef %1, ptr n
   br label %62
 
 62:                                               ; preds = %.fold.split.us, %57, %57
-  %.1.us = phi i32 [ 18, %.fold.split.us ], [ %58, %57 ], [ %58, %57 ]
+  %.2.us = phi i32 [ 18, %.fold.split.us ], [ %58, %57 ], [ %58, %57 ]
   %63 = getelementptr inbounds i8, ptr %46, i64 100
   %64 = load i8, ptr %63, align 4
   %65 = trunc i8 %64 to i1
@@ -655,7 +655,7 @@ define i32 @ompi_request_default_test_some(i64 noundef %0, ptr noundef %1, ptr n
   br i1 %67, label %.thread78.us, label %77
 
 .thread78.us:                                     ; preds = %66, %.thread74.us
-  %.17780.us = phi i32 [ %.1.us, %66 ], [ %.05787.us, %.thread74.us ]
+  %.27780.us = phi i32 [ %.2.us, %66 ], [ %.05787.us, %.thread74.us ]
   %68 = load i32, ptr %42, align 4
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds ptr, ptr %1, i64 %69
@@ -667,19 +667,19 @@ define i32 @ompi_request_default_test_some(i64 noundef %0, ptr noundef %1, ptr n
   br i1 %.not70.us, label %77, label %.loopexit
 
 75:                                               ; preds = %62, %.thread74.us
-  %.176.us = phi i32 [ %.05787.us, %.thread74.us ], [ %.1.us, %62 ]
+  %.276.us = phi i32 [ %.05787.us, %.thread74.us ], [ %.2.us, %62 ]
   %76 = getelementptr inbounds i8, ptr %46, i64 96
   store volatile i32 1, ptr %76, align 8
   br label %77
 
 77:                                               ; preds = %.split.us, %75, %.thread78.us, %66
-  %.2.us = phi i32 [ %.176.us, %75 ], [ %.17780.us, %.thread78.us ], [ %.1.us, %66 ], [ 76, %.split.us ]
+  %.1.us = phi i32 [ %.276.us, %75 ], [ %.27780.us, %.thread78.us ], [ %.2.us, %66 ], [ 76, %.split.us ]
   %78 = add nuw i64 %.16386.us, 1
   %exitcond104.not = icmp eq i64 %78, %.159
   br i1 %exitcond104.not, label %.loopexit, label %.split.us, !llvm.loop !10
 
 .split.split:                                     ; preds = %41, %118
-  %.05787 = phi i32 [ %.2, %118 ], [ 0, %41 ]
+  %.05787 = phi i32 [ %.1, %118 ], [ 0, %41 ]
   %.16386 = phi i64 [ %119, %118 ], [ 0, %41 ]
   %79 = getelementptr inbounds i32, ptr %3, i64 %.16386
   %80 = load i32, ptr %79, align 4
@@ -723,7 +723,7 @@ define i32 @ompi_request_default_test_some(i64 noundef %0, ptr noundef %1, ptr n
   br label %100
 
 100:                                              ; preds = %97, %97, %.fold.split
-  %.1 = phi i32 [ 18, %.fold.split ], [ %99, %97 ], [ %99, %97 ]
+  %.2 = phi i32 [ 18, %.fold.split ], [ %99, %97 ], [ %99, %97 ]
   %101 = getelementptr inbounds i8, ptr %83, i64 100
   %102 = load i8, ptr %101, align 4
   %103 = trunc i8 %102 to i1
@@ -736,7 +736,7 @@ define i32 @ompi_request_default_test_some(i64 noundef %0, ptr noundef %1, ptr n
   br i1 %106, label %107, label %.thread78
 
 107:                                              ; preds = %.thread74, %100
-  %.176 = phi i32 [ %.05787, %.thread74 ], [ %.1, %100 ]
+  %.276 = phi i32 [ %.05787, %.thread74 ], [ %.2, %100 ]
   %108 = getelementptr inbounds i8, ptr %83, i64 96
   store volatile i32 1, ptr %108, align 8
   br label %118
@@ -746,7 +746,7 @@ define i32 @ompi_request_default_test_some(i64 noundef %0, ptr noundef %1, ptr n
   br i1 %110, label %.thread78, label %118
 
 .thread78:                                        ; preds = %.thread74, %109
-  %.17780 = phi i32 [ %.1, %109 ], [ %.05787, %.thread74 ]
+  %.27780 = phi i32 [ %.2, %109 ], [ %.05787, %.thread74 ]
   %111 = load i32, ptr %79, align 4
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds ptr, ptr %1, i64 %112
@@ -758,13 +758,13 @@ define i32 @ompi_request_default_test_some(i64 noundef %0, ptr noundef %1, ptr n
   br i1 %.not70, label %118, label %.loopexit
 
 118:                                              ; preds = %88, %107, %.thread78, %109
-  %.2 = phi i32 [ %.176, %107 ], [ %.17780, %.thread78 ], [ %.1, %109 ], [ 76, %88 ]
+  %.1 = phi i32 [ %.276, %107 ], [ %.27780, %.thread78 ], [ %.2, %109 ], [ 76, %88 ]
   %119 = add nuw i64 %.16386, 1
   %exitcond103.not = icmp eq i64 %119, %.159
   br i1 %exitcond103.not, label %.loopexit, label %.split.split, !llvm.loop !10
 
 .loopexit:                                        ; preds = %118, %.thread78, %77, %.thread78.us, %39, %._crit_edge.thread
-  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ 0, %39 ], [ %.2.us, %77 ], [ %74, %.thread78.us ], [ %.2, %118 ], [ %117, %.thread78 ]
+  %.0 = phi i32 [ 0, %._crit_edge.thread ], [ 0, %39 ], [ %.1.us, %77 ], [ %74, %.thread78.us ], [ %.1, %118 ], [ %117, %.thread78 ]
   ret i32 %.0
 }
 

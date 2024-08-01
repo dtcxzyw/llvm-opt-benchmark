@@ -564,8 +564,8 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit146: ; preds = %.lr.ph.i14
   %.0183 = phi ptr [ %148, %154 ], [ %.1184, %267 ]
   %.0116 = phi i8 [ %156, %154 ], [ %269, %267 ]
   %.0115 = phi ptr [ %152, %154 ], [ %268, %267 ]
-  %.0111 = phi i32 [ 0, %154 ], [ %.2113, %267 ]
-  %.1 = phi ptr [ %149, %154 ], [ %.3, %267 ]
+  %.0111 = phi i32 [ 0, %154 ], [ %.1112, %267 ]
+  %.1 = phi ptr [ %149, %154 ], [ %.2, %267 ]
   store i8 %.0116, ptr %.1, align 1
   %158 = getelementptr inbounds i8, ptr %.1, i64 1
   %159 = add nsw i32 %.0111, 1
@@ -660,8 +660,8 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit157: ; preds = %.lr.ph.i15
   br label %217
 
 217:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit157, %209
-  %.1112 = phi i32 [ %216, %209 ], [ %159, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157 ]
-  %.2 = phi ptr [ %215, %209 ], [ %158, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157 ]
+  %.2113 = phi i32 [ %216, %209 ], [ %159, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157 ]
+  %.3 = phi ptr [ %215, %209 ], [ %158, %_ZN24SharedStringDecompressor14decompress_intERPh.exit157 ]
   %218 = load i8, ptr %202, align 1
   %219 = icmp slt i8 %218, 0
   br i1 %219, label %220, label %240
@@ -733,15 +733,15 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %.lr.ph.i16
   %263 = trunc i64 %262 to i32
   %sext122 = shl i64 %262, 32
   %264 = ashr exact i64 %sext122, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.2, ptr align 1 %261, i64 %264, i1 false)
-  %265 = getelementptr inbounds i8, ptr %.2, i64 %264
-  %266 = add nsw i32 %.1112, %263
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3, ptr align 1 %261, i64 %264, i1 false)
+  %265 = getelementptr inbounds i8, ptr %.3, i64 %264
+  %266 = add nsw i32 %.2113, %263
   br label %267
 
 267:                                              ; preds = %_ZN24SharedStringDecompressor14decompress_intERPh.exit168, %157
   %.1184 = phi ptr [ %258, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %.0183, %157 ]
-  %.2113 = phi i32 [ %266, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %159, %157 ]
-  %.3 = phi ptr [ %265, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %158, %157 ]
+  %.1112 = phi i32 [ %266, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %159, %157 ]
+  %.2 = phi ptr [ %265, %_ZN24SharedStringDecompressor14decompress_intERPh.exit168 ], [ %158, %157 ]
   %268 = getelementptr inbounds i8, ptr %.0115, i64 1
   %269 = load i8, ptr %268, align 1
   %.not123 = icmp eq i8 %269, 0
@@ -762,8 +762,8 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %.lr.ph.i16
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %270
   %.1186 = phi ptr [ %148, %270 ], [ %275, %.loopexit.loopexit ]
-  %.3114 = phi i32 [ %272, %270 ], [ %.2113, %.loopexit.loopexit ]
-  %.4 = phi ptr [ %274, %270 ], [ %.3, %.loopexit.loopexit ]
+  %.3114 = phi i32 [ %272, %270 ], [ %.1112, %.loopexit.loopexit ]
+  %.4 = phi ptr [ %274, %270 ], [ %.2, %.loopexit.loopexit ]
   %276 = trunc i32 %.3114 to i16
   tail call void @_ZN6Endian8set_javaEPht(ptr noundef nonnull %66, i16 noundef zeroext %276)
   br label %294

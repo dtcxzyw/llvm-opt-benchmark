@@ -2748,7 +2748,7 @@ lpad115:                                          ; preds = %if.then111
   br label %ehcleanup392
 
 if.end125:                                        ; preds = %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread1149, %invoke.cont116, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit
-  %skipColorSpaceConversions.0 = phi i8 [ %frombool1051130, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit ], [ %spec.select, %invoke.cont116 ], [ %frombool1051130, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread1149 ]
+  %skipColorSpaceConversions.1 = phi i8 [ %frombool1051130, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit ], [ %spec.select, %invoke.cont116 ], [ %frombool1051130, %_ZN19OpenColorIO_v2_4dev14DynamicPtrCastIKNS_15MatrixTransformENS_9TransformEEESt10shared_ptrIT_ERKS4_IT0_E.exit.thread1149 ]
   %_M_refcount.i.i66 = getelementptr inbounds i8, ptr %typedChannelView, i64 8
   %53 = load ptr, ptr %_M_refcount.i.i66, align 8
   %cmp.not.i.i.i67 = icmp eq ptr %53, null
@@ -2823,7 +2823,7 @@ if.end8.sink.split.i.i.i.i88:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %if.end127
 
 if.end127:                                        ; preds = %lor.end, %if.end8.sink.split.i.i.i.i88, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i85, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i75, %if.end125
-  %skipColorSpaceConversions.1 = phi i8 [ %skipColorSpaceConversions.0, %if.end125 ], [ %skipColorSpaceConversions.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i75 ], [ %skipColorSpaceConversions.0, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i85 ], [ %skipColorSpaceConversions.0, %if.end8.sink.split.i.i.i.i88 ], [ 0, %lor.end ]
+  %skipColorSpaceConversions.0 = phi i8 [ %skipColorSpaceConversions.1, %if.end125 ], [ %skipColorSpaceConversions.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i75 ], [ %skipColorSpaceConversions.1, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i85 ], [ %skipColorSpaceConversions.1, %if.end8.sink.split.i.i.i.i88 ], [ 0, %lor.end ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %currentCSName, ptr noundef nonnull align 8 dereferenceable(32) %inputColorSpaceName)
           to label %invoke.cont128 unwind label %lpad108
 
@@ -3205,7 +3205,7 @@ ehcleanup181:                                     ; preds = %ehcleanup177, %clea
   br label %ehcleanup204
 
 if.end182:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEaSERKS3_.exit
-  %tobool183 = trunc nuw i8 %skipColorSpaceConversions.1 to i1
+  %tobool183 = trunc nuw i8 %skipColorSpaceConversions.0 to i1
   br i1 %tobool183, label %if.end198, label %if.then184
 
 if.then184:                                       ; preds = %if.end182
@@ -4015,7 +4015,7 @@ ehcleanup258:                                     ; preds = %ehcleanup254, %clea
   br label %ehcleanup283
 
 if.end259:                                        ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEEaSERKS3_.exit443
-  %tobool260 = trunc nuw i8 %skipColorSpaceConversions.1 to i1
+  %tobool260 = trunc nuw i8 %skipColorSpaceConversions.0 to i1
   br i1 %tobool260, label %if.end277, label %if.then261
 
 if.then261:                                       ; preds = %if.end259
@@ -4574,7 +4574,7 @@ if.else305:                                       ; preds = %invoke.cont299
   br i1 %tobool306, label %if.end317, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else305
-  %tobool307 = trunc nuw i8 %skipColorSpaceConversions.1 to i1
+  %tobool307 = trunc nuw i8 %skipColorSpaceConversions.0 to i1
   br i1 %tobool307, label %if.end317, label %if.then308
 
 if.then308:                                       ; preds = %land.lhs.true
@@ -4595,7 +4595,7 @@ if.end317:                                        ; preds = %if.else305, %land.l
 if.then319:                                       ; preds = %if.end317
   %331 = load ptr, ptr %dtInputColorSpace, align 8
   %call321 = call noundef ptr @_ZNK19OpenColorIO_v2_4dev10ColorSpace7getNameEv(ptr noundef nonnull align 8 dereferenceable(8) %331) #16
-  %tobool322 = trunc nuw i8 %skipColorSpaceConversions.1 to i1
+  %tobool322 = trunc nuw i8 %skipColorSpaceConversions.0 to i1
   br i1 %tobool322, label %cond.end328, label %cond.false324
 
 cond.false324:                                    ; preds = %if.then319
@@ -4936,7 +4936,7 @@ if.end8.sink.split.i.i.i.i736:                    ; preds = %_ZN9__gnu_cxx27__ex
   br label %if.end363
 
 if.end363:                                        ; preds = %if.end8.sink.split.i.i.i.i736, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i733, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i723, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev9TransformEEC2ERKS2_.exit713, %if.end354
-  %tobool364 = trunc nuw i8 %skipColorSpaceConversions.1 to i1
+  %tobool364 = trunc nuw i8 %skipColorSpaceConversions.0 to i1
   %386 = load ptr, ptr %displayColorSpace, align 8
   %cmp.i746 = icmp ne ptr %386, null
   %or.cond1144 = select i1 %tobool364, i1 %cmp.i746, i1 false

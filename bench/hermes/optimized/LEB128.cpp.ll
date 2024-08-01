@@ -203,7 +203,7 @@ for.body.lr.ph:                                   ; preds = %if.then13
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4llvh11raw_ostreamlsEc.exit30
-  %Count.141 = phi i32 [ %inc, %for.body.lr.ph ], [ %inc21, %_ZN4llvh11raw_ostreamlsEc.exit30 ]
+  %Count.241 = phi i32 [ %inc, %for.body.lr.ph ], [ %inc21, %_ZN4llvh11raw_ostreamlsEc.exit30 ]
   %6 = load ptr, ptr %OutBufCur.i, align 8
   %7 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i24 = icmp ult ptr %6, %7
@@ -220,12 +220,12 @@ if.end.i28:                                       ; preds = %for.body
   br label %_ZN4llvh11raw_ostreamlsEc.exit30
 
 _ZN4llvh11raw_ostreamlsEc.exit30:                 ; preds = %if.then.i25, %if.end.i28
-  %inc21 = add i32 %Count.141, 1
+  %inc21 = add i32 %Count.241, 1
   %exitcond.not = icmp eq i32 %inc21, %sub
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %_ZN4llvh11raw_ostreamlsEc.exit30, %if.then13
-  %Count.1.lcssa = phi i32 [ %inc, %if.then13 ], [ %sub, %_ZN4llvh11raw_ostreamlsEc.exit30 ]
+  %Count.2.lcssa = phi i32 [ %inc, %if.then13 ], [ %sub, %_ZN4llvh11raw_ostreamlsEc.exit30 ]
   %8 = load ptr, ptr %OutBufCur.i, align 8
   %9 = load ptr, ptr %OutBufEnd.i, align 8
   %cmp.not.i33 = icmp ult ptr %8, %9
@@ -242,12 +242,12 @@ if.end.i37:                                       ; preds = %for.end
   br label %_ZN4llvh11raw_ostreamlsEc.exit39
 
 _ZN4llvh11raw_ostreamlsEc.exit39:                 ; preds = %if.then.i34, %if.end.i37
-  %inc23 = add i32 %Count.1.lcssa, 1
+  %inc23 = add i32 %Count.2.lcssa, 1
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZN4llvh11raw_ostreamlsEc.exit39, %do.end
-  %Count.2 = phi i32 [ %inc23, %_ZN4llvh11raw_ostreamlsEc.exit39 ], [ %inc, %do.end ]
-  ret i32 %Count.2
+  %Count.1 = phi i32 [ %inc23, %_ZN4llvh11raw_ostreamlsEc.exit39 ], [ %inc, %do.end ]
+  ret i32 %Count.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

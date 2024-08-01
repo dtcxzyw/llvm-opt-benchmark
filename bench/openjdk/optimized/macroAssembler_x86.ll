@@ -16891,7 +16891,7 @@ define hidden void @_ZN14MacroAssembler29check_klass_subtype_slow_pathE8Register
   br label %36
 
 36:                                               ; preds = %35, %8
-  %.1 = phi i1 [ %or.cond.not, %35 ], [ false, %8 ]
+  %.057 = phi i1 [ %or.cond.not, %35 ], [ false, %8 ]
   %.not80 = icmp ne i32 %3, 1
   %.not81 = icmp ne i32 %4, 1
   %or.cond84.not = select i1 %.not80, i1 %.not81, i1 false
@@ -16980,7 +16980,7 @@ define hidden void @_ZN14MacroAssembler29check_klass_subtype_slow_pathE8Register
   br label %65
 
 65:                                               ; preds = %64, %62
-  br i1 %.1, label %66, label %67
+  br i1 %.057, label %66, label %67
 
 66:                                               ; preds = %65
   call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0) #18

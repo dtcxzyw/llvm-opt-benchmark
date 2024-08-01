@@ -2761,12 +2761,12 @@ if.then.i.i.i.i285:                               ; preds = %_ZN7rocksdb10autove
   br label %for.inc184
 
 for.inc184:                                       ; preds = %if.then.i.i.i.i285, %_ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i, %for.body
-  %reached_next_start_key.2 = phi i1 [ false, %for.body ], [ %cmp10, %_ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i ], [ %cmp10, %if.then.i.i.i.i285 ]
+  %reached_next_start_key.1 = phi i1 [ false, %for.body ], [ %cmp10, %_ZN7rocksdb10autovectorImLm8EE5clearEv.exit.i ], [ %cmp10, %if.then.i.i.i.i285 ]
   %call.i286 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0459) #22
   %140 = load ptr, ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %140, i64 8
   %cmp.i.not = icmp eq ptr %call.i286, %add.ptr.i.i
-  %141 = or i1 %cmp.i.not, %reached_next_start_key.2
+  %141 = or i1 %cmp.i.not, %reached_next_start_key.1
   br i1 %141, label %for.end186, label %for.body, !llvm.loop !46
 
 ehcleanup182:                                     ; preds = %lpad71.loopexit, %lpad71.loopexit.split-lp, %lpad55.loopexit, %lpad55.loopexit.split-lp.loopexit.split-lp, %lpad55.loopexit.split-lp.loopexit, %lpad27.loopexit, %lpad27.loopexit.split-lp.loopexit.split-lp, %lpad27.loopexit.split-lp.loopexit, %lpad147, %lpad127, %lpad45, %ehcleanup176
@@ -2828,7 +2828,7 @@ _ZN7rocksdb10autovectorImLm8EED2Ev.exit310:       ; preds = %_ZN7rocksdb10autove
   resume { ptr, i32 } %.pn16
 
 for.end186:                                       ; preds = %for.inc184
-  br i1 %reached_next_start_key.2, label %if.end189, label %if.then188
+  br i1 %reached_next_start_key.1, label %if.end189, label %if.then188
 
 if.then188:                                       ; preds = %entry, %for.end186
   %add.ptr.i.i.lcssa480 = phi ptr [ %add.ptr.i.i, %for.end186 ], [ %add.ptr.i.i457, %entry ]

@@ -2080,7 +2080,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
           to label %33 unwind label %.thread73
 
 .thread73:                                        ; preds = %55, %36, %39, %34, %2
-  %.1.ph = phi i8 [ 0, %2 ], [ 0, %34 ], [ 0, %39 ], [ 0, %36 ], [ 1, %55 ]
+  %.049.ph = phi i8 [ 0, %2 ], [ 0, %34 ], [ 0, %39 ], [ 0, %36 ], [ 1, %55 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread68
@@ -2238,23 +2238,23 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
   br label %89
 
 87:                                               ; preds = %89
-  %88 = trunc nuw i8 %.2.ph to i1
+  %88 = trunc nuw i8 %.3.ph to i1
   br i1 %88, label %95, label %94
 
 89:                                               ; preds = %85, %49
-  %.2.ph = phi i8 [ 0, %49 ], [ 1, %85 ]
+  %.3.ph = phi i8 [ 0, %49 ], [ 1, %85 ]
   store i64 0, ptr %0, align 8
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %25)
           to label %87 unwind label %92
 
 90:                                               ; preds = %.thread68, %92
-  %.3 = phi i8 [ %.4, %92 ], [ %.04966, %.thread68 ]
+  %.2 = phi i8 [ %.5, %92 ], [ %.166, %.thread68 ]
   %.pn61 = phi { ptr, i32 } [ %93, %92 ], [ %.pn57.pn.pn67, %.thread68 ]
-  %91 = trunc nuw i8 %.3 to i1
+  %91 = trunc nuw i8 %.2 to i1
   br i1 %91, label %124, label %123
 
 92:                                               ; preds = %118, %89
-  %.4 = phi i8 [ %.2.ph, %89 ], [ %.5, %118 ]
+  %.5 = phi i8 [ %.3.ph, %89 ], [ %.4, %118 ]
   %93 = landingpad { ptr, i32 }
           cleanup
   br label %90
@@ -2344,7 +2344,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 
 118:                                              ; preds = %56, %51
   %.sink105 = phi ptr [ %54, %51 ], [ %58, %56 ]
-  %.5 = phi i8 [ 0, %51 ], [ 1, %56 ]
+  %.4 = phi i8 [ 0, %51 ], [ 1, %56 ]
   %119 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, ptr noundef nonnull align 8 dereferenceable(24) %.sink105, i64 24, i1 false)
   store i64 1, ptr %0, align 8
@@ -2352,7 +2352,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
           to label %120 unwind label %92
 
 120:                                              ; preds = %118
-  %121 = trunc nuw i8 %.5 to i1
+  %121 = trunc nuw i8 %.4 to i1
   br i1 %121, label %122, label %94
 
 122:                                              ; preds = %120
@@ -2361,7 +2361,7 @@ define void @"_ZN77_$LT$wiggle_generate..config..AsyncFunctions$u20$as$u20$syn..
 
 .thread68:                                        ; preds = %65, %116, %44, %.thread73
   %.pn57.pn.pn67 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread73 ], [ %45, %44 ], [ %117, %116 ], [ %.pn57, %65 ]
-  %.04966 = phi i8 [ %.1.ph, %.thread73 ], [ 0, %44 ], [ 1, %116 ], [ 1, %65 ]
+  %.166 = phi i8 [ %.049.ph, %.thread73 ], [ 0, %44 ], [ 1, %116 ], [ 1, %65 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %25) #12
           to label %90 unwind label %114
 
@@ -2414,7 +2414,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   br label %83
 
 25:                                               ; preds = %.thread99
-  br i1 %.282103, label %91, label %90
+  br i1 %.3103, label %91, label %90
 
 .thread:                                          ; preds = %61, %22
   %lpad.thr_comm144 = landingpad { ptr, i32 }
@@ -2453,7 +2453,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
   br label %89
 
 .thread106:                                       ; preds = %81, %87, %46, %41, %29
-  %.3.ph = phi i1 [ true, %29 ], [ true, %41 ], [ true, %46 ], [ true, %87 ], [ false, %81 ]
+  %.282.ph = phi i1 [ true, %29 ], [ true, %41 ], [ true, %46 ], [ true, %87 ], [ false, %81 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread99
@@ -2546,7 +2546,7 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
           to label %89 unwind label %.thread
 
 .thread129:                                       ; preds = %80, %67
-  %.6.ph = phi i1 [ true, %67 ], [ false, %80 ]
+  %.4.ph = phi i1 [ true, %67 ], [ false, %80 ]
   %lpad.thr_comm127 = landingpad { ptr, i32 }
           cleanup
   br label %.thread119
@@ -2642,13 +2642,13 @@ define void @"_ZN76_$LT$wiggle_generate..config..FunctionField$u20$as$u20$syn..p
 
 .thread119:                                       ; preds = %86, %.thread129
   %.pn124 = phi { ptr, i32 } [ %lpad.thr_comm127, %.thread129 ], [ %74, %86 ]
-  %.5123 = phi i1 [ %.6.ph, %.thread129 ], [ false, %86 ]
+  %.6123 = phi i1 [ %.4.ph, %.thread129 ], [ false, %86 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h025f332ab3fdd6afE"(ptr nonnull align 8 %14) #12
           to label %.thread99 unwind label %56
 
 .thread99:                                        ; preds = %62, %58, %59, %.thread119, %.thread106
   %.pn93104 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread106 ], [ %53, %58 ], [ %53, %59 ], [ %lpad.thr_comm.split-lp128, %62 ], [ %.pn124, %.thread119 ]
-  %.282103 = phi i1 [ %.3.ph, %.thread106 ], [ false, %58 ], [ false, %59 ], [ true, %62 ], [ %.5123, %.thread119 ]
+  %.3103 = phi i1 [ %.282.ph, %.thread106 ], [ false, %58 ], [ false, %59 ], [ true, %62 ], [ %.6123, %.thread119 ]
   invoke void @"_ZN4core3ptr47drop_in_place$LT$syn..lookahead..Lookahead1$GT$17hce418f6f8498e7e4E"(ptr nonnull align 8 %15) #12
           to label %25 unwind label %56
 

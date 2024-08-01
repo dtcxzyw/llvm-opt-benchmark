@@ -1463,13 +1463,13 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit: ; preds = %57
           to label %69 unwind label %67
 
 67:                                               ; preds = %71, %69, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit, %57
-  %.sroa.0130.0 = phi ptr [ %.sroa.0130.1, %71 ], [ %.sroa.0130.1, %69 ], [ %61, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ], [ null, %57 ]
+  %.sroa.0130.1 = phi ptr [ %.sroa.0130.0, %71 ], [ %.sroa.0130.0, %69 ], [ %61, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ], [ null, %57 ]
   %68 = landingpad { ptr, i32 }
           cleanup
   br label %202
 
 69:                                               ; preds = %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit, %55
-  %.sroa.0130.1 = phi ptr [ %61, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ], [ null, %55 ]
+  %.sroa.0130.0 = phi ptr [ %61, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ], [ null, %55 ]
   %.085 = phi ptr [ %61, %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit ], [ %5, %55 ]
   %70 = invoke noundef double @_ZN5faiss12getmillisecsEv()
           to label %71 unwind label %67
@@ -1558,11 +1558,11 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EE5resetIPlvEEvT_.exit: ; preds = %57
 
 .body:                                            ; preds = %.body.loopexit.split, %.body.loopexit.split.us, %.body.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.body.loopexit.split-lp ], [ %lpad.loopexit, %.body.loopexit.split ], [ %lpad.loopexit.us, %.body.loopexit.split.us ]
-  %.not.i109 = icmp eq ptr %.sroa.0122.2, null
+  %.not.i109 = icmp eq ptr %.sroa.0122.1, null
   br i1 %.not.i109, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i
 
 _ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i: ; preds = %.body
-  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0122.2) #28
+  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0122.1) #28
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %.body.thread149, %.body.thread, %.body, %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i
@@ -1571,7 +1571,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %.body.thread1
   br label %202
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %107, %.noexc, %76
-  %.sroa.0122.2 = phi ptr [ null, %76 ], [ %90, %.noexc ], [ %90, %107 ]
+  %.sroa.0122.1 = phi ptr [ null, %76 ], [ %90, %.noexc ], [ %90, %107 ]
   %.086 = phi ptr [ %2, %76 ], [ %90, %.noexc ], [ %90, %107 ]
   %109 = getelementptr inbounds i8, ptr %0, i64 264
   invoke void @_ZNK5faiss16ProductQuantizer13compute_codesEPKfPhm(ptr noundef nonnull align 8 dereferenceable(208) %109, ptr noundef %.086, ptr noundef nonnull %75, i64 noundef %1)
@@ -1764,27 +1764,27 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %107, %.noexc,
   %200 = load i64, ptr %199, align 8
   %201 = add nsw i64 %200, %1
   store i64 %201, ptr %199, align 8
-  %.not.i111 = icmp eq ptr %.sroa.0122.2, null
+  %.not.i111 = icmp eq ptr %.sroa.0122.1, null
   br i1 %.not.i111, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit116, label %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i112
 
 _ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i112: ; preds = %198
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0122.2) #28
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0122.1) #28
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit116
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit116: ; preds = %198, %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i112
   call void @_ZdaPv(ptr noundef nonnull %75) #28
-  %.not.i117 = icmp eq ptr %.sroa.0130.1, null
+  %.not.i117 = icmp eq ptr %.sroa.0130.0, null
   br i1 %.not.i117, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit, label %_ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i
 
 _ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i: ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit116
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.0130.1) #28
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.0130.0) #28
   br label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit: ; preds = %22, %.preheader, %_ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit116
   ret void
 
 202:                                              ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit, %67
-  %.sroa.0130.2 = phi ptr [ %.sroa.0130.1, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ], [ %.sroa.0130.0, %67 ]
+  %.sroa.0130.2 = phi ptr [ %.sroa.0130.0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ], [ %.sroa.0130.1, %67 ]
   %.pn101 = phi { ptr, i32 } [ %eh.lpad-body148, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit ], [ %68, %67 ]
   %.not.i118 = icmp eq ptr %.sroa.0130.2, null
   br i1 %.not.i118, label %_ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit120, label %_ZNKSt14default_deleteIA_lEclIlEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i119
@@ -17812,15 +17812,15 @@ default.unreachable92:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2, %87
-  %.083 = phi i32 [ %5, %2 ], [ %.790, %87 ]
-  %.075 = phi i32 [ %6, %2 ], [ %97, %87 ]
-  %.0 = phi i32 [ %6, %2 ], [ %96, %87 ]
-  %8 = icmp sgt i32 %.083, 7
+  %.790 = phi i32 [ %5, %2 ], [ %.689, %87 ]
+  %.782 = phi i32 [ %6, %2 ], [ %97, %87 ]
+  %.7 = phi i32 [ %6, %2 ], [ %96, %87 ]
+  %8 = icmp sgt i32 %.790, 7
   br i1 %8, label %9, label %98
 
 9:                                                ; preds = %7
-  %10 = add nsw i32 %.083, -8
-  %11 = sext i32 %.075 to i64
+  %10 = add nsw i32 %.790, -8
+  %11 = sext i32 %.782 to i64
   %12 = getelementptr inbounds i64, ptr %3, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds i64, ptr %1, i64 %11
@@ -17828,15 +17828,15 @@ default.unreachable92:                            ; preds = %2
   %16 = xor i64 %15, %13
   %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
   %18 = trunc nuw nsw i64 %17 to i32
-  %19 = add nsw i32 %.0, %18
-  %20 = add nsw i32 %.075, 1
+  %19 = add nsw i32 %.7, %18
+  %20 = add nsw i32 %.782, 1
   br label %21
 
 21:                                               ; preds = %2, %9
-  %.184 = phi i32 [ %10, %9 ], [ %5, %2 ]
-  %.176 = phi i32 [ %20, %9 ], [ 0, %2 ]
-  %.1 = phi i32 [ %19, %9 ], [ 0, %2 ]
-  %22 = sext i32 %.176 to i64
+  %.083 = phi i32 [ %10, %9 ], [ %5, %2 ]
+  %.075 = phi i32 [ %20, %9 ], [ 0, %2 ]
+  %.0 = phi i32 [ %19, %9 ], [ 0, %2 ]
+  %22 = sext i32 %.075 to i64
   %23 = getelementptr inbounds i64, ptr %3, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds i64, ptr %1, i64 %22
@@ -17844,15 +17844,15 @@ default.unreachable92:                            ; preds = %2
   %27 = xor i64 %26, %24
   %28 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %27)
   %29 = trunc nuw nsw i64 %28 to i32
-  %30 = add nsw i32 %.1, %29
-  %31 = add nsw i32 %.176, 1
+  %30 = add nsw i32 %.0, %29
+  %31 = add nsw i32 %.075, 1
   br label %32
 
 32:                                               ; preds = %2, %21
-  %.285 = phi i32 [ %.184, %21 ], [ %5, %2 ]
-  %.277 = phi i32 [ %31, %21 ], [ 0, %2 ]
-  %.2 = phi i32 [ %30, %21 ], [ 0, %2 ]
-  %33 = sext i32 %.277 to i64
+  %.184 = phi i32 [ %.083, %21 ], [ %5, %2 ]
+  %.176 = phi i32 [ %31, %21 ], [ 0, %2 ]
+  %.1 = phi i32 [ %30, %21 ], [ 0, %2 ]
+  %33 = sext i32 %.176 to i64
   %34 = getelementptr inbounds i64, ptr %3, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i64, ptr %1, i64 %33
@@ -17860,15 +17860,15 @@ default.unreachable92:                            ; preds = %2
   %38 = xor i64 %37, %35
   %39 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
   %40 = trunc nuw nsw i64 %39 to i32
-  %41 = add nsw i32 %.2, %40
-  %42 = add nsw i32 %.277, 1
+  %41 = add nsw i32 %.1, %40
+  %42 = add nsw i32 %.176, 1
   br label %43
 
 43:                                               ; preds = %2, %32
-  %.386 = phi i32 [ %.285, %32 ], [ %5, %2 ]
-  %.378 = phi i32 [ %42, %32 ], [ 0, %2 ]
-  %.3 = phi i32 [ %41, %32 ], [ 0, %2 ]
-  %44 = sext i32 %.378 to i64
+  %.285 = phi i32 [ %.184, %32 ], [ %5, %2 ]
+  %.277 = phi i32 [ %42, %32 ], [ 0, %2 ]
+  %.2 = phi i32 [ %41, %32 ], [ 0, %2 ]
+  %44 = sext i32 %.277 to i64
   %45 = getelementptr inbounds i64, ptr %3, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr inbounds i64, ptr %1, i64 %44
@@ -17876,15 +17876,15 @@ default.unreachable92:                            ; preds = %2
   %49 = xor i64 %48, %46
   %50 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %49)
   %51 = trunc nuw nsw i64 %50 to i32
-  %52 = add nsw i32 %.3, %51
-  %53 = add nsw i32 %.378, 1
+  %52 = add nsw i32 %.2, %51
+  %53 = add nsw i32 %.277, 1
   br label %54
 
 54:                                               ; preds = %2, %43
-  %.487 = phi i32 [ %.386, %43 ], [ %5, %2 ]
-  %.479 = phi i32 [ %53, %43 ], [ 0, %2 ]
-  %.4 = phi i32 [ %52, %43 ], [ 0, %2 ]
-  %55 = sext i32 %.479 to i64
+  %.386 = phi i32 [ %.285, %43 ], [ %5, %2 ]
+  %.378 = phi i32 [ %53, %43 ], [ 0, %2 ]
+  %.3 = phi i32 [ %52, %43 ], [ 0, %2 ]
+  %55 = sext i32 %.378 to i64
   %56 = getelementptr inbounds i64, ptr %3, i64 %55
   %57 = load i64, ptr %56, align 8
   %58 = getelementptr inbounds i64, ptr %1, i64 %55
@@ -17892,15 +17892,15 @@ default.unreachable92:                            ; preds = %2
   %60 = xor i64 %59, %57
   %61 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %60)
   %62 = trunc nuw nsw i64 %61 to i32
-  %63 = add nsw i32 %.4, %62
-  %64 = add nsw i32 %.479, 1
+  %63 = add nsw i32 %.3, %62
+  %64 = add nsw i32 %.378, 1
   br label %65
 
 65:                                               ; preds = %2, %54
-  %.588 = phi i32 [ %.487, %54 ], [ %5, %2 ]
-  %.580 = phi i32 [ %64, %54 ], [ 0, %2 ]
-  %.5 = phi i32 [ %63, %54 ], [ 0, %2 ]
-  %66 = sext i32 %.580 to i64
+  %.487 = phi i32 [ %.386, %54 ], [ %5, %2 ]
+  %.479 = phi i32 [ %64, %54 ], [ 0, %2 ]
+  %.4 = phi i32 [ %63, %54 ], [ 0, %2 ]
+  %66 = sext i32 %.479 to i64
   %67 = getelementptr inbounds i64, ptr %3, i64 %66
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds i64, ptr %1, i64 %66
@@ -17908,15 +17908,15 @@ default.unreachable92:                            ; preds = %2
   %71 = xor i64 %70, %68
   %72 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %71)
   %73 = trunc nuw nsw i64 %72 to i32
-  %74 = add nsw i32 %.5, %73
-  %75 = add nsw i32 %.580, 1
+  %74 = add nsw i32 %.4, %73
+  %75 = add nsw i32 %.479, 1
   br label %76
 
 76:                                               ; preds = %2, %65
-  %.689 = phi i32 [ %.588, %65 ], [ %5, %2 ]
-  %.681 = phi i32 [ %75, %65 ], [ 0, %2 ]
-  %.6 = phi i32 [ %74, %65 ], [ 0, %2 ]
-  %77 = sext i32 %.681 to i64
+  %.588 = phi i32 [ %.487, %65 ], [ %5, %2 ]
+  %.580 = phi i32 [ %75, %65 ], [ 0, %2 ]
+  %.5 = phi i32 [ %74, %65 ], [ 0, %2 ]
+  %77 = sext i32 %.580 to i64
   %78 = getelementptr inbounds i64, ptr %3, i64 %77
   %79 = load i64, ptr %78, align 8
   %80 = getelementptr inbounds i64, ptr %1, i64 %77
@@ -17924,15 +17924,15 @@ default.unreachable92:                            ; preds = %2
   %82 = xor i64 %81, %79
   %83 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %82)
   %84 = trunc nuw nsw i64 %83 to i32
-  %85 = add nsw i32 %.6, %84
-  %86 = add nsw i32 %.681, 1
+  %85 = add nsw i32 %.5, %84
+  %86 = add nsw i32 %.580, 1
   br label %87
 
 87:                                               ; preds = %2, %76
-  %.790 = phi i32 [ %.689, %76 ], [ %5, %2 ]
-  %.782 = phi i32 [ %86, %76 ], [ 0, %2 ]
-  %.7 = phi i32 [ %85, %76 ], [ 0, %2 ]
-  %88 = sext i32 %.782 to i64
+  %.689 = phi i32 [ %.588, %76 ], [ %5, %2 ]
+  %.681 = phi i32 [ %86, %76 ], [ 0, %2 ]
+  %.6 = phi i32 [ %85, %76 ], [ 0, %2 ]
+  %88 = sext i32 %.681 to i64
   %89 = getelementptr inbounds i64, ptr %3, i64 %88
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr inbounds i64, ptr %1, i64 %88
@@ -17940,8 +17940,8 @@ default.unreachable92:                            ; preds = %2
   %93 = xor i64 %92, %90
   %94 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %93)
   %95 = trunc nuw nsw i64 %94 to i32
-  %96 = add nsw i32 %.7, %95
-  %97 = add nsw i32 %.782, 1
+  %96 = add nsw i32 %.6, %95
+  %97 = add nsw i32 %.681, 1
   br label %7, !llvm.loop !523
 
 98:                                               ; preds = %7
@@ -17975,11 +17975,11 @@ default.unreachable92:                            ; preds = %2
   %113 = getelementptr inbounds [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
-  %116 = add nsw i32 %.0, %115
+  %116 = add nsw i32 %.7, %115
   br label %117
 
 117:                                              ; preds = %106, %101
-  %.8 = phi i32 [ %.0, %101 ], [ %116, %106 ]
+  %.9 = phi i32 [ %.7, %101 ], [ %116, %106 ]
   %118 = getelementptr inbounds i8, ptr %104, i64 5
   %119 = load i8, ptr %118, align 1
   %120 = getelementptr inbounds i8, ptr %105, i64 5
@@ -17989,11 +17989,11 @@ default.unreachable92:                            ; preds = %2
   %124 = getelementptr inbounds [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %123
   %125 = load i8, ptr %124, align 1
   %126 = zext i8 %125 to i32
-  %127 = add nsw i32 %.8, %126
+  %127 = add nsw i32 %.9, %126
   br label %128
 
 128:                                              ; preds = %117, %101
-  %.9 = phi i32 [ %.0, %101 ], [ %127, %117 ]
+  %.10 = phi i32 [ %.7, %101 ], [ %127, %117 ]
   %129 = getelementptr inbounds i8, ptr %104, i64 4
   %130 = load i8, ptr %129, align 1
   %131 = getelementptr inbounds i8, ptr %105, i64 4
@@ -18003,11 +18003,11 @@ default.unreachable92:                            ; preds = %2
   %135 = getelementptr inbounds [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %134
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i32
-  %138 = add nsw i32 %.9, %137
+  %138 = add nsw i32 %.10, %137
   br label %139
 
 139:                                              ; preds = %128, %101
-  %.10 = phi i32 [ %.0, %101 ], [ %138, %128 ]
+  %.11 = phi i32 [ %.7, %101 ], [ %138, %128 ]
   %140 = getelementptr inbounds i8, ptr %104, i64 3
   %141 = load i8, ptr %140, align 1
   %142 = getelementptr inbounds i8, ptr %105, i64 3
@@ -18017,11 +18017,11 @@ default.unreachable92:                            ; preds = %2
   %146 = getelementptr inbounds [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %145
   %147 = load i8, ptr %146, align 1
   %148 = zext i8 %147 to i32
-  %149 = add nsw i32 %.10, %148
+  %149 = add nsw i32 %.11, %148
   br label %150
 
 150:                                              ; preds = %139, %101
-  %.11 = phi i32 [ %.0, %101 ], [ %149, %139 ]
+  %.12 = phi i32 [ %.7, %101 ], [ %149, %139 ]
   %151 = getelementptr inbounds i8, ptr %104, i64 2
   %152 = load i8, ptr %151, align 1
   %153 = getelementptr inbounds i8, ptr %105, i64 2
@@ -18031,11 +18031,11 @@ default.unreachable92:                            ; preds = %2
   %157 = getelementptr inbounds [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %156
   %158 = load i8, ptr %157, align 1
   %159 = zext i8 %158 to i32
-  %160 = add nsw i32 %.11, %159
+  %160 = add nsw i32 %.12, %159
   br label %161
 
 161:                                              ; preds = %150, %101
-  %.12 = phi i32 [ %.0, %101 ], [ %160, %150 ]
+  %.13 = phi i32 [ %.7, %101 ], [ %160, %150 ]
   %162 = getelementptr inbounds i8, ptr %104, i64 1
   %163 = load i8, ptr %162, align 1
   %164 = getelementptr inbounds i8, ptr %105, i64 1
@@ -18045,11 +18045,11 @@ default.unreachable92:                            ; preds = %2
   %168 = getelementptr inbounds [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %167
   %169 = load i8, ptr %168, align 1
   %170 = zext i8 %169 to i32
-  %171 = add nsw i32 %.12, %170
+  %171 = add nsw i32 %.13, %170
   br label %172
 
 172:                                              ; preds = %161, %101
-  %.13 = phi i32 [ %.0, %101 ], [ %171, %161 ]
+  %.14 = phi i32 [ %.7, %101 ], [ %171, %161 ]
   %173 = load i8, ptr %104, align 1
   %174 = load i8, ptr %105, align 1
   %175 = xor i8 %174, %173
@@ -18057,12 +18057,12 @@ default.unreachable92:                            ; preds = %2
   %177 = getelementptr inbounds [256 x i8], ptr @_ZN5faissL20hamdis_tab_ham_bytesE.const, i64 0, i64 %176
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i32
-  %180 = add nsw i32 %.13, %179
+  %180 = add nsw i32 %.14, %179
   br label %181
 
 181:                                              ; preds = %172, %101, %98
-  %.14 = phi i32 [ %.0, %101 ], [ %180, %172 ], [ %.0, %98 ]
-  ret i32 %.14
+  %.8 = phi i32 [ %.7, %101 ], [ %180, %172 ], [ %.7, %98 ]
+  ret i32 %.8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

@@ -5642,7 +5642,7 @@ _ZNK5QListI8QVariantE5valueEx.exit.i:             ; preds = %181
   br i1 %199, label %181, label %.loopexit, !llvm.loop !126
 
 .loopexit:                                        ; preds = %195, %196, %174, %170, %173, %_ZNK9PrefsItem11getPrefTypeEv.exit103.thread, %_ZNK9PrefsItem13isPrefDefaultEv.exit, %_ZNK9PrefsItem11getPrefTypeEv.exit, %_ZNK9PrefsItem11getPrefTypeEv.exit103
-  %.023 = phi i1 [ false, %_ZNK9PrefsItem11getPrefTypeEv.exit103 ], [ false, %_ZNK9PrefsItem11getPrefTypeEv.exit ], [ false, %_ZNK9PrefsItem13isPrefDefaultEv.exit ], [ true, %_ZNK9PrefsItem11getPrefTypeEv.exit103.thread ], [ true, %173 ], [ true, %170 ], [ false, %174 ], [ true, %195 ], [ false, %196 ]
+  %.1 = phi i1 [ false, %_ZNK9PrefsItem11getPrefTypeEv.exit103 ], [ false, %_ZNK9PrefsItem11getPrefTypeEv.exit ], [ false, %_ZNK9PrefsItem13isPrefDefaultEv.exit ], [ true, %_ZNK9PrefsItem11getPrefTypeEv.exit103.thread ], [ true, %173 ], [ true, %170 ], [ false, %174 ], [ true, %195 ], [ false, %196 ]
   %200 = load ptr, ptr %12, align 16
   %.not.i.i.i107 = icmp eq ptr %200, null
   br i1 %.not.i.i.i107, label %_ZN7QStringD2Ev.exit110, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i108
@@ -5707,8 +5707,8 @@ _ZN7QStringD2Ev.exit122:                          ; preds = %_ZN7QStringD2Ev.exi
   resume { ptr, i32 } %.pn35
 
 _ZN7QStringD2Ev.exit114:                          ; preds = %206, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i112, %_ZN7QStringD2Ev.exit110, %20
-  %.1 = phi i1 [ true, %20 ], [ %.023, %_ZN7QStringD2Ev.exit110 ], [ %.023, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i112 ], [ %.023, %206 ]
-  ret i1 %.1
+  %.023 = phi i1 [ true, %20 ], [ %.1, %_ZN7QStringD2Ev.exit110 ], [ %.1, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i112 ], [ %.1, %206 ]
+  ret i1 %.023
 }
 
 ; Function Attrs: mustprogress uwtable

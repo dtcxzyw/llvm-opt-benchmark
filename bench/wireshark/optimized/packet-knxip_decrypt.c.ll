@@ -576,7 +576,7 @@ sub_1:                                            ; preds = %40
   %.081261 = phi i32 [ %51, %.preheader177.lr.ph ], [ %319, %.loopexit178 ]
   %.085260 = phi i8 [ 0, %.preheader177.lr.ph ], [ %.186, %.loopexit178 ]
   %.087259 = phi i8 [ 0, %.preheader177.lr.ph ], [ %.188, %.loopexit178 ]
-  %.089258 = phi i8 [ 0, %.preheader177.lr.ph ], [ %.392, %.loopexit178 ]
+  %.089258 = phi i8 [ 0, %.preheader177.lr.ph ], [ %.291, %.loopexit178 ]
   %.093257 = phi i8 [ 0, %.preheader177.lr.ph ], [ %.194, %.loopexit178 ]
   %.096256 = phi i16 [ 0, %.preheader177.lr.ph ], [ %.197, %.loopexit178 ]
   %.099255 = phi i8 [ 0, %.preheader177.lr.ph ], [ %.1100, %.loopexit178 ]
@@ -596,8 +596,8 @@ sub_1:                                            ; preds = %40
   %.1100 = phi i8 [ %.2101, %.loopexit ], [ %.099255, %.preheader177 ]
   %.197 = phi i16 [ %.298, %.loopexit ], [ %.096256, %.preheader177 ]
   %.194 = phi i8 [ %.295, %.loopexit ], [ %.093257, %.preheader177 ]
-  %.190 = phi i8 [ %.291, %.loopexit ], [ %.089258, %.preheader177 ]
-  %.182 = phi i32 [ %.5, %.loopexit ], [ %.081261, %.preheader177 ]
+  %.190 = phi i8 [ %.392, %.loopexit ], [ %.089258, %.preheader177 ]
+  %.182 = phi i32 [ %.283, %.loopexit ], [ %.081261, %.preheader177 ]
   switch i32 %.182, label %73 [
     i32 60, label %70
     i32 62, label %.loopexit178
@@ -688,8 +688,8 @@ sub_1:                                            ; preds = %40
   br label %.loopexit
 
 .lr.ph239:                                        ; preds = %.preheader175, %110
-  %.283238 = phi i32 [ %111, %110 ], [ %.lcssa, %.preheader175 ]
-  %105 = and i32 %.283238, 255
+  %.384238 = phi i32 [ %111, %110 ], [ %.lcssa, %.preheader175 ]
+  %105 = and i32 %.384238, 255
   %106 = zext nneg i32 %105 to i64
   %107 = getelementptr i16, ptr %52, i64 %106
   %108 = load i16, ptr %107, align 2
@@ -703,7 +703,7 @@ sub_1:                                            ; preds = %40
   br i1 %112, label %.lr.ph239, label %.thread, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph239
-  %113 = icmp eq i32 %.283238, 61
+  %113 = icmp eq i32 %.384238, 61
   br i1 %113, label %.preheader174, label %.loopexit
 
 .preheader174:                                    ; preds = %.critedge, %116
@@ -1141,9 +1141,9 @@ read_ia.exit:                                     ; preds = %284, %286, %288, %2
   %.2101 = phi i8 [ %.1100, %._crit_edge242 ], [ 0, %143 ], [ 0, %add_mca_key.exit ], [ 0, %153 ], [ 1, %read_ga.exit ], [ 1, %226 ], [ 0, %225 ], [ %.1100, %227 ], [ 0, %read_ia.exit ], [ 0, %305 ], [ 0, %304 ], [ 0, %309 ], [ 0, %306 ], [ %.1100, %.critedge5 ], [ %.1100, %.critedge ], [ %.1100, %103 ], [ 0, %280 ], [ 1, %229 ], [ 1, %add_ga_sender.exit ]
   %.298 = phi i16 [ %.197, %._crit_edge242 ], [ %.197, %143 ], [ %.197, %add_mca_key.exit ], [ %.197, %153 ], [ %.197, %read_ga.exit ], [ %.197, %226 ], [ %.197, %225 ], [ %.197, %227 ], [ %302, %read_ia.exit ], [ %.197, %305 ], [ %.197, %304 ], [ %.197, %309 ], [ %.197, %306 ], [ %.197, %.critedge5 ], [ %.197, %.critedge ], [ %.197, %103 ], [ %.197, %280 ], [ %.197, %229 ], [ %.197, %add_ga_sender.exit ]
   %.295 = phi i8 [ %.194, %._crit_edge242 ], [ 0, %143 ], [ 0, %add_mca_key.exit ], [ 0, %153 ], [ 0, %read_ga.exit ], [ 0, %226 ], [ 0, %225 ], [ 0, %227 ], [ 1, %read_ia.exit ], [ 1, %305 ], [ 0, %304 ], [ 1, %309 ], [ %.194, %306 ], [ %.194, %.critedge5 ], [ %.194, %.critedge ], [ %.194, %103 ], [ 0, %280 ], [ 0, %229 ], [ 0, %add_ga_sender.exit ]
-  %.291 = phi i8 [ %.190, %._crit_edge242 ], [ %.190, %143 ], [ %.190, %add_mca_key.exit ], [ %.190, %153 ], [ %.190, %read_ga.exit ], [ %.190, %226 ], [ %.190, %225 ], [ %.190, %227 ], [ %.190, %read_ia.exit ], [ %.190, %305 ], [ %.190, %304 ], [ %.190, %309 ], [ %.190, %306 ], [ %.190, %.critedge5 ], [ %.190, %.critedge ], [ 1, %103 ], [ %.190, %280 ], [ %.190, %229 ], [ %.190, %add_ga_sender.exit ]
-  %.5 = phi i32 [ %.4, %._crit_edge242 ], [ %.4, %143 ], [ %.4, %add_mca_key.exit ], [ %.4, %153 ], [ %.4, %read_ga.exit ], [ %.4, %226 ], [ %.4, %225 ], [ %.4, %227 ], [ %.4, %read_ia.exit ], [ %.4, %305 ], [ %.4, %304 ], [ %.4, %309 ], [ %.4, %306 ], [ %114, %.critedge5 ], [ %.283238, %.critedge ], [ %.lcssa, %103 ], [ %.4, %280 ], [ %.4, %229 ], [ %.4, %add_ga_sender.exit ]
-  %315 = icmp sgt i32 %.5, -1
+  %.392 = phi i8 [ %.190, %._crit_edge242 ], [ %.190, %143 ], [ %.190, %add_mca_key.exit ], [ %.190, %153 ], [ %.190, %read_ga.exit ], [ %.190, %226 ], [ %.190, %225 ], [ %.190, %227 ], [ %.190, %read_ia.exit ], [ %.190, %305 ], [ %.190, %304 ], [ %.190, %309 ], [ %.190, %306 ], [ %.190, %.critedge5 ], [ %.190, %.critedge ], [ 1, %103 ], [ %.190, %280 ], [ %.190, %229 ], [ %.190, %add_ga_sender.exit ]
+  %.283 = phi i32 [ %.4, %._crit_edge242 ], [ %.4, %143 ], [ %.4, %add_mca_key.exit ], [ %.4, %153 ], [ %.4, %read_ga.exit ], [ %.4, %226 ], [ %.4, %225 ], [ %.4, %227 ], [ %.4, %read_ia.exit ], [ %.4, %305 ], [ %.4, %304 ], [ %.4, %309 ], [ %.4, %306 ], [ %114, %.critedge5 ], [ %.384238, %.critedge ], [ %.lcssa, %103 ], [ %.4, %280 ], [ %.4, %229 ], [ %.4, %add_ga_sender.exit ]
+  %315 = icmp sgt i32 %.283, -1
   br i1 %315, label %64, label %.thread, !llvm.loop !25
 
 316:                                              ; preds = %73
@@ -1157,7 +1157,7 @@ read_ia.exit:                                     ; preds = %284, %286, %288, %2
   br label %.loopexit178
 
 .loopexit178:                                     ; preds = %64, %318, %316, %71, %72, %70
-  %.392 = phi i8 [ 0, %70 ], [ 0, %72 ], [ %.190, %71 ], [ %.190, %316 ], [ 1, %318 ], [ %.190, %64 ]
+  %.291 = phi i8 [ 0, %70 ], [ 0, %72 ], [ %.190, %71 ], [ %.190, %316 ], [ 1, %318 ], [ %.190, %64 ]
   %.188 = phi i8 [ 0, %70 ], [ 1, %72 ], [ %.087259, %71 ], [ %.087259, %316 ], [ %.087259, %318 ], [ %.087259, %64 ]
   %.186 = phi i8 [ 1, %70 ], [ 1, %72 ], [ 0, %71 ], [ %.085260, %316 ], [ %.085260, %318 ], [ 0, %64 ]
   %319 = call i32 @fgetc(ptr noundef nonnull %39)

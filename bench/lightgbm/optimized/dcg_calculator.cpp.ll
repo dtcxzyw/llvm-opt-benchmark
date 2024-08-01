@@ -815,7 +815,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc39, %_ZNSt6ve
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %.critedge._crit_edge
   %29 = phi ptr [ %57, %.critedge._crit_edge ], [ %26, %.lr.ph64.preheader ]
   %.03162 = phi i64 [ %55, %.critedge._crit_edge ], [ 0, %.lr.ph64.preheader ]
-  %.03261 = phi i32 [ %.3, %.critedge._crit_edge ], [ %28, %.lr.ph64.preheader ]
+  %.03261 = phi i32 [ %.2, %.critedge._crit_edge ], [ %28, %.lr.ph64.preheader ]
   %.03360 = phi i32 [ %spec.select, %.critedge._crit_edge ], [ 0, %.lr.ph64.preheader ]
   %.03459 = phi double [ %.135.lcssa, %.critedge._crit_edge ], [ 0.000000e+00, %.lr.ph64.preheader ]
   %30 = getelementptr inbounds i32, ptr %29, i64 %.03162
@@ -832,22 +832,22 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc39, %_ZNSt6ve
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge.thread
   %indvars.iv68 = phi i64 [ %35, %.preheader.lr.ph ], [ %indvars.iv.next69, %.critedge.thread ]
-  %.152 = phi i32 [ %.03261, %.preheader.lr.ph ], [ %.247, %.critedge.thread ]
+  %.152 = phi i32 [ %.03261, %.preheader.lr.ph ], [ %.347, %.critedge.thread ]
   %.13551 = phi double [ %.03459, %.preheader.lr.ph ], [ %50, %.critedge.thread ]
   %36 = icmp sgt i32 %.152, 0
   br i1 %36, label %.lr.ph50, label %.critedge
 
 .lr.ph50:                                         ; preds = %.preheader, %41
-  %.249 = phi i32 [ %42, %41 ], [ %.152, %.preheader ]
-  %37 = zext nneg i32 %.249 to i64
+  %.349 = phi i32 [ %42, %41 ], [ %.152, %.preheader ]
+  %37 = zext nneg i32 %.349 to i64
   %38 = getelementptr inbounds i32, ptr %.sroa.0.0, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = icmp slt i32 %39, 1
   br i1 %40, label %41, label %.critedge.thread
 
 41:                                               ; preds = %.lr.ph50
-  %42 = add nsw i32 %.249, -1
-  %43 = icmp sgt i32 %.249, 1
+  %42 = add nsw i32 %.349, -1
+  %43 = icmp sgt i32 %.349, 1
   br i1 %43, label %.lr.ph50, label %.critedge..critedge.thread_crit_edge, !llvm.loop !15
 
 .critedge:                                        ; preds = %.preheader
@@ -861,7 +861,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc39, %_ZNSt6ve
 .critedge.thread:                                 ; preds = %.lr.ph50, %.critedge..critedge.thread_crit_edge
   %.pre-phi = phi i64 [ 0, %.critedge..critedge.thread_crit_edge ], [ %37, %.lr.ph50 ]
   %45 = phi i32 [ %.pre, %.critedge..critedge.thread_crit_edge ], [ %39, %.lr.ph50 ]
-  %.247 = phi i32 [ 0, %.critedge..critedge.thread_crit_edge ], [ %.249, %.lr.ph50 ]
+  %.347 = phi i32 [ 0, %.critedge..critedge.thread_crit_edge ], [ %.349, %.lr.ph50 ]
   %46 = getelementptr inbounds double, ptr %33, i64 %indvars.iv68
   %47 = load double, ptr %46, align 8
   %48 = getelementptr inbounds double, ptr %34, i64 %.pre-phi
@@ -877,7 +877,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc39, %_ZNSt6ve
 
 .critedge._crit_edge:                             ; preds = %.critedge.thread, %.critedge, %.lr.ph64
   %.135.lcssa = phi double [ %.03459, %.lr.ph64 ], [ %.13551, %.critedge ], [ %50, %.critedge.thread ]
-  %.3 = phi i32 [ %.03261, %.lr.ph64 ], [ %.152, %.critedge ], [ %.247, %.critedge.thread ]
+  %.2 = phi i32 [ %.03261, %.lr.ph64 ], [ %.152, %.critedge ], [ %.347, %.critedge.thread ]
   %53 = load ptr, ptr %3, align 8
   %54 = getelementptr inbounds double, ptr %53, i64 %.03162
   store double %.135.lcssa, ptr %54, align 8
@@ -1464,8 +1464,8 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
 .lr.ph:                                           ; preds = %59, %.lr.ph
   %.02588 = phi i64 [ %67, %.lr.ph ], [ 0, %59 ]
   %.sroa.0.087 = phi ptr [ %64, %.lr.ph ], [ %49, %59 ]
-  %.sroa.036.286 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.036.286, i64 -4
+  %.sroa.036.386 = phi ptr [ %63, %.lr.ph ], [ %61, %59 ]
+  %63 = getelementptr inbounds i8, ptr %.sroa.036.386, i64 -4
   %64 = getelementptr inbounds i8, ptr %.sroa.0.087, i64 -4
   %65 = load i32, ptr %63, align 4
   %66 = load i32, ptr %64, align 4
@@ -1476,13 +1476,13 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %59
-  %.sroa.036.2.lcssa = phi ptr [ %61, %59 ], [ %.sroa.036.0, %.lr.ph ]
+  %.sroa.036.3.lcssa = phi ptr [ %61, %59 ], [ %.sroa.036.0, %.lr.ph ]
   %68 = srem i64 %.078, %25
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %_ZSt11swap_rangesIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit, label %.backedge
 
 .backedge:                                        ; preds = %._crit_edge, %45
-  %.sroa.036.0.be = phi ptr [ %.sroa.036.1.lcssa, %45 ], [ %.sroa.036.2.lcssa, %._crit_edge ]
+  %.sroa.036.0.be = phi ptr [ %.sroa.036.1.lcssa, %45 ], [ %.sroa.036.3.lcssa, %._crit_edge ]
   %.079.be = phi i64 [ %46, %45 ], [ %68, %._crit_edge ]
   %.078.be = phi i64 [ %.079, %45 ], [ %25, %._crit_edge ]
   br label %24, !llvm.loop !29

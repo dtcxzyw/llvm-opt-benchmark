@@ -1078,7 +1078,7 @@ if.then:                                          ; preds = %for.body.i.i.i, %fo
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit, %if.then, %entry
-  %id.1 = phi i32 [ 0, %entry ], [ %7, %_ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit ], [ %8, %if.then ]
+  %id.0 = phi i32 [ 0, %entry ], [ %7, %_ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit ], [ %8, %if.then ]
   %m_nodes.i = getelementptr inbounds i8, ptr %vars, i64 8
   %m = getelementptr inbounds i8, ptr %this, i64 16
   %m_nodes.i12 = getelementptr inbounds i8, ptr %exprs, i64 8
@@ -1104,7 +1104,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
   %12 = trunc nuw i64 %indvars.iv to i32
   %shl = shl nuw i32 1, %12
-  %and = and i32 %shl, %id.1
+  %and = and i32 %shl, %id.0
   %tobool4.not = icmp eq i32 %and, 0
   br i1 %tobool4.not, label %cond.false, label %cond.true
 
@@ -2014,7 +2014,7 @@ for.end56.i:                                      ; preds = %for.cond27.preheade
   unreachable
 
 if.end.i:                                         ; preds = %invoke.cont63, %if.then14.i, %if.end21.i, %if.then37.i, %if.end48.i, %_ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit.i, %cond.end
-  %id.1.i = phi i32 [ 0, %cond.end ], [ %37, %_ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit.i ], [ %38, %if.end48.i ], [ %38, %if.then37.i ], [ %38, %if.end21.i ], [ %38, %if.then14.i ], [ 0, %invoke.cont63 ]
+  %id.0.i = phi i32 [ 0, %cond.end ], [ %37, %_ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit.i ], [ %38, %if.end48.i ], [ %38, %if.then37.i ], [ %38, %if.end21.i ], [ %38, %if.then14.i ], [ 0, %invoke.cont63 ]
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i, %if.end.i
@@ -2037,7 +2037,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
 for.body.i:                                       ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i
   %61 = trunc nuw i64 %indvars.iv.i to i32
   %shl.i = shl nuw i32 1, %61
-  %and.i75 = and i32 %shl.i, %id.1.i
+  %and.i75 = and i32 %shl.i, %id.0.i
   %tobool4.not.i = icmp eq i32 %and.i75, 0
   br i1 %tobool4.not.i, label %cond.false.i, label %cond.true.i
 
@@ -2507,7 +2507,7 @@ for.end56.i970:                                   ; preds = %for.cond27.preheade
   unreachable
 
 if.end.i116:                                      ; preds = %if.then14.i996, %if.end21.i988, %if.then37.i983, %if.end48.i975, %_ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit.i164, %invoke.cont68
-  %id.1.i117 = phi i32 [ 0, %invoke.cont68 ], [ %85, %_ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit.i164 ], [ %86, %if.end48.i975 ], [ %86, %if.then37.i983 ], [ %86, %if.end21.i988 ], [ %86, %if.then14.i996 ]
+  %id.0.i117 = phi i32 [ 0, %invoke.cont68 ], [ %85, %_ZNK7obj_mapI9func_decljE4findEPS0_Rj.exit.i164 ], [ %86, %if.end48.i975 ], [ %86, %if.then37.i983 ], [ %86, %if.end21.i988 ], [ %86, %if.then14.i996 ]
   br label %for.cond.i121
 
 for.cond.i121:                                    ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i147, %if.end.i116
@@ -2530,7 +2530,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.
 for.body.i129:                                    ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i126
   %109 = trunc nuw i64 %indvars.iv.i122 to i32
   %shl.i130 = shl nuw i32 1, %109
-  %and.i131 = and i32 %shl.i130, %id.1.i117
+  %and.i131 = and i32 %shl.i130, %id.0.i117
   %tobool4.not.i132 = icmp eq i32 %and.i131, 0
   br i1 %tobool4.not.i132, label %cond.false.i157, label %cond.true.i133
 
@@ -5239,14 +5239,14 @@ sw.bb9:                                           ; preds = %_ZNK3app13get_decl_
 
 for.body:                                         ; preds = %sw.bb9, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 1, %sw.bb9 ]
-  %id.131 = phi i32 [ %cond.i8.i, %for.body ], [ %call11, %sw.bb9 ]
+  %id.031 = phi i32 [ %cond.i8.i, %for.body ], [ %call11, %sw.bb9 ]
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_args.i, i64 0, i64 %indvars.iv
   %16 = load ptr, ptr %arrayidx.i, align 8
   %call14 = tail call noundef i32 @_ZN7datalog12aig_exporter11expr_to_aigEPK4expr(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef %16)
-  %rem.i.i = and i32 %id.131, 1
+  %rem.i.i = and i32 %id.031, 1
   %tobool.not.i.i = icmp eq i32 %rem.i.i, 0
   %cond.v.i.i = select i1 %tobool.not.i.i, i32 1, i32 -1
-  %cond.i.i14 = add i32 %cond.v.i.i, %id.131
+  %cond.i.i14 = add i32 %cond.v.i.i, %id.031
   %rem.i1.i = and i32 %call14, 1
   %tobool.not.i2.i = icmp eq i32 %rem.i1.i, 0
   %cond.v.i3.i = select i1 %tobool.not.i2.i, i32 1, i32 -1
@@ -5263,17 +5263,17 @@ for.body:                                         ; preds = %sw.bb9, %for.body
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !35
 
 for.end:                                          ; preds = %for.body, %sw.bb9
-  %id.1.lcssa = phi i32 [ %call11, %sw.bb9 ], [ %cond.i8.i, %for.body ]
+  %id.0.lcssa = phi i32 [ %call11, %sw.bb9 ], [ %cond.i8.i, %for.body ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store ptr %e, ptr %ref.tmp.i, align 8
   %m_value.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store i32 %id.1.lcssa, ptr %m_value.i.i, align 8
+  store i32 %id.0.lcssa, ptr %m_value.i.i, align 8
   call void @_ZN14core_hashtableIN7obj_mapIK4exprjE13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE6insertEOS6_(ptr noundef nonnull align 8 dereferenceable(20) %m_aig_expr_id_map, ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   br label %common.ret59
 
 common.ret59:                                     ; preds = %_ZNK3app13get_decl_kindEv.exit, %sw.bb23, %sw.bb22, %for.end, %if.then3, %if.then, %sw.bb17
-  %common.ret59.op = phi i32 [ %cond.i, %sw.bb17 ], [ %7, %if.then ], [ %call4, %if.then3 ], [ %call24, %sw.bb23 ], [ 1, %sw.bb22 ], [ %id.1.lcssa, %for.end ], [ 0, %_ZNK3app13get_decl_kindEv.exit ]
+  %common.ret59.op = phi i32 [ %cond.i, %sw.bb17 ], [ %7, %if.then ], [ %call4, %if.then3 ], [ %call24, %sw.bb23 ], [ 1, %sw.bb22 ], [ %id.0.lcssa, %for.end ], [ 0, %_ZNK3app13get_decl_kindEv.exit ]
   ret i32 %common.ret59.op
 
 sw.bb17:                                          ; preds = %_ZNK3app13get_decl_kindEv.exit

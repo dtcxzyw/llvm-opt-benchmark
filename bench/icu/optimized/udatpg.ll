@@ -689,13 +689,13 @@ lpad10:                                           ; preds = %if.end8
   resume { ptr, i32 } %5
 
 cleanup:                                          ; preds = %if.then6, %invoke.cont11
-  %retval.0 = phi i32 [ %call12, %invoke.cont11 ], [ %cond.i, %if.then6 ]
+  %retval.1 = phi i32 [ %call12, %invoke.cont11 ], [ %cond.i, %if.then6 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %result) #4
   br label %return
 
 return:                                           ; preds = %entry, %cleanup, %if.then3
-  %retval.1 = phi i32 [ -1, %if.then3 ], [ %retval.0, %cleanup ], [ -1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then3 ], [ %retval.1, %cleanup ], [ -1, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZNK6icu_7524DateTimePatternGenerator19getFieldDisplayNameE21UDateTimePatternField23UDateTimePGDisplayWidth(ptr sret(%"class.icu_75::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(4796), i32 noundef, i32 noundef) local_unnamed_addr #1

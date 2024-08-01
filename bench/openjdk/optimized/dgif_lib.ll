@@ -1286,11 +1286,11 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   br label %.loopexit141
 
 .loopexit141:                                     ; preds = %.loopexit141.loopexit, %.preheader140, %19
-  %.1105 = phi i32 [ 0, %19 ], [ %8, %.preheader140 ], [ %28, %.loopexit141.loopexit ]
-  %.1 = phi i32 [ 0, %19 ], [ 0, %.preheader140 ], [ %24, %.loopexit141.loopexit ]
+  %.0104 = phi i32 [ 0, %19 ], [ %8, %.preheader140 ], [ %28, %.loopexit141.loopexit ]
+  %.0100 = phi i32 [ 0, %19 ], [ 0, %.preheader140 ], [ %24, %.loopexit141.loopexit ]
   %invariant.gep = getelementptr i8, ptr %6, i64 4437
   %invariant.gep167 = getelementptr i8, ptr %6, i64 8528
-  %29 = icmp slt i32 %.1, %2
+  %29 = icmp slt i32 %.0100, %2
   br i1 %29, label %.lr.ph178, label %._crit_edge
 
 .lr.ph178:                                        ; preds = %.loopexit141
@@ -1302,8 +1302,8 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   br label %35
 
 35:                                               ; preds = %.lr.ph178, %163
-  %.2177 = phi i32 [ %.1, %.lr.ph178 ], [ %.5, %163 ]
-  %.2106176 = phi i32 [ %.1105, %.lr.ph178 ], [ %.7, %163 ]
+  %.2177 = phi i32 [ %.0100, %.lr.ph178 ], [ %.5, %163 ]
+  %.2106176 = phi i32 [ %.0104, %.lr.ph178 ], [ %.7, %163 ]
   %.0110173 = phi i32 [ %17, %.lr.ph178 ], [ %.1111, %163 ]
   %36 = call fastcc i32 @DGifDecompressInput(ptr noundef %0, ptr noundef nonnull %4)
   %37 = icmp eq i32 %36, 0
@@ -1426,17 +1426,17 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   br label %94
 
 94:                                               ; preds = %.sink.split, %59
-  %.3107 = phi i32 [ %.2106176, %59 ], [ %89, %.sink.split ]
+  %.4108 = phi i32 [ %.2106176, %59 ], [ %89, %.sink.split ]
   %.0102 = phi i32 [ %39, %59 ], [ %.0110173, %.sink.split ]
-  %95 = icmp slt i32 %.3107, 4095
+  %95 = icmp slt i32 %.4108, 4095
   br i1 %95, label %.lr.ph157.preheader, label %.critedge.thread
 
 .lr.ph157.preheader:                              ; preds = %94
-  %96 = sext i32 %.3107 to i64
+  %96 = sext i32 %.4108 to i64
   br label %.lr.ph157
 
 .lr.ph157:                                        ; preds = %.lr.ph157.preheader, %99
-  %indvars.iv198.in = phi i32 [ %.3107, %.lr.ph157.preheader ], [ %indvars.iv198, %99 ]
+  %indvars.iv198.in = phi i32 [ %.4108, %.lr.ph157.preheader ], [ %indvars.iv198, %99 ]
   %indvars.iv192 = phi i64 [ %96, %.lr.ph157.preheader ], [ %indvars.iv.next193, %99 ]
   %.1103156 = phi i32 [ %.0102, %.lr.ph157.preheader ], [ %105, %99 ]
   %indvars.iv198 = add i32 %indvars.iv198.in, 1
@@ -1505,8 +1505,8 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %109, %54
-  %.6 = phi i32 [ %.2106176, %54 ], [ %112, %109 ], [ %126, %.loopexit.loopexit ]
-  %.4 = phi i32 [ %56, %54 ], [ %.2177, %109 ], [ %127, %.loopexit.loopexit ]
+  %.3107 = phi i32 [ %.2106176, %54 ], [ %112, %109 ], [ %126, %.loopexit.loopexit ]
+  %.3 = phi i32 [ %56, %54 ], [ %.2177, %109 ], [ %127, %.loopexit.loopexit ]
   %.not118 = icmp eq i32 %.0110173, 4098
   br i1 %.not118, label %163, label %128
 
@@ -1591,14 +1591,14 @@ DGifGetPrefixChar.exit136:                        ; preds = %.lr.ph.i132, %154, 
 
 163:                                              ; preds = %.loopexit, %128, %131, %DGifGetPrefixChar.exit136, %DGifGetPrefixChar.exit130, %46
   %.1111 = phi i32 [ 4098, %46 ], [ %39, %DGifGetPrefixChar.exit130 ], [ %39, %DGifGetPrefixChar.exit136 ], [ %39, %131 ], [ %39, %128 ], [ %39, %.loopexit ]
-  %.7 = phi i32 [ %.2106176, %46 ], [ %.6, %DGifGetPrefixChar.exit130 ], [ %.6, %DGifGetPrefixChar.exit136 ], [ %.6, %131 ], [ %.6, %128 ], [ %.6, %.loopexit ]
-  %.5 = phi i32 [ %.2177, %46 ], [ %.4, %DGifGetPrefixChar.exit130 ], [ %.4, %DGifGetPrefixChar.exit136 ], [ %.4, %131 ], [ %.4, %128 ], [ %.4, %.loopexit ]
+  %.7 = phi i32 [ %.2106176, %46 ], [ %.3107, %DGifGetPrefixChar.exit130 ], [ %.3107, %DGifGetPrefixChar.exit136 ], [ %.3107, %131 ], [ %.3107, %128 ], [ %.3107, %.loopexit ]
+  %.5 = phi i32 [ %.2177, %46 ], [ %.3, %DGifGetPrefixChar.exit130 ], [ %.3, %DGifGetPrefixChar.exit136 ], [ %.3, %131 ], [ %.3, %128 ], [ %.3, %.loopexit ]
   %164 = icmp slt i32 %.5, %2
   br i1 %164, label %35, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %163, %.loopexit141
   %.0110.lcssa = phi i32 [ %17, %.loopexit141 ], [ %.1111, %163 ]
-  %.2106.lcssa = phi i32 [ %.1105, %.loopexit141 ], [ %.7, %163 ]
+  %.2106.lcssa = phi i32 [ %.0104, %.loopexit141 ], [ %.7, %163 ]
   store i32 %.0110.lcssa, ptr %16, align 8
   store i32 %.2106.lcssa, ptr %7, align 8
   br label %.loopexit138

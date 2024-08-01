@@ -2303,7 +2303,7 @@ dissect_fdoca_integer.exit:                       ; preds = %18, %switch.lookup
   br label %42
 
 42:                                               ; preds = %39, %32
-  %.0 = phi i32 [ 37, %39 ], [ 19, %32 ]
+  %.1 = phi i32 [ 37, %39 ], [ 19, %32 ]
   %43 = load i32, ptr @hf_drda_sqlerrd1, align 4
   %.val193 = load i32, ptr %19, align 4
   %switch.tableidx242 = add i32 %.val193, -1
@@ -2318,8 +2318,8 @@ switch.lookup241:                                 ; preds = %42
 
 dissect_fdoca_integer.exit214:                    ; preds = %42, %switch.lookup241
   %.0.i213 = phi i32 [ %switch.load244, %switch.lookup241 ], [ -2147483648, %42 ]
-  %46 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %43, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef %.0.i213, ptr noundef null) #6
-  %47 = add nuw nsw i32 %.0, 4
+  %46 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %43, ptr noundef %0, i32 noundef %.1, i32 noundef 4, i32 noundef %.0.i213, ptr noundef null) #6
+  %47 = add nuw nsw i32 %.1, 4
   %48 = load i32, ptr @hf_drda_sqlerrd2, align 4
   %.val194 = load i32, ptr %19, align 4
   %switch.tableidx246 = add i32 %.val194, -1
@@ -2335,7 +2335,7 @@ switch.lookup245:                                 ; preds = %dissect_fdoca_integ
 dissect_fdoca_integer.exit216:                    ; preds = %dissect_fdoca_integer.exit214, %switch.lookup245
   %.0.i215 = phi i32 [ %switch.load248, %switch.lookup245 ], [ -2147483648, %dissect_fdoca_integer.exit214 ]
   %51 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 4, i32 noundef %.0.i215, ptr noundef null) #6
-  %52 = or disjoint i32 %.0, 8
+  %52 = or disjoint i32 %.1, 8
   %53 = load i32, ptr @hf_drda_sqlerrd3, align 4
   %.val195 = load i32, ptr %19, align 4
   %switch.tableidx250 = add i32 %.val195, -1
@@ -2351,7 +2351,7 @@ switch.lookup249:                                 ; preds = %dissect_fdoca_integ
 dissect_fdoca_integer.exit218:                    ; preds = %dissect_fdoca_integer.exit216, %switch.lookup249
   %.0.i217 = phi i32 [ %switch.load252, %switch.lookup249 ], [ -2147483648, %dissect_fdoca_integer.exit216 ]
   %56 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef %.0.i217, ptr noundef null) #6
-  %57 = add nuw nsw i32 %.0, 12
+  %57 = add nuw nsw i32 %.1, 12
   %58 = load i32, ptr @hf_drda_sqlerrd4, align 4
   %.val196 = load i32, ptr %19, align 4
   %switch.tableidx254 = add i32 %.val196, -1
@@ -2367,7 +2367,7 @@ switch.lookup253:                                 ; preds = %dissect_fdoca_integ
 dissect_fdoca_integer.exit220:                    ; preds = %dissect_fdoca_integer.exit218, %switch.lookup253
   %.0.i219 = phi i32 [ %switch.load256, %switch.lookup253 ], [ -2147483648, %dissect_fdoca_integer.exit218 ]
   %61 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %58, ptr noundef %0, i32 noundef %57, i32 noundef 4, i32 noundef %.0.i219, ptr noundef null) #6
-  %62 = add nuw nsw i32 %.0, 16
+  %62 = add nuw nsw i32 %.1, 16
   %63 = load i32, ptr @hf_drda_sqlerrd5, align 4
   %.val197 = load i32, ptr %19, align 4
   %switch.tableidx258 = add i32 %.val197, -1
@@ -2383,7 +2383,7 @@ switch.lookup257:                                 ; preds = %dissect_fdoca_integ
 dissect_fdoca_integer.exit222:                    ; preds = %dissect_fdoca_integer.exit220, %switch.lookup257
   %.0.i221 = phi i32 [ %switch.load260, %switch.lookup257 ], [ -2147483648, %dissect_fdoca_integer.exit220 ]
   %66 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %63, ptr noundef %0, i32 noundef %62, i32 noundef 4, i32 noundef %.0.i221, ptr noundef null) #6
-  %67 = add nuw nsw i32 %.0, 20
+  %67 = add nuw nsw i32 %.1, 20
   %68 = load i32, ptr @hf_drda_sqlerrd6, align 4
   %.val198 = load i32, ptr %19, align 4
   %switch.tableidx262 = add i32 %.val198, -1
@@ -2399,51 +2399,51 @@ switch.lookup261:                                 ; preds = %dissect_fdoca_integ
 dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integer.exit222, %switch.lookup261
   %.0.i223 = phi i32 [ %switch.load264, %switch.lookup261 ], [ -2147483648, %dissect_fdoca_integer.exit222 ]
   %71 = call ptr @proto_tree_add_item_ret_int(ptr noundef %36, i32 noundef %68, ptr noundef %0, i32 noundef %67, i32 noundef 4, i32 noundef %.0.i223, ptr noundef null) #6
-  %72 = add nuw nsw i32 %.0, 24
+  %72 = add nuw nsw i32 %.1, 24
   %73 = load i32, ptr @hf_drda_sqlwarn0, align 4
   %.val202 = load i32, ptr %24, align 4
   %74 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %73, ptr noundef %0, i32 noundef %72, i32 noundef 1, i32 noundef %.val202) #6
-  %75 = add nuw nsw i32 %.0, 25
+  %75 = add nuw nsw i32 %.1, 25
   %76 = load i32, ptr @hf_drda_sqlwarn1, align 4
   %.val203 = load i32, ptr %24, align 4
   %77 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef 1, i32 noundef %.val203) #6
-  %78 = add nuw nsw i32 %.0, 26
+  %78 = add nuw nsw i32 %.1, 26
   %79 = load i32, ptr @hf_drda_sqlwarn2, align 4
   %.val204 = load i32, ptr %24, align 4
   %80 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %79, ptr noundef %0, i32 noundef %78, i32 noundef 1, i32 noundef %.val204) #6
-  %81 = add nuw nsw i32 %.0, 27
+  %81 = add nuw nsw i32 %.1, 27
   %82 = load i32, ptr @hf_drda_sqlwarn3, align 4
   %.val205 = load i32, ptr %24, align 4
   %83 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 1, i32 noundef %.val205) #6
-  %84 = add nuw nsw i32 %.0, 28
+  %84 = add nuw nsw i32 %.1, 28
   %85 = load i32, ptr @hf_drda_sqlwarn4, align 4
   %.val206 = load i32, ptr %24, align 4
   %86 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %85, ptr noundef %0, i32 noundef %84, i32 noundef 1, i32 noundef %.val206) #6
-  %87 = add nuw nsw i32 %.0, 29
+  %87 = add nuw nsw i32 %.1, 29
   %88 = load i32, ptr @hf_drda_sqlwarn5, align 4
   %.val207 = load i32, ptr %24, align 4
   %89 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef 1, i32 noundef %.val207) #6
-  %90 = add nuw nsw i32 %.0, 30
+  %90 = add nuw nsw i32 %.1, 30
   %91 = load i32, ptr @hf_drda_sqlwarn6, align 4
   %.val208 = load i32, ptr %24, align 4
   %92 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %91, ptr noundef %0, i32 noundef %90, i32 noundef 1, i32 noundef %.val208) #6
-  %93 = add nuw nsw i32 %.0, 31
+  %93 = add nuw nsw i32 %.1, 31
   %94 = load i32, ptr @hf_drda_sqlwarn7, align 4
   %.val209 = load i32, ptr %24, align 4
   %95 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef 1, i32 noundef %.val209) #6
-  %96 = add nuw nsw i32 %.0, 32
+  %96 = add nuw nsw i32 %.1, 32
   %97 = load i32, ptr @hf_drda_sqlwarn8, align 4
   %.val210 = load i32, ptr %24, align 4
   %98 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %97, ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef %.val210) #6
-  %99 = add nuw nsw i32 %.0, 33
+  %99 = add nuw nsw i32 %.1, 33
   %100 = load i32, ptr @hf_drda_sqlwarn9, align 4
   %.val211 = load i32, ptr %24, align 4
   %101 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %100, ptr noundef %0, i32 noundef %99, i32 noundef 1, i32 noundef %.val211) #6
-  %102 = add nuw nsw i32 %.0, 34
+  %102 = add nuw nsw i32 %.1, 34
   %103 = load i32, ptr @hf_drda_sqlwarna, align 4
   %.val212 = load i32, ptr %24, align 4
   %104 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %103, ptr noundef %0, i32 noundef %102, i32 noundef 1, i32 noundef %.val212) #6
-  %105 = add nuw nsw i32 %.0, 35
+  %105 = add nuw nsw i32 %.1, 35
   %106 = load i32, ptr %3, align 4
   %107 = icmp ugt i32 %106, 6
   br i1 %107, label %108, label %118
@@ -2453,7 +2453,7 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   %110 = load i32, ptr @hf_drda_param_length, align 4
   %111 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %110, ptr noundef %0, i32 noundef %105, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #6
-  %112 = add nuw nsw i32 %.0, 37
+  %112 = add nuw nsw i32 %.1, 37
   %113 = load i32, ptr %6, align 4
   %114 = load i32, ptr %24, align 4
   %115 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %109, ptr noundef %0, i32 noundef %112, i32 noundef %113, i32 noundef %114) #6
@@ -2463,10 +2463,10 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   br label %118
 
 118:                                              ; preds = %108, %dissect_fdoca_integer.exit224
-  %.1 = phi i32 [ %117, %108 ], [ %105, %dissect_fdoca_integer.exit224 ]
+  %.2 = phi i32 [ %117, %108 ], [ %105, %dissect_fdoca_integer.exit224 ]
   %119 = load i32, ptr @hf_drda_param_length, align 4
-  %120 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %119, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #6
-  %121 = add i32 %.1, 2
+  %120 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %119, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #6
+  %121 = add i32 %.2, 2
   %122 = load i32, ptr %8, align 4
   %123 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %121, i32 noundef %122, i8 noundef zeroext -1) #6
   %.not230 = icmp eq i32 %123, -1
@@ -2478,14 +2478,14 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
 
 125:                                              ; preds = %.lr.ph, %125
   %126 = phi i32 [ %123, %.lr.ph ], [ %134, %125 ]
-  %.2231 = phi i32 [ %121, %.lr.ph ], [ %131, %125 ]
+  %.3231 = phi i32 [ %121, %.lr.ph ], [ %131, %125 ]
   %127 = load i32, ptr @hf_drda_sqlerrmsg, align 4
-  %128 = sub i32 %126, %.2231
+  %128 = sub i32 %126, %.3231
   %129 = load i32, ptr %124, align 4
-  %130 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %127, ptr noundef %0, i32 noundef %.2231, i32 noundef %128, i32 noundef %129) #6
+  %130 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %127, ptr noundef %0, i32 noundef %.3231, i32 noundef %128, i32 noundef %129) #6
   %131 = add nuw i32 %126, 1
   %.neg228 = xor i32 %126, -1
-  %.neg192 = add i32 %.2231, %.neg228
+  %.neg192 = add i32 %.3231, %.neg228
   %132 = load i32, ptr %8, align 4
   %133 = add i32 %.neg192, %132
   store i32 %133, ptr %8, align 4
@@ -2494,14 +2494,14 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   br i1 %.not, label %._crit_edge, label %125, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %125, %118
-  %.2.lcssa = phi i32 [ %121, %118 ], [ %131, %125 ]
+  %.3.lcssa = phi i32 [ %121, %118 ], [ %131, %125 ]
   %135 = load i32, ptr @hf_drda_sqlerrmsg, align 4
   %136 = load i32, ptr %8, align 4
   %137 = getelementptr inbounds i8, ptr %3, i64 12
   %138 = load i32, ptr %137, align 4
-  %139 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %135, ptr noundef %0, i32 noundef %.2.lcssa, i32 noundef %136, i32 noundef %138) #6
+  %139 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %135, ptr noundef %0, i32 noundef %.3.lcssa, i32 noundef %136, i32 noundef %138) #6
   %140 = load i32, ptr %8, align 4
-  %141 = add i32 %140, %.2.lcssa
+  %141 = add i32 %140, %.3.lcssa
   %142 = load i32, ptr @hf_drda_param_length, align 4
   %143 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %36, i32 noundef %142, ptr noundef %0, i32 noundef %141, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #6
   %144 = add i32 %141, 2
@@ -2512,14 +2512,14 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
 
 .lr.ph235:                                        ; preds = %._crit_edge, %.lr.ph235
   %147 = phi i32 [ %155, %.lr.ph235 ], [ %146, %._crit_edge ]
-  %.3233 = phi i32 [ %152, %.lr.ph235 ], [ %144, %._crit_edge ]
+  %.4233 = phi i32 [ %152, %.lr.ph235 ], [ %144, %._crit_edge ]
   %148 = load i32, ptr @hf_drda_sqlerrmsg, align 4
-  %149 = sub i32 %147, %.3233
+  %149 = sub i32 %147, %.4233
   %150 = load i32, ptr %24, align 4
-  %151 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %148, ptr noundef %0, i32 noundef %.3233, i32 noundef %149, i32 noundef %150) #6
+  %151 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %148, ptr noundef %0, i32 noundef %.4233, i32 noundef %149, i32 noundef %150) #6
   %152 = add nuw i32 %147, 1
   %.neg229 = xor i32 %147, -1
-  %.neg = add i32 %.3233, %.neg229
+  %.neg = add i32 %.4233, %.neg229
   %153 = load i32, ptr %8, align 4
   %154 = add i32 %.neg, %153
   store i32 %154, ptr %8, align 4
@@ -2528,24 +2528,24 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   br i1 %.not191, label %._crit_edge236, label %.lr.ph235, !llvm.loop !11
 
 ._crit_edge236:                                   ; preds = %.lr.ph235, %._crit_edge
-  %.3.lcssa = phi i32 [ %144, %._crit_edge ], [ %152, %.lr.ph235 ]
+  %.4.lcssa = phi i32 [ %144, %._crit_edge ], [ %152, %.lr.ph235 ]
   %156 = load i32, ptr @hf_drda_sqlerrmsg, align 4
   %157 = load i32, ptr %8, align 4
   %158 = load i32, ptr %24, align 4
-  %159 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %156, ptr noundef %0, i32 noundef %.3.lcssa, i32 noundef %157, i32 noundef %158) #6
+  %159 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %156, ptr noundef %0, i32 noundef %.4.lcssa, i32 noundef %157, i32 noundef %158) #6
   %160 = load i32, ptr %8, align 4
-  %161 = add i32 %160, %.3.lcssa
+  %161 = add i32 %160, %.4.lcssa
   call void @proto_item_set_end(ptr noundef %34, ptr noundef %0, i32 noundef %161) #6
   br label %162
 
 162:                                              ; preds = %._crit_edge236, %dissect_fdoca_integer.exit
-  %.4 = phi i32 [ %161, %._crit_edge236 ], [ 19, %dissect_fdoca_integer.exit ]
+  %.0 = phi i32 [ %161, %._crit_edge236 ], [ 19, %dissect_fdoca_integer.exit ]
   %163 = load i32, ptr %3, align 4
   %164 = icmp ugt i32 %163, 6
   br i1 %164, label %165, label %proto_item_set_generated.exit227
 
 165:                                              ; preds = %162
-  %166 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.4) #6
+  %166 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %167 = load i32, ptr @hf_drda_sqldiaggrp, align 4
   %168 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %167, ptr noundef %166, i32 noundef 0, i32 noundef 1, i32 noundef 0) #6
@@ -2565,7 +2565,7 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
 dissect_drda_sqldiaggrp.exit:                     ; preds = %165, %175
   call void @proto_item_set_end(ptr noundef %168, ptr noundef %166, i32 noundef 1) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %177 = add i32 %.4, 1
+  %177 = add i32 %.0, 1
   br label %proto_item_set_generated.exit227
 
 178:                                              ; preds = %4
@@ -2606,7 +2606,7 @@ proto_item_set_generated.exit:                    ; preds = %178, %180, %183
   br label %proto_item_set_generated.exit227
 
 proto_item_set_generated.exit227:                 ; preds = %192, %189, %proto_item_set_generated.exit, %162, %dissect_drda_sqldiaggrp.exit
-  %.5 = phi i32 [ %177, %dissect_drda_sqldiaggrp.exit ], [ %.4, %162 ], [ 1, %proto_item_set_generated.exit ], [ 1, %189 ], [ 1, %192 ]
+  %.5 = phi i32 [ %177, %dissect_drda_sqldiaggrp.exit ], [ %.0, %162 ], [ 1, %proto_item_set_generated.exit ], [ 1, %189 ], [ 1, %192 ]
   call void @proto_item_set_end(ptr noundef %10, ptr noundef %0, i32 noundef %.5) #6
   ret i32 %.5
 }
@@ -2779,12 +2779,12 @@ dissect_fdoca_integer.exit86.i:                   ; preds = %78, %switch.lookup5
   br label %83
 
 83:                                               ; preds = %dissect_fdoca_integer.exit86.i, %dissect_fdoca_integer.exit84.i
-  %.0.i = phi i32 [ 15, %dissect_fdoca_integer.exit86.i ], [ 13, %dissect_fdoca_integer.exit84.i ]
+  %.1.i = phi i32 [ 15, %dissect_fdoca_integer.exit86.i ], [ 13, %dissect_fdoca_integer.exit84.i ]
   %84 = load i32, ptr @hf_drda_rdbnam, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %34)
   %85 = load i32, ptr @hf_drda_param_length, align 4
-  %86 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %85, ptr noundef %41, i32 noundef %.0.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %34) #6
-  %87 = add nuw nsw i32 %.0.i, 2
+  %86 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %85, ptr noundef %41, i32 noundef %.1.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %34) #6
+  %87 = add nuw nsw i32 %.1.i, 2
   %88 = load i32, ptr %34, align 4
   %89 = getelementptr inbounds i8, ptr %3, i64 8
   %90 = load i32, ptr %89, align 4
@@ -2845,10 +2845,10 @@ dissect_fdoca_integer.exit86.i:                   ; preds = %78, %switch.lookup5
   br label %dissect_drda_sqldhgrp.exit
 
 dissect_drda_sqldhgrp.exit:                       ; preds = %40, %83, %115
-  %.1.i = phi i32 [ %133, %115 ], [ %112, %83 ], [ 1, %40 ]
-  call void @proto_item_set_end(ptr noundef %43, ptr noundef %41, i32 noundef %.1.i) #6
+  %.0.i = phi i32 [ %133, %115 ], [ %112, %83 ], [ 1, %40 ]
+  call void @proto_item_set_end(ptr noundef %43, ptr noundef %41, i32 noundef %.0.i) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35)
-  %134 = add i32 %.1.i, %37
+  %134 = add i32 %.0.i, %37
   br label %135
 
 135:                                              ; preds = %dissect_drda_sqldhgrp.exit, %4
@@ -3222,12 +3222,12 @@ dissect_fdoca_integer.exit96.i.i.i:               ; preds = %dissect_fdoca_integ
   br label %303
 
 303:                                              ; preds = %dissect_fdoca_integer.exit96.i.i.i, %dissect_fdoca_integer.exit92.i.i.i
-  %.0.i60.i.i = phi i32 [ 13, %dissect_fdoca_integer.exit96.i.i.i ], [ 9, %dissect_fdoca_integer.exit92.i.i.i ]
+  %.1.i.i.i = phi i32 [ 13, %dissect_fdoca_integer.exit96.i.i.i ], [ 9, %dissect_fdoca_integer.exit92.i.i.i ]
   %304 = load i32, ptr @hf_drda_rdbnam, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21)
   %305 = load i32, ptr @hf_drda_param_length, align 4
-  %306 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %305, ptr noundef %266, i32 noundef %.0.i60.i.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #6
-  %307 = or disjoint i32 %.0.i60.i.i, 2
+  %306 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %270, i32 noundef %305, ptr noundef %266, i32 noundef %.1.i.i.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %21) #6
+  %307 = or disjoint i32 %.1.i.i.i, 2
   %308 = load i32, ptr %21, align 4
   %309 = load i32, ptr %144, align 4
   %310 = call ptr @proto_tree_add_item(ptr noundef %270, i32 noundef %304, ptr noundef %266, i32 noundef %307, i32 noundef %308, i32 noundef %309) #6
@@ -3352,10 +3352,10 @@ dissect_fdoca_integer.exit96.i.i.i:               ; preds = %dissect_fdoca_integ
   br label %dissect_drda_sqldxgrp.exit.i.i
 
 dissect_drda_sqldxgrp.exit.i.i:                   ; preds = %387, %303, %dissect_fdoca_integer.exit.i.i
-  %.1.i.i.i = phi i32 [ %405, %387 ], [ %384, %303 ], [ 1, %dissect_fdoca_integer.exit.i.i ]
-  call void @proto_item_set_end(ptr noundef %268, ptr noundef %266, i32 noundef %.1.i.i.i) #6
+  %.0.i60.i.i = phi i32 [ %405, %387 ], [ %384, %303 ], [ 1, %dissect_fdoca_integer.exit.i.i ]
+  call void @proto_item_set_end(ptr noundef %268, ptr noundef %266, i32 noundef %.0.i60.i.i) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  %406 = add i32 %.1.i.i.i, %265
+  %406 = add i32 %.0.i60.i.i, %265
   %407 = load i32, ptr %3, align 4
   %408 = icmp ugt i32 %407, 9
   br i1 %408, label %409, label %dissect_drda_sqldoptgrp.exit.i
@@ -4204,12 +4204,12 @@ dissect_fdoca_integer.exit:                       ; preds = %23, %switch.lookup
   br label %57
 
 57:                                               ; preds = %dissect_fdoca_integer.exit, %20
-  %.0 = phi i32 [ %56, %dissect_fdoca_integer.exit ], [ 1, %20 ]
+  %.1 = phi i32 [ %56, %dissect_fdoca_integer.exit ], [ 1, %20 ]
   %58 = load i32, ptr @hf_drda_sqludtname, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %59 = load i32, ptr @hf_drda_param_length, align 4
-  %60 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %59, ptr noundef %0, i32 noundef %.0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #6
-  %61 = add i32 %.0, 2
+  %60 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %59, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #6
+  %61 = add i32 %.1, 2
   %62 = load i32, ptr %7, align 4
   %63 = getelementptr inbounds i8, ptr %2, i64 12
   %64 = load i32, ptr %63, align 4
@@ -4259,9 +4259,9 @@ dissect_fdoca_integer.exit:                       ; preds = %23, %switch.lookup
   br label %99
 
 99:                                               ; preds = %57, %80, %3
-  %.1 = phi i32 [ %98, %80 ], [ %77, %57 ], [ 1, %3 ]
-  call void @proto_item_set_end(ptr noundef %13, ptr noundef %0, i32 noundef %.1) #6
-  ret i32 %.1
+  %.0 = phi i32 [ %98, %80 ], [ %77, %57 ], [ 1, %3 ]
+  call void @proto_item_set_end(ptr noundef %13, ptr noundef %0, i32 noundef %.0) #6
+  ret i32 %.0
 }
 
 declare ptr @proto_tree_add_item_ret_int64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

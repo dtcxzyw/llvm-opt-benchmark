@@ -2635,7 +2635,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   br label %25
 
 25:                                               ; preds = %.noexc, %14
-  %.1.i = phi ptr [ %23, %.noexc ], [ null, %14 ]
+  %.06.i = phi ptr [ %23, %.noexc ], [ null, %14 ]
   %.05.i = phi i64 [ %20, %.noexc ], [ 0, %14 ]
   %.0.i = phi i64 [ %22, %.noexc ], [ 0, %14 ]
   %26 = getelementptr inbounds i8, ptr %.sroa.013.032, i64 24
@@ -2647,7 +2647,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %32 = load i8, ptr %31, align 1, !alias.scope !727, !noalias !730
   %33 = getelementptr inbounds [0 x { [5 x i64] }], ptr %7, i64 0, i64 %.sroa.7.031
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %.sroa.07.sroa.11)
-  store ptr %.1.i, ptr %33, align 8
+  store ptr %.06.i, ptr %33, align 8
   %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 8
   store i64 %.05.i, ptr %.sroa.07.sroa.4.0..sroa_idx, align 8
   %.sroa.07.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 16
@@ -3406,9 +3406,9 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br label %29
 
 29:                                               ; preds = %2, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h329ab398b32381e0E.exit.i.i"
-  %.sroa.4.1.i.i = phi ptr [ %28, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h329ab398b32381e0E.exit.i.i" ], [ %9, %2 ]
+  %.sroa.4.0.i.i = phi ptr [ %28, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h329ab398b32381e0E.exit.i.i" ], [ %9, %2 ]
   %30 = and i64 %8, 9223372036854775807
-  %31 = ptrtoint ptr %.sroa.4.1.i.i to i64
+  %31 = ptrtoint ptr %.sroa.4.0.i.i to i64
   %32 = ptrtoint ptr %9 to i64
   %33 = sub nuw i64 %31, %32
   %34 = lshr exact i64 %33, 1
@@ -3600,7 +3600,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   br label %28
 
 28:                                               ; preds = %.noexc.i, %17
-  %.1.i.i = phi ptr [ %26, %.noexc.i ], [ null, %17 ]
+  %.06.i.i = phi ptr [ %26, %.noexc.i ], [ null, %17 ]
   %.05.i.i = phi i64 [ %23, %.noexc.i ], [ 0, %17 ]
   %.0.i.i = phi i64 [ %25, %.noexc.i ], [ 0, %17 ]
   %29 = getelementptr inbounds i8, ptr %.sroa.013.032.i, i64 24
@@ -3616,7 +3616,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %.sroa.07.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 16
   %.sroa.07.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 24
   %37 = load <2 x i32>, ptr %29, align 8, !alias.scope !944, !noalias !947
-  store ptr %.1.i.i, ptr %36, align 8
+  store ptr %.06.i.i, ptr %36, align 8
   store i64 %.05.i.i, ptr %.sroa.07.sroa.4.0..sroa_idx.i, align 8
   store i64 %.0.i.i, ptr %.sroa.07.sroa.5.0..sroa_idx.i, align 8
   store <2 x i32> %37, ptr %.sroa.07.sroa.6.0..sroa_idx.i, align 8

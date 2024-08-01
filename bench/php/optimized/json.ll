@@ -823,7 +823,7 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %33, label %.thread214, label %.thread242
 
 .thread214:                                       ; preds = %28, %30, %29, %31
-  %.2217 = phi i1 [ false, %31 ], [ true, %30 ], [ false, %29 ], [ false, %28 ]
+  %.3217 = phi i1 [ false, %31 ], [ true, %30 ], [ false, %29 ], [ false, %28 ]
   %34 = icmp ult i32 %8, 3
   br i1 %34, label %.thread255.thread, label %35
 
@@ -883,7 +883,7 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not201, label %.thread255.thread, label %.thread256
 
 .thread255.thread:                                ; preds = %19, %.thread214, %43, %.thread255
-  %.3239263 = phi i1 [ %.2217, %.thread255 ], [ true, %19 ], [ %.2217, %.thread214 ], [ %.2217, %43 ]
+  %.0187239263 = phi i1 [ %.3217, %.thread255 ], [ true, %19 ], [ %.3217, %.thread214 ], [ %.3217, %43 ]
   %54 = phi i64 [ %52, %.thread255 ], [ 0, %19 ], [ 0, %.thread214 ], [ 0, %43 ]
   store i32 0, ptr getelementptr inbounds (i8, ptr @json_globals, i64 8), align 4
   %.not202 = icmp eq i64 %22, 0
@@ -908,7 +908,7 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
   br label %83
 
 60:                                               ; preds = %.thread256, %.thread255.thread
-  %.3239262 = phi i1 [ %.2217, %.thread256 ], [ %.3239263, %.thread255.thread ]
+  %.0187239262 = phi i1 [ %.3217, %.thread256 ], [ %.0187239263, %.thread255.thread ]
   %61 = phi i64 [ %52, %.thread256 ], [ %54, %.thread255.thread ]
   %62 = load i64, ptr %5, align 8
   %63 = icmp slt i64 %62, 1
@@ -933,7 +933,7 @@ define hidden void @zif_json_decode(ptr noundef %0, ptr noundef %1) #0 {
   br label %83
 
 72:                                               ; preds = %67
-  br i1 %.3239262, label %80, label %73
+  br i1 %.0187239262, label %80, label %73
 
 73:                                               ; preds = %72
   %74 = load i8, ptr %4, align 1

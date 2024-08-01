@@ -100,15 +100,15 @@ define internal fastcc i32 @nbc_alltoall_init(ptr noundef %0, i32 noundef %1, pt
   br label %opal_datatype_span.exit
 
 opal_datatype_span.exit:                          ; preds = %28, %33
-  %.0275 = phi i64 [ %36, %33 ], [ 0, %28 ]
+  %.1 = phi i64 [ %36, %33 ], [ 0, %28 ]
   %.0.i = phi i64 [ %42, %33 ], [ 0, %28 ]
   %43 = tail call noalias ptr @malloc(i64 noundef %.0.i) #5
   %44 = icmp eq ptr %43, null
   br i1 %44, label %212, label %45
 
 45:                                               ; preds = %17, %opal_datatype_span.exit
-  %.1 = phi i64 [ 0, %17 ], [ %.0275, %opal_datatype_span.exit ]
-  %.1197 = phi ptr [ null, %17 ], [ %43, %opal_datatype_span.exit ]
+  %.0275 = phi i64 [ 0, %17 ], [ %.1, %opal_datatype_span.exit ]
+  %.0196 = phi ptr [ null, %17 ], [ %43, %opal_datatype_span.exit ]
   %46 = load i64, ptr getelementptr inbounds (i8, ptr @NBC_Schedule_class, i64 56), align 8
   %47 = tail call noalias ptr @malloc(i64 noundef %46) #5
   %48 = load i32, ptr @opal_class_init_epoch, align 4
@@ -207,7 +207,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %72, %75
   %91 = add nsw i32 %.val230.val, %.val
   %92 = sext i32 %4 to i64
   %93 = mul i64 %26, %92
-  %94 = sub nsw i64 0, %.1
+  %94 = sub nsw i64 0, %.0275
   %95 = inttoptr i64 %94 to ptr
   br label %98
 
@@ -266,7 +266,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %72, %75
   %126 = mul i64 %26, %125
   %127 = mul i64 %126, %124
   %128 = getelementptr inbounds i8, ptr %.0194, i64 %127
-  %129 = sub nsw i64 0, %.1
+  %129 = sub nsw i64 0, %.0275
   %130 = inttoptr i64 %129 to ptr
   %131 = tail call i32 @NBC_Sched_copy(ptr noundef %128, i8 noundef signext 0, i64 noundef %125, ptr noundef %5, ptr noundef %130, i8 noundef signext 1, i64 noundef %125, ptr noundef %5, ptr noundef %47, i1 noundef zeroext true) #4
   %.not.i239 = icmp eq i32 %131, 0
@@ -403,7 +403,7 @@ opal_thread_add_fetch_32.exit255:                 ; preds = %175, %178
   br i1 %.not.i259, label %.sink.split.sink.split, label %.lr.ph.i257, !llvm.loop !6
 
 191:                                              ; preds = %a2a_sched_inplace.exit
-  %192 = tail call i32 @NBC_Schedule_request(ptr noundef nonnull %47, ptr noundef %6, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %7, ptr noundef %.1197) #4
+  %192 = tail call i32 @NBC_Schedule_request(ptr noundef nonnull %47, ptr noundef %6, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %7, ptr noundef %.0196) #4
   %.not227 = icmp eq i32 %192, 0
   br i1 %.not227, label %212, label %193
 
@@ -453,7 +453,7 @@ opal_thread_add_fetch_32.exit263:                 ; preds = %196, %199
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %opal_thread_add_fetch_32.exit263, %opal_thread_add_fetch_32.exit255, %opal_thread_add_fetch_32.exit247, %opal_thread_add_fetch_32.exit, %51
   %.0.ph = phi i32 [ -2, %51 ], [ %68, %opal_thread_add_fetch_32.exit ], [ %.3.ph, %opal_thread_add_fetch_32.exit247 ], [ %171, %opal_thread_add_fetch_32.exit255 ], [ %192, %opal_thread_add_fetch_32.exit263 ], [ %.0.ph.ph, %.sink.split.sink.split ]
-  tail call void @free(ptr noundef %.1197) #4
+  tail call void @free(ptr noundef %.0196) #4
   br label %212
 
 212:                                              ; preds = %.sink.split, %191, %opal_datatype_span.exit

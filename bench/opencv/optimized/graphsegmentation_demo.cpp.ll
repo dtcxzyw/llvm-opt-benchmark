@@ -644,7 +644,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit53:                  ; preds = %228, %225
   br label %.body
 
 230:                                              ; preds = %221, %88
-  %.030 = phi i32 [ -3, %88 ], [ 0, %221 ]
+  %.2 = phi i32 [ -3, %88 ], [ 0, %221 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #13
@@ -658,7 +658,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit53:                  ; preds = %228, %225
   br label %268
 
 231:                                              ; preds = %75, %230
-  %.1 = phi i32 [ %.030, %230 ], [ -2, %75 ]
+  %.1 = phi i32 [ %.2, %230 ], [ -2, %75 ]
   %232 = getelementptr inbounds i8, ptr %7, i64 8
   %233 = load ptr, ptr %232, align 8
   %.not.i.i.i.i = icmp eq ptr %233, null
@@ -738,8 +738,8 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   resume { ptr, i32 } %.pn49.pn
 
 _ZN2cv3PtrINS_8ximgproc12segmentation17GraphSegmentationEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %263, %250, %231, %25
-  %.2 = phi i32 [ -1, %25 ], [ %.1, %231 ], [ %.1, %250 ], [ %.1, %263 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
-  ret i32 %.2
+  %.030 = phi i32 [ -1, %25 ], [ %.1, %231 ], [ %.1, %250 ], [ %.1, %263 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ]
+  ret i32 %.030
 }
 
 declare void @_ZN2cv8ximgproc12segmentation23createGraphSegmentationEdfi(ptr dead_on_unwind writable sret(%"struct.cv::Ptr") align 8, double noundef, float noundef, i32 noundef) local_unnamed_addr #0

@@ -651,7 +651,7 @@ define linkonce_odr hidden void @_ZN2cv11YAMLEmitter5writeEPKcS2_b(ptr noundef n
 
 43:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
-  %.0144 = phi ptr [ %.not121136.sroa.gep148, %.lr.ph ], [ %.1, %74 ]
+  %.1144 = phi ptr [ %.not121136.sroa.gep148, %.lr.ph ], [ %.2, %74 ]
   %.0100143 = phi i32 [ %40, %.lr.ph ], [ %.1101, %74 ]
   %44 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1
@@ -710,15 +710,15 @@ switch.early.test126:                             ; preds = %55
   ]
 
 .thread:                                          ; preds = %switch.early.test126, %switch.early.test126, %switch.early.test126
-  %58 = getelementptr inbounds i8, ptr %.0144, i64 1
-  store i8 92, ptr %.0144, align 1
-  %59 = getelementptr inbounds i8, ptr %.0144, i64 2
+  %58 = getelementptr inbounds i8, ptr %.1144, i64 1
+  store i8 92, ptr %.1144, align 1
+  %59 = getelementptr inbounds i8, ptr %.1144, i64 2
   store i8 %.fr, ptr %58, align 1
   br label %74
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %.0144, i64 1
-  store i8 92, ptr %.0144, align 1
+  %61 = getelementptr inbounds i8, ptr %.1144, i64 1
+  store i8 92, ptr %.1144, align 1
   switch i8 %.fr, label %68 [
     i8 10, label %62
     i8 13, label %64
@@ -726,17 +726,17 @@ switch.early.test126:                             ; preds = %55
   ]
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %.0144, i64 2
+  %63 = getelementptr inbounds i8, ptr %.1144, i64 2
   store i8 110, ptr %61, align 1
   br label %74
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %.0144, i64 2
+  %65 = getelementptr inbounds i8, ptr %.1144, i64 2
   store i8 114, ptr %61, align 1
   br label %74
 
 66:                                               ; preds = %60
-  %67 = getelementptr inbounds i8, ptr %.0144, i64 2
+  %67 = getelementptr inbounds i8, ptr %.1144, i64 2
   store i8 116, ptr %61, align 1
   br label %74
 
@@ -744,23 +744,23 @@ switch.early.test126:                             ; preds = %55
   %69 = ptrtoint ptr %61 to i64
   %70 = sub i64 %.neg, %69
   %71 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %61, i64 noundef %70, ptr noundef nonnull @.str.10, i32 noundef %57) #14
-  %72 = getelementptr inbounds i8, ptr %.0144, i64 4
+  %72 = getelementptr inbounds i8, ptr %.1144, i64 4
   br label %74
 
 _Z10cv_isalnumc.exit130.thread:                   ; preds = %_Z10cv_isalnumc.exit.thread, %switch.early.test126
-  %73 = getelementptr inbounds i8, ptr %.0144, i64 1
-  store i8 %.fr, ptr %.0144, align 1
+  %73 = getelementptr inbounds i8, ptr %.1144, i64 1
+  store i8 %.fr, ptr %.1144, align 1
   br label %74
 
 74:                                               ; preds = %_Z10cv_isalnumc.exit130.thread, %62, %66, %68, %64, %.thread
-  %.1 = phi ptr [ %73, %_Z10cv_isalnumc.exit130.thread ], [ %59, %.thread ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %72, %68 ]
+  %.2 = phi ptr [ %73, %_Z10cv_isalnumc.exit130.thread ], [ %59, %.thread ], [ %63, %62 ], [ %65, %64 ], [ %67, %66 ], [ %72, %68 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %74, %.critedge
   %.0100.lcssa = phi i32 [ %40, %.critedge ], [ %.1101, %74 ]
-  %.0.lcssa = phi ptr [ %.not121136.sroa.gep148, %.critedge ], [ %.1, %74 ]
+  %.1.lcssa = phi ptr [ %.not121136.sroa.gep148, %.critedge ], [ %.2, %74 ]
   %.not120 = icmp eq i32 %.0100.lcssa, 0
   br i1 %.not120, label %75, label %80
 
@@ -778,22 +778,22 @@ _Z10cv_isalnumc.exit130.thread:                   ; preds = %_Z10cv_isalnumc.exi
   ]
 
 80:                                               ; preds = %75, %79, %79, %79, %._crit_edge
-  %81 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
-  store i8 34, ptr %.0.lcssa, align 1
+  %81 = getelementptr inbounds i8, ptr %.1.lcssa, i64 1
+  store i8 34, ptr %.1.lcssa, align 1
   br label %82
 
 82:                                               ; preds = %79, %80
   %.not121136.sroa.phi = phi ptr [ %5, %80 ], [ %.not121136.sroa.gep148, %79 ]
-  %.2 = phi ptr [ %81, %80 ], [ %.0.lcssa, %79 ]
-  store i8 0, ptr %.2, align 1
+  %.3 = phi ptr [ %81, %80 ], [ %.1.lcssa, %79 ]
+  store i8 0, ptr %.3, align 1
   br label %83
 
 83:                                               ; preds = %36, %36, %82
-  %.3 = phi ptr [ %.not121136.sroa.phi, %82 ], [ %2, %36 ], [ %2, %36 ]
+  %.0 = phi ptr [ %.not121136.sroa.phi, %82 ], [ %2, %36 ], [ %2, %36 ]
   %84 = load ptr, ptr %0, align 8
   %85 = getelementptr inbounds i8, ptr %84, i64 56
   %86 = load ptr, ptr %85, align 8
-  call void %86(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull %.3)
+  call void %86(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull %.0)
   ret void
 
 87:                                               ; preds = %24, %26, %13, %15
@@ -2347,12 +2347,12 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10YAMLParser10parseValueEPcRNS_8Fi
 
 69:                                               ; preds = %67, %68
   %.0344 = phi i8 [ 1, %68 ], [ 0, %67 ]
-  %.0295 = phi ptr [ %64, %68 ], [ %1, %67 ]
+  %.1 = phi ptr [ %64, %68 ], [ %1, %67 ]
   %70 = icmp eq i8 %65, 60
   br i1 %70, label %71, label %86
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %.0295, i64 1
+  %72 = getelementptr inbounds i8, ptr %.1, i64 1
   br label %73
 
 73:                                               ; preds = %73, %71
@@ -2380,16 +2380,16 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10YAMLParser10parseValueEPcRNS_8Fi
 
 84:                                               ; preds = %82
   store i8 32, ptr %74, align 1
-  %85 = getelementptr inbounds i8, ptr %.0295, i64 19
+  %85 = getelementptr inbounds i8, ptr %.1, i64 19
   br label %86
 
 86:                                               ; preds = %.critedge, %84, %82, %69
   %.1345 = phi i8 [ 1, %84 ], [ %.0344, %82 ], [ %.0344, %.critedge ], [ %.0344, %69 ]
-  %.1 = phi ptr [ %85, %84 ], [ %72, %82 ], [ %72, %.critedge ], [ %.0295, %69 ]
+  %.2 = phi ptr [ %85, %84 ], [ %72, %82 ], [ %72, %.critedge ], [ %.1, %69 ]
   br label %87
 
 87:                                               ; preds = %87, %86
-  %88 = phi ptr [ %89, %87 ], [ %.1, %86 ]
+  %88 = phi ptr [ %89, %87 ], [ %.2, %86 ]
   %89 = getelementptr inbounds i8, ptr %88, i64 1
   store ptr %89, ptr %8, align 8
   %90 = load i8, ptr %89, align 1
@@ -2397,7 +2397,7 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10YAMLParser10parseValueEPcRNS_8Fi
   br i1 %91, label %87, label %92, !llvm.loop !23
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds i8, ptr %.1, i64 1
+  %93 = getelementptr inbounds i8, ptr %.2, i64 1
   %94 = ptrtoint ptr %89 to i64
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
@@ -2510,14 +2510,14 @@ define linkonce_odr hidden noundef ptr @_ZN2cv10YAMLParser10parseValueEPcRNS_8Fi
   br label %141
 
 141:                                              ; preds = %123, %113, %125, %121, %112, %119, %117, %115, %129, %138, %127
-  %.0346 = phi i1 [ true, %138 ], [ false, %129 ], [ false, %127 ], [ false, %115 ], [ false, %117 ], [ false, %119 ], [ false, %121 ], [ false, %125 ], [ false, %112 ], [ false, %113 ], [ false, %123 ]
+  %.1347 = phi i1 [ true, %138 ], [ false, %129 ], [ false, %127 ], [ false, %115 ], [ false, %117 ], [ false, %119 ], [ false, %121 ], [ false, %125 ], [ false, %112 ], [ false, %113 ], [ false, %123 ]
   %142 = phi i1 [ false, %138 ], [ false, %129 ], [ false, %127 ], [ true, %115 ], [ false, %117 ], [ false, %119 ], [ false, %121 ], [ false, %125 ], [ false, %112 ], [ false, %113 ], [ false, %123 ]
   %143 = phi i1 [ false, %138 ], [ false, %129 ], [ false, %127 ], [ false, %115 ], [ true, %117 ], [ false, %119 ], [ false, %121 ], [ false, %125 ], [ false, %112 ], [ false, %113 ], [ false, %123 ]
   %144 = phi i1 [ false, %138 ], [ false, %129 ], [ false, %127 ], [ false, %115 ], [ false, %117 ], [ false, %119 ], [ false, %121 ], [ %126, %125 ], [ false, %112 ], [ false, %113 ], [ false, %123 ]
-  %.0336 = phi i32 [ 4, %138 ], [ 0, %129 ], [ 0, %127 ], [ 3, %115 ], [ 1, %117 ], [ 4, %119 ], [ %spec.select, %121 ], [ %spec.select417, %125 ], [ 0, %112 ], [ 0, %113 ], [ 0, %123 ]
-  %.0333 = phi i8 [ %140, %138 ], [ %90, %129 ], [ %90, %127 ], [ %90, %115 ], [ %90, %117 ], [ %90, %119 ], [ %90, %121 ], [ %90, %125 ], [ %90, %112 ], [ %90, %113 ], [ %90, %123 ]
+  %.1337 = phi i32 [ 4, %138 ], [ 0, %129 ], [ 0, %127 ], [ 3, %115 ], [ 1, %117 ], [ 4, %119 ], [ %spec.select, %121 ], [ %spec.select417, %125 ], [ 0, %112 ], [ 0, %113 ], [ 0, %123 ]
+  %.1334 = phi i8 [ %140, %138 ], [ %90, %129 ], [ %90, %127 ], [ %90, %115 ], [ %90, %117 ], [ %90, %119 ], [ %90, %121 ], [ %90, %125 ], [ %90, %112 ], [ %90, %113 ], [ %90, %123 ]
   %145 = load ptr, ptr %8, align 8
-  store i8 %.0333, ptr %145, align 1
+  store i8 %.1334, ptr %145, align 1
   %146 = tail call noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef nonnull %145, i32 noundef %3, i32 noundef 2147483647)
   %.not369 = icmp eq ptr %146, null
   br i1 %.not369, label %147, label %160
@@ -2576,7 +2576,7 @@ switch.early.test:                                ; preds = %163
   br i1 %144, label %207, label %166
 
 166:                                              ; preds = %160, %165
-  br i1 %.0346, label %167, label %.thread
+  br i1 %.1347, label %167, label %.thread
 
 167:                                              ; preds = %166
   %168 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2597,10 +2597,10 @@ switch.early.test:                                ; preds = %163
   br label %619
 
 .thread:                                          ; preds = %62, %166
-  %.2436 = phi ptr [ %146, %166 ], [ %1, %62 ]
+  %.0295436 = phi ptr [ %146, %166 ], [ %1, %62 ]
   %.0332435 = phi i8 [ %161, %166 ], [ %63, %62 ]
-  %.1334434 = phi i8 [ %.0333, %166 ], [ %65, %62 ]
-  %.1337433 = phi i32 [ %.0336, %166 ], [ 0, %62 ]
+  %.0333434 = phi i8 [ %.1334, %166 ], [ %65, %62 ]
+  %.0336433 = phi i32 [ %.1337, %166 ], [ 0, %62 ]
   %183 = add i8 %.0332435, -48
   %184 = icmp ult i8 %183, 10
   br i1 %184, label %_Z10cv_isalnumc.exit.thread, label %185
@@ -2619,19 +2619,19 @@ switch.early.test:                                ; preds = %163
   br label %287
 
 187:                                              ; preds = %185, %185
-  %188 = add i8 %.1334434, -48
+  %188 = add i8 %.0333434, -48
   %189 = icmp ult i8 %188, 10
-  %190 = icmp eq i8 %.1334434, 46
+  %190 = icmp eq i8 %.0333434, 46
   %or.cond20 = or i1 %190, %189
   br i1 %or.cond20, label %_Z10cv_isalnumc.exit.thread, label %350
 
 191:                                              ; preds = %185
-  %192 = add i8 %.1334434, -48
+  %192 = add i8 %.0333434, -48
   %or.cond.i = icmp ult i8 %192, 10
-  %193 = add i8 %.1334434, -97
+  %193 = add i8 %.0333434, -97
   %or.cond5.i = icmp ult i8 %193, 26
   %or.cond11.i = or i1 %or.cond.i, %or.cond5.i
-  %194 = add i8 %.1334434, -65
+  %194 = add i8 %.0333434, -65
   %195 = icmp ult i8 %194, 26
   %or.cond445 = select i1 %or.cond11.i, i1 true, i1 %195
   br i1 %or.cond445, label %_Z10cv_isalnumc.exit.thread, label %.thread442
@@ -2641,7 +2641,7 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %191, %187, %.thread
   %197 = icmp eq i8 %.0332435, 43
   %198 = or i1 %196, %197
   %199 = zext i1 %198 to i64
-  %200 = getelementptr inbounds i8, ptr %.2436, i64 %199
+  %200 = getelementptr inbounds i8, ptr %.0295436, i64 %199
   br label %201
 
 201:                                              ; preds = %201, %_Z10cv_isalnumc.exit.thread
@@ -2660,19 +2660,19 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %191, %187, %.thread
   ]
 
 207:                                              ; preds = %206, %206, %165
-  %.3 = phi ptr [ %.2436, %206 ], [ %146, %165 ], [ %.2436, %206 ]
+  %.5 = phi ptr [ %.0295436, %206 ], [ %146, %165 ], [ %.0295436, %206 ]
   %208 = getelementptr inbounds i8, ptr %0, i64 8
   %209 = load ptr, ptr %208, align 8
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds i8, ptr %210, i64 168
   %212 = load ptr, ptr %211, align 8
-  %213 = call noundef double %212(ptr noundef nonnull align 8 dereferenceable(8) %209, ptr noundef %.3, ptr noundef nonnull %8)
+  %213 = call noundef double %212(ptr noundef nonnull align 8 dereferenceable(8) %209, ptr noundef %.5, ptr noundef nonnull %8)
   store double %213, ptr %13, align 8
   call void @_ZN2cv8FileNode8setValueEiPKvi(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 2, ptr noundef nonnull %13, i32 noundef -1)
   br label %217
 
 214:                                              ; preds = %206, %164
-  %.4 = phi ptr [ %146, %164 ], [ %.2436, %206 ]
+  %.4 = phi ptr [ %146, %164 ], [ %.0295436, %206 ]
   %215 = call i64 @strtol(ptr noundef %.4, ptr noundef nonnull %8, i32 noundef 0) #14
   %216 = trunc i64 %215 to i32
   store i32 %216, ptr %14, align 4
@@ -2680,10 +2680,10 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %191, %187, %.thread
   br label %217
 
 217:                                              ; preds = %214, %207
-  %.5 = phi ptr [ %.3, %207 ], [ %.4, %214 ]
+  %.7 = phi ptr [ %.5, %207 ], [ %.4, %214 ]
   %218 = load ptr, ptr %8, align 8
   %.not405 = icmp eq ptr %218, null
-  %219 = icmp eq ptr %218, %.5
+  %219 = icmp eq ptr %218, %.7
   %or.cond418 = or i1 %.not405, %219
   br i1 %or.cond418, label %220, label %233
 
@@ -2774,8 +2774,8 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %191, %187, %.thread
 
 258:                                              ; preds = %.preheader451, %_Z10cv_isalnumc.exit423.thread
   %indvars.iv = phi i64 [ 0, %.preheader451 ], [ %indvars.iv.next, %_Z10cv_isalnumc.exit423.thread ]
-  %.6494 = phi ptr [ %.2436, %.preheader451 ], [ %.7, %_Z10cv_isalnumc.exit423.thread ]
-  %259 = getelementptr inbounds i8, ptr %.6494, i64 1
+  %.8494 = phi ptr [ %.0295436, %.preheader451 ], [ %.9, %_Z10cv_isalnumc.exit423.thread ]
+  %259 = getelementptr inbounds i8, ptr %.8494, i64 1
   %260 = load i8, ptr %259, align 1
   %261 = add i8 %260, -48
   %or.cond.i420 = icmp ult i8 %261, 10
@@ -2796,7 +2796,7 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %191, %187, %.thread
   br i1 %269, label %270, label %273
 
 270:                                              ; preds = %268
-  %271 = getelementptr inbounds i8, ptr %.6494, i64 2
+  %271 = getelementptr inbounds i8, ptr %.8494, i64 2
   %272 = load i8, ptr %271, align 1
   %.not402 = icmp eq i8 %272, 39
   br i1 %.not402, label %_Z10cv_isalnumc.exit423.thread, label %.loopexit453.loopexit
@@ -2836,7 +2836,7 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %191, %187, %.thread
 
 _Z10cv_isalnumc.exit423.thread:                   ; preds = %270, %265, %258
   %.sink = phi i8 [ %260, %258 ], [ %260, %265 ], [ 39, %270 ]
-  %.7 = phi ptr [ %259, %258 ], [ %259, %265 ], [ %271, %270 ]
+  %.9 = phi ptr [ %259, %258 ], [ %259, %265 ], [ %271, %270 ]
   %286 = getelementptr inbounds [5120 x i8], ptr %257, i64 0, i64 %indvars.iv
   store i8 %.sink, ptr %286, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2844,9 +2844,9 @@ _Z10cv_isalnumc.exit423.thread:                   ; preds = %270, %265, %258
   br i1 %exitcond.not, label %.loopexit452, label %258, !llvm.loop !26
 
 287:                                              ; preds = %.preheader454, %334
-  %.8491 = phi ptr [ %.2436, %.preheader454 ], [ %.9, %334 ]
-  %.2341490 = phi i32 [ 0, %.preheader454 ], [ %.3342, %334 ]
-  %288 = getelementptr inbounds i8, ptr %.8491, i64 1
+  %.11491 = phi ptr [ %.0295436, %.preheader454 ], [ %.12, %334 ]
+  %.3342490 = phi i32 [ 0, %.preheader454 ], [ %.4343, %334 ]
+  %288 = getelementptr inbounds i8, ptr %.11491, i64 1
   %289 = load i8, ptr %288, align 1
   %290 = add i8 %289, -48
   %or.cond.i424 = icmp ult i8 %290, 10
@@ -2867,11 +2867,11 @@ switch.early.test419:                             ; preds = %294
   ]
 
 296:                                              ; preds = %switch.early.test419
-  %297 = getelementptr inbounds i8, ptr %.8491, i64 2
+  %297 = getelementptr inbounds i8, ptr %.11491, i64 2
   br label %.loopexit453
 
 298:                                              ; preds = %switch.early.test419
-  %299 = getelementptr inbounds i8, ptr %.8491, i64 2
+  %299 = getelementptr inbounds i8, ptr %.11491, i64 2
   %300 = load i8, ptr %299, align 1
   switch i8 %300, label %304 [
     i8 39, label %.sink.split
@@ -2902,7 +2902,7 @@ switch.early.test419:                             ; preds = %294
 
 308:                                              ; preds = %306, %304
   %309 = phi i32 [ 16, %306 ], [ 8, %304 ]
-  %310 = getelementptr inbounds i8, ptr %.8491, i64 5
+  %310 = getelementptr inbounds i8, ptr %.11491, i64 5
   %311 = load i8, ptr %310, align 1
   store i8 0, ptr %310, align 1
   %312 = zext i1 %305 to i64
@@ -2951,17 +2951,17 @@ switch.early.test419:                             ; preds = %294
 
 .sink.split:                                      ; preds = %298, %298, %308, %298, %switch.early.test419, %287, %302, %303, %301
   %.sink612 = phi i8 [ 10, %301 ], [ 9, %303 ], [ 13, %302 ], [ %289, %287 ], [ %289, %switch.early.test419 ], [ %300, %298 ], [ %spec.select615, %308 ], [ %300, %298 ], [ %300, %298 ]
-  %.9.ph = phi ptr [ %299, %301 ], [ %299, %303 ], [ %299, %302 ], [ %288, %287 ], [ %288, %switch.early.test419 ], [ %299, %298 ], [ %spec.select616, %308 ], [ %299, %298 ], [ %299, %298 ]
-  %331 = add nsw i32 %.2341490, 1
-  %332 = sext i32 %.2341490 to i64
+  %.12.ph = phi ptr [ %299, %301 ], [ %299, %303 ], [ %299, %302 ], [ %288, %287 ], [ %288, %switch.early.test419 ], [ %299, %298 ], [ %spec.select616, %308 ], [ %299, %298 ], [ %299, %298 ]
+  %331 = add nsw i32 %.3342490, 1
+  %332 = sext i32 %.3342490 to i64
   %333 = getelementptr inbounds [5120 x i8], ptr %186, i64 0, i64 %332
   store i8 %.sink612, ptr %333, align 1
   br label %334
 
 334:                                              ; preds = %.sink.split, %306
-  %.3342 = phi i32 [ %.2341490, %306 ], [ %331, %.sink.split ]
-  %.9 = phi ptr [ %299, %306 ], [ %.9.ph, %.sink.split ]
-  %335 = icmp slt i32 %.3342, 4096
+  %.4343 = phi i32 [ %.3342490, %306 ], [ %331, %.sink.split ]
+  %.12 = phi ptr [ %299, %306 ], [ %.12.ph, %.sink.split ]
+  %335 = icmp slt i32 %.4343, 4096
   br i1 %335, label %287, label %.loopexit452, !llvm.loop !27
 
 .loopexit452:                                     ; preds = %334, %_Z10cv_isalnumc.exit423.thread
@@ -3002,10 +3002,10 @@ switch.early.test419:                             ; preds = %294
   br label %.loopexit453
 
 .loopexit453:                                     ; preds = %.loopexit453.loopexit, %296
-  %.4343 = phi i32 [ %.2341490, %296 ], [ %348, %.loopexit453.loopexit ]
+  %.2341 = phi i32 [ %.3342490, %296 ], [ %348, %.loopexit453.loopexit ]
   %.10 = phi ptr [ %297, %296 ], [ %271, %.loopexit453.loopexit ]
   %349 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN2cv8FileNode8setValueEiPKvi(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 3, ptr noundef nonnull %349, i32 noundef %.4343)
+  tail call void @_ZN2cv8FileNode8setValueEiPKvi(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 3, ptr noundef nonnull %349, i32 noundef %.2341)
   br label %619
 
 350:                                              ; preds = %187, %185
@@ -3028,7 +3028,7 @@ switch.early.test419:                             ; preds = %294
   %362 = load ptr, ptr %361, align 8
   tail call void %362(ptr noundef nonnull align 8 dereferenceable(8) %359, i32 noundef %357, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %363 = select i1 %353, i32 93, i32 125
-  %364 = getelementptr inbounds i8, ptr %.2436, i64 1
+  %364 = getelementptr inbounds i8, ptr %.0295436, i64 1
   call void @_ZN2cv8FileNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25)
   %365 = call noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef nonnull %364, i32 noundef %356, i32 noundef 2147483647)
   %.not385495 = icmp eq ptr %365, null
@@ -3195,16 +3195,16 @@ switch.early.test419:                             ; preds = %294
   br label %620
 
 424:                                              ; preds = %409, %395
-  %.12 = phi ptr [ %411, %409 ], [ %377, %395 ]
+  %.15 = phi ptr [ %411, %409 ], [ %377, %395 ]
   br i1 %351, label %425, label %428
 
 425:                                              ; preds = %424
-  %426 = call noundef ptr @_ZN2cv10YAMLParser8parseKeyEPcRNS_8FileNodeES3_(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef nonnull %.12, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %25)
+  %426 = call noundef ptr @_ZN2cv10YAMLParser8parseKeyEPcRNS_8FileNodeES3_(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef nonnull %.15, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %25)
   %427 = call noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef %426, i32 noundef %356, i32 noundef 2147483647)
   br label %441
 
 428:                                              ; preds = %424
-  %429 = load i8, ptr %.12, align 1
+  %429 = load i8, ptr %.15, align 1
   %430 = icmp eq i8 %429, 93
   br i1 %430, label %.loopexit450, label %431
 
@@ -3232,8 +3232,8 @@ switch.early.test419:                             ; preds = %294
   br label %620
 
 441:                                              ; preds = %438, %425
-  %.13 = phi ptr [ %427, %425 ], [ %.12, %438 ]
-  %442 = call noundef ptr @_ZN2cv10YAMLParser10parseValueEPcRNS_8FileNodeEib(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef %.13, ptr noundef nonnull align 8 dereferenceable(24) %25, i32 noundef %356, i1 noundef zeroext true)
+  %.16 = phi ptr [ %427, %425 ], [ %.15, %438 ]
+  %442 = call noundef ptr @_ZN2cv10YAMLParser10parseValueEPcRNS_8FileNodeEib(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef %.16, ptr noundef nonnull align 8 dereferenceable(24) %25, i32 noundef %356, i1 noundef zeroext true)
   %443 = add nuw nsw i32 %.0294496, 1
   call void @_ZN2cv8FileNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %25)
   %444 = call noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef %442, i32 noundef %356, i32 noundef 2147483647)
@@ -3241,7 +3241,7 @@ switch.early.test419:                             ; preds = %294
   br i1 %.not385, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 .loopexit450:                                     ; preds = %428, %393
-  %.14 = phi ptr [ %394, %393 ], [ %.12, %428 ]
+  %.14 = phi ptr [ %394, %393 ], [ %.15, %428 ]
   %445 = load ptr, ptr %358, align 8
   %446 = load ptr, ptr %445, align 8
   %447 = getelementptr inbounds i8, ptr %446, i64 160
@@ -3331,8 +3331,8 @@ switch.early.test419:                             ; preds = %294
   br label %620
 
 478:                                              ; preds = %451
-  %479 = getelementptr inbounds i8, ptr %.2436, i64 -1
-  %.2338.fr = freeze i32 %.1337433
+  %479 = getelementptr inbounds i8, ptr %.0295436, i64 -1
+  %.2338.fr = freeze i32 %.0336433
   %480 = icmp eq i32 %.2338.fr, 3
   %481 = or i1 %480, %4
   br i1 %481, label %.split.us.thread, label %.critedge63
@@ -3345,15 +3345,15 @@ switch.early.test419:                             ; preds = %294
   br i1 %484, label %.lr.ph500, label %.critedge61
 
 .split.us.thread567:                              ; preds = %.thread442
-  %485 = getelementptr inbounds i8, ptr %.2436, i64 -1
-  store ptr %.2436, ptr %8, align 8
-  %486 = load i8, ptr %.2436, align 1
+  %485 = getelementptr inbounds i8, ptr %.0295436, i64 -1
+  store ptr %.0295436, ptr %8, align 8
+  %486 = load i8, ptr %.0295436, align 1
   %487 = icmp ugt i8 %486, 31
   br i1 %487, label %.lr.ph500.split.us.preheader, label %.critedge61
 
 .split.us.thread:                                 ; preds = %478
-  store ptr %.2436, ptr %8, align 8
-  %488 = load i8, ptr %.2436, align 1
+  store ptr %.0295436, ptr %8, align 8
+  %488 = load i8, ptr %.0295436, align 1
   %489 = icmp ugt i8 %488, 31
   br i1 %489, label %.critedge63.us.preheader, label %.critedge61
 
@@ -3361,18 +3361,18 @@ switch.early.test419:                             ; preds = %294
   br i1 %4, label %.lr.ph500.split.us.preheader, label %.critedge63.us.preheader
 
 .critedge63.us.preheader:                         ; preds = %.split.us.thread, %.lr.ph500
-  %.15562564566 = phi ptr [ %146, %.lr.ph500 ], [ %.2436, %.split.us.thread ]
+  %.3562564566 = phi ptr [ %146, %.lr.ph500 ], [ %.0295436, %.split.us.thread ]
   br label %.critedge63.us
 
 .lr.ph500.split.us.preheader:                     ; preds = %.split.us.thread567, %.lr.ph500
   %490 = phi ptr [ %482, %.lr.ph500 ], [ %485, %.split.us.thread567 ]
-  %.15562564571 = phi ptr [ %146, %.lr.ph500 ], [ %.2436, %.split.us.thread567 ]
+  %.3562564571 = phi ptr [ %146, %.lr.ph500 ], [ %.0295436, %.split.us.thread567 ]
   %491 = phi i8 [ %483, %.lr.ph500 ], [ %486, %.split.us.thread567 ]
   br label %.lr.ph500.split.us
 
 .lr.ph500.split.us:                               ; preds = %.lr.ph500.split.us.preheader, %.critedge63.us.us
   %492 = phi i8 [ %496, %.critedge63.us.us ], [ %491, %.lr.ph500.split.us.preheader ]
-  %493 = phi ptr [ %495, %.critedge63.us.us ], [ %.15562564571, %.lr.ph500.split.us.preheader ]
+  %493 = phi ptr [ %495, %.critedge63.us.us ], [ %.3562564571, %.lr.ph500.split.us.preheader ]
   %494 = phi ptr [ %493, %.critedge63.us.us ], [ %490, %.lr.ph500.split.us.preheader ]
   switch i8 %492, label %.critedge63.us.us [
     i8 125, label %.critedge61
@@ -3388,7 +3388,7 @@ switch.early.test419:                             ; preds = %294
   br i1 %497, label %.lr.ph500.split.us, label %.critedge61
 
 .critedge63.us:                                   ; preds = %.critedge63.us.preheader, %.critedge63.us
-  %498 = phi ptr [ %499, %.critedge63.us ], [ %.15562564566, %.critedge63.us.preheader ]
+  %498 = phi ptr [ %499, %.critedge63.us ], [ %.3562564566, %.critedge63.us.preheader ]
   %499 = getelementptr inbounds i8, ptr %498, i64 1
   store ptr %499, ptr %8, align 8
   %500 = load i8, ptr %499, align 1
@@ -3406,12 +3406,12 @@ switch.early.test419:                             ; preds = %294
   br i1 %or.cond518, label %.critedge63, label %.critedge61, !llvm.loop !29
 
 .critedge61:                                      ; preds = %.critedge63, %.critedge63.us, %.lr.ph500.split.us, %.lr.ph500.split.us, %.lr.ph500.split.us, %.critedge63.us.us, %.split.us.thread567, %.split.us.thread, %.split.us
-  %.15561 = phi ptr [ %146, %.split.us ], [ %.2436, %.split.us.thread ], [ %.2436, %.split.us.thread567 ], [ %.15562564571, %.critedge63.us.us ], [ %.15562564571, %.lr.ph500.split.us ], [ %.15562564571, %.lr.ph500.split.us ], [ %.15562564571, %.lr.ph500.split.us ], [ %.15562564566, %.critedge63.us ], [ %.2436, %.critedge63 ]
-  %507 = phi ptr [ %146, %.split.us ], [ %.2436, %.split.us.thread ], [ %.2436, %.split.us.thread567 ], [ %493, %.lr.ph500.split.us ], [ %493, %.lr.ph500.split.us ], [ %493, %.lr.ph500.split.us ], [ %495, %.critedge63.us.us ], [ %499, %.critedge63.us ], [ %503, %.critedge63 ]
+  %.3561 = phi ptr [ %146, %.split.us ], [ %.0295436, %.split.us.thread ], [ %.0295436, %.split.us.thread567 ], [ %.3562564571, %.critedge63.us.us ], [ %.3562564571, %.lr.ph500.split.us ], [ %.3562564571, %.lr.ph500.split.us ], [ %.3562564571, %.lr.ph500.split.us ], [ %.3562564566, %.critedge63.us ], [ %.0295436, %.critedge63 ]
+  %507 = phi ptr [ %146, %.split.us ], [ %.0295436, %.split.us.thread ], [ %.0295436, %.split.us.thread567 ], [ %493, %.lr.ph500.split.us ], [ %493, %.lr.ph500.split.us ], [ %493, %.lr.ph500.split.us ], [ %495, %.critedge63.us.us ], [ %499, %.critedge63.us ], [ %503, %.critedge63 ]
   %.us-phi = phi ptr [ %482, %.split.us ], [ %479, %.split.us.thread ], [ %485, %.split.us.thread567 ], [ %494, %.lr.ph500.split.us ], [ %494, %.lr.ph500.split.us ], [ %494, %.lr.ph500.split.us ], [ %493, %.critedge63.us.us ], [ %498, %.critedge63.us ], [ %502, %.critedge63 ]
   %.us-phi499 = phi i8 [ %483, %.split.us ], [ %488, %.split.us.thread ], [ %486, %.split.us.thread567 ], [ %492, %.lr.ph500.split.us ], [ %492, %.lr.ph500.split.us ], [ %492, %.lr.ph500.split.us ], [ %496, %.critedge63.us.us ], [ %500, %.critedge63.us ], [ %504, %.critedge63 ]
   %508 = getelementptr inbounds i8, ptr %.us-phi, i64 1
-  %509 = icmp eq ptr %508, %.15561
+  %509 = icmp eq ptr %508, %.3561
   br i1 %509, label %510, label %523
 
 510:                                              ; preds = %.critedge61
@@ -3456,21 +3456,21 @@ switch.early.test419:                             ; preds = %294
   %.0 = phi ptr [ %525, %.preheader ], [ %508, %523 ]
   %525 = getelementptr inbounds i8, ptr %.0, i64 -1
   %526 = load i8, ptr %525, align 1
-  %527 = icmp ugt ptr %525, %.15561
+  %527 = icmp ugt ptr %525, %.3561
   %528 = icmp eq i8 %526, 32
   %529 = select i1 %527, i1 %528, i1 false
   br i1 %529, label %.preheader, label %530, !llvm.loop !30
 
 530:                                              ; preds = %.preheader
   %531 = ptrtoint ptr %.0 to i64
-  %532 = ptrtoint ptr %.15561 to i64
+  %532 = ptrtoint ptr %.3561 to i64
   %533 = sub i64 %531, %532
   %534 = trunc i64 %533 to i32
-  tail call void @_ZN2cv8FileNode8setValueEiPKvi(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 3, ptr noundef %.15561, i32 noundef %534)
+  tail call void @_ZN2cv8FileNode8setValueEiPKvi(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 3, ptr noundef %.3561, i32 noundef %534)
   br label %619
 
 535:                                              ; preds = %449, %523
-  %.16 = phi ptr [ %.15561, %523 ], [ %.2436, %449 ]
+  %.17 = phi ptr [ %.3561, %523 ], [ %.0295436, %449 ]
   %536 = phi i1 [ true, %523 ], [ false, %449 ]
   %.0292 = phi i32 [ 5, %523 ], [ 4, %449 ]
   %537 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3484,7 +3484,7 @@ switch.early.test419:                             ; preds = %294
   %544 = getelementptr inbounds i8, ptr %543, i64 88
   %545 = load ptr, ptr %544, align 8
   %546 = tail call noundef ptr %545(ptr noundef nonnull align 8 dereferenceable(8) %542)
-  %547 = ptrtoint ptr %.16 to i64
+  %547 = ptrtoint ptr %.17 to i64
   %548 = ptrtoint ptr %546 to i64
   %549 = sub i64 %547, %548
   %550 = trunc i64 %549 to i32
@@ -3494,17 +3494,17 @@ switch.early.test419:                             ; preds = %294
   br label %553
 
 553:                                              ; preds = %613, %535
-  %.17 = phi ptr [ %.16, %535 ], [ %583, %613 ]
+  %.18 = phi ptr [ %.17, %535 ], [ %583, %613 ]
   call void @_ZN2cv8FileNodeC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %42)
   br i1 %536, label %554, label %556
 
 554:                                              ; preds = %553
-  %555 = call noundef ptr @_ZN2cv10YAMLParser8parseKeyEPcRNS_8FileNodeES3_(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef %.17, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %42)
+  %555 = call noundef ptr @_ZN2cv10YAMLParser8parseKeyEPcRNS_8FileNodeES3_(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef %.18, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %42)
   br label %580
 
 556:                                              ; preds = %553
-  %557 = getelementptr inbounds i8, ptr %.17, i64 1
-  %558 = load i8, ptr %.17, align 1
+  %557 = getelementptr inbounds i8, ptr %.18, i64 1
+  %558 = load i8, ptr %.18, align 1
   %.not376 = icmp eq i8 %558, 45
   %559 = load ptr, ptr %537, align 8
   br i1 %.not376, label %571, label %560
@@ -3563,8 +3563,8 @@ switch.early.test419:                             ; preds = %294
   br label %620
 
 580:                                              ; preds = %577, %554
-  %.18 = phi ptr [ %555, %554 ], [ %557, %577 ]
-  %581 = call noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef %.18, i32 noundef %551, i32 noundef 2147483647)
+  %.19 = phi ptr [ %555, %554 ], [ %557, %577 ]
+  %581 = call noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef %.19, i32 noundef %551, i32 noundef 2147483647)
   %582 = call noundef ptr @_ZN2cv10YAMLParser10parseValueEPcRNS_8FileNodeEib(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef %581, ptr noundef nonnull align 8 dereferenceable(24) %42, i32 noundef %551, i1 noundef zeroext false)
   %583 = call noundef ptr @_ZN2cv10YAMLParser10skipSpacesEPcii(ptr noundef nonnull align 8 dereferenceable(5136) %0, ptr noundef %582, i32 noundef 0, i32 noundef 2147483647)
   %584 = load ptr, ptr %537, align 8

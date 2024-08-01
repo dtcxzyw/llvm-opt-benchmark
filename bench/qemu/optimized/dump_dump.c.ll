@@ -3658,15 +3658,15 @@ if.else66:                                        ; preds = %if.then63
   br label %while.body.outer.backedge
 
 while.end:                                        ; preds = %if.else55, %if.then63, %if.end41, %lor.lhs.false, %if.then22
-  %buf.3 = phi ptr [ %add.ptr, %if.then22 ], [ %buf.0.ph, %if.else55 ], [ %buf.1, %if.end41 ], [ %buf.1, %lor.lhs.false ], [ %buf.0.ph, %if.then63 ]
+  %buf.2 = phi ptr [ %add.ptr, %if.then22 ], [ %buf.0.ph, %if.else55 ], [ %buf.1, %if.end41 ], [ %buf.1, %lor.lhs.false ], [ %buf.0.ph, %if.then63 ]
   br i1 %tobool31.not, label %if.end73, label %if.then72
 
 if.then72:                                        ; preds = %while.end
-  store ptr %buf.3, ptr %bufptr, align 8
+  store ptr %buf.2, ptr %bufptr, align 8
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then72, %while.end
-  %cmp74 = icmp ne ptr %buf.3, null
+  %cmp74 = icmp ne ptr %buf.2, null
   br label %return
 
 return:                                           ; preds = %if.else30, %if.end73

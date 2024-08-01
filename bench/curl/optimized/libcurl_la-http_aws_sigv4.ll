@@ -258,7 +258,7 @@ while.body31.i:                                   ; preds = %land.rhs19.i, %land
   br i1 %cmp17.not.i, label %parse_content_sha_hdr.exit.thread, label %land.rhs19.i, !llvm.loop !6
 
 parse_content_sha_hdr.exit.thread:                ; preds = %while.body31.i, %land.rhs19.i, %while.end.i
-  %payload_hash_len.0.ph = phi i64 [ 0, %while.end.i ], [ %len.017.i, %land.rhs19.i ], [ 0, %while.body31.i ]
+  %payload_hash_len.1.ph = phi i64 [ 0, %while.end.i ], [ %len.017.i, %land.rhs19.i ], [ 0, %while.body31.i ]
   call void @llvm.lifetime.end.p0(i64 82, ptr nonnull %key.i)
   br label %if.end110
 
@@ -362,7 +362,7 @@ if.end106:                                        ; preds = %if.end14.i, %if.the
   br label %if.end110
 
 if.end110:                                        ; preds = %parse_content_sha_hdr.exit.thread, %if.end106
-  %payload_hash_len.1 = phi i64 [ %call109, %if.end106 ], [ %payload_hash_len.0.ph, %parse_content_sha_hdr.exit.thread ]
+  %payload_hash_len.0 = phi i64 [ %call109, %if.end106 ], [ %payload_hash_len.1.ph, %parse_content_sha_hdr.exit.thread ]
   %payload_hash.0 = phi ptr [ %sha_hex, %if.end106 ], [ %value.0.i, %parse_content_sha_hdr.exit.thread ]
   %call111 = call i64 @time(ptr noundef nonnull %clock) #12
   %22 = load i64, ptr %clock, align 8
@@ -435,7 +435,7 @@ if.then37.i:                                      ; preds = %if.end35.i
   br i1 %tobool39.not.i, label %make_headers.exit.thread, label %if.end42.i
 
 if.end42.i:                                       ; preds = %if.then37.i, %if.end35.i
-  %head.1.i = phi ptr [ %head.0.i, %if.end35.i ], [ %call38.i, %if.then37.i ]
+  %head.2.i = phi ptr [ %head.0.i, %if.end35.i ], [ %call38.i, %if.then37.i ]
   %headers.i = getelementptr inbounds i8, ptr %data, i64 800
   %l.0117.i = load ptr, ptr %headers.i, align 8
   %tobool43.not118.i = icmp eq ptr %l.0117.i, null
@@ -443,7 +443,7 @@ if.end42.i:                                       ; preds = %if.then37.i, %if.en
 
 for.body.i:                                       ; preds = %if.end42.i, %for.inc91.i
   %l.0120.i = phi ptr [ %l.0.i, %for.inc91.i ], [ %l.0117.i, %if.end42.i ]
-  %head.2119.i = phi ptr [ %head.3.i, %for.inc91.i ], [ %head.1.i, %if.end42.i ]
+  %head.3119.i = phi ptr [ %head.4.i, %for.inc91.i ], [ %head.2.i, %if.end42.i ]
   %26 = load ptr, ptr %l.0120.i, align 8
   %call45.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %26, i32 noundef 58) #13
   %tobool46.not.i = icmp eq ptr %call45.i, null
@@ -506,7 +506,7 @@ if.end84.i:                                       ; preds = %if.end79.i
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %arrayidx86.i = getelementptr inbounds i8, ptr %call81.i, i64 %sub.ptr.sub.i
   store i8 58, ptr %arrayidx86.i, align 1
-  %call87.i = call ptr @Curl_slist_append_nodup(ptr noundef %head.2119.i, ptr noundef nonnull %call81.i) #12
+  %call87.i = call ptr @Curl_slist_append_nodup(ptr noundef %head.3119.i, ptr noundef nonnull %call81.i) #12
   %tobool88.not.i = icmp eq ptr %call87.i, null
   br i1 %tobool88.not.i, label %if.then89.i, label %for.inc91.i
 
@@ -516,19 +516,19 @@ if.then89.i:                                      ; preds = %if.end84.i
   br label %make_headers.exit.thread
 
 for.inc91.i:                                      ; preds = %if.end84.i, %for.end.i, %land.lhs.true.i, %if.end50.i
-  %head.3.i = phi ptr [ %head.2119.i, %land.lhs.true.i ], [ %head.2119.i, %if.end50.i ], [ %head.2119.i, %for.end.i ], [ %call87.i, %if.end84.i ]
+  %head.4.i = phi ptr [ %head.3119.i, %land.lhs.true.i ], [ %head.3119.i, %if.end50.i ], [ %head.3119.i, %for.end.i ], [ %call87.i, %if.end84.i ]
   %next.i = getelementptr inbounds i8, ptr %l.0120.i, i64 8
   %l.0.i = load ptr, ptr %next.i, align 8
   %tobool43.not.i = icmp eq ptr %l.0.i, null
   br i1 %tobool43.not.i, label %for.end92.i, label %for.body.i, !llvm.loop !8
 
 for.end92.i:                                      ; preds = %for.inc91.i, %if.end42.i
-  %head.2.lcssa.i = phi ptr [ %head.1.i, %if.end42.i ], [ %head.3.i, %for.inc91.i ]
-  %tobool.not27.i.i = icmp eq ptr %head.2.lcssa.i, null
+  %head.3.lcssa.i = phi ptr [ %head.2.i, %if.end42.i ], [ %head.4.i, %for.inc91.i ]
+  %tobool.not27.i.i = icmp eq ptr %head.3.lcssa.i, null
   br i1 %tobool.not27.i.i, label %trim_headers.exit.i, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.end92.i, %for.inc.i.i
-  %l.028.i.i = phi ptr [ %38, %for.inc.i.i ], [ %head.2.lcssa.i, %for.end92.i ]
+  %l.028.i.i = phi ptr [ %38, %for.inc.i.i ], [ %head.3.lcssa.i, %for.end92.i ]
   %34 = load ptr, ptr %l.028.i.i, align 8
   %call.i.i86 = call i64 @strcspn(ptr noundef %34, ptr noundef nonnull @.str.32) #13
   call void @Curl_strntolower(ptr noundef %34, ptr noundef %34, i64 noundef %call.i.i86) #12
@@ -620,7 +620,7 @@ find_date_hdr.exit.i:                             ; preds = %trim_headers.exit.i
   br i1 %tobool95.not.i, label %if.then96.i, label %if.else104.i
 
 if.then96.i:                                      ; preds = %find_date_hdr.exit.i
-  %call98.i = call ptr @curl_slist_append(ptr noundef %head.2.lcssa.i, ptr noundef nonnull %date_full_hdr.i) #12
+  %call98.i = call ptr @curl_slist_append(ptr noundef %head.3.lcssa.i, ptr noundef nonnull %date_full_hdr.i) #12
   %tobool99.not.i = icmp eq ptr %call98.i, null
   br i1 %tobool99.not.i, label %make_headers.exit.thread, label %if.end162.thread.i
 
@@ -683,12 +683,12 @@ if.end162.i:                                      ; preds = %if.then157.i, %whil
   br i1 %tobool.not27.i.i, label %if.end127, label %do.body.preheader.i
 
 do.body.preheader.i:                              ; preds = %if.end162.i, %if.end162.thread.i
-  %date_header.0 = phi ptr [ %call103.i, %if.end162.thread.i ], [ null, %if.end162.i ]
-  %head.4157.i = phi ptr [ %call98.i, %if.end162.thread.i ], [ %head.2.lcssa.i, %if.end162.i ]
+  %date_header.1 = phi ptr [ %call103.i, %if.end162.thread.i ], [ null, %if.end162.i ]
+  %head.5157.i = phi ptr [ %call98.i, %if.end162.thread.i ], [ %head.3.lcssa.i, %if.end162.i ]
   br label %for.body165.i
 
 for.body165.i:                                    ; preds = %for.body165.i.backedge, %do.body.preheader.i
-  %l.1127.i = phi ptr [ %head.4157.i, %do.body.preheader.i ], [ %l.1127.i.be, %for.body165.i.backedge ]
+  %l.1127.i = phi ptr [ %head.5157.i, %do.body.preheader.i ], [ %l.1127.i.be, %for.body165.i.backedge ]
   %again.0126.i = phi i32 [ 0, %do.body.preheader.i ], [ %again.0126.i.be, %for.body165.i.backedge ]
   %next167.i = getelementptr inbounds i8, ptr %l.1127.i, i64 8
   %45 = load ptr, ptr %next167.i, align 8
@@ -715,7 +715,7 @@ for.inc181.i:                                     ; preds = %if.then175.i, %land
   br i1 %tobool164.not.i, label %for.cond163.do.cond_crit_edge.i, label %for.body165.i.backedge
 
 for.body165.i.backedge:                           ; preds = %for.inc181.i, %for.cond163.do.cond_crit_edge.i
-  %l.1127.i.be = phi ptr [ %48, %for.inc181.i ], [ %head.4157.i, %for.cond163.do.cond_crit_edge.i ]
+  %l.1127.i.be = phi ptr [ %48, %for.inc181.i ], [ %head.5157.i, %for.cond163.do.cond_crit_edge.i ]
   %again.0126.i.be = phi i32 [ %again.1.i, %for.inc181.i ], [ 0, %for.cond163.do.cond_crit_edge.i ]
   br label %for.body165.i, !llvm.loop !15
 
@@ -725,7 +725,7 @@ for.cond163.do.cond_crit_edge.i:                  ; preds = %for.inc181.i, %for.
   br i1 %tobool184.not.i, label %for.body187.i, label %for.body165.i.backedge
 
 for.body187.i:                                    ; preds = %for.cond163.do.cond_crit_edge.i, %for.inc216.i
-  %l.2130.i = phi ptr [ %52, %for.inc216.i ], [ %head.4157.i, %for.cond163.do.cond_crit_edge.i ]
+  %l.2130.i = phi ptr [ %52, %for.inc216.i ], [ %head.5157.i, %for.cond163.do.cond_crit_edge.i ]
   %49 = load ptr, ptr %l.2130.i, align 8
   %call190.i = call i32 @Curl_dyn_add(ptr noundef nonnull %canonical_headers, ptr noundef %49) #12
   %tobool191.not.i = icmp eq i32 %call190.i, 0
@@ -747,7 +747,7 @@ if.then201.i:                                     ; preds = %if.end197.i
   br label %if.end202.i
 
 if.end202.i:                                      ; preds = %if.then201.i, %if.end197.i
-  %cmp203.not.i = icmp eq ptr %l.2130.i, %head.4157.i
+  %cmp203.not.i = icmp eq ptr %l.2130.i, %head.5157.i
   br i1 %cmp203.not.i, label %if.end210.i, label %if.then205.i
 
 if.then205.i:                                     ; preds = %if.end202.i
@@ -768,19 +768,19 @@ for.inc216.i:                                     ; preds = %if.end210.i
   br i1 %tobool186.not.i, label %if.end127, label %for.body187.i, !llvm.loop !16
 
 make_headers.exit.thread:                         ; preds = %if.end79.i, %for.body187.i, %if.end193.i, %if.then205.i, %if.end210.i, %if.then89.i, %if.then96.i, %if.then37.i, %if.end29.i, %if.then8.i94, %if.else22.i, %if.else104.i
-  %date_header.1.ph = phi ptr [ null, %if.else104.i ], [ null, %if.then8.i94 ], [ null, %if.then37.i ], [ null, %if.then89.i ], [ null, %if.then96.i ], [ null, %if.end29.i ], [ null, %if.else22.i ], [ %date_header.0, %if.end210.i ], [ %date_header.0, %if.then205.i ], [ %date_header.0, %if.end193.i ], [ %date_header.0, %for.body187.i ], [ null, %if.end79.i ]
+  %date_header.2.ph = phi ptr [ null, %if.else104.i ], [ null, %if.then8.i94 ], [ null, %if.then37.i ], [ null, %if.then89.i ], [ null, %if.then96.i ], [ null, %if.end29.i ], [ null, %if.else22.i ], [ %date_header.1, %if.end210.i ], [ %date_header.1, %if.then205.i ], [ %date_header.1, %if.end193.i ], [ %date_header.1, %for.body187.i ], [ null, %if.end79.i ]
   %ret.0.i91.ph = phi i32 [ 27, %if.else104.i ], [ 3, %if.then8.i94 ], [ 27, %if.then37.i ], [ 27, %if.then89.i ], [ 27, %if.then96.i ], [ 27, %if.end29.i ], [ 3, %if.else22.i ], [ 27, %if.end210.i ], [ 27, %if.then205.i ], [ 27, %if.end193.i ], [ 27, %for.body187.i ], [ 27, %if.end79.i ]
-  %head.5.i.ph = phi ptr [ %head.2.lcssa.i, %if.else104.i ], [ null, %if.then8.i94 ], [ %head.0.i, %if.then37.i ], [ %head.2119.i, %if.then89.i ], [ %head.2.lcssa.i, %if.then96.i ], [ null, %if.end29.i ], [ null, %if.else22.i ], [ %head.4157.i, %if.end210.i ], [ %head.4157.i, %if.then205.i ], [ %head.4157.i, %if.end193.i ], [ %head.4157.i, %for.body187.i ], [ %head.2119.i, %if.end79.i ]
-  call void @curl_slist_free_all(ptr noundef %head.5.i.ph) #12
+  %head.1.i.ph = phi ptr [ %head.3.lcssa.i, %if.else104.i ], [ null, %if.then8.i94 ], [ %head.0.i, %if.then37.i ], [ %head.3119.i, %if.then89.i ], [ %head.3.lcssa.i, %if.then96.i ], [ null, %if.end29.i ], [ null, %if.else22.i ], [ %head.5157.i, %if.end210.i ], [ %head.5157.i, %if.then205.i ], [ %head.5157.i, %if.end193.i ], [ %head.5157.i, %for.body187.i ], [ %head.3119.i, %if.end79.i ]
+  call void @curl_slist_free_all(ptr noundef %head.1.i.ph) #12
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %date_hdr_key.i)
   call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %date_full_hdr.i)
   call void @llvm.lifetime.end.p0(i64 262, ptr nonnull %full_host.i)
   br label %fail
 
 if.end127:                                        ; preds = %for.inc216.i, %if.end162.i
-  %date_header.1 = phi ptr [ null, %if.end162.i ], [ %date_header.0, %for.inc216.i ]
-  %head.5.i = phi ptr [ null, %if.end162.i ], [ %head.4157.i, %for.inc216.i ]
-  call void @curl_slist_free_all(ptr noundef %head.5.i) #12
+  %date_header.2 = phi ptr [ null, %if.end162.i ], [ %date_header.1, %for.inc216.i ]
+  %head.1.i = phi ptr [ null, %if.end162.i ], [ %head.5157.i, %for.inc216.i ]
+  call void @curl_slist_free_all(ptr noundef %head.1.i) #12
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %date_hdr_key.i)
   call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %date_full_hdr.i)
   call void @llvm.lifetime.end.p0(i64 262, ptr nonnull %full_host.i)
@@ -821,7 +821,7 @@ cond.end153:                                      ; preds = %if.end145, %cond.tr
   %cond154 = phi ptr [ %call151, %cond.true150 ], [ @.str, %if.end145 ]
   %call155 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %canonical_headers) #12
   %call156 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %signed_headers) #12
-  %conv = trunc i64 %payload_hash_len.1 to i32
+  %conv = trunc i64 %payload_hash_len.0 to i32
   %call157 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.15, ptr noundef %56, ptr noundef %57, ptr noundef %cond154, ptr noundef %call155, ptr noundef %call156, i32 noundef %conv, ptr noundef nonnull %payload_hash.0) #12
   %tobool158.not = icmp eq ptr %call157, null
   br i1 %tobool158.not, label %fail, label %do.end162
@@ -895,8 +895,8 @@ do.body255:                                       ; preds = %do.body246
 do.end263:                                        ; preds = %do.body255
   call void @Curl_hexencode(ptr noundef nonnull %sign0, i64 noundef 32, ptr noundef nonnull %sha_hex, i64 noundef 65) #12
   %call267 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %signed_headers) #12
-  %tobool269.not = icmp eq ptr %date_header.1, null
-  %cond273 = select i1 %tobool269.not, ptr @.str, ptr %date_header.1
+  %tobool269.not = icmp eq ptr %date_header.2, null
+  %cond273 = select i1 %tobool269.not, ptr @.str, ptr %date_header.2
   %call275 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.20, ptr noundef nonnull %provider0, ptr noundef nonnull %spec.select, ptr noundef nonnull %call175, ptr noundef %call267, ptr noundef nonnull %sha_hex, ptr noundef nonnull %cond273, ptr noundef nonnull %content_sha256_hdr) #12
   %tobool276.not = icmp eq ptr %call275, null
   br i1 %tobool276.not, label %fail, label %do.body279
@@ -914,13 +914,13 @@ do.body279:                                       ; preds = %do.end263
   br label %fail
 
 fail:                                             ; preds = %make_headers.exit.thread, %if.end5.i.i, %if.end5.i, %if.end115, %do.end263, %do.body255, %do.body246, %do.body235, %do.body224, %do.body213, %if.end197, %if.end184, %if.end178, %if.end171, %do.end162, %cond.end153, %if.end137, %if.end110, %do.body279, %if.then61, %if.then55, %if.then38, %if.then36, %if.then22
-  %date_header.2 = phi ptr [ null, %if.then22 ], [ null, %if.then36 ], [ null, %if.then38 ], [ null, %if.then55 ], [ null, %if.then61 ], [ null, %if.end115 ], [ %date_header.1, %cond.end153 ], [ %date_header.1, %do.end162 ], [ %date_header.1, %if.end171 ], [ %date_header.1, %if.end184 ], [ %date_header.1, %if.end197 ], [ %date_header.1, %do.end263 ], [ %date_header.1, %do.body279 ], [ %date_header.1, %do.body255 ], [ %date_header.1, %do.body246 ], [ %date_header.1, %do.body235 ], [ %date_header.1, %do.body224 ], [ %date_header.1, %do.body213 ], [ %date_header.1, %if.end178 ], [ %date_header.1, %if.end137 ], [ null, %if.end110 ], [ null, %if.end5.i ], [ null, %if.end5.i.i ], [ %date_header.1.ph, %make_headers.exit.thread ]
+  %date_header.0 = phi ptr [ null, %if.then22 ], [ null, %if.then36 ], [ null, %if.then38 ], [ null, %if.then55 ], [ null, %if.then61 ], [ null, %if.end115 ], [ %date_header.2, %cond.end153 ], [ %date_header.2, %do.end162 ], [ %date_header.2, %if.end171 ], [ %date_header.2, %if.end184 ], [ %date_header.2, %if.end197 ], [ %date_header.2, %do.end263 ], [ %date_header.2, %do.body279 ], [ %date_header.2, %do.body255 ], [ %date_header.2, %do.body246 ], [ %date_header.2, %do.body235 ], [ %date_header.2, %do.body224 ], [ %date_header.2, %do.body213 ], [ %date_header.2, %if.end178 ], [ %date_header.2, %if.end137 ], [ null, %if.end110 ], [ null, %if.end5.i ], [ null, %if.end5.i.i ], [ %date_header.2.ph, %make_headers.exit.thread ]
   %canonical_request.0 = phi ptr [ null, %if.then22 ], [ null, %if.then36 ], [ null, %if.then38 ], [ null, %if.then55 ], [ null, %if.then61 ], [ null, %if.end115 ], [ null, %cond.end153 ], [ %call157, %do.end162 ], [ %call157, %if.end171 ], [ %call157, %if.end184 ], [ %call157, %if.end197 ], [ %call157, %do.end263 ], [ %call157, %do.body279 ], [ %call157, %do.body255 ], [ %call157, %do.body246 ], [ %call157, %do.body235 ], [ %call157, %do.body224 ], [ %call157, %do.body213 ], [ %call157, %if.end178 ], [ null, %if.end137 ], [ null, %if.end110 ], [ null, %if.end5.i ], [ null, %if.end5.i.i ], [ null, %make_headers.exit.thread ]
   %request_type.0 = phi ptr [ null, %if.then22 ], [ null, %if.then36 ], [ null, %if.then38 ], [ null, %if.then55 ], [ null, %if.then61 ], [ null, %if.end115 ], [ null, %cond.end153 ], [ null, %do.end162 ], [ %call168, %if.end171 ], [ %call168, %if.end184 ], [ %call168, %if.end197 ], [ %call168, %do.end263 ], [ %call168, %do.body279 ], [ %call168, %do.body255 ], [ %call168, %do.body246 ], [ %call168, %do.body235 ], [ %call168, %do.body224 ], [ %call168, %do.body213 ], [ %call168, %if.end178 ], [ null, %if.end137 ], [ null, %if.end110 ], [ null, %if.end5.i ], [ null, %if.end5.i.i ], [ null, %make_headers.exit.thread ]
   %credential_scope.0 = phi ptr [ null, %if.then22 ], [ null, %if.then36 ], [ null, %if.then38 ], [ null, %if.then55 ], [ null, %if.then61 ], [ null, %if.end115 ], [ null, %cond.end153 ], [ null, %do.end162 ], [ null, %if.end171 ], [ %call175, %if.end184 ], [ %call175, %if.end197 ], [ %call175, %do.end263 ], [ %call175, %do.body279 ], [ %call175, %do.body255 ], [ %call175, %do.body246 ], [ %call175, %do.body235 ], [ %call175, %do.body224 ], [ %call175, %do.body213 ], [ %call175, %if.end178 ], [ null, %if.end137 ], [ null, %if.end110 ], [ null, %if.end5.i ], [ null, %if.end5.i.i ], [ null, %make_headers.exit.thread ]
   %str_to_sign.0 = phi ptr [ null, %if.then22 ], [ null, %if.then36 ], [ null, %if.then38 ], [ null, %if.then55 ], [ null, %if.then61 ], [ null, %if.end115 ], [ null, %cond.end153 ], [ null, %do.end162 ], [ null, %if.end171 ], [ null, %if.end184 ], [ %call194, %if.end197 ], [ %call194, %do.end263 ], [ %call194, %do.body279 ], [ %call194, %do.body255 ], [ %call194, %do.body246 ], [ %call194, %do.body235 ], [ %call194, %do.body224 ], [ %call194, %do.body213 ], [ null, %if.end178 ], [ null, %if.end137 ], [ null, %if.end110 ], [ null, %if.end5.i ], [ null, %if.end5.i.i ], [ null, %make_headers.exit.thread ]
   %secret.0 = phi ptr [ null, %if.then22 ], [ null, %if.then36 ], [ null, %if.then38 ], [ null, %if.then55 ], [ null, %if.then61 ], [ null, %if.end115 ], [ null, %cond.end153 ], [ null, %do.end162 ], [ null, %if.end171 ], [ null, %if.end184 ], [ null, %if.end197 ], [ %call209, %do.end263 ], [ %call209, %do.body279 ], [ %call209, %do.body255 ], [ %call209, %do.body246 ], [ %call209, %do.body235 ], [ %call209, %do.body224 ], [ %call209, %do.body213 ], [ null, %if.end178 ], [ null, %if.end137 ], [ null, %if.end110 ], [ null, %if.end5.i ], [ null, %if.end5.i.i ], [ null, %make_headers.exit.thread ]
-  %result.1 = phi i32 [ 43, %if.then22 ], [ 3, %if.then36 ], [ 3, %if.then38 ], [ 3, %if.then55 ], [ 3, %if.then61 ], [ 27, %if.end115 ], [ 27, %cond.end153 ], [ 27, %do.end162 ], [ 27, %if.end171 ], [ 27, %if.end184 ], [ 27, %if.end197 ], [ 0, %do.end263 ], [ 0, %do.body279 ], [ %call259, %do.body255 ], [ %call250, %do.body246 ], [ %call241, %do.body235 ], [ %call230, %do.body224 ], [ %call219, %do.body213 ], [ 27, %if.end178 ], [ %call142, %if.end137 ], [ %call112, %if.end110 ], [ %call6.i, %if.end5.i ], [ %call6.i.i, %if.end5.i.i ], [ %ret.0.i91.ph, %make_headers.exit.thread ]
+  %result.0 = phi i32 [ 43, %if.then22 ], [ 3, %if.then36 ], [ 3, %if.then38 ], [ 3, %if.then55 ], [ 3, %if.then61 ], [ 27, %if.end115 ], [ 27, %cond.end153 ], [ 27, %do.end162 ], [ 27, %if.end171 ], [ 27, %if.end184 ], [ 27, %if.end197 ], [ 0, %do.end263 ], [ 0, %do.body279 ], [ %call259, %do.body255 ], [ %call250, %do.body246 ], [ %call241, %do.body235 ], [ %call230, %do.body224 ], [ %call219, %do.body213 ], [ 27, %if.end178 ], [ %call142, %if.end137 ], [ %call112, %if.end110 ], [ %call6.i, %if.end5.i ], [ %call6.i.i, %if.end5.i.i ], [ %ret.0.i91.ph, %make_headers.exit.thread ]
   call void @Curl_dyn_free(ptr noundef nonnull %canonical_query) #12
   call void @Curl_dyn_free(ptr noundef nonnull %canonical_headers) #12
   call void @Curl_dyn_free(ptr noundef nonnull %signed_headers) #12
@@ -935,11 +935,11 @@ fail:                                             ; preds = %make_headers.exit.t
   %65 = load ptr, ptr @Curl_cfree, align 8
   call void %65(ptr noundef %secret.0) #12
   %66 = load ptr, ptr @Curl_cfree, align 8
-  call void %66(ptr noundef %date_header.2) #12
+  call void %66(ptr noundef %date_header.0) #12
   br label %return
 
 return:                                           ; preds = %entry, %fail
-  %retval.0 = phi i32 [ %result.1, %fail ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %result.0, %fail ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -1160,14 +1160,14 @@ sw.default:                                       ; preds = %if.else52
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then50, %if.then117, %if.else126, %sw.default, %sw.bb55, %sw.bb
-  %result.2 = phi i32 [ %call51, %if.then50 ], [ %call137, %sw.default ], [ %call124, %if.then117 ], [ %call127, %if.else126 ], [ %call56, %sw.bb55 ], [ %call54, %sw.bb ]
+  %result.3 = phi i32 [ %call51, %if.then50 ], [ %call137, %sw.default ], [ %call124, %if.then117 ], [ %call127, %if.else126 ], [ %call56, %sw.bb55 ], [ %call54, %sw.bb ]
   %len16.1 = phi i64 [ %len16.088, %if.then50 ], [ %len16.088, %sw.default ], [ %sub, %if.then117 ], [ %len16.088, %if.else126 ], [ %len16.088, %sw.bb55 ], [ %len16.088, %sw.bb ]
   %q.1 = phi ptr [ %q.089, %if.then50 ], [ %q.089, %sw.default ], [ %arrayidx88, %if.then117 ], [ %q.089, %if.else126 ], [ %q.089, %sw.bb55 ], [ %q.089, %sw.bb ]
   %found_equals.1 = phi i1 [ %found_equals.090, %if.then50 ], [ %found_equals.090, %sw.default ], [ %found_equals.090, %if.then117 ], [ %found_equals.090, %if.else126 ], [ true, %sw.bb55 ], [ %found_equals.090, %sw.bb ]
   %incdec.ptr139 = getelementptr inbounds i8, ptr %q.1, i64 1
   %dec = add i64 %len16.1, -1
   %tobool24 = icmp ne i64 %dec, 0
-  %tobool26.not = icmp eq i32 %result.2, 0
+  %tobool26.not = icmp eq i32 %result.3, 0
   %19 = select i1 %tobool24, i1 %tobool26.not, i1 false
   br i1 %19, label %for.body28, label %for.end, !llvm.loop !18
 
@@ -1191,16 +1191,16 @@ if.then151:                                       ; preds = %land.lhs.true147
   br label %for.inc154
 
 for.inc154:                                       ; preds = %land.lhs.true147, %if.then151, %for.body
-  %result.4 = phi i32 [ %call152, %if.then151 ], [ 0, %land.lhs.true147 ], [ 0, %for.body ]
+  %result.1 = phi i32 [ %call152, %if.then151 ], [ 0, %land.lhs.true147 ], [ 0, %for.body ]
   %inc155 = add nuw nsw i32 %i.091, 1
   %incdec.ptr156 = getelementptr inbounds i8, ptr %ap.192, i64 16
-  %tobool13.not = icmp eq i32 %result.4, 0
+  %tobool13.not = icmp eq i32 %result.1, 0
   %cmp14 = icmp ult i32 %i.091, %entry1.0
   %20 = select i1 %tobool13.not, i1 %cmp14, i1 false
   br i1 %20, label %for.body, label %return, !llvm.loop !19
 
 return:                                           ; preds = %for.end, %if.end145, %for.inc154, %entry, %if.then9
-  %retval.0 = phi i32 [ 3, %if.then9 ], [ 0, %entry ], [ %call144, %if.end145 ], [ %result.2, %for.end ], [ %result.4, %for.inc154 ]
+  %retval.0 = phi i32 [ 3, %if.then9 ], [ 0, %entry ], [ %call144, %if.end145 ], [ %result.3, %for.end ], [ %result.1, %for.inc154 ]
   ret i32 %retval.0
 }
 

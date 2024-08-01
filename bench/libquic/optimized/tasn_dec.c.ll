@@ -1084,9 +1084,9 @@ if.then20.i:                                      ; preds = %while.end.i, %while
   br label %err
 
 if.end62:                                         ; preds = %if.then4.i, %while.end.i
-  %p.433.i = phi ptr [ %p.0.be.i, %while.end.i ], [ %add.ptr.i.i, %if.then4.i ]
-  store ptr %p.433.i, ptr %p, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %p.433.i to i64
+  %p.133.i = phi ptr [ %p.0.be.i, %while.end.i ], [ %add.ptr.i.i, %if.then4.i ]
+  store ptr %p.133.i, ptr %p, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %p.133.i to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %8 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   br label %if.end100
@@ -1450,21 +1450,21 @@ if.end10:                                         ; preds = %if.then6
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then4, %if.end10
-  %typ.0 = phi ptr [ %call7, %if.end10 ], [ %3, %if.then4 ]
-  %4 = load i32, ptr %typ.0, align 8
+  %typ.2 = phi ptr [ %call7, %if.end10 ], [ %3, %if.then4 ]
+  %4 = load i32, ptr %typ.2, align 8
   %cmp12.not = icmp eq i32 %4, %utype
   br i1 %cmp12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end11
-  tail call void @ASN1_TYPE_set(ptr noundef nonnull %typ.0, i32 noundef %utype, ptr noundef null) #7
+  tail call void @ASN1_TYPE_set(ptr noundef nonnull %typ.2, i32 noundef %utype, ptr noundef null) #7
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %if.end11
-  %value = getelementptr inbounds i8, ptr %typ.0, i64 8
+  %value = getelementptr inbounds i8, ptr %typ.2, i64 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end14, %if.end
-  %typ.1 = phi ptr [ %typ.0, %if.end14 ], [ null, %if.end ]
+  %typ.0 = phi ptr [ %typ.2, %if.end14 ], [ null, %if.end ]
   %opval.0 = phi ptr [ %pval, %if.end14 ], [ null, %if.end ]
   %pval.addr.0 = phi ptr [ %value, %if.end14 ], [ %pval, %if.end ]
   switch i32 %utype, label %if.end59 [
@@ -1610,18 +1610,18 @@ if.then79:                                        ; preds = %if.else76
   br label %if.then90
 
 sw.epilog:                                        ; preds = %if.end42, %if.end23
-  %tobool82 = icmp ne ptr %typ.1, null
+  %tobool82 = icmp ne ptr %typ.0, null
   %cmp84 = icmp eq i32 %utype, 5
   %or.cond = and i1 %cmp84, %tobool82
   br i1 %or.cond, label %if.then86, label %return
 
 if.then86:                                        ; preds = %sw.epilog
-  %value87 = getelementptr inbounds i8, ptr %typ.1, i64 8
+  %value87 = getelementptr inbounds i8, ptr %typ.0, i64 8
   store ptr null, ptr %value87, align 8
   br label %return
 
 if.then90:                                        ; preds = %if.then51, %if.then58, %if.then79, %if.then64, %sw.bb37, %sw.bb31, %if.then27, %if.then22, %sw.bb
-  call void @ASN1_TYPE_free(ptr noundef %typ.1) #7
+  call void @ASN1_TYPE_free(ptr noundef %typ.0) #7
   %tobool91.not = icmp eq ptr %opval.0, null
   br i1 %tobool91.not, label %return, label %if.then92
 

@@ -354,7 +354,7 @@ define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %33, %71
-  %.0127.us = phi ptr [ %.2129153.us, %71 ], [ %41, %33 ]
+  %.0127.us = phi ptr [ %.1128153.us, %71 ], [ %41, %33 ]
   %.0119.us = phi ptr [ %.2121.us, %71 ], [ null, %33 ]
   %.0116.us = phi i32 [ %.2118.us, %71 ], [ 0, %33 ]
   %.0113.us = phi i32 [ %.2115.us, %71 ], [ 0, %33 ]
@@ -413,7 +413,7 @@ define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
   br label %66
 
 66:                                               ; preds = %56, %.thread144.us, %61, %53, %44
-  %.2129.us = phi ptr [ %63, %61 ], [ %54, %53 ], [ %47, %44 ], [ %64, %.thread144.us ], [ %.0127.us, %56 ]
+  %.1128.us = phi ptr [ %63, %61 ], [ %54, %53 ], [ %47, %44 ], [ %64, %.thread144.us ], [ %.0127.us, %56 ]
   %.1120.us = phi ptr [ %.0127.us, %61 ], [ %.0119.us, %53 ], [ %.0119.us, %44 ], [ %.0119.us, %.thread144.us ], [ %.0119.us, %56 ]
   %.1117.us = phi i32 [ %.0113.us, %61 ], [ %.0116.us, %53 ], [ %.0116.us, %44 ], [ %.0116.us, %.thread144.us ], [ %.0116.us, %56 ]
   %.1114.us = phi i32 [ %62, %61 ], [ %55, %53 ], [ %48, %44 ], [ %65, %.thread144.us ], [ %.0113.us, %56 ]
@@ -430,7 +430,7 @@ define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
 
 71:                                               ; preds = %69, %66, %.thread145.us
   %.3155.us = phi ptr [ %.3.us, %69 ], [ %.3.us, %66 ], [ %.2.us, %.thread145.us ]
-  %.2129153.us = phi ptr [ %.2129.us, %69 ], [ %.2129.us, %66 ], [ %60, %.thread145.us ]
+  %.1128153.us = phi ptr [ %.1128.us, %69 ], [ %.1128.us, %66 ], [ %60, %.thread145.us ]
   %.2121.us = phi ptr [ null, %69 ], [ %.1120.us, %66 ], [ null, %.thread145.us ]
   %.2118.us = phi i32 [ 0, %69 ], [ %.1117.us, %66 ], [ 0, %.thread145.us ]
   %.2115.us = phi i32 [ %70, %69 ], [ %.1114.us, %66 ], [ 0, %.thread145.us ]
@@ -438,8 +438,8 @@ define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
   br label %.split.us
 
 .split:                                           ; preds = %33, %105
-  %.0127 = phi ptr [ %.2129153, %105 ], [ %41, %33 ]
-  %.0122 = phi i32 [ %.2124154, %105 ], [ 0, %33 ]
+  %.0127 = phi ptr [ %.1128153, %105 ], [ %41, %33 ]
+  %.0122 = phi i32 [ %.1123154, %105 ], [ 0, %33 ]
   %.0119 = phi ptr [ %.2121, %105 ], [ null, %33 ]
   %.0116 = phi i32 [ %.2118, %105 ], [ 0, %33 ]
   %.0113 = phi i32 [ %.2115, %105 ], [ 0, %33 ]
@@ -506,8 +506,8 @@ define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
   br label %100
 
 100:                                              ; preds = %82, %90, %.thread144, %93, %74
-  %.2129 = phi ptr [ %76, %74 ], [ %91, %90 ], [ %96, %93 ], [ %98, %.thread144 ], [ %85, %82 ]
-  %.2124 = phi i32 [ %.0122, %74 ], [ %.0122, %90 ], [ %.0122, %93 ], [ %.0122, %.thread144 ], [ %83, %82 ]
+  %.1128 = phi ptr [ %76, %74 ], [ %91, %90 ], [ %96, %93 ], [ %98, %.thread144 ], [ %85, %82 ]
+  %.1123 = phi i32 [ %.0122, %74 ], [ %.0122, %90 ], [ %.0122, %93 ], [ %.0122, %.thread144 ], [ %83, %82 ]
   %.1120 = phi ptr [ %.0127, %74 ], [ %.0119, %90 ], [ %.0119, %93 ], [ %.0119, %.thread144 ], [ %.0119, %82 ]
   %.1117 = phi i32 [ %.0113, %74 ], [ %.0116, %90 ], [ %.0116, %93 ], [ %.0116, %.thread144 ], [ %.0116, %82 ]
   %.1114 = phi i32 [ %75, %74 ], [ %92, %90 ], [ %97, %93 ], [ %99, %.thread144 ], [ %.0113, %82 ]
@@ -524,8 +524,8 @@ define internal fastcc void @pretty_print(ptr noundef %0) unnamed_addr #0 {
 
 105:                                              ; preds = %.thread145, %100, %103
   %.3155 = phi ptr [ %.3, %103 ], [ %.3, %100 ], [ %.2, %.thread145 ]
-  %.2124154 = phi i32 [ %.2124, %103 ], [ %.2124, %100 ], [ %.0122, %.thread145 ]
-  %.2129153 = phi ptr [ %.2129, %103 ], [ %.2129, %100 ], [ %77, %.thread145 ]
+  %.1123154 = phi i32 [ %.1123, %103 ], [ %.1123, %100 ], [ %.0122, %.thread145 ]
+  %.1128153 = phi ptr [ %.1128, %103 ], [ %.1128, %100 ], [ %77, %.thread145 ]
   %.2121 = phi ptr [ null, %103 ], [ %.1120, %100 ], [ null, %.thread145 ]
   %.2118 = phi i32 [ 0, %103 ], [ %.1117, %100 ], [ 0, %.thread145 ]
   %.2115 = phi i32 [ %104, %103 ], [ %.1114, %100 ], [ 0, %.thread145 ]
@@ -705,7 +705,7 @@ get_help.exit:                                    ; preds = %12, %9
   br i1 %.not3440.i, label %.preheader.i43, label %.lr.ph43.split.i
 
 .lr.ph43.split.i:                                 ; preds = %.preheader.i, %.lr.ph43.split.i
-  %.059 = phi ptr [ %.1, %.lr.ph43.split.i ], [ undef, %.preheader.i ]
+  %.2 = phi ptr [ %.3, %.lr.ph43.split.i ], [ undef, %.preheader.i ]
   %.042.i = phi i32 [ %.1.i, %.lr.ph43.split.i ], [ 0, %.preheader.i ]
   %.02541.i = phi ptr [ %28, %.lr.ph43.split.i ], [ @phpdbg_prompt_commands, %.preheader.i ]
   %22 = getelementptr inbounds i8, ptr %.02541.i, i64 32
@@ -713,7 +713,7 @@ get_help.exit:                                    ; preds = %12, %9
   %24 = icmp eq i8 %23, %.pre94
   %25 = icmp eq i32 %.042.i, 0
   %26 = select i1 %24, i1 %25, i1 false
-  %.1 = select i1 %26, ptr %.02541.i, ptr %.059
+  %.3 = select i1 %26, ptr %.02541.i, ptr %.2
   %27 = zext i1 %24 to i32
   %.1.i = add i32 %.042.i, %27
   %28 = getelementptr inbounds i8, ptr %.02541.i, i64 80
@@ -722,26 +722,26 @@ get_help.exit:                                    ; preds = %12, %9
   br i1 %.not34.i, label %get_command.exit, label %.lr.ph43.split.i
 
 .lr.ph.split.i:                                   ; preds = %.preheader35.i, %.lr.ph.split.i
-  %.2 = phi ptr [ %.3, %.lr.ph.split.i ], [ undef, %.preheader35.i ]
+  %.059 = phi ptr [ %.1, %.lr.ph.split.i ], [ undef, %.preheader35.i ]
   %30 = phi ptr [ %36, %.lr.ph.split.i ], [ %21, %.preheader35.i ]
-  %.239.i = phi i32 [ %.3.i, %.lr.ph.split.i ], [ 0, %.preheader35.i ]
+  %.339.i = phi i32 [ %.4.i, %.lr.ph.split.i ], [ 0, %.preheader35.i ]
   %.12638.i = phi ptr [ %35, %.lr.ph.split.i ], [ @phpdbg_prompt_commands, %.preheader35.i ]
   %31 = tail call i32 @strncmp(ptr noundef nonnull %30, ptr noundef readonly %17, i64 noundef %19) #7
   %.not33.i = icmp eq i32 %31, 0
-  %32 = icmp eq i32 %.239.i, 0
+  %32 = icmp eq i32 %.339.i, 0
   %33 = select i1 %.not33.i, i1 %32, i1 false
-  %.3 = select i1 %33, ptr %.12638.i, ptr %.2
+  %.1 = select i1 %33, ptr %.12638.i, ptr %.059
   %34 = zext i1 %.not33.i to i32
-  %.3.i = add i32 %.239.i, %34
+  %.4.i = add i32 %.339.i, %34
   %35 = getelementptr inbounds i8, ptr %.12638.i, i64 80
   %36 = load ptr, ptr %35, align 8
   %.not.i23 = icmp eq ptr %36, null
   br i1 %.not.i23, label %get_command.exit, label %.lr.ph.split.i
 
 get_command.exit:                                 ; preds = %.lr.ph.split.i, %.lr.ph43.split.i
-  %.4 = phi ptr [ %.1, %.lr.ph43.split.i ], [ %.3, %.lr.ph.split.i ]
-  %.4.i = phi i32 [ %.1.i, %.lr.ph43.split.i ], [ %.3.i, %.lr.ph.split.i ]
-  %37 = icmp eq i32 %.4.i, 1
+  %.4 = phi ptr [ %.3, %.lr.ph43.split.i ], [ %.1, %.lr.ph.split.i ]
+  %.2.i = phi i32 [ %.1.i, %.lr.ph43.split.i ], [ %.4.i, %.lr.ph.split.i ]
+  %37 = icmp eq i32 %.2.i, 1
   br i1 %37, label %38, label %58
 
 38:                                               ; preds = %get_command.exit
@@ -785,7 +785,7 @@ get_help.exit28:                                  ; preds = %55, %52
   br label %130
 
 58:                                               ; preds = %get_command.exit
-  %59 = icmp sgt i32 %.4.i, 1
+  %59 = icmp sgt i32 %.2.i, 1
   br i1 %59, label %60, label %.thread
 
 60:                                               ; preds = %58
@@ -862,7 +862,7 @@ get_help.exit33:                                  ; preds = %83, %80
   br i1 %20, label %.thread..preheader.i43_crit_edge, label %.lr.ph.split.i36.preheader
 
 .lr.ph.split.i36.preheader:                       ; preds = %.preheader35.i, %.thread
-  %.7.ph = phi ptr [ undef, %.preheader35.i ], [ %.4, %.thread ]
+  %.5.ph = phi ptr [ undef, %.preheader35.i ], [ %.4, %.thread ]
   br label %.lr.ph.split.i36
 
 .thread..preheader.i43_crit_edge:                 ; preds = %.thread
@@ -875,7 +875,7 @@ get_help.exit33:                                  ; preds = %83, %80
   br label %.lr.ph43.split.i45
 
 .lr.ph43.split.i45:                               ; preds = %.preheader.i43, %.lr.ph43.split.i45
-  %.5 = phi ptr [ %.4626668, %.preheader.i43 ], [ %.6, %.lr.ph43.split.i45 ]
+  %.7 = phi ptr [ %.4626668, %.preheader.i43 ], [ %.8, %.lr.ph43.split.i45 ]
   %.042.i46 = phi i32 [ 0, %.preheader.i43 ], [ %.1.i48, %.lr.ph43.split.i45 ]
   %.02541.i47 = phi ptr [ @phpdbg_help_commands, %.preheader.i43 ], [ %98, %.lr.ph43.split.i45 ]
   %92 = getelementptr inbounds i8, ptr %.02541.i47, i64 32
@@ -883,7 +883,7 @@ get_help.exit33:                                  ; preds = %83, %80
   %94 = icmp eq i8 %93, %91
   %95 = icmp eq i32 %.042.i46, 0
   %96 = select i1 %94, i1 %95, i1 false
-  %.6 = select i1 %96, ptr %.02541.i47, ptr %.5
+  %.8 = select i1 %96, ptr %.02541.i47, ptr %.7
   %97 = zext i1 %94 to i32
   %.1.i48 = add i32 %.042.i46, %97
   %98 = getelementptr inbounds i8, ptr %.02541.i47, i64 80
@@ -892,26 +892,26 @@ get_help.exit33:                                  ; preds = %83, %80
   br i1 %.not34.i49, label %get_command.exit50, label %.lr.ph43.split.i45
 
 .lr.ph.split.i36:                                 ; preds = %.lr.ph.split.i36.preheader, %.lr.ph.split.i36
-  %.7 = phi ptr [ %.8, %.lr.ph.split.i36 ], [ %.7.ph, %.lr.ph.split.i36.preheader ]
+  %.5 = phi ptr [ %.6, %.lr.ph.split.i36 ], [ %.5.ph, %.lr.ph.split.i36.preheader ]
   %100 = phi ptr [ %106, %.lr.ph.split.i36 ], [ @.str, %.lr.ph.split.i36.preheader ]
-  %.239.i37 = phi i32 [ %.3.i40, %.lr.ph.split.i36 ], [ 0, %.lr.ph.split.i36.preheader ]
+  %.339.i37 = phi i32 [ %.4.i40, %.lr.ph.split.i36 ], [ 0, %.lr.ph.split.i36.preheader ]
   %.12638.i38 = phi ptr [ %105, %.lr.ph.split.i36 ], [ @phpdbg_help_commands, %.lr.ph.split.i36.preheader ]
   %101 = tail call i32 @strncmp(ptr noundef nonnull %100, ptr noundef readonly %17, i64 noundef %19) #7
   %.not33.i39 = icmp eq i32 %101, 0
-  %102 = icmp eq i32 %.239.i37, 0
+  %102 = icmp eq i32 %.339.i37, 0
   %103 = select i1 %.not33.i39, i1 %102, i1 false
-  %.8 = select i1 %103, ptr %.12638.i38, ptr %.7
+  %.6 = select i1 %103, ptr %.12638.i38, ptr %.5
   %104 = zext i1 %.not33.i39 to i32
-  %.3.i40 = add i32 %.239.i37, %104
+  %.4.i40 = add i32 %.339.i37, %104
   %105 = getelementptr inbounds i8, ptr %.12638.i38, i64 80
   %106 = load ptr, ptr %105, align 8
   %.not.i41 = icmp eq ptr %106, null
   br i1 %.not.i41, label %get_command.exit50, label %.lr.ph.split.i36
 
 get_command.exit50:                               ; preds = %.lr.ph.split.i36, %.lr.ph43.split.i45
-  %.9 = phi ptr [ %.6, %.lr.ph43.split.i45 ], [ %.8, %.lr.ph.split.i36 ]
-  %.4.i42 = phi i32 [ %.1.i48, %.lr.ph43.split.i45 ], [ %.3.i40, %.lr.ph.split.i36 ]
-  %107 = icmp sgt i32 %.4.i42, 0
+  %.9 = phi ptr [ %.8, %.lr.ph43.split.i45 ], [ %.6, %.lr.ph.split.i36 ]
+  %.2.i42 = phi i32 [ %.1.i48, %.lr.ph43.split.i45 ], [ %.4.i40, %.lr.ph.split.i36 ]
+  %107 = icmp sgt i32 %.2.i42, 0
   br i1 %107, label %108, label %127
 
 108:                                              ; preds = %get_command.exit50

@@ -656,8 +656,8 @@ define ptr @H5O__attr_open_by_name(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %84
 
 68:                                               ; preds = %62, %44
-  %.034 = phi ptr [ %46, %44 ], [ %63, %62 ]
-  %69 = getelementptr inbounds i8, ptr %.034, i64 96
+  %.236 = phi ptr [ %46, %44 ], [ %63, %62 ]
+  %69 = getelementptr inbounds i8, ptr %.236, i64 96
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
@@ -680,8 +680,8 @@ define ptr @H5O__attr_open_by_name(ptr noundef %0, ptr noundef %1) local_unnamed
   br label %101
 
 84:                                               ; preds = %68, %34, %77, %64, %58, %48, %38, %28, %21
-  %.236.ph = phi ptr [ %.034, %68 ], [ %36, %34 ], [ null, %64 ], [ null, %58 ], [ %.034, %77 ], [ null, %48 ], [ null, %38 ], [ null, %28 ], [ null, %21 ]
-  %.0.ph = phi ptr [ %.034, %68 ], [ %36, %34 ], [ null, %64 ], [ null, %58 ], [ null, %77 ], [ null, %48 ], [ null, %38 ], [ null, %28 ], [ null, %21 ]
+  %.034.ph = phi ptr [ %.236, %68 ], [ %36, %34 ], [ null, %64 ], [ null, %58 ], [ %.236, %77 ], [ null, %48 ], [ null, %38 ], [ null, %28 ], [ null, %21 ]
+  %.0.ph = phi ptr [ %.236, %68 ], [ %36, %34 ], [ null, %64 ], [ null, %58 ], [ null, %77 ], [ null, %48 ], [ null, %38 ], [ null, %28 ], [ null, %21 ]
   %85 = call i32 @H5O_unprotect(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef 0) #9
   %86 = icmp slt i32 %85, 0
   br i1 %86, label %87, label %91
@@ -695,12 +695,12 @@ define ptr @H5O__attr_open_by_name(ptr noundef %0, ptr noundef %1) local_unnamed
 91:                                               ; preds = %87, %84
   %.1 = phi ptr [ null, %87 ], [ %.0.ph, %84 ]
   %92 = icmp eq ptr %.1, null
-  %93 = icmp ne ptr %.236.ph, null
+  %93 = icmp ne ptr %.034.ph, null
   %or.cond = and i1 %93, %92
   br i1 %or.cond, label %94, label %101
 
 94:                                               ; preds = %91
-  %95 = call i32 @H5A__close(ptr noundef nonnull %.236.ph) #9
+  %95 = call i32 @H5A__close(ptr noundef nonnull %.034.ph) #9
   %96 = icmp slt i32 %95, 0
   br i1 %96, label %97, label %101
 
@@ -2775,7 +2775,7 @@ define range(i32 -1, 1) i32 @H5O__attr_bh_info(ptr noundef %0, ptr noundef %1, p
   br label %74
 
 32:                                               ; preds = %26, %16
-  %.031 = phi ptr [ %20, %26 ], [ null, %16 ]
+  %.132 = phi ptr [ %20, %26 ], [ null, %16 ]
   %33 = getelementptr inbounds i8, ptr %4, i64 8
   %34 = load i64, ptr %33, align 8
   %.not45 = icmp eq i64 %34, -1
@@ -2804,7 +2804,7 @@ define range(i32 -1, 1) i32 @H5O__attr_bh_info(ptr noundef %0, ptr noundef %1, p
   br label %.thread
 
 49:                                               ; preds = %42, %32
-  %.029 = phi ptr [ %36, %42 ], [ null, %32 ]
+  %.130 = phi ptr [ %36, %42 ], [ null, %32 ]
   %50 = getelementptr inbounds i8, ptr %4, i64 24
   %51 = load i64, ptr %50, align 8
   %.not46 = icmp eq i64 %51, -1
@@ -2846,16 +2846,16 @@ define range(i32 -1, 1) i32 @H5O__attr_bh_info(ptr noundef %0, ptr noundef %1, p
   br label %.thread
 
 .thread:                                          ; preds = %49, %55, %45, %38, %70, %67
-  %.13056 = phi ptr [ %.029, %70 ], [ %.029, %67 ], [ %.029, %49 ], [ %.029, %55 ], [ %36, %45 ], [ null, %38 ]
+  %.02956 = phi ptr [ %.130, %70 ], [ %.130, %67 ], [ %.130, %49 ], [ %.130, %55 ], [ %36, %45 ], [ null, %38 ]
   %.1 = phi i32 [ -1, %70 ], [ %.0, %67 ], [ 0, %49 ], [ -1, %55 ], [ -1, %45 ], [ -1, %38 ]
-  %.not48 = icmp eq ptr %.031, null
+  %.not48 = icmp eq ptr %.132, null
   br i1 %.not48, label %81, label %74
 
 74:                                               ; preds = %.thread.thread62, %.thread
   %.169 = phi i32 [ -1, %.thread.thread62 ], [ %.1, %.thread ]
-  %.1325568 = phi ptr [ %20, %.thread.thread62 ], [ %.031, %.thread ]
-  %.1305667 = phi ptr [ null, %.thread.thread62 ], [ %.13056, %.thread ]
-  %75 = call i32 @H5B2_close(ptr noundef nonnull %.1325568) #9
+  %.0315568 = phi ptr [ %20, %.thread.thread62 ], [ %.132, %.thread ]
+  %.0295667 = phi ptr [ null, %.thread.thread62 ], [ %.02956, %.thread ]
+  %75 = call i32 @H5B2_close(ptr noundef nonnull %.0315568) #9
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %81
 
@@ -2866,13 +2866,13 @@ define range(i32 -1, 1) i32 @H5O__attr_bh_info(ptr noundef %0, ptr noundef %1, p
   br label %81
 
 81:                                               ; preds = %77, %74, %.thread
-  %.1305661 = phi ptr [ %.1305667, %77 ], [ %.1305667, %74 ], [ %.13056, %.thread ]
+  %.0295661 = phi ptr [ %.0295667, %77 ], [ %.0295667, %74 ], [ %.02956, %.thread ]
   %.2 = phi i32 [ -1, %77 ], [ %.169, %74 ], [ %.1, %.thread ]
-  %.not49 = icmp eq ptr %.1305661, null
+  %.not49 = icmp eq ptr %.0295661, null
   br i1 %.not49, label %.thread70, label %82
 
 82:                                               ; preds = %81
-  %83 = call i32 @H5B2_close(ptr noundef nonnull %.1305661) #9
+  %83 = call i32 @H5B2_close(ptr noundef nonnull %.0295661) #9
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %.thread70
 

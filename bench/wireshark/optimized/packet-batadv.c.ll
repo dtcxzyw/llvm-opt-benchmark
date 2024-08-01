@@ -3320,8 +3320,8 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
 
 .lr.ph.i.i40:                                     ; preds = %1160, %1170
   %.098.i.i = phi i32 [ %1182, %1170 ], [ 0, %1160 ]
-  %.09597.i.i = phi i32 [ %1181, %1170 ], [ 19, %1160 ]
-  %1165 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.09597.i.i, i32 noundef 7) #4
+  %.197.i.i = phi i32 [ %1181, %1170 ], [ 19, %1160 ]
+  %1165 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.197.i.i, i32 noundef 7) #4
   %1166 = load i32, ptr @batadv_follow_tap, align 4
   %1167 = tail call i32 @have_tap_listener(i32 noundef %1166) #4
   %.not96.i.i = icmp eq i32 %1167, 0
@@ -3344,7 +3344,7 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   %1178 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1175, ptr noundef %1165, i32 noundef 0, i32 noundef %1176, i32 noundef %1177, ptr noundef nonnull @tt_entry_flags, i32 noundef 0) #4
   %1179 = load i32, ptr @hf_batadv_tt_entry, align 4
   %1180 = tail call ptr @proto_tree_add_item(ptr noundef %1175, i32 noundef %1179, ptr noundef %1165, i32 noundef 1, i32 noundef 6, i32 noundef 0) #4
-  %1181 = add nuw nsw i32 %.09597.i.i, 7
+  %1181 = add nuw nsw i32 %.197.i.i, 7
   %1182 = add nuw nsw i32 %.098.i.i, 1
   %1183 = load i16, ptr %1123, align 2
   %1184 = zext i16 %1183 to i32
@@ -3352,13 +3352,13 @@ dissect_batadv_batman_v14.exit.i:                 ; preds = %714, %._crit_edge.i
   br i1 %1185, label %.lr.ph.i.i40, label %.loopexit.i.i, !llvm.loop !22
 
 .loopexit.i.i:                                    ; preds = %1170, %1160, %.thread.i.i
-  %.1.i.i = phi i32 [ 19, %.thread.i.i ], [ 19, %1160 ], [ %1181, %1170 ]
-  %1186 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i.i) #4
+  %.095.i.i = phi i32 [ 19, %.thread.i.i ], [ 19, %1160 ], [ %1181, %1170 ]
+  %1186 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.095.i.i) #4
   %1187 = icmp sgt i32 %1186, 0
   br i1 %1187, label %1188, label %dissect_batadv_batman.exit
 
 1188:                                             ; preds = %.loopexit.i.i
-  %1189 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1.i.i) #4
+  %1189 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.095.i.i) #4
   %1190 = load i32, ptr @batadv_follow_tap, align 4
   %1191 = tail call i32 @have_tap_listener(i32 noundef %1190) #4
   %.not.i.i42 = icmp eq i32 %1191, 0

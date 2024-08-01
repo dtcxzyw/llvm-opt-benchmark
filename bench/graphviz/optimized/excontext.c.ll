@@ -94,11 +94,11 @@ gv_isspace.exit:                                  ; preds = %.lr.ph, %.lr.ph, %.
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %.275 = phi ptr [ %41, %.lr.ph76 ], [ %.1, %.lr.ph76.preheader ]
-  %.05174 = phi ptr [ %43, %.lr.ph76 ], [ %1, %.lr.ph76.preheader ]
+  %.25374 = phi ptr [ %43, %.lr.ph76 ], [ %1, %.lr.ph76.preheader ]
   %41 = getelementptr inbounds i8, ptr %.275, i64 1
   %42 = load i8, ptr %.275, align 1
-  %43 = getelementptr inbounds i8, ptr %.05174, i64 1
-  store i8 %42, ptr %.05174, align 1
+  %43 = getelementptr inbounds i8, ptr %.25374, i64 1
+  store i8 %42, ptr %.25374, align 1
   %exitcond93.not = icmp eq ptr %41, %scevgep92
   br i1 %exitcond93.not, label %thread-pre-split, label %.lr.ph76
 
@@ -128,8 +128,8 @@ thread-pre-split.thread107:                       ; preds = %.critedge, %thread-
   br label %.critedge2
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %51
-  %.378 = phi ptr [ %52, %51 ], [ %8, %.lr.ph79.preheader ]
-  %50 = load i8, ptr %.378, align 1
+  %.478 = phi ptr [ %52, %51 ], [ %8, %.lr.ph79.preheader ]
+  %50 = load i8, ptr %.478, align 1
   switch i8 %50, label %.critedge2 [
     i8 9, label %51
     i8 10, label %51
@@ -140,7 +140,7 @@ thread-pre-split.thread107:                       ; preds = %.critedge, %thread-
   ]
 
 51:                                               ; preds = %.lr.ph79, %.lr.ph79, %.lr.ph79, %.lr.ph79, %.lr.ph79, %.lr.ph79
-  %52 = getelementptr inbounds i8, ptr %.378, i64 1
+  %52 = getelementptr inbounds i8, ptr %.478, i64 1
   %exitcond95.not = icmp eq ptr %52, %46
   br i1 %exitcond95.not, label %.critedge2, label %.lr.ph79
 
@@ -149,8 +149,8 @@ thread-pre-split.thread107:                       ; preds = %.critedge, %thread-
   %53 = phi ptr [ %45, %.preheader ], [ %19, %thread-pre-split.thread107 ], [ %45, %.lr.ph79 ], [ %45, %51 ]
   %.pre-phi = phi i64 [ %47, %.preheader ], [ %.pre101, %thread-pre-split.thread107 ], [ %47, %.lr.ph79 ], [ %47, %51 ]
   %54 = phi ptr [ %46, %.preheader ], [ %.pre100, %thread-pre-split.thread107 ], [ %46, %.lr.ph79 ], [ %46, %51 ]
-  %.4 = phi ptr [ %8, %.preheader ], [ %8, %thread-pre-split.thread107 ], [ %scevgep94, %51 ], [ %.378, %.lr.ph79 ]
-  %55 = ptrtoint ptr %.4 to i64
+  %.3 = phi ptr [ %8, %.preheader ], [ %8, %thread-pre-split.thread107 ], [ %scevgep94, %51 ], [ %.478, %.lr.ph79 ]
+  %55 = ptrtoint ptr %.3 to i64
   %56 = sub i64 %.pre-phi, %55
   %57 = ptrtoint ptr %53 to i64
   %58 = ptrtoint ptr %.152105 to i64
@@ -160,42 +160,42 @@ thread-pre-split.thread107:                       ; preds = %.critedge, %thread-
   %61 = icmp sgt i32 %60, 0
   %62 = and i64 %59, 2147483647
   %.5.idx = select i1 %61, i64 %62, i64 0
-  %.5 = getelementptr inbounds i8, ptr %.4, i64 %.5.idx
+  %.5 = getelementptr inbounds i8, ptr %.3, i64 %.5.idx
   %63 = icmp ult ptr %.5, %54
   br i1 %63, label %.lr.ph85, label %._crit_edge
 
 .lr.ph85:                                         ; preds = %.critedge2, %.lr.ph85
   %.684 = phi ptr [ %64, %.lr.ph85 ], [ %.5, %.critedge2 ]
-  %.25383 = phi ptr [ %66, %.lr.ph85 ], [ %.152105, %.critedge2 ]
+  %.35483 = phi ptr [ %66, %.lr.ph85 ], [ %.152105, %.critedge2 ]
   %64 = getelementptr inbounds i8, ptr %.684, i64 1
   %65 = load i8, ptr %.684, align 1
-  %66 = getelementptr inbounds i8, ptr %.25383, i64 1
-  store i8 %65, ptr %.25383, align 1
+  %66 = getelementptr inbounds i8, ptr %.35483, i64 1
+  store i8 %65, ptr %.35483, align 1
   %67 = load ptr, ptr %5, align 8
   %68 = icmp ult ptr %64, %67
   br i1 %68, label %.lr.ph85, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph85, %.critedge2
-  %.253.lcssa = phi ptr [ %.152105, %.critedge2 ], [ %66, %.lr.ph85 ]
+  %.354.lcssa = phi ptr [ %.152105, %.critedge2 ], [ %66, %.lr.ph85 ]
   store ptr %8, ptr %5, align 8
-  store i8 60, ptr %.253.lcssa, align 1
+  store i8 60, ptr %.354.lcssa, align 1
   br label %69
 
 69:                                               ; preds = %._crit_edge, %69
   %.788.idx = phi i64 [ 0, %._crit_edge ], [ %.788.add, %69 ]
-  %.35487 = phi ptr [ %.253.lcssa, %._crit_edge ], [ %70, %69 ]
+  %.45587 = phi ptr [ %.354.lcssa, %._crit_edge ], [ %70, %69 ]
   %.788.add = add nuw nsw i64 %.788.idx, 1
   %.ptr = getelementptr inbounds i8, ptr @.str, i64 %.788.add
-  %70 = getelementptr inbounds i8, ptr %.35487, i64 1
+  %70 = getelementptr inbounds i8, ptr %.45587, i64 1
   %71 = load i8, ptr %.ptr, align 1
   store i8 %71, ptr %70, align 1
   %exitcond97 = icmp eq i64 %.788.add, 4
   br i1 %exitcond97, label %.loopexit, label %69
 
 .loopexit:                                        ; preds = %69, %11
-  %.455 = phi ptr [ %1, %11 ], [ %70, %69 ]
-  store i8 0, ptr %.455, align 1
-  ret ptr %.455
+  %.051 = phi ptr [ %1, %11 ], [ %70, %69 ]
+  store i8 0, ptr %.051, align 1
+  ret ptr %.051
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

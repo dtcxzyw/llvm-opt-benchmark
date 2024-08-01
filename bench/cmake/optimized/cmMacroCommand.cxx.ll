@@ -2709,7 +2709,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br i1 %.not212.i.i.i, label %._crit_edge260.i.i.i, label %208
 
 208:                                              ; preds = %206, %.lr.ph259.i.i.i
-  %.045257.i.i.i = phi i1 [ undef, %.lr.ph259.i.i.i ], [ %.1.i.i.i, %206 ]
+  %.1257.i.i.i = phi i1 [ undef, %.lr.ph259.i.i.i ], [ %.2.i.i.i, %206 ]
   %.sroa.0207.0256.i.i.i = phi ptr [ %176, %.lr.ph259.i.i.i ], [ %207, %206 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %209 = load ptr, ptr %.sroa.0207.0256.i.i.i, align 8
@@ -3382,7 +3382,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i: ; preds = %407, %404, %403, %399, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit144.i.i.i
   %cond.i.i.i = phi i1 [ false, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit144.i.i.i ], [ false, %403 ], [ false, %407 ], [ true, %404 ], [ false, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i ], [ false, %399 ]
-  %.1.i.i.i = phi i1 [ false, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit144.i.i.i ], [ true, %403 ], [ true, %407 ], [ %.045257.i.i.i, %404 ], [ true, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i ], [ true, %399 ]
+  %.2.i.i.i = phi i1 [ false, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit144.i.i.i ], [ true, %403 ], [ true, %407 ], [ %.1257.i.i.i, %404 ], [ true, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i.i ], [ true, %399 ]
   %408 = load ptr, ptr %195, align 8
   %409 = load ptr, ptr %204, align 8
   %.not4.i.i.i.i.i.i.i.i = icmp eq ptr %408, %409
@@ -3522,7 +3522,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit145
   br label %466
 
 ._crit_edge260.i.i.i:                             ; preds = %_ZNSt6vectorI18cmListFileArgumentSaIS0_EED2Ev.exit164.i.i.i, %206, %._crit_edge245.i.i.i
-  %.2.i.i.i = phi i1 [ true, %._crit_edge245.i.i.i ], [ %.1.i.i.i, %_ZNSt6vectorI18cmListFileArgumentSaIS0_EED2Ev.exit164.i.i.i ], [ true, %206 ]
+  %.3.i.i.i = phi i1 [ true, %._crit_edge245.i.i.i ], [ %.2.i.i.i, %_ZNSt6vectorI18cmListFileArgumentSaIS0_EED2Ev.exit164.i.i.i ], [ true, %206 ]
   %454 = load ptr, ptr %19, align 8
   %455 = getelementptr inbounds i8, ptr %19, i64 8
   %456 = load ptr, ptr %455, align 8
@@ -3610,7 +3610,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %477
 
 471:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit182.i.i.i, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i
-  %.3.i.i.i = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i ], [ %.2.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit182.i.i.i ]
+  %.045.i.i.i = phi i1 [ false, %_ZN17cmExecutionStatus8SetErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i ], [ %.3.i.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit182.i.i.i ]
   %472 = load ptr, ptr %10, align 8
   %473 = load ptr, ptr %38, align 8
   %.not4.i.i.i.i183.i.i.i = icmp eq ptr %472, %473
@@ -3667,7 +3667,7 @@ _ZSt10__invoke_rIbRN12_GLOBAL__N_120cmMacroHelperCommandEJRKSt6vectorI18cmListFi
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %32)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
-  ret i1 %.3.i.i.i
+  ret i1 %.045.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable

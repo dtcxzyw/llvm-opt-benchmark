@@ -2084,9 +2084,9 @@ _ZN5cmsys17RegularExpressionD2Ev.exit18.i:        ; preds = %376, %.body.i, %356
 
 .loopexit:                                        ; preds = %386, %.loopexit.sink.split114, %.loopexit97, %382
   %.sink112 = phi ptr [ %33, %382 ], [ %33, %.loopexit97 ], [ %.sink112.ph, %.loopexit.sink.split114 ], [ %33, %386 ]
-  %.3 = phi i1 [ true, %382 ], [ false, %.loopexit97 ], [ false, %.loopexit.sink.split114 ], [ true, %386 ]
+  %.0 = phi i1 [ true, %382 ], [ false, %.loopexit97 ], [ false, %.loopexit.sink.split114 ], [ true, %386 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink112) #17
-  ret i1 %.3
+  ret i1 %.0
 
 390:                                              ; preds = %.body, %.body90, %.loopexit.split-lp, %.loopexit96, %69
   %.sink113 = phi ptr [ %32, %69 ], [ %33, %.loopexit96 ], [ %33, %.loopexit.split-lp ], [ %33, %.body90 ], [ %33, %.body ]

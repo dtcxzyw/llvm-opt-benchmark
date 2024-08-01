@@ -136,14 +136,14 @@ if.end38:                                         ; preds = %if.end32
 
 if.end41thread-pre-split:                         ; preds = %if.end12, %for.end, %if.end38
   %b1Len.1.ph = phi i32 [ %srcLength.addr.0, %for.end ], [ %call39, %if.end38 ], [ 0, %if.end12 ]
-  %b1.1.ph = phi ptr [ %b1.0146, %for.end ], [ %call35, %if.end38 ], [ %b1Stack, %if.end12 ]
+  %b1.2.ph = phi ptr [ %b1.0146, %for.end ], [ %call35, %if.end38 ], [ %b1Stack, %if.end12 ]
   %.pr = load i32, ptr %status, align 4
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end41thread-pre-split, %if.then25
   %4 = phi i32 [ %.pr, %if.end41thread-pre-split ], [ %3, %if.then25 ]
   %b1Len.1 = phi i32 [ %b1Len.1.ph, %if.end41thread-pre-split ], [ %call26, %if.then25 ]
-  %b1.1 = phi ptr [ %b1.1.ph, %if.end41thread-pre-split ], [ %b1.0146, %if.then25 ]
+  %b1.2 = phi ptr [ %b1.2.ph, %if.end41thread-pre-split ], [ %b1.0146, %if.then25 ]
   %cmp.i = icmp slt i32 %4, 1
   br i1 %cmp.i, label %if.end44, label %CLEANUP
 
@@ -168,7 +168,7 @@ for.body50:                                       ; preds = %for.body50.preheade
   %failPos.0132 = phi i32 [ -1, %for.body50.preheader ], [ %failPos.1, %for.inc64 ]
   %srcIsLDH.0130 = phi i8 [ 1, %for.body50.preheader ], [ %srcIsLDH.1, %for.inc64 ]
   %srcIsASCII.2129 = phi i8 [ 1, %for.body50.preheader ], [ %srcIsASCII.3, %for.inc64 ]
-  %arrayidx52 = getelementptr inbounds i16, ptr %b1.1, i64 %indvars.iv136
+  %arrayidx52 = getelementptr inbounds i16, ptr %b1.2, i64 %indvars.iv136
   %5 = load i16, ptr %arrayidx52, align 2
   %cmp54 = icmp ugt i16 %5, 127
   br i1 %cmp54, label %for.inc64, label %if.else
@@ -219,37 +219,37 @@ if.then68:                                        ; preds = %for.end66
 
 lor.lhs.false:                                    ; preds = %for.end66.thread, %if.then68
   %srcIsASCII.2.lcssa155162 = phi i1 [ %9, %if.then68 ], [ false, %for.end66.thread ]
-  %11 = load i16, ptr %b1.1, align 2
+  %11 = load i16, ptr %b1.2, align 2
   %cmp73 = icmp eq i16 %11, 45
   br i1 %cmp73, label %if.else83, label %lor.lhs.false74
 
 lor.lhs.false74:                                  ; preds = %lor.lhs.false
   %sub = add nsw i32 %b1Len.1, -1
   %idxprom75 = sext i32 %sub to i64
-  %arrayidx76 = getelementptr inbounds i16, ptr %b1.1, i64 %idxprom75
+  %arrayidx76 = getelementptr inbounds i16, ptr %b1.2, i64 %idxprom75
   %12 = load i16, ptr %arrayidx76, align 2
   %cmp78 = icmp eq i16 %12, 45
   br i1 %cmp78, label %if.else83, label %if.end95
 
 if.then82:                                        ; preds = %if.then68
   store i32 66563, ptr %status, align 4
-  call void @uprv_syntaxError_75(ptr noundef nonnull %b1.1, i32 noundef %failPos.1, i32 noundef %b1Len.1, ptr noundef %parseError)
+  call void @uprv_syntaxError_75(ptr noundef nonnull %b1.2, i32 noundef %failPos.1, i32 noundef %b1Len.1, ptr noundef %parseError)
   br label %CLEANUP
 
 if.else83:                                        ; preds = %lor.lhs.false, %lor.lhs.false74
   store i32 66563, ptr %status, align 4
-  %13 = load i16, ptr %b1.1, align 2
+  %13 = load i16, ptr %b1.2, align 2
   %cmp86 = icmp eq i16 %13, 45
   br i1 %cmp86, label %if.then87, label %if.else88
 
 if.then87:                                        ; preds = %if.else83
-  call void @uprv_syntaxError_75(ptr noundef nonnull %b1.1, i32 noundef 0, i32 noundef %b1Len.1, ptr noundef %parseError)
+  call void @uprv_syntaxError_75(ptr noundef nonnull %b1.2, i32 noundef 0, i32 noundef %b1Len.1, ptr noundef %parseError)
   br label %CLEANUP
 
 if.else88:                                        ; preds = %if.else83
   %sub90 = sext i1 %cmp49128 to i32
   %cond91 = add nsw i32 %b1Len.1, %sub90
-  call void @uprv_syntaxError_75(ptr noundef nonnull %b1.1, i32 noundef %cond91, i32 noundef %b1Len.1, ptr noundef %parseError)
+  call void @uprv_syntaxError_75(ptr noundef nonnull %b1.2, i32 noundef %cond91, i32 noundef %b1Len.1, ptr noundef %parseError)
   br label %CLEANUP
 
 if.end95:                                         ; preds = %lor.lhs.false74, %for.end66
@@ -261,7 +261,7 @@ if.then97:                                        ; preds = %for.end66.thread, %
   br i1 %cmp98.not, label %CLEANUP, label %if.then99
 
 if.then99:                                        ; preds = %if.then97
-  %call100 = call ptr @u_memmove_75(ptr noundef %dest, ptr noundef nonnull %b1.1, i32 noundef %b1Len.1)
+  %call100 = call ptr @u_memmove_75(ptr noundef %dest, ptr noundef nonnull %b1.2, i32 noundef %b1Len.1)
   br label %if.end129
 
 if.else103:                                       ; preds = %if.end95
@@ -275,7 +275,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %if.else103, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.else103 ]
-  %arrayidx.i = getelementptr inbounds i16, ptr %b1.1, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds i16, ptr %b1.2, i64 %indvars.iv.i
   %14 = load i16, ptr %arrayidx.i, align 2
   %15 = add i16 %14, -65
   %or.cond.i.i = icmp ult i16 %15, 26
@@ -287,7 +287,7 @@ for.body.i:                                       ; preds = %if.else103, %for.co
   br i1 %cmp6.not.i, label %for.cond.i, label %if.then106
 
 if.then106:                                       ; preds = %for.body.i, %if.else103
-  %call107 = call i32 @u_strToPunycode_75(ptr noundef nonnull %b1.1, i32 noundef %b1Len.1, ptr noundef nonnull %b2Stack, i32 noundef 100, ptr noundef null, ptr noundef nonnull %status)
+  %call107 = call i32 @u_strToPunycode_75(ptr noundef nonnull %b1.2, i32 noundef %b1Len.1, ptr noundef nonnull %b2Stack, i32 noundef 100, ptr noundef null, ptr noundef nonnull %status)
   %18 = load i32, ptr %status, align 4
   %cmp108 = icmp eq i32 %18, 15
   br i1 %cmp108, label %if.then109, label %if.end117
@@ -305,14 +305,14 @@ if.then114:                                       ; preds = %if.then109
 
 if.end115:                                        ; preds = %if.then109
   store i32 0, ptr %status, align 4
-  %call116 = call i32 @u_strToPunycode_75(ptr noundef nonnull %b1.1, i32 noundef %b1Len.1, ptr noundef nonnull %call112, i32 noundef %call107, ptr noundef null, ptr noundef nonnull %status)
+  %call116 = call i32 @u_strToPunycode_75(ptr noundef nonnull %b1.2, i32 noundef %b1Len.1, ptr noundef nonnull %call112, i32 noundef %call107, ptr noundef null, ptr noundef nonnull %status)
   %.pre = load i32, ptr %status, align 4
   br label %if.end117
 
 if.end117:                                        ; preds = %if.end115, %if.then106
   %19 = phi i32 [ %.pre, %if.end115 ], [ %18, %if.then106 ]
   %b2Len.0 = phi i32 [ %call116, %if.end115 ], [ %call107, %if.then106 ]
-  %b2.0 = phi ptr [ %call112, %if.end115 ], [ %b2Stack, %if.then106 ]
+  %b2.2 = phi ptr [ %call112, %if.end115 ], [ %b2Stack, %if.then106 ]
   %cmp.i110 = icmp slt i32 %19, 1
   br i1 %cmp.i110, label %if.end121, label %CLEANUP
 
@@ -328,18 +328,18 @@ if.then123:                                       ; preds = %if.end121
 if.end124:                                        ; preds = %if.end121
   %call125 = call ptr @u_memcpy_75(ptr noundef %dest, ptr noundef nonnull @_ZL10ACE_PREFIX, i32 noundef 4)
   %add.ptr = getelementptr inbounds i8, ptr %dest, i64 8
-  %call126 = call ptr @u_memcpy_75(ptr noundef nonnull %add.ptr, ptr noundef nonnull %b2.0, i32 noundef %b2Len.0)
+  %call126 = call ptr @u_memcpy_75(ptr noundef nonnull %add.ptr, ptr noundef nonnull %b2.2, i32 noundef %b2Len.0)
   br label %if.end129
 
 if.else127:                                       ; preds = %for.cond.i
   store i32 66564, ptr %status, align 4
-  call void @uprv_syntaxError_75(ptr noundef nonnull %b1.1, i32 noundef 0, i32 noundef %b1Len.1, ptr noundef %parseError)
+  call void @uprv_syntaxError_75(ptr noundef nonnull %b1.2, i32 noundef 0, i32 noundef %b1Len.1, ptr noundef %parseError)
   br label %CLEANUP
 
 if.end129:                                        ; preds = %if.end124, %if.then99
-  %reqLength.0 = phi i32 [ %b1Len.1, %if.then99 ], [ %add, %if.end124 ]
-  %b2.1 = phi ptr [ %b2Stack, %if.then99 ], [ %b2.0, %if.end124 ]
-  %cmp130 = icmp sgt i32 %reqLength.0, 63
+  %reqLength.1 = phi i32 [ %b1Len.1, %if.then99 ], [ %add, %if.end124 ]
+  %b2.1 = phi ptr [ %b2Stack, %if.then99 ], [ %b2.2, %if.end124 ]
+  %cmp130 = icmp sgt i32 %reqLength.1, 63
   br i1 %cmp130, label %if.then131, label %CLEANUP
 
 if.then131:                                       ; preds = %if.end129
@@ -347,9 +347,9 @@ if.then131:                                       ; preds = %if.end129
   br label %CLEANUP
 
 CLEANUP:                                          ; preds = %if.then97, %if.end129, %if.then131, %if.end117, %if.then82, %if.else88, %if.then87, %if.end41, %if.else127, %if.then123, %if.then114, %if.then46
-  %reqLength.1 = phi i32 [ 0, %if.end41 ], [ 0, %if.then46 ], [ 0, %if.then82 ], [ 0, %if.then87 ], [ 0, %if.else88 ], [ %reqLength.0, %if.then131 ], [ %reqLength.0, %if.end129 ], [ 0, %if.else127 ], [ 0, %if.then114 ], [ 0, %if.end117 ], [ %add, %if.then123 ], [ %b1Len.1, %if.then97 ]
-  %b2.2 = phi ptr [ %b2Stack, %if.end41 ], [ %b2Stack, %if.then46 ], [ %b2Stack, %if.then82 ], [ %b2Stack, %if.then87 ], [ %b2Stack, %if.else88 ], [ %b2.1, %if.then131 ], [ %b2.1, %if.end129 ], [ %b2Stack, %if.else127 ], [ null, %if.then114 ], [ %b2.0, %if.end117 ], [ %b2.0, %if.then123 ], [ %b2Stack, %if.then97 ]
-  %cmp134.not = icmp eq ptr %b1.1, %b1Stack
+  %reqLength.0 = phi i32 [ 0, %if.end41 ], [ 0, %if.then46 ], [ 0, %if.then82 ], [ 0, %if.then87 ], [ 0, %if.else88 ], [ %reqLength.1, %if.then131 ], [ %reqLength.1, %if.end129 ], [ 0, %if.else127 ], [ 0, %if.then114 ], [ 0, %if.end117 ], [ %add, %if.then123 ], [ %b1Len.1, %if.then97 ]
+  %b2.0 = phi ptr [ %b2Stack, %if.end41 ], [ %b2Stack, %if.then46 ], [ %b2Stack, %if.then82 ], [ %b2Stack, %if.then87 ], [ %b2Stack, %if.else88 ], [ %b2.1, %if.then131 ], [ %b2.1, %if.end129 ], [ %b2Stack, %if.else127 ], [ null, %if.then114 ], [ %b2.2, %if.end117 ], [ %b2.2, %if.then123 ], [ %b2Stack, %if.then97 ]
+  %cmp134.not = icmp eq ptr %b1.2, %b1Stack
   br i1 %cmp134.not, label %if.end136, label %if.then135
 
 if.then135.sink.split:                            ; preds = %if.end32, %if.then6
@@ -357,25 +357,25 @@ if.then135.sink.split:                            ; preds = %if.end32, %if.then6
   br label %if.then135
 
 if.then135:                                       ; preds = %if.then135.sink.split, %CLEANUP
-  %b1.2122 = phi ptr [ %b1.1, %CLEANUP ], [ null, %if.then135.sink.split ]
-  %b2.2120 = phi ptr [ %b2.2, %CLEANUP ], [ %b2Stack, %if.then135.sink.split ]
-  %reqLength.1118 = phi i32 [ %reqLength.1, %CLEANUP ], [ 0, %if.then135.sink.split ]
-  call void @uprv_free_75(ptr noundef %b1.2122)
+  %b1.1122 = phi ptr [ %b1.2, %CLEANUP ], [ null, %if.then135.sink.split ]
+  %b2.0120 = phi ptr [ %b2.0, %CLEANUP ], [ %b2Stack, %if.then135.sink.split ]
+  %reqLength.0118 = phi i32 [ %reqLength.0, %CLEANUP ], [ 0, %if.then135.sink.split ]
+  call void @uprv_free_75(ptr noundef %b1.1122)
   br label %if.end136
 
 if.end136:                                        ; preds = %if.then135, %CLEANUP
-  %b2.2121 = phi ptr [ %b2.2120, %if.then135 ], [ %b2.2, %CLEANUP ]
-  %reqLength.1119 = phi i32 [ %reqLength.1118, %if.then135 ], [ %reqLength.1, %CLEANUP ]
-  %cmp138.not = icmp eq ptr %b2.2121, %b2Stack
+  %b2.0121 = phi ptr [ %b2.0120, %if.then135 ], [ %b2.0, %CLEANUP ]
+  %reqLength.0119 = phi i32 [ %reqLength.0118, %if.then135 ], [ %reqLength.0, %CLEANUP ]
+  %cmp138.not = icmp eq ptr %b2.0121, %b2Stack
   br i1 %cmp138.not, label %if.end140, label %if.then139
 
 if.then139:                                       ; preds = %if.end136
-  call void @uprv_free_75(ptr noundef %b2.2121)
+  call void @uprv_free_75(ptr noundef %b2.0121)
   br label %if.end140
 
 if.end140:                                        ; preds = %if.then139, %if.end136
   call void @uprv_free_75(ptr noundef null)
-  %call141 = call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %reqLength.1119, ptr noundef %status)
+  %call141 = call i32 @u_terminateUChars_75(ptr noundef %dest, i32 noundef %destCapacity, i32 noundef %reqLength.0119, ptr noundef %status)
   ret i32 %call141
 }
 
@@ -512,7 +512,7 @@ if.end37:                                         ; preds = %if.end35, %if.then2
 if.end42:                                         ; preds = %for.cond12, %if.end25, %if.end37
   %srcLength.addr.1126 = phi i32 [ %srcLength.addr.1124, %if.end37 ], [ %4, %if.end25 ], [ %srcLength, %for.cond12 ]
   %b1Len.1 = phi i32 [ %b1Len.0, %if.end37 ], [ %4, %if.end25 ], [ %srcLength, %for.cond12 ]
-  %b1.1 = phi ptr [ %b1.0, %if.end37 ], [ %src, %if.end25 ], [ %src, %for.cond12 ]
+  %b1.2 = phi ptr [ %b1.0, %if.end37 ], [ %src, %if.end25 ], [ %src, %for.cond12 ]
   %cmp.i94 = icmp slt i32 %b1Len.1, 4
   br i1 %cmp.i94, label %if.else80, label %for.body.i
 
@@ -523,7 +523,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %if.end42, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.end42 ]
-  %arrayidx.i = getelementptr inbounds i16, ptr %b1.1, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds i16, ptr %b1.2, i64 %indvars.iv.i
   %7 = load i16, ptr %arrayidx.i, align 2
   %8 = add i16 %7, -65
   %or.cond.i.i = icmp ult i16 %8, 26
@@ -535,7 +535,7 @@ for.body.i:                                       ; preds = %if.end42, %for.cond
   br i1 %cmp6.not.i, label %for.cond.i, label %if.else80
 
 if.then45:                                        ; preds = %for.cond.i
-  %add.ptr = getelementptr inbounds i8, ptr %b1.1, i64 8
+  %add.ptr = getelementptr inbounds i8, ptr %b1.2, i64 8
   %sub = add nsw i32 %b1Len.1, -4
   %call46 = call i32 @u_strFromPunycode_75(ptr noundef nonnull %add.ptr, i32 noundef %sub, ptr noundef nonnull %b2Stack, i32 noundef 100, ptr noundef null, ptr noundef %status)
   %11 = load i32, ptr %status, align 4
@@ -562,7 +562,7 @@ if.end54:                                         ; preds = %if.then48
 lor.lhs.false.i:                                  ; preds = %if.then45, %if.end54
   %12 = phi i32 [ %11, %if.then45 ], [ %.pr, %if.end54 ]
   %b2Len.0 = phi i32 [ %call46, %if.then45 ], [ %call55, %if.end54 ]
-  %b2.0 = phi ptr [ %b2Stack, %if.then45 ], [ %call51, %if.end54 ]
+  %b2.1 = phi ptr [ %b2Stack, %if.then45 ], [ %call51, %if.end54 ]
   %cmp.i.i = icmp slt i32 %12, 1
   br i1 %cmp.i.i, label %if.end.i, label %uidna_toASCII_75.exit
 
@@ -581,7 +581,7 @@ uidna_toASCII_75.exit.thread:                     ; preds = %if.end.i
   br label %CLEANUP
 
 if.end15.i:                                       ; preds = %lor.lhs.false6.i
-  %call16.i = call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef nonnull %b2.0, i32 noundef %b2Len.0, ptr noundef nonnull %b3Stack, i32 noundef 100, i32 noundef %options, ptr noundef %call11.i, ptr noundef %parseError, ptr noundef nonnull %status)
+  %call16.i = call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef nonnull %b2.1, i32 noundef %b2Len.0, ptr noundef nonnull %b3Stack, i32 noundef 100, i32 noundef %options, ptr noundef %call11.i, ptr noundef %parseError, ptr noundef nonnull %status)
   call void @usprep_close_75(ptr noundef %call11.i)
   %.pr133.pre = load i32, ptr %status, align 4
   br label %uidna_toASCII_75.exit
@@ -621,7 +621,7 @@ if.end10.i:                                       ; preds = %if.end.i101
   br i1 %cmp.i14.i105, label %if.end15.i106, label %CLEANUP
 
 if.end15.i106:                                    ; preds = %if.end10.i
-  %call16.i107 = call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef nonnull %b2.0, i32 noundef %b2Len.0, ptr noundef nonnull %call62, i32 noundef %retval.0.i96, i32 noundef %options, ptr noundef %call11.i104, ptr noundef %parseError, ptr noundef nonnull %status)
+  %call16.i107 = call fastcc noundef i32 @_ZL17_internal_toASCIIPKDsiPDsiiP18UStringPrepProfileP11UParseErrorP10UErrorCode(ptr noundef nonnull %b2.1, i32 noundef %b2Len.0, ptr noundef nonnull %call62, i32 noundef %retval.0.i96, i32 noundef %options, ptr noundef %call11.i104, ptr noundef %parseError, ptr noundef nonnull %status)
   call void @usprep_close_75(ptr noundef %call11.i104)
   %.pre145 = load i32, ptr %status, align 4
   br label %if.end67
@@ -645,7 +645,7 @@ if.end7.preheader.i:                              ; preds = %if.end71
 
 if.end7.i:                                        ; preds = %for.inc.i, %if.end7.preheader.i
   %indvars.iv.i112 = phi i64 [ 0, %if.end7.preheader.i ], [ %indvars.iv.next.i117, %for.inc.i ]
-  %arrayidx.i113 = getelementptr inbounds i16, ptr %b1.1, i64 %indvars.iv.i112
+  %arrayidx.i113 = getelementptr inbounds i16, ptr %b1.2, i64 %indvars.iv.i112
   %18 = load i16, ptr %arrayidx.i113, align 2
   %arrayidx9.i = getelementptr inbounds i16, ptr %b3.0, i64 %indvars.iv.i112
   %19 = load i16, ptr %arrayidx9.i, align 2
@@ -681,11 +681,11 @@ if.end75:                                         ; preds = %_ZL27compareCaseIns
   br i1 %cmp76.not, label %CLEANUP, label %if.then77
 
 if.then77:                                        ; preds = %if.end75
-  %call78 = call ptr @u_memmove_75(ptr noundef %dest, ptr noundef nonnull %b2.0, i32 noundef %b2Len.0)
+  %call78 = call ptr @u_memmove_75(ptr noundef %dest, ptr noundef nonnull %b2.1, i32 noundef %b2Len.0)
   br label %CLEANUP
 
 if.else80:                                        ; preds = %for.body.i, %for.cond.preheader, %if.end42
-  %b1.1154 = phi ptr [ %b1.1, %if.end42 ], [ %src, %for.cond.preheader ], [ %b1.1, %for.body.i ]
+  %b1.2154 = phi ptr [ %b1.2, %if.end42 ], [ %src, %for.cond.preheader ], [ %b1.2, %for.body.i ]
   %srcLength.addr.1126153 = phi i32 [ %srcLength.addr.1126, %if.end42 ], [ 0, %for.cond.preheader ], [ %srcLength.addr.1126, %for.body.i ]
   %cmp81.not = icmp sgt i32 %srcLength.addr.1126153, %destCapacity
   br i1 %cmp81.not, label %CLEANUP, label %if.then82
@@ -696,24 +696,24 @@ if.then82:                                        ; preds = %if.else80
 
 CLEANUP:                                          ; preds = %if.end10.i, %if.then9.i108, %uidna_toASCII_75.exit.thread, %if.else80, %if.then82, %if.then77, %if.end75, %if.end67, %if.end37, %if.then74, %if.then64, %if.then53, %if.then34
   %srcLength.addr.1125 = phi i32 [ %srcLength.addr.1124, %if.then34 ], [ %srcLength.addr.1124, %if.end37 ], [ %srcLength.addr.1126, %if.then53 ], [ %srcLength.addr.1126, %if.then64 ], [ %srcLength.addr.1126, %if.end67 ], [ %srcLength.addr.1126, %if.then74 ], [ %srcLength.addr.1126, %if.then77 ], [ %srcLength.addr.1126, %if.end75 ], [ %srcLength.addr.1126153, %if.then82 ], [ %srcLength.addr.1126153, %if.else80 ], [ %srcLength.addr.1126, %uidna_toASCII_75.exit.thread ], [ %srcLength.addr.1126, %if.then9.i108 ], [ %srcLength.addr.1126, %if.end10.i ]
-  %b2.1 = phi ptr [ %b2Stack, %if.then34 ], [ %b2Stack, %if.end37 ], [ null, %if.then53 ], [ %b2.0, %if.then64 ], [ %b2.0, %if.end67 ], [ %b2.0, %if.then74 ], [ %b2.0, %if.then77 ], [ %b2.0, %if.end75 ], [ %b2Stack, %if.then82 ], [ %b2Stack, %if.else80 ], [ %b2.0, %uidna_toASCII_75.exit.thread ], [ %b2.0, %if.then9.i108 ], [ %b2.0, %if.end10.i ]
-  %b1.2 = phi ptr [ null, %if.then34 ], [ %b1.0, %if.end37 ], [ %b1.1, %if.then53 ], [ %b1.1, %if.then64 ], [ %b1.1, %if.end67 ], [ %b1.1, %if.then74 ], [ %b1.1, %if.then77 ], [ %b1.1, %if.end75 ], [ %b1.1154, %if.then82 ], [ %b1.1154, %if.else80 ], [ %b1.1, %uidna_toASCII_75.exit.thread ], [ %b1.1, %if.then9.i108 ], [ %b1.1, %if.end10.i ]
+  %b2.0 = phi ptr [ %b2Stack, %if.then34 ], [ %b2Stack, %if.end37 ], [ null, %if.then53 ], [ %b2.1, %if.then64 ], [ %b2.1, %if.end67 ], [ %b2.1, %if.then74 ], [ %b2.1, %if.then77 ], [ %b2.1, %if.end75 ], [ %b2Stack, %if.then82 ], [ %b2Stack, %if.else80 ], [ %b2.1, %uidna_toASCII_75.exit.thread ], [ %b2.1, %if.then9.i108 ], [ %b2.1, %if.end10.i ]
+  %b1.1 = phi ptr [ null, %if.then34 ], [ %b1.0, %if.end37 ], [ %b1.2, %if.then53 ], [ %b1.2, %if.then64 ], [ %b1.2, %if.end67 ], [ %b1.2, %if.then74 ], [ %b1.2, %if.then77 ], [ %b1.2, %if.end75 ], [ %b1.2154, %if.then82 ], [ %b1.2154, %if.else80 ], [ %b1.2, %uidna_toASCII_75.exit.thread ], [ %b1.2, %if.then9.i108 ], [ %b1.2, %if.end10.i ]
   %reqLength.0 = phi i32 [ 0, %if.then34 ], [ 0, %if.end37 ], [ 0, %if.then53 ], [ 0, %if.then64 ], [ 0, %if.end67 ], [ 0, %if.then74 ], [ %b2Len.0, %if.then77 ], [ %b2Len.0, %if.end75 ], [ %srcLength.addr.1126153, %if.then82 ], [ %srcLength.addr.1126153, %if.else80 ], [ 0, %uidna_toASCII_75.exit.thread ], [ 0, %if.then9.i108 ], [ 0, %if.end10.i ]
-  %cmp87.not = icmp eq ptr %b1.2, %b1Stack
-  %cmp88.not = icmp eq ptr %b1.2, %src
+  %cmp87.not = icmp eq ptr %b1.1, %b1Stack
+  %cmp88.not = icmp eq ptr %b1.1, %src
   %or.cond = or i1 %cmp87.not, %cmp88.not
   br i1 %or.cond, label %if.end90, label %if.then89
 
 if.then89:                                        ; preds = %CLEANUP
-  call void @uprv_free_75(ptr noundef %b1.2)
+  call void @uprv_free_75(ptr noundef %b1.1)
   br label %if.end90
 
 if.end90:                                         ; preds = %if.then89, %CLEANUP
-  %cmp92.not = icmp eq ptr %b2.1, %b2Stack
+  %cmp92.not = icmp eq ptr %b2.0, %b2Stack
   br i1 %cmp92.not, label %if.end94, label %if.then93
 
 if.then93:                                        ; preds = %if.end90
-  call void @uprv_free_75(ptr noundef %b2.1)
+  call void @uprv_free_75(ptr noundef %b2.0)
   br label %if.end94
 
 if.end94:                                         ; preds = %if.then93, %if.end90
@@ -1195,7 +1195,7 @@ if.end19:                                         ; preds = %if.then13
   br label %if.end21
 
 if.end21:                                         ; preds = %if.end19, %if.end10
-  %b2.0 = phi ptr [ %call16, %if.end19 ], [ %b2Stack, %if.end10 ]
+  %b2.1 = phi ptr [ %call16, %if.end19 ], [ %b2Stack, %if.end10 ]
   %b2Len.0 = phi i32 [ %call20, %if.end19 ], [ %call11, %if.end10 ]
   %cmp.not.i = icmp eq i32 %b1Len.0, %b2Len.0
   %cmp1.i = icmp slt i32 %b1Len.0, %b2Len.0
@@ -1213,7 +1213,7 @@ if.end7.i:                                        ; preds = %for.inc.i, %if.end7
   %indvars.iv.i = phi i64 [ 0, %if.end7.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx.i = getelementptr inbounds i16, ptr %b1.0, i64 %indvars.iv.i
   %4 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx9.i = getelementptr inbounds i16, ptr %b2.0, i64 %indvars.iv.i
+  %arrayidx9.i = getelementptr inbounds i16, ptr %b2.1, i64 %indvars.iv.i
   %5 = load i16, ptr %arrayidx9.i, align 2
   %cmp11.not.i = icmp eq i16 %4, %5
   br i1 %cmp11.not.i, label %for.inc.i, label %if.then12.i
@@ -1239,7 +1239,7 @@ for.inc.i:                                        ; preds = %if.then12.i, %if.en
   br i1 %cmp5.i, label %CLEANUP, label %if.end7.i, !llvm.loop !10
 
 CLEANUP:                                          ; preds = %for.inc.i, %if.then12.i, %if.end21, %if.then18
-  %b2.1 = phi ptr [ null, %if.then18 ], [ %b2.0, %if.end21 ], [ %b2.0, %if.then12.i ], [ %b2.0, %for.inc.i ]
+  %b2.0 = phi ptr [ null, %if.then18 ], [ %b2.1, %if.end21 ], [ %b2.1, %if.then12.i ], [ %b2.1, %for.inc.i ]
   %result.0 = phi i32 [ -1, %if.then18 ], [ %lengthResult.0.i, %if.end21 ], [ %lengthResult.0.i, %for.inc.i ], [ %sub.i, %if.then12.i ]
   %cmp24.not = icmp eq ptr %b1.0, %b1Stack
   br i1 %cmp24.not, label %if.end26, label %if.then25
@@ -1247,18 +1247,18 @@ CLEANUP:                                          ; preds = %for.inc.i, %if.then
 if.then25:                                        ; preds = %CLEANUP.thread, %CLEANUP
   %result.040 = phi i32 [ -1, %CLEANUP.thread ], [ %result.0, %CLEANUP ]
   %b1.139 = phi ptr [ null, %CLEANUP.thread ], [ %b1.0, %CLEANUP ]
-  %b2.137 = phi ptr [ %b2Stack, %CLEANUP.thread ], [ %b2.1, %CLEANUP ]
+  %b2.037 = phi ptr [ %b2Stack, %CLEANUP.thread ], [ %b2.0, %CLEANUP ]
   call void @uprv_free_75(ptr noundef %b1.139)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then25, %CLEANUP
   %result.041 = phi i32 [ %result.040, %if.then25 ], [ %result.0, %CLEANUP ]
-  %b2.138 = phi ptr [ %b2.137, %if.then25 ], [ %b2.1, %CLEANUP ]
-  %cmp28.not = icmp eq ptr %b2.138, %b2Stack
+  %b2.038 = phi ptr [ %b2.037, %if.then25 ], [ %b2.0, %CLEANUP ]
+  %cmp28.not = icmp eq ptr %b2.038, %b2Stack
   br i1 %cmp28.not, label %return, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
-  call void @uprv_free_75(ptr noundef %b2.138)
+  call void @uprv_free_75(ptr noundef %b2.038)
   br label %return
 
 return:                                           ; preds = %if.end26, %if.then29, %entry, %lor.lhs.false

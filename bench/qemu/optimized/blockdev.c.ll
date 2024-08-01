@@ -1218,8 +1218,8 @@ if.else.i:                                        ; preds = %while.body, %while.
   unreachable
 
 do.end.i:                                         ; preds = %do.end.i.lr.ph, %while.body
-  %bus_id.1210 = phi i32 [ %bus_id.0, %do.end.i.lr.ph ], [ %bus_id.2, %while.body ]
-  %unit_id.1209 = phi i32 [ 0, %do.end.i.lr.ph ], [ %unit_id.2, %while.body ]
+  %bus_id.2210 = phi i32 [ %bus_id.0, %do.end.i.lr.ph ], [ %bus_id.3, %while.body ]
+  %unit_id.2209 = phi i32 [ 0, %do.end.i.lr.ph ], [ %unit_id.3, %while.body ]
   %call1.i141 = call ptr @blk_next(ptr noundef null) #15
   %tobool.not7.i = icmp eq ptr %call1.i141, null
   br i1 %tobool.not7.i, label %if.end131, label %for.body.i
@@ -1238,13 +1238,13 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
   %bus6.i = getelementptr inbounds i8, ptr %call2.i, i64 4
   %11 = load i32, ptr %bus6.i, align 4
-  %cmp7.i = icmp eq i32 %11, %bus_id.1210
+  %cmp7.i = icmp eq i32 %11, %bus_id.2210
   br i1 %cmp7.i, label %land.lhs.true8.i, label %for.inc.i
 
 land.lhs.true8.i:                                 ; preds = %land.lhs.true5.i
   %unit9.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %12 = load i32, ptr %unit9.i, align 8
-  %cmp10.i = icmp eq i32 %12, %unit_id.1209
+  %cmp10.i = icmp eq i32 %12, %unit_id.2209
   br i1 %cmp10.i, label %while.body, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.lhs.true8.i, %land.lhs.true5.i, %land.lhs.true.i, %for.body.i
@@ -1253,33 +1253,33 @@ for.inc.i:                                        ; preds = %land.lhs.true8.i, %
   br i1 %tobool.not.i142, label %if.end131, label %for.body.i, !llvm.loop !8
 
 while.body:                                       ; preds = %land.lhs.true8.i
-  %inc123 = add i32 %unit_id.1209, 1
+  %inc123 = add i32 %unit_id.2209, 1
   %cmp126.not = icmp sge i32 %inc123, %9
   %or.cond131.not = and i1 %tobool124.not, %cmp126.not
   %sub = select i1 %cmp126.not, i32 %9, i32 0
-  %unit_id.2 = sub i32 %inc123, %sub
+  %unit_id.3 = sub i32 %inc123, %sub
   %inc129 = zext i1 %or.cond131.not to i32
-  %bus_id.2 = add i32 %bus_id.1210, %inc129
+  %bus_id.3 = add i32 %bus_id.2210, %inc129
   %call.i140 = call zeroext i1 @qemu_in_main_thread() #15
   br i1 %call.i140, label %do.end.i, label %if.else.i, !llvm.loop !15
 
 if.end131:                                        ; preds = %do.end.i, %for.inc.i, %if.end116
-  %unit_id.3 = phi i32 [ %unit_id.0, %if.end116 ], [ %unit_id.1209, %for.inc.i ], [ %unit_id.1209, %do.end.i ]
-  %bus_id.3 = phi i32 [ %bus_id.0, %if.end116 ], [ %bus_id.1210, %for.inc.i ], [ %bus_id.1210, %do.end.i ]
+  %unit_id.1 = phi i32 [ %unit_id.0, %if.end116 ], [ %unit_id.2209, %for.inc.i ], [ %unit_id.2209, %do.end.i ]
+  %bus_id.1 = phi i32 [ %bus_id.0, %if.end116 ], [ %bus_id.2210, %for.inc.i ], [ %bus_id.2210, %do.end.i ]
   %tobool132.not = icmp eq i32 %9, 0
-  %cmp134.not = icmp slt i32 %unit_id.3, %9
+  %cmp134.not = icmp slt i32 %unit_id.1, %9
   %or.cond132 = or i1 %tobool132.not, %cmp134.not
   br i1 %or.cond132, label %if.end138, label %if.then136
 
 if.then136:                                       ; preds = %if.end131
   %sub137 = add i32 %9, -1
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 944, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.68, i32 noundef %unit_id.3, i32 noundef %sub137) #15
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 944, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.68, i32 noundef %unit_id.1, i32 noundef %sub137) #15
   br label %fail
 
 if.end138:                                        ; preds = %if.end113, %if.end131
   %tobool132.not191 = phi i1 [ %tobool132.not, %if.end131 ], [ true, %if.end113 ]
-  %bus_id.3189 = phi i32 [ %bus_id.3, %if.end131 ], [ 0, %if.end113 ]
-  %unit_id.3187 = phi i32 [ %unit_id.3, %if.end131 ], [ %conv102, %if.end113 ]
+  %bus_id.1189 = phi i32 [ %bus_id.1, %if.end131 ], [ 0, %if.end113 ]
+  %unit_id.1187 = phi i32 [ %unit_id.1, %if.end131 ], [ %conv102, %if.end113 ]
   %call.i144 = call zeroext i1 @qemu_in_main_thread() #15
   br i1 %call.i144, label %do.end.i146, label %if.else.i145
 
@@ -1306,13 +1306,13 @@ land.lhs.true.i153:                               ; preds = %for.body.i149
 land.lhs.true5.i159:                              ; preds = %land.lhs.true.i153
   %bus6.i160 = getelementptr inbounds i8, ptr %call2.i151, i64 4
   %14 = load i32, ptr %bus6.i160, align 4
-  %cmp7.i161 = icmp eq i32 %14, %bus_id.3189
+  %cmp7.i161 = icmp eq i32 %14, %bus_id.1189
   br i1 %cmp7.i161, label %land.lhs.true8.i162, label %for.inc.i155
 
 land.lhs.true8.i162:                              ; preds = %land.lhs.true5.i159
   %unit9.i163 = getelementptr inbounds i8, ptr %call2.i151, i64 8
   %15 = load i32, ptr %unit9.i163, align 8
-  %cmp10.i164 = icmp eq i32 %15, %unit_id.3187
+  %cmp10.i164 = icmp eq i32 %15, %unit_id.1187
   br i1 %cmp10.i164, label %if.then142, label %for.inc.i155
 
 for.inc.i155:                                     ; preds = %land.lhs.true8.i162, %land.lhs.true5.i159, %land.lhs.true.i153, %for.body.i149
@@ -1321,7 +1321,7 @@ for.inc.i155:                                     ; preds = %land.lhs.true8.i162
   br i1 %tobool.not.i157, label %if.end143, label %for.body.i149, !llvm.loop !8
 
 if.then142:                                       ; preds = %land.lhs.true8.i162
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 950, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.69, i32 noundef %bus_id.3189, i32 noundef %unit_id.3187, i32 noundef %conv102) #15
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 950, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.69, i32 noundef %bus_id.1189, i32 noundef %unit_id.1187, i32 noundef %conv102) #15
   br label %fail
 
 if.end143:                                        ; preds = %for.inc.i155, %do.end.i146
@@ -1338,11 +1338,11 @@ if.then147:                                       ; preds = %if.end143
   br i1 %tobool132.not191, label %if.else163, label %if.then159
 
 if.then159:                                       ; preds = %if.then147
-  %call162 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.73, ptr noundef %17, i32 noundef %bus_id.3189, ptr noundef nonnull %spec.select, i32 noundef %unit_id.3187) #15
+  %call162 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.73, ptr noundef %17, i32 noundef %bus_id.1189, ptr noundef nonnull %spec.select, i32 noundef %unit_id.1187) #15
   br label %if.end167
 
 if.else163:                                       ; preds = %if.then147
-  %call166 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.74, ptr noundef %17, ptr noundef nonnull %spec.select, i32 noundef %unit_id.3187) #15
+  %call166 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.74, ptr noundef %17, ptr noundef nonnull %spec.select, i32 noundef %unit_id.1187) #15
   br label %if.end167
 
 if.end167:                                        ; preds = %if.else163, %if.then159
@@ -1423,9 +1423,9 @@ if.end232:                                        ; preds = %if.end228
   store ptr %all_opts, ptr %opts, align 8
   store i32 %type.1, ptr %call233, align 8
   %bus = getelementptr inbounds i8, ptr %call233, i64 4
-  store i32 %bus_id.3189, ptr %bus, align 4
+  store i32 %bus_id.1189, ptr %bus, align 4
   %unit = getelementptr inbounds i8, ptr %call233, i64 8
-  store i32 %unit_id.3187, ptr %unit, align 8
+  store i32 %unit_id.1187, ptr %unit, align 8
   %call235 = call ptr @blk_set_legacy_dinfo(ptr noundef nonnull %call229, ptr noundef nonnull %call233) #15
   switch i32 %type.1, label %fail.thread [
     i32 1, label %sw.bb
@@ -1683,7 +1683,7 @@ if.then93.i:                                      ; preds = %if.then89.i
 
 extract_common_blockdev_options.exit:             ; preds = %if.then6.i, %if.end9.i, %if.then89.i, %if.then93.i
   %detect_zeroes.0 = phi i32 [ %call91.i, %if.then89.i ], [ %call91.i, %if.then93.i ], [ 0, %if.end9.i ], [ 0, %if.then6.i ]
-  %throttling_group.0 = phi ptr [ %call12.i, %if.then89.i ], [ %call12.i, %if.then93.i ], [ %call12.i, %if.end9.i ], [ null, %if.then6.i ]
+  %throttling_group.1 = phi ptr [ %call12.i, %if.then89.i ], [ %call12.i, %if.then93.i ], [ %call12.i, %if.end9.i ], [ null, %if.then6.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %local_error.i)
   %6 = load ptr, ptr %error, align 8
   %tobool18.not = icmp eq ptr %6, null
@@ -1870,8 +1870,8 @@ if.end102:                                        ; preds = %if.end94, %if.then6
   br i1 %call103, label %if.then104, label %if.end108
 
 if.then104:                                       ; preds = %if.end102
-  %tobool105.not = icmp eq ptr %throttling_group.0, null
-  %spec.select = select i1 %tobool105.not, ptr %call12, ptr %throttling_group.0
+  %tobool105.not = icmp eq ptr %throttling_group.1, null
+  %spec.select = select i1 %tobool105.not, ptr %call12, ptr %throttling_group.1
   call void @blk_io_limits_enable(ptr noundef %blk.0, ptr noundef %spec.select) #15
   call void @blk_set_io_limits(ptr noundef %blk.0, ptr noundef nonnull %cfg) #15
   br label %if.end108

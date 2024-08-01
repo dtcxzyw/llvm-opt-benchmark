@@ -730,13 +730,13 @@ psh_glyph_load_points.exit:                       ; preds = %.lr.ph.split.i, %.l
 
 .loopexit87.i:                                    ; preds = %.loopexit84.i, %psh_glyph_load_points.exit, %.loopexit.i
   %371 = phi i32 [ %.pre, %.loopexit.i ], [ %299, %psh_glyph_load_points.exit ], [ %299, %.loopexit84.i ]
-  %.163.i = phi i32 [ %406, %.loopexit.i ], [ 0, %psh_glyph_load_points.exit ], [ 0, %.loopexit84.i ]
-  %372 = icmp ult i32 %.163.i, %371
+  %.2.i = phi i32 [ %406, %.loopexit.i ], [ 0, %psh_glyph_load_points.exit ], [ 0, %.loopexit84.i ]
+  %372 = icmp ult i32 %.2.i, %371
   br i1 %372, label %373, label %psh_glyph_compute_extrema.exit
 
 373:                                              ; preds = %.loopexit87.i
   %374 = load ptr, ptr %18, align 8
-  %375 = zext i32 %.163.i to i64
+  %375 = zext i32 %.2.i to i64
   %376 = getelementptr inbounds %struct.PSH_PointRec_, ptr %374, i64 %375
   %377 = getelementptr inbounds i8, ptr %376, i64 28
   %378 = load i32, ptr %377, align 4
@@ -749,8 +749,8 @@ psh_glyph_load_points.exit:                       ; preds = %.lr.ph.split.i, %.l
   br label %381
 
 381:                                              ; preds = %384, %.preheader81.i
-  %.060.i = phi ptr [ %382, %384 ], [ %376, %.preheader81.i ]
-  %382 = load ptr, ptr %.060.i, align 8
+  %.161.i = phi ptr [ %382, %384 ], [ %376, %.preheader81.i ]
+  %382 = load ptr, ptr %.161.i, align 8
   %383 = icmp eq ptr %382, %376
   br i1 %383, label %.loopexit.i, label %384
 
@@ -762,8 +762,8 @@ psh_glyph_load_points.exit:                       ; preds = %.lr.ph.split.i, %.l
   br i1 %388, label %381, label %.preheader.i, !llvm.loop !20
 
 .preheader.i:                                     ; preds = %384, %392
-  %.0.i = phi ptr [ %390, %392 ], [ %376, %384 ]
-  %389 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %.1.i = phi ptr [ %390, %392 ], [ %376, %384 ]
+  %389 = getelementptr inbounds i8, ptr %.1.i, i64 8
   %390 = load ptr, ptr %389, align 8
   %391 = icmp eq ptr %390, %376
   br i1 %391, label %.loopexit.i, label %392
@@ -801,8 +801,8 @@ psh_glyph_load_points.exit:                       ; preds = %.lr.ph.split.i, %.l
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %381, %.preheader.i, %.loopexit.loopexit99.i, %403, %400, %398, %373
-  %.2.i = phi i32 [ %.163.i, %400 ], [ %.163.i, %403 ], [ %.163.i, %398 ], [ %405, %.loopexit.loopexit99.i ], [ %.163.i, %373 ], [ %.163.i, %.preheader.i ], [ %.163.i, %381 ]
-  %406 = add i32 %.2.i, 1
+  %.163.i = phi i32 [ %.2.i, %400 ], [ %.2.i, %403 ], [ %.2.i, %398 ], [ %405, %.loopexit.loopexit99.i ], [ %.2.i, %373 ], [ %.2.i, %.preheader.i ], [ %.2.i, %381 ]
+  %406 = add i32 %.163.i, 1
   %.pre = load i32, ptr %6, align 8
   br label %.loopexit87.i, !llvm.loop !22
 
@@ -864,7 +864,7 @@ psh_hint_table_align_hints.exit:                  ; preds = %psh_hint_table_alig
 
 432:                                              ; preds = %490, %.lr.ph.i97
   %.pn121.i = phi ptr [ %417, %.lr.ph.i97 ], [ %.056122.i, %490 ]
-  %.057120.i = phi i32 [ %418, %.lr.ph.i97 ], [ %491, %490 ]
+  %.1120.i = phi i32 [ %418, %.lr.ph.i97 ], [ %491, %490 ]
   %.058119.i = phi i32 [ %..i, %.lr.ph.i97 ], [ %.69.i, %490 ]
   %.056122.i = getelementptr inbounds i8, ptr %.pn121.i, i64 24
   %433 = getelementptr inbounds i8, ptr %.pn121.i, i64 40
@@ -1024,7 +1024,7 @@ psh_hint_table_activate_mask.exit.i:              ; preds = %psh_hint_table_acti
   br label %490
 
 490:                                              ; preds = %psh_hint_table_activate_mask.exit.i, %432
-  %491 = add i32 %.057120.i, -1
+  %491 = add i32 %.1120.i, -1
   %492 = icmp ugt i32 %491, 1
   br i1 %492, label %432, label %.thread.i, !llvm.loop !28
 
@@ -3127,8 +3127,8 @@ define internal fastcc void @psh_hint_align(ptr nocapture noundef %0, ptr nocapt
   br i1 %.not.i, label %.loopexit50.i, label %64, !llvm.loop !60
 
 .loopexit50.i:                                    ; preds = %82, %64, %79, %75, %48
-  %.sroa.6.0 = phi i64 [ 0, %48 ], [ 0, %75 ], [ %81, %79 ], [ 0, %64 ], [ 0, %82 ]
-  %.sroa.0.0 = phi i32 [ 0, %48 ], [ 0, %75 ], [ 1, %79 ], [ 0, %64 ], [ 0, %82 ]
+  %.sroa.6.1 = phi i64 [ 0, %48 ], [ 0, %75 ], [ %81, %79 ], [ 0, %64 ], [ 0, %82 ]
+  %.sroa.0.1 = phi i32 [ 0, %48 ], [ 0, %75 ], [ 1, %79 ], [ 0, %64 ], [ 0, %82 ]
   %85 = phi i32 [ 2, %48 ], [ 2, %75 ], [ 3, %79 ], [ 2, %64 ], [ 2, %82 ]
   %86 = getelementptr inbounds i8, ptr %1, i64 1600
   %87 = load i32, ptr %86, align 8
@@ -3185,9 +3185,9 @@ define internal fastcc void @psh_hint_align(ptr nocapture noundef %0, ptr nocapt
   br label %psh_blues_snap_stem.exit
 
 psh_blues_snap_stem.exit:                         ; preds = %97, %95, %113, %108, %.loopexit50.i
-  %.sroa.11.1 = phi i64 [ 0, %.loopexit50.i ], [ %115, %113 ], [ 0, %108 ], [ 0, %95 ], [ 0, %97 ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.0, %.loopexit50.i ], [ %85, %113 ], [ %.sroa.0.0, %108 ], [ %.sroa.0.0, %95 ], [ %.sroa.0.0, %97 ]
-  switch i32 %.sroa.0.2, label %psh_blues_snap_stem.exit.thread [
+  %.sroa.11.0 = phi i64 [ 0, %.loopexit50.i ], [ %115, %113 ], [ 0, %108 ], [ 0, %95 ], [ 0, %97 ]
+  %.sroa.0.0 = phi i32 [ %.sroa.0.1, %.loopexit50.i ], [ %85, %113 ], [ %.sroa.0.1, %108 ], [ %.sroa.0.1, %95 ], [ %.sroa.0.1, %97 ]
+  switch i32 %.sroa.0.0, label %psh_blues_snap_stem.exit.thread [
     i32 1, label %213
     i32 2, label %116
     i32 3, label %121
@@ -3195,7 +3195,7 @@ psh_blues_snap_stem.exit:                         ; preds = %97, %95, %113, %108
 
 116:                                              ; preds = %psh_blues_snap_stem.exit
   %117 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.11.1, ptr %117, align 8
+  store i64 %.sroa.11.0, ptr %117, align 8
   br i1 %51, label %.thread158, label %.thread163
 
 .thread158:                                       ; preds = %116
@@ -3208,8 +3208,8 @@ psh_blues_snap_stem.exit:                         ; preds = %97, %95, %113, %108
 
 121:                                              ; preds = %psh_blues_snap_stem.exit
   %122 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.11.1, ptr %122, align 8
-  %123 = sub nsw i64 %.sroa.6.0, %.sroa.11.1
+  store i64 %.sroa.11.0, ptr %122, align 8
+  %123 = sub nsw i64 %.sroa.6.1, %.sroa.11.0
   store i64 %123, ptr %52, align 8
   br label %.thread163
 
@@ -3318,13 +3318,13 @@ psh_blues_snap_stem.exit.thread:                  ; preds = %psh_blues_snap_stem
   %.0.i = tail call i64 @llvm.abs.i64(i64 %185, i1 true)
   %186 = icmp ult i64 %.0.i, 40
   %spec.store.select.i = tail call i64 @llvm.smax.i64(i64 %.val, i64 48)
-  %.023.i = select i1 %186, i64 %spec.store.select.i, i64 %35
-  %187 = icmp slt i64 %.023.i, 192
+  %.1.i = select i1 %186, i64 %spec.store.select.i, i64 %35
+  %187 = icmp slt i64 %.1.i, 192
   br i1 %187, label %188, label %199
 
 188:                                              ; preds = %183
-  %189 = and i64 %.023.i, 63
-  %190 = and i64 %.023.i, 9223372036854775744
+  %189 = and i64 %.1.i, 63
+  %190 = and i64 %.1.i, 9223372036854775744
   %191 = icmp ult i64 %189, 10
   br i1 %191, label %psh_dimension_quantize_len.exit, label %192
 
@@ -3339,16 +3339,16 @@ psh_blues_snap_stem.exit.thread:                  ; preds = %psh_blues_snap_stem
 196:                                              ; preds = %192
   %197 = icmp ult i64 %189, 54
   %198 = or disjoint i64 %190, 54
-  %spec.select.i = select i1 %197, i64 %198, i64 %.023.i
+  %spec.select.i = select i1 %197, i64 %198, i64 %.1.i
   br label %psh_dimension_quantize_len.exit
 
 199:                                              ; preds = %183
-  %200 = add nuw nsw i64 %.023.i, 32
+  %200 = add nuw nsw i64 %.1.i, 32
   %201 = and i64 %200, 9223372036854775744
   br label %psh_dimension_quantize_len.exit
 
 psh_dimension_quantize_len.exit:                  ; preds = %173, %199, %196, %194, %188, %177, %169, %161
-  %202 = phi i64 [ 64, %169 ], [ %35, %161 ], [ %35, %177 ], [ %195, %194 ], [ %201, %199 ], [ %.023.i, %188 ], [ %spec.select.i, %196 ], [ %35, %173 ]
+  %202 = phi i64 [ 64, %169 ], [ %35, %161 ], [ %35, %177 ], [ %195, %194 ], [ %201, %199 ], [ %.1.i, %188 ], [ %spec.select.i, %196 ], [ %35, %173 ]
   %.1 = phi i64 [ %172, %169 ], [ %.0113, %161 ], [ %spec.select132, %177 ], [ %.0113, %194 ], [ %.0113, %199 ], [ %.0113, %188 ], [ %.0113, %196 ], [ %176, %173 ]
   %203 = add nsw i64 %.1, 32
   %204 = and i64 %203, -64
@@ -3367,7 +3367,7 @@ psh_dimension_quantize_len.exit:                  ; preds = %173, %199, %196, %1
   br i1 %125, label %220, label %.thread163
 
 213:                                              ; preds = %psh_blues_snap_stem.exit
-  %214 = sub nsw i64 %.sroa.6.0, %35
+  %214 = sub nsw i64 %.sroa.6.1, %35
   %215 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %214, ptr %215, align 8
   br i1 %51, label %.thread152, label %.thread163
@@ -3377,7 +3377,7 @@ psh_dimension_quantize_len.exit:                  ; preds = %173, %199, %196, %1
   %217 = add nuw nsw i64 %35, 32
   %218 = and i64 %217, 9223372036854775744
   %.1115155 = select i1 %216, i64 64, i64 %218
-  %219 = sub nsw i64 %.sroa.6.0, %.1115155
+  %219 = sub nsw i64 %.sroa.6.1, %.1115155
   store i64 %219, ptr %215, align 8
   store i64 %.1115155, ptr %52, align 8
   br label %.thread163
@@ -5150,8 +5150,8 @@ ps_mask_table_test_intersect.exit.thread.i:       ; preds = %ps_mask_table_test_
   br i1 %108, label %17, label %ps_mask_table_merge_all.exit, !llvm.loop !83
 
 ps_mask_table_merge_all.exit:                     ; preds = %.loopexit.i, %ps_dimension_end_mask.exit, %ps_mask_table_merge.exit.i
-  %.2.i = phi i32 [ %77, %ps_mask_table_merge.exit.i ], [ 0, %ps_dimension_end_mask.exit ], [ 0, %.loopexit.i ]
-  ret i32 %.2.i
+  %.1.i = phi i32 [ %77, %ps_mask_table_merge.exit.i ], [ 0, %ps_dimension_end_mask.exit ], [ 0, %.loopexit.i ]
+  ret i32 %.1.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -5171,8 +5171,8 @@ define internal fastcc i32 @ps_dimension_add_t1stem(ptr nocapture noundef %0, i3
   %11 = add i32 %1, -21
   %spec.select = select i1 %10, i32 3, i32 1
   %.035 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
-  %.133 = select i1 %9, i32 %spec.select, i32 0
-  %.1 = select i1 %10, i32 %11, i32 %1
+  %.032 = select i1 %9, i32 %spec.select, i32 0
+  %.0 = select i1 %10, i32 %11, i32 %1
   %12 = load i32, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -5183,7 +5183,7 @@ define internal fastcc i32 @ps_dimension_add_t1stem(ptr nocapture noundef %0, i3
   %.03166 = phi i32 [ %22, %21 ], [ 0, %5 ]
   %storemerge65 = phi ptr [ %23, %21 ], [ %14, %5 ]
   %15 = load i32, ptr %storemerge65, align 4
-  %16 = icmp eq i32 %15, %.1
+  %16 = icmp eq i32 %15, %.0
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %.lr.ph
@@ -5232,11 +5232,11 @@ ps_hint_table_alloc.exit:                         ; preds = %28
   %38 = getelementptr inbounds %struct.PS_HintRec_, ptr %36, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -12
   store i32 %24, ptr %0, align 8
-  store i32 %.1, ptr %39, align 4
+  store i32 %.0, ptr %39, align 4
   %40 = getelementptr inbounds i8, ptr %38, i64 -8
   store i32 %.035, ptr %40, align 4
   %41 = getelementptr inbounds i8, ptr %38, i64 -4
-  store i32 %.133, ptr %41, align 4
+  store i32 %.032, ptr %41, align 4
   br label %.thread
 
 .thread:                                          ; preds = %17, %35

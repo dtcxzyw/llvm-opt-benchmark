@@ -288,8 +288,8 @@ if.end18:                                         ; preds = %if.then13
   br i1 %tobool.not, label %err, label %if.end22
 
 if.end22:                                         ; preds = %if.end10, %if.end18
-  %sx.0 = phi ptr [ %call1.i, %if.end18 ], [ %0, %if.end10 ]
-  %ids.i = getelementptr inbounds i8, ptr %sx.0, i64 8
+  %sx.1 = phi ptr [ %call1.i, %if.end18 ], [ %0, %if.end10 ]
+  %ids.i = getelementptr inbounds i8, ptr %sx.1, i64 8
   %2 = load ptr, ptr %ids.i, align 8
   %call15.i = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #4
   %cmp6.i = icmp sgt i32 %call15.i, 0
@@ -326,7 +326,7 @@ if.then25:                                        ; preds = %SXNET_get_id_INTEGE
   br i1 %cmp26, label %if.then28, label %return
 
 if.then28:                                        ; preds = %if.then25
-  tail call void @ASN1_item_free(ptr noundef nonnull %sx.0, ptr noundef nonnull @SXNET_it.local_it) #4
+  tail call void @ASN1_item_free(ptr noundef nonnull %sx.1, ptr noundef nonnull @SXNET_it.local_it) #4
   br label %return
 
 if.end30:                                         ; preds = %for.cond.i, %if.end22, %SXNET_get_id_INTEGER.exit
@@ -349,13 +349,13 @@ if.end40:                                         ; preds = %if.end35
 
 if.end46:                                         ; preds = %if.end40
   store ptr %zone, ptr %call1.i22, align 8
-  store ptr %sx.0, ptr %psx, align 8
+  store ptr %sx.1, ptr %psx, align 8
   br label %return
 
 err:                                              ; preds = %if.end40, %if.end35, %if.end30, %if.end18, %if.then13
   %.sink28 = phi i32 [ 169, %if.then13 ], [ 173, %if.end18 ], [ 186, %if.end30 ], [ 191, %if.end35 ], [ 195, %if.end40 ]
   %.sink = phi i32 [ 524301, %if.then13 ], [ 524301, %if.end18 ], [ 524301, %if.end30 ], [ 524301, %if.end35 ], [ 524303, %if.end40 ]
-  %sx.1 = phi ptr [ null, %if.then13 ], [ %call1.i, %if.end18 ], [ %sx.0, %if.end30 ], [ %sx.0, %if.end35 ], [ %sx.0, %if.end40 ]
+  %sx.0 = phi ptr [ null, %if.then13 ], [ %call1.i, %if.end18 ], [ %sx.1, %if.end30 ], [ %sx.1, %if.end35 ], [ %sx.1, %if.end40 ]
   %id.0 = phi ptr [ null, %if.then13 ], [ null, %if.end18 ], [ null, %if.end30 ], [ %call1.i22, %if.end35 ], [ %call1.i22, %if.end40 ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink28, ptr noundef nonnull @__func__.SXNET_add_id_INTEGER) #4
@@ -366,7 +366,7 @@ err:                                              ; preds = %if.end40, %if.end35
   br i1 %cmp48, label %if.then50, label %return
 
 if.then50:                                        ; preds = %err
-  tail call void @ASN1_item_free(ptr noundef %sx.1, ptr noundef nonnull @SXNET_it.local_it) #4
+  tail call void @ASN1_item_free(ptr noundef %sx.0, ptr noundef nonnull @SXNET_it.local_it) #4
   br label %return
 
 return:                                           ; preds = %err, %if.then50, %if.then25, %if.then28, %if.end46, %if.then9, %if.then

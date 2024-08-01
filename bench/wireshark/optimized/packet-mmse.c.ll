@@ -508,12 +508,12 @@ switch.early.test:                                ; preds = %5
 
 43:                                               ; preds = %737
   %44 = call i32 @tvb_reported_length(ptr noundef %0) #5
-  %45 = icmp ult i32 %.1, %44
+  %45 = icmp ult i32 %.2, %44
   br i1 %45, label %46, label %.critedge, !llvm.loop !4
 
 46:                                               ; preds = %.lr.ph, %43
-  %.0588 = phi i32 [ 2, %.lr.ph ], [ %.1, %43 ]
-  %.0488587 = phi i32 [ 1, %.lr.ph ], [ %.1, %43 ]
+  %.0588 = phi i32 [ 2, %.lr.ph ], [ %.2, %43 ]
+  %.0488587 = phi i32 [ 1, %.lr.ph ], [ %.2, %43 ]
   %.0495586 = phi i8 [ -128, %.lr.ph ], [ %.1496, %43 ]
   %47 = add nuw i32 %.0588, 1
   %48 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0588) #5
@@ -1681,15 +1681,15 @@ get_text_string.exit557:                          ; preds = %670, %675
   br label %696
 
 696:                                              ; preds = %692, %686
-  %.6 = phi i32 [ %691, %686 ], [ %695, %692 ]
+  %.7 = phi i32 [ %691, %686 ], [ %695, %692 ]
   %697 = load i32, ptr @hf_mmse_header_bytes, align 4
-  %698 = add i32 %.6, 1
+  %698 = add i32 %.7, 1
   %699 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %30, i32 noundef %697, ptr noundef %0, i32 noundef %.0588, i32 noundef %698, ptr noundef null, ptr noundef nonnull @.str.216, ptr noundef %659) #5
   br label %700
 
 700:                                              ; preds = %get_text_string.exit557, %696, %660
-  %.7 = phi i32 [ 1, %660 ], [ %677, %get_text_string.exit557 ], [ %.6, %696 ]
-  %701 = add i32 %.7, %47
+  %.6 = phi i32 [ 1, %660 ], [ %677, %get_text_string.exit557 ], [ %.7, %696 ]
+  %701 = add i32 %.6, %47
   br label %737
 
 702:                                              ; preds = %656
@@ -1754,22 +1754,22 @@ get_text_string.exit563:                          ; preds = %717, %722
 
 737:                                              ; preds = %700, %get_text_string.exit563, %342, %345, %273, %get_text_string.exit524, %get_long_integer.exit554, %get_integer_value.exit, %get_long_integer.exit539, %get_text_string.exit537, %get_long_integer.exit534, %448, %442, %440, %411, %404, %397, %391, %385, %383, %354, %348, %331, %get_long_integer.exit529, %get_text_string.exit527, %267, %get_long_integer.exit518, %get_long_integer.exit513, %155, %get_long_integer.exit, %131, %92, %85, %82, %get_text_string.exit
   %.1496 = phi i8 [ %.0495586, %700 ], [ %.0495586, %get_text_string.exit563 ], [ %.0495586, %get_long_integer.exit554 ], [ %.0495586, %get_integer_value.exit ], [ %.0495586, %get_long_integer.exit539 ], [ %.0495586, %get_text_string.exit537 ], [ %.0495586, %get_long_integer.exit534 ], [ %.0495586, %448 ], [ %.0495586, %442 ], [ %.0495586, %440 ], [ %.0495586, %411 ], [ %.0495586, %404 ], [ %.0495586, %397 ], [ %.0495586, %391 ], [ %.0495586, %385 ], [ %.0495586, %383 ], [ %.0495586, %354 ], [ %.0495586, %348 ], [ -128, %342 ], [ %.0495586, %345 ], [ %.0495586, %331 ], [ %.0495586, %get_long_integer.exit529 ], [ %.0495586, %get_text_string.exit527 ], [ %.0495586, %273 ], [ %.0495586, %get_text_string.exit524 ], [ %.0495586, %267 ], [ %.0495586, %get_long_integer.exit518 ], [ %.0495586, %get_long_integer.exit513 ], [ %.0495586, %155 ], [ %.0495586, %get_long_integer.exit ], [ %.0495586, %131 ], [ %.0495586, %92 ], [ %.0495586, %85 ], [ %68, %82 ], [ %.0495586, %get_text_string.exit ]
-  %.1490 = phi i8 [ %48, %700 ], [ %48, %get_text_string.exit563 ], [ -95, %get_long_integer.exit554 ], [ -96, %get_integer_value.exit ], [ -97, %get_long_integer.exit539 ], [ -98, %get_text_string.exit537 ], [ %466, %get_long_integer.exit534 ], [ %450, %448 ], [ %444, %442 ], [ -102, %440 ], [ %413, %411 ], [ -105, %404 ], [ -106, %397 ], [ %393, %391 ], [ %387, %385 ], [ -109, %383 ], [ %356, %354 ], [ %350, %348 ], [ %339, %342 ], [ %339, %345 ], [ %333, %331 ], [ -114, %get_long_integer.exit529 ], [ -117, %get_text_string.exit527 ], [ %272, %273 ], [ %272, %get_text_string.exit524 ], [ %249, %267 ], [ %211, %get_long_integer.exit518 ], [ %173, %get_long_integer.exit513 ], [ %157, %155 ], [ -123, %get_long_integer.exit ], [ -125, %131 ], [ -126, %92 ], [ -127, %85 ], [ -115, %82 ], [ -104, %get_text_string.exit ]
-  %.1 = phi i32 [ %701, %700 ], [ %736, %get_text_string.exit563 ], [ %655, %get_long_integer.exit554 ], [ %584, %get_integer_value.exit ], [ %528, %get_long_integer.exit539 ], [ %507, %get_text_string.exit537 ], [ %491, %get_long_integer.exit534 ], [ %449, %448 ], [ %443, %442 ], [ %441, %440 ], [ %412, %411 ], [ %410, %404 ], [ %403, %397 ], [ %392, %391 ], [ %386, %385 ], [ %384, %383 ], [ %355, %354 ], [ %349, %348 ], [ %338, %342 ], [ %338, %345 ], [ %332, %331 ], [ %330, %get_long_integer.exit529 ], [ %309, %get_text_string.exit527 ], [ %275, %273 ], [ %293, %get_text_string.exit524 ], [ %270, %267 ], [ %236, %get_long_integer.exit518 ], [ %198, %get_long_integer.exit513 ], [ %156, %155 ], [ %154, %get_long_integer.exit ], [ %132, %131 ], [ %98, %92 ], [ %91, %85 ], [ %67, %82 ], [ %65, %get_text_string.exit ]
-  %.not507 = icmp ugt i32 %.1, %.0488587
+  %.2491 = phi i8 [ %48, %700 ], [ %48, %get_text_string.exit563 ], [ -95, %get_long_integer.exit554 ], [ -96, %get_integer_value.exit ], [ -97, %get_long_integer.exit539 ], [ -98, %get_text_string.exit537 ], [ %466, %get_long_integer.exit534 ], [ %450, %448 ], [ %444, %442 ], [ -102, %440 ], [ %413, %411 ], [ -105, %404 ], [ -106, %397 ], [ %393, %391 ], [ %387, %385 ], [ -109, %383 ], [ %356, %354 ], [ %350, %348 ], [ %339, %342 ], [ %339, %345 ], [ %333, %331 ], [ -114, %get_long_integer.exit529 ], [ -117, %get_text_string.exit527 ], [ %272, %273 ], [ %272, %get_text_string.exit524 ], [ %249, %267 ], [ %211, %get_long_integer.exit518 ], [ %173, %get_long_integer.exit513 ], [ %157, %155 ], [ -123, %get_long_integer.exit ], [ -125, %131 ], [ -126, %92 ], [ -127, %85 ], [ -115, %82 ], [ -104, %get_text_string.exit ]
+  %.2 = phi i32 [ %701, %700 ], [ %736, %get_text_string.exit563 ], [ %655, %get_long_integer.exit554 ], [ %584, %get_integer_value.exit ], [ %528, %get_long_integer.exit539 ], [ %507, %get_text_string.exit537 ], [ %491, %get_long_integer.exit534 ], [ %449, %448 ], [ %443, %442 ], [ %441, %440 ], [ %412, %411 ], [ %410, %404 ], [ %403, %397 ], [ %392, %391 ], [ %386, %385 ], [ %384, %383 ], [ %355, %354 ], [ %349, %348 ], [ %338, %342 ], [ %338, %345 ], [ %332, %331 ], [ %330, %get_long_integer.exit529 ], [ %309, %get_text_string.exit527 ], [ %275, %273 ], [ %293, %get_text_string.exit524 ], [ %270, %267 ], [ %236, %get_long_integer.exit518 ], [ %198, %get_long_integer.exit513 ], [ %156, %155 ], [ %154, %get_long_integer.exit ], [ %132, %131 ], [ %98, %92 ], [ %91, %85 ], [ %67, %82 ], [ %65, %get_text_string.exit ]
+  %.not507 = icmp ugt i32 %.2, %.0488587
   br i1 %.not507, label %43, label %738, !llvm.loop !4
 
 738:                                              ; preds = %737
-  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.218, i32 noundef %.1, i32 noundef %.0488587) #7
+  call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.218, i32 noundef %.2, i32 noundef %.0488587) #7
   unreachable
 
 .critedge:                                        ; preds = %43
-  %739 = icmp eq i8 %.1490, -124
+  %739 = icmp eq i8 %.2491, -124
   br i1 %739, label %.critedge.thread, label %.critedge.thread596
 
 .critedge.thread:                                 ; preds = %46, %.critedge
-  %.2578 = phi i32 [ %.1, %.critedge ], [ %47, %46 ]
-  %740 = call i32 @add_content_type(ptr noundef %30, ptr noundef %1, ptr noundef %0, i32 noundef %.2578, ptr noundef nonnull %25, ptr noundef nonnull %26) #5
+  %.1578 = phi i32 [ %.2, %.critedge ], [ %47, %46 ]
+  %740 = call i32 @add_content_type(ptr noundef %30, ptr noundef %1, ptr noundef %0, i32 noundef %.1578, ptr noundef nonnull %25, ptr noundef nonnull %26) #5
   %741 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %740) #5
   %742 = load i32, ptr %25, align 4
   %743 = load ptr, ptr %26, align 8

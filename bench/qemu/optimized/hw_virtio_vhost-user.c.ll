@@ -789,9 +789,9 @@ if.then23:                                        ; preds = %if.else21
   br label %if.end26
 
 if.end26:                                         ; preds = %if.else21, %if.then23, %if.then17
-  %protocol_features.1 = phi i64 [ %and, %if.then17 ], [ %and24, %if.then23 ], [ %and, %if.else21 ]
+  %protocol_features.0 = phi i64 [ %and, %if.then17 ], [ %and24, %if.then23 ], [ %and, %if.else21 ]
   %protocol_features27 = getelementptr inbounds i8, ptr %dev, i64 480
-  store i64 %protocol_features.1, ptr %protocol_features27, align 8
+  store i64 %protocol_features.0, ptr %protocol_features27, align 8
   call void @llvm.lifetime.start.p0(i64 1084, ptr nonnull %msg.i.i62)
   %17 = getelementptr inbounds i8, ptr %msg.i.i62, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1084) %17, i8 0, i64 1064, i1 false)
@@ -801,7 +801,7 @@ if.end26:                                         ; preds = %if.else21, %if.then
   %size.i.i = getelementptr inbounds i8, ptr %msg.i.i62, i64 8
   store i32 8, ptr %size.i.i, align 4
   %payload.i.i64 = getelementptr inbounds i8, ptr %msg.i.i62, i64 12
-  store i64 %protocol_features.1, ptr %payload.i.i64, align 4
+  store i64 %protocol_features.0, ptr %payload.i.i64, align 4
   %call5.i.i = call fastcc i32 @vhost_user_write(ptr noundef nonnull readonly %dev, ptr noundef nonnull %msg.i.i62, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 1084, ptr nonnull %msg.i.i62)
   %cmp30 = icmp slt i32 %call5.i.i, 0

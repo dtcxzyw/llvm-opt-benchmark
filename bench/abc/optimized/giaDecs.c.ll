@@ -361,7 +361,7 @@ Vec_WrdStart.exit97:                              ; preds = %.critedge, %57
 
 .lr.ph.i100:                                      ; preds = %._crit_edge, %Abc_TtCountOnes2.exit.i
   %indvars.iv.i101 = phi i64 [ %indvars.iv.next.i103, %Abc_TtCountOnes2.exit.i ], [ 0, %._crit_edge ]
-  %.120.i = phi i32 [ %141, %Abc_TtCountOnes2.exit.i ], [ 0, %._crit_edge ]
+  %.220.i = phi i32 [ %141, %Abc_TtCountOnes2.exit.i ], [ 0, %._crit_edge ]
   %116 = getelementptr inbounds i64, ptr %86, i64 %indvars.iv.i101
   %117 = load i64, ptr %116, align 8
   %118 = getelementptr inbounds i64, ptr %82, i64 %indvars.iv.i101
@@ -393,7 +393,7 @@ Vec_WrdStart.exit97:                              ; preds = %.critedge, %57
 
 Abc_TtCountOnes2.exit.i:                          ; preds = %121, %.lr.ph.i100
   %140 = phi i32 [ %139, %121 ], [ 0, %.lr.ph.i100 ]
-  %141 = add nuw nsw i32 %140, %.120.i
+  %141 = add nuw nsw i32 %140, %.220.i
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i101, 1
   %exitcond.not.i104 = icmp eq i64 %indvars.iv.next.i103, %wide.trip.count.i99
   br i1 %exitcond.not.i104, label %Abc_TtCountOnesVecMask.exit, label %.lr.ph.i100, !llvm.loop !8
@@ -404,7 +404,7 @@ Abc_TtCountOnesVecMask.exit:                      ; preds = %Abc_TtCountOnes2.ex
 
 .lr.ph.i108:                                      ; preds = %Abc_TtCountOnesVecMask.exit, %Abc_TtCountOnes2.exit.i112
   %indvars.iv.i109 = phi i64 [ %indvars.iv.next.i113, %Abc_TtCountOnes2.exit.i112 ], [ 0, %Abc_TtCountOnesVecMask.exit ]
-  %.120.i110 = phi i32 [ %167, %Abc_TtCountOnes2.exit.i112 ], [ 0, %Abc_TtCountOnesVecMask.exit ]
+  %.220.i110 = phi i32 [ %167, %Abc_TtCountOnes2.exit.i112 ], [ 0, %Abc_TtCountOnesVecMask.exit ]
   %142 = getelementptr inbounds i64, ptr %86, i64 %indvars.iv.i109
   %143 = load i64, ptr %142, align 8
   %144 = getelementptr inbounds i64, ptr %82, i64 %indvars.iv.i109
@@ -436,7 +436,7 @@ Abc_TtCountOnesVecMask.exit:                      ; preds = %Abc_TtCountOnes2.ex
 
 Abc_TtCountOnes2.exit.i112:                       ; preds = %147, %.lr.ph.i108
   %166 = phi i32 [ %165, %147 ], [ 0, %.lr.ph.i108 ]
-  %167 = add nuw nsw i32 %166, %.120.i110
+  %167 = add nuw nsw i32 %166, %.220.i110
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i109, 1
   %exitcond.not.i114 = icmp eq i64 %indvars.iv.next.i113, %wide.trip.count.i99
   br i1 %exitcond.not.i114, label %Abc_TtCountOnesVecMask.exit115.loopexit, label %.lr.ph.i108, !llvm.loop !8

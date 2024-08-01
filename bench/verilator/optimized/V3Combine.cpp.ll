@@ -5072,7 +5072,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN14CombineVisitor11combinePa
   br label %17
 
 17:                                               ; preds = %.lr.ph112, %182
-  %.0110 = phi i1 [ false, %.lr.ph112 ], [ %.3, %182 ]
+  %.0110 = phi i1 [ false, %.lr.ph112 ], [ %.1, %182 ]
   %.sroa.068.0109 = phi ptr [ %7, %.lr.ph112 ], [ %20, %182 ]
   %18 = getelementptr inbounds i8, ptr %.sroa.068.0109, i64 16
   %19 = load ptr, ptr %18, align 8
@@ -5122,7 +5122,7 @@ _ZN8AstCFunc12unlinkFrBackEP10VNRelinker.exit:    ; preds = %28
   br label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %17, %176
-  %.1 = phi i1 [ true, %176 ], [ %.0110, %17 ]
+  %.2 = phi i1 [ true, %176 ], [ %.0110, %17 ]
   %32 = invoke ptr @_ZN11V3DupFinder13findDuplicateEP7AstNodeP19V3DupFinderUserSame(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull %19, ptr noundef null)
           to label %33 unwind label %.loopexit.split-lp.loopexit
 
@@ -5445,7 +5445,7 @@ _ZN20AstUserAllocatorBaseI8AstCFuncSt6vectorIP8AstCCallSaIS3_EELi1EEclIJEEERS5_P
   br i1 %177, label %178, label %.preheader, !llvm.loop !73
 
 178:                                              ; preds = %176, %33
-  %.2 = phi i1 [ %.1, %33 ], [ true, %176 ]
+  %.3 = phi i1 [ %.2, %33 ], [ true, %176 ]
   %179 = getelementptr inbounds i8, ptr %19, i64 128
   store i64 1, ptr %179, align 8
   %180 = load i32, ptr @_ZN12VNUser3InUse12s_userCntGblE, align 4
@@ -5454,12 +5454,12 @@ _ZN20AstUserAllocatorBaseI8AstCFuncSt6vectorIP8AstCCallSaIS3_EELi1EEclIJEEERS5_P
   br label %182
 
 182:                                              ; preds = %178, %_ZN8AstCFunc12unlinkFrBackEP10VNRelinker.exit
-  %.3 = phi i1 [ %.2, %178 ], [ %.0110, %_ZN8AstCFunc12unlinkFrBackEP10VNRelinker.exit ]
+  %.1 = phi i1 [ %.3, %178 ], [ %.0110, %_ZN8AstCFunc12unlinkFrBackEP10VNRelinker.exit ]
   %.not74 = icmp eq ptr %20, %1
   br i1 %.not74, label %._crit_edge113, label %17, !llvm.loop !74
 
 ._crit_edge113:                                   ; preds = %182, %3
-  %.0.lcssa = phi i1 [ false, %3 ], [ %.3, %182 ]
+  %.0.lcssa = phi i1 [ false, %3 ], [ %.1, %182 ]
   invoke void @_ZN15VNUserInUseBase4freeEiRjRb(i32 noundef 3, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser3InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser3InUse10s_userBusyE)
           to label %_ZN12VNUser3InUseD2Ev.exit unwind label %183
 

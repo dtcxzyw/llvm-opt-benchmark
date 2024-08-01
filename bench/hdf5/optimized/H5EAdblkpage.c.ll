@@ -260,8 +260,8 @@ define range(i32 -1, 1) i32 @H5EA__dblk_page_create(ptr noundef %0, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %6, %43, %50, %66, %63
-  %.2 = phi i32 [ -1, %66 ], [ -1, %63 ], [ 0, %43 ], [ 0, %50 ], [ -1, %6 ]
-  ret i32 %.2
+  %.1 = phi i32 [ -1, %66 ], [ -1, %63 ], [ 0, %43 ], [ 0, %50 ], [ -1, %6 ]
+  ret i32 %.1
 }
 
 declare i32 @H5AC_insert_entry(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

@@ -3197,7 +3197,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 
 if.end11.i:                                       ; preds = %if.else.i.i, %if.end.i.i
   %size.2.ph.i = phi i32 [ 1, %if.end.i.i ], [ %conv.i.i, %if.else.i.i ]
-  %label_offset.2.ph.i = phi i32 [ %inc.i.i22.i, %if.end.i.i ], [ %inc.i.i, %if.else.i.i ]
+  %label_offset.3.ph.i = phi i32 [ %inc.i.i22.i, %if.end.i.i ], [ %inc.i.i, %if.else.i.i ]
   br label %for.cond.i.i25.i
 
 for.cond.i.i25.i:                                 ; preds = %for.cond.i.i25.i, %if.end11.i
@@ -3232,9 +3232,9 @@ for.cond19.preheader.i:                           ; preds = %if.then14.i
 
 for.body.i:                                       ; preds = %for.cond19.preheader.i, %for.body.i
   %bufpos.158.i = phi i32 [ %inc23.i, %for.body.i ], [ %bufpos.0.i.ph, %for.cond19.preheader.i ]
-  %label_offset.357.i = phi i32 [ %inc.i, %for.body.i ], [ %label_offset.2.ph.i, %for.cond19.preheader.i ]
-  %inc.i = add i32 %label_offset.357.i, 1
-  %idxprom21.i = zext i32 %label_offset.357.i to i64
+  %label_offset.257.i = phi i32 [ %inc.i, %for.body.i ], [ %label_offset.3.ph.i, %for.cond19.preheader.i ]
+  %inc.i = add i32 %label_offset.257.i, 1
+  %idxprom21.i = zext i32 %label_offset.257.i to i64
   %arrayidx22.i = getelementptr [162032 x i8], ptr @packed_name_dawg, i64 0, i64 %idxprom21.i
   %31 = load i8, ptr %arrayidx22.i, align 1
   %inc23.i = add i32 %bufpos.158.i, 1
@@ -3250,7 +3250,7 @@ if.else.i:                                        ; preds = %_dawg_node_descenda
 
 if.then28.i:                                      ; preds = %if.else.i
   %sub.i = sub i32 %pos.addr.2.i, %shr.i38.i
-  %add29.i = add i32 %label_offset.2.ph.i, %size.2.ph.i
+  %add29.i = add i32 %label_offset.3.ph.i, %size.2.ph.i
   br label %for.cond6.i
 
 return:                                           ; preds = %if.then14.i, %if.else.i, %_dawg_decode_varint_unsigned.exit.i.i, %if.end.i, %if.then1.i, %if.end75, %if.then69, %if.then33, %if.end21, %if.then12, %land.lhs.true, %entry, %if.end73, %if.end39

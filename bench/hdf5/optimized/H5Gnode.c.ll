@@ -617,10 +617,10 @@ define internal noundef i32 @H5G__node_insert(ptr noundef %0, i64 noundef %1, pt
   br label %133
 
 133:                                              ; preds = %120, %124, %115, %117, %130, %127
-  %.0110 = phi ptr [ %81, %117 ], [ %81, %115 ], [ %81, %124 ], [ %81, %120 ], [ null, %130 ], [ null, %127 ]
+  %.1111 = phi ptr [ %81, %117 ], [ %81, %115 ], [ %81, %124 ], [ %81, %120 ], [ null, %130 ], [ null, %127 ]
   %.1100 = phi i32 [ %53, %117 ], [ %53, %115 ], [ %121, %124 ], [ %121, %120 ], [ %53, %130 ], [ %53, %127 ]
   %.098 = phi ptr [ %11, %117 ], [ %11, %115 ], [ %81, %124 ], [ %81, %120 ], [ %11, %130 ], [ %11, %127 ]
-  %.0 = phi i32 [ 2, %117 ], [ 2, %115 ], [ 2, %124 ], [ 2, %120 ], [ 0, %130 ], [ 0, %127 ]
+  %.1 = phi i32 [ 2, %117 ], [ 2, %115 ], [ 2, %124 ], [ 2, %120 ], [ 0, %130 ], [ 0, %127 ]
   %134 = getelementptr inbounds i8, ptr %.098, i64 264
   %135 = load ptr, ptr %134, align 8
   %136 = sext i32 %.1100 to i64
@@ -638,12 +638,12 @@ define internal noundef i32 @H5G__node_insert(ptr noundef %0, i64 noundef %1, pt
   %146 = load i32, ptr %139, align 8
   %147 = add i32 %146, 1
   store i32 %147, ptr %139, align 8
-  %.not123 = icmp eq ptr %.0110, null
+  %.not123 = icmp eq ptr %.1111, null
   br i1 %.not123, label %.thread132, label %148
 
 148:                                              ; preds = %133
   %149 = load i64, ptr %8, align 8
-  %150 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SNODE, i64 noundef %149, ptr noundef nonnull %.0110, i32 noundef %.0) #8
+  %150 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SNODE, i64 noundef %149, ptr noundef nonnull %.1111, i32 noundef %.1) #8
   %151 = icmp slt i32 %150, 0
   br i1 %151, label %152, label %.thread132
 
@@ -660,9 +660,9 @@ define internal noundef i32 @H5G__node_insert(ptr noundef %0, i64 noundef %1, pt
   br label %166
 
 .thread132:                                       ; preds = %83, %75, %64, %42, %29, %133, %148, %152
-  %.2136 = phi i32 [ %.0, %133 ], [ %.0, %148 ], [ -1, %152 ], [ -1, %29 ], [ -1, %42 ], [ -1, %64 ], [ -1, %75 ], [ -1, %83 ]
-  %.1109130135 = phi i32 [ 2, %133 ], [ 2, %148 ], [ 2, %152 ], [ 0, %29 ], [ 0, %42 ], [ 0, %64 ], [ 0, %75 ], [ 0, %83 ]
-  %160 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SNODE, i64 noundef %1, ptr noundef nonnull %11, i32 noundef %.1109130135) #8
+  %.2136 = phi i32 [ %.1, %133 ], [ %.1, %148 ], [ -1, %152 ], [ -1, %29 ], [ -1, %42 ], [ -1, %64 ], [ -1, %75 ], [ -1, %83 ]
+  %.0108130135 = phi i32 [ 2, %133 ], [ 2, %148 ], [ 2, %152 ], [ 0, %29 ], [ 0, %42 ], [ 0, %64 ], [ 0, %75 ], [ 0, %83 ]
+  %160 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SNODE, i64 noundef %1, ptr noundef nonnull %11, i32 noundef %.0108130135) #8
   %161 = icmp slt i32 %160, 0
   br i1 %161, label %162, label %166
 
@@ -1263,7 +1263,7 @@ define i32 @H5G__node_iterate(ptr noundef %0, ptr nocapture noundef readnone %1,
   br label %.thread
 
 44:                                               ; preds = %34, %23
-  %.1 = phi i32 [ 0, %23 ], [ %37, %34 ]
+  %.2 = phi i32 [ 0, %23 ], [ %37, %34 ]
   %45 = load ptr, ptr %20, align 8
   %.not32 = icmp eq ptr %45, null
   br i1 %.not32, label %49, label %46
@@ -1279,12 +1279,12 @@ define i32 @H5G__node_iterate(ptr noundef %0, ptr nocapture noundef readnone %1,
   %50 = load i32, ptr %15, align 8
   %51 = zext i32 %50 to i64
   %52 = icmp ult i64 %indvars.iv.next, %51
-  %53 = icmp eq i32 %.1, 0
+  %53 = icmp eq i32 %.2, 0
   %54 = select i1 %52, i1 %53, i1 false
   br i1 %54, label %21, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %49
-  %55 = icmp slt i32 %.1, 0
+  %55 = icmp slt i32 %.2, 0
   br i1 %55, label %56, label %.thread
 
 56:                                               ; preds = %._crit_edge
@@ -1294,7 +1294,7 @@ define i32 @H5G__node_iterate(ptr noundef %0, ptr nocapture noundef readnone %1,
   br label %.thread
 
 .thread:                                          ; preds = %12, %30, %40, %56, %._crit_edge
-  %.235 = phi i32 [ %.1, %._crit_edge ], [ %.1, %56 ], [ -1, %40 ], [ -1, %30 ], [ 0, %12 ]
+  %.035 = phi i32 [ %.2, %._crit_edge ], [ %.2, %56 ], [ -1, %40 ], [ -1, %30 ], [ 0, %12 ]
   %60 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SNODE, i64 noundef %2, ptr noundef nonnull %7, i32 noundef 0) #8
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %62, label %66
@@ -1306,7 +1306,7 @@ define i32 @H5G__node_iterate(ptr noundef %0, ptr nocapture noundef readnone %1,
   br label %66
 
 66:                                               ; preds = %.thread36, %62, %.thread
-  %.3 = phi i32 [ -1, %62 ], [ %.235, %.thread ], [ -1, %.thread36 ]
+  %.3 = phi i32 [ -1, %62 ], [ %.035, %.thread ], [ -1, %.thread36 ]
   ret i32 %.3
 }
 

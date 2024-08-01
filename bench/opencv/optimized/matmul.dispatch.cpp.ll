@@ -16235,8 +16235,8 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %129, %133
 
 .preheader.us:                                    ; preds = %.preheader147, %._crit_edge.split.us.us
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %._crit_edge.split.us.us ], [ 0, %.preheader147 ]
-  %.070152.us = phi i8 [ %.272.us.us, %._crit_edge.split.us.us ], [ 1, %.preheader147 ]
-  %175 = trunc nuw i8 %.070152.us to i1
+  %.171152.us = phi i8 [ %.373.us.us, %._crit_edge.split.us.us ], [ 1, %.preheader147 ]
+  %175 = trunc nuw i8 %.171152.us to i1
   br i1 %175, label %.lr.ph.us, label %.split.us
 
 ._crit_edge.split.us.us:                          ; preds = %181
@@ -16253,16 +16253,16 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %129, %133
 
 181:                                              ; preds = %181, %.lr.ph.us
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %181 ], [ 0, %.lr.ph.us ]
-  %.171149.us.us = phi i8 [ %.272.us.us, %181 ], [ %.070152.us, %.lr.ph.us ]
+  %.272149.us.us = phi i8 [ %.373.us.us, %181 ], [ %.171152.us, %.lr.ph.us ]
   %182 = getelementptr inbounds double, ptr %180, i64 %indvars.iv159
   %183 = load double, ptr %182, align 8
   %.not96.us.us = icmp ne i64 %indvars.iv161, %indvars.iv159
   %184 = call double @llvm.fabs.f64(double %183)
   %185 = fcmp ogt double %184, %168
   %or.cond105.us.us = select i1 %.not96.us.us, i1 %185, i1 false
-  %.272.us.us = select i1 %or.cond105.us.us, i8 0, i8 %.171149.us.us
+  %.373.us.us = select i1 %or.cond105.us.us, i8 0, i8 %.272149.us.us
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
-  %186 = trunc nuw i8 %.272.us.us to i1
+  %186 = trunc nuw i8 %.373.us.us to i1
   %187 = icmp ult i64 %indvars.iv159, %174
   %188 = and i1 %187, %186
   br i1 %188, label %181, label %._crit_edge.split.us.us, !llvm.loop !361
@@ -16420,8 +16420,8 @@ _ZN2cv3Mat2atIdEERT_i.exit126:                    ; preds = %.thread170, %254, %
 
 .preheader:                                       ; preds = %.preheader147, %._crit_edge.split
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %._crit_edge.split ], [ 0, %.preheader147 ]
-  %.070152 = phi i8 [ %.272, %._crit_edge.split ], [ 1, %.preheader147 ]
-  %283 = trunc nuw i8 %.070152 to i1
+  %.171152 = phi i8 [ %.373, %._crit_edge.split ], [ 1, %.preheader147 ]
+  %283 = trunc nuw i8 %.171152 to i1
   br i1 %283, label %.lr.ph, label %.split.us
 
 .lr.ph:                                           ; preds = %.preheader
@@ -16432,7 +16432,7 @@ _ZN2cv3Mat2atIdEERT_i.exit126:                    ; preds = %.thread170, %254, %
 
 287:                                              ; preds = %.lr.ph, %287
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %287 ]
-  %.171149 = phi i8 [ %.070152, %.lr.ph ], [ %.272, %287 ]
+  %.272149 = phi i8 [ %.171152, %.lr.ph ], [ %.373, %287 ]
   %288 = getelementptr inbounds float, ptr %286, i64 %indvars.iv
   %289 = load float, ptr %288, align 4
   %.not96 = icmp ne i64 %indvars.iv157, %indvars.iv
@@ -16440,9 +16440,9 @@ _ZN2cv3Mat2atIdEERT_i.exit126:                    ; preds = %.thread170, %254, %
   %291 = fpext float %290 to double
   %292 = fcmp olt double %168, %291
   %or.cond105 = select i1 %.not96, i1 %292, i1 false
-  %.272 = select i1 %or.cond105, i8 0, i8 %.171149
+  %.373 = select i1 %or.cond105, i8 0, i8 %.272149
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %293 = trunc nuw i8 %.272 to i1
+  %293 = trunc nuw i8 %.373 to i1
   %294 = icmp ult i64 %indvars.iv, %174
   %295 = and i1 %294, %293
   br i1 %295, label %287, label %._crit_edge.split, !llvm.loop !361
@@ -16454,7 +16454,7 @@ _ZN2cv3Mat2atIdEERT_i.exit126:                    ; preds = %.thread170, %254, %
   br i1 %297, label %.preheader, label %.split.us, !llvm.loop !360
 
 .split.us:                                        ; preds = %.preheader, %._crit_edge.split, %.preheader.us, %._crit_edge.split.us.us
-  %.us-phi153 = phi i8 [ %.070152.us, %.preheader.us ], [ %.272.us.us, %._crit_edge.split.us.us ], [ %.070152, %.preheader ], [ %.272, %._crit_edge.split ]
+  %.us-phi153 = phi i8 [ %.171152.us, %.preheader.us ], [ %.373.us.us, %._crit_edge.split.us.us ], [ %.171152, %.preheader ], [ %.373, %._crit_edge.split ]
   %298 = trunc nuw i8 %.us-phi153 to i1
   br i1 %298, label %299, label %.thread
 

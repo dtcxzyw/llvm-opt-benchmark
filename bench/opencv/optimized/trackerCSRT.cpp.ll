@@ -4011,21 +4011,21 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
   %93 = extractelement <2 x float> %92, i64 0
   %94 = fcmp olt float %93, 0.000000e+00
   %.sroa.028.0.vec.insert = insertelement <2 x float> %92, float 0.000000e+00, i64 0
-  %.sroa.028.0 = select i1 %94, <2 x float> %.sroa.028.0.vec.insert, <2 x float> %92
-  %.sroa.028.0.vec.extract32 = extractelement <2 x float> %.sroa.028.0, i64 0
+  %.sroa.028.1 = select i1 %94, <2 x float> %.sroa.028.0.vec.insert, <2 x float> %92
+  %.sroa.028.0.vec.extract32 = extractelement <2 x float> %.sroa.028.1, i64 0
   %95 = getelementptr inbounds i8, ptr %0, i64 416
   %96 = load i32, ptr %95, align 8
   %97 = sitofp i32 %96 to float
   %98 = fcmp ult float %.sroa.028.0.vec.extract32, %97
   %99 = add nsw i32 %96, -1
   %100 = sitofp i32 %99 to float
-  %.sroa.028.0.vec.insert34 = insertelement <2 x float> %.sroa.028.0, float %100, i64 0
-  %.sroa.028.1 = select i1 %98, <2 x float> %.sroa.028.0, <2 x float> %.sroa.028.0.vec.insert34
-  %.sroa.028.4.vec.extract41 = extractelement <2 x float> %.sroa.028.1, i64 1
+  %.sroa.028.0.vec.insert34 = insertelement <2 x float> %.sroa.028.1, float %100, i64 0
+  %.sroa.028.2 = select i1 %98, <2 x float> %.sroa.028.1, <2 x float> %.sroa.028.0.vec.insert34
+  %.sroa.028.4.vec.extract41 = extractelement <2 x float> %.sroa.028.2, i64 1
   %101 = fcmp olt float %.sroa.028.4.vec.extract41, 0.000000e+00
-  %.sroa.028.4.vec.insert39 = insertelement <2 x float> %.sroa.028.1, float 0.000000e+00, i64 1
-  %.sroa.028.2 = select i1 %101, <2 x float> %.sroa.028.4.vec.insert39, <2 x float> %.sroa.028.1
-  %.sroa.028.4.vec.extract = extractelement <2 x float> %.sroa.028.2, i64 1
+  %.sroa.028.4.vec.insert39 = insertelement <2 x float> %.sroa.028.2, float 0.000000e+00, i64 1
+  %.sroa.028.3 = select i1 %101, <2 x float> %.sroa.028.4.vec.insert39, <2 x float> %.sroa.028.2
+  %.sroa.028.4.vec.extract = extractelement <2 x float> %.sroa.028.3, i64 1
   %102 = getelementptr inbounds i8, ptr %0, i64 420
   %103 = load i32, ptr %102, align 4
   %104 = sitofp i32 %103 to float
@@ -4035,13 +4035,13 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
 106:                                              ; preds = %64
   %107 = add nsw i32 %103, -1
   %108 = sitofp i32 %107 to float
-  %.sroa.028.4.vec.insert = insertelement <2 x float> %.sroa.028.2, float %108, i64 1
+  %.sroa.028.4.vec.insert = insertelement <2 x float> %.sroa.028.3, float %108, i64 1
   br label %109
 
 109:                                              ; preds = %29, %64, %106
-  %.sroa.028.3 = phi <2 x float> [ %.sroa.028.2, %64 ], [ %.sroa.028.4.vec.insert, %106 ], [ <float -1.000000e+00, float -1.000000e+00>, %29 ]
+  %.sroa.028.0 = phi <2 x float> [ %.sroa.028.3, %64 ], [ %.sroa.028.4.vec.insert, %106 ], [ <float -1.000000e+00, float -1.000000e+00>, %29 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #24
-  ret <2 x float> %.sroa.028.3
+  ret <2 x float> %.sroa.028.0
 
 110:                                              ; preds = %63, %58, %37
   %.pn18 = phi { ptr, i32 } [ %.pn16, %63 ], [ %.pn, %58 ], [ %38, %37 ]

@@ -4955,8 +4955,8 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
 
 .preheader168:                                    ; preds = %115, %.preheader168
   %.1146 = phi i64 [ %119, %.preheader168 ], [ %.0145.lcssa, %115 ]
-  %.1134 = phi ptr [ %118, %.preheader168 ], [ %.0133, %115 ]
-  %117 = getelementptr inbounds i8, ptr %.1134, i64 40
+  %.2135 = phi ptr [ %118, %.preheader168 ], [ %.0133, %115 ]
+  %117 = getelementptr inbounds i8, ptr %.2135, i64 40
   %118 = load ptr, ptr %117, align 8
   %119 = add i64 %.1146, -1
   %120 = icmp ugt i64 %119, %.0142.lcssa

@@ -4050,20 +4050,20 @@ entry._ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheM
   br label %_ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadataChargePolicyE.exit
 
 while.cond.i:                                     ; preds = %entry, %while.cond.i
-  %hash_bits.0.i = phi i32 [ %dec.i, %while.cond.i ], [ %sub.i.i, %entry ]
-  %cmp6.i = icmp ne i32 %hash_bits.0.i, 0
-  %sh_prom.i = zext nneg i32 %hash_bits.0.i to i64
+  %hash_bits.1.i = phi i32 [ %dec.i, %while.cond.i ], [ %sub.i.i, %entry ]
+  %cmp6.i = icmp ne i32 %hash_bits.1.i, 0
+  %sh_prom.i = zext nneg i32 %hash_bits.1.i to i64
   %shl7.i = shl i64 64, %sh_prom.i
   %cmp8.i = icmp ugt i64 %shl7.i, %capacity
   %2 = select i1 %cmp6.i, i1 %cmp8.i, i1 false
-  %dec.i = add nsw i32 %hash_bits.0.i, -1
+  %dec.i = add nsw i32 %hash_bits.1.i, -1
   br i1 %2, label %while.cond.i, label %_ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadataChargePolicyE.exit, !llvm.loop !44
 
 _ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadataChargePolicyE.exit: ; preds = %while.cond.i, %entry._ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadataChargePolicyE.exit_crit_edge
   %.pre-phi = phi i64 [ %.pre5, %entry._ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadataChargePolicyE.exit_crit_edge ], [ %shl7.i, %while.cond.i ]
   %sh_prom.pre-phi = phi i64 [ %.pre, %entry._ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadataChargePolicyE.exit_crit_edge ], [ %sh_prom.i, %while.cond.i ]
-  %hash_bits.1.i = phi i32 [ %sub.i.i, %entry._ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadataChargePolicyE.exit_crit_edge ], [ %hash_bits.0.i, %while.cond.i ]
-  store i32 %hash_bits.1.i, ptr %length_bits_, align 32
+  %hash_bits.0.i = phi i32 [ %sub.i.i, %entry._ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadataChargePolicyE.exit_crit_edge ], [ %hash_bits.1.i, %while.cond.i ]
+  store i32 %hash_bits.0.i, ptr %length_bits_, align 32
   %length_bits_mask_ = getelementptr inbounds i8, ptr %this, i64 168
   %notmask = shl nsw i64 -1, %sh_prom.pre-phi
   %sub = xor i64 %notmask, -1
@@ -4074,7 +4074,7 @@ _ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadat
   %mul = fmul double %conv, 8.400000e-01
   %conv6 = fptoui double %mul to i64
   store i64 %conv6, ptr %occupancy_limit_, align 16
-  %3 = icmp ugt i32 %hash_bits.1.i, 57
+  %3 = icmp ugt i32 %hash_bits.0.i, 57
   %4 = select i1 %3, i64 -1, i64 %.pre-phi
   %call10 = tail call noalias noundef nonnull align 64 ptr @_ZnamSt11align_val_t(i64 noundef %4, i64 noundef 64) #25
   %arrayctor.end = getelementptr inbounds %"struct.rocksdb::clock_cache::FixedHyperClockTable::HandleImpl", ptr %call10, i64 %shl5
@@ -4121,18 +4121,18 @@ entry:
   br i1 %cmp, label %while.cond, label %if.end9
 
 while.cond:                                       ; preds = %entry, %while.cond
-  %hash_bits.0 = phi i32 [ %dec, %while.cond ], [ %sub.i, %entry ]
-  %cmp6 = icmp ne i32 %hash_bits.0, 0
-  %sh_prom = zext nneg i32 %hash_bits.0 to i64
+  %hash_bits.1 = phi i32 [ %dec, %while.cond ], [ %sub.i, %entry ]
+  %cmp6 = icmp ne i32 %hash_bits.1, 0
+  %sh_prom = zext nneg i32 %hash_bits.1 to i64
   %shl7 = shl i64 64, %sh_prom
   %cmp8 = icmp ugt i64 %shl7, %capacity
   %1 = select i1 %cmp6, i1 %cmp8, i1 false
-  %dec = add nsw i32 %hash_bits.0, -1
+  %dec = add nsw i32 %hash_bits.1, -1
   br i1 %1, label %while.cond, label %if.end9, !llvm.loop !44
 
 if.end9:                                          ; preds = %while.cond, %entry
-  %hash_bits.1 = phi i32 [ %sub.i, %entry ], [ %hash_bits.0, %while.cond ]
-  ret i32 %hash_bits.1
+  %hash_bits.0 = phi i32 [ %sub.i, %entry ], [ %hash_bits.1, %while.cond ]
+  ret i32 %hash_bits.0
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
@@ -5106,7 +5106,7 @@ while.body.lr.ph.i:                               ; preds = %for.end
 
 while.body.i:                                     ; preds = %if.end20.i, %while.body.lr.ph.i
   %published_usable_size.028.i = phi i64 [ %add.i.i, %while.body.lr.ph.i ], [ %add.i15.i, %if.end20.i ]
-  %current_length_info.027.i = phi i64 [ %12, %while.body.lr.ph.i ], [ %current_length_info.2.i, %if.end20.i ]
+  %current_length_info.027.i = phi i64 [ %12, %while.body.lr.ph.i ], [ %current_length_info.1.i, %if.end20.i ]
   %add.i = add i64 %published_usable_size.028.i, 1
   %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i, i1 true)
   %sub.i.i.i = xor i64 %13, 63
@@ -5149,9 +5149,9 @@ if.then17.i:                                      ; preds = %if.then15.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.then17.i, %if.then15.i, %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit.i
-  %current_length_info.2.i = phi i64 [ %add.i11.i, %if.then17.i ], [ %add.i11.i, %if.then15.i ], [ %22, %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit.i ]
-  %shr.i.i12.i = lshr i64 %current_length_info.2.i, 8
-  %conv1.i.i.i13.i = and i64 %current_length_info.2.i, 255
+  %current_length_info.1.i = phi i64 [ %add.i11.i, %if.then17.i ], [ %add.i11.i, %if.then15.i ], [ %22, %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit.i ]
+  %shr.i.i12.i = lshr i64 %current_length_info.1.i, 8
+  %conv1.i.i.i13.i = and i64 %current_length_info.1.i, 255
   %shl.i14.i = shl nuw i64 1, %conv1.i.i.i13.i
   %add.i15.i = add nuw i64 %shl.i14.i, %shr.i.i12.i
   %cmp.not.i = icmp ugt i64 %add.i15.i, %0
@@ -5236,8 +5236,8 @@ if.end6:                                          ; preds = %for.cond3.preheader
   %chain_frontier_first.1277 = phi i32 [ -1, %for.cond3.preheader ], [ %chain_frontier_first.2, %if.end31 ]
   %i.1276 = phi i32 [ %i.0279, %for.cond3.preheader ], [ %inc, %if.end31 ]
   %next_with_shift.0275 = phi i64 [ %zero_head_lock.sroa.7.0278, %for.cond3.preheader ], [ %6, %if.end31 ]
-  %zero_chain_frontier.1274 = phi i64 [ -1, %for.cond3.preheader ], [ %zero_chain_frontier.2, %if.end31 ]
-  %one_chain_frontier.1273 = phi i64 [ -1, %for.cond3.preheader ], [ %one_chain_frontier.2, %if.end31 ]
+  %zero_chain_frontier.1274 = phi i64 [ -1, %for.cond3.preheader ], [ %zero_chain_frontier.3, %if.end31 ]
+  %one_chain_frontier.1273 = phi i64 [ -1, %for.cond3.preheader ], [ %one_chain_frontier.3, %if.end31 ]
   %and.i = and i64 %next_with_shift.0275, 64
   %tobool.i.not = icmp eq i64 %and.i, 0
   br i1 %tobool.i.not, label %invoke.cont15, label %for.end
@@ -5268,8 +5268,8 @@ if.then26:                                        ; preds = %if.else
   br i1 %cmp27.not, label %if.end31, label %cond.true
 
 if.end31:                                         ; preds = %if.then26, %if.then20, %if.else, %if.then18
-  %one_chain_frontier.2 = phi i64 [ -1, %if.then20 ], [ %one_chain_frontier.1273, %if.then18 ], [ %shr.i, %if.then26 ], [ %one_chain_frontier.1273, %if.else ]
-  %zero_chain_frontier.2 = phi i64 [ %shr.i, %if.then20 ], [ %zero_chain_frontier.1274, %if.then18 ], [ -1, %if.then26 ], [ %zero_chain_frontier.1274, %if.else ]
+  %one_chain_frontier.3 = phi i64 [ -1, %if.then20 ], [ %one_chain_frontier.1273, %if.then18 ], [ %shr.i, %if.then26 ], [ %one_chain_frontier.1273, %if.else ]
+  %zero_chain_frontier.3 = phi i64 [ %shr.i, %if.then20 ], [ %zero_chain_frontier.1274, %if.then18 ], [ -1, %if.then26 ], [ %zero_chain_frontier.1274, %if.else ]
   %chain_frontier_first.2 = phi i32 [ 0, %if.then20 ], [ %chain_frontier_first.1277, %if.then18 ], [ 1, %if.then26 ], [ %chain_frontier_first.1277, %if.else ]
   %chain_next_with_shift = getelementptr inbounds i8, ptr %arrayidx13, i64 56
   %6 = load atomic i64, ptr %chain_next_with_shift acquire, align 8
@@ -5283,21 +5283,21 @@ for.end:                                          ; preds = %if.end6
 
 cond.true:                                        ; preds = %if.then26, %if.then20, %for.end
   %cur.0231 = phi i64 [ -1, %for.end ], [ %shr.i, %if.then20 ], [ %shr.i, %if.then26 ]
-  %zero_chain_frontier.3229 = phi i64 [ %zero_chain_frontier.1274, %for.end ], [ %zero_chain_frontier.1274, %if.then26 ], [ %shr.i, %if.then20 ]
-  %one_chain_frontier.3226 = phi i64 [ %one_chain_frontier.1273, %for.end ], [ %shr.i, %if.then26 ], [ %one_chain_frontier.1273, %if.then20 ]
-  %shl.i = shl i64 %one_chain_frontier.3226, 8
+  %zero_chain_frontier.2229 = phi i64 [ %zero_chain_frontier.1274, %for.end ], [ %zero_chain_frontier.1274, %if.then26 ], [ %shr.i, %if.then20 ]
+  %one_chain_frontier.2226 = phi i64 [ %one_chain_frontier.1273, %for.end ], [ %shr.i, %if.then26 ], [ %one_chain_frontier.1273, %if.then20 ]
+  %shl.i = shl i64 %one_chain_frontier.2226, 8
   %or.i = or i64 %shl.i, %conv.i
   br label %cond.end
 
 cond.end:                                         ; preds = %for.end, %cond.true
   %cur.0230 = phi i64 [ %cur.0231, %cond.true ], [ -1, %for.end ]
-  %zero_chain_frontier.3228 = phi i64 [ %zero_chain_frontier.3229, %cond.true ], [ %zero_chain_frontier.1274, %for.end ]
-  %one_chain_frontier.3227 = phi i64 [ %one_chain_frontier.3226, %cond.true ], [ -1, %for.end ]
+  %zero_chain_frontier.2228 = phi i64 [ %zero_chain_frontier.2229, %cond.true ], [ %zero_chain_frontier.1274, %for.end ]
+  %one_chain_frontier.2227 = phi i64 [ %one_chain_frontier.2226, %cond.true ], [ -1, %for.end ]
   %cond = phi i64 [ %or.i, %cond.true ], [ %or.i74, %for.end ]
   %or = or i64 %cond, 128
   store atomic i64 %or, ptr %head_next_with_shift release, align 8
-  %cmp42.not = icmp eq i64 %zero_chain_frontier.3228, -1
-  %shl.i75 = shl i64 %zero_chain_frontier.3228, 8
+  %cmp42.not = icmp eq i64 %zero_chain_frontier.2228, -1
+  %shl.i75 = shl i64 %zero_chain_frontier.2228, 8
   %or.i77 = or i64 %shl.i75, %conv.i
   %cond50 = select i1 %cmp42.not, i64 %or.i81, i64 %or.i77
   %or.i82 = or i64 %cond50, 128
@@ -5348,7 +5348,7 @@ for.end61:                                        ; preds = %cond.end
 
 if.then66:                                        ; preds = %for.end61
   %cmp67 = icmp eq i32 %chain_frontier_first.1277, 0
-  %13 = select i1 %cmp67, i64 %one_chain_frontier.3227, i64 %zero_chain_frontier.3228
+  %13 = select i1 %cmp67, i64 %one_chain_frontier.2227, i64 %zero_chain_frontier.2228
   %cmp76.not = icmp eq i64 %13, -1
   %cond86 = select i1 %cmp67, i64 %old_home, i64 %grow_home
   %14 = or i32 %add, 192
@@ -5357,7 +5357,7 @@ if.then66:                                        ; preds = %for.end61
   %shl.i.i97.sink = shl i64 %shl.i.i97.sink.v, 8
   %or.i.i99 = sext i32 %.sink to i64
   %or.i100 = or i64 %shl.i.i97.sink, %or.i.i99
-  %.sroa.speculated189 = select i1 %cmp67, i64 %zero_chain_frontier.3228, i64 %one_chain_frontier.3227
+  %.sroa.speculated189 = select i1 %cmp67, i64 %zero_chain_frontier.2228, i64 %one_chain_frontier.2227
   %chain_next_with_shift10.i = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %.sroa.speculated189, i32 2
   %15 = load atomic i64, ptr %chain_next_with_shift10.i acquire, align 8
   %cmp11.i = icmp eq i64 %15, %or.i100
@@ -5367,11 +5367,11 @@ if.end.i.preheader:                               ; preds = %if.then66
   br i1 %cmp67, label %if.end.i.us, label %if.end.i
 
 if.end.i.us:                                      ; preds = %if.end.i.preheader, %if.end5.i.us
-  %zero_chain_frontier.4.us = phi i64 [ %shr.i.i.us, %if.end5.i.us ], [ %zero_chain_frontier.3228, %if.end.i.preheader ]
+  %zero_chain_frontier.7.us = phi i64 [ %shr.i.i.us, %if.end5.i.us ], [ %zero_chain_frontier.2228, %if.end.i.preheader ]
   %16 = phi i64 [ %18, %if.end5.i.us ], [ %15, %if.end.i.preheader ]
   %and.i.i101.us = and i64 %16, 64
   %tobool.i.not.i102.us = icmp eq i64 %and.i.i101.us, 0
-  %chain_next_with_shift7.i.us = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %zero_chain_frontier.4.us, i32 2
+  %chain_next_with_shift7.i.us = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %zero_chain_frontier.7.us, i32 2
   br i1 %tobool.i.not.i102.us, label %if.end5.i.us, label %if.then2.i
 
 if.end5.i.us:                                     ; preds = %if.end.i.us
@@ -5383,15 +5383,15 @@ if.end5.i.us:                                     ; preds = %if.end.i.us
   br i1 %cmp.i.us, label %if.end100.preheader, label %if.end.i.us, !llvm.loop !58
 
 if.end.i:                                         ; preds = %if.end.i.preheader, %if.end5.i
-  %one_chain_frontier.4 = phi i64 [ %shr.i.i, %if.end5.i ], [ %one_chain_frontier.3227, %if.end.i.preheader ]
+  %one_chain_frontier.7 = phi i64 [ %shr.i.i, %if.end5.i ], [ %one_chain_frontier.2227, %if.end.i.preheader ]
   %19 = phi i64 [ %21, %if.end5.i ], [ %15, %if.end.i.preheader ]
   %and.i.i101 = and i64 %19, 64
   %tobool.i.not.i102 = icmp eq i64 %and.i.i101, 0
-  %chain_next_with_shift7.i = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %one_chain_frontier.4, i32 2
+  %chain_next_with_shift7.i = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %one_chain_frontier.7, i32 2
   br i1 %tobool.i.not.i102, label %if.end5.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i, %if.end.i.us
-  %.us-phi281 = phi i64 [ %zero_chain_frontier.4.us, %if.end.i.us ], [ %zero_chain_frontier.3228, %if.end.i ]
+  %.us-phi281 = phi i64 [ %zero_chain_frontier.7.us, %if.end.i.us ], [ %zero_chain_frontier.2228, %if.end.i ]
   %.us-phi282 = phi ptr [ %chain_next_with_shift7.i.us, %if.end.i.us ], [ %chain_next_with_shift7.i, %if.end.i ]
   store atomic i64 %or.i100, ptr %.us-phi282 release, align 8
   br i1 %cmp67, label %if.end164, label %if.end92
@@ -5405,14 +5405,14 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %if.end92, label %if.end.i, !llvm.loop !58
 
 if.end92:                                         ; preds = %if.end5.i, %if.then2.i, %if.then66, %for.end61
-  %one_chain_frontier.8 = phi i64 [ %one_chain_frontier.3227, %for.end61 ], [ %one_chain_frontier.3227, %if.then66 ], [ -1, %if.then2.i ], [ %shr.i.i, %if.end5.i ]
-  %zero_chain_frontier.8 = phi i64 [ %zero_chain_frontier.3228, %for.end61 ], [ %zero_chain_frontier.3228, %if.then66 ], [ %.us-phi281, %if.then2.i ], [ %zero_chain_frontier.3228, %if.end5.i ]
-  %cmp93 = icmp eq i64 %zero_chain_frontier.8, -1
+  %one_chain_frontier.4 = phi i64 [ %one_chain_frontier.2227, %for.end61 ], [ %one_chain_frontier.2227, %if.then66 ], [ -1, %if.then2.i ], [ %shr.i.i, %if.end5.i ]
+  %zero_chain_frontier.4 = phi i64 [ %zero_chain_frontier.2228, %for.end61 ], [ %zero_chain_frontier.2228, %if.then66 ], [ %.us-phi281, %if.then2.i ], [ %zero_chain_frontier.2228, %if.end5.i ]
+  %cmp93 = icmp eq i64 %zero_chain_frontier.4, -1
   br i1 %cmp93, label %if.end164, label %if.end100.preheader
 
 if.end100.preheader:                              ; preds = %if.end5.i.us, %if.end92
-  %zero_chain_frontier.9289.ph = phi i64 [ %zero_chain_frontier.8, %if.end92 ], [ %shr.i.i.us, %if.end5.i.us ]
-  %one_chain_frontier.9288.ph = phi i64 [ %one_chain_frontier.8, %if.end92 ], [ %one_chain_frontier.3227, %if.end5.i.us ]
+  %zero_chain_frontier.5289.ph = phi i64 [ %zero_chain_frontier.4, %if.end92 ], [ %shr.i.i.us, %if.end5.i.us ]
+  %one_chain_frontier.5288.ph = phi i64 [ %one_chain_frontier.4, %if.end92 ], [ %one_chain_frontier.2227, %if.end5.i.us ]
   br label %if.end100
 
 if.then99:                                        ; preds = %for.inc161
@@ -5423,8 +5423,8 @@ if.end100:                                        ; preds = %if.end100.preheader
   %cur.1292 = phi i64 [ %shr.i129, %for.inc161 ], [ %cur.0230, %if.end100.preheader ]
   %chain_frontier_first.3291 = phi i32 [ %chain_frontier_first.4, %for.inc161 ], [ %chain_frontier_first.1277, %if.end100.preheader ]
   %i96.0290 = phi i32 [ %inc162, %for.inc161 ], [ 0, %if.end100.preheader ]
-  %zero_chain_frontier.9289 = phi i64 [ %zero_chain_frontier.17, %for.inc161 ], [ %zero_chain_frontier.9289.ph, %if.end100.preheader ]
-  %one_chain_frontier.9288 = phi i64 [ %one_chain_frontier.17, %for.inc161 ], [ %one_chain_frontier.9288.ph, %if.end100.preheader ]
+  %zero_chain_frontier.5289 = phi i64 [ %zero_chain_frontier.6, %for.inc161 ], [ %zero_chain_frontier.5289.ph, %if.end100.preheader ]
+  %one_chain_frontier.5288 = phi i64 [ %one_chain_frontier.6, %for.inc161 ], [ %one_chain_frontier.5288.ph, %if.end100.preheader ]
   %cmp102 = icmp eq i32 %chain_frontier_first.3291, 0
   %chain_next_with_shift115 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %cur.1292, i32 2
   %22 = load atomic i64, ptr %chain_next_with_shift115 acquire, align 8
@@ -5437,14 +5437,14 @@ invoke.cont136:                                   ; preds = %if.end100
   %shl.i.i109 = shl i64 %cond125, 8
   %or.i.i111 = or i64 %shl.i.i109, %conv.i
   %or.i112 = or i64 %or.i.i111, 192
-  %.sroa.speculated180 = select i1 %cmp102, i64 %zero_chain_frontier.9289, i64 %one_chain_frontier.9288
+  %.sroa.speculated180 = select i1 %cmp102, i64 %zero_chain_frontier.5289, i64 %one_chain_frontier.5288
   %chain_next_with_shift129 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %.sroa.speculated180, i32 2
   store atomic i64 %or.i112, ptr %chain_next_with_shift129 release, align 8
   %cond135 = select i1 %cmp102, i64 %grow_home, i64 %old_home
   %shl.i.i113 = shl i64 %cond135, 8
   %or.i.i115 = or i64 %shl.i.i113, %conv.i
   %or.i116 = or i64 %or.i.i115, 192
-  %.sroa.speculated177 = select i1 %cmp102, i64 %one_chain_frontier.9288, i64 %zero_chain_frontier.9289
+  %.sroa.speculated177 = select i1 %cmp102, i64 %one_chain_frontier.5288, i64 %zero_chain_frontier.5289
   %chain_next_with_shift10.i117 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %.sroa.speculated177, i32 2
   %23 = load atomic i64, ptr %chain_next_with_shift10.i117 acquire, align 8
   %cmp11.i118 = icmp eq i64 %23, %or.i116
@@ -5454,11 +5454,11 @@ if.end.i119.preheader:                            ; preds = %invoke.cont136
   br i1 %cmp102, label %if.end.i119.us, label %if.end.i119
 
 if.end.i119.us:                                   ; preds = %if.end.i119.preheader, %if.end5.i124.us
-  %one_chain_frontier.10.us = phi i64 [ %shr.i.i125.us, %if.end5.i124.us ], [ %one_chain_frontier.9288, %if.end.i119.preheader ]
+  %one_chain_frontier.9.us = phi i64 [ %shr.i.i125.us, %if.end5.i124.us ], [ %one_chain_frontier.5288, %if.end.i119.preheader ]
   %24 = phi i64 [ %26, %if.end5.i124.us ], [ %23, %if.end.i119.preheader ]
   %and.i.i120.us = and i64 %24, 64
   %tobool.i.not.i121.us = icmp eq i64 %and.i.i120.us, 0
-  %chain_next_with_shift7.i122.us = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %one_chain_frontier.10.us, i32 2
+  %chain_next_with_shift7.i122.us = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %one_chain_frontier.9.us, i32 2
   br i1 %tobool.i.not.i121.us, label %if.end5.i124.us, label %if.then2.i123
 
 if.end5.i124.us:                                  ; preds = %if.end.i119.us
@@ -5470,11 +5470,11 @@ if.end5.i124.us:                                  ; preds = %if.end.i119.us
   br i1 %cmp.i127.us, label %if.end164, label %if.end.i119.us, !llvm.loop !58
 
 if.end.i119:                                      ; preds = %if.end.i119.preheader, %if.end5.i124
-  %zero_chain_frontier.10 = phi i64 [ %shr.i.i125, %if.end5.i124 ], [ %zero_chain_frontier.9289, %if.end.i119.preheader ]
+  %zero_chain_frontier.9 = phi i64 [ %shr.i.i125, %if.end5.i124 ], [ %zero_chain_frontier.5289, %if.end.i119.preheader ]
   %27 = phi i64 [ %29, %if.end5.i124 ], [ %23, %if.end.i119.preheader ]
   %and.i.i120 = and i64 %27, 64
   %tobool.i.not.i121 = icmp eq i64 %and.i.i120, 0
-  %chain_next_with_shift7.i122 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %zero_chain_frontier.10, i32 2
+  %chain_next_with_shift7.i122 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %zero_chain_frontier.9, i32 2
   br i1 %tobool.i.not.i121, label %if.end5.i124, label %if.then2.i123
 
 if.then2.i123:                                    ; preds = %if.end.i119, %if.end.i119.us
@@ -5503,12 +5503,12 @@ invoke.cont145:                                   ; preds = %if.end100
 if.then152:                                       ; preds = %invoke.cont145
   %shl.i132 = and i64 %22, -256
   %or.i134 = or i64 %shl.i132, %conv.i
-  %.sroa.speculated183 = select i1 %cmp102, i64 %zero_chain_frontier.9289, i64 %one_chain_frontier.9288
+  %.sroa.speculated183 = select i1 %cmp102, i64 %zero_chain_frontier.5289, i64 %one_chain_frontier.5288
   %chain_next_with_shift156 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %.sroa.speculated183, i32 2
   store atomic i64 %or.i134, ptr %chain_next_with_shift156 release, align 8
-  %spec.select246 = select i1 %cmp102, i64 %one_chain_frontier.9288, i64 %shr.i129
-  %spec.select247 = select i1 %cmp102, i64 %shr.i129, i64 %zero_chain_frontier.9289
-  %.sroa.speculated171 = select i1 %cmp102, i64 %one_chain_frontier.9288, i64 %zero_chain_frontier.9289
+  %spec.select246 = select i1 %cmp102, i64 %one_chain_frontier.5288, i64 %shr.i129
+  %spec.select247 = select i1 %cmp102, i64 %shr.i129, i64 %zero_chain_frontier.5289
+  %.sroa.speculated171 = select i1 %cmp102, i64 %one_chain_frontier.5288, i64 %zero_chain_frontier.5289
   %chain_next_with_shift10.i135 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %.sroa.speculated171, i32 2
   %32 = load atomic i64, ptr %chain_next_with_shift10.i135 acquire, align 8
   %cmp11.i136 = icmp eq i64 %32, %22
@@ -5518,11 +5518,11 @@ if.end.i137.preheader:                            ; preds = %if.then152
   br i1 %cmp102, label %if.end.i137.us, label %if.end.i137
 
 if.end.i137.us:                                   ; preds = %if.end.i137.preheader, %if.end5.i142.us
-  %one_chain_frontier.13.us = phi i64 [ %shr.i.i143.us, %if.end5.i142.us ], [ %one_chain_frontier.9288, %if.end.i137.preheader ]
+  %one_chain_frontier.10.us = phi i64 [ %shr.i.i143.us, %if.end5.i142.us ], [ %one_chain_frontier.5288, %if.end.i137.preheader ]
   %33 = phi i64 [ %35, %if.end5.i142.us ], [ %32, %if.end.i137.preheader ]
   %and.i.i138.us = and i64 %33, 64
   %tobool.i.not.i139.us = icmp eq i64 %and.i.i138.us, 0
-  %chain_next_with_shift7.i140.us = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %one_chain_frontier.13.us, i32 2
+  %chain_next_with_shift7.i140.us = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %one_chain_frontier.10.us, i32 2
   br i1 %tobool.i.not.i139.us, label %if.end5.i142.us, label %if.then2.i141
 
 if.end5.i142.us:                                  ; preds = %if.end.i137.us
@@ -5534,11 +5534,11 @@ if.end5.i142.us:                                  ; preds = %if.end.i137.us
   br i1 %cmp.i145.us, label %invoke.cont158, label %if.end.i137.us, !llvm.loop !58
 
 if.end.i137:                                      ; preds = %if.end.i137.preheader, %if.end5.i142
-  %zero_chain_frontier.13 = phi i64 [ %shr.i.i143, %if.end5.i142 ], [ %zero_chain_frontier.9289, %if.end.i137.preheader ]
+  %zero_chain_frontier.10 = phi i64 [ %shr.i.i143, %if.end5.i142 ], [ %zero_chain_frontier.5289, %if.end.i137.preheader ]
   %36 = phi i64 [ %38, %if.end5.i142 ], [ %32, %if.end.i137.preheader ]
   %and.i.i138 = and i64 %36, 64
   %tobool.i.not.i139 = icmp eq i64 %and.i.i138, 0
-  %chain_next_with_shift7.i140 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %zero_chain_frontier.13, i32 2
+  %chain_next_with_shift7.i140 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %0, i64 %zero_chain_frontier.10, i32 2
   br i1 %tobool.i.not.i139, label %if.end5.i142, label %if.then2.i141
 
 if.then2.i141:                                    ; preds = %if.end.i137, %if.end.i137.us
@@ -5557,14 +5557,14 @@ if.end5.i142:                                     ; preds = %if.end.i137
   br i1 %cmp.i145, label %invoke.cont158, label %if.end.i137, !llvm.loop !58
 
 invoke.cont158:                                   ; preds = %if.end5.i142, %if.end5.i142.us, %if.then2.i141, %if.then152
-  %one_chain_frontier.16 = phi i64 [ %spec.select246, %if.then152 ], [ %spec.select248, %if.then2.i141 ], [ %shr.i.i143.us, %if.end5.i142.us ], [ %spec.select246, %if.end5.i142 ]
-  %zero_chain_frontier.16 = phi i64 [ %spec.select247, %if.then152 ], [ %spec.select249, %if.then2.i141 ], [ %spec.select247, %if.end5.i142.us ], [ %shr.i.i143, %if.end5.i142 ]
+  %one_chain_frontier.11 = phi i64 [ %spec.select246, %if.then152 ], [ %spec.select248, %if.then2.i141 ], [ %shr.i.i143.us, %if.end5.i142.us ], [ %spec.select246, %if.end5.i142 ]
+  %zero_chain_frontier.11 = phi i64 [ %spec.select247, %if.then152 ], [ %spec.select249, %if.then2.i141 ], [ %spec.select247, %if.end5.i142.us ], [ %shr.i.i143, %if.end5.i142 ]
   %sub = sub nsw i32 1, %chain_frontier_first.3291
   br label %for.inc161
 
 for.inc161:                                       ; preds = %invoke.cont158, %invoke.cont145
-  %one_chain_frontier.17 = phi i64 [ %one_chain_frontier.16, %invoke.cont158 ], [ %one_chain_frontier.9288, %invoke.cont145 ]
-  %zero_chain_frontier.17 = phi i64 [ %zero_chain_frontier.16, %invoke.cont158 ], [ %zero_chain_frontier.9289, %invoke.cont145 ]
+  %one_chain_frontier.6 = phi i64 [ %one_chain_frontier.11, %invoke.cont158 ], [ %one_chain_frontier.5288, %invoke.cont145 ]
+  %zero_chain_frontier.6 = phi i64 [ %zero_chain_frontier.11, %invoke.cont158 ], [ %zero_chain_frontier.5289, %invoke.cont145 ]
   %chain_frontier_first.4 = phi i32 [ %sub, %invoke.cont158 ], [ %chain_frontier_first.3291, %invoke.cont145 ]
   %inc162 = add nuw nsw i32 %i96.0290, 1
   %exitcond332 = icmp eq i32 %inc162, 4096
@@ -5612,7 +5612,7 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end20
   %published_usable_size.028 = phi i64 [ %add.i, %while.body.lr.ph ], [ %add.i15, %if.end20 ]
-  %current_length_info.027 = phi i64 [ %0, %while.body.lr.ph ], [ %current_length_info.2, %if.end20 ]
+  %current_length_info.027 = phi i64 [ %0, %while.body.lr.ph ], [ %current_length_info.1, %if.end20 ]
   %add = add i64 %published_usable_size.028, 1
   %1 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add, i1 true)
   %sub.i.i = xor i64 %1, 63
@@ -5655,9 +5655,9 @@ if.then17:                                        ; preds = %if.then15
   br label %if.end20
 
 if.end20:                                         ; preds = %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit, %if.then15, %if.then17
-  %current_length_info.2 = phi i64 [ %add.i11, %if.then17 ], [ %add.i11, %if.then15 ], [ %10, %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit ]
-  %shr.i.i12 = lshr i64 %current_length_info.2, 8
-  %conv1.i.i.i13 = and i64 %current_length_info.2, 255
+  %current_length_info.1 = phi i64 [ %add.i11, %if.then17 ], [ %add.i11, %if.then15 ], [ %10, %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit ]
+  %shr.i.i12 = lshr i64 %current_length_info.1, 8
+  %conv1.i.i.i13 = and i64 %current_length_info.1, 255
   %shl.i14 = shl nuw i64 1, %conv1.i.i.i13
   %add.i15 = add nuw i64 %shl.i14, %shr.i.i12
   %cmp.not = icmp ugt i64 %add.i15, %known_usable_grow_home
@@ -5819,9 +5819,9 @@ if.then11:                                        ; preds = %_ZN7rocksdb11clock_
   br label %if.end70
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %idx.0202 = phi i64 [ %spec.select, %for.inc ], [ %4, %for.body.preheader ]
+  %idx.1202 = phi i64 [ %spec.select, %for.inc ], [ %4, %for.body.preheader ]
   %i.0201 = phi i64 [ %inc24, %for.inc ], [ 0, %for.body.preheader ]
-  %inc = add i64 %idx.0202, 1
+  %inc = add i64 %idx.1202, 1
   %cmp15.not = icmp ult i64 %inc, %add.i70
   %sub = select i1 %cmp15.not, i64 0, i64 %add.i70
   %spec.select = sub nuw i64 %inc, %sub
@@ -5903,10 +5903,10 @@ if.then26:                                        ; preds = %for.inc
 
 for.cond30:                                       ; preds = %for.inc64, %if.then26
   %i.1 = phi i64 [ 4, %if.then26 ], [ %inc65, %for.inc64 ]
-  %start.0 = phi i64 [ %spec.select, %if.then26 ], [ %start.2, %for.inc64 ]
-  %idx.3 = phi i64 [ %spec.select, %if.then26 ], [ %idx.6, %for.inc64 ]
+  %start.0 = phi i64 [ %spec.select, %if.then26 ], [ %start.1, %for.inc64 ]
+  %idx.4 = phi i64 [ %spec.select, %if.then26 ], [ %idx.6, %for.inc64 ]
   %used_length.0 = phi i64 [ %add.i70, %if.then26 ], [ %used_length.1, %for.inc64 ]
-  %add31 = add i64 %add16.i.i.i, %idx.3
+  %add31 = add i64 %add16.i.i.i, %idx.4
   %cmp32.not = icmp ult i64 %add31, %used_length.0
   %sub34 = select i1 %cmp32.not, i64 0, i64 %used_length.0
   %spec.select66 = sub nuw i64 %add31, %sub34
@@ -5932,7 +5932,7 @@ if.then49:                                        ; preds = %if.then37
   br i1 %cmp52.not, label %if.end56, label %return
 
 if.end56:                                         ; preds = %if.then37, %if.then49, %for.cond30
-  %start.2 = phi i64 [ %spec.select67, %if.then49 ], [ %spec.select67, %if.then37 ], [ %start.0, %for.cond30 ]
+  %start.1 = phi i64 [ %spec.select67, %if.then49 ], [ %spec.select67, %if.then37 ], [ %start.0, %for.cond30 ]
   %idx.6 = phi i64 [ %spec.select67, %if.then49 ], [ %spec.select67, %if.then37 ], [ %spec.select66, %for.cond30 ]
   %used_length.1 = phi i64 [ %add.i128, %if.then49 ], [ %used_length.0, %if.then37 ], [ %used_length.0, %for.cond30 ]
   %arrayidx57 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %5, i64 %idx.6
@@ -5988,9 +5988,9 @@ for.inc64:                                        ; preds = %for.inc64.sink.spli
   br label %for.cond30, !llvm.loop !61
 
 if.end70:                                         ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit154, %for.end.thread, %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit, %if.then11
-  %idx.7 = phi i64 [ %4, %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit ], [ %18, %if.then11 ], [ %idx.6, %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit154 ], [ %spec.select, %for.end.thread ]
-  %shl.i162 = shl i64 %idx.7, 8
-  %arrayidx99 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %5, i64 %idx.7
+  %idx.0 = phi i64 [ %4, %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit ], [ %18, %if.then11 ], [ %idx.6, %_ZN7rocksdb11clock_cache12_GLOBAL__N_19TryInsertERKNS0_20ClockHandleBasicDataERNS0_11ClockHandleEmbPb.exit154 ], [ %spec.select, %for.end.thread ]
+  %shl.i162 = shl i64 %idx.0, 8
+  %arrayidx99 = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %5, i64 %idx.0
   %chain_next_with_shift100 = getelementptr inbounds i8, ptr %arrayidx99, i64 56
   %length_info_.i = getelementptr inbounds i8, ptr %this, i64 176
   %metadata_charge_policy_.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -6028,7 +6028,7 @@ if.then82:                                        ; preds = %if.end75
 
 while.body.i:                                     ; preds = %if.then82, %if.end20.i
   %published_usable_size.028.i = phi i64 [ %add.i15.i, %if.end20.i ], [ %add.i.i, %if.then82 ]
-  %current_length_info.027.i = phi i64 [ %current_length_info.2.i, %if.end20.i ], [ %33, %if.then82 ]
+  %current_length_info.027.i = phi i64 [ %current_length_info.1.i, %if.end20.i ], [ %33, %if.then82 ]
   %add.i156 = add i64 %published_usable_size.028.i, 1
   %34 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %add.i156, i1 true)
   %sub.i.i.i = xor i64 %34, 63
@@ -6071,9 +6071,9 @@ if.then17.i:                                      ; preds = %if.then15.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.then17.i, %if.then15.i, %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit.i
-  %current_length_info.2.i = phi i64 [ %add.i11.i, %if.then17.i ], [ %add.i11.i, %if.then15.i ], [ %43, %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit.i ]
-  %shr.i.i12.i = lshr i64 %current_length_info.2.i, 8
-  %conv1.i.i.i13.i = and i64 %current_length_info.2.i, 255
+  %current_length_info.1.i = phi i64 [ %add.i11.i, %if.then17.i ], [ %add.i11.i, %if.then15.i ], [ %43, %_ZN7rocksdb12AcqRelAtomicImE9CasStrongERmm.exit.i ]
+  %shr.i.i12.i = lshr i64 %current_length_info.1.i, 8
+  %conv1.i.i.i13.i = and i64 %current_length_info.1.i, 255
   %shl.i14.i = shl nuw i64 1, %conv1.i.i.i13.i
   %add.i15.i = add nuw i64 %shl.i14.i, %shr.i.i12.i
   %cmp.not.i = icmp ugt i64 %add.i15.i, %add85
@@ -6241,7 +6241,7 @@ if.then.i11:                                      ; preds = %for.inc.i
   unreachable
 
 if.end.i:                                         ; preds = %for.inc.i, %if.then12
-  %rewrite_lock.sroa.10.1 = phi i64 [ %rewrite_lock.sroa.10.0.le, %if.then12 ], [ %rewrite_lock.sroa.10.4, %for.inc.i ]
+  %rewrite_lock.sroa.10.2 = phi i64 [ %rewrite_lock.sroa.10.0.le, %if.then12 ], [ %rewrite_lock.sroa.10.5, %for.inc.i ]
   %i.038.i = phi i64 [ 0, %if.then12 ], [ %inc.i, %for.inc.i ]
   %pending_purge.037.i = phi i1 [ false, %if.then12 ], [ %pending_purge.2.i, %for.inc.i ]
   %prev_to_keep.036.i = phi ptr [ null, %if.then12 ], [ %prev_to_keep.2.i, %for.inc.i ]
@@ -6271,13 +6271,13 @@ if.then14.i:                                      ; preds = %if.then12.i
 
 if.else15.i:                                      ; preds = %if.then12.i
   %or.i.i12 = or i64 %next_with_shift.034.i, 128
-  %19 = cmpxchg ptr %rewrite_lock.sroa.0.0.lcssa, i64 %rewrite_lock.sroa.10.1, i64 %or.i.i12 acq_rel acquire, align 8
+  %19 = cmpxchg ptr %rewrite_lock.sroa.0.0.lcssa, i64 %rewrite_lock.sroa.10.2, i64 %or.i.i12 acq_rel acquire, align 8
   %20 = extractvalue { i64, i1 } %19, 1
   br i1 %20, label %if.end26.i, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.else15.i
   %21 = extractvalue { i64, i1 } %19, 0
-  %and.i.i.i.i13 = and i64 %rewrite_lock.sroa.10.1, 64
+  %and.i.i.i.i13 = and i64 %rewrite_lock.sroa.10.2, 64
   %tobool.i.i.not.i.i14 = icmp ne i64 %and.i.i.i.i13, 0
   %and.i.i.i15 = and i64 %21, 64
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i15, 0
@@ -6313,11 +6313,11 @@ if.else18.i:                                      ; preds = %_ZN7rocksdb11clock_
   br label %for.inc.i
 
 if.end26.i:                                       ; preds = %if.else15.i, %if.then14.i, %if.else.i
-  %rewrite_lock.sroa.10.2 = phi i64 [ %rewrite_lock.sroa.10.1, %if.then14.i ], [ %rewrite_lock.sroa.10.1, %if.else.i ], [ %or.i.i12, %if.else15.i ]
+  %rewrite_lock.sroa.10.3 = phi i64 [ %rewrite_lock.sroa.10.2, %if.then14.i ], [ %rewrite_lock.sroa.10.2, %if.else.i ], [ %or.i.i12, %if.else15.i ]
   br i1 %tobool.not.i, label %if.end14, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.end26.i, %if.then5.i
-  %rewrite_lock.sroa.10.3 = phi i64 [ %rewrite_lock.sroa.10.2, %if.end26.i ], [ %rewrite_lock.sroa.10.1, %if.then5.i ]
+  %rewrite_lock.sroa.10.4 = phi i64 [ %rewrite_lock.sroa.10.3, %if.end26.i ], [ %rewrite_lock.sroa.10.2, %if.then5.i ]
   %pending_purge.133.i = phi i1 [ false, %if.end26.i ], [ true, %if.then5.i ]
   %prev_to_keep.132.i = phi ptr [ %h.035.i, %if.end26.i ], [ %prev_to_keep.036.i, %if.then5.i ]
   %chain_next_with_shift30.i = getelementptr inbounds i8, ptr %h.035.i, i64 56
@@ -6332,7 +6332,7 @@ if.else34.i:                                      ; preds = %if.end29.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else34.i, %if.end29.i, %if.else18.i
-  %rewrite_lock.sroa.10.4 = phi i64 [ %rewrite_lock.sroa.10.3, %if.else34.i ], [ %rewrite_lock.sroa.10.3, %if.end29.i ], [ %or.i.i.sink.i, %if.else18.i ]
+  %rewrite_lock.sroa.10.5 = phi i64 [ %rewrite_lock.sroa.10.4, %if.else34.i ], [ %rewrite_lock.sroa.10.4, %if.end29.i ], [ %or.i.i.sink.i, %if.else18.i ]
   %next_with_shift.1.i = phi i64 [ %25, %if.else34.i ], [ %25, %if.end29.i ], [ %or.i.i.sink.i, %if.else18.i ]
   %h.1.i = phi ptr [ %arrayidx36.i, %if.else34.i ], [ null, %if.end29.i ], [ %arrayidx21.i, %if.else18.i ]
   %prev_to_keep.2.i = phi ptr [ %prev_to_keep.132.i, %if.else34.i ], [ %prev_to_keep.132.i, %if.end29.i ], [ null, %if.else18.i ]
@@ -6342,8 +6342,8 @@ for.inc.i:                                        ; preds = %if.else34.i, %if.en
   br i1 %exitcond.i, label %if.then.i11, label %if.end.i, !llvm.loop !63
 
 if.end14:                                         ; preds = %if.end26.i, %for.end
-  %rewrite_lock.sroa.10.5 = phi i64 [ %rewrite_lock.sroa.10.0.le, %for.end ], [ %rewrite_lock.sroa.10.2, %if.end26.i ]
-  %and.i.i.i23 = and i64 %rewrite_lock.sroa.10.5, 64
+  %rewrite_lock.sroa.10.1 = phi i64 [ %rewrite_lock.sroa.10.0.le, %for.end ], [ %rewrite_lock.sroa.10.3, %if.end26.i ]
+  %and.i.i.i23 = and i64 %rewrite_lock.sroa.10.1, 64
   %tobool.i.i.not.i24 = icmp eq i64 %and.i.i.i23, 0
   br i1 %tobool.i.i.not.i24, label %if.then.i26, label %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockD2Ev.exit27
 
@@ -6567,7 +6567,7 @@ if.then.i57:                                      ; preds = %for.inc.i
   unreachable
 
 if.end.i55:                                       ; preds = %for.inc.i, %if.then.i
-  %rewrite_lock.i.sroa.9.0 = phi i64 [ %or.i.i.i, %if.then.i ], [ %rewrite_lock.i.sroa.9.3, %for.inc.i ]
+  %rewrite_lock.i.sroa.9.0 = phi i64 [ %or.i.i.i, %if.then.i ], [ %rewrite_lock.i.sroa.9.2, %for.inc.i ]
   %h.i.0 = phi ptr [ %arrayidx.i, %if.then.i ], [ %h.i.1, %for.inc.i ]
   %i.041.i = phi i64 [ 0, %if.then.i ], [ %inc.i56, %for.inc.i ]
   %pending_purge.040.i = phi i1 [ false, %if.then.i ], [ %pending_purge.2.i, %for.inc.i ]
@@ -6770,13 +6770,13 @@ if.else19.i:                                      ; preds = %_ZN7rocksdb11clock_
   br label %for.inc.i
 
 if.end27.i:                                       ; preds = %if.else.i, %if.then15.i, %if.else16.i
-  %rewrite_lock.i.sroa.9.2 = phi i64 [ %rewrite_lock.i.sroa.9.0, %if.then15.i ], [ %or.i16.i, %if.else16.i ], [ %rewrite_lock.i.sroa.9.0, %if.else.i ]
+  %rewrite_lock.i.sroa.9.1 = phi i64 [ %rewrite_lock.i.sroa.9.0, %if.then15.i ], [ %or.i16.i, %if.else16.i ], [ %rewrite_lock.i.sroa.9.0, %if.else.i ]
   br i1 %tobool.not.i, label %if.end.i, label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.then.i79, %if.then.i.i73, %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %if.then5.i, %if.end27.i
   %pending_purge.1.i157 = phi i1 [ false, %if.end27.i ], [ true, %if.then5.i ], [ true, %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ true, %if.then.i.i73 ], [ true, %if.then.i79 ]
   %prev_to_keep.1.i156 = phi ptr [ %h.i.0, %if.end27.i ], [ %prev_to_keep.039.i, %if.then5.i ], [ %prev_to_keep.039.i, %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %prev_to_keep.039.i, %if.then.i.i73 ], [ %prev_to_keep.039.i, %if.then.i79 ]
-  %rewrite_lock.i.sroa.9.2155 = phi i64 [ %rewrite_lock.i.sroa.9.2, %if.end27.i ], [ %rewrite_lock.i.sroa.9.0, %if.then5.i ], [ %rewrite_lock.i.sroa.9.0, %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %rewrite_lock.i.sroa.9.0, %if.then.i.i73 ], [ %rewrite_lock.i.sroa.9.0, %if.then.i79 ]
+  %rewrite_lock.i.sroa.9.1155 = phi i64 [ %rewrite_lock.i.sroa.9.1, %if.end27.i ], [ %rewrite_lock.i.sroa.9.0, %if.then5.i ], [ %rewrite_lock.i.sroa.9.0, %_ZNSt6vectorIPN7rocksdb11clock_cache19AutoHyperClockTable10HandleImplESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %rewrite_lock.i.sroa.9.0, %if.then.i.i73 ], [ %rewrite_lock.i.sroa.9.0, %if.then.i79 ]
   %chain_next_with_shift31.i = getelementptr inbounds i8, ptr %h.i.0, i64 56
   %37 = load atomic i64, ptr %chain_next_with_shift31.i acquire, align 8
   %and.i.i = and i64 %37, 64
@@ -6789,7 +6789,7 @@ if.else35.i:                                      ; preds = %if.end30.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end30.i, %if.else35.i, %if.else19.i
-  %rewrite_lock.i.sroa.9.3 = phi i64 [ %rewrite_lock.i.sroa.9.2155, %if.else35.i ], [ %or.i.i.sink.i, %if.else19.i ], [ %rewrite_lock.i.sroa.9.2155, %if.end30.i ]
+  %rewrite_lock.i.sroa.9.2 = phi i64 [ %rewrite_lock.i.sroa.9.1155, %if.else35.i ], [ %or.i.i.sink.i, %if.else19.i ], [ %rewrite_lock.i.sroa.9.1155, %if.end30.i ]
   %h.i.1 = phi ptr [ %arrayidx37.i, %if.else35.i ], [ %arrayidx22.i, %if.else19.i ], [ null, %if.end30.i ]
   %next_with_shift.1.i = phi i64 [ %37, %if.else35.i ], [ %or.i.i.sink.i, %if.else19.i ], [ %37, %if.end30.i ]
   %prev_to_keep.2.i = phi ptr [ %prev_to_keep.1.i156, %if.else35.i ], [ null, %if.else19.i ], [ %prev_to_keep.1.i156, %if.end30.i ]
@@ -6819,7 +6819,7 @@ if.then.i.i:                                      ; preds = %lpad.i
   br label %ehcleanup60
 
 if.end.i:                                         ; preds = %if.end27.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit.i
-  %39 = phi i64 [ %or.i.i.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit.i ], [ %rewrite_lock.i.sroa.9.2, %if.end27.i ]
+  %39 = phi i64 [ %or.i.i.i, %_ZN7rocksdb11clock_cache19AutoHyperClockTable16ChainRewriteLockC2EPNS1_10HandleImplERNS_13RelaxedAtomicImEE.exit.i ], [ %rewrite_lock.i.sroa.9.1, %if.end27.i ]
   %and.i.i.i5.i = and i64 %39, 64
   %tobool.i.i.not.i6.i = icmp eq i64 %and.i.i.i5.i, 0
   br i1 %tobool.i.i.not.i6.i, label %if.then.i7.i, label %for.inc

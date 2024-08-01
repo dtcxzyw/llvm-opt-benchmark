@@ -2013,7 +2013,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5R__open_attr_a
   br label %.cont
 
 .cont:                                            ; preds = %50, %.else
-  %.074 = phi ptr [ null, %.else ], [ %51, %50 ]
+  %.175 = phi ptr [ null, %.else ], [ %51, %50 ]
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %57
 
@@ -2037,7 +2037,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5R__open_attr_a
   br label %.cont60
 
 .cont60:                                          ; preds = %57, %.else61
-  %61 = phi ptr [ %.074, %57 ], [ %.else.val, %.else61 ]
+  %61 = phi ptr [ %.175, %57 ], [ %.else.val, %.else61 ]
   %62 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %63 = call ptr @H5VL_object_open(ptr noundef %61, ptr noundef nonnull %7, ptr noundef nonnull %9, i64 noundef %62, ptr noundef %3) #4
   %64 = icmp eq ptr %63, null
@@ -2058,7 +2058,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5R__open_attr_a
   br label %.cont62
 
 .cont62:                                          ; preds = %69, %.else64
-  %71 = phi ptr [ %.074, %69 ], [ %.else.val65, %.else64 ]
+  %71 = phi ptr [ %.175, %69 ], [ %.else.val65, %.else64 ]
   %72 = getelementptr inbounds i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = call i64 @H5VL_register(i32 noundef %70, ptr noundef nonnull %63, ptr noundef %73, i1 noundef zeroext false) #4
@@ -2114,7 +2114,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5R__open_attr_a
   br label %.cont66
 
 .cont66:                                          ; preds = %103, %.else68
-  %104 = phi ptr [ %.074, %103 ], [ %.else.val69, %.else68 ]
+  %104 = phi ptr [ %.175, %103 ], [ %.else.val69, %.else68 ]
   %105 = getelementptr inbounds i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = call i64 @H5VL_register(i32 noundef 7, ptr noundef nonnull %96, ptr noundef %106, i1 noundef zeroext true) #4
@@ -2161,7 +2161,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @H5R__open_attr_a
   br label %.cont70
 
 .cont70:                                          ; preds = %125, %.else72
-  %126 = phi ptr [ %.074, %125 ], [ %.else.val73, %.else72 ]
+  %126 = phi ptr [ %.175, %125 ], [ %.else.val73, %.else72 ]
   %127 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8
   %128 = call i32 @H5VL_attr_close(ptr noundef %126, i64 noundef %127, ptr noundef null) #4
   %129 = icmp slt i32 %128, 0

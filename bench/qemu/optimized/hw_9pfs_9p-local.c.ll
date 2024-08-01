@@ -820,13 +820,13 @@ if.end24:                                         ; preds = %if.then16
   br label %out
 
 out:                                              ; preds = %if.then16, %if.end24
-  %tsize.0 = phi i64 [ -1, %if.then16 ], [ %call25, %if.end24 ]
+  %tsize.1 = phi i64 [ -1, %if.then16 ], [ %call25, %if.end24 ]
   tail call void @g_free(ptr noundef %call20) #15
   tail call void @g_free(ptr noundef %call18) #15
   br label %return
 
 return:                                           ; preds = %do.end, %out, %if.else, %if.then
-  %retval.0 = phi i64 [ -1, %if.then ], [ %call5, %do.end ], [ %tsize.0, %out ], [ -1, %if.else ]
+  %retval.0 = phi i64 [ -1, %if.then ], [ %call5, %do.end ], [ %tsize.1, %out ], [ -1, %if.else ]
   ret i64 %retval.0
 }
 
@@ -874,7 +874,7 @@ if.then18:                                        ; preds = %if.else11
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else11, %if.then9, %if.then18, %if.then4
-  %ret.0 = phi i32 [ %call5, %if.then4 ], [ %call10, %if.then9 ], [ %call19, %if.then18 ], [ -1, %if.else11 ]
+  %ret.1 = phi i32 [ %call5, %if.then4 ], [ %call10, %if.then9 ], [ %call19, %if.then18 ], [ -1, %if.else11 ]
   %call.i16 = tail call ptr @__errno_location() #17
   %5 = load i32, ptr %call.i16, align 4
   %call1.i = tail call i32 @close(i32 noundef %call.i) #15
@@ -882,10 +882,10 @@ if.end22:                                         ; preds = %if.else11, %if.then
   br label %out
 
 out:                                              ; preds = %entry, %if.end22
-  %ret.1 = phi i32 [ -1, %entry ], [ %ret.0, %if.end22 ]
+  %ret.0 = phi i32 [ -1, %entry ], [ %ret.1, %if.end22 ]
   tail call void @g_free(ptr noundef %call) #15
   tail call void @g_free(ptr noundef %call2) #15
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -947,7 +947,7 @@ if.then23:                                        ; preds = %if.else19
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then17, %if.then23, %if.else19, %if.then10
-  %ret.0 = phi i32 [ %call13, %if.then10 ], [ %call18, %if.then17 ], [ %call24, %if.then23 ], [ -1, %if.else19 ]
+  %ret.1 = phi i32 [ %call13, %if.then10 ], [ %call18, %if.then17 ], [ %call24, %if.then23 ], [ -1, %if.else19 ]
   %call.i19 = tail call ptr @__errno_location() #17
   %7 = load i32, ptr %call.i19, align 4
   %call1.i = tail call i32 @close(i32 noundef %call.i) #15
@@ -955,10 +955,10 @@ if.end27:                                         ; preds = %if.then17, %if.then
   br label %out
 
 out:                                              ; preds = %entry, %if.end27
-  %ret.1 = phi i32 [ -1, %entry ], [ %ret.0, %if.end27 ]
+  %ret.0 = phi i32 [ -1, %entry ], [ %ret.1, %if.end27 ]
   tail call void @g_free(ptr noundef %call2) #15
   tail call void @g_free(ptr noundef %call) #15
-  ret i32 %ret.1
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1021,8 +1021,8 @@ if.else:                                          ; preds = %if.end15
   br label %if.end22
 
 if.end22:                                         ; preds = %if.else, %if.then19
-  %err.0 = phi i32 [ %call20, %if.then19 ], [ %call21, %if.else ]
-  %cmp23 = icmp eq i32 %err.0, -1
+  %err.1 = phi i32 [ %call20, %if.then19 ], [ %call21, %if.else ]
+  %cmp23 = icmp eq i32 %err.1, -1
   br i1 %cmp23, label %err_end, label %out
 
 if.else26:                                        ; preds = %if.end4
@@ -1068,7 +1068,7 @@ err_end:                                          ; preds = %if.then.i, %local_s
   br label %out
 
 out:                                              ; preds = %if.else26, %if.end22, %local_set_cred_passthrough.exit, %if.then34, %if.then11, %err_end
-  %err.2 = phi i32 [ -1, %if.then11 ], [ -1, %err_end ], [ %err.0, %if.end22 ], [ -1, %if.then34 ], [ %call5.i, %local_set_cred_passthrough.exit ], [ -1, %if.else26 ]
+  %err.0 = phi i32 [ -1, %if.then11 ], [ -1, %err_end ], [ %err.1, %if.end22 ], [ -1, %if.then34 ], [ %call5.i, %local_set_cred_passthrough.exit ], [ -1, %if.else26 ]
   %call.i36 = tail call ptr @__errno_location() #17
   %14 = load i32, ptr %call.i36, align 4
   %call1.i37 = tail call i32 @close(i32 noundef %call.i32) #15
@@ -1076,7 +1076,7 @@ out:                                              ; preds = %if.else26, %if.end2
   br label %return
 
 return:                                           ; preds = %if.end, %out, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ %err.2, %out ], [ -1, %if.end ]
+  %retval.0 = phi i32 [ -1, %if.then ], [ %err.0, %out ], [ -1, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1134,7 +1134,7 @@ if.end6:                                          ; preds = %if.end
   br label %err_out
 
 err_out:                                          ; preds = %if.end6, %if.end
-  %err.0 = phi i32 [ -1, %if.end ], [ %call1010, %if.end6 ]
+  %err.1 = phi i32 [ -1, %if.end ], [ %call1010, %if.end6 ]
   %call.i13 = tail call ptr @__errno_location() #17
   %2 = load i32, ptr %call.i13, align 4
   %call1.i = call i32 @close(i32 noundef %call.i) #15
@@ -1142,10 +1142,10 @@ err_out:                                          ; preds = %if.end6, %if.end
   br label %out
 
 out:                                              ; preds = %entry, %err_out
-  %err.1 = phi i32 [ -1, %entry ], [ %err.0, %err_out ]
+  %err.0 = phi i32 [ -1, %entry ], [ %err.1, %err_out ]
   call void @g_free(ptr noundef %call1) #15
   call void @g_free(ptr noundef %call) #15
-  ret i32 %err.1
+  ret i32 %err.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1233,8 +1233,8 @@ if.else:                                          ; preds = %if.end23
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else, %if.then28
-  %err.0 = phi i32 [ %call29, %if.then28 ], [ %call30, %if.else ]
-  %cmp32 = icmp eq i32 %err.0, -1
+  %err.2 = phi i32 [ %call29, %if.then28 ], [ %call30, %if.else ]
+  %cmp32 = icmp eq i32 %err.2, -1
   br i1 %cmp32, label %err_end, label %out
 
 if.else35:                                        ; preds = %if.end4
@@ -1273,7 +1273,7 @@ err_end:                                          ; preds = %if.then50.err_end_c
   br label %out
 
 out:                                              ; preds = %if.then50, %if.else35, %if.end31, %if.end47, %if.then43, %if.then11, %err_end
-  %err.2 = phi i32 [ -1, %if.then11 ], [ -1, %err_end ], [ %err.0, %if.end31 ], [ %call44, %if.then43 ], [ %call48, %if.end47 ], [ -1, %if.else35 ], [ 0, %if.then50 ]
+  %err.0 = phi i32 [ -1, %if.then11 ], [ -1, %err_end ], [ %err.2, %if.end31 ], [ %call44, %if.then43 ], [ %call48, %if.end47 ], [ -1, %if.else35 ], [ 0, %if.then50 ]
   %call.i43 = tail call ptr @__errno_location() #17
   %14 = load i32, ptr %call.i43, align 4
   %call1.i44 = tail call i32 @close(i32 noundef %call.i38) #15
@@ -1281,7 +1281,7 @@ out:                                              ; preds = %if.then50, %if.else
   br label %return
 
 return:                                           ; preds = %if.end, %out, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ %err.2, %out ], [ -1, %if.end ]
+  %retval.0 = phi i32 [ -1, %if.then ], [ %err.0, %out ], [ -1, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1391,14 +1391,14 @@ if.end35:                                         ; preds = %if.end31
 
 err_undo_link:                                    ; preds = %if.end27.err_undo_link_crit_edge, %if.end35, %if.then34, %land.lhs.true23
   %call.i41.pre-phi = phi ptr [ %.pre, %if.end27.err_undo_link_crit_edge ], [ %call.i37, %if.end35 ], [ %call.i35, %if.then34 ], [ %call24, %land.lhs.true23 ]
-  %ret.0 = phi i32 [ -1, %if.end27.err_undo_link_crit_edge ], [ %call36, %if.end35 ], [ -1, %if.then34 ], [ %call21, %land.lhs.true23 ]
+  %ret.2 = phi i32 [ -1, %if.end27.err_undo_link_crit_edge ], [ %call36, %if.end35 ], [ -1, %if.then34 ], [ %call21, %land.lhs.true23 ]
   %9 = load i32, ptr %call.i41.pre-phi, align 4
   %call1.i42 = tail call i32 @unlinkat(i32 noundef %call.i30, ptr noundef %name, i32 noundef 0) #15
   store i32 %9, ptr %call.i41.pre-phi, align 4
   br label %out_close
 
 out_close:                                        ; preds = %if.end35, %if.end16, %if.end12, %err_undo_link
-  %ret.1 = phi i32 [ %call13, %if.end12 ], [ %ret.0, %err_undo_link ], [ %call13, %if.end16 ], [ 0, %if.end35 ]
+  %ret.1 = phi i32 [ %call13, %if.end12 ], [ %ret.2, %err_undo_link ], [ %call13, %if.end16 ], [ 0, %if.end35 ]
   %call.i43 = tail call ptr @__errno_location() #17
   %10 = load i32, ptr %call.i43, align 4
   %call1.i44 = tail call i32 @close(i32 noundef %call.i30) #15
@@ -1408,10 +1408,10 @@ out_close:                                        ; preds = %if.end35, %if.end16
   br label %out
 
 out:                                              ; preds = %if.end, %out_close, %if.then11, %if.then
-  %ret.2 = phi i32 [ -1, %if.then ], [ -1, %if.end ], [ -1, %if.then11 ], [ %ret.1, %out_close ]
+  %ret.0 = phi i32 [ -1, %if.then ], [ -1, %if.end ], [ -1, %if.then11 ], [ %ret.1, %out_close ]
   tail call void @g_free(ptr noundef %call2) #15
   tail call void @g_free(ptr noundef %call) #15
-  ret i32 %ret.2
+  ret i32 %ret.0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1538,8 +1538,8 @@ if.else:                                          ; preds = %if.end15
   br label %if.end24
 
 if.end24:                                         ; preds = %if.else, %if.then21
-  %err.0 = phi i32 [ %call22, %if.then21 ], [ %call23, %if.else ]
-  %cmp25 = icmp eq i32 %err.0, -1
+  %err.1 = phi i32 [ %call22, %if.then21 ], [ %call23, %if.else ]
+  %cmp25 = icmp eq i32 %err.1, -1
   br i1 %cmp25, label %err_end, label %if.end47
 
 if.else28:                                        ; preds = %if.end4
@@ -1576,24 +1576,24 @@ local_set_cred_passthrough.exit:                  ; preds = %if.end41, %if.then.
   br i1 %cmp43, label %err_end, label %if.end47
 
 if.end47:                                         ; preds = %if.else28, %local_set_cred_passthrough.exit, %if.end24
-  %fd.0 = phi i32 [ %call12, %if.end24 ], [ %call38, %local_set_cred_passthrough.exit ], [ -1, %if.else28 ]
-  store i32 %fd.0, ptr %fs, align 8
+  %fd.1 = phi i32 [ %call12, %if.end24 ], [ %call38, %local_set_cred_passthrough.exit ], [ -1, %if.else28 ]
+  store i32 %fd.1, ptr %fs, align 8
   br label %out
 
 err_end:                                          ; preds = %if.then.i, %local_set_cred_passthrough.exit, %if.end24
-  %fd.1 = phi i32 [ %call12, %if.end24 ], [ %call38, %local_set_cred_passthrough.exit ], [ %call38, %if.then.i ]
+  %fd.0 = phi i32 [ %call12, %if.end24 ], [ %call38, %local_set_cred_passthrough.exit ], [ %call38, %if.then.i ]
   %and48 = lshr i32 %flags, 7
   %cond = and i32 %and48, 512
   %call.i40 = tail call ptr @__errno_location() #17
   %13 = load i32, ptr %call.i40, align 4
   %call1.i41 = tail call i32 @unlinkat(i32 noundef %call.i38, ptr noundef %name, i32 noundef %cond) #15
   store i32 %13, ptr %call.i40, align 4
-  %call1.i43 = tail call i32 @close(i32 noundef %fd.1) #15
+  %call1.i43 = tail call i32 @close(i32 noundef %fd.0) #15
   store i32 %13, ptr %call.i40, align 4
   br label %out
 
 out:                                              ; preds = %if.then36, %if.then11, %err_end, %if.end47
-  %err.2 = phi i32 [ -1, %if.then11 ], [ -1, %err_end ], [ %fd.0, %if.end47 ], [ -1, %if.then36 ]
+  %err.0 = phi i32 [ -1, %if.then11 ], [ -1, %err_end ], [ %fd.1, %if.end47 ], [ -1, %if.then36 ]
   %call.i44 = tail call ptr @__errno_location() #17
   %14 = load i32, ptr %call.i44, align 4
   %call1.i45 = tail call i32 @close(i32 noundef %call.i38) #15
@@ -1601,7 +1601,7 @@ out:                                              ; preds = %if.then36, %if.then
   br label %return
 
 return:                                           ; preds = %if.end, %out, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ %err.2, %out ], [ -1, %if.end ]
+  %retval.0 = phi i32 [ -1, %if.then ], [ %err.0, %out ], [ -1, %if.end ]
   ret i32 %retval.0
 }
 
@@ -1775,8 +1775,8 @@ if.else:                                          ; preds = %if.end15
   br label %if.end23
 
 if.end23:                                         ; preds = %if.else, %if.then20
-  %err.0 = phi i32 [ %call21, %if.then20 ], [ %call22, %if.else ]
-  %cmp24 = icmp eq i32 %err.0, -1
+  %err.1 = phi i32 [ %call21, %if.then20 ], [ %call22, %if.else ]
+  %cmp24 = icmp eq i32 %err.1, -1
   br i1 %cmp24, label %err_end, label %out
 
 if.else27:                                        ; preds = %if.end4
@@ -1820,7 +1820,7 @@ err_end:                                          ; preds = %if.then.i, %local_s
   br label %out
 
 out:                                              ; preds = %if.else27, %if.end23, %local_set_cred_passthrough.exit, %if.then35, %if.then11, %err_end
-  %err.2 = phi i32 [ -1, %if.then11 ], [ -1, %err_end ], [ %err.0, %if.end23 ], [ -1, %if.then35 ], [ %call5.i, %local_set_cred_passthrough.exit ], [ -1, %if.else27 ]
+  %err.0 = phi i32 [ -1, %if.then11 ], [ -1, %err_end ], [ %err.1, %if.end23 ], [ -1, %if.then35 ], [ %call5.i, %local_set_cred_passthrough.exit ], [ -1, %if.else27 ]
   %call.i37 = tail call ptr @__errno_location() #17
   %14 = load i32, ptr %call.i37, align 4
   %call1.i38 = tail call i32 @close(i32 noundef %call.i33) #15
@@ -1828,7 +1828,7 @@ out:                                              ; preds = %if.else27, %if.end2
   br label %return
 
 return:                                           ; preds = %if.end, %out, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ %err.2, %out ], [ -1, %if.end ]
+  %retval.0 = phi i32 [ -1, %if.then ], [ %err.0, %out ], [ -1, %if.end ]
   ret i32 %retval.0
 }
 
@@ -2323,14 +2323,14 @@ if.end33:                                         ; preds = %if.end29
 
 err_undo_rename:                                  ; preds = %if.end25.err_undo_rename_crit_edge, %if.end33, %if.then32, %land.lhs.true21
   %call.i48.pre-phi = phi ptr [ %.pre, %if.end25.err_undo_rename_crit_edge ], [ %call.i44, %if.end33 ], [ %call.i42, %if.then32 ], [ %call22, %land.lhs.true21 ]
-  %ret.0 = phi i32 [ -1, %if.end25.err_undo_rename_crit_edge ], [ %call34, %if.end33 ], [ -1, %if.then32 ], [ %call19, %land.lhs.true21 ]
+  %ret.1 = phi i32 [ -1, %if.end25.err_undo_rename_crit_edge ], [ %call34, %if.end33 ], [ -1, %if.then32 ], [ %call19, %land.lhs.true21 ]
   %8 = load i32, ptr %call.i48.pre-phi, align 4
   %call1.i49 = tail call i32 @renameat(i32 noundef %call.i37, ptr noundef %new_name, i32 noundef %call.i36, ptr noundef %old_name) #15
   store i32 %8, ptr %call.i48.pre-phi, align 4
   br label %out
 
 out:                                              ; preds = %if.end33, %if.end14, %if.end10, %err_undo_rename
-  %ret.1 = phi i32 [ %call11, %if.end10 ], [ %ret.0, %err_undo_rename ], [ %call11, %if.end14 ], [ 0, %if.end33 ]
+  %ret.0 = phi i32 [ %call11, %if.end10 ], [ %ret.1, %err_undo_rename ], [ %call11, %if.end14 ], [ 0, %if.end33 ]
   %call.i50 = tail call ptr @__errno_location() #17
   %9 = load i32, ptr %call.i50, align 4
   %call1.i51 = tail call i32 @close(i32 noundef %call.i37) #15
@@ -2340,7 +2340,7 @@ out:                                              ; preds = %if.end33, %if.end14
   br label %return
 
 return:                                           ; preds = %if.end, %out, %if.then9, %if.then
-  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then9 ], [ %ret.1, %out ], [ -1, %if.end ]
+  %retval.0 = phi i32 [ -1, %if.then ], [ -1, %if.then9 ], [ %ret.0, %out ], [ -1, %if.end ]
   ret i32 %retval.0
 }
 
@@ -2645,7 +2645,7 @@ if.else24:                                        ; preds = %if.then20
   br label %return
 
 if.end26:                                         ; preds = %if.end12.i43, %if.end12.i
-  %map_dirfd.0 = phi i32 [ -1, %if.end12.i ], [ %call.i, %if.end12.i43 ]
+  %map_dirfd.1 = phi i32 [ -1, %if.end12.i ], [ %call.i, %if.end12.i43 ]
   %fp.0 = phi ptr [ %call13.i, %if.end12.i ], [ %call13.i44, %if.end12.i43 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %buf, i8 0, i64 100, i1 false)
   %call28116 = call ptr @fgets(ptr noundef nonnull %buf, i32 noundef 100, ptr noundef nonnull %fp.0)
@@ -2658,10 +2658,10 @@ while.body.lr.ph:                                 ; preds = %if.end26
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end63
-  %rdev.0121 = phi i32 [ -1, %while.body.lr.ph ], [ %rdev.1, %if.end63 ]
-  %mode.0120 = phi i32 [ -1, %while.body.lr.ph ], [ %mode.1, %if.end63 ]
-  %gid.0119 = phi i32 [ -1, %while.body.lr.ph ], [ %gid.1, %if.end63 ]
-  %uid.0118 = phi i32 [ -1, %while.body.lr.ph ], [ %uid.1, %if.end63 ]
+  %rdev.1121 = phi i32 [ -1, %while.body.lr.ph ], [ %rdev.2, %if.end63 ]
+  %mode.1120 = phi i32 [ -1, %while.body.lr.ph ], [ %mode.2, %if.end63 ]
+  %gid.1119 = phi i32 [ -1, %while.body.lr.ph ], [ %gid.2, %if.end63 ]
+  %uid.1118 = phi i32 [ -1, %while.body.lr.ph ], [ %uid.2, %if.end63 ]
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %buf, ptr noundef nonnull dereferenceable(10) @.str.38, i64 10)
   %tobool32.not = icmp eq i32 %bcmp, 0
   br i1 %tobool32.not, label %if.then33, label %if.else36
@@ -2698,28 +2698,28 @@ if.then56:                                        ; preds = %if.else52
   br label %if.end63
 
 if.end63:                                         ; preds = %if.then40, %if.else52, %if.then56, %if.then48, %if.then33
-  %uid.1 = phi i32 [ %uid.0118, %if.else52 ], [ %uid.0118, %if.then56 ], [ %uid.0118, %if.then48 ], [ %uid.0118, %if.then40 ], [ %call35, %if.then33 ]
-  %gid.1 = phi i32 [ %gid.0119, %if.else52 ], [ %gid.0119, %if.then56 ], [ %gid.0119, %if.then48 ], [ %call43, %if.then40 ], [ %gid.0119, %if.then33 ]
-  %mode.1 = phi i32 [ %mode.0120, %if.else52 ], [ %mode.0120, %if.then56 ], [ %call51, %if.then48 ], [ %mode.0120, %if.then40 ], [ %mode.0120, %if.then33 ]
-  %rdev.1 = phi i32 [ %rdev.0121, %if.else52 ], [ %call59, %if.then56 ], [ %rdev.0121, %if.then48 ], [ %rdev.0121, %if.then40 ], [ %rdev.0121, %if.then33 ]
+  %uid.2 = phi i32 [ %uid.1118, %if.else52 ], [ %uid.1118, %if.then56 ], [ %uid.1118, %if.then48 ], [ %uid.1118, %if.then40 ], [ %call35, %if.then33 ]
+  %gid.2 = phi i32 [ %gid.1119, %if.else52 ], [ %gid.1119, %if.then56 ], [ %gid.1119, %if.then48 ], [ %call43, %if.then40 ], [ %gid.1119, %if.then33 ]
+  %mode.2 = phi i32 [ %mode.1120, %if.else52 ], [ %mode.1120, %if.then56 ], [ %call51, %if.then48 ], [ %mode.1120, %if.then40 ], [ %mode.1120, %if.then33 ]
+  %rdev.2 = phi i32 [ %rdev.1121, %if.else52 ], [ %call59, %if.then56 ], [ %rdev.1121, %if.then48 ], [ %rdev.1121, %if.then40 ], [ %rdev.1121, %if.then33 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %buf, i8 0, i64 100, i1 false)
   %call28 = call ptr @fgets(ptr noundef nonnull %buf, i32 noundef 100, ptr noundef nonnull %fp.0)
   %tobool29.not = icmp eq ptr %call28, null
   br i1 %tobool29.not, label %update_map_file, label %while.body, !llvm.loop !10
 
 update_map_file:                                  ; preds = %if.end63, %if.end26
-  %uid.0.lcssa = phi i32 [ -1, %if.end26 ], [ %uid.1, %if.end63 ]
-  %gid.0.lcssa = phi i32 [ -1, %if.end26 ], [ %gid.1, %if.end63 ]
-  %mode.0.lcssa = phi i32 [ -1, %if.end26 ], [ %mode.1, %if.end63 ]
-  %rdev.0.lcssa = phi i32 [ -1, %if.end26 ], [ %rdev.1, %if.end63 ]
+  %uid.1.lcssa = phi i32 [ -1, %if.end26 ], [ %uid.2, %if.end63 ]
+  %gid.1.lcssa = phi i32 [ -1, %if.end26 ], [ %gid.2, %if.end63 ]
+  %mode.1.lcssa = phi i32 [ -1, %if.end26 ], [ %mode.2, %if.end63 ]
+  %rdev.1.lcssa = phi i32 [ -1, %if.end26 ], [ %rdev.2, %if.end63 ]
   %call65 = call i32 @fclose(ptr noundef nonnull %fp.0)
   br i1 %tobool.not, label %if.then67, label %if.else69
 
 if.then67:                                        ; preds = %if.then4, %update_map_file
-  %rdev.286 = phi i32 [ %rdev.0.lcssa, %update_map_file ], [ -1, %if.then4 ]
-  %mode.284 = phi i32 [ %mode.0.lcssa, %update_map_file ], [ -1, %if.then4 ]
-  %gid.282 = phi i32 [ %gid.0.lcssa, %update_map_file ], [ -1, %if.then4 ]
-  %uid.280 = phi i32 [ %uid.0.lcssa, %update_map_file ], [ -1, %if.then4 ]
+  %rdev.086 = phi i32 [ %rdev.1.lcssa, %update_map_file ], [ -1, %if.then4 ]
+  %mode.084 = phi i32 [ %mode.1.lcssa, %update_map_file ], [ -1, %if.then4 ]
+  %gid.082 = phi i32 [ %gid.1.lcssa, %update_map_file ], [ -1, %if.then4 ]
+  %uid.080 = phi i32 [ %uid.1.lcssa, %update_map_file ], [ -1, %if.then4 ]
   %call6.i = call fastcc i32 @openat_file(i32 noundef %dirfd, ptr noundef nonnull @.str.37, i32 noundef 577, i32 noundef 438)
   %cmp9.i51 = icmp eq i32 %call6.i, -1
   br i1 %cmp9.i51, label %return, label %if.end12.i52
@@ -2734,12 +2734,12 @@ if.then14.i56:                                    ; preds = %if.end12.i52
   br label %return
 
 if.else69:                                        ; preds = %if.then20, %update_map_file
-  %map_dirfd.197 = phi i32 [ %map_dirfd.0, %update_map_file ], [ %call.i, %if.then20 ]
-  %rdev.296 = phi i32 [ %rdev.0.lcssa, %update_map_file ], [ -1, %if.then20 ]
-  %mode.295 = phi i32 [ %mode.0.lcssa, %update_map_file ], [ -1, %if.then20 ]
-  %gid.294 = phi i32 [ %gid.0.lcssa, %update_map_file ], [ -1, %if.then20 ]
-  %uid.293 = phi i32 [ %uid.0.lcssa, %update_map_file ], [ -1, %if.then20 ]
-  %call6.i59 = call fastcc i32 @openat_file(i32 noundef %map_dirfd.197, ptr noundef nonnull %name, i32 noundef 577, i32 noundef 438)
+  %map_dirfd.097 = phi i32 [ %map_dirfd.1, %update_map_file ], [ %call.i, %if.then20 ]
+  %rdev.096 = phi i32 [ %rdev.1.lcssa, %update_map_file ], [ -1, %if.then20 ]
+  %mode.095 = phi i32 [ %mode.1.lcssa, %update_map_file ], [ -1, %if.then20 ]
+  %gid.094 = phi i32 [ %gid.1.lcssa, %update_map_file ], [ -1, %if.then20 ]
+  %uid.093 = phi i32 [ %uid.1.lcssa, %update_map_file ], [ -1, %if.then20 ]
+  %call6.i59 = call fastcc i32 @openat_file(i32 noundef %map_dirfd.097, ptr noundef nonnull %name, i32 noundef 577, i32 noundef 438)
   %cmp9.i60 = icmp eq i32 %call6.i59, -1
   br i1 %cmp9.i60, label %local_fopenat.exit67, label %if.end12.i61
 
@@ -2754,13 +2754,13 @@ if.then14.i65:                                    ; preds = %if.end12.i61
 
 local_fopenat.exit67:                             ; preds = %if.else69, %if.end12.i61, %if.then14.i65
   %retval.0.i64 = phi ptr [ null, %if.else69 ], [ null, %if.then14.i65 ], [ %call13.i62, %if.end12.i61 ]
-  %cmp71.not = icmp eq i32 %map_dirfd.197, -1
+  %cmp71.not = icmp eq i32 %map_dirfd.097, -1
   br i1 %cmp71.not, label %if.end74, label %if.then72
 
 if.then72:                                        ; preds = %local_fopenat.exit67
   %call.i68 = tail call ptr @__errno_location() #17
   %10 = load i32, ptr %call.i68, align 4
-  %call1.i69 = call i32 @close(i32 noundef %map_dirfd.197) #15
+  %call1.i69 = call i32 @close(i32 noundef %map_dirfd.097) #15
   store i32 %10, ptr %call.i68, align 4
   br label %if.end74
 
@@ -2770,10 +2770,10 @@ if.end74:                                         ; preds = %local_fopenat.exit6
 
 if.end77:                                         ; preds = %if.end12.i52, %if.end74
   %fp.1115 = phi ptr [ %retval.0.i64, %if.end74 ], [ %call13.i53, %if.end12.i52 ]
-  %uid.279114 = phi i32 [ %uid.293, %if.end74 ], [ %uid.280, %if.end12.i52 ]
-  %gid.281113 = phi i32 [ %gid.294, %if.end74 ], [ %gid.282, %if.end12.i52 ]
-  %mode.283112 = phi i32 [ %mode.295, %if.end74 ], [ %mode.284, %if.end12.i52 ]
-  %rdev.285111 = phi i32 [ %rdev.296, %if.end74 ], [ %rdev.286, %if.end12.i52 ]
+  %uid.079114 = phi i32 [ %uid.093, %if.end74 ], [ %uid.080, %if.end12.i52 ]
+  %gid.081113 = phi i32 [ %gid.094, %if.end74 ], [ %gid.082, %if.end12.i52 ]
+  %mode.083112 = phi i32 [ %mode.095, %if.end74 ], [ %mode.084, %if.end12.i52 ]
+  %rdev.085111 = phi i32 [ %rdev.096, %if.end74 ], [ %rdev.086, %if.end12.i52 ]
   %call78 = call i32 @fileno(ptr noundef nonnull %fp.1115) #15
   %cmp79.not = icmp eq i32 %call78, -1
   br i1 %cmp79.not, label %if.else81, label %if.end82
@@ -2794,20 +2794,20 @@ if.else86:                                        ; preds = %if.end82
 if.end87:                                         ; preds = %if.end82
   %11 = load i32, ptr %credp, align 8
   %cmp88.not = icmp eq i32 %11, -1
-  %spec.select = select i1 %cmp88.not, i32 %uid.279114, i32 %11
+  %spec.select = select i1 %cmp88.not, i32 %uid.079114, i32 %11
   %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
   %12 = load i32, ptr %fc_gid, align 4
   %cmp92.not = icmp eq i32 %12, -1
-  %gid.3 = select i1 %cmp92.not, i32 %gid.281113, i32 %12
+  %gid.3 = select i1 %cmp92.not, i32 %gid.081113, i32 %12
   %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
   %13 = load i32, ptr %fc_mode, align 8
   %cmp96.not = icmp eq i32 %13, -1
-  %mode.3 = select i1 %cmp96.not, i32 %mode.283112, i32 %13
+  %mode.3 = select i1 %cmp96.not, i32 %mode.083112, i32 %13
   %fc_rdev = getelementptr inbounds i8, ptr %credp, i64 16
   %14 = load i64, ptr %fc_rdev, align 8
   %cmp100.not = icmp eq i64 %14, -1
   %conv = trunc i64 %14 to i32
-  %rdev.3 = select i1 %cmp100.not, i32 %rdev.285111, i32 %conv
+  %rdev.3 = select i1 %cmp100.not, i32 %rdev.085111, i32 %conv
   %cmp104.not = icmp eq i32 %spec.select, -1
   br i1 %cmp104.not, label %if.end108, label %if.then106
 

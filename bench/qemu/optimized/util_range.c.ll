@@ -361,7 +361,7 @@ append_new_range.exit78:                          ; preds = %range_is_empty.exit
   br label %if.end10
 
 if.end10:                                         ; preds = %append_new_range.exit78, %range_lob.exit
-  %out.0 = phi ptr [ %call1.i76, %append_new_range.exit78 ], [ %0, %range_lob.exit ]
+  %out.1 = phi ptr [ %call1.i76, %append_new_range.exit78 ], [ %0, %range_lob.exit ]
   %next12173 = getelementptr inbounds i8, ptr %l.0172, i64 8
   %4 = load ptr, ptr %next12173, align 8
   %tobool13.not174 = icmp eq ptr %4, null
@@ -371,7 +371,7 @@ for.body14:                                       ; preds = %if.end10, %for.inc3
   %5 = phi ptr [ %11, %for.inc36 ], [ %4, %if.end10 ]
   %next12177 = phi ptr [ %next12, %for.inc36 ], [ %next12173, %if.end10 ]
   %l.1176 = phi ptr [ %10, %for.inc36 ], [ %l.0172, %if.end10 ]
-  %out.1175 = phi ptr [ %out.2, %for.inc36 ], [ %out.0, %if.end10 ]
+  %out.2175 = phi ptr [ %out.3, %for.inc36 ], [ %out.1, %if.end10 ]
   %6 = load ptr, ptr %l.1176, align 8
   %7 = load ptr, ptr %5, align 8
   %.val46 = load i64, ptr %6, align 8
@@ -472,11 +472,11 @@ if.else.i.i116:                                   ; preds = %range_is_empty.exit
   unreachable
 
 append_new_range.exit117:                         ; preds = %range_is_empty.exit.i.i113
-  %call1.i115 = tail call ptr @g_list_append(ptr noundef %out.1175, ptr noundef nonnull %call.i106) #7
+  %call1.i115 = tail call ptr @g_list_append(ptr noundef %out.2175, ptr noundef nonnull %call.i106) #7
   br label %for.inc36
 
 for.inc36:                                        ; preds = %if.end21, %append_new_range.exit117
-  %out.2 = phi ptr [ %call1.i115, %append_new_range.exit117 ], [ %out.1175, %if.end21 ]
+  %out.3 = phi ptr [ %call1.i115, %append_new_range.exit117 ], [ %out.2175, %if.end21 ]
   %10 = load ptr, ptr %next12177, align 8
   %next12 = getelementptr inbounds i8, ptr %10, i64 8
   %11 = load ptr, ptr %next12, align 8
@@ -484,7 +484,7 @@ for.inc36:                                        ; preds = %if.end21, %append_n
   br i1 %tobool13.not, label %for.end38, label %for.body14, !llvm.loop !9
 
 for.end38:                                        ; preds = %for.inc36, %if.end10
-  %out.1.lcssa = phi ptr [ %out.0, %if.end10 ], [ %out.2, %for.inc36 ]
+  %out.2.lcssa = phi ptr [ %out.1, %if.end10 ], [ %out.3, %for.inc36 ]
   %l.1.lcssa = phi ptr [ %l.0172, %if.end10 ], [ %10, %for.inc36 ]
   %12 = load ptr, ptr %l.1.lcssa, align 8
   %.val38 = load i64, ptr %12, align 8
@@ -525,12 +525,12 @@ if.else.i.i.i.i142:                               ; preds = %range_upb.exit135
   unreachable
 
 append_new_range.exit147:                         ; preds = %range_upb.exit135
-  %call1.i145 = tail call ptr @g_list_append(ptr noundef %out.1.lcssa, ptr noundef nonnull %call.i136) #7
+  %call1.i145 = tail call ptr @g_list_append(ptr noundef %out.2.lcssa, ptr noundef nonnull %call.i136) #7
   br label %exit
 
 exit:                                             ; preds = %range_lob.exit87, %range_upb.exit126, %append_new_range.exit147, %append_new_range.exit
-  %out.3 = phi ptr [ %call1.i145, %append_new_range.exit147 ], [ %out.1.lcssa, %range_upb.exit126 ], [ %call1.i, %append_new_range.exit ], [ %out.1175, %range_lob.exit87 ]
-  store ptr %out.3, ptr %rev, align 8
+  %out.0 = phi ptr [ %call1.i145, %append_new_range.exit147 ], [ %out.2.lcssa, %range_upb.exit126 ], [ %call1.i, %append_new_range.exit ], [ %out.2175, %range_lob.exit87 ]
+  store ptr %out.0, ptr %rev, align 8
   ret void
 }
 

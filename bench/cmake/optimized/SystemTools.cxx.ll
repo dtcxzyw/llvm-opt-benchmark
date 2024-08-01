@@ -786,7 +786,7 @@ _Z5MkdirRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKj.exit18: ; pred
           to label %48 unwind label %.loopexit.split-lp
 
 48:                                               ; preds = %_Z5MkdirRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKj.exit18, %43, %46
-  %.sroa.0.0 = phi i64 [ %47, %46 ], [ 0, %43 ], [ 0, %_Z5MkdirRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKj.exit18 ]
+  %.sroa.0.1 = phi i64 [ %47, %46 ], [ 0, %43 ], [ 0, %_Z5MkdirRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKj.exit18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
   br label %50
@@ -797,8 +797,8 @@ _Z5MkdirRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKj.exit18: ; pred
   resume { ptr, i32 } %.pn
 
 50:                                               ; preds = %12, %2, %48
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %48 ], [ 94489280513, %2 ], [ %spec.select, %12 ]
-  ret i64 %.sroa.0.1
+  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %48 ], [ 94489280513, %2 ], [ %spec.select, %12 ]
+  ret i64 %.sroa.0.0
 }
 
 ; Function Attrs: nounwind
@@ -2126,19 +2126,19 @@ define dso_local noundef i64 @_ZN5cmsys11SystemTools9CountCharEPKcc(ptr noundef 
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %4 = phi i8 [ %8, %.lr.ph ], [ %3, %.preheader ]
-  %.012 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
+  %.112 = phi i64 [ %spec.select, %.lr.ph ], [ 0, %.preheader ]
   %.0611 = phi ptr [ %7, %.lr.ph ], [ %0, %.preheader ]
   %5 = icmp eq i8 %4, %1
   %6 = zext i1 %5 to i64
-  %spec.select = add i64 %.012, %6
+  %spec.select = add i64 %.112, %6
   %7 = getelementptr inbounds i8, ptr %.0611, i64 1
   %8 = load i8, ptr %7, align 1
   %.not9 = icmp eq i8 %8, 0
   br i1 %.not9, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %2
-  %.2 = phi i64 [ 0, %2 ], [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
-  ret i64 %.2
+  %.0 = phi i64 [ 0, %2 ], [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2727,8 +2727,8 @@ define dso_local noundef i32 @_ZN5cmsys11SystemTools20EstimateFormatLengthEPKcP1
 
 9:                                                ; preds = %.lr.ph40, %57
   %10 = phi i8 [ %5, %.lr.ph40 ], [ %58, %57 ]
-  %.01938 = phi ptr [ %0, %.lr.ph40 ], [ %.3, %57 ]
-  %.02037 = phi i64 [ %4, %.lr.ph40 ], [ %.222, %57 ]
+  %.01938 = phi ptr [ %0, %.lr.ph40 ], [ %.1, %57 ]
+  %.02037 = phi i64 [ %4, %.lr.ph40 ], [ %.121, %57 ]
   %11 = getelementptr inbounds i8, ptr %.01938, i64 1
   %12 = icmp eq i8 %10, 37
   br i1 %12, label %13, label %57
@@ -2745,8 +2745,8 @@ define dso_local noundef i32 @_ZN5cmsys11SystemTools20EstimateFormatLengthEPKcP1
   br i1 %.not3133, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.134 = phi ptr [ %17, %.lr.ph ], [ %11, %.preheader ]
-  %17 = getelementptr inbounds i8, ptr %.134, i64 1
+  %.334 = phi ptr [ %17, %.lr.ph ], [ %11, %.preheader ]
+  %17 = getelementptr inbounds i8, ptr %.334, i64 1
   %.pr = load i8, ptr %17, align 1
   %18 = sext i8 %.pr to i32
   %19 = tail call i32 @isalpha(i32 noundef %18) #36
@@ -2755,7 +2755,7 @@ define dso_local noundef i32 @_ZN5cmsys11SystemTools20EstimateFormatLengthEPKcP1
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa = phi i8 [ %14, %.preheader ], [ %.pr, %.lr.ph ]
-  %.1.lcssa = phi ptr [ %11, %.preheader ], [ %17, %.lr.ph ]
+  %.3.lcssa = phi ptr [ %11, %.preheader ], [ %17, %.lr.ph ]
   switch i8 %.lcssa, label %46 [
     i8 115, label %20
     i8 101, label %37
@@ -2828,20 +2828,20 @@ define dso_local noundef i32 @_ZN5cmsys11SystemTools20EstimateFormatLengthEPKcP1
   br label %55
 
 55:                                               ; preds = %34, %31, %43, %41, %52, %50, %13
-  %.121 = phi i64 [ %47, %50 ], [ %47, %52 ], [ %38, %41 ], [ %38, %43 ], [ %36, %34 ], [ %.02037, %31 ], [ %.02037, %13 ]
-  %.2 = phi ptr [ %.1.lcssa, %50 ], [ %.1.lcssa, %52 ], [ %.1.lcssa, %41 ], [ %.1.lcssa, %43 ], [ %.1.lcssa, %34 ], [ %.1.lcssa, %31 ], [ %11, %13 ]
+  %.222 = phi i64 [ %47, %50 ], [ %47, %52 ], [ %38, %41 ], [ %38, %43 ], [ %36, %34 ], [ %.02037, %31 ], [ %.02037, %13 ]
+  %.2 = phi ptr [ %.3.lcssa, %50 ], [ %.3.lcssa, %52 ], [ %.3.lcssa, %41 ], [ %.3.lcssa, %43 ], [ %.3.lcssa, %34 ], [ %.3.lcssa, %31 ], [ %11, %13 ]
   %56 = getelementptr inbounds i8, ptr %.2, i64 1
   br label %57
 
 57:                                               ; preds = %55, %9
-  %.222 = phi i64 [ %.121, %55 ], [ %.02037, %9 ]
-  %.3 = phi ptr [ %56, %55 ], [ %11, %9 ]
-  %58 = load i8, ptr %.3, align 1
+  %.121 = phi i64 [ %.222, %55 ], [ %.02037, %9 ]
+  %.1 = phi ptr [ %56, %55 ], [ %11, %9 ]
+  %58 = load i8, ptr %.1, align 1
   %.not29 = icmp eq i8 %58, 0
   br i1 %.not29, label %._crit_edge41, label %9, !llvm.loop !28
 
 ._crit_edge41:                                    ; preds = %57, %3
-  %.020.lcssa = phi i64 [ %4, %3 ], [ %.222, %57 ]
+  %.020.lcssa = phi i64 [ %4, %3 ], [ %.121, %57 ]
   %59 = trunc i64 %.020.lcssa to i32
   br label %60
 
@@ -3472,7 +3472,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools11FilesDifferERKNSt7_
   br i1 %.not26, label %42, label %.loopexit
 
 .loopexit:                                        ; preds = %54, %51, %55, %42, %.preheader, %30, %37
-  %.0 = phi i1 [ true, %37 ], [ true, %30 ], [ false, %.preheader ], [ true, %54 ], [ true, %51 ], [ true, %55 ], [ false, %42 ]
+  %.1 = phi i1 [ true, %37 ], [ true, %30 ], [ false, %.preheader ], [ true, %54 ], [ true, %51 ], [ true, %55 ], [ false, %42 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %6) #33
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %5) #33
   br label %57
@@ -3483,8 +3483,8 @@ define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools11FilesDifferERKNSt7_
   resume { ptr, i32 } %.pn
 
 57:                                               ; preds = %19, %14, %11, %2, %.loopexit
-  %.1 = phi i1 [ %.0, %.loopexit ], [ true, %2 ], [ true, %11 ], [ true, %14 ], [ false, %19 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %.loopexit ], [ true, %2 ], [ true, %11 ], [ true, %14 ], [ false, %19 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3746,22 +3746,22 @@ _ZN5cmsys11SystemTools14SetPermissionsERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %105
 
 .critedge:                                        ; preds = %_ZN5cmsys11SystemTools8SameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread, %77
-  %.sroa.048.2 = phi i64 [ %76, %77 ], [ 0, %_ZN5cmsys11SystemTools8SameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread ]
-  %.sroa.11.sroa.0.2 = phi i64 [ %.sroa.11.0.extract.shift60, %77 ], [ 0, %_ZN5cmsys11SystemTools8SameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread ]
-  %.sroa.11.sroa.6.2 = phi i32 [ 2, %77 ], [ 0, %_ZN5cmsys11SystemTools8SameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread ]
+  %.sroa.048.3 = phi i64 [ %76, %77 ], [ 0, %_ZN5cmsys11SystemTools8SameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread ]
+  %.sroa.11.sroa.0.3 = phi i64 [ %.sroa.11.0.extract.shift60, %77 ], [ 0, %_ZN5cmsys11SystemTools8SameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread ]
+  %.sroa.11.sroa.6.3 = phi i32 [ 2, %77 ], [ 0, %_ZN5cmsys11SystemTools8SameFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #33
   br label %105
 
 105:                                              ; preds = %91, %_ZN5cmsys11SystemTools14SetPermissionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjb.exit, %.critedge, %24, %87
-  %.sroa.048.3 = phi i64 [ %.sroa.0.0.i36, %_ZN5cmsys11SystemTools14SetPermissionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjb.exit ], [ 0, %91 ], [ %23, %24 ], [ %.sroa.048.2, %.critedge ], [ %.fca.0.extract, %87 ]
-  %.sroa.11.sroa.0.3 = phi i64 [ %.sroa.11.0.extract.shift58, %_ZN5cmsys11SystemTools14SetPermissionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjb.exit ], [ %.sroa.11.sroa.0.1, %91 ], [ %.sroa.11.0.extract.shift62, %24 ], [ %.sroa.11.sroa.0.2, %.critedge ], [ %.sroa.11.0.extract.shift, %87 ]
-  %.sroa.11.sroa.6.3 = phi i32 [ 2, %_ZN5cmsys11SystemTools14SetPermissionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjb.exit ], [ %.sroa.11.sroa.6.1, %91 ], [ 2, %24 ], [ %.sroa.11.sroa.6.2, %.critedge ], [ %.fca.1.extract, %87 ]
+  %.sroa.048.0 = phi i64 [ %.sroa.0.0.i36, %_ZN5cmsys11SystemTools14SetPermissionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjb.exit ], [ 0, %91 ], [ %23, %24 ], [ %.sroa.048.3, %.critedge ], [ %.fca.0.extract, %87 ]
+  %.sroa.11.sroa.0.0 = phi i64 [ %.sroa.11.0.extract.shift58, %_ZN5cmsys11SystemTools14SetPermissionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjb.exit ], [ %.sroa.11.sroa.0.1, %91 ], [ %.sroa.11.0.extract.shift62, %24 ], [ %.sroa.11.sroa.0.3, %.critedge ], [ %.sroa.11.0.extract.shift, %87 ]
+  %.sroa.11.sroa.6.0 = phi i32 [ 2, %_ZN5cmsys11SystemTools14SetPermissionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjb.exit ], [ %.sroa.11.sroa.6.1, %91 ], [ 2, %24 ], [ %.sroa.11.sroa.6.3, %.critedge ], [ %.fca.1.extract, %87 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #33
-  %.sroa.11.0.insert.ext = shl nuw i64 %.sroa.11.sroa.0.3, 32
-  %.sroa.048.0.insert.ext = and i64 %.sroa.048.3, 4294967295
+  %.sroa.11.0.insert.ext = shl nuw i64 %.sroa.11.sroa.0.0, 32
+  %.sroa.048.0.insert.ext = and i64 %.sroa.048.0, 4294967295
   %.sroa.048.0.insert.insert = or disjoint i64 %.sroa.11.0.insert.ext, %.sroa.048.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.048.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.11.sroa.6.3, 1
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.11.sroa.6.0, 1
   ret { i64, i32 } %.fca.1.insert
 
 106:                                              ; preds = %90, %27
@@ -3885,10 +3885,10 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread16, %.loopexit.loopexit, %.thread, %15, %22
-  %.2 = phi i1 [ true, %22 ], [ true, %15 ], [ true, %.thread ], [ true, %.loopexit.loopexit ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread16 ]
+  %.0 = phi i1 [ true, %22 ], [ true, %15 ], [ true, %.thread ], [ true, %.loopexit.loopexit ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread16 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %4) #33
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #33
-  ret i1 %.2
+  ret i1 %.0
 
 44:                                               ; preds = %33, %25
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %26, %25 ]
@@ -4116,17 +4116,17 @@ _ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   br i1 %59, label %.invoke, label %61
 
 61:                                               ; preds = %.invoke, %60
-  %.sroa.5.0 = phi i32 [ 0, %60 ], [ 2, %.invoke ]
-  %.sroa.0.0 = phi i64 [ 0, %60 ], [ %33, %.invoke ]
+  %.sroa.5.1 = phi i32 [ 0, %60 ], [ 2, %.invoke ]
+  %.sroa.0.1 = phi i64 [ 0, %60 ], [ %33, %.invoke ]
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %4) #33
   br label %62
 
 62:                                               ; preds = %13, %61
-  %.sroa.5.1 = phi i32 [ %.sroa.5.0, %61 ], [ 1, %13 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %61 ], [ %14, %13 ]
+  %.sroa.5.0 = phi i32 [ %.sroa.5.1, %61 ], [ 1, %13 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %61 ], [ %14, %13 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %3) #33
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.5.1, 1
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.5.0, 1
   ret { i64, i32 } %.fca.1.insert
 
 63:                                               ; preds = %34, %15
@@ -4220,16 +4220,16 @@ _ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   br label %27
 
 27:                                               ; preds = %25, %22
-  %.sroa.018.0 = phi i64 [ %26, %25 ], [ 0, %22 ]
+  %.sroa.018.1 = phi i64 [ %26, %25 ], [ 0, %22 ]
   %28 = tail call i32 @close(i32 noundef %4)
   %29 = tail call i32 @close(i32 noundef %17)
   br label %30
 
 30:                                               ; preds = %27, %19, %6
-  %.sroa.018.1 = phi i64 [ %7, %6 ], [ %20, %19 ], [ %.sroa.018.0, %27 ]
-  %.sroa.5.1 = phi i32 [ 1, %6 ], [ 2, %19 ], [ 0, %27 ]
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.018.1, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.5.1, 1
+  %.sroa.018.0 = phi i64 [ %7, %6 ], [ %20, %19 ], [ %.sroa.018.1, %27 ]
+  %.sroa.5.0 = phi i32 [ 1, %6 ], [ 2, %19 ], [ 0, %27 ]
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.018.0, 0
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.5.0, 1
   ret { i64, i32 } %.fca.1.insert
 }
 
@@ -4508,7 +4508,7 @@ define dso_local i64 @_ZN5cmsys11SystemTools14CopyADirectoryERKNSt7__cxx1112basi
   br i1 %15, label %.preheader, label %.loopexit48
 
 .preheader:                                       ; preds = %13, %76
-  %.sroa.10.0 = phi i32 [ %.sroa.10.3, %76 ], [ %.sroa.10.0.extract.trunc41, %13 ]
+  %.sroa.10.1 = phi i32 [ %.sroa.10.4, %76 ], [ %.sroa.10.0.extract.trunc41, %13 ]
   %.026 = phi i64 [ %77, %76 ], [ 0, %13 ]
   %16 = invoke noundef i64 @_ZNK5cmsys9Directory16GetNumberOfFilesEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %17 unwind label %.loopexit
@@ -4652,7 +4652,7 @@ _ZN5cmsys11SystemTools9CopyAFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %73, label %.critedge, label %74
 
 .critedge:                                        ; preds = %_ZN5cmsys11SystemTools9CopyAFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b.exit, %60
-  %.sroa.10.1 = phi i32 [ %.sroa.10.0.extract.trunc39, %60 ], [ %.sroa.10.0.extract.trunc, %_ZN5cmsys11SystemTools9CopyAFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b.exit ]
+  %.sroa.10.3 = phi i32 [ %.sroa.10.0.extract.trunc39, %60 ], [ %.sroa.10.0.extract.trunc, %_ZN5cmsys11SystemTools9CopyAFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_b.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   br label %76
 
@@ -4668,17 +4668,17 @@ _ZN5cmsys11SystemTools9CopyAFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %78
 
 76:                                               ; preds = %.critedge, %.tail, %.tail44
-  %.sroa.10.3 = phi i32 [ %.sroa.10.0, %.tail ], [ %.sroa.10.0, %.tail44 ], [ %.sroa.10.1, %.critedge ]
+  %.sroa.10.4 = phi i32 [ %.sroa.10.1, %.tail ], [ %.sroa.10.1, %.tail44 ], [ %.sroa.10.3, %.critedge ]
   %77 = add nuw i64 %.026, 1
   br label %.preheader, !llvm.loop !50
 
 .loopexit48:                                      ; preds = %17, %74, %13, %8
-  %.sroa.10.4 = phi i32 [ %.sroa.10.2, %74 ], [ %.sroa.10.0.extract.trunc41, %13 ], [ %.sroa.10.0.extract.trunc43, %8 ], [ %.sroa.10.0, %17 ]
-  %.sroa.0.4 = phi i64 [ %.sroa.0.2, %74 ], [ %12, %13 ], [ %7, %8 ], [ 0, %17 ]
+  %.sroa.10.0 = phi i32 [ %.sroa.10.2, %74 ], [ %.sroa.10.0.extract.trunc41, %13 ], [ %.sroa.10.0.extract.trunc43, %8 ], [ %.sroa.10.1, %17 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.2, %74 ], [ %12, %13 ], [ %7, %8 ], [ 0, %17 ]
   call void @_ZN5cmsys9DirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #33
-  %.sroa.10.0.insert.ext = zext i32 %.sroa.10.4 to i64
+  %.sroa.10.0.insert.ext = zext i32 %.sroa.10.0 to i64
   %.sroa.10.0.insert.shift = shl nuw i64 %.sroa.10.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = and i64 %.sroa.0.4, 4294967295
+  %.sroa.0.0.insert.ext = and i64 %.sroa.0.0, 4294967295
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.10.0.insert.shift, %.sroa.0.0.insert.ext
   ret i64 %.sroa.0.0.insert.insert
 
@@ -4900,7 +4900,7 @@ _ZN5cmsys11SystemTools14SetPermissionsERKNSt7__cxx1112basic_stringIcSt11char_tra
   br label %103
 
 32:                                               ; preds = %.preheader, %94
-  %.sroa.9.0 = phi i32 [ %.sroa.9.3, %94 ], [ %.sroa.9.0.extract.trunc36, %.preheader ]
+  %.sroa.9.1 = phi i32 [ %.sroa.9.4, %94 ], [ %.sroa.9.0.extract.trunc36, %.preheader ]
   %.018 = phi i64 [ %95, %94 ], [ 0, %.preheader ]
   %33 = invoke noundef i64 @_ZNK5cmsys9Directory16GetNumberOfFilesEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %34 unwind label %.loopexit
@@ -5037,7 +5037,7 @@ _ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   br i1 %92, label %.critedge, label %93
 
 .critedge:                                        ; preds = %83, %86, %_ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %78
-  %.sroa.9.1 = phi i32 [ %.sroa.9.0.extract.trunc32, %_ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.sroa.9.0.extract.trunc34, %78 ], [ 0, %86 ], [ 0, %83 ]
+  %.sroa.9.3 = phi i32 [ %.sroa.9.0.extract.trunc32, %_ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.sroa.9.0.extract.trunc34, %78 ], [ 0, %86 ], [ 0, %83 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #33
   br label %94
 
@@ -5048,7 +5048,7 @@ _ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   br label %102
 
 94:                                               ; preds = %.critedge, %.tail, %.tail46
-  %.sroa.9.3 = phi i32 [ %.sroa.9.0, %.tail ], [ %.sroa.9.0, %.tail46 ], [ %.sroa.9.1, %.critedge ]
+  %.sroa.9.4 = phi i32 [ %.sroa.9.1, %.tail ], [ %.sroa.9.1, %.tail46 ], [ %.sroa.9.3, %.critedge ]
   %95 = add nuw i64 %.018, 1
   br label %32, !llvm.loop !52
 
@@ -5068,12 +5068,12 @@ _ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   br label %102
 
 102:                                              ; preds = %96, %101, %93, %28
-  %.sroa.024.4 = phi i64 [ %.sroa.024.2, %93 ], [ 0, %96 ], [ %100, %101 ], [ %27, %28 ]
-  %.sroa.9.4 = phi i32 [ %.sroa.9.2, %93 ], [ %.sroa.9.0, %96 ], [ %.sroa.9.0.extract.trunc, %101 ], [ %.sroa.9.0.extract.trunc36, %28 ]
+  %.sroa.024.0 = phi i64 [ %.sroa.024.2, %93 ], [ 0, %96 ], [ %100, %101 ], [ %27, %28 ]
+  %.sroa.9.0 = phi i32 [ %.sroa.9.2, %93 ], [ %.sroa.9.1, %96 ], [ %.sroa.9.0.extract.trunc, %101 ], [ %.sroa.9.0.extract.trunc36, %28 ]
   call void @_ZN5cmsys9DirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #33
-  %.sroa.9.0.insert.ext = zext i32 %.sroa.9.4 to i64
+  %.sroa.9.0.insert.ext = zext i32 %.sroa.9.0 to i64
   %.sroa.9.0.insert.shift = shl nuw i64 %.sroa.9.0.insert.ext, 32
-  %.sroa.024.0.insert.ext = and i64 %.sroa.024.4, 4294967295
+  %.sroa.024.0.insert.ext = and i64 %.sroa.024.0, 4294967295
   %.sroa.024.0.insert.insert = or disjoint i64 %.sroa.9.0.insert.shift, %.sroa.024.0.insert.ext
   ret i64 %.sroa.024.0.insert.insert
 
@@ -9701,7 +9701,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br i1 %136, label %.critedge, label %102, !llvm.loop !86
 
 .critedge:                                        ; preds = %134, %_ZN5cmsys11SystemTools15GetFilenameNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit84, %135
-  %.1 = phi i1 [ false, %_ZN5cmsys11SystemTools15GetFilenameNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit84 ], [ true, %134 ], [ false, %135 ]
+  %.3 = phi i1 [ false, %_ZN5cmsys11SystemTools15GetFilenameNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit84 ], [ true, %134 ], [ false, %135 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #33
@@ -9715,7 +9715,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %138
 
 137:                                              ; preds = %_ZN5cmsys11SystemTools10FileExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %.critedge, %94
-  %.2 = phi i1 [ true, %94 ], [ %.1, %.critedge ], [ false, %_ZN5cmsys11SystemTools10FileExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %.1 = phi i1 [ true, %94 ], [ %.3, %.critedge ], [ false, %_ZN5cmsys11SystemTools10FileExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #33
   br label %139
 
@@ -9725,7 +9725,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %140
 
 139:                                              ; preds = %137, %64
-  %.3 = phi i1 [ %.2, %137 ], [ false, %64 ]
+  %.028 = phi i1 [ %.1, %137 ], [ false, %64 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #33
   br label %141
@@ -9737,7 +9737,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br label %142
 
 141:                                              ; preds = %4, %139
-  %.0 = phi i1 [ %.3, %139 ], [ false, %4 ]
+  %.0 = phi i1 [ %.028, %139 ], [ false, %4 ]
   ret i1 %.0
 
 142:                                              ; preds = %140, %.body
@@ -10256,7 +10256,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys11SystemTools14IsSubDirectoryERKNS
   br label %_ZN5cmsys11SystemTools11ComparePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
 
 _ZN5cmsys11SystemTools11ComparePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit: ; preds = %39, %34, %30, %26, %9, %12
-  %.0 = phi i1 [ false, %12 ], [ false, %9 ], [ false, %26 ], [ false, %30 ], [ %40, %39 ], [ true, %34 ]
+  %.1 = phi i1 [ false, %12 ], [ false, %9 ], [ false, %26 ], [ false, %30 ], [ %40, %39 ], [ true, %34 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #33
   br label %42
@@ -10267,8 +10267,8 @@ _ZN5cmsys11SystemTools11ComparePathERKNSt7__cxx1112basic_stringIcSt11char_traits
   resume { ptr, i32 } %.pn
 
 42:                                               ; preds = %2, %_ZN5cmsys11SystemTools11ComparePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit
-  %.1 = phi i1 [ %.0, %_ZN5cmsys11SystemTools11ComparePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit ], [ false, %2 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %_ZN5cmsys11SystemTools11ComparePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit ], [ false, %2 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

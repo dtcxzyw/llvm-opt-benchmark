@@ -2192,7 +2192,7 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
   br i1 %28, label %30, label %.noexc.thread
 
 29:                                               ; preds = %.body
-  br i1 %.2, label %172, label %171
+  br i1 %.3, label %172, label %171
 
 .thread:                                          ; preds = %30, %26
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -2221,12 +2221,12 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
 
 .body:                                            ; preds = %64, %34, %56
   %.pn53 = phi { ptr, i32 } [ %.pn51, %56 ], [ %35, %34 ], [ %65, %64 ]
-  %.2 = phi i1 [ true, %56 ], [ %.3, %34 ], [ true, %64 ]
+  %.3 = phi i1 [ true, %56 ], [ %.2, %34 ], [ true, %64 ]
   invoke void @"_ZN4core3ptr128drop_in_place$LT$std..collections..hash..map..HashMap$LT$deltalake_mount..config..MountConfigKey$C$alloc..string..String$GT$$GT$17h0a198dfe4c0a47f8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %24) #20
           to label %29 unwind label %154
 
 34:                                               ; preds = %74, %"_ZN4core3ptr49drop_in_place$LT$std..sys..pal..unix..os..Env$GT$17h71d0625aa92e759eE.llvm.16543861533300112609.exit.i", %77, %.noexc.thread
-  %.3 = phi i1 [ false, %77 ], [ true, %.noexc.thread ], [ true, %"_ZN4core3ptr49drop_in_place$LT$std..sys..pal..unix..os..Env$GT$17h71d0625aa92e759eE.llvm.16543861533300112609.exit.i" ], [ false, %74 ]
+  %.2 = phi i1 [ false, %77 ], [ true, %.noexc.thread ], [ true, %"_ZN4core3ptr49drop_in_place$LT$std..sys..pal..unix..os..Env$GT$17h71d0625aa92e759eE.llvm.16543861533300112609.exit.i" ], [ false, %74 ]
   %35 = landingpad { ptr, i32 }
           cleanup
   br label %.body

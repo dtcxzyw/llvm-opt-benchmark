@@ -228,7 +228,7 @@ define internal i32 @dissect_elmi(ptr noundef %0, ptr nocapture noundef readonly
   br label %22
 
 22:                                               ; preds = %dissect_elmi_info_elem.exit, %4
-  %.0 = phi i32 [ 2, %4 ], [ %.3.i, %dissect_elmi_info_elem.exit ]
+  %.0 = phi i32 [ 2, %4 ], [ %.0102.i, %dissect_elmi_info_elem.exit ]
   %23 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0) #3
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %25, label %.loopexit
@@ -298,13 +298,13 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
   br i1 %64, label %.lr.ph12.i, label %dissect_elmi_info_elem.exit
 
 65:                                               ; preds = %.lr.ph12.i
-  %66 = add i32 %69, %.010211.i
+  %66 = add i32 %69, %.111.i
   %67 = icmp slt i32 %66, %63
   br i1 %67, label %.lr.ph12.i, label %dissect_elmi_info_elem.exit, !llvm.loop !4
 
 .lr.ph12.i:                                       ; preds = %58, %65
-  %.010211.i = phi i32 [ %66, %65 ], [ %61, %58 ]
-  %68 = call fastcc i32 @dissect_elmi_sub_info_elem(ptr noundef %0, i32 noundef %.010211.i, ptr noundef %32)
+  %.111.i = phi i32 [ %66, %65 ], [ %61, %58 ]
+  %68 = call fastcc i32 @dissect_elmi_sub_info_elem(ptr noundef %0, i32 noundef %.111.i, ptr noundef %32)
   %69 = and i32 %68, 255
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %dissect_elmi_info_elem.exit, label %65
@@ -322,13 +322,13 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
   br i1 %80, label %.lr.ph7.i, label %dissect_elmi_info_elem.exit
 
 81:                                               ; preds = %.lr.ph7.i
-  %82 = add i32 %85, %.16.i
+  %82 = add i32 %85, %.26.i
   %83 = icmp slt i32 %82, %79
   br i1 %83, label %.lr.ph7.i, label %dissect_elmi_info_elem.exit, !llvm.loop !6
 
 .lr.ph7.i:                                        ; preds = %71, %81
-  %.16.i = phi i32 [ %82, %81 ], [ %77, %71 ]
-  %84 = call fastcc i32 @dissect_elmi_sub_info_elem(ptr noundef %0, i32 noundef %.16.i, ptr noundef %32)
+  %.26.i = phi i32 [ %82, %81 ], [ %77, %71 ]
+  %84 = call fastcc i32 @dissect_elmi_sub_info_elem(ptr noundef %0, i32 noundef %.26.i, ptr noundef %32)
   %85 = and i32 %84, 255
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %dissect_elmi_info_elem.exit, label %81
@@ -353,13 +353,13 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
   br i1 %103, label %.lr.ph.i, label %dissect_elmi_info_elem.exit
 
 104:                                              ; preds = %.lr.ph.i
-  %105 = add i32 %108, %.23.i
+  %105 = add i32 %108, %.33.i
   %106 = icmp slt i32 %105, %102
   br i1 %106, label %.lr.ph.i, label %dissect_elmi_info_elem.exit, !llvm.loop !7
 
 .lr.ph.i:                                         ; preds = %87, %104
-  %.23.i = phi i32 [ %105, %104 ], [ %100, %87 ]
-  %107 = call fastcc i32 @dissect_elmi_sub_info_elem(ptr noundef %0, i32 noundef %.23.i, ptr noundef %32)
+  %.33.i = phi i32 [ %105, %104 ], [ %100, %87 ]
+  %107 = call fastcc i32 @dissect_elmi_sub_info_elem(ptr noundef %0, i32 noundef %.33.i, ptr noundef %32)
   %108 = and i32 %107, 255
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %dissect_elmi_info_elem.exit, label %104
@@ -370,9 +370,9 @@ dissect_elmi_info_elem.exit.thread:               ; preds = %25
   br label %dissect_elmi_info_elem.exit
 
 dissect_elmi_info_elem.exit:                      ; preds = %104, %.lr.ph.i, %81, %.lr.ph7.i, %65, %.lr.ph12.i, %40, %44, %51, %58, %71, %87, %110
-  %.3.i = phi i32 [ %112, %110 ], [ %57, %51 ], [ %50, %44 ], [ %43, %40 ], [ %61, %58 ], [ %77, %71 ], [ %100, %87 ], [ %66, %65 ], [ %.010211.i, %.lr.ph12.i ], [ %82, %81 ], [ %.16.i, %.lr.ph7.i ], [ %105, %104 ], [ %.23.i, %.lr.ph.i ]
+  %.0102.i = phi i32 [ %112, %110 ], [ %57, %51 ], [ %50, %44 ], [ %43, %40 ], [ %61, %58 ], [ %77, %71 ], [ %100, %87 ], [ %66, %65 ], [ %.111.i, %.lr.ph12.i ], [ %82, %81 ], [ %.26.i, %.lr.ph7.i ], [ %105, %104 ], [ %.33.i, %.lr.ph.i ]
   %113 = load ptr, ptr %5, align 8
-  %114 = sub i32 %.3.i, %.0
+  %114 = sub i32 %.0102.i, %.0
   call void @proto_item_set_len(ptr noundef %113, i32 noundef %114) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %115 = icmp slt i32 %114, 1
@@ -465,10 +465,10 @@ define internal fastcc noundef i32 @dissect_elmi_sub_info_elem(ptr noundef %0, i
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0115 = phi i32 [ %35, %.lr.ph ], [ %18, %.preheader ]
+  %.1115 = phi i32 [ %35, %.lr.ph ], [ %18, %.preheader ]
   %33 = load i32, ptr @hf_elmi_ce_vlan_id, align 4
-  %34 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %33, ptr noundef %0, i32 noundef %.0115, i32 noundef 2, i32 noundef 0) #3
-  %35 = add i32 %.0115, 2
+  %34 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %33, ptr noundef %0, i32 noundef %.1115, i32 noundef 2, i32 noundef 0) #3
+  %35 = add i32 %.1115, 2
   %36 = icmp slt i32 %35, %19
   br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
@@ -528,9 +528,9 @@ define internal fastcc noundef i32 @dissect_elmi_sub_info_elem(ptr noundef %0, i
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %86, %37, %29, %25, %21
-  %.1 = phi i32 [ %87, %86 ], [ %85, %37 ], [ %32, %29 ], [ %28, %25 ], [ %24, %21 ], [ %18, %.preheader ], [ %35, %.lr.ph ]
+  %.0 = phi i32 [ %87, %86 ], [ %85, %37 ], [ %32, %29 ], [ %28, %25 ], [ %24, %21 ], [ %18, %.preheader ], [ %35, %.lr.ph ]
   %88 = load ptr, ptr %4, align 8
-  %89 = sub i32 %.1, %1
+  %89 = sub i32 %.0, %1
   call void @proto_item_set_len(ptr noundef %88, i32 noundef %89) #3
   ret i32 %89
 }

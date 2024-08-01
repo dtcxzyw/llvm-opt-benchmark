@@ -130,7 +130,7 @@ _multi_cluster.exit.thread:                       ; preds = %38
 .lr.ph.i:                                         ; preds = %38, %55
   %45 = phi ptr [ %57, %55 ], [ %44, %38 ]
   %.0916.i = phi i32 [ %spec.select13.i, %55 ], [ 0, %38 ]
-  %.01015.i = phi i1 [ %.2.i, %55 ], [ true, %38 ]
+  %.01015.i = phi i1 [ %.111.i, %55 ], [ true, %38 ]
   %46 = load i8, ptr getelementptr inbounds (i8, ptr @params, i64 20), align 4
   %47 = trunc i8 %46 to i1
   br i1 %47, label %55, label %48
@@ -151,7 +151,7 @@ _multi_cluster.exit.thread:                       ; preds = %38
   br label %55
 
 55:                                               ; preds = %50, %.lr.ph.i
-  %.2.i = phi i1 [ %.01015.i, %.lr.ph.i ], [ false, %50 ]
+  %.111.i = phi i1 [ %.01015.i, %.lr.ph.i ], [ false, %50 ]
   %56 = call fastcc i32 @_get_info(i1 noundef zeroext true, i1 noundef zeroext %.0.i20, i32 noundef %0, ptr noundef nonnull %1)
   %.fr = freeze i32 %56
   %.not12.i = icmp eq i32 %.fr, 0
@@ -663,8 +663,8 @@ _print_job_steps.exit:                            ; preds = %.critedge45.i, %62,
   br label %210
 
 210:                                              ; preds = %208, %.thread74.i.i
-  %.0.i.i = phi i32 [ %206, %.thread74.i.i ], [ %209, %208 ]
-  %.not55.i.i = icmp eq i32 %.0.i.i, 0
+  %.2.i.i = phi i32 [ %206, %.thread74.i.i ], [ %209, %208 ]
+  %.not55.i.i = icmp eq i32 %.2.i.i, 0
   br i1 %.not55.i.i, label %.thread.i.i, label %_query_job_states.exit.i
 
 .thread.i.i:                                      ; preds = %210, %207, %.thread72.i.i, %201
@@ -752,7 +752,7 @@ _populate_array_job_states.exit.i.i:              ; preds = %244, %239, %230, %2
   br label %_query_job_states.exit.i
 
 _query_job_states.exit.i:                         ; preds = %._crit_edge.i.i, %210, %187, %159
-  %.2.i.i = phi i32 [ %162, %159 ], [ %181, %187 ], [ 0, %._crit_edge.i.i ], [ %.0.i.i, %210 ]
+  %.0.i.i = phi i32 [ %162, %159 ], [ %181, %187 ], [ 0, %._crit_edge.i.i ], [ %.2.i.i, %210 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
@@ -934,7 +934,7 @@ _query_job_states.exit.i:                         ; preds = %._crit_edge.i.i, %2
   br label %_print_job.exit
 
 _print_job.exit:                                  ; preds = %_query_job_states.exit.i, %.thread75.i, %294, %330
-  %.0.i9 = phi i32 [ -1, %.thread75.i ], [ %288, %294 ], [ 0, %330 ], [ %.2.i.i, %_query_job_states.exit.i ]
+  %.0.i9 = phi i32 [ -1, %.thread75.i ], [ %288, %294 ], [ 0, %330 ], [ %.0.i.i, %_query_job_states.exit.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)

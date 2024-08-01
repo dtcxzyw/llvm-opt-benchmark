@@ -2102,8 +2102,8 @@ define void @Aig_ManChoiceLevel_rec(ptr noundef %0, ptr nocapture noundef %1) lo
   %58 = lshr i64 %.val87, 32
   %59 = trunc nuw i64 %58 to i32
   %60 = and i32 %59, 16777215
-  %.3 = tail call i32 @llvm.umax.i32(i32 %52, i32 %60)
-  %61 = add nuw nsw i32 %.3, 1
+  %.4 = tail call i32 @llvm.umax.i32(i32 %52, i32 %60)
+  %61 = add nuw nsw i32 %.4, 1
   %62 = getelementptr inbounds i8, ptr %0, i64 248
   %63 = load ptr, ptr %62, align 8
   %.not65 = icmp eq ptr %63, null
@@ -2129,9 +2129,9 @@ Aig_ObjEquiv.exit:                                ; preds = %44
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit, %40, %69, %32, %44, %Aig_ObjEquiv.exit, %8, %11
-  %.4 = phi i32 [ 0, %11 ], [ 0, %8 ], [ %61, %Aig_ObjEquiv.exit ], [ %61, %44 ], [ %39, %32 ], [ %spec.select92, %69 ], [ 0, %40 ], [ 1, %14 ], [ %31, %._crit_edge.loopexit ]
+  %.2 = phi i32 [ 0, %11 ], [ 0, %8 ], [ %61, %Aig_ObjEquiv.exit ], [ %61, %44 ], [ %39, %32 ], [ %spec.select92, %69 ], [ 0, %40 ], [ 1, %14 ], [ %31, %._crit_edge.loopexit ]
   %74 = load i64, ptr %6, align 8
-  %75 = and i32 %.4, 16777215
+  %75 = and i32 %.2, 16777215
   %76 = zext nneg i32 %75 to i64
   %77 = shl nuw nsw i64 %76, 32
   %78 = and i64 %74, -72057589742960641

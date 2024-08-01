@@ -5751,7 +5751,7 @@ ZSTD_shouldAttachDict.exit.thread18.i:            ; preds = %ZSTD_shouldAttachDi
   %or.cond.i14.i = select i1 %.not.i13.i, i1 %switch.i.i.i, i1 false
   %58 = add i32 %.sroa.2.0.copyload.i.i, -2
   %spec.store.select.i.i.i = tail call i32 @llvm.umax.i32(i32 %58, i32 6)
-  %.sroa.2.1.i.i = select i1 %or.cond.i14.i, i32 %spec.store.select.i.i.i, i32 %.sroa.2.0.copyload.i.i
+  %.sroa.2.0.i.i = select i1 %or.cond.i14.i, i32 %spec.store.select.i.i.i, i32 %.sroa.2.0.copyload.i.i
   %59 = getelementptr inbounds i8, ptr %11, i64 144
   %60 = load i32, ptr %59, align 8
   %61 = icmp ult i64 %7, 1073741825
@@ -5777,7 +5777,7 @@ ZSTD_shouldAttachDict.exit.thread18.i:            ; preds = %ZSTD_shouldAttachDi
   %.neg.i.i.i.i = sext i1 %70 to i32
   %71 = add i32 %.sroa.0.sroa.2.0.copyload.i.i, %.neg.i.i.i.i
   %72 = add i32 %.sroa.040.0.i.i, 1
-  %spec.select49.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.2.1.i.i, i32 %72)
+  %spec.select49.i.i = tail call i32 @llvm.umin.i32(i32 %.sroa.2.0.i.i, i32 %72)
   %73 = icmp ugt i32 %71, %.sroa.040.0.i.i
   br i1 %73, label %74, label %76
 
@@ -5788,7 +5788,7 @@ ZSTD_shouldAttachDict.exit.thread18.i:            ; preds = %ZSTD_shouldAttachDi
 
 76:                                               ; preds = %74, %.thread.i.i.i, %69
   %.sroa.8.0.i.i = phi i32 [ %75, %74 ], [ %.sroa.0.sroa.2.0.copyload.i.i, %.thread.i.i.i ], [ %.sroa.0.sroa.2.0.copyload.i.i, %69 ]
-  %.sroa.10.1.i.i = phi i32 [ %spec.select49.i.i, %74 ], [ %spec.select49.i.i, %.thread.i.i.i ], [ %.sroa.2.1.i.i, %69 ]
+  %.sroa.10.1.i.i = phi i32 [ %spec.select49.i.i, %74 ], [ %spec.select49.i.i, %.thread.i.i.i ], [ %.sroa.2.0.i.i, %69 ]
   %77 = add i32 %42, -6
   %78 = icmp ult i32 %77, -3
   %79 = icmp ugt i32 %60, 1
@@ -7462,10 +7462,10 @@ ZSTD_dedicatedDictSearch_getCParams.exit:         ; preds = %15
   br label %ZSTD_overrideCParams.exit
 
 ZSTD_overrideCParams.exit:                        ; preds = %ZSTD_dedicatedDictSearch_getCParams.exit, %39
-  %.sroa.13.1 = phi i32 [ %.sroa.13.0.copyload57, %39 ], [ %spec.select78, %ZSTD_dedicatedDictSearch_getCParams.exit ]
+  %.sroa.13.0 = phi i32 [ %.sroa.13.0.copyload57, %39 ], [ %spec.select78, %ZSTD_dedicatedDictSearch_getCParams.exit ]
   %42 = phi <4 x i32> [ %40, %39 ], [ %31, %ZSTD_dedicatedDictSearch_getCParams.exit ]
   %43 = phi <2 x i32> [ %41, %39 ], [ %36, %ZSTD_dedicatedDictSearch_getCParams.exit ]
-  %44 = add i32 %.sroa.13.1, -6
+  %44 = add i32 %.sroa.13.0, -6
   %or.cond.i = icmp ult i32 %44, -3
   %45 = extractelement <4 x i32> %42, i64 1
   %46 = extractelement <4 x i32> %42, i64 2
@@ -7487,7 +7487,7 @@ ZSTD_dedicatedDictSearch_isSupported.exit.thread: ; preds = %ZSTD_overrideCParam
 
 52:                                               ; preds = %ZSTD_overrideCParams.exit, %ZSTD_dedicatedDictSearch_isSupported.exit.thread
   %53 = phi i32 [ 0, %ZSTD_dedicatedDictSearch_isSupported.exit.thread ], [ %17, %ZSTD_overrideCParams.exit ]
-  %.sroa.13.2 = phi i32 [ %.sroa.13.0.copyload59, %ZSTD_dedicatedDictSearch_isSupported.exit.thread ], [ %.sroa.13.1, %ZSTD_overrideCParams.exit ]
+  %.sroa.13.1 = phi i32 [ %.sroa.13.0.copyload59, %ZSTD_dedicatedDictSearch_isSupported.exit.thread ], [ %.sroa.13.0, %ZSTD_overrideCParams.exit ]
   %54 = phi <4 x i32> [ %50, %ZSTD_dedicatedDictSearch_isSupported.exit.thread ], [ %42, %ZSTD_overrideCParams.exit ]
   %55 = phi <2 x i32> [ %51, %ZSTD_dedicatedDictSearch_isSupported.exit.thread ], [ %43, %ZSTD_overrideCParams.exit ]
   %56 = getelementptr inbounds i8, ptr %7, i64 4
@@ -7495,14 +7495,14 @@ ZSTD_dedicatedDictSearch_isSupported.exit.thread: ; preds = %ZSTD_overrideCParam
   %.sroa.11.0..sroa_idx48 = getelementptr inbounds i8, ptr %7, i64 20
   store <2 x i32> %55, ptr %.sroa.11.0..sroa_idx48, align 4
   %.sroa.13.0..sroa_idx60 = getelementptr inbounds i8, ptr %7, i64 28
-  store i32 %.sroa.13.2, ptr %.sroa.13.0..sroa_idx60, align 4
+  store i32 %.sroa.13.1, ptr %.sroa.13.0..sroa_idx60, align 4
   %57 = getelementptr inbounds i8, ptr %7, i64 144
   %58 = load i32, ptr %57, align 8
   %.not.i17 = icmp eq i32 %58, 0
   br i1 %.not.i17, label %59, label %65
 
 59:                                               ; preds = %52
-  %60 = add i32 %.sroa.13.2, -6
+  %60 = add i32 %.sroa.13.1, -6
   %61 = icmp ult i32 %60, -3
   br i1 %61, label %65, label %62
 
@@ -7521,11 +7521,11 @@ ZSTD_dedicatedDictSearch_isSupported.exit.thread: ; preds = %ZSTD_overrideCParam
   br i1 %66, label %67, label %ZSTD_allocateChainTable.exit.thread29.i.i
 
 67:                                               ; preds = %65
-  %.not4.i.i.i = icmp eq i32 %.sroa.13.2, 1
+  %.not4.i.i.i = icmp eq i32 %.sroa.13.1, 1
   br i1 %.not4.i.i.i, label %ZSTD_sizeof_matchState.exit.i, label %ZSTD_allocateChainTable.exit.i.i
 
 ZSTD_allocateChainTable.exit.i.i:                 ; preds = %67
-  %68 = add i32 %.sroa.13.2, -3
+  %68 = add i32 %.sroa.13.1, -3
   %69 = icmp ult i32 %68, 3
   %70 = icmp eq i32 %.0.i, 1
   %.not8.i.not.i.i = and i1 %69, %70
@@ -7543,7 +7543,7 @@ ZSTD_sizeof_matchState.exit.i:                    ; preds = %ZSTD_allocateChainT
   %76 = extractelement <4 x i32> %54, i64 2
   %77 = zext nneg i32 %76 to i64
   %78 = shl nuw i64 1, %77
-  %79 = add i32 %.sroa.13.2, -6
+  %79 = add i32 %.sroa.13.1, -6
   %80 = icmp ult i32 %79, -3
   %81 = icmp ne i32 %.0.i, 1
   %.not37.i.i = or i1 %80, %81
@@ -9358,7 +9358,7 @@ ZSTD_limitCopy.exit.i:                            ; preds = %166, %159
   br label %196
 
 188:                                              ; preds = %179, %175, %172, %ZSTD_limitCopy.exit.i
-  %.3.ph.i = phi ptr [ %spec.select.i, %172 ], [ %spec.select.i, %ZSTD_limitCopy.exit.i ], [ %spec.select.i, %175 ], [ %.1249.i.ph, %179 ]
+  %.5.ph.i = phi ptr [ %spec.select.i, %172 ], [ %spec.select.i, %ZSTD_limitCopy.exit.i ], [ %spec.select.i, %175 ], [ %.1249.i.ph, %179 ]
   %.pr.i = load i32, ptr %67, align 4
   %189 = icmp eq i32 %.pr.i, 0
   %190 = ptrtoint ptr %.0197245.i.ph to i64
@@ -9373,8 +9373,8 @@ ZSTD_limitCopy.exit.i:                            ; preds = %166, %159
 
 196:                                              ; preds = %188, %.thread239.i
   %197 = phi i64 [ %187, %.thread239.i ], [ %191, %188 ]
-  %.3242.i = phi ptr [ %.1249.i.ph, %.thread239.i ], [ %.3.ph.i, %188 ]
-  %198 = ptrtoint ptr %.3242.i to i64
+  %.5242.i = phi ptr [ %.1249.i.ph, %.thread239.i ], [ %.5.ph.i, %188 ]
+  %198 = ptrtoint ptr %.5242.i to i64
   %199 = sub i64 %112, %198
   %200 = load i64, ptr %114, align 8
   %..i = tail call i64 @llvm.umin.i64(i64 %199, i64 %200)
@@ -9383,7 +9383,7 @@ ZSTD_limitCopy.exit.i:                            ; preds = %166, %159
 201:                                              ; preds = %196, %192
   %202 = phi i64 [ %191, %192 ], [ %197, %196 ]
   %203 = phi i1 [ true, %192 ], [ false, %196 ]
-  %.3241.i = phi ptr [ %.3.ph.i, %192 ], [ %.3242.i, %196 ]
+  %.5241.i = phi ptr [ %.5.ph.i, %192 ], [ %.5242.i, %196 ]
   %204 = phi i64 [ %195, %192 ], [ %..i, %196 ]
   %205 = icmp ugt i64 %204, -71777214294589697
   br i1 %205, label %.thread.i234.i, label %206
@@ -9424,7 +9424,7 @@ ZSTD_compressBound.exit235.i:                     ; preds = %.thread.i234.i, %20
   br i1 %203, label %223, label %246
 
 223:                                              ; preds = %222
-  %224 = icmp eq ptr %.3241.i, %91
+  %224 = icmp eq ptr %.5241.i, %91
   %225 = select i1 %111, i1 %224, i1 false
   %226 = zext i1 %225 to i32
   %227 = load ptr, ptr %117, align 8
@@ -9466,18 +9466,18 @@ ZSTD_compressBound.exit235.i:                     ; preds = %.thread.i234.i, %20
   br label %259
 
 246:                                              ; preds = %222
-  %247 = getelementptr inbounds i8, ptr %.3241.i, i64 %204
+  %247 = getelementptr inbounds i8, ptr %.5241.i, i64 %204
   %248 = icmp eq ptr %247, %91
   %249 = select i1 %111, i1 %248, i1 false
   %250 = zext i1 %249 to i32
   br i1 %249, label %251, label %253
 
 251:                                              ; preds = %246
-  %252 = tail call i64 @ZSTD_compressEnd_public(ptr noundef nonnull %0, ptr noundef %.0202.i, i64 noundef %.0204.i, ptr noundef %.3241.i, i64 noundef %204)
+  %252 = tail call i64 @ZSTD_compressEnd_public(ptr noundef nonnull %0, ptr noundef %.0202.i, i64 noundef %.0204.i, ptr noundef %.5241.i, i64 noundef %204)
   br label %255
 
 253:                                              ; preds = %246
-  %254 = tail call fastcc i64 @ZSTD_compressContinue_internal(ptr noundef nonnull %0, ptr noundef %.0202.i, i64 noundef %.0204.i, ptr noundef %.3241.i, i64 noundef %204, i32 noundef 1, i32 noundef 0)
+  %254 = tail call fastcc i64 @ZSTD_compressContinue_internal(ptr noundef nonnull %0, ptr noundef %.0202.i, i64 noundef %.0204.i, ptr noundef %.5241.i, i64 noundef %204, i32 noundef 1, i32 noundef 0)
   br label %255
 
 255:                                              ; preds = %253, %251
@@ -9486,7 +9486,7 @@ ZSTD_compressBound.exit235.i:                     ; preds = %.thread.i234.i, %20
   br i1 %257, label %258, label %ZSTD_checkBufferStability.exit.thread
 
 258:                                              ; preds = %255
-  %.not223.i = icmp eq ptr %.3241.i, null
+  %.not223.i = icmp eq ptr %.5241.i, null
   %spec.select231.i = select i1 %.not223.i, ptr null, ptr %247
   store i32 %250, ptr %121, align 4
   br label %259
@@ -9494,7 +9494,7 @@ ZSTD_compressBound.exit235.i:                     ; preds = %.thread.i234.i, %20
 259:                                              ; preds = %258, %244
   %260 = phi i32 [ %226, %244 ], [ %250, %258 ]
   %.0203.i = phi i64 [ %235, %244 ], [ %256, %258 ]
-  %.5.i = phi ptr [ %.3241.i, %244 ], [ %spec.select231.i, %258 ]
+  %.6.i = phi ptr [ %.5241.i, %244 ], [ %spec.select231.i, %258 ]
   %261 = icmp eq ptr %.0202.i, %.0197245.i.ph
   br i1 %261, label %262, label %265
 
@@ -9517,7 +9517,7 @@ ZSTD_compressBound.exit235.i:                     ; preds = %.thread.i234.i, %20
 266:                                              ; preds = %265, %._crit_edge.i
   %267 = phi i64 [ %.pre251.i, %._crit_edge.i ], [ 0, %265 ]
   %268 = phi i64 [ %.pre250.i, %._crit_edge.i ], [ %.0203.i, %265 ]
-  %.6.i = phi ptr [ %.1249.i.ph, %._crit_edge.i ], [ %.5.i, %265 ]
+  %.2.i = phi ptr [ %.1249.i.ph, %._crit_edge.i ], [ %.6.i, %265 ]
   %269 = sub i64 %268, %267
   %270 = ptrtoint ptr %.0197245.i.ph to i64
   %271 = sub i64 %100, %270
@@ -9556,18 +9556,18 @@ ZSTD_limitCopy.exit237.i:                         ; preds = %273, %266
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %282, %262
-  %.1249.i.ph.be = phi ptr [ %.5.i, %262 ], [ %.6.i, %282 ]
+  %.1249.i.ph.be = phi ptr [ %.6.i, %262 ], [ %.2.i, %282 ]
   %.0197245.i.ph.be = phi ptr [ %263, %262 ], [ %277, %282 ]
   br label %.outer, !llvm.loop !54
 
 .loopexit.i:                                      ; preds = %ZSTD_limitCopy.exit237.i, %185, %175, %172, %281, %264, %184, %154
-  %.2199.ph.i = phi ptr [ %.0197245.i.ph, %184 ], [ %263, %264 ], [ %155, %154 ], [ %277, %281 ], [ %277, %ZSTD_limitCopy.exit237.i ], [ %.0197245.i.ph, %185 ], [ %.0197245.i.ph, %175 ], [ %.0197245.i.ph, %172 ]
-  %.7.ph.i = phi ptr [ %91, %184 ], [ %.5.i, %264 ], [ %91, %154 ], [ %.6.i, %281 ], [ %.6.i, %ZSTD_limitCopy.exit237.i ], [ %91, %185 ], [ %spec.select.i, %175 ], [ %spec.select.i, %172 ]
-  %283 = ptrtoint ptr %.7.ph.i to i64
+  %.1198.ph.i = phi ptr [ %.0197245.i.ph, %184 ], [ %263, %264 ], [ %155, %154 ], [ %277, %281 ], [ %277, %ZSTD_limitCopy.exit237.i ], [ %.0197245.i.ph, %185 ], [ %.0197245.i.ph, %175 ], [ %.0197245.i.ph, %172 ]
+  %.3.ph.i = phi ptr [ %91, %184 ], [ %.6.i, %264 ], [ %91, %154 ], [ %.2.i, %281 ], [ %.2.i, %ZSTD_limitCopy.exit237.i ], [ %91, %185 ], [ %spec.select.i, %175 ], [ %spec.select.i, %172 ]
+  %283 = ptrtoint ptr %.3.ph.i to i64
   %284 = ptrtoint ptr %85 to i64
   %285 = sub i64 %283, %284
   store i64 %285, ptr %11, align 8
-  %286 = ptrtoint ptr %.2199.ph.i to i64
+  %286 = ptrtoint ptr %.1198.ph.i to i64
   %287 = ptrtoint ptr %93 to i64
   %288 = sub i64 %286, %287
   store i64 %288, ptr %5, align 8
@@ -10509,7 +10509,7 @@ define dso_local range(i64 -107, 4294967296) i64 @ZSTD_copySequencesToSeqStoreNo
   %66 = sub i32 %52, %.0183259
   %67 = icmp ult i32 %66, %64
   %68 = sub nuw i32 %64, %66
-  %.1192 = select i1 %67, i32 %68, i32 %.0191255
+  %.3194 = select i1 %67, i32 %68, i32 %.0191255
   %69 = tail call i32 @llvm.usub.sat.i32(i32 %64, i32 %66)
   %.0180 = sub i32 %60, %69
   br label %72
@@ -10520,7 +10520,7 @@ define dso_local range(i64 -107, 4294967296) i64 @ZSTD_copySequencesToSeqStoreNo
 
 72:                                               ; preds = %65, %53
   %.1196 = phi i32 [ 0, %53 ], [ 1, %65 ]
-  %.2193 = phi i32 [ %.0191255, %53 ], [ %.1192, %65 ]
+  %.2193 = phi i32 [ %.0191255, %53 ], [ %.3194, %65 ]
   %.1188 = phi i32 [ %.0187, %53 ], [ %58, %65 ]
   %.1186 = phi i32 [ %.0185, %53 ], [ %.0180, %65 ]
   %.pn = phi i32 [ %52, %53 ], [ %69, %65 ]
@@ -10801,15 +10801,15 @@ ZSTD_safecopyLiterals.exit:                       ; preds = %144, %.lr.ph.i, %.l
 .critedge:                                        ; preds = %55, %194, %44, %25, %70
   %.0190245 = phi ptr [ %.0190256, %70 ], [ %4, %25 ], [ %.0190256, %55 ], [ %201, %194 ], [ %.0190256, %44 ]
   %.0178240 = phi i32 [ %.0178261, %70 ], [ %9, %25 ], [ %.0178261, %55 ], [ %spec.select, %194 ], [ %.0178261, %44 ]
-  %.3194 = phi i32 [ %71, %70 ], [ 0, %25 ], [ %.0191255, %55 ], [ %.2193, %194 ], [ %.0191255, %44 ]
-  %.3 = phi i32 [ %.sroa.2.0.copyload, %70 ], [ 0, %25 ], [ %.0183259, %55 ], [ 0, %194 ], [ %.0183259, %44 ]
+  %.1192 = phi i32 [ %71, %70 ], [ 0, %25 ], [ %.0191255, %55 ], [ %.2193, %194 ], [ %.0191255, %44 ]
+  %.1184 = phi i32 [ %.sroa.2.0.copyload, %70 ], [ 0, %25 ], [ %.0183259, %55 ], [ 0, %194 ], [ %.0183259, %44 ]
   store i32 %.0178240, ptr %1, align 8
-  store i32 %.3, ptr %10, align 4
+  store i32 %.1184, ptr %10, align 4
   %203 = getelementptr inbounds i8, ptr %0, i64 3184
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr inbounds i8, ptr %204, i64 5616
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %205, ptr noundef nonnull align 4 dereferenceable(12) %8, i64 12, i1 false)
-  %206 = zext i32 %.3194 to i64
+  %206 = zext i32 %.1192 to i64
   %207 = sub nsw i64 0, %206
   %208 = getelementptr inbounds i8, ptr %14, i64 %207
   %.not214 = icmp eq ptr %.0190245, %208
@@ -14543,50 +14543,50 @@ define internal fastcc range(i32 0, 2) i32 @ZSTD_isRLE(ptr noundef %0, i64 nound
   br label %ZSTD_count.exit
 
 .preheader.i:                                     ; preds = %12, %18
-  %.pn.i = phi ptr [ %.041.i, %18 ], [ %0, %12 ]
-  %.pn50.i = phi ptr [ %.040.i, %18 ], [ %10, %12 ]
-  %.040.i = getelementptr inbounds i8, ptr %.pn50.i, i64 8
-  %.041.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
-  %17 = icmp ult ptr %.040.i, %.ptr28
+  %.pn.i = phi ptr [ %.142.i, %18 ], [ %0, %12 ]
+  %.pn50.i = phi ptr [ %.1.i, %18 ], [ %10, %12 ]
+  %.1.i = getelementptr inbounds i8, ptr %.pn50.i, i64 8
+  %.142.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %17 = icmp ult ptr %.1.i, %.ptr28
   br i1 %17, label %18, label %.loopexit.i
 
 18:                                               ; preds = %.preheader.i
-  %.041.val.i = load i64, ptr %.041.i, align 1
-  %.040.val.i = load i64, ptr %.040.i, align 1
-  %.not51.i = icmp eq i64 %.041.val.i, %.040.val.i
+  %.142.val.i = load i64, ptr %.142.i, align 1
+  %.1.val.i = load i64, ptr %.1.i, align 1
+  %.not51.i = icmp eq i64 %.142.val.i, %.1.val.i
   br i1 %.not51.i, label %.preheader.i, label %19, !llvm.loop !75
 
 19:                                               ; preds = %18
-  %20 = xor i64 %.040.val.i, %.041.val.i
+  %20 = xor i64 %.1.val.i, %.142.val.i
   %21 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %20, i1 true)
   %22 = lshr i64 %21, 3
-  %23 = getelementptr inbounds i8, ptr %.040.i, i64 %22
+  %23 = getelementptr inbounds i8, ptr %.1.i, i64 %22
   %24 = ptrtoint ptr %23 to i64
   %25 = ptrtoint ptr %10 to i64
   %26 = sub i64 %24, %25
   br label %ZSTD_count.exit
 
 .loopexit.i:                                      ; preds = %.preheader.i, %9
-  %.142.i = phi ptr [ %0, %9 ], [ %.041.i, %.preheader.i ]
-  %.1.i = phi ptr [ %10, %9 ], [ %.040.i, %.preheader.i ]
+  %.041.i = phi ptr [ %0, %9 ], [ %.142.i, %.preheader.i ]
+  %.040.i = phi ptr [ %10, %9 ], [ %.1.i, %.preheader.i ]
   %27 = getelementptr inbounds i8, ptr %.ptr, i64 -3
-  %28 = icmp ult ptr %.1.i, %27
+  %28 = icmp ult ptr %.040.i, %27
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %.loopexit.i
-  %.142.val.i = load i32, ptr %.142.i, align 1
-  %.1.val.i = load i32, ptr %.1.i, align 1
-  %30 = icmp eq i32 %.142.val.i, %.1.val.i
+  %.041.val.i = load i32, ptr %.041.i, align 1
+  %.040.val.i = load i32, ptr %.040.i, align 1
+  %30 = icmp eq i32 %.041.val.i, %.040.val.i
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %.1.i, i64 4
-  %33 = getelementptr inbounds i8, ptr %.142.i, i64 4
+  %32 = getelementptr inbounds i8, ptr %.040.i, i64 4
+  %33 = getelementptr inbounds i8, ptr %.041.i, i64 4
   br label %34
 
 34:                                               ; preds = %31, %29, %.loopexit.i
-  %.243.i = phi ptr [ %33, %31 ], [ %.142.i, %29 ], [ %.142.i, %.loopexit.i ]
-  %.2.i = phi ptr [ %32, %31 ], [ %.1.i, %29 ], [ %.1.i, %.loopexit.i ]
+  %.243.i = phi ptr [ %33, %31 ], [ %.041.i, %29 ], [ %.041.i, %.loopexit.i ]
+  %.2.i = phi ptr [ %32, %31 ], [ %.040.i, %29 ], [ %.040.i, %.loopexit.i ]
   %35 = getelementptr inbounds i8, ptr %.ptr, i64 -1
   %36 = icmp ult ptr %.2.i, %35
   br i1 %36, label %37, label %42

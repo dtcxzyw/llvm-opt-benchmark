@@ -958,10 +958,10 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i.i: ; preds = %36, %33
   resume { ptr, i32 } %48
 
 "_ZN4core3ptr192drop_in_place$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17ha4820728d1e825e4E.exit15": ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9ea428afabef906bE.exit.i.i, %26, %"_ZN14ide_completion11completions9attribute20parse_comma_sep_expr28_$u7b$$u7b$closure$u7d$$u7d$17h66c8e7bedd43be4aE.exit", %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i14", %55, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4406d01d3042f6E.exit", %1
-  %.sroa.5.1 = phi ptr [ undef, %1 ], [ undef, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4406d01d3042f6E.exit" ], [ %spec.select.i.i.i, %55 ], [ %spec.select.i.i.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i14" ], [ %spec.select.i.i.i, %"_ZN14ide_completion11completions9attribute20parse_comma_sep_expr28_$u7b$$u7b$closure$u7d$$u7d$17h66c8e7bedd43be4aE.exit" ], [ %spec.select.i.i.i, %26 ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9ea428afabef906bE.exit.i.i ]
-  %.sroa.0.1 = phi i64 [ 2, %1 ], [ 2, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4406d01d3042f6E.exit" ], [ 2, %55 ], [ 2, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i14" ], [ %22, %"_ZN14ide_completion11completions9attribute20parse_comma_sep_expr28_$u7b$$u7b$closure$u7d$$u7d$17h66c8e7bedd43be4aE.exit" ], [ %22, %26 ], [ 2, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9ea428afabef906bE.exit.i.i ]
-  %62 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %63 = insertvalue { i64, ptr } %62, ptr %.sroa.5.1, 1
+  %.sroa.5.0 = phi ptr [ undef, %1 ], [ undef, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4406d01d3042f6E.exit" ], [ %spec.select.i.i.i, %55 ], [ %spec.select.i.i.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i14" ], [ %spec.select.i.i.i, %"_ZN14ide_completion11completions9attribute20parse_comma_sep_expr28_$u7b$$u7b$closure$u7d$$u7d$17h66c8e7bedd43be4aE.exit" ], [ %spec.select.i.i.i, %26 ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9ea428afabef906bE.exit.i.i ]
+  %.sroa.0.0 = phi i64 [ 2, %1 ], [ 2, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b4406d01d3042f6E.exit" ], [ 2, %55 ], [ 2, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17hd1512002f8a29c76E.exit.sink.split.i14" ], [ %22, %"_ZN14ide_completion11completions9attribute20parse_comma_sep_expr28_$u7b$$u7b$closure$u7d$$u7d$17h66c8e7bedd43be4aE.exit" ], [ %22, %26 ], [ 2, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9ea428afabef906bE.exit.i.i ]
+  %62 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %63 = insertvalue { i64, ptr } %62, ptr %.sroa.5.0, 1
   ret { i64, ptr } %63
 }
 
@@ -11999,7 +11999,7 @@ define hidden noundef zeroext i1 @_ZN6hir_ty5lower42named_associated_type_shorth
   br label %97
 
 97:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17hfb7b752a896dbeefE.exit", %96
-  %.0.in = phi i1 [ %119, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17hfb7b752a896dbeefE.exit" ], [ %92, %96 ]
+  %.2.in = phi i1 [ %119, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17hfb7b752a896dbeefE.exit" ], [ %92, %96 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   br label %250
 
@@ -12422,7 +12422,7 @@ define hidden noundef zeroext i1 @_ZN6hir_ty5lower42named_associated_type_shorth
   br label %.noexc57
 
 "_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$hir_expand..name..Name$GT$$GT$17hc8d518663a9cd07fE.exit": ; preds = %260, %255, %254, %253, %250, %249, %244, %243, %242, %239, %.noexc57, %.noexc55
-  %.4 = phi i1 [ false, %.noexc55 ], [ %.3.in, %.noexc57 ], [ false, %239 ], [ false, %242 ], [ false, %243 ], [ false, %244 ], [ false, %249 ], [ %.1.ph, %250 ], [ %.1.ph, %253 ], [ %.1.ph, %254 ], [ %.1.ph, %255 ], [ %.1.ph, %260 ]
+  %.4 = phi i1 [ false, %.noexc55 ], [ %.3.in, %.noexc57 ], [ false, %239 ], [ false, %242 ], [ false, %243 ], [ false, %244 ], [ false, %249 ], [ %.0.ph, %250 ], [ %.0.ph, %253 ], [ %.0.ph, %254 ], [ %.0.ph, %255 ], [ %.0.ph, %260 ]
   ret i1 %.4
 
 239:                                              ; preds = %40
@@ -12465,7 +12465,7 @@ define hidden noundef zeroext i1 @_ZN6hir_ty5lower42named_associated_type_shorth
   br label %.thread92.thread
 
 250:                                              ; preds = %97, %6
-  %.1.ph = phi i1 [ false, %6 ], [ %.0.in, %97 ]
+  %.0.ph = phi i1 [ false, %6 ], [ %.2.in, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3372)
   %251 = load i8, ptr %4, align 8, !range !896, !alias.scope !3372, !noundef !17
   %252 = icmp eq i8 %251, 27
@@ -12733,7 +12733,7 @@ define hidden noundef zeroext i1 @_ZN6hir_ty5lower42named_associated_type_shorth
   br label %97
 
 97:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17hfb7b752a896dbeefE.exit", %96
-  %.0.in = phi i1 [ %119, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17hfb7b752a896dbeefE.exit" ], [ %92, %96 ]
+  %.2.in = phi i1 [ %119, %"_ZN4core3ptr77drop_in_place$LT$chalk_ir..Substitution$LT$hir_ty..interner..Interner$GT$$GT$17hfb7b752a896dbeefE.exit" ], [ %92, %96 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29)
   br label %250
 
@@ -13156,7 +13156,7 @@ define hidden noundef zeroext i1 @_ZN6hir_ty5lower42named_associated_type_shorth
   br label %.noexc57
 
 "_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$hir_expand..name..Name$GT$$GT$17hc8d518663a9cd07fE.exit": ; preds = %260, %255, %254, %253, %250, %249, %244, %243, %242, %239, %.noexc57, %.noexc55
-  %.4 = phi i1 [ false, %.noexc55 ], [ %.3.in, %.noexc57 ], [ false, %239 ], [ false, %242 ], [ false, %243 ], [ false, %244 ], [ false, %249 ], [ %.1.ph, %250 ], [ %.1.ph, %253 ], [ %.1.ph, %254 ], [ %.1.ph, %255 ], [ %.1.ph, %260 ]
+  %.4 = phi i1 [ false, %.noexc55 ], [ %.3.in, %.noexc57 ], [ false, %239 ], [ false, %242 ], [ false, %243 ], [ false, %244 ], [ false, %249 ], [ %.0.ph, %250 ], [ %.0.ph, %253 ], [ %.0.ph, %254 ], [ %.0.ph, %255 ], [ %.0.ph, %260 ]
   ret i1 %.4
 
 239:                                              ; preds = %40
@@ -13199,7 +13199,7 @@ define hidden noundef zeroext i1 @_ZN6hir_ty5lower42named_associated_type_shorth
   br label %.thread92.thread
 
 250:                                              ; preds = %97, %6
-  %.1.ph = phi i1 [ false, %6 ], [ %.0.in, %97 ]
+  %.0.ph = phi i1 [ false, %6 ], [ %.2.in, %97 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !3483)
   %251 = load i8, ptr %4, align 8, !range !896, !alias.scope !3483, !noundef !17
   %252 = icmp eq i8 %251, 27

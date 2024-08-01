@@ -200,7 +200,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
 
 invoke.cont9:                                     ; preds = %invoke.cont8
   %4 = load i32, ptr %pid, align 4
-  %retval.0 = select i1 %call10, i32 %4, i32 0
+  %retval.1 = select i1 %call10, i32 %4, i32 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pid_string) #13
   br label %return
 
@@ -221,8 +221,8 @@ lpad7:                                            ; preds = %invoke.cont8, %invo
   br label %eh.resume
 
 return:                                           ; preds = %for.body, %invoke.cont9
-  %retval.1 = phi i32 [ %retval.0, %invoke.cont9 ], [ 0, %for.body ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %invoke.cont9 ], [ 0, %for.body ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %lpad7, %lpad.body
   %.pn = phi { ptr, i32 } [ %6, %lpad7 ], [ %eh.lpad-body, %lpad.body ]
@@ -866,7 +866,7 @@ if.end5:                                          ; preds = %invoke.cont2
           to label %cleanup unwind label %lpad1
 
 cleanup:                                          ; preds = %if.end5, %invoke.cont2
-  %retval.0 = phi i64 [ 0, %invoke.cont2 ], [ %call7, %if.end5 ]
+  %retval.1 = phi i64 [ 0, %invoke.cont2 ], [ %call7, %if.end5 ]
   %2 = load ptr, ptr %proc_stats, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %proc_stats, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8
@@ -894,9 +894,9 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %cleanup8
 
 cleanup8:                                         ; preds = %if.then.i.i.i, %invoke.cont.i, %invoke.cont
-  %retval.1 = phi i64 [ 0, %invoke.cont ], [ %retval.0, %invoke.cont.i ], [ %retval.0, %if.then.i.i.i ]
+  %retval.0 = phi i64 [ 0, %invoke.cont ], [ %retval.1, %invoke.cont.i ], [ %retval.1, %if.then.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %stats_data) #13
-  ret i64 %retval.1
+  ret i64 %retval.0
 
 ehcleanup:                                        ; preds = %lpad1, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad1 ], [ %0, %lpad ]
@@ -943,7 +943,7 @@ if.end5:                                          ; preds = %invoke.cont2
           to label %cleanup unwind label %lpad1
 
 cleanup:                                          ; preds = %if.end5, %invoke.cont2
-  %retval.0 = phi i64 [ 0, %invoke.cont2 ], [ %call7, %if.end5 ]
+  %retval.1 = phi i64 [ 0, %invoke.cont2 ], [ %call7, %if.end5 ]
   %2 = load ptr, ptr %proc_stats, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %proc_stats, i64 8
   %3 = load ptr, ptr %_M_finish.i, align 8
@@ -971,9 +971,9 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %cleanup8
 
 cleanup8:                                         ; preds = %if.then.i.i.i, %invoke.cont.i, %invoke.cont
-  %retval.1 = phi i64 [ 0, %invoke.cont ], [ %retval.0, %invoke.cont.i ], [ %retval.0, %if.then.i.i.i ]
+  %retval.0 = phi i64 [ 0, %invoke.cont ], [ %retval.1, %invoke.cont.i ], [ %retval.1, %if.then.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %stats_data) #13
-  ret i64 %retval.1
+  ret i64 %retval.0
 
 ehcleanup:                                        ; preds = %lpad1, %lpad
   %.pn = phi { ptr, i32 } [ %1, %lpad1 ], [ %0, %lpad ]
@@ -1138,7 +1138,7 @@ if.end26:                                         ; preds = %invoke.cont22
           to label %cleanup unwind label %lpad2
 
 cleanup:                                          ; preds = %if.end26, %invoke.cont22, %invoke.cont9
-  %retval.sroa.0.0 = phi i64 [ 0, %invoke.cont9 ], [ 0, %invoke.cont22 ], [ %call28, %if.end26 ]
+  %retval.sroa.0.1 = phi i64 [ 0, %invoke.cont9 ], [ 0, %invoke.cont22 ], [ %call28, %if.end26 ]
   %14 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %proc_stat, ptr noundef %14)
           to label %cleanup32 unwind label %terminate.lpad.i.i
@@ -1156,10 +1156,10 @@ ehcleanup31:                                      ; preds = %ehcleanup, %lpad2
   br label %ehcleanup33
 
 cleanup32:                                        ; preds = %call.i.noexc, %cleanup, %invoke.cont
-  %retval.sroa.0.1 = phi i64 [ 0, %invoke.cont ], [ %retval.sroa.0.0, %cleanup ], [ 0, %call.i.noexc ]
+  %retval.sroa.0.0 = phi i64 [ 0, %invoke.cont ], [ %retval.sroa.0.1, %cleanup ], [ 0, %call.i.noexc ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %contents) #13
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #13
-  ret i64 %retval.sroa.0.1
+  ret i64 %retval.sroa.0.0
 
 ehcleanup33:                                      ; preds = %ehcleanup31, %lpad
   %.pn2.pn = phi { ptr, i32 } [ %.pn2, %ehcleanup31 ], [ %3, %lpad ]
@@ -1406,7 +1406,7 @@ if.end45:                                         ; preds = %invoke.cont41
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end45, %invoke.cont41, %invoke.cont36, %invoke.cont24, %invoke.cont28
-  %retval.sroa.0.0 = phi i64 [ 0, %invoke.cont28 ], [ 0, %invoke.cont24 ], [ 0, %invoke.cont36 ], [ 0, %invoke.cont41 ], [ %call47, %if.end45 ]
+  %retval.sroa.0.2 = phi i64 [ 0, %invoke.cont28 ], [ 0, %invoke.cont24 ], [ 0, %invoke.cont36 ], [ 0, %invoke.cont41 ], [ %call47, %if.end45 ]
   %26 = load ptr, ptr %cpu, align 8
   %27 = load ptr, ptr %_M_finish.i, align 8
   %cmp.not3.i.i.i.i = icmp eq ptr %26, %27
@@ -1433,7 +1433,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %cleanup50
 
 cleanup50:                                        ; preds = %if.then.i.i.i, %invoke.cont.i, %invoke.cont9
-  %retval.sroa.0.1 = phi i64 [ 0, %invoke.cont9 ], [ %retval.sroa.0.0, %invoke.cont.i ], [ %retval.sroa.0.0, %if.then.i.i.i ]
+  %retval.sroa.0.1 = phi i64 [ 0, %invoke.cont9 ], [ %retval.sroa.0.2, %invoke.cont.i ], [ %retval.sroa.0.2, %if.then.i.i.i ]
   %29 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %proc_stat, ptr noundef %29)
           to label %cleanup52 unwind label %terminate.lpad.i.i
@@ -1451,10 +1451,10 @@ ehcleanup51:                                      ; preds = %lpad27, %ehcleanup,
   br label %ehcleanup53
 
 cleanup52:                                        ; preds = %call.i.noexc, %cleanup50, %invoke.cont
-  %retval.sroa.0.2 = phi i64 [ 0, %invoke.cont ], [ %retval.sroa.0.1, %cleanup50 ], [ 0, %call.i.noexc ]
+  %retval.sroa.0.0 = phi i64 [ 0, %invoke.cont ], [ %retval.sroa.0.1, %cleanup50 ], [ 0, %call.i.noexc ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %contents) #13
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #13
-  ret i64 %retval.sroa.0.2
+  ret i64 %retval.sroa.0.0
 
 ehcleanup53:                                      ; preds = %ehcleanup51, %lpad
   %.pn2.pn = phi { ptr, i32 } [ %.pn2, %ehcleanup51 ], [ %3, %lpad ]

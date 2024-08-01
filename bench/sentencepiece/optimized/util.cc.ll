@@ -893,17 +893,17 @@ define void @_ZN13sentencepiece4util13StrSplitAsCSVB5cxx11ESt17basic_string_view
   br label %137
 
 35:                                               ; preds = %30, %.lr.ph
-  %.230 = phi ptr [ %31, %30 ], [ %.12981, %.lr.ph ]
+  %.3 = phi ptr [ %31, %30 ], [ %.12981, %.lr.ph ]
   %36 = getelementptr inbounds i8, ptr %.082, i64 1
   store i8 %28, ptr %.082, align 1
-  %37 = getelementptr inbounds i8, ptr %.230, i64 1
+  %37 = getelementptr inbounds i8, ptr %.3, i64 1
   %38 = icmp ult ptr %37, %17
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %35, %30, %25
   %.0.lcssa = phi ptr [ %26, %25 ], [ %.082, %30 ], [ %36, %35 ]
-  %.3 = phi ptr [ %26, %25 ], [ %31, %30 ], [ %37, %35 ]
-  %39 = ptrtoint ptr %.3 to i64
+  %.230 = phi ptr [ %26, %25 ], [ %31, %30 ], [ %37, %35 ]
+  %39 = ptrtoint ptr %.230 to i64
   %40 = sub i64 %19, %39
   %41 = ashr i64 %40, 2
   %42 = icmp sgt i64 %41, 0
@@ -911,12 +911,12 @@ define void @_ZN13sentencepiece4util13StrSplitAsCSVB5cxx11ESt17basic_string_view
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge
   %43 = and i64 %40, -4
-  %scevgep.i.i.i = getelementptr i8, ptr %.3, i64 %43
+  %scevgep.i.i.i = getelementptr i8, ptr %.230, i64 %43
   br label %44
 
 44:                                               ; preds = %59, %.lr.ph.i.i.i
   %.047.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i ], [ %61, %59 ]
-  %.02946.i.i.i = phi ptr [ %.3, %.lr.ph.i.i.i ], [ %60, %59 ]
+  %.02946.i.i.i = phi ptr [ %.230, %.lr.ph.i.i.i ], [ %60, %59 ]
   %45 = load i8, ptr %.02946.i.i.i, align 1
   %46 = icmp eq i8 %45, 44
   br i1 %46, label %_ZSt4findIPccET_S1_S1_RKT0_.exit, label %47
@@ -951,7 +951,7 @@ define void @_ZN13sentencepiece4util13StrSplitAsCSVB5cxx11ESt17basic_string_view
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %._crit_edge
   %.pre-phi.i.i.i = phi i64 [ %.pre54.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %39, %._crit_edge ]
-  %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %.3, %._crit_edge ]
+  %.029.lcssa.i.i.i = phi ptr [ %scevgep.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %.230, %._crit_edge ]
   %63 = sub i64 %19, %.pre-phi.i.i.i
   switch i64 %63, label %75 [
     i64 3, label %64

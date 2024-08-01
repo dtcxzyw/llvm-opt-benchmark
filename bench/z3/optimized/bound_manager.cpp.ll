@@ -2713,8 +2713,8 @@ if.then4:                                         ; preds = %if.end, %land.lhs.t
 
 if.end5:                                          ; preds = %land.rhs.i, %if.then4, %_Z17is_uninterp_constPK4expr.exit
   %bf.load.i.i10 = phi i32 [ %bf.load.i.i, %_Z17is_uninterp_constPK4expr.exit ], [ %bf.load.i.i10.pre, %if.then4 ], [ %bf.load.i.i, %land.rhs.i ]
-  %y.1 = phi ptr [ %7, %_Z17is_uninterp_constPK4expr.exit ], [ %6, %if.then4 ], [ %7, %land.rhs.i ]
-  %x.1 = phi ptr [ %6, %_Z17is_uninterp_constPK4expr.exit ], [ %7, %if.then4 ], [ %6, %land.rhs.i ]
+  %y.0 = phi ptr [ %7, %_Z17is_uninterp_constPK4expr.exit ], [ %6, %if.then4 ], [ %7, %land.rhs.i ]
+  %x.0 = phi ptr [ %6, %_Z17is_uninterp_constPK4expr.exit ], [ %7, %if.then4 ], [ %6, %land.rhs.i ]
   store i32 0, ptr %n, align 8
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %n, i64 4
   store i8 0, ptr %m_kind.i.i.i, align 4
@@ -2731,13 +2731,13 @@ if.end5:                                          ; preds = %land.rhs.i, %if.the
   br i1 %cmp.i12, label %land.lhs.true.i13, label %if.end12
 
 land.lhs.true.i13:                                ; preds = %if.end5
-  %m_num_args.i.i14 = getelementptr inbounds i8, ptr %x.1, i64 24
+  %m_num_args.i.i14 = getelementptr inbounds i8, ptr %x.0, i64 24
   %13 = load i32, ptr %m_num_args.i.i14, align 8
   %cmp3.i15 = icmp eq i32 %13, 0
   br i1 %cmp3.i15, label %land.rhs.i16, label %if.end12
 
 land.rhs.i16:                                     ; preds = %land.lhs.true.i13
-  %m_decl.i.i.i17 = getelementptr inbounds i8, ptr %x.1, i64 16
+  %m_decl.i.i.i17 = getelementptr inbounds i8, ptr %x.0, i64 16
   %14 = load ptr, ptr %m_decl.i.i.i17, align 8
   %m_info.i.i.i18 = getelementptr inbounds i8, ptr %14, i64 24
   %15 = load ptr, ptr %m_info.i.i.i18, align 8
@@ -2750,18 +2750,18 @@ invoke.cont:                                      ; preds = %land.rhs.i16
   br i1 %17, label %land.lhs.true, label %if.end12
 
 land.lhs.true:                                    ; preds = %land.rhs.i16, %invoke.cont
-  %call8 = invoke noundef zeroext i1 @_ZN13bound_manager10is_numeralEP4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %y.1, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef nonnull align 1 dereferenceable(1) %is_int)
+  %call8 = invoke noundef zeroext i1 @_ZN13bound_manager10is_numeralEP4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %y.0, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef nonnull align 1 dereferenceable(1) %is_int)
           to label %invoke.cont7 unwind label %lpad
 
 invoke.cont7:                                     ; preds = %land.lhs.true
   br i1 %call8, label %if.then9, label %if.end12
 
 if.then9:                                         ; preds = %invoke.cont7
-  invoke void @_ZN13bound_manager12insert_lowerEP4exprbRK8rationalPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull %x.1, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef %d)
+  invoke void @_ZN13bound_manager12insert_lowerEP4exprbRK8rationalPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull %x.0, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef %d)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %if.then9
-  invoke void @_ZN13bound_manager12insert_upperEP4exprbRK8rationalPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull %x.1, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef %d)
+  invoke void @_ZN13bound_manager12insert_upperEP4exprbRK8rationalPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull %x.0, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef %d)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont24, %if.then21, %land.lhs.true18, %land.lhs.true15, %invoke.cont10, %if.then9, %land.lhs.true
@@ -2770,14 +2770,14 @@ lpad:                                             ; preds = %invoke.cont24, %if.
   br label %ehcleanup
 
 if.end12:                                         ; preds = %if.end5, %land.lhs.true.i13, %invoke.cont7, %invoke.cont
-  %m_kind.i.i.i.i22 = getelementptr inbounds i8, ptr %y.1, i64 4
+  %m_kind.i.i.i.i22 = getelementptr inbounds i8, ptr %y.0, i64 4
   %bf.load.i.i.i.i23 = load i32, ptr %m_kind.i.i.i.i22, align 4
   %bf.clear.i.i.i.i24 = and i32 %bf.load.i.i.i.i23, 65535
   %cmp.i.i.i25 = icmp eq i32 %bf.clear.i.i.i.i24, 0
   br i1 %cmp.i.i.i25, label %land.rhs.i.i.i27, label %cleanup
 
 land.rhs.i.i.i27:                                 ; preds = %if.end12
-  %m_decl.i.i.i.i28 = getelementptr inbounds i8, ptr %y.1, i64 16
+  %m_decl.i.i.i.i28 = getelementptr inbounds i8, ptr %y.0, i64 16
   %19 = load ptr, ptr %m_decl.i.i.i.i28, align 8
   %m_info.i.i.i.i.i29 = getelementptr inbounds i8, ptr %19, i64 24
   %20 = load ptr, ptr %m_info.i.i.i.i.i29, align 8
@@ -2794,13 +2794,13 @@ _ZNK17arith_recognizers6is_modEPK4expr.exit.i:    ; preds = %land.rhs.i.i.i27
   br i1 %23, label %land.lhs.true.i34, label %cleanup
 
 land.lhs.true.i34:                                ; preds = %_ZNK17arith_recognizers6is_modEPK4expr.exit.i
-  %m_num_args.i.i35 = getelementptr inbounds i8, ptr %y.1, i64 24
+  %m_num_args.i.i35 = getelementptr inbounds i8, ptr %y.0, i64 24
   %24 = load i32, ptr %m_num_args.i.i35, align 8
   %cmp.i36 = icmp eq i32 %24, 2
   br i1 %cmp.i36, label %land.lhs.true15, label %cleanup
 
 land.lhs.true15:                                  ; preds = %land.lhs.true.i34
-  %arrayidx.i.i39 = getelementptr inbounds i8, ptr %y.1, i64 40
+  %arrayidx.i.i39 = getelementptr inbounds i8, ptr %y.0, i64 40
   %25 = load ptr, ptr %arrayidx.i.i39, align 8
   %call17 = invoke noundef zeroext i1 @_ZN13bound_manager10is_numeralEP4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %25, ptr noundef nonnull align 8 dereferenceable(32) %n, ptr noundef nonnull align 1 dereferenceable(1) %is_int)
           to label %invoke.cont16 unwind label %lpad
@@ -2816,7 +2816,7 @@ invoke.cont19:                                    ; preds = %land.lhs.true18
   br i1 %call20, label %if.then21, label %cleanup
 
 if.then21:                                        ; preds = %invoke.cont19
-  invoke void @_ZN13bound_manager12insert_lowerEP4exprbRK8rationalPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull %x.1, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8rational6m_zeroE, ptr noundef %d)
+  invoke void @_ZN13bound_manager12insert_lowerEP4exprbRK8rationalPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull %x.0, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) @_ZN8rational6m_zeroE, ptr noundef %d)
           to label %invoke.cont24 unwind label %lpad
 
 invoke.cont24:                                    ; preds = %if.then21
@@ -2824,7 +2824,7 @@ invoke.cont24:                                    ; preds = %if.then21
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %invoke.cont24
-  invoke void @_ZN13bound_manager12insert_upperEP4exprbRK8rationalPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull %x.1, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %d)
+  invoke void @_ZN13bound_manager12insert_upperEP4exprbRK8rationalPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull %x.0, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %d)
           to label %invoke.cont27 unwind label %lpad26
 
 invoke.cont27:                                    ; preds = %invoke.cont25
@@ -2851,7 +2851,7 @@ lpad26:                                           ; preds = %invoke.cont25
   br label %ehcleanup
 
 cleanup:                                          ; preds = %land.rhs.i.i.i27, %if.end12, %_ZNK17arith_recognizers6is_modEPK4expr.exit.i, %land.lhs.true.i34, %.noexc.i, %invoke.cont16, %invoke.cont19, %invoke.cont10
-  %retval.0 = phi i1 [ true, %invoke.cont10 ], [ false, %invoke.cont19 ], [ false, %invoke.cont16 ], [ true, %.noexc.i ], [ false, %land.lhs.true.i34 ], [ false, %_ZNK17arith_recognizers6is_modEPK4expr.exit.i ], [ false, %if.end12 ], [ false, %land.rhs.i.i.i27 ]
+  %retval.1 = phi i1 [ true, %invoke.cont10 ], [ false, %invoke.cont19 ], [ false, %invoke.cont16 ], [ true, %.noexc.i ], [ false, %land.lhs.true.i34 ], [ false, %_ZNK17arith_recognizers6is_modEPK4expr.exit.i ], [ false, %if.end12 ], [ false, %land.rhs.i.i.i27 ]
   %30 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(16) %n)
           to label %.noexc.i42 unwind label %terminate.lpad.i41
@@ -2873,8 +2873,8 @@ ehcleanup:                                        ; preds = %lpad26, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %land.rhs.i.i.i, %entry, %_ZNK11ast_manager5is_eqEPK4expr.exit.i, %land.lhs.true.i, %.noexc.i42
-  %retval.1 = phi i1 [ %retval.0, %.noexc.i42 ], [ false, %land.lhs.true.i ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %entry ], [ false, %land.rhs.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %.noexc.i42 ], [ false, %land.lhs.true.i ], [ false, %_ZNK11ast_manager5is_eqEPK4expr.exit.i ], [ false, %entry ], [ false, %land.rhs.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

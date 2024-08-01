@@ -1150,8 +1150,8 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79: ; preds = %131
   br i1 %exitcond103.not, label %.loopexit, label %43, !llvm.loop !32
 
 .loopexit:                                        ; preds = %48, %151, %66, %59, %54, %49, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79, %22, %3
-  %.3 = phi i1 [ false, %3 ], [ false, %22 ], [ false, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79 ], [ true, %151 ], [ false, %66 ], [ false, %59 ], [ false, %54 ], [ false, %49 ], [ false, %48 ]
-  ret i1 %.3
+  %.057 = phi i1 [ false, %3 ], [ false, %22 ], [ false, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit79 ], [ true, %151 ], [ false, %66 ], [ false, %59 ], [ false, %54 ], [ false, %49 ], [ false, %48 ]
+  ret i1 %.057
 }
 
 ; Function Attrs: nobuiltin allocsize(0)

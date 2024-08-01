@@ -4710,10 +4710,10 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %.thread91
 
 154:                                              ; preds = %148, %._crit_edge.i.i.i.i
-  %.sroa.4.0.i.i.i = phi i64 [ %153, %148 ], [ %147, %._crit_edge.i.i.i.i ]
-  %.sroa.0.0.i.i.i = phi ptr [ %152, %148 ], [ %146, %._crit_edge.i.i.i.i ]
+  %.sroa.4.1.i.i.i = phi i64 [ %153, %148 ], [ %147, %._crit_edge.i.i.i.i ]
+  %.sroa.0.1.i.i.i = phi ptr [ %152, %148 ], [ %146, %._crit_edge.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !786
-  %155 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17hcb39d740d4dfef49E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.4.0.i.i.i)
+  %155 = invoke { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17hcb39d740d4dfef49E"(ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i.i, i64 noundef %.sroa.4.1.i.i.i)
           to label %156 unwind label %.loopexit
 
 156:                                              ; preds = %154
@@ -7464,8 +7464,8 @@ define void @_ZN9actix_web4test12test_request11TestRequest14to_srv_request17he20
 
 19:                                               ; preds = %144, %142, %24
   %.pn36.pn = phi { ptr, i32 } [ %.pn36, %144 ], [ %.pn36, %142 ], [ %25, %24 ]
-  %.032 = phi i1 [ %.133, %144 ], [ %.133, %142 ], [ true, %24 ]
-  %.027 = phi i8 [ %.025, %144 ], [ %.025, %142 ], [ 1, %24 ]
+  %.032 = phi i1 [ %.234, %144 ], [ %.234, %142 ], [ true, %24 ]
+  %.027 = phi i8 [ %.126, %144 ], [ %.126, %142 ], [ 1, %24 ]
   %20 = getelementptr inbounds i8, ptr %1, i64 256
   %21 = load i64, ptr %20, align 8, !range !1079, !alias.scope !1184, !noundef !4
   %22 = icmp eq i64 %21, 5
@@ -7866,13 +7866,13 @@ common.resume:                                    ; preds = %116, %152, %127
           to label %.body unwind label %138
 
 142:                                              ; preds = %.body
-  %143 = trunc nuw i8 %.025 to i1
+  %143 = trunc nuw i8 %.126 to i1
   br i1 %143, label %144, label %19
 
 .body:                                            ; preds = %96, %58, %50, %36, %.thread77, %140
   %.pn36 = phi { ptr, i32 } [ %.pn63, %.thread77 ], [ %141, %140 ], [ %59, %58 ], [ %37, %36 ], [ %51, %50 ], [ %97, %96 ]
-  %.133 = phi i1 [ false, %.thread77 ], [ false, %140 ], [ false, %58 ], [ true, %36 ], [ false, %50 ], [ false, %96 ]
-  %.025 = phi i8 [ 0, %.thread77 ], [ 1, %140 ], [ 1, %58 ], [ 1, %36 ], [ 1, %50 ], [ 0, %96 ]
+  %.234 = phi i1 [ false, %.thread77 ], [ false, %140 ], [ false, %58 ], [ true, %36 ], [ false, %50 ], [ false, %96 ]
+  %.126 = phi i8 [ 0, %.thread77 ], [ 1, %140 ], [ 1, %58 ], [ 1, %36 ], [ 1, %50 ], [ 0, %96 ]
   invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #31
           to label %142 unwind label %138
 
@@ -7936,7 +7936,7 @@ define noundef nonnull ptr @_ZN9actix_web4test12test_request11TestRequest15to_ht
 
 .thread88:                                        ; preds = %108, %.thread83, %153, %21
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.ph, %153 ], [ %22, %21 ], [ %.pn69, %.thread83 ], [ %109, %108 ]
-  %.027 = phi i1 [ %.128.ph, %153 ], [ true, %21 ], [ false, %.thread83 ], [ false, %108 ]
+  %.027 = phi i1 [ %.2.ph, %153 ], [ true, %21 ], [ false, %.thread83 ], [ false, %108 ]
   %.023 = phi i1 [ true, %153 ], [ true, %21 ], [ false, %.thread83 ], [ false, %108 ]
   %17 = getelementptr inbounds i8, ptr %0, i64 256
   %18 = load i64, ptr %17, align 8, !range !1079, !alias.scope !1262, !noundef !4
@@ -8383,7 +8383,7 @@ common.resume:                                    ; preds = %127, %160, %138
 
 153:                                              ; preds = %151, %42, %34, %62, %70
   %.pn.pn.ph = phi { ptr, i32 } [ %71, %70 ], [ %152, %151 ], [ %35, %34 ], [ %43, %42 ], [ %63, %62 ]
-  %.128.ph = phi i1 [ false, %70 ], [ false, %151 ], [ true, %34 ], [ true, %42 ], [ false, %62 ]
+  %.2.ph = phi i1 [ false, %70 ], [ false, %151 ], [ true, %34 ], [ true, %42 ], [ false, %62 ]
   invoke void @"_ZN4core3ptr96drop_in_place$LT$actix_http..message..Message$LT$actix_http..requests..head..RequestHead$GT$$GT$17hbf9cfe1452a6a30cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16) #31
           to label %.thread88 unwind label %149
 
@@ -8443,7 +8443,7 @@ define void @_ZN9actix_web4test12test_request11TestRequest13to_http_parts17h9d36
 
 19:                                               ; preds = %144, %142, %24
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %144 ], [ %.pn.pn, %142 ], [ %25, %24 ]
-  %.027 = phi i1 [ %.128, %144 ], [ %.128, %142 ], [ true, %24 ]
+  %.027 = phi i1 [ %.2, %144 ], [ %.2, %142 ], [ true, %24 ]
   %.023 = phi i8 [ %.022, %144 ], [ %.022, %142 ], [ 1, %24 ]
   %20 = getelementptr inbounds i8, ptr %1, i64 256
   %21 = load i64, ptr %20, align 8, !range !1079, !alias.scope !1345, !noundef !4
@@ -8492,7 +8492,7 @@ define void @_ZN9actix_web4test12test_request11TestRequest13to_http_parts17h9d36
 
 .body:                                            ; preds = %96, %58, %50, %36, %140, %.thread70
   %.pn.pn = phi { ptr, i32 } [ %.pn56, %.thread70 ], [ %141, %140 ], [ %59, %58 ], [ %37, %36 ], [ %51, %50 ], [ %97, %96 ]
-  %.128 = phi i1 [ false, %.thread70 ], [ false, %140 ], [ false, %58 ], [ true, %36 ], [ false, %50 ], [ false, %96 ]
+  %.2 = phi i1 [ false, %.thread70 ], [ false, %140 ], [ false, %58 ], [ true, %36 ], [ false, %50 ], [ false, %96 ]
   %.022 = phi i8 [ 0, %.thread70 ], [ 1, %140 ], [ 1, %58 ], [ 1, %36 ], [ 1, %50 ], [ 0, %96 ]
   invoke fastcc void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h5d7b6a924c094830E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %17) #31
           to label %142 unwind label %138

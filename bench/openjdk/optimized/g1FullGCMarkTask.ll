@@ -6814,9 +6814,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
@@ -7060,9 +7060,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
@@ -14525,9 +14525,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %70
 
 70:                                               ; preds = %68, %61
-  %.1.ph.i.i.i.i.i = phi i64 [ %59, %61 ], [ %67, %68 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %59, %61 ], [ %67, %68 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %61 ], [ %69, %68 ]
-  %71 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %71 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %72 = add i64 %.026.ph.i.i.i.i.i, %71
   %73 = icmp ult i64 %72, %49
   br i1 %73, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop20G1MarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS7_.exit
@@ -14732,9 +14732,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %70
 
 70:                                               ; preds = %68, %61
-  %.1.ph.i.i.i.i.i = phi i64 [ %59, %61 ], [ %67, %68 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %59, %61 ], [ %67, %68 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %61 ], [ %69, %68 ]
-  %71 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %71 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %72 = add i64 %.026.ph.i.i.i.i.i, %71
   %73 = icmp ult i64 %72, %49
   br i1 %73, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapIP7oopDesc20G1MarkAndPushClosureEEvP17stackChunkOopDescPT0_PlS8_.exit

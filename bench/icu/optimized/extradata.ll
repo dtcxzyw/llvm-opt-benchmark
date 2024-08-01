@@ -415,12 +415,12 @@ if.else:                                          ; preds = %_ZNK6icu_7513Unicod
   br label %if.end21
 
 if.end21:                                         ; preds = %if.else, %if.then16
-  %preMappingLength.0 = phi i32 [ 1, %if.then16 ], [ %add, %if.else ]
+  %preMappingLength.1 = phi i32 [ 1, %if.then16 ], [ %add, %if.else ]
   %or22 = or i32 %or, 64
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end21, %entry
-  %preMappingLength.1 = phi i32 [ %preMappingLength.0, %if.end21 ], [ 0, %entry ]
+  %preMappingLength.0 = phi i32 [ %preMappingLength.1, %if.end21 ], [ 0, %entry ]
   %firstUnit.0 = phi i32 [ %or22, %if.end21 ], [ %or, %entry ]
   %cc = getelementptr inbounds i8, ptr %norm, i64 40
   %19 = load i8, ptr %cc, align 8
@@ -439,12 +439,12 @@ if.then29:                                        ; preds = %if.end23
   store i16 %conv30, ptr %srcChar.addr.i40, align 2
   %call.i41 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %dataString, ptr noundef nonnull %srcChar.addr.i40, i32 noundef 0, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %srcChar.addr.i40)
-  %inc = add nsw i32 %preMappingLength.1, 1
+  %inc = add nsw i32 %preMappingLength.0, 1
   %or32 = or i32 %firstUnit.0, 128
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then29, %if.end23
-  %preMappingLength.2 = phi i32 [ %inc, %if.then29 ], [ %preMappingLength.1, %if.end23 ]
+  %preMappingLength.2 = phi i32 [ %inc, %if.then29 ], [ %preMappingLength.0, %if.end23 ]
   %firstUnit.1 = phi i32 [ %or32, %if.then29 ], [ %firstUnit.0, %if.end23 ]
   %conv34 = trunc i32 %firstUnit.1 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %srcChar.addr.i42)

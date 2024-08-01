@@ -1691,21 +1691,21 @@ if.else70:                                        ; preds = %if.end52
   br i1 %cmp72, label %error, label %if.end75
 
 if.end75:                                         ; preds = %if.else70, %if.else63
-  %m.0 = phi ptr [ %call55, %if.else63 ], [ %call71, %if.else70 ]
-  %23 = getelementptr i8, ptr %m.0, i64 8
-  %m.0.val = load ptr, ptr %23, align 8
-  %cmp.i.not.i = icmp eq ptr %m.0.val, @PyModule_Type
+  %m.1 = phi ptr [ %call55, %if.else63 ], [ %call71, %if.else70 ]
+  %23 = getelementptr i8, ptr %m.1, i64 8
+  %m.1.val = load ptr, ptr %23, align 8
+  %cmp.i.not.i = icmp eq ptr %m.1.val, @PyModule_Type
   br i1 %cmp.i.not.i, label %if.then78, label %PyObject_TypeCheck.exit
 
 PyObject_TypeCheck.exit:                          ; preds = %if.end75
-  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %m.0.val, ptr noundef nonnull @PyModule_Type) #4
+  %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %m.1.val, ptr noundef nonnull @PyModule_Type) #4
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else79, label %if.then78
 
 if.then78:                                        ; preds = %if.end75, %PyObject_TypeCheck.exit
-  %md_state = getelementptr inbounds i8, ptr %m.0, i64 32
+  %md_state = getelementptr inbounds i8, ptr %m.1, i64 32
   store ptr null, ptr %md_state, align 8
-  %md_def = getelementptr inbounds i8, ptr %m.0, i64 24
+  %md_def = getelementptr inbounds i8, ptr %m.1, i64 24
   store ptr %def, ptr %md_def, align 8
   br label %if.end94
 
@@ -1753,7 +1753,7 @@ if.end94:                                         ; preds = %if.end89, %if.then7
   br i1 %cmp95.not, label %if.end102, label %if.then96
 
 if.then96:                                        ; preds = %if.end94
-  %call98 = tail call fastcc i32 @_add_methods_to_object(ptr noundef nonnull %m.0, ptr noundef nonnull %call2, ptr noundef nonnull %30)
+  %call98 = tail call fastcc i32 @_add_methods_to_object(ptr noundef nonnull %m.1, ptr noundef nonnull %call2, ptr noundef nonnull %30)
   %cmp99.not = icmp eq i32 %call98, 0
   br i1 %cmp99.not, label %if.end102, label %error
 
@@ -1764,7 +1764,7 @@ if.end102:                                        ; preds = %if.then96, %if.end9
   br i1 %cmp103.not, label %if.end110, label %if.then104
 
 if.then104:                                       ; preds = %if.end102
-  %call106 = tail call i32 @PyModule_SetDocString(ptr noundef nonnull %m.0, ptr noundef nonnull %31)
+  %call106 = tail call i32 @PyModule_SetDocString(ptr noundef nonnull %m.1, ptr noundef nonnull %31)
   %cmp107.not = icmp eq i32 %call106, 0
   br i1 %cmp107.not, label %if.end110, label %error
 
@@ -1781,7 +1781,7 @@ if.end.i114:                                      ; preds = %if.end110
   br i1 %cmp.i116, label %return.sink.split, label %return
 
 error:                                            ; preds = %if.then.i59, %if.then104, %if.then96, %if.else70, %if.then57, %if.then60, %land.lhs.true47, %land.lhs.true, %if.end, %if.then91, %if.then87, %if.then66, %sw.default, %if.then24, %if.then18, %if.then11
-  %m.1 = phi ptr [ null, %if.end ], [ null, %if.then11 ], [ null, %sw.default ], [ null, %if.then24 ], [ null, %if.then18 ], [ null, %if.then57 ], [ null, %if.then60 ], [ %call55, %if.then66 ], [ %m.0, %if.then96 ], [ %m.0, %if.then104 ], [ %m.0, %if.then87 ], [ %m.0, %if.then91 ], [ null, %if.else70 ], [ null, %land.lhs.true ], [ null, %land.lhs.true47 ], [ null, %if.then.i59 ]
+  %m.0 = phi ptr [ null, %if.end ], [ null, %if.then11 ], [ null, %sw.default ], [ null, %if.then24 ], [ null, %if.then18 ], [ null, %if.then57 ], [ null, %if.then60 ], [ %call55, %if.then66 ], [ %m.1, %if.then96 ], [ %m.1, %if.then104 ], [ %m.1, %if.then87 ], [ %m.1, %if.then91 ], [ null, %if.else70 ], [ null, %land.lhs.true ], [ null, %land.lhs.true47 ], [ null, %if.then.i59 ]
   %34 = load i64, ptr %call2, align 8
   %35 = and i64 %34, 2147483648
   %cmp.i124.not = icmp eq i64 %35, 0
@@ -1798,29 +1798,29 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %error, %if.then1.i, %if.end.i
-  %cmp.not.i = icmp eq ptr %m.1, null
+  %cmp.not.i = icmp eq ptr %m.0, null
   br i1 %cmp.not.i, label %return, label %if.then.i64
 
 if.then.i64:                                      ; preds = %Py_DECREF.exit
-  %36 = load i64, ptr %m.1, align 8
+  %36 = load i64, ptr %m.0, align 8
   %37 = and i64 %36, 2147483648
   %cmp.i2.not.i = icmp eq i64 %37, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i66, label %return
 
 if.end.i.i66:                                     ; preds = %if.then.i64
   %dec.i.i = add i64 %36, -1
-  store i64 %dec.i.i, ptr %m.1, align 8
+  store i64 %dec.i.i, ptr %m.0, align 8
   %cmp.i.i = icmp eq i64 %dec.i.i, 0
   br i1 %cmp.i.i, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end.i.i66, %if.end.i114
-  %m.1.sink = phi ptr [ %call2, %if.end.i114 ], [ %m.1, %if.end.i.i66 ]
-  %retval.0.ph = phi ptr [ %m.0, %if.end.i114 ], [ null, %if.end.i.i66 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %m.1.sink) #4
+  %m.0.sink = phi ptr [ %call2, %if.end.i114 ], [ %m.0, %if.end.i.i66 ]
+  %retval.0.ph = phi ptr [ %m.1, %if.end.i114 ], [ null, %if.end.i.i66 ]
+  tail call void @_Py_Dealloc(ptr noundef nonnull %m.0.sink) #4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end.i.i66, %if.then.i64, %Py_DECREF.exit, %if.end.i114, %if.end110, %PyModuleDef_Init.exit
-  %retval.0 = phi ptr [ null, %PyModuleDef_Init.exit ], [ %m.0, %if.end110 ], [ %m.0, %if.end.i114 ], [ null, %Py_DECREF.exit ], [ null, %if.then.i64 ], [ null, %if.end.i.i66 ], [ %retval.0.ph, %return.sink.split ]
+  %retval.0 = phi ptr [ null, %PyModuleDef_Init.exit ], [ %m.1, %if.end110 ], [ %m.1, %if.end.i114 ], [ null, %Py_DECREF.exit ], [ null, %if.then.i64 ], [ null, %if.end.i.i66 ], [ %retval.0.ph, %return.sink.split ]
   ret ptr %retval.0
 }
 

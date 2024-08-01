@@ -1530,7 +1530,7 @@ for.body173.preheader.i:                          ; preds = %for.cond170.prehead
   br label %for.body173.i
 
 do.body.us.i:                                     ; preds = %for.body173.i, %for.cond191.for.end230_crit_edge.us.i
-  %processed.0.us.i = phi i32 [ %add231.us.i, %for.cond191.for.end230_crit_edge.us.i ], [ 0, %for.body173.i ]
+  %processed.1.us.i = phi i32 [ %add231.us.i, %for.cond191.for.end230_crit_edge.us.i ], [ 0, %for.body173.i ]
   %minblocks.0.us.i = phi i32 [ %sub232.us.i, %for.cond191.for.end230_crit_edge.us.i ], [ %div166242.i, %for.body173.i ]
   call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef %div18287) #7
   call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef %call, i32 noundef %div18287) #7
@@ -1568,7 +1568,7 @@ for.body194.us.i:                                 ; preds = %for.body194.us.i, %
   br i1 %exitcond285.not.i, label %for.cond191.for.end230_crit_edge.us.i, label %for.body194.us.i, !llvm.loop !20
 
 for.cond191.for.end230_crit_edge.us.i:            ; preds = %for.body194.us.i
-  %add231.us.i = add i32 %processed.0.us.i, 2048
+  %add231.us.i = add i32 %processed.1.us.i, 2048
   %sub232.us.i = add nsw i32 %minblocks.0.us.i, -32
   %cmp233.us.i = icmp ugt i32 %sub232.us.i, 32
   br i1 %cmp233.us.i, label %do.body.us.i, label %if.end235.i, !llvm.loop !21
@@ -1588,17 +1588,17 @@ for.body173.i:                                    ; preds = %for.body173.i, %for
   br i1 %exitcond279.not.i, label %do.body.us.i, label %for.body173.i, !llvm.loop !22
 
 do.body.i:                                        ; preds = %for.cond170.preheader.i, %do.body.i
-  %processed.0.i = phi i32 [ %add231.i, %do.body.i ], [ 0, %for.cond170.preheader.i ]
+  %processed.1.i = phi i32 [ %add231.i, %do.body.i ], [ 0, %for.cond170.preheader.i ]
   %minblocks.0.i = phi i32 [ %sub232.i, %do.body.i ], [ %div166242.i, %for.cond170.preheader.i ]
   call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %edges.i, i32 noundef 0) #7
   call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %ciph_d.i, ptr noundef %call, i32 noundef 0) #7
-  %add231.i = add i32 %processed.0.i, 2048
+  %add231.i = add i32 %processed.1.i, 2048
   %sub232.i = add nsw i32 %minblocks.0.i, -32
   %cmp233.i = icmp ugt i32 %sub232.i, 32
   br i1 %cmp233.i, label %do.body.i, label %if.end235.i, !llvm.loop !21
 
 if.end235.i:                                      ; preds = %for.cond191.for.end230_crit_edge.us.i, %do.body.i, %for.end157.i
-  %processed.1.i = phi i32 [ 0, %for.end157.i ], [ %add231.i, %do.body.i ], [ %add231.us.i, %for.cond191.for.end230_crit_edge.us.i ]
+  %processed.0.i = phi i32 [ 0, %for.end157.i ], [ %add231.i, %do.body.i ], [ %add231.us.i, %for.cond191.for.end230_crit_edge.us.i ]
   call void @sha1_multi_block(ptr noundef nonnull %add.ptr4.i, ptr noundef nonnull %hash_d.i, i32 noundef %div18287) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %blocks.i, i8 0, i64 1024, i1 false)
   br i1 %cmp36245.not.i, label %for.end391.thread.i, label %for.body241.lr.ph.i
@@ -1622,7 +1622,7 @@ for.body241.i:                                    ; preds = %for.body241.i, %for
   %idx.ext258.i = zext i32 %mul253.i to i64
   %add.ptr259.i = getelementptr inbounds i8, ptr %64, i64 %idx.ext258.i
   %65 = add i32 %cond249.i, -51
-  %66 = add i32 %processed.1.i, %mul253.i
+  %66 = add i32 %processed.0.i, %mul253.i
   %sub262.i = sub i32 %65, %66
   %arrayidx264.i = getelementptr inbounds [8 x %union.anon.2], ptr %blocks.i, i64 0, i64 %indvars.iv286.i
   %conv266.i = zext i32 %sub262.i to i64
@@ -1732,7 +1732,7 @@ for.body396.i:                                    ; preds = %for.body396.i, %for
   %out407.i = getelementptr inbounds i8, ptr %arrayidx406.i, i64 8
   %85 = load ptr, ptr %out407.i, align 8
   %86 = load ptr, ptr %arrayidx406.i, align 8
-  %sub411.i = sub i32 %cond404.i, %processed.1.i
+  %sub411.i = sub i32 %cond404.i, %processed.0.i
   %conv412.i = zext i32 %sub411.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %85, ptr align 1 %86, i64 %conv412.i, i1 false)
   %87 = load ptr, ptr %out407.i, align 8
@@ -1778,7 +1778,7 @@ for.body396.i:                                    ; preds = %for.body396.i, %for
   %103 = getelementptr i8, ptr %scevgep.i, i64 %idx.ext420.i
   %scevgep298.i = getelementptr i8, ptr %103, i64 %101
   %104 = sub i32 %cond404.i, %rem454.i
-  %reass.sub = sub i32 %104, %processed.1.i
+  %reass.sub = sub i32 %104, %processed.0.i
   %sub466.i = add i32 %reass.sub, 36
   %div467243.i = lshr i32 %sub466.i, 4
   %blocks470.i = getelementptr inbounds i8, ptr %arrayidx406.i, i64 16

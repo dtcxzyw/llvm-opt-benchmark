@@ -44,27 +44,27 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %11
   br label %23
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
-  %.1.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i, %11 ]
+  %.0.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i, %11 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !4
-  %.not = icmp eq i64 %.1.i, 0
+  %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %23, label %16
 
 16:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
-  %.not.i.i = icmp ult i64 %.1.i, %2
+  %.not.i.i = icmp ult i64 %.0.i, %2
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", label %17
 
 17:                                               ; preds = %16
-  %18 = icmp eq i64 %.1.i, %2
+  %18 = icmp eq i64 %.0.i, %2
   br i1 %18, label %26, label %22
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i": ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 %.1.i
+  %19 = getelementptr inbounds i8, ptr %1, i64 %.0.i
   %20 = load i8, ptr %19, align 1, !alias.scope !7, !noalias !12, !noundef !14
   %21 = icmp sgt i8 %20, -65
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %17
-  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %.1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #6, !noalias !12
+  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #6, !noalias !12
   unreachable
 
 23:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit, %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread
@@ -76,11 +76,11 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
   br label %32
 
 26:                                               ; preds = %17, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
-  %27 = getelementptr inbounds i8, ptr %1, i64 %.1.i
-  %28 = sub i64 %2, %.1.i
+  %27 = getelementptr inbounds i8, ptr %1, i64 %.0.i
+  %28 = sub i64 %2, %.0.i
   store ptr %1, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.1.i, ptr %29, align 8
+  store i64 %.0.i, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %27, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 24
@@ -132,27 +132,27 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %13
   br label %25
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %13, %16
-  %.1.i = phi i64 [ %17, %16 ], [ %.fca.1.extract.i, %13 ]
+  %.0.i = phi i64 [ %17, %16 ], [ %.fca.1.extract.i, %13 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !16
-  %.not = icmp eq i64 %.1.i, 0
+  %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %25, label %18
 
 18:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
-  %.not.i.i = icmp ult i64 %.1.i, %7
+  %.not.i.i = icmp ult i64 %.0.i, %7
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", label %19
 
 19:                                               ; preds = %18
-  %20 = icmp eq i64 %.1.i, %7
+  %20 = icmp eq i64 %.0.i, %7
   br i1 %20, label %27, label %24
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i": ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 %.1.i
+  %21 = getelementptr inbounds i8, ptr %5, i64 %.0.i
   %22 = load i8, ptr %21, align 1, !alias.scope !19, !noalias !24, !noundef !14
   %23 = icmp sgt i8 %22, -65
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %19
-  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7, i64 noundef 0, i64 noundef %.1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #6, !noalias !24
+  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7, i64 noundef 0, i64 noundef %.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #6, !noalias !24
   unreachable
 
 25:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit, %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread
@@ -162,14 +162,14 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %13, %16
   br label %34
 
 27:                                               ; preds = %19, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
-  %28 = getelementptr inbounds i8, ptr %5, i64 %.1.i
-  %29 = sub i64 %7, %.1.i
+  %28 = getelementptr inbounds i8, ptr %5, i64 %.0.i
+  %29 = sub i64 %7, %.0.i
   %30 = getelementptr inbounds i8, ptr %1, i64 16
   %31 = load i64, ptr %30, align 8, !noundef !14
-  %32 = add i64 %31, %.1.i
+  %32 = add i64 %31, %.0.i
   store ptr %5, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.1.i, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.0.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %31, ptr %.sroa.5.0..sroa_idx, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 24
@@ -222,27 +222,27 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %11
   br label %23
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
-  %.1.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i, %11 ]
+  %.0.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i, %11 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !26
-  %.not = icmp eq i64 %.1.i, 0
+  %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %23, label %16
 
 16:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
-  %.not.i.i = icmp ult i64 %.1.i, %2
+  %.not.i.i = icmp ult i64 %.0.i, %2
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", label %17
 
 17:                                               ; preds = %16
-  %18 = icmp eq i64 %.1.i, %2
+  %18 = icmp eq i64 %.0.i, %2
   br i1 %18, label %26, label %22
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i": ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 %.1.i
+  %19 = getelementptr inbounds i8, ptr %1, i64 %.0.i
   %20 = load i8, ptr %19, align 1, !alias.scope !29, !noalias !34, !noundef !14
   %21 = icmp sgt i8 %20, -65
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %17
-  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %.1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #6, !noalias !34
+  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #6, !noalias !34
   unreachable
 
 23:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit, %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread
@@ -254,11 +254,11 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
   br label %32
 
 26:                                               ; preds = %17, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
-  %27 = getelementptr inbounds i8, ptr %1, i64 %.1.i
-  %28 = sub i64 %2, %.1.i
+  %27 = getelementptr inbounds i8, ptr %1, i64 %.0.i
+  %28 = sub i64 %2, %.0.i
   store ptr %1, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.1.i, ptr %29, align 8
+  store i64 %.0.i, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %27, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 24
@@ -307,27 +307,27 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread: ; preds = %11
   br label %23
 
 _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
-  %.1.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i, %11 ]
+  %.0.i = phi i64 [ %15, %14 ], [ %.fca.1.extract.i, %11 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !36
-  %.not = icmp eq i64 %.1.i, 0
+  %.not = icmp eq i64 %.0.i, 0
   br i1 %.not, label %23, label %16
 
 16:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit
-  %.not.i.i = icmp ult i64 %.1.i, %2
+  %.not.i.i = icmp ult i64 %.0.i, %2
   br i1 %.not.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", label %17
 
 17:                                               ; preds = %16
-  %18 = icmp eq i64 %.1.i, %2
+  %18 = icmp eq i64 %.0.i, %2
   br i1 %18, label %26, label %22
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i": ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 %.1.i
+  %19 = getelementptr inbounds i8, ptr %1, i64 %.0.i
   %20 = load i8, ptr %19, align 1, !alias.scope !39, !noalias !44, !noundef !14
   %21 = icmp sgt i8 %20, -65
   br i1 %21, label %26, label %22
 
 22:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i", %17
-  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %.1.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #6, !noalias !44
+  call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef %.0.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3d131fa51848d5b1ae8500cd42c0b3a9.1) #6, !noalias !44
   unreachable
 
 23:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit, %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread
@@ -339,11 +339,11 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
   br label %32
 
 26:                                               ; preds = %17, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
-  %27 = getelementptr inbounds i8, ptr %1, i64 %.1.i
-  %28 = sub i64 %2, %.1.i
+  %27 = getelementptr inbounds i8, ptr %1, i64 %.0.i
+  %28 = sub i64 %2, %.0.i
   store ptr %1, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.1.i, ptr %29, align 8
+  store i64 %.0.i, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %27, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 24

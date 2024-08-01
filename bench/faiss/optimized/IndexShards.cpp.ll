@@ -716,14 +716,14 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc45
   br i1 %exitcond.not, label %.loopexit, label %93, !llvm.loop !5
 
 97:                                               ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i, %85, %.loopexit, %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit
-  %.sroa.046.2 = phi ptr [ %.sroa.046.3, %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit ], [ %.sroa.046.3, %.loopexit ], [ null, %85 ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i ]
+  %.sroa.046.1 = phi ptr [ %.sroa.046.0, %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit ], [ %.sroa.046.0, %.loopexit ], [ null, %85 ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i ]
   %98 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit41
 
 .loopexit:                                        ; preds = %93, %82, %.thread53, %74
   %.in.in = phi i64 [ %81, %74 ], [ %57, %.thread53 ], [ %81, %82 ], [ %81, %93 ]
-  %.sroa.046.3 = phi ptr [ null, %74 ], [ null, %.thread53 ], [ null, %82 ], [ %87, %93 ]
+  %.sroa.046.0 = phi ptr [ null, %74 ], [ null, %.thread53 ], [ null, %82 ], [ %87, %93 ]
   %.022 = phi ptr [ %3, %74 ], [ null, %.thread53 ], [ null, %82 ], [ %87, %93 ]
   %99 = getelementptr inbounds i8, ptr %0, i64 8
   %100 = load i32, ptr %99, align 8
@@ -776,11 +776,11 @@ _ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit:     ; preds = %107, %109
           to label %117 unwind label %97
 
 117:                                              ; preds = %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit
-  %.not.i.i.i = icmp eq ptr %.sroa.046.3, null
+  %.not.i.i.i = icmp eq ptr %.sroa.046.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %118
 
 118:                                              ; preds = %117
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.046.3) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.046.0) #20
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %117, %118
@@ -805,13 +805,13 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %117, %118
   unreachable
 
 _ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit41:   ; preds = %122, %119, %97
-  %.sroa.046.4 = phi ptr [ %.sroa.046.2, %97 ], [ %.sroa.046.3, %119 ], [ %.sroa.046.3, %122 ]
+  %.sroa.046.2 = phi ptr [ %.sroa.046.1, %97 ], [ %.sroa.046.0, %119 ], [ %.sroa.046.0, %122 ]
   %.pn31 = phi { ptr, i32 } [ %98, %97 ], [ %120, %119 ], [ %120, %122 ]
-  %.not.i.i.i42 = icmp eq ptr %.sroa.046.4, null
+  %.not.i.i.i42 = icmp eq ptr %.sroa.046.2, null
   br i1 %.not.i.i.i42, label %_ZNSt6vectorIlSaIlEED2Ev.exit43, label %127
 
 127:                                              ; preds = %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit41
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.046.4) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.046.2) #20
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit43
 
 _ZNSt6vectorIlSaIlEED2Ev.exit43:                  ; preds = %127, %_ZNSt8functionIFviPN5faiss5IndexEEED2Ev.exit41, %73, %46, %28
@@ -2082,14 +2082,14 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc45
   br i1 %exitcond.not, label %.loopexit, label %93, !llvm.loop !12
 
 97:                                               ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i, %85, %.loopexit, %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit
-  %.sroa.046.2 = phi ptr [ %.sroa.046.3, %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit ], [ %.sroa.046.3, %.loopexit ], [ null, %85 ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i ]
+  %.sroa.046.1 = phi ptr [ %.sroa.046.0, %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit ], [ %.sroa.046.0, %.loopexit ], [ null, %85 ], [ null, %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i ]
   %98 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit41
 
 .loopexit:                                        ; preds = %93, %82, %.thread53, %74
   %.in.in = phi i64 [ %81, %74 ], [ %57, %.thread53 ], [ %81, %82 ], [ %81, %93 ]
-  %.sroa.046.3 = phi ptr [ null, %74 ], [ null, %.thread53 ], [ null, %82 ], [ %87, %93 ]
+  %.sroa.046.0 = phi ptr [ null, %74 ], [ null, %.thread53 ], [ null, %82 ], [ %87, %93 ]
   %.022 = phi ptr [ %3, %74 ], [ null, %.thread53 ], [ null, %82 ], [ %87, %93 ]
   %99 = getelementptr inbounds i8, ptr %0, i64 8
   %100 = load i32, ptr %99, align 8
@@ -2144,11 +2144,11 @@ _ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit: ; preds = %109, %111
           to label %119 unwind label %97
 
 119:                                              ; preds = %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit
-  %.not.i.i.i = icmp eq ptr %.sroa.046.3, null
+  %.not.i.i.i = icmp eq ptr %.sroa.046.0, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %120
 
 120:                                              ; preds = %119
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.046.3) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.046.0) #20
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %119, %120
@@ -2173,13 +2173,13 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %119, %120
   unreachable
 
 _ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit41: ; preds = %124, %121, %97
-  %.sroa.046.4 = phi ptr [ %.sroa.046.2, %97 ], [ %.sroa.046.3, %121 ], [ %.sroa.046.3, %124 ]
+  %.sroa.046.2 = phi ptr [ %.sroa.046.1, %97 ], [ %.sroa.046.0, %121 ], [ %.sroa.046.0, %124 ]
   %.pn31 = phi { ptr, i32 } [ %98, %97 ], [ %122, %121 ], [ %122, %124 ]
-  %.not.i.i.i42 = icmp eq ptr %.sroa.046.4, null
+  %.not.i.i.i42 = icmp eq ptr %.sroa.046.2, null
   br i1 %.not.i.i.i42, label %_ZNSt6vectorIlSaIlEED2Ev.exit43, label %129
 
 129:                                              ; preds = %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit41
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.046.4) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.046.2) #20
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit43
 
 _ZNSt6vectorIlSaIlEED2Ev.exit43:                  ; preds = %129, %_ZNSt8functionIFviPN5faiss11IndexBinaryEEED2Ev.exit41, %73, %46, %28

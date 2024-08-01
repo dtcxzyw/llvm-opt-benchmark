@@ -3077,7 +3077,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %i.030.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
   %affected_cpu.029.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %affected_cpu.1.i, %for.inc.i ]
-  %vcpu_total_blocktime.028.i = phi i8 [ 0, %for.body.lr.ph.i ], [ %vcpu_total_blocktime.2.i, %for.inc.i ]
+  %vcpu_total_blocktime.028.i = phi i8 [ 0, %for.body.lr.ph.i ], [ %vcpu_total_blocktime.1.i, %for.inc.i ]
   %21 = load ptr, ptr %17, align 8
   %idxprom.i = sext i32 %i.030.i to i64
   %arrayidx.i = getelementptr i32, ptr %21, i64 %idxprom.i
@@ -3106,7 +3106,7 @@ land.lhs.true.i:                                  ; preds = %while.end.i
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %land.lhs.true.i, %while.end.i
-  %vcpu_total_blocktime.1.i = phi i8 [ %vcpu_total_blocktime.028.i, %while.end.i ], [ %spec.select.i, %land.lhs.true.i ]
+  %vcpu_total_blocktime.2.i = phi i8 [ %vcpu_total_blocktime.028.i, %while.end.i ], [ %spec.select.i, %land.lhs.true.i ]
   %28 = load ptr, ptr %vcpu_blocktime24.i, align 8
   %arrayidx26.i = getelementptr i32, ptr %28, i64 %idxprom.i
   %29 = load i32, ptr %arrayidx26.i, align 4
@@ -3115,14 +3115,14 @@ if.end23.i:                                       ; preds = %land.lhs.true.i, %w
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end23.i, %for.body.i
-  %vcpu_total_blocktime.2.i = phi i8 [ %vcpu_total_blocktime.028.i, %for.body.i ], [ %vcpu_total_blocktime.1.i, %if.end23.i ]
+  %vcpu_total_blocktime.1.i = phi i8 [ %vcpu_total_blocktime.028.i, %for.body.i ], [ %vcpu_total_blocktime.2.i, %if.end23.i ]
   %affected_cpu.1.i = phi i32 [ %affected_cpu.029.i, %for.body.i ], [ %add.i, %if.end23.i ]
   %inc.i = add nuw i32 %i.030.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %18
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !21
 
 for.end.i:                                        ; preds = %for.inc.i
-  %30 = trunc nuw i8 %vcpu_total_blocktime.2.i to i1
+  %30 = trunc nuw i8 %vcpu_total_blocktime.1.i to i1
   %31 = atomicrmw sub ptr %smp_cpus_down.i, i32 %affected_cpu.1.i seq_cst, align 4
   br i1 %30, label %if.then32.i, label %for.end.if.end37_crit_edge.i
 

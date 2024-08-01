@@ -220,7 +220,7 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
 
 .preheader:                                       ; preds = %.thread, %56
   %.pre.pre95 = phi ptr [ %.pre.pre93, %.thread ], [ %.pre.pre, %56 ]
-  %.194 = phi i32 [ %.066, %.thread ], [ %spec.select, %56 ]
+  %.294 = phi i32 [ %.066, %.thread ], [ %spec.select, %56 ]
   %59 = sext i32 %19 to i64
   %60 = getelementptr ptr, ptr %.pre.pre95, i64 %59
   br label %61
@@ -239,9 +239,9 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
 .loopexit:                                        ; preds = %61, %56, %43
   %.pre = phi ptr [ %.pre.pre, %56 ], [ %46, %43 ], [ %.pre.pre95, %61 ]
   %.sroa.15.077 = phi i32 [ %42, %56 ], [ %45, %43 ], [ %42, %61 ]
-  %.2 = phi i32 [ %spec.select, %56 ], [ %.066, %43 ], [ %.194, %61 ]
-  %.sroa.7.1 = phi i32 [ %.sroa.1.0.copyload, %56 ], [ %52, %43 ], [ %65, %61 ]
-  %69 = zext i32 %.sroa.7.1 to i64
+  %.1 = phi i32 [ %spec.select, %56 ], [ %.066, %43 ], [ %.294, %61 ]
+  %.sroa.7.0 = phi i32 [ %.sroa.1.0.copyload, %56 ], [ %52, %43 ], [ %65, %61 ]
+  %69 = zext i32 %.sroa.7.0 to i64
   store i64 %69, ptr %6, align 16
   %70 = ptrtoint ptr %8 to i64
   %71 = getelementptr inbounds i8, ptr %6, i64 16
@@ -251,7 +251,7 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   store i8 0, ptr %72, align 1
   %73 = getelementptr inbounds i8, ptr %7, i64 2
   store i8 0, ptr %73, align 1
-  %74 = icmp sgt i32 %.2, 0
+  %74 = icmp sgt i32 %.1, 0
   %.pre89 = load i32, ptr %9, align 4
   %.fr86 = freeze i32 %.pre89
   br i1 %74, label %.lr.ph84, label %._crit_edge85
@@ -268,7 +268,7 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
 
 .lr.ph84.split.us:                                ; preds = %.lr.ph84.split.us.preheader, %._crit_edge.us
   %.06582.us = phi i32 [ %102, %._crit_edge.us ], [ 0, %.lr.ph84.split.us.preheader ]
-  %.381.us = phi i32 [ %103, %._crit_edge.us ], [ %.2, %.lr.ph84.split.us.preheader ]
+  %.381.us = phi i32 [ %103, %._crit_edge.us ], [ %.1, %.lr.ph84.split.us.preheader ]
   %.16880.us = phi ptr [ %104, %._crit_edge.us ], [ %.067, %.lr.ph84.split.us.preheader ]
   %78 = load volatile i32, ptr @InterruptPending, align 4
   %.not75.us = icmp eq i32 %78, 0
@@ -326,7 +326,7 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
 
 .lr.ph84.split:                                   ; preds = %.lr.ph84, %108
   %.06582 = phi i32 [ %110, %108 ], [ 0, %.lr.ph84 ]
-  %.381 = phi i32 [ %116, %108 ], [ %.2, %.lr.ph84 ]
+  %.381 = phi i32 [ %116, %108 ], [ %.1, %.lr.ph84 ]
   %.16880 = phi ptr [ %117, %108 ], [ %.067, %.lr.ph84 ]
   %106 = load volatile i32, ptr @InterruptPending, align 4
   %.not75 = icmp eq i32 %106, 0
@@ -383,7 +383,7 @@ toast_close_indexes.exit:                         ; preds = %.lr.ph.i, %._crit_e
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 6
   store i32 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 10
-  store i32 %.sroa.7.1, ptr %.sroa.7.0..sroa_idx, align 1
+  store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 1
   %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 14
   store i32 %.sroa.15.077, ptr %.sroa.15.0..sroa_idx, align 1
   %125 = ptrtoint ptr %122 to i64

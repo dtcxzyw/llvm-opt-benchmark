@@ -472,9 +472,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2241,7 +2241,7 @@ invoke.cont66:                                    ; preds = %for.body.i, %if.end
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end110, %invoke.cont66
-  %bestSkeleton.0 = phi ptr [ null, %invoke.cont66 ], [ %bestSkeleton.1, %if.end110 ]
+  %bestSkeleton.0 = phi ptr [ null, %invoke.cont66 ], [ %bestSkeleton.2, %if.end110 ]
   %bestDistance.0 = phi i32 [ 56632, %invoke.cont66 ], [ %bestDistance.1, %if.end110 ]
   %71 = load ptr, ptr %fIntervalPatterns, align 8
   %72 = load ptr, ptr %71, align 8
@@ -2365,7 +2365,7 @@ if.then109:                                       ; preds = %for.end107
   br label %if.end110
 
 if.end110:                                        ; preds = %if.then109, %for.end107
-  %bestSkeleton.1 = phi ptr [ %keyTok.sroa.0.0.copyload, %if.then109 ], [ %bestSkeleton.0, %for.end107 ]
+  %bestSkeleton.2 = phi ptr [ %keyTok.sroa.0.0.copyload, %if.then109 ], [ %bestSkeleton.0, %for.end107 ]
   %bestDistance.1 = phi i32 [ %distance.1, %if.then109 ], [ %bestDistance.0, %for.end107 ]
   %cmp111 = icmp eq i32 %distance.1, 0
   br i1 %cmp111, label %if.then112, label %while.cond, !llvm.loop !11
@@ -2381,7 +2381,7 @@ while.end.loopexit:                               ; preds = %invoke.cont67
 
 while.end:                                        ; preds = %while.end.loopexit, %if.then112
   %cmp116.not = phi i1 [ false, %if.then112 ], [ %84, %while.end.loopexit ]
-  %bestSkeleton.2 = phi ptr [ %bestSkeleton.1, %if.then112 ], [ %bestSkeleton.0, %while.end.loopexit ]
+  %bestSkeleton.1 = phi ptr [ %bestSkeleton.2, %if.then112 ], [ %bestSkeleton.0, %while.end.loopexit ]
   %or.cond = select i1 %tobool114.not, i1 true, i1 %cmp116.not
   br i1 %or.cond, label %if.end118, label %if.then117
 
@@ -2391,7 +2391,7 @@ if.then117:                                       ; preds = %while.end
 
 if.end118:                                        ; preds = %if.then117, %while.end
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %copySkeleton) #15
-  ret ptr %bestSkeleton.2
+  ret ptr %bestSkeleton.1
 
 ehcleanup119:                                     ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad61, %lpad51, %ehcleanup45, %ehcleanup35, %ehcleanup
   %.pn46 = phi { ptr, i32 } [ %61, %lpad61 ], [ %60, %lpad51 ], [ %.pn40, %ehcleanup45 ], [ %.pn38, %ehcleanup35 ], [ %.pn, %ehcleanup ], [ %lpad.loopexit200, %lpad.loopexit ], [ %lpad.loopexit.split-lp201, %lpad.loopexit.split-lp ]

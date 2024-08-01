@@ -2127,8 +2127,8 @@ _ZN5Yosys5RTLIL5ConstaSERKS1_.exit:               ; preds = %732, %_ZSt4copyIN9_
   br label %775
 
 775:                                              ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i, %.lr.ph.i
-  %.sroa.16.3 = phi ptr [ null, %.lr.ph.i ], [ %.sroa.16.4, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i ]
-  %776 = phi ptr [ null, %.lr.ph.i ], [ %.sroa.11.3, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i ]
+  %.sroa.16.5 = phi ptr [ null, %.lr.ph.i ], [ %.sroa.16.6, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i ]
+  %776 = phi ptr [ null, %.lr.ph.i ], [ %.sroa.11.5, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i ]
   %777 = phi ptr [ null, %.lr.ph.i ], [ %1217, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i ]
   %778 = load ptr, ptr %244, align 8, !noalias !31
@@ -2981,7 +2981,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i387: ;
 
 _ZNK5Yosys10FfInitValsclENS_5RTLIL6SigBitE.exit:  ; preds = %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i387, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i390, %_ZNK5Yosys6SigMapclENS_5RTLIL6SigBitE.exit.i, %._crit_edge.i.i380, %.loopexit612
   %.0.i = phi i8 [ %1197, %.loopexit612 ], [ 2, %._crit_edge.i.i380 ], [ 2, %_ZNK5Yosys6SigMapclENS_5RTLIL6SigBitE.exit.i ], [ 2, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.us.i390 ], [ 2, %_ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i387 ]
-  %.not.i.i.i139 = icmp eq ptr %776, %.sroa.16.3
+  %.not.i.i.i139 = icmp eq ptr %776, %.sroa.16.5
   br i1 %.not.i.i.i139, label %1199, label %1198
 
 1198:                                             ; preds = %_ZNK5Yosys10FfInitValsclENS_5RTLIL6SigBitE.exit
@@ -2989,7 +2989,7 @@ _ZNK5Yosys10FfInitValsclENS_5RTLIL6SigBitE.exit:  ; preds = %_ZN5Yosys7hashlib8h
   br label %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i
 
 1199:                                             ; preds = %_ZNK5Yosys10FfInitValsclENS_5RTLIL6SigBitE.exit
-  %1200 = ptrtoint ptr %.sroa.16.3 to i64
+  %1200 = ptrtoint ptr %.sroa.16.5 to i64
   %1201 = ptrtoint ptr %777 to i64
   %1202 = sub i64 %1200, %1201
   %1203 = icmp eq i64 %1202, 9223372036854775807
@@ -3040,9 +3040,9 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %1198
   %.pn611 = phi ptr [ %1212, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %776, %1198 ]
-  %.sroa.16.4 = phi ptr [ %1216, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %.sroa.16.3, %1198 ]
+  %.sroa.16.6 = phi ptr [ %1216, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %.sroa.16.5, %1198 ]
   %1217 = phi ptr [ %1211, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i ], [ %777, %1198 ]
-  %.sroa.11.3 = getelementptr inbounds i8, ptr %.pn611, i64 1
+  %.sroa.11.5 = getelementptr inbounds i8, ptr %.pn611, i64 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i140 = icmp eq i64 %indvars.iv.next.i, %774
   br i1 %.not.i140, label %_ZNK5Yosys10FfInitValsclERKNS_5RTLIL7SigSpecE.exit, label %775
@@ -3129,7 +3129,7 @@ _ZN5Yosys10FfInitVals11remove_initERKNS_5RTLIL7SigSpecE.exit: ; preds = %.noexc1
   br i1 %1234, label %.lr.ph1483, label %._crit_edge1484
 
 .lr.ph1483:                                       ; preds = %_ZN5Yosys10FfInitVals11remove_initERKNS_5RTLIL7SigSpecE.exit
-  %1235 = ptrtoint ptr %.sroa.11.3 to i64
+  %1235 = ptrtoint ptr %.sroa.11.5 to i64
   %1236 = ptrtoint ptr %1217 to i64
   %1237 = sub i64 %1235, %1236
   br label %1238

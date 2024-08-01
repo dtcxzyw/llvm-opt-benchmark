@@ -850,8 +850,8 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp, label %do.body7, label %label_skip_coalesce
 
 do.body7:                                         ; preds = %if.else, %do.body7
-  %edata.addr.0 = phi ptr [ %call.i30, %do.body7 ], [ %edata, %if.else ]
-  %call.i30 = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef readonly %pac, ptr noundef readonly %ehooks, ptr noundef %ecache, ptr noundef %edata.addr.0, ptr noundef nonnull %coalesced)
+  %edata.addr.1 = phi ptr [ %call.i30, %do.body7 ], [ %edata, %if.else ]
+  %call.i30 = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef readonly %pac, ptr noundef readonly %ehooks, ptr noundef %ecache, ptr noundef %edata.addr.1, ptr noundef nonnull %coalesced)
   %6 = load i8, ptr %coalesced, align 1
   %tobool11 = trunc i8 %6 to i1
   br i1 %tobool11, label %do.body7, label %do.end12, !llvm.loop !7
@@ -896,18 +896,18 @@ if.then17:                                        ; preds = %extent_may_force_de
   br label %return
 
 label_skip_coalesce:                              ; preds = %land.lhs.true, %if.then1, %do.end12, %extent_may_force_decay.exit, %if.else, %malloc_mutex_lock.exit
-  %edata.addr.1 = phi ptr [ %edata, %malloc_mutex_lock.exit ], [ %call.i30, %extent_may_force_decay.exit ], [ %call.i30, %do.end12 ], [ %edata, %if.else ], [ %call.i, %if.then1 ], [ %call.i30, %land.lhs.true ]
+  %edata.addr.0 = phi ptr [ %edata, %malloc_mutex_lock.exit ], [ %call.i30, %extent_may_force_decay.exit ], [ %call.i30, %do.end12 ], [ %edata, %if.else ], [ %call.i, %if.then1 ], [ %call.i30, %land.lhs.true ]
   %15 = getelementptr i8, ptr %pac, i64 58384
   %pac.val = load ptr, ptr %15, align 8
   %state.i.i = getelementptr inbounds i8, ptr %ecache, i64 19424
   %16 = load i32, ptr %state.i.i, align 8
-  tail call void @emap_update_edata_state(ptr noundef %tsdn, ptr noundef %pac.val, ptr noundef %edata.addr.1, i32 noundef %16) #9
-  %edata.val.i.i = load i64, ptr %edata.addr.1, align 8
+  tail call void @emap_update_edata_state(ptr noundef %tsdn, ptr noundef %pac.val, ptr noundef %edata.addr.0, i32 noundef %16) #9
+  %edata.val.i.i = load i64, ptr %edata.addr.0, align 8
   %17 = and i64 %edata.val.i.i, 65536
   %tobool.i.not.i.i = icmp eq i64 %17, 0
   %cond.v.i.i = select i1 %tobool.i.not.i.i, i64 112, i64 9768
   %cond.i.i = getelementptr inbounds i8, ptr %ecache, i64 %cond.v.i.i
-  tail call void @eset_insert(ptr noundef nonnull %cond.i.i, ptr noundef nonnull %edata.addr.1) #9
+  tail call void @eset_insert(ptr noundef nonnull %cond.i.i, ptr noundef nonnull %edata.addr.0) #9
   %locked.i36 = getelementptr inbounds i8, ptr %ecache, i64 104
   store atomic i8 0, ptr %locked.i36 monotonic, align 1
   %call1.i38 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #9

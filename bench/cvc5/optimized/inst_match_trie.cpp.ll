@@ -645,7 +645,7 @@ lpad41:                                           ; preds = %invoke.cont39
   br label %eh.resume
 
 cleanup:                                          ; preds = %if.end32.thread, %if.then13.i.i85, %if.then.i.i79, %invoke.cont24, %if.then13.i.i114, %if.then.i.i108, %invoke.cont42, %if.end32
-  %retval.0 = phi i1 [ true, %if.end32 ], [ true, %invoke.cont42 ], [ true, %if.then.i.i108 ], [ true, %if.then13.i.i114 ], [ %call25, %invoke.cont24 ], [ %call25, %if.then.i.i79 ], [ %call25, %if.then13.i.i85 ], [ true, %if.end32.thread ]
+  %retval.1 = phi i1 [ true, %if.end32 ], [ true, %invoke.cont42 ], [ true, %if.then.i.i108 ], [ true, %if.then13.i.i114 ], [ %call25, %invoke.cont24 ], [ %call25, %if.then.i.i79 ], [ %call25, %if.then13.i.i85 ], [ true, %if.end32.thread ]
   %42 = load ptr, ptr %n, align 8
   %bf.load.i.i117 = load i64, ptr %42, align 8
   %43 = and i64 %bf.load.i.i117, 1152920405095219200
@@ -673,8 +673,8 @@ terminate.lpad.i126:                              ; preds = %if.then13.i.i125
   unreachable
 
 return:                                           ; preds = %if.then13.i.i125, %if.then.i.i119, %cleanup, %if.then13.i.i37, %if.then.i.i31, %if.then.critedge, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %retval.1 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %if.then.critedge ], [ false, %if.then.i.i31 ], [ false, %if.then13.i.i37 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i119 ], [ %retval.0, %if.then13.i.i125 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %if.then.critedge ], [ false, %if.then.i.i31 ], [ false, %if.then13.i.i37 ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i119 ], [ %retval.1, %if.then13.i.i125 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad11, %lpad23, %lpad41, %lpad
   %n.sink = phi ptr [ %ref.tmp, %lpad ], [ %n, %lpad41 ], [ %n, %lpad23 ], [ %n, %lpad11 ]
@@ -2335,7 +2335,7 @@ lpad48:                                           ; preds = %invoke.cont46
   br label %eh.resume
 
 cleanup:                                          ; preds = %if.then13.i.i93, %if.then.i.i87, %invoke.cont49, %if.end35, %if.then31
-  %retval.0 = phi i1 [ %25, %if.then31 ], [ true, %if.end35 ], [ true, %invoke.cont49 ], [ true, %if.then.i.i87 ], [ true, %if.then13.i.i93 ]
+  %retval.1 = phi i1 [ %25, %if.then31 ], [ true, %if.end35 ], [ true, %invoke.cont49 ], [ true, %if.then.i.i87 ], [ true, %if.then13.i.i93 ]
   %44 = load ptr, ptr %n, align 8
   %bf.load.i.i96 = load i64, ptr %44, align 8
   %45 = and i64 %bf.load.i.i96, 1152920405095219200
@@ -2363,8 +2363,8 @@ terminate.lpad.i105:                              ; preds = %if.then13.i.i104
   unreachable
 
 return:                                           ; preds = %if.then13.i.i104, %if.then.i.i98, %cleanup, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.then
-  %retval.1 = phi i1 [ true, %if.then ], [ %reset.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i.i98 ], [ %retval.0, %if.then13.i.i104 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %if.then ], [ %reset.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %retval.1, %cleanup ], [ %retval.1, %if.then.i.i98 ], [ %retval.1, %if.then13.i.i104 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad13, %lpad25, %lpad.i, %lpad48, %lpad
   %n.sink = phi ptr [ %ref.tmp6, %lpad ], [ %n, %lpad48 ], [ %n, %lpad.i ], [ %n, %lpad25 ], [ %n, %lpad13 ]

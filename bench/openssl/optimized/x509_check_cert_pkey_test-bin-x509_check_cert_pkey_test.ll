@@ -309,8 +309,8 @@ if.end40:                                         ; preds = %sw.bb36
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end40, %if.end34
-  %x509.0 = phi ptr [ null, %if.end40 ], [ %call31, %if.end34 ]
-  %x509_req.0 = phi ptr [ %call37, %if.end40 ], [ null, %if.end34 ]
+  %x509.1 = phi ptr [ null, %if.end40 ], [ %call31, %if.end34 ]
+  %x509_req.1 = phi ptr [ %call37, %if.end40 ], [ null, %if.end34 ]
   %result.0 = phi i32 [ %call41, %if.end40 ], [ %call35, %if.end34 ]
   %call42 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.20, i32 noundef 95, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.37, i32 noundef %result.0, i32 noundef %expected.0) #5
   %tobool43.not = icmp eq i32 %call42, 0
@@ -322,13 +322,13 @@ if.then44:                                        ; preds = %sw.epilog
 
 failed:                                           ; preds = %sw.epilog, %if.end24, %if.end19, %if.end15, %if.then44, %if.then39, %if.then33, %if.else13, %if.else4
   %bio.0 = phi ptr [ %call26, %if.then44 ], [ %call26, %if.then39 ], [ %call26, %if.then33 ], [ %call26, %if.end24 ], [ %call16, %if.end19 ], [ %call16, %if.end15 ], [ null, %if.else13 ], [ null, %if.else4 ], [ %call26, %sw.epilog ]
-  %x509.1 = phi ptr [ %x509.0, %if.then44 ], [ null, %if.then39 ], [ null, %if.then33 ], [ null, %if.end24 ], [ null, %if.end19 ], [ null, %if.end15 ], [ null, %if.else13 ], [ null, %if.else4 ], [ %x509.0, %sw.epilog ]
-  %x509_req.1 = phi ptr [ %x509_req.0, %if.then44 ], [ null, %if.then39 ], [ null, %if.then33 ], [ null, %if.end24 ], [ null, %if.end19 ], [ null, %if.end15 ], [ null, %if.else13 ], [ null, %if.else4 ], [ %x509_req.0, %sw.epilog ]
+  %x509.0 = phi ptr [ %x509.1, %if.then44 ], [ null, %if.then39 ], [ null, %if.then33 ], [ null, %if.end24 ], [ null, %if.end19 ], [ null, %if.end15 ], [ null, %if.else13 ], [ null, %if.else4 ], [ %x509.1, %sw.epilog ]
+  %x509_req.0 = phi ptr [ %x509_req.1, %if.then44 ], [ null, %if.then39 ], [ null, %if.then33 ], [ null, %if.end24 ], [ null, %if.end19 ], [ null, %if.end15 ], [ null, %if.else13 ], [ null, %if.else4 ], [ %x509_req.1, %sw.epilog ]
   %pkey.0 = phi ptr [ %call20, %if.then44 ], [ %call20, %if.then39 ], [ %call20, %if.then33 ], [ %call20, %if.end24 ], [ %call20, %if.end19 ], [ null, %if.end15 ], [ null, %if.else13 ], [ null, %if.else4 ], [ %call20, %sw.epilog ]
   %ret.0 = phi i32 [ 0, %if.then44 ], [ 0, %if.then39 ], [ 0, %if.then33 ], [ 0, %if.end24 ], [ 0, %if.end19 ], [ 0, %if.end15 ], [ 0, %if.else13 ], [ 0, %if.else4 ], [ 1, %sw.epilog ]
   %call46 = tail call i32 @BIO_free(ptr noundef %bio.0) #5
-  tail call void @X509_free(ptr noundef %x509.1) #5
-  tail call void @X509_REQ_free(ptr noundef %x509_req.1) #5
+  tail call void @X509_free(ptr noundef %x509.0) #5
+  tail call void @X509_REQ_free(ptr noundef %x509_req.0) #5
   tail call void @EVP_PKEY_free(ptr noundef %pkey.0) #5
   ret i32 %ret.0
 }

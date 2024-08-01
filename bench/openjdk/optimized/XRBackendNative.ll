@@ -243,22 +243,22 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
   br i1 %.not57.i, label %.critedge4.i, label %.lr.ph70.i, !llvm.loop !8
 
 .critedge4.sink.split.i:                          ; preds = %98, %94
-  %.043.ph.i = phi i8 [ 1, %98 ], [ 0, %94 ]
+  %.1.ph.i = phi i8 [ 1, %98 ], [ 0, %94 ]
   %104 = load ptr, ptr @stdout, align 8
   %105 = call i32 @fflush(ptr noundef %104)
   br label %.critedge4.i
 
 .critedge4.i:                                     ; preds = %102, %.lr.ph70.i, %.critedge4.sink.split.i, %97, %93, %79, %.preheader.i
   %106 = phi i1 [ true, %93 ], [ true, %97 ], [ false, %79 ], [ false, %.preheader.i ], [ true, %.critedge4.sink.split.i ], [ false, %.lr.ph70.i ], [ false, %102 ]
-  %.043.i = phi i8 [ 0, %93 ], [ 1, %97 ], [ 1, %79 ], [ 1, %.preheader.i ], [ %.043.ph.i, %.critedge4.sink.split.i ], [ 1, %.lr.ph70.i ], [ 1, %102 ]
+  %.1.i = phi i8 [ 0, %93 ], [ 1, %97 ], [ 1, %79 ], [ 1, %.preheader.i ], [ %.1.ph.i, %.critedge4.sink.split.i ], [ 1, %.lr.ph70.i ], [ 1, %102 ]
   %107 = call i32 @fclose(ptr noundef nonnull %70)
   br label %.critedge63.i
 
 .critedge63.i:                                    ; preds = %54, %.critedge4.i, %69, %64, %57, %.critedge.i, %50, %45
-  %.145.i = phi i1 [ %106, %.critedge4.i ], [ false, %69 ], [ false, %64 ], [ false, %57 ], [ false, %.critedge.i ], [ false, %45 ], [ false, %50 ], [ false, %54 ]
-  %.1.i = phi i8 [ %.043.i, %.critedge4.i ], [ 1, %69 ], [ 1, %64 ], [ 1, %57 ], [ 1, %.critedge.i ], [ 1, %45 ], [ 1, %50 ], [ 1, %54 ]
+  %.044.i = phi i1 [ %106, %.critedge4.i ], [ false, %69 ], [ false, %64 ], [ false, %57 ], [ false, %.critedge.i ], [ false, %45 ], [ false, %50 ], [ false, %54 ]
+  %.043.i = phi i8 [ %.1.i, %.critedge4.i ], [ 1, %69 ], [ 1, %64 ], [ 1, %57 ], [ 1, %.critedge.i ], [ 1, %45 ], [ 1, %50 ], [ 1, %54 ]
   %108 = icmp eq i8 %2, 0
-  %or.cond8.i = or i1 %108, %.145.i
+  %or.cond8.i = or i1 %108, %.044.i
   br i1 %or.cond8.i, label %112, label %109
 
 109:                                              ; preds = %.critedge63.i
@@ -293,7 +293,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
 126:                                              ; preds = %122, %119
   %.not60.i = icmp eq i8 %3, 0
   %brmerge.i = or i1 %108, %.not60.i
-  %.mux.i = select i1 %.not60.i, i8 0, i8 %.1.i
+  %.mux.i = select i1 %.not60.i, i8 0, i8 %.043.i
   br i1 %brmerge.i, label %IsXRenderAvailable.exit, label %127
 
 127:                                              ; preds = %126
@@ -303,7 +303,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
   br label %IsXRenderAvailable.exit
 
 IsXRenderAvailable.exit:                          ; preds = %42, %112, %115, %122, %126, %127
-  %.0.i = phi i8 [ 0, %42 ], [ %.1.i, %127 ], [ %.1.i, %122 ], [ %.1.i, %115 ], [ %.1.i, %112 ], [ %.mux.i, %126 ]
+  %.0.i = phi i8 [ 0, %42 ], [ %.043.i, %127 ], [ %.043.i, %122 ], [ %.043.i, %115 ], [ %.043.i, %112 ], [ %.mux.i, %126 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)

@@ -10031,8 +10031,8 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %for.body
 
 for.body9:                                        ; preds = %_ZN6vectorIjLb0EjE3endEv.exit, %for.inc
   %__begin3.091 = phi ptr [ %incdec.ptr, %for.inc ], [ %8, %_ZN6vectorIjLb0EjE3endEv.exit ]
-  %b.sroa.0.290 = phi i64 [ %b.sroa.0.5, %for.inc ], [ %b.sroa.0.195, %_ZN6vectorIjLb0EjE3endEv.exit ]
-  %b.sroa.3.289 = phi i64 [ %b.sroa.3.6, %for.inc ], [ %b.sroa.3.194, %_ZN6vectorIjLb0EjE3endEv.exit ]
+  %b.sroa.0.290 = phi i64 [ %b.sroa.0.3, %for.inc ], [ %b.sroa.0.195, %_ZN6vectorIjLb0EjE3endEv.exit ]
+  %b.sroa.3.289 = phi i64 [ %b.sroa.3.3, %for.inc ], [ %b.sroa.3.194, %_ZN6vectorIjLb0EjE3endEv.exit ]
   %11 = load i32, ptr %__begin3.091, align 4
   %12 = load ptr, ptr %m_eqs.i, align 8
   %idxprom.i.i = zext i32 %11 to i64
@@ -10105,7 +10105,7 @@ for.body.i:                                       ; preds = %_ZNK6vectorIPN3euf9
   br i1 %cmp8.not.i, label %if.end13.i, label %for.body.i
 
 if.end13.i:                                       ; preds = %for.body.i, %if.end.i31, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit.i
-  %b.sroa.3.4 = phi i64 [ %b.sroa.3.2.mux, %if.end.i31 ], [ 0, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit.i ], [ %or.i, %for.body.i ]
+  %b.sroa.3.5 = phi i64 [ %b.sroa.3.2.mux, %if.end.i31 ], [ 0, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE3endEv.exit.i ], [ %or.i, %for.body.i ]
   %m_bloom.i = getelementptr inbounds i8, ptr %arrayidx.i.i25, i64 8
   %29 = load i64, ptr %m_bloom.i, align 8
   %cmp.i41 = icmp eq i64 %29, %20
@@ -10209,8 +10209,8 @@ if.end10.i:                                       ; preds = %for.cond.i.i52, %if
 
 _ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit: ; preds = %if.end10.i, %if.end13.i
   %retval.0.i55 = load i64, ptr %m_filter.i, align 8
-  %or16.i = or i64 %retval.0.i55, %b.sroa.3.4
-  %cmp17.i = icmp eq i64 %or16.i, %b.sroa.3.4
+  %or16.i = or i64 %retval.0.i55, %b.sroa.3.5
+  %cmp17.i = icmp eq i64 %or16.i, %b.sroa.3.5
   br i1 %cmp17.i, label %if.end17, label %for.inc
 
 if.end17:                                         ; preds = %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit
@@ -10352,15 +10352,15 @@ _ZN3euf9ac_plugin4joinENS_13justificationEj.exit: ; preds = %if.end23, %_ZN18dep
   br label %init_loop
 
 for.inc:                                          ; preds = %"_ZZN3euf9ac_plugin9is_subsetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i", %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us11.i.i, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit, %for.body9
-  %b.sroa.3.6 = phi i64 [ %b.sroa.3.4, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit ], [ %b.sroa.3.289, %for.body9 ], [ %b.sroa.3.289, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i ], [ %b.sroa.3.4, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us11.i.i ], [ %b.sroa.3.4, %"_ZZN3euf9ac_plugin9is_subsetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i" ]
-  %b.sroa.0.5 = phi i64 [ %20, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit ], [ %b.sroa.0.290, %for.body9 ], [ %b.sroa.0.290, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i ], [ %20, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us11.i.i ], [ %20, %"_ZZN3euf9ac_plugin9is_subsetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i" ]
+  %b.sroa.3.3 = phi i64 [ %b.sroa.3.5, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit ], [ %b.sroa.3.289, %for.body9 ], [ %b.sroa.3.289, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i ], [ %b.sroa.3.5, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us11.i.i ], [ %b.sroa.3.5, %"_ZZN3euf9ac_plugin9is_subsetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i" ]
+  %b.sroa.0.3 = phi i64 [ %20, %_ZN3euf9ac_plugin13can_be_subsetERNS0_10monomial_tERK10ptr_vectorINS0_4nodeEERNS0_5bloomE.exit ], [ %b.sroa.0.290, %for.body9 ], [ %b.sroa.0.290, %_ZNK6vectorIPN3euf9ac_plugin4nodeELb0EjE4sizeEv.exit.i ], [ %20, %_ZNK3euf9ac_plugin10ref_countsixEj.exit.i.us11.i.i ], [ %20, %"_ZZN3euf9ac_plugin9is_subsetERKNS0_10ref_countsERS1_RKNS0_10monomial_tEENK3$_0clEj.exit.i.i" ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.091, i64 4
   %cmp8.not = icmp eq ptr %incdec.ptr, %add.ptr.i21
   br i1 %cmp8.not, label %for.inc27, label %for.body9
 
 for.inc27:                                        ; preds = %for.inc, %for.body, %_ZN6vectorIjLb0EjE3endEv.exit
-  %b.sroa.3.2.lcssa = phi i64 [ %b.sroa.3.194, %_ZN6vectorIjLb0EjE3endEv.exit ], [ %b.sroa.3.194, %for.body ], [ %b.sroa.3.6, %for.inc ]
-  %b.sroa.0.2.lcssa = phi i64 [ %b.sroa.0.195, %_ZN6vectorIjLb0EjE3endEv.exit ], [ %b.sroa.0.195, %for.body ], [ %b.sroa.0.5, %for.inc ]
+  %b.sroa.3.2.lcssa = phi i64 [ %b.sroa.3.194, %_ZN6vectorIjLb0EjE3endEv.exit ], [ %b.sroa.3.194, %for.body ], [ %b.sroa.3.3, %for.inc ]
+  %b.sroa.0.2.lcssa = phi i64 [ %b.sroa.0.195, %_ZN6vectorIjLb0EjE3endEv.exit ], [ %b.sroa.0.195, %for.body ], [ %b.sroa.0.3, %for.inc ]
   %incdec.ptr28 = getelementptr inbounds i8, ptr %__begin2.096, i64 8
   %cmp4.not = icmp eq ptr %incdec.ptr28, %add.ptr.i
   br i1 %cmp4.not, label %return, label %for.body

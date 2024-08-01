@@ -2817,8 +2817,8 @@ define linkonce_odr void @_ZN5ZXing6Pdf41714ReadSymbolInfoINS_6PointTIdEEEENS0_1
 
 28:                                               ; preds = %7, %87
   %.072 = phi i32 [ 0, %7 ], [ %.1, %87 ]
-  %.01171 = phi i32 [ 0, %7 ], [ %.2, %87 ]
-  %.01370 = phi i32 [ 0, %7 ], [ %.215, %87 ]
+  %.01171 = phi i32 [ 0, %7 ], [ %.112, %87 ]
+  %.01370 = phi i32 [ 0, %7 ], [ %.114, %87 ]
   %29 = phi i32 [ -1, %7 ], [ %89, %87 ]
   %30 = phi i32 [ 0, %7 ], [ %88, %87 ]
   %.sext6467 = phi i32 [ -1, %7 ], [ %.sext63, %87 ]
@@ -2933,8 +2933,8 @@ _ZN5ZXing9IsPatternILb0ELi8ELi17EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_E
 82:                                               ; preds = %79, %75, %73
   %.sext62 = phi i32 [ %.sext6467, %79 ], [ %.sext, %75 ], [ %.sext6467, %73 ]
   %83 = phi i32 [ %81, %79 ], [ %30, %75 ], [ %30, %73 ]
-  %.114 = phi i32 [ %.01370, %79 ], [ %76, %75 ], [ %.01370, %73 ]
-  %.112 = phi i32 [ %.01171, %79 ], [ %.01171, %75 ], [ %74, %73 ]
+  %.215 = phi i32 [ %.01370, %79 ], [ %76, %75 ], [ %.01370, %73 ]
+  %.2 = phi i32 [ %.01171, %79 ], [ %.01171, %75 ], [ %74, %73 ]
   %.lhs.trunc = trunc i64 %63 to i8
   %84 = udiv i8 %.lhs.trunc, 3
   %.zext = zext nneg i8 %84 to i32
@@ -2946,8 +2946,8 @@ _ZN5ZXing9IsPatternILb0ELi8ELi17EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_E
   %.sext63 = phi i32 [ %.sext6467, %71 ], [ %.sext62, %82 ], [ %.sext6467, %62 ]
   %88 = phi i32 [ %30, %71 ], [ %83, %82 ], [ %30, %62 ]
   %89 = phi i32 [ %72, %71 ], [ %72, %82 ], [ %29, %62 ]
-  %.215 = phi i32 [ %.01370, %71 ], [ %.114, %82 ], [ %.01370, %62 ]
-  %.2 = phi i32 [ %.01171, %71 ], [ %.112, %82 ], [ %.01171, %62 ]
+  %.114 = phi i32 [ %.01370, %71 ], [ %.215, %82 ], [ %.01370, %62 ]
+  %.112 = phi i32 [ %.01171, %71 ], [ %.2, %82 ], [ %.01171, %62 ]
   %.1 = phi i32 [ %.072, %71 ], [ %86, %82 ], [ %.072, %62 ]
   %90 = fadd <2 x double> %31, %19
   %.not = icmp eq i32 %.1, 7
@@ -2968,8 +2968,8 @@ _ZN5ZXing9IsPatternILb0ELi8ELi17EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_E
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge.thread.loopexit, %.critedge
-  %.01352 = phi i32 [ %.215, %.critedge.thread.loopexit ], [ %.01370, %.critedge ]
-  %.01148 = phi i32 [ %.2, %.critedge.thread.loopexit ], [ %.01171, %.critedge ]
+  %.01352 = phi i32 [ %.114, %.critedge.thread.loopexit ], [ %.01370, %.critedge ]
+  %.01148 = phi i32 [ %.112, %.critedge.thread.loopexit ], [ %.01171, %.critedge ]
   %93 = mul nsw i32 %.01148, 3
   %94 = add nsw i32 %.01352, 1
   %95 = add nsw i32 %94, %93

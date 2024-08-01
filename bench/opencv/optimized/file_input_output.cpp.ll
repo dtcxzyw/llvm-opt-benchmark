@@ -1314,7 +1314,7 @@ _ZlsRSoRK6MyData.exit118:                         ; preds = %.noexc116
   br label %416
 
 415:                                              ; preds = %.thread, %410
-  %.1 = phi i32 [ 0, %410 ], [ 1, %.thread ]
+  %.2 = phi i32 [ 0, %410 ], [ 1, %.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %38) #10
   br label %417
 
@@ -1324,8 +1324,8 @@ _ZlsRSoRK6MyData.exit118:                         ; preds = %.noexc116
   br label %418
 
 417:                                              ; preds = %415, %68
-  %.2 = phi i32 [ 1, %68 ], [ %.1, %415 ]
-  ret i32 %.2
+  %.08 = phi i32 [ 1, %68 ], [ %.2, %415 ]
+  ret i32 %.08
 
 418:                                              ; preds = %416, %274
   %.pn24.pn = phi { ptr, i32 } [ %.pn24, %416 ], [ %275, %274 ]

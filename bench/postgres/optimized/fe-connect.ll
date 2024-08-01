@@ -3398,7 +3398,7 @@ parseServiceInfo.exit:                            ; preds = %35, %45, %50
   %56 = phi ptr [ %93, %91 ], [ %55, %.preheader ]
   %.04579 = phi ptr [ %92, %91 ], [ %0, %.preheader ]
   %.04678 = phi ptr [ %spec.select, %91 ], [ null, %.preheader ]
-  %.04777 = phi ptr [ %.2, %91 ], [ null, %.preheader ]
+  %.04777 = phi ptr [ %.148, %91 ], [ null, %.preheader ]
   %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(12) @.str.22) #24
   %58 = icmp eq i32 %57, 0
   %spec.select = select i1 %58, ptr %.04579, ptr %.04678
@@ -3452,7 +3452,7 @@ parseServiceInfo.exit:                            ; preds = %35, %45, %50
   br i1 %54, label %._crit_edge.thread.sink.split, label %._crit_edge.thread
 
 80:                                               ; preds = %72, %74, %69
-  %.148 = phi ptr [ %.04777, %69 ], [ %.04579, %74 ], [ %.04579, %72 ]
+  %.2 = phi ptr [ %.04777, %69 ], [ %.04579, %74 ], [ %.04579, %72 ]
   %81 = getelementptr inbounds i8, ptr %.04579, i64 16
   %82 = load ptr, ptr %81, align 8
   %.not64 = icmp eq ptr %82, null
@@ -3478,14 +3478,14 @@ parseServiceInfo.exit:                            ; preds = %35, %45, %50
   br label %91
 
 91:                                               ; preds = %86, %83, %77, %66, %.lr.ph, %89
-  %.2 = phi ptr [ %.04777, %.lr.ph ], [ %.04777, %66 ], [ %.04777, %77 ], [ %.148, %83 ], [ %.148, %89 ], [ %.148, %86 ]
+  %.148 = phi ptr [ %.04777, %.lr.ph ], [ %.04777, %66 ], [ %.04777, %77 ], [ %.2, %83 ], [ %.2, %89 ], [ %.2, %86 ]
   %92 = getelementptr i8, ptr %.04579, i64 56
   %93 = load ptr, ptr %92, align 8
   %.not = icmp eq ptr %93, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %91
-  %94 = icmp ne ptr %.2, null
+  %94 = icmp ne ptr %.148, null
   %95 = icmp ne ptr %spec.select, null
   %or.cond3 = select i1 %94, i1 %95, i1 false
   br i1 %or.cond3, label %96, label %._crit_edge.thread
@@ -3502,7 +3502,7 @@ parseServiceInfo.exit:                            ; preds = %35, %45, %50
   br i1 %101, label %102, label %._crit_edge.thread
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %.2, i64 24
+  %103 = getelementptr inbounds i8, ptr %.148, i64 24
   %104 = load ptr, ptr %103, align 8
   call void @free(ptr noundef %104) #23
   %105 = call noalias dereferenceable_or_null(12) ptr @strdup(ptr noundef nonnull @.str.25) #23
@@ -3860,12 +3860,12 @@ define range(i32 0, 4) i32 @PQconnectPoll(ptr noundef %0) local_unnamed_addr #0 
   br label %80
 
 80:                                               ; preds = %79, %77
-  %.1 = phi i1 [ true, %77 ], [ %.0356, %79 ]
+  %.2 = phi i1 [ true, %77 ], [ %.0356, %79 ]
   store i8 0, ptr %34, align 4
   br label %81
 
 81:                                               ; preds = %80, %.backedge
-  %.2 = phi i1 [ %.1, %80 ], [ %.0356, %.backedge ]
+  %.1 = phi i1 [ %.2, %80 ], [ %.0356, %.backedge ]
   %82 = load i8, ptr %35, align 1
   %83 = trunc i8 %82 to i1
   br i1 %83, label %84, label %220
@@ -3981,8 +3981,8 @@ pqParseIntParam.exit:                             ; preds = %107, %112, %114, %1
   br label %.backedge.backedge
 
 133:                                              ; preds = %release_conn_addrinfo.exit, %104, %.loopexit
-  %.1460 = phi i32 [ %115, %.loopexit ], [ 5432, %104 ], [ 5432, %release_conn_addrinfo.exit ]
-  %134 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.51, i32 noundef %.1460) #23
+  %.0459 = phi i32 [ %115, %.loopexit ], [ 5432, %104 ], [ 5432, %release_conn_addrinfo.exit ]
+  %134 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.51, i32 noundef %.0459) #23
   %135 = load i32, ptr %100, align 8
   switch i32 %135, label %170 [
     i32 0, label %136
@@ -4027,7 +4027,7 @@ pqParseIntParam.exit:                             ; preds = %107, %112, %114, %1
   store i32 1, ptr %59, align 4
   %157 = getelementptr inbounds i8, ptr %100, i64 8
   %158 = load ptr, ptr %157, align 8
-  %159 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.54, ptr noundef %158, i32 noundef %.1460) #23
+  %159 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 1024, ptr noundef nonnull @.str.54, ptr noundef %158, i32 noundef %.0459) #23
   %160 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #24
   %161 = icmp ugt i64 %160, 107
   br i1 %161, label %162, label %163
@@ -4170,7 +4170,7 @@ store_conn_addrinfo.exit:                         ; preds = %.lr.ph32.i
   br label %.thread465
 
 220:                                              ; preds = %81
-  br i1 %.2, label %.thread465, label %221
+  br i1 %.1, label %.thread465, label %221
 
 .thread465:                                       ; preds = %220, %.thread
   store i32 196608, ptr %62, align 8
@@ -4752,7 +4752,7 @@ getHostaddr.exit:                                 ; preds = %237, %240
 
 .backedge.backedge:                               ; preds = %450, %453, %131, %143, %153, %162, %168, %227, %258, %269, %.critedge, %308, %309, %320, %432, %474, %485, %sendTerminateConn.exit, %sendTerminateConn.exit450, %539, %.tail, %sendTerminateConn.exit454, %582, %sendTerminateConn.exit456
   %.0357.be = phi i1 [ false, %582 ], [ false, %sendTerminateConn.exit456 ], [ false, %.tail ], [ false, %sendTerminateConn.exit454 ], [ false, %539 ], [ false, %sendTerminateConn.exit ], [ false, %sendTerminateConn.exit450 ], [ true, %474 ], [ false, %485 ], [ false, %432 ], [ false, %320 ], [ false, %227 ], [ false, %258 ], [ false, %.critedge ], [ false, %309 ], [ false, %308 ], [ false, %269 ], [ %.0357, %162 ], [ %.0357, %168 ], [ %.0357, %153 ], [ %.0357, %143 ], [ %.0357, %131 ], [ false, %453 ], [ false, %450 ]
-  %.0356.be = phi i1 [ false, %582 ], [ false, %sendTerminateConn.exit456 ], [ false, %.tail ], [ false, %sendTerminateConn.exit454 ], [ false, %539 ], [ false, %sendTerminateConn.exit ], [ false, %sendTerminateConn.exit450 ], [ false, %474 ], [ false, %485 ], [ false, %432 ], [ false, %320 ], [ false, %227 ], [ false, %258 ], [ false, %.critedge ], [ false, %309 ], [ false, %308 ], [ false, %269 ], [ %.2, %162 ], [ %.2, %168 ], [ %.2, %153 ], [ %.2, %143 ], [ %.2, %131 ], [ false, %453 ], [ false, %450 ]
+  %.0356.be = phi i1 [ false, %582 ], [ false, %sendTerminateConn.exit456 ], [ false, %.tail ], [ false, %sendTerminateConn.exit454 ], [ false, %539 ], [ false, %sendTerminateConn.exit ], [ false, %sendTerminateConn.exit450 ], [ false, %474 ], [ false, %485 ], [ false, %432 ], [ false, %320 ], [ false, %227 ], [ false, %258 ], [ false, %.critedge ], [ false, %309 ], [ false, %308 ], [ false, %269 ], [ %.1, %162 ], [ %.1, %168 ], [ %.1, %153 ], [ %.1, %143 ], [ %.1, %131 ], [ false, %453 ], [ false, %450 ]
   br label %.backedge
 
 453:                                              ; preds = %450
@@ -6609,15 +6609,15 @@ conninfo_storeval.exit.i.i:                       ; preds = %conninfo_find.exit.
   br i1 %63, label %.preheader.i, label %81
 
 .preheader.i:                                     ; preds = %62, %.preheader.i
-  %.2.i.i = phi ptr [ %65, %.preheader.i ], [ %.1.i.i, %62 ]
-  %64 = load i8, ptr %.2.i.i, align 1
+  %.3.i.i = phi ptr [ %65, %.preheader.i ], [ %.1.i.i, %62 ]
+  %64 = load i8, ptr %.3.i.i, align 1
   %.not147.i.i = icmp eq i8 %64, 64
-  %65 = getelementptr i8, ptr %.2.i.i, i64 1
+  %65 = getelementptr i8, ptr %.3.i.i, i64 1
   br i1 %.not147.i.i, label %66, label %.preheader.i, !llvm.loop !39
 
 66:                                               ; preds = %.preheader.i
   %67 = getelementptr i8, ptr %.1.i.i, i64 1
-  store i8 0, ptr %.2.i.i, align 1
+  store i8 0, ptr %.3.i.i, align 1
   %68 = load i8, ptr %67, align 1
   %.not148.i.i = icmp eq i8 %68, 0
   br i1 %.not148.i.i, label %81, label %69
@@ -6657,8 +6657,8 @@ conninfo_storeval.exit189.i.i:                    ; preds = %conninfo_find.exit.
   br label %81
 
 81:                                               ; preds = %conninfo_storeval.exit189.i.i, %66, %62
-  %.3.i.i = phi ptr [ %.2.i.i, %conninfo_storeval.exit189.i.i ], [ %.2.i.i, %66 ], [ %.1.i.i, %62 ]
-  %82 = getelementptr i8, ptr %.3.i.i, i64 1
+  %.2.i.i = phi ptr [ %.3.i.i, %conninfo_storeval.exit189.i.i ], [ %.3.i.i, %66 ], [ %.1.i.i, %62 ]
+  %82 = getelementptr i8, ptr %.2.i.i, i64 1
   br label %.loopexit.i.i.preheader
 
 .loopexit.i.i.preheader:                          ; preds = %42, %42, %81
@@ -6723,7 +6723,7 @@ conninfo_storeval.exit189.i.i:                    ; preds = %conninfo_find.exit.
 
 .preheader.i12.i:                                 ; preds = %.loopexit.i.i, %105
   %.pr208.i.i = phi i8 [ %.pr.i.i, %105 ], [ %83, %.loopexit.i.i ]
-  %.7.i.i = phi ptr [ %106, %105 ], [ %.5.i.i, %.loopexit.i.i ]
+  %.8.i.i = phi ptr [ %106, %105 ], [ %.5.i.i, %.loopexit.i.i ]
   switch i8 %.pr208.i.i, label %105 [
     i8 0, label %.critedge8.i.i
     i8 58, label %.critedge8.i.i
@@ -6733,26 +6733,26 @@ conninfo_storeval.exit189.i.i:                    ; preds = %conninfo_find.exit.
   ]
 
 105:                                              ; preds = %.preheader.i12.i
-  %106 = getelementptr i8, ptr %.7.i.i, i64 1
+  %106 = getelementptr i8, ptr %.8.i.i, i64 1
   %.pr.i.i = load i8, ptr %106, align 1
   br label %.preheader.i12.i, !llvm.loop !41
 
 .critedge8.i.i:                                   ; preds = %.preheader.i12.i, %.preheader.i12.i, %.preheader.i12.i, %.preheader.i12.i, %.preheader.i12.i, %95, %95, %95, %95, %95
   %107 = phi i8 [ %97, %95 ], [ %97, %95 ], [ %97, %95 ], [ %97, %95 ], [ %97, %95 ], [ %.pr208.i.i, %.preheader.i12.i ], [ %.pr208.i.i, %.preheader.i12.i ], [ %.pr208.i.i, %.preheader.i12.i ], [ %.pr208.i.i, %.preheader.i12.i ], [ %.pr208.i.i, %.preheader.i12.i ]
   %.0126.i.i = phi ptr [ %86, %95 ], [ %86, %95 ], [ %86, %95 ], [ %86, %95 ], [ %86, %95 ], [ %.5.i.i, %.preheader.i12.i ], [ %.5.i.i, %.preheader.i12.i ], [ %.5.i.i, %.preheader.i12.i ], [ %.5.i.i, %.preheader.i12.i ], [ %.5.i.i, %.preheader.i12.i ]
-  %.8.i.i = phi ptr [ %96, %95 ], [ %96, %95 ], [ %96, %95 ], [ %96, %95 ], [ %96, %95 ], [ %.7.i.i, %.preheader.i12.i ], [ %.7.i.i, %.preheader.i12.i ], [ %.7.i.i, %.preheader.i12.i ], [ %.7.i.i, %.preheader.i12.i ], [ %.7.i.i, %.preheader.i12.i ]
-  store i8 0, ptr %.8.i.i, align 1
+  %.7.i.i = phi ptr [ %96, %95 ], [ %96, %95 ], [ %96, %95 ], [ %96, %95 ], [ %96, %95 ], [ %.8.i.i, %.preheader.i12.i ], [ %.8.i.i, %.preheader.i12.i ], [ %.8.i.i, %.preheader.i12.i ], [ %.8.i.i, %.preheader.i12.i ], [ %.8.i.i, %.preheader.i12.i ]
+  store i8 0, ptr %.7.i.i, align 1
   call void @appendPQExpBufferStr(ptr noundef nonnull %4, ptr noundef %.0126.i.i) #23
   %108 = icmp eq i8 %107, 58
   br i1 %108, label %109, label %115
 
 109:                                              ; preds = %.critedge8.i.i
-  %110 = getelementptr i8, ptr %.8.i.i, i64 1
+  %110 = getelementptr i8, ptr %.7.i.i, i64 1
   br label %111
 
 111:                                              ; preds = %113, %109
-  %.9.i.i = phi ptr [ %110, %109 ], [ %114, %113 ]
-  %112 = load i8, ptr %.9.i.i, align 1
+  %.10.i.i = phi ptr [ %110, %109 ], [ %114, %113 ]
+  %112 = load i8, ptr %.10.i.i, align 1
   switch i8 %112, label %113 [
     i8 0, label %.critedge10.i.i
     i8 47, label %.critedge10.i.i
@@ -6761,22 +6761,22 @@ conninfo_storeval.exit189.i.i:                    ; preds = %conninfo_find.exit.
   ]
 
 113:                                              ; preds = %111
-  %114 = getelementptr i8, ptr %.9.i.i, i64 1
+  %114 = getelementptr i8, ptr %.10.i.i, i64 1
   br label %111, !llvm.loop !42
 
 .critedge10.i.i:                                  ; preds = %111, %111, %111, %111
-  store i8 0, ptr %.9.i.i, align 1
+  store i8 0, ptr %.10.i.i, align 1
   call void @appendPQExpBufferStr(ptr noundef nonnull %5, ptr noundef %110) #23
   br label %115
 
 115:                                              ; preds = %.critedge10.i.i, %.critedge8.i.i
   %.0127.i.i = phi i8 [ %112, %.critedge10.i.i ], [ %107, %.critedge8.i.i ]
-  %.10.i.i = phi ptr [ %.9.i.i, %.critedge10.i.i ], [ %.8.i.i, %.critedge8.i.i ]
+  %.9.i.i = phi ptr [ %.10.i.i, %.critedge10.i.i ], [ %.7.i.i, %.critedge8.i.i ]
   %.not167.i.i = icmp eq i8 %.0127.i.i, 44
   br i1 %.not167.i.i, label %116, label %118
 
 116:                                              ; preds = %115
-  %117 = getelementptr i8, ptr %.10.i.i, i64 1
+  %117 = getelementptr i8, ptr %.9.i.i, i64 1
   call void @appendPQExpBufferChar(ptr noundef nonnull %4, i8 noundef signext 44) #23
   call void @appendPQExpBufferChar(ptr noundef nonnull %5, i8 noundef signext 44) #23
   br label %.loopexit.i.i
@@ -6847,23 +6847,23 @@ conninfo_storeval.exit201.i.i:                    ; preds = %conninfo_find.exit.
   ]
 
 144:                                              ; preds = %143
-  %145 = getelementptr i8, ptr %.10.i.i, i64 1
+  %145 = getelementptr i8, ptr %.9.i.i, i64 1
   br label %146
 
 146:                                              ; preds = %148, %144
-  %.11.i.i = phi ptr [ %145, %144 ], [ %149, %148 ]
-  %147 = load i8, ptr %.11.i.i, align 1
+  %.12.i.i = phi ptr [ %145, %144 ], [ %149, %148 ]
+  %147 = load i8, ptr %.12.i.i, align 1
   switch i8 %147, label %148 [
     i8 0, label %.critedge18.i.i
     i8 63, label %.critedge18.i.i
   ]
 
 148:                                              ; preds = %146
-  %149 = getelementptr i8, ptr %.11.i.i, i64 1
+  %149 = getelementptr i8, ptr %.12.i.i, i64 1
   br label %146, !llvm.loop !43
 
 .critedge18.i.i:                                  ; preds = %146, %146
-  store i8 0, ptr %.11.i.i, align 1
+  store i8 0, ptr %.12.i.i, align 1
   %150 = load i8, ptr %145, align 1
   %.not174.i.i = icmp eq i8 %150, 0
   br i1 %.not174.i.i, label %153, label %151
@@ -6875,12 +6875,12 @@ conninfo_storeval.exit201.i.i:                    ; preds = %conninfo_find.exit.
 
 153:                                              ; preds = %151, %.critedge18.i.i, %143, %143
   %.1128.i.i = phi i8 [ %147, %151 ], [ %147, %.critedge18.i.i ], [ %.0127.i.i, %143 ], [ %.0127.i.i, %143 ]
-  %.12.i.i = phi ptr [ %.11.i.i, %151 ], [ %.11.i.i, %.critedge18.i.i ], [ %.10.i.i, %143 ], [ %.10.i.i, %143 ]
+  %.11.i.i = phi ptr [ %.12.i.i, %151 ], [ %.12.i.i, %.critedge18.i.i ], [ %.9.i.i, %143 ], [ %.9.i.i, %143 ]
   %.not176.i.i = icmp eq i8 %.1128.i.i, 0
   br i1 %.not176.i.i, label %conninfo_uri_parse_options.exit.i, label %154
 
 154:                                              ; preds = %153
-  %155 = getelementptr i8, ptr %.12.i.i, i64 1
+  %155 = getelementptr i8, ptr %.11.i.i, i64 1
   %156 = call fastcc zeroext i1 @conninfo_uri_parse_params(ptr noundef %155, ptr noundef nonnull %11, ptr noundef %1)
   br i1 %156, label %conninfo_uri_parse_options.exit.i, label %.preheader.i13.critedge.i
 
@@ -7028,7 +7028,7 @@ PQconninfoFree.exit.i17:                          ; preds = %.lr.ph.i.i15, %.pre
   br label %.backedge125.i
 
 .backedge125.i:                                   ; preds = %266, %198
-  %.070.be.i = phi ptr [ %199, %198 ], [ %.10.i, %266 ]
+  %.070.be.i = phi ptr [ %199, %198 ], [ %.8.i, %266 ]
   %200 = load i8, ptr %.070.be.i, align 1
   %.not.i = icmp eq i8 %200, 0
   br i1 %.not.i, label %._crit_edge.i, label %191, !llvm.loop !44
@@ -7054,9 +7054,9 @@ PQconninfoFree.exit.i17:                          ; preds = %.lr.ph.i.i15, %.pre
   br label %208
 
 208:                                              ; preds = %210, %207
-  %.171.pn.i = phi ptr [ %.171.i, %207 ], [ %.272.i, %210 ]
-  %.272.i = getelementptr i8, ptr %.171.pn.i, i64 1
-  %209 = load i8, ptr %.272.i, align 1
+  %.171.pn.i = phi ptr [ %.171.i, %207 ], [ %.373.i, %210 ]
+  %.373.i = getelementptr i8, ptr %.171.pn.i, i64 1
+  %209 = load i8, ptr %.373.i, align 1
   %.not85.i = icmp eq i8 %209, 0
   br i1 %.not85.i, label %.preheader.i98.i, label %210
 
@@ -7076,7 +7076,7 @@ PQconninfoFree.exit.i17:                          ; preds = %.lr.ph.i.i15, %.pre
 
 .loopexit122.i:                                   ; preds = %.preheader121.i, %.preheader121.i, %210
   %218 = phi i8 [ %209, %210 ], [ %201, %.preheader121.i ], [ %201, %.preheader121.i ]
-  %.373.i = phi ptr [ %.272.i, %210 ], [ %.171.i, %.preheader121.i ], [ %.171.i, %.preheader121.i ]
+  %.272.i = phi ptr [ %.373.i, %210 ], [ %.171.i, %.preheader121.i ], [ %.171.i, %.preheader121.i ]
   %.not87.i = icmp eq i8 %218, 61
   br i1 %.not87.i, label %224, label %.preheader.i98.i
 
@@ -7102,12 +7102,12 @@ PQconninfoFree.exit104.i:                         ; preds = %.lr.ph.i100.i, %.pr
   br label %conninfo_uri_parse.exit
 
 224:                                              ; preds = %.loopexit122.i
-  store i8 0, ptr %.373.i, align 1
+  store i8 0, ptr %.272.i, align 1
   br label %225
 
 225:                                              ; preds = %227, %224
-  %.373.pn.i = phi ptr [ %.373.i, %224 ], [ %.4.i, %227 ]
-  %.4.i = getelementptr i8, ptr %.373.pn.i, i64 1
+  %.272.pn.i = phi ptr [ %.272.i, %224 ], [ %.4.i, %227 ]
+  %.4.i = getelementptr i8, ptr %.272.pn.i, i64 1
   %226 = load i8, ptr %.4.i, align 1
   %cond.i = icmp eq i8 %226, 0
   br i1 %cond.i, label %.loopexit.i, label %227
@@ -7128,7 +7128,7 @@ PQconninfoFree.exit104.i:                         ; preds = %.lr.ph.i100.i, %.pr
 .lr.ph.i:                                         ; preds = %233, %249
   %234 = phi i8 [ %.pr.i, %249 ], [ %226, %233 ]
   %.069148.i = phi ptr [ %250, %249 ], [ %.4.i, %233 ]
-  %.5147.i = phi ptr [ %.6.ph.i, %249 ], [ %.4.i, %233 ]
+  %.5147.i = phi ptr [ %.7.ph.i, %249 ], [ %.4.i, %233 ]
   %235 = load ptr, ptr %185, align 8
   %236 = zext i8 %234 to i64
   %237 = getelementptr i16, ptr %235, i64 %236
@@ -7158,31 +7158,31 @@ PQconninfoFree.exit104.i:                         ; preds = %.lr.ph.i100.i, %.pr
 
 249:                                              ; preds = %247, %242
   %.sink.i = phi i8 [ %246, %247 ], [ %234, %242 ]
-  %.6.ph.i = phi ptr [ %248, %247 ], [ %244, %242 ]
+  %.7.ph.i = phi ptr [ %248, %247 ], [ %244, %242 ]
   %250 = getelementptr i8, ptr %.069148.i, i64 1
   store i8 %.sink.i, ptr %.069148.i, align 1
-  %.pr.i = load i8, ptr %.6.ph.i, align 1
+  %.pr.i = load i8, ptr %.7.ph.i, align 1
   %.not92.i = icmp eq i8 %.pr.i, 0
   br i1 %.not92.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !48
 
 .loopexit.i:                                      ; preds = %225, %245, %249, %240
   %.069138.i = phi ptr [ %.069148.i, %240 ], [ %.069148.i, %245 ], [ %250, %249 ], [ %.4.i, %225 ]
-  %.7.i = phi ptr [ %241, %240 ], [ %244, %245 ], [ %.6.ph.i, %249 ], [ %.4.i, %225 ]
+  %.6.i = phi ptr [ %241, %240 ], [ %244, %245 ], [ %.7.ph.i, %249 ], [ %.4.i, %225 ]
   store i8 0, ptr %.069138.i, align 1
   br label %266
 
 251:                                              ; preds = %233
-  %252 = getelementptr i8, ptr %.373.pn.i, i64 2
+  %252 = getelementptr i8, ptr %.272.pn.i, i64 2
   br label %.backedge.i.outer
 
 .backedge.i.outer:                                ; preds = %.backedge.sink.split.i, %251
-  %.8.i.ph = phi ptr [ %262, %.backedge.sink.split.i ], [ %252, %251 ]
+  %.9.i.ph = phi ptr [ %262, %.backedge.sink.split.i ], [ %252, %251 ]
   %.2.i.ph = phi ptr [ %263, %.backedge.sink.split.i ], [ %.4.i, %251 ]
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.outer, %259
-  %.8.i = phi ptr [ %260, %259 ], [ %.8.i.ph, %.backedge.i.outer ]
-  %253 = load i8, ptr %.8.i, align 1
+  %.9.i = phi ptr [ %260, %259 ], [ %.9.i.ph, %.backedge.i.outer ]
+  %253 = load i8, ptr %.9.i, align 1
   switch i8 %253, label %.backedge.sink.split.i [
     i8 0, label %.preheader.i105.i
     i8 92, label %259
@@ -7211,7 +7211,7 @@ PQconninfoFree.exit111.i:                         ; preds = %.lr.ph.i107.i, %.pr
   br label %conninfo_uri_parse.exit
 
 259:                                              ; preds = %.backedge.i
-  %260 = getelementptr i8, ptr %.8.i, i64 1
+  %260 = getelementptr i8, ptr %.9.i, i64 1
   %261 = load i8, ptr %260, align 1
   %.not91.i = icmp eq i8 %261, 0
   br i1 %.not91.i, label %.backedge.i, label %.backedge.sink.split.i
@@ -7219,18 +7219,18 @@ PQconninfoFree.exit111.i:                         ; preds = %.lr.ph.i107.i, %.pr
 .backedge.sink.split.i:                           ; preds = %259, %.backedge.i
   %.sink208.i = phi i64 [ 1, %.backedge.i ], [ 2, %259 ]
   %.sink207.i = phi i8 [ %253, %.backedge.i ], [ %261, %259 ]
-  %262 = getelementptr i8, ptr %.8.i, i64 %.sink208.i
+  %262 = getelementptr i8, ptr %.9.i, i64 %.sink208.i
   %263 = getelementptr i8, ptr %.2.i.ph, i64 1
   store i8 %.sink207.i, ptr %.2.i.ph, align 1
   br label %.backedge.i.outer
 
 264:                                              ; preds = %.backedge.i
   store i8 0, ptr %.2.i.ph, align 1
-  %265 = getelementptr i8, ptr %.8.i, i64 1
+  %265 = getelementptr i8, ptr %.9.i, i64 1
   br label %266
 
 266:                                              ; preds = %264, %.loopexit.i
-  %.10.i = phi ptr [ %.7.i, %.loopexit.i ], [ %265, %264 ]
+  %.8.i = phi ptr [ %.6.i, %.loopexit.i ], [ %265, %264 ]
   %267 = tail call fastcc ptr @conninfo_storeval(ptr noundef nonnull %169, ptr noundef nonnull %.070151.i, ptr noundef nonnull %.4.i, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext false)
   %.not95.i = icmp eq ptr %267, null
   br i1 %.not95.i, label %.preheader.i112.i, label %.backedge125.i
@@ -8133,13 +8133,13 @@ define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %61
   %6 = phi i8 [ %4, %.preheader.lr.ph ], [ %62, %61 ]
-  %.050100 = phi ptr [ %0, %.preheader.lr.ph ], [ %.1, %61 ]
+  %.050100 = phi ptr [ %0, %.preheader.lr.ph ], [ %.2, %61 ]
   br label %7
 
 7:                                                ; preds = %.preheader, %19
   %8 = phi i8 [ %.pr, %19 ], [ %6, %.preheader ]
   %.046 = phi ptr [ %.147, %19 ], [ null, %.preheader ]
-  %.045 = phi ptr [ %.2, %19 ], [ %.050100, %.preheader ]
+  %.045 = phi ptr [ %.1, %19 ], [ %.050100, %.preheader ]
   switch i8 %8, label %17 [
     i8 61, label %9
     i8 0, label %.loopexit
@@ -8165,7 +8165,7 @@ define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef
   br label %.loopexit
 
 .loopexit:                                        ; preds = %7, %13
-  %.1 = phi ptr [ %14, %13 ], [ %.045, %7 ]
+  %.2 = phi ptr [ %14, %13 ], [ %.045, %7 ]
   %15 = icmp eq ptr %.046, null
   br i1 %15, label %16, label %20
 
@@ -8179,8 +8179,8 @@ define internal fastcc noundef zeroext i1 @conninfo_uri_parse_params(ptr noundef
 
 19:                                               ; preds = %17, %11
   %.147 = phi ptr [ %12, %11 ], [ %.046, %17 ]
-  %.2 = phi ptr [ %12, %11 ], [ %18, %17 ]
-  %.pr = load i8, ptr %.2, align 1
+  %.1 = phi ptr [ %12, %11 ], [ %18, %17 ]
+  %.pr = load i8, ptr %.1, align 1
   br label %7
 
 20:                                               ; preds = %.loopexit
@@ -8289,7 +8289,7 @@ conninfo_storeval.exit.thread:                    ; preds = %41, %46, %51
   br label %61
 
 61:                                               ; preds = %60, %conninfo_storeval.exit
-  %62 = load i8, ptr %.1, align 1
+  %62 = load i8, ptr %.2, align 1
   %.not = icmp eq i8 %62, 0
   br i1 %.not, label %.loopexit59, label %.preheader, !llvm.loop !51
 

@@ -117,8 +117,8 @@ define hidden noundef align 8 ptr @"_ZN103_$LT$$RF$mut$u20$serde_bare..ser..Seri
   br i1 %20, label %.preheader.i, label %"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h8d39a37ed2ff610fE.llvm.15385779655158985082.exit"
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h8d39a37ed2ff610fE.llvm.15385779655158985082.exit": ; preds = %.preheader.i, %17, %4
-  %.0.i.i = phi ptr [ %13, %4 ], [ %19, %17 ], [ null, %.preheader.i ]
-  ret ptr %.0.i.i
+  %.1.i.i = phi ptr [ %13, %4 ], [ %19, %17 ], [ null, %.preheader.i ]
+  ret ptr %.1.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -866,8 +866,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_map17hdc33
   br label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h289f28ff2c851366E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h289f28ff2c851366E.exit: ; preds = %"_ZN93_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17h44b33c494ba508ddE.exit.i.i.i.i.i", %50, %35, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2e99d0e2a7fb8efdE.exit.i.i", %19, %56
-  %.0 = phi ptr [ %12, %56 ], [ %54, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2e99d0e2a7fb8efdE.exit.i.i" ], [ %46, %35 ], [ %52, %50 ], [ %48, %"_ZN93_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17h44b33c494ba508ddE.exit.i.i.i.i.i" ], [ null, %19 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %12, %56 ], [ %54, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2e99d0e2a7fb8efdE.exit.i.i" ], [ %46, %35 ], [ %52, %50 ], [ %48, %"_ZN93_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeMap$GT$13serialize_key17h44b33c494ba508ddE.exit.i.i.i.i.i" ], [ null, %19 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -932,11 +932,11 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h296f08e1952b5813E.exit: ;
   br label %33
 
 33:                                               ; preds = %34, %32
-  %.0 = phi ptr [ %.1, %34 ], [ null, %32 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %.0, %34 ], [ null, %32 ]
+  ret ptr %.1
 
 34:                                               ; preds = %2, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h296f08e1952b5813E.exit.thread, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h296f08e1952b5813E.exit
-  %.1 = phi ptr [ %30, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h296f08e1952b5813E.exit ], [ %28, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h296f08e1952b5813E.exit.thread ], [ %25, %2 ]
+  %.0 = phi ptr [ %30, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h296f08e1952b5813E.exit ], [ %28, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h296f08e1952b5813E.exit.thread ], [ %25, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %33
@@ -979,8 +979,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17ha8e3
   br i1 %18, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h4f8a084a6f49e579E.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h4f8a084a6f49e579E.exit: ; preds = %15, %.preheader, %2
-  %.0 = phi ptr [ %11, %2 ], [ %17, %15 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %11, %2 ], [ %17, %15 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1075,8 +1075,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hb079
   br i1 %42, label %.preheader.i.i.i.i.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h79c7ed485127817dE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h79c7ed485127817dE.exit: ; preds = %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e10e1aa20ea29fE.exit.i.i.i.i.i.i.i", %.lr.ph.i.i, %28, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2709a3be10434a6aE.exit.loopexit.i.i", %39, %2, %16
-  %.0 = phi ptr [ null, %16 ], [ %14, %2 ], [ %41, %39 ], [ %35, %28 ], [ %24, %.lr.ph.i.i ], [ %26, %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e10e1aa20ea29fE.exit.i.i.i.i.i.i.i" ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2709a3be10434a6aE.exit.loopexit.i.i" ]
-  ret ptr %.0
+  %.1 = phi ptr [ null, %16 ], [ %14, %2 ], [ %41, %39 ], [ %35, %28 ], [ %24, %.lr.ph.i.i ], [ %26, %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e10e1aa20ea29fE.exit.i.i.i.i.i.i.i" ], [ null, %"_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h2709a3be10434a6aE.exit.loopexit.i.i" ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1111,8 +1111,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hb703
   br i1 %17, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h39e0598c98cbac8cE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17h39e0598c98cbac8cE.exit: ; preds = %14, %.preheader, %2
-  %.0 = phi ptr [ %10, %2 ], [ %16, %14 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %10, %2 ], [ %16, %14 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1147,8 +1147,8 @@ define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17hfe83
   br i1 %17, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hae2ae15d53c412abE.exit
 
 _ZN4core4iter6traits8iterator8Iterator12try_for_each17hae2ae15d53c412abE.exit: ; preds = %14, %.preheader, %2
-  %.0 = phi ptr [ %10, %2 ], [ %16, %14 ], [ null, %.preheader ]
-  ret ptr %.0
+  %.1 = phi ptr [ %10, %2 ], [ %16, %14 ], [ null, %.preheader ]
+  ret ptr %.1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1276,8 +1276,8 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..se
   br i1 %17, label %.preheader, label %_ZN5serde3ser10Serializer11collect_seq17hb703d454314f76e4E.llvm.15385779655158985082.exit
 
 _ZN5serde3ser10Serializer11collect_seq17hb703d454314f76e4E.llvm.15385779655158985082.exit: ; preds = %.preheader, %14, %2
-  %.0.i = phi ptr [ %10, %2 ], [ null, %.preheader ], [ %16, %14 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ %10, %2 ], [ null, %.preheader ], [ %16, %14 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1319,8 +1319,8 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..se
   br i1 %17, label %.preheader, label %_ZN5serde3ser10Serializer11collect_seq17hfe83c299fd55a6aaE.llvm.15385779655158985082.exit
 
 _ZN5serde3ser10Serializer11collect_seq17hfe83c299fd55a6aaE.llvm.15385779655158985082.exit: ; preds = %.preheader, %14, %2
-  %.0.i = phi ptr [ %10, %2 ], [ null, %.preheader ], [ %16, %14 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ %10, %2 ], [ null, %.preheader ], [ %16, %14 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1361,8 +1361,8 @@ define hidden noundef align 8 ptr @"_ZN5serde3ser5impls76_$LT$impl$u20$serde..se
   br i1 %18, label %.preheader, label %_ZN5serde3ser10Serializer11collect_seq17ha8e36cad40d4c9cbE.llvm.15385779655158985082.exit
 
 _ZN5serde3ser10Serializer11collect_seq17ha8e36cad40d4c9cbE.llvm.15385779655158985082.exit: ; preds = %.preheader, %15, %2
-  %.0.i = phi ptr [ %11, %2 ], [ null, %.preheader ], [ %17, %15 ]
-  ret ptr %.0.i
+  %.1.i = phi ptr [ %11, %2 ], [ null, %.preheader ], [ %17, %15 ]
+  ret ptr %.1.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -2505,8 +2505,8 @@ define hidden noundef align 8 ptr @"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br i1 %20, label %.preheader.i, label %"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h39fe9753068a53f2E.llvm.15385779655158985082.exit"
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h39fe9753068a53f2E.llvm.15385779655158985082.exit": ; preds = %.preheader.i, %17, %4
-  %.0.i.i = phi ptr [ %13, %4 ], [ %19, %17 ], [ null, %.preheader.i ]
-  ret ptr %.0.i.i
+  %.1.i.i = phi ptr [ %13, %4 ], [ %19, %17 ], [ null, %.preheader.i ]
+  ret ptr %.1.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2569,8 +2569,8 @@ define hidden noundef align 8 ptr @"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Seria
   br i1 %21, label %.preheader.i, label %"_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h9bcf52a94ea23c5dE.llvm.15385779655158985082.exit"
 
 "_ZN5serde3ser5impls76_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$alloc..vec..Vec$LT$T$GT$$GT$9serialize17h9bcf52a94ea23c5dE.llvm.15385779655158985082.exit": ; preds = %.preheader.i, %18, %4
-  %.0.i.i = phi ptr [ %14, %4 ], [ %20, %18 ], [ null, %.preheader.i ]
-  ret ptr %.0.i.i
+  %.1.i.i = phi ptr [ %14, %4 ], [ %20, %18 ], [ null, %.preheader.i ]
+  ret ptr %.1.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

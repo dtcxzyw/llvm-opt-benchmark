@@ -4186,7 +4186,7 @@ ehcleanup42:                                      ; preds = %lpad35, %lpad33
   br label %eh.resume
 
 if.end74:                                         ; preds = %invoke.cont43, %if.then13.i.i110, %if.then.i.i104, %invoke.cont69, %land.rhs, %if.then22
-  %nh.sroa.0.2 = phi ptr [ %11, %if.then22 ], [ %26, %land.rhs ], [ %43, %invoke.cont69 ], [ %43, %if.then.i.i104 ], [ %43, %if.then13.i.i110 ], [ %26, %invoke.cont43 ]
+  %nh.sroa.0.0 = phi ptr [ %11, %if.then22 ], [ %26, %land.rhs ], [ %43, %invoke.cont69 ], [ %43, %if.then.i.i104 ], [ %43, %if.then13.i.i110 ], [ %26, %invoke.cont43 ]
   %50 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i113 = icmp eq i8 %50, 0
   br i1 %guard.uninitialized.i.i113, label %init.check.i.i115, label %invoke.cont75, !prof !4
@@ -4218,14 +4218,14 @@ lpad.i.i119:                                      ; preds = %init.i.i117
 
 invoke.cont75:                                    ; preds = %invoke.cont.i.i120, %init.check.i.i115, %if.end74
   %53 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
-  %cmp.i114 = icmp eq ptr %nh.sroa.0.2, %53
+  %cmp.i114 = icmp eq ptr %nh.sroa.0.0, %53
   br i1 %cmp.i114, label %cleanup83, label %if.then77
 
 if.then77:                                        ; preds = %invoke.cont75
   %d_firstTime = getelementptr inbounds i8, ptr %this, i64 76
   store i8 0, ptr %d_firstTime, align 4
-  store ptr %nh.sroa.0.2, ptr %agg.result, align 8
-  %bf.load.i.i126 = load i64, ptr %nh.sroa.0.2, align 8
+  store ptr %nh.sroa.0.0, ptr %agg.result, align 8
+  %bf.load.i.i126 = load i64, ptr %nh.sroa.0.0, align 8
   %bf.lshr.i.i127 = lshr i64 %bf.load.i.i126, 40
   %54 = trunc nuw nsw i64 %bf.lshr.i.i127 to i32
   %bf.cast.i.i128 = and i32 %54, 1048575
@@ -4237,7 +4237,7 @@ if.then.i.i134:                                   ; preds = %if.then77
   %bf.shl.i.i136 = and i64 %bf.value.i.i135, 1152920405095219200
   %bf.clear7.i.i137 = and i64 %bf.load.i.i126, -1152920405095219201
   %bf.set.i.i138 = or disjoint i64 %bf.shl.i.i136, %bf.clear7.i.i137
-  store i64 %bf.set.i.i138, ptr %nh.sroa.0.2, align 8
+  store i64 %bf.set.i.i138, ptr %nh.sroa.0.0, align 8
   br label %return
 
 if.else.i.i130:                                   ; preds = %if.then77
@@ -4246,8 +4246,8 @@ if.else.i.i130:                                   ; preds = %if.then77
 
 if.then13.i.i132:                                 ; preds = %if.else.i.i130
   %bf.set23.i.i133 = or i64 %bf.load.i.i126, 1152920405095219200
-  store i64 %bf.set23.i.i133, ptr %nh.sroa.0.2, align 8
-  call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16) %nh.sroa.0.2)
+  store i64 %bf.set23.i.i133, ptr %nh.sroa.0.0, align 8
+  call void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16) %nh.sroa.0.0)
   br label %return
 
 cleanup83:                                        ; preds = %invoke.cont75, %invoke.cont20, %_ZN4cvc58internal8TypeNodeD2Ev.exit

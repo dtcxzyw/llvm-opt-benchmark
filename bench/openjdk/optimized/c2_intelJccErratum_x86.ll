@@ -100,7 +100,7 @@ define hidden noundef i32 @_ZN15IntelJccErratum22tag_affected_machnodesEP7Compil
 
 28:                                               ; preds = %.lr.ph50, %.loopexit
   %indvars.iv62 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next63, %.loopexit ]
-  %.149 = phi i32 [ %.055, %.lr.ph50 ], [ %.5, %.loopexit ]
+  %.149 = phi i32 [ %.055, %.lr.ph50 ], [ %.2, %.loopexit ]
   %.13248 = phi ptr [ %.03154, %.lr.ph50 ], [ %.233, %.loopexit ]
   %29 = load i32, ptr %26, align 8
   %30 = zext i32 %29 to i64
@@ -161,7 +161,7 @@ _ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread: ; preds = %
 63:                                               ; preds = %.lr.ph, %81
   %64 = phi i32 [ %59, %.lr.ph ], [ %82, %81 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %.246 = phi i32 [ %55, %.lr.ph ], [ %.3, %81 ]
+  %.446 = phi i32 [ %55, %.lr.ph ], [ %.5, %81 ]
   %65 = load ptr, ptr %61, align 8
   %66 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8
@@ -182,13 +182,13 @@ _ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread: ; preds = %
   %77 = getelementptr inbounds i8, ptr %76, i64 168
   %78 = load ptr, ptr %77, align 8
   %79 = tail call noundef i32 %78(ptr noundef nonnull align 8 dereferenceable(64) %.13248, ptr noundef %2) #6
-  %80 = add nsw i32 %79, %.246
+  %80 = add nsw i32 %79, %.446
   %.pre = load i32, ptr %58, align 8
   br label %81
 
 81:                                               ; preds = %63, %69, %73
   %82 = phi i32 [ %64, %69 ], [ %.pre, %73 ], [ %64, %63 ]
-  %.3 = phi i32 [ %.246, %69 ], [ %80, %73 ], [ %.246, %63 ]
+  %.5 = phi i32 [ %.446, %69 ], [ %80, %73 ], [ %.446, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = zext i32 %82 to i64
   %84 = icmp ult i64 %indvars.iv.next, %83
@@ -196,7 +196,7 @@ _ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread: ; preds = %
 
 .loopexit:                                        ; preds = %81, %.preheader, %41, %_ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread, %_ZNK5Block8get_nodeEj.exit
   %.233 = phi ptr [ %.13248, %_ZNK5Block8get_nodeEj.exit ], [ null, %_ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread ], [ %36, %41 ], [ null, %.preheader ], [ null, %81 ]
-  %.5 = phi i32 [ %.149, %_ZNK5Block8get_nodeEj.exit ], [ %55, %_ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread ], [ %.149, %41 ], [ %55, %.preheader ], [ %.3, %81 ]
+  %.2 = phi i32 [ %.149, %_ZNK5Block8get_nodeEj.exit ], [ %55, %_ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread ], [ %.149, %41 ], [ %55, %.preheader ], [ %.5, %81 ]
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %85 = load i32, ptr %24, align 8
   %86 = zext i32 %85 to i64
@@ -210,7 +210,7 @@ _ZN15IntelJccErratum21is_jcc_erratum_branchEPK8MachNode.exit.thread: ; preds = %
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
   %88 = phi i32 [ %20, %19 ], [ %.pre68, %._crit_edge.loopexit ]
   %.132.lcssa = phi ptr [ %.03154, %19 ], [ %.233, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i32 [ %.055, %19 ], [ %.5, %._crit_edge.loopexit ]
+  %.1.lcssa = phi i32 [ %.055, %19 ], [ %.2, %._crit_edge.loopexit ]
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %89 = zext i32 %88 to i64
   %90 = icmp ult i64 %indvars.iv.next66, %89

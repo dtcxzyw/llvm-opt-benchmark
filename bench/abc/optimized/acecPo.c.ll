@@ -4788,8 +4788,8 @@ Vec_IntGrow.exit.i311:                            ; preds = %169, %155
 178:                                              ; preds = %.lr.ph477, %269
   %indvars.iv519 = phi i64 [ 0, %.lr.ph477 ], [ %indvars.iv.next520, %269 ]
   %.val274476 = phi i32 [ %.val274471, %.lr.ph477 ], [ %.val274, %269 ]
-  %.2232473 = phi i32 [ 0, %.lr.ph477 ], [ %.3233, %269 ]
-  %.1238472 = phi i32 [ 0, %.lr.ph477 ], [ %270, %269 ]
+  %.3233473 = phi i32 [ 0, %.lr.ph477 ], [ %.4234, %269 ]
+  %.2239472 = phi i32 [ 0, %.lr.ph477 ], [ %270, %269 ]
   %.val282 = load ptr, ptr %67, align 8
   %179 = getelementptr inbounds i32, ptr %.val282, i64 %indvars.iv519
   %180 = load i32, ptr %179, align 4
@@ -4917,18 +4917,18 @@ Gia_PolynPrepare2.exit:                           ; preds = %Vec_IntGrow.exit.i7
 237:                                              ; preds = %234
   %238 = load ptr, ptr %13, align 16
   %239 = call fastcc i32 @Gia_PolynBuildAdd(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %31, ptr noundef %21, ptr noundef %236, ptr noundef %238)
-  %240 = add nsw i32 %239, %.2232473
+  %240 = add nsw i32 %239, %.3233473
   %241 = load ptr, ptr %12, align 16
   %242 = load ptr, ptr %69, align 8
   %243 = call fastcc i32 @Gia_PolynBuildAdd(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %31, ptr noundef %21, ptr noundef %241, ptr noundef %242)
   %244 = add nsw i32 %240, %243
-  %245 = add nsw i32 %.1238472, 1
+  %245 = add nsw i32 %.2239472, 1
   br label %269
 
 246:                                              ; preds = %234
   %247 = load ptr, ptr %69, align 8
   %248 = call fastcc i32 @Gia_PolynBuildAdd(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %31, ptr noundef %21, ptr noundef %236, ptr noundef %247)
-  %249 = add nsw i32 %248, %.2232473
+  %249 = add nsw i32 %248, %.3233473
   br label %269
 
 250:                                              ; preds = %228, %Gia_PolynPrepare2.exit
@@ -4947,24 +4947,24 @@ Gia_PolynPrepare2.exit:                           ; preds = %Vec_IntGrow.exit.i7
 256:                                              ; preds = %253
   %257 = load ptr, ptr %13, align 16
   %258 = call fastcc i32 @Gia_PolynBuildAdd(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %31, ptr noundef %21, ptr noundef %255, ptr noundef %257)
-  %259 = add nsw i32 %258, %.2232473
+  %259 = add nsw i32 %258, %.3233473
   %260 = load ptr, ptr %68, align 8
   %261 = load ptr, ptr %69, align 8
   %262 = call fastcc i32 @Gia_PolynBuildAdd(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %31, ptr noundef %21, ptr noundef %260, ptr noundef %261)
   %263 = add nsw i32 %259, %262
-  %264 = add nsw i32 %.1238472, 1
+  %264 = add nsw i32 %.2239472, 1
   br label %269
 
 265:                                              ; preds = %253
   %266 = load ptr, ptr %69, align 8
   %267 = call fastcc i32 @Gia_PolynBuildAdd(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %31, ptr noundef %21, ptr noundef %255, ptr noundef %266)
-  %268 = add nsw i32 %267, %.2232473
+  %268 = add nsw i32 %267, %.3233473
   br label %269
 
 269:                                              ; preds = %256, %265, %237, %246
-  %.2239 = phi i32 [ %245, %237 ], [ %.1238472, %246 ], [ %264, %256 ], [ %.1238472, %265 ]
-  %.3233 = phi i32 [ %244, %237 ], [ %249, %246 ], [ %263, %256 ], [ %268, %265 ]
-  %270 = add nsw i32 %.2239, 1
+  %.3240 = phi i32 [ %245, %237 ], [ %.2239472, %246 ], [ %264, %256 ], [ %.2239472, %265 ]
+  %.4234 = phi i32 [ %244, %237 ], [ %249, %246 ], [ %263, %256 ], [ %268, %265 ]
+  %270 = add nsw i32 %.3240, 1
   %indvars.iv.next520 = add nuw nsw i64 %indvars.iv519, 1
   %.val274 = load i32, ptr %65, align 4
   %271 = sext i32 %.val274 to i64
@@ -4976,8 +4976,8 @@ Gia_PolynPrepare2.exit:                           ; preds = %Vec_IntGrow.exit.i7
   br label %.critedge
 
 .critedge:                                        ; preds = %269, %.critedge.loopexit497, %.preheader449, %.preheader448
-  %.3240 = phi i32 [ 0, %.preheader448 ], [ 0, %.preheader449 ], [ %indvars517, %.critedge.loopexit497 ], [ %270, %269 ]
-  %.4234 = phi i32 [ 0, %.preheader448 ], [ 0, %.preheader449 ], [ %.1231, %.critedge.loopexit497 ], [ %.3233, %269 ]
+  %.1238 = phi i32 [ 0, %.preheader448 ], [ 0, %.preheader449 ], [ %indvars517, %.critedge.loopexit497 ], [ %270, %269 ]
+  %.2232 = phi i32 [ 0, %.preheader448 ], [ 0, %.preheader449 ], [ %.1231, %.critedge.loopexit497 ], [ %.4234, %269 ]
   %273 = getelementptr i8, ptr %5, i64 4
   %.val271 = load i32, ptr %273, align 4
   %274 = icmp sgt i32 %.val271, 0
@@ -5013,8 +5013,8 @@ Gia_PolynPrepare2.exit:                           ; preds = %Vec_IntGrow.exit.i7
 
 295:                                              ; preds = %.lr.ph491, %.critedge8.loopexit
   %indvars.iv527 = phi i64 [ %293, %.lr.ph491 ], [ %indvars.iv.next528, %.critedge8.loopexit ]
-  %.5235489 = phi i32 [ %.4234, %.lr.ph491 ], [ %.6236.lcssa, %.critedge8.loopexit ]
-  %.4241488 = phi i32 [ %.3240, %.lr.ph491 ], [ %.5242.lcssa, %.critedge8.loopexit ]
+  %.5235489 = phi i32 [ %.2232, %.lr.ph491 ], [ %.6236.lcssa, %.critedge8.loopexit ]
+  %.4241488 = phi i32 [ %.1238, %.lr.ph491 ], [ %.5242.lcssa, %.critedge8.loopexit ]
   %indvars.iv.next528 = add nsw i64 %indvars.iv527, -1
   %.val281 = load ptr, ptr %275, align 8
   %296 = getelementptr inbounds i32, ptr %.val281, i64 %indvars.iv.next528
@@ -5982,8 +5982,8 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Vec_IntPushUniqueOr
   br i1 %723, label %304, label %.critedge8.loopexit, !llvm.loop !64
 
 .critedge6:                                       ; preds = %.critedge8.loopexit, %.critedge
-  %.4241.lcssa = phi i32 [ %.3240, %.critedge ], [ %.5242.lcssa, %.critedge8.loopexit ]
-  %.5235.lcssa = phi i32 [ %.4234, %.critedge ], [ %.6236.lcssa, %.critedge8.loopexit ]
+  %.4241.lcssa = phi i32 [ %.1238, %.critedge ], [ %.5242.lcssa, %.critedge8.loopexit ]
+  %.5235.lcssa = phi i32 [ %.2232, %.critedge ], [ %.6236.lcssa, %.critedge8.loopexit ]
   %724 = call ptr @Gia_PolynGetResult(ptr noundef %29, ptr noundef %30, ptr noundef nonnull %31)
   %725 = getelementptr i8, ptr %29, i64 16
   %.val302 = load ptr, ptr %725, align 8

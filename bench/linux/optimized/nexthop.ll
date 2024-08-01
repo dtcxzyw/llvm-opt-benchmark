@@ -3795,8 +3795,8 @@ define internal i32 @rtm_dump_nexthop(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %33, label %__nh_valid_dump_req.exit.thread, label %64
 
 34:                                               ; preds = %28, %23
-  %.sroa.3.0 = phi i32 [ 0, %23 ], [ %30, %28 ]
-  %.sroa.3.0.fr = freeze i32 %.sroa.3.0
+  %.sroa.3.1 = phi i32 [ 0, %23 ], [ %30, %28 ]
+  %.sroa.3.1.fr = freeze i32 %.sroa.3.1
   %35 = getelementptr inbounds i8, ptr %3, i64 80
   %36 = load ptr, ptr %35, align 16
   %37 = icmp eq ptr %36, null
@@ -3814,8 +3814,8 @@ define internal i32 @rtm_dump_nexthop(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %43, label %__nh_valid_dump_req.exit.thread, label %64
 
 44:                                               ; preds = %38, %34
-  %.sroa.5.0 = phi i32 [ 0, %34 ], [ %40, %38 ]
-  %.sroa.5.0.fr = freeze i32 %.sroa.5.0
+  %.sroa.5.1 = phi i32 [ 0, %34 ], [ %40, %38 ]
+  %.sroa.5.1.fr = freeze i32 %.sroa.5.1
   %45 = getelementptr inbounds i8, ptr %3, i64 72
   %46 = load ptr, ptr %45, align 8
   %.fr = freeze ptr %46
@@ -3867,8 +3867,8 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %18, %32, %42, %62, 
   br i1 %70, label %.thread21, label %71
 
 71:                                               ; preds = %66
-  %.not51 = icmp eq i32 %.sroa.3.0.fr, 0
-  %72 = icmp eq i32 %.sroa.5.0.fr, 0
+  %.not51 = icmp eq i32 %.sroa.3.1.fr, 0
+  %72 = icmp eq i32 %.sroa.5.1.fr, 0
   br i1 %72, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %71
@@ -3915,7 +3915,7 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %18, %32, %42, %62, 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds i8, ptr %93, i64 216
   %97 = load i32, ptr %96, align 8
-  %98 = icmp eq i32 %97, %.sroa.3.0.fr
+  %98 = icmp eq i32 %97, %.sroa.3.1.fr
   br i1 %98, label %99, label %.thread17.us.us
 
 99:                                               ; preds = %95
@@ -4066,7 +4066,7 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %18, %32, %42, %62, 
 183:                                              ; preds = %182
   %184 = getelementptr inbounds i8, ptr %181, i64 216
   %185 = load i32, ptr %184, align 8
-  %.not31 = icmp eq i32 %185, %.sroa.3.0.fr
+  %.not31 = icmp eq i32 %185, %.sroa.3.1.fr
   br i1 %.not31, label %187, label %.thread17
 
 186:                                              ; preds = %179
@@ -4080,7 +4080,7 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %18, %32, %42, %62, 
 190:                                              ; preds = %187
   %191 = getelementptr inbounds i8, ptr %188, i64 216
   %192 = load i32, ptr %191, align 8
-  %193 = icmp eq i32 %192, %.sroa.5.0.fr
+  %193 = icmp eq i32 %192, %.sroa.5.1.fr
   br i1 %193, label %._crit_edge41, label %.thread17
 
 ._crit_edge41:                                    ; preds = %190

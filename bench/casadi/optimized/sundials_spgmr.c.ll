@@ -352,7 +352,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
   %.0368 = phi i32 [ 0, %63 ], [ %190, %._crit_edge364 ]
   %.0258367 = phi i32 [ 0, %63 ], [ %.2, %._crit_edge364 ]
   %.0270366 = phi double [ %61, %63 ], [ %181, %._crit_edge364 ]
-  %.0271365 = phi double [ %61, %63 ], [ %.2273, %._crit_edge364 ]
+  %.0271365 = phi double [ %61, %63 ], [ %.3274, %._crit_edge364 ]
   br i1 %64, label %._crit_edge331.thread, label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader318, %._crit_edge.us
@@ -526,7 +526,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
 
 ._crit_edge:                                      ; preds = %136, %._crit_edge.loopexit.split.loop.exit, %._crit_edge331.thread, %._crit_edge331
   %.not311.lcssa = phi i1 [ false, %._crit_edge331 ], [ false, %._crit_edge331.thread ], [ %.not311335, %._crit_edge.loopexit.split.loop.exit ], [ %.not311, %136 ]
-  %.2273 = phi double [ %.0271365, %._crit_edge331 ], [ %.0271365, %._crit_edge331.thread ], [ %134, %._crit_edge.loopexit.split.loop.exit ], [ %134, %136 ]
+  %.3274 = phi double [ %.0271365, %._crit_edge331 ], [ %.0271365, %._crit_edge331.thread ], [ %134, %._crit_edge.loopexit.split.loop.exit ], [ %134, %136 ]
   %.2 = phi i32 [ %.0258367, %._crit_edge331 ], [ %.0258367, %._crit_edge331.thread ], [ %143, %._crit_edge.loopexit.split.loop.exit ], [ %19, %136 ]
   store double %.0270366, ptr %29, align 8
   %.not308342 = icmp slt i32 %.2, 1
@@ -675,7 +675,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly %0, ptr noundef %1,
   br label %.preheader318
 
 split:                                            ; preds = %164
-  %191 = fcmp olt double %.2273, %61
+  %191 = fcmp olt double %.3274, %61
   br i1 %191, label %192, label %.loopexit
 
 192:                                              ; preds = %split

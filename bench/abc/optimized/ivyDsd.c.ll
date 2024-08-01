@@ -836,7 +836,7 @@ Ivy_TruthRecognizeMuxMaj.exit:                    ; preds = %Ivy_TruthRecognizeM
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Ivy_DecSetVar.exit
   %indvars.iv220 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next221, %Ivy_DecSetVar.exit ]
   %.078195 = phi i32 [ %.077, %.lr.ph.preheader ], [ %.0.i110, %Ivy_DecSetVar.exit ]
-  %.sroa.0.1193 = phi i32 [ %265, %.lr.ph.preheader ], [ %.sroa.0.2, %Ivy_DecSetVar.exit ]
+  %.sroa.0.1193 = phi i32 [ %265, %.lr.ph.preheader ], [ %.sroa.0.3, %Ivy_DecSetVar.exit ]
   %266 = getelementptr inbounds i32, ptr %.092, i64 %indvars.iv220
   %267 = load i32, ptr %266, align 4
   %268 = ashr i32 %267, 1
@@ -905,13 +905,13 @@ Ivy_TruthRecognizeMuxMaj.exit:                    ; preds = %Ivy_TruthRecognizeM
   br label %Ivy_DecSetVar.exit
 
 Ivy_DecSetVar.exit:                               ; preds = %280, %285, %290, %295, %300, %305, %.lr.ph
-  %.sroa.0.2 = phi i32 [ %.sroa.0.1193, %.lr.ph ], [ %308, %305 ], [ %304, %300 ], [ %299, %295 ], [ %294, %290 ], [ %289, %285 ], [ %284, %280 ]
+  %.sroa.0.3 = phi i32 [ %.sroa.0.1193, %.lr.ph ], [ %308, %305 ], [ %304, %300 ], [ %299, %295 ], [ %294, %290 ], [ %289, %285 ], [ %284, %280 ]
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count
   br i1 %exitcond223.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %Ivy_DecSetVar.exit, %259
-  %.sroa.0.1.lcssa = phi i32 [ %265, %259 ], [ %.sroa.0.2, %Ivy_DecSetVar.exit ]
+  %.sroa.0.1.lcssa = phi i32 [ %265, %259 ], [ %.sroa.0.3, %Ivy_DecSetVar.exit ]
   %.078.lcssa = phi i32 [ %.077, %259 ], [ %.0.i110, %Ivy_DecSetVar.exit ]
   %309 = and i32 %.sroa.0.1.lcssa, 15
   %310 = icmp eq i32 %309, 4
@@ -995,7 +995,7 @@ Ivy_DecSetVar.exit:                               ; preds = %280, %285, %290, %2
   br label %Ivy_DecSetVar.exit113
 
 Ivy_DecSetVar.exit113:                            ; preds = %317, %346, %341, %336, %331, %326, %321, %350, %351
-  %.sroa.0.4 = phi i32 [ %.sroa.0.1.lcssa, %351 ], [ %.sroa.0.1.lcssa, %350 ], [ %.sroa.0.1.lcssa, %317 ], [ %349, %346 ], [ %345, %341 ], [ %340, %336 ], [ %335, %331 ], [ %330, %326 ], [ %325, %321 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.1.lcssa, %351 ], [ %.sroa.0.1.lcssa, %350 ], [ %.sroa.0.1.lcssa, %317 ], [ %349, %346 ], [ %345, %341 ], [ %340, %336 ], [ %335, %331 ], [ %330, %326 ], [ %325, %321 ]
   %.3 = phi i32 [ %354, %351 ], [ %.080, %350 ], [ %.2, %317 ], [ %.2, %346 ], [ %.2, %341 ], [ %.2, %336 ], [ %.2, %331 ], [ %.2, %326 ], [ %.2, %321 ]
   %355 = getelementptr inbounds i8, ptr %1, i64 4
   %356 = load i32, ptr %355, align 4
@@ -1062,7 +1062,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %383, ptr %355, align 4
   %384 = sext i32 %382 to i64
   %385 = getelementptr inbounds i32, ptr %381, i64 %384
-  store i32 %.sroa.0.4, ptr %385, align 4
+  store i32 %.sroa.0.2, ptr %385, align 4
   %.val = load i32, ptr %355, align 4
   %386 = shl i32 %.val, 1
   %387 = add i32 %386, -2

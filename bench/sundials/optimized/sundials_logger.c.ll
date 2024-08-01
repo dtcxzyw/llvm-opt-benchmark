@@ -896,17 +896,17 @@ define i32 @SUNLogger_QueueMsg(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 
 30:                                               ; preds = %._crit_edge, %26, %29, %22, %25, %18, %21, %14, %17
   %31 = phi ptr [ %.pre39, %29 ], [ %.pre39, %26 ], [ %.pre40, %25 ], [ %.pre40, %22 ], [ %.pre41, %21 ], [ %.pre41, %18 ], [ %.pre42, %17 ], [ %.pre42, %14 ], [ %.pre, %._crit_edge ]
-  %.0 = phi i32 [ 0, %29 ], [ 0, %26 ], [ 0, %25 ], [ 0, %22 ], [ 0, %21 ], [ 0, %18 ], [ 0, %17 ], [ 0, %14 ], [ -9976, %._crit_edge ]
+  %.1 = phi i32 [ 0, %29 ], [ 0, %26 ], [ 0, %25 ], [ 0, %22 ], [ 0, %21 ], [ 0, %18 ], [ 0, %17 ], [ 0, %14 ], [ -9976, %._crit_edge ]
   call void @free(ptr noundef %31) #14
   br label %32
 
 32:                                               ; preds = %30, %11
-  %.1 = phi i32 [ %12, %11 ], [ %.0, %30 ]
+  %.0 = phi i32 [ %12, %11 ], [ %.1, %30 ]
   call void @llvm.va_end.p0(ptr nonnull %6)
   br label %33
 
 33:                                               ; preds = %5, %32
-  %.024 = phi i32 [ %.1, %32 ], [ -9999, %5 ]
+  %.024 = phi i32 [ %.0, %32 ], [ -9999, %5 ]
   ret i32 %.024
 }
 

@@ -544,7 +544,7 @@ pmix_obj_run_destructors.exit284:                 ; preds = %.lr.ph.i281, %233
 .lr.ph:                                           ; preds = %.preheader, %285
   %.0209323 = phi ptr [ %.0209, %285 ], [ %.0209319, %.preheader ]
   %.0322 = phi i1 [ %.1, %285 ], [ false, %.preheader ]
-  %.0207321 = phi ptr [ %.2, %285 ], [ null, %.preheader ]
+  %.1208321 = phi ptr [ %.3, %285 ], [ null, %.preheader ]
   %247 = getelementptr inbounds i8, ptr %.0209323, i64 144
   %248 = load ptr, ptr %247, align 8
   %249 = getelementptr inbounds i8, ptr %248, i64 280
@@ -557,7 +557,7 @@ pmix_obj_run_destructors.exit284:                 ; preds = %.lr.ph.i281, %233
   br i1 %252, label %253, label %285
 
 253:                                              ; preds = %251
-  %254 = icmp eq ptr %.0207321, null
+  %254 = icmp eq ptr %.1208321, null
   br i1 %254, label %255, label %280
 
 255:                                              ; preds = %253
@@ -617,15 +617,15 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %261, %
   br label %280
 
 280:                                              ; preds = %pmix_obj_new_tma.exit, %253
-  %.1208 = phi ptr [ %257, %pmix_obj_new_tma.exit ], [ %.0207321, %253 ]
-  %281 = getelementptr inbounds i8, ptr %.1208, i64 416
+  %.2 = phi ptr [ %257, %pmix_obj_new_tma.exit ], [ %.1208321, %253 ]
+  %281 = getelementptr inbounds i8, ptr %.2, i64 416
   %282 = getelementptr inbounds i8, ptr %248, i64 224
   %283 = load i32, ptr %282, align 8
   %284 = call i32 @pmix_bitmap_set_bit(ptr noundef nonnull %281, i32 noundef %283) #10
   br label %285
 
 285:                                              ; preds = %.lr.ph, %280, %251
-  %.2 = phi ptr [ %.1208, %280 ], [ %.0207321, %251 ], [ %.0207321, %.lr.ph ]
+  %.3 = phi ptr [ %.2, %280 ], [ %.1208321, %251 ], [ %.1208321, %.lr.ph ]
   %.1 = phi i1 [ true, %280 ], [ %.0322, %251 ], [ %.0322, %.lr.ph ]
   %286 = getelementptr inbounds i8, ptr %.0209323, i64 120
   %.0209 = load ptr, ptr %286, align 8
@@ -761,8 +761,8 @@ pmix_obj_run_destructors.exit291:                 ; preds = %.lr.ph.i288, %338
   br label %480
 
 352:                                              ; preds = %146, %._crit_edge, %prte_oob_base_get_peer.exit
-  %.3 = phi ptr [ %147, %146 ], [ %.2, %._crit_edge ], [ %.09.i, %prte_oob_base_get_peer.exit ]
-  %353 = getelementptr inbounds i8, ptr %.3, i64 408
+  %.0207 = phi ptr [ %147, %146 ], [ %.3, %._crit_edge ], [ %.09.i, %prte_oob_base_get_peer.exit ]
+  %353 = getelementptr inbounds i8, ptr %.0207, i64 408
   %354 = load ptr, ptr %353, align 8
   %.not249 = icmp eq ptr %354, null
   br i1 %.not249, label %371, label %355

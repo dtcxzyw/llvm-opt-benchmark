@@ -428,12 +428,12 @@ agxbclear.exit.thread.i.i:                        ; preds = %agxbputc.exit.i.i
   br label %exccclose.exit
 
 exccclose.exit:                                   ; preds = %agxbputc.exit, %61, %agxbclear.exit.thread.i.i, %85
-  %.0.i = phi i32 [ 0, %agxbputc.exit ], [ -1, %61 ], [ 0, %agxbclear.exit.thread.i.i ], [ 0, %85 ]
+  %.1.i = phi i32 [ 0, %agxbputc.exit ], [ -1, %61 ], [ 0, %agxbclear.exit.thread.i.i ], [ 0, %85 ]
   call void @free(ptr noundef nonnull %7) #15
   br label %exccopen.exit.thread
 
 exccopen.exit.thread:                             ; preds = %3, %exccclose.exit
-  %.019 = phi i32 [ %.0.i, %exccclose.exit ], [ -1, %3 ]
+  %.019 = phi i32 [ %.1.i, %exccclose.exit ], [ -1, %3 ]
   ret i32 %.019
 }
 

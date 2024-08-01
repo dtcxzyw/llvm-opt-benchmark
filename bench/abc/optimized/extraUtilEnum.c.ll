@@ -1006,7 +1006,7 @@ Vec_IntPush.exit149:                              ; preds = %.Vec_IntGrow.exit10
 
 271:                                              ; preds = %Vec_IntPush.exit149, %283
   %indvars.iv212 = phi i64 [ 0, %Vec_IntPush.exit149 ], [ %indvars.iv.next213, %283 ]
-  %.5192 = phi i32 [ %.4196, %Vec_IntPush.exit149 ], [ %.6, %283 ]
+  %.6192 = phi i32 [ %.4196, %Vec_IntPush.exit149 ], [ %.7, %283 ]
   %272 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %indvars.iv212
   %273 = load i32, ptr %272, align 4
   %.not105 = icmp eq i32 %273, 0
@@ -1026,11 +1026,11 @@ Vec_IntPush.exit149:                              ; preds = %.Vec_IntGrow.exit10
   call void @Abc_EnumPrint_rec(ptr noundef nonnull %15, i32 noundef %281, i32 noundef 10)
   %putchar.i = call i32 @putchar(i32 10)
   store i32 1, ptr %272, align 4
-  %282 = add nsw i32 %.5192, 1
+  %282 = add nsw i32 %.6192, 1
   br label %283
 
 283:                                              ; preds = %271, %274, %278
-  %.6 = phi i32 [ %.5192, %271 ], [ %282, %278 ], [ %.5192, %274 ]
+  %.7 = phi i32 [ %.6192, %271 ], [ %282, %278 ], [ %.6192, %274 ]
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next213, 7
   br i1 %exitcond215.not, label %.loopexit187.loopexit, label %271, !llvm.loop !18
@@ -1047,7 +1047,7 @@ Vec_IntPush.exit149:                              ; preds = %.Vec_IntGrow.exit10
   %284 = phi i32 [ %188, %184 ], [ %.pre246, %.loopexit187.loopexit ]
   %285 = phi i32 [ %186, %184 ], [ %.pre, %.loopexit187.loopexit ]
   %.val108 = phi ptr [ %.val110, %184 ], [ %.val108.pre, %.loopexit187.loopexit ]
-  %.7 = phi i32 [ %.4196, %184 ], [ %.6, %.loopexit187.loopexit ]
+  %.5 = phi i32 [ %.4196, %184 ], [ %.7, %.loopexit187.loopexit ]
   %286 = or i32 %284, %285
   %287 = zext i32 %286 to i64
   %288 = lshr i64 %287, 6
@@ -1225,7 +1225,7 @@ Vec_IntPush.exit170:                              ; preds = %.Vec_IntGrow.exit10
 
 368:                                              ; preds = %Vec_IntPush.exit170, %380
   %indvars.iv216 = phi i64 [ 0, %Vec_IntPush.exit170 ], [ %indvars.iv.next217, %380 ]
-  %.8194 = phi i32 [ %.7, %Vec_IntPush.exit170 ], [ %.9, %380 ]
+  %.8194 = phi i32 [ %.5, %Vec_IntPush.exit170 ], [ %.9, %380 ]
   %369 = getelementptr inbounds [100 x i32], ptr %7, i64 0, i64 %indvars.iv216
   %370 = load i32, ptr %369, align 4
   %.not107 = icmp eq i32 %370, 0
@@ -1255,7 +1255,7 @@ Vec_IntPush.exit170:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond219.not, label %.loopexit, label %368, !llvm.loop !19
 
 .loopexit:                                        ; preds = %380, %182, %.loopexit187
-  %.10 = phi i32 [ %.7, %.loopexit187 ], [ %.4196, %182 ], [ %.9, %380 ]
+  %.10 = phi i32 [ %.5, %.loopexit187 ], [ %.4196, %182 ], [ %.9, %380 ]
   %indvars.iv.next221 = add nsw i64 %indvars.iv220, 1
   %381 = load i32, ptr %170, align 4
   %382 = sext i32 %381 to i64
@@ -1515,7 +1515,7 @@ Abc_EnumPrintOne.exit:                            ; preds = %64, %25
 108:                                              ; preds = %.lr.ph179, %348
   %109 = phi i32 [ %19, %.lr.ph179 ], [ %349, %348 ]
   %indvars.iv189 = phi i64 [ %94, %.lr.ph179 ], [ %indvars.iv.next190, %348 ]
-  %.0140176 = phi i32 [ %78, %.lr.ph179 ], [ %.2, %348 ]
+  %.0140176 = phi i32 [ %78, %.lr.ph179 ], [ %.1, %348 ]
   %110 = icmp eq i32 %.0140176, 0
   %111 = getelementptr inbounds [16 x i32], ptr %12, i64 0, i64 %indvars.iv189
   %112 = load i32, ptr %111, align 4
@@ -1967,7 +1967,7 @@ Abc_EnumerateFilter.exit.thread:                  ; preds = %.lr.ph.i155, %260, 
 
 348:                                              ; preds = %108, %._crit_edge
   %349 = phi i32 [ %345, %._crit_edge ], [ %109, %108 ]
-  %.2 = phi i32 [ %spec.select154, %._crit_edge ], [ 0, %108 ]
+  %.1 = phi i32 [ %spec.select154, %._crit_edge ], [ 0, %108 ]
   %indvars.iv.next190 = add nsw i64 %indvars.iv189, 1
   %lftr.wideiv193 = trunc i64 %indvars.iv.next190 to i32
   %exitcond194.not = icmp eq i32 %90, %lftr.wideiv193

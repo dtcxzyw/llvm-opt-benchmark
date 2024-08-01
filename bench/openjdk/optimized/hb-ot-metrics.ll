@@ -3901,23 +3901,23 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj6EE11call_createI9hb_blob_t22hb_table_lazy_l
   br label %26
 
 26:                                               ; preds = %24, %_ZNK17hb_data_wrapper_tI9hb_face_tLj6EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT3OS2ELj6ELb1EEEEPT_v.exit
-  %.0 = phi ptr [ %16, %_ZNK17hb_data_wrapper_tI9hb_face_tLj6EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT3OS2ELj6ELb1EEEEPT_v.exit ], [ %25, %24 ]
-  %27 = ptrtoint ptr %.0 to i64
+  %.1 = phi ptr [ %16, %_ZNK17hb_data_wrapper_tI9hb_face_tLj6EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT3OS2ELj6ELb1EEEEPT_v.exit ], [ %25, %24 ]
+  %27 = ptrtoint ptr %.1 to i64
   %28 = cmpxchg weak ptr %0, i64 0, i64 %27 acq_rel monotonic, align 8
   %29 = extractvalue { i64, i1 } %28, 1
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %26
-  %.not.i11 = icmp eq ptr %.0, null
+  %.not.i11 = icmp eq ptr %.1, null
   br i1 %.not.i11, label %_ZN16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10do_destroyEPS5_.exit, label %31
 
 31:                                               ; preds = %30
   %32 = call noundef ptr @hb_blob_get_empty()
-  %.not3.i = icmp eq ptr %32, %.0
+  %.not3.i = icmp eq ptr %32, %.1
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10do_destroyEPS5_.exit, label %33
 
 33:                                               ; preds = %31
-  call void @hb_blob_destroy(ptr noundef nonnull %.0)
+  call void @hb_blob_destroy(ptr noundef nonnull %.1)
   br label %_ZN16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj6E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %30, %31, %33
@@ -3931,7 +3931,7 @@ _ZN16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.loopexit.split.loop.exit12, %12
-  %.07 = phi ptr [ %13, %12 ], [ %35, %.loopexit.split.loop.exit12 ], [ %.0, %26 ]
+  %.07 = phi ptr [ %13, %12 ], [ %35, %.loopexit.split.loop.exit12 ], [ %.1, %26 ]
   ret ptr %.07
 }
 
@@ -4163,23 +4163,23 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj22EE11call_createI9hb_blob_t22hb_table_lazy_
   br label %26
 
 26:                                               ; preds = %24, %_ZNK17hb_data_wrapper_tI9hb_face_tLj22EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4MVARELj22ELb1EEEEPT_v.exit
-  %.0 = phi ptr [ %16, %_ZNK17hb_data_wrapper_tI9hb_face_tLj22EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4MVARELj22ELb1EEEEPT_v.exit ], [ %25, %24 ]
-  %27 = ptrtoint ptr %.0 to i64
+  %.1 = phi ptr [ %16, %_ZNK17hb_data_wrapper_tI9hb_face_tLj22EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4MVARELj22ELb1EEEEPT_v.exit ], [ %25, %24 ]
+  %27 = ptrtoint ptr %.1 to i64
   %28 = cmpxchg weak ptr %0, i64 0, i64 %27 acq_rel monotonic, align 8
   %29 = extractvalue { i64, i1 } %28, 1
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %26
-  %.not.i11 = icmp eq ptr %.0, null
+  %.not.i11 = icmp eq ptr %.1, null
   br i1 %.not.i11, label %_ZN16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10do_destroyEPS5_.exit, label %31
 
 31:                                               ; preds = %30
   %32 = call noundef ptr @hb_blob_get_empty()
-  %.not3.i = icmp eq ptr %32, %.0
+  %.not3.i = icmp eq ptr %32, %.1
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10do_destroyEPS5_.exit, label %33
 
 33:                                               ; preds = %31
-  call void @hb_blob_destroy(ptr noundef nonnull %.0)
+  call void @hb_blob_destroy(ptr noundef nonnull %.1)
   br label %_ZN16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_tLj22E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %30, %31, %33
@@ -4193,7 +4193,7 @@ _ZN16hb_lazy_loader_tIN2OT4MVARE22hb_table_lazy_loader_tIS1_Lj22ELb1EE9hb_face_t
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.loopexit.split.loop.exit12, %12
-  %.07 = phi ptr [ %13, %12 ], [ %35, %.loopexit.split.loop.exit12 ], [ %.0, %26 ]
+  %.07 = phi ptr [ %13, %12 ], [ %35, %.loopexit.split.loop.exit12 ], [ %.1, %26 ]
   ret ptr %.07
 }
 
@@ -4851,23 +4851,23 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj4EE11call_createI9hb_blob_t22hb_table_lazy_l
   br label %26
 
 26:                                               ; preds = %24, %_ZNK17hb_data_wrapper_tI9hb_face_tLj4EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4hheaELj4ELb1EEEEPT_v.exit
-  %.0 = phi ptr [ %16, %_ZNK17hb_data_wrapper_tI9hb_face_tLj4EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4hheaELj4ELb1EEEEPT_v.exit ], [ %25, %24 ]
-  %27 = ptrtoint ptr %.0 to i64
+  %.1 = phi ptr [ %16, %_ZNK17hb_data_wrapper_tI9hb_face_tLj4EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4hheaELj4ELb1EEEEPT_v.exit ], [ %25, %24 ]
+  %27 = ptrtoint ptr %.1 to i64
   %28 = cmpxchg weak ptr %0, i64 0, i64 %27 acq_rel monotonic, align 8
   %29 = extractvalue { i64, i1 } %28, 1
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %26
-  %.not.i11 = icmp eq ptr %.0, null
+  %.not.i11 = icmp eq ptr %.1, null
   br i1 %.not.i11, label %_ZN16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10do_destroyEPS5_.exit, label %31
 
 31:                                               ; preds = %30
   %32 = call noundef ptr @hb_blob_get_empty()
-  %.not3.i = icmp eq ptr %32, %.0
+  %.not3.i = icmp eq ptr %32, %.1
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10do_destroyEPS5_.exit, label %33
 
 33:                                               ; preds = %31
-  call void @hb_blob_destroy(ptr noundef nonnull %.0)
+  call void @hb_blob_destroy(ptr noundef nonnull %.1)
   br label %_ZN16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tLj4E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %30, %31, %33
@@ -4881,7 +4881,7 @@ _ZN16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tL
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.loopexit.split.loop.exit12, %12
-  %.07 = phi ptr [ %13, %12 ], [ %35, %.loopexit.split.loop.exit12 ], [ %.0, %26 ]
+  %.07 = phi ptr [ %13, %12 ], [ %35, %.loopexit.split.loop.exit12 ], [ %.1, %26 ]
   ret ptr %.07
 }
 
@@ -5040,23 +5040,23 @@ _ZNK17hb_data_wrapper_tI9hb_face_tLj11EE11call_createI9hb_blob_t22hb_table_lazy_
   br label %26
 
 26:                                               ; preds = %24, %_ZNK17hb_data_wrapper_tI9hb_face_tLj11EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4vheaELj11ELb1EEEEPT_v.exit
-  %.0 = phi ptr [ %16, %_ZNK17hb_data_wrapper_tI9hb_face_tLj11EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4vheaELj11ELb1EEEEPT_v.exit ], [ %25, %24 ]
-  %27 = ptrtoint ptr %.0 to i64
+  %.1 = phi ptr [ %16, %_ZNK17hb_data_wrapper_tI9hb_face_tLj11EE11call_createI9hb_blob_t22hb_table_lazy_loader_tIN2OT4vheaELj11ELb1EEEEPT_v.exit ], [ %25, %24 ]
+  %27 = ptrtoint ptr %.1 to i64
   %28 = cmpxchg weak ptr %0, i64 0, i64 %27 acq_rel monotonic, align 8
   %29 = extractvalue { i64, i1 } %28, 1
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %26
-  %.not.i11 = icmp eq ptr %.0, null
+  %.not.i11 = icmp eq ptr %.1, null
   br i1 %.not.i11, label %_ZN16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10do_destroyEPS5_.exit, label %31
 
 31:                                               ; preds = %30
   %32 = call noundef ptr @hb_blob_get_empty()
-  %.not3.i = icmp eq ptr %32, %.0
+  %.not3.i = icmp eq ptr %32, %.1
   br i1 %.not3.i, label %_ZN16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10do_destroyEPS5_.exit, label %33
 
 33:                                               ; preds = %31
-  call void @hb_blob_destroy(ptr noundef nonnull %.0)
+  call void @hb_blob_destroy(ptr noundef nonnull %.1)
   br label %_ZN16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10do_destroyEPS5_.exit
 
 _ZN16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_tLj11E9hb_blob_tE10do_destroyEPS5_.exit: ; preds = %30, %31, %33
@@ -5070,7 +5070,7 @@ _ZN16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_t
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.loopexit.split.loop.exit12, %12
-  %.07 = phi ptr [ %13, %12 ], [ %35, %.loopexit.split.loop.exit12 ], [ %.0, %26 ]
+  %.07 = phi ptr [ %13, %12 ], [ %35, %.loopexit.split.loop.exit12 ], [ %.1, %26 ]
   ret ptr %.07
 }
 
@@ -5391,9 +5391,9 @@ _ZNK9hb_face_t14get_num_glyphsEv.exit:            ; preds = %52, %75
   br i1 %or.cond40, label %.preheader.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit
 
 .preheader.i:                                     ; preds = %_ZNK9hb_face_t14get_num_glyphsEv.exit, %.preheader.i
-  %.01542.i = phi i32 [ %82, %.preheader.i ], [ %78, %_ZNK9hb_face_t14get_num_glyphsEv.exit ]
-  %80 = lshr i32 %.01542.i, 1
-  %81 = add i32 %.01542.i, 8
+  %.142.i = phi i32 [ %82, %.preheader.i ], [ %78, %_ZNK9hb_face_t14get_num_glyphsEv.exit ]
+  %80 = lshr i32 %.142.i, 1
+  %81 = add i32 %.142.i, 8
   %82 = add i32 %81, %80
   %83 = icmp ult i32 %82, %.sroa.speculated
   br i1 %83, label %.preheader.i, label %.thread.i, !llvm.loop !14
@@ -5429,8 +5429,8 @@ _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_triviall
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %95, %93, %.critedge.i
-  %.138.sink.i = phi i32 [ %82, %95 ], [ %94, %93 ], [ %85, %.critedge.i ]
-  store i32 %.138.sink.i, ptr %5, align 8
+  %.01538.sink.i = phi i32 [ %82, %95 ], [ %94, %93 ], [ %85, %.critedge.i ]
+  store i32 %.01538.sink.i, ptr %5, align 8
   br label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit
 
 _ZN11hb_vector_tIjLb0EE5allocEjb.exit:            ; preds = %.sink.split.i, %91, %_ZNK9hb_face_t14get_num_glyphsEv.exit
@@ -5474,9 +5474,9 @@ _ZN11hb_vector_tIjLb0EE5allocEjb.exit:            ; preds = %.sink.split.i, %91,
   br i1 %.not.i.i33.not, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %117, %.preheader.i.i
-  %.01542.i.i = phi i32 [ %120, %.preheader.i.i ], [ %114, %117 ]
-  %118 = lshr i32 %.01542.i.i, 1
-  %119 = add i32 %.01542.i.i, 8
+  %.142.i.i = phi i32 [ %120, %.preheader.i.i ], [ %114, %117 ]
+  %118 = lshr i32 %.142.i.i, 1
+  %119 = add i32 %.142.i.i, 8
   %120 = add i32 %119, %118
   %.not47 = icmp ugt i32 %120, %104
   br i1 %.not47, label %.thread.i.i, label %.preheader.i.i, !llvm.loop !14
@@ -5499,9 +5499,9 @@ _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_triviall
   br i1 %.not21.i.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread9.i:  ; preds = %126, %.thread.i.i
-  %.138.sink.i.ph.in.i = phi i32 [ %114, %.thread.i.i ], [ %127, %126 ]
-  %.138.sink.i.ph.i = xor i32 %.138.sink.i.ph.in.i, -1
-  store i32 %.138.sink.i.ph.i, ptr %5, align 8
+  %.01538.sink.i.ph.in.i = phi i32 [ %114, %.thread.i.i ], [ %127, %126 ]
+  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
+  store i32 %.01538.sink.i.ph.i, ptr %5, align 8
   br label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tIjLb0EE5allocEjb.exit.i:          ; preds = %_ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPjj11hb_priorityILj0EE.exit.i.i

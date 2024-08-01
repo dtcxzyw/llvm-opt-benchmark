@@ -1146,7 +1146,7 @@ CacheFrame.exit.thread:                           ; preds = %167
 
 .thread.i:                                        ; preds = %167, %.thread114.i, %123, %120, %111, %97
   %176 = phi i1 [ false, %167 ], [ true, %97 ], [ true, %111 ], [ true, %120 ], [ true, %123 ], [ false, %.thread114.i ]
-  %.2110.i = phi i32 [ 0, %167 ], [ %98, %97 ], [ %110, %111 ], [ %110, %120 ], [ %125, %123 ], [ 0, %.thread114.i ]
+  %.076110.i = phi i32 [ 0, %167 ], [ %98, %97 ], [ %110, %111 ], [ %110, %120 ], [ %125, %123 ], [ 0, %.thread114.i ]
   %.not.i.i = icmp eq ptr %94, null
   br i1 %.not.i.i, label %FrameRelease.exit.i, label %WebPDataClear.exit.i.i
 
@@ -1179,10 +1179,10 @@ FrameRelease.exit.i:                              ; preds = %WebPDataClear.exit.
   br i1 %176, label %CacheFrame.exit, label %.critedge
 
 CacheFrame.exit:                                  ; preds = %187
-  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, i32 noundef %.2110.i) #14
+  %188 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 100, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.15, i32 noundef %.076110.i) #14
   %189 = load ptr, ptr %77, align 8
   %190 = getelementptr inbounds i8, ptr %189, i64 136
-  store i32 %.2110.i, ptr %190, align 8
+  store i32 %.076110.i, ptr %190, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -1193,7 +1193,7 @@ CacheFrame.exit:                                  ; preds = %187
 .critedge:                                        ; preds = %187
   %191 = load ptr, ptr %77, align 8
   %192 = getelementptr inbounds i8, ptr %191, i64 136
-  store i32 %.2110.i, ptr %192, align 8
+  store i32 %.076110.i, ptr %192, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -2394,7 +2394,7 @@ SetPreviousDisposeMethod.exit.us.i:               ; preds = %144, %141
   br i1 %exitcond53.not.i, label %PickBestCandidate.exit, label %.preheader.split.i, !llvm.loop !16
 
 175:                                              ; preds = %DisposeFrameRectangle.exit, %39, %113, %110
-  %.2 = phi i32 [ %111, %110 ], [ %114, %113 ], [ 4, %39 ], [ 4, %DisposeFrameRectangle.exit ]
+  %.056 = phi i32 [ %111, %110 ], [ %114, %113 ], [ 4, %39 ], [ 4, %DisposeFrameRectangle.exit ]
   br label %176
 
 176:                                              ; preds = %175, %181
@@ -2415,7 +2415,7 @@ SetPreviousDisposeMethod.exit.us.i:               ; preds = %144, %141
   br i1 %exitcond.not, label %PickBestCandidate.exit, label %176, !llvm.loop !18
 
 PickBestCandidate.exit:                           ; preds = %174, %151, %181, %IsEmptyRect.exit.thread
-  %.3 = phi i32 [ 0, %IsEmptyRect.exit.thread ], [ %.2, %181 ], [ 0, %151 ], [ 0, %174 ]
+  %.1 = phi i32 [ 0, %IsEmptyRect.exit.thread ], [ %.056, %181 ], [ 0, %151 ], [ 0, %174 ]
   call void @WebPPictureFree(ptr noundef nonnull %29) #14
   call void @WebPPictureFree(ptr noundef nonnull %31) #14
   call void @WebPPictureFree(ptr noundef nonnull %35) #14
@@ -2423,7 +2423,7 @@ PickBestCandidate.exit:                           ; preds = %174, %151, %181, %I
   br label %SubFrameParamsInit.exit.thread
 
 SubFrameParamsInit.exit.thread:                   ; preds = %33, %23, %SubFrameParamsInit.exit, %SubFrameParamsInit.exit88, %PickBestCandidate.exit
-  %.0 = phi i32 [ %.3, %PickBestCandidate.exit ], [ 4, %SubFrameParamsInit.exit88 ], [ 4, %SubFrameParamsInit.exit ], [ 4, %23 ], [ 4, %33 ]
+  %.0 = phi i32 [ %.1, %PickBestCandidate.exit ], [ 4, %SubFrameParamsInit.exit88 ], [ 4, %SubFrameParamsInit.exit ], [ 4, %23 ], [ 4, %33 ]
   ret i32 %.0
 }
 

@@ -35,14 +35,14 @@ do.body.preheader:                                ; preds = %if.end
 
 do.body.us:                                       ; preds = %do.body.preheader, %land.rhs.us
   %tobool.not.us = phi i1 [ false, %land.rhs.us ], [ true, %do.body.preheader ]
-  %buffer.0.us = phi ptr [ %buffer.1.us, %land.rhs.us ], [ %call1, %do.body.preheader ]
+  %buffer.1.us = phi ptr [ %buffer.2.us, %land.rhs.us ], [ %call1, %do.body.preheader ]
   br i1 %tobool.not.us, label %if.end17.us, label %if.then9.us
 
 if.then9.us:                                      ; preds = %do.body.us
   %1 = load i32, ptr @_ZL17currentBufferSize, align 4
   %mul10.us = shl nsw i32 %1, 1
   store i32 %mul10.us, ptr @_ZL17currentBufferSize, align 4
-  tail call void @uprv_free_75(ptr noundef nonnull %buffer.0.us)
+  tail call void @uprv_free_75(ptr noundef nonnull %buffer.1.us)
   %2 = load i32, ptr @_ZL17currentBufferSize, align 4
   %conv11.us = sext i32 %2 to i64
   %call13.us = tail call noalias ptr @uprv_malloc_75(i64 noundef %conv11.us) #5
@@ -50,16 +50,16 @@ if.then9.us:                                      ; preds = %do.body.us
   br i1 %cmp14.us, label %parseFlagsFile_cleanup.sink.split, label %if.end17.us
 
 if.end17.us:                                      ; preds = %if.then9.us, %do.body.us
-  %buffer.1.us = phi ptr [ %call13.us, %if.then9.us ], [ %buffer.0.us, %do.body.us ]
+  %buffer.2.us = phi ptr [ %call13.us, %if.then9.us ], [ %buffer.1.us, %do.body.us ]
   br label %for.body.lr.ph.us
 
 if.end22.us:                                      ; preds = %for.body.lr.ph.us, %for.cond.backedge.us
-  %3 = load i8, ptr %buffer.1.us, align 1
+  %3 = load i8, ptr %buffer.2.us, align 1
   %cmp24.us = icmp eq i8 %3, 35
   br i1 %cmp24.us, label %for.cond.backedge.us, label %if.end26.us
 
 if.end26.us:                                      ; preds = %if.end22.us
-  %call27.us = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.1.us) #6
+  %call27.us = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.2.us) #6
   %conv28.us = trunc i64 %call27.us to i32
   %4 = load i32, ptr @_ZL17currentBufferSize, align 4
   %sub.us = add nsw i32 %4, -1
@@ -69,7 +69,7 @@ if.end26.us:                                      ; preds = %if.end22.us
 land.lhs.true.us:                                 ; preds = %if.end26.us
   %sub30.us = add nsw i32 %4, -2
   %idxprom.us = sext i32 %sub30.us to i64
-  %arrayidx31.us = getelementptr inbounds i8, ptr %buffer.1.us, i64 %idxprom.us
+  %arrayidx31.us = getelementptr inbounds i8, ptr %buffer.2.us, i64 %idxprom.us
   %5 = load i8, ptr %arrayidx31.us, align 1
   %cmp33.not.us = icmp eq i8 %5, 10
   br i1 %cmp33.not.us, label %if.else.us, label %land.rhs.us
@@ -94,7 +94,7 @@ for.body.preheader.i.i.us:                        ; preds = %if.then.i.us
 
 for.body.i.i.us:                                  ; preds = %for.inc.i.i.us, %for.body.preheader.i.i.us
   %indvars.iv.i.i.us = phi i64 [ 0, %for.body.preheader.i.i.us ], [ %indvars.iv.next.i.i.us, %for.inc.i.i.us ]
-  %arrayidx.i.i.us = getelementptr inbounds i8, ptr %buffer.1.us, i64 %indvars.iv.i.i.us
+  %arrayidx.i.i.us = getelementptr inbounds i8, ptr %buffer.2.us, i64 %indvars.iv.i.i.us
   %7 = load i8, ptr %arrayidx.i.i.us, align 1
   %cmp1.i.i.us = icmp eq i8 %7, 61
   br i1 %cmp1.i.i.us, label %if.then.i.i.us, label %for.inc.i.i.us
@@ -117,12 +117,12 @@ _ZL13getFlagOffsetPKci.exit.i.us:                 ; preds = %for.inc.i.i.us, %if
   %or.cond.i.i.us = select i1 %cmp3.i.i.us, i1 true, i1 %cmp4.i.i.us
   %offset.2.i.i.us = select i1 %or.cond.i.i.us, i32 0, i32 %offset.1.i.i.us
   %idx.ext.i.us = sext i32 %offset.2.i.i.us to i64
-  %add.ptr.i.us = getelementptr inbounds i8, ptr %buffer.1.us, i64 %idx.ext.i.us
+  %add.ptr.i.us = getelementptr inbounds i8, ptr %buffer.2.us, i64 %idx.ext.i.us
   br i1 %cmp1.not28.i, label %if.end.i.us, label %parseFlagsFile_cleanup.sink.split
 
 if.end.i.us:                                      ; preds = %_ZL13getFlagOffsetPKci.exit.i.us, %if.end9.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %if.end9.i.us ], [ 0, %_ZL13getFlagOffsetPKci.exit.i.us ]
-  %bufferWritten.030.i.us = phi i8 [ %spec.select.i.us, %if.end9.i.us ], [ 0, %_ZL13getFlagOffsetPKci.exit.i.us ]
+  %bufferWritten.130.i.us = phi i8 [ %spec.select.i.us, %if.end9.i.us ], [ 0, %_ZL13getFlagOffsetPKci.exit.i.us ]
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %arrayidx3.i.us = getelementptr inbounds i8, ptr %add.ptr.i.us, i64 %indvars.iv.next.i.us
   %9 = load i8, ptr %arrayidx3.i.us, align 1
@@ -135,7 +135,7 @@ if.end9.i.us:                                     ; preds = %if.end.i.us
   %arrayidx13.i.us = getelementptr inbounds i8, ptr %call4, i64 %indvars.iv.i.us
   store i8 %10, ptr %arrayidx13.i.us, align 1
   %cmp14.i.us = icmp eq i64 %indvars.iv.i.us, 0
-  %spec.select.i.us = select i1 %cmp14.i.us, i8 1, i8 %bufferWritten.030.i.us
+  %spec.select.i.us = select i1 %cmp14.i.us, i8 1, i8 %bufferWritten.130.i.us
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us, label %parseFlagsFile_cleanup.sink.split, label %if.end.i.us, !llvm.loop !7
 
@@ -143,7 +143,7 @@ if.end17.i.us:                                    ; preds = %if.end.i.us
   %idxprom7.i.us = and i64 %indvars.iv.i.us, 4294967295
   %arrayidx8.i.us = getelementptr inbounds i8, ptr %call4, i64 %idxprom7.i.us
   store i8 0, ptr %arrayidx8.i.us, align 1
-  %11 = icmp eq i8 %bufferWritten.030.i.us, 0
+  %11 = icmp eq i8 %bufferWritten.130.i.us, 0
   br i1 %11, label %if.then18.i.us, label %if.end20.i.us
 
 if.then18.i.us:                                   ; preds = %if.end17.i.us, %if.else.us
@@ -166,7 +166,7 @@ for.body.i.us:                                    ; preds = %for.inc33.i.us, %fo
   %indvars.iv37.i.us = phi i64 [ 0, %for.body.lr.ph.i.us ], [ %indvars.iv.next38.i.us, %for.inc33.i.us ]
   %arrayidx27.i.us = getelementptr inbounds ptr, ptr %flagNames, i64 %indvars.iv37.i.us
   %12 = load ptr, ptr %arrayidx27.i.us, align 8
-  %call29.i.us = tail call i32 @strncmp(ptr noundef nonnull readonly %buffer.1.us, ptr noundef %12, i64 noundef %conv28.i.us) #6
+  %call29.i.us = tail call i32 @strncmp(ptr noundef nonnull readonly %buffer.2.us, ptr noundef %12, i64 noundef %conv28.i.us) #6
   %cmp30.i.us = icmp eq i32 %call29.i.us, 0
   br i1 %cmp30.i.us, label %return.loopexit.split.loop.exit45.i.us, label %for.inc33.i.us
 
@@ -213,14 +213,14 @@ if.end59.us:                                      ; preds = %if.else53.us, %if.t
 
 for.cond.backedge.us:                             ; preds = %if.then45.us, %if.end22.us
   %15 = load i32, ptr @_ZL17currentBufferSize, align 4
-  %call19.us = tail call ptr @T_FileStream_readLine(ptr noundef nonnull %call, ptr noundef nonnull %buffer.1.us, i32 noundef %15)
+  %call19.us = tail call ptr @T_FileStream_readLine(ptr noundef nonnull %call, ptr noundef nonnull %buffer.2.us, i32 noundef %15)
   %cmp20.us = icmp eq ptr %call19.us, null
   br i1 %cmp20.us, label %parseFlagsFile_cleanup, label %if.end22.us
 
 for.body.lr.ph.us:                                ; preds = %if.end17.us, %if.end59.us
   %i.0.ph65.us = phi i32 [ 0, %if.end17.us ], [ %i.1.us, %if.end59.us ]
   %16 = load i32, ptr @_ZL17currentBufferSize, align 4
-  %call19.us141 = tail call ptr @T_FileStream_readLine(ptr noundef nonnull %call, ptr noundef %buffer.1.us, i32 noundef %16)
+  %call19.us141 = tail call ptr @T_FileStream_readLine(ptr noundef nonnull %call, ptr noundef %buffer.2.us, i32 noundef %16)
   %cmp20.us142 = icmp eq ptr %call19.us141, null
   br i1 %cmp20.us142, label %parseFlagsFile_cleanup, label %if.end22.us
 
@@ -232,17 +232,17 @@ if.then38:                                        ; preds = %_ZL11extractFlagPci
 parseFlagsFile_cleanup.sink.split:                ; preds = %if.then9.us, %_ZL13getFlagOffsetPKci.exit.i.us, %if.end9.i.us, %if.end, %entry
   %.sink = phi i32 [ 4, %entry ], [ 7, %if.end ], [ 15, %if.end9.i.us ], [ 15, %_ZL13getFlagOffsetPKci.exit.i.us ], [ 7, %if.then9.us ]
   %tmpFlagBuffer.0.ph = phi ptr [ null, %entry ], [ %call4, %if.end ], [ %call4, %if.end9.i.us ], [ %call4, %_ZL13getFlagOffsetPKci.exit.i.us ], [ %call4, %if.then9.us ]
-  %buffer.2.ph = phi ptr [ null, %entry ], [ %call1, %if.end ], [ %buffer.1.us, %if.end9.i.us ], [ %buffer.1.us, %_ZL13getFlagOffsetPKci.exit.i.us ], [ null, %if.then9.us ]
-  %result.2.ph = phi i32 [ 0, %entry ], [ 0, %if.end ], [ %4, %if.end9.i.us ], [ %4, %_ZL13getFlagOffsetPKci.exit.i.us ], [ 0, %if.then9.us ]
+  %buffer.0.ph = phi ptr [ null, %entry ], [ %call1, %if.end ], [ %buffer.2.us, %if.end9.i.us ], [ %buffer.2.us, %_ZL13getFlagOffsetPKci.exit.i.us ], [ null, %if.then9.us ]
+  %result.0.ph = phi i32 [ 0, %entry ], [ 0, %if.end ], [ %4, %if.end9.i.us ], [ %4, %_ZL13getFlagOffsetPKci.exit.i.us ], [ 0, %if.then9.us ]
   store i32 %.sink, ptr %status, align 4
   br label %parseFlagsFile_cleanup
 
 parseFlagsFile_cleanup:                           ; preds = %land.rhs.us, %if.end59.us, %for.body.lr.ph.us, %for.cond.backedge.us, %if.then38, %parseFlagsFile_cleanup.sink.split, %do.body.preheader
   %tmpFlagBuffer.0 = phi ptr [ %call4, %do.body.preheader ], [ %call4, %if.then38 ], [ %tmpFlagBuffer.0.ph, %parseFlagsFile_cleanup.sink.split ], [ %call4, %for.cond.backedge.us ], [ %call4, %for.body.lr.ph.us ], [ %call4, %if.end59.us ], [ %call4, %land.rhs.us ]
-  %buffer.2 = phi ptr [ %call1, %do.body.preheader ], [ %buffer.1.us, %if.then38 ], [ %buffer.2.ph, %parseFlagsFile_cleanup.sink.split ], [ %buffer.1.us, %for.cond.backedge.us ], [ %buffer.1.us, %for.body.lr.ph.us ], [ %buffer.1.us, %if.end59.us ], [ %buffer.1.us, %land.rhs.us ]
-  %result.2 = phi i32 [ 0, %do.body.preheader ], [ %spec.select, %if.then38 ], [ %result.2.ph, %parseFlagsFile_cleanup.sink.split ], [ 0, %for.cond.backedge.us ], [ 0, %for.body.lr.ph.us ], [ 0, %if.end59.us ], [ 0, %land.rhs.us ]
+  %buffer.0 = phi ptr [ %call1, %do.body.preheader ], [ %buffer.2.us, %if.then38 ], [ %buffer.0.ph, %parseFlagsFile_cleanup.sink.split ], [ %buffer.2.us, %for.cond.backedge.us ], [ %buffer.2.us, %for.body.lr.ph.us ], [ %buffer.2.us, %if.end59.us ], [ %buffer.2.us, %land.rhs.us ]
+  %result.0 = phi i32 [ 0, %do.body.preheader ], [ %spec.select, %if.then38 ], [ %result.0.ph, %parseFlagsFile_cleanup.sink.split ], [ 0, %for.cond.backedge.us ], [ 0, %for.body.lr.ph.us ], [ 0, %if.end59.us ], [ 0, %land.rhs.us ]
   tail call void @uprv_free_75(ptr noundef %tmpFlagBuffer.0)
-  tail call void @uprv_free_75(ptr noundef %buffer.2)
+  tail call void @uprv_free_75(ptr noundef %buffer.0)
   tail call void @T_FileStream_close(ptr noundef %call)
   %17 = load i32, ptr %status, align 4
   %cmp.i36 = icmp slt i32 %17, 1
@@ -250,11 +250,11 @@ parseFlagsFile_cleanup:                           ; preds = %land.rhs.us, %if.en
 
 land.lhs.true65:                                  ; preds = %parseFlagsFile_cleanup
   %cmp66.not = icmp eq i32 %17, 15
-  %spec.select46 = select i1 %cmp66.not, i32 %result.2, i32 -1
+  %spec.select46 = select i1 %cmp66.not, i32 %result.0, i32 -1
   br label %return
 
 if.end68:                                         ; preds = %parseFlagsFile_cleanup
-  %cmp72 = icmp eq i32 %result.2, 0
+  %cmp72 = icmp eq i32 %result.0, 0
   br i1 %cmp72, label %if.then73, label %return
 
 if.then73:                                        ; preds = %if.end68
@@ -262,7 +262,7 @@ if.then73:                                        ; preds = %if.end68
   br label %return
 
 return:                                           ; preds = %land.lhs.true65, %if.end68, %if.then73
-  %retval.0 = phi i32 [ 0, %if.then73 ], [ %result.2, %if.end68 ], [ %spec.select46, %land.lhs.true65 ]
+  %retval.0 = phi i32 [ 0, %if.then73 ], [ %result.0, %if.end68 ], [ %spec.select46, %land.lhs.true65 ]
   ret i32 %retval.0
 }
 

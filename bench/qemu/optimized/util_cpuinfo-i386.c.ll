@@ -102,7 +102,7 @@ if.then63:                                        ; preds = %if.then55
   br label %if.end84
 
 if.end84:                                         ; preds = %if.then63, %if.then55
-  %info.1 = phi i32 [ %or83, %if.then63 ], [ %or60, %if.then55 ]
+  %info.2 = phi i32 [ %or83, %if.then63 ], [ %or60, %if.then55 ]
   %asmresult87 = extractvalue { i32, i32, i32, i32 } %1, 2
   switch i32 %asmresult87, label %if.end99 [
     i32 1818588270, label %if.then90
@@ -110,15 +110,15 @@ if.end84:                                         ; preds = %if.then63, %if.then
   ]
 
 if.then90:                                        ; preds = %if.end84
-  %or91 = or i32 %info.1, 65536
+  %or91 = or i32 %info.2, 65536
   br label %if.end99
 
 if.then93:                                        ; preds = %if.end84
-  %or94 = or i32 %info.1, 196608
+  %or94 = or i32 %info.2, 196608
   br label %if.end99
 
 if.end99:                                         ; preds = %if.end84, %if.then12, %if.then90, %if.then93, %if.then51, %if.end10
-  %info.2 = phi i32 [ %or91, %if.then90 ], [ %or94, %if.then93 ], [ %or46, %if.then51 ], [ %or46, %if.then12 ], [ 0, %if.end10 ], [ %info.1, %if.end84 ]
+  %info.1 = phi i32 [ %or91, %if.then90 ], [ %or94, %if.then93 ], [ %or46, %if.then51 ], [ %or46, %if.then12 ], [ 0, %if.end10 ], [ %info.2, %if.end84 ]
   %21 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 134217728) #1, !srcloc !5
   %asmresult.i45 = extractvalue { i32, i32, i32, i32 } %21, 0
   %cmp101.not = icmp eq i32 %asmresult.i45, 0
@@ -129,11 +129,11 @@ if.then102:                                       ; preds = %if.end99
   %asmresult105 = extractvalue { i32, i32, i32, i32 } %22, 2
   %and107 = lshr i32 %asmresult105, 2
   %cond109 = and i32 %and107, 8
-  %or110 = or i32 %cond109, %info.2
+  %or110 = or i32 %cond109, %info.1
   br label %if.end111
 
 if.end111:                                        ; preds = %if.then102, %if.end99
-  %info.3 = phi i32 [ %or110, %if.then102 ], [ %info.2, %if.end99 ]
+  %info.3 = phi i32 [ %or110, %if.then102 ], [ %info.1, %if.end99 ]
   %or112 = or i32 %info.3, 1
   store i32 %or112, ptr @cpuinfo, align 4
   br label %return

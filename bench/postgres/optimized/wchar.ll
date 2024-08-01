@@ -1734,20 +1734,20 @@ define internal i32 @pg_utf8_verifystr(ptr noundef %0, i32 noundef %1) #6 {
   br i1 %3, label %.preheader47, label %pg_utf_mblen_private.exit.thread
 
 .preheader47:                                     ; preds = %2, %is_valid_ascii.exit.thread
-  %.02453 = phi ptr [ %31, %is_valid_ascii.exit.thread ], [ %0, %2 ]
-  %.02552 = phi i32 [ %32, %is_valid_ascii.exit.thread ], [ %1, %2 ]
+  %.153 = phi ptr [ %31, %is_valid_ascii.exit.thread ], [ %0, %2 ]
+  %.12652 = phi i32 [ %32, %is_valid_ascii.exit.thread ], [ %1, %2 ]
   %.03851 = phi i32 [ %.139, %is_valid_ascii.exit.thread ], [ 11, %2 ]
   %.not33 = icmp eq i32 %.03851, 11
   br i1 %.not33, label %4, label %.preheader78
 
 4:                                                ; preds = %.preheader47
-  %5 = getelementptr i8, ptr %.02453, i64 32
-  %6 = icmp ugt ptr %5, %.02453
+  %5 = getelementptr i8, ptr %.153, i64 32
+  %6 = icmp ugt ptr %5, %.153
   br i1 %6, label %.lr.ph.i, label %is_valid_ascii.exit.thread
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.013.i = phi <2 x i64> [ %12, %.lr.ph.i ], [ zeroinitializer, %4 ]
-  %.01012.i = phi ptr [ %13, %.lr.ph.i ], [ %.02453, %4 ]
+  %.01012.i = phi ptr [ %13, %.lr.ph.i ], [ %.153, %4 ]
   %.010.val.i = load <2 x i64>, ptr %.01012.i, align 1
   %7 = bitcast <2 x i64> %.010.val.i to <16 x i8>
   %8 = icmp eq <16 x i8> %7, zeroinitializer
@@ -1771,7 +1771,7 @@ is_valid_ascii.exit:                              ; preds = %.lr.ph.i
 
 19:                                               ; preds = %.preheader78, %19
   %.07.i = phi i32 [ %28, %19 ], [ 32, %.preheader78 ]
-  %.056.i = phi ptr [ %21, %19 ], [ %.02453, %.preheader78 ]
+  %.056.i = phi ptr [ %21, %19 ], [ %.153, %.preheader78 ]
   %20 = phi i32 [ %27, %19 ], [ %.03851, %.preheader78 ]
   %21 = getelementptr i8, ptr %.056.i, i64 1
   %22 = load i8, ptr %.056.i, align 1
@@ -1790,8 +1790,8 @@ utf8_advance.exit:                                ; preds = %19
 
 is_valid_ascii.exit.thread:                       ; preds = %4, %utf8_advance.exit, %is_valid_ascii.exit
   %.139 = phi i32 [ 11, %is_valid_ascii.exit ], [ %30, %utf8_advance.exit ], [ 11, %4 ]
-  %31 = getelementptr i8, ptr %.02453, i64 32
-  %32 = add i32 %.02552, -32
+  %31 = getelementptr i8, ptr %.153, i64 32
+  %32 = add i32 %.12652, -32
   %33 = icmp ugt i32 %32, 31
   br i1 %33, label %.preheader47, label %34, !llvm.loop !20
 
@@ -1802,10 +1802,10 @@ is_valid_ascii.exit.thread:                       ; preds = %4, %utf8_advance.ex
   ]
 
 .preheader:                                       ; preds = %34, %.preheader.backedge
-  %.126 = phi i32 [ %36, %.preheader.backedge ], [ %32, %34 ]
-  %.1 = phi ptr [ %35, %.preheader.backedge ], [ %31, %34 ]
-  %35 = getelementptr i8, ptr %.1, i64 -1
-  %36 = add i32 %.126, 1
+  %.227 = phi i32 [ %36, %.preheader.backedge ], [ %32, %34 ]
+  %.2 = phi ptr [ %35, %.preheader.backedge ], [ %31, %34 ]
+  %35 = getelementptr i8, ptr %.2, i64 -1
+  %36 = add i32 %.227, 1
   %37 = load i8, ptr %35, align 1
   %38 = icmp sgt i8 %37, -1
   br i1 %38, label %.preheader.backedge, label %39
@@ -1829,14 +1829,14 @@ is_valid_ascii.exit.thread:                       ; preds = %4, %utf8_advance.ex
   br label %pg_utf_mblen_private.exit.thread
 
 pg_utf_mblen_private.exit.thread:                 ; preds = %39, %34, %.fold.split, %2
-  %.227 = phi i32 [ %1, %2 ], [ %1, %34 ], [ %32, %.fold.split ], [ %36, %39 ]
-  %.2 = phi ptr [ %0, %2 ], [ %0, %34 ], [ %31, %.fold.split ], [ %35, %39 ]
-  %47 = icmp sgt i32 %.227, 0
+  %.025 = phi i32 [ %1, %2 ], [ %1, %34 ], [ %32, %.fold.split ], [ %36, %39 ]
+  %.024 = phi ptr [ %0, %2 ], [ %0, %34 ], [ %31, %.fold.split ], [ %35, %39 ]
+  %47 = icmp sgt i32 %.025, 0
   br i1 %47, label %.lr.ph, label %pg_utf8_verifychar.exit.thread
 
 .lr.ph:                                           ; preds = %pg_utf_mblen_private.exit.thread, %pg_utf8_verifychar.exit
-  %.355 = phi ptr [ %66, %pg_utf8_verifychar.exit ], [ %.2, %pg_utf_mblen_private.exit.thread ]
-  %.32854 = phi i32 [ %67, %pg_utf8_verifychar.exit ], [ %.227, %pg_utf_mblen_private.exit.thread ]
+  %.355 = phi ptr [ %66, %pg_utf8_verifychar.exit ], [ %.024, %pg_utf_mblen_private.exit.thread ]
+  %.32854 = phi i32 [ %67, %pg_utf8_verifychar.exit ], [ %.025, %pg_utf_mblen_private.exit.thread ]
   %48 = load i8, ptr %.355, align 1
   %.not32 = icmp sgt i8 %48, -1
   br i1 %.not32, label %49, label %51
@@ -1880,7 +1880,7 @@ pg_utf8_verifychar.exit:                          ; preds = %63, %49
   br i1 %68, label %.lr.ph, label %pg_utf8_verifychar.exit.thread, !llvm.loop !22
 
 pg_utf8_verifychar.exit.thread:                   ; preds = %pg_utf8_verifychar.exit, %49, %61, %63, %pg_utf_mblen_private.exit.thread
-  %.3.lcssa = phi ptr [ %.2, %pg_utf_mblen_private.exit.thread ], [ %.355, %63 ], [ %.355, %61 ], [ %.355, %49 ], [ %66, %pg_utf8_verifychar.exit ]
+  %.3.lcssa = phi ptr [ %.024, %pg_utf_mblen_private.exit.thread ], [ %.355, %63 ], [ %.355, %61 ], [ %.355, %49 ], [ %66, %pg_utf8_verifychar.exit ]
   %69 = ptrtoint ptr %.3.lcssa to i64
   %70 = ptrtoint ptr %0 to i64
   %71 = sub i64 %69, %70

@@ -878,12 +878,12 @@ for.body.lr.ph.i14.lr.ph:                         ; preds = %while.cond14.prehea
 
 for.body.lr.ph.i14:                               ; preds = %for.body.lr.ph.i14.lr.ph, %add_children_by_path.exit
   %9 = phi i32 [ %8, %for.body.lr.ph.i14.lr.ph ], [ %23, %add_children_by_path.exit ]
-  %iter.sroa.4.259 = phi i32 [ 0, %for.body.lr.ph.i14.lr.ph ], [ %inc.i29, %add_children_by_path.exit ]
+  %iter.sroa.4.159 = phi i32 [ 0, %for.body.lr.ph.i14.lr.ph ], [ %inc.i29, %add_children_by_path.exit ]
   %10 = load ptr, ptr %flags.i, align 8
   br label %for.body.i16
 
 for.body.i16:                                     ; preds = %for.inc.i23, %for.body.lr.ph.i14
-  %11 = phi i32 [ %iter.sroa.4.259, %for.body.lr.ph.i14 ], [ %inc12.i24, %for.inc.i23 ]
+  %11 = phi i32 [ %iter.sroa.4.159, %for.body.lr.ph.i14 ], [ %inc12.i24, %for.inc.i23 ]
   %shr.i17 = lshr i32 %11, 4
   %idxprom.i18 = zext nneg i32 %shr.i17 to i64
   %arrayidx.i19 = getelementptr inbounds i32, ptr %10, i64 %idxprom.i18
@@ -2426,10 +2426,10 @@ strtol_i.exit.i:                                  ; preds = %lor.lhs.false.i.i
   br i1 %cmp.i, label %handle_revision_arg_1.exit.thread8, label %if.end40.i
 
 if.end40.i:                                       ; preds = %strtol_i.exit.i, %if.then32.i
-  %exclude_parent.1.i = phi i32 [ 1, %if.then32.i ], [ %conv7.i.i, %strtol_i.exit.i ]
+  %exclude_parent.0.i = phi i32 [ 1, %if.then32.i ], [ %conv7.i.i, %strtol_i.exit.i ]
   store i8 0, ptr %call30.i, align 1
   %xor41.i = xor i32 %cond.i, 1026
-  %call42.i = call fastcc i32 @add_parents_only(ptr noundef %revs, ptr noundef %arg, i32 noundef %xor41.i, i32 noundef %exclude_parent.1.i)
+  %call42.i = call fastcc i32 @add_parents_only(ptr noundef %revs, ptr noundef %arg, i32 noundef %xor41.i, i32 noundef %exclude_parent.0.i)
   %tobool43.not.i = icmp eq i32 %call42.i, 0
   br i1 %tobool43.not.i, label %if.then44.i, label %if.end46.i
 
@@ -5316,9 +5316,9 @@ for.body.lr.ph.i:                                 ; preds = %if.end15.i149, %add
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %92 = phi i32 [ %91, %for.body.lr.ph.i ], [ %107, %for.inc.i ]
-  %prune.045.i = phi ptr [ null, %for.body.lr.ph.i ], [ %prune.2.i, %for.inc.i ]
+  %prune.045.i = phi ptr [ null, %for.body.lr.ph.i ], [ %prune.1.i, %for.inc.i ]
   %i.044.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc41.i, %for.inc.i ]
-  %prune_num.043.i = phi i32 [ 1, %for.body.lr.ph.i ], [ %prune_num.2.i, %for.inc.i ]
+  %prune_num.043.i = phi i32 [ 1, %for.body.lr.ph.i ], [ %prune_num.1.i, %for.inc.i ]
   %93 = load ptr, ptr %72, align 8
   %idxprom.i = sext i32 %i.044.i to i64
   %arrayidx.i = getelementptr inbounds ptr, ptr %93, i64 %idxprom.i
@@ -5365,8 +5365,8 @@ st_mult.exit.i:                                   ; preds = %if.then22.i
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %st_mult.exit.i, %if.end19.i
-  %prune_num.1.i = phi i32 [ %inc.i, %st_mult.exit.i ], [ %prune_num.043.i, %if.end19.i ]
-  %prune.1.i = phi ptr [ %call24.i, %st_mult.exit.i ], [ %prune.045.i, %if.end19.i ]
+  %prune_num.2.i = phi i32 [ %inc.i, %st_mult.exit.i ], [ %prune_num.043.i, %if.end19.i ]
+  %prune.2.i = phi ptr [ %call24.i, %st_mult.exit.i ], [ %prune.045.i, %if.end19.i ]
   br label %while.cond.i147
 
 while.cond.i147:                                  ; preds = %land.rhs.i, %if.end30.i
@@ -5396,15 +5396,15 @@ for.inc.loopexit.i:                               ; preds = %while.cond.i147
 
 for.inc.i:                                        ; preds = %for.inc.loopexit.i, %land.rhs.for.inc.loopexit_crit_edge.i, %for.body.i
   %107 = phi i32 [ %92, %for.body.i ], [ %.pre47.pre.i, %land.rhs.for.inc.loopexit_crit_edge.i ], [ %101, %for.inc.loopexit.i ]
-  %prune_num.2.i = phi i32 [ %prune_num.043.i, %for.body.i ], [ %prune_num.1.i, %land.rhs.for.inc.loopexit_crit_edge.i ], [ %prune_num.1.i, %for.inc.loopexit.i ]
-  %i.2.i = phi i32 [ %i.044.i, %for.body.i ], [ %105, %land.rhs.for.inc.loopexit_crit_edge.i ], [ %106, %for.inc.loopexit.i ]
-  %prune.2.i = phi ptr [ %prune.045.i, %for.body.i ], [ %prune.1.i, %land.rhs.for.inc.loopexit_crit_edge.i ], [ %prune.1.i, %for.inc.loopexit.i ]
-  %inc41.i = add nuw nsw i32 %i.2.i, 1
+  %prune_num.1.i = phi i32 [ %prune_num.043.i, %for.body.i ], [ %prune_num.2.i, %land.rhs.for.inc.loopexit_crit_edge.i ], [ %prune_num.2.i, %for.inc.loopexit.i ]
+  %i.1.i = phi i32 [ %i.044.i, %for.body.i ], [ %105, %land.rhs.for.inc.loopexit_crit_edge.i ], [ %106, %for.inc.loopexit.i ]
+  %prune.1.i = phi ptr [ %prune.045.i, %for.body.i ], [ %prune.2.i, %land.rhs.for.inc.loopexit_crit_edge.i ], [ %prune.2.i, %for.inc.loopexit.i ]
+  %inc41.i = add nuw nsw i32 %i.1.i, 1
   %cmp.i148 = icmp ult i32 %inc41.i, %107
   br i1 %cmp.i148, label %for.body.i, label %prepare_show_merge.exit, !llvm.loop !34
 
 prepare_show_merge.exit:                          ; preds = %for.inc.i, %if.end15.i149
-  %prune.0.lcssa.i = phi ptr [ null, %if.end15.i149 ], [ %prune.2.i, %for.inc.i ]
+  %prune.0.lcssa.i = phi ptr [ null, %if.end15.i149 ], [ %prune.1.i, %for.inc.i ]
   %prune_data42.i = getelementptr inbounds i8, ptr %revs, i64 240
   call void @clear_pathspec(ptr noundef nonnull %prune_data42.i) #25
   call void @parse_pathspec(ptr noundef nonnull %prune_data42.i, i32 noundef 123, i32 noundef 66, ptr noundef nonnull @.str.36, ptr noundef %prune.0.lcssa.i) #25
@@ -6962,9 +6962,9 @@ if.then59.i:                                      ; preds = %if.end56.i
   br i1 %tobool.not8.i, label %mark_parents_uninteresting.exit, label %for.body.i182
 
 for.body.i182:                                    ; preds = %if.then59.i, %for.inc.i188
-  %pending.i.sroa.0.5 = phi ptr [ %pending.i.sroa.0.10, %for.inc.i188 ], [ null, %if.then59.i ]
-  %pending.i.sroa.20.4 = phi i64 [ %pending.i.sroa.20.7, %for.inc.i188 ], [ 0, %if.then59.i ]
-  %pending.i.sroa.38.5 = phi i64 [ %pending.i.sroa.38.10, %for.inc.i188 ], [ 0, %if.then59.i ]
+  %pending.i.sroa.0.3 = phi ptr [ %pending.i.sroa.0.17, %for.inc.i188 ], [ null, %if.then59.i ]
+  %pending.i.sroa.20.3 = phi i64 [ %pending.i.sroa.20.12, %for.inc.i188 ], [ 0, %if.then59.i ]
+  %pending.i.sroa.38.3 = phi i64 [ %pending.i.sroa.38.17, %for.inc.i188 ], [ 0, %if.then59.i ]
   %l.09.i = phi ptr [ %l.0.i190, %for.inc.i188 ], [ %l.07.i, %if.then59.i ]
   %26 = load ptr, ptr %l.09.i, align 8
   %bf.load.i236 = load i32, ptr %26, align 8
@@ -6981,17 +6981,17 @@ if.end.i239:                                      ; preds = %for.body.i182
   br i1 %tobool5.not8.i243, label %mark_one_parent_uninteresting.exit298, label %for.body.i249
 
 for.body.i249:                                    ; preds = %if.end.i239, %for.inc.i260
-  %pending.i.sroa.0.8 = phi ptr [ %pending.i.sroa.0.9, %for.inc.i260 ], [ %pending.i.sroa.0.5, %if.end.i239 ]
-  %pending.i.sroa.20.6 = phi i64 [ %add.i.i251, %for.inc.i260 ], [ %pending.i.sroa.20.4, %if.end.i239 ]
-  %pending.i.sroa.38.8 = phi i64 [ %pending.i.sroa.38.9, %for.inc.i260 ], [ %pending.i.sroa.38.5, %if.end.i239 ]
+  %pending.i.sroa.0.13 = phi ptr [ %pending.i.sroa.0.14, %for.inc.i260 ], [ %pending.i.sroa.0.3, %if.end.i239 ]
+  %pending.i.sroa.20.10 = phi i64 [ %add.i.i251, %for.inc.i260 ], [ %pending.i.sroa.20.3, %if.end.i239 ]
+  %pending.i.sroa.38.13 = phi i64 [ %pending.i.sroa.38.14, %for.inc.i260 ], [ %pending.i.sroa.38.3, %if.end.i239 ]
   %l.09.i250 = phi ptr [ %l.0.i262, %for.inc.i260 ], [ %l.07.i242, %if.end.i239 ]
   %28 = load ptr, ptr %l.09.i250, align 8
-  %add.i.i251 = add i64 %pending.i.sroa.20.6, 1
-  %cmp.i.i252 = icmp ugt i64 %add.i.i251, %pending.i.sroa.38.8
+  %add.i.i251 = add i64 %pending.i.sroa.20.10, 1
+  %cmp.i.i252 = icmp ugt i64 %add.i.i251, %pending.i.sroa.38.13
   br i1 %cmp.i.i252, label %if.then.i.i264, label %commit_stack_push.exit.i255
 
 if.then.i.i264:                                   ; preds = %for.body.i249
-  %29 = mul i64 %pending.i.sroa.38.8, 3
+  %29 = mul i64 %pending.i.sroa.38.13, 3
   %mul.i.i265 = add i64 %29, 48
   %div13.i.i266 = lshr i64 %mul.i.i265, 1
   %add.div13.i.i267 = call i64 @llvm.umax.i64(i64 %div13.i.i266, i64 %add.i.i251)
@@ -7004,13 +7004,13 @@ if.then.i.i.i274:                                 ; preds = %if.then.i.i264
 
 st_mult.exit.i.i269:                              ; preds = %if.then.i.i264
   %mul.i.i.i270 = shl nuw i64 %add.div13.i.i267, 3
-  %call16.i.i271 = call ptr @xrealloc(ptr noundef %pending.i.sroa.0.8, i64 noundef %mul.i.i.i270) #25
+  %call16.i.i271 = call ptr @xrealloc(ptr noundef %pending.i.sroa.0.13, i64 noundef %mul.i.i.i270) #25
   br label %commit_stack_push.exit.i255
 
 commit_stack_push.exit.i255:                      ; preds = %for.body.i249, %st_mult.exit.i.i269
-  %pending.i.sroa.0.9 = phi ptr [ %call16.i.i271, %st_mult.exit.i.i269 ], [ %pending.i.sroa.0.8, %for.body.i249 ]
-  %pending.i.sroa.38.9 = phi i64 [ %add.div13.i.i267, %st_mult.exit.i.i269 ], [ %pending.i.sroa.38.8, %for.body.i249 ]
-  %arrayidx.i.i257 = getelementptr inbounds ptr, ptr %pending.i.sroa.0.9, i64 %pending.i.sroa.20.6
+  %pending.i.sroa.0.14 = phi ptr [ %call16.i.i271, %st_mult.exit.i.i269 ], [ %pending.i.sroa.0.13, %for.body.i249 ]
+  %pending.i.sroa.38.14 = phi i64 [ %add.div13.i.i267, %st_mult.exit.i.i269 ], [ %pending.i.sroa.38.13, %for.body.i249 ]
+  %arrayidx.i.i257 = getelementptr inbounds ptr, ptr %pending.i.sroa.0.14, i64 %pending.i.sroa.20.10
   store ptr %28, ptr %arrayidx.i.i257, align 8
   %bf.load7.i258 = load i64, ptr %tag_objects.i, align 8
   %30 = and i64 %bf.load7.i258, 549755813888
@@ -7024,9 +7024,9 @@ for.inc.i260:                                     ; preds = %commit_stack_push.e
   br i1 %tobool5.not.i263, label %mark_one_parent_uninteresting.exit298, label %for.body.i249, !llvm.loop !20
 
 mark_one_parent_uninteresting.exit298:            ; preds = %commit_stack_push.exit.i255, %for.inc.i260, %for.body.i182, %if.end.i239
-  %pending.i.sroa.0.10 = phi ptr [ %pending.i.sroa.0.5, %if.end.i239 ], [ %pending.i.sroa.0.5, %for.body.i182 ], [ %pending.i.sroa.0.9, %for.inc.i260 ], [ %pending.i.sroa.0.9, %commit_stack_push.exit.i255 ]
-  %pending.i.sroa.20.7 = phi i64 [ %pending.i.sroa.20.4, %if.end.i239 ], [ %pending.i.sroa.20.4, %for.body.i182 ], [ %add.i.i251, %for.inc.i260 ], [ %add.i.i251, %commit_stack_push.exit.i255 ]
-  %pending.i.sroa.38.10 = phi i64 [ %pending.i.sroa.38.5, %if.end.i239 ], [ %pending.i.sroa.38.5, %for.body.i182 ], [ %pending.i.sroa.38.9, %for.inc.i260 ], [ %pending.i.sroa.38.9, %commit_stack_push.exit.i255 ]
+  %pending.i.sroa.0.17 = phi ptr [ %pending.i.sroa.0.3, %if.end.i239 ], [ %pending.i.sroa.0.3, %for.body.i182 ], [ %pending.i.sroa.0.14, %for.inc.i260 ], [ %pending.i.sroa.0.14, %commit_stack_push.exit.i255 ]
+  %pending.i.sroa.20.12 = phi i64 [ %pending.i.sroa.20.3, %if.end.i239 ], [ %pending.i.sroa.20.3, %for.body.i182 ], [ %add.i.i251, %for.inc.i260 ], [ %add.i.i251, %commit_stack_push.exit.i255 ]
+  %pending.i.sroa.38.17 = phi i64 [ %pending.i.sroa.38.3, %if.end.i239 ], [ %pending.i.sroa.38.3, %for.body.i182 ], [ %pending.i.sroa.38.14, %for.inc.i260 ], [ %pending.i.sroa.38.14, %commit_stack_push.exit.i255 ]
   %bf.load.i183 = load i64, ptr %tag_objects.i, align 8
   %31 = and i64 %bf.load.i183, 549755813888
   %tobool2.not.i184 = icmp eq i64 %31, 0
@@ -7039,15 +7039,15 @@ for.inc.i188:                                     ; preds = %mark_one_parent_uni
   br i1 %tobool.not.i191, label %for.end.i185, label %for.body.i182, !llvm.loop !18
 
 for.end.i185:                                     ; preds = %for.inc.i188, %mark_one_parent_uninteresting.exit298
-  %cmp.not10.i = icmp eq i64 %pending.i.sroa.20.7, 0
+  %cmp.not10.i = icmp eq i64 %pending.i.sroa.20.12, 0
   br i1 %cmp.not10.i, label %mark_parents_uninteresting.exit, label %commit_stack_pop.exit.i
 
 commit_stack_pop.exit.i:                          ; preds = %for.end.i185, %mark_one_parent_uninteresting.exit
-  %pending.i.sroa.0.12 = phi ptr [ %pending.i.sroa.0.17, %mark_one_parent_uninteresting.exit ], [ %pending.i.sroa.0.10, %for.end.i185 ]
-  %pending.i.sroa.38.12 = phi i64 [ %pending.i.sroa.38.17, %mark_one_parent_uninteresting.exit ], [ %pending.i.sroa.38.10, %for.end.i185 ]
-  %32 = phi i64 [ %pending.i.sroa.20.11, %mark_one_parent_uninteresting.exit ], [ %pending.i.sroa.20.7, %for.end.i185 ]
+  %pending.i.sroa.0.5 = phi ptr [ %pending.i.sroa.0.12, %mark_one_parent_uninteresting.exit ], [ %pending.i.sroa.0.17, %for.end.i185 ]
+  %pending.i.sroa.38.5 = phi i64 [ %pending.i.sroa.38.12, %mark_one_parent_uninteresting.exit ], [ %pending.i.sroa.38.17, %for.end.i185 ]
+  %32 = phi i64 [ %pending.i.sroa.20.9, %mark_one_parent_uninteresting.exit ], [ %pending.i.sroa.20.12, %for.end.i185 ]
   %dec.i.i = add i64 %32, -1
-  %arrayidx.i.i186 = getelementptr inbounds ptr, ptr %pending.i.sroa.0.12, i64 %dec.i.i
+  %arrayidx.i.i186 = getelementptr inbounds ptr, ptr %pending.i.sroa.0.5, i64 %dec.i.i
   %33 = load ptr, ptr %arrayidx.i.i186, align 8
   %bf.load.i208 = load i32, ptr %33, align 8
   %34 = and i32 %bf.load.i208, 32
@@ -7063,17 +7063,17 @@ if.end.i211:                                      ; preds = %commit_stack_pop.ex
   br i1 %tobool5.not8.i, label %mark_one_parent_uninteresting.exit, label %for.body.i217
 
 for.body.i217:                                    ; preds = %if.end.i211, %for.inc.i223
-  %pending.i.sroa.0.15 = phi ptr [ %pending.i.sroa.0.16, %for.inc.i223 ], [ %pending.i.sroa.0.12, %if.end.i211 ]
-  %pending.i.sroa.20.10 = phi i64 [ %add.i.i219, %for.inc.i223 ], [ %dec.i.i, %if.end.i211 ]
-  %pending.i.sroa.38.15 = phi i64 [ %pending.i.sroa.38.16, %for.inc.i223 ], [ %pending.i.sroa.38.12, %if.end.i211 ]
+  %pending.i.sroa.0.8 = phi ptr [ %pending.i.sroa.0.9, %for.inc.i223 ], [ %pending.i.sroa.0.5, %if.end.i211 ]
+  %pending.i.sroa.20.7 = phi i64 [ %add.i.i219, %for.inc.i223 ], [ %dec.i.i, %if.end.i211 ]
+  %pending.i.sroa.38.8 = phi i64 [ %pending.i.sroa.38.9, %for.inc.i223 ], [ %pending.i.sroa.38.5, %if.end.i211 ]
   %l.09.i218 = phi ptr [ %l.0.i225, %for.inc.i223 ], [ %l.07.i214, %if.end.i211 ]
   %35 = load ptr, ptr %l.09.i218, align 8
-  %add.i.i219 = add i64 %pending.i.sroa.20.10, 1
-  %cmp.i.i220 = icmp ugt i64 %add.i.i219, %pending.i.sroa.38.15
+  %add.i.i219 = add i64 %pending.i.sroa.20.7, 1
+  %cmp.i.i220 = icmp ugt i64 %add.i.i219, %pending.i.sroa.38.8
   br i1 %cmp.i.i220, label %if.then.i.i227, label %commit_stack_push.exit.i
 
 if.then.i.i227:                                   ; preds = %for.body.i217
-  %36 = mul i64 %pending.i.sroa.38.15, 3
+  %36 = mul i64 %pending.i.sroa.38.8, 3
   %mul.i.i228 = add i64 %36, 48
   %div13.i.i = lshr i64 %mul.i.i228, 1
   %add.div13.i.i = call i64 @llvm.umax.i64(i64 %div13.i.i, i64 %add.i.i219)
@@ -7086,13 +7086,13 @@ if.then.i.i.i230:                                 ; preds = %if.then.i.i227
 
 st_mult.exit.i.i:                                 ; preds = %if.then.i.i227
   %mul.i.i.i229 = shl nuw i64 %add.div13.i.i, 3
-  %call16.i.i = call ptr @xrealloc(ptr noundef nonnull %pending.i.sroa.0.15, i64 noundef %mul.i.i.i229) #25
+  %call16.i.i = call ptr @xrealloc(ptr noundef nonnull %pending.i.sroa.0.8, i64 noundef %mul.i.i.i229) #25
   br label %commit_stack_push.exit.i
 
 commit_stack_push.exit.i:                         ; preds = %for.body.i217, %st_mult.exit.i.i
-  %pending.i.sroa.0.16 = phi ptr [ %call16.i.i, %st_mult.exit.i.i ], [ %pending.i.sroa.0.15, %for.body.i217 ]
-  %pending.i.sroa.38.16 = phi i64 [ %add.div13.i.i, %st_mult.exit.i.i ], [ %pending.i.sroa.38.15, %for.body.i217 ]
-  %arrayidx.i.i221 = getelementptr inbounds ptr, ptr %pending.i.sroa.0.16, i64 %pending.i.sroa.20.10
+  %pending.i.sroa.0.9 = phi ptr [ %call16.i.i, %st_mult.exit.i.i ], [ %pending.i.sroa.0.8, %for.body.i217 ]
+  %pending.i.sroa.38.9 = phi i64 [ %add.div13.i.i, %st_mult.exit.i.i ], [ %pending.i.sroa.38.8, %for.body.i217 ]
+  %arrayidx.i.i221 = getelementptr inbounds ptr, ptr %pending.i.sroa.0.9, i64 %pending.i.sroa.20.7
   store ptr %35, ptr %arrayidx.i.i221, align 8
   %bf.load7.i = load i64, ptr %tag_objects.i, align 8
   %37 = and i64 %bf.load7.i, 549755813888
@@ -7106,15 +7106,15 @@ for.inc.i223:                                     ; preds = %commit_stack_push.e
   br i1 %tobool5.not.i226, label %mark_one_parent_uninteresting.exit, label %for.body.i217, !llvm.loop !20
 
 mark_one_parent_uninteresting.exit:               ; preds = %commit_stack_push.exit.i, %for.inc.i223, %commit_stack_pop.exit.i, %if.end.i211
-  %pending.i.sroa.0.17 = phi ptr [ %pending.i.sroa.0.12, %if.end.i211 ], [ %pending.i.sroa.0.12, %commit_stack_pop.exit.i ], [ %pending.i.sroa.0.16, %for.inc.i223 ], [ %pending.i.sroa.0.16, %commit_stack_push.exit.i ]
-  %pending.i.sroa.20.11 = phi i64 [ %dec.i.i, %if.end.i211 ], [ %dec.i.i, %commit_stack_pop.exit.i ], [ %add.i.i219, %for.inc.i223 ], [ %add.i.i219, %commit_stack_push.exit.i ]
-  %pending.i.sroa.38.17 = phi i64 [ %pending.i.sroa.38.12, %if.end.i211 ], [ %pending.i.sroa.38.12, %commit_stack_pop.exit.i ], [ %pending.i.sroa.38.16, %for.inc.i223 ], [ %pending.i.sroa.38.16, %commit_stack_push.exit.i ]
-  %cmp.not.i = icmp eq i64 %pending.i.sroa.20.11, 0
+  %pending.i.sroa.0.12 = phi ptr [ %pending.i.sroa.0.5, %if.end.i211 ], [ %pending.i.sroa.0.5, %commit_stack_pop.exit.i ], [ %pending.i.sroa.0.9, %for.inc.i223 ], [ %pending.i.sroa.0.9, %commit_stack_push.exit.i ]
+  %pending.i.sroa.20.9 = phi i64 [ %dec.i.i, %if.end.i211 ], [ %dec.i.i, %commit_stack_pop.exit.i ], [ %add.i.i219, %for.inc.i223 ], [ %add.i.i219, %commit_stack_push.exit.i ]
+  %pending.i.sroa.38.12 = phi i64 [ %pending.i.sroa.38.5, %if.end.i211 ], [ %pending.i.sroa.38.5, %commit_stack_pop.exit.i ], [ %pending.i.sroa.38.9, %for.inc.i223 ], [ %pending.i.sroa.38.9, %commit_stack_push.exit.i ]
+  %cmp.not.i = icmp eq i64 %pending.i.sroa.20.9, 0
   br i1 %cmp.not.i, label %mark_parents_uninteresting.exit, label %commit_stack_pop.exit.i, !llvm.loop !19
 
 mark_parents_uninteresting.exit:                  ; preds = %mark_one_parent_uninteresting.exit, %if.then59.i, %for.end.i185
-  %pending.i.sroa.0.18 = phi ptr [ %pending.i.sroa.0.10, %for.end.i185 ], [ null, %if.then59.i ], [ %pending.i.sroa.0.17, %mark_one_parent_uninteresting.exit ]
-  call void @free(ptr noundef %pending.i.sroa.0.18) #25
+  %pending.i.sroa.0.7 = phi ptr [ %pending.i.sroa.0.17, %for.end.i185 ], [ null, %if.then59.i ], [ %pending.i.sroa.0.12, %mark_one_parent_uninteresting.exit ]
+  call void @free(ptr noundef %pending.i.sroa.0.7) #25
   %bf.load60.i = load i64, ptr %tag_objects.i, align 8
   %38 = and i64 %bf.load60.i, 512
   %tobool64.not.i = icmp eq i64 %38, 0
@@ -7614,9 +7614,9 @@ if.then25.i:                                      ; preds = %if.end21.i
   br i1 %tobool.not8.i.i, label %mark_parents_uninteresting.exit.i, label %for.body.i54.i
 
 for.body.i54.i:                                   ; preds = %if.then25.i, %for.inc.i56.i
-  %pending.i.sroa.0.6.i = phi ptr [ %pending.i.sroa.0.11.i, %for.inc.i56.i ], [ null, %if.then25.i ]
-  %pending.i.sroa.20.5.i = phi i64 [ %pending.i.sroa.20.8.i, %for.inc.i56.i ], [ 0, %if.then25.i ]
-  %pending.i.sroa.38.6.i = phi i64 [ %pending.i.sroa.38.11.i, %for.inc.i56.i ], [ 0, %if.then25.i ]
+  %pending.i.sroa.0.2.i = phi ptr [ %pending.i.sroa.0.16.i, %for.inc.i56.i ], [ null, %if.then25.i ]
+  %pending.i.sroa.20.2.i = phi i64 [ %pending.i.sroa.20.11.i, %for.inc.i56.i ], [ 0, %if.then25.i ]
+  %pending.i.sroa.38.2.i = phi i64 [ %pending.i.sroa.38.16.i, %for.inc.i56.i ], [ 0, %if.then25.i ]
   %l.09.i.i = phi ptr [ %l.0.i.i, %for.inc.i56.i ], [ %l.07.i.i, %if.then25.i ]
   %94 = load ptr, ptr %l.09.i.i, align 8
   %bf.load.i110.i = load i32, ptr %94, align 8
@@ -7633,17 +7633,17 @@ if.end.i113.i:                                    ; preds = %for.body.i54.i
   br i1 %tobool5.not8.i117.i, label %mark_one_parent_uninteresting.exit172.i, label %for.body.i123.i
 
 for.body.i123.i:                                  ; preds = %if.end.i113.i, %for.inc.i134.i
-  %pending.i.sroa.0.9.i = phi ptr [ %pending.i.sroa.0.10.i, %for.inc.i134.i ], [ %pending.i.sroa.0.6.i, %if.end.i113.i ]
-  %pending.i.sroa.20.7.i = phi i64 [ %add.i.i125.i, %for.inc.i134.i ], [ %pending.i.sroa.20.5.i, %if.end.i113.i ]
-  %pending.i.sroa.38.9.i = phi i64 [ %pending.i.sroa.38.10.i, %for.inc.i134.i ], [ %pending.i.sroa.38.6.i, %if.end.i113.i ]
+  %pending.i.sroa.0.12.i = phi ptr [ %pending.i.sroa.0.13.i, %for.inc.i134.i ], [ %pending.i.sroa.0.2.i, %if.end.i113.i ]
+  %pending.i.sroa.20.9.i = phi i64 [ %add.i.i125.i, %for.inc.i134.i ], [ %pending.i.sroa.20.2.i, %if.end.i113.i ]
+  %pending.i.sroa.38.12.i = phi i64 [ %pending.i.sroa.38.13.i, %for.inc.i134.i ], [ %pending.i.sroa.38.2.i, %if.end.i113.i ]
   %l.09.i124.i = phi ptr [ %l.0.i136.i, %for.inc.i134.i ], [ %l.07.i116.i, %if.end.i113.i ]
   %96 = load ptr, ptr %l.09.i124.i, align 8
-  %add.i.i125.i = add i64 %pending.i.sroa.20.7.i, 1
-  %cmp.i.i126.i = icmp ugt i64 %add.i.i125.i, %pending.i.sroa.38.9.i
+  %add.i.i125.i = add i64 %pending.i.sroa.20.9.i, 1
+  %cmp.i.i126.i = icmp ugt i64 %add.i.i125.i, %pending.i.sroa.38.12.i
   br i1 %cmp.i.i126.i, label %if.then.i.i138.i, label %commit_stack_push.exit.i129.i
 
 if.then.i.i138.i:                                 ; preds = %for.body.i123.i
-  %97 = mul i64 %pending.i.sroa.38.9.i, 3
+  %97 = mul i64 %pending.i.sroa.38.12.i, 3
   %mul.i.i139.i = add i64 %97, 48
   %div13.i.i140.i = lshr i64 %mul.i.i139.i, 1
   %add.div13.i.i141.i = call i64 @llvm.umax.i64(i64 %div13.i.i140.i, i64 %add.i.i125.i)
@@ -7656,13 +7656,13 @@ if.then.i.i.i148.i:                               ; preds = %if.then.i.i138.i
 
 st_mult.exit.i.i143.i:                            ; preds = %if.then.i.i138.i
   %mul.i.i.i144.i = shl nuw i64 %add.div13.i.i141.i, 3
-  %call16.i.i145.i = call ptr @xrealloc(ptr noundef %pending.i.sroa.0.9.i, i64 noundef %mul.i.i.i144.i) #25
+  %call16.i.i145.i = call ptr @xrealloc(ptr noundef %pending.i.sroa.0.12.i, i64 noundef %mul.i.i.i144.i) #25
   br label %commit_stack_push.exit.i129.i
 
 commit_stack_push.exit.i129.i:                    ; preds = %st_mult.exit.i.i143.i, %for.body.i123.i
-  %pending.i.sroa.0.10.i = phi ptr [ %call16.i.i145.i, %st_mult.exit.i.i143.i ], [ %pending.i.sroa.0.9.i, %for.body.i123.i ]
-  %pending.i.sroa.38.10.i = phi i64 [ %add.div13.i.i141.i, %st_mult.exit.i.i143.i ], [ %pending.i.sroa.38.9.i, %for.body.i123.i ]
-  %arrayidx.i.i131.i = getelementptr inbounds ptr, ptr %pending.i.sroa.0.10.i, i64 %pending.i.sroa.20.7.i
+  %pending.i.sroa.0.13.i = phi ptr [ %call16.i.i145.i, %st_mult.exit.i.i143.i ], [ %pending.i.sroa.0.12.i, %for.body.i123.i ]
+  %pending.i.sroa.38.13.i = phi i64 [ %add.div13.i.i141.i, %st_mult.exit.i.i143.i ], [ %pending.i.sroa.38.12.i, %for.body.i123.i ]
+  %arrayidx.i.i131.i = getelementptr inbounds ptr, ptr %pending.i.sroa.0.13.i, i64 %pending.i.sroa.20.9.i
   store ptr %96, ptr %arrayidx.i.i131.i, align 8
   %bf.load7.i132.i = load i64, ptr %simplify_merges, align 8
   %98 = and i64 %bf.load7.i132.i, 549755813888
@@ -7676,9 +7676,9 @@ for.inc.i134.i:                                   ; preds = %commit_stack_push.e
   br i1 %tobool5.not.i137.i, label %mark_one_parent_uninteresting.exit172.i, label %for.body.i123.i, !llvm.loop !20
 
 mark_one_parent_uninteresting.exit172.i:          ; preds = %for.inc.i134.i, %commit_stack_push.exit.i129.i, %if.end.i113.i, %for.body.i54.i
-  %pending.i.sroa.0.11.i = phi ptr [ %pending.i.sroa.0.6.i, %if.end.i113.i ], [ %pending.i.sroa.0.6.i, %for.body.i54.i ], [ %pending.i.sroa.0.10.i, %commit_stack_push.exit.i129.i ], [ %pending.i.sroa.0.10.i, %for.inc.i134.i ]
-  %pending.i.sroa.20.8.i = phi i64 [ %pending.i.sroa.20.5.i, %if.end.i113.i ], [ %pending.i.sroa.20.5.i, %for.body.i54.i ], [ %add.i.i125.i, %commit_stack_push.exit.i129.i ], [ %add.i.i125.i, %for.inc.i134.i ]
-  %pending.i.sroa.38.11.i = phi i64 [ %pending.i.sroa.38.6.i, %if.end.i113.i ], [ %pending.i.sroa.38.6.i, %for.body.i54.i ], [ %pending.i.sroa.38.10.i, %commit_stack_push.exit.i129.i ], [ %pending.i.sroa.38.10.i, %for.inc.i134.i ]
+  %pending.i.sroa.0.16.i = phi ptr [ %pending.i.sroa.0.2.i, %if.end.i113.i ], [ %pending.i.sroa.0.2.i, %for.body.i54.i ], [ %pending.i.sroa.0.13.i, %commit_stack_push.exit.i129.i ], [ %pending.i.sroa.0.13.i, %for.inc.i134.i ]
+  %pending.i.sroa.20.11.i = phi i64 [ %pending.i.sroa.20.2.i, %if.end.i113.i ], [ %pending.i.sroa.20.2.i, %for.body.i54.i ], [ %add.i.i125.i, %commit_stack_push.exit.i129.i ], [ %add.i.i125.i, %for.inc.i134.i ]
+  %pending.i.sroa.38.16.i = phi i64 [ %pending.i.sroa.38.2.i, %if.end.i113.i ], [ %pending.i.sroa.38.2.i, %for.body.i54.i ], [ %pending.i.sroa.38.13.i, %commit_stack_push.exit.i129.i ], [ %pending.i.sroa.38.13.i, %for.inc.i134.i ]
   %bf.load.i55.i = load i64, ptr %simplify_merges, align 8
   %99 = and i64 %bf.load.i55.i, 549755813888
   %tobool2.not.i.i = icmp eq i64 %99, 0
@@ -7691,15 +7691,15 @@ for.inc.i56.i:                                    ; preds = %mark_one_parent_uni
   br i1 %tobool.not.i58.i, label %for.end.i.i, label %for.body.i54.i, !llvm.loop !18
 
 for.end.i.i:                                      ; preds = %for.inc.i56.i, %mark_one_parent_uninteresting.exit172.i
-  %cmp.not10.i.i = icmp eq i64 %pending.i.sroa.20.8.i, 0
+  %cmp.not10.i.i = icmp eq i64 %pending.i.sroa.20.11.i, 0
   br i1 %cmp.not10.i.i, label %mark_parents_uninteresting.exit.i, label %commit_stack_pop.exit.i.i
 
 commit_stack_pop.exit.i.i:                        ; preds = %for.end.i.i, %mark_one_parent_uninteresting.exit.i
-  %pending.i.sroa.0.13.i = phi ptr [ %pending.i.sroa.0.18.i, %mark_one_parent_uninteresting.exit.i ], [ %pending.i.sroa.0.11.i, %for.end.i.i ]
-  %pending.i.sroa.38.13.i = phi i64 [ %pending.i.sroa.38.18.i, %mark_one_parent_uninteresting.exit.i ], [ %pending.i.sroa.38.11.i, %for.end.i.i ]
-  %100 = phi i64 [ %pending.i.sroa.20.12.i, %mark_one_parent_uninteresting.exit.i ], [ %pending.i.sroa.20.8.i, %for.end.i.i ]
+  %pending.i.sroa.0.4.i = phi ptr [ %pending.i.sroa.0.11.i, %mark_one_parent_uninteresting.exit.i ], [ %pending.i.sroa.0.16.i, %for.end.i.i ]
+  %pending.i.sroa.38.4.i = phi i64 [ %pending.i.sroa.38.11.i, %mark_one_parent_uninteresting.exit.i ], [ %pending.i.sroa.38.16.i, %for.end.i.i ]
+  %100 = phi i64 [ %pending.i.sroa.20.8.i, %mark_one_parent_uninteresting.exit.i ], [ %pending.i.sroa.20.11.i, %for.end.i.i ]
   %dec.i.i.i = add i64 %100, -1
-  %arrayidx.i.i.i55 = getelementptr inbounds ptr, ptr %pending.i.sroa.0.13.i, i64 %dec.i.i.i
+  %arrayidx.i.i.i55 = getelementptr inbounds ptr, ptr %pending.i.sroa.0.4.i, i64 %dec.i.i.i
   %101 = load ptr, ptr %arrayidx.i.i.i55, align 8
   %bf.load.i89.i = load i32, ptr %101, align 8
   %102 = and i32 %bf.load.i89.i, 32
@@ -7715,17 +7715,17 @@ if.end.i92.i:                                     ; preds = %commit_stack_pop.ex
   br i1 %tobool5.not8.i.i, label %mark_one_parent_uninteresting.exit.i, label %for.body.i98.i
 
 for.body.i98.i:                                   ; preds = %if.end.i92.i, %for.inc.i102.i
-  %pending.i.sroa.0.16.i = phi ptr [ %pending.i.sroa.0.17.i, %for.inc.i102.i ], [ %pending.i.sroa.0.13.i, %if.end.i92.i ]
-  %pending.i.sroa.20.11.i = phi i64 [ %add.i.i.i65, %for.inc.i102.i ], [ %dec.i.i.i, %if.end.i92.i ]
-  %pending.i.sroa.38.16.i = phi i64 [ %pending.i.sroa.38.17.i, %for.inc.i102.i ], [ %pending.i.sroa.38.13.i, %if.end.i92.i ]
+  %pending.i.sroa.0.7.i = phi ptr [ %pending.i.sroa.0.8.i, %for.inc.i102.i ], [ %pending.i.sroa.0.4.i, %if.end.i92.i ]
+  %pending.i.sroa.20.6.i = phi i64 [ %add.i.i.i65, %for.inc.i102.i ], [ %dec.i.i.i, %if.end.i92.i ]
+  %pending.i.sroa.38.7.i = phi i64 [ %pending.i.sroa.38.8.i, %for.inc.i102.i ], [ %pending.i.sroa.38.4.i, %if.end.i92.i ]
   %l.09.i99.i = phi ptr [ %l.0.i104.i, %for.inc.i102.i ], [ %l.07.i95.i, %if.end.i92.i ]
   %103 = load ptr, ptr %l.09.i99.i, align 8
-  %add.i.i.i65 = add i64 %pending.i.sroa.20.11.i, 1
-  %cmp.i.i.i = icmp ugt i64 %add.i.i.i65, %pending.i.sroa.38.16.i
+  %add.i.i.i65 = add i64 %pending.i.sroa.20.6.i, 1
+  %cmp.i.i.i = icmp ugt i64 %add.i.i.i65, %pending.i.sroa.38.7.i
   br i1 %cmp.i.i.i, label %if.then.i.i105.i, label %commit_stack_push.exit.i.i
 
 if.then.i.i105.i:                                 ; preds = %for.body.i98.i
-  %104 = mul i64 %pending.i.sroa.38.16.i, 3
+  %104 = mul i64 %pending.i.sroa.38.7.i, 3
   %mul.i.i.i66 = add i64 %104, 48
   %div13.i.i.i = lshr i64 %mul.i.i.i66, 1
   %add.div13.i.i.i = call i64 @llvm.umax.i64(i64 %div13.i.i.i, i64 %add.i.i.i65)
@@ -7738,13 +7738,13 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i105.i
 
 st_mult.exit.i.i.i:                               ; preds = %if.then.i.i105.i
   %mul.i.i.i.i67 = shl nuw i64 %add.div13.i.i.i, 3
-  %call16.i.i.i = call ptr @xrealloc(ptr noundef nonnull %pending.i.sroa.0.16.i, i64 noundef %mul.i.i.i.i67) #25
+  %call16.i.i.i = call ptr @xrealloc(ptr noundef nonnull %pending.i.sroa.0.7.i, i64 noundef %mul.i.i.i.i67) #25
   br label %commit_stack_push.exit.i.i
 
 commit_stack_push.exit.i.i:                       ; preds = %st_mult.exit.i.i.i, %for.body.i98.i
-  %pending.i.sroa.0.17.i = phi ptr [ %call16.i.i.i, %st_mult.exit.i.i.i ], [ %pending.i.sroa.0.16.i, %for.body.i98.i ]
-  %pending.i.sroa.38.17.i = phi i64 [ %add.div13.i.i.i, %st_mult.exit.i.i.i ], [ %pending.i.sroa.38.16.i, %for.body.i98.i ]
-  %arrayidx.i.i100.i = getelementptr inbounds ptr, ptr %pending.i.sroa.0.17.i, i64 %pending.i.sroa.20.11.i
+  %pending.i.sroa.0.8.i = phi ptr [ %call16.i.i.i, %st_mult.exit.i.i.i ], [ %pending.i.sroa.0.7.i, %for.body.i98.i ]
+  %pending.i.sroa.38.8.i = phi i64 [ %add.div13.i.i.i, %st_mult.exit.i.i.i ], [ %pending.i.sroa.38.7.i, %for.body.i98.i ]
+  %arrayidx.i.i100.i = getelementptr inbounds ptr, ptr %pending.i.sroa.0.8.i, i64 %pending.i.sroa.20.6.i
   store ptr %103, ptr %arrayidx.i.i100.i, align 8
   %bf.load7.i.i = load i64, ptr %simplify_merges, align 8
   %105 = and i64 %bf.load7.i.i, 549755813888
@@ -7758,15 +7758,15 @@ for.inc.i102.i:                                   ; preds = %commit_stack_push.e
   br i1 %tobool5.not.i.i, label %mark_one_parent_uninteresting.exit.i, label %for.body.i98.i, !llvm.loop !20
 
 mark_one_parent_uninteresting.exit.i:             ; preds = %for.inc.i102.i, %commit_stack_push.exit.i.i, %if.end.i92.i, %commit_stack_pop.exit.i.i
-  %pending.i.sroa.0.18.i = phi ptr [ %pending.i.sroa.0.13.i, %if.end.i92.i ], [ %pending.i.sroa.0.13.i, %commit_stack_pop.exit.i.i ], [ %pending.i.sroa.0.17.i, %commit_stack_push.exit.i.i ], [ %pending.i.sroa.0.17.i, %for.inc.i102.i ]
-  %pending.i.sroa.20.12.i = phi i64 [ %dec.i.i.i, %if.end.i92.i ], [ %dec.i.i.i, %commit_stack_pop.exit.i.i ], [ %add.i.i.i65, %commit_stack_push.exit.i.i ], [ %add.i.i.i65, %for.inc.i102.i ]
-  %pending.i.sroa.38.18.i = phi i64 [ %pending.i.sroa.38.13.i, %if.end.i92.i ], [ %pending.i.sroa.38.13.i, %commit_stack_pop.exit.i.i ], [ %pending.i.sroa.38.17.i, %commit_stack_push.exit.i.i ], [ %pending.i.sroa.38.17.i, %for.inc.i102.i ]
-  %cmp.not.i.i = icmp eq i64 %pending.i.sroa.20.12.i, 0
+  %pending.i.sroa.0.11.i = phi ptr [ %pending.i.sroa.0.4.i, %if.end.i92.i ], [ %pending.i.sroa.0.4.i, %commit_stack_pop.exit.i.i ], [ %pending.i.sroa.0.8.i, %commit_stack_push.exit.i.i ], [ %pending.i.sroa.0.8.i, %for.inc.i102.i ]
+  %pending.i.sroa.20.8.i = phi i64 [ %dec.i.i.i, %if.end.i92.i ], [ %dec.i.i.i, %commit_stack_pop.exit.i.i ], [ %add.i.i.i65, %commit_stack_push.exit.i.i ], [ %add.i.i.i65, %for.inc.i102.i ]
+  %pending.i.sroa.38.11.i = phi i64 [ %pending.i.sroa.38.4.i, %if.end.i92.i ], [ %pending.i.sroa.38.4.i, %commit_stack_pop.exit.i.i ], [ %pending.i.sroa.38.8.i, %commit_stack_push.exit.i.i ], [ %pending.i.sroa.38.8.i, %for.inc.i102.i ]
+  %cmp.not.i.i = icmp eq i64 %pending.i.sroa.20.8.i, 0
   br i1 %cmp.not.i.i, label %mark_parents_uninteresting.exit.i, label %commit_stack_pop.exit.i.i, !llvm.loop !19
 
 mark_parents_uninteresting.exit.i:                ; preds = %mark_one_parent_uninteresting.exit.i, %for.end.i.i, %if.then25.i
-  %pending.i.sroa.0.19.i = phi ptr [ %pending.i.sroa.0.11.i, %for.end.i.i ], [ null, %if.then25.i ], [ %pending.i.sroa.0.18.i, %mark_one_parent_uninteresting.exit.i ]
-  call void @free(ptr noundef %pending.i.sroa.0.19.i) #25
+  %pending.i.sroa.0.6.i = phi ptr [ %pending.i.sroa.0.16.i, %for.end.i.i ], [ null, %if.then25.i ], [ %pending.i.sroa.0.11.i, %mark_one_parent_uninteresting.exit.i ]
+  call void @free(ptr noundef %pending.i.sroa.0.6.i) #25
   %106 = load ptr, ptr %original_list.i, align 8
   %tobool.not.i59.i = icmp eq ptr %106, null
   br i1 %tobool.not.i59.i, label %while.end.i57, label %if.end.i.i56
@@ -8677,8 +8677,8 @@ if.then3.i.i:                                     ; preds = %lor.lhs.false.i.i, 
   br label %simplify_one.exit.i
 
 for.body.i.i142:                                  ; preds = %lor.lhs.false.i.i, %for.inc.i.i164
-  %cnt.090.i.i = phi i32 [ %cnt.1.i.i, %for.inc.i.i164 ], [ 0, %lor.lhs.false.i.i ]
-  %tail.addr.089.i.i = phi ptr [ %tail.addr.1.i.i, %for.inc.i.i164 ], [ %tail.071.i, %lor.lhs.false.i.i ]
+  %cnt.090.i.i = phi i32 [ %cnt.2.i.i, %for.inc.i.i164 ], [ 0, %lor.lhs.false.i.i ]
+  %tail.addr.089.i.i = phi ptr [ %tail.addr.2.i.i, %for.inc.i.i164 ], [ %tail.071.i, %lor.lhs.false.i.i ]
   %p.088.i.i = phi ptr [ %225, %for.inc.i.i164 ], [ %220, %lor.lhs.false.i.i ]
   %221 = load ptr, ptr %p.088.i.i, align 8
   %call.i55.i.i = call ptr @lookup_decoration(ptr noundef nonnull %merge_simplification.i.i.i, ptr noundef %221) #25
@@ -8704,8 +8704,8 @@ if.then11.i.i:                                    ; preds = %locate_simplify_sta
   br label %if.end14.i.i
 
 if.end14.i.i:                                     ; preds = %if.then11.i.i, %locate_simplify_state.exit61.i.i
-  %tail.addr.1.i.i = phi ptr [ %tail.addr.089.i.i, %locate_simplify_state.exit61.i.i ], [ %next.i.i166, %if.then11.i.i ]
-  %cnt.1.i.i = phi i32 [ %cnt.090.i.i, %locate_simplify_state.exit61.i.i ], [ %inc.i.i167, %if.then11.i.i ]
+  %tail.addr.2.i.i = phi ptr [ %tail.addr.089.i.i, %locate_simplify_state.exit61.i.i ], [ %next.i.i166, %if.then11.i.i ]
+  %cnt.2.i.i = phi i32 [ %cnt.090.i.i, %locate_simplify_state.exit61.i.i ], [ %inc.i.i167, %if.then11.i.i ]
   %bf.load15.i.i = load i64, ptr %simplify_merges, align 8
   %224 = and i64 %bf.load15.i.i, 274877906944
   %tobool17.not.i.i = icmp eq i64 %224, 0
@@ -8718,7 +8718,7 @@ for.inc.i.i164:                                   ; preds = %if.end14.i.i
   br i1 %tobool7.not.i.i165, label %for.end.i.i144, label %for.body.i.i142, !llvm.loop !65
 
 for.end.i.i144:                                   ; preds = %for.inc.i.i164, %if.end14.i.i
-  %tobool21.not.i.i = icmp eq i32 %cnt.1.i.i, 0
+  %tobool21.not.i.i = icmp eq i32 %cnt.2.i.i, 0
   br i1 %tobool21.not.i.i, label %for.cond27.preheader.i.i, label %if.then22.i.i
 
 for.cond27.preheader.i.i:                         ; preds = %for.end.i.i144
@@ -8727,7 +8727,7 @@ for.cond27.preheader.i.i:                         ; preds = %for.end.i.i144
   br i1 %tobool28.not92.i.i, label %for.end44.i.i, label %for.body29.i.i
 
 if.then22.i.i:                                    ; preds = %for.end.i.i144
-  %call23.i.i = call ptr @commit_list_insert(ptr noundef nonnull %call7.i127, ptr noundef %tail.addr.1.i.i) #25
+  %call23.i.i = call ptr @commit_list_insert(ptr noundef nonnull %call7.i127, ptr noundef %tail.addr.2.i.i) #25
   %next24.i.i = getelementptr inbounds i8, ptr %call23.i.i, i64 8
   br label %simplify_one.exit.i
 
@@ -9066,7 +9066,7 @@ if.end100.i.i:                                    ; preds = %if.then9.i.i, %loca
   br label %simplify_one.exit.i
 
 simplify_one.exit.i:                              ; preds = %if.end100.i.i, %if.then22.i.i, %if.then3.i.i, %locate_simplify_state.exit.i.i
-  %retval.0.i.i130 = phi ptr [ %tail.071.i, %if.then3.i.i ], [ %next24.i.i, %if.then22.i.i ], [ %tail.addr.1.i.i, %if.end100.i.i ], [ %tail.071.i, %locate_simplify_state.exit.i.i ]
+  %retval.0.i.i130 = phi ptr [ %tail.071.i, %if.then3.i.i ], [ %next24.i.i, %if.then22.i.i ], [ %tail.addr.2.i.i, %if.end100.i.i ], [ %tail.071.i, %locate_simplify_state.exit.i.i ]
   %.pr.i = load ptr, ptr %list.i, align 8
   %tobool5.not.i = icmp eq ptr %.pr.i, null
   br i1 %tobool5.not.i, label %while.cond.loopexit.i, label %while.body6.i, !llvm.loop !72
@@ -12274,8 +12274,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %7 = phi ptr [ %2, %for.body.lr.ph ], [ %42, %for.inc ]
   %relevant_parents.0119 = phi i32 [ 0, %for.body.lr.ph ], [ %spec.select, %for.inc ]
-  %irrelevant_change.0118 = phi i32 [ 0, %for.body.lr.ph ], [ %irrelevant_change.2, %for.inc ]
-  %relevant_change.0117 = phi i32 [ 0, %for.body.lr.ph ], [ %relevant_change.2, %for.inc ]
+  %irrelevant_change.0118 = phi i32 [ 0, %for.body.lr.ph ], [ %irrelevant_change.1, %for.inc ]
+  %relevant_change.0117 = phi i32 [ 0, %for.body.lr.ph ], [ %relevant_change.1, %for.inc ]
   %ts.0116 = phi ptr [ null, %for.body.lr.ph ], [ %ts.1, %for.inc ]
   %8 = load ptr, ptr %7, align 8
   %.val56 = load i32, ptr %8, align 8
@@ -12558,8 +12558,8 @@ default.unreachable:                              ; preds = %rev_compare_tree.ex
   unreachable
 
 for.inc:                                          ; preds = %sw.bb128, %if.then134, %if.then78, %if.then80
-  %relevant_change.2 = phi i32 [ %relevant_change.0., %sw.bb128 ], [ %relevant_change.0., %if.then134 ], [ %relevant_change.0117, %if.then80 ], [ %relevant_change.0117, %if.then78 ]
-  %irrelevant_change.2 = phi i32 [ %.irrelevant_change.0, %sw.bb128 ], [ %.irrelevant_change.0, %if.then134 ], [ %irrelevant_change.0118, %if.then80 ], [ %irrelevant_change.0118, %if.then78 ]
+  %relevant_change.1 = phi i32 [ %relevant_change.0., %sw.bb128 ], [ %relevant_change.0., %if.then134 ], [ %relevant_change.0117, %if.then80 ], [ %relevant_change.0117, %if.then78 ]
+  %irrelevant_change.1 = phi i32 [ %.irrelevant_change.0, %sw.bb128 ], [ %.irrelevant_change.0, %if.then134 ], [ %irrelevant_change.0118, %if.then80 ], [ %irrelevant_change.0118, %if.then78 ]
   %next148 = getelementptr inbounds i8, ptr %7, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load ptr, ptr %next148, align 8
@@ -12567,8 +12567,8 @@ for.inc:                                          ; preds = %sw.bb128, %if.then1
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !93
 
 for.end:                                          ; preds = %for.inc, %if.then30
-  %relevant_change.0.lcssa.ph = phi i32 [ %relevant_change.2, %for.inc ], [ %relevant_change.0117, %if.then30 ]
-  %irrelevant_change.0.lcssa.ph = phi i32 [ %irrelevant_change.2, %for.inc ], [ %irrelevant_change.0118, %if.then30 ]
+  %relevant_change.0.lcssa.ph = phi i32 [ %relevant_change.1, %for.inc ], [ %relevant_change.0117, %if.then30 ]
+  %irrelevant_change.0.lcssa.ph = phi i32 [ %irrelevant_change.1, %for.inc ], [ %irrelevant_change.0118, %if.then30 ]
   %tobool150.not = icmp eq i32 %spec.select, 0
   br i1 %tobool150.not, label %cond.false, label %cond.true
 
@@ -12823,9 +12823,9 @@ for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %mar
   br i1 %cmp.not10.i.i.i, label %mark_parents_uninteresting.exit.i.i, label %commit_stack_pop.exit.i.i.i
 
 commit_stack_pop.exit.i.i.i:                      ; preds = %for.end.i.i.i, %mark_one_parent_uninteresting.exit
-  %pending.i.i.i.sroa.0.4 = phi ptr [ %pending.i.i.i.sroa.0.9, %mark_one_parent_uninteresting.exit ], [ %pending.i.i.i.sroa.0.3, %for.end.i.i.i ]
-  %pending.i.i.i.sroa.20.4 = phi i64 [ %pending.i.i.i.sroa.20.9, %mark_one_parent_uninteresting.exit ], [ %pending.i.i.i.sroa.20.3, %for.end.i.i.i ]
-  %18 = phi i64 [ %pending.i.i.i.sroa.12.4, %mark_one_parent_uninteresting.exit ], [ %nr.i.i.promoted74.i.i, %for.end.i.i.i ]
+  %pending.i.i.i.sroa.0.4 = phi ptr [ %pending.i.i.i.sroa.0.14, %mark_one_parent_uninteresting.exit ], [ %pending.i.i.i.sroa.0.3, %for.end.i.i.i ]
+  %pending.i.i.i.sroa.20.4 = phi i64 [ %pending.i.i.i.sroa.20.14, %mark_one_parent_uninteresting.exit ], [ %pending.i.i.i.sroa.20.3, %for.end.i.i.i ]
+  %18 = phi i64 [ %pending.i.i.i.sroa.12.9, %mark_one_parent_uninteresting.exit ], [ %nr.i.i.promoted74.i.i, %for.end.i.i.i ]
   %dec.i.i.i.i = add i64 %18, -1
   %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %pending.i.i.i.sroa.0.4, i64 %dec.i.i.i.i
   %19 = load ptr, ptr %arrayidx.i.i.i.i, align 8
@@ -12843,17 +12843,17 @@ if.end.i4:                                        ; preds = %commit_stack_pop.ex
   br i1 %tobool5.not8.i, label %mark_one_parent_uninteresting.exit, label %for.body.i7
 
 for.body.i7:                                      ; preds = %if.end.i4, %for.inc.i
-  %pending.i.i.i.sroa.0.7 = phi ptr [ %pending.i.i.i.sroa.0.8, %for.inc.i ], [ %pending.i.i.i.sroa.0.4, %if.end.i4 ]
-  %pending.i.i.i.sroa.12.3 = phi i64 [ %add.i.i, %for.inc.i ], [ %dec.i.i.i.i, %if.end.i4 ]
-  %pending.i.i.i.sroa.20.7 = phi i64 [ %pending.i.i.i.sroa.20.8, %for.inc.i ], [ %pending.i.i.i.sroa.20.4, %if.end.i4 ]
+  %pending.i.i.i.sroa.0.10 = phi ptr [ %pending.i.i.i.sroa.0.11, %for.inc.i ], [ %pending.i.i.i.sroa.0.4, %if.end.i4 ]
+  %pending.i.i.i.sroa.12.7 = phi i64 [ %add.i.i, %for.inc.i ], [ %dec.i.i.i.i, %if.end.i4 ]
+  %pending.i.i.i.sroa.20.10 = phi i64 [ %pending.i.i.i.sroa.20.11, %for.inc.i ], [ %pending.i.i.i.sroa.20.4, %if.end.i4 ]
   %l.09.i = phi ptr [ %l.0.i, %for.inc.i ], [ %l.07.i, %if.end.i4 ]
   %21 = load ptr, ptr %l.09.i, align 8
-  %add.i.i = add i64 %pending.i.i.i.sroa.12.3, 1
-  %cmp.i.i = icmp ugt i64 %add.i.i, %pending.i.i.i.sroa.20.7
+  %add.i.i = add i64 %pending.i.i.i.sroa.12.7, 1
+  %cmp.i.i = icmp ugt i64 %add.i.i, %pending.i.i.i.sroa.20.10
   br i1 %cmp.i.i, label %if.then.i.i, label %commit_stack_push.exit.i
 
 if.then.i.i:                                      ; preds = %for.body.i7
-  %22 = mul i64 %pending.i.i.i.sroa.20.7, 3
+  %22 = mul i64 %pending.i.i.i.sroa.20.10, 3
   %mul.i.i = add i64 %22, 48
   %div13.i.i = lshr i64 %mul.i.i, 1
   %add.div13.i.i = tail call i64 @llvm.umax.i64(i64 %div13.i.i, i64 %add.i.i)
@@ -12866,13 +12866,13 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 st_mult.exit.i.i:                                 ; preds = %if.then.i.i
   %mul.i.i.i11 = shl nuw i64 %add.div13.i.i, 3
-  %call16.i.i = tail call ptr @xrealloc(ptr noundef nonnull %pending.i.i.i.sroa.0.7, i64 noundef %mul.i.i.i11) #25
+  %call16.i.i = tail call ptr @xrealloc(ptr noundef nonnull %pending.i.i.i.sroa.0.10, i64 noundef %mul.i.i.i11) #25
   br label %commit_stack_push.exit.i
 
 commit_stack_push.exit.i:                         ; preds = %for.body.i7, %st_mult.exit.i.i
-  %pending.i.i.i.sroa.0.8 = phi ptr [ %call16.i.i, %st_mult.exit.i.i ], [ %pending.i.i.i.sroa.0.7, %for.body.i7 ]
-  %pending.i.i.i.sroa.20.8 = phi i64 [ %add.div13.i.i, %st_mult.exit.i.i ], [ %pending.i.i.i.sroa.20.7, %for.body.i7 ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %pending.i.i.i.sroa.0.8, i64 %pending.i.i.i.sroa.12.3
+  %pending.i.i.i.sroa.0.11 = phi ptr [ %call16.i.i, %st_mult.exit.i.i ], [ %pending.i.i.i.sroa.0.10, %for.body.i7 ]
+  %pending.i.i.i.sroa.20.11 = phi i64 [ %add.div13.i.i, %st_mult.exit.i.i ], [ %pending.i.i.i.sroa.20.10, %for.body.i7 ]
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr %pending.i.i.i.sroa.0.11, i64 %pending.i.i.i.sroa.12.7
   store ptr %21, ptr %arrayidx.i.i, align 8
   %bf.load7.i = load i64, ptr %exclude_first_parent_only.i.i.i, align 8
   %23 = and i64 %bf.load7.i, 549755813888
@@ -12886,14 +12886,14 @@ for.inc.i:                                        ; preds = %commit_stack_push.e
   br i1 %tobool5.not.i10, label %mark_one_parent_uninteresting.exit, label %for.body.i7, !llvm.loop !20
 
 mark_one_parent_uninteresting.exit:               ; preds = %commit_stack_push.exit.i, %for.inc.i, %commit_stack_pop.exit.i.i.i, %if.end.i4
-  %pending.i.i.i.sroa.0.9 = phi ptr [ %pending.i.i.i.sroa.0.4, %if.end.i4 ], [ %pending.i.i.i.sroa.0.4, %commit_stack_pop.exit.i.i.i ], [ %pending.i.i.i.sroa.0.8, %for.inc.i ], [ %pending.i.i.i.sroa.0.8, %commit_stack_push.exit.i ]
-  %pending.i.i.i.sroa.12.4 = phi i64 [ %dec.i.i.i.i, %if.end.i4 ], [ %dec.i.i.i.i, %commit_stack_pop.exit.i.i.i ], [ %add.i.i, %for.inc.i ], [ %add.i.i, %commit_stack_push.exit.i ]
-  %pending.i.i.i.sroa.20.9 = phi i64 [ %pending.i.i.i.sroa.20.4, %if.end.i4 ], [ %pending.i.i.i.sroa.20.4, %commit_stack_pop.exit.i.i.i ], [ %pending.i.i.i.sroa.20.8, %for.inc.i ], [ %pending.i.i.i.sroa.20.8, %commit_stack_push.exit.i ]
-  %cmp.not.i.i.i = icmp eq i64 %pending.i.i.i.sroa.12.4, 0
+  %pending.i.i.i.sroa.0.14 = phi ptr [ %pending.i.i.i.sroa.0.4, %if.end.i4 ], [ %pending.i.i.i.sroa.0.4, %commit_stack_pop.exit.i.i.i ], [ %pending.i.i.i.sroa.0.11, %for.inc.i ], [ %pending.i.i.i.sroa.0.11, %commit_stack_push.exit.i ]
+  %pending.i.i.i.sroa.12.9 = phi i64 [ %dec.i.i.i.i, %if.end.i4 ], [ %dec.i.i.i.i, %commit_stack_pop.exit.i.i.i ], [ %add.i.i, %for.inc.i ], [ %add.i.i, %commit_stack_push.exit.i ]
+  %pending.i.i.i.sroa.20.14 = phi i64 [ %pending.i.i.i.sroa.20.4, %if.end.i4 ], [ %pending.i.i.i.sroa.20.4, %commit_stack_pop.exit.i.i.i ], [ %pending.i.i.i.sroa.20.11, %for.inc.i ], [ %pending.i.i.i.sroa.20.11, %commit_stack_push.exit.i ]
+  %cmp.not.i.i.i = icmp eq i64 %pending.i.i.i.sroa.12.9, 0
   br i1 %cmp.not.i.i.i, label %mark_parents_uninteresting.exit.i.i, label %commit_stack_pop.exit.i.i.i, !llvm.loop !19
 
 mark_parents_uninteresting.exit.i.i:              ; preds = %mark_one_parent_uninteresting.exit, %for.end.i.i.i, %if.then21.i.i.i
-  %24 = phi ptr [ null, %if.then21.i.i.i ], [ %pending.i.promoted78.i.i, %for.end.i.i.i ], [ %pending.i.i.i.sroa.0.9, %mark_one_parent_uninteresting.exit ]
+  %24 = phi ptr [ null, %if.then21.i.i.i ], [ %pending.i.promoted78.i.i, %for.end.i.i.i ], [ %pending.i.i.i.sroa.0.14, %mark_one_parent_uninteresting.exit ]
   tail call void @free(ptr noundef %24) #25
   br label %if.end22.i.i.i
 

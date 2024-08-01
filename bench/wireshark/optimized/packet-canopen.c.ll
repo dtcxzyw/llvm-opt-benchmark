@@ -860,7 +860,7 @@ proto_item_set_generated.exit135:                 ; preds = %proto_item_set_gene
 
 164:                                              ; preds = %152, %151, %150, %149, %147
   %.084.ph.i = phi i8 [ 7, %147 ], [ 4, %149 ], [ 0, %150 ], [ 0, %151 ], [ 4, %152 ]
-  %.182.ph.i = phi i8 [ %143, %147 ], [ %143, %149 ], [ 1, %150 ], [ 0, %151 ], [ 1, %152 ]
+  %.081.ph.i = phi i8 [ %143, %147 ], [ %143, %149 ], [ 1, %150 ], [ 0, %151 ], [ 1, %152 ]
   %165 = zext nneg i8 %143 to i64
   %166 = getelementptr [5 x ptr], ptr @_sdo_cmd_fields_ccs, i64 0, i64 %165
   br label %.sink.split.i.i
@@ -879,7 +879,7 @@ proto_item_set_generated.exit135:                 ; preds = %proto_item_set_gene
   br i1 %173, label %.thread.i, label %sdo_cmd_fields_ccs.exit.i
 
 .thread.i:                                        ; preds = %172, %160
-  %.182.ph125187.i = phi i8 [ 0, %172 ], [ 1, %160 ]
+  %.081.ph125187.i = phi i8 [ 0, %172 ], [ 1, %160 ]
   %.084.ph124186.i = phi i8 [ 2, %172 ], [ 4, %160 ]
   %174 = zext nneg i8 %158 to i64
   %175 = getelementptr [2 x ptr], ptr @_sdo_cmd_fields_ccs6, i64 0, i64 %174
@@ -887,8 +887,8 @@ proto_item_set_generated.exit135:                 ; preds = %proto_item_set_gene
 
 .sink.split.i.i:                                  ; preds = %.thread.i, %169, %164
   %.077121.i = phi i8 [ %158, %.thread.i ], [ %154, %169 ], [ 0, %164 ]
-  %.179118.i = phi i8 [ 0, %.thread.i ], [ %spec.select.i, %169 ], [ 0, %164 ]
-  %.182115.i = phi i8 [ %.182.ph125187.i, %.thread.i ], [ %spec.select.i, %169 ], [ %.182.ph.i, %164 ]
+  %.078118.i = phi i8 [ 0, %.thread.i ], [ %spec.select.i, %169 ], [ 0, %164 ]
+  %.081115.i = phi i8 [ %.081.ph125187.i, %.thread.i ], [ %spec.select.i, %169 ], [ %.081.ph.i, %164 ]
   %.084112.i = phi i8 [ %.084.ph124186.i, %.thread.i ], [ 0, %169 ], [ %.084.ph.i, %164 ]
   %.sink.i.i = phi ptr [ %175, %.thread.i ], [ %171, %169 ], [ %166, %164 ]
   %176 = load ptr, ptr %.sink.i.i, align 8
@@ -896,11 +896,11 @@ proto_item_set_generated.exit135:                 ; preds = %proto_item_set_gene
 
 sdo_cmd_fields_ccs.exit.i:                        ; preds = %.sink.split.i.i, %172, %167
   %.077120.i = phi i8 [ %158, %172 ], [ %.077121.i, %.sink.split.i.i ], [ %154, %167 ]
-  %.179117.i = phi i8 [ 0, %172 ], [ %.179118.i, %.sink.split.i.i ], [ %spec.select.i, %167 ]
-  %.182114.i = phi i8 [ 0, %172 ], [ %.182115.i, %.sink.split.i.i ], [ %spec.select.i, %167 ]
+  %.078117.i = phi i8 [ 0, %172 ], [ %.078118.i, %.sink.split.i.i ], [ %spec.select.i, %167 ]
+  %.081114.i = phi i8 [ 0, %172 ], [ %.081115.i, %.sink.split.i.i ], [ %spec.select.i, %167 ]
   %.084111.i = phi i8 [ 2, %172 ], [ %.084112.i, %.sink.split.i.i ], [ 0, %167 ]
   %.0.i.i = phi ptr [ null, %172 ], [ %176, %.sink.split.i.i ], [ null, %167 ]
-  %177 = icmp eq i8 %.179117.i, 0
+  %177 = icmp eq i8 %.078117.i, 0
   br label %sdo_cmd_fields_scs.exit.i
 
 178:                                              ; preds = %142
@@ -952,7 +952,7 @@ sdo_cmd_fields_ccs.exit.i:                        ; preds = %.sink.split.i.i, %1
   br i1 %.not.i136, label %203, label %dissect_sdo.exit
 
 195:                                              ; preds = %183, %182, %181, %180, %178
-  %.185.ph.i = phi i8 [ 7, %178 ], [ 0, %180 ], [ 4, %181 ], [ 0, %182 ], [ 4, %183 ]
+  %.286.ph.i = phi i8 [ 7, %178 ], [ 0, %180 ], [ 4, %181 ], [ 0, %182 ], [ 4, %183 ]
   %.3.ph.i = phi i8 [ %143, %178 ], [ 0, %180 ], [ 1, %181 ], [ 1, %182 ], [ 1, %183 ]
   %196 = zext nneg i8 %143 to i64
   %197 = getelementptr [5 x ptr], ptr @_sdo_cmd_fields_scs, i64 0, i64 %196
@@ -973,24 +973,24 @@ sdo_cmd_fields_ccs.exit.i:                        ; preds = %.sink.split.i.i, %1
 
 .thread188.i:                                     ; preds = %203, %191
   %.3.ph158192.i = phi i8 [ 0, %203 ], [ 1, %191 ]
-  %.185.ph157191.i = phi i8 [ 2, %203 ], [ 4, %191 ]
+  %.286.ph157191.i = phi i8 [ 2, %203 ], [ 4, %191 ]
   %205 = zext nneg i8 %189 to i64
   %206 = getelementptr [2 x ptr], ptr @_sdo_cmd_fields_scs6, i64 0, i64 %205
   br label %.sink.split.i105.i
 
 .sink.split.i105.i:                               ; preds = %.thread188.i, %200, %195
-  %.1154.i = phi i8 [ %189, %.thread188.i ], [ %185, %200 ], [ 0, %195 ]
+  %.2154.i = phi i8 [ %189, %.thread188.i ], [ %185, %200 ], [ 0, %195 ]
   %.3151.i = phi i8 [ %.3.ph158192.i, %.thread188.i ], [ %spec.select101.i, %200 ], [ %.3.ph.i, %195 ]
-  %.185148.i = phi i8 [ %.185.ph157191.i, %.thread188.i ], [ 0, %200 ], [ %.185.ph.i, %195 ]
+  %.286148.i = phi i8 [ %.286.ph157191.i, %.thread188.i ], [ 0, %200 ], [ %.286.ph.i, %195 ]
   %.sink.i106.i = phi ptr [ %206, %.thread188.i ], [ %202, %200 ], [ %197, %195 ]
   %207 = load ptr, ptr %.sink.i106.i, align 8
   br label %sdo_cmd_fields_scs.exit.i
 
 sdo_cmd_fields_scs.exit.i:                        ; preds = %.sink.split.i105.i, %sdo_cmd_fields_ccs.exit.i
-  %.286.i = phi i8 [ %.084111.i, %sdo_cmd_fields_ccs.exit.i ], [ %.185148.i, %.sink.split.i105.i ]
-  %.4.i = phi i8 [ %.182114.i, %sdo_cmd_fields_ccs.exit.i ], [ %.3151.i, %.sink.split.i105.i ]
+  %.185.i = phi i8 [ %.084111.i, %sdo_cmd_fields_ccs.exit.i ], [ %.286148.i, %.sink.split.i105.i ]
+  %.283.i = phi i8 [ %.081114.i, %sdo_cmd_fields_ccs.exit.i ], [ %.3151.i, %.sink.split.i105.i ]
   %.280.i = phi i1 [ %177, %sdo_cmd_fields_ccs.exit.i ], [ true, %.sink.split.i105.i ]
-  %.2.i = phi i8 [ %.077120.i, %sdo_cmd_fields_ccs.exit.i ], [ %.1154.i, %.sink.split.i105.i ]
+  %.1.i = phi i8 [ %.077120.i, %sdo_cmd_fields_ccs.exit.i ], [ %.2154.i, %.sink.split.i105.i ]
   %.0.i137 = phi ptr [ %.0.i.i, %sdo_cmd_fields_ccs.exit.i ], [ %207, %.sink.split.i105.i ]
   %208 = icmp eq ptr %.0.i137, null
   br i1 %208, label %sdo_cmd_fields_scs.exit.thread.i, label %211
@@ -1004,7 +1004,7 @@ sdo_cmd_fields_scs.exit.thread.i:                 ; preds = %sdo_cmd_fields_scs.
   %212 = load i32, ptr @hf_canopen_sdo_cmd, align 4
   %213 = load i32, ptr @ett_canopen_sdo_cmd, align 4
   %214 = tail call ptr @proto_tree_add_bitmask(ptr noundef %70, ptr noundef %0, i32 noundef 0, i32 noundef %212, i32 noundef %213, ptr noundef nonnull %.0.i137, i32 noundef -2147483648) #3
-  %.not98.i = icmp eq i8 %.4.i, 0
+  %.not98.i = icmp eq i8 %.283.i, 0
   br i1 %.not98.i, label %220, label %215
 
 215:                                              ; preds = %211
@@ -1027,7 +1027,7 @@ sdo_cmd_fields_scs.exit.thread.i:                 ; preds = %sdo_cmd_fields_scs.
   br label %dissect_sdo.exit
 
 224:                                              ; preds = %220
-  switch i8 %.2.i, label %232 [
+  switch i8 %.1.i, label %232 [
     i8 2, label %.thread177.i
     i8 0, label %228
   ]
@@ -1039,30 +1039,30 @@ sdo_cmd_fields_scs.exit.thread.i:                 ; preds = %sdo_cmd_fields_scs.
   br label %228
 
 228:                                              ; preds = %.thread177.i, %224
-  %.188180.i = phi i32 [ %227, %.thread177.i ], [ %.087.i, %224 ]
+  %.289180.i = phi i32 [ %227, %.thread177.i ], [ %.087.i, %224 ]
   %229 = load i32, ptr @hf_canopen_sdo_cmd_block_blksize, align 4
-  %230 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %229, ptr noundef %0, i32 noundef %.188180.i, i32 noundef 1, i32 noundef -2147483648) #3
-  %231 = add nuw nsw i32 %.188180.i, 1
+  %230 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %229, ptr noundef %0, i32 noundef %.289180.i, i32 noundef 1, i32 noundef -2147483648) #3
+  %231 = add nuw nsw i32 %.289180.i, 1
   br label %232
 
 232:                                              ; preds = %228, %224, %220
-  %.289.i = phi i32 [ %231, %228 ], [ %.087.i, %220 ], [ %.087.i, %224 ]
+  %.188.i = phi i32 [ %231, %228 ], [ %.087.i, %220 ], [ %.087.i, %224 ]
   br i1 %.280.i, label %237, label %233
 
 233:                                              ; preds = %232
   %234 = load i32, ptr @hf_canopen_sdo_cmd_block_pst, align 4
-  %235 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %234, ptr noundef %0, i32 noundef %.289.i, i32 noundef 1, i32 noundef -2147483648) #3
-  %236 = add nuw nsw i32 %.289.i, 1
+  %235 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %234, ptr noundef %0, i32 noundef %.188.i, i32 noundef 1, i32 noundef -2147483648) #3
+  %236 = add nuw nsw i32 %.188.i, 1
   br label %237
 
 237:                                              ; preds = %233, %232
-  %.390.i = phi i32 [ %236, %233 ], [ %.289.i, %232 ]
-  %.not100.i = icmp eq i8 %.286.i, 0
+  %.390.i = phi i32 [ %236, %233 ], [ %.188.i, %232 ]
+  %.not100.i = icmp eq i8 %.185.i, 0
   br i1 %.not100.i, label %.thread181.i, label %238
 
 238:                                              ; preds = %237
   %239 = load i32, ptr @hf_canopen_sdo_data, align 4
-  %240 = zext nneg i8 %.286.i to i32
+  %240 = zext nneg i8 %.185.i to i32
   %241 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %239, ptr noundef %0, i32 noundef %.390.i, i32 noundef %240, i32 noundef 0) #3
   %242 = add nuw nsw i32 %.390.i, %240
   %243 = icmp ult i32 %242, 8

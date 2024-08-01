@@ -2078,7 +2078,7 @@ define noundef zeroext i1 @_ZN7glslang13TInputScanner11scanVersionERiR8EProfileR
   br label %15
 
 15:                                               ; preds = %_ZN7glslang13TInputScanner3getEv.exit150.thread, %4
-  %.0288 = phi i1 [ false, %4 ], [ %.4, %_ZN7glslang13TInputScanner3getEv.exit150.thread ]
+  %.0288 = phi i1 [ false, %4 ], [ %.2290, %_ZN7glslang13TInputScanner3getEv.exit150.thread ]
   %.069 = phi i1 [ false, %4 ], [ true, %_ZN7glslang13TInputScanner3getEv.exit150.thread ]
   br i1 %.069, label %16, label %_ZN7glslang13TInputScanner4peekEv.exit131.preheader
 
@@ -2514,7 +2514,7 @@ _ZN7glslang13TInputScanner4peekEv.exit.i263.preheader: ; preds = %207, %208, %19
 _ZN7glslang13TInputScanner4peekEv.exit.i263:      ; preds = %_ZN7glslang13TInputScanner4peekEv.exit.i263.preheader, %_ZN7glslang13TInputScanner4peekEv.exit22.i
   %215 = phi i32 [ %.pre35.i510, %_ZN7glslang13TInputScanner4peekEv.exit22.i ], [ %198, %_ZN7glslang13TInputScanner4peekEv.exit.i263.preheader ]
   %216 = phi i32 [ %.pre.i265508, %_ZN7glslang13TInputScanner4peekEv.exit22.i ], [ %197, %_ZN7glslang13TInputScanner4peekEv.exit.i263.preheader ]
-  %.2290 = phi i1 [ %.3, %_ZN7glslang13TInputScanner4peekEv.exit22.i ], [ %.1289, %_ZN7glslang13TInputScanner4peekEv.exit.i263.preheader ]
+  %.3 = phi i1 [ %.4, %_ZN7glslang13TInputScanner4peekEv.exit22.i ], [ %.1289, %_ZN7glslang13TInputScanner4peekEv.exit.i263.preheader ]
   %217 = phi i32 [ %316, %_ZN7glslang13TInputScanner4peekEv.exit22.i ], [ %198, %_ZN7glslang13TInputScanner4peekEv.exit.i263.preheader ]
   %218 = phi i32 [ %317, %_ZN7glslang13TInputScanner4peekEv.exit22.i ], [ %197, %_ZN7glslang13TInputScanner4peekEv.exit.i263.preheader ]
   %.0.i264 = phi i32 [ %.08.i15.i, %_ZN7glslang13TInputScanner4peekEv.exit22.i ], [ %.0.i264.ph, %_ZN7glslang13TInputScanner4peekEv.exit.i263.preheader ]
@@ -2529,7 +2529,7 @@ _ZN7glslang13TInputScanner4peekEv.exit.i263:      ; preds = %_ZN7glslang13TInput
   br label %220
 
 220:                                              ; preds = %219, %_ZN7glslang13TInputScanner4peekEv.exit.i263, %_ZN7glslang13TInputScanner4peekEv.exit.i263
-  %.3 = phi i1 [ %.2290, %_ZN7glslang13TInputScanner4peekEv.exit.i263 ], [ %.2290, %_ZN7glslang13TInputScanner4peekEv.exit.i263 ], [ true, %219 ]
+  %.4 = phi i1 [ %.3, %_ZN7glslang13TInputScanner4peekEv.exit.i263 ], [ %.3, %_ZN7glslang13TInputScanner4peekEv.exit.i263 ], [ true, %219 ]
   %221 = phi i32 [ %217, %_ZN7glslang13TInputScanner4peekEv.exit.i263 ], [ %217, %_ZN7glslang13TInputScanner4peekEv.exit.i263 ], [ %215, %219 ]
   %222 = phi i32 [ %218, %_ZN7glslang13TInputScanner4peekEv.exit.i263 ], [ %218, %_ZN7glslang13TInputScanner4peekEv.exit.i263 ], [ %216, %219 ]
   %.not.i.i.i = icmp slt i32 %222, %221
@@ -2786,7 +2786,7 @@ _ZN7glslang13TInputScanner4peekEv.exit.i139:      ; preds = %339
 _ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit: ; preds = %_ZN7glslang13TInputScanner4peekEv.exit.i139, %342, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit441_crit_edge, %334
   %350 = phi i32 [ %215, %334 ], [ %.pre518.pre, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit441_crit_edge ], [ %215, %342 ], [ %215, %_ZN7glslang13TInputScanner4peekEv.exit.i139 ]
   %351 = phi i32 [ %216, %334 ], [ %.pre517.pre, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit441_crit_edge ], [ %216, %342 ], [ %216, %_ZN7glslang13TInputScanner4peekEv.exit.i139 ]
-  %.4 = phi i1 [ %.2290, %334 ], [ true, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit441_crit_edge ], [ %.2290, %342 ], [ %.2290, %_ZN7glslang13TInputScanner4peekEv.exit.i139 ]
+  %.2290 = phi i1 [ %.3, %334 ], [ true, %._ZN7glslang13TInputScanner24consumeWhitespaceCommentERb.exit.loopexit441_crit_edge ], [ %.3, %342 ], [ %.3, %_ZN7glslang13TInputScanner4peekEv.exit.i139 ]
   %.not.i.i141 = icmp slt i32 %351, %350
   br i1 %.not.i.i141, label %353, label %352
 
@@ -3852,7 +3852,7 @@ _ZN7glslang13TInputScanner3getEv.exit260:         ; preds = %835, %827, %862
   br label %870
 
 870:                                              ; preds = %.sink.split, %867, %865, %.loopexit, %.loopexit.thread
-  %871 = or i1 %.069, %.4
+  %871 = or i1 %.069, %.2290
   br label %_ZN7glslang13TInputScanner4peekEv.exit131.thread
 
 _ZN7glslang13TInputScanner3getEv.exit150.thread:  ; preds = %360, %_ZN7glslang13TInputScanner3getEv.exit160, %494, %530, %566, %602, %638, %674, %395, %666, %630, %594, %558, %522, %487, %._crit_edge, %352, %_ZN7glslang13TInputScanner3getEv.exit220.thread325, %_ZN7glslang13TInputScanner3getEv.exit210.thread321, %_ZN7glslang13TInputScanner3getEv.exit200.thread317, %_ZN7glslang13TInputScanner3getEv.exit190.thread313, %_ZN7glslang13TInputScanner3getEv.exit180.thread309, %_ZN7glslang13TInputScanner3getEv.exit170.thread305, %_ZN7glslang13TInputScanner3getEv.exit150.thread300, %863, %._crit_edge430, %_ZN7glslang13TInputScanner3getEv.exit170, %_ZN7glslang13TInputScanner3getEv.exit180, %_ZN7glslang13TInputScanner3getEv.exit190, %_ZN7glslang13TInputScanner3getEv.exit200, %_ZN7glslang13TInputScanner3getEv.exit210, %_ZN7glslang13TInputScanner3getEv.exit220, %_ZN7glslang13TInputScanner3getEv.exit150

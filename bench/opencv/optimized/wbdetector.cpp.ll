@@ -1169,7 +1169,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit115:                 ; preds = %368, %370
   br i1 %403, label %split, label %.preheader
 
 .preheader:                                       ; preds = %402, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit
-  %.049 = phi i32 [ %.3, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ], [ 0, %402 ]
+  %.049 = phi i32 [ %.4, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ], [ 0, %402 ]
   %.048 = phi i64 [ %422, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ], [ 0, %402 ]
   %404 = load ptr, ptr %267, align 8
   %405 = load ptr, ptr %24, align 8
@@ -1521,8 +1521,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %.noexc, %516
   br label %549
 
 ._crit_edge324:                                   ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit, %495
-  %.150.lcssa = phi i32 [ %.049, %495 ], [ %501, %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit ]
-  %.not81 = icmp slt i32 %.150.lcssa, %251
+  %.3.lcssa = phi i32 [ %.049, %495 ], [ %501, %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit ]
+  %.not81 = icmp slt i32 %.3.lcssa, %251
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %37) #15
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %34) #15
   br label %551
@@ -1538,7 +1538,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %.noexc, %516
   br label %554
 
 551:                                              ; preds = %._crit_edge324, %_ZN2cv3PtrINS_10xobjdetect18CvFeatureEvaluatorEED2Ev.exit
-  %.3 = phi i32 [ %.049, %_ZN2cv3PtrINS_10xobjdetect18CvFeatureEvaluatorEED2Ev.exit ], [ %.150.lcssa, %._crit_edge324 ]
+  %.4 = phi i32 [ %.049, %_ZN2cv3PtrINS_10xobjdetect18CvFeatureEvaluatorEED2Ev.exit ], [ %.3.lcssa, %._crit_edge324 ]
   %.1 = phi i1 [ true, %_ZN2cv3PtrINS_10xobjdetect18CvFeatureEvaluatorEED2Ev.exit ], [ %.not81, %._crit_edge324 ]
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %32) #15
   %552 = load ptr, ptr %31, align 8
@@ -1569,12 +1569,12 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit129:  ; preds = %554, %556
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit113
 
 557:                                              ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, %.preheader
-  %.4 = phi i32 [ %.3, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ], [ %.049, %.preheader ]
+  %.150 = phi i32 [ %.4, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ], [ %.049, %.preheader ]
   %558 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8)
           to label %559 unwind label %.loopexit.split-lp209.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 559:                                              ; preds = %557
-  %560 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %558, i32 noundef %.4)
+  %560 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %558, i32 noundef %.150)
           to label %561 unwind label %.loopexit.split-lp209.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 561:                                              ; preds = %559

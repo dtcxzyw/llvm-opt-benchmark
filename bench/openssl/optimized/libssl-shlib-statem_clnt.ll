@@ -4397,13 +4397,13 @@ if.then81.i:                                      ; preds = %if.end77.i
   br label %tls_process_ske_dhe.exit
 
 tls_process_ske_dhe.exit:                         ; preds = %if.then24.i, %if.then42.i, %if.then47.i, %if.then56.i, %if.then71.i, %if.then76.i, %if.end77.i, %if.then81.i
-  %pkey.1 = phi ptr [ null, %if.then24.i ], [ null, %if.then42.i ], [ null, %if.then47.i ], [ null, %if.then56.i ], [ null, %if.then71.i ], [ null, %if.then76.i ], [ null, %if.end77.i ], [ %call82.i, %if.then81.i ]
+  %pkey.2 = phi ptr [ null, %if.then24.i ], [ null, %if.then42.i ], [ null, %if.then47.i ], [ null, %if.then56.i ], [ null, %if.then71.i ], [ null, %if.then76.i ], [ null, %if.end77.i ], [ %call82.i, %if.then81.i ]
   %pctx.0.i = phi ptr [ null, %if.then24.i ], [ null, %if.then42.i ], [ null, %if.then47.i ], [ %call44.i, %if.then56.i ], [ %call60.i, %if.then71.i ], [ %call60.i, %if.then76.i ], [ %call60.i, %if.end77.i ], [ %call60.i, %if.then81.i ]
-  %params.1.i = phi ptr [ null, %if.then24.i ], [ null, %if.then42.i ], [ %call39.i, %if.then47.i ], [ %call39.i, %if.then56.i ], [ %call39.i, %if.then71.i ], [ %call39.i, %if.then76.i ], [ %call39.i, %if.end77.i ], [ %call39.i, %if.then81.i ]
+  %params.0.i = phi ptr [ null, %if.then24.i ], [ null, %if.then42.i ], [ %call39.i, %if.then47.i ], [ %call39.i, %if.then56.i ], [ %call39.i, %if.then71.i ], [ %call39.i, %if.then76.i ], [ %call39.i, %if.end77.i ], [ %call39.i, %if.then81.i ]
   %tmpl.0.i = phi ptr [ null, %if.then24.i ], [ %call26.i, %if.then42.i ], [ %call26.i, %if.then47.i ], [ %call26.i, %if.then56.i ], [ %call26.i, %if.then71.i ], [ %call26.i, %if.then76.i ], [ %call26.i, %if.end77.i ], [ %call26.i, %if.then81.i ]
   %tobool22.not = phi i1 [ true, %if.then24.i ], [ true, %if.then42.i ], [ true, %if.then47.i ], [ true, %if.then56.i ], [ true, %if.then71.i ], [ true, %if.then76.i ], [ false, %if.end77.i ], [ false, %if.then81.i ]
   call void @OSSL_PARAM_BLD_free(ptr noundef %tmpl.0.i) #8
-  call void @OSSL_PARAM_free(ptr noundef %params.1.i) #8
+  call void @OSSL_PARAM_free(ptr noundef %params.0.i) #8
   %35 = load ptr, ptr %peer_tmp.i, align 8
   call void @EVP_PKEY_free(ptr noundef %35) #8
   call void @EVP_PKEY_CTX_free(ptr noundef %pctx.0.i) #8
@@ -4527,7 +4527,7 @@ if.end40.sink.split.i:                            ; preds = %if.end26.i
   br label %tls_process_ske_ecdhe.exit
 
 tls_process_ske_ecdhe.exit:                       ; preds = %if.end26.i, %if.end40.sink.split.i
-  %pkey.3 = phi ptr [ null, %if.end26.i ], [ %call38.i, %if.end40.sink.split.i ]
+  %pkey.4 = phi ptr [ null, %if.end26.i ], [ %call38.i, %if.end40.sink.split.i ]
   %session.i122 = getelementptr inbounds i8, ptr %s, i64 2176
   %45 = load ptr, ptr %session.i122, align 8
   %kex_group.i = getelementptr inbounds i8, ptr %45, i64 784
@@ -4545,8 +4545,8 @@ if.then35:                                        ; preds = %if.else33
   br label %err
 
 if.end40:                                         ; preds = %tls_process_ske_ecdhe.exit, %if.then45.i, %tls_process_ske_dhe.exit
-  %pkey.5 = phi ptr [ %pkey.3, %tls_process_ske_ecdhe.exit ], [ %pkey.1, %tls_process_ske_dhe.exit ], [ %call46.i, %if.then45.i ]
-  %cmp.not = icmp eq ptr %pkey.5, null
+  %pkey.0 = phi ptr [ %pkey.4, %tls_process_ske_ecdhe.exit ], [ %pkey.2, %tls_process_ske_dhe.exit ], [ %call46.i, %if.then45.i ]
+  %cmp.not = icmp eq ptr %pkey.0, null
   br i1 %cmp.not, label %if.else138, label %if.then42
 
 if.then42:                                        ; preds = %if.end40
@@ -4598,12 +4598,12 @@ if.end56:                                         ; preds = %if.then52
   store ptr %add.ptr.i2.i, ptr %pkt, align 8
   %sub.i.i132 = add i64 %pkt.val, -2
   store i64 %sub.i.i132, ptr %save_param_start.sroa.4.0.pkt.sroa_idx, align 8
-  %call58 = call i32 @tls12_check_peer_sigalg(ptr noundef nonnull %s, i16 noundef zeroext %or.i.i, ptr noundef nonnull %pkey.5) #8
+  %call58 = call i32 @tls12_check_peer_sigalg(ptr noundef nonnull %s, i16 noundef zeroext %or.i.i, ptr noundef nonnull %pkey.0) #8
   %cmp59 = icmp slt i32 %call58, 1
   br i1 %cmp59, label %err, label %if.end68
 
 if.else63:                                        ; preds = %if.end48
-  %call64 = call i32 @tls1_set_peer_legacy_sigalg(ptr noundef nonnull %s, ptr noundef nonnull %pkey.5) #8
+  %call64 = call i32 @tls1_set_peer_legacy_sigalg(ptr noundef nonnull %s, ptr noundef nonnull %pkey.0) #8
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %if.then66, label %if.end68
 
@@ -4684,7 +4684,7 @@ cond.end:                                         ; preds = %if.end94, %cond.fal
   %56 = load ptr, ptr %0, align 8
   %propq = getelementptr inbounds i8, ptr %0, i64 1096
   %57 = load ptr, ptr %propq, align 8
-  %call98 = call i32 @EVP_DigestVerifyInit_ex(ptr noundef nonnull %call90, ptr noundef nonnull %pctx, ptr noundef %cond, ptr noundef %56, ptr noundef %57, ptr noundef nonnull %pkey.5, ptr noundef null) #8
+  %call98 = call i32 @EVP_DigestVerifyInit_ex(ptr noundef nonnull %call90, ptr noundef nonnull %pctx, ptr noundef %cond, ptr noundef %56, ptr noundef %57, ptr noundef nonnull %pkey.0, ptr noundef null) #8
   %cmp99 = icmp slt i32 %call98, 1
   br i1 %cmp99, label %if.then101, label %if.end102
 
@@ -5264,9 +5264,9 @@ PACKET_get_length_prefixed_1.exit:                ; preds = %lor.lhs.false.i
 lor.lhs.false16:                                  ; preds = %land.lhs.true, %lor.lhs.false, %PACKET_get_length_prefixed_1.exit
   %16 = phi ptr [ %add.ptr.i.i5.i, %PACKET_get_length_prefixed_1.exit ], [ %add.ptr.i2.i, %lor.lhs.false ], [ %add.ptr.i2.i, %land.lhs.true ]
   %pkt.val.i.i108 = phi i64 [ %sub.i.i6.i, %PACKET_get_length_prefixed_1.exit ], [ %sub.i.i, %lor.lhs.false ], [ %sub.i.i, %land.lhs.true ]
-  %age_add.1 = phi i32 [ %or12.i.i101, %PACKET_get_length_prefixed_1.exit ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ]
-  %nonce.sroa.0.1 = phi ptr [ %add.ptr.i.i.i, %PACKET_get_length_prefixed_1.exit ], [ null, %lor.lhs.false ], [ null, %land.lhs.true ]
-  %nonce.sroa.3.1 = phi i64 [ %conv.i, %PACKET_get_length_prefixed_1.exit ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ]
+  %age_add.0 = phi i32 [ %or12.i.i101, %PACKET_get_length_prefixed_1.exit ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ]
+  %nonce.sroa.0.0 = phi ptr [ %add.ptr.i.i.i, %PACKET_get_length_prefixed_1.exit ], [ null, %lor.lhs.false ], [ null, %land.lhs.true ]
+  %nonce.sroa.3.0 = phi i64 [ %conv.i, %PACKET_get_length_prefixed_1.exit ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ]
   %cmp.i.i109 = icmp ult i64 %pkt.val.i.i108, 2
   br i1 %cmp.i.i109, label %if.then, label %lor.lhs.false19
 
@@ -5457,7 +5457,7 @@ if.end136:                                        ; preds = %if.end128
   store i64 %or12.i.i, ptr %tick_lifetime_hint, align 8
   %48 = load ptr, ptr %session107, align 8
   %tick_age_add = getelementptr inbounds i8, ptr %48, i64 856
-  store i32 %age_add.1, ptr %tick_age_add, align 8
+  store i32 %age_add.0, ptr %tick_age_add, align 8
   %49 = load ptr, ptr %session107, align 8
   %ticklen145 = getelementptr inbounds i8, ptr %49, i64 840
   store i64 %conv117, ptr %ticklen145, align 8
@@ -5589,7 +5589,7 @@ if.end228:                                        ; preds = %if.then217
   %resumption_master_secret = getelementptr inbounds i8, ptr %s, i64 1468
   %68 = load ptr, ptr %session107, align 8
   %master_key = getelementptr inbounds i8, ptr %68, i64 80
-  %call235 = call i32 @tls13_hkdf_expand(ptr noundef nonnull %s, ptr noundef %call218, ptr noundef nonnull %resumption_master_secret, ptr noundef nonnull @tls_process_new_session_ticket.nonce_label, i64 noundef 10, ptr noundef %nonce.sroa.0.1, i64 noundef %nonce.sroa.3.1, ptr noundef nonnull %master_key, i64 noundef %conv229, i32 noundef 1) #8
+  %call235 = call i32 @tls13_hkdf_expand(ptr noundef nonnull %s, ptr noundef %call218, ptr noundef nonnull %resumption_master_secret, ptr noundef nonnull @tls_process_new_session_ticket.nonce_label, i64 noundef 10, ptr noundef %nonce.sroa.0.0, i64 noundef %nonce.sroa.3.0, ptr noundef nonnull %master_key, i64 noundef %conv229, i32 noundef 1) #8
   %tobool236.not = icmp eq i32 %call235, 0
   br i1 %tobool236.not, label %err, label %if.end238
 
@@ -6347,7 +6347,7 @@ for.body.lr.ph:                                   ; preds = %if.end7
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.058 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %totlen.057 = phi i64 [ 0, %for.body.lr.ph ], [ %totlen.1, %for.inc ]
-  %maxverok.056 = phi i64 [ 0, %for.body.lr.ph ], [ %maxverok.2, %for.inc ]
+  %maxverok.056 = phi i64 [ 0, %for.body.lr.ph ], [ %maxverok.1, %for.inc ]
   %call24 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %sk, i32 noundef %i.058) #8
   %call25 = call i32 @ssl_cipher_disabled(ptr noundef %s, ptr noundef %call24, i32 noundef 65537, i32 noundef 0) #8
   %tobool26.not = icmp eq i32 %call25, 0
@@ -6414,14 +6414,14 @@ land.lhs.true78:                                  ; preds = %if.else
   br label %if.end86
 
 if.end86:                                         ; preds = %land.lhs.true, %land.lhs.true78, %if.then42, %if.else, %if.end33
-  %maxverok.1.shrunk = phi i1 [ true, %if.end33 ], [ false, %if.then42 ], [ false, %if.else ], [ %cmp82.not, %land.lhs.true78 ], [ %cmp71.not, %land.lhs.true ]
-  %maxverok.1 = zext i1 %maxverok.1.shrunk to i64
+  %maxverok.2.shrunk = phi i1 [ true, %if.end33 ], [ false, %if.then42 ], [ false, %if.else ], [ %cmp82.not, %land.lhs.true78 ], [ %cmp71.not, %land.lhs.true ]
+  %maxverok.2 = zext i1 %maxverok.2.shrunk to i64
   %18 = load i64, ptr %len, align 8
   %add = add i64 %18, %totlen.057
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end86
-  %maxverok.2 = phi i64 [ %maxverok.056, %for.body ], [ %maxverok.1, %if.end86 ]
+  %maxverok.1 = phi i64 [ %maxverok.056, %for.body ], [ %maxverok.2, %if.end86 ]
   %totlen.1 = phi i64 [ %totlen.057, %for.body ], [ %add, %if.end86 ]
   %inc = add nuw nsw i32 %i.058, 1
   %call17 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %sk) #8
@@ -6432,7 +6432,7 @@ for.inc:                                          ; preds = %for.body, %if.end86
 
 for.end:                                          ; preds = %for.inc
   %20 = icmp ne i64 %totlen.1, 0
-  %21 = icmp ne i64 %maxverok.2, 0
+  %21 = icmp ne i64 %maxverok.1, 0
   %22 = select i1 %20, i1 %21, i1 false
   %23 = select i1 %21, ptr null, ptr @.str.8
   br i1 %22, label %if.then94, label %if.then89

@@ -245,8 +245,8 @@ delete.notnull.i15:                               ; preds = %_ZN6icu_7512LocalPo
   br label %return
 
 return:                                           ; preds = %new.cont, %if.then.i, %delete.notnull.i15, %cleanup.thread, %entry, %if.then7, %if.then1
-  %retval.1 = phi ptr [ null, %if.then1 ], [ null, %if.then7 ], [ null, %entry ], [ %call10, %cleanup.thread ], [ null, %delete.notnull.i15 ], [ null, %if.then.i ], [ null, %new.cont ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %if.then1 ], [ null, %if.then7 ], [ null, %entry ], [ %call10, %cleanup.thread ], [ null, %delete.notnull.i15 ], [ null, %if.then.i ], [ null, %new.cont ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad, %_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit
   %.pn = phi { ptr, i32 } [ %4, %_ZN6icu_7512LocalPointerINS_15NumberingSystemEED2Ev.exit ], [ %3, %lpad ]
@@ -455,7 +455,7 @@ if.then73:                                        ; preds = %if.else69
 
 cleanup:                                          ; preds = %if.else69, %if.then47, %if.end56, %if.then37
   %cleanup.dest.slot.0 = phi i1 [ false, %if.then37 ], [ %cmp46, %if.end56 ], [ %cmp46, %if.then47 ], [ %cmp46, %if.else69 ]
-  %usingFallback.2 = phi i1 [ true, %if.then37 ], [ true, %if.end56 ], [ true, %if.then47 ], [ false, %if.else69 ]
+  %usingFallback.1 = phi i1 [ true, %if.then37 ], [ true, %if.end56 ], [ true, %if.then47 ], [ false, %if.else69 ]
   %cmp.not.i = icmp eq ptr %call34, null
   br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i
 
@@ -494,7 +494,7 @@ ehcleanup:                                        ; preds = %lpad40, %lpad
   br label %eh.resume
 
 if.end81:                                         ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit36
-  br i1 %usingFallback.2, label %if.else91, label %if.then83
+  br i1 %usingFallback.1, label %if.else91, label %if.then83
 
 if.then83:                                        ; preds = %if.end81
   store i32 -128, ptr %status, align 4
@@ -521,8 +521,8 @@ if.else91:                                        ; preds = %lor.lhs.false15, %i
   br label %return
 
 return:                                           ; preds = %new.notnull, %if.then89, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit36, %entry, %if.else91
-  %retval.1 = phi ptr [ %call93, %if.else91 ], [ null, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit36 ], [ null, %entry ], [ null, %if.then89 ], [ %call84, %new.notnull ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %call93, %if.else91 ], [ null, %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit36 ], [ null, %entry ], [ null, %if.then89 ], [ %call84, %new.notnull ]
+  ret ptr %retval.0
 
 eh.resume:                                        ; preds = %lpad85, %ehcleanup
   %.pn26 = phi { ptr, i32 } [ %13, %lpad85 ], [ %.pn, %ehcleanup ]
@@ -722,7 +722,7 @@ delete.notnull.i:                                 ; preds = %cleanup
   br label %cleanup55
 
 cleanup55:                                        ; preds = %cleanup.thread42, %delete.notnull.i, %cleanup, %cleanup.thread, %if.then, %if.then39
-  %retval.1 = phi ptr [ null, %if.then39 ], [ null, %if.then ], [ %call42, %cleanup.thread ], [ null, %cleanup ], [ null, %delete.notnull.i ], [ null, %cleanup.thread42 ]
+  %retval.0 = phi ptr [ null, %if.then39 ], [ null, %if.then ], [ %call42, %cleanup.thread ], [ null, %cleanup ], [ null, %delete.notnull.i ], [ null, %cleanup.thread42 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %nsd) #16
   %cmp.not.i = icmp eq ptr %call9, null
   br i1 %cmp.not.i, label %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit, label %if.then.i26
@@ -769,7 +769,7 @@ terminate.lpad.i33:                               ; preds = %if.then.i32
   unreachable
 
 _ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit34: ; preds = %_ZN6icu_7527LocalUResourceBundlePointerD2Ev.exit30, %if.then.i32
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup57:                                      ; preds = %lpad.i, %lpad8.i, %lpad15
   %.pn = phi { ptr, i32 } [ %9, %lpad15 ], [ %4, %lpad8.i ], [ %3, %lpad.i ]

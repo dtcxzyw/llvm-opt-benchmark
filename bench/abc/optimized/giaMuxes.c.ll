@@ -194,8 +194,8 @@ define void @Gia_ManPrintMuxStats(ptr nocapture noundef readonly %0) local_unnam
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %30 = phi ptr [ %29, %.lr.ph.i ], [ %.val.i2049, %.lr.ph.i.preheader ]
   %indvars.iv.i53 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.03852 = phi i32 [ %.2, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %.03951 = phi i32 [ %.241, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.152 = phi i32 [ %.2, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.14051 = phi i32 [ %.241, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.val15.i = load i64, ptr %30, align 4
   %31 = and i64 %.val15.i, 2147483648
   %.not.i.i = icmp ne i64 %31, 0
@@ -212,15 +212,15 @@ define void @Gia_ManPrintMuxStats(ptr nocapture noundef readonly %0) local_unnam
 .sink.split.i:                                    ; preds = %34
   %36 = call i32 @Gia_ObjRecognizeExor(ptr noundef nonnull %30, ptr noundef nonnull %2, ptr noundef nonnull %3) #26
   %.not14.i = icmp eq i32 %36, 0
-  %.sroa.speculated = select i1 %.not14.i, i32 %.03951, i32 %.03852
+  %.sroa.speculated = select i1 %.not14.i, i32 %.14051, i32 %.152
   %37 = add nsw i32 %.sroa.speculated, 1
-  %spec.select = select i1 %.not14.i, i32 %37, i32 %.03951
-  %spec.select44 = select i1 %.not14.i, i32 %.03852, i32 %37
+  %spec.select = select i1 %.not14.i, i32 %37, i32 %.14051
+  %spec.select44 = select i1 %.not14.i, i32 %.152, i32 %37
   br label %.sink.split.i.cont
 
 .sink.split.i.cont:                               ; preds = %.sink.split.i, %34, %.lr.ph
-  %.241 = phi i32 [ %.03951, %.lr.ph ], [ %.03951, %34 ], [ %spec.select, %.sink.split.i ]
-  %.2 = phi i32 [ %.03852, %.lr.ph ], [ %.03852, %34 ], [ %spec.select44, %.sink.split.i ]
+  %.241 = phi i32 [ %.14051, %.lr.ph ], [ %.14051, %34 ], [ %spec.select, %.sink.split.i ]
+  %.2 = phi i32 [ %.152, %.lr.ph ], [ %.152, %34 ], [ %spec.select44, %.sink.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i53, 1
   %38 = load i32, ptr %26, align 8
   %39 = sext i32 %38 to i64
@@ -253,20 +253,20 @@ Gia_ManCountMuxXor.exit:                          ; preds = %.sink.split.i.cont,
   br label %54
 
 54:                                               ; preds = %Gia_ManCountMuxXor.exit, %6
-  %.443 = phi i32 [ %.342, %Gia_ManCountMuxXor.exit ], [ %.val18, %6 ]
-  %.4 = phi i32 [ %.3, %Gia_ManCountMuxXor.exit ], [ %.val, %6 ]
+  %.039 = phi i32 [ %.342, %Gia_ManCountMuxXor.exit ], [ %.val18, %6 ]
+  %.038 = phi i32 [ %.3, %Gia_ManCountMuxXor.exit ], [ %.val, %6 ]
   %.015 = phi i32 [ %53, %Gia_ManCountMuxXor.exit ], [ %22, %6 ]
   %.0 = phi i32 [ %52, %Gia_ManCountMuxXor.exit ], [ %23, %6 ]
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str)
-  %55 = sitofp i32 %.4 to double
+  %55 = sitofp i32 %.038 to double
   %56 = fmul double %55, 3.000000e+02
   %57 = sitofp i32 %.0 to double
   %58 = fdiv double %56, %57
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1, i32 noundef %.4, double noundef %58)
-  %59 = sitofp i32 %.443 to double
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1, i32 noundef %.038, double noundef %58)
+  %59 = sitofp i32 %.039 to double
   %60 = fmul double %59, 3.000000e+02
   %61 = fdiv double %60, %57
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, i32 noundef %.443, double noundef %61)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, i32 noundef %.039, double noundef %61)
   %62 = sitofp i32 %.015 to double
   %63 = fmul double %62, 1.000000e+02
   %64 = fdiv double %63, %57
@@ -4470,7 +4470,7 @@ Vec_IntCountPositive.exit:                        ; preds = %.lr.ph.i
 
 37:                                               ; preds = %34, %47
   %indvars.iv73 = phi i64 [ 0, %34 ], [ %indvars.iv.next74, %47 ]
-  %.03368 = phi i32 [ 0, %34 ], [ %.235, %47 ]
+  %.03368 = phi i32 [ 0, %34 ], [ %.134, %47 ]
   %38 = getelementptr inbounds i32, ptr %calloc, i64 %indvars.iv73
   %39 = load i32, ptr %38, align 4
   %.not39 = icmp eq i32 %39, 0
@@ -4486,13 +4486,13 @@ Vec_IntCountPositive.exit:                        ; preds = %.lr.ph.i
   br label %44
 
 44:                                               ; preds = %43, %40
-  %.134 = phi i32 [ 0, %43 ], [ %41, %40 ]
+  %.235 = phi i32 [ 0, %43 ], [ %41, %40 ]
   %45 = trunc nuw nsw i64 %indvars.iv73 to i32
   %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %45, i32 noundef %39)
   br label %47
 
 47:                                               ; preds = %37, %44
-  %.235 = phi i32 [ %.134, %44 ], [ %.03368, %37 ]
+  %.134 = phi i32 [ %.235, %44 ], [ %.03368, %37 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next74, 1000
   br i1 %exitcond76.not, label %.lr.ph.preheader.i, label %37, !llvm.loop !23
@@ -8905,8 +8905,8 @@ Vec_IntFreeP.exit:                                ; preds = %73, %.thread
   br label %74
 
 74:                                               ; preds = %.critedge4, %Vec_IntFreeP.exit
-  %.158 = phi ptr [ null, %Vec_IntFreeP.exit ], [ %4, %.critedge4 ]
-  ret ptr %.158
+  %.057 = phi ptr [ null, %Vec_IntFreeP.exit ], [ %4, %.critedge4 ]
+  ret ptr %.057
 }
 
 declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #1

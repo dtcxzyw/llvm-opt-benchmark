@@ -1590,7 +1590,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit115:              ; preds = %592
   br label %.body98
 
 639:                                              ; preds = %507, %636
-  %.2 = phi i32 [ %.1, %636 ], [ -1, %507 ]
+  %.028 = phi i32 [ %.1, %636 ], [ -1, %507 ]
   %.not.i.i.i120 = icmp eq ptr %317, null
   br i1 %.not.i.i.i120, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %640
 
@@ -1621,7 +1621,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit123:                 ; preds = %_ZNSt6vectorIiSaIiE
   call void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %36) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %35) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %34) #15
-  ret i32 %.2
+  ret i32 %.028
 
 .body98:                                          ; preds = %510, %506, %.body.i.i, %638, %.body102
   %645 = phi ptr [ %317, %638 ], [ %317, %.body102 ], [ %.pre, %510 ], [ %317, %.body.i.i ], [ %317, %506 ]

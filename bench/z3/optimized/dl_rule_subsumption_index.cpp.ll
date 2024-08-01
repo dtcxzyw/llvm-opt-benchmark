@@ -156,10 +156,10 @@ if.then:                                          ; preds = %for.body.i.i.i, %fo
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK7obj_mapI9func_declP13obj_hashtableI3appEE4findEPS0_RS4_.exit, %if.then
-  %head_set.1 = phi ptr [ %9, %_ZNK7obj_mapI9func_declP13obj_hashtableI3appEE4findEPS0_RS4_.exit ], [ %call4, %if.then ]
+  %head_set.0 = phi ptr [ %9, %_ZNK7obj_mapI9func_declP13obj_hashtableI3appEE4findEPS0_RS4_.exit ], [ %call4, %if.then ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tmp.i)
   store ptr %0, ptr %tmp.i, align 8
-  call void @_ZN14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %head_set.1, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i)
+  call void @_ZN14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE6insertEOPS1_(ptr noundef nonnull align 8 dereferenceable(20) %head_set.0, ptr noundef nonnull align 8 dereferenceable(8) %tmp.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tmp.i)
   ret void
 }

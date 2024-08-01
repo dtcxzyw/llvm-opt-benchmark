@@ -9258,13 +9258,13 @@ define internal i32 @arg_set_data_cpus_per_task(ptr nocapture noundef %0, ptr no
   br label %53
 
 53:                                               ; preds = %45, %41, %34
-  %.0 = phi i32 [ -1, %45 ], [ 0, %41 ], [ 0, %34 ]
+  %.1 = phi i32 [ -1, %45 ], [ 0, %41 ], [ 0, %34 ]
   store i8 1, ptr %38, align 4
   br label %54
 
 54:                                               ; preds = %18, %53, %27, %7
-  %.1 = phi i32 [ %6, %7 ], [ -1, %18 ], [ -1, %27 ], [ %.0, %53 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %6, %7 ], [ -1, %18 ], [ -1, %27 ], [ %.1, %53 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

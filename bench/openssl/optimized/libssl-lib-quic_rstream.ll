@@ -404,16 +404,16 @@ if.end50:                                         ; preds = %if.end16, %lor.lhs.
   %12 = phi ptr [ %add.ptr.i37, %lor.lhs.false ], [ %add.ptr.i, %if.end16 ], [ %2, %if.end4 ]
   %size.addr.1 = phi i64 [ %sub20, %lor.lhs.false ], [ %size.addr.059, %if.end16 ], [ %size.addr.059, %if.end4 ]
   %buf.addr.1 = phi ptr [ %add.ptr, %lor.lhs.false ], [ %buf.addr.060, %if.end16 ], [ %buf.addr.060, %if.end4 ]
-  %readbytes_.1 = phi i64 [ %add21, %lor.lhs.false ], [ %readbytes_.061, %if.end16 ], [ %readbytes_.061, %if.end4 ]
+  %readbytes_.2 = phi i64 [ %add21, %lor.lhs.false ], [ %readbytes_.061, %if.end16 ], [ %readbytes_.061, %if.end4 ]
   %l.1 = phi i64 [ %sub22, %lor.lhs.false ], [ %l.0, %if.end16 ], [ %l.0, %if.end4 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.addr.1, ptr align 1 %12, i64 %l.1, i1 false)
   %sub51 = sub i64 %size.addr.1, %l.1
-  %add53 = add i64 %l.1, %readbytes_.1
+  %add53 = add i64 %l.1, %readbytes_.2
   %cmp54 = icmp eq i64 %sub51, 0
   br i1 %cmp54, label %while.end, label %while.cond, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond, %if.end, %if.end50
-  %readbytes_.2 = phi i64 [ %add53, %while.cond ], [ %readbytes_.061, %if.end ], [ %add53, %if.end50 ]
+  %readbytes_.1 = phi i64 [ %add53, %while.cond ], [ %readbytes_.061, %if.end ], [ %add53, %if.end50 ]
   %add.le = add i64 %l.0, %1
   %tobool58 = icmp ne i32 %drop, 0
   %cmp59 = icmp ne i64 %add.le, 0
@@ -491,9 +491,9 @@ if.end67:                                         ; preds = %if.then36.i, %if.en
   br i1 %tobool68.not, label %return, label %if.then69
 
 if.then69:                                        ; preds = %entry, %while.end, %if.end67
-  %readbytes_.275 = phi i64 [ %readbytes_.2, %if.end67 ], [ %readbytes_.2, %while.end ], [ 0, %entry ]
+  %readbytes_.175 = phi i64 [ %readbytes_.1, %if.end67 ], [ %readbytes_.1, %while.end ], [ 0, %entry ]
   %ret.056 = phi i32 [ %call63, %if.end67 ], [ 1, %while.end ], [ 1, %entry ]
-  store i64 %readbytes_.275, ptr %readbytes, align 8
+  store i64 %readbytes_.175, ptr %readbytes, align 8
   %21 = load i32, ptr %fin_, align 4
   store i32 %21, ptr %fin, align 4
   br label %return

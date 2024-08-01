@@ -923,8 +923,8 @@ if.then10:                                        ; preds = %if.end7
   br label %return
 
 return:                                           ; preds = %if.then4, %if.then10, %if.end7, %if.then
-  %retval.sroa.0.1 = phi i8 [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %if.then10 ], [ 1, %if.end7 ]
-  ret i8 %retval.sroa.0.1
+  %retval.sroa.0.0 = phi i8 [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %if.then10 ], [ 1, %if.end7 ]
+  ret i8 %retval.sroa.0.0
 }
 
 declare i32 @uv_fs_open(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0

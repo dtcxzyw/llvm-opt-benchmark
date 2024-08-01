@@ -1486,7 +1486,7 @@ _ZN16JvmtiThreadState9state_forEP10JavaThread6Handle.exit: ; preds = %_ZNK6Handl
 
 59:                                               ; preds = %.lr.ph133, %55
   %indvars.iv138 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next139, %55 ]
-  %.0132 = phi i32 [ undef, %.lr.ph133 ], [ %.1, %55 ]
+  %.1132 = phi i32 [ undef, %.lr.ph133 ], [ %.2, %55 ]
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %21) #19
   %60 = load ptr, ptr %42, align 8
   %61 = getelementptr inbounds %struct.jvmtiClassDefinition, ptr %60, i64 %indvars.iv138
@@ -1909,13 +1909,13 @@ _ZNK7oopDesc5klassEv.exit105:                     ; preds = %260, %270
 
 286:                                              ; preds = %282, %280, %277, %250, %223, %193, %190, %187, %150, %147, %144, %141, %138
   %cond = phi i1 [ false, %138 ], [ false, %141 ], [ false, %144 ], [ false, %147 ], [ false, %150 ], [ false, %187 ], [ false, %190 ], [ false, %193 ], [ false, %223 ], [ false, %250 ], [ false, %277 ], [ true, %280 ], [ true, %282 ]
-  %.1 = phi i32 [ 68, %138 ], [ 60, %141 ], [ 61, %144 ], [ 69, %147 ], [ %., %150 ], [ 110, %187 ], [ %.93, %190 ], [ %194, %193 ], [ %.94, %223 ], [ %.95, %250 ], [ %.96, %277 ], [ %.0132, %280 ], [ %.0132, %282 ]
+  %.2 = phi i32 [ 68, %138 ], [ 60, %141 ], [ 61, %144 ], [ 69, %147 ], [ %., %150 ], [ 110, %187 ], [ %.93, %190 ], [ %194, %193 ], [ %.94, %223 ], [ %.95, %250 ], [ %.96, %277 ], [ %.1132, %280 ], [ %.1132, %282 ]
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #19
   br i1 %cond, label %55, label %._crit_edge134
 
 ._crit_edge134:                                   ; preds = %286, %55, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ 0, %55 ], [ %.1, %286 ]
+  %.3 = phi i32 [ 0, %.preheader ], [ 0, %55 ], [ %.2, %286 ]
   %287 = load ptr, ptr %25, align 8
   %.not.i.i.i.i106 = icmp eq ptr %287, null
   br i1 %.not.i.i.i.i106, label %289, label %288
@@ -1937,8 +1937,8 @@ _ZNK7oopDesc5klassEv.exit105:                     ; preds = %260, %270
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %291, %289, %1
-  %.3 = phi i32 [ 110, %1 ], [ %.2, %289 ], [ %.2, %291 ]
-  ret i32 %.3
+  %.0 = phi i32 [ 110, %1 ], [ %.3, %289 ], [ %.3, %291 ]
+  ret i32 %.0
 }
 
 declare noundef ptr @_ZN13InstanceKlass21get_cached_class_fileEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #2
@@ -4732,10 +4732,10 @@ _ZN15FieldStreamBase4nextEv.exit213:              ; preds = %_ZN15FieldStreamBas
 
 .thread270:                                       ; preds = %.thread270.loopexit, %.thread284
   %402 = phi ptr [ %399, %.thread284 ], [ %401, %.thread270.loopexit ]
-  %.2274 = phi ptr [ %380, %.thread284 ], [ %344, %.thread270.loopexit ]
+  %.1250274 = phi ptr [ %380, %.thread284 ], [ %344, %.thread270.loopexit ]
   %403 = getelementptr inbounds i8, ptr %342, i64 40
   %.sroa.0.0.copyload.i214 = load i32, ptr %403, align 8
-  %404 = getelementptr inbounds i8, ptr %.2274, i64 40
+  %404 = getelementptr inbounds i8, ptr %.1250274, i64 40
   %.sroa.0.0.copyload.i215 = load i32, ptr %404, align 8
   %405 = xor i32 %.sroa.0.0.copyload.i215, %.sroa.0.0.copyload.i214
   %406 = and i32 %405, 32511
@@ -4756,7 +4756,7 @@ _ZN15FieldStreamBase4nextEv.exit213:              ; preds = %_ZN15FieldStreamBas
   br label %.loopexit
 
 414:                                              ; preds = %.thread270
-  %415 = getelementptr inbounds i8, ptr %.2274, i64 8
+  %415 = getelementptr inbounds i8, ptr %.1250274, i64 8
   %416 = load ptr, ptr %415, align 8
   %417 = getelementptr inbounds i8, ptr %416, i64 40
   %418 = load i16, ptr %417, align 8
@@ -4802,7 +4802,7 @@ _ZN15FieldStreamBase4nextEv.exit213:              ; preds = %_ZN15FieldStreamBas
 443:                                              ; preds = %434, %414
   %444 = getelementptr inbounds i8, ptr %342, i64 54
   %445 = load i8, ptr %444, align 1
-  %446 = getelementptr inbounds i8, ptr %.2274, i64 54
+  %446 = getelementptr inbounds i8, ptr %.1250274, i64 54
   %447 = load i8, ptr %446, align 1
   %448 = or i8 %447, %445
   %449 = zext i8 %448 to i16
@@ -4812,7 +4812,7 @@ _ZN15FieldStreamBase4nextEv.exit213:              ; preds = %_ZN15FieldStreamBas
   br i1 %.not311, label %454, label %451
 
 451:                                              ; preds = %443
-  %452 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %.2274) #19
+  %452 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %.1250274) #19
   %453 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %342) #19
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_96ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.42, ptr noundef %452, i32 noundef %.0170.ph, ptr noundef %453, i32 noundef %.0168)
   br label %454
@@ -4822,13 +4822,13 @@ _ZN15FieldStreamBase4nextEv.exit213:              ; preds = %_ZN15FieldStreamBas
   br label %.outer.backedge
 
 .thread264:                                       ; preds = %365, %335
-  %.2268 = phi ptr [ %338, %335 ], [ %344, %365 ]
+  %.1250268 = phi ptr [ %338, %335 ], [ %344, %365 ]
   %456 = load i8, ptr @AllowRedefinitionToAddDeleteMethods, align 1
   %457 = trunc i8 %456 to i1
   br i1 %457, label %458, label %_ZL17can_add_or_deleteP6Method.exit.thread
 
 458:                                              ; preds = %.thread264
-  %459 = getelementptr inbounds i8, ptr %.2268, i64 40
+  %459 = getelementptr inbounds i8, ptr %.1250268, i64 40
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %459, align 8
   %460 = and i32 %.sroa.0.0.copyload.i.i.i, 2
   %.not.i216 = icmp eq i32 %460, 0
@@ -4844,7 +4844,7 @@ _ZL17can_add_or_deleteP6Method.exit.thread:       ; preds = %458, %.thread264
 
 463:                                              ; preds = %_ZL17can_add_or_deleteP6Method.exit.thread
   %464 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %1) #19
-  %465 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %.2268) #19
+  %465 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %.1250268) #19
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_96ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.43, ptr noundef %464, ptr noundef %465, i32 noundef %.0170.ph)
   br label %.loopexit
 
@@ -4867,13 +4867,13 @@ _ZN13InstanceKlass17next_method_idnumEv.exit.thread: ; preds = %_ZL17can_add_or_
 
 472:                                              ; preds = %_ZN13InstanceKlass17next_method_idnumEv.exit.thread
   %473 = call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %1) #19
-  %474 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %.2268) #19
+  %474 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %.1250268) #19
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_96ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.44, ptr noundef %473, ptr noundef %474, i32 noundef %.0170.ph)
   br label %.loopexit
 
 475:                                              ; preds = %_ZN13InstanceKlass17next_method_idnumEv.exit
   %476 = zext i16 %468 to i32
-  %477 = getelementptr inbounds i8, ptr %.2268, i64 8
+  %477 = getelementptr inbounds i8, ptr %.1250268, i64 8
   %478 = load ptr, ptr %477, align 8
   %479 = getelementptr inbounds i8, ptr %478, i64 40
   %480 = load i16, ptr %479, align 8
@@ -4911,7 +4911,7 @@ _ZN13InstanceKlass17next_method_idnumEv.exit.thread: ; preds = %_ZL17can_add_or_
   br i1 %.not304, label %.outer.backedge, label %499
 
 499:                                              ; preds = %497
-  %500 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %.2268) #19
+  %500 = call noundef ptr @_ZNK6Method24name_and_sig_as_C_stringEv(ptr noundef nonnull align 8 dereferenceable(88) %.1250268) #19
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_96ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.45, ptr noundef %500, i32 noundef %.0170.ph)
   br label %.outer.backedge
 
@@ -4961,7 +4961,7 @@ _ZL17can_add_or_deleteP6Method.exit221.thread277: ; preds = %503
   br label %333, !llvm.loop !32
 
 .loopexit:                                        ; preds = %334, %491, %434, %508, %_ZL17can_add_or_deleteP6Method.exit221.thread, %472, %_ZN13InstanceKlass17next_method_idnumEv.exit.thread, %463, %_ZL17can_add_or_deleteP6Method.exit.thread, %409, %407, %314, %.critedge, %295, %293, %285, %283, %274, %272
-  %.0 = phi i32 [ 64, %272 ], [ 64, %274 ], [ 64, %283 ], [ 64, %285 ], [ 64, %293 ], [ 64, %295 ], [ 64, %.critedge ], [ 64, %314 ], [ 71, %407 ], [ 71, %409 ], [ 63, %_ZL17can_add_or_deleteP6Method.exit.thread ], [ 63, %463 ], [ 63, %_ZN13InstanceKlass17next_method_idnumEv.exit.thread ], [ 63, %472 ], [ 67, %_ZL17can_add_or_deleteP6Method.exit221.thread ], [ 67, %508 ], [ 0, %334 ], [ 110, %491 ], [ 110, %434 ]
+  %.1 = phi i32 [ 64, %272 ], [ 64, %274 ], [ 64, %283 ], [ 64, %285 ], [ 64, %293 ], [ 64, %295 ], [ 64, %.critedge ], [ 64, %314 ], [ 71, %407 ], [ 71, %409 ], [ 63, %_ZL17can_add_or_deleteP6Method.exit.thread ], [ 63, %463 ], [ 63, %_ZN13InstanceKlass17next_method_idnumEv.exit.thread ], [ 63, %472 ], [ 67, %_ZL17can_add_or_deleteP6Method.exit221.thread ], [ 67, %508 ], [ 0, %334 ], [ 110, %491 ], [ 110, %434 ]
   %516 = getelementptr inbounds i8, ptr %5, i64 120
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %516) #19
   %517 = getelementptr inbounds i8, ptr %5, i64 32
@@ -4973,8 +4973,8 @@ _ZL17can_add_or_deleteP6Method.exit221.thread277: ; preds = %503
   br label %_ZL22check_record_attributeP13InstanceKlassS0_.exit.thread
 
 _ZL22check_record_attributeP13InstanceKlassS0_.exit.thread: ; preds = %212, %210, %206, %204, %183, %181, %143, %141, %223, %221, %_ZL22check_record_attributeP13InstanceKlassS0_.exit, %_ZL21check_nest_attributesP13InstanceKlassS0_.exit, %74, %72, %61, %59, %46, %44, %32, %18, %.loopexit
-  %.1 = phi i32 [ %.0, %.loopexit ], [ 66, %18 ], [ 66, %32 ], [ 66, %44 ], [ 66, %46 ], [ 66, %59 ], [ 66, %61 ], [ 21, %72 ], [ 21, %74 ], [ %.0.i, %_ZL21check_nest_attributesP13InstanceKlassS0_.exit ], [ %215, %_ZL22check_record_attributeP13InstanceKlassS0_.exit ], [ 70, %221 ], [ 70, %223 ], [ 72, %141 ], [ 72, %143 ], [ 72, %181 ], [ 72, %183 ], [ 72, %204 ], [ 72, %206 ], [ 72, %210 ], [ 72, %212 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %.loopexit ], [ 66, %18 ], [ 66, %32 ], [ 66, %44 ], [ 66, %46 ], [ 66, %59 ], [ 66, %61 ], [ 21, %72 ], [ 21, %74 ], [ %.0.i, %_ZL21check_nest_attributesP13InstanceKlassS0_.exit ], [ %215, %_ZL22check_record_attributeP13InstanceKlassS0_.exit ], [ 70, %221 ], [ 70, %223 ], [ 72, %141 ], [ 72, %143 ], [ 72, %181 ], [ 72, %183 ], [ 72, %204 ], [ 72, %206 ], [ 72, %210 ], [ 72, %212 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5623,8 +5623,8 @@ _ZN13GrowableArrayIiEC2EiiRKi.exit69:             ; preds = %.lr.ph.preheader.i.
   br label %245
 
 245:                                              ; preds = %239, %212, %203, %.loopexit, %185, %183, %_ZN13GrowableArrayIiEC2EiiRKi.exit69
-  %.sroa.5.0 = phi ptr [ null, %185 ], [ null, %183 ], [ null, %203 ], [ null, %.loopexit ], [ null, %_ZN13GrowableArrayIiEC2EiiRKi.exit69 ], [ %spec.select, %212 ], [ %spec.select80, %239 ]
-  %.0 = phi i32 [ 113, %185 ], [ 113, %183 ], [ 0, %203 ], [ 113, %.loopexit ], [ 113, %_ZN13GrowableArrayIiEC2EiiRKi.exit69 ], [ %spec.select79, %212 ], [ %spec.select81, %239 ]
+  %.sroa.5.1 = phi ptr [ null, %185 ], [ null, %183 ], [ null, %203 ], [ null, %.loopexit ], [ null, %_ZN13GrowableArrayIiEC2EiiRKi.exit69 ], [ %spec.select, %212 ], [ %spec.select80, %239 ]
+  %.2 = phi i32 [ 113, %185 ], [ 113, %183 ], [ 0, %203 ], [ 113, %.loopexit ], [ 113, %_ZN13GrowableArrayIiEC2EiiRKi.exit69 ], [ %spec.select79, %212 ], [ %spec.select81, %239 ]
   %246 = load ptr, ptr %124, align 8
   %.not.i.i.i.i = icmp eq ptr %246, null
   br i1 %.not.i.i.i.i, label %248, label %247
@@ -5646,23 +5646,23 @@ _ZN13GrowableArrayIiEC2EiiRKi.exit69:             ; preds = %.lr.ph.preheader.i.
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %250, %248, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i52
-  %.sroa.5.1 = phi ptr [ null, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i52 ], [ %.sroa.5.0, %248 ], [ %.sroa.5.0, %250 ]
-  %.1 = phi i32 [ 113, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i52 ], [ %.0, %248 ], [ %.0, %250 ]
+  %.sroa.5.0 = phi ptr [ null, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i52 ], [ %.sroa.5.1, %248 ], [ %.sroa.5.1, %250 ]
+  %.1 = phi i32 [ 113, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i52 ], [ %.2, %248 ], [ %.2, %250 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #19
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #19
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #19
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #19
   call void @_ZN15ClassLoaderData22add_to_deallocate_listEP8Metadata(ptr noundef nonnull align 8 dereferenceable(160) %22, ptr noundef %23) #19
-  %.not.i70 = icmp eq ptr %.sroa.5.1, null
+  %.not.i70 = icmp eq ptr %.sroa.5.0, null
   br i1 %.not.i70, label %_ZN14MergeCPCleanerD2Ev.exit, label %251
 
 251:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit
-  call void @_ZN15ClassLoaderData22add_to_deallocate_listEP8Metadata(ptr noundef nonnull align 8 dereferenceable(160) %22, ptr noundef nonnull %.sroa.5.1) #19
+  call void @_ZN15ClassLoaderData22add_to_deallocate_listEP8Metadata(ptr noundef nonnull align 8 dereferenceable(160) %22, ptr noundef nonnull %.sroa.5.0) #19
   br label %_ZN14MergeCPCleanerD2Ev.exit
 
 _ZN14MergeCPCleanerD2Ev.exit:                     ; preds = %251, %_ZN12ResourceMarkD2Ev.exit, %4
-  %.2 = phi i32 [ 110, %4 ], [ %.1, %_ZN12ResourceMarkD2Ev.exit ], [ %.1, %251 ]
-  ret i32 %.2
+  %.0 = phi i32 [ 110, %4 ], [ %.1, %_ZN12ResourceMarkD2Ev.exit ], [ %.1, %251 ]
+  ret i32 %.0
 }
 
 declare void @_ZN8Rewriter7rewriteEP13InstanceKlassP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -8069,8 +8069,8 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %56, %66
   br label %77
 
 77:                                               ; preds = %2, %10, %.loopexit
-  %.3 = phi i1 [ %76, %.loopexit ], [ true, %10 ], [ true, %2 ]
-  ret i1 %.3
+  %.019 = phi i1 [ %76, %.loopexit ], [ true, %10 ], [ true, %2 ]
+  ret i1 %.019
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11826,7 +11826,7 @@ define hidden void @_ZN18VM_RedefineClasses10CheckClass8do_klassEP5Klass(ptr noc
   br label %.critedge2
 
 .critedge2:                                       ; preds = %48, %57, %41, %46
-  %.1 = phi i1 [ %.0, %46 ], [ %.0, %41 ], [ false, %57 ], [ false, %48 ]
+  %.2 = phi i1 [ %.0, %46 ], [ %.0, %41 ], [ false, %57 ], [ false, %48 ]
   %58 = getelementptr inbounds i8, ptr %1, i64 224
   %59 = load ptr, ptr %58, align 8
   %.not = icmp eq ptr %59, null
@@ -11873,7 +11873,7 @@ define hidden void @_ZN18VM_RedefineClasses10CheckClass8do_klassEP5Klass(ptr noc
 
 78:                                               ; preds = %63, %60, %.critedge2
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #19
-  br i1 %.1, label %88, label %80
+  br i1 %.2, label %88, label %80
 
 79:                                               ; preds = %.critedge
   br i1 %.0, label %88, label %80
@@ -12795,8 +12795,8 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
   br label %35
 
 35:                                               ; preds = %33, %32
-  %.0 = phi ptr [ %34, %33 ], [ %21, %32 ]
-  %36 = icmp eq ptr %.0, null
+  %.1 = phi ptr [ %34, %33 ], [ %21, %32 ]
+  %36 = icmp eq ptr %.1, null
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
@@ -12805,7 +12805,7 @@ define linkonce_odr hidden noundef ptr @_ZN16JvmtiThreadState22state_for_while_l
   br label %39
 
 39:                                               ; preds = %30, %37, %35, %8, %16
-  %.025 = phi ptr [ null, %16 ], [ null, %8 ], [ %38, %37 ], [ %.0, %35 ], [ %21, %30 ]
+  %.025 = phi ptr [ null, %16 ], [ null, %8 ], [ %38, %37 ], [ %.1, %35 ], [ %21, %30 ]
   ret ptr %.025
 }
 
@@ -16462,8 +16462,8 @@ _ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIiEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEvPKT_m.exit
 
@@ -16746,8 +16746,8 @@ _ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i: ; preds = %65
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEPhPKT_mSE_.exit: ; preds = %38, %43, %50, %57, %59, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i
-  %.1.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.1.i.i.pn.i
+  %.011.i.i.pn.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i ], [ 5, %59 ], [ 4, %57 ], [ 3, %50 ], [ 2, %43 ], [ 1, %38 ]
+  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.011.i.i.pn.i
   store ptr %70, ptr %7, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvPKT_m.exit
 

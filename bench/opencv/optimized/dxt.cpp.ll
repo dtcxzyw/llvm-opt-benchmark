@@ -6112,10 +6112,10 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
   br label %67
 
 67:                                               ; preds = %67, %62
-  %.0210 = phi i32 [ 0, %62 ], [ %70, %67 ]
-  %68 = shl nuw i32 1, %.0210
+  %.1 = phi i32 [ 0, %62 ], [ %70, %67 ]
+  %68 = shl nuw i32 1, %.1
   %69 = icmp ult i32 %68, %14
-  %70 = add nuw nsw i32 %.0210, 1
+  %70 = add nuw nsw i32 %.1, 1
   br i1 %69, label %67, label %71, !llvm.loop !56
 
 71:                                               ; preds = %67
@@ -6135,7 +6135,7 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
   br i1 %77, label %78, label %.lr.ph284.preheader
 
 78:                                               ; preds = %76
-  %79 = sub nsw i32 10, %.0210
+  %79 = sub nsw i32 10, %.1
   %.not239287 = icmp eq i32 %14, 3
   br i1 %.not239287, label %.loopexit268, label %.lr.ph290.preheader
 
@@ -6171,7 +6171,7 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
   br i1 %.not239, label %.loopexit268, label %.lr.ph290, !llvm.loop !57
 
 .lr.ph284.preheader:                              ; preds = %76
-  %97 = sub nsw i32 34, %.0210
+  %97 = sub nsw i32 34, %.1
   %98 = zext nneg i32 %14 to i64
   br label %.lr.ph284
 
@@ -6344,7 +6344,7 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
   br i1 %.not238, label %.loopexit270, label %.lr.ph278, !llvm.loop !62
 
 .loopexit267:                                     ; preds = %.loopexit270, %._crit_edge293, %141, %.loopexit268
-  %.1 = phi i32 [ %.0210, %.loopexit268 ], [ %.0210, %141 ], [ %.0210, %._crit_edge293 ], [ 0, %.loopexit270 ]
+  %.2 = phi i32 [ %.1, %.loopexit268 ], [ %.1, %141 ], [ %.1, %._crit_edge293 ], [ 0, %.loopexit270 ]
   %.not242 = icmp eq ptr %.0, %3
   br i1 %.not242, label %.loopexit, label %.lr.ph305.preheader
 
@@ -6375,13 +6375,13 @@ define internal fastcc void @_ZN2cvL7DFTInitEiiPKiPiiPvi(i32 noundef %0, i32 nou
   br i1 %205, label %.lr.ph305, label %.loopexit, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.lr.ph305, %.thread262, %.loopexit267
-  %.2 = phi i32 [ %.1, %.loopexit267 ], [ 2, %.thread262 ], [ %.1, %.lr.ph305 ]
+  %.0210 = phi i32 [ %.2, %.loopexit267 ], [ 2, %.thread262 ], [ %.2, %.lr.ph305 ]
   %206 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   %207 = icmp ult i32 %206, 2
   br i1 %207, label %208, label %215
 
 208:                                              ; preds = %.loopexit
-  %209 = sext i32 %.2 to i64
+  %209 = sext i32 %.0210 to i64
   %210 = getelementptr inbounds [32 x [2 x double]], ptr @_ZN2cvL6DFTTabE, i64 0, i64 %209
   %211 = load double, ptr %210, align 16
   %212 = getelementptr inbounds i8, ptr %210, i64 8
@@ -7086,9 +7086,9 @@ define internal fastcc void @_ZN2cvL3DFTIfEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
 
 .preheader716:                                    ; preds = %.loopexit718, %.preheader719
   %246 = phi i32 [ %239, %.preheader719 ], [ %245, %.loopexit718 ]
-  %.0708.lcssa = phi i32 [ %32, %.preheader719 ], [ %251, %.loopexit718 ]
-  %.1601.lcssa = phi i32 [ 1, %.preheader719 ], [ %250, %.loopexit718 ]
-  %247 = icmp slt i32 %.1601.lcssa, %246
+  %.1709.lcssa = phi i32 [ %32, %.preheader719 ], [ %251, %.loopexit718 ]
+  %.2602.lcssa = phi i32 [ 1, %.preheader719 ], [ %250, %.loopexit718 ]
+  %247 = icmp slt i32 %.2602.lcssa, %246
   br i1 %247, label %.lr.ph765, label %.loopexit717
 
 .lr.ph765:                                        ; preds = %.preheader716
@@ -7098,17 +7098,17 @@ define internal fastcc void @_ZN2cvL3DFTIfEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
 .lr.ph760:                                        ; preds = %.lr.ph760.preheader, %.loopexit718
   %249 = phi i32 [ %242, %.loopexit718 ], [ %.pre, %.lr.ph760.preheader ]
   %250 = phi i32 [ %243, %.loopexit718 ], [ 4, %.lr.ph760.preheader ]
-  %.1601759 = phi i32 [ %250, %.loopexit718 ], [ 1, %.lr.ph760.preheader ]
-  %.0708758 = phi i32 [ %251, %.loopexit718 ], [ %32, %.lr.ph760.preheader ]
-  %251 = sdiv i32 %.0708758, 4
+  %.2602759 = phi i32 [ %250, %.loopexit718 ], [ 1, %.lr.ph760.preheader ]
+  %.1709758 = phi i32 [ %251, %.loopexit718 ], [ %32, %.lr.ph760.preheader ]
+  %251 = sdiv i32 %.1709758, 4
   %252 = icmp sgt i32 %249, 0
   br i1 %252, label %.lr.ph756, label %.loopexit718
 
 .lr.ph756:                                        ; preds = %.lr.ph760
-  %253 = shl nsw i32 %.1601759, 1
+  %253 = shl nsw i32 %.2602759, 1
   %254 = sext i32 %253 to i64
-  %255 = sext i32 %.1601759 to i64
-  %256 = icmp sgt i32 %.1601759, 1
+  %255 = sext i32 %.2602759 to i64
+  %256 = icmp sgt i32 %.2602759, 1
   br i1 %256, label %.lr.ph752.us.preheader, label %.lr.ph756.split.preheader
 
 .lr.ph756.split.preheader:                        ; preds = %.lr.ph756
@@ -7118,7 +7118,7 @@ define internal fastcc void @_ZN2cvL3DFTIfEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
 .lr.ph752.us.preheader:                           ; preds = %.lr.ph756
   %258 = sext i32 %251 to i64
   %259 = sext i32 %250 to i64
-  %wide.trip.count871 = zext nneg i32 %.1601759 to i64
+  %wide.trip.count871 = zext nneg i32 %.2602759 to i64
   br label %.lr.ph752.us
 
 .lr.ph752.us:                                     ; preds = %.lr.ph752.us.preheader, %._crit_edge753.us
@@ -7262,10 +7262,10 @@ define internal fastcc void @_ZN2cvL3DFTIfEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
   br i1 %365, label %.lr.ph756.split, label %.loopexit718, !llvm.loop !73
 
 366:                                              ; preds = %.lr.ph765, %374
-  %.2602764 = phi i32 [ %.1601.lcssa, %.lr.ph765 ], [ %367, %374 ]
-  %.1709763 = phi i32 [ %.0708.lcssa, %.lr.ph765 ], [ %368, %374 ]
-  %367 = shl nsw i32 %.2602764, 1
-  %368 = sdiv i32 %.1709763, 2
+  %.3603764 = phi i32 [ %.2602.lcssa, %.lr.ph765 ], [ %367, %374 ]
+  %.2710763 = phi i32 [ %.1709.lcssa, %.lr.ph765 ], [ %368, %374 ]
+  %367 = shl nsw i32 %.3603764, 1
+  %368 = sdiv i32 %.2710763, 2
   %369 = load i8, ptr %248, align 1
   %370 = trunc i8 %369 to i1
   %371 = load i32, ptr %26, align 4
@@ -7289,8 +7289,8 @@ define internal fastcc void @_ZN2cvL3DFTIfEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
 
 .loopexit717:                                     ; preds = %374, %.preheader716, %236
   %378 = phi i32 [ %239, %236 ], [ %246, %.preheader716 ], [ %376, %374 ]
-  %.2710 = phi i32 [ %32, %236 ], [ %.0708.lcssa, %.preheader716 ], [ %368, %374 ]
-  %.3603 = phi i32 [ 1, %236 ], [ %.1601.lcssa, %.preheader716 ], [ %367, %374 ]
+  %.0708 = phi i32 [ %32, %236 ], [ %.1709.lcssa, %.preheader716 ], [ %368, %374 ]
+  %.0600 = phi i32 [ 1, %236 ], [ %.2602.lcssa, %.preheader716 ], [ %367, %374 ]
   %379 = and i32 %378, 1
   %380 = xor i32 %379, 1
   %381 = load i32, ptr %0, align 8
@@ -7308,8 +7308,8 @@ define internal fastcc void @_ZN2cvL3DFTIfEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
 
 388:                                              ; preds = %.lr.ph816, %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit
   %indvars.iv921 = phi i64 [ %387, %.lr.ph816 ], [ %indvars.iv.next922, %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit ]
-  %.4814 = phi i32 [ %.3603, %.lr.ph816 ], [ %392, %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit ]
-  %.3711812 = phi i32 [ %.2710, %.lr.ph816 ], [ %393, %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit ]
+  %.4814 = phi i32 [ %.0600, %.lr.ph816 ], [ %392, %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit ]
+  %.3711812 = phi i32 [ %.0708, %.lr.ph816 ], [ %393, %_ZN2cv10AutoBufferINS_7ComplexIfEELm136EED2Ev.exit ]
   %389 = load ptr, ptr %237, align 8
   %390 = getelementptr inbounds i32, ptr %389, i64 %indvars.iv921
   %391 = load i32, ptr %390, align 4
@@ -9252,9 +9252,9 @@ define internal fastcc void @_ZN2cvL3DFTIdEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
 
 .preheader729:                                    ; preds = %.loopexit731, %.preheader732
   %238 = phi i32 [ %231, %.preheader732 ], [ %237, %.loopexit731 ]
-  %.0721.lcssa = phi i32 [ %32, %.preheader732 ], [ %243, %.loopexit731 ]
-  %.1601.lcssa = phi i32 [ 1, %.preheader732 ], [ %242, %.loopexit731 ]
-  %239 = icmp slt i32 %.1601.lcssa, %238
+  %.1722.lcssa = phi i32 [ %32, %.preheader732 ], [ %243, %.loopexit731 ]
+  %.2602.lcssa = phi i32 [ 1, %.preheader732 ], [ %242, %.loopexit731 ]
+  %239 = icmp slt i32 %.2602.lcssa, %238
   br i1 %239, label %.lr.ph778, label %.loopexit730
 
 .lr.ph778:                                        ; preds = %.preheader729
@@ -9264,17 +9264,17 @@ define internal fastcc void @_ZN2cvL3DFTIdEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
 .lr.ph773:                                        ; preds = %.lr.ph773.preheader, %.loopexit731
   %241 = phi i32 [ %234, %.loopexit731 ], [ %.pre, %.lr.ph773.preheader ]
   %242 = phi i32 [ %235, %.loopexit731 ], [ 4, %.lr.ph773.preheader ]
-  %.1601772 = phi i32 [ %242, %.loopexit731 ], [ 1, %.lr.ph773.preheader ]
-  %.0721771 = phi i32 [ %243, %.loopexit731 ], [ %32, %.lr.ph773.preheader ]
-  %243 = sdiv i32 %.0721771, 4
+  %.2602772 = phi i32 [ %242, %.loopexit731 ], [ 1, %.lr.ph773.preheader ]
+  %.1722771 = phi i32 [ %243, %.loopexit731 ], [ %32, %.lr.ph773.preheader ]
+  %243 = sdiv i32 %.1722771, 4
   %244 = icmp sgt i32 %241, 0
   br i1 %244, label %.lr.ph769, label %.loopexit731
 
 .lr.ph769:                                        ; preds = %.lr.ph773
-  %245 = shl nsw i32 %.1601772, 1
+  %245 = shl nsw i32 %.2602772, 1
   %246 = sext i32 %245 to i64
-  %247 = sext i32 %.1601772 to i64
-  %248 = icmp sgt i32 %.1601772, 1
+  %247 = sext i32 %.2602772 to i64
+  %248 = icmp sgt i32 %.2602772, 1
   br i1 %248, label %.lr.ph765.us.preheader, label %.lr.ph769.split.preheader
 
 .lr.ph769.split.preheader:                        ; preds = %.lr.ph769
@@ -9284,7 +9284,7 @@ define internal fastcc void @_ZN2cvL3DFTIdEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
 .lr.ph765.us.preheader:                           ; preds = %.lr.ph769
   %250 = sext i32 %243 to i64
   %251 = sext i32 %242 to i64
-  %wide.trip.count884 = zext nneg i32 %.1601772 to i64
+  %wide.trip.count884 = zext nneg i32 %.2602772 to i64
   br label %.lr.ph765.us
 
 .lr.ph765.us:                                     ; preds = %.lr.ph765.us.preheader, %._crit_edge766.us
@@ -9428,10 +9428,10 @@ define internal fastcc void @_ZN2cvL3DFTIdEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
   br i1 %357, label %.lr.ph769.split, label %.loopexit731, !llvm.loop !103
 
 358:                                              ; preds = %.lr.ph778, %366
-  %.2602777 = phi i32 [ %.1601.lcssa, %.lr.ph778 ], [ %359, %366 ]
-  %.1722776 = phi i32 [ %.0721.lcssa, %.lr.ph778 ], [ %360, %366 ]
-  %359 = shl nsw i32 %.2602777, 1
-  %360 = sdiv i32 %.1722776, 2
+  %.3603777 = phi i32 [ %.2602.lcssa, %.lr.ph778 ], [ %359, %366 ]
+  %.2723776 = phi i32 [ %.1722.lcssa, %.lr.ph778 ], [ %360, %366 ]
+  %359 = shl nsw i32 %.3603777, 1
+  %360 = sdiv i32 %.2723776, 2
   %361 = load i8, ptr %240, align 1
   %362 = trunc i8 %361 to i1
   %363 = load i32, ptr %26, align 4
@@ -9455,8 +9455,8 @@ define internal fastcc void @_ZN2cvL3DFTIdEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
 
 .loopexit730:                                     ; preds = %366, %.preheader729, %228
   %370 = phi i32 [ %231, %228 ], [ %238, %.preheader729 ], [ %368, %366 ]
-  %.2723 = phi i32 [ %32, %228 ], [ %.0721.lcssa, %.preheader729 ], [ %360, %366 ]
-  %.3603 = phi i32 [ 1, %228 ], [ %.1601.lcssa, %.preheader729 ], [ %359, %366 ]
+  %.0721 = phi i32 [ %32, %228 ], [ %.1722.lcssa, %.preheader729 ], [ %360, %366 ]
+  %.0600 = phi i32 [ 1, %228 ], [ %.2602.lcssa, %.preheader729 ], [ %359, %366 ]
   %371 = and i32 %370, 1
   %372 = xor i32 %371, 1
   %373 = load i32, ptr %0, align 8
@@ -9474,8 +9474,8 @@ define internal fastcc void @_ZN2cvL3DFTIdEEvRKNS_13OcvDftOptionsEPKNS_7ComplexI
 
 380:                                              ; preds = %.lr.ph829, %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit
   %indvars.iv934 = phi i64 [ %379, %.lr.ph829 ], [ %indvars.iv.next935, %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit ]
-  %.4827 = phi i32 [ %.3603, %.lr.ph829 ], [ %384, %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit ]
-  %.3724825 = phi i32 [ %.2723, %.lr.ph829 ], [ %385, %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit ]
+  %.4827 = phi i32 [ %.0600, %.lr.ph829 ], [ %384, %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit ]
+  %.3724825 = phi i32 [ %.0721, %.lr.ph829 ], [ %385, %_ZN2cv10AutoBufferINS_7ComplexIdEELm72EED2Ev.exit ]
   %381 = load ptr, ptr %229, align 8
   %382 = getelementptr inbounds i32, ptr %381, i64 %indvars.iv934
   %383 = load i32, ptr %382, align 4
@@ -11955,7 +11955,7 @@ _ZN2cvL10CopyColumnEPKhmPhmim.exit219:            ; preds = %.lr.ph.i202, %.lr.p
   br label %_ZN2cvL10CopyColumnEPKhmPhmim.exit143
 
 _ZN2cvL10CopyColumnEPKhmPhmim.exit143:            ; preds = %.lr.ph.i126, %.lr.ph64.i132, %.lr.ph68.i138, %158, %_ZN2cvL10CopyColumnEPKhmPhmim.exit219
-  %.0117 = phi ptr [ %161, %158 ], [ %213, %_ZN2cvL10CopyColumnEPKhmPhmim.exit219 ], [ %68, %.lr.ph68.i138 ], [ %68, %.lr.ph64.i132 ], [ %68, %.lr.ph.i126 ]
+  %.1118 = phi ptr [ %161, %158 ], [ %213, %_ZN2cvL10CopyColumnEPKhmPhmim.exit219 ], [ %68, %.lr.ph68.i138 ], [ %68, %.lr.ph64.i132 ], [ %68, %.lr.ph.i126 ]
   br i1 %29, label %_ZN2cvL10CopyColumnEPKhmPhmim.exit143._ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread_crit_edge, label %_ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread395
 
 _ZN2cvL10CopyColumnEPKhmPhmim.exit143._ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread_crit_edge: ; preds = %_ZN2cvL10CopyColumnEPKhmPhmim.exit143
@@ -11964,7 +11964,7 @@ _ZN2cvL10CopyColumnEPKhmPhmim.exit143._ZN2cvL10CopyColumnEPKhmPhmim.exit143.thre
 
 _ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread:     ; preds = %_ZN2cvL10CopyColumnEPKhmPhmim.exit143._ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread_crit_edge, %69, %.preheader56.i125, %.preheader54.i131, %.preheader.i137
   %214 = phi ptr [ %.pre, %_ZN2cvL10CopyColumnEPKhmPhmim.exit143._ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread_crit_edge ], [ %79, %.preheader.i137 ], [ %79, %.preheader54.i131 ], [ %79, %.preheader56.i125 ], [ %79, %69 ]
-  %.0117394 = phi ptr [ %.0117, %_ZN2cvL10CopyColumnEPKhmPhmim.exit143._ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread_crit_edge ], [ %68, %.preheader.i137 ], [ %68, %.preheader54.i131 ], [ %68, %.preheader56.i125 ], [ %68, %69 ]
+  %.1118394 = phi ptr [ %.1118, %_ZN2cvL10CopyColumnEPKhmPhmim.exit143._ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread_crit_edge ], [ %68, %.preheader.i137 ], [ %68, %.preheader54.i131 ], [ %68, %.preheader56.i125 ], [ %68, %69 ]
   %215 = getelementptr inbounds i8, ptr %0, i64 24
   %216 = load ptr, ptr %215, align 8
   %217 = load ptr, ptr %216, align 8
@@ -11973,7 +11973,7 @@ _ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread:     ; preds = %_ZN2cvL10CopyColumn
   br label %_ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread395
 
 _ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread395:  ; preds = %_ZN2cvL10CopyColumnEPKhmPhmim.exit, %_ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread, %_ZN2cvL10CopyColumnEPKhmPhmim.exit143
-  %.0117393 = phi ptr [ %.0117394, %_ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread ], [ %.0117, %_ZN2cvL10CopyColumnEPKhmPhmim.exit143 ], [ %68, %_ZN2cvL10CopyColumnEPKhmPhmim.exit ]
+  %.1118393 = phi ptr [ %.1118394, %_ZN2cvL10CopyColumnEPKhmPhmim.exit143.thread ], [ %.1118, %_ZN2cvL10CopyColumnEPKhmPhmim.exit143 ], [ %68, %_ZN2cvL10CopyColumnEPKhmPhmim.exit ]
   %219 = getelementptr inbounds i8, ptr %0, i64 24
   %220 = load ptr, ptr %219, align 8
   %221 = load ptr, ptr %15, align 8
@@ -12450,7 +12450,7 @@ _ZN2cvL10CopyColumnEPKhmPhmim.exit333:            ; preds = %.lr.ph.i316, %.lr.p
 
 406:                                              ; preds = %_ZN2cvL10CopyColumnEPKhmPhmim.exit333, %_ZN2cvL10CopyColumnEPKhmPhmim.exit295, %_ZN2cvL10CopyColumnEPKhmPhmim.exit257, %8
   %.0121 = phi i32 [ %31, %_ZN2cvL10CopyColumnEPKhmPhmim.exit295 ], [ %31, %_ZN2cvL10CopyColumnEPKhmPhmim.exit257 ], [ %31, %_ZN2cvL10CopyColumnEPKhmPhmim.exit333 ], [ %14, %8 ]
-  %.1118 = phi ptr [ %.0117393, %_ZN2cvL10CopyColumnEPKhmPhmim.exit295 ], [ %.0117393, %_ZN2cvL10CopyColumnEPKhmPhmim.exit257 ], [ %.0117393, %_ZN2cvL10CopyColumnEPKhmPhmim.exit333 ], [ %1, %8 ]
+  %.0117 = phi ptr [ %.1118393, %_ZN2cvL10CopyColumnEPKhmPhmim.exit295 ], [ %.1118393, %_ZN2cvL10CopyColumnEPKhmPhmim.exit257 ], [ %.1118393, %_ZN2cvL10CopyColumnEPKhmPhmim.exit333 ], [ %1, %8 ]
   %.0116 = phi ptr [ %344, %_ZN2cvL10CopyColumnEPKhmPhmim.exit295 ], [ %288, %_ZN2cvL10CopyColumnEPKhmPhmim.exit257 ], [ %405, %_ZN2cvL10CopyColumnEPKhmPhmim.exit333 ], [ %3, %8 ]
   %.0115 = phi i32 [ 1, %_ZN2cvL10CopyColumnEPKhmPhmim.exit295 ], [ 1, %_ZN2cvL10CopyColumnEPKhmPhmim.exit257 ], [ 1, %_ZN2cvL10CopyColumnEPKhmPhmim.exit333 ], [ 0, %8 ]
   %407 = icmp slt i32 %.0115, %.0121
@@ -12472,7 +12472,7 @@ _ZN2cvL10CopyColumnEPKhmPhmim.exit333:            ; preds = %.lr.ph.i316, %.lr.p
 417:                                              ; preds = %.lr.ph, %_ZN2cvL14CopyTo2ColumnsEPKhS1_Phmim.exit
   %.0434 = phi i32 [ %.0115, %.lr.ph ], [ %530, %_ZN2cvL14CopyTo2ColumnsEPKhS1_Phmim.exit ]
   %.1433 = phi ptr [ %.0116, %.lr.ph ], [ %529, %_ZN2cvL14CopyTo2ColumnsEPKhS1_Phmim.exit ]
-  %.2431 = phi ptr [ %.1118, %.lr.ph ], [ %528, %_ZN2cvL14CopyTo2ColumnsEPKhS1_Phmim.exit ]
+  %.2431 = phi ptr [ %.0117, %.lr.ph ], [ %528, %_ZN2cvL14CopyTo2ColumnsEPKhS1_Phmim.exit ]
   %418 = add nuw nsw i32 %.0434, 1
   %419 = icmp slt i32 %418, %.0121
   %420 = load ptr, ptr %15, align 8
@@ -13211,7 +13211,7 @@ define linkonce_odr hidden void @_ZN2cv10OcvDctImpl5applyEPKhmPhm(ptr noundef no
   %.063128 = phi i32 [ %25, %.lr.ph132 ], [ %284, %._crit_edge ]
   %.066127 = phi ptr [ null, %.lr.ph132 ], [ %.167, %._crit_edge ]
   %.068126 = phi i32 [ 0, %.lr.ph132 ], [ %.169, %._crit_edge ]
-  %.070125 = phi ptr [ null, %.lr.ph132 ], [ %.2, %._crit_edge ]
+  %.070125 = phi ptr [ null, %.lr.ph132 ], [ %.171, %._crit_edge ]
   %49 = icmp eq i32 %.063128, 0
   br i1 %49, label %50, label %56
 
@@ -13634,7 +13634,7 @@ _ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i93: ; preds = %205, %200
   br label %.body
 
 _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit95:   ; preds = %199, %_ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i93, %.noexc94, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit90
-  %.171 = phi ptr [ %196, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit90 ], [ %209, %.noexc94 ], [ %206, %_ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i93 ], [ %.pre141, %199 ]
+  %.2 = phi ptr [ %196, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit90 ], [ %209, %.noexc94 ], [ %206, %_ZN2cv10AutoBufferIhLm1032EE10deallocateEv.exit.i93 ], [ %.pre141, %199 ]
   %210 = load ptr, ptr %8, align 8
   %211 = load i8, ptr %45, align 1
   %212 = and i8 %211, 1
@@ -13785,7 +13785,7 @@ _ZN2cvL7DCTInitEiiPvi.exit:                       ; preds = %.lr.ph69.i, %.lr.ph
   br label %276
 
 276:                                              ; preds = %_ZN2cvL7DCTInitEiiPvi.exit, %59
-  %.2 = phi ptr [ %.070125, %59 ], [ %.171, %_ZN2cvL7DCTInitEiiPvi.exit ]
+  %.171 = phi ptr [ %.070125, %59 ], [ %.2, %_ZN2cvL7DCTInitEiiPvi.exit ]
   %.169 = phi i32 [ %.068126, %59 ], [ %.155, %_ZN2cvL7DCTInitEiiPvi.exit ]
   %.167 = phi ptr [ %.066127, %59 ], [ %196, %_ZN2cvL7DCTInitEiiPvi.exit ]
   %.not134 = icmp eq i32 %.1, 0
@@ -13803,7 +13803,7 @@ _ZN2cvL7DCTInitEiiPvi.exit:                       ; preds = %.lr.ph69.i, %.lr.ph
   %280 = mul i64 %.057, %indvars.iv
   %281 = getelementptr inbounds i8, ptr %3, i64 %280
   %282 = load ptr, ptr %8, align 8
-  invoke void %277(ptr noundef nonnull align 8 dereferenceable(65) %32, ptr noundef %279, i64 noundef %.058, ptr noundef %.167, ptr noundef %.2, ptr noundef %281, i64 noundef %.056, ptr noundef %282)
+  invoke void %277(ptr noundef nonnull align 8 dereferenceable(65) %32, ptr noundef %279, i64 noundef %.058, ptr noundef %.167, ptr noundef %.171, ptr noundef %281, i64 noundef %.056, ptr noundef %282)
           to label %283 unwind label %.loopexit
 
 283:                                              ; preds = %.lr.ph

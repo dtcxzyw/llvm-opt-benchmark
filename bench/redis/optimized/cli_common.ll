@@ -471,24 +471,24 @@ if.then21:                                        ; preds = %if.then17
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then21, %if.then17
-  %curr.0 = phi ptr [ %add.ptr23, %if.then21 ], [ %add.ptr9, %if.then17 ]
+  %curr.1 = phi ptr [ %add.ptr23, %if.then21 ], [ %add.ptr9, %if.then17 ]
   %sub.ptr.lhs.cast25 = ptrtoint ptr %call15 to i64
-  %sub.ptr.rhs.cast26 = ptrtoint ptr %curr.0 to i64
+  %sub.ptr.rhs.cast26 = ptrtoint ptr %curr.1 to i64
   %sub.ptr.sub27 = sub i64 %sub.ptr.lhs.cast25, %sub.ptr.rhs.cast26
-  %call28 = tail call fastcc ptr @percentDecode(ptr noundef nonnull %curr.0, i64 noundef %sub.ptr.sub27)
+  %call28 = tail call fastcc ptr @percentDecode(ptr noundef nonnull %curr.1, i64 noundef %sub.ptr.sub27)
   %auth = getelementptr inbounds i8, ptr %connInfo, i64 16
   store ptr %call28, ptr %auth, align 8
   %add.ptr29 = getelementptr inbounds i8, ptr %call15, i64 1
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end24, %if.end14
-  %curr.1 = phi ptr [ %add.ptr29, %if.end24 ], [ %add.ptr9, %if.end14 ]
-  %cmp31 = icmp eq ptr %curr.1, %add.ptr
+  %curr.0 = phi ptr [ %add.ptr29, %if.end24 ], [ %add.ptr9, %if.end14 ]
+  %cmp31 = icmp eq ptr %curr.0, %add.ptr
   br i1 %cmp31, label %return, label %if.end33
 
 if.end33:                                         ; preds = %if.end30
-  %call34 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %curr.1, i32 noundef 47) #15
-  %3 = load i8, ptr %curr.1, align 1
+  %call34 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %curr.0, i32 noundef 47) #15
+  %3 = load i8, ptr %curr.0, align 1
   %cmp35.not = icmp eq i8 %3, 47
   br i1 %cmp35.not, label %if.end73, label %if.then37
 
@@ -500,7 +500,7 @@ if.then37:                                        ; preds = %if.end33
   br i1 %cmp41, label %if.then43, label %if.else58
 
 if.then43:                                        ; preds = %if.then37
-  %add.ptr44 = getelementptr inbounds i8, ptr %curr.1, i64 1
+  %add.ptr44 = getelementptr inbounds i8, ptr %curr.0, i64 1
   %call45 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr44, i32 noundef 93) #15
   %tobool46.not = icmp eq ptr %call45, null
   br i1 %tobool46.not, label %if.end67, label %if.then47
@@ -523,7 +523,7 @@ if.end55:                                         ; preds = %if.then52, %if.then
   br label %if.end67
 
 if.else58:                                        ; preds = %if.then37
-  %call59 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %curr.1, i32 noundef 58) #15
+  %call59 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %curr.0, i32 noundef 58) #15
   %tobool60.not = icmp eq ptr %call59, null
   br i1 %tobool60.not, label %if.end67, label %if.then61
 
@@ -537,7 +537,7 @@ if.then61:                                        ; preds = %if.else58
 
 if.end67:                                         ; preds = %if.else58, %if.then61, %if.then43, %if.end55
   %host.0 = phi ptr [ %add.ptr56, %if.end55 ], [ %cond, %if.then43 ], [ %add.ptr65, %if.then61 ], [ %cond, %if.else58 ]
-  %curr.2 = phi ptr [ %add.ptr44, %if.end55 ], [ %add.ptr44, %if.then43 ], [ %curr.1, %if.then61 ], [ %curr.1, %if.else58 ]
+  %curr.2 = phi ptr [ %add.ptr44, %if.end55 ], [ %add.ptr44, %if.then43 ], [ %curr.0, %if.then61 ], [ %curr.0, %if.else58 ]
   %5 = load ptr, ptr %connInfo, align 8
   tail call void @hi_sdsfree(ptr noundef %5) #11
   %sub.ptr.lhs.cast68 = ptrtoint ptr %host.0 to i64

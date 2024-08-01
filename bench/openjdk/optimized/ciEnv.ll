@@ -4508,7 +4508,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit71: ; preds = %_ZN12Reso
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %298, %297, %261, %260, %_ZN5ciEnv10compile_idEv.exit, %_ZN10MethodData19inc_decompile_countEv.exit
   %299 = phi i1 [ false, %_ZN10MethodData19inc_decompile_countEv.exit ], [ true, %_ZN5ciEnv10compile_idEv.exit ], [ true, %260 ], [ true, %261 ], [ true, %297 ], [ true, %298 ]
-  %.0 = phi ptr [ null, %_ZN10MethodData19inc_decompile_countEv.exit ], [ null, %_ZN5ciEnv10compile_idEv.exit ], [ %211, %260 ], [ %211, %261 ], [ %211, %297 ], [ %211, %298 ]
+  %.1 = phi ptr [ null, %_ZN10MethodData19inc_decompile_countEv.exit ], [ null, %_ZN5ciEnv10compile_idEv.exit ], [ %211, %260 ], [ %211, %261 ], [ %211, %297 ], [ %211, %298 ]
   br i1 %.not.i.i54, label %_ZN11MutexLockerD2Ev.exit75, label %300
 
 300:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
@@ -4528,13 +4528,13 @@ _ZN11MutexLockerD2Ev.exit77:                      ; preds = %_ZN11MutexLockerD2E
   br i1 %299, label %302, label %_ZN5ciEnv14record_failureEPKc.exit78
 
 302:                                              ; preds = %301, %_ZN11MutexLockerD2Ev.exit77
-  %.not53 = icmp eq ptr %.0, null
+  %.not53 = icmp eq ptr %.1, null
   br i1 %.not53, label %310, label %303
 
 303:                                              ; preds = %302
   %304 = getelementptr inbounds i8, ptr %0, i64 112
   %305 = load ptr, ptr %304, align 8
-  call void @_ZN7nmethod20post_compiled_methodEP11CompileTask(ptr noundef nonnull align 8 dereferenceable(214) %.0, ptr noundef %305) #18
+  call void @_ZN7nmethod20post_compiled_methodEP11CompileTask(ptr noundef nonnull align 8 dereferenceable(214) %.1, ptr noundef %305) #18
   %306 = load ptr, ptr %304, align 8
   %307 = getelementptr inbounds i8, ptr %0, i64 108
   %308 = load i32, ptr %307, align 4

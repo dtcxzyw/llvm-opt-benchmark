@@ -946,17 +946,17 @@ if.end:                                           ; preds = %entry
 
 for.body.i:                                       ; preds = %if.end, %for.body.i
   %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.end ]
-  %length.06.i = phi i64 [ %add.i, %for.body.i ], [ 0, %if.end ]
+  %length.16.i = phi i64 [ %add.i, %for.body.i ], [ 0, %if.end ]
   %iov_len.i = getelementptr inbounds %struct.iovec, ptr %iov, i64 %i.07.i, i32 1
   %1 = load i64, ptr %iov_len.i, align 8
-  %add.i = add i64 %1, %length.06.i
+  %add.i = add i64 %1, %length.16.i
   %inc.i = add nuw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %conv
   br i1 %exitcond.not.i, label %_ZN3net16TotalIovecLengthEPK5iovecm.exit, label %for.body.i, !llvm.loop !7
 
 _ZN3net16TotalIovecLengthEPK5iovecm.exit:         ; preds = %for.body.i, %if.end
-  %length.1.i = phi i64 [ 0, %if.end ], [ %add.i, %for.body.i ]
-  %cmp = icmp eq i64 %length.1.i, 0
+  %length.0.i = phi i64 [ 0, %if.end ], [ %add.i, %for.body.i ]
+  %cmp = icmp eq i64 %length.0.i, 0
   %2 = and i1 %cmp, %fin
   %flow_controller_ = getelementptr inbounds i8, ptr %this, i64 272
   %call4 = tail call noundef i64 @_ZNK3net18QuicFlowController14SendWindowSizeEv(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_)
@@ -1022,8 +1022,8 @@ _ZN3net18ReliableQuicStream16MaybeSendBlockedEv.exit: ; preds = %if.then18, %if.
   br label %return
 
 if.end19:                                         ; preds = %if.end15
-  %cmp20 = icmp ule i64 %length.1.i, %send_window.0
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %length.1.i, i64 %send_window.0)
+  %cmp20 = icmp ule i64 %length.0.i, %send_window.0
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %length.0.i, i64 %send_window.0)
   %spec.select10 = and i1 %cmp20, %fin
   store ptr %iov, ptr %agg.tmp, align 8
   %iov_count3.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8

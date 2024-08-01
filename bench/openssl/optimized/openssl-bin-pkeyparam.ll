@@ -159,8 +159,8 @@ if.else:                                          ; preds = %if.then37
   br label %if.end44
 
 if.end44:                                         ; preds = %if.else, %if.then39
-  %ctx.0 = phi ptr [ %call42, %if.then39 ], [ %call43, %if.else ]
-  %cmp45 = icmp eq ptr %ctx.0, null
+  %ctx.2 = phi ptr [ %call42, %if.then39 ], [ %call43, %if.else ]
+  %cmp45 = icmp eq ptr %ctx.2, null
   br i1 %cmp45, label %if.then46, label %if.end47
 
 if.then46:                                        ; preds = %if.end44
@@ -169,7 +169,7 @@ if.then46:                                        ; preds = %if.end44
   br label %end
 
 if.end47:                                         ; preds = %if.end44
-  %call48 = tail call i32 @EVP_PKEY_param_check(ptr noundef nonnull %ctx.0) #2
+  %call48 = tail call i32 @EVP_PKEY_param_check(ptr noundef nonnull %ctx.2) #2
   %cmp49 = icmp eq i32 %call48, 1
   br i1 %cmp49, label %if.then50, label %if.else52
 
@@ -185,7 +185,7 @@ if.else52:                                        ; preds = %if.end47
   br label %end
 
 if.end55:                                         ; preds = %if.then50, %if.end35
-  %ctx.1 = phi ptr [ %ctx.0, %if.then50 ], [ null, %if.end35 ]
+  %ctx.1 = phi ptr [ %ctx.2, %if.then50 ], [ null, %if.end35 ]
   %tobool56.not = icmp eq i32 %noout.0, 0
   br i1 %tobool56.not, label %if.then57, label %if.end59
 
@@ -203,11 +203,11 @@ if.then61:                                        ; preds = %if.end59
 
 end:                                              ; preds = %sw.bb15, %if.end59, %if.then61, %if.end24, %if.end20, %if.else52, %if.then46, %if.then33, %sw.bb3, %opthelp
   %pkey.0 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end20 ], [ null, %if.end24 ], [ null, %if.then33 ], [ %call31, %if.then46 ], [ %call31, %if.else52 ], [ %call31, %if.then61 ], [ %call31, %if.end59 ], [ null, %sw.bb15 ]
-  %ctx.2 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end20 ], [ null, %if.end24 ], [ null, %if.then33 ], [ null, %if.then46 ], [ %ctx.0, %if.else52 ], [ %ctx.1, %if.then61 ], [ %ctx.1, %if.end59 ], [ null, %sw.bb15 ]
+  %ctx.0 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end20 ], [ null, %if.end24 ], [ null, %if.then33 ], [ null, %if.then46 ], [ %ctx.2, %if.else52 ], [ %ctx.1, %if.then61 ], [ %ctx.1, %if.end59 ], [ null, %sw.bb15 ]
   %ret.0 = phi i32 [ 0, %sw.bb3 ], [ 1, %opthelp ], [ 1, %if.end20 ], [ 1, %if.end24 ], [ 1, %if.then33 ], [ 1, %if.then46 ], [ 1, %if.else52 ], [ 0, %if.then61 ], [ 0, %if.end59 ], [ 1, %sw.bb15 ]
   %out.0 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end20 ], [ null, %if.end24 ], [ %call25, %if.then33 ], [ %call25, %if.then46 ], [ %call25, %if.else52 ], [ %call25, %if.then61 ], [ %call25, %if.end59 ], [ null, %sw.bb15 ]
   %in.0 = phi ptr [ null, %sw.bb3 ], [ null, %opthelp ], [ null, %if.end20 ], [ %call21, %if.end24 ], [ %call21, %if.then33 ], [ %call21, %if.then46 ], [ %call21, %if.else52 ], [ %call21, %if.then61 ], [ %call21, %if.end59 ], [ null, %sw.bb15 ]
-  tail call void @EVP_PKEY_CTX_free(ptr noundef %ctx.2) #2
+  tail call void @EVP_PKEY_CTX_free(ptr noundef %ctx.0) #2
   tail call void @EVP_PKEY_free(ptr noundef %pkey.0) #2
   tail call void @release_engine(ptr noundef %e.0) #2
   tail call void @BIO_free_all(ptr noundef %out.0) #2

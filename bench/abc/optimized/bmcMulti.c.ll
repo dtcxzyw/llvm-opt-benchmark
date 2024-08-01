@@ -523,7 +523,7 @@ Vec_PtrStart.exit:                                ; preds = %Vec_IntStartNatural
   br label %101
 
 101:                                              ; preds = %Vec_PtrStart.exit, %225
-  %.0203 = phi ptr [ %0, %Vec_PtrStart.exit ], [ %.3, %225 ]
+  %.0203 = phi ptr [ %0, %Vec_PtrStart.exit ], [ %.4, %225 ]
   %.0117201 = phi i32 [ 0, %Vec_PtrStart.exit ], [ %230, %225 ]
   %.0118200 = phi i32 [ %42, %Vec_PtrStart.exit ], [ %229, %225 ]
   %102 = load i32, ptr %78, align 4
@@ -592,13 +592,13 @@ Vec_IntFree.exit:                                 ; preds = %122, %126
   br label %127
 
 127:                                              ; preds = %Vec_IntFree.exit, %Vec_PtrCountZero.exit
-  %.1 = phi ptr [ %124, %Vec_IntFree.exit ], [ %.0203, %Vec_PtrCountZero.exit ]
+  %.2 = phi ptr [ %124, %Vec_IntFree.exit ], [ %.0203, %Vec_PtrCountZero.exit ]
   %128 = load i32, ptr %43, align 4
   %.not129 = icmp eq i32 %128, 0
   br i1 %.not129, label %130, label %129
 
 129:                                              ; preds = %127
-  call void @Gia_ManMultiReport(ptr noundef %.1, ptr noundef nonnull @.str.10, i32 noundef %.val147, i32 noundef %40, i64 noundef %.0.i)
+  call void @Gia_ManMultiReport(ptr noundef %.2, ptr noundef nonnull @.str.10, i32 noundef %.val147, i32 noundef %40, i64 noundef %.0.i)
   br label %130
 
 130:                                              ; preds = %129, %127
@@ -643,15 +643,15 @@ Abc_Clock.exit163:                                ; preds = %131, %134
   store i32 %.0118200, ptr %93, align 4
   %150 = load i32, ptr %94, align 4
   store i32 %150, ptr %95, align 4
-  %151 = call i32 @Saig_ManBmcScalable(ptr noundef %.1, ptr noundef nonnull %8) #15
+  %151 = call i32 @Saig_ManBmcScalable(ptr noundef %.2, ptr noundef nonnull %8) #15
   %152 = load i32, ptr %84, align 4
   %.not132 = icmp eq i32 %152, 0
   br i1 %.not132, label %170, label %153
 
 153:                                              ; preds = %147
-  %154 = getelementptr i8, ptr %.1, i64 112
-  %.1.val144 = load i32, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %.1, i64 416
+  %154 = getelementptr i8, ptr %.2, i64 112
+  %.2.val144 = load i32, ptr %154, align 8
+  %155 = getelementptr inbounds i8, ptr %.2, i64 416
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %156, i64 4
   %158 = load i32, ptr %157, align 4
@@ -678,13 +678,13 @@ Abc_Clock.exit163:                                ; preds = %131, %134
 
 Vec_PtrCountZero.exit171:                         ; preds = %162, %153
   %.0.lcssa.i164 = phi i32 [ 0, %153 ], [ %167, %162 ]
-  %168 = sub nsw i32 %.1.val144, %.0.lcssa.i164
+  %168 = sub nsw i32 %.2.val144, %.0.lcssa.i164
   %169 = load i32, ptr %96, align 4
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, i32 noundef %168, i32 noundef %.1.val144, i32 noundef %169)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, i32 noundef %168, i32 noundef %.2.val144, i32 noundef %169)
   br label %170
 
 170:                                              ; preds = %Vec_PtrCountZero.exit171, %147
-  %171 = getelementptr inbounds i8, ptr %.1, i64 416
+  %171 = getelementptr inbounds i8, ptr %.2, i64 416
   %172 = load ptr, ptr %171, align 8
   %.not133 = icmp eq ptr %172, null
   br i1 %.not133, label %182, label %173
@@ -699,7 +699,7 @@ Vec_PtrCountZero.exit171:                         ; preds = %162, %153
 177:                                              ; preds = %173
   %178 = getelementptr i8, ptr %174, i64 8
   %.val151 = load ptr, ptr %178, align 8
-  %179 = call ptr @Saig_ManDupCones(ptr noundef nonnull %.1, ptr noundef %.val151, i32 noundef %.val141) #15
+  %179 = call ptr @Saig_ManDupCones(ptr noundef nonnull %.2, ptr noundef %.val151, i32 noundef %.val141) #15
   %180 = load ptr, ptr %178, align 8
   %.not.i172 = icmp eq ptr %180, null
   br i1 %.not.i172, label %Vec_IntFree.exit173, label %181
@@ -710,17 +710,17 @@ Vec_PtrCountZero.exit171:                         ; preds = %162, %153
 
 Vec_IntFree.exit173:                              ; preds = %177, %181
   call void @free(ptr noundef nonnull %174) #15
-  call void @Aig_ManStop(ptr noundef nonnull %.1) #15
+  call void @Aig_ManStop(ptr noundef nonnull %.2) #15
   br label %182
 
 182:                                              ; preds = %Vec_IntFree.exit173, %170
-  %.2 = phi ptr [ %179, %Vec_IntFree.exit173 ], [ %.1, %170 ]
+  %.3 = phi ptr [ %179, %Vec_IntFree.exit173 ], [ %.2, %170 ]
   %183 = load i32, ptr %43, align 4
   %.not134 = icmp eq i32 %183, 0
   br i1 %.not134, label %185, label %184
 
 184:                                              ; preds = %182
-  call void @Gia_ManMultiReport(ptr noundef %.2, ptr noundef nonnull @.str.13, i32 noundef %.val147, i32 noundef %40, i64 noundef %.0.i)
+  call void @Gia_ManMultiReport(ptr noundef %.3, ptr noundef nonnull @.str.13, i32 noundef %.val147, i32 noundef %40, i64 noundef %.0.i)
   br label %185
 
 185:                                              ; preds = %184, %182
@@ -798,12 +798,12 @@ Vec_PtrCountZero.exit183:                         ; preds = %208, %204
   br i1 %.not137, label %225, label %219
 
 219:                                              ; preds = %217
-  %220 = call ptr @Gia_ManFromAig(ptr noundef %.2) #15
+  %220 = call ptr @Gia_ManFromAig(ptr noundef %.3) #15
   %221 = call ptr @Gia_ManAigSyn2(ptr noundef %220, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #15
   call void @Gia_ManStop(ptr noundef %220) #15
   %222 = call ptr @Gia_ManToAig(ptr noundef %221, i32 noundef 0) #15
   call void @Gia_ManStop(ptr noundef %221) #15
-  call void @Aig_ManStop(ptr noundef %.2) #15
+  call void @Aig_ManStop(ptr noundef %.3) #15
   %223 = load i32, ptr %43, align 4
   %.not138 = icmp eq i32 %223, 0
   br i1 %.not138, label %225, label %224
@@ -813,7 +813,7 @@ Vec_PtrCountZero.exit183:                         ; preds = %208, %204
   br label %225
 
 225:                                              ; preds = %219, %224, %217
-  %.3 = phi ptr [ %222, %224 ], [ %222, %219 ], [ %.2, %217 ]
+  %.4 = phi ptr [ %222, %224 ], [ %222, %219 ], [ %.3, %217 ]
   %226 = load i32, ptr %100, align 4
   %227 = mul nsw i32 %226, %.0118200
   %228 = sdiv i32 %227, 100
@@ -823,7 +823,7 @@ Vec_PtrCountZero.exit183:                         ; preds = %208, %204
   br i1 %exitcond.not, label %.loopexit, label %101, !llvm.loop !10
 
 .loopexit:                                        ; preds = %173, %118, %225, %215, %199, %144
-  %.4 = phi ptr [ %.1, %144 ], [ %.2, %199 ], [ %.2, %215 ], [ %.3, %225 ], [ %.1, %173 ], [ %.0203, %118 ]
+  %.1 = phi ptr [ %.2, %144 ], [ %.3, %199 ], [ %.3, %215 ], [ %.4, %225 ], [ %.2, %173 ], [ %.0203, %118 ]
   %231 = load ptr, ptr %67, align 8
   %.not.i184 = icmp eq ptr %231, null
   br i1 %.not.i184, label %Vec_IntFree.exit185, label %232
@@ -839,17 +839,17 @@ Vec_IntFree.exit185:                              ; preds = %.loopexit, %232
   br i1 %.not139, label %252, label %234
 
 234:                                              ; preds = %Vec_IntFree.exit185
-  %235 = getelementptr i8, ptr %.4, i64 112
+  %235 = getelementptr i8, ptr %.1, i64 112
   %.val9.i = load i32, ptr %235, align 8
   %236 = icmp sgt i32 %.val9.i, 0
   br i1 %236, label %.lr.ph.i187, label %Gia_ManCountConst0Pos.exit
 
 .lr.ph.i187:                                      ; preds = %234
-  %237 = getelementptr inbounds i8, ptr %.4, i64 24
+  %237 = getelementptr inbounds i8, ptr %.1, i64 24
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr i8, ptr %238, i64 8
   %.val.i = load ptr, ptr %239, align 8
-  %240 = getelementptr i8, ptr %.4, i64 48
+  %240 = getelementptr i8, ptr %.1, i64 48
   %.val11.i = load ptr, ptr %240, align 8
   %241 = ptrtoint ptr %.val11.i to i64
   %242 = xor i64 %241, 1
@@ -883,14 +883,14 @@ Gia_ManCountConst0Pos.exit:                       ; preds = %244, %234
   br i1 %.not140, label %259, label %255
 
 255:                                              ; preds = %252
-  %256 = load ptr, ptr %.4, align 8
+  %256 = load ptr, ptr %.1, align 8
   %257 = call ptr @Extra_FileNameGenericAppend(ptr noundef %256, ptr noundef nonnull @.str.17) #15
-  call void @Ioa_WriteAiger(ptr noundef nonnull %.4, ptr noundef %257, i32 noundef 0, i32 noundef 0) #15
+  call void @Ioa_WriteAiger(ptr noundef nonnull %.1, ptr noundef %257, i32 noundef 0, i32 noundef 0) #15
   %258 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef %257)
   br label %259
 
 259:                                              ; preds = %255, %252
-  call void @Aig_ManStop(ptr noundef %.4) #15
+  call void @Aig_ManStop(ptr noundef %.1) #15
   ret ptr %72
 }
 

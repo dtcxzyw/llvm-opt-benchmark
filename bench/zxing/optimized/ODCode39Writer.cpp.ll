@@ -399,10 +399,10 @@ switch.early.test.i:                              ; preds = %95
 
 147:                                              ; preds = %145, %143
   %.pn.i = phi { ptr, i32 } [ %146, %145 ], [ %144, %143 ]
-  %.1.i = phi i1 [ %.0.i, %145 ], [ true, %143 ]
+  %.3.i = phi i1 [ %.0.i, %145 ], [ true, %143 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #8
-  br i1 %.1.i, label %148, label %151
+  br i1 %.3.i, label %148, label %151
 
 148:                                              ; preds = %147, %.thread82.i, %.thread.i
   %.pn.pn.pn81.i = phi { ptr, i32 } [ %141, %.thread.i ], [ %.pn.i, %147 ], [ %142, %.thread82.i ]
@@ -480,10 +480,10 @@ switch.early.test.i:                              ; preds = %95
 
 170:                                              ; preds = %166, %168
   %.pn = phi { ptr, i32 } [ %169, %168 ], [ %167, %166 ]
-  %.136 = phi i1 [ %.035, %168 ], [ true, %166 ]
+  %.338 = phi i1 [ %.035, %168 ], [ true, %166 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
-  br i1 %.136, label %171, label %.body
+  br i1 %.338, label %171, label %.body
 
 171:                                              ; preds = %.thread80, %.thread, %170
   %.pn.pn.pn79 = phi { ptr, i32 } [ %164, %.thread ], [ %.pn, %170 ], [ %165, %.thread80 ]

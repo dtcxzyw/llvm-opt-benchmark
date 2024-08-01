@@ -1202,7 +1202,7 @@ if.end.lr.ph.lr.ph.i:                             ; preds = %if.end7
   br label %if.end.lr.ph.i
 
 if.end.lr.ph.i:                                   ; preds = %if.end167.i, %if.end.lr.ph.lr.ph.i
-  %result.025.i = phi i8 [ 0, %if.end.lr.ph.lr.ph.i ], [ %result.3.i, %if.end167.i ]
+  %result.025.i = phi i8 [ 0, %if.end.lr.ph.lr.ph.i ], [ %result.2.i, %if.end167.i ]
   %mb.024.i = phi ptr [ %8, %if.end.lr.ph.lr.ph.i ], [ %mb.2.i, %if.end167.i ]
   %me.023.i = phi ptr [ %10, %if.end.lr.ph.lr.ph.i ], [ %me.2.i, %if.end167.i ]
   br label %if.end.i
@@ -1489,12 +1489,12 @@ if.else164.i:                                     ; preds = %if.else96.i
 if.end167.i:                                      ; preds = %if.else164.i, %if.end162.i, %if.end94.i
   %me.2.i = phi ptr [ %me.119.i, %if.end94.i ], [ %me.119.i, %if.end162.i ], [ %incdec.ptr165.i, %if.else164.i ]
   %mb.2.i = phi ptr [ %incdec.ptr95.i, %if.end94.i ], [ %incdec.ptr163.i, %if.end162.i ], [ %mb.116.i, %if.else164.i ]
-  %result.3.i = phi i8 [ %result.1.i, %if.end94.i ], [ %56, %if.end162.i ], [ %result.025.i, %if.else164.i ]
+  %result.2.i = phi i8 [ %result.1.i, %if.end94.i ], [ %56, %if.end162.i ], [ %result.025.i, %if.else164.i ]
   %cmp615.i = icmp eq ptr %mb.2.i, %add.ptr.i
   br i1 %cmp615.i, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit, label %if.end.lr.ph.i, !llvm.loop !17
 
 _ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit: ; preds = %for.cond16.preheader.i, %if.end167.i, %if.end15.i, %if.end32.i, %if.end7
-  %result.014.i = phi i8 [ 0, %if.end7 ], [ %result.025.i, %if.end32.i ], [ %result.025.i, %if.end15.i ], [ %result.3.i, %if.end167.i ], [ %result.025.i, %for.cond16.preheader.i ]
+  %result.014.i = phi i8 [ 0, %if.end7 ], [ %result.025.i, %if.end32.i ], [ %result.025.i, %if.end15.i ], [ %result.2.i, %if.end167.i ], [ %result.025.i, %for.cond16.preheader.i ]
   %57 = getelementptr i8, ptr %baseStates, i64 132113
   %baseStates.val = load i8, ptr %57, align 1
   %reverseMap.i = getelementptr inbounds i8, ptr %base, i64 48
@@ -1517,7 +1517,7 @@ if.end.lr.ph.lr.ph.i21:                           ; preds = %_ZL19checkBaseExtUn
   br label %if.end.lr.ph.i22
 
 if.end.lr.ph.i22:                                 ; preds = %if.end173.i, %if.end.lr.ph.lr.ph.i21
-  %result.022.i = phi i8 [ 0, %if.end.lr.ph.lr.ph.i21 ], [ %result.3.i33, %if.end173.i ]
+  %result.022.i = phi i8 [ 0, %if.end.lr.ph.lr.ph.i21 ], [ %result.2.i33, %if.end173.i ]
   %b.021.i = phi i32 [ 0, %if.end.lr.ph.lr.ph.i21 ], [ %b.2.i, %if.end173.i ]
   %e.020.i = phi i32 [ 0, %if.end.lr.ph.lr.ph.i21 ], [ %e.2.i, %if.end173.i ]
   %62 = load ptr, ptr %base, align 8
@@ -1835,12 +1835,12 @@ if.else170.i:                                     ; preds = %if.else103.i
 if.end173.i:                                      ; preds = %if.else170.i, %if.end168.i, %if.end101.i
   %e.2.i = phi i32 [ %75, %if.end101.i ], [ %75, %if.end168.i ], [ %inc171.i, %if.else170.i ]
   %b.2.i = phi i32 [ %inc102.i, %if.end101.i ], [ %inc169.i, %if.end168.i ], [ %.us-phi13.i, %if.else170.i ]
-  %result.3.i33 = phi i8 [ %result.1.i38, %if.end101.i ], [ %113, %if.end168.i ], [ %result.022.i, %if.else170.i ]
+  %result.2.i33 = phi i8 [ %result.1.i38, %if.end101.i ], [ %113, %if.end168.i ], [ %result.022.i, %if.else170.i ]
   %cmp69.i = icmp eq i32 %b.2.i, %60
   br i1 %cmp69.i, label %_ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit, label %if.end.lr.ph.i22, !llvm.loop !20
 
 _ZL17checkBaseExtBytesP9UCMStatesP8UCMTableS2_aa.exit: ; preds = %for.end.i, %if.end173.i, %for.inc.i, %for.inc.us.i, %if.end37.i, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit
-  %result.08.i = phi i8 [ 0, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit ], [ %result.022.i, %if.end37.i ], [ %result.022.i, %for.inc.us.i ], [ %result.022.i, %for.inc.i ], [ %result.3.i33, %if.end173.i ], [ %result.022.i, %for.end.i ]
+  %result.08.i = phi i8 [ 0, %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit ], [ %result.022.i, %if.end37.i ], [ %result.022.i, %for.inc.us.i ], [ %result.022.i, %for.inc.i ], [ %result.2.i33, %if.end173.i ], [ %result.022.i, %for.end.i ]
   %or18 = or i8 %result.08.i, %result.014.i
   %conv16 = zext i8 %or18 to i32
   %and17 = and i32 %conv16, 2
@@ -2068,7 +2068,7 @@ while.cond76.preheader:                           ; preds = %if.end75, %entry
   %toUIndex.0.lcssa = phi i32 [ 0, %entry ], [ %toUIndex.1, %if.end75 ]
   %fromUIndex.0.lcssa = phi i32 [ 0, %entry ], [ %fromUIndex.1, %if.end75 ]
   %toUMapping.0.lcssa = phi ptr [ %1, %entry ], [ %toUMapping.1, %if.end75 ]
-  %fromUMapping.0.lcssa = phi ptr [ %0, %entry ], [ %fromUMapping.2, %if.end75 ]
+  %fromUMapping.0.lcssa = phi ptr [ %0, %entry ], [ %fromUMapping.1, %if.end75 ]
   %cmp77102 = icmp slt i32 %fromUIndex.0.lcssa, %2
   br i1 %cmp77102, label %while.body78.lr.ph, label %while.cond120.preheader
 
@@ -2120,7 +2120,7 @@ if.end116.us:                                     ; preds = %cond.end94.us, %whi
   br i1 %exitcond112.not, label %while.cond120.preheader, label %while.body78.us, !llvm.loop !21
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end75
-  %fromUMapping.096 = phi ptr [ %0, %while.body.lr.ph ], [ %fromUMapping.2, %if.end75 ]
+  %fromUMapping.096 = phi ptr [ %0, %while.body.lr.ph ], [ %fromUMapping.1, %if.end75 ]
   %toUMapping.094 = phi ptr [ %1, %while.body.lr.ph ], [ %toUMapping.1, %if.end75 ]
   %fromUIndex.093 = phi i32 [ 0, %while.body.lr.ph ], [ %fromUIndex.1, %if.end75 ]
   %toUIndex.092 = phi i32 [ 0, %while.body.lr.ph ], [ %toUIndex.1, %if.end75 ]
@@ -2401,7 +2401,7 @@ cond.end66:                                       ; preds = %cond.false61, %cond
   br label %if.end71
 
 if.end71:                                         ; preds = %land.lhs.true37, %land.lhs.true37, %cond.end66
-  %fromUMapping.1 = phi ptr [ %fromUMapping.096, %land.lhs.true37 ], [ %add.ptr70, %cond.end66 ], [ %fromUMapping.096, %land.lhs.true37 ]
+  %fromUMapping.2 = phi ptr [ %fromUMapping.096, %land.lhs.true37 ], [ %add.ptr70, %cond.end66 ], [ %fromUMapping.096, %land.lhs.true37 ]
   %incdec.ptr72 = getelementptr inbounds i8, ptr %toUMapping.094, i64 12
   %inc73 = add nsw i32 %toUIndex.092, 1
   br label %if.end75
@@ -2410,7 +2410,7 @@ if.end75:                                         ; preds = %if.end, %if.end71, 
   %toUIndex.1 = phi i32 [ %inc7, %if.then ], [ %toUIndex.092, %if.end ], [ %inc73, %if.end71 ]
   %fromUIndex.1 = phi i32 [ %inc, %if.then ], [ %inc33, %if.end ], [ %fromUIndex.093, %if.end71 ]
   %toUMapping.1 = phi ptr [ %incdec.ptr6, %if.then ], [ %toUMapping.094, %if.end ], [ %incdec.ptr72, %if.end71 ]
-  %fromUMapping.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr32, %if.end ], [ %fromUMapping.1, %if.end71 ]
+  %fromUMapping.1 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr32, %if.end ], [ %fromUMapping.2, %if.end71 ]
   %cmp3 = icmp slt i32 %fromUIndex.1, %2
   %cmp4 = icmp slt i32 %toUIndex.1, %3
   %43 = select i1 %cmp3, i1 %cmp4, i1 false
@@ -3250,15 +3250,15 @@ for.cond70.preheader:                             ; preds = %do.body, %if.else62
   br label %for.cond70
 
 for.cond70:                                       ; preds = %for.cond70.preheader, %if.end87
-  %s.2 = phi ptr [ %incdec.ptr88, %if.end87 ], [ %spec.select.i, %for.cond70.preheader ]
-  %20 = load i8, ptr %s.2, align 1
+  %s.1 = phi ptr [ %incdec.ptr88, %if.end87 ], [ %spec.select.i, %for.cond70.preheader ]
+  %20 = load i8, ptr %s.1, align 1
   switch i8 %20, label %if.end87 [
     i8 0, label %for.end89
     i8 124, label %if.then77
   ]
 
 if.then77:                                        ; preds = %for.cond70
-  %arrayidx78 = getelementptr inbounds i8, ptr %s.2, i64 1
+  %arrayidx78 = getelementptr inbounds i8, ptr %s.1, i64 1
   %21 = load i8, ptr %arrayidx78, align 1
   %sub = add i8 %21, -48
   %cmp82 = icmp ugt i8 %sub, 4
@@ -3270,7 +3270,7 @@ if.then83:                                        ; preds = %if.then77
   br label %return
 
 if.end87:                                         ; preds = %for.cond70
-  %incdec.ptr88 = getelementptr inbounds i8, ptr %s.2, i64 1
+  %incdec.ptr88 = getelementptr inbounds i8, ptr %s.1, i64 1
   br label %for.cond70, !llvm.loop !27
 
 for.end89:                                        ; preds = %for.cond70, %if.then77

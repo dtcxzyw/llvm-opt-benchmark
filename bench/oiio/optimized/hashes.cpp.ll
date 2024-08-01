@@ -90,7 +90,7 @@ sw.bb:                                            ; preds = %while.end
   br label %sw.bb42
 
 sw.bb42:                                          ; preds = %sw.bb, %while.end
-  %c.1 = phi i32 [ %c.0.lcssa, %while.end ], [ %add41, %sw.bb ]
+  %c.2 = phi i32 [ %c.0.lcssa, %while.end ], [ %add41, %sw.bb ]
   %arrayidx43 = getelementptr inbounds i8, ptr %k.addr.0.lcssa, i64 4
   %4 = load i32, ptr %arrayidx43, align 4
   %add44 = add i32 %4, %b.0.lcssa
@@ -98,10 +98,10 @@ sw.bb42:                                          ; preds = %sw.bb, %while.end
 
 sw.bb45:                                          ; preds = %sw.bb42, %while.end
   %b.1 = phi i32 [ %b.0.lcssa, %while.end ], [ %add44, %sw.bb42 ]
-  %c.2 = phi i32 [ %c.0.lcssa, %while.end ], [ %c.1, %sw.bb42 ]
+  %c.3 = phi i32 [ %c.0.lcssa, %while.end ], [ %c.2, %sw.bb42 ]
   %5 = load i32, ptr %k.addr.0.lcssa, align 4
   %add47 = add i32 %5, %a.0.lcssa
-  %xor48 = xor i32 %c.2, %b.1
+  %xor48 = xor i32 %c.3, %b.1
   %or51 = tail call i32 @llvm.fshl.i32(i32 %b.1, i32 %b.1, i32 14)
   %sub52 = sub i32 %xor48, %or51
   %xor53 = xor i32 %add47, %sub52
@@ -128,8 +128,8 @@ while.end.unreachabledefault:                     ; preds = %while.end
   unreachable
 
 sw.epilog:                                        ; preds = %while.end, %sw.bb45
-  %c.3 = phi i32 [ %c.0.lcssa, %while.end ], [ %sub82, %sw.bb45 ]
-  ret i32 %c.3
+  %c.1 = phi i32 [ %c.0.lcssa, %while.end ], [ %sub82, %sw.bb45 ]
+  ret i32 %c.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -332,17 +332,17 @@ while.cond113.preheader:                          ; preds = %if.else
 while.body115:                                    ; preds = %while.cond113.preheader, %while.body115
   %k112.0347 = phi ptr [ %add.ptr174, %while.body115 ], [ %key, %while.cond113.preheader ]
   %length.addr.1346 = phi i64 [ %sub173, %while.body115 ], [ %length, %while.cond113.preheader ]
-  %c.1345 = phi i32 [ %xor171, %while.body115 ], [ %add1, %while.cond113.preheader ]
-  %b.1344 = phi i32 [ %add172, %while.body115 ], [ %add1, %while.cond113.preheader ]
-  %a.1343 = phi i32 [ %add166, %while.body115 ], [ %add1, %while.cond113.preheader ]
+  %c.2345 = phi i32 [ %xor171, %while.body115 ], [ %add1, %while.cond113.preheader ]
+  %b.2344 = phi i32 [ %add172, %while.body115 ], [ %add1, %while.cond113.preheader ]
+  %a.2343 = phi i32 [ %add166, %while.body115 ], [ %add1, %while.cond113.preheader ]
   %28 = load i32, ptr %k112.0347, align 2
-  %add122 = add i32 %28, %a.1343
+  %add122 = add i32 %28, %a.2343
   %arrayidx123 = getelementptr inbounds i8, ptr %k112.0347, i64 4
   %29 = load i32, ptr %arrayidx123, align 2
-  %add129 = add i32 %29, %b.1344
+  %add129 = add i32 %29, %b.2344
   %arrayidx130 = getelementptr inbounds i8, ptr %k112.0347, i64 8
   %30 = load i32, ptr %arrayidx130, align 2
-  %add136 = add i32 %30, %c.1345
+  %add136 = add i32 %30, %c.2345
   %sub137 = sub i32 %add122, %add136
   %or140 = tail call i32 @llvm.fshl.i32(i32 %add136, i32 %add136, i32 4)
   %xor141 = xor i32 %sub137, %or140
@@ -373,9 +373,9 @@ while.body115:                                    ; preds = %while.cond113.prehe
   br i1 %cmp114, label %while.body115, label %while.end175, !llvm.loop !7
 
 while.end175:                                     ; preds = %while.body115, %while.cond113.preheader
-  %a.1.lcssa = phi i32 [ %add1, %while.cond113.preheader ], [ %add166, %while.body115 ]
-  %b.1.lcssa = phi i32 [ %add1, %while.cond113.preheader ], [ %add172, %while.body115 ]
-  %c.1.lcssa = phi i32 [ %add1, %while.cond113.preheader ], [ %xor171, %while.body115 ]
+  %a.2.lcssa = phi i32 [ %add1, %while.cond113.preheader ], [ %add166, %while.body115 ]
+  %b.2.lcssa = phi i32 [ %add1, %while.cond113.preheader ], [ %add172, %while.body115 ]
+  %c.2.lcssa = phi i32 [ %add1, %while.cond113.preheader ], [ %xor171, %while.body115 ]
   %length.addr.1.lcssa = phi i64 [ %length, %while.cond113.preheader ], [ %sub173, %while.body115 ]
   %k112.0.lcssa = phi ptr [ %key, %while.cond113.preheader ], [ %add.ptr174, %while.body115 ]
   switch i64 %length.addr.1.lcssa, label %default.unreachable [
@@ -397,12 +397,12 @@ while.end175:                                     ; preds = %while.body115, %whi
 sw.bb176:                                         ; preds = %while.end175
   %arrayidx177 = getelementptr inbounds i8, ptr %k112.0.lcssa, i64 8
   %31 = load i32, ptr %arrayidx177, align 2
-  %add183 = add i32 %31, %c.1.lcssa
+  %add183 = add i32 %31, %c.2.lcssa
   %arrayidx184 = getelementptr inbounds i8, ptr %k112.0.lcssa, i64 4
   %32 = load i32, ptr %arrayidx184, align 2
-  %add190 = add i32 %32, %b.1.lcssa
+  %add190 = add i32 %32, %b.2.lcssa
   %33 = load i32, ptr %k112.0.lcssa, align 2
-  %add197 = add i32 %33, %a.1.lcssa
+  %add197 = add i32 %33, %a.2.lcssa
   br label %if.end431
 
 sw.bb198:                                         ; preds = %while.end175
@@ -410,36 +410,36 @@ sw.bb198:                                         ; preds = %while.end175
   %34 = load i8, ptr %arrayidx199, align 1
   %conv200 = zext i8 %34 to i32
   %shl201 = shl nuw nsw i32 %conv200, 16
-  %add202 = add i32 %shl201, %c.1.lcssa
+  %add202 = add i32 %shl201, %c.2.lcssa
   br label %sw.bb203
 
 sw.bb203:                                         ; preds = %sw.bb198, %while.end175
-  %c.2 = phi i32 [ %c.1.lcssa, %while.end175 ], [ %add202, %sw.bb198 ]
+  %c.3 = phi i32 [ %c.2.lcssa, %while.end175 ], [ %add202, %sw.bb198 ]
   %arrayidx204 = getelementptr inbounds i8, ptr %k112.0.lcssa, i64 8
   %35 = load i16, ptr %arrayidx204, align 2
   %conv205 = zext i16 %35 to i32
-  %add206 = add i32 %c.2, %conv205
+  %add206 = add i32 %c.3, %conv205
   %arrayidx207 = getelementptr inbounds i8, ptr %k112.0.lcssa, i64 4
   %36 = load i32, ptr %arrayidx207, align 2
-  %add213 = add i32 %36, %b.1.lcssa
+  %add213 = add i32 %36, %b.2.lcssa
   %37 = load i32, ptr %k112.0.lcssa, align 2
-  %add220 = add i32 %37, %a.1.lcssa
+  %add220 = add i32 %37, %a.2.lcssa
   br label %if.end431
 
 sw.bb221:                                         ; preds = %while.end175
   %arrayidx222 = getelementptr inbounds i8, ptr %k112.0.lcssa, i64 8
   %38 = load i8, ptr %arrayidx222, align 1
   %conv223 = zext i8 %38 to i32
-  %add224 = add i32 %c.1.lcssa, %conv223
+  %add224 = add i32 %c.2.lcssa, %conv223
   br label %sw.bb225
 
 sw.bb225:                                         ; preds = %sw.bb221, %while.end175
-  %c.3 = phi i32 [ %c.1.lcssa, %while.end175 ], [ %add224, %sw.bb221 ]
+  %c.4 = phi i32 [ %c.2.lcssa, %while.end175 ], [ %add224, %sw.bb221 ]
   %arrayidx226 = getelementptr inbounds i8, ptr %k112.0.lcssa, i64 4
   %39 = load i32, ptr %arrayidx226, align 2
-  %add232 = add i32 %39, %b.1.lcssa
+  %add232 = add i32 %39, %b.2.lcssa
   %40 = load i32, ptr %k112.0.lcssa, align 2
-  %add239 = add i32 %40, %a.1.lcssa
+  %add239 = add i32 %40, %a.2.lcssa
   br label %if.end431
 
 sw.bb240:                                         ; preds = %while.end175
@@ -447,30 +447,30 @@ sw.bb240:                                         ; preds = %while.end175
   %41 = load i8, ptr %arrayidx241, align 1
   %conv242 = zext i8 %41 to i32
   %shl243 = shl nuw nsw i32 %conv242, 16
-  %add244 = add i32 %shl243, %b.1.lcssa
+  %add244 = add i32 %shl243, %b.2.lcssa
   br label %sw.bb245
 
 sw.bb245:                                         ; preds = %sw.bb240, %while.end175
-  %b.2 = phi i32 [ %b.1.lcssa, %while.end175 ], [ %add244, %sw.bb240 ]
+  %b.3 = phi i32 [ %b.2.lcssa, %while.end175 ], [ %add244, %sw.bb240 ]
   %arrayidx246 = getelementptr inbounds i8, ptr %k112.0.lcssa, i64 4
   %42 = load i16, ptr %arrayidx246, align 2
   %conv247 = zext i16 %42 to i32
-  %add248 = add i32 %b.2, %conv247
+  %add248 = add i32 %b.3, %conv247
   %43 = load i32, ptr %k112.0.lcssa, align 2
-  %add255 = add i32 %43, %a.1.lcssa
+  %add255 = add i32 %43, %a.2.lcssa
   br label %if.end431
 
 sw.bb256:                                         ; preds = %while.end175
   %arrayidx257 = getelementptr inbounds i8, ptr %k112.0.lcssa, i64 4
   %44 = load i8, ptr %arrayidx257, align 1
   %conv258 = zext i8 %44 to i32
-  %add259 = add i32 %b.1.lcssa, %conv258
+  %add259 = add i32 %b.2.lcssa, %conv258
   br label %sw.bb260
 
 sw.bb260:                                         ; preds = %sw.bb256, %while.end175
-  %b.3 = phi i32 [ %b.1.lcssa, %while.end175 ], [ %add259, %sw.bb256 ]
+  %b.4 = phi i32 [ %b.2.lcssa, %while.end175 ], [ %add259, %sw.bb256 ]
   %45 = load i32, ptr %k112.0.lcssa, align 2
-  %add267 = add i32 %45, %a.1.lcssa
+  %add267 = add i32 %45, %a.2.lcssa
   br label %if.end431
 
 sw.bb268:                                         ; preds = %while.end175
@@ -478,31 +478,31 @@ sw.bb268:                                         ; preds = %while.end175
   %46 = load i8, ptr %arrayidx269, align 1
   %conv270 = zext i8 %46 to i32
   %shl271 = shl nuw nsw i32 %conv270, 16
-  %add272 = add i32 %shl271, %a.1.lcssa
+  %add272 = add i32 %shl271, %a.2.lcssa
   br label %sw.bb273
 
 sw.bb273:                                         ; preds = %sw.bb268, %while.end175
-  %a.2 = phi i32 [ %a.1.lcssa, %while.end175 ], [ %add272, %sw.bb268 ]
+  %a.3 = phi i32 [ %a.2.lcssa, %while.end175 ], [ %add272, %sw.bb268 ]
   %47 = load i16, ptr %k112.0.lcssa, align 2
   %conv275 = zext i16 %47 to i32
-  %add276 = add i32 %a.2, %conv275
+  %add276 = add i32 %a.3, %conv275
   br label %if.end431
 
 sw.bb277:                                         ; preds = %while.end175
   %48 = load i8, ptr %k112.0.lcssa, align 1
   %conv279 = zext i8 %48 to i32
-  %add280 = add i32 %a.1.lcssa, %conv279
+  %add280 = add i32 %a.2.lcssa, %conv279
   br label %if.end431
 
 while.body287:                                    ; preds = %while.cond285.preheader, %while.body287
   %k284.0337 = phi ptr [ %add.ptr370, %while.body287 ], [ %key, %while.cond285.preheader ]
   %length.addr.2336 = phi i64 [ %sub369, %while.body287 ], [ %length, %while.cond285.preheader ]
-  %c.4335 = phi i32 [ %xor367, %while.body287 ], [ %add1, %while.cond285.preheader ]
-  %b.4334 = phi i32 [ %add368, %while.body287 ], [ %add1, %while.cond285.preheader ]
-  %a.3333 = phi i32 [ %add362, %while.body287 ], [ %add1, %while.cond285.preheader ]
+  %c.5335 = phi i32 [ %xor367, %while.body287 ], [ %add1, %while.cond285.preheader ]
+  %b.5334 = phi i32 [ %add368, %while.body287 ], [ %add1, %while.cond285.preheader ]
+  %a.4333 = phi i32 [ %add362, %while.body287 ], [ %add1, %while.cond285.preheader ]
   %49 = load i8, ptr %k284.0337, align 1
   %conv289 = zext i8 %49 to i32
-  %add290 = add i32 %a.3333, %conv289
+  %add290 = add i32 %a.4333, %conv289
   %arrayidx291 = getelementptr inbounds i8, ptr %k284.0337, i64 1
   %50 = load i8, ptr %arrayidx291, align 1
   %conv292 = zext i8 %50 to i32
@@ -521,7 +521,7 @@ while.body287:                                    ; preds = %while.cond285.prehe
   %arrayidx303 = getelementptr inbounds i8, ptr %k284.0337, i64 4
   %53 = load i8, ptr %arrayidx303, align 1
   %conv304 = zext i8 %53 to i32
-  %add305 = add i32 %b.4334, %conv304
+  %add305 = add i32 %b.5334, %conv304
   %arrayidx306 = getelementptr inbounds i8, ptr %k284.0337, i64 5
   %54 = load i8, ptr %arrayidx306, align 1
   %conv307 = zext i8 %54 to i32
@@ -540,7 +540,7 @@ while.body287:                                    ; preds = %while.cond285.prehe
   %arrayidx318 = getelementptr inbounds i8, ptr %k284.0337, i64 8
   %57 = load i8, ptr %arrayidx318, align 1
   %conv319 = zext i8 %57 to i32
-  %add320 = add i32 %c.4335, %conv319
+  %add320 = add i32 %c.5335, %conv319
   %arrayidx321 = getelementptr inbounds i8, ptr %k284.0337, i64 9
   %58 = load i8, ptr %arrayidx321, align 1
   %conv322 = zext i8 %58 to i32
@@ -586,9 +586,9 @@ while.body287:                                    ; preds = %while.cond285.prehe
   br i1 %cmp286, label %while.body287, label %while.end371, !llvm.loop !8
 
 while.end371:                                     ; preds = %while.body287, %while.cond285.preheader
-  %a.3.lcssa = phi i32 [ %add1, %while.cond285.preheader ], [ %add362, %while.body287 ]
-  %b.4.lcssa = phi i32 [ %add1, %while.cond285.preheader ], [ %add368, %while.body287 ]
-  %c.4.lcssa = phi i32 [ %add1, %while.cond285.preheader ], [ %xor367, %while.body287 ]
+  %a.4.lcssa = phi i32 [ %add1, %while.cond285.preheader ], [ %add362, %while.body287 ]
+  %b.5.lcssa = phi i32 [ %add1, %while.cond285.preheader ], [ %add368, %while.body287 ]
+  %c.5.lcssa = phi i32 [ %add1, %while.cond285.preheader ], [ %xor367, %while.body287 ]
   %length.addr.2.lcssa = phi i64 [ %length, %while.cond285.preheader ], [ %sub369, %while.body287 ]
   %k284.0.lcssa = phi ptr [ %key, %while.cond285.preheader ], [ %add.ptr370, %while.body287 ]
   switch i64 %length.addr.2.lcssa, label %default.unreachable [
@@ -612,128 +612,128 @@ sw.bb372:                                         ; preds = %while.end371
   %61 = load i8, ptr %arrayidx373, align 1
   %conv374 = zext i8 %61 to i32
   %shl375 = shl nuw i32 %conv374, 24
-  %add376 = add i32 %shl375, %c.4.lcssa
+  %add376 = add i32 %shl375, %c.5.lcssa
   br label %sw.bb377
 
 sw.bb377:                                         ; preds = %sw.bb372, %while.end371
-  %c.5 = phi i32 [ %c.4.lcssa, %while.end371 ], [ %add376, %sw.bb372 ]
+  %c.6 = phi i32 [ %c.5.lcssa, %while.end371 ], [ %add376, %sw.bb372 ]
   %arrayidx378 = getelementptr inbounds i8, ptr %k284.0.lcssa, i64 10
   %62 = load i8, ptr %arrayidx378, align 1
   %conv379 = zext i8 %62 to i32
   %shl380 = shl nuw nsw i32 %conv379, 16
-  %add381 = add i32 %shl380, %c.5
+  %add381 = add i32 %shl380, %c.6
   br label %sw.bb382
 
 sw.bb382:                                         ; preds = %sw.bb377, %while.end371
-  %c.6 = phi i32 [ %c.4.lcssa, %while.end371 ], [ %add381, %sw.bb377 ]
+  %c.7 = phi i32 [ %c.5.lcssa, %while.end371 ], [ %add381, %sw.bb377 ]
   %arrayidx383 = getelementptr inbounds i8, ptr %k284.0.lcssa, i64 9
   %63 = load i8, ptr %arrayidx383, align 1
   %conv384 = zext i8 %63 to i32
   %shl385 = shl nuw nsw i32 %conv384, 8
-  %add386 = add i32 %shl385, %c.6
+  %add386 = add i32 %shl385, %c.7
   br label %sw.bb387
 
 sw.bb387:                                         ; preds = %sw.bb382, %while.end371
-  %c.7 = phi i32 [ %c.4.lcssa, %while.end371 ], [ %add386, %sw.bb382 ]
+  %c.8 = phi i32 [ %c.5.lcssa, %while.end371 ], [ %add386, %sw.bb382 ]
   %arrayidx388 = getelementptr inbounds i8, ptr %k284.0.lcssa, i64 8
   %64 = load i8, ptr %arrayidx388, align 1
   %conv389 = zext i8 %64 to i32
-  %add390 = add i32 %c.7, %conv389
+  %add390 = add i32 %c.8, %conv389
   br label %sw.bb391
 
 sw.bb391:                                         ; preds = %sw.bb387, %while.end371
-  %c.8 = phi i32 [ %c.4.lcssa, %while.end371 ], [ %add390, %sw.bb387 ]
+  %c.9 = phi i32 [ %c.5.lcssa, %while.end371 ], [ %add390, %sw.bb387 ]
   %arrayidx392 = getelementptr inbounds i8, ptr %k284.0.lcssa, i64 7
   %65 = load i8, ptr %arrayidx392, align 1
   %conv393 = zext i8 %65 to i32
   %shl394 = shl nuw i32 %conv393, 24
-  %add395 = add i32 %shl394, %b.4.lcssa
+  %add395 = add i32 %shl394, %b.5.lcssa
   br label %sw.bb396
 
 sw.bb396:                                         ; preds = %sw.bb391, %while.end371
-  %b.5 = phi i32 [ %b.4.lcssa, %while.end371 ], [ %add395, %sw.bb391 ]
-  %c.9 = phi i32 [ %c.4.lcssa, %while.end371 ], [ %c.8, %sw.bb391 ]
+  %b.6 = phi i32 [ %b.5.lcssa, %while.end371 ], [ %add395, %sw.bb391 ]
+  %c.10 = phi i32 [ %c.5.lcssa, %while.end371 ], [ %c.9, %sw.bb391 ]
   %arrayidx397 = getelementptr inbounds i8, ptr %k284.0.lcssa, i64 6
   %66 = load i8, ptr %arrayidx397, align 1
   %conv398 = zext i8 %66 to i32
   %shl399 = shl nuw nsw i32 %conv398, 16
-  %add400 = add i32 %shl399, %b.5
+  %add400 = add i32 %shl399, %b.6
   br label %sw.bb401
 
 sw.bb401:                                         ; preds = %sw.bb396, %while.end371
-  %b.6 = phi i32 [ %b.4.lcssa, %while.end371 ], [ %add400, %sw.bb396 ]
-  %c.10 = phi i32 [ %c.4.lcssa, %while.end371 ], [ %c.9, %sw.bb396 ]
+  %b.7 = phi i32 [ %b.5.lcssa, %while.end371 ], [ %add400, %sw.bb396 ]
+  %c.11 = phi i32 [ %c.5.lcssa, %while.end371 ], [ %c.10, %sw.bb396 ]
   %arrayidx402 = getelementptr inbounds i8, ptr %k284.0.lcssa, i64 5
   %67 = load i8, ptr %arrayidx402, align 1
   %conv403 = zext i8 %67 to i32
   %shl404 = shl nuw nsw i32 %conv403, 8
-  %add405 = add i32 %shl404, %b.6
+  %add405 = add i32 %shl404, %b.7
   br label %sw.bb406
 
 sw.bb406:                                         ; preds = %sw.bb401, %while.end371
-  %b.7 = phi i32 [ %b.4.lcssa, %while.end371 ], [ %add405, %sw.bb401 ]
-  %c.11 = phi i32 [ %c.4.lcssa, %while.end371 ], [ %c.10, %sw.bb401 ]
+  %b.8 = phi i32 [ %b.5.lcssa, %while.end371 ], [ %add405, %sw.bb401 ]
+  %c.12 = phi i32 [ %c.5.lcssa, %while.end371 ], [ %c.11, %sw.bb401 ]
   %arrayidx407 = getelementptr inbounds i8, ptr %k284.0.lcssa, i64 4
   %68 = load i8, ptr %arrayidx407, align 1
   %conv408 = zext i8 %68 to i32
-  %add409 = add i32 %b.7, %conv408
+  %add409 = add i32 %b.8, %conv408
   br label %sw.bb410
 
 sw.bb410:                                         ; preds = %sw.bb406, %while.end371
-  %b.8 = phi i32 [ %b.4.lcssa, %while.end371 ], [ %add409, %sw.bb406 ]
-  %c.12 = phi i32 [ %c.4.lcssa, %while.end371 ], [ %c.11, %sw.bb406 ]
+  %b.9 = phi i32 [ %b.5.lcssa, %while.end371 ], [ %add409, %sw.bb406 ]
+  %c.13 = phi i32 [ %c.5.lcssa, %while.end371 ], [ %c.12, %sw.bb406 ]
   %arrayidx411 = getelementptr inbounds i8, ptr %k284.0.lcssa, i64 3
   %69 = load i8, ptr %arrayidx411, align 1
   %conv412 = zext i8 %69 to i32
   %shl413 = shl nuw i32 %conv412, 24
-  %add414 = add i32 %shl413, %a.3.lcssa
+  %add414 = add i32 %shl413, %a.4.lcssa
   br label %sw.bb415
 
 sw.bb415:                                         ; preds = %sw.bb410, %while.end371
-  %a.4 = phi i32 [ %a.3.lcssa, %while.end371 ], [ %add414, %sw.bb410 ]
-  %b.9 = phi i32 [ %b.4.lcssa, %while.end371 ], [ %b.8, %sw.bb410 ]
-  %c.13 = phi i32 [ %c.4.lcssa, %while.end371 ], [ %c.12, %sw.bb410 ]
+  %a.5 = phi i32 [ %a.4.lcssa, %while.end371 ], [ %add414, %sw.bb410 ]
+  %b.10 = phi i32 [ %b.5.lcssa, %while.end371 ], [ %b.9, %sw.bb410 ]
+  %c.14 = phi i32 [ %c.5.lcssa, %while.end371 ], [ %c.13, %sw.bb410 ]
   %arrayidx416 = getelementptr inbounds i8, ptr %k284.0.lcssa, i64 2
   %70 = load i8, ptr %arrayidx416, align 1
   %conv417 = zext i8 %70 to i32
   %shl418 = shl nuw nsw i32 %conv417, 16
-  %add419 = add i32 %shl418, %a.4
+  %add419 = add i32 %shl418, %a.5
   br label %sw.bb420
 
 sw.bb420:                                         ; preds = %sw.bb415, %while.end371
-  %a.5 = phi i32 [ %a.3.lcssa, %while.end371 ], [ %add419, %sw.bb415 ]
-  %b.10 = phi i32 [ %b.4.lcssa, %while.end371 ], [ %b.9, %sw.bb415 ]
-  %c.14 = phi i32 [ %c.4.lcssa, %while.end371 ], [ %c.13, %sw.bb415 ]
+  %a.6 = phi i32 [ %a.4.lcssa, %while.end371 ], [ %add419, %sw.bb415 ]
+  %b.11 = phi i32 [ %b.5.lcssa, %while.end371 ], [ %b.10, %sw.bb415 ]
+  %c.15 = phi i32 [ %c.5.lcssa, %while.end371 ], [ %c.14, %sw.bb415 ]
   %arrayidx421 = getelementptr inbounds i8, ptr %k284.0.lcssa, i64 1
   %71 = load i8, ptr %arrayidx421, align 1
   %conv422 = zext i8 %71 to i32
   %shl423 = shl nuw nsw i32 %conv422, 8
-  %add424 = add i32 %shl423, %a.5
+  %add424 = add i32 %shl423, %a.6
   br label %sw.bb425
 
 sw.bb425:                                         ; preds = %sw.bb420, %while.end371
-  %a.6 = phi i32 [ %a.3.lcssa, %while.end371 ], [ %add424, %sw.bb420 ]
-  %b.11 = phi i32 [ %b.4.lcssa, %while.end371 ], [ %b.10, %sw.bb420 ]
-  %c.15 = phi i32 [ %c.4.lcssa, %while.end371 ], [ %c.14, %sw.bb420 ]
+  %a.7 = phi i32 [ %a.4.lcssa, %while.end371 ], [ %add424, %sw.bb420 ]
+  %b.12 = phi i32 [ %b.5.lcssa, %while.end371 ], [ %b.11, %sw.bb420 ]
+  %c.16 = phi i32 [ %c.5.lcssa, %while.end371 ], [ %c.15, %sw.bb420 ]
   %72 = load i8, ptr %k284.0.lcssa, align 1
   %conv427 = zext i8 %72 to i32
-  %add428 = add i32 %a.6, %conv427
+  %add428 = add i32 %a.7, %conv427
   br label %if.end431
 
 default.unreachable:                              ; preds = %while.end371, %while.end175, %while.end
   unreachable
 
 if.end431:                                        ; preds = %sw.bb277, %sw.bb273, %sw.bb260, %sw.bb245, %sw.bb225, %sw.bb203, %sw.bb176, %sw.bb425, %sw.bb, %sw.bb46, %sw.bb54, %sw.bb62, %sw.bb70, %sw.bb75, %sw.bb81, %sw.bb87, %sw.bb93, %sw.bb96, %sw.bb100, %sw.bb104
-  %a.7 = phi i32 [ %add107, %sw.bb104 ], [ %add103, %sw.bb100 ], [ %add99, %sw.bb96 ], [ %add95, %sw.bb93 ], [ %add92, %sw.bb87 ], [ %add86, %sw.bb81 ], [ %add80, %sw.bb75 ], [ %add74, %sw.bb70 ], [ %add69, %sw.bb62 ], [ %add61, %sw.bb54 ], [ %add53, %sw.bb46 ], [ %add45, %sw.bb ], [ %add280, %sw.bb277 ], [ %add276, %sw.bb273 ], [ %add267, %sw.bb260 ], [ %add255, %sw.bb245 ], [ %add239, %sw.bb225 ], [ %add220, %sw.bb203 ], [ %add197, %sw.bb176 ], [ %add428, %sw.bb425 ]
-  %b.12 = phi i32 [ %b.0.lcssa, %sw.bb104 ], [ %b.0.lcssa, %sw.bb100 ], [ %b.0.lcssa, %sw.bb96 ], [ %b.0.lcssa, %sw.bb93 ], [ %add90, %sw.bb87 ], [ %add84, %sw.bb81 ], [ %add78, %sw.bb75 ], [ %add72, %sw.bb70 ], [ %add67, %sw.bb62 ], [ %add59, %sw.bb54 ], [ %add51, %sw.bb46 ], [ %add43, %sw.bb ], [ %b.1.lcssa, %sw.bb277 ], [ %b.1.lcssa, %sw.bb273 ], [ %b.3, %sw.bb260 ], [ %add248, %sw.bb245 ], [ %add232, %sw.bb225 ], [ %add213, %sw.bb203 ], [ %add190, %sw.bb176 ], [ %b.11, %sw.bb425 ]
-  %c.16 = phi i32 [ %c.0.lcssa, %sw.bb104 ], [ %c.0.lcssa, %sw.bb100 ], [ %c.0.lcssa, %sw.bb96 ], [ %c.0.lcssa, %sw.bb93 ], [ %c.0.lcssa, %sw.bb87 ], [ %c.0.lcssa, %sw.bb81 ], [ %c.0.lcssa, %sw.bb75 ], [ %c.0.lcssa, %sw.bb70 ], [ %add65, %sw.bb62 ], [ %add57, %sw.bb54 ], [ %add49, %sw.bb46 ], [ %add41, %sw.bb ], [ %c.1.lcssa, %sw.bb277 ], [ %c.1.lcssa, %sw.bb273 ], [ %c.1.lcssa, %sw.bb260 ], [ %c.1.lcssa, %sw.bb245 ], [ %c.3, %sw.bb225 ], [ %add206, %sw.bb203 ], [ %add183, %sw.bb176 ], [ %c.15, %sw.bb425 ]
-  %xor432 = xor i32 %c.16, %b.12
-  %or435 = tail call i32 @llvm.fshl.i32(i32 %b.12, i32 %b.12, i32 14)
+  %a.1 = phi i32 [ %add107, %sw.bb104 ], [ %add103, %sw.bb100 ], [ %add99, %sw.bb96 ], [ %add95, %sw.bb93 ], [ %add92, %sw.bb87 ], [ %add86, %sw.bb81 ], [ %add80, %sw.bb75 ], [ %add74, %sw.bb70 ], [ %add69, %sw.bb62 ], [ %add61, %sw.bb54 ], [ %add53, %sw.bb46 ], [ %add45, %sw.bb ], [ %add280, %sw.bb277 ], [ %add276, %sw.bb273 ], [ %add267, %sw.bb260 ], [ %add255, %sw.bb245 ], [ %add239, %sw.bb225 ], [ %add220, %sw.bb203 ], [ %add197, %sw.bb176 ], [ %add428, %sw.bb425 ]
+  %b.1 = phi i32 [ %b.0.lcssa, %sw.bb104 ], [ %b.0.lcssa, %sw.bb100 ], [ %b.0.lcssa, %sw.bb96 ], [ %b.0.lcssa, %sw.bb93 ], [ %add90, %sw.bb87 ], [ %add84, %sw.bb81 ], [ %add78, %sw.bb75 ], [ %add72, %sw.bb70 ], [ %add67, %sw.bb62 ], [ %add59, %sw.bb54 ], [ %add51, %sw.bb46 ], [ %add43, %sw.bb ], [ %b.2.lcssa, %sw.bb277 ], [ %b.2.lcssa, %sw.bb273 ], [ %b.4, %sw.bb260 ], [ %add248, %sw.bb245 ], [ %add232, %sw.bb225 ], [ %add213, %sw.bb203 ], [ %add190, %sw.bb176 ], [ %b.12, %sw.bb425 ]
+  %c.1 = phi i32 [ %c.0.lcssa, %sw.bb104 ], [ %c.0.lcssa, %sw.bb100 ], [ %c.0.lcssa, %sw.bb96 ], [ %c.0.lcssa, %sw.bb93 ], [ %c.0.lcssa, %sw.bb87 ], [ %c.0.lcssa, %sw.bb81 ], [ %c.0.lcssa, %sw.bb75 ], [ %c.0.lcssa, %sw.bb70 ], [ %add65, %sw.bb62 ], [ %add57, %sw.bb54 ], [ %add49, %sw.bb46 ], [ %add41, %sw.bb ], [ %c.2.lcssa, %sw.bb277 ], [ %c.2.lcssa, %sw.bb273 ], [ %c.2.lcssa, %sw.bb260 ], [ %c.2.lcssa, %sw.bb245 ], [ %c.4, %sw.bb225 ], [ %add206, %sw.bb203 ], [ %add183, %sw.bb176 ], [ %c.16, %sw.bb425 ]
+  %xor432 = xor i32 %c.1, %b.1
+  %or435 = tail call i32 @llvm.fshl.i32(i32 %b.1, i32 %b.1, i32 14)
   %sub436 = sub i32 %xor432, %or435
-  %xor437 = xor i32 %sub436, %a.7
+  %xor437 = xor i32 %sub436, %a.1
   %or440 = tail call i32 @llvm.fshl.i32(i32 %sub436, i32 %sub436, i32 11)
   %sub441 = sub i32 %xor437, %or440
-  %xor442 = xor i32 %sub441, %b.12
+  %xor442 = xor i32 %sub441, %b.1
   %or445 = tail call i32 @llvm.fshl.i32(i32 %sub441, i32 %sub441, i32 25)
   %sub446 = sub i32 %xor442, %or445
   %xor447 = xor i32 %sub446, %sub436
@@ -751,7 +751,7 @@ if.end431:                                        ; preds = %sw.bb277, %sw.bb273
   br label %return
 
 return:                                           ; preds = %while.end371, %while.end175, %while.end, %if.end431
-  %retval.0 = phi i32 [ %sub466, %if.end431 ], [ %c.0.lcssa, %while.end ], [ %c.1.lcssa, %while.end175 ], [ %c.4.lcssa, %while.end371 ]
+  %retval.0 = phi i32 [ %sub466, %if.end431 ], [ %c.0.lcssa, %while.end ], [ %c.2.lcssa, %while.end175 ], [ %c.5.lcssa, %while.end371 ]
   ret i32 %retval.0
 }
 

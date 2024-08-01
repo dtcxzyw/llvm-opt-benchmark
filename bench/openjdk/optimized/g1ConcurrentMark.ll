@@ -1221,8 +1221,8 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.e
   br label %.loopexit.sink.split
 
 .lr.ph.preheader:                                 ; preds = %24, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread22
-  %.sroa.0.11529 = inttoptr i64 %31 to ptr
-  tail call void @_ZN8G1CMTask23process_grey_task_entryILb1EEEv16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr %.sroa.0.11529)
+  %.sroa.0.01529 = inttoptr i64 %31 to ptr
+  tail call void @_ZN8G1CMTask23process_grey_task_entryILb1EEEv16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr %.sroa.0.01529)
   %43 = load ptr, ptr %8, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 128
   %45 = load volatile i32, ptr %44, align 4
@@ -1294,8 +1294,8 @@ _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEj
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %61, %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE14pop_local_slowEjN14TaskQueueSuperILj131072ELS1_5EE3AgeE.exit.i11
-  %.sroa.0.115 = inttoptr i64 %68 to ptr
-  tail call void @_ZN8G1CMTask23process_grey_task_entryILb1EEEv16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr %.sroa.0.115)
+  %.sroa.0.015 = inttoptr i64 %68 to ptr
+  tail call void @_ZN8G1CMTask23process_grey_task_entryILb1EEEv16G1TaskQueueEntry(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr %.sroa.0.015)
   %80 = load ptr, ptr %8, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 128
   %82 = load volatile i32, ptr %81, align 4
@@ -1713,8 +1713,8 @@ define hidden noundef ptr @_ZN13G1CMMarkStack14ChunkAllocator18allocate_new_chun
 6:                                                ; preds = %1
   %7 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %2) #22, !srcloc !15
   %8 = load i64, ptr %4, align 8
-  %.not14 = icmp ult i64 %7, %8
-  br i1 %.not14, label %9, label %53
+  %.not15 = icmp ult i64 %7, %8
+  br i1 %.not15, label %9, label %53
 
 9:                                                ; preds = %6
   %10 = load i64, ptr %0, align 8
@@ -1800,8 +1800,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %40, %41
   br label %53
 
 53:                                               ; preds = %_ZN11MutexLockerD2Ev.exit, %22, %6, %1, %42
-  %.1 = phi ptr [ null, %_ZN11MutexLockerD2Ev.exit ], [ %52, %42 ], [ null, %1 ], [ null, %6 ], [ null, %22 ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %_ZN11MutexLockerD2Ev.exit ], [ %52, %42 ], [ null, %1 ], [ null, %6 ], [ null, %22 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9429,9 +9429,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN10G1CMBitMap7iterateEP17G1CMBi
   br label %43
 
 43:                                               ; preds = %41, %30
-  %.1.ph.i.i = phi i64 [ %28, %30 ], [ %40, %41 ]
+  %.027.ph.i.i = phi i64 [ %28, %30 ], [ %40, %41 ]
   %.026.ph.i.i = phi i64 [ %20, %30 ], [ %42, %41 ]
-  %44 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %44 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %45 = add nuw i64 %.026.ph.i.i, %44
   %46 = icmp ult i64 %45, %15
   br i1 %46, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %._crit_edge
@@ -9576,9 +9576,9 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %77, %80, %87, %107
   br label %134
 
 134:                                              ; preds = %132, %125
-  %.1.ph.i.i18 = phi i64 [ %123, %125 ], [ %131, %132 ]
+  %.027.ph.i.i18 = phi i64 [ %123, %125 ], [ %131, %132 ]
   %.026.ph.i.i19 = phi i64 [ %115, %125 ], [ %133, %132 ]
-  %135 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i18, i1 true)
+  %135 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i18, i1 true)
   %136 = add i64 %.026.ph.i.i19, %135
   %137 = icmp ult i64 %136, %15
   br i1 %137, label %_ZNK6BitMap18find_first_set_bitEmm.exit22, label %._crit_edge
@@ -15731,9 +15731,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop14G1CMOopClosureEEEbPT_mm.exit
@@ -15974,9 +15974,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %46
 
 46:                                               ; preds = %44, %37
-  %.1.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
+  %.027.ph.i.i.i.i = phi i64 [ %35, %37 ], [ %43, %44 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %37 ], [ %45, %44 ]
-  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %47 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %48 = add i64 %.026.ph.i.i.i.i, %47
   %49 = icmp ult i64 %48, %25
   br i1 %49, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc14G1CMOopClosureEEEbPT_mm.exit
@@ -21198,9 +21198,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %47
 
 47:                                               ; preds = %45, %38
-  %.1.ph.i.i.i.i = phi i64 [ %36, %38 ], [ %44, %45 ]
+  %.027.ph.i.i.i.i = phi i64 [ %36, %38 ], [ %44, %45 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %38 ], [ %46, %45 ]
-  %48 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %48 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %49 = add i64 %.026.ph.i.i.i.i, %48
   %50 = icmp ult i64 %49, %25
   br i1 %50, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureI9narrowOop23G1RootRegionScanClosureEEEbPT_mm.exit
@@ -21433,9 +21433,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %47
 
 47:                                               ; preds = %45, %38
-  %.1.ph.i.i.i.i = phi i64 [ %36, %38 ], [ %44, %45 ]
+  %.027.ph.i.i.i.i = phi i64 [ %36, %38 ], [ %44, %45 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %38 ], [ %46, %45 ]
-  %48 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %48 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %49 = add i64 %.026.ph.i.i.i.i, %48
   %50 = icmp ult i64 %49, %25
   br i1 %50, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc23G1RootRegionScanClosureEEEbPT_mm.exit
@@ -21915,7 +21915,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI16GenericTaskQu
 
 .loopexit:                                        ; preds = %.preheader, %12
   %.pre62 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
-  %.1 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
+  %.034 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
   %26 = getelementptr inbounds i8, ptr %8, i64 516
   br label %27
 
@@ -21933,13 +21933,13 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI16GenericTaskQu
   %35 = load i32, ptr %9, align 8
   %36 = urem i32 %.0.i.i41, %35
   %37 = icmp eq i32 %36, %1
-  %38 = icmp eq i32 %36, %.1
+  %38 = icmp eq i32 %36, %.034
   %39 = or i1 %37, %38
   br i1 %39, label %27, label %40, !llvm.loop !139
 
 40:                                               ; preds = %27
   %41 = load ptr, ptr %4, align 8
-  %42 = zext i32 %.1 to i64
+  %42 = zext i32 %.034 to i64
   %43 = getelementptr inbounds ptr, ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 128
@@ -22033,7 +22033,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI16GenericTaskQu
   br i1 %99, label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, label %100
 
 _ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit: ; preds = %88, %70
-  %.036 = phi i32 [ %36, %70 ], [ %.1, %88 ]
+  %.036 = phi i32 [ %36, %70 ], [ %.034, %88 ]
   store i32 %.036, ptr %13, align 8
   br label %_ZN16GenericTaskQueueI16G1TaskQueueEntryL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
 

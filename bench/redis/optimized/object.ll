@@ -4018,7 +4018,7 @@ if.end363:                                        ; preds = %while.end353.thread
   br label %if.end373
 
 if.end373:                                        ; preds = %if.end363, %if.then357
-  %asize.0 = phi i64 [ %add358, %if.then357 ], [ %add372, %if.end363 ]
+  %asize.1 = phi i64 [ %add358, %if.then357 ], [ %add372, %if.end363 ]
   call void @raxStop(ptr noundef nonnull %ri) #17
   %cgroups = getelementptr inbounds i8, ptr %46, i64 72
   %57 = load ptr, ptr %cgroups, align 8
@@ -4038,7 +4038,7 @@ while.body381.lr.ph:                              ; preds = %if.then375
   br label %while.body381
 
 while.body381:                                    ; preds = %while.body381.lr.ph, %while.end402
-  %asize.1143 = phi i64 [ %asize.0, %while.body381.lr.ph ], [ %asize.2.lcssa, %while.end402 ]
+  %asize.2143 = phi i64 [ %asize.1, %while.body381.lr.ph ], [ %asize.3.lcssa, %while.end402 ]
   %58 = load ptr, ptr %data382, align 8
   %pel = getelementptr inbounds i8, ptr %58, i64 24
   %59 = load ptr, ptr %pel, align 8
@@ -4050,7 +4050,7 @@ while.body381:                                    ; preds = %while.body381.lr.ph
   %reass.mul.i124 = mul i64 %61, 244
   %call387 = call i64 @raxSize(ptr noundef %59) #17
   %mul388 = mul i64 %call387, 24
-  %add5.i125 = add i64 %asize.1143, 40
+  %add5.i125 = add i64 %asize.2143, 40
   %add383 = add i64 %add5.i125, %mul.i122
   %add385 = add i64 %add383, %reass.mul.i124
   %add389 = add i64 %add385, %mul388
@@ -4063,7 +4063,7 @@ while.body381:                                    ; preds = %while.body381.lr.ph
   br i1 %tobool393.not138, label %while.end402, label %while.body394
 
 while.body394:                                    ; preds = %while.body381, %sdslen.exit
-  %asize.2139 = phi i64 [ %add401, %sdslen.exit ], [ %add389, %while.body381 ]
+  %asize.3139 = phi i64 [ %add401, %sdslen.exit ], [ %add389, %while.body381 ]
   %63 = load ptr, ptr %data395, align 8
   %name = getelementptr inbounds i8, ptr %63, i64 16
   %64 = load ptr, ptr %name, align 8
@@ -4117,7 +4117,7 @@ sdslen.exit:                                      ; preds = %while.body394, %sw.
   %numnodes.i128 = getelementptr inbounds i8, ptr %70, i64 16
   %72 = load i64, ptr %numnodes.i128, align 8
   %reass.mul.i129 = mul i64 %72, 244
-  %add5.i130 = add i64 %asize.2139, 32
+  %add5.i130 = add i64 %asize.3139, 32
   %add396 = add i64 %add5.i130, %retval.0.i
   %add398 = add i64 %add396, %mul.i127
   %add401 = add i64 %add398, %reass.mul.i129
@@ -4126,14 +4126,14 @@ sdslen.exit:                                      ; preds = %while.body394, %sw.
   br i1 %tobool393.not, label %while.end402, label %while.body394, !llvm.loop !16
 
 while.end402:                                     ; preds = %sdslen.exit, %while.body381
-  %asize.2.lcssa = phi i64 [ %add389, %while.body381 ], [ %add401, %sdslen.exit ]
+  %asize.3.lcssa = phi i64 [ %add389, %while.body381 ], [ %add401, %sdslen.exit ]
   call void @raxStop(ptr noundef nonnull %cri) #17
   %call379 = call i32 @raxNext(ptr noundef nonnull %ri) #17
   %tobool380.not = icmp eq i32 %call379, 0
   br i1 %tobool380.not, label %while.end403, label %while.body381, !llvm.loop !17
 
 while.end403:                                     ; preds = %while.end402, %if.then375
-  %asize.1.lcssa = phi i64 [ %asize.0, %if.then375 ], [ %asize.2.lcssa, %while.end402 ]
+  %asize.2.lcssa = phi i64 [ %asize.1, %if.then375 ], [ %asize.3.lcssa, %while.end402 ]
   call void @raxStop(ptr noundef nonnull %ri) #17
   br label %if.end419
 
@@ -4147,8 +4147,8 @@ if.else412:                                       ; preds = %entry
   unreachable
 
 if.end419:                                        ; preds = %if.then161, %while.end311.thread, %while.end.thread, %if.then, %if.then46, %do.end, %if.then221, %if.then151, %if.then410, %while.end403, %if.end373, %if.then249, %if.then313, %if.then103, %if.then132, %if.then122, %if.then15, %if.then9
-  %asize.3 = phi i64 [ %add, %if.then9 ], [ %call16, %if.then15 ], [ %conv39, %do.end ], [ %add49, %if.then46 ], [ %conv114, %if.then103 ], [ %add125, %if.then122 ], [ %add135, %if.then132 ], [ %add154, %if.then151 ], [ %conv233, %if.then221 ], [ %add252, %if.then249 ], [ %conv325, %if.then313 ], [ %asize.1.lcssa, %while.end403 ], [ %asize.0, %if.end373 ], [ %call411, %if.then410 ], [ 16, %if.then ], [ %add88, %while.end.thread ], [ %add292, %while.end311.thread ], [ %add199, %if.then161 ]
-  ret i64 %asize.3
+  %asize.0 = phi i64 [ %add, %if.then9 ], [ %call16, %if.then15 ], [ %conv39, %do.end ], [ %add49, %if.then46 ], [ %conv114, %if.then103 ], [ %add125, %if.then122 ], [ %add135, %if.then132 ], [ %add154, %if.then151 ], [ %conv233, %if.then221 ], [ %add252, %if.then249 ], [ %conv325, %if.then313 ], [ %asize.2.lcssa, %while.end403 ], [ %asize.1, %if.end373 ], [ %call411, %if.then410 ], [ 16, %if.then ], [ %add88, %while.end.thread ], [ %add292, %while.end311.thread ], [ %add199, %if.then161 ]
+  ret i64 %asize.0
 }
 
 declare i64 @sdsZmallocSize(ptr noundef) local_unnamed_addr #2
@@ -4428,7 +4428,7 @@ if.else:                                          ; preds = %entry
   %conv2 = uitofp i64 %0 to float
   %div = fdiv float %conv, %conv2
   %cmp4 = fcmp ogt float %div, 1.500000e+00
-  %big_peak.0 = zext i1 %cmp4 to i32
+  %big_peak.1 = zext i1 %cmp4 to i32
   %total_frag = getelementptr inbounds i8, ptr %call, i64 120
   %2 = load float, ptr %total_frag, align 8
   %conv8 = fpext float %2 to double
@@ -4440,12 +4440,12 @@ land.lhs.true:                                    ; preds = %if.else
   %3 = load i64, ptr %total_frag_bytes, align 8
   %cmp11 = icmp slt i64 %3, 10485761
   %inc14 = select i1 %cmp4, i32 2, i32 1
-  %spec.select = select i1 %cmp11, i32 %big_peak.0, i32 %inc14
+  %spec.select = select i1 %cmp11, i32 %big_peak.1, i32 %inc14
   br label %if.end15
 
 if.end15:                                         ; preds = %land.lhs.true, %if.else
-  %num_reports.1 = phi i32 [ %big_peak.0, %if.else ], [ %spec.select, %land.lhs.true ]
-  %high_frag.0 = phi i1 [ true, %if.else ], [ %cmp11, %land.lhs.true ]
+  %num_reports.2 = phi i32 [ %big_peak.1, %if.else ], [ %spec.select, %land.lhs.true ]
+  %high_frag.1 = phi i1 [ true, %if.else ], [ %cmp11, %land.lhs.true ]
   %allocator_frag = getelementptr inbounds i8, ptr %call, i64 136
   %4 = load float, ptr %allocator_frag, align 8
   %conv16 = fpext float %4 to double
@@ -4457,13 +4457,13 @@ land.lhs.true19:                                  ; preds = %if.end15
   %5 = load i64, ptr %allocator_frag_bytes, align 8
   %cmp20 = icmp sgt i64 %5, 10485760
   %inc23 = zext i1 %cmp20 to i32
-  %spec.select35 = add nuw nsw i32 %num_reports.1, %inc23
+  %spec.select35 = add nuw nsw i32 %num_reports.2, %inc23
   %6 = xor i1 %cmp20, true
   br label %if.end24
 
 if.end24:                                         ; preds = %land.lhs.true19, %if.end15
-  %high_alloc_frag.0 = phi i1 [ true, %if.end15 ], [ %6, %land.lhs.true19 ]
-  %num_reports.2 = phi i32 [ %num_reports.1, %if.end15 ], [ %spec.select35, %land.lhs.true19 ]
+  %high_alloc_frag.1 = phi i1 [ true, %if.end15 ], [ %6, %land.lhs.true19 ]
+  %num_reports.3 = phi i32 [ %num_reports.2, %if.end15 ], [ %spec.select35, %land.lhs.true19 ]
   %allocator_rss = getelementptr inbounds i8, ptr %call, i64 152
   %7 = load float, ptr %allocator_rss, align 8
   %conv25 = fpext float %7 to double
@@ -4475,13 +4475,13 @@ land.lhs.true28:                                  ; preds = %if.end24
   %8 = load i64, ptr %allocator_rss_bytes, align 8
   %cmp29 = icmp sgt i64 %8, 10485760
   %inc32 = zext i1 %cmp29 to i32
-  %spec.select37 = add nuw nsw i32 %num_reports.2, %inc32
+  %spec.select37 = add nuw nsw i32 %num_reports.3, %inc32
   %9 = xor i1 %cmp29, true
   br label %if.end33
 
 if.end33:                                         ; preds = %land.lhs.true28, %if.end24
-  %high_alloc_rss.0 = phi i1 [ true, %if.end24 ], [ %9, %land.lhs.true28 ]
-  %num_reports.3 = phi i32 [ %num_reports.2, %if.end24 ], [ %spec.select37, %land.lhs.true28 ]
+  %high_alloc_rss.1 = phi i1 [ true, %if.end24 ], [ %9, %land.lhs.true28 ]
+  %num_reports.4 = phi i32 [ %num_reports.3, %if.end24 ], [ %spec.select37, %land.lhs.true28 ]
   %rss_extra = getelementptr inbounds i8, ptr %call, i64 168
   %10 = load float, ptr %rss_extra, align 8
   %conv34 = fpext float %10 to double
@@ -4493,13 +4493,13 @@ land.lhs.true37:                                  ; preds = %if.end33
   %11 = load i64, ptr %rss_extra_bytes, align 8
   %cmp38 = icmp ugt i64 %11, 10485760
   %inc41 = zext i1 %cmp38 to i32
-  %spec.select39 = add nuw nsw i32 %num_reports.3, %inc41
+  %spec.select39 = add nuw nsw i32 %num_reports.4, %inc41
   %12 = xor i1 %cmp38, true
   br label %if.end42
 
 if.end42:                                         ; preds = %land.lhs.true37, %if.end33
-  %high_proc_rss.0 = phi i1 [ true, %if.end33 ], [ %12, %land.lhs.true37 ]
-  %num_reports.4 = phi i32 [ %num_reports.3, %if.end33 ], [ %spec.select39, %land.lhs.true37 ]
+  %high_proc_rss.1 = phi i1 [ true, %if.end33 ], [ %12, %land.lhs.true37 ]
+  %num_reports.5 = phi i32 [ %num_reports.4, %if.end33 ], [ %spec.select39, %land.lhs.true37 ]
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1464), align 8
   %len = getelementptr inbounds i8, ptr %13, i64 40
   %14 = load i64, ptr %len, align 8
@@ -4512,7 +4512,7 @@ if.end42:                                         ; preds = %land.lhs.true37, %i
   %div44 = udiv i64 %17, %sub
   %cmp45 = icmp ugt i64 %div44, 204800
   %inc48 = zext i1 %cmp45 to i32
-  %spec.select41 = add nuw nsw i32 %num_reports.4, %inc48
+  %spec.select41 = add nuw nsw i32 %num_reports.5, %inc48
   %cmp50 = icmp sgt i64 %14, 0
   br i1 %cmp50, label %land.lhs.true52, label %if.end57
 
@@ -4526,8 +4526,8 @@ land.lhs.true52:                                  ; preds = %if.end42
   br label %if.end57
 
 if.end57:                                         ; preds = %land.lhs.true52, %if.end42
-  %big_slave_buf.0 = phi i1 [ true, %if.end42 ], [ %19, %land.lhs.true52 ]
-  %num_reports.6 = phi i32 [ %spec.select41, %if.end42 ], [ %spec.select43, %land.lhs.true52 ]
+  %big_slave_buf.1 = phi i1 [ true, %if.end42 ], [ %19, %land.lhs.true52 ]
+  %num_reports.7 = phi i32 [ %spec.select41, %if.end42 ], [ %spec.select43, %land.lhs.true52 ]
   %call58 = tail call ptr @evalScriptsDict() #17
   %ht_used = getelementptr inbounds i8, ptr %call58, i64 24
   %20 = load i64, ptr %ht_used, align 8
@@ -4536,7 +4536,7 @@ if.end57:                                         ; preds = %land.lhs.true52, %i
   %21 = load i64, ptr %arrayidx61, align 8
   %add = add i64 %21, %20
   %cmp62 = icmp ult i64 %add, 1001
-  %cmp68 = icmp eq i32 %num_reports.6, 0
+  %cmp68 = icmp eq i32 %num_reports.7, 0
   %or.cond = select i1 %cmp62, i1 %cmp68, i1 false
   br i1 %or.cond, label %if.then70, label %if.else77
 
@@ -4557,73 +4557,73 @@ if.then79:                                        ; preds = %if.else77
   br label %if.end81
 
 if.end81:                                         ; preds = %if.then79, %if.else77
-  %s.0 = phi ptr [ %call80, %if.then79 ], [ %call78, %if.else77 ]
-  br i1 %high_frag.0, label %if.end85, label %if.then83
+  %s.1 = phi ptr [ %call80, %if.then79 ], [ %call78, %if.else77 ]
+  br i1 %high_frag.1, label %if.end85, label %if.then83
 
 if.then83:                                        ; preds = %if.end81
-  %call84 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %s.0, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44) #17
+  %call84 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %s.1, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44) #17
   br label %if.end85
 
 if.end85:                                         ; preds = %if.then83, %if.end81
-  %s.1 = phi ptr [ %call84, %if.then83 ], [ %s.0, %if.end81 ]
-  br i1 %high_alloc_frag.0, label %if.end89, label %if.then87
+  %s.2 = phi ptr [ %call84, %if.then83 ], [ %s.1, %if.end81 ]
+  br i1 %high_alloc_frag.1, label %if.end89, label %if.then87
 
 if.then87:                                        ; preds = %if.end85
-  %call88 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %s.1, ptr noundef nonnull @.str.45) #17
+  %call88 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %s.2, ptr noundef nonnull @.str.45) #17
   br label %if.end89
 
 if.end89:                                         ; preds = %if.then87, %if.end85
-  %s.2 = phi ptr [ %call88, %if.then87 ], [ %s.1, %if.end85 ]
-  br i1 %high_alloc_rss.0, label %if.end93, label %if.then91
+  %s.3 = phi ptr [ %call88, %if.then87 ], [ %s.2, %if.end85 ]
+  br i1 %high_alloc_rss.1, label %if.end93, label %if.then91
 
 if.then91:                                        ; preds = %if.end89
-  %call92 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %s.2, ptr noundef nonnull @.str.46) #17
+  %call92 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %s.3, ptr noundef nonnull @.str.46) #17
   br label %if.end93
 
 if.end93:                                         ; preds = %if.then91, %if.end89
-  %s.3 = phi ptr [ %call92, %if.then91 ], [ %s.2, %if.end89 ]
-  br i1 %high_proc_rss.0, label %if.end97, label %if.then95
+  %s.4 = phi ptr [ %call92, %if.then91 ], [ %s.3, %if.end89 ]
+  br i1 %high_proc_rss.1, label %if.end97, label %if.then95
 
 if.then95:                                        ; preds = %if.end93
-  %call96 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %s.3, ptr noundef nonnull @.str.47) #17
+  %call96 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %s.4, ptr noundef nonnull @.str.47) #17
   br label %if.end97
 
 if.end97:                                         ; preds = %if.then95, %if.end93
-  %s.4 = phi ptr [ %call96, %if.then95 ], [ %s.3, %if.end93 ]
-  br i1 %big_slave_buf.0, label %if.end101, label %if.then99
+  %s.5 = phi ptr [ %call96, %if.then95 ], [ %s.4, %if.end93 ]
+  br i1 %big_slave_buf.1, label %if.end101, label %if.then99
 
 if.then99:                                        ; preds = %if.end97
-  %call100 = tail call ptr @sdscat(ptr noundef %s.4, ptr noundef nonnull @.str.48) #17
+  %call100 = tail call ptr @sdscat(ptr noundef %s.5, ptr noundef nonnull @.str.48) #17
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then99, %if.end97
-  %s.5 = phi ptr [ %call100, %if.then99 ], [ %s.4, %if.end97 ]
+  %s.6 = phi ptr [ %call100, %if.then99 ], [ %s.5, %if.end97 ]
   br i1 %cmp45, label %if.then103, label %if.end105
 
 if.then103:                                       ; preds = %if.end101
-  %call104 = tail call ptr @sdscat(ptr noundef %s.5, ptr noundef nonnull @.str.49) #17
+  %call104 = tail call ptr @sdscat(ptr noundef %s.6, ptr noundef nonnull @.str.49) #17
   br label %if.end105
 
 if.end105:                                        ; preds = %if.then103, %if.end101
-  %s.6 = phi ptr [ %call104, %if.then103 ], [ %s.5, %if.end101 ]
+  %s.7 = phi ptr [ %call104, %if.then103 ], [ %s.6, %if.end101 ]
   br i1 %cmp62, label %if.end109, label %if.then107
 
 if.then107:                                       ; preds = %if.end105
-  %call108 = tail call ptr @sdscat(ptr noundef %s.6, ptr noundef nonnull @.str.50) #17
+  %call108 = tail call ptr @sdscat(ptr noundef %s.7, ptr noundef nonnull @.str.50) #17
   br label %if.end109
 
 if.end109:                                        ; preds = %if.then107, %if.end105
-  %s.7 = phi ptr [ %call108, %if.then107 ], [ %s.6, %if.end105 ]
-  %call110 = tail call ptr @sdscat(ptr noundef %s.7, ptr noundef nonnull @.str.51) #17
+  %s.8 = phi ptr [ %call108, %if.then107 ], [ %s.7, %if.end105 ]
+  %call110 = tail call ptr @sdscat(ptr noundef %s.8, ptr noundef nonnull @.str.51) #17
   br label %if.end112
 
 if.end112:                                        ; preds = %if.then75, %if.end109, %if.then70
-  %s.8 = phi ptr [ %call71, %if.then70 ], [ %call76, %if.then75 ], [ %call110, %if.end109 ]
+  %s.0 = phi ptr [ %call71, %if.then70 ], [ %call76, %if.then75 ], [ %call110, %if.end109 ]
   %db.i = getelementptr inbounds i8, ptr %call, i64 192
   %22 = load ptr, ptr %db.i, align 8
   tail call void @zfree(ptr noundef %22) #17
   tail call void @zfree(ptr noundef nonnull %call) #17
-  ret ptr %s.8
+  ret ptr %s.0
 }
 
 declare ptr @evalScriptsDict() local_unnamed_addr #2

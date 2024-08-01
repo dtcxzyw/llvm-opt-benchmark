@@ -893,7 +893,7 @@ if.end8.i:                                        ; preds = %if.end4.i
   br i1 %tobool10.not.i, label %if.end12.i, label %do_file_type.exit.thread
 
 do_file_type.exit.thread:                         ; preds = %if.end8.i
-  %tobool1238 = icmp ne ptr %cert_blob, null
+  %tobool1239 = icmp ne ptr %cert_blob, null
   br label %if.then
 
 if.end12.i:                                       ; preds = %if.end8.i
@@ -910,8 +910,8 @@ do_file_type.exit:                                ; preds = %entry, %lor.lhs.fal
   br i1 %or.cond, label %if.then, label %return
 
 if.then:                                          ; preds = %do_file_type.exit.thread, %do_file_type.exit
-  %tobool1243 = phi i1 [ %tobool1238, %do_file_type.exit.thread ], [ %tobool1, %do_file_type.exit ]
-  %retval.0.i242 = phi i32 [ 42, %do_file_type.exit.thread ], [ %retval.0.i, %do_file_type.exit ]
+  %tobool1244 = phi i1 [ %tobool1239, %do_file_type.exit.thread ], [ %tobool1, %do_file_type.exit ]
+  %retval.0.i243 = phi i32 [ 42, %do_file_type.exit.thread ], [ %retval.0.i, %do_file_type.exit ]
   %tobool3.not = icmp eq ptr %key_passwd, null
   br i1 %tobool3.not, label %if.end, label %if.then4
 
@@ -921,7 +921,7 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  switch i32 %retval.0.i242, label %sw.default [
+  switch i32 %retval.0.i243, label %sw.default [
     i32 1, label %sw.bb
     i32 2, label %sw.bb18
     i32 42, label %sw.bb37
@@ -929,7 +929,7 @@ if.end:                                           ; preds = %if.then4, %if.then
   ]
 
 sw.bb:                                            ; preds = %if.end
-  br i1 %tobool1243, label %cond.true, label %cond.false
+  br i1 %tobool1244, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %sw.bb
   %cert_blob.val = load ptr, ptr %cert_blob, align 8
@@ -984,7 +984,7 @@ if.then30.i:                                      ; preds = %while.end.i
   br label %end.i
 
 end.i:                                            ; preds = %if.then30.i, %while.end.i, %if.then21.i, %if.then11.i, %if.end4.i140, %if.end.i138
-  %ret.1.i = phi i32 [ 0, %if.then21.i ], [ %spec.select.i, %if.then30.i ], [ 0, %if.end4.i140 ], [ 0, %if.end.i138 ], [ 0, %if.then11.i ], [ 0, %while.end.i ]
+  %ret.0.i = phi i32 [ 0, %if.then21.i ], [ %spec.select.i, %if.then30.i ], [ 0, %if.end4.i140 ], [ 0, %if.end.i138 ], [ 0, %if.then11.i ], [ 0, %while.end.i ]
   tail call void @X509_free(ptr noundef %call1.i) #13
   %call33.i = tail call i32 @BIO_free(ptr noundef nonnull %call.i136) #13
   br label %cond.end
@@ -994,12 +994,12 @@ cond.false:                                       ; preds = %sw.bb
   br label %cond.end
 
 cond.end:                                         ; preds = %end.i, %cond.false
-  %cond = phi i32 [ %call7, %cond.false ], [ %ret.1.i, %end.i ]
+  %cond = phi i32 [ %call7, %cond.false ], [ %ret.0.i, %end.i ]
   %cmp8.not = icmp eq i32 %cond, 1
   br i1 %cmp8.not, label %sw.epilog, label %if.then9
 
 if.then9:                                         ; preds = %cond.true, %cond.end
-  %cond14 = select i1 %tobool1243, ptr @.str.38, ptr %cert_file
+  %cond14 = select i1 %tobool1244, ptr @.str.38, ptr %cert_file
   %call15 = tail call i64 @ERR_get_error() #13
   store i8 0, ptr %error_buffer, align 16
   %call.i.i = tail call ptr @OpenSSL_version(i32 noundef 6) #13
@@ -1042,7 +1042,7 @@ ossl_strerror.exit:                               ; preds = %if.end.i144, %if.th
   br label %return
 
 sw.bb18:                                          ; preds = %if.end
-  br i1 %tobool1243, label %cond.true20, label %cond.false22
+  br i1 %tobool1244, label %cond.true20, label %cond.false22
 
 cond.true20:                                      ; preds = %sw.bb18
   %cert_blob.val133 = load ptr, ptr %cert_blob, align 8
@@ -1063,7 +1063,7 @@ if.end13.i:                                       ; preds = %if.then2.i
   br label %end.i151
 
 end.i151:                                         ; preds = %if.end13.i, %if.then2.i
-  %ret.0.i = phi i32 [ %call14.i, %if.end13.i ], [ 0, %if.then2.i ]
+  %ret.0.i152 = phi i32 [ %call14.i, %if.end13.i ], [ 0, %if.then2.i ]
   tail call void @X509_free(ptr noundef %call3.i) #13
   %call15.i = tail call i32 @BIO_free(ptr noundef nonnull %call.i149) #13
   br label %cond.end24
@@ -1073,51 +1073,51 @@ cond.false22:                                     ; preds = %sw.bb18
   br label %cond.end24
 
 cond.end24:                                       ; preds = %end.i151, %cond.false22
-  %cond25 = phi i32 [ %call23, %cond.false22 ], [ %ret.0.i, %end.i151 ]
+  %cond25 = phi i32 [ %call23, %cond.false22 ], [ %ret.0.i152, %end.i151 ]
   %cmp26.not = icmp eq i32 %cond25, 1
   br i1 %cmp26.not, label %sw.epilog, label %if.then27
 
 if.then27:                                        ; preds = %cond.true20, %cond.end24
-  %cond32 = select i1 %tobool1243, ptr @.str.38, ptr %cert_file
+  %cond32 = select i1 %tobool1244, ptr @.str.38, ptr %cert_file
   %call33 = tail call i64 @ERR_get_error() #13
   store i8 0, ptr %error_buffer, align 16
-  %call.i.i153 = tail call ptr @OpenSSL_version(i32 noundef 6) #13
-  %call1.i.i154 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %error_buffer, i64 noundef 256, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef %call.i.i153) #13
-  %cmp.i156 = icmp ult i32 %call1.i.i154, 254
-  br i1 %cmp.i156, label %if.then.i169, label %if.end.i157
+  %call.i.i154 = tail call ptr @OpenSSL_version(i32 noundef 6) #13
+  %call1.i.i155 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %error_buffer, i64 noundef 256, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef %call.i.i154) #13
+  %cmp.i157 = icmp ult i32 %call1.i.i155, 254
+  br i1 %cmp.i157, label %if.then.i170, label %if.end.i158
 
-if.then.i169:                                     ; preds = %if.then27
-  %conv.i.i155 = zext nneg i32 %call1.i.i154 to i64
-  %add.ptr.i170 = getelementptr inbounds i8, ptr %error_buffer, i64 %conv.i.i155
-  %sub3.i171 = sub nuw nsw i64 254, %conv.i.i155
-  %incdec.ptr.i172 = getelementptr inbounds i8, ptr %add.ptr.i170, i64 1
-  store i8 58, ptr %add.ptr.i170, align 1
-  %incdec.ptr4.i173 = getelementptr inbounds i8, ptr %add.ptr.i170, i64 2
-  store i8 32, ptr %incdec.ptr.i172, align 1
-  store i8 0, ptr %incdec.ptr4.i173, align 1
-  br label %if.end.i157
+if.then.i170:                                     ; preds = %if.then27
+  %conv.i.i156 = zext nneg i32 %call1.i.i155 to i64
+  %add.ptr.i171 = getelementptr inbounds i8, ptr %error_buffer, i64 %conv.i.i156
+  %sub3.i172 = sub nuw nsw i64 254, %conv.i.i156
+  %incdec.ptr.i173 = getelementptr inbounds i8, ptr %add.ptr.i171, i64 1
+  store i8 58, ptr %add.ptr.i171, align 1
+  %incdec.ptr4.i174 = getelementptr inbounds i8, ptr %add.ptr.i171, i64 2
+  store i8 32, ptr %incdec.ptr.i173, align 1
+  store i8 0, ptr %incdec.ptr4.i174, align 1
+  br label %if.end.i158
 
-if.end.i157:                                      ; preds = %if.then.i169, %if.then27
-  %size.addr.0.i158 = phi i64 [ %sub3.i171, %if.then.i169 ], [ 256, %if.then27 ]
-  %buf.addr.0.i159 = phi ptr [ %incdec.ptr4.i173, %if.then.i169 ], [ %error_buffer, %if.then27 ]
-  call void @ERR_error_string_n(i64 noundef %call33, ptr noundef nonnull %buf.addr.0.i159, i64 noundef %size.addr.0.i158) #13
-  %5 = load i8, ptr %buf.addr.0.i159, align 1
-  %tobool.not.i160 = icmp eq i8 %5, 0
-  br i1 %tobool.not.i160, label %if.then5.i162, label %ossl_strerror.exit174
+if.end.i158:                                      ; preds = %if.then.i170, %if.then27
+  %size.addr.0.i159 = phi i64 [ %sub3.i172, %if.then.i170 ], [ 256, %if.then27 ]
+  %buf.addr.0.i160 = phi ptr [ %incdec.ptr4.i174, %if.then.i170 ], [ %error_buffer, %if.then27 ]
+  call void @ERR_error_string_n(i64 noundef %call33, ptr noundef nonnull %buf.addr.0.i160, i64 noundef %size.addr.0.i159) #13
+  %5 = load i8, ptr %buf.addr.0.i160, align 1
+  %tobool.not.i161 = icmp eq i8 %5, 0
+  br i1 %tobool.not.i161, label %if.then5.i163, label %ossl_strerror.exit175
 
-if.then5.i162:                                    ; preds = %if.end.i157
-  %tobool6.not.i163 = icmp eq i64 %call33, 0
-  %call7.i164 = select i1 %tobool6.not.i163, i64 8, i64 13
-  %cmp8.i165 = icmp ult i64 %call7.i164, %size.addr.0.i158
-  br i1 %cmp8.i165, label %if.then9.i166, label %ossl_strerror.exit174
+if.then5.i163:                                    ; preds = %if.end.i158
+  %tobool6.not.i164 = icmp eq i64 %call33, 0
+  %call7.i165 = select i1 %tobool6.not.i164, i64 8, i64 13
+  %cmp8.i166 = icmp ult i64 %call7.i165, %size.addr.0.i159
+  br i1 %cmp8.i166, label %if.then9.i167, label %ossl_strerror.exit175
 
-if.then9.i166:                                    ; preds = %if.then5.i162
-  %cond.i167 = select i1 %tobool6.not.i163, ptr @.str.74, ptr @.str.73
-  %call10.i168 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %buf.addr.0.i159, ptr noundef nonnull dereferenceable(1) %cond.i167) #13
-  br label %ossl_strerror.exit174
+if.then9.i167:                                    ; preds = %if.then5.i163
+  %cond.i168 = select i1 %tobool6.not.i164, ptr @.str.74, ptr @.str.73
+  %call10.i169 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %buf.addr.0.i160, ptr noundef nonnull dereferenceable(1) %cond.i168) #13
+  br label %ossl_strerror.exit175
 
-ossl_strerror.exit174:                            ; preds = %if.end.i157, %if.then5.i162, %if.then9.i166
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.39, ptr noundef %cond32, ptr noundef nonnull %buf.addr.0.i159) #13
+ossl_strerror.exit175:                            ; preds = %if.end.i158, %if.then5.i163, %if.then9.i167
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.39, ptr noundef %cond32, ptr noundef nonnull %buf.addr.0.i160) #13
   br label %return
 
 sw.bb37:                                          ; preds = %if.end
@@ -1127,12 +1127,12 @@ sw.bb37:                                          ; preds = %if.end
   br i1 %tobool38.not, label %if.then39, label %if.then51
 
 if.then39:                                        ; preds = %sw.bb37
-  %tobool.not.i175 = icmp eq ptr %cert_file, null
-  br i1 %tobool.not.i175, label %if.else, label %is_pkcs11_uri.exit
+  %tobool.not.i176 = icmp eq ptr %cert_file, null
+  br i1 %tobool.not.i176, label %if.else, label %is_pkcs11_uri.exit
 
 is_pkcs11_uri.exit:                               ; preds = %if.then39
-  %call.i176 = tail call i32 @curl_strnequal(ptr noundef nonnull %cert_file, ptr noundef nonnull @.str.75, i64 noundef 7) #13
-  %tobool1.i.not = icmp eq i32 %call.i176, 0
+  %call.i177 = tail call i32 @curl_strnequal(ptr noundef nonnull %cert_file, ptr noundef nonnull @.str.75, i64 noundef 7) #13
+  %tobool1.i.not = icmp eq i32 %call.i177, 0
   br i1 %tobool1.i.not, label %if.end47, label %if.then41
 
 if.then41:                                        ; preds = %is_pkcs11_uri.exit
@@ -1201,7 +1201,7 @@ if.else:                                          ; preds = %if.then39, %if.end4
 
 sw.bb81:                                          ; preds = %if.end
   store ptr null, ptr %ca, align 8
-  br i1 %tobool1243, label %if.then83, label %if.else92
+  br i1 %tobool1244, label %if.then83, label %if.else92
 
 if.then83:                                        ; preds = %sw.bb81
   %11 = load ptr, ptr %cert_blob, align 8
@@ -1215,43 +1215,43 @@ if.then83:                                        ; preds = %sw.bb81
 if.then87:                                        ; preds = %if.then83
   %call88 = tail call i64 @ERR_get_error() #13
   store i8 0, ptr %error_buffer, align 16
-  %call.i.i177 = tail call ptr @OpenSSL_version(i32 noundef 6) #13
-  %call1.i.i178 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %error_buffer, i64 noundef 256, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef %call.i.i177) #13
-  %cmp.i180 = icmp ult i32 %call1.i.i178, 254
-  br i1 %cmp.i180, label %if.then.i193, label %if.end.i181
+  %call.i.i178 = tail call ptr @OpenSSL_version(i32 noundef 6) #13
+  %call1.i.i179 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %error_buffer, i64 noundef 256, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef %call.i.i178) #13
+  %cmp.i181 = icmp ult i32 %call1.i.i179, 254
+  br i1 %cmp.i181, label %if.then.i194, label %if.end.i182
 
-if.then.i193:                                     ; preds = %if.then87
-  %conv.i.i179 = zext nneg i32 %call1.i.i178 to i64
-  %add.ptr.i194 = getelementptr inbounds i8, ptr %error_buffer, i64 %conv.i.i179
-  %sub3.i195 = sub nuw nsw i64 254, %conv.i.i179
-  %incdec.ptr.i196 = getelementptr inbounds i8, ptr %add.ptr.i194, i64 1
-  store i8 58, ptr %add.ptr.i194, align 1
-  %incdec.ptr4.i197 = getelementptr inbounds i8, ptr %add.ptr.i194, i64 2
-  store i8 32, ptr %incdec.ptr.i196, align 1
-  store i8 0, ptr %incdec.ptr4.i197, align 1
-  br label %if.end.i181
+if.then.i194:                                     ; preds = %if.then87
+  %conv.i.i180 = zext nneg i32 %call1.i.i179 to i64
+  %add.ptr.i195 = getelementptr inbounds i8, ptr %error_buffer, i64 %conv.i.i180
+  %sub3.i196 = sub nuw nsw i64 254, %conv.i.i180
+  %incdec.ptr.i197 = getelementptr inbounds i8, ptr %add.ptr.i195, i64 1
+  store i8 58, ptr %add.ptr.i195, align 1
+  %incdec.ptr4.i198 = getelementptr inbounds i8, ptr %add.ptr.i195, i64 2
+  store i8 32, ptr %incdec.ptr.i197, align 1
+  store i8 0, ptr %incdec.ptr4.i198, align 1
+  br label %if.end.i182
 
-if.end.i181:                                      ; preds = %if.then.i193, %if.then87
-  %size.addr.0.i182 = phi i64 [ %sub3.i195, %if.then.i193 ], [ 256, %if.then87 ]
-  %buf.addr.0.i183 = phi ptr [ %incdec.ptr4.i197, %if.then.i193 ], [ %error_buffer, %if.then87 ]
-  call void @ERR_error_string_n(i64 noundef %call88, ptr noundef nonnull %buf.addr.0.i183, i64 noundef %size.addr.0.i182) #13
-  %13 = load i8, ptr %buf.addr.0.i183, align 1
-  %tobool.not.i184 = icmp eq i8 %13, 0
-  br i1 %tobool.not.i184, label %if.then5.i186, label %ossl_strerror.exit198
+if.end.i182:                                      ; preds = %if.then.i194, %if.then87
+  %size.addr.0.i183 = phi i64 [ %sub3.i196, %if.then.i194 ], [ 256, %if.then87 ]
+  %buf.addr.0.i184 = phi ptr [ %incdec.ptr4.i198, %if.then.i194 ], [ %error_buffer, %if.then87 ]
+  call void @ERR_error_string_n(i64 noundef %call88, ptr noundef nonnull %buf.addr.0.i184, i64 noundef %size.addr.0.i183) #13
+  %13 = load i8, ptr %buf.addr.0.i184, align 1
+  %tobool.not.i185 = icmp eq i8 %13, 0
+  br i1 %tobool.not.i185, label %if.then5.i187, label %ossl_strerror.exit199
 
-if.then5.i186:                                    ; preds = %if.end.i181
-  %tobool6.not.i187 = icmp eq i64 %call88, 0
-  %call7.i188 = select i1 %tobool6.not.i187, i64 8, i64 13
-  %cmp8.i189 = icmp ult i64 %call7.i188, %size.addr.0.i182
-  br i1 %cmp8.i189, label %if.then9.i190, label %ossl_strerror.exit198
+if.then5.i187:                                    ; preds = %if.end.i182
+  %tobool6.not.i188 = icmp eq i64 %call88, 0
+  %call7.i189 = select i1 %tobool6.not.i188, i64 8, i64 13
+  %cmp8.i190 = icmp ult i64 %call7.i189, %size.addr.0.i183
+  br i1 %cmp8.i190, label %if.then9.i191, label %ossl_strerror.exit199
 
-if.then9.i190:                                    ; preds = %if.then5.i186
-  %cond.i191 = select i1 %tobool6.not.i187, ptr @.str.74, ptr @.str.73
-  %call10.i192 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %buf.addr.0.i183, ptr noundef nonnull dereferenceable(1) %cond.i191) #13
-  br label %ossl_strerror.exit198
+if.then9.i191:                                    ; preds = %if.then5.i187
+  %cond.i192 = select i1 %tobool6.not.i188, ptr @.str.74, ptr @.str.73
+  %call10.i193 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %buf.addr.0.i184, ptr noundef nonnull dereferenceable(1) %cond.i192) #13
+  br label %ossl_strerror.exit199
 
-ossl_strerror.exit198:                            ; preds = %if.end.i181, %if.then5.i186, %if.then9.i190
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.47, ptr noundef nonnull %buf.addr.0.i183) #13
+ossl_strerror.exit199:                            ; preds = %if.end.i182, %if.then5.i187, %if.then9.i191
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.47, ptr noundef nonnull %buf.addr.0.i184) #13
   br label %return
 
 if.else92:                                        ; preds = %sw.bb81
@@ -1285,7 +1285,7 @@ if.end108:                                        ; preds = %if.end100, %if.then
   br i1 %tobool111.not, label %if.then112, label %if.end118
 
 if.then112:                                       ; preds = %if.end108
-  %cond117 = select i1 %tobool1243, ptr @.str.51, ptr %cert_file
+  %cond117 = select i1 %tobool1244, ptr @.str.51, ptr %cert_file
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.50, ptr noundef %cond117) #13
   br label %return
 
@@ -1397,131 +1397,131 @@ sw.epilog:                                        ; preds = %fail, %cond.end24, 
   br i1 %or.cond2, label %if.else167, label %if.end169
 
 if.else167:                                       ; preds = %sw.epilog
-  %tobool.not.i199 = icmp eq ptr %key_type, null
-  br i1 %tobool.not.i199, label %sw.bb170, label %lor.lhs.false.i200
+  %tobool.not.i200 = icmp eq ptr %key_type, null
+  br i1 %tobool.not.i200, label %sw.bb170, label %lor.lhs.false.i201
 
-lor.lhs.false.i200:                               ; preds = %if.else167
+lor.lhs.false.i201:                               ; preds = %if.else167
   %25 = load i8, ptr %key_type, align 1
-  %tobool1.not.i201 = icmp eq i8 %25, 0
-  br i1 %tobool1.not.i201, label %sw.bb170, label %if.end.i202
+  %tobool1.not.i202 = icmp eq i8 %25, 0
+  br i1 %tobool1.not.i202, label %sw.bb170, label %if.end.i203
 
-if.end.i202:                                      ; preds = %lor.lhs.false.i200
-  %call.i203 = call i32 @curl_strequal(ptr noundef nonnull %key_type, ptr noundef nonnull @.str.60) #13
-  %tobool2.not.i204 = icmp eq i32 %call.i203, 0
-  br i1 %tobool2.not.i204, label %if.end4.i206, label %sw.bb170
+if.end.i203:                                      ; preds = %lor.lhs.false.i201
+  %call.i204 = call i32 @curl_strequal(ptr noundef nonnull %key_type, ptr noundef nonnull @.str.60) #13
+  %tobool2.not.i205 = icmp eq i32 %call.i204, 0
+  br i1 %tobool2.not.i205, label %if.end4.i207, label %sw.bb170
 
-if.end4.i206:                                     ; preds = %if.end.i202
-  %call5.i207 = call i32 @curl_strequal(ptr noundef nonnull %key_type, ptr noundef nonnull @.str.70) #13
-  %tobool6.not.i208 = icmp eq i32 %call5.i207, 0
-  br i1 %tobool6.not.i208, label %if.end8.i209, label %sw.bb174
+if.end4.i207:                                     ; preds = %if.end.i203
+  %call5.i208 = call i32 @curl_strequal(ptr noundef nonnull %key_type, ptr noundef nonnull @.str.70) #13
+  %tobool6.not.i209 = icmp eq i32 %call5.i208, 0
+  br i1 %tobool6.not.i209, label %if.end8.i210, label %sw.bb174
 
-if.end8.i209:                                     ; preds = %if.end4.i206
-  %call9.i210 = call i32 @curl_strequal(ptr noundef nonnull %key_type, ptr noundef nonnull @.str.71) #13
-  %tobool10.not.i211 = icmp eq i32 %call9.i210, 0
-  br i1 %tobool10.not.i211, label %if.end12.i212, label %sw.bb196
+if.end8.i210:                                     ; preds = %if.end4.i207
+  %call9.i211 = call i32 @curl_strequal(ptr noundef nonnull %key_type, ptr noundef nonnull @.str.71) #13
+  %tobool10.not.i212 = icmp eq i32 %call9.i211, 0
+  br i1 %tobool10.not.i212, label %if.end12.i213, label %sw.bb196
 
-if.end12.i212:                                    ; preds = %if.end8.i209
-  %call13.i213 = call i32 @curl_strequal(ptr noundef nonnull %key_type, ptr noundef nonnull @.str.72) #13
-  %tobool14.not.i214 = icmp eq i32 %call13.i213, 0
-  br i1 %tobool14.not.i214, label %sw.default243, label %sw.bb239
+if.end12.i213:                                    ; preds = %if.end8.i210
+  %call13.i214 = call i32 @curl_strequal(ptr noundef nonnull %key_type, ptr noundef nonnull @.str.72) #13
+  %tobool14.not.i215 = icmp eq i32 %call13.i214, 0
+  br i1 %tobool14.not.i215, label %sw.default243, label %sw.bb239
 
 if.end169:                                        ; preds = %sw.epilog
-  switch i32 %retval.0.i242, label %sw.default243 [
+  switch i32 %retval.0.i243, label %sw.default243 [
     i32 1, label %sw.bb170
     i32 2, label %sw.bb174
     i32 42, label %sw.bb196
     i32 43, label %sw.bb239
   ]
 
-sw.bb170:                                         ; preds = %if.end.i202, %if.else167, %lor.lhs.false.i200, %if.end169
-  %key_file.addr.0259 = phi ptr [ %cert_file, %if.end169 ], [ %key_file, %lor.lhs.false.i200 ], [ %key_file, %if.else167 ], [ %key_file, %if.end.i202 ]
-  %key_blob.addr.0257 = phi ptr [ %cert_blob, %if.end169 ], [ %key_blob, %lor.lhs.false.i200 ], [ %key_blob, %if.else167 ], [ %key_blob, %if.end.i202 ]
+sw.bb170:                                         ; preds = %if.end.i203, %if.else167, %lor.lhs.false.i201, %if.end169
+  %key_file.addr.0260 = phi ptr [ %cert_file, %if.end169 ], [ %key_file, %lor.lhs.false.i201 ], [ %key_file, %if.else167 ], [ %key_file, %if.end.i203 ]
+  %key_blob.addr.0258 = phi ptr [ %cert_blob, %if.end169 ], [ %key_blob, %lor.lhs.false.i201 ], [ %key_blob, %if.else167 ], [ %key_blob, %if.end.i203 ]
   br i1 %tobool240.not, label %sw.bb174, label %sw.epilog244
 
-sw.bb174:                                         ; preds = %if.end4.i206, %sw.bb170, %if.end169
-  %key_file.addr.0258 = phi ptr [ %key_file.addr.0259, %sw.bb170 ], [ %cert_file, %if.end169 ], [ %key_file, %if.end4.i206 ]
-  %key_blob.addr.0256 = phi ptr [ %key_blob.addr.0257, %sw.bb170 ], [ %cert_blob, %if.end169 ], [ %key_blob, %if.end4.i206 ]
-  %switch = phi i1 [ true, %sw.bb170 ], [ false, %if.end169 ], [ false, %if.end4.i206 ]
-  %file_type.0254 = phi i32 [ 1, %sw.bb170 ], [ %retval.0.i242, %if.end169 ], [ 2, %if.end4.i206 ]
-  %tobool175.not = icmp eq ptr %key_blob.addr.0256, null
+sw.bb174:                                         ; preds = %if.end4.i207, %sw.bb170, %if.end169
+  %key_file.addr.0259 = phi ptr [ %key_file.addr.0260, %sw.bb170 ], [ %cert_file, %if.end169 ], [ %key_file, %if.end4.i207 ]
+  %key_blob.addr.0257 = phi ptr [ %key_blob.addr.0258, %sw.bb170 ], [ %cert_blob, %if.end169 ], [ %key_blob, %if.end4.i207 ]
+  %switch = phi i1 [ true, %sw.bb170 ], [ false, %if.end169 ], [ false, %if.end4.i207 ]
+  %file_type.0255 = phi i32 [ 1, %sw.bb170 ], [ %retval.0.i243, %if.end169 ], [ 2, %if.end4.i207 ]
+  %tobool175.not = icmp eq ptr %key_blob.addr.0257, null
   br i1 %tobool175.not, label %cond.false178, label %cond.true176
 
 cond.true176:                                     ; preds = %sw.bb174
-  %key_blob.addr.0.val = load ptr, ptr %key_blob.addr.0256, align 8
-  %26 = getelementptr i8, ptr %key_blob.addr.0256, i64 8
+  %key_blob.addr.0.val = load ptr, ptr %key_blob.addr.0257, align 8
+  %26 = getelementptr i8, ptr %key_blob.addr.0257, i64 8
   %key_blob.addr.0.val135 = load i64, ptr %26, align 8
-  %conv.i217 = trunc i64 %key_blob.addr.0.val135 to i32
-  %call.i218 = call ptr @BIO_new_mem_buf(ptr noundef %key_blob.addr.0.val, i32 noundef %conv.i217) #13
-  %tobool.not.i219 = icmp eq ptr %call.i218, null
-  br i1 %tobool.not.i219, label %if.then184, label %if.end.i220
+  %conv.i218 = trunc i64 %key_blob.addr.0.val135 to i32
+  %call.i219 = call ptr @BIO_new_mem_buf(ptr noundef %key_blob.addr.0.val, i32 noundef %conv.i218) #13
+  %tobool.not.i220 = icmp eq ptr %call.i219, null
+  br i1 %tobool.not.i220, label %if.then184, label %if.end.i221
 
-if.end.i220:                                      ; preds = %cond.true176
-  br i1 %switch, label %if.then2.i229, label %if.then6.i
+if.end.i221:                                      ; preds = %cond.true176
+  br i1 %switch, label %if.then2.i230, label %if.then6.i
 
-if.then2.i229:                                    ; preds = %if.end.i220
-  %call3.i230 = call ptr @PEM_read_bio_PrivateKey(ptr noundef nonnull %call.i218, ptr noundef null, ptr noundef nonnull @passwd_callback, ptr noundef %key_passwd) #13
+if.then2.i230:                                    ; preds = %if.end.i221
+  %call3.i231 = call ptr @PEM_read_bio_PrivateKey(ptr noundef nonnull %call.i219, ptr noundef null, ptr noundef nonnull @passwd_callback, ptr noundef %key_passwd) #13
   br label %if.end10.i
 
-if.then6.i:                                       ; preds = %if.end.i220
-  %call7.i221 = call ptr @d2i_PrivateKey_bio(ptr noundef nonnull %call.i218, ptr noundef null) #13
+if.then6.i:                                       ; preds = %if.end.i221
+  %call7.i222 = call ptr @d2i_PrivateKey_bio(ptr noundef nonnull %call.i219, ptr noundef null) #13
   br label %if.end10.i
 
-if.end10.i:                                       ; preds = %if.then6.i, %if.then2.i229
-  %pkey.0.i = phi ptr [ %call3.i230, %if.then2.i229 ], [ %call7.i221, %if.then6.i ]
-  %tobool11.not.i222 = icmp eq ptr %pkey.0.i, null
-  br i1 %tobool11.not.i222, label %end.i225, label %if.end13.i223
+if.end10.i:                                       ; preds = %if.then6.i, %if.then2.i230
+  %pkey.0.i = phi ptr [ %call3.i231, %if.then2.i230 ], [ %call7.i222, %if.then6.i ]
+  %tobool11.not.i223 = icmp eq ptr %pkey.0.i, null
+  br i1 %tobool11.not.i223, label %end.i226, label %if.end13.i224
 
-if.end13.i223:                                    ; preds = %if.end10.i
-  %call14.i224 = call i32 @SSL_CTX_use_PrivateKey(ptr noundef %ctx, ptr noundef nonnull %pkey.0.i) #13
+if.end13.i224:                                    ; preds = %if.end10.i
+  %call14.i225 = call i32 @SSL_CTX_use_PrivateKey(ptr noundef %ctx, ptr noundef nonnull %pkey.0.i) #13
   call void @EVP_PKEY_free(ptr noundef nonnull %pkey.0.i) #13
-  br label %end.i225
+  br label %end.i226
 
-end.i225:                                         ; preds = %if.end13.i223, %if.end10.i
-  %ret.0.i226 = phi i32 [ %call14.i224, %if.end13.i223 ], [ 0, %if.end10.i ]
-  %call15.i227 = call i32 @BIO_free(ptr noundef nonnull %call.i218) #13
+end.i226:                                         ; preds = %if.end13.i224, %if.end10.i
+  %ret.0.i227 = phi i32 [ %call14.i225, %if.end13.i224 ], [ 0, %if.end10.i ]
+  %call15.i228 = call i32 @BIO_free(ptr noundef nonnull %call.i219) #13
   br label %cond.end180
 
 cond.false178:                                    ; preds = %sw.bb174
-  %call179 = call i32 @SSL_CTX_use_PrivateKey_file(ptr noundef %ctx, ptr noundef %key_file.addr.0258, i32 noundef %file_type.0254) #13
+  %call179 = call i32 @SSL_CTX_use_PrivateKey_file(ptr noundef %ctx, ptr noundef %key_file.addr.0259, i32 noundef %file_type.0255) #13
   br label %cond.end180
 
-cond.end180:                                      ; preds = %end.i225, %cond.false178
-  %cond181 = phi i32 [ %call179, %cond.false178 ], [ %ret.0.i226, %end.i225 ]
+cond.end180:                                      ; preds = %end.i226, %cond.false178
+  %cond181 = phi i32 [ %call179, %cond.false178 ], [ %ret.0.i227, %end.i226 ]
   %cmp182.not = icmp eq i32 %cond181, 1
   br i1 %cmp182.not, label %sw.epilog244, label %if.then184
 
 if.then184:                                       ; preds = %cond.true176, %cond.end180
-  %tobool185.not = icmp eq ptr %key_file.addr.0258, null
-  %cond189 = select i1 %tobool185.not, ptr @.str.51, ptr %key_file.addr.0258
+  %tobool185.not = icmp eq ptr %key_file.addr.0259, null
+  %cond189 = select i1 %tobool185.not, ptr @.str.51, ptr %key_file.addr.0259
   %tobool190.not = icmp eq ptr %key_type, null
   %cond194 = select i1 %tobool190.not, ptr @.str.60, ptr %key_type
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.59, ptr noundef nonnull %cond189, ptr noundef nonnull %cond194) #13
   br label %return
 
-sw.bb196:                                         ; preds = %if.end8.i209, %if.end169
-  %key_file.addr.0272 = phi ptr [ %cert_file, %if.end169 ], [ %key_file, %if.end8.i209 ]
+sw.bb196:                                         ; preds = %if.end8.i210, %if.end169
+  %key_file.addr.0273 = phi ptr [ %cert_file, %if.end169 ], [ %key_file, %if.end8.i210 ]
   %engine198 = getelementptr inbounds i8, ptr %data, i64 3672
   %27 = load ptr, ptr %engine198, align 8
   %tobool199.not = icmp eq ptr %27, null
   br i1 %tobool199.not, label %if.then200, label %if.then213
 
 if.then200:                                       ; preds = %sw.bb196
-  %tobool.not.i231 = icmp eq ptr %key_file.addr.0272, null
-  br i1 %tobool.not.i231, label %if.else237, label %is_pkcs11_uri.exit235
+  %tobool.not.i232 = icmp eq ptr %key_file.addr.0273, null
+  br i1 %tobool.not.i232, label %if.else237, label %is_pkcs11_uri.exit236
 
-is_pkcs11_uri.exit235:                            ; preds = %if.then200
-  %call.i233 = call i32 @curl_strnequal(ptr noundef nonnull %key_file.addr.0272, ptr noundef nonnull @.str.75, i64 noundef 7) #13
-  %tobool1.i234.not = icmp eq i32 %call.i233, 0
-  br i1 %tobool1.i234.not, label %if.end209, label %if.then202
+is_pkcs11_uri.exit236:                            ; preds = %if.then200
+  %call.i234 = call i32 @curl_strnequal(ptr noundef nonnull %key_file.addr.0273, ptr noundef nonnull @.str.75, i64 noundef 7) #13
+  %tobool1.i235.not = icmp eq i32 %call.i234, 0
+  br i1 %tobool1.i235.not, label %if.end209, label %if.then202
 
-if.then202:                                       ; preds = %is_pkcs11_uri.exit235
+if.then202:                                       ; preds = %is_pkcs11_uri.exit236
   %call203 = call i32 @ossl_set_engine(ptr noundef nonnull %data, ptr noundef nonnull @.str.40)
   %cmp204.not = icmp eq i32 %call203, 0
   br i1 %cmp204.not, label %if.end209, label %return
 
-if.end209:                                        ; preds = %is_pkcs11_uri.exit235, %if.then202
-  %.pr279 = load ptr, ptr %engine198, align 8
-  %tobool212.not = icmp eq ptr %.pr279, null
+if.end209:                                        ; preds = %is_pkcs11_uri.exit236, %if.then202
+  %.pr280 = load ptr, ptr %engine198, align 8
+  %tobool212.not = icmp eq ptr %.pr280, null
   br i1 %tobool212.not, label %if.else237, label %if.then213
 
 if.then213:                                       ; preds = %sw.bb196, %if.end209
@@ -1543,7 +1543,7 @@ if.end217:                                        ; preds = %if.then213
   %call224 = call i32 @UI_method_set_reader(ptr noundef nonnull %call214, ptr noundef nonnull @ssl_ui_reader) #13
   %call225 = call i32 @UI_method_set_writer(ptr noundef nonnull %call214, ptr noundef nonnull @ssl_ui_writer) #13
   %28 = load ptr, ptr %engine198, align 8
-  %call228 = call ptr @ENGINE_load_private_key(ptr noundef %28, ptr noundef %key_file.addr.0272, ptr noundef nonnull %call214, ptr noundef %key_passwd) #13
+  %call228 = call ptr @ENGINE_load_private_key(ptr noundef %28, ptr noundef %key_file.addr.0273, ptr noundef nonnull %call214, ptr noundef %key_passwd) #13
   call void @UI_destroy_method(ptr noundef nonnull %call214) #13
   %tobool229.not = icmp eq ptr %call228, null
   br i1 %tobool229.not, label %if.then230, label %if.end231
@@ -1570,14 +1570,14 @@ if.else237:                                       ; preds = %if.then200, %if.end
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.65) #13
   br label %return
 
-sw.bb239:                                         ; preds = %if.end12.i212, %if.end169
+sw.bb239:                                         ; preds = %if.end12.i213, %if.end169
   br i1 %tobool240.not, label %if.then241, label %sw.epilog244
 
 if.then241:                                       ; preds = %sw.bb239
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.66) #13
   br label %return
 
-sw.default243:                                    ; preds = %if.end12.i212, %if.end169
+sw.default243:                                    ; preds = %if.end12.i213, %if.end169
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.67) #13
   br label %return
 
@@ -1631,8 +1631,8 @@ if.then275:                                       ; preds = %if.then272
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.69) #13
   br label %return
 
-return:                                           ; preds = %do_file_type.exit, %if.then272, %if.then261, %if.then202, %if.then41, %if.then275, %if.then247, %sw.default243, %if.then241, %if.else237, %if.then235, %if.then230, %if.then216, %if.then184, %sw.default, %if.then162.critedge, %if.then121, %if.then112, %if.then105, %if.then96, %ossl_strerror.exit198, %if.else, %if.then74, %if.then69, %if.then62, %if.then56, %ossl_strerror.exit174, %ossl_strerror.exit
-  %retval.0 = phi i32 [ 0, %sw.default ], [ 0, %sw.default243 ], [ 0, %if.then275 ], [ 0, %if.then247 ], [ 0, %if.then241 ], [ 0, %if.then235 ], [ 0, %if.then230 ], [ 0, %if.then216 ], [ 0, %if.else237 ], [ 0, %if.then184 ], [ 0, %if.then162.critedge ], [ 0, %if.then121 ], [ 0, %if.then112 ], [ 0, %ossl_strerror.exit198 ], [ 0, %if.then105 ], [ 0, %if.then96 ], [ 0, %if.then74 ], [ 0, %if.then69 ], [ 0, %if.then62 ], [ 0, %if.then56 ], [ 0, %if.else ], [ 0, %ossl_strerror.exit174 ], [ 0, %ossl_strerror.exit ], [ 0, %if.then41 ], [ 0, %if.then202 ], [ 1, %if.then261 ], [ 1, %if.then272 ], [ 1, %do_file_type.exit ]
+return:                                           ; preds = %do_file_type.exit, %if.then272, %if.then261, %if.then202, %if.then41, %if.then275, %if.then247, %sw.default243, %if.then241, %if.else237, %if.then235, %if.then230, %if.then216, %if.then184, %sw.default, %if.then162.critedge, %if.then121, %if.then112, %if.then105, %if.then96, %ossl_strerror.exit199, %if.else, %if.then74, %if.then69, %if.then62, %if.then56, %ossl_strerror.exit175, %ossl_strerror.exit
+  %retval.0 = phi i32 [ 0, %sw.default ], [ 0, %sw.default243 ], [ 0, %if.then275 ], [ 0, %if.then247 ], [ 0, %if.then241 ], [ 0, %if.then235 ], [ 0, %if.then230 ], [ 0, %if.then216 ], [ 0, %if.else237 ], [ 0, %if.then184 ], [ 0, %if.then162.critedge ], [ 0, %if.then121 ], [ 0, %if.then112 ], [ 0, %ossl_strerror.exit199 ], [ 0, %if.then105 ], [ 0, %if.then96 ], [ 0, %if.then74 ], [ 0, %if.then69 ], [ 0, %if.then62 ], [ 0, %if.then56 ], [ 0, %if.else ], [ 0, %ossl_strerror.exit175 ], [ 0, %ossl_strerror.exit ], [ 0, %if.then41 ], [ 0, %if.then202 ], [ 1, %if.then261 ], [ 1, %if.then272 ], [ 1, %do_file_type.exit ]
   ret i32 %retval.0
 }
 
@@ -1697,8 +1697,8 @@ for.body.lr.ph:                                   ; preds = %if.then16
   ]
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %dNSName.093.us = phi i1 [ %dNSName.1.us144, %for.inc.us ], [ false, %for.body.lr.ph ]
-  %iPAddress.092.us = phi i1 [ %iPAddress.1.us142, %for.inc.us ], [ false, %for.body.lr.ph ]
+  %dNSName.193.us = phi i1 [ %dNSName.2.us144, %for.inc.us ], [ false, %for.body.lr.ph ]
+  %iPAddress.192.us = phi i1 [ %iPAddress.2.us142, %for.inc.us ], [ false, %for.body.lr.ph ]
   %i.089.us = phi i32 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
   %call21.us = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call14, i32 noundef %i.089.us) #13
   %3 = load i32, ptr %call21.us, align 8
@@ -1739,8 +1739,8 @@ if.then2.i.us:                                    ; preds = %land.lhs.true.i.us
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %if.end29.us, %for.body.us, %land.lhs.true39.us, %land.lhs.true.i.us, %if.then2.i.us, %if.then32.us
-  %dNSName.1.us144 = phi i1 [ true, %if.then32.us ], [ %dNSName.093.us, %if.end29.us ], [ true, %if.then2.i.us ], [ true, %land.lhs.true.i.us ], [ true, %land.lhs.true39.us ], [ %dNSName.093.us, %for.body.us ]
-  %iPAddress.1.us142 = phi i1 [ %iPAddress.092.us, %if.then32.us ], [ %iPAddress.092.us, %if.end29.us ], [ %iPAddress.092.us, %if.then2.i.us ], [ %iPAddress.092.us, %land.lhs.true.i.us ], [ %iPAddress.092.us, %land.lhs.true39.us ], [ true, %for.body.us ]
+  %dNSName.2.us144 = phi i1 [ true, %if.then32.us ], [ %dNSName.193.us, %if.end29.us ], [ true, %if.then2.i.us ], [ true, %land.lhs.true.i.us ], [ true, %land.lhs.true39.us ], [ %dNSName.193.us, %for.body.us ]
+  %iPAddress.2.us142 = phi i1 [ %iPAddress.192.us, %if.then32.us ], [ %iPAddress.192.us, %if.end29.us ], [ %iPAddress.192.us, %if.then2.i.us ], [ %iPAddress.192.us, %land.lhs.true.i.us ], [ %iPAddress.192.us, %land.lhs.true39.us ], [ true, %for.body.us ]
   %dnsmatched.1.us = phi i1 [ false, %if.then32.us ], [ false, %if.end29.us ], [ %call.i.us, %if.then2.i.us ], [ %call.i.us, %land.lhs.true.i.us ], [ %call.i.us, %land.lhs.true39.us ], [ false, %for.body.us ]
   %inc.us = add nuw nsw i32 %i.089.us, 1
   %cmp.us = icmp sge i32 %inc.us, %call18
@@ -1748,8 +1748,8 @@ for.inc.us:                                       ; preds = %if.end29.us, %for.b
   br i1 %.not.us, label %for.end, label %for.body.us, !llvm.loop !11
 
 for.body.us101:                                   ; preds = %for.body.lr.ph, %for.inc.us119
-  %dNSName.093.us102 = phi i1 [ %dNSName.1.us112154, %for.inc.us119 ], [ false, %for.body.lr.ph ]
-  %iPAddress.092.us103 = phi i1 [ %iPAddress.1.us111153, %for.inc.us119 ], [ false, %for.body.lr.ph ]
+  %dNSName.193.us102 = phi i1 [ %dNSName.2.us112154, %for.inc.us119 ], [ false, %for.body.lr.ph ]
+  %iPAddress.192.us103 = phi i1 [ %iPAddress.2.us111153, %for.inc.us119 ], [ false, %for.body.lr.ph ]
   %ipmatched.091.us104 = phi i1 [ %ipmatched.1.us121, %for.inc.us119 ], [ false, %for.body.lr.ph ]
   %i.089.us106 = phi i32 [ %inc.us122, %for.inc.us119 ], [ 0, %for.body.lr.ph ]
   %call21.us107 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call14, i32 noundef %i.089.us106) #13
@@ -1792,16 +1792,16 @@ if.then59.us:                                     ; preds = %land.lhs.true53.us
   br label %for.inc.us119
 
 for.inc.us119:                                    ; preds = %for.body.us101, %if.end29.fold.split.us109, %land.lhs.true48.us, %if.then59.us, %land.lhs.true53.us, %if.then32.us114
-  %dNSName.1.us112154 = phi i1 [ %dNSName.093.us102, %land.lhs.true48.us ], [ %dNSName.093.us102, %if.then59.us ], [ %dNSName.093.us102, %land.lhs.true53.us ], [ %dNSName.093.us102, %if.then32.us114 ], [ %dNSName.093.us102, %if.end29.fold.split.us109 ], [ true, %for.body.us101 ]
-  %iPAddress.1.us111153 = phi i1 [ true, %land.lhs.true48.us ], [ true, %if.then59.us ], [ true, %land.lhs.true53.us ], [ true, %if.then32.us114 ], [ %iPAddress.092.us103, %if.end29.fold.split.us109 ], [ %iPAddress.092.us103, %for.body.us101 ]
+  %dNSName.2.us112154 = phi i1 [ %dNSName.193.us102, %land.lhs.true48.us ], [ %dNSName.193.us102, %if.then59.us ], [ %dNSName.193.us102, %land.lhs.true53.us ], [ %dNSName.193.us102, %if.then32.us114 ], [ %dNSName.193.us102, %if.end29.fold.split.us109 ], [ true, %for.body.us101 ]
+  %iPAddress.2.us111153 = phi i1 [ true, %land.lhs.true48.us ], [ true, %if.then59.us ], [ true, %land.lhs.true53.us ], [ true, %if.then32.us114 ], [ %iPAddress.192.us103, %if.end29.fold.split.us109 ], [ %iPAddress.192.us103, %for.body.us101 ]
   %ipmatched.1.us121 = phi i1 [ %ipmatched.091.us104.mux, %land.lhs.true48.us ], [ true, %if.then59.us ], [ true, %land.lhs.true53.us ], [ %ipmatched.091.us104, %if.then32.us114 ], [ %ipmatched.091.us104, %if.end29.fold.split.us109 ], [ %ipmatched.091.us104, %for.body.us101 ]
   %inc.us122 = add nuw nsw i32 %i.089.us106, 1
   %exitcond.not = icmp eq i32 %inc.us122, %call18
   br i1 %exitcond.not, label %for.end, label %for.body.us101, !llvm.loop !11
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %dNSName.093 = phi i1 [ %dNSName.1, %for.inc ], [ false, %for.body.lr.ph ]
-  %iPAddress.092 = phi i1 [ %iPAddress.1, %for.inc ], [ false, %for.body.lr.ph ]
+  %dNSName.193 = phi i1 [ %dNSName.2, %for.inc ], [ false, %for.body.lr.ph ]
+  %iPAddress.192 = phi i1 [ %iPAddress.2, %for.inc ], [ false, %for.body.lr.ph ]
   %i.089 = phi i32 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
   %call21 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %call14, i32 noundef %i.089) #13
   %14 = load i32, ptr %call21, align 8
@@ -1817,8 +1817,8 @@ if.end29.fold.split:                              ; preds = %for.body
   br label %if.end29
 
 if.end29:                                         ; preds = %for.body, %if.end29.fold.split, %if.then27
-  %iPAddress.1 = phi i1 [ true, %if.then27 ], [ %iPAddress.092, %for.body ], [ %iPAddress.092, %if.end29.fold.split ]
-  %dNSName.1 = phi i1 [ %dNSName.093, %if.then27 ], [ true, %for.body ], [ %dNSName.093, %if.end29.fold.split ]
+  %iPAddress.2 = phi i1 [ true, %if.then27 ], [ %iPAddress.192, %for.body ], [ %iPAddress.192, %if.end29.fold.split ]
+  %dNSName.2 = phi i1 [ %dNSName.193, %if.then27 ], [ true, %for.body ], [ %dNSName.193, %if.end29.fold.split ]
   %cmp31 = icmp eq i32 %14, %target.0.fr
   br i1 %cmp31, label %if.then32, label %for.inc
 
@@ -1836,22 +1836,22 @@ for.inc:                                          ; preds = %if.then32, %if.end2
   br i1 %exitcond136.not, label %for.end.thread, label %for.body, !llvm.loop !11
 
 for.end.thread:                                   ; preds = %for.inc, %if.then16
-  %iPAddress.0.lcssa.ph = phi i1 [ false, %if.then16 ], [ %iPAddress.1, %for.inc ]
-  %dNSName.0.lcssa.ph = phi i1 [ false, %if.then16 ], [ %dNSName.1, %for.inc ]
+  %iPAddress.1.lcssa.ph = phi i1 [ false, %if.then16 ], [ %iPAddress.2, %for.inc ]
+  %dNSName.1.lcssa.ph = phi i1 [ false, %if.then16 ], [ %dNSName.2, %for.inc ]
   call void @GENERAL_NAMES_free(ptr noundef nonnull %call14) #13
   br label %if.else73
 
 for.end:                                          ; preds = %for.inc.us119, %for.inc.us
   %dnsmatched.0.lcssa = phi i1 [ %dnsmatched.1.us, %for.inc.us ], [ %ipmatched.1.us121, %for.inc.us119 ]
-  %iPAddress.0.lcssa = phi i1 [ %iPAddress.1.us142, %for.inc.us ], [ %iPAddress.1.us111153, %for.inc.us119 ]
-  %dNSName.0.lcssa = phi i1 [ %dNSName.1.us144, %for.inc.us ], [ %dNSName.1.us112154, %for.inc.us119 ]
+  %iPAddress.1.lcssa = phi i1 [ %iPAddress.2.us142, %for.inc.us ], [ %iPAddress.2.us111153, %for.inc.us119 ]
+  %dNSName.1.lcssa = phi i1 [ %dNSName.2.us144, %for.inc.us ], [ %dNSName.2.us112154, %for.inc.us119 ]
   call void @GENERAL_NAMES_free(ptr noundef nonnull %call14) #13
   br i1 %dnsmatched.0.lcssa, label %if.end173, label %if.else73
 
 if.else73:                                        ; preds = %for.end.thread, %for.end
-  %dNSName.0.lcssa159 = phi i1 [ %dNSName.0.lcssa.ph, %for.end.thread ], [ %dNSName.0.lcssa, %for.end ]
-  %iPAddress.0.lcssa158 = phi i1 [ %iPAddress.0.lcssa.ph, %for.end.thread ], [ %iPAddress.0.lcssa, %for.end ]
-  %brmerge87 = select i1 %dNSName.0.lcssa159, i1 true, i1 %iPAddress.0.lcssa158
+  %dNSName.1.lcssa159 = phi i1 [ %dNSName.1.lcssa.ph, %for.end.thread ], [ %dNSName.1.lcssa, %for.end ]
+  %iPAddress.1.lcssa158 = phi i1 [ %iPAddress.1.lcssa.ph, %for.end.thread ], [ %iPAddress.1.lcssa, %for.end ]
+  %brmerge87 = select i1 %dNSName.1.lcssa159, i1 true, i1 %iPAddress.1.lcssa158
   br i1 %brmerge87, label %do.body80, label %if.else95
 
 do.body80:                                        ; preds = %if.else73
@@ -1884,17 +1884,17 @@ if.else95:                                        ; preds = %if.else73, %if.end1
   br i1 %tobool98.not, label %if.then145, label %while.cond
 
 while.cond:                                       ; preds = %if.else95, %while.cond
-  %i96.0 = phi i32 [ %call100, %while.cond ], [ -1, %if.else95 ]
-  %call100 = call i32 @X509_NAME_get_index_by_NID(ptr noundef nonnull %call97, i32 noundef 13, i32 noundef %i96.0) #13
+  %i96.1 = phi i32 [ %call100, %while.cond ], [ -1, %if.else95 ]
+  %call100 = call i32 @X509_NAME_get_index_by_NID(ptr noundef nonnull %call97, i32 noundef 13, i32 noundef %i96.1) #13
   %cmp101 = icmp sgt i32 %call100, -1
   br i1 %cmp101, label %while.cond, label %if.end103, !llvm.loop !12
 
 if.end103:                                        ; preds = %while.cond
-  %cmp104 = icmp sgt i32 %i96.0, -1
+  %cmp104 = icmp sgt i32 %i96.1, -1
   br i1 %cmp104, label %if.then106, label %if.then145
 
 if.then106:                                       ; preds = %if.end103
-  %call107 = call ptr @X509_NAME_get_entry(ptr noundef nonnull %call97, i32 noundef %i96.0) #13
+  %call107 = call ptr @X509_NAME_get_entry(ptr noundef nonnull %call97, i32 noundef %i96.1) #13
   %call108 = call ptr @X509_NAME_ENTRY_get_data(ptr noundef %call107) #13
   %tobool109.not = icmp eq ptr %call108, null
   br i1 %tobool109.not, label %if.then145, label %if.then110
@@ -1932,11 +1932,11 @@ if.end130:                                        ; preds = %if.then110
   br i1 %tobool131.not, label %if.then145, label %land.lhs.true132
 
 land.lhs.true132:                                 ; preds = %if.end130.thread163, %if.end130
-  %peerlen.0.ph168 = phi i32 [ %call115, %if.end130.thread163 ], [ %call129, %if.end130 ]
+  %peerlen.1.ph168 = phi i32 [ %call115, %if.end130.thread163 ], [ %call129, %if.end130 ]
   %.pr167 = phi ptr [ %call120, %if.end130.thread163 ], [ %.pr.pre, %if.end130 ]
   %call133 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pr167) #14
   %call134 = call i32 @curlx_uztosi(i64 noundef %call133) #13
-  %cmp135.not = icmp eq i32 %call134, %peerlen.0.ph168
+  %cmp135.not = icmp eq i32 %call134, %peerlen.1.ph168
   br i1 %cmp135.not, label %if.else143, label %if.then137
 
 if.then137:                                       ; preds = %land.lhs.true132
@@ -1953,7 +1953,7 @@ if.then145:                                       ; preds = %if.else95, %if.end1
   br label %if.end168
 
 if.else146:                                       ; preds = %if.else143
-  %20 = sext i32 %peerlen.0.ph168 to i64
+  %20 = sext i32 %peerlen.1.ph168 to i64
   %21 = load ptr, ptr %peer, align 8
   %call149 = call zeroext i1 @Curl_cert_hostcheck(ptr noundef nonnull %.pr81.pre, i64 noundef %20, ptr noundef %21, i64 noundef %call) #13
   br i1 %call149, label %do.body153, label %if.then150
@@ -1982,7 +1982,7 @@ if.then163:                                       ; preds = %land.lhs.true155
   br label %if.end168
 
 if.end168:                                        ; preds = %if.then137, %if.then145, %if.then163, %land.lhs.true155, %do.body153, %if.then150
-  %result.2.ph = phi i32 [ 60, %if.then137 ], [ 60, %if.then145 ], [ 60, %if.then150 ], [ 0, %do.body153 ], [ 0, %land.lhs.true155 ], [ 0, %if.then163 ]
+  %result.3.ph = phi i32 [ 60, %if.then137 ], [ 60, %if.then145 ], [ 60, %if.then150 ], [ 0, %do.body153 ], [ 0, %land.lhs.true155 ], [ 0, %if.then163 ]
   %.pr84 = load ptr, ptr %peer_CN, align 8
   %tobool169.not = icmp eq ptr %.pr84, null
   br i1 %tobool169.not, label %if.end173, label %if.then170
@@ -1992,8 +1992,8 @@ if.then170:                                       ; preds = %if.end168
   br label %if.end173
 
 if.end173:                                        ; preds = %for.end, %if.then118, %do.end93, %if.then170, %if.end168
-  %result.3 = phi i32 [ 60, %do.end93 ], [ %result.2.ph, %if.then170 ], [ %result.2.ph, %if.end168 ], [ 0, %for.end ], [ 27, %if.then118 ]
-  ret i32 %result.3
+  %result.0 = phi i32 [ 60, %do.end93 ], [ %result.3.ph, %if.then170 ], [ %result.3.ph, %if.end168 ], [ 0, %for.end ], [ 27, %if.then118 ]
+  ret i32 %result.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -2255,7 +2255,7 @@ if.then20.i.i:                                    ; preds = %if.then16.i.i
   br label %if.end22.i.i
 
 if.end22.i.i:                                     ; preds = %if.then20.i.i, %for.body.i.i
-  %count.1.i.i = phi i32 [ %inc.i.i, %if.then20.i.i ], [ %count.022.i.i, %for.body.i.i ]
+  %count.2.i.i = phi i32 [ %inc.i.i, %if.then20.i.i ], [ %count.022.i.i, %for.body.i.i ]
   %crl.i.i = getelementptr inbounds i8, ptr %call14.i.i, i64 8
   %30 = load ptr, ptr %crl.i.i, align 8
   %tobool23.not.i.i = icmp eq ptr %30, null
@@ -2267,12 +2267,12 @@ if.then24.i.i:                                    ; preds = %if.end22.i.i
   br i1 %tobool27.not.i.i, label %load_cacert_from_memory.exit.i, label %if.then28.i.i
 
 if.then28.i.i:                                    ; preds = %if.then24.i.i
-  %inc29.i.i = add nsw i32 %count.1.i.i, 1
+  %inc29.i.i = add nsw i32 %count.2.i.i, 1
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then28.i.i, %if.end22.i.i
-  %count.2.i.i = phi i32 [ %inc29.i.i, %if.then28.i.i ], [ %count.1.i.i, %if.end22.i.i ]
-  %31 = freeze i32 %count.2.i.i
+  %count.3.i.i = phi i32 [ %inc29.i.i, %if.then28.i.i ], [ %count.2.i.i, %if.end22.i.i ]
+  %31 = freeze i32 %count.3.i.i
   %inc33.i.i = add nuw nsw i32 %i.021.i.i, 1
   %call10.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call4.i.i) #13
   %cmp11.i.i = icmp slt i32 %inc33.i.i, %call10.i.i
@@ -2284,14 +2284,14 @@ for.end.loopexit.i.i:                             ; preds = %for.inc.i.i
   br label %load_cacert_from_memory.exit.i
 
 load_cacert_from_memory.exit.i:                   ; preds = %if.then24.i.i, %if.then16.i.i, %for.end.loopexit.i.i, %for.cond.preheader.i.i
-  %count.3.i.i = phi i32 [ 77, %for.cond.preheader.i.i ], [ %spec.select, %for.end.loopexit.i.i ], [ 77, %if.then16.i.i ], [ 77, %if.then24.i.i ]
+  %count.1.i.i = phi i32 [ 77, %for.cond.preheader.i.i ], [ %spec.select, %for.end.loopexit.i.i ], [ 77, %if.then16.i.i ], [ 77, %if.then24.i.i ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %call4.i.i, ptr noundef nonnull @X509_INFO_free) #13
   %call36.i.i = tail call i32 @BIO_free(ptr noundef nonnull %call.i.i26) #13
-  %tobool28.not.i = icmp eq i32 %count.3.i.i, 0
+  %tobool28.not.i = icmp eq i32 %count.1.i.i, 0
   br i1 %tobool28.not.i, label %land.lhs.true32.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %load_cacert_from_memory.exit.i, %load_cacert_from_memory.exit.thread76.i, %if.end.i.i24, %if.then26.i
-  %retval.0.i75.i = phi i32 [ %count.3.i.i, %load_cacert_from_memory.exit.i ], [ 77, %load_cacert_from_memory.exit.thread76.i ], [ 27, %if.end.i.i24 ], [ 77, %if.then26.i ]
+  %retval.0.i75.i = phi i32 [ %count.1.i.i, %load_cacert_from_memory.exit.i ], [ 77, %load_cacert_from_memory.exit.thread76.i ], [ 27, %if.end.i.i24 ], [ 77, %if.then26.i ]
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.79) #13
   br label %if.end25
 
@@ -2697,7 +2697,7 @@ if.end51:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool7.not, label %while.end, label %while.body, !llvm.loop !14
 
 while.end:                                        ; preds = %if.then12, %if.then12, %if.end51, %if.then36, %land.lhs.true28, %if.else48, %if.then47, %cond.end
-  %retval1.0.lcssa = phi i32 [ 0, %if.then36 ], [ 0, %land.lhs.true28 ], [ -1, %if.else48 ], [ 0, %if.then47 ], [ 0, %cond.end ], [ 0, %if.end51 ], [ 0, %if.then12 ], [ 0, %if.then12 ]
+  %retval1.1.lcssa = phi i32 [ 0, %if.then36 ], [ 0, %land.lhs.true28 ], [ -1, %if.else48 ], [ 0, %if.then47 ], [ 0, %cond.end ], [ 0, %if.end51 ], [ 0, %if.then12 ], [ 0, %if.then12 ]
   %bf.load54 = load i64, ptr %verbose30, align 2
   %14 = and i64 %bf.load54, 536870912
   %tobool58.not = icmp eq i64 %14, 0
@@ -2742,8 +2742,8 @@ if.end105:                                        ; preds = %if.end105.sink.spli
   br label %if.end108
 
 if.end108:                                        ; preds = %if.end105, %if.end
-  %retval1.2 = phi i32 [ %retval1.0.lcssa, %if.end105 ], [ 0, %if.end ]
-  ret i32 %retval1.2
+  %retval1.0 = phi i32 [ %retval1.1.lcssa, %if.end105 ], [ 0, %if.end ]
+  ret i32 %retval1.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6103,12 +6103,12 @@ if.else45:                                        ; preds = %if.then38
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then41, %if.else45, %if.end36
-  %res.0 = phi i32 [ 0, %if.end36 ], [ 0, %if.else45 ], [ %spec.select, %if.then41 ]
+  %res.1 = phi i32 [ 0, %if.end36 ], [ 0, %if.else45 ], [ %spec.select, %if.then41 ]
   call void @Curl_ssl_sessionid_unlock(ptr noundef nonnull %1) #13
   br label %return
 
 return:                                           ; preds = %entry, %cond.end, %if.end, %if.end47, %cond.end11
-  %retval.0 = phi i32 [ 0, %cond.end11 ], [ %res.0, %if.end47 ], [ 0, %if.end ], [ 0, %cond.end ], [ 0, %entry ]
+  %retval.0 = phi i32 [ 0, %cond.end11 ], [ %res.1, %if.end47 ], [ 0, %if.end ], [ 0, %cond.end ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

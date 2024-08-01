@@ -406,24 +406,24 @@ select.unfold:                                    ; preds = %switch.early.test, 
   br label %108
 
 108:                                              ; preds = %106, %104
-  %.148 = phi i1 [ %.047, %106 ], [ true, %104 ]
+  %.451 = phi i1 [ %.047, %106 ], [ true, %104 ]
   %.pn = phi { ptr, i32 } [ %107, %106 ], [ %105, %104 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #10
   br label %109
 
 109:                                              ; preds = %108, %102
-  %.249 = phi i1 [ %.148, %108 ], [ true, %102 ]
+  %.350 = phi i1 [ %.451, %108 ], [ true, %102 ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %108 ], [ %103, %102 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #10
   br label %110
 
 110:                                              ; preds = %100, %109
-  %.350 = phi i1 [ %.249, %109 ], [ true, %100 ]
+  %.249 = phi i1 [ %.350, %109 ], [ true, %100 ]
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %109 ], [ %101, %100 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #10
-  br i1 %.350, label %111, label %.body
+  br i1 %.249, label %111, label %.body
 
 111:                                              ; preds = %.thread128, %110
   %.pn.pn.pn.pn131 = phi { ptr, i32 } [ %99, %.thread128 ], [ %.pn.pn.pn, %110 ]
@@ -498,8 +498,8 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %129, %._crit_edge
   br i1 %.not142185, label %._crit_edge190, label %.lr.ph189
 
 .lr.ph189:                                        ; preds = %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit, %232
-  %.sroa.6.0188 = phi i32 [ %.sroa.6.4, %232 ], [ 0, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ]
-  %.sroa.0121.0187 = phi ptr [ %.sroa.0121.4, %232 ], [ %139, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ]
+  %.sroa.6.0188 = phi i32 [ %.sroa.6.2, %232 ], [ 0, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ]
+  %.sroa.0121.0187 = phi ptr [ %.sroa.0121.2, %232 ], [ %139, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ]
   %.sroa.0118.0186 = phi ptr [ %233, %232 ], [ %140, %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit ]
   %142 = load i32, ptr %.sroa.0118.0186, align 4
   br label %143
@@ -704,8 +704,8 @@ select.unfold132.split.us:                        ; preds = %_ZNSt14_Bit_referen
   br label %232
 
 232:                                              ; preds = %.outer.split, %224
-  %.sroa.0121.4 = phi ptr [ %spec.select139, %224 ], [ %.us-phi, %.outer.split ]
-  %.sroa.6.4 = phi i32 [ %spec.select140, %224 ], [ %.us-phi166, %.outer.split ]
+  %.sroa.0121.2 = phi ptr [ %spec.select139, %224 ], [ %.us-phi, %.outer.split ]
+  %.sroa.6.2 = phi i32 [ %spec.select140, %224 ], [ %.us-phi166, %.outer.split ]
   %233 = getelementptr inbounds i8, ptr %.sroa.0118.0186, i64 4
   %.not142 = icmp eq ptr %233, %141
   br i1 %.not142, label %._crit_edge190, label %.lr.ph189

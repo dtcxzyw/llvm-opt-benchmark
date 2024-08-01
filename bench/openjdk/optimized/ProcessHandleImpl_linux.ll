@@ -307,7 +307,7 @@ define hidden void @os_getCmdlineAndUserInfo(ptr noundef %0, ptr noundef %1, i32
   br i1 %exitcond.not, label %.loopexit96, label %.lr.ph102, !llvm.loop !9
 
 .loopexit96:                                      ; preds = %84, %74, %70
-  %.072 = phi ptr [ null, %74 ], [ null, %70 ], [ %77, %84 ]
+  %.173 = phi ptr [ null, %74 ], [ null, %70 ], [ %77, %84 ]
   br i1 %.not87, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %.loopexit96
@@ -323,13 +323,13 @@ define hidden void @os_getCmdlineAndUserInfo(ptr noundef %0, ptr noundef %1, i32
 
 90:                                               ; preds = %.lr.ph105, %90
   %.1104 = phi ptr [ %27, %.lr.ph105 ], [ %95, %90 ]
-  %.170103 = phi i32 [ 0, %.lr.ph105 ], [ %96, %90 ]
+  %.2103 = phi i32 [ 0, %.lr.ph105 ], [ %96, %90 ]
   %91 = ptrtoint ptr %.1104 to i64
   %92 = sub i64 %89, %91
   %93 = call i64 @strnlen(ptr noundef nonnull %.1104, i64 noundef %92) #14
   %94 = add i64 %93, 1
   %95 = getelementptr inbounds i8, ptr %.1104, i64 %94
-  %96 = add nuw nsw i32 %.170103, 1
+  %96 = add nuw nsw i32 %.2103, 1
   %97 = load i8, ptr %95, align 1
   %98 = icmp ne i8 %97, 0
   %99 = icmp ult ptr %95, %61
@@ -338,14 +338,14 @@ define hidden void @os_getCmdlineAndUserInfo(ptr noundef %0, ptr noundef %1, i32
 
 .loopexit:                                        ; preds = %90, %.loopexit96, %.preheader
   %.074 = phi ptr [ null, %.loopexit96 ], [ %61, %.preheader ], [ %61, %90 ]
-  %.2 = phi i32 [ 0, %.loopexit96 ], [ 0, %.preheader ], [ %96, %90 ]
-  call void @unix_fillArgArray(ptr noundef %0, ptr noundef %1, i32 noundef %.2, ptr noundef nonnull %27, ptr noundef %.074, ptr noundef %.071, ptr noundef %.072) #13
+  %.170 = phi i32 [ 0, %.loopexit96 ], [ 0, %.preheader ], [ %96, %90 ]
+  call void @unix_fillArgArray(ptr noundef %0, ptr noundef %1, i32 noundef %.170, ptr noundef nonnull %27, ptr noundef %.074, ptr noundef %.071, ptr noundef %.173) #13
   call void @free(ptr noundef nonnull %27) #13
-  %.not89 = icmp eq ptr %.072, null
+  %.not89 = icmp eq ptr %.173, null
   br i1 %.not89, label %.thread93, label %.thread93.sink.split
 
 .thread93.sink.split:                             ; preds = %.loopexit, %._crit_edge
-  %.sink = phi ptr [ %27, %._crit_edge ], [ %.072, %.loopexit ]
+  %.sink = phi ptr [ %27, %._crit_edge ], [ %.173, %.loopexit ]
   call void @free(ptr noundef nonnull %.sink) #13
   br label %.thread93
 

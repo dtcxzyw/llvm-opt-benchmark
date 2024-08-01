@@ -977,7 +977,7 @@ define internal fastcc void @save_protos_list(ptr nocapture noundef writeonly %0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %37
-  %.041 = phi i32 [ %.2, %37 ], [ 1, %.lr.ph ]
+  %.041 = phi i32 [ %.1, %37 ], [ 1, %.lr.ph ]
   %.03340 = phi i32 [ %38, %37 ], [ %15, %.lr.ph ]
   %26 = call i32 @proto_can_toggle_protocol(i32 noundef %.03340) #12
   %.not36 = icmp eq i32 %26, 0
@@ -1003,7 +1003,7 @@ define internal fastcc void @save_protos_list(ptr nocapture noundef writeonly %0
   br label %37
 
 37:                                               ; preds = %27, %.lr.ph.split, %34
-  %.2 = phi i32 [ %.041, %27 ], [ 0, %34 ], [ %.041, %.lr.ph.split ]
+  %.1 = phi i32 [ %.041, %27 ], [ 0, %34 ], [ %.041, %.lr.ph.split ]
   %38 = call i32 @proto_get_next_protocol(ptr noundef nonnull %6) #12
   %.not = icmp eq i32 %38, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
@@ -1119,8 +1119,8 @@ define internal fastcc i32 @read_protos_list_file(ptr noundef %0, ptr nocapture 
   br label %6
 
 6:                                                ; preds = %75, %3
-  %.073 = phi ptr [ %4, %3 ], [ %.477, %75 ]
-  %.070 = phi i32 [ 128, %3 ], [ %.4, %75 ]
+  %.073 = phi ptr [ %4, %3 ], [ %.5, %75 ]
+  %.070 = phi i32 [ 128, %3 ], [ %.3, %75 ]
   %.068 = phi i32 [ 1, %3 ], [ %76, %75 ]
   br label %7
 
@@ -1153,7 +1153,7 @@ define internal fastcc i32 @read_protos_list_file(ptr noundef %0, ptr nocapture 
   %20 = phi i32 [ %38, %34 ], [ %18, %.critedge ]
   %.069105 = phi i32 [ %37, %34 ], [ 0, %.critedge ]
   %.171104 = phi i32 [ %.272, %34 ], [ %.070, %.critedge ]
-  %.174103 = phi ptr [ %.275, %34 ], [ %.073, %.critedge ]
+  %.376103 = phi ptr [ %.477, %34 ], [ %.073, %.critedge ]
   %21 = trunc i32 %20 to i8
   %.mask = and i32 %20, 255
   %22 = zext nneg i32 %.mask to i64
@@ -1175,14 +1175,14 @@ define internal fastcc i32 @read_protos_list_file(ptr noundef %0, ptr nocapture 
   %30 = shl i32 %.171104, 1
   %31 = or disjoint i32 %30, 1
   %32 = sext i32 %31 to i64
-  %33 = tail call ptr @g_realloc(ptr noundef %.174103, i64 noundef %32) #12
+  %33 = tail call ptr @g_realloc(ptr noundef %.376103, i64 noundef %32) #12
   br label %34
 
 34:                                               ; preds = %29, %28
-  %.275 = phi ptr [ %33, %29 ], [ %.174103, %28 ]
+  %.477 = phi ptr [ %33, %29 ], [ %.376103, %28 ]
   %.272 = phi i32 [ %30, %29 ], [ %.171104, %28 ]
   %35 = sext i32 %.069105 to i64
-  %36 = getelementptr i8, ptr %.275, i64 %35
+  %36 = getelementptr i8, ptr %.477, i64 %35
   store i8 %21, ptr %36, align 1
   %37 = add i32 %.069105, 1
   %38 = tail call i32 @getc_unlocked(ptr noundef %1)
@@ -1190,7 +1190,7 @@ define internal fastcc i32 @read_protos_list_file(ptr noundef %0, ptr nocapture 
   br i1 %39, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %34, %.lr.ph, %26, %.critedge
-  %.174.lcssa = phi ptr [ %.073, %.critedge ], [ %.174103, %26 ], [ %.174103, %.lr.ph ], [ %.275, %34 ]
+  %.376.lcssa = phi ptr [ %.073, %.critedge ], [ %.376103, %26 ], [ %.376103, %.lr.ph ], [ %.477, %34 ]
   %.171.lcssa = phi i32 [ %.070, %.critedge ], [ %.171104, %26 ], [ %.171104, %.lr.ph ], [ %.272, %34 ]
   %.069.lcssa = phi i32 [ 0, %.critedge ], [ %.069105, %26 ], [ %.069105, %.lr.ph ], [ %37, %34 ]
   %.lcssa = phi i32 [ -1, %.critedge ], [ 35, %26 ], [ %20, %.lr.ph ], [ -1, %34 ]
@@ -1274,17 +1274,17 @@ switch.early.test:                                ; preds = %.loopexit95
   %64 = shl i32 %.171.lcssa, 1
   %65 = or disjoint i32 %64, 1
   %66 = sext i32 %65 to i64
-  %67 = tail call ptr @g_realloc(ptr noundef %.174.lcssa, i64 noundef %66) #12
+  %67 = tail call ptr @g_realloc(ptr noundef %.376.lcssa, i64 noundef %66) #12
   br label %68
 
 68:                                               ; preds = %63, %62
-  %.376 = phi ptr [ %67, %63 ], [ %.174.lcssa, %62 ]
-  %.3 = phi i32 [ %64, %63 ], [ %.171.lcssa, %62 ]
+  %.6 = phi ptr [ %67, %63 ], [ %.376.lcssa, %62 ]
+  %.4 = phi i32 [ %64, %63 ], [ %.171.lcssa, %62 ]
   %69 = sext i32 %.069.lcssa to i64
-  %70 = getelementptr i8, ptr %.376, i64 %69
+  %70 = getelementptr i8, ptr %.6, i64 %69
   store i8 0, ptr %70, align 1
   %71 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #16
-  %72 = tail call noalias ptr @g_strdup(ptr noundef %.376) #12
+  %72 = tail call noalias ptr @g_strdup(ptr noundef %.6) #12
   store ptr %72, ptr %71, align 8
   %73 = load ptr, ptr %2, align 8
   %74 = tail call ptr @g_list_append(ptr noundef %73, ptr noundef nonnull %71) #12
@@ -1292,19 +1292,19 @@ switch.early.test:                                ; preds = %.loopexit95
   br label %75
 
 75:                                               ; preds = %61, %68
-  %.477 = phi ptr [ %.376, %68 ], [ %.174.lcssa, %61 ]
-  %.4 = phi i32 [ %.3, %68 ], [ %.171.lcssa, %61 ]
+  %.5 = phi ptr [ %.6, %68 ], [ %.376.lcssa, %61 ]
+  %.3 = phi i32 [ %.4, %68 ], [ %.171.lcssa, %61 ]
   %76 = add i32 %.068, 1
   br label %6
 
 77:                                               ; preds = %15, %60
-  %.5 = phi ptr [ %.073, %15 ], [ %.174.lcssa, %60 ]
-  tail call void @g_free(ptr noundef %.5) #12
+  %.275 = phi ptr [ %.073, %15 ], [ %.376.lcssa, %60 ]
+  tail call void @g_free(ptr noundef %.275) #12
   br label %81
 
 78:                                               ; preds = %58, %15
-  %.6 = phi ptr [ %.073, %15 ], [ %.174.lcssa, %58 ]
-  tail call void @g_free(ptr noundef %.6) #12
+  %.174 = phi ptr [ %.073, %15 ], [ %.376.lcssa, %58 ]
+  tail call void @g_free(ptr noundef %.174) #12
   %79 = tail call ptr @__errno_location() #14
   %80 = load i32, ptr %79, align 4
   br label %81
@@ -1351,7 +1351,7 @@ define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr no
   br label %6
 
 6:                                                ; preds = %66, %3
-  %.073 = phi ptr [ %4, %3 ], [ %.376, %66 ]
+  %.073 = phi ptr [ %4, %3 ], [ %.5, %66 ]
   %.072 = phi i32 [ 128, %3 ], [ %.3, %66 ]
   %.0 = phi i32 [ 1, %3 ], [ %74, %66 ]
   br label %7
@@ -1380,7 +1380,7 @@ define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr no
   br label %.outer
 
 .outer:                                           ; preds = %38, %.critedge
-  %.174.ph = phi ptr [ %.275, %38 ], [ %.073, %.critedge ]
+  %.376.ph = phi ptr [ %.4, %38 ], [ %.073, %.critedge ]
   %.1.ph = phi i32 [ %.2, %38 ], [ %.072, %.critedge ]
   %.071.ph = phi i32 [ %41, %38 ], [ 0, %.critedge ]
   br label %18
@@ -1423,14 +1423,14 @@ define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr no
   %34 = shl i32 %.1.ph, 1
   %35 = or disjoint i32 %34, 1
   %36 = sext i32 %35 to i64
-  %37 = tail call ptr @g_realloc(ptr noundef %.174.ph, i64 noundef %36) #12
+  %37 = tail call ptr @g_realloc(ptr noundef %.376.ph, i64 noundef %36) #12
   br label %38
 
 38:                                               ; preds = %33, %32
-  %.275 = phi ptr [ %37, %33 ], [ %.174.ph, %32 ]
+  %.4 = phi ptr [ %37, %33 ], [ %.376.ph, %32 ]
   %.2 = phi i32 [ %34, %33 ], [ %.1.ph, %32 ]
   %39 = sext i32 %.071.ph to i64
-  %40 = getelementptr i8, ptr %.275, i64 %39
+  %40 = getelementptr i8, ptr %.4, i64 %39
   store i8 %28, ptr %40, align 1
   %41 = add i32 %.071.ph, 1
   br label %.outer
@@ -1513,17 +1513,17 @@ define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr no
   %62 = shl i32 %.1.ph, 1
   %63 = or disjoint i32 %62, 1
   %64 = sext i32 %63 to i64
-  %65 = tail call ptr @g_realloc(ptr noundef %.174.ph, i64 noundef %64) #12
+  %65 = tail call ptr @g_realloc(ptr noundef %.376.ph, i64 noundef %64) #12
   br label %66
 
 66:                                               ; preds = %61, %60
-  %.376 = phi ptr [ %65, %61 ], [ %.174.ph, %60 ]
+  %.5 = phi ptr [ %65, %61 ], [ %.376.ph, %60 ]
   %.3 = phi i32 [ %62, %61 ], [ %.1.ph, %60 ]
   %67 = sext i32 %.071.ph to i64
-  %68 = getelementptr i8, ptr %.376, i64 %67
+  %68 = getelementptr i8, ptr %.5, i64 %67
   store i8 0, ptr %68, align 1
   %69 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #16
-  %70 = tail call noalias ptr @g_strdup(ptr noundef %.376) #12
+  %70 = tail call noalias ptr @g_strdup(ptr noundef %.5) #12
   store ptr %70, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %69, i64 8
   store i32 %.069, ptr %71, align 8
@@ -1534,13 +1534,13 @@ define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr no
   br label %6
 
 75:                                               ; preds = %15, %59
-  %.4 = phi ptr [ %.073, %15 ], [ %.174.ph, %59 ]
-  tail call void @g_free(ptr noundef %.4) #12
+  %.275 = phi ptr [ %.073, %15 ], [ %.376.ph, %59 ]
+  tail call void @g_free(ptr noundef %.275) #12
   br label %79
 
 76:                                               ; preds = %57, %15
-  %.5 = phi ptr [ %.073, %15 ], [ %.174.ph, %57 ]
-  tail call void @g_free(ptr noundef %.5) #12
+  %.174 = phi ptr [ %.073, %15 ], [ %.376.ph, %57 ]
+  tail call void @g_free(ptr noundef %.174) #12
   %77 = tail call ptr @__errno_location() #14
   %78 = load i32, ptr %77, align 4
   br label %79

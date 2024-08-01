@@ -2797,13 +2797,13 @@ if.else:                                          ; preds = %if.end10
   br i1 %tobool24.not, label %error.thread, label %for.body28
 
 for.body28:                                       ; preds = %if.else, %for.inc39
-  %i.166 = phi i64 [ %inc40, %for.inc39 ], [ 0, %if.else ]
-  %call30 = call ptr @PySequence_GetItem(ptr noundef %names, i64 noundef %i.166) #13
+  %i.266 = phi i64 [ %inc40, %for.inc39 ], [ 0, %if.else ]
+  %call30 = call ptr @PySequence_GetItem(ptr noundef %names, i64 noundef %i.266) #13
   %cmp31 = icmp eq ptr %call30, null
   br i1 %cmp31, label %error, label %if.end33
 
 if.end33:                                         ; preds = %for.body28
-  %arrayidx34 = getelementptr %struct._sharednsitem, ptr %call6, i64 %i.166
+  %arrayidx34 = getelementptr %struct._sharednsitem, ptr %call6, i64 %i.266
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %size.i.i36)
   store i64 -1, ptr %size.i.i36, align 8
   %call.i.i37 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef nonnull %call30, ptr noundef nonnull %size.i.i36) #13
@@ -2855,7 +2855,7 @@ Py_DECREF.exit:                                   ; preds = %_sharednsitem_init.
   br i1 %cmp36, label %error, label %for.inc39
 
 for.inc39:                                        ; preds = %Py_DECREF.exit
-  %inc40 = add nuw nsw i64 %i.166, 1
+  %inc40 = add nuw nsw i64 %i.266, 1
   %exitcond.not = icmp eq i64 %inc40, %cond
   br i1 %exitcond.not, label %if.end44, label %for.body28, !llvm.loop !9
 
@@ -2871,8 +2871,8 @@ if.end44:                                         ; preds = %for.inc39, %for.inc
   br label %return
 
 error:                                            ; preds = %Py_DECREF.exit, %for.body28, %for.body, %_sharednsitem_init.exit.thread
-  %i.2 = phi i64 [ %i.068, %_sharednsitem_init.exit.thread ], [ %i.068, %for.body ], [ %i.166, %for.body28 ], [ %i.166, %Py_DECREF.exit ]
-  %cmp4869.not = icmp eq i64 %i.2, 0
+  %i.1 = phi i64 [ %i.068, %_sharednsitem_init.exit.thread ], [ %i.068, %for.body ], [ %i.266, %for.body28 ], [ %i.266, %Py_DECREF.exit ]
+  %cmp4869.not = icmp eq i64 %i.1, 0
   br i1 %cmp4869.not, label %for.end53, label %for.body49
 
 for.body49:                                       ; preds = %error, %_sharednsitem_clear.exit
@@ -2890,7 +2890,7 @@ if.then.i:                                        ; preds = %for.body49
 _sharednsitem_clear.exit:                         ; preds = %for.body49, %if.then.i
   call fastcc void @_sharednsitem_clear_value(ptr noundef nonnull %arrayidx50)
   %inc52 = add nuw nsw i64 %j.070, 1
-  %exitcond82.not = icmp eq i64 %inc52, %i.2
+  %exitcond82.not = icmp eq i64 %inc52, %i.1
   br i1 %exitcond82.not, label %for.end53, label %for.body49, !llvm.loop !10
 
 for.end53:                                        ; preds = %_sharednsitem_clear.exit, %error.thread, %error

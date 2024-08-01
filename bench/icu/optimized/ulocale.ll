@@ -423,9 +423,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -794,8 +794,8 @@ cleanup:                                          ; preds = %if.then16, %if.else
   br label %return
 
 return:                                           ; preds = %entry, %cleanup, %if.then1
-  %retval.1 = phi i32 [ 0, %if.then1 ], [ %3, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then1 ], [ %3, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZN6icu_7520CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29), ptr noundef, i32 noundef) unnamed_addr #5
@@ -883,8 +883,8 @@ cleanup:                                          ; preds = %if.then16, %if.else
   br label %return
 
 return:                                           ; preds = %entry, %cleanup, %if.then1
-  %retval.1 = phi i32 [ 0, %if.then1 ], [ %3, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ 0, %if.then1 ], [ %3, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZNK6icu_756Locale22getUnicodeKeywordValueENS_11StringPieceERNS_8ByteSinkER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr, i32, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5

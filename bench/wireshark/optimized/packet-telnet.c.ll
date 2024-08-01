@@ -1259,7 +1259,7 @@ define internal fastcc void @telnet_add_text(ptr noundef %0, ptr noundef %1, i32
 
 .lr.ph:                                           ; preds = %4, %.critedge3
   %.03143 = phi i32 [ %33, %.critedge3 ], [ %2, %4 ]
-  %.03242 = phi i32 [ %.2, %.critedge3 ], [ %3, %4 ]
+  %.03242 = phi i32 [ %.1, %.critedge3 ], [ %3, %4 ]
   %6 = call i32 @tvb_offset_exists(ptr noundef %1, i32 noundef %.03143) #5
   %.not35 = icmp eq i32 %6, 0
   br i1 %.not35, label %.critedge, label %7
@@ -1285,7 +1285,7 @@ define internal fastcc void @telnet_add_text(ptr noundef %0, ptr noundef %1, i32
 .preheader:                                       ; preds = %15, %27
   %18 = phi i32 [ %23, %27 ], [ %.pre46, %15 ]
   %.040 = phi i1 [ %28, %27 ], [ true, %15 ]
-  %.139 = phi i32 [ %24, %27 ], [ %10, %15 ]
+  %.239 = phi i32 [ %24, %27 ], [ %10, %15 ]
   %19 = call i32 @tvb_offset_exists(ptr noundef %1, i32 noundef %18) #5
   %.not37 = icmp eq i32 %19, 0
   %.pre45.pre = load i32, ptr %5, align 4
@@ -1296,7 +1296,7 @@ define internal fastcc void @telnet_add_text(ptr noundef %0, ptr noundef %1, i32
   %22 = load i32, ptr %5, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %5, align 4
-  %24 = add nsw i32 %.139, -1
+  %24 = add nsw i32 %.239, -1
   %25 = icmp eq i8 %21, 10
   %26 = icmp eq i8 %21, 0
   %or.cond5 = and i1 %.040, %26
@@ -1310,12 +1310,12 @@ define internal fastcc void @telnet_add_text(ptr noundef %0, ptr noundef %1, i32
 
 .critedge3:                                       ; preds = %27, %20, %.preheader, %15, %7
   %29 = phi i32 [ %.pre46, %15 ], [ %9, %7 ], [ %23, %27 ], [ %.pre45.pre, %.preheader ], [ %23, %20 ]
-  %.2 = phi i32 [ %10, %15 ], [ %10, %7 ], [ 0, %27 ], [ %.139, %.preheader ], [ %24, %20 ]
+  %.1 = phi i32 [ %10, %15 ], [ %10, %7 ], [ 0, %27 ], [ %.239, %.preheader ], [ %24, %20 ]
   %30 = sub i32 %29, %.03143
   %31 = load i32, ptr @hf_telnet_data, align 4
   %32 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %31, ptr noundef %1, i32 noundef %.03143, i32 noundef %30, i32 noundef 0) #5
   %33 = load i32, ptr %5, align 4
-  %.not = icmp eq i32 %.2, 0
+  %.not = icmp eq i32 %.1, 0
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !10
 
 .critedge:                                        ; preds = %.lr.ph, %.critedge3, %4
@@ -1926,28 +1926,28 @@ define internal void @dissect_tn3270e_subopt(ptr noundef %0, ptr nocapture readn
   br label %._crit_edge
 
 .preheader:                                       ; preds = %40, %54
-  %.169 = phi i32 [ %56, %54 ], [ %.06876, %40 ]
-  %.1 = phi i32 [ %55, %54 ], [ %.077, %40 ]
-  %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.1) #5
+  %.270 = phi i32 [ %56, %54 ], [ %.06876, %40 ]
+  %.2 = phi i32 [ %55, %54 ], [ %.077, %40 ]
+  %48 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.2) #5
   %49 = zext i8 %48 to i32
   %50 = load i32, ptr @hf_tn3270_request, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %50, ptr noundef %2, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #5
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %50, ptr noundef %2, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #5
   %52 = tail call ptr @try_val_to_str(i32 noundef %49, ptr noundef nonnull @tn3270_request_vals) #5
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.loopexit, label %54
 
 54:                                               ; preds = %.preheader
-  %55 = add i32 %.1, 1
-  %56 = add nsw i32 %.169, -1
-  %.old1 = icmp sgt i32 %.169, 1
+  %55 = add i32 %.2, 1
+  %56 = add nsw i32 %.270, -1
+  %.old1 = icmp sgt i32 %.270, 1
   br i1 %.old1, label %.preheader, label %._crit_edge
 
 .loopexit:                                        ; preds = %.preheader, %40, %18, %25, %28, %22, %35, %10
-  %.270 = phi i32 [ %.06876, %10 ], [ %37, %35 ], [ %34, %28 ], [ %.06876, %25 ], [ %.06876, %22 ], [ %.06876, %18 ], [ %.06876, %40 ], [ %.169, %.preheader ]
-  %.2 = phi i32 [ %.077, %10 ], [ %36, %35 ], [ %33, %28 ], [ %.077, %25 ], [ %.077, %22 ], [ %.077, %18 ], [ %.077, %40 ], [ %.1, %.preheader ]
-  %57 = add i32 %.2, 1
-  %58 = add nsw i32 %.270, -1
-  %59 = icmp sgt i32 %.270, 1
+  %.169 = phi i32 [ %.06876, %10 ], [ %37, %35 ], [ %34, %28 ], [ %.06876, %25 ], [ %.06876, %22 ], [ %.06876, %18 ], [ %.06876, %40 ], [ %.270, %.preheader ]
+  %.1 = phi i32 [ %.077, %10 ], [ %36, %35 ], [ %33, %28 ], [ %.077, %25 ], [ %.077, %22 ], [ %.077, %18 ], [ %.077, %40 ], [ %.2, %.preheader ]
+  %57 = add i32 %.1, 1
+  %58 = add nsw i32 %.169, -1
+  %59 = icmp sgt i32 %.169, 1
   br i1 %59, label %10, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.loopexit, %54, %14, %43, %7

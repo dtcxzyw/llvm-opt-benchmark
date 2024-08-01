@@ -271,7 +271,7 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
   br i1 %.not48, label %.loopexit, label %94, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %101, %.critedge
-  %.2 = phi i1 [ true, %.critedge ], [ false, %101 ], [ true, %.lr.ph ]
+  %.1 = phi i1 [ true, %.critedge ], [ false, %101 ], [ true, %.lr.ph ]
   br i1 %.not, label %109, label %107
 
 107:                                              ; preds = %.loopexit
@@ -280,7 +280,7 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
   br label %109
 
 109:                                              ; preds = %107, %.loopexit
-  br i1 %.2, label %110, label %111
+  br i1 %.1, label %110, label %111
 
 110:                                              ; preds = %109
   tail call void @WebPDemuxDelete(ptr noundef nonnull %84)

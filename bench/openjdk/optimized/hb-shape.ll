@@ -128,17 +128,17 @@ define hidden i32 @hb_shape_full(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %45
 
 45:                                               ; preds = %43, %39, %35, %31, %30
-  %.0 = phi i32 [ %23, %35 ], [ %23, %39 ], [ %23, %31 ], [ 0, %30 ], [ %spec.select, %43 ]
+  %.1 = phi i32 [ %23, %35 ], [ %23, %39 ], [ %23, %31 ], [ 0, %30 ], [ %spec.select, %43 ]
   tail call void @hb_buffer_destroy(ptr noundef nonnull %.035)
   br label %46
 
 46:                                               ; preds = %45, %29
-  %.1 = phi i32 [ %.0, %45 ], [ %23, %29 ]
+  %.0 = phi i32 [ %.1, %45 ], [ %23, %29 ]
   tail call void @_ZN11hb_buffer_t5leaveEv(ptr noundef nonnull align 8 dereferenceable(220) %1)
   br label %47
 
 47:                                               ; preds = %5, %46
-  %.034 = phi i32 [ %.1, %46 ], [ 1, %5 ]
+  %.034 = phi i32 [ %.0, %46 ], [ 1, %5 ]
   ret i32 %.034
 }
 

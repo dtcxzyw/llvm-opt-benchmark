@@ -1053,8 +1053,8 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
 
 93:                                               ; preds = %.lr.ph, %.loopexit797
   %indvars.iv968 = phi i64 [ %92, %.lr.ph ], [ %indvars.iv.next969, %.loopexit797 ]
-  %.0719844 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit797 ]
-  %.0720843 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5725, %.loopexit797 ]
+  %.0719844 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit797 ]
+  %.0720843 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3723, %.loopexit797 ]
   %94 = load ptr, ptr %36, align 8
   %95 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %94, i64 %indvars.iv968, i32 1
   %96 = load i32, ptr %95, align 4
@@ -1222,8 +1222,8 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
 
 216:                                              ; preds = %212, %317
   %indvars.iv956 = phi i64 [ 0, %212 ], [ %indvars.iv.next957, %317 ]
-  %.4829 = phi float [ %.0719844, %212 ], [ %293, %317 ]
-  %.3723828 = phi float [ %.0720843, %212 ], [ %303, %317 ]
+  %.5829 = phi float [ %.0719844, %212 ], [ %293, %317 ]
+  %.4724828 = phi float [ %.0720843, %212 ], [ %303, %317 ]
   %gep1071 = getelementptr i32, ptr %invariant.gep1070, i64 %indvars.iv956
   %217 = load i32, ptr %gep1071, align 4
   %218 = mul nsw i32 %217, %25
@@ -1244,8 +1244,8 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
 
 231:                                              ; preds = %216, %231
   %indvars.iv952 = phi i64 [ 0, %216 ], [ %indvars.iv.next953, %231 ]
-  %.5826 = phi float [ %.4829, %216 ], [ %293, %231 ]
-  %.4724825 = phi float [ %.3723828, %216 ], [ %303, %231 ]
+  %.6826 = phi float [ %.5829, %216 ], [ %293, %231 ]
+  %.5725825 = phi float [ %.4724828, %216 ], [ %303, %231 ]
   %232 = phi float [ %.promoted822, %216 ], [ %310, %231 ]
   %233 = phi <2 x float> [ %230, %216 ], [ %309, %231 ]
   %234 = load i32, ptr %100, align 4
@@ -1311,7 +1311,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %290 = extractelement <2 x float> %289, i64 0
   %291 = fmul float %290, %239
   %292 = fmul float %268, %291
-  %293 = fadd float %.5826, %292
+  %293 = fadd float %.6826, %292
   %294 = fmul float %268, %226
   %295 = fmul float %294, %258
   %296 = fmul float %271, %239
@@ -1321,7 +1321,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %300 = tail call float @llvm.fmuladd.f32(float %239, float %271, float %299)
   %301 = fsub float %300, %20
   %302 = fmul float %295, %301
-  %303 = fadd float %.4724825, %302
+  %303 = fadd float %.5725825, %302
   %304 = tail call float @llvm.fmuladd.f32(float %284, float %272, float %298)
   %305 = insertelement <2 x float> poison, float %304, i64 0
   %306 = shufflevector <2 x float> %305, <2 x float> poison, <2 x i32> zeroinitializer
@@ -1355,7 +1355,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
 
 321:                                              ; preds = %318, %405
   %indvars.iv948 = phi i64 [ 0, %318 ], [ %indvars.iv.next949, %405 ]
-  %.6817 = phi float [ %.0719844, %318 ], [ %391, %405 ]
+  %.7817 = phi float [ %.0719844, %318 ], [ %391, %405 ]
   %gep1069 = getelementptr i32, ptr %invariant.gep1068, i64 %indvars.iv948
   %322 = load i32, ptr %gep1069, align 4
   %323 = mul nsw i32 %322, %25
@@ -1374,7 +1374,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
 
 334:                                              ; preds = %321, %334
   %indvars.iv944 = phi i64 [ 0, %321 ], [ %indvars.iv.next945, %334 ]
-  %.7815 = phi float [ %.6817, %321 ], [ %391, %334 ]
+  %.8815 = phi float [ %.7817, %321 ], [ %391, %334 ]
   %335 = phi float [ %.promoted812, %321 ], [ %398, %334 ]
   %336 = phi <2 x float> [ %333, %321 ], [ %397, %334 ]
   %337 = load i32, ptr %100, align 4
@@ -1435,7 +1435,7 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   %388 = extractelement <2 x float> %387, i64 0
   %389 = fmul float %388, %342
   %390 = fmul float %366, %389
-  %391 = fadd float %.7815, %390
+  %391 = fadd float %.8815, %390
   %392 = fmul float %370, %382
   %393 = insertelement <2 x float> poison, float %392, i64 0
   %394 = shufflevector <2 x float> %393, <2 x float> poison, <2 x i32> zeroinitializer
@@ -1463,8 +1463,8 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   br i1 %exitcond951.not, label %.loopexit797, label %321, !llvm.loop !34
 
 .loopexit797:                                     ; preds = %405, %317, %210
-  %.5725 = phi float [ %195, %210 ], [ %303, %317 ], [ %.0720843, %405 ]
-  %.8 = phi float [ %.3, %210 ], [ %293, %317 ], [ %391, %405 ]
+  %.3723 = phi float [ %195, %210 ], [ %303, %317 ], [ %.0720843, %405 ]
+  %.4 = phi float [ %.3, %210 ], [ %293, %317 ], [ %391, %405 ]
   %indvars.iv.next969 = add nsw i64 %indvars.iv968, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next969 to i32
   %exitcond971.not = icmp eq i32 %54, %lftr.wideiv
@@ -1761,8 +1761,8 @@ define void @_Z32nbnxn_kernel_ElecRF_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnxn_a
   br i1 %exitcond996.not, label %.preheader803, label %.lr.ph888.split.split.us, !llvm.loop !38
 
 .preheader803:                                    ; preds = %.loopexit797, %.loopexit796, %.loopexit795.us, %.loopexit.us, %.critedge
-  %.6726.lcssa = phi float [ %.0720.lcssa, %.critedge ], [ %491, %.loopexit.us ], [ %585, %.loopexit795.us ], [ %.0720.lcssa, %.loopexit796 ], [ %.5725, %.loopexit797 ]
-  %.9.lcssa = phi float [ %.0719.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %576, %.loopexit795.us ], [ %664, %.loopexit796 ], [ %.8, %.loopexit797 ]
+  %.6726.lcssa = phi float [ %.0720.lcssa, %.critedge ], [ %491, %.loopexit.us ], [ %585, %.loopexit795.us ], [ %.0720.lcssa, %.loopexit796 ], [ %.3723, %.loopexit797 ]
+  %.9.lcssa = phi float [ %.0719.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %576, %.loopexit795.us ], [ %664, %.loopexit796 ], [ %.4, %.loopexit797 ]
   br label %.preheader794
 
 .lr.ph888.split.split:                            ; preds = %.lr.ph888.split, %.loopexit796
@@ -4327,8 +4327,8 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 98:                                               ; preds = %.lr.ph, %.loopexit1011
   %indvars.iv1182 = phi i64 [ %97, %.lr.ph ], [ %indvars.iv.next1183, %.loopexit1011 ]
-  %.09291058 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit1011 ]
-  %.09301057 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5935, %.loopexit1011 ]
+  %.09291058 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit1011 ]
+  %.09301057 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3933, %.loopexit1011 ]
   %99 = load ptr, ptr %36, align 8
   %100 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %99, i64 %indvars.iv1182, i32 1
   %101 = load i32, ptr %100, align 4
@@ -4533,8 +4533,8 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 258:                                              ; preds = %254, %396
   %indvars.iv1170 = phi i64 [ 0, %254 ], [ %indvars.iv.next1171, %396 ]
-  %.41043 = phi float [ %.09291058, %254 ], [ %372, %396 ]
-  %.39331042 = phi float [ %.09301057, %254 ], [ %382, %396 ]
+  %.51043 = phi float [ %.09291058, %254 ], [ %372, %396 ]
+  %.49341042 = phi float [ %.09301057, %254 ], [ %382, %396 ]
   %gep1285 = getelementptr i32, ptr %invariant.gep1284, i64 %indvars.iv1170
   %259 = load i32, ptr %gep1285, align 4
   %260 = mul nsw i32 %259, %25
@@ -4555,8 +4555,8 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 273:                                              ; preds = %258, %273
   %indvars.iv1166 = phi i64 [ 0, %258 ], [ %indvars.iv.next1167, %273 ]
-  %.51040 = phi float [ %.41043, %258 ], [ %372, %273 ]
-  %.49341039 = phi float [ %.39331042, %258 ], [ %382, %273 ]
+  %.61040 = phi float [ %.51043, %258 ], [ %372, %273 ]
+  %.59351039 = phi float [ %.49341042, %258 ], [ %382, %273 ]
   %274 = phi float [ %.promoted1036, %258 ], [ %389, %273 ]
   %275 = phi <2 x float> [ %272, %258 ], [ %388, %273 ]
   %276 = load i32, ptr %105, align 4
@@ -4659,7 +4659,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %369 = fadd float %343, %368
   %370 = fmul float %369, %281
   %371 = fmul float %319, %370
-  %372 = fadd float %.51040, %371
+  %372 = fadd float %.61040, %371
   %373 = fmul float %319, %268
   %374 = fmul float %373, %309
   %375 = fmul float %322, %281
@@ -4669,7 +4669,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %379 = tail call float @llvm.fmuladd.f32(float %281, float %322, float %378)
   %380 = fsub float %379, %20
   %381 = fmul float %380, %374
-  %382 = fadd float %.49341039, %381
+  %382 = fadd float %.59351039, %381
   %383 = tail call float @llvm.fmuladd.f32(float %358, float %323, float %377)
   %384 = insertelement <2 x float> poison, float %383, i64 0
   %385 = shufflevector <2 x float> %384, <2 x float> poison, <2 x i32> zeroinitializer
@@ -4703,7 +4703,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 400:                                              ; preds = %397, %521
   %indvars.iv1162 = phi i64 [ 0, %397 ], [ %indvars.iv.next1163, %521 ]
-  %.61031 = phi float [ %.09291058, %397 ], [ %507, %521 ]
+  %.71031 = phi float [ %.09291058, %397 ], [ %507, %521 ]
   %gep1283 = getelementptr i32, ptr %invariant.gep1282, i64 %indvars.iv1162
   %401 = load i32, ptr %gep1283, align 4
   %402 = mul nsw i32 %401, %25
@@ -4722,7 +4722,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 413:                                              ; preds = %400, %413
   %indvars.iv1158 = phi i64 [ 0, %400 ], [ %indvars.iv.next1159, %413 ]
-  %.71029 = phi float [ %.61031, %400 ], [ %507, %413 ]
+  %.81029 = phi float [ %.71031, %400 ], [ %507, %413 ]
   %414 = phi float [ %.promoted1026, %400 ], [ %514, %413 ]
   %415 = phi <2 x float> [ %412, %400 ], [ %513, %413 ]
   %416 = load i32, ptr %105, align 4
@@ -4820,7 +4820,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %504 = fadd float %478, %503
   %505 = fmul float %504, %421
   %506 = fmul float %454, %505
-  %507 = fadd float %.71029, %506
+  %507 = fadd float %.81029, %506
   %508 = fmul float %458, %493
   %509 = insertelement <2 x float> poison, float %508, i64 0
   %510 = shufflevector <2 x float> %509, <2 x float> poison, <2 x i32> zeroinitializer
@@ -4848,8 +4848,8 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   br i1 %exitcond1165.not, label %.loopexit1011, label %400, !llvm.loop !97
 
 .loopexit1011:                                    ; preds = %521, %396, %252
-  %.5935 = phi float [ %237, %252 ], [ %382, %396 ], [ %.09301057, %521 ]
-  %.8 = phi float [ %.3, %252 ], [ %372, %396 ], [ %507, %521 ]
+  %.3933 = phi float [ %237, %252 ], [ %382, %396 ], [ %.09301057, %521 ]
+  %.4 = phi float [ %.3, %252 ], [ %372, %396 ], [ %507, %521 ]
   %indvars.iv.next1183 = add nsw i64 %indvars.iv1182, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1183 to i32
   %exitcond1185.not = icmp eq i32 %59, %lftr.wideiv
@@ -5220,8 +5220,8 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   br i1 %exitcond1210.not, label %.preheader1017, label %.lr.ph1102.split.split.us, !llvm.loop !101
 
 .preheader1017:                                   ; preds = %.loopexit1011, %.loopexit1010, %.loopexit1009.us, %.loopexit.us, %.critedge
-  %.6936.lcssa = phi float [ %.0930.lcssa, %.critedge ], [ %644, %.loopexit.us ], [ %775, %.loopexit1009.us ], [ %.0930.lcssa, %.loopexit1010 ], [ %.5935, %.loopexit1011 ]
-  %.9.lcssa = phi float [ %.0929.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %766, %.loopexit1009.us ], [ %891, %.loopexit1010 ], [ %.8, %.loopexit1011 ]
+  %.6936.lcssa = phi float [ %.0930.lcssa, %.critedge ], [ %644, %.loopexit.us ], [ %775, %.loopexit1009.us ], [ %.0930.lcssa, %.loopexit1010 ], [ %.3933, %.loopexit1011 ]
+  %.9.lcssa = phi float [ %.0929.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %766, %.loopexit1009.us ], [ %891, %.loopexit1010 ], [ %.4, %.loopexit1011 ]
   br label %.preheader1008
 
 .lr.ph1102.split.split:                           ; preds = %.lr.ph1102.split, %.loopexit1010
@@ -8113,8 +8113,8 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 103:                                              ; preds = %.lr.ph, %.loopexit969
   %indvars.iv1140 = phi i64 [ %102, %.lr.ph ], [ %indvars.iv.next1141, %.loopexit969 ]
-  %.08871016 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit969 ]
-  %.08881015 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5893, %.loopexit969 ]
+  %.08871016 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit969 ]
+  %.08881015 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3891, %.loopexit969 ]
   %104 = load ptr, ptr %45, align 8
   %105 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %104, i64 %indvars.iv1140, i32 1
   %106 = load i32, ptr %105, align 4
@@ -8302,8 +8302,8 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 246:                                              ; preds = %242, %367
   %indvars.iv1128 = phi i64 [ 0, %242 ], [ %indvars.iv.next1129, %367 ]
-  %.41001 = phi float [ %.08871016, %242 ], [ %343, %367 ]
-  %.38911000 = phi float [ %.08881015, %242 ], [ %353, %367 ]
+  %.51001 = phi float [ %.08871016, %242 ], [ %343, %367 ]
+  %.48921000 = phi float [ %.08881015, %242 ], [ %353, %367 ]
   %gep1243 = getelementptr i32, ptr %invariant.gep1242, i64 %indvars.iv1128
   %247 = load i32, ptr %gep1243, align 4
   %248 = mul nsw i32 %247, %34
@@ -8324,8 +8324,8 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 261:                                              ; preds = %246, %261
   %indvars.iv1124 = phi i64 [ 0, %246 ], [ %indvars.iv.next1125, %261 ]
-  %.5998 = phi float [ %.41001, %246 ], [ %343, %261 ]
-  %.4892997 = phi float [ %.38911000, %246 ], [ %353, %261 ]
+  %.6998 = phi float [ %.51001, %246 ], [ %343, %261 ]
+  %.5893997 = phi float [ %.48921000, %246 ], [ %353, %261 ]
   %262 = phi float [ %.promoted994, %246 ], [ %360, %261 ]
   %263 = phi <2 x float> [ %260, %246 ], [ %359, %261 ]
   %264 = load i32, ptr %110, align 4
@@ -8411,7 +8411,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %340 = tail call float @llvm.fmuladd.f32(float %315, float %332, float %339)
   %341 = fmul float %326, %332
   %342 = fmul float %299, %341
-  %343 = fadd float %.5998, %342
+  %343 = fadd float %.6998, %342
   %344 = fmul float %299, %256
   %345 = fmul float %344, %289
   %346 = fmul float %302, %269
@@ -8421,7 +8421,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %350 = tail call float @llvm.fmuladd.f32(float %269, float %302, float %349)
   %351 = fsub float %350, %29
   %352 = fmul float %345, %351
-  %353 = fadd float %.4892997, %352
+  %353 = fadd float %.5893997, %352
   %354 = tail call float @llvm.fmuladd.f32(float %340, float %303, float %348)
   %355 = insertelement <2 x float> poison, float %354, i64 0
   %356 = shufflevector <2 x float> %355, <2 x float> poison, <2 x i32> zeroinitializer
@@ -8455,7 +8455,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 371:                                              ; preds = %368, %475
   %indvars.iv1120 = phi i64 [ 0, %368 ], [ %indvars.iv.next1121, %475 ]
-  %.6989 = phi float [ %.08871016, %368 ], [ %461, %475 ]
+  %.7989 = phi float [ %.08871016, %368 ], [ %461, %475 ]
   %gep1241 = getelementptr i32, ptr %invariant.gep1240, i64 %indvars.iv1120
   %372 = load i32, ptr %gep1241, align 4
   %373 = mul nsw i32 %372, %34
@@ -8474,7 +8474,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 384:                                              ; preds = %371, %384
   %indvars.iv1116 = phi i64 [ 0, %371 ], [ %indvars.iv.next1117, %384 ]
-  %.7987 = phi float [ %.6989, %371 ], [ %461, %384 ]
+  %.8987 = phi float [ %.7989, %371 ], [ %461, %384 ]
   %385 = phi float [ %.promoted984, %371 ], [ %468, %384 ]
   %386 = phi <2 x float> [ %383, %371 ], [ %467, %384 ]
   %387 = load i32, ptr %110, align 4
@@ -8555,7 +8555,7 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %458 = tail call float @llvm.fmuladd.f32(float %433, float %450, float %457)
   %459 = fmul float %444, %450
   %460 = fmul float %417, %459
-  %461 = fadd float %.7987, %460
+  %461 = fadd float %.8987, %460
   %462 = fmul float %421, %458
   %463 = insertelement <2 x float> poison, float %462, i64 0
   %464 = shufflevector <2 x float> %463, <2 x float> poison, <2 x i32> zeroinitializer
@@ -8583,8 +8583,8 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   br i1 %exitcond1123.not, label %.loopexit969, label %371, !llvm.loop !160
 
 .loopexit969:                                     ; preds = %475, %367, %240
-  %.5893 = phi float [ %225, %240 ], [ %353, %367 ], [ %.08881015, %475 ]
-  %.8 = phi float [ %.3, %240 ], [ %343, %367 ], [ %461, %475 ]
+  %.3891 = phi float [ %225, %240 ], [ %353, %367 ], [ %.08881015, %475 ]
+  %.4 = phi float [ %.3, %240 ], [ %343, %367 ], [ %461, %475 ]
   %indvars.iv.next1141 = add nsw i64 %indvars.iv1140, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1141 to i32
   %exitcond1143.not = icmp eq i32 %64, %lftr.wideiv
@@ -8921,8 +8921,8 @@ define void @_Z35nbnxn_kernel_ElecRF_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16nbnx
   br i1 %exitcond1168.not, label %.preheader975, label %.lr.ph1060.split.split.us, !llvm.loop !164
 
 .preheader975:                                    ; preds = %.loopexit969, %.loopexit968, %.loopexit967.us, %.loopexit.us, %.critedge
-  %.6894.lcssa = phi float [ %.0888.lcssa, %.critedge ], [ %581, %.loopexit.us ], [ %695, %.loopexit967.us ], [ %.0888.lcssa, %.loopexit968 ], [ %.5893, %.loopexit969 ]
-  %.9.lcssa = phi float [ %.0887.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %686, %.loopexit967.us ], [ %794, %.loopexit968 ], [ %.8, %.loopexit969 ]
+  %.6894.lcssa = phi float [ %.0888.lcssa, %.critedge ], [ %581, %.loopexit.us ], [ %695, %.loopexit967.us ], [ %.0888.lcssa, %.loopexit968 ], [ %.3891, %.loopexit969 ]
+  %.9.lcssa = phi float [ %.0887.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %686, %.loopexit967.us ], [ %794, %.loopexit968 ], [ %.4, %.loopexit969 ]
   br label %.preheader966
 
 .lr.ph1060.split.split:                           ; preds = %.lr.ph1060.split, %.loopexit968
@@ -11670,8 +11670,8 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
 
 121:                                              ; preds = %.lr.ph, %.loopexit983
   %indvars.iv1153 = phi i64 [ %89, %.lr.ph ], [ %indvars.iv.next1154, %.loopexit983 ]
-  %.08991029 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit983 ]
-  %.09001028 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5905, %.loopexit983 ]
+  %.08991029 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit983 ]
+  %.09001028 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3903, %.loopexit983 ]
   %122 = load ptr, ptr %46, align 8
   %123 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %122, i64 %indvars.iv1153, i32 1
   %124 = load i32, ptr %123, align 4
@@ -11859,8 +11859,8 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
 
 .preheader1268:                                   ; preds = %266, %396
   %indvars.iv1141 = phi i64 [ %indvars.iv.next1142, %396 ], [ 0, %266 ]
-  %.41014 = phi float [ %371, %396 ], [ %.08991029, %266 ]
-  %.39031013 = phi float [ %382, %396 ], [ %.09001028, %266 ]
+  %.51014 = phi float [ %371, %396 ], [ %.08991029, %266 ]
+  %.49041013 = phi float [ %382, %396 ], [ %.09001028, %266 ]
   %gep1254 = getelementptr i32, ptr %invariant.gep1253, i64 %indvars.iv1141
   %267 = load i32, ptr %gep1254, align 4
   %268 = mul nsw i32 %267, %35
@@ -11881,8 +11881,8 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
 
 281:                                              ; preds = %.preheader1268, %281
   %indvars.iv1137 = phi i64 [ 0, %.preheader1268 ], [ %indvars.iv.next1138, %281 ]
-  %.51011 = phi float [ %.41014, %.preheader1268 ], [ %371, %281 ]
-  %.49041010 = phi float [ %.39031013, %.preheader1268 ], [ %382, %281 ]
+  %.61011 = phi float [ %.51014, %.preheader1268 ], [ %371, %281 ]
+  %.59051010 = phi float [ %.49041013, %.preheader1268 ], [ %382, %281 ]
   %282 = phi float [ %.promoted1007, %.preheader1268 ], [ %389, %281 ]
   %283 = phi <2 x float> [ %280, %.preheader1268 ], [ %388, %281 ]
   %284 = load i32, ptr %128, align 4
@@ -11976,7 +11976,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %368 = tail call float @llvm.fmuladd.f32(float %353, float %367, float %316)
   %369 = tail call float @llvm.fmuladd.f32(float %317, float %368, float %351)
   %370 = fmul float %328, %369
-  %371 = fadd float %.51011, %370
+  %371 = fadd float %.61011, %370
   %372 = fmul float %328, %276
   %373 = load float, ptr %318, align 4
   %374 = fmul float %372, %373
@@ -11987,7 +11987,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %379 = tail call float @llvm.fmuladd.f32(float %289, float %331, float %378)
   %380 = fsub float %379, %30
   %381 = fmul float %380, %374
-  %382 = fadd float %.49041010, %381
+  %382 = fadd float %.59051010, %381
   %383 = tail call float @llvm.fmuladd.f32(float %366, float %332, float %377)
   %384 = insertelement <2 x float> poison, float %383, i64 0
   %385 = shufflevector <2 x float> %384, <2 x float> poison, <2 x i32> zeroinitializer
@@ -12016,7 +12016,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
 
 .preheader1270:                                   ; preds = %266, %512
   %indvars.iv1133 = phi i64 [ %indvars.iv.next1134, %512 ], [ 0, %266 ]
-  %.61002 = phi float [ %498, %512 ], [ %.08991029, %266 ]
+  %.71002 = phi float [ %498, %512 ], [ %.08991029, %266 ]
   %gep1252 = getelementptr i32, ptr %invariant.gep1251, i64 %indvars.iv1133
   %397 = load i32, ptr %gep1252, align 4
   %398 = mul nsw i32 %397, %35
@@ -12035,7 +12035,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
 
 409:                                              ; preds = %.preheader1270, %409
   %indvars.iv1129 = phi i64 [ 0, %.preheader1270 ], [ %indvars.iv.next1130, %409 ]
-  %.71000 = phi float [ %.61002, %.preheader1270 ], [ %498, %409 ]
+  %.81000 = phi float [ %.71002, %.preheader1270 ], [ %498, %409 ]
   %410 = phi float [ %.promoted997, %.preheader1270 ], [ %505, %409 ]
   %411 = phi <2 x float> [ %408, %.preheader1270 ], [ %504, %409 ]
   %412 = load i32, ptr %128, align 4
@@ -12128,7 +12128,7 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   %495 = tail call float @llvm.fmuladd.f32(float %480, float %494, float %444)
   %496 = tail call float @llvm.fmuladd.f32(float %445, float %495, float %478)
   %497 = fmul float %455, %496
-  %498 = fadd float %.71000, %497
+  %498 = fadd float %.81000, %497
   %499 = fmul float %459, %493
   %500 = insertelement <2 x float> poison, float %499, i64 0
   %501 = shufflevector <2 x float> %500, <2 x float> poison, <2 x i32> zeroinitializer
@@ -12156,8 +12156,8 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   br i1 %exitcond1136.not, label %.loopexit983, label %.preheader1270, !llvm.loop !223
 
 .loopexit983:                                     ; preds = %512, %396, %265
-  %.5905 = phi float [ %250, %265 ], [ %382, %396 ], [ %.09001028, %512 ]
-  %.8 = phi float [ %.3, %265 ], [ %371, %396 ], [ %498, %512 ]
+  %.3903 = phi float [ %250, %265 ], [ %382, %396 ], [ %.09001028, %512 ]
+  %.4 = phi float [ %.3, %265 ], [ %371, %396 ], [ %498, %512 ]
   %indvars.iv.next1154 = add nsw i64 %indvars.iv1153, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1154 to i32
   %exitcond1156.not = icmp eq i32 %65, %lftr.wideiv
@@ -12506,8 +12506,8 @@ define void @_Z42nbnxn_kernel_ElecRF_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistCpuP
   br i1 %exitcond1181.not, label %.preheader989, label %.lr.ph1073.split.split.us, !llvm.loop !227
 
 .preheader989:                                    ; preds = %.loopexit983, %.loopexit982, %.loopexit981.us, %.loopexit.us, %.critedge
-  %.6906.lcssa = phi float [ %.0900.lcssa, %.critedge ], [ %624, %.loopexit.us ], [ %744, %.loopexit981.us ], [ %.0900.lcssa, %.loopexit982 ], [ %.5905, %.loopexit983 ]
-  %.9.lcssa = phi float [ %.0899.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %734, %.loopexit981.us ], [ %849, %.loopexit982 ], [ %.8, %.loopexit983 ]
+  %.6906.lcssa = phi float [ %.0900.lcssa, %.critedge ], [ %624, %.loopexit.us ], [ %744, %.loopexit981.us ], [ %.0900.lcssa, %.loopexit982 ], [ %.3903, %.loopexit983 ]
+  %.9.lcssa = phi float [ %.0899.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %734, %.loopexit981.us ], [ %849, %.loopexit982 ], [ %.4, %.loopexit983 ]
   br label %.preheader980
 
 .lr.ph1073.split.split:                           ; preds = %.lr.ph1073.split, %.loopexit982
@@ -15379,8 +15379,8 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
 
 121:                                              ; preds = %.lr.ph, %.loopexit1055
   %indvars.iv1225 = phi i64 [ %89, %.lr.ph ], [ %indvars.iv.next1226, %.loopexit1055 ]
-  %.09711101 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit1055 ]
-  %.09721100 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5977, %.loopexit1055 ]
+  %.09711101 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit1055 ]
+  %.09721100 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3975, %.loopexit1055 ]
   %122 = load ptr, ptr %46, align 8
   %123 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %122, i64 %indvars.iv1225, i32 1
   %124 = load i32, ptr %123, align 4
@@ -15581,8 +15581,8 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
 
 .preheader1340:                                   ; preds = %279, %422
   %indvars.iv1213 = phi i64 [ %indvars.iv.next1214, %422 ], [ 0, %279 ]
-  %.41086 = phi float [ %397, %422 ], [ %.09711101, %279 ]
-  %.39751085 = phi float [ %408, %422 ], [ %.09721100, %279 ]
+  %.51086 = phi float [ %397, %422 ], [ %.09711101, %279 ]
+  %.49761085 = phi float [ %408, %422 ], [ %.09721100, %279 ]
   %gep1326 = getelementptr i32, ptr %invariant.gep1325, i64 %indvars.iv1213
   %280 = load i32, ptr %gep1326, align 4
   %281 = mul nsw i32 %280, %35
@@ -15603,8 +15603,8 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
 
 294:                                              ; preds = %.preheader1340, %294
   %indvars.iv1209 = phi i64 [ 0, %.preheader1340 ], [ %indvars.iv.next1210, %294 ]
-  %.51083 = phi float [ %.41086, %.preheader1340 ], [ %397, %294 ]
-  %.49761082 = phi float [ %.39751085, %.preheader1340 ], [ %408, %294 ]
+  %.61083 = phi float [ %.51086, %.preheader1340 ], [ %397, %294 ]
+  %.59771082 = phi float [ %.49761085, %.preheader1340 ], [ %408, %294 ]
   %295 = phi float [ %.promoted1079, %.preheader1340 ], [ %415, %294 ]
   %296 = phi <2 x float> [ %293, %.preheader1340 ], [ %414, %294 ]
   %297 = load i32, ptr %128, align 4
@@ -15711,7 +15711,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %394 = tail call float @llvm.fmuladd.f32(float %379, float %393, float %342)
   %395 = tail call float @llvm.fmuladd.f32(float %343, float %394, float %377)
   %396 = fmul float %354, %395
-  %397 = fadd float %.51083, %396
+  %397 = fadd float %.61083, %396
   %398 = fmul float %354, %289
   %399 = load float, ptr %344, align 4
   %400 = fmul float %398, %399
@@ -15722,7 +15722,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %405 = tail call float @llvm.fmuladd.f32(float %302, float %357, float %404)
   %406 = fsub float %405, %30
   %407 = fmul float %406, %400
-  %408 = fadd float %.49761082, %407
+  %408 = fadd float %.59771082, %407
   %409 = tail call float @llvm.fmuladd.f32(float %392, float %358, float %403)
   %410 = insertelement <2 x float> poison, float %409, i64 0
   %411 = shufflevector <2 x float> %410, <2 x float> poison, <2 x i32> zeroinitializer
@@ -15751,7 +15751,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
 
 .preheader1342:                                   ; preds = %279, %551
   %indvars.iv1205 = phi i64 [ %indvars.iv.next1206, %551 ], [ 0, %279 ]
-  %.61074 = phi float [ %537, %551 ], [ %.09711101, %279 ]
+  %.71074 = phi float [ %537, %551 ], [ %.09711101, %279 ]
   %gep1324 = getelementptr i32, ptr %invariant.gep1323, i64 %indvars.iv1205
   %423 = load i32, ptr %gep1324, align 4
   %424 = mul nsw i32 %423, %35
@@ -15770,7 +15770,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
 
 435:                                              ; preds = %.preheader1342, %435
   %indvars.iv1201 = phi i64 [ 0, %.preheader1342 ], [ %indvars.iv.next1202, %435 ]
-  %.71072 = phi float [ %.61074, %.preheader1342 ], [ %537, %435 ]
+  %.81072 = phi float [ %.71074, %.preheader1342 ], [ %537, %435 ]
   %436 = phi float [ %.promoted1069, %.preheader1342 ], [ %544, %435 ]
   %437 = phi <2 x float> [ %434, %.preheader1342 ], [ %543, %435 ]
   %438 = load i32, ptr %128, align 4
@@ -15876,7 +15876,7 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   %534 = tail call float @llvm.fmuladd.f32(float %519, float %533, float %483)
   %535 = tail call float @llvm.fmuladd.f32(float %484, float %534, float %517)
   %536 = fmul float %494, %535
-  %537 = fadd float %.71072, %536
+  %537 = fadd float %.81072, %536
   %538 = fmul float %498, %532
   %539 = insertelement <2 x float> poison, float %538, i64 0
   %540 = shufflevector <2 x float> %539, <2 x float> poison, <2 x i32> zeroinitializer
@@ -15904,8 +15904,8 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   br i1 %exitcond1208.not, label %.loopexit1055, label %.preheader1342, !llvm.loop !286
 
 .loopexit1055:                                    ; preds = %551, %422, %278
-  %.5977 = phi float [ %263, %278 ], [ %408, %422 ], [ %.09721100, %551 ]
-  %.8 = phi float [ %.3, %278 ], [ %397, %422 ], [ %537, %551 ]
+  %.3975 = phi float [ %263, %278 ], [ %408, %422 ], [ %.09721100, %551 ]
+  %.4 = phi float [ %.3, %278 ], [ %397, %422 ], [ %537, %551 ]
   %indvars.iv.next1226 = add nsw i64 %indvars.iv1225, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1226 to i32
   %exitcond1228.not = icmp eq i32 %65, %lftr.wideiv
@@ -16280,8 +16280,8 @@ define void @_Z40nbnxn_kernel_ElecRF_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpuPK1
   br i1 %exitcond1253.not, label %.preheader1061, label %.lr.ph1145.split.split.us, !llvm.loop !290
 
 .preheader1061:                                   ; preds = %.loopexit1055, %.loopexit1054, %.loopexit1053.us, %.loopexit.us, %.critedge
-  %.6978.lcssa = phi float [ %.0972.lcssa, %.critedge ], [ %676, %.loopexit.us ], [ %809, %.loopexit1053.us ], [ %.0972.lcssa, %.loopexit1054 ], [ %.5977, %.loopexit1055 ]
-  %.9.lcssa = phi float [ %.0971.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %799, %.loopexit1053.us ], [ %927, %.loopexit1054 ], [ %.8, %.loopexit1055 ]
+  %.6978.lcssa = phi float [ %.0972.lcssa, %.critedge ], [ %676, %.loopexit.us ], [ %809, %.loopexit1053.us ], [ %.0972.lcssa, %.loopexit1054 ], [ %.3975, %.loopexit1055 ]
+  %.9.lcssa = phi float [ %.0971.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %799, %.loopexit1053.us ], [ %927, %.loopexit1054 ], [ %.4, %.loopexit1055 ]
   br label %.preheader1052
 
 .lr.ph1145.split.split:                           ; preds = %.lr.ph1145.split, %.loopexit1054
@@ -19069,8 +19069,8 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 97:                                               ; preds = %.lr.ph, %.loopexit865
   %indvars.iv1036 = phi i64 [ %96, %.lr.ph ], [ %indvars.iv.next1037, %.loopexit865 ]
-  %.0787912 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit865 ]
-  %.0788911 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5793, %.loopexit865 ]
+  %.0787912 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit865 ]
+  %.0788911 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3791, %.loopexit865 ]
   %98 = load ptr, ptr %37, align 8
   %99 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %98, i64 %indvars.iv1036, i32 1
   %100 = load i32, ptr %99, align 4
@@ -19261,8 +19261,8 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 243:                                              ; preds = %239, %367
   %indvars.iv1024 = phi i64 [ 0, %239 ], [ %indvars.iv.next1025, %367 ]
-  %.4897 = phi float [ %.0787912, %239 ], [ %321, %367 ]
-  %.3791896 = phi float [ %.0788911, %239 ], [ %353, %367 ]
+  %.5897 = phi float [ %.0787912, %239 ], [ %321, %367 ]
+  %.4792896 = phi float [ %.0788911, %239 ], [ %353, %367 ]
   %gep1139 = getelementptr i32, ptr %invariant.gep1138, i64 %indvars.iv1024
   %244 = load i32, ptr %gep1139, align 4
   %245 = mul nsw i32 %244, %26
@@ -19283,8 +19283,8 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 258:                                              ; preds = %243, %258
   %indvars.iv1020 = phi i64 [ 0, %243 ], [ %indvars.iv.next1021, %258 ]
-  %.5894 = phi float [ %.4897, %243 ], [ %321, %258 ]
-  %.4792893 = phi float [ %.3791896, %243 ], [ %353, %258 ]
+  %.6894 = phi float [ %.5897, %243 ], [ %321, %258 ]
+  %.5793893 = phi float [ %.4792896, %243 ], [ %353, %258 ]
   %259 = phi float [ %.promoted890, %243 ], [ %360, %258 ]
   %260 = phi <2 x float> [ %257, %243 ], [ %359, %258 ]
   %261 = load i32, ptr %104, align 4
@@ -19351,7 +19351,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %318 = extractelement <2 x float> %317, i64 0
   %319 = fmul float %318, %266
   %320 = fmul float %296, %319
-  %321 = fadd float %.5894, %320
+  %321 = fadd float %.6894, %320
   %322 = fmul float %296, %253
   %323 = fmul float %322, %285
   %324 = fmul float %.sroa.speculated844, %299
@@ -19383,7 +19383,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %350 = fmul float %323, %349
   %351 = fmul float %299, %323
   %352 = fmul float %351, %339
-  %353 = fadd float %.4792893, %350
+  %353 = fadd float %.5793893, %350
   %354 = tail call float @llvm.fmuladd.f32(float %312, float %300, float %352)
   %355 = insertelement <2 x float> poison, float %354, i64 0
   %356 = shufflevector <2 x float> %355, <2 x float> poison, <2 x i32> zeroinitializer
@@ -19417,7 +19417,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 371:                                              ; preds = %368, %455
   %indvars.iv1016 = phi i64 [ 0, %368 ], [ %indvars.iv.next1017, %455 ]
-  %.6885 = phi float [ %.0787912, %368 ], [ %441, %455 ]
+  %.7885 = phi float [ %.0787912, %368 ], [ %441, %455 ]
   %gep1137 = getelementptr i32, ptr %invariant.gep1136, i64 %indvars.iv1016
   %372 = load i32, ptr %gep1137, align 4
   %373 = mul nsw i32 %372, %26
@@ -19436,7 +19436,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
 
 384:                                              ; preds = %371, %384
   %indvars.iv1012 = phi i64 [ 0, %371 ], [ %indvars.iv.next1013, %384 ]
-  %.7883 = phi float [ %.6885, %371 ], [ %441, %384 ]
+  %.8883 = phi float [ %.7885, %371 ], [ %441, %384 ]
   %385 = phi float [ %.promoted880, %371 ], [ %448, %384 ]
   %386 = phi <2 x float> [ %383, %371 ], [ %447, %384 ]
   %387 = load i32, ptr %104, align 4
@@ -19497,7 +19497,7 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   %438 = extractelement <2 x float> %437, i64 0
   %439 = fmul float %438, %392
   %440 = fmul float %416, %439
-  %441 = fadd float %.7883, %440
+  %441 = fadd float %.8883, %440
   %442 = fmul float %420, %432
   %443 = insertelement <2 x float> poison, float %442, i64 0
   %444 = shufflevector <2 x float> %443, <2 x float> poison, <2 x i32> zeroinitializer
@@ -19525,8 +19525,8 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   br i1 %exitcond1019.not, label %.loopexit865, label %371, !llvm.loop !349
 
 .loopexit865:                                     ; preds = %455, %367, %237
-  %.5793 = phi float [ %222, %237 ], [ %353, %367 ], [ %.0788911, %455 ]
-  %.8 = phi float [ %.3, %237 ], [ %321, %367 ], [ %441, %455 ]
+  %.3791 = phi float [ %222, %237 ], [ %353, %367 ], [ %.0788911, %455 ]
+  %.4 = phi float [ %.3, %237 ], [ %321, %367 ], [ %441, %455 ]
   %indvars.iv.next1037 = add nsw i64 %indvars.iv1036, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1037 to i32
   %exitcond1039.not = icmp eq i32 %56, %lftr.wideiv
@@ -19867,8 +19867,8 @@ define void @_Z35nbnxn_kernel_ElecQSTab_VdwLJ_VF_refPK16NbnxnPairlistCpuPK16nbnx
   br i1 %exitcond1064.not, label %.preheader871, label %.lr.ph956.split.split.us, !llvm.loop !353
 
 .preheader871:                                    ; preds = %.loopexit865, %.loopexit864, %.loopexit863.us, %.loopexit.us, %.critedge
-  %.6794.lcssa = phi float [ %.0788.lcssa, %.critedge ], [ %563, %.loopexit.us ], [ %679, %.loopexit863.us ], [ %.0788.lcssa, %.loopexit864 ], [ %.5793, %.loopexit865 ]
-  %.9.lcssa = phi float [ %.0787.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %649, %.loopexit863.us ], [ %758, %.loopexit864 ], [ %.8, %.loopexit865 ]
+  %.6794.lcssa = phi float [ %.0788.lcssa, %.critedge ], [ %563, %.loopexit.us ], [ %679, %.loopexit863.us ], [ %.0788.lcssa, %.loopexit864 ], [ %.3791, %.loopexit865 ]
+  %.9.lcssa = phi float [ %.0787.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %649, %.loopexit863.us ], [ %758, %.loopexit864 ], [ %.4, %.loopexit865 ]
   br label %.preheader862
 
 .lr.ph956.split.split:                            ; preds = %.lr.ph956.split, %.loopexit864
@@ -22599,8 +22599,8 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 102:                                              ; preds = %.lr.ph, %.loopexit1079
   %indvars.iv1250 = phi i64 [ %101, %.lr.ph ], [ %indvars.iv.next1251, %.loopexit1079 ]
-  %.09971126 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit1079 ]
-  %.09981125 = phi float [ 0.000000e+00, %.lr.ph ], [ %.51003, %.loopexit1079 ]
+  %.09971126 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit1079 ]
+  %.09981125 = phi float [ 0.000000e+00, %.lr.ph ], [ %.31001, %.loopexit1079 ]
   %103 = load ptr, ptr %37, align 8
   %104 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %103, i64 %indvars.iv1250, i32 1
   %105 = load i32, ptr %104, align 4
@@ -22832,8 +22832,8 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 284:                                              ; preds = %280, %444
   %indvars.iv1238 = phi i64 [ 0, %280 ], [ %indvars.iv.next1239, %444 ]
-  %.41111 = phi float [ %.09971126, %280 ], [ %399, %444 ]
-  %.310011110 = phi float [ %.09981125, %280 ], [ %430, %444 ]
+  %.51111 = phi float [ %.09971126, %280 ], [ %399, %444 ]
+  %.410021110 = phi float [ %.09981125, %280 ], [ %430, %444 ]
   %gep1357 = getelementptr i32, ptr %invariant.gep1356, i64 %indvars.iv1238
   %285 = load i32, ptr %gep1357, align 4
   %286 = mul nsw i32 %285, %26
@@ -22854,8 +22854,8 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 299:                                              ; preds = %284, %299
   %indvars.iv1234 = phi i64 [ 0, %284 ], [ %indvars.iv.next1235, %299 ]
-  %.51108 = phi float [ %.41111, %284 ], [ %399, %299 ]
-  %.410021107 = phi float [ %.310011110, %284 ], [ %430, %299 ]
+  %.61108 = phi float [ %.51111, %284 ], [ %399, %299 ]
+  %.510031107 = phi float [ %.410021110, %284 ], [ %430, %299 ]
   %300 = phi float [ %.promoted1104, %284 ], [ %437, %299 ]
   %301 = phi <2 x float> [ %298, %284 ], [ %436, %299 ]
   %302 = load i32, ptr %109, align 4
@@ -22959,7 +22959,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %396 = fadd float %370, %395
   %397 = fmul float %396, %307
   %398 = fmul float %346, %397
-  %399 = fadd float %.51108, %398
+  %399 = fadd float %.61108, %398
   %400 = fmul float %346, %294
   %401 = fmul float %400, %335
   %402 = fmul float %19, %371
@@ -22990,7 +22990,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %427 = fmul float %401, %426
   %428 = fmul float %349, %401
   %429 = fmul float %428, %416
-  %430 = fadd float %.410021107, %427
+  %430 = fadd float %.510031107, %427
   %431 = tail call float @llvm.fmuladd.f32(float %385, float %350, float %429)
   %432 = insertelement <2 x float> poison, float %431, i64 0
   %433 = shufflevector <2 x float> %432, <2 x float> poison, <2 x i32> zeroinitializer
@@ -23024,7 +23024,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 448:                                              ; preds = %445, %569
   %indvars.iv1230 = phi i64 [ 0, %445 ], [ %indvars.iv.next1231, %569 ]
-  %.61099 = phi float [ %.09971126, %445 ], [ %555, %569 ]
+  %.71099 = phi float [ %.09971126, %445 ], [ %555, %569 ]
   %gep1355 = getelementptr i32, ptr %invariant.gep1354, i64 %indvars.iv1230
   %449 = load i32, ptr %gep1355, align 4
   %450 = mul nsw i32 %449, %26
@@ -23043,7 +23043,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 461:                                              ; preds = %448, %461
   %indvars.iv1226 = phi i64 [ 0, %448 ], [ %indvars.iv.next1227, %461 ]
-  %.71097 = phi float [ %.61099, %448 ], [ %555, %461 ]
+  %.81097 = phi float [ %.71099, %448 ], [ %555, %461 ]
   %462 = phi float [ %.promoted1094, %448 ], [ %562, %461 ]
   %463 = phi <2 x float> [ %460, %448 ], [ %561, %461 ]
   %464 = load i32, ptr %109, align 4
@@ -23141,7 +23141,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   %552 = fadd float %526, %551
   %553 = fmul float %552, %469
   %554 = fmul float %502, %553
-  %555 = fadd float %.71097, %554
+  %555 = fadd float %.81097, %554
   %556 = fmul float %506, %541
   %557 = insertelement <2 x float> poison, float %556, i64 0
   %558 = shufflevector <2 x float> %557, <2 x float> poison, <2 x i32> zeroinitializer
@@ -23169,8 +23169,8 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   br i1 %exitcond1233.not, label %.loopexit1079, label %448, !llvm.loop !412
 
 .loopexit1079:                                    ; preds = %569, %444, %278
-  %.51003 = phi float [ %263, %278 ], [ %430, %444 ], [ %.09981125, %569 ]
-  %.8 = phi float [ %.3, %278 ], [ %399, %444 ], [ %555, %569 ]
+  %.31001 = phi float [ %263, %278 ], [ %430, %444 ], [ %.09981125, %569 ]
+  %.4 = phi float [ %.3, %278 ], [ %399, %444 ], [ %555, %569 ]
   %indvars.iv.next1251 = add nsw i64 %indvars.iv1250, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1251 to i32
   %exitcond1253.not = icmp eq i32 %61, %lftr.wideiv
@@ -23588,8 +23588,8 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJFsw_VF_refPK16NbnxnPairlistCpuPK16n
   br i1 %exitcond1278.not, label %.preheader1085, label %.lr.ph1170.split.split.us, !llvm.loop !416
 
 .preheader1085:                                   ; preds = %.loopexit1079, %.loopexit1078, %.loopexit1077.us, %.loopexit.us, %.critedge
-  %.61004.lcssa = phi float [ %.0998.lcssa, %.critedge ], [ %713, %.loopexit.us ], [ %865, %.loopexit1077.us ], [ %.0998.lcssa, %.loopexit1078 ], [ %.51003, %.loopexit1079 ]
-  %.9.lcssa = phi float [ %.0997.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %836, %.loopexit1077.us ], [ %981, %.loopexit1078 ], [ %.8, %.loopexit1079 ]
+  %.61004.lcssa = phi float [ %.0998.lcssa, %.critedge ], [ %713, %.loopexit.us ], [ %865, %.loopexit1077.us ], [ %.0998.lcssa, %.loopexit1078 ], [ %.31001, %.loopexit1079 ]
+  %.9.lcssa = phi float [ %.0997.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %836, %.loopexit1077.us ], [ %981, %.loopexit1078 ], [ %.4, %.loopexit1079 ]
   br label %.preheader1076
 
 .lr.ph1170.split.split:                           ; preds = %.lr.ph1170.split, %.loopexit1078
@@ -26647,8 +26647,8 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 107:                                              ; preds = %.lr.ph, %.loopexit1037
   %indvars.iv1208 = phi i64 [ %106, %.lr.ph ], [ %indvars.iv.next1209, %.loopexit1037 ]
-  %.09551084 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit1037 ]
-  %.09561083 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5961, %.loopexit1037 ]
+  %.09551084 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit1037 ]
+  %.09561083 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3959, %.loopexit1037 ]
   %108 = load ptr, ptr %46, align 8
   %109 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %108, i64 %indvars.iv1208, i32 1
   %110 = load i32, ptr %109, align 4
@@ -26863,8 +26863,8 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 272:                                              ; preds = %268, %415
   %indvars.iv1196 = phi i64 [ 0, %268 ], [ %indvars.iv.next1197, %415 ]
-  %.41069 = phi float [ %.09551084, %268 ], [ %370, %415 ]
-  %.39591068 = phi float [ %.09561083, %268 ], [ %401, %415 ]
+  %.51069 = phi float [ %.09551084, %268 ], [ %370, %415 ]
+  %.49601068 = phi float [ %.09561083, %268 ], [ %401, %415 ]
   %gep1315 = getelementptr i32, ptr %invariant.gep1314, i64 %indvars.iv1196
   %273 = load i32, ptr %gep1315, align 4
   %274 = mul nsw i32 %273, %35
@@ -26885,8 +26885,8 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 287:                                              ; preds = %272, %287
   %indvars.iv1192 = phi i64 [ 0, %272 ], [ %indvars.iv.next1193, %287 ]
-  %.51066 = phi float [ %.41069, %272 ], [ %370, %287 ]
-  %.49601065 = phi float [ %.39591068, %272 ], [ %401, %287 ]
+  %.61066 = phi float [ %.51069, %272 ], [ %370, %287 ]
+  %.59611065 = phi float [ %.49601068, %272 ], [ %401, %287 ]
   %288 = phi float [ %.promoted1062, %272 ], [ %408, %287 ]
   %289 = phi <2 x float> [ %286, %272 ], [ %407, %287 ]
   %290 = load i32, ptr %114, align 4
@@ -26973,7 +26973,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %367 = tail call float @llvm.fmuladd.f32(float %342, float %359, float %366)
   %368 = fmul float %353, %359
   %369 = fmul float %326, %368
-  %370 = fadd float %.51066, %369
+  %370 = fadd float %.61066, %369
   %371 = fmul float %326, %282
   %372 = fmul float %371, %315
   %373 = fmul float %28, %349
@@ -27004,7 +27004,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %398 = fmul float %372, %397
   %399 = fmul float %329, %372
   %400 = fmul float %399, %387
-  %401 = fadd float %.49601065, %398
+  %401 = fadd float %.59611065, %398
   %402 = tail call float @llvm.fmuladd.f32(float %367, float %330, float %400)
   %403 = insertelement <2 x float> poison, float %402, i64 0
   %404 = shufflevector <2 x float> %403, <2 x float> poison, <2 x i32> zeroinitializer
@@ -27038,7 +27038,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 419:                                              ; preds = %416, %523
   %indvars.iv1188 = phi i64 [ 0, %416 ], [ %indvars.iv.next1189, %523 ]
-  %.61057 = phi float [ %.09551084, %416 ], [ %509, %523 ]
+  %.71057 = phi float [ %.09551084, %416 ], [ %509, %523 ]
   %gep1313 = getelementptr i32, ptr %invariant.gep1312, i64 %indvars.iv1188
   %420 = load i32, ptr %gep1313, align 4
   %421 = mul nsw i32 %420, %35
@@ -27057,7 +27057,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
 
 432:                                              ; preds = %419, %432
   %indvars.iv1184 = phi i64 [ 0, %419 ], [ %indvars.iv.next1185, %432 ]
-  %.71055 = phi float [ %.61057, %419 ], [ %509, %432 ]
+  %.81055 = phi float [ %.71057, %419 ], [ %509, %432 ]
   %433 = phi float [ %.promoted1052, %419 ], [ %516, %432 ]
   %434 = phi <2 x float> [ %431, %419 ], [ %515, %432 ]
   %435 = load i32, ptr %114, align 4
@@ -27138,7 +27138,7 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   %506 = tail call float @llvm.fmuladd.f32(float %481, float %498, float %505)
   %507 = fmul float %492, %498
   %508 = fmul float %465, %507
-  %509 = fadd float %.71055, %508
+  %509 = fadd float %.81055, %508
   %510 = fmul float %469, %506
   %511 = insertelement <2 x float> poison, float %510, i64 0
   %512 = shufflevector <2 x float> %511, <2 x float> poison, <2 x i32> zeroinitializer
@@ -27166,8 +27166,8 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   br i1 %exitcond1191.not, label %.loopexit1037, label %419, !llvm.loop !475
 
 .loopexit1037:                                    ; preds = %523, %415, %266
-  %.5961 = phi float [ %251, %266 ], [ %401, %415 ], [ %.09561083, %523 ]
-  %.8 = phi float [ %.3, %266 ], [ %370, %415 ], [ %509, %523 ]
+  %.3959 = phi float [ %251, %266 ], [ %401, %415 ], [ %.09561083, %523 ]
+  %.4 = phi float [ %.3, %266 ], [ %370, %415 ], [ %509, %523 ]
   %indvars.iv.next1209 = add nsw i64 %indvars.iv1208, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1209 to i32
   %exitcond1211.not = icmp eq i32 %66, %lftr.wideiv
@@ -27551,8 +27551,8 @@ define void @_Z38nbnxn_kernel_ElecQSTab_VdwLJPsw_VF_refPK16NbnxnPairlistCpuPK16n
   br i1 %exitcond1236.not, label %.preheader1043, label %.lr.ph1128.split.split.us, !llvm.loop !479
 
 .preheader1043:                                   ; preds = %.loopexit1037, %.loopexit1036, %.loopexit1035.us, %.loopexit.us, %.critedge
-  %.6962.lcssa = phi float [ %.0956.lcssa, %.critedge ], [ %650, %.loopexit.us ], [ %785, %.loopexit1035.us ], [ %.0956.lcssa, %.loopexit1036 ], [ %.5961, %.loopexit1037 ]
-  %.9.lcssa = phi float [ %.0955.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %756, %.loopexit1035.us ], [ %884, %.loopexit1036 ], [ %.8, %.loopexit1037 ]
+  %.6962.lcssa = phi float [ %.0956.lcssa, %.critedge ], [ %650, %.loopexit.us ], [ %785, %.loopexit1035.us ], [ %.0956.lcssa, %.loopexit1036 ], [ %.3959, %.loopexit1037 ]
+  %.9.lcssa = phi float [ %.0955.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %756, %.loopexit1035.us ], [ %884, %.loopexit1036 ], [ %.4, %.loopexit1037 ]
   br label %.preheader1034
 
 .lr.ph1128.split.split:                           ; preds = %.lr.ph1128.split, %.loopexit1036
@@ -30454,8 +30454,8 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
 
 125:                                              ; preds = %.lr.ph, %.loopexit1051
   %indvars.iv1221 = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next1222, %.loopexit1051 ]
-  %.09671097 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit1051 ]
-  %.09681096 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5973, %.loopexit1051 ]
+  %.09671097 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit1051 ]
+  %.09681096 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3971, %.loopexit1051 ]
   %126 = load ptr, ptr %47, align 8
   %127 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %126, i64 %indvars.iv1221, i32 1
   %128 = load i32, ptr %127, align 4
@@ -30666,8 +30666,8 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
 
 .preheader1336:                                   ; preds = %293, %446
   %indvars.iv1209 = phi i64 [ %indvars.iv.next1210, %446 ], [ 0, %293 ]
-  %.41082 = phi float [ %398, %446 ], [ %.09671097, %293 ]
-  %.39711081 = phi float [ %432, %446 ], [ %.09681096, %293 ]
+  %.51082 = phi float [ %398, %446 ], [ %.09671097, %293 ]
+  %.49721081 = phi float [ %432, %446 ], [ %.09681096, %293 ]
   %gep1322 = getelementptr i32, ptr %invariant.gep1321, i64 %indvars.iv1209
   %294 = load i32, ptr %gep1322, align 4
   %295 = mul nsw i32 %294, %36
@@ -30688,8 +30688,8 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
 
 308:                                              ; preds = %.preheader1336, %308
   %indvars.iv1205 = phi i64 [ 0, %.preheader1336 ], [ %indvars.iv.next1206, %308 ]
-  %.51079 = phi float [ %.41082, %.preheader1336 ], [ %398, %308 ]
-  %.49721078 = phi float [ %.39711081, %.preheader1336 ], [ %432, %308 ]
+  %.61079 = phi float [ %.51082, %.preheader1336 ], [ %398, %308 ]
+  %.59731078 = phi float [ %.49721081, %.preheader1336 ], [ %432, %308 ]
   %309 = phi float [ %.promoted1075, %.preheader1336 ], [ %439, %308 ]
   %310 = phi <2 x float> [ %307, %.preheader1336 ], [ %438, %308 ]
   %311 = load i32, ptr %132, align 4
@@ -30783,7 +30783,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %395 = tail call float @llvm.fmuladd.f32(float %380, float %394, float %343)
   %396 = tail call float @llvm.fmuladd.f32(float %344, float %395, float %378)
   %397 = fmul float %355, %396
-  %398 = fadd float %.51079, %397
+  %398 = fadd float %.61079, %397
   %399 = fmul float %355, %303
   %400 = load float, ptr %345, align 4
   %401 = fmul float %399, %400
@@ -30817,7 +30817,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %429 = fmul float %401, %428
   %430 = fmul float %358, %401
   %431 = fmul float %430, %417
-  %432 = fadd float %.49721078, %429
+  %432 = fadd float %.59731078, %429
   %433 = tail call float @llvm.fmuladd.f32(float %393, float %359, float %431)
   %434 = insertelement <2 x float> poison, float %433, i64 0
   %435 = shufflevector <2 x float> %434, <2 x float> poison, <2 x i32> zeroinitializer
@@ -30846,7 +30846,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
 
 .preheader1338:                                   ; preds = %293, %562
   %indvars.iv1201 = phi i64 [ %indvars.iv.next1202, %562 ], [ 0, %293 ]
-  %.61070 = phi float [ %548, %562 ], [ %.09671097, %293 ]
+  %.71070 = phi float [ %548, %562 ], [ %.09671097, %293 ]
   %gep1320 = getelementptr i32, ptr %invariant.gep1319, i64 %indvars.iv1201
   %447 = load i32, ptr %gep1320, align 4
   %448 = mul nsw i32 %447, %36
@@ -30865,7 +30865,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
 
 459:                                              ; preds = %.preheader1338, %459
   %indvars.iv1197 = phi i64 [ 0, %.preheader1338 ], [ %indvars.iv.next1198, %459 ]
-  %.71068 = phi float [ %.61070, %.preheader1338 ], [ %548, %459 ]
+  %.81068 = phi float [ %.71070, %.preheader1338 ], [ %548, %459 ]
   %460 = phi float [ %.promoted1065, %.preheader1338 ], [ %555, %459 ]
   %461 = phi <2 x float> [ %458, %.preheader1338 ], [ %554, %459 ]
   %462 = load i32, ptr %132, align 4
@@ -30958,7 +30958,7 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   %545 = tail call float @llvm.fmuladd.f32(float %530, float %544, float %494)
   %546 = tail call float @llvm.fmuladd.f32(float %495, float %545, float %528)
   %547 = fmul float %505, %546
-  %548 = fadd float %.71068, %547
+  %548 = fadd float %.81068, %547
   %549 = fmul float %509, %543
   %550 = insertelement <2 x float> poison, float %549, i64 0
   %551 = shufflevector <2 x float> %550, <2 x float> poison, <2 x i32> zeroinitializer
@@ -30986,8 +30986,8 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   br i1 %exitcond1204.not, label %.loopexit1051, label %.preheader1338, !llvm.loop !538
 
 .loopexit1051:                                    ; preds = %562, %446, %292
-  %.5973 = phi float [ %277, %292 ], [ %432, %446 ], [ %.09681096, %562 ]
-  %.8 = phi float [ %.3, %292 ], [ %398, %446 ], [ %548, %562 ]
+  %.3971 = phi float [ %277, %292 ], [ %432, %446 ], [ %.09681096, %562 ]
+  %.4 = phi float [ %.3, %292 ], [ %398, %446 ], [ %548, %562 ]
   %indvars.iv.next1222 = add nsw i64 %indvars.iv1221, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1222 to i32
   %exitcond1224.not = icmp eq i32 %67, %lftr.wideiv
@@ -31380,8 +31380,8 @@ define void @_Z45nbnxn_kernel_ElecQSTab_VdwLJEwCombGeom_VF_refPK16NbnxnPairlistC
   br i1 %exitcond1249.not, label %.preheader1057, label %.lr.ph1141.split.split.us, !llvm.loop !542
 
 .preheader1057:                                   ; preds = %.loopexit1051, %.loopexit1050, %.loopexit1049.us, %.loopexit.us, %.critedge
-  %.6974.lcssa = phi float [ %.0968.lcssa, %.critedge ], [ %696, %.loopexit.us ], [ %838, %.loopexit1049.us ], [ %.0968.lcssa, %.loopexit1050 ], [ %.5973, %.loopexit1051 ]
-  %.9.lcssa = phi float [ %.0967.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %806, %.loopexit1049.us ], [ %943, %.loopexit1050 ], [ %.8, %.loopexit1051 ]
+  %.6974.lcssa = phi float [ %.0968.lcssa, %.critedge ], [ %696, %.loopexit.us ], [ %838, %.loopexit1049.us ], [ %.0968.lcssa, %.loopexit1050 ], [ %.3971, %.loopexit1051 ]
+  %.9.lcssa = phi float [ %.0967.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %806, %.loopexit1049.us ], [ %943, %.loopexit1050 ], [ %.4, %.loopexit1051 ]
   br label %.preheader1048
 
 .lr.ph1141.split.split:                           ; preds = %.lr.ph1141.split, %.loopexit1050
@@ -34413,8 +34413,8 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
 
 125:                                              ; preds = %.lr.ph, %.loopexit1123
   %indvars.iv1293 = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next1294, %.loopexit1123 ]
-  %.010391169 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit1123 ]
-  %.010401168 = phi float [ 0.000000e+00, %.lr.ph ], [ %.51045, %.loopexit1123 ]
+  %.010391169 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit1123 ]
+  %.010401168 = phi float [ 0.000000e+00, %.lr.ph ], [ %.31043, %.loopexit1123 ]
   %126 = load ptr, ptr %47, align 8
   %127 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %126, i64 %indvars.iv1293, i32 1
   %128 = load i32, ptr %127, align 4
@@ -34638,8 +34638,8 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
 
 .preheader1408:                                   ; preds = %306, %472
   %indvars.iv1281 = phi i64 [ %indvars.iv.next1282, %472 ], [ 0, %306 ]
-  %.41154 = phi float [ %424, %472 ], [ %.010391169, %306 ]
-  %.310431153 = phi float [ %458, %472 ], [ %.010401168, %306 ]
+  %.51154 = phi float [ %424, %472 ], [ %.010391169, %306 ]
+  %.410441153 = phi float [ %458, %472 ], [ %.010401168, %306 ]
   %gep1394 = getelementptr i32, ptr %invariant.gep1393, i64 %indvars.iv1281
   %307 = load i32, ptr %gep1394, align 4
   %308 = mul nsw i32 %307, %36
@@ -34660,8 +34660,8 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
 
 321:                                              ; preds = %.preheader1408, %321
   %indvars.iv1277 = phi i64 [ 0, %.preheader1408 ], [ %indvars.iv.next1278, %321 ]
-  %.51151 = phi float [ %.41154, %.preheader1408 ], [ %424, %321 ]
-  %.410441150 = phi float [ %.310431153, %.preheader1408 ], [ %458, %321 ]
+  %.61151 = phi float [ %.51154, %.preheader1408 ], [ %424, %321 ]
+  %.510451150 = phi float [ %.410441153, %.preheader1408 ], [ %458, %321 ]
   %322 = phi float [ %.promoted1147, %.preheader1408 ], [ %465, %321 ]
   %323 = phi <2 x float> [ %320, %.preheader1408 ], [ %464, %321 ]
   %324 = load i32, ptr %132, align 4
@@ -34768,7 +34768,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %421 = tail call float @llvm.fmuladd.f32(float %406, float %420, float %369)
   %422 = tail call float @llvm.fmuladd.f32(float %370, float %421, float %404)
   %423 = fmul float %381, %422
-  %424 = fadd float %.51151, %423
+  %424 = fadd float %.61151, %423
   %425 = fmul float %381, %316
   %426 = load float, ptr %371, align 4
   %427 = fmul float %425, %426
@@ -34802,7 +34802,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %455 = fmul float %427, %454
   %456 = fmul float %384, %427
   %457 = fmul float %456, %443
-  %458 = fadd float %.410441150, %455
+  %458 = fadd float %.510451150, %455
   %459 = tail call float @llvm.fmuladd.f32(float %419, float %385, float %457)
   %460 = insertelement <2 x float> poison, float %459, i64 0
   %461 = shufflevector <2 x float> %460, <2 x float> poison, <2 x i32> zeroinitializer
@@ -34831,7 +34831,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
 
 .preheader1410:                                   ; preds = %306, %601
   %indvars.iv1273 = phi i64 [ %indvars.iv.next1274, %601 ], [ 0, %306 ]
-  %.61142 = phi float [ %587, %601 ], [ %.010391169, %306 ]
+  %.71142 = phi float [ %587, %601 ], [ %.010391169, %306 ]
   %gep1392 = getelementptr i32, ptr %invariant.gep1391, i64 %indvars.iv1273
   %473 = load i32, ptr %gep1392, align 4
   %474 = mul nsw i32 %473, %36
@@ -34850,7 +34850,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
 
 485:                                              ; preds = %.preheader1410, %485
   %indvars.iv1269 = phi i64 [ 0, %.preheader1410 ], [ %indvars.iv.next1270, %485 ]
-  %.71140 = phi float [ %.61142, %.preheader1410 ], [ %587, %485 ]
+  %.81140 = phi float [ %.71142, %.preheader1410 ], [ %587, %485 ]
   %486 = phi float [ %.promoted1137, %.preheader1410 ], [ %594, %485 ]
   %487 = phi <2 x float> [ %484, %.preheader1410 ], [ %593, %485 ]
   %488 = load i32, ptr %132, align 4
@@ -34956,7 +34956,7 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   %584 = tail call float @llvm.fmuladd.f32(float %569, float %583, float %533)
   %585 = tail call float @llvm.fmuladd.f32(float %534, float %584, float %567)
   %586 = fmul float %544, %585
-  %587 = fadd float %.71140, %586
+  %587 = fadd float %.81140, %586
   %588 = fmul float %548, %582
   %589 = insertelement <2 x float> poison, float %588, i64 0
   %590 = shufflevector <2 x float> %589, <2 x float> poison, <2 x i32> zeroinitializer
@@ -34984,8 +34984,8 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   br i1 %exitcond1276.not, label %.loopexit1123, label %.preheader1410, !llvm.loop !601
 
 .loopexit1123:                                    ; preds = %601, %472, %305
-  %.51045 = phi float [ %290, %305 ], [ %458, %472 ], [ %.010401168, %601 ]
-  %.8 = phi float [ %.3, %305 ], [ %424, %472 ], [ %587, %601 ]
+  %.31043 = phi float [ %290, %305 ], [ %458, %472 ], [ %.010401168, %601 ]
+  %.4 = phi float [ %.3, %305 ], [ %424, %472 ], [ %587, %601 ]
   %indvars.iv.next1294 = add nsw i64 %indvars.iv1293, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1294 to i32
   %exitcond1296.not = icmp eq i32 %67, %lftr.wideiv
@@ -35404,8 +35404,8 @@ define void @_Z43nbnxn_kernel_ElecQSTab_VdwLJEwCombLB_VF_refPK16NbnxnPairlistCpu
   br i1 %exitcond1321.not, label %.preheader1129, label %.lr.ph1213.split.split.us, !llvm.loop !605
 
 .preheader1129:                                   ; preds = %.loopexit1123, %.loopexit1122, %.loopexit1121.us, %.loopexit.us, %.critedge
-  %.61046.lcssa = phi float [ %.01040.lcssa, %.critedge ], [ %748, %.loopexit.us ], [ %903, %.loopexit1121.us ], [ %.01040.lcssa, %.loopexit1122 ], [ %.51045, %.loopexit1123 ]
-  %.9.lcssa = phi float [ %.01039.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %871, %.loopexit1121.us ], [ %1021, %.loopexit1122 ], [ %.8, %.loopexit1123 ]
+  %.61046.lcssa = phi float [ %.01040.lcssa, %.critedge ], [ %748, %.loopexit.us ], [ %903, %.loopexit1121.us ], [ %.01040.lcssa, %.loopexit1122 ], [ %.31043, %.loopexit1123 ]
+  %.9.lcssa = phi float [ %.01039.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %871, %.loopexit1121.us ], [ %1021, %.loopexit1122 ], [ %.4, %.loopexit1123 ]
   br label %.preheader1120
 
 .lr.ph1213.split.split:                           ; preds = %.lr.ph1213.split, %.loopexit1122
@@ -38311,8 +38311,8 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
 
 100:                                              ; preds = %.lr.ph, %.loopexit889
   %indvars.iv1060 = phi i64 [ %99, %.lr.ph ], [ %indvars.iv.next1061, %.loopexit889 ]
-  %.0807936 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit889 ]
-  %.0808935 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5813, %.loopexit889 ]
+  %.0807936 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit889 ]
+  %.0808935 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3811, %.loopexit889 ]
   %101 = load ptr, ptr %40, align 8
   %102 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %101, i64 %indvars.iv1060, i32 1
   %103 = load i32, ptr %102, align 4
@@ -38506,8 +38506,8 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
 
 249:                                              ; preds = %245, %376
   %indvars.iv1048 = phi i64 [ 0, %245 ], [ %indvars.iv.next1049, %376 ]
-  %.4921 = phi float [ %.0807936, %245 ], [ %330, %376 ]
-  %.3811920 = phi float [ %.0808935, %245 ], [ %362, %376 ]
+  %.5921 = phi float [ %.0807936, %245 ], [ %330, %376 ]
+  %.4812920 = phi float [ %.0808935, %245 ], [ %362, %376 ]
   %gep1163 = getelementptr i32, ptr %invariant.gep1162, i64 %indvars.iv1048
   %250 = load i32, ptr %gep1163, align 4
   %251 = mul nsw i32 %250, %29
@@ -38528,8 +38528,8 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
 
 264:                                              ; preds = %249, %264
   %indvars.iv1044 = phi i64 [ 0, %249 ], [ %indvars.iv.next1045, %264 ]
-  %.5918 = phi float [ %.4921, %249 ], [ %330, %264 ]
-  %.4812917 = phi float [ %.3811920, %249 ], [ %362, %264 ]
+  %.6918 = phi float [ %.5921, %249 ], [ %330, %264 ]
+  %.5813917 = phi float [ %.4812920, %249 ], [ %362, %264 ]
   %265 = phi float [ %.promoted914, %249 ], [ %369, %264 ]
   %266 = phi <2 x float> [ %263, %249 ], [ %368, %264 ]
   %267 = load i32, ptr %107, align 4
@@ -38599,7 +38599,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %327 = select i1 %326, float 1.000000e+00, float 0.000000e+00
   %328 = fmul float %327, %318
   %329 = fmul float %327, %325
-  %330 = fadd float %.5918, %329
+  %330 = fadd float %.6918, %329
   %331 = fmul float %302, %259
   %332 = fmul float %331, %291
   %333 = fmul float %.sroa.speculated867, %305
@@ -38631,7 +38631,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %359 = fmul float %332, %358
   %360 = fmul float %305, %332
   %361 = fmul float %360, %348
-  %362 = fadd float %.4812917, %359
+  %362 = fadd float %.5813917, %359
   %363 = tail call float @llvm.fmuladd.f32(float %328, float %306, float %361)
   %364 = insertelement <2 x float> poison, float %363, i64 0
   %365 = shufflevector <2 x float> %364, <2 x float> poison, <2 x i32> zeroinitializer
@@ -38665,7 +38665,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
 
 380:                                              ; preds = %377, %467
   %indvars.iv1040 = phi i64 [ 0, %377 ], [ %indvars.iv.next1041, %467 ]
-  %.6909 = phi float [ %.0807936, %377 ], [ %453, %467 ]
+  %.7909 = phi float [ %.0807936, %377 ], [ %453, %467 ]
   %gep1161 = getelementptr i32, ptr %invariant.gep1160, i64 %indvars.iv1040
   %381 = load i32, ptr %gep1161, align 4
   %382 = mul nsw i32 %381, %29
@@ -38684,7 +38684,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
 
 393:                                              ; preds = %380, %393
   %indvars.iv1036 = phi i64 [ 0, %380 ], [ %indvars.iv.next1037, %393 ]
-  %.7907 = phi float [ %.6909, %380 ], [ %453, %393 ]
+  %.8907 = phi float [ %.7909, %380 ], [ %453, %393 ]
   %394 = phi float [ %.promoted904, %380 ], [ %460, %393 ]
   %395 = phi <2 x float> [ %392, %380 ], [ %459, %393 ]
   %396 = load i32, ptr %107, align 4
@@ -38748,7 +38748,7 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   %450 = select i1 %449, float 1.000000e+00, float 0.000000e+00
   %451 = fmul float %450, %441
   %452 = fmul float %450, %448
-  %453 = fadd float %.7907, %452
+  %453 = fadd float %.8907, %452
   %454 = fmul float %429, %451
   %455 = insertelement <2 x float> poison, float %454, i64 0
   %456 = shufflevector <2 x float> %455, <2 x float> poison, <2 x i32> zeroinitializer
@@ -38776,8 +38776,8 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   br i1 %exitcond1043.not, label %.loopexit889, label %380, !llvm.loop !664
 
 .loopexit889:                                     ; preds = %467, %376, %243
-  %.5813 = phi float [ %228, %243 ], [ %362, %376 ], [ %.0808935, %467 ]
-  %.8 = phi float [ %.3, %243 ], [ %330, %376 ], [ %453, %467 ]
+  %.3811 = phi float [ %228, %243 ], [ %362, %376 ], [ %.0808935, %467 ]
+  %.4 = phi float [ %.3, %243 ], [ %330, %376 ], [ %453, %467 ]
   %indvars.iv.next1061 = add nsw i64 %indvars.iv1060, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1061 to i32
   %exitcond1063.not = icmp eq i32 %59, %lftr.wideiv
@@ -39124,8 +39124,8 @@ define void @_Z42nbnxn_kernel_ElecQSTabTwinCut_VdwLJ_VF_refPK16NbnxnPairlistCpuP
   br i1 %exitcond1088.not, label %.preheader895, label %.lr.ph980.split.split.us, !llvm.loop !668
 
 .preheader895:                                    ; preds = %.loopexit889, %.loopexit888, %.loopexit887.us, %.loopexit.us, %.critedge
-  %.6814.lcssa = phi float [ %.0808.lcssa, %.critedge ], [ %578, %.loopexit.us ], [ %697, %.loopexit887.us ], [ %.0808.lcssa, %.loopexit888 ], [ %.5813, %.loopexit889 ]
-  %.9.lcssa = phi float [ %.0807.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %667, %.loopexit887.us ], [ %779, %.loopexit888 ], [ %.8, %.loopexit889 ]
+  %.6814.lcssa = phi float [ %.0808.lcssa, %.critedge ], [ %578, %.loopexit.us ], [ %697, %.loopexit887.us ], [ %.0808.lcssa, %.loopexit888 ], [ %.3811, %.loopexit889 ]
+  %.9.lcssa = phi float [ %.0807.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %667, %.loopexit887.us ], [ %779, %.loopexit888 ], [ %.4, %.loopexit889 ]
   br label %.preheader886
 
 .lr.ph980.split.split:                            ; preds = %.lr.ph980.split, %.loopexit888
@@ -41904,8 +41904,8 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
 
 105:                                              ; preds = %.lr.ph, %.loopexit1099
   %indvars.iv1270 = phi i64 [ %104, %.lr.ph ], [ %indvars.iv.next1271, %.loopexit1099 ]
-  %.010171146 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit1099 ]
-  %.010181145 = phi float [ 0.000000e+00, %.lr.ph ], [ %.51023, %.loopexit1099 ]
+  %.010171146 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit1099 ]
+  %.010181145 = phi float [ 0.000000e+00, %.lr.ph ], [ %.31021, %.loopexit1099 ]
   %106 = load ptr, ptr %40, align 8
   %107 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %106, i64 %indvars.iv1270, i32 1
   %108 = load i32, ptr %107, align 4
@@ -42140,8 +42140,8 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
 
 290:                                              ; preds = %286, %453
   %indvars.iv1258 = phi i64 [ 0, %286 ], [ %indvars.iv.next1259, %453 ]
-  %.41131 = phi float [ %.010171146, %286 ], [ %408, %453 ]
-  %.310211130 = phi float [ %.010181145, %286 ], [ %439, %453 ]
+  %.51131 = phi float [ %.010171146, %286 ], [ %408, %453 ]
+  %.410221130 = phi float [ %.010181145, %286 ], [ %439, %453 ]
   %gep1377 = getelementptr i32, ptr %invariant.gep1376, i64 %indvars.iv1258
   %291 = load i32, ptr %gep1377, align 4
   %292 = mul nsw i32 %291, %29
@@ -42162,8 +42162,8 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
 
 305:                                              ; preds = %290, %305
   %indvars.iv1254 = phi i64 [ 0, %290 ], [ %indvars.iv.next1255, %305 ]
-  %.51128 = phi float [ %.41131, %290 ], [ %408, %305 ]
-  %.410221127 = phi float [ %.310211130, %290 ], [ %439, %305 ]
+  %.61128 = phi float [ %.51131, %290 ], [ %408, %305 ]
+  %.510231127 = phi float [ %.410221130, %290 ], [ %439, %305 ]
   %306 = phi float [ %.promoted1124, %290 ], [ %446, %305 ]
   %307 = phi <2 x float> [ %304, %290 ], [ %445, %305 ]
   %308 = load i32, ptr %112, align 4
@@ -42270,7 +42270,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %405 = select i1 %404, float 1.000000e+00, float 0.000000e+00
   %406 = fmul float %405, %391
   %407 = fmul float %405, %403
-  %408 = fadd float %.51128, %407
+  %408 = fadd float %.61128, %407
   %409 = fmul float %352, %300
   %410 = fmul float %409, %341
   %411 = fmul float %19, %377
@@ -42301,7 +42301,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %436 = fmul float %410, %435
   %437 = fmul float %355, %410
   %438 = fmul float %437, %425
-  %439 = fadd float %.410221127, %436
+  %439 = fadd float %.510231127, %436
   %440 = tail call float @llvm.fmuladd.f32(float %406, float %356, float %438)
   %441 = insertelement <2 x float> poison, float %440, i64 0
   %442 = shufflevector <2 x float> %441, <2 x float> poison, <2 x i32> zeroinitializer
@@ -42335,7 +42335,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
 
 457:                                              ; preds = %454, %581
   %indvars.iv1250 = phi i64 [ 0, %454 ], [ %indvars.iv.next1251, %581 ]
-  %.61119 = phi float [ %.010171146, %454 ], [ %567, %581 ]
+  %.71119 = phi float [ %.010171146, %454 ], [ %567, %581 ]
   %gep1375 = getelementptr i32, ptr %invariant.gep1374, i64 %indvars.iv1250
   %458 = load i32, ptr %gep1375, align 4
   %459 = mul nsw i32 %458, %29
@@ -42354,7 +42354,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
 
 470:                                              ; preds = %457, %470
   %indvars.iv1246 = phi i64 [ 0, %457 ], [ %indvars.iv.next1247, %470 ]
-  %.71117 = phi float [ %.61119, %457 ], [ %567, %470 ]
+  %.81117 = phi float [ %.71119, %457 ], [ %567, %470 ]
   %471 = phi float [ %.promoted1114, %457 ], [ %574, %470 ]
   %472 = phi <2 x float> [ %469, %457 ], [ %573, %470 ]
   %473 = load i32, ptr %112, align 4
@@ -42455,7 +42455,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   %564 = select i1 %563, float 1.000000e+00, float 0.000000e+00
   %565 = fmul float %564, %550
   %566 = fmul float %564, %562
-  %567 = fadd float %.71117, %566
+  %567 = fadd float %.81117, %566
   %568 = fmul float %515, %565
   %569 = insertelement <2 x float> poison, float %568, i64 0
   %570 = shufflevector <2 x float> %569, <2 x float> poison, <2 x i32> zeroinitializer
@@ -42483,8 +42483,8 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   br i1 %exitcond1253.not, label %.loopexit1099, label %457, !llvm.loop !727
 
 .loopexit1099:                                    ; preds = %581, %453, %284
-  %.51023 = phi float [ %269, %284 ], [ %439, %453 ], [ %.010181145, %581 ]
-  %.8 = phi float [ %.3, %284 ], [ %408, %453 ], [ %567, %581 ]
+  %.31021 = phi float [ %269, %284 ], [ %439, %453 ], [ %.010181145, %581 ]
+  %.4 = phi float [ %.3, %284 ], [ %408, %453 ], [ %567, %581 ]
   %indvars.iv.next1271 = add nsw i64 %indvars.iv1270, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1271 to i32
   %exitcond1273.not = icmp eq i32 %64, %lftr.wideiv
@@ -42908,8 +42908,8 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJFsw_VF_refPK16NbnxnPairlistC
   br i1 %exitcond1298.not, label %.preheader1105, label %.lr.ph1190.split.split.us, !llvm.loop !731
 
 .preheader1105:                                   ; preds = %.loopexit1099, %.loopexit1098, %.loopexit1097.us, %.loopexit.us, %.critedge
-  %.61024.lcssa = phi float [ %.01018.lcssa, %.critedge ], [ %728, %.loopexit.us ], [ %883, %.loopexit1097.us ], [ %.01018.lcssa, %.loopexit1098 ], [ %.51023, %.loopexit1099 ]
-  %.9.lcssa = phi float [ %.01017.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %854, %.loopexit1097.us ], [ %1002, %.loopexit1098 ], [ %.8, %.loopexit1099 ]
+  %.61024.lcssa = phi float [ %.01018.lcssa, %.critedge ], [ %728, %.loopexit.us ], [ %883, %.loopexit1097.us ], [ %.01018.lcssa, %.loopexit1098 ], [ %.31021, %.loopexit1099 ]
+  %.9.lcssa = phi float [ %.01017.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %854, %.loopexit1097.us ], [ %1002, %.loopexit1098 ], [ %.4, %.loopexit1099 ]
   br label %.preheader1096
 
 .lr.ph1190.split.split:                           ; preds = %.lr.ph1190.split, %.loopexit1098
@@ -46015,8 +46015,8 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
 
 110:                                              ; preds = %.lr.ph, %.loopexit1057
   %indvars.iv1228 = phi i64 [ %109, %.lr.ph ], [ %indvars.iv.next1229, %.loopexit1057 ]
-  %.09751104 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit1057 ]
-  %.09761103 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5981, %.loopexit1057 ]
+  %.09751104 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit1057 ]
+  %.09761103 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3979, %.loopexit1057 ]
   %111 = load ptr, ptr %49, align 8
   %112 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %111, i64 %indvars.iv1228, i32 1
   %113 = load i32, ptr %112, align 4
@@ -46234,8 +46234,8 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
 
 278:                                              ; preds = %274, %424
   %indvars.iv1216 = phi i64 [ 0, %274 ], [ %indvars.iv.next1217, %424 ]
-  %.41089 = phi float [ %.09751104, %274 ], [ %379, %424 ]
-  %.39791088 = phi float [ %.09761103, %274 ], [ %410, %424 ]
+  %.51089 = phi float [ %.09751104, %274 ], [ %379, %424 ]
+  %.49801088 = phi float [ %.09761103, %274 ], [ %410, %424 ]
   %gep1335 = getelementptr i32, ptr %invariant.gep1334, i64 %indvars.iv1216
   %279 = load i32, ptr %gep1335, align 4
   %280 = mul nsw i32 %279, %38
@@ -46256,8 +46256,8 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
 
 293:                                              ; preds = %278, %293
   %indvars.iv1212 = phi i64 [ 0, %278 ], [ %indvars.iv.next1213, %293 ]
-  %.51086 = phi float [ %.41089, %278 ], [ %379, %293 ]
-  %.49801085 = phi float [ %.39791088, %278 ], [ %410, %293 ]
+  %.61086 = phi float [ %.51089, %278 ], [ %379, %293 ]
+  %.59811085 = phi float [ %.49801088, %278 ], [ %410, %293 ]
   %294 = phi float [ %.promoted1082, %278 ], [ %417, %293 ]
   %295 = phi <2 x float> [ %292, %278 ], [ %416, %293 ]
   %296 = load i32, ptr %117, align 4
@@ -46347,7 +46347,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %376 = select i1 %375, float 1.000000e+00, float 0.000000e+00
   %377 = fmul float %376, %373
   %378 = fmul float %376, %374
-  %379 = fadd float %.51086, %378
+  %379 = fadd float %.61086, %378
   %380 = fmul float %332, %288
   %381 = fmul float %380, %321
   %382 = fmul float %28, %355
@@ -46378,7 +46378,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %407 = fmul float %381, %406
   %408 = fmul float %335, %381
   %409 = fmul float %408, %396
-  %410 = fadd float %.49801085, %407
+  %410 = fadd float %.59811085, %407
   %411 = tail call float @llvm.fmuladd.f32(float %377, float %336, float %409)
   %412 = insertelement <2 x float> poison, float %411, i64 0
   %413 = shufflevector <2 x float> %412, <2 x float> poison, <2 x i32> zeroinitializer
@@ -46412,7 +46412,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
 
 428:                                              ; preds = %425, %535
   %indvars.iv1208 = phi i64 [ 0, %425 ], [ %indvars.iv.next1209, %535 ]
-  %.61077 = phi float [ %.09751104, %425 ], [ %521, %535 ]
+  %.71077 = phi float [ %.09751104, %425 ], [ %521, %535 ]
   %gep1333 = getelementptr i32, ptr %invariant.gep1332, i64 %indvars.iv1208
   %429 = load i32, ptr %gep1333, align 4
   %430 = mul nsw i32 %429, %38
@@ -46431,7 +46431,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
 
 441:                                              ; preds = %428, %441
   %indvars.iv1204 = phi i64 [ 0, %428 ], [ %indvars.iv.next1205, %441 ]
-  %.71075 = phi float [ %.61077, %428 ], [ %521, %441 ]
+  %.81075 = phi float [ %.71077, %428 ], [ %521, %441 ]
   %442 = phi float [ %.promoted1072, %428 ], [ %528, %441 ]
   %443 = phi <2 x float> [ %440, %428 ], [ %527, %441 ]
   %444 = load i32, ptr %117, align 4
@@ -46515,7 +46515,7 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   %518 = select i1 %517, float 1.000000e+00, float 0.000000e+00
   %519 = fmul float %518, %515
   %520 = fmul float %518, %516
-  %521 = fadd float %.71075, %520
+  %521 = fadd float %.81075, %520
   %522 = fmul float %478, %519
   %523 = insertelement <2 x float> poison, float %522, i64 0
   %524 = shufflevector <2 x float> %523, <2 x float> poison, <2 x i32> zeroinitializer
@@ -46543,8 +46543,8 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   br i1 %exitcond1211.not, label %.loopexit1057, label %428, !llvm.loop !790
 
 .loopexit1057:                                    ; preds = %535, %424, %272
-  %.5981 = phi float [ %257, %272 ], [ %410, %424 ], [ %.09761103, %535 ]
-  %.8 = phi float [ %.3, %272 ], [ %379, %424 ], [ %521, %535 ]
+  %.3979 = phi float [ %257, %272 ], [ %410, %424 ], [ %.09761103, %535 ]
+  %.4 = phi float [ %.3, %272 ], [ %379, %424 ], [ %521, %535 ]
   %indvars.iv.next1229 = add nsw i64 %indvars.iv1228, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1229 to i32
   %exitcond1231.not = icmp eq i32 %69, %lftr.wideiv
@@ -46934,8 +46934,8 @@ define void @_Z45nbnxn_kernel_ElecQSTabTwinCut_VdwLJPsw_VF_refPK16NbnxnPairlistC
   br i1 %exitcond1256.not, label %.preheader1063, label %.lr.ph1148.split.split.us, !llvm.loop !794
 
 .preheader1063:                                   ; preds = %.loopexit1057, %.loopexit1056, %.loopexit1055.us, %.loopexit.us, %.critedge
-  %.6982.lcssa = phi float [ %.0976.lcssa, %.critedge ], [ %665, %.loopexit.us ], [ %803, %.loopexit1055.us ], [ %.0976.lcssa, %.loopexit1056 ], [ %.5981, %.loopexit1057 ]
-  %.9.lcssa = phi float [ %.0975.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %774, %.loopexit1055.us ], [ %905, %.loopexit1056 ], [ %.8, %.loopexit1057 ]
+  %.6982.lcssa = phi float [ %.0976.lcssa, %.critedge ], [ %665, %.loopexit.us ], [ %803, %.loopexit1055.us ], [ %.0976.lcssa, %.loopexit1056 ], [ %.3979, %.loopexit1057 ]
+  %.9.lcssa = phi float [ %.0975.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %774, %.loopexit1055.us ], [ %905, %.loopexit1056 ], [ %.4, %.loopexit1057 ]
   br label %.preheader1054
 
 .lr.ph1148.split.split:                           ; preds = %.lr.ph1148.split, %.loopexit1056
@@ -49885,8 +49885,8 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
 
 128:                                              ; preds = %.lr.ph, %.loopexit1075
   %indvars.iv1245 = phi i64 [ %96, %.lr.ph ], [ %indvars.iv.next1246, %.loopexit1075 ]
-  %.09871121 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit1075 ]
-  %.09881120 = phi float [ 0.000000e+00, %.lr.ph ], [ %.5993, %.loopexit1075 ]
+  %.09871121 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit1075 ]
+  %.09881120 = phi float [ 0.000000e+00, %.lr.ph ], [ %.3991, %.loopexit1075 ]
   %129 = load ptr, ptr %50, align 8
   %130 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %129, i64 %indvars.iv1245, i32 1
   %131 = load i32, ptr %130, align 4
@@ -50100,8 +50100,8 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
 
 .preheader1360:                                   ; preds = %299, %455
   %indvars.iv1233 = phi i64 [ %indvars.iv.next1234, %455 ], [ 0, %299 ]
-  %.41106 = phi float [ %407, %455 ], [ %.09871121, %299 ]
-  %.39911105 = phi float [ %441, %455 ], [ %.09881120, %299 ]
+  %.51106 = phi float [ %407, %455 ], [ %.09871121, %299 ]
+  %.49921105 = phi float [ %441, %455 ], [ %.09881120, %299 ]
   %gep1346 = getelementptr i32, ptr %invariant.gep1345, i64 %indvars.iv1233
   %300 = load i32, ptr %gep1346, align 4
   %301 = mul nsw i32 %300, %39
@@ -50122,8 +50122,8 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
 
 314:                                              ; preds = %.preheader1360, %314
   %indvars.iv1229 = phi i64 [ 0, %.preheader1360 ], [ %indvars.iv.next1230, %314 ]
-  %.51103 = phi float [ %.41106, %.preheader1360 ], [ %407, %314 ]
-  %.49921102 = phi float [ %.39911105, %.preheader1360 ], [ %441, %314 ]
+  %.61103 = phi float [ %.51106, %.preheader1360 ], [ %407, %314 ]
+  %.59931102 = phi float [ %.49921105, %.preheader1360 ], [ %441, %314 ]
   %315 = phi float [ %.promoted1099, %.preheader1360 ], [ %448, %314 ]
   %316 = phi <2 x float> [ %313, %.preheader1360 ], [ %447, %314 ]
   %317 = load i32, ptr %135, align 4
@@ -50220,7 +50220,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %404 = select i1 %403, float 1.000000e+00, float 0.000000e+00
   %405 = fmul float %404, %399
   %406 = fmul float %404, %402
-  %407 = fadd float %.51103, %406
+  %407 = fadd float %.61103, %406
   %408 = fmul float %361, %309
   %409 = load float, ptr %351, align 4
   %410 = fmul float %408, %409
@@ -50254,7 +50254,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %438 = fmul float %410, %437
   %439 = fmul float %364, %410
   %440 = fmul float %439, %426
-  %441 = fadd float %.49921102, %438
+  %441 = fadd float %.59931102, %438
   %442 = tail call float @llvm.fmuladd.f32(float %405, float %365, float %440)
   %443 = insertelement <2 x float> poison, float %442, i64 0
   %444 = shufflevector <2 x float> %443, <2 x float> poison, <2 x i32> zeroinitializer
@@ -50283,7 +50283,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
 
 .preheader1362:                                   ; preds = %299, %574
   %indvars.iv1225 = phi i64 [ %indvars.iv.next1226, %574 ], [ 0, %299 ]
-  %.61094 = phi float [ %560, %574 ], [ %.09871121, %299 ]
+  %.71094 = phi float [ %560, %574 ], [ %.09871121, %299 ]
   %gep1344 = getelementptr i32, ptr %invariant.gep1343, i64 %indvars.iv1225
   %456 = load i32, ptr %gep1344, align 4
   %457 = mul nsw i32 %456, %39
@@ -50302,7 +50302,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
 
 468:                                              ; preds = %.preheader1362, %468
   %indvars.iv1221 = phi i64 [ 0, %.preheader1362 ], [ %indvars.iv.next1222, %468 ]
-  %.71092 = phi float [ %.61094, %.preheader1362 ], [ %560, %468 ]
+  %.81092 = phi float [ %.71094, %.preheader1362 ], [ %560, %468 ]
   %469 = phi float [ %.promoted1089, %.preheader1362 ], [ %567, %468 ]
   %470 = phi <2 x float> [ %467, %.preheader1362 ], [ %566, %468 ]
   %471 = load i32, ptr %135, align 4
@@ -50398,7 +50398,7 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   %557 = select i1 %556, float 1.000000e+00, float 0.000000e+00
   %558 = fmul float %557, %552
   %559 = fmul float %557, %555
-  %560 = fadd float %.71092, %559
+  %560 = fadd float %.81092, %559
   %561 = fmul float %518, %558
   %562 = insertelement <2 x float> poison, float %561, i64 0
   %563 = shufflevector <2 x float> %562, <2 x float> poison, <2 x i32> zeroinitializer
@@ -50426,8 +50426,8 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   br i1 %exitcond1228.not, label %.loopexit1075, label %.preheader1362, !llvm.loop !853
 
 .loopexit1075:                                    ; preds = %574, %455, %298
-  %.5993 = phi float [ %283, %298 ], [ %441, %455 ], [ %.09881120, %574 ]
-  %.8 = phi float [ %.3, %298 ], [ %407, %455 ], [ %560, %574 ]
+  %.3991 = phi float [ %283, %298 ], [ %441, %455 ], [ %.09881120, %574 ]
+  %.4 = phi float [ %.3, %298 ], [ %407, %455 ], [ %560, %574 ]
   %indvars.iv.next1246 = add nsw i64 %indvars.iv1245, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1246 to i32
   %exitcond1248.not = icmp eq i32 %70, %lftr.wideiv
@@ -50826,8 +50826,8 @@ define void @_Z52nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombGeom_VF_refPK16NbnxnPa
   br i1 %exitcond1273.not, label %.preheader1081, label %.lr.ph1165.split.split.us, !llvm.loop !857
 
 .preheader1081:                                   ; preds = %.loopexit1075, %.loopexit1074, %.loopexit1073.us, %.loopexit.us, %.critedge
-  %.6994.lcssa = phi float [ %.0988.lcssa, %.critedge ], [ %711, %.loopexit.us ], [ %856, %.loopexit1073.us ], [ %.0988.lcssa, %.loopexit1074 ], [ %.5993, %.loopexit1075 ]
-  %.9.lcssa = phi float [ %.0987.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %824, %.loopexit1073.us ], [ %964, %.loopexit1074 ], [ %.8, %.loopexit1075 ]
+  %.6994.lcssa = phi float [ %.0988.lcssa, %.critedge ], [ %711, %.loopexit.us ], [ %856, %.loopexit1073.us ], [ %.0988.lcssa, %.loopexit1074 ], [ %.3991, %.loopexit1075 ]
+  %.9.lcssa = phi float [ %.0987.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %824, %.loopexit1073.us ], [ %964, %.loopexit1074 ], [ %.4, %.loopexit1075 ]
   br label %.preheader1072
 
 .lr.ph1165.split.split:                           ; preds = %.lr.ph1165.split, %.loopexit1074
@@ -53907,8 +53907,8 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
 
 128:                                              ; preds = %.lr.ph, %.loopexit1147
   %indvars.iv1317 = phi i64 [ %96, %.lr.ph ], [ %indvars.iv.next1318, %.loopexit1147 ]
-  %.010591193 = phi float [ 0.000000e+00, %.lr.ph ], [ %.8, %.loopexit1147 ]
-  %.010601192 = phi float [ 0.000000e+00, %.lr.ph ], [ %.51065, %.loopexit1147 ]
+  %.010591193 = phi float [ 0.000000e+00, %.lr.ph ], [ %.4, %.loopexit1147 ]
+  %.010601192 = phi float [ 0.000000e+00, %.lr.ph ], [ %.31063, %.loopexit1147 ]
   %129 = load ptr, ptr %50, align 8
   %130 = getelementptr inbounds %struct.nbnxn_cj_t, ptr %129, i64 %indvars.iv1317, i32 1
   %131 = load i32, ptr %130, align 4
@@ -54135,8 +54135,8 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
 
 .preheader1432:                                   ; preds = %312, %481
   %indvars.iv1305 = phi i64 [ %indvars.iv.next1306, %481 ], [ 0, %312 ]
-  %.41178 = phi float [ %433, %481 ], [ %.010591193, %312 ]
-  %.310631177 = phi float [ %467, %481 ], [ %.010601192, %312 ]
+  %.51178 = phi float [ %433, %481 ], [ %.010591193, %312 ]
+  %.410641177 = phi float [ %467, %481 ], [ %.010601192, %312 ]
   %gep1418 = getelementptr i32, ptr %invariant.gep1417, i64 %indvars.iv1305
   %313 = load i32, ptr %gep1418, align 4
   %314 = mul nsw i32 %313, %39
@@ -54157,8 +54157,8 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
 
 327:                                              ; preds = %.preheader1432, %327
   %indvars.iv1301 = phi i64 [ 0, %.preheader1432 ], [ %indvars.iv.next1302, %327 ]
-  %.51175 = phi float [ %.41178, %.preheader1432 ], [ %433, %327 ]
-  %.410641174 = phi float [ %.310631177, %.preheader1432 ], [ %467, %327 ]
+  %.61175 = phi float [ %.51178, %.preheader1432 ], [ %433, %327 ]
+  %.510651174 = phi float [ %.410641177, %.preheader1432 ], [ %467, %327 ]
   %328 = phi float [ %.promoted1171, %.preheader1432 ], [ %474, %327 ]
   %329 = phi <2 x float> [ %326, %.preheader1432 ], [ %473, %327 ]
   %330 = load i32, ptr %135, align 4
@@ -54268,7 +54268,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %430 = select i1 %429, float 1.000000e+00, float 0.000000e+00
   %431 = fmul float %430, %425
   %432 = fmul float %430, %428
-  %433 = fadd float %.51175, %432
+  %433 = fadd float %.61175, %432
   %434 = fmul float %387, %322
   %435 = load float, ptr %377, align 4
   %436 = fmul float %434, %435
@@ -54302,7 +54302,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %464 = fmul float %436, %463
   %465 = fmul float %390, %436
   %466 = fmul float %465, %452
-  %467 = fadd float %.410641174, %464
+  %467 = fadd float %.510651174, %464
   %468 = tail call float @llvm.fmuladd.f32(float %431, float %391, float %466)
   %469 = insertelement <2 x float> poison, float %468, i64 0
   %470 = shufflevector <2 x float> %469, <2 x float> poison, <2 x i32> zeroinitializer
@@ -54331,7 +54331,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
 
 .preheader1434:                                   ; preds = %312, %613
   %indvars.iv1297 = phi i64 [ %indvars.iv.next1298, %613 ], [ 0, %312 ]
-  %.61166 = phi float [ %599, %613 ], [ %.010591193, %312 ]
+  %.71166 = phi float [ %599, %613 ], [ %.010591193, %312 ]
   %gep1416 = getelementptr i32, ptr %invariant.gep1415, i64 %indvars.iv1297
   %482 = load i32, ptr %gep1416, align 4
   %483 = mul nsw i32 %482, %39
@@ -54350,7 +54350,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
 
 494:                                              ; preds = %.preheader1434, %494
   %indvars.iv1293 = phi i64 [ 0, %.preheader1434 ], [ %indvars.iv.next1294, %494 ]
-  %.71164 = phi float [ %.61166, %.preheader1434 ], [ %599, %494 ]
+  %.81164 = phi float [ %.71166, %.preheader1434 ], [ %599, %494 ]
   %495 = phi float [ %.promoted1161, %.preheader1434 ], [ %606, %494 ]
   %496 = phi <2 x float> [ %493, %.preheader1434 ], [ %605, %494 ]
   %497 = load i32, ptr %135, align 4
@@ -54459,7 +54459,7 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   %596 = select i1 %595, float 1.000000e+00, float 0.000000e+00
   %597 = fmul float %596, %591
   %598 = fmul float %596, %594
-  %599 = fadd float %.71164, %598
+  %599 = fadd float %.81164, %598
   %600 = fmul float %557, %597
   %601 = insertelement <2 x float> poison, float %600, i64 0
   %602 = shufflevector <2 x float> %601, <2 x float> poison, <2 x i32> zeroinitializer
@@ -54487,8 +54487,8 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   br i1 %exitcond1300.not, label %.loopexit1147, label %.preheader1434, !llvm.loop !916
 
 .loopexit1147:                                    ; preds = %613, %481, %311
-  %.51065 = phi float [ %296, %311 ], [ %467, %481 ], [ %.010601192, %613 ]
-  %.8 = phi float [ %.3, %311 ], [ %433, %481 ], [ %599, %613 ]
+  %.31063 = phi float [ %296, %311 ], [ %467, %481 ], [ %.010601192, %613 ]
+  %.4 = phi float [ %.3, %311 ], [ %433, %481 ], [ %599, %613 ]
   %indvars.iv.next1318 = add nsw i64 %indvars.iv1317, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1318 to i32
   %exitcond1320.not = icmp eq i32 %70, %lftr.wideiv
@@ -54913,8 +54913,8 @@ define void @_Z50nbnxn_kernel_ElecQSTabTwinCut_VdwLJEwCombLB_VF_refPK16NbnxnPair
   br i1 %exitcond1345.not, label %.preheader1153, label %.lr.ph1237.split.split.us, !llvm.loop !920
 
 .preheader1153:                                   ; preds = %.loopexit1147, %.loopexit1146, %.loopexit1145.us, %.loopexit.us, %.critedge
-  %.61066.lcssa = phi float [ %.01060.lcssa, %.critedge ], [ %763, %.loopexit.us ], [ %921, %.loopexit1145.us ], [ %.01060.lcssa, %.loopexit1146 ], [ %.51065, %.loopexit1147 ]
-  %.9.lcssa = phi float [ %.01059.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %889, %.loopexit1145.us ], [ %1042, %.loopexit1146 ], [ %.8, %.loopexit1147 ]
+  %.61066.lcssa = phi float [ %.01060.lcssa, %.critedge ], [ %763, %.loopexit.us ], [ %921, %.loopexit1145.us ], [ %.01060.lcssa, %.loopexit1146 ], [ %.31063, %.loopexit1147 ]
+  %.9.lcssa = phi float [ %.01059.lcssa, %.critedge ], [ %.12.us, %.loopexit.us ], [ %889, %.loopexit1145.us ], [ %1042, %.loopexit1146 ], [ %.4, %.loopexit1147 ]
   br label %.preheader1144
 
 .lr.ph1237.split.split:                           ; preds = %.lr.ph1237.split, %.loopexit1146

@@ -715,22 +715,22 @@ define internal { double, double } @_ZL19tmerc_spherical_fwd5PJ_LPP8PJconsts(dou
   br label %41
 
 41:                                               ; preds = %34, %15, %39
-  %.sroa.3.0 = phi double [ %40, %39 ], [ 0x400921FB54442D18, %15 ], [ 0.000000e+00, %34 ]
+  %.sroa.3.1 = phi double [ %40, %39 ], [ 0x400921FB54442D18, %15 ], [ 0.000000e+00, %34 ]
   %42 = fcmp olt double %1, 0.000000e+00
-  %43 = fneg double %.sroa.3.0
-  %.sroa.3.1 = select i1 %42, double %43, double %.sroa.3.0
+  %43 = fneg double %.sroa.3.1
+  %.sroa.3.2 = select i1 %42, double %43, double %.sroa.3.1
   %44 = load double, ptr %5, align 8
   %45 = getelementptr inbounds i8, ptr %2, i64 448
   %46 = load double, ptr %45, align 8
-  %47 = fsub double %.sroa.3.1, %46
+  %47 = fsub double %.sroa.3.2, %46
   %48 = fmul double %44, %47
   br label %49
 
 49:                                               ; preds = %41, %37, %13
-  %.sroa.3.2 = phi double [ 0.000000e+00, %13 ], [ %48, %41 ], [ %28, %37 ]
+  %.sroa.3.0 = phi double [ 0.000000e+00, %13 ], [ %48, %41 ], [ %28, %37 ]
   %.sroa.022.0 = phi double [ 0.000000e+00, %13 ], [ %22, %41 ], [ %22, %37 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.022.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.2, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
   ret { double, double } %.fca.1.insert
 }
 

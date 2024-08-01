@@ -3535,14 +3535,14 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 
 catch.dispatch:                                   ; preds = %if.then.i.i.i, %invoke.cont.i, %lpad
   %.pn28.pn.pn.pn.pn = phi { ptr, i32 } [ %12, %lpad ], [ %.pn28.pn.pn.pn, %invoke.cont.i ], [ %.pn28.pn.pn.pn, %if.then.i.i.i ]
-  %ehselector.slot.13 = extractvalue { ptr, i32 } %.pn28.pn.pn.pn.pn, 1
+  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn28.pn.pn.pn.pn, 1
   %83 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN4cvc58internal24IllegalArgumentExceptionE) #23
-  %matches = icmp eq i32 %ehselector.slot.13, %83
+  %matches = icmp eq i32 %ehselector.slot.0, %83
   br i1 %matches, label %catch, label %eh.resume
 
 catch:                                            ; preds = %catch.dispatch
-  %exn.slot.13 = extractvalue { ptr, i32 } %.pn28.pn.pn.pn.pn, 0
-  %84 = call ptr @__cxa_begin_catch(ptr %exn.slot.13) #23
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn28.pn.pn.pn.pn, 0
+  %84 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #23
   %exception164 = call ptr @__cxa_allocate_exception(i64 88) #23
   %d_msg.i = getelementptr inbounds i8, ptr %84, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp165, ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i)

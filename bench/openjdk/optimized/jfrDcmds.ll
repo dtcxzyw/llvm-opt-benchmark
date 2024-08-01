@@ -1725,7 +1725,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %19, %_ZN10HandleAre
   br i1 %.not71, label %66, label %_ZL23construct_dcmd_instanceP16JfrJavaArgumentsP10JavaThread.exit.thread
 
 66:                                               ; preds = %60, %56
-  %.053 = phi ptr [ %64, %60 ], [ null, %56 ]
+  %.154 = phi ptr [ %64, %60 ], [ null, %56 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 280
   %68 = load i8, ptr %67, align 8
   %69 = trunc i8 %68 to i1
@@ -1740,7 +1740,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %19, %_ZN10HandleAre
   br i1 %.not72, label %75, label %_ZL23construct_dcmd_instanceP16JfrJavaArgumentsP10JavaThread.exit.thread
 
 75:                                               ; preds = %70, %66
-  %.051 = phi ptr [ %73, %70 ], [ null, %66 ]
+  %.152 = phi ptr [ %73, %70 ], [ null, %66 ]
   %76 = getelementptr inbounds i8, ptr %0, i64 344
   %77 = load i8, ptr %76, align 8
   %78 = trunc i8 %77 to i1
@@ -1755,7 +1755,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %19, %_ZN10HandleAre
   br i1 %.not73, label %83, label %_ZL23construct_dcmd_instanceP16JfrJavaArgumentsP10JavaThread.exit.thread
 
 83:                                               ; preds = %79, %75
-  %.049 = phi ptr [ %81, %79 ], [ null, %75 ]
+  %.150 = phi ptr [ %81, %79 ], [ null, %75 ]
   %84 = getelementptr inbounds i8, ptr %0, i64 424
   %85 = load i8, ptr %84, align 8
   %86 = trunc i8 %85 to i1
@@ -1770,7 +1770,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %19, %_ZN10HandleAre
   br i1 %.not74, label %91, label %_ZL23construct_dcmd_instanceP16JfrJavaArgumentsP10JavaThread.exit.thread
 
 91:                                               ; preds = %87, %83
-  %.047 = phi ptr [ %89, %87 ], [ null, %83 ]
+  %.148 = phi ptr [ %89, %87 ], [ null, %83 ]
   %92 = getelementptr inbounds i8, ptr %0, i64 584
   %93 = load i8, ptr %92, align 8
   %94 = trunc i8 %93 to i1
@@ -1785,7 +1785,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %19, %_ZN10HandleAre
   br i1 %.not75, label %99, label %_ZL23construct_dcmd_instanceP16JfrJavaArgumentsP10JavaThread.exit.thread
 
 99:                                               ; preds = %95, %91
-  %.045 = phi ptr [ %97, %95 ], [ null, %91 ]
+  %.146 = phi ptr [ %97, %95 ], [ null, %91 ]
   %100 = getelementptr inbounds i8, ptr %0, i64 504
   %101 = load i8, ptr %100, align 8
   %102 = trunc i8 %101 to i1
@@ -1800,7 +1800,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %19, %_ZN10HandleAre
   br i1 %.not76, label %107, label %_ZL23construct_dcmd_instanceP16JfrJavaArgumentsP10JavaThread.exit.thread
 
 107:                                              ; preds = %103, %99
-  %.044 = phi ptr [ %105, %103 ], [ null, %99 ]
+  %.1 = phi ptr [ %105, %103 ], [ null, %99 ]
   %108 = getelementptr inbounds i8, ptr %0, i64 664
   %109 = load i8, ptr %108, align 8
   %110 = trunc i8 %109 to i1
@@ -1827,12 +1827,12 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %19, %_ZN10HandleAre
   br label %119
 
 119:                                              ; preds = %107, %115, %113, %116, %54
-  %.154 = phi ptr [ null, %54 ], [ %.053, %115 ], [ %.053, %113 ], [ %.053, %116 ], [ %.053, %107 ]
-  %.152 = phi ptr [ null, %54 ], [ %.051, %115 ], [ %.051, %113 ], [ %.051, %116 ], [ %.051, %107 ]
-  %.150 = phi ptr [ null, %54 ], [ %.049, %115 ], [ %.049, %113 ], [ %.049, %116 ], [ %.049, %107 ]
-  %.148 = phi ptr [ null, %54 ], [ %.047, %115 ], [ %.047, %113 ], [ %.047, %116 ], [ %.047, %107 ]
-  %.146 = phi ptr [ null, %54 ], [ %.045, %115 ], [ %.045, %113 ], [ %.045, %116 ], [ %.045, %107 ]
-  %.1 = phi ptr [ null, %54 ], [ %.044, %115 ], [ %.044, %113 ], [ %.044, %116 ], [ %.044, %107 ]
+  %.053 = phi ptr [ null, %54 ], [ %.154, %115 ], [ %.154, %113 ], [ %.154, %116 ], [ %.154, %107 ]
+  %.051 = phi ptr [ null, %54 ], [ %.152, %115 ], [ %.152, %113 ], [ %.152, %116 ], [ %.152, %107 ]
+  %.049 = phi ptr [ null, %54 ], [ %.150, %115 ], [ %.150, %113 ], [ %.150, %116 ], [ %.150, %107 ]
+  %.047 = phi ptr [ null, %54 ], [ %.148, %115 ], [ %.148, %113 ], [ %.148, %116 ], [ %.148, %107 ]
+  %.045 = phi ptr [ null, %54 ], [ %.146, %115 ], [ %.146, %113 ], [ %.146, %116 ], [ %.146, %107 ]
+  %.044 = phi ptr [ null, %54 ], [ %.1, %115 ], [ %.1, %113 ], [ %.1, %116 ], [ %.1, %107 ]
   %120 = getelementptr inbounds i8, ptr %0, i64 720
   %121 = load i8, ptr %120, align 8
   %122 = trunc i8 %121 to i1
@@ -1863,12 +1863,12 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %19, %_ZN10HandleAre
   call void @_ZN16JfrJavaArguments8push_intEi(ptr noundef nonnull align 8 dereferenceable(300) %7, i32 noundef %135) #13
   call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.0) #13
   call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.055) #13
-  call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.154) #13
-  call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.152) #13
-  call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.150) #13
-  call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.148) #13
-  call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.1) #13
-  call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.146) #13
+  call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.053) #13
+  call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.051) #13
+  call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.049) #13
+  call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.047) #13
+  call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.044) #13
+  call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.045) #13
   call void @_ZN16JfrJavaArguments12push_jobjectEP8_jobject(ptr noundef nonnull align 8 dereferenceable(300) %7, ptr noundef %.043) #13
   call void @_ZN14JfrJavaSupport12call_virtualEP16JfrJavaArgumentsP10JavaThread(ptr noundef nonnull %7, ptr noundef nonnull %2) #13
   %136 = load ptr, ptr %8, align 8

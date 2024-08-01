@@ -1040,9 +1040,9 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond131.i.i = select i1 %.not129.i.i, i1 true, i1 %.not130.i.i
   %41 = and i32 %36, -4
   %42 = add i32 %41, 4
-  %.1.i.i = select i1 %or.cond131.i.i, i32 %36, i32 %42
+  %.2.i.i = select i1 %or.cond131.i.i, i32 %36, i32 %42
   %43 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_NONE_none, align 4
-  %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.1.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, ptr noundef null) #4
+  %44 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.2.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %43, ptr noundef null) #4
   br label %butc_dissect_tciStatusS_info.exit
 
 45:                                               ; preds = %35
@@ -1053,9 +1053,9 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond132.i.i = select i1 %.not127.i.i, i1 true, i1 %.not128.i.i
   %48 = and i32 %36, -4
   %49 = add i32 %48, 4
-  %.2.i.i = select i1 %or.cond132.i.i, i32 %36, i32 %49
+  %.3.i.i = select i1 %or.cond132.i.i, i32 %36, i32 %49
   %50 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_DUMP_vol, align 4
-  %51 = call i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 noundef %.2.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 poison)
+  %51 = call i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 noundef %.3.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %50, i32 poison)
   br label %butc_dissect_tciStatusS_info.exit
 
 52:                                               ; preds = %35
@@ -1066,9 +1066,9 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond133.i.i = select i1 %.not125.i.i, i1 true, i1 %.not126.i.i
   %55 = and i32 %36, -4
   %56 = add i32 %55, 4
-  %.3.i.i = select i1 %or.cond133.i.i, i32 %36, i32 %56
+  %.4.i.i = select i1 %or.cond133.i.i, i32 %36, i32 %56
   %57 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_RESTORE_vol, align 4
-  %58 = call i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 noundef %.3.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, i32 poison)
+  %58 = call i32 @butc_dissect_tc_statusInfoSwitchVol(ptr noundef %0, i32 noundef %.4.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %57, i32 poison)
   br label %butc_dissect_tciStatusS_info.exit
 
 59:                                               ; preds = %35
@@ -1079,9 +1079,9 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond134.i.i = select i1 %.not123.i.i, i1 true, i1 %.not124.i.i
   %62 = and i32 %36, -4
   %63 = add i32 %62, 4
-  %.4.i.i = select i1 %or.cond134.i.i, i32 %36, i32 %63
+  %.5.i.i = select i1 %or.cond134.i.i, i32 %36, i32 %63
   %64 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_LABELTAPE_label, align 4
-  %65 = call i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 noundef %.4.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 poison)
+  %65 = call i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 noundef %.5.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, i32 poison)
   br label %butc_dissect_tciStatusS_info.exit
 
 66:                                               ; preds = %35
@@ -1092,9 +1092,9 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond135.i.i = select i1 %.not121.i.i, i1 true, i1 %.not122.i.i
   %69 = and i32 %36, -4
   %70 = add i32 %69, 4
-  %.5.i.i = select i1 %or.cond135.i.i, i32 %36, i32 %70
+  %.6.i.i = select i1 %or.cond135.i.i, i32 %36, i32 %70
   %71 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_READLABEL_label, align 4
-  %72 = call i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 noundef %.5.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %71, i32 poison)
+  %72 = call i32 @butc_dissect_tc_statusInfoSwitchLabel(ptr noundef %0, i32 noundef %.6.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %71, i32 poison)
   br label %butc_dissect_tciStatusS_info.exit
 
 73:                                               ; preds = %35
@@ -1105,9 +1105,9 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond136.i.i = select i1 %.not119.i.i, i1 true, i1 %.not120.i.i
   %76 = and i32 %36, -4
   %77 = add i32 %76, 4
-  %.6.i.i = select i1 %or.cond136.i.i, i32 %36, i32 %77
+  %.7.i.i = select i1 %or.cond136.i.i, i32 %36, i32 %77
   %78 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_SCANTAPE_spare1, align 4
-  %79 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.6.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, ptr noundef null) #4
+  %79 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.7.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %78, ptr noundef null) #4
   br label %butc_dissect_tciStatusS_info.exit
 
 80:                                               ; preds = %35
@@ -1118,9 +1118,9 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond137.i.i = select i1 %.not117.i.i, i1 true, i1 %.not118.i.i
   %83 = and i32 %36, -4
   %84 = add i32 %83, 4
-  %.7.i.i = select i1 %or.cond137.i.i, i32 %36, i32 %84
+  %.8.i.i = select i1 %or.cond137.i.i, i32 %36, i32 %84
   %85 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_STATUS_spare2, align 4
-  %86 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.7.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %85, ptr noundef null) #4
+  %86 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.8.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %85, ptr noundef null) #4
   br label %butc_dissect_tciStatusS_info.exit
 
 87:                                               ; preds = %35
@@ -1131,9 +1131,9 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond138.i.i = select i1 %.not115.i.i, i1 true, i1 %.not116.i.i
   %90 = and i32 %36, -4
   %91 = add i32 %90, 4
-  %.8.i.i = select i1 %or.cond138.i.i, i32 %36, i32 %91
+  %.9.i.i = select i1 %or.cond138.i.i, i32 %36, i32 %91
   %92 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_SAVEDB_spare3, align 4
-  %93 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.8.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, ptr noundef null) #4
+  %93 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.9.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %92, ptr noundef null) #4
   br label %butc_dissect_tciStatusS_info.exit
 
 94:                                               ; preds = %35
@@ -1144,9 +1144,9 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond139.i.i = select i1 %.not113.i.i, i1 true, i1 %.not114.i.i
   %97 = and i32 %36, -4
   %98 = add i32 %97, 4
-  %.9.i.i = select i1 %or.cond139.i.i, i32 %36, i32 %98
+  %.10.i.i = select i1 %or.cond139.i.i, i32 %36, i32 %98
   %99 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_RESTOREDB_spare4, align 4
-  %100 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.9.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %99, ptr noundef null) #4
+  %100 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.10.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %99, ptr noundef null) #4
   br label %butc_dissect_tciStatusS_info.exit
 
 101:                                              ; preds = %35
@@ -1157,20 +1157,20 @@ define hidden i32 @butc_dissect_tciStatusS(ptr noundef %0, i32 noundef %1, ptr n
   %or.cond140.i.i = select i1 %.not111.i.i, i1 true, i1 %.not112.i.i
   %104 = and i32 %36, -4
   %105 = add i32 %104, 4
-  %.10.i.i = select i1 %or.cond140.i.i, i32 %36, i32 %105
+  %.11.i.i = select i1 %or.cond140.i.i, i32 %36, i32 %105
   %106 = load i32, ptr @hf_butc_tc_statusInfoSwitch_TCOP_SPARE_spare5, align 4
-  %107 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.10.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106, ptr noundef null) #4
+  %107 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.11.i.i, ptr noundef %2, ptr noundef %.0107.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %106, ptr noundef null) #4
   br label %butc_dissect_tciStatusS_info.exit
 
 butc_dissect_tciStatusS_info.exit:                ; preds = %35, %38, %45, %52, %59, %66, %73, %80, %87, %94, %101
-  %.11.i.i = phi i32 [ %36, %35 ], [ %107, %101 ], [ %100, %94 ], [ %93, %87 ], [ %86, %80 ], [ %79, %73 ], [ %72, %66 ], [ %65, %59 ], [ %58, %52 ], [ %51, %45 ], [ %44, %38 ]
+  %.1.i.i = phi i32 [ %36, %35 ], [ %107, %101 ], [ %100, %94 ], [ %93, %87 ], [ %86, %80 ], [ %79, %73 ], [ %72, %66 ], [ %65, %59 ], [ %58, %52 ], [ %51, %45 ], [ %44, %38 ]
   %108 = load ptr, ptr %9, align 8
-  %109 = sub i32 %.11.i.i, %.0.i.i
+  %109 = sub i32 %.1.i.i, %.0.i.i
   call void @proto_item_set_len(ptr noundef %108, i32 noundef %109) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %110 = load i32, ptr @hf_butc_tciStatusS_taskId, align 4
-  %111 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.11.i.i, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, ptr noundef null) #4
+  %111 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %.1.i.i, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %110, ptr noundef null) #4
   %112 = load i32, ptr @hf_butc_tciStatusS_spare2, align 4
   %113 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %111, ptr noundef %2, ptr noundef %.061, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %112, ptr noundef null) #4
   %114 = load i32, ptr @hf_butc_tciStatusS_spare3, align 4

@@ -295,11 +295,11 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %_ZNKSt6vector
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %91, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i, %88
-  %.sroa.0157.3 = phi ptr [ null, %88 ], [ null, %91 ], [ %97, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i ], [ %97, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ]
-  %.sroa.0164.1 = phi ptr [ %90, %88 ], [ null, %91 ], [ %97, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i ], [ %97, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ]
+  %.sroa.0157.2 = phi ptr [ null, %88 ], [ null, %91 ], [ %97, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i ], [ %97, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ]
+  %.sroa.0164.2 = phi ptr [ %90, %88 ], [ null, %91 ], [ %97, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i ], [ %97, %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i ]
   %101 = getelementptr inbounds [3 x float], ptr %22, i64 0, i64 %indvars.iv212
   %102 = load float, ptr %101, align 4
-  store float %102, ptr %.sroa.0164.1, align 4
+  store float %102, ptr %.sroa.0164.2, align 4
   %103 = load i32, ptr %36, align 4
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.lr.ph186, label %136
@@ -312,11 +312,11 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %91, %_ZSt6fill_nIPf
   %108 = getelementptr inbounds float, ptr %107, i64 %indvars.iv
   %109 = load float, ptr %108, align 4
   %110 = fmul float %106, %109
-  %111 = getelementptr inbounds float, ptr %.sroa.0164.1, i64 %indvars.iv
+  %111 = getelementptr inbounds float, ptr %.sroa.0164.2, i64 %indvars.iv
   %112 = load float, ptr %111, align 4
   %113 = fadd float %112, %110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %114 = getelementptr inbounds float, ptr %.sroa.0164.1, i64 %indvars.iv.next
+  %114 = getelementptr inbounds float, ptr %.sroa.0164.2, i64 %indvars.iv.next
   store float %113, ptr %114, align 4
   %115 = load float, ptr %31, align 4
   %116 = fmul float %110, %115
@@ -362,25 +362,25 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %91, %_ZSt6fill_nIPf
   %138 = getelementptr inbounds [3 x i32], ptr %25, i64 0, i64 %indvars.iv212
   %139 = load i32, ptr %138, align 4
   %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds float, ptr %.sroa.0164.1, i64 %140
+  %141 = getelementptr inbounds float, ptr %.sroa.0164.2, i64 %140
   %142 = load float, ptr %141, align 4
   %143 = getelementptr inbounds [3 x float], ptr %26, i64 0, i64 %indvars.iv212
   store float %142, ptr %143, align 4
   %144 = load i32, ptr %138, align 4
   %145 = add nsw i32 %144, 1
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds float, ptr %.sroa.0164.1, i64 %146
+  %147 = getelementptr inbounds float, ptr %.sroa.0164.2, i64 %146
   %148 = load float, ptr %147, align 4
   %149 = getelementptr inbounds [3 x float], ptr %27, i64 0, i64 %indvars.iv212
   store float %148, ptr %149, align 4
   br label %150
 
 150:                                              ; preds = %137, %136
-  %.not.i.i.i148 = icmp eq ptr %.sroa.0157.3, null
+  %.not.i.i.i148 = icmp eq ptr %.sroa.0157.2, null
   br i1 %.not.i.i.i148, label %_ZNSt6vectorIfSaIfEED2Ev.exit149, label %151
 
 151:                                              ; preds = %150
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0157.3) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0157.2) #21
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit149
 
 _ZNSt6vectorIfSaIfEED2Ev.exit149:                 ; preds = %151, %150, %._crit_edge192
@@ -661,22 +661,22 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
 
 44:                                               ; preds = %23, %.critedge4
   %indvars.iv111 = phi i64 [ 0, %23 ], [ %indvars.iv.next112, %.critedge4 ]
-  %.066100 = phi i32 [ 1, %23 ], [ %.2.lcssa, %.critedge4 ]
+  %.1100 = phi i32 [ 1, %23 ], [ %.3.lcssa, %.critedge4 ]
   %45 = trunc nuw nsw i64 %indvars.iv111 to i32
   %46 = uitofp nneg i32 %45 to float
   %47 = fdiv float %46, %41
-  %48 = add nsw i32 %.066100, 1
+  %48 = add nsw i32 %.1100, 1
   %49 = icmp slt i32 %48, %11
   br i1 %49, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %44
-  %50 = sext i32 %.066100 to i64
+  %50 = sext i32 %.1100 to i64
   %51 = add nsw i64 %50, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge2
   %indvars.iv = phi i64 [ %51, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge2 ]
-  %.188 = phi i32 [ %.066100, %.lr.ph.preheader ], [ %68, %.critedge2 ]
+  %.288 = phi i32 [ %.1100, %.lr.ph.preheader ], [ %68, %.critedge2 ]
   %52 = sub nsw i64 %indvars.iv111, %indvars.iv
   %53 = icmp sgt i64 %52, -1
   br i1 %53, label %54, label %61
@@ -709,13 +709,13 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
   br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !12
 
 .critedge.loopexit:                               ; preds = %54, %.critedge2, %61
-  %.1.lcssa.ph = phi i32 [ %.188, %61 ], [ %43, %.critedge2 ], [ %.188, %54 ]
-  %.pre = add nsw i32 %.1.lcssa.ph, 1
+  %.2.lcssa.ph = phi i32 [ %.288, %61 ], [ %43, %.critedge2 ], [ %.288, %54 ]
+  %.pre = add nsw i32 %.2.lcssa.ph, 1
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %44
   %.pre-phi = phi i32 [ %.pre, %.critedge.loopexit ], [ %48, %44 ]
-  %.1.lcssa = phi i32 [ %.1.lcssa.ph, %.critedge.loopexit ], [ %.066100, %44 ]
+  %.2.lcssa = phi i32 [ %.2.lcssa.ph, %.critedge.loopexit ], [ %.1100, %44 ]
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %69 = trunc nuw nsw i64 %indvars.iv.next112 to i32
   %70 = uitofp nneg i32 %69 to float
@@ -724,7 +724,7 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
   br i1 %72, label %.lr.ph94.preheader, label %.critedge4
 
 .lr.ph94.preheader:                               ; preds = %.critedge
-  %73 = sext i32 %.1.lcssa to i64
+  %73 = sext i32 %.2.lcssa to i64
   %74 = add nsw i64 %73, 1
   br label %.lr.ph94
 
@@ -767,20 +767,20 @@ define internal fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK1
   br i1 %exitcond110.not, label %.critedge4, label %.lr.ph94, !llvm.loop !13
 
 .critedge4:                                       ; preds = %.critedge6, %86, %77, %.critedge
-  %.2.lcssa = phi i32 [ %.1.lcssa, %.critedge ], [ %75, %77 ], [ %75, %86 ], [ %43, %.critedge6 ]
+  %.3.lcssa = phi i32 [ %.2.lcssa, %.critedge ], [ %75, %77 ], [ %75, %86 ], [ %43, %.critedge6 ]
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count
   br i1 %exitcond114.not, label %.loopexit, label %44, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.critedge4, %17, %15
-  %.3 = phi i32 [ %16, %15 ], [ 1, %17 ], [ %.2.lcssa, %.critedge4 ]
+  %.066 = phi i32 [ %16, %15 ], [ 1, %17 ], [ %.3.lcssa, %.critedge4 ]
   %97 = getelementptr inbounds i8, ptr %1, i64 88
-  store i32 %.3, ptr %97, align 8
+  store i32 %.066, ptr %97, align 8
   %98 = load ptr, ptr @debug, align 8
   %.not75 = icmp eq ptr %98, null
   br i1 %.not75, label %101, label %99
 
 99:                                               ; preds = %.loopexit
-  %100 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %98, ptr noundef nonnull @.str.6, i32 noundef %8, i32 noundef %.3) #22
+  %100 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %98, ptr noundef nonnull @.str.6, i32 noundef %8, i32 noundef %.066) #22
   br label %101
 
 101:                                              ; preds = %99, %.loopexit

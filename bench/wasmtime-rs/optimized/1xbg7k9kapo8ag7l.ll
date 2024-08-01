@@ -2291,13 +2291,13 @@ define internal fastcc void @_ZN14cranelift_isle7codegen7Codegen18generate_trait
           to label %82 unwind label %80
 
 78:                                               ; preds = %105, %80
-  %.0 = phi i8 [ %.1, %80 ], [ %.2, %105 ]
+  %.1 = phi i8 [ %.0, %80 ], [ %.2, %105 ]
   %.pn58 = phi { ptr, i32 } [ %81, %80 ], [ %.pn56, %105 ]
-  %79 = trunc nuw i8 %.0 to i1
+  %79 = trunc nuw i8 %.1 to i1
   br i1 %79, label %144, label %143
 
 80:                                               ; preds = %85, %136, %101, %88, %86, %82, %72
-  %.1 = phi i8 [ %.2, %136 ], [ 1, %101 ], [ 1, %86 ], [ 1, %88 ], [ 1, %82 ], [ 1, %72 ], [ 1, %85 ]
+  %.0 = phi i8 [ %.2, %136 ], [ 1, %101 ], [ 1, %86 ], [ 1, %88 ], [ 1, %82 ], [ 1, %72 ], [ 1, %85 ]
   %81 = landingpad { ptr, i32 }
           cleanup
   br label %78

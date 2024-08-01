@@ -435,8 +435,8 @@ if.then.i12.i:                                    ; preds = %land.lhs.true.i8.i
 
 if.end.i69:                                       ; preds = %if.then.i12.i, %land.lhs.true.i8.i, %if.then.i74, %land.lhs.true.i.i, %if.end55
   %retval.0.i21.i = phi i64 [ 20, %if.then.i74 ], [ 20, %land.lhs.true.i8.i ], [ 20, %if.then.i12.i ], [ 16, %land.lhs.true.i.i ], [ 16, %if.end55 ]
-  %name.addr.2.i = phi ptr [ %add.ptr.i.i, %if.then.i74 ], [ %add.ptr.i.i, %land.lhs.true.i8.i ], [ %add.ptr.i13.i, %if.then.i12.i ], [ %ptr.1319, %land.lhs.true.i.i ], [ %ptr.1319, %if.end55 ]
-  %len.addr.2.i = phi i64 [ 0, %if.then.i74 ], [ %sub.i.i75, %land.lhs.true.i8.i ], [ %sub.i14.i, %if.then.i12.i ], [ %idx.ext, %land.lhs.true.i.i ], [ %idx.ext, %if.end55 ]
+  %name.addr.0.i = phi ptr [ %add.ptr.i.i, %if.then.i74 ], [ %add.ptr.i.i, %land.lhs.true.i8.i ], [ %add.ptr.i13.i, %if.then.i12.i ], [ %ptr.1319, %land.lhs.true.i.i ], [ %ptr.1319, %if.end55 ]
+  %len.addr.0.i = phi i64 [ 0, %if.then.i74 ], [ %sub.i.i75, %land.lhs.true.i8.i ], [ %sub.i14.i, %if.then.i12.i ], [ %idx.ext, %land.lhs.true.i.i ], [ %idx.ext, %if.end55 ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.end.i69
@@ -444,12 +444,12 @@ for.body.i:                                       ; preds = %for.inc.i, %if.end.
   %arrayidx.i70 = getelementptr inbounds [7 x %struct.anon], ptr @parse_attr.attrs, i64 0, i64 %indvars.iv.i
   %len3.i = getelementptr inbounds i8, ptr %arrayidx.i70, i64 8
   %33 = load i64, ptr %len3.i, align 8
-  %cmp4.i = icmp eq i64 %33, %len.addr.2.i
+  %cmp4.i = icmp eq i64 %33, %len.addr.0.i
   br i1 %cmp4.i, label %land.lhs.true.i72, label %for.inc.i
 
 land.lhs.true.i72:                                ; preds = %for.body.i
   %34 = load ptr, ptr %arrayidx.i70, align 8
-  %bcmp.i = tail call i32 @bcmp(ptr %34, ptr %name.addr.2.i, i64 %len.addr.2.i)
+  %bcmp.i = tail call i32 @bcmp(ptr %34, ptr %name.addr.0.i, i64 %len.addr.0.i)
   %tobool.not.i73 = icmp eq i32 %bcmp.i, 0
   br i1 %tobool.not.i73, label %parse_attr.exit, label %for.inc.i
 
@@ -505,7 +505,7 @@ for.body:                                         ; preds = %if.end75, %for.inc
   %dst.addr.0.ptr.ptr445 = phi ptr [ %dst.addr.0.ptr.ptr, %for.inc ], [ %dst.addr.0.ptr.ptr439, %if.end75 ]
   %i.0444 = phi i32 [ %inc109, %for.inc ], [ 0, %if.end75 ]
   %sep.1443 = phi i32 [ %sep.2, %for.inc ], [ %has_reset.0.ph192.lcssa258, %if.end75 ]
-  %dst.addr.0.idx442 = phi i64 [ %dst.addr.2.idx, %for.inc ], [ 2, %if.end75 ]
+  %dst.addr.0.idx442 = phi i64 [ %dst.addr.1.idx, %for.inc ], [ 2, %if.end75 ]
   %attr.1441 = phi i32 [ %attr.2, %for.inc ], [ %attr.0.lcssa, %if.end75 ]
   %shl89 = shl nuw i32 1, %i.0444
   %and90 = and i32 %shl89, %attr.1441
@@ -533,25 +533,25 @@ if.end102:                                        ; preds = %do.body98
   br label %if.end105
 
 if.end105:                                        ; preds = %if.end102, %if.end93
-  %dst.addr.1.idx = phi i64 [ %dst.addr.0.add, %if.end102 ], [ %dst.addr.0.idx442, %if.end93 ]
-  %dst.addr.1.ptr = getelementptr inbounds i8, ptr %dst, i64 %dst.addr.1.idx
-  %gepdiff = sub nsw i64 75, %dst.addr.1.idx
-  %call106 = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %dst.addr.1.ptr, i64 noundef %gepdiff, ptr noundef nonnull @.str.16, i32 noundef %i.0444) #15
+  %dst.addr.2.idx = phi i64 [ %dst.addr.0.add, %if.end102 ], [ %dst.addr.0.idx442, %if.end93 ]
+  %dst.addr.2.ptr = getelementptr inbounds i8, ptr %dst, i64 %dst.addr.2.idx
+  %gepdiff = sub nsw i64 75, %dst.addr.2.idx
+  %call106 = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %dst.addr.2.ptr, i64 noundef %gepdiff, ptr noundef nonnull @.str.16, i32 noundef %i.0444) #15
   %idx.ext107 = sext i32 %call106 to i64
-  %dst.addr.1.add = add nsw i64 %dst.addr.1.idx, %idx.ext107
+  %dst.addr.2.add = add nsw i64 %dst.addr.2.idx, %idx.ext107
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end105
   %attr.2 = phi i32 [ %and94, %if.end105 ], [ %attr.1441, %for.body ]
-  %dst.addr.2.idx = phi i64 [ %dst.addr.1.add, %if.end105 ], [ %dst.addr.0.idx442, %for.body ]
+  %dst.addr.1.idx = phi i64 [ %dst.addr.2.add, %if.end105 ], [ %dst.addr.0.idx442, %for.body ]
   %sep.2 = phi i32 [ %inc95, %if.end105 ], [ %sep.1443, %for.body ]
   %inc109 = add nuw nsw i32 %i.0444, 1
-  %dst.addr.0.ptr.ptr = getelementptr inbounds i8, ptr %dst, i64 %dst.addr.2.idx
+  %dst.addr.0.ptr.ptr = getelementptr inbounds i8, ptr %dst, i64 %dst.addr.1.idx
   %tobool88.not = icmp eq i32 %attr.2, 0
   br i1 %tobool88.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %if.end75
-  %dst.addr.0.idx.lcssa = phi i64 [ 2, %if.end75 ], [ %dst.addr.2.idx, %for.inc ]
+  %dst.addr.0.idx.lcssa = phi i64 [ 2, %if.end75 ], [ %dst.addr.1.idx, %for.inc ]
   %sep.1.lcssa = phi i32 [ %has_reset.0.ph192.lcssa258, %if.end75 ], [ %sep.2, %for.inc ]
   %dst.addr.0.ptr.ptr.lcssa = phi ptr [ %dst.addr.0.ptr.ptr439, %if.end75 ], [ %dst.addr.0.ptr.ptr, %for.inc ]
   br i1 %cmp.i76, label %if.then112, label %if.end129
@@ -575,9 +575,9 @@ if.end120:                                        ; preds = %do.body116
   br label %if.end123
 
 if.end123:                                        ; preds = %if.end120, %if.then112
-  %dst.addr.3.idx = phi i64 [ %dst.addr.0.ptr.add, %if.end120 ], [ %dst.addr.0.idx.lcssa, %if.then112 ]
-  %dst.addr.3.ptr = getelementptr inbounds i8, ptr %dst, i64 %dst.addr.3.idx
-  %gepdiff449 = sub nsw i64 75, %dst.addr.3.idx
+  %dst.addr.4.idx = phi i64 [ %dst.addr.0.ptr.add, %if.end120 ], [ %dst.addr.0.idx.lcssa, %if.then112 ]
+  %dst.addr.4.ptr = getelementptr inbounds i8, ptr %dst, i64 %dst.addr.4.idx
+  %gepdiff449 = sub nsw i64 75, %dst.addr.4.idx
   switch i32 %fg.sroa.0.0.ph.lcssa288, label %if.end129 [
     i32 4, label %sw.bb11.i
     i32 3, label %sw.bb3.i
@@ -588,18 +588,18 @@ sw.bb1.i:                                         ; preds = %if.end123
   %sext = shl i64 %gepdiff449, 32
   %conv.i82 = ashr exact i64 %sext, 32
   %conv2.i = zext i8 %fg.sroa.6.0.ph.lcssa291 to i32
-  %call.i84 = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %dst.addr.3.ptr, i64 noundef %conv.i82, ptr noundef nonnull @.str.16, i32 noundef %conv2.i) #15
+  %call.i84 = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %dst.addr.4.ptr, i64 noundef %conv.i82, ptr noundef nonnull @.str.16, i32 noundef %conv2.i) #15
   %idx.ext.i = sext i32 %call.i84 to i64
-  %dst.addr.3.add171 = add nsw i64 %dst.addr.3.idx, %idx.ext.i
+  %dst.addr.4.add171 = add nsw i64 %dst.addr.4.idx, %idx.ext.i
   br label %if.end129
 
 sw.bb3.i:                                         ; preds = %if.end123
   %sext168 = shl i64 %gepdiff449, 32
   %conv4.i = ashr exact i64 %sext168, 32
   %conv7.i = zext i8 %fg.sroa.6.0.ph.lcssa291 to i32
-  %call8.i = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %dst.addr.3.ptr, i64 noundef %conv4.i, ptr noundef nonnull @.str.46, i32 noundef 38, i32 noundef %conv7.i) #15
+  %call8.i = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %dst.addr.4.ptr, i64 noundef %conv4.i, ptr noundef nonnull @.str.46, i32 noundef 38, i32 noundef %conv7.i) #15
   %idx.ext9.i = sext i32 %call8.i to i64
-  %dst.addr.3.add170 = add nsw i64 %dst.addr.3.idx, %idx.ext9.i
+  %dst.addr.4.add170 = add nsw i64 %dst.addr.4.idx, %idx.ext9.i
   br label %if.end129
 
 sw.bb11.i:                                        ; preds = %if.end123
@@ -608,15 +608,15 @@ sw.bb11.i:                                        ; preds = %if.end123
   %conv14.i = zext i8 %fg.sroa.8.0.ph.lcssa294 to i32
   %conv15.i = zext i8 %fg.sroa.9.0.ph.lcssa297 to i32
   %conv16.i = zext i8 %fg.sroa.10.0.ph.lcssa300 to i32
-  %call17.i = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %dst.addr.3.ptr, i64 noundef %conv12.i, ptr noundef nonnull @.str.47, i32 noundef 38, i32 noundef %conv14.i, i32 noundef %conv15.i, i32 noundef %conv16.i) #15
+  %call17.i = tail call i32 (ptr, i64, ptr, ...) @xsnprintf(ptr noundef nonnull %dst.addr.4.ptr, i64 noundef %conv12.i, ptr noundef nonnull @.str.47, i32 noundef 38, i32 noundef %conv14.i, i32 noundef %conv15.i, i32 noundef %conv16.i) #15
   %idx.ext18.i = sext i32 %call17.i to i64
-  %dst.addr.3.add = add nsw i64 %dst.addr.3.idx, %idx.ext18.i
+  %dst.addr.4.add = add nsw i64 %dst.addr.4.idx, %idx.ext18.i
   br label %if.end129
 
 if.end129:                                        ; preds = %sw.bb11.i, %sw.bb3.i, %sw.bb1.i, %if.end123, %for.end
-  %dst.addr.4.idx = phi i64 [ %dst.addr.0.idx.lcssa, %for.end ], [ %dst.addr.3.idx, %if.end123 ], [ %dst.addr.3.add171, %sw.bb1.i ], [ %dst.addr.3.add170, %sw.bb3.i ], [ %dst.addr.3.add, %sw.bb11.i ]
+  %dst.addr.3.idx = phi i64 [ %dst.addr.0.idx.lcssa, %for.end ], [ %dst.addr.4.idx, %if.end123 ], [ %dst.addr.4.add171, %sw.bb1.i ], [ %dst.addr.4.add170, %sw.bb3.i ], [ %dst.addr.4.add, %sw.bb11.i ]
   %sep.3 = phi i32 [ %sep.1.lcssa, %for.end ], [ %inc113, %if.end123 ], [ %inc113, %sw.bb1.i ], [ %inc113, %sw.bb3.i ], [ %inc113, %sw.bb11.i ]
-  %dst.addr.4.ptr.ptr = getelementptr inbounds i8, ptr %dst, i64 %dst.addr.4.idx
+  %dst.addr.3.ptr.ptr = getelementptr inbounds i8, ptr %dst, i64 %dst.addr.3.idx
   br i1 %cmp.i78, label %if.then132, label %do.body150
 
 if.then132:                                       ; preds = %if.end129
@@ -624,7 +624,7 @@ if.then132:                                       ; preds = %if.end129
   br i1 %tobool134.not, label %if.end143, label %do.body136
 
 do.body136:                                       ; preds = %if.then132
-  %cmp137 = icmp eq i64 %dst.addr.4.idx, 75
+  %cmp137 = icmp eq i64 %dst.addr.3.idx, 75
   br i1 %cmp137, label %if.then139, label %if.end140
 
 if.then139:                                       ; preds = %do.body136
@@ -632,12 +632,12 @@ if.then139:                                       ; preds = %do.body136
   unreachable
 
 if.end140:                                        ; preds = %do.body136
-  %dst.addr.4.ptr.add = add nsw i64 %dst.addr.4.idx, 1
-  store i8 59, ptr %dst.addr.4.ptr.ptr, align 1
+  %dst.addr.3.ptr.add = add nsw i64 %dst.addr.3.idx, 1
+  store i8 59, ptr %dst.addr.3.ptr.ptr, align 1
   br label %if.end143
 
 if.end143:                                        ; preds = %if.end140, %if.then132
-  %dst.addr.5.idx = phi i64 [ %dst.addr.4.ptr.add, %if.end140 ], [ %dst.addr.4.idx, %if.then132 ]
+  %dst.addr.5.idx = phi i64 [ %dst.addr.3.ptr.add, %if.end140 ], [ %dst.addr.3.idx, %if.then132 ]
   %dst.addr.5.ptr = getelementptr inbounds i8, ptr %dst, i64 %dst.addr.5.idx
   %gepdiff450 = sub nsw i64 75, %dst.addr.5.idx
   switch i32 %bg.sroa.0.0.ph185.lcssa269, label %do.body150 [
@@ -677,7 +677,7 @@ sw.bb11.i106:                                     ; preds = %if.end143
   br label %do.body150
 
 do.body150:                                       ; preds = %sw.bb11.i106, %sw.bb3.i99, %sw.bb1.i91, %if.end143, %if.end129
-  %dst.addr.6.idx = phi i64 [ %dst.addr.4.idx, %if.end129 ], [ %dst.addr.5.idx, %if.end143 ], [ %dst.addr.5.add176, %sw.bb1.i91 ], [ %dst.addr.5.add175, %sw.bb3.i99 ], [ %dst.addr.5.add, %sw.bb11.i106 ]
+  %dst.addr.6.idx = phi i64 [ %dst.addr.3.idx, %if.end129 ], [ %dst.addr.5.idx, %if.end143 ], [ %dst.addr.5.add176, %sw.bb1.i91 ], [ %dst.addr.5.add175, %sw.bb3.i99 ], [ %dst.addr.5.add, %sw.bb11.i106 ]
   %cmp151 = icmp eq i64 %dst.addr.6.idx, 75
   br i1 %cmp151, label %if.then153, label %do.body158
 

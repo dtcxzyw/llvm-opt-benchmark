@@ -203,22 +203,22 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 113:                                              ; preds = %824, %96
   %.0639 = phi i1 [ %112, %96 ], [ true, %824 ]
-  %.1625 = phi i32 [ %.0624, %96 ], [ %.11635, %824 ]
-  %.0620 = phi i32 [ 0, %96 ], [ %.3623, %824 ]
-  %.0614 = phi ptr [ %35, %96 ], [ %.4618, %824 ]
-  %.1600 = phi i64 [ %.0599, %96 ], [ %.11610, %824 ]
-  %.1586 = phi i64 [ %.0585, %96 ], [ %.11596, %824 ]
+  %.1625 = phi i32 [ %.0624, %96 ], [ %.4628, %824 ]
+  %.0620 = phi i32 [ 0, %96 ], [ %.1621, %824 ]
+  %.0614 = phi ptr [ %35, %96 ], [ %.1615, %824 ]
+  %.1600 = phi i64 [ %.0599, %96 ], [ %.4603, %824 ]
+  %.1586 = phi i64 [ %.0585, %96 ], [ %.4589, %824 ]
   %.0581 = phi i32 [ %4, %96 ], [ %.2583, %824 ]
-  %.1574 = phi i64 [ %.0573, %96 ], [ %.11, %824 ]
+  %.1574 = phi i64 [ %.0573, %96 ], [ %.4577, %824 ]
   %.0571 = phi i32 [ 0, %96 ], [ %.1572, %824 ]
   %.sroa.6.0 = phi i64 [ -1, %96 ], [ %.sroa.6.1, %824 ]
   %.sroa.3.0 = phi i64 [ -1, %96 ], [ %.sroa.3.1, %824 ]
   %.sroa.0.0 = phi i64 [ -1, %96 ], [ %.sroa.0.1, %824 ]
-  %.0567 = phi i32 [ 0, %96 ], [ %.3570, %824 ]
-  %.0560 = phi i32 [ 0, %96 ], [ %.7, %824 ]
-  %.0557 = phi i32 [ 0, %96 ], [ %.1558, %824 ]
+  %.0567 = phi i32 [ 0, %96 ], [ %.1568, %824 ]
+  %.0560 = phi i32 [ 0, %96 ], [ %.1561, %824 ]
+  %.0557 = phi i32 [ 0, %96 ], [ %.2559, %824 ]
   %.0513 = phi i32 [ %82, %96 ], [ %spec.select, %824 ]
-  %.0512 = phi i64 [ %3, %96 ], [ %.3, %824 ]
+  %.0512 = phi i64 [ %3, %96 ], [ %.4, %824 ]
   br i1 %.0639, label %116, label %114
 
 114:                                              ; preds = %113
@@ -231,12 +231,12 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %119
 
 119:                                              ; preds = %116, %114
-  %.0550 = phi i32 [ %115, %114 ], [ %118, %116 ]
-  %120 = icmp slt i32 %.0550, 0
+  %.1551 = phi i32 [ %115, %114 ], [ %118, %116 ]
+  %120 = icmp slt i32 %.1551, 0
   br i1 %120, label %121, label %164
 
 121:                                              ; preds = %119
-  %.not744 = icmp eq i32 %.0550, -1
+  %.not744 = icmp eq i32 %.1551, -1
   br i1 %.not744, label %122, label %.loopexit828
 
 122:                                              ; preds = %121
@@ -279,20 +279,20 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %or.cond924, label %.lr.ph920, label %.critedge
 
 .lr.ph920:                                        ; preds = %139, %147
-  %.1919 = phi i64 [ %148, %147 ], [ %125, %139 ]
-  %143 = getelementptr inbounds i8, ptr %.0510784, i64 %.1919
+  %.3919 = phi i64 [ %148, %147 ], [ %125, %139 ]
+  %143 = getelementptr inbounds i8, ptr %.0510784, i64 %.3919
   %144 = load i8, ptr %143, align 1
   %145 = and i8 %144, -64
   %146 = icmp eq i8 %145, -128
   br i1 %146, label %147, label %.critedge
 
 147:                                              ; preds = %.lr.ph920
-  %148 = add nuw i64 %.1919, 1
+  %148 = add nuw i64 %.3919, 1
   %exitcond974.not = icmp eq i64 %148, %.0511
   br i1 %exitcond974.not, label %.critedge, label %.lr.ph920
 
 .critedge:                                        ; preds = %.lr.ph920, %147, %139, %137
-  %.2 = phi i64 [ %138, %137 ], [ %125, %139 ], [ %.1919, %.lr.ph920 ], [ %.0511, %147 ]
+  %.2 = phi i64 [ %138, %137 ], [ %125, %139 ], [ %.3919, %.lr.ph920 ], [ %.0511, %147 ]
   %149 = sub i64 %.2, %.0512
   br i1 %.not699, label %150, label %824
 
@@ -351,8 +351,8 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 176:                                              ; preds = %174
   %177 = add nsw i32 %.0557, 1
-  %178 = icmp eq i32 %.0550, 0
-  %spec.select761 = select i1 %178, i32 %64, i32 %.0550
+  %178 = icmp eq i32 %.1551, 0
+  %spec.select761 = select i1 %178, i32 %64, i32 %.1551
   %179 = sub i64 %166, %.0512
   br i1 %.not699, label %180, label %195
 
@@ -387,11 +387,11 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %195
 
 195:                                              ; preds = %185, %190, %188, %176
-  %.3627 = phi i32 [ %.1625, %176 ], [ 1, %188 ], [ 0, %190 ], [ 1, %185 ]
-  %.3602 = phi i64 [ %.1600, %176 ], [ %189, %188 ], [ %.1600, %190 ], [ %186, %185 ]
-  %.3588 = phi i64 [ %.1586, %176 ], [ %.1586, %188 ], [ %193, %190 ], [ %.1586, %185 ]
-  %.3576 = phi i64 [ %.1574, %176 ], [ %.1574, %188 ], [ %194, %190 ], [ %.1574, %185 ]
-  store i64 %.3588, ptr %100, align 8
+  %.5629 = phi i32 [ %.1625, %176 ], [ 1, %188 ], [ 0, %190 ], [ 1, %185 ]
+  %.5604 = phi i64 [ %.1600, %176 ], [ %189, %188 ], [ %.1600, %190 ], [ %186, %185 ]
+  %.5590 = phi i64 [ %.1586, %176 ], [ %.1586, %188 ], [ %193, %190 ], [ %.1586, %185 ]
+  %.5578 = phi i64 [ %.1574, %176 ], [ %.1574, %188 ], [ %194, %190 ], [ %.1574, %185 ]
+  store i64 %.5590, ptr %100, align 8
   store i32 %spec.select761, ptr %101, align 8
   store ptr %.0519781, ptr %13, align 8
   %196 = and i32 %.0581, 32768
@@ -411,8 +411,8 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %216
 
 202:                                              ; preds = %195
-  %.not739 = icmp eq i32 %.3627, 0
-  %203 = icmp ult i64 %.3576, %.0521
+  %.not739 = icmp eq i32 %.5629, 0
+  %203 = icmp ult i64 %.5578, %.0521
   %or.cond763 = select i1 %.not739, i1 %203, i1 false
   br i1 %or.cond763, label %204, label %209
 
@@ -422,36 +422,36 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %206, label %.loopexit828, label %207
 
 207:                                              ; preds = %204
-  %208 = sub i64 %.0521, %.3576
+  %208 = sub i64 %.0521, %.5578
   br label %.thread794
 
 209:                                              ; preds = %202
   br i1 %.not739, label %212, label %210
 
 210:                                              ; preds = %209
-  %211 = add i64 %.3602, %.0521
+  %211 = add i64 %.5604, %.0521
   br label %.thread794
 
 212:                                              ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %9, i64 %.3588
+  %213 = getelementptr inbounds i8, ptr %9, i64 %.5590
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %213, ptr nonnull align 1 %.0519781, i64 %.0521, i1 false)
-  %214 = add i64 %.3588, %.0521
-  %215 = sub i64 %.3576, %.0521
+  %214 = add i64 %.5590, %.0521
+  %215 = sub i64 %.5578, %.0521
   br label %.loopexit834
 
 216:                                              ; preds = %.backedge, %.preheader833
   %217 = phi ptr [ %.0519781, %.preheader833 ], [ %.pre, %.backedge ]
-  %.4628 = phi i32 [ %.3627, %.preheader833 ], [ %.4628.be, %.backedge ]
-  %.1621 = phi i32 [ %.0620, %.preheader833 ], [ %.1621.be, %.backedge ]
-  %.1615 = phi ptr [ %.0614, %.preheader833 ], [ %.1615.be, %.backedge ]
-  %.4603 = phi i64 [ %.3602, %.preheader833 ], [ %.4603.be, %.backedge ]
-  %.4589 = phi i64 [ %.3588, %.preheader833 ], [ %.4589.be, %.backedge ]
-  %.4577 = phi i64 [ %.3576, %.preheader833 ], [ %.4577.be, %.backedge ]
-  %.1568 = phi i32 [ %.0567, %.preheader833 ], [ %.1568.be, %.backedge ]
-  %.1561 = phi i32 [ %.0560, %.preheader833 ], [ %.1561.be, %.backedge ]
+  %.7631 = phi i32 [ %.5629, %.preheader833 ], [ %.7631.be, %.backedge ]
+  %.3623 = phi i32 [ %.0620, %.preheader833 ], [ %.3623.be, %.backedge ]
+  %.3617 = phi ptr [ %.0614, %.preheader833 ], [ %.3617.be, %.backedge ]
+  %.7606 = phi i64 [ %.5604, %.preheader833 ], [ %.7606.be, %.backedge ]
+  %.7592 = phi i64 [ %.5590, %.preheader833 ], [ %.7592.be, %.backedge ]
+  %.7580 = phi i64 [ %.5578, %.preheader833 ], [ %.7580.be, %.backedge ]
+  %.3570 = phi i32 [ %.0567, %.preheader833 ], [ %.3570.be, %.backedge ]
+  %.3563 = phi i32 [ %.0560, %.preheader833 ], [ %.3563.be, %.backedge ]
   %.0556 = phi i32 [ 0, %.preheader833 ], [ %.0556.be, %.backedge ]
-  %.1615971 = ptrtoint ptr %.1615 to i64
-  %.not705 = icmp ult ptr %217, %.1615
+  %.3617971 = ptrtoint ptr %.3617 to i64
+  %.not705 = icmp ult ptr %217, %.3617
   br i1 %.not705, label %229, label %218
 
 218:                                              ; preds = %216
@@ -471,26 +471,26 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %.backedge
 
 .backedge:                                        ; preds = %597, %351, %356, %354, %341, %783, %786, %.critedge775, %421, %220, %239, %412, %607, %609, %611, %613, %622, %406, %621
-  %.4628.be = phi i32 [ %.4628, %220 ], [ %.4628, %239 ], [ %.4628, %406 ], [ %.4628, %412 ], [ %.4628, %622 ], [ %.4628, %613 ], [ %.4628, %611 ], [ %.4628, %609 ], [ %.4628, %607 ], [ %.4628, %621 ], [ 1, %.critedge775 ], [ 0, %786 ], [ 1, %783 ], [ 1, %354 ], [ 0, %356 ], [ 1, %351 ], [ %.4628, %341 ], [ %.4628, %421 ], [ %.6630, %597 ]
-  %.1621.be = phi i32 [ %.1621, %220 ], [ 0, %239 ], [ 0, %406 ], [ 0, %412 ], [ 1, %622 ], [ 0, %613 ], [ 0, %611 ], [ 0, %609 ], [ 0, %607 ], [ 0, %621 ], [ %.1621, %.critedge775 ], [ %.1621, %786 ], [ %.1621, %783 ], [ 0, %354 ], [ 0, %356 ], [ 0, %351 ], [ 0, %341 ], [ 0, %421 ], [ 0, %597 ]
-  %.1615.be = phi ptr [ %224, %220 ], [ %.1615, %239 ], [ %.1615, %406 ], [ %.1534..2529, %412 ], [ %.1615, %622 ], [ %.1615, %613 ], [ %.1615, %611 ], [ %.1615, %609 ], [ %.1615, %607 ], [ %.1615, %621 ], [ %.1615, %.critedge775 ], [ %.1615, %786 ], [ %.1615, %783 ], [ %.1615, %354 ], [ %.1615, %356 ], [ %.1615, %351 ], [ %.1615, %341 ], [ %.1615, %421 ], [ %.1615, %597 ]
-  %.4603.be = phi i64 [ %.4603, %220 ], [ %.4603, %239 ], [ %.4603, %406 ], [ %.4603, %412 ], [ %.4603, %622 ], [ %.4603, %613 ], [ %.4603, %611 ], [ %.4603, %609 ], [ %.4603, %607 ], [ %.4603, %621 ], [ %785, %.critedge775 ], [ %.4603, %786 ], [ %784, %783 ], [ %355, %354 ], [ %.4603, %356 ], [ %352, %351 ], [ %.4603, %341 ], [ %.4603, %421 ], [ %.6605, %597 ]
-  %.4589.be = phi i64 [ %.4589, %220 ], [ %.4589, %239 ], [ %.4589, %406 ], [ %.4589, %412 ], [ %.4589, %622 ], [ %.4589, %613 ], [ %.4589, %611 ], [ %.4589, %609 ], [ %.4589, %607 ], [ %.4589, %621 ], [ %.4589, %.critedge775 ], [ %788, %786 ], [ %.4589, %783 ], [ %.4589, %354 ], [ %358, %356 ], [ %.4589, %351 ], [ %.4589, %341 ], [ %.4589, %421 ], [ %.6591, %597 ]
-  %.4577.be = phi i64 [ %.4577, %220 ], [ %.4577, %239 ], [ %.4577, %406 ], [ %.4577, %412 ], [ %.4577, %622 ], [ %.4577, %613 ], [ %.4577, %611 ], [ %.4577, %609 ], [ %.4577, %607 ], [ %.4577, %621 ], [ %.4577, %.critedge775 ], [ %789, %786 ], [ %.4577, %783 ], [ %.4577, %354 ], [ %359, %356 ], [ %.4577, %351 ], [ %.4577, %341 ], [ %.4577, %421 ], [ %.6579, %597 ]
-  %.1568.be = phi i32 [ %.1568, %220 ], [ %.1568, %239 ], [ %.1568, %406 ], [ %.1568, %412 ], [ %.1568, %622 ], [ 0, %613 ], [ 1, %611 ], [ 0, %609 ], [ -1, %607 ], [ 0, %621 ], [ %.1568, %.critedge775 ], [ %.1568, %786 ], [ %.1568, %783 ], [ %.1568, %354 ], [ %.1568, %356 ], [ %.1568, %351 ], [ %.1568, %341 ], [ %.1568, %421 ], [ %.1568, %597 ]
-  %.1561.be = phi i32 [ %.1561, %220 ], [ %.1561, %239 ], [ %.1561, %406 ], [ %.1561, %412 ], [ %.1561, %622 ], [ 1, %613 ], [ 1, %611 ], [ -1, %609 ], [ -1, %607 ], [ 0, %621 ], [ %.4564, %.critedge775 ], [ %.4564, %786 ], [ %.4564, %783 ], [ %.1561, %354 ], [ %.1561, %356 ], [ %.1561, %351 ], [ %.1561, %341 ], [ %.1561, %421 ], [ %.3563, %597 ]
+  %.7631.be = phi i32 [ %.7631, %220 ], [ %.7631, %239 ], [ %.7631, %406 ], [ %.7631, %412 ], [ %.7631, %622 ], [ %.7631, %613 ], [ %.7631, %611 ], [ %.7631, %609 ], [ %.7631, %607 ], [ %.7631, %621 ], [ 1, %.critedge775 ], [ 0, %786 ], [ 1, %783 ], [ 1, %354 ], [ 0, %356 ], [ 1, %351 ], [ %.7631, %341 ], [ %.7631, %421 ], [ %.9633, %597 ]
+  %.3623.be = phi i32 [ %.3623, %220 ], [ 0, %239 ], [ 0, %406 ], [ 0, %412 ], [ 1, %622 ], [ 0, %613 ], [ 0, %611 ], [ 0, %609 ], [ 0, %607 ], [ 0, %621 ], [ %.3623, %.critedge775 ], [ %.3623, %786 ], [ %.3623, %783 ], [ 0, %354 ], [ 0, %356 ], [ 0, %351 ], [ 0, %341 ], [ 0, %421 ], [ 0, %597 ]
+  %.3617.be = phi ptr [ %224, %220 ], [ %.3617, %239 ], [ %.3617, %406 ], [ %.0533..2529, %412 ], [ %.3617, %622 ], [ %.3617, %613 ], [ %.3617, %611 ], [ %.3617, %609 ], [ %.3617, %607 ], [ %.3617, %621 ], [ %.3617, %.critedge775 ], [ %.3617, %786 ], [ %.3617, %783 ], [ %.3617, %354 ], [ %.3617, %356 ], [ %.3617, %351 ], [ %.3617, %341 ], [ %.3617, %421 ], [ %.3617, %597 ]
+  %.7606.be = phi i64 [ %.7606, %220 ], [ %.7606, %239 ], [ %.7606, %406 ], [ %.7606, %412 ], [ %.7606, %622 ], [ %.7606, %613 ], [ %.7606, %611 ], [ %.7606, %609 ], [ %.7606, %607 ], [ %.7606, %621 ], [ %785, %.critedge775 ], [ %.7606, %786 ], [ %784, %783 ], [ %355, %354 ], [ %.7606, %356 ], [ %352, %351 ], [ %.7606, %341 ], [ %.7606, %421 ], [ %.9608, %597 ]
+  %.7592.be = phi i64 [ %.7592, %220 ], [ %.7592, %239 ], [ %.7592, %406 ], [ %.7592, %412 ], [ %.7592, %622 ], [ %.7592, %613 ], [ %.7592, %611 ], [ %.7592, %609 ], [ %.7592, %607 ], [ %.7592, %621 ], [ %.7592, %.critedge775 ], [ %788, %786 ], [ %.7592, %783 ], [ %.7592, %354 ], [ %358, %356 ], [ %.7592, %351 ], [ %.7592, %341 ], [ %.7592, %421 ], [ %.9594, %597 ]
+  %.7580.be = phi i64 [ %.7580, %220 ], [ %.7580, %239 ], [ %.7580, %406 ], [ %.7580, %412 ], [ %.7580, %622 ], [ %.7580, %613 ], [ %.7580, %611 ], [ %.7580, %609 ], [ %.7580, %607 ], [ %.7580, %621 ], [ %.7580, %.critedge775 ], [ %789, %786 ], [ %.7580, %783 ], [ %.7580, %354 ], [ %359, %356 ], [ %.7580, %351 ], [ %.7580, %341 ], [ %.7580, %421 ], [ %.9, %597 ]
+  %.3570.be = phi i32 [ %.3570, %220 ], [ %.3570, %239 ], [ %.3570, %406 ], [ %.3570, %412 ], [ %.3570, %622 ], [ 0, %613 ], [ 1, %611 ], [ 0, %609 ], [ -1, %607 ], [ 0, %621 ], [ %.3570, %.critedge775 ], [ %.3570, %786 ], [ %.3570, %783 ], [ %.3570, %354 ], [ %.3570, %356 ], [ %.3570, %351 ], [ %.3570, %341 ], [ %.3570, %421 ], [ %.3570, %597 ]
+  %.3563.be = phi i32 [ %.3563, %220 ], [ %.3563, %239 ], [ %.3563, %406 ], [ %.3563, %412 ], [ %.3563, %622 ], [ 1, %613 ], [ 1, %611 ], [ -1, %609 ], [ -1, %607 ], [ 0, %621 ], [ %.7, %.critedge775 ], [ %.7, %786 ], [ %.7, %783 ], [ %.3563, %354 ], [ %.3563, %356 ], [ %.3563, %351 ], [ %.3563, %341 ], [ %.3563, %421 ], [ %.5565, %597 ]
   %.0556.be = phi i32 [ %225, %220 ], [ %.0556, %239 ], [ %.0556, %406 ], [ %417, %412 ], [ %.0556, %622 ], [ %.0556, %613 ], [ %.0556, %611 ], [ %.0556, %609 ], [ %.0556, %607 ], [ %.0556, %621 ], [ %.0556, %.critedge775 ], [ %.0556, %786 ], [ %.0556, %783 ], [ %.0556, %354 ], [ %.0556, %356 ], [ %.0556, %351 ], [ %.0556, %341 ], [ %.0556, %421 ], [ %.0556, %597 ]
   %.pre = load ptr, ptr %13, align 8
   br label %216
 
 229:                                              ; preds = %216
-  %.not706 = icmp eq i32 %.1621, 0
+  %.not706 = icmp eq i32 %.3623, 0
   %230 = load i8, ptr %217, align 1
   br i1 %.not706, label %241, label %231
 
 231:                                              ; preds = %229
   %232 = icmp eq i8 %230, 92
-  %233 = getelementptr inbounds i8, ptr %.1615, i64 -1
+  %233 = getelementptr inbounds i8, ptr %.3617, i64 -1
   %234 = icmp ult ptr %217, %233
   %or.cond765 = select i1 %232, i1 %234, i1 false
   br i1 %or.cond765, label %235, label %623
@@ -513,7 +513,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 243:                                              ; preds = %241
   %244 = getelementptr inbounds i8, ptr %217, i64 1
   store ptr %244, ptr %13, align 8
-  %.not709 = icmp ult ptr %244, %.1615
+  %.not709 = icmp ult ptr %244, %.3617
   br i1 %.not709, label %245, label %.loopexit831.loopexit926
 
 245:                                              ; preds = %243
@@ -528,7 +528,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 249:                                              ; preds = %248
   %250 = getelementptr inbounds i8, ptr %217, i64 2
   store ptr %250, ptr %13, align 8
-  %.not710 = icmp ult ptr %250, %.1615
+  %.not710 = icmp ult ptr %250, %.3617
   br i1 %.not710, label %251, label %.loopexit831.loopexit926
 
 251:                                              ; preds = %249
@@ -544,7 +544,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 255:                                              ; preds = %253
   %256 = getelementptr inbounds i8, ptr %.promoted889, i64 1
   store ptr %256, ptr %13, align 8
-  %.not711 = icmp ult ptr %256, %.1615
+  %.not711 = icmp ult ptr %256, %.3617
   br i1 %.not711, label %.thread785, label %.loopexit831.loopexit926
 
 .thread785:                                       ; preds = %255
@@ -561,12 +561,12 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %263 = add nsw i32 %262, -48
   %264 = getelementptr inbounds i8, ptr %.promoted889, i64 1
   store ptr %264, ptr %13, align 8
-  %265 = icmp ult ptr %264, %.1615
+  %265 = icmp ult ptr %264, %.3617
   br i1 %265, label %.lr.ph892.preheader, label %.critedge10
 
 .lr.ph892.preheader:                              ; preds = %261
   %.promoted889972 = ptrtoint ptr %.promoted889 to i64
-  %266 = sub i64 %.1615971, %.promoted889972
+  %266 = sub i64 %.3617971, %.promoted889972
   %scevgep = getelementptr i8, ptr %.promoted889, i64 %266
   br label %.lr.ph892
 
@@ -601,7 +601,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %280 = phi ptr [ %281, %283 ], [ %.promoted898, %279 ]
   %281 = getelementptr inbounds i8, ptr %280, i64 1
   store ptr %281, ptr %13, align 8
-  %282 = icmp ult ptr %281, %.1615
+  %282 = icmp ult ptr %281, %.3617
   br i1 %282, label %283, label %.critedge10
 
 283:                                              ; preds = %.preheader829
@@ -624,18 +624,18 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 .lr.ph:                                           ; preds = %286, %297
   %indvars.iv = phi i64 [ %indvars.iv.next, %297 ], [ 0, %286 ]
-  %.3525887 = phi i8 [ %298, %297 ], [ %.1523788, %286 ]
+  %.4526887 = phi i8 [ %298, %297 ], [ %.1523788, %286 ]
   %293 = phi ptr [ %296, %297 ], [ %.promoted, %286 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %294 = getelementptr inbounds [33 x i8], ptr %18, i64 0, i64 %indvars.iv
-  store i8 %.3525887, ptr %294, align 1
+  store i8 %.4526887, ptr %294, align 1
   %exitcond = icmp eq i64 %indvars.iv, 32
   br i1 %exitcond, label %.loopexit831, label %295
 
 295:                                              ; preds = %.lr.ph
   %296 = getelementptr inbounds i8, ptr %293, i64 1
   store ptr %296, ptr %13, align 8
-  %.not713 = icmp ult ptr %296, %.1615
+  %.not713 = icmp ult ptr %296, %.3617
   br i1 %.not713, label %297, label %.thread789
 
 297:                                              ; preds = %295
@@ -648,7 +648,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %.not712, label %.thread789, label %.lr.ph
 
 .thread789:                                       ; preds = %295, %297
-  %.3525840 = phi i8 [ %298, %297 ], [ %.3525887, %295 ]
+  %.4526840 = phi i8 [ %298, %297 ], [ %.4526887, %295 ]
   %303 = and i64 %indvars.iv.next, 4294967295
   %304 = getelementptr inbounds [33 x i8], ptr %18, i64 0, i64 %303
   store i8 0, ptr %304, align 1
@@ -657,7 +657,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 .critedge10:                                      ; preds = %.lr.ph892, %267, %283, %.preheader829, %261, %.thread789
   %305 = phi ptr [ %296, %.thread789 ], [ %264, %261 ], [ %281, %.preheader829 ], [ %281, %283 ], [ %.promoted898, %.lr.ph892 ], [ %268, %267 ]
   %.1544 = phi i32 [ -1, %.thread789 ], [ %263, %261 ], [ %275, %.preheader829 ], [ %275, %283 ], [ %.0543890, %.lr.ph892 ], [ %275, %267 ]
-  %.4526 = phi i8 [ %.3525840, %.thread789 ], [ %.0522, %261 ], [ %269, %.preheader829 ], [ %269, %283 ], [ %269, %267 ], [ %269, %.lr.ph892 ]
+  %.3525 = phi i8 [ %.4526840, %.thread789 ], [ %.0522, %261 ], [ %269, %.preheader829 ], [ %269, %283 ], [ %269, %267 ], [ %269, %.lr.ph892 ]
   br i1 %.not716, label %306, label %337
 
 306:                                              ; preds = %.critedge10
@@ -665,9 +665,9 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %or.cond12.not, label %307, label %331
 
 307:                                              ; preds = %306
-  %308 = getelementptr inbounds i8, ptr %.1615, i64 -2
+  %308 = getelementptr inbounds i8, ptr %.3617, i64 -2
   %309 = icmp ult ptr %305, %308
-  %310 = icmp eq i8 %.4526, 58
+  %310 = icmp eq i8 %.3525, 58
   %or.cond15 = and i1 %310, %309
   br i1 %or.cond15, label %311, label %331
 
@@ -686,7 +686,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   store ptr %316, ptr %13, align 8
   %317 = icmp eq i8 %313, 45
   %318 = zext i1 %317 to i32
-  %319 = call fastcc i32 @find_text_end(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %.1615, i32 noundef %318)
+  %319 = call fastcc i32 @find_text_end(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %.3617, i32 noundef %318)
   %.not718 = icmp eq i32 %319, 0
   br i1 %.not718, label %320, label %.loopexit831.loopexit926
 
@@ -703,7 +703,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 326:                                              ; preds = %323
   %327 = getelementptr inbounds i8, ptr %321, i64 1
   store ptr %327, ptr %13, align 8
-  %328 = call fastcc i32 @find_text_end(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %.1615, i32 noundef 1)
+  %328 = call fastcc i32 @find_text_end(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %.3617, i32 noundef 1)
   %.not719 = icmp eq i32 %328, 0
   br i1 %.not719, label %329, label %.loopexit831.loopexit926
 
@@ -712,7 +712,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %334
 
 331:                                              ; preds = %307, %306
-  %.not720 = icmp ult ptr %305, %.1615
+  %.not720 = icmp ult ptr %305, %.3617
   br i1 %.not720, label %332, label %.loopexit831.loopexit926
 
 332:                                              ; preds = %331
@@ -722,21 +722,21 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 334:                                              ; preds = %332, %320, %323, %329
   %335 = phi ptr [ %305, %332 ], [ %330, %329 ], [ %321, %323 ], [ %321, %320 ]
-  %.0539 = phi i32 [ 0, %332 ], [ 43, %329 ], [ 43, %323 ], [ %314, %320 ]
-  %.0535 = phi ptr [ null, %332 ], [ %316, %329 ], [ %316, %323 ], [ %316, %320 ]
-  %.0533 = phi ptr [ null, %332 ], [ %321, %329 ], [ %321, %323 ], [ %321, %320 ]
-  %.0530 = phi ptr [ null, %332 ], [ %327, %329 ], [ null, %323 ], [ null, %320 ]
-  %.0527 = phi ptr [ null, %332 ], [ %330, %329 ], [ null, %323 ], [ null, %320 ]
+  %.1540 = phi i32 [ 0, %332 ], [ 43, %329 ], [ 43, %323 ], [ %314, %320 ]
+  %.1536 = phi ptr [ null, %332 ], [ %316, %329 ], [ %316, %323 ], [ %316, %320 ]
+  %.1534 = phi ptr [ null, %332 ], [ %321, %329 ], [ %321, %323 ], [ %321, %320 ]
+  %.1531 = phi ptr [ null, %332 ], [ %327, %329 ], [ null, %323 ], [ null, %320 ]
+  %.1528 = phi ptr [ null, %332 ], [ %330, %329 ], [ null, %323 ], [ null, %320 ]
   %336 = getelementptr inbounds i8, ptr %335, i64 1
   store ptr %336, ptr %13, align 8
   br label %337
 
 337:                                              ; preds = %334, %.critedge10
-  %.1540 = phi i32 [ %.0539, %334 ], [ 0, %.critedge10 ]
-  %.1536 = phi ptr [ %.0535, %334 ], [ null, %.critedge10 ]
-  %.1534 = phi ptr [ %.0533, %334 ], [ null, %.critedge10 ]
-  %.1531 = phi ptr [ %.0530, %334 ], [ null, %.critedge10 ]
-  %.1528 = phi ptr [ %.0527, %334 ], [ null, %.critedge10 ]
+  %.0539 = phi i32 [ %.1540, %334 ], [ 0, %.critedge10 ]
+  %.0535 = phi ptr [ %.1536, %334 ], [ null, %.critedge10 ]
+  %.0533 = phi ptr [ %.1534, %334 ], [ null, %.critedge10 ]
+  %.0530 = phi ptr [ %.1531, %334 ], [ null, %.critedge10 ]
+  %.0527 = phi ptr [ %.1528, %334 ], [ null, %.critedge10 ]
   br i1 %254, label %360, label %338
 
 338:                                              ; preds = %337
@@ -760,8 +760,8 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %346 = ptrtoint ptr %.0520 to i64
   %347 = ptrtoint ptr %342 to i64
   %348 = sub i64 %346, %347
-  %.not735 = icmp eq i32 %.4628, 0
-  %349 = icmp ult i64 %.4577, %348
+  %.not735 = icmp eq i32 %.7631, 0
+  %349 = icmp ult i64 %.7580, %348
   %or.cond767 = select i1 %.not735, i1 %349, i1 false
   br i1 %or.cond767, label %350, label %353
 
@@ -769,21 +769,21 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %200, label %.loopexit828, label %351
 
 351:                                              ; preds = %350
-  %352 = sub i64 %348, %.4577
+  %352 = sub i64 %348, %.7580
   br label %.backedge
 
 353:                                              ; preds = %345
   br i1 %.not735, label %356, label %354
 
 354:                                              ; preds = %353
-  %355 = add i64 %348, %.4603
+  %355 = add i64 %348, %.7606
   br label %.backedge
 
 356:                                              ; preds = %353
-  %357 = getelementptr inbounds i8, ptr %9, i64 %.4589
+  %357 = getelementptr inbounds i8, ptr %9, i64 %.7592
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %357, ptr nonnull align 1 %342, i64 %348, i1 false)
-  %358 = add i64 %348, %.4589
-  %359 = sub i64 %.4577, %348
+  %358 = add i64 %348, %.7592
+  %359 = sub i64 %.7580, %348
   br label %.backedge
 
 360:                                              ; preds = %337
@@ -818,7 +818,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 375:                                              ; preds = %.lr.ph903, %390
   %.0515901 = phi ptr [ %372, %.lr.ph903 ], [ %391, %390 ]
-  %.2545900 = phi i32 [ %.1544, %.lr.ph903 ], [ %.4547, %390 ]
+  %.3546900 = phi i32 [ %.1544, %.lr.ph903 ], [ %.6, %390 ]
   %376 = load i8, ptr %.0515901, align 1
   %377 = zext i8 %376 to i32
   %378 = shl nuw nsw i32 %377, 8
@@ -830,8 +830,8 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %383, label %384, label %390
 
 384:                                              ; preds = %375
-  %385 = icmp slt i32 %.2545900, 0
-  %spec.select769 = select i1 %385, i32 %382, i32 %.2545900
+  %385 = icmp slt i32 %.3546900, 0
+  %spec.select769 = select i1 %385, i32 %382, i32 %.3546900
   %386 = shl nuw nsw i32 %382, 1
   %387 = zext nneg i32 %386 to i64
   %388 = getelementptr inbounds i64, ptr %63, i64 %387
@@ -840,13 +840,13 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %.not725, label %390, label %.thread792
 
 390:                                              ; preds = %375, %384
-  %.4547 = phi i32 [ %spec.select769, %384 ], [ %.2545900, %375 ]
+  %.6 = phi i32 [ %spec.select769, %384 ], [ %.3546900, %375 ]
   %391 = getelementptr inbounds i8, ptr %.0515901, i64 %374
   %.not724 = icmp ugt ptr %391, %373
   br i1 %.not724, label %._crit_edge904, label %375
 
 ._crit_edge904:                                   ; preds = %390
-  %392 = icmp slt i32 %.4547, 0
+  %392 = icmp slt i32 %.6, 0
   br i1 %392, label %._crit_edge904.thread, label %.thread792
 
 ._crit_edge904.thread:                            ; preds = %371, %._crit_edge904
@@ -860,38 +860,38 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %.thread792
 
 .thread792:                                       ; preds = %384, %365, %._crit_edge904.thread, %._crit_edge904, %360
-  %.6 = phi i32 [ %368, %365 ], [ %399, %._crit_edge904.thread ], [ %.4547, %._crit_edge904 ], [ %.1544, %360 ], [ %382, %384 ]
-  %400 = call i32 @php_pcre2_substring_length_bynumber(ptr noundef nonnull %.0516, i32 noundef %.6, ptr noundef nonnull %17) #5
+  %.2545 = phi i32 [ %368, %365 ], [ %399, %._crit_edge904.thread ], [ %.6, %._crit_edge904 ], [ %.1544, %360 ], [ %382, %384 ]
+  %400 = call i32 @php_pcre2_substring_length_bynumber(ptr noundef nonnull %.0516, i32 noundef %.2545, ptr noundef nonnull %17) #5
   %401 = icmp slt i32 %400, 0
   br i1 %401, label %402, label %407
 
 402:                                              ; preds = %.thread792
   %403 = icmp eq i32 %400, -49
-  %.2552 = select i1 %403, i32 %spec.select770, i32 %400
-  %.not727 = icmp eq i32 %.2552, -55
+  %.5555 = select i1 %403, i32 %spec.select770, i32 %400
+  %.not727 = icmp eq i32 %.5555, -55
   br i1 %.not727, label %404, label %.loopexit831.loopexit926
 
 404:                                              ; preds = %402
-  %405 = icmp eq i32 %.1540, 0
+  %405 = icmp eq i32 %.0539, 0
   br i1 %405, label %406, label %407
 
 406:                                              ; preds = %404
   br i1 %.not732, label %.loopexit831.loopexit926, label %.backedge
 
 407:                                              ; preds = %404, %.thread792
-  %.3553 = phi i32 [ -55, %404 ], [ %400, %.thread792 ]
-  switch i32 %.1540, label %410 [
+  %.4554 = phi i32 [ -55, %404 ], [ %400, %.thread792 ]
+  switch i32 %.0539, label %410 [
     i32 0, label %421
     i32 45, label %408
   ]
 
 408:                                              ; preds = %407
-  %409 = icmp eq i32 %.3553, 0
+  %409 = icmp eq i32 %.4554, 0
   br i1 %409, label %421, label %410
 
 410:                                              ; preds = %408, %407
-  %.2532 = phi ptr [ %.1531, %407 ], [ %.1536, %408 ]
-  %.2529 = phi ptr [ %.1528, %407 ], [ %.1534, %408 ]
+  %.2532 = phi ptr [ %.0530, %407 ], [ %.0535, %408 ]
+  %.2529 = phi ptr [ %.0527, %407 ], [ %.0533, %408 ]
   %411 = icmp ugt i32 %.0556, 19
   br i1 %411, label %.loopexit831.loopexit926, label %412
 
@@ -904,15 +904,15 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %417 = add nuw nsw i32 %.0556, 2
   %418 = zext nneg i32 %414 to i64
   %419 = getelementptr inbounds [20 x ptr], ptr %15, i64 0, i64 %418
-  store ptr %.1615, ptr %419, align 8
-  %420 = icmp eq i32 %.3553, 0
-  %.1536..2532 = select i1 %420, ptr %.1536, ptr %.2532
-  %.1534..2529 = select i1 %420, ptr %.1534, ptr %.2529
-  store ptr %.1536..2532, ptr %13, align 8
+  store ptr %.3617, ptr %419, align 8
+  %420 = icmp eq i32 %.4554, 0
+  %.0535..2532 = select i1 %420, ptr %.0535, ptr %.2532
+  %.0533..2529 = select i1 %420, ptr %.0533, ptr %.2529
+  store ptr %.0535..2532, ptr %13, align 8
   br label %.backedge
 
 421:                                              ; preds = %407, %408
-  %422 = shl nuw nsw i32 %.6, 1
+  %422 = shl nuw nsw i32 %.2545, 1
   %423 = zext nneg i32 %422 to i64
   %424 = getelementptr inbounds i64, ptr %63, i64 %423
   %425 = load i64, ptr %424, align 8
@@ -930,11 +930,11 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 .lr.ph913:                                        ; preds = %.lr.ph913.preheader, %597
   %.0517911 = phi ptr [ %.1518, %597 ], [ %432, %.lr.ph913.preheader ]
-  %.2562910 = phi i32 [ %.3563, %597 ], [ %.1561, %.lr.ph913.preheader ]
-  %.5578909 = phi i64 [ %.6579, %597 ], [ %.4577, %.lr.ph913.preheader ]
-  %.5590908 = phi i64 [ %.6591, %597 ], [ %.4589, %.lr.ph913.preheader ]
-  %.5604907 = phi i64 [ %.6605, %597 ], [ %.4603, %.lr.ph913.preheader ]
-  %.5629906 = phi i32 [ %.6630, %597 ], [ %.4628, %.lr.ph913.preheader ]
+  %.4564910 = phi i32 [ %.5565, %597 ], [ %.3563, %.lr.ph913.preheader ]
+  %.8909 = phi i64 [ %.9, %597 ], [ %.7580, %.lr.ph913.preheader ]
+  %.8593908 = phi i64 [ %.9594, %597 ], [ %.7592, %.lr.ph913.preheader ]
+  %.8607907 = phi i64 [ %.9608, %597 ], [ %.7606, %.lr.ph913.preheader ]
+  %.8632906 = phi i32 [ %.9633, %597 ], [ %.7631, %.lr.ph913.preheader ]
   %433 = getelementptr inbounds i8, ptr %.0517911, i64 1
   %434 = load i8, ptr %.0517911, align 1
   %435 = zext i8 %434 to i32
@@ -1059,7 +1059,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 527:                                              ; preds = %440, %468, %511, %501, %454, %.lr.ph913
   %528 = phi i32 [ %447, %440 ], [ %463, %454 ], [ %483, %468 ], [ %510, %501 ], [ %525, %511 ], [ %435, %.lr.ph913 ]
   %.1518 = phi ptr [ %443, %440 ], [ %464, %454 ], [ %484, %468 ], [ %500, %501 ], [ %526, %511 ], [ %433, %.lr.ph913 ]
-  %.not729 = icmp eq i32 %.2562910, 0
+  %.not729 = icmp eq i32 %.4564910, 0
   br i1 %.not729, label %579, label %529
 
 529:                                              ; preds = %527
@@ -1089,7 +1089,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 550:                                              ; preds = %530
   %551 = zext i8 %545 to i32
-  %552 = icmp sgt i32 %.2562910, 0
+  %552 = icmp sgt i32 %.4564910, 0
   %553 = select i1 %552, i32 9, i32 5
   %.not730 = icmp eq i32 %553, %551
   br i1 %.not730, label %579, label %554
@@ -1104,7 +1104,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 558:                                              ; preds = %529
   %559 = load ptr, ptr %103, align 8
   %560 = getelementptr inbounds i8, ptr %559, i64 512
-  %561 = icmp sgt i32 %.2562910, 0
+  %561 = icmp sgt i32 %.4564910, 0
   %562 = select i1 %561, i64 96, i64 128
   %563 = getelementptr inbounds i8, ptr %560, i64 %562
   %564 = lshr i32 %528, 3
@@ -1129,7 +1129,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 579:                                              ; preds = %554, %550, %530, %573, %558, %527
   %580 = phi i32 [ %528, %527 ], [ %528, %558 ], [ %578, %573 ], [ %528, %530 ], [ %528, %550 ], [ %557, %554 ]
-  %.3563 = phi i32 [ 0, %527 ], [ %.1568, %558 ], [ %.1568, %573 ], [ %.1568, %530 ], [ %.1568, %550 ], [ %.1568, %554 ]
+  %.5565 = phi i32 [ 0, %527 ], [ %.3570, %558 ], [ %.3570, %573 ], [ %.3570, %530 ], [ %.3570, %550 ], [ %.3570, %554 ]
   br i1 %25, label %581, label %583
 
 581:                                              ; preds = %579
@@ -1143,37 +1143,37 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 585:                                              ; preds = %583, %581
   %.0548 = phi i32 [ %582, %581 ], [ 1, %583 ]
-  %.not731 = icmp eq i32 %.5629906, 0
+  %.not731 = icmp eq i32 %.8632906, 0
   %586 = zext i32 %.0548 to i64
   br i1 %.not731, label %587, label %.critedge772
 
 587:                                              ; preds = %585
-  %588 = icmp ult i64 %.5578909, %586
+  %588 = icmp ult i64 %.8909, %586
   br i1 %588, label %589, label %593
 
 589:                                              ; preds = %587
   br i1 %200, label %.loopexit828, label %590
 
 590:                                              ; preds = %589
-  %591 = sub nsw i64 %586, %.5578909
+  %591 = sub nsw i64 %586, %.8909
   br label %597
 
 .critedge772:                                     ; preds = %585
-  %592 = add i64 %.5604907, %586
+  %592 = add i64 %.8607907, %586
   br label %597
 
 593:                                              ; preds = %587
-  %594 = getelementptr inbounds i8, ptr %9, i64 %.5590908
+  %594 = getelementptr inbounds i8, ptr %9, i64 %.8593908
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %594, ptr nonnull align 1 %12, i64 %586, i1 false)
-  %595 = add i64 %.5590908, %586
-  %596 = sub nuw i64 %.5578909, %586
+  %595 = add i64 %.8593908, %586
+  %596 = sub nuw i64 %.8909, %586
   br label %597
 
 597:                                              ; preds = %.critedge772, %593, %590
-  %.6630 = phi i32 [ 1, %.critedge772 ], [ 0, %593 ], [ 1, %590 ]
-  %.6605 = phi i64 [ %592, %.critedge772 ], [ %.5604907, %593 ], [ %591, %590 ]
-  %.6591 = phi i64 [ %.5590908, %.critedge772 ], [ %595, %593 ], [ %.5590908, %590 ]
-  %.6579 = phi i64 [ %.5578909, %.critedge772 ], [ %596, %593 ], [ %.5578909, %590 ]
+  %.9633 = phi i32 [ 1, %.critedge772 ], [ 0, %593 ], [ 1, %590 ]
+  %.9608 = phi i64 [ %592, %.critedge772 ], [ %.8607907, %593 ], [ %591, %590 ]
+  %.9594 = phi i64 [ %.8593908, %.critedge772 ], [ %595, %593 ], [ %.8593908, %590 ]
+  %.9 = phi i64 [ %.8909, %.critedge772 ], [ %596, %593 ], [ %.8909, %590 ]
   %598 = icmp ult ptr %.1518, %430
   br i1 %598, label %.lr.ph913, label %.backedge
 
@@ -1183,7 +1183,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %or.cond773, label %601, label %623
 
 601:                                              ; preds = %599
-  %602 = getelementptr inbounds i8, ptr %.1615, i64 -1
+  %602 = getelementptr inbounds i8, ptr %.3617, i64 -1
   %603 = icmp ult ptr %217, %602
   br i1 %603, label %604, label %615
 
@@ -1222,7 +1222,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   store ptr %616, ptr %13, align 8
   %617 = load i32, ptr %22, align 8
   %618 = load i32, ptr %102, align 4
-  %619 = call i32 @_pcre2_check_escape_8(ptr noundef nonnull %13, ptr noundef %.1615, ptr noundef nonnull %16, ptr noundef nonnull %21, i32 noundef %617, i32 noundef %618, i32 noundef 0, ptr noundef null) #5
+  %619 = call i32 @_pcre2_check_escape_8(ptr noundef nonnull %13, ptr noundef %.3617, ptr noundef nonnull %16, ptr noundef nonnull %21, i32 noundef %617, i32 noundef %618, i32 noundef 0, ptr noundef null) #5
   %620 = load i32, ptr %21, align 4
   %.not708 = icmp eq i32 %620, 0
   br i1 %.not708, label %621, label %.loopexit831.loopexit926
@@ -1367,7 +1367,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %719
 
 719:                                              ; preds = %623, %646, %693, %703, %660, %632, %621
-  %.not736 = icmp eq i32 %.1561, 0
+  %.not736 = icmp eq i32 %.3563, 0
   br i1 %.not736, label %772, label %720
 
 720:                                              ; preds = %719
@@ -1398,7 +1398,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 742:                                              ; preds = %721
   %743 = zext i8 %737 to i32
-  %744 = icmp sgt i32 %.1561, 0
+  %744 = icmp sgt i32 %.3563, 0
   %745 = select i1 %744, i32 9, i32 5
   %.not737 = icmp eq i32 %745, %743
   br i1 %.not737, label %772, label %746
@@ -1413,7 +1413,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 750:                                              ; preds = %720
   %751 = load ptr, ptr %103, align 8
   %752 = getelementptr inbounds i8, ptr %751, i64 512
-  %753 = icmp sgt i32 %.1561, 0
+  %753 = icmp sgt i32 %.3563, 0
   %754 = select i1 %753, i64 96, i64 128
   %755 = getelementptr inbounds i8, ptr %752, i64 %754
   %756 = load i32, ptr %16, align 4
@@ -1438,7 +1438,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %772
 
 772:                                              ; preds = %746, %742, %721, %766, %750, %719
-  %.4564 = phi i32 [ 0, %719 ], [ %.1568, %750 ], [ %.1568, %766 ], [ %.1568, %721 ], [ %.1568, %742 ], [ %.1568, %746 ]
+  %.7 = phi i32 [ 0, %719 ], [ %.3570, %750 ], [ %.3570, %766 ], [ %.3570, %721 ], [ %.3570, %742 ], [ %.3570, %746 ]
   %773 = load i32, ptr %16, align 4
   br i1 %25, label %774, label %776
 
@@ -1453,42 +1453,42 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 778:                                              ; preds = %776, %774
   %.1549 = phi i32 [ %775, %774 ], [ 1, %776 ]
-  %.not738 = icmp eq i32 %.4628, 0
+  %.not738 = icmp eq i32 %.7631, 0
   %779 = zext i32 %.1549 to i64
   br i1 %.not738, label %780, label %.critedge775
 
 780:                                              ; preds = %778
-  %781 = icmp ult i64 %.4577, %779
+  %781 = icmp ult i64 %.7580, %779
   br i1 %781, label %782, label %786
 
 782:                                              ; preds = %780
   br i1 %200, label %.loopexit828, label %783
 
 783:                                              ; preds = %782
-  %784 = sub nsw i64 %779, %.4577
+  %784 = sub nsw i64 %779, %.7580
   br label %.backedge
 
 .critedge775:                                     ; preds = %778
-  %785 = add i64 %.4603, %779
+  %785 = add i64 %.7606, %779
   br label %.backedge
 
 786:                                              ; preds = %780
-  %787 = getelementptr inbounds i8, ptr %9, i64 %.4589
+  %787 = getelementptr inbounds i8, ptr %9, i64 %.7592
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %787, ptr nonnull align 1 %12, i64 %779, i1 false)
-  %788 = add i64 %.4589, %779
-  %789 = sub nuw i64 %.4577, %779
+  %788 = add i64 %.7592, %779
+  %789 = sub nuw i64 %.7580, %779
   br label %.backedge
 
 .loopexit834:                                     ; preds = %218, %212
-  %.8632 = phi i32 [ 0, %212 ], [ %.4628, %218 ]
-  %.2622 = phi i32 [ %.0620, %212 ], [ %.1621, %218 ]
-  %.3617 = phi ptr [ %.0614, %212 ], [ %.1615, %218 ]
-  %.8607 = phi i64 [ %.3602, %212 ], [ %.4603, %218 ]
-  %.8593 = phi i64 [ %214, %212 ], [ %.4589, %218 ]
-  %.8 = phi i64 [ %215, %212 ], [ %.4577, %218 ]
-  %.2569 = phi i32 [ %.0567, %212 ], [ %.1568, %218 ]
-  %.6566 = phi i32 [ %.0560, %212 ], [ %.1561, %218 ]
-  %790 = icmp eq i32 %.8632, 0
+  %.6630 = phi i32 [ 0, %212 ], [ %.7631, %218 ]
+  %.2622 = phi i32 [ %.0620, %212 ], [ %.3623, %218 ]
+  %.2616 = phi ptr [ %.0614, %212 ], [ %.3617, %218 ]
+  %.6605 = phi i64 [ %.5604, %212 ], [ %.7606, %218 ]
+  %.6591 = phi i64 [ %214, %212 ], [ %.7592, %218 ]
+  %.6579 = phi i64 [ %215, %212 ], [ %.7580, %218 ]
+  %.2569 = phi i32 [ %.0567, %212 ], [ %.3570, %218 ]
+  %.2562 = phi i32 [ %.0560, %212 ], [ %.3563, %218 ]
+  %790 = icmp eq i32 %.6630, 0
   %or.cond27 = and i1 %106, %790
   br i1 %or.cond27, label %791, label %.thread794
 
@@ -1499,7 +1499,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 793:                                              ; preds = %791
   store i32 %177, ptr %108, align 4
-  store i64 %.8593, ptr %109, align 8
+  store i64 %.6591, ptr %109, align 8
   %794 = load ptr, ptr %110, align 8
   %795 = call i32 %792(ptr noundef nonnull %14, ptr noundef %794) #5
   %.not741 = icmp eq i32 %795, 0
@@ -1512,8 +1512,8 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %800 = load i64, ptr %99, align 8
   %801 = load i64, ptr %63, align 8
   %802 = sub i64 %800, %801
-  %803 = sub i64 %.8593, %799
-  %804 = add i64 %799, %.8
+  %803 = sub i64 %.6591, %799
+  %804 = add i64 %799, %.6579
   br i1 %.not699, label %805, label %817
 
 805:                                              ; preds = %796
@@ -1538,25 +1538,25 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %817
 
 817:                                              ; preds = %810, %812, %796
-  %.9633 = phi i32 [ 0, %796 ], [ 0, %812 ], [ 1, %810 ]
-  %.9608 = phi i64 [ %.8607, %796 ], [ %.8607, %812 ], [ %811, %810 ]
-  %.9594 = phi i64 [ %803, %796 ], [ %815, %812 ], [ %803, %810 ]
-  %.9 = phi i64 [ %804, %796 ], [ %816, %812 ], [ %804, %810 ]
+  %.12636 = phi i32 [ 0, %796 ], [ 0, %812 ], [ 1, %810 ]
+  %.12611 = phi i64 [ %.6605, %796 ], [ %.6605, %812 ], [ %811, %810 ]
+  %.12597 = phi i64 [ %803, %796 ], [ %815, %812 ], [ %803, %810 ]
+  %.12 = phi i64 [ %804, %796 ], [ %816, %812 ], [ %804, %810 ]
   %818 = icmp slt i32 %795, 0
   %819 = and i32 %.0581, -257
   %spec.select776 = select i1 %818, i32 %819, i32 %.0581
   br label %.thread794
 
 .thread794:                                       ; preds = %207, %210, %817, %793, %791, %.loopexit834
-  %.6566807 = phi i32 [ %.6566, %793 ], [ %.6566, %791 ], [ %.6566, %.loopexit834 ], [ %.6566, %817 ], [ %.0560, %210 ], [ %.0560, %207 ]
+  %.2562807 = phi i32 [ %.2562, %793 ], [ %.2562, %791 ], [ %.2562, %.loopexit834 ], [ %.2562, %817 ], [ %.0560, %210 ], [ %.0560, %207 ]
   %.2569806 = phi i32 [ %.2569, %793 ], [ %.2569, %791 ], [ %.2569, %.loopexit834 ], [ %.2569, %817 ], [ %.0567, %210 ], [ %.0567, %207 ]
-  %.3617805 = phi ptr [ %.3617, %793 ], [ %.3617, %791 ], [ %.3617, %.loopexit834 ], [ %.3617, %817 ], [ %.0614, %210 ], [ %.0614, %207 ]
+  %.2616805 = phi ptr [ %.2616, %793 ], [ %.2616, %791 ], [ %.2616, %.loopexit834 ], [ %.2616, %817 ], [ %.0614, %210 ], [ %.0614, %207 ]
   %.2622804 = phi i32 [ %.2622, %793 ], [ %.2622, %791 ], [ %.2622, %.loopexit834 ], [ %.2622, %817 ], [ %.0620, %210 ], [ %.0620, %207 ]
-  %.10634 = phi i32 [ 0, %793 ], [ 0, %791 ], [ %.8632, %.loopexit834 ], [ %.9633, %817 ], [ 1, %210 ], [ 1, %207 ]
-  %.10609 = phi i64 [ %.8607, %793 ], [ %.8607, %791 ], [ %.8607, %.loopexit834 ], [ %.9608, %817 ], [ %211, %210 ], [ %208, %207 ]
-  %.10595 = phi i64 [ %.8593, %793 ], [ %.8593, %791 ], [ %.8593, %.loopexit834 ], [ %.9594, %817 ], [ %.3588, %210 ], [ %.3588, %207 ]
-  %.1582 = phi i32 [ %.0581, %793 ], [ %.0581, %791 ], [ %.0581, %.loopexit834 ], [ %spec.select776, %817 ], [ %.0581, %210 ], [ %.0581, %207 ]
-  %.10 = phi i64 [ %.8, %793 ], [ %.8, %791 ], [ %.8, %.loopexit834 ], [ %.9, %817 ], [ %.3576, %210 ], [ %.3576, %207 ]
+  %.11635 = phi i32 [ 0, %793 ], [ 0, %791 ], [ %.6630, %.loopexit834 ], [ %.12636, %817 ], [ 1, %210 ], [ 1, %207 ]
+  %.11610 = phi i64 [ %.6605, %793 ], [ %.6605, %791 ], [ %.6605, %.loopexit834 ], [ %.12611, %817 ], [ %211, %210 ], [ %208, %207 ]
+  %.11596 = phi i64 [ %.6591, %793 ], [ %.6591, %791 ], [ %.6591, %.loopexit834 ], [ %.12597, %817 ], [ %.5590, %210 ], [ %.5590, %207 ]
+  %.3584 = phi i32 [ %.0581, %793 ], [ %.0581, %791 ], [ %.0581, %.loopexit834 ], [ %spec.select776, %817 ], [ %.0581, %210 ], [ %.0581, %207 ]
+  %.11 = phi i64 [ %.6579, %793 ], [ %.6579, %791 ], [ %.6579, %.loopexit834 ], [ %.12, %817 ], [ %.5578, %210 ], [ %.5578, %207 ]
   %820 = load i64, ptr %63, align 8
   %821 = load i64, ptr %99, align 8
   %.not742 = icmp ne i64 %820, %821
@@ -1566,64 +1566,64 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %824
 
 824:                                              ; preds = %172, %.critedge, %158, %160, %155, %.thread794
-  %.11635 = phi i32 [ %.10634, %.thread794 ], [ %.1625, %.critedge ], [ 1, %158 ], [ 0, %160 ], [ 1, %155 ], [ %.1625, %172 ]
-  %.3623 = phi i32 [ %.2622804, %.thread794 ], [ %.0620, %.critedge ], [ %.0620, %158 ], [ %.0620, %160 ], [ %.0620, %155 ], [ %.0620, %172 ]
-  %.4618 = phi ptr [ %.3617805, %.thread794 ], [ %.0614, %.critedge ], [ %.0614, %158 ], [ %.0614, %160 ], [ %.0614, %155 ], [ %.0614, %172 ]
-  %.11610 = phi i64 [ %.10609, %.thread794 ], [ %.1600, %.critedge ], [ %159, %158 ], [ %.1600, %160 ], [ %156, %155 ], [ %.1600, %172 ]
-  %.11596 = phi i64 [ %.10595, %.thread794 ], [ %.1586, %.critedge ], [ %.1586, %158 ], [ %162, %160 ], [ %.1586, %155 ], [ %.1586, %172 ]
-  %.2583 = phi i32 [ %.1582, %.thread794 ], [ %.0581, %.critedge ], [ %.0581, %158 ], [ %.0581, %160 ], [ %.0581, %155 ], [ %.0581, %172 ]
-  %.11 = phi i64 [ %.10, %.thread794 ], [ %.1574, %.critedge ], [ %.1574, %158 ], [ %163, %160 ], [ %.1574, %155 ], [ %.1574, %172 ]
+  %.4628 = phi i32 [ %.11635, %.thread794 ], [ %.1625, %.critedge ], [ 1, %158 ], [ 0, %160 ], [ 1, %155 ], [ %.1625, %172 ]
+  %.1621 = phi i32 [ %.2622804, %.thread794 ], [ %.0620, %.critedge ], [ %.0620, %158 ], [ %.0620, %160 ], [ %.0620, %155 ], [ %.0620, %172 ]
+  %.1615 = phi ptr [ %.2616805, %.thread794 ], [ %.0614, %.critedge ], [ %.0614, %158 ], [ %.0614, %160 ], [ %.0614, %155 ], [ %.0614, %172 ]
+  %.4603 = phi i64 [ %.11610, %.thread794 ], [ %.1600, %.critedge ], [ %159, %158 ], [ %.1600, %160 ], [ %156, %155 ], [ %.1600, %172 ]
+  %.4589 = phi i64 [ %.11596, %.thread794 ], [ %.1586, %.critedge ], [ %.1586, %158 ], [ %162, %160 ], [ %.1586, %155 ], [ %.1586, %172 ]
+  %.2583 = phi i32 [ %.3584, %.thread794 ], [ %.0581, %.critedge ], [ %.0581, %158 ], [ %.0581, %160 ], [ %.0581, %155 ], [ %.0581, %172 ]
+  %.4577 = phi i64 [ %.11, %.thread794 ], [ %.1574, %.critedge ], [ %.1574, %158 ], [ %163, %160 ], [ %.1574, %155 ], [ %.1574, %172 ]
   %.1572 = phi i32 [ %823, %.thread794 ], [ 0, %.critedge ], [ 0, %158 ], [ 0, %160 ], [ 0, %155 ], [ -2147483640, %172 ]
   %.sroa.6.1 = phi i64 [ %.0512, %.thread794 ], [ %.sroa.6.0, %.critedge ], [ %.sroa.6.0, %158 ], [ %.sroa.6.0, %160 ], [ %.sroa.6.0, %155 ], [ %.0512, %172 ]
   %.sroa.3.1 = phi i64 [ %821, %.thread794 ], [ %.sroa.3.0, %.critedge ], [ %.sroa.3.0, %158 ], [ %.sroa.3.0, %160 ], [ %.sroa.3.0, %155 ], [ %.sroa.3.0, %172 ]
   %.sroa.0.1 = phi i64 [ %820, %.thread794 ], [ %.sroa.0.0, %.critedge ], [ %.sroa.0.0, %158 ], [ %.sroa.0.0, %160 ], [ %.sroa.0.0, %155 ], [ %.sroa.3.0, %172 ]
-  %.3570 = phi i32 [ %.2569806, %.thread794 ], [ %.0567, %.critedge ], [ %.0567, %158 ], [ %.0567, %160 ], [ %.0567, %155 ], [ %.0567, %172 ]
-  %.7 = phi i32 [ %.6566807, %.thread794 ], [ %.0560, %.critedge ], [ %.0560, %158 ], [ %.0560, %160 ], [ %.0560, %155 ], [ %.0560, %172 ]
-  %.1558 = phi i32 [ %177, %.thread794 ], [ %.0557, %.critedge ], [ %.0557, %158 ], [ %.0557, %160 ], [ %.0557, %155 ], [ %.0557, %172 ]
-  %.3 = phi i64 [ %821, %.thread794 ], [ %.2, %.critedge ], [ %.2, %158 ], [ %.2, %160 ], [ %.2, %155 ], [ %.0512, %172 ]
+  %.1568 = phi i32 [ %.2569806, %.thread794 ], [ %.0567, %.critedge ], [ %.0567, %158 ], [ %.0567, %160 ], [ %.0567, %155 ], [ %.0567, %172 ]
+  %.1561 = phi i32 [ %.2562807, %.thread794 ], [ %.0560, %.critedge ], [ %.0560, %158 ], [ %.0560, %160 ], [ %.0560, %155 ], [ %.0560, %172 ]
+  %.2559 = phi i32 [ %177, %.thread794 ], [ %.0557, %.critedge ], [ %.0557, %158 ], [ %.0557, %160 ], [ %.0557, %155 ], [ %.0557, %172 ]
+  %.4 = phi i64 [ %821, %.thread794 ], [ %.2, %.critedge ], [ %.2, %158 ], [ %.2, %160 ], [ %.2, %155 ], [ %.0512, %172 ]
   %825 = and i32 %.2583, 256
   %.not750 = icmp eq i32 %825, 0
   br i1 %.not750, label %826, label %113
 
 826:                                              ; preds = %122, %824
-  %.12636 = phi i32 [ %.1625, %122 ], [ %.11635, %824 ]
-  %.12611 = phi i64 [ %.1600, %122 ], [ %.11610, %824 ]
-  %.12597 = phi i64 [ %.1586, %122 ], [ %.11596, %824 ]
-  %.3584 = phi i32 [ %.0581, %122 ], [ %.2583, %824 ]
-  %.12 = phi i64 [ %.1574, %122 ], [ %.11, %824 ]
-  %.2559 = phi i32 [ %.0557, %122 ], [ %.1558, %824 ]
-  %.4 = phi i64 [ %.0512, %122 ], [ %.3, %824 ]
+  %.2626 = phi i32 [ %.1625, %122 ], [ %.4628, %824 ]
+  %.2601 = phi i64 [ %.1600, %122 ], [ %.4603, %824 ]
+  %.2587 = phi i64 [ %.1586, %122 ], [ %.4589, %824 ]
+  %.1582 = phi i32 [ %.0581, %122 ], [ %.2583, %824 ]
+  %.2575 = phi i64 [ %.1574, %122 ], [ %.4577, %824 ]
+  %.1558 = phi i32 [ %.0557, %122 ], [ %.2559, %824 ]
+  %.1 = phi i64 [ %.0512, %122 ], [ %.4, %824 ]
   br i1 %.not699, label %827, label %843
 
 827:                                              ; preds = %826
-  %828 = sub i64 %.0511, %.4
-  %.not751 = icmp eq i32 %.12636, 0
-  %829 = icmp ult i64 %.12, %828
+  %828 = sub i64 %.0511, %.1
+  %.not751 = icmp eq i32 %.2626, 0
+  %829 = icmp ult i64 %.2575, %828
   %or.cond778 = select i1 %.not751, i1 %829, i1 false
   br i1 %or.cond778, label %830, label %835
 
 830:                                              ; preds = %827
-  %831 = and i32 %.3584, 4096
+  %831 = and i32 %.1582, 4096
   %832 = icmp eq i32 %831, 0
   br i1 %832, label %.loopexit828, label %833
 
 833:                                              ; preds = %830
-  %834 = sub i64 %828, %.12
+  %834 = sub i64 %828, %.2575
   br label %.thread817
 
 835:                                              ; preds = %827
   br i1 %.not751, label %838, label %836
 
 836:                                              ; preds = %835
-  %837 = add i64 %828, %.12611
+  %837 = add i64 %828, %.2601
   br label %.thread817
 
 838:                                              ; preds = %835
-  %839 = getelementptr inbounds i8, ptr %9, i64 %.12597
-  %840 = getelementptr inbounds i8, ptr %.0510784, i64 %.4
+  %839 = getelementptr inbounds i8, ptr %9, i64 %.2587
+  %840 = getelementptr inbounds i8, ptr %.0510784, i64 %.1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %839, ptr nonnull align 1 %840, i64 %828, i1 false)
-  %841 = add i64 %828, %.12597
-  %842 = sub i64 %.12, %828
+  %841 = add i64 %828, %.2587
+  %842 = sub i64 %.2575, %828
   br label %843
 
 .thread817:                                       ; preds = %833, %836
@@ -1632,9 +1632,9 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %850
 
 843:                                              ; preds = %838, %826
-  %.13637 = phi i32 [ %.12636, %826 ], [ 0, %838 ]
-  %.13598 = phi i64 [ %.12597, %826 ], [ %841, %838 ]
-  %.13 = phi i64 [ %.12, %826 ], [ %842, %838 ]
+  %.13637 = phi i32 [ %.2626, %826 ], [ 0, %838 ]
+  %.13598 = phi i64 [ %.2587, %826 ], [ %841, %838 ]
+  %.13 = phi i64 [ %.2575, %826 ], [ %842, %838 ]
   store i8 0, ptr %12, align 1
   %844 = icmp eq i32 %.13637, 0
   %845 = icmp eq i64 %.13, 0
@@ -1642,7 +1642,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %or.cond29, label %846, label %849
 
 846:                                              ; preds = %843
-  %847 = and i32 %.3584, 4096
+  %847 = and i32 %.1582, 4096
   %848 = icmp eq i32 %847, 0
   br i1 %848, label %.loopexit828, label %852
 
@@ -1650,7 +1650,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %844, label %854, label %850
 
 850:                                              ; preds = %.thread817, %849
-  %.13612815821 = phi i64 [ %.13612.ph, %.thread817 ], [ %.12611, %849 ]
+  %.13612815821 = phi i64 [ %.13612.ph, %.thread817 ], [ %.2601, %849 ]
   %851 = add i64 %.13612815821, 1
   br label %852
 
@@ -1667,7 +1667,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %.loopexit828
 
 .loopexit828:                                     ; preds = %152, %182, %204, %807, %174, %172, %164, %121, %350, %782, %589, %89, %830, %846, %852, %854, %.loopexit831, %84, %79
-  %.4554 = phi i32 [ %78, %79 ], [ -33, %84 ], [ -48, %852 ], [ %.2559, %854 ], [ %.5555, %.loopexit831 ], [ -48, %846 ], [ -48, %830 ], [ -48, %89 ], [ -48, %589 ], [ -48, %782 ], [ -48, %350 ], [ -48, %152 ], [ -48, %182 ], [ -48, %204 ], [ -48, %807 ], [ -61, %174 ], [ -65, %172 ], [ -60, %164 ], [ %.0550, %121 ]
+  %.0550 = phi i32 [ %78, %79 ], [ -33, %84 ], [ -48, %852 ], [ %.1558, %854 ], [ %.3553, %.loopexit831 ], [ -48, %846 ], [ -48, %830 ], [ -48, %89 ], [ -48, %589 ], [ -48, %782 ], [ -48, %350 ], [ -48, %152 ], [ -48, %182 ], [ -48, %204 ], [ -48, %807 ], [ -61, %174 ], [ -65, %172 ], [ -60, %164 ], [ %.1551, %121 ]
   %.not754 = icmp eq ptr %.0619, null
   br i1 %.not754, label %857, label %856
 
@@ -1677,17 +1677,17 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 857:                                              ; preds = %.loopexit828
   %858 = getelementptr inbounds i8, ptr %.0516, i64 100
-  store i32 %.4554, ptr %858, align 4
+  store i32 %.0550, ptr %858, align 4
   br label %863
 
 .loopexit831.loopexit926:                         ; preds = %286, %315, %326, %369, %402, %406, %279, %311, %332, %331, %410, %338, %255, %249, %243, %621, %615
-  %.5555.ph = phi i32 [ %.2552, %402 ], [ -55, %406 ], [ %363, %369 ], [ %319, %315 ], [ %328, %326 ], [ -49, %279 ], [ -59, %311 ], [ -58, %332 ], [ -58, %331 ], [ -35, %410 ], [ -35, %338 ], [ -35, %255 ], [ -35, %249 ], [ -35, %243 ], [ -57, %621 ], [ -57, %615 ], [ -35, %286 ]
+  %.3553.ph = phi i32 [ %.5555, %402 ], [ -55, %406 ], [ %363, %369 ], [ %319, %315 ], [ %328, %326 ], [ -49, %279 ], [ -59, %311 ], [ -58, %332 ], [ -58, %331 ], [ -35, %410 ], [ -35, %338 ], [ -35, %255 ], [ -35, %249 ], [ -35, %243 ], [ -57, %621 ], [ -57, %615 ], [ -35, %286 ]
   %.pre976 = load ptr, ptr %13, align 8
   br label %.loopexit831
 
 .loopexit831:                                     ; preds = %.lr.ph, %.loopexit831.loopexit926
   %859 = phi ptr [ %.pre976, %.loopexit831.loopexit926 ], [ %293, %.lr.ph ]
-  %.5555 = phi i32 [ %.5555.ph, %.loopexit831.loopexit926 ], [ -35, %.lr.ph ]
+  %.3553 = phi i32 [ %.3553.ph, %.loopexit831.loopexit926 ], [ -35, %.lr.ph ]
   %860 = ptrtoint ptr %859 to i64
   %861 = ptrtoint ptr %.0519781 to i64
   %862 = sub i64 %860, %861
@@ -1695,7 +1695,7 @@ define i32 @php_pcre2_substitute(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br label %.loopexit828
 
 863:                                              ; preds = %856, %857, %69, %46, %40, %39, %30, %11
-  %.0 = phi i32 [ -34, %11 ], [ -51, %30 ], [ -51, %39 ], [ -48, %40 ], [ -48, %46 ], [ -51, %69 ], [ %.4554, %857 ], [ %.4554, %856 ]
+  %.0 = phi i32 [ -34, %11 ], [ -51, %30 ], [ -51, %39 ], [ -48, %40 ], [ -48, %46 ], [ -51, %69 ], [ %.0550, %857 ], [ %.0550, %856 ]
   ret i32 %.0
 }
 

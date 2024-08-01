@@ -2732,7 +2732,7 @@ define internal range(i32 0, 2) i32 @isup_calls_packet(ptr noundef %0, ptr nocap
   br i1 %65, label %66, label %.critedge
 
 66:                                               ; preds = %59, %63
-  %.1117.ph = phi i32 [ 0, %63 ], [ 1, %59 ]
+  %.3.ph = phi i32 [ 0, %63 ], [ 1, %59 ]
   %67 = load i32, ptr %32, align 8
   %68 = icmp eq i32 %67, 1
   br i1 %68, label %.thread141, label %69
@@ -2747,7 +2747,7 @@ define internal range(i32 0, 2) i32 @isup_calls_packet(ptr noundef %0, ptr nocap
   br label %.critedge
 
 .critedge:                                        ; preds = %63, %._crit_edge158, %71, %40, %47, %36, %31
-  %.2 = phi i32 [ %.0116155, %47 ], [ %.0116155, %40 ], [ %.0116155, %36 ], [ %.0116155, %31 ], [ %.1117.ph, %71 ], [ %.0116155, %._crit_edge158 ], [ %.0116155, %63 ]
+  %.2 = phi i32 [ %.0116155, %47 ], [ %.0116155, %40 ], [ %.0116155, %36 ], [ %.0116155, %31 ], [ %.3.ph, %71 ], [ %.0116155, %._crit_edge158 ], [ %.0116155, %63 ]
   %72 = getelementptr inbounds i8, ptr %.0114156, i64 8
   %73 = load ptr, ptr %72, align 8
   %.not128 = icmp eq ptr %73, null
@@ -2842,7 +2842,7 @@ copy_address.exit:                                ; preds = %76, %87
   br label %.thread141
 
 .thread141:                                       ; preds = %69, %66, %copy_address.exit
-  %.3144.ph = phi i32 [ %.0116.lcssa, %copy_address.exit ], [ %.1117.ph, %66 ], [ %.1117.ph, %69 ]
+  %.1117144.ph = phi i32 [ %.0116.lcssa, %copy_address.exit ], [ %.3.ph, %66 ], [ %.3.ph, %69 ]
   %.1122.ph = phi ptr [ %77, %copy_address.exit ], [ %32, %66 ], [ %32, %69 ]
   %129 = getelementptr inbounds i8, ptr %1, i64 80
   %130 = load ptr, ptr %129, align 8
@@ -2882,7 +2882,7 @@ copy_address.exit:                                ; preds = %76, %87
   br label %168
 
 150:                                              ; preds = %.thread141
-  %.not133 = icmp eq i32 %.3144.ph, 0
+  %.not133 = icmp eq i32 %.1117144.ph, 0
   %151 = getelementptr inbounds i8, ptr %8, i64 156
   %152 = load i8, ptr %151, align 4
   %153 = zext i8 %152 to i32
@@ -2932,7 +2932,7 @@ copy_address.exit:                                ; preds = %76, %87
   ]
 
 174:                                              ; preds = %172
-  %.not136 = icmp eq i32 %.3144.ph, 0
+  %.not136 = icmp eq i32 %.1117144.ph, 0
   br i1 %.not136, label %176, label %175
 
 175:                                              ; preds = %174
@@ -3847,7 +3847,7 @@ define internal fastcc i32 @change_call_num_graph(ptr readonly %.88.val, i16 nou
   br i1 %.not131, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %13
-  %.03 = phi i32 [ %.1, %13 ], [ 0, %3 ]
+  %.13 = phi i32 [ %.2, %13 ], [ 0, %3 ]
   %.0112 = phi ptr [ %15, %13 ], [ %6, %3 ]
   %7 = load ptr, ptr %.0112, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 96
@@ -3857,19 +3857,19 @@ define internal fastcc i32 @change_call_num_graph(ptr readonly %.88.val, i16 nou
 
 11:                                               ; preds = %.lr.ph
   store i16 %1, ptr %8, align 8
-  %12 = add i32 %.03, 1
+  %12 = add i32 %.13, 1
   br label %13
 
 13:                                               ; preds = %11, %.lr.ph
-  %.1 = phi i32 [ %12, %11 ], [ %.03, %.lr.ph ]
+  %.2 = phi i32 [ %12, %11 ], [ %.13, %.lr.ph ]
   %14 = getelementptr inbounds i8, ptr %.0112, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not13 = icmp eq ptr %15, null
   br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %13, %3, %2
-  %.2 = phi i32 [ 0, %2 ], [ 0, %3 ], [ %.1, %13 ]
-  ret i32 %.2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %3 ], [ %.2, %13 ]
+  ret i32 %.0
 }
 
 declare void @g_queue_unlink(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -4103,7 +4103,7 @@ define internal range(i32 0, 2) i32 @h225_calls_packet(ptr noundef %0, ptr nocap
 
 .loopexit175:                                     ; preds = %64, %42
   %.0153 = phi ptr [ %38, %42 ], [ %56, %64 ]
-  %.4 = phi ptr [ %44, %42 ], [ %62, %64 ]
+  %.2 = phi ptr [ %44, %42 ], [ %62, %64 ]
   %69 = getelementptr inbounds i8, ptr %3, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = getelementptr inbounds i8, ptr %8, i64 212
@@ -4199,7 +4199,7 @@ copy_address.exit:                                ; preds = %.loopexit, %95
   %124 = phi ptr [ %78, %copy_address.exit ], [ %72, %.loopexit175 ]
   %125 = phi ptr [ %75, %copy_address.exit ], [ %69, %.loopexit175 ]
   %.1154 = phi ptr [ %81, %copy_address.exit ], [ %.0153, %.loopexit175 ]
-  %.5 = phi ptr [ %107, %copy_address.exit ], [ %.4, %.loopexit175 ]
+  %.5 = phi ptr [ %107, %copy_address.exit ], [ %.2, %.loopexit175 ]
   %126 = getelementptr inbounds i8, ptr %1, i64 20
   %127 = load i32, ptr %126, align 4
   %128 = getelementptr inbounds i8, ptr %8, i64 204
@@ -4445,7 +4445,7 @@ copy_address.exit:                                ; preds = %.loopexit, %95
   br label %265
 
 265:                                              ; preds = %259, %261, %263
-  %.0148 = phi ptr [ %264, %263 ], [ %260, %259 ], [ %262, %261 ]
+  %.1149 = phi ptr [ %264, %263 ], [ %260, %259 ], [ %262, %261 ]
   %266 = load i32, ptr %244, align 8
   %267 = tail call ptr @val_to_str_const(i32 noundef %266, ptr noundef nonnull @h225_RasMessage_vals, ptr noundef nonnull @.str.72) #12
   %268 = tail call noalias ptr @g_strdup(ptr noundef %267) #12
@@ -4457,7 +4457,7 @@ copy_address.exit:                                ; preds = %.loopexit, %95
 
 271:                                              ; preds = %265, %269, %179, %195, %218, %227, %234
   %.0150 = phi ptr [ %169, %234 ], [ %169, %227 ], [ %169, %218 ], [ %169, %195 ], [ %169, %179 ], [ %268, %265 ], [ %270, %269 ]
-  %.1149 = phi ptr [ %242, %234 ], [ %233, %227 ], [ %219, %218 ], [ %201, %195 ], [ %187, %179 ], [ %.0148, %265 ], [ null, %269 ]
+  %.0148 = phi ptr [ %242, %234 ], [ %233, %227 ], [ %219, %218 ], [ %201, %195 ], [ %187, %179 ], [ %.1149, %265 ], [ null, %269 ]
   %272 = load i32, ptr %126, align 4
   %273 = getelementptr inbounds i8, ptr %3, i64 216
   %274 = getelementptr i8, ptr %8, i64 88
@@ -4486,11 +4486,11 @@ copy_address.exit:                                ; preds = %.loopexit, %95
   %287 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %286, ptr noundef nonnull %273) #12
   store ptr %287, ptr %285, align 8
   tail call void @g_free(ptr noundef %286) #12
-  %.not24.i = icmp eq ptr %.1149, null
+  %.not24.i = icmp eq ptr %.0148, null
   br i1 %.not24.i, label %append_to_frame_graph.exit, label %288
 
 288:                                              ; preds = %282
-  %289 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %284, ptr noundef nonnull %.1149) #12
+  %289 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %284, ptr noundef nonnull %.0148) #12
   store ptr %289, ptr %283, align 8
   tail call void @g_free(ptr noundef %284) #12
   br label %append_to_frame_graph.exit
@@ -4499,14 +4499,14 @@ copy_address.exit:                                ; preds = %.loopexit, %95
   %291 = load i16, ptr %129, align 8
   %292 = getelementptr inbounds i8, ptr %1, i64 208
   %293 = getelementptr inbounds i8, ptr %1, i64 232
-  tail call fastcc void @add_to_graph(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.0150, ptr noundef %.1149, i16 noundef zeroext %291, ptr noundef nonnull %292, ptr noundef nonnull %293, i16 noundef zeroext 1)
+  tail call fastcc void @add_to_graph(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.0150, ptr noundef %.0148, i16 noundef zeroext %291, ptr noundef nonnull %292, ptr noundef nonnull %293, i16 noundef zeroext 1)
   br label %append_to_frame_graph.exit
 
 append_to_frame_graph.exit:                       ; preds = %288, %282, %290
   %294 = load i32, ptr %126, align 4
   tail call fastcc void @h245_add_to_graph(ptr noundef nonnull %8, i32 noundef %294)
   tail call void @g_free(ptr noundef %.0150) #12
-  tail call void @g_free(ptr noundef %.1149) #12
+  tail call void @g_free(ptr noundef %.0148) #12
   %295 = getelementptr inbounds i8, ptr %8, i64 240
   %296 = load i32, ptr %295, align 8
   %297 = or i32 %296, 2
@@ -5573,7 +5573,7 @@ is_mgcp_signal.exit227.thread:                    ; preds = %242, %is_mgcp_signa
   br label %285
 
 285:                                              ; preds = %283, %281
-  %.0161 = phi ptr [ %282, %281 ], [ %284, %283 ]
+  %.2 = phi ptr [ %282, %281 ], [ %284, %283 ]
   %286 = load i32, ptr %200, align 8
   %.not208 = icmp eq i32 %286, 0
   br i1 %.not208, label %287, label %299
@@ -5606,7 +5606,7 @@ is_mgcp_signal.exit227.thread:                    ; preds = %242, %is_mgcp_signa
   br label %.thread261
 
 299:                                              ; preds = %287, %285, %189, %195, %194
-  %.1162 = phi ptr [ %175, %194 ], [ %175, %195 ], [ %175, %189 ], [ %.0161, %285 ], [ %.0161, %287 ]
+  %.1162 = phi ptr [ %175, %194 ], [ %175, %195 ], [ %175, %189 ], [ %.2, %285 ], [ %.2, %287 ]
   %300 = icmp eq ptr %.1162, null
   br i1 %300, label %.thread261, label %307
 
@@ -5622,7 +5622,7 @@ is_mgcp_signal.exit227.thread:                    ; preds = %242, %is_mgcp_signa
   br label %307
 
 307:                                              ; preds = %299, %.thread261, %302, %165
-  %.2 = phi ptr [ null, %165 ], [ %306, %302 ], [ %301, %.thread261 ], [ %.1162, %299 ]
+  %.0161 = phi ptr [ null, %165 ], [ %306, %302 ], [ %301, %.thread261 ], [ %.1162, %299 ]
   %308 = load ptr, ptr %.8, align 8
   %309 = load i32, ptr %3, align 8
   %310 = icmp eq i32 %309, 0
@@ -5651,9 +5651,9 @@ is_mgcp_signal.exit227.thread:                    ; preds = %242, %is_mgcp_signa
   %328 = load i16, ptr %327, align 8
   %329 = getelementptr inbounds i8, ptr %1, i64 208
   %330 = getelementptr inbounds i8, ptr %1, i64 232
-  tail call fastcc void @add_to_graph(ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef %.2, ptr noundef %315, i16 noundef zeroext %328, ptr noundef nonnull %329, ptr noundef nonnull %330, i16 noundef zeroext 1)
+  tail call fastcc void @add_to_graph(ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef %.0161, ptr noundef %315, i16 noundef zeroext %328, ptr noundef nonnull %329, ptr noundef nonnull %330, i16 noundef zeroext 1)
   tail call void @g_free(ptr noundef %315) #12
-  tail call void @g_free(ptr noundef %.2) #12
+  tail call void @g_free(ptr noundef %.0161) #12
   %331 = getelementptr inbounds i8, ptr %8, i64 136
   %332 = load ptr, ptr %331, align 8
   %.not213 = icmp eq ptr %332, null
@@ -6875,7 +6875,7 @@ define internal range(i32 0, 2) i32 @unistim_calls_packet(ptr noundef %0, ptr no
 
 32:                                               ; preds = %.lr.ph, %addresses_equal.exit386
   %.0343410 = phi ptr [ %22, %.lr.ph ], [ %130, %addresses_equal.exit386 ]
-  %.0344409 = phi ptr [ null, %.lr.ph ], [ %.1345, %addresses_equal.exit386 ]
+  %.0344409 = phi ptr [ null, %.lr.ph ], [ %.2346, %addresses_equal.exit386 ]
   %33 = load ptr, ptr %.0343410, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 76
   %35 = load i32, ptr %34, align 4
@@ -7036,7 +7036,7 @@ addresses_equal.exit:                             ; preds = %77, %70, %65, %59, 
   ]
 
 addresses_equal.exit386:                          ; preds = %116, %109, %105, %99, %92, %addresses_equal.exit, %127, %127, %88, %88, %45, %45, %41, %122, %32
-  %.1345 = phi ptr [ %39, %45 ], [ %39, %41 ], [ %39, %88 ], [ %39, %127 ], [ %39, %122 ], [ %.0344409, %32 ], [ %39, %45 ], [ %39, %88 ], [ %39, %127 ], [ %39, %addresses_equal.exit ], [ %39, %92 ], [ %39, %99 ], [ %39, %105 ], [ %39, %109 ], [ %39, %116 ]
+  %.2346 = phi ptr [ %39, %45 ], [ %39, %41 ], [ %39, %88 ], [ %39, %127 ], [ %39, %122 ], [ %.0344409, %32 ], [ %39, %45 ], [ %39, %88 ], [ %39, %127 ], [ %39, %addresses_equal.exit ], [ %39, %92 ], [ %39, %99 ], [ %39, %105 ], [ %39, %109 ], [ %39, %116 ]
   %129 = getelementptr inbounds i8, ptr %.0343410, i64 8
   %130 = load ptr, ptr %129, align 8
   %.not367 = icmp eq ptr %130, null
@@ -7044,7 +7044,7 @@ addresses_equal.exit386:                          ; preds = %116, %109, %105, %9
 
 ._crit_edge:                                      ; preds = %addresses_equal.exit386, %45, %88, %127, %18
   %.0347 = phi ptr [ null, %18 ], [ %33, %127 ], [ %33, %88 ], [ %33, %45 ], [ null, %addresses_equal.exit386 ]
-  %.2346 = phi ptr [ null, %18 ], [ %39, %127 ], [ %39, %88 ], [ %39, %45 ], [ %.1345, %addresses_equal.exit386 ]
+  %.1345 = phi ptr [ null, %18 ], [ %39, %127 ], [ %39, %88 ], [ %39, %45 ], [ %.2346, %addresses_equal.exit386 ]
   %131 = getelementptr inbounds i8, ptr %3, i64 1
   %132 = load i8, ptr %131, align 1
   %.off = add i8 %132, -1
@@ -7206,16 +7206,16 @@ copy_address.exit391:                             ; preds = %copy_address.exit39
   br label %226
 
 226:                                              ; preds = %220, %copy_address.exit391
-  %.1348 = phi ptr [ %144, %copy_address.exit391 ], [ %.0347, %220 ]
-  %.3 = phi ptr [ %172, %copy_address.exit391 ], [ %222, %220 ]
+  %.2349 = phi ptr [ %144, %copy_address.exit391 ], [ %.0347, %220 ]
+  %.4 = phi ptr [ %172, %copy_address.exit391 ], [ %222, %220 ]
   %227 = getelementptr inbounds i8, ptr %1, i64 80
   %228 = load ptr, ptr %227, align 8
-  %229 = getelementptr inbounds i8, ptr %.1348, i64 128
+  %229 = getelementptr inbounds i8, ptr %.2349, i64 128
   store ptr %228, ptr %229, align 8
-  %230 = getelementptr inbounds i8, ptr %.1348, i64 136
+  %230 = getelementptr inbounds i8, ptr %.2349, i64 136
   %231 = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %230, ptr noundef nonnull align 8 dereferenceable(16) %231, i64 16, i1 false)
-  %232 = getelementptr inbounds i8, ptr %.1348, i64 72
+  %232 = getelementptr inbounds i8, ptr %.2349, i64 72
   %233 = load i32, ptr %232, align 8
   %234 = add i32 %233, 1
   store i32 %234, ptr %232, align 8
@@ -7229,7 +7229,7 @@ copy_address.exit391:                             ; preds = %copy_address.exit39
   br i1 %or.cond379, label %240, label %270
 
 240:                                              ; preds = %226
-  %241 = getelementptr inbounds i8, ptr %.3, i64 112
+  %241 = getelementptr inbounds i8, ptr %.4, i64 112
   %242 = load ptr, ptr %241, align 8
   %.not375 = icmp eq ptr %242, null
   br i1 %.not375, label %253, label %243
@@ -7345,7 +7345,7 @@ copy_address.exit391:                             ; preds = %copy_address.exit39
   %291 = tail call ptr @g_string_truncate(ptr noundef %19, i64 noundef %290) #12
   %292 = load ptr, ptr %19, align 8
   %293 = tail call noalias ptr @g_strdup(ptr noundef %292) #12
-  %294 = getelementptr inbounds i8, ptr %.3, i64 112
+  %294 = getelementptr inbounds i8, ptr %.4, i64 112
   store ptr %293, ptr %294, align 8
   br label %295
 
@@ -7381,7 +7381,7 @@ copy_address.exit391:                             ; preds = %copy_address.exit39
   %315 = tail call ptr @g_string_truncate(ptr noundef %19, i64 noundef %314) #12
   %316 = load ptr, ptr %19, align 8
   %317 = tail call noalias ptr @g_strdup(ptr noundef %316) #12
-  %318 = getelementptr inbounds i8, ptr %.3, i64 112
+  %318 = getelementptr inbounds i8, ptr %.4, i64 112
   store ptr %317, ptr %318, align 8
   br label %319
 
@@ -7399,7 +7399,7 @@ copy_address.exit391:                             ; preds = %copy_address.exit39
 
 327:                                              ; preds = %270
   %328 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.141) #12
-  %329 = getelementptr inbounds i8, ptr %.3, i64 112
+  %329 = getelementptr inbounds i8, ptr %.4, i64 112
   store ptr %328, ptr %329, align 8
   %330 = getelementptr inbounds i8, ptr %3, i64 4
   %331 = load i32, ptr %330, align 4
@@ -7465,7 +7465,7 @@ copy_address.exit391:                             ; preds = %copy_address.exit39
 
 364:                                              ; preds = %.thread406, %358
   %.1 = phi ptr [ %363, %.thread406 ], [ %.0342, %358 ]
-  %365 = getelementptr inbounds i8, ptr %.1348, i64 96
+  %365 = getelementptr inbounds i8, ptr %.2349, i64 96
   %366 = load i16, ptr %365, align 8
   %367 = getelementptr inbounds i8, ptr %1, i64 208
   %368 = getelementptr inbounds i8, ptr %1, i64 232
@@ -7490,7 +7490,7 @@ copy_address.exit391:                             ; preds = %copy_address.exit39
   %373 = getelementptr inbounds i8, ptr %3, i64 4
   %374 = load i32, ptr %373, align 4
   %375 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull %.str.151.sink, i32 noundef %374) #12
-  %376 = getelementptr inbounds i8, ptr %.1348, i64 96
+  %376 = getelementptr inbounds i8, ptr %.2349, i64 96
   %377 = load i16, ptr %376, align 8
   %378 = getelementptr inbounds i8, ptr %1, i64 208
   %379 = getelementptr inbounds i8, ptr %1, i64 232
@@ -7499,29 +7499,29 @@ copy_address.exit391:                             ; preds = %copy_address.exit39
   br label %380
 
 380:                                              ; preds = %.sink.split, %369, %137
-  %.2349 = phi ptr [ %.0347, %137 ], [ %.1348, %369 ], [ %.1348, %.sink.split ]
-  %.4 = phi ptr [ %.2346, %137 ], [ %.3, %369 ], [ %.3, %.sink.split ]
+  %.1348 = phi ptr [ %.0347, %137 ], [ %.2349, %369 ], [ %.2349, %.sink.split ]
+  %.3 = phi ptr [ %.1345, %137 ], [ %.4, %369 ], [ %.4, %.sink.split ]
   %381 = getelementptr inbounds i8, ptr %3, i64 84
   %382 = load i32, ptr %381, align 4
   %383 = icmp eq i32 %382, 1
-  %384 = icmp ne ptr %.2349, null
+  %384 = icmp ne ptr %.1348, null
   %or.cond = and i1 %384, %383
   br i1 %or.cond, label %385, label %416
 
 385:                                              ; preds = %380
   %386 = getelementptr inbounds i8, ptr %1, i64 80
   %387 = load ptr, ptr %386, align 8
-  %388 = getelementptr inbounds i8, ptr %.2349, i64 104
+  %388 = getelementptr inbounds i8, ptr %.1348, i64 104
   store ptr %387, ptr %388, align 8
-  %389 = getelementptr inbounds i8, ptr %.2349, i64 112
+  %389 = getelementptr inbounds i8, ptr %.1348, i64 112
   %390 = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %389, ptr noundef nonnull align 8 dereferenceable(16) %390, i64 16, i1 false)
   %391 = load ptr, ptr %386, align 8
-  %392 = getelementptr inbounds i8, ptr %.2349, i64 128
+  %392 = getelementptr inbounds i8, ptr %.1348, i64 128
   store ptr %391, ptr %392, align 8
-  %393 = getelementptr inbounds i8, ptr %.2349, i64 136
+  %393 = getelementptr inbounds i8, ptr %.1348, i64 136
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %393, ptr noundef nonnull align 8 dereferenceable(16) %390, i64 16, i1 false)
-  %394 = getelementptr inbounds i8, ptr %.2349, i64 72
+  %394 = getelementptr inbounds i8, ptr %.1348, i64 72
   %395 = load i32, ptr %394, align 8
   %396 = add i32 %395, 1
   store i32 %396, ptr %394, align 8
@@ -7529,28 +7529,28 @@ copy_address.exit391:                             ; preds = %copy_address.exit39
   %398 = load i32, ptr %397, align 8
   %399 = add i32 %398, 1
   store i32 %399, ptr %397, align 8
-  %400 = getelementptr inbounds i8, ptr %.4, i64 112
+  %400 = getelementptr inbounds i8, ptr %.3, i64 112
   %401 = load ptr, ptr %400, align 8
   %.not378 = icmp eq ptr %401, null
   br i1 %.not378, label %405, label %402
 
 402:                                              ; preds = %385
   %403 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.154, ptr noundef nonnull %401) #12
-  %404 = getelementptr inbounds i8, ptr %.2349, i64 24
+  %404 = getelementptr inbounds i8, ptr %.1348, i64 24
   store ptr %403, ptr %404, align 8
   br label %405
 
 405:                                              ; preds = %402, %385
   %406 = getelementptr inbounds i8, ptr %3, i64 4
   %407 = load i32, ptr %406, align 4
-  %408 = getelementptr inbounds i8, ptr %.4, i64 4
+  %408 = getelementptr inbounds i8, ptr %.3, i64 4
   store i32 %407, ptr %408, align 4
-  %409 = getelementptr inbounds i8, ptr %.2349, i64 4
+  %409 = getelementptr inbounds i8, ptr %.1348, i64 4
   store i32 0, ptr %409, align 4
-  store i32 3, ptr %.2349, align 8
+  store i32 3, ptr %.1348, align 8
   %410 = load i32, ptr %406, align 4
   %411 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.156, i32 noundef %410) #12
-  %412 = getelementptr inbounds i8, ptr %.2349, i64 96
+  %412 = getelementptr inbounds i8, ptr %.1348, i64 96
   %413 = load i16, ptr %412, align 8
   %414 = getelementptr inbounds i8, ptr %1, i64 208
   %415 = getelementptr inbounds i8, ptr %1, i64 232
@@ -7558,7 +7558,7 @@ copy_address.exit391:                             ; preds = %copy_address.exit39
   br label %555
 
 416:                                              ; preds = %380
-  %417 = icmp eq ptr %.2349, null
+  %417 = icmp eq ptr %.1348, null
   %or.cond3 = and i1 %417, %383
   br i1 %or.cond3, label %418, label %509
 
@@ -7728,24 +7728,24 @@ copy_address.exit394:                             ; preds = %copy_address.exit39
 511:                                              ; preds = %509
   %512 = getelementptr inbounds i8, ptr %1, i64 80
   %513 = load ptr, ptr %512, align 8
-  %514 = getelementptr inbounds i8, ptr %.2349, i64 128
+  %514 = getelementptr inbounds i8, ptr %.1348, i64 128
   store ptr %513, ptr %514, align 8
-  %515 = getelementptr inbounds i8, ptr %.2349, i64 136
+  %515 = getelementptr inbounds i8, ptr %.1348, i64 136
   %516 = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %515, ptr noundef nonnull align 8 dereferenceable(16) %516, i64 16, i1 false)
   %517 = getelementptr inbounds i8, ptr %3, i64 4
   %518 = load i32, ptr %517, align 4
-  %519 = getelementptr inbounds i8, ptr %.4, i64 4
+  %519 = getelementptr inbounds i8, ptr %.3, i64 4
   store i32 %518, ptr %519, align 4
-  %520 = load i32, ptr %.2349, align 8
+  %520 = load i32, ptr %.1348, align 8
   %521 = icmp eq i32 %520, 3
   %spec.select = select i1 %521, i32 5, i32 7
-  %522 = getelementptr inbounds i8, ptr %.2349, i64 4
+  %522 = getelementptr inbounds i8, ptr %.1348, i64 4
   store i32 1, ptr %522, align 4
-  store i32 %spec.select, ptr %.2349, align 8
+  store i32 %spec.select, ptr %.1348, align 8
   %523 = load i32, ptr %517, align 4
   %524 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.158, i32 noundef %523) #12
-  %525 = getelementptr inbounds i8, ptr %.2349, i64 96
+  %525 = getelementptr inbounds i8, ptr %.1348, i64 96
   %526 = load i16, ptr %525, align 8
   %527 = getelementptr inbounds i8, ptr %1, i64 208
   %528 = getelementptr inbounds i8, ptr %1, i64 232
@@ -7760,7 +7760,7 @@ copy_address.exit394:                             ; preds = %copy_address.exit39
   br i1 %or.cond7, label %533, label %545
 
 533:                                              ; preds = %529
-  %534 = getelementptr inbounds i8, ptr %.2346, i64 4
+  %534 = getelementptr inbounds i8, ptr %.1345, i64 4
   %535 = load i32, ptr %534, align 4
   %536 = getelementptr inbounds i8, ptr %3, i64 4
   %537 = load i32, ptr %536, align 4

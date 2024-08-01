@@ -142,7 +142,7 @@ define range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly %0, ptr noun
   %9 = phi ptr [ %22, %21 ], [ %7, %6 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %6 ]
   %.015 = phi ptr [ %.116, %21 ], [ %7, %6 ]
-  %.0 = phi i32 [ %.2, %21 ], [ 0, %6 ]
+  %.0 = phi i32 [ %.3, %21 ], [ 0, %6 ]
   %10 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %21 [
@@ -170,7 +170,7 @@ define range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly %0, ptr noun
 21:                                               ; preds = %8, %15
   %22 = phi ptr [ %18, %15 ], [ %9, %8 ]
   %.116 = phi ptr [ %20, %15 ], [ %.015, %8 ]
-  %.2 = phi i32 [ %spec.select21, %15 ], [ %.0, %8 ]
+  %.3 = phi i32 [ %spec.select21, %15 ], [ %.0, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %8
 
@@ -696,7 +696,7 @@ define range(i32 -1, 8004) i32 @load_plugins(ptr nocapture noundef %0, ptr nound
   %26 = phi ptr [ %39, %38 ], [ %24, %23 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 0, %23 ]
   %.015.i = phi ptr [ %.116.i, %38 ], [ %24, %23 ]
-  %.0.i = phi i32 [ %.2.i, %38 ], [ 0, %23 ]
+  %.0.i = phi i32 [ %.3.i, %38 ], [ 0, %23 ]
   %27 = getelementptr inbounds i8, ptr %26, i64 %indvars.iv.i
   %28 = load i8, ptr %27, align 1
   switch i8 %28, label %38 [
@@ -723,7 +723,7 @@ define range(i32 -1, 8004) i32 @load_plugins(ptr nocapture noundef %0, ptr nound
 38:                                               ; preds = %32, %25
   %39 = phi ptr [ %35, %32 ], [ %26, %25 ]
   %.116.i = phi ptr [ %37, %32 ], [ %.015.i, %25 ]
-  %.2.i = phi i32 [ %spec.select21.i, %32 ], [ %.0.i, %25 ]
+  %.3.i = phi i32 [ %spec.select21.i, %32 ], [ %.0.i, %25 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %25
 
@@ -743,7 +743,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   br label %.thread95
 
 44:                                               ; preds = %6, %plugrack_read_dir.exit
-  %.071 = phi ptr [ %16, %plugrack_read_dir.exit ], [ %14, %6 ]
+  %.172 = phi ptr [ %16, %plugrack_read_dir.exit ], [ %14, %6 ]
   %.not79 = icmp eq ptr %3, null
   br i1 %.not79, label %53, label %45
 
@@ -753,7 +753,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   br i1 %.not80, label %47, label %53
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %.071, i64 40
+  %48 = getelementptr inbounds i8, ptr %.172, i64 40
   %49 = load ptr, ptr %48, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %3, ptr %8, align 8
@@ -769,12 +769,12 @@ plugrack_read_dir.exit:                           ; preds = %29
   br i1 %.not81, label %54, label %60
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %.071, i64 40
+  %55 = getelementptr inbounds i8, ptr %.172, i64 40
   %56 = load ptr, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr @_plugrack_foreach, ptr %7, align 8
   %57 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %.071, ptr %57, align 8
+  store ptr %.172, ptr %57, align 8
   %58 = load ptr, ptr %56, align 8
   %59 = call i32 @list_for_each(ptr noundef %58, ptr noundef nonnull @_foreach_plugin, ptr noundef nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -814,7 +814,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   %.069 = getelementptr inbounds i8, ptr %.070108, i64 %.069.idx
   %74 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.19, ptr noundef %1, ptr noundef nonnull %.069) #10
   store ptr %74, ptr %13, align 8
-  call void @_plugrack_foreach(ptr noundef %74, ptr noundef null, ptr noundef null, ptr noundef nonnull %.071)
+  call void @_plugrack_foreach(ptr noundef %74, ptr noundef null, ptr noundef null, ptr noundef nonnull %.172)
   call void @slurm_xfree(ptr noundef nonnull %13) #10
   %75 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull %10) #10
   %.not82 = icmp eq ptr %75, null
@@ -826,15 +826,15 @@ plugrack_read_dir.exit:                           ; preds = %29
   br label %76
 
 76:                                               ; preds = %._crit_edge, %66, %63, %54
-  %77 = getelementptr inbounds i8, ptr %.071, i64 32
+  %77 = getelementptr inbounds i8, ptr %.172, i64 32
   %78 = load i64, ptr %77, align 8
   %.not124 = icmp eq i64 %78, 0
   br i1 %.not124, label %.loopexit, label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %.071, i64 16
-  %80 = getelementptr inbounds i8, ptr %.071, i64 40
-  %81 = getelementptr inbounds i8, ptr %.071, i64 24
+  %79 = getelementptr inbounds i8, ptr %.172, i64 16
+  %80 = getelementptr inbounds i8, ptr %.172, i64 40
+  %81 = getelementptr inbounds i8, ptr %.172, i64 24
   %.pre = load ptr, ptr %79, align 8
   br label %82
 
@@ -884,8 +884,8 @@ plugrack_read_dir.exit:                           ; preds = %29
 .loopexit:                                        ; preds = %105, %76, %100
   %110 = phi i64 [ %.pre121, %100 ], [ 0, %76 ], [ %106, %105 ]
   %111 = phi i1 [ true, %100 ], [ false, %76 ], [ false, %105 ]
-  %.1 = phi i32 [ 8002, %100 ], [ 0, %76 ], [ 0, %105 ]
-  %112 = getelementptr inbounds i8, ptr %.071, i64 8
+  %.2 = phi i32 [ 8002, %100 ], [ 0, %76 ], [ 0, %105 ]
+  %112 = getelementptr inbounds i8, ptr %.172, i64 8
   %113 = call ptr @slurm_xrecalloc(ptr noundef nonnull %112, i64 noundef %110, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 595, ptr noundef nonnull @__func__.load_plugins) #10
   %114 = load i64, ptr %77, align 8
   %115 = icmp eq i64 %114, 0
@@ -893,7 +893,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   br i1 %or.cond, label %145, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %.loopexit
-  %116 = getelementptr inbounds i8, ptr %.071, i64 16
+  %116 = getelementptr inbounds i8, ptr %.172, i64 16
   %117 = add i64 %5, 1
   %118 = trunc i64 %5 to i32
   br label %119
@@ -945,18 +945,18 @@ plugrack_read_dir.exit:                           ; preds = %29
   br i1 %111, label %.thread95, label %.thread
 
 .thread:                                          ; preds = %141, %47, %145
-  store ptr %.071, ptr %0, align 8
+  store ptr %.172, ptr %0, align 8
   br label %146
 
 .thread95:                                        ; preds = %130, %40, %145
-  %.2100 = phi i32 [ %.1, %145 ], [ -1, %40 ], [ 8003, %130 ]
-  %.17299 = phi ptr [ %.071, %145 ], [ %16, %40 ], [ %.071, %130 ]
-  call void @unload_plugins(ptr noundef %.17299)
+  %.068100 = phi i32 [ %.2, %145 ], [ -1, %40 ], [ 8003, %130 ]
+  %.07199 = phi ptr [ %.172, %145 ], [ %16, %40 ], [ %.172, %130 ]
+  call void @unload_plugins(ptr noundef %.07199)
   br label %146
 
 146:                                              ; preds = %.thread95, %.thread
-  %.292 = phi i32 [ %.2100, %.thread95 ], [ 0, %.thread ]
-  ret i32 %.292
+  %.06892 = phi i32 [ %.068100, %.thread95 ], [ 0, %.thread ]
+  ret i32 %.06892
 }
 
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1

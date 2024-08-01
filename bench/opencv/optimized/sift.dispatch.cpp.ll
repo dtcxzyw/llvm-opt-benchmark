@@ -1188,7 +1188,7 @@ exp2f.i.noexc.i:                                  ; preds = %523
 
 .lr.ph125.split.i.i:                              ; preds = %..loopexit_crit_edge.i.i, %.lr.ph125.split.preheader.i.i
   %indvars.iv135.i.i = phi i64 [ %593, %.lr.ph125.split.preheader.i.i ], [ %indvars.iv.next136.i.i, %..loopexit_crit_edge.i.i ]
-  %.097122.i.i = phi i32 [ 0, %.lr.ph125.split.preheader.i.i ], [ %.3100.i.i, %..loopexit_crit_edge.i.i ]
+  %.097122.i.i = phi i32 [ 0, %.lr.ph125.split.preheader.i.i ], [ %.198.i.i, %..loopexit_crit_edge.i.i ]
   %595 = add nsw i64 %indvars.iv135.i.i, %594
   %596 = icmp slt i64 %595, 1
   br i1 %596, label %..loopexit_crit_edge.i.i, label %597
@@ -1212,7 +1212,7 @@ exp2f.i.noexc.i:                                  ; preds = %523
 
 605:                                              ; preds = %645, %.preheader114.i.i
   %.096118.i.i = phi i32 [ %587, %.preheader114.i.i ], [ %646, %645 ]
-  %.198117.i.i = phi i32 [ %.097122.i.i, %.preheader114.i.i ], [ %.299.i.i, %645 ]
+  %.299117.i.i = phi i32 [ %.097122.i.i, %.preheader114.i.i ], [ %.3100.i.i, %645 ]
   %606 = add nsw i32 %.096118.i.i, %.1301.i
   %607 = icmp slt i32 %606, 1
   br i1 %607, label %645, label %608
@@ -1246,7 +1246,7 @@ exp2f.i.noexc.i:                                  ; preds = %523
   %631 = load float, ptr %630, align 4
   %632 = fsub float %627, %631
   %633 = load ptr, ptr %17, align 8
-  %634 = sext i32 %.198117.i.i to i64
+  %634 = sext i32 %.299117.i.i to i64
   %635 = getelementptr inbounds float, ptr %633, i64 %634
   store float %623, ptr %635, align 4
   %636 = load ptr, ptr %18, align 8
@@ -1259,24 +1259,24 @@ exp2f.i.noexc.i:                                  ; preds = %523
   %642 = load ptr, ptr %20, align 8
   %643 = getelementptr inbounds float, ptr %642, i64 %634
   store float %641, ptr %643, align 4
-  %644 = add nsw i32 %.198117.i.i, 1
+  %644 = add nsw i32 %.299117.i.i, 1
   br label %645
 
 645:                                              ; preds = %611, %608, %605
-  %.299.i.i = phi i32 [ %.198117.i.i, %605 ], [ %.198117.i.i, %608 ], [ %644, %611 ]
+  %.3100.i.i = phi i32 [ %.299117.i.i, %605 ], [ %.299117.i.i, %608 ], [ %644, %611 ]
   %646 = add i32 %.096118.i.i, 1
   %exitcond134.not.i.i = icmp eq i32 %.096118.i.i, %560
   br i1 %exitcond134.not.i.i, label %..loopexit_crit_edge.i.i, label %605, !llvm.loop !8
 
 ..loopexit_crit_edge.i.i:                         ; preds = %645, %597, %.lr.ph125.split.i.i
-  %.3100.i.i = phi i32 [ %.097122.i.i, %.lr.ph125.split.i.i ], [ %.097122.i.i, %597 ], [ %.299.i.i, %645 ]
+  %.198.i.i = phi i32 [ %.097122.i.i, %.lr.ph125.split.i.i ], [ %.097122.i.i, %597 ], [ %.3100.i.i, %645 ]
   %indvars.iv.next136.i.i = add nsw i64 %indvars.iv135.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next136.i.i to i32
   %exitcond138.not.i.i = icmp eq i32 %592, %lftr.wideiv.i.i
   br i1 %exitcond138.not.i.i, label %._crit_edge.i.i, label %.lr.ph125.split.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %..loopexit_crit_edge.i.i, %586
-  %.097.lcssa.i.i = phi i32 [ 0, %586 ], [ %.3100.i.i, %..loopexit_crit_edge.i.i ]
+  %.097.lcssa.i.i = phi i32 [ 0, %586 ], [ %.198.i.i, %..loopexit_crit_edge.i.i ]
   %647 = load ptr, ptr %20, align 8
   invoke void @_ZN2cv3hal6exp32fEPKfPfi(ptr noundef %647, ptr noundef %647, i32 noundef %.097.lcssa.i.i)
           to label %648 unwind label %584
@@ -4245,7 +4245,7 @@ _ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit.preheader: ; preds = %.prehead
 
 _ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit: ; preds = %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit.preheader, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit
   %.045130 = phi i64 [ %105, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit ], [ 0, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit.preheader ]
-  %.0121129 = phi i32 [ %.sroa.speculated100, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit ], [ 0, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit.preheader ]
+  %.1129 = phi i32 [ %.sroa.speculated100, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit ], [ 0, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit.preheader ]
   %.0122128 = phi i32 [ %.sroa.speculated90, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit ], [ 0, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit.preheader ]
   %.0123127 = phi i32 [ %.sroa.speculated97, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit ], [ -2147483648, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit.preheader ]
   %96 = getelementptr inbounds %"class.cv::KeyPoint", ptr %91, i64 %.045130, i32 4
@@ -4256,7 +4256,7 @@ _ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit: ; preds = %_ZN2cvL12unpackOct
   %101 = icmp ult i32 %98, 128
   %102 = or i32 %97, -128
   %103 = select i1 %101, i32 %98, i32 %102
-  %.sroa.speculated100 = call i32 @llvm.smin.i32(i32 %103, i32 %.0121129)
+  %.sroa.speculated100 = call i32 @llvm.smin.i32(i32 %103, i32 %.1129)
   %.sroa.speculated97 = call i32 @llvm.smax.i32(i32 %.0123127, i32 %103)
   %104 = add nsw i32 %100, -2
   %.sroa.speculated90 = call i32 @llvm.smax.i32(i32 %.0122128, i32 %104)
@@ -4267,8 +4267,8 @@ _ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit: ; preds = %_ZN2cvL12unpackOct
 ._crit_edge:                                      ; preds = %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit, %.preheader126
   %.0123.lcssa = phi i32 [ -2147483648, %.preheader126 ], [ %.sroa.speculated97, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit ]
   %.0122.lcssa = phi i32 [ 0, %.preheader126 ], [ %.sroa.speculated90, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit ]
-  %.0121.lcssa = phi i32 [ 0, %.preheader126 ], [ %.sroa.speculated100, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit ]
-  %106 = icmp slt i32 %.0121.lcssa, -1
+  %.1.lcssa = phi i32 [ 0, %.preheader126 ], [ %.sroa.speculated100, %_ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit ]
+  %106 = icmp slt i32 %.1.lcssa, -1
   %107 = getelementptr inbounds i8, ptr %0, i64 12
   %108 = load i32, ptr %107, align 4
   %.not50 = icmp sgt i32 %.0122.lcssa, %108
@@ -4304,15 +4304,15 @@ _ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit: ; preds = %_ZN2cvL12unpackOct
   br label %.body
 
 117:                                              ; preds = %._crit_edge
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %.0121.lcssa, i32 0)
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %.1.lcssa, i32 0)
   %118 = add i32 %.0123.lcssa, 1
   %119 = sub i32 %118, %.sroa.speculated
   br label %120
 
 120:                                              ; preds = %117, %88
-  %.1 = phi i32 [ %.sroa.speculated, %117 ], [ -1, %88 ]
+  %.0121 = phi i32 [ %.sroa.speculated, %117 ], [ -1, %88 ]
   %.0 = phi i32 [ %119, %117 ], [ 0, %88 ]
-  %121 = icmp slt i32 %.1, 0
+  %121 = icmp slt i32 %.0121, 0
   %122 = getelementptr inbounds i8, ptr %0, i64 32
   %123 = load double, ptr %122, align 8
   %124 = fptrunc double %123 to float
@@ -4665,7 +4665,7 @@ _ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit: ; preds = %_ZN2cvL12unpackOct
   %253 = fadd double %252, -2.000000e+00
   %254 = insertelement <2 x double> poison, double %253, i64 0
   %255 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %254)
-  %256 = sub nsw i32 %255, %.1
+  %256 = sub nsw i32 %255, %.0121
   br label %257
 
 257:                                              ; preds = %242, %244
@@ -4721,7 +4721,7 @@ _ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit: ; preds = %_ZN2cvL12unpackOct
   br i1 %.not135, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %276 = sub nsw i32 0, %.1
+  %276 = sub nsw i32 0, %.0121
   %277 = shl nuw nsw i32 1, %276
   %278 = uitofp nneg i32 %277 to float
   %279 = fdiv float 1.000000e+00, %278
@@ -4736,7 +4736,7 @@ _ZN2cvL12unpackOctaveERKNS_8KeyPointERiS3_Rf.exit: ; preds = %_ZN2cvL12unpackOct
   %285 = getelementptr inbounds i8, ptr %284, i64 20
   %286 = load i32, ptr %285, align 4
   %287 = and i32 %286, -256
-  %288 = add nsw i32 %286, %.1
+  %288 = add nsw i32 %286, %.0121
   %289 = and i32 %288, 255
   %290 = or disjoint i32 %289, %287
   store i32 %290, ptr %285, align 4
@@ -4871,7 +4871,7 @@ _ZNK2cv11_InputArray6getMatEi.exit74:             ; preds = %335, %338
   %352 = getelementptr inbounds i8, ptr %9, i64 32
   store i32 %340, ptr %352, align 8
   %353 = getelementptr inbounds i8, ptr %9, i64 36
-  store i32 %.1, ptr %353, align 4
+  store i32 %.0121, ptr %353, align 4
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, double noundef -1.000000e+00)
           to label %354 unwind label %361
 

@@ -29,12 +29,12 @@ thread-pre-split:                                 ; preds = %3
   br i1 %10, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %thread-pre-split, %3
-  %.1 = phi i32 [ 22, %3 ], [ 0, %thread-pre-split ], [ %7, %.lr.ph ]
+  %.0 = phi i32 [ 22, %3 ], [ 0, %thread-pre-split ], [ %7, %.lr.ph ]
   %11 = call i32 @sched_unlock() #2
   br label %12
 
 12:                                               ; preds = %1, %.loopexit
-  %.2 = phi i32 [ %.1, %.loopexit ], [ 22, %1 ]
+  %.2 = phi i32 [ %.0, %.loopexit ], [ 22, %1 ]
   ret i32 %.2
 }
 

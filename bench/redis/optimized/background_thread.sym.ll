@@ -900,7 +900,7 @@ for.body.lr.ph:                                   ; preds = %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %conv37 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.inc ]
   %i.036 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %num_runs.035 = phi i64 [ 0, %for.body.lr.ph ], [ %num_runs.2, %for.inc ]
+  %num_runs.035 = phi i64 [ 0, %for.body.lr.ph ], [ %num_runs.1, %for.inc ]
   %6 = load ptr, ptr @background_thread_info, align 8
   %arrayidx = getelementptr inbounds %struct.background_thread_info_s, ptr %6, i64 %conv37
   %mtx = getelementptr inbounds i8, ptr %arrayidx, i64 56
@@ -1017,14 +1017,14 @@ if.then37.i:                                      ; preds = %if.end34.i
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then37.i, %if.end34.i, %if.end4
-  %num_runs.1 = phi i64 [ %num_runs.035, %if.end4 ], [ %add, %if.end34.i ], [ %add, %if.then37.i ]
+  %num_runs.2 = phi i64 [ %num_runs.035, %if.end4 ], [ %add, %if.end34.i ], [ %add, %if.then37.i ]
   %locked.i31 = getelementptr inbounds i8, ptr %arrayidx, i64 160
   store atomic i8 0, ptr %locked.i31 monotonic, align 1
   %call1.i32 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %lock.i.i) #11
   br label %for.inc
 
 for.inc:                                          ; preds = %malloc_mutex_trylock.exit, %if.end11
-  %num_runs.2 = phi i64 [ %num_runs.035, %malloc_mutex_trylock.exit ], [ %num_runs.1, %if.end11 ]
+  %num_runs.1 = phi i64 [ %num_runs.035, %malloc_mutex_trylock.exit ], [ %num_runs.2, %if.end11 ]
   %inc = add i32 %i.036, 1
   %conv = zext i32 %inc to i64
   %22 = load i64, ptr @max_background_threads, align 8
@@ -1033,12 +1033,12 @@ for.inc:                                          ; preds = %malloc_mutex_tryloc
 
 for.end:                                          ; preds = %for.inc
   %num_runs13 = getelementptr inbounds i8, ptr %stats, i64 8
-  store i64 %num_runs.2, ptr %num_runs13, align 8
-  %cmp14.not = icmp eq i64 %num_runs.2, 0
+  store i64 %num_runs.1, ptr %num_runs13, align 8
+  %cmp14.not = icmp eq i64 %num_runs.1, 0
   br i1 %cmp14.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %for.end
-  tail call void @nstime_idivide(ptr noundef nonnull %run_interval, i64 noundef %num_runs.2) #11
+  tail call void @nstime_idivide(ptr noundef nonnull %run_interval, i64 noundef %num_runs.1) #11
   br label %return
 
 return:                                           ; preds = %for.end, %if.then16, %for.end.thread, %malloc_mutex_lock.exit

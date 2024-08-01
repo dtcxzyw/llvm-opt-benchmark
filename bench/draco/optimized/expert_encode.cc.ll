@@ -450,7 +450,7 @@ _ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_
 
 .lr.ph:                                           ; preds = %32, %68
   %43 = phi ptr [ %72, %68 ], [ %36, %32 ]
-  %.031118 = phi i8 [ %.132, %68 ], [ 1, %32 ]
+  %.031118 = phi i8 [ %.233, %68 ], [ 1, %32 ]
   %storemerge117 = phi i32 [ %70, %68 ], [ 0, %32 ]
   %44 = sext i32 %storemerge117 to i64
   %45 = getelementptr inbounds %"class.std::unique_ptr.82", ptr %43, i64 %44
@@ -476,8 +476,8 @@ _ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_
   br label %52
 
 52:                                               ; preds = %48, %48, %48, %48, %48, %48, %51, %.lr.ph
-  %.132 = phi i8 [ %.031118, %48 ], [ %.031118, %.lr.ph ], [ %spec.select, %51 ], [ %.031118, %48 ], [ %.031118, %48 ], [ %.031118, %48 ], [ %.031118, %48 ], [ %.031118, %48 ]
-  %53 = trunc nuw i8 %.132 to i1
+  %.233 = phi i8 [ %.031118, %48 ], [ %.031118, %.lr.ph ], [ %spec.select, %51 ], [ %.031118, %48 ], [ %.031118, %48 ], [ %.031118, %48 ], [ %.031118, %48 ], [ %.031118, %48 ]
+  %53 = trunc nuw i8 %.233 to i1
   br i1 %53, label %54, label %.critedge.thread._crit_edge
 
 54:                                               ; preds = %52
@@ -546,7 +546,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit68: ; 
   br i1 %78, label %.lr.ph, label %.critedge.thread._crit_edge, !llvm.loop !4
 
 .critedge.thread._crit_edge:                      ; preds = %68, %52
-  %79 = trunc nuw i8 %.132 to i1
+  %79 = trunc nuw i8 %.233 to i1
   br i1 %79, label %.critedge.thread._crit_edge.thread, label %.thread98
 
 .critedge.thread._crit_edge.thread:               ; preds = %32, %.critedge.thread._crit_edge
@@ -627,12 +627,12 @@ _ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_
   br label %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EED2Ev.exit86
 
 .thread101:                                       ; preds = %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_.exit, %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_.exit63, %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_.exit72, %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_.exit83
-  %.sroa.0.2 = phi ptr [ %94, %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_.exit83 ], [ %18, %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_.exit ], [ %29, %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_.exit63 ], [ %80, %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_.exit72 ]
-  invoke void @_ZN5draco17PointCloudEncoder13SetPointCloudERKNS_10PointCloudE(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0.2, ptr noundef nonnull align 8 dereferenceable(164) %2)
+  %.sroa.0.4 = phi ptr [ %94, %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_.exit83 ], [ %18, %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_.exit ], [ %29, %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_.exit63 ], [ %80, %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_.exit72 ]
+  invoke void @_ZN5draco17PointCloudEncoder13SetPointCloudERKNS_10PointCloudE(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0.4, ptr noundef nonnull align 8 dereferenceable(164) %2)
           to label %97 unwind label %_ZNKSt14default_deleteIN5draco17PointCloudEncoderEEclEPS1_.exit.i85
 
 97:                                               ; preds = %.thread101
-  invoke void @_ZN5draco17PointCloudEncoder6EncodeERKNS_18EncoderOptionsBaseIiEEPNS_13EncoderBufferE(ptr dead_on_unwind writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0.2, ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef %3)
+  invoke void @_ZN5draco17PointCloudEncoder6EncodeERKNS_18EncoderOptionsBaseIiEEPNS_13EncoderBufferE(ptr dead_on_unwind writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0.4, ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef %3)
           to label %98 unwind label %_ZNKSt14default_deleteIN5draco17PointCloudEncoderEEclEPS1_.exit.i85
 
 98:                                               ; preds = %97
@@ -643,7 +643,7 @@ _ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_
 101:                                              ; preds = %98
   %102 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #17
-  %103 = getelementptr inbounds i8, ptr %.sroa.0.2, i64 104
+  %103 = getelementptr inbounds i8, ptr %.sroa.0.4, i64 104
   %104 = load i64, ptr %103, align 8
   %105 = getelementptr inbounds i8, ptr %1, i64 152
   store i64 %104, ptr %105, align 8
@@ -659,10 +659,10 @@ _ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EE5resetEPS1_
   br label %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EED2Ev.exit
 
 _ZNKSt14default_deleteIN5draco17PointCloudEncoderEEclEPS1_.exit.i: ; preds = %101, %98
-  %107 = load ptr, ptr %.sroa.0.2, align 8
+  %107 = load ptr, ptr %.sroa.0.4, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
-  call void %109(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0.2) #17
+  call void %109(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0.4) #17
   br label %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EED2Ev.exit: ; preds = %.critedge55, %_ZNKSt14default_deleteIN5draco17PointCloudEncoderEEclEPS1_.exit.i
@@ -671,10 +671,10 @@ _ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EED2Ev.exit: 
 _ZNKSt14default_deleteIN5draco17PointCloudEncoderEEclEPS1_.exit.i85: ; preds = %97, %.thread101
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %110 = load ptr, ptr %.sroa.0.2, align 8
+  %110 = load ptr, ptr %.sroa.0.4, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8
-  call void %112(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0.2) #17
+  call void %112(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0.4) #17
   br label %_ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EED2Ev.exit86
 
 _ZNSt10unique_ptrIN5draco17PointCloudEncoderESt14default_deleteIS1_EED2Ev.exit86: ; preds = %.body, %23, %30, %.body66, %.body75, %81, %95, %_ZNKSt14default_deleteIN5draco17PointCloudEncoderEEclEPS1_.exit.i85
@@ -761,12 +761,12 @@ _ZNK5draco12DracoOptionsIiE12GetGlobalIntERKNSt7__cxx1112basic_stringIcSt11char_
   br label %_ZNSt10unique_ptrIN5draco11MeshEncoderESt14default_deleteIS1_EED2Ev.exit30
 
 _ZNSt10unique_ptrIN5draco11MeshEncoderESt14default_deleteIS1_EED2Ev.exit: ; preds = %.thread43, %.thread
-  %.sroa.034.1 = phi ptr [ %19, %.thread ], [ %22, %.thread43 ]
-  invoke void @_ZN5draco11MeshEncoder7SetMeshERKNS_4MeshE(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.034.1, ptr noundef nonnull align 8 dereferenceable(216) %2)
+  %.sroa.034.2 = phi ptr [ %19, %.thread ], [ %22, %.thread43 ]
+  invoke void @_ZN5draco11MeshEncoder7SetMeshERKNS_4MeshE(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.034.2, ptr noundef nonnull align 8 dereferenceable(216) %2)
           to label %25 unwind label %_ZNKSt14default_deleteIN5draco11MeshEncoderEEclEPS1_.exit.i29
 
 25:                                               ; preds = %_ZNSt10unique_ptrIN5draco11MeshEncoderESt14default_deleteIS1_EED2Ev.exit
-  invoke void @_ZN5draco17PointCloudEncoder6EncodeERKNS_18EncoderOptionsBaseIiEEPNS_13EncoderBufferE(ptr dead_on_unwind writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.034.1, ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef %3)
+  invoke void @_ZN5draco17PointCloudEncoder6EncodeERKNS_18EncoderOptionsBaseIiEEPNS_13EncoderBufferE(ptr dead_on_unwind writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.034.2, ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef %3)
           to label %26 unwind label %_ZNKSt14default_deleteIN5draco11MeshEncoderEEclEPS1_.exit.i29
 
 26:                                               ; preds = %25
@@ -777,11 +777,11 @@ _ZNSt10unique_ptrIN5draco11MeshEncoderESt14default_deleteIS1_EED2Ev.exit: ; pred
 29:                                               ; preds = %26
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #17
-  %31 = getelementptr inbounds i8, ptr %.sroa.034.1, i64 104
+  %31 = getelementptr inbounds i8, ptr %.sroa.034.2, i64 104
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %1, i64 152
   store i64 %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %.sroa.034.1, i64 120
+  %34 = getelementptr inbounds i8, ptr %.sroa.034.2, i64 120
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %1, i64 160
   store i64 %35, ptr %36, align 8
@@ -790,19 +790,19 @@ _ZNSt10unique_ptrIN5draco11MeshEncoderESt14default_deleteIS1_EED2Ev.exit: ; pred
   br label %_ZNSt10unique_ptrIN5draco11MeshEncoderESt14default_deleteIS1_EED2Ev.exit27
 
 _ZNSt10unique_ptrIN5draco11MeshEncoderESt14default_deleteIS1_EED2Ev.exit27: ; preds = %29, %26
-  %37 = load ptr, ptr %.sroa.034.1, align 8
+  %37 = load ptr, ptr %.sroa.034.2, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.034.1) #17
+  call void %39(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.034.2) #17
   ret void
 
 _ZNKSt14default_deleteIN5draco11MeshEncoderEEclEPS1_.exit.i29: ; preds = %25, %_ZNSt10unique_ptrIN5draco11MeshEncoderESt14default_deleteIS1_EED2Ev.exit
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %40 = load ptr, ptr %.sroa.034.1, align 8
+  %40 = load ptr, ptr %.sroa.034.2, align 8
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  call void %42(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.034.1) #17
+  call void %42(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.034.2) #17
   br label %_ZNSt10unique_ptrIN5draco11MeshEncoderESt14default_deleteIS1_EED2Ev.exit30
 
 _ZNSt10unique_ptrIN5draco11MeshEncoderESt14default_deleteIS1_EED2Ev.exit30: ; preds = %.body, %23, %20, %_ZNKSt14default_deleteIN5draco11MeshEncoderEEclEPS1_.exit.i29

@@ -1438,7 +1438,7 @@ define i32 @Abc_NtkHaigResetReprs(ptr nocapture noundef readonly %0) local_unnam
 .lr.ph98:                                         ; preds = %.critedge4.preheader, %.critedge4
   %57 = phi ptr [ %70, %.critedge4 ], [ %53, %.critedge4.preheader ]
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.critedge4 ], [ 0, %.critedge4.preheader ]
-  %.06096 = phi i32 [ %.262, %.critedge4 ], [ 0, %.critedge4.preheader ]
+  %.06096 = phi i32 [ %.161, %.critedge4 ], [ 0, %.critedge4.preheader ]
   %58 = getelementptr i8, ptr %57, i64 8
   %.val79 = load ptr, ptr %58, align 8
   %59 = getelementptr inbounds ptr, ptr %.val79, i64 %indvars.iv106
@@ -1460,14 +1460,14 @@ define i32 @Abc_NtkHaigResetReprs(ptr nocapture noundef readonly %0) local_unnam
   br label %68
 
 68:                                               ; preds = %65, %63
-  %.161 = phi i32 [ %.06096, %63 ], [ %spec.select, %65 ]
+  %.262 = phi i32 [ %.06096, %63 ], [ %spec.select, %65 ]
   %69 = tail call ptr @Hop_ObjRepr(ptr noundef nonnull %60) #9
   %.pre113 = load ptr, ptr %2, align 8
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.lr.ph98, %68
   %70 = phi ptr [ %57, %.lr.ph98 ], [ %.pre113, %68 ]
-  %.262 = phi i32 [ %.06096, %.lr.ph98 ], [ %.161, %68 ]
+  %.161 = phi i32 [ %.06096, %.lr.ph98 ], [ %.262, %68 ]
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %71 = getelementptr i8, ptr %70, i64 4
   %.val = load i32, ptr %71, align 4
@@ -1476,7 +1476,7 @@ define i32 @Abc_NtkHaigResetReprs(ptr nocapture noundef readonly %0) local_unnam
   br i1 %73, label %.lr.ph98, label %.critedge6, !llvm.loop !26
 
 .critedge6:                                       ; preds = %.critedge4, %1, %.critedge.preheader, %.critedge2.preheader, %.critedge4.preheader
-  %.060.lcssa = phi i32 [ 0, %.critedge4.preheader ], [ 0, %.critedge2.preheader ], [ 0, %.critedge.preheader ], [ 0, %1 ], [ %.262, %.critedge4 ]
+  %.060.lcssa = phi i32 [ 0, %.critedge4.preheader ], [ 0, %.critedge2.preheader ], [ 0, %.critedge.preheader ], [ 0, %1 ], [ %.161, %.critedge4 ]
   ret i32 %.060.lcssa
 }
 

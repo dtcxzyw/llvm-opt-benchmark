@@ -470,24 +470,24 @@ define internal fastcc void @php_xpath_eval(ptr %.32.val, i32 %.44.val, ptr noun
   br i1 %.not156, label %.loopexit11, label %.preheader
 
 .preheader:                                       ; preds = %58, %.preheader
-  %.0139 = phi i64 [ %62, %.preheader ], [ 0, %58 ]
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %.0139
+  %.1140 = phi i64 [ %62, %.preheader ], [ 0, %58 ]
+  %60 = getelementptr inbounds ptr, ptr %59, i64 %.1140
   %61 = load ptr, ptr %60, align 8
   %.not157 = icmp eq ptr %61, null
-  %62 = add i64 %.0139, 1
+  %62 = add i64 %.1140, 1
   br i1 %.not157, label %.loopexit11.loopexit, label %.preheader
 
 .loopexit11.loopexit:                             ; preds = %.preheader
-  %63 = trunc i64 %.0139 to i32
+  %63 = trunc i64 %.1140 to i32
   br label %.loopexit11
 
 .loopexit11:                                      ; preds = %.loopexit11.loopexit, %58, %54
   %.0142 = phi ptr [ null, %58 ], [ null, %54 ], [ %59, %.loopexit11.loopexit ]
-  %.1140 = phi i32 [ 0, %58 ], [ 0, %54 ], [ %63, %.loopexit11.loopexit ]
+  %.0139 = phi i32 [ 0, %58 ], [ 0, %54 ], [ %63, %.loopexit11.loopexit ]
   %64 = getelementptr inbounds i8, ptr %21, i64 80
   store ptr %.0142, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %21, i64 88
-  store i32 %.1140, ptr %65, align 8
+  store i32 %.0139, ptr %65, align 8
   %66 = load ptr, ptr %5, align 8
   %67 = call ptr @xmlXPathEvalExpression(ptr noundef %66, ptr noundef nonnull %21) #11
   store ptr null, ptr %55, align 8
@@ -715,10 +715,10 @@ define hidden void @zim_DOMXPath_registerPhpFunctions(ptr noundef %0, ptr nocapt
 
 .thread86:                                        ; preds = %13, %..thread86_crit_edge, %17, %19, %11
   %23 = phi ptr [ null, %11 ], [ null, %19 ], [ %18, %17 ], [ %.pre, %..thread86_crit_edge ], [ null, %13 ]
-  %.2.ph = phi ptr [ null, %11 ], [ %20, %19 ], [ null, %17 ], [ null, %..thread86_crit_edge ], [ null, %13 ]
+  %.057.ph = phi ptr [ null, %11 ], [ %20, %19 ], [ null, %17 ], [ null, %..thread86_crit_edge ], [ null, %13 ]
   %24 = getelementptr inbounds i8, ptr %5, i64 -24
   %25 = load ptr, ptr %24, align 8
-  %26 = call i32 @php_dom_xpath_callbacks_update_method_handler(ptr noundef nonnull %6, ptr noundef %25, ptr noundef null, ptr noundef %23, ptr noundef %.2.ph, i32 noundef 0, ptr noundef null) #11
+  %26 = call i32 @php_dom_xpath_callbacks_update_method_handler(ptr noundef nonnull %6, ptr noundef %25, ptr noundef null, ptr noundef %23, ptr noundef %.057.ph, i32 noundef 0, ptr noundef null) #11
   br label %27
 
 27:                                               ; preds = %.thread86, %.thread96

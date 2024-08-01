@@ -1107,7 +1107,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %53, %58
   br label %98
 
 .preheader:                                       ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit
-  %.not192 = icmp eq i64 %.265, 0
+  %.not192 = icmp eq i64 %.164, 0
   br i1 %.not192, label %._crit_edge189, label %.lr.ph188
 
 .lr.ph188:                                        ; preds = %.preheader
@@ -1122,7 +1122,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5clearEv.exit: ; preds = %53, %58
 98:                                               ; preds = %.lr.ph185, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit
   %99 = phi ptr [ %60, %.lr.ph185 ], [ %312, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit ]
   %.062184 = phi i64 [ 0, %.lr.ph185 ], [ %310, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit ]
-  %.063183 = phi i64 [ 0, %.lr.ph185 ], [ %.265, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit ]
+  %.063183 = phi i64 [ 0, %.lr.ph185 ], [ %.164, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit ]
   %100 = getelementptr inbounds %"class.cv::Mat", ptr %99, i64 %.062184
   invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %22, ptr noundef nonnull align 8 dereferenceable(96) %100)
           to label %101 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1258,8 +1258,8 @@ _ZN2cv4face18FacemarkKazemiImpl13convertToUnitENS_5Rect_IiEERNS_3MatE.exit: ; pr
 
 .lr.ph:                                           ; preds = %_ZN2cv4face18FacemarkKazemiImpl13convertToUnitENS_5Rect_IiEERNS_3MatE.exit, %_ZN2cv3MataSERKNS_7MatExprE.exit
   %140 = phi ptr [ %237, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ %139, %_ZN2cv4face18FacemarkKazemiImpl13convertToUnitENS_5Rect_IiEERNS_3MatE.exit ]
-  %.164182 = phi i64 [ %232, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ 0, %_ZN2cv4face18FacemarkKazemiImpl13convertToUnitENS_5Rect_IiEERNS_3MatE.exit ]
-  %141 = getelementptr inbounds %"class.cv::Point_", ptr %140, i64 %.164182
+  %.265182 = phi i64 [ %232, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ 0, %_ZN2cv4face18FacemarkKazemiImpl13convertToUnitENS_5Rect_IiEERNS_3MatE.exit ]
+  %141 = getelementptr inbounds %"class.cv::Point_", ptr %140, i64 %.265182
   %.sroa.0.0.copyload = load float, ptr %141, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %141, i64 4
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
@@ -1487,19 +1487,19 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %209
   %222 = load ptr, ptr %1, align 8
   %223 = getelementptr inbounds %"class.std::vector", ptr %222, i64 %.062184
   %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds %"class.cv::Point_", ptr %224, i64 %.164182
+  %225 = getelementptr inbounds %"class.cv::Point_", ptr %224, i64 %.265182
   store float %217, ptr %225, align 4
   %.sroa.5.0..sroa_idx18 = getelementptr inbounds i8, ptr %225, i64 4
   store float %221, ptr %.sroa.5.0..sroa_idx18, align 4
-  %226 = getelementptr inbounds [200 x float], ptr %15, i64 0, i64 %.164182
+  %226 = getelementptr inbounds [200 x float], ptr %15, i64 0, i64 %.265182
   %227 = load float, ptr %226, align 4
   %228 = fadd float %227, %217
   store float %228, ptr %226, align 4
-  %229 = getelementptr inbounds [200 x float], ptr %16, i64 0, i64 %.164182
+  %229 = getelementptr inbounds [200 x float], ptr %16, i64 0, i64 %.265182
   %230 = load float, ptr %229, align 4
   %231 = fadd float %230, %221
   store float %231, ptr %229, align 4
-  %232 = add nuw i64 %.164182, 1
+  %232 = add nuw i64 %.265182, 1
   %233 = load ptr, ptr %1, align 8
   %234 = getelementptr inbounds %"class.std::vector", ptr %233, i64 %.062184
   %235 = getelementptr inbounds i8, ptr %234, i64 8
@@ -1535,7 +1535,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %209
   br label %.body
 
 ._crit_edge:                                      ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %_ZN2cv4face18FacemarkKazemiImpl13convertToUnitENS_5Rect_IiEERNS_3MatE.exit
-  %.164.lcssa = phi i64 [ 0, %_ZN2cv4face18FacemarkKazemiImpl13convertToUnitENS_5Rect_IiEERNS_3MatE.exit ], [ %232, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
+  %.265.lcssa = phi i64 [ 0, %_ZN2cv4face18FacemarkKazemiImpl13convertToUnitENS_5Rect_IiEERNS_3MatE.exit ], [ %232, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
   %249 = load ptr, ptr %2, align 8
   %250 = getelementptr inbounds %"class.cv::Mat", ptr %249, i64 %.062184
   %251 = load ptr, ptr %86, align 8
@@ -1708,7 +1708,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %286, %117, %112
-  %.265 = phi i64 [ %.063183, %112 ], [ %.063183, %117 ], [ %.164.lcssa, %286 ], [ %.164.lcssa, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
+  %.164 = phi i64 [ %.063183, %112 ], [ %.063183, %117 ], [ %.265.lcssa, %286 ], [ %.265.lcssa, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i ]
   %310 = add nuw i64 %.062184, 1
   %311 = load ptr, ptr %30, align 8
   %312 = load ptr, ptr %2, align 8
@@ -1850,7 +1850,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__n
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %355
   %380 = add nuw i64 %.0187, 1
-  %exitcond.not = icmp eq i64 %380, %.265
+  %exitcond.not = icmp eq i64 %380, %.164
   br i1 %exitcond.not, label %._crit_edge189.loopexit, label %318, !llvm.loop !30
 
 ._crit_edge189.loopexit:                          ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit

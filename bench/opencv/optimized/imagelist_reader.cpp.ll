@@ -595,7 +595,7 @@ _ZL7processRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5
 _ZL4helpPPc.exit58:                               ; preds = %.noexc56._ZL4helpPPc.exit58_crit_edge, %_ZL7processRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE.exit
   %161 = phi ptr [ %159, %_ZL7processRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE.exit ], [ %.pre66, %.noexc56._ZL4helpPPc.exit58_crit_edge ]
   %162 = phi ptr [ %160, %_ZL7processRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE.exit ], [ %.pre, %.noexc56._ZL4helpPPc.exit58_crit_edge ]
-  %.013 = phi i32 [ 0, %_ZL7processRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE.exit ], [ 1, %.noexc56._ZL4helpPPc.exit58_crit_edge ]
+  %.215 = phi i32 [ 0, %_ZL7processRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE.exit ], [ 1, %.noexc56._ZL4helpPPc.exit58_crit_edge ]
   %.not4.i.i.i.i = icmp eq ptr %162, %161
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
@@ -620,7 +620,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZL4helpPPc.exit45
 
 _ZL4helpPPc.exit45:                               ; preds = %165, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %.noexc43
-  %.114 = phi i32 [ 1, %.noexc43 ], [ %.013, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.013, %165 ]
+  %.114 = phi i32 [ 1, %.noexc43 ], [ %.215, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i ], [ %.215, %165 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #13
   br label %_ZL4helpPPc.exit
 
@@ -630,9 +630,9 @@ _ZL4helpPPc.exit45:                               ; preds = %165, %_ZSt8_Destroy
   br label %167
 
 _ZL4helpPPc.exit:                                 ; preds = %.noexc33, %_ZL4helpPPc.exit45
-  %.215 = phi i32 [ %.114, %_ZL4helpPPc.exit45 ], [ 0, %.noexc33 ]
+  %.013 = phi i32 [ %.114, %_ZL4helpPPc.exit45 ], [ 0, %.noexc33 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #13
-  ret i32 %.215
+  ret i32 %.013
 
 167:                                              ; preds = %166, %72, %52, %51
   %.pn23 = phi { ptr, i32 } [ %53, %52 ], [ %.pn21, %166 ], [ %.pn19, %72 ], [ %.pn17, %51 ]

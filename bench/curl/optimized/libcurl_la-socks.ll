@@ -921,14 +921,14 @@ if.then274.i.i:                                   ; preds = %if.end269.i.i
   br i1 %tobool281.not496.i.i, label %if.then286.i.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.then274.i.i, %while.body.i.i
-  %hp.1497.i.i = phi ptr [ %83, %while.body.i.i ], [ %hp.0.i.i, %if.then274.i.i ]
-  %ai_family.i.i = getelementptr inbounds i8, ptr %hp.1497.i.i, i64 4
+  %hp.2497.i.i = phi ptr [ %83, %while.body.i.i ], [ %hp.0.i.i, %if.then274.i.i ]
+  %ai_family.i.i = getelementptr inbounds i8, ptr %hp.2497.i.i, i64 4
   %82 = load i32, ptr %ai_family.i.i, align 4
   %cmp282.not.i.i = icmp eq i32 %82, %cond280.i.i
   br i1 %cmp282.not.i.i, label %if.end288.i.i, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %ai_next.i.i = getelementptr inbounds i8, ptr %hp.1497.i.i, i64 40
+  %ai_next.i.i = getelementptr inbounds i8, ptr %hp.2497.i.i, i64 40
   %83 = load ptr, ptr %ai_next.i.i, align 8
   %tobool281.not.i.i = icmp eq ptr %83, null
   br i1 %tobool281.not.i.i, label %if.then286.i.i, label %land.rhs.i.i, !llvm.loop !4
@@ -943,14 +943,14 @@ if.then286.i.i:                                   ; preds = %while.body.i.i, %if
   br label %do_SOCKS5.exit.i
 
 if.end288.i.i:                                    ; preds = %land.rhs.i.i, %if.end284.i.i
-  %hp.2478.i.i = phi ptr [ %hp.0.i.i, %if.end284.i.i ], [ %hp.1497.i.i, %land.rhs.i.i ]
-  call void @Curl_printable_address(ptr noundef nonnull %hp.2478.i.i, ptr noundef nonnull %dest.i.i, i64 noundef 46) #7
+  %hp.1478.i.i = phi ptr [ %hp.0.i.i, %if.end284.i.i ], [ %hp.2497.i.i, %land.rhs.i.i ]
+  call void @Curl_printable_address(ptr noundef nonnull %hp.1478.i.i, ptr noundef nonnull %dest.i.i, i64 noundef 46) #7
   store i8 5, ptr %19, align 1
   %arrayidx292.i.i = getelementptr inbounds i8, ptr %19, i64 1
   store i8 1, ptr %arrayidx292.i.i, align 1
   %arrayidx294.i.i = getelementptr inbounds i8, ptr %19, i64 2
   store i8 0, ptr %arrayidx294.i.i, align 1
-  %ai_family295.i.i = getelementptr inbounds i8, ptr %hp.2478.i.i, i64 4
+  %ai_family295.i.i = getelementptr inbounds i8, ptr %hp.1478.i.i, i64 4
   %85 = load i32, ptr %ai_family295.i.i, align 4
   switch i32 %85, label %if.else358.i.i [
     i32 2, label %if.then298.i.i
@@ -960,7 +960,7 @@ if.end288.i.i:                                    ; preds = %land.rhs.i.i, %if.e
 if.then298.i.i:                                   ; preds = %if.end288.i.i
   %arrayidx300.i.i = getelementptr inbounds i8, ptr %19, i64 3
   store i8 1, ptr %arrayidx300.i.i, align 1
-  %ai_addr.i.i = getelementptr inbounds i8, ptr %hp.2478.i.i, i64 32
+  %ai_addr.i.i = getelementptr inbounds i8, ptr %hp.1478.i.i, i64 32
   %86 = load ptr, ptr %ai_addr.i.i, align 8
   %sin_addr.i.i = getelementptr inbounds i8, ptr %86, i64 4
   br label %for.body.i.i
@@ -997,18 +997,18 @@ if.then318.i.i:                                   ; preds = %land.lhs.true310.i.
 if.then327.i.i:                                   ; preds = %if.end288.i.i
   %arrayidx330.i.i = getelementptr inbounds i8, ptr %19, i64 3
   store i8 4, ptr %arrayidx330.i.i, align 1
-  %ai_addr331.i.i = getelementptr inbounds i8, ptr %hp.2478.i.i, i64 32
+  %ai_addr331.i.i = getelementptr inbounds i8, ptr %hp.1478.i.i, i64 32
   %90 = load ptr, ptr %ai_addr331.i.i, align 8
   %sin6_addr.i.i = getelementptr inbounds i8, ptr %90, i64 8
   br label %for.body335.i.i
 
 for.body335.i.i:                                  ; preds = %for.body335.i.i, %if.then327.i.i
   %indvars.iv.i.i = phi i64 [ 0, %if.then327.i.i ], [ %indvars.iv.next.i.i, %for.body335.i.i ]
-  %len.1498.i.i = phi i64 [ 4, %if.then327.i.i ], [ %inc338.i.i, %for.body335.i.i ]
+  %len.2498.i.i = phi i64 [ 4, %if.then327.i.i ], [ %inc338.i.i, %for.body335.i.i ]
   %arrayidx337.i.i = getelementptr inbounds i8, ptr %sin6_addr.i.i, i64 %indvars.iv.i.i
   %91 = load i8, ptr %arrayidx337.i.i, align 1
-  %inc338.i.i = add nuw nsw i64 %len.1498.i.i, 1
-  %arrayidx339.i.i = getelementptr inbounds i8, ptr %19, i64 %len.1498.i.i
+  %inc338.i.i = add nuw nsw i64 %len.2498.i.i, 1
+  %arrayidx339.i.i = getelementptr inbounds i8, ptr %19, i64 %len.2498.i.i
   store i8 %91, ptr %arrayidx339.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
@@ -1036,7 +1036,7 @@ if.else358.i.i:                                   ; preds = %if.end288.i.i
   br label %if.end361.i.i
 
 if.end361.i.i:                                    ; preds = %if.else358.i.i, %if.then353.i.i, %land.lhs.true345.i.i, %do.body343.i.i, %if.then318.i.i, %land.lhs.true310.i.i, %do.body308.i.i
-  %len.2.i.i = phi i64 [ 8, %if.then318.i.i ], [ 8, %land.lhs.true310.i.i ], [ 8, %do.body308.i.i ], [ 20, %if.then353.i.i ], [ 20, %land.lhs.true345.i.i ], [ 20, %do.body343.i.i ], [ 3, %if.else358.i.i ]
+  %len.1.i.i = phi i64 [ 8, %if.then318.i.i ], [ 8, %land.lhs.true310.i.i ], [ 8, %do.body308.i.i ], [ 20, %if.then353.i.i ], [ 20, %land.lhs.true345.i.i ], [ 20, %do.body343.i.i ], [ 3, %if.else358.i.i ]
   %94 = load ptr, ptr %dns.i.i, align 8
   call void @Curl_resolv_unlock(ptr noundef %data, ptr noundef %94) #7
   br label %CONNECT_REQ_SEND.i.i
@@ -1102,7 +1102,7 @@ if.else401.i.i:                                   ; preds = %if.else389.i.i
   br label %land.lhs.true414.i.i
 
 land.lhs.true414.i.i:                             ; preds = %if.else401.i.i, %if.then395.i.i, %if.end383.i.i
-  %len.3.i.i = phi i64 [ 20, %if.end383.i.i ], [ 8, %if.then395.i.i ], [ %add409.i.i, %if.else401.i.i ]
+  %len.4.i.i = phi i64 [ 20, %if.end383.i.i ], [ 8, %if.then395.i.i ], [ %add409.i.i, %if.else401.i.i ]
   %verbose416.i.i = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load417.i.i = load i64, ptr %verbose416.i.i, align 2
   %99 = and i64 %bf.load417.i.i, 536870912
@@ -1117,16 +1117,16 @@ if.then422.i.i:                                   ; preds = %land.lhs.true414.i.
   br label %CONNECT_REQ_SEND.i.i
 
 CONNECT_REQ_SEND.i.i:                             ; preds = %if.then422.i.i, %land.lhs.true414.i.i, %sw.bb362.i.i, %if.end361.i.i, %sw.bb.i
-  %len.4.i.i = phi i64 [ 0, %sw.bb.i ], [ 3, %sw.bb362.i.i ], [ %len.3.i.i, %if.then422.i.i ], [ %len.3.i.i, %land.lhs.true414.i.i ], [ %len.2.i.i, %if.end361.i.i ]
+  %len.3.i.i = phi i64 [ 0, %sw.bb.i ], [ 3, %sw.bb362.i.i ], [ %len.4.i.i, %if.then422.i.i ], [ %len.4.i.i, %land.lhs.true414.i.i ], [ %len.1.i.i, %if.end361.i.i ]
   %remote_port429.i.i = getelementptr inbounds i8, ptr %sx.0, i64 32
   %102 = load i32, ptr %remote_port429.i.i, align 8
   %shr.i.i = lshr i32 %102, 8
   %conv431.i.i = trunc i32 %shr.i.i to i8
-  %arrayidx433.i.i = getelementptr inbounds i8, ptr %19, i64 %len.4.i.i
+  %arrayidx433.i.i = getelementptr inbounds i8, ptr %19, i64 %len.3.i.i
   store i8 %conv431.i.i, ptr %arrayidx433.i.i, align 1
   %103 = load i32, ptr %remote_port429.i.i, align 8
   %conv436.i.i = trunc i32 %103 to i8
-  %inc437.i.i = add nsw i64 %len.4.i.i, 2
+  %inc437.i.i = add nsw i64 %len.3.i.i, 2
   %arrayidx438.i.i = getelementptr i8, ptr %arrayidx433.i.i, i64 1
   store i8 %conv436.i.i, ptr %arrayidx438.i.i, align 1
   %outp439.i.i = getelementptr inbounds i8, ptr %sx.0, i64 16

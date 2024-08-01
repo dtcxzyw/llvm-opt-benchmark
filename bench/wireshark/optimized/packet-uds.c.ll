@@ -2697,9 +2697,9 @@ uds_proto_tree_add_address_item.exit1162:         ; preds = %179, %uds_proto_ite
   br label %.thread1182
 
 270:                                              ; preds = %.preheader, %infocol_append_data_name.exit
-  %.01059 = phi i32 [ %304, %infocol_append_data_name.exit ], [ 1, %.preheader ]
+  %.11060 = phi i32 [ %304, %infocol_append_data_name.exit ], [ 1, %.preheader ]
   %271 = load i32, ptr @hf_uds_rdbi_data_identifier, align 4
-  %272 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %84, i32 noundef %271, ptr noundef %0, i32 noundef %.01059, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %24) #9
+  %272 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %84, i32 noundef %271, ptr noundef %0, i32 noundef %.11060, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %24) #9
   store ptr %272, ptr %18, align 8
   %273 = load i32, ptr %24, align 4
   %274 = and i32 %273, 65535
@@ -2791,8 +2791,8 @@ uds_lookup_data_name.exit.thread.i1165:           ; preds = %uds_lookup_data_nam
   br label %infocol_append_data_name.exit
 
 infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_name.exit.i1168, %uds_lookup_data_name.exit.thread.i1165
-  %304 = add i32 %.01059, 2
-  %305 = add i32 %.01059, 4
+  %304 = add i32 %.11060, 2
+  %305 = add i32 %.11060, 4
   %.not1108 = icmp ult i32 %60, %305
   br i1 %.not1108, label %.loopexit, label %270, !llvm.loop !7
 
@@ -2824,21 +2824,21 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br i1 %79, label %.preheader1191, label %.loopexit
 
 .preheader1191:                                   ; preds = %319, %.loopexit1190
-  %.11060 = phi i32 [ %.3, %.loopexit1190 ], [ 3, %319 ]
+  %.2 = phi i32 [ %.4, %.loopexit1190 ], [ 3, %319 ]
   %322 = load i32, ptr @hf_uds_rsdbi_scaling_byte, align 4
-  %323 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %322, ptr noundef %0, i32 noundef %.11060, i32 noundef 1, i32 noundef 0) #9
+  %323 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %322, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #9
   store ptr %323, ptr %18, align 8
   %324 = load i32, ptr @ett_uds_rsdbi_scaling_byte, align 4
   %325 = call ptr @proto_item_add_subtree(ptr noundef %323, i32 noundef %324) #9
   %326 = load i32, ptr @hf_uds_rsdbi_scaling_byte_data_type, align 4
-  %327 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %325, i32 noundef %326, ptr noundef %0, i32 noundef %.11060, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %25) #9
+  %327 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %325, i32 noundef %326, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %25) #9
   %328 = load i32, ptr @hf_uds_rsdbi_scaling_byte_num_of_bytes, align 4
-  %329 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %325, i32 noundef %328, ptr noundef %0, i32 noundef %.11060, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %26) #9
+  %329 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %325, i32 noundef %328, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %26) #9
   %330 = load i32, ptr %25, align 4
   %331 = call ptr @val_to_str(i32 noundef %330, ptr noundef nonnull @uds_rsdbi_data_types, ptr noundef nonnull @.str.731) #9
   %332 = load i32, ptr %26, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %323, ptr noundef nonnull @.str.730, ptr noundef %331, i32 noundef %332) #9
-  %333 = add nuw i32 %.11060, 1
+  %333 = add nuw i32 %.2, 1
   %334 = load i32, ptr %25, align 4
   switch i32 %334, label %.loopexit1190 [
     i32 2, label %335
@@ -2859,22 +2859,22 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %343 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %342, ptr noundef %0, i32 noundef %333, i32 noundef 1, i32 noundef 0) #9
   %344 = load i32, ptr %26, align 4
   %345 = add i32 %344, %333
-  %.reass = add i32 %.11060, 3
+  %.reass = add i32 %.2, 3
   %.not11071199 = icmp ugt i32 %.reass, %345
   br i1 %.not11071199, label %.loopexit1190, label %.lr.ph1201
 
 .lr.ph1201:                                       ; preds = %341, %.lr.ph1201
   %346 = phi i32 [ %355, %.lr.ph1201 ], [ %.reass, %341 ]
-  %.21200 = phi i32 [ %346, %.lr.ph1201 ], [ %333, %341 ]
+  %.31200 = phi i32 [ %346, %.lr.ph1201 ], [ %333, %341 ]
   %347 = load i32, ptr @hf_uds_rsdbi_formula_constant, align 4
-  %348 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %347, ptr noundef %0, i32 noundef %.21200, i32 noundef 2, i32 noundef 0) #9
+  %348 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %347, ptr noundef %0, i32 noundef %.31200, i32 noundef 2, i32 noundef 0) #9
   store ptr %348, ptr %18, align 8
   %349 = load i32, ptr @ett_uds_rsdbi_formula_constant, align 4
   %350 = call ptr @proto_item_add_subtree(ptr noundef %348, i32 noundef %349) #9
   %351 = load i32, ptr @hf_uds_rsdbi_formula_constant_exp, align 4
-  %352 = call ptr @proto_tree_add_item(ptr noundef %350, i32 noundef %351, ptr noundef %0, i32 noundef %.21200, i32 noundef 2, i32 noundef 0) #9
+  %352 = call ptr @proto_tree_add_item(ptr noundef %350, i32 noundef %351, ptr noundef %0, i32 noundef %.31200, i32 noundef 2, i32 noundef 0) #9
   %353 = load i32, ptr @hf_uds_rsdbi_formula_constant_mantissa, align 4
-  %354 = call ptr @proto_tree_add_item(ptr noundef %350, i32 noundef %353, ptr noundef %0, i32 noundef %.21200, i32 noundef 2, i32 noundef 0) #9
+  %354 = call ptr @proto_tree_add_item(ptr noundef %350, i32 noundef %353, ptr noundef %0, i32 noundef %.31200, i32 noundef 2, i32 noundef 0) #9
   %355 = add i32 %346, 2
   %.not1107 = icmp ugt i32 %355, %345
   br i1 %.not1107, label %.loopexit1190, label %.lr.ph1201, !llvm.loop !8
@@ -2887,8 +2887,8 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.loopexit1190
 
 .loopexit1190:                                    ; preds = %.lr.ph1201, %341, %.preheader1191, %335, %356
-  %.3 = phi i32 [ %333, %.preheader1191 ], [ %360, %356 ], [ %340, %335 ], [ %333, %341 ], [ %346, %.lr.ph1201 ]
-  %361 = icmp ult i32 %.3, %60
+  %.4 = phi i32 [ %333, %.preheader1191 ], [ %360, %356 ], [ %340, %335 ], [ %333, %341 ], [ %346, %.lr.ph1201 ]
+  %361 = icmp ult i32 %.4, %60
   br i1 %361, label %.preheader1191, label %.loopexit, !llvm.loop !9
 
 362:                                              ; preds = %190
@@ -3310,10 +3310,10 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %650
 
 650:                                              ; preds = %625, %645
-  %.4 = phi i32 [ %649, %645 ], [ %640, %625 ]
+  %.5 = phi i32 [ %649, %645 ], [ %640, %625 ]
   %651 = load i32, ptr @hf_uds_ars_length_of_additional_parameter, align 4
-  %652 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %84, i32 noundef %651, ptr noundef %0, i32 noundef %.4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %35) #9
-  %653 = add i32 %.4, 2
+  %652 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %84, i32 noundef %651, ptr noundef %0, i32 noundef %.5, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %35) #9
+  %653 = add i32 %.5, 2
   %654 = load i32, ptr %35, align 4
   %.not1099 = icmp eq i32 %654, 0
   br i1 %.not1099, label %.loopexit, label %655
@@ -3350,15 +3350,15 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %675
 
 675:                                              ; preds = %672, %667
-  %.5 = phi i32 [ 3, %672 ], [ 2, %667 ]
-  %676 = icmp ult i32 %.5, %60
+  %.6 = phi i32 [ 3, %672 ], [ 2, %667 ]
+  %676 = icmp ult i32 %.6, %60
   br i1 %676, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %675, %.lr.ph
-  %.61198 = phi i32 [ %679, %.lr.ph ], [ %.5, %675 ]
+  %.71198 = phi i32 [ %679, %.lr.ph ], [ %.6, %675 ]
   %677 = load i32, ptr @hf_uds_rdbpi_periodic_data_identifier, align 4
-  %678 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %677, ptr noundef %0, i32 noundef %.61198, i32 noundef 1, i32 noundef 0) #9
-  %679 = add i32 %.61198, 1
+  %678 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %677, ptr noundef %0, i32 noundef %.71198, i32 noundef 1, i32 noundef 0) #9
+  %679 = add i32 %.71198, 1
   %exitcond.not = icmp eq i32 %679, %60
   br i1 %exitcond.not, label %.thread1182, label %.lr.ph, !llvm.loop !10
 
@@ -3391,24 +3391,24 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %692
 
 692:                                              ; preds = %692, %689
-  %.7 = phi i32 [ 4, %689 ], [ %703, %692 ]
+  %.8 = phi i32 [ 4, %689 ], [ %703, %692 ]
   %693 = load i32, ptr @ett_uds_dddi_entry, align 4
-  %694 = call ptr @proto_tree_add_subtree(ptr noundef %84, ptr noundef %0, i32 noundef %.7, i32 noundef 4, i32 noundef %693, ptr noundef nonnull %18, ptr noundef nonnull @.str.734) #9
+  %694 = call ptr @proto_tree_add_subtree(ptr noundef %84, ptr noundef %0, i32 noundef %.8, i32 noundef 4, i32 noundef %693, ptr noundef nonnull %18, ptr noundef nonnull @.str.734) #9
   %695 = load i32, ptr @hf_uds_dddi_source_data_identifier, align 4
-  %696 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %694, i32 noundef %695, ptr noundef %0, i32 noundef %.7, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %37) #9
-  %697 = or disjoint i32 %.7, 2
+  %696 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %694, i32 noundef %695, ptr noundef %0, i32 noundef %.8, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %37) #9
+  %697 = or disjoint i32 %.8, 2
   %698 = load i32, ptr @hf_uds_dddi_position_in_source_data_record, align 4
   %699 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %694, i32 noundef %698, ptr noundef %0, i32 noundef %697, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %38) #9
-  %700 = or disjoint i32 %.7, 3
+  %700 = or disjoint i32 %.8, 3
   %701 = load i32, ptr @hf_uds_dddi_memory_size, align 4
   %702 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %694, i32 noundef %701, ptr noundef %0, i32 noundef %700, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %39) #9
-  %703 = add i32 %.7, 4
+  %703 = add i32 %.8, 4
   %704 = load ptr, ptr %18, align 8
   %705 = load i32, ptr %38, align 4
   %706 = load i32, ptr %37, align 4
   %707 = load i32, ptr %39, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %704, ptr noundef nonnull @.str.735, i32 noundef %705, i32 noundef %706, i32 noundef %707) #9
-  %708 = add i32 %.7, 8
+  %708 = add i32 %.8, 8
   %.not1097 = icmp ugt i32 %708, %60
   br i1 %.not1097, label %.loopexit, label %692, !llvm.loop !11
 
@@ -3424,11 +3424,11 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 716:                                              ; preds = %716, %709
   %717 = phi i32 [ %.pre1212, %709 ], [ %727, %716 ]
-  %.8 = phi i32 [ 5, %709 ], [ %726, %716 ]
+  %.9 = phi i32 [ 5, %709 ], [ %726, %716 ]
   %718 = load i32, ptr @hf_uds_memory_address, align 4
-  %719 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %84, i32 noundef %718, ptr noundef %0, i32 noundef %.8, i32 noundef %717, i32 noundef 0, ptr noundef nonnull %42) #9
+  %719 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %84, i32 noundef %718, ptr noundef %0, i32 noundef %.9, i32 noundef %717, i32 noundef 0, ptr noundef nonnull %42) #9
   %720 = load i32, ptr %41, align 4
-  %721 = add i32 %720, %.8
+  %721 = add i32 %720, %.9
   %722 = load i32, ptr @hf_uds_memory_size, align 4
   %723 = load i32, ptr %40, align 4
   %724 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %84, i32 noundef %722, ptr noundef %0, i32 noundef %721, i32 noundef %723, i32 noundef 0, ptr noundef nonnull %43) #9
@@ -3711,15 +3711,15 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 .thread1178:                                      ; preds = %878, %878, %878, %878, %894
   %899 = phi i32 [ %.pre1211, %894 ], [ %.pr1177, %878 ], [ %.pr1177, %878 ], [ %.pr1177, %878 ], [ %.pr1177, %878 ]
-  %.11 = phi i32 [ %898, %894 ], [ %883, %878 ], [ %883, %878 ], [ %883, %878 ], [ %883, %878 ]
+  %.12 = phi i32 [ %898, %894 ], [ %883, %878 ], [ %883, %878 ], [ %883, %878 ], [ %883, %878 ]
   %900 = add i32 %899, -6
   %or.cond27 = icmp ult i32 %900, -5
   br i1 %or.cond27, label %901, label %.loopexit
 
 901:                                              ; preds = %.thread1178
   %902 = load i32, ptr @hf_uds_rft_file_position, align 4
-  %903 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %902, ptr noundef %0, i32 noundef %.11, i32 noundef 8, i32 noundef 0) #9
-  %904 = add i32 %.11, 8
+  %903 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %902, ptr noundef %0, i32 noundef %.12, i32 noundef 8, i32 noundef 0) #9
+  %904 = add i32 %.12, 8
   br label %.loopexit
 
 905:                                              ; preds = %865
@@ -3747,7 +3747,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 920:                                              ; preds = %905, %905, %914
   %921 = phi i32 [ %913, %905 ], [ %913, %905 ], [ %.pr1180, %914 ]
-  %.12 = phi i32 [ %912, %905 ], [ %912, %905 ], [ %919, %914 ]
+  %.13 = phi i32 [ %912, %905 ], [ %912, %905 ], [ %919, %914 ]
   switch i32 %921, label %922 [
     i32 5, label %.loopexit
     i32 4, label %.loopexit
@@ -3756,8 +3756,8 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 922:                                              ; preds = %920
   %923 = load i32, ptr @hf_uds_rft_file_size_param_length, align 4
-  %924 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %84, i32 noundef %923, ptr noundef %0, i32 noundef %.12, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %54) #9
-  %925 = add i32 %.12, 1
+  %924 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %84, i32 noundef %923, ptr noundef %0, i32 noundef %.13, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %54) #9
+  %925 = add i32 %.13, 1
   %926 = load i32, ptr @hf_uds_rft_file_size_uncompressed, align 4
   %927 = load i32, ptr %54, align 4
   %928 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %84, i32 noundef %926, ptr noundef %0, i32 noundef %925, i32 noundef %927, i32 noundef 0, ptr noundef nonnull %55) #9
@@ -3850,11 +3850,11 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 991:                                              ; preds = %989, %961
   %992 = phi i32 [ %.pre, %989 ], [ %971, %961 ]
-  %.13 = phi i32 [ %990, %989 ], [ 8, %961 ]
+  %.14 = phi i32 [ %990, %989 ], [ 8, %961 ]
   %993 = load i32, ptr @hf_uds_sdt_signature_mac, align 4
-  %994 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %993, ptr noundef %0, i32 noundef %.13, i32 noundef %992, i32 noundef 0) #9
+  %994 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %993, ptr noundef %0, i32 noundef %.14, i32 noundef %992, i32 noundef 0) #9
   %995 = load i32, ptr %58, align 4
-  %996 = add i32 %995, %.13
+  %996 = add i32 %995, %.14
   br label %.loopexit
 
 997:                                              ; preds = %190
@@ -3934,15 +3934,15 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   br label %.loopexit
 
 .loopexit:                                        ; preds = %716, %692, %.loopexit1190, %infocol_append_data_name.exit, %868, %870, %884, %675, %1024, %920, %920, %920, %230, %235, %1044, %1038, %1034, %998, %935, %901, %.thread1178, %922, %855, %841, %829, %839, %797, %815, %735, %684, %682, %730, %732, %687, %541, %560, %525, %536, %501, %520, %490, %496, %454, %485, %435, %449, %432, %430, %650, %655, %590, %602, %585, %567, %617, %607, %565, %413, %414, %425, %362, %319, %317, %307, %236, %237, %222, %206, %207, %991, %950, %946, %243, %190
-  %.14 = phi i32 [ 1, %190 ], [ 2, %1034 ], [ 5, %1044 ], [ 3, %1038 ], [ 2, %998 ], [ %996, %991 ], [ 3, %950 ], [ 2, %946 ], [ %936, %935 ], [ %904, %901 ], [ %.11, %.thread1178 ], [ %934, %922 ], [ %.12, %920 ], [ 1, %855 ], [ 2, %841 ], [ %836, %829 ], [ %840, %839 ], [ 4, %797 ], [ 4, %815 ], [ 3, %735 ], [ 4, %684 ], [ 2, %682 ], [ 2, %687 ], [ 4, %732 ], [ 2, %730 ], [ 2, %430 ], [ %564, %560 ], [ %558, %541 ], [ %540, %536 ], [ 21, %525 ], [ %524, %520 ], [ %518, %501 ], [ %500, %496 ], [ 5, %490 ], [ %489, %485 ], [ %483, %454 ], [ %453, %449 ], [ %447, %435 ], [ 3, %432 ], [ 2, %565 ], [ 19, %617 ], [ %616, %607 ], [ %606, %602 ], [ %600, %590 ], [ %589, %585 ], [ %580, %567 ], [ %659, %655 ], [ %653, %650 ], [ 2, %413 ], [ 5, %425 ], [ 3, %414 ], [ 2, %362 ], [ 3, %319 ], [ 1, %307 ], [ %318, %317 ], [ %244, %243 ], [ 1, %236 ], [ 4, %237 ], [ 2, %222 ], [ 6, %207 ], [ 2, %206 ], [ 3, %235 ], [ 3, %230 ], [ %.12, %920 ], [ %.12, %920 ], [ 2, %1024 ], [ %.5, %675 ], [ 2, %868 ], [ %877, %870 ], [ %892, %884 ], [ %304, %infocol_append_data_name.exit ], [ %.3, %.loopexit1190 ], [ %703, %692 ], [ %726, %716 ]
-  %.not1111 = icmp eq i32 %60, %.14
+  %.01059 = phi i32 [ 1, %190 ], [ 2, %1034 ], [ 5, %1044 ], [ 3, %1038 ], [ 2, %998 ], [ %996, %991 ], [ 3, %950 ], [ 2, %946 ], [ %936, %935 ], [ %904, %901 ], [ %.12, %.thread1178 ], [ %934, %922 ], [ %.13, %920 ], [ 1, %855 ], [ 2, %841 ], [ %836, %829 ], [ %840, %839 ], [ 4, %797 ], [ 4, %815 ], [ 3, %735 ], [ 4, %684 ], [ 2, %682 ], [ 2, %687 ], [ 4, %732 ], [ 2, %730 ], [ 2, %430 ], [ %564, %560 ], [ %558, %541 ], [ %540, %536 ], [ 21, %525 ], [ %524, %520 ], [ %518, %501 ], [ %500, %496 ], [ 5, %490 ], [ %489, %485 ], [ %483, %454 ], [ %453, %449 ], [ %447, %435 ], [ 3, %432 ], [ 2, %565 ], [ 19, %617 ], [ %616, %607 ], [ %606, %602 ], [ %600, %590 ], [ %589, %585 ], [ %580, %567 ], [ %659, %655 ], [ %653, %650 ], [ 2, %413 ], [ 5, %425 ], [ 3, %414 ], [ 2, %362 ], [ 3, %319 ], [ 1, %307 ], [ %318, %317 ], [ %244, %243 ], [ 1, %236 ], [ 4, %237 ], [ 2, %222 ], [ 6, %207 ], [ 2, %206 ], [ 3, %235 ], [ 3, %230 ], [ %.13, %920 ], [ %.13, %920 ], [ 2, %1024 ], [ %.6, %675 ], [ 2, %868 ], [ %877, %870 ], [ %892, %884 ], [ %304, %infocol_append_data_name.exit ], [ %.4, %.loopexit1190 ], [ %703, %692 ], [ %726, %716 ]
+  %.not1111 = icmp eq i32 %60, %.01059
   br i1 %.not1111, label %.thread1182, label %1047
 
 1047:                                             ; preds = %.thread1185, %.loopexit
-  %.141188 = phi i32 [ 4, %.thread1185 ], [ %.14, %.loopexit ]
-  %1048 = sub i32 %60, %.141188
+  %.010591188 = phi i32 [ 4, %.thread1185 ], [ %.01059, %.loopexit ]
+  %1048 = sub i32 %60, %.010591188
   %1049 = load i32, ptr @hf_uds_unparsed_bytes, align 4
-  %1050 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %1049, ptr noundef %0, i32 noundef %.141188, i32 noundef %1048, i32 noundef 0) #9
+  %1050 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %1049, ptr noundef %0, i32 noundef %.010591188, i32 noundef %1048, i32 noundef 0) #9
   br label %.thread1182
 
 .thread1182:                                      ; preds = %.lr.ph, %816, %825, %803, %812, %759, %774, %746, %.critedge1113, %377, %377, %386, %378, %403, %395, %257, %.critedge, %309, %661, %798, %847, %857, %938, %1004, %1017, %.loopexit, %1047, %71

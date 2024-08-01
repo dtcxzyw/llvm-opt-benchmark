@@ -167,8 +167,8 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
           to label %100 unwind label %.thread86
 
 97:                                               ; preds = %.thread92, %103
-  %.031 = phi i8 [ %.13297, %.thread92 ], [ %.132, %103 ]
-  %.1 = phi i8 [ %.298, %.thread92 ], [ %.2, %103 ]
+  %.031 = phi i8 [ %.23397, %.thread92 ], [ %.233, %103 ]
+  %.1 = phi i8 [ %.398, %.thread92 ], [ %.3, %103 ]
   %.pn78.pn = phi { ptr, i32 } [ %.pn7899, %.thread92 ], [ %.pn78, %103 ]
   %98 = trunc nuw i8 %.031 to i1
   br i1 %98, label %378, label %92
@@ -188,15 +188,15 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
           to label %107 unwind label %105
 
 103:                                              ; preds = %352, %105
-  %.040 = phi i8 [ %.3, %105 ], [ %.747, %352 ]
-  %.132 = phi i8 [ %.3, %105 ], [ %.8, %352 ]
-  %.2 = phi i8 [ %.3, %105 ], [ %.7, %352 ]
+  %.141 = phi i8 [ %.2, %105 ], [ %.343, %352 ]
+  %.233 = phi i8 [ %.2, %105 ], [ %.435, %352 ]
+  %.3 = phi i8 [ %.2, %105 ], [ %.5, %352 ]
   %.pn78 = phi { ptr, i32 } [ %106, %105 ], [ %.pn76, %352 ]
-  %104 = trunc nuw i8 %.040 to i1
+  %104 = trunc nuw i8 %.141 to i1
   br i1 %104, label %.thread92, label %97
 
 105:                                              ; preds = %355, %109, %108, %101
-  %.3 = phi i8 [ 0, %355 ], [ 1, %109 ], [ 1, %108 ], [ 1, %101 ]
+  %.2 = phi i8 [ 0, %355 ], [ 1, %109 ], [ 1, %108 ], [ 1, %101 ]
   %106 = landingpad { ptr, i32 }
           cleanup
   br label %103
@@ -288,9 +288,9 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
           to label %.thread92 unwind label %120
 
 130:                                              ; preds = %134, %131
-  %.242 = phi i8 [ %.343, %134 ], [ 1, %131 ]
-  %.334 = phi i8 [ %.435, %134 ], [ 1, %131 ]
-  %.4 = phi i8 [ %.5, %134 ], [ 1, %131 ]
+  %.242 = phi i8 [ %.545, %134 ], [ 1, %131 ]
+  %.334 = phi i8 [ %.637, %134 ], [ 1, %131 ]
+  %.4 = phi i8 [ %.7, %134 ], [ 1, %131 ]
   %.pn73.pn = phi { ptr, i32 } [ %.pn73, %134 ], [ %132, %131 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %61) #4
           to label %352 unwind label %120
@@ -305,9 +305,9 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
           to label %137 unwind label %135
 
 134:                                              ; preds = %201, %182, %159, %139, %135
-  %.343 = phi i8 [ %.536, %135 ], [ %.545, %201 ], [ 1, %182 ], [ 1, %159 ], [ 1, %139 ]
-  %.435 = phi i8 [ %.536, %135 ], [ %.637, %201 ], [ 1, %182 ], [ 1, %159 ], [ 1, %139 ]
-  %.5 = phi i8 [ %.6, %135 ], [ 0, %201 ], [ 0, %182 ], [ 1, %159 ], [ 1, %139 ]
+  %.545 = phi i8 [ %.536, %135 ], [ %.747, %201 ], [ 1, %182 ], [ 1, %159 ], [ 1, %139 ]
+  %.637 = phi i8 [ %.536, %135 ], [ %.8, %201 ], [ 1, %182 ], [ 1, %159 ], [ 1, %139 ]
+  %.7 = phi i8 [ %.6, %135 ], [ 0, %201 ], [ 0, %182 ], [ 1, %159 ], [ 1, %139 ]
   %.pn73 = phi { ptr, i32 } [ %136, %135 ], [ %.pn71, %201 ], [ %.pn56, %182 ], [ %.pn52, %159 ], [ %.pn50, %139 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %56) #4
           to label %130 unwind label %120
@@ -557,8 +557,8 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
           to label %204 unwind label %202
 
 201:                                              ; preds = %339, %301, %274, %241, %234, %223, %217, %206, %202
-  %.545 = phi i8 [ %.646, %202 ], [ 0, %339 ], [ 1, %301 ], [ 1, %274 ], [ 1, %241 ], [ 1, %234 ], [ 1, %223 ], [ 1, %217 ], [ 1, %206 ]
-  %.637 = phi i8 [ %.738, %202 ], [ 0, %339 ], [ 0, %301 ], [ 0, %274 ], [ 1, %241 ], [ 1, %234 ], [ 1, %223 ], [ 1, %217 ], [ 1, %206 ]
+  %.747 = phi i8 [ %.646, %202 ], [ 0, %339 ], [ 1, %301 ], [ 1, %274 ], [ 1, %241 ], [ 1, %234 ], [ 1, %223 ], [ 1, %217 ], [ 1, %206 ]
+  %.8 = phi i8 [ %.738, %202 ], [ 0, %339 ], [ 0, %301 ], [ 0, %274 ], [ 1, %241 ], [ 1, %234 ], [ 1, %223 ], [ 1, %217 ], [ 1, %206 ]
   %.pn71 = phi { ptr, i32 } [ %203, %202 ], [ %.pn69, %339 ], [ %302, %301 ], [ %.pn65, %274 ], [ %242, %241 ], [ %235, %234 ], [ %224, %223 ], [ %218, %217 ], [ %207, %206 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %40) #4
           to label %134 unwind label %120
@@ -1131,9 +1131,9 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
           to label %355 unwind label %353
 
 352:                                              ; preds = %353, %130
-  %.747 = phi i8 [ 0, %353 ], [ %.242, %130 ]
-  %.8 = phi i8 [ 0, %353 ], [ %.334, %130 ]
-  %.7 = phi i8 [ 0, %353 ], [ %.4, %130 ]
+  %.343 = phi i8 [ 0, %353 ], [ %.242, %130 ]
+  %.435 = phi i8 [ 0, %353 ], [ %.334, %130 ]
+  %.5 = phi i8 [ 0, %353 ], [ %.4, %130 ]
   %.pn76 = phi { ptr, i32 } [ %354, %353 ], [ %.pn73.pn, %130 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %62) #4
           to label %103 unwind label %120
@@ -1221,8 +1221,8 @@ define hidden void @_ZN15wiggle_generate5types6record13define_struct17h07dccf801
 
 .thread92:                                        ; preds = %111, %123, %128, %103
   %.pn7899 = phi { ptr, i32 } [ %.pn78, %103 ], [ %.pn, %111 ], [ %124, %123 ], [ %129, %128 ]
-  %.298 = phi i8 [ %.2, %103 ], [ 1, %111 ], [ 1, %123 ], [ 1, %128 ]
-  %.13297 = phi i8 [ %.132, %103 ], [ 1, %111 ], [ 1, %123 ], [ 1, %128 ]
+  %.398 = phi i8 [ %.3, %103 ], [ 1, %111 ], [ 1, %123 ], [ 1, %128 ]
+  %.23397 = phi i8 [ %.233, %103 ], [ 1, %111 ], [ 1, %123 ], [ 1, %128 ]
   invoke void @"_ZN4core3ptr207drop_in_place$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$witx..layout..RecordMemberLayout$GT$$C$wiggle_generate..types..record..define_struct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17he9319878d7eb5aeeE"(ptr nonnull align 8 %65) #4
           to label %97 unwind label %120
 

@@ -1676,9 +1676,9 @@ get_dht.exit:                                     ; preds = %._crit_edge181.i, %
   br label %665
 
 665:                                              ; preds = %662, %.split.us.i
-  %.7127.us.i = phi ptr [ %663, %662 ], [ %.4124160.us.i, %.split.us.i ]
-  %.7.us.i = phi i64 [ %664, %662 ], [ %.4159.us.i, %.split.us.i ]
-  %666 = load i8, ptr %.7127.us.i, align 1
+  %.8128.us.i = phi ptr [ %663, %662 ], [ %.4124160.us.i, %.split.us.i ]
+  %.8.us.i = phi i64 [ %664, %662 ], [ %.4159.us.i, %.split.us.i ]
+  %666 = load i8, ptr %.8128.us.i, align 1
   %667 = zext i8 %666 to i16
   %668 = getelementptr inbounds [0 x i32], ptr @jpeg_natural_order, i64 0, i64 %indvars.iv174.i
   %669 = load i32, ptr %668, align 4
@@ -1686,8 +1686,8 @@ get_dht.exit:                                     ; preds = %._crit_edge181.i, %
   %671 = getelementptr inbounds [64 x i16], ptr %657, i64 0, i64 %670
   store i16 %667, ptr %671, align 2
   %indvars.iv.next175.i = add nuw nsw i64 %indvars.iv174.i, 1
-  %.4.us.i = add i64 %.7.us.i, -1
-  %.4124.us.i = getelementptr inbounds i8, ptr %.7127.us.i, i64 1
+  %.4.us.i = add i64 %.8.us.i, -1
+  %.4124.us.i = getelementptr inbounds i8, ptr %.8128.us.i, i64 1
   %exitcond177.not.i = icmp eq i64 %indvars.iv.next175.i, 64
   br i1 %exitcond177.not.i, label %.split162.us.i, label %.split.us.i, !llvm.loop !14
 

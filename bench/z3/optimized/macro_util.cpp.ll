@@ -2918,8 +2918,8 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.i, %if.end, %entry, %if.end.i.i.i.i.i, %cleanup, %_ZNK10arith_util10is_numeralEPK4expr.exit, %_ZNK17arith_recognizers5is_geEPK4expr.exit
-  %retval.1 = phi i1 [ false, %_ZNK17arith_recognizers5is_geEPK4expr.exit ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit ], [ %cmp71246, %cleanup ], [ %cmp71246, %if.end.i.i.i.i.i ], [ false, %entry ], [ false, %if.end ], [ false, %land.rhs.i.i.i ], [ false, %land.rhs.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %_ZNK17arith_recognizers5is_geEPK4expr.exit ], [ false, %_ZNK10arith_util10is_numeralEPK4expr.exit ], [ %cmp71246, %cleanup ], [ %cmp71246, %if.end.i.i.i.i.i ], [ false, %entry ], [ false, %if.end ], [ false, %land.rhs.i.i.i ], [ false, %land.rhs.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5939,8 +5939,8 @@ terminate.lpad.i.i85:                             ; preds = %for.cond.preheader.
   unreachable
 
 return:                                           ; preds = %for.cond.preheader.i.i.i.i, %_ZN10ptr_bufferI4exprLj16EED2Ev.exit, %_Z9is_groundPK4expr.exit
-  %retval.1 = phi i1 [ true, %_Z9is_groundPK4expr.exit ], [ %cmp.i.lcssa, %_ZN10ptr_bufferI4exprLj16EED2Ev.exit ], [ %cmp.i.lcssa, %for.cond.preheader.i.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_Z9is_groundPK4expr.exit ], [ %cmp.i.lcssa, %_ZN10ptr_bufferI4exprLj16EED2Ev.exit ], [ %cmp.i.lcssa, %for.cond.preheader.i.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

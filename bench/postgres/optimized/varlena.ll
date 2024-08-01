@@ -693,15 +693,15 @@ define dso_local i64 @byteaout(ptr nocapture noundef readonly %0) local_unnamed_
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %141
   %.1114 = phi i32 [ %142, %141 ], [ %.1114.ph, %.lr.ph116.preheader ]
   %.179113 = phi ptr [ %143, %141 ], [ %104, %.lr.ph116.preheader ]
-  %.080112 = phi ptr [ %.181, %141 ], [ %100, %.lr.ph116.preheader ]
+  %.181112 = phi ptr [ %.2, %141 ], [ %100, %.lr.ph116.preheader ]
   %120 = load i8, ptr %.179113, align 1
   %121 = icmp eq i8 %120, 92
   br i1 %121, label %122, label %125
 
 122:                                              ; preds = %.lr.ph116
-  %123 = getelementptr i8, ptr %.080112, i64 1
-  store i8 92, ptr %.080112, align 1
-  %124 = getelementptr i8, ptr %.080112, i64 2
+  %123 = getelementptr i8, ptr %.181112, i64 1
+  store i8 92, ptr %.181112, align 1
+  %124 = getelementptr i8, ptr %.181112, i64 2
   store i8 92, ptr %123, align 1
   br label %141
 
@@ -711,30 +711,30 @@ define dso_local i64 @byteaout(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %or.cond106, label %127, label %139
 
 127:                                              ; preds = %125
-  store i8 92, ptr %.080112, align 1
+  store i8 92, ptr %.181112, align 1
   %128 = and i8 %120, 7
   %129 = or disjoint i8 %128, 48
-  %130 = getelementptr i8, ptr %.080112, i64 3
+  %130 = getelementptr i8, ptr %.181112, i64 3
   store i8 %129, ptr %130, align 1
   %131 = lshr i8 %120, 3
   %132 = and i8 %131, 7
   %133 = or disjoint i8 %132, 48
-  %134 = getelementptr i8, ptr %.080112, i64 2
+  %134 = getelementptr i8, ptr %.181112, i64 2
   store i8 %133, ptr %134, align 1
   %135 = lshr i8 %120, 6
   %136 = or disjoint i8 %135, 48
-  %137 = getelementptr i8, ptr %.080112, i64 1
+  %137 = getelementptr i8, ptr %.181112, i64 1
   store i8 %136, ptr %137, align 1
-  %138 = getelementptr i8, ptr %.080112, i64 4
+  %138 = getelementptr i8, ptr %.181112, i64 4
   br label %141
 
 139:                                              ; preds = %125
-  %140 = getelementptr i8, ptr %.080112, i64 1
-  store i8 %120, ptr %.080112, align 1
+  %140 = getelementptr i8, ptr %.181112, i64 1
+  store i8 %120, ptr %.181112, align 1
   br label %141
 
 141:                                              ; preds = %122, %139, %127
-  %.181 = phi ptr [ %124, %122 ], [ %138, %127 ], [ %140, %139 ]
+  %.2 = phi ptr [ %124, %122 ], [ %138, %127 ], [ %140, %139 ]
   %142 = add i32 %.1114, -1
   %143 = getelementptr i8, ptr %.179113, i64 1
   %.not95 = icmp eq i32 %142, 0
@@ -749,9 +749,9 @@ define dso_local i64 @byteaout(ptr nocapture noundef readonly %0) local_unnamed_
   unreachable
 
 .loopexit:                                        ; preds = %141, %118, %63
-  %.2 = phi ptr [ %66, %63 ], [ %100, %118 ], [ %.181, %141 ]
+  %.080 = phi ptr [ %66, %63 ], [ %100, %118 ], [ %.2, %141 ]
   %.0 = phi ptr [ %35, %63 ], [ %100, %118 ], [ %100, %141 ]
-  store i8 0, ptr %.2, align 1
+  store i8 0, ptr %.080, align 1
   %148 = ptrtoint ptr %.0 to i64
   ret i64 %148
 }
@@ -854,7 +854,7 @@ makeStringAggState.exit:                          ; preds = %21
   br label %29
 
 29:                                               ; preds = %makeStringAggState.exit, %15
-  %.043 = phi ptr [ %28, %makeStringAggState.exit ], [ %11, %15 ]
+  %.1 = phi ptr [ %28, %makeStringAggState.exit ], [ %11, %15 ]
   %30 = getelementptr i8, ptr %0, i64 72
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
@@ -902,7 +902,7 @@ makeStringAggState.exit:                          ; preds = %21
 
 61:                                               ; preds = %54, %57, %45
   %62 = phi i32 [ %52, %45 ], [ %56, %54 ], [ %60, %57 ]
-  call void @appendBinaryStringInfo(ptr noundef %.043, ptr noundef nonnull %43, i32 noundef %62) #19
+  call void @appendBinaryStringInfo(ptr noundef %.1, ptr noundef nonnull %43, i32 noundef %62) #19
   br i1 %20, label %63, label %87
 
 63:                                               ; preds = %61
@@ -940,7 +940,7 @@ makeStringAggState.exit:                          ; preds = %21
 
 84:                                               ; preds = %77, %80, %67
   %85 = phi i32 [ %74, %67 ], [ %79, %77 ], [ %83, %80 ]
-  %86 = getelementptr inbounds i8, ptr %.043, i64 16
+  %86 = getelementptr inbounds i8, ptr %.1, i64 16
   store i32 %85, ptr %86, align 8
   br label %87
 
@@ -982,16 +982,16 @@ makeStringAggState.exit:                          ; preds = %21
 
 111:                                              ; preds = %104, %107, %95
   %112 = phi i32 [ %102, %95 ], [ %106, %104 ], [ %110, %107 ]
-  call void @appendBinaryStringInfo(ptr noundef %.043, ptr noundef nonnull %93, i32 noundef %112) #19
+  call void @appendBinaryStringInfo(ptr noundef %.1, ptr noundef nonnull %93, i32 noundef %112) #19
   br label %113
 
 113:                                              ; preds = %111, %10
-  %.1 = phi ptr [ %11, %10 ], [ %.043, %111 ]
-  %.not53 = icmp eq ptr %.1, null
+  %.043 = phi ptr [ %11, %10 ], [ %.1, %111 ]
+  %.not53 = icmp eq ptr %.043, null
   br i1 %.not53, label %116, label %114
 
 114:                                              ; preds = %113
-  %115 = ptrtoint ptr %.1 to i64
+  %115 = ptrtoint ptr %.043 to i64
   br label %118
 
 116:                                              ; preds = %113
@@ -6225,12 +6225,12 @@ thread-pre-split:                                 ; preds = %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader59, %26
   %24 = phi i8 [ %28, %26 ], [ %11, %.preheader59 ]
-  %.367 = phi ptr [ %27, %26 ], [ %.1, %.preheader59 ]
+  %.467 = phi ptr [ %27, %26 ], [ %.1, %.preheader59 ]
   %25 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %24) #19
   br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr i8, ptr %.367, i64 1
+  %27 = getelementptr i8, ptr %.467, i64 1
   %28 = load i8, ptr %27, align 1
   %.not = icmp eq i8 %28, 0
   %.not55 = icmp eq i8 %28, %1
@@ -6238,12 +6238,12 @@ thread-pre-split:                                 ; preds = %.loopexit
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !15
 
 .critedge:                                        ; preds = %.lr.ph, %26, %.preheader59
-  %.3.lcssa = phi ptr [ %.1, %.preheader59 ], [ %27, %26 ], [ %.367, %.lr.ph ]
-  %29 = icmp eq ptr %.1, %.3.lcssa
+  %.4.lcssa = phi ptr [ %.1, %.preheader59 ], [ %27, %26 ], [ %.467, %.lr.ph ]
+  %29 = icmp eq ptr %.1, %.4.lcssa
   br i1 %29, label %.loopexit57, label %30
 
 30:                                               ; preds = %.critedge
-  %31 = ptrtoint ptr %.3.lcssa to i64
+  %31 = ptrtoint ptr %.4.lcssa to i64
   %32 = ptrtoint ptr %.1 to i64
   %33 = sub i64 %31, %32
   %34 = trunc i64 %33 to i32
@@ -6256,12 +6256,12 @@ thread-pre-split:                                 ; preds = %.loopexit
 
 .loopexit58:                                      ; preds = %.lr.ph70, %30
   %.049 = phi ptr [ %.1, %30 ], [ %14, %.lr.ph70 ]
-  %.048 = phi ptr [ %.3.lcssa, %30 ], [ %17, %.lr.ph70 ]
-  %.4 = phi ptr [ %.3.lcssa, %30 ], [ %18, %.lr.ph70 ]
+  %.048 = phi ptr [ %.4.lcssa, %30 ], [ %17, %.lr.ph70 ]
+  %.3 = phi ptr [ %.4.lcssa, %30 ], [ %18, %.lr.ph70 ]
   br label %38
 
 38:                                               ; preds = %38, %.loopexit58
-  %.5 = phi ptr [ %.4, %.loopexit58 ], [ %41, %38 ]
+  %.5 = phi ptr [ %.3, %.loopexit58 ], [ %41, %38 ]
   %39 = load i8, ptr %.5, align 1
   %40 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %39) #19
   %41 = getelementptr i8, ptr %.5, i64 1
@@ -6375,11 +6375,11 @@ thread-pre-split:                                 ; preds = %43
 
 .lr.ph:                                           ; preds = %.preheader55, %.lr.ph
   %24 = phi i8 [ %27, %.lr.ph ], [ %11, %.preheader55 ]
-  %.064 = phi ptr [ %spec.select, %.lr.ph ], [ %.145, %.preheader55 ]
-  %.363 = phi ptr [ %26, %.lr.ph ], [ %.145, %.preheader55 ]
+  %.164 = phi ptr [ %spec.select, %.lr.ph ], [ %.145, %.preheader55 ]
+  %.463 = phi ptr [ %26, %.lr.ph ], [ %.145, %.preheader55 ]
   %25 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %24) #19
-  %26 = getelementptr i8, ptr %.363, i64 1
-  %spec.select = select i1 %25, ptr %.064, ptr %26
+  %26 = getelementptr i8, ptr %.463, i64 1
+  %spec.select = select i1 %25, ptr %.164, ptr %26
   %27 = load i8, ptr %26, align 1
   %.not = icmp eq i8 %27, 0
   %.not51 = icmp eq i8 %27, %1
@@ -6387,19 +6387,19 @@ thread-pre-split:                                 ; preds = %43
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader55
-  %.3.lcssa = phi ptr [ %.145, %.preheader55 ], [ %26, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %.145, %.preheader55 ], [ %spec.select, %.lr.ph ]
-  %28 = icmp eq ptr %.145, %.0.lcssa
+  %.4.lcssa = phi ptr [ %.145, %.preheader55 ], [ %26, %.lr.ph ]
+  %.1.lcssa = phi ptr [ %.145, %.preheader55 ], [ %spec.select, %.lr.ph ]
+  %28 = icmp eq ptr %.145, %.1.lcssa
   br i1 %28, label %.loopexit53, label %.loopexit54
 
 .loopexit54:                                      ; preds = %.lr.ph66, %.critedge
-  %.4 = phi ptr [ %.3.lcssa, %.critedge ], [ %18, %.lr.ph66 ]
+  %.3 = phi ptr [ %.4.lcssa, %.critedge ], [ %18, %.lr.ph66 ]
   %.041 = phi ptr [ %.145, %.critedge ], [ %14, %.lr.ph66 ]
-  %.2 = phi ptr [ %.0.lcssa, %.critedge ], [ %17, %.lr.ph66 ]
+  %.0 = phi ptr [ %.1.lcssa, %.critedge ], [ %17, %.lr.ph66 ]
   br label %29
 
 29:                                               ; preds = %29, %.loopexit54
-  %.5 = phi ptr [ %.4, %.loopexit54 ], [ %32, %29 ]
+  %.5 = phi ptr [ %.3, %.loopexit54 ], [ %32, %29 ]
   %30 = load i8, ptr %.5, align 1
   %31 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %30) #19
   %32 = getelementptr i8, ptr %.5, i64 1
@@ -6423,7 +6423,7 @@ thread-pre-split:                                 ; preds = %43
 
 .loopexit:                                        ; preds = %.preheader, %37
   %.7 = phi ptr [ %.5, %37 ], [ %.6, %.preheader ]
-  store i8 0, ptr %.2, align 1
+  store i8 0, ptr %.0, align 1
   %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.041) #18
   %40 = icmp ugt i64 %39, 1023
   br i1 %40, label %41, label %43
@@ -6503,12 +6503,12 @@ thread-pre-split:                                 ; preds = %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader49, %26
   %24 = phi i8 [ %28, %26 ], [ %11, %.preheader49 ]
-  %.357 = phi ptr [ %27, %26 ], [ %.140, %.preheader49 ]
+  %.457 = phi ptr [ %27, %26 ], [ %.140, %.preheader49 ]
   %25 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %24) #19
   br i1 %25, label %.critedge, label %26
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr i8, ptr %.357, i64 1
+  %27 = getelementptr i8, ptr %.457, i64 1
   %28 = load i8, ptr %27, align 1
   %.not = icmp eq i8 %28, 0
   %.not45 = icmp eq i8 %28, %1
@@ -6516,18 +6516,18 @@ thread-pre-split:                                 ; preds = %.loopexit
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !25
 
 .critedge:                                        ; preds = %.lr.ph, %26, %.preheader49
-  %.3.lcssa = phi ptr [ %.140, %.preheader49 ], [ %27, %26 ], [ %.357, %.lr.ph ]
-  %29 = icmp eq ptr %.140, %.3.lcssa
+  %.4.lcssa = phi ptr [ %.140, %.preheader49 ], [ %27, %26 ], [ %.457, %.lr.ph ]
+  %29 = icmp eq ptr %.140, %.4.lcssa
   br i1 %29, label %.loopexit47, label %.loopexit48
 
 .loopexit48:                                      ; preds = %.lr.ph60, %.critedge
-  %.4 = phi ptr [ %.3.lcssa, %.critedge ], [ %18, %.lr.ph60 ]
+  %.3 = phi ptr [ %.4.lcssa, %.critedge ], [ %18, %.lr.ph60 ]
   %.037 = phi ptr [ %.140, %.critedge ], [ %14, %.lr.ph60 ]
-  %.0 = phi ptr [ %.3.lcssa, %.critedge ], [ %17, %.lr.ph60 ]
+  %.0 = phi ptr [ %.4.lcssa, %.critedge ], [ %17, %.lr.ph60 ]
   br label %30
 
 30:                                               ; preds = %30, %.loopexit48
-  %.5 = phi ptr [ %.4, %.loopexit48 ], [ %33, %30 ]
+  %.5 = phi ptr [ %.3, %.loopexit48 ], [ %33, %30 ]
   %31 = load i8, ptr %.5, align 1
   %32 = tail call zeroext i1 @scanner_isspace(i8 noundef signext %31) #19
   %33 = getelementptr i8, ptr %.5, i64 1
@@ -8161,8 +8161,8 @@ charlen_to_bytelen.exit:                          ; preds = %125, %._crit_edge.i
   br label %143
 
 143:                                              ; preds = %charlen_to_bytelen.exit, %.split144
-  %.177 = phi i32 [ %142, %charlen_to_bytelen.exit ], [ %.076.ph148, %.split144 ]
-  %.174 = phi ptr [ %140, %charlen_to_bytelen.exit ], [ %.073.ph149, %.split144 ]
+  %.278 = phi i32 [ %142, %charlen_to_bytelen.exit ], [ %.076.ph148, %.split144 ]
+  %.275 = phi ptr [ %140, %charlen_to_bytelen.exit ], [ %.073.ph149, %.split144 ]
   %144 = load i8, ptr %2, align 1
   %145 = zext i8 %144 to i32
   %146 = and i32 %145, 1
@@ -8209,7 +8209,7 @@ charlen_to_bytelen.exit:                          ; preds = %125, %._crit_edge.i
 
 .lr.ph.i107:                                      ; preds = %168
   %172 = ptrtoint ptr %170 to i64
-  %173 = ptrtoint ptr %.174 to i64
+  %173 = ptrtoint ptr %.275 to i64
   br label %174
 
 174:                                              ; preds = %.backedge.i, %.lr.ph.i107
@@ -8287,7 +8287,7 @@ charlen_to_bytelen.exit:                          ; preds = %125, %._crit_edge.i
   br i1 %or.cond.i108, label %201, label %.backedge.i
 
 201:                                              ; preds = %198
-  %202 = sub i32 %.060.i, %.177
+  %202 = sub i32 %.060.i, %.278
   %203 = call i32 @pg_database_encoding_max_length() #19
   %204 = icmp eq i32 %203, 1
   br i1 %204, label %charlen_to_bytelen.exit.i, label %.preheader.i.i
@@ -8297,7 +8297,7 @@ charlen_to_bytelen.exit:                          ; preds = %125, %._crit_edge.i
   br i1 %205, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.011.i.i = phi ptr [ %208, %.lr.ph.i.i ], [ %.174, %.preheader.i.i ]
+  %.011.i.i = phi ptr [ %208, %.lr.ph.i.i ], [ %.275, %.preheader.i.i ]
   %.0810.i.i = phi i32 [ %209, %.lr.ph.i.i ], [ %202, %.preheader.i.i ]
   %206 = call i32 @pg_mblen(ptr noundef %.011.i.i) #19
   %207 = sext i32 %206 to i64
@@ -8319,7 +8319,7 @@ charlen_to_bytelen.exit:                          ; preds = %125, %._crit_edge.i
 charlen_to_bytelen.exit.i:                        ; preds = %._crit_edge.i.i, %201
   %.09.i.i = phi i32 [ %212, %._crit_edge.i.i ], [ %202, %201 ]
   %213 = sext i32 %.09.i.i to i64
-  %214 = getelementptr i8, ptr %.174, i64 %213
+  %214 = getelementptr i8, ptr %.275, i64 %213
   %215 = sub nsw i32 %.061.i, %.060.i
   %216 = call i32 @pg_database_encoding_max_length() #19
   %217 = icmp eq i32 %216, 1
@@ -8390,7 +8390,7 @@ appendStringInfoText.exit:                        ; preds = %230, %239, %242
 appendStringInfoRegexpSubstr.exit:                ; preds = %.backedge.i, %184, %187, %168, %appendStringInfoText.exit
   %248 = load i64, ptr %96, align 8
   %249 = trunc i64 %248 to i32
-  %250 = sub i32 %249, %.177
+  %250 = sub i32 %249, %.278
   %251 = call i32 @pg_database_encoding_max_length() #19
   %252 = icmp eq i32 %251, 1
   br i1 %252, label %charlen_to_bytelen.exit118, label %.preheader.i111
@@ -8400,7 +8400,7 @@ appendStringInfoRegexpSubstr.exit:                ; preds = %.backedge.i, %184, 
   br i1 %253, label %.lr.ph.i115, label %._crit_edge.i112
 
 .lr.ph.i115:                                      ; preds = %.preheader.i111, %.lr.ph.i115
-  %.011.i116 = phi ptr [ %256, %.lr.ph.i115 ], [ %.174, %.preheader.i111 ]
+  %.011.i116 = phi ptr [ %256, %.lr.ph.i115 ], [ %.275, %.preheader.i111 ]
   %.0810.i117 = phi i32 [ %257, %.lr.ph.i115 ], [ %250, %.preheader.i111 ]
   %254 = call i32 @pg_mblen(ptr noundef %.011.i116) #19
   %255 = sext i32 %254 to i64
@@ -8410,9 +8410,9 @@ appendStringInfoRegexpSubstr.exit:                ; preds = %.backedge.i, %184, 
   br i1 %258, label %.lr.ph.i115, label %._crit_edge.i112, !llvm.loop !37
 
 ._crit_edge.i112:                                 ; preds = %.lr.ph.i115, %.preheader.i111
-  %.0.lcssa.i113 = phi ptr [ %.174, %.preheader.i111 ], [ %256, %.lr.ph.i115 ]
+  %.0.lcssa.i113 = phi ptr [ %.275, %.preheader.i111 ], [ %256, %.lr.ph.i115 ]
   %259 = ptrtoint ptr %.0.lcssa.i113 to i64
-  %260 = ptrtoint ptr %.174 to i64
+  %260 = ptrtoint ptr %.275 to i64
   %261 = sub i64 %259, %260
   %262 = trunc i64 %261 to i32
   br label %charlen_to_bytelen.exit118
@@ -8420,7 +8420,7 @@ appendStringInfoRegexpSubstr.exit:                ; preds = %.backedge.i, %184, 
 charlen_to_bytelen.exit118:                       ; preds = %appendStringInfoRegexpSubstr.exit, %._crit_edge.i112
   %.09.i114 = phi i32 [ %262, %._crit_edge.i112 ], [ %250, %appendStringInfoRegexpSubstr.exit ]
   %263 = sext i32 %.09.i114 to i64
-  %264 = getelementptr i8, ptr %.174, i64 %263
+  %264 = getelementptr i8, ptr %.275, i64 %263
   %265 = load i64, ptr %96, align 8
   %266 = trunc i64 %265 to i32
   br i1 %95, label %.outer, label %.loopexit
@@ -8434,9 +8434,9 @@ charlen_to_bytelen.exit118:                       ; preds = %appendStringInfoReg
   br i1 %.not91133, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 .loopexit:                                        ; preds = %charlen_to_bytelen.exit118, %.outer, %100, %114, %106, %check_replace_text_has_escape.exit
-  %.278 = phi i32 [ 0, %check_replace_text_has_escape.exit ], [ %.076.ph148, %106 ], [ %.076.ph148, %114 ], [ %266, %.outer ], [ %.076.ph148, %100 ], [ %266, %charlen_to_bytelen.exit118 ]
-  %.275 = phi ptr [ %94, %check_replace_text_has_escape.exit ], [ %.073.ph149, %106 ], [ %.073.ph149, %114 ], [ %264, %.outer ], [ %.073.ph149, %100 ], [ %264, %charlen_to_bytelen.exit118 ]
-  %270 = icmp ult i32 %.278, %43
+  %.177 = phi i32 [ 0, %check_replace_text_has_escape.exit ], [ %.076.ph148, %106 ], [ %.076.ph148, %114 ], [ %266, %.outer ], [ %.076.ph148, %100 ], [ %266, %charlen_to_bytelen.exit118 ]
+  %.174 = phi ptr [ %94, %check_replace_text_has_escape.exit ], [ %.073.ph149, %106 ], [ %.073.ph149, %114 ], [ %264, %.outer ], [ %.073.ph149, %100 ], [ %264, %charlen_to_bytelen.exit118 ]
+  %270 = icmp ult i32 %.177, %43
   br i1 %270, label %271, label %300
 
 271:                                              ; preds = %.loopexit
@@ -8479,10 +8479,10 @@ charlen_to_bytelen.exit118:                       ; preds = %appendStringInfoReg
   %294 = phi i64 [ %282, %275 ], [ %292, %290 ]
   %295 = getelementptr i8, ptr %0, i64 %294
   %296 = ptrtoint ptr %295 to i64
-  %297 = ptrtoint ptr %.275 to i64
+  %297 = ptrtoint ptr %.174 to i64
   %298 = sub i64 %296, %297
   %299 = trunc i64 %298 to i32
-  call void @appendBinaryStringInfo(ptr noundef nonnull %8, ptr noundef %.275, i32 noundef %299) #19
+  call void @appendBinaryStringInfo(ptr noundef nonnull %8, ptr noundef %.174, i32 noundef %299) #19
   br label %300
 
 300:                                              ; preds = %293, %.loopexit
@@ -10413,7 +10413,7 @@ makeStringAggState.exit:                          ; preds = %21
   br label %29
 
 29:                                               ; preds = %makeStringAggState.exit, %15
-  %.025 = phi ptr [ %28, %makeStringAggState.exit ], [ %11, %15 ]
+  %.1 = phi ptr [ %28, %makeStringAggState.exit ], [ %11, %15 ]
   %30 = getelementptr i8, ptr %0, i64 72
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
@@ -10461,7 +10461,7 @@ appendStringInfoText.exit:                        ; preds = %43, %52, %55
   %59 = phi i32 [ %50, %43 ], [ %54, %52 ], [ %58, %55 ]
   %60 = getelementptr inbounds i8, ptr %37, i64 4
   %61 = select i1 %.not.i31, ptr %60, ptr %41
-  call void @appendBinaryStringInfo(ptr noundef %.025, ptr noundef nonnull %61, i32 noundef %59) #19
+  call void @appendBinaryStringInfo(ptr noundef %.1, ptr noundef nonnull %61, i32 noundef %59) #19
   br i1 %20, label %62, label %86
 
 62:                                               ; preds = %appendStringInfoText.exit
@@ -10499,7 +10499,7 @@ appendStringInfoText.exit:                        ; preds = %43, %52, %55
 
 83:                                               ; preds = %76, %79, %66
   %84 = phi i32 [ %73, %66 ], [ %78, %76 ], [ %82, %79 ]
-  %85 = getelementptr inbounds i8, ptr %.025, i64 16
+  %85 = getelementptr inbounds i8, ptr %.1, i64 16
   store i32 %84, ptr %85, align 8
   br label %86
 
@@ -10541,16 +10541,16 @@ appendStringInfoText.exit34:                      ; preds = %92, %101, %104
   %108 = phi i32 [ %99, %92 ], [ %103, %101 ], [ %107, %104 ]
   %109 = getelementptr inbounds i8, ptr %19, i64 4
   %110 = select i1 %.not.i32, ptr %109, ptr %90
-  call void @appendBinaryStringInfo(ptr noundef %.025, ptr noundef nonnull %110, i32 noundef %108) #19
+  call void @appendBinaryStringInfo(ptr noundef %.1, ptr noundef nonnull %110, i32 noundef %108) #19
   br label %111
 
 111:                                              ; preds = %appendStringInfoText.exit34, %10
-  %.1 = phi ptr [ %11, %10 ], [ %.025, %appendStringInfoText.exit34 ]
-  %.not29 = icmp eq ptr %.1, null
+  %.025 = phi ptr [ %11, %10 ], [ %.1, %appendStringInfoText.exit34 ]
+  %.not29 = icmp eq ptr %.025, null
   br i1 %.not29, label %114, label %112
 
 112:                                              ; preds = %111
-  %113 = ptrtoint ptr %.1 to i64
+  %113 = ptrtoint ptr %.025 to i64
   br label %116
 
 114:                                              ; preds = %111
@@ -11511,9 +11511,9 @@ define dso_local noundef i64 @text_format(ptr nocapture noundef %0) local_unname
 
 83:                                               ; preds = %.lr.ph, %text_format_string_conversion.exit
   %.095158 = phi ptr [ %57, %.lr.ph ], [ %294, %text_format_string_conversion.exit ]
-  %.097157 = phi i32 [ 0, %.lr.ph ], [ %.3, %text_format_string_conversion.exit ]
-  %.099156 = phi i32 [ 0, %.lr.ph ], [ %.2101, %text_format_string_conversion.exit ]
-  %.0106155 = phi i32 [ 1, %.lr.ph ], [ %.4, %text_format_string_conversion.exit ]
+  %.097157 = phi i32 [ 0, %.lr.ph ], [ %.198, %text_format_string_conversion.exit ]
+  %.099156 = phi i32 [ 0, %.lr.ph ], [ %.1100, %text_format_string_conversion.exit ]
+  %.0106155 = phi i32 [ 1, %.lr.ph ], [ %.1107, %text_format_string_conversion.exit ]
   %84 = load i8, ptr %.095158, align 1
   %.not120 = icmp eq i8 %84, 37
   br i1 %.not120, label %99, label %85
@@ -11728,7 +11728,7 @@ text_format_parse_format.exit:                    ; preds = %181, %159, %125, %1
   %.1143 = phi i32 [ %.0142, %174 ], [ -1, %125 ], [ %.0142, %159 ], [ %.0142, %181 ]
   %.0141 = phi i32 [ %168, %174 ], [ -1, %125 ], [ 0, %159 ], [ -1, %181 ]
   %.1140 = phi i32 [ %.0139, %174 ], [ 0, %125 ], [ %.0139, %159 ], [ %.0139, %181 ]
-  %.0137 = phi i32 [ 0, %174 ], [ %127, %125 ], [ 0, %159 ], [ %spec.select144, %181 ]
+  %.1138 = phi i32 [ 0, %174 ], [ %127, %125 ], [ 0, %159 ], [ %spec.select144, %181 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %184 = load i8, ptr %.0.i, align 1
@@ -11835,16 +11835,16 @@ text_format_parse_format.exit:                    ; preds = %181, %159, %125, %1
   br label %234
 
 234:                                              ; preds = %232, %231
-  %.198 = phi i32 [ %.090, %232 ], [ %.097157, %231 ]
+  %.3 = phi i32 [ %.090, %232 ], [ %.097157, %231 ]
   %235 = call ptr @OutputFunctionCall(ptr noundef nonnull %8, i64 noundef %.093) #19
   %236 = call i32 @pg_strtoint32(ptr noundef %235) #19
   call void @pfree(ptr noundef %235) #19
   br label %237
 
 237:                                              ; preds = %222, %228, %234, %226, %193
-  %.1138 = phi i32 [ %236, %234 ], [ %230, %228 ], [ %227, %226 ], [ %.0137, %193 ], [ 0, %222 ]
+  %.0137 = phi i32 [ %236, %234 ], [ %230, %228 ], [ %227, %226 ], [ %.1138, %193 ], [ 0, %222 ]
   %.2108 = phi i32 [ %223, %234 ], [ %223, %228 ], [ %223, %226 ], [ %.0106155, %193 ], [ %223, %222 ]
-  %.2 = phi i32 [ %.198, %234 ], [ %.097157, %228 ], [ %.097157, %226 ], [ %.097157, %193 ], [ %.097157, %222 ]
+  %.2 = phi i32 [ %.3, %234 ], [ %.097157, %228 ], [ %.097157, %226 ], [ %.097157, %193 ], [ %.097157, %222 ]
   %238 = icmp sgt i32 %.1143, 0
   %spec.select132 = select i1 %238, i32 %.1143, i32 %.2108
   %.not126 = icmp slt i32 %spec.select132, %.0104
@@ -11908,7 +11908,7 @@ text_format_parse_format.exit:                    ; preds = %181, %159, %125, %1
   br label %269
 
 269:                                              ; preds = %267, %265
-  %.1100 = phi i32 [ %.1, %267 ], [ %.099156, %265 ]
+  %.2101 = phi i32 [ %.1, %267 ], [ %.099156, %265 ]
   %270 = load i8, ptr %.0.i, align 1
   switch i8 %270, label %288 [
     i8 115, label %271
@@ -11928,11 +11928,11 @@ text_format_parse_format.exit:                    ; preds = %181, %159, %125, %1
   ]
 
 274:                                              ; preds = %273
-  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, i32 noundef %.1140, i32 noundef %.1138)
+  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.12, i32 noundef %.1140, i32 noundef %.0137)
   br label %text_format_string_conversion.exit
 
 275:                                              ; preds = %273
-  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.51, i32 noundef %.1140, i32 noundef %.1138)
+  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef nonnull @.str.51, i32 noundef %.1140, i32 noundef %.0137)
   br label %text_format_string_conversion.exit
 
 276:                                              ; preds = %273
@@ -11952,17 +11952,17 @@ text_format_parse_format.exit:                    ; preds = %181, %159, %125, %1
 
 282:                                              ; preds = %280
   %283 = call ptr @quote_identifier(ptr noundef %281) #19
-  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef %283, i32 noundef %.1140, i32 noundef %.1138)
+  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef %283, i32 noundef %.1140, i32 noundef %.0137)
   br label %287
 
 284:                                              ; preds = %280
   %285 = call ptr @quote_literal_cstr(ptr noundef %281) #19
-  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef %285, i32 noundef %.1140, i32 noundef %.1138)
+  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef %285, i32 noundef %.1140, i32 noundef %.0137)
   call void @pfree(ptr noundef %285) #19
   br label %287
 
 286:                                              ; preds = %280
-  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef %281, i32 noundef %.1140, i32 noundef %.1138)
+  call fastcc void @text_format_append_string(ptr noundef nonnull %4, ptr noundef %281, i32 noundef %.1140, i32 noundef %.0137)
   br label %287
 
 287:                                              ; preds = %286, %284, %282
@@ -11980,9 +11980,9 @@ text_format_parse_format.exit:                    ; preds = %181, %159, %125, %1
   unreachable
 
 text_format_string_conversion.exit:               ; preds = %287, %275, %274, %273, %113, %114, %89, %90
-  %.4 = phi i32 [ %.0106155, %89 ], [ %.0106155, %90 ], [ %.0106155, %113 ], [ %.0106155, %114 ], [ %266, %273 ], [ %266, %274 ], [ %266, %275 ], [ %266, %287 ]
-  %.2101 = phi i32 [ %.099156, %89 ], [ %.099156, %90 ], [ %.099156, %113 ], [ %.099156, %114 ], [ %.1100, %273 ], [ %.1100, %274 ], [ %.1100, %275 ], [ %.1100, %287 ]
-  %.3 = phi i32 [ %.097157, %89 ], [ %.097157, %90 ], [ %.097157, %113 ], [ %.097157, %114 ], [ %.2, %273 ], [ %.2, %274 ], [ %.2, %275 ], [ %.2, %287 ]
+  %.1107 = phi i32 [ %.0106155, %89 ], [ %.0106155, %90 ], [ %.0106155, %113 ], [ %.0106155, %114 ], [ %266, %273 ], [ %266, %274 ], [ %266, %275 ], [ %266, %287 ]
+  %.1100 = phi i32 [ %.099156, %89 ], [ %.099156, %90 ], [ %.099156, %113 ], [ %.099156, %114 ], [ %.2101, %273 ], [ %.2101, %274 ], [ %.2101, %275 ], [ %.2101, %287 ]
+  %.198 = phi i32 [ %.097157, %89 ], [ %.097157, %90 ], [ %.097157, %113 ], [ %.097157, %114 ], [ %.2, %273 ], [ %.2, %274 ], [ %.2, %275 ], [ %.2, %287 ]
   %.196 = phi ptr [ %.095158, %89 ], [ %.095158, %90 ], [ %100, %113 ], [ %100, %114 ], [ %.0.i, %273 ], [ %.0.i, %274 ], [ %.0.i, %275 ], [ %.0.i, %287 ]
   %294 = getelementptr i8, ptr %.196, i64 1
   %295 = icmp ult ptr %294, %79
@@ -12465,7 +12465,7 @@ define dso_local i32 @varstr_levenshtein_less_equal(ptr noundef %0, i32 noundef 
 52:                                               ; preds = %45, %38, %43, %25
   %.0245 = phi i32 [ %26, %43 ], [ %26, %25 ], [ %26, %38 ], [ %spec.select279, %45 ]
   %.0227 = phi i32 [ %7, %43 ], [ %7, %25 ], [ -1, %38 ], [ %7, %45 ]
-  %.1226 = phi i32 [ %spec.select, %43 ], [ %6, %25 ], [ %spec.select, %38 ], [ %spec.select, %45 ]
+  %.0225 = phi i32 [ %spec.select, %43 ], [ %6, %25 ], [ %spec.select, %38 ], [ %spec.select, %45 ]
   %.not271 = icmp eq i32 %10, %1
   %.not272 = icmp eq i32 %11, %3
   %or.cond280 = select i1 %.not271, i1 %.not272, i1 false
@@ -12652,7 +12652,7 @@ rest_of_char_same.exit.thread:                    ; preds = %.preheader358, %117
 rest_of_char_same.exit:                           ; preds = %120, %99
   %128 = getelementptr i32, ptr %.0228313, i64 %101
   %129 = load i32, ptr %128, align 4
-  %130 = add i32 %129, %.1226
+  %130 = add i32 %129, %.0225
   br label %131
 
 131:                                              ; preds = %rest_of_char_same.exit, %rest_of_char_same.exit.thread
@@ -12684,7 +12684,7 @@ rest_of_char_same.exit:                           ; preds = %120, %99
   %146 = load i8, ptr %.1238297, align 1
   %147 = load i8, ptr %.0236309, align 1
   %148 = icmp eq i8 %146, %147
-  %149 = select i1 %148, i32 0, i32 %.1226
+  %149 = select i1 %148, i32 0, i32 %.0225
   %150 = add i32 %149, %145
   %151 = tail call i32 @llvm.smin.i32(i32 %138, i32 %143)
   %152 = getelementptr i32, ptr %.0229312, i64 %indvars.iv335

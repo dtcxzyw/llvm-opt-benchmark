@@ -1443,7 +1443,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i: ; preds = %if.then.i
   br label %_ZN5folly8OptionalISt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEED2Ev.exit
 
 _ZN5folly8OptionalISt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEED2Ev.exit: ; preds = %if.then.i.i.i77, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit, %cleanup59
-  %retval.185 = phi i1 [ %tobool.i.i55, %cleanup59 ], [ false, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %tobool.i.i55, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i ], [ %tobool.i.i55, %if.then.i.i.i77 ]
+  %retval.085 = phi i1 [ %tobool.i.i55, %cleanup59 ], [ false, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit ], [ %tobool.i.i55, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i ], [ %tobool.i.i55, %if.then.i.i.i77 ]
   %49 = load ptr, ptr %authClone, align 8
   %cmp.not.i79 = icmp eq ptr %49, null
   br i1 %cmp.not.i79, label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit81, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i80
@@ -1454,7 +1454,7 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i80: ; preds = %_ZN5folly8Opt
   br label %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit81
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit81: ; preds = %_ZN5folly8OptionalISt10unique_ptrINS_5IOBufESt14default_deleteIS2_EEED2Ev.exit, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i80
-  ret i1 %retval.185
+  ret i1 %retval.085
 
 ehcleanup62:                                      ; preds = %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEED2Ev.exit74, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZN5folly8OptionalISt6vectorIN4fizz16CertificateEntryESaIS3_EEED2Ev.exit74 ], [ %4, %lpad ]
@@ -1521,24 +1521,24 @@ if.else.i.i:                                      ; preds = %invoke.cont3
   br i1 %cmp37.i, label %for.body.i, label %if.then8.i
 
 for.body.i:                                       ; preds = %if.else.i.i, %if.end6.i
-  %cursor.sroa.0.0 = phi ptr [ %9, %if.end6.i ], [ %2, %if.else.i.i ]
-  %cursor.sroa.8.1 = phi ptr [ %10, %if.end6.i ], [ %cursor.sroa.24.0, %if.else.i.i ]
+  %cursor.sroa.0.1 = phi ptr [ %9, %if.end6.i ], [ %2, %if.else.i.i ]
+  %cursor.sroa.8.2 = phi ptr [ %10, %if.end6.i ], [ %cursor.sroa.24.0, %if.else.i.i ]
   %sub.ptr.sub.i41.i = phi i64 [ %11, %if.end6.i ], [ %sub.ptr.sub.i36.i, %if.else.i.i ]
   %8 = phi ptr [ %add.ptr.i.i.i31, %if.end6.i ], [ %cursor.sroa.14.0, %if.else.i.i ]
   %copied.040.i = phi i64 [ %copied.1.i, %if.end6.i ], [ 0, %if.else.i.i ]
   %p.039.i = phi ptr [ %add.ptr.i, %if.end6.i ], [ %val.i.i.i, %if.else.i.i ]
   %len.addr.038.i = phi i64 [ %sub.i, %if.end6.i ], [ 2, %if.else.i.i ]
-  %cmp2.not.i = icmp eq ptr %8, %cursor.sroa.8.1
+  %cmp2.not.i = icmp eq ptr %8, %cursor.sroa.8.2
   br i1 %cmp2.not.i, label %if.end.i, label %if.then.i26
 
 if.then.i26:                                      ; preds = %for.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.039.i, ptr align 1 %cursor.sroa.8.1, i64 %sub.ptr.sub.i41.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.039.i, ptr align 1 %cursor.sroa.8.2, i64 %sub.ptr.sub.i41.i, i1 false)
   %add.i = add i64 %copied.040.i, %sub.ptr.sub.i41.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i26, %for.body.i
   %copied.1.i = phi i64 [ %add.i, %if.then.i26 ], [ %copied.040.i, %for.body.i ]
-  %next_.i.i.i = getelementptr inbounds i8, ptr %cursor.sroa.0.0, i64 32
+  %next_.i.i.i = getelementptr inbounds i8, ptr %cursor.sroa.0.1, i64 32
   %9 = load ptr, ptr %next_.i.i.i, align 8
   %cmp.i.i27 = icmp eq ptr %9, %2
   br i1 %cmp.i.i27, label %call.i.i.i.i.noexc, label %if.end6.i

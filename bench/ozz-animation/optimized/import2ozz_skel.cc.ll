@@ -566,7 +566,7 @@ _ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit44.sink.s
   br label %_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit44
 
 _ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit44: ; preds = %_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit44.sink.split, %.noexc.i43, %208, %96
-  %.2 = phi i1 [ false, %96 ], [ %134, %208 ], [ %134, %.noexc.i43 ], [ false, %_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit44.sink.split ]
+  %.1 = phi i1 [ false, %96 ], [ %134, %208 ], [ %134, %.noexc.i43 ], [ false, %_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit44.sink.split ]
   call void @_ZN3ozz9animation7offline11RawSkeletonD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
   br label %218
 
@@ -576,8 +576,8 @@ _ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit44: ; pre
   br label %219
 
 218:                                              ; preds = %_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit44, %31
-  %.3 = phi i1 [ %.2, %_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit44 ], [ true, %31 ]
-  ret i1 %.3
+  %.0 = phi i1 [ %.1, %_ZNSt10unique_ptrIN3ozz9animation8SkeletonENS0_7DeleterIS2_EEED2Ev.exit44 ], [ true, %31 ]
+  ret i1 %.0
 
 219:                                              ; preds = %.body, %32
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %.body ], [ %33, %32 ]

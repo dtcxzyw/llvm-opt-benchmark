@@ -107,7 +107,7 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
 
 .lr.ph55.i:                                       ; preds = %.preheader.i, %.loopexit.i
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %.loopexit.i ], [ 0, %.preheader.i ]
-  %.254.i = phi i32 [ %.5.i, %.loopexit.i ], [ %.1.i, %.preheader.i ]
+  %.254.i = phi i32 [ %.3.i, %.loopexit.i ], [ %.1.i, %.preheader.i ]
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %50 = getelementptr i16, ptr %33, i64 %indvars.iv60.i
   %51 = load i16, ptr %50, align 2
@@ -136,7 +136,7 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
 
 .lr.ph51.i:                                       ; preds = %81, %.lr.ph51.preheader.i
   %indvars.iv57.i = phi i64 [ %64, %.lr.ph51.preheader.i ], [ %indvars.iv.next58.i, %81 ]
-  %.350.i = phi i32 [ %.254.i, %.lr.ph51.preheader.i ], [ %.4.i, %81 ]
+  %.450.i = phi i32 [ %.254.i, %.lr.ph51.preheader.i ], [ %.5.i, %81 ]
   %65 = load ptr, ptr %22, align 8
   %66 = getelementptr i16, ptr %60, i64 %indvars.iv57.i
   %67 = load i16, ptr %66, align 2
@@ -153,21 +153,21 @@ define dso_local ptr @BipartiteMatch(i32 noundef %0, i32 noundef %1, ptr noundef
   %76 = load i16, ptr %53, align 2
   %77 = add i16 %76, 1
   store i16 %77, ptr %72, align 2
-  %78 = add i32 %.350.i, 1
-  %79 = sext i32 %.350.i to i64
+  %78 = add i32 %.450.i, 1
+  %79 = sext i32 %.450.i to i64
   %80 = getelementptr i16, ptr %33, i64 %79
   store i16 %70, ptr %80, align 2
   br label %81
 
 81:                                               ; preds = %75, %.lr.ph51.i
-  %.4.i = phi i32 [ %78, %75 ], [ %.350.i, %.lr.ph51.i ]
+  %.5.i = phi i32 [ %78, %75 ], [ %.450.i, %.lr.ph51.i ]
   %indvars.iv.next58.i = add nsw i64 %indvars.iv57.i, -1
   %82 = icmp sgt i64 %indvars.iv57.i, 1
   br i1 %82, label %.lr.ph51.i, label %.loopexit.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %81, %61, %57, %.lr.ph55.i
-  %.5.i = phi i32 [ %.254.i, %.lr.ph55.i ], [ %.254.i, %61 ], [ %.254.i, %57 ], [ %.4.i, %81 ]
-  %83 = sext i32 %.5.i to i64
+  %.3.i = phi i32 [ %.254.i, %.lr.ph55.i ], [ %.254.i, %61 ], [ %.254.i, %57 ], [ %.5.i, %81 ]
+  %83 = sext i32 %.3.i to i64
   %84 = icmp slt i64 %indvars.iv.next61.i, %83
   br i1 %84, label %.lr.ph55.i, label %hk_breadth_search.exit, !llvm.loop !8
 

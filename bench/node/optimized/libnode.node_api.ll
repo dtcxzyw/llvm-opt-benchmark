@@ -1675,7 +1675,7 @@ do.end21:                                         ; preds = %do.end14
   br label %cleanup
 
 cleanup:                                          ; preds = %do.end21, %if.then18
-  %retval.0 = phi i32 [ 0, %do.end21 ], [ 1, %if.then18 ]
+  %retval.1 = phi i32 [ 0, %do.end21 ], [ 1, %if.then18 ]
   %call.i22 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #21
   br i1 %call.i22, label %if.then.i23, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -1709,8 +1709,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
@@ -2400,7 +2400,7 @@ cleanup.sink.split:                               ; preds = %if.end153, %do.body
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end153
-  %retval.0 = phi i32 [ 0, %if.end153 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %if.end153 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #21
   br i1 %call.i, label %if.then.i59, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -2434,8 +2434,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
@@ -2626,7 +2626,7 @@ cleanup.sink.split:                               ; preds = %if.end52, %do.end21
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end52
-  %retval.0 = phi i32 [ 0, %if.end52 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %if.end52 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #21
   br i1 %call.i, label %if.then.i29, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -2660,8 +2660,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN4node6Buffer3NewEPN2v87IsolateEm(ptr noundef, i64 noundef) local_unnamed_addr #0
@@ -2771,7 +2771,7 @@ cleanup.sink.split:                               ; preds = %_ZN2v810MaybeLocalI
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit
-  %retval.0 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %_ZN2v810MaybeLocalINS_6ObjectEE14ToLocalCheckedEv.exit ], [ %.sink, %cleanup.sink.split ]
   %call.i29 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #21
   br i1 %call.i29, label %if.then.i30, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -2805,8 +2805,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN4node6Buffer3NewEPN2v87IsolateEPcmPFvS4_PvES5_(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -2938,7 +2938,7 @@ cleanup.sink.split:                               ; preds = %if.end52, %do.end21
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end52
-  %retval.0 = phi i32 [ 0, %if.end52 ], [ %.sink, %cleanup.sink.split ]
+  %retval.1 = phi i32 [ 0, %if.end52 ], [ %.sink, %cleanup.sink.split ]
   %call.i = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #21
   br i1 %call.i, label %if.then.i29, label %_ZN6v8impl8TryCatchD2Ev.exit
 
@@ -2972,8 +2972,8 @@ _ZN6v8impl8TryCatchD2Ev.exit:                     ; preds = %cleanup, %_ZN2v814P
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6v8impl8TryCatchD2Ev.exit, %if.then10, %if.then4
-  %retval.1 = phi i32 [ %retval.0, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %_ZN6v8impl8TryCatchD2Ev.exit ], [ %cond, %if.then10 ], [ 10, %if.then4 ], [ 1, %entry ]
+  ret i32 %retval.0
 }
 
 declare ptr @_ZN4node6Buffer4CopyEPN2v87IsolateEPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
@@ -6991,7 +6991,7 @@ if.end26.thread.i.i:                              ; preds = %if.end11.i.i
   br label %if.then28.i.i
 
 if.then13.i.i:                                    ; preds = %if.end11.i.i, %if.else.i.i
-  %data.014.i.i = phi ptr [ %10, %if.end11.i.i ], [ null, %if.else.i.i ]
+  %data.114.i.i = phi ptr [ %10, %if.end11.i.i ], [ null, %if.else.i.i ]
   %17 = load i64, ptr %thread_count.i.i, align 8
   %cmp14.i.i = icmp eq i64 %17, 0
   br i1 %cmp14.i.i, label %if.then15.i.i, label %if.end26.i.i
@@ -7017,7 +7017,7 @@ if.end26.i.i:                                     ; preds = %if.end22.i.i, %if.t
 
 if.then28.i.i:                                    ; preds = %if.end26.i.i, %if.end26.thread.i.i
   %has_more.022.i.i = phi i1 [ true, %if.end26.thread.i.i ], [ false, %if.end26.i.i ]
-  %data.120.i.i = phi ptr [ %10, %if.end26.thread.i.i ], [ %data.014.i.i, %if.end26.i.i ]
+  %data.020.i.i = phi ptr [ %10, %if.end26.thread.i.i ], [ %data.114.i.i, %if.end26.i.i ]
   %20 = load ptr, ptr %env.i.i, align 8
   %isolate.i.i = getelementptr inbounds i8, ptr %20, i64 8
   %21 = load ptr, ptr %isolate.i.i, align 8
@@ -7046,7 +7046,7 @@ if.end45.i.i:                                     ; preds = %if.end.i.i.i, %if.t
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i.i.i.i.i, i8 0, i64 24, i1 false)
   %29 = load ptr, ptr %call_js_cb.i.i.i.i.i, align 8
   %30 = load ptr, ptr %context.i.i.i.i.i, align 8
-  call void %29(ptr noundef nonnull %26, ptr noundef %js_callback.0.i.i, ptr noundef %30, ptr noundef %data.120.i.i) #21
+  call void %29(ptr noundef nonnull %26, ptr noundef %js_callback.0.i.i, ptr noundef %30, ptr noundef %data.020.i.i) #21
   %31 = load i32, ptr %open_handle_scopes.i.i.i.i, align 8
   %cmp.not.i.i9.i.i = icmp eq i32 %31, %27
   br i1 %cmp.not.i.i9.i.i, label %do.body8.i.i.i.i, label %do.body6.i.i.i.i

@@ -269,9 +269,9 @@ PrefixCodeTreeRebuild.exit.thread.i:              ; preds = %68, %99, %92, %40
   br label %bitstring_lookup.exit.i.i
 
 bitstring_lookup.exit.i.i:                        ; preds = %142, %.loopexit.i
-  %.sroa.7.1.i = phi i32 [ %.sroa.7.0.i, %.loopexit.i ], [ %.sroa.7.2.i, %142 ]
-  %.pre15.i.i = phi i32 [ %.sroa.20.0.i, %.loopexit.i ], [ %.sroa.20.1.i, %142 ]
-  %121 = phi i32 [ %.sroa.32.0.i, %.loopexit.i ], [ %.sroa.32.1.i, %142 ]
+  %.sroa.7.3.i = phi i32 [ %.sroa.7.0.i, %.loopexit.i ], [ %.sroa.7.4.i, %142 ]
+  %.pre15.i.i = phi i32 [ %.sroa.20.0.i, %.loopexit.i ], [ %.sroa.20.2.i, %142 ]
+  %121 = phi i32 [ %.sroa.32.0.i, %.loopexit.i ], [ %.sroa.32.2.i, %142 ]
   %.0.i33.i = phi ptr [ %120, %.loopexit.i ], [ %140, %142 ]
   %122 = lshr i32 %.pre15.i.i, 31
   %or.cond.i.inv.i.i = icmp sgt i32 %121, 0
@@ -282,20 +282,20 @@ bitstring_lookup.exit.i.i:                        ; preds = %142, %.loopexit.i
   br i1 %125, label %126, label %bitstring_skip.exit.i.i
 
 126:                                              ; preds = %bitstring_lookup.exit.i.i
-  %127 = add i32 %.sroa.7.1.i, %1
+  %127 = add i32 %.sroa.7.3.i, %1
   %128 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %127) #10
   %129 = zext i16 %128 to i32
   %130 = sub i32 17, %121
   %131 = shl i32 %129, %130
   %132 = add i32 %131, %123
-  %133 = add i32 %.sroa.7.1.i, 2
+  %133 = add i32 %.sroa.7.3.i, 2
   %134 = add nsw i32 %121, 15
   br label %bitstring_skip.exit.i.i
 
 bitstring_skip.exit.i.i:                          ; preds = %126, %bitstring_lookup.exit.i.i
-  %.sroa.7.2.i = phi i32 [ %133, %126 ], [ %.sroa.7.1.i, %bitstring_lookup.exit.i.i ]
-  %.sroa.20.1.i = phi i32 [ %132, %126 ], [ %123, %bitstring_lookup.exit.i.i ]
-  %.sroa.32.1.i = phi i32 [ %134, %126 ], [ %124, %bitstring_lookup.exit.i.i ]
+  %.sroa.7.4.i = phi i32 [ %133, %126 ], [ %.sroa.7.3.i, %bitstring_lookup.exit.i.i ]
+  %.sroa.20.2.i = phi i32 [ %132, %126 ], [ %123, %bitstring_lookup.exit.i.i ]
+  %.sroa.32.2.i = phi i32 [ %134, %126 ], [ %124, %bitstring_lookup.exit.i.i ]
   %135 = getelementptr inbounds i8, ptr %.0.i33.i, i64 4
   %136 = zext nneg i32 %spec.select.i.i to i64
   %137 = getelementptr [2 x i16], ptr %135, i64 0, i64 %136
@@ -326,9 +326,9 @@ bitstring_skip.exit.i.i:                          ; preds = %126, %bitstring_loo
   br label %.loopexit.i.backedge
 
 .loopexit.i.backedge:                             ; preds = %204, %150
-  %.sroa.7.0.i.be = phi i32 [ %.sroa.7.2.i, %150 ], [ %.sroa.7.4.i, %204 ]
-  %.sroa.20.0.i.be = phi i32 [ %.sroa.20.1.i, %150 ], [ %.sroa.20.2.i, %204 ]
-  %.sroa.32.0.i.be = phi i32 [ %.sroa.32.1.i, %150 ], [ %.sroa.32.2.i, %204 ]
+  %.sroa.7.0.i.be = phi i32 [ %.sroa.7.4.i, %150 ], [ %.sroa.7.5.i, %204 ]
+  %.sroa.20.0.i.be = phi i32 [ %.sroa.20.2.i, %150 ], [ %.sroa.20.3.i, %204 ]
+  %.sroa.32.0.i.be = phi i32 [ %.sroa.32.2.i, %150 ], [ %.sroa.32.3.i, %204 ]
   br label %.loopexit.i
 
 152:                                              ; preds = %146
@@ -336,7 +336,7 @@ bitstring_skip.exit.i.i:                          ; preds = %126, %bitstring_loo
   br i1 %153, label %154, label %158
 
 154:                                              ; preds = %152
-  %155 = zext i32 %.sroa.7.2.i to i64
+  %155 = zext i32 %.sroa.7.4.i to i64
   %156 = icmp eq i64 %13, %155
   %157 = zext i1 %156 to i32
   br label %do_uncompress.exit
@@ -350,14 +350,14 @@ bitstring_skip.exit.i.i:                          ; preds = %126, %bitstring_loo
   br i1 %162, label %bitstring_lookup.exit.i, label %163
 
 163:                                              ; preds = %158
-  %164 = icmp slt i32 %.sroa.32.1.i, 0
-  %165 = icmp ult i32 %.sroa.32.1.i, %161
+  %164 = icmp slt i32 %.sroa.32.2.i, 0
+  %165 = icmp ult i32 %.sroa.32.2.i, %161
   %or.cond.i.i = or i1 %164, %165
   br i1 %or.cond.i.i, label %bitstring_lookup.exit.i, label %166
 
 166:                                              ; preds = %163
   %167 = sub nsw i32 32, %161
-  %168 = lshr i32 %.sroa.20.1.i, %167
+  %168 = lshr i32 %.sroa.20.2.i, %167
   br label %bitstring_lookup.exit.i
 
 bitstring_lookup.exit.i:                          ; preds = %166, %163, %158
@@ -367,55 +367,55 @@ bitstring_lookup.exit.i:                          ; preds = %166, %163, %158
   br i1 %169, label %170, label %186
 
 170:                                              ; preds = %bitstring_lookup.exit.i
-  %171 = zext i32 %.sroa.7.2.i to i64
+  %171 = zext i32 %.sroa.7.4.i to i64
   %.not29.i = icmp ugt i64 %13, %171
   br i1 %.not29.i, label %172, label %do_uncompress.exit
 
 172:                                              ; preds = %170
-  %173 = add i32 %.sroa.7.2.i, %1
+  %173 = add i32 %.sroa.7.4.i, %1
   %174 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %173) #10
   %175 = zext i8 %174 to i32
   %176 = add nuw nsw i32 %175, 15
-  %177 = add i32 %.sroa.7.2.i, 1
+  %177 = add i32 %.sroa.7.4.i, 1
   %178 = icmp eq i32 %176, 270
   br i1 %178, label %179, label %186
 
 179:                                              ; preds = %172
-  %180 = add i32 %.sroa.7.2.i, 2
+  %180 = add i32 %.sroa.7.4.i, 2
   %181 = zext i32 %180 to i64
   %.not30.i = icmp ugt i64 %13, %181
   br i1 %.not30.i, label %182, label %do_uncompress.exit
 
 182:                                              ; preds = %179
-  %.reass = add i32 %.sroa.7.2.i, %invariant.op
+  %.reass = add i32 %.sroa.7.4.i, %invariant.op
   %183 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.reass) #10
   %184 = zext i16 %183 to i32
-  %185 = add i32 %.sroa.7.2.i, 3
+  %185 = add i32 %.sroa.7.4.i, 3
   br label %186
 
 186:                                              ; preds = %182, %172, %bitstring_lookup.exit.i
-  %.sroa.7.3.i = phi i32 [ %185, %182 ], [ %177, %172 ], [ %.sroa.7.2.i, %bitstring_lookup.exit.i ]
+  %.sroa.7.2.i = phi i32 [ %185, %182 ], [ %177, %172 ], [ %.sroa.7.4.i, %bitstring_lookup.exit.i ]
   %.019.i = phi i32 [ %184, %182 ], [ %176, %172 ], [ %160, %bitstring_lookup.exit.i ]
-  %187 = shl i32 %.sroa.20.1.i, %161
-  %188 = sub i32 %.sroa.32.1.i, %161
+  %187 = shl i32 %.sroa.20.2.i, %161
+  %188 = sub i32 %.sroa.32.2.i, %161
   %189 = icmp slt i32 %188, 16
   br i1 %189, label %190, label %bitstring_skip.exit.i
 
 190:                                              ; preds = %186
-  %191 = add i32 %.sroa.7.3.i, %1
+  %191 = add i32 %.sroa.7.2.i, %1
   %192 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %191) #10
   %193 = zext i16 %192 to i32
   %194 = sub i32 16, %188
   %195 = shl i32 %193, %194
   %196 = add i32 %195, %187
-  %197 = add i32 %.sroa.7.3.i, 2
+  %197 = add i32 %.sroa.7.2.i, 2
   %198 = add nsw i32 %188, 16
   br label %bitstring_skip.exit.i
 
 bitstring_skip.exit.i:                            ; preds = %190, %186
-  %.sroa.7.4.i = phi i32 [ %197, %190 ], [ %.sroa.7.3.i, %186 ]
-  %.sroa.20.2.i = phi i32 [ %196, %190 ], [ %187, %186 ]
-  %.sroa.32.2.i = phi i32 [ %198, %190 ], [ %188, %186 ]
+  %.sroa.7.5.i = phi i32 [ %197, %190 ], [ %.sroa.7.2.i, %186 ]
+  %.sroa.20.3.i = phi i32 [ %196, %190 ], [ %187, %186 ]
+  %.sroa.32.3.i = phi i32 [ %198, %190 ], [ %188, %186 ]
   %199 = add nuw nsw i32 %.019.i, 3
   br label %200
 

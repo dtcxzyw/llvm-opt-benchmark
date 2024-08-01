@@ -2111,7 +2111,7 @@ terminate.lpad.i.i.i602:                          ; preds = %if.then13.i.i.i.i60
   unreachable
 
 cleanup194:                                       ; preds = %if.then13.i.i.i.i601, %if.then.i.i.i.i595, %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit592, %if.then13.i.i.i.i579, %if.then.i.i.i.i573, %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit570
-  %retval.4 = xor i1 %call148, true
+  %retval.6 = xor i1 %call148, true
   %130 = load ptr, ptr %p, align 8
   %bf.load.i.i.i.i604 = load i64, ptr %130, align 8
   %131 = and i64 %bf.load.i.i.i.i604, 1152920405095219200
@@ -2144,7 +2144,7 @@ ehcleanup195:                                     ; preds = %ehcleanup140, %lpad
   br label %ehcleanup197
 
 cleanup196:                                       ; preds = %invoke.cont53, %if.end28, %invoke.cont8, %if.then13.i.i.i.i612, %if.then.i.i.i.i606, %cleanup194
-  %retval.5 = phi i1 [ %retval.4, %cleanup194 ], [ %retval.4, %if.then.i.i.i.i606 ], [ %retval.4, %if.then13.i.i.i.i612 ], [ false, %invoke.cont8 ], [ false, %if.end28 ], [ false, %invoke.cont53 ]
+  %retval.1 = phi i1 [ %retval.6, %cleanup194 ], [ %retval.6, %if.then.i.i.i.i606 ], [ %retval.6, %if.then13.i.i.i.i612 ], [ false, %invoke.cont8 ], [ false, %if.end28 ], [ false, %invoke.cont53 ]
   %134 = load ptr, ptr %r, align 8
   %bf.load.i.i614 = load i64, ptr %134, align 8
   %135 = and i64 %bf.load.i.i614, 1152920405095219200
@@ -2208,8 +2208,8 @@ ehcleanup199:                                     ; preds = %ehcleanup197, %lpad
   resume { ptr, i32 } %.pn19.pn
 
 return:                                           ; preds = %if.then13.i.i635, %if.then.i.i628, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit625, %entry
-  %retval.6 = phi i1 [ false, %entry ], [ %retval.5, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit625 ], [ %retval.5, %if.then.i.i628 ], [ %retval.5, %if.then13.i.i635 ]
-  ret i1 %retval.6
+  %retval.0 = phi i1 [ false, %entry ], [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit625 ], [ %retval.1, %if.then.i.i628 ], [ %retval.1, %if.then13.i.i635 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

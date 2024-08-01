@@ -3649,12 +3649,12 @@ for.cond236.preheader:                            ; preds = %for.inc232
   br i1 %cmp237599.not, label %for.inc298, label %invoke.cont243.lr.ph
 
 invoke.cont243.lr.ph:                             ; preds = %for.cond236.preheader
-  %cmp251597 = icmp ult i64 %pcol.4, %sub.ptr.div.i263
+  %cmp251597 = icmp ult i64 %pcol.2, %sub.ptr.div.i263
   br label %invoke.cont243
 
 for.body29:                                       ; preds = %for.cond27.preheader, %for.inc232
   %j.0595 = phi i64 [ %prow.0604, %for.cond27.preheader ], [ %inc233, %for.inc232 ]
-  %pcol.1594 = phi i64 [ %pcol.0603, %for.cond27.preheader ], [ %pcol.4, %for.inc232 ]
+  %pcol.1594 = phi i64 [ %pcol.0603, %for.cond27.preheader ], [ %pcol.2, %for.inc232 ]
   %60 = load ptr, ptr %lhs, align 8
   %add.ptr.i = getelementptr inbounds %"class.std::vector.9", ptr %60, i64 %j.0595
   %61 = load ptr, ptr %add.ptr.i, align 8
@@ -3683,15 +3683,15 @@ _ZN4cvc58internal7IntegerD2Ev.exit268:            ; preds = %invoke.cont36
   br i1 %cmp39, label %while.cond.outer, label %if.end104
 
 while.cond.outer:                                 ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit268, %while.cond.outer.backedge
-  %pcol.2.ph = phi i64 [ %add84, %while.cond.outer.backedge ], [ %pcol.1594, %_ZN4cvc58internal7IntegerD2Ev.exit268 ]
-  %cmp73.not = icmp ult i64 %pcol.2.ph, %sub
+  %pcol.3.ph = phi i64 [ %add84, %while.cond.outer.backedge ], [ %pcol.1594, %_ZN4cvc58internal7IntegerD2Ev.exit268 ]
+  %cmp73.not = icmp ult i64 %pcol.3.ph, %sub
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer, %_ZN4cvc58internal7IntegerD2Ev.exit306
   %66 = load ptr, ptr %lhs, align 8
   %add.ptr.i269 = getelementptr inbounds %"class.std::vector.9", ptr %66, i64 %prow.0604
   %67 = load ptr, ptr %add.ptr.i269, align 8
-  %add.ptr.i270 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %67, i64 %pcol.2.ph
+  %add.ptr.i270 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %67, i64 %pcol.3.ph
   call void @__gmpz_init(ptr noundef nonnull %ref.tmp43) #16
   %call46 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i270, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43)
           to label %invoke.cont45 unwind label %lpad44
@@ -3720,12 +3720,12 @@ for.body50:                                       ; preds = %for.cond48
   %70 = load ptr, ptr %lhs, align 8
   %add.ptr.i274 = getelementptr inbounds %"class.std::vector.9", ptr %70, i64 %k.0
   %71 = load ptr, ptr %add.ptr.i274, align 8
-  %add.ptr.i275 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %71, i64 %pcol.2.ph
+  %add.ptr.i275 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %71, i64 %pcol.3.ph
   call void @_ZNK4cvc58internal7Integer24euclidianDivideRemainderERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %ref.tmp51, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i275, ptr noundef nonnull align 8 dereferenceable(16) %prime)
   %72 = load ptr, ptr %lhs, align 8
   %add.ptr.i276 = getelementptr inbounds %"class.std::vector.9", ptr %72, i64 %k.0
   %73 = load ptr, ptr %add.ptr.i276, align 8
-  %add.ptr.i277 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %73, i64 %pcol.2.ph
+  %add.ptr.i277 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %73, i64 %pcol.3.ph
   %call58 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal7IntegeraSERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i277, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp51)
           to label %invoke.cont57 unwind label %lpad56
 
@@ -3744,7 +3744,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit279:            ; preds = %invoke.cont57
   %76 = load ptr, ptr %lhs, align 8
   %add.ptr.i280 = getelementptr inbounds %"class.std::vector.9", ptr %76, i64 %k.0
   %77 = load ptr, ptr %add.ptr.i280, align 8
-  %add.ptr.i281 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %77, i64 %pcol.2.ph
+  %add.ptr.i281 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %77, i64 %pcol.3.ph
   call void @__gmpz_init(ptr noundef nonnull %ref.tmp62) #16
   %call65 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegerneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i281, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp62)
           to label %invoke.cont64 unwind label %lpad63
@@ -3884,7 +3884,7 @@ if.end75:                                         ; preds = %for.end
   %104 = load ptr, ptr %lhs, align 8
   %add.ptr.i302 = getelementptr inbounds %"class.std::vector.9", ptr %104, i64 %prow.0604
   %105 = load ptr, ptr %add.ptr.i302, align 8
-  %add.ptr.i303 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %105, i64 %pcol.2.ph
+  %add.ptr.i303 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %105, i64 %pcol.3.ph
   call void @__gmpz_init(ptr noundef nonnull %ref.tmp78) #16
   %call81 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i303, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp78)
           to label %invoke.cont80 unwind label %lpad79
@@ -3904,7 +3904,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit306:            ; preds = %invoke.cont80
   br i1 %call81, label %if.then83, label %while.cond, !llvm.loop !53
 
 if.then83:                                        ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit306
-  %add84 = add nuw i64 %pcol.2.ph, 1
+  %add84 = add nuw i64 %pcol.3.ph, 1
   %108 = load ptr, ptr %lhs, align 8
   %add.ptr.i307 = getelementptr inbounds %"class.std::vector.9", ptr %108, i64 %prow.0604
   %109 = load ptr, ptr %add.ptr.i307, align 8
@@ -3994,11 +3994,11 @@ terminate.lpad.i.i322:                            ; preds = %lpad98
   unreachable
 
 if.end104:                                        ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit273, %for.end, %_ZN4cvc58internal7IntegerD2Ev.exit268
-  %pcol.4 = phi i64 [ %pcol.1594, %_ZN4cvc58internal7IntegerD2Ev.exit268 ], [ %pcol.2.ph, %for.end ], [ %pcol.2.ph, %_ZN4cvc58internal7IntegerD2Ev.exit273 ]
+  %pcol.2 = phi i64 [ %pcol.1594, %_ZN4cvc58internal7IntegerD2Ev.exit268 ], [ %pcol.3.ph, %for.end ], [ %pcol.3.ph, %_ZN4cvc58internal7IntegerD2Ev.exit273 ]
   %127 = load ptr, ptr %lhs, align 8
   %add.ptr.i324 = getelementptr inbounds %"class.std::vector.9", ptr %127, i64 %j.0595
   %128 = load ptr, ptr %add.ptr.i324, align 8
-  %add.ptr.i325 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %128, i64 %pcol.4
+  %add.ptr.i325 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %128, i64 %pcol.2
   call void @__gmpz_init(ptr noundef nonnull %ref.tmp107) #16
   %call110 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegerneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i325, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp107)
           to label %invoke.cont109 unwind label %lpad108
@@ -4021,7 +4021,7 @@ if.then112:                                       ; preds = %_ZN4cvc58internal7I
   %131 = load ptr, ptr %lhs, align 8
   %add.ptr.i329 = getelementptr inbounds %"class.std::vector.9", ptr %131, i64 %j.0595
   %132 = load ptr, ptr %add.ptr.i329, align 8
-  %add.ptr.i330 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %132, i64 %pcol.4
+  %add.ptr.i330 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %132, i64 %pcol.2
   call void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp115, i64 noundef 1)
   %call118 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegerneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i330, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp115)
           to label %invoke.cont117 unwind label %lpad116
@@ -4044,7 +4044,7 @@ if.then120:                                       ; preds = %_ZN4cvc58internal7I
   %135 = load ptr, ptr %lhs, align 8
   %add.ptr.i334 = getelementptr inbounds %"class.std::vector.9", ptr %135, i64 %j.0595
   %136 = load ptr, ptr %add.ptr.i334, align 8
-  %add.ptr.i335 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %136, i64 %pcol.4
+  %add.ptr.i335 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %136, i64 %pcol.2
   call void @_ZNK4cvc58internal7Integer10modInverseERKS1_(ptr nonnull sret(%"class.cvc5::internal::Integer") align 8 %inv, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i335, ptr noundef nonnull align 8 dereferenceable(16) %prime)
   invoke void @__gmpz_init_set_ui(ptr noundef nonnull %ref.tmp123, i64 noundef 1)
           to label %.noexc unwind label %lpad124.loopexit.split-lp
@@ -4072,7 +4072,7 @@ _ZN4cvc58internal7IntegerD2Ev.exit338:            ; preds = %invoke.cont127
   br i1 %call128, label %cleanup, label %for.cond133.preheader
 
 for.cond133.preheader:                            ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit338
-  %cmp134592 = icmp ult i64 %pcol.4, %sub.ptr.div.i263
+  %cmp134592 = icmp ult i64 %pcol.2, %sub.ptr.div.i263
   br i1 %cmp134592, label %for.body135.lr.ph, label %for.end167
 
 for.body135.lr.ph:                                ; preds = %for.cond133.preheader
@@ -4129,7 +4129,7 @@ terminate.lpad.i.i343:                            ; preds = %lpad126
   unreachable
 
 for.body135:                                      ; preds = %for.body135.lr.ph, %for.inc165
-  %k132.0593 = phi i64 [ %pcol.4, %for.body135.lr.ph ], [ %inc166, %for.inc165 ]
+  %k132.0593 = phi i64 [ %pcol.2, %for.body135.lr.ph ], [ %inc166, %for.inc165 ]
   %148 = load ptr, ptr %lhs, align 8
   %add.ptr.i345 = getelementptr inbounds %"class.std::vector.9", ptr %148, i64 %j.0595
   %149 = load ptr, ptr %add.ptr.i345, align 8
@@ -4391,11 +4391,11 @@ if.else:                                          ; preds = %_ZN4cvc58internal7I
   br i1 %cmp39, label %for.inc232, label %for.cond196.preheader
 
 for.cond196.preheader:                            ; preds = %if.else
-  %cmp197590 = icmp ult i64 %pcol.4, %sub.ptr.div.i263
+  %cmp197590 = icmp ult i64 %pcol.2, %sub.ptr.div.i263
   br i1 %cmp197590, label %for.body198, label %for.end216
 
 for.body198:                                      ; preds = %for.cond196.preheader, %_ZN4cvc58internal7IntegerD2Ev.exit397
-  %k195.0591 = phi i64 [ %inc215, %_ZN4cvc58internal7IntegerD2Ev.exit397 ], [ %pcol.4, %for.cond196.preheader ]
+  %k195.0591 = phi i64 [ %inc215, %_ZN4cvc58internal7IntegerD2Ev.exit397 ], [ %pcol.2, %for.cond196.preheader ]
   %195 = load ptr, ptr %lhs, align 8
   %add.ptr.i388 = getelementptr inbounds %"class.std::vector.9", ptr %195, i64 %j.0595
   %196 = load ptr, ptr %add.ptr.i388, align 8
@@ -4548,7 +4548,7 @@ invoke.cont243:                                   ; preds = %invoke.cont243.lr.p
   %222 = load ptr, ptr %lhs, align 8
   %add.ptr.i413 = getelementptr inbounds %"class.std::vector.9", ptr %222, i64 %j235.0600
   %223 = load ptr, ptr %add.ptr.i413, align 8
-  %add.ptr.i414 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %223, i64 %pcol.4
+  %add.ptr.i414 = getelementptr inbounds %"class.cvc5::internal::Integer", ptr %223, i64 %pcol.2
   call void @__gmpz_init_set(ptr noundef nonnull %mul, ptr noundef nonnull %add.ptr.i414)
   call void @__gmpz_init(ptr noundef nonnull %ref.tmp241) #16
   %call246 = invoke noundef zeroext i1 @_ZNK4cvc58internal7IntegerneERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %mul, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp241)
@@ -4572,7 +4572,7 @@ for.cond250.preheader:                            ; preds = %_ZN4cvc58internal7I
   br i1 %cmp251597, label %for.body252, label %for.end275
 
 for.body252:                                      ; preds = %for.cond250.preheader, %_ZN4cvc58internal7IntegerD2Ev.exit429
-  %k249.0598 = phi i64 [ %inc274, %_ZN4cvc58internal7IntegerD2Ev.exit429 ], [ %pcol.4, %for.cond250.preheader ]
+  %k249.0598 = phi i64 [ %inc274, %_ZN4cvc58internal7IntegerD2Ev.exit429 ], [ %pcol.2, %for.cond250.preheader ]
   %226 = load ptr, ptr %lhs, align 8
   %add.ptr.i418 = getelementptr inbounds %"class.std::vector.9", ptr %226, i64 %j235.0600
   %227 = load ptr, ptr %add.ptr.i418, align 8
@@ -4837,7 +4837,7 @@ terminate.lpad.i.i455:                            ; preds = %ehcleanup294
   unreachable
 
 for.inc298:                                       ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit454, %for.cond236.preheader
-  %inc299 = add i64 %pcol.4, 1
+  %inc299 = add i64 %pcol.2, 1
   %inc300 = add nuw i64 %prow.0604, 1
   %cmp = icmp ult i64 %inc299, %sub.ptr.div.i263
   %cmp26 = icmp ult i64 %inc300, %sub.ptr.div.i258
@@ -4846,7 +4846,7 @@ for.inc298:                                       ; preds = %_ZN4cvc58internal7I
 
 while.cond306.preheader:                          ; preds = %while.cond306.preheader.preheader, %for.inc395
   %i.0612 = phi i64 [ %inc396, %for.inc395 ], [ 0, %while.cond306.preheader.preheader ]
-  %ispart.0611 = phi i1 [ %ispart.3, %for.inc395 ], [ false, %while.cond306.preheader.preheader ]
+  %ispart.0611 = phi i1 [ %ispart.1, %for.inc395 ], [ false, %while.cond306.preheader.preheader ]
   %cmp307605 = icmp ult i64 %i.0612, %sub.ptr.div.i263
   br i1 %cmp307605, label %land.rhs308, label %if.then324
 
@@ -4961,7 +4961,7 @@ terminate.lpad.i.i474:                            ; preds = %lpad334
 
 for.body344:                                      ; preds = %cleanup.done, %cleanup.done385.thread
   %j341.0609 = phi i64 [ %inc393, %cleanup.done385.thread ], [ %i.0612, %cleanup.done ]
-  %ispart.1608 = phi i1 [ %313, %cleanup.done385.thread ], [ %ispart.0611, %cleanup.done ]
+  %ispart.2608 = phi i1 [ %313, %cleanup.done385.thread ], [ %ispart.0611, %cleanup.done ]
   %291 = load ptr, ptr %lhs, align 8
   %add.ptr.i476 = getelementptr inbounds %"class.std::vector.9", ptr %291, i64 %i.0612
   %292 = load ptr, ptr %add.ptr.i476, align 8
@@ -5067,11 +5067,11 @@ terminate.lpad.i.i495:                            ; preds = %cleanup.action384
   unreachable
 
 cleanup.done385:                                  ; preds = %cleanup.action384
-  %spec.select = select i1 %call381, i1 true, i1 %ispart.1608
+  %spec.select = select i1 %call381, i1 true, i1 %ispart.2608
   br label %cleanup.done385.thread
 
 cleanup.done385.thread:                           ; preds = %cleanup.done385, %if.end372
-  %313 = phi i1 [ %ispart.1608, %if.end372 ], [ %spec.select, %cleanup.done385 ]
+  %313 = phi i1 [ %ispart.2608, %if.end372 ], [ %spec.select, %cleanup.done385 ]
   %inc393 = add nuw i64 %j341.0609, 1
   %cmp343 = icmp ult i64 %inc393, %sub.ptr.div.i263
   br i1 %cmp343, label %for.body344, label %for.inc395, !llvm.loop !61
@@ -5090,18 +5090,18 @@ terminate.lpad.i.i497:                            ; preds = %lpad379
   unreachable
 
 for.inc395:                                       ; preds = %cleanup.done385.thread, %_ZN4cvc58internal7IntegerD2Ev.exit471
-  %ispart.3 = phi i1 [ %ispart.0611, %_ZN4cvc58internal7IntegerD2Ev.exit471 ], [ %313, %cleanup.done385.thread ]
+  %ispart.1 = phi i1 [ %ispart.0611, %_ZN4cvc58internal7IntegerD2Ev.exit471 ], [ %313, %cleanup.done385.thread ]
   %inc396 = add nuw i64 %i.0612, 1
   %exitcond671.not = icmp eq i64 %inc396, %umax
   br i1 %exitcond671.not, label %for.end397.loopexit, label %while.cond306.preheader, !llvm.loop !62
 
 for.end397.loopexit:                              ; preds = %for.inc395
-  %317 = select i1 %ispart.3, i32 2, i32 1
+  %317 = select i1 %ispart.1, i32 2, i32 1
   br label %return
 
 return:                                           ; preds = %_ZN4cvc58internal7IntegerD2Ev.exit385, %_ZN4cvc58internal7IntegerD2Ev.exit471, %for.cond302.preheader, %for.end397.loopexit, %_ZNSt6vectorIN4cvc58internal7IntegerESaIS2_EED2Ev.exit245
-  %retval.4 = phi i32 [ 1, %_ZNSt6vectorIN4cvc58internal7IntegerESaIS2_EED2Ev.exit245 ], [ 1, %for.cond302.preheader ], [ %317, %for.end397.loopexit ], [ 3, %_ZN4cvc58internal7IntegerD2Ev.exit471 ], [ 0, %_ZN4cvc58internal7IntegerD2Ev.exit385 ]
-  ret i32 %retval.4
+  %retval.0 = phi i32 [ 1, %_ZNSt6vectorIN4cvc58internal7IntegerESaIS2_EED2Ev.exit245 ], [ 1, %for.cond302.preheader ], [ %317, %for.end397.loopexit ], [ 3, %_ZN4cvc58internal7IntegerD2Ev.exit471 ], [ 0, %_ZN4cvc58internal7IntegerD2Ev.exit385 ]
+  ret i32 %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal7IntegereqERKS1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0

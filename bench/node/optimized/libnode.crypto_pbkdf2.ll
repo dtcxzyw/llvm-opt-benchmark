@@ -888,7 +888,7 @@ if.then137:                                       ; preds = %if.end122
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end122, %if.then137
-  %retval.sroa.0.0 = phi i16 [ 0, %if.then137 ], [ 257, %if.end122 ]
+  %retval.sroa.0.1 = phi i16 [ 0, %if.then137 ], [ 257, %if.end122 ]
   %85 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i.i.i112 = icmp ne ptr %85, null
   %buf_st_.i.i.i = getelementptr inbounds i8, ptr %name, i64 24
@@ -901,8 +901,8 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %cleanup, %if.then119, %if.then100, %if.then24, %if.then
-  %retval.sroa.0.1 = phi i16 [ 0, %if.then ], [ 0, %if.then24 ], [ 0, %if.then100 ], [ 0, %if.then119 ], [ %retval.sroa.0.0, %cleanup ], [ %retval.sroa.0.0, %if.then.i.i ]
-  ret i16 %retval.sroa.0.1
+  %retval.sroa.0.0 = phi i16 [ 0, %if.then ], [ 0, %if.then24 ], [ 0, %if.then100 ], [ 0, %if.then119 ], [ %retval.sroa.0.1, %cleanup ], [ %retval.sroa.0.1, %if.then.i.i ]
+  ret i16 %retval.sroa.0.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1036,9 +1036,9 @@ _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit: ; preds = %_ZN
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4node6crypto10ByteSource7BuilderC2Em.exit, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit
-  %buf.sroa.7.1 = phi i64 [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %conv, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit ]
-  %buf.sroa.0.2 = phi ptr [ null, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %call1.i.i, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit ]
-  call void @CRYPTO_clear_free(ptr noundef %buf.sroa.0.2, i64 noundef %buf.sroa.7.1, ptr noundef nonnull @.str.16, i32 noundef 225) #18
+  %buf.sroa.7.0 = phi i64 [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %conv, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit ]
+  %buf.sroa.0.0 = phi ptr [ null, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit ], [ %call1.i.i, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit ]
+  call void @CRYPTO_clear_free(ptr noundef %buf.sroa.0.0, i64 noundef %buf.sroa.7.0, ptr noundef nonnull @.str.16, i32 noundef 225) #18
   ret i1 %cmp
 }
 

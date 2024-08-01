@@ -1087,12 +1087,12 @@ _ZN13ClassVerifierD2Ev.exit:                      ; preds = %.lr.ph.i, %151, %.p
   br label %206
 
 206:                                              ; preds = %189, %187, %184, %205, %197
-  %.059 = phi i1 [ false, %197 ], [ false, %205 ], [ false, %184 ], [ true, %187 ], [ false, %189 ]
+  %.1 = phi i1 [ false, %197 ], [ false, %205 ], [ false, %184 ], [ true, %187 ], [ false, %189 ]
   call void @_ZN18PerfClassTraceTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #20
   br label %_ZN8Verifier28is_eligible_for_verificationEP13InstanceKlassb.exit.thread
 
 _ZN8Verifier28is_eligible_for_verificationEP13InstanceKlassb.exit.thread: ; preds = %76, %_ZNK5Klass12class_loaderEv.exit.i, %64, %66, %68, %70, %_ZN8Verifier28is_eligible_for_verificationEP13InstanceKlassb.exit, %206
-  %.1 = phi i1 [ %.059, %206 ], [ true, %_ZN8Verifier28is_eligible_for_verificationEP13InstanceKlassb.exit ], [ true, %76 ], [ true, %70 ], [ true, %68 ], [ true, %66 ], [ true, %64 ], [ true, %_ZNK5Klass12class_loaderEv.exit.i ]
+  %.059 = phi i1 [ %.1, %206 ], [ true, %_ZN8Verifier28is_eligible_for_verificationEP13InstanceKlassb.exit ], [ true, %76 ], [ true, %70 ], [ true, %68 ], [ true, %66 ], [ true, %64 ], [ true, %_ZNK5Klass12class_loaderEv.exit.i ]
   %207 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %207, null
   br i1 %.not.i.i.i.i, label %209, label %208
@@ -1115,7 +1115,7 @@ _ZN8Verifier28is_eligible_for_verificationEP13InstanceKlassb.exit.thread: ; pred
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %209, %211
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #20
-  ret i1 %.1
+  ret i1 %.059
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1430,7 +1430,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %13, %11
   br label %27
 
 27:                                               ; preds = %.sink.split.i, %22, %19, %15
-  %.0.i = phi ptr [ null, %15 ], [ null, %19 ], [ null, %22 ], [ %26, %.sink.split.i ]
+  %.1.i = phi ptr [ null, %15 ], [ null, %19 ], [ null, %22 ], [ %26, %.sink.split.i ]
   br i1 %.not.i.i.i, label %_ZL20verify_byte_codes_fnv.exit, label %28
 
 28:                                               ; preds = %27
@@ -1438,10 +1438,10 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %13, %11
   br label %_ZL20verify_byte_codes_fnv.exit
 
 _ZL20verify_byte_codes_fnv.exit:                  ; preds = %9, %27, %28
-  %.1.i = phi ptr [ %10, %9 ], [ %.0.i, %27 ], [ %.0.i, %28 ]
+  %.0.i = phi ptr [ %10, %9 ], [ %.1.i, %27 ], [ %.1.i, %28 ]
   call void @llvm.lifetime.end.p0(i64 4097, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %6)
-  %29 = icmp eq ptr %.1.i, null
+  %29 = icmp eq ptr %.0.i, null
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %_ZL20verify_byte_codes_fnv.exit
@@ -1493,7 +1493,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %47, %51
   %59 = trunc i64 %2 to i32
   %60 = call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %0) #20
   %61 = zext i16 %60 to i32
-  %62 = call noundef zeroext i8 %.1.i(ptr noundef nonnull %58, ptr noundef %55, ptr noundef %1, i32 noundef %59, i32 noundef %61) #20
+  %62 = call noundef zeroext i8 %.0.i(ptr noundef nonnull %58, ptr noundef %55, ptr noundef %1, i32 noundef %59, i32 noundef %61) #20
   %63 = load i8, ptr @UseSystemMemoryBarrier, align 1
   %64 = trunc i8 %63 to i1
   store volatile i32 6, ptr %57, align 4
@@ -1565,7 +1565,7 @@ _ZN10JNIHandles13destroy_localEP8_jobject.exit:   ; preds = %_ZN20ThreadToNative
   unreachable
 
 84:                                               ; preds = %_ZN10JNIHandles13destroy_localEP8_jobject.exit, %80, %78, %76
-  %.0 = phi ptr [ %77, %76 ], [ null, %78 ], [ %81, %80 ], [ null, %_ZN10JNIHandles13destroy_localEP8_jobject.exit ]
+  %.1 = phi ptr [ %77, %76 ], [ null, %78 ], [ %81, %80 ], [ null, %_ZN10JNIHandles13destroy_localEP8_jobject.exit ]
   %85 = load ptr, ptr %37, align 8
   %.not.i.i.i.i28 = icmp eq ptr %85, null
   br i1 %.not.i.i.i.i28, label %87, label %86
@@ -1587,8 +1587,8 @@ _ZN10JNIHandles13destroy_localEP8_jobject.exit:   ; preds = %_ZN20ThreadToNative
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %89, %87, %30
-  %.1 = phi ptr [ %32, %30 ], [ %.0, %87 ], [ %.0, %89 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %32, %30 ], [ %.1, %87 ], [ %.1, %89 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -11123,7 +11123,7 @@ _ZNK16VerificationType6equalsERKS_.exit.thread:   ; preds = %205, %_ZNK16Verific
 
 231:                                              ; preds = %165, %230
   %232 = phi i64 [ %.pre, %230 ], [ %171, %165 ]
-  %.0 = phi i1 [ false, %230 ], [ true, %165 ]
+  %.1 = phi i1 [ false, %230 ], [ true, %165 ]
   %233 = getelementptr inbounds i8, ptr %0, i64 8184
   %234 = load i64, ptr %233, align 8
   %235 = icmp eq i64 %234, %232
@@ -11153,7 +11153,7 @@ _ZNK16VerificationTypeeqERKS_.exit134:            ; preds = %231
   br i1 %.not193, label %255, label %249
 
 249:                                              ; preds = %243
-  br i1 %.0, label %.preheader199, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169
+  br i1 %.1, label %.preheader199, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169
 
 .preheader199:                                    ; preds = %249, %.preheader199
   %indvars.iv211 = phi i64 [ %indvars.iv.next212, %.preheader199 ], [ 0, %249 ]
@@ -11232,7 +11232,7 @@ _ZNK16VerificationTypeeqERKS_.exit134:            ; preds = %231
   store i32 %105, ptr %22, align 8, !alias.scope !295
   %282 = getelementptr inbounds i8, ptr %22, i64 4
   store i32 1, ptr %282, align 4, !alias.scope !295
-  %.str.118..str.119 = select i1 %.0, ptr @.str.118, ptr @.str.119
+  %.str.118..str.119 = select i1 %.1, ptr @.str.118, ptr @.str.119
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %22, ptr noundef nonnull @.str.117, ptr noundef nonnull %.str.118..str.119)
   br label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169
 
@@ -11243,7 +11243,7 @@ _ZNK16VerificationTypeeqERKS_.exit134:            ; preds = %231
   unreachable
 
 _ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %261, %231, %269, %278, %_ZNK16VerificationTypeeqERKS_.exit134
-  br i1 %.0, label %.preheader197, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169
+  br i1 %.1, label %.preheader197, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169
 
 .preheader197:                                    ; preds = %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
   %285 = getelementptr inbounds i8, ptr %2, i64 8
@@ -12937,13 +12937,13 @@ define hidden noundef zeroext i1 @_ZN13ClassVerifier19is_protected_accessEP13Ins
   br label %38
 
 38:                                               ; preds = %35, %20, %37
-  %.0 = phi i1 [ false, %37 ], [ true, %20 ], [ true, %35 ]
+  %.1 = phi i1 [ false, %37 ], [ true, %20 ], [ true, %35 ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #20
   br label %39
 
 39:                                               ; preds = %6, %38
-  %.1 = phi i1 [ %.0, %38 ], [ false, %6 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %.1, %38 ], [ false, %6 ]
+  ret i1 %.0
 }
 
 declare noundef zeroext i1 @_ZNK5Klass14is_subclass_ofEPKS_(ptr noundef nonnull align 8 dereferenceable(196), ptr noundef) local_unnamed_addr #2

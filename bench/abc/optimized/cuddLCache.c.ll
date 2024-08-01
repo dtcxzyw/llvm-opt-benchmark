@@ -1153,13 +1153,13 @@ define internal fastcc noundef ptr @cuddHashTableAlloc(ptr nocapture noundef %0)
   br label %73
 
 61:                                               ; preds = %._crit_edge, %7
-  %.149 = phi ptr [ %56, %._crit_edge ], [ %11, %7 ]
+  %.048 = phi ptr [ %56, %._crit_edge ], [ %11, %7 ]
   %62 = getelementptr inbounds i8, ptr %0, i64 24
   %63 = load ptr, ptr %62, align 8
-  store ptr %63, ptr %.149, align 8
-  store ptr %.149, ptr %62, align 8
+  store ptr %63, ptr %.048, align 8
+  store ptr %.048, ptr %62, align 8
   %64 = zext i32 %3 to i64
-  %65 = getelementptr inbounds i8, ptr %.149, i64 %64
+  %65 = getelementptr inbounds i8, ptr %.048, i64 %64
   store ptr %65, ptr %4, align 8
   br label %66
 

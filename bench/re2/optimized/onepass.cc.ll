@@ -184,7 +184,7 @@ for.body54.lr.ph:                                 ; preds = %if.end38
 for.body54:                                       ; preds = %for.body54.lr.ph, %for.inc125
   %state.0147 = phi ptr [ %6, %for.body54.lr.ph ], [ %state.1, %for.inc125 ]
   %p.0146 = phi ptr [ %text.coerce0, %for.body54.lr.ph ], [ %incdec.ptr, %for.inc125 ]
-  %matched.0145 = phi i1 [ false, %for.body54.lr.ph ], [ %matched.2, %for.inc125 ]
+  %matched.0145 = phi i1 [ false, %for.body54.lr.ph ], [ %matched.3, %for.inc125 ]
   %nextmatchcond.0144 = phi i32 [ %8, %for.body54.lr.ph ], [ %nextmatchcond.1, %for.inc125 ]
   %12 = load i8, ptr %p.0146, align 1
   %idxprom56 = zext i8 %12 to i64
@@ -283,7 +283,7 @@ skipmatch:                                        ; preds = %if.end75, %lor.lhs.
   br i1 %cmp115.old, label %done, label %if.end117
 
 if.end117:                                        ; preds = %land.lhs.true109, %skipmatch
-  %matched.2 = phi i1 [ %matched.1, %skipmatch ], [ true, %land.lhs.true109 ]
+  %matched.3 = phi i1 [ %matched.1, %skipmatch ], [ true, %land.lhs.true109 ]
   %and118 = and i32 %14, 32640
   %tobool119 = icmp ne i32 %and118, 0
   %or.cond1 = and i1 %cmp92141, %tobool119
@@ -313,7 +313,7 @@ for.inc125:                                       ; preds = %for.inc.i92, %if.en
   br i1 %cmp53, label %for.body54, label %for.end126, !llvm.loop !6
 
 for.end126:                                       ; preds = %for.inc125, %if.end38
-  %matched.0.lcssa = phi i1 [ false, %if.end38 ], [ %matched.2, %for.inc125 ]
+  %matched.0.lcssa = phi i1 [ false, %if.end38 ], [ %matched.3, %for.inc125 ]
   %p.0.lcssa = phi ptr [ %text.coerce0, %if.end38 ], [ %incdec.ptr, %for.inc125 ]
   %state.0.lcssa = phi ptr [ %6, %if.end38 ], [ %state.1, %for.inc125 ]
   %18 = load i32, ptr %state.0.lcssa, align 4
@@ -376,8 +376,8 @@ for.end154:                                       ; preds = %for.body147.prehead
   br label %for.cond161.preheader
 
 done:                                             ; preds = %skipmatch, %for.end126, %lor.lhs.false133
-  %matched.3 = phi i1 [ %matched.0.lcssa, %lor.lhs.false133 ], [ %matched.0.lcssa, %for.end126 ], [ %matched.1, %skipmatch ]
-  br i1 %matched.3, label %for.cond161.preheader, label %return
+  %matched.2 = phi i1 [ %matched.0.lcssa, %lor.lhs.false133 ], [ %matched.0.lcssa, %for.end126 ], [ %matched.1, %skipmatch ]
+  br i1 %matched.2, label %for.cond161.preheader, label %return
 
 for.cond161.preheader:                            ; preds = %land.lhs.true109, %for.end154, %done
   %cmp162152 = icmp sgt i32 %nmatch, 0
@@ -725,7 +725,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont52
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc317
-  %nalloc.0587 = phi i32 [ 1, %for.body.lr.ph ], [ %nalloc.4, %for.inc317 ]
+  %nalloc.0587 = phi i32 [ 1, %for.body.lr.ph ], [ %nalloc.3, %for.inc317 ]
   %it.0586 = phi ptr [ %20, %for.body.lr.ph ], [ %incdec.ptr, %for.inc317 ]
   %21 = load i32, ptr %it.0586, align 4
   %idxprom59 = sext i32 %21 to i64
@@ -795,8 +795,8 @@ for.end:                                          ; preds = %for.body66, %for.bo
   br label %while.body
 
 while.body:                                       ; preds = %for.end, %sw.epilog
-  %nalloc.1582 = phi i32 [ %nalloc.0587, %for.end ], [ %nalloc.4, %sw.epilog ]
-  %node.0581 = phi ptr [ %add.ptr.i155, %for.end ], [ %node.3, %sw.epilog ]
+  %nalloc.1582 = phi i32 [ %nalloc.0587, %for.end ], [ %nalloc.3, %sw.epilog ]
+  %node.0581 = phi ptr [ %add.ptr.i155, %for.end ], [ %node.2, %sw.epilog ]
   %nstack.0580 = phi i32 [ 1, %for.end ], [ %nstack.1.ph431, %sw.epilog ]
   %matched.0579 = phi i8 [ 0, %for.end ], [ %matched.2, %sw.epilog ]
   %dec = add nsw i32 %nstack.0580, -1
@@ -827,8 +827,8 @@ invoke.cont85.outer430:                           ; preds = %invoke.cont85.outer
 
 invoke.cont85.outer436:                           ; preds = %invoke.cont85.outer436.backedge, %invoke.cont85.outer430
   %id77.0.ph437 = phi i32 [ %id77.0.ph432, %invoke.cont85.outer430 ], [ %add246, %invoke.cont85.outer436.backedge ]
-  %node.1.ph438 = phi ptr [ %node.1.ph434, %invoke.cont85.outer430 ], [ %node.2, %invoke.cont85.outer436.backedge ]
-  %nalloc.2.ph439 = phi i32 [ %nalloc.2.ph435, %invoke.cont85.outer430 ], [ %nalloc.3, %invoke.cont85.outer436.backedge ]
+  %node.1.ph438 = phi ptr [ %node.1.ph434, %invoke.cont85.outer430 ], [ %node.3, %invoke.cont85.outer436.backedge ]
+  %nalloc.2.ph439 = phi i32 [ %nalloc.2.ph435, %invoke.cont85.outer430 ], [ %nalloc.4, %invoke.cont85.outer436.backedge ]
   %33 = sext i32 %id77.0.ph437 to i64
   br label %invoke.cont85
 
@@ -1000,8 +1000,8 @@ invoke.cont128:                                   ; preds = %invoke.cont118
 
 if.end133:                                        ; preds = %invoke.cont128, %sw.bb106
   %nextindex.0 = phi i32 [ %nalloc.2.ph439, %invoke.cont128 ], [ %46, %sw.bb106 ]
-  %node.2 = phi ptr [ %add.ptr.i243, %invoke.cont128 ], [ %node.1.ph438, %sw.bb106 ]
-  %nalloc.3 = phi i32 [ %inc124, %invoke.cont128 ], [ %nalloc.2.ph439, %sw.bb106 ]
+  %node.3 = phi ptr [ %add.ptr.i243, %invoke.cont128 ], [ %node.1.ph438, %sw.bb106 ]
+  %nalloc.4 = phi i32 [ %inc124, %invoke.cont128 ], [ %nalloc.2.ph439, %sw.bb106 ]
   %57 = getelementptr inbounds i8, ptr %arrayidx.i.i.i.le810, i64 4
   %58 = load i8, ptr %57, align 4
   %hi_.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.le810, i64 5
@@ -1012,7 +1012,7 @@ if.end133:                                        ; preds = %invoke.cont128, %sw
 
 for.body140.lr.ph:                                ; preds = %if.end133
   %conv.i = zext i8 %58 to i32
-  %action155 = getelementptr inbounds i8, ptr %node.2, i64 4
+  %action155 = getelementptr inbounds i8, ptr %node.3, i64 4
   %shl = shl i32 %nextindex.0, 16
   %or = or i32 %shl, %cond81.0.ph433
   %or160 = or i32 %or, 64
@@ -1087,7 +1087,7 @@ if.then177:                                       ; preds = %for.end173
 
 for.body196.lr.ph:                                ; preds = %if.then177
   %sub = add nsw i32 %.sroa.speculated418, -32
-  %action216 = getelementptr inbounds i8, ptr %node.2, i64 4
+  %action216 = getelementptr inbounds i8, ptr %node.3, i64 4
   %shl220 = shl i32 %nextindex.0, 16
   %or221 = or i32 %shl220, %cond81.0.ph433
   %or224 = or i32 %or221, 64
@@ -1368,8 +1368,8 @@ invoke.cont85.outer.backedge:                     ; preds = %if.then5.i.i.i353, 
 
 sw.epilog:                                        ; preds = %if.end302, %if.end240, %invoke.cont85, %invoke.cont98
   %matched.2 = phi i8 [ %matched.1.ph, %invoke.cont98 ], [ %matched.1.ph, %invoke.cont85 ], [ %matched.1.ph, %if.end240 ], [ 1, %if.end302 ]
-  %node.3 = phi ptr [ %node.1.ph438, %invoke.cont98 ], [ %node.1.ph438, %invoke.cont85 ], [ %node.2, %if.end240 ], [ %node.1.ph438, %if.end302 ]
-  %nalloc.4 = phi i32 [ %nalloc.2.ph439, %invoke.cont98 ], [ %nalloc.2.ph439, %invoke.cont85 ], [ %nalloc.3, %if.end240 ], [ %nalloc.2.ph439, %if.end302 ]
+  %node.2 = phi ptr [ %node.1.ph438, %invoke.cont98 ], [ %node.1.ph438, %invoke.cont85 ], [ %node.3, %if.end240 ], [ %node.1.ph438, %if.end302 ]
+  %nalloc.3 = phi i32 [ %nalloc.2.ph439, %invoke.cont98 ], [ %nalloc.2.ph439, %invoke.cont85 ], [ %nalloc.4, %if.end240 ], [ %nalloc.2.ph439, %if.end302 ]
   %cmp76 = icmp sgt i32 %nstack.1.ph431, 0
   br i1 %cmp76, label %while.body, label %for.inc317, !llvm.loop !13
 
@@ -1383,7 +1383,7 @@ for.inc317:                                       ; preds = %sw.epilog
   br i1 %cmp58.not, label %for.end318, label %for.body, !llvm.loop !14
 
 for.end318:                                       ; preds = %for.inc317, %invoke.cont52
-  %nalloc.0.lcssa = phi i32 [ 1, %invoke.cont52 ], [ %nalloc.4, %for.inc317 ]
+  %nalloc.0.lcssa = phi i32 [ 1, %invoke.cont52 ], [ %nalloc.3, %for.inc317 ]
   %mul319 = mul nsw i32 %nalloc.0.lcssa, %add9
   %conv320 = sext i32 %mul319 to i64
   %112 = load i64, ptr %dfa_mem_, align 8
@@ -1541,8 +1541,8 @@ invoke.cont11.i.i412:                             ; preds = %ehcleanup341
   br label %eh.resume
 
 return:                                           ; preds = %invoke.cont11.i.i398, %_ZN4absl7debian210FixedArrayIiLm128ESaIiEED2Ev.exit, %if.end6, %lor.lhs.false, %if.end, %if.then
-  %retval.1 = phi i1 [ %cmp, %if.then ], [ false, %if.end ], [ false, %lor.lhs.false ], [ false, %if.end6 ], [ %cmp58.not549, %_ZN4absl7debian210FixedArrayIiLm128ESaIiEED2Ev.exit ], [ %cmp58.not549, %invoke.cont11.i.i398 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %cmp, %if.then ], [ false, %if.end ], [ false, %lor.lhs.false ], [ false, %if.end6 ], [ %cmp58.not549, %_ZN4absl7debian210FixedArrayIiLm128ESaIiEED2Ev.exit ], [ %cmp58.not549, %invoke.cont11.i.i398 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %invoke.cont11.i.i412, %ehcleanup341
   resume { ptr, i32 } %.pn.pn.pn.pn

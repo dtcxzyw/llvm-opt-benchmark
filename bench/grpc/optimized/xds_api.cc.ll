@@ -3839,9 +3839,9 @@ sw.bb2.i.i.i.i:                                   ; preds = %google_protobuf_Val
   br label %google_protobuf_Struct_fields_set.exit
 
 google_protobuf_Struct_fields_set.exit:           ; preds = %google_protobuf_Value_new.exit, %sw.bb2.i.i.i.i
-  %map.3.i.i = phi ptr [ %7, %google_protobuf_Value_new.exit ], [ %call.i.i, %sw.bb2.i.i.i.i ]
+  %map.1.i.i = phi ptr [ %7, %google_protobuf_Value_new.exit ], [ %call.i.i, %sw.bb2.i.i.i.i ]
   %9 = ptrtoint ptr %retval.0.i.i to i64
-  %table.i.i = getelementptr inbounds i8, ptr %map.3.i.i, i64 8
+  %table.i.i = getelementptr inbounds i8, ptr %map.1.i.i, i64 8
   %call2.i.i = tail call zeroext i1 @upb_strtable_remove2(ptr noundef nonnull %table.i.i, ptr noundef %call.i, i64 noundef %call1.i, ptr noundef null)
   %call6.i.i = tail call zeroext i1 @upb_strtable_insert(ptr noundef nonnull %table.i.i, ptr noundef %call.i, i64 noundef %call1.i, i64 %9, ptr noundef %5)
   %call.i8 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.012) #20

@@ -831,7 +831,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %115
 
 115:                                              ; preds = %.sink.split, %97
-  %.020 = phi i1 [ true, %97 ], [ false, %.sink.split ]
+  %.222 = phi i1 [ true, %97 ], [ false, %.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #18
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
@@ -841,7 +841,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit34
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %46, %115
-  %.121 = phi i1 [ %.020, %115 ], [ false, %46 ]
+  %.121 = phi i1 [ %.222, %115 ], [ false, %46 ]
   call void @_ZdaPv(ptr noundef nonnull %38) #21
   br label %117
 
@@ -851,8 +851,8 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit34: ; preds = %116, %.body
   br label %118
 
 117:                                              ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, %27
-  %.222 = phi i1 [ false, %27 ], [ %.121, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit ]
-  ret i1 %.222
+  %.020 = phi i1 [ false, %27 ], [ %.121, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit ]
+  ret i1 %.020
 
 118:                                              ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit34, %32
   %.pn28.pn = phi { ptr, i32 } [ %.pn28, %32 ], [ %.pn24.pn.pn, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit34 ]
@@ -1350,9 +1350,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   br label %77
 
 .loopexit:                                        ; preds = %.critedge, %.preheader, %75, %21
-  %.4 = phi i1 [ false, %75 ], [ false, %21 ], [ true, %.preheader ], [ true, %.critedge ]
+  %.010 = phi i1 [ false, %75 ], [ false, %21 ], [ true, %.preheader ], [ true, %.critedge ]
   call void @_ZN5cmsys9DirectoryD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #18
-  ret i1 %.4
+  ret i1 %.010
 
 77:                                               ; preds = %.loopexit33, %.loopexit.split-lp, %76, %.body27, %.body
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %76 ], [ %eh.lpad-body28, %.body27 ], [ %.pn, %.body ], [ %lpad.loopexit, %.loopexit33 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]

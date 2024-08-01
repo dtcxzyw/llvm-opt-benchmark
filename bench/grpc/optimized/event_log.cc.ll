@@ -1519,8 +1519,8 @@ if.else38.i.i:                                    ; preds = %for.cond.i.i
 for.body49.i.i:                                   ; preds = %if.else38.i.i, %for.body49.i.i
   %__i45.050.i.i = phi i64 [ %inc57.i.i, %for.body49.i.i ], [ 0, %if.else38.i.i ]
   %__q40.sroa.0.049.i.i = phi ptr [ %incdec.ptr.i19.i.i, %for.body49.i.i ], [ %add.ptr.i16.i.i, %if.else38.i.i ]
-  %__p.sroa.0.248.i.i = phi ptr [ %incdec.ptr.i18.i.i, %for.body49.i.i ], [ %add.ptr.i17.i.i, %if.else38.i.i ]
-  %incdec.ptr.i18.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.248.i.i, i64 -32
+  %__p.sroa.0.348.i.i = phi ptr [ %incdec.ptr.i18.i.i, %for.body49.i.i ], [ %add.ptr.i17.i.i, %if.else38.i.i ]
+  %incdec.ptr.i18.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.348.i.i, i64 -32
   %incdec.ptr.i19.i.i = getelementptr inbounds i8, ptr %__q40.sroa.0.049.i.i, i64 -32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i20.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i20.i.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i18.i.i, i64 32, i1 false)
@@ -1532,7 +1532,7 @@ for.body49.i.i:                                   ; preds = %if.else38.i.i, %for
   br i1 %exitcond.not.i.i, label %for.end58.i.i, label %for.body49.i.i, !llvm.loop !41
 
 for.end58.i.i:                                    ; preds = %for.body49.i.i, %if.else38.i.i
-  %__p.sroa.0.2.lcssa.i.i = phi ptr [ %add.ptr.i17.i.i, %if.else38.i.i ], [ %__p.sroa.0.0.i.i, %for.body49.i.i ]
+  %__p.sroa.0.3.lcssa.i.i = phi ptr [ %add.ptr.i17.i.i, %if.else38.i.i ], [ %__p.sroa.0.0.i.i, %for.body49.i.i ]
   %rem59.i.i = srem i64 %__n.0.i.i, %sub20.i.i
   %cmp60.i.i = icmp eq i64 %rem59.i.i, 0
   br i1 %cmp60.i.i, label %_ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit, label %for.cond.i.i.backedge
@@ -1540,7 +1540,7 @@ for.end58.i.i:                                    ; preds = %for.body49.i.i, %if
 for.cond.i.i.backedge:                            ; preds = %for.end58.i.i, %if.end36.i.i
   %__n.0.i.i.be = phi i64 [ %__k.0.i.i, %if.end36.i.i ], [ %sub20.i.i, %for.end58.i.i ]
   %__k.0.i.i.be = phi i64 [ %sub37.i.i, %if.end36.i.i ], [ %rem59.i.i, %for.end58.i.i ]
-  %__p.sroa.0.0.i.i.be = phi ptr [ %__p.sroa.0.1.lcssa.i.i, %if.end36.i.i ], [ %__p.sroa.0.2.lcssa.i.i, %for.end58.i.i ]
+  %__p.sroa.0.0.i.i.be = phi ptr [ %__p.sroa.0.1.lcssa.i.i, %if.end36.i.i ], [ %__p.sroa.0.3.lcssa.i.i, %for.end58.i.i ]
   br label %for.cond.i.i, !llvm.loop !42
 
 _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS5_SaIS5_EEEEEET_SB_SB_SB_.exit: ; preds = %for.end.i.i, %for.end58.i.i, %for.body.i.i.i, %if.end49, %if.else.i.i54
@@ -2400,8 +2400,8 @@ if.else38.i.i:                                    ; preds = %for.cond.i.i
 for.body49.i.i:                                   ; preds = %if.else38.i.i, %for.body49.i.i
   %__i45.050.i.i = phi i64 [ %inc57.i.i, %for.body49.i.i ], [ 0, %if.else38.i.i ]
   %__q40.sroa.0.049.i.i = phi ptr [ %incdec.ptr.i19.i.i, %for.body49.i.i ], [ %add.ptr.i16.i.i, %if.else38.i.i ]
-  %__p.sroa.0.248.i.i = phi ptr [ %incdec.ptr.i18.i.i, %for.body49.i.i ], [ %add.ptr.i17.i.i, %if.else38.i.i ]
-  %incdec.ptr.i18.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.248.i.i, i64 -32
+  %__p.sroa.0.348.i.i = phi ptr [ %incdec.ptr.i18.i.i, %for.body49.i.i ], [ %add.ptr.i17.i.i, %if.else38.i.i ]
+  %incdec.ptr.i18.i.i = getelementptr inbounds i8, ptr %__p.sroa.0.348.i.i, i64 -32
   %incdec.ptr.i19.i.i = getelementptr inbounds i8, ptr %__q40.sroa.0.049.i.i, i64 -32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i20.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i20.i.i, ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i18.i.i, i64 32, i1 false)
@@ -2413,7 +2413,7 @@ for.body49.i.i:                                   ; preds = %if.else38.i.i, %for
   br i1 %exitcond.not.i.i, label %for.end58.i.i, label %for.body49.i.i, !llvm.loop !41
 
 for.end58.i.i:                                    ; preds = %for.body49.i.i, %if.else38.i.i
-  %__p.sroa.0.2.lcssa.i.i = phi ptr [ %add.ptr.i17.i.i, %if.else38.i.i ], [ %__p.sroa.0.0.i.i, %for.body49.i.i ]
+  %__p.sroa.0.3.lcssa.i.i = phi ptr [ %add.ptr.i17.i.i, %if.else38.i.i ], [ %__p.sroa.0.0.i.i, %for.body49.i.i ]
   %rem59.i.i = srem i64 %__n.0.i.i, %sub20.i.i
   %cmp60.i.i = icmp eq i64 %rem59.i.i, 0
   br i1 %cmp60.i.i, label %return, label %for.cond.i.i.backedge
@@ -2421,7 +2421,7 @@ for.end58.i.i:                                    ; preds = %for.body49.i.i, %if
 for.cond.i.i.backedge:                            ; preds = %for.end58.i.i, %if.end36.i.i
   %__n.0.i.i.be = phi i64 [ %__k.0.i.i, %if.end36.i.i ], [ %sub20.i.i, %for.end58.i.i ]
   %__k.0.i.i.be = phi i64 [ %sub37.i.i, %if.end36.i.i ], [ %rem59.i.i, %for.end58.i.i ]
-  %__p.sroa.0.0.i.i.be = phi ptr [ %__p.sroa.0.1.lcssa.i.i, %if.end36.i.i ], [ %__p.sroa.0.2.lcssa.i.i, %for.end58.i.i ]
+  %__p.sroa.0.0.i.i.be = phi ptr [ %__p.sroa.0.1.lcssa.i.i, %if.end36.i.i ], [ %__p.sroa.0.3.lcssa.i.i, %for.end58.i.i ]
   br label %for.cond.i.i, !llvm.loop !42
 
 return:                                           ; preds = %for.end58.i.i, %for.end.i.i, %for.body.i.i.i, %if.else.i.i, %if.else44, %if.then22, %if.then, %_ZSt13move_backwardIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit, %_ZSt4moveIPN9grpc_core8EventLog5EntryEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit

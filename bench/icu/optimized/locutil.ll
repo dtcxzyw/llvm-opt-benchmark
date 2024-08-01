@@ -433,9 +433,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1139,8 +1139,8 @@ ehcleanup49:                                      ; preds = %ehcleanup, %lpad7
   br label %common.resume
 
 return:                                           ; preds = %call2.i.i.noexc, %new.notnull, %if.then2, %_ZN6icu_7524LocalUEnumerationPointerD2Ev.exit, %if.end, %land.lhs.true, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
-  %retval.1 = phi ptr [ null, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ %call3, %land.lhs.true ], [ %call.i, %if.end ], [ %spec.select, %_ZN6icu_7524LocalUEnumerationPointerD2Ev.exit ], [ null, %if.then2 ], [ %call3, %new.notnull ], [ %call3, %call2.i.i.noexc ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ null, %_ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit ], [ %call3, %land.lhs.true ], [ %call.i, %if.end ], [ %spec.select, %_ZN6icu_7524LocalUEnumerationPointerD2Ev.exit ], [ null, %if.then2 ], [ %call3, %new.notnull ], [ %call3, %call2.i.i.noexc ]
+  ret ptr %retval.0
 }
 
 declare void @umtx_lock_75(ptr noundef) local_unnamed_addr #5

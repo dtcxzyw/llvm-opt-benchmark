@@ -1368,7 +1368,7 @@ for.cond.preheader:                               ; preds = %if.else
 
 for.body:                                         ; preds = %for.cond.preheader, %land.end
   %indvars.iv = phi i64 [ 0, %for.cond.preheader ], [ %indvars.iv.next, %land.end ]
-  %ret.035 = phi i32 [ 1, %for.cond.preheader ], [ %land.ext, %land.end ]
+  %ret.135 = phi i32 [ 1, %for.cond.preheader ], [ %land.ext, %land.end ]
   %3 = load i32, ptr %aadctr, align 8
   %cmp20.not = icmp eq i32 %3, 0
   br i1 %cmp20.not, label %if.end27, label %if.then21
@@ -1380,7 +1380,7 @@ if.then21:                                        ; preds = %for.body
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then21, %for.body
-  %tobool.not = icmp eq i32 %ret.035, 0
+  %tobool.not = icmp eq i32 %ret.135, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end27
@@ -1410,14 +1410,14 @@ for.end:                                          ; preds = %land.end
   br label %if.end38
 
 if.end38:                                         ; preds = %for.end, %if.end9
-  %ret.1 = phi i32 [ %call11, %if.end9 ], [ %land.ext, %for.end ]
+  %ret.0 = phi i32 [ %call11, %if.end9 ], [ %land.ext, %for.end ]
   %aadctr39 = getelementptr inbounds i8, ptr %call, i64 456
   store i32 0, ptr %aadctr39, align 8
   %call40 = tail call ptr @EVP_CIPHER_CTX_set_cipher_data(ptr noundef %ctx, ptr noundef nonnull %call) #8
   br label %return
 
 return:                                           ; preds = %if.else, %if.then, %if.end38
-  %retval.0 = phi i32 [ %ret.1, %if.end38 ], [ -1, %if.then ], [ -1, %if.else ]
+  %retval.0 = phi i32 [ %ret.0, %if.end38 ], [ -1, %if.then ], [ -1, %if.else ]
   ret i32 %retval.0
 }
 

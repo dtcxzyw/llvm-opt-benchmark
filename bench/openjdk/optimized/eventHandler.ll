@@ -525,10 +525,10 @@ freeHandler.exit.thread:                          ; preds = %14, %freeHandler.ex
   br i1 %.not, label %freeHandler.exit._crit_edge, label %.lr.ph, !llvm.loop !9
 
 freeHandler.exit._crit_edge:                      ; preds = %freeHandler.exit.thread, %freeHandler.exit, %getHandlerChain.exit
-  %.2 = phi i32 [ 0, %getHandlerChain.exit ], [ %32, %freeHandler.exit ], [ 0, %freeHandler.exit.thread ]
+  %.1 = phi i32 [ 0, %getHandlerChain.exit ], [ %32, %freeHandler.exit ], [ 0, %freeHandler.exit.thread ]
   %33 = load ptr, ptr @handlerLock, align 8
   tail call void @debugMonitorExit(ptr noundef %33) #6
-  ret i32 %.2
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable

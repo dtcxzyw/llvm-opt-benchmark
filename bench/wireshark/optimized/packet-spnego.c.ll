@@ -404,7 +404,7 @@ define internal i32 @dissect_spnego_krb5(ptr noundef %0, ptr noundef %1, ptr nou
 
 48:                                               ; preds = %43, %26
   %.078 = phi i16 [ %29, %26 ], [ %44, %43 ]
-  %.077 = phi i32 [ %33, %26 ], [ 2, %43 ]
+  %.1 = phi i32 [ %33, %26 ], [ 2, %43 ]
   switch i16 %.078, label %79 [
     i16 4, label %49
     i16 260, label %51
@@ -418,39 +418,39 @@ define internal i32 @dissect_spnego_krb5(ptr noundef %0, ptr noundef %1, ptr nou
   ]
 
 49:                                               ; preds = %48
-  %50 = call i32 @dissect_kerberos_TGT_REQ(i1 noundef zeroext false, ptr noundef %0, i32 noundef %.077, ptr noundef nonnull %11, ptr noundef %15, i32 noundef -1) #6
+  %50 = call i32 @dissect_kerberos_TGT_REQ(i1 noundef zeroext false, ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %11, ptr noundef %15, i32 noundef -1) #6
   br label %79
 
 51:                                               ; preds = %48
-  %52 = call i32 @dissect_kerberos_TGT_REP(i1 noundef zeroext false, ptr noundef %0, i32 noundef %.077, ptr noundef nonnull %11, ptr noundef %15, i32 noundef -1) #6
+  %52 = call i32 @dissect_kerberos_TGT_REP(i1 noundef zeroext false, ptr noundef %0, i32 noundef %.1, ptr noundef nonnull %11, ptr noundef %15, i32 noundef -1) #6
   br label %79
 
 53:                                               ; preds = %48, %48, %48
-  %54 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.077) #6
+  %54 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1) #6
   %55 = call i32 @dissect_kerberos_main(ptr noundef %54, ptr noundef %1, ptr noundef %15, i32 noundef 0, ptr noundef null) #6
-  %56 = add i32 %55, %.077
+  %56 = add i32 %55, %.1
   br label %79
 
 57:                                               ; preds = %48
-  %58 = call fastcc i32 @dissect_spnego_krb5_getmic_base(ptr noundef %0, i32 noundef %.077, ptr noundef %15)
+  %58 = call fastcc i32 @dissect_spnego_krb5_getmic_base(ptr noundef %0, i32 noundef %.1, ptr noundef %15)
   br label %79
 
 59:                                               ; preds = %48
-  %60 = call fastcc i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0, i32 noundef %.077, ptr noundef %1, ptr noundef %15, i16 noundef zeroext 258, ptr noundef %3)
+  %60 = call fastcc i32 @dissect_spnego_krb5_wrap_base(ptr noundef %0, i32 noundef %.1, ptr noundef %1, ptr noundef %15, i16 noundef zeroext 258, ptr noundef %3)
   br label %79
 
 61:                                               ; preds = %48
-  %62 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.077) #6
+  %62 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #6
   %63 = load i32, ptr @hf_spnego_krb5_cfx_flags, align 4
   %64 = load i32, ptr @ett_spnego_krb5_cfx_flags, align 4
-  %65 = call ptr @proto_tree_add_bitmask(ptr noundef %15, ptr noundef %0, i32 noundef %.077, i32 noundef %63, i32 noundef %64, ptr noundef nonnull @dissect_spnego_krb5_cfx_flags.flags, i32 noundef 0) #6
-  %66 = add i32 %.077, 1
+  %65 = call ptr @proto_tree_add_bitmask(ptr noundef %15, ptr noundef %0, i32 noundef %.1, i32 noundef %63, i32 noundef %64, ptr noundef nonnull @dissect_spnego_krb5_cfx_flags.flags, i32 noundef 0) #6
+  %66 = add i32 %.1, 1
   %67 = load i32, ptr @hf_spnego_krb5_filler, align 4
   %68 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %67, ptr noundef %0, i32 noundef %66, i32 noundef 5, i32 noundef 0) #6
-  %69 = add i32 %.077, 6
+  %69 = add i32 %.1, 6
   %70 = load i32, ptr @hf_spnego_krb5_cfx_seq, align 4
   %71 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %70, ptr noundef %0, i32 noundef %69, i32 noundef 8, i32 noundef 0) #6
-  %72 = add i32 %.077, 14
+  %72 = add i32 %.1, 14
   %73 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %72) #6
   %74 = load i32, ptr @hf_spnego_krb5_sgn_cksum, align 4
   %75 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %74, ptr noundef %0, i32 noundef %72, i32 noundef %73, i32 noundef 0) #6
@@ -458,12 +458,12 @@ define internal i32 @dissect_spnego_krb5(ptr noundef %0, ptr noundef %1, ptr nou
   br label %79
 
 77:                                               ; preds = %48
-  %78 = call fastcc i32 @dissect_spnego_krb5_cfx_wrap_base(ptr noundef %0, i32 noundef %.077, ptr noundef %1, ptr noundef %15, ptr noundef %3)
+  %78 = call fastcc i32 @dissect_spnego_krb5_cfx_wrap_base(ptr noundef %0, i32 noundef %.1, ptr noundef %1, ptr noundef %15, ptr noundef %3)
   br label %79
 
 79:                                               ; preds = %49, %51, %53, %57, %59, %61, %77, %48, %36
-  %.1 = phi i32 [ %24, %36 ], [ %.077, %48 ], [ %76, %61 ], [ %78, %77 ], [ %60, %59 ], [ %58, %57 ], [ %56, %53 ], [ %52, %51 ], [ %50, %49 ]
-  call void @proto_item_set_len(ptr noundef %13, i32 noundef %.1) #6
+  %.077 = phi i32 [ %24, %36 ], [ %.1, %48 ], [ %76, %61 ], [ %78, %77 ], [ %60, %59 ], [ %58, %57 ], [ %56, %53 ], [ %52, %51 ], [ %50, %49 ]
+  call void @proto_item_set_len(ptr noundef %13, i32 noundef %.077) #6
   br label %80
 
 80:                                               ; preds = %79, %34

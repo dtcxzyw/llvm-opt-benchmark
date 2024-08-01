@@ -830,7 +830,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   br label %43
 
 40:                                               ; preds = %.loopexit.i
-  %41 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %41 = getelementptr inbounds i8, ptr %.179.i, i64 1
   %42 = load i8, ptr %41, align 1
   %.not.i = icmp eq i8 %42, 0
   br i1 %.not.i, label %_proc_stdout.exit.loopexit, label %43, !llvm.loop !9
@@ -1058,8 +1058,8 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   ]
 
 .preheader.i:                                     ; preds = %145, %.preheader.i
-  %.179.i = phi ptr [ %146, %.preheader.i ], [ %.078.i, %145 ]
-  %146 = getelementptr inbounds i8, ptr %.179.i, i64 -1
+  %.2.i = phi ptr [ %146, %.preheader.i ], [ %.078.i, %145 ]
+  %146 = getelementptr inbounds i8, ptr %.2.i, i64 -1
   %147 = load i8, ptr %146, align 1
   %148 = sext i8 %147 to i64
   %149 = getelementptr inbounds i16, ptr %137, i64 %148
@@ -1069,7 +1069,7 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   br i1 %.not100.i, label %152, label %.preheader.i, !llvm.loop !15
 
 152:                                              ; preds = %.preheader.i
-  store i8 0, ptr %.179.i, align 1
+  store i8 0, ptr %.2.i, align 1
   %153 = call i32 @get_log_level() #13
   %154 = icmp sgt i32 %153, 4
   br i1 %154, label %155, label %156
@@ -1085,15 +1085,15 @@ define internal fastcc range(i32 0, 256) i32 @_run_script_and_set_env(ptr nounde
   br i1 %158, label %159, label %160
 
 159:                                              ; preds = %156
-  store i8 0, ptr %.179.i, align 1
+  store i8 0, ptr %.2.i, align 1
   br label %.loopexit.i
 
 160:                                              ; preds = %156
-  store i8 10, ptr %.179.i, align 1
+  store i8 10, ptr %.2.i, align 1
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.split.us.i, %160, %159, %145, %145, %132, %131, %130, %103, %81, %.split110.us.i, %61
-  %.2.i = phi ptr [ %.078.i, %132 ], [ %.078.i, %145 ], [ %.179.i, %159 ], [ %.179.i, %160 ], [ %.078.i, %130 ], [ %.078.i, %131 ], [ %.078.i, %103 ], [ %.078.i, %81 ], [ %.078.i, %.split110.us.i ], [ %.078.i, %145 ], [ %.078.i, %61 ], [ %.078.i, %.split.us.i ]
+  %.179.i = phi ptr [ %.078.i, %132 ], [ %.078.i, %145 ], [ %.2.i, %159 ], [ %.2.i, %160 ], [ %.078.i, %130 ], [ %.078.i, %131 ], [ %.078.i, %103 ], [ %.078.i, %81 ], [ %.078.i, %.split110.us.i ], [ %.078.i, %145 ], [ %.078.i, %61 ], [ %.078.i, %.split.us.i ]
   %161 = trunc nuw i8 %.1.i to i1
   br i1 %161, label %_proc_stdout.exit.loopexit, label %40
 

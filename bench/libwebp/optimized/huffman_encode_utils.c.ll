@@ -149,11 +149,11 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
 
 .lr.ph38.i:                                       ; preds = %.lr.ph38.i.preheader, %.lr.ph38.i
   %.037.i = phi i32 [ %67, %.lr.ph38.i ], [ 0, %.lr.ph38.i.preheader ]
-  %.236.i = phi ptr [ %66, %.lr.ph38.i ], [ %.12734.i.lcssa, %.lr.ph38.i.preheader ]
-  store i8 %12, ptr %.236.i, align 1
-  %65 = getelementptr inbounds i8, ptr %.236.i, i64 1
+  %.336.i = phi ptr [ %66, %.lr.ph38.i ], [ %.12734.i.lcssa, %.lr.ph38.i.preheader ]
+  store i8 %12, ptr %.336.i, align 1
+  %65 = getelementptr inbounds i8, ptr %.336.i, i64 1
   store i8 0, ptr %65, align 1
-  %66 = getelementptr inbounds i8, ptr %.236.i, i64 2
+  %66 = getelementptr inbounds i8, ptr %.336.i, i64 2
   %67 = add nuw nsw i32 %.037.i, 1
   %exitcond.not.i = icmp eq i32 %67, %.135.i.lcssa
   br i1 %exitcond.not.i, label %CodeRepeatedZeros.exit, label %.lr.ph38.i, !llvm.loop !7

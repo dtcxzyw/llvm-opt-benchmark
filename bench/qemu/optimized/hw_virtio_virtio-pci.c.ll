@@ -1053,19 +1053,19 @@ config_error.thread103:                           ; preds = %if.end73, %if.end73
   br label %if.then89
 
 if.then89:                                        ; preds = %if.end67, %if.end67.thread, %config_error.thread103
-  %r.0107 = phi i32 [ %call7599118, %config_error.thread103 ], [ %call.i80108, %if.end67.thread ], [ %call.i80, %if.end67 ]
+  %r.2107 = phi i32 [ %call7599118, %config_error.thread103 ], [ %call.i80108, %if.end67.thread ], [ %call.i80, %if.end67 ]
   tail call fastcc void @kvm_virtio_pci_vector_release_one(ptr noundef %d, i32 noundef -1)
   br label %config_assign_error
 
 config_assign_error:                              ; preds = %for.body.i73, %if.end73.thread, %if.then89, %kvm_virtio_pci_vector_vq_use.exit, %for.end
-  %r.1 = phi i32 [ %call43, %for.end ], [ %call2.i, %kvm_virtio_pci_vector_vq_use.exit ], [ %r.0107, %if.then89 ], [ %call7597, %if.end73.thread ], [ -1, %for.body.i73 ]
+  %r.1 = phi i32 [ %call43, %for.end ], [ %call2.i, %kvm_virtio_pci_vector_vq_use.exit ], [ %r.2107, %if.then89 ], [ %call7597, %if.end73.thread ], [ -1, %for.body.i73 ]
   %lnot = xor i1 %assign, true
   %call93 = tail call fastcc i32 @virtio_pci_set_guest_notifier(ptr noundef %d, i32 noundef -1, i1 noundef zeroext %lnot, i1 noundef zeroext %3)
   br label %assign_error
 
 assign_error:                                     ; preds = %if.end34, %config_assign_error
   %n.0120 = phi i32 [ %n.0.lcssa, %config_assign_error ], [ %n.0122, %if.end34 ]
-  %r.2 = phi i32 [ %r.1, %config_assign_error ], [ %call37, %if.end34 ]
+  %r.0 = phi i32 [ %r.1, %config_assign_error ], [ %call37, %if.end34 ]
   br i1 %assign, label %while.cond.preheader, label %if.else96
 
 while.cond.preheader:                             ; preds = %assign_error
@@ -1091,7 +1091,7 @@ while.end:                                        ; preds = %while.body, %while.
   br label %return
 
 return:                                           ; preds = %if.end73.thread113, %if.end73.thread, %lor.lhs.false48, %land.lhs.true54, %if.end73, %land.lhs.true51, %land.lhs.true, %while.end
-  %retval.0 = phi i32 [ %r.2, %while.end ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true51 ], [ 0, %if.end73 ], [ 0, %land.lhs.true54 ], [ 0, %lor.lhs.false48 ], [ 0, %if.end73.thread ], [ 0, %if.end73.thread113 ]
+  %retval.0 = phi i32 [ %r.0, %while.end ], [ 0, %land.lhs.true ], [ 0, %land.lhs.true51 ], [ 0, %if.end73 ], [ 0, %land.lhs.true54 ], [ 0, %lor.lhs.false48 ], [ 0, %if.end73.thread ], [ 0, %if.end73.thread113 ]
   ret i32 %retval.0
 }
 
@@ -3408,11 +3408,11 @@ sw.bb17:                                          ; preds = %if.end
 
 for.body:                                         ; preds = %if.end, %for.body
   %i.042 = phi i32 [ %add, %for.body ], [ 0, %if.end ]
-  %val.041 = phi i32 [ %spec.select, %for.body ], [ 0, %if.end ]
+  %val.141 = phi i32 [ %spec.select, %for.body ], [ 0, %if.end ]
   %call22 = tail call i32 @virtio_queue_get_num(ptr noundef nonnull %1, i32 noundef %i.042) #14
   %tobool.not = icmp eq i32 %call22, 0
   %add = add nuw nsw i32 %i.042, 1
-  %spec.select = select i1 %tobool.not, i32 %val.041, i32 %add
+  %spec.select = select i1 %tobool.not, i32 %val.141, i32 %add
   %exitcond.not = icmp eq i32 %add, 1024
   br i1 %exitcond.not, label %sw.epilog, label %for.body, !llvm.loop !17
 
@@ -3531,8 +3531,8 @@ sw.bb87:                                          ; preds = %if.end
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.body, %if.end, %sw.bb9, %if.then14, %sw.bb1, %if.then4, %sw.bb87, %sw.bb80, %sw.bb74, %sw.bb67, %sw.bb61, %sw.bb54, %sw.bb48, %sw.bb45, %sw.bb39, %sw.bb34, %sw.bb30, %sw.bb28, %sw.bb27, %sw.bb25, %sw.bb17, %sw.bb8, %sw.bb
-  %val.2 = phi i32 [ %conv93, %sw.bb87 ], [ %31, %sw.bb80 ], [ %29, %sw.bb74 ], [ %27, %sw.bb67 ], [ %25, %sw.bb61 ], [ %23, %sw.bb54 ], [ %21, %sw.bb48 ], [ %conv47, %sw.bb45 ], [ %conv44, %sw.bb39 ], [ %conv38, %sw.bb34 ], [ %call33, %sw.bb30 ], [ %conv29, %sw.bb28 ], [ %12, %sw.bb27 ], [ %conv26, %sw.bb25 ], [ %conv18, %sw.bb17 ], [ %9, %if.then14 ], [ 0, %sw.bb9 ], [ %7, %sw.bb8 ], [ %conv, %if.then4 ], [ 0, %sw.bb1 ], [ %2, %sw.bb ], [ 0, %if.end ], [ %spec.select, %for.body ]
-  %conv94 = zext i32 %val.2 to i64
+  %val.0 = phi i32 [ %conv93, %sw.bb87 ], [ %31, %sw.bb80 ], [ %29, %sw.bb74 ], [ %27, %sw.bb67 ], [ %25, %sw.bb61 ], [ %23, %sw.bb54 ], [ %21, %sw.bb48 ], [ %conv47, %sw.bb45 ], [ %conv44, %sw.bb39 ], [ %conv38, %sw.bb34 ], [ %call33, %sw.bb30 ], [ %conv29, %sw.bb28 ], [ %12, %sw.bb27 ], [ %conv26, %sw.bb25 ], [ %conv18, %sw.bb17 ], [ %9, %if.then14 ], [ 0, %sw.bb9 ], [ %7, %sw.bb8 ], [ %conv, %if.then4 ], [ 0, %sw.bb1 ], [ %2, %sw.bb ], [ 0, %if.end ], [ %spec.select, %for.body ]
+  %conv94 = zext i32 %val.0 to i64
   br label %return
 
 return:                                           ; preds = %entry, %virtio_bus_get_device.exit, %sw.epilog

@@ -474,9 +474,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1253,7 +1253,7 @@ sw.default:                                       ; preds = %if.end15
 sw.epilog:                                        ; preds = %if.end89, %sw.bb36, %if.end34
   %start.084 = phi i32 [ %10, %if.end89 ], [ %10, %sw.bb36 ], [ 0, %if.end34 ]
   %props.0 = phi ptr [ %cpProps90, %if.end89 ], [ %blockProps, %sw.bb36 ], [ %defaultProps, %if.end34 ]
-  %insideBlock.1 = phi i1 [ %or.cond87.not, %if.end89 ], [ false, %sw.bb36 ], [ false, %if.end34 ]
+  %insideBlock.0 = phi i1 [ %or.cond87.not, %if.end89 ], [ false, %sw.bb36 ], [ false, %if.end34 ]
   store i32 %start.084, ptr %props.0, align 8
   %end92 = getelementptr inbounds i8, ptr %props.0, i64 4
   store i32 %11, ptr %end92, align 4
@@ -1286,7 +1286,7 @@ if.then101:                                       ; preds = %while.end
 
 if.else104:                                       ; preds = %while.end
   %cmp106 = icmp eq i32 %30, 9
-  %or.cond1 = and i1 %insideBlock.1, %cmp106
+  %or.cond1 = and i1 %insideBlock.0, %cmp106
   br i1 %or.cond1, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.else104

@@ -121,14 +121,14 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
 
 .critedge4:                                       ; preds = %.lr.ph107, %.critedge
   %.061 = phi i8 [ %5, %.critedge ], [ %16, %.lr.ph107 ]
-  %.2 = phi ptr [ %6, %.critedge ], [ %17, %.lr.ph107 ]
+  %.1 = phi ptr [ %6, %.critedge ], [ %17, %.lr.ph107 ]
   %24 = and i8 %.061, -33
   %or.cond = icmp eq i8 %24, 69
   br i1 %or.cond, label %25, label %.critedge10
 
 25:                                               ; preds = %.critedge4
   tail call void @scratch_buffer_append_char(i8 noundef signext %.061) #6
-  %26 = load i8, ptr %.2, align 1
+  %26 = load i8, ptr %.1, align 1
   switch i8 %26, label %31 [
     i8 45, label %27
     i8 43, label %29
@@ -136,17 +136,17 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
 
 27:                                               ; preds = %25
   tail call void @scratch_buffer_append_char(i8 noundef signext 45) #6
-  %28 = getelementptr inbounds i8, ptr %.2, i64 1
+  %28 = getelementptr inbounds i8, ptr %.1, i64 1
   br label %31
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.2, i64 1
+  %30 = getelementptr inbounds i8, ptr %.1, i64 1
   br label %31
 
 31:                                               ; preds = %25, %29, %27
-  %.3 = phi ptr [ %28, %27 ], [ %30, %29 ], [ %.2, %25 ]
-  %32 = getelementptr inbounds i8, ptr %.3, i64 1
-  %33 = load i8, ptr %.3, align 1
+  %.4 = phi ptr [ %28, %27 ], [ %30, %29 ], [ %.1, %25 ]
+  %32 = getelementptr inbounds i8, ptr %.4, i64 1
+  %33 = load i8, ptr %.4, align 1
   %34 = add i8 %33, -48
   %35 = icmp ult i8 %34, 10
   br i1 %35, label %.lr.ph108, label %.critedge10
@@ -163,19 +163,19 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
 
 .critedge10:                                      ; preds = %.lr.ph108, %31, %.critedge4
   %.162 = phi i8 [ %.061, %.critedge4 ], [ %33, %31 ], [ %39, %.lr.ph108 ]
-  %.5 = phi ptr [ %.2, %.critedge4 ], [ %32, %31 ], [ %38, %.lr.ph108 ]
+  %.3 = phi ptr [ %.1, %.critedge4 ], [ %32, %31 ], [ %38, %.lr.ph108 ]
   %42 = icmp eq i8 %.162, 102
   br i1 %42, label %.preheader, label %.critedge10.thread
 
 .preheader:                                       ; preds = %.critedge10
-  %43 = load i8, ptr %.5, align 1
+  %43 = load i8, ptr %.3, align 1
   %44 = add i8 %43, -48
   %45 = icmp ult i8 %44, 10
   br i1 %45, label %.lr.ph111, label %.critedge12
 
 .lr.ph111:                                        ; preds = %.preheader, %48
   %.in = phi i8 [ %54, %48 ], [ %43, %.preheader ]
-  %.pn113 = phi ptr [ %49, %48 ], [ %.5, %.preheader ]
+  %.pn113 = phi ptr [ %49, %48 ], [ %.3, %.preheader ]
   %.059110 = phi i32 [ %53, %48 ], [ 0, %.preheader ]
   %46 = icmp sgt i32 %.059110, 100
   br i1 %46, label %47, label %48
@@ -314,14 +314,14 @@ define dso_local { double, i32 } @float_from_hex(ptr nocapture noundef readonly 
 
 .critedge78.sink.split:                           ; preds = %.critedge, %14
   %.sink = phi i8 [ %13, %14 ], [ 46, %.critedge ]
-  %.159.ph = phi ptr [ %12, %14 ], [ %5, %.critedge ]
+  %.2.ph = phi ptr [ %12, %14 ], [ %5, %.critedge ]
   tail call void @scratch_buffer_append_char(i8 noundef signext %.sink) #6
   br label %.critedge78
 
 .critedge78:                                      ; preds = %.critedge78.sink.split, %.critedge78
-  %.159 = phi ptr [ %12, %.critedge78 ], [ %.159.ph, %.critedge78.sink.split ]
-  %12 = getelementptr inbounds i8, ptr %.159, i64 1
-  %13 = load i8, ptr %.159, align 1
+  %.2 = phi ptr [ %12, %.critedge78 ], [ %.2.ph, %.critedge78.sink.split ]
+  %12 = getelementptr inbounds i8, ptr %.2, i64 1
+  %13 = load i8, ptr %.2, align 1
   switch i8 %13, label %14 [
     i8 0, label %.critedge10.thread
     i8 95, label %.critedge78
@@ -335,7 +335,7 @@ define dso_local { double, i32 } @float_from_hex(ptr nocapture noundef readonly 
   br i1 %.not88, label %.critedge4, label %.critedge78.sink.split, !llvm.loop !13
 
 .critedge4:                                       ; preds = %14, %.critedge
-  %.2 = phi ptr [ %5, %.critedge ], [ %12, %14 ]
+  %.159 = phi ptr [ %5, %.critedge ], [ %12, %14 ]
   %.057 = phi i8 [ %6, %.critedge ], [ %13, %14 ]
   %18 = and i8 %.057, -33
   %or.cond = icmp eq i8 %18, 80
@@ -343,7 +343,7 @@ define dso_local { double, i32 } @float_from_hex(ptr nocapture noundef readonly 
 
 19:                                               ; preds = %.critedge4
   tail call void @scratch_buffer_append_char(i8 noundef signext %.057) #6
-  %20 = load i8, ptr %.2, align 1
+  %20 = load i8, ptr %.159, align 1
   switch i8 %20, label %25 [
     i8 45, label %21
     i8 43, label %23
@@ -351,17 +351,17 @@ define dso_local { double, i32 } @float_from_hex(ptr nocapture noundef readonly 
 
 21:                                               ; preds = %19
   tail call void @scratch_buffer_append_char(i8 noundef signext 45) #6
-  %22 = getelementptr inbounds i8, ptr %.2, i64 1
+  %22 = getelementptr inbounds i8, ptr %.159, i64 1
   br label %25
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.2, i64 1
+  %24 = getelementptr inbounds i8, ptr %.159, i64 1
   br label %25
 
 25:                                               ; preds = %19, %23, %21
-  %.3 = phi ptr [ %22, %21 ], [ %24, %23 ], [ %.2, %19 ]
-  %26 = getelementptr inbounds i8, ptr %.3, i64 1
-  %27 = load i8, ptr %.3, align 1
+  %.4 = phi ptr [ %22, %21 ], [ %24, %23 ], [ %.159, %19 ]
+  %26 = getelementptr inbounds i8, ptr %.4, i64 1
+  %27 = load i8, ptr %.4, align 1
   %28 = add i8 %27, -48
   %29 = icmp ult i8 %28, 10
   br i1 %29, label %.lr.ph, label %.critedge10
@@ -377,20 +377,20 @@ define dso_local { double, i32 } @float_from_hex(ptr nocapture noundef readonly 
   br i1 %35, label %.lr.ph, label %.critedge10, !llvm.loop !14
 
 .critedge10:                                      ; preds = %.lr.ph, %25, %.critedge4
-  %.5 = phi ptr [ %.2, %.critedge4 ], [ %26, %25 ], [ %32, %.lr.ph ]
+  %.3 = phi ptr [ %.159, %.critedge4 ], [ %26, %25 ], [ %32, %.lr.ph ]
   %.1 = phi i8 [ %.057, %.critedge4 ], [ %27, %25 ], [ %33, %.lr.ph ]
   %36 = icmp eq i8 %.1, 102
   br i1 %36, label %.preheader, label %.critedge10.thread
 
 .preheader:                                       ; preds = %.critedge10
-  %37 = load i8, ptr %.5, align 1
+  %37 = load i8, ptr %.3, align 1
   %38 = add i8 %37, -48
   %39 = icmp ult i8 %38, 10
   br i1 %39, label %.lr.ph102, label %.critedge12
 
 .lr.ph102:                                        ; preds = %.preheader, %42
   %.in = phi i8 [ %48, %42 ], [ %37, %.preheader ]
-  %.pn = phi ptr [ %43, %42 ], [ %.5, %.preheader ]
+  %.pn = phi ptr [ %43, %42 ], [ %.3, %.preheader ]
   %.0101 = phi i32 [ %47, %42 ], [ 0, %.preheader ]
   %40 = icmp sgt i32 %.0101, 100
   br i1 %40, label %41, label %42

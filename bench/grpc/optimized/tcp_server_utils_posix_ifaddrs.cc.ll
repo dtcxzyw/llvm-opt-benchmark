@@ -450,7 +450,7 @@ cleanup.action55.i:                               ; preds = %cond.true.i
   br label %ehcleanup57.i
 
 cleanup.i:                                        ; preds = %if.then.i.i.i.i, %invoke.cont.i.i, %cond.end.i, %invoke.cont38.i, %invoke.cont16.i, %if.then.i
-  %requested_port.addr.0 = phi i32 [ %call44.i, %invoke.cont.i.i ], [ %call44.i, %if.then.i.i.i.i ], [ %call44.i, %cond.end.i ], [ 0, %invoke.cont38.i ], [ 0, %invoke.cont16.i ], [ 0, %if.then.i ]
+  %requested_port.addr.1 = phi i32 [ %call44.i, %invoke.cont.i.i ], [ %call44.i, %if.then.i.i.i.i ], [ %call44.i, %cond.end.i ], [ 0, %invoke.cont38.i ], [ 0, %invoke.cont16.i ], [ 0, %if.then.i ]
   %38 = load i64, ptr %err.i, align 8, !noalias !4
   %and.i.i.i38.i = and i64 %38, 1
   %cmp.i.i.i39.i = icmp eq i64 %and.i.i.i38.i, 0
@@ -587,7 +587,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad1
   br label %ehcleanup182
 
 if.else:                                          ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit46
-  %cmp9 = icmp slt i32 %requested_port.addr.0, 1
+  %cmp9 = icmp slt i32 %requested_port.addr.1, 1
   br i1 %cmp9, label %if.then10, label %if.end17
 
 if.then10:                                        ; preds = %if.else
@@ -645,11 +645,11 @@ lpad14:                                           ; preds = %if.then10
   br label %ehcleanup182
 
 if.end17:                                         ; preds = %if.else
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 111, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef %requested_port.addr.0)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 111, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef %requested_port.addr.1)
           to label %if.end19 unwind label %lpad.loopexit.split-lp
 
 if.end19:                                         ; preds = %if.end17, %entry
-  %requested_port.addr.1 = phi i32 [ %requested_port.addr.0, %if.end17 ], [ %requested_port, %entry ]
+  %requested_port.addr.0 = phi i32 [ %requested_port.addr.1, %if.end17 ], [ %requested_port, %entry ]
   %call20 = call i32 @getifaddrs(ptr noundef nonnull %ifa) #17
   %cmp21 = icmp ne i32 %call20, 0
   %60 = load ptr, ptr %ifa, align 8
@@ -700,7 +700,7 @@ lpad29:                                           ; preds = %if.then.i49
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %ifa_it.0281 = phi ptr [ %60, %for.cond.preheader ], [ %151, %for.inc ]
-  %fd_index.0280 = phi i32 [ 0, %for.cond.preheader ], [ %fd_index.2, %for.inc ]
+  %fd_index.0280 = phi i32 [ 0, %for.cond.preheader ], [ %fd_index.1, %for.inc ]
   %sp.0279 = phi ptr [ null, %for.cond.preheader ], [ %sp.2, %for.inc ]
   store ptr null, ptr %new_sp, align 8
   %ifa_name34 = getelementptr inbounds i8, ptr %ifa_it.0281, i64 8
@@ -728,7 +728,7 @@ if.end52:                                         ; preds = %if.else38, %if.then
   %70 = load ptr, ptr %ifa_addr, align 8
   %conv56 = zext nneg i32 %storemerge to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %addr, ptr noundef nonnull align 2 dereferenceable(1) %70, i64 %conv56, i1 false)
-  %call58 = invoke noundef i32 @_Z22grpc_sockaddr_set_portP21grpc_resolved_addressi(ptr noundef nonnull %addr, i32 noundef %requested_port.addr.1)
+  %call58 = invoke noundef i32 @_Z22grpc_sockaddr_set_portP21grpc_resolved_addressi(ptr noundef nonnull %addr, i32 noundef %requested_port.addr.0)
           to label %invoke.cont57 unwind label %lpad.loopexit
 
 invoke.cont57:                                    ; preds = %if.end52
@@ -1318,7 +1318,7 @@ do.body:                                          ; preds = %_ZN4absl12lts_20230
   %146 = load ptr, ptr %new_sp, align 8
   %port = getelementptr inbounds i8, ptr %146, i64 156
   %147 = load i32, ptr %port, align 4
-  %cmp155.not = icmp eq i32 %requested_port.addr.1, %147
+  %cmp155.not = icmp eq i32 %requested_port.addr.0, %147
   br i1 %cmp155.not, label %do.end, label %if.then157
 
 if.then157:                                       ; preds = %do.body
@@ -1342,8 +1342,8 @@ if.then161:                                       ; preds = %do.end
 
 cleanup:                                          ; preds = %do.end, %if.then161, %if.then.i.i209, %_ZN4absl12lts_202308026StatusD2Ev.exit206, %invoke.cont102, %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit107
   %cleanup.dest.slot.0 = phi i32 [ 1, %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit107 ], [ 4, %invoke.cont102 ], [ 2, %_ZN4absl12lts_202308026StatusD2Ev.exit206 ], [ 2, %if.then.i.i209 ], [ 0, %if.then161 ], [ 0, %do.end ]
-  %sp.1 = phi ptr [ %sp.0279, %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit107 ], [ %sp.0279, %invoke.cont102 ], [ %sp.0279, %_ZN4absl12lts_202308026StatusD2Ev.exit206 ], [ %sp.0279, %if.then.i.i209 ], [ %146, %if.then161 ], [ %146, %do.end ]
-  %fd_index.1 = phi i32 [ %fd_index.0280, %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit107 ], [ %fd_index.0280, %invoke.cont102 ], [ %fd_index.0280, %_ZN4absl12lts_202308026StatusD2Ev.exit206 ], [ %fd_index.0280, %if.then.i.i209 ], [ %inc, %if.then161 ], [ %inc, %do.end ]
+  %sp.3 = phi ptr [ %sp.0279, %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit107 ], [ %sp.0279, %invoke.cont102 ], [ %sp.0279, %_ZN4absl12lts_202308026StatusD2Ev.exit206 ], [ %sp.0279, %if.then.i.i209 ], [ %146, %if.then161 ], [ %146, %do.end ]
+  %fd_index.2 = phi i32 [ %fd_index.0280, %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit107 ], [ %fd_index.0280, %invoke.cont102 ], [ %fd_index.0280, %_ZN4absl12lts_202308026StatusD2Ev.exit206 ], [ %fd_index.0280, %if.then.i.i209 ], [ %inc, %if.then161 ], [ %inc, %do.end ]
   %148 = load i64, ptr %addr_str, align 8
   %cmp.i.i.i.i213 = icmp eq i64 %148, 0
   br i1 %cmp.i.i.i.i213, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
@@ -1376,8 +1376,8 @@ _ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   ]
 
 for.inc:                                          ; preds = %if.else38, %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %for.body, %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
-  %sp.2 = phi ptr [ %sp.0279, %for.body ], [ %sp.1, %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %sp.1, %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %sp.0279, %if.else38 ]
-  %fd_index.2 = phi i32 [ %fd_index.0280, %for.body ], [ %fd_index.1, %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %fd_index.1, %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %fd_index.0280, %if.else38 ]
+  %sp.2 = phi ptr [ %sp.0279, %for.body ], [ %sp.3, %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %sp.3, %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %sp.0279, %if.else38 ]
+  %fd_index.1 = phi i32 [ %fd_index.0280, %for.body ], [ %fd_index.2, %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %fd_index.2, %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ], [ %fd_index.0280, %if.else38 ]
   %151 = load ptr, ptr %ifa_it.0281, align 8
   %cmp33.not = icmp eq ptr %151, null
   br i1 %cmp33.not, label %for.end, label %for.body, !llvm.loop !30
@@ -1388,7 +1388,7 @@ ehcleanup164:                                     ; preds = %lpad75.loopexit, %l
   br label %ehcleanup182
 
 for.end:                                          ; preds = %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, %for.inc, %if.then.i.i.i88, %invoke.cont.i86
-  %sp.3 = phi ptr [ %sp.0279, %invoke.cont.i86 ], [ %sp.0279, %if.then.i.i.i88 ], [ %sp.2, %for.inc ], [ %sp.1, %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ]
+  %sp.1 = phi ptr [ %sp.0279, %invoke.cont.i86 ], [ %sp.0279, %if.then.i.i.i88 ], [ %sp.2, %for.inc ], [ %sp.3, %_ZN4absl12lts_202308028StatusOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ]
   %152 = load ptr, ptr %ifa, align 8
   call void @freeifaddrs(ptr noundef %152) #17
   %153 = load i64, ptr %err, align 8
@@ -1401,7 +1401,7 @@ if.then167:                                       ; preds = %for.end
   br label %cleanup181
 
 if.else168:                                       ; preds = %for.end
-  %cmp169 = icmp eq ptr %sp.3, null
+  %cmp169 = icmp eq ptr %sp.1, null
   br i1 %cmp169, label %if.then170, label %if.else178
 
 if.then170:                                       ; preds = %if.else168
@@ -1459,7 +1459,7 @@ lpad175:                                          ; preds = %if.then170
   br label %ehcleanup182
 
 if.else178:                                       ; preds = %if.else168
-  %port179 = getelementptr inbounds i8, ptr %sp.3, i64 156
+  %port179 = getelementptr inbounds i8, ptr %sp.1, i64 156
   %161 = load i32, ptr %port179, align 4
   store i32 %161, ptr %out_port, align 4
   store i64 0, ptr %agg.result, align 8, !alias.scope !31

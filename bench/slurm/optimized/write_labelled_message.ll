@@ -86,9 +86,9 @@ define i32 @write_labelled_message(i32 noundef %0, ptr noundef %1, i32 noundef %
 
 38:                                               ; preds = %35, %27
   %.243.us = phi ptr [ @.str, %35 ], [ %.04149.us, %27 ]
-  %.1.us = phi i32 [ %36, %35 ], [ %33, %27 ]
-  %.138.us = add nuw nsw i32 %.1.us, %.03751.us
-  %.140.us = sub nsw i32 %.03950.us, %.1.us
+  %.2.us = phi i32 [ %36, %35 ], [ %33, %27 ]
+  %.138.us = add nuw nsw i32 %.2.us, %.03751.us
+  %.140.us = sub nsw i32 %.03950.us, %.2.us
   %39 = icmp sgt i32 %.140.us, 0
   br i1 %39, label %.lr.ph.split.us, label %.sink.split, !llvm.loop !6
 
@@ -118,19 +118,19 @@ define i32 @write_labelled_message(i32 noundef %0, ptr noundef %1, i32 noundef %
   br i1 %55, label %._crit_edge, label %56
 
 56:                                               ; preds = %48, %45
-  %.1 = phi i32 [ %46, %45 ], [ %54, %48 ]
-  %.138 = add nuw nsw i32 %.1, %.03751
-  %.140 = sub nsw i32 %.03950, %.1
+  %.2 = phi i32 [ %46, %45 ], [ %54, %48 ]
+  %.138 = add nuw nsw i32 %.2, %.03751
+  %.140 = sub nsw i32 %.03950, %.2
   %57 = icmp sgt i32 %.140, 0
   br i1 %57, label %.lr.ph.split, label %.sink.split, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %45, %48, %35, %27
   %.037.lcssa = phi i32 [ %.03751.us, %27 ], [ %.03751.us, %35 ], [ %.03751, %48 ], [ %.03751, %45 ]
-  %.2 = phi i32 [ %36, %35 ], [ %33, %27 ], [ %46, %45 ], [ %54, %48 ]
+  %.1 = phi i32 [ %36, %35 ], [ %33, %27 ], [ %46, %45 ], [ %54, %48 ]
   %.037.lcssa.fr = freeze i32 %.037.lcssa
   call void @slurm_xfree(ptr noundef nonnull %10) #7
   %.not = icmp eq i32 %.037.lcssa.fr, 0
-  %spec.select = select i1 %.not, i32 %.2, i32 %.037.lcssa.fr
+  %spec.select = select i1 %.not, i32 %.1, i32 %.037.lcssa.fr
   br label %58
 
 .sink.split:                                      ; preds = %56, %38, %.thread, %17

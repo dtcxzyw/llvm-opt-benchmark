@@ -1050,7 +1050,7 @@ define dso_local i32 @sacctmgr_remove_assoc_usage(ptr noundef %0) local_unnamed_
 
 .lr.ph136.split:                                  ; preds = %.lr.ph136, %95
   %46 = phi ptr [ %96, %95 ], [ %45, %.lr.ph136 ]
-  %.0134 = phi i32 [ %.1, %95 ], [ 0, %.lr.ph136 ]
+  %.0134 = phi i32 [ %.2, %95 ], [ 0, %.lr.ph136 ]
   %47 = call ptr @list_iterator_create(ptr noundef nonnull %32) #20
   br label %48
 
@@ -1174,7 +1174,7 @@ sacctmgr_find_cluster_from_list.exit.thread:      ; preds = %.lr.ph136, %sacctmg
   br label %93
 
 93:                                               ; preds = %92, %83
-  %.1 = phi i32 [ %91, %83 ], [ %.0134, %92 ]
+  %.2 = phi i32 [ %91, %83 ], [ %.0134, %92 ]
   %.not97 = icmp eq ptr %57, null
   br i1 %.not97, label %95, label %94
 
@@ -1188,7 +1188,7 @@ sacctmgr_find_cluster_from_list.exit.thread:      ; preds = %.lr.ph136, %sacctmg
   br i1 %.not90, label %.loopexit, label %.lr.ph136.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %95, %44, %75, %67, %sacctmgr_find_cluster_from_list.exit.thread
-  %.2 = phi i32 [ -1, %67 ], [ -1, %75 ], [ -1, %sacctmgr_find_cluster_from_list.exit.thread ], [ 0, %44 ], [ %.1, %95 ]
+  %.1 = phi i32 [ -1, %67 ], [ -1, %75 ], [ -1, %sacctmgr_find_cluster_from_list.exit.thread ], [ 0, %44 ], [ %.2, %95 ]
   call void @list_iterator_destroy(ptr noundef %34) #20
   call void @list_iterator_destroy(ptr noundef %36) #20
   %.not100 = icmp eq ptr %.069, null
@@ -1215,7 +1215,7 @@ sacctmgr_find_cluster_from_list.exit.thread:      ; preds = %.lr.ph136, %sacctmg
   br label %102
 
 102:                                              ; preds = %100, %101, %25, %7
-  %.070 = phi i32 [ 0, %25 ], [ -1, %7 ], [ %.2, %101 ], [ %.2, %100 ]
+  %.070 = phi i32 [ 0, %25 ], [ -1, %7 ], [ %.1, %101 ], [ %.1, %100 ]
   ret i32 %.070
 }
 
@@ -1605,7 +1605,7 @@ define dso_local i32 @sacctmgr_update_qos_usage(ptr noundef %0, x86_fp80 noundef
 
 .lr.ph107.split:                                  ; preds = %.lr.ph107, %84
   %29 = phi ptr [ %85, %84 ], [ %28, %.lr.ph107 ]
-  %.0105 = phi i32 [ %.1, %84 ], [ 0, %.lr.ph107 ]
+  %.0105 = phi i32 [ %.2, %84 ], [ 0, %.lr.ph107 ]
   %30 = call ptr @list_iterator_create(ptr noundef nonnull %23) #20
   br label %31
 
@@ -1731,7 +1731,7 @@ sacctmgr_find_qos_from_list.exit.thread:          ; preds = %.lr.ph, %sacctmgr_f
   br label %82
 
 82:                                               ; preds = %71, %81
-  %.1 = phi i32 [ %80, %71 ], [ %.0105, %81 ]
+  %.2 = phi i32 [ %80, %71 ], [ %.0105, %81 ]
   %.not62 = icmp eq ptr %40, null
   br i1 %.not62, label %84, label %83
 
@@ -1747,7 +1747,7 @@ sacctmgr_find_qos_from_list.exit.thread:          ; preds = %.lr.ph, %sacctmgr_f
 
 .loopexit:                                        ; preds = %84, %18, %sacctmgr_find_qos_from_list.exit.thread, %sacctmgr_find_cluster_from_list.exit.thread
   %.147 = phi ptr [ %40, %sacctmgr_find_qos_from_list.exit.thread ], [ null, %sacctmgr_find_cluster_from_list.exit.thread ], [ null, %18 ], [ null, %84 ]
-  %.2 = phi i32 [ -1, %sacctmgr_find_qos_from_list.exit.thread ], [ -1, %sacctmgr_find_cluster_from_list.exit.thread ], [ 0, %18 ], [ %.1, %84 ]
+  %.1 = phi i32 [ -1, %sacctmgr_find_qos_from_list.exit.thread ], [ -1, %sacctmgr_find_cluster_from_list.exit.thread ], [ 0, %18 ], [ %.2, %84 ]
   call void @list_iterator_destroy(ptr noundef %24) #20
   call void @list_iterator_destroy(ptr noundef %27) #20
   %.not64 = icmp eq ptr %.147, null
@@ -1770,7 +1770,7 @@ sacctmgr_find_qos_from_list.exit.thread:          ; preds = %.lr.ph, %sacctmgr_f
   br label %90
 
 90:                                               ; preds = %89, %17
-  %.048 = phi i32 [ %.2, %89 ], [ 0, %17 ]
+  %.048 = phi i32 [ %.1, %89 ], [ 0, %17 ]
   ret i32 %.048
 }
 

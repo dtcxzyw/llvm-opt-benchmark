@@ -922,15 +922,15 @@ yr_arena_allocate_memory.exit.thread:             ; preds = %13
 25:                                               ; preds = %yr_arena_allocate_memory.exit.thread, %21
   %.sink25 = phi i64 [ %19, %yr_arena_allocate_memory.exit.thread ], [ %10, %21 ]
   %.sink24 = phi ptr [ %18, %yr_arena_allocate_memory.exit.thread ], [ %9, %21 ]
-  %.1 = phi ptr [ %20, %yr_arena_allocate_memory.exit.thread ], [ %24, %21 ]
+  %.020 = phi ptr [ %20, %yr_arena_allocate_memory.exit.thread ], [ %24, %21 ]
   %26 = add i64 %.sink25, %2
   store i64 %26, ptr %.sink24, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.020, ptr align 1 %1, i64 %2, i1 false)
   %.not18 = icmp eq ptr %3, null
   br i1 %.not18, label %yr_arena_allocate_memory.exit, label %27
 
 27:                                               ; preds = %25
-  store ptr %.1, ptr %3, align 8
+  store ptr %.020, ptr %3, align 8
   br label %yr_arena_allocate_memory.exit
 
 yr_arena_allocate_memory.exit:                    ; preds = %13, %25, %27
@@ -975,15 +975,15 @@ yr_arena_allocate_memory.exit.thread.i:           ; preds = %14
 26:                                               ; preds = %22, %yr_arena_allocate_memory.exit.thread.i
   %.sink25.i = phi i64 [ %20, %yr_arena_allocate_memory.exit.thread.i ], [ %11, %22 ]
   %.sink24.i = phi ptr [ %19, %yr_arena_allocate_memory.exit.thread.i ], [ %10, %22 ]
-  %.1.i = phi ptr [ %21, %yr_arena_allocate_memory.exit.thread.i ], [ %25, %22 ]
+  %.020.i = phi ptr [ %21, %yr_arena_allocate_memory.exit.thread.i ], [ %25, %22 ]
   %27 = add i64 %.sink25.i, %5
   store i64 %27, ptr %.sink24.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1.i, ptr readonly align 1 %1, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.020.i, ptr readonly align 1 %1, i64 %5, i1 false)
   %.not18.i = icmp eq ptr %2, null
   br i1 %.not18.i, label %yr_arena_write_data.exit, label %28
 
 28:                                               ; preds = %26
-  store ptr %.1.i, ptr %2, align 8
+  store ptr %.020.i, ptr %2, align 8
   br label %yr_arena_write_data.exit
 
 yr_arena_write_data.exit:                         ; preds = %14, %26, %28

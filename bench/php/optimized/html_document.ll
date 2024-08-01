@@ -1589,7 +1589,7 @@ dom_setup_parser_encoding_manually.exit93:        ; preds = %lxb_encoding_data_b
   br label %lxb_encoding_data_by_name.exit86.thread
 
 lxb_encoding_data_by_name.exit86.thread:          ; preds = %102, %98, %dom_setup_parser_encoding_manually.exit93, %lxb_encoding_data_by_name.exit86
-  %.1 = phi i8 [ 0, %dom_setup_parser_encoding_manually.exit93 ], [ %.0, %lxb_encoding_data_by_name.exit86 ], [ %.0, %98 ], [ %.0, %102 ]
+  %.2 = phi i8 [ 0, %dom_setup_parser_encoding_manually.exit93 ], [ %.0, %lxb_encoding_data_by_name.exit86 ], [ %.0, %98 ], [ %.0, %102 ]
   %120 = getelementptr inbounds i8, ptr %97, i64 4
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, 64
@@ -1610,7 +1610,7 @@ lxb_encoding_data_by_name.exit86.thread:          ; preds = %102, %98, %dom_setu
   br label %129
 
 129:                                              ; preds = %96, %123, %128, %lxb_encoding_data_by_name.exit86.thread, %94
-  %.2 = phi i8 [ %.1, %lxb_encoding_data_by_name.exit86.thread ], [ %.1, %128 ], [ %.1, %123 ], [ %.0, %96 ], [ %.0, %94 ]
+  %.1 = phi i8 [ %.2, %lxb_encoding_data_by_name.exit86.thread ], [ %.2, %128 ], [ %.2, %123 ], [ %.0, %96 ], [ %.0, %94 ]
   %130 = call ptr @lxb_html_document_create() #11
   %131 = icmp eq ptr %130, null
   br i1 %131, label %.loopexit, label %132
@@ -1628,7 +1628,7 @@ lxb_encoding_data_by_name.exit86.thread:          ; preds = %102, %98, %dom_setu
   br label %137
 
 137:                                              ; preds = %143, %134
-  %.3 = phi i8 [ %.2, %134 ], [ %.4, %143 ]
+  %.3 = phi i8 [ %.1, %134 ], [ %.4, %143 ]
   %138 = call i64 @_php_stream_read(ptr noundef nonnull %85, ptr noundef nonnull %10, i64 noundef 4096) #11
   store i64 %138, ptr %14, align 8
   %139 = icmp sgt i64 %138, 0

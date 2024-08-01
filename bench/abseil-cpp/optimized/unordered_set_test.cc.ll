@@ -90297,10 +90297,10 @@ cleanup.cont:                                     ; preds = %_ZNKSt14default_del
   br i1 %cmp.i.not226, label %for.end, label %for.body
 
 for.body:                                         ; preds = %cleanup.cont, %for.inc
-  %values2.sroa.0.0230 = phi ptr [ %values2.sroa.0.2, %for.inc ], [ null, %cleanup.cont ]
+  %values2.sroa.0.0230 = phi ptr [ %values2.sroa.0.1, %for.inc ], [ null, %cleanup.cont ]
   %__begin0.sroa.0.0229 = phi ptr [ %incdec.ptr.i59, %for.inc ], [ %30, %cleanup.cont ]
-  %values2.sroa.13.0228 = phi ptr [ %values2.sroa.13.2, %for.inc ], [ null, %cleanup.cont ]
-  %values2.sroa.7.0227 = phi ptr [ %values2.sroa.7.2, %for.inc ], [ null, %cleanup.cont ]
+  %values2.sroa.13.0228 = phi ptr [ %values2.sroa.13.1, %for.inc ], [ null, %cleanup.cont ]
+  %values2.sroa.7.0227 = phi ptr [ %values2.sroa.7.1, %for.inc ], [ null, %cleanup.cont ]
   %32 = load i32, ptr %__begin0.sroa.0.0229, align 4
   %33 = load ptr, ptr %_M_before_begin.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %33, i64 8
@@ -90393,16 +90393,16 @@ lpad60.loopexit.split-lp:                         ; preds = %if.then.i.i.i56, %i
   br label %ehcleanup171
 
 for.inc:                                          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %if.then.i, %for.body
-  %values2.sroa.7.2 = phi ptr [ %values2.sroa.7.0227, %for.body ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
-  %values2.sroa.13.2 = phi ptr [ %values2.sroa.13.0228, %for.body ], [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %values2.sroa.13.0228, %if.then.i ]
-  %values2.sroa.0.2 = phi ptr [ %values2.sroa.0.0230, %for.body ], [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %values2.sroa.0.0230, %if.then.i ]
+  %values2.sroa.7.1 = phi ptr [ %values2.sroa.7.0227, %for.body ], [ %incdec.ptr.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %incdec.ptr.i, %if.then.i ]
+  %values2.sroa.13.1 = phi ptr [ %values2.sroa.13.0228, %for.body ], [ %add.ptr19.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %values2.sroa.13.0228, %if.then.i ]
+  %values2.sroa.0.1 = phi ptr [ %values2.sroa.0.0230, %for.body ], [ %cond.i10.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %values2.sroa.0.0230, %if.then.i ]
   %incdec.ptr.i59 = getelementptr inbounds i8, ptr %__begin0.sroa.0.0229, i64 4
   %cmp.i.not = icmp eq ptr %incdec.ptr.i59, %31
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %cleanup.cont
-  %values2.sroa.7.0.lcssa = phi ptr [ null, %cleanup.cont ], [ %values2.sroa.7.2, %for.inc ]
-  %values2.sroa.0.0.lcssa = phi ptr [ null, %cleanup.cont ], [ %values2.sroa.0.2, %for.inc ]
+  %values2.sroa.7.0.lcssa = phi ptr [ null, %cleanup.cont ], [ %values2.sroa.7.1, %for.inc ]
+  %values2.sroa.0.0.lcssa = phi ptr [ null, %cleanup.cont ], [ %values2.sroa.0.1, %for.inc ]
   %37 = load ptr, ptr %_M_before_begin.i.i, align 8
   %38 = load i64, ptr %_M_bucket_count.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %37, i64 16

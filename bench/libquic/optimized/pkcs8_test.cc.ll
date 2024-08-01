@@ -102,7 +102,7 @@ _ZL4testPKhm.exit.thread:                         ; preds = %cleanup14.i
   br label %return
 
 if.then.i5.i:                                     ; preds = %cleanup14.i, %cleanup14.thread.i
-  %retval.14.i = phi i1 [ %cmp.i.i, %cleanup14.thread.i ], [ false, %cleanup14.i ]
+  %retval.04.i = phi i1 [ %cmp.i.i, %cleanup14.thread.i ], [ false, %cleanup14.i ]
   invoke void @X509_SIG_free(ptr noundef nonnull %call.i)
           to label %_ZL4testPKhm.exit unwind label %terminate.lpad.i6.i
 
@@ -122,7 +122,7 @@ _ZL4testPKhm.exit:                                ; preds = %if.then.i5.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sig.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %keypair.i)
-  br i1 %retval.14.i, label %if.end, label %return
+  br i1 %retval.04.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZL4testPKhm.exit
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)

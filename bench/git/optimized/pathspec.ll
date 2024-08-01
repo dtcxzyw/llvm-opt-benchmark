@@ -671,13 +671,13 @@ if.then6.i:                                       ; preds = %if.else.i
   br label %for.cond.i.i.outer
 
 for.cond.i.i.outer:                               ; preds = %for.cond.i.i.outer.backedge, %if.then6.i
-  %element_magic.0.ph = phi i32 [ 0, %if.then6.i ], [ %element_magic.0.ph.be, %for.cond.i.i.outer.backedge ]
-  %pathspec_prefix.0.ph = phi i32 [ -1, %if.then6.i ], [ %pathspec_prefix.0.ph336, %for.cond.i.i.outer.backedge ]
+  %element_magic.2.ph = phi i32 [ 0, %if.then6.i ], [ %element_magic.2.ph.be, %for.cond.i.i.outer.backedge ]
+  %pathspec_prefix.1.ph = phi i32 [ -1, %if.then6.i ], [ %pathspec_prefix.1.ph336, %for.cond.i.i.outer.backedge ]
   %pos.0.i.i.ph = phi ptr [ %add.ptr.i.i, %if.then6.i ], [ %nextat.0.i.i, %for.cond.i.i.outer.backedge ]
   br label %for.cond.i.i.outer335
 
 for.cond.i.i.outer335:                            ; preds = %for.cond.i.i.outer, %if.then14.i.i
-  %pathspec_prefix.0.ph336 = phi i32 [ %pathspec_prefix.0.ph, %for.cond.i.i.outer ], [ %conv17.i.i, %if.then14.i.i ]
+  %pathspec_prefix.1.ph336 = phi i32 [ %pathspec_prefix.1.ph, %for.cond.i.i.outer ], [ %conv17.i.i, %if.then14.i.i ]
   %pos.0.i.i.ph337 = phi ptr [ %pos.0.i.i.ph, %for.cond.i.i.outer ], [ %nextat.0.i.i, %if.then14.i.i ]
   br label %for.cond.i.i
 
@@ -942,7 +942,7 @@ if.then48.i.i.i:                                  ; preds = %for.end.i.i.i
 parse_pathspec_attr_match.exit.i.i:               ; preds = %for.end.i.i.i
   call void @string_list_clear(ptr noundef nonnull %list.i.i.i, i32 noundef 0) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %list.i.i.i)
-  %or.i.i = or i32 %element_magic.0.ph, 64
+  %or.i.i = or i32 %element_magic.2.ph, 64
   call void @free(ptr noundef %call28.i.i) #16
   br label %for.cond.i.i.outer.backedge
 
@@ -967,11 +967,11 @@ for.inc.i.i:                                      ; preds = %land.lhs.true.i.i, 
 
 for.end.i.i:                                      ; preds = %land.lhs.true.i.i
   %34 = load i32, ptr %arrayidx35.i.i, align 16
-  %or47.i.i = or i32 %34, %element_magic.0.ph
+  %or47.i.i = or i32 %34, %element_magic.2.ph
   br label %for.cond.i.i.outer.backedge
 
 for.cond.i.i.outer.backedge:                      ; preds = %for.end.i.i, %parse_pathspec_attr_match.exit.i.i
-  %element_magic.0.ph.be = phi i32 [ %or.i.i, %parse_pathspec_attr_match.exit.i.i ], [ %or47.i.i, %for.end.i.i ]
+  %element_magic.2.ph.be = phi i32 [ %or.i.i, %parse_pathspec_attr_match.exit.i.i ], [ %or47.i.i, %for.end.i.i ]
   br label %for.cond.i.i.outer, !llvm.loop !13
 
 if.then52.i.i:                                    ; preds = %for.inc.i.i
@@ -992,7 +992,7 @@ parse_long_magic.exit.i:                          ; preds = %for.cond.i.i
   br label %parse_element_magic.exit
 
 for.cond.i6.i:                                    ; preds = %if.else.i, %for.inc33.i.i
-  %element_magic.2 = phi i32 [ %or25.i.i, %for.inc33.i.i ], [ 0, %if.else.i ]
+  %element_magic.1 = phi i32 [ %or25.i.i, %for.inc33.i.i ], [ 0, %if.else.i ]
   %35 = phi i8 [ %.pre.i, %for.inc33.i.i ], [ %2, %if.else.i ]
   %elem.pn.i.i = phi ptr [ %pos.0.i7.i, %for.inc33.i.i ], [ %elt, %if.else.i ]
   %pos.0.i7.i = getelementptr inbounds i8, ptr %elem.pn.i.i, i64 1
@@ -1035,7 +1035,7 @@ if.then30.i.i:                                    ; preds = %for.cond11.i.i
 
 for.inc33.i.i:                                    ; preds = %for.end.i13.i, %for.cond.i6.i
   %.sink30.i.i = phi i32 [ %39, %for.end.i13.i ], [ 32, %for.cond.i6.i ]
-  %or25.i.i = or i32 %.sink30.i.i, %element_magic.2
+  %or25.i.i = or i32 %.sink30.i.i, %element_magic.1
   %pos.0.i7.phi.trans.insert.i = getelementptr inbounds i8, ptr %elem.pn.i.i, i64 2
   %.pre.i = load i8, ptr %pos.0.i7.phi.trans.insert.i, align 1
   br label %for.cond.i6.i, !llvm.loop !17
@@ -1048,8 +1048,8 @@ get_literal_global.exit.i54.thread:               ; preds = %if.end.i.i, %for.co
 
 parse_element_magic.exit:                         ; preds = %if.else, %get_literal_global.exit.i, %parse_long_magic.exit.i
   %40 = phi i32 [ %.pre, %parse_long_magic.exit.i ], [ %1, %get_literal_global.exit.i ], [ %.pre217, %if.else ]
-  %element_magic.3 = phi i32 [ %element_magic.0.ph, %parse_long_magic.exit.i ], [ 0, %get_literal_global.exit.i ], [ 0, %if.else ]
-  %pathspec_prefix.2 = phi i32 [ %pathspec_prefix.0.ph336, %parse_long_magic.exit.i ], [ -1, %get_literal_global.exit.i ], [ -1, %if.else ]
+  %element_magic.4 = phi i32 [ %element_magic.2.ph, %parse_long_magic.exit.i ], [ 0, %get_literal_global.exit.i ], [ 0, %if.else ]
+  %pathspec_prefix.3 = phi i32 [ %pathspec_prefix.1.ph336, %parse_long_magic.exit.i ], [ -1, %get_literal_global.exit.i ], [ -1, %if.else ]
   %retval.0.i = phi ptr [ %incdec.ptr.i.i, %parse_long_magic.exit.i ], [ %elt, %get_literal_global.exit.i ], [ %elt, %if.else ]
   %cmp.i.i53 = icmp slt i32 %40, 0
   br i1 %cmp.i.i53, label %if.then.i.i56, label %get_literal_global.exit.i54
@@ -1067,8 +1067,8 @@ get_literal_global.exit.i54:                      ; preds = %if.then.i.i56, %par
   br label %42
 
 42:                                               ; preds = %get_literal_global.exit.i54, %get_literal_global.exit.i54.thread
-  %element_magic.3224236 = phi i32 [ %element_magic.2, %get_literal_global.exit.i54.thread ], [ %element_magic.3, %get_literal_global.exit.i54 ]
-  %pathspec_prefix.2225234 = phi i32 [ -1, %get_literal_global.exit.i54.thread ], [ %pathspec_prefix.2, %get_literal_global.exit.i54 ]
+  %element_magic.4224236 = phi i32 [ %element_magic.1, %get_literal_global.exit.i54.thread ], [ %element_magic.4, %get_literal_global.exit.i54 ]
+  %pathspec_prefix.3225234 = phi i32 [ -1, %get_literal_global.exit.i54.thread ], [ %pathspec_prefix.3, %get_literal_global.exit.i54 ]
   %retval.0.i226232 = phi ptr [ %spec.select.i.i, %get_literal_global.exit.i54.thread ], [ %retval.0.i, %get_literal_global.exit.i54 ]
   %43 = phi i32 [ 0, %get_literal_global.exit.i54.thread ], [ %spec.select, %get_literal_global.exit.i54 ]
   %44 = load i32, ptr @get_glob_global.glob, align 4
@@ -1083,7 +1083,7 @@ if.then.i12.i:                                    ; preds = %42
 get_glob_global.exit.i:                           ; preds = %if.then.i12.i, %42
   %45 = phi i32 [ %call.i13.i, %if.then.i12.i ], [ %44, %42 ]
   %tobool2.not.i = icmp ne i32 %45, 0
-  %and.i = and i32 %element_magic.3224236, 4
+  %and.i = and i32 %element_magic.4224236, 4
   %tobool3.not.i = icmp eq i32 %and.i, 0
   %or.cond.i = and i1 %tobool3.not.i, %tobool2.not.i
   %or5.i = or disjoint i32 %43, 8
@@ -1160,15 +1160,15 @@ if.then.i25.i:                                    ; preds = %if.end27.i
 if.end:                                           ; preds = %if.then.i25.i, %if.end27.i
   %52 = phi i32 [ %call.i26.i, %if.then.i25.i ], [ %51, %if.end27.i ]
   %tobool29.not.i = icmp ne i32 %52, 0
-  %and31.i = and i32 %element_magic.3224236, 8
+  %and31.i = and i32 %element_magic.4224236, 8
   %tobool32.not.i = icmp eq i32 %and31.i, 0
   %or.cond10.i = and i1 %tobool32.not.i, %tobool29.not.i
   %or34.i = or i32 %spec.select8.i, 4
   %global_magic.3.i = select i1 %or.cond10.i, i32 %or34.i, i32 %spec.select8.i
-  %or2 = or i32 %global_magic.3.i, %element_magic.3224236
+  %or2 = or i32 %global_magic.3.i, %element_magic.4224236
   %magic3 = getelementptr inbounds i8, ptr %item, i64 16
   store i32 %or2, ptr %magic3, align 8
-  %cmp = icmp sgt i32 %pathspec_prefix.2225234, -1
+  %cmp = icmp sgt i32 %pathspec_prefix.3225234, -1
   br i1 %cmp, label %land.lhs.true, label %if.end9.thread
 
 land.lhs.true:                                    ; preds = %if.end
@@ -1222,7 +1222,7 @@ if.end17:                                         ; preds = %if.end9
 
 if.then20:                                        ; preds = %if.end17
   %call21 = call ptr @xstrdup(ptr noundef nonnull %retval.0.i226232) #16
-  store i32 %pathspec_prefix.2225234, ptr %prefixlen.addr, align 4
+  store i32 %pathspec_prefix.3225234, ptr %prefixlen.addr, align 4
   br label %if.end45
 
 if.else22:                                        ; preds = %if.end9.thread, %if.end17
@@ -1245,7 +1245,7 @@ if.else27:                                        ; preds = %if.else22.if.else27
   %57 = phi i32 [ %prefixlen, %if.else22.thread ], [ %.pre218, %if.else22.if.else27_crit_edge ]
   %tobool14.not104113130 = phi i1 [ true, %if.else22.thread ], [ %tobool14.not244247, %if.else22.if.else27_crit_edge ]
   %tobool11.not103115129 = phi i1 [ false, %if.else22.thread ], [ %tobool11.not243248, %if.else22.if.else27_crit_edge ]
-  %element_magic.483102117128 = phi i32 [ 0, %if.else22.thread ], [ %element_magic.3224236, %if.else22.if.else27_crit_edge ]
+  %element_magic.083102117128 = phi i32 [ 0, %if.else22.thread ], [ %element_magic.4224236, %if.else22.if.else27_crit_edge ]
   %copyfrom.08699119127 = phi ptr [ %elt, %if.else22.thread ], [ %retval.0.i226232, %if.else22.if.else27_crit_edge ]
   %call28 = call ptr @prefix_path_gently(ptr noundef %prefix, i32 noundef %57, ptr noundef nonnull %prefixlen.addr, ptr noundef %copyfrom.08699119127) #16
   %tobool29.not = icmp eq ptr %call28, null
@@ -1282,8 +1282,8 @@ if.end40:                                         ; preds = %if.then38, %if.end3
   unreachable
 
 if.end45:                                         ; preds = %if.else27.if.end45_crit_edge, %if.then25, %if.then20
-  %58 = phi i32 [ %pathspec_prefix.2225234, %if.then20 ], [ 0, %if.then25 ], [ %.pre219, %if.else27.if.end45_crit_edge ]
-  %element_magic.483102116 = phi i32 [ %element_magic.3224236, %if.then20 ], [ %element_magic.3224236, %if.then25 ], [ %element_magic.483102117128, %if.else27.if.end45_crit_edge ]
+  %58 = phi i32 [ %pathspec_prefix.3225234, %if.then20 ], [ 0, %if.then25 ], [ %.pre219, %if.else27.if.end45_crit_edge ]
+  %element_magic.083102116 = phi i32 [ %element_magic.4224236, %if.then20 ], [ %element_magic.4224236, %if.then25 ], [ %element_magic.083102117128, %if.else27.if.end45_crit_edge ]
   %tobool11.not103114 = phi i1 [ %tobool11.not, %if.then20 ], [ %tobool11.not243248, %if.then25 ], [ %tobool11.not103115129, %if.else27.if.end45_crit_edge ]
   %tobool14.not104112 = phi i1 [ %tobool14.not, %if.then20 ], [ %tobool14.not244247, %if.then25 ], [ %tobool14.not104113130, %if.else27.if.end45_crit_edge ]
   %match.0 = phi ptr [ %call21, %if.then20 ], [ %call26, %if.then25 ], [ %call28, %if.else27.if.end45_crit_edge ]
@@ -1316,7 +1316,7 @@ get_literal_global.exit:                          ; preds = %land.lhs.true53, %i
 if.then56:                                        ; preds = %get_literal_global.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.unsupported_magic.sb, i64 24, i1 false)
   %61 = load i32, ptr %prefixlen.addr, align 4
-  %tobool.not.i58 = icmp eq i32 %element_magic.483102116, 0
+  %tobool.not.i58 = icmp eq i32 %element_magic.083102116, 0
   br i1 %tobool.not.i58, label %prefix_magic.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then56
@@ -1335,7 +1335,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then2.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %arrayidx6.i = getelementptr inbounds [6 x %struct.pathspec_magic], ptr @pathspec_magic, i64 0, i64 %indvars.iv.i
   %63 = load i32, ptr %arrayidx6.i, align 16
-  %and.i60 = and i32 %63, %element_magic.483102116
+  %and.i60 = and i32 %63, %element_magic.083102116
   %tobool7.not.i = icmp eq i32 %and.i60, 0
   br i1 %tobool7.not.i, label %for.inc.i, label %land.lhs.true.i
 
@@ -2113,28 +2113,28 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %lor.l
   br i1 %cmp.i.i, label %for.body.i.i, label %matches_skip_worktree.exit, !llvm.loop !8
 
 matches_skip_worktree.exit:                       ; preds = %for.inc.i.i, %if.then.i, %land.lhs.true55
-  %skip_worktree_seen.1 = phi ptr [ %skip_worktree_seen.037, %land.lhs.true55 ], [ %call.i.i, %if.then.i ], [ %call.i.i, %for.inc.i.i ]
+  %skip_worktree_seen.3 = phi ptr [ %skip_worktree_seen.037, %land.lhs.true55 ], [ %call.i.i, %if.then.i ], [ %call.i.i, %for.inc.i.i ]
   %idxprom.i = sext i32 %i.038 to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %skip_worktree_seen.1, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %skip_worktree_seen.3, i64 %idxprom.i
   %23 = load i8, ptr %arrayidx.i, align 1
   %tobool57.not = icmp eq i8 %23, 0
   br i1 %tobool57.not, label %for.end67, label %for.inc65
 
 for.inc65:                                        ; preds = %for.inc, %if.end15, %if.else, %matches_skip_worktree.exit, %land.lhs.true
-  %skip_worktree_seen.2 = phi ptr [ %skip_worktree_seen.037, %land.lhs.true ], [ %skip_worktree_seen.1, %matches_skip_worktree.exit ], [ %skip_worktree_seen.037, %if.else ], [ %skip_worktree_seen.037, %if.end15 ], [ %skip_worktree_seen.037, %for.inc ]
+  %skip_worktree_seen.2 = phi ptr [ %skip_worktree_seen.037, %land.lhs.true ], [ %skip_worktree_seen.3, %matches_skip_worktree.exit ], [ %skip_worktree_seen.037, %if.else ], [ %skip_worktree_seen.037, %if.end15 ], [ %skip_worktree_seen.037, %for.inc ]
   %inc66 = add nuw i32 %i.038, 1
   %24 = load i32, ptr %pathspec, align 8
   %cmp = icmp ult i32 %inc66, %24
   br i1 %cmp, label %for.body, label %for.end67, !llvm.loop !27
 
 for.end67:                                        ; preds = %for.inc65, %matches_skip_worktree.exit, %land.lhs.true29, %land.lhs.true44, %for.cond.preheader
-  %skip_worktree_seen.3 = phi ptr [ null, %for.cond.preheader ], [ %skip_worktree_seen.037, %land.lhs.true44 ], [ %skip_worktree_seen.037, %land.lhs.true29 ], [ %skip_worktree_seen.2, %for.inc65 ], [ %skip_worktree_seen.1, %matches_skip_worktree.exit ]
-  %res.3 = phi i32 [ 0, %for.cond.preheader ], [ 1, %land.lhs.true44 ], [ 1, %land.lhs.true29 ], [ 0, %for.inc65 ], [ 1, %matches_skip_worktree.exit ]
-  tail call void @free(ptr noundef %skip_worktree_seen.3) #16
+  %skip_worktree_seen.1 = phi ptr [ null, %for.cond.preheader ], [ %skip_worktree_seen.037, %land.lhs.true44 ], [ %skip_worktree_seen.037, %land.lhs.true29 ], [ %skip_worktree_seen.2, %for.inc65 ], [ %skip_worktree_seen.3, %matches_skip_worktree.exit ]
+  %res.1 = phi i32 [ 0, %for.cond.preheader ], [ 1, %land.lhs.true44 ], [ 1, %land.lhs.true29 ], [ 0, %for.inc65 ], [ 1, %matches_skip_worktree.exit ]
+  tail call void @free(ptr noundef %skip_worktree_seen.1) #16
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %for.end67
-  %retval.0 = phi i32 [ %res.3, %for.end67 ], [ 0, %entry ], [ 1, %if.end ]
+  %retval.0 = phi i32 [ %res.1, %for.end67 ], [ 0, %entry ], [ 1, %if.end ]
   ret i32 %retval.0
 }
 

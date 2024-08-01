@@ -830,29 +830,29 @@ switch.lookup977:                                 ; preds = %42
   br label %48
 
 48:                                               ; preds = %.sink.split, %42, %40
-  %.1 = phi i32 [ %30, %42 ], [ %30, %40 ], [ %switch.load979, %.sink.split ]
+  %.2 = phi i32 [ %30, %42 ], [ %30, %40 ], [ %switch.load979, %.sink.split ]
   %49 = load i32, ptr @hf_z21_command, align 4
-  %50 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %49, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef %.1) #2
-  %51 = lshr i32 %.1, 8
-  %52 = xor i32 %51, %.1
+  %50 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %49, ptr noundef %0, i32 noundef 2, i32 noundef 4, i32 noundef %.2) #2
+  %51 = lshr i32 %.2, 8
+  %52 = xor i32 %51, %.2
   br label %update_command_field.exit
 
 update_command_field.exit:                        ; preds = %32, %48
   %.0944.in = phi i32 [ %31, %32 ], [ %52, %48 ]
   %.0941 = phi i32 [ 5, %32 ], [ 6, %48 ]
   %.0940 = phi ptr [ %39, %32 ], [ %50, %48 ]
-  %.2 = phi i32 [ %.0939, %32 ], [ %.1, %48 ]
+  %.1 = phi i32 [ %.0939, %32 ], [ %.2, %48 ]
   %.0944 = and i32 %.0944.in, 255
-  %53 = icmp ult i32 %.2, 16777216
+  %53 = icmp ult i32 %.1, 16777216
   %spec.select.i = select i1 %53, i32 6, i32 8
-  %54 = call ptr @val_to_str_const(i32 noundef %.2, ptr noundef nonnull @z21_command_vals, ptr noundef nonnull @.str.391) #2
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0940, ptr noundef nonnull @.str.452, ptr noundef %54, i32 noundef %spec.select.i, i32 noundef %.2) #2
+  %54 = call ptr @val_to_str_const(i32 noundef %.1, ptr noundef nonnull @z21_command_vals, ptr noundef nonnull @.str.391) #2
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0940, ptr noundef nonnull @.str.452, ptr noundef %54, i32 noundef %spec.select.i, i32 noundef %.1) #2
   %55 = load ptr, ptr %15, align 8
-  %56 = call ptr @val_to_str_const(i32 noundef %.2, ptr noundef nonnull @z21_command_vals, ptr noundef nonnull @.str.391) #2
+  %56 = call ptr @val_to_str_const(i32 noundef %.1, ptr noundef nonnull @z21_command_vals, ptr noundef nonnull @.str.391) #2
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.390, ptr noundef %56) #2
-  %57 = call ptr @val_to_str_const(i32 noundef %.2, ptr noundef nonnull @z21_command_vals, ptr noundef nonnull @.str.391) #2
+  %57 = call ptr @val_to_str_const(i32 noundef %.1, ptr noundef nonnull @z21_command_vals, ptr noundef nonnull @.str.391) #2
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull @.str.392, ptr noundef %57) #2
-  switch i32 %.2, label %563 [
+  switch i32 %.1, label %563 [
     i32 1073766946, label %58
     i32 1073800208, label %66
     i32 1073800210, label %66
@@ -900,7 +900,7 @@ update_command_field.exit:                        ; preds = %32, %48
   %69 = and i32 %68, 16383
   %70 = load i32, ptr @hf_z21_loco_address, align 4
   %71 = call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %70, ptr noundef %0, i32 noundef %.0941, i32 noundef 2, i32 noundef %69) #2
-  %switch.tableidx = add i32 %.2, -1073800208
+  %switch.tableidx = add i32 %.1, -1073800208
   %72 = icmp ult i32 %switch.tableidx, 4
   br i1 %72, label %switch.lookup980, label %74
 
@@ -1036,32 +1036,32 @@ switch.lookup980:                                 ; preds = %66
 
 162:                                              ; preds = %157, %139
   %.pre-phi = phi i32 [ %.pre972, %157 ], [ %155, %139 ]
-  %.1945 = phi i32 [ %161, %157 ], [ %153, %139 ]
-  %.1942 = phi i32 [ %158, %157 ], [ %143, %139 ]
-  %163 = icmp ult i32 %.1942, %.pre-phi
+  %.2946 = phi i32 [ %161, %157 ], [ %153, %139 ]
+  %.2943 = phi i32 [ %158, %157 ], [ %143, %139 ]
+  %163 = icmp ult i32 %.2943, %.pre-phi
   br i1 %163, label %164, label %169
 
 164:                                              ; preds = %162
-  call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %20, ptr noundef %0, i32 noundef %.1942, i32 noundef 1, ptr noundef nonnull @dissect_z21_pdu.loco_info_bits7, i32 noundef 0, ptr noundef nonnull %10) #2
-  %165 = add nuw nsw i32 %.1942, 1
+  call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %20, ptr noundef %0, i32 noundef %.2943, i32 noundef 1, ptr noundef nonnull @dissect_z21_pdu.loco_info_bits7, i32 noundef 0, ptr noundef nonnull %10) #2
+  %165 = add nuw nsw i32 %.2943, 1
   %166 = load i64, ptr %10, align 8
   %167 = trunc i64 %166 to i32
-  %168 = xor i32 %.1945, %167
+  %168 = xor i32 %.2946, %167
   %.pre971 = load i32, ptr %5, align 4
   %.pre973 = add i32 %.pre971, -1
   br label %169
 
 169:                                              ; preds = %164, %162
   %.pre-phi974 = phi i32 [ %.pre973, %164 ], [ %.pre-phi, %162 ]
-  %.2946 = phi i32 [ %168, %164 ], [ %.1945, %162 ]
-  %.2943 = phi i32 [ %165, %164 ], [ %.1942, %162 ]
-  %170 = icmp ult i32 %.2943, %.pre-phi974
+  %.3947 = phi i32 [ %168, %164 ], [ %.2946, %162 ]
+  %.3 = phi i32 [ %165, %164 ], [ %.2943, %162 ]
+  %170 = icmp ult i32 %.3, %.pre-phi974
   br i1 %170, label %171, label %563
 
 171:                                              ; preds = %169
   %172 = load i32, ptr @hf_z21_loco_info_extensions, align 4
-  %173 = sub nuw i32 %.pre-phi974, %.2943
-  %174 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %172, ptr noundef %0, i32 noundef %.2943, i32 noundef %173, i32 noundef 0) #2
+  %173 = sub nuw i32 %.pre-phi974, %.3
+  %174 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %172, ptr noundef %0, i32 noundef %.3, i32 noundef %173, i32 noundef 0) #2
   br label %563
 
 175:                                              ; preds = %update_command_field.exit
@@ -1552,16 +1552,16 @@ switch.lookup980:                                 ; preds = %66
   br label %563
 
 563:                                              ; preds = %169, %171, %549, %526, %504, %494, %492, %467, %431, %400, %380, %360, %348, %329, %299, %288, %258, %237, %226, %201, %199, %187, %175, %97, %74, %58, %update_command_field.exit
-  %.3947 = phi i32 [ %.0944, %update_command_field.exit ], [ %561, %549 ], [ %543, %526 ], [ %520, %504 ], [ %501, %494 ], [ %.0944, %492 ], [ %481, %467 ], [ %458, %431 ], [ %428, %400 ], [ %397, %380 ], [ %377, %360 ], [ %354, %348 ], [ %345, %329 ], [ %323, %299 ], [ %297, %288 ], [ %272, %258 ], [ %250, %237 ], [ %235, %226 ], [ %216, %201 ], [ %.0944, %199 ], [ %197, %187 ], [ %185, %175 ], [ %.2946, %171 ], [ %.2946, %169 ], [ %107, %97 ], [ %90, %74 ], [ %65, %58 ]
-  %.3 = phi i32 [ %.0941, %update_command_field.exit ], [ %559, %549 ], [ %540, %526 ], [ %517, %504 ], [ %499, %494 ], [ %.0941, %492 ], [ %490, %467 ], [ %451, %431 ], [ %422, %400 ], [ %392, %380 ], [ %372, %360 ], [ %358, %348 ], [ %340, %329 ], [ %317, %299 ], [ %293, %288 ], [ %266, %258 ], [ %244, %237 ], [ %231, %226 ], [ %210, %201 ], [ %.0941, %199 ], [ %193, %187 ], [ %181, %175 ], [ %.2943, %171 ], [ %.2943, %169 ], [ %103, %97 ], [ %84, %74 ], [ %62, %58 ]
+  %.1945 = phi i32 [ %.0944, %update_command_field.exit ], [ %561, %549 ], [ %543, %526 ], [ %520, %504 ], [ %501, %494 ], [ %.0944, %492 ], [ %481, %467 ], [ %458, %431 ], [ %428, %400 ], [ %397, %380 ], [ %377, %360 ], [ %354, %348 ], [ %345, %329 ], [ %323, %299 ], [ %297, %288 ], [ %272, %258 ], [ %250, %237 ], [ %235, %226 ], [ %216, %201 ], [ %.0944, %199 ], [ %197, %187 ], [ %185, %175 ], [ %.3947, %171 ], [ %.3947, %169 ], [ %107, %97 ], [ %90, %74 ], [ %65, %58 ]
+  %.1942 = phi i32 [ %.0941, %update_command_field.exit ], [ %559, %549 ], [ %540, %526 ], [ %517, %504 ], [ %499, %494 ], [ %.0941, %492 ], [ %490, %467 ], [ %451, %431 ], [ %422, %400 ], [ %392, %380 ], [ %372, %360 ], [ %358, %348 ], [ %340, %329 ], [ %317, %299 ], [ %293, %288 ], [ %266, %258 ], [ %244, %237 ], [ %231, %226 ], [ %210, %201 ], [ %.0941, %199 ], [ %193, %187 ], [ %181, %175 ], [ %.3, %171 ], [ %.3, %169 ], [ %103, %97 ], [ %84, %74 ], [ %62, %58 ]
   %564 = load i32, ptr %5, align 4
   %565 = add i32 %564, -1
-  %566 = icmp ult i32 %.3, %565
+  %566 = icmp ult i32 %.1942, %565
   br i1 %566, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %563, %.lr.ph
-  %.4968 = phi i32 [ %569, %.lr.ph ], [ %.3, %563 ]
-  %.4948967 = phi i32 [ %570, %.lr.ph ], [ %.3947, %563 ]
+  %.4968 = phi i32 [ %569, %.lr.ph ], [ %.1942, %563 ]
+  %.4948967 = phi i32 [ %570, %.lr.ph ], [ %.1945, %563 ]
   %567 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4968) #2
   %568 = zext i8 %567 to i32
   %569 = add nuw i32 %.4968, 1
@@ -1572,8 +1572,8 @@ switch.lookup980:                                 ; preds = %66
   br i1 %573, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %563
-  %.4948.lcssa = phi i32 [ %.3947, %563 ], [ %570, %.lr.ph ]
-  %.4.lcssa = phi i32 [ %.3, %563 ], [ %569, %.lr.ph ]
+  %.4948.lcssa = phi i32 [ %.1945, %563 ], [ %570, %.lr.ph ]
+  %.4.lcssa = phi i32 [ %.1942, %563 ], [ %569, %.lr.ph ]
   %574 = load i32, ptr @hf_z21_checksum, align 4
   %575 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %20, i32 noundef %574, ptr noundef %0, i32 noundef %.4.lcssa, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #2
   %576 = load i32, ptr %6, align 4
@@ -1999,20 +1999,20 @@ update_command_field.exit966:                     ; preds = %14
   br label %856
 
 856:                                              ; preds = %832, %834, %818, %820, %640, %642, %822, %808, %788, %793, %750, %758, %726, %734, %712, %715, %696, %704, %587, %590, %850, %847, %836, %780, %761, %690, %685, %665, %659, %651, %645, %update_command_field.exit966
-  %.5 = phi i32 [ 4, %update_command_field.exit966 ], [ 6, %836 ], [ 4, %822 ], [ 28, %847 ], [ %855, %850 ], [ 4, %808 ], [ 48, %793 ], [ 5, %788 ], [ 7, %780 ], [ 14, %761 ], [ 22, %758 ], [ 6, %750 ], [ 7, %726 ], [ 14, %734 ], [ 7, %712 ], [ %722, %715 ], [ 7, %704 ], [ 6, %696 ], [ %695, %690 ], [ 7, %685 ], [ 17, %665 ], [ 5, %659 ], [ 15, %651 ], [ 5, %645 ], [ 8, %590 ], [ 4, %587 ], [ 20, %642 ], [ 20, %640 ], [ 36, %820 ], [ 36, %818 ], [ 36, %834 ], [ 36, %832 ]
+  %.6 = phi i32 [ 4, %update_command_field.exit966 ], [ 6, %836 ], [ 4, %822 ], [ 28, %847 ], [ %855, %850 ], [ 4, %808 ], [ 48, %793 ], [ 5, %788 ], [ 7, %780 ], [ 14, %761 ], [ 22, %758 ], [ 6, %750 ], [ 7, %726 ], [ 14, %734 ], [ 7, %712 ], [ %722, %715 ], [ 7, %704 ], [ 6, %696 ], [ %695, %690 ], [ 7, %685 ], [ 17, %665 ], [ 5, %659 ], [ 15, %651 ], [ 5, %645 ], [ 8, %590 ], [ 4, %587 ], [ 20, %642 ], [ 20, %640 ], [ 36, %820 ], [ 36, %818 ], [ 36, %834 ], [ 36, %832 ]
   %857 = load i32, ptr %5, align 4
-  %858 = icmp ult i32 %.5, %857
+  %858 = icmp ult i32 %.6, %857
   br i1 %858, label %859, label %864
 
 859:                                              ; preds = %856
   %860 = load i32, ptr @hf_z21_data, align 4
-  %861 = sub nuw i32 %857, %.5
-  %862 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %860, ptr noundef %0, i32 noundef %.5, i32 noundef %861, i32 noundef 0) #2
+  %861 = sub nuw i32 %857, %.6
+  %862 = call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %860, ptr noundef %0, i32 noundef %.6, i32 noundef %861, i32 noundef 0) #2
   %863 = load i32, ptr %5, align 4
   br label %864
 
 864:                                              ; preds = %577, %._crit_edge, %859, %856, %4
-  %.0 = phi i32 [ 0, %4 ], [ %.4.lcssa, %577 ], [ %.4.lcssa, %._crit_edge ], [ %863, %859 ], [ %.5, %856 ]
+  %.0 = phi i32 [ 0, %4 ], [ %.4.lcssa, %577 ], [ %.4.lcssa, %._crit_edge ], [ %863, %859 ], [ %.6, %856 ]
   ret i32 %.0
 }
 

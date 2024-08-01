@@ -1090,7 +1090,7 @@ strview.exit:                                     ; preds = %6, %10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %strview_case_eq.exit.thread
   %.02756 = phi ptr [ %43, %strview_case_eq.exit.thread ], [ %15, %.lr.ph ]
-  %.02955 = phi i8 [ %.130, %strview_case_eq.exit.thread ], [ 1, %.lr.ph ]
+  %.13055 = phi i8 [ %.2, %strview_case_eq.exit.thread ], [ 1, %.lr.ph ]
   %27 = getelementptr inbounds i8, ptr %.02756, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 58) #22
@@ -1126,14 +1126,14 @@ strview_case_eq.exit:                             ; preds = %strview.exit40
   br label %strview_case_eq.exit.thread
 
 strview_case_eq.exit.thread:                      ; preds = %strview.exit40, %strview_case_eq.exit, %38
-  %.130 = phi i8 [ 0, %38 ], [ %.02955, %strview_case_eq.exit ], [ %.02955, %strview.exit40 ]
+  %.2 = phi i8 [ 0, %38 ], [ %.13055, %strview_case_eq.exit ], [ %.13055, %strview.exit40 ]
   %43 = load ptr, ptr %.02756, align 8
   %.not33 = icmp eq ptr %43, null
   br i1 %.not33, label %.loopexit53, label %.lr.ph.split
 
 .loopexit53:                                      ; preds = %strview_case_eq.exit.thread, %strview.exit
-  %.2 = phi i8 [ 1, %strview.exit ], [ %.130, %strview_case_eq.exit.thread ]
-  %44 = trunc nuw i8 %.2 to i1
+  %.029 = phi i8 [ 1, %strview.exit ], [ %.2, %strview_case_eq.exit.thread ]
+  %44 = trunc nuw i8 %.029 to i1
   %.not3457 = icmp ne ptr %15, null
   %or.cond66.not = select i1 %44, i1 %.not3457, i1 false
   br i1 %or.cond66.not, label %.lr.ph62, label %.loopexit
@@ -1142,7 +1142,7 @@ strview_case_eq.exit.thread:                      ; preds = %strview.exit40, %st
   %.161 = phi ptr [ %58, %57 ], [ %15, %.loopexit53 ]
   %.sroa.45.060 = phi i64 [ %.sroa.3.0.i43, %57 ], [ 0, %.loopexit53 ]
   %.sroa.03.059 = phi ptr [ %46, %57 ], [ null, %.loopexit53 ]
-  %.358 = phi i8 [ %.4, %57 ], [ %.2, %.loopexit53 ]
+  %.458 = phi i8 [ %.5, %57 ], [ %.029, %.loopexit53 ]
   %45 = getelementptr inbounds i8, ptr %.161, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %46, i32 noundef 58) #22
@@ -1177,14 +1177,14 @@ strview_case_eq.exit49.thread:                    ; preds = %strview_case_eq.exi
   br label %57
 
 57:                                               ; preds = %strview_case_eq.exit49.thread, %strview_case_eq.exit49
-  %.4 = phi i8 [ %.358, %strview_case_eq.exit49 ], [ 0, %strview_case_eq.exit49.thread ]
+  %.5 = phi i8 [ %.458, %strview_case_eq.exit49 ], [ 0, %strview_case_eq.exit49.thread ]
   %58 = load ptr, ptr %.161, align 8
   %.not34 = icmp eq ptr %58, null
   br i1 %.not34, label %.loopexit, label %.lr.ph62
 
 .loopexit:                                        ; preds = %57, %.loopexit53
-  %.5 = phi i8 [ %.2, %.loopexit53 ], [ %.4, %57 ]
-  %59 = trunc nuw i8 %.5 to i1
+  %.3 = phi i8 [ %.029, %.loopexit53 ], [ %.5, %57 ]
+  %59 = trunc nuw i8 %.3 to i1
   br i1 %59, label %agxbuse.exit, label %agxbsizeof.exit.i.i
 
 agxbsizeof.exit.i.i:                              ; preds = %.lr.ph.split.us, %.loopexit
@@ -1280,9 +1280,9 @@ define noalias ptr @gvPluginList(ptr nocapture noundef readonly %0, ptr noundef 
   %.02051 = phi ptr [ %.020, %49 ], [ %.02044, %.thread ]
   %.sroa.45.050 = phi i64 [ %.sroa.3.0.i, %49 ], [ 0, %.thread ]
   %.sroa.03.049 = phi ptr [ %14, %49 ], [ null, %.thread ]
-  %.sroa.11.048 = phi i64 [ %.sroa.11.2, %49 ], [ 0, %.thread ]
+  %.sroa.11.048 = phi i64 [ %.sroa.11.1, %49 ], [ 0, %.thread ]
   %.sroa.6.047 = phi i64 [ %.sroa.6.1, %49 ], [ 0, %.thread ]
-  %.sroa.0.046 = phi ptr [ %.sroa.0.2, %49 ], [ null, %.thread ]
+  %.sroa.0.046 = phi ptr [ %.sroa.0.1, %49 ], [ null, %.thread ]
   %13 = getelementptr inbounds i8, ptr %.02051, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 58) #22
@@ -1357,17 +1357,17 @@ strview_str.exit:                                 ; preds = %strview_case_eq.exi
   unreachable
 
 strs_append.exit:                                 ; preds = %strview_str.exit, %38
-  %.sroa.0.1 = phi ptr [ %36, %38 ], [ %.sroa.0.046, %strview_str.exit ]
-  %.sroa.11.1 = phi i64 [ %spec.select.i.i, %38 ], [ %.sroa.11.048, %strview_str.exit ]
-  %47 = getelementptr inbounds ptr, ptr %.sroa.0.1, i64 %.sroa.6.047
+  %.sroa.0.2 = phi ptr [ %36, %38 ], [ %.sroa.0.046, %strview_str.exit ]
+  %.sroa.11.2 = phi i64 [ %spec.select.i.i, %38 ], [ %.sroa.11.048, %strview_str.exit ]
+  %47 = getelementptr inbounds ptr, ptr %.sroa.0.2, i64 %.sroa.6.047
   store ptr %24, ptr %47, align 8
   %48 = add i64 %.sroa.6.047, 1
   br label %49
 
 49:                                               ; preds = %strs_append.exit, %strview_case_eq.exit
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %strs_append.exit ], [ %.sroa.0.046, %strview_case_eq.exit ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %strs_append.exit ], [ %.sroa.0.046, %strview_case_eq.exit ]
   %.sroa.6.1 = phi i64 [ %48, %strs_append.exit ], [ %.sroa.6.047, %strview_case_eq.exit ]
-  %.sroa.11.2 = phi i64 [ %.sroa.11.1, %strs_append.exit ], [ %.sroa.11.048, %strview_case_eq.exit ]
+  %.sroa.11.1 = phi i64 [ %.sroa.11.2, %strs_append.exit ], [ %.sroa.11.048, %strview_case_eq.exit ]
   %.020 = load ptr, ptr %.02051, align 8
   %.not23 = icmp eq ptr %.020, null
   br i1 %.not23, label %._crit_edge.loopexit, label %.lr.ph
@@ -1377,7 +1377,7 @@ strs_append.exit:                                 ; preds = %strview_str.exit, %
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread
-  %.sroa.0.0.lcssa = phi ptr [ null, %.thread ], [ %.sroa.0.2, %._crit_edge.loopexit ]
+  %.sroa.0.0.lcssa = phi ptr [ null, %.thread ], [ %.sroa.0.1, %._crit_edge.loopexit ]
   %.sroa.6.0.lcssa = phi i32 [ 0, %.thread ], [ %50, %._crit_edge.loopexit ]
   store i32 %.sroa.6.0.lcssa, ptr %2, align 4
   br label %51

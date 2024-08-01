@@ -422,14 +422,14 @@ ehcleanup37:                                      ; preds = %invoke.cont35
   %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp29) #19
-  %exn.slot.1 = extractvalue { ptr, i32 } %18, 0
-  %ehselector.slot.1 = extractvalue { ptr, i32 } %18, 1
+  %exn.slot.3 = extractvalue { ptr, i32 } %18, 0
+  %ehselector.slot.3 = extractvalue { ptr, i32 } %18, 1
   br label %ehcleanup1036
 
 cleanup.action:                                   ; preds = %ehcleanup37.thread1550, %ehcleanup37.thread
   %.pn1554 = phi { ptr, i32 } [ %17, %ehcleanup37.thread ], [ %16, %ehcleanup37.thread1550 ]
-  %exn.slot.11548 = extractvalue { ptr, i32 } %.pn1554, 0
-  %ehselector.slot.11549 = extractvalue { ptr, i32 } %.pn1554, 1
+  %exn.slot.31548 = extractvalue { ptr, i32 } %.pn1554, 0
+  %ehselector.slot.31549 = extractvalue { ptr, i32 } %.pn1554, 1
   call void @__cxa_free_exception(ptr %exception28) #19
   br label %ehcleanup1036
 
@@ -555,8 +555,8 @@ lpad47:                                           ; preds = %invoke.cont46
 
 ehcleanup50:                                      ; preds = %lpad47, %lpad45
   %.pn290 = phi { ptr, i32 } [ %33, %lpad47 ], [ %32, %lpad45 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn290, 0
-  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn290, 1
+  %exn.slot.4 = extractvalue { ptr, i32 } %.pn290, 0
+  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn290, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp44) #19
   br label %ehcleanup1036
 
@@ -601,8 +601,8 @@ lpad71:                                           ; preds = %invoke.cont69
 
 ehcleanup74:                                      ; preds = %lpad71, %lpad66
   %.pn292 = phi { ptr, i32 } [ %39, %lpad66 ], [ %40, %lpad71 ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn292, 0
-  %ehselector.slot.3 = extractvalue { ptr, i32 } %.pn292, 1
+  %exn.slot.6 = extractvalue { ptr, i32 } %.pn292, 0
+  %ehselector.slot.6 = extractvalue { ptr, i32 } %.pn292, 1
   invoke void @__cxa_end_catch()
           to label %ehcleanup1035 unwind label %terminate.lpad
 
@@ -653,8 +653,8 @@ lpad89:                                           ; preds = %invoke.cont87
 
 ehcleanup92:                                      ; preds = %lpad89, %lpad84
   %.pn294 = phi { ptr, i32 } [ %46, %lpad84 ], [ %47, %lpad89 ]
-  %exn.slot.4 = extractvalue { ptr, i32 } %.pn294, 0
-  %ehselector.slot.4 = extractvalue { ptr, i32 } %.pn294, 1
+  %exn.slot.8 = extractvalue { ptr, i32 } %.pn294, 0
+  %ehselector.slot.8 = extractvalue { ptr, i32 } %.pn294, 1
   invoke void @__cxa_end_catch()
           to label %ehcleanup1034 unwind label %terminate.lpad
 
@@ -3495,10 +3495,10 @@ while.body.i.preheader:                           ; preds = %if.then.i1298, %if.
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end15.i
-  %out.addr.123.i = phi ptr [ %out.addr.2.i, %if.end15.i ], [ %out.addr.123.i.ph, %while.body.i.preheader ]
+  %out.addr.123.i = phi ptr [ %out.addr.3.i, %if.end15.i ], [ %out.addr.123.i.ph, %while.body.i.preheader ]
   %mustPrint.022.i = phi i1 [ %or.cond1.i, %if.end15.i ], [ false, %while.body.i.preheader ]
   %cur.021.i = phi i32 [ %div16.i, %if.end15.i ], [ 1000000000, %while.body.i.preheader ]
-  %written.120.i = phi i32 [ %written.2.i, %if.end15.i ], [ %written.120.i.ph, %while.body.i.preheader ]
+  %written.120.i = phi i32 [ %written.3.i, %if.end15.i ], [ %written.120.i.ph, %while.body.i.preheader ]
   %number.addr.119.i = phi i32 [ %number.addr.2.i, %if.end15.i ], [ %number.addr.119.i.ph, %while.body.i.preheader ]
   %div.i = sdiv i32 %number.addr.119.i, %cur.021.i
   %sub11.i.recomposed = srem i32 %number.addr.119.i, %cur.021.i
@@ -3519,17 +3519,17 @@ if.then6.i:                                       ; preds = %while.body.i
 
 if.end15.i:                                       ; preds = %if.then6.i, %while.body.i
   %number.addr.2.i = phi i32 [ %sub11.i.recomposed, %if.then6.i ], [ %number.addr.119.i, %while.body.i ]
-  %written.2.i = phi i32 [ %inc10.i, %if.then6.i ], [ %written.120.i, %while.body.i ]
-  %out.addr.2.i = phi ptr [ %incdec.ptr9.i, %if.then6.i ], [ %out.addr.123.i, %while.body.i ]
+  %written.3.i = phi i32 [ %inc10.i, %if.then6.i ], [ %written.120.i, %while.body.i ]
+  %out.addr.3.i = phi ptr [ %incdec.ptr9.i, %if.then6.i ], [ %out.addr.123.i, %while.body.i ]
   %div16.i = sdiv i32 %cur.021.i, 10
-  %cmp2.i = icmp ult i32 %written.2.i, 1000
+  %cmp2.i = icmp ult i32 %written.3.i, 1000
   br i1 %cmp2.i, label %while.body.i, label %_ZN6Assimp13ASSIMP_itoa10EPcji.exit, !llvm.loop !51
 
 _ZN6Assimp13ASSIMP_itoa10EPcji.exit:              ; preds = %if.then6.i, %if.end15.i
-  %written.3.i = phi i32 [ %inc10.i, %if.then6.i ], [ %written.2.i, %if.end15.i ]
-  %out.addr.3.i = phi ptr [ %incdec.ptr9.i, %if.then6.i ], [ %out.addr.2.i, %if.end15.i ]
-  store i8 0, ptr %out.addr.3.i, align 1
-  %sub18.i = add i32 %written.3.i, -1
+  %written.2.i = phi i32 [ %inc10.i, %if.then6.i ], [ %written.3.i, %if.end15.i ]
+  %out.addr.2.i = phi ptr [ %incdec.ptr9.i, %if.then6.i ], [ %out.addr.3.i, %if.end15.i ]
+  store i8 0, ptr %out.addr.2.i, align 1
+  %sub18.i = add i32 %written.2.i, -1
   store i32 %sub18.i, ptr %add.ptr.i1285, align 4
   %call698 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call643, ptr noundef nonnull %add.ptr.i1285, ptr noundef nonnull @.str.27, i32 noundef 1, i32 noundef 0)
           to label %if.end699 unwind label %lpad95.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -3725,7 +3725,7 @@ for.body824:                                      ; preds = %for.body824.lr.ph, 
   %uv771.21756 = phi ptr [ %uv771.11769, %for.body824.lr.ph ], [ %uv771.3, %if.end944 ]
   %norms.11754 = phi ptr [ %norms.01768, %for.body824.lr.ph ], [ %incdec.ptr951, %if.end944 ]
   %verts746.11753 = phi ptr [ %verts746.01767, %for.body824.lr.ph ], [ %incdec.ptr952, %if.end944 ]
-  %faceNormal.sroa.0.21752 = phi <2 x float> [ zeroinitializer, %for.body824.lr.ph ], [ %faceNormal.sroa.0.4, %if.end944 ]
+  %faceNormal.sroa.0.31752 = phi <2 x float> [ zeroinitializer, %for.body824.lr.ph ], [ %faceNormal.sroa.0.5, %if.end944 ]
   %faceNormal.sroa.4.01751 = phi float [ 0.000000e+00, %for.body824.lr.ph ], [ %faceNormal.sroa.4.2, %if.end944 ]
   %449 = load ptr, ptr %add.ptr.i1323, align 8
   %add.ptr.i1331 = getelementptr inbounds i32, ptr %449, i64 %indvars.iv1936
@@ -3849,8 +3849,8 @@ invoke.cont879:                                   ; preds = %if.then856
 
 if.end887:                                        ; preds = %invoke.cont879, %if.then856
   %faceNormal.sroa.4.1 = phi float [ %faceNormal.sroa.4.01751, %if.then856 ], [ %493, %invoke.cont879 ]
-  %faceNormal.sroa.0.3 = phi <2 x float> [ %faceNormal.sroa.0.21752, %if.then856 ], [ %490, %invoke.cont879 ]
-  store <2 x float> %faceNormal.sroa.0.3, ptr %norms.11754, align 4
+  %faceNormal.sroa.0.4 = phi <2 x float> [ %faceNormal.sroa.0.31752, %if.then856 ], [ %490, %invoke.cont879 ]
+  store <2 x float> %faceNormal.sroa.0.4, ptr %norms.11754, align 4
   %faceNormal.sroa.4.0.norms.1.sroa_idx = getelementptr inbounds i8, ptr %norms.11754, i64 8
   store float %faceNormal.sroa.4.1, ptr %faceNormal.sroa.4.0.norms.1.sroa_idx, align 4
   br label %if.end895
@@ -3862,7 +3862,7 @@ if.else888:                                       ; preds = %land.lhs.true853, %
 
 if.end895:                                        ; preds = %if.else888, %if.end887
   %faceNormal.sroa.4.2 = phi float [ %faceNormal.sroa.4.01751, %if.else888 ], [ %faceNormal.sroa.4.1, %if.end887 ]
-  %faceNormal.sroa.0.4 = phi <2 x float> [ %faceNormal.sroa.0.21752, %if.else888 ], [ %faceNormal.sroa.0.3, %if.end887 ]
+  %faceNormal.sroa.0.5 = phi <2 x float> [ %faceNormal.sroa.0.31752, %if.else888 ], [ %faceNormal.sroa.0.4, %if.end887 ]
   %fnOK.2 = phi i1 [ %fnOK.01758, %if.else888 ], [ true, %if.end887 ]
   %tobool896.not = icmp eq ptr %uv771.21756, null
   br i1 %tobool896.not, label %if.end944, label %land.lhs.true897
@@ -4263,8 +4263,8 @@ _ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit:      ; preds = %delete.end.i, %_ZN9
   ret void
 
 ehcleanup1034:                                    ; preds = %ehcleanup92, %lpad1018, %lpad1001, %lpad644, %lpad544, %lpad537, %lpad416, %lpad166, %lpad146, %lpad119, %lpad98, %lpad95.body, %lpad77
-  %ehselector.slot.5 = phi i32 [ %52, %lpad95.body ], [ %356, %lpad544 ], [ %410, %lpad644 ], [ %544, %lpad1018 ], [ %541, %lpad1001 ], [ %349, %lpad537 ], [ %297, %lpad416 ], [ %124, %lpad166 ], [ %99, %lpad146 ], [ %72, %lpad119 ], [ %55, %lpad98 ], [ %ehselector.slot.4, %ehcleanup92 ], [ %43, %lpad77 ]
-  %exn.slot.5 = phi ptr [ %51, %lpad95.body ], [ %355, %lpad544 ], [ %409, %lpad644 ], [ %543, %lpad1018 ], [ %540, %lpad1001 ], [ %348, %lpad537 ], [ %296, %lpad416 ], [ %123, %lpad166 ], [ %98, %lpad146 ], [ %71, %lpad119 ], [ %54, %lpad98 ], [ %exn.slot.4, %ehcleanup92 ], [ %42, %lpad77 ]
+  %ehselector.slot.7 = phi i32 [ %52, %lpad95.body ], [ %356, %lpad544 ], [ %410, %lpad644 ], [ %544, %lpad1018 ], [ %541, %lpad1001 ], [ %349, %lpad537 ], [ %297, %lpad416 ], [ %124, %lpad166 ], [ %99, %lpad146 ], [ %72, %lpad119 ], [ %55, %lpad98 ], [ %ehselector.slot.8, %ehcleanup92 ], [ %43, %lpad77 ]
+  %exn.slot.7 = phi ptr [ %51, %lpad95.body ], [ %355, %lpad544 ], [ %409, %lpad644 ], [ %543, %lpad1018 ], [ %540, %lpad1001 ], [ %348, %lpad537 ], [ %296, %lpad416 ], [ %123, %lpad166 ], [ %98, %lpad146 ], [ %71, %lpad119 ], [ %54, %lpad98 ], [ %exn.slot.8, %ehcleanup92 ], [ %42, %lpad77 ]
   %561 = load ptr, ptr %meshes, align 8
   %_M_finish.i1433 = getelementptr inbounds i8, ptr %meshes, i64 8
   %562 = load ptr, ptr %_M_finish.i1433, align 8
@@ -4292,8 +4292,8 @@ if.then.i.i.i1443:                                ; preds = %invoke.cont.i1441
   br label %ehcleanup1035
 
 ehcleanup1035:                                    ; preds = %if.then.i.i.i1443, %invoke.cont.i1441, %ehcleanup74, %lpad64
-  %ehselector.slot.6 = phi i32 [ %ehselector.slot.3, %ehcleanup74 ], [ %36, %lpad64 ], [ %ehselector.slot.5, %invoke.cont.i1441 ], [ %ehselector.slot.5, %if.then.i.i.i1443 ]
-  %exn.slot.6 = phi ptr [ %exn.slot.3, %ehcleanup74 ], [ %35, %lpad64 ], [ %exn.slot.5, %invoke.cont.i1441 ], [ %exn.slot.5, %if.then.i.i.i1443 ]
+  %ehselector.slot.5 = phi i32 [ %ehselector.slot.6, %ehcleanup74 ], [ %36, %lpad64 ], [ %ehselector.slot.7, %invoke.cont.i1441 ], [ %ehselector.slot.7, %if.then.i.i.i1443 ]
+  %exn.slot.5 = phi ptr [ %exn.slot.6, %ehcleanup74 ], [ %35, %lpad64 ], [ %exn.slot.7, %invoke.cont.i1441 ], [ %exn.slot.7, %if.then.i.i.i1443 ]
   %564 = load ptr, ptr %materials, align 8
   %tobool.not.i.i.i1446 = icmp eq ptr %564, null
   br i1 %tobool.not.i.i.i1446, label %ehcleanup1036, label %if.then.i.i.i1447
@@ -4303,8 +4303,8 @@ if.then.i.i.i1447:                                ; preds = %ehcleanup1035
   br label %ehcleanup1036
 
 ehcleanup1036:                                    ; preds = %if.then.i.i.i1447, %ehcleanup1035, %ehcleanup37, %cleanup.action, %ehcleanup50, %lpad13, %lpad8.body
-  %ehselector.slot.7 = phi i32 [ %11, %lpad8.body ], [ %14, %lpad13 ], [ %ehselector.slot.11549, %cleanup.action ], [ %ehselector.slot.1, %ehcleanup37 ], [ %ehselector.slot.2, %ehcleanup50 ], [ %ehselector.slot.6, %ehcleanup1035 ], [ %ehselector.slot.6, %if.then.i.i.i1447 ]
-  %exn.slot.7 = phi ptr [ %10, %lpad8.body ], [ %13, %lpad13 ], [ %exn.slot.11548, %cleanup.action ], [ %exn.slot.1, %ehcleanup37 ], [ %exn.slot.2, %ehcleanup50 ], [ %exn.slot.6, %ehcleanup1035 ], [ %exn.slot.6, %if.then.i.i.i1447 ]
+  %ehselector.slot.2 = phi i32 [ %11, %lpad8.body ], [ %14, %lpad13 ], [ %ehselector.slot.31549, %cleanup.action ], [ %ehselector.slot.3, %ehcleanup37 ], [ %ehselector.slot.4, %ehcleanup50 ], [ %ehselector.slot.5, %ehcleanup1035 ], [ %ehselector.slot.5, %if.then.i.i.i1447 ]
+  %exn.slot.2 = phi ptr [ %10, %lpad8.body ], [ %13, %lpad13 ], [ %exn.slot.31548, %cleanup.action ], [ %exn.slot.3, %ehcleanup37 ], [ %exn.slot.4, %ehcleanup50 ], [ %exn.slot.5, %ehcleanup1035 ], [ %exn.slot.5, %if.then.i.i.i1447 ]
   %mBuffer.i1449 = getelementptr inbounds i8, ptr %stream, i64 16
   %565 = load ptr, ptr %mBuffer.i1449, align 8
   %isnull.i1450 = icmp eq ptr %565, null
@@ -4389,10 +4389,10 @@ if.end8.sink.split.i.i.i.i.i1475:                 ; preds = %_ZN9__gnu_cxx27__ex
   br label %eh.resume
 
 eh.resume:                                        ; preds = %if.end8.sink.split.i.i.i.i.i1475, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1472, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1462, %delete.end.i1452, %lpad5, %ehcleanup
-  %ehselector.slot.8 = phi i32 [ %6, %lpad5 ], [ %ehselector.slot.0, %ehcleanup ], [ %ehselector.slot.7, %delete.end.i1452 ], [ %ehselector.slot.7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1462 ], [ %ehselector.slot.7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1472 ], [ %ehselector.slot.7, %if.end8.sink.split.i.i.i.i.i1475 ]
-  %exn.slot.8 = phi ptr [ %5, %lpad5 ], [ %exn.slot.0, %ehcleanup ], [ %exn.slot.7, %delete.end.i1452 ], [ %exn.slot.7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1462 ], [ %exn.slot.7, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1472 ], [ %exn.slot.7, %if.end8.sink.split.i.i.i.i.i1475 ]
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.8, 0
-  %lpad.val1039 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.8, 1
+  %ehselector.slot.1 = phi i32 [ %6, %lpad5 ], [ %ehselector.slot.0, %ehcleanup ], [ %ehselector.slot.2, %delete.end.i1452 ], [ %ehselector.slot.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1462 ], [ %ehselector.slot.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1472 ], [ %ehselector.slot.2, %if.end8.sink.split.i.i.i.i.i1475 ]
+  %exn.slot.1 = phi ptr [ %5, %lpad5 ], [ %exn.slot.0, %ehcleanup ], [ %exn.slot.2, %delete.end.i1452 ], [ %exn.slot.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i1462 ], [ %exn.slot.2, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i1472 ], [ %exn.slot.2, %if.end8.sink.split.i.i.i.i.i1475 ]
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.1, 0
+  %lpad.val1039 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.1, 1
   resume { ptr, i32 } %lpad.val1039
 
 terminate.lpad:                                   ; preds = %ehcleanup92, %ehcleanup74

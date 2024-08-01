@@ -414,8 +414,8 @@ sw.default.i:                                     ; preds = %if.end60.i
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.default.i, %sw.bb73.i, %sw.bb71.i, %sw.bb69.i, %sw.bb67.i, %if.end65.i
-  %ret.1.i = phi i32 [ %call89.i, %sw.default.i ], [ %call74.i, %sw.bb73.i ], [ %call72.i, %sw.bb71.i ], [ %call70.i, %sw.bb69.i ], [ %call68.i, %sw.bb67.i ], [ %retval.0.i.i, %if.end65.i ]
-  %tobool90.not.i = icmp eq i32 %ret.1.i, 0
+  %ret.0.i = phi i32 [ %call89.i, %sw.default.i ], [ %call74.i, %sw.bb73.i ], [ %call72.i, %sw.bb71.i ], [ %call70.i, %sw.bb69.i ], [ %call68.i, %sw.bb67.i ], [ %retval.0.i.i, %if.end65.i ]
+  %tobool90.not.i = icmp eq i32 %ret.0.i, 0
   br i1 %tobool90.not.i, label %return, label %land.lhs.true94.i
 
 sw.epilog.thread.i:                               ; preds = %if.end60.i, %if.end60.i

@@ -484,9 +484,9 @@ if.then2.i:                                       ; preds = %lor.lhs.false15.i.i
   br label %for.inc.i25
 
 if.end3.i:                                        ; preds = %_ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i, %for.body.i22
-  %i.1.i = phi i32 [ %add25.i.i, %_ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i ], [ %storemerge48.i, %for.body.i22 ]
-  %source.sroa.0.1.i = phi i8 [ %add23.i.i, %_ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i ], [ %source.sroa.0.0.extract.trunc.i, %for.body.i22 ]
-  %16 = zext i8 %source.sroa.0.1.i to i16
+  %i.0.i = phi i32 [ %add25.i.i, %_ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i ], [ %storemerge48.i, %for.body.i22 ]
+  %source.sroa.0.0.i = phi i8 [ %add23.i.i, %_ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i ], [ %source.sroa.0.0.extract.trunc.i, %for.body.i22 ]
+  %16 = zext i8 %source.sroa.0.0.i to i16
   %17 = or disjoint i16 %5, %16
   %source.sroa.0.0.insert.insert.i = zext i16 %17 to i32
   %cmp4.i = icmp ult i16 %17, 128
@@ -583,7 +583,7 @@ return.sink.split.i30.i:                          ; preds = %if.end5.i27.i, %if.
   %.sink.i33.i = load ptr, ptr %.sink.in.i32.i, align 8
   %idxprom8.i34.i = sext i32 %.sink2.i31.i to i64
   %arrayidx9.i35.i = getelementptr inbounds i8, ptr %.sink.i33.i, i64 %idxprom8.i34.i
-  store i8 %source.sroa.0.1.i, ptr %arrayidx9.i35.i, align 1
+  store i8 %source.sroa.0.0.i, ptr %arrayidx9.i35.i, align 1
   %28 = load i32, ptr %cur_len_.i, align 4
   %inc11.i36.i = add nsw i32 %28, 1
   store i32 %inc11.i36.i, ptr %cur_len_.i, align 4
@@ -591,9 +591,9 @@ return.sink.split.i30.i:                          ; preds = %if.end5.i27.i, %if.
 
 for.inc.i25:                                      ; preds = %do.body.i.i21.i, %do.body.i.i.i, %return.sink.split.i30.i, %return.sink.split.i.i, %if.then11.i, %if.then8.i, %if.then2.i
   %29 = phi i8 [ %3, %if.then11.i ], [ %3, %if.then8.i ], [ %3, %if.then2.i ], [ %3, %return.sink.split.i.i ], [ 1, %return.sink.split.i30.i ], [ %3, %do.body.i.i.i ], [ 1, %do.body.i.i21.i ]
-  %i.2.i = phi i32 [ %i.1.i, %if.then11.i ], [ %i.1.i, %if.then8.i ], [ %storemerge48.i, %if.then2.i ], [ %i.1.i, %return.sink.split.i.i ], [ %i.1.i, %return.sink.split.i30.i ], [ %i.1.i, %do.body.i.i.i ], [ %i.1.i, %do.body.i.i21.i ]
+  %i.1.i = phi i32 [ %i.0.i, %if.then11.i ], [ %i.0.i, %if.then8.i ], [ %storemerge48.i, %if.then2.i ], [ %i.0.i, %return.sink.split.i.i ], [ %i.0.i, %return.sink.split.i30.i ], [ %i.0.i, %do.body.i.i.i ], [ %i.0.i, %do.body.i.i21.i ]
   %success.1.i = phi i1 [ %success.049.i, %if.then11.i ], [ false, %if.then8.i ], [ false, %if.then2.i ], [ %success.049.i, %return.sink.split.i.i ], [ %success.049.i, %return.sink.split.i30.i ], [ %success.049.i, %do.body.i.i.i ], [ %success.049.i, %do.body.i.i21.i ]
-  %inc.i = add nsw i32 %i.2.i, 1
+  %inc.i = add nsw i32 %i.1.i, 1
   %cmp.i = icmp slt i32 %inc.i, %host.4.val
   br i1 %cmp.i, label %for.body.i22, label %if.end13, !llvm.loop !10
 
@@ -906,11 +906,11 @@ if.then2:                                         ; preds = %if.then, %lor.lhs.f
   br label %for.inc
 
 if.end3:                                          ; preds = %_ZN3url13DecodeEscapedIcEEbPKT_PiiPh.exit, %for.body
-  %i.1 = phi i32 [ %add23.i, %_ZN3url13DecodeEscapedIcEEbPKT_PiiPh.exit ], [ %storemerge47, %for.body ]
-  %source.sroa.0.1 = phi i8 [ %add21.i, %_ZN3url13DecodeEscapedIcEEbPKT_PiiPh.exit ], [ %0, %for.body ]
+  %i.0 = phi i32 [ %add23.i, %_ZN3url13DecodeEscapedIcEEbPKT_PiiPh.exit ], [ %storemerge47, %for.body ]
+  %source.sroa.0.0 = phi i8 [ %add21.i, %_ZN3url13DecodeEscapedIcEEbPKT_PiiPh.exit ], [ %0, %for.body ]
   %isneg = icmp slt i8 %0, 0
   %source.sroa.3.0.insert.ext = select i1 %isneg, i32 -256, i32 0
-  %source.sroa.0.0.insert.ext = zext i8 %source.sroa.0.1 to i32
+  %source.sroa.0.0.insert.ext = zext i8 %source.sroa.0.0 to i32
   %source.sroa.0.0.insert.insert = or disjoint i32 %source.sroa.3.0.insert.ext, %source.sroa.0.0.insert.ext
   %cmp4 = icmp ult i32 %source.sroa.0.0.insert.insert, 128
   br i1 %cmp4, label %if.then5, label %if.else15
@@ -1006,7 +1006,7 @@ return.sink.split.i29:                            ; preds = %if.else15, %if.end5
   %.sink.i32 = load ptr, ptr %.sink.in.i31, align 8
   %idxprom8.i33 = sext i32 %.sink2.i30 to i64
   %arrayidx9.i34 = getelementptr inbounds i8, ptr %.sink.i32, i64 %idxprom8.i33
-  store i8 %source.sroa.0.1, ptr %arrayidx9.i34, align 1
+  store i8 %source.sroa.0.0, ptr %arrayidx9.i34, align 1
   %21 = load i32, ptr %cur_len_.i14, align 4
   %inc11.i35 = add nsw i32 %21, 1
   store i32 %inc11.i35, ptr %cur_len_.i14, align 4
@@ -1017,9 +1017,9 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit37:      ; preds = %do.body.i.i20, %ret
   br label %for.inc
 
 for.inc:                                          ; preds = %do.body.i.i, %return.sink.split.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit37, %if.then11, %if.then8, %if.then2
-  %i.2 = phi i32 [ %i.1, %if.then11 ], [ %i.1, %if.then8 ], [ %i.1, %_ZN3url12CanonOutputTIcE9push_backEc.exit37 ], [ %storemerge47, %if.then2 ], [ %i.1, %return.sink.split.i ], [ %i.1, %do.body.i.i ]
+  %i.1 = phi i32 [ %i.0, %if.then11 ], [ %i.0, %if.then8 ], [ %i.0, %_ZN3url12CanonOutputTIcE9push_backEc.exit37 ], [ %storemerge47, %if.then2 ], [ %i.0, %return.sink.split.i ], [ %i.0, %do.body.i.i ]
   %success.1 = phi i1 [ %success.048, %if.then11 ], [ false, %if.then8 ], [ %success.048, %_ZN3url12CanonOutputTIcE9push_backEc.exit37 ], [ false, %if.then2 ], [ %success.048, %return.sink.split.i ], [ %success.048, %do.body.i.i ]
-  %inc = add nsw i32 %i.2, 1
+  %inc = add nsw i32 %i.1, 1
   %cmp = icmp slt i32 %inc, %host_len
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !11
 
@@ -1232,8 +1232,8 @@ _ZN3url15RawCanonOutputTItLi1024EED2Ev.exit55:    ; preds = %ehcleanup, %delete.
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %delete.notnull.i46, %cleanup, %if.end, %if.then
-  %retval.1 = phi i1 [ false, %if.then ], [ true, %if.end ], [ false, %cleanup ], [ false, %delete.notnull.i46 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then ], [ true, %if.end ], [ false, %cleanup ], [ false, %delete.notnull.i46 ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN3url21CanonicalizeIPAddressEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPNS_13CanonHostInfoE(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1652,9 +1652,9 @@ if.then2.i:                                       ; preds = %lor.lhs.false15.i.i
           to label %for.inc.i unwind label %lpad
 
 if.end3.i:                                        ; preds = %_ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i, %for.body.i
-  %i.1.i = phi i32 [ %add25.i.i, %_ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i ], [ %storemerge48.i, %for.body.i ]
-  %source.sroa.0.1.i = phi i8 [ %add23.i.i, %_ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i ], [ %source.sroa.0.0.extract.trunc.i, %for.body.i ]
-  %13 = zext i8 %source.sroa.0.1.i to i16
+  %i.0.i = phi i32 [ %add25.i.i, %_ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i ], [ %storemerge48.i, %for.body.i ]
+  %source.sroa.0.0.i = phi i8 [ %add23.i.i, %_ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i ], [ %source.sroa.0.0.extract.trunc.i, %for.body.i ]
+  %13 = zext i8 %source.sroa.0.0.i to i16
   %14 = or disjoint i16 %2, %13
   %source.sroa.0.0.insert.insert.i = zext i16 %14 to i32
   %cmp4.i = icmp ult i16 %14, 128
@@ -1751,8 +1751,8 @@ for.inc.i.sink.split:                             ; preds = %if.else16.i, %.noex
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %do.body.i.i21.i, %do.body.i.i.i, %if.then11.i.invoke, %for.inc.i.sink.split, %if.then2.i
-  %i.2.i = phi i32 [ %storemerge48.i, %if.then2.i ], [ %i.1.i, %for.inc.i.sink.split ], [ %i.1.i, %if.then11.i.invoke ], [ %i.1.i, %do.body.i.i.i ], [ %i.1.i, %do.body.i.i21.i ]
-  %inc.i = add nsw i32 %i.2.i, 1
+  %i.1.i = phi i32 [ %storemerge48.i, %if.then2.i ], [ %i.0.i, %for.inc.i.sink.split ], [ %i.0.i, %if.then11.i.invoke ], [ %i.0.i, %do.body.i.i.i ], [ %i.0.i, %do.body.i.i21.i ]
+  %inc.i = add nsw i32 %i.1.i, 1
   %cmp.i = icmp slt i32 %inc.i, %src_len
   br i1 %cmp.i, label %for.body.i, label %invoke.cont2, !llvm.loop !14
 

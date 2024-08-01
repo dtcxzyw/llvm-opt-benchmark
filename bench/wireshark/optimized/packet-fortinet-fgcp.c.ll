@@ -220,17 +220,17 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr nocapture noun
   br i1 %70, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %68, %108
-  %.0143 = phi i32 [ %.1, %108 ], [ 88, %68 ]
+  %.1143 = phi i32 [ %.2, %108 ], [ 88, %68 ]
   %71 = load i32, ptr @hf_fortinet_fgcp_hb_tlv, align 4
-  %72 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %71, ptr noundef %0, i32 noundef %.0143, i32 noundef 3, i32 noundef 0) #2
+  %72 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %71, ptr noundef %0, i32 noundef %.1143, i32 noundef 3, i32 noundef 0) #2
   %73 = load i32, ptr @ett_fortinet_fgcp_hb_tlv, align 4
   %74 = call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %73) #2
   %75 = load i32, ptr @hf_fortinet_fgcp_hb_tlv_type, align 4
-  %76 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %74, i32 noundef %75, ptr noundef %0, i32 noundef %.0143, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %5) #2
-  %77 = add i32 %.0143, 2
+  %76 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %74, i32 noundef %75, ptr noundef %0, i32 noundef %.1143, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %5) #2
+  %77 = add i32 %.1143, 2
   %78 = load i32, ptr @hf_fortinet_fgcp_hb_tlv_length, align 4
   %79 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %74, i32 noundef %78, ptr noundef %0, i32 noundef %77, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %6) #2
-  %80 = add i32 %.0143, 4
+  %80 = add i32 %.1143, 4
   %81 = load i32, ptr %5, align 4
   %82 = load i32, ptr %6, align 4
   %83 = call ptr @val_to_str_const(i32 noundef %81, ptr noundef nonnull @fortinet_fgcp_hb_tlv_vals, ptr noundef nonnull @.str.61) #2
@@ -253,7 +253,7 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr nocapture noun
   %92 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %74, i32 noundef %91, ptr noundef %0, i32 noundef %80, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #2
   %93 = load i32, ptr %7, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef nonnull @.str.62, i32 noundef %93) #2
-  %94 = add i32 %.0143, 5
+  %94 = add i32 %.1143, 5
   br label %108
 
 95:                                               ; preds = %.lr.ph
@@ -261,7 +261,7 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr nocapture noun
   %97 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %74, i32 noundef %96, ptr noundef %0, i32 noundef %80, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #2
   %98 = load i32, ptr %8, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef nonnull @.str.62, i32 noundef %98) #2
-  %99 = add i32 %.0143, 5
+  %99 = add i32 %.1143, 5
   br label %108
 
 100:                                              ; preds = %.lr.ph
@@ -271,7 +271,7 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr nocapture noun
   %.not141 = icmp eq i32 %103, 0
   %.str.64..str.63 = select i1 %.not141, ptr @.str.64, ptr @.str.63
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef nonnull %.str.64..str.63) #2
-  %104 = add i32 %.0143, 5
+  %104 = add i32 %.1143, 5
   br label %108
 
 105:                                              ; preds = %.lr.ph
@@ -280,22 +280,22 @@ define internal i32 @dissect_fortinet_fgcp_hb(ptr noundef %0, ptr nocapture noun
   br label %108
 
 108:                                              ; preds = %105, %100, %95, %90
-  %.1 = phi i32 [ %107, %105 ], [ %104, %100 ], [ %99, %95 ], [ %94, %90 ]
-  %109 = icmp ult i32 %.1, %69
+  %.2 = phi i32 [ %107, %105 ], [ %104, %100 ], [ %99, %95 ], [ %94, %90 ]
+  %109 = icmp ult i32 %.2, %69
   br i1 %109, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %108, %68, %64
-  %.2 = phi i32 [ %67, %64 ], [ 88, %68 ], [ %.1, %108 ]
+  %.0 = phi i32 [ %67, %64 ], [ 88, %68 ], [ %.2, %108 ]
   br i1 %.not, label %114, label %110
 
 110:                                              ; preds = %.loopexit
   %111 = load i32, ptr @hf_fortinet_fgcp_hb_authentication, align 4
-  %112 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %111, ptr noundef %0, i32 noundef %.2, i32 noundef 32, i32 noundef 0) #2
-  %113 = add i32 %.2, 32
+  %112 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %111, ptr noundef %0, i32 noundef %.0, i32 noundef 32, i32 noundef 0) #2
+  %113 = add i32 %.0, 32
   br label %114
 
 114:                                              ; preds = %110, %.loopexit
-  %.3 = phi i32 [ %113, %110 ], [ %.2, %.loopexit ]
+  %.3 = phi i32 [ %113, %110 ], [ %.0, %.loopexit ]
   ret i32 %.3
 }
 

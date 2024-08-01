@@ -514,14 +514,14 @@ define hidden noundef zeroext i1 @_ZN2cv10PxMDecoder10readHeaderEv(ptr noundef n
 
 49:                                               ; preds = %47, %45
   %.pn57 = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
-  %.128 = phi i1 [ %.027, %47 ], [ true, %45 ]
+  %.330 = phi i1 [ %.027, %47 ], [ true, %45 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %50
 
 50:                                               ; preds = %43, %49
   %.pn57.pn = phi { ptr, i32 } [ %.pn57, %49 ], [ %44, %43 ]
-  %.229 = phi i1 [ %.128, %49 ], [ true, %43 ]
+  %.229 = phi i1 [ %.330, %49 ], [ true, %43 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #19
@@ -595,14 +595,14 @@ define hidden noundef zeroext i1 @_ZN2cv10PxMDecoder10readHeaderEv(ptr noundef n
 
 69:                                               ; preds = %67, %65
   %.pn53 = phi { ptr, i32 } [ %68, %67 ], [ %66, %65 ]
-  %.124 = phi i1 [ %.023, %67 ], [ true, %65 ]
+  %.326 = phi i1 [ %.023, %67 ], [ true, %65 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #19
   br label %70
 
 70:                                               ; preds = %63, %69
   %.pn53.pn = phi { ptr, i32 } [ %.pn53, %69 ], [ %64, %63 ]
-  %.225 = phi i1 [ %.124, %69 ], [ true, %63 ]
+  %.225 = phi i1 [ %.326, %69 ], [ true, %63 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #19
@@ -714,14 +714,14 @@ switch.lookup:                                    ; preds = %54
 
 107:                                              ; preds = %105, %103
   %.pn = phi { ptr, i32 } [ %106, %105 ], [ %104, %103 ]
-  %.1 = phi i1 [ %.022, %105 ], [ true, %103 ]
+  %.3 = phi i1 [ %.022, %105 ], [ true, %103 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #19
   br label %108
 
 108:                                              ; preds = %101, %107
   %.pn.pn = phi { ptr, i32 } [ %.pn, %107 ], [ %102, %101 ]
-  %.2 = phi i1 [ %.1, %107 ], [ true, %101 ]
+  %.2 = phi i1 [ %.3, %107 ], [ true, %101 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #19
@@ -734,11 +734,11 @@ switch.lookup:                                    ; preds = %54
 
 110:                                              ; preds = %108, %109, %70, %71, %50, %51, %40
   %.pn57.pn.pn.pn = phi { ptr, i32 } [ %.pn57.pn.pn75, %51 ], [ %.pn57.pn, %50 ], [ %.pn53.pn.pn79, %71 ], [ %.pn53.pn, %70 ], [ %.pn.pn.pn84, %109 ], [ %.pn.pn, %108 ], [ %41, %40 ]
-  %.9 = extractvalue { ptr, i32 } %.pn57.pn.pn.pn, 1
-  %.944 = extractvalue { ptr, i32 } %.pn57.pn.pn.pn, 0
+  %.031 = extractvalue { ptr, i32 } %.pn57.pn.pn.pn, 1
+  %.035 = extractvalue { ptr, i32 } %.pn57.pn.pn.pn, 0
   %111 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #19
-  %112 = icmp eq i32 %.9, %111
-  %113 = call ptr @__cxa_begin_catch(ptr %.944) #19
+  %112 = icmp eq i32 %.031, %111
+  %113 = call ptr @__cxa_begin_catch(ptr %.035) #19
   br i1 %112, label %114, label %115
 
 114:                                              ; preds = %110
@@ -926,7 +926,7 @@ define internal fastcc noundef i32 @_ZN2cvL10ReadNumberERNS_12RLByteStreamEi(ptr
   br i1 %isdigit42, label %.lr.ph44, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit, %2
-  %.027.lcssa = phi i32 [ %6, %2 ], [ %.2, %.loopexit ]
+  %.027.lcssa = phi i32 [ %6, %2 ], [ %.128, %.loopexit ]
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.preheader.split.us, label %.preheader.split
 
@@ -947,7 +947,7 @@ define internal fastcc noundef i32 @_ZN2cvL10ReadNumberERNS_12RLByteStreamEi(ptr
   br i1 %isdigit32.us, label %.preheader.split.us, label %.split47.us.loopexit, !llvm.loop !9
 
 .lr.ph44:                                         ; preds = %2, %.loopexit
-  %.02743 = phi i32 [ %.2, %.loopexit ], [ %6, %2 ]
+  %.02743 = phi i32 [ %.128, %.loopexit ], [ %6, %2 ]
   %15 = icmp eq i32 %.02743, 35
   br i1 %15, label %.preheader37, label %19
 
@@ -988,8 +988,8 @@ define internal fastcc noundef i32 @_ZN2cvL10ReadNumberERNS_12RLByteStreamEi(ptr
   br label %37
 
 .loopexit:                                        ; preds = %.lr.ph, %17
-  %.2 = phi i32 [ %18, %17 ], [ %21, %.lr.ph ]
-  %27 = add i32 %.2, -58
+  %.128 = phi i32 [ %18, %17 ], [ %21, %.lr.ph ]
+  %27 = add i32 %.128, -58
   %isdigit = icmp ult i32 %27, -10
   br i1 %isdigit, label %.lr.ph44, label %.preheader, !llvm.loop !12
 
@@ -1825,11 +1825,11 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit189:         ; preds = %.noexc188, %187
 
 _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %218, %213, %178, %173, %136, %.loopexit, %325, %88, %75
   %.pn166.pn = phi { ptr, i32 } [ %.pn166, %325 ], [ %76, %75 ], [ %.pn164, %88 ], [ %lpad.phi, %.loopexit ], [ %lpad.phi, %136 ], [ %.us-phi251, %173 ], [ %.us-phi251, %178 ], [ %lpad.phi216, %213 ], [ %lpad.phi216, %218 ]
-  %.3 = extractvalue { ptr, i32 } %.pn166.pn, 0
-  %.3145 = extractvalue { ptr, i32 } %.pn166.pn, 1
+  %.2139 = extractvalue { ptr, i32 } %.pn166.pn, 0
+  %.2144 = extractvalue { ptr, i32 } %.pn166.pn, 1
   %326 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #19
-  %327 = icmp eq i32 %.3145, %326
-  %328 = call ptr @__cxa_begin_catch(ptr %.3) #19
+  %327 = icmp eq i32 %.2144, %326
+  %328 = call ptr @__cxa_begin_catch(ptr %.2139) #19
   br i1 %327, label %329, label %330
 
 329:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit
@@ -2794,31 +2794,31 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %.noexc298, %171
 
 .lr.ph359:                                        ; preds = %.preheader333, %.lr.ph359
   %indvars.iv399 = phi i64 [ %indvars.iv.next400, %.lr.ph359 ], [ 0, %.preheader333 ]
-  %.1358 = phi ptr [ %315, %.lr.ph359 ], [ %177, %.preheader333 ]
-  %293 = ptrtoint ptr %.1358 to i64
+  %.2358 = phi ptr [ %315, %.lr.ph359 ], [ %177, %.preheader333 ]
+  %293 = ptrtoint ptr %.2358 to i64
   %294 = sub i64 %.neg, %293
   %295 = getelementptr inbounds i8, ptr %234, i64 %indvars.iv399
   %296 = getelementptr inbounds i8, ptr %295, i64 2
   %297 = load i8, ptr %296, align 1
   %298 = zext i8 %297 to i32
-  %299 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.1358, i64 noundef %294, ptr noundef nonnull @.str.21, i32 noundef %298) #19
-  %300 = getelementptr inbounds i8, ptr %.1358, i64 4
+  %299 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.2358, i64 noundef %294, ptr noundef nonnull @.str.21, i32 noundef %298) #19
+  %300 = getelementptr inbounds i8, ptr %.2358, i64 4
   %301 = ptrtoint ptr %300 to i64
   %302 = sub i64 %.neg, %301
   %303 = getelementptr inbounds i8, ptr %295, i64 1
   %304 = load i8, ptr %303, align 1
   %305 = zext i8 %304 to i32
   %306 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %300, i64 noundef %302, ptr noundef nonnull @.str.21, i32 noundef %305) #19
-  %307 = getelementptr inbounds i8, ptr %.1358, i64 8
+  %307 = getelementptr inbounds i8, ptr %.2358, i64 8
   %308 = ptrtoint ptr %307 to i64
   %309 = sub i64 %.neg, %308
   %310 = load i8, ptr %295, align 1
   %311 = zext i8 %310 to i32
   %312 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %307, i64 noundef %309, ptr noundef nonnull @.str.21, i32 noundef %311) #19
-  %313 = getelementptr inbounds i8, ptr %.1358, i64 12
-  %314 = getelementptr inbounds i8, ptr %.1358, i64 13
+  %313 = getelementptr inbounds i8, ptr %.2358, i64 12
+  %314 = getelementptr inbounds i8, ptr %.2358, i64 13
   store i8 32, ptr %313, align 1
-  %315 = getelementptr inbounds i8, ptr %.1358, i64 14
+  %315 = getelementptr inbounds i8, ptr %.2358, i64 14
   store i8 32, ptr %314, align 1
   %indvars.iv.next400 = add nuw nsw i64 %indvars.iv399, %227
   %316 = trunc nuw i64 %indvars.iv.next400 to i32
@@ -2827,31 +2827,31 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %.noexc298, %171
 
 .lr.ph355:                                        ; preds = %.preheader335, %.lr.ph355
   %indvars.iv396 = phi i64 [ %indvars.iv.next397, %.lr.ph355 ], [ 0, %.preheader335 ]
-  %.2354 = phi ptr [ %340, %.lr.ph355 ], [ %177, %.preheader335 ]
-  %318 = ptrtoint ptr %.2354 to i64
+  %.3354 = phi ptr [ %340, %.lr.ph355 ], [ %177, %.preheader335 ]
+  %318 = ptrtoint ptr %.3354 to i64
   %319 = sub i64 %.neg, %318
   %320 = getelementptr inbounds i16, ptr %234, i64 %indvars.iv396
   %321 = getelementptr inbounds i8, ptr %320, i64 4
   %322 = load i16, ptr %321, align 2
   %323 = zext i16 %322 to i32
-  %324 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.2354, i64 noundef %319, ptr noundef nonnull @.str.22, i32 noundef %323) #19
-  %325 = getelementptr inbounds i8, ptr %.2354, i64 6
+  %324 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.3354, i64 noundef %319, ptr noundef nonnull @.str.22, i32 noundef %323) #19
+  %325 = getelementptr inbounds i8, ptr %.3354, i64 6
   %326 = ptrtoint ptr %325 to i64
   %327 = sub i64 %.neg, %326
   %328 = getelementptr inbounds i8, ptr %320, i64 2
   %329 = load i16, ptr %328, align 2
   %330 = zext i16 %329 to i32
   %331 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %325, i64 noundef %327, ptr noundef nonnull @.str.22, i32 noundef %330) #19
-  %332 = getelementptr inbounds i8, ptr %.2354, i64 12
+  %332 = getelementptr inbounds i8, ptr %.3354, i64 12
   %333 = ptrtoint ptr %332 to i64
   %334 = sub i64 %.neg, %333
   %335 = load i16, ptr %320, align 2
   %336 = zext i16 %335 to i32
   %337 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %332, i64 noundef %334, ptr noundef nonnull @.str.22, i32 noundef %336) #19
-  %338 = getelementptr inbounds i8, ptr %.2354, i64 18
-  %339 = getelementptr inbounds i8, ptr %.2354, i64 19
+  %338 = getelementptr inbounds i8, ptr %.3354, i64 18
+  %339 = getelementptr inbounds i8, ptr %.3354, i64 19
   store i8 32, ptr %338, align 1
-  %340 = getelementptr inbounds i8, ptr %.2354, i64 20
+  %340 = getelementptr inbounds i8, ptr %.3354, i64 20
   store i8 32, ptr %339, align 1
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, %227
   %341 = trunc nuw i64 %indvars.iv.next397 to i32
@@ -2869,36 +2869,36 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %.noexc298, %171
 
 .lr.ph351:                                        ; preds = %.preheader337, %.lr.ph351
   %indvars.iv391 = phi i64 [ %indvars.iv.next392, %.lr.ph351 ], [ 0, %.preheader337 ]
-  %.3350 = phi ptr [ %350, %.lr.ph351 ], [ %177, %.preheader337 ]
-  %344 = ptrtoint ptr %.3350 to i64
+  %.4350 = phi ptr [ %350, %.lr.ph351 ], [ %177, %.preheader337 ]
+  %344 = ptrtoint ptr %.4350 to i64
   %345 = sub i64 %.neg, %344
   %346 = getelementptr inbounds i8, ptr %234, i64 %indvars.iv391
   %347 = load i8, ptr %346, align 1
   %348 = zext i8 %347 to i32
-  %349 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.3350, i64 noundef %345, ptr noundef nonnull @.str.21, i32 noundef %348) #19
-  %350 = getelementptr inbounds i8, ptr %.3350, i64 4
+  %349 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.4350, i64 noundef %345, ptr noundef nonnull @.str.21, i32 noundef %348) #19
+  %350 = getelementptr inbounds i8, ptr %.4350, i64 4
   %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 1
   %exitcond395.not = icmp eq i64 %indvars.iv.next392, %.sroa.0.0.insert.ext
   br i1 %exitcond395.not, label %.loopexit, label %.lr.ph351, !llvm.loop !29
 
 .lr.ph347:                                        ; preds = %.preheader339, %.lr.ph347
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph347 ], [ 0, %.preheader339 ]
-  %.4346 = phi ptr [ %357, %.lr.ph347 ], [ %177, %.preheader339 ]
-  %351 = ptrtoint ptr %.4346 to i64
+  %.5346 = phi ptr [ %357, %.lr.ph347 ], [ %177, %.preheader339 ]
+  %351 = ptrtoint ptr %.5346 to i64
   %352 = sub i64 %.neg, %351
   %353 = getelementptr inbounds i16, ptr %234, i64 %indvars.iv
   %354 = load i16, ptr %353, align 2
   %355 = zext i16 %354 to i32
-  %356 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.4346, i64 noundef %352, ptr noundef nonnull @.str.22, i32 noundef %355) #19
-  %357 = getelementptr inbounds i8, ptr %.4346, i64 6
+  %356 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.5346, i64 noundef %352, ptr noundef nonnull @.str.22, i32 noundef %355) #19
+  %357 = getelementptr inbounds i8, ptr %.5346, i64 6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.sroa.0.0.insert.ext
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph347, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.lr.ph347, %.lr.ph351, %.lr.ph355, %.lr.ph359, %.lr.ph363, %.preheader339, %.preheader337, %.preheader335, %.preheader333, %.preheader332
-  %.5 = phi ptr [ %177, %.preheader332 ], [ %177, %.preheader333 ], [ %177, %.preheader335 ], [ %177, %.preheader337 ], [ %177, %.preheader339 ], [ %290, %.lr.ph363 ], [ %315, %.lr.ph359 ], [ %340, %.lr.ph355 ], [ %350, %.lr.ph351 ], [ %357, %.lr.ph347 ]
-  %358 = getelementptr inbounds i8, ptr %.5, i64 1
-  store i8 10, ptr %.5, align 1
+  %.1 = phi ptr [ %177, %.preheader332 ], [ %177, %.preheader333 ], [ %177, %.preheader335 ], [ %177, %.preheader337 ], [ %177, %.preheader339 ], [ %290, %.lr.ph363 ], [ %315, %.lr.ph359 ], [ %340, %.lr.ph355 ], [ %350, %.lr.ph351 ], [ %357, %.lr.ph347 ]
+  %358 = getelementptr inbounds i8, ptr %.1, i64 1
+  store i8 10, ptr %.1, align 1
   br label %._crit_edge372.thread.invoke
 
 359:                                              ; preds = %._crit_edge372.thread.invoke, %.thread321

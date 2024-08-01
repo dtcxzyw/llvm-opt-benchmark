@@ -429,8 +429,8 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
 
 59:                                               ; preds = %62, %56
   %.sroa.4.0 = phi i64 [ undef, %62 ], [ %58, %56 ]
-  %.sroa.0.0 = phi ptr [ null, %62 ], [ %57, %56 ]
-  %60 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %62 ], [ %57, %56 ]
+  %60 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %61 = insertvalue { ptr, i64 } %60, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %61
 
@@ -607,8 +607,8 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
 
 59:                                               ; preds = %62, %56
   %.sroa.4.0 = phi i64 [ undef, %62 ], [ %58, %56 ]
-  %.sroa.0.0 = phi ptr [ null, %62 ], [ %57, %56 ]
-  %60 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %62 ], [ %57, %56 ]
+  %60 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %61 = insertvalue { ptr, i64 } %60, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %61
 
@@ -785,8 +785,8 @@ _ZN4ring4limb31limbs_less_than_limbs_consttime17he68b8e333363f0e8E.llvm.11656387
 
 59:                                               ; preds = %62, %56
   %.sroa.4.0 = phi i64 [ undef, %62 ], [ %58, %56 ]
-  %.sroa.0.0 = phi ptr [ null, %62 ], [ %57, %56 ]
-  %60 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %.sroa.0.1 = phi ptr [ null, %62 ], [ %57, %56 ]
+  %60 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.1, 0
   %61 = insertvalue { ptr, i64 } %60, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %61
 

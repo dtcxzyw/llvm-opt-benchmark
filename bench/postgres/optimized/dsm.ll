@@ -529,7 +529,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   br label %.thread83
 
 .thread83:                                        ; preds = %dsm_create_descriptor.exit, %40
-  %.1.ph85 = phi i64 [ %spec.select, %40 ], [ 0, %dsm_create_descriptor.exit ]
+  %.066.ph85 = phi i64 [ %spec.select, %40 ], [ 0, %dsm_create_descriptor.exit ]
   %43 = getelementptr inbounds i8, ptr %11, i64 24
   %44 = getelementptr inbounds i8, ptr %11, i64 40
   %45 = getelementptr inbounds i8, ptr %11, i64 48
@@ -557,7 +557,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 
 55:                                               ; preds = %32, %51
   %.082 = phi i1 [ false, %51 ], [ true, %32 ]
-  %.180 = phi i64 [ %.1.ph85, %51 ], [ %spec.select, %32 ]
+  %.06680 = phi i64 [ %.066.ph85, %51 ], [ %spec.select, %32 ]
   %56 = load ptr, ptr @dsm_control, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 4
   %58 = load i32, ptr %57, align 4
@@ -598,7 +598,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %80 = getelementptr [0 x %struct.dsm_control_item], ptr %79, i64 0, i64 %indvars.iv, i32 2
   store i64 %78, ptr %80, align 8
   %81 = getelementptr [0 x %struct.dsm_control_item], ptr %79, i64 0, i64 %indvars.iv, i32 3
-  store i64 %.180, ptr %81, align 8
+  store i64 %.06680, ptr %81, align 8
   br label %82
 
 82:                                               ; preds = %64, %66
@@ -638,7 +638,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
 
 96:                                               ; preds = %95
   %97 = load i64, ptr %3, align 8
-  call void @FreePageManagerPut(ptr noundef %4, i64 noundef %97, i64 noundef %.180) #12
+  call void @FreePageManagerPut(ptr noundef %4, i64 noundef %97, i64 noundef %.06680) #12
   %98 = load ptr, ptr @MainLWLockArray, align 8
   %99 = getelementptr i8, ptr %98, i64 4352
   call void @LWLockRelease(ptr noundef %99) #12
@@ -706,7 +706,7 @@ dsm_create_descriptor.exit:                       ; preds = %dlist_push_head.exi
   %136 = getelementptr [0 x %struct.dsm_control_item], ptr %135, i64 0, i64 %.067.lcssa, i32 2
   store i64 %134, ptr %136, align 8
   %137 = getelementptr [0 x %struct.dsm_control_item], ptr %135, i64 0, i64 %.067.lcssa, i32 3
-  store i64 %.180, ptr %137, align 8
+  store i64 %.06680, ptr %137, align 8
   br label %138
 
 138:                                              ; preds = %122, %121

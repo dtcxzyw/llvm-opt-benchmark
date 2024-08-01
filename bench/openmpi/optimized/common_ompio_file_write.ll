@@ -311,13 +311,13 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %90, %opal_obj_run_c
   br label %144
 
 144:                                              ; preds = %141, %136
-  %.271.i = phi i64 [ %143, %141 ], [ %.069114.i, %136 ]
+  %.473.i = phi i64 [ %143, %141 ], [ %.069114.i, %136 ]
   %145 = load ptr, ptr %18, align 8
   store ptr %145, ptr %19, align 8
   br label %146
 
 146:                                              ; preds = %144, %135, %.thread93.i
-  %.372.i = phi i64 [ %.271.i, %144 ], [ %.069114.i, %135 ], [ %134, %.thread93.i ]
+  %.372.i = phi i64 [ %.473.i, %144 ], [ %.069114.i, %135 ], [ %134, %.thread93.i ]
   store i32 0, ptr %112, align 8
   %147 = load ptr, ptr %111, align 8
   call void @free(ptr noundef %147) #9
@@ -335,13 +335,13 @@ opal_convertor_get_packed_size.exit.i:            ; preds = %90, %opal_obj_run_c
 
 149:                                              ; preds = %._crit_edge.i, %.thread103.i
   %.069111.i = phi i64 [ %.069114.i, %.thread103.i ], [ %.069.lcssa.i, %._crit_edge.i ]
-  %.4107.i = phi i64 [ %140, %.thread103.i ], [ 0, %._crit_edge.i ]
+  %.268107.i = phi i64 [ %140, %.thread103.i ], [ 0, %._crit_edge.i ]
   call void @mca_common_ompio_release_buf(ptr noundef nonnull %0, ptr noundef %.06292.i) #9
   br label %150
 
 150:                                              ; preds = %149, %._crit_edge.i, %.thread98.i
   %.069110.i = phi i64 [ %.069114.i, %.thread98.i ], [ %.069111.i, %149 ], [ %.069.lcssa.i, %._crit_edge.i ]
-  %.4102.i = phi i64 [ %132, %.thread98.i ], [ %.4107.i, %149 ], [ 0, %._crit_edge.i ]
+  %.268102.i = phi i64 [ %132, %.thread98.i ], [ %.268107.i, %149 ], [ 0, %._crit_edge.i ]
   %151 = getelementptr inbounds i8, ptr %20, i64 64
   %152 = load i32, ptr %151, align 8
   %153 = icmp ugt i32 %152, 5
@@ -363,7 +363,7 @@ opal_convertor_cleanup.exit.i:                    ; preds = %154, %150
   br label %159
 
 159:                                              ; preds = %157, %opal_convertor_cleanup.exit.i
-  %160 = trunc i64 %.4102.i to i32
+  %160 = trunc i64 %.268102.i to i32
   br label %mca_common_ompio_file_write_pipelined.exit
 
 mca_common_ompio_file_write_pipelined.exit:       ; preds = %97, %108, %159

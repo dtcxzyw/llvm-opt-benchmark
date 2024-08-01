@@ -1751,12 +1751,12 @@ split:                                            ; preds = %184, %._crit_edge45
 
 .lr.ph364:                                        ; preds = %210, %239
   %218 = phi ptr [ %240, %239 ], [ %217, %210 ]
-  %.0175363 = phi i32 [ %.3249, %239 ], [ 0, %210 ]
+  %.0175363 = phi i32 [ %.2177249, %239 ], [ 0, %210 ]
   %219 = call ptr @list_iterator_create(ptr noundef nonnull %183) #10
   br label %220
 
 220:                                              ; preds = %227, %.lr.ph364
-  %.1176 = phi i32 [ %.0175363, %.lr.ph364 ], [ %.2177, %227 ]
+  %.1176 = phi i32 [ %.0175363, %.lr.ph364 ], [ %.3, %227 ]
   %221 = call ptr @list_next(ptr noundef %219) #10
   %.not225 = icmp eq ptr %221, null
   br i1 %.not225, label %231, label %222
@@ -1774,7 +1774,7 @@ split:                                            ; preds = %184, %._crit_edge45
 
 227:                                              ; preds = %225, %222
   %228 = phi ptr [ %224, %222 ], [ %226, %225 ]
-  %.2177 = phi i32 [ %.1176, %222 ], [ 1, %225 ]
+  %.3 = phi i32 [ %.1176, %222 ], [ 1, %225 ]
   %229 = call i32 @xstrcmp(ptr noundef nonnull %218, ptr noundef %228) #10
   %.not227 = icmp eq i32 %229, 0
   br i1 %.not227, label %230, label %220, !llvm.loop !15
@@ -1808,14 +1808,14 @@ split:                                            ; preds = %184, %._crit_edge45
   unreachable
 
 239:                                              ; preds = %230, %235
-  %.3249 = phi i32 [ %.1176, %235 ], [ %.2177, %230 ]
+  %.2177249 = phi i32 [ %.1176, %235 ], [ %.3, %230 ]
   call void @free(ptr noundef %218) #10
   %240 = call ptr @hostlist_next(ptr noundef %211) #10
   %.not217 = icmp eq ptr %240, null
   br i1 %.not217, label %._crit_edge, label %.lr.ph364, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %239
-  %241 = icmp eq i32 %.3249, 0
+  %241 = icmp eq i32 %.2177249, 0
   call void @hostlist_iterator_destroy(ptr noundef %211) #10
   br i1 %241, label %242, label %250
 
@@ -1898,23 +1898,23 @@ split:                                            ; preds = %184, %._crit_edge45
   br label %.thread257
 
 .thread257:                                       ; preds = %.thread251, %._crit_edge367
-  %.1171255261 = phi i32 [ %48, %._crit_edge367 ], [ %.0170.ph, %.thread251 ]
+  %.2255261 = phi i32 [ %48, %._crit_edge367 ], [ %.0170.ph, %.thread251 ]
   call void @free(ptr noundef %16) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %.lr.ph, %.thread257
-  %.2 = phi i32 [ %.1171255261, %.thread257 ], [ %48, %.lr.ph ], [ %.0170.ph, %41 ]
-  %270 = icmp sgt i32 %.2, -1
+  %.1171 = phi i32 [ %.2255261, %.thread257 ], [ %48, %.lr.ph ], [ %.0170.ph, %41 ]
+  %270 = icmp sgt i32 %.1171, -1
   br i1 %270, label %.thread262, label %.thread265
 
 .thread262:                                       ; preds = %198, %125, %147, %.loopexit
-  %.2264 = phi i32 [ %.2, %.loopexit ], [ %48, %147 ], [ %48, %125 ], [ %48, %198 ]
-  %271 = call i32 @close(i32 noundef %.2264) #10
+  %.1171264 = phi i32 [ %.1171, %.loopexit ], [ %48, %147 ], [ %48, %125 ], [ %48, %198 ]
+  %271 = call i32 @close(i32 noundef %.1171264) #10
   %272 = icmp slt i32 %271, 0
   br i1 %272, label %273, label %.thread265
 
 273:                                              ; preds = %.thread262
-  %274 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, i32 noundef %.2264) #10
+  %274 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, i32 noundef %.1171264) #10
   br label %.thread265
 
 .thread265:                                       ; preds = %55, %273, %.thread262, %.loopexit

@@ -223,7 +223,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   %88 = add i32 %87, -1
   %89 = zext i32 %88 to i64
   %90 = getelementptr inbounds [274 x %struct.lzma_match], ptr %86, i64 0, i64 %89, i32 1
-  %.0139213 = load i32, ptr %90, align 4
+  %.1213 = load i32, ptr %90, align 4
   %91 = icmp ugt i32 %87, 1
   br i1 %91, label %.lr.ph.preheader, label %.critedge
 
@@ -233,17 +233,17 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %103
   %indvars.iv249 = phi i64 [ %92, %.lr.ph.preheader ], [ %indvars.iv.next250, %103 ]
-  %.0139215 = phi i32 [ %.0139213, %.lr.ph.preheader ], [ %101, %103 ]
-  %.1141214 = phi i32 [ %.0140, %.lr.ph.preheader ], [ %95, %103 ]
+  %.1215 = phi i32 [ %.1213, %.lr.ph.preheader ], [ %101, %103 ]
+  %.2214 = phi i32 [ %.0140, %.lr.ph.preheader ], [ %95, %103 ]
   %93 = add nsw i64 %indvars.iv249, -2
   %94 = getelementptr inbounds [274 x %struct.lzma_match], ptr %86, i64 0, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %95, 1
-  %97 = icmp eq i32 %.1141214, %96
+  %97 = icmp eq i32 %.2214, %96
   br i1 %97, label %98, label %.critedge
 
 98:                                               ; preds = %.lr.ph
-  %99 = lshr i32 %.0139215, 7
+  %99 = lshr i32 %.1215, 7
   %100 = getelementptr inbounds i8, ptr %94, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = icmp ugt i32 %99, %101
@@ -257,36 +257,36 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   br i1 %104, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph, %98, %103, %85
-  %.1141.lcssa = phi i32 [ %.0140, %85 ], [ %95, %103 ], [ %.1141214, %98 ], [ %.1141214, %.lr.ph ]
-  %.0139.lcssa = phi i32 [ %.0139213, %85 ], [ %101, %103 ], [ %.0139215, %98 ], [ %.0139215, %.lr.ph ]
-  %105 = icmp eq i32 %.1141.lcssa, 2
-  %106 = icmp ugt i32 %.0139.lcssa, 127
+  %.2.lcssa = phi i32 [ %.0140, %85 ], [ %95, %103 ], [ %.2214, %98 ], [ %.2214, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %.1213, %85 ], [ %101, %103 ], [ %.1215, %98 ], [ %.1215, %.lr.ph ]
+  %105 = icmp eq i32 %.2.lcssa, 2
+  %106 = icmp ugt i32 %.1.lcssa, 127
   %or.cond = select i1 %105, i1 %106, i1 false
-  %spec.store.select = select i1 %or.cond, i32 1, i32 %.1141.lcssa
+  %spec.store.select = select i1 %or.cond, i32 1, i32 %.2.lcssa
   br label %107
 
 107:                                              ; preds = %.critedge, %83
-  %.2 = phi i32 [ %spec.store.select, %.critedge ], [ %.0140, %83 ]
-  %.1 = phi i32 [ %.0139.lcssa, %.critedge ], [ 0, %83 ]
+  %.1141 = phi i32 [ %spec.store.select, %.critedge ], [ %.0140, %83 ]
+  %.0139 = phi i32 [ %.1.lcssa, %.critedge ], [ 0, %83 ]
   %108 = icmp ugt i32 %.us-phi195, 1
   br i1 %108, label %109, label %124
 
 109:                                              ; preds = %107
   %110 = add nuw nsw i32 %.us-phi195, 1
-  %.not152 = icmp ult i32 %110, %.2
+  %.not152 = icmp ult i32 %110, %.1141
   br i1 %.not152, label %111, label %mf_skip.exit175
 
 111:                                              ; preds = %109
   %112 = add nuw nsw i32 %.us-phi195, 2
-  %113 = icmp uge i32 %112, %.2
-  %114 = icmp ugt i32 %.1, 512
+  %113 = icmp uge i32 %112, %.1141
+  %114 = icmp ugt i32 %.0139, 512
   %or.cond3 = select i1 %113, i1 %114, i1 false
   br i1 %or.cond3, label %mf_skip.exit175, label %115
 
 115:                                              ; preds = %111
   %116 = add nuw nsw i32 %.us-phi195, 3
-  %117 = icmp uge i32 %116, %.2
-  %118 = icmp ugt i32 %.1, 32768
+  %117 = icmp uge i32 %116, %.1141
+  %118 = icmp ugt i32 %.0139, 32768
   %or.cond5 = select i1 %117, i1 %118, i1 false
   br i1 %or.cond5, label %mf_skip.exit175, label %124
 
@@ -303,7 +303,7 @@ mf_skip.exit175:                                  ; preds = %115, %111, %109
   br label %mf_skip.exit
 
 124:                                              ; preds = %115, %107
-  %125 = icmp ult i32 %.2, 2
+  %125 = icmp ult i32 %.1141, 2
   %or.cond7 = or i1 %.not227, %125
   br i1 %or.cond7, label %126, label %127
 
@@ -327,16 +327,16 @@ mf_skip.exit175:                                  ; preds = %115, %111, %109
   %136 = zext i32 %135 to i64
   %137 = getelementptr inbounds [274 x %struct.lzma_match], ptr %129, i64 0, i64 %136, i32 1
   %138 = load i32, ptr %137, align 4
-  %.not153 = icmp uge i32 %130, %.2
-  %139 = icmp ult i32 %138, %.1
+  %.not153 = icmp uge i32 %130, %.1141
+  %139 = icmp ult i32 %138, %.0139
   %or.cond158 = select i1 %.not153, i1 %139, i1 false
   br i1 %or.cond158, label %152, label %140
 
 140:                                              ; preds = %133
-  %141 = add i32 %.2, 1
+  %141 = add i32 %.1141, 1
   %142 = icmp eq i32 %130, %141
   %143 = lshr i32 %138, 7
-  %144 = icmp ule i32 %143, %.1
+  %144 = icmp ule i32 %143, %.0139
   %or.cond160.not182 = select i1 %142, i1 %144, i1 false
   %145 = icmp ugt i32 %130, %141
   %or.cond179 = or i1 %145, %or.cond160.not182
@@ -344,10 +344,10 @@ mf_skip.exit175:                                  ; preds = %115, %111, %109
 
 146:                                              ; preds = %140
   %147 = add i32 %130, 1
-  %148 = icmp uge i32 %147, %.2
-  %149 = icmp ugt i32 %.2, 2
+  %148 = icmp uge i32 %147, %.1141
+  %149 = icmp ugt i32 %.1141, 2
   %or.cond9 = and i1 %149, %148
-  %150 = lshr i32 %.1, 7
+  %150 = lshr i32 %.0139, 7
   %151 = icmp ugt i32 %150, %138
   %or.cond162 = select i1 %or.cond9, i1 %151, i1 false
   br i1 %or.cond162, label %152, label %153
@@ -358,7 +358,7 @@ mf_skip.exit175:                                  ; preds = %115, %111, %109
   br label %mf_skip.exit
 
 153:                                              ; preds = %146, %127
-  %154 = add i32 %.2, -1
+  %154 = add i32 %.1141, -1
   %155 = call i32 @llvm.umax.i32(i32 %154, i32 2)
   %156 = zext i32 %155 to i64
   br label %158
@@ -385,10 +385,10 @@ mf_skip.exit175:                                  ; preds = %115, %111, %109
   br label %mf_skip.exit
 
 165:                                              ; preds = %157
-  %166 = add i32 %.1, 4
+  %166 = add i32 %.0139, 4
   store i32 %166, ptr %2, align 4
-  store i32 %.2, ptr %3, align 4
-  %167 = add i32 %.2, -2
+  store i32 %.1141, ptr %3, align 4
+  %167 = add i32 %.1141, -2
   %.not.i176 = icmp eq i32 %167, 0
   br i1 %.not.i176, label %mf_skip.exit, label %168
 

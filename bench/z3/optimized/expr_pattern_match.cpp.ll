@@ -738,8 +738,8 @@ ehcleanup:                                        ; preds = %lpad23, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %for.cond.preheader.i.i.i.i, %cleanup, %lor.lhs.false, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %lor.lhs.false ], [ %call15, %cleanup ], [ %call15, %for.cond.preheader.i.i.i.i ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %lor.lhs.false ], [ %call15, %cleanup ], [ %call15, %for.cond.preheader.i.i.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2141,8 +2141,8 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %_ZN6vectorIN18expr_
 
 while.body:                                       ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit
   %35 = phi i32 [ %34, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %33, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ]
-  %max_reg.0412501 = phi i32 [ %max_reg.2, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ 1, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ]
-  %instr.sroa.20332.0413500 = phi i32 [ %instr.sroa.20332.2, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ]
+  %max_reg.0412501 = phi i32 [ %max_reg.1, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ 1, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ]
+  %instr.sroa.20332.0413500 = phi i32 [ %instr.sroa.20332.1, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ]
   %instr.sroa.19.0414499 = phi i32 [ %instr.sroa.19.1, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ]
   %num_bound.0415497 = phi i32 [ %num_bound.1, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ]
   %36 = phi ptr [ %103, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %32, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ]
@@ -2337,7 +2337,7 @@ for.body.lr.ph:                                   ; preds = %sw.bb37
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont49
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %invoke.cont49 ]
-  %max_reg.1407 = phi i32 [ %max_reg.0412501, %for.body.lr.ph ], [ %inc51, %invoke.cont49 ]
+  %max_reg.2407 = phi i32 [ %max_reg.0412501, %for.body.lr.ph ], [ %inc51, %invoke.cont49 ]
   %61 = load ptr, ptr %regs, align 8
   %cmp.i75 = icmp eq ptr %61, null
   br i1 %cmp.i75, label %if.then.i278, label %lor.lhs.false.i76
@@ -2435,7 +2435,7 @@ invoke.cont44:                                    ; preds = %.noexc89, %lor.lhs.
   %67 = phi ptr [ %.pre.i86, %.noexc89 ], [ %61, %lor.lhs.false.i76 ]
   %idx.ext.i81 = zext i32 %66 to i64
   %add.ptr.i82 = getelementptr inbounds i32, ptr %67, i64 %idx.ext.i81
-  store i32 %max_reg.1407, ptr %add.ptr.i82, align 4
+  store i32 %max_reg.2407, ptr %add.ptr.i82, align 4
   %68 = load ptr, ptr %regs, align 8
   %arrayidx10.i83 = getelementptr inbounds i8, ptr %68, i64 -4
   %69 = load i32, ptr %arrayidx10.i83, align 4
@@ -2546,7 +2546,7 @@ invoke.cont49:                                    ; preds = %.noexc106, %lor.lhs
   %79 = load i32, ptr %arrayidx10.i100, align 4
   %inc.i101 = add i32 %79, 1
   store i32 %inc.i101, ptr %arrayidx10.i100, align 4
-  %inc51 = add i32 %max_reg.1407, 1
+  %inc51 = add i32 %max_reg.2407, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = load i32, ptr %m_num_args.i, align 8
   %81 = zext i32 %80 to i64
@@ -2554,7 +2554,7 @@ invoke.cont49:                                    ; preds = %.noexc106, %lor.lhs
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !22
 
 for.end:                                          ; preds = %invoke.cont49, %sw.bb37
-  %max_reg.1.lcssa = phi i32 [ %max_reg.0412501, %sw.bb37 ], [ %inc51, %invoke.cont49 ]
+  %max_reg.2.lcssa = phi i32 [ %max_reg.0412501, %sw.bb37 ], [ %inc51, %invoke.cont49 ]
   %m_name.i.i = getelementptr inbounds i8, ptr %59, i64 16
   %82 = load ptr, ptr %m_name.i.i, align 8
   %tobool.not.i = icmp eq ptr %82, null
@@ -2667,8 +2667,8 @@ if.else76:                                        ; preds = %invoke.cont65, %if.
 
 sw.epilog:                                        ; preds = %invoke.cont65, %_ZNK6vectorIN18expr_pattern_match5instrELb0EjE4sizeEv.exit71, %_ZN7obj_mapI9func_decljE6insertEPS0_RKj.exit, %if.then58, %if.else76, %if.then, %invoke.cont36
   %instr.sroa.0.0 = phi i32 [ 7, %if.then58 ], [ 6, %_ZN7obj_mapI9func_decljE6insertEPS0_RKj.exit ], [ 1, %if.else76 ], [ 10, %if.then ], [ 9, %invoke.cont36 ], [ 8, %_ZNK6vectorIN18expr_pattern_match5instrELb0EjE4sizeEv.exit71 ], [ %., %invoke.cont65 ]
-  %max_reg.2 = phi i32 [ %max_reg.1.lcssa, %if.then58 ], [ %max_reg.1.lcssa, %_ZN7obj_mapI9func_decljE6insertEPS0_RKj.exit ], [ %max_reg.1.lcssa, %if.else76 ], [ %max_reg.0412501, %if.then ], [ %max_reg.0412501, %invoke.cont36 ], [ %max_reg.0412501, %_ZNK6vectorIN18expr_pattern_match5instrELb0EjE4sizeEv.exit71 ], [ %max_reg.1.lcssa, %invoke.cont65 ]
-  %instr.sroa.20332.2 = phi i32 [ %instr.sroa.20332.0413500, %if.then58 ], [ %instr.sroa.20332.0413500, %_ZN7obj_mapI9func_decljE6insertEPS0_RKj.exit ], [ %instr.sroa.20332.0413500, %if.else76 ], [ %58, %if.then ], [ %num_bound.0415497, %invoke.cont36 ], [ %instr.sroa.20332.0413500, %_ZNK6vectorIN18expr_pattern_match5instrELb0EjE4sizeEv.exit71 ], [ %instr.sroa.20332.0413500, %invoke.cont65 ]
+  %max_reg.1 = phi i32 [ %max_reg.2.lcssa, %if.then58 ], [ %max_reg.2.lcssa, %_ZN7obj_mapI9func_decljE6insertEPS0_RKj.exit ], [ %max_reg.2.lcssa, %if.else76 ], [ %max_reg.0412501, %if.then ], [ %max_reg.0412501, %invoke.cont36 ], [ %max_reg.0412501, %_ZNK6vectorIN18expr_pattern_match5instrELb0EjE4sizeEv.exit71 ], [ %max_reg.2.lcssa, %invoke.cont65 ]
+  %instr.sroa.20332.1 = phi i32 [ %instr.sroa.20332.0413500, %if.then58 ], [ %instr.sroa.20332.0413500, %_ZN7obj_mapI9func_decljE6insertEPS0_RKj.exit ], [ %instr.sroa.20332.0413500, %if.else76 ], [ %58, %if.then ], [ %num_bound.0415497, %invoke.cont36 ], [ %instr.sroa.20332.0413500, %_ZNK6vectorIN18expr_pattern_match5instrELb0EjE4sizeEv.exit71 ], [ %instr.sroa.20332.0413500, %invoke.cont65 ]
   %instr.sroa.19.1 = phi i32 [ %91, %if.then58 ], [ %instr.sroa.19.0414499, %_ZN7obj_mapI9func_decljE6insertEPS0_RKj.exit ], [ %instr.sroa.19.0414499, %if.else76 ], [ %instr.sroa.19.0414499, %if.then ], [ %instr.sroa.19.0414499, %invoke.cont36 ], [ %instr.sroa.19.0414499, %_ZNK6vectorIN18expr_pattern_match5instrELb0EjE4sizeEv.exit71 ], [ %instr.sroa.19.0414499, %invoke.cont65 ]
   %num_bound.1 = phi i32 [ %num_bound.0415497, %if.then58 ], [ %num_bound.0415497, %_ZN7obj_mapI9func_decljE6insertEPS0_RKj.exit ], [ %num_bound.0415497, %if.else76 ], [ %num_bound.0415497, %if.then ], [ %inc, %invoke.cont36 ], [ %num_bound.0415497, %_ZNK6vectorIN18expr_pattern_match5instrELb0EjE4sizeEv.exit71 ], [ %num_bound.0415497, %invoke.cont65 ]
   %96 = load ptr, ptr %m_instrs, align 8
@@ -2714,7 +2714,7 @@ _ZN6vectorIN18expr_pattern_match5instrELb0EjE9push_backERKS1_.exit: ; preds = %l
   %instr.sroa.20.0.add.ptr.i170.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i170, i64 40
   store i32 0, ptr %instr.sroa.20.0.add.ptr.i170.sroa_idx, align 8
   %instr.sroa.20332.0.add.ptr.i170.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i170, i64 44
-  store i32 %instr.sroa.20332.2, ptr %instr.sroa.20332.0.add.ptr.i170.sroa_idx, align 4
+  store i32 %instr.sroa.20332.1, ptr %instr.sroa.20332.0.add.ptr.i170.sroa_idx, align 4
   %101 = load ptr, ptr %m_instrs, align 8
   %arrayidx10.i171 = getelementptr inbounds i8, ptr %101, i64 -4
   %102 = load i32, ptr %arrayidx10.i171, align 4
@@ -2727,8 +2727,8 @@ _ZN6vectorIN18expr_pattern_match5instrELb0EjE9push_backERKS1_.exit: ; preds = %l
 while.end:                                        ; preds = %_ZN6vectorIN18expr_pattern_match5instrELb0EjE9push_backERKS1_.exit, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph, %_ZN7obj_mapI3varjEC2Ev.exit
   %instr.sroa.14.0.lcssa = phi i32 [ 0, %_ZN7obj_mapI3varjEC2Ev.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %add, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %add, %_ZN6vectorIN18expr_pattern_match5instrELb0EjE9push_backERKS1_.exit ]
   %instr.sroa.12.0.lcssa = phi i32 [ 0, %_ZN7obj_mapI3varjEC2Ev.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %max_reg.0412501, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %max_reg.0412501, %_ZN6vectorIN18expr_pattern_match5instrELb0EjE9push_backERKS1_.exit ]
-  %max_reg.0.lcssa = phi i32 [ 1, %_ZN7obj_mapI3varjEC2Ev.exit ], [ 1, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %max_reg.2, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %max_reg.2, %_ZN6vectorIN18expr_pattern_match5instrELb0EjE9push_backERKS1_.exit ]
-  %instr.sroa.20332.0.lcssa = phi i32 [ 0, %_ZN7obj_mapI3varjEC2Ev.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %instr.sroa.20332.2, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %instr.sroa.20332.2, %_ZN6vectorIN18expr_pattern_match5instrELb0EjE9push_backERKS1_.exit ]
+  %max_reg.0.lcssa = phi i32 [ 1, %_ZN7obj_mapI3varjEC2Ev.exit ], [ 1, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %max_reg.1, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %max_reg.1, %_ZN6vectorIN18expr_pattern_match5instrELb0EjE9push_backERKS1_.exit ]
+  %instr.sroa.20332.0.lcssa = phi i32 [ 0, %_ZN7obj_mapI3varjEC2Ev.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %instr.sroa.20332.1, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %instr.sroa.20332.1, %_ZN6vectorIN18expr_pattern_match5instrELb0EjE9push_backERKS1_.exit ]
   %instr.sroa.19.0.lcssa = phi i32 [ 0, %_ZN7obj_mapI3varjEC2Ev.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %instr.sroa.19.1, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %instr.sroa.19.1, %_ZN6vectorIN18expr_pattern_match5instrELb0EjE9push_backERKS1_.exit ]
   %num_bound.0.lcssa = phi i32 [ 0, %_ZN7obj_mapI3varjEC2Ev.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %num_bound.1, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %num_bound.1, %_ZN6vectorIN18expr_pattern_match5instrELb0EjE9push_backERKS1_.exit ]
   %instr.sroa.18.0.lcssa = phi i32 [ 0, %_ZN7obj_mapI3varjEC2Ev.exit ], [ 0, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ], [ %41, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %41, %_ZN6vectorIN18expr_pattern_match5instrELb0EjE9push_backERKS1_.exit ]

@@ -233,18 +233,18 @@ carith_checkarg.exit.thread:                      ; preds = %if.then105.i, %land
 for.inc.i.sink.split:                             ; preds = %if.else72.i, %if.end35.i, %if.then53.i, %if.then64.i
   %.sink135 = phi ptr [ %arrayidx.i.i, %if.then64.i ], [ %arrayidx.i148.i, %if.then53.i ], [ %ct.1.i, %if.end35.i ], [ null, %if.else72.i ]
   %.sink = phi ptr [ null, %if.then64.i ], [ %o.098.i, %if.then53.i ], [ %p.0.i, %if.end35.i ], [ inttoptr (i64 1 to ptr), %if.else72.i ]
-  %ok.1.i.ph = phi i32 [ %ok.097.i, %if.then64.i ], [ %ok.097.i, %if.then53.i ], [ %ok.097.i, %if.end35.i ], [ 0, %if.else72.i ]
+  %ok.2.i.ph = phi i32 [ %ok.097.i, %if.then64.i ], [ %ok.097.i, %if.then53.i ], [ %ok.097.i, %if.end35.i ], [ 0, %if.else72.i ]
   %arrayidx136.i = getelementptr inbounds [2 x ptr], ptr %ct134.i, i64 0, i64 %indvars.iv.i
   store ptr %.sink135, ptr %arrayidx136.i, align 8
   store ptr %.sink, ptr %indvars.iv.i.sroa.phi, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.i.sink.split, %ctype_raw.exit.i
-  %ok.1.i = phi i32 [ 0, %ctype_raw.exit.i ], [ %ok.1.i.ph, %for.inc.i.sink.split ]
+  %ok.2.i = phi i32 [ 0, %ctype_raw.exit.i ], [ %ok.2.i.ph, %for.inc.i.sink.split ]
   br i1 %tobool.not.i, label %for.body.i.backedge, label %carith_checkarg.exit
 
 for.body.i.backedge:                              ; preds = %for.inc.i, %for.inc.i.thread
-  %ok.097.i.be = phi i32 [ %ok.1.i, %for.inc.i ], [ 1, %for.inc.i.thread ]
+  %ok.097.i.be = phi i32 [ %ok.2.i, %for.inc.i ], [ 1, %for.inc.i.thread ]
   %o.098.i.be = getelementptr inbounds i8, ptr %o.098.i, i64 8
   br label %for.body.i, !llvm.loop !6
 
@@ -264,7 +264,7 @@ carith_checkarg.exit.thread127:                   ; preds = %for.inc.i.thread
 
 carith_checkarg.exit:                             ; preds = %for.inc.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ofs.i)
-  %tobool.not = icmp eq i32 %ok.1.i, 0
+  %tobool.not = icmp eq i32 %ok.2.i, 0
   br i1 %tobool.not, label %if.end9, label %switch.early.test
 
 switch.early.test:                                ; preds = %carith_checkarg.exit.thread127, %carith_checkarg.exit
@@ -1270,21 +1270,21 @@ for.cond5.preheader:                              ; preds = %for.end
 if.end9:                                          ; preds = %for.cond5.preheader, %if.end9
   %mul626 = phi i64 [ %mul6, %if.end9 ], [ %mul621, %for.cond5.preheader ]
   %k.addr.125 = phi i64 [ %k.addr.1, %if.end9 ], [ %k.addr.120, %for.cond5.preheader ]
-  %y.024 = phi i64 [ %spec.select, %if.end9 ], [ %x.addr.0.lcssa, %for.cond5.preheader ]
+  %y.124 = phi i64 [ %spec.select, %if.end9 ], [ %x.addr.0.lcssa, %for.cond5.preheader ]
   %k.addr.1.in23 = phi i64 [ %k.addr.125, %if.end9 ], [ %k.addr.0.lcssa, %for.cond5.preheader ]
   %1 = and i64 %k.addr.1.in23, 2
   %tobool.not = icmp eq i64 %1, 0
   %mul12 = select i1 %tobool.not, i64 1, i64 %mul626
-  %spec.select = mul i64 %mul12, %y.024
+  %spec.select = mul i64 %mul12, %y.124
   %k.addr.1 = lshr i64 %k.addr.125, 1
   %mul6 = mul i64 %mul626, %mul626
   %cmp7 = icmp eq i64 %k.addr.1, 1
   br i1 %cmp7, label %for.end15, label %if.end9
 
 for.end15:                                        ; preds = %if.end9, %for.cond5.preheader
-  %y.0.lcssa = phi i64 [ %x.addr.0.lcssa, %for.cond5.preheader ], [ %spec.select, %if.end9 ]
+  %y.1.lcssa = phi i64 [ %x.addr.0.lcssa, %for.cond5.preheader ], [ %spec.select, %if.end9 ]
   %mul6.lcssa = phi i64 [ %mul621, %for.cond5.preheader ], [ %mul6, %if.end9 ]
-  %mul16 = mul i64 %y.0.lcssa, %mul6.lcssa
+  %mul16 = mul i64 %y.1.lcssa, %mul6.lcssa
   br label %return
 
 return:                                           ; preds = %for.end, %for.end15, %entry
@@ -1350,21 +1350,21 @@ for.cond5.preheader.i:                            ; preds = %for.end.i
 if.end9.i:                                        ; preds = %for.cond5.preheader.i, %if.end9.i
   %mul626.i = phi i64 [ %mul6.i, %if.end9.i ], [ %mul621.i, %for.cond5.preheader.i ]
   %k.addr.125.i = phi i64 [ %k.addr.1.i, %if.end9.i ], [ %k.addr.120.i, %for.cond5.preheader.i ]
-  %y.024.i = phi i64 [ %spec.select.i, %if.end9.i ], [ %x.addr.0.lcssa.i, %for.cond5.preheader.i ]
+  %y.124.i = phi i64 [ %spec.select.i, %if.end9.i ], [ %x.addr.0.lcssa.i, %for.cond5.preheader.i ]
   %k.addr.1.in23.i = phi i64 [ %k.addr.125.i, %if.end9.i ], [ %k.addr.0.lcssa.i, %for.cond5.preheader.i ]
   %1 = and i64 %k.addr.1.in23.i, 2
   %tobool.not.i = icmp eq i64 %1, 0
   %mul12.i = select i1 %tobool.not.i, i64 1, i64 %mul626.i
-  %spec.select.i = mul i64 %mul12.i, %y.024.i
+  %spec.select.i = mul i64 %mul12.i, %y.124.i
   %k.addr.1.i = lshr i64 %k.addr.125.i, 1
   %mul6.i = mul i64 %mul626.i, %mul626.i
   %cmp7.i = icmp eq i64 %k.addr.1.i, 1
   br i1 %cmp7.i, label %for.end15.i, label %if.end9.i
 
 for.end15.i:                                      ; preds = %if.end9.i, %for.cond5.preheader.i
-  %y.0.lcssa.i = phi i64 [ %x.addr.0.lcssa.i, %for.cond5.preheader.i ], [ %spec.select.i, %if.end9.i ]
+  %y.1.lcssa.i = phi i64 [ %x.addr.0.lcssa.i, %for.cond5.preheader.i ], [ %spec.select.i, %if.end9.i ]
   %mul6.lcssa.i = phi i64 [ %mul621.i, %for.cond5.preheader.i ], [ %mul6.i, %if.end9.i ]
-  %mul16.i = mul i64 %mul6.lcssa.i, %y.0.lcssa.i
+  %mul16.i = mul i64 %mul6.lcssa.i, %y.1.lcssa.i
   br label %return
 
 return:                                           ; preds = %for.end15.i, %for.end.i, %if.then2, %entry, %if.else10, %if.then9, %if.then6

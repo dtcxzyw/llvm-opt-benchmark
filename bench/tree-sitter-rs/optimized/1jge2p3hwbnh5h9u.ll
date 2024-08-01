@@ -297,13 +297,13 @@ define noundef range(i32 9, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
   unreachable
 
 .thread238.i:                                     ; preds = %.thread.i, %49
-  %.0134.i = phi i8 [ %.1135.i, %49 ], [ %.2136201.i, %.thread.i ]
+  %.1135.i = phi i8 [ %.0134.i, %49 ], [ %.5201.i, %.thread.i ]
   %.pn150.i = phi { ptr, i32 } [ %50, %49 ], [ %.pn148202.i, %.thread.i ]
-  %48 = trunc nuw i8 %.0134.i to i1
+  %48 = trunc nuw i8 %.1135.i to i1
   br i1 %48, label %209, label %"_ZN4core3ptr42drop_in_place$LT$tree_sitter..Language$GT$17h871aa3ec46d7ecc6E.exit.i"
 
 49:                                               ; preds = %202, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i", %60, %51, %.noexc.i, %43
-  %.1135.i = phi i8 [ 1, %51 ], [ 1, %43 ], [ 1, %.noexc.i ], [ 1, %60 ], [ %.7.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i" ], [ %.7.i, %202 ]
+  %.0134.i = phi i8 [ 1, %51 ], [ 1, %43 ], [ 1, %.noexc.i ], [ 1, %60 ], [ %.6.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i" ], [ %.6.i, %202 ]
   %50 = landingpad { ptr, i32 }
           cleanup
   br label %.thread238.i
@@ -368,7 +368,7 @@ define noundef range(i32 9, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
           to label %98 unwind label %96, !noalias !42
 
 73:                                               ; preds = %90, %87, %197, %81, %68
-  %.3137.i = phi i8 [ 1, %81 ], [ 1, %68 ], [ %.6.i, %197 ], [ 1, %87 ], [ 1, %90 ]
+  %.3137.i = phi i8 [ 1, %81 ], [ 1, %68 ], [ %.8.i, %197 ], [ 1, %87 ], [ 1, %90 ]
   %74 = landingpad { ptr, i32 }
           cleanup
   br label %.thread.i
@@ -441,7 +441,7 @@ define noundef range(i32 9, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
   br label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i"
 
 96:                                               ; preds = %138, %135, %131, %116, %114, %105, %71
-  %.5.i = phi i8 [ 0, %131 ], [ 1, %116 ], [ 1, %114 ], [ 1, %105 ], [ 1, %71 ], [ 0, %135 ], [ 0, %138 ]
+  %.4.i = phi i8 [ 0, %131 ], [ 1, %116 ], [ 1, %114 ], [ 1, %105 ], [ 1, %71 ], [ 0, %135 ], [ 0, %138 ]
   %97 = landingpad { ptr, i32 }
           cleanup
   br label %.thread212.i
@@ -667,8 +667,8 @@ define noundef range(i32 9, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
   unreachable
 
 181:                                              ; preds = %125, %119, %108, %148, %98
-  %.6.i = phi i8 [ 0, %148 ], [ 1, %98 ], [ 1, %108 ], [ 1, %119 ], [ 1, %125 ]
-  %.1.i = phi i32 [ 6, %148 ], [ 4, %98 ], [ 4, %108 ], [ 4, %119 ], [ 7, %125 ]
+  %.8.i = phi i8 [ 0, %148 ], [ 1, %98 ], [ 1, %108 ], [ 1, %119 ], [ 1, %125 ]
+  %.2.i = phi i32 [ 6, %148 ], [ 4, %98 ], [ 4, %108 ], [ 4, %119 ], [ 7, %125 ]
   %182 = load ptr, ptr %28, align 8, !alias.scope !123, !noalias !42, !noundef !4
   %183 = icmp eq ptr %182, null
   br i1 %183, label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i", label %184
@@ -714,8 +714,8 @@ define noundef range(i32 9, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
   unreachable
 
 "_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i": ; preds = %75, %197, %192, %181, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit"
-  %.7.i = phi i8 [ 1, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit" ], [ %.6.i, %197 ], [ %.6.i, %181 ], [ %.6.i, %192 ], [ 1, %75 ]
-  %.2.i = phi i32 [ 5, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit" ], [ %.1.i, %197 ], [ %.1.i, %181 ], [ %.1.i, %192 ], [ 4, %75 ]
+  %.6.i = phi i8 [ 1, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit" ], [ %.8.i, %197 ], [ %.8.i, %181 ], [ %.8.i, %192 ], [ 1, %75 ]
+  %.1.i = phi i32 [ 5, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit" ], [ %.2.i, %197 ], [ %.2.i, %181 ], [ %.2.i, %192 ], [ 4, %75 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28), !noalias !42
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !144
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17haee51611dfd7056eE.llvm.12279157293026222448"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %30)
@@ -736,24 +736,24 @@ define noundef range(i32 9, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
 
 .thread212.i:                                     ; preds = %178, %96
   %.pn218.i = phi { ptr, i32 } [ %97, %96 ], [ %lpad.thr_comm.split-lp.i, %178 ]
-  %.4216.i = phi i8 [ %.5.i, %96 ], [ 0, %178 ]
+  %.7216.i = phi i8 [ %.4.i, %96 ], [ 0, %178 ]
   invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %28) #19
           to label %.thread.i unwind label %179, !noalias !42
 
 206:                                              ; preds = %202, %.noexc180.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !144
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !42
-  %207 = trunc nuw i8 %.7.i to i1
+  %207 = trunc nuw i8 %.6.i to i1
   br i1 %207, label %208, label %"_ZN21tree_sitter_highlight5c_lib27ts_highlighter_add_language28_$u7b$$u7b$closure$u7d$$u7d$17haa9ff4bbaaacd4e2E.exit.thread"
 
 .thread.i:                                        ; preds = %73, %.thread212.i, %191, %185
   %.pn148202.i = phi { ptr, i32 } [ %186, %191 ], [ %186, %185 ], [ %.pn218.i, %.thread212.i ], [ %74, %73 ]
-  %.2136201.i = phi i8 [ %.6.i, %191 ], [ %.6.i, %185 ], [ %.4216.i, %.thread212.i ], [ %.3137.i, %73 ]
+  %.5201.i = phi i8 [ %.8.i, %191 ], [ %.8.i, %185 ], [ %.7216.i, %.thread212.i ], [ %.3137.i, %73 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h22a7f5941fdcd6dcE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %30) #19
           to label %.thread238.i unwind label %179, !noalias !42
 
 208:                                              ; preds = %206, %.thread232.i
-  %.3235.i = phi i32 [ 4, %.thread232.i ], [ %.2.i, %206 ]
+  %.0235.i = phi i32 [ 4, %.thread232.i ], [ %.1.i, %206 ]
   call void @"_ZN63_$LT$tree_sitter..Language$u20$as$u20$core..ops..drop..Drop$GT$4drop17h16817d4e8c1c3e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %41)
   br label %"_ZN21tree_sitter_highlight5c_lib27ts_highlighter_add_language28_$u7b$$u7b$closure$u7d$$u7d$17haa9ff4bbaaacd4e2E.exit.thread"
 
@@ -773,7 +773,7 @@ define noundef range(i32 9, 8) i32 @ts_highlighter_add_language(ptr noundef %0, 
   br label %"_ZN21tree_sitter_highlight5c_lib27ts_highlighter_add_language28_$u7b$$u7b$closure$u7d$$u7d$17haa9ff4bbaaacd4e2E.exit.thread"
 
 "_ZN21tree_sitter_highlight5c_lib27ts_highlighter_add_language28_$u7b$$u7b$closure$u7d$$u7d$17haa9ff4bbaaacd4e2E.exit.thread": ; preds = %206, %208, %210
-  %211 = phi i32 [ 0, %210 ], [ %.2.i, %206 ], [ %.3235.i, %208 ]
+  %211 = phi i32 [ 0, %210 ], [ %.1.i, %206 ], [ %.0235.i, %208 ]
   ret i32 %211
 }
 
@@ -1299,8 +1299,8 @@ common.resume.i:                                  ; preds = %106
   br label %_ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight17h63455ff77e84d646E.exit
 
 _ZN21tree_sitter_highlight5c_lib13TSHighlighter9highlight17h63455ff77e84d646E.exit: ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6713a1b158a55348E.exit._crit_edge.i.i.i.i", %_ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit, %110
-  %.2.i = phi i32 [ %.127.i, %110 ], [ 1, %_ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6713a1b158a55348E.exit._crit_edge.i.i.i.i" ]
-  ret i32 %.2.i
+  %.0.i = phi i32 [ %.127.i, %110 ], [ 1, %_ZN21tree_sitter_highlight5c_lib6unwrap17hda07cec63f3d4619E.exit ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6713a1b158a55348E.exit._crit_edge.i.i.i.i" ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nonlazybind uwtable

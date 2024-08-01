@@ -13167,8 +13167,8 @@ while.cond.if.end13.loopexit_crit_edge.i.i.i:     ; preds = %while.body.i.i.i
   br label %if.end13.i.i.i
 
 if.end13.i.i.i:                                   ; preds = %while.cond.if.end13.loopexit_crit_edge.i.i.i, %if.then6.i.i.i, %if.end.i.i.i
-  %product.1.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
-  %shr.i.i.i.i = lshr i64 %product.1.i.i.i, 32
+  %product.0.i.i.i = phi i64 [ %mul.i.i.i.i, %if.end.i.i.i ], [ %mul.i33.i.i.i, %while.cond.if.end13.loopexit_crit_edge.i.i.i ], [ %mul.i.i.i.i, %if.then6.i.i.i ]
+  %shr.i.i.i.i = lshr i64 %product.0.i.i.i, 32
   br label %_ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit
 
 _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEiRT_.exit: ; preds = %if.then.i.i.i, %if.end13.i.i.i

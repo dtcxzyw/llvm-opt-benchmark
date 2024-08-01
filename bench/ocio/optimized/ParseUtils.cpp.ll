@@ -2388,13 +2388,13 @@ if.end28:                                         ; preds = %invoke.cont25, %lor
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont16, %invoke.cont25, %if.end28
-  %retval.0 = phi i1 [ true, %if.end28 ], [ false, %invoke.cont25 ], [ false, %invoke.cont16 ]
+  %retval.1 = phi i1 [ true, %if.end28 ], [ false, %invoke.cont25 ], [ false, %invoke.cont16 ]
   call void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %i) #21
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %entry ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad7, %ehcleanup
   %.pn4 = phi { ptr, i32 } [ %2, %lpad7 ], [ %.pn, %ehcleanup ]
@@ -4989,32 +4989,32 @@ lpad14.i:                                         ; preds = %invoke.cont12.i
   br label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %lpad14.i, %lpad11.i
-  %arrayinit.endOfInit.0.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 200), %lpad14.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 160), %lpad11.i ]
+  %arrayinit.endOfInit.4.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 200), %lpad14.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 160), %lpad11.i ]
   %.pn.i = phi { ptr, i32 } [ %7, %lpad14.i ], [ %6, %lpad11.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i) #21
   br label %ehcleanup16.i
 
 ehcleanup16.i:                                    ; preds = %ehcleanup.i, %lpad8.i
-  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.0.i, %ehcleanup.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 120), %lpad8.i ]
+  %arrayinit.endOfInit.3.i = phi ptr [ %arrayinit.endOfInit.4.i, %ehcleanup.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 120), %lpad8.i ]
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %5, %lpad8.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7.i) #21
   br label %ehcleanup17.i
 
 ehcleanup17.i:                                    ; preds = %ehcleanup16.i, %lpad5.i
-  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.endOfInit.1.i, %ehcleanup16.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 80), %lpad5.i ]
+  %arrayinit.endOfInit.2.i = phi ptr [ %arrayinit.endOfInit.3.i, %ehcleanup16.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 80), %lpad5.i ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %ehcleanup16.i ], [ %4, %lpad5.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp4.i) #21
   br label %ehcleanup19.i
 
 ehcleanup19.i:                                    ; preds = %ehcleanup17.i, %lpad2.i
-  %arrayinit.endOfInit.3.i = phi ptr [ %arrayinit.endOfInit.2.i, %ehcleanup17.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 40), %lpad2.i ]
+  %arrayinit.endOfInit.1.i = phi ptr [ %arrayinit.endOfInit.2.i, %ehcleanup17.i ], [ getelementptr inbounds (i8, ptr @_ZN19OpenColorIO_v2_4devL4eltsE, i64 40), %lpad2.i ]
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %ehcleanup17.i ], [ %3, %lpad2.i ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #21
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %arraydestroy.body.i, %ehcleanup19.i
-  %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %arraydestroy.body.i ], [ %arrayinit.endOfInit.3.i, %ehcleanup19.i ]
+  %arraydestroy.elementPast.i = phi ptr [ %arraydestroy.element.i, %arraydestroy.body.i ], [ %arrayinit.endOfInit.1.i, %ehcleanup19.i ]
   %arraydestroy.element.i = getelementptr inbounds i8, ptr %arraydestroy.elementPast.i, i64 -40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arraydestroy.element.i) #21
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, @_ZN19OpenColorIO_v2_4devL4eltsE

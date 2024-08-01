@@ -175,8 +175,8 @@ _ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.thread.i10.i: ; 
           to label %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" unwind label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.exit.i8.i", !noalias !66
 
 50:                                               ; preds = %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i", %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i
-  %.sroa.018.1.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.018.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
-  store i64 %.sroa.018.1.i, ptr %0, align 8, !alias.scope !4, !noalias !65
+  %.sroa.018.0.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.018.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
+  store i64 %.sroa.018.0.i, ptr %0, align 8, !alias.scope !4, !noalias !65
   %.sroa.720.0..sroa_idx21.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.720.0..sroa_idx21.i, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.720.i, i64 144, i1 false), !noalias !65
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %.sroa.720.i)
@@ -401,8 +401,8 @@ _ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.thread.i10.i: ; 
           to label %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" unwind label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.exit.i8.i", !noalias !154
 
 46:                                               ; preds = %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i", %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i
-  %.sroa.020.1.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.020.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
-  store i64 %.sroa.020.1.i, ptr %0, align 8, !alias.scope !104, !noalias !153
+  %.sroa.020.0.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.020.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
+  store i64 %.sroa.020.0.i, ptr %0, align 8, !alias.scope !104, !noalias !153
   %.sroa.722.0..sroa_idx23.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.722.0..sroa_idx23.i, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.722.i, i64 144, i1 false), !noalias !153
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %.sroa.722.i)
@@ -638,8 +638,8 @@ _ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.thread.i10.i: ; 
           to label %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" unwind label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.exit.i8.i", !noalias !259
 
 53:                                               ; preds = %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i", %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i
-  %.sroa.018.1.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.018.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
-  store i64 %.sroa.018.1.i, ptr %0, align 8, !alias.scope !192, !noalias !258
+  %.sroa.018.0.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.018.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
+  store i64 %.sroa.018.0.i, ptr %0, align 8, !alias.scope !192, !noalias !258
   %.sroa.720.0..sroa_idx21.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.720.0..sroa_idx21.i, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.720.i, i64 144, i1 false), !noalias !258
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %.sroa.720.i)
@@ -875,8 +875,8 @@ _ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.thread.i10.i: ; 
           to label %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" unwind label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.exit.i8.i", !noalias !364
 
 53:                                               ; preds = %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i", %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i
-  %.sroa.018.1.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.018.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
-  store i64 %.sroa.018.1.i, ptr %0, align 8, !alias.scope !297, !noalias !363
+  %.sroa.018.0.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.018.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
+  store i64 %.sroa.018.0.i, ptr %0, align 8, !alias.scope !297, !noalias !363
   %.sroa.720.0..sroa_idx21.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.720.0..sroa_idx21.i, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.720.i, i64 144, i1 false), !noalias !363
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %.sroa.720.i)
@@ -1085,8 +1085,8 @@ _ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.thread.i10.i: ; 
           to label %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" unwind label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.exit.i8.i", !noalias !440
 
 40:                                               ; preds = %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i", %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i
-  %.sroa.021.1.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.021.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
-  store i64 %.sroa.021.1.i, ptr %0, align 8, !alias.scope !402, !noalias !439
+  %.sroa.021.0.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.021.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
+  store i64 %.sroa.021.0.i, ptr %0, align 8, !alias.scope !402, !noalias !439
   %.sroa.723.0..sroa_idx24.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.723.0..sroa_idx24.i, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.723.i, i64 144, i1 false), !noalias !439
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %.sroa.723.i)
@@ -12999,8 +12999,8 @@ _ZN4core3ops8function6FnOnce9call_once17h1545d3745f7aac21E.exit.thread.i6.i: ; p
           to label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$ide..navigation_target..NavigationTarget$GT$$GT$$GT$17haedcfea0e4038551E.exit.i5.i" unwind label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.exit.i4.i", !noalias !4022
 
 43:                                               ; preds = %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$ide..navigation_target..NavigationTarget$GT$$GT$$GT$17haedcfea0e4038551E.exit.i5.i", %_ZN4core3ops8function6FnOnce9call_once17h1545d3745f7aac21E.exit.i1.i
-  %.sroa.027.1.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$ide..navigation_target..NavigationTarget$GT$$GT$$GT$17haedcfea0e4038551E.exit.i5.i" ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h1545d3745f7aac21E.exit.i1.i ]
-  store i64 %.sroa.027.1.i, ptr %0, align 8, !alias.scope !3951, !noalias !4021
+  %.sroa.027.0.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$ide..navigation_target..NavigationTarget$GT$$GT$$GT$17haedcfea0e4038551E.exit.i5.i" ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h1545d3745f7aac21E.exit.i1.i ]
+  store i64 %.sroa.027.0.i, ptr %0, align 8, !alias.scope !3951, !noalias !4021
   %.sroa.729.0..sroa_idx30.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.729.0..sroa_idx30.i, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.729.i, i64 144, i1 false), !noalias !4021
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %.sroa.729.i)
@@ -13589,8 +13589,8 @@ _ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.thread.i10.i: ; 
           to label %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" unwind label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.exit.i8.i", !noalias !4287
 
 43:                                               ; preds = %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i", %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i
-  %.sroa.020.1.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.020.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
-  store i64 %.sroa.020.1.i, ptr %0, align 8, !alias.scope !4228, !noalias !4286
+  %.sroa.020.0.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.020.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
+  store i64 %.sroa.020.0.i, ptr %0, align 8, !alias.scope !4228, !noalias !4286
   %.sroa.722.0..sroa_idx23.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.722.0..sroa_idx23.i, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.722.i, i64 144, i1 false), !noalias !4286
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %.sroa.722.i)
@@ -13821,8 +13821,8 @@ _ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.thread.i10.i: ; 
           to label %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" unwind label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.exit.i8.i", !noalias !4391
 
 54:                                               ; preds = %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i", %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i
-  %.sroa.020.1.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.020.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
-  store i64 %.sroa.020.1.i, ptr %0, align 8, !alias.scope !4325, !noalias !4390
+  %.sroa.020.0.i = phi i64 [ -9223372036854775807, %"_ZN4core3ptr135drop_in_place$LT$core..option..Option$LT$arrayvec..arrayvec..IntoIter$LT$ide..navigation_target..NavigationTarget$C$2_usize$GT$$GT$$GT$17h513cb60e71332ebfE.exit.i9.i" ], [ %.sroa.020.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h9dba781799242aeeE.exit.i5.i ]
+  store i64 %.sroa.020.0.i, ptr %0, align 8, !alias.scope !4325, !noalias !4390
   %.sroa.722.0..sroa_idx23.i = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %.sroa.722.0..sroa_idx23.i, ptr noundef nonnull align 8 dereferenceable(144) %.sroa.722.i, i64 144, i1 false), !noalias !4390
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %.sroa.722.i)

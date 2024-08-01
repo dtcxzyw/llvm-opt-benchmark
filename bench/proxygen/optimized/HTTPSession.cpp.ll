@@ -3146,24 +3146,24 @@ if.else.i.i:                                      ; preds = %invoke.cont43
   br i1 %cmp37.i, label %for.body.i, label %if.then8.i
 
 for.body.i:                                       ; preds = %if.else.i.i, %if.end6.i
-  %cursor.sroa.8.1 = phi ptr [ %20, %if.end6.i ], [ %11, %if.else.i.i ]
-  %cursor.sroa.0.0 = phi ptr [ %19, %if.end6.i ], [ %6, %if.else.i.i ]
+  %cursor.sroa.8.2 = phi ptr [ %20, %if.end6.i ], [ %11, %if.else.i.i ]
+  %cursor.sroa.0.1 = phi ptr [ %19, %if.end6.i ], [ %6, %if.else.i.i ]
   %sub.ptr.sub.i41.i = phi i64 [ %21, %if.end6.i ], [ %12, %if.else.i.i ]
   %18 = phi ptr [ %add.ptr.i.i.i27, %if.end6.i ], [ %add.ptr.i.i.i, %if.else.i.i ]
   %copied.040.i = phi i64 [ %copied.1.i, %if.end6.i ], [ 0, %if.else.i.i ]
   %p.039.i = phi ptr [ %add.ptr.i, %if.end6.i ], [ %val.i.i.i, %if.else.i.i ]
   %len.addr.038.i = phi i64 [ %sub.i, %if.end6.i ], [ 4, %if.else.i.i ]
-  %cmp2.not.i = icmp eq ptr %18, %cursor.sroa.8.1
+  %cmp2.not.i = icmp eq ptr %18, %cursor.sroa.8.2
   br i1 %cmp2.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.039.i, ptr align 1 %cursor.sroa.8.1, i64 %sub.ptr.sub.i41.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.039.i, ptr align 1 %cursor.sroa.8.2, i64 %sub.ptr.sub.i41.i, i1 false)
   %add.i = add i64 %copied.040.i, %sub.ptr.sub.i41.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.body.i
   %copied.1.i = phi i64 [ %add.i, %if.then.i ], [ %copied.040.i, %for.body.i ]
-  %next_.i.i.i = getelementptr inbounds i8, ptr %cursor.sroa.0.0, i64 32
+  %next_.i.i.i = getelementptr inbounds i8, ptr %cursor.sroa.0.1, i64 32
   %19 = load ptr, ptr %next_.i.i.i, align 8
   %cmp.i.i = icmp eq ptr %19, %6
   br i1 %cmp.i.i, label %call.i.i.i.i.noexc, label %if.end6.i
@@ -3436,24 +3436,24 @@ if.else.i.i:                                      ; preds = %invoke.cont43
   br i1 %cmp37.i, label %for.body.i, label %if.then8.i
 
 for.body.i:                                       ; preds = %if.else.i.i, %if.end6.i
-  %cursor.sroa.8.1 = phi ptr [ %20, %if.end6.i ], [ %11, %if.else.i.i ]
-  %cursor.sroa.0.0 = phi ptr [ %19, %if.end6.i ], [ %6, %if.else.i.i ]
+  %cursor.sroa.8.2 = phi ptr [ %20, %if.end6.i ], [ %11, %if.else.i.i ]
+  %cursor.sroa.0.1 = phi ptr [ %19, %if.end6.i ], [ %6, %if.else.i.i ]
   %sub.ptr.sub.i41.i = phi i64 [ %21, %if.end6.i ], [ %12, %if.else.i.i ]
   %18 = phi ptr [ %add.ptr.i.i.i26, %if.end6.i ], [ %add.ptr.i.i.i, %if.else.i.i ]
   %copied.040.i = phi i64 [ %copied.1.i, %if.end6.i ], [ 0, %if.else.i.i ]
   %p.039.i = phi ptr [ %add.ptr.i, %if.end6.i ], [ %val.i.i.i, %if.else.i.i ]
   %len.addr.038.i = phi i64 [ %sub.i, %if.end6.i ], [ 4, %if.else.i.i ]
-  %cmp2.not.i = icmp eq ptr %18, %cursor.sroa.8.1
+  %cmp2.not.i = icmp eq ptr %18, %cursor.sroa.8.2
   br i1 %cmp2.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.039.i, ptr align 1 %cursor.sroa.8.1, i64 %sub.ptr.sub.i41.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.039.i, ptr align 1 %cursor.sroa.8.2, i64 %sub.ptr.sub.i41.i, i1 false)
   %add.i = add i64 %copied.040.i, %sub.ptr.sub.i41.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %for.body.i
   %copied.1.i = phi i64 [ %add.i, %if.then.i ], [ %copied.040.i, %for.body.i ]
-  %next_.i.i.i = getelementptr inbounds i8, ptr %cursor.sroa.0.0, i64 32
+  %next_.i.i.i = getelementptr inbounds i8, ptr %cursor.sroa.0.1, i64 32
   %19 = load ptr, ptr %next_.i.i.i, align 8
   %cmp.i.i = icmp eq ptr %19, %6
   br i1 %cmp.i.i, label %call.i.i.i.i.noexc, label %if.end6.i
@@ -6299,7 +6299,7 @@ if.else93:                                        ; preds = %invoke.cont49
   br label %if.end100
 
 if.end100:                                        ; preds = %if.else93, %cleanup.done
-  %error.addr.1 = phi i32 [ 22, %cleanup.done ], [ %spec.select, %if.else93 ]
+  %error.addr.0 = phi i32 [ 22, %cleanup.done ], [ %spec.select, %if.else93 ]
   %shutdownReads.not = xor i1 %shutdownReads, true
   %brmerge = or i1 %shutdownReads.not, %shutdownWrites
   br i1 %brmerge, label %if.end141, label %land.lhs.true103
@@ -6359,7 +6359,7 @@ if.end141:                                        ; preds = %if.end100, %invoke.
   br i1 %shutdownWrites, label %land.lhs.true143, label %if.end269
 
 land.lhs.true143:                                 ; preds = %if.end141.thread, %cond.false113, %cond.end115, %cleanup.action136, %if.end141
-  %error.addr.163 = phi i32 [ %error.addr.1, %cond.end115 ], [ %error.addr.1, %cleanup.action136 ], [ %error.addr.1, %if.end141 ], [ %error.addr.1, %cond.false113 ], [ %., %if.end141.thread ]
+  %error.addr.063 = phi i32 [ %error.addr.0, %cond.end115 ], [ %error.addr.0, %cleanup.action136 ], [ %error.addr.0, %if.end141 ], [ %error.addr.0, %cond.false113 ], [ %., %if.end141.thread ]
   %writes_.i33 = getelementptr inbounds i8, ptr %this, i64 2393
   %18 = load i8, ptr %writes_.i33, align 1
   %cmp.i34 = icmp eq i8 %18, 2
@@ -6561,13 +6561,13 @@ if.then262:                                       ; preds = %if.else257
   br i1 %shutdownReads, label %land.lhs.true271, label %if.then317
 
 if.end269:                                        ; preds = %cleanup.done247, %if.else257, %land.lhs.true143, %if.end141
-  %error.addr.162 = phi i32 [ %error.addr.163, %land.lhs.true143 ], [ %error.addr.163, %if.else257 ], [ %error.addr.1, %if.end141 ], [ %error.addr.163, %cleanup.done247 ]
+  %error.addr.062 = phi i32 [ %error.addr.063, %land.lhs.true143 ], [ %error.addr.063, %if.else257 ], [ %error.addr.0, %if.end141 ], [ %error.addr.063, %cleanup.done247 ]
   %notifyEgressShutdown.0 = phi i1 [ false, %land.lhs.true143 ], [ false, %if.else257 ], [ false, %if.end141 ], [ true, %cleanup.done247 ]
   br i1 %shutdownReads, label %land.lhs.true271, label %if.end313
 
 land.lhs.true271:                                 ; preds = %if.then262, %if.end269.thread, %if.end269
   %notifyEgressShutdown.077 = phi i1 [ true, %if.end269.thread ], [ %notifyEgressShutdown.0, %if.end269 ], [ true, %if.then262 ]
-  %error.addr.16275 = phi i32 [ %error.addr.163, %if.end269.thread ], [ %error.addr.162, %if.end269 ], [ %error.addr.163, %if.then262 ]
+  %error.addr.06275 = phi i32 [ %error.addr.063, %if.end269.thread ], [ %error.addr.062, %if.end269 ], [ %error.addr.063, %if.then262 ]
   %reads_.i37 = getelementptr inbounds i8, ptr %this, i64 2392
   %38 = load i8, ptr %reads_.i37, align 8
   %cmp.i38 = icmp eq i8 %38, 2
@@ -6581,7 +6581,7 @@ invoke.cont275:                                   ; preds = %if.then274
   %sizeAndChunkShiftAndPackedBegin_.i.i.i39 = getelementptr inbounds i8, ptr %this, i64 1928
   %39 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i39, align 8
   %cmp.i.i40 = icmp ult i64 %39, 256
-  %cmp279 = icmp ne i32 %error.addr.16275, 15
+  %cmp279 = icmp ne i32 %error.addr.06275, 15
   %or.cond.not = or i1 %cmp279, %cmp.i.i40
   br i1 %or.cond.not, label %if.else288, label %if.then280
 
@@ -6599,7 +6599,7 @@ if.then282:                                       ; preds = %if.then280
           to label %invoke.cont308 unwind label %lpad
 
 if.else288:                                       ; preds = %invoke.cont275
-  %cmp289 = icmp eq i32 %error.addr.16275, 18
+  %cmp289 = icmp eq i32 %error.addr.06275, 18
   br i1 %cmp289, label %invoke.cont292, label %invoke.cont308
 
 invoke.cont292:                                   ; preds = %if.else288
@@ -6635,18 +6635,18 @@ invoke.cont308:                                   ; preds = %if.then282, %if.the
 
 if.end313:                                        ; preds = %land.lhs.true271, %if.end269
   %notifyEgressShutdown.076 = phi i1 [ %notifyEgressShutdown.077, %land.lhs.true271 ], [ %notifyEgressShutdown.0, %if.end269 ]
-  %error.addr.16274 = phi i32 [ %error.addr.16275, %land.lhs.true271 ], [ %error.addr.162, %if.end269 ]
+  %error.addr.06274 = phi i32 [ %error.addr.06275, %land.lhs.true271 ], [ %error.addr.062, %if.end269 ]
   br i1 %notifyEgressShutdown.076, label %if.then317, label %if.end351
 
 if.then317:                                       ; preds = %if.then262, %invoke.cont308, %if.end313
   %notifyIngressShutdown.0.not = phi i1 [ true, %if.end313 ], [ true, %if.then262 ], [ false, %invoke.cont308 ]
-  %error.addr.1627483 = phi i32 [ %error.addr.16274, %if.end313 ], [ %error.addr.163, %if.then262 ], [ %error.addr.16275, %invoke.cont308 ]
+  %error.addr.0627483 = phi i32 [ %error.addr.06274, %if.end313 ], [ %error.addr.063, %if.then262 ], [ %error.addr.06275, %invoke.cont308 ]
   %notifyEgressShutdown.07682 = phi i1 [ true, %if.end313 ], [ true, %if.then262 ], [ %notifyEgressShutdown.077, %invoke.cont308 ]
   %notifyEgressShutdown.0.not = xor i1 %notifyEgressShutdown.07682, true
   %brmerge28 = or i1 %notifyIngressShutdown.0.not, %notifyEgressShutdown.0.not
   %cond324 = zext i1 %notifyIngressShutdown.0.not to i32
   %cond326 = select i1 %brmerge28, i32 %cond324, i32 2
-  %call330 = invoke noundef ptr @_ZN8proxygen14getErrorStringENS_13ProxygenErrorE(i32 noundef %error.addr.1627483)
+  %call330 = invoke noundef ptr @_ZN8proxygen14getErrorStringENS_13ProxygenErrorE(i32 noundef %error.addr.0627483)
           to label %invoke.cont329 unwind label %lpad
 
 invoke.cont329:                                   ; preds = %if.then317
@@ -6682,7 +6682,7 @@ invoke.cont342:                                   ; preds = %invoke.cont340
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp327) #39
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp334) #39
   %proxygenError_.i = getelementptr inbounds i8, ptr %ex, i64 44
-  store i32 %error.addr.1627483, ptr %proxygenError_.i, align 4
+  store i32 %error.addr.0627483, ptr %proxygenError_.i, align 4
   %call_.i = getelementptr inbounds i8, ptr %agg.tmp345, i64 48
   %exec_.i = getelementptr inbounds i8, ptr %agg.tmp345, i64 56
   store ptr %ex, ptr %agg.tmp345, align 16
@@ -37084,9 +37084,9 @@ if.then9:                                         ; preds = %_ZN5folly3f146detai
 do.body:                                          ; preds = %_ZN5folly3f146detail8F14ChunkImE25incrOutboundOverflowCountEv.exit, %if.then9
   %17 = phi i64 [ %11, %if.then9 ], [ %20, %_ZN5folly3f146detail8F14ChunkImE25incrOutboundOverflowCountEv.exit ]
   %18 = phi ptr [ %12, %if.then9 ], [ %21, %_ZN5folly3f146detail8F14ChunkImE25incrOutboundOverflowCountEv.exit ]
-  %chunk.0 = phi ptr [ %add.ptr, %if.then9 ], [ %add.ptr14, %_ZN5folly3f146detail8F14ChunkImE25incrOutboundOverflowCountEv.exit ]
+  %chunk.1 = phi ptr [ %add.ptr, %if.then9 ], [ %add.ptr14, %_ZN5folly3f146detail8F14ChunkImE25incrOutboundOverflowCountEv.exit ]
   %index.0 = phi i64 [ %hp.coerce0, %if.then9 ], [ %add, %_ZN5folly3f146detail8F14ChunkImE25incrOutboundOverflowCountEv.exit ]
-  %outboundOverflowCount_.i47 = getelementptr inbounds i8, ptr %chunk.0, i64 15
+  %outboundOverflowCount_.i47 = getelementptr inbounds i8, ptr %chunk.1, i64 15
   %19 = load i8, ptr %outboundOverflowCount_.i47, align 1
   %cmp.not.i48 = icmp eq i8 %19, -1
   br i1 %cmp.not.i48, label %_ZN5folly3f146detail8F14ChunkImE25incrOutboundOverflowCountEv.exit, label %if.then.i49
@@ -37123,11 +37123,11 @@ do.end:                                           ; preds = %_ZN5folly3f146detai
 
 if.end19:                                         ; preds = %do.end, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImvvvvEEE16reserveForInsertEm.exit
   %firstEmpty.sroa.0.0.in.in = phi i16 [ %16, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImvvvvEEE16reserveForInsertEm.exit ], [ %25, %do.end ]
-  %chunk.1 = phi ptr [ %add.ptr, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImvvvvEEE16reserveForInsertEm.exit ], [ %add.ptr14, %do.end ]
+  %chunk.0 = phi ptr [ %add.ptr, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImvvvvEEE16reserveForInsertEm.exit ], [ %add.ptr14, %do.end ]
   %firstEmpty.sroa.0.0.in = xor i16 %firstEmpty.sroa.0.0.in.in, 16383
   %27 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true)
   %conv = zext nneg i16 %27 to i64
-  %arrayidx.i.i.i60 = getelementptr inbounds [14 x i8], ptr %chunk.1, i64 0, i64 %conv
+  %arrayidx.i.i.i60 = getelementptr inbounds [14 x i8], ptr %chunk.0, i64 0, i64 %conv
   %28 = load i8, ptr %arrayidx.i.i.i60, align 1
   %cmp.i61 = icmp eq i8 %28, 0
   br i1 %cmp.i61, label %_ZN5folly3f146detail8F14ChunkImE6setTagEmm.exit, label %if.then.i62
@@ -37139,7 +37139,7 @@ if.then.i62:                                      ; preds = %if.end19
 _ZN5folly3f146detail8F14ChunkImE6setTagEmm.exit:  ; preds = %if.end19
   %conv4.i = trunc i64 %hp.coerce1 to i8
   store i8 %conv4.i, ptr %arrayidx.i.i.i60, align 1
-  %rawItems_.i.i.i63 = getelementptr inbounds i8, ptr %chunk.1, i64 16
+  %rawItems_.i.i.i63 = getelementptr inbounds i8, ptr %chunk.0, i64 16
   %arrayidx.i.i.i.i.i64 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i63, i64 0, i64 %conv
   %29 = load i64, ptr %args, align 8
   store i64 %29, ptr %arrayidx.i.i.i.i.i64, align 8
@@ -38779,13 +38779,13 @@ if.then23.i.i.i:                                  ; preds = %for.cond.i.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i.i.i, %if.then23.i.i.i, %if.then.i
-  %iter.sroa.0.1.i = phi ptr [ null, %if.then.i ], [ %arrayidx.i.i.i.i.i.i, %if.then23.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %iter.sroa.7.1.i = phi i64 [ 0, %if.then.i ], [ %conv.i.i3.i, %if.then23.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
-  %conv2.i5.i = and i64 %iter.sroa.7.1.i, 255
+  %iter.sroa.0.0.i = phi ptr [ null, %if.then.i ], [ %arrayidx.i.i.i.i.i.i, %if.then23.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
+  %iter.sroa.7.0.i = phi i64 [ 0, %if.then.i ], [ %conv.i.i3.i, %if.then23.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
+  %conv2.i5.i = and i64 %iter.sroa.7.0.i, 255
   %shr.i.i6.i = lshr i64 %conv2.i5.i, 1
   %cmp.i.i7.i = icmp ult i64 %conv2.i5.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i7.i)
-  %10 = ptrtoint ptr %iter.sroa.0.1.i to i64
+  %10 = ptrtoint ptr %iter.sroa.0.0.i to i64
   %or.i.i8.i = or i64 %shr.i.i6.i, %10
   store i64 %or.i.i8.i, ptr %packedBegin_.i.i, align 8
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyImvvvvEEE29adjustSizeAndBeginBeforeEraseENS1_11F14ItemIterIPNS1_8F14ChunkImEEEE.exit
@@ -38946,13 +38946,13 @@ if.then23.i.i.i:                                  ; preds = %for.cond.i.i.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %while.body.i.i.i, %if.then23.i.i.i, %if.then.i
-  %iter.sroa.0.1.i = phi ptr [ null, %if.then.i ], [ %arrayidx.i.i.i.i.i.i, %if.then23.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
-  %iter.sroa.7.1.i = phi i64 [ 0, %if.then.i ], [ %conv.i.i3.i, %if.then23.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
-  %conv2.i5.i = and i64 %iter.sroa.7.1.i, 255
+  %iter.sroa.0.0.i = phi ptr [ null, %if.then.i ], [ %arrayidx.i.i.i.i.i.i, %if.then23.i.i.i ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
+  %iter.sroa.7.0.i = phi i64 [ 0, %if.then.i ], [ %conv.i.i3.i, %if.then23.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
+  %conv2.i5.i = and i64 %iter.sroa.7.0.i, 255
   %shr.i.i6.i = lshr i64 %conv2.i5.i, 1
   %cmp.i.i7.i = icmp ult i64 %conv2.i5.i, 16
   tail call void @llvm.assume(i1 %cmp.i.i7.i)
-  %12 = ptrtoint ptr %iter.sroa.0.1.i to i64
+  %12 = ptrtoint ptr %iter.sroa.0.0.i to i64
   %or.i.i8.i = or i64 %shr.i.i6.i, %12
   store i64 %or.i.i8.i, ptr %packedBegin_.i.i, align 8
   br label %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE29adjustSizeAndBeginBeforeEraseENS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKmS5_EEEEE.exit
@@ -39351,9 +39351,9 @@ if.then13:                                        ; preds = %_ZN5folly3f146detai
 do.body:                                          ; preds = %_ZN5folly3f146detail8F14ChunkIPSt4pairIKmN8proxygen15HTTPTransactionEEE25incrOutboundOverflowCountEv.exit, %if.then13
   %18 = phi i64 [ %12, %if.then13 ], [ %21, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKmN8proxygen15HTTPTransactionEEE25incrOutboundOverflowCountEv.exit ]
   %19 = phi ptr [ %13, %if.then13 ], [ %22, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKmN8proxygen15HTTPTransactionEEE25incrOutboundOverflowCountEv.exit ]
-  %chunk.0 = phi ptr [ %add.ptr, %if.then13 ], [ %add.ptr18, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKmN8proxygen15HTTPTransactionEEE25incrOutboundOverflowCountEv.exit ]
+  %chunk.1 = phi ptr [ %add.ptr, %if.then13 ], [ %add.ptr18, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKmN8proxygen15HTTPTransactionEEE25incrOutboundOverflowCountEv.exit ]
   %index.0 = phi i64 [ %hp.coerce0, %if.then13 ], [ %add, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKmN8proxygen15HTTPTransactionEEE25incrOutboundOverflowCountEv.exit ]
-  %outboundOverflowCount_.i47 = getelementptr inbounds i8, ptr %chunk.0, i64 15
+  %outboundOverflowCount_.i47 = getelementptr inbounds i8, ptr %chunk.1, i64 15
   %20 = load i8, ptr %outboundOverflowCount_.i47, align 1
   %cmp.not.i48 = icmp eq i8 %20, -1
   br i1 %cmp.not.i48, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKmN8proxygen15HTTPTransactionEEE25incrOutboundOverflowCountEv.exit, label %if.then.i49
@@ -39390,11 +39390,11 @@ do.end:                                           ; preds = %_ZN5folly3f146detai
 
 if.end23:                                         ; preds = %do.end, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE16reserveForInsertEm.exit
   %firstEmpty.sroa.0.0.in.in = phi i16 [ %17, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE16reserveForInsertEm.exit ], [ %26, %do.end ]
-  %chunk.1 = phi ptr [ %add.ptr, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE16reserveForInsertEm.exit ], [ %add.ptr18, %do.end ]
+  %chunk.0 = phi ptr [ %add.ptr, %_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE16reserveForInsertEm.exit ], [ %add.ptr18, %do.end ]
   %firstEmpty.sroa.0.0.in = xor i16 %firstEmpty.sroa.0.0.in.in, 16383
   %28 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %firstEmpty.sroa.0.0.in, i1 true)
   %conv = zext nneg i16 %28 to i64
-  %arrayidx.i.i.i60 = getelementptr inbounds [14 x i8], ptr %chunk.1, i64 0, i64 %conv
+  %arrayidx.i.i.i60 = getelementptr inbounds [14 x i8], ptr %chunk.0, i64 0, i64 %conv
   %29 = load i8, ptr %arrayidx.i.i.i60, align 1
   %cmp.i61 = icmp eq i8 %29, 0
   br i1 %cmp.i61, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKmN8proxygen15HTTPTransactionEEE6setTagEmm.exit, label %if.then.i62
@@ -39406,7 +39406,7 @@ if.then.i62:                                      ; preds = %if.end23
 _ZN5folly3f146detail8F14ChunkIPSt4pairIKmN8proxygen15HTTPTransactionEEE6setTagEmm.exit: ; preds = %if.end23
   %conv4.i = trunc i64 %hp.coerce1 to i8
   store i8 %conv4.i, ptr %arrayidx.i.i.i60, align 1
-  %rawItems_.i.i.i63 = getelementptr inbounds i8, ptr %chunk.1, i64 16
+  %rawItems_.i.i.i63 = getelementptr inbounds i8, ptr %chunk.0, i64 16
   %arrayidx.i.i.i.i.i64 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i63, i64 0, i64 %conv
   tail call void @_ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyImN8proxygen15HTTPTransactionEvvvEEE13insertAtBlankIJRKSt21piecewise_construct_tSt5tupleIJRmEESC_IJONS4_18TransportDirectionESD_OmRNS4_11HTTPSessionERNS4_18HTTP2PriorityQueueEOPNS_16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEOSR_RPNS4_16HTTPSessionStatsEObSD_SH_RKNS4_5http214PriorityUpdateERKNS_8OptionalImEERKNS14_INS4_9HTTPCodec12ExAttributesEEERbEEEEEvNS1_11F14ItemIterIPNS1_8F14ChunkIPSt4pairIKmS5_EEEEES1H_ImmEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %arrayidx.i.i.i.i.i64, i64 %conv, i64 %hp.coerce0, i64 %hp.coerce1, ptr noundef nonnull align 1 dereferenceable(1) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 8 dereferenceable(120) %args3)
   br label %return

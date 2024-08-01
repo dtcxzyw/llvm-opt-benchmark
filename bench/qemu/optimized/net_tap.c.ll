@@ -745,7 +745,7 @@ if.then130:                                       ; preds = %cond.end127
   br label %free_fail
 
 free_fail:                                        ; preds = %for.cond, %for.body, %if.then110, %if.end97, %if.then130, %if.then118, %if.then106, %if.then95
-  %ret.1 = phi i32 [ -1, %if.then95 ], [ -1, %if.then130 ], [ -1, %if.then118 ], [ 0, %if.then106 ], [ 0, %if.end97 ], [ %call104, %for.cond ], [ -1, %for.body ], [ -1, %if.then110 ]
+  %ret.0 = phi i32 [ -1, %if.then95 ], [ -1, %if.then130 ], [ -1, %if.then118 ], [ 0, %if.then106 ], [ 0, %if.end97 ], [ %call104, %for.cond ], [ -1, %for.body ], [ -1, %if.then110 ]
   %nvhosts.1 = phi i32 [ %call93, %if.then95 ], [ %nvhosts.0, %if.then130 ], [ %nvhosts.0, %if.then118 ], [ %nvhosts.0, %if.then106 ], [ %nvhosts.0, %if.end97 ], [ %nvhosts.0, %if.then110 ], [ %nvhosts.0, %for.body ], [ %nvhosts.0, %for.cond ]
   %cmp133185 = icmp sgt i32 %nvhosts.1, 0
   br i1 %cmp133185, label %for.body134.preheader, label %for.cond140.preheader
@@ -876,7 +876,7 @@ if.then202:                                       ; preds = %if.end200
   br label %if.end204
 
 if.end204:                                        ; preds = %if.then202, %if.end200
-  %default_script.0 = phi ptr [ %call203, %if.then202 ], [ null, %if.end200 ]
+  %default_script.1 = phi ptr [ %call203, %if.then202 ], [ null, %if.end200 ]
   %script.0 = phi ptr [ %call203, %if.then202 ], [ %12, %if.end200 ]
   %tobool205.not = icmp eq ptr %11, null
   br i1 %tobool205.not, label %if.then206, label %if.end208
@@ -886,7 +886,7 @@ if.then206:                                       ; preds = %if.end204
   br label %if.end208
 
 if.end208:                                        ; preds = %if.then206, %if.end204
-  %default_downscript.0 = phi ptr [ %call207, %if.then206 ], [ null, %if.end204 ]
+  %default_downscript.1 = phi ptr [ %call207, %if.then206 ], [ null, %if.end204 ]
   %downscript.0 = phi ptr [ %call207, %if.then206 ], [ %11, %if.end204 ]
   %46 = load ptr, ptr %u, align 8
   %tobool210.not = icmp eq ptr %46, null
@@ -1026,20 +1026,20 @@ if.then262:                                       ; preds = %if.end247
   br label %return.critedge
 
 cleanup:                                          ; preds = %for.cond217, %if.end216
-  call void @g_free(ptr noundef %default_downscript.0) #15
-  call void @g_free(ptr noundef %default_script.0) #15
+  call void @g_free(ptr noundef %default_downscript.1) #15
+  call void @g_free(ptr noundef %default_script.1) #15
   br label %return
 
 return.critedge:                                  ; preds = %if.then199, %if.then244, %if.then262, %net_tap_init.exit
-  %default_script.1.ph = phi ptr [ null, %if.then199 ], [ %default_script.0, %if.then244 ], [ %default_script.0, %if.then262 ], [ %default_script.0, %net_tap_init.exit ]
-  %default_downscript.1.ph = phi ptr [ null, %if.then199 ], [ %default_downscript.0, %if.then244 ], [ %default_downscript.0, %if.then262 ], [ %default_downscript.0, %net_tap_init.exit ]
-  call void @g_free(ptr noundef %default_downscript.1.ph) #15
-  call void @g_free(ptr noundef %default_script.1.ph) #15
+  %default_script.0.ph = phi ptr [ null, %if.then199 ], [ %default_script.1, %if.then244 ], [ %default_script.1, %if.then262 ], [ %default_script.1, %net_tap_init.exit ]
+  %default_downscript.0.ph = phi ptr [ null, %if.then199 ], [ %default_downscript.1, %if.then244 ], [ %default_downscript.1, %if.then262 ], [ %default_downscript.1, %net_tap_init.exit ]
+  call void @g_free(ptr noundef %default_downscript.0.ph) #15
+  call void @g_free(ptr noundef %default_script.0.ph) #15
   br label %return
 
 return:                                           ; preds = %if.end53, %if.end190, %cleanup, %return.critedge, %if.end170, %if.end37, %if.then193, %if.then188, %if.then183, %if.then169, %for.end147, %if.then83, %if.then55, %if.then51, %if.then45, %if.then36, %if.then10
-  %retval.1 = phi i32 [ -1, %if.then10 ], [ -1, %if.then36 ], [ -1, %if.then51 ], [ -1, %if.then55 ], [ -1, %if.then45 ], [ -1, %if.then83 ], [ %ret.1, %for.end147 ], [ -1, %if.then169 ], [ -1, %if.then188 ], [ -1, %if.then193 ], [ -1, %if.then183 ], [ -1, %if.end37 ], [ -1, %if.end170 ], [ -1, %return.critedge ], [ 0, %cleanup ], [ 0, %if.end190 ], [ 0, %if.end53 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %if.then10 ], [ -1, %if.then36 ], [ -1, %if.then51 ], [ -1, %if.then55 ], [ -1, %if.then45 ], [ -1, %if.then83 ], [ %ret.0, %for.end147 ], [ -1, %if.then169 ], [ -1, %if.then188 ], [ -1, %if.then193 ], [ -1, %if.then183 ], [ -1, %if.end37 ], [ -1, %if.end170 ], [ -1, %return.critedge ], [ 0, %cleanup ], [ 0, %if.end190 ], [ 0, %if.end53 ]
+  ret i32 %retval.0
 }
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4

@@ -1462,7 +1462,7 @@ if.end54:                                         ; preds = %if.end41
   br i1 %consume, label %if.then56, label %return
 
 if.then56:                                        ; preds = %if.end54.thread, %if.end54
-  %ret.033 = phi ptr [ %.val26, %if.end54.thread ], [ null, %if.end54 ]
+  %ret.133 = phi ptr [ %.val26, %if.end54.thread ], [ null, %if.end54 ]
   %index = getelementptr inbounds i8, ptr %0, i64 40
   %8 = load i32, ptr %index, align 8
   %inc = add i32 %8, 1
@@ -1470,7 +1470,7 @@ if.then56:                                        ; preds = %if.end54.thread, %i
   br label %return
 
 return:                                           ; preds = %if.then44, %if.then22, %qobject_check_type.exit, %if.then56, %if.end54, %if.then
-  %retval.0 = phi ptr [ %1, %if.then ], [ %call17, %if.then22 ], [ %call17, %qobject_check_type.exit ], [ %ret.033, %if.then56 ], [ null, %if.end54 ], [ %.val26, %if.then44 ]
+  %retval.0 = phi ptr [ %1, %if.then ], [ %call17, %if.then22 ], [ %call17, %qobject_check_type.exit ], [ %ret.133, %if.then56 ], [ null, %if.end54 ], [ %.val26, %if.then44 ]
   ret ptr %retval.0
 }
 

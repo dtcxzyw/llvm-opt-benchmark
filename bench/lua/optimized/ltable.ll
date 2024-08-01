@@ -1660,7 +1660,7 @@ numusearray.exit:                                 ; preds = %if.then.i113, %for.
 while.body.i88:                                   ; preds = %if.end7.i, %numusearray.exit
   %indvars.iv.i89 = phi i64 [ %21, %numusearray.exit ], [ %indvars.iv.next.i97, %if.end7.i ]
   %totaluse.09.i = phi i32 [ 0, %numusearray.exit ], [ %totaluse.1.i, %if.end7.i ]
-  %ause.08.i = phi i32 [ 0, %numusearray.exit ], [ %ause.2.i, %if.end7.i ]
+  %ause.08.i = phi i32 [ 0, %numusearray.exit ], [ %ause.1.i, %if.end7.i ]
   %22 = load ptr, ptr %node.i87, align 8
   %arrayidx.i90 = getelementptr inbounds %union.Node, ptr %22, i64 %indvars.iv.i89
   %tt_.i91 = getelementptr inbounds i8, ptr %arrayidx.i90, i64 8
@@ -1698,19 +1698,19 @@ countint.exit.i:                                  ; preds = %if.then.i.i, %if.th
   br label %if.end.i
 
 if.end.i:                                         ; preds = %countint.exit.i, %if.then.i93
-  %ause.1.i = phi i32 [ %add.i99, %countint.exit.i ], [ %ause.08.i, %if.then.i93 ]
+  %ause.2.i = phi i32 [ %add.i99, %countint.exit.i ], [ %ause.08.i, %if.then.i93 ]
   %inc.i96 = add nsw i32 %totaluse.09.i, 1
   br label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i, %while.body.i88
-  %ause.2.i = phi i32 [ %ause.08.i, %while.body.i88 ], [ %ause.1.i, %if.end.i ]
+  %ause.1.i = phi i32 [ %ause.08.i, %while.body.i88 ], [ %ause.2.i, %if.end.i ]
   %totaluse.1.i = phi i32 [ %totaluse.09.i, %while.body.i88 ], [ %inc.i96, %if.end.i ]
   %indvars.iv.next.i97 = add nsw i64 %indvars.iv.i89, -1
   %29 = icmp eq i64 %indvars.iv.i89, 0
   br i1 %29, label %numusehash.exit, label %while.body.i88, !llvm.loop !15
 
 numusehash.exit:                                  ; preds = %if.end7.i
-  %add8.i98 = add i32 %ause.2.i, %ause.0.lcssa.i
+  %add8.i98 = add i32 %ause.1.i, %ause.0.lcssa.i
   %30 = load i8, ptr %key.addr.0.sroa.phi64, align 8
   %cmp4.i = icmp eq i8 %30, 3
   br i1 %cmp4.i, label %if.then.i, label %rehash.exit

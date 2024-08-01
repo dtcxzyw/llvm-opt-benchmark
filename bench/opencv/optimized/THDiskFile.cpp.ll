@@ -662,8 +662,8 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readByteEPNS_8THFile__EPhl(ptr 
   br label %.thread
 
 .thread:                                          ; preds = %35, %41, %41, %37, %44, %33
-  %.1 = phi i64 [ %34, %33 ], [ %38, %44 ], [ %38, %41 ], [ %38, %37 ], [ %38, %41 ], [ 0, %35 ]
-  %.not45 = icmp eq i64 %.1, %2
+  %.0 = phi i64 [ %34, %33 ], [ %38, %44 ], [ %38, %41 ], [ %38, %37 ], [ %38, %41 ], [ 0, %35 ]
+  %.not45 = icmp eq i64 %.0, %2
   br i1 %.not45, label %55, label %47
 
 47:                                               ; preds = %.thread
@@ -675,7 +675,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readByteEPNS_8THFile__EPhl(ptr 
   br i1 %.not46, label %51, label %55
 
 51:                                               ; preds = %47
-  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.10, i64 noundef %.1, i64 noundef %2)
+  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.10, i64 noundef %.0, i64 noundef %2)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2THL19THDiskFile_readByteEPNS_8THFile__EPhl, ptr noundef nonnull @.str.1, i32 noundef 266) #15
           to label %52 unwind label %53
 
@@ -689,7 +689,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readByteEPNS_8THFile__EPhl(ptr 
   br label %56
 
 55:                                               ; preds = %47, %.thread
-  ret i64 %.1
+  ret i64 %.0
 
 56:                                               ; preds = %53, %29, %18
   %.pn47 = phi { ptr, i32 } [ %54, %53 ], [ %.pn42, %29 ], [ %.pn, %18 ]
@@ -805,8 +805,8 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readCharEPNS_8THFile__EPcl(ptr 
   br label %.thread
 
 .thread:                                          ; preds = %35, %41, %41, %37, %44, %33
-  %.1 = phi i64 [ %34, %33 ], [ %38, %44 ], [ %38, %41 ], [ %38, %37 ], [ %38, %41 ], [ 0, %35 ]
-  %.not45 = icmp eq i64 %.1, %2
+  %.0 = phi i64 [ %34, %33 ], [ %38, %44 ], [ %38, %41 ], [ %38, %37 ], [ %38, %41 ], [ 0, %35 ]
+  %.not45 = icmp eq i64 %.0, %2
   br i1 %.not45, label %55, label %47
 
 47:                                               ; preds = %.thread
@@ -818,7 +818,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readCharEPNS_8THFile__EPcl(ptr 
   br i1 %.not46, label %51, label %55
 
 51:                                               ; preds = %47
-  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.10, i64 noundef %.1, i64 noundef %2)
+  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.10, i64 noundef %.0, i64 noundef %2)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2THL19THDiskFile_readCharEPNS_8THFile__EPcl, ptr noundef nonnull @.str.1, i32 noundef 270) #15
           to label %52 unwind label %53
 
@@ -832,7 +832,7 @@ define internal noundef i64 @_ZN2THL19THDiskFile_readCharEPNS_8THFile__EPcl(ptr 
   br label %56
 
 55:                                               ; preds = %47, %.thread
-  ret i64 %.1
+  ret i64 %.0
 
 56:                                               ; preds = %53, %29, %18
   %.pn47 = phi { ptr, i32 } [ %54, %53 ], [ %.pn42, %29 ], [ %.pn, %18 ]
@@ -946,20 +946,20 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readShortEPNS_8THFile__EPsl(ptr
   br i1 %exitcond34.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader, %49
-  %.060 = phi i64 [ %50, %49 ], [ 0, %.preheader ]
+  %.160 = phi i64 [ %50, %49 ], [ 0, %.preheader ]
   %45 = load ptr, ptr %9, align 8
-  %46 = getelementptr inbounds i16, ptr %1, i64 %.060
+  %46 = getelementptr inbounds i16, ptr %1, i64 %.160
   %47 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %45, ptr noundef nonnull @.str.11, ptr noundef %46)
   %48 = icmp slt i32 %47, 1
   br i1 %48, label %._crit_edge, label %49
 
 49:                                               ; preds = %.lr.ph
-  %50 = add nuw nsw i64 %.060, 1
+  %50 = add nuw nsw i64 %.160, 1
   %exitcond.not = icmp eq i64 %50, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %49, %.lr.ph
-  %.0.lcssa = phi i64 [ %2, %49 ], [ %.060, %.lr.ph ]
+  %.1.lcssa = phi i64 [ %2, %49 ], [ %.160, %.lr.ph ]
   %51 = getelementptr inbounds i8, ptr %0, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = icmp ne i32 %52, 0
@@ -980,8 +980,8 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readShortEPNS_8THFile__EPsl(ptr
   br label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %.preheader.us.i, %.preheader, %54, %54, %._crit_edge, %57, %34
-  %.1 = phi i64 [ %35, %34 ], [ %.0.lcssa, %57 ], [ %.0.lcssa, %54 ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %54 ], [ 0, %.preheader ], [ %35, %.preheader.us.i ]
-  %.not55 = icmp eq i64 %.1, %2
+  %.0 = phi i64 [ %35, %34 ], [ %.1.lcssa, %57 ], [ %.1.lcssa, %54 ], [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %54 ], [ 0, %.preheader ], [ %35, %.preheader.us.i ]
+  %.not55 = icmp eq i64 %.0, %2
   br i1 %.not55, label %68, label %60
 
 60:                                               ; preds = %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
@@ -993,7 +993,7 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %.preheader.us.i, %.
   br i1 %.not56, label %64, label %68
 
 64:                                               ; preds = %60
-  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.10, i64 noundef %.1, i64 noundef %2)
+  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.10, i64 noundef %.0, i64 noundef %2)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2THL20THDiskFile_readShortEPNS_8THFile__EPsl, ptr noundef nonnull @.str.1, i32 noundef 274) #15
           to label %65 unwind label %66
 
@@ -1007,7 +1007,7 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %.preheader.us.i, %.
   br label %69
 
 68:                                               ; preds = %60, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
-  ret i64 %.1
+  ret i64 %.0
 
 69:                                               ; preds = %66, %29, %18
   %.pn57 = phi { ptr, i32 } [ %67, %66 ], [ %.pn52, %29 ], [ %.pn, %18 ]
@@ -1132,20 +1132,20 @@ define internal noundef i64 @_ZN2THL18THDiskFile_readIntEPNS_8THFile__EPil(ptr n
   br i1 %exitcond34.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader, %53
-  %.060 = phi i64 [ %54, %53 ], [ 0, %.preheader ]
+  %.160 = phi i64 [ %54, %53 ], [ 0, %.preheader ]
   %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds i32, ptr %1, i64 %.060
+  %50 = getelementptr inbounds i32, ptr %1, i64 %.160
   %51 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %49, ptr noundef nonnull @.str.12, ptr noundef %50)
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %._crit_edge, label %53
 
 53:                                               ; preds = %.lr.ph
-  %54 = add nuw nsw i64 %.060, 1
+  %54 = add nuw nsw i64 %.160, 1
   %exitcond.not = icmp eq i64 %54, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph
-  %.0.lcssa = phi i64 [ %2, %53 ], [ %.060, %.lr.ph ]
+  %.1.lcssa = phi i64 [ %2, %53 ], [ %.160, %.lr.ph ]
   %55 = getelementptr inbounds i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8
   %57 = icmp ne i32 %56, 0
@@ -1166,8 +1166,8 @@ define internal noundef i64 @_ZN2THL18THDiskFile_readIntEPNS_8THFile__EPil(ptr n
   br label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %.preheader, %58, %58, %._crit_edge, %61, %34
-  %.1 = phi i64 [ %35, %34 ], [ %.0.lcssa, %61 ], [ %.0.lcssa, %58 ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %58 ], [ 0, %.preheader ], [ %35, %._crit_edge.us.i ]
-  %.not55 = icmp eq i64 %.1, %2
+  %.0 = phi i64 [ %35, %34 ], [ %.1.lcssa, %61 ], [ %.1.lcssa, %58 ], [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %58 ], [ 0, %.preheader ], [ %35, %._crit_edge.us.i ]
+  %.not55 = icmp eq i64 %.0, %2
   br i1 %.not55, label %72, label %64
 
 64:                                               ; preds = %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
@@ -1179,7 +1179,7 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %
   br i1 %.not56, label %68, label %72
 
 68:                                               ; preds = %64
-  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.10, i64 noundef %.1, i64 noundef %2)
+  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.10, i64 noundef %.0, i64 noundef %2)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2THL18THDiskFile_readIntEPNS_8THFile__EPil, ptr noundef nonnull @.str.1, i32 noundef 278) #15
           to label %69 unwind label %70
 
@@ -1193,7 +1193,7 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %
   br label %73
 
 72:                                               ; preds = %64, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
-  ret i64 %.1
+  ret i64 %.0
 
 73:                                               ; preds = %70, %29, %18
   %.pn57 = phi { ptr, i32 } [ %71, %70 ], [ %.pn52, %29 ], [ %.pn, %18 ]
@@ -1445,22 +1445,22 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115: ; preds = %._crit_edge.us.i11
   br i1 %exitcond34.not.i123, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i116, !llvm.loop !4
 
 .lr.ph132:                                        ; preds = %.preheader, %106
-  %.0131 = phi i64 [ %107, %106 ], [ 0, %.preheader ]
+  %.1131 = phi i64 [ %107, %106 ], [ 0, %.preheader ]
   %103 = load ptr, ptr %11, align 8
   %104 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %103, ptr noundef nonnull @.str.14, ptr noundef nonnull %9)
   %105 = icmp slt i32 %104, 1
   br i1 %105, label %._crit_edge133, label %106
 
 106:                                              ; preds = %.lr.ph132
-  %107 = add nuw nsw i64 %.0131, 1
+  %107 = add nuw nsw i64 %.1131, 1
   %108 = load i64, ptr %9, align 8
-  %109 = getelementptr inbounds i64, ptr %1, i64 %.0131
+  %109 = getelementptr inbounds i64, ptr %1, i64 %.1131
   store i64 %108, ptr %109, align 8
   %exitcond.not = icmp eq i64 %107, %2
   br i1 %exitcond.not, label %._crit_edge133, label %.lr.ph132, !llvm.loop !11
 
 ._crit_edge133:                                   ; preds = %106, %.lr.ph132
-  %.0.lcssa = phi i64 [ %2, %106 ], [ %.0131, %.lr.ph132 ]
+  %.1.lcssa = phi i64 [ %2, %106 ], [ %.1131, %.lr.ph132 ]
   %110 = getelementptr inbounds i8, ptr %0, i64 24
   %111 = load i32, ptr %110, align 8
   %112 = icmp ne i32 %111, 0
@@ -1481,8 +1481,8 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115: ; preds = %._crit_edge.us.i11
   br label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %.lr.ph, %._crit_edge.us.i, %._crit_edge.us.i122, %.preheader, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115, %113, %113, %._crit_edge133, %116, %39, %._crit_edge
-  %.1 = phi i64 [ %40, %39 ], [ %83, %._crit_edge ], [ %.0.lcssa, %116 ], [ %.0.lcssa, %113 ], [ %.0.lcssa, %._crit_edge133 ], [ %.0.lcssa, %113 ], [ %55, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115 ], [ 0, %.preheader ], [ %83, %._crit_edge.us.i122 ], [ %40, %._crit_edge.us.i ], [ %55, %.lr.ph ]
-  %.not103 = icmp eq i64 %.1, %2
+  %.0 = phi i64 [ %40, %39 ], [ %83, %._crit_edge ], [ %.1.lcssa, %116 ], [ %.1.lcssa, %113 ], [ %.1.lcssa, %._crit_edge133 ], [ %.1.lcssa, %113 ], [ %55, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115 ], [ 0, %.preheader ], [ %83, %._crit_edge.us.i122 ], [ %40, %._crit_edge.us.i ], [ %55, %.lr.ph ]
+  %.not103 = icmp eq i64 %.0, %2
   br i1 %.not103, label %127, label %119
 
 119:                                              ; preds = %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
@@ -1494,7 +1494,7 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %.lr.ph, %._crit_edg
   br i1 %.not104, label %123, label %127
 
 123:                                              ; preds = %119
-  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str.10, i64 noundef %.1, i64 noundef %2)
+  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str.10, i64 noundef %.0, i64 noundef %2)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @__func__._ZN2THL19THDiskFile_readLongEPNS_8THFile__EPll, ptr noundef nonnull @.str.1, i32 noundef 354) #15
           to label %124 unwind label %125
 
@@ -1508,7 +1508,7 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %.lr.ph, %._crit_edg
   br label %128
 
 127:                                              ; preds = %119, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
-  ret i64 %.1
+  ret i64 %.0
 
 128:                                              ; preds = %125, %80, %31, %20
   %.pn105 = phi { ptr, i32 } [ %126, %125 ], [ %81, %80 ], [ %.pn99, %31 ], [ %.pn, %20 ]
@@ -1633,20 +1633,20 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readFloatEPNS_8THFile__EPfl(ptr
   br i1 %exitcond34.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader, %53
-  %.060 = phi i64 [ %54, %53 ], [ 0, %.preheader ]
+  %.160 = phi i64 [ %54, %53 ], [ 0, %.preheader ]
   %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds float, ptr %1, i64 %.060
+  %50 = getelementptr inbounds float, ptr %1, i64 %.160
   %51 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %49, ptr noundef nonnull @.str.15, ptr noundef %50)
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %._crit_edge, label %53
 
 53:                                               ; preds = %.lr.ph
-  %54 = add nuw nsw i64 %.060, 1
+  %54 = add nuw nsw i64 %.160, 1
   %exitcond.not = icmp eq i64 %54, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph
-  %.0.lcssa = phi i64 [ %2, %53 ], [ %.060, %.lr.ph ]
+  %.1.lcssa = phi i64 [ %2, %53 ], [ %.160, %.lr.ph ]
   %55 = getelementptr inbounds i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8
   %57 = icmp ne i32 %56, 0
@@ -1667,8 +1667,8 @@ define internal noundef i64 @_ZN2THL20THDiskFile_readFloatEPNS_8THFile__EPfl(ptr
   br label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %.preheader, %58, %58, %._crit_edge, %61, %34
-  %.1 = phi i64 [ %35, %34 ], [ %.0.lcssa, %61 ], [ %.0.lcssa, %58 ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %58 ], [ 0, %.preheader ], [ %35, %._crit_edge.us.i ]
-  %.not55 = icmp eq i64 %.1, %2
+  %.0 = phi i64 [ %35, %34 ], [ %.1.lcssa, %61 ], [ %.1.lcssa, %58 ], [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %58 ], [ 0, %.preheader ], [ %35, %._crit_edge.us.i ]
+  %.not55 = icmp eq i64 %.0, %2
   br i1 %.not55, label %72, label %64
 
 64:                                               ; preds = %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
@@ -1680,7 +1680,7 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %
   br i1 %.not56, label %68, label %72
 
 68:                                               ; preds = %64
-  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.10, i64 noundef %.1, i64 noundef %2)
+  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.10, i64 noundef %.0, i64 noundef %2)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2THL20THDiskFile_readFloatEPNS_8THFile__EPfl, ptr noundef nonnull @.str.1, i32 noundef 286) #15
           to label %69 unwind label %70
 
@@ -1694,7 +1694,7 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %
   br label %73
 
 72:                                               ; preds = %64, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
-  ret i64 %.1
+  ret i64 %.0
 
 73:                                               ; preds = %70, %29, %18
   %.pn57 = phi { ptr, i32 } [ %71, %70 ], [ %.pn52, %29 ], [ %.pn, %18 ]
@@ -1819,20 +1819,20 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readDoubleEPNS_8THFile__EPdl(pt
   br i1 %exitcond34.not.i, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i, !llvm.loop !4
 
 .lr.ph:                                           ; preds = %.preheader, %53
-  %.060 = phi i64 [ %54, %53 ], [ 0, %.preheader ]
+  %.160 = phi i64 [ %54, %53 ], [ 0, %.preheader ]
   %49 = load ptr, ptr %9, align 8
-  %50 = getelementptr inbounds double, ptr %1, i64 %.060
+  %50 = getelementptr inbounds double, ptr %1, i64 %.160
   %51 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %49, ptr noundef nonnull @.str.16, ptr noundef %50)
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %._crit_edge, label %53
 
 53:                                               ; preds = %.lr.ph
-  %54 = add nuw nsw i64 %.060, 1
+  %54 = add nuw nsw i64 %.160, 1
   %exitcond.not = icmp eq i64 %54, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %53, %.lr.ph
-  %.0.lcssa = phi i64 [ %2, %53 ], [ %.060, %.lr.ph ]
+  %.1.lcssa = phi i64 [ %2, %53 ], [ %.160, %.lr.ph ]
   %55 = getelementptr inbounds i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8
   %57 = icmp ne i32 %56, 0
@@ -1853,8 +1853,8 @@ define internal noundef i64 @_ZN2THL21THDiskFile_readDoubleEPNS_8THFile__EPdl(pt
   br label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %.preheader, %58, %58, %._crit_edge, %61, %34
-  %.1 = phi i64 [ %35, %34 ], [ %.0.lcssa, %61 ], [ %.0.lcssa, %58 ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %58 ], [ 0, %.preheader ], [ %35, %._crit_edge.us.i ]
-  %.not55 = icmp eq i64 %.1, %2
+  %.0 = phi i64 [ %35, %34 ], [ %.1.lcssa, %61 ], [ %.1.lcssa, %58 ], [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %58 ], [ 0, %.preheader ], [ %35, %._crit_edge.us.i ]
+  %.not55 = icmp eq i64 %.0, %2
   br i1 %.not55, label %72, label %64
 
 64:                                               ; preds = %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
@@ -1866,7 +1866,7 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %
   br i1 %.not56, label %68, label %72
 
 68:                                               ; preds = %64
-  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.10, i64 noundef %.1, i64 noundef %2)
+  call void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.10, i64 noundef %.0, i64 noundef %2)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -2, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @__func__._ZN2THL21THDiskFile_readDoubleEPNS_8THFile__EPdl, ptr noundef nonnull @.str.1, i32 noundef 290) #15
           to label %69 unwind label %70
 
@@ -1880,7 +1880,7 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %._crit_edge.us.i, %
   br label %73
 
 72:                                               ; preds = %64, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
-  ret i64 %.1
+  ret i64 %.0
 
 73:                                               ; preds = %70, %29, %18
   %.pn57 = phi { ptr, i32 } [ %71, %70 ], [ %.pn52, %29 ], [ %.pn, %18 ]

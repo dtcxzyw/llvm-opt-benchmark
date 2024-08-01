@@ -10935,8 +10935,8 @@ define hidden noundef align 1 ptr @"_ZN5alloc11collections5btree3map25BTreeMap$L
   br label %31
 
 31:                                               ; preds = %.loopexit, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hf1d622e0fa2d953bE.exit", %3
-  %.1 = phi ptr [ null, %3 ], [ %30, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hf1d622e0fa2d953bE.exit" ]
-  ret ptr %.1
+  %.0 = phi ptr [ null, %3 ], [ %30, %.loopexit ], [ null, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hf1d622e0fa2d953bE.exit" ]
+  ret ptr %.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -16963,8 +16963,8 @@ default.unreachable182:                           ; preds = %70, %"_ZN4core3ptr6
   br label %.loopexit195
 
 325:                                              ; preds = %5, %.loopexit195, %284
-  %.3 = phi i1 [ true, %.loopexit195 ], [ false, %284 ], [ true, %5 ]
-  ret i1 %.3
+  %.2 = phi i1 [ true, %.loopexit195 ], [ false, %284 ], [ true, %5 ]
+  ret i1 %.2
 
 "_ZN4core3ptr74drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..data..FunctionData$GT$$GT$17hf67beb6d172e67a2E.exit": ; preds = %285, %290, %275, %272, %148, %152, %102, %107, %281
   %.pn77 = phi { ptr, i32 } [ %282, %281 ], [ %103, %107 ], [ %103, %102 ], [ %.pn, %152 ], [ %.pn, %148 ], [ %273, %272 ], [ %273, %275 ], [ %286, %290 ], [ %286, %285 ]
@@ -16999,13 +16999,13 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h949d85f5
           to label %8 unwind label %6
 
 "_ZN4core3ptr395drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$triomphe..arc..Arc$LT$hir_ty..interner..InternedWrapper$LT$smallvec..SmallVec$LT$$u5b$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u3b$$u20$2$u5d$$GT$$GT$$GT$$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17hbb83e1a158cde3b7E.exit": ; preds = %.body, %49, %6
-  %.019 = phi i8 [ %.1, %6 ], [ %.2.lpad-body, %49 ], [ %.2.lpad-body, %.body ]
+  %.1 = phi i8 [ %.019, %6 ], [ %.2.lpad-body, %49 ], [ %.2.lpad-body, %.body ]
   %.pn = phi { ptr, i32 } [ %7, %6 ], [ %eh.lpad-body, %49 ], [ %eh.lpad-body, %.body ]
-  %5 = trunc nuw i8 %.019 to i1
+  %5 = trunc nuw i8 %.1 to i1
   br i1 %5, label %171, label %"_ZN4core3ptr163drop_in_place$LT$hir_ty..interner..InternedWrapper$LT$smallvec..SmallVec$LT$$u5b$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u3b$$u20$2$u5d$$GT$$GT$$GT$17hc0a7cc070fb127feE.exit"
 
 6:                                                ; preds = %72, %1
-  %.1 = phi i8 [ 1, %1 ], [ %.3, %72 ]
+  %.019 = phi i8 [ 1, %1 ], [ %.3, %72 ]
   %7 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr395drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..map..HashMap$LT$triomphe..arc..Arc$LT$hir_ty..interner..InternedWrapper$LT$smallvec..SmallVec$LT$$u5b$chalk_ir..GenericArg$LT$hir_ty..interner..Interner$GT$$u3b$$u20$2$u5d$$GT$$GT$$GT$$C$dashmap..util..SharedValue$LT$$LP$$RP$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17hbb83e1a158cde3b7E.exit"
@@ -30208,8 +30208,8 @@ default.unreachable46:                            ; preds = %33
 
 "_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h96b531cd92cd5b61E.exit.i.i": ; preds = %74, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.thread6.i.i.i"
   %.sink.i.i.i = phi ptr [ %43, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.thread6.i.i.i" ], [ %75, %74 ]
-  %.sroa.4.0.i.ph10.i9.i.i.i = phi i32 [ %52, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.thread6.i.i.i" ], [ %79, %74 ]
-  %.not.i.not.i.i = icmp eq i32 %.sroa.4.0.i.ph10.i9.i.i.i, 10
+  %.sroa.4.1.i.ph10.i9.i.i.i = phi i32 [ %52, %"_ZN102_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h28dde6c8d5bb87a8E.exit.thread6.i.i.i" ], [ %79, %74 ]
+  %.not.i.not.i.i = icmp eq i32 %.sroa.4.1.i.ph10.i9.i.i.i, 10
   br i1 %.not.i.not.i.i, label %39, label %81
 
 81:                                               ; preds = %"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h96b531cd92cd5b61E.exit.i.i"

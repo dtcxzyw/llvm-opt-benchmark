@@ -5999,7 +5999,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.042 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %assertions.sroa.2.041 = phi ptr [ null, %for.body.lr.ph ], [ %assertions.sroa.2.5, %for.inc ]
+  %assertions.sroa.2.141 = phi ptr [ null, %for.body.lr.ph ], [ %assertions.sroa.2.2, %for.inc ]
   %3 = load ptr, ptr %m_solver, align 8
   %vtable3 = load ptr, ptr %3, align 8
   %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 240
@@ -6052,13 +6052,13 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i: ; preds = %if.then.i.i.i.i, %if.then
-  %cmp.i.i = icmp eq ptr %assertions.sroa.2.041, null
+  %cmp.i.i = icmp eq ptr %assertions.sroa.2.141, null
   br i1 %cmp.i.i, label %if.then.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %assertions.sroa.2.041, i64 -4
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %assertions.sroa.2.141, i64 -4
   %11 = load i32, ptr %arrayidx.i.i, align 4
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %assertions.sroa.2.041, i64 -8
+  %arrayidx4.i.i = getelementptr inbounds i8, ptr %assertions.sroa.2.141, i64 -8
   %12 = load i32, ptr %arrayidx4.i.i, align 4
   %cmp5.i.i = icmp eq i32 %11, %12
   br i1 %cmp5.i.i, label %if.else.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
@@ -6156,7 +6156,7 @@ unreachable.i:                                    ; preds = %invoke.cont.i
 .noexc:                                           ; preds = %call25.i.noexc, %if.then.i
   %.pre1.i.i = phi i32 [ 0, %if.then.i ], [ %.pre1.i.i.pre, %call25.i.noexc ]
   %call.i8.pn = phi ptr [ %call.i8, %if.then.i ], [ %call25.i9, %call25.i.noexc ]
-  %assertions.sroa.2.1 = getelementptr inbounds i8, ptr %call.i8.pn, i64 8
+  %assertions.sroa.2.5 = getelementptr inbounds i8, ptr %call.i8.pn, i64 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp18.i)
   %arrayidx10.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %call.i8.pn, i64 4
@@ -6165,12 +6165,12 @@ unreachable.i:                                    ; preds = %invoke.cont.i
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit: ; preds = %lor.lhs.false.i.i, %.noexc
   %16 = phi i32 [ %.pre, %.noexc ], [ %11, %lor.lhs.false.i.i ]
-  %assertions.sroa.2.2 = phi ptr [ %assertions.sroa.2.1, %.noexc ], [ %assertions.sroa.2.041, %lor.lhs.false.i.i ]
+  %assertions.sroa.2.3 = phi ptr [ %assertions.sroa.2.5, %.noexc ], [ %assertions.sroa.2.141, %lor.lhs.false.i.i ]
   %17 = phi i32 [ %.pre1.i.i, %.noexc ], [ %11, %lor.lhs.false.i.i ]
   %idx.ext.i.i = zext i32 %17 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %assertions.sroa.2.2, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %assertions.sroa.2.3, i64 %idx.ext.i.i
   store ptr %call6, ptr %add.ptr.i.i, align 8
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %assertions.sroa.2.2, i64 -4
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %assertions.sroa.2.3, i64 -4
   %inc.i.i = add i32 %16, 1
   store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   br label %for.inc
@@ -6186,23 +6186,23 @@ lpad.body.loopexit.split-lp:                      ; preds = %invoke.cont12, %for
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.body.loopexit.split-lp, %lpad.body.loopexit
-  %assertions.sroa.2.039 = phi ptr [ %assertions.sroa.2.041, %lpad.body.loopexit ], [ %assertions.sroa.2.0.lcssa, %lpad.body.loopexit.split-lp ]
+  %assertions.sroa.2.139 = phi ptr [ %assertions.sroa.2.141, %lpad.body.loopexit ], [ %assertions.sroa.2.1.lcssa, %lpad.body.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad.body.loopexit ], [ %lpad.loopexit.split-lp, %lpad.body.loopexit.split-lp ]
-  %cmp.i.i.i = icmp eq ptr %assertions.sroa.2.039, null
+  %cmp.i.i.i = icmp eq ptr %assertions.sroa.2.139, null
   br i1 %cmp.i.i.i, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i:         ; preds = %ehcleanup.i, %cleanup.action.i.body, %lpad.body.thread32, %lpad.body
-  %assertions.sroa.2.038 = phi ptr [ %assertions.sroa.2.039, %lpad.body ], [ %assertions.sroa.2.041, %lpad.body.thread32 ], [ %assertions.sroa.2.041, %cleanup.action.i.body ], [ %assertions.sroa.2.041, %ehcleanup.i ]
+  %assertions.sroa.2.138 = phi ptr [ %assertions.sroa.2.139, %lpad.body ], [ %assertions.sroa.2.141, %lpad.body.thread32 ], [ %assertions.sroa.2.141, %cleanup.action.i.body ], [ %assertions.sroa.2.141, %ehcleanup.i ]
   %eh.lpad-body25 = phi { ptr, i32 } [ %lpad.phi, %lpad.body ], [ %lpad.thr_comm.split-lp33, %lpad.body.thread32 ], [ %eh.lpad-body14, %cleanup.action.i.body ], [ %14, %ehcleanup.i ]
-  %arrayidx.i.i.i5 = getelementptr inbounds i8, ptr %assertions.sroa.2.038, i64 -4
+  %arrayidx.i.i.i5 = getelementptr inbounds i8, ptr %assertions.sroa.2.138, i64 -4
   %18 = load i32, ptr %arrayidx.i.i.i5, align 4
   %19 = zext i32 %18 to i64
-  %add.ptr.i.i6 = getelementptr inbounds ptr, ptr %assertions.sroa.2.038, i64 %19
+  %add.ptr.i.i6 = getelementptr inbounds ptr, ptr %assertions.sroa.2.138, i64 %19
   %cmp3.i.not.i.i = icmp eq i32 %18, 0
   br i1 %cmp3.i.not.i.i, label %if.then.i.i.i.i.i, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i
-  %it.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i ], [ %assertions.sroa.2.038, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i ]
+  %it.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i ], [ %assertions.sroa.2.138, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i ]
   %20 = load ptr, ptr %it.04.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i, label %if.then.i.i.i.i.i.i
@@ -6225,7 +6225,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %if.then.i.i.i.i.i, !llvm.loop !4
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %assertions.sroa.2.038, i64 -8
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %assertions.sroa.2.138, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i.i.i)
           to label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -6248,13 +6248,13 @@ _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %lpad.body, %if.then
   resume { ptr, i32 } %eh.lpad-body26
 
 for.inc:                                          ; preds = %for.body.preheader.i.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %invoke.cont7
-  %assertions.sroa.2.5 = phi ptr [ %assertions.sroa.2.041, %invoke.cont7 ], [ %assertions.sroa.2.2, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %assertions.sroa.2.041, %for.body.preheader.i.i ]
+  %assertions.sroa.2.2 = phi ptr [ %assertions.sroa.2.141, %invoke.cont7 ], [ %assertions.sroa.2.3, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %assertions.sroa.2.141, %for.body.preheader.i.i ]
   %inc = add nuw i32 %i.042, 1
   %exitcond.not = icmp eq i32 %inc, %call
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !25
 
 for.end:                                          ; preds = %for.inc, %entry
-  %assertions.sroa.2.0.lcssa = phi ptr [ null, %entry ], [ %assertions.sroa.2.5, %for.inc ]
+  %assertions.sroa.2.1.lcssa = phi ptr [ null, %entry ], [ %assertions.sroa.2.2, %for.inc ]
   %m_base_defs11 = getelementptr inbounds i8, ptr %this, i64 136
   invoke void @_ZN6spacer10iuc_solver11def_manager5resetEv(ptr noundef nonnull align 8 dereferenceable(72) %m_base_defs11)
           to label %invoke.cont12 unwind label %lpad.body.loopexit.split-lp

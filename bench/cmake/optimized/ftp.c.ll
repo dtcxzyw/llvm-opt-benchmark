@@ -1110,14 +1110,14 @@ freedirs.exit:                                    ; preds = %92, %._crit_edge.i
   br label %132
 
 132:                                              ; preds = %126, %128, %122, %118, %117
-  %.2 = phi i32 [ %.1175, %117 ], [ %127, %128 ], [ 0, %126 ], [ 0, %122 ], [ 0, %118 ]
+  %.3 = phi i32 [ %.1175, %117 ], [ %127, %128 ], [ 0, %126 ], [ 0, %122 ], [ 0, %118 ]
   call void @Curl_conn_close(ptr noundef %0, i32 noundef 1) #10
   call void @Curl_conn_cf_discard_all(ptr noundef %0, ptr noundef nonnull %11, i32 noundef 1) #10
   br label %133
 
 133:                                              ; preds = %132, %freedirs.exit
-  %.3 = phi i32 [ %.2, %132 ], [ %.1175, %freedirs.exit ]
-  %.not150 = icmp eq i32 %.3, 0
+  %.2 = phi i32 [ %.3, %132 ], [ %.1175, %freedirs.exit ]
+  %.not150 = icmp eq i32 %.2, 0
   br i1 %.not150, label %134, label %.thread182
 
 134:                                              ; preds = %133
@@ -1308,7 +1308,7 @@ freedirs.exit:                                    ; preds = %92, %._crit_edge.i
   br label %.thread182
 
 .thread182:                                       ; preds = %179, %180, %133, %181, %198, %195, %191, %188, %185, %212, %216, %220, %211
-  %.5 = phi i32 [ 0, %181 ], [ 0, %191 ], [ 18, %198 ], [ 0, %195 ], [ 0, %188 ], [ 0, %185 ], [ 18, %211 ], [ 0, %212 ], [ 0, %216 ], [ 19, %220 ], [ 70, %179 ], [ 18, %180 ], [ %.3, %133 ]
+  %.5 = phi i32 [ 0, %181 ], [ 0, %191 ], [ 18, %198 ], [ 0, %195 ], [ 0, %188 ], [ 0, %185 ], [ 18, %211 ], [ 0, %212 ], [ 0, %216 ], [ 19, %220 ], [ 70, %179 ], [ 18, %180 ], [ %.2, %133 ]
   %221 = getelementptr inbounds i8, ptr %14, i64 16
   store i32 0, ptr %221, align 8
   %222 = getelementptr inbounds i8, ptr %11, i64 1098
@@ -5589,8 +5589,8 @@ define internal fastcc i32 @ftp_state_prepare_transfer(ptr noundef %0) unnamed_a
   br label %42
 
 42:                                               ; preds = %38, %40, %31
-  %.0 = phi i32 [ %39, %38 ], [ %41, %40 ], [ %33, %31 ]
-  %.not34 = icmp eq i32 %.0, 0
+  %.1 = phi i32 [ %39, %38 ], [ %41, %40 ], [ %33, %31 ]
+  %.not34 = icmp eq i32 %.1, 0
   br i1 %.not34, label %43, label %ftp_state_use_pasv.exit
 
 43:                                               ; preds = %42
@@ -5638,8 +5638,8 @@ define internal fastcc i32 @ftp_state_prepare_transfer(ptr noundef %0) unnamed_a
   br label %ftp_state_use_pasv.exit
 
 ftp_state_use_pasv.exit:                          ; preds = %63, %58, %51, %15, %42, %43, %8
-  %.1 = phi i32 [ %10, %8 ], [ %16, %15 ], [ %.0, %42 ], [ 0, %43 ], [ %57, %51 ], [ 0, %58 ], [ 0, %63 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %10, %8 ], [ %16, %15 ], [ %.1, %42 ], [ 0, %43 ], [ %57, %51 ], [ 0, %58 ], [ 0, %63 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5727,11 +5727,11 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef %1) u
 .thread:                                          ; preds = %31, %40, %38, %45
   %.0165245 = phi i64 [ %.0165, %45 ], [ %.0165, %38 ], [ %.0165, %40 ], [ %34, %31 ]
   %.0166244 = phi ptr [ %.0166, %45 ], [ %.0166, %38 ], [ %.0166, %40 ], [ %16, %31 ]
-  %.1173 = phi i16 [ %43, %45 ], [ 0, %38 ], [ %43, %40 ], [ 0, %31 ]
-  %.1171 = phi i16 [ %48, %45 ], [ 0, %38 ], [ %43, %40 ], [ 0, %31 ]
-  %49 = icmp ugt i16 %.1173, %.1171
-  %spec.select232 = select i1 %49, i16 0, i16 %.1173
-  %spec.select233 = select i1 %49, i16 0, i16 %.1171
+  %.2174 = phi i16 [ %43, %45 ], [ 0, %38 ], [ %43, %40 ], [ 0, %31 ]
+  %.2 = phi i16 [ %48, %45 ], [ 0, %38 ], [ %43, %40 ], [ 0, %31 ]
+  %49 = icmp ugt i16 %.2174, %.2
+  %spec.select232 = select i1 %49, i16 0, i16 %.2174
+  %spec.select233 = select i1 %49, i16 0, i16 %.2
   %.not207 = icmp eq i64 %.0165245, 0
   br i1 %.not207, label %.thread.thread, label %.thread.thread277
 
@@ -5765,8 +5765,8 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef %1) u
   br label %73
 
 .thread.thread:                                   ; preds = %22, %51, %17, %2, %.thread
-  %.3175.ph = phi i16 [ %spec.select232, %.thread ], [ 0, %2 ], [ 0, %17 ], [ %spec.select232287, %51 ], [ 0, %22 ]
-  %.3.ph = phi i16 [ %spec.select233, %.thread ], [ 0, %2 ], [ 0, %17 ], [ %spec.select233288, %51 ], [ 0, %22 ]
+  %.0172.ph = phi i16 [ %spec.select232, %.thread ], [ 0, %2 ], [ 0, %17 ], [ %spec.select232287, %51 ], [ 0, %22 ]
+  %.0170.ph = phi i16 [ %spec.select233, %.thread ], [ 0, %2 ], [ 0, %17 ], [ %spec.select233288, %51 ], [ 0, %22 ]
   store i32 128, ptr %6, align 4
   %62 = getelementptr inbounds i8, ptr %13, i64 392
   %63 = load i32, ptr %62, align 8
@@ -5792,8 +5792,8 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef %1) u
   br i1 %.not210, label %190, label %73
 
 73:                                               ; preds = %51, %61, %69
-  %.3254 = phi i16 [ %.3.ph, %69 ], [ %spec.select233288, %61 ], [ %spec.select233288, %51 ]
-  %.3175252 = phi i16 [ %.3175.ph, %69 ], [ %spec.select232287, %61 ], [ %spec.select232287, %51 ]
+  %.0170254 = phi i16 [ %.0170.ph, %69 ], [ %spec.select233288, %61 ], [ %spec.select233288, %51 ]
+  %.0172252 = phi i16 [ %.0172.ph, %69 ], [ %spec.select232287, %61 ], [ %spec.select232287, %51 ]
   %.1178 = phi ptr [ %7, %69 ], [ %7, %61 ], [ %10, %51 ]
   %.0167 = phi i1 [ false, %69 ], [ true, %61 ], [ true, %51 ]
   %74 = call i32 @Curl_resolv(ptr noundef nonnull %0, ptr noundef nonnull %.1178, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %8) #10
@@ -5845,7 +5845,7 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef %1) u
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr align 2 %91, i64 %94, i1 false)
   %95 = load i32, ptr %92, align 8
   store i32 %95, ptr %6, align 4
-  %.not215306 = icmp ugt i16 %.3175252, %.3254
+  %.not215306 = icmp ugt i16 %.0172252, %.0170254
   %96 = getelementptr inbounds i8, ptr %5, i64 2
   %.not227 = icmp eq ptr %0, null
   %97 = getelementptr inbounds i8, ptr %0, i64 2642
@@ -5859,7 +5859,7 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef %1) u
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %106
-  %.0168307.us = phi i16 [ %107, %106 ], [ %.3175252, %.lr.ph.split.us.preheader ]
+  %.0168307.us = phi i16 [ %107, %106 ], [ %.0172252, %.lr.ph.split.us.preheader ]
   %99 = call zeroext i16 @htons(i16 noundef zeroext %.0168307.us) #12
   store i16 %99, ptr %96, align 2
   %100 = load i32, ptr %3, align 4
@@ -5878,11 +5878,11 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef %1) u
 
 106:                                              ; preds = %103, %103
   %107 = add i16 %.0168307.us, 1
-  %.not215.us = icmp ugt i16 %107, %.3254
+  %.not215.us = icmp ugt i16 %107, %.0170254
   br i1 %.not215.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.outer, %130
-  %.0168307 = phi i16 [ %131, %130 ], [ %.3175252, %.outer ]
+  %.0168307 = phi i16 [ %131, %130 ], [ %.0172252, %.outer ]
   %108 = call zeroext i16 @htons(i16 noundef zeroext %.0168307) #12
   store i16 %108, ptr %96, align 2
   %109 = load i32, ptr %3, align 4
@@ -5938,7 +5938,7 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef %1) u
 
 130:                                              ; preds = %112, %112
   %131 = add i16 %.0168307, 1
-  %.not215 = icmp ugt i16 %131, %.3254
+  %.not215 = icmp ugt i16 %131, %.0170254
   br i1 %.not215, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 .outer._crit_edge:                                ; preds = %130, %106, %89

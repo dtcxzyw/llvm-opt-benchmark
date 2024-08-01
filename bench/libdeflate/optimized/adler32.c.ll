@@ -57,14 +57,14 @@ entry:
   br i1 %or.cond, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %do.body
-  %s2.0 = phi i32 [ %add1, %do.body ], [ %shr, %entry ]
-  %s1.0 = phi i32 [ %add, %do.body ], [ %and, %entry ]
-  %p.addr.0 = phi ptr [ %incdec.ptr, %do.body ], [ %p, %entry ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.addr.0, i64 1
-  %1 = load i8, ptr %p.addr.0, align 1
+  %s2.1 = phi i32 [ %add1, %do.body ], [ %shr, %entry ]
+  %s1.1 = phi i32 [ %add, %do.body ], [ %and, %entry ]
+  %p.addr.1 = phi ptr [ %incdec.ptr, %do.body ], [ %p, %entry ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.addr.1, i64 1
+  %1 = load i8, ptr %p.addr.1, align 1
   %conv = zext i8 %1 to i32
-  %add = add i32 %s1.0, %conv
-  %add1 = add i32 %add, %s2.0
+  %add = add i32 %s1.1, %conv
+  %add1 = add i32 %add, %s2.1
   %cmp2 = icmp ne ptr %incdec.ptr, %add.ptr
   %2 = ptrtoint ptr %incdec.ptr to i64
   %rem4 = and i64 %2, 31
@@ -79,15 +79,15 @@ do.end:                                           ; preds = %do.body
 
 if.end:                                           ; preds = %do.end, %entry
   %sub.ptr.rhs.cast.pre-phi = phi i64 [ %2, %do.end ], [ %0, %entry ]
-  %s2.1 = phi i32 [ %rem7, %do.end ], [ %shr, %entry ]
-  %s1.1 = phi i32 [ %rem6, %do.end ], [ %and, %entry ]
-  %p.addr.1 = phi ptr [ %incdec.ptr, %do.end ], [ %p, %entry ]
+  %s2.0 = phi i32 [ %rem7, %do.end ], [ %shr, %entry ]
+  %s1.0 = phi i32 [ %rem6, %do.end ], [ %and, %entry ]
+  %p.addr.0 = phi ptr [ %incdec.ptr, %do.end ], [ %p, %entry ]
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.pre-phi
   %rem8 = and i64 %sub.ptr.sub, 63
   %idx.neg = sub nsw i64 0, %rem8
   %add.ptr9 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %cmp10.not80 = icmp eq ptr %p.addr.1, %add.ptr9
+  %cmp10.not80 = icmp eq ptr %p.addr.0, %add.ptr9
   br i1 %cmp10.not80, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
@@ -95,9 +95,9 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %adler32_avx2_chunk.exit
-  %p.addr.283 = phi ptr [ %p.addr.1, %while.body.lr.ph ], [ %add.ptr24, %adler32_avx2_chunk.exit ]
-  %s1.282 = phi i32 [ %s1.1, %while.body.lr.ph ], [ %rem26, %adler32_avx2_chunk.exit ]
-  %s2.281 = phi i32 [ %s2.1, %while.body.lr.ph ], [ %rem27, %adler32_avx2_chunk.exit ]
+  %p.addr.283 = phi ptr [ %p.addr.0, %while.body.lr.ph ], [ %add.ptr24, %adler32_avx2_chunk.exit ]
+  %s1.282 = phi i32 [ %s1.0, %while.body.lr.ph ], [ %rem26, %adler32_avx2_chunk.exit ]
+  %s2.281 = phi i32 [ %s2.0, %while.body.lr.ph ], [ %rem27, %adler32_avx2_chunk.exit ]
   %sub.ptr.rhs.cast13 = ptrtoint ptr %p.addr.283 to i64
   %sub.ptr.sub14 = sub i64 %sub.ptr.lhs.cast12, %sub.ptr.rhs.cast13
   %cond = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub14, i64 5504)
@@ -173,21 +173,21 @@ adler32_avx2_chunk.exit:                          ; preds = %do.body.i
   br i1 %cmp10.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %adler32_avx2_chunk.exit, %if.end
-  %s2.2.lcssa = phi i32 [ %s2.1, %if.end ], [ %rem27, %adler32_avx2_chunk.exit ]
-  %s1.2.lcssa = phi i32 [ %s1.1, %if.end ], [ %rem26, %adler32_avx2_chunk.exit ]
-  %p.addr.2.lcssa = phi ptr [ %p.addr.1, %if.end ], [ %add.ptr9, %adler32_avx2_chunk.exit ]
+  %s2.2.lcssa = phi i32 [ %s2.0, %if.end ], [ %rem27, %adler32_avx2_chunk.exit ]
+  %s1.2.lcssa = phi i32 [ %s1.0, %if.end ], [ %rem26, %adler32_avx2_chunk.exit ]
+  %p.addr.2.lcssa = phi ptr [ %p.addr.0, %if.end ], [ %add.ptr9, %adler32_avx2_chunk.exit ]
   %cmp28.not = icmp eq ptr %p.addr.2.lcssa, %add.ptr
   br i1 %cmp28.not, label %if.end42, label %do.body31
 
 do.body31:                                        ; preds = %while.end, %do.body31
-  %s2.3 = phi i32 [ %add35, %do.body31 ], [ %s2.2.lcssa, %while.end ]
-  %s1.3 = phi i32 [ %add34, %do.body31 ], [ %s1.2.lcssa, %while.end ]
+  %s2.4 = phi i32 [ %add35, %do.body31 ], [ %s2.2.lcssa, %while.end ]
+  %s1.4 = phi i32 [ %add34, %do.body31 ], [ %s1.2.lcssa, %while.end ]
   %p.addr.3 = phi ptr [ %incdec.ptr32, %do.body31 ], [ %p.addr.2.lcssa, %while.end ]
   %incdec.ptr32 = getelementptr inbounds i8, ptr %p.addr.3, i64 1
   %31 = load i8, ptr %p.addr.3, align 1
   %conv33 = zext i8 %31 to i32
-  %add34 = add i32 %s1.3, %conv33
-  %add35 = add i32 %add34, %s2.3
+  %add34 = add i32 %s1.4, %conv33
+  %add35 = add i32 %add34, %s2.4
   %cmp37.not = icmp eq ptr %incdec.ptr32, %add.ptr
   br i1 %cmp37.not, label %do.end39, label %do.body31
 
@@ -197,10 +197,10 @@ do.end39:                                         ; preds = %do.body31
   br label %if.end42
 
 if.end42:                                         ; preds = %do.end39, %while.end
-  %s2.4 = phi i32 [ %rem41, %do.end39 ], [ %s2.2.lcssa, %while.end ]
-  %s1.4 = phi i32 [ %rem40, %do.end39 ], [ %s1.2.lcssa, %while.end ]
-  %shl = shl nuw i32 %s2.4, 16
-  %or = or i32 %shl, %s1.4
+  %s2.3 = phi i32 [ %rem41, %do.end39 ], [ %s2.2.lcssa, %while.end ]
+  %s1.3 = phi i32 [ %rem40, %do.end39 ], [ %s1.2.lcssa, %while.end ]
+  %shl = shl nuw i32 %s2.3, 16
+  %or = or i32 %shl, %s1.3
   ret i32 %or
 }
 
@@ -218,14 +218,14 @@ entry:
   br i1 %or.cond, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry, %do.body
-  %s2.0 = phi i32 [ %add1, %do.body ], [ %shr, %entry ]
-  %s1.0 = phi i32 [ %add, %do.body ], [ %and, %entry ]
-  %p.addr.0 = phi ptr [ %incdec.ptr, %do.body ], [ %p, %entry ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.addr.0, i64 1
-  %1 = load i8, ptr %p.addr.0, align 1
+  %s2.1 = phi i32 [ %add1, %do.body ], [ %shr, %entry ]
+  %s1.1 = phi i32 [ %add, %do.body ], [ %and, %entry ]
+  %p.addr.1 = phi ptr [ %incdec.ptr, %do.body ], [ %p, %entry ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.addr.1, i64 1
+  %1 = load i8, ptr %p.addr.1, align 1
   %conv = zext i8 %1 to i32
-  %add = add i32 %s1.0, %conv
-  %add1 = add i32 %add, %s2.0
+  %add = add i32 %s1.1, %conv
+  %add1 = add i32 %add, %s2.1
   %cmp2 = icmp ne ptr %incdec.ptr, %add.ptr
   %2 = ptrtoint ptr %incdec.ptr to i64
   %rem4 = and i64 %2, 15
@@ -240,15 +240,15 @@ do.end:                                           ; preds = %do.body
 
 if.end:                                           ; preds = %do.end, %entry
   %sub.ptr.rhs.cast.pre-phi = phi i64 [ %2, %do.end ], [ %0, %entry ]
-  %s2.1 = phi i32 [ %rem7, %do.end ], [ %shr, %entry ]
-  %s1.1 = phi i32 [ %rem6, %do.end ], [ %and, %entry ]
-  %p.addr.1 = phi ptr [ %incdec.ptr, %do.end ], [ %p, %entry ]
+  %s2.0 = phi i32 [ %rem7, %do.end ], [ %shr, %entry ]
+  %s1.0 = phi i32 [ %rem6, %do.end ], [ %and, %entry ]
+  %p.addr.0 = phi ptr [ %incdec.ptr, %do.end ], [ %p, %entry ]
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast.pre-phi
   %rem8 = and i64 %sub.ptr.sub, 31
   %idx.neg = sub nsw i64 0, %rem8
   %add.ptr9 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %cmp10.not78 = icmp eq ptr %p.addr.1, %add.ptr9
+  %cmp10.not78 = icmp eq ptr %p.addr.0, %add.ptr9
   br i1 %cmp10.not78, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
@@ -256,9 +256,9 @@ while.body.lr.ph:                                 ; preds = %if.end
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %adler32_sse2_chunk.exit
-  %p.addr.281 = phi ptr [ %p.addr.1, %while.body.lr.ph ], [ %add.ptr24, %adler32_sse2_chunk.exit ]
-  %s1.280 = phi i32 [ %s1.1, %while.body.lr.ph ], [ %rem26, %adler32_sse2_chunk.exit ]
-  %s2.279 = phi i32 [ %s2.1, %while.body.lr.ph ], [ %rem27, %adler32_sse2_chunk.exit ]
+  %p.addr.281 = phi ptr [ %p.addr.0, %while.body.lr.ph ], [ %add.ptr24, %adler32_sse2_chunk.exit ]
+  %s1.280 = phi i32 [ %s1.0, %while.body.lr.ph ], [ %rem26, %adler32_sse2_chunk.exit ]
+  %s2.279 = phi i32 [ %s2.0, %while.body.lr.ph ], [ %rem27, %adler32_sse2_chunk.exit ]
   %sub.ptr.rhs.cast13 = ptrtoint ptr %p.addr.281 to i64
   %sub.ptr.sub14 = sub i64 %sub.ptr.lhs.cast12, %sub.ptr.rhs.cast13
   %cond = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub14, i64 4096)
@@ -328,21 +328,21 @@ adler32_sse2_chunk.exit:                          ; preds = %do.body.i
   br i1 %cmp10.not, label %while.end, label %while.body
 
 while.end:                                        ; preds = %adler32_sse2_chunk.exit, %if.end
-  %s2.2.lcssa = phi i32 [ %s2.1, %if.end ], [ %rem27, %adler32_sse2_chunk.exit ]
-  %s1.2.lcssa = phi i32 [ %s1.1, %if.end ], [ %rem26, %adler32_sse2_chunk.exit ]
-  %p.addr.2.lcssa = phi ptr [ %p.addr.1, %if.end ], [ %add.ptr9, %adler32_sse2_chunk.exit ]
+  %s2.2.lcssa = phi i32 [ %s2.0, %if.end ], [ %rem27, %adler32_sse2_chunk.exit ]
+  %s1.2.lcssa = phi i32 [ %s1.0, %if.end ], [ %rem26, %adler32_sse2_chunk.exit ]
+  %p.addr.2.lcssa = phi ptr [ %p.addr.0, %if.end ], [ %add.ptr9, %adler32_sse2_chunk.exit ]
   %cmp28.not = icmp eq ptr %p.addr.2.lcssa, %add.ptr
   br i1 %cmp28.not, label %if.end42, label %do.body31
 
 do.body31:                                        ; preds = %while.end, %do.body31
-  %s2.3 = phi i32 [ %add35, %do.body31 ], [ %s2.2.lcssa, %while.end ]
-  %s1.3 = phi i32 [ %add34, %do.body31 ], [ %s1.2.lcssa, %while.end ]
+  %s2.4 = phi i32 [ %add35, %do.body31 ], [ %s2.2.lcssa, %while.end ]
+  %s1.4 = phi i32 [ %add34, %do.body31 ], [ %s1.2.lcssa, %while.end ]
   %p.addr.3 = phi ptr [ %incdec.ptr32, %do.body31 ], [ %p.addr.2.lcssa, %while.end ]
   %incdec.ptr32 = getelementptr inbounds i8, ptr %p.addr.3, i64 1
   %27 = load i8, ptr %p.addr.3, align 1
   %conv33 = zext i8 %27 to i32
-  %add34 = add i32 %s1.3, %conv33
-  %add35 = add i32 %add34, %s2.3
+  %add34 = add i32 %s1.4, %conv33
+  %add35 = add i32 %add34, %s2.4
   %cmp37.not = icmp eq ptr %incdec.ptr32, %add.ptr
   br i1 %cmp37.not, label %do.end39, label %do.body31
 
@@ -352,10 +352,10 @@ do.end39:                                         ; preds = %do.body31
   br label %if.end42
 
 if.end42:                                         ; preds = %do.end39, %while.end
-  %s2.4 = phi i32 [ %rem41, %do.end39 ], [ %s2.2.lcssa, %while.end ]
-  %s1.4 = phi i32 [ %rem40, %do.end39 ], [ %s1.2.lcssa, %while.end ]
-  %shl = shl nuw i32 %s2.4, 16
-  %or = or i32 %shl, %s1.4
+  %s2.3 = phi i32 [ %rem41, %do.end39 ], [ %s2.2.lcssa, %while.end ]
+  %s1.3 = phi i32 [ %rem40, %do.end39 ], [ %s1.2.lcssa, %while.end ]
+  %shl = shl nuw i32 %s2.3, 16
+  %or = or i32 %shl, %s1.3
   ret i32 %or
 }
 

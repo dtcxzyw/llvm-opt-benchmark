@@ -184,13 +184,13 @@ _ZL19pj_imw_p_destructorP8PJconstsi.exit:         ; preds = %47, %50, %53
   br label %81
 
 81:                                               ; preds = %78, %73, %80
-  %.2 = phi double [ 0x3FC1DF46A2529D39, %80 ], [ 0x3FA1DF46A2529D39, %73 ], [ 0x3FB1DF46A2529D39, %78 ]
+  %.099 = phi double [ 0x3FC1DF46A2529D39, %80 ], [ 0x3FA1DF46A2529D39, %73 ], [ 0x3FB1DF46A2529D39, %78 ]
   %82 = getelementptr inbounds i8, ptr %2, i64 88
-  store double %.2, ptr %82, align 8
+  store double %.099, ptr %82, align 8
   br label %83
 
 83:                                               ; preds = %81, %67
-  %84 = phi double [ %.2, %81 ], [ %72, %67 ]
+  %84 = phi double [ %.099, %81 ], [ %72, %67 ]
   %85 = getelementptr inbounds i8, ptr %2, i64 104
   store i32 0, ptr %85, align 8
   %86 = load double, ptr %58, align 8
@@ -620,23 +620,23 @@ define internal fastcc { double, double } @_ZL7loc_for5PJ_LPP8PJconstsPd(double 
   %85 = fmul double %75, %84
   %86 = fcmp ogt double %1, 0.000000e+00
   %87 = fneg double %85
-  %.sroa.070.0 = select i1 %86, double %87, double %85
-  %88 = fadd double %78, %.sroa.070.0
+  %.sroa.070.1 = select i1 %86, double %87, double %85
+  %88 = fadd double %78, %.sroa.070.1
   %89 = fdiv double %88, %80
   %90 = fneg double %89
   %91 = fmul double %89, %90
   %92 = tail call double @llvm.fmuladd.f64(double %31, double %31, double %91)
   %93 = tail call double @sqrt(double noundef %92) #8
   %94 = fneg double %93
-  %.sroa.9.0 = select i1 %86, double %94, double %93
-  %95 = fadd double %76, %.sroa.9.0
+  %.sroa.9.1 = select i1 %86, double %94, double %93
+  %95 = fadd double %76, %.sroa.9.1
   br label %96
 
 96:                                               ; preds = %4, %72
-  %.sroa.070.1 = phi double [ %89, %72 ], [ %0, %4 ]
-  %.sroa.9.1 = phi double [ %95, %72 ], [ 0.000000e+00, %4 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.070.1, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.9.1, 1
+  %.sroa.070.0 = phi double [ %89, %72 ], [ %0, %4 ]
+  %.sroa.9.0 = phi double [ %95, %72 ], [ 0.000000e+00, %4 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.070.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.9.0, 1
   ret { double, double } %.fca.1.insert
 }
 

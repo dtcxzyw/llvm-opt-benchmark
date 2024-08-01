@@ -1227,10 +1227,10 @@ define ptr @cvApproxChains(ptr noundef %0, ptr noundef %1, i32 noundef %2, doubl
   br label %.split113.us
 
 .preheader99.split.split.us:                      ; preds = %.preheader99, %.thread.us
-  %.0111.us114 = phi ptr [ %.3.us, %.thread.us ], [ %0, %.preheader99 ]
-  %.050110.us115 = phi ptr [ %.353.us, %.thread.us ], [ null, %.preheader99 ]
-  %.064109.us116 = phi ptr [ %.165.us123, %.thread.us ], [ null, %.preheader99 ]
-  %.067108.us117 = phi ptr [ %.370.us, %.thread.us ], [ null, %.preheader99 ]
+  %.0111.us114 = phi ptr [ %.1.us, %.thread.us ], [ %0, %.preheader99 ]
+  %.050110.us115 = phi ptr [ %.252.us, %.thread.us ], [ null, %.preheader99 ]
+  %.064109.us116 = phi ptr [ %.266.us123, %.thread.us ], [ null, %.preheader99 ]
+  %.067108.us117 = phi ptr [ %.168.us, %.thread.us ], [ null, %.preheader99 ]
   %36 = getelementptr inbounds i8, ptr %.0111.us114, i64 40
   %37 = load i32, ptr %36, align 8
   %.not79.us118 = icmp slt i32 %37, %4
@@ -1275,7 +1275,7 @@ define ptr @cvApproxChains(ptr noundef %0, ptr noundef %1, i32 noundef %2, doubl
   br label %53
 
 53:                                               ; preds = %52, %38, %.preheader99.split.split.us
-  %.165.us123 = phi ptr [ %.064109.us116, %.preheader99.split.split.us ], [ %spec.select.us122, %52 ], [ %.064109.us116, %38 ]
+  %.266.us123 = phi ptr [ %.064109.us116, %.preheader99.split.split.us ], [ %spec.select.us122, %52 ], [ %.064109.us116, %38 ]
   %.054.us124 = phi i32 [ %37, %.preheader99.split.split.us ], [ %37, %52 ], [ -1, %38 ]
   %.151.us125 = phi ptr [ %.050110.us115, %.preheader99.split.split.us ], [ %39, %52 ], [ %.050110.us115, %38 ]
   %54 = getelementptr inbounds i8, ptr %.0111.us114, i64 32
@@ -1297,26 +1297,26 @@ define ptr @cvApproxChains(ptr noundef %0, ptr noundef %1, i32 noundef %2, doubl
 
 .lr.ph131:                                        ; preds = %.lr.ph.us, %57
   %61 = phi ptr [ %59, %57 ], [ %73, %.lr.ph.us ]
-  %.168103.us130 = phi ptr [ %.269.us, %57 ], [ %.067108.us117, %.lr.ph.us ]
-  %.not86.us = icmp eq ptr %.168103.us130, null
+  %.269103.us130 = phi ptr [ %.370.us, %57 ], [ %.067108.us117, %.lr.ph.us ]
+  %.not86.us = icmp eq ptr %.269103.us130, null
   br i1 %.not86.us, label %65, label %62
 
 62:                                               ; preds = %.lr.ph131
-  %63 = getelementptr inbounds i8, ptr %.168103.us130, i64 24
+  %63 = getelementptr inbounds i8, ptr %.269103.us130, i64 24
   %64 = load ptr, ptr %63, align 8
   br label %65
 
 65:                                               ; preds = %62, %.lr.ph131
-  %.269.us = phi ptr [ %64, %62 ], [ null, %.lr.ph131 ]
+  %.370.us = phi ptr [ %64, %62 ], [ null, %.lr.ph131 ]
   %66 = getelementptr inbounds i8, ptr %61, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %57, label %.thread.us, !llvm.loop !16
 
 .thread.us:                                       ; preds = %65, %.preheader.us, %56
-  %.370.us = phi ptr [ %.151.us125, %56 ], [ %.067108.us117, %.preheader.us ], [ %.269.us, %65 ]
-  %.353.us = phi ptr [ null, %56 ], [ %.151.us125, %.preheader.us ], [ %.168103.us130, %65 ]
-  %.3.us = phi ptr [ %55, %56 ], [ %70, %.preheader.us ], [ %67, %65 ]
+  %.168.us = phi ptr [ %.151.us125, %56 ], [ %.067108.us117, %.preheader.us ], [ %.370.us, %65 ]
+  %.252.us = phi ptr [ null, %56 ], [ %.151.us125, %.preheader.us ], [ %.269103.us130, %65 ]
+  %.1.us = phi ptr [ %55, %56 ], [ %70, %.preheader.us ], [ %67, %65 ]
   br label %.preheader99.split.split.us, !llvm.loop !17
 
 .preheader.us:                                    ; preds = %53
@@ -1378,7 +1378,7 @@ define ptr @cvApproxChains(ptr noundef %0, ptr noundef %1, i32 noundef %2, doubl
   br label %88
 
 .split113.us:                                     ; preds = %.lr.ph.us, %57, %32, %27, %.preheader99.split.us
-  %.us-phi = phi ptr [ null, %.preheader99.split.us ], [ %28, %32 ], [ null, %27 ], [ %.165.us123, %57 ], [ %.165.us123, %.lr.ph.us ]
+  %.us-phi = phi ptr [ null, %.preheader99.split.us ], [ %28, %32 ], [ null, %27 ], [ %.266.us123, %57 ], [ %.266.us123, %.lr.ph.us ]
   ret ptr %.us-phi
 
 88:                                               ; preds = %84, %86, %78, %80, %18, %20
@@ -1744,8 +1744,8 @@ define internal fastcc noundef i32 @_ZN2cvL13approxPolyDP_IiEEiPKNS_6Point_IT_EE
 .lr.ph.us:                                        ; preds = %22, %._crit_edge.us
   %.0198459.us = phi i32 [ %43, %._crit_edge.us ], [ 0, %22 ]
   %.0204458.us = phi i32 [ %spec.store.select1.us, %._crit_edge.us ], [ 0, %22 ]
-  %.sroa.0394.1457.us = phi i32 [ %.sroa.0394.3.us, %._crit_edge.us ], [ 0, %22 ]
-  %24 = add nsw i32 %.0204458.us, %.sroa.0394.1457.us
+  %.sroa.0394.2457.us = phi i32 [ %.sroa.0394.4.us, %._crit_edge.us ], [ 0, %22 ]
+  %24 = add nsw i32 %.0204458.us, %.sroa.0394.2457.us
   %25 = srem i32 %24, %1
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds %"class.cv::Point_", ptr %0, i64 %26
@@ -1762,7 +1762,7 @@ define internal fastcc noundef i32 @_ZN2cvL13approxPolyDP_IiEEiPKNS_6Point_IT_EE
   %.0203454.us = phi i32 [ 1, %.lr.ph.us ], [ %42, %30 ]
   %.1205453.us = phi i32 [ %spec.store.select.us, %.lr.ph.us ], [ %spec.store.select1.us, %30 ]
   %.0214452.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %.1215.us, %30 ]
-  %.sroa.0394.2451.us = phi i32 [ %.sroa.0394.1457.us, %.lr.ph.us ], [ %.sroa.0394.3.us, %30 ]
+  %.sroa.0394.3451.us = phi i32 [ %.sroa.0394.2457.us, %.lr.ph.us ], [ %.sroa.0394.4.us, %30 ]
   %31 = sext i32 %.1205453.us to i64
   %32 = getelementptr inbounds %"class.cv::Point_", ptr %0, i64 %31
   %33 = load i64, ptr %32, align 4
@@ -1779,7 +1779,7 @@ define internal fastcc noundef i32 @_ZN2cvL13approxPolyDP_IiEEiPKNS_6Point_IT_EE
   %39 = fmul double %38, %38
   %40 = tail call double @llvm.fmuladd.f64(double %36, double %36, double %39)
   %41 = fcmp ogt double %40, %.0214452.us
-  %.sroa.0394.3.us = select i1 %41, i32 %.0203454.us, i32 %.sroa.0394.2451.us
+  %.sroa.0394.4.us = select i1 %41, i32 %.0203454.us, i32 %.sroa.0394.3451.us
   %.1215.us = select i1 %41, double %40, double %.0214452.us
   %42 = add nuw nsw i32 %.0203454.us, 1
   %exitcond502.not = icmp eq i32 %42, %1
@@ -1810,7 +1810,7 @@ define internal fastcc noundef i32 @_ZN2cvL13approxPolyDP_IiEEiPKNS_6Point_IT_EE
 
 .split461.us:                                     ; preds = %._crit_edge.us, %.split461
   %.us-phi = phi double [ 0.000000e+00, %.split461 ], [ %.1215.us, %._crit_edge.us ]
-  %.us-phi462 = phi i32 [ 0, %.split461 ], [ %.sroa.0394.3.us, %._crit_edge.us ]
+  %.us-phi462 = phi i32 [ 0, %.split461 ], [ %.sroa.0394.4.us, %._crit_edge.us ]
   %.us-phi463 = phi i64 [ %.sroa.15.0.extract.shift388.le, %.split461 ], [ %.sroa.15.0.extract.shift388.us, %._crit_edge.us ]
   %.us-phi464 = phi i64 [ %49, %.split461 ], [ %28, %._crit_edge.us ]
   %.us-phi465 = phi i32 [ %spec.store.select, %.split461 ], [ %spec.store.select1.us, %._crit_edge.us ]
@@ -1870,9 +1870,9 @@ _ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit277: ; preds = %56, %._crit_ed
   br label %66
 
 66:                                               ; preds = %51, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit277
-  %.3226 = phi i64 [ %65, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit277 ], [ %10, %51 ]
-  %.3220 = phi ptr [ %64, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit277 ], [ %11, %51 ]
-  %67 = getelementptr inbounds i8, ptr %.3220, i64 8
+  %.4227 = phi i64 [ %65, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit277 ], [ %10, %51 ]
+  %.4221 = phi ptr [ %64, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit277 ], [ %11, %51 ]
+  %67 = getelementptr inbounds i8, ptr %.4221, i64 8
   %.sroa.0408.0.insert.insert414 = tail call i64 @llvm.fshl.i64(i64 %.sroa.0394.0.insert.insert507, i64 %.sroa.0394.0.insert.insert507, i64 32)
   store i64 %.sroa.0408.0.insert.insert414, ptr %67, align 4
   br label %.lr.ph480
@@ -1886,20 +1886,20 @@ _ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit277: ; preds = %56, %._crit_ed
 
 .lr.ph480:                                        ; preds = %66, %21
   %.0216.shrunk446.ph = phi i1 [ false, %21 ], [ true, %66 ]
-  %.sroa.0394.4.ph = phi i32 [ %1, %21 ], [ %54, %66 ]
+  %.sroa.0394.1.ph = phi i32 [ %1, %21 ], [ %54, %66 ]
   %.1233.ph = phi i64 [ 1, %21 ], [ 2, %66 ]
-  %.4227.ph = phi i64 [ %10, %21 ], [ %.3226, %66 ]
-  %.4221.ph = phi ptr [ %11, %21 ], [ %.3220, %66 ]
+  %.2225.ph = phi i64 [ %10, %21 ], [ %.4227, %66 ]
+  %.2219.ph = phi ptr [ %11, %21 ], [ %.4221, %66 ]
   %68 = add i32 %1, -1
   %69 = getelementptr inbounds i8, ptr %5, i64 16
   br label %70
 
 70:                                               ; preds = %.lr.ph480, %179
   %.1210478 = phi i32 [ 0, %.lr.ph480 ], [ %.2211, %179 ]
-  %.5222477 = phi ptr [ %.4221.ph, %.lr.ph480 ], [ %.8, %179 ]
-  %.5228476 = phi i64 [ %.4227.ph, %.lr.ph480 ], [ %.8231, %179 ]
+  %.5222477 = phi ptr [ %.2219.ph, %.lr.ph480 ], [ %.6, %179 ]
+  %.5228476 = phi i64 [ %.2225.ph, %.lr.ph480 ], [ %.6229, %179 ]
   %.2234475 = phi i64 [ %.1233.ph, %.lr.ph480 ], [ %.3235, %179 ]
-  %.sroa.0394.5474 = phi i32 [ %.sroa.0394.4.ph, %.lr.ph480 ], [ %.sroa.0394.9, %179 ]
+  %.sroa.0394.5474 = phi i32 [ %.sroa.0394.1.ph, %.lr.ph480 ], [ %.sroa.0394.9, %179 ]
   %71 = add i64 %.2234475, -1
   %72 = getelementptr inbounds %"class.cv::Range", ptr %.5222477, i64 %71
   %73 = load i64, ptr %72, align 4
@@ -2090,18 +2090,18 @@ _ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit293: ; preds = %126, %._crit_e
   br label %148
 
 148:                                              ; preds = %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit293, %121
-  %.6229 = phi i64 [ %147, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit293 ], [ %.5228476, %121 ]
-  %.6 = phi ptr [ %146, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit293 ], [ %.5222477, %121 ]
-  %149 = getelementptr inbounds %"class.cv::Range", ptr %.6, i64 %71
+  %.7230 = phi i64 [ %147, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit293 ], [ %.5228476, %121 ]
+  %.7 = phi ptr [ %146, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit293 ], [ %.5222477, %121 ]
+  %149 = getelementptr inbounds %"class.cv::Range", ptr %.7, i64 %71
   %.sroa.11402.0.insert.shift405 = and i64 %73, -4294967296
   %.sroa.0394.0.insert.ext399 = zext i32 %.sroa.0394.7 to i64
   %.sroa.0394.0.insert.insert401 = or disjoint i64 %.sroa.11402.0.insert.shift405, %.sroa.0394.0.insert.ext399
   store i64 %.sroa.0394.0.insert.insert401, ptr %149, align 4
-  %.not258 = icmp ult i64 %.2234475, %.6229
+  %.not258 = icmp ult i64 %.2234475, %.7230
   br i1 %.not258, label %176, label %150
 
 150:                                              ; preds = %148
-  %151 = mul i64 %.6229, 3
+  %151 = mul i64 %.7230, 3
   %152 = lshr i64 %151, 1
   %153 = load i64, ptr %9, align 8
   %.not.i294 = icmp ult i64 %153, %152
@@ -2172,10 +2172,10 @@ _ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit309: ; preds = %154, %._crit_e
   br label %176
 
 176:                                              ; preds = %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit309, %148
-  %.7230 = phi i64 [ %175, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit309 ], [ %.6229, %148 ]
-  %.7 = phi ptr [ %174, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit309 ], [ %.6, %148 ]
+  %.8231 = phi i64 [ %175, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit309 ], [ %.7230, %148 ]
+  %.8 = phi ptr [ %174, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit309 ], [ %.7, %148 ]
   %177 = add i64 %.2234475, 1
-  %178 = getelementptr inbounds %"class.cv::Range", ptr %.7, i64 %.2234475
+  %178 = getelementptr inbounds %"class.cv::Range", ptr %.8, i64 %.2234475
   %.sroa.9419.0.insert.shift427 = shl nuw i64 %.sroa.0394.0.insert.ext399, 32
   %.sroa.0408.0.insert.ext416 = and i64 %73, 4294967295
   %.sroa.0408.0.insert.insert418 = or disjoint i64 %.sroa.9419.0.insert.shift427, %.sroa.0408.0.insert.ext416
@@ -2185,8 +2185,8 @@ _ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit309: ; preds = %154, %._crit_e
 179:                                              ; preds = %176, %.critedge
   %.sroa.0394.9 = phi i32 [ %.sroa.0394.8, %.critedge ], [ %.sroa.0394.7, %176 ]
   %.3235 = phi i64 [ %71, %.critedge ], [ %177, %176 ]
-  %.8231 = phi i64 [ %.5228476, %.critedge ], [ %.7230, %176 ]
-  %.8 = phi ptr [ %.5222477, %.critedge ], [ %.7, %176 ]
+  %.6229 = phi i64 [ %.5228476, %.critedge ], [ %.8231, %176 ]
+  %.6 = phi ptr [ %.5222477, %.critedge ], [ %.8, %176 ]
   %.2211 = phi i32 [ %118, %.critedge ], [ %.1210478, %176 ]
   %.not246 = icmp eq i64 %.3235, 0
   br i1 %.not246, label %._crit_edge481, label %70, !llvm.loop !26
@@ -2385,8 +2385,8 @@ define internal fastcc noundef i32 @_ZN2cvL13approxPolyDP_IfEEiPKNS_6Point_IT_EE
 .lr.ph.us:                                        ; preds = %26, %._crit_edge.us
   %.0198432.us = phi i32 [ %50, %._crit_edge.us ], [ 0, %26 ]
   %.0204431.us = phi i32 [ %spec.store.select1.us, %._crit_edge.us ], [ 0, %26 ]
-  %.sroa.0367.1430.us = phi i32 [ %.sroa.0367.3.us, %._crit_edge.us ], [ 0, %26 ]
-  %28 = add nsw i32 %.0204431.us, %.sroa.0367.1430.us
+  %.sroa.0367.2430.us = phi i32 [ %.sroa.0367.4.us, %._crit_edge.us ], [ 0, %26 ]
+  %28 = add nsw i32 %.0204431.us, %.sroa.0367.2430.us
   %29 = srem i32 %28, %1
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds %"class.cv::Point_.10", ptr %0, i64 %30
@@ -2402,7 +2402,7 @@ define internal fastcc noundef i32 @_ZN2cvL13approxPolyDP_IfEEiPKNS_6Point_IT_EE
   %.0203427.us = phi i32 [ 1, %.lr.ph.us ], [ %49, %36 ]
   %.1205426.us = phi i32 [ %spec.store.select.us, %.lr.ph.us ], [ %spec.store.select1.us, %36 ]
   %.0214425.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %.1215.us, %36 ]
-  %.sroa.0367.2424.us = phi i32 [ %.sroa.0367.1430.us, %.lr.ph.us ], [ %.sroa.0367.3.us, %36 ]
+  %.sroa.0367.3424.us = phi i32 [ %.sroa.0367.2430.us, %.lr.ph.us ], [ %.sroa.0367.4.us, %36 ]
   %37 = sext i32 %.1205426.us to i64
   %38 = getelementptr inbounds %"class.cv::Point_.10", ptr %0, i64 %37
   %39 = load float, ptr %38, align 4
@@ -2418,7 +2418,7 @@ define internal fastcc noundef i32 @_ZN2cvL13approxPolyDP_IfEEiPKNS_6Point_IT_EE
   %46 = fmul double %45, %45
   %47 = tail call double @llvm.fmuladd.f64(double %43, double %43, double %46)
   %48 = fcmp ogt double %47, %.0214425.us
-  %.sroa.0367.3.us = select i1 %48, i32 %.0203427.us, i32 %.sroa.0367.2424.us
+  %.sroa.0367.4.us = select i1 %48, i32 %.0203427.us, i32 %.sroa.0367.3424.us
   %.1215.us = select i1 %48, double %47, double %.0214425.us
   %49 = add nuw nsw i32 %.0203427.us, 1
   %exitcond473.not = icmp eq i32 %49, %1
@@ -2448,7 +2448,7 @@ define internal fastcc noundef i32 @_ZN2cvL13approxPolyDP_IfEEiPKNS_6Point_IT_EE
 
 .split434.us:                                     ; preds = %._crit_edge.us, %.split434
   %.us-phi = phi double [ 0.000000e+00, %.split434 ], [ %.1215.us, %._crit_edge.us ]
-  %.us-phi435 = phi i32 [ 0, %.split434 ], [ %.sroa.0367.3.us, %._crit_edge.us ]
+  %.us-phi435 = phi i32 [ 0, %.split434 ], [ %.sroa.0367.4.us, %._crit_edge.us ]
   %.us-phi438 = phi i32 [ %spec.store.select, %.split434 ], [ %spec.store.select1.us, %._crit_edge.us ]
   %57 = phi <2 x float> [ %56, %.split434 ], [ %32, %._crit_edge.us ]
   %58 = fcmp ugt double %.us-phi, %14
@@ -2507,9 +2507,9 @@ _ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit275: ; preds = %64, %._crit_ed
   br label %74
 
 74:                                               ; preds = %59, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit275
-  %.3226 = phi i64 [ %73, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit275 ], [ %10, %59 ]
-  %.3220 = phi ptr [ %72, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit275 ], [ %11, %59 ]
-  %75 = getelementptr inbounds i8, ptr %.3220, i64 8
+  %.4227 = phi i64 [ %73, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit275 ], [ %10, %59 ]
+  %.4221 = phi ptr [ %72, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit275 ], [ %11, %59 ]
+  %75 = getelementptr inbounds i8, ptr %.4221, i64 8
   %.sroa.0381.0.insert.insert387 = tail call i64 @llvm.fshl.i64(i64 %.sroa.0367.0.insert.insert478, i64 %.sroa.0367.0.insert.insert478, i64 32)
   store i64 %.sroa.0381.0.insert.insert387, ptr %75, align 4
   br label %.lr.ph453
@@ -2520,20 +2520,20 @@ _ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit275: ; preds = %64, %._crit_ed
 
 .lr.ph453:                                        ; preds = %74, %25
   %.0216.shrunk419.ph = phi i1 [ false, %25 ], [ true, %74 ]
-  %.sroa.0367.4.ph = phi i32 [ %1, %25 ], [ %62, %74 ]
+  %.sroa.0367.1.ph = phi i32 [ %1, %25 ], [ %62, %74 ]
   %.1233.ph = phi i64 [ 1, %25 ], [ 2, %74 ]
-  %.4227.ph = phi i64 [ %10, %25 ], [ %.3226, %74 ]
-  %.4221.ph = phi ptr [ %11, %25 ], [ %.3220, %74 ]
+  %.2225.ph = phi i64 [ %10, %25 ], [ %.4227, %74 ]
+  %.2219.ph = phi ptr [ %11, %25 ], [ %.4221, %74 ]
   %76 = add i32 %1, -1
   %77 = getelementptr inbounds i8, ptr %5, i64 16
   br label %78
 
 78:                                               ; preds = %.lr.ph453, %192
   %.1210451 = phi i32 [ 0, %.lr.ph453 ], [ %.2211, %192 ]
-  %.5222450 = phi ptr [ %.4221.ph, %.lr.ph453 ], [ %.8, %192 ]
-  %.5228449 = phi i64 [ %.4227.ph, %.lr.ph453 ], [ %.8231, %192 ]
+  %.5222450 = phi ptr [ %.2219.ph, %.lr.ph453 ], [ %.6, %192 ]
+  %.5228449 = phi i64 [ %.2225.ph, %.lr.ph453 ], [ %.6229, %192 ]
   %.2234448 = phi i64 [ %.1233.ph, %.lr.ph453 ], [ %.3235, %192 ]
-  %.sroa.0367.5447 = phi i32 [ %.sroa.0367.4.ph, %.lr.ph453 ], [ %.sroa.0367.9, %192 ]
+  %.sroa.0367.5447 = phi i32 [ %.sroa.0367.1.ph, %.lr.ph453 ], [ %.sroa.0367.9, %192 ]
   %79 = add i64 %.2234448, -1
   %80 = getelementptr inbounds %"class.cv::Range", ptr %.5222450, i64 %79
   %81 = load i64, ptr %80, align 4
@@ -2725,18 +2725,18 @@ _ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit291: ; preds = %139, %._crit_e
   br label %161
 
 161:                                              ; preds = %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit291, %134
-  %.6229 = phi i64 [ %160, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit291 ], [ %.5228449, %134 ]
-  %.6 = phi ptr [ %159, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit291 ], [ %.5222450, %134 ]
-  %162 = getelementptr inbounds %"class.cv::Range", ptr %.6, i64 %79
+  %.7230 = phi i64 [ %160, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit291 ], [ %.5228449, %134 ]
+  %.7 = phi ptr [ %159, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit291 ], [ %.5222450, %134 ]
+  %162 = getelementptr inbounds %"class.cv::Range", ptr %.7, i64 %79
   %.sroa.11375.0.insert.shift378 = and i64 %81, -4294967296
   %.sroa.0367.0.insert.ext372 = zext i32 %.sroa.0367.7 to i64
   %.sroa.0367.0.insert.insert374 = or disjoint i64 %.sroa.11375.0.insert.shift378, %.sroa.0367.0.insert.ext372
   store i64 %.sroa.0367.0.insert.insert374, ptr %162, align 4
-  %.not256 = icmp ult i64 %.2234448, %.6229
+  %.not256 = icmp ult i64 %.2234448, %.7230
   br i1 %.not256, label %189, label %163
 
 163:                                              ; preds = %161
-  %164 = mul i64 %.6229, 3
+  %164 = mul i64 %.7230, 3
   %165 = lshr i64 %164, 1
   %166 = load i64, ptr %9, align 8
   %.not.i292 = icmp ult i64 %166, %165
@@ -2807,10 +2807,10 @@ _ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit307: ; preds = %167, %._crit_e
   br label %189
 
 189:                                              ; preds = %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit307, %161
-  %.7230 = phi i64 [ %188, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit307 ], [ %.6229, %161 ]
-  %.7 = phi ptr [ %187, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit307 ], [ %.6, %161 ]
+  %.8231 = phi i64 [ %188, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit307 ], [ %.7230, %161 ]
+  %.8 = phi ptr [ %187, %_ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit307 ], [ %.7, %161 ]
   %190 = add i64 %.2234448, 1
-  %191 = getelementptr inbounds %"class.cv::Range", ptr %.7, i64 %.2234448
+  %191 = getelementptr inbounds %"class.cv::Range", ptr %.8, i64 %.2234448
   %.sroa.9392.0.insert.shift400 = shl nuw i64 %.sroa.0367.0.insert.ext372, 32
   %.sroa.0381.0.insert.ext389 = and i64 %81, 4294967295
   %.sroa.0381.0.insert.insert391 = or disjoint i64 %.sroa.9392.0.insert.shift400, %.sroa.0381.0.insert.ext389
@@ -2820,8 +2820,8 @@ _ZN2cv10AutoBufferINS_5RangeELm136EE6resizeEm.exit307: ; preds = %167, %._crit_e
 192:                                              ; preds = %189, %.critedge
   %.sroa.0367.9 = phi i32 [ %.sroa.0367.8, %.critedge ], [ %.sroa.0367.7, %189 ]
   %.3235 = phi i64 [ %79, %.critedge ], [ %190, %189 ]
-  %.8231 = phi i64 [ %.5228449, %.critedge ], [ %.7230, %189 ]
-  %.8 = phi ptr [ %.5222450, %.critedge ], [ %.7, %189 ]
+  %.6229 = phi i64 [ %.5228449, %.critedge ], [ %.8231, %189 ]
+  %.6 = phi ptr [ %.5222450, %.critedge ], [ %.8, %189 ]
   %.2211 = phi i32 [ %131, %.critedge ], [ %.1210451, %189 ]
   %.not244 = icmp eq i64 %.3235, 0
   br i1 %.not244, label %._crit_edge454, label %78, !llvm.loop !31
@@ -3424,9 +3424,9 @@ define ptr @cvApproxPoly(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 nou
   br label %252
 
 .lr.ph235:                                        ; preds = %.preheader198.split.preheader, %.thread194
-  %.0122207234 = phi ptr [ %.3125, %.thread194 ], [ null, %.preheader198.split.preheader ]
-  %.1118208233 = phi ptr [ %.4121, %.thread194 ], [ %.0117190, %.preheader198.split.preheader ]
-  %.0113209232 = phi ptr [ %.2115, %.thread194 ], [ null, %.preheader198.split.preheader ]
+  %.0122207234 = phi ptr [ %.1123, %.thread194 ], [ null, %.preheader198.split.preheader ]
+  %.1118208233 = phi ptr [ %.2119, %.thread194 ], [ %.0117190, %.preheader198.split.preheader ]
+  %.0113209232 = phi ptr [ %.1114, %.thread194 ], [ null, %.preheader198.split.preheader ]
   %.0108210231 = phi ptr [ %spec.select, %.thread194 ], [ null, %.preheader198.split.preheader ]
   %148 = getelementptr inbounds i8, ptr %.1118208233, i64 40
   %149 = load i32, ptr %148, align 8
@@ -3640,34 +3640,34 @@ _ZN2cv10AutoBufferINS_6Point_IiEELm136EE8allocateEm.exit: ; preds = %.noexc, %_Z
   br i1 %230, label %.lr.ph, label %.thread194
 
 .lr.ph:                                           ; preds = %.preheader, %238
-  %.2119203 = phi ptr [ %232, %238 ], [ %.1118208233, %.preheader ]
-  %.1123202 = phi ptr [ %.2124, %238 ], [ %.0122207234, %.preheader ]
-  %231 = getelementptr inbounds i8, ptr %.2119203, i64 24
+  %.3120203 = phi ptr [ %232, %238 ], [ %.1118208233, %.preheader ]
+  %.2124202 = phi ptr [ %.3125, %238 ], [ %.0122207234, %.preheader ]
+  %231 = getelementptr inbounds i8, ptr %.3120203, i64 24
   %232 = load ptr, ptr %231, align 8
   %233 = icmp eq ptr %232, null
   br i1 %233, label %.thread194.thread, label %234
 
 234:                                              ; preds = %.lr.ph
-  %.not163 = icmp eq ptr %.1123202, null
+  %.not163 = icmp eq ptr %.2124202, null
   br i1 %.not163, label %238, label %235
 
 235:                                              ; preds = %234
-  %236 = getelementptr inbounds i8, ptr %.1123202, i64 24
+  %236 = getelementptr inbounds i8, ptr %.2124202, i64 24
   %237 = load ptr, ptr %236, align 8
   br label %238
 
 238:                                              ; preds = %235, %234
-  %.2124 = phi ptr [ %237, %235 ], [ null, %234 ]
+  %.3125 = phi ptr [ %237, %235 ], [ null, %234 ]
   %239 = getelementptr inbounds i8, ptr %232, i64 16
   %240 = load ptr, ptr %239, align 8
   %241 = icmp eq ptr %240, null
   br i1 %241, label %.lr.ph, label %.thread194, !llvm.loop !33
 
 .thread194:                                       ; preds = %238, %.preheader, %225
-  %.3125 = phi ptr [ %203, %225 ], [ %.0122207234, %.preheader ], [ %.2124, %238 ]
-  %.4121 = phi ptr [ %227, %225 ], [ %229, %.preheader ], [ %240, %238 ]
-  %.2115 = phi ptr [ null, %225 ], [ %203, %.preheader ], [ %.1123202, %238 ]
-  %242 = load i32, ptr %.4121, align 8
+  %.1123 = phi ptr [ %203, %225 ], [ %.0122207234, %.preheader ], [ %.3125, %238 ]
+  %.2119 = phi ptr [ %227, %225 ], [ %229, %.preheader ], [ %240, %238 ]
+  %.1114 = phi ptr [ null, %225 ], [ %203, %.preheader ], [ %.2124202, %238 ]
+  %242 = load i32, ptr %.2119, align 8
   %243 = and i32 %242, 4094
   %switch176 = icmp eq i32 %243, 12
   br i1 %switch176, label %.lr.ph235, label %.preheader198.split._crit_edge, !llvm.loop !34
@@ -4345,7 +4345,7 @@ _ZNSt14priority_queueI7changesSt6vectorIS0_SaIS0_EESt7greaterIS0_EED2Ev.exit: ; 
 
 253:                                              ; preds = %.lr.ph218, %358
   %.097217 = phi i32 [ %143, %.lr.ph218 ], [ %.198, %358 ]
-  %.099216 = phi float [ 0.000000e+00, %.lr.ph218 ], [ %.2101, %358 ]
+  %.099216 = phi float [ 0.000000e+00, %.lr.ph218 ], [ %.1100, %358 ]
   %254 = load ptr, ptr %25, align 8
   %.sroa.0.0.copyload = load float, ptr %254, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %254, i64 4
@@ -4489,7 +4489,7 @@ _ZNSt14priority_queueI7changesSt6vectorIS0_SaIS0_EESt7greaterIS0_EE3popEv.exit: 
   br i1 %339, label %._crit_edge, label %340
 
 340:                                              ; preds = %337, %336
-  %.1100 = phi float [ %338, %337 ], [ %.099216, %336 ]
+  %.2101 = phi float [ %338, %337 ], [ %.099216, %336 ]
   %341 = add nsw i32 %.097217, -1
   %342 = getelementptr inbounds i8, ptr %257, i64 4
   store i64 %255, ptr %342, align 4
@@ -4517,7 +4517,7 @@ _ZNSt14priority_queueI7changesSt6vectorIS0_SaIS0_EESt7greaterIS0_EE3popEv.exit: 
   br label %358
 
 358:                                              ; preds = %_ZNSt14priority_queueI7changesSt6vectorIS0_SaIS0_EESt7greaterIS0_EE3popEv.exit, %335, %340
-  %.2101 = phi float [ %.099216, %_ZNSt14priority_queueI7changesSt6vectorIS0_SaIS0_EESt7greaterIS0_EE3popEv.exit ], [ %.099216, %335 ], [ %.1100, %340 ]
+  %.1100 = phi float [ %.099216, %_ZNSt14priority_queueI7changesSt6vectorIS0_SaIS0_EESt7greaterIS0_EE3popEv.exit ], [ %.099216, %335 ], [ %.2101, %340 ]
   %.198 = phi i32 [ %.097217, %_ZNSt14priority_queueI7changesSt6vectorIS0_SaIS0_EESt7greaterIS0_EE3popEv.exit ], [ %.097217, %335 ], [ %341, %340 ]
   %359 = icmp sgt i32 %.198, %2
   br i1 %359, label %253, label %._crit_edge, !llvm.loop !42

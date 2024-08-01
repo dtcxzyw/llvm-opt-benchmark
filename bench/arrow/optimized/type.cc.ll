@@ -6822,11 +6822,11 @@ _ZN5arrow6Status11DeleteStateEv.exit.i:           ; preds = %if.end8.sink.split.
   br label %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit
 
 _ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitorD2Ev.exit: ; preds = %sw.bb84.i, %if.else.i.i.i.i.i.i1851.i, %if.then.i.i.i.i.i.i1815.i, %sw.bb82.i, %if.else.i.i.i.i.i.i1804.i, %if.then.i.i.i.i.i.i1768.i, %sw.bb80.i, %if.else.i.i.i.i.i.i1757.i, %if.then.i.i.i.i.i.i1721.i, %sw.bb78.i, %if.else.i.i.i.i.i.i1710.i, %if.then.i.i.i.i.i.i1674.i, %sw.bb76.i, %if.else.i.i.i.i.i.i1663.i, %if.then.i.i.i.i.i.i1627.i, %sw.bb74.i, %if.else.i.i.i.i.i.i1616.i, %if.then.i.i.i.i.i.i1580.i, %sw.bb72.i, %if.else.i.i.i.i.i.i1569.i, %if.then.i.i.i.i.i.i1533.i, %sw.bb70.i, %if.else.i.i.i.i.i.i1522.i, %if.then.i.i.i.i.i.i1486.i, %sw.bb68.i, %if.else.i.i.i.i.i.i1475.i, %if.then.i.i.i.i.i.i1439.i, %sw.bb66.i, %if.else.i.i.i.i.i.i1428.i, %if.then.i.i.i.i.i.i1392.i, %sw.bb64.i, %if.else.i.i.i.i.i.i1381.i, %if.then.i.i.i.i.i.i1345.i, %sw.bb62.i, %if.else.i.i.i.i.i.i1334.i, %if.then.i.i.i.i.i.i1298.i, %sw.bb60.i, %if.else.i.i.i.i.i.i1287.i, %if.then.i.i.i.i.i.i1251.i, %sw.bb58.i, %if.else.i.i.i.i.i.i1240.i, %if.then.i.i.i.i.i.i1204.i, %if.else.i.i.i.i.i.i.i1137.i, %if.then.i.i.i.i.i.i.i1102.i, %call.i.i1097.i.noexc, %if.else.i.i.i.i.i.i.i1064.i, %if.then.i.i.i.i.i.i.i1029.i, %call.i.i1024.i.noexc, %if.else.i.i.i.i.i.i.i1023.i, %if.then.i.i.i.i.i.i.i988.i, %call.i.i983.i.noexc, %if.else.i.i.i.i.i.i.i982.i, %if.then.i.i.i.i.i.i.i947.i, %call.i.i942.i.noexc, %if.else.i.i.i.i.i.i.i941.i, %if.then.i.i.i.i.i.i.i906.i, %call.i.i901.i.noexc, %if.else.i.i.i.i.i.i.i900.i, %if.then.i.i.i.i.i.i.i865.i, %call.i.i860.i.noexc, %if.else.i.i.i.i.i.i.i859.i, %if.then.i.i.i.i.i.i.i824.i, %call.i.i819.i.noexc, %sw.bb38.i, %if.else.i.i.i.i.i.i817.i, %if.then.i.i.i.i.i.i781.i, %if.else.i.i.i.i.i.i.i771.i, %if.then.i.i.i.i.i.i.i736.i, %call.i.i731.i.noexc, %if.else.i.i.i.i.i.i.i730.i, %if.then.i.i.i.i.i.i.i696.i, %call.i.i691.i.noexc, %if.else.i.i.i.i.i.i.i690.i, %if.then.i.i.i.i.i.i.i655.i, %call.i.i650.i.noexc, %if.else.i.i.i.i.i.i.i649.i, %if.then.i.i.i.i.i.i.i614.i, %call.i.i609.i.noexc, %if.else.i.i.i.i.i.i.i608.i, %if.then.i.i.i.i.i.i.i574.i, %call.i.i569.i.noexc, %if.else.i.i.i.i.i.i.i568.i, %if.then.i.i.i.i.i.i.i534.i, %call.i.i529.i.noexc, %if.else.i.i.i.i.i.i.i528.i, %if.then.i.i.i.i.i.i.i494.i, %call.i.i489.i.noexc, %if.else.i.i.i.i.i.i.i488.i, %if.then.i.i.i.i.i.i.i454.i, %call.i.i449.i.noexc, %if.else.i.i.i.i.i.i.i448.i, %if.then.i.i.i.i.i.i.i414.i, %call.i.i409.i.noexc, %if.else.i.i.i.i.i.i.i408.i, %if.then.i.i.i.i.i.i.i374.i, %call.i.i369.i.noexc, %if.else.i.i.i.i.i.i.i368.i, %if.then.i.i.i.i.i.i.i334.i, %call.i.i329.i.noexc, %if.else.i.i.i.i.i.i.i328.i, %if.then.i.i.i.i.i.i.i294.i, %call.i.i289.i.noexc, %if.else.i.i.i.i.i.i.i288.i, %if.then.i.i.i.i.i.i.i254.i, %call.i.i249.i.noexc, %if.else.i.i.i.i.i.i.i248.i, %if.then.i.i.i.i.i.i.i214.i, %call.i.i209.i.noexc, %if.else.i.i.i.i.i.i.i208.i, %if.then.i.i.i.i.i.i.i174.i, %call.i.i169.i.noexc, %if.else.i.i.i.i.i.i.i168.i, %if.then.i.i.i.i.i.i.i134.i, %call.i.i129.i.noexc, %if.else.i.i.i.i.i.i.i128.i, %if.then.i.i.i.i.i.i.i94.i, %call.i.i89.i.noexc, %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i, %call.i.i.i.noexc, %sw.bb.i, %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_19DayTimeIntervalTypeES3_EENS_6StatusERKT_.exit.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_24MonthDayNanoIntervalTypeES3_EENS_6StatusERKT_.exit.i, %invoke.cont, %_ZN5arrow6Status11DeleteStateEv.exit.i, %cleanup.done34
-  %visitor.sroa.63.16207216 = phi ptr [ null, %cleanup.done34 ], [ null, %_ZN5arrow6Status11DeleteStateEv.exit.i ], [ null, %invoke.cont ], [ %call5.i.i.i3.i.i.i.i.i.i.i1138.i32, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_19DayTimeIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %call5.i.i.i3.i.i.i.i.i.i.i.i30, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_24MonthDayNanoIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %2, %if.then.i.i.i.i.i.i.i ], [ %2, %if.else.i.i.i.i.i.i.i ], [ %2, %sw.bb.i ], [ %7, %call.i.i.i.noexc ], [ %7, %if.then.i.i.i.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i.i.i.i ], [ %12, %call.i.i89.i.noexc ], [ %12, %if.then.i.i.i.i.i.i.i94.i ], [ %12, %if.else.i.i.i.i.i.i.i128.i ], [ %17, %call.i.i129.i.noexc ], [ %17, %if.then.i.i.i.i.i.i.i134.i ], [ %17, %if.else.i.i.i.i.i.i.i168.i ], [ %22, %call.i.i169.i.noexc ], [ %22, %if.then.i.i.i.i.i.i.i174.i ], [ %22, %if.else.i.i.i.i.i.i.i208.i ], [ %27, %call.i.i209.i.noexc ], [ %27, %if.then.i.i.i.i.i.i.i214.i ], [ %27, %if.else.i.i.i.i.i.i.i248.i ], [ %32, %call.i.i249.i.noexc ], [ %32, %if.then.i.i.i.i.i.i.i254.i ], [ %32, %if.else.i.i.i.i.i.i.i288.i ], [ %37, %call.i.i289.i.noexc ], [ %37, %if.then.i.i.i.i.i.i.i294.i ], [ %37, %if.else.i.i.i.i.i.i.i328.i ], [ %42, %call.i.i329.i.noexc ], [ %42, %if.then.i.i.i.i.i.i.i334.i ], [ %42, %if.else.i.i.i.i.i.i.i368.i ], [ %47, %call.i.i369.i.noexc ], [ %47, %if.then.i.i.i.i.i.i.i374.i ], [ %47, %if.else.i.i.i.i.i.i.i408.i ], [ %52, %call.i.i409.i.noexc ], [ %52, %if.then.i.i.i.i.i.i.i414.i ], [ %52, %if.else.i.i.i.i.i.i.i448.i ], [ %57, %call.i.i449.i.noexc ], [ %57, %if.then.i.i.i.i.i.i.i454.i ], [ %57, %if.else.i.i.i.i.i.i.i488.i ], [ %62, %call.i.i489.i.noexc ], [ %62, %if.then.i.i.i.i.i.i.i494.i ], [ %62, %if.else.i.i.i.i.i.i.i528.i ], [ %67, %call.i.i529.i.noexc ], [ %67, %if.then.i.i.i.i.i.i.i534.i ], [ %67, %if.else.i.i.i.i.i.i.i568.i ], [ %72, %call.i.i569.i.noexc ], [ %72, %if.then.i.i.i.i.i.i.i574.i ], [ %72, %if.else.i.i.i.i.i.i.i608.i ], [ %77, %call.i.i609.i.noexc ], [ %77, %if.then.i.i.i.i.i.i.i614.i ], [ %77, %if.else.i.i.i.i.i.i.i649.i ], [ %82, %call.i.i650.i.noexc ], [ %82, %if.then.i.i.i.i.i.i.i655.i ], [ %82, %if.else.i.i.i.i.i.i.i690.i ], [ %87, %call.i.i691.i.noexc ], [ %87, %if.then.i.i.i.i.i.i.i696.i ], [ %87, %if.else.i.i.i.i.i.i.i730.i ], [ %92, %call.i.i731.i.noexc ], [ %92, %if.then.i.i.i.i.i.i.i736.i ], [ %92, %if.else.i.i.i.i.i.i.i771.i ], [ %96, %if.then.i.i.i.i.i.i781.i ], [ %96, %if.else.i.i.i.i.i.i817.i ], [ %96, %sw.bb38.i ], [ %101, %call.i.i819.i.noexc ], [ %101, %if.then.i.i.i.i.i.i.i824.i ], [ %101, %if.else.i.i.i.i.i.i.i859.i ], [ %106, %call.i.i860.i.noexc ], [ %106, %if.then.i.i.i.i.i.i.i865.i ], [ %106, %if.else.i.i.i.i.i.i.i900.i ], [ %111, %call.i.i901.i.noexc ], [ %111, %if.then.i.i.i.i.i.i.i906.i ], [ %111, %if.else.i.i.i.i.i.i.i941.i ], [ %116, %call.i.i942.i.noexc ], [ %116, %if.then.i.i.i.i.i.i.i947.i ], [ %116, %if.else.i.i.i.i.i.i.i982.i ], [ %121, %call.i.i983.i.noexc ], [ %121, %if.then.i.i.i.i.i.i.i988.i ], [ %121, %if.else.i.i.i.i.i.i.i1023.i ], [ %126, %call.i.i1024.i.noexc ], [ %126, %if.then.i.i.i.i.i.i.i1029.i ], [ %126, %if.else.i.i.i.i.i.i.i1064.i ], [ %138, %call.i.i1097.i.noexc ], [ %138, %if.then.i.i.i.i.i.i.i1102.i ], [ %138, %if.else.i.i.i.i.i.i.i1137.i ], [ %149, %if.then.i.i.i.i.i.i1204.i ], [ %149, %if.else.i.i.i.i.i.i1240.i ], [ %149, %sw.bb58.i ], [ %153, %if.then.i.i.i.i.i.i1251.i ], [ %153, %if.else.i.i.i.i.i.i1287.i ], [ %153, %sw.bb60.i ], [ %157, %if.then.i.i.i.i.i.i1298.i ], [ %157, %if.else.i.i.i.i.i.i1334.i ], [ %157, %sw.bb62.i ], [ %161, %if.then.i.i.i.i.i.i1345.i ], [ %161, %if.else.i.i.i.i.i.i1381.i ], [ %161, %sw.bb64.i ], [ %165, %if.then.i.i.i.i.i.i1392.i ], [ %165, %if.else.i.i.i.i.i.i1428.i ], [ %165, %sw.bb66.i ], [ %169, %if.then.i.i.i.i.i.i1439.i ], [ %169, %if.else.i.i.i.i.i.i1475.i ], [ %169, %sw.bb68.i ], [ %173, %if.then.i.i.i.i.i.i1486.i ], [ %173, %if.else.i.i.i.i.i.i1522.i ], [ %173, %sw.bb70.i ], [ %177, %if.then.i.i.i.i.i.i1533.i ], [ %177, %if.else.i.i.i.i.i.i1569.i ], [ %177, %sw.bb72.i ], [ %181, %if.then.i.i.i.i.i.i1580.i ], [ %181, %if.else.i.i.i.i.i.i1616.i ], [ %181, %sw.bb74.i ], [ %185, %if.then.i.i.i.i.i.i1627.i ], [ %185, %if.else.i.i.i.i.i.i1663.i ], [ %185, %sw.bb76.i ], [ %189, %if.then.i.i.i.i.i.i1674.i ], [ %189, %if.else.i.i.i.i.i.i1710.i ], [ %189, %sw.bb78.i ], [ %193, %if.then.i.i.i.i.i.i1721.i ], [ %193, %if.else.i.i.i.i.i.i1757.i ], [ %193, %sw.bb80.i ], [ %197, %if.then.i.i.i.i.i.i1768.i ], [ %197, %if.else.i.i.i.i.i.i1804.i ], [ %197, %sw.bb82.i ], [ %201, %if.then.i.i.i.i.i.i1815.i ], [ %201, %if.else.i.i.i.i.i.i1851.i ], [ %201, %sw.bb84.i ]
+  %visitor.sroa.63.17207216 = phi ptr [ null, %cleanup.done34 ], [ null, %_ZN5arrow6Status11DeleteStateEv.exit.i ], [ null, %invoke.cont ], [ %call5.i.i.i3.i.i.i.i.i.i.i1138.i32, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_19DayTimeIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %call5.i.i.i3.i.i.i.i.i.i.i.i30, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_24MonthDayNanoIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %2, %if.then.i.i.i.i.i.i.i ], [ %2, %if.else.i.i.i.i.i.i.i ], [ %2, %sw.bb.i ], [ %7, %call.i.i.i.noexc ], [ %7, %if.then.i.i.i.i.i.i.i.i ], [ %7, %if.else.i.i.i.i.i.i.i.i ], [ %12, %call.i.i89.i.noexc ], [ %12, %if.then.i.i.i.i.i.i.i94.i ], [ %12, %if.else.i.i.i.i.i.i.i128.i ], [ %17, %call.i.i129.i.noexc ], [ %17, %if.then.i.i.i.i.i.i.i134.i ], [ %17, %if.else.i.i.i.i.i.i.i168.i ], [ %22, %call.i.i169.i.noexc ], [ %22, %if.then.i.i.i.i.i.i.i174.i ], [ %22, %if.else.i.i.i.i.i.i.i208.i ], [ %27, %call.i.i209.i.noexc ], [ %27, %if.then.i.i.i.i.i.i.i214.i ], [ %27, %if.else.i.i.i.i.i.i.i248.i ], [ %32, %call.i.i249.i.noexc ], [ %32, %if.then.i.i.i.i.i.i.i254.i ], [ %32, %if.else.i.i.i.i.i.i.i288.i ], [ %37, %call.i.i289.i.noexc ], [ %37, %if.then.i.i.i.i.i.i.i294.i ], [ %37, %if.else.i.i.i.i.i.i.i328.i ], [ %42, %call.i.i329.i.noexc ], [ %42, %if.then.i.i.i.i.i.i.i334.i ], [ %42, %if.else.i.i.i.i.i.i.i368.i ], [ %47, %call.i.i369.i.noexc ], [ %47, %if.then.i.i.i.i.i.i.i374.i ], [ %47, %if.else.i.i.i.i.i.i.i408.i ], [ %52, %call.i.i409.i.noexc ], [ %52, %if.then.i.i.i.i.i.i.i414.i ], [ %52, %if.else.i.i.i.i.i.i.i448.i ], [ %57, %call.i.i449.i.noexc ], [ %57, %if.then.i.i.i.i.i.i.i454.i ], [ %57, %if.else.i.i.i.i.i.i.i488.i ], [ %62, %call.i.i489.i.noexc ], [ %62, %if.then.i.i.i.i.i.i.i494.i ], [ %62, %if.else.i.i.i.i.i.i.i528.i ], [ %67, %call.i.i529.i.noexc ], [ %67, %if.then.i.i.i.i.i.i.i534.i ], [ %67, %if.else.i.i.i.i.i.i.i568.i ], [ %72, %call.i.i569.i.noexc ], [ %72, %if.then.i.i.i.i.i.i.i574.i ], [ %72, %if.else.i.i.i.i.i.i.i608.i ], [ %77, %call.i.i609.i.noexc ], [ %77, %if.then.i.i.i.i.i.i.i614.i ], [ %77, %if.else.i.i.i.i.i.i.i649.i ], [ %82, %call.i.i650.i.noexc ], [ %82, %if.then.i.i.i.i.i.i.i655.i ], [ %82, %if.else.i.i.i.i.i.i.i690.i ], [ %87, %call.i.i691.i.noexc ], [ %87, %if.then.i.i.i.i.i.i.i696.i ], [ %87, %if.else.i.i.i.i.i.i.i730.i ], [ %92, %call.i.i731.i.noexc ], [ %92, %if.then.i.i.i.i.i.i.i736.i ], [ %92, %if.else.i.i.i.i.i.i.i771.i ], [ %96, %if.then.i.i.i.i.i.i781.i ], [ %96, %if.else.i.i.i.i.i.i817.i ], [ %96, %sw.bb38.i ], [ %101, %call.i.i819.i.noexc ], [ %101, %if.then.i.i.i.i.i.i.i824.i ], [ %101, %if.else.i.i.i.i.i.i.i859.i ], [ %106, %call.i.i860.i.noexc ], [ %106, %if.then.i.i.i.i.i.i.i865.i ], [ %106, %if.else.i.i.i.i.i.i.i900.i ], [ %111, %call.i.i901.i.noexc ], [ %111, %if.then.i.i.i.i.i.i.i906.i ], [ %111, %if.else.i.i.i.i.i.i.i941.i ], [ %116, %call.i.i942.i.noexc ], [ %116, %if.then.i.i.i.i.i.i.i947.i ], [ %116, %if.else.i.i.i.i.i.i.i982.i ], [ %121, %call.i.i983.i.noexc ], [ %121, %if.then.i.i.i.i.i.i.i988.i ], [ %121, %if.else.i.i.i.i.i.i.i1023.i ], [ %126, %call.i.i1024.i.noexc ], [ %126, %if.then.i.i.i.i.i.i.i1029.i ], [ %126, %if.else.i.i.i.i.i.i.i1064.i ], [ %138, %call.i.i1097.i.noexc ], [ %138, %if.then.i.i.i.i.i.i.i1102.i ], [ %138, %if.else.i.i.i.i.i.i.i1137.i ], [ %149, %if.then.i.i.i.i.i.i1204.i ], [ %149, %if.else.i.i.i.i.i.i1240.i ], [ %149, %sw.bb58.i ], [ %153, %if.then.i.i.i.i.i.i1251.i ], [ %153, %if.else.i.i.i.i.i.i1287.i ], [ %153, %sw.bb60.i ], [ %157, %if.then.i.i.i.i.i.i1298.i ], [ %157, %if.else.i.i.i.i.i.i1334.i ], [ %157, %sw.bb62.i ], [ %161, %if.then.i.i.i.i.i.i1345.i ], [ %161, %if.else.i.i.i.i.i.i1381.i ], [ %161, %sw.bb64.i ], [ %165, %if.then.i.i.i.i.i.i1392.i ], [ %165, %if.else.i.i.i.i.i.i1428.i ], [ %165, %sw.bb66.i ], [ %169, %if.then.i.i.i.i.i.i1439.i ], [ %169, %if.else.i.i.i.i.i.i1475.i ], [ %169, %sw.bb68.i ], [ %173, %if.then.i.i.i.i.i.i1486.i ], [ %173, %if.else.i.i.i.i.i.i1522.i ], [ %173, %sw.bb70.i ], [ %177, %if.then.i.i.i.i.i.i1533.i ], [ %177, %if.else.i.i.i.i.i.i1569.i ], [ %177, %sw.bb72.i ], [ %181, %if.then.i.i.i.i.i.i1580.i ], [ %181, %if.else.i.i.i.i.i.i1616.i ], [ %181, %sw.bb74.i ], [ %185, %if.then.i.i.i.i.i.i1627.i ], [ %185, %if.else.i.i.i.i.i.i1663.i ], [ %185, %sw.bb76.i ], [ %189, %if.then.i.i.i.i.i.i1674.i ], [ %189, %if.else.i.i.i.i.i.i1710.i ], [ %189, %sw.bb78.i ], [ %193, %if.then.i.i.i.i.i.i1721.i ], [ %193, %if.else.i.i.i.i.i.i1757.i ], [ %193, %sw.bb80.i ], [ %197, %if.then.i.i.i.i.i.i1768.i ], [ %197, %if.else.i.i.i.i.i.i1804.i ], [ %197, %sw.bb82.i ], [ %201, %if.then.i.i.i.i.i.i1815.i ], [ %201, %if.else.i.i.i.i.i.i1851.i ], [ %201, %sw.bb84.i ]
   %visitor.sroa.17.0210215 = phi ptr [ null, %cleanup.done34 ], [ null, %_ZN5arrow6Status11DeleteStateEv.exit.i ], [ null, %invoke.cont ], [ %_M_impl.i.i.i.i.i.i.i.i.i1141.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_19DayTimeIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %_M_impl.i.i.i.i.i.i.i.i.i.i, %_ZN5arrow12_GLOBAL__N_119PhysicalTypeVisitor5VisitINS_24MonthDayNanoIntervalTypeES3_EENS_6StatusERKT_.exit.i ], [ %0, %if.then.i.i.i.i.i.i.i ], [ %0, %if.else.i.i.i.i.i.i.i ], [ %0, %sw.bb.i ], [ %6, %call.i.i.i.noexc ], [ %6, %if.then.i.i.i.i.i.i.i.i ], [ %6, %if.else.i.i.i.i.i.i.i.i ], [ %11, %call.i.i89.i.noexc ], [ %11, %if.then.i.i.i.i.i.i.i94.i ], [ %11, %if.else.i.i.i.i.i.i.i128.i ], [ %16, %call.i.i129.i.noexc ], [ %16, %if.then.i.i.i.i.i.i.i134.i ], [ %16, %if.else.i.i.i.i.i.i.i168.i ], [ %21, %call.i.i169.i.noexc ], [ %21, %if.then.i.i.i.i.i.i.i174.i ], [ %21, %if.else.i.i.i.i.i.i.i208.i ], [ %26, %call.i.i209.i.noexc ], [ %26, %if.then.i.i.i.i.i.i.i214.i ], [ %26, %if.else.i.i.i.i.i.i.i248.i ], [ %31, %call.i.i249.i.noexc ], [ %31, %if.then.i.i.i.i.i.i.i254.i ], [ %31, %if.else.i.i.i.i.i.i.i288.i ], [ %36, %call.i.i289.i.noexc ], [ %36, %if.then.i.i.i.i.i.i.i294.i ], [ %36, %if.else.i.i.i.i.i.i.i328.i ], [ %41, %call.i.i329.i.noexc ], [ %41, %if.then.i.i.i.i.i.i.i334.i ], [ %41, %if.else.i.i.i.i.i.i.i368.i ], [ %46, %call.i.i369.i.noexc ], [ %46, %if.then.i.i.i.i.i.i.i374.i ], [ %46, %if.else.i.i.i.i.i.i.i408.i ], [ %51, %call.i.i409.i.noexc ], [ %51, %if.then.i.i.i.i.i.i.i414.i ], [ %51, %if.else.i.i.i.i.i.i.i448.i ], [ %56, %call.i.i449.i.noexc ], [ %56, %if.then.i.i.i.i.i.i.i454.i ], [ %56, %if.else.i.i.i.i.i.i.i488.i ], [ %61, %call.i.i489.i.noexc ], [ %61, %if.then.i.i.i.i.i.i.i494.i ], [ %61, %if.else.i.i.i.i.i.i.i528.i ], [ %66, %call.i.i529.i.noexc ], [ %66, %if.then.i.i.i.i.i.i.i534.i ], [ %66, %if.else.i.i.i.i.i.i.i568.i ], [ %71, %call.i.i569.i.noexc ], [ %71, %if.then.i.i.i.i.i.i.i574.i ], [ %71, %if.else.i.i.i.i.i.i.i608.i ], [ %76, %call.i.i609.i.noexc ], [ %76, %if.then.i.i.i.i.i.i.i614.i ], [ %76, %if.else.i.i.i.i.i.i.i649.i ], [ %81, %call.i.i650.i.noexc ], [ %81, %if.then.i.i.i.i.i.i.i655.i ], [ %81, %if.else.i.i.i.i.i.i.i690.i ], [ %86, %call.i.i691.i.noexc ], [ %86, %if.then.i.i.i.i.i.i.i696.i ], [ %86, %if.else.i.i.i.i.i.i.i730.i ], [ %91, %call.i.i731.i.noexc ], [ %91, %if.then.i.i.i.i.i.i.i736.i ], [ %91, %if.else.i.i.i.i.i.i.i771.i ], [ %0, %if.then.i.i.i.i.i.i781.i ], [ %0, %if.else.i.i.i.i.i.i817.i ], [ %0, %sw.bb38.i ], [ %100, %call.i.i819.i.noexc ], [ %100, %if.then.i.i.i.i.i.i.i824.i ], [ %100, %if.else.i.i.i.i.i.i.i859.i ], [ %105, %call.i.i860.i.noexc ], [ %105, %if.then.i.i.i.i.i.i.i865.i ], [ %105, %if.else.i.i.i.i.i.i.i900.i ], [ %110, %call.i.i901.i.noexc ], [ %110, %if.then.i.i.i.i.i.i.i906.i ], [ %110, %if.else.i.i.i.i.i.i.i941.i ], [ %115, %call.i.i942.i.noexc ], [ %115, %if.then.i.i.i.i.i.i.i947.i ], [ %115, %if.else.i.i.i.i.i.i.i982.i ], [ %120, %call.i.i983.i.noexc ], [ %120, %if.then.i.i.i.i.i.i.i988.i ], [ %120, %if.else.i.i.i.i.i.i.i1023.i ], [ %125, %call.i.i1024.i.noexc ], [ %125, %if.then.i.i.i.i.i.i.i1029.i ], [ %125, %if.else.i.i.i.i.i.i.i1064.i ], [ %137, %call.i.i1097.i.noexc ], [ %137, %if.then.i.i.i.i.i.i.i1102.i ], [ %137, %if.else.i.i.i.i.i.i.i1137.i ], [ %0, %if.then.i.i.i.i.i.i1204.i ], [ %0, %if.else.i.i.i.i.i.i1240.i ], [ %0, %sw.bb58.i ], [ %0, %if.then.i.i.i.i.i.i1251.i ], [ %0, %if.else.i.i.i.i.i.i1287.i ], [ %0, %sw.bb60.i ], [ %0, %if.then.i.i.i.i.i.i1298.i ], [ %0, %if.else.i.i.i.i.i.i1334.i ], [ %0, %sw.bb62.i ], [ %0, %if.then.i.i.i.i.i.i1345.i ], [ %0, %if.else.i.i.i.i.i.i1381.i ], [ %0, %sw.bb64.i ], [ %0, %if.then.i.i.i.i.i.i1392.i ], [ %0, %if.else.i.i.i.i.i.i1428.i ], [ %0, %sw.bb66.i ], [ %0, %if.then.i.i.i.i.i.i1439.i ], [ %0, %if.else.i.i.i.i.i.i1475.i ], [ %0, %sw.bb68.i ], [ %0, %if.then.i.i.i.i.i.i1486.i ], [ %0, %if.else.i.i.i.i.i.i1522.i ], [ %0, %sw.bb70.i ], [ %0, %if.then.i.i.i.i.i.i1533.i ], [ %0, %if.else.i.i.i.i.i.i1569.i ], [ %0, %sw.bb72.i ], [ %0, %if.then.i.i.i.i.i.i1580.i ], [ %0, %if.else.i.i.i.i.i.i1616.i ], [ %0, %sw.bb74.i ], [ %0, %if.then.i.i.i.i.i.i1627.i ], [ %0, %if.else.i.i.i.i.i.i1663.i ], [ %0, %sw.bb76.i ], [ %0, %if.then.i.i.i.i.i.i1674.i ], [ %0, %if.else.i.i.i.i.i.i1710.i ], [ %0, %sw.bb78.i ], [ %0, %if.then.i.i.i.i.i.i1721.i ], [ %0, %if.else.i.i.i.i.i.i1757.i ], [ %0, %sw.bb80.i ], [ %0, %if.then.i.i.i.i.i.i1768.i ], [ %0, %if.else.i.i.i.i.i.i1804.i ], [ %0, %sw.bb82.i ], [ %0, %if.then.i.i.i.i.i.i1815.i ], [ %0, %if.else.i.i.i.i.i.i1851.i ], [ %0, %sw.bb84.i ]
   store ptr %visitor.sroa.17.0210215, ptr %agg.result, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %visitor.sroa.63.16207216, ptr %_M_refcount.i.i, align 8
+  store ptr %visitor.sroa.63.17207216, ptr %_M_refcount.i.i, align 8
   ret void
 
 lpad:                                             ; preds = %sw.epilog.i, %sw.bb56.i, %sw.bb54.i, %sw.bb52.i, %sw.bb50.i, %sw.bb48.i, %sw.bb46.i, %sw.bb44.i, %sw.bb42.i, %sw.bb40.i, %sw.bb36.i, %sw.bb34.i, %sw.bb32.i, %sw.bb30.i, %sw.bb28.i, %sw.bb26.i, %sw.bb24.i, %sw.bb22.i, %sw.bb20.i, %sw.bb18.i, %sw.bb16.i, %sw.bb14.i, %sw.bb12.i, %sw.bb10.i, %sw.bb8.i, %sw.bb6.i, %sw.bb4.i, %sw.bb2.i
@@ -17858,18 +17858,18 @@ while.body.preheader.i.i:                         ; preds = %cond.false
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.preheader.i.i
   %2 = phi i8 [ %4, %while.body.i.i ], [ %.pre.i.i, %while.body.preheader.i.i ]
   %incdec.ptr.i11.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i ], [ %incdec.ptr.i8.i.i, %while.body.preheader.i.i ]
-  %retval.sroa.0.010.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %1, %while.body.preheader.i.i ]
+  %retval.sroa.0.110.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %1, %while.body.preheader.i.i ]
   %3 = load i8, ptr %incdec.ptr.i11.i.i, align 1
   %cmp.i4.i.i = icmp slt i8 %2, %3
   %4 = tail call i8 @llvm.smax.i8(i8 %2, i8 %3)
-  %spec.select.i.i = select i1 %cmp.i4.i.i, ptr %incdec.ptr.i11.i.i, ptr %retval.sroa.0.010.i.i
+  %spec.select.i.i = select i1 %cmp.i4.i.i, ptr %incdec.ptr.i11.i.i, ptr %retval.sroa.0.110.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i11.i.i, i64 1
   %cmp.i3.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %0
   br i1 %cmp.i3.not.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKaSt6vectorIaSaIaEEEEET_S8_S8_.exit, label %while.body.i.i, !llvm.loop !662
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKaSt6vectorIaSaIaEEEEET_S8_S8_.exit: ; preds = %while.body.i.i, %cond.false
-  %retval.sroa.0.2.i.i = phi ptr [ %1, %cond.false ], [ %spec.select.i.i, %while.body.i.i ]
-  %5 = load i8, ptr %retval.sroa.0.2.i.i, align 1
+  %retval.sroa.0.0.i.i = phi ptr [ %1, %cond.false ], [ %spec.select.i.i, %while.body.i.i ]
+  %5 = load i8, ptr %retval.sroa.0.0.i.i, align 1
   br label %cond.end
 
 cond.end:                                         ; preds = %entry, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKaSt6vectorIaSaIaEEEEET_S8_S8_.exit
@@ -23842,7 +23842,7 @@ if.then7.i.i.i:                                   ; preds = %if.then5.i.i.i
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then7.i.i.i, %if.then5.i.i.i
-  %acc.0.i.i.i = phi i64 [ %add13.i.i.i, %if.then7.i.i.i ], [ %mul.i.i.i, %if.then5.i.i.i ]
+  %acc.2.i.i.i = phi i64 [ %add13.i.i.i, %if.then7.i.i.i ], [ %mul.i.i.i, %if.then5.i.i.i ]
   %add.ptr14.i.i.i = getelementptr inbounds i8, ptr %data, i64 32
   %add.ptr14.val.i.i.i = load i64, ptr %add.ptr14.i.i.i, align 1, !alias.scope !751
   %10 = getelementptr i8, ptr %data, i64 40
@@ -23855,7 +23855,7 @@ if.end.i.i.i:                                     ; preds = %if.then7.i.i.i, %if
   %shr.i.i.i74.i.i.i = lshr i128 %mul.i.i.i73.i.i.i, 64
   %xor1.i.i75.i.i.i = xor i128 %shr.i.i.i74.i.i.i, %mul.i.i.i73.i.i.i
   %xor.i.i76.i.i.i = trunc i128 %xor1.i.i75.i.i.i to i64
-  %add17.i.i.i = add i64 %acc.0.i.i.i, %xor.i.i76.i.i.i
+  %add17.i.i.i = add i64 %acc.2.i.i.i, %xor.i.i76.i.i.i
   %add.ptr18.i.i.i = getelementptr inbounds i8, ptr %data, i64 %length
   %add.ptr19.i.i.i = getelementptr inbounds i8, ptr %add.ptr18.i.i.i, i64 -48
   %add.ptr19.val.i.i.i = load i64, ptr %add.ptr19.i.i.i, align 1, !alias.scope !751
@@ -23904,7 +23904,7 @@ if.end23.i.i.i:                                   ; preds = %if.end.i.i.i, %if.t
   br label %_ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i
 
 _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i:      ; preds = %if.end23.i.i.i, %if.then3.i.i
-  %acc.2.i.i.i = phi i64 [ %add32.i.i.i, %if.end23.i.i.i ], [ %mul.i.i.i, %if.then3.i.i ]
+  %acc.0.i.i.i = phi i64 [ %add32.i.i.i, %if.end23.i.i.i ], [ %mul.i.i.i, %if.then3.i.i ]
   %input.val.i.i.i = load i64, ptr %data, align 1, !alias.scope !751
   %14 = getelementptr i8, ptr %data, i64 8
   %input.val56.i.i.i = load i64, ptr %14, align 1, !alias.scope !751
@@ -23916,7 +23916,7 @@ _ZL20XXH3_len_17to128_64bPKhmS0_mm.exit.i.i:      ; preds = %if.end23.i.i.i, %if
   %shr.i.i.i106.i.i.i = lshr i128 %mul.i.i.i105.i.i.i, 64
   %xor1.i.i107.i.i.i = xor i128 %shr.i.i.i106.i.i.i, %mul.i.i.i105.i.i.i
   %xor.i.i108.i.i.i = trunc i128 %xor1.i.i107.i.i.i to i64
-  %add37.i.i.i = add i64 %acc.2.i.i.i, %xor.i.i108.i.i.i
+  %add37.i.i.i = add i64 %acc.0.i.i.i, %xor.i.i108.i.i.i
   %add.ptr38.i.i.i = getelementptr inbounds i8, ptr %data, i64 %length
   %add.ptr39.i.i.i = getelementptr inbounds i8, ptr %add.ptr38.i.i.i, i64 -16
   %add.ptr39.val.i.i.i = load i64, ptr %add.ptr39.i.i.i, align 1, !alias.scope !751
@@ -25026,7 +25026,7 @@ for.cond:                                         ; preds = %cleanup26
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.1, %for.cond ]
+  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.2, %for.cond ]
   %__begin2.sroa.0.070 = phi ptr [ %0, %for.cond.preheader ], [ %incdec.ptr.i, %for.cond ]
   %14 = load i32, ptr %__begin2.sroa.0.070, align 4
   call void @_ZNK5arrow14NestedSelectorINS_5FieldELb0EE8GetChildEi(ptr nonnull sret(%"class.arrow::Result.614") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(40) %selector, i32 noundef %14)
@@ -25244,7 +25244,7 @@ _ZN5arrow14NestedSelectorINS_5FieldELb0EEaSEOS2_.exit: ; preds = %if.end24, %_ZN
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i25, %invoke.cont23, %_ZN5arrow14NestedSelectorINS_5FieldELb0EEaSEOS2_.exit, %if.then19
-  %depth.1 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_5FieldELb0EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
+  %depth.2 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_5FieldELb0EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
   %46 = load ptr, ptr %_M_refcount.i.i.i.i.i10, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i, label %cleanup26, label %if.then.i.i.i.i
@@ -26556,7 +26556,7 @@ for.cond:                                         ; preds = %cleanup26
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.1, %for.cond ]
+  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.2, %for.cond ]
   %__begin2.sroa.0.070 = phi ptr [ %0, %for.cond.preheader ], [ %incdec.ptr.i, %for.cond ]
   %14 = load i32, ptr %__begin2.sroa.0.070, align 4
   call void @_ZNK5arrow14NestedSelectorINS_9ArrayDataELb0EE8GetChildEi(ptr nonnull sret(%"class.arrow::Result.618") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(40) %selector, i32 noundef %14)
@@ -26774,7 +26774,7 @@ _ZN5arrow14NestedSelectorINS_9ArrayDataELb0EEaSEOS2_.exit: ; preds = %if.end24, 
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i25, %invoke.cont23, %_ZN5arrow14NestedSelectorINS_9ArrayDataELb0EEaSEOS2_.exit, %if.then19
-  %depth.1 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_9ArrayDataELb0EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
+  %depth.2 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_9ArrayDataELb0EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
   %46 = load ptr, ptr %_M_refcount.i.i.i.i.i10, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i, label %cleanup26, label %if.then.i.i.i.i
@@ -27665,7 +27665,7 @@ for.cond:                                         ; preds = %cleanup26
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.1, %for.cond ]
+  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.2, %for.cond ]
   %__begin2.sroa.0.070 = phi ptr [ %0, %for.cond.preheader ], [ %incdec.ptr.i, %for.cond ]
   %14 = load i32, ptr %__begin2.sroa.0.070, align 4
   call void @_ZNK5arrow14NestedSelectorINS_12ChunkedArrayELb0EE8GetChildEi(ptr nonnull sret(%"class.arrow::Result.623") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(40) %selector, i32 noundef %14)
@@ -27883,7 +27883,7 @@ _ZN5arrow14NestedSelectorINS_12ChunkedArrayELb0EEaSEOS2_.exit: ; preds = %if.end
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i25, %invoke.cont23, %_ZN5arrow14NestedSelectorINS_12ChunkedArrayELb0EEaSEOS2_.exit, %if.then19
-  %depth.1 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_12ChunkedArrayELb0EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
+  %depth.2 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_12ChunkedArrayELb0EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
   %46 = load ptr, ptr %_M_refcount.i.i.i.i.i10, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i, label %cleanup26, label %if.then.i.i.i.i
@@ -28300,7 +28300,7 @@ for.cond:                                         ; preds = %cleanup26
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.1, %for.cond ]
+  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.2, %for.cond ]
   %__begin2.sroa.0.070 = phi ptr [ %0, %for.cond.preheader ], [ %incdec.ptr.i, %for.cond ]
   %14 = load i32, ptr %__begin2.sroa.0.070, align 4
   call void @_ZNK5arrow14NestedSelectorINS_5ArrayELb0EE8GetChildEi(ptr nonnull sret(%"class.arrow::Result.635") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(40) %selector, i32 noundef %14)
@@ -28518,7 +28518,7 @@ _ZN5arrow14NestedSelectorINS_5ArrayELb0EEaSEOS2_.exit: ; preds = %if.end24, %_ZN
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i25, %invoke.cont23, %_ZN5arrow14NestedSelectorINS_5ArrayELb0EEaSEOS2_.exit, %if.then19
-  %depth.1 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_5ArrayELb0EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
+  %depth.2 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_5ArrayELb0EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
   %46 = load ptr, ptr %_M_refcount.i.i.i.i.i10, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i, label %cleanup26, label %if.then.i.i.i.i
@@ -29161,7 +29161,7 @@ for.cond:                                         ; preds = %cleanup26
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.1, %for.cond ]
+  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.2, %for.cond ]
   %__begin2.sroa.0.070 = phi ptr [ %0, %for.cond.preheader ], [ %incdec.ptr.i, %for.cond ]
   %14 = load i32, ptr %__begin2.sroa.0.070, align 4
   call void @_ZNK5arrow14NestedSelectorINS_5ArrayELb1EE8GetChildEi(ptr nonnull sret(%"class.arrow::Result.639") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(40) %selector, i32 noundef %14)
@@ -29379,7 +29379,7 @@ _ZN5arrow14NestedSelectorINS_5ArrayELb1EEaSEOS2_.exit: ; preds = %if.end24, %_ZN
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i25, %invoke.cont23, %_ZN5arrow14NestedSelectorINS_5ArrayELb1EEaSEOS2_.exit, %if.then19
-  %depth.1 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_5ArrayELb1EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
+  %depth.2 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_5ArrayELb1EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
   %46 = load ptr, ptr %_M_refcount.i.i.i.i.i10, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i, label %cleanup26, label %if.then.i.i.i.i
@@ -29798,7 +29798,7 @@ for.cond:                                         ; preds = %cleanup26
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.1, %for.cond ]
+  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.2, %for.cond ]
   %__begin2.sroa.0.070 = phi ptr [ %0, %for.cond.preheader ], [ %incdec.ptr.i, %for.cond ]
   %14 = load i32, ptr %__begin2.sroa.0.070, align 4
   call void @_ZNK5arrow14NestedSelectorINS_9ArrayDataELb1EE8GetChildEi(ptr nonnull sret(%"class.arrow::Result.643") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(40) %selector, i32 noundef %14)
@@ -30016,7 +30016,7 @@ _ZN5arrow14NestedSelectorINS_9ArrayDataELb1EEaSEOS2_.exit: ; preds = %if.end24, 
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i25, %invoke.cont23, %_ZN5arrow14NestedSelectorINS_9ArrayDataELb1EEaSEOS2_.exit, %if.then19
-  %depth.1 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_9ArrayDataELb1EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
+  %depth.2 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_9ArrayDataELb1EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
   %46 = load ptr, ptr %_M_refcount.i.i.i.i.i10, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i, label %cleanup26, label %if.then.i.i.i.i
@@ -30435,7 +30435,7 @@ for.cond:                                         ; preds = %cleanup26
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.1, %for.cond ]
+  %depth.071 = phi i32 [ 0, %for.cond.preheader ], [ %depth.2, %for.cond ]
   %__begin2.sroa.0.070 = phi ptr [ %0, %for.cond.preheader ], [ %incdec.ptr.i, %for.cond ]
   %14 = load i32, ptr %__begin2.sroa.0.070, align 4
   call void @_ZNK5arrow14NestedSelectorINS_12ChunkedArrayELb1EE8GetChildEi(ptr nonnull sret(%"class.arrow::Result.659") align 8 %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(40) %selector, i32 noundef %14)
@@ -30653,7 +30653,7 @@ _ZN5arrow14NestedSelectorINS_12ChunkedArrayELb1EEaSEOS2_.exit: ; preds = %if.end
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i25, %invoke.cont23, %_ZN5arrow14NestedSelectorINS_12ChunkedArrayELb1EEaSEOS2_.exit, %if.then19
-  %depth.1 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_12ChunkedArrayELb1EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
+  %depth.2 = phi i32 [ %inc, %_ZN5arrow14NestedSelectorINS_12ChunkedArrayELb1EEaSEOS2_.exit ], [ %depth.071, %if.then19 ], [ %depth.071, %invoke.cont23 ], [ %depth.071, %_ZN5arrow6Status11DeleteStateEv.exit.i25 ]
   %46 = load ptr, ptr %_M_refcount.i.i.i.i.i10, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %46, null
   br i1 %cmp.not.i.i.i.i, label %cleanup26, label %if.then.i.i.i.i
@@ -67808,7 +67808,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIN
   %__bbegin_bkt.050 = phi i64 [ %__bbegin_bkt.1, %if.end43 ], [ 0, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
   %__prev_bkt.049 = phi i64 [ %rem.i.i, %if.end43 ], [ 0, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
   %__prev_p.048 = phi ptr [ %__p.051, %if.end43 ], [ null, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
-  %__check_bucket.047 = phi i8 [ %__check_bucket.2, %if.end43 ], [ 0, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
+  %__check_bucket.047 = phi i8 [ %__check_bucket.1, %if.end43 ], [ 0, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb0EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.051, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %__p.051, i64 48
   %2 = load i64, ptr %add.ptr.i, align 8
@@ -67845,7 +67845,7 @@ if.then18:                                        ; preds = %if.then13
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then10, %if.then18, %if.then13, %if.else
-  %__check_bucket.1 = phi i8 [ %__check_bucket.047, %if.else ], [ 0, %if.then13 ], [ 0, %if.then18 ], [ 0, %if.then10 ]
+  %__check_bucket.2 = phi i8 [ %__check_bucket.047, %if.else ], [ 0, %if.then13 ], [ 0, %if.then18 ], [ 0, %if.then10 ]
   %arrayidx21 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
   %6 = load ptr, ptr %arrayidx21, align 8
   %tobool22.not = icmp eq ptr %6, null
@@ -67872,19 +67872,19 @@ if.else36:                                        ; preds = %if.end20
 
 if.end43.sink.split:                              ; preds = %if.then, %if.else36, %if.then33
   %arrayidx34.sink = phi ptr [ %arrayidx34, %if.then33 ], [ %10, %if.else36 ], [ %__prev_p.048, %if.then ]
-  %__check_bucket.2.ph = phi i8 [ %__check_bucket.1, %if.then33 ], [ %__check_bucket.1, %if.else36 ], [ 1, %if.then ]
+  %__check_bucket.1.ph = phi i8 [ %__check_bucket.2, %if.then33 ], [ %__check_bucket.2, %if.else36 ], [ 1, %if.then ]
   %__bbegin_bkt.1.ph = phi i64 [ %rem.i.i, %if.then33 ], [ %__bbegin_bkt.050, %if.else36 ], [ %__bbegin_bkt.050, %if.then ]
   store ptr %__p.051, ptr %arrayidx34.sink, align 8
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end43.sink.split, %if.then23
-  %__check_bucket.2 = phi i8 [ %__check_bucket.1, %if.then23 ], [ %__check_bucket.2.ph, %if.end43.sink.split ]
+  %__check_bucket.1 = phi i8 [ %__check_bucket.2, %if.then23 ], [ %__check_bucket.1.ph, %if.end43.sink.split ]
   %__bbegin_bkt.1 = phi i64 [ %rem.i.i, %if.then23 ], [ %__bbegin_bkt.1.ph, %if.end43.sink.split ]
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !1787
 
 while.end:                                        ; preds = %if.end43
-  %11 = trunc nuw i8 %__check_bucket.2 to i1
+  %11 = trunc nuw i8 %__check_bucket.1 to i1
   br i1 %11, label %land.lhs.true45, label %if.end57
 
 land.lhs.true45:                                  ; preds = %while.end

@@ -425,18 +425,18 @@ define internal i32 @dissect_aol_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not100, label %dissect_aol_init.exit, label %.thread105
 
 .thread105:                                       ; preds = %142, %143
-  %.2110 = phi i32 [ %151, %143 ], [ %37, %142 ]
-  %.291109 = phi i16 [ %152, %143 ], [ 1, %142 ]
-  %153 = zext i16 %.291109 to i32
+  %.4110 = phi i32 [ %151, %143 ], [ %37, %142 ]
+  %.392109 = phi i16 [ %152, %143 ], [ 1, %142 ]
+  %153 = zext i16 %.392109 to i32
   %154 = load i32, ptr @hf_aol_data, align 4
-  %155 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %154, ptr noundef %0, i32 noundef %.2110, i32 noundef %153, i32 noundef 0) #2
-  %156 = add nuw nsw i32 %.2110, %153
+  %155 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %154, ptr noundef %0, i32 noundef %.4110, i32 noundef %153, i32 noundef 0) #2
+  %156 = add nuw nsw i32 %.4110, %153
   br label %dissect_aol_init.exit
 
 dissect_aol_init.exit:                            ; preds = %143, %132, %45, %.thread105
-  %.392 = phi i16 [ %.291109, %.thread105 ], [ %38, %45 ], [ %38, %132 ], [ 0, %143 ]
+  %.291 = phi i16 [ %.392109, %.thread105 ], [ %38, %45 ], [ %38, %132 ], [ 0, %143 ]
   %.3 = phi i32 [ %156, %.thread105 ], [ %122, %45 ], [ %141, %132 ], [ %151, %143 ]
-  %157 = zext i16 %.392 to i32
+  %157 = zext i16 %.291 to i32
   %158 = add nuw nsw i32 %37, %157
   %159 = icmp ult i32 %.3, %158
   br i1 %159, label %160, label %.thread
@@ -452,14 +452,14 @@ dissect_aol_init.exit:                            ; preds = %143, %132, %45, %.t
   br label %.thread
 
 .thread:                                          ; preds = %27, %164, %160, %dissect_aol_init.exit, %28
-  %.4 = phi i32 [ %158, %160 ], [ %.3, %dissect_aol_init.exit ], [ %37, %164 ], [ %37, %28 ], [ %.0, %27 ]
-  %166 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4) #2
+  %.2 = phi i32 [ %158, %160 ], [ %.3, %dissect_aol_init.exit ], [ %37, %164 ], [ %37, %28 ], [ %.0, %27 ]
+  %166 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #2
   %167 = icmp sgt i32 %166, 0
   br i1 %167, label %168, label %171
 
 168:                                              ; preds = %.thread
   %169 = load i32, ptr @hf_aol_end, align 4
-  %170 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %169, ptr noundef %0, i32 noundef %.4, i32 noundef 1, i32 noundef 0) #2
+  %170 = call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %169, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #2
   br label %173
 
 171:                                              ; preds = %.thread

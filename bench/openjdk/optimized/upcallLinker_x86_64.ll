@@ -991,7 +991,7 @@ _ZL30restore_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit: ; p
   br label %414
 
 414:                                              ; preds = %_ZL30restore_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit, %409
-  %.0 = phi ptr [ %413, %409 ], [ null, %_ZL30restore_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit ]
+  %.1 = phi ptr [ %413, %409 ], [ null, %_ZL30restore_callee_saved_registersP14MacroAssemblerRK13ABIDescriptori.exit ]
   %415 = getelementptr inbounds i8, ptr %44, i64 16
   %416 = load i64, ptr %415, align 8
   %417 = and i64 %416, 1
@@ -1163,7 +1163,7 @@ _ZN13GrowableArrayI9VMStorageE10deallocateEPS0_.exit.i229: ; preds = %.loopexit.
   br label %_ZN13GrowableArrayI9VMStorageED2Ev.exit158
 
 _ZN13GrowableArrayI9VMStorageED2Ev.exit158:       ; preds = %_ZN10RegSpillerD2Ev.exit156, %462, %_ZN13GrowableArrayI9VMStorageE10deallocateEPS0_.exit.i229, %9
-  %.1 = phi ptr [ null, %9 ], [ %.0, %_ZN13GrowableArrayI9VMStorageE10deallocateEPS0_.exit.i229 ], [ %.0, %462 ], [ %.0, %_ZN10RegSpillerD2Ev.exit156 ]
+  %.0 = phi ptr [ null, %9 ], [ %.1, %_ZN13GrowableArrayI9VMStorageE10deallocateEPS0_.exit.i229 ], [ %.1, %462 ], [ %.1, %_ZN10RegSpillerD2Ev.exit156 ]
   call void @_ZN10CodeBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %37) #9
   %466 = getelementptr inbounds i8, ptr %36, i64 40
   %467 = load i64, ptr %466, align 8
@@ -1225,7 +1225,7 @@ _ZN13GrowableArrayI9VMStorageE10deallocateEPS0_.exit.i245: ; preds = %.loopexit.
 
 _ZN8CallRegsD2Ev.exit:                            ; preds = %_ZN13GrowableArrayI9VMStorageE10deallocateEPS0_.exit.i245, %479, %_ZN13GrowableArrayI9VMStorageED2Ev.exit.i
   call void @_ZN13ABIDescriptorD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %35) #9
-  ret ptr %.1
+  ret ptr %.0
 }
 
 declare void @_ZN14ForeignGlobals20parse_abi_descriptorEP8_jobject(ptr dead_on_unwind writable sret(%struct.ABIDescriptor) align 8, ptr noundef) local_unnamed_addr #1

@@ -558,7 +558,7 @@ if.else272:                                       ; preds = %if.then269
   br label %if.end275
 
 if.end275:                                        ; preds = %if.then271, %if.else272, %if.then267
-  %leftTertiary.0 = phi i32 [ %xor, %if.then271 ], [ %add273, %if.else272 ], [ %and250, %if.then267 ]
+  %leftTertiary.1 = phi i32 [ %xor, %if.then271 ], [ %add273, %if.else272 ], [ %and250, %if.then267 ]
   %cmp276 = icmp ugt i32 %and259, 256
   br i1 %cmp276, label %if.then277, label %if.end285
 
@@ -575,9 +575,9 @@ if.else281:                                       ; preds = %if.then277
   br label %if.end285
 
 if.end285:                                        ; preds = %if.end275, %if.else281, %if.then279, %if.then264
-  %leftTertiary.1 = phi i32 [ %leftTertiary.0, %if.then279 ], [ %leftTertiary.0, %if.else281 ], [ %leftTertiary.0, %if.end275 ], [ %and250, %if.then264 ]
+  %leftTertiary.0 = phi i32 [ %leftTertiary.1, %if.then279 ], [ %leftTertiary.1, %if.else281 ], [ %leftTertiary.1, %if.end275 ], [ %and250, %if.then264 ]
   %rightTertiary.0 = phi i32 [ %xor280, %if.then279 ], [ %add282, %if.else281 ], [ %and259, %if.end275 ], [ %and259, %if.then264 ]
-  %cmp286 = icmp ult i32 %leftTertiary.1, %rightTertiary.0
+  %cmp286 = icmp ult i32 %leftTertiary.0, %rightTertiary.0
   %cond287 = select i1 %cmp286, i32 -1, i32 1
   br label %return
 

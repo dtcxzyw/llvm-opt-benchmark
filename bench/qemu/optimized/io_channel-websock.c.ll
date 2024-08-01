@@ -2405,12 +2405,12 @@ if.then2.i:                                       ; preds = %if.then.i26
   br i1 %or.cond.i, label %if.then33, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then2.i, %if.then.i26
-  %payload_len.054.i = phi i64 [ %32, %if.then.i26 ], [ %sub.i, %if.then2.i ]
-  %sub16.i = sub i64 %32, %payload_len.054.i
+  %payload_len.154.i = phi i64 [ %32, %if.then.i26 ], [ %sub.i, %if.then2.i ]
+  %sub16.i = sub i64 %32, %payload_len.154.i
   store i64 %sub16.i, ptr %payload_remain, align 8
   %35 = load ptr, ptr %buffer.i, align 8
-  %div51.i = lshr i64 %payload_len.054.i, 2
-  %cmp1856.not.i = icmp ult i64 %payload_len.054.i, 4
+  %div51.i = lshr i64 %payload_len.154.i, 2
+  %cmp1856.not.i = icmp ult i64 %payload_len.154.i, 4
   br i1 %cmp1856.not.i, label %for.end.i, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end14.i, %for.body.i
@@ -2425,12 +2425,12 @@ for.body.i:                                       ; preds = %if.end14.i, %for.bo
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !13
 
 for.end.loopexit.i:                               ; preds = %for.body.i
-  %38 = and i64 %payload_len.054.i, -4
+  %38 = and i64 %payload_len.154.i, -4
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.end.loopexit.i, %if.end14.i
   %i.0.lcssa.i = phi i64 [ 0, %if.end14.i ], [ %38, %for.end.loopexit.i ]
-  %cmp2158.i = icmp ult i64 %i.0.lcssa.i, %payload_len.054.i
+  %cmp2158.i = icmp ult i64 %i.0.lcssa.i, %payload_len.154.i
   br i1 %cmp2158.i, label %for.body23.i, label %if.end37.i
 
 for.body23.i:                                     ; preds = %for.end.i, %for.body23.i
@@ -2444,11 +2444,11 @@ for.body23.i:                                     ; preds = %for.end.i, %for.bod
   %xor32.i = xor i8 %41, %39
   store i8 %xor32.i, ptr %arrayidx30.i, align 1
   %inc35.i = add nuw i64 %i.159.i, 1
-  %exitcond60.not.i = icmp eq i64 %inc35.i, %payload_len.054.i
+  %exitcond60.not.i = icmp eq i64 %inc35.i, %payload_len.154.i
   br i1 %exitcond60.not.i, label %if.end37.i, label %for.body23.i, !llvm.loop !14
 
 if.end37.i:                                       ; preds = %for.body23.i, %for.end.i, %if.end28
-  %payload_len.1.i = phi i64 [ 0, %if.end28 ], [ %payload_len.054.i, %for.end.i ], [ %payload_len.054.i, %for.body23.i ]
+  %payload_len.0.i = phi i64 [ 0, %if.end28 ], [ %payload_len.154.i, %for.end.i ], [ %payload_len.154.i, %for.body23.i ]
   %42 = load i8, ptr %opcode20.i, align 4
   %43 = load i64, ptr %payload_remain, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i23)
@@ -2494,18 +2494,18 @@ trace_qio_channel_websock_payload_decode.exit.i:  ; preds = %if.else.i.i.i42, %i
   ]
 
 if.then44.i:                                      ; preds = %trace_qio_channel_websock_payload_decode.exit.i
-  %cond.i = icmp eq i64 %payload_len.1.i, 0
+  %cond.i = icmp eq i64 %payload_len.0.i, 0
   br i1 %cond.i, label %qio_channel_websock_decode_payload.exit, label %if.end89.thread.i
 
 if.end89.thread.i:                                ; preds = %if.then44.i
-  call void @buffer_reserve(ptr noundef nonnull %rawinput.i, i64 noundef %payload_len.1.i) #15
+  call void @buffer_reserve(ptr noundef nonnull %rawinput.i, i64 noundef %payload_len.0.i) #15
   %51 = load ptr, ptr %buffer.i, align 8
-  call void @buffer_append(ptr noundef nonnull %rawinput.i, ptr noundef %51, i64 noundef %payload_len.1.i) #15
+  call void @buffer_append(ptr noundef nonnull %rawinput.i, ptr noundef %51, i64 noundef %payload_len.0.i) #15
   br label %if.then91.i
 
 if.then56.i36:                                    ; preds = %trace_qio_channel_websock_payload_decode.exit.i
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.12, i32 noundef 842, ptr noundef nonnull @__func__.qio_channel_websock_decode_payload, ptr noundef nonnull @.str.84) #15
-  %tobool57.not.i = icmp eq i64 %payload_len.1.i, 0
+  %tobool57.not.i = icmp eq i64 %payload_len.0.i, 0
   br i1 %tobool57.not.i, label %if.else65.i, label %if.then58.i
 
 if.then58.i:                                      ; preds = %if.then56.i36
@@ -2568,11 +2568,11 @@ if.then75.i35:                                    ; preds = %if.then72.i
   br label %if.end89.i
 
 if.end89.i:                                       ; preds = %if.then75.i35, %if.then72.i, %trace_qio_channel_websock_payload_decode.exit.i
-  %tobool90.not.i = icmp eq i64 %payload_len.1.i, 0
+  %tobool90.not.i = icmp eq i64 %payload_len.0.i, 0
   br i1 %tobool90.not.i, label %qio_channel_websock_decode_payload.exit, label %if.then91.i
 
 if.then91.i:                                      ; preds = %if.end89.i, %if.end89.thread.i
-  call void @buffer_advance(ptr noundef nonnull %encinput.i, i64 noundef %payload_len.1.i) #15
+  call void @buffer_advance(ptr noundef nonnull %encinput.i, i64 noundef %payload_len.0.i) #15
   br label %qio_channel_websock_decode_payload.exit
 
 qio_channel_websock_decode_payload.exit:          ; preds = %if.then44.i, %if.end89.i, %if.then91.i

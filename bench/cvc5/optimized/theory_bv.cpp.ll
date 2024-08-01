@@ -2961,8 +2961,8 @@ if.end183:                                        ; preds = %_ZN4cvc58internal12
   br label %return
 
 return:                                           ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit752, %_ZN4cvc58internal9TrustNodeD2Ev.exit, %if.end183
-  %retval.5 = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit752 ], [ 1, %if.end183 ], [ %call4, %_ZN4cvc58internal9TrustNodeD2Ev.exit ]
-  ret i32 %retval.5
+  %retval.0 = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit752 ], [ 1, %if.end183 ], [ %call4, %_ZN4cvc58internal9TrustNodeD2Ev.exit ]
+  ret i32 %retval.0
 
 eh.resume:                                        ; preds = %ehcleanup182, %lpad11, %lpad2
   %.pn15.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn15.pn.pn.pn.pn.pn, %ehcleanup182 ], [ %98, %lpad11 ], [ %12, %lpad2 ]
@@ -4091,9 +4091,9 @@ lpad36:                                           ; preds = %if.end.i91, %invoke
   br label %ehcleanup
 
 if.end48:                                         ; preds = %invoke.cont42, %invoke.cont23
-  %term.sroa.0.2.in = phi ptr [ %arrayidx.i.i49, %invoke.cont23 ], [ %arrayidx.i.i109, %invoke.cont42 ]
-  %term.sroa.0.2 = load ptr, ptr %term.sroa.0.2.in, align 8, !noalias !27
-  %d_kind.i116 = getelementptr inbounds i8, ptr %term.sroa.0.2, i64 8
+  %term.sroa.0.0.in = phi ptr [ %arrayidx.i.i49, %invoke.cont23 ], [ %arrayidx.i.i109, %invoke.cont42 ]
+  %term.sroa.0.0 = load ptr, ptr %term.sroa.0.0.in, align 8, !noalias !27
+  %d_kind.i116 = getelementptr inbounds i8, ptr %term.sroa.0.0, i64 8
   %bf.load.i117 = load i16, ptr %d_kind.i116, align 8
   %bf.clear.i118 = and i16 %bf.load.i117, 1023
   %switch.tableidx = add nsw i16 %bf.clear.i118, -86
@@ -4107,7 +4107,7 @@ switch.lookup:                                    ; preds = %if.end48
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end48, %switch.lookup, %invoke.cont28
-  %retval.0 = phi i1 [ false, %invoke.cont28 ], [ %switch.masked, %switch.lookup ], [ false, %if.end48 ]
+  %retval.1 = phi i1 [ false, %invoke.cont28 ], [ %switch.masked, %switch.lookup ], [ false, %if.end48 ]
   invoke void @__gmpz_clear(ptr noundef nonnull %d_value.i)
           to label %return unwind label %terminate.lpad.i.i.i
 
@@ -4131,8 +4131,8 @@ terminate.lpad.i.i.i122:                          ; preds = %ehcleanup
   unreachable
 
 return:                                           ; preds = %entry, %cleanup, %lor.rhs
-  %retval.1 = phi i1 [ false, %lor.rhs ], [ %retval.0, %cleanup ], [ false, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %lor.rhs ], [ %retval.1, %cleanup ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4306,8 +4306,8 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
   unreachable
 
 return:                                           ; preds = %if.then13.i.i, %if.then.i.i, %if.end52, %if.end, %land.rhs, %land.rhs29, %if.end47, %entry
-  %retval.2 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %land.rhs ], [ false, %land.rhs29 ], [ false, %if.end47 ], [ %cmp.i.not, %if.end52 ], [ %cmp.i.not, %if.then.i.i ], [ %cmp.i.not, %if.then13.i.i ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %land.rhs ], [ false, %land.rhs29 ], [ false, %if.end47 ], [ %cmp.i.not, %if.end52 ], [ %cmp.i.not, %if.then.i.i ], [ %cmp.i.not, %if.then13.i.i ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8880,7 +8880,7 @@ if.end35.sink.split:                              ; preds = %invoke.cont18, %inv
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end35.sink.split, %invoke.cont21
-  %term.sroa.0.2 = phi ptr [ %3, %invoke.cont21 ], [ %18, %if.end35.sink.split ]
+  %term.sroa.0.0 = phi ptr [ %3, %invoke.cont21 ], [ %18, %if.end35.sink.split ]
   invoke void @_ZN4cvc58internal9BitVectorC2Ejj(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp36, i32 noundef 1, i32 noundef 1)
           to label %invoke.cont37 unwind label %lpad7
 
@@ -8901,7 +8901,7 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont39
   unreachable
 
 _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont39
-  %d_kind.i198 = getelementptr inbounds i8, ptr %term.sroa.0.2, i64 8
+  %d_kind.i198 = getelementptr inbounds i8, ptr %term.sroa.0.0, i64 8
   %bf.load.i199 = load i16, ptr %d_kind.i198, align 8
   %bf.clear.i200 = and i16 %bf.load.i199, 1023
   %bf.cast.i201 = zext nneg i16 %bf.clear.i200 to i32
@@ -8933,7 +8933,7 @@ sw.bb:                                            ; preds = %_ZN4cvc58internal9B
   br i1 %call40, label %if.then42, label %if.else53
 
 if.then42:                                        ; preds = %sw.bb
-  store ptr %term.sroa.0.2, ptr %agg.tmp, align 8
+  store ptr %term.sroa.0.0, ptr %agg.tmp, align 8
   invoke void @_ZN4cvc58internal6theory2bv5utils7mkConstEjj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp45, i32 noundef 1, i32 noundef 1)
           to label %invoke.cont47 unwind label %lpad46
 
@@ -8982,7 +8982,7 @@ lpad50:                                           ; preds = %invoke.cont47
   br label %ehcleanup215
 
 if.else53:                                        ; preds = %sw.bb
-  store ptr %term.sroa.0.2, ptr %agg.tmp54, align 8
+  store ptr %term.sroa.0.0, ptr %agg.tmp54, align 8
   invoke void @_ZN4cvc58internal6theory2bv5utils7mkConstEjj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp57, i32 noundef 1, i32 noundef 0)
           to label %invoke.cont59 unwind label %lpad58
 
@@ -9034,7 +9034,7 @@ sw.bb67:                                          ; preds = %_ZN4cvc58internal9B
   br i1 %call40, label %if.then69, label %if.else83
 
 if.then69:                                        ; preds = %sw.bb67
-  store ptr %term.sroa.0.2, ptr %agg.tmp70, align 8
+  store ptr %term.sroa.0.0, ptr %agg.tmp70, align 8
   invoke void @_ZN4cvc58internal6theory2bv5utils7mkConstEjj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp73, i32 noundef 1, i32 noundef 0)
           to label %invoke.cont75 unwind label %lpad74
 
@@ -9083,7 +9083,7 @@ lpad78:                                           ; preds = %invoke.cont75
   br label %ehcleanup215
 
 if.else83:                                        ; preds = %sw.bb67
-  store ptr %term.sroa.0.2, ptr %agg.tmp84, align 8
+  store ptr %term.sroa.0.0, ptr %agg.tmp84, align 8
   invoke void @_ZN4cvc58internal6theory2bv5utils7mkConstEjj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp87, i32 noundef 1, i32 noundef 1)
           to label %invoke.cont89 unwind label %lpad88
 
@@ -9135,7 +9135,7 @@ sw.bb97:                                          ; preds = %_ZN4cvc58internal9B
   br i1 %call40, label %if.then99, label %if.else113
 
 if.then99:                                        ; preds = %sw.bb97
-  store ptr %term.sroa.0.2, ptr %agg.tmp100, align 8
+  store ptr %term.sroa.0.0, ptr %agg.tmp100, align 8
   invoke void @_ZN4cvc58internal6theory2bv5utils7mkConstEjj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp103, i32 noundef 1, i32 noundef 1)
           to label %invoke.cont105 unwind label %lpad104
 
@@ -9184,7 +9184,7 @@ lpad108:                                          ; preds = %invoke.cont105
   br label %ehcleanup215
 
 if.else113:                                       ; preds = %sw.bb97
-  store ptr %term.sroa.0.2, ptr %agg.tmp114, align 8
+  store ptr %term.sroa.0.0, ptr %agg.tmp114, align 8
   invoke void @_ZN4cvc58internal6theory2bv5utils7mkConstEjj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp117, i32 noundef 1, i32 noundef 0)
           to label %invoke.cont119 unwind label %lpad118
 
@@ -9236,7 +9236,7 @@ sw.bb127:                                         ; preds = %_ZN4cvc58internal9B
   br i1 %call40, label %if.then129, label %if.else143
 
 if.then129:                                       ; preds = %sw.bb127
-  store ptr %term.sroa.0.2, ptr %agg.tmp130, align 8
+  store ptr %term.sroa.0.0, ptr %agg.tmp130, align 8
   invoke void @_ZN4cvc58internal6theory2bv5utils7mkConstEjj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp133, i32 noundef 1, i32 noundef 0)
           to label %invoke.cont135 unwind label %lpad134
 
@@ -9285,7 +9285,7 @@ lpad138:                                          ; preds = %invoke.cont135
   br label %ehcleanup215
 
 if.else143:                                       ; preds = %sw.bb127
-  store ptr %term.sroa.0.2, ptr %agg.tmp144, align 8
+  store ptr %term.sroa.0.0, ptr %agg.tmp144, align 8
   invoke void @_ZN4cvc58internal6theory2bv5utils7mkConstEjj(ptr nonnull sret(%"class.cvc5::internal::NodeTemplate") align 8 %ref.tmp147, i32 noundef 1, i32 noundef 1)
           to label %invoke.cont149 unwind label %lpad148
 
@@ -9340,7 +9340,7 @@ sw.bb157:                                         ; preds = %_ZN4cvc58internal9B
 
 invoke.cont159:                                   ; preds = %sw.bb157
   %cmp.i.i288 = icmp eq i32 %call2.i.i.i294, 2
-  %d_children.i.i291 = getelementptr inbounds i8, ptr %term.sroa.0.2, i64 16
+  %d_children.i.i291 = getelementptr inbounds i8, ptr %term.sroa.0.0, i64 16
   %idxprom.i.i292 = zext i1 %cmp.i.i288 to i64
   %arrayidx.i.i293 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i291, i64 0, i64 %idxprom.i.i292
   %80 = load ptr, ptr %arrayidx.i.i293, align 8, !noalias !224
@@ -9434,7 +9434,7 @@ if.then173:                                       ; preds = %sw.bb171
 
 invoke.cont175:                                   ; preds = %if.then173
   %cmp.i.i319 = icmp eq i32 %call2.i.i.i325, 2
-  %d_children.i.i322 = getelementptr inbounds i8, ptr %term.sroa.0.2, i64 16
+  %d_children.i.i322 = getelementptr inbounds i8, ptr %term.sroa.0.0, i64 16
   %idxprom.i.i323 = zext i1 %cmp.i.i319 to i64
   %arrayidx.i.i324 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i322, i64 0, i64 %idxprom.i.i323
   %92 = load ptr, ptr %arrayidx.i.i324, align 8, !noalias !227
@@ -9474,7 +9474,7 @@ if.else183:                                       ; preds = %sw.bb171
 
 invoke.cont186:                                   ; preds = %if.else183
   %cmp.i.i347 = icmp eq i32 %call2.i.i.i353, 2
-  %d_children.i.i350 = getelementptr inbounds i8, ptr %term.sroa.0.2, i64 16
+  %d_children.i.i350 = getelementptr inbounds i8, ptr %term.sroa.0.0, i64 16
   %idxprom.i.i351 = zext i1 %cmp.i.i347 to i64
   %arrayidx.i.i352 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i350, i64 0, i64 %idxprom.i.i351
   %96 = load ptr, ptr %arrayidx.i.i352, align 8, !noalias !233
@@ -9589,7 +9589,7 @@ sw.bb197:                                         ; preds = %_ZN4cvc58internal9B
 
 invoke.cont199:                                   ; preds = %sw.bb197
   %cmp.i.i390 = icmp eq i32 %call2.i.i.i396, 2
-  %d_children.i.i393 = getelementptr inbounds i8, ptr %term.sroa.0.2, i64 16
+  %d_children.i.i393 = getelementptr inbounds i8, ptr %term.sroa.0.0, i64 16
   %idxprom.i.i394 = zext i1 %cmp.i.i390 to i64
   %arrayidx.i.i395 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i393, i64 0, i64 %idxprom.i.i394
   %108 = load ptr, ptr %arrayidx.i.i395, align 8, !noalias !245
@@ -10528,18 +10528,18 @@ if.else:                                          ; preds = %invoke.cont
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %c.sroa.0.2.in = phi ptr [ %arrayidx.i.i55, %if.then ], [ %arrayidx.i.i103, %if.else ]
-  %t.sroa.0.2 = phi ptr [ %10, %if.then ], [ %13, %if.else ]
-  %c.sroa.0.2 = load ptr, ptr %c.sroa.0.2.in, align 8, !noalias !27
-  store ptr %t.sroa.0.2, ptr %agg.tmp, align 8
+  %c.sroa.0.0.in = phi ptr [ %arrayidx.i.i55, %if.then ], [ %arrayidx.i.i103, %if.else ]
+  %t.sroa.0.0 = phi ptr [ %10, %if.then ], [ %13, %if.else ]
+  %c.sroa.0.0 = load ptr, ptr %c.sroa.0.0.in, align 8, !noalias !27
+  store ptr %t.sroa.0.0, ptr %agg.tmp, align 8
   %call24 = call noundef i32 @_ZN4cvc58internal6theory2bv5utils7getSizeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp)
   %sub = add i32 %call24, -1
-  %call.i109 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %c.sroa.0.2)
-  store ptr %c.sroa.0.2, ptr %agg.tmp27, align 8
+  %call.i109 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %c.sroa.0.0)
+  store ptr %c.sroa.0.0, ptr %agg.tmp27, align 8
   %call31 = call noundef i32 @_ZN4cvc58internal6theory2bv5utils7getSizeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp27)
   %sub32 = add i32 %call31, -1
   call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %c_hi, ptr noundef nonnull align 8 dereferenceable(24) %call.i109, i32 noundef %sub32, i32 noundef %sub)
-  %call.i110 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %c.sroa.0.2)
+  %call.i110 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %c.sroa.0.0)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %if.end
@@ -10615,7 +10615,7 @@ invoke.cont64:                                    ; preds = %invoke.cont57
           to label %.noexc unwind label %lpad67
 
 .noexc:                                           ; preds = %invoke.cont64
-  store ptr %t.sroa.0.2, ptr %agg.tmp.i, align 8, !noalias !297
+  store ptr %t.sroa.0.0, ptr %agg.tmp.i, align 8, !noalias !297
   %call.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont3.i unwind label %lpad2.i, !noalias !297
 
@@ -10995,21 +10995,21 @@ if.else:                                          ; preds = %invoke.cont
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %c.sroa.0.2.in = phi ptr [ %arrayidx.i.i56, %if.then ], [ %arrayidx.i.i104, %if.else ]
-  %t.sroa.0.2 = phi ptr [ %10, %if.then ], [ %13, %if.else ]
-  %c.sroa.0.2 = load ptr, ptr %c.sroa.0.2.in, align 8, !noalias !27
-  %call.i110 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %c.sroa.0.2)
-  store ptr %c.sroa.0.2, ptr %agg.tmp, align 8
+  %c.sroa.0.0.in = phi ptr [ %arrayidx.i.i56, %if.then ], [ %arrayidx.i.i104, %if.else ]
+  %t.sroa.0.0 = phi ptr [ %10, %if.then ], [ %13, %if.else ]
+  %c.sroa.0.0 = load ptr, ptr %c.sroa.0.0.in, align 8, !noalias !27
+  %call.i110 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %c.sroa.0.0)
+  store ptr %c.sroa.0.0, ptr %agg.tmp, align 8
   %call26 = call noundef i32 @_ZN4cvc58internal6theory2bv5utils7getSizeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp)
-  store ptr %t.sroa.0.2, ptr %agg.tmp27, align 8
+  store ptr %t.sroa.0.0, ptr %agg.tmp27, align 8
   %call31 = call noundef i32 @_ZN4cvc58internal6theory2bv5utils7getSizeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp27)
   %sub = add i32 %call26, -1
   call void @_ZNK4cvc58internal9BitVector7extractEjj(ptr nonnull sret(%"class.cvc5::internal::BitVector") align 8 %c_hi, ptr noundef nonnull align 8 dereferenceable(24) %call.i110, i32 noundef %sub, i32 noundef %call31)
-  %call.i111 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %c.sroa.0.2)
+  %call.i111 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v(ptr noundef nonnull align 8 dereferenceable(16) %c.sroa.0.0)
           to label %invoke.cont34 unwind label %lpad33
 
 invoke.cont34:                                    ; preds = %if.end
-  store ptr %t.sroa.0.2, ptr %agg.tmp36, align 8
+  store ptr %t.sroa.0.0, ptr %agg.tmp36, align 8
   %call40 = invoke noundef i32 @_ZN4cvc58internal6theory2bv5utils7getSizeENS0_12NodeTemplateILb0EEE(ptr noundef nonnull %agg.tmp36)
           to label %invoke.cont39 unwind label %lpad38
 
@@ -11064,7 +11064,7 @@ invoke.cont63:                                    ; preds = %invoke.cont56
           to label %.noexc unwind label %lpad66
 
 .noexc:                                           ; preds = %invoke.cont63
-  store ptr %t.sroa.0.2, ptr %agg.tmp.i, align 8, !noalias !321
+  store ptr %t.sroa.0.0, ptr %agg.tmp.i, align 8, !noalias !321
   %call.i = invoke noundef nonnull align 8 dereferenceable(116) ptr @_ZN4cvc58internal11NodeBuilderlsENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(116) %nb.i, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont3.i unwind label %lpad2.i, !noalias !321
 

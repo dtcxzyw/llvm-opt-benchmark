@@ -4254,7 +4254,7 @@ if.end60.thread.i:                                ; preds = %if.end9.i
   br label %if.end78.i
 
 if.end13.i:                                       ; preds = %if.then193, %if.end9.i
-  %size_mult.180.i = phi i64 [ %spec.select.i, %if.end9.i ], [ 2, %if.then193 ]
+  %size_mult.080.i = phi i64 [ %spec.select.i, %if.end9.i ], [ 2, %if.then193 ]
   %max_commits.078.i = phi i32 [ %170, %if.end9.i ], [ 0, %if.then193 ]
   %flags.076.i = phi i32 [ %172, %if.end9.i ], [ 0, %if.then193 ]
   %.pn155.i = load ptr, ptr %call5, align 8
@@ -4282,22 +4282,22 @@ land.rhs.preheader.i:                             ; preds = %if.end13.i
 land.rhs.us.i:                                    ; preds = %land.rhs.preheader.i, %if.end46.us.i
   %176 = phi i32 [ %dec.us.i, %if.end46.us.i ], [ %add.i225, %land.rhs.preheader.i ]
   %num_commits.0.us.i = phi i32 [ %add48.us.i, %if.end46.us.i ], [ %conv82.i, %land.rhs.preheader.i ]
-  %g.0.us.i = phi ptr [ %180, %if.end46.us.i ], [ %173, %land.rhs.preheader.i ]
-  %num_commits20.us.i = getelementptr inbounds i8, ptr %g.0.us.i, i64 20
+  %g.1.us.i = phi ptr [ %180, %if.end46.us.i ], [ %173, %land.rhs.preheader.i ]
+  %num_commits20.us.i = getelementptr inbounds i8, ptr %g.1.us.i, i64 20
   %177 = load i32, ptr %num_commits20.us.i, align 4
   %conv21.us.i = zext i32 %177 to i64
   %conv23.us.i = zext i32 %num_commits.0.us.i to i64
-  %mul6.i.us.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %size_mult.180.i, i64 %conv23.us.i)
+  %mul6.i.us.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %size_mult.080.i, i64 %conv23.us.i)
   %mul.ov.i.us.i = extractvalue { i64, i1 } %mul6.i.us.i, 1
   br i1 %mul.ov.i.us.i, label %if.then.i.i244, label %st_mult.exit.us.i
 
 st_mult.exit.us.i:                                ; preds = %land.rhs.us.i
-  %mul.i.us.i = mul nsw i64 %size_mult.180.i, %conv23.us.i
+  %mul.i.us.i = mul nsw i64 %size_mult.080.i, %conv23.us.i
   %cmp24.not.us.i = icmp ult i64 %mul.i.us.i, %conv21.us.i
   br i1 %cmp24.not.us.i, label %if.end60.i, label %while.body.us.i
 
 while.body.us.i:                                  ; preds = %st_mult.exit.us.i
-  %odb.us.i = getelementptr inbounds i8, ptr %g.0.us.i, i64 72
+  %odb.us.i = getelementptr inbounds i8, ptr %g.1.us.i, i64 72
   %178 = load ptr, ptr %odb.us.i, align 8
   %179 = load ptr, ptr %odb7, align 8
   %cmp32.not.us.i = icmp eq ptr %178, %179
@@ -4310,7 +4310,7 @@ if.end35.us.i:                                    ; preds = %while.body.us.i
 
 if.end46.us.i:                                    ; preds = %if.end35.us.i
   %add48.us.i = add i32 %177, %num_commits.0.us.i
-  %base_graph.us.i = getelementptr inbounds i8, ptr %g.0.us.i, i64 88
+  %base_graph.us.i = getelementptr inbounds i8, ptr %g.1.us.i, i64 88
   %180 = load ptr, ptr %base_graph.us.i, align 8
   %dec.us.i = add nsw i32 %176, -1
   store i32 %dec.us.i, ptr %num_commit_graphs_after12.i, align 4
@@ -4320,29 +4320,29 @@ if.end46.us.i:                                    ; preds = %if.end35.us.i
 land.rhs.i:                                       ; preds = %land.rhs.preheader.i, %if.end46.i
   %181 = phi i32 [ %dec.i, %if.end46.i ], [ %add.i225, %land.rhs.preheader.i ]
   %num_commits.0.i = phi i32 [ %add48.i, %if.end46.i ], [ %conv82.i, %land.rhs.preheader.i ]
-  %g.0.i = phi ptr [ %186, %if.end46.i ], [ %173, %land.rhs.preheader.i ]
-  %num_commits20.i = getelementptr inbounds i8, ptr %g.0.i, i64 20
+  %g.1.i = phi ptr [ %186, %if.end46.i ], [ %173, %land.rhs.preheader.i ]
+  %num_commits20.i = getelementptr inbounds i8, ptr %g.1.i, i64 20
   %182 = load i32, ptr %num_commits20.i, align 4
   %conv21.i = zext i32 %182 to i64
   %conv23.i = zext i32 %num_commits.0.i to i64
-  %mul6.i.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %size_mult.180.i, i64 %conv23.i)
+  %mul6.i.i = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %size_mult.080.i, i64 %conv23.i)
   %mul.ov.i.i237 = extractvalue { i64, i1 } %mul6.i.i, 1
   br i1 %mul.ov.i.i237, label %if.then.i.i244, label %st_mult.exit.i238
 
 if.then.i.i244:                                   ; preds = %land.rhs.i, %land.rhs.us.i
   %.us-phi.i = phi i64 [ %conv23.us.i, %land.rhs.us.i ], [ %conv23.i, %land.rhs.i ]
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef %size_mult.180.i, i64 noundef %.us-phi.i) #23
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.56, i64 noundef %size_mult.080.i, i64 noundef %.us-phi.i) #23
   unreachable
 
 st_mult.exit.i238:                                ; preds = %land.rhs.i
-  %mul.i.i239 = mul nsw i64 %size_mult.180.i, %conv23.i
+  %mul.i.i239 = mul nsw i64 %size_mult.080.i, %conv23.i
   %cmp24.not.i = icmp uge i64 %mul.i.i239, %conv21.i
   %cmp28.i = icmp ugt i32 %num_commits.0.i, %max_commits.078.fr.i
   %or.cond120.i = select i1 %cmp24.not.i, i1 true, i1 %cmp28.i
   br i1 %or.cond120.i, label %while.body.i240, label %if.end60.i
 
 while.body.i240:                                  ; preds = %st_mult.exit.i238
-  %odb.i241 = getelementptr inbounds i8, ptr %g.0.i, i64 72
+  %odb.i241 = getelementptr inbounds i8, ptr %g.1.i, i64 72
   %183 = load ptr, ptr %odb.i241, align 8
   %184 = load ptr, ptr %odb7, align 8
   %cmp32.not.i = icmp eq ptr %183, %184
@@ -4354,7 +4354,7 @@ if.end35.i:                                       ; preds = %while.body.i240
   br i1 %cmp39.i, label %if.then41.i, label %if.end46.i
 
 if.then41.i:                                      ; preds = %if.end35.i, %if.end35.us.i
-  %.us-phi107.i = phi ptr [ %g.0.us.i, %if.end35.us.i ], [ %g.0.i, %if.end35.i ]
+  %.us-phi107.i = phi ptr [ %g.1.us.i, %if.end35.us.i ], [ %g.1.i, %if.end35.i ]
   %.us-phi108.i = phi i64 [ %conv23.us.i, %if.end35.us.i ], [ %conv23.i, %if.end35.i ]
   %num_commits20.le.i = getelementptr inbounds i8, ptr %.us-phi107.i, i64 20
   %call42.i243 = call fastcc ptr @_(ptr noundef nonnull @.str.70)
@@ -4365,7 +4365,7 @@ if.then41.i:                                      ; preds = %if.end35.i, %if.end
 
 if.end46.i:                                       ; preds = %if.end35.i
   %add48.i = add i32 %182, %num_commits.0.i
-  %base_graph.i = getelementptr inbounds i8, ptr %g.0.i, i64 88
+  %base_graph.i = getelementptr inbounds i8, ptr %g.1.i, i64 88
   %186 = load ptr, ptr %base_graph.i, align 8
   %dec.i = add nsw i32 %181, -1
   store i32 %dec.i, ptr %num_commit_graphs_after12.i, align 4
@@ -4374,19 +4374,19 @@ if.end46.i:                                       ; preds = %if.end35.i
 
 if.end60.i:                                       ; preds = %if.end46.i, %while.body.i240, %st_mult.exit.i238, %if.end46.us.i, %while.body.us.i, %st_mult.exit.us.i, %if.end13.i
   %187 = phi i32 [ %add.i225, %if.end13.i ], [ %dec.us.i, %if.end46.us.i ], [ %176, %while.body.us.i ], [ %176, %st_mult.exit.us.i ], [ %181, %st_mult.exit.i238 ], [ %181, %while.body.i240 ], [ %dec.i, %if.end46.i ]
-  %g.1101.i = phi ptr [ %173, %if.end13.i ], [ null, %if.end46.us.i ], [ %g.0.us.i, %while.body.us.i ], [ %g.0.us.i, %st_mult.exit.us.i ], [ %g.0.i, %st_mult.exit.i238 ], [ %g.0.i, %while.body.i240 ], [ null, %if.end46.i ]
+  %g.0101.i = phi ptr [ %173, %if.end13.i ], [ null, %if.end46.us.i ], [ %g.1.us.i, %while.body.us.i ], [ %g.1.us.i, %st_mult.exit.us.i ], [ %g.1.i, %st_mult.exit.i238 ], [ %g.1.i, %while.body.i240 ], [ null, %if.end46.i ]
   %new_base_graph.i = getelementptr inbounds i8, ptr %call5, i64 168
-  store ptr %g.1101.i, ptr %new_base_graph.i, align 8
+  store ptr %g.0101.i, ptr %new_base_graph.i, align 8
   %cmp62.i = icmp eq i32 %187, 2
   br i1 %cmp62.i, label %if.then64.i, label %if.end78.i
 
 if.then64.i:                                      ; preds = %if.end60.i
-  %odb65.i = getelementptr inbounds i8, ptr %g.1101.i, i64 72
+  %odb65.i = getelementptr inbounds i8, ptr %g.0101.i, i64 72
   %188 = load ptr, ptr %odb65.i, align 8
   %path.i.i = getelementptr inbounds i8, ptr %188, i64 56
   %189 = load ptr, ptr %path.i.i, align 8
   %call.i.i235 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.3, ptr noundef %189) #22
-  %filename.i = getelementptr inbounds i8, ptr %g.1101.i, i64 64
+  %filename.i = getelementptr inbounds i8, ptr %g.0101.i, i64 64
   %190 = load ptr, ptr %filename.i, align 8
   %call67.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %190, ptr noundef nonnull dereferenceable(1) %call.i.i235) #26
   %tobool68.not.i = icmp eq i32 %call67.i, 0
@@ -5772,7 +5772,7 @@ expire_commit_graphs.exit:                        ; preds = %if.end10.i, %if.the
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end179, %fill_oids_from_packs.exit, %expire_commit_graphs.exit, %_.exit220
-  %res.2 = phi i32 [ -1, %fill_oids_from_packs.exit ], [ -1, %_.exit220 ], [ %retval.0.i360, %expire_commit_graphs.exit ], [ 0, %if.end179 ]
+  %res.1 = phi i32 [ -1, %fill_oids_from_packs.exit ], [ -1, %_.exit220 ], [ %retval.0.i360, %expire_commit_graphs.exit ], [ 0, %if.end179 ]
   %graph_name = getelementptr inbounds i8, ptr %call5, i64 16
   %425 = load ptr, ptr %graph_name, align 8
   call void @free(ptr noundef %425) #22
@@ -5874,7 +5874,7 @@ if.end264:                                        ; preds = %for.end260, %clear_
   br label %return
 
 return:                                           ; preds = %if.end, %if.end264, %_.exit
-  %retval.0 = phi i32 [ %res.2, %if.end264 ], [ 0, %_.exit ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ %res.1, %if.end264 ], [ 0, %_.exit ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -6765,8 +6765,8 @@ for.body55.lr.ph.i:                               ; preds = %for.cond51.preheade
 for.body55.i:                                     ; preds = %for.inc158.i, %for.body55.lr.ph.i
   %seen.1 = phi i64 [ %seen.019, %for.body55.lr.ph.i ], [ %inc57.i, %for.inc158.i ]
   %indvars.iv338.i = phi i64 [ 0, %for.body55.lr.ph.i ], [ %indvars.iv.next339.i, %for.inc158.i ]
-  %seen_gen_zero.0323.i = phi ptr [ null, %for.body55.lr.ph.i ], [ %seen_gen_zero.2.i, %for.inc158.i ]
-  %seen_gen_non_zero.0322.i = phi ptr [ null, %for.body55.lr.ph.i ], [ %seen_gen_non_zero.2.i, %for.inc158.i ]
+  %seen_gen_zero.0323.i = phi ptr [ null, %for.body55.lr.ph.i ], [ %seen_gen_zero.1.i, %for.inc158.i ]
+  %seen_gen_non_zero.0322.i = phi ptr [ null, %for.body55.lr.ph.i ], [ %seen_gen_non_zero.1.i, %for.inc158.i ]
   %inc57.i = add i64 %seen.1, 1
   call void @display_progress(ptr noundef %3, i64 noundef %inc57.i) #22
   %59 = load ptr, ptr %chunk_oid_lookup58.i, align 8
@@ -7197,8 +7197,8 @@ _.exit283.i:                                      ; preds = %if.end3.i280.i, %if
   br label %for.inc158.i
 
 for.inc158.i:                                     ; preds = %_.exit283.i, %if.end148.i, %commit_graph_generation_from_graph.exit257.i, %_.exit141.i
-  %seen_gen_non_zero.2.i = phi ptr [ %seen_gen_non_zero.0322.i, %_.exit141.i ], [ %seen_gen_non_zero.0.call64.i, %commit_graph_generation_from_graph.exit257.i ], [ %seen_gen_non_zero.0.call64.i, %_.exit283.i ], [ %seen_gen_non_zero.0.call64.i, %if.end148.i ]
-  %seen_gen_zero.2.i = phi ptr [ %seen_gen_zero.0323.i, %_.exit141.i ], [ %call64.seen_gen_zero.0.i, %commit_graph_generation_from_graph.exit257.i ], [ null, %_.exit283.i ], [ null, %if.end148.i ]
+  %seen_gen_non_zero.1.i = phi ptr [ %seen_gen_non_zero.0322.i, %_.exit141.i ], [ %seen_gen_non_zero.0.call64.i, %commit_graph_generation_from_graph.exit257.i ], [ %seen_gen_non_zero.0.call64.i, %_.exit283.i ], [ %seen_gen_non_zero.0.call64.i, %if.end148.i ]
+  %seen_gen_zero.1.i = phi ptr [ %seen_gen_zero.0323.i, %_.exit141.i ], [ %call64.seen_gen_zero.0.i, %commit_graph_generation_from_graph.exit257.i ], [ null, %_.exit283.i ], [ null, %if.end148.i ]
   %indvars.iv.next339.i = add nuw nsw i64 %indvars.iv338.i, 1
   %118 = load i32, ptr %num_commits.i, align 4
   %119 = zext i32 %118 to i64
@@ -7206,8 +7206,8 @@ for.inc158.i:                                     ; preds = %_.exit283.i, %if.en
   br i1 %cmp53.i, label %for.body55.i, label %for.end160.i, !llvm.loop !59
 
 for.end160.i:                                     ; preds = %for.inc158.i
-  %tobool161.i = icmp ne ptr %seen_gen_zero.2.i, null
-  %tobool163.i = icmp ne ptr %seen_gen_non_zero.2.i, null
+  %tobool161.i = icmp ne ptr %seen_gen_zero.1.i, null
+  %tobool163.i = icmp ne ptr %seen_gen_non_zero.1.i, null
   %or.cond1.i = select i1 %tobool161.i, i1 %tobool163.i, i1 false
   br i1 %or.cond1.i, label %if.then164.i, label %if.end172.i
 
@@ -7222,9 +7222,9 @@ if.end3.i286.i:                                   ; preds = %if.then164.i
 
 _.exit289.i:                                      ; preds = %if.end3.i286.i, %if.then164.i
   %retval.0.i288.i = phi ptr [ %call.i287.i, %if.end3.i286.i ], [ @.str.118, %if.then164.i ]
-  %oid167.i = getelementptr inbounds i8, ptr %seen_gen_zero.2.i, i64 4
+  %oid167.i = getelementptr inbounds i8, ptr %seen_gen_zero.1.i, i64 4
   %call168.i = call ptr @oid_to_hex(ptr noundef nonnull %oid167.i) #22
-  %oid170.i = getelementptr inbounds i8, ptr %seen_gen_non_zero.2.i, i64 4
+  %oid170.i = getelementptr inbounds i8, ptr %seen_gen_non_zero.1.i, i64 4
   %call171.i = call ptr @oid_to_hex(ptr noundef nonnull %oid170.i) #22
   call void (ptr, ...) @graph_report(ptr noundef %retval.0.i288.i, ptr noundef %call168.i, ptr noundef %call171.i)
   br label %if.end172.i
@@ -8222,7 +8222,7 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.else.i103
   %list.0153 = phi ptr [ %0, %while.body.lr.ph ], [ %incdec.ptr, %if.else.i103 ]
-  %num_extra_edges.0152 = phi i32 [ 0, %while.body.lr.ph ], [ %num_extra_edges.2, %if.else.i103 ]
+  %num_extra_edges.0152 = phi i32 [ 0, %while.body.lr.ph ], [ %num_extra_edges.1, %if.else.i103 ]
   %2 = load ptr, ptr %progress, align 8
   %3 = load i64, ptr %progress_cnt, align 8
   %inc = add i64 %3, 1
@@ -8339,8 +8339,8 @@ find_commit_pos_in_graph.exit:                    ; preds = %land.rhs.i.i
   br label %if.end30
 
 if.end30:                                         ; preds = %commit_graph_position.exit.i, %29, %find_commit_pos_in_graph.exit, %if.then19
-  %edge_value.0 = phi i32 [ %add, %if.then19 ], [ %call16, %29 ], [ %add.i.i, %find_commit_pos_in_graph.exit ], [ %22, %commit_graph_position.exit.i ]
-  %cmp31 = icmp slt i32 %edge_value.0, 0
+  %edge_value.1 = phi i32 [ %add, %if.then19 ], [ %call16, %29 ], [ %add.i.i, %find_commit_pos_in_graph.exit ], [ %22, %commit_graph_position.exit.i ]
+  %cmp31 = icmp slt i32 %edge_value.1, 0
   br i1 %cmp31, label %if.end30.if.then33_crit_edge, label %if.end42
 
 if.end30.if.then33_crit_edge:                     ; preds = %if.end30
@@ -8359,7 +8359,7 @@ if.then33:                                        ; preds = %if.else20, %if.end3
 
 if.end42:                                         ; preds = %if.end30
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i)
-  %32 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %edge_value.0) #24, !srcloc !5
+  %32 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %edge_value.1) #24, !srcloc !5
   store i32 %32, ptr %data.addr.i, align 4
   call void @hashwrite(ptr noundef %f, ptr noundef nonnull %data.addr.i, i32 noundef 4) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i)
@@ -8466,8 +8466,8 @@ find_commit_pos_in_graph.exit93:                  ; preds = %land.rhs.i.i66
   br label %if.end78
 
 if.end78:                                         ; preds = %commit_graph_position.exit.i87, %51, %find_commit_pos_in_graph.exit93, %if.then63
-  %edge_value.2 = phi i32 [ %add65, %if.then63 ], [ %call60, %51 ], [ %add.i.i76, %find_commit_pos_in_graph.exit93 ], [ %44, %commit_graph_position.exit.i87 ]
-  %cmp79 = icmp slt i32 %edge_value.2, 0
+  %edge_value.3 = phi i32 [ %add65, %if.then63 ], [ %call60, %51 ], [ %add.i.i76, %find_commit_pos_in_graph.exit93 ], [ %44, %commit_graph_position.exit.i87 ]
+  %cmp79 = icmp slt i32 %edge_value.3, 0
   br i1 %cmp79, label %if.end78.if.then81_crit_edge, label %if.end91
 
 if.end78.if.then81_crit_edge:                     ; preds = %if.end78
@@ -8486,26 +8486,26 @@ if.then81:                                        ; preds = %if.else66, %if.end7
 
 if.end91:                                         ; preds = %if.end45.thread, %if.end42, %if.then51, %if.end78
   %parent.0129 = phi ptr [ null, %if.end42 ], [ %33, %if.end78 ], [ %33, %if.then51 ], [ null, %if.end45.thread ]
-  %edge_value.3 = phi i32 [ 1879048192, %if.end42 ], [ %edge_value.2, %if.end78 ], [ %or, %if.then51 ], [ 1879048192, %if.end45.thread ]
+  %edge_value.2 = phi i32 [ 1879048192, %if.end42 ], [ %edge_value.3, %if.end78 ], [ %or, %if.then51 ], [ 1879048192, %if.end45.thread ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %data.addr.i94)
-  %54 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %edge_value.3) #24, !srcloc !5
+  %54 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %edge_value.2) #24, !srcloc !5
   store i32 %54, ptr %data.addr.i94, align 4
   call void @hashwrite(ptr noundef %f, ptr noundef nonnull %data.addr.i94, i32 noundef 4) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %data.addr.i94)
-  %tobool92.not = icmp sgt i32 %edge_value.3, -1
+  %tobool92.not = icmp sgt i32 %edge_value.2, -1
   br i1 %tobool92.not, label %if.end97, label %do.body
 
 do.body:                                          ; preds = %if.end91, %do.body
-  %num_extra_edges.1 = phi i32 [ %inc94, %do.body ], [ %num_extra_edges.0152, %if.end91 ]
+  %num_extra_edges.2 = phi i32 [ %inc94, %do.body ], [ %num_extra_edges.0152, %if.end91 ]
   %parent.1 = phi ptr [ %55, %do.body ], [ %parent.0129, %if.end91 ]
-  %inc94 = add i32 %num_extra_edges.1, 1
+  %inc94 = add i32 %num_extra_edges.2, 1
   %next95 = getelementptr inbounds i8, ptr %parent.1, i64 8
   %55 = load ptr, ptr %next95, align 8
   %tobool96.not = icmp eq ptr %55, null
   br i1 %tobool96.not, label %if.end97, label %do.body, !llvm.loop !67
 
 if.end97:                                         ; preds = %do.body, %if.end91
-  %num_extra_edges.2 = phi i32 [ %num_extra_edges.0152, %if.end91 ], [ %inc94, %do.body ]
+  %num_extra_edges.1 = phi i32 [ %num_extra_edges.0152, %if.end91 ], [ %inc94, %do.body ]
   %56 = load ptr, ptr %list.0153, align 8
   %date = getelementptr inbounds i8, ptr %56, i64 40
   %57 = load i64, ptr %date, align 8

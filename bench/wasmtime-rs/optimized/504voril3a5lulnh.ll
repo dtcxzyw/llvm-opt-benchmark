@@ -759,11 +759,11 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread32: ; preds = %15, %1
   br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke
 
 26:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit"
-  %.136 = phi ptr [ %.1.ph, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit" ], [ %23, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread ]
-  ret ptr %.136
+  %.036 = phi ptr [ %.0.ph, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h7b7ff2f930f48e09E.exit" ], [ %23, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread ]
+  ret ptr %.036
 
 27:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke, %10
-  %.1.ph = phi ptr [ %9, %10 ], [ %25, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke ]
+  %.0.ph = phi ptr [ %9, %10 ], [ %25, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread20.invoke ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1), !noalias !24
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h818a02e413cc4ce9E.llvm.1938814379164664089(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %1, ptr noundef nonnull %0), !noalias !24
   %28 = load i8, ptr %1, align 8, !range !31, !alias.scope !32, !noalias !24, !noundef !5

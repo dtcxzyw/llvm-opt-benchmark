@@ -3236,7 +3236,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
   %emptylen.088 = phi i64 [ 0, %land.rhs.lr.ph ], [ %emptylen.2, %for.end194 ]
   %call.pn87 = phi i64 [ %call, %land.rhs.lr.ph ], [ %add195, %for.end194 ]
   %maxsteps.086 = phi i64 [ %conv10, %land.rhs.lr.ph ], [ %dec, %for.end194 ]
-  %stored.085 = phi i64 [ 0, %land.rhs.lr.ph ], [ %stored.3, %for.end194 ]
+  %stored.085 = phi i64 [ 0, %land.rhs.lr.ph ], [ %stored.2, %for.end194 ]
   %dec = add nsw i64 %maxsteps.086, -1
   %tobool.not = icmp eq i64 %maxsteps.086, 0
   br i1 %tobool.not, label %end, label %for.body99.preheader
@@ -3248,7 +3248,7 @@ for.body99.preheader:                             ; preds = %land.rhs
 for.body99:                                       ; preds = %for.body99.preheader, %for.inc192
   %emptylen.183 = phi i64 [ %emptylen.2, %for.inc192 ], [ %emptylen.088, %for.body99.preheader ]
   %i.182 = phi i64 [ %i.3, %for.inc192 ], [ %i.0, %for.body99.preheader ]
-  %stored.181 = phi i64 [ %stored.3, %for.inc192 ], [ %stored.085, %for.body99.preheader ]
+  %stored.181 = phi i64 [ %stored.2, %for.inc192 ], [ %stored.085, %for.body99.preheader ]
   %cmp103 = phi i1 [ false, %for.inc192 ], [ true, %for.body99.preheader ]
   %j.180 = phi i64 [ 1, %for.inc192 ], [ 0, %for.body99.preheader ]
   %or.cond = and i1 %cmp19, %cmp103
@@ -3301,19 +3301,19 @@ if.then161:                                       ; preds = %if.then153
 
 while.body168:                                    ; preds = %if.end148, %dictGetNext.exit
   %he.079 = phi ptr [ %15, %dictGetNext.exit ], [ %12, %if.end148 ]
-  %stored.278 = phi i64 [ %inc185, %dictGetNext.exit ], [ %stored.181, %if.end148 ]
-  %cmp170 = icmp ult i64 %stored.278, %conv11
+  %stored.378 = phi i64 [ %inc185, %dictGetNext.exit ], [ %stored.181, %if.end148 ]
+  %cmp170 = icmp ult i64 %stored.378, %conv11
   br i1 %cmp170, label %if.end183.sink.split, label %if.else174
 
 if.else174:                                       ; preds = %while.body168
   %call175 = tail call i64 @genrand64_int64() #22
-  %add176 = add i64 %stored.278, 1
+  %add176 = add i64 %stored.378, 1
   %rem = urem i64 %call175, %add176
   %cmp178 = icmp ult i64 %rem, %conv11
   br i1 %cmp178, label %if.end183.sink.split, label %if.end183
 
 if.end183.sink.split:                             ; preds = %if.else174, %while.body168
-  %rem.sink = phi i64 [ %stored.278, %while.body168 ], [ %rem, %if.else174 ]
+  %rem.sink = phi i64 [ %stored.378, %while.body168 ], [ %rem, %if.else174 ]
   %arrayidx181 = getelementptr inbounds ptr, ptr %des, i64 %rem.sink
   store ptr %he.079, ptr %arrayidx181, align 8
   br label %if.end183
@@ -3325,7 +3325,7 @@ if.end183:                                        ; preds = %if.end183.sink.spli
   br i1 %tobool.not.i, label %dictGetNext.exit, label %dictGetNext.exit.thread
 
 dictGetNext.exit.thread:                          ; preds = %if.end183
-  %inc18594 = add i64 %stored.278, 1
+  %inc18594 = add i64 %stored.378, 1
   br label %while.end
 
 dictGetNext.exit:                                 ; preds = %if.end183
@@ -3337,7 +3337,7 @@ dictGetNext.exit:                                 ; preds = %if.end183
   %next.i = getelementptr inbounds i8, ptr %14, i64 8
   %next6.sink.i = select i1 %cmp.i.not.i, ptr %next.i, ptr %next6.i
   %15 = load ptr, ptr %next6.sink.i, align 8
-  %inc185 = add i64 %stored.278, 1
+  %inc185 = add i64 %stored.378, 1
   %tobool167.not = icmp eq ptr %15, null
   br i1 %tobool167.not, label %while.end, label %while.body168, !llvm.loop !26
 
@@ -3347,18 +3347,18 @@ while.end:                                        ; preds = %dictGetNext.exit, %
   br i1 %cmp187.not, label %for.inc192, label %end
 
 for.inc192:                                       ; preds = %if.then161, %if.then153, %while.end, %if.end130, %if.then109
-  %stored.3 = phi i64 [ %stored.181, %if.end130 ], [ %stored.181, %if.then161 ], [ %stored.181, %if.then153 ], [ %inc18596, %while.end ], [ %stored.181, %if.then109 ]
+  %stored.2 = phi i64 [ %stored.181, %if.end130 ], [ %stored.181, %if.then161 ], [ %stored.181, %if.then153 ], [ %inc18596, %while.end ], [ %stored.181, %if.then109 ]
   %i.3 = phi i64 [ %i.2, %if.end130 ], [ %and163, %if.then161 ], [ %i.2, %if.then153 ], [ %i.2, %while.end ], [ %i.182, %if.then109 ]
   %emptylen.2 = phi i64 [ %emptylen.183, %if.end130 ], [ 0, %if.then161 ], [ %inc154, %if.then153 ], [ 0, %while.end ], [ %emptylen.183, %if.then109 ]
   br i1 %or.cond, label %for.body99, label %for.end194, !llvm.loop !27
 
 for.end194:                                       ; preds = %for.inc192
   %add195 = add i64 %i.3, 1
-  %cmp94 = icmp ult i64 %stored.3, %conv11
+  %cmp94 = icmp ult i64 %stored.2, %conv11
   br i1 %cmp94, label %land.rhs, label %end, !llvm.loop !28
 
 end:                                              ; preds = %for.end194, %land.rhs, %while.end, %if.end92
-  %stored.4 = phi i64 [ 0, %if.end92 ], [ %inc18596, %while.end ], [ %stored.3, %for.end194 ], [ %stored.085, %land.rhs ]
+  %stored.4 = phi i64 [ 0, %if.end92 ], [ %inc18596, %while.end ], [ %stored.2, %for.end194 ], [ %stored.085, %land.rhs ]
   %cond205 = tail call i64 @llvm.umin.i64(i64 %stored.4, i64 %conv11)
   %conv206 = trunc nuw i64 %cond205 to i32
   ret i32 %conv206
@@ -3608,9 +3608,9 @@ dictGetNext.exit110:                              ; preds = %while.body141
   br i1 %tobool140.not, label %do.body.preheader, label %while.body141, !llvm.loop !31
 
 do.body:                                          ; preds = %do.body.preheader, %rev.exit151
-  %v.addr.0 = phi i64 [ %or.i149, %rev.exit151 ], [ %v, %do.body.preheader ]
+  %v.addr.1 = phi i64 [ %or.i149, %rev.exit151 ], [ %v, %do.body.preheader ]
   %.pre162 = load ptr, ptr %arrayidx148, align 8
-  %.pre165 = and i64 %v.addr.0, %cond125
+  %.pre165 = and i64 %v.addr.1, %cond125
   br i1 %tobool126.not, label %if.end151, label %if.then145
 
 if.then145:                                       ; preds = %do.body
@@ -3651,7 +3651,7 @@ dictGetNext.exit121:                              ; preds = %while.body159
   br i1 %tobool158.not, label %while.end161, label %while.body159, !llvm.loop !32
 
 while.end161:                                     ; preds = %dictGetNext.exit121, %dictGetNext.exit121.thread, %if.end151
-  %or163 = or i64 %v.addr.0, %not162
+  %or163 = or i64 %v.addr.1, %not162
   br label %while.body.i122
 
 while.body.i122:                                  ; preds = %while.body.i122, %while.end161
@@ -3696,14 +3696,14 @@ rev.exit151:                                      ; preds = %while.body.i137
   br i1 %tobool168.not, label %if.end169, label %do.body, !llvm.loop !33
 
 if.end169:                                        ; preds = %rev.exit151, %while.body.i85
-  %v.addr.1 = phi i64 [ %or.i97, %while.body.i85 ], [ %or.i149, %rev.exit151 ]
+  %v.addr.0 = phi i64 [ %or.i97, %while.body.i85 ], [ %or.i149, %rev.exit151 ]
   %25 = load i16, ptr %pauserehash, align 8
   %dec = add i16 %25, -1
   store i16 %dec, ptr %pauserehash, align 8
   br label %return
 
 return:                                           ; preds = %entry, %if.end169
-  %retval.0 = phi i64 [ %v.addr.1, %if.end169 ], [ 0, %entry ]
+  %retval.0 = phi i64 [ %v.addr.0, %if.end169 ], [ 0, %entry ]
   ret i64 %retval.0
 }
 
@@ -3832,7 +3832,7 @@ encodeMaskedPtr.exit:                             ; preds = %if.then29
   br label %if.end31
 
 if.end31:                                         ; preds = %encodeMaskedPtr.exit, %decodeEntryNoValue.exit
-  %newde.0 = phi ptr [ %13, %encodeMaskedPtr.exit ], [ null, %decodeEntryNoValue.exit ]
+  %newde.1 = phi ptr [ %13, %encodeMaskedPtr.exit ], [ null, %decodeEntryNoValue.exit ]
   %entry25.0 = phi ptr [ %call27, %encodeMaskedPtr.exit ], [ %11, %decodeEntryNoValue.exit ]
   %tobool32.not = icmp eq ptr %cond, null
   br i1 %tobool32.not, label %if.end59, label %if.then33
@@ -3867,8 +3867,8 @@ if.then56:                                        ; preds = %if.end54
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then33, %if.end31, %if.then56, %if.end54
-  %newde.1 = phi ptr [ %newde.0, %if.then33 ], [ %newde.0, %if.end31 ], [ %call47, %if.then56 ], [ %call47, %if.end54 ]
-  %tobool60.not = icmp eq ptr %newde.1, null
+  %newde.0 = phi ptr [ %newde.1, %if.then33 ], [ %newde.1, %if.end31 ], [ %call47, %if.then56 ], [ %call47, %if.end54 ]
+  %tobool60.not = icmp eq ptr %newde.0, null
   br i1 %tobool60.not, label %if.end59.if.end62_crit_edge, label %if.then61
 
 if.end59.if.end62_crit_edge:                      ; preds = %if.end59
@@ -3876,11 +3876,11 @@ if.end59.if.end62_crit_edge:                      ; preds = %if.end59
   br label %if.end62
 
 if.then61:                                        ; preds = %if.end59
-  store ptr %newde.1, ptr %bucketref.addr.05460, align 8
+  store ptr %newde.0, ptr %bucketref.addr.05460, align 8
   br label %if.end62
 
 if.end62:                                         ; preds = %if.end59.if.end62_crit_edge, %if.end, %if.then61
-  %14 = phi ptr [ %.pre55, %if.end59.if.end62_crit_edge ], [ %9, %if.end ], [ %newde.1, %if.then61 ]
+  %14 = phi ptr [ %.pre55, %if.end59.if.end62_crit_edge ], [ %9, %if.end ], [ %newde.0, %if.then61 ]
   %15 = ptrtoint ptr %14 to i64
   %conv.i5.i = and i64 %15, 1
   %tobool.not.i43 = icmp eq i64 %conv.i5.i, 0

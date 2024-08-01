@@ -4192,10 +4192,10 @@ while.cond4.preheader.lr.ph.i.i.i:                ; preds = %if.then.i.i1125
   br label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.backedge, %while.cond4.preheader.lr.ph.i.i.i
-  %first1.addr.134.i.i.i = phi ptr [ %spec.select.i.i.i1126.sroa.sel.v.sroa.sel.v.sroa.sel, %while.cond4.preheader.lr.ph.i.i.i ], [ %incdec.ptr12.i.i.i, %land.rhs.i.i.i.backedge ]
-  %397 = load i8, ptr %first1.addr.134.i.i.i, align 1
+  %first1.addr.234.i.i.i = phi ptr [ %spec.select.i.i.i1126.sroa.sel.v.sroa.sel.v.sroa.sel, %while.cond4.preheader.lr.ph.i.i.i ], [ %incdec.ptr12.i.i.i, %land.rhs.i.i.i.backedge ]
+  %397 = load i8, ptr %first1.addr.234.i.i.i, align 1
   %cmp7.not.i.i.i = icmp eq i8 %397, %396
-  %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i, i64 1
+  %incdec.ptr12.i.i.i = getelementptr inbounds i8, ptr %first1.addr.234.i.i.i, i64 1
   %cmp13.not.i.i.i = icmp eq ptr %incdec.ptr12.i.i.i, %cond.i13.i.i
   br i1 %cmp7.not.i.i.i, label %if.then11.i.i.i, label %while.body8.i.i.i
 
@@ -4228,7 +4228,7 @@ if.end.i.i.i1133:                                 ; preds = %while.body19.i.i.i
   br i1 %cmp24.i.i.i, label %_ZNK5eastl12basic_stringIcNS_9allocatorEE4findEPKcmm.exit.i, label %while.cond15.i.i.i, !llvm.loop !47
 
 _ZN5eastl6searchIPKcS2_EET_S3_S3_T0_S4_.exit.i.i: ; preds = %while.body19.i.i.i, %if.then.i.i1125
-  %retval.0.i.i.i1134 = phi ptr [ %spec.select.i.i.i1126.sroa.sel.v.sroa.sel.v.sroa.sel, %if.then.i.i1125 ], [ %first1.addr.134.i.i.i, %while.body19.i.i.i ]
+  %retval.0.i.i.i1134 = phi ptr [ %spec.select.i.i.i1126.sroa.sel.v.sroa.sel.v.sroa.sel, %if.then.i.i1125 ], [ %first1.addr.234.i.i.i, %while.body19.i.i.i ]
   %cmp13.i.not.i = icmp eq ptr %retval.0.i.i.i1134, %cond.i13.i.i
   br i1 %cmp13.i.not.i, label %_ZNK5eastl12basic_stringIcNS_9allocatorEE4findEPKcmm.exit.i, label %if.then15.i.i
 
@@ -4475,10 +4475,10 @@ while.cond4.preheader.lr.ph.i.i.i1225:            ; preds = %if.then.i.i1218
   br label %land.rhs.i.i.i1228
 
 land.rhs.i.i.i1228:                               ; preds = %land.rhs.i.i.i1228.backedge, %while.cond4.preheader.lr.ph.i.i.i1225
-  %first1.addr.134.i.i.i1229 = phi ptr [ %spec.select.i.i.i1219.sroa.sel.v.sroa.sel.v.sroa.sel, %while.cond4.preheader.lr.ph.i.i.i1225 ], [ %incdec.ptr12.i.i.i1239, %land.rhs.i.i.i1228.backedge ]
-  %424 = load i16, ptr %first1.addr.134.i.i.i1229, align 2
+  %first1.addr.234.i.i.i1229 = phi ptr [ %spec.select.i.i.i1219.sroa.sel.v.sroa.sel.v.sroa.sel, %while.cond4.preheader.lr.ph.i.i.i1225 ], [ %incdec.ptr12.i.i.i1239, %land.rhs.i.i.i1228.backedge ]
+  %424 = load i16, ptr %first1.addr.234.i.i.i1229, align 2
   %cmp7.not.i.i.i1230 = icmp eq i16 %424, %423
-  %incdec.ptr12.i.i.i1239 = getelementptr inbounds i8, ptr %first1.addr.134.i.i.i1229, i64 2
+  %incdec.ptr12.i.i.i1239 = getelementptr inbounds i8, ptr %first1.addr.234.i.i.i1229, i64 2
   %cmp13.not.i.i.i1240 = icmp eq ptr %incdec.ptr12.i.i.i1239, %cond.i13.i.i1223
   br i1 %cmp7.not.i.i.i1230, label %if.then11.i.i.i1238, label %while.body8.i.i.i1231
 
@@ -4511,7 +4511,7 @@ if.end.i.i.i1249:                                 ; preds = %while.body19.i.i.i1
   br i1 %cmp24.i.i.i1251, label %_ZNK5eastl12basic_stringIDsNS_9allocatorEE4findEPKDsmm.exit.i, label %while.cond15.i.i.i1241, !llvm.loop !54
 
 _ZN5eastl6searchIPKDsS2_EET_S3_S3_T0_S4_.exit.i.i: ; preds = %while.body19.i.i.i1246, %if.then.i.i1218
-  %retval.0.i.i.i1252 = phi ptr [ %spec.select.i.i.i1219.sroa.sel.v.sroa.sel.v.sroa.sel, %if.then.i.i1218 ], [ %first1.addr.134.i.i.i1229, %while.body19.i.i.i1246 ]
+  %retval.0.i.i.i1252 = phi ptr [ %spec.select.i.i.i1219.sroa.sel.v.sroa.sel.v.sroa.sel, %if.then.i.i1218 ], [ %first1.addr.234.i.i.i1229, %while.body19.i.i.i1246 ]
   %cmp13.i.not.i1253 = icmp eq ptr %retval.0.i.i.i1252, %cond.i13.i.i1223
   br i1 %cmp13.i.not.i1253, label %_ZNK5eastl12basic_stringIDsNS_9allocatorEE4findEPKDsmm.exit.i, label %if.then15.i.i1254
 

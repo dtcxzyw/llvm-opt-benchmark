@@ -182,11 +182,11 @@ for.body.preheader:                               ; preds = %if.then2
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %buf.addr.053 = phi ptr [ %buf, %for.body.preheader ], [ %incdec.ptr, %for.inc ]
+  %buf.addr.153 = phi ptr [ %buf, %for.body.preheader ], [ %incdec.ptr, %for.inc ]
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %buf.addr.053, i64 1
-  store i8 %5, ptr %buf.addr.053, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %buf.addr.153, i64 1
+  store i8 %5, ptr %buf.addr.153, align 1
   %cmp8 = icmp eq i8 %5, 10
   br i1 %cmp8, label %if.then10, label %for.inc
 
@@ -212,7 +212,7 @@ for.end.loopexit:                                 ; preds = %for.inc
 for.end:                                          ; preds = %for.end.loopexit, %if.then2, %if.then10
   %11 = phi i32 [ %.pre, %if.then10 ], [ %1, %if.then2 ], [ %7, %for.end.loopexit ]
   %12 = phi i1 [ true, %if.then10 ], [ false, %if.then2 ], [ false, %for.end.loopexit ]
-  %buf.addr.1 = phi ptr [ %incdec.ptr, %if.then10 ], [ %buf, %if.then2 ], [ %incdec.ptr, %for.end.loopexit ]
+  %buf.addr.2 = phi ptr [ %incdec.ptr, %if.then10 ], [ %buf, %if.then2 ], [ %incdec.ptr, %for.end.loopexit ]
   %num_chars.1 = phi i32 [ %inc, %if.then10 ], [ 0, %if.then2 ], [ %10, %for.end.loopexit ]
   %sub = sub nsw i32 %dec, %num_chars.1
   %sub14 = sub nsw i32 %11, %num_chars.1
@@ -225,13 +225,13 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %or.cond, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %for.end
-  store i8 0, ptr %buf.addr.1, align 1
+  store i8 0, ptr %buf.addr.2, align 1
   br label %return
 
 if.end21:                                         ; preds = %if.end.if.end21_crit_edge, %for.end
   %14 = phi i32 [ %add16, %for.end ], [ %.pre74, %if.end.if.end21_crit_edge ]
   %size.addr.0 = phi i32 [ %sub, %for.end ], [ %dec, %if.end.if.end21_crit_edge ]
-  %buf.addr.2 = phi ptr [ %buf.addr.1, %for.end ], [ %buf, %if.end.if.end21_crit_edge ]
+  %buf.addr.0 = phi ptr [ %buf.addr.2, %for.end ], [ %buf, %if.end.if.end21_crit_edge ]
   %num.0 = phi i32 [ %num_chars.1, %for.end ], [ 0, %if.end.if.end21_crit_edge ]
   %ibuf_off.i = getelementptr inbounds i8, ptr %0, i64 20
   %sub.i = add i32 %size.addr.0, 4096
@@ -272,7 +272,7 @@ for.body33:                                       ; preds = %if.end40, %for.body
   %i.061 = phi i32 [ 0, %for.body33.lr.ph ], [ %inc52, %if.end40 ]
   %p.060 = phi ptr [ %add.ptr29, %for.body33.lr.ph ], [ %incdec.ptr50, %if.end40 ]
   %num.159 = phi i32 [ %num.0, %for.body33.lr.ph ], [ %inc42, %if.end40 ]
-  %buf.addr.358 = phi ptr [ %buf.addr.2, %for.body33.lr.ph ], [ %incdec.ptr41, %if.end40 ]
+  %buf.addr.358 = phi ptr [ %buf.addr.0, %for.body33.lr.ph ], [ %incdec.ptr41, %if.end40 ]
   %19 = load ptr, ptr %next_bio, align 8
   %call34 = tail call i32 @BIO_read(ptr noundef %19, ptr noundef %p.060, i32 noundef 1) #5
   %cmp35 = icmp slt i32 %call34, 1
@@ -302,7 +302,7 @@ if.end40:                                         ; preds = %for.body33
   br i1 %or.cond66, label %for.body33, label %for.end53, !llvm.loop !6
 
 for.end53:                                        ; preds = %if.end40, %if.end25
-  %buf.addr.4 = phi ptr [ %buf.addr.2, %if.end25 ], [ %incdec.ptr41, %if.end40 ]
+  %buf.addr.4 = phi ptr [ %buf.addr.0, %if.end25 ], [ %incdec.ptr41, %if.end40 ]
   %num.2 = phi i32 [ %num.0, %if.end25 ], [ %inc42, %if.end40 ]
   store i8 0, ptr %buf.addr.4, align 1
   br label %return

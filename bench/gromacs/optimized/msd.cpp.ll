@@ -6435,10 +6435,10 @@ define internal fastcc noundef float @_ZN3gmx15analysismodulesL16roundedFrameTim
 
 33:                                               ; preds = %29, %31
   %.pn = phi { ptr, i32 } [ %32, %31 ], [ %30, %29 ]
-  %.1 = phi i1 [ %.0, %31 ], [ true, %29 ]
+  %.3 = phi i1 [ %.0, %31 ], [ true, %29 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
-  br i1 %.1, label %34, label %36
+  br i1 %.3, label %34, label %36
 
 34:                                               ; preds = %.thread23, %.thread, %33
   %.pn.pn.pn22 = phi { ptr, i32 } [ %27, %.thread ], [ %.pn, %33 ], [ %28, %.thread23 ]

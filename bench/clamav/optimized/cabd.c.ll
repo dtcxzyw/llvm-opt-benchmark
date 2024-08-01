@@ -401,8 +401,8 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   br label %32
 
 32:                                               ; preds = %._crit_edge.i, %.lr.ph179.i
-  %.046 = phi ptr [ null, %.lr.ph179.i ], [ %.248, %._crit_edge.i ]
-  %.045 = phi i64 [ 0, %.lr.ph179.i ], [ %.2, %._crit_edge.i ]
+  %.248 = phi ptr [ null, %.lr.ph179.i ], [ %.349, %._crit_edge.i ]
+  %.1 = phi i64 [ 0, %.lr.ph179.i ], [ %.2, %._crit_edge.i ]
   %.0103176.i = phi i32 [ 0, %.lr.ph179.i ], [ %.1104.lcssa.i, %._crit_edge.i ]
   %.0106175.i = phi i32 [ 0, %.lr.ph179.i ], [ %.1107.lcssa.i, %._crit_edge.i ]
   %.0109174.i = phi i8 [ 0, %.lr.ph179.i ], [ %.1110.lcssa.i, %._crit_edge.i ]
@@ -548,7 +548,7 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   %107 = add nsw i64 %105, -16
   %108 = icmp eq i64 %106, 0
   %109 = zext i32 %.1107161.i to i64
-  %spec.select = select i1 %108, i64 %109, i64 %.045
+  %spec.select = select i1 %108, i64 %109, i64 %.1
   %110 = icmp ult i32 %102, %.1107161.i
   %111 = zext i32 %102 to i64
   %112 = add nsw i64 %106, %111
@@ -593,15 +593,15 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   br label %129
 
 129:                                              ; preds = %127, %128, %126, %117, %97
-  %.147 = phi ptr [ %.046, %128 ], [ %.046, %126 ], [ %.046, %117 ], [ %.046, %97 ], [ %121, %127 ]
-  %.2125.i = phi i64 [ %115, %128 ], [ %107, %126 ], [ %107, %117 ], [ %107, %97 ], [ %115, %127 ]
-  %.2118.i = phi ptr [ %121, %128 ], [ %.0116173.i, %126 ], [ %.0116173.i, %117 ], [ %.0116173.i, %97 ], [ %121, %127 ]
-  %.not138.i = icmp slt i64 %.2125.i, %22
+  %.450 = phi ptr [ %.248, %128 ], [ %.248, %126 ], [ %.248, %117 ], [ %.248, %97 ], [ %121, %127 ]
+  %.3126.i = phi i64 [ %115, %128 ], [ %107, %126 ], [ %107, %117 ], [ %107, %97 ], [ %115, %127 ]
+  %.3119.i = phi ptr [ %121, %128 ], [ %.0116173.i, %126 ], [ %.0116173.i, %117 ], [ %.0116173.i, %97 ], [ %121, %127 ]
+  %.not138.i = icmp slt i64 %.3126.i, %22
   br i1 %.not138.i, label %130, label %138
 
 130:                                              ; preds = %129
   %131 = load ptr, ptr %31, align 8
-  %132 = call i32 %131(ptr noundef nonnull %17, i64 noundef %.2125.i, i32 noundef 0) #8
+  %132 = call i32 %131(ptr noundef nonnull %17, i64 noundef %.3126.i, i32 noundef 0) #8
   %.not139.i = icmp eq i32 %132, 0
   br i1 %.not139.i, label %._crit_edge.i, label %138
 
@@ -619,11 +619,11 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %135, label %.lr.ph164.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %130, %46
-  %.248 = phi ptr [ %.147, %130 ], [ %.046, %46 ], [ %.046, %.critedge.i ]
-  %.2 = phi i64 [ %spec.select, %130 ], [ %.045, %46 ], [ %.045, %.critedge.i ]
-  %.1124.lcssa.i = phi i64 [ %.2125.i, %130 ], [ %.0123172.i, %46 ], [ %.0123172.i, %.critedge.i ]
+  %.349 = phi ptr [ %.450, %130 ], [ %.248, %46 ], [ %.248, %.critedge.i ]
+  %.2 = phi i64 [ %spec.select, %130 ], [ %.1, %46 ], [ %.1, %.critedge.i ]
+  %.1124.lcssa.i = phi i64 [ %.3126.i, %130 ], [ %.0123172.i, %46 ], [ %.0123172.i, %.critedge.i ]
   %.1121.lcssa.i = phi i64 [ 0, %130 ], [ %spec.select.i, %46 ], [ %spec.select.i, %.critedge.i ]
-  %.1117.lcssa.i = phi ptr [ %.2118.i, %130 ], [ %.0116173.i, %46 ], [ %.0116173.i, %.critedge.i ]
+  %.1117.lcssa.i = phi ptr [ %.3119.i, %130 ], [ %.0116173.i, %46 ], [ %.0116173.i, %.critedge.i ]
   %.1110.lcssa.i = phi i8 [ 0, %130 ], [ %.0109174.i, %46 ], [ %.2111.i, %.critedge.i ]
   %.1107.lcssa.i = phi i32 [ %.1107161.i, %130 ], [ %.0106175.i, %46 ], [ %.2108.i, %.critedge.i ]
   %.1104.lcssa.i = phi i32 [ %102, %130 ], [ %.0103176.i, %46 ], [ %.2105.i, %.critedge.i ]
@@ -632,44 +632,44 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %137, label %32, label %138
 
 138:                                              ; preds = %._crit_edge.i, %130, %129, %119, %32
-  %.349 = phi ptr [ %.248, %._crit_edge.i ], [ %.046, %119 ], [ %.147, %130 ], [ %.147, %129 ], [ %.046, %32 ]
-  %.3 = phi i64 [ %.2, %._crit_edge.i ], [ %spec.select, %119 ], [ %spec.select, %130 ], [ %spec.select, %129 ], [ %.045, %32 ]
+  %.5 = phi ptr [ %.349, %._crit_edge.i ], [ %.248, %119 ], [ %.450, %130 ], [ %.450, %129 ], [ %.248, %32 ]
+  %.4 = phi i64 [ %.2, %._crit_edge.i ], [ %spec.select, %119 ], [ %spec.select, %130 ], [ %spec.select, %129 ], [ %.1, %32 ]
   %.0112.i = phi i32 [ 0, %._crit_edge.i ], [ 6, %119 ], [ 5, %130 ], [ 0, %129 ], [ 3, %32 ]
   store i32 %.0112.i, ptr %20, align 8
-  %.not40 = icmp eq i64 %.3, 0
+  %.not40 = icmp eq i64 %.4, 0
   %139 = load i64, ptr %3, align 8
-  %.not41 = icmp eq i64 %.3, %139
+  %.not41 = icmp eq i64 %.4, %139
   %or.cond = select i1 %.not40, i1 true, i1 %.not41
   br i1 %or.cond, label %.thread, label %140
 
 140:                                              ; preds = %138
-  %.not42 = icmp eq ptr %.349, null
+  %.not42 = icmp eq ptr %.5, null
   br i1 %.not42, label %145, label %141
 
 141:                                              ; preds = %140
-  %142 = getelementptr inbounds i8, ptr %.349, i64 16
+  %142 = getelementptr inbounds i8, ptr %.5, i64 16
   %143 = load i64, ptr %142, align 8
   %144 = icmp eq i64 %143, 0
   br i1 %144, label %145, label %.thread
 
 145:                                              ; preds = %141, %140
-  %146 = icmp slt i64 %.3, %139
+  %146 = icmp slt i64 %.4, %139
   %147 = getelementptr inbounds i8, ptr %6, i64 48
   %148 = load ptr, ptr %147, align 8
   br i1 %146, label %149, label %151
 
 149:                                              ; preds = %145
-  %150 = sub nsw i64 %139, %.3
+  %150 = sub nsw i64 %139, %.4
   call void (ptr, ptr, ...) %148(ptr noundef nonnull %17, ptr noundef nonnull @.str.4, i64 noundef %150) #8
   br label %.thread
 
 151:                                              ; preds = %145
-  %152 = sub nsw i64 %.3, %139
+  %152 = sub nsw i64 %.4, %139
   call void (ptr, ptr, ...) %148(ptr noundef nonnull %17, ptr noundef nonnull @.str.5, i64 noundef %152) #8
   br label %.thread
 
 .thread:                                          ; preds = %18, %.thread57, %149, %151, %141, %138
-  %.45056 = phi ptr [ %.349, %149 ], [ %.349, %151 ], [ %.349, %141 ], [ %.349, %138 ], [ null, %.thread57 ], [ null, %18 ]
+  %.04656 = phi ptr [ %.5, %149 ], [ %.5, %151 ], [ %.5, %141 ], [ %.5, %138 ], [ null, %.thread57 ], [ null, %18 ]
   %153 = getelementptr inbounds i8, ptr %6, i64 8
   %154 = load ptr, ptr %153, align 8
   call void %154(ptr noundef nonnull %17) #8
@@ -681,14 +681,14 @@ define internal ptr @cabd_search(ptr noundef %0, ptr noundef %1) #0 {
   br label %157
 
 157:                                              ; preds = %155, %.thread
-  %.5 = phi ptr [ null, %155 ], [ %.45056, %.thread ]
+  %.147 = phi ptr [ null, %155 ], [ %.04656, %.thread ]
   %158 = getelementptr inbounds i8, ptr %6, i64 64
   %159 = load ptr, ptr %158, align 8
   call void %159(ptr noundef nonnull %12) #8
   br label %160
 
 160:                                              ; preds = %2, %157, %13
-  %.0 = phi ptr [ %.5, %157 ], [ null, %13 ], [ null, %2 ]
+  %.0 = phi ptr [ %.147, %157 ], [ null, %13 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -2498,28 +2498,28 @@ define internal i32 @cabd_sys_read(ptr nocapture noundef %0, ptr noundef %1, i32
 
 134:                                              ; preds = %129, %._crit_edge.i.i
   %.120.i.i = phi ptr [ %.019.lcssa.i.i, %._crit_edge.i.i ], [ %130, %129 ]
-  %.0.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %133, %129 ]
+  %.1.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %133, %129 ]
   %135 = getelementptr inbounds i8, ptr %.120.i.i, i64 1
   %136 = load i8, ptr %.120.i.i, align 1
   %137 = zext i8 %136 to i32
   %138 = shl nuw nsw i32 %137, 8
-  %139 = or disjoint i32 %138, %.0.i.i
+  %139 = or disjoint i32 %138, %.1.i.i
   br label %140
 
 140:                                              ; preds = %134, %._crit_edge.i.i
   %.221.i.i = phi ptr [ %.019.lcssa.i.i, %._crit_edge.i.i ], [ %135, %134 ]
-  %.1.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %139, %134 ]
+  %.2.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %139, %134 ]
   %141 = load i8, ptr %.221.i.i, align 1
   %142 = zext i8 %141 to i32
-  %143 = or i32 %.1.i.i, %142
+  %143 = or i32 %.2.i.i, %142
   br label %cabd_checksum.exit.i
 
 default.unreachable:                              ; preds = %._crit_edge.i.i
   unreachable
 
 cabd_checksum.exit.i:                             ; preds = %140, %._crit_edge.i.i
-  %.2.i.i = phi i32 [ %128, %._crit_edge.i.i ], [ %143, %140 ]
-  %144 = xor i32 %.2.i.i, %.018.lcssa.i.i
+  %.0.i.i = phi i32 [ %128, %._crit_edge.i.i ], [ %143, %140 ]
+  %144 = xor i32 %.0.i.i, %.018.lcssa.i.i
   %145 = load i32, ptr %25, align 1
   %146 = xor i32 %144, %145
   %.not60.i = icmp eq i32 %146, %121

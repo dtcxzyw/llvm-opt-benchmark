@@ -5861,8 +5861,8 @@ _ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit:   ; preds = %while.end, %init.ch
 
 do.body:                                          ; preds = %invoke.cont58, %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit
   %ninputs.0 = phi i64 [ 0, %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit ], [ %ninputs.2, %invoke.cont58 ]
-  %ilist.0 = phi ptr [ null, %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit ], [ %ilist.1, %invoke.cont58 ]
-  %index.0 = phi i64 [ 0, %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit ], [ %index.2, %invoke.cont58 ]
+  %ilist.0 = phi ptr [ null, %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit ], [ %ilist.2, %invoke.cont58 ]
+  %index.0 = phi i64 [ 0, %_ZN4cvc58internal12NodeTemplateILb0EEC2Ev.exit ], [ %index.1, %invoke.cont58 ]
   %8 = load ptr, ptr %lit, align 8
   store ptr %8, ptr %agg.tmp, align 8
   call void @_ZNK4cvc58internal6theory16RelevanceManager33getExplanationForRelevantInternalENS0_12NodeTemplateILb0EEE(ptr sret(%"class.cvc5::internal::NodeTemplate.309") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef nonnull %agg.tmp)
@@ -5925,12 +5925,12 @@ if.then18:                                        ; preds = %if.then11
 
 if.end40:                                         ; preds = %if.then18, %if.then11, %if.end
   %ninputs.2 = phi i64 [ %ninputs.0, %if.end ], [ %ninputs.0, %if.then11 ], [ %sub.ptr.div.i.i, %if.then18 ]
-  %ilist.1 = phi ptr [ %ilist.0, %if.end ], [ null, %if.then11 ], [ %call16, %if.then18 ]
+  %ilist.2 = phi ptr [ %ilist.0, %if.end ], [ null, %if.then11 ], [ %call16, %if.then18 ]
   %cmp41 = icmp ult i64 %index.0, %ninputs.2
   br i1 %cmp41, label %if.then42, label %invoke.cont53
 
 if.then42:                                        ; preds = %if.end40
-  %d_list.i163 = getelementptr inbounds i8, ptr %ilist.1, i64 40
+  %d_list.i163 = getelementptr inbounds i8, ptr %ilist.2, i64 40
   %17 = load ptr, ptr %d_list.i163, align 8
   %add.ptr.i.i = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %17, i64 %index.0
   %18 = load ptr, ptr %add.ptr.i.i, align 8
@@ -5986,8 +5986,8 @@ invoke.cont53:                                    ; preds = %if.end40
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont53, %invoke.cont50
-  %nextInput.sroa.0.3 = phi ptr [ %18, %invoke.cont50 ], [ %22, %invoke.cont53 ]
-  %index.2 = phi i64 [ %inc, %invoke.cont50 ], [ %index.0, %invoke.cont53 ]
+  %nextInput.sroa.0.1 = phi ptr [ %18, %invoke.cont50 ], [ %22, %invoke.cont53 ]
+  %index.1 = phi i64 [ %inc, %invoke.cont50 ], [ %index.0, %invoke.cont53 ]
   %23 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i180 = icmp eq i8 %23, 0
   br i1 %guard.uninitialized.i.i180, label %init.check.i.i182, label %invoke.cont58, !prof !15
@@ -6019,7 +6019,7 @@ lpad.i.i186:                                      ; preds = %init.i.i184
 
 invoke.cont58:                                    ; preds = %invoke.cont.i.i187, %init.check.i.i182, %cleanup
   %26 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
-  %cmp.i181 = icmp eq ptr %nextInput.sroa.0.3, %26
+  %cmp.i181 = icmp eq ptr %nextInput.sroa.0.1, %26
   br i1 %cmp.i181, label %do.end, label %do.body, !llvm.loop !67
 
 do.end:                                           ; preds = %invoke.cont58

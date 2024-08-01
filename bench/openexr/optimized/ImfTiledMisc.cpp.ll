@@ -714,7 +714,7 @@ for.cond22.preheader.us.preheader:                ; preds = %for.cond22.preheade
 
 for.cond22.preheader.us:                          ; preds = %for.cond22.preheader.us.preheader, %for.cond22.for.inc44_crit_edge.us
   %indvars.iv39 = phi i64 [ 0, %for.cond22.preheader.us.preheader ], [ %indvars.iv.next40, %for.cond22.for.inc44_crit_edge.us ]
-  %lineOffsetSize.128.us = phi i64 [ 0, %for.cond22.preheader.us.preheader ], [ %add32.us, %for.cond22.for.inc44_crit_edge.us ]
+  %lineOffsetSize.228.us = phi i64 [ 0, %for.cond22.preheader.us.preheader ], [ %add32.us, %for.cond22.for.inc44_crit_edge.us ]
   %arrayidx26.us = getelementptr inbounds i32, ptr %.pre49, i64 %indvars.iv39
   %8 = load i32, ptr %arrayidx26.us, align 4
   %conv27.us = sext i32 %8 to i64
@@ -727,12 +727,12 @@ for.cond22.us:                                    ; preds = %for.body24.us
 
 for.body24.us:                                    ; preds = %for.cond22.preheader.us, %for.cond22.us
   %indvars.iv = phi i64 [ 0, %for.cond22.preheader.us ], [ %indvars.iv.next, %for.cond22.us ]
-  %lineOffsetSize.225.us = phi i64 [ %lineOffsetSize.128.us, %for.cond22.preheader.us ], [ %add32.us, %for.cond22.us ]
+  %lineOffsetSize.325.us = phi i64 [ %lineOffsetSize.228.us, %for.cond22.preheader.us ], [ %add32.us, %for.cond22.us ]
   %arrayidx29.us = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %arrayidx29.us, align 4
   %conv30.us = sext i32 %9 to i64
   %mul31.us = mul nsw i64 %conv30.us, %conv27.us
-  %add32.us = add i64 %mul31.us, %lineOffsetSize.225.us
+  %add32.us = add i64 %mul31.us, %lineOffsetSize.325.us
   %cmp35.us = icmp ugt i64 %add32.us, 2147483647
   br i1 %cmp35.us, label %if.then36, label %for.cond22.us
 
@@ -764,7 +764,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv44 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next45, %for.cond ]
-  %lineOffsetSize.032 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.cond ]
+  %lineOffsetSize.132 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.cond ]
   %arrayidx = getelementptr inbounds i32, ptr %.pre50, i64 %indvars.iv44
   %13 = load i32, ptr %arrayidx, align 4
   %conv = sext i32 %13 to i64
@@ -772,7 +772,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %14 = load i32, ptr %arrayidx10, align 4
   %conv11 = sext i32 %14 to i64
   %mul = mul nsw i64 %conv11, %conv
-  %add = add i64 %mul, %lineOffsetSize.032
+  %add = add i64 %mul, %lineOffsetSize.132
   %cmp14 = icmp ugt i64 %add, 2147483647
   br i1 %cmp14, label %if.then, label %for.cond
 
@@ -844,18 +844,18 @@ delete.end60:                                     ; preds = %delete.notnull59, %
 
 sw.epilog:                                        ; preds = %for.cond22.for.inc44_crit_edge.us, %for.cond22.preheader.lr.ph, %invoke.cont7.sw.epilog_crit_edge, %for.cond19.preheader, %sw.bb
   %22 = phi ptr [ %.pre, %invoke.cont7.sw.epilog_crit_edge ], [ %.pre50, %sw.bb ], [ %.pre49, %for.cond19.preheader ], [ %.pre49, %for.cond22.preheader.lr.ph ], [ %.pre49, %for.cond22.for.inc44_crit_edge.us ]
-  %lineOffsetSize.3 = phi i64 [ 0, %invoke.cont7.sw.epilog_crit_edge ], [ 0, %sw.bb ], [ 0, %for.cond19.preheader ], [ 0, %for.cond22.preheader.lr.ph ], [ %add32.us, %for.cond22.for.inc44_crit_edge.us ]
+  %lineOffsetSize.0 = phi i64 [ 0, %invoke.cont7.sw.epilog_crit_edge ], [ 0, %sw.bb ], [ 0, %for.cond19.preheader ], [ 0, %for.cond22.preheader.lr.ph ], [ %add32.us, %for.cond22.for.inc44_crit_edge.us ]
   %isnull = icmp eq ptr %22, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.cond, %sw.epilog
-  %lineOffsetSize.353 = phi i64 [ %lineOffsetSize.3, %sw.epilog ], [ %add, %for.cond ]
+  %lineOffsetSize.053 = phi i64 [ %lineOffsetSize.0, %sw.epilog ], [ %add, %for.cond ]
   %23 = phi ptr [ %22, %sw.epilog ], [ %.pre50, %for.cond ]
   tail call void @_ZdaPv(ptr noundef nonnull %23) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %sw.epilog
-  %lineOffsetSize.354 = phi i64 [ %lineOffsetSize.353, %delete.notnull ], [ %lineOffsetSize.3, %sw.epilog ]
+  %lineOffsetSize.054 = phi i64 [ %lineOffsetSize.053, %delete.notnull ], [ %lineOffsetSize.0, %sw.epilog ]
   %24 = load ptr, ptr %numYTiles, align 8
   %isnull51 = icmp eq ptr %24, null
   br i1 %isnull51, label %delete.end53, label %delete.notnull52
@@ -865,7 +865,7 @@ delete.notnull52:                                 ; preds = %delete.end
   br label %delete.end53
 
 delete.end53:                                     ; preds = %delete.notnull52, %delete.end
-  %conv54 = trunc nuw i64 %lineOffsetSize.354 to i32
+  %conv54 = trunc nuw i64 %lineOffsetSize.054 to i32
   ret i32 %conv54
 
 lpad61:                                           ; preds = %delete.end60

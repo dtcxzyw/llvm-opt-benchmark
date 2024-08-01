@@ -71,7 +71,7 @@ if.then2:                                         ; preds = %if.then
   br label %for.cond248.preheader
 
 if.end3:                                          ; preds = %entry, %if.then
-  %ret.0 = phi ptr [ %call, %if.then ], [ %sk, %entry ]
+  %ret.1 = phi ptr [ %call, %if.then ], [ %sk, %entry ]
   %call4 = tail call ptr @X509_INFO_new() #4
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %for.cond248.preheader, label %for.cond.preheader
@@ -82,7 +82,7 @@ for.cond.preheader:                               ; preds = %if.end3
   br i1 %cmp9138, label %if.then10, label %start.outer
 
 if.then10:                                        ; preds = %if.end220, %for.cond.preheader
-  %xi.0.lcssa = phi ptr [ %call4, %for.cond.preheader ], [ %xi.1.ph, %if.end220 ]
+  %xi.1.lcssa = phi ptr [ %call4, %for.cond.preheader ], [ %xi.2.ph, %if.end220 ]
   %call11 = call i32 @ERR_peek_last_error() #4
   %and = and i32 %call11, 4095
   %cmp12 = icmp eq i32 %and, 110
@@ -90,7 +90,7 @@ if.then10:                                        ; preds = %if.end220, %for.con
 
 if.then14:                                        ; preds = %if.then10
   call void @ERR_clear_error() #4
-  %0 = load ptr, ptr %xi.0.lcssa, align 8
+  %0 = load ptr, ptr %xi.1.lcssa, align 8
   %cmp222.not = icmp eq ptr %0, null
   br i1 %cmp222.not, label %lor.lhs.false224, label %if.then236
 
@@ -106,12 +106,12 @@ lor.lhs.false:                                    ; preds = %start
   br i1 %cmp21, label %if.then23, label %if.else37
 
 if.then23:                                        ; preds = %lor.lhs.false, %start
-  %2 = load ptr, ptr %xi.1.ph, align 8
+  %2 = load ptr, ptr %xi.2.ph, align 8
   %cmp24.not = icmp eq ptr %2, null
   br i1 %cmp24.not, label %if.then176, label %if.then26
 
 if.then26:                                        ; preds = %if.then23
-  %call27 = call i64 @sk_push(ptr noundef nonnull %ret.0, ptr noundef nonnull %xi.1.ph) #4
+  %call27 = call i64 @sk_push(ptr noundef nonnull %ret.1, ptr noundef nonnull %xi.2.ph) #4
   %tobool.not = icmp eq i64 %call27, 0
   br i1 %tobool.not, label %if.then244, label %if.end29
 
@@ -121,28 +121,28 @@ if.end29:                                         ; preds = %if.then26
   br i1 %cmp31, label %for.cond248.preheader, label %start.outer.backedge
 
 start.outer.backedge:                             ; preds = %if.end29, %if.end49, %if.end68, %if.end87, %if.end115, %if.end146
-  %xi.1.ph.be = phi ptr [ %call147, %if.end146 ], [ %call116, %if.end115 ], [ %call88, %if.end87 ], [ %call69, %if.end68 ], [ %call50, %if.end49 ], [ %call30, %if.end29 ]
+  %xi.2.ph.be = phi ptr [ %call147, %if.end146 ], [ %call116, %if.end115 ], [ %call88, %if.end87 ], [ %call69, %if.end68 ], [ %call50, %if.end49 ], [ %call30, %if.end29 ]
   br label %start.outer
 
 start.outer:                                      ; preds = %for.cond.preheader, %start.outer.backedge
-  %xi.1.ph = phi ptr [ %xi.1.ph.be, %start.outer.backedge ], [ %call4, %for.cond.preheader ]
-  %x_pkey139 = getelementptr inbounds i8, ptr %xi.1.ph, i64 16
-  %x_pkey139.le = getelementptr inbounds i8, ptr %xi.1.ph, i64 16
-  %enc_data153 = getelementptr inbounds i8, ptr %xi.1.ph, i64 56
-  %enc_len154 = getelementptr inbounds i8, ptr %xi.1.ph, i64 48
-  %x_pkey108 = getelementptr inbounds i8, ptr %xi.1.ph, i64 16
-  %x_pkey108.le = getelementptr inbounds i8, ptr %xi.1.ph, i64 16
-  %enc_data122 = getelementptr inbounds i8, ptr %xi.1.ph, i64 56
-  %enc_len123 = getelementptr inbounds i8, ptr %xi.1.ph, i64 48
-  %x_pkey = getelementptr inbounds i8, ptr %xi.1.ph, i64 16
-  %x_pkey.le = getelementptr inbounds i8, ptr %xi.1.ph, i64 16
-  %enc_data = getelementptr inbounds i8, ptr %xi.1.ph, i64 56
-  %enc_len = getelementptr inbounds i8, ptr %xi.1.ph, i64 48
-  %enc_cipher = getelementptr inbounds i8, ptr %xi.1.ph, i64 24
-  %enc_data203 = getelementptr inbounds i8, ptr %xi.1.ph, i64 56
-  %enc_len205 = getelementptr inbounds i8, ptr %xi.1.ph, i64 48
-  %crl = getelementptr inbounds i8, ptr %xi.1.ph, i64 8
-  %crl.le = getelementptr inbounds i8, ptr %xi.1.ph, i64 8
+  %xi.2.ph = phi ptr [ %xi.2.ph.be, %start.outer.backedge ], [ %call4, %for.cond.preheader ]
+  %x_pkey139 = getelementptr inbounds i8, ptr %xi.2.ph, i64 16
+  %x_pkey139.le = getelementptr inbounds i8, ptr %xi.2.ph, i64 16
+  %enc_data153 = getelementptr inbounds i8, ptr %xi.2.ph, i64 56
+  %enc_len154 = getelementptr inbounds i8, ptr %xi.2.ph, i64 48
+  %x_pkey108 = getelementptr inbounds i8, ptr %xi.2.ph, i64 16
+  %x_pkey108.le = getelementptr inbounds i8, ptr %xi.2.ph, i64 16
+  %enc_data122 = getelementptr inbounds i8, ptr %xi.2.ph, i64 56
+  %enc_len123 = getelementptr inbounds i8, ptr %xi.2.ph, i64 48
+  %x_pkey = getelementptr inbounds i8, ptr %xi.2.ph, i64 16
+  %x_pkey.le = getelementptr inbounds i8, ptr %xi.2.ph, i64 16
+  %enc_data = getelementptr inbounds i8, ptr %xi.2.ph, i64 56
+  %enc_len = getelementptr inbounds i8, ptr %xi.2.ph, i64 48
+  %enc_cipher = getelementptr inbounds i8, ptr %xi.2.ph, i64 24
+  %enc_data203 = getelementptr inbounds i8, ptr %xi.2.ph, i64 56
+  %enc_len205 = getelementptr inbounds i8, ptr %xi.2.ph, i64 48
+  %crl = getelementptr inbounds i8, ptr %xi.2.ph, i64 8
+  %crl.le = getelementptr inbounds i8, ptr %xi.2.ph, i64 8
   br label %start
 
 if.else37:                                        ; preds = %lor.lhs.false
@@ -151,12 +151,12 @@ if.else37:                                        ; preds = %lor.lhs.false
   br i1 %cmp39, label %if.then41, label %if.else57
 
 if.then41:                                        ; preds = %if.else37
-  %3 = load ptr, ptr %xi.1.ph, align 8
+  %3 = load ptr, ptr %xi.2.ph, align 8
   %cmp43.not = icmp eq ptr %3, null
   br i1 %cmp43.not, label %if.then176, label %if.then45
 
 if.then45:                                        ; preds = %if.then41
-  %call46 = call i64 @sk_push(ptr noundef nonnull %ret.0, ptr noundef nonnull %xi.1.ph) #4
+  %call46 = call i64 @sk_push(ptr noundef nonnull %ret.1, ptr noundef nonnull %xi.2.ph) #4
   %tobool47.not = icmp eq i64 %call46, 0
   br i1 %tobool47.not, label %if.then244, label %if.end49
 
@@ -176,7 +176,7 @@ if.then61:                                        ; preds = %if.else57
   br i1 %cmp62.not, label %if.then176, label %if.then64
 
 if.then64:                                        ; preds = %if.then61
-  %call65 = call i64 @sk_push(ptr noundef nonnull %ret.0, ptr noundef nonnull %xi.1.ph) #4
+  %call65 = call i64 @sk_push(ptr noundef nonnull %ret.1, ptr noundef nonnull %xi.2.ph) #4
   %tobool66.not = icmp eq i64 %call65, 0
   br i1 %tobool66.not, label %if.then244, label %if.end68
 
@@ -196,7 +196,7 @@ if.then80:                                        ; preds = %if.else76
   br i1 %cmp81.not, label %if.then174, label %if.then83
 
 if.then83:                                        ; preds = %if.then80
-  %call84 = call i64 @sk_push(ptr noundef nonnull %ret.0, ptr noundef nonnull %xi.1.ph) #4
+  %call84 = call i64 @sk_push(ptr noundef nonnull %ret.1, ptr noundef nonnull %xi.2.ph) #4
   %tobool85.not = icmp eq i64 %call84, 0
   br i1 %tobool85.not, label %if.then244, label %if.end87
 
@@ -216,7 +216,7 @@ if.then107:                                       ; preds = %if.else103
   br i1 %cmp109.not, label %if.end121, label %if.then111
 
 if.then111:                                       ; preds = %if.then107
-  %call112 = call i64 @sk_push(ptr noundef nonnull %ret.0, ptr noundef nonnull %xi.1.ph) #4
+  %call112 = call i64 @sk_push(ptr noundef nonnull %ret.1, ptr noundef nonnull %xi.2.ph) #4
   %tobool113.not = icmp eq i64 %call112, 0
   br i1 %tobool113.not, label %if.then244, label %if.end115
 
@@ -248,7 +248,7 @@ if.then138:                                       ; preds = %if.else134
   br i1 %cmp140.not, label %if.end152, label %if.then142
 
 if.then142:                                       ; preds = %if.then138
-  %call143 = call i64 @sk_push(ptr noundef nonnull %ret.0, ptr noundef nonnull %xi.1.ph) #4
+  %call143 = call i64 @sk_push(ptr noundef nonnull %ret.1, ptr noundef nonnull %xi.2.ph) #4
   %tobool144.not = icmp eq i64 %call143, 0
   br i1 %tobool144.not, label %if.then244, label %if.end146
 
@@ -285,7 +285,7 @@ if.then176:                                       ; preds = %if.then61, %if.then
   %d2i.0.ph85 = phi ptr [ @d2i_RSAPrivateKey, %if.then174 ], [ @d2i_ECPrivateKey, %if.end152 ], [ @d2i_DSAPrivateKey, %if.end121 ], [ @d2i_X509_AUX, %if.then41 ], [ @d2i_X509, %if.then23 ], [ @d2i_X509_CRL, %if.then61 ]
   %ptype.0.ph84 = phi i32 [ 6, %if.then174 ], [ 408, %if.end152 ], [ 116, %if.end121 ], [ 0, %if.then41 ], [ 0, %if.then23 ], [ 0, %if.then61 ]
   %tobool185.not.ph83 = phi i1 [ false, %if.then174 ], [ false, %if.end152 ], [ false, %if.end121 ], [ true, %if.then41 ], [ true, %if.then23 ], [ true, %if.then61 ]
-  %pp.0.ph82 = phi ptr [ %dec_pkey, %if.then174 ], [ %dec_pkey158, %if.end152 ], [ %dec_pkey127, %if.end121 ], [ %xi.1.ph, %if.then41 ], [ %xi.1.ph, %if.then23 ], [ %crl.le, %if.then61 ]
+  %pp.0.ph82 = phi ptr [ %dec_pkey, %if.then174 ], [ %dec_pkey158, %if.end152 ], [ %dec_pkey127, %if.end121 ], [ %xi.2.ph, %if.then41 ], [ %xi.2.ph, %if.then23 ], [ %crl.le, %if.then61 ]
   %11 = load ptr, ptr %header, align 8
   %call177 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %11, ptr noundef nonnull %cipher) #4
   %tobool178.not = icmp eq i32 %call177, 0
@@ -364,29 +364,29 @@ if.end220:                                        ; preds = %if.then219, %if.end
   br i1 %cmp9, label %if.then10, label %start
 
 lor.lhs.false224:                                 ; preds = %if.then14
-  %crl225 = getelementptr inbounds i8, ptr %xi.0.lcssa, i64 8
+  %crl225 = getelementptr inbounds i8, ptr %xi.1.lcssa, i64 8
   %21 = load ptr, ptr %crl225, align 8
   %cmp226.not = icmp eq ptr %21, null
   br i1 %cmp226.not, label %lor.lhs.false228, label %if.then236
 
 lor.lhs.false228:                                 ; preds = %lor.lhs.false224
-  %x_pkey229 = getelementptr inbounds i8, ptr %xi.0.lcssa, i64 16
+  %x_pkey229 = getelementptr inbounds i8, ptr %xi.1.lcssa, i64 16
   %22 = load ptr, ptr %x_pkey229, align 8
   %cmp230.not = icmp eq ptr %22, null
   br i1 %cmp230.not, label %lor.lhs.false232, label %if.then236
 
 lor.lhs.false232:                                 ; preds = %lor.lhs.false228
-  %enc_data233 = getelementptr inbounds i8, ptr %xi.0.lcssa, i64 56
+  %enc_data233 = getelementptr inbounds i8, ptr %xi.1.lcssa, i64 56
   %23 = load ptr, ptr %enc_data233, align 8
   %cmp234.not = icmp eq ptr %23, null
   br i1 %cmp234.not, label %if.then244.thread, label %if.then236
 
 if.then244.thread:                                ; preds = %lor.lhs.false232
-  call void @X509_INFO_free(ptr noundef nonnull %xi.0.lcssa) #4
+  call void @X509_INFO_free(ptr noundef nonnull %xi.1.lcssa) #4
   br label %if.end260
 
 if.then236:                                       ; preds = %lor.lhs.false232, %lor.lhs.false228, %lor.lhs.false224, %if.then14
-  %call237 = call i64 @sk_push(ptr noundef nonnull %ret.0, ptr noundef nonnull %xi.0.lcssa) #4
+  %call237 = call i64 @sk_push(ptr noundef nonnull %ret.1, ptr noundef nonnull %xi.1.lcssa) #4
   %tobool238.not = icmp eq i64 %call237, 0
   br i1 %tobool238.not, label %if.then244, label %if.end260
 
@@ -396,37 +396,37 @@ if.then244.sink.split:                            ; preds = %if.else191, %if.the
   br label %if.then244
 
 if.then244:                                       ; preds = %if.then176, %if.end180, %if.else198, %if.then142, %if.then111, %if.then83, %if.then64, %if.then45, %if.then26, %if.then10, %if.then244.sink.split, %if.then236
-  %xi.390 = phi ptr [ %xi.0.lcssa, %if.then236 ], [ %xi.1.ph, %if.then244.sink.split ], [ %xi.0.lcssa, %if.then10 ], [ %xi.1.ph, %if.then26 ], [ %xi.1.ph, %if.then45 ], [ %xi.1.ph, %if.then64 ], [ %xi.1.ph, %if.then83 ], [ %xi.1.ph, %if.then111 ], [ %xi.1.ph, %if.then142 ], [ %xi.1.ph, %if.else198 ], [ %xi.1.ph, %if.end180 ], [ %xi.1.ph, %if.then176 ]
-  call void @X509_INFO_free(ptr noundef nonnull %xi.390) #4
+  %xi.090 = phi ptr [ %xi.1.lcssa, %if.then236 ], [ %xi.2.ph, %if.then244.sink.split ], [ %xi.1.lcssa, %if.then10 ], [ %xi.2.ph, %if.then26 ], [ %xi.2.ph, %if.then45 ], [ %xi.2.ph, %if.then64 ], [ %xi.2.ph, %if.then83 ], [ %xi.2.ph, %if.then111 ], [ %xi.2.ph, %if.then142 ], [ %xi.2.ph, %if.else198 ], [ %xi.2.ph, %if.end180 ], [ %xi.2.ph, %if.then176 ]
+  call void @X509_INFO_free(ptr noundef nonnull %xi.090) #4
   br label %for.cond248.preheader
 
 for.cond248.preheader:                            ; preds = %if.end146, %if.end115, %if.end87, %if.end68, %if.end49, %if.end29, %if.end3, %if.then2, %if.then244
-  %ret.194102.ph = phi ptr [ %ret.0, %if.then244 ], [ %ret.0, %if.end3 ], [ null, %if.then2 ], [ %ret.0, %if.end29 ], [ %ret.0, %if.end49 ], [ %ret.0, %if.end68 ], [ %ret.0, %if.end87 ], [ %ret.0, %if.end115 ], [ %ret.0, %if.end146 ]
-  %call250140 = call i64 @sk_num(ptr noundef %ret.194102.ph) #4
+  %ret.094102.ph = phi ptr [ %ret.1, %if.then244 ], [ %ret.1, %if.end3 ], [ null, %if.then2 ], [ %ret.1, %if.end29 ], [ %ret.1, %if.end49 ], [ %ret.1, %if.end68 ], [ %ret.1, %if.end87 ], [ %ret.1, %if.end115 ], [ %ret.1, %if.end146 ]
+  %call250140 = call i64 @sk_num(ptr noundef %ret.094102.ph) #4
   %cmp251141.not = icmp eq i64 %call250140, 0
   br i1 %cmp251141.not, label %for.end255, label %for.body
 
 for.body:                                         ; preds = %for.cond248.preheader, %for.body
   %conv249143 = phi i64 [ %conv249, %for.body ], [ 0, %for.cond248.preheader ]
   %i.0142 = phi i32 [ %inc, %for.body ], [ 0, %for.cond248.preheader ]
-  %call254 = call ptr @sk_value(ptr noundef %ret.194102.ph, i64 noundef %conv249143) #4
+  %call254 = call ptr @sk_value(ptr noundef %ret.094102.ph, i64 noundef %conv249143) #4
   call void @X509_INFO_free(ptr noundef %call254) #4
   %inc = add i32 %i.0142, 1
   %conv249 = zext i32 %inc to i64
-  %call250 = call i64 @sk_num(ptr noundef %ret.194102.ph) #4
+  %call250 = call i64 @sk_num(ptr noundef %ret.094102.ph) #4
   %cmp251 = icmp ugt i64 %call250, %conv249
   br i1 %cmp251, label %for.body, label %for.end255, !llvm.loop !7
 
 for.end255:                                       ; preds = %for.body, %for.cond248.preheader
-  %cmp256.not = icmp eq ptr %ret.194102.ph, %sk
+  %cmp256.not = icmp eq ptr %ret.094102.ph, %sk
   br i1 %cmp256.not, label %if.end260, label %if.then258
 
 if.then258:                                       ; preds = %for.end255
-  call void @sk_free(ptr noundef %ret.194102.ph) #4
+  call void @sk_free(ptr noundef %ret.094102.ph) #4
   br label %if.end260
 
 if.end260:                                        ; preds = %if.then236, %if.then244.thread, %for.end255, %if.then258
-  %ret.2 = phi ptr [ null, %if.then258 ], [ null, %for.end255 ], [ %ret.0, %if.then244.thread ], [ %ret.0, %if.then236 ]
+  %ret.2 = phi ptr [ null, %if.then258 ], [ null, %for.end255 ], [ %ret.1, %if.then244.thread ], [ %ret.1, %if.then236 ]
   %24 = load ptr, ptr %name, align 8
   %cmp261.not = icmp eq ptr %24, null
   br i1 %cmp261.not, label %if.end264, label %if.then263

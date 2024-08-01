@@ -2712,11 +2712,11 @@ for.body95:                                       ; preds = %for.body95.preheade
 
 for.body106:                                      ; preds = %for.cond103.preheader, %for.body106
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %for.body106 ], [ 0, %for.cond103.preheader ]
-  %zero_q.2194 = phi i1 [ %spec.select54, %for.body106 ], [ true, %for.cond103.preheader ]
+  %zero_q.3194 = phi i1 [ %spec.select54, %for.body106 ], [ true, %for.cond103.preheader ]
   %arrayidx108 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv212
   %65 = load i32, ptr %arrayidx108, align 4
   %cmp109.not = icmp eq i32 %65, 0
-  %spec.select54 = select i1 %cmp109.not, i1 %zero_q.2194, i1 false
+  %spec.select54 = select i1 %cmp109.not, i1 %zero_q.3194, i1 false
   %arrayidx115 = getelementptr inbounds i32, ptr %add.ptr.i127, i64 %indvars.iv212
   store i32 %65, ptr %arrayidx115, align 4
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
@@ -2727,8 +2727,8 @@ for.body106:                                      ; preds = %for.cond103.prehead
 
 if.end119:                                        ; preds = %for.body95, %for.body106, %for.cond92.preheader
   %68 = phi i32 [ %60, %for.cond92.preheader ], [ %66, %for.body106 ], [ %63, %for.body95 ]
-  %zero_q.4 = phi i1 [ %zero_q.0.lcssa, %for.cond92.preheader ], [ %spec.select54, %for.body106 ], [ %zero_q.0.lcssa, %for.body95 ]
-  br i1 %zero_q.4, label %if.end119.if.then121_crit_edge, label %if.end135
+  %zero_q.2 = phi i1 [ %zero_q.0.lcssa, %for.cond92.preheader ], [ %spec.select54, %for.body106 ], [ %zero_q.0.lcssa, %for.body95 ]
+  br i1 %zero_q.2, label %if.end119.if.then121_crit_edge, label %if.end135
 
 if.end119.if.then121_crit_edge:                   ; preds = %if.end119
   %bf.load122.pre = load i32, ptr %c, align 4

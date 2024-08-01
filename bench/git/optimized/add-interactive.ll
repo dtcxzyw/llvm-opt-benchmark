@@ -1584,12 +1584,12 @@ Q_.exit:                                          ; preds = %if.then.i40, %if.en
   br label %finish_add_untracked
 
 finish_add_untracked:                             ; preds = %_.exit29, %_.exit35, %if.end12, %Q_.exit, %if.end4, %_.exit
-  %res.2 = phi i32 [ 0, %if.end4 ], [ 0, %Q_.exit ], [ 0, %_.exit ], [ -1, %if.end12 ], [ -1, %_.exit35 ], [ -1, %_.exit29 ]
+  %res.0 = phi i32 [ 0, %if.end4 ], [ 0, %Q_.exit ], [ 0, %_.exit ], [ -1, %if.end12 ], [ -1, %_.exit35 ], [ -1, %_.exit29 ]
   %call49 = call i32 @putchar(i32 noundef 10)
   br label %return
 
 return:                                           ; preds = %get_untracked_files.exit.thread, %finish_add_untracked
-  %retval.0 = phi i32 [ %res.2, %finish_add_untracked ], [ -1, %get_untracked_files.exit.thread ]
+  %retval.0 = phi i32 [ %res.0, %finish_add_untracked ], [ -1, %get_untracked_files.exit.thread ]
   ret i32 %retval.0
 }
 
@@ -2520,7 +2520,7 @@ find_unique_prefixes.exit:                        ; preds = %for.inc61.i, %if.en
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %lor.lhs.false158.tail, %find_unique_prefixes.exit
-  %res.0.ph = phi i64 [ %res.4, %lor.lhs.false158.tail ], [ %conv, %find_unique_prefixes.exit ]
+  %res.0.ph = phi i64 [ %res.3, %lor.lhs.false158.tail ], [ %conv, %find_unique_prefixes.exit ]
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.outer, %if.then30
@@ -2746,14 +2746,14 @@ if.else79:                                        ; preds = %if.then69
 
 if.end82:                                         ; preds = %if.else79, %if.then77
   %88 = phi ptr [ %.pre153, %if.then77 ], [ %incdec.ptr70, %if.else79 ]
-  %to.0 = phi i64 [ %call78, %if.then77 ], [ %87, %if.else79 ]
+  %to.1 = phi i64 [ %call78, %if.then77 ], [ %87, %if.else79 ]
   %cmp84.not = icmp eq ptr %88, %add.ptr
   %spec.select68 = select i1 %cmp84.not, i64 %sub, i64 -1
   br label %if.end91
 
 if.end91:                                         ; preds = %if.end82, %if.then60, %if.else, %if.else65, %if.then53
   %from.0 = phi i64 [ 0, %if.then53 ], [ %sub, %if.else65 ], [ -1, %if.else ], [ %sub, %if.then60 ], [ %spec.select68, %if.end82 ]
-  %to.1 = phi i64 [ %79, %if.then53 ], [ -1, %if.else65 ], [ -1, %if.else ], [ %call61, %if.then60 ], [ %to.0, %if.end82 ]
+  %to.0 = phi i64 [ %79, %if.then53 ], [ -1, %if.else65 ], [ -1, %if.else ], [ %call61, %if.then60 ], [ %to.1, %if.end82 ]
   %arrayidx92 = getelementptr inbounds i8, ptr %p.1, i64 %sep.0
   %89 = load i8, ptr %arrayidx92, align 1
   %tobool93.not = icmp eq i8 %89, 0
@@ -2861,7 +2861,7 @@ find_unique.exit:                                 ; preds = %if.then8.i, %if.the
   br i1 %cmp101106, label %if.then119, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end96, %find_unique.exit
-  %to.2104 = phi i64 [ %add104, %find_unique.exit ], [ %to.1, %if.end96 ]
+  %to.2104 = phi i64 [ %add104, %find_unique.exit ], [ %to.0, %if.end96 ]
   %from.1103 = phi i64 [ %sub.ptr.div.i, %find_unique.exit ], [ %from.0, %if.end96 ]
   %105 = load i64, ptr %nr1.i, align 8
   %cmp111.not = icmp ult i64 %from.1103, %105
@@ -2902,7 +2902,7 @@ for.body.lr.ph:                                   ; preds = %if.end127
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %from.2136 = phi i64 [ %from.1103, %for.body.lr.ph ], [ %inc151, %for.inc ]
-  %res.2135 = phi i64 [ %res.1.ph, %for.body.lr.ph ], [ %res.3, %for.inc ]
+  %res.4135 = phi i64 [ %res.2.ph, %for.body.lr.ph ], [ %res.5, %for.inc ]
   %108 = load ptr, ptr %selected11, align 8
   %arrayidx140 = getelementptr inbounds i32, ptr %108, i64 %from.2136
   %109 = load i32, ptr %arrayidx140, align 4
@@ -2911,30 +2911,30 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 if.then143:                                       ; preds = %for.body
   store i32 %choose.0, ptr %arrayidx140, align 4
-  %add149 = add nsw i64 %res.2135, %conv148
+  %add149 = add nsw i64 %res.4135, %conv148
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then143
-  %res.3 = phi i64 [ %add149, %if.then143 ], [ %res.2135, %for.body ]
+  %res.5 = phi i64 [ %add149, %if.then143 ], [ %res.4135, %for.body ]
   %inc151 = add nuw nsw i64 %from.2136, 1
   %exitcond.not = icmp eq i64 %inc151, %spec.select70
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %for.inc, %if.end127
-  %res.2.lcssa = phi i64 [ %res.1.ph, %if.end127 ], [ %res.3, %for.inc ]
+  %res.4.lcssa = phi i64 [ %res.2.ph, %if.end127 ], [ %res.5, %for.inc ]
   %add.ptr152 = getelementptr inbounds i8, ptr %p.1, i64 %sep.1
   br label %for.cond33.outer
 
 for.cond33.outer:                                 ; preds = %if.end27.tail, %for.end
-  %res.1.ph = phi i64 [ %res.2.lcssa, %for.end ], [ %res.0.ph, %if.end27.tail ]
+  %res.2.ph = phi i64 [ %res.4.lcssa, %for.end ], [ %res.0.ph, %if.end27.tail ]
   %p.0.ph = phi ptr [ %add.ptr152, %for.end ], [ %68, %if.end27.tail ]
   %call34130 = call i64 @strcspn(ptr noundef %p.0.ph, ptr noundef nonnull @.str.41) #18
   %tobool35.not131 = icmp eq i64 %call34130, 0
   br i1 %tobool35.not131, label %if.then36, label %if.end40
 
 for.end153:                                       ; preds = %if.else123, %if.then36, %_.exit
-  %res.4 = phi i64 [ %res.1.ph, %_.exit ], [ %res.1.ph, %if.then36 ], [ %from.1103, %if.else123 ]
-  %cmp156 = icmp ne i64 %res.4, -1
+  %res.3 = phi i64 [ %res.2.ph, %_.exit ], [ %res.2.ph, %if.then36 ], [ %from.1103, %if.else123 ]
+  %cmp156 = icmp ne i64 %res.3, -1
   %or.cond1 = select i1 %tobool7, i1 %cmp156, i1 false
   br i1 %or.cond1, label %for.end164, label %lor.lhs.false158
 
@@ -2958,9 +2958,9 @@ lor.lhs.false158.tail:                            ; preds = %lor.lhs.false158, %
   br i1 %tobool161.not, label %for.end164, label %for.cond.outer
 
 for.end164:                                       ; preds = %lor.lhs.false158.tail, %for.end153, %if.end24, %if.then19
-  %res.5 = phi i64 [ %spec.select, %if.then19 ], [ %res.0.ph, %if.end24 ], [ %res.4, %for.end153 ], [ %res.4, %lor.lhs.false158.tail ]
+  %res.1 = phi i64 [ %spec.select, %if.then19 ], [ %res.0.ph, %if.end24 ], [ %res.3, %for.end153 ], [ %res.3, %lor.lhs.false158.tail ]
   call void @strbuf_release(ptr noundef nonnull %input) #17
-  ret i64 %res.5
+  ret i64 %res.1
 }
 
 ; Function Attrs: nofree nounwind

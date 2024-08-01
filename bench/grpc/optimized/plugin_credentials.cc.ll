@@ -2173,22 +2173,22 @@ if.then.i.i92:                                    ; preds = %if.then.i89
   br label %return
 
 ehcleanup76:                                      ; preds = %ehcleanup75, %lpad22
-  %child_request.sroa.0.2 = phi ptr [ %child_request.sroa.0.0, %lpad22 ], [ %15, %ehcleanup75 ]
+  %child_request.sroa.0.1 = phi ptr [ %child_request.sroa.0.0, %lpad22 ], [ %15, %ehcleanup75 ]
   %.pn5.pn = phi { ptr, i32 } [ %21, %lpad22 ], [ %.pn5, %ehcleanup75 ]
-  %cmp.not.i96 = icmp eq ptr %child_request.sroa.0.2, null
+  %cmp.not.i96 = icmp eq ptr %child_request.sroa.0.1, null
   br i1 %cmp.not.i96, label %ehcleanup78, label %if.then.i97
 
 if.then.i97:                                      ; preds = %ehcleanup76
-  %refs_.i.i98 = getelementptr inbounds i8, ptr %child_request.sroa.0.2, i64 8
+  %refs_.i.i98 = getelementptr inbounds i8, ptr %child_request.sroa.0.1, i64 8
   %71 = atomicrmw sub ptr %refs_.i.i98, i64 1 acq_rel, align 8
   %cmp.i.i.i99 = icmp eq i64 %71, 1
   br i1 %cmp.i.i.i99, label %if.then.i.i100, label %ehcleanup78
 
 if.then.i.i100:                                   ; preds = %if.then.i97
-  %vtable.i.i.i101 = load ptr, ptr %child_request.sroa.0.2, align 8
+  %vtable.i.i.i101 = load ptr, ptr %child_request.sroa.0.1, align 8
   %vfn.i.i.i102 = getelementptr inbounds i8, ptr %vtable.i.i.i101, i64 8
   %72 = load ptr, ptr %vfn.i.i.i102, align 8
-  call void %72(ptr noundef nonnull align 8 dereferenceable(332) %child_request.sroa.0.2) #23
+  call void %72(ptr noundef nonnull align 8 dereferenceable(332) %child_request.sroa.0.1) #23
   br label %ehcleanup78
 
 ehcleanup78:                                      ; preds = %if.then.i.i100, %if.then.i97, %ehcleanup76, %lpad8

@@ -335,8 +335,8 @@ land.lhs.true194:                                 ; preds = %for.end192
   br i1 %tobool197.not, label %return, label %if.end201
 
 if.end201:                                        ; preds = %for.end192.thread, %for.end, %land.lhs.true194, %for.end192, %if.then96
-  %o.2 = phi i32 [ %inc97, %if.then96 ], [ %.us-phi110, %land.lhs.true194 ], [ %.us-phi110, %for.end192 ], [ %o.0103, %for.end ], [ %.us-phi110160, %for.end192.thread ]
-  %cmp202 = icmp eq i32 %o.2, %1
+  %o.1 = phi i32 [ %inc97, %if.then96 ], [ %.us-phi110, %land.lhs.true194 ], [ %.us-phi110, %for.end192 ], [ %o.0103, %for.end ], [ %.us-phi110160, %for.end192.thread ]
+  %cmp202 = icmp eq i32 %o.1, %1
   %conv203 = zext i1 %cmp202 to i32
   br label %return
 

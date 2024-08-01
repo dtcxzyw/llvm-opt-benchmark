@@ -145,8 +145,8 @@ for.inc.loopexit:                                 ; preds = %for.cond32
 for.inc:                                          ; preds = %for.inc.loopexit, %if.then43, %if.then47, %for.body, %if.else28
   %numValid.1 = phi i32 [ %numValid.041, %for.body ], [ %numValid.041, %if.then43 ], [ %add48, %if.then47 ], [ %numValid.041, %if.else28 ], [ %numValid.041, %for.inc.loopexit ]
   %numInvalid.1 = phi i32 [ %numInvalid.042, %for.body ], [ %add44, %if.then43 ], [ %numInvalid.042, %if.then47 ], [ %add, %if.else28 ], [ %numInvalid.042, %for.inc.loopexit ]
-  %i.2 = phi i32 [ %i.043, %for.body ], [ %10, %if.then43 ], [ %7, %if.then47 ], [ %i.043, %if.else28 ], [ %11, %for.inc.loopexit ]
-  %add50 = add nsw i32 %i.2, 1
+  %i.1 = phi i32 [ %i.043, %for.body ], [ %10, %if.then43 ], [ %7, %if.then47 ], [ %i.043, %if.else28 ], [ %11, %for.inc.loopexit ]
+  %add50 = add nsw i32 %i.1, 1
   %cmp12 = icmp slt i32 %add50, %1
   br i1 %cmp12, label %for.body, label %for.end51, !llvm.loop !6
 

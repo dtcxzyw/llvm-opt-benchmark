@@ -124,7 +124,7 @@ common.resume:                                    ; preds = %.noexc40, %183, %35
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.exit._crit_edge": ; preds = %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$tokio_util..sync..cancellation_token..tree_node..TreeNode$GT$$GT$17h6fb3301184949adbE.exit89", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.exit.preheader"
-  %.sroa.10.0.lcssa = phi i8 [ %.0.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.exit.preheader" ], [ %.sroa.10.7, %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$tokio_util..sync..cancellation_token..tree_node..TreeNode$GT$$GT$17h6fb3301184949adbE.exit89" ]
+  %.sroa.10.0.lcssa = phi i8 [ %.0.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17haf7b4937874f1c35E.exit.preheader" ], [ %.sroa.10.5, %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$tokio_util..sync..cancellation_token..tree_node..TreeNode$GT$$GT$17h6fb3301184949adbE.exit89" ]
   %34 = getelementptr inbounds i8, ptr %8, i64 24
   invoke void @_ZN10tokio_util4sync18cancellation_token9tree_node19disconnect_children17ha0b990d0fe5a16b3E(ptr noalias noundef nonnull align 8 dereferenceable(56) %34)
           to label %37 unwind label %35
@@ -171,7 +171,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i15.i: ; preds = %44, %
 
 49:                                               ; preds = %.lr.ph, %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$tokio_util..sync..cancellation_token..tree_node..TreeNode$GT$$GT$17h6fb3301184949adbE.exit89"
   %..val = phi ptr [ %23, %.lr.ph ], [ %179, %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$tokio_util..sync..cancellation_token..tree_node..TreeNode$GT$$GT$17h6fb3301184949adbE.exit89" ]
-  %.sroa.10.0165 = phi i8 [ %.0.i.i.i, %.lr.ph ], [ %.sroa.10.7, %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$tokio_util..sync..cancellation_token..tree_node..TreeNode$GT$$GT$17h6fb3301184949adbE.exit89" ]
+  %.sroa.10.0165 = phi i8 [ %.0.i.i.i, %.lr.ph ], [ %.sroa.10.5, %"_ZN4core3ptr102drop_in_place$LT$alloc..sync..Arc$LT$tokio_util..sync..cancellation_token..tree_node..TreeNode$GT$$GT$17h6fb3301184949adbE.exit89" ]
   %50 = atomicrmw add ptr %..val, i64 1 monotonic, align 8
   %51 = icmp slt i64 %50, 0
   br i1 %51, label %52, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0214e404d8f68749E.exit"
@@ -181,7 +181,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i15.i: ; preds = %44, %
   unreachable
 
 .noexc40:                                         ; preds = %58, %.body83
-  br i1 %.3, label %183, label %common.resume
+  br i1 %.4, label %183, label %common.resume
 
 .body:                                            ; preds = %178
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
@@ -203,8 +203,8 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i15.i: ; preds = %44, %
           to label %59 unwind label %.loopexit
 
 .body83:                                          ; preds = %.loopexit, %.loopexit.split-lp, %152, %170, %109, %74, %90, %.body69
-  %.sroa.10.4 = phi i8 [ %.sroa.10.0165, %.body69 ], [ %.sroa.10.0165, %90 ], [ %.sroa.10.0165, %74 ], [ %.sroa.10.0165, %109 ], [ %.sroa.10.7, %170 ], [ %.sroa.10.7, %152 ], [ %.sroa.10.5.ph, %.loopexit ], [ %.sroa.10.7, %.loopexit.split-lp ]
-  %.3 = phi i1 [ false, %.body69 ], [ false, %90 ], [ true, %74 ], [ false, %109 ], [ false, %170 ], [ false, %152 ], [ true, %.loopexit ], [ false, %.loopexit.split-lp ]
+  %.sroa.10.4 = phi i8 [ %.sroa.10.0165, %.body69 ], [ %.sroa.10.0165, %90 ], [ %.sroa.10.0165, %74 ], [ %.sroa.10.0165, %109 ], [ %.sroa.10.5, %170 ], [ %.sroa.10.5, %152 ], [ %.sroa.10.3.ph, %.loopexit ], [ %.sroa.10.5, %.loopexit.split-lp ]
+  %.4 = phi i1 [ false, %.body69 ], [ false, %90 ], [ true, %74 ], [ false, %109 ], [ false, %170 ], [ false, %152 ], [ true, %.loopexit ], [ false, %.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %eh.lpad-body70, %.body69 ], [ %91, %90 ], [ %75, %74 ], [ %110, %109 ], [ %154, %170 ], [ %154, %152 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
@@ -219,7 +219,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i15.i: ; preds = %44, %
           to label %.noexc40 unwind label %181
 
 .loopexit:                                        ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0214e404d8f68749E.exit", %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i72, %147
-  %.sroa.10.5.ph = phi i8 [ %.sroa.10.0165, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0214e404d8f68749E.exit" ], [ %.sroa.10.7, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i72 ], [ %.sroa.10.7, %147 ]
+  %.sroa.10.3.ph = phi i8 [ %.sroa.10.0165, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0214e404d8f68749E.exit" ], [ %.sroa.10.5, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i72 ], [ %.sroa.10.5, %147 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body83
@@ -247,7 +247,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i15.i: ; preds = %44, %
 66:                                               ; preds = %128, %61
   %.sroa.0101.0 = phi ptr [ %62, %61 ], [ %93, %128 ]
   %.sroa.8.0 = phi i8 [ %63, %61 ], [ %.0.i.i.i49, %128 ]
-  %.sroa.10.7 = phi i8 [ %.sroa.10.0165, %61 ], [ %.0.i.i.i62, %128 ]
+  %.sroa.10.5 = phi i8 [ %.sroa.10.0165, %61 ], [ %.0.i.i.i62, %128 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %67 = load ptr, ptr %22, align 8, !noundef !7
   %68 = icmp ne ptr %67, null
@@ -478,24 +478,24 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i73: ; preds = %144, %.
           to label %"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E.exit76" unwind label %.loopexit
 
 148:                                              ; preds = %66
-  %149 = and i8 %.sroa.10.7, 1
+  %149 = and i8 %.sroa.10.5, 1
   %150 = getelementptr inbounds i8, ptr %8, i64 24
   %151 = getelementptr inbounds i8, ptr %.sroa.0101.0, i64 8
   invoke void @_ZN10tokio_util4sync18cancellation_token9tree_node23move_children_to_parent17h228bc5f997fbb477E(ptr noalias noundef nonnull align 8 dereferenceable(56) %150, ptr noalias noundef nonnull align 8 dereferenceable(56) %151)
           to label %155 unwind label %153
 
 152:                                              ; preds = %153
-  br i1 %.3.i, label %170, label %.body83
+  br i1 %.1.i, label %170, label %.body83
 
 153:                                              ; preds = %155, %148
-  %.3.i = phi i1 [ false, %155 ], [ true, %148 ]
+  %.1.i = phi i1 [ false, %155 ], [ true, %148 ]
   %154 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E"(ptr nonnull %.sroa.0101.0, i8 %.sroa.8.0) #10
           to label %152 unwind label %168
 
 155:                                              ; preds = %148
-  %156 = trunc nuw i8 %.sroa.10.7 to i1
+  %156 = trunc nuw i8 %.sroa.10.5 to i1
   invoke void @_ZN10tokio_util4sync18cancellation_token9tree_node12remove_child17h3a8841608231be12E(ptr noalias noundef nonnull align 8 dereferenceable(56) %151, ptr noundef nonnull align 8 %9, i1 noundef zeroext %156)
           to label %157 unwind label %153
 
@@ -585,8 +585,8 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i.i: ; preds = %165, %.
 
 183:                                              ; preds = %.body, %.noexc40
   %.pn28129 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %.body ], [ %.pn, %.noexc40 ]
-  %.sroa.10.1126 = phi i8 [ %.sroa.10.7, %.body ], [ %.sroa.10.4, %.noexc40 ]
-  invoke fastcc void @"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E"(ptr nonnull %9, i8 %.sroa.10.1126) #10
+  %.sroa.10.2126 = phi i8 [ %.sroa.10.5, %.body ], [ %.sroa.10.4, %.noexc40 ]
+  invoke fastcc void @"_ZN4core3ptr111drop_in_place$LT$std..sync..mutex..MutexGuard$LT$tokio_util..sync..cancellation_token..tree_node..Inner$GT$$GT$17hebe8c85891790c43E"(ptr nonnull %9, i8 %.sroa.10.2126) #10
           to label %common.resume unwind label %181
 }
 

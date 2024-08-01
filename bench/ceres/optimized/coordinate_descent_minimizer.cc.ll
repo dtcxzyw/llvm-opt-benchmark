@@ -5519,7 +5519,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %45
   %.076113 = phi i64 [ 0, %.preheader.lr.ph ], [ %47, %45 ]
-  %.092112 = phi i64 [ 0, %.preheader.lr.ph ], [ %.sroa.speculated, %45 ]
+  %.1112 = phi i64 [ 0, %.preheader.lr.ph ], [ %.sroa.speculated, %45 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %30 = load ptr, ptr %4, align 8
   %31 = getelementptr i8, ptr %30, i64 -24
@@ -5545,7 +5545,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
 
 45:                                               ; preds = %44
   %46 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  %.sroa.speculated = call i64 @llvm.smax.i64(i64 %.092112, i64 %46)
+  %.sroa.speculated = call i64 @llvm.smax.i64(i64 %.1112, i64 %46)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #22
   %47 = add nuw nsw i64 %.076113, 1
@@ -5560,7 +5560,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   resume { ptr, i32 } %50
 
 .loopexit:                                        ; preds = %45, %.thread
-  %.2 = phi i64 [ 0, %.thread ], [ %.sroa.speculated, %45 ]
+  %.092 = phi i64 [ 0, %.thread ], [ %.sroa.speculated, %45 ]
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr i8, ptr %51, i64 -24
   %53 = load i64, ptr %52, align 8
@@ -5571,7 +5571,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   %58 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %59 = getelementptr inbounds i8, ptr %2, i64 64
   %invariant.gep115 = getelementptr i8, ptr %0, i64 16
-  %.not82 = icmp eq i64 %.2, 0
+  %.not82 = icmp eq i64 %.092, 0
   %60 = getelementptr inbounds i8, ptr %2, i64 224
   %61 = getelementptr inbounds i8, ptr %2, i64 192
   %62 = getelementptr inbounds i8, ptr %2, i64 96
@@ -5589,7 +5589,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   %71 = getelementptr i8, ptr %70, i64 -24
   %72 = load i64, ptr %71, align 8
   %gep116 = getelementptr i8, ptr %invariant.gep115, i64 %72
-  store i64 %.2, ptr %gep116, align 8
+  store i64 %.092, ptr %gep116, align 8
   %73 = load ptr, ptr %1, align 8
   %74 = load double, ptr %73, align 8
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %74)
@@ -5630,7 +5630,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   %99 = getelementptr i8, ptr %98, i64 -24
   %100 = load i64, ptr %99, align 8
   %gep = getelementptr i8, ptr %invariant.gep115, i64 %100
-  store i64 %.2, ptr %gep, align 8
+  store i64 %.092, ptr %gep, align 8
   %101 = load ptr, ptr %1, align 8
   %102 = getelementptr double, ptr %101, i64 %.0114
   %103 = load double, ptr %102, align 8
@@ -6177,13 +6177,13 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   %35 = phi i64 [ %63, %._crit_edge ], [ %27, %.preheader.lr.ph ]
   %36 = phi i64 [ %64, %._crit_edge ], [ %33, %.preheader.lr.ph ]
   %.076107 = phi i64 [ %66, %._crit_edge ], [ 0, %.preheader.lr.ph ]
-  %.092106 = phi i64 [ %65, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %.1106 = phi i64 [ %65, %._crit_edge ], [ 0, %.preheader.lr.ph ]
   %37 = icmp sgt i64 %36, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %56
   %.077105 = phi i64 [ %58, %56 ], [ 0, %.preheader ]
-  %.1104 = phi i64 [ %.sroa.speculated, %56 ], [ %.092106, %.preheader ]
+  %.2104 = phi i64 [ %.sroa.speculated, %56 ], [ %.1106, %.preheader ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4)
   %38 = load ptr, ptr %4, align 8
   %39 = getelementptr i8, ptr %38, i64 -24
@@ -6212,7 +6212,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
 
 56:                                               ; preds = %55
   %57 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  %.sroa.speculated = call i64 @llvm.smax.i64(i64 %.1104, i64 %57)
+  %.sroa.speculated = call i64 @llvm.smax.i64(i64 %.2104, i64 %57)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #22
   %58 = add nuw nsw i64 %.077105, 1
@@ -6233,14 +6233,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %63 = phi i64 [ %35, %.preheader ], [ %.pre123, %._crit_edge.loopexit ]
   %64 = phi i64 [ %36, %.preheader ], [ %59, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i64 [ %.092106, %.preheader ], [ %.sroa.speculated, %._crit_edge.loopexit ]
-  %65 = freeze i64 %.1.lcssa
+  %.2.lcssa = phi i64 [ %.1106, %.preheader ], [ %.sroa.speculated, %._crit_edge.loopexit ]
+  %65 = freeze i64 %.2.lcssa
   %66 = add nuw nsw i64 %.076107, 1
   %67 = icmp slt i64 %66, %63
   br i1 %67, label %.preheader, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %.thread
-  %.2 = phi i64 [ 0, %.thread ], [ 0, %.preheader.lr.ph ], [ %65, %._crit_edge ]
+  %.092 = phi i64 [ 0, %.thread ], [ 0, %.preheader.lr.ph ], [ %65, %._crit_edge ]
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr i8, ptr %68, i64 -24
   %70 = load i64, ptr %69, align 8
@@ -6257,7 +6257,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
 .lr.ph118:                                        ; preds = %.loopexit
   %78 = getelementptr inbounds i8, ptr %2, i64 160
   %79 = getelementptr inbounds i8, ptr %2, i64 64
-  %.not82 = icmp eq i64 %.2, 0
+  %.not82 = icmp eq i64 %.092, 0
   %80 = getelementptr inbounds i8, ptr %2, i64 224
   %81 = getelementptr inbounds i8, ptr %2, i64 192
   %82 = getelementptr inbounds i8, ptr %2, i64 96
@@ -6339,7 +6339,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   %128 = getelementptr i8, ptr %127, i64 -24
   %129 = load i64, ptr %128, align 8
   %gep114 = getelementptr i8, ptr %invariant.gep113, i64 %129
-  store i64 %.2, ptr %gep114, align 8
+  store i64 %.092, ptr %gep114, align 8
   %130 = load ptr, ptr %1, align 8
   %131 = load i64, ptr %8, align 8
   %132 = mul nsw i64 %131, %.072115
@@ -6363,7 +6363,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   %146 = getelementptr i8, ptr %145, i64 -24
   %147 = load i64, ptr %146, align 8
   %gep = getelementptr i8, ptr %invariant.gep113, i64 %147
-  store i64 %.2, ptr %gep, align 8
+  store i64 %.092, ptr %gep, align 8
   %148 = load ptr, ptr %1, align 8
   %149 = load i64, ptr %8, align 8
   %150 = mul nsw i64 %149, %.072115
@@ -6409,7 +6409,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN5E
   br label %176
 
 176:                                              ; preds = %170, %._crit_edge119
-  %.not80 = icmp eq i64 %.2, 0
+  %.not80 = icmp eq i64 %.092, 0
   br i1 %.not80, label %188, label %177
 
 177:                                              ; preds = %176

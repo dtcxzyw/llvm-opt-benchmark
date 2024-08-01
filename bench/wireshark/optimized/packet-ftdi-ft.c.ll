@@ -650,16 +650,16 @@ switch.lookup226:                                 ; preds = %116
 
 131:                                              ; preds = %153, %128
   %.0196 = phi i32 [ 0, %128 ], [ %147, %153 ]
-  %.2 = phi i32 [ 0, %128 ], [ %.3, %153 ]
+  %.3 = phi i32 [ 0, %128 ], [ %.4, %153 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %132 = load i32, ptr @hf_modem_status, align 4
   %133 = load i32, ptr @ett_modem_status, align 4
-  %134 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %33, ptr noundef %0, i32 noundef %.2, i32 noundef %132, i32 noundef %133, ptr noundef nonnull @dissect_modem_status_bytes.modem_status_bits, i32 noundef -2147483648, ptr noundef nonnull %5) #8
-  %135 = add i32 %.2, 1
+  %134 = call ptr @proto_tree_add_bitmask_ret_uint64(ptr noundef %33, ptr noundef %0, i32 noundef %.3, i32 noundef %132, i32 noundef %133, ptr noundef nonnull @dissect_modem_status_bytes.modem_status_bits, i32 noundef -2147483648, ptr noundef nonnull %5) #8
+  %135 = add i32 %.3, 1
   %136 = load i32, ptr @hf_line_status, align 4
   %137 = load i32, ptr @ett_line_status, align 4
   %138 = call ptr @proto_tree_add_bitmask(ptr noundef %33, ptr noundef %0, i32 noundef %135, i32 noundef %136, i32 noundef %137, ptr noundef nonnull @dissect_modem_status_bytes.line_status_bits, i32 noundef -2147483648) #8
-  %139 = add i32 %.2, 2
+  %139 = add i32 %.3, 2
   %140 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %139) #8
   %141 = load i64, ptr %5, align 8
   %142 = and i64 %141, 1
@@ -694,8 +694,8 @@ dissect_modem_status_bytes.exit:                  ; preds = %143, %146, %144
   br label %153
 
 153:                                              ; preds = %dissect_modem_status_bytes.exit, %149
-  %.3 = phi i32 [ %152, %149 ], [ %139, %dissect_modem_status_bytes.exit ]
-  %154 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3) #8
+  %.4 = phi i32 [ %152, %149 ], [ %139, %dissect_modem_status_bytes.exit ]
+  %154 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.4) #8
   %155 = icmp sgt i32 %154, 0
   br i1 %155, label %131, label %156, !llvm.loop !4
 
@@ -732,7 +732,7 @@ dissect_modem_status_bytes.exit:                  ; preds = %143, %146, %144
   br label %endpoint_to_interface.exit.thread
 
 endpoint_to_interface.exit.thread:                ; preds = %116, %111, %114, %.thread, %161, %165, %158, %160, %12, %4
-  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 7, %.thread ], [ %.1, %114 ], [ %.1, %111 ], [ %.3, %158 ], [ %.3, %160 ], [ %163, %165 ], [ 0, %161 ], [ 0, %116 ]
+  %.0 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 7, %.thread ], [ %.1, %114 ], [ %.1, %111 ], [ %.4, %158 ], [ %.4, %160 ], [ %163, %165 ], [ 0, %161 ], [ 0, %116 ]
   ret i32 %.0
 }
 

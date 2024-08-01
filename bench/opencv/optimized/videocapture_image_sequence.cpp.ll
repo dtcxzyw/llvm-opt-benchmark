@@ -275,7 +275,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %82
 
 81:                                               ; preds = %43, %.loopexit31
-  %.015 = phi i32 [ 0, %.loopexit31 ], [ 1, %43 ]
+  %.116 = phi i32 [ 0, %.loopexit31 ], [ 1, %43 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %9) #5
   br label %83
 
@@ -285,10 +285,10 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %84
 
 83:                                               ; preds = %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit, %81
-  %.116 = phi i32 [ %.015, %81 ], [ 1, %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit ]
+  %.015 = phi i32 [ %.116, %81 ], [ 1, %_ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEET_RKS7_b.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  ret i32 %.116
+  ret i32 %.015
 
 84:                                               ; preds = %82, %45
   %.pn25.pn.pn = phi { ptr, i32 } [ %.pn25.pn, %82 ], [ %46, %45 ]

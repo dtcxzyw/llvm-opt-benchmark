@@ -742,8 +742,8 @@ AddSingleLiteralWithCostModel.exit.i:             ; preds = %319, %316
 
 322:                                              ; preds = %UpdateCostAtIndex.exit142.i, %.lr.ph188.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph188.i ], [ %indvars.iv.next.i, %UpdateCostAtIndex.exit142.i ]
-  %.082183.i = phi i32 [ 0, %.lr.ph188.i ], [ %.2.i, %UpdateCostAtIndex.exit142.i ]
-  %.083182.i = phi i32 [ -1, %.lr.ph188.i ], [ %.285.i, %UpdateCostAtIndex.exit142.i ]
+  %.082183.i = phi i32 [ 0, %.lr.ph188.i ], [ %.1.i, %UpdateCostAtIndex.exit142.i ]
+  %.083182.i = phi i32 [ -1, %.lr.ph188.i ], [ %.184.i, %UpdateCostAtIndex.exit142.i ]
   %.086181.i = phi float [ -1.000000e+00, %.lr.ph188.i ], [ %.187.i, %UpdateCostAtIndex.exit142.i ]
   %.088180.i = phi i32 [ -1, %.lr.ph188.i ], [ %330, %UpdateCostAtIndex.exit142.i ]
   %.089179.i = phi i32 [ -1, %.lr.ph188.i ], [ %329, %UpdateCostAtIndex.exit142.i ]
@@ -877,20 +877,20 @@ GetDistanceCost.exit.i:                           ; preds = %386, %381
   %402 = trunc nuw nsw i64 %324 to i32
   %403 = add i32 %402, -1
   %404 = add i32 %403, %.088180.i
-  %.1.i = select i1 %.not102.i, i32 %.082183.i, i32 %404
+  %.2.i = select i1 %.not102.i, i32 %.082183.i, i32 %404
   %405 = add nsw i32 %indvars201.i, -1
   %406 = add i32 %405, %330
-  %407 = icmp sgt i32 %406, %.1.i
+  %407 = icmp sgt i32 %406, %.2.i
   br i1 %407, label %.preheader.i, label %472
 
 .preheader.i:                                     ; preds = %401
-  %408 = sext i32 %.1.i to i64
+  %408 = sext i32 %.2.i to i64
   %.not103176.i = icmp sgt i64 %indvars.iv.i, %408
   br i1 %.not103176.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %.val.i125.i = load ptr, ptr %4, align 8
-  %409 = add nsw i32 %.1.i, 1
+  %409 = add nsw i32 %.2.i, 1
   br label %411
 
 410:                                              ; preds = %411
@@ -1025,8 +1025,8 @@ UpdateCostAtIndex.exit138.i:                      ; preds = %UpdateCost.exit.us.
 
 472:                                              ; preds = %UpdateCostAtIndex.exit138.i, %401, %GetDistanceCost.exit.i, %AddSingleLiteralWithCostModel.exit123.i
   %.187.i = phi float [ %399, %GetDistanceCost.exit.i ], [ %.086181.i, %UpdateCostAtIndex.exit138.i ], [ %.086181.i, %401 ], [ %.086181.i, %AddSingleLiteralWithCostModel.exit123.i ]
-  %.285.i = phi i32 [ 1, %GetDistanceCost.exit.i ], [ 0, %UpdateCostAtIndex.exit138.i ], [ 0, %401 ], [ %.083182.i, %AddSingleLiteralWithCostModel.exit123.i ]
-  %.2.i = phi i32 [ %.082183.i, %GetDistanceCost.exit.i ], [ %471, %UpdateCostAtIndex.exit138.i ], [ %.1.i, %401 ], [ %.082183.i, %AddSingleLiteralWithCostModel.exit123.i ]
+  %.184.i = phi i32 [ 1, %GetDistanceCost.exit.i ], [ 0, %UpdateCostAtIndex.exit138.i ], [ 0, %401 ], [ %.083182.i, %AddSingleLiteralWithCostModel.exit123.i ]
+  %.1.i = phi i32 [ %.082183.i, %GetDistanceCost.exit.i ], [ %471, %UpdateCostAtIndex.exit138.i ], [ %.2.i, %401 ], [ %.082183.i, %AddSingleLiteralWithCostModel.exit123.i ]
   %473 = load ptr, ptr %24, align 8
   %.not18.i139.i = icmp eq ptr %473, null
   br i1 %.not18.i139.i, label %UpdateCostAtIndex.exit142.i, label %.lr.ph.split.i.i
@@ -1428,7 +1428,7 @@ define internal fastcc void @PushInterval(ptr noundef %0, float noundef %1, i32 
 
 .lr.ph:                                           ; preds = %43, %84
   %.1123 = phi ptr [ %55, %84 ], [ %.089131, %43 ]
-  %.091122 = phi i32 [ %.192, %84 ], [ %44, %43 ]
+  %.091122 = phi i32 [ %.293, %84 ], [ %44, %43 ]
   %50 = getelementptr inbounds i8, ptr %.1123, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = icmp slt i32 %51, %47
@@ -1507,14 +1507,14 @@ PopInterval.exit:                                 ; preds = %64, %68
   br label %.critedge2
 
 84:                                               ; preds = %78, %PopInterval.exit, %61, %53
-  %.192 = phi i32 [ %.091122, %53 ], [ %57, %61 ], [ %.091122, %PopInterval.exit ], [ %.091122, %78 ]
+  %.293 = phi i32 [ %.091122, %53 ], [ %57, %61 ], [ %.091122, %PopInterval.exit ], [ %.091122, %78 ]
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %.critedge2, label %.lr.ph, !llvm.loop !20
 
 .critedge2:                                       ; preds = %.lr.ph, %61, %84, %43, %80, %76
-  %.293 = phi i32 [ %.091122, %76 ], [ %.091122, %80 ], [ %44, %43 ], [ %.091122, %.lr.ph ], [ %57, %61 ], [ %.192, %84 ]
+  %.192 = phi i32 [ %.091122, %76 ], [ %.091122, %80 ], [ %44, %43 ], [ %.091122, %.lr.ph ], [ %57, %61 ], [ %.293, %84 ]
   %.2 = phi ptr [ %.1123, %76 ], [ %83, %80 ], [ null, %43 ], [ %.1123, %.lr.ph ], [ %.1123, %61 ], [ null, %84 ]
-  tail call fastcc void @InsertInterval(ptr noundef nonnull %0, ptr noundef %.2, float noundef %49, i32 noundef %2, i32 noundef %.293, i32 noundef %47)
+  tail call fastcc void @InsertInterval(ptr noundef nonnull %0, ptr noundef %.2, float noundef %49, i32 noundef %2, i32 noundef %.192, i32 noundef %47)
   %85 = add nuw i64 %.0132, 1
   %86 = load i64, ptr %32, align 8
   %87 = icmp ult i64 %85, %86

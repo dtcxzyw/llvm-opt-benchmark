@@ -749,7 +749,7 @@ read_encint.exit:                                 ; preds = %42, %46
   br label %61
 
 61:                                               ; preds = %71, %55
-  %.066 = phi i32 [ -1, %55 ], [ %69, %71 ]
+  %.167 = phi i32 [ -1, %55 ], [ %69, %71 ]
   %.1 = phi i32 [ %57, %55 ], [ %84, %71 ]
   %62 = load i32, ptr %58, align 8
   %.not82 = icmp ugt i32 %.1, %62
@@ -819,7 +819,7 @@ read_encint.exit:                                 ; preds = %42, %46
 
 read_encint.exit96:                               ; preds = %90, %87, %91
   %98 = phi ptr [ %scevgep147, %87 ], [ %92, %91 ], [ %88, %90 ]
-  %.3 = phi i32 [ 0, %87 ], [ 0, %91 ], [ 1, %90 ]
+  %.4 = phi i32 [ 0, %87 ], [ 0, %91 ], [ 1, %90 ]
   %.014.i94 = phi i64 [ %.01319.i91, %87 ], [ %97, %91 ], [ 0, %90 ]
   store ptr %98, ptr %6, align 8
   %99 = and i64 %.014.i94, 4294967295
@@ -855,7 +855,7 @@ read_encint.exit96:                               ; preds = %90, %87, %91
 
 read_encint.exit103:                              ; preds = %106, %103, %107
   %114 = phi ptr [ %scevgep148, %103 ], [ %108, %107 ], [ %104, %106 ]
-  %.4 = phi i32 [ %.3, %103 ], [ %.3, %107 ], [ 1, %106 ]
+  %.5 = phi i32 [ %.4, %103 ], [ %.4, %107 ], [ 1, %106 ]
   %.014.i101 = phi i64 [ %.01319.i98, %103 ], [ %113, %107 ], [ 0, %106 ]
   store ptr %114, ptr %6, align 8
   %115 = getelementptr inbounds i8, ptr %3, i64 16
@@ -893,23 +893,23 @@ read_encint.exit110:                              ; preds = %116, %121
   %.014.i108 = phi i64 [ %127, %121 ], [ %.01319.i105, %116 ]
   %128 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %.014.i108, ptr %128, align 8
-  %.not86 = icmp eq i32 %.4, 0
+  %.not86 = icmp eq i32 %.5, 0
   br i1 %.not86, label %130, label %read_encint.exit.thread
 
 .loopexit:                                        ; preds = %71, %61, %32, %65
-  %.2.ph = phi i32 [ %67, %65 ], [ 0, %32 ], [ 0, %61 ], [ 0, %71 ]
-  %.167.ph = phi i32 [ %.066, %65 ], [ %34, %32 ], [ %69, %71 ], [ %.066, %61 ]
-  %129 = icmp slt i32 %.167.ph, 0
-  %spec.select = select i1 %129, i32 8, i32 %.2.ph
+  %.1114.ph = phi i32 [ %67, %65 ], [ 0, %32 ], [ 0, %61 ], [ 0, %71 ]
+  %.066.ph = phi i32 [ %.167, %65 ], [ %34, %32 ], [ %69, %71 ], [ %.167, %61 ]
+  %129 = icmp slt i32 %.066.ph, 0
+  %spec.select = select i1 %129, i32 8, i32 %.1114.ph
   br label %130
 
 130:                                              ; preds = %.loopexit, %read_encint.exit110
-  %.6 = phi i32 [ 0, %read_encint.exit110 ], [ %spec.select, %.loopexit ]
+  %.2 = phi i32 [ 0, %read_encint.exit110 ], [ %spec.select, %.loopexit ]
   %131 = getelementptr inbounds i8, ptr %14, i64 8
   %132 = load ptr, ptr %131, align 8
   tail call void %132(ptr noundef nonnull %18) #12
   %133 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %.6, ptr %133, align 8
+  store i32 %.2, ptr %133, align 8
   br label %137
 
 read_encint.exit.thread:                          ; preds = %45, %read_encint.exit110.thread, %read_encint.exit110
@@ -921,7 +921,7 @@ read_encint.exit.thread:                          ; preds = %45, %read_encint.ex
   br label %137
 
 137:                                              ; preds = %12, %5, %read_encint.exit.thread, %130, %._crit_edge
-  %.0 = phi i32 [ 8, %read_encint.exit.thread ], [ %.6, %130 ], [ %31, %._crit_edge ], [ 1, %5 ], [ 2, %12 ]
+  %.0 = phi i32 [ 8, %read_encint.exit.thread ], [ %.2, %130 ], [ %31, %._crit_edge ], [ 1, %5 ], [ 2, %12 ]
   ret i32 %.0
 }
 
@@ -1326,7 +1326,7 @@ define internal fastcc ptr @chmd_real_open(ptr noundef %0, ptr noundef %1, i32 n
   br label %.outer309.i
 
 .outer309.i:                                      ; preds = %read_encint.exit.thread.i, %203
-  %.0289.ph.i = phi i32 [ %.6.i, %read_encint.exit.thread.i ], [ 0, %203 ]
+  %.0289.ph.i = phi i32 [ %.2290.i, %read_encint.exit.thread.i ], [ 0, %203 ]
   %.0210.ph.i = phi ptr [ %.1211.ph330.i, %read_encint.exit.thread.i ], [ null, %203 ]
   %.0209.ph.i = phi i32 [ %210, %read_encint.exit.thread.i ], [ %204, %203 ]
   %.0208.ph.i = phi i32 [ %spec.select.i, %read_encint.exit.thread.i ], [ 0, %203 ]
@@ -1472,7 +1472,7 @@ read_encint.exit.i:                               ; preds = %242, %239
 
 read_encint.exit268.i:                            ; preds = %261, %260, %258
   %.4295.i = phi ptr [ %scevgep388.i, %258 ], [ %262, %261 ], [ %.3294.i, %260 ]
-  %.3.i = phi i32 [ 0, %258 ], [ 0, %261 ], [ 1, %260 ]
+  %.4.i = phi i32 [ 0, %258 ], [ 0, %261 ], [ 1, %260 ]
   %.014.i266.i = phi i32 [ %.01319.i263.i, %258 ], [ %267, %261 ], [ 0, %260 ]
   %scevgep389.i = getelementptr i8, ptr %.4295.i, i64 9
   br label %268
@@ -1501,7 +1501,7 @@ read_encint.exit268.i:                            ; preds = %261, %260, %258
 
 read_encint.exit275.i:                            ; preds = %271, %270, %268
   %.6297.i = phi ptr [ %scevgep389.i, %268 ], [ %272, %271 ], [ %.5296.i, %270 ]
-  %.4.i = phi i32 [ %.3.i, %268 ], [ %.3.i, %271 ], [ 1, %270 ]
+  %.5.i = phi i32 [ %.4.i, %268 ], [ %.4.i, %271 ], [ 1, %270 ]
   %.014.i273.i = phi i64 [ %.01319.i270.i, %268 ], [ %277, %271 ], [ 0, %270 ]
   %scevgep390.i = getelementptr i8, ptr %.6297.i, i64 9
   br label %278
@@ -1531,7 +1531,7 @@ read_encint.exit275.i:                            ; preds = %271, %270, %268
 read_encint.exit282.i:                            ; preds = %281, %278
   %.8.i = phi ptr [ %scevgep390.i, %278 ], [ %282, %281 ]
   %.014.i280.i = phi i64 [ %.01319.i277.i, %278 ], [ %287, %281 ]
-  %.not249.i = icmp eq i32 %.4.i, 0
+  %.not249.i = icmp eq i32 %.5.i, 0
   br i1 %.not249.i, label %288, label %read_encint.exit.thread.i
 
 288:                                              ; preds = %read_encint.exit282.i
@@ -1664,7 +1664,7 @@ read_encint.exit282.i:                            ; preds = %281, %278
 read_encint.exit.thread.i:                        ; preds = %.outer.i, %.backedge.i, %read_encint.exit282.i, %250, %read_encint.exit.i, %241, %280, %230
   %.1211.ph330.i = phi ptr [ %.0210.ph.i, %230 ], [ %.1211.ph356.i, %280 ], [ %.1211.ph356.i, %241 ], [ %.1211.ph356.i, %read_encint.exit.i ], [ %.1211.ph356.i, %250 ], [ %.1211.ph356.i, %read_encint.exit282.i ], [ %.1211.ph356.i, %.backedge.i ], [ %.2.i, %.outer.i ]
   %.0212318.i = phi i32 [ 0, %230 ], [ %.0212336.i, %280 ], [ %.0212336.i, %241 ], [ 0, %.backedge.i ], [ %.0212336.i, %read_encint.exit282.i ], [ %.0212336.i, %250 ], [ %.0212336.i, %read_encint.exit.i ], [ 0, %.outer.i ]
-  %.6.i = phi i32 [ %.0289.ph.i, %230 ], [ 1, %280 ], [ 1, %241 ], [ 0, %.backedge.i ], [ %.4.i, %read_encint.exit282.i ], [ 0, %250 ], [ %.1335.i, %read_encint.exit.i ], [ 0, %.outer.i ]
+  %.2290.i = phi i32 [ %.0289.ph.i, %230 ], [ 1, %280 ], [ 1, %241 ], [ 0, %.backedge.i ], [ %.5.i, %read_encint.exit282.i ], [ 0, %250 ], [ %.1335.i, %read_encint.exit.i ], [ 0, %.outer.i ]
   %341 = icmp sgt i32 %.0212318.i, 0
   %342 = zext i1 %341 to i32
   %spec.select.i = add i32 %.0208.ph.i, %342
@@ -1946,8 +1946,8 @@ define internal fastcc range(i32 -1, 2) i32 @search_chunk(i32 %.132.val, i32 %.1
   br label %48
 
 48:                                               ; preds = %88, %46
-  %.099 = phi i32 [ 0, %46 ], [ %.1100, %88 ]
-  %.098 = phi i32 [ %47, %46 ], [ %.1, %88 ]
+  %.099 = phi i32 [ 0, %46 ], [ %.2101, %88 ]
+  %.098 = phi i32 [ %47, %46 ], [ %.2, %88 ]
   %49 = add i32 %.098, %.099
   %50 = lshr i32 %49, 1
   %.not119 = icmp ult i32 %49, 2
@@ -2023,9 +2023,9 @@ read_encint.exit:                                 ; preds = %63, %66
   br label %88
 
 88:                                               ; preds = %86, %84
-  %.1100 = phi i32 [ %.099, %84 ], [ %87, %86 ]
-  %.1 = phi i32 [ %85, %84 ], [ %.098, %86 ]
-  %.not121 = icmp ugt i32 %.1100, %.1
+  %.2101 = phi i32 [ %.099, %84 ], [ %87, %86 ]
+  %.2 = phi i32 [ %85, %84 ], [ %.098, %86 ]
+  %.not121 = icmp ugt i32 %.2101, %.2
   br i1 %.not121, label %92, label %48
 
 89:                                               ; preds = %78
@@ -2034,7 +2034,7 @@ read_encint.exit:                                 ; preds = %63, %66
   br label %read_encint.exit.thread.sink.split
 
 92:                                               ; preds = %88
-  %93 = add i32 %.1, %.1100
+  %93 = add i32 %.2, %.2101
   %94 = lshr i32 %93, 1
   %.not122 = icmp ult i32 %93, 2
   br i1 %.not122, label %102, label %95

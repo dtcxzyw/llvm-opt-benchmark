@@ -1504,9 +1504,9 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   %indvars.iv117 = phi i64 [ 0, %for.body.us.preheader ], [ %indvars.iv.next118, %for.cond48.for.cond.loopexit_crit_edge.us ]
   %pcFaceOut.0110.us = phi ptr [ %5, %for.body.us.preheader ], [ %incdec.ptr145.us, %for.cond48.for.cond.loopexit_crit_edge.us ]
   %pcVertOut.0109.us = phi ptr [ %call8, %for.body.us.preheader ], [ %pcVertOut.2.us, %for.cond48.for.cond.loopexit_crit_edge.us ]
-  %iCurrent.0107.us = phi i32 [ 0, %for.body.us.preheader ], [ %iCurrent.3.us, %for.cond48.for.cond.loopexit_crit_edge.us ]
+  %iCurrent.0107.us = phi i32 [ 0, %for.body.us.preheader ], [ %iCurrent.2.us, %for.cond48.for.cond.loopexit_crit_edge.us ]
   %pcNorOut.0106.us = phi ptr [ %call19123128, %for.body.us.preheader ], [ %pcNorOut.2.us, %for.cond48.for.cond.loopexit_crit_edge.us ]
-  %pcUVOut.0105.us = phi ptr [ %cond, %for.body.us.preheader ], [ %pcUVOut.3.us, %for.cond48.for.cond.loopexit_crit_edge.us ]
+  %pcUVOut.0105.us = phi ptr [ %cond, %for.body.us.preheader ], [ %pcUVOut.2.us, %for.cond48.for.cond.loopexit_crit_edge.us ]
   %21 = trunc nuw i64 %indvars.iv117 to i32
   %mul44.us = mul i32 %21, %width
   %conv45.us = zext i32 %mul44.us to i64
@@ -1522,9 +1522,9 @@ for.body51.us:                                    ; preds = %for.body.us, %for.i
   %indvars.iv113 = phi i64 [ 0, %for.body.us ], [ %indvars.iv.next114, %for.inc143.us ]
   %pcFaceOut.198.us = phi ptr [ %pcFaceOut.0110.us, %for.body.us ], [ %incdec.ptr145.us, %for.inc143.us ]
   %pcVertOut.197.us = phi ptr [ %pcVertOut.0109.us, %for.body.us ], [ %pcVertOut.2.us, %for.inc143.us ]
-  %iCurrent.196.us = phi i32 [ %iCurrent.0107.us, %for.body.us ], [ %iCurrent.3.us, %for.inc143.us ]
+  %iCurrent.196.us = phi i32 [ %iCurrent.0107.us, %for.body.us ], [ %iCurrent.2.us, %for.inc143.us ]
   %pcNorOut.195.us = phi ptr [ %pcNorOut.0106.us, %for.body.us ], [ %pcNorOut.2.us, %for.inc143.us ]
-  %pcUVOut.194.us = phi ptr [ %pcUVOut.0105.us, %for.body.us ], [ %pcUVOut.3.us, %for.inc143.us ]
+  %pcUVOut.194.us = phi ptr [ %pcUVOut.0105.us, %for.body.us ], [ %pcUVOut.2.us, %for.inc143.us ]
   store i32 4, ptr %pcFaceOut.198.us, align 8
   %call52.us = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #19
   %mIndices.us = getelementptr inbounds i8, ptr %pcFaceOut.198.us, i64 8
@@ -1596,13 +1596,13 @@ if.then109.us:                                    ; preds = %if.end64.us
   br label %if.end136.us
 
 if.end136.us:                                     ; preds = %if.then109.us, %if.end64.us
-  %pcUVOut.2.us = phi ptr [ %incdec.ptr135.us, %if.then109.us ], [ %pcUVOut.194.us, %if.end64.us ]
+  %pcUVOut.3.us = phi ptr [ %incdec.ptr135.us, %if.then109.us ], [ %pcUVOut.194.us, %if.end64.us ]
   br label %for.body139.us
 
 for.inc143.us:                                    ; preds = %for.body139.us, %if.end.us, %for.body51.us
-  %pcUVOut.3.us = phi ptr [ %pcUVOut.194.us, %for.body51.us ], [ %pcUVOut.194.us, %if.end.us ], [ %pcUVOut.2.us, %for.body139.us ]
+  %pcUVOut.2.us = phi ptr [ %pcUVOut.194.us, %for.body51.us ], [ %pcUVOut.194.us, %if.end.us ], [ %pcUVOut.3.us, %for.body139.us ]
   %pcNorOut.2.us = phi ptr [ %pcNorOut.195.us, %for.body51.us ], [ %pcNorOut.195.us, %if.end.us ], [ %incdec.ptr105.us, %for.body139.us ]
-  %iCurrent.3.us = phi i32 [ %iCurrent.196.us, %for.body51.us ], [ %iCurrent.196.us, %if.end.us ], [ %inc.us, %for.body139.us ]
+  %iCurrent.2.us = phi i32 [ %iCurrent.196.us, %for.body51.us ], [ %iCurrent.196.us, %if.end.us ], [ %inc.us, %for.body139.us ]
   %pcVertOut.2.us = phi ptr [ %pcVertOut.197.us, %for.body51.us ], [ %pcVertOut.197.us, %if.end.us ], [ %incdec.ptr84.us, %for.body139.us ]
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %incdec.ptr145.us = getelementptr inbounds i8, ptr %pcFaceOut.198.us, i64 16
@@ -1611,11 +1611,11 @@ for.inc143.us:                                    ; preds = %for.body139.us, %if
 
 for.body139.us:                                   ; preds = %for.body139.us, %if.end136.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body139.us ], [ 0, %if.end136.us ]
-  %iCurrent.290.us = phi i32 [ %inc.us, %for.body139.us ], [ %iCurrent.196.us, %if.end136.us ]
-  %inc.us = add i32 %iCurrent.290.us, 1
+  %iCurrent.390.us = phi i32 [ %inc.us, %for.body139.us ], [ %iCurrent.196.us, %if.end136.us ]
+  %inc.us = add i32 %iCurrent.390.us, 1
   %35 = load ptr, ptr %mIndices.us, align 8
   %arrayidx141.us = getelementptr inbounds i32, ptr %35, i64 %indvars.iv
-  store i32 %iCurrent.290.us, ptr %arrayidx141.us, align 4
+  store i32 %iCurrent.390.us, ptr %arrayidx141.us, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %for.inc143.us, label %for.body139.us, !llvm.loop !13

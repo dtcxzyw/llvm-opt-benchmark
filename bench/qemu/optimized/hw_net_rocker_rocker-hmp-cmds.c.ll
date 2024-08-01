@@ -703,19 +703,19 @@ if.then100:                                       ; preds = %if.then98
 
 if.end102:                                        ; preds = %if.then100, %if.then98
   %16 = phi ptr [ %15, %if.then98 ], [ %.pre, %if.then100 ]
-  %set.1 = phi i8 [ %set.0, %if.then98 ], [ 1, %if.then100 ]
+  %set.2 = phi i8 [ %set.0, %if.then98 ], [ 1, %if.then100 ]
   %call104 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.34, ptr noundef %16) #4
   br label %if.end105
 
 if.end105:                                        ; preds = %if.end102, %if.end96
-  %set.2 = phi i8 [ %set.1, %if.end102 ], [ %set.0, %if.end96 ]
+  %set.1 = phi i8 [ %set.2, %if.end102 ], [ %set.0, %if.end96 ]
   %set_eth_dst = getelementptr inbounds i8, ptr %1, i64 64
   %17 = load ptr, ptr %set_eth_dst, align 8
   %tobool106.not = icmp eq ptr %17, null
   br i1 %tobool106.not, label %if.end114, label %if.then107
 
 if.then107:                                       ; preds = %if.end105
-  %tobool108 = trunc nuw i8 %set.2 to i1
+  %tobool108 = trunc nuw i8 %set.1 to i1
   br i1 %tobool108, label %if.end111, label %if.then109
 
 if.then109:                                       ; preds = %if.then107

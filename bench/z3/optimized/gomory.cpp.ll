@@ -1037,14 +1037,14 @@ lpad74:                                           ; preds = %invoke.cont73
 
 catch.dispatch:                                   ; preds = %lpad74, %lpad62, %lpad44
   %.pn = phi { ptr, i32 } [ %72, %lpad44 ], [ %84, %lpad62 ], [ %120, %lpad74 ]
-  %exn.slot.0 = extractvalue { ptr, i32 } %.pn, 0
-  %ehselector.slot.0 = extractvalue { ptr, i32 } %.pn, 1
+  %exn.slot.2 = extractvalue { ptr, i32 } %.pn, 0
+  %ehselector.slot.2 = extractvalue { ptr, i32 } %.pn, 1
   %121 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2lp10create_cut9found_bigE) #16
-  %matches = icmp eq i32 %ehselector.slot.0, %121
+  %matches = icmp eq i32 %ehselector.slot.2, %121
   br i1 %matches, label %catch, label %ehcleanup
 
 catch:                                            ; preds = %catch.dispatch
-  %122 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #16
+  %122 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #16
   %m_ex = getelementptr inbounds i8, ptr %this, i64 16
   %123 = load ptr, ptr %m_ex, align 8
   invoke void @_ZN2lp11explanation5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %123)
@@ -1152,17 +1152,17 @@ _ZN8rationalD2Ev.exit212:                         ; preds = %.noexc.i209
   ret i32 %retval.0
 
 ehcleanup:                                        ; preds = %lpad84, %catch.dispatch, %lpad28
-  %ehselector.slot.1 = phi i32 [ %68, %lpad28 ], [ %129, %lpad84 ], [ %ehselector.slot.0, %catch.dispatch ]
-  %exn.slot.1 = phi ptr [ %67, %lpad28 ], [ %128, %lpad84 ], [ %exn.slot.0, %catch.dispatch ]
+  %ehselector.slot.1 = phi i32 [ %68, %lpad28 ], [ %129, %lpad84 ], [ %ehselector.slot.2, %catch.dispatch ]
+  %exn.slot.1 = phi ptr [ %67, %lpad28 ], [ %128, %lpad84 ], [ %exn.slot.2, %catch.dispatch ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %one_min_m_f) #16
   br label %ehcleanup112
 
 ehcleanup112:                                     ; preds = %ehcleanup, %lpad14, %lpad11, %lpad.body
-  %ehselector.slot.2 = phi i32 [ %39, %lpad14 ], [ %36, %lpad11 ], [ %33, %lpad.body ], [ %ehselector.slot.1, %ehcleanup ]
-  %exn.slot.2 = phi ptr [ %38, %lpad14 ], [ %35, %lpad11 ], [ %32, %lpad.body ], [ %exn.slot.1, %ehcleanup ]
+  %ehselector.slot.0 = phi i32 [ %39, %lpad14 ], [ %36, %lpad11 ], [ %33, %lpad.body ], [ %ehselector.slot.1, %ehcleanup ]
+  %exn.slot.0 = phi ptr [ %38, %lpad14 ], [ %35, %lpad11 ], [ %32, %lpad.body ], [ %exn.slot.1, %ehcleanup ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_f) #16
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.2, 0
-  %lpad.val115 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.2, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val115 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   br label %common.resume
 
 terminate.lpad:                                   ; preds = %lpad84
@@ -7200,8 +7200,8 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !63
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.142 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %2, %for.cond17.preheader ]
-  %m_state.i24 = getelementptr inbounds i8, ptr %curr.142, i64 4
+  %curr.242 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %2, %for.cond17.preheader ]
+  %m_state.i24 = getelementptr inbounds i8, ptr %curr.242, i64 4
   %6 = load i32, ptr %m_state.i24, align 4
   switch i32 %6, label %for.inc34 [
     i32 2, label %if.then21
@@ -7209,30 +7209,30 @@ for.body19:                                       ; preds = %for.cond17.preheade
   ]
 
 if.then21:                                        ; preds = %for.body19
-  %7 = load i32, ptr %curr.142, align 8
+  %7 = load i32, ptr %curr.242, align 8
   %cmp23 = icmp eq i32 %7, %0
   br i1 %cmp23, label %land.lhs.true24, label %for.inc34
 
 land.lhs.true24:                                  ; preds = %if.then21
-  %m_data.i26 = getelementptr inbounds i8, ptr %curr.142, i64 8
+  %m_data.i26 = getelementptr inbounds i8, ptr %curr.242, i64 8
   %8 = load i32, ptr %m_data.i26, align 8
   %cmp.i.i.i27 = icmp eq i32 %8, %0
   br i1 %cmp.i.i.i27, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %land.lhs.true24, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.142, i64 48
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.242, i64 48
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !64
 
 end_remove:                                       ; preds = %land.lhs.true, %land.lhs.true24
-  %curr.2 = phi ptr [ %curr.142, %land.lhs.true24 ], [ %curr.040, %land.lhs.true ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 48
+  %curr.1 = phi ptr [ %curr.242, %land.lhs.true24 ], [ %curr.040, %land.lhs.true ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 48
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %2, ptr %add.ptr37
   %m_state.i30 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %9 = load i32, ptr %m_state.i30, align 4
   %cmp.i31 = icmp eq i32 %9, 0
-  %m_state.i32 = getelementptr inbounds i8, ptr %curr.2, i64 4
+  %m_state.i32 = getelementptr inbounds i8, ptr %curr.1, i64 4
   br i1 %cmp.i31, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove

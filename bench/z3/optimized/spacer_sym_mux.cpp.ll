@@ -1296,7 +1296,7 @@ while.body19.lr.ph.i.i:                           ; preds = %sw.bb13.i.i
   br label %while.body19.i.i
 
 while.body19.i.i:                                 ; preds = %while.cond18.backedge.i.i, %while.body19.lr.ph.i.i
-  %fck.sroa.8.2 = phi i8 [ %fck.sroa.8.1, %while.body19.lr.ph.i.i ], [ %fck.sroa.8.4, %while.cond18.backedge.i.i ]
+  %fck.sroa.8.5 = phi i8 [ %fck.sroa.8.1, %while.body19.lr.ph.i.i ], [ %fck.sroa.8.6, %while.cond18.backedge.i.i ]
   %8 = phi i32 [ %7, %while.body19.lr.ph.i.i ], [ %33, %while.cond18.backedge.i.i ]
   %idxprom.i30.i.i = zext i32 %8 to i64
   %arrayidx.i31.i.i = getelementptr inbounds [0 x ptr], ptr %m_args.i.i.i, i64 0, i64 %idxprom.i30.i.i
@@ -1409,7 +1409,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i135.i.i: ; preds = %.noexc1
   br label %start.backedge.i.i
 
 start.backedge.i.i:                               ; preds = %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i342.i.i, %entry.if.end_crit_edge.i348.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i223.i.i, %entry.if.end_crit_edge.i229.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i135.i.i, %entry.if.end_crit_edge.i141.i.i
-  %fck.sroa.8.3 = phi i8 [ %fck.sroa.8.1, %entry.if.end_crit_edge.i348.i.i ], [ %fck.sroa.8.1, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i342.i.i ], [ %fck.sroa.8.2, %entry.if.end_crit_edge.i229.i.i ], [ %fck.sroa.8.2, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i223.i.i ], [ %fck.sroa.8.2, %entry.if.end_crit_edge.i141.i.i ], [ %fck.sroa.8.2, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i135.i.i ]
+  %fck.sroa.8.2 = phi i8 [ %fck.sroa.8.1, %entry.if.end_crit_edge.i348.i.i ], [ %fck.sroa.8.1, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i342.i.i ], [ %fck.sroa.8.5, %entry.if.end_crit_edge.i229.i.i ], [ %fck.sroa.8.5, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i223.i.i ], [ %fck.sroa.8.5, %entry.if.end_crit_edge.i141.i.i ], [ %fck.sroa.8.5, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i135.i.i ]
   %.sink582.i.i = phi i32 [ %55, %entry.if.end_crit_edge.i348.i.i ], [ %.pre1.i343.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i342.i.i ], [ %30, %entry.if.end_crit_edge.i229.i.i ], [ %.pre1.i224.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i223.i.i ], [ %16, %entry.if.end_crit_edge.i141.i.i ], [ %.pre1.i136.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i135.i.i ]
   %.sink.i.i = phi ptr [ %.pre.i349.i.i, %entry.if.end_crit_edge.i348.i.i ], [ %call.i.i351.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i342.i.i ], [ %.pre.i230.i.i, %entry.if.end_crit_edge.i229.i.i ], [ %call.i.i232.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i223.i.i ], [ %.pre.i142.i.i, %entry.if.end_crit_edge.i141.i.i ], [ %call.i.i144.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i135.i.i ]
   %.lcssa544.sink.i.i = phi ptr [ %retval.0.i.i.i, %entry.if.end_crit_edge.i348.i.i ], [ %retval.0.i.i.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i342.i.i ], [ %9, %entry.if.end_crit_edge.i229.i.i ], [ %9, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i223.i.i ], [ %9, %entry.if.end_crit_edge.i141.i.i ], [ %9, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i135.i.i ]
@@ -1424,7 +1424,7 @@ start.backedge.i.i:                               ; preds = %_ZN6bufferISt4pairI
   br label %start.i.i.backedge
 
 start.i.i.backedge:                               ; preds = %start.backedge.i.i, %sw.epilog92.i.i
-  %fck.sroa.8.1.be = phi i8 [ %fck.sroa.8.3, %start.backedge.i.i ], [ %fck.sroa.8.6, %sw.epilog92.i.i ]
+  %fck.sroa.8.1.be = phi i8 [ %fck.sroa.8.2, %start.backedge.i.i ], [ %fck.sroa.8.3, %sw.epilog92.i.i ]
   %.be = phi i32 [ %inc.i140.i.i, %start.backedge.i.i ], [ %.pr.i.i, %sw.epilog92.i.i ]
   br label %start.i.i, !llvm.loop !14
 
@@ -1435,7 +1435,7 @@ sw.bb42.i.i:                                      ; preds = %invoke.cont30.i.i
   br i1 %cmp47.i.i, label %if.then48.i.i, label %if.else.i.i
 
 if.then48.i.i:                                    ; preds = %sw.bb42.i.i
-  %tobool.i149.i.i = trunc nuw i8 %fck.sroa.8.2 to i1
+  %tobool.i149.i.i = trunc nuw i8 %fck.sroa.8.5 to i1
   br i1 %tobool.i149.i.i, label %while.cond18.backedge.i.i, label %if.end.i155.i.i
 
 if.end.i155.i.i:                                  ; preds = %if.then48.i.i
@@ -1575,7 +1575,7 @@ invoke.cont57.i.i:                                ; preds = %sw.default.i.i
   unreachable
 
 while.cond18.backedge.i.i:                        ; preds = %for.body.i.i.i.i.i167.i.i, %for.inc36.i.i.i.i.i178.i.i, %for.body20.i.i.i.i.i175.i.i, %if.end6.i186.i.i, %for.cond18.preheader.i.i.i.i.i173.i.i, %if.then48.i.i, %invoke.cont30.i.i, %invoke.cont26.i.i
-  %fck.sroa.8.4 = phi i8 [ %fck.sroa.8.2, %if.then48.i.i ], [ %fck.sroa.8.2, %for.cond18.preheader.i.i.i.i.i173.i.i ], [ %frombool9.i191.i.i, %if.end6.i186.i.i ], [ %fck.sroa.8.2, %invoke.cont30.i.i ], [ %fck.sroa.8.2, %invoke.cont26.i.i ], [ %fck.sroa.8.2, %for.body20.i.i.i.i.i175.i.i ], [ %fck.sroa.8.2, %for.inc36.i.i.i.i.i178.i.i ], [ %fck.sroa.8.2, %for.body.i.i.i.i.i167.i.i ]
+  %fck.sroa.8.6 = phi i8 [ %fck.sroa.8.5, %if.then48.i.i ], [ %fck.sroa.8.5, %for.cond18.preheader.i.i.i.i.i173.i.i ], [ %frombool9.i191.i.i, %if.end6.i186.i.i ], [ %fck.sroa.8.5, %invoke.cont30.i.i ], [ %fck.sroa.8.5, %invoke.cont26.i.i ], [ %fck.sroa.8.5, %for.body20.i.i.i.i.i175.i.i ], [ %fck.sroa.8.5, %for.inc36.i.i.i.i.i178.i.i ], [ %fck.sroa.8.5, %for.body.i.i.i.i.i167.i.i ]
   %33 = load i32, ptr %second.i.i, align 8
   %cmp.i.i = icmp ult i32 %33, %6
   br i1 %cmp.i.i, label %while.body19.i.i, label %while.cond18.while.end_crit_edge.i.i, !llvm.loop !15
@@ -1586,10 +1586,10 @@ while.cond18.while.end_crit_edge.i.i:             ; preds = %while.cond18.backed
   br label %while.end.i.i
 
 while.end.i.i:                                    ; preds = %sw.bb13.i.i, %while.cond18.while.end_crit_edge.i.i
-  %fck.sroa.8.5 = phi i8 [ %fck.sroa.8.4, %while.cond18.while.end_crit_edge.i.i ], [ %fck.sroa.8.1, %sw.bb13.i.i ]
+  %fck.sroa.8.4 = phi i8 [ %fck.sroa.8.6, %while.cond18.while.end_crit_edge.i.i ], [ %fck.sroa.8.1, %sw.bb13.i.i ]
   %dec.i236.pre-phi.i.i = phi i32 [ %.pre523.i.i, %while.cond18.while.end_crit_edge.i.i ], [ %sub.i.i.i, %sw.bb13.i.i ]
   store i32 %dec.i236.pre-phi.i.i, ptr %m_pos.i.i.i.i, align 8
-  %tobool.i238.i.i = trunc nuw i8 %fck.sroa.8.5 to i1
+  %tobool.i238.i.i = trunc nuw i8 %fck.sroa.8.4 to i1
   br i1 %tobool.i238.i.i, label %sw.epilog92.i.i, label %lor.lhs.false.i239.i.i
 
 lor.lhs.false.i239.i.i:                           ; preds = %while.end.i.i
@@ -1904,7 +1904,7 @@ invoke.cont91.i.i:                                ; preds = %sw.default90.i.i
   unreachable
 
 sw.epilog92.i.i:                                  ; preds = %for.body.i.i.i.i.i375.i.i, %for.inc36.i.i.i.i.i386.i.i, %for.body20.i.i.i.i.i383.i.i, %for.body.i.i.i.i.i256.i.i, %for.inc36.i.i.i.i.i267.i.i, %for.body20.i.i.i.i.i264.i.i, %if.end6.i394.i.i, %for.cond18.preheader.i.i.i.i.i381.i.i, %lor.lhs.false.i358.i.i, %while.end85.i.i, %if.end6.i275.i.i, %for.cond18.preheader.i.i.i.i.i262.i.i, %lor.lhs.false.i239.i.i, %while.end.i.i, %sw.bb.i.i
-  %fck.sroa.8.6 = phi i8 [ %fck.sroa.8.1, %while.end85.i.i ], [ %fck.sroa.8.1, %for.cond18.preheader.i.i.i.i.i381.i.i ], [ %frombool9.i399.i.i, %if.end6.i394.i.i ], [ %fck.sroa.8.1, %lor.lhs.false.i358.i.i ], [ %fck.sroa.8.5, %while.end.i.i ], [ %fck.sroa.8.5, %for.cond18.preheader.i.i.i.i.i262.i.i ], [ %frombool9.i280.i.i, %if.end6.i275.i.i ], [ %fck.sroa.8.5, %lor.lhs.false.i239.i.i ], [ %fck.sroa.8.1, %sw.bb.i.i ], [ %fck.sroa.8.5, %for.body20.i.i.i.i.i264.i.i ], [ %fck.sroa.8.5, %for.inc36.i.i.i.i.i267.i.i ], [ %fck.sroa.8.5, %for.body.i.i.i.i.i256.i.i ], [ %fck.sroa.8.1, %for.body20.i.i.i.i.i383.i.i ], [ %fck.sroa.8.1, %for.inc36.i.i.i.i.i386.i.i ], [ %fck.sroa.8.1, %for.body.i.i.i.i.i375.i.i ]
+  %fck.sroa.8.3 = phi i8 [ %fck.sroa.8.1, %while.end85.i.i ], [ %fck.sroa.8.1, %for.cond18.preheader.i.i.i.i.i381.i.i ], [ %frombool9.i399.i.i, %if.end6.i394.i.i ], [ %fck.sroa.8.1, %lor.lhs.false.i358.i.i ], [ %fck.sroa.8.4, %while.end.i.i ], [ %fck.sroa.8.4, %for.cond18.preheader.i.i.i.i.i262.i.i ], [ %frombool9.i280.i.i, %if.end6.i275.i.i ], [ %fck.sroa.8.4, %lor.lhs.false.i239.i.i ], [ %fck.sroa.8.1, %sw.bb.i.i ], [ %fck.sroa.8.4, %for.body20.i.i.i.i.i264.i.i ], [ %fck.sroa.8.4, %for.inc36.i.i.i.i.i267.i.i ], [ %fck.sroa.8.4, %for.body.i.i.i.i.i256.i.i ], [ %fck.sroa.8.1, %for.body20.i.i.i.i.i383.i.i ], [ %fck.sroa.8.1, %for.inc36.i.i.i.i.i386.i.i ], [ %fck.sroa.8.1, %for.body.i.i.i.i.i375.i.i ]
   %.pr.i.i = phi i32 [ %dec.i355.i.i, %while.end85.i.i ], [ %dec.i355.i.i, %for.cond18.preheader.i.i.i.i.i381.i.i ], [ %dec.i355.i.i, %if.end6.i394.i.i ], [ %dec.i355.i.i, %lor.lhs.false.i358.i.i ], [ %dec.i236.pre-phi.i.i, %while.end.i.i ], [ %dec.i236.pre-phi.i.i, %for.cond18.preheader.i.i.i.i.i262.i.i ], [ %dec.i236.pre-phi.i.i, %if.end6.i275.i.i ], [ %dec.i236.pre-phi.i.i, %lor.lhs.false.i239.i.i ], [ %sub.i.i.i, %sw.bb.i.i ], [ %dec.i236.pre-phi.i.i, %for.body20.i.i.i.i.i264.i.i ], [ %dec.i236.pre-phi.i.i, %for.inc36.i.i.i.i.i267.i.i ], [ %dec.i236.pre-phi.i.i, %for.body.i.i.i.i.i256.i.i ], [ %dec.i355.i.i, %for.body20.i.i.i.i.i383.i.i ], [ %dec.i355.i.i, %for.inc36.i.i.i.i.i386.i.i ], [ %dec.i355.i.i, %for.body.i.i.i.i.i375.i.i ]
   %cmp.i.i.i = icmp eq i32 %.pr.i.i, 0
   br i1 %cmp.i.i.i, label %while.end93.i.i, label %start.i.i.backedge
@@ -1945,7 +1945,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit: ; preds = %invoke.cont2, %if.end.i.i.i
-  %tobool.i = trunc nuw i8 %fck.sroa.8.6 to i1
+  %tobool.i = trunc nuw i8 %fck.sroa.8.3 to i1
   %lnot.i = xor i1 %tobool.i, true
   ret i1 %lnot.i
 

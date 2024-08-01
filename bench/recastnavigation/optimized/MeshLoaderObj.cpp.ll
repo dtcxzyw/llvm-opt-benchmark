@@ -279,8 +279,8 @@ define dso_local noundef zeroext i1 @_ZN15rcMeshLoaderObj4loadERKNSt7__cxx1112ba
   br label %.outer
 
 .outer:                                           ; preds = %.loopexit, %30
-  %.0118.ph = phi i32 [ %.2120145, %.loopexit ], [ 0, %30 ]
-  %.0117.ph = phi i32 [ %.4, %.loopexit ], [ 0, %30 ]
+  %.0118.ph = phi i32 [ %.1119145, %.loopexit ], [ 0, %30 ]
+  %.0117.ph = phi i32 [ %.1, %.loopexit ], [ 0, %30 ]
   %.089.ph = phi ptr [ %40, %.loopexit ], [ %26, %30 ]
   br label %36
 
@@ -400,7 +400,7 @@ switch.early.test:                                ; preds = %_ZL8parseRowPcS_S_i
   br label %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit
 
 _ZN15rcMeshLoaderObj9addVertexEfffRi.exit:        ; preds = %._crit_edge18.i, %76
-  %.1119 = phi i32 [ %.0118.ph, %._crit_edge18.i ], [ %spec.select.i, %76 ]
+  %.2120 = phi i32 [ %.0118.ph, %._crit_edge18.i ], [ %spec.select.i, %76 ]
   %77 = phi i32 [ %61, %._crit_edge18.i ], [ %.pre21.i, %76 ]
   %78 = phi ptr [ %.pre20.i, %._crit_edge18.i ], [ %69, %76 ]
   %79 = mul nsw i32 %77, 3
@@ -504,7 +504,7 @@ _ZL9parseFacePcPiii.exit:                         ; preds = %94
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %147
   %111 = phi i32 [ %.pre, %.lr.ph.split.preheader ], [ %113, %147 ]
   %indvars.iv = phi i64 [ 2, %.lr.ph.split.preheader ], [ %indvars.iv.next, %147 ]
-  %.1127 = phi i32 [ %.0117.ph, %.lr.ph.split.preheader ], [ %.3, %147 ]
+  %.2127 = phi i32 [ %.0117.ph, %.lr.ph.split.preheader ], [ %.3, %147 ]
   %112 = getelementptr inbounds [32 x i32], ptr %4, i64 0, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4
   %114 = load i32, ptr %33, align 8
@@ -523,7 +523,7 @@ _ZL9parseFacePcPiii.exit:                         ; preds = %94
 
 121:                                              ; preds = %117
   %122 = load i32, ptr %35, align 4
-  %.not.i109 = icmp slt i32 %122, %.1127
+  %.not.i109 = icmp slt i32 %122, %.2127
   br i1 %.not.i109, label %._crit_edge17.i, label %123
 
 ._crit_edge17.i:                                  ; preds = %121
@@ -531,8 +531,8 @@ _ZL9parseFacePcPiii.exit:                         ; preds = %94
   br label %_ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit
 
 123:                                              ; preds = %121
-  %.not15.i = icmp eq i32 %.1127, 0
-  %124 = shl nsw i32 %.1127, 1
+  %.not15.i = icmp eq i32 %.2127, 0
+  %124 = shl nsw i32 %.2127, 1
   %spec.select.i110 = select i1 %.not15.i, i32 8, i32 %124
   %125 = mul nsw i32 %spec.select.i110, 3
   %126 = sext i32 %125 to i64
@@ -566,7 +566,7 @@ _ZL9parseFacePcPiii.exit:                         ; preds = %94
   br label %_ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit
 
 _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %137
-  %.2 = phi i32 [ %.1127, %._crit_edge17.i ], [ %spec.select.i110, %137 ]
+  %.4 = phi i32 [ %.2127, %._crit_edge17.i ], [ %spec.select.i110, %137 ]
   %138 = phi i32 [ %122, %._crit_edge17.i ], [ %.pre20.i115, %137 ]
   %139 = phi ptr [ %.pre19.i, %._crit_edge17.i ], [ %130, %137 ]
   %140 = mul nsw i32 %138, 3
@@ -583,14 +583,14 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   br label %147
 
 147:                                              ; preds = %.lr.ph.split, %117, %_ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit
-  %.3 = phi i32 [ %.1127, %.lr.ph.split ], [ %.2, %_ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit ], [ %.1127, %117 ]
+  %.3 = phi i32 [ %.2127, %.lr.ph.split ], [ %.4, %_ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit ], [ %.2127, %117 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
 
 .loopexit:                                        ; preds = %_ZL8parseRowPcS_S_i.exit, %147, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit, %switch.early.test, %switch.early.test, %.lr.ph, %_ZL9parseFacePcPiii.exit
-  %.2120145 = phi i32 [ %.0118.ph, %_ZL9parseFacePcPiii.exit ], [ %.0118.ph, %.lr.ph ], [ %.0118.ph, %switch.early.test ], [ %.0118.ph, %switch.early.test ], [ %.1119, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit ], [ %.0118.ph, %147 ], [ %.0118.ph, %_ZL8parseRowPcS_S_i.exit ]
-  %.4 = phi i32 [ %.0117.ph, %_ZL9parseFacePcPiii.exit ], [ %.0117.ph, %.lr.ph ], [ %.0117.ph, %switch.early.test ], [ %.0117.ph, %switch.early.test ], [ %.0117.ph, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit ], [ %.3, %147 ], [ %.0117.ph, %_ZL8parseRowPcS_S_i.exit ]
+  %.1119145 = phi i32 [ %.0118.ph, %_ZL9parseFacePcPiii.exit ], [ %.0118.ph, %.lr.ph ], [ %.0118.ph, %switch.early.test ], [ %.0118.ph, %switch.early.test ], [ %.2120, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit ], [ %.0118.ph, %147 ], [ %.0118.ph, %_ZL8parseRowPcS_S_i.exit ]
+  %.1 = phi i32 [ %.0117.ph, %_ZL9parseFacePcPiii.exit ], [ %.0117.ph, %.lr.ph ], [ %.0117.ph, %switch.early.test ], [ %.0117.ph, %switch.early.test ], [ %.0117.ph, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit ], [ %.3, %147 ], [ %.0117.ph, %_ZL8parseRowPcS_S_i.exit ]
   br label %.outer, !llvm.loop !11
 
 148:                                              ; preds = %36

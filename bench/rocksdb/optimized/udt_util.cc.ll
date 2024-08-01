@@ -1320,7 +1320,7 @@ for.body.lr.ph.i9:                                ; preds = %if.end.i
   br label %for.body.i13
 
 for.body.i13:                                     ; preds = %for.inc.i30, %for.body.lr.ph.i9
-  %need_recovery.0 = phi i1 [ false, %for.body.lr.ph.i9 ], [ %need_recovery.1, %for.inc.i30 ]
+  %need_recovery.1 = phi i1 [ false, %for.body.lr.ph.i9 ], [ %need_recovery.2, %for.inc.i30 ]
   %__begin2.sroa.0.087.i = phi ptr [ %30, %for.body.lr.ph.i9 ], [ %incdec.ptr.i.i, %for.inc.i30 ]
   %38 = load i32, ptr %__begin2.sroa.0.087.i, align 4, !noalias !16
   br i1 %cmp.not.not.i.i.i14, label %for.cond.i.i.i, label %if.end15.i.i.i
@@ -1425,7 +1425,7 @@ cond.end.i34:                                     ; preds = %lor.lhs.false.i.i.i
   %cmp.i47.i = icmp eq i64 %51, 0
   %brmerge = or i1 %cmp33.i, %cmp.i47.i
   %not.cmp.i47.i = xor i1 %cmp.i47.i, true
-  %need_recovery.0.mux = select i1 %not.cmp.i47.i, i1 true, i1 %need_recovery.0
+  %need_recovery.1.mux = select i1 %not.cmp.i47.i, i1 true, i1 %need_recovery.1
   br i1 %brmerge, label %for.inc.i30, label %if.then34.i
 
 cond.end.thread.i36:                              ; preds = %for.cond.i.i.i.i32.i, %for.body.i.i40.i, %if.end.i.i.i.i20.i
@@ -1470,20 +1470,20 @@ if.then42.invoke.i:                               ; preds = %if.then42.i, %if.th
           to label %cleanup.i unwind label %lpad1.i
 
 for.inc.i30:                                      ; preds = %lor.lhs.false.i.i.i.i.i25, %if.end3.i.i.i.i.i22, %for.cond.i.i.i, %cond.end.i34, %if.then32.i, %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.exit.i, %if.end15.i.i.i
-  %need_recovery.1 = phi i1 [ %need_recovery.0.mux, %cond.end.i34 ], [ %need_recovery.0, %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.exit.i ], [ %need_recovery.0, %if.end15.i.i.i ], [ true, %if.then32.i ], [ %need_recovery.0, %for.cond.i.i.i ], [ %need_recovery.0, %if.end3.i.i.i.i.i22 ], [ %need_recovery.0, %lor.lhs.false.i.i.i.i.i25 ]
+  %need_recovery.2 = phi i1 [ %need_recovery.1.mux, %cond.end.i34 ], [ %need_recovery.1, %_ZN7rocksdb12_GLOBAL__N_115GetRecoveryTypeEmRKSt8optionalImE.exit.i ], [ %need_recovery.1, %if.end15.i.i.i ], [ true, %if.then32.i ], [ %need_recovery.1, %for.cond.i.i.i ], [ %need_recovery.1, %if.end3.i.i.i.i.i22 ], [ %need_recovery.1, %lor.lhs.false.i.i.i.i.i25 ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.087.i, i64 4
   %cmp.i9.not.i = icmp eq ptr %incdec.ptr.i.i, %31
   br i1 %cmp.i9.not.i, label %for.end.i, label %for.body.i13
 
 for.end.i:                                        ; preds = %for.inc.i30, %if.end.i
-  %need_recovery.2 = phi i1 [ false, %if.end.i ], [ %need_recovery.1, %for.inc.i30 ]
+  %need_recovery.3 = phi i1 [ false, %if.end.i ], [ %need_recovery.2, %for.inc.i30 ]
   %state_.i.i53.i = getelementptr inbounds i8, ptr %status, i64 8
   store ptr null, ptr %state_.i.i53.i, align 8, !alias.scope !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %status, i8 0, i64 6, i1 false), !alias.scope !19
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %for.end.i, %if.then42.invoke.i, %if.then.i
-  %need_recovery.3 = phi i1 [ %need_recovery.2, %for.end.i ], [ %need_recovery.0, %if.then42.invoke.i ], [ false, %if.then.i ]
+  %need_recovery.0 = phi i1 [ %need_recovery.3, %for.end.i ], [ %need_recovery.1, %if.then42.invoke.i ], [ false, %if.then.i ]
   %state_.i54.i = getelementptr inbounds i8, ptr %status.i, i64 8
   %55 = load ptr, ptr %state_.i54.i, align 8, !noalias !16
   %cmp.not.i.i55.i = icmp eq ptr %55, null
@@ -1574,7 +1574,7 @@ lpad:                                             ; preds = %invoke.cont4, %if.t
   br label %ehcleanup
 
 if.else:                                          ; preds = %invoke.cont
-  br i1 %need_recovery.3, label %if.then3, label %if.end21
+  br i1 %need_recovery.0, label %if.then3, label %if.end21
 
 if.then3:                                         ; preds = %if.else
   %call5 = invoke noundef i64 @_ZN7rocksdb18WriteBatchInternal8SequenceEPKNS_10WriteBatchE(ptr noundef nonnull %batch)
@@ -2079,7 +2079,7 @@ _ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_
 if.end3:                                          ; preds = %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit, %entry
   %ret_start.sroa.0.0 = phi ptr [ undef, %entry ], [ %call.i, %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ]
   %ret_start.sroa.3.0 = phi i64 [ undef, %entry ], [ %call2.i, %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ]
-  %ret_start.sroa.4.2 = phi i8 [ 0, %entry ], [ 1, %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ]
+  %ret_start.sroa.4.0 = phi i8 [ 0, %entry ], [ 1, %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ]
   %tobool4.not = icmp eq ptr %end, null
   br i1 %tobool4.not, label %if.end17, label %if.then5
 
@@ -2097,7 +2097,7 @@ if.then5:                                         ; preds = %if.end3
 _ZNSt8optionalIN7rocksdb5SliceEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit20: ; preds = %if.end3.thread, %if.then5
   %ret_start.sroa.0.03850 = phi ptr [ %ret_start.sroa.0.0, %if.then5 ], [ %ret_start.sroa.0.0.copyload31, %if.end3.thread ]
   %ret_start.sroa.3.04049 = phi i64 [ %ret_start.sroa.3.0, %if.then5 ], [ %ret_start.sroa.3.0.copyload32, %if.end3.thread ]
-  %ret_start.sroa.4.24248 = phi i8 [ %ret_start.sroa.4.2, %if.then5 ], [ 1, %if.end3.thread ]
+  %ret_start.sroa.4.04248 = phi i8 [ %ret_start.sroa.4.0, %if.then5 ], [ 1, %if.end3.thread ]
   %ret_end.sroa.0.0.copyload28 = load ptr, ptr %end, align 8
   %ret_end.sroa.3.0.end.sroa_idx = getelementptr inbounds i8, ptr %end, i64 8
   %ret_end.sroa.3.0.copyload29 = load i64, ptr %ret_end.sroa.3.0.end.sroa_idx, align 8
@@ -2120,23 +2120,23 @@ _ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end3.thread, %_ZNSt8optionalIN7rocksdb5SliceEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit20, %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit27, %if.end3
-  %ret_start.sroa.4.243 = phi i8 [ %ret_start.sroa.4.2, %if.end3 ], [ %ret_start.sroa.4.24248, %_ZNSt8optionalIN7rocksdb5SliceEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit20 ], [ %ret_start.sroa.4.2, %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit27 ], [ 1, %if.end3.thread ]
+  %ret_start.sroa.4.043 = phi i8 [ %ret_start.sroa.4.0, %if.end3 ], [ %ret_start.sroa.4.04248, %_ZNSt8optionalIN7rocksdb5SliceEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit20 ], [ %ret_start.sroa.4.0, %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit27 ], [ 1, %if.end3.thread ]
   %ret_start.sroa.3.041 = phi i64 [ %ret_start.sroa.3.0, %if.end3 ], [ %ret_start.sroa.3.04049, %_ZNSt8optionalIN7rocksdb5SliceEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit20 ], [ %ret_start.sroa.3.0, %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit27 ], [ %ret_start.sroa.3.0.copyload32, %if.end3.thread ]
   %ret_start.sroa.0.039 = phi ptr [ %ret_start.sroa.0.0, %if.end3 ], [ %ret_start.sroa.0.03850, %_ZNSt8optionalIN7rocksdb5SliceEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit20 ], [ %ret_start.sroa.0.0, %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit27 ], [ %ret_start.sroa.0.0.copyload31, %if.end3.thread ]
   %ret_end.sroa.3.0 = phi i64 [ undef, %if.end3 ], [ %ret_end.sroa.3.0.copyload29, %_ZNSt8optionalIN7rocksdb5SliceEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit20 ], [ %call2.i23, %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit27 ], [ undef, %if.end3.thread ]
   %ret_end.sroa.0.0 = phi ptr [ undef, %if.end3 ], [ %ret_end.sroa.0.0.copyload28, %_ZNSt8optionalIN7rocksdb5SliceEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit20 ], [ %call.i21, %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit27 ], [ undef, %if.end3.thread ]
-  %ret_end.sroa.4.2 = phi i8 [ 0, %if.end3 ], [ 1, %_ZNSt8optionalIN7rocksdb5SliceEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit20 ], [ 1, %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit27 ], [ 0, %if.end3.thread ]
+  %ret_end.sroa.4.0 = phi i8 [ 0, %if.end3 ], [ 1, %_ZNSt8optionalIN7rocksdb5SliceEEaSIRKS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES7_ISt6__and_IJSt9is_scalarIS1_ES8_IS1_NSt5decayISB_E4typeEEEEESt16is_constructibleIS1_JSB_EESt13is_assignableIRS1_SB_EEERS2_E4typeEOSB_.exit20 ], [ 1, %_ZNSt8optionalIN7rocksdb5SliceEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit27 ], [ 0, %if.end3.thread ]
   store ptr %ret_end.sroa.0.0, ptr %agg.result, align 8
   %ret_end.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i64 %ret_end.sroa.3.0, ptr %ret_end.sroa.3.0.agg.result.sroa_idx, align 8
   %ret_end.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store i8 %ret_end.sroa.4.2, ptr %ret_end.sroa.4.0.agg.result.sroa_idx, align 8
+  store i8 %ret_end.sroa.4.0, ptr %ret_end.sroa.4.0.agg.result.sroa_idx, align 8
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %ret_start.sroa.0.039, ptr %0, align 8
   %ret_start.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 %ret_start.sroa.3.041, ptr %ret_start.sroa.3.0..sroa_idx, align 8
   %ret_start.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 40
-  store i8 %ret_start.sroa.4.243, ptr %ret_start.sroa.4.0..sroa_idx, align 8
+  store i8 %ret_start.sroa.4.043, ptr %ret_start.sroa.4.0..sroa_idx, align 8
   ret void
 }
 

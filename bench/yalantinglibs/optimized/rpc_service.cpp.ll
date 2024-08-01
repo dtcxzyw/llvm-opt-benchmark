@@ -11101,9 +11101,9 @@ delete.notnull.i.i:                               ; preds = %cleanup
   br label %_ZN4asio6detail11scoped_lockINS0_11posix_mutexEED2Ev.exit48
 
 _ZN4asio6detail11scoped_lockINS0_11posix_mutexEED2Ev.exit48: ; preds = %_ZNKSt9type_infoeqERKS_.exit.i, %land.lhs.true8.i, %while.body, %while.body.us, %delete.notnull.i.i, %cleanup, %cleanup.thread
-  %retval.1 = phi ptr [ %call4, %cleanup.thread ], [ %.us-phi70, %cleanup ], [ %.us-phi70, %delete.notnull.i.i ], [ %service.066.us, %while.body.us ], [ %service.066, %while.body ], [ %service.066, %land.lhs.true8.i ], [ %service.066, %_ZNKSt9type_infoeqERKS_.exit.i ]
+  %retval.0 = phi ptr [ %call4, %cleanup.thread ], [ %.us-phi70, %cleanup ], [ %.us-phi70, %delete.notnull.i.i ], [ %service.066.us, %while.body.us ], [ %service.066, %while.body ], [ %service.066, %land.lhs.true8.i ], [ %service.066, %_ZNKSt9type_infoeqERKS_.exit.i ]
   %call.i.i47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex_) #31
-  ret ptr %retval.1
+  ret ptr %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13816,12 +13816,12 @@ if.then4:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then4, %if.then
-  %error.0 = phi i32 [ %call6, %if.then4 ], [ %call2, %if.then ]
+  %error.1 = phi i32 [ %call6, %if.then4 ], [ %call2, %if.then ]
   %call7 = call i32 @pthread_condattr_destroy(ptr noundef nonnull %attr) #31
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end, %entry
-  %error.1 = phi i32 [ %error.0, %if.end ], [ %call, %entry ]
+  %error.0 = phi i32 [ %error.1, %if.end ], [ %call, %entry ]
   %0 = load atomic i8, ptr @_ZGVZN4asio15system_categoryEvE8instance acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont, !prof !5
@@ -13837,12 +13837,12 @@ init.i.i:                                         ; preds = %init.check.i.i
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %init.i.i, %init.check.i.i, %if.end8
-  %cmp.i.not.i = icmp eq i32 %error.1, 0
+  %cmp.i.not.i = icmp eq i32 %error.0, 0
   br i1 %cmp.i.not.i, label %invoke.cont10, label %if.then.i
 
 if.then.i:                                        ; preds = %invoke.cont
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %e.i.i)
-  call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %e.i.i, i32 %error.1, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.56)
+  call void @_ZNSt12system_errorC2ESt10error_codePKc(ptr noundef nonnull align 8 dereferenceable(32) %e.i.i, i32 %error.0, ptr nonnull @_ZZN4asio15system_categoryEvE8instance, ptr noundef nonnull @.str.56)
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 32) #31
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %exception.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %e.i.i) #31
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt12system_error, i64 16), ptr %exception.i.i.i, align 8
@@ -15223,7 +15223,7 @@ _ZN4asio6detail27conditionally_enabled_mutex6unlockEv.exit.i.i.i.i: ; preds = %i
   br label %_ZN4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneERNS0_27conditionally_enabled_mutex11scoped_lockE.exit.i
 
 _ZN4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneERNS0_27conditionally_enabled_mutex11scoped_lockE.exit.i: ; preds = %_ZN4asio6detail27conditionally_enabled_mutex6unlockEv.exit.i.i.i.i, %if.then.i.i.i
-  %lock.sroa.6.0 = phi i8 [ 0, %_ZN4asio6detail27conditionally_enabled_mutex6unlockEv.exit.i.i.i.i ], [ %.sink.i, %if.then.i.i.i ]
+  %lock.sroa.6.1 = phi i8 [ 0, %_ZN4asio6detail27conditionally_enabled_mutex6unlockEv.exit.i.i.i.i ], [ %.sink.i, %if.then.i.i.i ]
   %call.i.i.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull %event_.i.i) #31
   br label %if.end
 
@@ -15270,8 +15270,8 @@ _ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; preds = %l
   resume { ptr, i32 } %12
 
 if.end:                                           ; preds = %if.end.i, %_ZN4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneERNS0_27conditionally_enabled_mutex11scoped_lockE.exit.i, %land.lhs.true, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit
-  %lock.sroa.6.2 = phi i8 [ %.sink.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit ], [ %.sink.i, %land.lhs.true ], [ %lock.sroa.6.0, %_ZN4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneERNS0_27conditionally_enabled_mutex11scoped_lockE.exit.i ], [ %.sink.i, %if.end.i ]
-  %tobool.i8 = trunc nuw i8 %lock.sroa.6.2 to i1
+  %lock.sroa.6.0 = phi i8 [ %.sink.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit ], [ %.sink.i, %land.lhs.true ], [ %lock.sroa.6.1, %_ZN4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneERNS0_27conditionally_enabled_mutex11scoped_lockE.exit.i ], [ %.sink.i, %if.end.i ]
+  %tobool.i8 = trunc nuw i8 %lock.sroa.6.0 to i1
   br i1 %tobool.i8, label %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit13.sink.split, label %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit13
 
 _ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit13.sink.split: ; preds = %if.end, %if.then.i3.i
@@ -15325,7 +15325,7 @@ if.then.i.i:                                      ; preds = %if.then.i2
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %invoke.cont3, %if.then.i.i, %if.then.i2
-  %lock.sroa.4.0 = phi i8 [ %.sink.i, %invoke.cont3 ], [ 0, %if.then.i.i ], [ 0, %if.then.i2 ]
+  %lock.sroa.4.1 = phi i8 [ %.sink.i, %invoke.cont3 ], [ 0, %if.then.i.i ], [ 0, %if.then.i2 ]
   %scheduler_ = getelementptr inbounds i8, ptr %this, i64 48
   %2 = load ptr, ptr %scheduler_, align 8
   invoke void @_ZN4asio6detail9scheduler25post_deferred_completionsERNS0_8op_queueINS0_19scheduler_operationEEE(ptr noundef nonnull align 8 dereferenceable(256) %2, ptr noundef nonnull align 8 dereferenceable(16) %ops)
@@ -15377,7 +15377,7 @@ terminate.lpad.i:                                 ; preds = %invoke.cont.i
   unreachable
 
 _ZN4asio6detail8op_queueINS0_19scheduler_operationEED2Ev.exit: ; preds = %_ZN4asio6detail15op_queue_access7destroyINS0_19scheduler_operationEEEvPT_.exit.i, %invoke.cont5
-  %tobool.i5 = trunc nuw i8 %lock.sroa.4.0 to i1
+  %tobool.i5 = trunc nuw i8 %lock.sroa.4.1 to i1
   br i1 %tobool.i5, label %if.then.i6, label %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
 
 if.then.i6:                                       ; preds = %_ZN4asio6detail8op_queueINS0_19scheduler_operationEED2Ev.exit
@@ -15389,11 +15389,11 @@ _ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; preds = %_
   ret i64 %call
 
 lpad2:                                            ; preds = %invoke.cont4, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit
-  %lock.sroa.4.1 = phi i8 [ %lock.sroa.4.0, %invoke.cont4 ], [ %.sink.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit ]
+  %lock.sroa.4.0 = phi i8 [ %lock.sroa.4.1, %invoke.cont4 ], [ %.sink.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit ]
   %10 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4asio6detail8op_queueINS0_19scheduler_operationEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ops) #31
-  %tobool.i9 = trunc nuw i8 %lock.sroa.4.1 to i1
+  %tobool.i9 = trunc nuw i8 %lock.sroa.4.0 to i1
   br i1 %tobool.i9, label %if.then.i10, label %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit13
 
 if.then.i10:                                      ; preds = %lpad2
@@ -15427,7 +15427,7 @@ cond.end.lr.ph:                                   ; preds = %while.cond.preheade
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.end.lr.ph, %_ZN4asio6detail8op_queueINS0_7wait_opEE3popEv.exit
-  %num_cancelled.019 = phi i64 [ 0, %cond.end.lr.ph ], [ %inc, %_ZN4asio6detail8op_queueINS0_7wait_opEE3popEv.exit ]
+  %num_cancelled.119 = phi i64 [ 0, %cond.end.lr.ph ], [ %inc, %_ZN4asio6detail8op_queueINS0_7wait_opEE3popEv.exit ]
   %2 = load ptr, ptr %timer, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.then8, label %while.body
@@ -15477,7 +15477,7 @@ _ZN4asio6detail8op_queueINS0_7wait_opEE3popEv.exit: ; preds = %_ZNSt10error_code
   %this..i = select i1 %tobool.not.i11, ptr %ops, ptr %8
   store ptr %2, ptr %this..i, align 8
   store ptr %2, ptr %back_.i10, align 8
-  %inc = add nuw i64 %num_cancelled.019, 1
+  %inc = add nuw i64 %num_cancelled.119, 1
   %cmp3.not = icmp eq i64 %inc, %max_cancelled
   br i1 %cmp3.not, label %while.end, label %cond.end, !llvm.loop !301
 
@@ -15487,13 +15487,13 @@ while.end:                                        ; preds = %_ZN4asio6detail8op_
   br i1 %cmp.i12, label %if.then8, label %if.end9
 
 if.then8:                                         ; preds = %cond.end, %while.end
-  %num_cancelled.017 = phi i64 [ %max_cancelled, %while.end ], [ %num_cancelled.019, %cond.end ]
+  %num_cancelled.117 = phi i64 [ %max_cancelled, %while.end ], [ %num_cancelled.119, %cond.end ]
   tail call void @_ZN4asio6detail11timer_queueINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS5_EEEEE12remove_timerERNS9_14per_timer_dataE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(40) %timer)
   br label %if.end9
 
 if.end9:                                          ; preds = %entry, %while.end, %if.then8
-  %num_cancelled.1 = phi i64 [ %num_cancelled.017, %if.then8 ], [ %max_cancelled, %while.end ], [ 0, %entry ]
-  ret i64 %num_cancelled.1
+  %num_cancelled.0 = phi i64 [ %num_cancelled.117, %if.then8 ], [ %max_cancelled, %while.end ], [ 0, %entry ]
+  ret i64 %num_cancelled.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -18215,7 +18215,7 @@ lpad10:                                           ; preds = %invoke.cont21
   %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4asio6detail8op_queueINS0_19scheduler_operationEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ops) #31
-  %tobool.i17 = trunc nuw i8 %descriptor_lock.sroa.4.0 to i1
+  %tobool.i17 = trunc nuw i8 %descriptor_lock.sroa.4.1 to i1
   br i1 %tobool.i17, label %if.then.i19, label %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
 
 if.then.i19:                                      ; preds = %lpad10
@@ -18252,7 +18252,7 @@ if.then.i.i:                                      ; preds = %if.then.i24
   br label %invoke.cont21
 
 invoke.cont21:                                    ; preds = %for.end, %if.then.i.i, %if.then.i24
-  %descriptor_lock.sroa.4.0 = phi i8 [ %.sink.i, %for.end ], [ 0, %if.then.i.i ], [ 0, %if.then.i24 ]
+  %descriptor_lock.sroa.4.1 = phi i8 [ %.sink.i, %for.end ], [ 0, %if.then.i.i ], [ 0, %if.then.i24 ]
   %scheduler_ = getelementptr inbounds i8, ptr %this, i64 48
   %22 = load ptr, ptr %scheduler_, align 8
   invoke void @_ZN4asio6detail9scheduler25post_deferred_completionsERNS0_8op_queueINS0_19scheduler_operationEEE(ptr noundef nonnull align 8 dereferenceable(256) %22, ptr noundef nonnull align 8 dereferenceable(16) %ops)
@@ -18307,8 +18307,8 @@ if.else23:                                        ; preds = %_ZN4asio6detail27co
   br label %if.end24
 
 if.end24:                                         ; preds = %_ZN4asio6detail15op_queue_access7destroyINS0_19scheduler_operationEEEvPT_.exit.i, %invoke.cont22, %if.else23
-  %descriptor_lock.sroa.4.1 = phi i8 [ %.sink.i, %if.else23 ], [ %descriptor_lock.sroa.4.0, %invoke.cont22 ], [ %descriptor_lock.sroa.4.0, %_ZN4asio6detail15op_queue_access7destroyINS0_19scheduler_operationEEEvPT_.exit.i ]
-  %tobool.i28 = trunc nuw i8 %descriptor_lock.sroa.4.1 to i1
+  %descriptor_lock.sroa.4.0 = phi i8 [ %.sink.i, %if.else23 ], [ %descriptor_lock.sroa.4.1, %invoke.cont22 ], [ %descriptor_lock.sroa.4.1, %_ZN4asio6detail15op_queue_access7destroyINS0_19scheduler_operationEEEvPT_.exit.i ]
+  %tobool.i28 = trunc nuw i8 %descriptor_lock.sroa.4.0 to i1
   br i1 %tobool.i28, label %if.then.i30, label %return
 
 if.then.i30:                                      ; preds = %if.end24
@@ -20366,8 +20366,8 @@ _ZNSt6atomicIN12async_simple6detail5StateEE23compare_exchange_strongERS2_S2_St12
   br label %sw.bb6
 
 sw.bb6:                                           ; preds = %_ZNSt6atomicIN12async_simple6detail5StateEE23compare_exchange_strongERS2_S2_St12memory_orderS5_.exit, %_ZN12async_simple3TryINS_4UnitEEaSEOS2_.exit
-  %state.1 = phi i8 [ %4, %_ZN12async_simple3TryINS_4UnitEEaSEOS2_.exit ], [ %7, %_ZNSt6atomicIN12async_simple6detail5StateEE23compare_exchange_strongERS2_S2_St12memory_orderS5_.exit ]
-  %8 = cmpxchg ptr %this, i8 %state.1, i8 32 release monotonic, align 1
+  %state.0 = phi i8 [ %4, %_ZN12async_simple3TryINS_4UnitEEaSEOS2_.exit ], [ %7, %_ZNSt6atomicIN12async_simple6detail5StateEE23compare_exchange_strongERS2_S2_St12memory_orderS5_.exit ]
+  %8 = cmpxchg ptr %this, i8 %state.0, i8 32 release monotonic, align 1
   %9 = extractvalue { i8, i1 } %8, 1
   br i1 %9, label %if.then9, label %sw.default
 
@@ -21018,8 +21018,8 @@ lpad49:                                           ; preds = %invoke.cont48
   br label %ehcleanup53
 
 ehcleanup53:                                      ; preds = %lpad47, %lpad49, %catch.dispatch
-  %ehselector.slot.3 = phi i32 [ %96, %lpad49 ], [ %93, %lpad47 ], [ %ehselector.slot.2, %catch.dispatch ]
-  %exn.slot.3 = phi ptr [ %95, %lpad49 ], [ %92, %lpad47 ], [ %exn.slot.2, %catch.dispatch ]
+  %ehselector.slot.5 = phi i32 [ %96, %lpad49 ], [ %93, %lpad47 ], [ %ehselector.slot.2, %catch.dispatch ]
+  %exn.slot.5 = phi ptr [ %95, %lpad49 ], [ %92, %lpad47 ], [ %exn.slot.2, %catch.dispatch ]
   call void @_ZN12async_simple11FutureStateINS_4UnitEE21ContinuationReferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %guardForException) #31
   br label %eh.resume
 
@@ -21028,11 +21028,11 @@ if.end55:                                         ; preds = %_ZN12async_simple11
 
 eh.resume:                                        ; preds = %ehcleanup53, %lpad
   %guard6.sink = phi ptr [ %guard6, %ehcleanup53 ], [ %guard, %lpad ]
-  %ehselector.slot.5 = phi i32 [ %ehselector.slot.3, %ehcleanup53 ], [ %19, %lpad ]
-  %exn.slot.5 = phi ptr [ %exn.slot.3, %ehcleanup53 ], [ %18, %lpad ]
+  %ehselector.slot.0 = phi i32 [ %ehselector.slot.5, %ehcleanup53 ], [ %19, %lpad ]
+  %exn.slot.0 = phi ptr [ %exn.slot.5, %ehcleanup53 ], [ %18, %lpad ]
   call void @_ZN12async_simple11FutureStateINS_4UnitEE21ContinuationReferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %guard6.sink) #31
-  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.5, 0
-  %lpad.val58 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.5, 1
+  %lpad.val = insertvalue { ptr, i32 } poison, ptr %exn.slot.0, 0
+  %lpad.val58 = insertvalue { ptr, i32 } %lpad.val, i32 %ehselector.slot.0, 1
   br label %common.resume
 
 terminate.lpad:                                   ; preds = %lpad47
@@ -29561,17 +29561,17 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN4asio6detail13socket_holderD2Ev.exit:          ; preds = %if.end14, %cleanup.thread, %cleanup, %if.then.i
-  %retval.sroa.0.038 = phi i32 [ %4, %cleanup.thread ], [ %call10, %cleanup ], [ %call10, %if.then.i ], [ 0, %if.end14 ]
-  %retval.sroa.521.037 = phi ptr [ @_ZZN4asio15system_categoryEvE8instance, %cleanup.thread ], [ @_ZZN4asio15system_categoryEvE8instance, %cleanup ], [ @_ZZN4asio15system_categoryEvE8instance, %if.then.i ], [ %call.i27, %if.end14 ]
+  %retval.sroa.0.138 = phi i32 [ %4, %cleanup.thread ], [ %call10, %cleanup ], [ %call10, %if.then.i ], [ 0, %if.end14 ]
+  %retval.sroa.521.137 = phi ptr [ @_ZZN4asio15system_categoryEvE8instance, %cleanup.thread ], [ @_ZZN4asio15system_categoryEvE8instance, %cleanup ], [ @_ZZN4asio15system_categoryEvE8instance, %if.then.i ], [ %call.i27, %if.end14 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ec.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %state.i)
   br label %return
 
 return:                                           ; preds = %_ZN4asio6detail13socket_holderD2Ev.exit, %_ZNSt10error_codeaSIN4asio5error11misc_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit
-  %retval.sroa.0.1 = phi i32 [ 1, %_ZNSt10error_codeaSIN4asio5error11misc_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit ], [ %retval.sroa.0.038, %_ZN4asio6detail13socket_holderD2Ev.exit ]
-  %retval.sroa.521.1 = phi ptr [ @_ZZN4asio5error17get_misc_categoryEvE8instance, %_ZNSt10error_codeaSIN4asio5error11misc_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit ], [ %retval.sroa.521.037, %_ZN4asio6detail13socket_holderD2Ev.exit ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.521.1, 1
+  %retval.sroa.0.0 = phi i32 [ 1, %_ZNSt10error_codeaSIN4asio5error11misc_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit ], [ %retval.sroa.0.138, %_ZN4asio6detail13socket_holderD2Ev.exit ]
+  %retval.sroa.521.0 = phi ptr [ @_ZZN4asio5error17get_misc_categoryEvE8instance, %_ZNSt10error_codeaSIN4asio5error11misc_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit ], [ %retval.sroa.521.137, %_ZN4asio6detail13socket_holderD2Ev.exit ]
+  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %retval.sroa.521.0, 1
   ret { i32, ptr } %.fca.1.insert
 }
 
@@ -31870,7 +31870,7 @@ if.then5.invoke:                                  ; preds = %_ZN4asio6detail27co
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke, %if.then5.invoke, %if.then20, %if.else, %invoke.cont34
-  %descriptor_lock.sroa.4.0 = phi i8 [ %descriptor_lock.sroa.4.1, %invoke.cont34 ], [ %.sink.i, %if.else ], [ %.sink.i, %if.then20 ], [ %.sink.i, %if.then5.invoke ], [ %.sink.i, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke ]
+  %descriptor_lock.sroa.4.0 = phi i8 [ %descriptor_lock.sroa.4.2, %invoke.cont34 ], [ %.sink.i, %if.else ], [ %.sink.i, %if.then20 ], [ %.sink.i, %if.then5.invoke ], [ %.sink.i, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke ]
   %9 = landingpad { ptr, i32 }
           cleanup
   %tobool.i45 = trunc nuw i8 %descriptor_lock.sroa.4.0 to i1
@@ -31956,7 +31956,7 @@ if.then.i.i:                                      ; preds = %if.then.i52
   br label %invoke.cont34
 
 invoke.cont34:                                    ; preds = %if.end33, %if.then.i.i, %if.then.i52
-  %descriptor_lock.sroa.4.1 = phi i8 [ %.sink.i, %if.end33 ], [ 0, %if.then.i.i ], [ 0, %if.then.i52 ]
+  %descriptor_lock.sroa.4.2 = phi i8 [ %.sink.i, %if.end33 ], [ 0, %if.then.i.i ], [ 0, %if.then.i52 ]
   %scheduler_ = getelementptr inbounds i8, ptr %this, i64 48
   %17 = load ptr, ptr %scheduler_, align 8
   invoke void @_ZN4asio6detail9scheduler25post_immediate_completionEPNS0_19scheduler_operationEb(ptr noundef nonnull align 8 dereferenceable(256) %17, ptr noundef nonnull %op, i1 noundef zeroext %is_continuation)
@@ -32094,8 +32094,8 @@ if.end93:                                         ; preds = %if.end84, %if.then5
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke, %if.then5.invoke, %invoke.cont34, %if.end93
-  %descriptor_lock.sroa.4.2 = phi i8 [ %descriptor_lock.sroa.4.1, %invoke.cont34 ], [ %.sink.i, %if.end93 ], [ %.sink.i, %if.then5.invoke ], [ %.sink.i, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke ]
-  %tobool.i60 = trunc nuw i8 %descriptor_lock.sroa.4.2 to i1
+  %descriptor_lock.sroa.4.1 = phi i8 [ %descriptor_lock.sroa.4.2, %invoke.cont34 ], [ %.sink.i, %if.end93 ], [ %.sink.i, %if.then5.invoke ], [ %.sink.i, %_ZNSt10error_codeaSIN4asio5error12basic_errorsEEENSt9enable_ifIXsr18is_error_code_enumIT_EE5valueERS_E4typeES5_.exit58.invoke ]
+  %tobool.i60 = trunc nuw i8 %descriptor_lock.sroa.4.1 to i1
   br i1 %tobool.i60, label %if.then.i61, label %cleanup.cont
 
 if.then.i61:                                      ; preds = %cleanup
@@ -33350,8 +33350,8 @@ _ZNSt6atomicIN12async_simple6detail5StateEE23compare_exchange_strongERS2_S2_St12
   br label %sw.bb7
 
 sw.bb7:                                           ; preds = %_ZNSt6atomicIN12async_simple6detail5StateEE23compare_exchange_strongERS2_S2_St12memory_orderS5_.exit, %_ZN12async_simple11logicAssertEbPKc.exit
-  %state.1 = phi i8 [ %4, %_ZN12async_simple11logicAssertEbPKc.exit ], [ %7, %_ZNSt6atomicIN12async_simple6detail5StateEE23compare_exchange_strongERS2_S2_St12memory_orderS5_.exit ]
-  %8 = cmpxchg ptr %this, i8 %state.1, i8 32 release monotonic, align 1
+  %state.0 = phi i8 [ %4, %_ZN12async_simple11logicAssertEbPKc.exit ], [ %7, %_ZNSt6atomicIN12async_simple6detail5StateEE23compare_exchange_strongERS2_S2_St12memory_orderS5_.exit ]
+  %8 = cmpxchg ptr %this, i8 %state.0, i8 32 release monotonic, align 1
   %9 = extractvalue { i8, i1 } %8, 1
   br i1 %9, label %if.then10, label %sw.default
 
@@ -42298,7 +42298,7 @@ if.else21.i:                                      ; preds = %if.else10.i
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJSt17basic_string_viewIcSt11char_traitsIcEEEEENS_21serialize_buffer_sizeEDpRKT0_.exit
 
 _ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJSt17basic_string_viewIcSt11char_traitsIcEEEEENS_21serialize_buffer_sizeEDpRKT0_.exit: ; preds = %if.then4.i, %if.else21.i, %if.then13.i, %if.then82
-  %retval.i.sroa.10.1 = phi i8 [ 0, %if.then82 ], [ 8, %if.then4.i ], [ 16, %if.then13.i ], [ 24, %if.else21.i ]
+  %retval.i.sroa.10.0 = phi i8 [ 0, %if.then82 ], [ 8, %if.then4.i ], [ 16, %if.then13.i ], [ 24, %if.else21.i ]
   %storemerge.in = phi i64 [ %115, %if.then82 ], [ %add7.i, %if.then4.i ], [ %add17.i, %if.then13.i ], [ %add25.i, %if.else21.i ]
   %add34.i = add i64 %114, 5
   %add.i = add i64 %add34.i, %storemerge.in
@@ -42319,9 +42319,9 @@ sw.bb.i:                                          ; preds = %.noexc
 
 sw.bb1.i:                                         ; preds = %.noexc
   store i32 -1647314313, ptr %add.ptr.i, align 1
-  store i8 %retval.i.sroa.10.1, ptr %add.ptr.i.i, align 1
+  store i8 %retval.i.sroa.10.0, ptr %add.ptr.i.i, align 1
   %add.ptr.i.i24.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
-  %117 = lshr exact i8 %retval.i.sroa.10.1, 3
+  %117 = lshr exact i8 %retval.i.sroa.10.0, 3
   switch i8 %117, label %default.unreachable.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
@@ -54366,7 +54366,7 @@ if.else21.i:                                      ; preds = %if.else10.i
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_21serialize_buffer_sizeEDpRKT0_.exit
 
 _ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_21serialize_buffer_sizeEDpRKT0_.exit: ; preds = %if.then4.i, %if.else21.i, %if.then13.i, %entry
-  %retval.i.sroa.10.1 = phi i8 [ 0, %entry ], [ 8, %if.then4.i ], [ 16, %if.then13.i ], [ 24, %if.else21.i ]
+  %retval.i.sroa.10.0 = phi i8 [ 0, %entry ], [ 8, %if.then4.i ], [ 16, %if.then13.i ], [ 24, %if.else21.i ]
   %storemerge.in = phi i64 [ %3, %entry ], [ %add7.i, %if.then4.i ], [ %add17.i, %if.then13.i ], [ %add25.i, %if.else21.i ]
   %add34.i = add i64 %2, 5
   %add.i = add i64 %add34.i, %storemerge.in
@@ -54388,10 +54388,10 @@ sw.bb.i:                                          ; preds = %.noexc
 
 sw.bb1.i:                                         ; preds = %.noexc
   store i32 -1647314313, ptr %add.ptr.i, align 1
-  store i8 %retval.i.sroa.10.1, ptr %add.ptr.i.i.i, align 1
+  store i8 %retval.i.sroa.10.0, ptr %add.ptr.i.i.i, align 1
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
   %6 = load i64, ptr %_M_string_length.i.i, align 8
-  %7 = lshr exact i8 %retval.i.sroa.10.1, 3
+  %7 = lshr exact i8 %retval.i.sroa.10.0, 3
   switch i8 %7, label %default.unreachable.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
@@ -55520,7 +55520,7 @@ if.else21.i.i:                                    ; preds = %if.else10.i.i
   br label %_ZN11struct_pack24serialize_to_with_offsetILm0ETkNS_6detail18struct_pack_bufferESt6vectorISt4byteSaIS3_EEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_mDpRKT1_.exit
 
 _ZN11struct_pack24serialize_to_with_offsetILm0ETkNS_6detail18struct_pack_bufferESt6vectorISt4byteSaIS3_EEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_mDpRKT1_.exit: ; preds = %if.then4.i.i, %if.else21.i.i, %if.then13.i.i, %entry
-  %retval.i.i.sroa.10.1 = phi i8 [ 0, %entry ], [ 8, %if.then4.i.i ], [ 16, %if.then13.i.i ], [ 24, %if.else21.i.i ]
+  %retval.i.i.sroa.10.0 = phi i8 [ 0, %entry ], [ 8, %if.then4.i.i ], [ 16, %if.then13.i.i ], [ 24, %if.else21.i.i ]
   %storemerge.in = phi i64 [ %0, %entry ], [ %add7.i.i, %if.then4.i.i ], [ %add17.i.i, %if.then13.i.i ], [ %add25.i.i, %if.else21.i.i ]
   %_M_finish.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
@@ -55587,10 +55587,10 @@ sw.bb.i:                                          ; preds = %_ZN11struct_pack6de
 
 sw.bb1.i:                                         ; preds = %_ZN11struct_pack6detail6resizeISt4byteEEvRSt6vectorIT_SaIS4_EEm.exit
   store i32 -1647314313, ptr %add.ptr6.i, align 1
-  store i8 %retval.i.i.sroa.10.1, ptr %add.ptr.i.i, align 1
+  store i8 %retval.i.i.sroa.10.0, ptr %add.ptr.i.i, align 1
   %add.ptr.i.i24.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 5
   %6 = load i64, ptr %args, align 8
-  %7 = lshr exact i8 %retval.i.i.sroa.10.1, 3
+  %7 = lshr exact i8 %retval.i.i.sroa.10.0, 3
   switch i8 %7, label %default.unreachable.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
@@ -58954,10 +58954,10 @@ sw.default.i:                                     ; preds = %sw.bb6
 
 sw.epilog.i85:                                    ; preds = %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i
   %.sink.i = phi i64 [ 8, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i ], [ 4, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i ], [ 2, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i ]
-  %size.3.i = phi i64 [ %size.0.copyload.i84, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i ], [ %size.0.insert.ext.i88, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i ], [ %size.0.insert.ext36.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i ]
+  %size.0.i = phi i64 [ %size.0.copyload.i84, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i ], [ %size.0.insert.ext.i88, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i ], [ %size.0.insert.ext36.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i ]
   %add.ptr.i17.i = getelementptr inbounds i8, ptr %34, i64 %.sink.i
   store ptr %add.ptr.i17.i, ptr %32, align 8
-  %cmp.i86 = icmp eq i64 %size.3.i, 0
+  %cmp.i86 = icmp eq i64 %size.0.i, 0
   br i1 %cmp.i86, label %return, label %if.end13.i
 
 if.end13.i:                                       ; preds = %sw.epilog.i85
@@ -58968,11 +58968,11 @@ if.end13.i:                                       ; preds = %sw.epilog.i85
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %36 to i64
   %sub.ptr.rhs.cast.i21.i = ptrtoint ptr %37 to i64
   %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i21.i
-  %cmp.i23.not.i = icmp ult i64 %sub.ptr.sub.i22.i, %size.3.i
+  %cmp.i23.not.i = icmp ult i64 %sub.ptr.sub.i22.i, %size.0.i
   br i1 %cmp.i23.not.i, label %return, label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end13.i
-  tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %t, i64 noundef %size.3.i)
+  tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %t, i64 noundef %size.0.i)
   %38 = load ptr, ptr %reader_.i, align 8
   %end.i24.i = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load ptr, ptr %end.i24.i, align 8
@@ -58980,17 +58980,17 @@ if.end17.i:                                       ; preds = %if.end13.i
   %sub.ptr.lhs.cast.i25.i = ptrtoint ptr %39 to i64
   %sub.ptr.rhs.cast.i26.i = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i27.i = sub i64 %sub.ptr.lhs.cast.i25.i, %sub.ptr.rhs.cast.i26.i
-  %cmp.i28.not.i = icmp ult i64 %sub.ptr.sub.i27.i, %size.3.i
+  %cmp.i28.not.i = icmp ult i64 %sub.ptr.sub.i27.i, %size.0.i
   br i1 %cmp.i28.not.i, label %return, label %if.end.i29.i
 
 if.end.i29.i:                                     ; preds = %if.end17.i
   %41 = load ptr, ptr %t, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %40, i64 %size.3.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 1 %40, i64 %size.0.i, i1 false)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end.i29.i, %if.end.i13.i
   %.sink130 = phi ptr [ %28, %if.end.i13.i ], [ %38, %if.end.i29.i ]
-  %size.0.insert.ext.i.sink = phi i64 [ %size.0.insert.ext.i, %if.end.i13.i ], [ %size.3.i, %if.end.i29.i ]
+  %size.0.insert.ext.i.sink = phi i64 [ %size.0.insert.ext.i, %if.end.i13.i ], [ %size.0.i, %if.end.i29.i ]
   %42 = load ptr, ptr %.sink130, align 8
   %add.ptr.i14.i = getelementptr inbounds i8, ptr %42, i64 %size.0.insert.ext.i.sink
   store ptr %add.ptr.i14.i, ptr %.sink130, align 8
@@ -61978,8 +61978,8 @@ terminate.lpad.i.i23:                             ; preds = %if.then.i.i22
 
 catch:                                            ; preds = %invoke.cont.i.i24, %ehcleanup75, %lpad, %lpad.i, %lpad54, %ehcleanup
   %.pn2 = phi { ptr, i32 } [ %.pn1, %ehcleanup ], [ %30, %lpad54 ], [ %7, %lpad ], [ %5, %lpad.i ], [ %eh.lpad-body13, %ehcleanup75 ], [ %eh.lpad-body13, %invoke.cont.i.i24 ]
-  %exn.slot.2 = extractvalue { ptr, i32 } %.pn2, 0
-  %53 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #31
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn2, 0
+  %53 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #31
   call void @_ZN12async_simple4coro6detail11LazyPromiseIvE19unhandled_exceptionEv(ptr noundef nonnull align 8 dereferenceable(24) %__promise.reload.addr) #31
   invoke void @__cxa_end_catch()
           to label %CoroSave133 unwind label %terminate.lpad
@@ -64042,8 +64042,8 @@ lpad102:                                          ; preds = %if.end99
 
 catch:                                            ; preds = %invoke.cont.i.i35, %ehcleanup60, %lpad.i, %lpad.i21, %lpad37, %lpad102, %ehcleanup96, %ehcleanup
   %.pn3 = phi { ptr, i32 } [ %66, %lpad102 ], [ %.pn2, %ehcleanup96 ], [ %20, %lpad37 ], [ %.pn, %ehcleanup ], [ %4, %lpad.i ], [ %35, %lpad.i21 ], [ %eh.lpad-body14, %ehcleanup60 ], [ %eh.lpad-body14, %invoke.cont.i.i35 ]
-  %exn.slot.3 = extractvalue { ptr, i32 } %.pn3, 0
-  %67 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #31
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn3, 0
+  %67 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #31
   call void @_ZN12async_simple4coro6detail11LazyPromiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19unhandled_exceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %__promise.reload.addr) #31
   invoke void @__cxa_end_catch()
           to label %CoroSave151 unwind label %lpad107
@@ -64671,8 +64671,8 @@ lpad55:                                           ; preds = %_ZNSt10shared_ptrIN
 
 catch:                                            ; preds = %invoke.cont.i.i14, %ehcleanup, %lpad44, %lpad51, %lpad55, %lpad
   %.pn1 = phi { ptr, i32 } [ %57, %lpad55 ], [ %56, %lpad51 ], [ %36, %lpad44 ], [ %10, %lpad ], [ %25, %ehcleanup ], [ %25, %invoke.cont.i.i14 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn1, 0
-  %58 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #31
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn1, 0
+  %58 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #31
   call void @_ZN12async_simple4coro6detail11LazyPromiseIbE19unhandled_exceptionEv(ptr noundef nonnull align 8 dereferenceable(32) %__promise.reload.addr) #31
   invoke void @__cxa_end_catch()
           to label %CoroSave117 unwind label %lpad62
@@ -66816,8 +66816,8 @@ ehcleanup225:                                     ; preds = %ehcleanup223, %lpad
 
 catch:                                            ; preds = %lpad.i, %lpad.i21, %lpad76, %ehcleanup225, %ehcleanup72, %ehcleanup
   %.pn7.pn.pn.pn = phi { ptr, i32 } [ %.pn7.pn.pn, %ehcleanup225 ], [ %66, %lpad76 ], [ %.pn3, %ehcleanup72 ], [ %.pn, %ehcleanup ], [ %6, %lpad.i ], [ %25, %lpad.i21 ]
-  %exn.slot.11 = extractvalue { ptr, i32 } %.pn7.pn.pn.pn, 0
-  %148 = call ptr @__cxa_begin_catch(ptr %exn.slot.11) #31
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn7.pn.pn.pn, 0
+  %148 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #31
   call void @_ZN12async_simple4coro6detail11LazyPromiseISt4errcE19unhandled_exceptionEv(ptr noundef nonnull align 8 dereferenceable(32) %__promise.reload.addr) #31
   invoke void @__cxa_end_catch()
           to label %CoroSave284 unwind label %lpad231
@@ -67386,8 +67386,8 @@ lpad55:                                           ; preds = %_ZNSt10shared_ptrIN
 
 catch:                                            ; preds = %invoke.cont.i.i14, %ehcleanup, %lpad44, %lpad51, %lpad55, %lpad
   %.pn1 = phi { ptr, i32 } [ %57, %lpad55 ], [ %56, %lpad51 ], [ %36, %lpad44 ], [ %10, %lpad ], [ %25, %ehcleanup ], [ %25, %invoke.cont.i.i14 ]
-  %exn.slot.1 = extractvalue { ptr, i32 } %.pn1, 0
-  %58 = call ptr @__cxa_begin_catch(ptr %exn.slot.1) #31
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn1, 0
+  %58 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #31
   call void @_ZN12async_simple4coro6detail11LazyPromiseIbE19unhandled_exceptionEv(ptr noundef nonnull align 8 dereferenceable(32) %__promise.reload.addr) #31
   invoke void @__cxa_end_catch()
           to label %CoroSave117 unwind label %lpad62
@@ -70954,8 +70954,8 @@ ehcleanup182:                                     ; preds = %lpad57, %ehcleanup1
 
 catch:                                            ; preds = %lpad.i, %ehcleanup182, %lpad40, %ehcleanup
   %.pn4.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn4.pn.pn.pn.pn, %ehcleanup182 ], [ %34, %lpad40 ], [ %.pn5, %ehcleanup ], [ %5, %lpad.i ]
-  %exn.slot.12 = extractvalue { ptr, i32 } %.pn4.pn.pn.pn.pn.pn, 0
-  %150 = call ptr @__cxa_begin_catch(ptr %exn.slot.12) #31
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn4.pn.pn.pn.pn.pn, 0
+  %150 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #31
   call void @_ZN12async_simple4coro6detail11LazyPromiseIN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8coro_rpc8protocol17coro_rpc_protocol9rpc_errorEEEE19unhandled_exceptionEv(ptr noundef nonnull align 8 dereferenceable(72) %__promise.reload.addr) #31
   invoke void @__cxa_end_catch()
           to label %CoroSave238 unwind label %lpad186
@@ -72295,8 +72295,8 @@ ehcleanup235:                                     ; preds = %invoke.cont.i.i128,
 
 catch:                                            ; preds = %invoke.cont.i.i31, %ehcleanup60, %lpad.i, %ehcleanup235, %lpad36, %ehcleanup
   %.pn6.pn.pn = phi { ptr, i32 } [ %.pn6.pn, %ehcleanup235 ], [ %19, %lpad36 ], [ %.pn, %ehcleanup ], [ %4, %lpad.i ], [ %.pn1, %ehcleanup60 ], [ %.pn1, %invoke.cont.i.i31 ]
-  %exn.slot.12 = extractvalue { ptr, i32 } %.pn6.pn.pn, 0
-  %154 = call ptr @__cxa_begin_catch(ptr %exn.slot.12) #31
+  %exn.slot.0 = extractvalue { ptr, i32 } %.pn6.pn.pn, 0
+  %154 = call ptr @__cxa_begin_catch(ptr %exn.slot.0) #31
   call void @_ZN12async_simple4coro6detail11LazyPromiseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE19unhandled_exceptionEv(ptr noundef nonnull align 8 dereferenceable(56) %__promise.reload.addr) #31
   invoke void @__cxa_end_catch()
           to label %CoroSave319 unwind label %lpad241

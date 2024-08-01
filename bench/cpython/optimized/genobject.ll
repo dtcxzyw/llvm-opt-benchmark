@@ -3007,12 +3007,12 @@ if.end5.i:                                        ; preds = %if.then3.i
 
 if.end11.i:                                       ; preds = %if.end5.i, %entry.if.end11_crit_edge.i
   %6 = phi ptr [ %2, %if.end5.i ], [ %.pre.i, %entry.if.end11_crit_edge.i ]
-  %arg.addr.1.i = phi ptr [ %5, %if.end5.i ], [ null, %entry.if.end11_crit_edge.i ]
+  %arg.addr.0.i = phi ptr [ %5, %if.end5.i ], [ null, %entry.if.end11_crit_edge.i ]
   %ags_gen12.i = getelementptr inbounds i8, ptr %o, i64 16
   %ag_running_async13.i = getelementptr inbounds i8, ptr %6, i64 66
   store i8 1, ptr %ag_running_async13.i, align 2
   %7 = load ptr, ptr %ags_gen12.i, align 8
-  %call.i.i = tail call fastcc ptr @gen_send_ex(ptr noundef %7, ptr noundef %arg.addr.1.i, i32 noundef 0, i32 noundef 0)
+  %call.i.i = tail call fastcc ptr @gen_send_ex(ptr noundef %7, ptr noundef %arg.addr.0.i, i32 noundef 0, i32 noundef 0)
   %8 = load ptr, ptr %ags_gen12.i, align 8
   %call16.i = tail call fastcc ptr @async_gen_unwrap_value(ptr noundef %8, ptr noundef %call.i.i)
   %cmp17.i = icmp eq ptr %call16.i, null
@@ -5298,18 +5298,18 @@ if.then8:                                         ; preds = %if.end5
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end5, %if.then8
-  %arg.addr.0 = phi ptr [ %5, %if.then8 ], [ %arg, %if.end5 ]
+  %arg.addr.1 = phi ptr [ %5, %if.then8 ], [ %arg, %if.end5 ]
   store i32 1, ptr %ags_state, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %entry.if.end11_crit_edge, %if.end9
   %6 = phi ptr [ %2, %if.end9 ], [ %.pre, %entry.if.end11_crit_edge ]
-  %arg.addr.1 = phi ptr [ %arg.addr.0, %if.end9 ], [ %arg, %entry.if.end11_crit_edge ]
+  %arg.addr.0 = phi ptr [ %arg.addr.1, %if.end9 ], [ %arg, %entry.if.end11_crit_edge ]
   %ags_gen12 = getelementptr inbounds i8, ptr %o, i64 16
   %ag_running_async13 = getelementptr inbounds i8, ptr %6, i64 66
   store i8 1, ptr %ag_running_async13, align 2
   %7 = load ptr, ptr %ags_gen12, align 8
-  %call.i = tail call fastcc ptr @gen_send_ex(ptr noundef %7, ptr noundef %arg.addr.1, i32 noundef 0, i32 noundef 0)
+  %call.i = tail call fastcc ptr @gen_send_ex(ptr noundef %7, ptr noundef %arg.addr.0, i32 noundef 0, i32 noundef 0)
   %8 = load ptr, ptr %ags_gen12, align 8
   %call16 = tail call fastcc ptr @async_gen_unwrap_value(ptr noundef %8, ptr noundef %call.i)
   %cmp17 = icmp eq ptr %call16, null

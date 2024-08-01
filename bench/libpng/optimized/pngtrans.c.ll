@@ -543,27 +543,27 @@ define void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %1, i32 
   %.not86 = icmp eq i32 %2, 0
   %21 = getelementptr inbounds i8, ptr %1, i64 2
   %22 = getelementptr inbounds i8, ptr %1, i64 4
-  %.276 = select i1 %.not86, ptr %21, ptr %1
+  %.377 = select i1 %.not86, ptr %21, ptr %1
   %.2 = select i1 %.not86, ptr %22, ptr %21
   %23 = icmp ult ptr %.2, %6
   br i1 %23, label %.lr.ph99, label %._crit_edge106
 
 .lr.ph99:                                         ; preds = %20, %.lr.ph99
   %.397 = phi ptr [ %29, %.lr.ph99 ], [ %.2, %20 ]
-  %.37796 = phi ptr [ %28, %.lr.ph99 ], [ %.276, %20 ]
+  %.47896 = phi ptr [ %28, %.lr.ph99 ], [ %.377, %20 ]
   %24 = getelementptr inbounds i8, ptr %.397, i64 1
   %25 = load i8, ptr %.397, align 1
-  %26 = getelementptr inbounds i8, ptr %.37796, i64 1
-  store i8 %25, ptr %.37796, align 1
+  %26 = getelementptr inbounds i8, ptr %.47896, i64 1
+  store i8 %25, ptr %.47896, align 1
   %27 = load i8, ptr %24, align 1
-  %28 = getelementptr inbounds i8, ptr %.37796, i64 2
+  %28 = getelementptr inbounds i8, ptr %.47896, i64 2
   store i8 %27, ptr %26, align 1
   %29 = getelementptr inbounds i8, ptr %.397, i64 4
   %30 = icmp ult ptr %29, %6
   br i1 %30, label %.lr.ph99, label %._crit_edge106, !llvm.loop !14
 
 ._crit_edge106:                                   ; preds = %.lr.ph99, %.lr.ph105, %20, %12
-  %.478 = phi ptr [ %.074, %12 ], [ %.276, %20 ], [ %17, %.lr.ph105 ], [ %28, %.lr.ph99 ]
+  %.276 = phi ptr [ %.074, %12 ], [ %.377, %20 ], [ %17, %.lr.ph105 ], [ %28, %.lr.ph99 ]
   %31 = getelementptr inbounds i8, ptr %0, i64 19
   store i8 %11, ptr %31, align 1
   store i8 1, ptr %7, align 2
@@ -586,8 +586,8 @@ define void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %1, i32 
 
 39:                                               ; preds = %36
   %.not85 = icmp eq i32 %2, 0
-  %.579.idx = select i1 %.not85, i64 3, i64 0
-  %.579 = getelementptr inbounds i8, ptr %1, i64 %.579.idx
+  %.680.idx = select i1 %.not85, i64 3, i64 0
+  %.680 = getelementptr inbounds i8, ptr %1, i64 %.680.idx
   %.4.v = select i1 %.not85, i64 4, i64 1
   %40 = icmp slt i64 %.4.v, %5
   br i1 %40, label %.lr.ph93.preheader, label %._crit_edge94
@@ -598,17 +598,17 @@ define void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %1, i32 
 
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %.591 = phi ptr [ %49, %.lr.ph93 ], [ %.4, %.lr.ph93.preheader ]
-  %.68090 = phi ptr [ %48, %.lr.ph93 ], [ %.579, %.lr.ph93.preheader ]
+  %.78190 = phi ptr [ %48, %.lr.ph93 ], [ %.680, %.lr.ph93.preheader ]
   %41 = getelementptr inbounds i8, ptr %.591, i64 1
   %42 = load i8, ptr %.591, align 1
-  %43 = getelementptr inbounds i8, ptr %.68090, i64 1
-  store i8 %42, ptr %.68090, align 1
+  %43 = getelementptr inbounds i8, ptr %.78190, i64 1
+  store i8 %42, ptr %.78190, align 1
   %44 = getelementptr inbounds i8, ptr %.591, i64 2
   %45 = load i8, ptr %41, align 1
-  %46 = getelementptr inbounds i8, ptr %.68090, i64 2
+  %46 = getelementptr inbounds i8, ptr %.78190, i64 2
   store i8 %45, ptr %43, align 1
   %47 = load i8, ptr %44, align 1
-  %48 = getelementptr inbounds i8, ptr %.68090, i64 3
+  %48 = getelementptr inbounds i8, ptr %.78190, i64 3
   store i8 %47, ptr %46, align 1
   %49 = getelementptr inbounds i8, ptr %.591, i64 4
   %50 = icmp ult ptr %49, %6
@@ -616,8 +616,8 @@ define void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %1, i32 
 
 51:                                               ; preds = %36
   %.not = icmp eq i32 %2, 0
-  %.781.idx = select i1 %.not, i64 6, i64 0
-  %.781 = getelementptr inbounds i8, ptr %1, i64 %.781.idx
+  %.9.idx = select i1 %.not, i64 6, i64 0
+  %.9 = getelementptr inbounds i8, ptr %1, i64 %.9.idx
   %.6.v = select i1 %.not, i64 8, i64 2
   %52 = icmp slt i64 %.6.v, %5
   br i1 %52, label %.lr.ph.preheader, label %._crit_edge94
@@ -628,29 +628,29 @@ define void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %1, i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.789 = phi ptr [ %70, %.lr.ph ], [ %.6, %.lr.ph.preheader ]
-  %.888 = phi ptr [ %69, %.lr.ph ], [ %.781, %.lr.ph.preheader ]
+  %.1088 = phi ptr [ %69, %.lr.ph ], [ %.9, %.lr.ph.preheader ]
   %53 = getelementptr inbounds i8, ptr %.789, i64 1
   %54 = load i8, ptr %.789, align 1
-  %55 = getelementptr inbounds i8, ptr %.888, i64 1
-  store i8 %54, ptr %.888, align 1
+  %55 = getelementptr inbounds i8, ptr %.1088, i64 1
+  store i8 %54, ptr %.1088, align 1
   %56 = getelementptr inbounds i8, ptr %.789, i64 2
   %57 = load i8, ptr %53, align 1
-  %58 = getelementptr inbounds i8, ptr %.888, i64 2
+  %58 = getelementptr inbounds i8, ptr %.1088, i64 2
   store i8 %57, ptr %55, align 1
   %59 = getelementptr inbounds i8, ptr %.789, i64 3
   %60 = load i8, ptr %56, align 1
-  %61 = getelementptr inbounds i8, ptr %.888, i64 3
+  %61 = getelementptr inbounds i8, ptr %.1088, i64 3
   store i8 %60, ptr %58, align 1
   %62 = getelementptr inbounds i8, ptr %.789, i64 4
   %63 = load i8, ptr %59, align 1
-  %64 = getelementptr inbounds i8, ptr %.888, i64 4
+  %64 = getelementptr inbounds i8, ptr %.1088, i64 4
   store i8 %63, ptr %61, align 1
   %65 = getelementptr inbounds i8, ptr %.789, i64 5
   %66 = load i8, ptr %62, align 1
-  %67 = getelementptr inbounds i8, ptr %.888, i64 5
+  %67 = getelementptr inbounds i8, ptr %.1088, i64 5
   store i8 %66, ptr %64, align 1
   %68 = load i8, ptr %65, align 1
-  %69 = getelementptr inbounds i8, ptr %.888, i64 6
+  %69 = getelementptr inbounds i8, ptr %.1088, i64 6
   store i8 %68, ptr %67, align 1
   %70 = getelementptr inbounds i8, ptr %.789, i64 8
   %71 = icmp ult ptr %70, %6
@@ -658,7 +658,7 @@ define void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %1, i32 
 
 ._crit_edge94:                                    ; preds = %.lr.ph, %.lr.ph93, %51, %39
   %.sink115 = phi i8 [ 24, %39 ], [ 48, %51 ], [ 24, %.lr.ph93 ], [ 48, %.lr.ph ]
-  %.9 = phi ptr [ %.579, %39 ], [ %.781, %51 ], [ %48, %.lr.ph93 ], [ %69, %.lr.ph ]
+  %.8 = phi ptr [ %.680, %39 ], [ %.9, %51 ], [ %48, %.lr.ph93 ], [ %69, %.lr.ph ]
   %72 = getelementptr inbounds i8, ptr %0, i64 19
   store i8 %.sink115, ptr %72, align 1
   store i8 3, ptr %7, align 2
@@ -672,8 +672,8 @@ define void @png_do_strip_channel(ptr nocapture noundef %0, ptr noundef %1, i32 
   br label %77
 
 77:                                               ; preds = %76, %._crit_edge94, %._crit_edge106, %35
-  %.10 = phi ptr [ %.478, %35 ], [ %.478, %._crit_edge106 ], [ %.9, %76 ], [ %.9, %._crit_edge94 ]
-  %78 = ptrtoint ptr %.10 to i64
+  %.579 = phi ptr [ %.276, %35 ], [ %.276, %._crit_edge106 ], [ %.8, %76 ], [ %.8, %._crit_edge94 ]
+  %78 = ptrtoint ptr %.579 to i64
   %79 = ptrtoint ptr %1 to i64
   %80 = sub i64 %78, %79
   store i64 %80, ptr %4, align 8

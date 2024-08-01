@@ -210,11 +210,11 @@ qsort_arg_med3.exit219:                           ; preds = %76, %78, %82, %84
 
 qsort_arg_med3.exit220:                           ; preds = %103, %101, %97, %95, %43
   %.1190 = phi ptr [ %.0186.ph310, %43 ], [ %69, %95 ], [ %69, %97 ], [ %69, %101 ], [ %69, %103 ]
-  %.2 = phi ptr [ %42, %43 ], [ %88, %95 ], [ %88, %97 ], [ %88, %101 ], [ %88, %103 ]
+  %.3 = phi ptr [ %42, %43 ], [ %88, %95 ], [ %88, %97 ], [ %88, %101 ], [ %88, %103 ]
   %.0187 = phi ptr [ %46, %43 ], [ %91, %95 ], [ %100, %97 ], [ %91, %101 ], [ %106, %103 ]
-  %107 = tail call i32 %3(ptr noundef %.1190, ptr noundef %.2, ptr noundef %4) #2
+  %107 = tail call i32 %3(ptr noundef %.1190, ptr noundef %.3, ptr noundef %4) #2
   %108 = icmp slt i32 %107, 0
-  %109 = tail call i32 %3(ptr noundef %.2, ptr noundef %.0187, ptr noundef %4) #2
+  %109 = tail call i32 %3(ptr noundef %.3, ptr noundef %.0187, ptr noundef %4) #2
   br i1 %108, label %110, label %116
 
 110:                                              ; preds = %qsort_arg_med3.exit220
@@ -238,13 +238,13 @@ qsort_arg_med3.exit220:                           ; preds = %103, %101, %97, %95
   br label %qsort_arg_med3.exit221
 
 qsort_arg_med3.exit221:                           ; preds = %118, %116, %112, %110, %39
-  %.3 = phi ptr [ %42, %39 ], [ %115, %112 ], [ %121, %118 ], [ %.2, %110 ], [ %.2, %116 ]
+  %.2 = phi ptr [ %42, %39 ], [ %115, %112 ], [ %121, %118 ], [ %.3, %110 ], [ %.3, %116 ]
   br i1 %.not.i222, label %qsort_arg_swapn.exit226, label %.lr.ph.i223
 
 .lr.ph.i223:                                      ; preds = %qsort_arg_med3.exit221, %.lr.ph.i223
   %.06.i224 = phi i64 [ %126, %.lr.ph.i223 ], [ 0, %qsort_arg_med3.exit221 ]
   %122 = getelementptr i8, ptr %.0186.ph310, i64 %.06.i224
-  %123 = getelementptr i8, ptr %.3, i64 %.06.i224
+  %123 = getelementptr i8, ptr %.2, i64 %.06.i224
   %124 = load i8, ptr %122, align 1
   %125 = load i8, ptr %123, align 1
   store i8 %125, ptr %122, align 1

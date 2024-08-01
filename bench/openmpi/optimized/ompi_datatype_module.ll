@@ -2624,28 +2624,28 @@ define void @ompi_datatype_dump(ptr noundef %0) local_unnamed_addr #0 {
 
 49:                                               ; preds = %43, %41
   %50 = phi i16 [ %.pre, %43 ], [ %.val, %41 ]
-  %.0 = phi i32 [ %48, %43 ], [ %39, %41 ]
+  %.1 = phi i32 [ %48, %43 ], [ %39, %41 ]
   %51 = and i16 %50, 16
   %.not113 = icmp eq i16 %51, 0
   br i1 %.not113, label %57, label %.sink.split
 
 .sink.split:                                      ; preds = %49, %1
-  %.0.sink119 = phi i32 [ %39, %1 ], [ %.0, %49 ]
+  %.1.sink119 = phi i32 [ %39, %1 ], [ %.1, %49 ]
   %.str.34.sink = phi ptr [ @.str.32, %1 ], [ @.str.34, %49 ]
-  %52 = sext i32 %.0.sink119 to i64
+  %52 = sext i32 %.1.sink119 to i64
   %53 = getelementptr inbounds i8, ptr %10, i64 %52
   %54 = sub i64 %9, %52
   %55 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %53, i64 noundef %54, ptr noundef nonnull %.str.34.sink) #8
-  %56 = add nsw i32 %55, %.0.sink119
+  %56 = add nsw i32 %55, %.1.sink119
   br label %57
 
 57:                                               ; preds = %.sink.split, %49
-  %.1 = phi i32 [ %.0, %49 ], [ %56, %.sink.split ]
-  %58 = sext i32 %.1 to i64
+  %.0 = phi i32 [ %.1, %49 ], [ %56, %.sink.split ]
+  %58 = sext i32 %.0 to i64
   %59 = getelementptr inbounds i8, ptr %10, i64 %58
   %60 = sub i64 %9, %58
   %61 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %59, i64 noundef %60, ptr noundef nonnull @.str.35) #8
-  %62 = add nsw i32 %61, %.1
+  %62 = add nsw i32 %61, %.0
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i8, ptr %10, i64 %63
   %65 = sub i64 %9, %63

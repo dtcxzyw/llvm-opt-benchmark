@@ -114,12 +114,12 @@ for.inc:                                          ; preds = %if.then44, %if.end5
   br i1 %exitcond.not, label %if.end67, label %for.body, !llvm.loop !4
 
 if.end67:                                         ; preds = %for.inc, %for.body, %if.end30, %if.end35, %if.else, %if.end58, %if.then8, %if.end15, %if.end21
-  %ret.4 = phi i32 [ %call20, %if.end21 ], [ %call14, %if.end15 ], [ %call10, %if.then8 ], [ 0, %for.inc ], [ %call61, %if.end58 ], [ %call54, %if.else ], [ %call38, %if.end35 ], [ %call32, %if.end30 ], [ %call27, %for.body ]
+  %ret.3 = phi i32 [ %call20, %if.end21 ], [ %call14, %if.end15 ], [ %call10, %if.then8 ], [ 0, %for.inc ], [ %call61, %if.end58 ], [ %call54, %if.else ], [ %call38, %if.end35 ], [ %call32, %if.end30 ], [ %call27, %for.body ]
   call void @wc_HmacFree(ptr noundef nonnull %hmac) #6
   br label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end6, %if.end67
-  %ret.5 = phi i32 [ %ret.4, %if.end67 ], [ %call, %if.end6 ]
+  %ret.0 = phi i32 [ %ret.3, %if.end67 ], [ %call, %if.end6 ]
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
@@ -150,7 +150,7 @@ for.body.i80:                                     ; preds = %for.body.i51, %for.
   br i1 %cmp5.i85.not, label %return, label %for.body.i80, !llvm.loop !6
 
 return:                                           ; preds = %for.body.i80, %switch.hole_check, %entry, %switch.lookup
-  %retval.0 = phi i32 [ -232, %entry ], [ -173, %switch.lookup ], [ -232, %switch.hole_check ], [ %ret.5, %for.body.i80 ]
+  %retval.0 = phi i32 [ -232, %entry ], [ -173, %switch.lookup ], [ -232, %switch.hole_check ], [ %ret.0, %for.body.i80 ]
   ret i32 %retval.0
 }
 
@@ -237,21 +237,21 @@ XorWords.exit.i:                                  ; preds = %for.body.i.i, %whil
   br label %if.end.i
 
 if.end.i:                                         ; preds = %XorWords.exit.i, %if.then22
-  %count.addr.1.i = phi i32 [ %rem8.i, %XorWords.exit.i ], [ %digLen, %if.then22 ]
-  %b.1.i = phi ptr [ %tpb.sroa.0.1.i, %XorWords.exit.i ], [ %digest, %if.then22 ]
-  %m.1.i = phi ptr [ %tpm.sroa.0.1.i, %XorWords.exit.i ], [ %sha_result, %if.then22 ]
-  %cmp928.not.i = icmp eq i32 %count.addr.1.i, 0
+  %count.addr.0.i = phi i32 [ %rem8.i, %XorWords.exit.i ], [ %digLen, %if.then22 ]
+  %b.0.i = phi ptr [ %tpb.sroa.0.1.i, %XorWords.exit.i ], [ %digest, %if.then22 ]
+  %m.0.i = phi ptr [ %tpm.sroa.0.1.i, %XorWords.exit.i ], [ %sha_result, %if.then22 ]
+  %cmp928.not.i = icmp eq i32 %count.addr.0.i, 0
   br i1 %cmp928.not.i, label %for.cond.preheader.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end.i
-  %wide.trip.count.i = zext nneg i32 %count.addr.1.i to i64
+  %wide.trip.count.i = zext nneg i32 %count.addr.0.i to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %m.1.i, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds i8, ptr %m.0.i, i64 %indvars.iv.i
   %3 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx13.i = getelementptr inbounds i8, ptr %b.1.i, i64 %indvars.iv.i
+  %arrayidx13.i = getelementptr inbounds i8, ptr %b.0.i, i64 %indvars.iv.i
   %4 = load i8, ptr %arrayidx13.i, align 1
   %xor1516.i = xor i8 %4, %3
   store i8 %xor1516.i, ptr %arrayidx13.i, align 1

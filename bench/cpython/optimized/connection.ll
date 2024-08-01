@@ -499,14 +499,14 @@ land.lhs.true44:                                  ; preds = %if.else
   br i1 %tobool46.not, label %if.end49, label %exit
 
 if.end49:                                         ; preds = %if.else, %land.lhs.true44, %if.then38
-  %timeout.0 = phi double [ %.val53, %if.then38 ], [ -1.000000e+00, %land.lhs.true44 ], [ %call42, %if.else ]
+  %timeout.2 = phi double [ %.val53, %if.then38 ], [ -1.000000e+00, %land.lhs.true44 ], [ %call42, %if.else ]
   %dec = add i64 %add, -2
   %tobool50.not = icmp eq i64 %dec, 0
   br i1 %tobool50.not, label %skip_optional_kwonly, label %if.end53
 
 if.end53:                                         ; preds = %if.end49, %if.end31
-  %noptargs.0 = phi i64 [ %dec, %if.end49 ], [ %sub, %if.end31 ]
-  %timeout.1 = phi double [ %timeout.0, %if.end49 ], [ 5.000000e+00, %if.end31 ]
+  %noptargs.1 = phi i64 [ %dec, %if.end49 ], [ %sub, %if.end31 ]
+  %timeout.1 = phi double [ %timeout.2, %if.end49 ], [ 5.000000e+00, %if.end31 ]
   %arrayidx54 = getelementptr i8, ptr %cond2571, i64 16
   %11 = load ptr, ptr %arrayidx54, align 8
   %tobool55.not = icmp eq ptr %11, null
@@ -523,13 +523,13 @@ land.lhs.true60:                                  ; preds = %if.then56
   br i1 %tobool62.not, label %if.end64, label %exit
 
 if.end64:                                         ; preds = %land.lhs.true60, %if.then56
-  %dec65 = add i64 %noptargs.0, -1
+  %dec65 = add i64 %noptargs.1, -1
   %tobool66.not = icmp eq i64 %dec65, 0
   br i1 %tobool66.not, label %skip_optional_kwonly, label %if.end69
 
 if.end69:                                         ; preds = %if.end64, %if.end53
-  %noptargs.1 = phi i64 [ %dec65, %if.end64 ], [ %noptargs.0, %if.end53 ]
-  %detect_types.0 = phi i32 [ %call58, %if.end64 ], [ 0, %if.end53 ]
+  %noptargs.2 = phi i64 [ %dec65, %if.end64 ], [ %noptargs.1, %if.end53 ]
+  %detect_types.1 = phi i32 [ %call58, %if.end64 ], [ 0, %if.end53 ]
   %arrayidx70 = getelementptr i8, ptr %cond2571, i64 24
   %12 = load ptr, ptr %arrayidx70, align 8
   %tobool71.not = icmp eq ptr %12, null
@@ -582,14 +582,14 @@ if.else10.i:                                      ; preds = %if.else.i
   br label %exit
 
 if.end77:                                         ; preds = %get_isolation_level.exit.i, %if.then72
-  %isolation_level.0 = phi ptr [ null, %if.then72 ], [ %16, %get_isolation_level.exit.i ]
-  %dec78 = add i64 %noptargs.1, -1
+  %isolation_level.2 = phi ptr [ null, %if.then72 ], [ %16, %get_isolation_level.exit.i ]
+  %dec78 = add i64 %noptargs.2, -1
   %tobool79.not = icmp eq i64 %dec78, 0
   br i1 %tobool79.not, label %skip_optional_kwonly, label %if.end82
 
 if.end82:                                         ; preds = %if.end77, %if.end69
-  %isolation_level.1 = phi ptr [ @.str.59, %if.end69 ], [ %isolation_level.0, %if.end77 ]
-  %noptargs.2 = phi i64 [ %noptargs.1, %if.end69 ], [ %dec78, %if.end77 ]
+  %isolation_level.1 = phi ptr [ @.str.59, %if.end69 ], [ %isolation_level.2, %if.end77 ]
+  %noptargs.3 = phi i64 [ %noptargs.2, %if.end69 ], [ %dec78, %if.end77 ]
   %arrayidx83 = getelementptr i8, ptr %cond2571, i64 32
   %20 = load ptr, ptr %arrayidx83, align 8
   %tobool84.not = icmp eq ptr %20, null
@@ -601,25 +601,25 @@ if.then85:                                        ; preds = %if.end82
   br i1 %cmp88, label %exit, label %if.end90
 
 if.end90:                                         ; preds = %if.then85
-  %dec91 = add i64 %noptargs.2, -1
+  %dec91 = add i64 %noptargs.3, -1
   %tobool92.not = icmp eq i64 %dec91, 0
   br i1 %tobool92.not, label %skip_optional_kwonly, label %if.end95
 
 if.end95:                                         ; preds = %if.end90, %if.end82
-  %noptargs.3 = phi i64 [ %dec91, %if.end90 ], [ %noptargs.2, %if.end82 ]
-  %check_same_thread.0 = phi i32 [ %call87, %if.end90 ], [ 1, %if.end82 ]
+  %noptargs.4 = phi i64 [ %dec91, %if.end90 ], [ %noptargs.3, %if.end82 ]
+  %check_same_thread.1 = phi i32 [ %call87, %if.end90 ], [ 1, %if.end82 ]
   %arrayidx96 = getelementptr i8, ptr %cond2571, i64 40
   %21 = load ptr, ptr %arrayidx96, align 8
   %tobool97.not = icmp eq ptr %21, null
   br i1 %tobool97.not, label %if.end104, label %if.then98
 
 if.then98:                                        ; preds = %if.end95
-  %dec100 = add i64 %noptargs.3, -1
+  %dec100 = add i64 %noptargs.4, -1
   %tobool101.not = icmp eq i64 %dec100, 0
   br i1 %tobool101.not, label %skip_optional_kwonly, label %if.end104
 
 if.end104:                                        ; preds = %if.then98, %if.end95
-  %noptargs.4 = phi i64 [ %dec100, %if.then98 ], [ %noptargs.3, %if.end95 ]
+  %noptargs.5 = phi i64 [ %dec100, %if.then98 ], [ %noptargs.4, %if.end95 ]
   %arrayidx105 = getelementptr i8, ptr %cond2571, i64 48
   %22 = load ptr, ptr %arrayidx105, align 8
   %tobool106.not = icmp eq ptr %22, null
@@ -636,13 +636,13 @@ land.lhs.true111:                                 ; preds = %if.then107
   br i1 %tobool113.not, label %if.end115, label %exit
 
 if.end115:                                        ; preds = %land.lhs.true111, %if.then107
-  %dec116 = add i64 %noptargs.4, -1
+  %dec116 = add i64 %noptargs.5, -1
   %tobool117.not = icmp eq i64 %dec116, 0
   br i1 %tobool117.not, label %skip_optional_kwonly, label %if.end120
 
 if.end120:                                        ; preds = %if.end115, %if.end104
-  %noptargs.5 = phi i64 [ %dec116, %if.end115 ], [ %noptargs.4, %if.end104 ]
-  %cache_size.0 = phi i32 [ %call109, %if.end115 ], [ 128, %if.end104 ]
+  %noptargs.6 = phi i64 [ %dec116, %if.end115 ], [ %noptargs.5, %if.end104 ]
+  %cache_size.1 = phi i32 [ %call109, %if.end115 ], [ 128, %if.end104 ]
   %arrayidx121 = getelementptr i8, ptr %cond2571, i64 56
   %23 = load ptr, ptr %arrayidx121, align 8
   %tobool122.not = icmp eq ptr %23, null
@@ -654,7 +654,7 @@ if.then123:                                       ; preds = %if.end120
   br i1 %cmp126, label %exit, label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.then123
-  %tobool134.not = icmp eq i64 %noptargs.5, 1
+  %tobool134.not = icmp eq i64 %noptargs.6, 1
   br i1 %tobool134.not, label %skip_optional_kwonly, label %if.end136
 
 if.end136:                                        ; preds = %if.end120, %skip_optional_pos
@@ -689,13 +689,13 @@ autocommit_converter.exit:                        ; preds = %if.end3.i, %land.lh
 
 skip_optional_kwonly:                             ; preds = %land.lhs.true.i, %if.end.i, %if.end136, %if.end28, %if.end49, %if.end64, %if.end77, %if.end90, %if.then98, %if.end115, %skip_optional_pos
   %uri.088 = phi i32 [ %call125, %skip_optional_pos ], [ 0, %if.end115 ], [ 0, %if.then98 ], [ 0, %if.end90 ], [ 0, %if.end77 ], [ 0, %if.end64 ], [ 0, %if.end49 ], [ 0, %if.end28 ], [ %uri.0103, %if.end136 ], [ %uri.0103, %if.end.i ], [ %uri.0103, %land.lhs.true.i ]
-  %cache_size.187 = phi i32 [ %cache_size.0, %skip_optional_pos ], [ %call109, %if.end115 ], [ 128, %if.then98 ], [ 128, %if.end90 ], [ 128, %if.end77 ], [ 128, %if.end64 ], [ 128, %if.end49 ], [ 128, %if.end28 ], [ %cache_size.0, %if.end136 ], [ %cache_size.0, %if.end.i ], [ %cache_size.0, %land.lhs.true.i ]
-  %check_same_thread.186 = phi i32 [ %check_same_thread.0, %skip_optional_pos ], [ %check_same_thread.0, %if.end115 ], [ %check_same_thread.0, %if.then98 ], [ %call87, %if.end90 ], [ 1, %if.end77 ], [ 1, %if.end64 ], [ 1, %if.end49 ], [ 1, %if.end28 ], [ %check_same_thread.0, %if.end136 ], [ %check_same_thread.0, %if.end.i ], [ %check_same_thread.0, %land.lhs.true.i ]
-  %detect_types.185 = phi i32 [ %detect_types.0, %skip_optional_pos ], [ %detect_types.0, %if.end115 ], [ %detect_types.0, %if.then98 ], [ %detect_types.0, %if.end90 ], [ %detect_types.0, %if.end77 ], [ %call58, %if.end64 ], [ 0, %if.end49 ], [ 0, %if.end28 ], [ %detect_types.0, %if.end136 ], [ %detect_types.0, %if.end.i ], [ %detect_types.0, %land.lhs.true.i ]
-  %timeout.284 = phi double [ %timeout.1, %skip_optional_pos ], [ %timeout.1, %if.end115 ], [ %timeout.1, %if.then98 ], [ %timeout.1, %if.end90 ], [ %timeout.1, %if.end77 ], [ %timeout.1, %if.end64 ], [ %timeout.0, %if.end49 ], [ 5.000000e+00, %if.end28 ], [ %timeout.1, %if.end136 ], [ %timeout.1, %if.end.i ], [ %timeout.1, %land.lhs.true.i ]
-  %isolation_level.283 = phi ptr [ %isolation_level.1, %skip_optional_pos ], [ %isolation_level.1, %if.end115 ], [ %isolation_level.1, %if.then98 ], [ %isolation_level.1, %if.end90 ], [ %isolation_level.0, %if.end77 ], [ @.str.59, %if.end64 ], [ @.str.59, %if.end49 ], [ @.str.59, %if.end28 ], [ %isolation_level.1, %if.end136 ], [ %isolation_level.1, %if.end.i ], [ %isolation_level.1, %land.lhs.true.i ]
+  %cache_size.087 = phi i32 [ %cache_size.1, %skip_optional_pos ], [ %call109, %if.end115 ], [ 128, %if.then98 ], [ 128, %if.end90 ], [ 128, %if.end77 ], [ 128, %if.end64 ], [ 128, %if.end49 ], [ 128, %if.end28 ], [ %cache_size.1, %if.end136 ], [ %cache_size.1, %if.end.i ], [ %cache_size.1, %land.lhs.true.i ]
+  %check_same_thread.086 = phi i32 [ %check_same_thread.1, %skip_optional_pos ], [ %check_same_thread.1, %if.end115 ], [ %check_same_thread.1, %if.then98 ], [ %call87, %if.end90 ], [ 1, %if.end77 ], [ 1, %if.end64 ], [ 1, %if.end49 ], [ 1, %if.end28 ], [ %check_same_thread.1, %if.end136 ], [ %check_same_thread.1, %if.end.i ], [ %check_same_thread.1, %land.lhs.true.i ]
+  %detect_types.085 = phi i32 [ %detect_types.1, %skip_optional_pos ], [ %detect_types.1, %if.end115 ], [ %detect_types.1, %if.then98 ], [ %detect_types.1, %if.end90 ], [ %detect_types.1, %if.end77 ], [ %call58, %if.end64 ], [ 0, %if.end49 ], [ 0, %if.end28 ], [ %detect_types.1, %if.end136 ], [ %detect_types.1, %if.end.i ], [ %detect_types.1, %land.lhs.true.i ]
+  %timeout.084 = phi double [ %timeout.1, %skip_optional_pos ], [ %timeout.1, %if.end115 ], [ %timeout.1, %if.then98 ], [ %timeout.1, %if.end90 ], [ %timeout.1, %if.end77 ], [ %timeout.1, %if.end64 ], [ %timeout.2, %if.end49 ], [ 5.000000e+00, %if.end28 ], [ %timeout.1, %if.end136 ], [ %timeout.1, %if.end.i ], [ %timeout.1, %land.lhs.true.i ]
+  %isolation_level.083 = phi ptr [ %isolation_level.1, %skip_optional_pos ], [ %isolation_level.1, %if.end115 ], [ %isolation_level.1, %if.then98 ], [ %isolation_level.1, %if.end90 ], [ %isolation_level.2, %if.end77 ], [ @.str.59, %if.end64 ], [ @.str.59, %if.end49 ], [ @.str.59, %if.end28 ], [ %isolation_level.1, %if.end136 ], [ %isolation_level.1, %if.end.i ], [ %isolation_level.1, %land.lhs.true.i ]
   %cmp79.i = phi i1 [ false, %skip_optional_pos ], [ false, %if.end115 ], [ false, %if.then98 ], [ false, %if.end90 ], [ false, %if.end77 ], [ false, %if.end64 ], [ false, %if.end49 ], [ false, %if.end28 ], [ false, %if.end136 ], [ true, %if.end.i ], [ false, %land.lhs.true.i ]
-  %autocommit.1 = phi i32 [ -1, %skip_optional_pos ], [ -1, %if.end115 ], [ -1, %if.then98 ], [ -1, %if.end90 ], [ -1, %if.end77 ], [ -1, %if.end64 ], [ -1, %if.end49 ], [ -1, %if.end28 ], [ 1, %if.end136 ], [ 0, %if.end.i ], [ -1, %land.lhs.true.i ]
+  %autocommit.0 = phi i32 [ -1, %skip_optional_pos ], [ -1, %if.end115 ], [ -1, %if.then98 ], [ -1, %if.end90 ], [ -1, %if.end77 ], [ -1, %if.end64 ], [ -1, %if.end49 ], [ -1, %if.end28 ], [ 1, %if.end136 ], [ 0, %if.end.i ], [ -1, %land.lhs.true.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %bytes.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %db.i)
   %call.i61 = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.129, ptr noundef nonnull @.str.130, ptr noundef %7) #6
@@ -735,7 +735,7 @@ if.end13.i:                                       ; preds = %if.then5.i, %if.end
 
 if.then19.i:                                      ; preds = %if.end13.i
   %32 = load ptr, ptr %db.i, align 8
-  %mul.i = fmul double %timeout.284, 1.000000e+03
+  %mul.i = fmul double %timeout.084, 1.000000e+03
   %conv.i68 = fptosi double %mul.i to i32
   %call20.i = call i32 @sqlite3_busy_timeout(ptr noundef %32, i32 noundef %conv.i68) #6
   br label %if.end21.i
@@ -784,7 +784,7 @@ if.end35.i:                                       ; preds = %if.end28.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
   store ptr null, ptr %args.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
-  %conv.i.i = sext i32 %cache_size.187 to i64
+  %conv.i.i = sext i32 %cache_size.087 to i64
   %call.i67.i = call ptr @PyLong_FromLong(i64 noundef %conv.i.i) #6
   store ptr %call.i67.i, ptr %arrayinit.element.i.i, align 8
   %cmp.i68.i = icmp eq ptr %call.i67.i, null
@@ -906,13 +906,13 @@ if.end50.i:                                       ; preds = %if.end45.i
   %state52.i = getelementptr inbounds i8, ptr %self, i64 24
   store ptr %call.i.i.i, ptr %state52.i, align 8
   %detect_types53.i = getelementptr inbounds i8, ptr %self, i64 32
-  store i32 %detect_types.185, ptr %detect_types53.i, align 8
+  store i32 %detect_types.085, ptr %detect_types53.i, align 8
   %isolation_level54.i = getelementptr inbounds i8, ptr %self, i64 40
-  store ptr %isolation_level.283, ptr %isolation_level54.i, align 8
+  store ptr %isolation_level.083, ptr %isolation_level54.i, align 8
   %autocommit55.i = getelementptr inbounds i8, ptr %self, i64 48
-  store i32 %autocommit.1, ptr %autocommit55.i, align 8
+  store i32 %autocommit.0, ptr %autocommit55.i, align 8
   %check_same_thread56.i = getelementptr inbounds i8, ptr %self, i64 52
-  store i32 %check_same_thread.186, ptr %check_same_thread56.i, align 4
+  store i32 %check_same_thread.086, ptr %check_same_thread56.i, align 4
   %call57.i = call i64 @PyThread_get_thread_ident() #6
   %thread_ident.i = getelementptr inbounds i8, ptr %self, i64 64
   store i64 %call57.i, ptr %thread_ident.i, align 8
@@ -1918,7 +1918,7 @@ if.end36:                                         ; preds = %land.lhs.true32, %i
 
 if.end40:                                         ; preds = %if.end36, %if.end25
   %noptargs.0 = phi i64 [ %dec, %if.end36 ], [ %sub5762, %if.end25 ]
-  %pages.0 = phi i32 [ %call30, %if.end36 ], [ -1, %if.end25 ]
+  %pages.1 = phi i32 [ %call30, %if.end36 ], [ -1, %if.end25 ]
   %arrayidx41 = getelementptr i8, ptr %cond1064, i64 16
   %12 = load ptr, ptr %arrayidx41, align 8
   %tobool42.not = icmp eq ptr %12, null
@@ -1931,7 +1931,7 @@ if.then43:                                        ; preds = %if.end40
 
 if.end49:                                         ; preds = %if.then43, %if.end40
   %noptargs.1 = phi i64 [ %dec45, %if.then43 ], [ %noptargs.0, %if.end40 ]
-  %progress.0 = phi ptr [ %12, %if.then43 ], [ @_Py_NoneStruct, %if.end40 ]
+  %progress.1 = phi ptr [ %12, %if.then43 ], [ @_Py_NoneStruct, %if.end40 ]
   %arrayidx50 = getelementptr i8, ptr %cond1064, i64 24
   %13 = load ptr, ptr %arrayidx50, align 8
   %tobool51.not = icmp eq ptr %13, null
@@ -1971,7 +1971,7 @@ if.end68:                                         ; preds = %if.end64
   br i1 %tobool70.not, label %skip_optional_kwonly, label %if.end73
 
 if.end73:                                         ; preds = %if.end68, %if.end49
-  %name.0 = phi ptr [ %call61, %if.end68 ], [ @.str.37, %if.end49 ]
+  %name.1 = phi ptr [ %call61, %if.end68 ], [ @.str.37, %if.end49 ]
   %arrayidx74 = getelementptr i8, ptr %cond1064, i64 32
   %19 = load ptr, ptr %arrayidx74, align 8
   %20 = getelementptr i8, ptr %19, i64 8
@@ -1995,9 +1995,9 @@ land.lhs.true83:                                  ; preds = %if.else
   br i1 %tobool85.not, label %skip_optional_kwonly, label %exit
 
 skip_optional_kwonly:                             ; preds = %if.then77, %land.lhs.true83, %if.else, %if.end68, %if.then43, %if.end36, %if.end21
-  %pages.1 = phi i32 [ %pages.0, %if.then77 ], [ %pages.0, %land.lhs.true83 ], [ %pages.0, %if.else ], [ %pages.0, %if.end68 ], [ %pages.0, %if.then43 ], [ %call30, %if.end36 ], [ -1, %if.end21 ]
-  %progress.1 = phi ptr [ %progress.0, %if.then77 ], [ %progress.0, %land.lhs.true83 ], [ %progress.0, %if.else ], [ %progress.0, %if.end68 ], [ %12, %if.then43 ], [ @_Py_NoneStruct, %if.end36 ], [ @_Py_NoneStruct, %if.end21 ]
-  %name.1 = phi ptr [ %name.0, %if.then77 ], [ %name.0, %land.lhs.true83 ], [ %name.0, %if.else ], [ %call61, %if.end68 ], [ @.str.37, %if.then43 ], [ @.str.37, %if.end36 ], [ @.str.37, %if.end21 ]
+  %pages.0 = phi i32 [ %pages.1, %if.then77 ], [ %pages.1, %land.lhs.true83 ], [ %pages.1, %if.else ], [ %pages.1, %if.end68 ], [ %pages.1, %if.then43 ], [ %call30, %if.end36 ], [ -1, %if.end21 ]
+  %progress.0 = phi ptr [ %progress.1, %if.then77 ], [ %progress.1, %land.lhs.true83 ], [ %progress.1, %if.else ], [ %progress.1, %if.end68 ], [ %12, %if.then43 ], [ @_Py_NoneStruct, %if.end36 ], [ @_Py_NoneStruct, %if.end21 ]
+  %name.0 = phi ptr [ %name.1, %if.then77 ], [ %name.1, %land.lhs.true83 ], [ %name.1, %if.else ], [ %call61, %if.end68 ], [ @.str.37, %if.then43 ], [ @.str.37, %if.end36 ], [ @.str.37, %if.end21 ]
   %sleep.0 = phi double [ %.val39, %if.then77 ], [ -1.000000e+00, %land.lhs.true83 ], [ %call81, %if.else ], [ 2.500000e-01, %if.end68 ], [ 2.500000e-01, %if.then43 ], [ 2.500000e-01, %if.end36 ], [ 2.500000e-01, %if.end21 ]
   %mul.i = fmul double %sleep.0, 1.000000e+03
   %conv.i45 = fptosi double %mul.i to i32
@@ -2093,11 +2093,11 @@ if.then8.i:                                       ; preds = %if.end6.i
   br label %exit
 
 if.end9.i:                                        ; preds = %if.end6.i
-  %cmp10.not.i = icmp eq ptr %progress.1, @_Py_NoneStruct
+  %cmp10.not.i = icmp eq ptr %progress.0, @_Py_NoneStruct
   br i1 %cmp10.not.i, label %if.end15.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end9.i
-  %call12.i = call i32 @PyCallable_Check(ptr noundef %progress.1) #6
+  %call12.i = call i32 @PyCallable_Check(ptr noundef %progress.0) #6
   %tobool13.not.i = icmp eq i32 %call12.i, 0
   br i1 %tobool13.not.i, label %if.then14.i, label %land.lhs.true.if.end15_crit_edge.i
 
@@ -2112,11 +2112,11 @@ if.then14.i:                                      ; preds = %land.lhs.true.i
 
 if.end15.i:                                       ; preds = %land.lhs.true.if.end15_crit_edge.i, %if.end9.i
   %36 = phi ptr [ %.pre.i, %land.lhs.true.if.end15_crit_edge.i ], [ %31, %if.end9.i ]
-  %cmp16.i = icmp eq i32 %pages.1, 0
-  %spec.store.select.i = select i1 %cmp16.i, i32 -1, i32 %pages.1
+  %cmp16.i = icmp eq i32 %pages.0, 0
+  %spec.store.select.i = select i1 %cmp16.i, i32 -1, i32 %pages.0
   %call20.i = call ptr @PyEval_SaveThread() #6
   %37 = load ptr, ptr %db.i.i, align 8
-  %call22.i = call ptr @sqlite3_backup_init(ptr noundef %36, ptr noundef nonnull @.str.37, ptr noundef %37, ptr noundef %name.1) #6
+  %call22.i = call ptr @sqlite3_backup_init(ptr noundef %36, ptr noundef nonnull @.str.37, ptr noundef %37, ptr noundef %name.0) #6
   call void @PyEval_RestoreThread(ptr noundef %call20.i) #6
   %cmp23.i = icmp eq ptr %call22.i, null
   br i1 %cmp23.i, label %if.then25.i, label %do.body.preheader.i
@@ -2154,7 +2154,7 @@ do.body.preheader.split.i:                        ; preds = %do.body.preheader.i
   call void @PyEval_RestoreThread(ptr noundef %call2958.i) #6
   %call3460.i = call i32 @sqlite3_backup_remaining(ptr noundef nonnull %call22.i) #6
   %call3561.i = call i32 @sqlite3_backup_pagecount(ptr noundef nonnull %call22.i) #6
-  %call3662.i = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %progress.1, ptr noundef nonnull @.str.44, i32 noundef %call3059.i, i32 noundef %call3460.i, i32 noundef %call3561.i) #6
+  %call3662.i = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %progress.0, ptr noundef nonnull @.str.44, i32 noundef %call3059.i, i32 noundef %call3460.i, i32 noundef %call3561.i) #6
   %cmp3763.i = icmp eq ptr %call3662.i, null
   br i1 %cmp3763.i, label %if.then39.i, label %if.end43.i
 
@@ -2212,7 +2212,7 @@ do.body.backedge.i:                               ; preds = %do.cond.i, %do.cond
   call void @PyEval_RestoreThread(ptr noundef %call29.i) #6
   %call34.i = call i32 @sqlite3_backup_remaining(ptr noundef nonnull %call22.i) #6
   %call35.i = call i32 @sqlite3_backup_pagecount(ptr noundef nonnull %call22.i) #6
-  %call36.i = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %progress.1, ptr noundef nonnull @.str.44, i32 noundef %call30.i, i32 noundef %call34.i, i32 noundef %call35.i) #6
+  %call36.i = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %progress.0, ptr noundef nonnull @.str.44, i32 noundef %call30.i, i32 noundef %call34.i, i32 noundef %call35.i) #6
   %cmp37.i = icmp eq ptr %call36.i, null
   br i1 %cmp37.i, label %if.then39.i, label %if.end43.i
 
@@ -4525,7 +4525,7 @@ if.end58:                                         ; preds = %if.then53
   br i1 %tobool59.not, label %skip_optional_kwonly, label %if.end62
 
 if.end62:                                         ; preds = %if.end58, %if.end50
-  %readonly.0 = phi i32 [ %call55, %if.end58 ], [ 0, %if.end50 ]
+  %readonly.1 = phi i32 [ %call55, %if.end58 ], [ 0, %if.end50 ]
   %arrayidx63 = getelementptr i8, ptr %cond1051, i64 32
   %21 = load ptr, ptr %arrayidx63, align 8
   %22 = getelementptr i8, ptr %21, i64 8
@@ -4557,9 +4557,9 @@ if.then77:                                        ; preds = %if.end74
   br label %exit
 
 skip_optional_kwonly:                             ; preds = %if.end74, %if.end58, %if.end47
-  %readonly.1 = phi i32 [ %readonly.0, %if.end74 ], [ %call55, %if.end58 ], [ 0, %if.end47 ]
+  %readonly.0 = phi i32 [ %readonly.1, %if.end74 ], [ %call55, %if.end58 ], [ 0, %if.end47 ]
   %name.0 = phi ptr [ %call71, %if.end74 ], [ @.str.37, %if.end58 ], [ @.str.37, %if.end47 ]
-  %call79 = call fastcc ptr @blobopen_impl(ptr noundef %self, ptr noundef nonnull %call19, ptr noundef nonnull %call35, i64 noundef %call2.i, i32 noundef %readonly.1, ptr noundef nonnull %name.0)
+  %call79 = call fastcc ptr @blobopen_impl(ptr noundef %self, ptr noundef nonnull %call19, ptr noundef nonnull %call35, i64 noundef %call2.i, i32 noundef %readonly.0, ptr noundef nonnull %name.0)
   br label %exit
 
 exit:                                             ; preds = %sqlite3_int64_converter.exit.thread, %if.end69, %if.then53, %sqlite3_int64_converter.exit, %if.end33, %if.end17, %cond.end9, %skip_optional_kwonly, %if.then77, %if.then67, %if.then41, %if.then31, %if.then25, %if.then15
@@ -6199,7 +6199,7 @@ if.else.i16:                                      ; preds = %if.then10
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else.i16, %if.then.i14, %if.else, %if.then5, %land.lhs.true
-  %rc.0 = phi i32 [ -1, %land.lhs.true ], [ %call6, %if.then5 ], [ 1, %if.else ], [ 1, %if.then.i14 ], [ 1, %if.else.i16 ]
+  %rc.1 = phi i32 [ -1, %land.lhs.true ], [ %call6, %if.then5 ], [ 1, %if.else ], [ 1, %if.then.i14 ], [ 1, %if.else.i16 ]
   %10 = load i64, ptr %call2, align 8
   %11 = and i64 %10, 2147483648
   %cmp.i15.not = icmp eq i64 %11, 0
@@ -6216,9 +6216,9 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end13
 
 if.end13:                                         ; preds = %if.else.i, %if.then.i, %if.end.i, %if.then1.i, %if.end12
-  %rc.1 = phi i32 [ %rc.0, %if.end12 ], [ %rc.0, %if.then1.i ], [ %rc.0, %if.end.i ], [ 1, %if.then.i ], [ 1, %if.else.i ]
+  %rc.0 = phi i32 [ %rc.1, %if.end12 ], [ %rc.1, %if.then1.i ], [ %rc.1, %if.end.i ], [ 1, %if.then.i ], [ 1, %if.else.i ]
   tail call void @PyGILState_Release(i32 noundef %call) #6
-  ret i32 %rc.1
+  ret i32 %rc.0
 }
 
 ; Function Attrs: nounwind uwtable

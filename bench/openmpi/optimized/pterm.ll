@@ -1117,10 +1117,10 @@ define internal void @evhandler(i64 %0, i32 %1, ptr nocapture readnone %2, ptr n
   br i1 %or.cond, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %36
-  %.054 = phi ptr [ %.1, %36 ], [ null, %9 ]
+  %.154 = phi ptr [ %.2, %36 ], [ null, %9 ]
   %.03553 = phi i64 [ %37, %36 ], [ 0, %9 ]
-  %.03652 = phi i32 [ %.137, %36 ], [ 0, %9 ]
-  %.03951 = phi ptr [ %.140, %36 ], [ null, %9 ]
+  %.13752 = phi i32 [ %.238, %36 ], [ 0, %9 ]
+  %.14051 = phi ptr [ %.241, %36 ], [ null, %9 ]
   %11 = getelementptr inbounds %struct.pmix_info, ptr %3, i64 %.03553
   %12 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(21) @.str.44, i64 noundef 511) #16
   %13 = icmp eq i32 %12, 0
@@ -1164,36 +1164,36 @@ define internal void @evhandler(i64 %0, i32 %1, ptr nocapture readnone %2, ptr n
   br label %36
 
 36:                                               ; preds = %14, %27, %33, %30, %21
-  %.140 = phi ptr [ %.03951, %14 ], [ %.03951, %21 ], [ %29, %27 ], [ %.03951, %33 ], [ %.03951, %30 ]
-  %.137 = phi i32 [ %17, %14 ], [ %.03652, %21 ], [ %.03652, %27 ], [ %.03652, %33 ], [ %.03652, %30 ]
-  %.1 = phi ptr [ %.054, %14 ], [ %.054, %21 ], [ %.054, %27 ], [ %35, %33 ], [ %.054, %30 ]
+  %.241 = phi ptr [ %.14051, %14 ], [ %.14051, %21 ], [ %29, %27 ], [ %.14051, %33 ], [ %.14051, %30 ]
+  %.238 = phi i32 [ %17, %14 ], [ %.13752, %21 ], [ %.13752, %27 ], [ %.13752, %33 ], [ %.13752, %30 ]
+  %.2 = phi ptr [ %.154, %14 ], [ %.154, %21 ], [ %.154, %27 ], [ %35, %33 ], [ %.154, %30 ]
   %37 = add nuw i64 %.03553, 1
   %exitcond.not = icmp eq i64 %37, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %36
-  %.not44 = icmp eq ptr %.140, null
+  %.not44 = icmp eq ptr %.241, null
   br i1 %.not44, label %.thread, label %38
 
 38:                                               ; preds = %._crit_edge
-  %39 = getelementptr inbounds i8, ptr %.140, i64 212
-  store i32 %.137, ptr %39, align 4
-  %.not45 = icmp eq ptr %.1, null
+  %39 = getelementptr inbounds i8, ptr %.241, i64 212
+  store i32 %.238, ptr %39, align 4
+  %.not45 = icmp eq ptr %.2, null
   br i1 %.not45, label %43, label %40
 
 40:                                               ; preds = %38
-  %41 = call noalias ptr @strdup(ptr noundef nonnull %.1) #15
-  %42 = getelementptr inbounds i8, ptr %.140, i64 216
+  %41 = call noalias ptr @strdup(ptr noundef nonnull %.2) #15
+  %42 = getelementptr inbounds i8, ptr %.241, i64 216
   store ptr %41, ptr %42, align 8
   br label %43
 
 43:                                               ; preds = %38, %40
-  %44 = getelementptr inbounds i8, ptr %.140, i64 120
+  %44 = getelementptr inbounds i8, ptr %.241, i64 120
   %45 = call i32 @pthread_mutex_lock(ptr noundef nonnull %44) #15
-  %46 = getelementptr inbounds i8, ptr %.140, i64 208
+  %46 = getelementptr inbounds i8, ptr %.241, i64 208
   store volatile i8 0, ptr %46, align 8
   fence release
-  %47 = getelementptr inbounds i8, ptr %.140, i64 160
+  %47 = getelementptr inbounds i8, ptr %.241, i64 160
   %48 = call i32 @pthread_cond_broadcast(ptr noundef nonnull %47) #15
   %49 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %44) #15
   br label %.thread

@@ -274,7 +274,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %38, %153
   %46 = phi ptr [ %156, %153 ], [ %45, %38 ]
   %.0113 = phi i32 [ %47, %153 ], [ 0, %38 ]
-  %.055112 = phi ptr [ %.2, %153 ], [ null, %38 ]
+  %.055112 = phi ptr [ %.1, %153 ], [ null, %38 ]
   %47 = add nuw nsw i32 %.0113, 1
   %48 = getelementptr inbounds i8, ptr %46, i64 304
   %49 = load i32, ptr %48, align 8
@@ -336,7 +336,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   unreachable
 
 76:                                               ; preds = %71, %69
-  %.1 = phi ptr [ %.055112, %69 ], [ %72, %71 ]
+  %.2 = phi ptr [ %.055112, %69 ], [ %72, %71 ]
   call void @set_node_down_ptr(ptr noundef nonnull %46, ptr noundef nonnull @.str.6) #6
   %77 = getelementptr inbounds i8, ptr %46, i64 308
   store i8 0, ptr %77, align 4
@@ -475,7 +475,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
   br label %153
 
 153:                                              ; preds = %125, %58, %145, %149, %122, %108, %112, %.lr.ph, %52, %76
-  %.2 = phi ptr [ %.055112, %.lr.ph ], [ %.055112, %52 ], [ %.055112, %112 ], [ %.055112, %108 ], [ %.055112, %149 ], [ %.055112, %145 ], [ %.055112, %122 ], [ %.1, %76 ], [ %.055112, %58 ], [ %.055112, %125 ]
+  %.1 = phi ptr [ %.055112, %.lr.ph ], [ %.055112, %52 ], [ %.055112, %112 ], [ %.055112, %108 ], [ %.055112, %149 ], [ %.055112, %145 ], [ %.055112, %122 ], [ %.2, %76 ], [ %.055112, %58 ], [ %.055112, %125 ]
   %154 = load i32, ptr %1, align 4
   %155 = add nsw i32 %154, 1
   store i32 %155, ptr %1, align 4
@@ -489,7 +489,7 @@ define dso_local void @ping_nodes() local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %38
   %157 = phi ptr [ %9, %38 ], [ %.pre, %._crit_edge.loopexit ]
-  %.055.lcssa = phi ptr [ null, %38 ], [ %.2, %._crit_edge.loopexit ]
+  %.055.lcssa = phi ptr [ null, %38 ], [ %.1, %._crit_edge.loopexit ]
   store i1 true, ptr @ping_nodes.restart_flag, align 1
   %158 = load i32, ptr %157, align 8
   %159 = icmp eq i32 %158, 0

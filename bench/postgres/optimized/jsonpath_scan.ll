@@ -2230,7 +2230,7 @@ hexval.exit:                                      ; preds = %23
 .lr.ph:                                           ; preds = %.preheader62, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ %6, %.preheader62 ]
   %.02777 = phi i32 [ %48, %44 ], [ 0, %.preheader62 ]
-  %.176 = phi i32 [ %47, %44 ], [ 0, %.preheader62 ]
+  %.276 = phi i32 [ %47, %44 ], [ 0, %.preheader62 ]
   %36 = getelementptr i8, ptr %0, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
@@ -2256,7 +2256,7 @@ hexval.exit38:                                    ; preds = %42
   %.sink117 = phi i32 [ -48, %.lr.ph ], [ -87, %40 ], [ -55, %42 ]
   %45 = add nsw i32 %.sink117, %38
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %46 = shl i32 %.176, 4
+  %46 = shl i32 %.276, 4
   %47 = or i32 %45, %46
   %48 = add nuw nsw i32 %.02777, 1
   %49 = icmp ult i32 %.02777, 3
@@ -2269,9 +2269,9 @@ hexval.exit38:                                    ; preds = %42
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge
-  %.3 = phi i32 [ %35, %._crit_edge ], [ %52, %.loopexit.loopexit ]
-  %.2 = phi i32 [ %.028.lcssa, %._crit_edge ], [ %47, %.loopexit.loopexit ]
-  %53 = and i32 %.2, -1024
+  %.231 = phi i32 [ %35, %._crit_edge ], [ %52, %.loopexit.loopexit ]
+  %.1 = phi i32 [ %.028.lcssa, %._crit_edge ], [ %47, %.loopexit.loopexit ]
+  %53 = and i32 %.1, -1024
   %.not.i = icmp eq i32 %.04785, -1
   switch i32 %53, label %74 [
     i32 55296, label %54
@@ -2310,7 +2310,7 @@ hexval.exit38:                                    ; preds = %42
   %69 = shl i32 %.04785, 10
   %70 = and i32 %69, 1047552
   %71 = add nuw nsw i32 %70, 65536
-  %72 = and i32 %.2, 1023
+  %72 = and i32 %.1, 1023
   %73 = or disjoint i32 %72, %71
   br label %addUnicode.exit
 
@@ -2329,26 +2329,26 @@ hexval.exit38:                                    ; preds = %42
   br label %addUnicode.exit.thread
 
 addUnicode.exit:                                  ; preds = %.loopexit.thread, %68, %74
-  %.3103 = phi i32 [ %.3, %68 ], [ %.3, %74 ], [ %.02987, %.loopexit.thread ]
-  %.021.i = phi i32 [ %73, %68 ], [ %.2, %74 ], [ 0, %.loopexit.thread ]
+  %.231103 = phi i32 [ %.231, %68 ], [ %.231, %74 ], [ %.02987, %.loopexit.thread ]
+  %.021.i = phi i32 [ %73, %68 ], [ %.1, %74 ], [ 0, %.loopexit.thread ]
   %81 = tail call fastcc zeroext i1 @addUnicodeChar(i32 noundef %.021.i, ptr noundef %2)
-  %82 = add i32 %.3103, 2
+  %82 = add i32 %.231103, 2
   %83 = icmp slt i32 %82, %1
   %or.cond = select i1 %81, i1 %83, i1 false
   br i1 %or.cond, label %.lr.ph89.backedge, label %addUnicode.exit.thread
 
 addUnicode.exit.thread58:                         ; preds = %54
-  %84 = add i32 %.3, 2
+  %84 = add i32 %.231, 2
   %85 = icmp slt i32 %84, %1
   br i1 %85, label %.lr.ph89.backedge, label %._crit_edge90
 
 .lr.ph89.backedge:                                ; preds = %addUnicode.exit.thread58, %addUnicode.exit
   %.02987.be = phi i32 [ %84, %addUnicode.exit.thread58 ], [ %82, %addUnicode.exit ]
-  %.04785.be = phi i32 [ %.2, %addUnicode.exit.thread58 ], [ -1, %addUnicode.exit ]
+  %.04785.be = phi i32 [ %.1, %addUnicode.exit.thread58 ], [ -1, %addUnicode.exit ]
   br label %.lr.ph89, !llvm.loop !16
 
 ._crit_edge90:                                    ; preds = %addUnicode.exit.thread58
-  %86 = icmp eq i32 %.2, -1
+  %86 = icmp eq i32 %.1, -1
   br i1 %86, label %addUnicode.exit.thread, label %87
 
 87:                                               ; preds = %._crit_edge90

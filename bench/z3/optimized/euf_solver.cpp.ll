@@ -6240,8 +6240,8 @@ if.end15:                                         ; preds = %if.then11, %if.else
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end15, %_ZN3euf6solver13eq_constraintEv.exit
-  %b.1 = phi ptr [ %9, %_ZN3euf6solver13eq_constraintEv.exit ], [ null, %if.end15 ]
-  %a.1 = phi ptr [ %8, %_ZN3euf6solver13eq_constraintEv.exit ], [ null, %if.end15 ]
+  %b.0 = phi ptr [ %9, %_ZN3euf6solver13eq_constraintEv.exit ], [ null, %if.end15 ]
+  %a.0 = phi ptr [ %8, %_ZN3euf6solver13eq_constraintEv.exit ], [ null, %if.end15 ]
   %storemerge.in.sroa.speculated = phi i32 [ %shl.i, %_ZN3euf6solver13eq_constraintEv.exit ], [ %add.i, %if.end15 ]
   %cnstr.0.in = phi ptr [ %add.ptr.i.i.i14, %_ZN3euf6solver13eq_constraintEv.exit ], [ %call3.i, %if.end15 ]
   %cnstr.0 = ptrtoint ptr %cnstr.0.in to i64
@@ -6261,9 +6261,9 @@ land.lhs.true:                                    ; preds = %if.end20
   %m_ackerman = getelementptr inbounds i8, ptr %this, i64 2312
   %20 = load ptr, ptr %m_ackerman, align 8
   %cmp.i20 = icmp ne ptr %20, null
-  %tobool28 = icmp ne ptr %a.1, null
+  %tobool28 = icmp ne ptr %a.0, null
   %or.cond = select i1 %cmp.i20, i1 %tobool28, i1 false
-  %tobool30 = icmp ne ptr %b.1, null
+  %tobool30 = icmp ne ptr %b.0, null
   %or.cond1 = select i1 %or.cond, i1 %tobool30, i1 false
   br i1 %or.cond1, label %if.then31, label %sw.bb55.thread
 
@@ -6277,7 +6277,7 @@ sw.bb55.thread:                                   ; preds = %land.lhs.true
   br label %sw.bb.i
 
 if.then31:                                        ; preds = %land.lhs.true
-  tail call void @_ZN3euf8ackerman14cg_conflict_ehEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(68) %20, ptr noundef nonnull %a.1, ptr noundef nonnull %b.1)
+  tail call void @_ZN3euf8ackerman14cg_conflict_ehEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(68) %20, ptr noundef nonnull %a.0, ptr noundef nonnull %b.0)
   %.pre = load ptr, ptr %m_solver.i, align 8
   %m_assignment.i22.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 3440
   %.pre43 = load ptr, ptr %m_assignment.i22.phi.trans.insert, align 8

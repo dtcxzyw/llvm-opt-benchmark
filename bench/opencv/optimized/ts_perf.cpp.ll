@@ -2164,14 +2164,14 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exi
 
 116:                                              ; preds = %114, %112
   %.pn53 = phi { ptr, i32 } [ %115, %114 ], [ %113, %112 ]
-  %.641 = extractvalue { ptr, i32 } %.pn53, 1
+  %.742 = extractvalue { ptr, i32 } %.pn53, 1
   %117 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN2cv9ExceptionE) #32
-  %118 = icmp eq i32 %.641, %117
+  %118 = icmp eq i32 %.742, %117
   br i1 %118, label %119, label %common.resume
 
 119:                                              ; preds = %116
-  %.6 = extractvalue { ptr, i32 } %.pn53, 0
-  %120 = call ptr @__cxa_begin_catch(ptr %.6) #32
+  %.7 = extractvalue { ptr, i32 } %.pn53, 0
+  %120 = call ptr @__cxa_begin_catch(ptr %.7) #32
   %121 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #32
   %122 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, ptr noundef %121)
   %putchar55 = call i32 @putchar(i32 10)
@@ -11915,8 +11915,8 @@ _ZL24savePerfValidationResultRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %278
 
 .thread:                                          ; preds = %126, %122, %77, %137, %.thread120
-  %.352 = phi i1 [ %276, %.thread120 ], [ %.049.shrunk, %137 ], [ true, %77 ], [ true, %122 ], [ true, %126 ]
-  ret i1 %.352
+  %.150 = phi i1 [ %276, %.thread120 ], [ %.049.shrunk, %137 ], [ true, %77 ], [ true, %122 ], [ true, %126 ]
+  ret i1 %.150
 
 278:                                              ; preds = %206, %207, %277, %104, %76, %51
   %.pn77.pn = phi { ptr, i32 } [ %.pn77, %277 ], [ %208, %207 ], [ %.pn67.pn, %206 ], [ %.pn63, %104 ], [ %.pn61, %76 ], [ %.pn, %51 ]
@@ -12219,7 +12219,7 @@ _ZNK4perf8TestBase18getTotalOutputSizeEv.exit:    ; preds = %.lr.ph.i100, %_ZNK4
   br label %235
 
 .thread:                                          ; preds = %.preheader127, %.lr.ph.preheader, %132, %._crit_edge, %97, %131
-  %.sroa.0112.2 = phi ptr [ %.sroa.0112.0, %131 ], [ %67, %97 ], [ %67, %._crit_edge ], [ %67, %132 ], [ %scevgep, %.lr.ph.preheader ], [ %67, %.preheader127 ]
+  %.sroa.0112.1 = phi ptr [ %.sroa.0112.0, %131 ], [ %67, %97 ], [ %67, %._crit_edge ], [ %67, %132 ], [ %scevgep, %.lr.ph.preheader ], [ %67, %.preheader127 ]
   %.sroa.0118.1 = phi ptr [ %.sroa.0118.0.lcssa, %131 ], [ %66, %97 ], [ %66, %._crit_edge ], [ %66, %132 ], [ %66, %.lr.ph.preheader ], [ %66, %.preheader127 ]
   %153 = load ptr, ptr %21, align 8
   %154 = ptrtoint ptr %.sroa.0118.1 to i64
@@ -12235,7 +12235,7 @@ _ZNK4perf8TestBase18getTotalOutputSizeEv.exit:    ; preds = %.lr.ph.i100, %_ZNK4
   %164 = fdiv double %160, %163
   %165 = getelementptr inbounds i8, ptr %0, i64 208
   store double %164, ptr %165, align 8
-  %.not126146 = icmp eq ptr %.sroa.0118.1, %.sroa.0112.2
+  %.not126146 = icmp eq ptr %.sroa.0118.1, %.sroa.0112.1
   br i1 %.not126146, label %._crit_edge155, label %.lr.ph154
 
 .lr.ph154:                                        ; preds = %.thread, %181
@@ -12277,7 +12277,7 @@ _ZNK4perf8TestBase18getTotalOutputSizeEv.exit:    ; preds = %.lr.ph.i100, %_ZNK4
   %187 = fsub double %170, %186
   %188 = tail call double @llvm.fmuladd.f64(double %183, double %187, double %.073152)
   %189 = getelementptr inbounds i8, ptr %.sroa.0118.2147, i64 8
-  %.not126 = icmp eq ptr %189, %.sroa.0112.2
+  %.not126 = icmp eq ptr %189, %.sroa.0112.1
   br i1 %.not126, label %._crit_edge155, label %.lr.ph154, !llvm.loop !86
 
 ._crit_edge155:                                   ; preds = %181, %.thread
@@ -15656,7 +15656,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vec
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %118, %.loopexit.loopexit ]
+  %.sroa.0.2 = phi ptr [ null, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %118, %.loopexit.loopexit ]
   %.sroa.11.0 = phi ptr [ null, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %124, %.loopexit.loopexit ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %123, %.loopexit.loopexit ]
   %125 = getelementptr inbounds i8, ptr %7, i64 64
@@ -15693,7 +15693,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vec
   %142 = sext i32 %141 to i64
   %143 = load ptr, ptr %0, align 8
   %144 = getelementptr inbounds %"class.cv::KeyPoint", ptr %143, i64 %142
-  %145 = getelementptr inbounds %"class.cv::KeyPoint", ptr %.sroa.0.0, i64 %indvars.iv61
+  %145 = getelementptr inbounds %"class.cv::KeyPoint", ptr %.sroa.0.2, i64 %indvars.iv61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %145, ptr noundef nonnull align 4 dereferenceable(28) %144, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -15772,7 +15772,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vec
 ._crit_edge58:                                    ; preds = %154, %.preheader
   %169 = load ptr, ptr %0, align 8
   %170 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.0.0, ptr %0, align 8
+  store ptr %.sroa.0.2, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i, ptr %22, align 8
   store ptr %.sroa.11.0, ptr %170, align 8
   %171 = getelementptr inbounds i8, ptr %15, i64 8
@@ -15820,19 +15820,19 @@ _ZN2cv10AutoBufferIiLm264EED2Ev.exit:             ; preds = %_ZNSt6vectorIN2cv8K
   br label %182
 
 182:                                              ; preds = %180, %168, %162
-  %.sroa.0.1 = phi ptr [ %.sroa.0.0, %168 ], [ %.sroa.0.0, %162 ], [ %169, %180 ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %168 ], [ %.sroa.0.2, %162 ], [ %169, %180 ]
   %.pn29.pn.pn = phi { ptr, i32 } [ %.pn29.pn, %168 ], [ %163, %162 ], [ %181, %180 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #32
   br label %183
 
 183:                                              ; preds = %182, %160
-  %.sroa.0.2 = phi ptr [ %.sroa.0.1, %182 ], [ %.sroa.0.0, %160 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %182 ], [ %.sroa.0.2, %160 ]
   %.pn29.pn.pn.pn = phi { ptr, i32 } [ %.pn29.pn.pn, %182 ], [ %161, %160 ]
-  %.not.i.i.i44 = icmp eq ptr %.sroa.0.2, null
+  %.not.i.i.i44 = icmp eq ptr %.sroa.0.0, null
   br i1 %.not.i.i.i44, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit45, label %184
 
 184:                                              ; preds = %183
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2) #33
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #33
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit45
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit45:   ; preds = %184, %183, %158

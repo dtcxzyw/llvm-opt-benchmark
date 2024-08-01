@@ -1220,7 +1220,7 @@ if.end30:                                         ; preds = %land.lhs.true26, %i
   br i1 %tobool31.not, label %skip_optional_pos, label %if.end34
 
 if.end34:                                         ; preds = %if.end30, %if.end20
-  %sizehint.0 = phi i32 [ %call24, %if.end30 ], [ -1, %if.end20 ]
+  %sizehint.1 = phi i32 [ %call24, %if.end30 ], [ -1, %if.end20 ]
   %arrayidx35 = getelementptr i8, ptr %cond1629, i64 8
   %4 = load ptr, ptr %arrayidx35, align 8
   %call36 = call i32 @PyLong_AsInt(ptr noundef %4) #8
@@ -1233,10 +1233,10 @@ land.lhs.true38:                                  ; preds = %if.end34
   br i1 %tobool40.not, label %skip_optional_pos, label %exit
 
 skip_optional_pos:                                ; preds = %if.end34, %land.lhs.true38, %if.end30
-  %sizehint.1 = phi i32 [ %sizehint.0, %land.lhs.true38 ], [ %sizehint.0, %if.end34 ], [ %call24, %if.end30 ]
+  %sizehint.0 = phi i32 [ %sizehint.1, %land.lhs.true38 ], [ %sizehint.1, %if.end34 ], [ %call24, %if.end30 ]
   %flags.0 = phi i32 [ -1, %land.lhs.true38 ], [ %call36, %if.end34 ], [ 0, %if.end30 ]
-  %cmp.i = icmp ne i32 %sizehint.1, -1
-  %cmp1.i = icmp slt i32 %sizehint.1, 1
+  %cmp.i = icmp ne i32 %sizehint.0, -1
+  %cmp1.i = icmp slt i32 %sizehint.0, 1
   %or.cond = and i1 %cmp.i, %cmp1.i
   br i1 %or.cond, label %if.then2.i, label %if.end3.i
 
@@ -1326,11 +1326,11 @@ if.then6.i.i:                                     ; preds = %if.then.i.i
   br label %pyepoll_internal_close.exit.i
 
 pyepoll_internal_close.exit.i:                    ; preds = %if.then6.i.i, %if.then.i.i
-  %save_errno.0.i.i = phi i32 [ %1, %if.then6.i.i ], [ 0, %if.then.i.i ]
+  %save_errno.1.i.i = phi i32 [ %1, %if.then6.i.i ], [ 0, %if.then.i.i ]
   tail call void @PyEval_RestoreThread(ptr noundef %call.i.i) #8
   %call1.i = tail call ptr @__errno_location() #9
-  store i32 %save_errno.0.i.i, ptr %call1.i, align 4
-  %cmp.i = icmp slt i32 %save_errno.0.i.i, 0
+  store i32 %save_errno.1.i.i, ptr %call1.i, align 4
+  %cmp.i = icmp slt i32 %save_errno.1.i.i, 0
   br i1 %cmp.i, label %if.then.i, label %select_epoll_close_impl.exit
 
 if.then.i:                                        ; preds = %pyepoll_internal_close.exit.i
@@ -1670,7 +1670,7 @@ if.then16:                                        ; preds = %if.end14
   br i1 %tobool18.not, label %skip_optional_pos, label %if.end21
 
 if.end21:                                         ; preds = %if.then16, %if.end14
-  %timeout_obj.0 = phi ptr [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end14 ]
+  %timeout_obj.1 = phi ptr [ %3, %if.then16 ], [ @_Py_NoneStruct, %if.end14 ]
   %arrayidx22 = getelementptr i8, ptr %cond1028, i64 8
   %4 = load ptr, ptr %arrayidx22, align 8
   %call23 = call i32 @PyLong_AsInt(ptr noundef %4) #8
@@ -1683,7 +1683,7 @@ land.lhs.true25:                                  ; preds = %if.end21
   br i1 %tobool27.not, label %skip_optional_pos, label %exit
 
 skip_optional_pos:                                ; preds = %if.end21, %land.lhs.true25, %if.then16
-  %timeout_obj.1 = phi ptr [ %timeout_obj.0, %land.lhs.true25 ], [ %timeout_obj.0, %if.end21 ], [ %3, %if.then16 ]
+  %timeout_obj.0 = phi ptr [ %timeout_obj.1, %land.lhs.true25 ], [ %timeout_obj.1, %if.end21 ], [ %3, %if.then16 ]
   %maxevents.0 = phi i32 [ -1, %land.lhs.true25 ], [ %call23, %if.end21 ], [ -1, %if.then16 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %timeout.i)
   store i64 -1, ptr %timeout.i, align 8
@@ -1706,11 +1706,11 @@ if.then.i:                                        ; preds = %skip_optional_pos.t
   br label %select_epoll_poll_impl.exit
 
 if.end.i:                                         ; preds = %skip_optional_pos
-  %cmp1.not.i = icmp eq ptr %timeout_obj.1, @_Py_NoneStruct
+  %cmp1.not.i = icmp eq ptr %timeout_obj.0, @_Py_NoneStruct
   br i1 %cmp1.not.i, label %if.end22.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %call3.i = call i32 @_PyTime_FromSecondsObject(ptr noundef nonnull %timeout.i, ptr noundef %timeout_obj.1, i32 noundef 3) #8
+  %call3.i = call i32 @_PyTime_FromSecondsObject(ptr noundef nonnull %timeout.i, ptr noundef %timeout_obj.0, i32 noundef 3) #8
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then5.i, label %if.end9.i
 
@@ -2386,7 +2386,7 @@ if.else120.i:                                     ; preds = %if.else110.i
   br label %if.end122.i
 
 if.end122.i:                                      ; preds = %if.else120.i, %if.else110.i
-  %ret.0.i = phi ptr [ %call121.i, %if.else120.i ], [ null, %if.else110.i ]
+  %ret.1.i = phi ptr [ %call121.i, %if.else120.i ], [ null, %if.else110.i ]
   %cmp.not.i.i = icmp eq ptr %call112.i, null
   br i1 %cmp.not.i.i, label %Py_XDECREF.exit.i, label %if.then.i.i
 
@@ -2447,7 +2447,7 @@ if.then1.i.i37.i:                                 ; preds = %if.end.i.i34.i
   br label %finally.i
 
 finally.i:                                        ; preds = %if.end59.i, %if.end59.i.us, %if.then1.i.i37.i, %if.end.i.i34.i, %if.then.i32.i, %Py_XDECREF.exit30.i, %if.then108.i, %if.end26.i, %if.end21.i, %if.end13.i
-  %ret.1.i = phi ptr [ null, %if.end13.i ], [ null, %if.end21.i ], [ null, %if.end26.i ], [ null, %if.then108.i ], [ %ret.0.i, %Py_XDECREF.exit30.i ], [ %ret.0.i, %if.then.i32.i ], [ %ret.0.i, %if.end.i.i34.i ], [ %ret.0.i, %if.then1.i.i37.i ], [ null, %if.end59.i.us ], [ null, %if.end59.i ]
+  %ret.0.i = phi ptr [ null, %if.end13.i ], [ null, %if.end21.i ], [ null, %if.end26.i ], [ null, %if.then108.i ], [ %ret.1.i, %Py_XDECREF.exit30.i ], [ %ret.1.i, %if.then.i32.i ], [ %ret.1.i, %if.end.i.i34.i ], [ %ret.1.i, %if.then1.i.i37.i ], [ null, %if.end59.i.us ], [ null, %if.end59.i ]
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.inc.i.i, %finally.i
@@ -2569,7 +2569,7 @@ return.sink.split.i:                              ; preds = %if.end9.i, %if.then
   br label %select_select_impl.exit
 
 select_select_impl.exit:                          ; preds = %land.rhs.i62.i, %for.inc.i72.i, %if.then2.i, %if.end5.i, %return.sink.split.i
-  %retval.0.i = phi ptr [ null, %if.then2.i ], [ null, %if.end5.i ], [ null, %return.sink.split.i ], [ %ret.1.i, %for.inc.i72.i ], [ %ret.1.i, %land.rhs.i62.i ]
+  %retval.0.i = phi ptr [ null, %if.then2.i ], [ null, %if.end5.i ], [ null, %return.sink.split.i ], [ %ret.0.i, %for.inc.i72.i ], [ %ret.0.i, %land.rhs.i62.i ]
   call void @llvm.lifetime.end.p0(i64 16400, ptr nonnull %rfd2obj.i)
   call void @llvm.lifetime.end.p0(i64 16400, ptr nonnull %wfd2obj.i)
   call void @llvm.lifetime.end.p0(i64 16400, ptr nonnull %efd2obj.i)

@@ -281,7 +281,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
 
 13:                                               ; preds = %35, %10
   %.025.i = phi ptr [ null, %10 ], [ %.227.i, %35 ]
-  %.023.i = phi ptr [ null, %10 ], [ %.124.i, %35 ]
+  %.023.i = phi ptr [ null, %10 ], [ %.2.i, %35 ]
   %.020.i = phi ptr [ %12, %10 ], [ %38, %35 ]
   %14 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.020.i, i32 noundef 61) #11
   %.not.i = icmp eq ptr %14, null
@@ -336,7 +336,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
 
 35:                                               ; preds = %29, %26, %19
   %.227.i = phi ptr [ %.025.i, %19 ], [ %.025.i, %29 ], [ %23, %26 ]
-  %.124.i = phi ptr [ %.023.i, %19 ], [ %23, %29 ], [ %23, %26 ]
+  %.2.i = phi ptr [ %.023.i, %19 ], [ %23, %29 ], [ %23, %26 ]
   %36 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 44) #11
   %37 = icmp eq ptr %36, null
   %38 = getelementptr inbounds i8, ptr %36, i64 1
@@ -344,16 +344,16 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
   br i1 %37, label %39, label %13
 
 39:                                               ; preds = %35, %13
-  %.3.i = phi ptr [ %.227.i, %35 ], [ %.025.i, %13 ]
-  %.2.i = phi ptr [ %.124.i, %35 ], [ %.023.i, %13 ]
-  %.not33.i = icmp eq ptr %.3.i, null
+  %.126.i = phi ptr [ %.227.i, %35 ], [ %.025.i, %13 ]
+  %.124.i = phi ptr [ %.2.i, %35 ], [ %.023.i, %13 ]
+  %.not33.i = icmp eq ptr %.126.i, null
   br i1 %.not33.i, label %_ZN6googleL16VLOG2InitializerEv.exit, label %40
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr @_ZN6googleL12vmodule_listE, align 8
-  %42 = getelementptr inbounds i8, ptr %.2.i, i64 40
+  %42 = getelementptr inbounds i8, ptr %.124.i, i64 40
   store ptr %41, ptr %42, align 8
-  store ptr %.3.i, ptr @_ZN6googleL12vmodule_listE, align 8
+  store ptr %.126.i, ptr @_ZN6googleL12vmodule_listE, align 8
   br label %_ZN6googleL16VLOG2InitializerEv.exit
 
 _ZN6googleL16VLOG2InitializerEv.exit:             ; preds = %39, %40

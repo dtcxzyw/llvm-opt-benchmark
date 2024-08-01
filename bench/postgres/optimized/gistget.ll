@@ -751,7 +751,7 @@ BufferGetPage.exit:                               ; preds = %23, %29
   br i1 %155, label %148, label %gistindex_keytest.exit, !llvm.loop !9
 
 156:                                              ; preds = %.thread181, %.lr.ph.i
-  %.0136 = phi i8 [ 0, %.lr.ph.i ], [ %.1137, %.thread181 ]
+  %.1137 = phi i8 [ 0, %.lr.ph.i ], [ %.2138, %.thread181 ]
   %.06680.i = phi ptr [ %128, %.lr.ph.i ], [ %239, %.thread181 ]
   %.06779.i = phi i32 [ %129, %.lr.ph.i ], [ %240, %.thread181 ]
   %157 = getelementptr inbounds i8, ptr %.06680.i, i64 4
@@ -892,18 +892,18 @@ index_getattr.exit125.thread:                     ; preds = %198
 
 236:                                              ; preds = %220
   %237 = load i8, ptr %6, align 1
-  %238 = or i8 %237, %.0136
+  %238 = or i8 %237, %.1137
   br label %.thread181
 
 .thread181:                                       ; preds = %index_getattr.exit125.thread, %.thread176, %215, %236
-  %.1137 = phi i8 [ %238, %236 ], [ %.0136, %215 ], [ %.0136, %.thread176 ], [ %.0136, %index_getattr.exit125.thread ]
+  %.2138 = phi i8 [ %238, %236 ], [ %.1137, %215 ], [ %.1137, %.thread176 ], [ %.1137, %index_getattr.exit125.thread ]
   %239 = getelementptr i8, ptr %.06680.i, i64 72
   %240 = add nsw i32 %.06779.i, -1
   %241 = icmp sgt i32 %.06779.i, 1
   br i1 %241, label %156, label %._crit_edge.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %.thread181, %.preheader77.i
-  %.2138 = phi i8 [ 0, %.preheader77.i ], [ %.1137, %.thread181 ]
+  %.0136 = phi i8 [ 0, %.preheader77.i ], [ %.2138, %.thread181 ]
   %242 = load i32, ptr %101, align 4
   %243 = icmp sgt i32 %242, 0
   br i1 %243, label %.lr.ph86.i, label %gistindex_keytest.exit
@@ -1053,7 +1053,7 @@ index_getattr.exit.thread:                        ; preds = %292, %index_getattr
   br i1 %328, label %250, label %gistindex_keytest.exit, !llvm.loop !11
 
 gistindex_keytest.exit:                           ; preds = %index_getattr.exit125.thread, %215, %220, %index_getattr.exit.thread, %148, %.preheader.i, %._crit_edge.i
-  %.3 = phi i8 [ 0, %.preheader.i ], [ %.2138, %._crit_edge.i ], [ 0, %148 ], [ %.2138, %index_getattr.exit.thread ], [ %.0136, %220 ], [ %.0136, %215 ], [ %.0136, %index_getattr.exit125.thread ]
+  %.3 = phi i8 [ 0, %.preheader.i ], [ %.0136, %._crit_edge.i ], [ 0, %148 ], [ %.0136, %index_getattr.exit.thread ], [ %.1137, %220 ], [ %.1137, %215 ], [ %.1137, %index_getattr.exit125.thread ]
   %.2 = phi i8 [ 0, %.preheader.i ], [ 0, %._crit_edge.i ], [ 0, %148 ], [ %.1, %index_getattr.exit.thread ], [ 0, %220 ], [ 0, %215 ], [ 0, %index_getattr.exit125.thread ]
   %.0.i119 = phi i1 [ true, %.preheader.i ], [ true, %._crit_edge.i ], [ true, %148 ], [ true, %index_getattr.exit.thread ], [ false, %220 ], [ false, %215 ], [ false, %index_getattr.exit125.thread ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)

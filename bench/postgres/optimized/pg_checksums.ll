@@ -378,8 +378,8 @@ sub_255:                                          ; preds = %sub_154
 
 76:                                               ; preds = %74, %69
   %77 = phi i32 [ %70, %69 ], [ %.pre, %74 ]
-  %.2 = phi ptr [ %73, %69 ], [ %75, %74 ]
-  %78 = icmp eq ptr %.2, null
+  %.3 = phi ptr [ %73, %69 ], [ %75, %74 ]
+  %78 = icmp eq ptr %.3, null
   br i1 %78, label %79, label %81
 
 79:                                               ; preds = %76
@@ -391,7 +391,7 @@ sub_255:                                          ; preds = %sub_154
 
 81:                                               ; preds = %76, %65
   %82 = phi i32 [ %77, %76 ], [ %.pre, %65 ]
-  %.3 = phi ptr [ %.2, %76 ], [ %.0, %65 ]
+  %.2 = phi ptr [ %.3, %76 ], [ %.0, %65 ]
   %83 = icmp slt i32 %82, %0
   br i1 %83, label %84, label %89
 
@@ -421,7 +421,7 @@ sub_255:                                          ; preds = %sub_154
   unreachable
 
 96:                                               ; preds = %89
-  %97 = call ptr @get_controlfile(ptr noundef nonnull %.3, ptr noundef nonnull %4) #12
+  %97 = call ptr @get_controlfile(ptr noundef nonnull %.2, ptr noundef nonnull %4) #12
   store ptr %97, ptr @ControlFile, align 8
   %98 = load i8, ptr %4, align 1
   %99 = trunc i8 %98 to i1
@@ -516,22 +516,22 @@ sub_255:                                          ; preds = %sub_154
   br i1 %.b4349, label %132, label %140
 
 132:                                              ; preds = %131
-  %133 = call fastcc i64 @scan_directory(ptr noundef nonnull %.3, ptr noundef nonnull @.str.30, i1 noundef zeroext true)
+  %133 = call fastcc i64 @scan_directory(ptr noundef nonnull %.2, ptr noundef nonnull @.str.30, i1 noundef zeroext true)
   store i64 %133, ptr @total_size, align 8
-  %134 = call fastcc i64 @scan_directory(ptr noundef nonnull %.3, ptr noundef nonnull @.str.31, i1 noundef zeroext true)
+  %134 = call fastcc i64 @scan_directory(ptr noundef nonnull %.2, ptr noundef nonnull @.str.31, i1 noundef zeroext true)
   %135 = load i64, ptr @total_size, align 8
   %136 = add i64 %135, %134
   store i64 %136, ptr @total_size, align 8
-  %137 = call fastcc i64 @scan_directory(ptr noundef nonnull %.3, ptr noundef nonnull @.str.32, i1 noundef zeroext true)
+  %137 = call fastcc i64 @scan_directory(ptr noundef nonnull %.2, ptr noundef nonnull @.str.32, i1 noundef zeroext true)
   %138 = load i64, ptr @total_size, align 8
   %139 = add i64 %138, %137
   store i64 %139, ptr @total_size, align 8
   br label %140
 
 140:                                              ; preds = %132, %131
-  %141 = call fastcc i64 @scan_directory(ptr noundef nonnull %.3, ptr noundef nonnull @.str.30, i1 noundef zeroext false)
-  %142 = call fastcc i64 @scan_directory(ptr noundef nonnull %.3, ptr noundef nonnull @.str.31, i1 noundef zeroext false)
-  %143 = call fastcc i64 @scan_directory(ptr noundef nonnull %.3, ptr noundef nonnull @.str.32, i1 noundef zeroext false)
+  %141 = call fastcc i64 @scan_directory(ptr noundef nonnull %.2, ptr noundef nonnull @.str.30, i1 noundef zeroext false)
+  %142 = call fastcc i64 @scan_directory(ptr noundef nonnull %.2, ptr noundef nonnull @.str.31, i1 noundef zeroext false)
+  %143 = call fastcc i64 @scan_directory(ptr noundef nonnull %.2, ptr noundef nonnull @.str.32, i1 noundef zeroext false)
   %.b4250 = load i1, ptr @showprogress, align 1
   br i1 %.b4250, label %144, label %163
 
@@ -620,7 +620,7 @@ progress_report.exit:                             ; preds = %150, %152
 193:                                              ; preds = %188
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.40) #12
   %194 = load i32, ptr @sync_method, align 4
-  call void @sync_pgdata(ptr noundef nonnull %.3, i32 noundef 170000, i32 noundef %194) #12
+  call void @sync_pgdata(ptr noundef nonnull %.2, i32 noundef 170000, i32 noundef %194) #12
   br label %195
 
 195:                                              ; preds = %193, %188
@@ -628,7 +628,7 @@ progress_report.exit:                             ; preds = %150, %152
   %196 = load ptr, ptr @ControlFile, align 8
   %.b = load i1, ptr @do_sync, align 1
   %not..b = xor i1 %.b, true
-  call void @update_controlfile(ptr noundef nonnull %.3, ptr noundef %196, i1 noundef zeroext %not..b) #12
+  call void @update_controlfile(ptr noundef nonnull %.2, ptr noundef %196, i1 noundef zeroext %not..b) #12
   %.b4451 = load i1, ptr @verbose, align 1
   br i1 %.b4451, label %197, label %.sink.split
 
@@ -1039,7 +1039,7 @@ define internal fastcc void @scan_file(ptr noundef %0, i32 noundef %1) unnamed_a
   br label %17
 
 17:                                               ; preds = %87, %11
-  %.043 = phi i64 [ 0, %11 ], [ %.2, %87 ]
+  %.043 = phi i64 [ 0, %11 ], [ %.1, %87 ]
   %.0 = phi i32 [ 0, %11 ], [ %88, %87 ]
   %18 = call i64 @read(i32 noundef %8, ptr noundef nonnull %4, i64 noundef 8192) #12
   %19 = trunc i64 %18 to i32
@@ -1207,7 +1207,7 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   unreachable
 
 85:                                               ; preds = %pg_checksum_page.exit, %77, %59, %68
-  %.1 = phi i64 [ %.043, %68 ], [ %.043, %59 ], [ %78, %77 ], [ %.043, %pg_checksum_page.exit ]
+  %.2 = phi i64 [ %.043, %68 ], [ %.043, %59 ], [ %78, %77 ], [ %.043, %pg_checksum_page.exit ]
   %.b53 = load i1, ptr @showprogress, align 1
   br i1 %.b53, label %86, label %87
 
@@ -1216,7 +1216,7 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   br label %87
 
 87:                                               ; preds = %85, %86, %71, %24
-  %.2 = phi i64 [ %.043, %24 ], [ %.1, %86 ], [ %.1, %85 ], [ %.043, %71 ]
+  %.1 = phi i64 [ %.043, %24 ], [ %.2, %86 ], [ %.2, %85 ], [ %.043, %71 ]
   %88 = add i32 %.0, 1
   br label %17
 

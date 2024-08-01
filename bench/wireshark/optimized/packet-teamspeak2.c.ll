@@ -829,7 +829,7 @@ define internal fastcc range(i32 0, 2) i32 @ts2_standard_find_fragments(ptr noun
   br label %29
 
 29:                                               ; preds = %24, %20, %23
-  %.0 = phi i32 [ 1, %23 ], [ 1, %20 ], [ %.30, %24 ]
+  %.1 = phi i32 [ 1, %23 ], [ 1, %20 ], [ %.30, %24 ]
   %30 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 12) #4
   store i32 %30, ptr %1, align 4
   br label %32
@@ -839,8 +839,8 @@ define internal fastcc range(i32 0, 2) i32 @ts2_standard_find_fragments(ptr noun
   br label %32
 
 32:                                               ; preds = %11, %29, %31
-  %.1 = phi i32 [ %.0, %29 ], [ 0, %31 ], [ %., %11 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %29 ], [ 0, %31 ], [ %., %11 ]
+  ret i32 %.0
 }
 
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

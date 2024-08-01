@@ -12331,18 +12331,18 @@ invoke.cont44:                                    ; preds = %land.lhs.true.i147
   br label %land.lhs.true46
 
 land.lhs.true46:                                  ; preds = %invoke.cont44, %invoke.cont41
-  %e2.4.in = phi ptr [ %arrayidx.i.i134, %invoke.cont41 ], [ %m_args.i.i151, %invoke.cont44 ]
-  %e1.4.in = phi ptr [ %m_args.i.i133, %invoke.cont41 ], [ %arrayidx.i.i152, %invoke.cont44 ]
-  %e1.4 = load ptr, ptr %e1.4.in, align 8
-  %e2.4 = load ptr, ptr %e2.4.in, align 8
-  %call48 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e1.4, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %mone)
+  %e2.2.in = phi ptr [ %arrayidx.i.i134, %invoke.cont41 ], [ %m_args.i.i151, %invoke.cont44 ]
+  %e1.2.in = phi ptr [ %m_args.i.i133, %invoke.cont41 ], [ %arrayidx.i.i152, %invoke.cont44 ]
+  %e1.2 = load ptr, ptr %e1.2.in, align 8
+  %e2.2 = load ptr, ptr %e2.2.in, align 8
+  %call48 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e1.2, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %mone)
           to label %invoke.cont47 unwind label %lpad21
 
 invoke.cont47:                                    ; preds = %land.lhs.true46
   br i1 %call48, label %land.lhs.true49, label %if.else63
 
 land.lhs.true49:                                  ; preds = %invoke.cont47
-  %call51 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e2.4, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %one)
+  %call51 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e2.2, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %one)
           to label %invoke.cont50 unwind label %lpad21
 
 invoke.cont50:                                    ; preds = %land.lhs.true49
@@ -12488,18 +12488,18 @@ invoke.cont69:                                    ; preds = %land.lhs.true.i235
   br label %land.lhs.true71
 
 land.lhs.true71:                                  ; preds = %invoke.cont69, %invoke.cont65
-  %e2.8.in = phi ptr [ %arrayidx.i.i222, %invoke.cont65 ], [ %m_args.i.i239, %invoke.cont69 ]
-  %e1.8.in = phi ptr [ %m_args.i.i221, %invoke.cont65 ], [ %arrayidx.i.i240, %invoke.cont69 ]
-  %e1.8 = load ptr, ptr %e1.8.in, align 8
-  %e2.8 = load ptr, ptr %e2.8.in, align 8
-  %call73 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e1.8, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %mone)
+  %e2.4.in = phi ptr [ %arrayidx.i.i222, %invoke.cont65 ], [ %m_args.i.i239, %invoke.cont69 ]
+  %e1.4.in = phi ptr [ %m_args.i.i221, %invoke.cont65 ], [ %arrayidx.i.i240, %invoke.cont69 ]
+  %e1.4 = load ptr, ptr %e1.4.in, align 8
+  %e2.4 = load ptr, ptr %e2.4.in, align 8
+  %call73 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e1.4, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %mone)
           to label %invoke.cont72 unwind label %lpad21
 
 invoke.cont72:                                    ; preds = %land.lhs.true71
   br i1 %call73, label %land.lhs.true74, label %if.else94
 
 land.lhs.true74:                                  ; preds = %invoke.cont72
-  %call76 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e2.8, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %one)
+  %call76 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e2.4, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %one)
           to label %invoke.cont75 unwind label %lpad21
 
 invoke.cont75:                                    ; preds = %land.lhs.true74
@@ -12812,18 +12812,18 @@ invoke.cont104:                                   ; preds = %land.lhs.true.i380
   br label %land.lhs.true106
 
 land.lhs.true106:                                 ; preds = %invoke.cont104, %invoke.cont100
-  %e2.12.in = phi ptr [ %m_args.i.i364, %invoke.cont100 ], [ %arrayidx.i.i385, %invoke.cont104 ]
-  %e1.12.in = phi ptr [ %arrayidx.i.i365, %invoke.cont100 ], [ %m_args.i.i384, %invoke.cont104 ]
-  %e1.12 = load ptr, ptr %e1.12.in, align 8
-  %e2.12 = load ptr, ptr %e2.12.in, align 8
-  %call108 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e1.12, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %mone)
+  %e2.7.in = phi ptr [ %m_args.i.i364, %invoke.cont100 ], [ %arrayidx.i.i385, %invoke.cont104 ]
+  %e1.7.in = phi ptr [ %arrayidx.i.i365, %invoke.cont100 ], [ %m_args.i.i384, %invoke.cont104 ]
+  %e1.7 = load ptr, ptr %e1.7.in, align 8
+  %e2.7 = load ptr, ptr %e2.7.in, align 8
+  %call108 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e1.7, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %mone)
           to label %invoke.cont107 unwind label %lpad21
 
 invoke.cont107:                                   ; preds = %land.lhs.true106
   br i1 %call108, label %land.lhs.true109, label %if.else123
 
 land.lhs.true109:                                 ; preds = %invoke.cont107
-  %call111 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e2.12, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %one)
+  %call111 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e2.7, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %one)
           to label %invoke.cont110 unwind label %lpad21
 
 invoke.cont110:                                   ; preds = %land.lhs.true109
@@ -13001,18 +13001,18 @@ invoke.cont133:                                   ; preds = %land.lhs.true.i491
   br label %land.lhs.true135
 
 land.lhs.true135:                                 ; preds = %invoke.cont133, %invoke.cont129
-  %e2.16.in = phi ptr [ %m_args.i.i475, %invoke.cont129 ], [ %arrayidx.i.i496, %invoke.cont133 ]
-  %e1.16.in = phi ptr [ %arrayidx.i.i476, %invoke.cont129 ], [ %m_args.i.i495, %invoke.cont133 ]
-  %e1.16 = load ptr, ptr %e1.16.in, align 8
-  %e2.16 = load ptr, ptr %e2.16.in, align 8
-  %call137 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e1.16, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %mone)
+  %e2.9.in = phi ptr [ %m_args.i.i475, %invoke.cont129 ], [ %arrayidx.i.i496, %invoke.cont133 ]
+  %e1.9.in = phi ptr [ %arrayidx.i.i476, %invoke.cont129 ], [ %m_args.i.i495, %invoke.cont133 ]
+  %e1.9 = load ptr, ptr %e1.9.in, align 8
+  %e2.9 = load ptr, ptr %e2.9.in, align 8
+  %call137 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e1.9, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %mone)
           to label %invoke.cont136 unwind label %lpad21
 
 invoke.cont136:                                   ; preds = %land.lhs.true135
   br i1 %call137, label %land.lhs.true138, label %if.else160
 
 land.lhs.true138:                                 ; preds = %invoke.cont136
-  %call140 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e2.16, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %one)
+  %call140 = invoke noundef zeroext i1 @_ZN7datalog13karr_relation9is_linearEP4exprR6vectorI8rationalLb1EjERS4_RKS4_(ptr noundef nonnull align 8 dereferenceable(145) %this, ptr noundef %e2.9, ptr noundef nonnull align 8 dereferenceable(8) %row, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %one)
           to label %invoke.cont139 unwind label %lpad21
 
 invoke.cont139:                                   ; preds = %land.lhs.true138
@@ -14613,12 +14613,12 @@ lpad81:                                           ; preds = %invoke.cont80
 
 cleanup.sink.split:                               ; preds = %invoke.cont80, %invoke.cont70, %invoke.cont56, %invoke.cont40
   %ref.tmp39.sink = phi ptr [ %ref.tmp39, %invoke.cont40 ], [ %ref.tmp55, %invoke.cont56 ], [ %ref.tmp69, %invoke.cont70 ], [ %ref.tmp79, %invoke.cont80 ]
-  %retval.0.ph = phi i1 [ %call43, %invoke.cont40 ], [ %call59, %invoke.cont56 ], [ %call73, %invoke.cont70 ], [ %call83, %invoke.cont80 ]
+  %retval.1.ph = phi i1 [ %call43, %invoke.cont40 ], [ %call59, %invoke.cont56 ], [ %call73, %invoke.cont70 ], [ %call83, %invoke.cont80 ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp39.sink) #16
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont28, %for.cond, %cleanup.sink.split, %for.cond.preheader, %invoke.cont37, %.noexc.i, %invoke.cont76
-  %retval.0 = phi i1 [ false, %invoke.cont76 ], [ true, %.noexc.i ], [ false, %invoke.cont37 ], [ true, %for.cond.preheader ], [ %retval.0.ph, %cleanup.sink.split ], [ %call29, %for.cond ], [ %call29, %invoke.cont28 ]
+  %retval.1 = phi i1 [ false, %invoke.cont76 ], [ true, %.noexc.i ], [ false, %invoke.cont37 ], [ true, %for.cond.preheader ], [ %retval.1.ph, %cleanup.sink.split ], [ %call29, %for.cond ], [ %call29, %invoke.cont28 ]
   %35 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %35, ptr noundef nonnull align 8 dereferenceable(16) %n)
           to label %.noexc.i58 unwind label %terminate.lpad.i57
@@ -14640,8 +14640,8 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end, %entry, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %.noexc.i58, %_ZNK17arith_recognizers6is_intEPK4expr.exit, %if.then3
-  %retval.1 = phi i1 [ true, %if.then3 ], [ false, %_ZNK17arith_recognizers6is_intEPK4expr.exit ], [ %retval.0, %.noexc.i58 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %entry ], [ false, %if.end ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %if.then3 ], [ false, %_ZNK17arith_recognizers6is_intEPK4expr.exit ], [ %retval.1, %.noexc.i58 ], [ false, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ false, %entry ], [ false, %if.end ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

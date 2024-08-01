@@ -1518,7 +1518,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %64
 
 64:                                               ; preds = %60, %58
-  %.090 = phi i32 [ %34, %58 ], [ %spec.select, %60 ]
+  %.1 = phi i32 [ %34, %58 ], [ %spec.select, %60 ]
   %65 = load i32, ptr %48, align 4
   %66 = icmp eq i32 %.val, %65
   %67 = load ptr, ptr %39, align 8
@@ -1540,15 +1540,15 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %66, label %83, label %85
 
 83:                                               ; preds = %64
-  %84 = call i32 %71(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %76, i32 noundef %.090, ptr noundef %77, ptr noundef %79, i32 noundef %.val, ptr noundef %67, ptr noundef nonnull %80, ptr noundef %82) #4
+  %84 = call i32 %71(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %76, i32 noundef %.1, ptr noundef %77, ptr noundef %79, i32 noundef %.val, ptr noundef %67, ptr noundef nonnull %80, ptr noundef %82) #4
   br label %87
 
 85:                                               ; preds = %64
-  %86 = call i32 %71(ptr noundef %76, ptr noundef %76, i32 noundef %.090, ptr noundef %77, ptr noundef %79, i32 noundef %65, ptr noundef %67, ptr noundef nonnull %80, ptr noundef %82) #4
+  %86 = call i32 %71(ptr noundef %76, ptr noundef %76, i32 noundef %.1, ptr noundef %77, ptr noundef %79, i32 noundef %65, ptr noundef %67, ptr noundef nonnull %80, ptr noundef %82) #4
   br label %87
 
 87:                                               ; preds = %83, %85, %38, %25
-  %.1 = phi i32 [ %34, %25 ], [ %34, %38 ], [ %.090, %85 ], [ %.090, %83 ]
+  %.090 = phi i32 [ %34, %25 ], [ %34, %38 ], [ %.1, %85 ], [ %.1, %83 ]
   %.0 = phi i64 [ 0, %25 ], [ 1, %38 ], [ 2, %85 ], [ 2, %83 ]
   %88 = getelementptr inbounds i8, ptr %0, i64 80
   %89 = load i32, ptr %88, align 8
@@ -1567,11 +1567,11 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %97 = load i32, ptr %96, align 8
   %98 = load i32, ptr %33, align 8
   %.not103 = icmp eq i32 %97, %98
-  %spec.select105 = select i1 %.not103, i32 %.1, i32 %97
+  %spec.select105 = select i1 %.not103, i32 %.090, i32 %97
   br label %99
 
 99:                                               ; preds = %95, %93
-  %.2 = phi i32 [ %.1, %93 ], [ %spec.select105, %95 ]
+  %.2 = phi i32 [ %.090, %93 ], [ %spec.select105, %95 ]
   %100 = getelementptr inbounds i8, ptr %0, i64 32
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, inttoptr (i64 1 to ptr)
@@ -1742,7 +1742,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %52
 
 52:                                               ; preds = %49, %47
-  %.0112 = phi i32 [ %34, %47 ], [ %51, %49 ]
+  %.2 = phi i32 [ %34, %47 ], [ %51, %49 ]
   %53 = getelementptr inbounds i8, ptr %40, i64 328
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 384
@@ -1756,7 +1756,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %63 = load i32, ptr %62, align 4
   %64 = getelementptr inbounds i8, ptr %54, i64 392
   %65 = load ptr, ptr %64, align 8
-  %66 = call i32 %56(ptr noundef %61, i32 noundef %.0112, ptr noundef nonnull %27, i32 noundef %63, ptr noundef nonnull %40, ptr noundef nonnull %2, ptr noundef %65) #4
+  %66 = call i32 %56(ptr noundef %61, i32 noundef %.2, ptr noundef nonnull %27, i32 noundef %63, ptr noundef nonnull %40, ptr noundef nonnull %2, ptr noundef %65) #4
   %.pre142 = load i32, ptr %42, align 8
   %.pre143 = load i32, ptr %44, align 4
   br label %67
@@ -1764,8 +1764,8 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 67:                                               ; preds = %52, %38
   %68 = phi i32 [ %.pre143, %52 ], [ %45, %38 ]
   %69 = phi i32 [ %.pre142, %52 ], [ %43, %38 ]
-  %.1113 = phi i32 [ %.0112, %52 ], [ %34, %38 ]
-  %.0 = phi i32 [ 1, %52 ], [ 0, %38 ]
+  %.1113 = phi i32 [ %.2, %52 ], [ %34, %38 ]
+  %.1 = phi i32 [ 1, %52 ], [ 0, %38 ]
   %70 = add nsw i32 %68, -3
   %.not129 = icmp sgt i32 %69, %70
   br i1 %.not129, label %105, label %71
@@ -1783,7 +1783,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br label %77
 
 77:                                               ; preds = %73, %71
-  %.2 = phi i32 [ %.1113, %71 ], [ %spec.select135, %73 ]
+  %.3 = phi i32 [ %.1113, %71 ], [ %spec.select135, %73 ]
   %78 = getelementptr inbounds i8, ptr %0, i64 68
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %.val, %79
@@ -1808,20 +1808,20 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   br i1 %80, label %99, label %101
 
 99:                                               ; preds = %77
-  %100 = call i32 %85(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %92, i32 noundef %.2, ptr noundef %93, ptr noundef %95, i32 noundef %.val, ptr noundef %81, ptr noundef nonnull %96, ptr noundef %98) #4
+  %100 = call i32 %85(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %92, i32 noundef %.3, ptr noundef %93, ptr noundef %95, i32 noundef %.val, ptr noundef %81, ptr noundef nonnull %96, ptr noundef %98) #4
   br label %103
 
 101:                                              ; preds = %77
-  %102 = call i32 %85(ptr noundef %92, ptr noundef %92, i32 noundef %.2, ptr noundef %93, ptr noundef %95, i32 noundef %79, ptr noundef %81, ptr noundef nonnull %96, ptr noundef %98) #4
+  %102 = call i32 %85(ptr noundef %92, ptr noundef %92, i32 noundef %.3, ptr noundef %93, ptr noundef %95, i32 noundef %79, ptr noundef %81, ptr noundef nonnull %96, ptr noundef %98) #4
   br label %103
 
 103:                                              ; preds = %101, %99
-  %104 = add nuw nsw i32 %.0, 1
+  %104 = add nuw nsw i32 %.1, 1
   br label %105
 
 105:                                              ; preds = %67, %103, %25
-  %.3 = phi i32 [ %34, %25 ], [ %.2, %103 ], [ %.1113, %67 ]
-  %.1 = phi i32 [ 0, %25 ], [ %104, %103 ], [ %.0, %67 ]
+  %.0112 = phi i32 [ %34, %25 ], [ %.3, %103 ], [ %.1113, %67 ]
+  %.0 = phi i32 [ 0, %25 ], [ %104, %103 ], [ %.1, %67 ]
   %106 = getelementptr inbounds i8, ptr %0, i64 80
   %107 = load i32, ptr %106, align 8
   %108 = getelementptr inbounds i8, ptr %0, i64 76
@@ -1839,11 +1839,11 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %115 = load i32, ptr %114, align 8
   %116 = load i32, ptr %33, align 8
   %.not132 = icmp eq i32 %115, %116
-  %spec.select136 = select i1 %.not132, i32 %.3, i32 %115
+  %spec.select136 = select i1 %.not132, i32 %.0112, i32 %115
   br label %117
 
 117:                                              ; preds = %113, %111
-  %.4 = phi i32 [ %.3, %111 ], [ %spec.select136, %113 ]
+  %.4 = phi i32 [ %.0112, %111 ], [ %spec.select136, %113 ]
   %118 = getelementptr inbounds i8, ptr %0, i64 32
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, inttoptr (i64 1 to ptr)
@@ -1942,13 +1942,13 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
   %194 = call i32 %186(ptr noundef %188, i32 noundef %.5, ptr noundef %189, i32 noundef %191, ptr noundef %182, ptr noundef %193) #4
   %195 = load i8, ptr %35, align 4
   %196 = trunc i8 %195 to i1
-  %197 = icmp eq i32 %.1, 0
+  %197 = icmp eq i32 %.0, 0
   %or.cond.not = select i1 %196, i1 true, i1 %197
   br i1 %or.cond.not, label %202, label %198
 
 198:                                              ; preds = %180
   %199 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 48), align 8
-  %200 = zext nneg i32 %.1 to i64
+  %200 = zext nneg i32 %.0 to i64
   %201 = call i32 %199(i64 noundef %200, ptr noundef nonnull %2, ptr noundef null) #4
   br label %202
 

@@ -767,10 +767,10 @@ ehcleanup6.thread:                                ; preds = %lpad.i, %lpad
 
 ehcleanup6:                                       ; preds = %lpad2, %lpad4
   %.pn = phi { ptr, i32 } [ %3, %lpad4 ], [ %2, %lpad2 ]
-  %cleanup.isactive.1 = phi i1 [ false, %lpad4 ], [ true, %lpad2 ]
+  %cleanup.isactive.2 = phi i1 [ false, %lpad4 ], [ true, %lpad2 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1) #11
-  br i1 %cleanup.isactive.1, label %cleanup.action, label %eh.resume
+  br i1 %cleanup.isactive.2, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup6.thread, %ehcleanup6
   %.pn.pn9 = phi { ptr, i32 } [ %.pn.pn.ph, %ehcleanup6.thread ], [ %.pn, %ehcleanup6 ]

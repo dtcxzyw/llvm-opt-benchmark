@@ -2218,7 +2218,7 @@ define void @slurm_step_launch_wait_finish(ptr noundef readonly %0) local_unname
   br label %53
 
 53:                                               ; preds = %41, %49, %39
-  %.1 = phi i8 [ %.0127, %39 ], [ 1, %49 ], [ 1, %41 ]
+  %.3 = phi i8 [ %.0127, %39 ], [ 1, %49 ], [ 1, %41 ]
   %54 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %16, ptr noundef nonnull %7, ptr noundef nonnull %2) #14
   switch i32 %54, label %62 [
     i32 110, label %55
@@ -2239,7 +2239,7 @@ define void @slurm_step_launch_wait_finish(ptr noundef readonly %0) local_unname
   br label %.loopexit.sink.split
 
 64:                                               ; preds = %53, %27, %25
-  %.2 = phi i8 [ %.0127, %27 ], [ %.0127, %25 ], [ %.1, %53 ]
+  %.2 = phi i8 [ %.0127, %27 ], [ %.0127, %25 ], [ %.3, %53 ]
   %65 = load ptr, ptr %9, align 8
   %66 = call i32 @bit_set_count(ptr noundef %65) #14
   %67 = load i32, ptr %12, align 8
@@ -2253,14 +2253,14 @@ define void @slurm_step_launch_wait_finish(ptr noundef readonly %0) local_unname
   br label %.loopexit
 
 .loopexit:                                        ; preds = %64, %.loopexit.sink.split, %.preheader
-  %.3 = phi i8 [ 0, %.preheader ], [ %.1, %.loopexit.sink.split ], [ %.2, %64 ]
+  %.1 = phi i8 [ 0, %.preheader ], [ %.3, %.loopexit.sink.split ], [ %.2, %64 ]
   %71 = getelementptr inbounds i8, ptr %7, i64 149
   %72 = load i8, ptr %71, align 1
   %73 = trunc i8 %72 to i1
   br i1 %73, label %74, label %80
 
 74:                                               ; preds = %.loopexit
-  %75 = trunc nuw i8 %.3 to i1
+  %75 = trunc nuw i8 %.1 to i1
   br i1 %75, label %80, label %76
 
 76:                                               ; preds = %74

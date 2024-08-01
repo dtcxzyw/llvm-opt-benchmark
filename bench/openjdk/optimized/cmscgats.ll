@@ -709,7 +709,7 @@ define internal fastcc ptr @AddToList(ptr nocapture noundef %0, ptr nocapture no
   br i1 %19, label %IsAvailableOnList.exit, label %.preheader.split.i
 
 .preheader.split.i:                               ; preds = %.split.us.i, %26
-  %.048 = phi ptr [ %.149, %26 ], [ %.02130.i, %.split.us.i ]
+  %.149 = phi ptr [ %.2, %26 ], [ %.02130.i, %.split.us.i ]
   %.131.i = phi ptr [ %28, %26 ], [ %.02130.i, %.split.us.i ]
   %20 = getelementptr inbounds i8, ptr %.131.i, i64 24
   %21 = load ptr, ptr %20, align 8
@@ -722,14 +722,14 @@ define internal fastcc ptr @AddToList(ptr nocapture noundef %0, ptr nocapture no
   br i1 %25, label %IsAvailableOnList.exit, label %26
 
 26:                                               ; preds = %23, %.preheader.split.i
-  %.149 = phi ptr [ %.048, %.preheader.split.i ], [ %.131.i, %23 ]
+  %.2 = phi ptr [ %.149, %.preheader.split.i ], [ %.131.i, %23 ]
   %27 = getelementptr inbounds i8, ptr %.131.i, i64 16
   %28 = load ptr, ptr %27, align 8
   %.not26.i = icmp eq ptr %28, null
   br i1 %.not26.i, label %.loopexit, label %.preheader.split.i, !llvm.loop !13
 
 IsAvailableOnList.exit:                           ; preds = %23, %.split.us.i
-  %.2 = phi ptr [ %.02130.i, %.split.us.i ], [ %.131.i, %23 ]
+  %.3 = phi ptr [ %.02130.i, %.split.us.i ], [ %.131.i, %23 ]
   %29 = tail call i32 @cmsstrcasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.15) #17
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %34, label %31
@@ -744,7 +744,7 @@ IsAvailableOnList.exit:                           ; preds = %23, %.split.us.i
   br label %93
 
 .loopexit:                                        ; preds = %17, %26, %.lr.ph.split.i.us, %6
-  %.2.ph = phi ptr [ null, %6 ], [ %.02130.i.us, %.lr.ph.split.i.us ], [ %.149, %26 ], [ %.02130.i, %17 ]
+  %.3.ph = phi ptr [ null, %6 ], [ %.02130.i.us, %.lr.ph.split.i.us ], [ %.2, %26 ], [ %.02130.i, %17 ]
   %35 = getelementptr inbounds i8, ptr %0, i64 271344
   %36 = getelementptr inbounds i8, ptr %0, i64 271352
   %37 = load i32, ptr %36, align 8
@@ -831,28 +831,28 @@ AllocChunk.exit.thread:                           ; preds = %59
 
 76:                                               ; preds = %71
   %77 = icmp ne ptr %3, null
-  %78 = icmp ne ptr %.2.ph, null
+  %78 = icmp ne ptr %.3.ph, null
   %or.cond = select i1 %77, i1 %78, i1 false
   br i1 %or.cond, label %79, label %83
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %.2.ph, i64 16
+  %80 = getelementptr inbounds i8, ptr %.3.ph, i64 16
   store ptr %64, ptr %80, align 8
   br label %81
 
 81:                                               ; preds = %81, %79
-  %.0 = phi ptr [ %.2.ph, %79 ], [ %82, %81 ]
-  %82 = load ptr, ptr %.0, align 8
+  %.1 = phi ptr [ %.3.ph, %79 ], [ %82, %81 ]
+  %82 = load ptr, ptr %.1, align 8
   %.not33 = icmp eq ptr %82, null
   br i1 %.not33, label %.sink.split, label %81, !llvm.loop !14
 
 83:                                               ; preds = %76
-  %.not34 = icmp eq ptr %.2.ph, null
+  %.not34 = icmp eq ptr %.3.ph, null
   br i1 %.not34, label %84, label %.sink.split
 
 .sink.split:                                      ; preds = %81, %83, %71
-  %.157.sink = phi ptr [ %1, %71 ], [ %.2.ph, %83 ], [ %.0, %81 ]
-  store ptr %64, ptr %.157.sink, align 8
+  %.057.sink = phi ptr [ %1, %71 ], [ %.3.ph, %83 ], [ %.1, %81 ]
+  store ptr %64, ptr %.057.sink, align 8
   br label %84
 
 84:                                               ; preds = %.sink.split, %83
@@ -862,25 +862,25 @@ AllocChunk.exit.thread:                           ; preds = %59
   br label %86
 
 86:                                               ; preds = %31, %84
-  %.3 = phi ptr [ %64, %84 ], [ %.2, %31 ]
-  %87 = getelementptr inbounds i8, ptr %.3, i64 40
+  %.048 = phi ptr [ %64, %84 ], [ %.3, %31 ]
+  %87 = getelementptr inbounds i8, ptr %.048, i64 40
   store i32 %5, ptr %87, align 8
   %.not35 = icmp eq ptr %4, null
   br i1 %.not35, label %91, label %88
 
 88:                                               ; preds = %86
   %89 = tail call fastcc ptr @AllocString(ptr noundef %0, ptr noundef nonnull %4)
-  %90 = getelementptr inbounds i8, ptr %.3, i64 32
+  %90 = getelementptr inbounds i8, ptr %.048, i64 32
   store ptr %89, ptr %90, align 8
   br label %93
 
 91:                                               ; preds = %86
-  %92 = getelementptr inbounds i8, ptr %.3, i64 32
+  %92 = getelementptr inbounds i8, ptr %.048, i64 32
   store ptr null, ptr %92, align 8
   br label %93
 
 93:                                               ; preds = %88, %91, %AllocChunk.exit.thread, %34
-  %.028 = phi ptr [ null, %34 ], [ null, %AllocChunk.exit.thread ], [ %.3, %91 ], [ %.3, %88 ]
+  %.028 = phi ptr [ null, %34 ], [ null, %AllocChunk.exit.thread ], [ %.048, %91 ], [ %.048, %88 ]
   ret ptr %.028
 }
 
@@ -1233,14 +1233,14 @@ define internal fastcc double @ParseFloatNumber(ptr noundef readonly %0) unnamed
   br i1 %26, label %.preheader, label %.thread111
 
 .preheader:                                       ; preds = %.critedge
-  %.486 = getelementptr inbounds i8, ptr %.16184, i64 1
-  %27 = load i8, ptr %.486, align 1
+  %.586 = getelementptr inbounds i8, ptr %.16184, i64 1
+  %27 = load i8, ptr %.586, align 1
   %.not7187 = icmp eq i8 %27, 0
   br i1 %.not7187, label %41, label %.lr.ph91
 
 .lr.ph91:                                         ; preds = %.preheader, %33
   %28 = phi i8 [ %39, %33 ], [ %27, %.preheader ]
-  %.490 = phi ptr [ %.4, %33 ], [ %.486, %.preheader ]
+  %.590 = phi ptr [ %.5, %33 ], [ %.586, %.preheader ]
   %.05589 = phi i32 [ %38, %33 ], [ 0, %.preheader ]
   %.05688 = phi double [ %37, %33 ], [ 0.000000e+00, %.preheader ]
   %29 = sext i8 %28 to i64
@@ -1256,32 +1256,32 @@ define internal fastcc double @ParseFloatNumber(ptr noundef readonly %0) unnamed
   %36 = sitofp i32 %35 to double
   %37 = tail call double @llvm.fmuladd.f64(double %.05688, double 1.000000e+01, double %36)
   %38 = add nuw nsw i32 %.05589, 1
-  %.4 = getelementptr inbounds i8, ptr %.490, i64 1
-  %39 = load i8, ptr %.4, align 1
+  %.5 = getelementptr inbounds i8, ptr %.590, i64 1
+  %39 = load i8, ptr %.5, align 1
   %.not71 = icmp eq i8 %39, 0
   br i1 %.not71, label %.critedge2.loopexit, label %.lr.ph91, !llvm.loop !17
 
 .critedge2.loopexit:                              ; preds = %33, %.lr.ph91
   %.056.lcssa.ph = phi double [ %.05688, %.lr.ph91 ], [ %37, %33 ]
   %.055.lcssa.ph = phi i32 [ %.05589, %.lr.ph91 ], [ %38, %33 ]
-  %.4.lcssa.ph = phi ptr [ %.490, %.lr.ph91 ], [ %.4, %33 ]
+  %.5.lcssa.ph = phi ptr [ %.590, %.lr.ph91 ], [ %.5, %33 ]
   %40 = uitofp nneg i32 %.055.lcssa.ph to double
   br label %41
 
 41:                                               ; preds = %.preheader, %.critedge2.loopexit
   %.056.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %.056.lcssa.ph, %.critedge2.loopexit ]
   %.055.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %40, %.critedge2.loopexit ]
-  %.4.lcssa = phi ptr [ %.486, %.preheader ], [ %.4.lcssa.ph, %.critedge2.loopexit ]
+  %.5.lcssa = phi ptr [ %.586, %.preheader ], [ %.5.lcssa.ph, %.critedge2.loopexit ]
   %42 = tail call double @pow(double noundef 1.000000e+01, double noundef %.055.lcssa) #17
   %43 = fdiv double %.056.lcssa, %42
   %44 = fadd double %.05885, %43
-  %.pr.pre = load i8, ptr %.4.lcssa, align 1
+  %.pr.pre = load i8, ptr %.5.lcssa, align 1
   %.not73 = icmp eq i8 %.pr.pre, 0
   br i1 %.not73, label %.thread, label %.thread111
 
 .thread111:                                       ; preds = %.critedge, %41
   %.159.ph118 = phi double [ %44, %41 ], [ %.05885, %.critedge ]
-  %.6.ph117 = phi ptr [ %.4.lcssa, %41 ], [ %.16184, %.critedge ]
+  %.3.ph117 = phi ptr [ %.5.lcssa, %41 ], [ %.16184, %.critedge ]
   %.pr116 = phi i8 [ %.pr.pre, %41 ], [ %14, %.critedge ]
   %45 = sext i8 %.pr116 to i32
   %46 = tail call i32 @toupper(i32 noundef %45) #19
@@ -1289,7 +1289,7 @@ define internal fastcc double @ParseFloatNumber(ptr noundef readonly %0) unnamed
   br i1 %47, label %48, label %.thread
 
 48:                                               ; preds = %.thread111
-  %49 = getelementptr inbounds i8, ptr %.6.ph117, i64 1
+  %49 = getelementptr inbounds i8, ptr %.3.ph117, i64 1
   %50 = load i8, ptr %49, align 1
   switch i8 %50, label %53 [
     i8 45, label %thread-pre-split
@@ -1301,7 +1301,7 @@ define internal fastcc double @ParseFloatNumber(ptr noundef readonly %0) unnamed
 
 thread-pre-split:                                 ; preds = %48, %51
   %.053.ph = phi i32 [ 1, %51 ], [ -1, %48 ]
-  %52 = getelementptr inbounds i8, ptr %.6.ph117, i64 2
+  %52 = getelementptr inbounds i8, ptr %.3.ph117, i64 2
   %.pr = load i8, ptr %52, align 1
   br label %53
 
@@ -3933,14 +3933,14 @@ cmsIT8SetSheetType.exit71:                        ; preds = %279, %280
   br i1 %313, label %HeaderSection.exit.thread, label %IsAvailableOnList.exit.i
 
 IsAvailableOnList.exit.i:                         ; preds = %305, %.loopexit87.i
-  %.183.i = phi ptr [ %312, %.loopexit87.i ], [ %.02130.i.i, %305 ]
+  %.082.i = phi ptr [ %312, %.loopexit87.i ], [ %.02130.i.i, %305 ]
   call fastcc void @InSymbol(ptr noundef %0)
   %314 = call fastcc i32 @GetVal(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 1023, ptr noundef nonnull @.str.140)
   %.not68.i = icmp eq i32 %314, 0
   br i1 %.not68.i, label %HeaderSection.exit.thread, label %315
 
 315:                                              ; preds = %IsAvailableOnList.exit.i
-  %316 = getelementptr inbounds i8, ptr %.183.i, i64 40
+  %316 = getelementptr inbounds i8, ptr %.082.i, i64 40
   %317 = load i32, ptr %316, align 8
   %.not69.i = icmp eq i32 %317, 4
   br i1 %.not69.i, label %330, label %318
@@ -4867,11 +4867,11 @@ AllocChunk.exit:                                  ; preds = %40
 
 .lr.ph:                                           ; preds = %AllocChunk.exit, %.lr.ph
   %.129 = phi ptr [ %.1, %.lr.ph ], [ %.126, %AllocChunk.exit ]
-  %.11828 = phi i32 [ %49, %.lr.ph ], [ 0, %AllocChunk.exit ]
+  %.228 = phi i32 [ %49, %.lr.ph ], [ 0, %AllocChunk.exit ]
   %47 = getelementptr inbounds i8, ptr %.129, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = add i32 %.11828, 1
-  %50 = zext i32 %.11828 to i64
+  %49 = add i32 %.228, 1
+  %50 = zext i32 %.228 to i64
   %51 = getelementptr inbounds ptr, ptr %45, i64 %50
   store ptr %48, ptr %51, align 8
   %.1 = load ptr, ptr %.129, align 8
@@ -4880,9 +4880,9 @@ AllocChunk.exit:                                  ; preds = %40
 
 AllocChunk.exit.thread:                           ; preds = %.lr.ph, %AllocChunk.exit, %40
   %.0.i2225 = phi ptr [ null, %40 ], [ %45, %AllocChunk.exit ], [ %45, %.lr.ph ]
-  %.2 = phi i32 [ %.017, %40 ], [ 0, %AllocChunk.exit ], [ %49, %.lr.ph ]
+  %.118 = phi i32 [ %.017, %40 ], [ 0, %AllocChunk.exit ], [ %49, %.lr.ph ]
   store ptr %.0.i2225, ptr %1, align 8
-  ret i32 %.2
+  ret i32 %.118
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5020,7 +5020,7 @@ AllocChunk.exit:                                  ; preds = %54
 
 62:                                               ; preds = %AllocChunk.exit, %70
   %.1.in.sroa.speculated43 = phi ptr [ %.02130.i, %AllocChunk.exit ], [ %.1.in.sroa.speculate.load., %70 ]
-  %.242 = phi i32 [ 0, %AllocChunk.exit ], [ %.3, %70 ]
+  %.342 = phi i32 [ 0, %AllocChunk.exit ], [ %.4, %70 ]
   %63 = getelementptr inbounds i8, ptr %.1.in.sroa.speculated43, i64 24
   %64 = load ptr, ptr %63, align 8
   %.not27 = icmp eq ptr %64, null
@@ -5028,14 +5028,14 @@ AllocChunk.exit:                                  ; preds = %54
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr %61, align 8
-  %67 = add i32 %.242, 1
-  %68 = zext i32 %.242 to i64
+  %67 = add i32 %.342, 1
+  %68 = zext i32 %.342 to i64
   %69 = getelementptr inbounds ptr, ptr %59, i64 %68
   store ptr %66, ptr %69, align 8
   br label %70
 
 70:                                               ; preds = %62, %65
-  %.3 = phi i32 [ %67, %65 ], [ %.242, %62 ]
+  %.4 = phi i32 [ %67, %65 ], [ %.342, %62 ]
   %71 = getelementptr inbounds i8, ptr %.1.in.sroa.speculated43, i64 16
   %.1.in.sroa.speculate.load. = load ptr, ptr %71, align 8
   %.not26 = icmp eq ptr %.1.in.sroa.speculate.load., null
@@ -5043,7 +5043,7 @@ AllocChunk.exit:                                  ; preds = %54
 
 IsAvailableOnList.exit.thread:                    ; preds = %23, %70, %.lr.ph.split.i.preheader, %54, %GetTable.exit
   %storemerge = phi ptr [ null, %GetTable.exit ], [ null, %54 ], [ null, %.lr.ph.split.i.preheader ], [ %59, %70 ], [ null, %23 ]
-  %.0 = phi i32 [ 0, %GetTable.exit ], [ %spec.select, %54 ], [ 0, %.lr.ph.split.i.preheader ], [ %.3, %70 ], [ 0, %23 ]
+  %.0 = phi i32 [ 0, %GetTable.exit ], [ %spec.select, %54 ], [ 0, %.lr.ph.split.i.preheader ], [ %.4, %70 ], [ 0, %23 ]
   store ptr %storemerge, ptr %2, align 8
   ret i32 %.0
 }
@@ -6565,8 +6565,8 @@ define hidden ptr @cmsCreateDeviceLinkFromCubeFileTHR(ptr noundef %0, ptr nocapt
   br label %38
 
 38:                                               ; preds = %ReadNumbers.exit.i, %20
-  %.056 = phi ptr [ null, %20 ], [ %.258, %ReadNumbers.exit.i ]
-  %.055 = phi ptr [ null, %20 ], [ %.2, %ReadNumbers.exit.i ]
+  %.056 = phi ptr [ null, %20 ], [ %.359, %ReadNumbers.exit.i ]
+  %.055 = phi ptr [ null, %20 ], [ %.3, %ReadNumbers.exit.i ]
   %.080.i = phi i32 [ 0, %20 ], [ %.181.i, %ReadNumbers.exit.i ]
   %.079.i = phi i32 [ 0, %20 ], [ %.1.i, %ReadNumbers.exit.i ]
   %39 = load i32, ptr %24, align 8
@@ -6967,8 +6967,8 @@ ReadNumbers.exit.sink.split.i:                    ; preds = %Check.exit117.i, %C
   br label %ReadNumbers.exit.i
 
 ReadNumbers.exit.i:                               ; preds = %Check.exit.i.i105.i, %Check.exit.i.i.i, %ReadNumbers.exit.sink.split.i, %185, %ReadNumbers.exit129.i
-  %.258 = phi ptr [ %.157, %185 ], [ %.056, %ReadNumbers.exit.sink.split.i ], [ %.056, %ReadNumbers.exit129.i ], [ %.056, %Check.exit.i.i.i ], [ %.056, %Check.exit.i.i105.i ]
-  %.2 = phi ptr [ %.1, %185 ], [ %.055, %ReadNumbers.exit.sink.split.i ], [ %.055, %ReadNumbers.exit129.i ], [ %.055, %Check.exit.i.i.i ], [ %.055, %Check.exit.i.i105.i ]
+  %.359 = phi ptr [ %.157, %185 ], [ %.056, %ReadNumbers.exit.sink.split.i ], [ %.056, %ReadNumbers.exit129.i ], [ %.056, %Check.exit.i.i.i ], [ %.056, %Check.exit.i.i105.i ]
+  %.3 = phi ptr [ %.1, %185 ], [ %.055, %ReadNumbers.exit.sink.split.i ], [ %.055, %ReadNumbers.exit129.i ], [ %.055, %Check.exit.i.i.i ], [ %.055, %Check.exit.i.i105.i ]
   %.181.i = phi i32 [ %.080.i, %185 ], [ %.181.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.080.i, %ReadNumbers.exit129.i ], [ %.080.i, %Check.exit.i.i.i ], [ %.080.i, %Check.exit.i.i105.i ]
   %.1.i = phi i32 [ %.079.i, %185 ], [ %.1.ph.i, %ReadNumbers.exit.sink.split.i ], [ %.079.i, %ReadNumbers.exit129.i ], [ %.079.i, %Check.exit.i.i.i ], [ %.079.i, %Check.exit.i.i105.i ]
   br label %38, !llvm.loop !61

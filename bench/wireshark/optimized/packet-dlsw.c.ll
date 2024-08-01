@@ -626,7 +626,7 @@ define internal i32 @dissect_dlsw_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %dissect_dlsw_capex.exit
 
 .lr.ph104.i:                                      ; preds = %.preheader98.i, %.loopexit.i
-  %.0103.i = phi i32 [ %.2.i, %.loopexit.i ], [ 0, %.preheader98.i ]
+  %.0103.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %.preheader98.i ]
   %.096102.i = phi i32 [ %236, %.loopexit.i ], [ 4, %.preheader98.i ]
   %144 = call zeroext i8 @tvb_get_guint8(ptr noundef %125, i32 noundef %.096102.i) #5
   %145 = zext i8 %144 to i32
@@ -710,12 +710,12 @@ define internal i32 @dissect_dlsw_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit.i
 
 190:                                              ; preds = %190, %.lr.ph.i
-  %.1101.i = phi i32 [ %.0103.i, %.lr.ph.i ], [ %195, %190 ]
-  %191 = add i32 %162, %.1101.i
+  %.2101.i = phi i32 [ %.0103.i, %.lr.ph.i ], [ %195, %190 ]
+  %191 = add i32 %162, %.2101.i
   %192 = load i32, ptr @hf_dlsw_sap_list_support, align 4
   %193 = load i32, ptr @ett_dlsw_sap_list_support, align 4
   %194 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %155, ptr noundef %125, i32 noundef %191, i32 noundef %192, i32 noundef %193, ptr noundef nonnull @dissect_dlsw_capex.flags, i32 noundef 0, i32 noundef 4) #5
-  %195 = add i32 %.1101.i, 1
+  %195 = add i32 %.2101.i, 1
   %exitcond.not.i = icmp eq i32 %195, %160
   br i1 %exitcond.not.i, label %.loopexit.i, label %190, !llvm.loop !4
 
@@ -774,7 +774,7 @@ define internal i32 @dissect_dlsw_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %190, %231, %226, %221, %216, %209, %201, %196, %182, %177, %172, %168, %163, %.preheader.i
-  %.2.i = phi i32 [ %.0103.i, %231 ], [ %.0103.i, %226 ], [ %.0103.i, %221 ], [ %.0103.i, %216 ], [ %.0103.i, %209 ], [ %.0103.i, %201 ], [ %.0103.i, %196 ], [ %.0103.i, %182 ], [ %.0103.i, %177 ], [ %.0103.i, %172 ], [ %.0103.i, %168 ], [ %.0103.i, %163 ], [ %.0103.i, %.preheader.i ], [ %160, %190 ]
+  %.1.i = phi i32 [ %.0103.i, %231 ], [ %.0103.i, %226 ], [ %.0103.i, %221 ], [ %.0103.i, %216 ], [ %.0103.i, %209 ], [ %.0103.i, %201 ], [ %.0103.i, %196 ], [ %.0103.i, %182 ], [ %.0103.i, %177 ], [ %.0103.i, %172 ], [ %.0103.i, %168 ], [ %.0103.i, %163 ], [ %.0103.i, %.preheader.i ], [ %160, %190 ]
   %236 = add i32 %.096102.i, %145
   %237 = load i32, ptr %6, align 4
   %238 = icmp ult i32 %236, %237

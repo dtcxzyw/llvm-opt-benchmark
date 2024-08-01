@@ -4912,8 +4912,8 @@ _ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultD
   br label %383
 
 383:                                              ; preds = %383, %._crit_edge
-  %.0137 = phi float [ undef, %._crit_edge ], [ %.1138, %383 ]
-  %.0 = phi float [ undef, %._crit_edge ], [ %.1, %383 ]
+  %.1138 = phi float [ undef, %._crit_edge ], [ %.2139, %383 ]
+  %.1 = phi float [ undef, %._crit_edge ], [ %.2, %383 ]
   %.040.i = phi i1 [ true, %._crit_edge ], [ false, %383 ]
   %.02339.i = phi i32 [ 0, %._crit_edge ], [ %399, %383 ]
   %.zext.i = and i32 %.02339.i, 1
@@ -4933,26 +4933,26 @@ _ZN3glw6detail19ObjectSharedPointerINS_24BoundReadDrawFramebufferENS0_14DefaultD
   %394 = call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i, float %391, float %393)
   %395 = fsub float %394, %379
   %396 = fneg float %395
-  %397 = fcmp ogt float %.0, %396
+  %397 = fcmp ogt float %.1, %396
   %or.cond.i = select i1 %.040.i, i1 true, i1 %397
-  %.1 = select i1 %or.cond.i, float %396, float %.0
-  %398 = fcmp olt float %.0137, %396
+  %.2 = select i1 %or.cond.i, float %396, float %.1
+  %398 = fcmp olt float %.1138, %396
   %or.cond26.i = select i1 %.040.i, i1 true, i1 %398
-  %.1138 = select i1 %or.cond26.i, float %396, float %.0137
+  %.2139 = select i1 %or.cond26.i, float %396, float %.1138
   %399 = add nuw nsw i32 %.02339.i, 1
   %exitcond.not.i = icmp eq i32 %399, 8
   br i1 %exitcond.not.i, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, label %383, !llvm.loop !54
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit: ; preds = %383
-  %400 = fcmp olt float %.1, 0x3F1A36E2E0000000
-  %.2 = select i1 %400, float 0x3FB99999A0000000, float %.1
-  %401 = fcmp olt float %.1138, %.2
-  %402 = fadd float %.2, 1.000000e+03
-  %.2139 = select i1 %401, float %402, float %.1138
+  %400 = fcmp olt float %.2, 0x3F1A36E2E0000000
+  %.0 = select i1 %400, float 0x3FB99999A0000000, float %.2
+  %401 = fcmp olt float %.2139, %.0
+  %402 = fadd float %.0, 1.000000e+03
+  %.0137 = select i1 %401, float %402, float %.2139
   call void @glMatrixMode(i32 noundef 5889)
   call void @glPushMatrix()
   call void @glLoadIdentity()
-  call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(56) %374, float noundef %.2, float noundef %.2139)
+  call void @_ZN8GlCameraIN3vcg6CameraIfEEE11TransformGLERKS2_ff(ptr noundef nonnull align 4 dereferenceable(56) %374, float noundef %.0, float noundef %.0137)
   call void @glMatrixMode(i32 noundef 5888)
   call void @glPushMatrix()
   call void @glLoadIdentity()
@@ -10939,8 +10939,8 @@ define void @_ZN25VisibilityCheck_ShadowMap18shadowProjMatricesEv(ptr nocapture 
   br label %19
 
 19:                                               ; preds = %19, %1
-  %.056 = phi float [ undef, %1 ], [ %.157, %19 ]
-  %.0 = phi float [ undef, %1 ], [ %.1, %19 ]
+  %.157 = phi float [ undef, %1 ], [ %.258, %19 ]
+  %.1 = phi float [ undef, %1 ], [ %.2, %19 ]
   %.040.i = phi i1 [ true, %1 ], [ false, %19 ]
   %.02339.i = phi i32 [ 0, %1 ], [ %35, %19 ]
   %.zext.i = and i32 %.02339.i, 1
@@ -10960,22 +10960,22 @@ define void @_ZN25VisibilityCheck_ShadowMap18shadowProjMatricesEv(ptr nocapture 
   %30 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.5.0.copyload.i, float %27, float %29)
   %31 = fsub float %30, %15
   %32 = fneg float %31
-  %33 = fcmp ogt float %.0, %32
+  %33 = fcmp ogt float %.1, %32
   %or.cond.i = select i1 %.040.i, i1 true, i1 %33
-  %.1 = select i1 %or.cond.i, float %32, float %.0
-  %34 = fcmp olt float %.056, %32
+  %.2 = select i1 %or.cond.i, float %32, float %.1
+  %34 = fcmp olt float %.157, %32
   %or.cond26.i = select i1 %.040.i, i1 true, i1 %34
-  %.157 = select i1 %or.cond26.i, float %32, float %.056
+  %.258 = select i1 %or.cond26.i, float %32, float %.157
   %35 = add nuw nsw i32 %.02339.i, 1
   %exitcond.not.i = icmp eq i32 %35, 8
   br i1 %exitcond.not.i, label %_ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit, label %19, !llvm.loop !54
 
 _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEERfSA_.exit: ; preds = %19
-  %36 = fcmp olt float %.1, 0x3F1A36E2E0000000
-  %.2 = select i1 %36, float 0x3FB99999A0000000, float %.1
-  %37 = fcmp olt float %.157, %.2
-  %38 = fadd float %.2, 1.000000e+03
-  %.258 = select i1 %37, float %38, float %.157
+  %36 = fcmp olt float %.2, 0x3F1A36E2E0000000
+  %.0 = select i1 %36, float 0x3FB99999A0000000, float %.2
+  %37 = fcmp olt float %.258, %.0
+  %38 = fadd float %.0, 1.000000e+03
+  %.056 = select i1 %37, float %38, float %.258
   %39 = getelementptr inbounds i8, ptr %8, i64 20
   %40 = load float, ptr %39, align 4
   %41 = getelementptr inbounds i8, ptr %8, i64 12
@@ -11013,13 +11013,13 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %70 = fadd <2 x float> %61, %64
   %71 = fdiv <2 x float> %70, %65
   store <2 x float> %71, ptr %55, align 8
-  %72 = fadd float %.2, %.258
-  %73 = fsub float %.2, %.258
+  %72 = fadd float %.0, %.056
+  %73 = fsub float %.0, %.056
   %74 = fdiv float %72, %73
   %75 = getelementptr inbounds i8, ptr %0, i64 176
   store float %74, ptr %75, align 8
-  %76 = fmul float %.2, 2.000000e+00
-  %77 = fmul float %76, %.258
+  %76 = fmul float %.0, 2.000000e+00
+  %77 = fmul float %76, %.056
   %78 = fdiv float %77, %73
   %79 = getelementptr inbounds i8, ptr %0, i64 192
   store float %78, ptr %79, align 8

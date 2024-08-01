@@ -2447,7 +2447,7 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit524: ; preds
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit550
 
 1030:                                             ; preds = %1012, %907
-  %.1248 = phi double [ %910, %907 ], [ %1015, %1012 ]
+  %.2249 = phi double [ %910, %907 ], [ %1015, %1012 ]
   %1031 = load ptr, ptr %76, align 8
   %1032 = load ptr, ptr %1031, align 8
   %1033 = getelementptr inbounds i8, ptr %1032, i64 80
@@ -2665,9 +2665,9 @@ _ZN2cv3MataSERKNS_7MatExprE.exit526:              ; preds = %1108
   br label %1131
 
 1130:                                             ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit526, %1093
-  %.sroa.18.0 = phi i64 [ %1095, %1093 ], [ %.sroa.18.12.insert.insert, %_ZN2cv3MataSERKNS_7MatExprE.exit526 ]
-  %.sroa.0571.sroa.14.0 = phi i64 [ %.sroa.0571.sroa.14.0.extract.shift624, %1093 ], [ %1114, %_ZN2cv3MataSERKNS_7MatExprE.exit526 ]
-  %.sroa.0571.sroa.0.0 = phi i64 [ %1094, %1093 ], [ %1113, %_ZN2cv3MataSERKNS_7MatExprE.exit526 ]
+  %.sroa.18.1 = phi i64 [ %1095, %1093 ], [ %.sroa.18.12.insert.insert, %_ZN2cv3MataSERKNS_7MatExprE.exit526 ]
+  %.sroa.0571.sroa.14.1 = phi i64 [ %.sroa.0571.sroa.14.0.extract.shift624, %1093 ], [ %1114, %_ZN2cv3MataSERKNS_7MatExprE.exit526 ]
+  %.sroa.0571.sroa.0.1 = phi i64 [ %1094, %1093 ], [ %1113, %_ZN2cv3MataSERKNS_7MatExprE.exit526 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %160) #11
   br label %1378
 
@@ -3092,10 +3092,10 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit540: ; preds
 
 1334:                                             ; preds = %1323, %1217
   %.pn645 = phi { i64, i64 } [ %1185, %1217 ], [ %1291, %1323 ]
-  %.2249 = phi double [ %1220, %1217 ], [ %1326, %1323 ]
-  %.sroa.0571.sroa.14.1.in.in = extractvalue { i64, i64 } %.pn645, 0
-  %.sroa.0571.sroa.14.1.in = lshr i64 %.sroa.0571.sroa.14.1.in.in, 32
-  %.sroa.18.1 = extractvalue { i64, i64 } %.pn645, 1
+  %.3250 = phi double [ %1220, %1217 ], [ %1326, %1323 ]
+  %.sroa.0571.sroa.14.2.in.in = extractvalue { i64, i64 } %.pn645, 0
+  %.sroa.0571.sroa.14.2.in = lshr i64 %.sroa.0571.sroa.14.2.in.in, 32
+  %.sroa.18.2 = extractvalue { i64, i64 } %.pn645, 1
   %1335 = load ptr, ptr %76, align 8
   %1336 = load ptr, ptr %1335, align 8
   %1337 = getelementptr inbounds i8, ptr %1336, i64 80
@@ -3145,9 +3145,9 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit540: ; preds
   store i32 16842752, ptr %188, align 8
   %1359 = getelementptr inbounds i8, ptr %188, i64 8
   store ptr %189, ptr %1359, align 8
-  store i64 %.sroa.0571.sroa.14.1.in.in, ptr %190, align 8
+  store i64 %.sroa.0571.sroa.14.2.in.in, ptr %190, align 8
   %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %190, i64 8
-  store i64 %.sroa.18.1, ptr %.sroa.18.0..sroa_idx, align 8
+  store i64 %.sroa.18.2, ptr %.sroa.18.0..sroa_idx, align 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %192) #11
   %1360 = getelementptr inbounds i8, ptr %191, i64 16
   store i32 0, ptr %1360, align 8
@@ -3191,11 +3191,11 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit540: ; preds
           to label %1721 unwind label %483
 
 1378:                                             ; preds = %1130, %1370, %772, %_ZN2cv3MataSERKNS_7MatExprE.exit
-  %.sroa.18.2 = phi i64 [ %774, %772 ], [ %.sroa.18.12.insert.insert594, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ %.sroa.18.0, %1130 ], [ %.sroa.18.1, %1370 ]
-  %.sroa.0571.sroa.14.2 = phi i64 [ %.sroa.0571.sroa.14.0.extract.shift626, %772 ], [ %788, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ %.sroa.0571.sroa.14.0, %1130 ], [ %.sroa.0571.sroa.14.1.in, %1370 ]
-  %.sroa.0571.sroa.0.2 = phi i64 [ %773, %772 ], [ %787, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ %.sroa.0571.sroa.0.0, %1130 ], [ %.sroa.0571.sroa.14.1.in.in, %1370 ]
+  %.sroa.18.0 = phi i64 [ %774, %772 ], [ %.sroa.18.12.insert.insert594, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ %.sroa.18.1, %1130 ], [ %.sroa.18.2, %1370 ]
+  %.sroa.0571.sroa.14.0 = phi i64 [ %.sroa.0571.sroa.14.0.extract.shift626, %772 ], [ %788, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ %.sroa.0571.sroa.14.1, %1130 ], [ %.sroa.0571.sroa.14.2.in, %1370 ]
+  %.sroa.0571.sroa.0.0 = phi i64 [ %773, %772 ], [ %787, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ %.sroa.0571.sroa.0.1, %1130 ], [ %.sroa.0571.sroa.14.2.in.in, %1370 ]
   %.0251 = phi double [ %759, %772 ], [ %759, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ %1069, %1130 ], [ %1373, %1370 ]
-  %.3250 = phi double [ %.0247, %772 ], [ %.0247, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ %.1248, %1130 ], [ %.2249, %1370 ]
+  %.1248 = phi double [ %.0247, %772 ], [ %.0247, %_ZN2cv3MataSERKNS_7MatExprE.exit ], [ %.2249, %1130 ], [ %.3250, %1370 ]
   %1379 = load ptr, ptr @_ZSt4cout, align 8
   %1380 = getelementptr i8, ptr %1379, i64 -24
   %1381 = load i64, ptr %1380, align 8
@@ -3206,7 +3206,7 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit540: ; preds
           to label %1385 unwind label %483
 
 1385:                                             ; preds = %1378
-  %1386 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %1384, double noundef %.3250)
+  %1386 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %1384, double noundef %.1248)
           to label %1387 unwind label %483
 
 1387:                                             ; preds = %1385
@@ -3271,10 +3271,10 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit540: ; preds
   store i32 16842752, ptr %194, align 8
   %1416 = getelementptr inbounds i8, ptr %194, i64 8
   store ptr %69, ptr %1416, align 8
-  %.sroa.0571.sroa.14.0.insert.ext618 = shl i64 %.sroa.0571.sroa.14.2, 32
-  %.sroa.0571.sroa.0.0.insert.ext601 = and i64 %.sroa.0571.sroa.0.2, 4294967295
+  %.sroa.0571.sroa.14.0.insert.ext618 = shl i64 %.sroa.0571.sroa.14.0, 32
+  %.sroa.0571.sroa.0.0.insert.ext601 = and i64 %.sroa.0571.sroa.0.0, 4294967295
   %.sroa.0571.sroa.0.0.insert.insert603 = or disjoint i64 %.sroa.0571.sroa.0.0.insert.ext601, %.sroa.0571.sroa.14.0.insert.ext618
-  %1417 = invoke noundef double @_ZN2cv8ximgproc10computeMSEERKNS_11_InputArrayES3_NS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(24) %193, ptr noundef nonnull align 8 dereferenceable(24) %194, i64 %.sroa.0571.sroa.0.0.insert.insert603, i64 %.sroa.18.2)
+  %1417 = invoke noundef double @_ZN2cv8ximgproc10computeMSEERKNS_11_InputArrayES3_NS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(24) %193, ptr noundef nonnull align 8 dereferenceable(24) %194, i64 %.sroa.0571.sroa.0.0.insert.insert603, i64 %.sroa.18.0)
           to label %1418 unwind label %1478
 
 1418:                                             ; preds = %1410
@@ -3292,7 +3292,7 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit540: ; preds
   store i32 16842752, ptr %196, align 8
   %1424 = getelementptr inbounds i8, ptr %196, i64 8
   store ptr %69, ptr %1424, align 8
-  %1425 = invoke noundef double @_ZN2cv8ximgproc22computeBadPixelPercentERKNS_11_InputArrayES3_NS_5Rect_IiEEi(ptr noundef nonnull align 8 dereferenceable(24) %195, ptr noundef nonnull align 8 dereferenceable(24) %196, i64 %.sroa.0571.sroa.0.0.insert.insert603, i64 %.sroa.18.2, i32 noundef 24)
+  %1425 = invoke noundef double @_ZN2cv8ximgproc22computeBadPixelPercentERKNS_11_InputArrayES3_NS_5Rect_IiEEi(ptr noundef nonnull align 8 dereferenceable(24) %195, ptr noundef nonnull align 8 dereferenceable(24) %196, i64 %.sroa.0571.sroa.0.0.insert.insert603, i64 %.sroa.18.0, i32 noundef 24)
           to label %1426 unwind label %1480
 
 1426:                                             ; preds = %1418
@@ -3310,7 +3310,7 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit540: ; preds
   store i32 16842752, ptr %198, align 8
   %1432 = getelementptr inbounds i8, ptr %198, i64 8
   store ptr %71, ptr %1432, align 8
-  %1433 = invoke noundef double @_ZN2cv8ximgproc10computeMSEERKNS_11_InputArrayES3_NS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(24) %197, ptr noundef nonnull align 8 dereferenceable(24) %198, i64 %.sroa.0571.sroa.0.0.insert.insert603, i64 %.sroa.18.2)
+  %1433 = invoke noundef double @_ZN2cv8ximgproc10computeMSEERKNS_11_InputArrayES3_NS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(24) %197, ptr noundef nonnull align 8 dereferenceable(24) %198, i64 %.sroa.0571.sroa.0.0.insert.insert603, i64 %.sroa.18.0)
           to label %1434 unwind label %1482
 
 1434:                                             ; preds = %1426
@@ -3328,7 +3328,7 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit540: ; preds
   store i32 16842752, ptr %200, align 8
   %1440 = getelementptr inbounds i8, ptr %200, i64 8
   store ptr %71, ptr %1440, align 8
-  %1441 = invoke noundef double @_ZN2cv8ximgproc22computeBadPixelPercentERKNS_11_InputArrayES3_NS_5Rect_IiEEi(ptr noundef nonnull align 8 dereferenceable(24) %199, ptr noundef nonnull align 8 dereferenceable(24) %200, i64 %.sroa.0571.sroa.0.0.insert.insert603, i64 %.sroa.18.2, i32 noundef 24)
+  %1441 = invoke noundef double @_ZN2cv8ximgproc22computeBadPixelPercentERKNS_11_InputArrayES3_NS_5Rect_IiEEi(ptr noundef nonnull align 8 dereferenceable(24) %199, ptr noundef nonnull align 8 dereferenceable(24) %200, i64 %.sroa.0571.sroa.0.0.insert.insert603, i64 %.sroa.18.0, i32 noundef 24)
           to label %1442 unwind label %1484
 
 1442:                                             ; preds = %1434
@@ -4203,7 +4203,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit548:                 ; preds = %1539, %1537, %1530
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit550
 
 1721:                                             ; preds = %.invoke, %_ZNSt6vectorIiSaIiEED2Ev.exit548, %1718
-  %.0 = phi i32 [ 0, %1718 ], [ 0, %_ZNSt6vectorIiSaIiEED2Ev.exit548 ], [ -1, %.invoke ]
+  %.5 = phi i32 [ 0, %1718 ], [ 0, %_ZNSt6vectorIiSaIiEED2Ev.exit548 ], [ -1, %.invoke ]
   %1722 = getelementptr inbounds i8, ptr %76, i64 8
   %1723 = load ptr, ptr %1722, align 8
   %.not.i.i.i.i551 = icmp eq ptr %1723, null
@@ -4310,7 +4310,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit550:                 ; preds = %1543, %1540, %1484,
   br label %1761
 
 1760:                                             ; preds = %464, %_ZN2cv3PtrINS_8ximgproc18DisparityWLSFilterEED2Ev.exit
-  %.1 = phi i32 [ %.0, %_ZN2cv3PtrINS_8ximgproc18DisparityWLSFilterEED2Ev.exit ], [ -1, %464 ]
+  %.4 = phi i32 [ %.5, %_ZN2cv3PtrINS_8ximgproc18DisparityWLSFilterEED2Ev.exit ], [ -1, %464 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %64) #11
   br label %1762
 
@@ -4320,7 +4320,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit550:                 ; preds = %1543, %1540, %1484,
   br label %1763
 
 1762:                                             ; preds = %443, %1760
-  %.2 = phi i32 [ %.1, %1760 ], [ -1, %443 ]
+  %.3 = phi i32 [ %.4, %1760 ], [ -1, %443 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %63) #11
   br label %1764
 
@@ -4330,7 +4330,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit550:                 ; preds = %1543, %1540, %1484,
   br label %1765
 
 1764:                                             ; preds = %433, %1762
-  %.3 = phi i32 [ %.2, %1762 ], [ -1, %433 ]
+  %.2 = phi i32 [ %.3, %1762 ], [ -1, %433 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %62) #11
   br label %1766
 
@@ -4340,7 +4340,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit550:                 ; preds = %1543, %1540, %1484,
   br label %1767
 
 1766:                                             ; preds = %426, %1764
-  %.4 = phi i32 [ %.3, %1764 ], [ -1, %426 ]
+  %.1 = phi i32 [ %.2, %1764 ], [ -1, %426 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %29) #11
@@ -4388,9 +4388,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit550:                 ; preds = %1543, %1540, %1484,
   br label %.body
 
 1773:                                             ; preds = %268, %1766
-  %.5 = phi i32 [ %.4, %1766 ], [ 0, %268 ]
+  %.0 = phi i32 [ %.1, %1766 ], [ 0, %268 ]
   call void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #11
-  ret i32 %.5
+  ret i32 %.0
 
 .body:                                            ; preds = %279, %282, %.body477, %278, %273
   %.pn474 = phi { ptr, i32 } [ %.pn464.pn.pn.pn.pn.pn.pn.pn.pn, %.body477 ], [ %.pn256, %278 ], [ %.pn, %273 ], [ %280, %279 ], [ %283, %282 ]

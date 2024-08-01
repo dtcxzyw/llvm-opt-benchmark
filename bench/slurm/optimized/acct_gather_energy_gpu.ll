@@ -1121,11 +1121,11 @@ _running_profile.exit:                            ; preds = %0, %10
 14:                                               ; preds = %_running_profile.exit.thread, %_running_profile.exit
   %15 = load i32, ptr @dataset_id, align 4
   %16 = icmp slt i32 %15, 0
-  %.pre58 = load i16, ptr @gpus_len, align 2
+  %.pre59 = load i16, ptr @gpus_len, align 2
   br i1 %16, label %17, label %49
 
 17:                                               ; preds = %14
-  %18 = zext i16 %.pre58 to i64
+  %18 = zext i16 %.pre59 to i64
   %19 = add nuw nsw i64 %18, 1
   %20 = tail call ptr @llvm.stacksave.p0()
   %21 = alloca %struct.acct_gather_profile_dataset_t, i64 %19, align 16
@@ -1156,26 +1156,26 @@ _running_profile.exit:                            ; preds = %0, %10
   %32 = call i32 @acct_gather_profile_g_create_dataset(ptr noundef nonnull @.str.30, i64 noundef -1, ptr noundef nonnull %21) #10
   store i32 %32, ptr @dataset_id, align 4
   %33 = load i16, ptr @gpus_len, align 2
-  %.not46 = icmp eq i16 %33, 0
-  br i1 %.not46, label %._crit_edge35, label %.lr.ph34
+  %.not47 = icmp eq i16 %33, 0
+  br i1 %.not47, label %._crit_edge36, label %.lr.ph35
 
-.lr.ph34:                                         ; preds = %._crit_edge, %.lr.ph34
-  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph34 ], [ 0, %._crit_edge ]
-  %34 = getelementptr inbounds %struct.acct_gather_profile_dataset_t, ptr %21, i64 %indvars.iv50
+.lr.ph35:                                         ; preds = %._crit_edge, %.lr.ph35
+  %indvars.iv51 = phi i64 [ %indvars.iv.next52, %.lr.ph35 ], [ 0, %._crit_edge ]
+  %34 = getelementptr inbounds %struct.acct_gather_profile_dataset_t, ptr %21, i64 %indvars.iv51
   call void @slurm_xfree(ptr noundef nonnull %34) #10
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
+  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %35 = load i16, ptr @gpus_len, align 2
   %36 = zext i16 %35 to i64
-  %37 = icmp ult i64 %indvars.iv.next51, %36
-  br i1 %37, label %.lr.ph34, label %._crit_edge35, !llvm.loop !15
+  %37 = icmp ult i64 %indvars.iv.next52, %36
+  br i1 %37, label %.lr.ph35, label %._crit_edge36, !llvm.loop !15
 
-._crit_edge35:                                    ; preds = %.lr.ph34, %._crit_edge
+._crit_edge36:                                    ; preds = %.lr.ph35, %._crit_edge
   %38 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %39 = and i64 %38, 262144
-  %.not28 = icmp eq i64 %39, 0
-  br i1 %.not28, label %45, label %40
+  %.not29 = icmp eq i64 %39, 0
+  br i1 %.not29, label %45, label %40
 
-40:                                               ; preds = %._crit_edge35
+40:                                               ; preds = %._crit_edge36
   %41 = call i32 @slurm_get_log_level() #10
   %42 = icmp sgt i32 %41, 3
   br i1 %42, label %43, label %45
@@ -1185,10 +1185,10 @@ _running_profile.exit:                            ; preds = %0, %10
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.31, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._send_profile, i32 noundef %44) #10
   br label %45
 
-45:                                               ; preds = %40, %43, %._crit_edge35
+45:                                               ; preds = %40, %43, %._crit_edge36
   %46 = load i32, ptr @dataset_id, align 4
-  %.not29 = icmp eq i32 %46, -1
-  br i1 %.not29, label %47, label %.critedge
+  %.not30 = icmp eq i32 %46, -1
+  br i1 %.not30, label %47, label %.critedge
 
 47:                                               ; preds = %45
   %48 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.32) #10
@@ -1202,65 +1202,65 @@ _running_profile.exit:                            ; preds = %0, %10
 
 49:                                               ; preds = %.critedge, %14
   %50 = phi i32 [ %46, %.critedge ], [ %15, %14 ]
-  %51 = phi i16 [ %.pre, %.critedge ], [ %.pre58, %14 ]
+  %51 = phi i16 [ %.pre, %.critedge ], [ %.pre59, %14 ]
   %52 = shl nuw nsw i64 %2, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %3, i8 0, i64 %52, i1 false)
-  %.not47 = icmp eq i16 %51, 0
-  br i1 %.not47, label %.loopexit, label %.lr.ph38
+  %.not48 = icmp eq i16 %51, 0
+  br i1 %.not48, label %.loopexit, label %.lr.ph39
 
-.lr.ph38:                                         ; preds = %49
+.lr.ph39:                                         ; preds = %49
   %53 = load ptr, ptr @gpus, align 8
   %wide.trip.count = zext i16 %51 to i64
   br label %54
 
-54:                                               ; preds = %.lr.ph38, %54
-  %indvars.iv53 = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next54, %54 ]
-  %55 = getelementptr inbounds %struct.gpu_status_t, ptr %53, i64 %indvars.iv53, i32 3, i32 3
+54:                                               ; preds = %.lr.ph39, %54
+  %indvars.iv54 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next55, %54 ]
+  %55 = getelementptr inbounds %struct.gpu_status_t, ptr %53, i64 %indvars.iv54, i32 3, i32 3
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv53
+  %58 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv54
   store i64 %57, ptr %58, align 8
-  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
   br i1 %exitcond.not, label %59, label %54, !llvm.loop !16
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds %struct.gpu_status_t, ptr %53, i64 %indvars.iv53, i32 3, i32 5
+  %60 = getelementptr inbounds %struct.gpu_status_t, ptr %53, i64 %indvars.iv54, i32 3, i32 5
   %61 = load i64, ptr %60, align 8
   %62 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
   %63 = and i64 %62, 2097152
-  %.not30.not = icmp eq i64 %63, 0
-  br i1 %.not30.not, label %.loopexit, label %.lr.ph44
+  %.not31.not = icmp eq i64 %63, 0
+  br i1 %.not31.not, label %.loopexit, label %.lr.ph45
 
-.lr.ph44:                                         ; preds = %59, %70
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %70 ], [ 0, %59 ]
+.lr.ph45:                                         ; preds = %59, %70
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %70 ], [ 0, %59 ]
   %64 = phi i32 [ %71, %70 ], [ 0, %59 ]
   %65 = call i32 @slurm_get_log_level() #10
   %66 = icmp sgt i32 %65, 2
   br i1 %66, label %67, label %70
 
-67:                                               ; preds = %.lr.ph44
-  %68 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv56
+67:                                               ; preds = %.lr.ph45
+  %68 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv57
   %69 = load i64, ptr %68, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.33, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._send_profile, i32 noundef %64, i64 noundef %69) #10
   br label %70
 
-70:                                               ; preds = %.lr.ph44, %67
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %71 = trunc nuw i64 %indvars.iv.next57 to i32
+70:                                               ; preds = %.lr.ph45, %67
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
+  %71 = trunc nuw i64 %indvars.iv.next58 to i32
   %72 = load i16, ptr @gpus_len, align 2
   %73 = zext i16 %72 to i64
-  %74 = icmp ult i64 %indvars.iv.next57, %73
-  br i1 %74, label %.lr.ph44, label %.loopexit.loopexit, !llvm.loop !17
+  %74 = icmp ult i64 %indvars.iv.next58, %73
+  br i1 %74, label %.lr.ph45, label %.loopexit.loopexit, !llvm.loop !17
 
 .loopexit.loopexit:                               ; preds = %70
-  %.pre59 = load i32, ptr @dataset_id, align 4
+  %.pre60 = load i32, ptr @dataset_id, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %.loopexit.loopexit, %59
-  %.026.lcssa64 = phi i64 [ %61, %.loopexit.loopexit ], [ %61, %59 ], [ %7, %49 ]
-  %75 = phi i32 [ %.pre59, %.loopexit.loopexit ], [ %50, %59 ], [ %50, %49 ]
-  %76 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %75, ptr noundef nonnull %3, i64 noundef %.026.lcssa64) #10
+  %.026.lcssa65 = phi i64 [ %61, %.loopexit.loopexit ], [ %61, %59 ], [ %7, %49 ]
+  %75 = phi i32 [ %.pre60, %.loopexit.loopexit ], [ %50, %59 ], [ %50, %49 ]
+  %76 = call i32 @acct_gather_profile_g_add_sample_data(i32 noundef %75, ptr noundef nonnull %3, i64 noundef %.026.lcssa65) #10
   br label %77
 
 77:                                               ; preds = %47, %_running_profile.exit, %.loopexit

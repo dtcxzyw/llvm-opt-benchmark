@@ -412,13 +412,13 @@ _ZL9OutputBinP8_IO_FILEPKcjj.exit.i37:            ; preds = %95, %._crit_edge.lo
   br i1 %112, label %.backedge, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.thread
 
 _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.thread: ; preds = %.backedge, %_ZL9OutputBinP8_IO_FILEPKcjj.exit.i37, %_ZL11ChompStrlenPKc.exit.i29, %93, %.backedge.us, %_ZL9OutputBinP8_IO_FILEPKcjj.exit.i.us, %_ZL11ChompStrlenPKc.exit.i.us, %42, %.preheader, %_ZL9OutputBinP8_IO_FILEPKcjj.exit.i37.thread, %_ZL9OutputBinP8_IO_FILEPKcjj.exit.i.thread
-  %.2 = phi i1 [ false, %_ZL9OutputBinP8_IO_FILEPKcjj.exit.i.thread ], [ false, %_ZL9OutputBinP8_IO_FILEPKcjj.exit.i37.thread ], [ false, %.preheader ], [ true, %.backedge.us ], [ false, %_ZL9OutputBinP8_IO_FILEPKcjj.exit.i.us ], [ false, %_ZL11ChompStrlenPKc.exit.i.us ], [ false, %42 ], [ true, %.backedge ], [ false, %_ZL9OutputBinP8_IO_FILEPKcjj.exit.i37 ], [ false, %_ZL11ChompStrlenPKc.exit.i29 ], [ false, %93 ]
+  %.1 = phi i1 [ false, %_ZL9OutputBinP8_IO_FILEPKcjj.exit.i.thread ], [ false, %_ZL9OutputBinP8_IO_FILEPKcjj.exit.i37.thread ], [ false, %.preheader ], [ true, %.backedge.us ], [ false, %_ZL9OutputBinP8_IO_FILEPKcjj.exit.i.us ], [ false, %_ZL11ChompStrlenPKc.exit.i.us ], [ false, %42 ], [ true, %.backedge ], [ false, %_ZL9OutputBinP8_IO_FILEPKcjj.exit.i37 ], [ false, %_ZL11ChompStrlenPKc.exit.i29 ], [ false, %93 ]
   %113 = call i32 @fclose(ptr noundef %13)
   %114 = call i32 @fclose(ptr noundef %14)
   br label %115
 
 115:                                              ; preds = %70, %71, %2, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.thread
-  %.020 = phi i1 [ %.2, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.thread ], [ false, %2 ], [ false, %71 ], [ false, %70 ]
+  %.020 = phi i1 [ %.1, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.thread ], [ false, %2 ], [ false, %71 ], [ false, %70 ]
   ret i1 %.020
 }
 

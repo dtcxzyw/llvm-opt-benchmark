@@ -1519,8 +1519,8 @@ if.then12:                                        ; preds = %do.body.i, %do.body
 
 if.end14:                                         ; preds = %skipBOM.exit.i, %if.then12
   %3 = phi i32 [ 1, %if.then12 ], [ 0, %skipBOM.exit.i ]
-  %c.057 = phi i32 [ %call4.i, %if.then12 ], [ %retval.0.i.i, %skipBOM.exit.i ]
-  %cmp15 = icmp eq i32 %c.057, 27
+  %c.157 = phi i32 [ %call4.i, %if.then12 ], [ %retval.0.i.i, %skipBOM.exit.i ]
+  %cmp15 = icmp eq i32 %c.157, 27
   br i1 %cmp15, label %if.then17, label %if.end33
 
 if.then17:                                        ; preds = %if.end14
@@ -1581,14 +1581,14 @@ do.end.i34:                                       ; preds = %do.body.i32, %do.bo
 
 if.end33:                                         ; preds = %skipBOM.exit.i28, %do.end.i34, %if.end14
   %5 = phi i32 [ %3, %if.end14 ], [ 0, %skipBOM.exit.i28 ], [ 0, %do.end.i34 ]
-  %c.2 = phi i32 [ %c.057, %if.end14 ], [ %retval.0.i.i29, %skipBOM.exit.i28 ], [ %call4.i35, %do.end.i34 ]
-  %cmp34.not = icmp eq i32 %c.2, -1
+  %c.0 = phi i32 [ %c.157, %if.end14 ], [ %retval.0.i.i29, %skipBOM.exit.i28 ], [ %call4.i35, %do.end.i34 ]
+  %cmp34.not = icmp eq i32 %c.0, -1
   br i1 %cmp34.not, label %if.end43, label %if.then36
 
 if.then36:                                        ; preds = %land.lhs.true.i.i, %land.lhs.true3.i.i, %land.lhs.true.i.i39, %land.lhs.true3.i.i42, %if.then17, %if.end33
   %6 = phi i32 [ %5, %if.end33 ], [ 0, %land.lhs.true.i.i39 ], [ 0, %land.lhs.true3.i.i42 ], [ 0, %if.then17 ], [ 0, %land.lhs.true3.i.i ], [ 0, %land.lhs.true.i.i ]
-  %c.260 = phi i32 [ %c.2, %if.end33 ], [ 239, %land.lhs.true.i.i39 ], [ 239, %land.lhs.true3.i.i42 ], [ 27, %if.then17 ], [ 239, %land.lhs.true3.i.i ], [ 239, %land.lhs.true.i.i ]
-  %conv37 = trunc i32 %c.260 to i8
+  %c.060 = phi i32 [ %c.0, %if.end33 ], [ 239, %land.lhs.true.i.i39 ], [ 239, %land.lhs.true3.i.i42 ], [ 27, %if.then17 ], [ 239, %land.lhs.true3.i.i ], [ 239, %land.lhs.true.i.i ]
+  %conv37 = trunc i32 %c.060 to i8
   %buff38 = getelementptr inbounds i8, ptr %lf, i64 16
   %inc40 = add nuw nsw i32 %6, 1
   store i32 %inc40, ptr %lf, align 8

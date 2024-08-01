@@ -5953,7 +5953,7 @@ invoke.cont:
 
 for.body:                                         ; preds = %invoke.cont, %for.inc
   %__begin1.sroa.0.029 = phi ptr [ %__begin1.sroa.0.0, %for.inc ], [ %__begin1.sroa.0.026, %invoke.cont ]
-  %min_log.028 = phi i64 [ %min_log.2, %for.inc ], [ 0, %invoke.cont ]
+  %min_log.028 = phi i64 [ %min_log.1, %for.inc ], [ 0, %invoke.cont ]
   %dropped_.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.029, i64 61
   %5 = load atomic i8, ptr %dropped_.i monotonic, align 1
   %tobool.i.i.i = trunc i8 %5 to i1
@@ -5974,7 +5974,7 @@ invoke.cont21:                                    ; preds = %if.end
   %7 = add i64 %min_log.028, -1
   %8 = add i64 %call22, -1
   %.not = icmp ult i64 %8, %7
-  %min_log.1 = select i1 %.not, i64 %call22, i64 %min_log.028
+  %min_log.2 = select i1 %.not, i64 %call22, i64 %min_log.028
   %mem_.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.029, i64 2400
   %9 = load ptr, ptr %mem_.i, align 8
   %call30 = invoke noundef i64 @_ZN7rocksdb8MemTable30GetMinLogContainingPrepSectionEv(ptr noundef nonnull align 16 dereferenceable(3528) %9)
@@ -5985,20 +5985,20 @@ invoke.cont29:                                    ; preds = %invoke.cont21
   br i1 %cmp31.not, label %for.inc, label %land.lhs.true32
 
 land.lhs.true32:                                  ; preds = %invoke.cont29
-  %10 = add i64 %min_log.1, -1
+  %10 = add i64 %min_log.2, -1
   %or.cond17.not = icmp ult i64 %10, %call30
-  %spec.select18 = select i1 %or.cond17.not, i64 %min_log.1, i64 %call30
+  %spec.select18 = select i1 %or.cond17.not, i64 %min_log.2, i64 %call30
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true32, %invoke.cont29, %for.body
-  %min_log.2 = phi i64 [ %min_log.028, %for.body ], [ %min_log.1, %invoke.cont29 ], [ %spec.select18, %land.lhs.true32 ]
+  %min_log.1 = phi i64 [ %min_log.028, %for.body ], [ %min_log.2, %invoke.cont29 ], [ %spec.select18, %land.lhs.true32 ]
   %__begin1.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin1.sroa.0.029, i64 2480
   %__begin1.sroa.0.0 = load ptr, ptr %__begin1.sroa.0.0.in, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %4
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %invoke.cont
-  %min_log.0.lcssa = phi i64 [ 0, %invoke.cont ], [ %min_log.2, %for.inc ]
+  %min_log.0.lcssa = phi i64 [ 0, %invoke.cont ], [ %min_log.1, %for.inc ]
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %memtables_to_flush_set, i64 16
   %11 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %11, null
@@ -6247,7 +6247,7 @@ invoke.cont24:                                    ; preds = %invoke.cont12, %inv
 
 for.body30:                                       ; preds = %invoke.cont24, %for.inc54
   %__begin120.sroa.0.052 = phi ptr [ %__begin120.sroa.0.0, %for.inc54 ], [ %__begin120.sroa.0.049, %invoke.cont24 ]
-  %min_log.051 = phi i64 [ %min_log.2, %for.inc54 ], [ 0, %invoke.cont24 ]
+  %min_log.051 = phi i64 [ %min_log.1, %for.inc54 ], [ 0, %invoke.cont24 ]
   %dropped_.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.052, i64 61
   %33 = load atomic i8, ptr %dropped_.i monotonic, align 1
   %tobool.i.i.i = trunc i8 %33 to i1
@@ -6262,7 +6262,7 @@ invoke.cont37:                                    ; preds = %if.end
   %34 = add i64 %min_log.051, -1
   %35 = add i64 %call38, -1
   %.not = icmp ult i64 %35, %34
-  %min_log.1 = select i1 %.not, i64 %call38, i64 %min_log.051
+  %min_log.2 = select i1 %.not, i64 %call38, i64 %min_log.051
   %mem_.i = getelementptr inbounds i8, ptr %__begin120.sroa.0.052, i64 2400
   %36 = load ptr, ptr %mem_.i, align 8
   %call46 = invoke noundef i64 @_ZN7rocksdb8MemTable30GetMinLogContainingPrepSectionEv(ptr noundef nonnull align 16 dereferenceable(3528) %36)
@@ -6273,20 +6273,20 @@ invoke.cont45:                                    ; preds = %invoke.cont37
   br i1 %cmp47.not, label %for.inc54, label %land.lhs.true48
 
 land.lhs.true48:                                  ; preds = %invoke.cont45
-  %37 = add i64 %min_log.1, -1
+  %37 = add i64 %min_log.2, -1
   %or.cond19.not = icmp ult i64 %37, %call46
-  %spec.select20 = select i1 %or.cond19.not, i64 %min_log.1, i64 %call46
+  %spec.select20 = select i1 %or.cond19.not, i64 %min_log.2, i64 %call46
   br label %for.inc54
 
 for.inc54:                                        ; preds = %land.lhs.true48, %invoke.cont45, %for.body30
-  %min_log.2 = phi i64 [ %min_log.051, %for.body30 ], [ %min_log.1, %invoke.cont45 ], [ %spec.select20, %land.lhs.true48 ]
+  %min_log.1 = phi i64 [ %min_log.051, %for.body30 ], [ %min_log.2, %invoke.cont45 ], [ %spec.select20, %land.lhs.true48 ]
   %__begin120.sroa.0.0.in = getelementptr inbounds i8, ptr %__begin120.sroa.0.052, i64 2480
   %__begin120.sroa.0.0 = load ptr, ptr %__begin120.sroa.0.0.in, align 8
   %cmp.i.not = icmp eq ptr %__begin120.sroa.0.0, %32
   br i1 %cmp.i.not, label %for.end57, label %for.body30
 
 for.end57:                                        ; preds = %for.inc54, %invoke.cont24
-  %min_log.0.lcssa = phi i64 [ 0, %invoke.cont24 ], [ %min_log.2, %for.inc54 ]
+  %min_log.0.lcssa = phi i64 [ 0, %invoke.cont24 ], [ %min_log.1, %for.inc54 ]
   %38 = load ptr, ptr %_M_before_begin.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %38, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableIPN7rocksdb8MemTableES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -6551,21 +6551,21 @@ if.then37:                                        ; preds = %for.cond.cleanup.th
 
 for.body43:                                       ; preds = %if.then37, %for.body43
   %i.0104 = phi i64 [ %inc, %for.body43 ], [ 1, %if.then37 ]
-  %min_log_number_to_keep.2103 = phi i64 [ %.sroa.speculated67, %for.body43 ], [ %16, %if.then37 ]
+  %min_log_number_to_keep.3103 = phi i64 [ %.sroa.speculated67, %for.body43 ], [ %16, %if.then37 ]
   %cmp.i46 = icmp ult i64 %i.0104, 8
   %retval.0.i.v = select i1 %cmp.i46, ptr %13, ptr %invariant.gep100
   %retval.0.i = getelementptr ptr, ptr %retval.0.i.v, i64 %i.0104
   %18 = load ptr, ptr %retval.0.i, align 8
   %log_number_.i50 = getelementptr inbounds i8, ptr %18, i64 2496
   %19 = load i64, ptr %log_number_.i50, align 8
-  %.sroa.speculated67 = tail call i64 @llvm.umin.i64(i64 %19, i64 %min_log_number_to_keep.2103)
+  %.sroa.speculated67 = tail call i64 @llvm.umin.i64(i64 %19, i64 %min_log_number_to_keep.3103)
   %inc = add nuw i64 %i.0104, 1
   %exitcond.not = icmp eq i64 %inc, %add.i
   br i1 %exitcond.not, label %invoke.cont53, label %for.body43, !llvm.loop !82
 
 invoke.cont53:                                    ; preds = %for.body43, %for.cond.cleanup.invoke.cont53_crit_edge, %if.then37
   %add.i.i60.pre-phi = phi i64 [ %.pre113, %for.cond.cleanup.invoke.cont53_crit_edge ], [ %add.i, %if.then37 ], [ %add.i, %for.body43 ]
-  %min_log_number_to_keep.3 = phi i64 [ %9, %for.cond.cleanup.invoke.cont53_crit_edge ], [ %16, %if.then37 ], [ %.sroa.speculated67, %for.body43 ]
+  %min_log_number_to_keep.2 = phi i64 [ %9, %for.cond.cleanup.invoke.cont53_crit_edge ], [ %16, %if.then37 ], [ %.sroa.speculated67, %for.body43 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   store ptr %cfds_to_flush, ptr %agg.tmp.i.i, align 8
   %agg.tmp.sroa.2.0.agg.tmp.i.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i.i, i64 8
@@ -6719,7 +6719,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP
   br label %_ZNSt13unordered_setIPKN7rocksdb16ColumnFamilyDataESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit
 
 _ZNSt13unordered_setIPKN7rocksdb16ColumnFamilyDataESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit: ; preds = %_ZNSt10_HashtableIPKN7rocksdb16ColumnFamilyDataES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %min_log_num.0.lcssa.i, i64 %min_log_number_to_keep.3)
+  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %min_log_num.0.lcssa.i, i64 %min_log_number_to_keep.2)
   ret i64 %.sroa.speculated
 }
 
@@ -8699,7 +8699,7 @@ for.body131.lr.ph:                                ; preds = %invoke.cont114
   br label %for.body131
 
 for.body131:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %for.body131.lr.ph
-  %largest_file_number.0192 = phi i64 [ %41, %for.body131.lr.ph ], [ %largest_file_number.3206, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+  %largest_file_number.0192 = phi i64 [ %41, %for.body131.lr.ph ], [ %largest_file_number.2206, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   %__begin1123.sroa.0.0191 = phi ptr [ %42, %for.body131.lr.ph ], [ %incdec.ptr.i109, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %files, i8 0, i64 24, i1 false)
   %44 = load ptr, ptr %env_, align 8
@@ -8775,7 +8775,7 @@ if.end:                                           ; preds = %invoke.cont138
 
 for.body149:                                      ; preds = %if.end, %for.inc178
   %__begin2141.sroa.0.0189 = phi ptr [ %incdec.ptr.i106, %for.inc178 ], [ %.pre199, %if.end ]
-  %largest_file_number.1188 = phi i64 [ %largest_file_number.2, %for.inc178 ], [ %largest_file_number.0192, %if.end ]
+  %largest_file_number.3188 = phi i64 [ %largest_file_number.4, %for.inc178 ], [ %largest_file_number.0192, %if.end ]
   store i64 0, ptr %number, align 8
   %call152 = invoke noundef zeroext i1 @_ZN7rocksdb13ParseFileNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmPNS_8FileTypeEPNS_11WalFileTypeE(ptr noundef nonnull align 8 dereferenceable(32) %__begin2141.sroa.0.0189, ptr noundef nonnull %number, ptr noundef nonnull %type, ptr noundef null)
           to label %invoke.cont151 unwind label %lpad135.loopexit
@@ -8799,7 +8799,7 @@ lpad.i98:                                         ; preds = %.noexc99
 
 invoke.cont155:                                   ; preds = %.noexc99
   %56 = load i64, ptr %number, align 8
-  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %largest_file_number.1188, i64 %56)
+  %.sroa.speculated = call i64 @llvm.umax.i64(i64 %largest_file_number.3188, i64 %56)
   %57 = load i32, ptr %type, align 4
   %cmp = icmp ne i32 %57, 2
   %cmp159.not = icmp ult i64 %56, %41
@@ -8884,7 +8884,7 @@ if.end176:                                        ; preds = %land.rhs.i.i.i.i, %
   br label %for.inc178
 
 for.inc178:                                       ; preds = %invoke.cont151, %if.end176
-  %largest_file_number.2 = phi i64 [ %.sroa.speculated, %if.end176 ], [ %largest_file_number.1188, %invoke.cont151 ]
+  %largest_file_number.4 = phi i64 [ %.sroa.speculated, %if.end176 ], [ %largest_file_number.3188, %invoke.cont151 ]
   %incdec.ptr.i106 = getelementptr inbounds i8, ptr %__begin2141.sroa.0.0189, i64 32
   %cmp.i96.not = icmp eq ptr %incdec.ptr.i106, %.pre201
   br i1 %cmp.i96.not, label %cleanup.loopexit, label %for.body149
@@ -8897,7 +8897,7 @@ cleanup.loopexit:                                 ; preds = %for.inc178
 cleanup:                                          ; preds = %cleanup.loopexit, %invoke.cont138
   %65 = phi ptr [ %.pre201, %invoke.cont138 ], [ %.pre200, %cleanup.loopexit ]
   %66 = phi ptr [ %.pre199, %invoke.cont138 ], [ %.pre198, %cleanup.loopexit ]
-  %largest_file_number.3 = phi i64 [ %largest_file_number.0192, %invoke.cont138 ], [ %largest_file_number.2, %cleanup.loopexit ]
+  %largest_file_number.2 = phi i64 [ %largest_file_number.0192, %invoke.cont138 ], [ %largest_file_number.4, %cleanup.loopexit ]
   %cmp.not3.i.i.i.i = icmp eq ptr %66, %65
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i
 
@@ -8913,7 +8913,7 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.end, %invoke.contthread-pre-split.i, %cleanup
-  %largest_file_number.3206 = phi i64 [ %largest_file_number.3, %invoke.contthread-pre-split.i ], [ %largest_file_number.3, %cleanup ], [ %largest_file_number.0192, %if.end ]
+  %largest_file_number.2206 = phi i64 [ %largest_file_number.2, %invoke.contthread-pre-split.i ], [ %largest_file_number.2, %cleanup ], [ %largest_file_number.0192, %if.end ]
   %67 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %66, %cleanup ], [ %.pre199, %if.end ]
   %tobool.not.i.i.i108 = icmp eq ptr %67, null
   br i1 %tobool.not.i.i.i108, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %if.then.i.i.i
@@ -8939,13 +8939,13 @@ invoke.cont186:                                   ; preds = %_ZNSt6vectorINSt7__
   br i1 %68, label %if.end189, label %nrvo.skipdtor
 
 if.end189:                                        ; preds = %invoke.cont186
-  %cmp190.not = icmp ult i64 %largest_file_number.3206, %41
+  %cmp190.not = icmp ult i64 %largest_file_number.2206, %41
   br i1 %cmp190.not, label %invoke.cont195, label %if.then191
 
 if.then191:                                       ; preds = %invoke.cont114, %if.end189
-  %largest_file_number.4209212 = phi i64 [ %largest_file_number.3206, %if.end189 ], [ %41, %invoke.cont114 ]
+  %largest_file_number.1209212 = phi i64 [ %largest_file_number.2206, %if.end189 ], [ %41, %invoke.cont114 ]
   %69 = load ptr, ptr %versions_, align 8
-  %add = add i64 %largest_file_number.4209212, 1
+  %add = add i64 %largest_file_number.1209212, 1
   %next_file_number_ = getelementptr inbounds i8, ptr %69, i64 216
   store atomic i64 %add, ptr %next_file_number_ seq_cst, align 8
   br label %invoke.cont195

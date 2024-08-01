@@ -270,7 +270,7 @@ define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr nocapture noundef r
   br label %97
 
 38:                                               ; preds = %32, %21
-  %.038 = phi ptr [ %26, %32 ], [ null, %21 ]
+  %.139 = phi ptr [ %26, %32 ], [ null, %21 ]
   %39 = getelementptr inbounds i8, ptr %4, i64 16
   %40 = load i64, ptr %39, align 8
   %.not52 = icmp eq i64 %40, -1
@@ -300,7 +300,7 @@ define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr nocapture noundef r
   br label %.thread
 
 56:                                               ; preds = %49, %38
-  %.036 = phi ptr [ %43, %49 ], [ null, %38 ]
+  %.137 = phi ptr [ %43, %49 ], [ null, %38 ]
   %57 = getelementptr inbounds i8, ptr %4, i64 32
   %58 = load i64, ptr %57, align 8
   %.not53 = icmp eq i64 %58, -1
@@ -366,16 +366,16 @@ define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr nocapture noundef r
   br label %.thread
 
 .thread:                                          ; preds = %56, %63, %52, %45, %93, %90
-  %.13763 = phi ptr [ %.036, %93 ], [ %.036, %90 ], [ %.036, %56 ], [ %.036, %63 ], [ %43, %52 ], [ null, %45 ]
+  %.03663 = phi ptr [ %.137, %93 ], [ %.137, %90 ], [ %.137, %56 ], [ %.137, %63 ], [ %43, %52 ], [ null, %45 ]
   %.1 = phi i32 [ -1, %93 ], [ %.0, %90 ], [ 0, %56 ], [ -1, %63 ], [ -1, %52 ], [ -1, %45 ]
-  %.not55 = icmp eq ptr %.038, null
+  %.not55 = icmp eq ptr %.139, null
   br i1 %.not55, label %104, label %97
 
 97:                                               ; preds = %.thread.thread69, %.thread
   %.176 = phi i32 [ -1, %.thread.thread69 ], [ %.1, %.thread ]
-  %.1396275 = phi ptr [ %26, %.thread.thread69 ], [ %.038, %.thread ]
-  %.1376374 = phi ptr [ null, %.thread.thread69 ], [ %.13763, %.thread ]
-  %98 = call i32 @H5B2_close(ptr noundef nonnull %.1396275) #2
+  %.0386275 = phi ptr [ %26, %.thread.thread69 ], [ %.139, %.thread ]
+  %.0366374 = phi ptr [ null, %.thread.thread69 ], [ %.03663, %.thread ]
+  %98 = call i32 @H5B2_close(ptr noundef nonnull %.0386275) #2
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %100, label %104
 
@@ -386,13 +386,13 @@ define internal range(i32 -1, 1) i32 @H5O__group_bh_info(ptr nocapture noundef r
   br label %104
 
 104:                                              ; preds = %100, %97, %.thread
-  %.1376368 = phi ptr [ %.1376374, %100 ], [ %.1376374, %97 ], [ %.13763, %.thread ]
+  %.0366368 = phi ptr [ %.0366374, %100 ], [ %.0366374, %97 ], [ %.03663, %.thread ]
   %.2 = phi i32 [ -1, %100 ], [ %.176, %97 ], [ %.1, %.thread ]
-  %.not56 = icmp eq ptr %.1376368, null
+  %.not56 = icmp eq ptr %.0366368, null
   br i1 %.not56, label %.thread77, label %105
 
 105:                                              ; preds = %104
-  %106 = call i32 @H5B2_close(ptr noundef nonnull %.1376368) #2
+  %106 = call i32 @H5B2_close(ptr noundef nonnull %.0366368) #2
   %107 = icmp slt i32 %106, 0
   br i1 %107, label %108, label %.thread77
 

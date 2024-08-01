@@ -1483,8 +1483,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 return:                                           ; preds = %invoke.cont27.thread, %if.end15, %if.then.i.i.i.i, %cleanup, %_Z11is_uninterpPK9func_decl.exit, %_ZNK9func_decl14is_associativeEv.exit, %if.end6, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end6 ], [ false, %_ZNK9func_decl14is_associativeEv.exit ], [ false, %_Z11is_uninterpPK9func_decl.exit ], [ %cmp.i18, %cleanup ], [ %cmp.not.lcssa52, %if.then.i.i.i.i ], [ true, %if.end15 ], [ false, %invoke.cont27.thread ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end6 ], [ false, %_ZNK9func_decl14is_associativeEv.exit ], [ false, %_Z11is_uninterpPK9func_decl.exit ], [ %cmp.i18, %cleanup ], [ %cmp.not.lcssa52, %if.then.i.i.i.i ], [ true, %if.end15 ], [ false, %invoke.cont27.thread ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1739,7 +1739,7 @@ cleanup.loopexit:                                 ; preds = %invoke.cont19, %inv
 
 cleanup:                                          ; preds = %cleanup.loopexit, %invoke.cont43
   %.pr = phi ptr [ %23, %invoke.cont43 ], [ %.pr.pre, %cleanup.loopexit ]
-  %retval.0.ph = phi i1 [ %cmp45, %invoke.cont43 ], [ false, %cleanup.loopexit ]
+  %retval.1.ph = phi i1 [ %cmp45, %invoke.cont43 ], [ false, %cleanup.loopexit ]
   %tobool.not.i.i.i.i = icmp eq ptr %.pr, null
   br i1 %tobool.not.i.i.i.i, label %return, label %if.then.i.i.i.i
 
@@ -1756,8 +1756,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 return:                                           ; preds = %if.end38, %if.then.i.i.i.i, %cleanup, %_Z11is_uninterpPK9func_decl.exit, %_ZNK9func_decl14is_associativeEv.exit, %if.end6, %if.end, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end6 ], [ false, %_ZNK9func_decl14is_associativeEv.exit ], [ false, %_Z11is_uninterpPK9func_decl.exit ], [ %retval.0.ph, %cleanup ], [ %retval.0.ph, %if.then.i.i.i.i ], [ false, %if.end38 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %if.end6 ], [ false, %_ZNK9func_decl14is_associativeEv.exit ], [ false, %_Z11is_uninterpPK9func_decl.exit ], [ %retval.1.ph, %cleanup ], [ %retval.1.ph, %if.then.i.i.i.i ], [ false, %if.end38 ]
+  ret i1 %retval.0
 }
 
 declare noundef zeroext i1 @_Z6occursP9func_declP4expr(ptr noundef, ptr noundef) local_unnamed_addr #0
@@ -4617,8 +4617,8 @@ ehcleanup:                                        ; preds = %lpad5, %lpad3
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %if.end.i.i.i82, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit, %entry
-  %retval.1 = phi i1 [ false, %entry ], [ %cmp51.not.lcssa, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit ], [ %cmp51.not.lcssa, %if.end.i.i.i82 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %entry ], [ %cmp51.not.lcssa, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit ], [ %cmp51.not.lcssa, %if.end.i.i.i82 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

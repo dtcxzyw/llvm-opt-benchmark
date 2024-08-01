@@ -75,8 +75,8 @@ $_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_ = c
 ; Function Attrs: mustprogress norecurse uwtable
 define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %argc, ptr nocapture noundef readnone %argv) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %key.i27 = alloca %"class.std::unique_ptr", align 8
-  %e.i28 = alloca %"class.std::unique_ptr.2", align 8
+  %key.i28 = alloca %"class.std::unique_ptr", align 8
+  %e.i29 = alloca %"class.std::unique_ptr.2", align 8
   %e.i1 = alloca %"class.std::unique_ptr.2", align 8
   %key1.i = alloca %"class.std::unique_ptr", align 8
   %key2.i2 = alloca %"class.std::unique_ptr", align 8
@@ -286,7 +286,7 @@ if.then93.invoke.i:                               ; preds = %if.then93.i, %if.th
           to label %if.then.i.i unwind label %lpad55.i
 
 if.then.i.i:                                      ; preds = %if.then93.invoke.i, %invoke.cont90.i, %invoke.cont69.i, %invoke.cont62.i, %invoke.cont56.i
-  %retval.0.ph.i = phi i1 [ true, %invoke.cont90.i ], [ false, %invoke.cont69.i ], [ false, %invoke.cont56.i ], [ false, %invoke.cont62.i ], [ false, %if.then93.invoke.i ]
+  %retval.1.ph.i = phi i1 [ true, %invoke.cont90.i ], [ false, %invoke.cont69.i ], [ false, %invoke.cont56.i ], [ false, %invoke.cont62.i ], [ false, %if.then93.invoke.i ]
   invoke void @RSA_free(ptr noundef nonnull %call50.i)
           to label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i unwind label %terminate.lpad.i.i
 
@@ -298,12 +298,12 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i: ; preds = %if.then.i.i, %invoke.cont49.i
-  %retval.09.i = phi i1 [ %retval.0.ph.i, %if.then.i.i ], [ false, %invoke.cont49.i ]
+  %retval.19.i = phi i1 [ %retval.1.ph.i, %if.then.i.i ], [ false, %invoke.cont49.i ]
   store ptr null, ptr %key2.i, align 8
   br label %if.then.i4.i
 
 if.then.i4.i:                                     ; preds = %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i, %if.then44.invoke.i, %invoke.cont16.i, %invoke.cont11.i, %invoke.cont6.i, %invoke.cont.i
-  %retval.1.ph.i = phi i1 [ false, %invoke.cont.i ], [ false, %invoke.cont6.i ], [ false, %invoke.cont11.i ], [ false, %invoke.cont16.i ], [ %retval.09.i, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i ], [ false, %if.then44.invoke.i ]
+  %retval.0.ph.i = phi i1 [ false, %invoke.cont.i ], [ false, %invoke.cont6.i ], [ false, %invoke.cont11.i ], [ false, %invoke.cont16.i ], [ %retval.19.i, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i ], [ false, %if.then44.invoke.i ]
   invoke void @RSA_free(ptr noundef nonnull %call.i)
           to label %_ZL14TestOnlyDGivenv.exit unwind label %terminate.lpad.i5.i
 
@@ -314,8 +314,8 @@ terminate.lpad.i5.i:                              ; preds = %if.then.i4.i
   call void @__clang_call_terminate(ptr %20) #13
   unreachable
 
-common.resume:                                    ; preds = %ehcleanup.i31, %ehcleanup111.i, %ehcleanup.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %.pn.pn.i, %ehcleanup111.i ], [ %.pn.i32, %ehcleanup.i31 ]
+common.resume:                                    ; preds = %ehcleanup.i32, %ehcleanup111.i, %ehcleanup.i
+  %common.resume.op = phi { ptr, i32 } [ %.pn.i, %ehcleanup.i ], [ %.pn.pn.i, %ehcleanup111.i ], [ %.pn.i33, %ehcleanup.i32 ]
   resume { ptr, i32 } %common.resume.op
 
 ehcleanup.i:                                      ; preds = %lpad55.i, %lpad.i
@@ -329,7 +329,7 @@ _ZL14TestOnlyDGivenv.exit:                        ; preds = %if.then.i4.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %kDummyHash.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key2.i)
-  br i1 %retval.1.ph.i, label %lor.lhs.false6, label %return
+  br i1 %retval.0.ph.i, label %lor.lhs.false6, label %return
 
 lor.lhs.false6:                                   ; preds = %_ZL14TestOnlyDGivenv.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.i1)
@@ -506,9 +506,9 @@ if.end87.i:                                       ; preds = %invoke.cont80.i
 
 invoke.cont90.i21:                                ; preds = %if.end87.i
   %tobool92.not.i22 = icmp eq i32 %call91.i20, 0
-  br i1 %tobool92.not.i22, label %if.then93.i26, label %if.end97.i
+  br i1 %tobool92.not.i22, label %if.then93.i27, label %if.end97.i
 
-if.then93.i26:                                    ; preds = %invoke.cont90.i21
+if.then93.i27:                                    ; preds = %invoke.cont90.i21
   %39 = load ptr, ptr @stderr, align 8
   %40 = call i64 @fwrite(ptr nonnull @.str.17, i64 36, i64 1, ptr %39) #11
   br label %if.then104.invoke.i
@@ -528,13 +528,13 @@ if.then104.i:                                     ; preds = %invoke.cont101.i
   %43 = call i64 @fwrite(ptr nonnull @.str.18, i64 38, i64 1, ptr %42) #11
   br label %if.then104.invoke.i
 
-if.then104.invoke.i:                              ; preds = %if.then104.i, %if.then93.i26, %if.then83.i, %if.then68.i
+if.then104.invoke.i:                              ; preds = %if.then104.i, %if.then93.i27, %if.then83.i, %if.then68.i
   %44 = load ptr, ptr @stderr, align 8
   invoke void @ERR_print_errors_fp(ptr noundef %44)
           to label %if.then.i.i23 unwind label %lpad35.i
 
 if.then.i.i23:                                    ; preds = %if.then104.invoke.i, %invoke.cont101.i, %invoke.cont74.i, %lor.lhs.false54.i, %invoke.cont47.i
-  %cleanup.dest.slot.0.ph.i = phi i32 [ 0, %invoke.cont101.i ], [ 1, %invoke.cont74.i ], [ 1, %invoke.cont47.i ], [ 1, %lor.lhs.false54.i ], [ 1, %if.then104.invoke.i ]
+  %cleanup.dest.slot.1.ph.i = phi i32 [ 0, %invoke.cont101.i ], [ 1, %invoke.cont74.i ], [ 1, %invoke.cont47.i ], [ 1, %lor.lhs.false54.i ], [ 1, %if.then104.invoke.i ]
   invoke void @RSA_free(ptr noundef nonnull %call30.i16)
           to label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i25 unwind label %terminate.lpad.i.i24
 
@@ -546,16 +546,16 @@ terminate.lpad.i.i24:                             ; preds = %if.then.i.i23
   unreachable
 
 _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i25: ; preds = %if.then.i.i23, %invoke.cont29.i17
-  %cleanup.dest.slot.015.i = phi i32 [ %cleanup.dest.slot.0.ph.i, %if.then.i.i23 ], [ 1, %invoke.cont29.i17 ]
+  %cleanup.dest.slot.115.i = phi i32 [ %cleanup.dest.slot.1.ph.i, %if.then.i.i23 ], [ 1, %invoke.cont29.i17 ]
   store ptr null, ptr %key2.i2, align 8
-  %47 = icmp eq i32 %cleanup.dest.slot.015.i, 0
+  %47 = icmp eq i32 %cleanup.dest.slot.115.i, 0
   br label %if.then.i7.i
 
 cleanup109.i:                                     ; preds = %if.then15.i
   br i1 %cmp.i4.not.i, label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit9.i, label %if.then.i7.i
 
 if.then.i7.i:                                     ; preds = %cleanup109.i, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i25, %if.then24.i
-  %cleanup.dest.slot.121.i = phi i1 [ false, %cleanup109.i ], [ false, %if.then24.i ], [ %47, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i25 ]
+  %cleanup.dest.slot.021.i = phi i1 [ false, %cleanup109.i ], [ false, %if.then24.i ], [ %47, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit.i25 ]
   invoke void @RSA_free(ptr noundef nonnull %call6.i)
           to label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit9.i unwind label %terminate.lpad.i8.i
 
@@ -567,7 +567,7 @@ terminate.lpad.i8.i:                              ; preds = %if.then.i7.i
   unreachable
 
 _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit9.i: ; preds = %if.then.i7.i, %cleanup109.i
-  %cleanup.dest.slot.122.i = phi i1 [ false, %cleanup109.i ], [ %cleanup.dest.slot.121.i, %if.then.i7.i ]
+  %cleanup.dest.slot.022.i = phi i1 [ false, %cleanup109.i ], [ %cleanup.dest.slot.021.i, %if.then.i7.i ]
   store ptr null, ptr %key1.i, align 8
   br label %if.then.i11.i
 
@@ -577,7 +577,7 @@ ehcleanup.i14:                                    ; preds = %lpad35.i, %lpad11.i
   br label %ehcleanup111.i
 
 if.then.i11.i:                                    ; preds = %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit9.i, %invoke.cont.i11
-  %retval.3.ph.i = phi i1 [ %cleanup.dest.slot.122.i, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit9.i ], [ false, %invoke.cont.i11 ]
+  %retval.0.ph.i26 = phi i1 [ %cleanup.dest.slot.022.i, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit9.i ], [ false, %invoke.cont.i11 ]
   invoke void @BN_free(ptr noundef nonnull %call.i6)
           to label %_ZL20TestRecoverCRTParamsv.exit unwind label %terminate.lpad.i12.i
 
@@ -600,59 +600,59 @@ _ZL20TestRecoverCRTParamsv.exit:                  ; preds = %if.then.i11.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %buf.i3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf_len.i4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %kDummyHash.i5)
-  br i1 %retval.3.ph.i, label %lor.lhs.false8, label %return
+  br i1 %retval.0.ph.i26, label %lor.lhs.false8, label %return
 
 lor.lhs.false8:                                   ; preds = %_ZL20TestRecoverCRTParamsv.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.i27)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.i28)
-  %call.i29 = call ptr @RSA_new()
-  store ptr %call.i29, ptr %key.i27, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %key.i28)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e.i29)
+  %call.i30 = call ptr @RSA_new()
+  store ptr %call.i30, ptr %key.i28, align 8
   %call1.i = invoke ptr @BN_new()
-          to label %invoke.cont.i33 unwind label %lpad.i30
+          to label %invoke.cont.i34 unwind label %lpad.i31
 
-invoke.cont.i33:                                  ; preds = %lor.lhs.false8
-  store ptr %call1.i, ptr %e.i28, align 8
-  %cmp.i.not.i34 = icmp eq ptr %call.i29, null
+invoke.cont.i34:                                  ; preds = %lor.lhs.false8
+  store ptr %call1.i, ptr %e.i29, align 8
+  %cmp.i.not.i35 = icmp eq ptr %call.i30, null
   %cmp.not.i.i = icmp eq ptr %call1.i, null
-  br i1 %cmp.i.not.i34, label %cleanup.i, label %lor.lhs.false.i35
+  br i1 %cmp.i.not.i35, label %cleanup.i, label %lor.lhs.false.i36
 
-lor.lhs.false.i35:                                ; preds = %invoke.cont.i33
-  br i1 %cmp.not.i.i, label %if.then.i4.i44, label %lor.lhs.false4.i36
+lor.lhs.false.i36:                                ; preds = %invoke.cont.i34
+  br i1 %cmp.not.i.i, label %if.then.i4.i45, label %lor.lhs.false4.i37
 
-lor.lhs.false4.i36:                               ; preds = %lor.lhs.false.i35
+lor.lhs.false4.i37:                               ; preds = %lor.lhs.false.i36
   %call8.i = invoke i32 @BN_set_word(ptr noundef nonnull %call1.i, i64 noundef 65537)
           to label %invoke.cont7.i unwind label %lpad6.i
 
-invoke.cont7.i:                                   ; preds = %lor.lhs.false4.i36
-  %tobool.not.i37 = icmp eq i32 %call8.i, 0
-  br i1 %tobool.not.i37, label %if.then.i.i42, label %if.end.i38
+invoke.cont7.i:                                   ; preds = %lor.lhs.false4.i37
+  %tobool.not.i38 = icmp eq i32 %call8.i, 0
+  br i1 %tobool.not.i38, label %if.then.i.i43, label %if.end.i39
 
-lpad.i30:                                         ; preds = %lor.lhs.false8
+lpad.i31:                                         ; preds = %lor.lhs.false8
   %52 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup.i31
+  br label %ehcleanup.i32
 
-lpad6.i:                                          ; preds = %if.end39.i, %if.end31.i, %if.then27.invoke.i, %invoke.cont22.i, %if.end18.i, %if.end.i38, %lor.lhs.false4.i36
+lpad6.i:                                          ; preds = %if.end39.i, %if.end31.i, %if.then27.invoke.i, %invoke.cont22.i, %if.end18.i, %if.end.i39, %lor.lhs.false4.i37
   %53 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %e.i28) #12
-  br label %ehcleanup.i31
+  call void @_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %e.i29) #12
+  br label %ehcleanup.i32
 
-if.end.i38:                                       ; preds = %invoke.cont7.i
-  %call12.i39 = invoke i32 @RSA_generate_key_ex(ptr noundef nonnull %call.i29, i32 noundef 512, ptr noundef nonnull %call1.i, ptr noundef null)
-          to label %invoke.cont11.i40 unwind label %lpad6.i
+if.end.i39:                                       ; preds = %invoke.cont7.i
+  %call12.i40 = invoke i32 @RSA_generate_key_ex(ptr noundef nonnull %call.i30, i32 noundef 512, ptr noundef nonnull %call1.i, ptr noundef null)
+          to label %invoke.cont11.i41 unwind label %lpad6.i
 
-invoke.cont11.i40:                                ; preds = %if.end.i38
-  %tobool13.not.i41 = icmp eq i32 %call12.i39, 0
-  br i1 %tobool13.not.i41, label %if.then14.i, label %if.end18.i
+invoke.cont11.i41:                                ; preds = %if.end.i39
+  %tobool13.not.i42 = icmp eq i32 %call12.i40, 0
+  br i1 %tobool13.not.i42, label %if.then14.i, label %if.end18.i
 
-if.then14.i:                                      ; preds = %invoke.cont11.i40
+if.then14.i:                                      ; preds = %invoke.cont11.i41
   %54 = load ptr, ptr @stderr, align 8
   %55 = call i64 @fwrite(ptr nonnull @.str.13, i64 28, i64 1, ptr %54) #11
   br label %if.then27.invoke.i
 
-if.end18.i:                                       ; preds = %invoke.cont11.i40
-  %p.i = getelementptr inbounds i8, ptr %call.i29, i64 32
+if.end18.i:                                       ; preds = %invoke.cont11.i41
+  %p.i = getelementptr inbounds i8, ptr %call.i30, i64 32
   %56 = load ptr, ptr %p.i, align 8
   %call23.i = invoke ptr @BN_value_one()
           to label %invoke.cont22.i unwind label %lpad6.i
@@ -673,10 +673,10 @@ if.then27.i:                                      ; preds = %invoke.cont24.i
 if.then27.invoke.i:                               ; preds = %if.then27.i, %if.then14.i
   %59 = load ptr, ptr @stderr, align 8
   invoke void @ERR_print_errors_fp(ptr noundef %59)
-          to label %if.then.i.i42 unwind label %lpad6.i
+          to label %if.then.i.i43 unwind label %lpad6.i
 
 if.end31.i:                                       ; preds = %invoke.cont24.i
-  %call34.i = invoke i32 @RSA_check_key(ptr noundef nonnull %call.i29)
+  %call34.i = invoke i32 @RSA_check_key(ptr noundef nonnull %call.i30)
           to label %invoke.cont33.i unwind label %lpad6.i
 
 invoke.cont33.i:                                  ; preds = %if.end31.i
@@ -686,56 +686,56 @@ invoke.cont33.i:                                  ; preds = %if.end31.i
 if.then36.i:                                      ; preds = %invoke.cont33.i
   %60 = load ptr, ptr @stderr, align 8
   %61 = call i64 @fwrite(ptr nonnull @.str.20, i64 39, i64 1, ptr %60) #11
-  br label %if.then.i.i42
+  br label %if.then.i.i43
 
 if.end39.i:                                       ; preds = %invoke.cont33.i
   invoke void @ERR_clear_error()
-          to label %if.then.i.i42 unwind label %lpad6.i
+          to label %if.then.i.i43 unwind label %lpad6.i
 
-cleanup.i:                                        ; preds = %invoke.cont.i33
-  br i1 %cmp.not.i.i, label %_ZL10TestBadKeyv.exit.thread, label %if.then.i.i42
+cleanup.i:                                        ; preds = %invoke.cont.i34
+  br i1 %cmp.not.i.i, label %_ZL10TestBadKeyv.exit.thread, label %if.then.i.i43
 
 _ZL10TestBadKeyv.exit.thread:                     ; preds = %cleanup.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i28)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i28)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i29)
   br label %return
 
-if.then.i.i42:                                    ; preds = %cleanup.i, %if.end39.i, %if.then36.i, %if.then27.invoke.i, %invoke.cont7.i
+if.then.i.i43:                                    ; preds = %cleanup.i, %if.end39.i, %if.then36.i, %if.then27.invoke.i, %invoke.cont7.i
   %retval.016.i = phi i1 [ false, %cleanup.i ], [ false, %if.then36.i ], [ false, %invoke.cont7.i ], [ true, %if.end39.i ], [ false, %if.then27.invoke.i ]
   invoke void @BN_free(ptr noundef nonnull %call1.i)
-          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i unwind label %terminate.lpad.i.i43
+          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i unwind label %terminate.lpad.i.i44
 
-terminate.lpad.i.i43:                             ; preds = %if.then.i.i42
+terminate.lpad.i.i44:                             ; preds = %if.then.i.i43
   %62 = landingpad { ptr, i32 }
           catch ptr null
   %63 = extractvalue { ptr, i32 } %62, 0
   call void @__clang_call_terminate(ptr %63) #13
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i: ; preds = %if.then.i.i42
-  br i1 %cmp.i.not.i34, label %_ZL10TestBadKeyv.exit, label %if.then.i4.i44
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i: ; preds = %if.then.i.i43
+  br i1 %cmp.i.not.i35, label %_ZL10TestBadKeyv.exit, label %if.then.i4.i45
 
-if.then.i4.i44:                                   ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i, %lor.lhs.false.i35
-  %retval.0812.i = phi i1 [ %retval.016.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ], [ false, %lor.lhs.false.i35 ]
-  invoke void @RSA_free(ptr noundef nonnull %call.i29)
-          to label %_ZL10TestBadKeyv.exit unwind label %terminate.lpad.i5.i45
+if.then.i4.i45:                                   ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i, %lor.lhs.false.i36
+  %retval.0812.i = phi i1 [ %retval.016.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ], [ false, %lor.lhs.false.i36 ]
+  invoke void @RSA_free(ptr noundef nonnull %call.i30)
+          to label %_ZL10TestBadKeyv.exit unwind label %terminate.lpad.i5.i46
 
-terminate.lpad.i5.i45:                            ; preds = %if.then.i4.i44
+terminate.lpad.i5.i46:                            ; preds = %if.then.i4.i45
   %64 = landingpad { ptr, i32 }
           catch ptr null
   %65 = extractvalue { ptr, i32 } %64, 0
   call void @__clang_call_terminate(ptr %65) #13
   unreachable
 
-ehcleanup.i31:                                    ; preds = %lpad6.i, %lpad.i30
-  %.pn.i32 = phi { ptr, i32 } [ %53, %lpad6.i ], [ %52, %lpad.i30 ]
-  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key.i27) #12
+ehcleanup.i32:                                    ; preds = %lpad6.i, %lpad.i31
+  %.pn.i33 = phi { ptr, i32 } [ %53, %lpad6.i ], [ %52, %lpad.i31 ]
+  call void @_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %key.i28) #12
   br label %common.resume
 
-_ZL10TestBadKeyv.exit:                            ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i, %if.then.i4.i44
-  %retval.0813.i = phi i1 [ %retval.016.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ], [ %retval.0812.i, %if.then.i4.i44 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i27)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i28)
+_ZL10TestBadKeyv.exit:                            ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i, %if.then.i4.i45
+  %retval.0813.i = phi i1 [ %retval.016.i, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit.i ], [ %retval.0812.i, %if.then.i4.i45 ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %key.i28)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %e.i29)
   br i1 %retval.0813.i, label %lor.lhs.false10, label %return
 
 lor.lhs.false10:                                  ; preds = %_ZL10TestBadKeyv.exit
@@ -1255,7 +1255,7 @@ invoke.cont12:                                    ; preds = %if.end9
   br i1 %tobool14.not, label %cleanup64, label %if.end16
 
 lpad11:                                           ; preds = %if.end27, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit, %if.end9
-  %delete_der.sroa.0.0 = phi ptr [ %5, %if.end27 ], [ %5, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ], [ %1, %if.end9 ]
+  %delete_der.sroa.0.1 = phi ptr [ %5, %if.end27 ], [ %5, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ], [ %1, %if.end9 ]
   %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -1400,7 +1400,7 @@ invoke.cont59:                                    ; preds = %lor.lhs.false58
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont59, %invoke.cont55, %invoke.cont48, %if.end33, %lor.lhs.false35, %if.then45
-  %retval.0 = phi i1 [ false, %if.then45 ], [ false, %lor.lhs.false35 ], [ false, %if.end33 ], [ false, %invoke.cont48 ], [ false, %invoke.cont55 ], [ %cmp61.not, %invoke.cont59 ]
+  %retval.2 = phi i1 [ false, %if.then45 ], [ false, %lor.lhs.false35 ], [ false, %if.end33 ], [ false, %invoke.cont48 ], [ false, %invoke.cont55 ], [ %cmp61.not, %invoke.cont59 ]
   %cmp.not.i10 = icmp eq ptr %14, null
   br i1 %cmp.not.i10, label %cleanup64, label %if.then.i11
 
@@ -1409,17 +1409,17 @@ if.then.i11:                                      ; preds = %cleanup
   br label %cleanup64
 
 cleanup64:                                        ; preds = %if.then.i11, %cleanup, %invoke.cont29, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit, %lor.lhs.false20, %lor.lhs.false23, %invoke.cont12, %if.end5, %lor.lhs.false
-  %delete_der.sroa.0.1 = phi ptr [ %1, %invoke.cont12 ], [ %5, %invoke.cont29 ], [ %5, %lor.lhs.false23 ], [ %5, %lor.lhs.false20 ], [ %5, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit ], [ %1, %lor.lhs.false ], [ %1, %if.end5 ], [ %5, %cleanup ], [ %5, %if.then.i11 ]
-  %retval.1 = phi i1 [ false, %invoke.cont12 ], [ false, %invoke.cont29 ], [ false, %lor.lhs.false23 ], [ false, %lor.lhs.false20 ], [ false, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit ], [ false, %lor.lhs.false ], [ false, %if.end5 ], [ %retval.0, %cleanup ], [ %retval.0, %if.then.i11 ]
-  %cmp.not.i13 = icmp eq ptr %delete_der.sroa.0.1, null
+  %delete_der.sroa.0.0 = phi ptr [ %1, %invoke.cont12 ], [ %5, %invoke.cont29 ], [ %5, %lor.lhs.false23 ], [ %5, %lor.lhs.false20 ], [ %5, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit ], [ %1, %lor.lhs.false ], [ %1, %if.end5 ], [ %5, %cleanup ], [ %5, %if.then.i11 ]
+  %retval.1 = phi i1 [ false, %invoke.cont12 ], [ false, %invoke.cont29 ], [ false, %lor.lhs.false23 ], [ false, %lor.lhs.false20 ], [ false, %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEE5resetEPS0_.exit ], [ false, %lor.lhs.false ], [ false, %if.end5 ], [ %retval.2, %cleanup ], [ %retval.2, %if.then.i11 ]
+  %cmp.not.i13 = icmp eq ptr %delete_der.sroa.0.0, null
   br i1 %cmp.not.i13, label %cleanup65, label %if.then.i14
 
 if.then.i14:                                      ; preds = %cleanup64
-  call void @free(ptr noundef nonnull %delete_der.sroa.0.1) #12
+  call void @free(ptr noundef nonnull %delete_der.sroa.0.0) #12
   br label %cleanup65
 
 ehcleanup:                                        ; preds = %if.then.i, %lpad41, %lpad11
-  %delete_der.sroa.0.2 = phi ptr [ %delete_der.sroa.0.0, %lpad11 ], [ %5, %lpad41 ], [ %5, %if.then.i ]
+  %delete_der.sroa.0.2 = phi ptr [ %delete_der.sroa.0.1, %lpad11 ], [ %5, %lpad41 ], [ %5, %if.then.i ]
   %.pn = phi { ptr, i32 } [ %4, %lpad11 ], [ %20, %lpad41 ], [ %20, %if.then.i ]
   %cmp.not.i16 = icmp eq ptr %delete_der.sroa.0.2, null
   br i1 %cmp.not.i16, label %ehcleanup66, label %if.then.i17
@@ -1429,7 +1429,7 @@ if.then.i17:                                      ; preds = %ehcleanup
   br label %ehcleanup66
 
 cleanup65:                                        ; preds = %if.then.i14, %cleanup64, %invoke.cont
-  %retval.2.ph = phi i1 [ %retval.1, %if.then.i14 ], [ %retval.1, %cleanup64 ], [ false, %invoke.cont ]
+  %retval.0.ph = phi i1 [ %retval.1, %if.then.i14 ], [ %retval.1, %cleanup64 ], [ false, %invoke.cont ]
   %.pr24 = load ptr, ptr %rsa, align 8
   %cmp.not.i19 = icmp eq ptr %.pr24, null
   br i1 %cmp.not.i19, label %_ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit, label %if.then.i20
@@ -1446,8 +1446,8 @@ terminate.lpad.i:                                 ; preds = %if.then.i20
   unreachable
 
 _ZNSt10unique_ptrI6rsa_st14OpenSSLDeleterIS0_XadL_Z8RSA_freeEEEED2Ev.exit: ; preds = %entry, %cleanup65, %if.then.i20
-  %retval.227 = phi i1 [ %retval.2.ph, %cleanup65 ], [ %retval.2.ph, %if.then.i20 ], [ false, %entry ]
-  ret i1 %retval.227
+  %retval.027 = phi i1 [ %retval.0.ph, %cleanup65 ], [ %retval.0.ph, %if.then.i20 ], [ false, %entry ]
+  ret i1 %retval.027
 
 ehcleanup66:                                      ; preds = %if.then.i17, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %0, %lpad ], [ %.pn, %ehcleanup ], [ %.pn, %if.then.i17 ]

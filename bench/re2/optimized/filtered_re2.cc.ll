@@ -831,14 +831,14 @@ cleanup:                                          ; preds = %for.inc, %for.cond.
   br i1 %tobool.not.i.i.i9, label %return, label %if.then.i.i.i10
 
 if.then.i.i.i10:                                  ; preds = %cleanup.thread, %cleanup
-  %retval.014 = phi i32 [ %11, %cleanup.thread ], [ -1, %cleanup ]
+  %retval.114 = phi i32 [ %11, %cleanup.thread ], [ -1, %cleanup ]
   %15 = phi ptr [ %10, %cleanup.thread ], [ %.pr, %cleanup ]
   call void @_ZdlPv(ptr noundef nonnull %15) #14
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i10, %cleanup, %invoke.cont2
-  %retval.1 = phi i32 [ -1, %invoke.cont2 ], [ -1, %cleanup ], [ %retval.014, %if.then.i.i.i10 ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ -1, %invoke.cont2 ], [ -1, %cleanup ], [ %retval.114, %if.then.i.i.i10 ]
+  ret i32 %retval.0
 }
 
 declare void @_ZNK3re213PrefilterTree19RegexpsGivenStringsERKSt6vectorIiSaIiEEPS3_(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #2

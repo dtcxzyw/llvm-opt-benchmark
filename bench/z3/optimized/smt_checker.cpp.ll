@@ -159,8 +159,8 @@ if.then9.i:                                       ; preds = %if.end.i
   br label %_ZN3smt7checker5checkEP4exprb.exit
 
 _ZN3smt7checker5checkEP4exprb.exit:               ; preds = %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit, %if.end.i, %if.then9.i
-  %r.i.2 = phi i8 [ %11, %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit ], [ %frombool6.i, %if.then9.i ], [ %frombool6.i, %if.end.i ]
-  %retval.0.i = trunc i8 %r.i.2 to i1
+  %r.i.1 = phi i8 [ %11, %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit ], [ %frombool6.i, %if.then9.i ], [ %frombool6.i, %if.end.i ]
+  %retval.0.i = trunc i8 %r.i.1 to i1
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.016, i64 8
   %cmp.not = icmp ne ptr %incdec.ptr, %add.ptr.i.ptr
   %or.cond.not = select i1 %retval.0.i, i1 %cmp.not, i1 false
@@ -273,8 +273,8 @@ if.then9:                                         ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit, %if.end, %if.then9
-  %r.1 = phi i1 [ %9, %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit ], [ %call5, %if.then9 ], [ %call5, %if.end ]
-  ret i1 %r.1
+  %r.0 = phi i1 [ %9, %_ZNK7obj_mapI4exprbE4findEPS0_Rb.exit ], [ %call5, %if.then9 ], [ %call5, %if.end ]
+  ret i1 %r.0
 }
 
 ; Function Attrs: mustprogress uwtable

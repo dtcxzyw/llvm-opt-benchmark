@@ -255,7 +255,7 @@ if.end81:                                         ; preds = %ssl3_send_server_ce
 
 if.end95:                                         ; preds = %sw.bb73, %if.end81
   %.sink186 = phi i32 [ %.189, %if.end81 ], [ 8528, %sw.bb73 ]
-  %skip.1 = phi i32 [ 0, %if.end81 ], [ 1, %sw.bb73 ]
+  %skip.2 = phi i32 [ 0, %if.end81 ], [ 1, %sw.bb73 ]
   store i32 %.sink186, ptr %state11, align 4
   store i32 0, ptr %init_num317, align 8
   br label %sw.epilog
@@ -296,7 +296,7 @@ if.then116:                                       ; preds = %land.lhs.true, %sw.
   br i1 %cmp118, label %end, label %if.end123
 
 if.end123:                                        ; preds = %lor.lhs.false113, %land.lhs.true, %if.then116
-  %skip.2 = phi i32 [ 0, %if.then116 ], [ 1, %land.lhs.true ], [ 1, %lor.lhs.false113 ]
+  %skip.3 = phi i32 [ 0, %if.then116 ], [ 1, %land.lhs.true ], [ 1, %lor.lhs.false113 ]
   store i32 8544, ptr %state11, align 4
   store i32 0, ptr %init_num317, align 8
   br label %sw.epilog
@@ -314,7 +314,7 @@ if.then130:                                       ; preds = %sw.bb126
   br i1 %cmp132, label %end, label %if.end137
 
 if.end137:                                        ; preds = %sw.bb126, %if.then130
-  %skip.3 = phi i32 [ 0, %if.then130 ], [ 1, %sw.bb126 ]
+  %skip.4 = phi i32 [ 0, %if.then130 ], [ 1, %sw.bb126 ]
   store i32 8560, ptr %state11, align 4
   store i32 0, ptr %init_num317, align 8
   br label %sw.epilog
@@ -602,11 +602,11 @@ sw.default:                                       ; preds = %for.cond
   br label %end
 
 sw.epilog:                                        ; preds = %if.end289, %if.then223, %if.else225, %if.then202, %if.else209, %if.then207, %sw.bb38, %if.then33, %if.else35, %if.end301, %if.end281, %if.end274, %if.end233, %if.end187, %if.end179, %if.end171, %if.end155, %if.end145, %if.end137, %if.end123, %if.end101, %if.end95, %if.end71, %if.end53, %if.end47
-  %skip.4 = phi i32 [ 0, %if.end301 ], [ 0, %if.end289 ], [ 0, %if.end281 ], [ 0, %if.end274 ], [ 0, %if.end233 ], [ 0, %if.then223 ], [ 0, %if.else225 ], [ 0, %if.then202 ], [ 0, %if.then207 ], [ 0, %if.else209 ], [ 0, %if.end187 ], [ 0, %if.end179 ], [ 0, %if.end171 ], [ 0, %if.end155 ], [ 0, %if.end145 ], [ %skip.3, %if.end137 ], [ %skip.2, %if.end123 ], [ 0, %if.end101 ], [ %skip.1, %if.end95 ], [ 0, %if.end71 ], [ 0, %if.end53 ], [ 0, %if.end47 ], [ 0, %sw.bb38 ], [ 0, %if.else35 ], [ 0, %if.then33 ]
+  %skip.1 = phi i32 [ 0, %if.end301 ], [ 0, %if.end289 ], [ 0, %if.end281 ], [ 0, %if.end274 ], [ 0, %if.end233 ], [ 0, %if.then223 ], [ 0, %if.else225 ], [ 0, %if.then202 ], [ 0, %if.then207 ], [ 0, %if.else209 ], [ 0, %if.end187 ], [ 0, %if.end179 ], [ 0, %if.end171 ], [ 0, %if.end155 ], [ 0, %if.end145 ], [ %skip.4, %if.end137 ], [ %skip.3, %if.end123 ], [ 0, %if.end101 ], [ %skip.2, %if.end95 ], [ 0, %if.end71 ], [ 0, %if.end53 ], [ 0, %if.end47 ], [ 0, %sw.bb38 ], [ 0, %if.else35 ], [ 0, %if.then33 ]
   %53 = load ptr, ptr %s3309, align 8
   %reuse_message = getelementptr inbounds i8, ptr %53, i64 452
   %54 = load i32, ptr %reuse_message, align 4
-  %55 = or i32 %54, %skip.4
+  %55 = or i32 %54, %skip.1
   %or.cond.not163 = icmp eq i32 %55, 0
   %or.cond1 = and i1 %cmp342, %or.cond.not163
   br i1 %or.cond1, label %land.lhs.true344, label %for.cond.backedge
@@ -627,8 +627,8 @@ for.cond.backedge:                                ; preds = %if.then348, %land.l
 
 end:                                              ; preds = %if.then.i169, %if.then.i, %if.end289, %if.end195, %if.end23, %if.then17, %lor.lhs.false, %sw.bb296, %sw.bb284, %sw.bb276, %if.then268, %sw.bb236, %sw.bb228, %sw.bb213, %sw.bb190, %sw.bb182, %sw.bb174, %if.then165, %ssl3_send_server_done.exit, %if.then130, %if.then116, %sw.bb97, %ssl3_send_server_certificate.exit, %sw.bb56, %sw.bb49, %sw.bb43, %sw.bb38, %sw.default, %if.then154, %if.then30
   %ret.0 = phi i32 [ -1, %sw.default ], [ -1, %if.then154 ], [ -1, %if.then30 ], [ -1, %if.then.i169 ], [ 0, %if.then.i ], [ -1, %if.end289 ], [ -1, %if.end195 ], [ -1, %if.end23 ], [ -1, %if.then17 ], [ -1, %lor.lhs.false ], [ %call39, %sw.bb38 ], [ %call44, %sw.bb43 ], [ %call50, %sw.bb49 ], [ %call57, %sw.bb56 ], [ %call4.i, %ssl3_send_server_certificate.exit ], [ %call98, %sw.bb97 ], [ %call117, %if.then116 ], [ %call131, %if.then130 ], [ %call5.i, %ssl3_send_server_done.exit ], [ %call166, %if.then165 ], [ %call175, %sw.bb174 ], [ %call183, %sw.bb182 ], [ %call191, %sw.bb190 ], [ %call214, %sw.bb213 ], [ %call229, %sw.bb228 ], [ %call269, %if.then268 ], [ %call237, %sw.bb236 ], [ %call277, %sw.bb276 ], [ %call285, %sw.bb284 ], [ %call297, %sw.bb296 ]
-  %buf.3 = phi ptr [ null, %sw.default ], [ null, %if.then154 ], [ null, %if.then30 ], [ null, %if.then.i169 ], [ null, %if.then.i ], [ null, %if.end289 ], [ null, %if.end195 ], [ null, %if.end23 ], [ null, %if.then17 ], [ %call, %lor.lhs.false ], [ null, %sw.bb38 ], [ null, %sw.bb43 ], [ null, %sw.bb49 ], [ null, %sw.bb56 ], [ null, %ssl3_send_server_certificate.exit ], [ null, %sw.bb97 ], [ null, %if.then116 ], [ null, %if.then130 ], [ null, %ssl3_send_server_done.exit ], [ null, %if.then165 ], [ null, %sw.bb174 ], [ null, %sw.bb182 ], [ null, %sw.bb190 ], [ null, %sw.bb213 ], [ null, %sw.bb228 ], [ null, %if.then268 ], [ null, %sw.bb236 ], [ null, %sw.bb276 ], [ null, %sw.bb284 ], [ null, %sw.bb296 ]
-  tail call void @BUF_MEM_free(ptr noundef %buf.3) #9
+  %buf.2 = phi ptr [ null, %sw.default ], [ null, %if.then154 ], [ null, %if.then30 ], [ null, %if.then.i169 ], [ null, %if.then.i ], [ null, %if.end289 ], [ null, %if.end195 ], [ null, %if.end23 ], [ null, %if.then17 ], [ %call, %lor.lhs.false ], [ null, %sw.bb38 ], [ null, %sw.bb43 ], [ null, %sw.bb49 ], [ null, %sw.bb56 ], [ null, %ssl3_send_server_certificate.exit ], [ null, %sw.bb97 ], [ null, %if.then116 ], [ null, %if.then130 ], [ null, %ssl3_send_server_done.exit ], [ null, %if.then165 ], [ null, %sw.bb174 ], [ null, %sw.bb182 ], [ null, %sw.bb190 ], [ null, %sw.bb213 ], [ null, %sw.bb228 ], [ null, %if.then268 ], [ null, %sw.bb236 ], [ null, %sw.bb276 ], [ null, %sw.bb284 ], [ null, %sw.bb296 ]
+  tail call void @BUF_MEM_free(ptr noundef %buf.2) #9
   br i1 %cmp13.not, label %return, label %if.then355
 
 if.then355:                                       ; preds = %end.thread181, %end
@@ -2367,14 +2367,14 @@ for.cond.preheader:                               ; preds = %if.end
 
 for.body:                                         ; preds = %for.cond.preheader, %if.end40
   %i.050 = phi i64 [ %inc62, %if.end40 ], [ 0, %for.cond.preheader ]
-  %n.149 = phi i32 [ %add59, %if.end40 ], [ %add22, %for.cond.preheader ]
-  %nl.048 = phi i32 [ %add61, %if.end40 ], [ 0, %for.cond.preheader ]
+  %n.249 = phi i32 [ %add59, %if.end40 ], [ %add22, %for.cond.preheader ]
+  %nl.148 = phi i32 [ %add61, %if.end40 ], [ 0, %for.cond.preheader ]
   %call30 = call ptr @sk_value(ptr noundef nonnull %call23, i64 noundef %i.050) #9
   %call31 = call i32 @i2d_X509_NAME(ptr noundef %call30, ptr noundef null) #9
   %7 = load ptr, ptr %method, align 8
   %hhlen33 = getelementptr inbounds i8, ptr %7, i64 96
   %8 = load i32, ptr %hhlen33, align 8
-  %add34 = add i32 %n.149, 2
+  %add34 = add i32 %n.249, 2
   %add35 = add i32 %add34, %call31
   %add36 = add i32 %add35, %8
   %conv37 = zext i32 %add36 to i64
@@ -2395,7 +2395,7 @@ if.end40:                                         ; preds = %for.body
   %12 = load i32, ptr %hhlen44, align 8
   %idx.ext45 = zext i32 %12 to i64
   %add.ptr46 = getelementptr inbounds i8, ptr %10, i64 %idx.ext45
-  %idx.ext47 = sext i32 %n.149 to i64
+  %idx.ext47 = sext i32 %n.249 to i64
   %add.ptr48 = getelementptr inbounds i8, ptr %add.ptr46, i64 %idx.ext47
   store ptr %add.ptr48, ptr %p, align 8
   %shr49 = lshr i32 %call31, 8
@@ -2410,16 +2410,16 @@ if.end40:                                         ; preds = %for.body
   store ptr %add.ptr56, ptr %p, align 8
   %call57 = call i32 @i2d_X509_NAME(ptr noundef %call30, ptr noundef nonnull %p) #9
   %add58 = add nsw i32 %call31, 2
-  %add59 = add nsw i32 %add58, %n.149
-  %add61 = add nsw i32 %add58, %nl.048
+  %add59 = add nsw i32 %add58, %n.249
+  %add61 = add nsw i32 %add58, %nl.148
   %inc62 = add nuw i64 %i.050, 1
   %call27 = call i64 @sk_num(ptr noundef nonnull %call23) #9
   %cmp28 = icmp ult i64 %inc62, %call27
   br i1 %cmp28, label %for.body, label %if.end63, !llvm.loop !10
 
 if.end63:                                         ; preds = %if.end40, %for.cond.preheader, %if.end
-  %nl.1 = phi i32 [ 0, %if.end ], [ 0, %for.cond.preheader ], [ %add61, %if.end40 ]
-  %n.2 = phi i32 [ %add22, %if.end ], [ %add22, %for.cond.preheader ], [ %add59, %if.end40 ]
+  %nl.0 = phi i32 [ 0, %if.end ], [ 0, %for.cond.preheader ], [ %add61, %if.end40 ]
+  %n.1 = phi i32 [ %add22, %if.end ], [ %add22, %for.cond.preheader ], [ %add59, %if.end40 ]
   %15 = load ptr, ptr %init_buf, align 8
   %data65 = getelementptr inbounds i8, ptr %15, i64 8
   %16 = load ptr, ptr %data65, align 8
@@ -2431,10 +2431,10 @@ if.end63:                                         ; preds = %if.end40, %for.cond
   %idx.ext70 = sext i32 %n.0 to i64
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr69, i64 %idx.ext70
   store ptr %add.ptr71, ptr %p, align 8
-  %shr72 = lshr i32 %nl.1, 8
+  %shr72 = lshr i32 %nl.0, 8
   %conv74 = trunc i32 %shr72 to i8
   store i8 %conv74, ptr %add.ptr71, align 1
-  %conv77 = trunc i32 %nl.1 to i8
+  %conv77 = trunc i32 %nl.0 to i8
   %19 = load ptr, ptr %p, align 8
   %arrayidx78 = getelementptr inbounds i8, ptr %19, i64 1
   store i8 %conv77, ptr %arrayidx78, align 1
@@ -2444,7 +2444,7 @@ if.end63:                                         ; preds = %if.end40, %for.cond
   %21 = load ptr, ptr %method, align 8
   %set_handshake_header = getelementptr inbounds i8, ptr %21, i64 104
   %22 = load ptr, ptr %set_handshake_header, align 8
-  %conv81 = sext i32 %n.2 to i64
+  %conv81 = sext i32 %n.1 to i64
   %call82 = call i32 %22(ptr noundef nonnull %ssl, i32 noundef 13, i64 noundef %conv81) #9
   %tobool83.not = icmp eq i32 %call82, 0
   br i1 %tobool83.not, label %return, label %if.end85
@@ -2729,16 +2729,16 @@ if.end100:                                        ; preds = %if.else93, %if.else
 
 f_err:                                            ; preds = %if.then97, %if.then90, %if.then80, %if.then67, %if.then61, %if.then42, %if.then35, %if.end23, %if.then19
   %al.0 = phi i32 [ 40, %if.then19 ], [ 10, %if.end23 ], [ 50, %if.then35 ], [ 42, %if.then61 ], [ 50, %if.then67 ], [ 50, %if.then42 ], [ 40, %if.then80 ], [ 40, %if.then90 ], [ %call98, %if.then97 ]
-  %x.1 = phi ptr [ null, %if.then19 ], [ null, %if.end23 ], [ null, %if.then35 ], [ null, %if.then61 ], [ %call58, %if.then67 ], [ null, %if.then42 ], [ null, %if.then80 ], [ null, %if.then90 ], [ null, %if.then97 ]
+  %x.0 = phi ptr [ null, %if.then19 ], [ null, %if.end23 ], [ null, %if.then35 ], [ null, %if.then61 ], [ %call58, %if.then67 ], [ null, %if.then42 ], [ null, %if.then80 ], [ null, %if.then90 ], [ null, %if.then97 ]
   %sk.0 = phi ptr [ null, %if.then19 ], [ null, %if.end23 ], [ %call25, %if.then35 ], [ %call25, %if.then61 ], [ %call25, %if.then67 ], [ %call25, %if.then42 ], [ %call25, %if.then80 ], [ %call25, %if.then90 ], [ %call25, %if.then97 ]
   %call112 = call i32 @ssl3_send_alert(ptr noundef %ssl, i32 noundef 2, i32 noundef %al.0) #9
   br label %err
 
 err:                                              ; preds = %f_err, %if.end100, %if.then71, %if.then28
   %ret.0 = phi i32 [ -1, %f_err ], [ -1, %if.then28 ], [ -1, %if.then71 ], [ 1, %if.end100 ]
-  %x.2 = phi ptr [ %x.1, %f_err ], [ null, %if.then28 ], [ %call58, %if.then71 ], [ null, %if.end100 ]
+  %x.1 = phi ptr [ %x.0, %f_err ], [ null, %if.then28 ], [ %call58, %if.then71 ], [ null, %if.end100 ]
   %sk.1 = phi ptr [ %sk.0, %f_err ], [ null, %if.then28 ], [ %call25, %if.then71 ], [ null, %if.end100 ]
-  call void @X509_free(ptr noundef %x.2) #9
+  call void @X509_free(ptr noundef %x.1) #9
   call void @sk_pop_free(ptr noundef %sk.1, ptr noundef nonnull @X509_free) #9
   br label %return
 
@@ -3241,13 +3241,13 @@ if.end256:                                        ; preds = %if.end246
   br label %return
 
 f_err:                                            ; preds = %if.else213, %if.then196, %if.then188, %if.then112, %if.then99, %if.then84, %if.then73, %if.then49, %if.then46, %if.then38, %if.then33, %if.then25, %if.then21
-  %decrypt_buf.1 = phi ptr [ null, %if.then21 ], [ null, %if.then25 ], [ null, %if.then33 ], [ null, %if.then46 ], [ null, %if.then49 ], [ %call58, %if.then73 ], [ %call58, %if.then84 ], [ %call58, %if.then99 ], [ %call58, %if.then112 ], [ null, %if.then188 ], [ null, %if.then196 ], [ null, %if.else213 ], [ null, %if.then38 ]
+  %decrypt_buf.0 = phi ptr [ null, %if.then21 ], [ null, %if.then25 ], [ null, %if.then33 ], [ null, %if.then46 ], [ null, %if.then49 ], [ %call58, %if.then73 ], [ %call58, %if.then84 ], [ %call58, %if.then99 ], [ %call58, %if.then112 ], [ null, %if.then188 ], [ null, %if.then196 ], [ null, %if.else213 ], [ null, %if.then38 ]
   %al.0 = phi i32 [ 50, %if.then21 ], [ 80, %if.then25 ], [ 47, %if.then33 ], [ 80, %if.then46 ], [ 115, %if.then49 ], [ 40, %if.then73 ], [ 50, %if.then84 ], [ 51, %if.then99 ], [ 51, %if.then112 ], [ 50, %if.then188 ], [ %conv197, %if.then196 ], [ 40, %if.else213 ], [ 80, %if.then38 ]
   %call262 = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef %al.0) #9
   br label %err
 
 err:                                              ; preds = %if.end246, %if.end105, %if.end93, %f_err, %if.then244, %if.then211, %if.then104, %sw.bb95, %if.then61
-  %decrypt_buf.2 = phi ptr [ %decrypt_buf.1, %f_err ], [ null, %if.then61 ], [ %call58, %if.then104 ], [ null, %if.end246 ], [ null, %if.then244 ], [ %call58, %if.end105 ], [ %call58, %if.end93 ], [ %call58, %sw.bb95 ], [ null, %if.then211 ]
+  %decrypt_buf.1 = phi ptr [ %decrypt_buf.0, %f_err ], [ null, %if.then61 ], [ %call58, %if.then104 ], [ null, %if.end246 ], [ null, %if.then244 ], [ %call58, %if.end105 ], [ %call58, %if.end93 ], [ %call58, %sw.bb95 ], [ null, %if.then211 ]
   %58 = load ptr, ptr %premaster_secret, align 8
   %cmp263.not = icmp eq ptr %58, null
   br i1 %cmp263.not, label %if.end266, label %if.then265
@@ -3260,7 +3260,7 @@ if.then265:                                       ; preds = %err
   br label %if.end266
 
 if.end266:                                        ; preds = %if.then265, %err
-  call void @free(ptr noundef %decrypt_buf.2) #9
+  call void @free(ptr noundef %decrypt_buf.1) #9
   br label %return
 
 return:                                           ; preds = %if.end266, %if.end256, %if.then3
@@ -3417,15 +3417,15 @@ if.then68:                                        ; preds = %land.lhs.true59, %i
   br label %f_err
 
 f_err:                                            ; preds = %if.end29, %if.then68, %if.then50, %if.then28, %if.then16
-  %pctx.0 = phi ptr [ null, %if.then16 ], [ null, %if.then50 ], [ %call52, %if.then68 ], [ null, %if.end29 ], [ null, %if.then28 ]
+  %pctx.1 = phi ptr [ null, %if.then16 ], [ null, %if.then50 ], [ %call52, %if.then68 ], [ null, %if.end29 ], [ null, %if.then28 ]
   %12 = load i32, ptr %al, align 4
   %call71 = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef %12) #9
   br label %err
 
 err:                                              ; preds = %land.rhs, %f_err, %if.end51, %if.end39, %if.end34, %if.end3
   %ret.0 = phi i32 [ 0, %if.end3 ], [ 0, %f_err ], [ 0, %if.end51 ], [ 0, %if.end39 ], [ 0, %if.end34 ], [ 1, %land.rhs ]
-  %pctx.1 = phi ptr [ null, %if.end3 ], [ %pctx.0, %f_err ], [ null, %if.end51 ], [ null, %if.end39 ], [ null, %if.end34 ], [ %call52, %land.rhs ]
-  call void @EVP_PKEY_CTX_free(ptr noundef %pctx.1) #9
+  %pctx.0 = phi ptr [ null, %if.end3 ], [ %pctx.1, %f_err ], [ null, %if.end51 ], [ null, %if.end39 ], [ null, %if.end34 ], [ %call52, %land.rhs ]
+  call void @EVP_PKEY_CTX_free(ptr noundef %pctx.0) #9
   call void @EVP_PKEY_free(ptr noundef %call4) #9
   br label %return
 

@@ -518,16 +518,16 @@ _ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i:            ; preds = %20
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i, %19
-  %.sroa.11.03446 = phi ptr [ %9, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ %9, %19 ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
-  %.sroa.011.03645 = phi ptr [ %8, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ %8, %19 ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
+  %.sroa.11.13446 = phi ptr [ %9, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ %9, %19 ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
+  %.sroa.011.13645 = phi ptr [ %8, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ %8, %19 ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
   %.0.i.i.i.i.i3844 = phi ptr [ %.0.i.i.i.i.i, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ %.0.i.i.i.i.i, %19 ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
   store i8 1, ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.011.03645, ptr %30, align 8
+  store ptr %.sroa.011.13645, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.0.i.i.i.i.i3844, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.11.03446, ptr %32, align 8
+  store ptr %.sroa.11.13446, ptr %32, align 8
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit7
 
 33:                                               ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread

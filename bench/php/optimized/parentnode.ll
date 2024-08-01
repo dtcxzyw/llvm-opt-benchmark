@@ -29,21 +29,21 @@ define hidden range(i32 -1, 1) i32 @dom_parent_node_first_element_child_read(ptr
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %3, i64 24
-  %.019 = load ptr, ptr %10, align 8
-  %.not20 = icmp eq ptr %.019, null
+  %.119 = load ptr, ptr %10, align 8
+  %.not20 = icmp eq ptr %.119, null
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %13
-  %.021 = phi ptr [ %.0, %13 ], [ %.019, %9 ]
-  %11 = getelementptr inbounds i8, ptr %.021, i64 8
+  %.121 = phi ptr [ %.1, %13 ], [ %.119, %9 ]
+  %11 = getelementptr inbounds i8, ptr %.121, i64 8
   %12 = load i32, ptr %11, align 8
   %.not14 = icmp eq i32 %12, 1
   br i1 %.not14, label %.critedge, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.021, i64 48
-  %.0 = load ptr, ptr %14, align 8
-  %.not = icmp eq ptr %.0, null
+  %14 = getelementptr inbounds i8, ptr %.121, i64 48
+  %.1 = load ptr, ptr %14, align 8
+  %.not = icmp eq ptr %.1, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %13, %9, %6
@@ -52,7 +52,7 @@ define hidden range(i32 -1, 1) i32 @dom_parent_node_first_element_child_read(ptr
   br label %17
 
 .critedge:                                        ; preds = %.lr.ph
-  %16 = tail call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.021, ptr noundef %1, ptr noundef %0) #3
+  %16 = tail call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.121, ptr noundef %1, ptr noundef %0) #3
   br label %17
 
 17:                                               ; preds = %.critedge, %.loopexit, %5
@@ -85,21 +85,21 @@ define hidden range(i32 -1, 1) i32 @dom_parent_node_last_element_child_read(ptr 
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %3, i64 32
-  %.019 = load ptr, ptr %10, align 8
-  %.not20 = icmp eq ptr %.019, null
+  %.119 = load ptr, ptr %10, align 8
+  %.not20 = icmp eq ptr %.119, null
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %13
-  %.021 = phi ptr [ %.0, %13 ], [ %.019, %9 ]
-  %11 = getelementptr inbounds i8, ptr %.021, i64 8
+  %.121 = phi ptr [ %.1, %13 ], [ %.119, %9 ]
+  %11 = getelementptr inbounds i8, ptr %.121, i64 8
   %12 = load i32, ptr %11, align 8
   %.not14 = icmp eq i32 %12, 1
   br i1 %.not14, label %.critedge, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.021, i64 56
-  %.0 = load ptr, ptr %14, align 8
-  %.not = icmp eq ptr %.0, null
+  %14 = getelementptr inbounds i8, ptr %.121, i64 56
+  %.1 = load ptr, ptr %14, align 8
+  %.not = icmp eq ptr %.1, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %13, %9, %6
@@ -108,7 +108,7 @@ define hidden range(i32 -1, 1) i32 @dom_parent_node_last_element_child_read(ptr 
   br label %17
 
 .critedge:                                        ; preds = %.lr.ph
-  %16 = tail call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.021, ptr noundef %1, ptr noundef %0) #3
+  %16 = tail call zeroext i1 @php_dom_create_object(ptr noundef nonnull %.121, ptr noundef %1, ptr noundef %0) #3
   br label %17
 
 17:                                               ; preds = %.critedge, %.loopexit, %5

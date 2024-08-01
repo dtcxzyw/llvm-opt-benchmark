@@ -696,14 +696,14 @@ while.cond11.preheader:                           ; preds = %while.end7
   br label %while.cond11
 
 while.cond11:                                     ; preds = %while.cond11.backedge, %while.cond11.preheader
-  %it.sroa.10.0 = phi i1 [ true, %while.cond11.preheader ], [ false, %while.cond11.backedge ]
+  %it.sroa.10.1 = phi i1 [ true, %while.cond11.preheader ], [ false, %while.cond11.backedge ]
   %it.sroa.16.0 = phi ptr [ null, %while.cond11.preheader ], [ %19, %while.cond11.backedge ]
   %it.sroa.4.0 = phi i32 [ -1, %while.cond11.preheader ], [ %it.sroa.4.2, %while.cond11.backedge ]
-  br i1 %it.sroa.10.0, label %if.then.i50, label %if.end10.i
+  br i1 %it.sroa.10.1, label %if.then.i50, label %if.end10.i
 
 if.then.i50:                                      ; preds = %if.end10.i, %while.cond11
-  %it.sroa.4.1 = phi i32 [ %it.sroa.4.0, %while.cond11 ], [ %it.sroa.4.2, %if.end10.i ]
-  %inc.i = add nsw i32 %it.sroa.4.1, 1
+  %it.sroa.4.3 = phi i32 [ %it.sroa.4.0, %while.cond11 ], [ %it.sroa.4.2, %if.end10.i ]
+  %inc.i = add nsw i32 %it.sroa.4.3, 1
   %17 = load i64, ptr %size.i, align 8
   %conv.i = trunc i64 %17 to i32
   %cmp3.not.i = icmp slt i32 %inc.i, %conv.i
@@ -849,14 +849,14 @@ while.cond23.preheader:                           ; preds = %if.end
   br label %while.cond23
 
 while.cond23:                                     ; preds = %while.cond23.backedge, %while.cond23.preheader
-  %it.sroa.10.4 = phi i1 [ true, %while.cond23.preheader ], [ false, %while.cond23.backedge ]
-  %it.sroa.16.2 = phi ptr [ null, %while.cond23.preheader ], [ %51, %while.cond23.backedge ]
-  %it.sroa.4.4 = phi i32 [ -1, %while.cond23.preheader ], [ %it.sroa.4.6, %while.cond23.backedge ]
-  br i1 %it.sroa.10.4, label %if.then.i74, label %if.end10.i67
+  %it.sroa.10.2 = phi i1 [ true, %while.cond23.preheader ], [ false, %while.cond23.backedge ]
+  %it.sroa.16.1 = phi ptr [ null, %while.cond23.preheader ], [ %51, %while.cond23.backedge ]
+  %it.sroa.4.1 = phi i32 [ -1, %while.cond23.preheader ], [ %it.sroa.4.5, %while.cond23.backedge ]
+  br i1 %it.sroa.10.2, label %if.then.i74, label %if.end10.i67
 
 if.then.i74:                                      ; preds = %if.end10.i67, %while.cond23
-  %it.sroa.4.5 = phi i32 [ %it.sroa.4.4, %while.cond23 ], [ %it.sroa.4.6, %if.end10.i67 ]
-  %inc.i75 = add nsw i32 %it.sroa.4.5, 1
+  %it.sroa.4.6 = phi i32 [ %it.sroa.4.1, %while.cond23 ], [ %it.sroa.4.5, %if.end10.i67 ]
+  %inc.i75 = add nsw i32 %it.sroa.4.6, 1
   %49 = load i64, ptr %size.i76, align 8
   %conv.i77 = trunc i64 %49 to i32
   %cmp3.not.i78 = icmp slt i32 %inc.i75, %conv.i77
@@ -870,8 +870,8 @@ if.end.i79:                                       ; preds = %if.then.i74
   br label %if.end10.i67
 
 if.end10.i67:                                     ; preds = %if.end.i79, %while.cond23
-  %it.sroa.4.6 = phi i32 [ %inc.i75, %if.end.i79 ], [ %it.sroa.4.4, %while.cond23 ]
-  %storemerge.in.i68.sroa.speculated = phi ptr [ %storemerge.in.i68.sroa.speculate.load.if.end.i79, %if.end.i79 ], [ %it.sroa.16.2, %while.cond23 ]
+  %it.sroa.4.5 = phi i32 [ %inc.i75, %if.end.i79 ], [ %it.sroa.4.1, %while.cond23 ]
+  %storemerge.in.i68.sroa.speculated = phi ptr [ %storemerge.in.i68.sroa.speculate.load.if.end.i79, %if.end.i79 ], [ %it.sroa.16.1, %while.cond23 ]
   %tobool.not.i70 = icmp eq ptr %storemerge.in.i68.sroa.speculated, null
   br i1 %tobool.not.i70, label %if.then.i74, label %while.body26
 
@@ -1627,9 +1627,9 @@ if.then36.i:                                      ; preds = %cond.false.i.i, %co
   br label %if.end38.i
 
 if.end38.i:                                       ; preds = %if.end13.i.i, %if.end13.us.i.i, %if.then36.i, %if.end.i.i83, %if.end32.i, %if.then.i73
-  %cb.sroa.8.sroa.0.0 = phi i64 [ 0, %if.end32.i ], [ 0, %if.end.i.i83 ], [ %75, %if.then36.i ], [ 0, %if.then.i73 ], [ 0, %if.end13.us.i.i ], [ 0, %if.end13.i.i ]
-  %cb.sroa.5.2 = phi ptr [ null, %if.end32.i ], [ null, %if.end.i.i83 ], [ %cb.sroa.5.0.copyload142, %if.then36.i ], [ null, %if.then.i73 ], [ null, %if.end13.us.i.i ], [ null, %if.end13.i.i ]
-  %cb.sroa.8150.2 = phi ptr [ null, %if.end32.i ], [ null, %if.end.i.i83 ], [ %cb.sroa.8150.0.copyload152, %if.then36.i ], [ null, %if.then.i73 ], [ null, %if.end13.us.i.i ], [ null, %if.end13.i.i ]
+  %cb.sroa.8.sroa.0.3 = phi i64 [ 0, %if.end32.i ], [ 0, %if.end.i.i83 ], [ %75, %if.then36.i ], [ 0, %if.then.i73 ], [ 0, %if.end13.us.i.i ], [ 0, %if.end13.i.i ]
+  %cb.sroa.5.3 = phi ptr [ null, %if.end32.i ], [ null, %if.end.i.i83 ], [ %cb.sroa.5.0.copyload142, %if.then36.i ], [ null, %if.then.i73 ], [ null, %if.end13.us.i.i ], [ null, %if.end13.i.i ]
+  %cb.sroa.8150.3 = phi ptr [ null, %if.end32.i ], [ null, %if.end.i.i83 ], [ %cb.sroa.8150.0.copyload152, %if.then36.i ], [ null, %if.then.i73 ], [ null, %if.end13.us.i.i ], [ null, %if.end13.i.i ]
   %cb.0.i = phi ptr [ null, %if.end32.i ], [ null, %if.end.i.i83 ], [ %74, %if.then36.i ], [ null, %if.then.i73 ], [ null, %if.end13.us.i.i ], [ null, %if.end13.i.i ]
   %sname.0.i = phi ptr [ %call28.i, %if.end32.i ], [ %call28.i, %if.end.i.i83 ], [ %call28.i, %if.then36.i ], [ null, %if.then.i73 ], [ %call28.i, %if.end13.us.i.i ], [ %call28.i, %if.end13.i.i ]
   %idx.ext.i = zext i1 %cmp12.i to i64
@@ -1929,17 +1929,17 @@ if.end.i73.i:                                     ; preds = %if.then22.i
   br label %__redisGetSubscribeCallback.exit
 
 __redisGetSubscribeCallback.exit:                 ; preds = %if.end103.i, %if.else104.i, %if.end.i67.i, %if.end.i73.i
-  %cb.sroa.8.sroa.0.1 = phi i64 [ 0, %if.else104.i ], [ %130, %if.end.i67.i ], [ 0, %if.end.i73.i ], [ %cb.sroa.8.sroa.0.0, %if.end103.i ]
-  %cb.sroa.5.3 = phi ptr [ null, %if.else104.i ], [ %cb.sroa.5.0.copyload144, %if.end.i67.i ], [ null, %if.end.i73.i ], [ %cb.sroa.5.2, %if.end103.i ]
-  %cb.sroa.8150.3 = phi ptr [ null, %if.else104.i ], [ %cb.sroa.8150.0.copyload154, %if.end.i67.i ], [ null, %if.end.i73.i ], [ %cb.sroa.8150.2, %if.end103.i ]
+  %cb.sroa.8.sroa.0.4 = phi i64 [ 0, %if.else104.i ], [ %130, %if.end.i67.i ], [ 0, %if.end.i73.i ], [ %cb.sroa.8.sroa.0.3, %if.end103.i ]
+  %cb.sroa.5.4 = phi ptr [ null, %if.else104.i ], [ %cb.sroa.5.0.copyload144, %if.end.i67.i ], [ null, %if.end.i73.i ], [ %cb.sroa.5.3, %if.end103.i ]
+  %cb.sroa.8150.4 = phi ptr [ null, %if.else104.i ], [ %cb.sroa.8150.0.copyload154, %if.end.i67.i ], [ null, %if.end.i73.i ], [ %cb.sroa.8150.3, %if.end103.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %cb94.i)
   br label %if.end40
 
 if.end40:                                         ; preds = %__redisShiftCallback.exit.thread, %__redisGetSubscribeCallback.exit
-  %cb.sroa.8.sroa.0.2 = phi i64 [ %cb.sroa.8.sroa.0.1, %__redisGetSubscribeCallback.exit ], [ %32, %__redisShiftCallback.exit.thread ]
-  %cb.sroa.5.4 = phi ptr [ %cb.sroa.5.3, %__redisGetSubscribeCallback.exit ], [ %cb.sroa.5.0.copyload, %__redisShiftCallback.exit.thread ]
-  %cb.sroa.8150.4 = phi ptr [ %cb.sroa.8150.3, %__redisGetSubscribeCallback.exit ], [ %cb.sroa.8150.0.copyload, %__redisShiftCallback.exit.thread ]
-  %cmp42.not = icmp eq ptr %cb.sroa.5.4, null
+  %cb.sroa.8.sroa.0.0 = phi i64 [ %cb.sroa.8.sroa.0.4, %__redisGetSubscribeCallback.exit ], [ %32, %__redisShiftCallback.exit.thread ]
+  %cb.sroa.5.1 = phi ptr [ %cb.sroa.5.4, %__redisGetSubscribeCallback.exit ], [ %cb.sroa.5.0.copyload, %__redisShiftCallback.exit.thread ]
+  %cb.sroa.8150.1 = phi ptr [ %cb.sroa.8150.4, %__redisGetSubscribeCallback.exit ], [ %cb.sroa.8150.0.copyload, %__redisShiftCallback.exit.thread ]
+  %cmp42.not = icmp eq ptr %cb.sroa.5.1, null
   %.pre203 = load ptr, ptr %reply, align 8
   br i1 %cmp42.not, label %if.else, label %__redisRunCallback.exit
 
@@ -1947,7 +1947,7 @@ __redisRunCallback.exit:                          ; preds = %if.end40
   %133 = load i32, ptr %flags11, align 8
   %or.i96 = or i32 %133, 16
   store i32 %or.i96, ptr %flags11, align 8
-  call void %cb.sroa.5.4(ptr noundef %ac, ptr noundef %.pre203, ptr noundef %cb.sroa.8150.4) #15
+  call void %cb.sroa.5.1(ptr noundef %ac, ptr noundef %.pre203, ptr noundef %cb.sroa.8150.1) #15
   %134 = load i32, ptr %flags11, align 8
   %and.i97 = and i32 %134, -17
   store i32 %and.i97, ptr %flags11, align 8
@@ -1974,8 +1974,8 @@ if.end51:                                         ; preds = %if.then47, %__redis
 
 if.else:                                          ; preds = %if.end31, %if.end40
   %140 = phi ptr [ %0, %if.end31 ], [ %.pre203, %if.end40 ]
-  %cb.sroa.8.sroa.0.3 = phi i64 [ 0, %if.end31 ], [ %cb.sroa.8.sroa.0.2, %if.end40 ]
-  %cb.sroa.8150.4179 = phi ptr [ null, %if.end31 ], [ %cb.sroa.8150.4, %if.end40 ]
+  %cb.sroa.8.sroa.0.1 = phi i64 [ 0, %if.end31 ], [ %cb.sroa.8.sroa.0.0, %if.end40 ]
+  %cb.sroa.8150.1179 = phi ptr [ null, %if.end31 ], [ %cb.sroa.8150.1, %if.end40 ]
   %141 = load ptr, ptr %reader48, align 8
   %fn58 = getelementptr inbounds i8, ptr %141, i64 200
   %142 = load ptr, ptr %fn58, align 8
@@ -1987,9 +1987,9 @@ if.else:                                          ; preds = %if.end31, %if.end40
 
 if.end60:                                         ; preds = %if.end51, %if.else
   %144 = phi i32 [ %.pre204, %if.else ], [ %139, %if.end51 ]
-  %cb.sroa.8.sroa.0.4 = phi i64 [ %cb.sroa.8.sroa.0.3, %if.else ], [ %cb.sroa.8.sroa.0.2, %if.end51 ]
-  %cb.sroa.8150.4178 = phi ptr [ %cb.sroa.8150.4179, %if.else ], [ %cb.sroa.8150.4, %if.end51 ]
-  %cb.sroa.5.4176 = phi ptr [ null, %if.else ], [ %cb.sroa.5.4, %if.end51 ]
+  %cb.sroa.8.sroa.0.2 = phi i64 [ %cb.sroa.8.sroa.0.1, %if.else ], [ %cb.sroa.8.sroa.0.0, %if.end51 ]
+  %cb.sroa.8150.1178 = phi ptr [ %cb.sroa.8150.1179, %if.else ], [ %cb.sroa.8150.1, %if.end51 ]
+  %cb.sroa.5.1176 = phi ptr [ null, %if.else ], [ %cb.sroa.5.1, %if.end51 ]
   %and62 = and i32 %144, 64
   %tobool63.not = icmp eq i32 %and62, 0
   br i1 %tobool63.not, label %while.cond.backedge, label %if.then64
@@ -2002,11 +2002,11 @@ if.then64:                                        ; preds = %if.end60
 
 if.end.i101:                                      ; preds = %if.then64
   %cb.sroa.5.0.call.i.i99.sroa_idx = getelementptr inbounds i8, ptr %call.i.i99, i64 8
-  store ptr %cb.sroa.5.4176, ptr %cb.sroa.5.0.call.i.i99.sroa_idx, align 8
+  store ptr %cb.sroa.5.1176, ptr %cb.sroa.5.0.call.i.i99.sroa_idx, align 8
   %cb.sroa.8.0.call.i.i99.sroa_idx = getelementptr inbounds i8, ptr %call.i.i99, i64 16
-  store i64 %cb.sroa.8.sroa.0.4, ptr %cb.sroa.8.0.call.i.i99.sroa_idx, align 8
+  store i64 %cb.sroa.8.sroa.0.2, ptr %cb.sroa.8.0.call.i.i99.sroa_idx, align 8
   %cb.sroa.8150.0.call.i.i99.sroa_idx = getelementptr inbounds i8, ptr %call.i.i99, i64 24
-  store ptr %cb.sroa.8150.4178, ptr %cb.sroa.8150.0.call.i.i99.sroa_idx, align 8
+  store ptr %cb.sroa.8150.1178, ptr %cb.sroa.8150.0.call.i.i99.sroa_idx, align 8
   store ptr null, ptr %call.i.i99, align 8
   %146 = load ptr, ptr %replies20, align 8
   %cmp4.i = icmp eq ptr %146, null
@@ -3691,13 +3691,13 @@ if.end92:                                         ; preds = %if.then82, %if.else
 
 while.cond95:                                     ; preds = %while.cond95.outer, %while.body99
   %it.sroa.8.0 = phi ptr [ %139, %while.body99 ], [ %it.sroa.8.0.ph, %while.cond95.outer ]
-  %it.sroa.2.0 = phi i32 [ %it.sroa.2.2, %while.body99 ], [ %it.sroa.2.0.ph, %while.cond95.outer ]
+  %it.sroa.2.0 = phi i32 [ %it.sroa.2.1, %while.body99 ], [ %it.sroa.2.0.ph, %while.cond95.outer ]
   %it.sroa.5.0 = phi i1 [ false, %while.body99 ], [ %it.sroa.5.0.ph, %while.cond95.outer ]
   br i1 %it.sroa.5.0, label %if.then.i125, label %if.end10.i
 
 if.then.i125:                                     ; preds = %if.end10.i, %while.cond95
-  %it.sroa.2.1 = phi i32 [ %it.sroa.2.0, %while.cond95 ], [ %it.sroa.2.2, %if.end10.i ]
-  %inc.i = add nsw i32 %it.sroa.2.1, 1
+  %it.sroa.2.2 = phi i32 [ %it.sroa.2.0, %while.cond95 ], [ %it.sroa.2.1, %if.end10.i ]
+  %inc.i = add nsw i32 %it.sroa.2.2, 1
   %137 = load i64, ptr %size.i85, align 8
   %conv.i = trunc i64 %137 to i32
   %cmp3.not.i = icmp slt i32 %inc.i, %conv.i
@@ -3711,7 +3711,7 @@ if.end.i127:                                      ; preds = %if.then.i125
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end.i127, %while.cond95
-  %it.sroa.2.2 = phi i32 [ %inc.i, %if.end.i127 ], [ %it.sroa.2.0, %while.cond95 ]
+  %it.sroa.2.1 = phi i32 [ %inc.i, %if.end.i127 ], [ %it.sroa.2.0, %while.cond95 ]
   %storemerge.in.i.sroa.speculated = phi ptr [ %storemerge.in.i.sroa.speculate.load.if.end.i127, %if.end.i127 ], [ %it.sroa.8.0, %while.cond95 ]
   %tobool.not.i122 = icmp eq ptr %storemerge.in.i.sroa.speculated, null
   br i1 %tobool.not.i122, label %if.then.i125, label %while.body99
@@ -3733,7 +3733,7 @@ if.then104:                                       ; preds = %while.body99
 
 while.cond95.outer:                               ; preds = %if.end53, %if.then104
   %it.sroa.8.0.ph = phi ptr [ %139, %if.then104 ], [ null, %if.end53 ]
-  %it.sroa.2.0.ph = phi i32 [ %it.sroa.2.2, %if.then104 ], [ -1, %if.end53 ]
+  %it.sroa.2.0.ph = phi i32 [ %it.sroa.2.1, %if.then104 ], [ -1, %if.end53 ]
   %it.sroa.5.0.ph = phi i1 [ false, %if.then104 ], [ true, %if.end53 ]
   %cmp108.not = phi i1 [ true, %if.then104 ], [ false, %if.end53 ]
   br label %while.cond95

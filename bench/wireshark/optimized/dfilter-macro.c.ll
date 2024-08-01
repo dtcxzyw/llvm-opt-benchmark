@@ -584,7 +584,7 @@ close_char.exit:                                  ; preds = %246, %247
   br label %272
 
 272:                                              ; preds = %266, %270
-  %.1166 = phi ptr [ %.0165, %266 ], [ null, %270 ]
+  %.2167 = phi ptr [ %.0165, %266 ], [ null, %270 ]
   %273 = load ptr, ptr %.0163, align 8
   %274 = load ptr, ptr %.0168, align 8
   %275 = tail call fastcc ptr @dfilter_macro_resolve(ptr noundef %273, ptr noundef %274, ptr noundef %2)
@@ -595,11 +595,11 @@ close_char.exit:                                  ; preds = %246, %247
   %278 = tail call ptr @g_string_append(ptr noundef %11, ptr noundef nonnull %275) #6
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %275) #6
   %279 = tail call ptr @g_string_free(ptr noundef nonnull %.0163, i32 noundef 1) #6
-  %.not193 = icmp eq ptr %.1166, null
+  %.not193 = icmp eq ptr %.2167, null
   br i1 %.not193, label %282, label %280
 
 280:                                              ; preds = %277
-  %281 = tail call ptr @g_string_free(ptr noundef nonnull %.1166, i32 noundef 1) #6
+  %281 = tail call ptr @g_string_free(ptr noundef nonnull %.2167, i32 noundef 1) #6
   br label %282
 
 282:                                              ; preds = %280, %277
@@ -720,7 +720,7 @@ common.ret572:                                    ; preds = %5, %6, %340, %319, 
   br i1 %.not201, label %325, label %.thread236
 
 .thread236:                                       ; preds = %272, %138, %323
-  %.4239 = phi ptr [ %.0165, %323 ], [ %.1166, %272 ], [ %.0165, %138 ]
+  %.4239 = phi ptr [ %.0165, %323 ], [ %.2167, %272 ], [ %.0165, %138 ]
   %324 = tail call ptr @g_string_free(ptr noundef nonnull %.0163, i32 noundef 1) #6
   br label %325
 
@@ -788,9 +788,9 @@ define hidden void @macro_parse(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %.not61, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %47
-  %.064 = phi ptr [ %.3, %47 ], [ %9, %1 ]
+  %.064 = phi ptr [ %.1, %47 ], [ %9, %1 ]
   %.04863 = phi i32 [ %.149, %47 ], [ 0, %1 ]
-  %.05062 = phi ptr [ %.353, %47 ], [ %7, %1 ]
+  %.05062 = phi ptr [ %.151, %47 ], [ %7, %1 ]
   %10 = load i8, ptr %.064, align 1
   switch i8 %10, label %11 [
     i8 0, label %.critedge
@@ -823,10 +823,10 @@ define hidden void @macro_parse(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %22
 
 22:                                               ; preds = %26, %21
-  %.151 = phi ptr [ %.05062, %21 ], [ %29, %26 ]
+  %.252 = phi ptr [ %.05062, %21 ], [ %29, %26 ]
   %.046 = phi i32 [ 0, %21 ], [ %28, %26 ]
-  %.1 = phi ptr [ %.064, %21 ], [ %23, %26 ]
-  %23 = getelementptr i8, ptr %.1, i64 1
+  %.2 = phi ptr [ %.064, %21 ], [ %23, %26 ]
+  %23 = getelementptr i8, ptr %.2, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = add i8 %24, -48
   %or.cond = icmp ult i8 %25, 10
@@ -835,8 +835,8 @@ define hidden void @macro_parse(ptr nocapture noundef %0) local_unnamed_addr #0 
 26:                                               ; preds = %22
   %27 = zext nneg i8 %24 to i32
   %28 = add i32 %.046, 1
-  %29 = getelementptr i8, ptr %.151, i64 1
-  store i8 0, ptr %.151, align 1
+  %29 = getelementptr i8, ptr %.252, i64 1
+  store i8 0, ptr %.252, align 1
   %30 = load i32, ptr %2, align 4
   %31 = mul i32 %30, 10
   %32 = add nsw i32 %27, -48
@@ -847,16 +847,16 @@ define hidden void @macro_parse(ptr nocapture noundef %0) local_unnamed_addr #0 
   br i1 %.not58, label %35, label %22, !llvm.loop !10
 
 35:                                               ; preds = %22, %26
-  %.252 = phi ptr [ %29, %26 ], [ %.151, %22 ]
+  %.353 = phi ptr [ %29, %26 ], [ %.252, %22 ]
   %.147 = phi i32 [ %28, %26 ], [ %.046, %22 ]
-  %.2 = phi ptr [ %23, %26 ], [ %.1, %22 ]
+  %.3 = phi ptr [ %23, %26 ], [ %.2, %22 ]
   %.not59 = icmp eq i32 %.147, 0
   br i1 %.not59, label %43, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr i8, ptr %.252, i64 1
-  store i8 0, ptr %.252, align 1
-  %38 = getelementptr i8, ptr %.2, i64 1
+  %37 = getelementptr i8, ptr %.353, i64 1
+  store i8 0, ptr %.353, align 1
+  %38 = getelementptr i8, ptr %.3, i64 1
   %39 = load i32, ptr %2, align 4
   %40 = call i32 @llvm.smax.i32(i32 %.04863, i32 %39)
   %41 = add i32 %39, -1
@@ -866,17 +866,17 @@ define hidden void @macro_parse(ptr nocapture noundef %0) local_unnamed_addr #0 
   br label %47
 
 43:                                               ; preds = %35
-  %44 = getelementptr i8, ptr %.2, i64 1
-  %45 = load i8, ptr %.2, align 1
-  %46 = getelementptr i8, ptr %.252, i64 1
-  store i8 %45, ptr %.252, align 1
+  %44 = getelementptr i8, ptr %.3, i64 1
+  %45 = load i8, ptr %.3, align 1
+  %46 = getelementptr i8, ptr %.353, i64 1
+  store i8 %45, ptr %.353, align 1
   br label %47
 
 47:                                               ; preds = %36, %43, %14, %18, %11
-  %.353 = phi ptr [ %13, %11 ], [ %37, %36 ], [ %46, %43 ], [ %20, %18 ], [ %16, %14 ]
+  %.151 = phi ptr [ %13, %11 ], [ %37, %36 ], [ %46, %43 ], [ %20, %18 ], [ %16, %14 ]
   %.149 = phi i32 [ %.04863, %11 ], [ %40, %36 ], [ %.04863, %43 ], [ %.04863, %18 ], [ %.04863, %14 ]
-  %.3 = phi ptr [ %12, %11 ], [ %38, %36 ], [ %44, %43 ], [ %19, %18 ], [ %15, %14 ]
-  %.not = icmp eq ptr %.3, null
+  %.1 = phi ptr [ %12, %11 ], [ %38, %36 ], [ %44, %43 ], [ %19, %18 ], [ %15, %14 ]
+  %.not = icmp eq ptr %.1, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !11
 
 .critedge:                                        ; preds = %47, %.lr.ph, %1
@@ -1159,19 +1159,19 @@ define internal fastcc noalias ptr @dfilter_macro_resolve(ptr noundef %0, ptr no
   br i1 %.not38, label %.loopexit44, label %.preheader43
 
 .preheader43:                                     ; preds = %13, %.preheader43
-  %.031 = phi i32 [ %17, %.preheader43 ], [ 0, %13 ]
-  %14 = sext i32 %.031 to i64
+  %.1 = phi i32 [ %17, %.preheader43 ], [ 0, %13 ]
+  %14 = sext i32 %.1 to i64
   %15 = getelementptr ptr, ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not39 = icmp eq ptr %16, null
-  %17 = add i32 %.031, 1
+  %17 = add i32 %.1, 1
   br i1 %.not39, label %.loopexit44, label %.preheader43, !llvm.loop !14
 
 .loopexit44:                                      ; preds = %.preheader43, %13
-  %.1 = phi i32 [ 0, %13 ], [ %.031, %.preheader43 ]
+  %.031 = phi i32 [ 0, %13 ], [ %.1, %.preheader43 ]
   %18 = getelementptr inbounds i8, ptr %5, i64 40
   %19 = load i32, ptr %18, align 8
-  %.not40 = icmp eq i32 %.1, %19
+  %.not40 = icmp eq i32 %.031, %19
   br i1 %.not40, label %23, label %20
 
 20:                                               ; preds = %.loopexit44
@@ -1179,7 +1179,7 @@ define internal fastcc noalias ptr @dfilter_macro_resolve(ptr noundef %0, ptr no
   br i1 %.not42, label %41, label %21
 
 21:                                               ; preds = %20
-  %22 = tail call ptr (i32, ptr, ptr, ...) @df_error_new_printf(i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %0, i32 noundef %19, i32 noundef %.1) #6
+  %22 = tail call ptr (i32, ptr, ptr, ...) @df_error_new_printf(i32 noundef -1, ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef %0, i32 noundef %19, i32 noundef %.031) #6
   store ptr %22, ptr %2, align 8
   br label %41
 

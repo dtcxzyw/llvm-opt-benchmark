@@ -349,34 +349,34 @@ define i32 @resolve_qos(i32 noundef %0, ptr nocapture noundef readonly %1, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %47, %104, %113, %138, %129, %13, %22
-  %.193.ph = phi i32 [ 9003, %22 ], [ 9003, %13 ], [ 9001, %129 ], [ 9001, %138 ], [ 2066, %113 ], [ 2066, %104 ], [ %34, %47 ]
+  %.092.ph = phi i32 [ 9003, %22 ], [ 9003, %13 ], [ 9001, %129 ], [ 9001, %138 ], [ 2066, %113 ], [ 2066, %104 ], [ %34, %47 ]
   call void @slurm_xfree(ptr noundef nonnull %9) #6
   br label %145
 
 .thread127:                                       ; preds = %116, %126
-  %.1.ph = phi ptr [ %128, %126 ], [ %118, %116 ]
+  %.091.ph = phi ptr [ %128, %126 ], [ %118, %116 ]
   call void @slurm_xfree(ptr noundef nonnull %9) #6
   br label %143
 
 142:                                              ; preds = %62, %84, %93, %80, %51, %69
-  %.092 = phi i32 [ %.mux, %51 ], [ 9003, %62 ], [ %.mux121, %69 ], [ 9003, %80 ], [ 9001, %84 ], [ 9001, %93 ]
-  %.091 = phi ptr [ %53, %51 ], [ null, %62 ], [ %71, %69 ], [ null, %80 ], [ null, %84 ], [ null, %93 ]
+  %.193 = phi i32 [ %.mux, %51 ], [ 9003, %62 ], [ %.mux121, %69 ], [ 9003, %80 ], [ 9001, %84 ], [ 9001, %93 ]
+  %.1 = phi ptr [ %53, %51 ], [ null, %62 ], [ %71, %69 ], [ null, %80 ], [ null, %84 ], [ null, %93 ]
   call void @slurmdb_destroy_qos_rec(ptr noundef nonnull %33) #6
   call void @slurm_xfree(ptr noundef nonnull %9) #6
-  %.not117 = icmp eq i32 %.092, 0
+  %.not117 = icmp eq i32 %.193, 0
   br i1 %.not117, label %143, label %145
 
 143:                                              ; preds = %.thread127, %142
-  %.1131 = phi ptr [ %.1.ph, %.thread127 ], [ %.091, %142 ]
-  %.not118 = icmp eq ptr %.1131, null
+  %.091131 = phi ptr [ %.091.ph, %.thread127 ], [ %.1, %142 ]
+  %.not118 = icmp eq ptr %.091131, null
   br i1 %.not118, label %145, label %144
 
 144:                                              ; preds = %143
-  store ptr %.1131, ptr %2, align 8
+  store ptr %.091131, ptr %2, align 8
   br label %145
 
 145:                                              ; preds = %.thread, %143, %142, %122, %124, %25, %144
-  %.0 = phi i32 [ 0, %144 ], [ 0, %25 ], [ 0, %124 ], [ 0, %122 ], [ %.092, %142 ], [ 9003, %143 ], [ %.193.ph, %.thread ]
+  %.0 = phi i32 [ 0, %144 ], [ 0, %25 ], [ 0, %124 ], [ 0, %122 ], [ %.193, %142 ], [ 9003, %143 ], [ %.092.ph, %.thread ]
   ret i32 %.0
 }
 

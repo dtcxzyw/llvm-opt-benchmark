@@ -395,7 +395,7 @@ while.body.lr.ph.lr.ph:                           ; preds = %if.end
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %sw.epilog
   %8 = phi i32 [ %.pre, %while.body.lr.ph.lr.ph ], [ %86, %sw.epilog ]
-  %matched.0.ph200 = phi i1 [ false, %while.body.lr.ph.lr.ph ], [ %matched.3, %sw.epilog ]
+  %matched.0.ph200 = phi i1 [ false, %while.body.lr.ph.lr.ph ], [ %matched.2, %sw.epilog ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.then19
@@ -458,7 +458,7 @@ Loop.outer:                                       ; preds = %Loop.outer.backedge
 
 Loop:                                             ; preds = %Loop.outer, %if.then157
   %indvars.iv264 = phi i64 [ %21, %Loop.outer ], [ %indvars.iv.next265, %if.then157 ]
-  %matched.1 = phi i1 [ %matched.1.ph, %Loop.outer ], [ %matched.2, %if.then157 ]
+  %matched.1 = phi i1 [ %matched.1.ph, %Loop.outer ], [ %matched.3, %if.then157 ]
   %22 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i.i.i.i.i.i75 = getelementptr inbounds i8, ptr %22, i64 120
   %23 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i75, align 8
@@ -803,7 +803,7 @@ if.end147.Next_crit_edge:                         ; preds = %if.end147
 
 Next:                                             ; preds = %if.end147.Next_crit_edge, %sw.bb107, %sw.bb84, %if.end52, %if.end45
   %84 = phi i32 [ %.pre267, %sw.bb84 ], [ %24, %if.end52 ], [ %24, %if.end45 ], [ %24, %sw.bb107 ], [ %.pre266, %if.end147.Next_crit_edge ]
-  %matched.2 = phi i1 [ %matched.1, %sw.bb84 ], [ %matched.1, %if.end52 ], [ %matched.1, %if.end45 ], [ %matched.1, %sw.bb107 ], [ true, %if.end147.Next_crit_edge ]
+  %matched.3 = phi i1 [ %matched.1, %sw.bb84 ], [ %matched.1, %if.end52 ], [ %matched.1, %if.end45 ], [ %matched.1, %sw.bb107 ], [ true, %if.end147.Next_crit_edge ]
   %85 = and i32 %84, 8
   %tobool156.not = icmp eq i32 %85, 0
   br i1 %tobool156.not, label %if.then157, label %sw.epilog
@@ -813,13 +813,13 @@ if.then157:                                       ; preds = %Next
   br label %Loop
 
 sw.epilog:                                        ; preds = %CheckAndLoop, %Loop, %Next
-  %matched.3 = phi i1 [ %matched.1, %Loop ], [ %matched.2, %Next ], [ %matched.1, %CheckAndLoop ]
+  %matched.2 = phi i1 [ %matched.1, %Loop ], [ %matched.3, %Next ], [ %matched.1, %CheckAndLoop ]
   %86 = load i32, ptr %njob_, align 8
   %cmp195 = icmp sgt i32 %86, 0
   br i1 %cmp195, label %while.body.lr.ph, label %return, !llvm.loop !4
 
 return:                                           ; preds = %sw.epilog, %if.then19, %if.end147, %if.end112, %entry, %if.end, %invoke.cont38
-  %retval.0 = phi i1 [ false, %invoke.cont38 ], [ false, %if.end ], [ false, %entry ], [ true, %if.end112 ], [ true, %if.end147 ], [ %matched.0.ph200, %if.then19 ], [ %matched.3, %sw.epilog ]
+  %retval.0 = phi i1 [ false, %invoke.cont38 ], [ false, %if.end ], [ false, %entry ], [ true, %if.end112 ], [ true, %if.end147 ], [ %matched.0.ph200, %if.then19 ], [ %matched.2, %sw.epilog ]
   ret i1 %retval.0
 }
 

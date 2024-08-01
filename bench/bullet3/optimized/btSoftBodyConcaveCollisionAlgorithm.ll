@@ -2226,13 +2226,13 @@ cleanup:                                          ; preds = %if.end36
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end36, %cleanup
-  %retval.1.ph = phi float [ %.pre, %cleanup ], [ 1.000000e+00, %if.end36 ]
+  %retval.0.ph = phi float [ %.pre, %cleanup ], [ 1.000000e+00, %if.end36 ]
   call void @_ZN18btTriangleCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %raycastCallback) #11
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end, %entry
-  %retval.1 = phi float [ 1.000000e+00, %entry ], [ 1.000000e+00, %if.end ], [ %retval.1.ph, %return.sink.split ]
-  ret float %retval.1
+  %retval.0 = phi float [ 1.000000e+00, %entry ], [ 1.000000e+00, %if.end ], [ %retval.0.ph, %return.sink.split ]
+  ret float %retval.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

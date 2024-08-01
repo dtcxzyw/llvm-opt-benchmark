@@ -2245,10 +2245,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i83.i
 
 697:                                              ; preds = %695, %693
   %.pn46.i.i = phi { ptr, i32 } [ %696, %695 ], [ %694, %693 ]
-  %.1.i.i = phi i1 [ %.0.i.i, %695 ], [ true, %693 ]
+  %.3.i.i = phi i1 [ %.0.i.i, %695 ], [ true, %693 ]
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %26) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #17
-  br i1 %.1.i.i, label %698, label %.body.i
+  br i1 %.3.i.i, label %698, label %.body.i
 
 698:                                              ; preds = %697, %.thread62.i.i, %.thread.i.i
   %.pn46.pn.pn61.i.i = phi { ptr, i32 } [ %691, %.thread.i.i ], [ %.pn46.i.i, %697 ], [ %692, %.thread62.i.i ]

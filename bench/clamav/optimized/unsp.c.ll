@@ -1132,8 +1132,8 @@ getbit_from_table.exit412:                        ; preds = %447, %get_byte.exit
   %.0273613 = phi i32 [ %.0273, %407 ], [ %.0273, %get_byte.exit.i410 ], [ %.0273, %470 ], [ %.0273, %get_byte.exit57.i420 ], [ %.0273615, %447 ], [ %.0273, %get_byte.exit.i423 ], [ %.0273, %455 ]
   %485 = phi i32 [ %66, %407 ], [ %66, %get_byte.exit.i410 ], [ %66, %470 ], [ %66, %get_byte.exit57.i420 ], [ %448, %447 ], [ %66, %get_byte.exit.i423 ], [ %66, %455 ]
   %.1279 = phi i32 [ %.0278.ph533, %407 ], [ %.0278.ph533, %get_byte.exit.i410 ], [ %.0281.ph532, %470 ], [ %.0281.ph532, %get_byte.exit57.i420 ], [ %.0281.ph532, %447 ], [ %.0281.ph532, %get_byte.exit.i423 ], [ %.0281.ph532, %455 ]
-  %.2277 = phi i32 [ %.0275.ph534, %407 ], [ %.0275.ph534, %get_byte.exit.i410 ], [ %.0278.ph533, %470 ], [ %.0278.ph533, %get_byte.exit57.i420 ], [ %.0278.ph533, %447 ], [ %.0275.ph534, %get_byte.exit.i423 ], [ %.0275.ph534, %455 ]
-  %.1 = phi i32 [ %.0281.ph532, %407 ], [ %.0281.ph532, %get_byte.exit.i410 ], [ %.0275.ph534, %470 ], [ %.0275.ph534, %get_byte.exit57.i420 ], [ %.0275.ph534, %447 ], [ %.0278.ph533, %get_byte.exit.i423 ], [ %.0278.ph533, %455 ]
+  %.1276 = phi i32 [ %.0275.ph534, %407 ], [ %.0275.ph534, %get_byte.exit.i410 ], [ %.0278.ph533, %470 ], [ %.0278.ph533, %get_byte.exit57.i420 ], [ %.0278.ph533, %447 ], [ %.0275.ph534, %get_byte.exit.i423 ], [ %.0275.ph534, %455 ]
+  %.0268 = phi i32 [ %.0281.ph532, %407 ], [ %.0281.ph532, %get_byte.exit.i410 ], [ %.0275.ph534, %470 ], [ %.0275.ph534, %get_byte.exit57.i420 ], [ %.0275.ph534, %447 ], [ %.0278.ph533, %get_byte.exit.i423 ], [ %.0278.ph533, %455 ]
   %486 = call i32 @get_n_bits_from_tablesize(ptr noundef nonnull %51, ptr noundef nonnull %10, i32 noundef %485)
   %487 = icmp slt i32 %.0273613, 7
   %488 = select i1 %487, i32 8, i32 11
@@ -1626,10 +1626,10 @@ get_bb.exit439:                                   ; preds = %getbit_from_table.e
 
 718:                                              ; preds = %388, %getbit_from_table.exit412, %716
   %.0285624 = phi i32 [ %.0285626, %getbit_from_table.exit412 ], [ %.0285, %388 ], [ %.0285, %716 ]
-  %.1284 = phi i32 [ %.1, %getbit_from_table.exit412 ], [ %.0283.ph531, %388 ], [ %717, %716 ]
+  %.1284 = phi i32 [ %.0268, %getbit_from_table.exit412 ], [ %.0283.ph531, %388 ], [ %717, %716 ]
   %.1282 = phi i32 [ %.0283.ph531, %getbit_from_table.exit412 ], [ %.0281.ph532, %388 ], [ %.0283.ph531, %716 ]
   %.2280 = phi i32 [ %.1279, %getbit_from_table.exit412 ], [ %.0278.ph533, %388 ], [ %.0281.ph532, %716 ]
-  %.3 = phi i32 [ %.2277, %getbit_from_table.exit412 ], [ %.0275.ph534, %388 ], [ %.0278.ph533, %716 ]
+  %.3 = phi i32 [ %.1276, %getbit_from_table.exit412 ], [ %.0275.ph534, %388 ], [ %.0278.ph533, %716 ]
   %.2 = phi i32 [ %488, %getbit_from_table.exit412 ], [ %391, %388 ], [ %490, %716 ]
   %.0269 = phi i32 [ %486, %getbit_from_table.exit412 ], [ %389, %388 ], [ %491, %716 ]
   %.not343 = icmp eq i32 %.1284, 0
@@ -1875,7 +1875,7 @@ define range(i32 0, 256) i32 @get_100_bits_from_tablesize(ptr noundef %0, ptr no
 
 11:                                               ; preds = %3, %.loopexit
   %.027 = phi i32 [ %10, %3 ], [ %13, %.loopexit ]
-  %.02326 = phi i32 [ 1, %3 ], [ %.2, %.loopexit ]
+  %.02326 = phi i32 [ 1, %3 ], [ %.1, %.loopexit ]
   %12 = shl nuw nsw i32 %.027, 1
   %13 = and i32 %12, 254
   %14 = lshr i32 %.027, 7
@@ -1902,8 +1902,8 @@ define range(i32 0, 256) i32 @get_100_bits_from_tablesize(ptr noundef %0, ptr no
   br label %getbit_from_table.exit.us
 
 getbit_from_table.exit.us:                        ; preds = %getbit_from_table.exit.us, %.preheader.split.us
-  %.1.us = phi i32 [ %28, %getbit_from_table.exit.us ], [ %22, %.preheader.split.us ]
-  %27 = shl i32 %.1.us, 1
+  %.2.us = phi i32 [ %28, %getbit_from_table.exit.us ], [ %22, %.preheader.split.us ]
+  %27 = shl i32 %.2.us, 1
   %28 = or i32 %27, 255
   %.old1.us = icmp ult i32 %27, 256
   br i1 %.old1.us, label %getbit_from_table.exit.us, label %.loopexit
@@ -1914,9 +1914,9 @@ getbit_from_table.exit.us:                        ; preds = %getbit_from_table.e
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.splitthread-pre-split
   %29 = phi i32 [ %.pr, %.preheader.splitthread-pre-split ], [ %25, %.preheader ]
-  %.1 = phi i32 [ %93, %.preheader.splitthread-pre-split ], [ %22, %.preheader ]
-  %30 = shl i32 %.1, 1
-  %31 = zext i32 %.1 to i64
+  %.2 = phi i32 [ %93, %.preheader.splitthread-pre-split ], [ %22, %.preheader ]
+  %30 = shl i32 %.2, 1
+  %31 = zext i32 %.2 to i64
   %32 = getelementptr inbounds i16, ptr %0, i64 %31
   %33 = zext i32 %29 to i64
   %switch.i = icmp ult i32 %29, 2
@@ -2040,12 +2040,12 @@ getbit_from_table.exit:                           ; preds = %43, %52, %get_byte.
   br i1 %.old1, label %.preheader.splitthread-pre-split, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %getbit_from_table.exit, %getbit_from_table.exit.us, %11
-  %.2 = phi i32 [ %22, %11 ], [ %28, %getbit_from_table.exit.us ], [ %93, %getbit_from_table.exit ]
-  %94 = icmp ult i32 %.2, 256
+  %.1 = phi i32 [ %22, %11 ], [ %28, %getbit_from_table.exit.us ], [ %93, %getbit_from_table.exit ]
+  %94 = icmp ult i32 %.1, 256
   br i1 %94, label %11, label %95
 
 95:                                               ; preds = %.loopexit
-  %96 = and i32 %.2, 255
+  %96 = and i32 %.1, 255
   ret i32 %96
 }
 

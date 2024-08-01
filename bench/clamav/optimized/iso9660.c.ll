@@ -193,7 +193,7 @@ define noundef i32 @cli_scaniso(ptr noundef %0, i64 noundef %1) local_unnamed_ad
 74:                                               ; preds = %331, %.loopexit
   %.0130 = phi ptr [ %10, %.loopexit ], [ %.3, %331 ]
   %.3 = phi ptr [ %.not148, %.loopexit ], [ null, %331 ]
-  %.0 = phi i32 [ 0, %.loopexit ], [ %spec.select155, %331 ]
+  %.1 = phi i32 [ 0, %.loopexit ], [ %spec.select155, %331 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #9
   %75 = load i8, ptr @cli_debug_flag, align 1
   %.not149 = icmp eq i8 %75, 0
@@ -574,16 +574,16 @@ iso_string.exit170:                               ; preds = %iso_string.exit167,
   ]
 
 331:                                              ; preds = %321, %321, %321
-  %spec.select155 = call i32 @llvm.umax.i32(i32 %330, i32 %.0)
+  %spec.select155 = call i32 @llvm.umax.i32(i32 %330, i32 %.1)
   store i32 %63, ptr %32, align 4
   %.not154 = icmp eq ptr %.3, null
   br i1 %.not154, label %332, label %74
 
 332:                                              ; preds = %321, %319, %331
-  %.2 = phi i32 [ %spec.select155, %331 ], [ %320, %319 ], [ %330, %321 ]
-  %.2.fr = freeze i32 %.2
-  %333 = icmp eq i32 %.2.fr, 22
-  %spec.select173 = select i1 %333, i32 0, i32 %.2.fr
+  %.0 = phi i32 [ %spec.select155, %331 ], [ %320, %319 ], [ %330, %321 ]
+  %.0.fr = freeze i32 %.0
+  %333 = icmp eq i32 %.0.fr, 22
+  %spec.select173 = select i1 %333, i32 0, i32 %.0.fr
   br label %.thread
 
 .thread:                                          ; preds = %332, %5, %11, %318, %24, %14, %2
@@ -950,13 +950,13 @@ iso_scan_file.exit:                               ; preds = %136, %195
   br label %197
 
 197:                                              ; preds = %iso_scan_file.exit, %132
-  %.2100 = phi i32 [ %133, %132 ], [ %.0.i122, %iso_scan_file.exit ]
-  %.not120 = icmp eq i32 %.2100, 0
+  %.5 = phi i32 [ %133, %132 ], [ %.0.i122, %iso_scan_file.exit ]
+  %.not120 = icmp eq i32 %.5, 0
   br i1 %.not120, label %.backedge, label %.loopexit
 
 .loopexit:                                        ; preds = %.backedge, %iso_string.exit, %197, %55, %63
-  %.4 = phi i32 [ 0, %63 ], [ 0, %55 ], [ 0, %.backedge ], [ %124, %iso_string.exit ], [ %.2100, %197 ]
-  %.1 = phi i32 [ 0, %63 ], [ %.096137, %55 ], [ %.096137, %197 ], [ %.096137, %iso_string.exit ], [ %.096137, %.backedge ]
+  %.3 = phi i32 [ 0, %63 ], [ 0, %55 ], [ 0, %.backedge ], [ %124, %iso_string.exit ], [ %.5, %197 ]
+  %.2 = phi i32 [ 0, %63 ], [ %.096137, %55 ], [ %.096137, %197 ], [ %.096137, %iso_string.exit ], [ %.096137, %.backedge ]
   %198 = load ptr, ptr %16, align 8
   %199 = load i32, ptr %10, align 8
   %200 = zext i32 %199 to i64
@@ -974,18 +974,18 @@ iso_scan_file.exit:                               ; preds = %136, %195
   br label %209
 
 209:                                              ; preds = %22, %.loopexit
-  %.5 = phi i32 [ 0, %22 ], [ %.4, %.loopexit ]
-  %.2 = phi i32 [ %.096137, %22 ], [ %.1, %.loopexit ]
+  %.199 = phi i32 [ 0, %22 ], [ %.3, %.loopexit ]
+  %.1 = phi i32 [ %.096137, %22 ], [ %.2, %.loopexit ]
   %210 = add i32 %.094138, 1
   %211 = load i32, ptr %10, align 8
-  %212 = call i32 @llvm.usub.sat.i32(i32 %.2, i32 %211)
-  %213 = icmp ugt i32 %.2, %211
-  %214 = icmp eq i32 %.5, 0
+  %212 = call i32 @llvm.usub.sat.i32(i32 %.1, i32 %211)
+  %213 = icmp ugt i32 %.1, %211
+  %214 = icmp eq i32 %.199, 0
   %215 = and i1 %214, %213
   br i1 %215, label %18, label %needblock.exit.thread
 
 needblock.exit.thread:                            ; preds = %26, %209, %needblock.exit, %24, %21, %17
-  %.0 = phi i32 [ 0, %17 ], [ 22, %21 ], [ 0, %26 ], [ %.5, %209 ], [ 0, %needblock.exit ], [ %25, %24 ]
+  %.0 = phi i32 [ 0, %17 ], [ 22, %21 ], [ 0, %26 ], [ %.199, %209 ], [ 0, %needblock.exit ], [ %25, %24 ]
   ret i32 %.0
 }
 

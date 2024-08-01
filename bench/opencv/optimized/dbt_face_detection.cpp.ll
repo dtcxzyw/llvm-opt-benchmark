@@ -918,14 +918,14 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit82:   ; preds = %299, %301
   br label %339
 
 303:                                              ; preds = %249, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit
-  %.0 = phi i32 [ 0, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ], [ 2, %249 ]
+  %.3 = phi i32 [ 0, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit ], [ 2, %249 ]
   call void @_ZN2cv21DetectionBasedTrackerD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %11) #15
   %.pre113 = load ptr, ptr %143, align 8
   %.not.i.i.i.i83 = icmp eq ptr %.pre113, null
   br i1 %.not.i.i.i.i83, label %_ZN2cv3PtrINS_21DetectionBasedTracker9IDetectorEED2Ev.exit89, label %304
 
 304:                                              ; preds = %.thread, %303
-  %.1117 = phi i32 [ 2, %.thread ], [ %.0, %303 ]
+  %.2117 = phi i32 [ 2, %.thread ], [ %.3, %303 ]
   %305 = phi ptr [ %138, %.thread ], [ %.pre113, %303 ]
   %306 = getelementptr inbounds i8, ptr %305, i64 8
   %307 = load atomic i64, ptr %306 acquire, align 8
@@ -1000,7 +1000,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %.body36
 
 _ZN2cv3PtrINS_21DetectionBasedTracker9IDetectorEED2Ev.exit89: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i88, %334, %321, %303, %46
-  %.2 = phi i32 [ 2, %46 ], [ %.0, %303 ], [ %.1117, %321 ], [ %.1117, %334 ], [ %.1117, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i88 ]
+  %.1 = phi i32 [ 2, %46 ], [ %.3, %303 ], [ %.2117, %321 ], [ %.2117, %334 ], [ %.2117, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i88 ]
   %340 = load ptr, ptr %42, align 8
   %.not.i.i.i.i90 = icmp eq ptr %340, null
   br i1 %.not.i.i.i.i90, label %_ZN2cv3PtrINS_21DetectionBasedTracker9IDetectorEED2Ev.exit96, label %341
@@ -1166,9 +1166,9 @@ _ZN2cv3PtrINS_17CascadeClassifierEED2Ev.exit103:  ; preds = %_ZN2cv3PtrINS_21Det
   br label %411
 
 410:                                              ; preds = %_ZN2cv3PtrINS_17CascadeClassifierEED2Ev.exit103, %24
-  %.3 = phi i32 [ %.2, %_ZN2cv3PtrINS_17CascadeClassifierEED2Ev.exit103 ], [ 1, %24 ]
+  %.0 = phi i32 [ %.1, %_ZN2cv3PtrINS_17CascadeClassifierEED2Ev.exit103 ], [ 1, %24 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %3) #15
-  ret i32 %.3
+  ret i32 %.0
 
 411:                                              ; preds = %.body, %53, %25
   %.pn23.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn23.pn.pn.pn.pn.pn, %.body ], [ %.pn, %53 ], [ %26, %25 ]

@@ -197,14 +197,14 @@ ByteReverseWords64.exit:                          ; preds = %for.body.i
   br label %if.end30
 
 if.end30:                                         ; preds = %if.then6, %ByteReverseWords64.exit, %AddLength.exit
-  %len.addr.1 = phi i32 [ %sub13, %ByteReverseWords64.exit ], [ %sub13, %if.then6 ], [ %len, %AddLength.exit ]
-  %data.addr.1 = phi ptr [ %add.ptr, %ByteReverseWords64.exit ], [ %add.ptr, %if.then6 ], [ %data, %AddLength.exit ]
-  %cmp31.old = icmp ugt i32 %len.addr.1, 127
+  %len.addr.0 = phi i32 [ %sub13, %ByteReverseWords64.exit ], [ %sub13, %if.then6 ], [ %len, %AddLength.exit ]
+  %data.addr.0 = phi ptr [ %add.ptr, %ByteReverseWords64.exit ], [ %add.ptr, %if.then6 ], [ %data, %AddLength.exit ]
+  %cmp31.old = icmp ugt i32 %len.addr.0, 127
   br i1 %cmp31.old, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end30, %ByteReverseWords64.exit46
-  %len.addr.2 = phi i32 [ %sub34, %ByteReverseWords64.exit46 ], [ %len.addr.1, %if.end30 ]
-  %data.addr.2 = phi ptr [ %add.ptr33, %ByteReverseWords64.exit46 ], [ %data.addr.1, %if.end30 ]
+  %len.addr.2 = phi i32 [ %sub34, %ByteReverseWords64.exit46 ], [ %len.addr.0, %if.end30 ]
+  %data.addr.2 = phi ptr [ %add.ptr33, %ByteReverseWords64.exit46 ], [ %data.addr.0, %if.end30 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %buffer, ptr noundef nonnull align 1 dereferenceable(128) %data.addr.2, i64 128, i1 false)
   %add.ptr33 = getelementptr inbounds i8, ptr %data.addr.2, i64 128
   br label %for.body.i39
@@ -226,8 +226,8 @@ ByteReverseWords64.exit46:                        ; preds = %for.body.i39
   br i1 %cmp31, label %while.body, label %while.end, !llvm.loop !6
 
 while.end:                                        ; preds = %ByteReverseWords64.exit46, %if.end30
-  %len.addr.3 = phi i32 [ %len.addr.1, %if.end30 ], [ %sub34, %ByteReverseWords64.exit46 ]
-  %data.addr.3 = phi ptr [ %data.addr.1, %if.end30 ], [ %add.ptr33, %ByteReverseWords64.exit46 ]
+  %len.addr.3 = phi i32 [ %len.addr.0, %if.end30 ], [ %sub34, %ByteReverseWords64.exit46 ]
+  %data.addr.3 = phi ptr [ %data.addr.0, %if.end30 ], [ %add.ptr33, %ByteReverseWords64.exit46 ]
   %cmp46.not = icmp eq i32 %len.addr.3, 0
   br i1 %cmp46.not, label %return, label %if.then48
 

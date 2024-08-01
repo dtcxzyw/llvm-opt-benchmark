@@ -158,23 +158,23 @@ define internal i32 @dissect_mac_mgmt_msg_aas_beam_rsp_decoder(ptr noundef %0, p
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %.lr.ph
-  %.051 = phi i32 [ %34, %.lr.ph ], [ 3, %25 ]
+  %.151 = phi i32 [ %34, %.lr.ph ], [ 3, %25 ]
   %.04950 = phi i32 [ %35, %.lr.ph ], [ 0, %25 ]
   %29 = load i32, ptr @hf_aas_beam_freq_value_re, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %29, ptr noundef %0, i32 noundef %.051, i32 noundef 1, i32 noundef 0) #2
-  %31 = add i32 %.051, 1
+  %30 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %29, ptr noundef %0, i32 noundef %.151, i32 noundef 1, i32 noundef 0) #2
+  %31 = add i32 %.151, 1
   %32 = load i32, ptr @hf_aas_beam_freq_value_im, align 4
   %33 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %32, ptr noundef %0, i32 noundef %31, i32 noundef 1, i32 noundef 0) #2
-  %34 = add i32 %.051, 2
+  %34 = add i32 %.151, 2
   %35 = add nuw i32 %.04950, 1
   %exitcond.not = icmp eq i32 %35, %28
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %4
-  %.1 = phi i32 [ 3, %4 ], [ 3, %25 ], [ %34, %.lr.ph ]
+  %.0 = phi i32 [ 3, %4 ], [ 3, %25 ], [ %34, %.lr.ph ]
   %36 = load i32, ptr @hf_aas_beam_rssi_value, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %36, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #2
-  %38 = add i32 %.1, 1
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %36, ptr noundef %0, i32 noundef %.0, i32 noundef 1, i32 noundef 0) #2
+  %38 = add i32 %.0, 1
   %39 = load i32, ptr @hf_aas_beam_cinr_value, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0) #2
   %41 = tail call i32 @tvb_captured_length(ptr noundef %0) #2

@@ -509,14 +509,14 @@ if.end.i7.i:                                      ; preds = %if.then9.i
   unreachable
 
 config_get_rebase.exit:                           ; preds = %if.end6.i31, %parse_config_rebase.exit.i, %if.then9.i
-  %rebase_unspecified.0 = phi i32 [ 0, %if.then9.i ], [ 0, %parse_config_rebase.exit.i ], [ 1, %if.end6.i31 ]
+  %rebase_unspecified.1 = phi i32 [ 0, %if.then9.i ], [ 0, %parse_config_rebase.exit.i ], [ 1, %if.end6.i31 ]
   %retval.0.i33 = phi i32 [ %call.i5.i, %if.then9.i ], [ %call.i.i34, %parse_config_rebase.exit.i ], [ 0, %if.end6.i31 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %value.i25)
   store i32 %retval.0.i33, ptr @opt_rebase, align 4
   br label %if.end26
 
 if.end26:                                         ; preds = %config_get_rebase.exit, %if.end22
-  %rebase_unspecified.1 = phi i32 [ %rebase_unspecified.0, %config_get_rebase.exit ], [ 0, %if.end22 ]
+  %rebase_unspecified.0 = phi i32 [ %rebase_unspecified.1, %config_get_rebase.exit ], [ 0, %if.end22 ]
   %23 = load ptr, ptr @the_repository, align 8
   %call27 = call i32 @repo_read_index_unmerged(ptr noundef %23) #17
   %tobool28.not = icmp eq i32 %call27, 0
@@ -724,8 +724,8 @@ if.then16.i.i:                                    ; preds = %lor.lhs.false13.i.i
   br label %if.end19.i.i
 
 if.end19.i.i:                                     ; preds = %do.body.i.i.i, %do.body.i2.i.i, %if.then16.i.i, %lor.lhs.false13.i.i, %lor.lhs.false.i.i, %if.then2.i
-  %spec_src.2.i.i = phi ptr [ %39, %lor.lhs.false13.i.i ], [ @.str.126, %if.then16.i.i ], [ @.str.4, %lor.lhs.false.i.i ], [ @.str.4, %if.then2.i ], [ %scevgep24.i.i, %do.body.i2.i.i ], [ %scevgep.i.i, %do.body.i.i.i ]
-  %45 = load i8, ptr %spec_src.2.i.i, align 1
+  %spec_src.0.i.i = phi ptr [ %39, %lor.lhs.false13.i.i ], [ @.str.126, %if.then16.i.i ], [ @.str.4, %lor.lhs.false.i.i ], [ @.str.4, %if.then2.i ], [ %scevgep24.i.i, %do.body.i2.i.i ], [ %scevgep.i.i, %do.body.i.i.i ]
+  %45 = load i8, ptr %spec_src.0.i.i, align 1
   %tobool20.not.i.i = icmp eq i8 %45, 0
   br i1 %tobool20.not.i.i, label %get_tracking_branch.exit.i, label %sub_0.i.i
 
@@ -741,11 +741,11 @@ if.then21.tail.i.i:                               ; preds = %sub_0.i.i
   br i1 %49, label %if.then24.i.i, label %if.else26.i.i
 
 if.then24.i.i:                                    ; preds = %if.then21.tail.i.i
-  %call25.i.i = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.135, ptr noundef nonnull %spec_src.2.i.i) #17
+  %call25.i.i = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.135, ptr noundef nonnull %spec_src.0.i.i) #17
   br label %get_tracking_branch.exit.i
 
 if.else26.i.i:                                    ; preds = %if.then21.tail.i.i, %sub_0.i.i
-  %call27.i.i = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.136, ptr noundef nonnull %storemerge.i, ptr noundef nonnull %spec_src.2.i.i) #17
+  %call27.i.i = call ptr (ptr, ...) @mkpath(ptr noundef nonnull @.str.136, ptr noundef nonnull %storemerge.i, ptr noundef nonnull %spec_src.0.i.i) #17
   br label %get_tracking_branch.exit.i
 
 get_tracking_branch.exit.i:                       ; preds = %if.else26.i.i, %if.then24.i.i, %if.end19.i.i
@@ -1428,7 +1428,7 @@ if.end140.thread:                                 ; preds = %if.then128
   br label %if.else166
 
 if.end132:                                        ; preds = %land.end
-  %tobool135 = icmp ne i32 %rebase_unspecified.1, 0
+  %tobool135 = icmp ne i32 %rebase_unspecified.0, 0
   %or.cond2 = select i1 %tobool135, i1 %115, i1 false
   br i1 %or.cond2, label %if.then138, label %if.end140
 
@@ -1682,8 +1682,8 @@ if.else:                                          ; preds = %if.end152
   br label %if.end157
 
 if.end157:                                        ; preds = %if.else, %if.then154
-  %ret.0 = phi i32 [ %call155, %if.then154 ], [ %call156, %if.else ]
-  %tobool158.not = icmp eq i32 %ret.0, 0
+  %ret.1 = phi i32 [ %call155, %if.then154 ], [ %call156, %if.else ]
+  %tobool158.not = icmp eq i32 %ret.1, 0
   br i1 %tobool158.not, label %land.lhs.true159, label %cleanup
 
 land.lhs.true159:                                 ; preds = %if.end157
@@ -1714,12 +1714,12 @@ if.then173:                                       ; preds = %land.lhs.true169, %
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end9.i, %if.end5.i158, %land.lhs.true169, %land.lhs.true159, %if.else166, %if.then173, %if.end157, %if.then163
-  %ret.1 = phi i32 [ %ret.0, %if.end157 ], [ %call164, %if.then163 ], [ 0, %land.lhs.true159 ], [ %call167, %if.else166 ], [ %call174, %if.then173 ], [ 0, %land.lhs.true169 ], [ 1, %if.end5.i158 ], [ %..i, %if.end9.i ]
+  %ret.0 = phi i32 [ %ret.1, %if.end157 ], [ %call164, %if.then163 ], [ 0, %land.lhs.true159 ], [ %call167, %if.else166 ], [ %call174, %if.then173 ], [ 0, %land.lhs.true169 ], [ 1, %if.end5.i158 ], [ %..i, %if.end9.i ]
   call void @oid_array_clear(ptr noundef nonnull %merge_heads) #17
   br label %return
 
 return:                                           ; preds = %if.end66, %run_fetch.exit, %cleanup
-  %retval.0 = phi i32 [ %ret.1, %cleanup ], [ 1, %run_fetch.exit ], [ 0, %if.end66 ]
+  %retval.0 = phi i32 [ %ret.0, %cleanup ], [ 1, %run_fetch.exit ], [ 0, %if.end66 ]
   ret i32 %retval.0
 }
 

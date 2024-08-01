@@ -2520,13 +2520,13 @@ land.lhs.true78.i:                                ; preds = %land.lhs.true30.i, 
 
 if.end90.sink.split.i:                            ; preds = %if.then51.i, %if.then25.i
   %11 = phi i32 [ 2, %if.then51.i ], [ %.pre, %if.then25.i ]
-  %j.1.ph.i = phi i32 [ %inc57.i, %if.then51.i ], [ %j.061.i, %if.then25.i ]
+  %j.2.ph.i = phi i32 [ %inc57.i, %if.then51.i ], [ %j.061.i, %if.then25.i ]
   %inc27.i = add i32 %11, 1
   br label %if.end90.i
 
 if.end90.i:                                       ; preds = %if.end90.sink.split.i, %land.lhs.true78.i, %land.lhs.true47.i, %land.lhs.true30.i, %if.else28.i
   %12 = phi i32 [ %.pr20, %if.else28.i ], [ %.pr20, %land.lhs.true30.i ], [ %.pr20, %land.lhs.true47.i ], [ %spec.select63.i, %land.lhs.true78.i ], [ %inc27.i, %if.end90.sink.split.i ]
-  %j.1.i = phi i32 [ %j.061.i, %if.else28.i ], [ %j.061.i, %land.lhs.true30.i ], [ %j.061.i, %land.lhs.true47.i ], [ %j.061.i, %land.lhs.true78.i ], [ %j.1.ph.i, %if.end90.sink.split.i ]
+  %j.2.i = phi i32 [ %j.061.i, %if.else28.i ], [ %j.061.i, %land.lhs.true30.i ], [ %j.061.i, %land.lhs.true47.i ], [ %j.061.i, %land.lhs.true78.i ], [ %j.2.ph.i, %if.end90.sink.split.i ]
   %.fr.i = freeze i32 %12
   %inc89.i = add i32 %.fr.i, 1
   %cmp92.i = icmp sgt i32 %inc89.i, 3
@@ -2534,7 +2534,7 @@ if.end90.i:                                       ; preds = %if.end90.sink.split
   br label %13
 
 13:                                               ; preds = %if.end90.i, %if.end90.thread.i
-  %j.257.i = phi i32 [ %inc.i, %if.end90.thread.i ], [ %j.1.i, %if.end90.i ]
+  %j.157.i = phi i32 [ %inc.i, %if.end90.thread.i ], [ %j.2.i, %if.end90.i ]
   %14 = phi i32 [ 1, %if.end90.thread.i ], [ %spec.select.i, %if.end90.i ]
   store i32 %14, ptr %do_telnetopt, align 8
   br label %for.inc.i
@@ -2563,7 +2563,7 @@ if.end113.i:                                      ; preds = %if.then108.i, %if.e
 
 for.inc.i:                                        ; preds = %if.end113.i, %if.then103.i, %13
   %.pr = phi i32 [ 2, %if.then103.i ], [ %.pr20, %if.end113.i ], [ %14, %13 ]
-  %j.3.i = phi i32 [ %j.061.i, %if.then103.i ], [ %inc114.i, %if.end113.i ], [ %j.257.i, %13 ]
+  %j.3.i = phi i32 [ %j.061.i, %if.then103.i ], [ %inc114.i, %if.end113.i ], [ %j.157.i, %13 ]
   %exitcond.not = icmp eq i64 %indvars.iv.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %exitcond.not, label %if.end24, label %for.body.i, !llvm.loop !10

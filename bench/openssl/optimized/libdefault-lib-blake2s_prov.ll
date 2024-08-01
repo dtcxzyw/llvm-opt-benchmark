@@ -150,13 +150,13 @@ if.then10.i:                                      ; preds = %if.end.i
 
 ossl_blake2s_update.exit:                         ; preds = %if.then.i, %blake2s_init_param.exit, %if.end.i, %if.then10.i
   %5 = phi i64 [ %.pre.i, %if.then10.i ], [ 0, %if.end.i ], [ %4, %blake2s_init_param.exit ], [ 0, %if.then.i ]
-  %in.1.i = phi ptr [ %add.ptr13.i, %if.then10.i ], [ %add.ptr7.i, %if.end.i ], [ %block, %blake2s_init_param.exit ], [ %block, %if.then.i ]
-  %datalen.addr.1.i = phi i64 [ %cond.i, %if.then10.i ], [ %4, %if.end.i ], [ 64, %blake2s_init_param.exit ], [ 64, %if.then.i ]
+  %in.0.i = phi ptr [ %add.ptr13.i, %if.then10.i ], [ %add.ptr7.i, %if.end.i ], [ %block, %blake2s_init_param.exit ], [ %block, %if.then.i ]
+  %datalen.addr.0.i = phi i64 [ %cond.i, %if.then10.i ], [ %4, %if.end.i ], [ 64, %blake2s_init_param.exit ], [ 64, %if.then.i ]
   %buf16.i = getelementptr inbounds i8, ptr %c, i64 48
   %add.ptr19.i = getelementptr inbounds i8, ptr %buf16.i, i64 %5
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19.i, ptr nonnull align 1 %in.1.i, i64 %datalen.addr.1.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19.i, ptr nonnull align 1 %in.0.i, i64 %datalen.addr.0.i, i1 false)
   %6 = load i64, ptr %buflen.i, align 8
-  %add.i = add i64 %6, %datalen.addr.1.i
+  %add.i = add i64 %6, %datalen.addr.0.i
   store i64 %add.i, ptr %buflen.i, align 8
   call void @OPENSSL_cleanse(ptr noundef nonnull %block, i64 noundef 64) #8
   ret i32 1
@@ -186,30 +186,30 @@ if.then2:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then2, %if.then
-  %in.0 = phi ptr [ %add.ptr7, %if.then2 ], [ %data, %if.then ]
-  %datalen.addr.0 = phi i64 [ %sub8, %if.then2 ], [ %datalen, %if.then ]
-  %cmp9 = icmp ugt i64 %datalen.addr.0, 64
+  %in.1 = phi ptr [ %add.ptr7, %if.then2 ], [ %data, %if.then ]
+  %datalen.addr.1 = phi i64 [ %sub8, %if.then2 ], [ %datalen, %if.then ]
+  %cmp9 = icmp ugt i64 %datalen.addr.1, 64
   br i1 %cmp9, label %if.then10, label %if.end15
 
 if.then10:                                        ; preds = %if.end
-  %rem = and i64 %datalen.addr.0, 63
+  %rem = and i64 %datalen.addr.1, 63
   %tobool11.not = icmp eq i64 %rem, 0
   %cond = select i1 %tobool11.not, i64 64, i64 %rem
-  %sub12 = sub nuw i64 %datalen.addr.0, %cond
-  tail call fastcc void @blake2s_compress(ptr noundef nonnull %c, ptr noundef %in.0, i64 noundef %sub12)
-  %add.ptr13 = getelementptr inbounds i8, ptr %in.0, i64 %sub12
+  %sub12 = sub nuw i64 %datalen.addr.1, %cond
+  tail call fastcc void @blake2s_compress(ptr noundef nonnull %c, ptr noundef %in.1, i64 noundef %sub12)
+  %add.ptr13 = getelementptr inbounds i8, ptr %in.1, i64 %sub12
   %.pre = load i64, ptr %buflen, align 8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end, %if.then10, %entry
   %1 = phi i64 [ %.pre, %if.then10 ], [ 0, %if.end ], [ %0, %entry ]
-  %in.1 = phi ptr [ %add.ptr13, %if.then10 ], [ %in.0, %if.end ], [ %data, %entry ]
-  %datalen.addr.1 = phi i64 [ %cond, %if.then10 ], [ %datalen.addr.0, %if.end ], [ %datalen, %entry ]
+  %in.0 = phi ptr [ %add.ptr13, %if.then10 ], [ %in.1, %if.end ], [ %data, %entry ]
+  %datalen.addr.0 = phi i64 [ %cond, %if.then10 ], [ %datalen.addr.1, %if.end ], [ %datalen, %entry ]
   %buf16 = getelementptr inbounds i8, ptr %c, i64 48
   %add.ptr19 = getelementptr inbounds i8, ptr %buf16, i64 %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19, ptr align 1 %in.1, i64 %datalen.addr.1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr19, ptr align 1 %in.0, i64 %datalen.addr.0, i1 false)
   %2 = load i64, ptr %buflen, align 8
-  %add = add i64 %2, %datalen.addr.1
+  %add = add i64 %2, %datalen.addr.0
   store i64 %add, ptr %buflen, align 8
   ret i32 1
 }

@@ -37,14 +37,14 @@ define i64 @syslog_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br label %syslog_default_write.exit
 
 .preheader41.us.i:                                ; preds = %.lr.ph49.i, %.preheader41.us.i
-  %.445.us.i = phi i64 [ %19, %.preheader41.us.i ], [ 0, %.lr.ph49.i ]
+  %.545.us.i = phi i64 [ %19, %.preheader41.us.i ], [ 0, %.lr.ph49.i ]
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 %.445.us.i
+  %15 = getelementptr inbounds i8, ptr %0, i64 %.545.us.i
   %16 = load i8, ptr %15, align 1
   %17 = sext i8 %16 to i32
   %18 = tail call i32 %14(ptr noundef nonnull %6, i32 noundef %17) #2
-  %19 = add nuw i64 %.445.us.i, 1
+  %19 = add nuw i64 %.545.us.i, 1
   %exitcond.not.i = icmp eq i64 %19, %1
   br i1 %exitcond.not.i, label %syslog_default_write.exit, label %.preheader41.us.i, !llvm.loop !6
 
@@ -110,8 +110,8 @@ define i64 @syslog_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br label %syslog_default_write.exit
 
 syslog_default_write.exit:                        ; preds = %.preheader41.us.i, %.preheader.us.i, %.preheader43.split.us.i, %11, %.preheader43.split.i, %.split.us.i, %26, %.split.i, %.lr.ph58.i, %39, %.lr.ph.i, %44
-  %.6.i = phi i64 [ 0, %.split.us.i ], [ %27, %26 ], [ 0, %.split.i ], [ %40, %39 ], [ 0, %.lr.ph58.i ], [ 0, %.preheader43.split.us.i ], [ %12, %11 ], [ 0, %.preheader43.split.i ], [ %45, %44 ], [ 0, %.lr.ph.i ], [ %1, %.preheader.us.i ], [ %1, %.preheader41.us.i ]
-  ret i64 %.6.i
+  %.3.i = phi i64 [ 0, %.split.us.i ], [ %27, %26 ], [ 0, %.split.i ], [ %40, %39 ], [ 0, %.lr.ph58.i ], [ 0, %.preheader43.split.us.i ], [ %12, %11 ], [ 0, %.preheader43.split.i ], [ %45, %44 ], [ 0, %.lr.ph.i ], [ %1, %.preheader.us.i ], [ %1, %.preheader41.us.i ]
+  ret i64 %.3.i
 }
 
 declare zeroext i1 @sched_idletask() local_unnamed_addr #1

@@ -3012,7 +3012,7 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN3smt13quick_checker5checkEP4exprb.exit
 
 _ZN3smt13quick_checker5checkEP4exprb.exit:        ; preds = %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.thread.i, %if.end.i
-  %r.1.i = phi i1 [ %call3.i, %if.end.i ], [ %2, %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.thread.i ]
+  %r.0.i = phi i1 [ %call3.i, %if.end.i ], [ %2, %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.thread.i ]
   %m_new_exprs = getelementptr inbounds i8, ptr %this, i64 88
   %m_nodes.i = getelementptr inbounds i8, ptr %this, i64 96
   %3 = load ptr, ptr %m_nodes.i, align 8
@@ -3232,7 +3232,7 @@ if.end18.i.i25:                                   ; preds = %_ZN14core_hashtable
   br label %_ZN7obj_mapI4exprPS0_E5resetEv.exit
 
 _ZN7obj_mapI4exprPS0_E5resetEv.exit:              ; preds = %_ZN9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE5resetEv.exit, %if.end18.i.i25
-  ret i1 %r.1.i
+  ret i1 %r.0.i
 }
 
 declare noundef i32 @_ZN3smt18get_max_generationEjPKPNS_5enodeE(i32 noundef, ptr noundef) local_unnamed_addr #0
@@ -3325,8 +3325,8 @@ if.end:                                           ; preds = %entry
   br label %return
 
 return:                                           ; preds = %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.thread, %if.end
-  %r.1 = phi i1 [ %call3, %if.end ], [ %1, %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.thread ]
-  ret i1 %r.1
+  %r.0 = phi i1 [ %call3, %if.end ], [ %1, %_ZNK9table2mapI17default_map_entryISt4pairIP4exprbEbE9pair_hashI12obj_ptr_hashIS2_E8int_hashE10default_eqIS4_EE4findERKS4_Rb.exit.thread ]
+  ret i1 %r.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4601,7 +4601,7 @@ lpad109:                                          ; preds = %invoke.cont123, %if
   br label %ehcleanup
 
 cleanup:                                          ; preds = %if.then2.i.i.i167, %if.then.i.i.i162, %invoke.cont129, %invoke.cont65
-  %retval.0 = phi ptr [ %43, %invoke.cont65 ], [ null, %invoke.cont129 ], [ %78, %if.then.i.i.i162 ], [ %78, %if.then2.i.i.i167 ]
+  %retval.1 = phi ptr [ %43, %invoke.cont65 ], [ null, %invoke.cont129 ], [ %78, %if.then.i.i.i162 ], [ %78, %if.then2.i.i.i167 ]
   %96 = load ptr, ptr %new_arg_enodes, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %96, %m_initial_buffer.i.i37
   %cmp.i.i.i.i.i = icmp eq ptr %96, null
@@ -4649,8 +4649,8 @@ return.sink.split:                                ; preds = %if.end, %if.then12,
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end.i.i.i.i.i174, %_ZN10ptr_bufferIN3smt5enodeELj16EED2Ev.exit, %if.end17, %lor.lhs.false, %if.then
-  %retval.1 = phi ptr [ %n, %if.then ], [ %n, %lor.lhs.false ], [ %n, %if.end17 ], [ %retval.0, %_ZN10ptr_bufferIN3smt5enodeELj16EED2Ev.exit ], [ %retval.0, %if.end.i.i.i.i.i174 ], [ %102, %return.sink.split ]
-  ret ptr %retval.1
+  %retval.0 = phi ptr [ %n, %if.then ], [ %n, %lor.lhs.false ], [ %n, %if.end17 ], [ %retval.1, %_ZN10ptr_bufferIN3smt5enodeELj16EED2Ev.exit ], [ %retval.1, %if.end.i.i.i.i.i174 ], [ %102, %return.sink.split ]
+  ret ptr %retval.0
 }
 
 declare noundef zeroext i1 @_ZNK11ast_manager12are_distinctEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, ptr noundef) local_unnamed_addr #0

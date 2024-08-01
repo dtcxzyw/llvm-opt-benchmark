@@ -885,23 +885,23 @@ list_head.exit158.i:                              ; preds = %158, %list_head.exi
   unreachable
 
 339:                                              ; preds = %330, %326, %316
-  %.1140.i = phi i32 [ %333, %330 ], [ 2283, %326 ], [ %spec.select.i, %316 ]
+  %.2.i = phi i32 [ %333, %330 ], [ 2283, %326 ], [ %spec.select.i, %316 ]
   tail call void @ReleaseSysCache(ptr noundef nonnull %310) #11
   br label %340
 
 340:                                              ; preds = %339, %301
-  %.2.i = phi i32 [ %.1140.i, %339 ], [ %302, %301 ]
-  %.not151.i = icmp eq i32 %.2.i, 0
+  %.0139.i = phi i32 [ %.2.i, %339 ], [ %302, %301 ]
+  %.not151.i = icmp eq i32 %.0139.i, 0
   br i1 %.not151.i, label %372, label %341
 
 341:                                              ; preds = %340
   %342 = getelementptr inbounds i8, ptr %193, i64 68
   %343 = load i32, ptr %342, align 4
-  %.not152.i = icmp eq i32 %.2.i, %343
+  %.not152.i = icmp eq i32 %.0139.i, %343
   br i1 %.not152.i, label %372, label %344
 
 344:                                              ; preds = %341
-  %345 = zext i32 %.2.i to i64
+  %345 = zext i32 %.0139.i to i64
   %346 = tail call ptr @SearchSysCache1(i32 noundef 80, i64 noundef %345) #11
   %.not153.i = icmp eq ptr %346, null
   br i1 %.not153.i, label %347, label %350
@@ -909,7 +909,7 @@ list_head.exit158.i:                              ; preds = %158, %list_head.exi
 347:                                              ; preds = %344
   %348 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %348)
-  %349 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %.2.i) #11
+  %349 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %.0139.i) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 471, ptr noundef nonnull @__func__.ConstructTupleDescriptor) #11
   unreachable
 
@@ -920,7 +920,7 @@ list_head.exit158.i:                              ; preds = %158, %list_head.exi
   %354 = load i8, ptr %353, align 2
   %355 = zext i8 %354 to i64
   %356 = getelementptr i8, ptr %352, i64 %355
-  store i32 %.2.i, ptr %342, align 4
+  store i32 %.0139.i, ptr %342, align 4
   %357 = getelementptr inbounds i8, ptr %193, i64 80
   store i32 -1, ptr %357, align 4
   %358 = getelementptr inbounds i8, ptr %356, i64 76
@@ -1871,7 +1871,7 @@ define internal fastcc void @index_update_stats(ptr noundef %0, i1 noundef zeroe
   br label %61
 
 61:                                               ; preds = %60, %57
-  %.1 = phi i1 [ true, %60 ], [ %47, %57 ]
+  %.2 = phi i1 [ true, %60 ], [ %47, %57 ]
   %62 = getelementptr inbounds i8, ptr %36, i64 100
   %63 = load float, ptr %62, align 4
   %64 = fptrunc double %.0 to float
@@ -1883,7 +1883,7 @@ define internal fastcc void @index_update_stats(ptr noundef %0, i1 noundef zeroe
   br label %67
 
 67:                                               ; preds = %66, %61
-  %.2 = phi i1 [ true, %66 ], [ %.1, %61 ]
+  %.3 = phi i1 [ true, %66 ], [ %.2, %61 ]
   %68 = getelementptr inbounds i8, ptr %36, i64 104
   %69 = load i32, ptr %68, align 4
   %70 = load i32, ptr %5, align 4
@@ -1895,8 +1895,8 @@ define internal fastcc void @index_update_stats(ptr noundef %0, i1 noundef zeroe
   br label %72
 
 71:                                               ; preds = %67, %49
-  %.3 = phi i1 [ %.2, %67 ], [ %47, %49 ]
-  br i1 %.3, label %72, label %73
+  %.1 = phi i1 [ %.3, %67 ], [ %47, %49 ]
+  br i1 %.1, label %72, label %73
 
 72:                                               ; preds = %.thread, %71
   call void @heap_inplace_update(ptr noundef %9, ptr noundef nonnull %.036) #11

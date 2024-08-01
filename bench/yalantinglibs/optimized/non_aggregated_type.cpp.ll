@@ -185,13 +185,13 @@ if.else.i:                                        ; preds = %.noexc165
   %. = select i1 %cmp12.i, i64 8, i64 12
   %.456 = select i1 %cmp12.i, i8 16, i8 24
   %.sink = select i1 %cmp3.i, i64 6, i64 %.
-  %retval.i.sroa.10.0 = select i1 %cmp3.i, i8 8, i8 %.456
+  %retval.i.sroa.10.1 = select i1 %cmp3.i, i8 8, i8 %.456
   %add17.i = add i64 %7, %.sink
   %add31.i = add i64 %add17.i, 1
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJN7example6personEEEENS_21serialize_buffer_sizeEDpRKT0_.exit
 
 _ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJN7example6personEEEENS_21serialize_buffer_sizeEDpRKT0_.exit: ; preds = %if.else.i, %if.then.i163
-  %retval.i.sroa.10.1 = phi i8 [ 0, %if.then.i163 ], [ %retval.i.sroa.10.0, %if.else.i ]
+  %retval.i.sroa.10.0 = phi i8 [ 0, %if.then.i163 ], [ %retval.i.sroa.10.1, %if.else.i ]
   %storemerge = phi i64 [ %add.i164, %if.then.i163 ], [ %add31.i, %if.else.i ]
   %add.i = add i64 %storemerge, 4
   %cmp.i.i = icmp slt i64 %add.i, 0
@@ -223,7 +223,7 @@ call5.i.i.i.i.i.noexc:                            ; preds = %_ZNSt12_Vector_base
   %8 = phi ptr [ null, %if.end.i.i ], [ %call5.i.i.i.i.i49, %call5.i.i.i.i.i.noexc ]
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %8, i64 %add.i
   store ptr %add.ptr.i3.i, ptr %_M_finish.i, align 8
-  %9 = and i8 %retval.i.sroa.10.1, 24
+  %9 = and i8 %retval.i.sroa.10.0, 24
   %switch.i = icmp eq i8 %9, 0
   %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 4
   br i1 %switch.i, label %sw.bb.i, label %sw.bb1.i
@@ -239,12 +239,12 @@ sw.bb.i:                                          ; preds = %.noexc159
 
 sw.bb1.i:                                         ; preds = %.noexc159
   store i32 -2052522521, ptr %8, align 1
-  store i8 %retval.i.sroa.10.1, ptr %add.ptr.i.i, align 1
+  store i8 %retval.i.sroa.10.0, ptr %add.ptr.i.i, align 1
   %add.ptr.i.i24.i = getelementptr inbounds i8, ptr %8, i64 5
   %11 = load i32, ptr %age2.i, align 8
   store i32 %11, ptr %add.ptr.i.i24.i, align 1
   %add.ptr.i.i.i8.i = getelementptr inbounds i8, ptr %8, i64 9
-  %12 = lshr i8 %retval.i.sroa.10.1, 3
+  %12 = lshr i8 %retval.i.sroa.10.0, 3
   switch i8 %12, label %default.unreachable.i.i.i [
     i8 1, label %sw.bb.i.i.i
     i8 2, label %sw.bb5.i.i.i
@@ -588,13 +588,13 @@ if.else.i251:                                     ; preds = %.noexc283
   %.457 = select i1 %cmp12.i256, i64 8, i64 12
   %.458 = select i1 %cmp12.i256, i8 16, i8 24
   %.sink454 = select i1 %cmp3.i253, i64 6, i64 %.457
-  %retval.i241.sroa.10.0 = select i1 %cmp3.i253, i8 8, i8 %.458
+  %retval.i241.sroa.10.1 = select i1 %cmp3.i253, i8 8, i8 %.458
   %add17.i270 = add i64 %52, %.sink454
   %add31.i265 = add i64 %add17.i270, 1
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJN8example26personEEEENS_21serialize_buffer_sizeEDpRKT0_.exit284
 
 _ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJN8example26personEEEENS_21serialize_buffer_sizeEDpRKT0_.exit284: ; preds = %if.else.i251, %if.then.i279
-  %retval.i241.sroa.10.1 = phi i8 [ 0, %if.then.i279 ], [ %retval.i241.sroa.10.0, %if.else.i251 ]
+  %retval.i241.sroa.10.0 = phi i8 [ 0, %if.then.i279 ], [ %retval.i241.sroa.10.1, %if.else.i251 ]
   %storemerge37 = phi i64 [ %add.i281, %if.then.i279 ], [ %add31.i265, %if.else.i251 ]
   %add.i176 = add i64 %storemerge37, 4
   %cmp.i.i116 = icmp slt i64 %add.i176, 0
@@ -626,7 +626,7 @@ call5.i.i.i.i.i.noexc138:                         ; preds = %_ZNSt12_Vector_base
   %53 = phi ptr [ null, %if.end.i.i117 ], [ %call5.i.i.i.i.i139, %call5.i.i.i.i.i.noexc138 ]
   %add.ptr.i3.i123 = getelementptr inbounds i8, ptr %53, i64 %add.i176
   store ptr %add.ptr.i3.i123, ptr %_M_finish.i107, align 8
-  %54 = and i8 %retval.i241.sroa.10.1, 24
+  %54 = and i8 %retval.i241.sroa.10.0, 24
   %switch.i142 = icmp eq i8 %54, 0
   %add.ptr.i.i.i161 = getelementptr inbounds i8, ptr %53, i64 4
   br i1 %switch.i142, label %sw.bb.i160, label %sw.bb1.i143
@@ -642,12 +642,12 @@ sw.bb.i160:                                       ; preds = %.noexc180
 
 sw.bb1.i143:                                      ; preds = %.noexc180
   store i32 -2052522521, ptr %53, align 1
-  store i8 %retval.i241.sroa.10.1, ptr %add.ptr.i.i.i161, align 1
+  store i8 %retval.i241.sroa.10.0, ptr %add.ptr.i.i.i161, align 1
   %add.ptr.i.i.i.i144 = getelementptr inbounds i8, ptr %53, i64 5
   %56 = load i32, ptr %p10, align 8
   store i32 %56, ptr %add.ptr.i.i.i.i144, align 1
   %add.ptr.i.i.i8.i145 = getelementptr inbounds i8, ptr %53, i64 9
-  %57 = lshr i8 %retval.i241.sroa.10.1, 3
+  %57 = lshr i8 %retval.i241.sroa.10.0, 3
   switch i8 %57, label %default.unreachable.i.i.i159 [
     i8 1, label %sw.bb.i.i.i157
     i8 2, label %sw.bb5.i.i.i155
@@ -935,13 +935,13 @@ if.else.i208:                                     ; preds = %.noexc240
   %.459 = select i1 %cmp12.i213, i64 8, i64 12
   %.460 = select i1 %cmp12.i213, i8 16, i8 24
   %.sink455 = select i1 %cmp3.i210, i64 6, i64 %.459
-  %retval.i198.sroa.10.0 = select i1 %cmp3.i210, i8 8, i8 %.460
+  %retval.i198.sroa.10.1 = select i1 %cmp3.i210, i8 8, i8 %.460
   %add17.i227 = add i64 %89, %.sink455
   %add31.i222 = add i64 %add17.i227, 1
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJN8example26personEEEENS_21serialize_buffer_sizeEDpRKT0_.exit
 
 _ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJN8example26personEEEENS_21serialize_buffer_sizeEDpRKT0_.exit: ; preds = %if.else.i208, %if.then.i236
-  %retval.i198.sroa.10.1 = phi i8 [ 0, %if.then.i236 ], [ %retval.i198.sroa.10.0, %if.else.i208 ]
+  %retval.i198.sroa.10.0 = phi i8 [ 0, %if.then.i236 ], [ %retval.i198.sroa.10.1, %if.else.i208 ]
   %storemerge41 = phi i64 [ %add.i238, %if.then.i236 ], [ %add31.i222, %if.else.i208 ]
   %add.i191 = add i64 %storemerge41, 4
   %cmp.i.i245 = icmp slt i64 %add.i191, 0
@@ -973,7 +973,7 @@ call5.i.i.i.i.i.noexc267:                         ; preds = %_ZNSt12_Vector_base
   %90 = phi ptr [ null, %if.end.i.i246 ], [ %call5.i.i.i.i.i268, %call5.i.i.i.i.i.noexc267 ]
   %add.ptr.i3.i252 = getelementptr inbounds i8, ptr %90, i64 %add.i191
   store ptr %add.ptr.i3.i252, ptr %_M_finish.i236, align 8
-  %91 = and i8 %retval.i198.sroa.10.1, 24
+  %91 = and i8 %retval.i198.sroa.10.0, 24
   %switch.i271 = icmp eq i8 %91, 0
   %add.ptr.i.i.i292 = getelementptr inbounds i8, ptr %90, i64 4
   br i1 %switch.i271, label %sw.bb.i291, label %sw.bb1.i272
@@ -989,12 +989,12 @@ sw.bb.i291:                                       ; preds = %.noexc195
 
 sw.bb1.i272:                                      ; preds = %.noexc195
   store i32 -2052522521, ptr %90, align 1
-  store i8 %retval.i198.sroa.10.1, ptr %add.ptr.i.i.i292, align 1
+  store i8 %retval.i198.sroa.10.0, ptr %add.ptr.i.i.i292, align 1
   %add.ptr.i.i.i.i274 = getelementptr inbounds i8, ptr %90, i64 5
   %93 = load i32, ptr %p27, align 8
   store i32 %93, ptr %add.ptr.i.i.i.i274, align 1
   %add.ptr.i.i.i8.i275 = getelementptr inbounds i8, ptr %90, i64 9
-  %94 = lshr i8 %retval.i198.sroa.10.1, 3
+  %94 = lshr i8 %retval.i198.sroa.10.0, 3
   switch i8 %94, label %default.unreachable.i.i.i290 [
     i8 1, label %sw.bb.i.i.i288
     i8 2, label %sw.bb5.i.i.i286
@@ -1987,10 +1987,10 @@ sw.default.i.i:                                   ; preds = %if.end.i.i83
 
 sw.epilog.i.i:                                    ; preds = %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i.i
   %.sink.i.i = phi i64 [ 8, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i.i ], [ 4, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i.i ], [ 2, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i.i ]
-  %size.3.i.i = phi i64 [ %size.0.copyload.i.i88, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i.i ], [ %size.0.insert.ext.i.i90, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i.i ], [ %size.0.insert.ext36.i.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i.i ]
+  %size.0.i.i = phi i64 [ %size.0.copyload.i.i88, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i.i ], [ %size.0.insert.ext.i.i90, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i.i ], [ %size.0.insert.ext36.i.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i.i ]
   %add.ptr.i17.i.i = getelementptr inbounds i8, ptr %46, i64 %.sink.i.i
   store ptr %add.ptr.i17.i.i, ptr %44, align 8
-  %cmp.i.i89 = icmp eq i64 %size.3.i.i, 0
+  %cmp.i.i89 = icmp eq i64 %size.0.i.i, 0
   br i1 %cmp.i.i89, label %return, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %sw.epilog.i.i
@@ -2001,11 +2001,11 @@ if.end13.i.i:                                     ; preds = %sw.epilog.i.i
   %sub.ptr.lhs.cast.i20.i.i = ptrtoint ptr %48 to i64
   %sub.ptr.rhs.cast.i21.i.i = ptrtoint ptr %49 to i64
   %sub.ptr.sub.i22.i.i = sub i64 %sub.ptr.lhs.cast.i20.i.i, %sub.ptr.rhs.cast.i21.i.i
-  %cmp.i23.not.i.i = icmp ult i64 %sub.ptr.sub.i22.i.i, %size.3.i.i
+  %cmp.i23.not.i.i = icmp ult i64 %sub.ptr.sub.i22.i.i, %size.0.i.i
   br i1 %cmp.i23.not.i.i, label %return, label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.end13.i.i
-  tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i76, i64 noundef %size.3.i.i)
+  tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i76, i64 noundef %size.0.i.i)
   %50 = load ptr, ptr %reader_.i, align 8
   %end.i24.i.i = getelementptr inbounds i8, ptr %50, i64 8
   %51 = load ptr, ptr %end.i24.i.i, align 8
@@ -2013,17 +2013,17 @@ if.end17.i.i:                                     ; preds = %if.end13.i.i
   %sub.ptr.lhs.cast.i25.i.i = ptrtoint ptr %51 to i64
   %sub.ptr.rhs.cast.i26.i.i = ptrtoint ptr %52 to i64
   %sub.ptr.sub.i27.i.i = sub i64 %sub.ptr.lhs.cast.i25.i.i, %sub.ptr.rhs.cast.i26.i.i
-  %cmp.i28.not.i.i = icmp ult i64 %sub.ptr.sub.i27.i.i, %size.3.i.i
+  %cmp.i28.not.i.i = icmp ult i64 %sub.ptr.sub.i27.i.i, %size.0.i.i
   br i1 %cmp.i28.not.i.i, label %return, label %if.end.i29.i.i
 
 if.end.i29.i.i:                                   ; preds = %if.end17.i.i
   %53 = load ptr, ptr %name.i.i.i76, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %52, i64 %size.3.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %52, i64 %size.0.i.i, i1 false)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end.i29.i.i, %if.end.i13.i.i
   %.sink132 = phi ptr [ %34, %if.end.i13.i.i ], [ %50, %if.end.i29.i.i ]
-  %size.0.insert.ext.i.i.sink = phi i64 [ %size.0.insert.ext.i.i, %if.end.i13.i.i ], [ %size.3.i.i, %if.end.i29.i.i ]
+  %size.0.insert.ext.i.i.sink = phi i64 [ %size.0.insert.ext.i.i, %if.end.i13.i.i ], [ %size.0.i.i, %if.end.i29.i.i ]
   %54 = load ptr, ptr %.sink132, align 8
   %add.ptr.i14.i.i = getelementptr inbounds i8, ptr %54, i64 %size.0.insert.ext.i.i.sink
   store ptr %add.ptr.i14.i.i, ptr %.sink132, align 8
@@ -2508,10 +2508,10 @@ sw.default.i.i:                                   ; preds = %if.end.i.i.i83
 
 sw.epilog.i.i88:                                  ; preds = %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i.i
   %.sink.i.i = phi i64 [ 8, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i.i ], [ 4, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i.i ], [ 2, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i.i ]
-  %size.3.i.i = phi i64 [ %size.0.copyload.i.i87, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i.i ], [ %size.0.insert.ext.i.i91, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i.i ], [ %size.0.insert.ext36.i.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i.i ]
+  %size.0.i.i = phi i64 [ %size.0.copyload.i.i87, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit18.thread.i.i ], [ %size.0.insert.ext.i.i91, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit10.thread.i.i ], [ %size.0.insert.ext36.i.i, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread.i.i ]
   %add.ptr.i17.i.i = getelementptr inbounds i8, ptr %46, i64 %.sink.i.i
   store ptr %add.ptr.i17.i.i, ptr %44, align 8
-  %cmp.i.i89 = icmp eq i64 %size.3.i.i, 0
+  %cmp.i.i89 = icmp eq i64 %size.0.i.i, 0
   br i1 %cmp.i.i89, label %return, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %sw.epilog.i.i88
@@ -2522,11 +2522,11 @@ if.end13.i.i:                                     ; preds = %sw.epilog.i.i88
   %sub.ptr.lhs.cast.i20.i.i = ptrtoint ptr %48 to i64
   %sub.ptr.rhs.cast.i21.i.i = ptrtoint ptr %49 to i64
   %sub.ptr.sub.i22.i.i = sub i64 %sub.ptr.lhs.cast.i20.i.i, %sub.ptr.rhs.cast.i21.i.i
-  %cmp.i23.not.i.i = icmp ult i64 %sub.ptr.sub.i22.i.i, %size.3.i.i
+  %cmp.i23.not.i.i = icmp ult i64 %sub.ptr.sub.i22.i.i, %size.0.i.i
   br i1 %cmp.i23.not.i.i, label %return, label %if.end17.i.i
 
 if.end17.i.i:                                     ; preds = %if.end13.i.i
-  tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i76, i64 noundef %size.3.i.i)
+  tail call void @_ZN11struct_pack6detail6resizeIcEEvRNSt7__cxx1112basic_stringIT_St11char_traitsIS4_ESaIS4_EEEm(ptr noundef nonnull align 8 dereferenceable(32) %name.i.i.i76, i64 noundef %size.0.i.i)
   %50 = load ptr, ptr %reader_.i, align 8
   %end.i24.i.i = getelementptr inbounds i8, ptr %50, i64 8
   %51 = load ptr, ptr %end.i24.i.i, align 8
@@ -2534,17 +2534,17 @@ if.end17.i.i:                                     ; preds = %if.end13.i.i
   %sub.ptr.lhs.cast.i25.i.i = ptrtoint ptr %51 to i64
   %sub.ptr.rhs.cast.i26.i.i = ptrtoint ptr %52 to i64
   %sub.ptr.sub.i27.i.i = sub i64 %sub.ptr.lhs.cast.i25.i.i, %sub.ptr.rhs.cast.i26.i.i
-  %cmp.i28.not.i.i = icmp ult i64 %sub.ptr.sub.i27.i.i, %size.3.i.i
+  %cmp.i28.not.i.i = icmp ult i64 %sub.ptr.sub.i27.i.i, %size.0.i.i
   br i1 %cmp.i28.not.i.i, label %return, label %if.end.i29.i.i
 
 if.end.i29.i.i:                                   ; preds = %if.end17.i.i
   %53 = load ptr, ptr %name.i.i.i76, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %52, i64 %size.3.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %52, i64 %size.0.i.i, i1 false)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end.i29.i.i, %if.end.i13.i.i
   %.sink134 = phi ptr [ %34, %if.end.i13.i.i ], [ %50, %if.end.i29.i.i ]
-  %size.0.insert.ext.i.i.sink = phi i64 [ %size.0.insert.ext.i.i, %if.end.i13.i.i ], [ %size.3.i.i, %if.end.i29.i.i ]
+  %size.0.insert.ext.i.i.sink = phi i64 [ %size.0.insert.ext.i.i, %if.end.i13.i.i ], [ %size.0.i.i, %if.end.i29.i.i ]
   %54 = load ptr, ptr %.sink134, align 8
   %add.ptr.i14.i.i = getelementptr inbounds i8, ptr %54, i64 %size.0.insert.ext.i.i.sink
   store ptr %add.ptr.i14.i.i, ptr %.sink134, align 8

@@ -1006,8 +1006,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %68, %71
 
 267:                                              ; preds = %466, %178
   %.0108 = phi i32 [ 2, %178 ], [ %.1109, %466 ]
-  %.0105 = phi double [ 1.000000e+00, %178 ], [ %.2107, %466 ]
-  %.0102 = phi double [ 7.500000e-01, %178 ], [ %.2104, %466 ]
+  %.0105 = phi double [ 1.000000e+00, %178 ], [ %.1106, %466 ]
+  %.0102 = phi double [ 7.500000e-01, %178 ], [ %.1103, %466 ]
   %.098 = phi i32 [ 0, %178 ], [ %434, %466 ]
   %.096 = phi double [ %142, %178 ], [ %.197, %466 ]
   %268 = load i32, ptr %10, align 8
@@ -1346,14 +1346,14 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %301, %295, %288
 
 401:                                              ; preds = %._crit_edge226, %373
   %.0189 = phi double [ %400, %._crit_edge226 ], [ %.sroa.speculated180, %373 ]
-  %.1106 = phi double [ %399, %._crit_edge226 ], [ %.0105, %373 ]
-  %.1103 = phi double [ %399, %._crit_edge226 ], [ %.0102, %373 ]
-  %402 = fmul double %.0189, %.1106
+  %.2107 = phi double [ %399, %._crit_edge226 ], [ %.0105, %373 ]
+  %.2104 = phi double [ %399, %._crit_edge226 ], [ %.0102, %373 ]
+  %402 = fmul double %.0189, %.2107
   br label %403
 
 403:                                              ; preds = %369, %401, %359, %362
-  %.2107 = phi double [ 0.000000e+00, %362 ], [ %360, %359 ], [ %402, %401 ], [ %.0105, %369 ]
-  %.2104 = phi double [ %.0102, %362 ], [ %.0102, %359 ], [ %.1103, %401 ], [ %.0102, %369 ]
+  %.1106 = phi double [ 0.000000e+00, %362 ], [ %360, %359 ], [ %402, %401 ], [ %.0105, %369 ]
+  %.1103 = phi double [ %.0102, %362 ], [ %.0102, %359 ], [ %.2104, %401 ], [ %.0102, %369 ]
   %404 = fcmp olt double %348, %.096
   br i1 %404, label %405, label %433
 
@@ -1513,7 +1513,7 @@ _ZN2cv3Mat2atIdEERT_i.exit174:                    ; preds = %452
   %458 = load double, ptr %457, align 8
   %459 = load ptr, ptr %266, align 8
   %460 = load double, ptr %459, align 8
-  %461 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %456, i32 noundef %434, i32 noundef %.1109, double noundef %.197, double noundef %458, double noundef %460, double noundef %.2107, double noundef %.2104)
+  %461 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %456, i32 noundef %434, i32 noundef %.1109, double noundef %.197, double noundef %458, double noundef %460, double noundef %.1106, double noundef %.1103)
   br label %466
 
 462:                                              ; preds = %439, %437
@@ -1577,7 +1577,7 @@ _ZN2cv3Mat2atIdEERT_i.exit174:                    ; preds = %452
   br label %.body
 
 .loopexit:                                        ; preds = %418, %337, %481
-  %.066 = phi i32 [ %spec.select, %481 ], [ -1, %337 ], [ -1, %418 ]
+  %.1 = phi i32 [ %spec.select, %481 ], [ -1, %337 ], [ -1, %418 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %31) #15
   br label %487
 
@@ -1587,7 +1587,7 @@ _ZN2cv3Mat2atIdEERT_i.exit174:                    ; preds = %452
   br label %488
 
 487:                                              ; preds = %133, %.loopexit
-  %.1 = phi i32 [ %.066, %.loopexit ], [ -1, %133 ]
+  %.066 = phi i32 [ %.1, %.loopexit ], [ -1, %133 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #15
@@ -1599,7 +1599,7 @@ _ZN2cv3Mat2atIdEERT_i.exit174:                    ; preds = %452
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
-  ret i32 %.1
+  ret i32 %.066
 
 488:                                              ; preds = %174, %172, %170, %134, %118, %.body, %176, %168, %116, %101, %90, %81
   %.pn162.pn = phi { ptr, i32 } [ %.pn162, %.body ], [ %177, %176 ], [ %82, %81 ], [ %169, %168 ], [ %117, %116 ], [ %.pn118, %101 ], [ %.pn, %90 ], [ %119, %118 ], [ %135, %134 ], [ %171, %170 ], [ %175, %174 ], [ %173, %172 ]

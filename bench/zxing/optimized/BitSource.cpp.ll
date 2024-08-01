@@ -120,8 +120,8 @@ define internal fastcc noundef i32 @_ZN5ZXingL12ReadBitsImplEiRKNS_9ByteArrayEiR
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %40 = phi i32 [ %48, %.lr.ph ], [ %.pre, %.lr.ph.preheader ]
   %.153 = phi i32 [ %49, %.lr.ph ], [ %.059, %.lr.ph.preheader ]
-  %.14852 = phi i32 [ %47, %.lr.ph ], [ %.04758, %.lr.ph.preheader ]
-  %41 = shl i32 %.14852, 8
+  %.252 = phi i32 [ %47, %.lr.ph ], [ %.04758, %.lr.ph.preheader ]
+  %41 = shl i32 %.252, 8
   %42 = sext i32 %40 to i64
   %43 = load ptr, ptr %1, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 %42
@@ -140,10 +140,10 @@ define internal fastcc noundef i32 @_ZN5ZXingL12ReadBitsImplEiRKNS_9ByteArrayEiR
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %.1.lcssa64 = phi i32 [ %49, %._crit_edge ], [ %.059, %.preheader ]
-  %.148.lcssa63 = phi i32 [ %47, %._crit_edge ], [ %.04758, %.preheader ]
+  %.2.lcssa63 = phi i32 [ %47, %._crit_edge ], [ %.04758, %.preheader ]
   %51 = sub nuw nsw i32 8, %.1.lcssa64
   %52 = shl nsw i32 -1, %51
-  %53 = shl i32 %.148.lcssa63, %.1.lcssa64
+  %53 = shl i32 %.2.lcssa63, %.1.lcssa64
   %54 = load i32, ptr %3, align 4
   %55 = sext i32 %54 to i64
   %56 = load ptr, ptr %1, align 8
@@ -159,8 +159,8 @@ define internal fastcc noundef i32 @_ZN5ZXingL12ReadBitsImplEiRKNS_9ByteArrayEiR
   br label %65
 
 65:                                               ; preds = %._crit_edge, %._crit_edge.thread, %37
-  %.2 = phi i32 [ %62, %._crit_edge.thread ], [ %47, %._crit_edge ], [ %30, %37 ]
-  ret i32 %.2
+  %.148 = phi i32 [ %62, %._crit_edge.thread ], [ %47, %._crit_edge ], [ %30, %37 ]
+  ret i32 %.148
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -149,18 +149,18 @@ define internal fastcc noundef zeroext i1 @FreePageManagerGetInternal(ptr nounde
 
 21:                                               ; preds = %32, %20
   %.087 = phi ptr [ %19, %20 ], [ %gep, %32 ]
-  %.085 = phi ptr [ null, %20 ], [ %.1, %32 ]
+  %.1 = phi ptr [ null, %20 ], [ %.2, %32 ]
   %22 = getelementptr inbounds i8, ptr %.087, i64 8
   %23 = load i64, ptr %22, align 8
   %.not99 = icmp ult i64 %23, %1
   br i1 %.not99, label %32, label %24
 
 24:                                               ; preds = %21
-  %25 = icmp eq ptr %.085, null
+  %25 = icmp eq ptr %.1, null
   br i1 %25, label %30, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %.085, i64 8
+  %27 = getelementptr inbounds i8, ptr %.1, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp ugt i64 %28, %23
   br i1 %29, label %30, label %32
@@ -170,7 +170,7 @@ define internal fastcc noundef zeroext i1 @FreePageManagerGetInternal(ptr nounde
   br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %30, %26, %21
-  %.1 = phi ptr [ %.087, %30 ], [ %.085, %26 ], [ %.085, %21 ]
+  %.2 = phi ptr [ %.087, %30 ], [ %.1, %26 ], [ %.1, %21 ]
   %33 = getelementptr inbounds i8, ptr %.087, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
@@ -185,18 +185,18 @@ define internal fastcc noundef zeroext i1 @FreePageManagerGetInternal(ptr nounde
   br i1 %exitcond.not, label %.thread112, label %12, !llvm.loop !9
 
 .loopexit:                                        ; preds = %32, %16
-  %.2 = phi ptr [ %19, %16 ], [ %.1, %32 ]
-  %.not115 = icmp eq ptr %.2, null
+  %.085 = phi ptr [ %19, %16 ], [ %.2, %32 ]
+  %.not115 = icmp eq ptr %.085, null
   br i1 %.not115, label %.thread112, label %.thread
 
 .thread:                                          ; preds = %30, %.loopexit
-  %.2110 = phi ptr [ %.2, %.loopexit ], [ %.087, %30 ]
-  %38 = getelementptr inbounds i8, ptr %.2110, i64 16
+  %.085110 = phi ptr [ %.085, %.loopexit ], [ %.087, %30 ]
+  %38 = getelementptr inbounds i8, ptr %.085110, i64 16
   %39 = load i64, ptr %38, align 8
   %40 = icmp eq i64 %39, 0
   %41 = getelementptr i8, ptr %7, i64 %39
   %42 = getelementptr i8, ptr %41, i64 -1
-  %43 = getelementptr inbounds i8, ptr %.2110, i64 24
+  %43 = getelementptr inbounds i8, ptr %.085110, i64 24
   %44 = load i64, ptr %43, align 8
   %45 = icmp eq i64 %44, 0
   %46 = getelementptr i8, ptr %7, i64 %44
@@ -217,7 +217,7 @@ define internal fastcc noundef zeroext i1 @FreePageManagerGetInternal(ptr nounde
   br label %52
 
 52:                                               ; preds = %49, %.thread
-  %53 = ptrtoint ptr %.2110 to i64
+  %53 = ptrtoint ptr %.085110 to i64
   %54 = ptrtoint ptr %7 to i64
   %55 = sub i64 %53, %54
   %56 = lshr i64 %55, 12
@@ -229,7 +229,7 @@ define internal fastcc noundef zeroext i1 @FreePageManagerGetInternal(ptr nounde
   br label %63
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %.2110, i64 8
+  %58 = getelementptr inbounds i8, ptr %.085110, i64 8
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 48
   %61 = load i64, ptr %60, align 8
@@ -311,7 +311,7 @@ FreePagePushSpanLeader.exit:                      ; preds = %82, %103
 
 105:                                              ; preds = %71
   call fastcc void @FreePageBtreeSearch(ptr noundef nonnull %0, i64 noundef %56, ptr noundef nonnull %4)
-  %106 = getelementptr inbounds i8, ptr %.2110, i64 8
+  %106 = getelementptr inbounds i8, ptr %.085110, i64 8
   %107 = load i64, ptr %106, align 8
   %108 = icmp eq i64 %107, %1
   %109 = load ptr, ptr %4, align 8
@@ -2597,7 +2597,7 @@ FreePageManagerDumpSpans.exit:                    ; preds = %select.unfold.i
   br label %48
 
 48:                                               ; preds = %46, %73
-  %.055 = phi i1 [ false, %46 ], [ %.2, %73 ]
+  %.055 = phi i1 [ false, %46 ], [ %.1, %73 ]
   %.03354 = phi i64 [ 0, %46 ], [ %.pre-phi, %73 ]
   %49 = getelementptr [129 x %union.RelptrFreePageSpanLeader], ptr %47, i64 0, i64 %.03354
   %50 = load i64, ptr %49, align 8
@@ -2666,7 +2666,7 @@ FreePageManagerDumpSpans.exit51:                  ; preds = %select.unfold.i47, 
 
 73:                                               ; preds = %._crit_edge, %FreePageManagerDumpSpans.exit51
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %55, %FreePageManagerDumpSpans.exit51 ]
-  %.2 = phi i1 [ %.055, %._crit_edge ], [ true, %FreePageManagerDumpSpans.exit51 ]
+  %.1 = phi i1 [ %.055, %._crit_edge ], [ true, %FreePageManagerDumpSpans.exit51 ]
   %exitcond.not = icmp eq i64 %.pre-phi, 129
   br i1 %exitcond.not, label %74, label %48, !llvm.loop !17
 

@@ -66,16 +66,16 @@ define hidden i32 @php_dom_get_namednodemap_length(ptr nocapture noundef readonl
   br i1 %.not24, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %14, %.preheader
-  %.016 = phi i32 [ %19, %.preheader ], [ 1, %14 ]
+  %.1 = phi i32 [ %19, %.preheader ], [ 1, %14 ]
   %.0 = phi ptr [ %18, %.preheader ], [ %16, %14 ]
   %17 = getelementptr inbounds i8, ptr %.0, i64 48
   %18 = load ptr, ptr %17, align 8
   %.not25 = icmp eq ptr %18, null
-  %19 = add nuw nsw i32 %.016, 1
+  %19 = add nuw nsw i32 %.1, 1
   br i1 %.not25, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %11, %14, %9, %6, %1
-  %.015 = phi i32 [ 0, %1 ], [ %10, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %11 ], [ %.016, %.preheader ]
+  %.015 = phi i32 [ 0, %1 ], [ %10, %9 ], [ 0, %6 ], [ 0, %14 ], [ 0, %11 ], [ %.1, %.preheader ]
   ret i32 %.015
 }
 
@@ -120,16 +120,16 @@ define hidden noundef i32 @dom_namednodemap_length_read(ptr nocapture noundef re
   br i1 %.not24.i, label %php_dom_get_namednodemap_length.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %15, %.preheader.i
-  %.016.i = phi i32 [ %20, %.preheader.i ], [ 1, %15 ]
+  %.1.i = phi i32 [ %20, %.preheader.i ], [ 1, %15 ]
   %.0.i = phi ptr [ %19, %.preheader.i ], [ %17, %15 ]
   %18 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %19 = load ptr, ptr %18, align 8
   %.not25.i = icmp eq ptr %19, null
-  %20 = add nuw nsw i32 %.016.i, 1
+  %20 = add nuw nsw i32 %.1.i, 1
   br i1 %.not25.i, label %php_dom_get_namednodemap_length.exit, label %.preheader.i
 
 php_dom_get_namednodemap_length.exit:             ; preds = %.preheader.i, %2, %7, %10, %12, %15
-  %.015.i = phi i32 [ 0, %2 ], [ %11, %10 ], [ 0, %7 ], [ 0, %15 ], [ 0, %12 ], [ %.016.i, %.preheader.i ]
+  %.015.i = phi i32 [ 0, %2 ], [ %11, %10 ], [ 0, %7 ], [ 0, %15 ], [ 0, %12 ], [ %.1.i, %.preheader.i ]
   %21 = sext i32 %.015.i to i64
   store i64 %21, ptr %1, align 8
   %22 = getelementptr inbounds i8, ptr %1, i64 8
@@ -653,16 +653,16 @@ define hidden void @zim_DOMNamedNodeMap_count(ptr nocapture noundef readonly %0,
   br i1 %.not24.i, label %php_dom_get_namednodemap_length.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %23, %.preheader.i
-  %.016.i = phi i32 [ %28, %.preheader.i ], [ 1, %23 ]
+  %.1.i = phi i32 [ %28, %.preheader.i ], [ 1, %23 ]
   %.0.i = phi ptr [ %27, %.preheader.i ], [ %25, %23 ]
   %26 = getelementptr inbounds i8, ptr %.0.i, i64 48
   %27 = load ptr, ptr %26, align 8
   %.not25.i = icmp eq ptr %27, null
-  %28 = add nuw nsw i32 %.016.i, 1
+  %28 = add nuw nsw i32 %.1.i, 1
   br i1 %.not25.i, label %php_dom_get_namednodemap_length.exit, label %.preheader.i
 
 php_dom_get_namednodemap_length.exit:             ; preds = %.preheader.i, %.critedge, %15, %18, %20, %23
-  %.015.i = phi i32 [ 0, %.critedge ], [ %19, %18 ], [ 0, %15 ], [ 0, %23 ], [ 0, %20 ], [ %.016.i, %.preheader.i ]
+  %.015.i = phi i32 [ 0, %.critedge ], [ %19, %18 ], [ 0, %15 ], [ 0, %23 ], [ 0, %20 ], [ %.1.i, %.preheader.i ]
   %29 = sext i32 %.015.i to i64
   store i64 %29, ptr %1, align 8
   %30 = getelementptr inbounds i8, ptr %1, i64 8

@@ -294,31 +294,31 @@ _ZL19halfsiphash_adddataPjji.exit:                ; preds = %33
   br label %68
 
 68:                                               ; preds = %60, %59
-  %.028 = phi i32 [ %57, %59 ], [ %67, %60 ]
+  %.1 = phi i32 [ %57, %59 ], [ %67, %60 ]
   %69 = or disjoint i32 %.027.lcssa, 1
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %1, i64 %70
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %74 = shl nuw nsw i32 %73, 8
-  %75 = or i32 %74, %.028
+  %75 = or i32 %74, %.1
   br label %76
 
 76:                                               ; preds = %68, %59
-  %.1 = phi i32 [ %57, %59 ], [ %75, %68 ]
+  %.2 = phi i32 [ %57, %59 ], [ %75, %68 ]
   %77 = zext nneg i32 %.027.lcssa to i64
   %78 = getelementptr inbounds i8, ptr %1, i64 %77
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
-  %81 = or i32 %.1, %80
+  %81 = or i32 %.2, %80
   br label %82
 
 default.unreachable:                              ; preds = %59
   unreachable
 
 82:                                               ; preds = %76, %._crit_edge
-  %.2 = phi i32 [ %81, %76 ], [ %57, %._crit_edge ]
-  %83 = xor i32 %.2, %.sroa.21.0.lcssa
+  %.028 = phi i32 [ %81, %76 ], [ %57, %._crit_edge ]
+  %83 = xor i32 %.028, %.sroa.21.0.lcssa
   br label %84
 
 84:                                               ; preds = %84, %82
@@ -346,7 +346,7 @@ default.unreachable:                              ; preds = %59
   br i1 %104, label %84, label %_ZL19halfsiphash_adddataPjji.exit33, !llvm.loop !6
 
 _ZL19halfsiphash_adddataPjji.exit33:              ; preds = %84
-  %105 = xor i32 %97, %.2
+  %105 = xor i32 %97, %.028
   %106 = xor i32 %103, 255
   br label %107
 

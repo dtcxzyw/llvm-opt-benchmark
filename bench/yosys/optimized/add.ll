@@ -306,7 +306,7 @@ define internal void @_ZN12_GLOBAL__N_17AddPass7executeESt6vectorINSt7__cxx1112b
 .lr.ph:                                           ; preds = %43, %168
   %51 = phi ptr [ %171, %168 ], [ %46, %43 ]
   %.047389 = phi i64 [ %169, %168 ], [ 1, %43 ]
-  %.052388 = phi i32 [ %.153, %168 ], [ 0, %43 ]
+  %.052388 = phi i32 [ %.254, %168 ], [ 0, %43 ]
   %.058387 = phi i1 [ %.260, %168 ], [ false, %43 ]
   %.062386 = phi i8 [ %.264, %168 ], [ 0, %43 ]
   %.066385 = phi i8 [ %.268, %168 ], [ 0, %43 ]
@@ -400,7 +400,7 @@ define internal void @_ZN12_GLOBAL__N_17AddPass7executeESt6vectorINSt7__cxx1112b
   br label %92
 
 92:                                               ; preds = %91, %88
-  %.167 = phi i8 [ 1, %91 ], [ %.066385, %88 ]
+  %.369 = phi i8 [ 1, %91 ], [ %.066385, %88 ]
   %93 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.23) #18
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %98, label %95
@@ -414,7 +414,7 @@ define internal void @_ZN12_GLOBAL__N_17AddPass7executeESt6vectorINSt7__cxx1112b
   br label %99
 
 99:                                               ; preds = %98, %95
-  %.163 = phi i8 [ 1, %98 ], [ %.062386, %95 ]
+  %.365 = phi i8 [ 1, %98 ], [ %.062386, %95 ]
   %100 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.24) #18
   %101 = load ptr, ptr %1, align 8
   %102 = getelementptr %"class.std::__cxx11::basic_string", ptr %101, i64 %.047389
@@ -532,10 +532,10 @@ _ZN12_GLOBAL__N_118is_formal_celltypeERKNSt7__cxx1112basic_stringIcSt11char_trai
           to label %168 unwind label %78
 
 168:                                              ; preds = %105, %164, %159, %150
-  %.268 = phi i8 [ %.167, %105 ], [ %.066385, %164 ], [ %.066385, %159 ], [ %.066385, %150 ]
-  %.264 = phi i8 [ %.163, %105 ], [ %.062386, %164 ], [ %.062386, %159 ], [ %.062386, %150 ]
+  %.268 = phi i8 [ %.369, %105 ], [ %.066385, %164 ], [ %.066385, %159 ], [ %.066385, %150 ]
+  %.264 = phi i8 [ %.365, %105 ], [ %.062386, %164 ], [ %.062386, %159 ], [ %.062386, %150 ]
   %.260 = phi i1 [ %spec.select, %105 ], [ %.058387, %164 ], [ %.058387, %159 ], [ %.058387, %150 ]
-  %.153 = phi i32 [ %110, %105 ], [ %.052388, %164 ], [ %.052388, %159 ], [ %.052388, %150 ]
+  %.254 = phi i32 [ %110, %105 ], [ %.052388, %164 ], [ %.052388, %159 ], [ %.052388, %150 ]
   %.249 = phi i64 [ %69, %105 ], [ %151, %164 ], [ %137, %159 ], [ %137, %150 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %36) #18
   %169 = add i64 %.249, 1
@@ -660,8 +660,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %200, %205, %212
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_6ModuleEED2Ev.exit137
 
 .loopexit177.thread:                              ; preds = %168, %43, %.loopexit177.thread569
-  %.350567 = phi i64 [ %.047389, %.loopexit177.thread569 ], [ 1, %43 ], [ %169, %168 ]
-  %.052365566 = phi i32 [ %.052388, %.loopexit177.thread569 ], [ 0, %43 ], [ %.153, %168 ]
+  %.148567 = phi i64 [ %.047389, %.loopexit177.thread569 ], [ 1, %43 ], [ %169, %168 ]
+  %.052365566 = phi i32 [ %.052388, %.loopexit177.thread569 ], [ 0, %43 ], [ %.254, %168 ]
   %.058371565 = phi i1 [ %.058387, %.loopexit177.thread569 ], [ false, %43 ], [ %.260, %168 ]
   %.062377564 = phi i8 [ %.062386, %.loopexit177.thread569 ], [ 0, %43 ], [ %.264, %168 ]
   %.066383563 = phi i8 [ %.066385, %.loopexit177.thread569 ], [ 0, %43 ], [ %.268, %168 ]
@@ -669,7 +669,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit:                ; preds = %200, %205, %212
           to label %229 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 229:                                              ; preds = %.loopexit177.thread
-  invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %41, i64 noundef %.350567, ptr noundef %2, i1 noundef zeroext true)
+  invoke void @_ZN5Yosys4Pass10extra_argsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEmPNS_5RTLIL6DesignEb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %41, i64 noundef %.148567, ptr noundef %2, i1 noundef zeroext true)
           to label %230 unwind label %270
 
 230:                                              ; preds = %229

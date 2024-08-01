@@ -505,7 +505,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %68
 
 68:                                               ; preds = %63, %61
-  %.1 = phi i32 [ 0, %61 ], [ %spec.select187, %63 ]
+  %.2 = phi i32 [ 0, %61 ], [ %spec.select187, %63 ]
   %69 = add nsw i32 %.0148.ph, 1
   br label %105
 
@@ -546,7 +546,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %87
 
 87:                                               ; preds = %82, %80
-  %.2 = phi i32 [ 0, %80 ], [ %spec.select188, %82 ]
+  %.4 = phi i32 [ 0, %80 ], [ %spec.select188, %82 ]
   %88 = add nsw i32 %.0145.ph, 1
   br label %105
 
@@ -585,46 +585,46 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %105
 
 105:                                              ; preds = %102, %78, %87, %99, %97, %68, %59
-  %.1149 = phi i32 [ %.0148.ph, %97 ], [ %.0148.ph, %99 ], [ %.0148.ph, %78 ], [ %.0148.ph, %87 ], [ %.0148.ph, %59 ], [ %69, %68 ], [ %.0148.ph, %102 ]
-  %.1146 = phi i32 [ %.0145.ph, %97 ], [ %.0145.ph, %99 ], [ %.0145.ph, %78 ], [ %88, %87 ], [ %.0145.ph, %59 ], [ %.0145.ph, %68 ], [ %.0145.ph, %102 ]
-  %.1143 = phi i32 [ %.0142.ph, %97 ], [ %101, %99 ], [ %.0142.ph, %78 ], [ %.0142.ph, %87 ], [ %.0142.ph, %59 ], [ %.0142.ph, %68 ], [ %.0142.ph, %102 ]
-  %.1140 = phi i32 [ %.0139.ph, %97 ], [ %.0139.ph, %99 ], [ %.0139.ph, %78 ], [ %.0139.ph, %87 ], [ %.0139.ph, %59 ], [ %.0139.ph, %68 ], [ %spec.select189, %102 ]
-  %.1137 = phi i32 [ %.0136.ph, %97 ], [ %.0136.ph, %99 ], [ %.0136.ph, %78 ], [ %.0136.ph, %87 ], [ %60, %59 ], [ %.0136.ph, %68 ], [ %.0136.ph, %102 ]
-  %.1134 = phi i32 [ %.0133.ph, %97 ], [ %.0133.ph, %99 ], [ %79, %78 ], [ %.0133.ph, %87 ], [ %.0133.ph, %59 ], [ %.0133.ph, %68 ], [ %.0133.ph, %102 ]
-  %.1131 = phi i32 [ %98, %97 ], [ %.0130.ph, %99 ], [ %.0130.ph, %78 ], [ %.0130.ph, %87 ], [ %.0130.ph, %59 ], [ %.0130.ph, %68 ], [ %.0130.ph, %102 ]
-  %.3 = phi i32 [ 0, %97 ], [ 0, %99 ], [ 0, %78 ], [ %.2, %87 ], [ 0, %59 ], [ %.1, %68 ], [ 0, %102 ]
+  %.2150 = phi i32 [ %.0148.ph, %97 ], [ %.0148.ph, %99 ], [ %.0148.ph, %78 ], [ %.0148.ph, %87 ], [ %.0148.ph, %59 ], [ %69, %68 ], [ %.0148.ph, %102 ]
+  %.2147 = phi i32 [ %.0145.ph, %97 ], [ %.0145.ph, %99 ], [ %.0145.ph, %78 ], [ %88, %87 ], [ %.0145.ph, %59 ], [ %.0145.ph, %68 ], [ %.0145.ph, %102 ]
+  %.2144 = phi i32 [ %.0142.ph, %97 ], [ %101, %99 ], [ %.0142.ph, %78 ], [ %.0142.ph, %87 ], [ %.0142.ph, %59 ], [ %.0142.ph, %68 ], [ %.0142.ph, %102 ]
+  %.2141 = phi i32 [ %.0139.ph, %97 ], [ %.0139.ph, %99 ], [ %.0139.ph, %78 ], [ %.0139.ph, %87 ], [ %.0139.ph, %59 ], [ %.0139.ph, %68 ], [ %spec.select189, %102 ]
+  %.2138 = phi i32 [ %.0136.ph, %97 ], [ %.0136.ph, %99 ], [ %.0136.ph, %78 ], [ %.0136.ph, %87 ], [ %60, %59 ], [ %.0136.ph, %68 ], [ %.0136.ph, %102 ]
+  %.2135 = phi i32 [ %.0133.ph, %97 ], [ %.0133.ph, %99 ], [ %79, %78 ], [ %.0133.ph, %87 ], [ %.0133.ph, %59 ], [ %.0133.ph, %68 ], [ %.0133.ph, %102 ]
+  %.2132 = phi i32 [ %98, %97 ], [ %.0130.ph, %99 ], [ %.0130.ph, %78 ], [ %.0130.ph, %87 ], [ %.0130.ph, %59 ], [ %.0130.ph, %68 ], [ %.0130.ph, %102 ]
+  %.3 = phi i32 [ 0, %97 ], [ 0, %99 ], [ 0, %78 ], [ %.4, %87 ], [ 0, %59 ], [ %.2, %68 ], [ 0, %102 ]
   %.not174 = icmp eq i32 %.3, 0
   br i1 %.not174, label %.outer210, label %.thread
 
 .outer210:                                        ; preds = %18, %105
-  %.0148.ph = phi i32 [ %.1149, %105 ], [ 0, %18 ]
-  %.0145.ph = phi i32 [ %.1146, %105 ], [ 0, %18 ]
-  %.0142.ph = phi i32 [ %.1143, %105 ], [ 0, %18 ]
-  %.0139.ph = phi i32 [ %.1140, %105 ], [ 0, %18 ]
-  %.0136.ph = phi i32 [ %.1137, %105 ], [ 0, %18 ]
-  %.0133.ph = phi i32 [ %.1134, %105 ], [ 0, %18 ]
-  %.0130.ph = phi i32 [ %.1131, %105 ], [ 0, %18 ]
+  %.0148.ph = phi i32 [ %.2150, %105 ], [ 0, %18 ]
+  %.0145.ph = phi i32 [ %.2147, %105 ], [ 0, %18 ]
+  %.0142.ph = phi i32 [ %.2144, %105 ], [ 0, %18 ]
+  %.0139.ph = phi i32 [ %.2141, %105 ], [ 0, %18 ]
+  %.0136.ph = phi i32 [ %.2138, %105 ], [ 0, %18 ]
+  %.0133.ph = phi i32 [ %.2135, %105 ], [ 0, %18 ]
+  %.0130.ph = phi i32 [ %.2132, %105 ], [ 0, %18 ]
   %106 = call i32 @xmlTextReaderRead(ptr noundef nonnull %19) #6
   %107 = icmp eq i32 %106, 1
   br i1 %107, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %91, %72, %53, %105, %.outer210, %.backedge, %.lr.ph
-  %.2150 = phi i32 [ %.0148.ph, %.lr.ph ], [ %.0148.ph, %.backedge ], [ %.0148.ph, %.outer210 ], [ %.0148.ph, %91 ], [ %.0148.ph, %72 ], [ %.0148.ph, %53 ], [ %.1149, %105 ]
-  %.2147 = phi i32 [ %.0145.ph, %.lr.ph ], [ %.0145.ph, %.backedge ], [ %.0145.ph, %.outer210 ], [ %.0145.ph, %91 ], [ %.0145.ph, %72 ], [ %.0145.ph, %53 ], [ %.1146, %105 ]
-  %.2144 = phi i32 [ %.0142.ph, %.lr.ph ], [ %.0142.ph, %.backedge ], [ %.0142.ph, %.outer210 ], [ %.0142.ph, %91 ], [ %.0142.ph, %72 ], [ %.0142.ph, %53 ], [ %.1143, %105 ]
-  %.2141 = phi i32 [ %.0139.ph, %.lr.ph ], [ %.0139.ph, %.backedge ], [ %.0139.ph, %.outer210 ], [ %.0139.ph, %91 ], [ %.0139.ph, %72 ], [ %.0139.ph, %53 ], [ %.1140, %105 ]
-  %.2138 = phi i32 [ %.0136.ph, %.lr.ph ], [ %.0136.ph, %.backedge ], [ %.0136.ph, %.outer210 ], [ %.0136.ph, %91 ], [ %.0136.ph, %72 ], [ %.0136.ph, %53 ], [ %.1137, %105 ]
-  %.2135 = phi i32 [ %.0133.ph, %.lr.ph ], [ %.0133.ph, %.backedge ], [ %.0133.ph, %.outer210 ], [ %.0133.ph, %91 ], [ %.0133.ph, %72 ], [ %.0133.ph, %53 ], [ %.1134, %105 ]
-  %.2132 = phi i32 [ %.0130.ph, %.lr.ph ], [ %.0130.ph, %.backedge ], [ %.0130.ph, %.outer210 ], [ %.0130.ph, %91 ], [ %.0130.ph, %72 ], [ %.0130.ph, %53 ], [ %.1131, %105 ]
-  %.4 = phi i32 [ 0, %.backedge ], [ 21, %.lr.ph ], [ 0, %.outer210 ], [ %96, %91 ], [ %77, %72 ], [ %58, %53 ], [ %.3, %105 ]
-  %.not177 = icmp eq i32 %.2150, 0
+  %.1149 = phi i32 [ %.0148.ph, %.lr.ph ], [ %.0148.ph, %.backedge ], [ %.0148.ph, %.outer210 ], [ %.0148.ph, %91 ], [ %.0148.ph, %72 ], [ %.0148.ph, %53 ], [ %.2150, %105 ]
+  %.1146 = phi i32 [ %.0145.ph, %.lr.ph ], [ %.0145.ph, %.backedge ], [ %.0145.ph, %.outer210 ], [ %.0145.ph, %91 ], [ %.0145.ph, %72 ], [ %.0145.ph, %53 ], [ %.2147, %105 ]
+  %.1143 = phi i32 [ %.0142.ph, %.lr.ph ], [ %.0142.ph, %.backedge ], [ %.0142.ph, %.outer210 ], [ %.0142.ph, %91 ], [ %.0142.ph, %72 ], [ %.0142.ph, %53 ], [ %.2144, %105 ]
+  %.1140 = phi i32 [ %.0139.ph, %.lr.ph ], [ %.0139.ph, %.backedge ], [ %.0139.ph, %.outer210 ], [ %.0139.ph, %91 ], [ %.0139.ph, %72 ], [ %.0139.ph, %53 ], [ %.2141, %105 ]
+  %.1137 = phi i32 [ %.0136.ph, %.lr.ph ], [ %.0136.ph, %.backedge ], [ %.0136.ph, %.outer210 ], [ %.0136.ph, %91 ], [ %.0136.ph, %72 ], [ %.0136.ph, %53 ], [ %.2138, %105 ]
+  %.1134 = phi i32 [ %.0133.ph, %.lr.ph ], [ %.0133.ph, %.backedge ], [ %.0133.ph, %.outer210 ], [ %.0133.ph, %91 ], [ %.0133.ph, %72 ], [ %.0133.ph, %53 ], [ %.2135, %105 ]
+  %.1131 = phi i32 [ %.0130.ph, %.lr.ph ], [ %.0130.ph, %.backedge ], [ %.0130.ph, %.outer210 ], [ %.0130.ph, %91 ], [ %.0130.ph, %72 ], [ %.0130.ph, %53 ], [ %.2132, %105 ]
+  %.1 = phi i32 [ 0, %.backedge ], [ 21, %.lr.ph ], [ 0, %.outer210 ], [ %96, %91 ], [ %77, %72 ], [ %58, %53 ], [ %.3, %105 ]
+  %.not177 = icmp eq i32 %.1149, 0
   br i1 %.not177, label %116, label %108
 
 108:                                              ; preds = %.thread
   %109 = getelementptr inbounds i8, ptr %2, i64 160
   %110 = load ptr, ptr %109, align 8
-  %111 = call i32 @cli_jsonint(ptr noundef %110, ptr noundef nonnull @.str.50, i32 noundef %.2150) #6
-  %112 = icmp sgt i32 %.2150, 1
+  %111 = call i32 @cli_jsonint(ptr noundef %110, ptr noundef nonnull @.str.50, i32 noundef %.1149) #6
+  %112 = icmp sgt i32 %.1149, 1
   br i1 %112, label %113, label %117
 
 113:                                              ; preds = %108
@@ -633,7 +633,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %117
 
 116:                                              ; preds = %.thread
-  %cond = icmp eq i32 %.2138, 0
+  %cond = icmp eq i32 %.1137, 0
   br i1 %cond, label %.thread203, label %118
 
 .thread203:                                       ; preds = %116
@@ -641,26 +641,26 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %124
 
 117:                                              ; preds = %108, %113
-  %.not179 = icmp eq i32 %.2138, 0
+  %.not179 = icmp eq i32 %.1137, 0
   br i1 %.not179, label %124, label %118
 
 118:                                              ; preds = %116, %117
   %119 = getelementptr inbounds i8, ptr %2, i64 160
   %120 = load ptr, ptr %119, align 8
-  %121 = call i32 @cli_jsonint(ptr noundef %120, ptr noundef nonnull @.str.53, i32 noundef %.2138) #6
+  %121 = call i32 @cli_jsonint(ptr noundef %120, ptr noundef nonnull @.str.53, i32 noundef %.1137) #6
   %122 = load ptr, ptr %119, align 8
   %123 = call i32 @cli_json_parse_error(ptr noundef %122, ptr noundef nonnull @.str.54) #6
   br label %124
 
 124:                                              ; preds = %.thread203, %118, %117
-  %.not180 = icmp eq i32 %.2147, 0
+  %.not180 = icmp eq i32 %.1146, 0
   br i1 %.not180, label %133, label %125
 
 125:                                              ; preds = %124
   %126 = getelementptr inbounds i8, ptr %2, i64 160
   %127 = load ptr, ptr %126, align 8
-  %128 = call i32 @cli_jsonint(ptr noundef %127, ptr noundef nonnull @.str.55, i32 noundef %.2147) #6
-  %129 = icmp sgt i32 %.2147, 1
+  %128 = call i32 @cli_jsonint(ptr noundef %127, ptr noundef nonnull @.str.55, i32 noundef %.1146) #6
+  %129 = icmp sgt i32 %.1146, 1
   br i1 %129, label %130, label %134
 
 130:                                              ; preds = %125
@@ -669,7 +669,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %134
 
 133:                                              ; preds = %124
-  %cond190 = icmp eq i32 %.2135, 0
+  %cond190 = icmp eq i32 %.1134, 0
   br i1 %cond190, label %.thread205, label %135
 
 .thread205:                                       ; preds = %133
@@ -677,26 +677,26 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %141
 
 134:                                              ; preds = %125, %130
-  %.not182 = icmp eq i32 %.2135, 0
+  %.not182 = icmp eq i32 %.1134, 0
   br i1 %.not182, label %141, label %135
 
 135:                                              ; preds = %133, %134
   %136 = getelementptr inbounds i8, ptr %2, i64 160
   %137 = load ptr, ptr %136, align 8
-  %138 = call i32 @cli_jsonint(ptr noundef %137, ptr noundef nonnull @.str.58, i32 noundef %.2135) #6
+  %138 = call i32 @cli_jsonint(ptr noundef %137, ptr noundef nonnull @.str.58, i32 noundef %.1134) #6
   %139 = load ptr, ptr %136, align 8
   %140 = call i32 @cli_json_parse_error(ptr noundef %139, ptr noundef nonnull @.str.59) #6
   br label %141
 
 141:                                              ; preds = %.thread205, %135, %134
-  %.not183 = icmp eq i32 %.2144, 0
+  %.not183 = icmp eq i32 %.1143, 0
   br i1 %.not183, label %150, label %142
 
 142:                                              ; preds = %141
   %143 = getelementptr inbounds i8, ptr %2, i64 160
   %144 = load ptr, ptr %143, align 8
-  %145 = call i32 @cli_jsonint(ptr noundef %144, ptr noundef nonnull @.str.60, i32 noundef %.2144) #6
-  %146 = icmp sgt i32 %.2144, 1
+  %145 = call i32 @cli_jsonint(ptr noundef %144, ptr noundef nonnull @.str.60, i32 noundef %.1143) #6
+  %146 = icmp sgt i32 %.1143, 1
   br i1 %146, label %147, label %151
 
 147:                                              ; preds = %142
@@ -705,7 +705,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %151
 
 150:                                              ; preds = %141
-  %cond191 = icmp eq i32 %.2132, 0
+  %cond191 = icmp eq i32 %.1131, 0
   br i1 %cond191, label %.thread207, label %152
 
 .thread207:                                       ; preds = %150
@@ -713,25 +713,25 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %158
 
 151:                                              ; preds = %142, %147
-  %.not185 = icmp eq i32 %.2132, 0
+  %.not185 = icmp eq i32 %.1131, 0
   br i1 %.not185, label %158, label %152
 
 152:                                              ; preds = %150, %151
   %153 = getelementptr inbounds i8, ptr %2, i64 160
   %154 = load ptr, ptr %153, align 8
-  %155 = call i32 @cli_jsonint(ptr noundef %154, ptr noundef nonnull @.str.63, i32 noundef %.2132) #6
+  %155 = call i32 @cli_jsonint(ptr noundef %154, ptr noundef nonnull @.str.63, i32 noundef %.1131) #6
   %156 = load ptr, ptr %153, align 8
   %157 = call i32 @cli_json_parse_error(ptr noundef %156, ptr noundef nonnull @.str.64) #6
   br label %158
 
 158:                                              ; preds = %.thread207, %152, %151
-  %.not186 = icmp eq i32 %.2141, 0
+  %.not186 = icmp eq i32 %.1140, 0
   br i1 %.not186, label %163, label %159
 
 159:                                              ; preds = %158
   %160 = getelementptr inbounds i8, ptr %2, i64 160
   %161 = load ptr, ptr %160, align 8
-  %162 = call i32 @cli_jsonint(ptr noundef %161, ptr noundef nonnull @.str.65, i32 noundef %.2141) #6
+  %162 = call i32 @cli_jsonint(ptr noundef %161, ptr noundef nonnull @.str.65, i32 noundef %.1140) #6
   br label %163
 
 163:                                              ; preds = %159, %158
@@ -742,7 +742,7 @@ ooxml_updatelimits.exit:                          ; preds = %5
   br label %165
 
 165:                                              ; preds = %ooxml_updatelimits.exit.thread, %ooxml_updatelimits.exit, %163, %21
-  %.0 = phi i32 [ 0, %21 ], [ %.4, %163 ], [ %17, %ooxml_updatelimits.exit ], [ 11, %ooxml_updatelimits.exit.thread ]
+  %.0 = phi i32 [ 0, %21 ], [ %.1, %163 ], [ %17, %ooxml_updatelimits.exit ], [ 11, %ooxml_updatelimits.exit.thread ]
   ret i32 %.0
 }
 

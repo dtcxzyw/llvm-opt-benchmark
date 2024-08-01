@@ -243,7 +243,7 @@ _ZN9CGContext18reset_effect_accumERK6Effect.exit: ; preds = %45, %47
 
 _ZN13StatementExprC2EP5BlockRK18FunctionInvocation.exit: ; preds = %.noexc23, %49, %35
   %63 = phi ptr [ %32, %35 ], [ %.pre26, %49 ], [ %32, %.noexc23 ]
-  %.014 = phi ptr [ null, %35 ], [ null, %49 ], [ %54, %.noexc23 ]
+  %.115 = phi ptr [ null, %35 ], [ null, %49 ], [ %54, %.noexc23 ]
   %.not.i.i.i = icmp eq ptr %63, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit, label %64
 
@@ -266,8 +266,8 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit:            ; preds = %_ZN13StatementExprC
   br label %common.resume
 
 68:                                               ; preds = %1, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
-  %.115 = phi ptr [ %.014, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ null, %1 ]
-  ret ptr %.115
+  %.014 = phi ptr [ %.115, %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit ], [ null, %1 ]
+  ret ptr %.014
 }
 
 declare noundef i32 @_ZN9DepthSpec19depth_guard_by_typeE5dTypei(i32 noundef, i32 noundef) local_unnamed_addr #0

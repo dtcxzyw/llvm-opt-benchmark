@@ -754,7 +754,7 @@ if.else:                                          ; preds = %entry
 for.body:                                         ; preds = %if.else, %for.inc
   %indvars.iv = phi i64 [ %2, %if.else ], [ %indvars.iv.next, %for.inc ]
   %dec8.in = phi i32 [ %sub, %if.else ], [ %dec8, %for.inc ]
-  %ok.06 = phi i32 [ 1, %if.else ], [ %ok.1, %for.inc ]
+  %ok.16 = phi i32 [ 1, %if.else ], [ %ok.2, %for.inc ]
   %dec8 = add nsw i32 %dec8.in, -1
   %3 = load ptr, ptr %base, align 8
   %add.ptr = getelementptr inbounds %union.TValue, ptr %3, i64 %indvars.iv
@@ -922,10 +922,10 @@ if.else59:                                        ; preds = %if.else47
   unreachable
 
 for.inc:                                          ; preds = %if.then13.i, %if.then.i41, %io_file_readlen.exit, %if.then30, %io_file_readnum.exit
-  %ok.1 = phi i32 [ %retval.0.i, %io_file_readnum.exit ], [ %call35, %if.then30 ], [ %retval.0.i54, %io_file_readlen.exit ], [ %ok.06, %if.then.i41 ], [ %ok.06, %if.then13.i ]
+  %ok.2 = phi i32 [ %retval.0.i, %io_file_readnum.exit ], [ %call35, %if.then30 ], [ %retval.0.i54, %io_file_readlen.exit ], [ %ok.16, %if.then.i41 ], [ %ok.16, %if.then13.i ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %tobool = icmp ne i32 %dec8, 0
-  %tobool4 = icmp ne i32 %ok.1, 0
+  %tobool4 = icmp ne i32 %ok.2, 0
   %30 = select i1 %tobool, i1 %tobool4, i1 false
   br i1 %30, label %for.body, label %if.end63.loopexit, !llvm.loop !5
 
@@ -934,8 +934,8 @@ if.end63.loopexit:                                ; preds = %for.inc
   br label %if.end63
 
 if.end63:                                         ; preds = %if.end63.loopexit, %if.then
-  %ok.2 = phi i32 [ %call, %if.then ], [ %ok.1, %if.end63.loopexit ]
-  %n.1 = phi i32 [ %add, %if.then ], [ %31, %if.end63.loopexit ]
+  %ok.0 = phi i32 [ %call, %if.then ], [ %ok.2, %if.end63.loopexit ]
+  %n.0 = phi i32 [ %add, %if.then ], [ %31, %if.end63.loopexit ]
   %call64 = call i32 @ferror(ptr noundef %iof.0.val) #10
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %if.end68, label %if.then66
@@ -945,7 +945,7 @@ if.then66:                                        ; preds = %if.end63
   br label %return
 
 if.end68:                                         ; preds = %if.end63
-  %tobool69.not = icmp eq i32 %ok.2, 0
+  %tobool69.not = icmp eq i32 %ok.0, 0
   br i1 %tobool69.not, label %if.then70, label %if.end73
 
 if.then70:                                        ; preds = %if.end68
@@ -955,7 +955,7 @@ if.then70:                                        ; preds = %if.end68
   br label %if.end73
 
 if.end73:                                         ; preds = %if.then70, %if.end68
-  %sub74 = sub nsw i32 %n.1, %start
+  %sub74 = sub nsw i32 %n.0, %start
   br label %return
 
 return:                                           ; preds = %if.end73, %if.then66

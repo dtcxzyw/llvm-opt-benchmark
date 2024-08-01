@@ -5847,8 +5847,8 @@ ehcleanup918:                                     ; preds = %ehcleanup303, %clea
   br label %eh.resume
 
 return:                                           ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit797, %for.body251, %if.end8.sink.split.i.i.i.i2751, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2748, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i2738, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2728, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb0EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit, %cond.end285
-  %retval.4 = phi i1 [ false, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb0EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit ], [ false, %cond.end285 ], [ %addedLem.0.in, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2728 ], [ %addedLem.0.in, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i2738 ], [ %addedLem.0.in, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2748 ], [ %addedLem.0.in, %if.end8.sink.split.i.i.i.i2751 ], [ false, %for.body251 ], [ false, %_ZN4cvc58internal8TypeNodeD2Ev.exit797 ]
-  ret i1 %retval.4
+  %retval.2 = phi i1 [ false, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb0EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit ], [ false, %cond.end285 ], [ %addedLem.0.in, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2728 ], [ %addedLem.0.in, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i2738 ], [ %addedLem.0.in, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i2748 ], [ %addedLem.0.in, %if.end8.sink.split.i.i.i.i2751 ], [ false, %for.body251 ], [ false, %_ZN4cvc58internal8TypeNodeD2Ev.exit797 ]
+  ret i1 %retval.2
 
 eh.resume:                                        ; preds = %ehcleanup918, %lpad269, %ehcleanup238, %ehcleanup169, %ehcleanup116
   %.pn94.pn = phi { ptr, i32 } [ %.pn92, %ehcleanup169 ], [ %.pn85, %ehcleanup116 ], [ %.pn82.pn, %ehcleanup238 ], [ %.pn76.pn.pn.pn.pn, %ehcleanup918 ], [ %128, %lpad269 ]

@@ -172,8 +172,8 @@ inode_checkflags.exit:                            ; preds = %59, %61, %64, %._cr
   br label %86
 
 86:                                               ; preds = %78, %84, %69
-  %.0 = phi i32 [ %71, %69 ], [ %80, %78 ], [ %85, %84 ]
-  %87 = icmp eq i32 %.0, -21
+  %.1 = phi i32 [ %71, %69 ], [ %80, %78 ], [ %85, %84 ]
+  %87 = icmp eq i32 %.1, -21
   br i1 %87, label %88, label %.thread
 
 88:                                               ; preds = %86
@@ -182,8 +182,8 @@ inode_checkflags.exit:                            ; preds = %59, %61, %64, %._cr
   br label %.thread
 
 .thread:                                          ; preds = %88, %86
-  %.1 = phi i32 [ %90, %88 ], [ %.0, %86 ]
-  %91 = icmp slt i32 %.1, 0
+  %.2 = phi i32 [ %90, %88 ], [ %.1, %86 ]
+  %91 = icmp slt i32 %.2, 0
   br i1 %91, label %inode_checkflags.exit.thread, label %.thread.thread
 
 .thread.thread:                                   ; preds = %75, %81, %.thread
@@ -192,14 +192,14 @@ inode_checkflags.exit:                            ; preds = %59, %61, %64, %._cr
   br i1 %.not53, label %96, label %.sink.split
 
 inode_checkflags.exit.thread:                     ; preds = %72, %56, %64, %49, %.thread
-  %.2 = phi i32 [ %.1, %.thread ], [ -13, %56 ], [ -13, %64 ], [ -6, %49 ], [ -6, %72 ]
+  %.0 = phi i32 [ %.2, %.thread ], [ -13, %56 ], [ -13, %64 ], [ -6, %49 ], [ -6, %72 ]
   %93 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %93, align 8
   call void @inode_release(ptr noundef nonnull %39) #6
   br label %94
 
 94:                                               ; preds = %26, %inode_checkflags.exit.thread
-  %.3 = phi i32 [ %36, %26 ], [ %.2, %inode_checkflags.exit.thread ]
+  %.3 = phi i32 [ %36, %26 ], [ %.0, %inode_checkflags.exit.thread ]
   %95 = load ptr, ptr %31, align 8
   %.not54 = icmp eq ptr %95, null
   br i1 %.not54, label %96, label %.sink.split

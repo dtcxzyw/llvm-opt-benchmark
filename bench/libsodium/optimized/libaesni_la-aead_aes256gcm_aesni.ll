@@ -440,12 +440,12 @@ for.body.i225.preheader.lr.ph.i:                  ; preds = %encrypt_xor_wide.ex
 for.body.i225.preheader.i:                        ; preds = %for.end65.i, %for.body.i225.preheader.lr.ph.i
   %xor.i.i310.i30 = phi <2 x i64> [ %sth.promoted, %for.body.i225.preheader.lr.ph.i ], [ %xor.i.i310.i, %for.end65.i ]
   %add19631.i = phi i64 [ 336, %for.body.i225.preheader.lr.ph.i ], [ %add19.i, %for.end65.i ]
-  %i.0630.i = phi i64 [ 112, %for.body.i225.preheader.lr.ph.i ], [ %add19631.i, %for.end65.i ]
-  %counter.0629.i = phi <2 x i64> [ %add.i.i.i, %for.body.i225.preheader.lr.ph.i ], [ %add.i.i270.i, %for.end65.i ]
+  %i.1630.i = phi i64 [ 112, %for.body.i225.preheader.lr.ph.i ], [ %add19631.i, %for.end65.i ]
+  %counter.1629.i = phi <2 x i64> [ %add.i.i.i, %for.body.i225.preheader.lr.ph.i ], [ %add.i.i270.i, %for.end65.i ]
   br label %for.body.i225.i
 
 for.body.i225.i:                                  ; preds = %for.body.i225.i, %for.body.i225.preheader.i
-  %counter.addr.07.i226.i = phi <2 x i64> [ %add.i.i229.i, %for.body.i225.i ], [ %counter.0629.i, %for.body.i225.preheader.i ]
+  %counter.addr.07.i226.i = phi <2 x i64> [ %add.i.i229.i, %for.body.i225.i ], [ %counter.1629.i, %for.body.i225.preheader.i ]
   %i.06.i227.i = phi i64 [ %inc.i230.i, %for.body.i225.i ], [ 0, %for.body.i225.preheader.i ]
   %15 = bitcast <2 x i64> %counter.addr.07.i226.i to <16 x i8>
   %16 = shufflevector <16 x i8> %15, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -479,7 +479,7 @@ for.cond6.preheader.i241.i:                       ; preds = %for.body.i234.i, %f
   br label %for.body8.i244.i
 
 for.cond20.preheader.i252.i:                      ; preds = %for.inc17.i249.i
-  %add.ptr24.i = getelementptr i8, ptr %m, i64 %i.0630.i
+  %add.ptr24.i = getelementptr i8, ptr %m, i64 %i.1630.i
   %20 = load <2 x i64>, ptr %arrayidx25.i.i, align 16
   br label %for.body22.i254.i
 
@@ -513,7 +513,7 @@ for.body22.i254.i:                                ; preds = %for.body22.i254.i, 
   br i1 %exitcond31.not.i261.i, label %encrypt_xor_wide.exit262.i, label %for.body22.i254.i, !llvm.loop !11
 
 encrypt_xor_wide.exit262.i:                       ; preds = %for.body22.i254.i
-  %add.ptr23.i = getelementptr i8, ptr %c, i64 %i.0630.i
+  %add.ptr23.i = getelementptr i8, ptr %c, i64 %i.1630.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %add.ptr23.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i233.i, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ts.i233.i)
   %add.ptr27.i = getelementptr i8, ptr %add.ptr24.i, i64 112
@@ -678,9 +678,9 @@ for.end65.i:                                      ; preds = %for.body56.i
 
 for.end69.i:                                      ; preds = %for.end65.i, %encrypt_xor_wide.exit.for.end69_crit_edge.i
   %sth.val215.i = phi <2 x i64> [ %sth.val215.pre.i, %encrypt_xor_wide.exit.for.end69_crit_edge.i ], [ %xor.i.i310.i, %for.end65.i ]
-  %counter.0.lcssa.i = phi <2 x i64> [ %add.i.i.i, %encrypt_xor_wide.exit.for.end69_crit_edge.i ], [ %add.i.i270.i, %for.end65.i ]
-  %i.0.lcssa.i = phi i64 [ 112, %encrypt_xor_wide.exit.for.end69_crit_edge.i ], [ %add19631.i, %for.end65.i ]
-  %64 = getelementptr i8, ptr %c, i64 %i.0.lcssa.i
+  %counter.1.lcssa.i = phi <2 x i64> [ %add.i.i.i, %encrypt_xor_wide.exit.for.end69_crit_edge.i ], [ %add.i.i270.i, %for.end65.i ]
+  %i.1.lcssa.i = phi i64 [ 112, %encrypt_xor_wide.exit.for.end69_crit_edge.i ], [ %add19631.i, %for.end65.i ]
+  %64 = getelementptr i8, ptr %c, i64 %i.1.lcssa.i
   %add.ptr72.i = getelementptr i8, ptr %64, i64 -112
   %hx73.i = getelementptr inbounds i8, ptr %st_, i64 240
   %arrayidx74.i = getelementptr i8, ptr %st_, i64 336
@@ -737,14 +737,14 @@ for.end86.i:                                      ; preds = %for.body77.i
   br label %if.end89.i
 
 if.end89.i:                                       ; preds = %for.end86.i, %if.end8.i
-  %counter.1.i = phi <2 x i64> [ %counter.0.lcssa.i, %for.end86.i ], [ %3, %if.end8.i ]
-  %i.1.i = phi i64 [ %i.0.lcssa.i, %for.end86.i ], [ 0, %if.end8.i ]
-  %sub90.i = sub i64 %m_len_, %i.1.i
+  %counter.0.i = phi <2 x i64> [ %counter.1.lcssa.i, %for.end86.i ], [ %3, %if.end8.i ]
+  %i.0.i = phi i64 [ %i.1.lcssa.i, %for.end86.i ], [ 0, %if.end8.i ]
+  %sub90.i = sub i64 %m_len_, %i.0.i
   %cmp91.i = icmp ugt i64 %sub90.i, 111
   br i1 %cmp91.i, label %for.body.i334.i, label %if.end149.i
 
 for.body.i334.i:                                  ; preds = %if.end89.i, %for.body.i334.i
-  %counter.addr.07.i335.i = phi <2 x i64> [ %add.i.i338.i, %for.body.i334.i ], [ %counter.1.i, %if.end89.i ]
+  %counter.addr.07.i335.i = phi <2 x i64> [ %add.i.i338.i, %for.body.i334.i ], [ %counter.0.i, %if.end89.i ]
   %i.06.i336.i = phi i64 [ %inc.i339.i, %for.body.i334.i ], [ 0, %if.end89.i ]
   %85 = bitcast <2 x i64> %counter.addr.07.i335.i to <16 x i8>
   %86 = shufflevector <16 x i8> %85, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -778,7 +778,7 @@ for.cond6.preheader.i350.i:                       ; preds = %for.body.i343.i, %f
   br label %for.body8.i353.i
 
 for.cond20.preheader.i361.i:                      ; preds = %for.inc17.i358.i
-  %add.ptr96.i = getelementptr i8, ptr %m, i64 %i.1.i
+  %add.ptr96.i = getelementptr i8, ptr %m, i64 %i.0.i
   %arrayidx25.i362.i = getelementptr i8, ptr %st_, i64 224
   %90 = load <2 x i64>, ptr %arrayidx25.i362.i, align 16
   br label %for.body22.i363.i
@@ -813,11 +813,11 @@ for.body22.i363.i:                                ; preds = %for.body22.i363.i, 
   br i1 %exitcond31.not.i370.i, label %encrypt_xor_wide.exit371.i, label %for.body22.i363.i, !llvm.loop !11
 
 encrypt_xor_wide.exit371.i:                       ; preds = %for.body22.i363.i
-  %add.ptr95.i = getelementptr i8, ptr %c, i64 %i.1.i
+  %add.ptr95.i = getelementptr i8, ptr %c, i64 %i.0.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %add.ptr95.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i342.i, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ts.i342.i)
-  %add98.i = add i64 %i.1.i, 112
-  %add100641.i = add i64 %i.1.i, 224
+  %add98.i = add i64 %i.0.i, 112
+  %add100641.i = add i64 %i.0.i, 224
   %cmp101.not642.i = icmp ugt i64 %add100641.i, %m_len_
   %arrayidx134.i.phi.trans.insert = getelementptr i8, ptr %st_, i64 336
   br i1 %cmp101.not642.i, label %encrypt_xor_wide.exit371.for.end129_crit_edge.i, label %for.body.i372.preheader.lr.ph.i
@@ -835,12 +835,12 @@ for.body.i372.preheader.lr.ph.i:                  ; preds = %encrypt_xor_wide.ex
 for.body.i372.preheader.i:                        ; preds = %for.end124.i, %for.body.i372.preheader.lr.ph.i
   %xor.i.i432.i33 = phi <2 x i64> [ %sth.promoted32, %for.body.i372.preheader.lr.ph.i ], [ %xor.i.i432.i, %for.end124.i ]
   %add100645.i = phi i64 [ %add100641.i, %for.body.i372.preheader.lr.ph.i ], [ %add100.i, %for.end124.i ]
-  %i.2644.i = phi i64 [ %add98.i, %for.body.i372.preheader.lr.ph.i ], [ %add100645.i, %for.end124.i ]
-  %counter.2643.i = phi <2 x i64> [ %add.i.i338.i, %for.body.i372.preheader.lr.ph.i ], [ %add.i.i376.i, %for.end124.i ]
+  %i.3644.i = phi i64 [ %add98.i, %for.body.i372.preheader.lr.ph.i ], [ %add100645.i, %for.end124.i ]
+  %counter.3643.i = phi <2 x i64> [ %add.i.i338.i, %for.body.i372.preheader.lr.ph.i ], [ %add.i.i376.i, %for.end124.i ]
   br label %for.body.i372.i
 
 for.body.i372.i:                                  ; preds = %for.body.i372.i, %for.body.i372.preheader.i
-  %counter.addr.07.i373.i = phi <2 x i64> [ %add.i.i376.i, %for.body.i372.i ], [ %counter.2643.i, %for.body.i372.preheader.i ]
+  %counter.addr.07.i373.i = phi <2 x i64> [ %add.i.i376.i, %for.body.i372.i ], [ %counter.3643.i, %for.body.i372.preheader.i ]
   %i.06.i374.i = phi i64 [ %inc.i377.i, %for.body.i372.i ], [ 0, %for.body.i372.preheader.i ]
   %96 = bitcast <2 x i64> %counter.addr.07.i373.i to <16 x i8>
   %97 = shufflevector <16 x i8> %96, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
@@ -874,7 +874,7 @@ for.cond6.preheader.i388.i:                       ; preds = %for.body.i381.i, %f
   br label %for.body8.i391.i
 
 for.cond20.preheader.i399.i:                      ; preds = %for.inc17.i396.i
-  %add.ptr106.i = getelementptr i8, ptr %m, i64 %i.2644.i
+  %add.ptr106.i = getelementptr i8, ptr %m, i64 %i.3644.i
   %101 = load <2 x i64>, ptr %arrayidx25.i362.i, align 16
   br label %for.body22.i401.i
 
@@ -908,7 +908,7 @@ for.body22.i401.i:                                ; preds = %for.body22.i401.i, 
   br i1 %exitcond31.not.i408.i, label %encrypt_xor_wide.exit409.i, label %for.body22.i401.i, !llvm.loop !11
 
 encrypt_xor_wide.exit409.i:                       ; preds = %for.body22.i401.i
-  %add.ptr105.i = getelementptr i8, ptr %c, i64 %i.2644.i
+  %add.ptr105.i = getelementptr i8, ptr %c, i64 %i.3644.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %add.ptr105.i, ptr noundef nonnull align 16 dereferenceable(112) %ts.i380.i, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %ts.i380.i)
   %add.ptr110.i = getelementptr i8, ptr %add.ptr105.i, i64 -112
@@ -968,9 +968,9 @@ for.end124.i:                                     ; preds = %for.body115.i
 for.end129.i:                                     ; preds = %for.end124.i, %encrypt_xor_wide.exit371.for.end129_crit_edge.i
   %127 = phi <2 x i64> [ %.pre, %encrypt_xor_wide.exit371.for.end129_crit_edge.i ], [ %107, %for.end124.i ]
   %sth.val217.i = phi <2 x i64> [ %sth.val217.pre.i, %encrypt_xor_wide.exit371.for.end129_crit_edge.i ], [ %xor.i.i432.i, %for.end124.i ]
-  %counter.2.lcssa.i = phi <2 x i64> [ %add.i.i338.i, %encrypt_xor_wide.exit371.for.end129_crit_edge.i ], [ %add.i.i376.i, %for.end124.i ]
-  %i.2.lcssa.i = phi i64 [ %add98.i, %encrypt_xor_wide.exit371.for.end129_crit_edge.i ], [ %add100645.i, %for.end124.i ]
-  %128 = getelementptr i8, ptr %c, i64 %i.2.lcssa.i
+  %counter.3.lcssa.i = phi <2 x i64> [ %add.i.i338.i, %encrypt_xor_wide.exit371.for.end129_crit_edge.i ], [ %add.i.i376.i, %for.end124.i ]
+  %i.3.lcssa.i = phi i64 [ %add98.i, %encrypt_xor_wide.exit371.for.end129_crit_edge.i ], [ %add100645.i, %for.end124.i ]
+  %128 = getelementptr i8, ptr %c, i64 %i.3.lcssa.i
   %add.ptr132.i = getelementptr i8, ptr %128, i64 -112
   %hx133.i = getelementptr inbounds i8, ptr %st_, i64 240
   %add.ptr132.val.i = load <16 x i8>, ptr %add.ptr132.i, align 1
@@ -1025,9 +1025,9 @@ for.end146.i:                                     ; preds = %for.body137.i
   br label %if.end149.i
 
 if.end149.i:                                      ; preds = %for.end146.i, %if.end89.i
-  %counter.3.i = phi <2 x i64> [ %counter.2.lcssa.i, %for.end146.i ], [ %counter.1.i, %if.end89.i ]
-  %i.3.i = phi i64 [ %i.2.lcssa.i, %for.end146.i ], [ %i.1.i, %if.end89.i ]
-  %add151657.i = add i64 %i.3.i, 64
+  %counter.2.i = phi <2 x i64> [ %counter.3.lcssa.i, %for.end146.i ], [ %counter.0.i, %if.end89.i ]
+  %i.2.i = phi i64 [ %i.3.lcssa.i, %for.end146.i ], [ %i.0.i, %if.end89.i ]
+  %add151657.i = add i64 %i.2.i, 64
   %cmp152.not658.i = icmp ugt i64 %add151657.i, %m_len_
   br i1 %cmp152.not658.i, label %for.cond189.preheader.i, label %for.body.i456.preheader.lr.ph.i
 
@@ -1041,8 +1041,8 @@ for.body.i456.preheader.lr.ph.i:                  ; preds = %if.end149.i
 for.body.i456.preheader.i:                        ; preds = %for.end183.i, %for.body.i456.preheader.lr.ph.i
   %xor.i.i491.i36 = phi <2 x i64> [ %sth.promoted35, %for.body.i456.preheader.lr.ph.i ], [ %xor.i.i491.i, %for.end183.i ]
   %add151661.i = phi i64 [ %add151657.i, %for.body.i456.preheader.lr.ph.i ], [ %add151.i, %for.end183.i ]
-  %i.4660.i = phi i64 [ %i.3.i, %for.body.i456.preheader.lr.ph.i ], [ %add151661.i, %for.end183.i ]
-  %counter.4659.i = phi <2 x i64> [ %counter.3.i, %for.body.i456.preheader.lr.ph.i ], [ %add.i.i460.i, %for.end183.i ]
+  %i.4660.i = phi i64 [ %i.2.i, %for.body.i456.preheader.lr.ph.i ], [ %add151661.i, %for.end183.i ]
+  %counter.4659.i = phi <2 x i64> [ %counter.2.i, %for.body.i456.preheader.lr.ph.i ], [ %add.i.i460.i, %for.end183.i ]
   br label %for.body.i456.i
 
 for.cond189.preheader.i.loopexit:                 ; preds = %for.end183.i
@@ -1050,8 +1050,8 @@ for.cond189.preheader.i.loopexit:                 ; preds = %for.end183.i
   br label %for.cond189.preheader.i
 
 for.cond189.preheader.i:                          ; preds = %for.cond189.preheader.i.loopexit, %if.end149.i
-  %counter.4.lcssa.i = phi <2 x i64> [ %counter.3.i, %if.end149.i ], [ %add.i.i460.i, %for.cond189.preheader.i.loopexit ]
-  %i.4.lcssa.i = phi i64 [ %i.3.i, %if.end149.i ], [ %add151661.i, %for.cond189.preheader.i.loopexit ]
+  %counter.4.lcssa.i = phi <2 x i64> [ %counter.2.i, %if.end149.i ], [ %add.i.i460.i, %for.cond189.preheader.i.loopexit ]
+  %i.4.lcssa.i = phi i64 [ %i.2.i, %if.end149.i ], [ %add151661.i, %for.cond189.preheader.i.loopexit ]
   %add190665.i = add i64 %i.4.lcssa.i, 32
   %cmp191.not666.i = icmp ugt i64 %add190665.i, %m_len_
   br i1 %cmp191.not666.i, label %for.cond229.preheader.i, label %for.body.i492.preheader.lr.ph.i

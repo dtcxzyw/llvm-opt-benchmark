@@ -5260,25 +5260,25 @@ if.else:                                          ; preds = %entry
   %and29 = and i64 %conv23, 268435456
   %tobool30.not = icmp eq i64 %and29, 0
   %spec.select21 = select i1 %tobool25.not, i16 771, i16 770
-  %version.3 = select i1 %tobool30.not, i16 %spec.select21, i16 %spec.select20
+  %version.4 = select i1 %tobool30.not, i16 %spec.select21, i16 %spec.select20
   %and38 = and i64 %conv23, 67108864
   %tobool39.not = icmp eq i64 %and38, 0
   %spec.select22 = select i1 %tobool30.not, i16 %spec.select21, i16 769
-  %version.4 = select i1 %tobool39.not, i16 %spec.select22, i16 %version.3
+  %version.5 = select i1 %tobool39.not, i16 %spec.select22, i16 %version.4
   %and47 = and i64 %conv23, 33554432
   %tobool48.not = icmp eq i64 %and47, 0
   %spec.select23 = select i1 %tobool39.not, i16 %spec.select22, i16 768
-  %version.5 = select i1 %tobool48.not, i16 %spec.select23, i16 %version.4
+  %version.6 = select i1 %tobool48.not, i16 %spec.select23, i16 %version.5
   %max_version55 = getelementptr inbounds i8, ptr %ssl, i64 4
   %4 = load i16, ptr %max_version55, align 4
   %cmp57.not.not = icmp eq i16 %4, 0
-  %5 = tail call i16 @llvm.umin.i16(i16 %version.5, i16 %4)
-  %spec.select26 = select i1 %cmp57.not.not, i16 %version.5, i16 %5
+  %5 = tail call i16 @llvm.umin.i16(i16 %version.6, i16 %4)
+  %spec.select26 = select i1 %cmp57.not.not, i16 %version.6, i16 %5
   br label %if.end68
 
 if.end68:                                         ; preds = %if.else, %if.then
-  %version.6 = phi i16 [ %spec.select25, %if.then ], [ %spec.select26, %if.else ]
-  ret i16 %version.6
+  %version.2 = phi i16 [ %spec.select25, %if.then ], [ %spec.select26, %if.else ]
+  ret i16 %version.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

@@ -249,7 +249,7 @@ if.end17.i:                                       ; preds = %for.body.i
   br i1 %tobool21.not.i, label %asn1_multi.exit, label %for.cond.i
 
 if.end24.i:                                       ; preds = %for.cond.i, %for.cond.i.preheader, %if.end.i
-  %sect.0.i = phi ptr [ null, %if.end.i ], [ %call6.i, %for.cond.i.preheader ], [ %call6.i, %for.cond.i ]
+  %sect.1.i = phi ptr [ null, %if.end.i ], [ %call6.i, %for.cond.i.preheader ], [ %call6.i, %for.cond.i ]
   %cmp25.i = icmp eq i32 %0, 17
   br i1 %cmp25.i, label %if.then26.i, label %if.else.i
 
@@ -289,12 +289,12 @@ if.end41.i:                                       ; preds = %if.end36.i
   br label %asn1_multi.exit
 
 asn1_multi.exit:                                  ; preds = %for.body.i, %if.end17.i, %if.end9, %if.end5.i, %if.end29.i, %if.end32.i, %if.end36.i, %if.end41.i
-  %sect.1.i = phi ptr [ %sect.0.i, %if.end29.i ], [ %sect.0.i, %if.end32.i ], [ %sect.0.i, %if.end36.i ], [ %sect.0.i, %if.end41.i ], [ null, %if.end5.i ], [ null, %if.end9 ], [ %call6.i, %if.end17.i ], [ %call6.i, %for.body.i ]
+  %sect.0.i = phi ptr [ %sect.1.i, %if.end29.i ], [ %sect.1.i, %if.end32.i ], [ %sect.1.i, %if.end36.i ], [ %sect.1.i, %if.end41.i ], [ null, %if.end5.i ], [ null, %if.end9 ], [ %call6.i, %if.end17.i ], [ %call6.i, %for.body.i ]
   %ret.0.i = phi ptr [ null, %if.end29.i ], [ null, %if.end32.i ], [ %call33.i, %if.end36.i ], [ %call33.i, %if.end41.i ], [ null, %if.end5.i ], [ null, %if.end9 ], [ null, %if.end17.i ], [ null, %for.body.i ]
   %6 = load ptr, ptr %der.i, align 8
   call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 455) #7
   call void @OPENSSL_sk_pop_free(ptr noundef %call.i, ptr noundef nonnull @ASN1_TYPE_free) #7
-  call void @X509V3_section_free(ptr noundef nonnull %cnf, ptr noundef %sect.1.i) #7
+  call void @X509V3_section_free(ptr noundef nonnull %cnf, ptr noundef %sect.0.i) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %der.i)
   br label %if.end17
 

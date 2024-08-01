@@ -308,8 +308,8 @@ H5FA__dblk_page_dest.exit:                        ; preds = %60, %71
   br label %.thread
 
 .thread:                                          ; preds = %6, %40, %47, %H5FA__dblk_page_dest.exit, %73
-  %.2 = phi i32 [ -1, %73 ], [ -1, %H5FA__dblk_page_dest.exit ], [ 0, %40 ], [ 0, %47 ], [ -1, %6 ]
-  ret i32 %.2
+  %.1 = phi i32 [ -1, %73 ], [ -1, %H5FA__dblk_page_dest.exit ], [ 0, %40 ], [ 0, %47 ], [ -1, %6 ]
+  ret i32 %.1
 }
 
 declare i32 @H5AC_insert_entry(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

@@ -2863,7 +2863,7 @@ define range(i32 -1, 2) i32 @H5S_set_extent(ptr noundef %0, ptr nocapture nounde
 
 8:                                                ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %.033 = phi i32 [ 0, %.lr.ph ], [ %.1, %23 ]
+  %.033 = phi i32 [ 0, %.lr.ph ], [ %.2, %23 ]
   %9 = getelementptr inbounds i64, ptr %6, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
@@ -2889,13 +2889,13 @@ define range(i32 -1, 2) i32 @H5S_set_extent(ptr noundef %0, ptr nocapture nounde
   br label %._crit_edge.thread
 
 23:                                               ; preds = %13, %15, %8
-  %.1 = phi i32 [ %.033, %8 ], [ 1, %15 ], [ 1, %13 ]
+  %.2 = phi i32 [ %.033, %8 ], [ 1, %15 ], [ 1, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %8
 
 ._crit_edge:                                      ; preds = %23
-  %24 = icmp eq i32 %.1, 0
+  %24 = icmp eq i32 %.2, 0
   br i1 %24, label %._crit_edge.thread, label %25
 
 25:                                               ; preds = %._crit_edge
@@ -2910,8 +2910,8 @@ define range(i32 -1, 2) i32 @H5S_set_extent(ptr noundef %0, ptr nocapture nounde
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge, %25, %28, %19
-  %.2 = phi i32 [ -1, %19 ], [ -1, %28 ], [ 1, %25 ], [ 0, %._crit_edge ], [ 0, %2 ]
-  ret i32 %.2
+  %.1 = phi i32 [ -1, %19 ], [ -1, %28 ], [ 1, %25 ], [ 0, %._crit_edge ], [ 0, %2 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable

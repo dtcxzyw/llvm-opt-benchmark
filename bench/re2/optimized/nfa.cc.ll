@@ -763,7 +763,7 @@ if.then57:                                        ; preds = %sw.bb54
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then57, %sw.bb54
-  %nstk.3 = phi i32 [ %nstk.1.ph, %sw.bb54 ], [ %inc62, %if.then57 ]
+  %nstk.4 = phi i32 [ %nstk.1.ph, %sw.bb54 ], [ %inc62, %if.then57 ]
   %27 = getelementptr inbounds i8, ptr %arrayidx.i.i.i70, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %ncapture_, align 4
@@ -771,8 +771,8 @@ if.end65:                                         ; preds = %if.then57, %sw.bb54
   br i1 %cmp67, label %if.then68, label %Loop.outer.backedge
 
 if.then68:                                        ; preds = %if.end65
-  %inc72 = add nsw i32 %nstk.3, 1
-  %idxprom73 = sext i32 %nstk.3 to i64
+  %inc72 = add nsw i32 %nstk.4, 1
+  %idxprom73 = sext i32 %nstk.4 to i64
   %arrayidx74 = getelementptr inbounds %"struct.re2::NFA::AddState", ptr %0, i64 %idxprom73
   store i32 0, ptr %arrayidx74, align 8
   %ref.tmp69.sroa.26.0.arrayidx74.sroa_idx = getelementptr inbounds i8, ptr %arrayidx74, i64 8
@@ -911,7 +911,7 @@ if.then112:                                       ; preds = %sw.bb109
   br label %if.end120
 
 if.end120:                                        ; preds = %if.then112, %sw.bb109
-  %nstk.5 = phi i32 [ %nstk.1.ph, %sw.bb109 ], [ %inc117, %if.then112 ]
+  %nstk.6 = phi i32 [ %nstk.1.ph, %sw.bb109 ], [ %inc117, %if.then112 ]
   %61 = getelementptr inbounds i8, ptr %arrayidx.i.i.i70, i64 4
   %62 = load i32, ptr %61, align 4
   %call122 = call noundef i32 @_ZN3re24Prog10EmptyFlagsEN4absl7debian211string_viewEPKc(ptr %context.coerce0, i64 %context.coerce1, ptr noundef %p)
@@ -921,14 +921,14 @@ if.end120:                                        ; preds = %if.then112, %sw.bb1
   br i1 %tobool123.not, label %Loop.outer.backedge, label %while.cond.backedge
 
 Loop.outer.backedge:                              ; preds = %if.end120, %if.end65, %_ZN3re23NFA11AllocThreadEv.exit, %sw.bb39, %if.then41
-  %nstk.1.ph.be = phi i32 [ %nstk.1.ph, %sw.bb39 ], [ %inc46, %if.then41 ], [ %inc72, %_ZN3re23NFA11AllocThreadEv.exit ], [ %nstk.3, %if.end65 ], [ %nstk.5, %if.end120 ]
+  %nstk.1.ph.be = phi i32 [ %nstk.1.ph, %sw.bb39 ], [ %inc46, %if.then41 ], [ %inc72, %_ZN3re23NFA11AllocThreadEv.exit ], [ %nstk.4, %if.end65 ], [ %nstk.6, %if.end120 ]
   %t0.addr.1.ph.be = phi ptr [ %t0.addr.2, %sw.bb39 ], [ %t0.addr.2, %if.then41 ], [ %retval.0.i79, %_ZN3re23NFA11AllocThreadEv.exit ], [ %t0.addr.2, %if.end65 ], [ %t0.addr.2, %if.end120 ]
   %a.sroa.0.0.ph.be.in = load i32, ptr %arrayidx.i.i.i70, align 4
   %a.sroa.0.0.ph.be = lshr i32 %a.sroa.0.0.ph.be.in, 4
   br label %Loop.outer
 
 while.cond.backedge:                              ; preds = %if.end120, %if.end88, %Next, %_ZN3re211SparseArrayIPNS_3NFA6ThreadEE7set_newEiRKS3_.exit, %_ZNK3re211SparseArrayIPNS_3NFA6ThreadEE9has_indexEi.exit, %if.end9, %invoke.cont32
-  %nstk.0.be = phi i32 [ %nstk.1.ph, %invoke.cont32 ], [ %nstk.1.ph, %if.end9 ], [ %nstk.1.ph, %_ZNK3re211SparseArrayIPNS_3NFA6ThreadEE9has_indexEi.exit ], [ %nstk.1.ph, %_ZN3re211SparseArrayIPNS_3NFA6ThreadEE7set_newEiRKS3_.exit ], [ %nstk.1.ph, %Next ], [ %nstk.1.ph, %if.end88 ], [ %nstk.5, %if.end120 ]
+  %nstk.0.be = phi i32 [ %nstk.1.ph, %invoke.cont32 ], [ %nstk.1.ph, %if.end9 ], [ %nstk.1.ph, %_ZNK3re211SparseArrayIPNS_3NFA6ThreadEE9has_indexEi.exit ], [ %nstk.1.ph, %_ZN3re211SparseArrayIPNS_3NFA6ThreadEE7set_newEiRKS3_.exit ], [ %nstk.1.ph, %Next ], [ %nstk.1.ph, %if.end88 ], [ %nstk.6, %if.end120 ]
   %cmp2 = icmp sgt i32 %nstk.0.be, 0
   br i1 %cmp2, label %while.body, label %while.end, !llvm.loop !12
 
@@ -1869,7 +1869,7 @@ _ZN3re24Prog11PrefixAccelEPKvm.exit:              ; preds = %if.then.i, %if.then
   br label %if.end143
 
 if.end143:                                        ; preds = %lor.lhs.false121, %_ZN3re24Prog11PrefixAccelEPKvm.exit, %land.lhs.true132, %land.lhs.true126
-  %p.1 = phi ptr [ %p.0, %land.lhs.true132 ], [ %p.0, %land.lhs.true126 ], [ %spec.select, %_ZN3re24Prog11PrefixAccelEPKvm.exit ], [ %p.0, %lor.lhs.false121 ]
+  %p.2 = phi ptr [ %p.0, %land.lhs.true132 ], [ %p.0, %land.lhs.true126 ], [ %spec.select, %_ZN3re24Prog11PrefixAccelEPKvm.exit ], [ %p.0, %lor.lhs.false121 ]
   %31 = load ptr, ptr %freelist_.i, align 8
   %cmp.not.i69 = icmp eq ptr %31, null
   br i1 %cmp.not.i69, label %if.end.i, label %if.then.i70
@@ -1936,20 +1936,20 @@ _ZN3re23NFA11AllocThreadEv.exit:                  ; preds = %if.then.i70, %_ZNSt
   %mul.i = shl nsw i64 %conv.i74, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %45, ptr align 8 %46, i64 %mul.i, i1 false)
   %48 = load ptr, ptr %capture, align 8
-  store ptr %p.1, ptr %48, align 8
+  store ptr %p.2, ptr %48, align 8
   %49 = load i32, ptr %start_, align 8
   %50 = load ptr, ptr %etext_, align 8
-  %cmp150 = icmp ult ptr %p.1, %50
+  %cmp150 = icmp ult ptr %p.2, %50
   br i1 %cmp150, label %cond.true151, label %cond.end156
 
 cond.true151:                                     ; preds = %_ZN3re23NFA11AllocThreadEv.exit
-  %51 = load i8, ptr %p.1, align 1
+  %51 = load i8, ptr %p.2, align 1
   %conv153 = zext i8 %51 to i32
   br label %cond.end156
 
 cond.end156:                                      ; preds = %_ZN3re23NFA11AllocThreadEv.exit, %cond.true151
   %cond157 = phi i32 [ %conv153, %cond.true151 ], [ -1, %_ZN3re23NFA11AllocThreadEv.exit ]
-  tail call void @_ZN3re23NFA12AddToThreadqEPNS_11SparseArrayIPNS0_6ThreadEEEiiN4absl7debian211string_viewEPKcS3_(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull %nextq.0, i32 noundef %49, i32 noundef %cond157, ptr %context.sroa.0.0118, i64 %context.sroa.11.0119, ptr noundef %p.1, ptr noundef nonnull %retval.0.i71)
+  tail call void @_ZN3re23NFA12AddToThreadqEPNS_11SparseArrayIPNS0_6ThreadEEEiiN4absl7debian211string_viewEPKcS3_(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef nonnull %nextq.0, i32 noundef %49, i32 noundef %cond157, ptr %context.sroa.0.0118, i64 %context.sroa.11.0119, ptr noundef %p.2, ptr noundef nonnull %retval.0.i71)
   %52 = load i32, ptr %retval.0.i71, align 8
   %dec.i = add nsw i32 %52, -1
   store i32 %dec.i, ptr %retval.0.i71, align 8
@@ -1963,14 +1963,14 @@ if.end.i76:                                       ; preds = %cond.end156
   br label %if.end159
 
 if.end159:                                        ; preds = %if.end.i76, %cond.end156, %lor.lhs.false121, %if.end116
-  %p.2 = phi ptr [ %p.0, %if.end116 ], [ %p.0, %lor.lhs.false121 ], [ %p.1, %cond.end156 ], [ %p.1, %if.end.i76 ]
+  %p.1 = phi ptr [ %p.0, %if.end116 ], [ %p.0, %lor.lhs.false121 ], [ %p.2, %cond.end156 ], [ %p.2, %if.end.i76 ]
   %54 = load i32, ptr %nextq.0, align 8
   %cmp161 = icmp eq i32 %54, 0
   br i1 %cmp161, label %for.end181, label %if.end163
 
 if.end163:                                        ; preds = %if.end159
-  %cmp164 = icmp eq ptr %p.2, null
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.2, i64 1
+  %cmp164 = icmp eq ptr %p.1, null
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.1, i64 1
   br i1 %cmp164, label %if.then165, label %for.cond, !llvm.loop !31
 
 if.then165:                                       ; preds = %if.end163

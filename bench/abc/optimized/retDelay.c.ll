@@ -493,7 +493,7 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
   br i1 %184, label %.lr.ph303.i, label %.critedge6.i, !llvm.loop !11
 
 .critedge10.preheader.i:                          ; preds = %187, %.preheader280.i
-  %.6.lcssa.i = phi i32 [ 0, %.preheader280.i ], [ %spec.select146.i, %187 ]
+  %.7.lcssa.i = phi i32 [ 0, %.preheader280.i ], [ %spec.select146.i, %187 ]
   %.val184309.i = load ptr, ptr %27, align 8
   %185 = getelementptr i8, ptr %.val184309.i, i64 4
   %.val184.val310.i = load i32, ptr %185, align 4
@@ -502,7 +502,7 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
 
 187:                                              ; preds = %187, %.lr.ph307.i
   %indvars.iv344.i = phi i64 [ 0, %.lr.ph307.i ], [ %indvars.iv.next345.i, %187 ]
-  %.6306.i = phi i32 [ 0, %.lr.ph307.i ], [ %spec.select146.i, %187 ]
+  %.7306.i = phi i32 [ 0, %.lr.ph307.i ], [ %spec.select146.i, %187 ]
   %188 = getelementptr inbounds ptr, ptr %.val154.i, i64 %indvars.iv344.i
   %189 = load ptr, ptr %188, align 8
   %.val180.i = load ptr, ptr %189, align 8
@@ -517,7 +517,7 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
   %194 = getelementptr inbounds ptr, ptr %.val180.val.val.i, i64 %193
   %195 = load ptr, ptr %194, align 8
   %196 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %195, i32 noundef 0)
-  %spec.select146.i = tail call i32 @llvm.smax.i32(i32 %.6306.i, i32 %196)
+  %spec.select146.i = tail call i32 @llvm.smax.i32(i32 %.7306.i, i32 %196)
   %indvars.iv.next345.i = add nuw nsw i64 %indvars.iv344.i, 1
   %exitcond348.not.i = icmp eq i64 %indvars.iv.next345.i, %wide.trip.count347.i
   br i1 %exitcond348.not.i, label %.critedge10.preheader.i, label %187, !llvm.loop !12
@@ -525,7 +525,7 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
 .critedge10.i:                                    ; preds = %.critedge10.preheader.i, %.critedge10.i
   %indvars.iv349.i = phi i64 [ %indvars.iv.next350.i, %.critedge10.i ], [ 0, %.critedge10.preheader.i ]
   %.val184313.i = phi ptr [ %.val184.i, %.critedge10.i ], [ %.val184309.i, %.critedge10.preheader.i ]
-  %.8312.i = phi i32 [ %spec.select147.i, %.critedge10.i ], [ %.6.lcssa.i, %.critedge10.preheader.i ]
+  %.9312.i = phi i32 [ %spec.select147.i, %.critedge10.i ], [ %.7.lcssa.i, %.critedge10.preheader.i ]
   %197 = getelementptr i8, ptr %.val184313.i, i64 8
   %.val185.val.i = load ptr, ptr %197, align 8
   %198 = getelementptr inbounds ptr, ptr %.val185.val.i, i64 %indvars.iv349.i
@@ -542,7 +542,7 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
   %204 = getelementptr inbounds ptr, ptr %.val182.val.val.i, i64 %203
   %205 = load ptr, ptr %204, align 8
   %206 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %205, i32 noundef 0)
-  %spec.select147.i = tail call i32 @llvm.smax.i32(i32 %.8312.i, i32 %206)
+  %spec.select147.i = tail call i32 @llvm.smax.i32(i32 %.9312.i, i32 %206)
   %indvars.iv.next350.i = add nuw nsw i64 %indvars.iv349.i, 1
   %.val184.i = load ptr, ptr %27, align 8
   %207 = getelementptr i8, ptr %.val184.i, i64 4
@@ -552,7 +552,7 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
   br i1 %209, label %.critedge10.i, label %.critedge6.i, !llvm.loop !13
 
 .critedge6.i:                                     ; preds = %.critedge8.i, %.critedge10.i, %.critedge10.preheader.i, %.critedge2.preheader.i
-  %.10.i = phi i32 [ %.6.lcssa.i, %.critedge10.preheader.i ], [ %.0.lcssa.i, %.critedge2.preheader.i ], [ %spec.select147.i, %.critedge10.i ], [ %.4.lcssa.i, %.critedge8.i ]
+  %.6.i = phi i32 [ %.7.lcssa.i, %.critedge10.preheader.i ], [ %.0.lcssa.i, %.critedge2.preheader.i ], [ %spec.select147.i, %.critedge10.i ], [ %.4.lcssa.i, %.critedge8.i ]
   store i32 0, ptr %18, align 4
   %210 = load ptr, ptr %21, align 8
   %.not.i187.i = icmp eq ptr %210, null
@@ -748,7 +748,7 @@ Vec_IntFillExtra.exit.i:                          ; preds = %._crit_edge.i.i, %2
   %283 = getelementptr inbounds i8, ptr %237, i64 20
   %284 = load i32, ptr %283, align 4
   %285 = lshr i32 %284, 12
-  %.not142.i = icmp eq i32 %.10.i, %285
+  %.not142.i = icmp eq i32 %.6.i, %285
   br i1 %.not142.i, label %286, label %356
 
 286:                                              ; preds = %282
@@ -1075,7 +1075,7 @@ Vec_IntFillExtra.exit251.i:                       ; preds = %._crit_edge.i241.i,
   %419 = getelementptr inbounds i8, ptr %373, i64 20
   %420 = load i32, ptr %419, align 4
   %421 = lshr i32 %420, 12
-  %.not140.i = icmp eq i32 %.10.i, %421
+  %.not140.i = icmp eq i32 %.6.i, %421
   br i1 %.not140.i, label %422, label %492
 
 422:                                              ; preds = %418
@@ -1274,8 +1274,8 @@ Vec_IntFillExtra.exit265.i:                       ; preds = %._crit_edge.i255.i,
 Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %498
   tail call void @free(ptr noundef nonnull %46) #8
   %499 = icmp eq i32 %.087, 0
-  %spec.select = select i1 %499, i32 %.10.i, i32 %.079
-  %500 = icmp sgt i32 %.081, %.10.i
+  %spec.select = select i1 %499, i32 %.6.i, i32 %.079
+  %500 = icmp sgt i32 %.081, %.6.i
   br i1 %500, label %501, label %513
 
 501:                                              ; preds = %Abc_NtkRetimeTiming.exit
@@ -1285,26 +1285,26 @@ Abc_NtkRetimeTiming.exit:                         ; preds = %.critedge14.i, %498
 502:                                              ; preds = %501
   %503 = sub nsw i32 %.val104.pre136, %.0
   %504 = sitofp i32 %503 to double
-  %505 = sub nsw i32 %.081, %.10.i
+  %505 = sub nsw i32 %.081, %.6.i
   %506 = sitofp i32 %505 to double
   %507 = fdiv double %504, %506
   %508 = fmul double %504, 1.000000e+02
   %509 = sitofp i32 %.val104.pre136 to double
   %510 = fdiv double %508, %509
   %511 = fdiv double %510, %506
-  %512 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %28, i32 noundef %.087, i32 noundef %.10.i, i32 noundef %.val104.pre136, double noundef %507, double noundef %511)
+  %512 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %28, i32 noundef %.087, i32 noundef %.6.i, i32 noundef %.val104.pre136, double noundef %507, double noundef %511)
   %.val104.pre = load i32, ptr %16, align 8
   br label %513
 
 513:                                              ; preds = %501, %502, %Abc_NtkRetimeTiming.exit
   %.185 = phi i32 [ %.084, %Abc_NtkRetimeTiming.exit ], [ %.087, %502 ], [ %.087, %501 ]
-  %.182 = phi i32 [ %.081, %Abc_NtkRetimeTiming.exit ], [ %.10.i, %502 ], [ %.10.i, %501 ]
+  %.182 = phi i32 [ %.081, %Abc_NtkRetimeTiming.exit ], [ %.6.i, %502 ], [ %.6.i, %501 ]
   %.1 = phi i32 [ %.0, %Abc_NtkRetimeTiming.exit ], [ %.val104.pre, %502 ], [ %.val104.pre136, %501 ]
   %514 = icmp ne i32 %.087, %4
   %515 = sub nsw i32 %.087, %.185
   %516 = icmp slt i32 %515, 21
   %or.cond98.not131 = select i1 %514, i1 %516, i1 false
-  %.not92 = icmp sgt i32 %.10.i, %1
+  %.not92 = icmp sgt i32 %.6.i, %1
   %or.cond99 = or i1 %29, %.not92
   %or.cond127 = select i1 %or.cond98.not131, i1 %or.cond99, i1 false
   br i1 %or.cond127, label %.preheader, label %527
@@ -1503,7 +1503,7 @@ define internal fastcc range(i32 0, 1048576) i32 @Abc_NtkRetimeTiming_rec(ptr no
 
 38:                                               ; preds = %.lr.ph54, %38
   %indvars.iv58 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next59, %38 ]
-  %.253 = phi i32 [ 0, %.lr.ph54 ], [ %spec.select37, %38 ]
+  %.353 = phi i32 [ 0, %.lr.ph54 ], [ %spec.select37, %38 ]
   %.val43 = load ptr, ptr %0, align 8
   %.val44 = load ptr, ptr %26, align 8
   %39 = getelementptr i8, ptr %.val43, i64 32
@@ -1516,7 +1516,7 @@ define internal fastcc range(i32 0, 1048576) i32 @Abc_NtkRetimeTiming_rec(ptr no
   %44 = getelementptr inbounds ptr, ptr %.val43.val.val, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %45, i32 noundef 0)
-  %spec.select37 = tail call i32 @llvm.smax.i32(i32 %.253, i32 %46)
+  %spec.select37 = tail call i32 @llvm.smax.i32(i32 %.353, i32 %46)
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %.val42 = load i32, ptr %24, align 4
   %47 = sext i32 %.val42 to i64
@@ -1524,10 +1524,10 @@ define internal fastcc range(i32 0, 1048576) i32 @Abc_NtkRetimeTiming_rec(ptr no
   br i1 %48, label %38, label %.critedge, !llvm.loop !20
 
 .critedge:                                        ; preds = %27, %38, %.preheader46, %.preheader
-  %.4 = phi i32 [ 0, %.preheader ], [ 0, %.preheader46 ], [ %spec.select37, %38 ], [ %spec.select, %27 ]
+  %.2 = phi i32 [ 0, %.preheader ], [ 0, %.preheader46 ], [ %spec.select37, %38 ], [ %spec.select, %27 ]
   %49 = getelementptr inbounds i8, ptr %0, i64 20
   %50 = load i32, ptr %49, align 4
-  %51 = shl nuw i32 %.4, 12
+  %51 = shl nuw i32 %.2, 12
   %52 = add i32 %51, 4096
   %53 = and i32 %50, 4095
   %54 = or disjoint i32 %53, %52

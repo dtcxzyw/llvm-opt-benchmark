@@ -816,18 +816,18 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
   br label %34
 
 34:                                               ; preds = %34, %32
-  %.029 = phi ptr [ %33, %32 ], [ %37, %34 ]
-  %35 = load i32, ptr %.029, align 4
+  %.1 = phi ptr [ %33, %32 ], [ %37, %34 ]
+  %35 = load i32, ptr %.1, align 4
   %36 = call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %35)
-  %37 = getelementptr inbounds i8, ptr %.029, i64 4
+  %37 = getelementptr inbounds i8, ptr %.1, i64 4
   br i1 %36, label %34, label %.loopexit40, !llvm.loop !10
 
 .loopexit40:                                      ; preds = %34, %.critedge
-  %.1 = phi ptr [ %5, %.critedge ], [ %.029, %34 ]
+  %.029 = phi ptr [ %5, %.critedge ], [ %.1, %34 ]
   %38 = call i64 @wcslen(ptr noundef nonnull %5) #16
   %39 = getelementptr inbounds i32, ptr %5, i64 %38
   %.048 = getelementptr inbounds i8, ptr %39, i64 -4
-  %40 = icmp ugt ptr %.048, %.1
+  %40 = icmp ugt ptr %.048, %.029
   br i1 %40, label %.lr.ph50, label %._crit_edge
 
 .lr.ph50:                                         ; preds = %.loopexit40
@@ -862,7 +862,7 @@ define noundef zeroext i1 @_Z11LinksToDirsPKwS0_RNSt7__cxx1112basic_stringIwSt11
 
 55:                                               ; preds = %43, %51, %48, %46
   %.0 = getelementptr inbounds i8, ptr %.049, i64 -4
-  %56 = icmp ugt ptr %.0, %.1
+  %56 = icmp ugt ptr %.0, %.029
   br i1 %56, label %43, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %55, %.loopexit40

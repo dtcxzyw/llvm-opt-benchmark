@@ -2646,8 +2646,8 @@ call.i.i86.noexc.i:                               ; preds = %sw.bb2.i.i.i.i.i
   br label %_upb_Message_GetOrCreateMutableMap.exit.i.i
 
 _upb_Message_GetOrCreateMutableMap.exit.i.i:      ; preds = %call.i.i86.noexc.i, %invoke.cont23.i
-  %map.3.i.i.i = phi ptr [ %22, %invoke.cont23.i ], [ %call.i.i8687.i, %call.i.i86.noexc.i ]
-  %table.i.i.i = getelementptr inbounds i8, ptr %map.3.i.i.i, i64 8
+  %map.1.i.i.i = phi ptr [ %22, %invoke.cont23.i ], [ %call.i.i8687.i, %call.i.i86.noexc.i ]
+  %table.i.i.i = getelementptr inbounds i8, ptr %map.1.i.i.i, i64 8
   %call2.i.i88.i = invoke zeroext i1 @upb_strtable_remove2(ptr noundef nonnull %table.i.i.i, ptr noundef nonnull %key.addr.i.i, i64 noundef 4, ptr noundef null)
           to label %call2.i.i.noexc.i unwind label %if.then.i.i131.i
 

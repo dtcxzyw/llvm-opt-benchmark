@@ -519,14 +519,14 @@ define internal fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noun
   br label %76
 
 76:                                               ; preds = %72, %68
-  %.1 = phi i32 [ %75, %72 ], [ %70, %68 ]
-  %77 = sub i32 %.1, %.070
+  %.2 = phi i32 [ %75, %72 ], [ %70, %68 ]
+  %77 = sub i32 %.2, %.070
   call void @proto_item_set_len(ptr noundef %25, i32 noundef %77) #4
   br label %78
 
 78:                                               ; preds = %33, %45, %76
-  %.2 = phi i32 [ %.070, %33 ], [ %.070, %45 ], [ %.1, %76 ]
-  ret i32 %.2
+  %.1 = phi i32 [ %.070, %33 ], [ %.070, %45 ], [ %.2, %76 ]
+  ret i32 %.1
 }
 
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1

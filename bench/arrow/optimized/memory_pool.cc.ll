@@ -3666,14 +3666,14 @@ lpad27:                                           ; preds = %call4.i.noexc130, %
   br label %ehcleanup39
 
 cleanup:                                          ; preds = %if.then.i.i76, %invoke.cont24, %if.then.i.i40, %invoke.cont18, %if.then.i.i7, %invoke.cont12, %invoke.cont2, %invoke.cont36
-  %retval.0 = phi i1 [ false, %invoke.cont36 ], [ false, %invoke.cont2 ], [ true, %invoke.cont12 ], [ true, %if.then.i.i7 ], [ true, %invoke.cont18 ], [ true, %if.then.i.i40 ], [ true, %invoke.cont24 ], [ true, %if.then.i.i76 ]
+  %retval.1 = phi i1 [ false, %invoke.cont36 ], [ false, %invoke.cont2 ], [ true, %invoke.cont12 ], [ true, %if.then.i.i7 ], [ true, %invoke.cont18 ], [ true, %if.then.i.i40 ], [ true, %invoke.cont24 ], [ true, %if.then.i.i76 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %env_value) #26
   br label %cleanup38
 
 cleanup38:                                        ; preds = %invoke.cont, %cleanup
-  %retval.1 = phi i1 [ %retval.0, %cleanup ], [ false, %invoke.cont ]
+  %retval.0 = phi i1 [ %retval.1, %cleanup ], [ false, %invoke.cont ]
   call void @_ZN5arrow6ResultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %maybe_env_value) #26
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup39:                                      ; preds = %lpad6, %lpad27, %lpad11, %if.then.i.i10, %lpad17, %if.then.i.i46, %lpad23, %if.then.i.i82
   %.pn = phi { ptr, i32 } [ %51, %lpad27 ], [ %12, %lpad6 ], [ %13, %lpad11 ], [ %13, %if.then.i.i10 ], [ %25, %lpad17 ], [ %25, %if.then.i.i46 ], [ %37, %lpad23 ], [ %37, %if.then.i.i82 ]

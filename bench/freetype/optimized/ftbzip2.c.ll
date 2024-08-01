@@ -255,7 +255,7 @@ ft_bzip2_file_skip_output.exit.i:                 ; preds = %34
 51:                                               ; preds = %64, %.preheader.i
   %.037.i = phi ptr [ %65, %64 ], [ %2, %.preheader.i ]
   %.036.i = phi i64 [ %62, %64 ], [ %3, %.preheader.i ]
-  %.035.i = phi i64 [ %57, %64 ], [ 0, %.preheader.i ]
+  %.1.i = phi i64 [ %57, %64 ], [ 0, %.preheader.i ]
   %52 = load ptr, ptr %49, align 8
   %53 = load ptr, ptr %50, align 8
   %54 = ptrtoint ptr %52 to i64
@@ -263,7 +263,7 @@ ft_bzip2_file_skip_output.exit.i:                 ; preds = %34
   %56 = sub i64 %54, %55
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %56, i64 %.036.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.037.i, ptr align 1 %53, i64 %spec.select.i, i1 false)
-  %57 = add i64 %spec.select.i, %.035.i
+  %57 = add i64 %spec.select.i, %.1.i
   %58 = load ptr, ptr %50, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 %spec.select.i
   store ptr %59, ptr %50, align 8
@@ -281,8 +281,8 @@ ft_bzip2_file_skip_output.exit.i:                 ; preds = %34
   br i1 %.not46.i, label %51, label %ft_bzip2_file_io.exit
 
 ft_bzip2_file_io.exit:                            ; preds = %45, %51, %64, %13, %ft_bzip2_file_skip_output.exit.i, %48
-  %.1.i = phi i64 [ 0, %ft_bzip2_file_skip_output.exit.i ], [ 0, %48 ], [ 0, %13 ], [ %57, %64 ], [ %57, %51 ], [ 0, %45 ]
-  ret i64 %.1.i
+  %.035.i = phi i64 [ 0, %ft_bzip2_file_skip_output.exit.i ], [ 0, %48 ], [ 0, %13 ], [ %57, %64 ], [ %57, %51 ], [ 0, %45 ]
+  ret i64 %.035.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -440,8 +440,8 @@ ft_bzip2_file_fill_input.exit:                    ; preds = %16, %33
   br label %ft_bzip2_file_fill_input.exit.thread
 
 ft_bzip2_file_fill_input.exit.thread:             ; preds = %thread-pre-split, %30, %21, %47, %51
-  %.2 = phi i32 [ 85, %51 ], [ %spec.select, %47 ], [ 85, %21 ], [ 85, %30 ], [ 0, %thread-pre-split ]
-  ret i32 %.2
+  %.1 = phi i32 [ 85, %51 ], [ %spec.select, %47 ], [ 85, %21 ], [ 85, %30 ], [ 0, %thread-pre-split ]
+  ret i32 %.1
 }
 
 declare i32 @BZ2_bzDecompressEnd(ptr noundef) local_unnamed_addr #2

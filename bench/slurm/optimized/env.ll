@@ -902,7 +902,7 @@ unsetenvp.exit:                                   ; preds = %34, %28, %15, %.pre
   br label %43
 
 43:                                               ; preds = %41, %39
-  %.1245 = phi i32 [ -1, %41 ], [ %.0244, %39 ]
+  %.2 = phi i32 [ -1, %41 ], [ %.0244, %39 ]
   %44 = load i32, ptr %0, align 8
   %45 = tail call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %10, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.7, i32 noundef %44)
   %.not292 = icmp eq i32 %45, 0
@@ -913,7 +913,7 @@ unsetenvp.exit:                                   ; preds = %34, %28, %15, %.pre
   br label %48
 
 48:                                               ; preds = %43, %46, %37, %unsetenvp.exit
-  %.2 = phi i32 [ %.0244, %unsetenvp.exit ], [ -1, %46 ], [ %.1245, %43 ], [ %.0244, %37 ]
+  %.1245 = phi i32 [ %.0244, %unsetenvp.exit ], [ -1, %46 ], [ %.2, %43 ], [ %.0244, %37 ]
   %49 = getelementptr inbounds i8, ptr %0, i64 148
   %50 = load i32, ptr %49, align 4
   %.not293 = icmp eq i32 %50, 0
@@ -929,7 +929,7 @@ unsetenvp.exit:                                   ; preds = %34, %28, %15, %.pre
   br label %55
 
 55:                                               ; preds = %53, %51, %48
-  %.3 = phi i32 [ -1, %53 ], [ %.2, %51 ], [ %.2, %48 ]
+  %.3 = phi i32 [ -1, %53 ], [ %.1245, %51 ], [ %.1245, %48 ]
   %56 = getelementptr inbounds i8, ptr %0, i64 164
   %57 = load i32, ptr %56, align 4
   %.not295 = icmp eq i32 %57, 0
@@ -1043,12 +1043,12 @@ unsetenvp.exit:                                   ; preds = %34, %28, %15, %.pre
   br label %105
 
 105:                                              ; preds = %103, %101
-  %.10 = phi i32 [ -1, %103 ], [ %.9, %101 ]
+  %.11 = phi i32 [ -1, %103 ], [ %.9, %101 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #18
   br label %106
 
 106:                                              ; preds = %105, %97
-  %.11 = phi i32 [ %.10, %105 ], [ %.9, %97 ]
+  %.10 = phi i32 [ %.11, %105 ], [ %.9, %97 ]
   %107 = load i32, ptr %98, align 4
   %108 = and i32 %107, 65535
   %109 = icmp eq i32 %108, 4
@@ -1067,7 +1067,7 @@ unsetenvp.exit:                                   ; preds = %34, %28, %15, %.pre
   br label %117
 
 117:                                              ; preds = %110, %115, %106
-  %.12 = phi i32 [ -1, %115 ], [ %.11, %110 ], [ %.11, %106 ]
+  %.12 = phi i32 [ -1, %115 ], [ %.10, %110 ], [ %.10, %106 ]
   %118 = getelementptr inbounds i8, ptr %0, i64 28
   %119 = load i32, ptr %118, align 4
   %.not310 = icmp eq i32 %119, 0
@@ -1455,7 +1455,7 @@ unsetenvp.exit504:                                ; preds = %202, %196, %unseten
   br label %245
 
 245:                                              ; preds = %243, %240
-  %.13 = phi i32 [ -1, %243 ], [ %.12, %240 ]
+  %.14 = phi i32 [ -1, %243 ], [ %.12, %240 ]
   %246 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %10, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.3, ptr noundef nonnull %.str.47.)
   %.not328 = icmp eq i32 %246, 0
   br i1 %.not328, label %249, label %247
@@ -1465,7 +1465,7 @@ unsetenvp.exit504:                                ; preds = %202, %196, %unseten
   br label %249
 
 249:                                              ; preds = %247, %245
-  %.14 = phi i32 [ -1, %247 ], [ %.13, %245 ]
+  %.15 = phi i32 [ -1, %247 ], [ %.14, %245 ]
   %250 = load ptr, ptr %5, align 8
   %251 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %10, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.3, ptr noundef %250)
   %.not329 = icmp eq i32 %251, 0
@@ -1476,7 +1476,7 @@ unsetenvp.exit504:                                ; preds = %202, %196, %unseten
   br label %254
 
 254:                                              ; preds = %252, %249
-  %.15 = phi i32 [ -1, %252 ], [ %.14, %249 ]
+  %.16 = phi i32 [ -1, %252 ], [ %.15, %249 ]
   %255 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %10, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.3, ptr noundef nonnull %.str.35..str.34)
   %.not330 = icmp eq i32 %255, 0
   br i1 %.not330, label %258, label %256
@@ -1486,13 +1486,13 @@ unsetenvp.exit504:                                ; preds = %202, %196, %unseten
   br label %258
 
 258:                                              ; preds = %256, %254
-  %.16 = phi i32 [ -1, %256 ], [ %.15, %254 ]
+  %.17 = phi i32 [ -1, %256 ], [ %.16, %254 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #18
   call void @slurm_xfree(ptr noundef nonnull %5) #18
   br label %259
 
 259:                                              ; preds = %258, %123, %120, %117
-  %.17 = phi i32 [ %.12, %120 ], [ %.16, %258 ], [ %.12, %123 ], [ %.12, %117 ]
+  %.13 = phi i32 [ %.12, %120 ], [ %.17, %258 ], [ %.12, %123 ], [ %.12, %117 ]
   %260 = getelementptr inbounds i8, ptr %0, i64 52
   %261 = load i32, ptr %260, align 4
   %.not331 = icmp eq i32 %261, 0
@@ -2277,7 +2277,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %507
 
 507:                                              ; preds = %505, %503
-  %.18 = phi i32 [ -1, %505 ], [ %.17, %503 ]
+  %.19 = phi i32 [ -1, %505 ], [ %.13, %503 ]
   %508 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %10, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.3, ptr noundef nonnull %.0237)
   %.not354 = icmp eq i32 %508, 0
   br i1 %.not354, label %511, label %509
@@ -2287,7 +2287,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %511
 
 511:                                              ; preds = %509, %507
-  %.19 = phi i32 [ -1, %509 ], [ %.18, %507 ]
+  %.20 = phi i32 [ -1, %509 ], [ %.19, %507 ]
   br i1 %.not335, label %516, label %512
 
 512:                                              ; preds = %511
@@ -2300,7 +2300,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %516
 
 516:                                              ; preds = %514, %512, %511
-  %.20 = phi i32 [ -1, %514 ], [ %.19, %512 ], [ %.19, %511 ]
+  %.21 = phi i32 [ -1, %514 ], [ %.20, %512 ], [ %.20, %511 ]
   br i1 %.not341, label %521, label %517
 
 517:                                              ; preds = %516
@@ -2313,7 +2313,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %521
 
 521:                                              ; preds = %519, %517, %516
-  %.21 = phi i32 [ -1, %519 ], [ %.20, %517 ], [ %.20, %516 ]
+  %.22 = phi i32 [ -1, %519 ], [ %.21, %517 ], [ %.21, %516 ]
   %522 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %10, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.3, ptr noundef %.1)
   %.not358 = icmp eq i32 %522, 0
   br i1 %.not358, label %525, label %523
@@ -2323,7 +2323,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %525
 
 525:                                              ; preds = %523, %521
-  %.22 = phi i32 [ -1, %523 ], [ %.21, %521 ]
+  %.23 = phi i32 [ -1, %523 ], [ %.22, %521 ]
   %526 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %10, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.3, ptr noundef nonnull %.str.35..str.34424)
   %.not359 = icmp eq i32 %526, 0
   br i1 %.not359, label %552, label %.sink.split
@@ -2338,7 +2338,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %531
 
 531:                                              ; preds = %529, %527
-  %.23 = phi i32 [ -1, %529 ], [ %.17, %527 ]
+  %.25 = phi i32 [ -1, %529 ], [ %.13, %527 ]
   %532 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %10, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.3, ptr noundef nonnull %.0237)
   %.not347 = icmp eq i32 %532, 0
   br i1 %.not347, label %535, label %533
@@ -2348,7 +2348,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %535
 
 535:                                              ; preds = %533, %531
-  %.24 = phi i32 [ -1, %533 ], [ %.23, %531 ]
+  %.26 = phi i32 [ -1, %533 ], [ %.25, %531 ]
   br i1 %.not335, label %540, label %536
 
 536:                                              ; preds = %535
@@ -2361,7 +2361,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %540
 
 540:                                              ; preds = %538, %536, %535
-  %.25 = phi i32 [ -1, %538 ], [ %.24, %536 ], [ %.24, %535 ]
+  %.27 = phi i32 [ -1, %538 ], [ %.26, %536 ], [ %.26, %535 ]
   br i1 %.not341, label %545, label %541
 
 541:                                              ; preds = %540
@@ -2374,7 +2374,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %545
 
 545:                                              ; preds = %543, %541, %540
-  %.26 = phi i32 [ -1, %543 ], [ %.25, %541 ], [ %.25, %540 ]
+  %.28 = phi i32 [ -1, %543 ], [ %.27, %541 ], [ %.27, %540 ]
   %546 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %10, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.3, ptr noundef %.1)
   %.not351 = icmp eq i32 %546, 0
   br i1 %.not351, label %549, label %547
@@ -2384,7 +2384,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %549
 
 549:                                              ; preds = %547, %545
-  %.27 = phi i32 [ -1, %547 ], [ %.26, %545 ]
+  %.29 = phi i32 [ -1, %547 ], [ %.28, %545 ]
   %550 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %10, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.3, ptr noundef nonnull %.str.35..str.34424)
   %.not352 = icmp eq i32 %550, 0
   br i1 %.not352, label %552, label %.sink.split
@@ -2395,12 +2395,12 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %552
 
 552:                                              ; preds = %.sink.split, %549, %525
-  %.28 = phi i32 [ %.22, %525 ], [ %.27, %549 ], [ -1, %.sink.split ]
+  %.24 = phi i32 [ %.23, %525 ], [ %.29, %549 ], [ -1, %.sink.split ]
   call void @slurm_xfree(ptr noundef nonnull %7) #18
   br label %553
 
 553:                                              ; preds = %552, %262, %259
-  %.29 = phi i32 [ %.28, %552 ], [ %.17, %262 ], [ %.17, %259 ]
+  %.18 = phi i32 [ %.24, %552 ], [ %.13, %262 ], [ %.13, %259 ]
   %554 = getelementptr inbounds i8, ptr %0, i64 40
   %555 = load i32, ptr %554, align 8
   %556 = getelementptr inbounds i8, ptr %0, i64 44
@@ -2409,7 +2409,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   %559 = load i32, ptr %558, align 8
   %560 = call i32 @cpu_freq_set_env(ptr noundef nonnull @.str.81, i32 noundef %555, i32 noundef %557, i32 noundef %559) #18
   %.not360 = icmp eq i32 %560, 0
-  %spec.select428 = select i1 %.not360, i32 %.29, i32 -1
+  %spec.select428 = select i1 %.not360, i32 %.18, i32 -1
   %561 = getelementptr inbounds i8, ptr %0, i64 64
   %562 = load i8, ptr %561, align 8
   %563 = trunc i8 %562 to i1
@@ -2489,7 +2489,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %598
 
 598:                                              ; preds = %596, %594
-  %.35 = phi i32 [ -1, %596 ], [ %.34, %594 ]
+  %.36 = phi i32 [ -1, %596 ], [ %.34, %594 ]
   %599 = load i32, ptr %591, align 8
   %600 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %10, ptr noundef nonnull @.str.94, ptr noundef nonnull @.str.7, i32 noundef %599)
   %.not368 = icmp eq i32 %600, 0
@@ -2500,7 +2500,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %603
 
 603:                                              ; preds = %598, %601, %590
-  %.36 = phi i32 [ -1, %601 ], [ %.35, %598 ], [ %.34, %590 ]
+  %.35 = phi i32 [ -1, %601 ], [ %.36, %598 ], [ %.34, %590 ]
   %604 = getelementptr inbounds i8, ptr %0, i64 264
   %605 = load ptr, ptr %604, align 8
   %.not369 = icmp eq ptr %605, null
@@ -2516,7 +2516,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %610
 
 610:                                              ; preds = %606, %608, %603
-  %.37 = phi i32 [ -1, %608 ], [ %.36, %606 ], [ %.36, %603 ]
+  %.37 = phi i32 [ -1, %608 ], [ %.35, %606 ], [ %.35, %603 ]
   %611 = getelementptr inbounds i8, ptr %0, i64 120
   %612 = load ptr, ptr %611, align 8
   %.not371 = icmp eq ptr %612, null
@@ -2628,7 +2628,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %663
 
 663:                                              ; preds = %661, %659
-  %.44 = phi i32 [ -1, %661 ], [ %.43, %659 ]
+  %.45 = phi i32 [ -1, %661 ], [ %.43, %659 ]
   %664 = load i32, ptr %656, align 4
   %665 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %10, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.7, i32 noundef %664)
   %.not381 = icmp eq i32 %665, 0
@@ -2639,7 +2639,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %668
 
 668:                                              ; preds = %663, %666, %655
-  %.45 = phi i32 [ -1, %666 ], [ %.44, %663 ], [ %.43, %655 ]
+  %.44 = phi i32 [ -1, %666 ], [ %.45, %663 ], [ %.43, %655 ]
   br i1 %1, label %676, label %669
 
 669:                                              ; preds = %668
@@ -2658,7 +2658,7 @@ unsetenvp.exit599:                                ; preds = %363, %357, %478, %4
   br label %676
 
 676:                                              ; preds = %674, %672, %669, %668
-  %.46 = phi i32 [ %.45, %668 ], [ -1, %674 ], [ %.45, %672 ], [ %.45, %669 ]
+  %.46 = phi i32 [ %.44, %668 ], [ -1, %674 ], [ %.44, %672 ], [ %.44, %669 ]
   %677 = getelementptr inbounds i8, ptr %0, i64 76
   %678 = load i32, ptr %677, align 4
   %.not384 = icmp eq i32 %678, 0
@@ -3002,7 +3002,7 @@ define ptr @uint16_array_to_str(i32 noundef %0, ptr noundef readonly %1) local_u
 
 10:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %.030 = phi ptr [ @.str.154, %.lr.ph ], [ %.2, %29 ]
+  %.030 = phi ptr [ @.str.154, %.lr.ph ], [ %.1, %29 ]
   %.02129 = phi i32 [ 0, %.lr.ph ], [ %.122, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = icmp ult i64 %indvars.iv.next, %8
@@ -3040,7 +3040,7 @@ define ptr @uint16_array_to_str(i32 noundef %0, ptr noundef readonly %1) local_u
 
 29:                                               ; preds = %26, %28, %18
   %.122 = phi i32 [ %19, %18 ], [ 0, %28 ], [ 0, %26 ]
-  %.2 = phi ptr [ %.030, %18 ], [ %spec.select, %28 ], [ %spec.select, %26 ]
+  %.1 = phi ptr [ %.030, %18 ], [ %spec.select, %28 ], [ %spec.select, %26 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %10, !llvm.loop !14
 
@@ -3415,7 +3415,7 @@ thread-pre-split.thread:                          ; preds = %103, %103, %thread-
 
 161:                                              ; preds = %177, %.lr.ph.i181
   %indvars.iv.i183 = phi i64 [ 0, %.lr.ph.i181 ], [ %indvars.iv.next.i184, %177 ]
-  %.030.i = phi ptr [ @.str.154, %.lr.ph.i181 ], [ %.2.i, %177 ]
+  %.030.i = phi ptr [ @.str.154, %.lr.ph.i181 ], [ %.1.i, %177 ]
   %.02129.i = phi i32 [ 0, %.lr.ph.i181 ], [ %.122.i, %177 ]
   %indvars.iv.next.i184 = add nuw nsw i64 %indvars.iv.i183, 1
   %162 = icmp ult i64 %indvars.iv.next.i184, %159
@@ -3451,7 +3451,7 @@ thread-pre-split.thread:                          ; preds = %103, %103, %thread-
 
 177:                                              ; preds = %176, %174, %169
   %.122.i = phi i32 [ %170, %169 ], [ 0, %176 ], [ 0, %174 ]
-  %.2.i = phi ptr [ %.030.i, %169 ], [ %spec.select.i185, %176 ], [ %spec.select.i185, %174 ]
+  %.1.i = phi ptr [ %.030.i, %169 ], [ %spec.select.i185, %176 ], [ %spec.select.i185, %174 ]
   %exitcond.not.i186 = icmp eq i64 %indvars.iv.next.i184, %159
   br i1 %exitcond.not.i186, label %._crit_edge.loopexit.i187, label %161, !llvm.loop !14
 
@@ -3998,7 +3998,7 @@ getenvp.exit136.thread:                           ; preds = %149, %.loopexit, %1
 
 173:                                              ; preds = %189, %.lr.ph.i137
   %indvars.iv.i139 = phi i64 [ 0, %.lr.ph.i137 ], [ %indvars.iv.next.i140, %189 ]
-  %.030.i = phi ptr [ @.str.154, %.lr.ph.i137 ], [ %.2.i, %189 ]
+  %.030.i = phi ptr [ @.str.154, %.lr.ph.i137 ], [ %.1.i, %189 ]
   %.02129.i = phi i32 [ 0, %.lr.ph.i137 ], [ %.122.i, %189 ]
   %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i139, 1
   %174 = icmp ult i64 %indvars.iv.next.i140, %171
@@ -4034,7 +4034,7 @@ getenvp.exit136.thread:                           ; preds = %149, %.loopexit, %1
 
 189:                                              ; preds = %188, %186, %181
   %.122.i = phi i32 [ %182, %181 ], [ 0, %188 ], [ 0, %186 ]
-  %.2.i = phi ptr [ %.030.i, %181 ], [ %spec.select.i141, %188 ], [ %spec.select.i141, %186 ]
+  %.1.i = phi ptr [ %.030.i, %181 ], [ %spec.select.i141, %188 ], [ %spec.select.i141, %186 ]
   %exitcond.not.i142 = icmp eq i64 %indvars.iv.next.i140, %171
   br i1 %exitcond.not.i142, label %._crit_edge.loopexit.i143, label %173, !llvm.loop !14
 
@@ -4193,7 +4193,7 @@ define void @env_array_for_step(ptr noundef %0, ptr noundef readonly %1, ptr nou
 
 53:                                               ; preds = %69, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %69 ]
-  %.030.i = phi ptr [ @.str.154, %.lr.ph.i ], [ %.2.i, %69 ]
+  %.030.i = phi ptr [ @.str.154, %.lr.ph.i ], [ %.1.i, %69 ]
   %.02129.i = phi i32 [ 0, %.lr.ph.i ], [ %.122.i, %69 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %54 = icmp ult i64 %indvars.iv.next.i, %51
@@ -4229,7 +4229,7 @@ define void @env_array_for_step(ptr noundef %0, ptr noundef readonly %1, ptr nou
 
 69:                                               ; preds = %68, %66, %61
   %.122.i = phi i32 [ %62, %61 ], [ 0, %68 ], [ 0, %66 ]
-  %.2.i = phi ptr [ %.030.i, %61 ], [ %spec.select.i, %68 ], [ %spec.select.i, %66 ]
+  %.1.i = phi ptr [ %.030.i, %61 ], [ %spec.select.i, %68 ], [ %spec.select.i, %66 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %51
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %53, !llvm.loop !14
 
@@ -4268,7 +4268,7 @@ uint16_array_to_str.exit:                         ; preds = %46, %._crit_edge.lo
 
 85:                                               ; preds = %101, %.lr.ph.i71
   %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.i71 ], [ %indvars.iv.next.i76, %101 ]
-  %.030.i74 = phi ptr [ @.str.154, %.lr.ph.i71 ], [ %.2.i79, %101 ]
+  %.030.i74 = phi ptr [ @.str.154, %.lr.ph.i71 ], [ %.1.i79, %101 ]
   %.02129.i75 = phi i32 [ 0, %.lr.ph.i71 ], [ %.122.i78, %101 ]
   %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i73, 1
   %86 = icmp ult i64 %indvars.iv.next.i76, %83
@@ -4304,7 +4304,7 @@ uint16_array_to_str.exit:                         ; preds = %46, %._crit_edge.lo
 
 101:                                              ; preds = %100, %98, %93
   %.122.i78 = phi i32 [ %94, %93 ], [ 0, %100 ], [ 0, %98 ]
-  %.2.i79 = phi ptr [ %.030.i74, %93 ], [ %spec.select.i77, %100 ], [ %spec.select.i77, %98 ]
+  %.1.i79 = phi ptr [ %.030.i74, %93 ], [ %spec.select.i77, %100 ], [ %spec.select.i77, %98 ]
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i76, %83
   br i1 %exitcond.not.i80, label %._crit_edge.loopexit.i81, label %85, !llvm.loop !14
 

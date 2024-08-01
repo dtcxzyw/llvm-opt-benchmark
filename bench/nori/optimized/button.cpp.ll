@@ -1023,7 +1023,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %70, %122
   br label %214
 
 214:                                              ; preds = %191, %199, %207, %203, %194
-  %.sroa.0113.0 = phi float [ %144, %191 ], [ %144, %207 ], [ %144, %203 ], [ %201, %199 ], [ %198, %194 ]
+  %.sroa.0113.1 = phi float [ %144, %191 ], [ %144, %207 ], [ %144, %203 ], [ %201, %199 ], [ %198, %194 ]
   %.sroa.0.0 = phi float [ %141, %191 ], [ %213, %207 ], [ %206, %203 ], [ %202, %199 ], [ %197, %194 ]
   %215 = load i32, ptr %157, align 8
   %216 = icmp sgt i32 %215, 1023
@@ -1057,7 +1057,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %70, %122
   br label %230
 
 230:                                              ; preds = %229, %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
-  %.sroa.0113.1 = phi float [ %144, %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge ], [ %.sroa.0113.0, %229 ]
+  %.sroa.0113.0 = phi float [ %144, %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge ], [ %.sroa.0113.1, %229 ]
   call void @nvgFontSize(ptr noundef %1, float noundef %127)
   call void @nvgFontFace(ptr noundef %1, ptr noundef nonnull @.str)
   call void @nvgTextAlign(ptr noundef %1, i32 noundef 17)
@@ -1068,11 +1068,11 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %70, %122
   %.sroa.22.0.copyload = load <2 x float>, ptr %.sroa.22.0..sroa_idx, align 4
   call void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.01.0.copyload, <2 x float> %.sroa.22.0.copyload)
   %233 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %128) #11
-  %234 = call float @nvgText(ptr noundef %1, float noundef %.sroa.0113.1, float noundef %145, ptr noundef %233, ptr noundef null)
+  %234 = call float @nvgText(ptr noundef %1, float noundef %.sroa.0113.0, float noundef %145, ptr noundef %233, ptr noundef null)
   call void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.017.0, <2 x float> %.sroa.4.0)
   %235 = fadd float %145, 1.000000e+00
   %236 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %128) #11
-  %237 = call float @nvgText(ptr noundef %1, float noundef %.sroa.0113.1, float noundef %235, ptr noundef %236, ptr noundef null)
+  %237 = call float @nvgText(ptr noundef %1, float noundef %.sroa.0113.0, float noundef %235, ptr noundef %236, ptr noundef null)
   ret void
 }
 

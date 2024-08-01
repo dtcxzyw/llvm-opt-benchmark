@@ -5576,7 +5576,7 @@ ehcleanup250:                                     ; preds = %lpad244, %lpad222
   br label %ehcleanup252
 
 if.end251:                                        ; preds = %if.end8.sink.split.i.i.i.i866, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i863, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i853, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit843, %if.then13.i.i641, %if.then.i.i634, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit631
-  %pg.0 = phi ptr [ null, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit631 ], [ null, %if.then.i.i634 ], [ null, %if.then13.i.i641 ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit843 ], [ %spec.select, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i853 ], [ %spec.select, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i863 ], [ %spec.select, %if.end8.sink.split.i.i.i.i866 ]
+  %pg.1 = phi ptr [ null, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit631 ], [ null, %if.then.i.i634 ], [ null, %if.then13.i.i641 ], [ %spec.select, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit843 ], [ %spec.select, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i853 ], [ %spec.select, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i863 ], [ %spec.select, %if.end8.sink.split.i.i.i.i866 ]
   %187 = load ptr, ptr %eq, align 8
   %bf.load.i.i876 = load i64, ptr %187, align 8
   %188 = and i64 %bf.load.i.i876, 1152920405095219200
@@ -5757,7 +5757,7 @@ ehcleanup256:                                     ; preds = %lpad96.loopexit, %l
   br label %ehcleanup263
 
 if.end257:                                        ; preds = %if.then.i.i.i942, %invoke.cont.i940, %land.lhs.true, %if.end91
-  %pg.1 = phi ptr [ null, %land.lhs.true ], [ null, %if.end91 ], [ %pg.0, %invoke.cont.i940 ], [ %pg.0, %if.then.i.i.i942 ]
+  %pg.0 = phi ptr [ null, %land.lhs.true ], [ null, %if.end91 ], [ %pg.1, %invoke.cont.i940 ], [ %pg.1, %if.then.i.i.i942 ]
   %209 = load ptr, ptr %lem, align 8
   store ptr %209, ptr %agg.tmp258, align 8
   %bf.load.i.i946 = load i64, ptr %209, align 8
@@ -5786,7 +5786,7 @@ if.then13.i.i952:                                 ; preds = %if.else.i.i950
           to label %invoke.cont259 unwind label %lpad26
 
 invoke.cont259:                                   ; preds = %if.else.i.i950, %if.then.i.i954, %if.then13.i.i952
-  invoke void @_ZN4cvc58internal9TrustNode12mkTrustLemmaENS0_12NodeTemplateILb1EEEPNS0_14ProofGeneratorE(ptr sret(%"class.cvc5::internal::TrustNode") align 8 %agg.result, ptr noundef nonnull %agg.tmp258, ptr noundef %pg.1)
+  invoke void @_ZN4cvc58internal9TrustNode12mkTrustLemmaENS0_12NodeTemplateILb1EEEPNS0_14ProofGeneratorE(ptr sret(%"class.cvc5::internal::TrustNode") align 8 %agg.result, ptr noundef nonnull %agg.tmp258, ptr noundef %pg.0)
           to label %invoke.cont261 unwind label %lpad260
 
 invoke.cont261:                                   ; preds = %invoke.cont259

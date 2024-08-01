@@ -214,7 +214,7 @@ for.body:                                         ; preds = %invoke.cont, %for.i
   %cnt.053 = phi i64 [ %cnt.1, %for.inc ], [ 0, %invoke.cont ]
   %i.050 = phi i64 [ %inc34, %for.inc ], [ 0, %invoke.cont ]
   %value.049 = phi i32 [ %value.1, %for.inc ], [ 0, %invoke.cont ]
-  %out.048 = phi ptr [ %out.3, %for.inc ], [ %call5.i.i.i.i1.i.i23, %invoke.cont ]
+  %out.048 = phi ptr [ %out.1, %for.inc ], [ %call5.i.i.i.i1.i.i23, %invoke.cont ]
   %call4 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %i.050) #11
   %0 = load i8, ptr %call4, align 1
   %conv = zext i8 %0 to i32
@@ -262,7 +262,7 @@ if.then21:                                        ; preds = %land.lhs.true
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then21, %land.lhs.true, %if.then15
-  %out.1 = phi ptr [ %incdec.ptr24, %if.then21 ], [ %incdec.ptr, %land.lhs.true ], [ %incdec.ptr, %if.then15 ]
+  %out.3 = phi ptr [ %incdec.ptr24, %if.then21 ], [ %incdec.ptr, %land.lhs.true ], [ %incdec.ptr, %if.then15 ]
   %call26 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %input, i64 noundef %i.050) #11
   %4 = load i8, ptr %call26, align 1
   %cmp28.not = icmp eq i8 %4, 61
@@ -270,17 +270,17 @@ if.end25:                                         ; preds = %if.then21, %land.lh
 
 if.then29:                                        ; preds = %if.end25
   %conv30 = trunc i32 %or to i8
-  %incdec.ptr31 = getelementptr inbounds i8, ptr %out.1, i64 1
-  store i8 %conv30, ptr %out.1, align 1
+  %incdec.ptr31 = getelementptr inbounds i8, ptr %out.3, i64 1
+  store i8 %conv30, ptr %out.3, align 1
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end25, %if.then29, %if.end12
-  %out.2 = phi ptr [ %incdec.ptr31, %if.then29 ], [ %out.1, %if.end25 ], [ %out.048, %if.end12 ]
+  %out.2 = phi ptr [ %incdec.ptr31, %if.then29 ], [ %out.3, %if.end25 ], [ %out.048, %if.end12 ]
   %inc = add i64 %cnt.053, 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end33
-  %out.3 = phi ptr [ %out.048, %for.body ], [ %out.2, %if.end33 ]
+  %out.1 = phi ptr [ %out.048, %for.body ], [ %out.2, %if.end33 ]
   %value.1 = phi i32 [ %value.049, %for.body ], [ %or, %if.end33 ]
   %cnt.1 = phi i64 [ %cnt.053, %for.body ], [ %inc, %if.end33 ]
   %inc34 = add nuw i64 %i.050, 1
@@ -289,7 +289,7 @@ for.inc:                                          ; preds = %for.body, %if.end33
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !6
 
 for.end:                                          ; preds = %for.inc, %invoke.cont
-  %out.0.lcssa = phi ptr [ %call5.i.i.i.i1.i.i23, %invoke.cont ], [ %out.3, %for.inc ]
+  %out.0.lcssa = phi ptr [ %call5.i.i.i.i1.i.i23, %invoke.cont ], [ %out.1, %for.inc ]
   %sub.ptr.lhs.cast = ptrtoint ptr %out.0.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call5.i.i.i.i1.i.i23 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -377,10 +377,10 @@ if.then5.i:                                       ; preds = %if.else.i
   br label %cleanup.thread
 
 cleanup.thread:                                   ; preds = %if.then5.i, %if.then.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i26, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i, %if.else.i
-  %ret.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i28, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i ], [ %call5.i.i.i.i1.i.i23, %if.else.i ], [ %call5.i.i.i.i1.i.i23, %if.then.i.i.i.i.i.i.i.i.i26 ], [ %call5.i.i.i.i1.i.i23, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i1.i.i23, %if.then5.i ]
+  %ret.sroa.0.1 = phi ptr [ %call5.i.i.i.i.i28, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i ], [ %call5.i.i.i.i1.i.i23, %if.else.i ], [ %call5.i.i.i.i1.i.i23, %if.then.i.i.i.i.i.i.i.i.i26 ], [ %call5.i.i.i.i1.i.i23, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i1.i.i23, %if.then5.i ]
   %ret.sroa.10.0 = phi ptr [ %add.ptr36.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i ], [ %__first.addr.0.i.i.i.i.i, %if.else.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i26 ], [ %incdec.ptr.i.i.i.i.i24, %if.then.i.i.i.i.i ], [ %spec.select, %if.then5.i ]
   %ret.sroa.16.0 = phi ptr [ %add.ptr39.i.i, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i ], [ %add.ptr.i.i.i, %if.else.i ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i26 ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.then5.i ]
-  store ptr %ret.sroa.0.0, ptr %agg.result, align 8
+  store ptr %ret.sroa.0.1, ptr %agg.result, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %ret.sroa.10.0, ptr %_M_finish.i.i.i.i, align 8
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16

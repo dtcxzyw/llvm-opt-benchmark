@@ -134,13 +134,13 @@ for.inc71:                                        ; preds = %for.body51, %land.l
   br i1 %tobool50.not, label %return, label %for.body51, !llvm.loop !6
 
 if.end77:                                         ; preds = %land.lhs.true65, %if.end41
-  %e_pick.3 = phi ptr [ %e_pick.1, %if.end41 ], [ %e.166, %land.lhs.true65 ]
-  %hs.3 = phi ptr [ %pick.1, %if.end41 ], [ %7, %land.lhs.true65 ]
+  %e_pick.2 = phi ptr [ %e_pick.1, %if.end41 ], [ %e.166, %land.lhs.true65 ]
+  %hs.1 = phi ptr [ %pick.1, %if.end41 ], [ %7, %land.lhs.true65 ]
   %headerout = getelementptr inbounds i8, ptr %easy, i64 4808
-  %name.i = getelementptr inbounds i8, ptr %hs.3, i64 24
+  %name.i = getelementptr inbounds i8, ptr %hs.1, i64 24
   %11 = load ptr, ptr %name.i, align 8
   store ptr %11, ptr %headerout, align 8
-  %value.i = getelementptr inbounds i8, ptr %hs.3, i64 32
+  %value.i = getelementptr inbounds i8, ptr %hs.1, i64 32
   %12 = load ptr, ptr %value.i, align 8
   %value2.i = getelementptr inbounds i8, ptr %easy, i64 4816
   store ptr %12, ptr %value2.i, align 8
@@ -148,14 +148,14 @@ if.end77:                                         ; preds = %land.lhs.true65, %i
   store i64 %amount.1, ptr %amount3.i, align 8
   %index4.i = getelementptr inbounds i8, ptr %easy, i64 4832
   store i64 %nameindex, ptr %index4.i, align 8
-  %type.i = getelementptr inbounds i8, ptr %hs.3, i64 44
+  %type.i = getelementptr inbounds i8, ptr %hs.1, i64 44
   %13 = load i8, ptr %type.i, align 4
   %conv.i = zext i8 %13 to i32
   %or.i = or disjoint i32 %conv.i, 134217728
   %origin.i = getelementptr inbounds i8, ptr %easy, i64 4840
   store i32 %or.i, ptr %origin.i, align 8
   %anchor.i = getelementptr inbounds i8, ptr %easy, i64 4848
-  store ptr %e_pick.3, ptr %anchor.i, align 8
+  store ptr %e_pick.2, ptr %anchor.i, align 8
   store ptr %headerout, ptr %hout, align 8
   br label %return
 
@@ -203,8 +203,8 @@ if.end11:                                         ; preds = %if.else, %if.end9
   br i1 %tobool12.not, label %return, label %do.body
 
 do.body:                                          ; preds = %if.end11, %if.end20
-  %pick.1 = phi ptr [ %5, %if.end20 ], [ %pick.0, %if.end11 ]
-  %2 = load ptr, ptr %pick.1, align 8
+  %pick.2 = phi ptr [ %5, %if.end20 ], [ %pick.0, %if.end11 ]
+  %2 = load ptr, ptr %pick.2, align 8
   %type14 = getelementptr inbounds i8, ptr %2, i64 44
   %3 = load i8, ptr %type14, align 4
   %conv = zext i8 %3 to i32
@@ -219,7 +219,7 @@ land.lhs.true:                                    ; preds = %do.body
   br i1 %cmp17, label %if.end26, label %if.end20
 
 if.end20:                                         ; preds = %land.lhs.true, %do.body
-  %next21 = getelementptr inbounds i8, ptr %pick.1, i64 16
+  %next21 = getelementptr inbounds i8, ptr %pick.2, i64 16
   %5 = load ptr, ptr %next21, align 8
   %tobool22.not = icmp eq ptr %5, null
   br i1 %tobool22.not, label %return, label %do.body, !llvm.loop !7
@@ -265,7 +265,7 @@ land.lhs.true39:                                  ; preds = %land.lhs.true35
 
 if.end45:                                         ; preds = %land.lhs.true39, %land.lhs.true35, %for.body
   %amount.1 = phi i64 [ %amount.039, %land.lhs.true35 ], [ %amount.039, %for.body ], [ %spec.select32, %land.lhs.true39 ]
-  %cmp46 = icmp eq ptr %e.041, %pick.1
+  %cmp46 = icmp eq ptr %e.041, %pick.2
   %sub = add i64 %amount.1, -1
   %spec.select33 = select i1 %cmp46, i64 %sub, i64 %index.040
   %next50 = getelementptr inbounds i8, ptr %e.041, i64 16
@@ -294,7 +294,7 @@ for.end:                                          ; preds = %if.end45, %if.end26
   %origin.i = getelementptr inbounds i8, ptr %easy, i64 4888
   store i32 %or.i, ptr %origin.i, align 8
   %anchor.i = getelementptr inbounds i8, ptr %easy, i64 4896
-  store ptr %pick.1, ptr %anchor.i, align 8
+  store ptr %pick.2, ptr %anchor.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end20, %if.end11, %if.then6, %entry, %for.end
@@ -435,33 +435,33 @@ if.end.i:                                         ; preds = %while.end48.i
   br label %return
 
 land.rhs:                                         ; preds = %while.cond.preheader, %while.body
-  %hlen.055 = phi i64 [ %dec, %while.body ], [ %sub.ptr.sub, %while.cond.preheader ]
-  %header.addr.054 = phi ptr [ %incdec.ptr, %while.body ], [ %header, %while.cond.preheader ]
-  %11 = load i8, ptr %header.addr.054, align 1
+  %hlen.155 = phi i64 [ %dec, %while.body ], [ %sub.ptr.sub, %while.cond.preheader ]
+  %header.addr.154 = phi ptr [ %incdec.ptr, %while.body ], [ %header, %while.cond.preheader ]
+  %11 = load i8, ptr %header.addr.154, align 1
   switch i8 %11, label %if.end36 [
     i8 32, label %while.body
     i8 9, label %while.body
   ]
 
 while.body:                                       ; preds = %land.rhs, %land.rhs
-  %incdec.ptr = getelementptr inbounds i8, ptr %header.addr.054, i64 1
-  %dec = add i64 %hlen.055, -1
+  %incdec.ptr = getelementptr inbounds i8, ptr %header.addr.154, i64 1
+  %dec = add i64 %hlen.155, -1
   %tobool25.not = icmp eq i64 %dec, 0
   br i1 %tobool25.not, label %return, label %land.rhs, !llvm.loop !11
 
 if.end36:                                         ; preds = %land.rhs, %if.end11
-  %header.addr.1 = phi ptr [ %header, %if.end11 ], [ %header.addr.054, %land.rhs ]
-  %hlen.1 = phi i64 [ %sub.ptr.sub, %if.end11 ], [ %hlen.055, %land.rhs ]
+  %header.addr.0 = phi ptr [ %header, %if.end11 ], [ %header.addr.154, %land.rhs ]
+  %hlen.0 = phi i64 [ %sub.ptr.sub, %if.end11 ], [ %hlen.155, %land.rhs ]
   %12 = load ptr, ptr @Curl_ccalloc, align 8
-  %add = add i64 %hlen.1, 48
+  %add = add i64 %hlen.0, 48
   %call37 = tail call ptr %12(i64 noundef 1, i64 noundef %add) #4
   %tobool38.not = icmp eq ptr %call37, null
   br i1 %tobool38.not, label %return, label %if.end40
 
 if.end40:                                         ; preds = %if.end36
   %buffer = getelementptr inbounds i8, ptr %call37, i64 45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buffer, ptr nonnull align 1 %header.addr.1, i64 %hlen.1, i1 false)
-  %arrayidx42 = getelementptr inbounds [1 x i8], ptr %buffer, i64 0, i64 %hlen.1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %buffer, ptr nonnull align 1 %header.addr.0, i64 %hlen.0, i1 false)
+  %arrayidx42 = getelementptr inbounds [1 x i8], ptr %buffer, i64 0, i64 %hlen.0
   store i8 0, ptr %arrayidx42, align 1
   %cmp.i = icmp eq i8 %type, 16
   br i1 %cmp.i, label %if.then.i, label %while.cond.i.preheader

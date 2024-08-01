@@ -1120,7 +1120,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %127
   %indvars.iv = phi i64 [ %122, %.lr.ph.preheader ], [ %indvars.iv.next, %127 ]
-  %.050 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %127 ]
+  %.150 = phi i32 [ 0, %.lr.ph.preheader ], [ %.2, %127 ]
   %.01648 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %127 ]
   %123 = getelementptr ptr, ptr %1, i64 %indvars.iv
   %124 = load ptr, ptr %123, align 8
@@ -1133,7 +1133,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %.b43, label %.loopexit, label %127
 
 127:                                              ; preds = %126, %.lr.ph
-  %.1 = phi i32 [ %125, %126 ], [ %.050, %.lr.ph ]
+  %.2 = phi i32 [ %125, %126 ], [ %.150, %.lr.ph ]
   %.not47 = icmp eq i32 %125, 2
   %spec.select = select i1 %.not47, i32 %.01648, i32 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -1143,14 +1143,14 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %130, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %126, %127, %118, %107, %100, %99, %97
-  %.2 = phi i32 [ 1, %100 ], [ 0, %99 ], [ 0, %97 ], [ 1, %107 ], [ 0, %118 ], [ %125, %126 ], [ %.1, %127 ]
+  %.0 = phi i32 [ 1, %100 ], [ 0, %99 ], [ 0, %97 ], [ 1, %107 ], [ 0, %118 ], [ %125, %126 ], [ %.2, %127 ]
   %131 = load ptr, ptr @hash_buf, align 8
   call void @g_free(ptr noundef %131) #15
   %132 = load ptr, ptr @hd, align 8
   call void @gcry_md_close(ptr noundef %132) #15
   call void @wtap_cleanup() #15
   call void @free_progdirs() #15
-  ret i32 %.2
+  ret i32 %.0
 }
 
 declare void @failure_message(ptr noundef, ptr noundef) #1
@@ -1488,14 +1488,14 @@ calculate_hashes.exit:                            ; preds = %24, %61, %63
   br label %96
 
 96:                                               ; preds = %.lr.ph192, %197
-  %.065191 = phi ptr [ null, %.lr.ph192 ], [ %.3, %197 ]
+  %.065191 = phi ptr [ null, %.lr.ph192 ], [ %.1, %197 ]
   %.068190 = phi i32 [ 0, %.lr.ph192 ], [ %.270, %197 ]
   %.071189 = phi i32 [ 0, %.lr.ph192 ], [ %.172, %197 ]
   %.073188 = phi i32 [ -2, %.lr.ph192 ], [ %.275, %197 ]
   %.076187 = phi i32 [ -2, %.lr.ph192 ], [ %.379, %197 ]
   %.080186 = phi i32 [ 1, %.lr.ph192 ], [ %.181, %197 ]
-  %.082185 = phi i32 [ 0, %.lr.ph192 ], [ %.284, %197 ]
-  %.085184 = phi i32 [ -1, %.lr.ph192 ], [ %.388, %197 ]
+  %.082185 = phi i32 [ 0, %.lr.ph192 ], [ %.183, %197 ]
+  %.085184 = phi i32 [ -1, %.lr.ph192 ], [ %.186, %197 ]
   %.089183 = phi i64 [ 0, %.lr.ph192 ], [ %.190, %197 ]
   %97 = load i32, ptr %88, align 4
   %98 = and i32 %97, 1
@@ -1576,7 +1576,7 @@ calculate_hashes.exit:                            ; preds = %24, %61, %63
   br i1 %129, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.1181 = phi ptr [ %130, %.lr.ph ], [ %.065191, %.preheader ]
+  %.3181 = phi ptr [ %130, %.lr.ph ], [ %.065191, %.preheader ]
   %.066180 = phi i32 [ %137, %.lr.ph ], [ 0, %.preheader ]
   %130 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #19
   store i32 %123, ptr %130, align 8
@@ -1586,8 +1586,8 @@ calculate_hashes.exit:                            ; preds = %24, %61, %63
   store ptr %132, ptr %133, align 8
   %134 = getelementptr inbounds i8, ptr %130, i64 16
   store ptr null, ptr %134, align 8
-  %135 = icmp eq ptr %.1181, null
-  %136 = getelementptr inbounds i8, ptr %.1181, i64 16
+  %135 = icmp eq ptr %.3181, null
+  %136 = getelementptr inbounds i8, ptr %.3181, i64 16
   %.sink220 = select i1 %135, ptr %73, ptr %136
   store ptr %130, ptr %.sink220, align 8
   %137 = add i32 %.066180, 1
@@ -1604,7 +1604,7 @@ calculate_hashes.exit:                            ; preds = %24, %61, %63
   %spec.select114 = call i32 @llvm.umin.i32(i32 %141, i32 %.085184)
   %spec.select115 = call i32 @llvm.umax.i32(i32 %141, i32 %.082185)
   %.287 = select i1 %143, i32 %spec.select114, i32 %.085184
-  %.183 = select i1 %143, i32 %spec.select115, i32 %.082185
+  %.284 = select i1 %143, i32 %spec.select115, i32 %.082185
   %144 = load i32, ptr %94, align 8
   %145 = icmp sgt i32 %144, 0
   br i1 %145, label %146, label %155
@@ -1699,10 +1699,10 @@ calculate_hashes.exit:                            ; preds = %24, %61, %63
 
 197:                                              ; preds = %184, %177, %194, %189, %116
   %.190 = phi i64 [ %122, %177 ], [ %122, %184 ], [ %122, %189 ], [ %122, %194 ], [ %.089183, %116 ]
-  %.388 = phi i32 [ %.287, %177 ], [ %.287, %184 ], [ %.287, %189 ], [ %.287, %194 ], [ %.085184, %116 ]
-  %.284 = phi i32 [ %.183, %177 ], [ %.183, %184 ], [ %.183, %189 ], [ %.183, %194 ], [ %.082185, %116 ]
+  %.186 = phi i32 [ %.287, %177 ], [ %.287, %184 ], [ %.287, %189 ], [ %.287, %194 ], [ %.085184, %116 ]
+  %.183 = phi i32 [ %.284, %177 ], [ %.284, %184 ], [ %.284, %189 ], [ %.284, %194 ], [ %.082185, %116 ]
   %.172 = phi i32 [ %123, %177 ], [ %123, %184 ], [ %123, %189 ], [ %123, %194 ], [ %.071189, %116 ]
-  %.3 = phi ptr [ %.2, %177 ], [ %.2, %184 ], [ %.2, %189 ], [ %.2, %194 ], [ %.065191, %116 ]
+  %.1 = phi ptr [ %.2, %177 ], [ %.2, %184 ], [ %.2, %189 ], [ %.2, %194 ], [ %.065191, %116 ]
   call void @wtap_rec_reset(ptr noundef nonnull %10) #15
   %198 = load ptr, ptr %20, align 8
   %199 = call i32 @wtap_read(ptr noundef %198, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #15
@@ -1711,8 +1711,8 @@ calculate_hashes.exit:                            ; preds = %24, %61, %63
 
 ._crit_edge:                                      ; preds = %197, %66
   %.089.lcssa = phi i64 [ 0, %66 ], [ %.190, %197 ]
-  %.085.lcssa = phi i32 [ -1, %66 ], [ %.388, %197 ]
-  %.082.lcssa = phi i32 [ 0, %66 ], [ %.284, %197 ]
+  %.085.lcssa = phi i32 [ -1, %66 ], [ %.186, %197 ]
+  %.082.lcssa = phi i32 [ 0, %66 ], [ %.183, %197 ]
   %.080.lcssa = phi i32 [ 1, %66 ], [ %.181, %197 ]
   %.076.lcssa = phi i32 [ -2, %66 ], [ %.379, %197 ]
   %.073.lcssa = phi i32 [ -2, %66 ], [ %.275, %197 ]

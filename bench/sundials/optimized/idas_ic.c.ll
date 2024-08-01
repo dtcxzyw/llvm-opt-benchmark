@@ -317,11 +317,11 @@ define range(i32 -99, 1) i32 @IDACalcIC(ptr noundef %0, i32 noundef %1, double n
 
 .preheader374:                                    ; preds = %147, %.loopexit373
   %.0247446 = phi i32 [ 1, %147 ], [ %644, %.loopexit373 ]
-  %.2445 = phi double [ %.1250, %147 ], [ %.3425, %.loopexit373 ]
+  %.2445 = phi double [ %.1250, %147 ], [ %.4425, %.loopexit373 ]
   br i1 %.not278438, label %IDANlsIC.exit.thread320, label %.lr.ph441
 
 .lr.ph441:                                        ; preds = %.preheader374, %.loopexit366
-  %.3440 = phi double [ %610, %.loopexit366 ], [ %.2445, %.preheader374 ]
+  %.4440 = phi double [ %610, %.loopexit366 ], [ %.2445, %.preheader374 ]
   %.0251439 = phi i32 [ %612, %.loopexit366 ], [ 1, %.preheader374 ]
   %194 = load i32, ptr %40, align 4
   %.not.i = icmp eq i32 %194, 0
@@ -1067,7 +1067,7 @@ IDANewtonIC.exit.i:                               ; preds = %560, %.preheader86.
   br i1 %609, label %.lr.ph437, label %.loopexit366
 
 .loopexit366:                                     ; preds = %.lr.ph437, %.preheader365, %588, %587
-  %610 = fmul double %.3440, 1.000000e-01
+  %610 = fmul double %.4440, 1.000000e-01
   %611 = fdiv double 1.000000e+00, %610
   store double %611, ptr %148, align 8
   store double %610, ptr %142, align 8
@@ -1075,7 +1075,7 @@ IDANewtonIC.exit.i:                               ; preds = %560, %.preheader86.
   br label %.lr.ph441
 
 IDANlsIC.exit.thread320:                          ; preds = %.loopexit102.i, %310, %IDALineSrch.exit.i.i, %.preheader374
-  %.3425 = phi double [ %.2445, %.preheader374 ], [ %.3440, %IDALineSrch.exit.i.i ], [ %.3440, %310 ], [ %.3440, %.loopexit102.i ]
+  %.4425 = phi double [ %.2445, %.preheader374 ], [ %.4440, %IDALineSrch.exit.i.i ], [ %.4440, %310 ], [ %.4440, %.loopexit102.i ]
   %613 = load ptr, ptr %192, align 8
   %614 = load ptr, ptr %52, align 8
   %615 = load ptr, ptr %124, align 8
@@ -1133,17 +1133,17 @@ IDANlsIC.exit.thread320:                          ; preds = %.loopexit102.i, %31
   br i1 %exitcond.not, label %IDANlsIC.exit.thread324, label %.preheader374
 
 IDANlsIC.exit.thread324:                          ; preds = %623, %IDANlsIC.exit.thread320, %.loopexit373, %.loopexit357, %.thread316
-  %.3262 = phi i32 [ %.0.i.ph.ph, %.thread316 ], [ %.0.i.ph, %.loopexit357 ], [ 0, %.loopexit373 ], [ -24, %IDANlsIC.exit.thread320 ], [ -24, %623 ]
-  %.4 = phi double [ %.3440, %.thread316 ], [ %.3440, %.loopexit357 ], [ %.3425, %.loopexit373 ], [ %.3425, %IDANlsIC.exit.thread320 ], [ %.3425, %623 ]
+  %.1260 = phi i32 [ %.0.i.ph.ph, %.thread316 ], [ %.0.i.ph, %.loopexit357 ], [ 0, %.loopexit373 ], [ -24, %IDANlsIC.exit.thread320 ], [ -24, %623 ]
+  %.3 = phi double [ %.4440, %.thread316 ], [ %.4440, %.loopexit357 ], [ %.4425, %.loopexit373 ], [ %.4425, %IDANlsIC.exit.thread320 ], [ %.4425, %623 ]
   br i1 %19, label %645, label %647
 
 645:                                              ; preds = %IDANlsIC.exit.thread324
   %646 = getelementptr inbounds i8, ptr %0, i64 1256
-  store double %.4, ptr %646, align 8
+  store double %.3, ptr %646, align 8
   br label %647
 
 647:                                              ; preds = %645, %IDANlsIC.exit.thread324
-  %.not283 = icmp eq i32 %.3262, 0
+  %.not283 = icmp eq i32 %.1260, 0
   br i1 %.not283, label %659, label %648
 
 648:                                              ; preds = %647
@@ -1165,7 +1165,7 @@ IDANlsIC.exit.thread324:                          ; preds = %623, %IDANlsIC.exit
   br label %657
 
 657:                                              ; preds = %652, %648
-  %658 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.3262)
+  %658 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.1260)
   br label %986
 
 659:                                              ; preds = %647
@@ -1255,11 +1255,11 @@ IDANlsIC.exit.thread324:                          ; preds = %623, %IDANlsIC.exit
 
 .preheader353:                                    ; preds = %.preheader355, %._crit_edge457
   %.1459 = phi i32 [ %974, %._crit_edge457 ], [ 1, %.preheader355 ]
-  %.5458 = phi double [ %.6451, %._crit_edge457 ], [ %.4, %.preheader355 ]
+  %.5458 = phi double [ %.7451, %._crit_edge457 ], [ %.3, %.preheader355 ]
   br label %705
 
 705:                                              ; preds = %.loopexit347, %.preheader353
-  %.6451 = phi double [ %.5458, %.preheader353 ], [ %951, %.loopexit347 ]
+  %.7451 = phi double [ %.5458, %.preheader353 ], [ %951, %.loopexit347 ]
   %.1252450 = phi i32 [ 1, %.preheader353 ], [ %953, %.loopexit347 ]
   %706 = load ptr, ptr %157, align 8
   %707 = load i32, ptr %158, align 8
@@ -1696,7 +1696,7 @@ IDASensNewtonIC.exit.i:                           ; preds = %896, %.preheader59.
   br i1 %950, label %.lr.ph448, label %.loopexit347
 
 .loopexit347:                                     ; preds = %.lr.ph448, %.loopexit.thread, %.preheader
-  %951 = fmul double %.6451, 1.000000e-01
+  %951 = fmul double %.7451, 1.000000e-01
   %952 = fdiv double 1.000000e+00, %951
   store double %952, ptr %148, align 8
   store double %951, ptr %142, align 8
@@ -1743,13 +1743,13 @@ IDASensNlsIC.exit.thread334:                      ; preds = %766, %IDASensLineSr
   br i1 %exitcond543.not, label %IDASensNlsIC.exit.thread338, label %.preheader353
 
 IDASensNlsIC.exit.thread338:                      ; preds = %._crit_edge457, %IDASensNlsIC.exit.thread334, %.loopexit.thread, %.loopexit, %._crit_edge457.us, %.preheader353.us, %.thread330
-  %.7266 = phi i32 [ %.051.i.ph.ph, %.thread330 ], [ -24, %.preheader353.us ], [ 0, %._crit_edge457.us ], [ %.051.i.ph, %.loopexit ], [ 5, %.loopexit.thread ], [ -24, %IDASensNlsIC.exit.thread334 ], [ 0, %._crit_edge457 ]
-  %.7 = phi double [ %.6451, %.thread330 ], [ %.4, %.preheader353.us ], [ %.4, %._crit_edge457.us ], [ %.6451, %.loopexit ], [ %.6451, %.loopexit.thread ], [ %.6451, %IDASensNlsIC.exit.thread334 ], [ %.6451, %._crit_edge457 ]
+  %.5264 = phi i32 [ %.051.i.ph.ph, %.thread330 ], [ -24, %.preheader353.us ], [ 0, %._crit_edge457.us ], [ %.051.i.ph, %.loopexit ], [ 5, %.loopexit.thread ], [ -24, %IDASensNlsIC.exit.thread334 ], [ 0, %._crit_edge457 ]
+  %.6 = phi double [ %.7451, %.thread330 ], [ %.3, %.preheader353.us ], [ %.3, %._crit_edge457.us ], [ %.7451, %.loopexit ], [ %.7451, %.loopexit.thread ], [ %.7451, %IDASensNlsIC.exit.thread334 ], [ %.7451, %._crit_edge457 ]
   br i1 %19, label %975, label %977
 
 975:                                              ; preds = %IDASensNlsIC.exit.thread338
   %976 = getelementptr inbounds i8, ptr %0, i64 1256
-  store double %.7, ptr %976, align 8
+  store double %.6, ptr %976, align 8
   br label %977
 
 977:                                              ; preds = %975, %IDASensNlsIC.exit.thread338
@@ -1763,11 +1763,11 @@ IDASensNlsIC.exit.thread338:                      ; preds = %._crit_edge457, %ID
   %982 = load ptr, ptr %160, align 8
   %983 = load i32, ptr %158, align 8
   tail call void @N_VDestroyVectorArray(ptr noundef %982, i32 noundef %983) #3
-  %.not290 = icmp eq i32 %.7266, 0
+  %.not290 = icmp eq i32 %.5264, 0
   br i1 %.not290, label %986, label %984
 
 984:                                              ; preds = %977
-  %985 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.7266)
+  %985 = tail call fastcc i32 @IDAICFailFlag(ptr noundef nonnull %0, i32 noundef %.5264)
   br label %986
 
 986:                                              ; preds = %977, %680, %669, %660, %664, %11, %984, %657, %112, %38, %24, %16, %10, %5

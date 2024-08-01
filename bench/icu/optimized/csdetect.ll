@@ -1591,14 +1591,14 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 for.body11:                                       ; preds = %for.body11.lr.ph, %for.body11
   %indvars.iv23 = phi i64 [ 0, %for.body11.lr.ph ], [ %indvars.iv.next24, %for.body11 ]
-  %count.217 = phi i32 [ 0, %for.body11.lr.ph ], [ %spec.select13, %for.body11 ]
+  %count.317 = phi i32 [ 0, %for.body11.lr.ph ], [ %spec.select13, %for.body11 ]
   %arrayidx13 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv23
   %7 = load ptr, ptr %arrayidx13, align 8
   %isDefaultEnabled = getelementptr inbounds i8, ptr %7, i64 8
   %8 = load i8, ptr %isDefaultEnabled, align 8
   %tobool14.not = icmp ne i8 %8, 0
   %inc16 = zext i1 %tobool14.not to i32
-  %spec.select13 = add nuw nsw i32 %count.217, %inc16
+  %spec.select13 = add nuw nsw i32 %count.317, %inc16
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 28
   br i1 %exitcond26.not, label %return, label %for.body11, !llvm.loop !13
@@ -1680,10 +1680,10 @@ if.end:                                           ; preds = %if.then19, %while.b
   %20 = phi i32 [ %.pre30, %if.then19 ], [ %13, %while.body ]
   %21 = phi ptr [ %.pre, %if.then19 ], [ %12, %while.body ]
   %.b2128 = phi i1 [ %.b21.pre, %if.then19 ], [ %.b21, %while.body ]
-  %currName.1 = phi ptr [ %call27, %if.then19 ], [ null, %while.body ]
+  %currName.2 = phi ptr [ %call27, %if.then19 ], [ null, %while.body ]
   %inc30 = add nsw i32 %20, 1
   store i32 %inc30, ptr %21, align 8
-  %cmp10 = icmp eq ptr %currName.1, null
+  %cmp10 = icmp eq ptr %currName.2, null
   br i1 %cmp10, label %land.rhs, label %if.end61, !llvm.loop !14
 
 land.rhs34:                                       ; preds = %if.else, %if.end54
@@ -1718,23 +1718,23 @@ if.end54:                                         ; preds = %if.then45, %while.b
   %30 = phi i32 [ %.pre35, %if.then45 ], [ %23, %while.body39 ]
   %31 = phi ptr [ %.pre34, %if.then45 ], [ %22, %while.body39 ]
   %.b32 = phi i1 [ %.b.pre, %if.then45 ], [ %.b, %while.body39 ]
-  %currName.3 = phi ptr [ %call53, %if.then45 ], [ null, %while.body39 ]
+  %currName.4 = phi ptr [ %call53, %if.then45 ], [ null, %while.body39 ]
   %inc57 = add nsw i32 %30, 1
   store i32 %inc57, ptr %31, align 8
-  %cmp33 = icmp eq ptr %currName.3, null
+  %cmp33 = icmp eq ptr %currName.4, null
   br i1 %cmp33, label %land.rhs34, label %if.end61, !llvm.loop !15
 
 if.end61:                                         ; preds = %land.rhs, %if.end, %land.rhs34, %if.end54, %if.then2, %entry
-  %currName.4 = phi ptr [ %call, %if.then2 ], [ null, %entry ], [ %currName.3, %if.end54 ], [ null, %land.rhs34 ], [ %currName.1, %if.end ], [ null, %land.rhs ]
+  %currName.0 = phi ptr [ %call, %if.then2 ], [ null, %entry ], [ %currName.4, %if.end54 ], [ null, %land.rhs34 ], [ %currName.2, %if.end ], [ null, %land.rhs ]
   %cmp62.not = icmp eq ptr %resultLength, null
   br i1 %cmp62.not, label %if.end66, label %if.then63
 
 if.then63:                                        ; preds = %if.end61
-  %cmp64 = icmp eq ptr %currName.4, null
+  %cmp64 = icmp eq ptr %currName.0, null
   br i1 %cmp64, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.then63
-  %call65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %currName.4) #17
+  %call65 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %currName.0) #17
   %conv = trunc i64 %call65 to i32
   br label %cond.end
 
@@ -1744,7 +1744,7 @@ cond.end:                                         ; preds = %if.then63, %cond.fa
   br label %if.end66
 
 if.end66:                                         ; preds = %cond.end, %if.end61
-  ret ptr %currName.4
+  ret ptr %currName.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable

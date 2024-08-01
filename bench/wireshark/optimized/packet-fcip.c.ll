@@ -233,8 +233,8 @@ define internal fastcc range(i32 0, 2) i32 @dissect_fcip(ptr noundef %0, ptr nou
 
 20:                                               ; preds = %.lr.ph, %dissect_fcip_sf.exit
   %.098151 = phi ptr [ null, %.lr.ph ], [ %.1184, %dissect_fcip_sf.exit ]
-  %.0100150 = phi i8 [ 0, %.lr.ph ], [ %.2183, %dissect_fcip_sf.exit ]
-  %.0102149 = phi i8 [ 0, %.lr.ph ], [ %.2104181, %dissect_fcip_sf.exit ]
+  %.0100150 = phi i8 [ 0, %.lr.ph ], [ %.1101183, %dissect_fcip_sf.exit ]
+  %.0102149 = phi i8 [ 0, %.lr.ph ], [ %.1103181, %dissect_fcip_sf.exit ]
   %.0105148 = phi i32 [ 0, %.lr.ph ], [ %.1106178, %dissect_fcip_sf.exit ]
   %.0107147 = phi i32 [ %6, %.lr.ph ], [ %215, %dissect_fcip_sf.exit ]
   %21 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0105148) #2
@@ -427,8 +427,8 @@ get_next_fcip_header_offset.exit:                 ; preds = %61, %64, %67, %69
   br label %115
 
 115:                                              ; preds = %102, %110, %94
-  %.1103 = phi i8 [ %.0102149, %94 ], [ %101, %102 ], [ %101, %110 ]
-  %.1101 = phi i8 [ %.0100150, %94 ], [ %103, %102 ], [ %.0100150, %110 ]
+  %.2104 = phi i8 [ %.0102149, %94 ], [ %101, %102 ], [ %101, %110 ]
+  %.2 = phi i8 [ %.0100150, %94 ], [ %103, %102 ], [ %.0100150, %110 ]
   %.099 = phi ptr [ %96, %94 ], [ %109, %102 ], [ %114, %110 ]
   %116 = load i32, ptr @ett_fcip, align 4
   %117 = call ptr @proto_item_add_subtree(ptr noundef %.099, i32 noundef %116) #2
@@ -513,11 +513,11 @@ dissect_fcencap_header.exit:                      ; preds = %115, %144
 
 .thread:                                          ; preds = %163, %171, %177
   %.1185 = phi ptr [ %.098151, %177 ], [ %117, %171 ], [ %117, %163 ]
-  %.2182 = phi i8 [ %.0100150, %177 ], [ %.1101, %171 ], [ %.1101, %163 ]
-  %.2104180 = phi i8 [ %.0102149, %177 ], [ %.1103, %171 ], [ %.1103, %163 ]
+  %.1101182 = phi i8 [ %.0100150, %177 ], [ %.2, %171 ], [ %.2, %163 ]
+  %.1103180 = phi i8 [ %.0102149, %177 ], [ %.2104, %171 ], [ %.2104, %163 ]
   %.1106179 = phi i32 [ %.0100120.i, %177 ], [ %169, %171 ], [ %169, %163 ]
   store i8 0, ptr %19, align 4
-  switch i8 %.2104180, label %.sink.split [
+  switch i8 %.1103180, label %.sink.split [
     i8 0, label %182
     i8 46, label %178
     i8 45, label %178
@@ -533,7 +533,7 @@ dissect_fcencap_header.exit:                      ; preds = %115, %144
 
 .sink.split:                                      ; preds = %.thread, %179, %178
   %180 = phi i8 [ 0, %.thread ], [ 2, %179 ], [ 1, %178 ]
-  %.not123 = icmp eq i8 %.2182, 65
+  %.not123 = icmp eq i8 %.1101182, 65
   %. = select i1 %.not123, i8 64, i8 -128
   %181 = or disjoint i8 %180, %.
   store i8 %181, ptr %19, align 4
@@ -556,8 +556,8 @@ dissect_fcencap_header.exit:                      ; preds = %115, %144
 
 .thread186:                                       ; preds = %dissect_fcencap_header.exit, %177
   %.1196 = phi ptr [ %.098151, %177 ], [ %117, %dissect_fcencap_header.exit ]
-  %.2195 = phi i8 [ %.0100150, %177 ], [ %.1101, %dissect_fcencap_header.exit ]
-  %.2104194 = phi i8 [ %.0102149, %177 ], [ %.1103, %dissect_fcencap_header.exit ]
+  %.1101195 = phi i8 [ %.0100150, %177 ], [ %.2, %dissect_fcencap_header.exit ]
+  %.1103194 = phi i8 [ %.0102149, %177 ], [ %.2104, %dissect_fcencap_header.exit ]
   %.1106193 = phi i32 [ %.0100120.i, %177 ], [ %162, %dissect_fcencap_header.exit ]
   %189 = load ptr, ptr %18, align 8
   call void @col_set_str(ptr noundef %189, i32 noundef 25, ptr noundef nonnull @.str.86) #2
@@ -599,8 +599,8 @@ dissect_fcencap_header.exit:                      ; preds = %115, %144
 
 dissect_fcip_sf.exit:                             ; preds = %193, %192, %185, %187
   %.1184 = phi ptr [ %.1196, %193 ], [ null, %192 ], [ %.1185, %185 ], [ %.1185, %187 ]
-  %.2183 = phi i8 [ %.2195, %193 ], [ %.2195, %192 ], [ %.2182, %185 ], [ %.2182, %187 ]
-  %.2104181 = phi i8 [ %.2104194, %193 ], [ %.2104194, %192 ], [ %.2104180, %185 ], [ %.2104180, %187 ]
+  %.1101183 = phi i8 [ %.1101195, %193 ], [ %.1101195, %192 ], [ %.1101182, %185 ], [ %.1101182, %187 ]
+  %.1103181 = phi i8 [ %.1103194, %193 ], [ %.1103194, %192 ], [ %.1103180, %185 ], [ %.1103180, %187 ]
   %.1106178 = phi i32 [ %.1106193, %193 ], [ %.1106193, %192 ], [ %.1106179, %185 ], [ %.1106179, %187 ]
   %215 = sub nsw i32 %.0107147, %80
   %216 = icmp sgt i32 %215, 28

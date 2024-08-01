@@ -69,8 +69,8 @@ define hidden void @dom_mark_namespaces_for_copy_based_on_copy(ptr noundef reado
   br label %.backedge
 
 .backedge:                                        ; preds = %14, %.loopexit28
-  %.019.be = phi ptr [ %13, %14 ], [ %.221, %.loopexit28 ]
-  %.0.be.in = phi ptr [ %15, %14 ], [ %.2.in, %.loopexit28 ]
+  %.019.be = phi ptr [ %13, %14 ], [ %.120, %.loopexit28 ]
+  %.0.be.in = phi ptr [ %15, %14 ], [ %.1.in, %.loopexit28 ]
   %.0.be = load ptr, ptr %.0.be.in, align 8
   br label %.lr.ph
 
@@ -81,15 +81,15 @@ define hidden void @dom_mark_namespaces_for_copy_based_on_copy(ptr noundef reado
   br i1 %.not27, label %.preheader, label %.loopexit28
 
 .preheader:                                       ; preds = %16, %22
-  %.120 = phi ptr [ %20, %22 ], [ %.01932, %16 ]
-  %.1 = phi ptr [ %24, %22 ], [ %.033, %16 ]
-  %19 = getelementptr inbounds i8, ptr %.120, i64 40
+  %.221 = phi ptr [ %20, %22 ], [ %.01932, %16 ]
+  %.2 = phi ptr [ %24, %22 ], [ %.033, %16 ]
+  %19 = getelementptr inbounds i8, ptr %.221, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %.1, i64 40
+  %23 = getelementptr inbounds i8, ptr %.2, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %20, i64 48
   %26 = load ptr, ptr %25, align 8
@@ -97,9 +97,9 @@ define hidden void @dom_mark_namespaces_for_copy_based_on_copy(ptr noundef reado
   br i1 %27, label %.preheader, label %.loopexit28
 
 .loopexit28:                                      ; preds = %22, %16
-  %.221 = phi ptr [ %18, %16 ], [ %26, %22 ]
+  %.120 = phi ptr [ %18, %16 ], [ %26, %22 ]
   %.0.pn = phi ptr [ %.033, %16 ], [ %24, %22 ]
-  %.2.in = getelementptr inbounds i8, ptr %.0.pn, i64 48
+  %.1.in = getelementptr inbounds i8, ptr %.0.pn, i64 48
   br label %.backedge
 
 .loopexit:                                        ; preds = %.preheader, %2
@@ -354,8 +354,8 @@ define internal fastcc void @load_from_helper(i32 %.44.val, ptr noundef %0, i32 
   br label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %68, %74
-  %.1.i = phi ptr [ %72, %74 ], [ %.04.i, %68 ]
-  %71 = getelementptr inbounds i8, ptr %.1.i, i64 40
+  %.2.i = phi ptr [ %72, %74 ], [ %.04.i, %68 ]
+  %71 = getelementptr inbounds i8, ptr %.2.i, i64 40
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %dom_mark_namespaces_as_attributes_too.exit, label %74

@@ -193,18 +193,18 @@ agxbfree.exit83.thread:                           ; preds = %13, %agxbfree.exit8
   br i1 %.not74, label %71, label %73
 
 71:                                               ; preds = %agxbfree.exit83.thread, %agxbfree.exit83
-  %.14992 = phi ptr [ null, %agxbfree.exit83.thread ], [ %0, %agxbfree.exit83 ]
-  %.15189 = phi ptr [ %0, %agxbfree.exit83.thread ], [ @.str.1, %agxbfree.exit83 ]
+  %.04892 = phi ptr [ null, %agxbfree.exit83.thread ], [ %0, %agxbfree.exit83 ]
+  %.05089 = phi ptr [ %0, %agxbfree.exit83.thread ], [ @.str.1, %agxbfree.exit83 ]
   %72 = call ptr @getenv(ptr noundef nonnull @.str.10) #16
   %.not.i = icmp eq ptr %72, null
   %.str..i = select i1 %.not.i, ptr @.str, ptr %72
   br label %73
 
 73:                                               ; preds = %agxbfree.exit83.thread, %71
-  %.14991 = phi ptr [ %.14992, %71 ], [ null, %agxbfree.exit83.thread ]
-  %.15188 = phi ptr [ %.15189, %71 ], [ %0, %agxbfree.exit83.thread ]
+  %.04891 = phi ptr [ %.04892, %71 ], [ null, %agxbfree.exit83.thread ]
+  %.05088 = phi ptr [ %.05089, %71 ], [ %0, %agxbfree.exit83.thread ]
   %74 = phi ptr [ %.str..i, %71 ], [ @.str, %agxbfree.exit83.thread ]
-  %75 = call ptr @pathaccess(ptr noundef nonnull %74, ptr noundef %.15188, ptr noundef %.14991) #16
+  %75 = call ptr @pathaccess(ptr noundef nonnull %74, ptr noundef %.05088, ptr noundef %.04891) #16
   %.not75 = icmp eq ptr %75, null
   br i1 %.not75, label %76, label %agxbfree.exit
 
@@ -219,7 +219,7 @@ agxbfree.exit83.thread:                           ; preds = %13, %agxbfree.exit8
   br i1 %.not77, label %agxbfree.exit, label %80
 
 80:                                               ; preds = %78
-  %81 = call ptr @pathaccess(ptr noundef nonnull %79, ptr noundef %.15188, ptr noundef %.14991) #16
+  %81 = call ptr @pathaccess(ptr noundef nonnull %79, ptr noundef %.05088, ptr noundef %.04891) #16
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %64, %63, %73, %76, %78, %80, %11

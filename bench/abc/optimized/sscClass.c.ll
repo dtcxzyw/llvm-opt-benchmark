@@ -1007,7 +1007,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
 
 .lr.ph28.i:                                       ; preds = %.lr.ph28.i, %.lr.ph28.preheader.i
   %indvars.iv33.i = phi i64 [ 0, %.lr.ph28.preheader.i ], [ %indvars.iv.next34.i, %.lr.ph28.i ]
-  %.127.i = phi i32 [ 0, %.lr.ph28.preheader.i ], [ %61, %.lr.ph28.i ]
+  %.227.i = phi i32 [ 0, %.lr.ph28.preheader.i ], [ %61, %.lr.ph28.i ]
   %54 = getelementptr inbounds i64, ptr %41, i64 %indvars.iv33.i
   %55 = load i64, ptr %54, align 8
   %56 = and i64 %indvars.iv33.i, 15
@@ -1015,14 +1015,14 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   %58 = load i32, ptr %57, align 4
   %59 = trunc i64 %55 to i32
   %60 = mul i32 %58, %59
-  %61 = xor i32 %60, %.127.i
+  %61 = xor i32 %60, %.227.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count36.i
   br i1 %exitcond37.not.i, label %Ssc_GiaSimHashKey.exit, label %.lr.ph28.i, !llvm.loop !13
 
 Ssc_GiaSimHashKey.exit:                           ; preds = %.lr.ph.i61, %.lr.ph28.i, %.preheader22.i, %.preheader.i62
-  %.2.i = phi i32 [ 0, %.preheader.i62 ], [ 0, %.preheader22.i ], [ %61, %.lr.ph28.i ], [ %53, %.lr.ph.i61 ]
-  %62 = urem i32 %.2.i, %8
+  %.1.i = phi i32 [ 0, %.preheader.i62 ], [ 0, %.preheader22.i ], [ %61, %.lr.ph28.i ], [ %53, %.lr.ph.i61 ]
+  %62 = urem i32 %.1.i, %8
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i32, ptr %16, i64 %63
   %65 = load i32, ptr %64, align 4

@@ -598,7 +598,7 @@ opal_free_list_return_mt.exit.sink.split.i:       ; preds = %67, %53
   br i1 %.not160, label %.thread, label %.lr.ph, !llvm.loop !6
 
 .thread180:                                       ; preds = %.lr.ph, %248
-  %.2183 = phi i32 [ %249, %248 ], [ -1, %.lr.ph ]
+  %.0142183 = phi i32 [ %249, %248 ], [ -1, %.lr.ph ]
   %283 = load i8, ptr @opal_uses_threads, align 1
   %284 = trunc i8 %283 to i1
   br i1 %284, label %285, label %288
@@ -819,7 +819,7 @@ opal_free_list_return_mt.exit.sink.split.i169:    ; preds = %321, %307
   br label %opal_free_list_return.exit
 
 opal_free_list_return.exit:                       ; preds = %opal_free_list_return_mt.exit.sink.split.i169, %321, %318, %310, %307, %304, %opal_lifo_push_atomic.exit.i.i173, %opal_free_list_return_mt.exit.sink.split.i, %67, %64, %56, %53, %50, %opal_lifo_push_atomic.exit.i.i, %391, %385, %382, %379, %246, %243, %229, %226, %215, %209, %30, %27, %12, %73
-  %.0141 = phi i32 [ 0, %73 ], [ -2, %12 ], [ -1, %27 ], [ -1, %30 ], [ 0, %209 ], [ 0, %215 ], [ -2, %226 ], [ -2, %229 ], [ -1, %243 ], [ -1, %246 ], [ -1, %379 ], [ -1, %382 ], [ 0, %385 ], [ 0, %391 ], [ %33, %opal_lifo_push_atomic.exit.i.i ], [ %33, %50 ], [ %33, %53 ], [ %33, %56 ], [ %33, %64 ], [ %33, %67 ], [ %33, %opal_free_list_return_mt.exit.sink.split.i ], [ %.2183, %opal_lifo_push_atomic.exit.i.i173 ], [ %.2183, %304 ], [ %.2183, %307 ], [ %.2183, %310 ], [ %.2183, %318 ], [ %.2183, %321 ], [ %.2183, %opal_free_list_return_mt.exit.sink.split.i169 ]
+  %.0141 = phi i32 [ 0, %73 ], [ -2, %12 ], [ -1, %27 ], [ -1, %30 ], [ 0, %209 ], [ 0, %215 ], [ -2, %226 ], [ -2, %229 ], [ -1, %243 ], [ -1, %246 ], [ -1, %379 ], [ -1, %382 ], [ 0, %385 ], [ 0, %391 ], [ %33, %opal_lifo_push_atomic.exit.i.i ], [ %33, %50 ], [ %33, %53 ], [ %33, %56 ], [ %33, %64 ], [ %33, %67 ], [ %33, %opal_free_list_return_mt.exit.sink.split.i ], [ %.0142183, %opal_lifo_push_atomic.exit.i.i173 ], [ %.0142183, %304 ], [ %.0142183, %307 ], [ %.0142183, %310 ], [ %.0142183, %318 ], [ %.0142183, %321 ], [ %.0142183, %opal_free_list_return_mt.exit.sink.split.i169 ]
   ret i32 %.0141
 }
 

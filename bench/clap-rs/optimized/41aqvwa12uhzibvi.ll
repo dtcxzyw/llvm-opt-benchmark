@@ -53,15 +53,15 @@ define { ptr, i64 } @"_ZN79_$LT$clap_lex..ext..Split$u20$as$u20$core..iter..trai
 "_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$10split_once17h509237bc95af7a93E.exit.thread": ; preds = %7, %18
   %.sroa.9.014 = phi i64 [ %19, %18 ], [ undef, %7 ]
   %storemerge9 = phi ptr [ %20, %18 ], [ null, %7 ]
-  %.sroa.4.0 = phi i64 [ %.fca.1.extract.i, %18 ], [ %5, %7 ]
+  %.sroa.4.1 = phi i64 [ %.fca.1.extract.i, %18 ], [ %5, %7 ]
   store ptr %storemerge9, ptr %2, align 8
   store i64 %.sroa.9.014, ptr %4, align 8
   br label %21
 
 21:                                               ; preds = %1, %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$10split_once17h509237bc95af7a93E.exit.thread"
-  %.sroa.4.1 = phi i64 [ %.sroa.4.0, %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$10split_once17h509237bc95af7a93E.exit.thread" ], [ undef, %1 ]
+  %.sroa.4.0 = phi i64 [ %.sroa.4.1, %"_ZN67_$LT$std..ffi..os_str..OsStr$u20$as$u20$clap_lex..ext..OsStrExt$GT$10split_once17h509237bc95af7a93E.exit.thread" ], [ undef, %1 ]
   %22 = insertvalue { ptr, i64 } poison, ptr %3, 0
-  %23 = insertvalue { ptr, i64 } %22, i64 %.sroa.4.1, 1
+  %23 = insertvalue { ptr, i64 } %22, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %23
 }
 

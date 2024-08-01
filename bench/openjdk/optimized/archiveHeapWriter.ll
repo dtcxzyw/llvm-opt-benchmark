@@ -1393,9 +1393,9 @@ _ZN17ArchiveHeapWriter16relocate_root_atIP7oopDescEEvS2_iP11CHeapBitMap.exit: ; 
   br label %235
 
 235:                                              ; preds = %233, %222
-  %.1.ph.i.i.i.i = phi i64 [ %220, %222 ], [ %232, %233 ]
+  %.027.ph.i.i.i.i = phi i64 [ %220, %222 ], [ %232, %233 ]
   %.026.ph.i.i.i.i = phi i64 [ 0, %222 ], [ %234, %233 ]
-  %236 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %236 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %237 = or disjoint i64 %.026.ph.i.i.i.i, %236
   %238 = icmp ult i64 %237, %217
   br i1 %238, label %_ZNK6BitMap18find_first_set_bitEm.exit.i, label %.loopexit.i.i.i.i
@@ -1463,9 +1463,9 @@ _ZL16log_bitmap_usagePKcP6BitMapm.exit:           ; preds = %_ZNK6BitMap18find_f
   br label %269
 
 269:                                              ; preds = %267, %256
-  %.1.ph.i.i.i.i41 = phi i64 [ %254, %256 ], [ %266, %267 ]
+  %.027.ph.i.i.i.i41 = phi i64 [ %254, %256 ], [ %266, %267 ]
   %.026.ph.i.i.i.i42 = phi i64 [ 0, %256 ], [ %268, %267 ]
-  %270 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i41, i1 true)
+  %270 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i41, i1 true)
   %271 = or disjoint i64 %.026.ph.i.i.i.i42, %270
   %272 = icmp ult i64 %271, %250
   br i1 %272, label %_ZNK6BitMap18find_first_set_bitEm.exit.i38, label %.loopexit.i.i.i.i43
@@ -8209,9 +8209,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %60
 
 60:                                               ; preds = %58, %51
-  %.1.ph.i.i.i.i.i = phi i64 [ %49, %51 ], [ %57, %58 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %49, %51 ], [ %57, %58 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %.0917.i.i.i, %51 ], [ %59, %58 ]
-  %61 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %61 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %62 = add i64 %.026.ph.i.i.i.i.i, %61
   %63 = icmp ult i64 %62, %40
   br i1 %63, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOopN17ArchiveHeapWriter20EmbeddedOopRelocatorEEEvP17stackChunkOopDescPT0_PlS8_.exit
@@ -9019,9 +9019,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br label %26
 
 26:                                               ; preds = %24, %17
-  %.1.ph.i.i = phi i64 [ %15, %17 ], [ %23, %24 ]
+  %.027.ph.i.i = phi i64 [ %15, %17 ], [ %23, %24 ]
   %.026.ph.i.i = phi i64 [ %.0918, %17 ], [ %25, %24 ]
-  %27 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %27 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %28 = add i64 %.026.ph.i.i, %27
   %29 = icmp ult i64 %28, %3
   br i1 %29, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread

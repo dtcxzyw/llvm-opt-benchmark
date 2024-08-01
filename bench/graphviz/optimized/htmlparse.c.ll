@@ -56,30 +56,30 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   br label %5
 
 3:                                                ; preds = %._crit_edge, %432, %71
-  %.0190 = phi ptr [ %452, %._crit_edge ], [ %412, %432 ], [ %72, %71 ]
-  %.0177 = phi ptr [ %.3180.lcssa, %._crit_edge ], [ %411, %432 ], [ %.2179, %71 ]
-  %.0169 = phi i32 [ 3, %._crit_edge ], [ %.1170, %432 ], [ %spec.select, %71 ]
-  %.0 = phi i32 [ 1, %._crit_edge ], [ %433, %432 ], [ %67, %71 ]
-  %4 = getelementptr inbounds i8, ptr %.0177, i64 1
+  %.1191 = phi ptr [ %452, %._crit_edge ], [ %412, %432 ], [ %72, %71 ]
+  %.1178 = phi ptr [ %.4.lcssa, %._crit_edge ], [ %411, %432 ], [ %.2179, %71 ]
+  %.1170 = phi i32 [ 3, %._crit_edge ], [ %.0169, %432 ], [ %spec.select, %71 ]
+  %.1 = phi i32 [ 1, %._crit_edge ], [ %433, %432 ], [ %67, %71 ]
+  %4 = getelementptr inbounds i8, ptr %.1178, i64 1
   br label %5
 
 5:                                                ; preds = %3, %0
-  %.1191 = phi ptr [ %2, %0 ], [ %.0190, %3 ]
+  %.0190 = phi ptr [ %2, %0 ], [ %.1191, %3 ]
   %.0181 = phi ptr [ %2, %0 ], [ %.1182, %3 ]
-  %.1178 = phi ptr [ %1, %0 ], [ %4, %3 ]
+  %.0177 = phi ptr [ %1, %0 ], [ %4, %3 ]
   %.0174 = phi ptr [ %1, %0 ], [ %.1175, %3 ]
   %.0172 = phi i64 [ 200, %0 ], [ %.1173, %3 ]
-  %.1170 = phi i32 [ 0, %0 ], [ %.0169, %3 ]
-  %.1 = phi i32 [ 0, %0 ], [ %.0, %3 ]
-  %6 = trunc nsw i32 %.1 to i8
-  store i8 %6, ptr %.1178, align 1
+  %.0169 = phi i32 [ 0, %0 ], [ %.1170, %3 ]
+  %.0 = phi i32 [ 0, %0 ], [ %.1, %3 ]
+  %6 = trunc nsw i32 %.0 to i8
+  store i8 %6, ptr %.0177, align 1
   %7 = getelementptr inbounds i8, ptr %.0174, i64 %.0172
   %8 = getelementptr inbounds i8, ptr %7, i64 -1
-  %.not = icmp ugt ptr %8, %.1178
+  %.not = icmp ugt ptr %8, %.0177
   br i1 %.not, label %30, label %9
 
 9:                                                ; preds = %5
-  %10 = ptrtoint ptr %.1178 to i64
+  %10 = ptrtoint ptr %.0177 to i64
   %11 = ptrtoint ptr %.0174 to i64
   %12 = sub i64 %10, %11
   %13 = add nsw i64 %12, 1
@@ -117,16 +117,16 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   br i1 %.not215, label %30, label %.loopexit254.thread
 
 30:                                               ; preds = %26, %5
-  %.2192 = phi ptr [ %29, %26 ], [ %.1191, %5 ]
+  %.2192 = phi ptr [ %29, %26 ], [ %.0190, %5 ]
   %.1182 = phi ptr [ %23, %26 ], [ %.0181, %5 ]
-  %.2179 = phi ptr [ %27, %26 ], [ %.1178, %5 ]
+  %.2179 = phi ptr [ %27, %26 ], [ %.0177, %5 ]
   %.1175 = phi ptr [ %19, %26 ], [ %.0174, %5 ]
   %.1173 = phi i64 [ %spec.store.select, %26 ], [ %.0172, %5 ]
-  %31 = icmp eq i32 %.1, 31
+  %31 = icmp eq i32 %.0, 31
   br i1 %31, label %.loopexit254, label %32
 
 32:                                               ; preds = %30
-  %33 = sext i32 %.1 to i64
+  %33 = sext i32 %.0 to i64
   %34 = getelementptr inbounds [116 x i16], ptr @yypact, i64 0, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %35 to i32
@@ -197,7 +197,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   br label %79
 
 71:                                               ; preds = %64
-  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.1170, i32 1)
+  %spec.select = call i32 @llvm.usub.sat.i32(i32 %.0169, i32 1)
   %72 = getelementptr inbounds i8, ptr %.2192, i64 8
   %73 = load i64, ptr @htmllval, align 8
   store i64 %73, ptr %72, align 8
@@ -954,7 +954,7 @@ setCell.exit247:                                  ; preds = %gv_alloc.exit.i245,
 
 434:                                              ; preds = %74
   %435 = load i32, ptr @htmlchar, align 4
-  switch i32 %.1170, label %444 [
+  switch i32 %.0169, label %444 [
     i32 0, label %436
     i32 3, label %439
   ]
@@ -979,26 +979,26 @@ setCell.exit247:                                  ; preds = %gv_alloc.exit.i245,
   br label %444
 
 444:                                              ; preds = %436, %434, %441, %443, %49
-  %445 = icmp eq i32 %.1, 0
+  %445 = icmp eq i32 %.0, 0
   br i1 %445, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %444, %447
-  %.3180472 = phi ptr [ %449, %447 ], [ %.2179, %444 ]
-  %.3193471 = phi ptr [ %448, %447 ], [ %.2192, %444 ]
-  %446 = icmp eq ptr %.3180472, %.1175
+  %.4472 = phi ptr [ %449, %447 ], [ %.2179, %444 ]
+  %.4194471 = phi ptr [ %448, %447 ], [ %.2192, %444 ]
+  %446 = icmp eq ptr %.4472, %.1175
   br i1 %446, label %.loopexit254, label %447
 
 447:                                              ; preds = %.lr.ph
-  %448 = getelementptr inbounds i8, ptr %.3193471, i64 -8
-  %449 = getelementptr inbounds i8, ptr %.3180472, i64 -1
+  %448 = getelementptr inbounds i8, ptr %.4194471, i64 -8
+  %449 = getelementptr inbounds i8, ptr %.4472, i64 -1
   %450 = load i8, ptr %449, align 1
   %451 = icmp eq i8 %450, 0
   br i1 %451, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %447, %444
-  %.3193.lcssa = phi ptr [ %.2192, %444 ], [ %448, %447 ]
-  %.3180.lcssa = phi ptr [ %.2179, %444 ], [ %449, %447 ]
-  %452 = getelementptr inbounds i8, ptr %.3193.lcssa, i64 8
+  %.4194.lcssa = phi ptr [ %.2192, %444 ], [ %448, %447 ]
+  %.4.lcssa = phi ptr [ %.2179, %444 ], [ %449, %447 ]
+  %452 = getelementptr inbounds i8, ptr %.4194.lcssa, i64 8
   %453 = load i64, ptr @htmllval, align 8
   store i64 %453, ptr %452, align 8
   br label %3

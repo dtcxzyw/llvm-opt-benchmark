@@ -199,8 +199,8 @@ ompi_comm_invalid.exit.thread:                    ; preds = %17, %ompi_comm_inva
   br i1 %or.cond217, label %89, label %.split224
 
 .split224:                                        ; preds = %93, %.lr.ph223.split, %.lr.ph223
-  %.1203.ph.split = phi i32 [ 3, %.lr.ph223 ], [ 3, %93 ], [ 2, %.lr.ph223.split ]
-  %95 = tail call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %.1203.ph.split)
+  %.2.ph.split = phi i32 [ 3, %.lr.ph223 ], [ 3, %93 ], [ 2, %.lr.ph223.split ]
+  %95 = tail call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %.2.ph.split)
   %96 = getelementptr inbounds i8, ptr %8, i64 296
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %8, i64 304
@@ -331,8 +331,8 @@ ompi_comm_remote_size.exit183:                    ; preds = %144
   br i1 %or.cond218, label %160, label %.split
 
 .split:                                           ; preds = %164, %.lr.ph.split, %.lr.ph
-  %.3.ph.split = phi i32 [ 3, %.lr.ph ], [ 3, %164 ], [ 2, %.lr.ph.split ]
-  %166 = tail call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %.3.ph.split)
+  %.4.ph.split = phi i32 [ 3, %.lr.ph ], [ 3, %164 ], [ 2, %.lr.ph.split ]
+  %166 = tail call fastcc i32 @ompi_errcode_get_mpi_code(i32 noundef %.4.ph.split)
   %167 = getelementptr inbounds i8, ptr %8, i64 296
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds i8, ptr %8, i64 304

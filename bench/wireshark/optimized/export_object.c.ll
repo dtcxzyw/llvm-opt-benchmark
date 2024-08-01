@@ -259,21 +259,21 @@ define internal fastcc ptr @eo_rename(ptr noundef %0, i64 noundef %1, i32 nounde
 
 43:                                               ; preds = %35, %41
   %44 = phi ptr [ %.pre53, %41 ], [ %36, %35 ]
-  %.134 = phi ptr [ %42, %41 ], [ %0, %35 ]
-  %45 = tail call ptr @g_string_append(ptr noundef %.134, ptr noundef %44) #7
+  %.2 = phi ptr [ %42, %41 ], [ %0, %35 ]
+  %45 = tail call ptr @g_string_append(ptr noundef %.2, ptr noundef %44) #7
   %.not43 = icmp eq ptr %.0, null
   br i1 %.not43, label %48, label %46
 
 46:                                               ; preds = %.thread, %43
   %.149 = phi ptr [ %10, %.thread ], [ %.0, %43 ]
-  %.247 = phi ptr [ %34, %.thread ], [ %45, %43 ]
+  %.13447 = phi ptr [ %34, %.thread ], [ %45, %43 ]
   %47 = tail call ptr @g_string_free(ptr noundef nonnull %.149, i32 noundef 1) #7
   br label %48
 
 48:                                               ; preds = %46, %43
-  %.248 = phi ptr [ %.247, %46 ], [ %45, %43 ]
+  %.13448 = phi ptr [ %.13447, %46 ], [ %45, %43 ]
   %49 = tail call ptr @g_string_free(ptr noundef nonnull %4, i32 noundef 1) #7
-  ret ptr %.248
+  ret ptr %.13448
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

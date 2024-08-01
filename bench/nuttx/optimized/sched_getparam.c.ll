@@ -44,12 +44,12 @@ define range(i32 -22, 1) i32 @nxsched_get_param(i32 noundef %0, ptr noundef writ
   br label %22
 
 22:                                               ; preds = %15, %18
-  %.0 = phi i32 [ 0, %18 ], [ -3, %15 ]
+  %.1 = phi i32 [ 0, %18 ], [ -3, %15 ]
   %23 = tail call i32 @sched_unlock() #2
   br label %24
 
 24:                                               ; preds = %11, %22, %2
-  %.011 = phi i32 [ -22, %2 ], [ 0, %11 ], [ %.0, %22 ]
+  %.011 = phi i32 [ -22, %2 ], [ 0, %11 ], [ %.1, %22 ]
   ret i32 %.011
 }
 

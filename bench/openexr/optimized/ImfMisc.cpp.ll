@@ -4357,14 +4357,14 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %while.body
-  %localWritePtr.1 = phi ptr [ %localWritePtr.0105, %while.body ], [ %incdec.ptr1.i.i.i, %while.body.i.i.i ]
+  %localWritePtr.9 = phi ptr [ %localWritePtr.0105, %while.body ], [ %incdec.ptr1.i.i.i, %while.body.i.i.i ]
   %n.addr.03.i.i.i = phi i32 [ 4, %while.body ], [ %dec.i.i.i, %while.body.i.i.i ]
   %c.addr.02.i.i.i = phi ptr [ %b.i, %while.body ], [ %incdec.ptr.i.i.i, %while.body.i.i.i ]
   %dec.i.i.i = add nsw i32 %n.addr.03.i.i.i, -1
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %c.addr.02.i.i.i, i64 1
   %3 = load i8, ptr %c.addr.02.i.i.i, align 1
-  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %localWritePtr.1, i64 1
-  store i8 %3, ptr %localWritePtr.1, align 1
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %localWritePtr.9, i64 1
+  store i8 %3, ptr %localWritePtr.9, align 1
   %tobool.not.i.i.i = icmp eq i32 %dec.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit, label %while.body.i.i.i, !llvm.loop !82
 
@@ -4376,7 +4376,7 @@ _ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit: ; preds = %while.body.i.i.i
 
 while.body5:                                      ; preds = %while.body5.lr.ph, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit
   %localReadPtr.1101 = phi ptr [ %1, %while.body5.lr.ph ], [ %add.ptr6, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ]
-  %localWritePtr.2100 = phi ptr [ %0, %while.body5.lr.ph ], [ %incdec.ptr1.i.i.i44, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ]
+  %localWritePtr.1100 = phi ptr [ %0, %while.body5.lr.ph ], [ %incdec.ptr1.i.i.i44, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ]
   %agg.tmp.sroa.0.0.copyload = load i16, ptr %localReadPtr.1101, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %b.i37)
   %conv.i38 = trunc i16 %agg.tmp.sroa.0.0.copyload to i8
@@ -4387,14 +4387,14 @@ while.body5:                                      ; preds = %while.body5.lr.ph, 
   br label %while.body.i.i.i39
 
 while.body.i.i.i39:                               ; preds = %while.body.i.i.i39, %while.body5
-  %localWritePtr.3 = phi ptr [ %localWritePtr.2100, %while.body5 ], [ %incdec.ptr1.i.i.i44, %while.body.i.i.i39 ]
+  %localWritePtr.10 = phi ptr [ %localWritePtr.1100, %while.body5 ], [ %incdec.ptr1.i.i.i44, %while.body.i.i.i39 ]
   %n.addr.03.i.i.i40 = phi i32 [ 2, %while.body5 ], [ %dec.i.i.i42, %while.body.i.i.i39 ]
   %c.addr.02.i.i.i41 = phi ptr [ %b.i37, %while.body5 ], [ %incdec.ptr.i.i.i43, %while.body.i.i.i39 ]
   %dec.i.i.i42 = add nsw i32 %n.addr.03.i.i.i40, -1
   %incdec.ptr.i.i.i43 = getelementptr inbounds i8, ptr %c.addr.02.i.i.i41, i64 1
   %5 = load i8, ptr %c.addr.02.i.i.i41, align 1
-  %incdec.ptr1.i.i.i44 = getelementptr inbounds i8, ptr %localWritePtr.3, i64 1
-  store i8 %5, ptr %localWritePtr.3, align 1
+  %incdec.ptr1.i.i.i44 = getelementptr inbounds i8, ptr %localWritePtr.10, i64 1
+  store i8 %5, ptr %localWritePtr.10, align 1
   %tobool.not.i.i.i45 = icmp eq i32 %dec.i.i.i42, 0
   br i1 %tobool.not.i.i.i45, label %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit, label %while.body.i.i.i39, !llvm.loop !82
 
@@ -4406,7 +4406,7 @@ _ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit: ; preds = %
 
 while.body11:                                     ; preds = %while.body11.lr.ph, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit
   %localReadPtr.296 = phi ptr [ %1, %while.body11.lr.ph ], [ %add.ptr12, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ]
-  %localWritePtr.495 = phi ptr [ %0, %while.body11.lr.ph ], [ %incdec.ptr1.i.i.i62, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ]
+  %localWritePtr.295 = phi ptr [ %0, %while.body11.lr.ph ], [ %incdec.ptr1.i.i.i62, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ]
   %6 = load i32, ptr %localReadPtr.296, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %b.i46)
   %conv.i47 = trunc i32 %6 to i8
@@ -4423,14 +4423,14 @@ while.body11:                                     ; preds = %while.body11.lr.ph,
   br label %while.body.i.i.i57
 
 while.body.i.i.i57:                               ; preds = %while.body.i.i.i57, %while.body11
-  %localWritePtr.5 = phi ptr [ %localWritePtr.495, %while.body11 ], [ %incdec.ptr1.i.i.i62, %while.body.i.i.i57 ]
+  %localWritePtr.11 = phi ptr [ %localWritePtr.295, %while.body11 ], [ %incdec.ptr1.i.i.i62, %while.body.i.i.i57 ]
   %n.addr.03.i.i.i58 = phi i32 [ 4, %while.body11 ], [ %dec.i.i.i60, %while.body.i.i.i57 ]
   %c.addr.02.i.i.i59 = phi ptr [ %b.i46, %while.body11 ], [ %incdec.ptr.i.i.i61, %while.body.i.i.i57 ]
   %dec.i.i.i60 = add nsw i32 %n.addr.03.i.i.i58, -1
   %incdec.ptr.i.i.i61 = getelementptr inbounds i8, ptr %c.addr.02.i.i.i59, i64 1
   %7 = load i8, ptr %c.addr.02.i.i.i59, align 1
-  %incdec.ptr1.i.i.i62 = getelementptr inbounds i8, ptr %localWritePtr.5, i64 1
-  store i8 %7, ptr %localWritePtr.5, align 1
+  %incdec.ptr1.i.i.i62 = getelementptr inbounds i8, ptr %localWritePtr.11, i64 1
+  store i8 %7, ptr %localWritePtr.11, align 1
   %tobool.not.i.i.i63 = icmp eq i32 %dec.i.i.i60, 0
   br i1 %tobool.not.i.i.i63, label %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit, label %while.body.i.i.i57, !llvm.loop !82
 
@@ -4474,54 +4474,54 @@ while.cond15.preheader:                           ; preds = %if.else
   br i1 %cmp16.not89, label %if.end, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %while.cond15.preheader, %for.end
-  %localReadPtr.391 = phi ptr [ %add.ptr19, %for.end ], [ %1, %while.cond15.preheader ]
-  %localWritePtr.690 = phi ptr [ %incdec.ptr, %for.end ], [ %0, %while.cond15.preheader ]
+  %localReadPtr.491 = phi ptr [ %add.ptr19, %for.end ], [ %1, %while.cond15.preheader ]
+  %localWritePtr.490 = phi ptr [ %incdec.ptr, %for.end ], [ %0, %while.cond15.preheader ]
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %i.088 = phi i64 [ 0, %for.cond.preheader ], [ %inc, %for.body ]
-  %localWritePtr.787 = phi ptr [ %localWritePtr.690, %for.cond.preheader ], [ %incdec.ptr, %for.body ]
-  %arrayidx = getelementptr inbounds i8, ptr %localReadPtr.391, i64 %i.088
+  %localWritePtr.587 = phi ptr [ %localWritePtr.490, %for.cond.preheader ], [ %incdec.ptr, %for.body ]
+  %arrayidx = getelementptr inbounds i8, ptr %localReadPtr.491, i64 %i.088
   %9 = load i8, ptr %arrayidx, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %localWritePtr.787, i64 1
-  store i8 %9, ptr %localWritePtr.787, align 1
+  %incdec.ptr = getelementptr inbounds i8, ptr %localWritePtr.587, i64 1
+  store i8 %9, ptr %localWritePtr.587, align 1
   %inc = add nuw nsw i64 %i.088, 1
   %exitcond114.not = icmp eq i64 %inc, 4
   br i1 %exitcond114.not, label %for.end, label %for.body, !llvm.loop !89
 
 for.end:                                          ; preds = %for.body
-  %add.ptr19 = getelementptr inbounds i8, ptr %localReadPtr.391, i64 %xStride
+  %add.ptr19 = getelementptr inbounds i8, ptr %localReadPtr.491, i64 %xStride
   %cmp16.not = icmp ugt ptr %add.ptr19, %endPtr
   br i1 %cmp16.not, label %if.end, label %for.cond.preheader, !llvm.loop !90
 
 while.body24:                                     ; preds = %while.cond22.preheader, %while.body24
-  %localReadPtr.484 = phi ptr [ %add.ptr26, %while.body24 ], [ %1, %while.cond22.preheader ]
-  %localWritePtr.883 = phi ptr [ %add.ptr25, %while.body24 ], [ %0, %while.cond22.preheader ]
-  %10 = load i16, ptr %localReadPtr.484, align 2
-  store i16 %10, ptr %localWritePtr.883, align 2
-  %add.ptr25 = getelementptr inbounds i8, ptr %localWritePtr.883, i64 2
-  %add.ptr26 = getelementptr inbounds i8, ptr %localReadPtr.484, i64 %xStride
+  %localReadPtr.584 = phi ptr [ %add.ptr26, %while.body24 ], [ %1, %while.cond22.preheader ]
+  %localWritePtr.683 = phi ptr [ %add.ptr25, %while.body24 ], [ %0, %while.cond22.preheader ]
+  %10 = load i16, ptr %localReadPtr.584, align 2
+  store i16 %10, ptr %localWritePtr.683, align 2
+  %add.ptr25 = getelementptr inbounds i8, ptr %localWritePtr.683, i64 2
+  %add.ptr26 = getelementptr inbounds i8, ptr %localReadPtr.584, i64 %xStride
   %cmp23.not = icmp ugt ptr %add.ptr26, %endPtr
   br i1 %cmp23.not, label %if.end, label %while.body24, !llvm.loop !91
 
 for.cond33.preheader:                             ; preds = %while.cond29.preheader, %for.end40
-  %localReadPtr.580 = phi ptr [ %add.ptr41, %for.end40 ], [ %1, %while.cond29.preheader ]
-  %localWritePtr.979 = phi ptr [ %incdec.ptr37, %for.end40 ], [ %0, %while.cond29.preheader ]
+  %localReadPtr.680 = phi ptr [ %add.ptr41, %for.end40 ], [ %1, %while.cond29.preheader ]
+  %localWritePtr.779 = phi ptr [ %incdec.ptr37, %for.end40 ], [ %0, %while.cond29.preheader ]
   br label %for.body35
 
 for.body35:                                       ; preds = %for.cond33.preheader, %for.body35
   %i32.077 = phi i64 [ 0, %for.cond33.preheader ], [ %inc39, %for.body35 ]
-  %localWritePtr.1076 = phi ptr [ %localWritePtr.979, %for.cond33.preheader ], [ %incdec.ptr37, %for.body35 ]
-  %arrayidx36 = getelementptr inbounds i8, ptr %localReadPtr.580, i64 %i32.077
+  %localWritePtr.876 = phi ptr [ %localWritePtr.779, %for.cond33.preheader ], [ %incdec.ptr37, %for.body35 ]
+  %arrayidx36 = getelementptr inbounds i8, ptr %localReadPtr.680, i64 %i32.077
   %11 = load i8, ptr %arrayidx36, align 1
-  %incdec.ptr37 = getelementptr inbounds i8, ptr %localWritePtr.1076, i64 1
-  store i8 %11, ptr %localWritePtr.1076, align 1
+  %incdec.ptr37 = getelementptr inbounds i8, ptr %localWritePtr.876, i64 1
+  store i8 %11, ptr %localWritePtr.876, align 1
   %inc39 = add nuw nsw i64 %i32.077, 1
   %exitcond.not = icmp eq i64 %inc39, 4
   br i1 %exitcond.not, label %for.end40, label %for.body35, !llvm.loop !92
 
 for.end40:                                        ; preds = %for.body35
-  %add.ptr41 = getelementptr inbounds i8, ptr %localReadPtr.580, i64 %xStride
+  %add.ptr41 = getelementptr inbounds i8, ptr %localReadPtr.680, i64 %xStride
   %cmp30.not = icmp ugt ptr %add.ptr41, %endPtr
   br i1 %cmp30.not, label %if.end, label %for.cond33.preheader, !llvm.loop !93
 
@@ -4540,10 +4540,10 @@ lpad45:                                           ; preds = %sw.default43
   br label %eh.resume
 
 if.end:                                           ; preds = %for.end40, %while.body24, %for.end, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit, %while.cond29.preheader, %while.cond22.preheader, %while.cond15.preheader, %while.cond9.preheader, %while.cond3.preheader, %while.cond.preheader
-  %localWritePtr.11 = phi ptr [ %0, %while.cond.preheader ], [ %0, %while.cond3.preheader ], [ %0, %while.cond9.preheader ], [ %0, %while.cond15.preheader ], [ %0, %while.cond22.preheader ], [ %0, %while.cond29.preheader ], [ %incdec.ptr1.i.i.i, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %incdec.ptr1.i.i.i44, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %incdec.ptr1.i.i.i62, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ], [ %incdec.ptr, %for.end ], [ %add.ptr25, %while.body24 ], [ %incdec.ptr37, %for.end40 ]
-  %localReadPtr.6 = phi ptr [ %1, %while.cond.preheader ], [ %1, %while.cond3.preheader ], [ %1, %while.cond9.preheader ], [ %1, %while.cond15.preheader ], [ %1, %while.cond22.preheader ], [ %1, %while.cond29.preheader ], [ %add.ptr, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %add.ptr6, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %add.ptr12, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ], [ %add.ptr19, %for.end ], [ %add.ptr26, %while.body24 ], [ %add.ptr41, %for.end40 ]
-  store ptr %localWritePtr.11, ptr %writePtr, align 8
-  store ptr %localReadPtr.6, ptr %readPtr, align 8
+  %localWritePtr.3 = phi ptr [ %0, %while.cond.preheader ], [ %0, %while.cond3.preheader ], [ %0, %while.cond9.preheader ], [ %0, %while.cond15.preheader ], [ %0, %while.cond22.preheader ], [ %0, %while.cond29.preheader ], [ %incdec.ptr1.i.i.i, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %incdec.ptr1.i.i.i44, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %incdec.ptr1.i.i.i62, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ], [ %incdec.ptr, %for.end ], [ %add.ptr25, %while.body24 ], [ %incdec.ptr37, %for.end40 ]
+  %localReadPtr.3 = phi ptr [ %1, %while.cond.preheader ], [ %1, %while.cond3.preheader ], [ %1, %while.cond9.preheader ], [ %1, %while.cond15.preheader ], [ %1, %while.cond22.preheader ], [ %1, %while.cond29.preheader ], [ %add.ptr, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_j.exit ], [ %add.ptr6, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_N9Imath_3_24halfE.exit ], [ %add.ptr12, %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_f.exit ], [ %add.ptr19, %for.end ], [ %add.ptr26, %while.body24 ], [ %add.ptr41, %for.end40 ]
+  store ptr %localWritePtr.3, ptr %writePtr, align 8
+  store ptr %localReadPtr.3, ptr %readPtr, align 8
   ret void
 
 eh.resume:                                        ; preds = %lpad45, %lpad

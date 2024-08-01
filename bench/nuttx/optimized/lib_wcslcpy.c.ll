@@ -14,43 +14,43 @@ define range(i64 -2305843009213693953, 2305843009213693951) i64 @wcslcpy(ptr noc
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %8
-  %.015 = phi ptr [ %9, %8 ], [ %0, %.preheader.preheader ]
-  %.013 = phi ptr [ %5, %8 ], [ %1, %.preheader.preheader ]
-  %.0 = phi i64 [ %10, %8 ], [ %4, %.preheader.preheader ]
-  %5 = getelementptr inbounds i8, ptr %.013, i64 4
-  %6 = load i32, ptr %.013, align 4
-  store i32 %6, ptr %.015, align 4
+  %.116 = phi ptr [ %9, %8 ], [ %0, %.preheader.preheader ]
+  %.114 = phi ptr [ %5, %8 ], [ %1, %.preheader.preheader ]
+  %.1 = phi i64 [ %10, %8 ], [ %4, %.preheader.preheader ]
+  %5 = getelementptr inbounds i8, ptr %.114, i64 4
+  %6 = load i32, ptr %.114, align 4
+  store i32 %6, ptr %.116, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %.015, i64 4
-  %10 = add i64 %.0, -1
+  %9 = getelementptr inbounds i8, ptr %.116, i64 4
+  %10 = add i64 %.1, -1
   %.not24 = icmp eq i64 %10, 0
   br i1 %.not24, label %.loopexit31, label %.preheader, !llvm.loop !6
 
 .loopexit31:                                      ; preds = %8, %3
-  %.116.ph = phi ptr [ %0, %3 ], [ %9, %8 ]
-  %.114.ph = phi ptr [ %1, %3 ], [ %5, %8 ]
+  %.015.ph = phi ptr [ %0, %3 ], [ %9, %8 ]
+  %.013.ph = phi ptr [ %1, %3 ], [ %5, %8 ]
   br i1 %.not, label %.preheader47, label %11
 
 11:                                               ; preds = %.loopexit31
-  store i32 0, ptr %.116.ph, align 4
+  store i32 0, ptr %.015.ph, align 4
   br label %.preheader47
 
 .preheader47:                                     ; preds = %11, %.loopexit31
   br label %12
 
 12:                                               ; preds = %.preheader47, %12
-  %.2 = phi ptr [ %13, %12 ], [ %.114.ph, %.preheader47 ]
-  %13 = getelementptr inbounds i8, ptr %.2, i64 4
-  %14 = load i32, ptr %.2, align 4
+  %.3 = phi ptr [ %13, %12 ], [ %.013.ph, %.preheader47 ]
+  %13 = getelementptr inbounds i8, ptr %.3, i64 4
+  %14 = load i32, ptr %.3, align 4
   %.not25 = icmp eq i32 %14, 0
   br i1 %.not25, label %.loopexit, label %12, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %12
-  %.3 = phi ptr [ %13, %12 ], [ %5, %.preheader ]
-  %15 = ptrtoint ptr %.3 to i64
+  %.2 = phi ptr [ %13, %12 ], [ %5, %.preheader ]
+  %15 = ptrtoint ptr %.2 to i64
   %16 = ptrtoint ptr %1 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 2

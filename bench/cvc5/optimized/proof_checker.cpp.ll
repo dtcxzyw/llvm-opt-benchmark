@@ -2536,7 +2536,7 @@ for.cond423:                                      ; preds = %_ZN4cvc58internal8R
 
 for.body426:                                      ; preds = %for.body426.lr.ph, %for.cond423
   %i422.03602 = phi i64 [ 0, %for.body426.lr.ph ], [ %inc627, %for.cond423 ]
-  %strict417.03601 = phi i1 [ false, %for.body426.lr.ph ], [ %strict417.2, %for.cond423 ]
+  %strict417.03601 = phi i1 [ false, %for.body426.lr.ph ], [ %strict417.1, %for.cond423 ]
   %232 = load ptr, ptr %args, align 8
   %add.ptr.i1178 = getelementptr inbounds %"class.cvc5::internal::NodeTemplate", ptr %232, i64 %i422.03602
   %233 = load ptr, ptr %add.ptr.i1178, align 8
@@ -2646,7 +2646,7 @@ sw.bb460:                                         ; preds = %invoke.cont458, %in
   br label %invoke.cont486
 
 invoke.cont486:                                   ; preds = %invoke.cont458, %sw.bb460
-  %strict417.1 = phi i1 [ true, %sw.bb460 ], [ %strict417.03601, %invoke.cont458 ]
+  %strict417.2 = phi i1 [ true, %sw.bb460 ], [ %strict417.03601, %invoke.cont458 ]
   switch i16 %bf.clear.i1258, label %sw.epilog575 [
     i16 72, label %sw.bb488
     i16 73, label %sw.bb488
@@ -3041,7 +3041,7 @@ terminate.lpad.i1912:                             ; preds = %if.then13.i.i1911
 cleanup624.sink.split:                            ; preds = %cond.true531, %cond.true499, %cond.true443
   %bf.load.i.i.i1670.sink3631 = phi i64 [ %bf.load.i.i.i1237, %cond.true443 ], [ %bf.load.i.i.i1498, %cond.true499 ], [ %bf.load.i.i.i1670, %cond.true531 ]
   %.sink3630 = phi ptr [ %239, %cond.true443 ], [ %247, %cond.true499 ], [ %251, %cond.true531 ]
-  %strict417.2.ph = phi i1 [ %strict417.03601, %cond.true443 ], [ %strict417.1, %cond.true499 ], [ %strict417.1, %cond.true531 ]
+  %strict417.1.ph = phi i1 [ %strict417.03601, %cond.true443 ], [ %strict417.2, %cond.true499 ], [ %strict417.2, %cond.true531 ]
   %bf.value.i.i.i1679 = add i64 %bf.load.i.i.i1670.sink3631, 1099511627776
   %bf.shl.i.i.i1680 = and i64 %bf.value.i.i.i1679, 1152920405095219200
   %bf.clear7.i.i.i1681 = and i64 %bf.load.i.i.i1670.sink3631, -1152920405095219201
@@ -3051,7 +3051,7 @@ cleanup624.sink.split:                            ; preds = %cond.true531, %cond
 
 cleanup624:                                       ; preds = %cleanup624.sink.split, %if.then13.i.i.i1676.invoke, %if.then13.i.i1911, %if.then.i.i1904, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1901, %if.else.i.i.i1674, %if.else.i.i.i1502, %if.else.i.i.i1241, %if.then13.i.i.i1243
   %cond1 = phi i1 [ false, %if.then13.i.i.i1243 ], [ false, %if.else.i.i.i1241 ], [ false, %if.else.i.i.i1502 ], [ false, %if.else.i.i.i1674 ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1901 ], [ true, %if.then.i.i1904 ], [ true, %if.then13.i.i1911 ], [ false, %if.then13.i.i.i1676.invoke ], [ false, %cleanup624.sink.split ]
-  %strict417.2 = phi i1 [ %strict417.03601, %if.then13.i.i.i1243 ], [ %strict417.03601, %if.else.i.i.i1241 ], [ %strict417.1, %if.else.i.i.i1502 ], [ %strict417.1, %if.else.i.i.i1674 ], [ %strict417.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1901 ], [ %strict417.1, %if.then.i.i1904 ], [ %strict417.1, %if.then13.i.i1911 ], [ %strict417.1, %if.then13.i.i.i1676.invoke ], [ %strict417.2.ph, %cleanup624.sink.split ]
+  %strict417.1 = phi i1 [ %strict417.03601, %if.then13.i.i.i1243 ], [ %strict417.03601, %if.else.i.i.i1241 ], [ %strict417.2, %if.else.i.i.i1502 ], [ %strict417.2, %if.else.i.i.i1674 ], [ %strict417.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1901 ], [ %strict417.2, %if.then.i.i1904 ], [ %strict417.2, %if.then13.i.i1911 ], [ %strict417.2, %if.then13.i.i.i1676.invoke ], [ %strict417.1.ph, %cleanup624.sink.split ]
   invoke void @__gmpq_clear(ptr noundef nonnull %scalar)
           to label %_ZN4cvc58internal8RationalD2Ev.exit1916 unwind label %terminate.lpad.i.i1914
 
@@ -3120,7 +3120,7 @@ terminate.lpad.i.i1917:                           ; preds = %ehcleanup625
   unreachable
 
 for.end628.loopexit:                              ; preds = %for.cond423
-  %297 = select i1 %strict417.2, i32 70, i32 71
+  %297 = select i1 %strict417.1, i32 70, i32 71
   br label %for.end628
 
 for.end628:                                       ; preds = %for.end628.loopexit, %for.cond423.preheader

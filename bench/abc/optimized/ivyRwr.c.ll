@@ -235,7 +235,7 @@ Abc_Clock.exit164.i:                              ; preds = %125, %Abc_Clock.exi
   %indvars.iv243.i = phi i64 [ 1, %.lr.ph224.i ], [ %indvars.iv.next244.i, %.critedge4.i ]
   %.0223.i = phi i32 [ -1, %.lr.ph224.i ], [ %.1.i, %.critedge4.i ]
   %.0139220.i = phi i32 [ 0, %.lr.ph224.i ], [ %.1140.i, %.critedge4.i ]
-  %.0185219.i = phi i32 [ -1, %.lr.ph224.i ], [ %.2187.i, %.critedge4.i ]
+  %.0185219.i = phi i32 [ -1, %.lr.ph224.i ], [ %.1186.i, %.critedge4.i ]
   %132 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr %130, i64 %indvars.iv243.i
   %133 = getelementptr inbounds i8, ptr %132, i64 4
   %134 = load i16, ptr %133, align 4
@@ -791,8 +791,8 @@ Ivy_ObjCreateGhost.exit.i.i.i:                    ; preds = %387, %Ivy_ObjFaninI
   br label %427
 
 427:                                              ; preds = %.sink.split.i.i.i, %419, %408, %399
-  %.1.i.i.i = phi i32 [ %407, %399 ], [ %407, %419 ], [ 0, %408 ], [ %426, %.sink.split.i.i.i ]
-  %428 = icmp sgt i32 %.1.i.i.i, %105
+  %.062.i.i.i = phi i32 [ %407, %399 ], [ %407, %419 ], [ 0, %408 ], [ %426, %.sink.split.i.i.i ]
+  %428 = icmp sgt i32 %.062.i.i.i, %105
   br i1 %428, label %Ivy_GraphToNetworkCount.exit.i.i, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %427
@@ -800,7 +800,7 @@ Ivy_ObjCreateGhost.exit.i.i.i:                    ; preds = %387, %Ivy_ObjFaninI
   store ptr %.06991.i.i.i, ptr %429, align 8
   %430 = getelementptr inbounds i8, ptr %347, i64 16
   %431 = load i32, ptr %430, align 8
-  %432 = and i32 %.1.i.i.i, 16383
+  %432 = and i32 %.062.i.i.i, 16383
   %433 = and i32 %431, -16384
   %434 = or disjoint i32 %433, %432
   store i32 %434, ptr %430, align 8
@@ -832,7 +832,7 @@ Ivy_GraphToNetworkCount.exit.i.i:                 ; preds = %.critedge.i.i.i, %4
   br label %Rwt_CutEvaluate.exit.i
 
 Rwt_CutEvaluate.exit.i:                           ; preds = %.critedge.i.i, %Abc_Clock.exit174.i
-  %.1186.i = phi i32 [ %.0185219.i, %Abc_Clock.exit174.i ], [ %spec.select.i, %.critedge.i.i ]
+  %.2187.i = phi i32 [ %.0185219.i, %Abc_Clock.exit174.i ], [ %spec.select.i, %.critedge.i.i ]
   %.039.i.i = phi ptr [ null, %Abc_Clock.exit174.i ], [ %spec.select188.i, %.critedge.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %444 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #12
@@ -855,7 +855,7 @@ Abc_Clock.exit180.i:                              ; preds = %446, %Rwt_CutEvalua
   %454 = add nsw i64 %452, %453
   store i64 %454, ptr %68, align 8
   %.not147.i = icmp ne ptr %.039.i.i, null
-  %455 = icmp slt i32 %.0223.i, %.1186.i
+  %455 = icmp slt i32 %.0223.i, %.2187.i
   %or.cond189.i = select i1 %.not147.i, i1 %455, i1 false
   br i1 %or.cond189.i, label %456, label %.critedge4.i
 
@@ -956,9 +956,9 @@ Vec_PtrPush.exit.i:                               ; preds = %492, %Vec_PtrGrow.e
   br i1 %502, label %.lr.ph218.i, label %.critedge4.i, !llvm.loop !14
 
 .critedge4.i:                                     ; preds = %Vec_PtrPush.exit.i, %456, %Abc_Clock.exit180.i, %147, %131
-  %.2187.i = phi i32 [ %.1186.i, %Abc_Clock.exit180.i ], [ %.0185219.i, %147 ], [ %.0185219.i, %131 ], [ %.1186.i, %456 ], [ %.1186.i, %Vec_PtrPush.exit.i ]
+  %.1186.i = phi i32 [ %.2187.i, %Abc_Clock.exit180.i ], [ %.0185219.i, %147 ], [ %.0185219.i, %131 ], [ %.2187.i, %456 ], [ %.2187.i, %Vec_PtrPush.exit.i ]
   %.1140.i = phi i32 [ %.0139220.i, %Abc_Clock.exit180.i ], [ %.0139220.i, %147 ], [ %.0139220.i, %131 ], [ %160, %456 ], [ %160, %Vec_PtrPush.exit.i ]
-  %.1.i = phi i32 [ %.0223.i, %Abc_Clock.exit180.i ], [ %.0223.i, %147 ], [ %.0223.i, %131 ], [ %.1186.i, %456 ], [ %.1186.i, %Vec_PtrPush.exit.i ]
+  %.1.i = phi i32 [ %.0223.i, %Abc_Clock.exit180.i ], [ %.0223.i, %147 ], [ %.0223.i, %131 ], [ %.2187.i, %456 ], [ %.2187.i, %Vec_PtrPush.exit.i ]
   %indvars.iv.next244.i = add nuw nsw i64 %indvars.iv243.i, 1
   %503 = load i32, ptr %111, align 4
   %504 = sext i32 %503 to i64

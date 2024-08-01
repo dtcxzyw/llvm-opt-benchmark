@@ -2153,17 +2153,17 @@ _ZL8min_zeroPii.exit:
   %8 = icmp slt i32 %0, 1
   %9 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %1)
   %spec.select34 = select i1 %8, i32 %1, i32 %9
-  %.1 = select i1 %7, i32 %spec.select34, i32 %spec.select
+  %.2 = select i1 %7, i32 %spec.select34, i32 %spec.select
   %10 = icmp sgt i32 %2, 0
-  %11 = add i32 %.1, -1
+  %11 = add i32 %.2, -1
   %or.cond.i24.not = icmp ult i32 %11, %2
-  %spec.select35 = select i1 %or.cond.i24.not, i32 %.1, i32 %2
-  %.2 = select i1 %10, i32 %spec.select35, i32 %.1
-  %12 = icmp eq i32 %.2, 0
+  %spec.select35 = select i1 %or.cond.i24.not, i32 %.2, i32 %2
+  %.3 = select i1 %10, i32 %spec.select35, i32 %.2
+  %12 = icmp eq i32 %.3, 0
   br i1 %12, label %45, label %.preheader
 
 .preheader:                                       ; preds = %_ZL8min_zeroPii.exit
-  %13 = icmp sgt i32 %.2, 1
+  %13 = icmp sgt i32 %.3, 1
   br i1 %13, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
@@ -2176,70 +2176,70 @@ _ZL8min_zeroPii.exit:
   br i1 %10, label %.lr.ph.split.us.split.us.split.us, label %.lr.ph.split.us.split.us.split
 
 .lr.ph.split.us.split.us.split.us:                ; preds = %.lr.ph.split.us.split.us, %.critedge2.us.us.us
-  %.336.us.us.us = phi i32 [ %19, %.critedge2.us.us.us ], [ %spec.select35, %.lr.ph.split.us.split.us ]
-  %14 = urem i32 %0, %.336.us.us.us
+  %.036.us.us.us = phi i32 [ %19, %.critedge2.us.us.us ], [ %spec.select35, %.lr.ph.split.us.split.us ]
+  %14 = urem i32 %0, %.036.us.us.us
   %.not.us.us.us = icmp eq i32 %14, 0
   br i1 %.not.us.us.us, label %15, label %.critedge2.us.us.us
 
 15:                                               ; preds = %.lr.ph.split.us.split.us.split.us
-  %16 = urem i32 %1, %.336.us.us.us
+  %16 = urem i32 %1, %.036.us.us.us
   %.not18.us.us.us = icmp eq i32 %16, 0
   br i1 %.not18.us.us.us, label %17, label %.critedge2.us.us.us
 
 17:                                               ; preds = %15
-  %18 = urem i32 %2, %.336.us.us.us
+  %18 = urem i32 %2, %.036.us.us.us
   %.not19.us.us.us = icmp eq i32 %18, 0
   br i1 %.not19.us.us.us, label %.critedge, label %.critedge2.us.us.us
 
 .critedge2.us.us.us:                              ; preds = %17, %15, %.lr.ph.split.us.split.us.split.us
-  %19 = add nsw i32 %.336.us.us.us, -1
-  %20 = icmp sgt i32 %.336.us.us.us, 2
+  %19 = add nsw i32 %.036.us.us.us, -1
+  %20 = icmp sgt i32 %.036.us.us.us, 2
   br i1 %20, label %.lr.ph.split.us.split.us.split.us, label %.critedge, !llvm.loop !36
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.critedge2.us.us
-  %.336.us.us = phi i32 [ %24, %.critedge2.us.us ], [ %spec.select34, %.lr.ph.split.us.split.us ]
-  %21 = urem i32 %0, %.336.us.us
+  %.036.us.us = phi i32 [ %24, %.critedge2.us.us ], [ %spec.select34, %.lr.ph.split.us.split.us ]
+  %21 = urem i32 %0, %.036.us.us
   %.not.us.us = icmp eq i32 %21, 0
   br i1 %.not.us.us, label %22, label %.critedge2.us.us
 
 22:                                               ; preds = %.lr.ph.split.us.split.us.split
-  %23 = urem i32 %1, %.336.us.us
+  %23 = urem i32 %1, %.036.us.us
   %.not18.us.us = icmp eq i32 %23, 0
   br i1 %.not18.us.us, label %.critedge, label %.critedge2.us.us
 
 .critedge2.us.us:                                 ; preds = %22, %.lr.ph.split.us.split.us.split
-  %24 = add nsw i32 %.336.us.us, -1
-  %25 = icmp sgt i32 %.336.us.us, 2
+  %24 = add nsw i32 %.036.us.us, -1
+  %25 = icmp sgt i32 %.036.us.us, 2
   br i1 %25, label %.lr.ph.split.us.split.us.split, label %.critedge, !llvm.loop !36
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
   br i1 %10, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
 
 .lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %.critedge2.us.us69
-  %.336.us.us66 = phi i32 [ %29, %.critedge2.us.us69 ], [ %spec.select35, %.lr.ph.split.us.split ]
-  %26 = urem i32 %0, %.336.us.us66
+  %.036.us.us66 = phi i32 [ %29, %.critedge2.us.us69 ], [ %spec.select35, %.lr.ph.split.us.split ]
+  %26 = urem i32 %0, %.036.us.us66
   %.not.us.us67 = icmp eq i32 %26, 0
   br i1 %.not.us.us67, label %27, label %.critedge2.us.us69
 
 27:                                               ; preds = %.lr.ph.split.us.split.split.us
-  %28 = urem i32 %2, %.336.us.us66
+  %28 = urem i32 %2, %.036.us.us66
   %.not19.us.us68 = icmp eq i32 %28, 0
   br i1 %.not19.us.us68, label %.critedge, label %.critedge2.us.us69
 
 .critedge2.us.us69:                               ; preds = %27, %.lr.ph.split.us.split.split.us
-  %29 = add nsw i32 %.336.us.us66, -1
-  %30 = icmp sgt i32 %.336.us.us66, 2
+  %29 = add nsw i32 %.036.us.us66, -1
+  %30 = icmp sgt i32 %.036.us.us66, 2
   br i1 %30, label %.lr.ph.split.us.split.split.us, label %.critedge, !llvm.loop !36
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.critedge2.us
-  %.336.us = phi i32 [ %32, %.critedge2.us ], [ %spec.select, %.lr.ph.split.us.split ]
-  %31 = urem i32 %0, %.336.us
+  %.036.us = phi i32 [ %32, %.critedge2.us ], [ %spec.select, %.lr.ph.split.us.split ]
+  %31 = urem i32 %0, %.036.us
   %.not.us = icmp eq i32 %31, 0
   br i1 %.not.us, label %.critedge, label %.critedge2.us
 
 .critedge2.us:                                    ; preds = %.lr.ph.split.us.split.split
-  %32 = add nsw i32 %.336.us, -1
-  %33 = icmp sgt i32 %.336.us, 2
+  %32 = add nsw i32 %.036.us, -1
+  %33 = icmp sgt i32 %.036.us, 2
   br i1 %33, label %.lr.ph.split.us.split.split, label %.critedge, !llvm.loop !36
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -2249,44 +2249,44 @@ _ZL8min_zeroPii.exit:
   br i1 %10, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %.critedge2.us46.us
-  %.336.us43.us = phi i32 [ %37, %.critedge2.us46.us ], [ %spec.select35, %.lr.ph.split.split.us ]
-  %34 = urem i32 %1, %.336.us43.us
+  %.036.us43.us = phi i32 [ %37, %.critedge2.us46.us ], [ %spec.select35, %.lr.ph.split.split.us ]
+  %34 = urem i32 %1, %.036.us43.us
   %.not18.us44.us = icmp eq i32 %34, 0
   br i1 %.not18.us44.us, label %35, label %.critedge2.us46.us
 
 35:                                               ; preds = %.lr.ph.split.split.us.split.us
-  %36 = urem i32 %2, %.336.us43.us
+  %36 = urem i32 %2, %.036.us43.us
   %.not19.us45.us = icmp eq i32 %36, 0
   br i1 %.not19.us45.us, label %.critedge, label %.critedge2.us46.us
 
 .critedge2.us46.us:                               ; preds = %35, %.lr.ph.split.split.us.split.us
-  %37 = add nsw i32 %.336.us43.us, -1
-  %38 = icmp sgt i32 %.336.us43.us, 2
+  %37 = add nsw i32 %.036.us43.us, -1
+  %38 = icmp sgt i32 %.036.us43.us, 2
   br i1 %38, label %.lr.ph.split.split.us.split.us, label %.critedge, !llvm.loop !36
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.critedge2.us46
-  %.336.us43 = phi i32 [ %40, %.critedge2.us46 ], [ %spec.select34, %.lr.ph.split.split.us ]
-  %39 = urem i32 %1, %.336.us43
+  %.036.us43 = phi i32 [ %40, %.critedge2.us46 ], [ %spec.select34, %.lr.ph.split.split.us ]
+  %39 = urem i32 %1, %.036.us43
   %.not18.us44 = icmp eq i32 %39, 0
   br i1 %.not18.us44, label %.critedge, label %.critedge2.us46
 
 .critedge2.us46:                                  ; preds = %.lr.ph.split.split.us.split
-  %40 = add nsw i32 %.336.us43, -1
-  %41 = icmp sgt i32 %.336.us43, 2
+  %40 = add nsw i32 %.036.us43, -1
+  %41 = icmp sgt i32 %.036.us43, 2
   br i1 %41, label %.lr.ph.split.split.us.split, label %.critedge, !llvm.loop !36
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %10, label %.lr.ph.split.split.split.us, label %.critedge
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.critedge2.us55
-  %.336.us53 = phi i32 [ %43, %.critedge2.us55 ], [ %spec.select35, %.lr.ph.split.split ]
-  %42 = urem i32 %2, %.336.us53
+  %.036.us53 = phi i32 [ %43, %.critedge2.us55 ], [ %spec.select35, %.lr.ph.split.split ]
+  %42 = urem i32 %2, %.036.us53
   %.not19.us54 = icmp eq i32 %42, 0
   br i1 %.not19.us54, label %.critedge, label %.critedge2.us55
 
 .critedge2.us55:                                  ; preds = %.lr.ph.split.split.split.us
-  %43 = add nsw i32 %.336.us53, -1
-  %44 = icmp sgt i32 %.336.us53, 2
+  %43 = add nsw i32 %.036.us53, -1
+  %44 = icmp sgt i32 %.036.us53, 2
   br i1 %44, label %.lr.ph.split.split.split.us, label %.critedge, !llvm.loop !36
 
 45:                                               ; preds = %_ZL8min_zeroPii.exit
@@ -2332,8 +2332,8 @@ _ZL8min_zeroPii.exit:
   resume { ptr, i32 } %.pn.pn
 
 .critedge:                                        ; preds = %.lr.ph.split.split.split.us, %.critedge2.us55, %.lr.ph.split.split.us.split, %.critedge2.us46, %35, %.critedge2.us46.us, %.lr.ph.split.us.split.split, %.critedge2.us, %27, %.critedge2.us.us69, %22, %.critedge2.us.us, %17, %.critedge2.us.us.us, %.lr.ph.split.split, %.preheader
-  %.3.lcssa = phi i32 [ %.2, %.preheader ], [ %spec.select, %.lr.ph.split.split ], [ 1, %.critedge2.us.us.us ], [ %.336.us.us.us, %17 ], [ 1, %.critedge2.us.us ], [ %.336.us.us, %22 ], [ 1, %.critedge2.us.us69 ], [ %.336.us.us66, %27 ], [ 1, %.critedge2.us ], [ %.336.us, %.lr.ph.split.us.split.split ], [ 1, %.critedge2.us46.us ], [ %.336.us43.us, %35 ], [ 1, %.critedge2.us46 ], [ %.336.us43, %.lr.ph.split.split.us.split ], [ 1, %.critedge2.us55 ], [ %.336.us53, %.lr.ph.split.split.split.us ]
-  ret i32 %.3.lcssa
+  %.0.lcssa = phi i32 [ %.3, %.preheader ], [ %spec.select, %.lr.ph.split.split ], [ 1, %.critedge2.us.us.us ], [ %.036.us.us.us, %17 ], [ 1, %.critedge2.us.us ], [ %.036.us.us, %22 ], [ 1, %.critedge2.us.us69 ], [ %.036.us.us66, %27 ], [ 1, %.critedge2.us ], [ %.036.us, %.lr.ph.split.us.split.split ], [ 1, %.critedge2.us46.us ], [ %.036.us43.us, %35 ], [ 1, %.critedge2.us46 ], [ %.036.us43, %.lr.ph.split.split.us.split ], [ 1, %.critedge2.us55 ], [ %.036.us53, %.lr.ph.split.split.split.us ]
+  ret i32 %.0.lcssa
 }
 
 ; Function Attrs: noreturn
@@ -2687,7 +2687,7 @@ define void @_Z17set_state_entriesP7t_statePK10t_inputrecb(ptr noundef %0, ptr n
   br label %39
 
 39:                                               ; preds = %38, %33
-  %.3 = phi i32 [ %spec.select, %33 ], [ %spec.select65, %38 ]
+  %.4 = phi i32 [ %spec.select, %33 ], [ %spec.select65, %38 ]
   %40 = tail call noundef zeroext i1 @_Z18inputrecNptTrotterPK10t_inputrec(ptr noundef nonnull %1)
   br i1 %40, label %43, label %41
 
@@ -2697,11 +2697,11 @@ define void @_Z17set_state_entriesP7t_statePK10t_inputrecb(ptr noundef %0, ptr n
 
 43:                                               ; preds = %41, %39
   store i32 1, ptr %30, align 4
-  %44 = or i32 %.3, 16384000
+  %44 = or i32 %.4, 16384000
   br label %45
 
 45:                                               ; preds = %43, %41
-  %.4 = phi i32 [ %44, %43 ], [ %.3, %41 ]
+  %.5 = phi i32 [ %44, %43 ], [ %.4, %41 ]
   %46 = load i32, ptr %34, align 4
   switch i32 %46, label %49 [
     i32 1, label %47
@@ -2709,11 +2709,11 @@ define void @_Z17set_state_entriesP7t_statePK10t_inputrecb(ptr noundef %0, ptr n
   ]
 
 47:                                               ; preds = %45, %45
-  %48 = or i32 %.4, 134217728
+  %48 = or i32 %.5, 134217728
   br label %49
 
 49:                                               ; preds = %45, %47, %29
-  %.5 = phi i32 [ %48, %47 ], [ %.1, %29 ], [ %.4, %45 ]
+  %.2 = phi i32 [ %48, %47 ], [ %.1, %29 ], [ %.5, %45 ]
   %50 = getelementptr inbounds i8, ptr %1, i64 192
   %51 = load i32, ptr %50, align 8
   switch i32 %51, label %55 [
@@ -2723,15 +2723,15 @@ define void @_Z17set_state_entriesP7t_statePK10t_inputrecb(ptr noundef %0, ptr n
   ]
 
 .thread:                                          ; preds = %49
-  %52 = or i32 %.5, 262176
+  %52 = or i32 %.2, 262176
   br label %55
 
 53:                                               ; preds = %49, %49
-  %54 = or i32 %.5, 64
+  %54 = or i32 %.2, 64
   br label %55
 
 55:                                               ; preds = %49, %.thread, %53
-  %.7 = phi i32 [ %54, %53 ], [ %52, %.thread ], [ %.5, %49 ]
+  %.7 = phi i32 [ %54, %53 ], [ %52, %.thread ], [ %.2, %49 ]
   %56 = getelementptr inbounds i8, ptr %0, i64 8
   %57 = load i32, ptr %56, align 8
   %58 = load i32, ptr %30, align 4

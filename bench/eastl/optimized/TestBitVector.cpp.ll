@@ -2469,12 +2469,12 @@ while.body12.preheader:                           ; preds = %_ZN5eastl18bitvecto
 while.body12:                                     ; preds = %while.body12.preheader, %_ZN5eastl19bitvector_referenceImEaSERKS1_.exit59
   %end.sroa.7.098 = phi i64 [ %dec.i.i34, %_ZN5eastl19bitvector_referenceImEaSERKS1_.exit59 ], [ %end.coerce1, %while.body12.preheader ]
   %end.sroa.0.097 = phi ptr [ %end.sroa.0.1, %_ZN5eastl19bitvector_referenceImEaSERKS1_.exit59 ], [ %end.coerce0, %while.body12.preheader ]
-  %dest.sroa.11.296 = phi i64 [ %dec.i.i, %_ZN5eastl19bitvector_referenceImEaSERKS1_.exit59 ], [ %storemerge.i.i, %while.body12.preheader ]
-  %dest.sroa.0.295 = phi ptr [ %spec.select88, %_ZN5eastl19bitvector_referenceImEaSERKS1_.exit59 ], [ %add.ptr10.sink.i.i, %while.body12.preheader ]
-  %cmp.i.i29 = icmp eq i64 %dest.sroa.11.296, 0
+  %dest.sroa.11.196 = phi i64 [ %dec.i.i, %_ZN5eastl19bitvector_referenceImEaSERKS1_.exit59 ], [ %storemerge.i.i, %while.body12.preheader ]
+  %dest.sroa.0.195 = phi ptr [ %spec.select88, %_ZN5eastl19bitvector_referenceImEaSERKS1_.exit59 ], [ %add.ptr10.sink.i.i, %while.body12.preheader ]
+  %cmp.i.i29 = icmp eq i64 %dest.sroa.11.196, 0
   %spec.select88.idx = select i1 %cmp.i.i29, i64 -8, i64 0
-  %spec.select88 = getelementptr inbounds i8, ptr %dest.sroa.0.295, i64 %spec.select88.idx
-  %3 = add i64 %dest.sroa.11.296, -1
+  %spec.select88 = getelementptr inbounds i8, ptr %dest.sroa.0.195, i64 %spec.select88.idx
+  %3 = add i64 %dest.sroa.11.196, -1
   %dec.i.i = select i1 %cmp.i.i29, i64 63, i64 %3
   %cmp.i.i33 = icmp eq i64 %end.sroa.7.098, 0
   %end.sroa.0.1.idx = select i1 %cmp.i.i33, i64 -8, i64 0
@@ -6835,12 +6835,12 @@ while.body12.preheader:                           ; preds = %_ZN5eastl18bitvecto
 while.body12:                                     ; preds = %while.body12.preheader, %while.body12
   %end.sroa.7.093 = phi i64 [ %dec.i.i32, %while.body12 ], [ %end.coerce1, %while.body12.preheader ]
   %end.sroa.0.092 = phi ptr [ %end.sroa.0.1, %while.body12 ], [ %end.coerce0, %while.body12.preheader ]
-  %dest.sroa.11.291 = phi i64 [ %dec.i.i, %while.body12 ], [ %storemerge.i.i, %while.body12.preheader ]
-  %dest.sroa.0.290 = phi ptr [ %spec.select84, %while.body12 ], [ %add.ptr10.sink.i.i, %while.body12.preheader ]
-  %cmp.i.i27 = icmp eq i64 %dest.sroa.11.291, 0
+  %dest.sroa.11.191 = phi i64 [ %dec.i.i, %while.body12 ], [ %storemerge.i.i, %while.body12.preheader ]
+  %dest.sroa.0.190 = phi ptr [ %spec.select84, %while.body12 ], [ %add.ptr10.sink.i.i, %while.body12.preheader ]
+  %cmp.i.i27 = icmp eq i64 %dest.sroa.11.191, 0
   %spec.select84.idx = sext i1 %cmp.i.i27 to i64
-  %spec.select84 = getelementptr inbounds i8, ptr %dest.sroa.0.290, i64 %spec.select84.idx
-  %4 = add i64 %dest.sroa.11.291, -1
+  %spec.select84 = getelementptr inbounds i8, ptr %dest.sroa.0.190, i64 %spec.select84.idx
+  %4 = add i64 %dest.sroa.11.191, -1
   %dec.i.i = select i1 %cmp.i.i27, i64 7, i64 %4
   %cmp.i.i31 = icmp eq i64 %end.sroa.7.093, 0
   %end.sroa.0.1.idx = sext i1 %cmp.i.i31 to i64
@@ -9114,12 +9114,12 @@ while.body12.preheader:                           ; preds = %_ZN5eastl18bitvecto
 while.body12:                                     ; preds = %while.body12.preheader, %while.body12
   %end.sroa.7.092 = phi i64 [ %dec.i.i32, %while.body12 ], [ %end.coerce1, %while.body12.preheader ]
   %end.sroa.0.091 = phi ptr [ %end.sroa.0.1, %while.body12 ], [ %end.coerce0, %while.body12.preheader ]
-  %dest.sroa.11.290 = phi i64 [ %dec.i.i, %while.body12 ], [ %storemerge.i.i, %while.body12.preheader ]
-  %dest.sroa.0.289 = phi ptr [ %spec.select83, %while.body12 ], [ %add.ptr10.sink.i.i, %while.body12.preheader ]
-  %cmp.i.i27 = icmp eq i64 %dest.sroa.11.290, 0
+  %dest.sroa.11.190 = phi i64 [ %dec.i.i, %while.body12 ], [ %storemerge.i.i, %while.body12.preheader ]
+  %dest.sroa.0.189 = phi ptr [ %spec.select83, %while.body12 ], [ %add.ptr10.sink.i.i, %while.body12.preheader ]
+  %cmp.i.i27 = icmp eq i64 %dest.sroa.11.190, 0
   %spec.select83.idx = select i1 %cmp.i.i27, i64 -2, i64 0
-  %spec.select83 = getelementptr inbounds i8, ptr %dest.sroa.0.289, i64 %spec.select83.idx
-  %5 = add i64 %dest.sroa.11.290, -1
+  %spec.select83 = getelementptr inbounds i8, ptr %dest.sroa.0.189, i64 %spec.select83.idx
+  %5 = add i64 %dest.sroa.11.190, -1
   %dec.i.i = select i1 %cmp.i.i27, i64 15, i64 %5
   %cmp.i.i31 = icmp eq i64 %end.sroa.7.092, 0
   %end.sroa.0.1.idx = select i1 %cmp.i.i31, i64 -2, i64 0
@@ -11311,12 +11311,12 @@ while.body12.preheader:                           ; preds = %_ZN5eastl18bitvecto
 while.body12:                                     ; preds = %while.body12.preheader, %_ZN5eastl19bitvector_referenceIiEaSERKS1_.exit61
   %end.sroa.7.0100 = phi i64 [ %dec.i.i34, %_ZN5eastl19bitvector_referenceIiEaSERKS1_.exit61 ], [ %end.coerce1, %while.body12.preheader ]
   %end.sroa.0.099 = phi ptr [ %end.sroa.0.1, %_ZN5eastl19bitvector_referenceIiEaSERKS1_.exit61 ], [ %end.coerce0, %while.body12.preheader ]
-  %dest.sroa.11.298 = phi i64 [ %dec.i.i, %_ZN5eastl19bitvector_referenceIiEaSERKS1_.exit61 ], [ %storemerge.i.i, %while.body12.preheader ]
-  %dest.sroa.0.297 = phi ptr [ %spec.select90, %_ZN5eastl19bitvector_referenceIiEaSERKS1_.exit61 ], [ %add.ptr10.sink.i.i, %while.body12.preheader ]
-  %cmp.i.i29 = icmp eq i64 %dest.sroa.11.298, 0
+  %dest.sroa.11.198 = phi i64 [ %dec.i.i, %_ZN5eastl19bitvector_referenceIiEaSERKS1_.exit61 ], [ %storemerge.i.i, %while.body12.preheader ]
+  %dest.sroa.0.197 = phi ptr [ %spec.select90, %_ZN5eastl19bitvector_referenceIiEaSERKS1_.exit61 ], [ %add.ptr10.sink.i.i, %while.body12.preheader ]
+  %cmp.i.i29 = icmp eq i64 %dest.sroa.11.198, 0
   %spec.select90.idx = select i1 %cmp.i.i29, i64 -4, i64 0
-  %spec.select90 = getelementptr inbounds i8, ptr %dest.sroa.0.297, i64 %spec.select90.idx
-  %3 = add i64 %dest.sroa.11.298, -1
+  %spec.select90 = getelementptr inbounds i8, ptr %dest.sroa.0.197, i64 %spec.select90.idx
+  %3 = add i64 %dest.sroa.11.198, -1
   %dec.i.i = select i1 %cmp.i.i29, i64 31, i64 %3
   %cmp.i.i33 = icmp eq i64 %end.sroa.7.0100, 0
   %end.sroa.0.1.idx = select i1 %cmp.i.i33, i64 -4, i64 0
@@ -13504,12 +13504,12 @@ while.body12.preheader:                           ; preds = %_ZN5eastl18bitvecto
 while.body12:                                     ; preds = %while.body12.preheader, %_ZN5eastl19bitvector_referenceIlEaSERKS1_.exit59
   %end.sroa.7.098 = phi i64 [ %dec.i.i34, %_ZN5eastl19bitvector_referenceIlEaSERKS1_.exit59 ], [ %end.coerce1, %while.body12.preheader ]
   %end.sroa.0.097 = phi ptr [ %end.sroa.0.1, %_ZN5eastl19bitvector_referenceIlEaSERKS1_.exit59 ], [ %end.coerce0, %while.body12.preheader ]
-  %dest.sroa.11.296 = phi i64 [ %dec.i.i, %_ZN5eastl19bitvector_referenceIlEaSERKS1_.exit59 ], [ %storemerge.i.i, %while.body12.preheader ]
-  %dest.sroa.0.295 = phi ptr [ %spec.select88, %_ZN5eastl19bitvector_referenceIlEaSERKS1_.exit59 ], [ %add.ptr10.sink.i.i, %while.body12.preheader ]
-  %cmp.i.i29 = icmp eq i64 %dest.sroa.11.296, 0
+  %dest.sroa.11.196 = phi i64 [ %dec.i.i, %_ZN5eastl19bitvector_referenceIlEaSERKS1_.exit59 ], [ %storemerge.i.i, %while.body12.preheader ]
+  %dest.sroa.0.195 = phi ptr [ %spec.select88, %_ZN5eastl19bitvector_referenceIlEaSERKS1_.exit59 ], [ %add.ptr10.sink.i.i, %while.body12.preheader ]
+  %cmp.i.i29 = icmp eq i64 %dest.sroa.11.196, 0
   %spec.select88.idx = select i1 %cmp.i.i29, i64 -8, i64 0
-  %spec.select88 = getelementptr inbounds i8, ptr %dest.sroa.0.295, i64 %spec.select88.idx
-  %3 = add i64 %dest.sroa.11.296, -1
+  %spec.select88 = getelementptr inbounds i8, ptr %dest.sroa.0.195, i64 %spec.select88.idx
+  %3 = add i64 %dest.sroa.11.196, -1
   %dec.i.i = select i1 %cmp.i.i29, i64 63, i64 %3
   %cmp.i.i33 = icmp eq i64 %end.sroa.7.098, 0
   %end.sroa.0.1.idx = select i1 %cmp.i.i33, i64 -8, i64 0
@@ -16732,10 +16732,10 @@ for.body480.preheader:                            ; preds = %for.end475
 
 for.body480:                                      ; preds = %for.body480.preheader, %for.inc493
   %i448.13736 = phi i64 [ %i448.1, %for.inc493 ], [ %i448.13732, %for.body480.preheader ]
-  %it.sroa.0.33735 = phi ptr [ %spec.select3519, %for.inc493 ], [ %spec.select3517, %for.body480.preheader ]
-  %it.sroa.24.23734 = phi i64 [ %dec.i1354, %for.inc493 ], [ %dec.i, %for.body480.preheader ]
-  %354 = load i64, ptr %it.sroa.0.33735, align 8
-  %shl.i.i1348 = shl nuw i64 1, %it.sroa.24.23734
+  %it.sroa.0.13735 = phi ptr [ %spec.select3519, %for.inc493 ], [ %spec.select3517, %for.body480.preheader ]
+  %it.sroa.24.13734 = phi i64 [ %dec.i1354, %for.inc493 ], [ %dec.i, %for.body480.preheader ]
+  %354 = load i64, ptr %it.sroa.0.13735, align 8
+  %shl.i.i1348 = shl nuw i64 1, %it.sroa.24.13734
   %and.i.i1349 = and i64 %354, %shl.i.i1348
   %arrayidx487 = getelementptr inbounds [6 x i8], ptr @__const._Z13TestBitVectorv.boolArray.38, i64 0, i64 %i448.13736
   %355 = load i8, ptr %arrayidx487, align 1
@@ -16746,10 +16746,10 @@ for.body480:                                      ; preds = %for.body480.prehead
           to label %for.inc493 unwind label %lpad446.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc493:                                       ; preds = %for.body480
-  %cmp.i1352 = icmp eq i64 %it.sroa.24.23734, 0
+  %cmp.i1352 = icmp eq i64 %it.sroa.24.13734, 0
   %spec.select3519.idx = select i1 %cmp.i1352, i64 -8, i64 0
-  %spec.select3519 = getelementptr inbounds i8, ptr %it.sroa.0.33735, i64 %spec.select3519.idx
-  %358 = add i64 %it.sroa.24.23734, -1
+  %spec.select3519 = getelementptr inbounds i8, ptr %it.sroa.0.13735, i64 %spec.select3519.idx
+  %358 = add i64 %it.sroa.24.13734, -1
   %dec.i1354 = select i1 %cmp.i1352, i64 63, i64 %358
   %i448.1 = add nsw i64 %i448.13736, -1
   %cmp479 = icmp sgt i64 %i448.13736, 0
@@ -16761,8 +16761,8 @@ for.end497:                                       ; preds = %for.inc493, %for.en
   br label %for.cond504
 
 for.cond504:                                      ; preds = %for.end497, %_ZN5eastl24bitvector_const_iteratorImEpLEl.exit
-  %it.sroa.24.3 = phi i64 [ 0, %for.end497 ], [ %rem.i, %_ZN5eastl24bitvector_const_iteratorImEpLEl.exit ]
-  %it.sroa.0.5 = phi ptr [ %359, %for.end497 ], [ %add.ptr.i, %_ZN5eastl24bitvector_const_iteratorImEpLEl.exit ]
+  %it.sroa.24.2 = phi i64 [ 0, %for.end497 ], [ %rem.i, %_ZN5eastl24bitvector_const_iteratorImEpLEl.exit ]
+  %it.sroa.0.2 = phi ptr [ %359, %for.end497 ], [ %add.ptr.i, %_ZN5eastl24bitvector_const_iteratorImEpLEl.exit ]
   %i448.2 = phi i64 [ %i448.1.in.lcssa, %for.end497 ], [ %add526, %_ZN5eastl24bitvector_const_iteratorImEpLEl.exit ]
   %360 = load ptr, ptr %mpEnd.i.i1299, align 8
   %361 = load i64, ptr %mFreeBitCount.i1300, align 8
@@ -16787,14 +16787,14 @@ invoke.cont508:                                   ; preds = %if.else.i.i.i.i1366
   %div7.i.i.pn.i.i1372 = phi i64 [ %div7.i.i.i.i1378, %if.then.i.i.i.i1377 ], [ %idx.neg.i.i.i.i1369, %if.else.i.i.i.i1366 ]
   %storemerge.i.i.i.i1373 = phi i64 [ %rem.i.i.i.i1379, %if.then.i.i.i.i1377 ], [ %sub12.i.i.i.i1371, %if.else.i.i.i.i1366 ]
   %add.ptr10.sink.i.i.i.i1374 = getelementptr inbounds i64, ptr %360, i64 %div7.i.i.pn.i.i1372
-  %cmp.i.i1381 = icmp ne ptr %it.sroa.0.5, %add.ptr10.sink.i.i.i.i1374
-  %cmp7.i.i1384 = icmp ne i64 %it.sroa.24.3, %storemerge.i.i.i.i1373
+  %cmp.i.i1381 = icmp ne ptr %it.sroa.0.2, %add.ptr10.sink.i.i.i.i1374
+  %cmp7.i.i1384 = icmp ne i64 %it.sroa.24.2, %storemerge.i.i.i.i1373
   %.not.i1385 = select i1 %cmp.i.i1381, i1 true, i1 %cmp7.i.i1384
   br i1 %.not.i1385, label %for.body510, label %for.end527
 
 for.body510:                                      ; preds = %invoke.cont508
-  %362 = load i64, ptr %it.sroa.0.5, align 8
-  %shl.i.i1387 = shl nuw i64 1, %it.sroa.24.3
+  %362 = load i64, ptr %it.sroa.0.2, align 8
+  %shl.i.i1387 = shl nuw i64 1, %it.sroa.24.2
   %and.i.i1388 = and i64 %362, %shl.i.i1387
   %arrayidx517 = getelementptr inbounds [6 x i8], ptr @__const._Z13TestBitVectorv.boolArray.38, i64 0, i64 %i448.2
   %363 = load i8, ptr %arrayidx517, align 1
@@ -16805,9 +16805,9 @@ for.body510:                                      ; preds = %invoke.cont508
           to label %_ZN5eastl24bitvector_const_iteratorImEpLEl.exit unwind label %lpad446.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN5eastl24bitvector_const_iteratorImEpLEl.exit:  ; preds = %for.body510
-  %add.i = add nuw nsw i64 %it.sroa.24.3, 2
+  %add.i = add nuw nsw i64 %it.sroa.24.2, 2
   %div7.i = lshr i64 %add.i, 6
-  %add.ptr.i = getelementptr inbounds i64, ptr %it.sroa.0.5, i64 %div7.i
+  %add.ptr.i = getelementptr inbounds i64, ptr %it.sroa.0.2, i64 %div7.i
   %rem.i = and i64 %add.i, 63
   %add526 = add i64 %i448.2, 2
   br label %for.cond504, !llvm.loop !54
@@ -16818,23 +16818,23 @@ for.end527:                                       ; preds = %invoke.cont508
   br i1 %cmp5313739, label %for.body532.preheader, label %invoke.cont550
 
 for.body532.preheader:                            ; preds = %for.end527
-  %cmp.i.i1395 = icmp ugt i64 %it.sroa.24.3, 1
-  %add.i.i = add nsw i64 %it.sroa.24.3, -2
-  %sub6.i.i = sub nuw nsw i64 1, %it.sroa.24.3
+  %cmp.i.i1395 = icmp ugt i64 %it.sroa.24.2, 1
+  %add.i.i = add nsw i64 %it.sroa.24.2, -2
+  %sub6.i.i = sub nuw nsw i64 1, %it.sroa.24.2
   %sub12.i.i = xor i64 %sub6.i.i, 63
   %storemerge.i.i = select i1 %cmp.i.i1395, i64 %add.i.i, i64 %sub12.i.i
   %div7.i.i = lshr i64 %add.i.i, 6
-  %add.ptr.i.i = getelementptr inbounds i64, ptr %it.sroa.0.5, i64 %div7.i.i
-  %add.ptr10.i.i = getelementptr inbounds i8, ptr %it.sroa.0.5, i64 -8
+  %add.ptr.i.i = getelementptr inbounds i64, ptr %it.sroa.0.2, i64 %div7.i.i
+  %add.ptr10.i.i = getelementptr inbounds i8, ptr %it.sroa.0.2, i64 -8
   %add.ptr10.sink.i.i = select i1 %cmp.i.i1395, ptr %add.ptr.i.i, ptr %add.ptr10.i.i
   br label %for.body532
 
 for.body532:                                      ; preds = %for.body532.preheader, %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1417
   %i448.33742 = phi i64 [ %i448.3, %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1417 ], [ %i448.33738, %for.body532.preheader ]
-  %it.sroa.0.63741 = phi ptr [ %add.ptr10.sink.i.i1411, %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1417 ], [ %add.ptr10.sink.i.i, %for.body532.preheader ]
-  %it.sroa.24.43740 = phi i64 [ %storemerge.i.i1412, %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1417 ], [ %storemerge.i.i, %for.body532.preheader ]
-  %366 = load i64, ptr %it.sroa.0.63741, align 8
-  %shl.i.i1398 = shl nuw i64 1, %it.sroa.24.43740
+  %it.sroa.0.33741 = phi ptr [ %add.ptr10.sink.i.i1411, %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1417 ], [ %add.ptr10.sink.i.i, %for.body532.preheader ]
+  %it.sroa.24.33740 = phi i64 [ %storemerge.i.i1412, %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1417 ], [ %storemerge.i.i, %for.body532.preheader ]
+  %366 = load i64, ptr %it.sroa.0.33741, align 8
+  %shl.i.i1398 = shl nuw i64 1, %it.sroa.24.33740
   %and.i.i1399 = and i64 %366, %shl.i.i1398
   %arrayidx539 = getelementptr inbounds [6 x i8], ptr @__const._Z13TestBitVectorv.boolArray.38, i64 0, i64 %i448.33742
   %367 = load i8, ptr %arrayidx539, align 1
@@ -16845,17 +16845,17 @@ for.body532:                                      ; preds = %for.body532.prehead
           to label %for.inc545 unwind label %lpad446.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc545:                                       ; preds = %for.body532
-  %cmp.i.i1403 = icmp sgt i64 %it.sroa.24.43740, 1
+  %cmp.i.i1403 = icmp sgt i64 %it.sroa.24.33740, 1
   br i1 %cmp.i.i1403, label %if.then.i.i1413, label %if.else.i.i1404
 
 if.then.i.i1413:                                  ; preds = %for.inc545
-  %add.i.i1402 = add nsw i64 %it.sroa.24.43740, -2
+  %add.i.i1402 = add nsw i64 %it.sroa.24.33740, -2
   %div7.i.i1414 = lshr i64 %add.i.i1402, 6
   %rem.i.i1416 = and i64 %add.i.i1402, 63
   br label %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1417
 
 if.else.i.i1404:                                  ; preds = %for.inc545
-  %sub6.i.i1405 = sub nsw i64 65, %it.sroa.24.43740
+  %sub6.i.i1405 = sub nsw i64 65, %it.sroa.24.33740
   %div76.i.i1406 = lshr i64 %sub6.i.i1405, 6
   %idx.neg.i.i1407 = sub nsw i64 0, %div76.i.i1406
   %rem11.i.i1409 = and i64 %sub6.i.i1405, 63
@@ -16865,7 +16865,7 @@ if.else.i.i1404:                                  ; preds = %for.inc545
 _ZN5eastl24bitvector_const_iteratorImEmIEl.exit1417: ; preds = %if.then.i.i1413, %if.else.i.i1404
   %div7.i.i1414.pn = phi i64 [ %div7.i.i1414, %if.then.i.i1413 ], [ %idx.neg.i.i1407, %if.else.i.i1404 ]
   %storemerge.i.i1412 = phi i64 [ %rem.i.i1416, %if.then.i.i1413 ], [ %sub12.i.i1410, %if.else.i.i1404 ]
-  %add.ptr10.sink.i.i1411 = getelementptr inbounds i64, ptr %it.sroa.0.63741, i64 %div7.i.i1414.pn
+  %add.ptr10.sink.i.i1411 = getelementptr inbounds i64, ptr %it.sroa.0.33741, i64 %div7.i.i1414.pn
   %i448.3 = add nsw i64 %i448.33742, -2
   %cmp531 = icmp sgt i64 %i448.33742, 1
   br i1 %cmp531, label %for.body532, label %invoke.cont550.loopexit, !llvm.loop !55
@@ -16953,12 +16953,12 @@ for.inc579:                                       ; preds = %for.body560
 
 for.body590:                                      ; preds = %for.cond587.preheader, %for.inc609
   %i448.53760 = phi i64 [ %inc612, %for.inc609 ], [ %i448.43749, %for.cond587.preheader ]
-  %rit.sroa.0.33759 = phi ptr [ %spec.select3528, %for.inc609 ], [ %spec.select3521, %for.cond587.preheader ]
-  %rit.sroa.24.23758 = phi i64 [ %spec.select3527, %for.inc609 ], [ 1, %for.cond587.preheader ]
-  %cmp.i1481 = icmp eq i64 %rit.sroa.24.23758, 0
+  %rit.sroa.0.13759 = phi ptr [ %spec.select3528, %for.inc609 ], [ %spec.select3521, %for.cond587.preheader ]
+  %rit.sroa.24.13758 = phi i64 [ %spec.select3527, %for.inc609 ], [ 1, %for.cond587.preheader ]
+  %cmp.i1481 = icmp eq i64 %rit.sroa.24.13758, 0
   %spec.select3525.idx = select i1 %cmp.i1481, i64 -8, i64 0
-  %spec.select3525 = getelementptr inbounds i8, ptr %rit.sroa.0.33759, i64 %spec.select3525.idx
-  %380 = add i64 %rit.sroa.24.23758, -1
+  %spec.select3525 = getelementptr inbounds i8, ptr %rit.sroa.0.13759, i64 %spec.select3525.idx
+  %380 = add i64 %rit.sroa.24.13758, -1
   %381 = shl nuw i64 1, %380
   %382 = load i64, ptr %spec.select3525, align 8
   %shl.i.i1488 = select i1 %cmp.i1481, i64 -9223372036854775808, i64 %381
@@ -16972,11 +16972,11 @@ for.body590:                                      ; preds = %for.cond587.prehead
           to label %for.inc609 unwind label %lpad446.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc609:                                       ; preds = %for.body590
-  %inc.i.i1492 = add i64 %rit.sroa.24.23758, 1
+  %inc.i.i1492 = add i64 %rit.sroa.24.13758, 1
   %cmp.i.i1493 = icmp eq i64 %inc.i.i1492, 64
   %spec.select3527 = select i1 %cmp.i.i1493, i64 0, i64 %inc.i.i1492
   %spec.select3528.idx = select i1 %cmp.i.i1493, i64 8, i64 0
-  %spec.select3528 = getelementptr inbounds i8, ptr %rit.sroa.0.33759, i64 %spec.select3528.idx
+  %spec.select3528 = getelementptr inbounds i8, ptr %rit.sroa.0.13759, i64 %spec.select3528.idx
   %inc612 = add nuw i64 %i448.53760, 1
   %386 = load ptr, ptr %mpEnd.i.i1299, align 8
   %387 = load ptr, ptr %bv0442, align 8
@@ -17030,7 +17030,7 @@ for.cond649.preheader:                            ; preds = %for.cond649.prehead
   %390 = phi i64 [ %.lcssa3620, %invoke.cont615 ], [ %.pre3823, %for.cond649.preheader.loopexit ]
   %391 = phi ptr [ %389, %invoke.cont615 ], [ %399, %for.cond649.preheader.loopexit ]
   %392 = phi ptr [ %.lcssa3622, %invoke.cont615 ], [ %.pre3822, %for.cond649.preheader.loopexit ]
-  %rit.sroa.0.5.lcssa = phi ptr [ %add.ptr10.sink.i.i.i.i.i1510, %invoke.cont615 ], [ %add.ptr10.sink.i.i.i1552, %for.cond649.preheader.loopexit ]
+  %rit.sroa.0.2.lcssa = phi ptr [ %add.ptr10.sink.i.i.i.i.i1510, %invoke.cont615 ], [ %add.ptr10.sink.i.i.i1552, %for.cond649.preheader.loopexit ]
   %i448.6.lcssa = phi i64 [ %dec617, %invoke.cont615 ], [ %sub644, %for.cond649.preheader.loopexit ]
   %i448.73772 = add i64 %i448.6.lcssa, 2
   %sub.ptr.lhs.cast.i.i15753773 = ptrtoint ptr %392 to i64
@@ -17043,12 +17043,12 @@ for.cond649.preheader:                            ; preds = %for.cond649.prehead
 
 for.body622:                                      ; preds = %invoke.cont615, %invoke.cont642
   %i448.63769 = phi i64 [ %sub644, %invoke.cont642 ], [ %dec617, %invoke.cont615 ]
-  %rit.sroa.0.53768 = phi ptr [ %add.ptr10.sink.i.i.i1552, %invoke.cont642 ], [ %add.ptr10.sink.i.i.i.i.i1510, %invoke.cont615 ]
-  %rit.sroa.24.43767 = phi i64 [ %storemerge.i.i.i1553, %invoke.cont642 ], [ %storemerge.i.i.i.i.i1509, %invoke.cont615 ]
-  %cmp.i1534 = icmp eq i64 %rit.sroa.24.43767, 0
+  %rit.sroa.0.23768 = phi ptr [ %add.ptr10.sink.i.i.i1552, %invoke.cont642 ], [ %add.ptr10.sink.i.i.i.i.i1510, %invoke.cont615 ]
+  %rit.sroa.24.23767 = phi i64 [ %storemerge.i.i.i1553, %invoke.cont642 ], [ %storemerge.i.i.i.i.i1509, %invoke.cont615 ]
+  %cmp.i1534 = icmp eq i64 %rit.sroa.24.23767, 0
   %spec.select3529.idx = select i1 %cmp.i1534, i64 -8, i64 0
-  %spec.select3529 = getelementptr inbounds i8, ptr %rit.sroa.0.53768, i64 %spec.select3529.idx
-  %393 = add nsw i64 %rit.sroa.24.43767, -1
+  %spec.select3529 = getelementptr inbounds i8, ptr %rit.sroa.0.23768, i64 %spec.select3529.idx
+  %393 = add nsw i64 %rit.sroa.24.23767, -1
   %394 = shl nuw nsw i64 1, %393
   %395 = load i64, ptr %spec.select3529, align 8
   %shl.i.i1541 = select i1 %cmp.i1534, i64 -9223372036854775808, i64 %394
@@ -17062,24 +17062,24 @@ for.body622:                                      ; preds = %invoke.cont615, %in
           to label %for.inc641 unwind label %lpad446.loopexit.split-lp.loopexit
 
 for.inc641:                                       ; preds = %for.body622
-  %cmp.i.i.i1545 = icmp ugt i64 %rit.sroa.24.43767, 1
+  %cmp.i.i.i1545 = icmp ugt i64 %rit.sroa.24.23767, 1
   br i1 %cmp.i.i.i1545, label %if.then.i.i.i1554, label %if.else.i.i.i1546
 
 if.then.i.i.i1554:                                ; preds = %for.inc641
-  %add.i.i.i = add nsw i64 %rit.sroa.24.43767, -2
+  %add.i.i.i = add nsw i64 %rit.sroa.24.23767, -2
   %div7.i.i.i1555 = lshr i64 %add.i.i.i, 6
   %rem.i.i.i1557 = and i64 %add.i.i.i, 63
   br label %invoke.cont642
 
 if.else.i.i.i1546:                                ; preds = %for.inc641
-  %sub6.i.i.i1547 = sub nuw nsw i64 1, %rit.sroa.24.43767
+  %sub6.i.i.i1547 = sub nuw nsw i64 1, %rit.sroa.24.23767
   %sub12.i.i.i1551 = xor i64 %sub6.i.i.i1547, 63
   br label %invoke.cont642
 
 invoke.cont642:                                   ; preds = %if.else.i.i.i1546, %if.then.i.i.i1554
   %div7.i.i.i1555.pn = phi i64 [ %div7.i.i.i1555, %if.then.i.i.i1554 ], [ -1, %if.else.i.i.i1546 ]
   %storemerge.i.i.i1553 = phi i64 [ %rem.i.i.i1557, %if.then.i.i.i1554 ], [ %sub12.i.i.i1551, %if.else.i.i.i1546 ]
-  %add.ptr10.sink.i.i.i1552 = getelementptr inbounds i64, ptr %rit.sroa.0.53768, i64 %div7.i.i.i1555.pn
+  %add.ptr10.sink.i.i.i1552 = getelementptr inbounds i64, ptr %rit.sroa.0.23768, i64 %div7.i.i.i1555.pn
   %sub644 = add i64 %i448.63769, -2
   %399 = load ptr, ptr %bv0442, align 8
   %cmp.i.i.i1525 = icmp ne ptr %add.ptr10.sink.i.i.i1552, %399
@@ -17089,12 +17089,12 @@ invoke.cont642:                                   ; preds = %if.else.i.i.i1546, 
 
 for.body652:                                      ; preds = %for.cond649.preheader, %_ZN5eastl16reverse_iteratorINS_24bitvector_const_iteratorImEEEmIEl.exit1613
   %i448.73781 = phi i64 [ %i448.7, %_ZN5eastl16reverse_iteratorINS_24bitvector_const_iteratorImEEEmIEl.exit1613 ], [ %i448.73772, %for.cond649.preheader ]
-  %rit.sroa.0.63780 = phi ptr [ %add.ptr10.sink.i.i1607, %_ZN5eastl16reverse_iteratorINS_24bitvector_const_iteratorImEEEmIEl.exit1613 ], [ %rit.sroa.0.5.lcssa, %for.cond649.preheader ]
-  %rit.sroa.24.53779 = phi i64 [ %rem.i.i1612, %_ZN5eastl16reverse_iteratorINS_24bitvector_const_iteratorImEEEmIEl.exit1613 ], [ 2, %for.cond649.preheader ]
-  %cmp.i1587 = icmp eq i64 %rit.sroa.24.53779, 0
+  %rit.sroa.0.33780 = phi ptr [ %add.ptr10.sink.i.i1607, %_ZN5eastl16reverse_iteratorINS_24bitvector_const_iteratorImEEEmIEl.exit1613 ], [ %rit.sroa.0.2.lcssa, %for.cond649.preheader ]
+  %rit.sroa.24.33779 = phi i64 [ %rem.i.i1612, %_ZN5eastl16reverse_iteratorINS_24bitvector_const_iteratorImEEEmIEl.exit1613 ], [ 2, %for.cond649.preheader ]
+  %cmp.i1587 = icmp eq i64 %rit.sroa.24.33779, 0
   %spec.select3531.idx = select i1 %cmp.i1587, i64 -8, i64 0
-  %spec.select3531 = getelementptr inbounds i8, ptr %rit.sroa.0.63780, i64 %spec.select3531.idx
-  %400 = add nsw i64 %rit.sroa.24.53779, -1
+  %spec.select3531 = getelementptr inbounds i8, ptr %rit.sroa.0.33780, i64 %spec.select3531.idx
+  %400 = add nsw i64 %rit.sroa.24.33779, -1
   %401 = shl nuw i64 1, %400
   %402 = load i64, ptr %spec.select3531, align 8
   %shl.i.i1594 = select i1 %cmp.i1587, i64 -9223372036854775808, i64 %401
@@ -17108,10 +17108,10 @@ for.body652:                                      ; preds = %for.cond649.prehead
           to label %_ZN5eastl16reverse_iteratorINS_24bitvector_const_iteratorImEEEmIEl.exit1613 unwind label %lpad446.loopexit
 
 _ZN5eastl16reverse_iteratorINS_24bitvector_const_iteratorImEEEmIEl.exit1613: ; preds = %for.body652
-  %add.i.i1598 = add nuw nsw i64 %rit.sroa.24.53779, 2
+  %add.i.i1598 = add nuw nsw i64 %rit.sroa.24.33779, 2
   %rem.i.i1612 = and i64 %add.i.i1598, 63
   %div7.i.i1610 = lshr i64 %add.i.i1598, 6
-  %add.ptr10.sink.i.i1607 = getelementptr inbounds i64, ptr %rit.sroa.0.63780, i64 %div7.i.i1610
+  %add.ptr10.sink.i.i1607 = getelementptr inbounds i64, ptr %rit.sroa.0.33780, i64 %div7.i.i1610
   %i448.7 = add i64 %i448.73781, 2
   %406 = load ptr, ptr %mpEnd.i.i1299, align 8
   %407 = load ptr, ptr %bv0442, align 8
@@ -19478,21 +19478,21 @@ if.then30:                                        ; preds = %for.body
 
 for.inc:                                          ; preds = %for.body, %if.then30
   %n.1 = phi i64 [ %inc, %if.then30 ], [ %n.056, %for.body ]
-  %nReturnValue.1 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
+  %nReturnValue.2 = phi i32 [ %call.i47, %if.then30 ], [ %call.i43, %for.body ]
   %mul36 = shl nuw nsw i64 %n.1, 1
-  %cmp20 = icmp slt i32 %nReturnValue.1, 0
+  %cmp20 = icmp slt i32 %nReturnValue.2, 0
   %cmp21 = icmp ult i64 %n.1, 500000
   %13 = and i1 %cmp20, %cmp21
   br i1 %13, label %for.body, label %if.end38, !llvm.loop !71
 
 if.end38:                                         ; preds = %for.inc, %if.then
-  %nReturnValue.2 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.1, %for.inc ]
-  %cmp39 = icmp sgt i32 %nReturnValue.2, -1
+  %nReturnValue.0 = phi i32 [ %call.i38, %if.then ], [ %nReturnValue.2, %for.inc ]
+  %cmp39 = icmp sgt i32 %nReturnValue.0, -1
   br i1 %cmp39, label %if.then40, label %if.end44
 
 if.then40:                                        ; preds = %if.else, %if.end38
-  %nReturnValue.254 = phi i32 [ %nReturnValue.2, %if.end38 ], [ %call.i, %if.else ]
-  %conv42 = zext nneg i32 %nReturnValue.254 to i64
+  %nReturnValue.054 = phi i32 [ %nReturnValue.0, %if.end38 ], [ %call.i, %if.else ]
+  %conv42 = zext nneg i32 %nReturnValue.054 to i64
   %add43 = add i64 %cond.i, %conv42
   %14 = load i8, ptr %mRemainingSizeField.i.i, align 1
   %tobool.i.i49 = icmp slt i8 %14, 0

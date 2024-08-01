@@ -2135,11 +2135,11 @@ buildMergedJoinVar.exit:                          ; preds = %976, %977, %980, %9
   br label %.thread465
 
 .thread465:                                       ; preds = %.thread465.loopexit, %885
-  %.1329 = phi i32 [ 0, %885 ], [ %.us-phi610, %.thread465.loopexit ]
-  %1014 = sext i32 %.1329 to i64
+  %.0328 = phi i32 [ 0, %885 ], [ %.us-phi610, %.thread465.loopexit ]
+  %1014 = sext i32 %.0328 to i64
   %1015 = getelementptr %struct.ParseNamespaceColumn, ptr %678, i64 %1014
   %1016 = call fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr noundef %615, ptr noundef %618, ptr noundef nonnull %14, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %1015)
-  %1017 = add i32 %1016, %.1329
+  %1017 = add i32 %1016, %.0328
   %1018 = sext i32 %1017 to i64
   %1019 = getelementptr %struct.ParseNamespaceColumn, ptr %678, i64 %1018
   %1020 = call fastcc i32 @extractRemainingColumns(ptr noundef %0, ptr noundef %621, ptr noundef %624, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %1019)

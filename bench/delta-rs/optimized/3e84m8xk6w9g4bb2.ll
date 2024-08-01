@@ -4623,7 +4623,7 @@ default.unreachable29:                            ; preds = %228, %211, %181, %1
   %763 = phi ptr [ %85, %92 ], [ %495, %749 ], [ %119, %159 ]
   %764 = phi ptr [ %86, %92 ], [ %496, %749 ], [ %120, %159 ]
   %765 = phi ptr [ %87, %92 ], [ %497, %749 ], [ %121, %159 ]
-  %.1.i.i = phi ptr [ %93, %92 ], [ %733, %749 ], [ %162, %159 ]
+  %.0.i.i = phi ptr [ %93, %92 ], [ %733, %749 ], [ %162, %159 ]
   %766 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 0, ptr %766, align 8, !noalias !460
   store i8 1, ptr %764, align 2, !noalias !460
@@ -4671,10 +4671,10 @@ common.ret:                                       ; preds = %777, %774
   br label %common.ret
 
 777:                                              ; preds = %762
-  %778 = load i64, ptr %.1.i.i, align 8, !range !512, !alias.scope !767, !noundef !4
+  %778 = load i64, ptr %.0.i.i, align 8, !range !512, !alias.scope !767, !noundef !4
   %.not = icmp eq i64 %778, -9223372036854775807
   %.sroa.3.0.idx.i.i = select i1 %.not, i64 8, i64 0
-  %.sroa.3.0.i.i = getelementptr inbounds i8, ptr %.1.i.i, i64 %.sroa.3.0.idx.i.i
+  %.sroa.3.0.i.i = getelementptr inbounds i8, ptr %.0.i.i, i64 %.sroa.3.0.idx.i.i
   store i8 1, ptr %763, align 8, !noalias !456
   %spec.select.i = select i1 %.not, ptr null, ptr %.sroa.3.0.i.i
   store i8 1, ptr %50, align 8
@@ -6073,11 +6073,11 @@ default.unreachable1019:                          ; preds = %2554, %2287, %1969,
   unreachable
 
 483:                                              ; preds = %484
-  br i1 %.02039.i.i, label %485, label %.body
+  br i1 %.12139.i.i, label %485, label %.body
 
 484:                                              ; preds = %.thread47.i.i, %.thread.i.i
   %.pn41.i.i = phi { ptr, i32 } [ %417, %.thread.i.i ], [ %437, %.thread47.i.i ]
-  %.02039.i.i = phi i1 [ true, %.thread.i.i ], [ false, %.thread47.i.i ]
+  %.12139.i.i = phi i1 [ true, %.thread.i.i ], [ false, %.thread47.i.i ]
   invoke fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$aws_types..os_shim_internal..Env$GT$$GT$17hf1f3627114281392E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %191) #31
           to label %483 unwind label %481, !noalias !890
 
@@ -10401,7 +10401,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 1862:                                             ; preds = %1860, %1838
   %.pn48.i = phi { ptr, i32 } [ %1839, %1838 ], [ %.pn46.i, %1860 ]
-  %.213.i = phi i1 [ false, %1838 ], [ %.314.i, %1860 ]
+  %.415.i = phi i1 [ false, %1838 ], [ %.314.i, %1860 ]
   %.2.i = phi i1 [ false, %1838 ], [ true, %1860 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %76), !noalias !1236
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %77), !noalias !1236
@@ -10411,39 +10411,39 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
 
 1863:                                             ; preds = %1864
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %85), !noalias !1236
-  br i1 %.3.ph.i, label %1866, label %1865
+  br i1 %.110.ph.i, label %1866, label %1865
 
 1864:                                             ; preds = %1862, %1858, %1828
   %.pn52.pn.ph.i = phi { ptr, i32 } [ %.pn44.i, %1828 ], [ %1859, %1858 ], [ %.pn48.i, %1862 ]
-  %.016.ph.i = phi i1 [ true, %1828 ], [ false, %1858 ], [ false, %1862 ]
-  %.415.ph.i = phi i1 [ true, %1828 ], [ false, %1858 ], [ %.213.i, %1862 ]
-  %.3.ph.i = phi i1 [ true, %1828 ], [ false, %1858 ], [ %.2.i, %1862 ]
+  %.319.ph.i = phi i1 [ true, %1828 ], [ false, %1858 ], [ false, %1862 ]
+  %.213.ph.i = phi i1 [ true, %1828 ], [ false, %1858 ], [ %.415.i, %1862 ]
+  %.110.ph.i = phi i1 [ true, %1828 ], [ false, %1858 ], [ %.2.i, %1862 ]
   call void @llvm.lifetime.end.p0(i64 360, ptr nonnull %82), !noalias !1236
   invoke void @"_ZN4core3ptr75drop_in_place$LT$aws_config..imds..credentials..ImdsCredentialsProvider$GT$17ha5ad6c5bd7767df6E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %85) #31
           to label %1863 unwind label %1749, !noalias !1240
 
 1865:                                             ; preds = %1866, %1863
   %.pn52.pn.pn.pn.i = phi { ptr, i32 } [ %.pn52.pn.pn121.i, %1866 ], [ %.pn52.pn.ph.i, %1863 ]
-  %.218.i = phi i1 [ %.117122.i, %1866 ], [ %.016.ph.i, %1863 ]
-  %.6.i = phi i1 [ %.5123.i, %1866 ], [ %.415.ph.i, %1863 ]
+  %.117.i = phi i1 [ %.218122.i, %1866 ], [ %.319.ph.i, %1863 ]
+  %.011.i = phi i1 [ %.112123.i, %1866 ], [ %.213.ph.i, %1863 ]
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %88), !noalias !1236
-  br i1 %.6.i, label %1868, label %1867
+  br i1 %.011.i, label %1868, label %1867
 
 1866:                                             ; preds = %1863, %.thread116.i
-  %.5123.i = phi i1 [ true, %.thread116.i ], [ %.415.ph.i, %1863 ]
-  %.117122.i = phi i1 [ true, %.thread116.i ], [ %.016.ph.i, %1863 ]
+  %.112123.i = phi i1 [ true, %.thread116.i ], [ %.213.ph.i, %1863 ]
+  %.218122.i = phi i1 [ true, %.thread116.i ], [ %.319.ph.i, %1863 ]
   %.pn52.pn.pn121.i = phi { ptr, i32 } [ %.pn42.i, %.thread116.i ], [ %.pn52.pn.ph.i, %1863 ]
   invoke void @"_ZN4core3ptr88drop_in_place$LT$aws_config..web_identity_token..WebIdentityTokenCredentialsProvider$GT$17h946ff86a27105d0bE"(ptr noalias noundef nonnull align 8 dereferenceable(152) %88) #31
           to label %1865 unwind label %1749, !noalias !1240
 
 1867:                                             ; preds = %1868, %1865
   %.pn52.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn52.pn.pn.pn133.i, %1868 ], [ %.pn52.pn.pn.pn.i, %1865 ]
-  %.319.i = phi i1 [ %.218134.i, %1868 ], [ %.218.i, %1865 ]
+  %.016.i = phi i1 [ %.117134.i, %1868 ], [ %.117.i, %1865 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %91), !noalias !1236
-  br i1 %.319.i, label %1870, label %1869
+  br i1 %.016.i, label %1870, label %1869
 
 1868:                                             ; preds = %1865, %.thread129.i
-  %.218134.i = phi i1 [ true, %.thread129.i ], [ %.218.i, %1865 ]
+  %.117134.i = phi i1 [ true, %.thread129.i ], [ %.117.i, %1865 ]
   %.pn52.pn.pn.pn133.i = phi { ptr, i32 } [ %.pn40.i, %.thread129.i ], [ %.pn52.pn.pn.pn.i, %1865 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$aws_config..profile..credentials..ProfileFileCredentialsProvider$GT$17h0708ccd5544f1b2eE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %91) #31
           to label %1867 unwind label %1749, !noalias !1240

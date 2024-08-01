@@ -381,7 +381,7 @@ if.end97:                                         ; preds = %if.end92
   br label %for.cond.outer
 
 for.cond.outer:                                   ; preds = %if.end235, %if.end97
-  %ok.2.ph = phi i32 [ %call209, %if.end235 ], [ 0, %if.end97 ]
+  %ok.3.ph = phi i32 [ %call209, %if.end235 ], [ 0, %if.end97 ]
   %i.0.ph = phi i64 [ %dec101, %if.end235 ], [ %17, %if.end97 ]
   %cmp99.not100 = icmp eq i64 %i.0.ph, 0
   br i1 %cmp99.not100, label %end, label %for.body
@@ -523,13 +523,13 @@ if.end235:                                        ; preds = %do.body193
   br i1 %tobool241.not, label %for.cond.outer, label %end, !llvm.loop !4
 
 end:                                              ; preds = %for.cond.outer, %if.end235, %if.end183, %for.cond.backedge, %if.then233, %if.end80, %land.lhs.true61, %land.lhs.true, %if.end40, %if.end32, %lor.lhs.false, %if.then96, %if.then91, %if.then27
-  %ok.3 = phi i32 [ 0, %if.end80 ], [ 0, %if.then91 ], [ 0, %if.then96 ], [ %call209, %if.then233 ], [ 1, %if.then27 ], [ 0, %if.end32 ], [ 0, %lor.lhs.false ], [ 0, %if.end40 ], [ 0, %land.lhs.true61 ], [ 0, %land.lhs.true ], [ %ok.2.ph, %for.cond.backedge ], [ %ok.2.ph, %for.cond.outer ], [ %ok.2.ph, %if.end183 ], [ %call209, %if.end235 ]
+  %ok.2 = phi i32 [ 0, %if.end80 ], [ 0, %if.then91 ], [ 0, %if.then96 ], [ %call209, %if.then233 ], [ 1, %if.then27 ], [ 0, %if.end32 ], [ 0, %lor.lhs.false ], [ 0, %if.end40 ], [ 0, %land.lhs.true61 ], [ 0, %land.lhs.true ], [ %ok.3.ph, %for.cond.backedge ], [ %ok.3.ph, %for.cond.outer ], [ %ok.3.ph, %if.end183 ], [ %call209, %if.end235 ]
   %cbio.0 = phi ptr [ null, %if.end80 ], [ null, %if.then91 ], [ null, %if.then96 ], [ %call93, %if.then233 ], [ null, %if.then27 ], [ null, %if.end32 ], [ null, %lor.lhs.false ], [ null, %if.end40 ], [ null, %land.lhs.true61 ], [ null, %land.lhs.true ], [ %call93, %for.cond.backedge ], [ %call93, %if.end183 ], [ %call93, %if.end235 ], [ %call93, %for.cond.outer ]
   %call244 = call i32 @ossl_core_bio_free(ptr noundef %cbio.0) #6
   %bio245 = getelementptr inbounds i8, ptr %new_data, i64 8
   %32 = load ptr, ptr %bio245, align 8
   %call246 = call i32 @BIO_free(ptr noundef %32) #6
-  ret i32 %ok.3
+  ret i32 %ok.2
 }
 
 declare i64 @ERR_peek_error() local_unnamed_addr #1

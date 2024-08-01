@@ -11005,7 +11005,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit56: ; 
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc61, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i
   %.sroa.06.018.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i ], [ %.sroa.06.015.i.i.i, %.noexc61 ]
-  %.sroa.012.017.i.i.i = phi ptr [ %.sroa.012.1.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i ], [ %189, %.noexc61 ]
+  %.sroa.012.117.i.i.i = phi ptr [ %.sroa.012.2.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i ], [ %189, %.noexc61 ]
   %191 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.018.i.i.i) #17
   br i1 %191, label %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i
 
@@ -11016,26 +11016,26 @@ _ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_ite
   br i1 %194, label %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i, label %195
 
 195:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i
-  %196 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.017.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.018.i.i.i) #17
-  %197 = getelementptr inbounds i8, ptr %.sroa.012.017.i.i.i, i64 32
+  %196 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.117.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.018.i.i.i) #17
+  %197 = getelementptr inbounds i8, ptr %.sroa.012.117.i.i.i, i64 32
   br label %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i: ; preds = %195, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i, %.lr.ph.i.i.i
-  %.sroa.012.1.i.i.i = phi ptr [ %.sroa.012.017.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i ], [ %197, %195 ], [ %.sroa.012.017.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.012.2.i.i.i = phi ptr [ %.sroa.012.117.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i ], [ %197, %195 ], [ %.sroa.012.117.i.i.i, %.lr.ph.i.i.i ]
   %.sroa.06.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.06.018.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i, %187
   br i1 %.not.i.i.i, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEE25cmNinjaRemoveNoOpCommandsET_SE_SE_T0_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !425
 
 _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEE25cmNinjaRemoveNoOpCommandsET_SE_SE_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i, %.noexc61
-  %.sroa.012.2.i.i.i = phi ptr [ %189, %.noexc61 ], [ %.sroa.012.1.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i ]
+  %.sroa.012.0.i.i.i = phi ptr [ %189, %.noexc61 ], [ %.sroa.012.2.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i ]
   %198 = load ptr, ptr %167, align 8
-  %.not.i.i6.i = icmp eq ptr %.sroa.012.2.i.i.i, %198
+  %.not.i.i6.i = icmp eq ptr %.sroa.012.0.i.i.i, %198
   br i1 %.not.i.i6.i, label %_ZN2cm8erase_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_E25cmNinjaRemoveNoOpCommandsEEvRSt6vectorIT_T0_ET1_.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i: ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEE25cmNinjaRemoveNoOpCommandsET_SE_SE_T0_.exit.i
   %199 = load ptr, ptr %29, align 8
   %200 = ptrtoint ptr %199 to i64
-  %201 = ptrtoint ptr %.sroa.012.2.i.i.i to i64
+  %201 = ptrtoint ptr %.sroa.012.0.i.i.i to i64
   %202 = sub i64 %201, %200
   %203 = getelementptr inbounds i8, ptr %199, i64 %202
   br label %.lr.ph.i.i.i.i.i.i.i
@@ -13167,7 +13167,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc145, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i
   %.sroa.06.018.i.i.i = phi ptr [ %.sroa.06.0.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i ], [ %.sroa.06.015.i.i.i, %.noexc145 ]
-  %.sroa.012.017.i.i.i = phi ptr [ %.sroa.012.1.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i ], [ %341, %.noexc145 ]
+  %.sroa.012.117.i.i.i = phi ptr [ %.sroa.012.2.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i ], [ %341, %.noexc145 ]
   %343 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.018.i.i.i) #17
   br i1 %343, label %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i
 
@@ -13178,26 +13178,26 @@ _ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_ite
   br i1 %346, label %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i, label %347
 
 347:                                              ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i
-  %348 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.017.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.018.i.i.i) #17
-  %349 = getelementptr inbounds i8, ptr %.sroa.012.017.i.i.i, i64 32
+  %348 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.012.117.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.018.i.i.i) #17
+  %349 = getelementptr inbounds i8, ptr %.sroa.012.117.i.i.i, i64 32
   br label %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i: ; preds = %347, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i, %.lr.ph.i.i.i
-  %.sroa.012.1.i.i.i = phi ptr [ %.sroa.012.017.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i ], [ %349, %347 ], [ %.sroa.012.017.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.012.2.i.i.i = phi ptr [ %.sroa.012.117.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.i.i.i ], [ %349, %347 ], [ %.sroa.012.117.i.i.i, %.lr.ph.i.i.i ]
   %.sroa.06.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.06.018.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %.sroa.06.0.i.i.i, %339
   br i1 %.not.i.i.i, label %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEE25cmNinjaRemoveNoOpCommandsET_SE_SE_T0_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !425
 
 _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEE25cmNinjaRemoveNoOpCommandsET_SE_SE_T0_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i, %.noexc145
-  %.sroa.012.2.i.i.i = phi ptr [ %341, %.noexc145 ], [ %.sroa.012.1.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i ]
+  %.sroa.012.0.i.i.i = phi ptr [ %341, %.noexc145 ], [ %.sroa.012.2.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predI25cmNinjaRemoveNoOpCommandsEclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISB_SaISB_EEEEEEbT_.exit.thread.i.i.i ]
   %350 = load ptr, ptr %319, align 8
-  %.not.i.i6.i = icmp eq ptr %.sroa.012.2.i.i.i, %350
+  %.not.i.i6.i = icmp eq ptr %.sroa.012.0.i.i.i, %350
   br i1 %.not.i.i6.i, label %_ZN2cm8erase_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_E25cmNinjaRemoveNoOpCommandsEEvRSt6vectorIT_T0_ET1_.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i: ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEE25cmNinjaRemoveNoOpCommandsET_SE_SE_T0_.exit.i
   %351 = load ptr, ptr %46, align 8
   %352 = ptrtoint ptr %351 to i64
-  %353 = ptrtoint ptr %.sroa.012.2.i.i.i to i64
+  %353 = ptrtoint ptr %.sroa.012.0.i.i.i to i64
   %354 = sub i64 %353, %352
   %355 = getelementptr inbounds i8, ptr %351, i64 %354
   br label %.lr.ph.i.i.i.i.i.i.i

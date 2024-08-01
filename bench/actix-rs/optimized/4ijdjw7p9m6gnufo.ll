@@ -1382,13 +1382,13 @@ _ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430
   br label %70
 
 70:                                               ; preds = %58, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit12, %69, %68
-  %.0 = phi i8 [ 3, %69 ], [ 1, %68 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit12 ], [ 2, %58 ]
+  %.2 = phi i8 [ 3, %69 ], [ 1, %68 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit12 ], [ 2, %58 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %71
 
 71:                                               ; preds = %1, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit, %70, %1, %60
-  %.2 = phi i8 [ 0, %60 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit ], [ %.0, %70 ], [ %10, %1 ], [ %10, %1 ]
-  ret i8 %.2
+  %.1 = phi i8 [ 0, %60 ], [ 0, %_ZN5tokio7runtime4task7harness11cancel_task17ha5cb33bb5707e6c0E.llvm.14469375430496879520.exit ], [ %.2, %70 ], [ %10, %1 ], [ %10, %1 ]
+  ret i8 %.1
 }
 
 ; Function Attrs: nonlazybind uwtable

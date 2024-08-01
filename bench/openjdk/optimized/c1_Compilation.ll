@@ -1206,13 +1206,13 @@ _ZN11Compilation17setup_code_bufferEP10CodeBufferi.exit: ; preds = %1
   br label %61
 
 61:                                               ; preds = %52, %33, %54
-  %.0 = phi i32 [ %60, %54 ], [ 0, %33 ], [ 0, %52 ]
+  %.1 = phi i32 [ %60, %54 ], [ 0, %33 ], [ 0, %52 ]
   call void @_ZN13LIR_AssemblerD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #7
   br label %_ZN11Compilation7bailoutEPKc.exit
 
 _ZN11Compilation7bailoutEPKc.exit:                ; preds = %30, %27, %_ZN11Compilation17setup_code_bufferEP10CodeBufferi.exit, %61
-  %.1 = phi i32 [ %.0, %61 ], [ 0, %_ZN11Compilation17setup_code_bufferEP10CodeBufferi.exit ], [ 0, %27 ], [ 0, %30 ]
-  ret i32 %.1
+  %.0 = phi i32 [ %.1, %61 ], [ 0, %_ZN11Compilation17setup_code_bufferEP10CodeBufferi.exit ], [ 0, %27 ], [ 0, %30 ]
+  ret i32 %.0
 }
 
 declare void @_ZN10CodeBuffer23initialize_oop_recorderEP11OopRecorder(ptr noundef nonnull align 8 dereferenceable(448), ptr noundef) local_unnamed_addr #2

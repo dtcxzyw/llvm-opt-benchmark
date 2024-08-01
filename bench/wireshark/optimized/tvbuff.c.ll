@@ -3960,16 +3960,16 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   br label %186
 
 186:                                              ; preds = %183, %177
-  %.078 = phi i32 [ %182, %177 ], [ %.neg109, %183 ]
+  %.2 = phi i32 [ %182, %177 ], [ %.neg109, %183 ]
   %187 = load i32, ptr %7, align 4
   %188 = sext i32 %187 to i64
   %189 = getelementptr i8, ptr %.4, i64 %188
-  %190 = sext i32 %.078 to i64
+  %190 = sext i32 %.2 to i64
   br label %191
 
 191:                                              ; preds = %165, %186, %170, %76, %81, %52, %44
   %.079 = phi ptr [ %47, %52 ], [ %47, %44 ], [ %80, %76 ], [ null, %81 ], [ %166, %165 ], [ %171, %170 ], [ %189, %186 ]
-  %.2 = phi i64 [ 0, %52 ], [ 0, %44 ], [ 0, %76 ], [ 0, %81 ], [ 0, %165 ], [ 0, %170 ], [ %190, %186 ]
+  %.078 = phi i64 [ 0, %52 ], [ 0, %44 ], [ 0, %76 ], [ 0, %81 ], [ 0, %165 ], [ 0, %170 ], [ %190, %186 ]
   %192 = call i64 @mktime_utc(ptr noundef nonnull %8) #17
   store i64 %192, ptr %4, align 8
   %193 = icmp eq i64 %192, -1
@@ -3982,7 +3982,7 @@ validate_single_byte_ascii_encoding.exit:         ; preds = %6
   br i1 %.not111, label %197, label %parse_month_name.exit.thread
 
 197:                                              ; preds = %194, %191
-  %198 = add i64 %192, %.2
+  %198 = add i64 %192, %.078
   store i64 %198, ptr %4, align 8
   br label %199
 
@@ -4379,7 +4379,7 @@ define internal fastcc i64 @_tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 
 
 34:                                               ; preds = %24, %22
   %.053 = phi i32 [ %33, %24 ], [ %4, %22 ]
-  %.050 = phi i64 [ %31, %24 ], [ 0, %22 ]
+  %.151 = phi i64 [ %31, %24 ], [ 0, %22 ]
   %.0.in = phi i32 [ %32, %24 ], [ %2, %22 ]
   %.0 = trunc i32 %.0.in to i8
   %35 = and i32 %.0.in, 255
@@ -4389,7 +4389,7 @@ define internal fastcc i64 @_tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 
 .lr.ph:                                           ; preds = %34, %114
   %37 = phi i32 [ %117, %114 ], [ %35, %34 ]
   %.166 = phi i8 [ %115, %114 ], [ %.0, %34 ]
-  %.15165 = phi i64 [ %.252, %114 ], [ %.050, %34 ]
+  %.25265 = phi i64 [ %.3, %114 ], [ %.151, %34 ]
   %.15464 = phi i32 [ %116, %114 ], [ %.053, %34 ]
   %38 = lshr i32 %37, 4
   switch i32 %38, label %75 [
@@ -4400,7 +4400,7 @@ define internal fastcc i64 @_tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 
   ]
 
 39:                                               ; preds = %.lr.ph
-  %40 = shl i64 %.15165, 8
+  %40 = shl i64 %.25265, 8
   %41 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.15464, i32 noundef 1)
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i64
@@ -4408,7 +4408,7 @@ define internal fastcc i64 @_tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 
   br label %114
 
 45:                                               ; preds = %.lr.ph
-  %46 = shl i64 %.15165, 16
+  %46 = shl i64 %.25265, 16
   %47 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.15464, i32 noundef 2)
   %.val.i = load i8, ptr %47, align 1
   %48 = getelementptr i8, ptr %47, i64 1
@@ -4421,7 +4421,7 @@ define internal fastcc i64 @_tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 
   br label %114
 
 54:                                               ; preds = %.lr.ph, %.lr.ph
-  %55 = shl i64 %.15165, 32
+  %55 = shl i64 %.25265, 32
   %56 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.15464, i32 noundef 4)
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i64
@@ -4487,7 +4487,7 @@ define internal fastcc i64 @_tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 
 114:                                              ; preds = %75, %54, %45, %39
   %.sink72 = phi i8 [ -64, %75 ], [ -32, %54 ], [ -16, %45 ], [ -8, %39 ]
   %.sink = phi i32 [ 8, %75 ], [ 4, %54 ], [ 2, %45 ], [ 1, %39 ]
-  %.252 = phi i64 [ %113, %75 ], [ %74, %54 ], [ %53, %45 ], [ %44, %39 ]
+  %.3 = phi i64 [ %113, %75 ], [ %74, %54 ], [ %53, %45 ], [ %44, %39 ]
   %115 = add i8 %.166, %.sink72
   %116 = add i32 %.15464, %.sink
   %117 = zext i8 %115 to i32
@@ -4496,7 +4496,7 @@ define internal fastcc i64 @_tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 
 
 ._crit_edge:                                      ; preds = %114, %34
   %.154.lcssa = phi i32 [ %.053, %34 ], [ %116, %114 ]
-  %.151.lcssa = phi i64 [ %.050, %34 ], [ %.252, %114 ]
+  %.252.lcssa = phi i64 [ %.151, %34 ], [ %.3, %114 ]
   %.1.lcssa = phi i8 [ %.0, %34 ], [ %115, %114 ]
   %.lcssa = phi i32 [ %35, %34 ], [ %117, %114 ]
   %.not63 = icmp eq i8 %.1.lcssa, 0
@@ -4504,7 +4504,7 @@ define internal fastcc i64 @_tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 
 
 119:                                              ; preds = %._crit_edge
   %120 = zext nneg i8 %.1.lcssa to i64
-  %121 = shl i64 %.151.lcssa, %120
+  %121 = shl i64 %.252.lcssa, %120
   %122 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.154.lcssa, i32 noundef 1)
   %123 = load i8, ptr %122, align 1
   %124 = zext i8 %123 to i32
@@ -4515,8 +4515,8 @@ define internal fastcc i64 @_tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 
   br label %129
 
 129:                                              ; preds = %._crit_edge, %119, %8
-  %.3 = phi i64 [ %21, %8 ], [ %128, %119 ], [ %.151.lcssa, %._crit_edge ]
-  ret i64 %.3
+  %.050 = phi i64 [ %21, %8 ], [ %128, %119 ], [ %.252.lcssa, %._crit_edge ]
+  ret i64 %.050
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4551,22 +4551,22 @@ define i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   %17 = xor i64 %notmask.i, -1
   %18 = sub nsw i32 %2, %9
   %19 = select i1 %15, i64 %17, i64 127
-  %.0.i = and i64 %19, %14
+  %.1.i = and i64 %19, %14
   %20 = add nuw nsw i32 %6, 1
   br i1 %15, label %_tvb_get_bits64_le.exit, label %21
 
 21:                                               ; preds = %8, %5
   %.056.i = phi i32 [ %20, %8 ], [ %6, %5 ]
-  %.153.i = phi i32 [ %18, %8 ], [ %spec.store.select.i, %5 ]
+  %.052.i = phi i32 [ %18, %8 ], [ %spec.store.select.i, %5 ]
   %.049.i = phi i32 [ %9, %8 ], [ 0, %5 ]
-  %.1.i = phi i64 [ %.0.i, %8 ], [ 0, %5 ]
-  %22 = icmp sgt i32 %.153.i, 0
+  %.0.i = phi i64 [ %.1.i, %8 ], [ 0, %5 ]
+  %22 = icmp sgt i32 %.052.i, 0
   br i1 %22, label %.lr.ph.i, label %_tvb_get_bits64_le.exit
 
 .lr.ph.i:                                         ; preds = %21, %47
-  %.267.i = phi i64 [ %.3.i, %47 ], [ %.1.i, %21 ]
+  %.267.i = phi i64 [ %.3.i, %47 ], [ %.0.i, %21 ]
   %.15066.i = phi i32 [ %50, %47 ], [ %.049.i, %21 ]
-  %.25465.i = phi i32 [ %51, %47 ], [ %.153.i, %21 ]
+  %.25465.i = phi i32 [ %51, %47 ], [ %.052.i, %21 ]
   %.15764.i = phi i32 [ %52, %47 ], [ %.056.i, %21 ]
   %23 = icmp ugt i32 %.25465.i, 31
   br i1 %23, label %24, label %28
@@ -4629,7 +4629,7 @@ define i64 @tvb_get_bits64(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br label %_tvb_get_bits64_le.exit
 
 _tvb_get_bits64_le.exit:                          ; preds = %47, %.thread72.i, %21, %8, %53
-  %.0 = phi i64 [ %54, %53 ], [ %.1.i, %21 ], [ %.377.i, %.thread72.i ], [ %.0.i, %8 ], [ %.3.i, %47 ]
+  %.0 = phi i64 [ %54, %53 ], [ %.0.i, %21 ], [ %.377.i, %.thread72.i ], [ %.1.i, %8 ], [ %.3.i, %47 ]
   ret i64 %.0
 }
 
@@ -7262,7 +7262,7 @@ ensure_contiguous.exit:                           ; preds = %22
   br label %48
 
 48:                                               ; preds = %40, %.lr.ph.split.us.split.us
-  %.1.us.us = phi i32 [ %.04360.us.us, %.lr.ph.split.us.split.us ], [ %47, %40 ]
+  %.2.us.us = phi i32 [ %.04360.us.us, %.lr.ph.split.us.split.us ], [ %47, %40 ]
   %49 = lshr i8 %39, 4
   %50 = icmp eq i8 %49, 15
   br i1 %50, label %._crit_edge, label %51
@@ -7271,10 +7271,10 @@ ensure_contiguous.exit:                           ; preds = %22
   %52 = zext nneg i8 %49 to i64
   %53 = getelementptr [16 x i8], ptr %4, i64 0, i64 %52
   %54 = load i8, ptr %53, align 1
-  %55 = sext i32 %.1.us.us to i64
+  %55 = sext i32 %.2.us.us to i64
   %56 = getelementptr i8, ptr %35, i64 %55
   store i8 %54, ptr %56, align 1
-  %57 = add i32 %.1.us.us, 1
+  %57 = add i32 %.2.us.us, 1
   %58 = getelementptr i8, ptr %.04459.us.us, i64 1
   %59 = add nsw i32 %.14658.us.us, -1
   %60 = icmp sgt i32 %.14658.us.us, 1
@@ -7300,7 +7300,7 @@ ensure_contiguous.exit:                           ; preds = %22
   br label %70
 
 70:                                               ; preds = %62, %.lr.ph.split.us.split
-  %.1.us = phi i32 [ %.04360.us, %.lr.ph.split.us.split ], [ %69, %62 ]
+  %.2.us = phi i32 [ %.04360.us, %.lr.ph.split.us.split ], [ %69, %62 ]
   %71 = lshr i8 %61, 4
   %72 = icmp eq i8 %71, 15
   %73 = icmp eq i32 %.14658.us, 1
@@ -7311,10 +7311,10 @@ ensure_contiguous.exit:                           ; preds = %22
   %75 = zext nneg i8 %71 to i64
   %76 = getelementptr [16 x i8], ptr %4, i64 0, i64 %75
   %77 = load i8, ptr %76, align 1
-  %78 = sext i32 %.1.us to i64
+  %78 = sext i32 %.2.us to i64
   %79 = getelementptr i8, ptr %35, i64 %78
   store i8 %77, ptr %79, align 1
-  %80 = add i32 %.1.us, 1
+  %80 = add i32 %.2.us, 1
   %81 = getelementptr i8, ptr %.04459.us, i64 1
   %82 = add nsw i32 %.14658.us, -1
   %83 = icmp sgt i32 %.14658.us, 1
@@ -7343,7 +7343,7 @@ ensure_contiguous.exit:                           ; preds = %22
   br label %93
 
 93:                                               ; preds = %85, %.lr.ph.split.split.split.us
-  %.1.us83 = phi i32 [ %.04360.us79, %.lr.ph.split.split.split.us ], [ %92, %85 ]
+  %.2.us83 = phi i32 [ %.04360.us79, %.lr.ph.split.split.split.us ], [ %92, %85 ]
   %94 = icmp eq i8 %84, 15
   br i1 %94, label %._crit_edge, label %95
 
@@ -7352,10 +7352,10 @@ ensure_contiguous.exit:                           ; preds = %22
   %97 = zext nneg i8 %96 to i64
   %98 = getelementptr [16 x i8], ptr %4, i64 0, i64 %97
   %99 = load i8, ptr %98, align 1
-  %100 = sext i32 %.1.us83 to i64
+  %100 = sext i32 %.2.us83 to i64
   %101 = getelementptr i8, ptr %35, i64 %100
   store i8 %99, ptr %101, align 1
-  %102 = add i32 %.1.us83, 1
+  %102 = add i32 %.2.us83, 1
   %103 = getelementptr i8, ptr %.04459.us80, i64 1
   %104 = add nsw i32 %.14658.us81, -1
   %105 = icmp sgt i32 %.14658.us81, 1
@@ -7381,7 +7381,7 @@ ensure_contiguous.exit:                           ; preds = %22
   br label %115
 
 115:                                              ; preds = %107, %.lr.ph.split.split.split
-  %.1 = phi i32 [ %.04360, %.lr.ph.split.split.split ], [ %114, %107 ]
+  %.2 = phi i32 [ %.04360, %.lr.ph.split.split.split ], [ %114, %107 ]
   %116 = icmp eq i8 %106, 15
   %117 = icmp eq i32 %.14658, 1
   %or.cond94 = or i1 %116, %117
@@ -7392,18 +7392,18 @@ ensure_contiguous.exit:                           ; preds = %22
   %120 = zext nneg i8 %119 to i64
   %121 = getelementptr [16 x i8], ptr %4, i64 0, i64 %120
   %122 = load i8, ptr %121, align 1
-  %123 = sext i32 %.1 to i64
+  %123 = sext i32 %.2 to i64
   %124 = getelementptr i8, ptr %35, i64 %123
   store i8 %122, ptr %124, align 1
-  %125 = add i32 %.1, 1
+  %125 = add i32 %.2, 1
   %126 = getelementptr i8, ptr %.04459, i64 1
   %127 = add nsw i32 %.14658, -1
   %128 = icmp sgt i32 %.14658, 1
   br i1 %128, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %95, %93, %118, %115, %51, %48, %74, %70, %ensure_contiguous.exit
-  %.2 = phi i32 [ 0, %ensure_contiguous.exit ], [ %.1.us, %70 ], [ %80, %74 ], [ %.1.us.us, %48 ], [ %57, %51 ], [ %.1, %115 ], [ %125, %118 ], [ %.1.us83, %93 ], [ %102, %95 ]
-  %129 = sext i32 %.2 to i64
+  %.1 = phi i32 [ 0, %ensure_contiguous.exit ], [ %.2.us, %70 ], [ %80, %74 ], [ %.2.us.us, %48 ], [ %57, %51 ], [ %.2, %115 ], [ %125, %118 ], [ %.2.us83, %93 ], [ %102, %95 ]
+  %129 = sext i32 %.1 to i64
   %130 = getelementptr i8, ptr %35, i64 %129
   store i8 0, ptr %130, align 1
   br label %131
@@ -9206,12 +9206,12 @@ tvb_get_ptr.exit:                                 ; preds = %3
   br label %compute_offset_and_remaining.exit
 
 compute_offset_and_remaining.exit:                ; preds = %26, %tvb_get_ptr.exit
-  %.1 = phi i32 [ %2, %tvb_get_ptr.exit ], [ %28, %26 ]
-  %.not18 = icmp eq i32 %.1, 0
+  %.013 = phi i32 [ %2, %tvb_get_ptr.exit ], [ %28, %26 ]
+  %.not18 = icmp eq i32 %.013, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %17, %compute_offset_and_remaining.exit
-  %.121 = phi i32 [ %.1, %compute_offset_and_remaining.exit ], [ -1, %17 ], [ -1, %20 ]
+  %.01321 = phi i32 [ %.013, %compute_offset_and_remaining.exit ], [ -1, %17 ], [ -1, %20 ]
   %29 = load ptr, ptr @g_ascii_table, align 8
   br label %30
 
@@ -9229,7 +9229,7 @@ compute_offset_and_remaining.exit:                ; preds = %26, %tvb_get_ptr.ex
 36:                                               ; preds = %30
   %37 = add nuw i32 %.015, 1
   %38 = getelementptr i8, ptr %.01114, i64 1
-  %exitcond.not = icmp eq i32 %37, %.121
+  %exitcond.not = icmp eq i32 %37, %.01321
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %30, %36, %compute_offset_and_remaining.exit
@@ -9295,8 +9295,8 @@ tvb_get_ptr.exit:                                 ; preds = %3
   br label %compute_offset_and_remaining.exit
 
 compute_offset_and_remaining.exit:                ; preds = %20, %17, %26, %tvb_get_ptr.exit
-  %.1 = phi i32 [ %2, %tvb_get_ptr.exit ], [ %28, %26 ], [ -1, %17 ], [ -1, %20 ]
-  %29 = call zeroext i1 @isprint_utf8_string(ptr noundef %5, i32 noundef %.1) #17
+  %.0 = phi i32 [ %2, %tvb_get_ptr.exit ], [ %28, %26 ], [ -1, %17 ], [ -1, %20 ]
+  %29 = call zeroext i1 @isprint_utf8_string(ptr noundef %5, i32 noundef %.0) #17
   %30 = zext i1 %29 to i32
   ret i32 %30
 }
@@ -9361,12 +9361,12 @@ tvb_get_ptr.exit:                                 ; preds = %3
   br label %compute_offset_and_remaining.exit
 
 compute_offset_and_remaining.exit:                ; preds = %26, %tvb_get_ptr.exit
-  %.1 = phi i32 [ %2, %tvb_get_ptr.exit ], [ %28, %26 ]
-  %.not18 = icmp eq i32 %.1, 0
+  %.013 = phi i32 [ %2, %tvb_get_ptr.exit ], [ %28, %26 ]
+  %.not18 = icmp eq i32 %.013, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %17, %compute_offset_and_remaining.exit
-  %.121 = phi i32 [ %.1, %compute_offset_and_remaining.exit ], [ -1, %17 ], [ -1, %20 ]
+  %.01321 = phi i32 [ %.013, %compute_offset_and_remaining.exit ], [ -1, %17 ], [ -1, %20 ]
   %29 = load ptr, ptr @g_ascii_table, align 8
   br label %30
 
@@ -9384,7 +9384,7 @@ compute_offset_and_remaining.exit:                ; preds = %26, %tvb_get_ptr.ex
 36:                                               ; preds = %30
   %37 = add nuw i32 %.015, 1
   %38 = getelementptr i8, ptr %.01114, i64 1
-  %exitcond.not = icmp eq i32 %37, %.121
+  %exitcond.not = icmp eq i32 %37, %.01321
   br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %30, %36, %compute_offset_and_remaining.exit

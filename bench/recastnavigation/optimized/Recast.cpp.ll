@@ -1131,14 +1131,14 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   br label %.lr.ph215.us
 
 ._crit_edge.us:                                   ; preds = %114, %99
-  %.2167.lcssa.us = phi i32 [ %.1166218.us, %99 ], [ %.6.us, %114 ]
+  %.2167.lcssa.us = phi i32 [ %.1166218.us, %99 ], [ %.4.us, %114 ]
   %indvars.iv.next242 = add nuw nsw i64 %indvars.iv241, 1
   %exitcond245.not = icmp eq i64 %indvars.iv.next242, %96
   br i1 %exitcond245.not, label %._crit_edge220.us, label %99, !llvm.loop !13
 
 .lr.ph215.us:                                     ; preds = %.lr.ph215.us.preheader, %114
   %indvars.iv238 = phi i64 [ %108, %.lr.ph215.us.preheader ], [ %indvars.iv.next239, %114 ]
-  %.2167214.us = phi i32 [ %.1166218.us, %.lr.ph215.us.preheader ], [ %.6.us, %114 ]
+  %.2167214.us = phi i32 [ %.1166218.us, %.lr.ph215.us.preheader ], [ %.4.us, %114 ]
   %111 = load ptr, ptr %85, align 8
   %112 = getelementptr inbounds %struct.rcCompactSpan, ptr %111, i64 %indvars.iv238
   %113 = getelementptr inbounds i8, ptr %112, i64 4
@@ -1153,7 +1153,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 116:                                              ; preds = %.loopexit.us, %.lr.ph215.us
   %117 = phi i32 [ %164, %.loopexit.us ], [ %.pre, %.lr.ph215.us ]
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %.loopexit.us ], [ 0, %.lr.ph215.us ]
-  %.3168212.us = phi i32 [ %.6.us, %.loopexit.us ], [ %.2167214.us, %.lr.ph215.us ]
+  %.3168212.us = phi i32 [ %.4.us, %.loopexit.us ], [ %.2167214.us, %.lr.ph215.us ]
   %118 = trunc i64 %indvars.iv234 to i32
   %119 = mul i32 %118, 6
   %120 = shl nuw nsw i32 63, %119
@@ -1189,7 +1189,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 
 140:                                              ; preds = %.lr.ph210.us, %167
   %indvars.iv231 = phi i64 [ %178, %.lr.ph210.us ], [ %indvars.iv.next232, %167 ]
-  %.4208.us = phi i32 [ %.3168212.us, %.lr.ph210.us ], [ %.5.us, %167 ]
+  %.5208.us = phi i32 [ %.3168212.us, %.lr.ph210.us ], [ %.6.us, %167 ]
   %141 = getelementptr inbounds %struct.rcCompactSpan, ptr %172, i64 %indvars.iv231
   %142 = load i16, ptr %141, align 4
   %143 = tail call noundef i16 @llvm.umax.i16(i16 %173, i16 %142)
@@ -1227,17 +1227,17 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 
 .loopexit.us:                                     ; preds = %167, %133, %158, %116
   %164 = phi i32 [ %124, %116 ], [ %163, %158 ], [ %124, %133 ], [ %124, %167 ]
-  %.6.us = phi i32 [ %.3168212.us, %116 ], [ %.4208.us, %158 ], [ %.3168212.us, %133 ], [ %.5.us, %167 ]
+  %.4.us = phi i32 [ %.3168212.us, %116 ], [ %.5208.us, %158 ], [ %.3168212.us, %133 ], [ %.6.us, %167 ]
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next235, 4
   br i1 %exitcond237.not, label %114, label %116, !llvm.loop !15
 
 165:                                              ; preds = %155
-  %166 = tail call noundef i32 @llvm.smax.i32(i32 %.4208.us, i32 %157)
+  %166 = tail call noundef i32 @llvm.smax.i32(i32 %.5208.us, i32 %157)
   br label %167
 
 167:                                              ; preds = %165, %152, %140
-  %.5.us = phi i32 [ %166, %165 ], [ %.4208.us, %152 ], [ %.4208.us, %140 ]
+  %.6.us = phi i32 [ %166, %165 ], [ %.5208.us, %152 ], [ %.5208.us, %140 ]
   %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %168 = icmp ult i64 %indvars.iv.next232, %180
   br i1 %168, label %140, label %.loopexit.us, !llvm.loop !16
@@ -1264,7 +1264,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
 
 181:                                              ; preds = %.lr.ph, %.loopexit202
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit202 ]
-  %.0161207 = phi i32 [ 0, %.lr.ph ], [ %.3, %.loopexit202 ]
+  %.0161207 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit202 ]
   %182 = load ptr, ptr %93, align 8
   %183 = getelementptr inbounds ptr, ptr %182, i64 %indvars.iv
   %184 = load ptr, ptr %183, align 8
@@ -1279,7 +1279,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   br label %190
 
 190:                                              ; preds = %186, %226
-  %.1205 = phi i32 [ %.0161207, %186 ], [ %.2, %226 ]
+  %.2205 = phi i32 [ %.0161207, %186 ], [ %.3, %226 ]
   %.0163204 = phi ptr [ %184, %186 ], [ %228, %226 ]
   %191 = load i32, ptr %.0163204, align 8
   %.not191 = icmp ult i32 %191, 67108864
@@ -1302,7 +1302,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %201 = phi i32 [ %199, %197 ], [ 65535, %192 ]
   %202 = trunc nuw nsw i32 %194 to i16
   %203 = load ptr, ptr %85, align 8
-  %204 = sext i32 %.1205 to i64
+  %204 = sext i32 %.2205 to i64
   %205 = getelementptr inbounds %struct.rcCompactSpan, ptr %203, i64 %204
   store i16 %202, ptr %205, align 4
   %206 = sub nsw i32 %201, %194
@@ -1321,7 +1321,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   %218 = load ptr, ptr %89, align 8
   %219 = getelementptr inbounds i8, ptr %218, i64 %204
   store i8 %217, ptr %219, align 1
-  %220 = add nsw i32 %.1205, 1
+  %220 = add nsw i32 %.2205, 1
   %221 = load i32, ptr %188, align 4
   %222 = and i32 %221, -16777216
   %223 = add i32 %222, 16777216
@@ -1331,14 +1331,14 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %69, %73
   br label %226
 
 226:                                              ; preds = %190, %200
-  %.2 = phi i32 [ %220, %200 ], [ %.1205, %190 ]
+  %.3 = phi i32 [ %220, %200 ], [ %.2205, %190 ]
   %227 = getelementptr inbounds i8, ptr %.0163204, i64 8
   %228 = load ptr, ptr %227, align 8
   %.not190 = icmp eq ptr %228, null
   br i1 %.not190, label %.loopexit202, label %190, !llvm.loop !18
 
 .loopexit202:                                     ; preds = %226, %181
-  %.3 = phi i32 [ %.0161207, %181 ], [ %.2, %226 ]
+  %.1 = phi i32 [ %.0161207, %181 ], [ %.3, %226 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader201, label %181, !llvm.loop !19

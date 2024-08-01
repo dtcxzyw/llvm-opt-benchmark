@@ -400,15 +400,15 @@ if.end21:                                         ; preds = %if.then16
   br i1 %tobool22.not, label %skip_optional_pos, label %if.end25
 
 if.end25:                                         ; preds = %if.end21, %if.end14
-  %blocking.0 = phi i32 [ %call18, %if.end21 ], [ 1, %if.end14 ]
+  %blocking.1 = phi i32 [ %call18, %if.end21 ], [ 1, %if.end14 ]
   %arrayidx26 = getelementptr i8, ptr %cond1028, i64 8
   %4 = load ptr, ptr %arrayidx26, align 8
   br label %skip_optional_pos
 
 skip_optional_pos:                                ; preds = %if.end21, %if.end, %if.end25
-  %blocking.1 = phi i32 [ %blocking.0, %if.end25 ], [ %call18, %if.end21 ], [ 1, %if.end ]
+  %blocking.0 = phi i32 [ %blocking.1, %if.end25 ], [ %call18, %if.end21 ], [ 1, %if.end ]
   %timeout_obj.0 = phi ptr [ %4, %if.end25 ], [ @_Py_NoneStruct, %if.end21 ], [ @_Py_NoneStruct, %if.end ]
-  %call27 = call fastcc ptr @_multiprocessing_SemLock_acquire_impl(ptr noundef %self, i32 noundef %blocking.1, ptr noundef %timeout_obj.0)
+  %call27 = call fastcc ptr @_multiprocessing_SemLock_acquire_impl(ptr noundef %self, i32 noundef %blocking.0, ptr noundef %timeout_obj.0)
   br label %exit
 
 exit:                                             ; preds = %if.then16, %cond.end9, %skip_optional_pos

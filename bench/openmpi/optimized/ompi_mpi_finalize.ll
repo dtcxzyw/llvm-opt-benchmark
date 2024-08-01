@@ -260,7 +260,7 @@ opal_obj_run_destructors.exit37:                  ; preds = %opal_obj_run_destru
   br label %106
 
 106:                                              ; preds = %101, %103
-  %.1 = phi i32 [ %104, %103 ], [ 0, %101 ]
+  %.3 = phi i32 [ %104, %103 ], [ 0, %101 ]
   %107 = load volatile i8, ptr %1, align 1
   %108 = trunc i8 %107 to i1
   br i1 %108, label %.lr.ph, label %.loopexit
@@ -273,21 +273,21 @@ opal_obj_run_destructors.exit37:                  ; preds = %opal_obj_run_destru
   br i1 %112, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %106, %98, %93
-  %.2 = phi i32 [ 0, %93 ], [ 0, %98 ], [ %.1, %106 ], [ %.1, %.lr.ph ]
+  %.2 = phi i32 [ 0, %93 ], [ 0, %98 ], [ %.3, %106 ], [ %.3, %.lr.ph ]
   %113 = call i32 @ompi_mpi_instance_finalize(ptr noundef nonnull @ompi_mpi_instance_default) #5
   %114 = call i32 @opal_unsetenv(ptr noundef nonnull @.str.6, ptr noundef nonnull @environ) #5
   %115 = call i32 @opal_unsetenv(ptr noundef nonnull @.str.7, ptr noundef nonnull @environ) #5
   br label %116
 
 116:                                              ; preds = %.loopexit, %59, %50
-  %.3 = phi i32 [ %49, %50 ], [ %58, %59 ], [ %.2, %.loopexit ]
+  %.1 = phi i32 [ %49, %50 ], [ %58, %59 ], [ %.2, %.loopexit ]
   fence release
   %117 = atomicrmw volatile xchg ptr @ompi_mpi_state, i32 5 monotonic, align 4
   call void @ompi_hook_base_mpi_finalize_bottom() #5
   br label %118
 
 118:                                              ; preds = %13, %15, %116
-  %.0 = phi i32 [ %.3, %116 ], [ 16, %15 ], [ 16, %13 ]
+  %.0 = phi i32 [ %.1, %116 ], [ 16, %15 ], [ 16, %13 ]
   ret i32 %.0
 }
 

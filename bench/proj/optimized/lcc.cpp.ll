@@ -419,7 +419,7 @@ define internal { double, double } @_ZL13lcc_e_inverse5PJ_XYP8PJconsts(double %0
   br label %46
 
 46:                                               ; preds = %25, %38
-  %.sroa.4.0 = phi double [ %34, %25 ], [ %45, %38 ]
+  %.sroa.4.1 = phi double [ %34, %25 ], [ %45, %38 ]
   %47 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.7.0) #7
   %48 = load double, ptr %15, align 8
   %49 = fdiv double %47, %48
@@ -431,10 +431,10 @@ define internal { double, double } @_ZL13lcc_e_inverse5PJ_XYP8PJconsts(double %0
   br label %53
 
 53:                                               ; preds = %46, %50, %36
-  %.sroa.4.1 = phi double [ 0x7FF0000000000000, %36 ], [ %.sroa.4.0, %46 ], [ %52, %50 ]
+  %.sroa.4.0 = phi double [ 0x7FF0000000000000, %36 ], [ %.sroa.4.1, %46 ], [ %52, %50 ]
   %.sroa.026.0 = phi double [ 0.000000e+00, %36 ], [ %49, %46 ], [ 0.000000e+00, %50 ]
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.026.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.1, 1
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.4.0, 1
   ret { double, double } %.fca.1.insert
 }
 

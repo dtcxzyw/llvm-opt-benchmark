@@ -1771,8 +1771,8 @@ if.then10:                                        ; preds = %if.end
   unreachable
 
 if.end12:                                         ; preds = %_ZN4llvh7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit25.thread, %_ZN4llvh7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit.thread
-  %buffer_ptr.addr.2 = phi ptr [ %add.ptr.i, %_ZN4llvh7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit.thread ], [ %add.ptr.i21, %_ZN4llvh7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit25.thread ]
-  ret ptr %buffer_ptr.addr.2
+  %buffer_ptr.addr.0 = phi ptr [ %add.ptr.i, %_ZN4llvh7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit.thread ], [ %add.ptr.i21, %_ZN4llvh7hashing6detail17store_and_advanceImEEbRPcS3_RKT_m.exit25.thread ]
+  ret ptr %buffer_ptr.addr.0
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
@@ -1993,8 +1993,8 @@ if.then10:                                        ; preds = %if.end
   unreachable
 
 if.end12:                                         ; preds = %_ZN4llvh7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit25.thread, %_ZN4llvh7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit.thread
-  %buffer_ptr.addr.2 = phi ptr [ %add.ptr.i, %_ZN4llvh7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit.thread ], [ %add.ptr.i21, %_ZN4llvh7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit25.thread ]
-  ret ptr %buffer_ptr.addr.2
+  %buffer_ptr.addr.0 = phi ptr [ %add.ptr.i, %_ZN4llvh7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit.thread ], [ %add.ptr.i21, %_ZN4llvh7hashing6detail17store_and_advanceIjEEbRPcS3_RKT_m.exit25.thread ]
+  ret ptr %buffer_ptr.addr.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2460,8 +2460,8 @@ if.end44:                                         ; preds = %if.else33
 for.body52:                                       ; preds = %if.end44, %for.body52
   %__i48.066 = phi i64 [ %inc56, %for.body52 ], [ 0, %if.end44 ]
   %__q45.065 = phi ptr [ %incdec.ptr54, %for.body52 ], [ %add.ptr38, %if.end44 ]
-  %__p.264 = phi ptr [ %incdec.ptr53, %for.body52 ], [ %add.ptr47, %if.end44 ]
-  %incdec.ptr53 = getelementptr inbounds i8, ptr %__p.264, i64 -1
+  %__p.364 = phi ptr [ %incdec.ptr53, %for.body52 ], [ %add.ptr47, %if.end44 ]
+  %incdec.ptr53 = getelementptr inbounds i8, ptr %__p.364, i64 -1
   %incdec.ptr54 = getelementptr inbounds i8, ptr %__q45.065, i64 -1
   %6 = load i8, ptr %incdec.ptr53, align 1
   %7 = load i8, ptr %incdec.ptr54, align 1
@@ -2472,7 +2472,7 @@ for.body52:                                       ; preds = %if.end44, %for.body
   br i1 %exitcond.not, label %for.end57, label %for.body52, !llvm.loop !22
 
 for.end57:                                        ; preds = %for.body52, %if.end44
-  %__p.2.lcssa = phi ptr [ %add.ptr47, %if.end44 ], [ %__p.0, %for.body52 ]
+  %__p.3.lcssa = phi ptr [ %add.ptr47, %if.end44 ], [ %__p.0, %for.body52 ]
   %rem58 = srem i64 %__n.0, %sub13
   %cmp59 = icmp eq i64 %rem58, 0
   br i1 %cmp59, label %return, label %for.cond.backedge
@@ -2480,7 +2480,7 @@ for.end57:                                        ; preds = %for.body52, %if.end
 for.cond.backedge:                                ; preds = %for.end57, %if.end31
   %__n.0.be = phi i64 [ %__k.0, %if.end31 ], [ %sub13, %for.end57 ]
   %__k.0.be = phi i64 [ %sub32, %if.end31 ], [ %rem58, %for.end57 ]
-  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end31 ], [ %__p.2.lcssa, %for.end57 ]
+  %__p.0.be = phi ptr [ %__p.1.lcssa, %if.end31 ], [ %__p.3.lcssa, %for.end57 ]
   br label %for.cond, !llvm.loop !23
 
 return:                                           ; preds = %for.end57, %for.end, %for.body.i, %if.else, %entry, %_ZSt13move_backwardIPcS0_ET0_T_S2_S1_.exit, %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit

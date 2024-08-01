@@ -389,23 +389,23 @@ catch.thread:                                     ; preds = %lpad48, %lpad59
   %call47.sink = phi ptr [ %call47, %lpad48 ], [ %call58, %lpad59 ]
   %.pn17.ph = phi { ptr, i32 } [ %9, %lpad48 ], [ %11, %lpad59 ]
   call void @_ZdlPv(ptr noundef nonnull %call47.sink) #14
-  %exn.slot.223 = extractvalue { ptr, i32 } %.pn17.ph, 0
-  %12 = call ptr @__cxa_begin_catch(ptr %exn.slot.223) #11
+  %exn.slot.323 = extractvalue { ptr, i32 } %.pn17.ph, 0
+  %12 = call ptr @__cxa_begin_catch(ptr %exn.slot.323) #11
   br label %delete.end
 
 catch:                                            ; preds = %if.then44, %if.else56
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  %exn.slot.2 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp, 0
-  %13 = call ptr @__cxa_begin_catch(ptr %exn.slot.2) #11
+  %exn.slot.3 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp, 0
+  %13 = call ptr @__cxa_begin_catch(ptr %exn.slot.3) #11
   br label %delete.end
 
 delete.notnull:                                   ; preds = %if.then52, %if.else, %if.then63, %if.else65
   %img.0.ph = phi ptr [ %call58, %if.else65 ], [ %call58, %if.then63 ], [ %call47, %if.else ], [ %call47, %if.then52 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           catch ptr null
-  %exn.slot.229 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
-  %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.229) #11
+  %exn.slot.329 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
+  %14 = call ptr @__cxa_begin_catch(ptr %exn.slot.329) #11
   %vtable = load ptr, ptr %img.0.ph, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
   %15 = load ptr, ptr %vfn, align 8

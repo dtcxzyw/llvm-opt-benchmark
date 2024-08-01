@@ -4358,7 +4358,7 @@ ZSTD_nextSrcSizeToDecompressWithInputSize.exit:   ; preds = %251, %253
   br label %288
 
 288:                                              ; preds = %286, %277, %275
-  %.1372 = phi ptr [ %.0371419, %277 ], [ %.0371419, %275 ], [ %287, %286 ]
+  %.2373 = phi ptr [ %.0371419, %277 ], [ %.0371419, %275 ], [ %287, %286 ]
   %.sink.i346 = phi i32 [ 4, %277 ], [ 2, %275 ], [ 2, %286 ]
   store i32 %.sink.i346, ptr %34, align 8
   %289 = getelementptr inbounds i8, ptr %.0271422.ph, i64 %.0.i342384
@@ -4417,7 +4417,7 @@ ZSTD_limitCopy.exit:                              ; preds = %293
 
 ZSTD_limitCopy.exit.thread:                       ; preds = %301, %310, %ZSTD_limitCopy.exit
   %.0274390 = phi i64 [ %.0274394, %310 ], [ 0, %ZSTD_limitCopy.exit ], [ 0, %301 ]
-  %.1 = phi ptr [ %312, %310 ], [ %.0271422.ph, %ZSTD_limitCopy.exit ], [ %.0271422.ph, %301 ]
+  %.2 = phi ptr [ %312, %310 ], [ %.0271422.ph, %ZSTD_limitCopy.exit ], [ %.0271422.ph, %301 ]
   %314 = icmp ult i64 %.0274390, %296
   br i1 %314, label %.loopexit, label %315
 
@@ -4476,14 +4476,14 @@ ZSTD_limitCopy.exit.thread:                       ; preds = %301, %310, %ZSTD_li
   br label %ZSTD_decompressContinueStream.exit357
 
 ZSTD_decompressContinueStream.exit357:            ; preds = %332, %334, %343
-  %.3 = phi ptr [ %.0371419, %334 ], [ %.0371419, %332 ], [ %344, %343 ]
+  %.4 = phi ptr [ %.0371419, %334 ], [ %.0371419, %332 ], [ %344, %343 ]
   %.sink.i352 = phi i32 [ 4, %334 ], [ 2, %332 ], [ 2, %343 ]
   store i32 %.sink.i352, ptr %34, align 8
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %ZSTD_decompressContinueStream.exit357, %288, %123
-  %.0271422.ph.be = phi ptr [ %125, %123 ], [ %289, %288 ], [ %.1, %ZSTD_decompressContinueStream.exit357 ]
-  %.0371419.ph.be = phi ptr [ %.0371419, %123 ], [ %.1372, %288 ], [ %.3, %ZSTD_decompressContinueStream.exit357 ]
+  %.0271422.ph.be = phi ptr [ %125, %123 ], [ %289, %288 ], [ %.2, %ZSTD_decompressContinueStream.exit357 ]
+  %.0371419.ph.be = phi ptr [ %.0371419, %123 ], [ %.2373, %288 ], [ %.4, %ZSTD_decompressContinueStream.exit357 ]
   br label %.outer, !llvm.loop !13
 
 345:                                              ; preds = %86
@@ -4535,27 +4535,27 @@ ZSTD_limitCopy.exit359:                           ; preds = %345, %352
   br label %.backedge
 
 .loopexit.sink.split:                             ; preds = %ZSTD_nextSrcSizeToDecompressWithInputSize.exit, %139
-  %.5.ph.ph = phi ptr [ %142, %139 ], [ %.0371419, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ]
-  %.2.ph.ph = phi ptr [ %140, %139 ], [ %.0271422.ph, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ]
+  %.1372.ph.ph = phi ptr [ %142, %139 ], [ %.0371419, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ]
+  %.1.ph.ph = phi ptr [ %140, %139 ], [ %.0271422.ph, %ZSTD_nextSrcSizeToDecompressWithInputSize.exit ]
   store i32 0, ptr %34, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %ZSTD_limitCopy.exit359, %ZSTD_limitCopy.exit.thread, %290, %.loopexit.sink.split
-  %.5.ph = phi ptr [ %.5.ph.ph, %.loopexit.sink.split ], [ %357, %ZSTD_limitCopy.exit359 ], [ %.0371419, %ZSTD_limitCopy.exit.thread ], [ %.0371419, %290 ]
-  %.2.ph = phi ptr [ %.2.ph.ph, %.loopexit.sink.split ], [ %.0271422.ph, %ZSTD_limitCopy.exit359 ], [ %11, %290 ], [ %.1, %ZSTD_limitCopy.exit.thread ]
+  %.1372.ph = phi ptr [ %.1372.ph.ph, %.loopexit.sink.split ], [ %357, %ZSTD_limitCopy.exit359 ], [ %.0371419, %ZSTD_limitCopy.exit.thread ], [ %.0371419, %290 ]
+  %.1.ph = phi ptr [ %.1.ph.ph, %.loopexit.sink.split ], [ %.0271422.ph, %ZSTD_limitCopy.exit359 ], [ %11, %290 ], [ %.2, %ZSTD_limitCopy.exit.thread ]
   %369 = load ptr, ptr %2, align 8
-  %370 = ptrtoint ptr %.2.ph to i64
+  %370 = ptrtoint ptr %.1.ph to i64
   %371 = ptrtoint ptr %369 to i64
   %372 = sub i64 %370, %371
   store i64 %372, ptr %6, align 8
   %373 = load ptr, ptr %1, align 8
-  %374 = ptrtoint ptr %.5.ph to i64
+  %374 = ptrtoint ptr %.1372.ph to i64
   %375 = ptrtoint ptr %373 to i64
   %376 = sub i64 %374, %375
   store i64 %376, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %377 = icmp eq ptr %.2.ph, %8
-  %378 = icmp eq ptr %.5.ph, %15
+  %377 = icmp eq ptr %.1.ph, %8
+  %378 = icmp eq ptr %.1372.ph, %15
   %or.cond328 = select i1 %377, i1 %378, i1 false
   %379 = getelementptr inbounds i8, ptr %0, i64 30308
   br i1 %or.cond328, label %380, label %388

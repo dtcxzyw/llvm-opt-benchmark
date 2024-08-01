@@ -2709,7 +2709,7 @@ lpad87:                                           ; preds = %cond.true69
 
 cleanup:                                          ; preds = %invoke.cont17.cleanup_crit_edge, %invoke.cont15, %cond.true69
   %30 = phi ptr [ %26, %cond.true69 ], [ %.pre427, %invoke.cont15 ], [ %.pre, %invoke.cont17.cleanup_crit_edge ]
-  %retval.0 = phi i1 [ %call89, %cond.true69 ], [ false, %invoke.cont15 ], [ false, %invoke.cont17.cleanup_crit_edge ]
+  %retval.1 = phi i1 [ %call89, %cond.true69 ], [ false, %invoke.cont15 ], [ false, %invoke.cont17.cleanup_crit_edge ]
   %bf.load.i.i389 = load i64, ptr %30, align 8
   %31 = and i64 %bf.load.i.i389, 1152920405095219200
   %cmp.not.i.i390 = icmp eq i64 %31, 1152920405095219200
@@ -2768,8 +2768,8 @@ ehcleanup90:                                      ; preds = %lpad.i.i, %lpad.i.i
   br label %eh.resume
 
 return:                                           ; preds = %if.then13.i.i408, %if.then.i.i402, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit399, %entry
-  %retval.1 = phi i1 [ true, %entry ], [ %retval.0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit399 ], [ %retval.0, %if.then.i.i402 ], [ %retval.0, %if.then13.i.i408 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %entry ], [ %retval.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit399 ], [ %retval.1, %if.then.i.i402 ], [ %retval.1, %if.then13.i.i408 ]
+  ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad10, %lpad12, %ehcleanup90, %lpad
   %ai.sink = phi ptr [ %agg.tmp, %lpad ], [ %ai, %ehcleanup90 ], [ %ai, %lpad12 ], [ %ai, %lpad10 ]

@@ -3089,8 +3089,8 @@ if.end8:                                          ; preds = %_ZN6hermes2vmL18con
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit, %if.end8
-  %retval.sroa.0.0 = phi i32 [ %18, %if.end8 ], [ 0, %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ]
-  %retval.sroa.4.0 = phi i64 [ %19, %if.end8 ], [ undef, %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ]
+  %retval.sroa.0.1 = phi i32 [ %18, %if.end8 ], [ 0, %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ]
+  %retval.sroa.4.1 = phi i64 [ %19, %if.end8 ], [ undef, %_ZN6hermes2vmL18convertUtf8ToUtf16ERNS0_7RuntimeEN4llvh8ArrayRefIhEEbRNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEE.exit ]
   %20 = load ptr, ptr %out, align 8
   %cmp.i.i.i6 = icmp eq ptr %20, %2
   br i1 %cmp.i.i.i6, label %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
@@ -3106,10 +3106,10 @@ if.then.i.i:                                      ; preds = %cleanup
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i, %if.then
-  %retval.sroa.0.1 = phi i32 [ %0, %if.then ], [ %retval.sroa.0.0, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i ], [ %retval.sroa.0.0, %if.then.i.i ]
-  %retval.sroa.4.1 = phi i64 [ %1, %if.then ], [ %retval.sroa.4.0, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i ], [ %retval.sroa.4.0, %if.then.i.i ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.1, 1
+  %retval.sroa.0.0 = phi i32 [ %0, %if.then ], [ %retval.sroa.0.1, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i ], [ %retval.sroa.0.1, %if.then.i.i ]
+  %retval.sroa.4.0 = phi i64 [ %1, %if.then ], [ %retval.sroa.4.1, %_ZNKSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEE11_M_is_localEv.exit.thread.i.i ], [ %retval.sroa.4.1, %if.then.i.i ]
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 
@@ -5091,10 +5091,10 @@ cleanup:                                          ; preds = %if.then.i.i.i.i.i.i
   br label %return
 
 return:                                           ; preds = %cleanup, %if.end.i, %if.end, %entry, %if.end33, %if.then30, %if.then19
-  %retval.sroa.0.1 = phi i32 [ %call20, %if.then19 ], [ 1, %if.end33 ], [ %call32, %if.then30 ], [ 1, %entry ], [ 1, %if.end ], [ 0, %if.end.i ], [ 1, %cleanup ]
-  %retval.sroa.8.1 = phi i64 [ undef, %if.then19 ], [ %or.i.i.i.i, %if.end33 ], [ undef, %if.then30 ], [ %retval.sroa.0.0.copyload.i.i10, %entry ], [ %retval.sroa.0.0.copyload.i.i, %if.end ], [ undef, %if.end.i ], [ %or.i.i.i, %cleanup ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.1, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.8.1, 1
+  %retval.sroa.0.0 = phi i32 [ %call20, %if.then19 ], [ 1, %if.end33 ], [ %call32, %if.then30 ], [ 1, %entry ], [ 1, %if.end ], [ 0, %if.end.i ], [ 1, %cleanup ]
+  %retval.sroa.8.0 = phi i64 [ undef, %if.then19 ], [ %or.i.i.i.i, %if.end33 ], [ undef, %if.then30 ], [ %retval.sroa.0.0.copyload.i.i10, %entry ], [ %retval.sroa.0.0.copyload.i.i, %if.end ], [ undef, %if.end.i ], [ %or.i.i.i, %cleanup ]
+  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.8.0, 1
   ret { i32, i64 } %.fca.1.insert
 }
 

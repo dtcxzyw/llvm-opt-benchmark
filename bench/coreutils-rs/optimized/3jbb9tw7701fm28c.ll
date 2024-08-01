@@ -1054,11 +1054,11 @@ default.unreachable:                              ; preds = %140
 
 202:                                              ; preds = %200
   %203 = icmp eq i8 %201, 2
-  %.048 = select i1 %203, i8 3, i8 0
+  %.149 = select i1 %203, i8 3, i8 0
   br label %204
 
 204:                                              ; preds = %199, %193, %196, %202
-  %.149 = phi i8 [ %.048, %202 ], [ 1, %196 ], [ 1, %193 ], [ 2, %199 ]
+  %.048 = phi i8 [ %.149, %202 ], [ 1, %196 ], [ 1, %193 ], [ 2, %199 ]
   %205 = invoke noundef zeroext i1 @_ZN12clap_builder6parser7matches11arg_matches10ArgMatches8get_flag17ha8645a16dff0d6d8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 @anon.4b3c5c93135882ec5f1e1d64646c2e81.18, i64 noundef 21)
           to label %206 unwind label %244
 
@@ -1136,7 +1136,7 @@ default.unreachable:                              ; preds = %140
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 84
   store i8 %.046, ptr %.sroa.13.0..sroa_idx, align 4
   %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 85
-  store i8 %.149, ptr %.sroa.14.0..sroa_idx, align 1
+  store i8 %.048, ptr %.sroa.14.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.01)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)

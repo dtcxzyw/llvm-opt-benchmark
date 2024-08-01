@@ -1208,9 +1208,9 @@ if.then18:                                        ; preds = %if.end16
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end16, %if.then18
-  %bid.0 = phi ptr [ %call19, %if.then18 ], [ null, %if.end16 ]
-  %tobool21 = icmp ne ptr %bid.0, null
-  %cond = select i1 %tobool21, ptr %bid.0, ptr %call1
+  %bid.1 = phi ptr [ %call19, %if.then18 ], [ null, %if.end16 ]
+  %tobool21 = icmp ne ptr %bid.1, null
+  %cond = select i1 %tobool21, ptr %bid.1, ptr %call1
   %call22 = tail call ptr @object_class_get_name(ptr noundef nonnull %call13) #13
   %call1.i31 = tail call fastcc ptr @chardev_new(ptr noundef nonnull %cond, ptr noundef %call22, ptr noundef nonnull %call9, ptr noundef %context, i1 noundef zeroext false, ptr noundef %errp)
   %tobool2.not.i32 = icmp eq ptr %call1.i31, null
@@ -1239,7 +1239,7 @@ if.end.i34:                                       ; preds = %qemu_chardev_new.ex
   %call30 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #17
   %u = getelementptr inbounds i8, ptr %call29, i64 8
   store ptr %call30, ptr %u, align 8
-  %call31 = tail call noalias ptr @g_strdup(ptr noundef nonnull %bid.0) #13
+  %call31 = tail call noalias ptr @g_strdup(ptr noundef nonnull %bid.1) #13
   %5 = load ptr, ptr %u, align 8
   %chardev = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %call31, ptr %chardev, align 8
@@ -1266,10 +1266,10 @@ if.then36:                                        ; preds = %if.end4.i39, %if.en
 
 out:                                              ; preds = %qemu_chardev_new.exit48, %qemu_chardev_new.exit.thread, %qemu_chardev_new.exit, %if.end12, %if.then36
   %backend.0 = phi ptr [ %call9, %if.end12 ], [ %call29, %if.then36 ], [ %call9, %qemu_chardev_new.exit ], [ %call29, %qemu_chardev_new.exit48 ], [ %call9, %qemu_chardev_new.exit.thread ]
-  %bid.1 = phi ptr [ null, %if.end12 ], [ %bid.0, %if.then36 ], [ %bid.0, %qemu_chardev_new.exit ], [ %bid.0, %qemu_chardev_new.exit48 ], [ %bid.0, %qemu_chardev_new.exit.thread ]
+  %bid.0 = phi ptr [ null, %if.end12 ], [ %bid.1, %if.then36 ], [ %bid.1, %qemu_chardev_new.exit ], [ %bid.1, %qemu_chardev_new.exit48 ], [ %bid.1, %qemu_chardev_new.exit.thread ]
   %chr.0 = phi ptr [ null, %if.end12 ], [ null, %if.then36 ], [ %.call1.i, %qemu_chardev_new.exit ], [ %call1.i37, %qemu_chardev_new.exit48 ], [ null, %qemu_chardev_new.exit.thread ]
   tail call void @qapi_free_ChardevBackend(ptr noundef nonnull %backend.0) #13
-  tail call void @g_free(ptr noundef %bid.1) #13
+  tail call void @g_free(ptr noundef %bid.0) #13
   br label %return
 
 return:                                           ; preds = %if.end8, %out, %if.then7, %if.then

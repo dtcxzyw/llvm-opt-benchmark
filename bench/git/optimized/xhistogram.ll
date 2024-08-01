@@ -281,10 +281,10 @@ for.body.lr.ph.i:                                 ; preds = %if.end29.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %try_lcs.exit.i, %for.body.lr.ph.i
-  %lcs.sroa.0.1 = phi i32 [ 0, %for.body.lr.ph.i ], [ %lcs.sroa.0.6, %try_lcs.exit.i ]
-  %lcs.sroa.4.1 = phi i32 [ 0, %for.body.lr.ph.i ], [ %lcs.sroa.4.6, %try_lcs.exit.i ]
-  %lcs.sroa.7.1 = phi i32 [ 0, %for.body.lr.ph.i ], [ %lcs.sroa.7.6, %try_lcs.exit.i ]
-  %lcs.sroa.9.1 = phi i32 [ 0, %for.body.lr.ph.i ], [ %lcs.sroa.9.6, %try_lcs.exit.i ]
+  %lcs.sroa.0.2 = phi i32 [ 0, %for.body.lr.ph.i ], [ %lcs.sroa.0.5, %try_lcs.exit.i ]
+  %lcs.sroa.4.2 = phi i32 [ 0, %for.body.lr.ph.i ], [ %lcs.sroa.4.5, %try_lcs.exit.i ]
+  %lcs.sroa.7.2 = phi i32 [ 0, %for.body.lr.ph.i ], [ %lcs.sroa.7.5, %try_lcs.exit.i ]
+  %lcs.sroa.9.2 = phi i32 [ 0, %for.body.lr.ph.i ], [ %lcs.sroa.9.5, %try_lcs.exit.i ]
   %b_ptr.069.i = phi i32 [ %line2.addr.087, %for.body.lr.ph.i ], [ %b_next.0.lcssa.i.i, %try_lcs.exit.i ]
   %.pre.i6568.i = phi i32 [ %add31.i, %for.body.lr.ph.i ], [ %.pre.i64.i, %try_lcs.exit.i ]
   %add.i11.i = add nsw i32 %b_ptr.069.i, 1
@@ -312,16 +312,16 @@ for.body.lr.ph.i22.i:                             ; preds = %for.body.i
   br label %for.body.i26.i
 
 for.body.i26.i:                                   ; preds = %for.inc.i29.i, %for.body.lr.ph.i22.i
-  %lcs.sroa.0.2 = phi i32 [ %lcs.sroa.0.1, %for.body.lr.ph.i22.i ], [ %lcs.sroa.0.5, %for.inc.i29.i ]
-  %lcs.sroa.4.2 = phi i32 [ %lcs.sroa.4.1, %for.body.lr.ph.i22.i ], [ %lcs.sroa.4.5, %for.inc.i29.i ]
-  %lcs.sroa.7.2 = phi i32 [ %lcs.sroa.7.1, %for.body.lr.ph.i22.i ], [ %lcs.sroa.7.5, %for.inc.i29.i ]
-  %lcs.sroa.9.2 = phi i32 [ %lcs.sroa.9.1, %for.body.lr.ph.i22.i ], [ %lcs.sroa.9.5, %for.inc.i29.i ]
+  %lcs.sroa.0.3 = phi i32 [ %lcs.sroa.0.2, %for.body.lr.ph.i22.i ], [ %lcs.sroa.0.4, %for.inc.i29.i ]
+  %lcs.sroa.4.3 = phi i32 [ %lcs.sroa.4.2, %for.body.lr.ph.i22.i ], [ %lcs.sroa.4.4, %for.inc.i29.i ]
+  %lcs.sroa.7.3 = phi i32 [ %lcs.sroa.7.2, %for.body.lr.ph.i22.i ], [ %lcs.sroa.7.4, %for.inc.i29.i ]
+  %lcs.sroa.9.3 = phi i32 [ %lcs.sroa.9.2, %for.body.lr.ph.i22.i ], [ %lcs.sroa.9.4, %for.inc.i29.i ]
   %.pre.i63.i = phi i32 [ %.pre.i6568.i, %for.body.lr.ph.i22.i ], [ %.pre.i60.i, %for.inc.i29.i ]
   %conv.i.i59.i = phi i32 [ %has_common46.i.promoted.i, %for.body.lr.ph.i22.i ], [ %conv.i.i58.i, %for.inc.i29.i ]
   %35 = phi i32 [ %.pre.i6568.i, %for.body.lr.ph.i22.i ], [ %74, %for.inc.i29.i ]
   %36 = phi i32 [ %.pre.i6568.i, %for.body.lr.ph.i22.i ], [ %75, %for.inc.i29.i ]
   %rec.0132.i.i = phi ptr [ %rec.0129.i.i, %for.body.lr.ph.i22.i ], [ %rec.0.i31.i, %for.inc.i29.i ]
-  %b_next.0131.i.i = phi i32 [ %add.i11.i, %for.body.lr.ph.i22.i ], [ %b_next.3.i.i, %for.inc.i29.i ]
+  %b_next.0131.i.i = phi i32 [ %add.i11.i, %for.body.lr.ph.i22.i ], [ %b_next.1.i.i, %for.inc.i29.i ]
   %cnt.i27.i = getelementptr inbounds i8, ptr %rec.0132.i.i, i64 4
   %37 = load i32, ptr %cnt.i27.i, align 4
   %cmp.i.i = icmp ugt i32 %37, %36
@@ -368,13 +368,13 @@ if.end45.i33.i:                                   ; preds = %if.end28.i.i
   br label %for.cond47.i.i
 
 for.cond47.i.i:                                   ; preds = %while.cond152.i.i, %if.end45.i33.i
-  %lcs.sroa.0.3 = phi i32 [ %lcs.sroa.0.2, %if.end45.i33.i ], [ %lcs.sroa.0.4, %while.cond152.i.i ]
-  %lcs.sroa.4.3 = phi i32 [ %lcs.sroa.4.2, %if.end45.i33.i ], [ %lcs.sroa.4.4, %while.cond152.i.i ]
-  %lcs.sroa.7.3 = phi i32 [ %lcs.sroa.7.2, %if.end45.i33.i ], [ %lcs.sroa.7.4, %while.cond152.i.i ]
-  %lcs.sroa.9.3 = phi i32 [ %lcs.sroa.9.2, %if.end45.i33.i ], [ %lcs.sroa.9.4, %while.cond152.i.i ]
+  %lcs.sroa.0.6 = phi i32 [ %lcs.sroa.0.3, %if.end45.i33.i ], [ %lcs.sroa.0.7, %while.cond152.i.i ]
+  %lcs.sroa.4.6 = phi i32 [ %lcs.sroa.4.3, %if.end45.i33.i ], [ %lcs.sroa.4.7, %while.cond152.i.i ]
+  %lcs.sroa.7.6 = phi i32 [ %lcs.sroa.7.3, %if.end45.i33.i ], [ %lcs.sroa.7.7, %while.cond152.i.i ]
+  %lcs.sroa.9.6 = phi i32 [ %lcs.sroa.9.3, %if.end45.i33.i ], [ %lcs.sroa.9.7, %while.cond152.i.i ]
   %.pre.i62.i = phi i32 [ %.pre.i63.i, %if.end45.i33.i ], [ %.pre.i61.i, %while.cond152.i.i ]
   %50 = phi i32 [ %35, %if.end45.i33.i ], [ %72, %while.cond152.i.i ]
-  %b_next.1.i.i = phi i32 [ %b_next.0131.i.i, %if.end45.i33.i ], [ %spec.select.i.i, %while.cond152.i.i ]
+  %b_next.2.i.i = phi i32 [ %b_next.0131.i.i, %if.end45.i33.i ], [ %spec.select.i.i, %while.cond152.i.i ]
   %as.0.i.i = phi i32 [ %44, %if.end45.i33.i ], [ %np.0.i.i, %while.cond152.i.i ]
   %sub48.i.i = sub i32 %as.0.i.i, %30
   %idxprom49.i.i = zext i32 %sub48.i.i to i64
@@ -508,9 +508,9 @@ while.end134.i.i:                                 ; preds = %while.end134.loopex
   %ae.0.lcssa.i.i = phi i32 [ %ae.0.lcssa.ph.i.i, %while.end134.loopexit.i.i ], [ %as.0.i.i, %while.end.i34.i ]
   %be.0.lcssa.i.i = phi i32 [ %be.0.lcssa.ph.i.i, %while.end134.loopexit.i.i ], [ %b_ptr.069.i, %while.end.i34.i ]
   %rc.2.lcssa.i.i = phi i32 [ %rc.2.lcssa.ph.i.i, %while.end134.loopexit.i.i ], [ %rc.0.lcssa.i.i, %while.end.i34.i ]
-  %cmp135.not.i.i = icmp ugt i32 %b_next.1.i.i, %be.0.lcssa.i.i
-  %spec.select.i.i = select i1 %cmp135.not.i.i, i32 %b_next.1.i.i, i32 %add137.pre-phi.i.i
-  %sub139.i.i = sub i32 %lcs.sroa.4.3, %lcs.sroa.0.3
+  %cmp135.not.i.i = icmp ugt i32 %b_next.2.i.i, %be.0.lcssa.i.i
+  %spec.select.i.i = select i1 %cmp135.not.i.i, i32 %b_next.2.i.i, i32 %add137.pre-phi.i.i
+  %sub139.i.i = sub i32 %lcs.sroa.4.6, %lcs.sroa.0.6
   %sub140.i.i = sub i32 %ae.0.lcssa.i.i, %as.1.lcssa.i.i
   %cmp141.i.i = icmp ult i32 %sub139.i.i, %sub140.i.i
   %cmp143.i.i = icmp ult i32 %rc.2.lcssa.i.i, %50
@@ -522,10 +522,10 @@ if.then144.i.i:                                   ; preds = %while.end134.i.i
   br label %if.end148.i.i
 
 if.end148.i.i:                                    ; preds = %if.then144.i.i, %while.end134.i.i
-  %lcs.sroa.0.4 = phi i32 [ %as.1.lcssa.i.i, %if.then144.i.i ], [ %lcs.sroa.0.3, %while.end134.i.i ]
-  %lcs.sroa.4.4 = phi i32 [ %ae.0.lcssa.i.i, %if.then144.i.i ], [ %lcs.sroa.4.3, %while.end134.i.i ]
-  %lcs.sroa.7.4 = phi i32 [ %bs.0.lcssa.i.i, %if.then144.i.i ], [ %lcs.sroa.7.3, %while.end134.i.i ]
-  %lcs.sroa.9.4 = phi i32 [ %be.0.lcssa.i.i, %if.then144.i.i ], [ %lcs.sroa.9.3, %while.end134.i.i ]
+  %lcs.sroa.0.7 = phi i32 [ %as.1.lcssa.i.i, %if.then144.i.i ], [ %lcs.sroa.0.6, %while.end134.i.i ]
+  %lcs.sroa.4.7 = phi i32 [ %ae.0.lcssa.i.i, %if.then144.i.i ], [ %lcs.sroa.4.6, %while.end134.i.i ]
+  %lcs.sroa.7.7 = phi i32 [ %bs.0.lcssa.i.i, %if.then144.i.i ], [ %lcs.sroa.7.6, %while.end134.i.i ]
+  %lcs.sroa.9.7 = phi i32 [ %be.0.lcssa.i.i, %if.then144.i.i ], [ %lcs.sroa.9.6, %while.end134.i.i ]
   %.pre.i61.i = phi i32 [ %rc.2.lcssa.i.i, %if.then144.i.i ], [ %.pre.i62.i, %while.end134.i.i ]
   %72 = phi i32 [ %rc.2.lcssa.i.i, %if.then144.i.i ], [ %50, %while.end134.i.i ]
   %cmp149.i.i = icmp eq i32 %51, 0
@@ -545,35 +545,35 @@ while.body154.i.i:                                ; preds = %while.cond152.i.i
   br i1 %cmp160.i.i, label %for.inc.i29.i, label %while.cond152.i.i, !llvm.loop !12
 
 for.inc.i29.i:                                    ; preds = %if.end148.i.i, %while.body154.i.i, %if.end28.i.i, %if.then15.i.i, %if.then.i36.i
-  %lcs.sroa.0.5 = phi i32 [ %lcs.sroa.0.2, %if.then15.i.i ], [ %lcs.sroa.0.2, %if.then.i36.i ], [ %lcs.sroa.0.2, %if.end28.i.i ], [ %lcs.sroa.0.4, %while.body154.i.i ], [ %lcs.sroa.0.4, %if.end148.i.i ]
-  %lcs.sroa.4.5 = phi i32 [ %lcs.sroa.4.2, %if.then15.i.i ], [ %lcs.sroa.4.2, %if.then.i36.i ], [ %lcs.sroa.4.2, %if.end28.i.i ], [ %lcs.sroa.4.4, %while.body154.i.i ], [ %lcs.sroa.4.4, %if.end148.i.i ]
-  %lcs.sroa.7.5 = phi i32 [ %lcs.sroa.7.2, %if.then15.i.i ], [ %lcs.sroa.7.2, %if.then.i36.i ], [ %lcs.sroa.7.2, %if.end28.i.i ], [ %lcs.sroa.7.4, %while.body154.i.i ], [ %lcs.sroa.7.4, %if.end148.i.i ]
-  %lcs.sroa.9.5 = phi i32 [ %lcs.sroa.9.2, %if.then15.i.i ], [ %lcs.sroa.9.2, %if.then.i36.i ], [ %lcs.sroa.9.2, %if.end28.i.i ], [ %lcs.sroa.9.4, %while.body154.i.i ], [ %lcs.sroa.9.4, %if.end148.i.i ]
+  %lcs.sroa.0.4 = phi i32 [ %lcs.sroa.0.3, %if.then15.i.i ], [ %lcs.sroa.0.3, %if.then.i36.i ], [ %lcs.sroa.0.3, %if.end28.i.i ], [ %lcs.sroa.0.7, %while.body154.i.i ], [ %lcs.sroa.0.7, %if.end148.i.i ]
+  %lcs.sroa.4.4 = phi i32 [ %lcs.sroa.4.3, %if.then15.i.i ], [ %lcs.sroa.4.3, %if.then.i36.i ], [ %lcs.sroa.4.3, %if.end28.i.i ], [ %lcs.sroa.4.7, %while.body154.i.i ], [ %lcs.sroa.4.7, %if.end148.i.i ]
+  %lcs.sroa.7.4 = phi i32 [ %lcs.sroa.7.3, %if.then15.i.i ], [ %lcs.sroa.7.3, %if.then.i36.i ], [ %lcs.sroa.7.3, %if.end28.i.i ], [ %lcs.sroa.7.7, %while.body154.i.i ], [ %lcs.sroa.7.7, %if.end148.i.i ]
+  %lcs.sroa.9.4 = phi i32 [ %lcs.sroa.9.3, %if.then15.i.i ], [ %lcs.sroa.9.3, %if.then.i36.i ], [ %lcs.sroa.9.3, %if.end28.i.i ], [ %lcs.sroa.9.7, %while.body154.i.i ], [ %lcs.sroa.9.7, %if.end148.i.i ]
   %.pre.i60.i = phi i32 [ %.pre.i63.i, %if.then15.i.i ], [ %.pre.i63.i, %if.then.i36.i ], [ %.pre.i63.i, %if.end28.i.i ], [ %.pre.i61.i, %while.body154.i.i ], [ %.pre.i61.i, %if.end148.i.i ]
   %conv.i.i58.i = phi i32 [ %conv.i.i.i, %if.then15.i.i ], [ %conv.i.i59.i, %if.then.i36.i ], [ %conv.i.i59.i, %if.end28.i.i ], [ 1, %while.body154.i.i ], [ 1, %if.end148.i.i ]
   %74 = phi i32 [ %35, %if.then15.i.i ], [ %35, %if.then.i36.i ], [ %35, %if.end28.i.i ], [ %72, %while.body154.i.i ], [ %72, %if.end148.i.i ]
   %75 = phi i32 [ %36, %if.then15.i.i ], [ %36, %if.then.i36.i ], [ %36, %if.end28.i.i ], [ %72, %while.body154.i.i ], [ %72, %if.end148.i.i ]
-  %b_next.3.i.i = phi i32 [ %b_next.0131.i.i, %if.then15.i.i ], [ %b_next.0131.i.i, %if.then.i36.i ], [ %b_next.0131.i.i, %if.end28.i.i ], [ %spec.select.i.i, %while.body154.i.i ], [ %spec.select.i.i, %if.end148.i.i ]
+  %b_next.1.i.i = phi i32 [ %b_next.0131.i.i, %if.then15.i.i ], [ %b_next.0131.i.i, %if.then.i36.i ], [ %b_next.0131.i.i, %if.end28.i.i ], [ %spec.select.i.i, %while.body154.i.i ], [ %spec.select.i.i, %if.end148.i.i ]
   %next.i30.i = getelementptr inbounds i8, ptr %rec.0132.i.i, i64 8
   %rec.0.i31.i = load ptr, ptr %next.i30.i, align 8
   %tobool.not.i32.i = icmp eq ptr %rec.0.i31.i, null
   br i1 %tobool.not.i32.i, label %try_lcs.exit.i, label %for.body.i26.i, !llvm.loop !13
 
 try_lcs.exit.i:                                   ; preds = %for.inc.i29.i, %for.body.i
-  %lcs.sroa.0.6 = phi i32 [ %lcs.sroa.0.1, %for.body.i ], [ %lcs.sroa.0.5, %for.inc.i29.i ]
-  %lcs.sroa.4.6 = phi i32 [ %lcs.sroa.4.1, %for.body.i ], [ %lcs.sroa.4.5, %for.inc.i29.i ]
-  %lcs.sroa.7.6 = phi i32 [ %lcs.sroa.7.1, %for.body.i ], [ %lcs.sroa.7.5, %for.inc.i29.i ]
-  %lcs.sroa.9.6 = phi i32 [ %lcs.sroa.9.1, %for.body.i ], [ %lcs.sroa.9.5, %for.inc.i29.i ]
+  %lcs.sroa.0.5 = phi i32 [ %lcs.sroa.0.2, %for.body.i ], [ %lcs.sroa.0.4, %for.inc.i29.i ]
+  %lcs.sroa.4.5 = phi i32 [ %lcs.sroa.4.2, %for.body.i ], [ %lcs.sroa.4.4, %for.inc.i29.i ]
+  %lcs.sroa.7.5 = phi i32 [ %lcs.sroa.7.2, %for.body.i ], [ %lcs.sroa.7.4, %for.inc.i29.i ]
+  %lcs.sroa.9.5 = phi i32 [ %lcs.sroa.9.2, %for.body.i ], [ %lcs.sroa.9.4, %for.inc.i29.i ]
   %.pre.i64.i = phi i32 [ %.pre.i6568.i, %for.body.i ], [ %.pre.i60.i, %for.inc.i29.i ]
-  %b_next.0.lcssa.i.i = phi i32 [ %add.i11.i, %for.body.i ], [ %b_next.3.i.i, %for.inc.i29.i ]
+  %b_next.0.lcssa.i.i = phi i32 [ %add.i11.i, %for.body.i ], [ %b_next.1.i.i, %for.inc.i29.i ]
   %cmp33.not.not.i = icmp slt i32 %b_next.0.lcssa.i.i, %add32.i
   br i1 %cmp33.not.not.i, label %for.body.i, label %for.end.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %try_lcs.exit.i, %if.end29.i
-  %lcs.sroa.0.7 = phi i32 [ 0, %if.end29.i ], [ %lcs.sroa.0.6, %try_lcs.exit.i ]
-  %lcs.sroa.4.7 = phi i32 [ 0, %if.end29.i ], [ %lcs.sroa.4.6, %try_lcs.exit.i ]
-  %lcs.sroa.7.7 = phi i32 [ 0, %if.end29.i ], [ %lcs.sroa.7.6, %try_lcs.exit.i ]
-  %lcs.sroa.9.7 = phi i32 [ 0, %if.end29.i ], [ %lcs.sroa.9.6, %try_lcs.exit.i ]
+  %lcs.sroa.0.1 = phi i32 [ 0, %if.end29.i ], [ %lcs.sroa.0.5, %try_lcs.exit.i ]
+  %lcs.sroa.4.1 = phi i32 [ 0, %if.end29.i ], [ %lcs.sroa.4.5, %try_lcs.exit.i ]
+  %lcs.sroa.7.1 = phi i32 [ 0, %if.end29.i ], [ %lcs.sroa.7.5, %try_lcs.exit.i ]
+  %lcs.sroa.9.1 = phi i32 [ 0, %if.end29.i ], [ %lcs.sroa.9.5, %try_lcs.exit.i ]
   %76 = phi i32 [ %add31.i, %if.end29.i ], [ %.pre.i64.i, %try_lcs.exit.i ]
   %77 = load i32, ptr %has_common46.i.i, align 4
   %tobool36.not.i = icmp ne i32 %77, 0
@@ -583,10 +583,10 @@ for.end.i:                                        ; preds = %try_lcs.exit.i, %if
   br label %find_lcs.exit
 
 find_lcs.exit:                                    ; preds = %while.end.i.i, %if.end45.i.i, %if.end21, %if.end.i, %if.end13.i, %if.end19.i, %for.end.i
-  %lcs.sroa.0.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.0.7, %for.end.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
-  %lcs.sroa.4.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.4.7, %for.end.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
-  %lcs.sroa.7.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.7.7, %for.end.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
-  %lcs.sroa.9.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.9.7, %for.end.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
+  %lcs.sroa.0.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.0.1, %for.end.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
+  %lcs.sroa.4.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.4.1, %for.end.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
+  %lcs.sroa.7.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.7.1, %for.end.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
+  %lcs.sroa.9.8 = phi i32 [ 0, %if.end21 ], [ 0, %if.end.i ], [ 0, %if.end13.i ], [ 0, %if.end19.i ], [ %lcs.sroa.9.1, %for.end.i ], [ 0, %if.end45.i.i ], [ 0, %while.end.i.i ]
   %ret.0.i = phi i32 [ -1, %if.end21 ], [ -1, %if.end.i ], [ -1, %if.end13.i ], [ -1, %if.end19.i ], [ %spec.select.i, %for.end.i ], [ -1, %if.end45.i.i ], [ -1, %while.end.i.i ]
   %78 = load ptr, ptr %index.i, align 8
   call void @free(ptr noundef %78) #6

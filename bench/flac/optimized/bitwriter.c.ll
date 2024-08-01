@@ -1002,8 +1002,8 @@ while.body.lr.ph:                                 ; preds = %if.end32
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end246
   %vals.addr.0217 = phi ptr [ %vals, %while.body.lr.ph ], [ %incdec.ptr, %if.end246 ]
-  %bitpointer.1216 = phi i32 [ %bitpointer.0, %while.body.lr.ph ], [ %bitpointer.4, %if.end246 ]
-  %wide_accum.1215 = phi i64 [ %wide_accum.0, %while.body.lr.ph ], [ %wide_accum.10, %if.end246 ]
+  %bitpointer.1216 = phi i32 [ %bitpointer.0, %while.body.lr.ph ], [ %bitpointer.2, %if.end246 ]
+  %wide_accum.1215 = phi i64 [ %wide_accum.0, %while.body.lr.ph ], [ %wide_accum.3, %if.end246 ]
   %nvals.addr.0213 = phi i32 [ %nvals, %while.body.lr.ph ], [ %dec, %if.end246 ]
   %10 = load i32, ptr %vals.addr.0217, align 4
   %shl34 = shl i32 %10, 1
@@ -1132,26 +1132,26 @@ if.else106:                                       ; preds = %if.then95
 
 if.end120:                                        ; preds = %if.else106, %if.then101
   %storemerge169 = phi i32 [ 0, %if.else106 ], [ 32, %if.then101 ]
-  %wide_accum.3 = shl i64 %wide_accum.1215, 32
+  %wide_accum.4 = shl i64 %wide_accum.1215, 32
   store i32 %storemerge169, ptr %bits, align 8
   %cmp123208 = icmp ugt i32 %sub97, 64
   br i1 %cmp123208, label %while.body125, label %while.end
 
 while.body125:                                    ; preds = %if.end120, %if.end148
   %25 = phi i32 [ %storemerge172, %if.end148 ], [ %storemerge169, %if.end120 ]
-  %wide_accum.4210 = phi i64 [ 0, %if.end148 ], [ %wide_accum.3, %if.end120 ]
+  %wide_accum.5210 = phi i64 [ 0, %if.end148 ], [ %wide_accum.4, %if.end120 ]
   %msbits.0209 = phi i32 [ %sub151, %if.end148 ], [ %sub97, %if.end120 ]
   %cmp127 = icmp eq i32 %25, 0
   br i1 %cmp127, label %if.then129, label %if.else134
 
 if.then129:                                       ; preds = %while.body125
-  %shr130 = lshr exact i64 %wide_accum.4210, 32
+  %shr130 = lshr exact i64 %wide_accum.5210, 32
   store i64 %shr130, ptr %accum57, align 8
   br label %if.end148
 
 if.else134:                                       ; preds = %while.body125
   %26 = load i64, ptr %accum57, align 8
-  %add139 = tail call i64 @llvm.fshl.i64(i64 %26, i64 %wide_accum.4210, i64 32)
+  %add139 = tail call i64 @llvm.fshl.i64(i64 %26, i64 %wide_accum.5210, i64 32)
   store i64 %add139, ptr %accum57, align 8
   %27 = tail call i64 @llvm.bswap.i64(i64 %add139)
   %28 = load ptr, ptr %bw, align 8
@@ -1175,20 +1175,20 @@ while.end:                                        ; preds = %if.end120
   br i1 %cmp153, label %if.then155, label %if.end211
 
 if.then155:                                       ; preds = %if.end148, %while.end
-  %wide_accum.4.lcssa225 = phi i64 [ %wide_accum.3, %while.end ], [ 0, %if.end148 ]
+  %wide_accum.5.lcssa225 = phi i64 [ %wide_accum.4, %while.end ], [ 0, %if.end148 ]
   %msbits.0.lcssa224 = phi i32 [ %sub97, %while.end ], [ %sub151, %if.end148 ]
   %30 = phi i32 [ %storemerge169, %while.end ], [ %storemerge172, %if.end148 ]
   %cmp157 = icmp eq i32 %30, 0
   br i1 %cmp157, label %if.then159, label %if.else164
 
 if.then159:                                       ; preds = %if.then155
-  %shr160 = lshr exact i64 %wide_accum.4.lcssa225, 32
+  %shr160 = lshr exact i64 %wide_accum.5.lcssa225, 32
   store i64 %shr160, ptr %accum57, align 8
   br label %if.end178
 
 if.else164:                                       ; preds = %if.then155
   %31 = load i64, ptr %accum57, align 8
-  %add169 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %wide_accum.4.lcssa225, i64 32)
+  %add169 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %wide_accum.5.lcssa225, i64 32)
   store i64 %add169, ptr %accum57, align 8
   %32 = tail call i64 @llvm.bswap.i64(i64 %add169)
   %33 = load ptr, ptr %bw, align 8
@@ -1237,16 +1237,16 @@ if.else194:                                       ; preds = %if.then185
 
 if.end208:                                        ; preds = %if.else194, %if.then189
   %storemerge = phi i32 [ 0, %if.else194 ], [ 32, %if.then189 ]
-  %wide_accum.7 = shl i64 %wide_accum.1215, 32
+  %wide_accum.9 = shl i64 %wide_accum.1215, 32
   store i32 %storemerge, ptr %bits, align 8
   %add209 = add nuw nsw i32 %sub182, 32
   br label %if.end211
 
 if.end211:                                        ; preds = %if.else181, %if.end208, %while.end, %if.end178
-  %wide_accum.8 = phi i64 [ 0, %if.end178 ], [ %wide_accum.3, %while.end ], [ %wide_accum.7, %if.end208 ], [ %wide_accum.1215, %if.else181 ]
-  %bitpointer.3 = phi i32 [ %add179, %if.end178 ], [ %sub152, %while.end ], [ %add209, %if.end208 ], [ %sub182, %if.else181 ]
+  %wide_accum.8 = phi i64 [ 0, %if.end178 ], [ %wide_accum.4, %while.end ], [ %wide_accum.9, %if.end208 ], [ %wide_accum.1215, %if.else181 ]
+  %bitpointer.4 = phi i32 [ %add179, %if.end178 ], [ %sub152, %while.end ], [ %add209, %if.end208 ], [ %sub182, %if.else181 ]
   %conv212 = zext i32 %and to i64
-  %sub213 = sub i32 %bitpointer.3, %add
+  %sub213 = sub i32 %bitpointer.4, %add
   %sh_prom214 = zext nneg i32 %sub213 to i64
   %shl215 = shl i64 %conv212, %sh_prom214
   %or216 = or i64 %shl215, %wide_accum.8
@@ -1281,22 +1281,22 @@ if.end246.sink.split:                             ; preds = %if.then224, %if.els
   %or216.sink = phi i64 [ %or43, %if.else56 ], [ %or43, %if.then51 ], [ %or216, %if.else229 ], [ %or216, %if.then224 ]
   %storemerge171.sink = phi i32 [ 0, %if.else56 ], [ 32, %if.then51 ], [ 0, %if.else229 ], [ 32, %if.then224 ]
   %sub213.sink = phi i32 [ %sub40, %if.else56 ], [ %sub40, %if.then51 ], [ %sub213, %if.else229 ], [ %sub213, %if.then224 ]
-  %wide_accum.9 = shl i64 %or216.sink, 32
+  %wide_accum.10 = shl i64 %or216.sink, 32
   store i32 %storemerge171.sink, ptr %bits, align 8
   %add244 = add nuw nsw i32 %sub213.sink, 32
   br label %if.end246
 
 if.end246:                                        ; preds = %if.end246.sink.split, %if.end211, %if.then39
-  %wide_accum.10 = phi i64 [ %or43, %if.then39 ], [ %or216, %if.end211 ], [ %wide_accum.9, %if.end246.sink.split ]
-  %bitpointer.4 = phi i32 [ %sub40, %if.then39 ], [ %sub213, %if.end211 ], [ %add244, %if.end246.sink.split ]
+  %wide_accum.3 = phi i64 [ %or43, %if.then39 ], [ %or216, %if.end211 ], [ %wide_accum.10, %if.end246.sink.split ]
+  %bitpointer.2 = phi i32 [ %sub40, %if.then39 ], [ %sub213, %if.end211 ], [ %add244, %if.end246.sink.split ]
   %incdec.ptr = getelementptr inbounds i8, ptr %vals.addr.0217, i64 4
   %dec = add i32 %nvals.addr.0213, -1
   %tobool33.not = icmp eq i32 %dec, 0
   br i1 %tobool33.not, label %while.end247, label %while.body, !llvm.loop !8
 
 while.end247:                                     ; preds = %if.end246, %if.end32
-  %wide_accum.1.lcssa = phi i64 [ %wide_accum.0, %if.end32 ], [ %wide_accum.10, %if.end246 ]
-  %bitpointer.1.lcssa = phi i32 [ %bitpointer.0, %if.end32 ], [ %bitpointer.4, %if.end246 ]
+  %wide_accum.1.lcssa = phi i64 [ %wide_accum.0, %if.end32 ], [ %wide_accum.3, %if.end246 ]
+  %bitpointer.1.lcssa = phi i32 [ %bitpointer.0, %if.end32 ], [ %bitpointer.2, %if.end246 ]
   %cmp248 = icmp ult i32 %bitpointer.1.lcssa, 64
   br i1 %cmp248, label %if.then250, label %return
 

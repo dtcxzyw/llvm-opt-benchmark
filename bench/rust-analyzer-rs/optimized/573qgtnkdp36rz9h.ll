@@ -1234,22 +1234,22 @@ define noundef zeroext i1 @_ZN3vfs3Vfs17set_file_contents17hcb6bdaab284509eeE(pt
   br i1 %13, label %19, label %.thread
 
 14:                                               ; preds = %.body44, %.body
-  %.033 = phi i8 [ %.1.lpad-body, %.body ], [ %.2, %.body44 ]
-  %.029 = phi i1 [ %18, %.body ], [ false, %.body44 ]
+  %.134 = phi i8 [ %.029.lpad-body, %.body ], [ %.2, %.body44 ]
+  %.1 = phi i1 [ %18, %.body ], [ false, %.body44 ]
   %.pn41 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn, %.body44 ]
-  %15 = trunc nuw i8 %.033 to i1
+  %15 = trunc nuw i8 %.134 to i1
   br i1 %15, label %124, label %123
 
 16:                                               ; preds = %21, %111, %71, %27, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread
-  %.1 = phi i8 [ 0, %71 ], [ 0, %111 ], [ 1, %27 ], [ 1, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread ], [ 1, %21 ]
+  %.029 = phi i8 [ 0, %71 ], [ 0, %111 ], [ 1, %27 ], [ 1, %_ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.thread ], [ 1, %21 ]
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %35, %16
-  %.1.lpad-body = phi i8 [ %.1, %16 ], [ 1, %35 ]
+  %.029.lpad-body = phi i8 [ %.029, %16 ], [ 1, %35 ]
   %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %36, %35 ]
-  %18 = trunc nuw i8 %.1.lpad-body to i1
+  %18 = trunc nuw i8 %.029.lpad-body to i1
   br label %14
 
 19:                                               ; preds = %3
@@ -1565,7 +1565,7 @@ _ZN3vfs13path_interner12PathInterner6intern17h820e0cb538e82916E.exit.i: ; preds 
   unreachable
 
 123:                                              ; preds = %124, %14
-  br i1 %.029, label %126, label %125
+  br i1 %.1, label %126, label %125
 
 124:                                              ; preds = %14
   invoke fastcc void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h8902278e5838c018E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #21

@@ -60,8 +60,8 @@ define i32 @exec_module(ptr nocapture noundef readonly %0, ptr noundef %1, ptr n
   br label %38
 
 38:                                               ; preds = %29, %19
-  %.0 = phi i32 [ %28, %19 ], [ %37, %29 ]
-  %39 = icmp slt i32 %.0, 0
+  %.1 = phi i32 [ %28, %19 ], [ %37, %29 ]
+  %39 = icmp slt i32 %.1, 0
   br i1 %39, label %109, label %40
 
 40:                                               ; preds = %38
@@ -180,7 +180,7 @@ exec_swap.exit:                                   ; preds = %97, %41, %40
   br label %110
 
 110:                                              ; preds = %7, %109, %108, %103
-  %.045 = phi i32 [ %.0, %109 ], [ %101, %108 ], [ %99, %103 ], [ -12, %7 ]
+  %.045 = phi i32 [ %.1, %109 ], [ %101, %108 ], [ %99, %103 ], [ -12, %7 ]
   ret i32 %.045
 }
 

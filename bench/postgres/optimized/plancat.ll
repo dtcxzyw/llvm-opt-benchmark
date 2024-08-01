@@ -254,7 +254,7 @@ define dso_local void @get_relation_info(ptr noundef %0, i32 noundef %1, i1 noun
   br i1 %136, label %.lr.ph422, label %._crit_edge358
 
 .lr.ph422:                                        ; preds = %.lr.ph357, %478
-  %.0282355421 = phi ptr [ %.1, %478 ], [ null, %.lr.ph357 ]
+  %.1355421 = phi ptr [ %.2, %478 ], [ null, %.lr.ph357 ]
   %indvars.iv391420 = phi i64 [ %indvars.iv.next392, %478 ], [ 0, %.lr.ph357 ]
   %137 = load ptr, ptr %131, align 8
   %138 = getelementptr %union.ListCell, ptr %137, i64 %indvars.iv391420
@@ -834,11 +834,11 @@ build_index_tlist.exit:                           ; preds = %._crit_edge.i
   %476 = getelementptr inbounds i8, ptr %170, i64 40
   store i32 %.sink409, ptr %476, align 8
   call void @index_close(ptr noundef nonnull %140, i32 noundef 0) #10
-  %477 = call ptr @lcons(ptr noundef nonnull %170, ptr noundef %.0282355421) #10
+  %477 = call ptr @lcons(ptr noundef nonnull %170, ptr noundef %.1355421) #10
   br label %478
 
 478:                                              ; preds = %475, %166, %146
-  %.1 = phi ptr [ %477, %475 ], [ %.0282355421, %166 ], [ %.0282355421, %146 ]
+  %.2 = phi ptr [ %477, %475 ], [ %.1355421, %166 ], [ %.1355421, %146 ]
   %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391420, 1
   %479 = load i32, ptr %130, align 4
   %480 = sext i32 %479 to i64
@@ -846,14 +846,14 @@ build_index_tlist.exit:                           ; preds = %._crit_edge.i
   br i1 %481, label %.lr.ph422, label %._crit_edge358
 
 ._crit_edge358:                                   ; preds = %478, %.lr.ph357, %121
-  %.0282.lcssa = phi ptr [ null, %121 ], [ null, %.lr.ph357 ], [ %.1, %478 ]
+  %.1.lcssa = phi ptr [ null, %121 ], [ null, %.lr.ph357 ], [ %.2, %478 ]
   call void @list_free(ptr noundef %122) #10
   br label %.thread
 
 .thread:                                          ; preds = %107, %114, %._crit_edge358, %116
-  %.2 = phi ptr [ %.0282.lcssa, %._crit_edge358 ], [ null, %116 ], [ null, %114 ], [ null, %107 ]
+  %.0282 = phi ptr [ %.1.lcssa, %._crit_edge358 ], [ null, %116 ], [ null, %114 ], [ null, %107 ]
   %482 = getelementptr inbounds i8, ptr %3, i64 176
-  store ptr %.2, ptr %482, align 8
+  store ptr %.0282, ptr %482, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   %483 = load i32, ptr %11, align 8
@@ -2388,7 +2388,7 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %95
   %indvars.iv82.i = phi i64 [ %indvars.iv.next83.i, %95 ], [ 0, %.lr.ph.i ]
-  %.059.us.i = phi ptr [ %.1.us.i, %95 ], [ null, %.lr.ph.i ]
+  %.159.us.i = phi ptr [ %.2.us.i, %95 ], [ null, %.lr.ph.i ]
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr %struct.ConstrCheck, ptr %79, i64 %indvars.iv82.i
   %81 = getelementptr inbounds i8, ptr %80, i64 16
@@ -2410,11 +2410,11 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
   %91 = tail call ptr @eval_const_expressions(ptr noundef %0, ptr noundef %90) #10
   %92 = tail call ptr @canonicalize_qual(ptr noundef %91, i1 noundef zeroext true) #10
   %93 = tail call ptr @make_ands_implicit(ptr noundef %92) #10
-  %94 = tail call ptr @list_concat(ptr noundef %.059.us.i, ptr noundef %93) #10
+  %94 = tail call ptr @list_concat(ptr noundef %.159.us.i, ptr noundef %93) #10
   br label %95
 
 95:                                               ; preds = %87, %84, %.lr.ph.split.us.i
-  %.1.us.i = phi ptr [ %94, %87 ], [ %.059.us.i, %.lr.ph.split.us.i ], [ %.059.us.i, %84 ]
+  %.2.us.i = phi ptr [ %94, %87 ], [ %.159.us.i, %.lr.ph.split.us.i ], [ %.159.us.i, %84 ]
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count85.i
   br i1 %exitcond86.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !23
@@ -2424,7 +2424,7 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %108
   %indvars.iv77.i = phi i64 [ %indvars.iv.next78.i, %108 ], [ 0, %.lr.ph.split.i ]
-  %.059.us60.i = phi ptr [ %.1.us64.i, %108 ], [ null, %.lr.ph.split.i ]
+  %.159.us60.i = phi ptr [ %.2.us64.i, %108 ], [ null, %.lr.ph.split.i ]
   %96 = load ptr, ptr %78, align 8
   %97 = getelementptr %struct.ConstrCheck, ptr %96, i64 %indvars.iv77.i, i32 2
   %98 = load i8, ptr %97, align 8
@@ -2439,18 +2439,18 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
   %105 = tail call ptr @canonicalize_qual(ptr noundef %104, i1 noundef zeroext true) #10
   tail call void @ChangeVarNodes(ptr noundef %105, i32 noundef 1, i32 noundef %.fr.i, i32 noundef 0) #10
   %106 = tail call ptr @make_ands_implicit(ptr noundef %105) #10
-  %107 = tail call ptr @list_concat(ptr noundef %.059.us60.i, ptr noundef %106) #10
+  %107 = tail call ptr @list_concat(ptr noundef %.159.us60.i, ptr noundef %106) #10
   br label %108
 
 108:                                              ; preds = %100, %.lr.ph.split.split.us.i
-  %.1.us64.i = phi ptr [ %107, %100 ], [ %.059.us60.i, %.lr.ph.split.split.us.i ]
+  %.2.us64.i = phi ptr [ %107, %100 ], [ %.159.us60.i, %.lr.ph.split.split.us.i ]
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %exitcond81.not.i = icmp eq i64 %indvars.iv.next78.i, %wide.trip.count85.i
   br i1 %exitcond81.not.i, label %._crit_edge.i, label %.lr.ph.split.split.us.i, !llvm.loop !23
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i, %126
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %126 ], [ 0, %.lr.ph.split.i ]
-  %.059.i = phi ptr [ %.1.i, %126 ], [ null, %.lr.ph.split.i ]
+  %.159.i = phi ptr [ %.2.i, %126 ], [ null, %.lr.ph.split.i ]
   %109 = load ptr, ptr %78, align 8
   %110 = getelementptr %struct.ConstrCheck, ptr %109, i64 %indvars.iv.i
   %111 = getelementptr inbounds i8, ptr %110, i64 16
@@ -2472,17 +2472,17 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
   %123 = tail call ptr @canonicalize_qual(ptr noundef %122, i1 noundef zeroext true) #10
   tail call void @ChangeVarNodes(ptr noundef %123, i32 noundef 1, i32 noundef %.fr.i, i32 noundef 0) #10
   %124 = tail call ptr @make_ands_implicit(ptr noundef %123) #10
-  %125 = tail call ptr @list_concat(ptr noundef %.059.i, ptr noundef %124) #10
+  %125 = tail call ptr @list_concat(ptr noundef %.159.i, ptr noundef %124) #10
   br label %126
 
 126:                                              ; preds = %118, %114, %.lr.ph.split.split.i
-  %.1.i = phi ptr [ %125, %118 ], [ %.059.i, %.lr.ph.split.split.i ], [ %.059.i, %114 ]
+  %.2.i = phi ptr [ %125, %118 ], [ %.159.i, %.lr.ph.split.split.i ], [ %.159.i, %114 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count85.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %108, %126, %95, %75
-  %.0.lcssa.i = phi ptr [ null, %75 ], [ %.1.us.i, %95 ], [ %.1.i, %126 ], [ %.1.us64.i, %108 ]
+  %.1.lcssa.i = phi ptr [ null, %75 ], [ %.2.us.i, %95 ], [ %.2.i, %126 ], [ %.2.us64.i, %108 ]
   br i1 %65, label %127, label %.loopexit.i
 
 127:                                              ; preds = %._crit_edge.i
@@ -2498,7 +2498,7 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
   br i1 %.not5567.i, label %.loopexit.i, label %.lr.ph71.i
 
 .lr.ph71.i:                                       ; preds = %131, %161
-  %.269.i = phi ptr [ %.3.i, %161 ], [ %.0.lcssa.i, %131 ]
+  %.369.i = phi ptr [ %.4.i, %161 ], [ %.1.lcssa.i, %131 ]
   %.15268.i = phi i32 [ %162, %161 ], [ 1, %131 ]
   %134 = load ptr, ptr %71, align 8
   %135 = getelementptr inbounds i8, ptr %134, i64 24
@@ -2535,17 +2535,17 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
   store i8 0, ptr %158, align 4
   %159 = getelementptr inbounds i8, ptr %147, i64 24
   store i32 -1, ptr %159, align 8
-  %160 = tail call ptr @lappend(ptr noundef %.269.i, ptr noundef nonnull %147) #10
+  %160 = tail call ptr @lappend(ptr noundef %.369.i, ptr noundef nonnull %147) #10
   br label %161
 
 161:                                              ; preds = %146, %142, %.lr.ph71.i
-  %.3.i = phi ptr [ %.269.i, %142 ], [ %160, %146 ], [ %.269.i, %.lr.ph71.i ]
+  %.4.i = phi ptr [ %.369.i, %142 ], [ %160, %146 ], [ %.369.i, %.lr.ph71.i ]
   %162 = add i32 %.15268.i, 1
   %.not55.i = icmp sgt i32 %162, %133
   br i1 %.not55.i, label %.loopexit.i, label %.lr.ph71.i, !llvm.loop !24
 
 .loopexit.i:                                      ; preds = %161, %131, %127, %._crit_edge.i, %64
-  %.4.i = phi ptr [ %.0.lcssa.i, %127 ], [ %.0.lcssa.i, %._crit_edge.i ], [ null, %64 ], [ %.0.lcssa.i, %131 ], [ %.3.i, %161 ]
+  %.0.i = phi ptr [ %.1.lcssa.i, %127 ], [ %.1.lcssa.i, %._crit_edge.i ], [ null, %64 ], [ %.1.lcssa.i, %131 ], [ %.4.i, %161 ]
   br i1 %.050, label %163, label %get_relation_constraints.exit
 
 163:                                              ; preds = %.loopexit.i
@@ -2587,11 +2587,11 @@ define dso_local zeroext i1 @relation_excluded_by_constraints(ptr noundef %0, pt
 
 set_baserel_partition_constraint.exit.i:          ; preds = %178, %.set_baserel_partition_constraint.exit_crit_edge.i, %169
   %179 = phi ptr [ %.pre.i, %.set_baserel_partition_constraint.exit_crit_edge.i ], [ %171, %169 ], [ %175, %178 ]
-  %180 = tail call ptr @list_concat(ptr noundef %.4.i, ptr noundef %179) #10
+  %180 = tail call ptr @list_concat(ptr noundef %.0.i, ptr noundef %179) #10
   br label %get_relation_constraints.exit
 
 get_relation_constraints.exit:                    ; preds = %.loopexit.i, %163, %set_baserel_partition_constraint.exit.i
-  %.5.i = phi ptr [ %180, %set_baserel_partition_constraint.exit.i ], [ %.4.i, %163 ], [ %.4.i, %.loopexit.i ]
+  %.5.i = phi ptr [ %180, %set_baserel_partition_constraint.exit.i ], [ %.0.i, %163 ], [ %.0.i, %.loopexit.i ]
   tail call void @table_close(ptr noundef %70, i32 noundef 0) #10
   %181 = getelementptr inbounds i8, ptr %.5.i, i64 4
   %.not63 = icmp eq ptr %.5.i, null
@@ -2754,7 +2754,7 @@ define dso_local ptr @build_physical_tlist(ptr nocapture noundef readonly %0, pt
 
 .lr.ph92:                                         ; preds = %.lr.ph84, %.lr.ph92
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.lr.ph92 ], [ 0, %.lr.ph84 ]
-  %.28390 = phi ptr [ %75, %.lr.ph92 ], [ null, %.lr.ph84 ]
+  %.38390 = phi ptr [ %75, %.lr.ph92 ], [ null, %.lr.ph84 ]
   %65 = load ptr, ptr %62, align 8
   %66 = getelementptr %union.ListCell, ptr %65, i64 %indvars.iv105
   %67 = load ptr, ptr %66, align 8
@@ -2765,7 +2765,7 @@ define dso_local ptr @build_physical_tlist(ptr nocapture noundef readonly %0, pt
   %72 = load i8, ptr %71, align 2
   %73 = trunc i8 %72 to i1
   %74 = tail call ptr @makeTargetEntry(ptr noundef %68, i16 noundef signext %70, ptr noundef null, i1 noundef zeroext %73) #10
-  %75 = tail call ptr @lappend(ptr noundef %.28390, ptr noundef %74) #10
+  %75 = tail call ptr @lappend(ptr noundef %.38390, ptr noundef %74) #10
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %76 = load i32, ptr %61, align 4
   %77 = sext i32 %76 to i64
@@ -2787,7 +2787,7 @@ define dso_local ptr @build_physical_tlist(ptr nocapture noundef readonly %0, pt
 
 .lr.ph80:                                         ; preds = %.lr.ph.split, %90
   %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %.lr.ph.split ]
-  %.37178 = phi ptr [ %94, %90 ], [ null, %.lr.ph.split ]
+  %.47178 = phi ptr [ %94, %90 ], [ null, %.lr.ph.split ]
   %85 = load ptr, ptr %82, align 8
   %86 = getelementptr %union.ListCell, ptr %85, i64 %indvars.iv
   %87 = load ptr, ptr %86, align 8
@@ -2799,7 +2799,7 @@ define dso_local ptr @build_physical_tlist(ptr nocapture noundef readonly %0, pt
   %91 = getelementptr inbounds i8, ptr %87, i64 8
   %92 = load i16, ptr %91, align 8
   %93 = call ptr @makeTargetEntry(ptr noundef nonnull %87, i16 noundef signext %92, ptr noundef null, i1 noundef zeroext false) #10
-  %94 = call ptr @lappend(ptr noundef %.37178, ptr noundef %93) #10
+  %94 = call ptr @lappend(ptr noundef %.47178, ptr noundef %93) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load i32, ptr %81, align 4
   %96 = sext i32 %95 to i64
@@ -2815,8 +2815,8 @@ define dso_local ptr @build_physical_tlist(ptr nocapture noundef readonly %0, pt
   unreachable
 
 .thread:                                          ; preds = %.lr.ph80, %90, %.lr.ph92, %79, %.lr.ph.split, %56, %.lr.ph84, %._crit_edge
-  %.4 = phi ptr [ %.1, %._crit_edge ], [ null, %56 ], [ null, %.lr.ph84 ], [ null, %79 ], [ null, %.lr.ph.split ], [ %75, %.lr.ph92 ], [ null, %.lr.ph80 ], [ %94, %90 ]
-  ret ptr %.4
+  %.2 = phi ptr [ %.1, %._crit_edge ], [ null, %56 ], [ null, %.lr.ph84 ], [ null, %79 ], [ null, %.lr.ph.split ], [ %75, %.lr.ph92 ], [ null, %.lr.ph80 ], [ %94, %90 ]
+  ret ptr %.2
 }
 
 declare ptr @makeVar(i32 noundef, i16 noundef signext, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -3369,7 +3369,7 @@ define dso_local ptr @get_dependent_generated_columns(ptr nocapture noundef read
 
 35:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %.029 = phi ptr [ null, %.lr.ph ], [ %.1, %54 ]
+  %.129 = phi ptr [ null, %.lr.ph ], [ %.2, %54 ]
   %36 = load ptr, ptr %27, align 8
   %37 = getelementptr %struct.AttrDefault, ptr %36, i64 %indvars.iv
   store ptr null, ptr %4, align 8
@@ -3394,11 +3394,11 @@ define dso_local ptr @get_dependent_generated_columns(ptr nocapture noundef read
   %50 = load i16, ptr %37, align 8
   %51 = sext i16 %50 to i32
   %52 = add nsw i32 %51, 7
-  %53 = call ptr @bms_add_member(ptr noundef %.029, i32 noundef %52) #10
+  %53 = call ptr @bms_add_member(ptr noundef %.129, i32 noundef %52) #10
   br label %54
 
 54:                                               ; preds = %43, %49, %35
-  %.1 = phi ptr [ %53, %49 ], [ %.029, %43 ], [ %.029, %35 ]
+  %.2 = phi ptr [ %53, %49 ], [ %.129, %43 ], [ %.129, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i16, ptr %32, align 8
   %56 = zext i16 %55 to i64
@@ -3406,9 +3406,9 @@ define dso_local ptr @get_dependent_generated_columns(ptr nocapture noundef read
   br i1 %57, label %35, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %54, %.preheader, %28, %19
-  %.2 = phi ptr [ null, %28 ], [ null, %19 ], [ null, %.preheader ], [ %.1, %54 ]
+  %.0 = phi ptr [ null, %28 ], [ null, %19 ], [ null, %.preheader ], [ %.2, %54 ]
   call void @table_close(ptr noundef %23, i32 noundef 0) #10
-  ret ptr %.2
+  ret ptr %.0
 }
 
 declare ptr @stringToNode(ptr noundef) local_unnamed_addr #1

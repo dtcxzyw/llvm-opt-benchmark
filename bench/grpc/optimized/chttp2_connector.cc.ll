@@ -2718,7 +2718,7 @@ lpad42:                                           ; preds = %if.then.i.i62
   br label %ehcleanup48
 
 if.end47:                                         ; preds = %if.then.i.i71, %_ZN4absl12lts_202308026StatusD2Ev.exit, %invoke.cont29
-  %channel.0 = phi ptr [ %54, %invoke.cont29 ], [ null, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ null, %if.then.i.i71 ]
+  %channel.1 = phi ptr [ %54, %invoke.cont29 ], [ null, %_ZN4absl12lts_202308026StatusD2Ev.exit ], [ null, %if.then.i.i71 ]
   %73 = load i64, ptr %r, align 8
   %cmp.i.i.i.i75 = icmp eq i64 %73, 0
   br i1 %cmp.i.i.i.i75, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
@@ -2771,7 +2771,7 @@ ehcleanup49:                                      ; preds = %lpad23, %ehcleanup1
 
 if.end50:                                         ; preds = %if.then.i.i5.i.i, %if.else.i.i, %if.then.i.i2.i.i, %if.then.i.i.i76, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %args) #21
-  %cmp51 = icmp eq ptr %channel.0, null
+  %cmp51 = icmp eq ptr %channel.1, null
   %.pre114 = load i64, ptr %error, align 8
   br i1 %cmp51, label %if.then52, label %if.end50.if.end63_crit_edge
 
@@ -2830,7 +2830,7 @@ lpad55:                                           ; preds = %invoke.cont54
 if.end63:                                         ; preds = %if.end50.if.end63_crit_edge, %_ZN4absl12lts_202308026StatusD2Ev.exit87
   %and.i.i.i88.pre-phi = phi i64 [ %.pre115, %if.end50.if.end63_crit_edge ], [ %and.i.i.i77120, %_ZN4absl12lts_202308026StatusD2Ev.exit87 ]
   %88 = phi i64 [ %.pre114, %if.end50.if.end63_crit_edge ], [ %82, %_ZN4absl12lts_202308026StatusD2Ev.exit87 ]
-  %channel.2 = phi ptr [ %channel.0, %if.end50.if.end63_crit_edge ], [ %call62, %_ZN4absl12lts_202308026StatusD2Ev.exit87 ]
+  %channel.2 = phi ptr [ %channel.1, %if.end50.if.end63_crit_edge ], [ %call62, %_ZN4absl12lts_202308026StatusD2Ev.exit87 ]
   %cmp.i.i.i89 = icmp eq i64 %and.i.i.i88.pre-phi, 0
   br i1 %cmp.i.i.i89, label %_ZN4absl12lts_202308026StatusD2Ev.exit93, label %if.then.i.i90
 
@@ -3407,7 +3407,7 @@ cleanup:                                          ; preds = %invoke.cont78
   br i1 %cmp.i.i.i.i47, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %cleanup.thread, %cleanup
-  %retval.066 = phi ptr [ %44, %cleanup.thread ], [ %call81, %cleanup ]
+  %retval.166 = phi ptr [ %44, %cleanup.thread ], [ %call81, %cleanup ]
   %48 = getelementptr inbounds i8, ptr %channel, i64 8
   %49 = load ptr, ptr %48, align 8
   %cmp.not.i.i.i = icmp eq ptr %49, null
@@ -3443,7 +3443,7 @@ terminate.lpad.i6.i.i:                            ; preds = %if.then.i.i5.i.i
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_7ChannelEEEED2Ev.exit: ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %if.then.i.i.i, %if.then.i.i2.i.i, %if.else.i.i, %if.then.i.i5.i.i
-  %retval.065 = phi ptr [ %retval.066, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %retval.066, %if.then.i.i.i ], [ %retval.066, %if.then.i.i2.i.i ], [ %call81, %if.else.i.i ], [ %call81, %if.then.i.i5.i.i ]
+  %retval.165 = phi ptr [ %retval.166, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %retval.166, %if.then.i.i.i ], [ %retval.166, %if.then.i.i2.i.i ], [ %call81, %if.else.i.i ], [ %call81, %if.then.i.i5.i.i ]
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %final_args) #21
   br label %cleanup85
 
@@ -3453,7 +3453,7 @@ ehcleanup84:                                      ; preds = %lpad58, %lpad55, %l
   br label %ehcleanup86
 
 cleanup85:                                        ; preds = %if.then7, %_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_7ChannelEEEED2Ev.exit
-  %retval.1 = phi ptr [ %retval.065, %_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_7ChannelEEEED2Ev.exit ], [ %call9, %if.then7 ]
+  %retval.0 = phi ptr [ %retval.165, %_ZN4absl12lts_202308028StatusOrIN9grpc_core13RefCountedPtrINS2_7ChannelEEEED2Ev.exit ], [ %call9, %if.then7 ]
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %exec_ctx, align 8
   %54 = load i64, ptr %flags_.i, align 8
   %or.i = or i64 %54, 1
@@ -3504,7 +3504,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i60, %56,
 _ZN9grpc_core7ExecCtxD2Ev.exit:                   ; preds = %if.end.i53, %60
   %63 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core9Timestamp25thread_local_time_source_E)
   store ptr %59, ptr %63, align 8
-  ret ptr %retval.1
+  ret ptr %retval.0
 
 ehcleanup86:                                      ; preds = %ehcleanup84, %ehcleanup25, %lpad
   %.pn18 = phi { ptr, i32 } [ %16, %lpad ], [ %.pn16, %ehcleanup84 ], [ %.pn.pn, %ehcleanup25 ]

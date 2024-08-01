@@ -1260,9 +1260,9 @@ if.end:                                           ; preds = %if.then, %lor.end20
 
 while.cond:                                       ; preds = %if.end49, %if.end
   %lastmatch.0 = phi ptr [ null, %if.end ], [ %lastmatch.1, %if.end49 ]
-  %n.0 = phi i64 [ 0, %if.end ], [ %n.1, %if.end49 ]
-  %changed.0 = phi i32 [ 0, %if.end ], [ %changed.1, %if.end49 ]
-  %src.0 = phi ptr [ %call, %if.end ], [ %src.1, %if.end49 ]
+  %n.0 = phi i64 [ 0, %if.end ], [ %n.2, %if.end49 ]
+  %changed.0 = phi i32 [ 0, %if.end ], [ %changed.2, %if.end49 ]
+  %src.0 = phi ptr [ %call, %if.end ], [ %src.2, %if.end49 ]
   %cmp23 = icmp slt i64 %n.0, %call3
   br i1 %cmp23, label %while.body, label %while.end
 
@@ -1539,16 +1539,16 @@ lor.end41:                                        ; preds = %lor.rhs38, %if.then
 
 if.end49:                                         ; preds = %lor.end41, %add_value.exit
   %lastmatch.1 = phi ptr [ %call25, %add_value.exit ], [ %lastmatch.0, %lor.end41 ]
-  %n.1 = phi i64 [ %inc, %add_value.exit ], [ %n.0, %lor.end41 ]
-  %changed.1 = phi i32 [ %or, %add_value.exit ], [ %changed.0, %lor.end41 ]
-  %src.1 = phi ptr [ %call25, %add_value.exit ], [ %incdec.ptr43, %lor.end41 ]
+  %n.2 = phi i64 [ %inc, %add_value.exit ], [ %n.0, %lor.end41 ]
+  %changed.2 = phi i32 [ %or, %add_value.exit ], [ %changed.0, %lor.end41 ]
+  %src.2 = phi ptr [ %call25, %add_value.exit ], [ %incdec.ptr43, %lor.end41 ]
   br i1 %cmp, label %while.end, label %while.cond, !llvm.loop !11
 
 while.end:                                        ; preds = %if.end49, %if.else, %while.cond
-  %n.2 = phi i64 [ %n.1, %if.end49 ], [ %n.0, %if.else ], [ %n.0, %while.cond ]
-  %changed.2 = phi i32 [ %changed.1, %if.end49 ], [ %changed.0, %if.else ], [ %changed.0, %while.cond ]
-  %src.2 = phi ptr [ %src.1, %if.end49 ], [ %src.0, %if.else ], [ %src.0, %while.cond ]
-  %tobool53.not = icmp eq i32 %changed.2, 0
+  %n.1 = phi i64 [ %n.2, %if.end49 ], [ %n.0, %if.else ], [ %n.0, %while.cond ]
+  %changed.1 = phi i32 [ %changed.2, %if.end49 ], [ %changed.0, %if.else ], [ %changed.0, %while.cond ]
+  %src.1 = phi ptr [ %src.2, %if.end49 ], [ %src.0, %if.else ], [ %src.0, %while.cond ]
+  %tobool53.not = icmp eq i32 %changed.1, 0
   br i1 %tobool53.not, label %if.then54, label %if.else55
 
 if.then54:                                        ; preds = %while.end
@@ -1558,14 +1558,14 @@ if.then54:                                        ; preds = %while.end
 if.else55:                                        ; preds = %while.end
   %34 = load ptr, ptr %src_end.i, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %34 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %src.2 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %src.1 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  call void @luaL_addlstring(ptr noundef nonnull %b, ptr noundef %src.2, i64 noundef %sub.ptr.sub) #13
+  call void @luaL_addlstring(ptr noundef nonnull %b, ptr noundef %src.1, i64 noundef %sub.ptr.sub) #13
   call void @luaL_pushresult(ptr noundef nonnull %b) #13
   br label %if.end57
 
 if.end57:                                         ; preds = %if.else55, %if.then54
-  call void @lua_pushinteger(ptr noundef %L, i64 noundef %n.2) #13
+  call void @lua_pushinteger(ptr noundef %L, i64 noundef %n.1) #13
   ret i32 2
 }
 
@@ -3732,14 +3732,14 @@ sw.bb115.loopexit625:                             ; preds = %if.else102
   br label %sw.bb115
 
 sw.bb115:                                         ; preds = %if.else102, %sw.bb115.loopexit625
-  %s.addr.1 = phi ptr [ %add.ptr105, %sw.bb115.loopexit625 ], [ %s.addr.0.ph424, %if.else102 ]
+  %s.addr.2 = phi ptr [ %add.ptr105, %sw.bb115.loopexit625 ], [ %s.addr.0.ph424, %if.else102 ]
   %add.ptr5.i244 = getelementptr inbounds i8, ptr %retval.0.i188, i64 -1
-  %cmp.not.i239616 = icmp ugt ptr %ms.val, %s.addr.1
+  %cmp.not.i239616 = icmp ugt ptr %ms.val, %s.addr.2
   br i1 %cmp.not.i239616, label %if.else.i241, label %while.body2.i.lr.ph
 
 if.else.i241:                                     ; preds = %sw.bb115, %while.body.i216
   %i.0.i617 = phi i64 [ %inc.i217, %while.body.i216 ], [ 0, %sw.bb115 ]
-  %add.ptr.i213618 = getelementptr inbounds i8, ptr %s.addr.1, i64 %i.0.i617
+  %add.ptr.i213618 = getelementptr inbounds i8, ptr %s.addr.2, i64 %i.0.i617
   %71 = load i8, ptr %add.ptr.i213618, align 1
   %conv.i242 = zext i8 %71 to i32
   switch i8 %62, label %sw.default.i282 [
@@ -3828,7 +3828,7 @@ while.body2.i.lr.ph:                              ; preds = %singlematch.exit285
 
 while.body.i216:                                  ; preds = %if.else.i241, %singlematch.exit285
   %inc.i217 = add nuw nsw i64 %i.0.i617, 1
-  %add.ptr.i213 = getelementptr inbounds i8, ptr %s.addr.1, i64 %inc.i217
+  %add.ptr.i213 = getelementptr inbounds i8, ptr %s.addr.2, i64 %inc.i217
   %cmp.not.i239 = icmp ugt ptr %ms.val, %add.ptr.i213
   br i1 %cmp.not.i239, label %if.else.i241, label %while.body2.i.lr.ph, !llvm.loop !32
 
@@ -3839,7 +3839,7 @@ while.cond1.i:                                    ; preds = %while.body2.i
 
 while.body2.i:                                    ; preds = %while.body2.i.lr.ph, %while.cond1.i
   %i.1.i433 = phi i64 [ %i.0.i.lcssa, %while.body2.i.lr.ph ], [ %dec.i221, %while.cond1.i ]
-  %add.ptr3.i = getelementptr inbounds i8, ptr %s.addr.1, i64 %i.1.i433
+  %add.ptr3.i = getelementptr inbounds i8, ptr %s.addr.2, i64 %i.1.i433
   %call5.i = tail call fastcc ptr @match(ptr noundef %ms, ptr noundef nonnull %add.ptr3.i, ptr noundef nonnull %add.ptr4.i)
   %tobool6.not.i = icmp eq ptr %call5.i, null
   br i1 %tobool6.not.i, label %while.cond1.i, label %if.end124
@@ -3947,11 +3947,11 @@ init.outer.backedge:                              ; preds = %if.else102, %if.the
   br i1 %cmp4.not414, label %if.end124, label %if.then6.lr.ph
 
 if.end124:                                        ; preds = %init.outer.backedge, %land.lhs.true.i165, %check_capture.exit.i, %if.else.i, %if.end.i96, %init.backedge, %matchbracketclass.exit156, %matchbracketclass.exit, %if.then87, %sw.bb104, %cond.end60, %if.end29.i, %if.then2.i, %singlematch.exit332, %if.else.i226, %while.cond1.i, %while.body2.i, %if.end, %for.cond.i.preheader, %if.then.i92, %capture_to_close.exit, %if.then12.i79, %if.end.i71, %if.then12.i, %if.end.i, %if.end26
-  %s.addr.2 = phi ptr [ %cond, %if.end26 ], [ %call9.i, %if.end.i ], [ null, %if.then12.i ], [ %call9.i77, %if.end.i71 ], [ null, %if.then12.i79 ], [ %call4.i, %capture_to_close.exit ], [ null, %if.then.i92 ], [ %call.i223426, %for.cond.i.preheader ], [ %s, %if.end ], [ null, %while.cond1.i ], [ %call5.i, %while.body2.i ], [ %call.i223, %if.then2.i ], [ null, %singlematch.exit332 ], [ null, %if.else.i226 ], [ null, %if.end29.i ], [ null, %cond.end60 ], [ %call107, %sw.bb104 ], [ null, %if.then87 ], [ null, %matchbracketclass.exit ], [ null, %matchbracketclass.exit156 ], [ %s.addr.0.ph424, %init.backedge ], [ %s.addr.0.ph.be, %init.outer.backedge ], [ null, %land.lhs.true.i165 ], [ null, %check_capture.exit.i ], [ null, %if.else.i ], [ null, %if.end.i96 ]
+  %s.addr.1 = phi ptr [ %cond, %if.end26 ], [ %call9.i, %if.end.i ], [ null, %if.then12.i ], [ %call9.i77, %if.end.i71 ], [ null, %if.then12.i79 ], [ %call4.i, %capture_to_close.exit ], [ null, %if.then.i92 ], [ %call.i223426, %for.cond.i.preheader ], [ %s, %if.end ], [ null, %while.cond1.i ], [ %call5.i, %while.body2.i ], [ %call.i223, %if.then2.i ], [ null, %singlematch.exit332 ], [ null, %if.else.i226 ], [ null, %if.end29.i ], [ null, %cond.end60 ], [ %call107, %sw.bb104 ], [ null, %if.then87 ], [ null, %matchbracketclass.exit ], [ null, %matchbracketclass.exit156 ], [ %s.addr.0.ph424, %init.backedge ], [ %s.addr.0.ph.be, %init.outer.backedge ], [ null, %land.lhs.true.i165 ], [ null, %check_capture.exit.i ], [ null, %if.else.i ], [ null, %if.end.i96 ]
   %85 = load i32, ptr %matchdepth, align 8
   %inc = add nsw i32 %85, 1
   store i32 %inc, ptr %matchdepth, align 8
-  ret ptr %s.addr.2
+  ret ptr %s.addr.1
 }
 
 ; Function Attrs: nounwind uwtable

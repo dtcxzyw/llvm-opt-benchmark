@@ -1776,7 +1776,7 @@ ehcleanup152:                                     ; preds = %ehcleanup137, %lpad
   br label %ehcleanup174
 
 cleanup:                                          ; preds = %if.end31, %if.then35, %_ZN9grpc_core12experimental4JsonD2Ev.exit, %if.end73, %invoke.cont85, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit, %if.then30
-  %cleanup.dest.slot.0 = phi i32 [ 1, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit ], [ 1, %if.then30 ], [ 0, %invoke.cont85 ], [ 0, %if.end73 ], [ 1, %_ZN9grpc_core12experimental4JsonD2Ev.exit ], [ 0, %if.then35 ], [ 0, %if.end31 ]
+  %cleanup.dest.slot.1 = phi i32 [ 1, %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit ], [ 1, %if.then30 ], [ 0, %invoke.cont85 ], [ 0, %if.end73 ], [ 1, %_ZN9grpc_core12experimental4JsonD2Ev.exit ], [ 0, %if.then35 ], [ 0, %if.end31 ]
   %78 = load i8, ptr %_M_engaged.i.i, align 8
   %tobool.i.i.i.i = trunc i8 %78 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt8optionalIN9grpc_core12XdsExtensionEED2Ev.exit
@@ -1803,7 +1803,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i76
   unreachable
 
 cleanup177:                                       ; preds = %if.then.i76, %_ZNSt8optionalIN9grpc_core12XdsExtensionEED2Ev.exit, %invoke.cont21
-  %cleanup.dest.slot.1 = phi i32 [ 1, %invoke.cont21 ], [ %cleanup.dest.slot.0, %_ZNSt8optionalIN9grpc_core12XdsExtensionEED2Ev.exit ], [ %cleanup.dest.slot.0, %if.then.i76 ]
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont21 ], [ %cleanup.dest.slot.1, %_ZNSt8optionalIN9grpc_core12XdsExtensionEED2Ev.exit ], [ %cleanup.dest.slot.1, %if.then.i76 ]
   %82 = load ptr, ptr %field, align 8
   %cmp.not.i78 = icmp eq ptr %82, null
   br i1 %cmp.not.i78, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit82, label %if.then.i79
@@ -1820,7 +1820,7 @@ terminate.lpad.i80:                               ; preds = %if.then.i79
   unreachable
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit82: ; preds = %cleanup177, %if.then.i79
-  %switch = icmp eq i32 %cleanup.dest.slot.1, 0
+  %switch = icmp eq i32 %cleanup.dest.slot.0, 0
   br i1 %switch, label %for.cond, label %return
 
 ehcleanup174:                                     ; preds = %lpad52, %lpad57.body, %ehcleanup152, %lpad37
@@ -4133,15 +4133,15 @@ ehcleanup99:                                      ; preds = %arraydestroy.body94
 
 ehcleanup101:                                     ; preds = %lpad57, %ehcleanup99
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %ehcleanup99 ], [ %59, %lpad57 ]
-  %arrayinit.endOfInit53.1 = phi ptr [ %arrayinit.element, %ehcleanup99 ], [ %arrayinit.endOfInit53.0, %lpad57 ]
+  %arrayinit.endOfInit53.2 = phi ptr [ %arrayinit.element, %ehcleanup99 ], [ %arrayinit.endOfInit53.0, %lpad57 ]
   %cleanup.isactive.1 = phi i1 [ %62, %ehcleanup99 ], [ false, %lpad57 ]
   call void @_ZN9grpc_core12experimental4JsonD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %ref.tmp54) #18
-  %arraydestroy.isempty = icmp eq ptr %ref.tmp51, %arrayinit.endOfInit53.1
+  %arraydestroy.isempty = icmp eq ptr %ref.tmp51, %arrayinit.endOfInit53.2
   %or.cond2 = select i1 %cleanup.isactive.1, i1 true, i1 %arraydestroy.isempty
   br i1 %or.cond2, label %eh.resume, label %arraydestroy.body102
 
 arraydestroy.body102:                             ; preds = %ehcleanup101, %arraydestroy.body102
-  %arraydestroy.elementPast103 = phi ptr [ %arraydestroy.element104, %arraydestroy.body102 ], [ %arrayinit.endOfInit53.1, %ehcleanup101 ]
+  %arraydestroy.elementPast103 = phi ptr [ %arraydestroy.element104, %arraydestroy.body102 ], [ %arrayinit.endOfInit53.2, %ehcleanup101 ]
   %arraydestroy.element104 = getelementptr inbounds i8, ptr %arraydestroy.elementPast103, i64 -88
   call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arraydestroy.element104) #18
   %arraydestroy.done105 = icmp eq ptr %arraydestroy.element104, %ref.tmp51

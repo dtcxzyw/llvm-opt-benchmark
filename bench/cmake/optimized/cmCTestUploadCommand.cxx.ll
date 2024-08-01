@@ -368,31 +368,31 @@ define dso_local void @_ZN20cmCTestUploadCommand14CheckArgumentsEv(ptr nocapture
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i", %41
   %.sroa.07.021.i.i.i = phi ptr [ %.sroa.07.0.i.i.i, %41 ], [ %.sroa.07.018.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i" ]
-  %.sroa.013.020.i.i.i = phi ptr [ %.sroa.013.1.i.i.i, %41 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i" ]
+  %.sroa.013.120.i.i.i = phi ptr [ %.sroa.013.2.i.i.i, %41 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i" ]
   %37 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EclINS_17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEbT_"(ptr nonnull readonly %0, ptr %.sroa.07.021.i.i.i)
   br i1 %37, label %41, label %38
 
 38:                                               ; preds = %.lr.ph.i.i.i
-  %39 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.013.020.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.021.i.i.i) #14
-  %40 = getelementptr inbounds i8, ptr %.sroa.013.020.i.i.i, i64 32
+  %39 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.013.120.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.07.021.i.i.i) #14
+  %40 = getelementptr inbounds i8, ptr %.sroa.013.120.i.i.i, i64 32
   br label %41
 
 41:                                               ; preds = %38, %.lr.ph.i.i.i
-  %.sroa.013.1.i.i.i = phi ptr [ %.sroa.013.020.i.i.i, %.lr.ph.i.i.i ], [ %40, %38 ]
+  %.sroa.013.2.i.i.i = phi ptr [ %.sroa.013.120.i.i.i, %.lr.ph.i.i.i ], [ %40, %38 ]
   %.sroa.07.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.07.021.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %.sroa.07.0.i.i.i, %5
   br i1 %.not.i.i.i, label %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0ET_SF_SF_T0_.exit.i", label %.lr.ph.i.i.i, !llvm.loop !7
 
 "_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0ET_SF_SF_T0_.exit.i": ; preds = %41, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i", %._crit_edge.i.i.i.i.i
-  %.sroa.013.2.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i" ], [ %5, %._crit_edge.i.i.i.i.i ], [ %.sroa.013.1.i.i.i, %41 ]
+  %.sroa.013.0.i.i.i = phi ptr [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.i, %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops10_Iter_predIZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEET_SI_SI_T0_.exit.i.i.i" ], [ %5, %._crit_edge.i.i.i.i.i ], [ %.sroa.013.2.i.i.i, %41 ]
   %42 = load ptr, ptr %4, align 8
-  %.not.i.i8.i = icmp eq ptr %.sroa.013.2.i.i.i, %42
+  %.not.i.i8.i = icmp eq ptr %.sroa.013.0.i.i.i, %42
   br i1 %.not.i.i8.i, label %"_ZN2cm8erase_ifINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0EEvRSt6vectorIT_T0_ET1_.exit", label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i.i: ; preds = %"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN20cmCTestUploadCommand14CheckArgumentsEvE3$_0ET_SF_SF_T0_.exit.i"
   %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %43 to i64
-  %45 = ptrtoint ptr %.sroa.013.2.i.i.i to i64
+  %45 = ptrtoint ptr %.sroa.013.0.i.i.i to i64
   %46 = sub i64 %45, %44
   %47 = getelementptr inbounds i8, ptr %43, i64 %46
   br label %.lr.ph.i.i.i.i.i.i.i

@@ -691,7 +691,7 @@ define hidden noundef zeroext i1 @_ZN22ZMarkThreadLocalStacks5flushEP19ZMarkStac
   br label %11
 
 11:                                               ; preds = %4, %65
-  %.018 = phi i1 [ false, %4 ], [ %.2, %65 ]
+  %.018 = phi i1 [ false, %4 ], [ %.1, %65 ]
   %.01517 = phi i64 [ 0, %4 ], [ %66, %65 ]
   %12 = getelementptr inbounds [16 x %class.ZMarkStripe], ptr %5, i64 0, i64 %.01517
   %13 = getelementptr inbounds [16 x ptr], ptr %6, i64 0, i64 %.01517
@@ -795,18 +795,18 @@ _ZN7ZLockerI14ZConditionLockED2Ev.exit.i.i:       ; preds = %60, %54
   br label %_ZN11ZMarkStripe13publish_stackEP6ZStackI15ZMarkStackEntryLm254EEP14ZMarkTerminateb.exit
 
 _ZN11ZMarkStripe13publish_stackEP6ZStackI15ZMarkStackEntryLm254EEP14ZMarkTerminateb.exit: ; preds = %_ZN7ZLockerI14ZConditionLockED2Ev.exit.i.i, %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i, %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit
-  %.1 = phi i1 [ %.018, %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit ], [ true, %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i ], [ true, %_ZN7ZLockerI14ZConditionLockED2Ev.exit.i.i ]
+  %.2 = phi i1 [ %.018, %_ZN22ZMarkThreadLocalStacks10free_stackEP19ZMarkStackAllocatorP6ZStackI15ZMarkStackEntryLm254EE.exit ], [ true, %_ZN10ZStackListI6ZStackI15ZMarkStackEntryLm254EEE4pushEPS2_.exit.i ], [ true, %_ZN7ZLockerI14ZConditionLockED2Ev.exit.i.i ]
   store ptr null, ptr %13, align 8
   br label %65
 
 65:                                               ; preds = %11, %_ZN11ZMarkStripe13publish_stackEP6ZStackI15ZMarkStackEntryLm254EEP14ZMarkTerminateb.exit
-  %.2 = phi i1 [ %.018, %11 ], [ %.1, %_ZN11ZMarkStripe13publish_stackEP6ZStackI15ZMarkStackEntryLm254EEP14ZMarkTerminateb.exit ]
+  %.1 = phi i1 [ %.018, %11 ], [ %.2, %_ZN11ZMarkStripe13publish_stackEP6ZStackI15ZMarkStackEntryLm254EEP14ZMarkTerminateb.exit ]
   %66 = add nuw nsw i64 %.01517, 1
   %exitcond.not = icmp eq i64 %66, 16
   br i1 %exitcond.not, label %67, label %11, !llvm.loop !15
 
 67:                                               ; preds = %65
-  ret i1 %.2
+  ret i1 %.1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

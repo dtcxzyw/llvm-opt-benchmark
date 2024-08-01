@@ -1167,18 +1167,18 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
           to label %114 unwind label %112
 
 107:                                              ; preds = %119, %112
-  %.0 = phi i1 [ %.2, %119 ], [ %.1, %112 ]
+  %.1 = phi i1 [ %.3, %119 ], [ %.0, %112 ]
   %.pn106.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn106.pn.pn.pn.pn.pn, %119 ], [ %113, %112 ]
   %108 = load i64, ptr %4, align 8, !range !9, !noundef !3
   %109 = add i64 %108, 9223372036854775807
   %110 = icmp ugt i64 %109, 2
   %111 = icmp eq i64 %109, 1
   %.not132.not135 = or i1 %110, %111
-  %brmerge.not = select i1 %.not132.not135, i1 %.0, i1 false
+  %brmerge.not = select i1 %.not132.not135, i1 %.1, i1 false
   br i1 %brmerge.not, label %659, label %658
 
 112:                                              ; preds = %654, %5
-  %.1 = phi i1 [ %.20, %654 ], [ true, %5 ]
+  %.0 = phi i1 [ %.21, %654 ], [ true, %5 ]
   %113 = landingpad { ptr, i32 }
           cleanup
   br label %107
@@ -1192,13 +1192,13 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
           to label %122 unwind label %120
 
 119:                                              ; preds = %123, %120
-  %.2 = phi i1 [ %.4, %123 ], [ %.3, %120 ]
+  %.3 = phi i1 [ %.5, %123 ], [ %.2, %120 ]
   %.pn106.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn106.pn.pn.pn.pn, %123 ], [ %121, %120 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %102) #5
           to label %107 unwind label %157
 
 120:                                              ; preds = %653, %114
-  %.3 = phi i1 [ %.20, %653 ], [ true, %114 ]
+  %.2 = phi i1 [ %.21, %653 ], [ true, %114 ]
   %121 = landingpad { ptr, i32 }
           cleanup
   br label %119
@@ -1208,13 +1208,13 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
           to label %126 unwind label %124
 
 123:                                              ; preds = %649, %124
-  %.4 = phi i1 [ %.21, %649 ], [ %.5, %124 ]
+  %.5 = phi i1 [ %.8, %649 ], [ %.4, %124 ]
   %.pn106.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn106.pn.pn.pn, %649 ], [ %125, %124 ]
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %101) #5
           to label %119 unwind label %157
 
 124:                                              ; preds = %652, %122
-  %.5 = phi i1 [ %.20, %652 ], [ true, %122 ]
+  %.4 = phi i1 [ %.21, %652 ], [ true, %122 ]
   %125 = landingpad { ptr, i32 }
           cleanup
   br label %123
@@ -1229,13 +1229,13 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
           to label %133 unwind label %131
 
 130:                                              ; preds = %139, %131
-  %.6 = phi i1 [ %.8, %139 ], [ %.7, %131 ]
+  %.7 = phi i1 [ %.10, %139 ], [ %.6, %131 ]
   %.pn106.pn.pn = phi { ptr, i32 } [ %.pn106.pn, %139 ], [ %132, %131 ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$witx..abi..WasmType$GT$$GT$17h21cf68782e7ae3e4E"(ptr nonnull align 8 %99) #5
           to label %649 unwind label %157
 
 131:                                              ; preds = %647, %126
-  %.7 = phi i1 [ %.20, %647 ], [ true, %126 ]
+  %.6 = phi i1 [ %.21, %647 ], [ true, %126 ]
   %132 = landingpad { ptr, i32 }
           cleanup
   br label %130
@@ -1256,13 +1256,13 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
           to label %142 unwind label %140
 
 139:                                              ; preds = %147, %140
-  %.8 = phi i1 [ %.10, %147 ], [ %.9, %140 ]
+  %.10 = phi i1 [ %.12, %147 ], [ %.9, %140 ]
   %.pn106.pn = phi { ptr, i32 } [ %.pn106, %147 ], [ %141, %140 ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr nonnull align 8 %97) #5
           to label %130 unwind label %157
 
 140:                                              ; preds = %646, %133
-  %.9 = phi i1 [ %.20, %646 ], [ true, %133 ]
+  %.9 = phi i1 [ %.21, %646 ], [ true, %133 ]
   %141 = landingpad { ptr, i32 }
           cleanup
   br label %139
@@ -1284,13 +1284,13 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
           to label %150 unwind label %148
 
 147:                                              ; preds = %164, %151, %148
-  %.10 = phi i1 [ %.11, %148 ], [ %.12, %164 ], [ true, %151 ]
+  %.12 = phi i1 [ %.11, %148 ], [ %.14, %164 ], [ true, %151 ]
   %.pn106 = phi { ptr, i32 } [ %149, %148 ], [ %.pn104, %164 ], [ %152, %151 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9ebc9b7807f19d85E"(ptr nonnull align 8 %96) #5
           to label %139 unwind label %157
 
 148:                                              ; preds = %645, %159, %146, %145
-  %.11 = phi i1 [ true, %145 ], [ %.20, %645 ], [ true, %159 ], [ true, %146 ]
+  %.11 = phi i1 [ true, %145 ], [ %.21, %645 ], [ true, %159 ], [ true, %146 ]
   %149 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -1334,13 +1334,13 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
   unreachable
 
 164:                                              ; preds = %178, %171, %165
-  %.12 = phi i1 [ %.13, %165 ], [ %.14, %178 ], [ true, %171 ]
+  %.14 = phi i1 [ %.13, %165 ], [ %.16, %178 ], [ true, %171 ]
   %.pn104 = phi { ptr, i32 } [ %166, %165 ], [ %.pn102, %178 ], [ %172, %171 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %94) #5
           to label %147 unwind label %157
 
 165:                                              ; preds = %644, %169, %168, %155
-  %.13 = phi i1 [ %.20, %644 ], [ true, %169 ], [ true, %168 ], [ true, %155 ]
+  %.13 = phi i1 [ %.21, %644 ], [ true, %169 ], [ true, %168 ], [ true, %155 ]
   %166 = landingpad { ptr, i32 }
           cleanup
   br label %164
@@ -1387,13 +1387,13 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
           to label %189 unwind label %179
 
 178:                                              ; preds = %192, %190, %182, %179
-  %.14 = phi i1 [ %.15, %179 ], [ %.16, %192 ], [ true, %182 ], [ true, %190 ]
+  %.16 = phi i1 [ %.15, %179 ], [ %.18, %192 ], [ true, %182 ], [ true, %190 ]
   %.pn102 = phi { ptr, i32 } [ %180, %179 ], [ %.pn100, %192 ], [ %183, %182 ], [ %191, %190 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %91) #5
           to label %164 unwind label %157
 
 179:                                              ; preds = %643, %177, %176
-  %.15 = phi i1 [ %.20, %643 ], [ true, %176 ], [ true, %177 ]
+  %.15 = phi i1 [ %.21, %643 ], [ true, %176 ], [ true, %177 ]
   %180 = landingpad { ptr, i32 }
           cleanup
   br label %178
@@ -1441,13 +1441,13 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
           to label %178 unwind label %157
 
 192:                                              ; preds = %424, %196, %193
-  %.16 = phi i1 [ %.17, %193 ], [ %.18, %424 ], [ true, %196 ]
+  %.18 = phi i1 [ %.17, %193 ], [ %.20, %424 ], [ true, %196 ]
   %.pn100 = phi { ptr, i32 } [ %194, %193 ], [ %.pn98, %424 ], [ %.pn76, %196 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %89) #5
           to label %178 unwind label %157
 
 193:                                              ; preds = %485, %188
-  %.17 = phi i1 [ %.20, %485 ], [ true, %188 ]
+  %.17 = phi i1 [ %.21, %485 ], [ true, %188 ]
   %194 = landingpad { ptr, i32 }
           cleanup
   br label %192
@@ -2329,7 +2329,7 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
           to label %566 unwind label %425
 
 424:                                              ; preds = %576, %572, %487, %428, %425
-  %.18 = phi i1 [ %.19, %425 ], [ true, %576 ], [ true, %572 ], [ false, %487 ], [ true, %428 ]
+  %.20 = phi i1 [ %.19, %425 ], [ true, %576 ], [ true, %572 ], [ false, %487 ], [ true, %428 ]
   %.pn98 = phi { ptr, i32 } [ %426, %425 ], [ %.pn84.pn, %576 ], [ %573, %572 ], [ %.pn91.pn, %487 ], [ %.pn96, %428 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %86) #5
           to label %192 unwind label %157
@@ -2562,7 +2562,7 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
   br label %485
 
 485:                                              ; preds = %642, %564, %484
-  %.20 = phi i1 [ true, %642 ], [ false, %564 ], [ true, %484 ]
+  %.21 = phi i1 [ true, %642 ], [ false, %564 ], [ true, %484 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %86)
           to label %643 unwind label %193
 
@@ -3178,7 +3178,7 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
           to label %652 unwind label %650
 
 649:                                              ; preds = %650, %130
-  %.21 = phi i1 [ %.6, %130 ], [ %.20, %650 ]
+  %.8 = phi i1 [ %.7, %130 ], [ %.21, %650 ]
   %.pn106.pn.pn.pn = phi { ptr, i32 } [ %.pn106.pn.pn, %130 ], [ %651, %650 ]
   invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$witx..abi..WasmType$GT$$GT$17h21cf68782e7ae3e4E"(ptr nonnull align 8 %100) #5
           to label %123 unwind label %157

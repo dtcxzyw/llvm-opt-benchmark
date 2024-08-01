@@ -170,7 +170,7 @@ for.body6.us.i:                                   ; preds = %zrle_encode_tile8ne
 while.body.i.us.i:                                ; preds = %for.body6.us.i, %if.end.i.us.i
   %runs.0112.i.us.i = phi i32 [ %runs.1.i.us.i, %if.end.i.us.i ], [ 0, %for.body6.us.i ]
   %single_pixels.0111.i.us.i = phi i32 [ %single_pixels.1.i.us.i, %if.end.i.us.i ], [ 0, %for.body6.us.i ]
-  %ptr.0110.i.us.i = phi ptr [ %ptr.2.i.us.i, %if.end.i.us.i ], [ %16, %for.body6.us.i ]
+  %ptr.0110.i.us.i = phi ptr [ %ptr.1.i.us.i, %if.end.i.us.i ], [ %16, %for.body6.us.i ]
   %18 = load i8, ptr %ptr.0110.i.us.i, align 1
   %incdec.ptr.i.us.i = getelementptr i8, ptr %ptr.0110.i.us.i, i64 1
   %19 = load i8, ptr %incdec.ptr.i.us.i, align 1
@@ -183,8 +183,8 @@ if.then.i.us.i:                                   ; preds = %while.body.i.us.i
   br label %if.end.i.us.i
 
 while.cond9.i.us.i:                               ; preds = %while.body.i.us.i, %while.cond9.i.us.i
-  %ptr.1.i.us.i = phi ptr [ %incdec.ptr10.i.us.i, %while.cond9.i.us.i ], [ %incdec.ptr.i.us.i, %while.body.i.us.i ]
-  %incdec.ptr10.i.us.i = getelementptr i8, ptr %ptr.1.i.us.i, i64 1
+  %ptr.2.i.us.i = phi ptr [ %incdec.ptr10.i.us.i, %while.cond9.i.us.i ], [ %incdec.ptr.i.us.i, %while.body.i.us.i ]
+  %incdec.ptr10.i.us.i = getelementptr i8, ptr %ptr.2.i.us.i, i64 1
   %20 = load i8, ptr %incdec.ptr10.i.us.i, align 1
   %cmp13.i.us.i = icmp eq i8 %20, %18
   br i1 %cmp13.i.us.i, label %while.cond9.i.us.i, label %while.end.i.us.i, !llvm.loop !5
@@ -194,11 +194,11 @@ while.end.i.us.i:                                 ; preds = %while.cond9.i.us.i
   br label %if.end.i.us.i
 
 if.end.i.us.i:                                    ; preds = %while.end.i.us.i, %if.then.i.us.i
-  %ptr.2.i.us.i = phi ptr [ %incdec.ptr.i.us.i, %if.then.i.us.i ], [ %incdec.ptr10.i.us.i, %while.end.i.us.i ]
+  %ptr.1.i.us.i = phi ptr [ %incdec.ptr.i.us.i, %if.then.i.us.i ], [ %incdec.ptr10.i.us.i, %while.end.i.us.i ]
   %single_pixels.1.i.us.i = phi i32 [ %inc.i.us.i, %if.then.i.us.i ], [ %single_pixels.0111.i.us.i, %while.end.i.us.i ]
   %runs.1.i.us.i = phi i32 [ %runs.0112.i.us.i, %if.then.i.us.i ], [ %inc16.i.us.i, %while.end.i.us.i ]
   %call.i22.us.i = call i32 @palette_put(ptr noundef nonnull %palette1.i.us.i, i32 noundef %conv6.i.us.i) #9
-  %cmp.i.us.i = icmp ult ptr %ptr.2.i.us.i, %add.ptr.i.us.i
+  %cmp.i.us.i = icmp ult ptr %ptr.1.i.us.i, %add.ptr.i.us.i
   br i1 %cmp.i.us.i, label %while.body.i.us.i, label %while.end18.i.us.i, !llvm.loop !7
 
 while.end18.i.us.i:                               ; preds = %if.end.i.us.i, %for.body6.us.i
@@ -1411,7 +1411,7 @@ tailrecurse:                                      ; preds = %zywrle_analyze_16be
 while.body:                                       ; preds = %tailrecurse, %if.end
   %runs.0108 = phi i32 [ %runs.1, %if.end ], [ 0, %tailrecurse ]
   %single_pixels.0107 = phi i32 [ %single_pixels.1, %if.end ], [ 0, %tailrecurse ]
-  %ptr.0106 = phi ptr [ %ptr.2, %if.end ], [ %data, %tailrecurse ]
+  %ptr.0106 = phi ptr [ %ptr.1, %if.end ], [ %data, %tailrecurse ]
   %2 = load i16, ptr %ptr.0106, align 2
   %incdec.ptr = getelementptr i8, ptr %ptr.0106, i64 2
   %3 = load i16, ptr %incdec.ptr, align 2
@@ -1424,8 +1424,8 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 while.cond9:                                      ; preds = %while.body, %while.cond9
-  %ptr.1 = phi ptr [ %incdec.ptr10, %while.cond9 ], [ %incdec.ptr, %while.body ]
-  %incdec.ptr10 = getelementptr i8, ptr %ptr.1, i64 2
+  %ptr.2 = phi ptr [ %incdec.ptr10, %while.cond9 ], [ %incdec.ptr, %while.body ]
+  %incdec.ptr10 = getelementptr i8, ptr %ptr.2, i64 2
   %4 = load i16, ptr %incdec.ptr10, align 2
   %cmp13 = icmp eq i16 %4, %2
   br i1 %cmp13, label %while.cond9, label %while.end, !llvm.loop !36
@@ -1435,11 +1435,11 @@ while.end:                                        ; preds = %while.cond9
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %if.then
-  %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr10, %while.end ]
+  %ptr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr10, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0107, %while.end ]
   %runs.1 = phi i32 [ %runs.0108, %if.then ], [ %inc16, %while.end ]
   %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %conv6) #9
-  %cmp = icmp ult ptr %ptr.2, %add.ptr
+  %cmp = icmp ult ptr %ptr.1, %add.ptr
   br i1 %cmp, label %while.body, label %while.end18, !llvm.loop !37
 
 while.end18:                                      ; preds = %if.end, %tailrecurse
@@ -1690,31 +1690,31 @@ while.body.lr.ph.i:                               ; preds = %if.then3.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.end.i, %while.body.lr.ph.i
-  %p.0257.i = phi ptr [ %add.ptr5.i, %while.body.lr.ph.i ], [ %add.ptr18.i, %while.end.i ]
-  %top.0256.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %top.1.lcssa.i, %while.end.i ]
-  %add.ptr11.i = getelementptr i16, ptr %p.0257.i, i64 %idx.ext10.i
-  %cmp13251.i = icmp ult ptr %p.0257.i, %add.ptr11.i
+  %p.1257.i = phi ptr [ %add.ptr5.i, %while.body.lr.ph.i ], [ %add.ptr18.i, %while.end.i ]
+  %top.1256.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %top.2.lcssa.i, %while.end.i ]
+  %add.ptr11.i = getelementptr i16, ptr %p.1257.i, i64 %idx.ext10.i
+  %cmp13251.i = icmp ult ptr %p.1257.i, %add.ptr11.i
   br i1 %cmp13251.i, label %while.body14.i, label %while.end.i
 
 while.body14.i:                                   ; preds = %while.body.i, %while.body14.i
-  %p.1253.i = phi ptr [ %incdec.ptr.i, %while.body14.i ], [ %p.0257.i, %while.body.i ]
-  %top.1252.i = phi ptr [ %incdec.ptr15.i, %while.body14.i ], [ %top.0256.i, %while.body.i ]
-  %17 = load i16, ptr %p.1253.i, align 2
-  store i16 %17, ptr %top.1252.i, align 2
-  %incdec.ptr.i = getelementptr i8, ptr %p.1253.i, i64 2
-  %incdec.ptr15.i = getelementptr i8, ptr %top.1252.i, i64 4
+  %p.2253.i = phi ptr [ %incdec.ptr.i, %while.body14.i ], [ %p.1257.i, %while.body.i ]
+  %top.2252.i = phi ptr [ %incdec.ptr15.i, %while.body14.i ], [ %top.1256.i, %while.body.i ]
+  %17 = load i16, ptr %p.2253.i, align 2
+  store i16 %17, ptr %top.2252.i, align 2
+  %incdec.ptr.i = getelementptr i8, ptr %p.2253.i, i64 2
+  %incdec.ptr15.i = getelementptr i8, ptr %top.2252.i, i64 4
   %cmp13.i = icmp ult ptr %incdec.ptr.i, %add.ptr11.i
   br i1 %cmp13.i, label %while.body14.i, label %while.end.i, !llvm.loop !44
 
 while.end.i:                                      ; preds = %while.body14.i, %while.body.i
-  %top.1.lcssa.i = phi ptr [ %top.0256.i, %while.body.i ], [ %incdec.ptr15.i, %while.body14.i ]
-  %p.1.lcssa.i = phi ptr [ %p.0257.i, %while.body.i ], [ %incdec.ptr.i, %while.body14.i ]
-  %add.ptr18.i = getelementptr i16, ptr %p.1.lcssa.i, i64 %idx.ext4.i
+  %top.2.lcssa.i = phi ptr [ %top.1256.i, %while.body.i ], [ %incdec.ptr15.i, %while.body14.i ]
+  %p.2.lcssa.i = phi ptr [ %p.1257.i, %while.body.i ], [ %incdec.ptr.i, %while.body14.i ]
+  %add.ptr18.i = getelementptr i16, ptr %p.2.lcssa.i, i64 %idx.ext4.i
   %cmp9.i = icmp ult ptr %add.ptr18.i, %add.ptr8.i
   br i1 %cmp9.i, label %while.body.i, label %if.end20.i, !llvm.loop !45
 
 if.end20.i:                                       ; preds = %while.end.i, %if.then3.i, %if.end.i
-  %top.2.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %add.ptr.i, %if.then3.i ], [ %top.1.lcssa.i, %while.end.i ]
+  %top.0.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %add.ptr.i, %if.then3.i ], [ %top.2.lcssa.i, %while.end.i ]
   %tobool21.not.i = icmp eq i32 %and4.i.i, %h
   br i1 %tobool21.not.i, label %do.end.i, label %if.then22.i
 
@@ -1734,31 +1734,31 @@ while.body31.lr.ph.i:                             ; preds = %if.then22.i
   br label %while.body31.i
 
 while.body31.i:                                   ; preds = %while.end39.i, %while.body31.lr.ph.i
-  %p.3267.i = phi ptr [ %add.ptr25.i, %while.body31.lr.ph.i ], [ %add.ptr42.i, %while.end39.i ]
-  %top.3266.i = phi ptr [ %top.2.i, %while.body31.lr.ph.i ], [ %top.4.lcssa.i, %while.end39.i ]
-  %add.ptr33.i = getelementptr i16, ptr %p.3267.i, i64 %idx.ext32.i
-  %cmp35260.i = icmp ult ptr %p.3267.i, %add.ptr33.i
+  %p.4267.i = phi ptr [ %add.ptr25.i, %while.body31.lr.ph.i ], [ %add.ptr42.i, %while.end39.i ]
+  %top.4266.i = phi ptr [ %top.0.i, %while.body31.lr.ph.i ], [ %top.5.lcssa.i, %while.end39.i ]
+  %add.ptr33.i = getelementptr i16, ptr %p.4267.i, i64 %idx.ext32.i
+  %cmp35260.i = icmp ult ptr %p.4267.i, %add.ptr33.i
   br i1 %cmp35260.i, label %while.body36.i, label %while.end39.i
 
 while.body36.i:                                   ; preds = %while.body31.i, %while.body36.i
-  %p.4262.i = phi ptr [ %incdec.ptr37.i, %while.body36.i ], [ %p.3267.i, %while.body31.i ]
-  %top.4261.i = phi ptr [ %incdec.ptr38.i, %while.body36.i ], [ %top.3266.i, %while.body31.i ]
-  %18 = load i16, ptr %p.4262.i, align 2
-  store i16 %18, ptr %top.4261.i, align 2
-  %incdec.ptr37.i = getelementptr i8, ptr %p.4262.i, i64 2
-  %incdec.ptr38.i = getelementptr i8, ptr %top.4261.i, i64 4
+  %p.5262.i = phi ptr [ %incdec.ptr37.i, %while.body36.i ], [ %p.4267.i, %while.body31.i ]
+  %top.5261.i = phi ptr [ %incdec.ptr38.i, %while.body36.i ], [ %top.4266.i, %while.body31.i ]
+  %18 = load i16, ptr %p.5262.i, align 2
+  store i16 %18, ptr %top.5261.i, align 2
+  %incdec.ptr37.i = getelementptr i8, ptr %p.5262.i, i64 2
+  %incdec.ptr38.i = getelementptr i8, ptr %top.5261.i, i64 4
   %cmp35.i = icmp ult ptr %incdec.ptr37.i, %add.ptr33.i
   br i1 %cmp35.i, label %while.body36.i, label %while.end39.i, !llvm.loop !46
 
 while.end39.i:                                    ; preds = %while.body36.i, %while.body31.i
-  %top.4.lcssa.i = phi ptr [ %top.3266.i, %while.body31.i ], [ %incdec.ptr38.i, %while.body36.i ]
-  %p.4.lcssa.i = phi ptr [ %p.3267.i, %while.body31.i ], [ %incdec.ptr37.i, %while.body36.i ]
-  %add.ptr42.i = getelementptr i16, ptr %p.4.lcssa.i, i64 %idx.ext41.i
+  %top.5.lcssa.i = phi ptr [ %top.4266.i, %while.body31.i ], [ %incdec.ptr38.i, %while.body36.i ]
+  %p.5.lcssa.i = phi ptr [ %p.4267.i, %while.body31.i ], [ %incdec.ptr37.i, %while.body36.i ]
+  %add.ptr42.i = getelementptr i16, ptr %p.5.lcssa.i, i64 %idx.ext41.i
   %cmp30.i = icmp ult ptr %add.ptr42.i, %add.ptr28.i
   br i1 %cmp30.i, label %while.body31.i, label %if.end44.i, !llvm.loop !47
 
 if.end44.i:                                       ; preds = %while.end39.i, %if.then22.i
-  %top.3.lcssa.i = phi ptr [ %top.2.i, %if.then22.i ], [ %top.4.lcssa.i, %while.end39.i ]
+  %top.4.lcssa.i = phi ptr [ %top.0.i, %if.then22.i ], [ %top.5.lcssa.i, %while.end39.i ]
   br i1 %tobool.not.i, label %do.end.i, label %if.then47.i
 
 if.then47.i:                                      ; preds = %if.end44.i
@@ -1775,7 +1775,7 @@ while.body58.lr.ph.i:                             ; preds = %if.then47.i
 
 while.body58.i:                                   ; preds = %while.end66.i, %while.body58.lr.ph.i
   %p.6277.i = phi ptr [ %add.ptr52.i, %while.body58.lr.ph.i ], [ %add.ptr69.i, %while.end66.i ]
-  %top.6276.i = phi ptr [ %top.3.lcssa.i, %while.body58.lr.ph.i ], [ %top.7.lcssa.i, %while.end66.i ]
+  %top.6276.i = phi ptr [ %top.4.lcssa.i, %while.body58.lr.ph.i ], [ %top.7.lcssa.i, %while.end66.i ]
   %add.ptr60.i = getelementptr i16, ptr %p.6277.i, i64 %idx.ext59.i
   %cmp62270.i = icmp ult ptr %p.6277.i, %add.ptr60.i
   br i1 %cmp62270.i, label %while.body63.i, label %while.end66.i
@@ -2532,7 +2532,7 @@ tailrecurse:                                      ; preds = %zywrle_analyze_16le
 while.body:                                       ; preds = %tailrecurse, %if.end
   %runs.0108 = phi i32 [ %runs.1, %if.end ], [ 0, %tailrecurse ]
   %single_pixels.0107 = phi i32 [ %single_pixels.1, %if.end ], [ 0, %tailrecurse ]
-  %ptr.0106 = phi ptr [ %ptr.2, %if.end ], [ %data, %tailrecurse ]
+  %ptr.0106 = phi ptr [ %ptr.1, %if.end ], [ %data, %tailrecurse ]
   %2 = load i16, ptr %ptr.0106, align 2
   %incdec.ptr = getelementptr i8, ptr %ptr.0106, i64 2
   %3 = load i16, ptr %incdec.ptr, align 2
@@ -2545,8 +2545,8 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 while.cond9:                                      ; preds = %while.body, %while.cond9
-  %ptr.1 = phi ptr [ %incdec.ptr10, %while.cond9 ], [ %incdec.ptr, %while.body ]
-  %incdec.ptr10 = getelementptr i8, ptr %ptr.1, i64 2
+  %ptr.2 = phi ptr [ %incdec.ptr10, %while.cond9 ], [ %incdec.ptr, %while.body ]
+  %incdec.ptr10 = getelementptr i8, ptr %ptr.2, i64 2
   %4 = load i16, ptr %incdec.ptr10, align 2
   %cmp13 = icmp eq i16 %4, %2
   br i1 %cmp13, label %while.cond9, label %while.end, !llvm.loop !69
@@ -2556,11 +2556,11 @@ while.end:                                        ; preds = %while.cond9
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %if.then
-  %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr10, %while.end ]
+  %ptr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr10, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0107, %while.end ]
   %runs.1 = phi i32 [ %runs.0108, %if.then ], [ %inc16, %while.end ]
   %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %conv6) #9
-  %cmp = icmp ult ptr %ptr.2, %add.ptr
+  %cmp = icmp ult ptr %ptr.1, %add.ptr
   br i1 %cmp, label %while.body, label %while.end18, !llvm.loop !70
 
 while.end18:                                      ; preds = %if.end, %tailrecurse
@@ -2811,31 +2811,31 @@ while.body.lr.ph.i:                               ; preds = %if.then3.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.end.i, %while.body.lr.ph.i
-  %p.0257.i = phi ptr [ %add.ptr5.i, %while.body.lr.ph.i ], [ %add.ptr18.i, %while.end.i ]
-  %top.0256.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %top.1.lcssa.i, %while.end.i ]
-  %add.ptr11.i = getelementptr i16, ptr %p.0257.i, i64 %idx.ext10.i
-  %cmp13251.i = icmp ult ptr %p.0257.i, %add.ptr11.i
+  %p.1257.i = phi ptr [ %add.ptr5.i, %while.body.lr.ph.i ], [ %add.ptr18.i, %while.end.i ]
+  %top.1256.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %top.2.lcssa.i, %while.end.i ]
+  %add.ptr11.i = getelementptr i16, ptr %p.1257.i, i64 %idx.ext10.i
+  %cmp13251.i = icmp ult ptr %p.1257.i, %add.ptr11.i
   br i1 %cmp13251.i, label %while.body14.i, label %while.end.i
 
 while.body14.i:                                   ; preds = %while.body.i, %while.body14.i
-  %p.1253.i = phi ptr [ %incdec.ptr.i, %while.body14.i ], [ %p.0257.i, %while.body.i ]
-  %top.1252.i = phi ptr [ %incdec.ptr15.i, %while.body14.i ], [ %top.0256.i, %while.body.i ]
-  %17 = load i16, ptr %p.1253.i, align 2
-  store i16 %17, ptr %top.1252.i, align 2
-  %incdec.ptr.i = getelementptr i8, ptr %p.1253.i, i64 2
-  %incdec.ptr15.i = getelementptr i8, ptr %top.1252.i, i64 4
+  %p.2253.i = phi ptr [ %incdec.ptr.i, %while.body14.i ], [ %p.1257.i, %while.body.i ]
+  %top.2252.i = phi ptr [ %incdec.ptr15.i, %while.body14.i ], [ %top.1256.i, %while.body.i ]
+  %17 = load i16, ptr %p.2253.i, align 2
+  store i16 %17, ptr %top.2252.i, align 2
+  %incdec.ptr.i = getelementptr i8, ptr %p.2253.i, i64 2
+  %incdec.ptr15.i = getelementptr i8, ptr %top.2252.i, i64 4
   %cmp13.i = icmp ult ptr %incdec.ptr.i, %add.ptr11.i
   br i1 %cmp13.i, label %while.body14.i, label %while.end.i, !llvm.loop !77
 
 while.end.i:                                      ; preds = %while.body14.i, %while.body.i
-  %top.1.lcssa.i = phi ptr [ %top.0256.i, %while.body.i ], [ %incdec.ptr15.i, %while.body14.i ]
-  %p.1.lcssa.i = phi ptr [ %p.0257.i, %while.body.i ], [ %incdec.ptr.i, %while.body14.i ]
-  %add.ptr18.i = getelementptr i16, ptr %p.1.lcssa.i, i64 %idx.ext4.i
+  %top.2.lcssa.i = phi ptr [ %top.1256.i, %while.body.i ], [ %incdec.ptr15.i, %while.body14.i ]
+  %p.2.lcssa.i = phi ptr [ %p.1257.i, %while.body.i ], [ %incdec.ptr.i, %while.body14.i ]
+  %add.ptr18.i = getelementptr i16, ptr %p.2.lcssa.i, i64 %idx.ext4.i
   %cmp9.i = icmp ult ptr %add.ptr18.i, %add.ptr8.i
   br i1 %cmp9.i, label %while.body.i, label %if.end20.i, !llvm.loop !78
 
 if.end20.i:                                       ; preds = %while.end.i, %if.then3.i, %if.end.i
-  %top.2.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %add.ptr.i, %if.then3.i ], [ %top.1.lcssa.i, %while.end.i ]
+  %top.0.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %add.ptr.i, %if.then3.i ], [ %top.2.lcssa.i, %while.end.i ]
   %tobool21.not.i = icmp eq i32 %and4.i.i, %h
   br i1 %tobool21.not.i, label %do.end.i, label %if.then22.i
 
@@ -2855,31 +2855,31 @@ while.body31.lr.ph.i:                             ; preds = %if.then22.i
   br label %while.body31.i
 
 while.body31.i:                                   ; preds = %while.end39.i, %while.body31.lr.ph.i
-  %p.3267.i = phi ptr [ %add.ptr25.i, %while.body31.lr.ph.i ], [ %add.ptr42.i, %while.end39.i ]
-  %top.3266.i = phi ptr [ %top.2.i, %while.body31.lr.ph.i ], [ %top.4.lcssa.i, %while.end39.i ]
-  %add.ptr33.i = getelementptr i16, ptr %p.3267.i, i64 %idx.ext32.i
-  %cmp35260.i = icmp ult ptr %p.3267.i, %add.ptr33.i
+  %p.4267.i = phi ptr [ %add.ptr25.i, %while.body31.lr.ph.i ], [ %add.ptr42.i, %while.end39.i ]
+  %top.4266.i = phi ptr [ %top.0.i, %while.body31.lr.ph.i ], [ %top.5.lcssa.i, %while.end39.i ]
+  %add.ptr33.i = getelementptr i16, ptr %p.4267.i, i64 %idx.ext32.i
+  %cmp35260.i = icmp ult ptr %p.4267.i, %add.ptr33.i
   br i1 %cmp35260.i, label %while.body36.i, label %while.end39.i
 
 while.body36.i:                                   ; preds = %while.body31.i, %while.body36.i
-  %p.4262.i = phi ptr [ %incdec.ptr37.i, %while.body36.i ], [ %p.3267.i, %while.body31.i ]
-  %top.4261.i = phi ptr [ %incdec.ptr38.i, %while.body36.i ], [ %top.3266.i, %while.body31.i ]
-  %18 = load i16, ptr %p.4262.i, align 2
-  store i16 %18, ptr %top.4261.i, align 2
-  %incdec.ptr37.i = getelementptr i8, ptr %p.4262.i, i64 2
-  %incdec.ptr38.i = getelementptr i8, ptr %top.4261.i, i64 4
+  %p.5262.i = phi ptr [ %incdec.ptr37.i, %while.body36.i ], [ %p.4267.i, %while.body31.i ]
+  %top.5261.i = phi ptr [ %incdec.ptr38.i, %while.body36.i ], [ %top.4266.i, %while.body31.i ]
+  %18 = load i16, ptr %p.5262.i, align 2
+  store i16 %18, ptr %top.5261.i, align 2
+  %incdec.ptr37.i = getelementptr i8, ptr %p.5262.i, i64 2
+  %incdec.ptr38.i = getelementptr i8, ptr %top.5261.i, i64 4
   %cmp35.i = icmp ult ptr %incdec.ptr37.i, %add.ptr33.i
   br i1 %cmp35.i, label %while.body36.i, label %while.end39.i, !llvm.loop !79
 
 while.end39.i:                                    ; preds = %while.body36.i, %while.body31.i
-  %top.4.lcssa.i = phi ptr [ %top.3266.i, %while.body31.i ], [ %incdec.ptr38.i, %while.body36.i ]
-  %p.4.lcssa.i = phi ptr [ %p.3267.i, %while.body31.i ], [ %incdec.ptr37.i, %while.body36.i ]
-  %add.ptr42.i = getelementptr i16, ptr %p.4.lcssa.i, i64 %idx.ext41.i
+  %top.5.lcssa.i = phi ptr [ %top.4266.i, %while.body31.i ], [ %incdec.ptr38.i, %while.body36.i ]
+  %p.5.lcssa.i = phi ptr [ %p.4267.i, %while.body31.i ], [ %incdec.ptr37.i, %while.body36.i ]
+  %add.ptr42.i = getelementptr i16, ptr %p.5.lcssa.i, i64 %idx.ext41.i
   %cmp30.i = icmp ult ptr %add.ptr42.i, %add.ptr28.i
   br i1 %cmp30.i, label %while.body31.i, label %if.end44.i, !llvm.loop !80
 
 if.end44.i:                                       ; preds = %while.end39.i, %if.then22.i
-  %top.3.lcssa.i = phi ptr [ %top.2.i, %if.then22.i ], [ %top.4.lcssa.i, %while.end39.i ]
+  %top.4.lcssa.i = phi ptr [ %top.0.i, %if.then22.i ], [ %top.5.lcssa.i, %while.end39.i ]
   br i1 %tobool.not.i, label %do.end.i, label %if.then47.i
 
 if.then47.i:                                      ; preds = %if.end44.i
@@ -2896,7 +2896,7 @@ while.body58.lr.ph.i:                             ; preds = %if.then47.i
 
 while.body58.i:                                   ; preds = %while.end66.i, %while.body58.lr.ph.i
   %p.6277.i = phi ptr [ %add.ptr52.i, %while.body58.lr.ph.i ], [ %add.ptr69.i, %while.end66.i ]
-  %top.6276.i = phi ptr [ %top.3.lcssa.i, %while.body58.lr.ph.i ], [ %top.7.lcssa.i, %while.end66.i ]
+  %top.6276.i = phi ptr [ %top.4.lcssa.i, %while.body58.lr.ph.i ], [ %top.7.lcssa.i, %while.end66.i ]
   %add.ptr60.i = getelementptr i16, ptr %p.6277.i, i64 %idx.ext59.i
   %cmp62270.i = icmp ult ptr %p.6277.i, %add.ptr60.i
   br i1 %cmp62270.i, label %while.body63.i, label %while.end66.i
@@ -3268,7 +3268,7 @@ tailrecurse:                                      ; preds = %zywrle_analyze_15be
 while.body:                                       ; preds = %tailrecurse, %if.end
   %runs.0108 = phi i32 [ %runs.1, %if.end ], [ 0, %tailrecurse ]
   %single_pixels.0107 = phi i32 [ %single_pixels.1, %if.end ], [ 0, %tailrecurse ]
-  %ptr.0106 = phi ptr [ %ptr.2, %if.end ], [ %data, %tailrecurse ]
+  %ptr.0106 = phi ptr [ %ptr.1, %if.end ], [ %data, %tailrecurse ]
   %2 = load i16, ptr %ptr.0106, align 2
   %incdec.ptr = getelementptr i8, ptr %ptr.0106, i64 2
   %3 = load i16, ptr %incdec.ptr, align 2
@@ -3281,8 +3281,8 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 while.cond9:                                      ; preds = %while.body, %while.cond9
-  %ptr.1 = phi ptr [ %incdec.ptr10, %while.cond9 ], [ %incdec.ptr, %while.body ]
-  %incdec.ptr10 = getelementptr i8, ptr %ptr.1, i64 2
+  %ptr.2 = phi ptr [ %incdec.ptr10, %while.cond9 ], [ %incdec.ptr, %while.body ]
+  %incdec.ptr10 = getelementptr i8, ptr %ptr.2, i64 2
   %4 = load i16, ptr %incdec.ptr10, align 2
   %cmp13 = icmp eq i16 %4, %2
   br i1 %cmp13, label %while.cond9, label %while.end, !llvm.loop !95
@@ -3292,11 +3292,11 @@ while.end:                                        ; preds = %while.cond9
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %if.then
-  %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr10, %while.end ]
+  %ptr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr10, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0107, %while.end ]
   %runs.1 = phi i32 [ %runs.0108, %if.then ], [ %inc16, %while.end ]
   %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %conv6) #9
-  %cmp = icmp ult ptr %ptr.2, %add.ptr
+  %cmp = icmp ult ptr %ptr.1, %add.ptr
   br i1 %cmp, label %while.body, label %while.end18, !llvm.loop !96
 
 while.end18:                                      ; preds = %if.end, %tailrecurse
@@ -3547,31 +3547,31 @@ while.body.lr.ph.i:                               ; preds = %if.then3.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.end.i, %while.body.lr.ph.i
-  %p.0257.i = phi ptr [ %add.ptr5.i, %while.body.lr.ph.i ], [ %add.ptr18.i, %while.end.i ]
-  %top.0256.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %top.1.lcssa.i, %while.end.i ]
-  %add.ptr11.i = getelementptr i16, ptr %p.0257.i, i64 %idx.ext10.i
-  %cmp13251.i = icmp ult ptr %p.0257.i, %add.ptr11.i
+  %p.1257.i = phi ptr [ %add.ptr5.i, %while.body.lr.ph.i ], [ %add.ptr18.i, %while.end.i ]
+  %top.1256.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %top.2.lcssa.i, %while.end.i ]
+  %add.ptr11.i = getelementptr i16, ptr %p.1257.i, i64 %idx.ext10.i
+  %cmp13251.i = icmp ult ptr %p.1257.i, %add.ptr11.i
   br i1 %cmp13251.i, label %while.body14.i, label %while.end.i
 
 while.body14.i:                                   ; preds = %while.body.i, %while.body14.i
-  %p.1253.i = phi ptr [ %incdec.ptr.i, %while.body14.i ], [ %p.0257.i, %while.body.i ]
-  %top.1252.i = phi ptr [ %incdec.ptr15.i, %while.body14.i ], [ %top.0256.i, %while.body.i ]
-  %17 = load i16, ptr %p.1253.i, align 2
-  store i16 %17, ptr %top.1252.i, align 2
-  %incdec.ptr.i = getelementptr i8, ptr %p.1253.i, i64 2
-  %incdec.ptr15.i = getelementptr i8, ptr %top.1252.i, i64 4
+  %p.2253.i = phi ptr [ %incdec.ptr.i, %while.body14.i ], [ %p.1257.i, %while.body.i ]
+  %top.2252.i = phi ptr [ %incdec.ptr15.i, %while.body14.i ], [ %top.1256.i, %while.body.i ]
+  %17 = load i16, ptr %p.2253.i, align 2
+  store i16 %17, ptr %top.2252.i, align 2
+  %incdec.ptr.i = getelementptr i8, ptr %p.2253.i, i64 2
+  %incdec.ptr15.i = getelementptr i8, ptr %top.2252.i, i64 4
   %cmp13.i = icmp ult ptr %incdec.ptr.i, %add.ptr11.i
   br i1 %cmp13.i, label %while.body14.i, label %while.end.i, !llvm.loop !103
 
 while.end.i:                                      ; preds = %while.body14.i, %while.body.i
-  %top.1.lcssa.i = phi ptr [ %top.0256.i, %while.body.i ], [ %incdec.ptr15.i, %while.body14.i ]
-  %p.1.lcssa.i = phi ptr [ %p.0257.i, %while.body.i ], [ %incdec.ptr.i, %while.body14.i ]
-  %add.ptr18.i = getelementptr i16, ptr %p.1.lcssa.i, i64 %idx.ext4.i
+  %top.2.lcssa.i = phi ptr [ %top.1256.i, %while.body.i ], [ %incdec.ptr15.i, %while.body14.i ]
+  %p.2.lcssa.i = phi ptr [ %p.1257.i, %while.body.i ], [ %incdec.ptr.i, %while.body14.i ]
+  %add.ptr18.i = getelementptr i16, ptr %p.2.lcssa.i, i64 %idx.ext4.i
   %cmp9.i = icmp ult ptr %add.ptr18.i, %add.ptr8.i
   br i1 %cmp9.i, label %while.body.i, label %if.end20.i, !llvm.loop !104
 
 if.end20.i:                                       ; preds = %while.end.i, %if.then3.i, %if.end.i
-  %top.2.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %add.ptr.i, %if.then3.i ], [ %top.1.lcssa.i, %while.end.i ]
+  %top.0.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %add.ptr.i, %if.then3.i ], [ %top.2.lcssa.i, %while.end.i ]
   %tobool21.not.i = icmp eq i32 %and4.i.i, %h
   br i1 %tobool21.not.i, label %do.end.i, label %if.then22.i
 
@@ -3591,31 +3591,31 @@ while.body31.lr.ph.i:                             ; preds = %if.then22.i
   br label %while.body31.i
 
 while.body31.i:                                   ; preds = %while.end39.i, %while.body31.lr.ph.i
-  %p.3267.i = phi ptr [ %add.ptr25.i, %while.body31.lr.ph.i ], [ %add.ptr42.i, %while.end39.i ]
-  %top.3266.i = phi ptr [ %top.2.i, %while.body31.lr.ph.i ], [ %top.4.lcssa.i, %while.end39.i ]
-  %add.ptr33.i = getelementptr i16, ptr %p.3267.i, i64 %idx.ext32.i
-  %cmp35260.i = icmp ult ptr %p.3267.i, %add.ptr33.i
+  %p.4267.i = phi ptr [ %add.ptr25.i, %while.body31.lr.ph.i ], [ %add.ptr42.i, %while.end39.i ]
+  %top.4266.i = phi ptr [ %top.0.i, %while.body31.lr.ph.i ], [ %top.5.lcssa.i, %while.end39.i ]
+  %add.ptr33.i = getelementptr i16, ptr %p.4267.i, i64 %idx.ext32.i
+  %cmp35260.i = icmp ult ptr %p.4267.i, %add.ptr33.i
   br i1 %cmp35260.i, label %while.body36.i, label %while.end39.i
 
 while.body36.i:                                   ; preds = %while.body31.i, %while.body36.i
-  %p.4262.i = phi ptr [ %incdec.ptr37.i, %while.body36.i ], [ %p.3267.i, %while.body31.i ]
-  %top.4261.i = phi ptr [ %incdec.ptr38.i, %while.body36.i ], [ %top.3266.i, %while.body31.i ]
-  %18 = load i16, ptr %p.4262.i, align 2
-  store i16 %18, ptr %top.4261.i, align 2
-  %incdec.ptr37.i = getelementptr i8, ptr %p.4262.i, i64 2
-  %incdec.ptr38.i = getelementptr i8, ptr %top.4261.i, i64 4
+  %p.5262.i = phi ptr [ %incdec.ptr37.i, %while.body36.i ], [ %p.4267.i, %while.body31.i ]
+  %top.5261.i = phi ptr [ %incdec.ptr38.i, %while.body36.i ], [ %top.4266.i, %while.body31.i ]
+  %18 = load i16, ptr %p.5262.i, align 2
+  store i16 %18, ptr %top.5261.i, align 2
+  %incdec.ptr37.i = getelementptr i8, ptr %p.5262.i, i64 2
+  %incdec.ptr38.i = getelementptr i8, ptr %top.5261.i, i64 4
   %cmp35.i = icmp ult ptr %incdec.ptr37.i, %add.ptr33.i
   br i1 %cmp35.i, label %while.body36.i, label %while.end39.i, !llvm.loop !105
 
 while.end39.i:                                    ; preds = %while.body36.i, %while.body31.i
-  %top.4.lcssa.i = phi ptr [ %top.3266.i, %while.body31.i ], [ %incdec.ptr38.i, %while.body36.i ]
-  %p.4.lcssa.i = phi ptr [ %p.3267.i, %while.body31.i ], [ %incdec.ptr37.i, %while.body36.i ]
-  %add.ptr42.i = getelementptr i16, ptr %p.4.lcssa.i, i64 %idx.ext41.i
+  %top.5.lcssa.i = phi ptr [ %top.4266.i, %while.body31.i ], [ %incdec.ptr38.i, %while.body36.i ]
+  %p.5.lcssa.i = phi ptr [ %p.4267.i, %while.body31.i ], [ %incdec.ptr37.i, %while.body36.i ]
+  %add.ptr42.i = getelementptr i16, ptr %p.5.lcssa.i, i64 %idx.ext41.i
   %cmp30.i = icmp ult ptr %add.ptr42.i, %add.ptr28.i
   br i1 %cmp30.i, label %while.body31.i, label %if.end44.i, !llvm.loop !106
 
 if.end44.i:                                       ; preds = %while.end39.i, %if.then22.i
-  %top.3.lcssa.i = phi ptr [ %top.2.i, %if.then22.i ], [ %top.4.lcssa.i, %while.end39.i ]
+  %top.4.lcssa.i = phi ptr [ %top.0.i, %if.then22.i ], [ %top.5.lcssa.i, %while.end39.i ]
   br i1 %tobool.not.i, label %do.end.i, label %if.then47.i
 
 if.then47.i:                                      ; preds = %if.end44.i
@@ -3632,7 +3632,7 @@ while.body58.lr.ph.i:                             ; preds = %if.then47.i
 
 while.body58.i:                                   ; preds = %while.end66.i, %while.body58.lr.ph.i
   %p.6277.i = phi ptr [ %add.ptr52.i, %while.body58.lr.ph.i ], [ %add.ptr69.i, %while.end66.i ]
-  %top.6276.i = phi ptr [ %top.3.lcssa.i, %while.body58.lr.ph.i ], [ %top.7.lcssa.i, %while.end66.i ]
+  %top.6276.i = phi ptr [ %top.4.lcssa.i, %while.body58.lr.ph.i ], [ %top.7.lcssa.i, %while.end66.i ]
   %add.ptr60.i = getelementptr i16, ptr %p.6277.i, i64 %idx.ext59.i
   %cmp62270.i = icmp ult ptr %p.6277.i, %add.ptr60.i
   br i1 %cmp62270.i, label %while.body63.i, label %while.end66.i
@@ -4008,7 +4008,7 @@ tailrecurse:                                      ; preds = %zywrle_analyze_15le
 while.body:                                       ; preds = %tailrecurse, %if.end
   %runs.0108 = phi i32 [ %runs.1, %if.end ], [ 0, %tailrecurse ]
   %single_pixels.0107 = phi i32 [ %single_pixels.1, %if.end ], [ 0, %tailrecurse ]
-  %ptr.0106 = phi ptr [ %ptr.2, %if.end ], [ %data, %tailrecurse ]
+  %ptr.0106 = phi ptr [ %ptr.1, %if.end ], [ %data, %tailrecurse ]
   %2 = load i16, ptr %ptr.0106, align 2
   %incdec.ptr = getelementptr i8, ptr %ptr.0106, i64 2
   %3 = load i16, ptr %incdec.ptr, align 2
@@ -4021,8 +4021,8 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 while.cond9:                                      ; preds = %while.body, %while.cond9
-  %ptr.1 = phi ptr [ %incdec.ptr10, %while.cond9 ], [ %incdec.ptr, %while.body ]
-  %incdec.ptr10 = getelementptr i8, ptr %ptr.1, i64 2
+  %ptr.2 = phi ptr [ %incdec.ptr10, %while.cond9 ], [ %incdec.ptr, %while.body ]
+  %incdec.ptr10 = getelementptr i8, ptr %ptr.2, i64 2
   %4 = load i16, ptr %incdec.ptr10, align 2
   %cmp13 = icmp eq i16 %4, %2
   br i1 %cmp13, label %while.cond9, label %while.end, !llvm.loop !121
@@ -4032,11 +4032,11 @@ while.end:                                        ; preds = %while.cond9
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %if.then
-  %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr10, %while.end ]
+  %ptr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr10, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0107, %while.end ]
   %runs.1 = phi i32 [ %runs.0108, %if.then ], [ %inc16, %while.end ]
   %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %conv6) #9
-  %cmp = icmp ult ptr %ptr.2, %add.ptr
+  %cmp = icmp ult ptr %ptr.1, %add.ptr
   br i1 %cmp, label %while.body, label %while.end18, !llvm.loop !122
 
 while.end18:                                      ; preds = %if.end, %tailrecurse
@@ -4287,31 +4287,31 @@ while.body.lr.ph.i:                               ; preds = %if.then3.i
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.end.i, %while.body.lr.ph.i
-  %p.0257.i = phi ptr [ %add.ptr5.i, %while.body.lr.ph.i ], [ %add.ptr18.i, %while.end.i ]
-  %top.0256.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %top.1.lcssa.i, %while.end.i ]
-  %add.ptr11.i = getelementptr i16, ptr %p.0257.i, i64 %idx.ext10.i
-  %cmp13251.i = icmp ult ptr %p.0257.i, %add.ptr11.i
+  %p.1257.i = phi ptr [ %add.ptr5.i, %while.body.lr.ph.i ], [ %add.ptr18.i, %while.end.i ]
+  %top.1256.i = phi ptr [ %add.ptr.i, %while.body.lr.ph.i ], [ %top.2.lcssa.i, %while.end.i ]
+  %add.ptr11.i = getelementptr i16, ptr %p.1257.i, i64 %idx.ext10.i
+  %cmp13251.i = icmp ult ptr %p.1257.i, %add.ptr11.i
   br i1 %cmp13251.i, label %while.body14.i, label %while.end.i
 
 while.body14.i:                                   ; preds = %while.body.i, %while.body14.i
-  %p.1253.i = phi ptr [ %incdec.ptr.i, %while.body14.i ], [ %p.0257.i, %while.body.i ]
-  %top.1252.i = phi ptr [ %incdec.ptr15.i, %while.body14.i ], [ %top.0256.i, %while.body.i ]
-  %17 = load i16, ptr %p.1253.i, align 2
-  store i16 %17, ptr %top.1252.i, align 2
-  %incdec.ptr.i = getelementptr i8, ptr %p.1253.i, i64 2
-  %incdec.ptr15.i = getelementptr i8, ptr %top.1252.i, i64 4
+  %p.2253.i = phi ptr [ %incdec.ptr.i, %while.body14.i ], [ %p.1257.i, %while.body.i ]
+  %top.2252.i = phi ptr [ %incdec.ptr15.i, %while.body14.i ], [ %top.1256.i, %while.body.i ]
+  %17 = load i16, ptr %p.2253.i, align 2
+  store i16 %17, ptr %top.2252.i, align 2
+  %incdec.ptr.i = getelementptr i8, ptr %p.2253.i, i64 2
+  %incdec.ptr15.i = getelementptr i8, ptr %top.2252.i, i64 4
   %cmp13.i = icmp ult ptr %incdec.ptr.i, %add.ptr11.i
   br i1 %cmp13.i, label %while.body14.i, label %while.end.i, !llvm.loop !129
 
 while.end.i:                                      ; preds = %while.body14.i, %while.body.i
-  %top.1.lcssa.i = phi ptr [ %top.0256.i, %while.body.i ], [ %incdec.ptr15.i, %while.body14.i ]
-  %p.1.lcssa.i = phi ptr [ %p.0257.i, %while.body.i ], [ %incdec.ptr.i, %while.body14.i ]
-  %add.ptr18.i = getelementptr i16, ptr %p.1.lcssa.i, i64 %idx.ext4.i
+  %top.2.lcssa.i = phi ptr [ %top.1256.i, %while.body.i ], [ %incdec.ptr15.i, %while.body14.i ]
+  %p.2.lcssa.i = phi ptr [ %p.1257.i, %while.body.i ], [ %incdec.ptr.i, %while.body14.i ]
+  %add.ptr18.i = getelementptr i16, ptr %p.2.lcssa.i, i64 %idx.ext4.i
   %cmp9.i = icmp ult ptr %add.ptr18.i, %add.ptr8.i
   br i1 %cmp9.i, label %while.body.i, label %if.end20.i, !llvm.loop !130
 
 if.end20.i:                                       ; preds = %while.end.i, %if.then3.i, %if.end.i
-  %top.2.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %add.ptr.i, %if.then3.i ], [ %top.1.lcssa.i, %while.end.i ]
+  %top.0.i = phi ptr [ %add.ptr.i, %if.end.i ], [ %add.ptr.i, %if.then3.i ], [ %top.2.lcssa.i, %while.end.i ]
   %tobool21.not.i = icmp eq i32 %and4.i.i, %h
   br i1 %tobool21.not.i, label %do.end.i, label %if.then22.i
 
@@ -4331,31 +4331,31 @@ while.body31.lr.ph.i:                             ; preds = %if.then22.i
   br label %while.body31.i
 
 while.body31.i:                                   ; preds = %while.end39.i, %while.body31.lr.ph.i
-  %p.3267.i = phi ptr [ %add.ptr25.i, %while.body31.lr.ph.i ], [ %add.ptr42.i, %while.end39.i ]
-  %top.3266.i = phi ptr [ %top.2.i, %while.body31.lr.ph.i ], [ %top.4.lcssa.i, %while.end39.i ]
-  %add.ptr33.i = getelementptr i16, ptr %p.3267.i, i64 %idx.ext32.i
-  %cmp35260.i = icmp ult ptr %p.3267.i, %add.ptr33.i
+  %p.4267.i = phi ptr [ %add.ptr25.i, %while.body31.lr.ph.i ], [ %add.ptr42.i, %while.end39.i ]
+  %top.4266.i = phi ptr [ %top.0.i, %while.body31.lr.ph.i ], [ %top.5.lcssa.i, %while.end39.i ]
+  %add.ptr33.i = getelementptr i16, ptr %p.4267.i, i64 %idx.ext32.i
+  %cmp35260.i = icmp ult ptr %p.4267.i, %add.ptr33.i
   br i1 %cmp35260.i, label %while.body36.i, label %while.end39.i
 
 while.body36.i:                                   ; preds = %while.body31.i, %while.body36.i
-  %p.4262.i = phi ptr [ %incdec.ptr37.i, %while.body36.i ], [ %p.3267.i, %while.body31.i ]
-  %top.4261.i = phi ptr [ %incdec.ptr38.i, %while.body36.i ], [ %top.3266.i, %while.body31.i ]
-  %18 = load i16, ptr %p.4262.i, align 2
-  store i16 %18, ptr %top.4261.i, align 2
-  %incdec.ptr37.i = getelementptr i8, ptr %p.4262.i, i64 2
-  %incdec.ptr38.i = getelementptr i8, ptr %top.4261.i, i64 4
+  %p.5262.i = phi ptr [ %incdec.ptr37.i, %while.body36.i ], [ %p.4267.i, %while.body31.i ]
+  %top.5261.i = phi ptr [ %incdec.ptr38.i, %while.body36.i ], [ %top.4266.i, %while.body31.i ]
+  %18 = load i16, ptr %p.5262.i, align 2
+  store i16 %18, ptr %top.5261.i, align 2
+  %incdec.ptr37.i = getelementptr i8, ptr %p.5262.i, i64 2
+  %incdec.ptr38.i = getelementptr i8, ptr %top.5261.i, i64 4
   %cmp35.i = icmp ult ptr %incdec.ptr37.i, %add.ptr33.i
   br i1 %cmp35.i, label %while.body36.i, label %while.end39.i, !llvm.loop !131
 
 while.end39.i:                                    ; preds = %while.body36.i, %while.body31.i
-  %top.4.lcssa.i = phi ptr [ %top.3266.i, %while.body31.i ], [ %incdec.ptr38.i, %while.body36.i ]
-  %p.4.lcssa.i = phi ptr [ %p.3267.i, %while.body31.i ], [ %incdec.ptr37.i, %while.body36.i ]
-  %add.ptr42.i = getelementptr i16, ptr %p.4.lcssa.i, i64 %idx.ext41.i
+  %top.5.lcssa.i = phi ptr [ %top.4266.i, %while.body31.i ], [ %incdec.ptr38.i, %while.body36.i ]
+  %p.5.lcssa.i = phi ptr [ %p.4267.i, %while.body31.i ], [ %incdec.ptr37.i, %while.body36.i ]
+  %add.ptr42.i = getelementptr i16, ptr %p.5.lcssa.i, i64 %idx.ext41.i
   %cmp30.i = icmp ult ptr %add.ptr42.i, %add.ptr28.i
   br i1 %cmp30.i, label %while.body31.i, label %if.end44.i, !llvm.loop !132
 
 if.end44.i:                                       ; preds = %while.end39.i, %if.then22.i
-  %top.3.lcssa.i = phi ptr [ %top.2.i, %if.then22.i ], [ %top.4.lcssa.i, %while.end39.i ]
+  %top.4.lcssa.i = phi ptr [ %top.0.i, %if.then22.i ], [ %top.5.lcssa.i, %while.end39.i ]
   br i1 %tobool.not.i, label %do.end.i, label %if.then47.i
 
 if.then47.i:                                      ; preds = %if.end44.i
@@ -4372,7 +4372,7 @@ while.body58.lr.ph.i:                             ; preds = %if.then47.i
 
 while.body58.i:                                   ; preds = %while.end66.i, %while.body58.lr.ph.i
   %p.6277.i = phi ptr [ %add.ptr52.i, %while.body58.lr.ph.i ], [ %add.ptr69.i, %while.end66.i ]
-  %top.6276.i = phi ptr [ %top.3.lcssa.i, %while.body58.lr.ph.i ], [ %top.7.lcssa.i, %while.end66.i ]
+  %top.6276.i = phi ptr [ %top.4.lcssa.i, %while.body58.lr.ph.i ], [ %top.7.lcssa.i, %while.end66.i ]
   %add.ptr60.i = getelementptr i16, ptr %p.6277.i, i64 %idx.ext59.i
   %cmp62270.i = icmp ult ptr %p.6277.i, %add.ptr60.i
   br i1 %cmp62270.i, label %while.body63.i, label %while.end66.i
@@ -4749,7 +4749,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
 while.body:                                       ; preds = %tailrecurse, %if.end
   %runs.0114 = phi i32 [ %runs.1, %if.end ], [ 0, %tailrecurse ]
   %single_pixels.0113 = phi i32 [ %single_pixels.1, %if.end ], [ 0, %tailrecurse ]
-  %ptr.0112 = phi ptr [ %ptr.2, %if.end ], [ %data, %tailrecurse ]
+  %ptr.0112 = phi ptr [ %ptr.1, %if.end ], [ %data, %tailrecurse ]
   %2 = load i32, ptr %ptr.0112, align 4
   %incdec.ptr = getelementptr i8, ptr %ptr.0112, i64 4
   %3 = load i32, ptr %incdec.ptr, align 4
@@ -4761,8 +4761,8 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 while.cond4:                                      ; preds = %while.body, %while.cond4
-  %ptr.1 = phi ptr [ %incdec.ptr5, %while.cond4 ], [ %incdec.ptr, %while.body ]
-  %incdec.ptr5 = getelementptr i8, ptr %ptr.1, i64 4
+  %ptr.2 = phi ptr [ %incdec.ptr5, %while.cond4 ], [ %incdec.ptr, %while.body ]
+  %incdec.ptr5 = getelementptr i8, ptr %ptr.2, i64 4
   %4 = load i32, ptr %incdec.ptr5, align 4
   %cmp6 = icmp eq i32 %4, %2
   br i1 %cmp6, label %while.cond4, label %while.end, !llvm.loop !147
@@ -4772,11 +4772,11 @@ while.end:                                        ; preds = %while.cond4
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %if.then
-  %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
+  %ptr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0113, %while.end ]
   %runs.1 = phi i32 [ %runs.0114, %if.then ], [ %inc8, %while.end ]
   %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #9
-  %cmp = icmp ult ptr %ptr.2, %add.ptr
+  %cmp = icmp ult ptr %ptr.1, %add.ptr
   br i1 %cmp, label %while.body, label %while.end9, !llvm.loop !148
 
 while.end9:                                       ; preds = %if.end, %tailrecurse
@@ -5050,32 +5050,32 @@ while.body.lr.ph:                                 ; preds = %if.then3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.end
-  %p.0240 = phi ptr [ %add.ptr5, %while.body.lr.ph ], [ %add.ptr18, %while.end ]
-  %top.0239 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %top.1.lcssa, %while.end ]
-  %add.ptr11 = getelementptr i32, ptr %p.0240, i64 %idx.ext10
-  %cmp13234 = icmp ult ptr %p.0240, %add.ptr11
+  %p.1240 = phi ptr [ %add.ptr5, %while.body.lr.ph ], [ %add.ptr18, %while.end ]
+  %top.1239 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %top.2.lcssa, %while.end ]
+  %add.ptr11 = getelementptr i32, ptr %p.1240, i64 %idx.ext10
+  %cmp13234 = icmp ult ptr %p.1240, %add.ptr11
   br i1 %cmp13234, label %while.body14, label %while.end
 
 while.body14:                                     ; preds = %while.body, %while.body14
-  %p.1236 = phi ptr [ %incdec.ptr, %while.body14 ], [ %p.0240, %while.body ]
-  %top.1235 = phi ptr [ %incdec.ptr15, %while.body14 ], [ %top.0239, %while.body ]
-  %0 = load i32, ptr %p.1236, align 4
-  store i32 %0, ptr %top.1235, align 4
-  %incdec.ptr = getelementptr i8, ptr %p.1236, i64 4
-  %incdec.ptr15 = getelementptr i8, ptr %top.1235, i64 4
+  %p.2236 = phi ptr [ %incdec.ptr, %while.body14 ], [ %p.1240, %while.body ]
+  %top.2235 = phi ptr [ %incdec.ptr15, %while.body14 ], [ %top.1239, %while.body ]
+  %0 = load i32, ptr %p.2236, align 4
+  store i32 %0, ptr %top.2235, align 4
+  %incdec.ptr = getelementptr i8, ptr %p.2236, i64 4
+  %incdec.ptr15 = getelementptr i8, ptr %top.2235, i64 4
   %cmp13 = icmp ult ptr %incdec.ptr, %add.ptr11
   br i1 %cmp13, label %while.body14, label %while.end, !llvm.loop !156
 
 while.end:                                        ; preds = %while.body14, %while.body
-  %top.1.lcssa = phi ptr [ %top.0239, %while.body ], [ %incdec.ptr15, %while.body14 ]
-  %p.1.lcssa = phi ptr [ %p.0240, %while.body ], [ %incdec.ptr, %while.body14 ]
-  %add.ptr18 = getelementptr i32, ptr %p.1.lcssa, i64 %idx.ext17
+  %top.2.lcssa = phi ptr [ %top.1239, %while.body ], [ %incdec.ptr15, %while.body14 ]
+  %p.2.lcssa = phi ptr [ %p.1240, %while.body ], [ %incdec.ptr, %while.body14 ]
+  %add.ptr18 = getelementptr i32, ptr %p.2.lcssa, i64 %idx.ext17
   %cmp9 = icmp ult ptr %add.ptr18, %add.ptr8
   br i1 %cmp9, label %while.body, label %if.end20, !llvm.loop !157
 
 if.end20:                                         ; preds = %while.end, %if.then3, %if.end
-  %top.2 = phi ptr [ %add.ptr, %if.end ], [ %add.ptr, %if.then3 ], [ %top.1.lcssa, %while.end ]
-  %p.2 = phi ptr [ %dst, %if.end ], [ %add.ptr5, %if.then3 ], [ %add.ptr18, %while.end ]
+  %top.0 = phi ptr [ %add.ptr, %if.end ], [ %add.ptr, %if.then3 ], [ %top.2.lcssa, %while.end ]
+  %p.0 = phi ptr [ %dst, %if.end ], [ %add.ptr5, %if.then3 ], [ %add.ptr18, %while.end ]
   %tobool21.not = icmp eq i32 %and4.i, %h
   br i1 %tobool21.not, label %do.end, label %if.then22
 
@@ -5096,32 +5096,32 @@ while.body31.lr.ph:                               ; preds = %if.then22
   br label %while.body31
 
 while.body31:                                     ; preds = %while.body31.lr.ph, %while.end39
-  %p.3250 = phi ptr [ %add.ptr25, %while.body31.lr.ph ], [ %add.ptr42, %while.end39 ]
-  %top.3249 = phi ptr [ %top.2, %while.body31.lr.ph ], [ %top.4.lcssa, %while.end39 ]
-  %add.ptr33 = getelementptr i32, ptr %p.3250, i64 %idx.ext32
-  %cmp35243 = icmp ult ptr %p.3250, %add.ptr33
+  %p.4250 = phi ptr [ %add.ptr25, %while.body31.lr.ph ], [ %add.ptr42, %while.end39 ]
+  %top.4249 = phi ptr [ %top.0, %while.body31.lr.ph ], [ %top.5.lcssa, %while.end39 ]
+  %add.ptr33 = getelementptr i32, ptr %p.4250, i64 %idx.ext32
+  %cmp35243 = icmp ult ptr %p.4250, %add.ptr33
   br i1 %cmp35243, label %while.body36, label %while.end39
 
 while.body36:                                     ; preds = %while.body31, %while.body36
-  %p.4245 = phi ptr [ %incdec.ptr37, %while.body36 ], [ %p.3250, %while.body31 ]
-  %top.4244 = phi ptr [ %incdec.ptr38, %while.body36 ], [ %top.3249, %while.body31 ]
-  %1 = load i32, ptr %p.4245, align 4
-  store i32 %1, ptr %top.4244, align 4
-  %incdec.ptr37 = getelementptr i8, ptr %p.4245, i64 4
-  %incdec.ptr38 = getelementptr i8, ptr %top.4244, i64 4
+  %p.5245 = phi ptr [ %incdec.ptr37, %while.body36 ], [ %p.4250, %while.body31 ]
+  %top.5244 = phi ptr [ %incdec.ptr38, %while.body36 ], [ %top.4249, %while.body31 ]
+  %1 = load i32, ptr %p.5245, align 4
+  store i32 %1, ptr %top.5244, align 4
+  %incdec.ptr37 = getelementptr i8, ptr %p.5245, i64 4
+  %incdec.ptr38 = getelementptr i8, ptr %top.5244, i64 4
   %cmp35 = icmp ult ptr %incdec.ptr37, %add.ptr33
   br i1 %cmp35, label %while.body36, label %while.end39, !llvm.loop !158
 
 while.end39:                                      ; preds = %while.body36, %while.body31
-  %top.4.lcssa = phi ptr [ %top.3249, %while.body31 ], [ %incdec.ptr38, %while.body36 ]
-  %p.4.lcssa = phi ptr [ %p.3250, %while.body31 ], [ %incdec.ptr37, %while.body36 ]
-  %add.ptr42 = getelementptr i32, ptr %p.4.lcssa, i64 %idx.ext41
+  %top.5.lcssa = phi ptr [ %top.4249, %while.body31 ], [ %incdec.ptr38, %while.body36 ]
+  %p.5.lcssa = phi ptr [ %p.4250, %while.body31 ], [ %incdec.ptr37, %while.body36 ]
+  %add.ptr42 = getelementptr i32, ptr %p.5.lcssa, i64 %idx.ext41
   %cmp30 = icmp ult ptr %add.ptr42, %add.ptr28
   br i1 %cmp30, label %while.body31, label %if.end44, !llvm.loop !159
 
 if.end44:                                         ; preds = %while.end39, %if.then22
-  %top.3.lcssa = phi ptr [ %top.2, %if.then22 ], [ %top.4.lcssa, %while.end39 ]
-  %p.3.lcssa = phi ptr [ %add.ptr25, %if.then22 ], [ %add.ptr42, %while.end39 ]
+  %top.4.lcssa = phi ptr [ %top.0, %if.then22 ], [ %top.5.lcssa, %while.end39 ]
+  %p.4.lcssa = phi ptr [ %add.ptr25, %if.then22 ], [ %add.ptr42, %while.end39 ]
   br i1 %tobool.not, label %do.end, label %if.then47
 
 if.then47:                                        ; preds = %if.end44
@@ -5140,7 +5140,7 @@ while.body58.lr.ph:                               ; preds = %if.then47
 
 while.body58:                                     ; preds = %while.body58.lr.ph, %while.end66
   %p.6260 = phi ptr [ %add.ptr52, %while.body58.lr.ph ], [ %add.ptr69, %while.end66 ]
-  %top.6259 = phi ptr [ %top.3.lcssa, %while.body58.lr.ph ], [ %top.7.lcssa, %while.end66 ]
+  %top.6259 = phi ptr [ %top.4.lcssa, %while.body58.lr.ph ], [ %top.7.lcssa, %while.end66 ]
   %add.ptr60 = getelementptr i32, ptr %p.6260, i64 %idx.ext59
   %cmp62253 = icmp ult ptr %p.6260, %add.ptr60
   br i1 %cmp62253, label %while.body63, label %while.end66
@@ -5163,7 +5163,7 @@ while.end66:                                      ; preds = %while.body63, %whil
   br i1 %cmp57, label %while.body58, label %do.end, !llvm.loop !161
 
 do.end:                                           ; preds = %while.end66, %if.then47, %if.end20, %if.end44
-  %p.8 = phi ptr [ %p.3.lcssa, %if.end44 ], [ %p.2, %if.end20 ], [ %add.ptr52, %if.then47 ], [ %add.ptr69, %while.end66 ]
+  %p.8 = phi ptr [ %p.4.lcssa, %if.end44 ], [ %p.0, %if.end20 ], [ %add.ptr52, %if.then47 ], [ %add.ptr69, %while.end66 ]
   %cmp34.i = icmp ugt ptr %add.ptr, %buf
   br i1 %cmp34.i, label %while.body.lr.ph.i, label %zywrle_rgbyuv_32be.exit
 
@@ -5559,7 +5559,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
 while.body:                                       ; preds = %tailrecurse, %if.end
   %runs.0114 = phi i32 [ %runs.1, %if.end ], [ 0, %tailrecurse ]
   %single_pixels.0113 = phi i32 [ %single_pixels.1, %if.end ], [ 0, %tailrecurse ]
-  %ptr.0112 = phi ptr [ %ptr.2, %if.end ], [ %data, %tailrecurse ]
+  %ptr.0112 = phi ptr [ %ptr.1, %if.end ], [ %data, %tailrecurse ]
   %2 = load i32, ptr %ptr.0112, align 4
   %incdec.ptr = getelementptr i8, ptr %ptr.0112, i64 4
   %3 = load i32, ptr %incdec.ptr, align 4
@@ -5571,8 +5571,8 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 while.cond4:                                      ; preds = %while.body, %while.cond4
-  %ptr.1 = phi ptr [ %incdec.ptr5, %while.cond4 ], [ %incdec.ptr, %while.body ]
-  %incdec.ptr5 = getelementptr i8, ptr %ptr.1, i64 4
+  %ptr.2 = phi ptr [ %incdec.ptr5, %while.cond4 ], [ %incdec.ptr, %while.body ]
+  %incdec.ptr5 = getelementptr i8, ptr %ptr.2, i64 4
   %4 = load i32, ptr %incdec.ptr5, align 4
   %cmp6 = icmp eq i32 %4, %2
   br i1 %cmp6, label %while.cond4, label %while.end, !llvm.loop !174
@@ -5582,11 +5582,11 @@ while.end:                                        ; preds = %while.cond4
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %if.then
-  %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
+  %ptr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0113, %while.end ]
   %runs.1 = phi i32 [ %runs.0114, %if.then ], [ %inc8, %while.end ]
   %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #9
-  %cmp = icmp ult ptr %ptr.2, %add.ptr
+  %cmp = icmp ult ptr %ptr.1, %add.ptr
   br i1 %cmp, label %while.body, label %while.end9, !llvm.loop !175
 
 while.end9:                                       ; preds = %if.end, %tailrecurse
@@ -5860,32 +5860,32 @@ while.body.lr.ph:                                 ; preds = %if.then3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.end
-  %p.0240 = phi ptr [ %add.ptr5, %while.body.lr.ph ], [ %add.ptr18, %while.end ]
-  %top.0239 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %top.1.lcssa, %while.end ]
-  %add.ptr11 = getelementptr i32, ptr %p.0240, i64 %idx.ext10
-  %cmp13234 = icmp ult ptr %p.0240, %add.ptr11
+  %p.1240 = phi ptr [ %add.ptr5, %while.body.lr.ph ], [ %add.ptr18, %while.end ]
+  %top.1239 = phi ptr [ %add.ptr, %while.body.lr.ph ], [ %top.2.lcssa, %while.end ]
+  %add.ptr11 = getelementptr i32, ptr %p.1240, i64 %idx.ext10
+  %cmp13234 = icmp ult ptr %p.1240, %add.ptr11
   br i1 %cmp13234, label %while.body14, label %while.end
 
 while.body14:                                     ; preds = %while.body, %while.body14
-  %p.1236 = phi ptr [ %incdec.ptr, %while.body14 ], [ %p.0240, %while.body ]
-  %top.1235 = phi ptr [ %incdec.ptr15, %while.body14 ], [ %top.0239, %while.body ]
-  %0 = load i32, ptr %p.1236, align 4
-  store i32 %0, ptr %top.1235, align 4
-  %incdec.ptr = getelementptr i8, ptr %p.1236, i64 4
-  %incdec.ptr15 = getelementptr i8, ptr %top.1235, i64 4
+  %p.2236 = phi ptr [ %incdec.ptr, %while.body14 ], [ %p.1240, %while.body ]
+  %top.2235 = phi ptr [ %incdec.ptr15, %while.body14 ], [ %top.1239, %while.body ]
+  %0 = load i32, ptr %p.2236, align 4
+  store i32 %0, ptr %top.2235, align 4
+  %incdec.ptr = getelementptr i8, ptr %p.2236, i64 4
+  %incdec.ptr15 = getelementptr i8, ptr %top.2235, i64 4
   %cmp13 = icmp ult ptr %incdec.ptr, %add.ptr11
   br i1 %cmp13, label %while.body14, label %while.end, !llvm.loop !183
 
 while.end:                                        ; preds = %while.body14, %while.body
-  %top.1.lcssa = phi ptr [ %top.0239, %while.body ], [ %incdec.ptr15, %while.body14 ]
-  %p.1.lcssa = phi ptr [ %p.0240, %while.body ], [ %incdec.ptr, %while.body14 ]
-  %add.ptr18 = getelementptr i32, ptr %p.1.lcssa, i64 %idx.ext17
+  %top.2.lcssa = phi ptr [ %top.1239, %while.body ], [ %incdec.ptr15, %while.body14 ]
+  %p.2.lcssa = phi ptr [ %p.1240, %while.body ], [ %incdec.ptr, %while.body14 ]
+  %add.ptr18 = getelementptr i32, ptr %p.2.lcssa, i64 %idx.ext17
   %cmp9 = icmp ult ptr %add.ptr18, %add.ptr8
   br i1 %cmp9, label %while.body, label %if.end20, !llvm.loop !184
 
 if.end20:                                         ; preds = %while.end, %if.then3, %if.end
-  %top.2 = phi ptr [ %add.ptr, %if.end ], [ %add.ptr, %if.then3 ], [ %top.1.lcssa, %while.end ]
-  %p.2 = phi ptr [ %dst, %if.end ], [ %add.ptr5, %if.then3 ], [ %add.ptr18, %while.end ]
+  %top.0 = phi ptr [ %add.ptr, %if.end ], [ %add.ptr, %if.then3 ], [ %top.2.lcssa, %while.end ]
+  %p.0 = phi ptr [ %dst, %if.end ], [ %add.ptr5, %if.then3 ], [ %add.ptr18, %while.end ]
   %tobool21.not = icmp eq i32 %and4.i, %h
   br i1 %tobool21.not, label %do.end, label %if.then22
 
@@ -5906,32 +5906,32 @@ while.body31.lr.ph:                               ; preds = %if.then22
   br label %while.body31
 
 while.body31:                                     ; preds = %while.body31.lr.ph, %while.end39
-  %p.3250 = phi ptr [ %add.ptr25, %while.body31.lr.ph ], [ %add.ptr42, %while.end39 ]
-  %top.3249 = phi ptr [ %top.2, %while.body31.lr.ph ], [ %top.4.lcssa, %while.end39 ]
-  %add.ptr33 = getelementptr i32, ptr %p.3250, i64 %idx.ext32
-  %cmp35243 = icmp ult ptr %p.3250, %add.ptr33
+  %p.4250 = phi ptr [ %add.ptr25, %while.body31.lr.ph ], [ %add.ptr42, %while.end39 ]
+  %top.4249 = phi ptr [ %top.0, %while.body31.lr.ph ], [ %top.5.lcssa, %while.end39 ]
+  %add.ptr33 = getelementptr i32, ptr %p.4250, i64 %idx.ext32
+  %cmp35243 = icmp ult ptr %p.4250, %add.ptr33
   br i1 %cmp35243, label %while.body36, label %while.end39
 
 while.body36:                                     ; preds = %while.body31, %while.body36
-  %p.4245 = phi ptr [ %incdec.ptr37, %while.body36 ], [ %p.3250, %while.body31 ]
-  %top.4244 = phi ptr [ %incdec.ptr38, %while.body36 ], [ %top.3249, %while.body31 ]
-  %1 = load i32, ptr %p.4245, align 4
-  store i32 %1, ptr %top.4244, align 4
-  %incdec.ptr37 = getelementptr i8, ptr %p.4245, i64 4
-  %incdec.ptr38 = getelementptr i8, ptr %top.4244, i64 4
+  %p.5245 = phi ptr [ %incdec.ptr37, %while.body36 ], [ %p.4250, %while.body31 ]
+  %top.5244 = phi ptr [ %incdec.ptr38, %while.body36 ], [ %top.4249, %while.body31 ]
+  %1 = load i32, ptr %p.5245, align 4
+  store i32 %1, ptr %top.5244, align 4
+  %incdec.ptr37 = getelementptr i8, ptr %p.5245, i64 4
+  %incdec.ptr38 = getelementptr i8, ptr %top.5244, i64 4
   %cmp35 = icmp ult ptr %incdec.ptr37, %add.ptr33
   br i1 %cmp35, label %while.body36, label %while.end39, !llvm.loop !185
 
 while.end39:                                      ; preds = %while.body36, %while.body31
-  %top.4.lcssa = phi ptr [ %top.3249, %while.body31 ], [ %incdec.ptr38, %while.body36 ]
-  %p.4.lcssa = phi ptr [ %p.3250, %while.body31 ], [ %incdec.ptr37, %while.body36 ]
-  %add.ptr42 = getelementptr i32, ptr %p.4.lcssa, i64 %idx.ext41
+  %top.5.lcssa = phi ptr [ %top.4249, %while.body31 ], [ %incdec.ptr38, %while.body36 ]
+  %p.5.lcssa = phi ptr [ %p.4250, %while.body31 ], [ %incdec.ptr37, %while.body36 ]
+  %add.ptr42 = getelementptr i32, ptr %p.5.lcssa, i64 %idx.ext41
   %cmp30 = icmp ult ptr %add.ptr42, %add.ptr28
   br i1 %cmp30, label %while.body31, label %if.end44, !llvm.loop !186
 
 if.end44:                                         ; preds = %while.end39, %if.then22
-  %top.3.lcssa = phi ptr [ %top.2, %if.then22 ], [ %top.4.lcssa, %while.end39 ]
-  %p.3.lcssa = phi ptr [ %add.ptr25, %if.then22 ], [ %add.ptr42, %while.end39 ]
+  %top.4.lcssa = phi ptr [ %top.0, %if.then22 ], [ %top.5.lcssa, %while.end39 ]
+  %p.4.lcssa = phi ptr [ %add.ptr25, %if.then22 ], [ %add.ptr42, %while.end39 ]
   br i1 %tobool.not, label %do.end, label %if.then47
 
 if.then47:                                        ; preds = %if.end44
@@ -5950,7 +5950,7 @@ while.body58.lr.ph:                               ; preds = %if.then47
 
 while.body58:                                     ; preds = %while.body58.lr.ph, %while.end66
   %p.6260 = phi ptr [ %add.ptr52, %while.body58.lr.ph ], [ %add.ptr69, %while.end66 ]
-  %top.6259 = phi ptr [ %top.3.lcssa, %while.body58.lr.ph ], [ %top.7.lcssa, %while.end66 ]
+  %top.6259 = phi ptr [ %top.4.lcssa, %while.body58.lr.ph ], [ %top.7.lcssa, %while.end66 ]
   %add.ptr60 = getelementptr i32, ptr %p.6260, i64 %idx.ext59
   %cmp62253 = icmp ult ptr %p.6260, %add.ptr60
   br i1 %cmp62253, label %while.body63, label %while.end66
@@ -5973,7 +5973,7 @@ while.end66:                                      ; preds = %while.body63, %whil
   br i1 %cmp57, label %while.body58, label %do.end, !llvm.loop !188
 
 do.end:                                           ; preds = %while.end66, %if.then47, %if.end20, %if.end44
-  %p.8 = phi ptr [ %p.3.lcssa, %if.end44 ], [ %p.2, %if.end20 ], [ %add.ptr52, %if.then47 ], [ %add.ptr69, %while.end66 ]
+  %p.8 = phi ptr [ %p.4.lcssa, %if.end44 ], [ %p.0, %if.end20 ], [ %add.ptr52, %if.then47 ], [ %add.ptr69, %while.end66 ]
   %cmp34.i = icmp ugt ptr %add.ptr, %buf
   br i1 %cmp34.i, label %while.body.lr.ph.i, label %zywrle_rgbyuv_32le.exit
 
@@ -6364,7 +6364,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
 while.body:                                       ; preds = %tailrecurse, %if.end
   %runs.0118 = phi i32 [ %runs.1, %if.end ], [ 0, %tailrecurse ]
   %single_pixels.0117 = phi i32 [ %single_pixels.1, %if.end ], [ 0, %tailrecurse ]
-  %ptr.0116 = phi ptr [ %ptr.2, %if.end ], [ %data, %tailrecurse ]
+  %ptr.0116 = phi ptr [ %ptr.1, %if.end ], [ %data, %tailrecurse ]
   %2 = load i32, ptr %ptr.0116, align 4
   %incdec.ptr = getelementptr i8, ptr %ptr.0116, i64 4
   %3 = load i32, ptr %incdec.ptr, align 4
@@ -6376,8 +6376,8 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 while.cond4:                                      ; preds = %while.body, %while.cond4
-  %ptr.1 = phi ptr [ %incdec.ptr5, %while.cond4 ], [ %incdec.ptr, %while.body ]
-  %incdec.ptr5 = getelementptr i8, ptr %ptr.1, i64 4
+  %ptr.2 = phi ptr [ %incdec.ptr5, %while.cond4 ], [ %incdec.ptr, %while.body ]
+  %incdec.ptr5 = getelementptr i8, ptr %ptr.2, i64 4
   %4 = load i32, ptr %incdec.ptr5, align 4
   %cmp6 = icmp eq i32 %4, %2
   br i1 %cmp6, label %while.cond4, label %while.end, !llvm.loop !201
@@ -6387,11 +6387,11 @@ while.end:                                        ; preds = %while.cond4
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %if.then
-  %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
+  %ptr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0117, %while.end ]
   %runs.1 = phi i32 [ %runs.0118, %if.then ], [ %inc8, %while.end ]
   %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #9
-  %cmp = icmp ult ptr %ptr.2, %add.ptr
+  %cmp = icmp ult ptr %ptr.1, %add.ptr
   br i1 %cmp, label %while.body, label %while.end9, !llvm.loop !202
 
 while.end9:                                       ; preds = %if.end, %tailrecurse
@@ -6674,7 +6674,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
 while.body:                                       ; preds = %tailrecurse, %if.end
   %runs.0118 = phi i32 [ %runs.1, %if.end ], [ 0, %tailrecurse ]
   %single_pixels.0117 = phi i32 [ %single_pixels.1, %if.end ], [ 0, %tailrecurse ]
-  %ptr.0116 = phi ptr [ %ptr.2, %if.end ], [ %data, %tailrecurse ]
+  %ptr.0116 = phi ptr [ %ptr.1, %if.end ], [ %data, %tailrecurse ]
   %2 = load i32, ptr %ptr.0116, align 4
   %incdec.ptr = getelementptr i8, ptr %ptr.0116, i64 4
   %3 = load i32, ptr %incdec.ptr, align 4
@@ -6686,8 +6686,8 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 while.cond4:                                      ; preds = %while.body, %while.cond4
-  %ptr.1 = phi ptr [ %incdec.ptr5, %while.cond4 ], [ %incdec.ptr, %while.body ]
-  %incdec.ptr5 = getelementptr i8, ptr %ptr.1, i64 4
+  %ptr.2 = phi ptr [ %incdec.ptr5, %while.cond4 ], [ %incdec.ptr, %while.body ]
+  %incdec.ptr5 = getelementptr i8, ptr %ptr.2, i64 4
   %4 = load i32, ptr %incdec.ptr5, align 4
   %cmp6 = icmp eq i32 %4, %2
   br i1 %cmp6, label %while.cond4, label %while.end, !llvm.loop !210
@@ -6697,11 +6697,11 @@ while.end:                                        ; preds = %while.cond4
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %if.then
-  %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
+  %ptr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0117, %while.end ]
   %runs.1 = phi i32 [ %runs.0118, %if.then ], [ %inc8, %while.end ]
   %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #9
-  %cmp = icmp ult ptr %ptr.2, %add.ptr
+  %cmp = icmp ult ptr %ptr.1, %add.ptr
   br i1 %cmp, label %while.body, label %while.end9, !llvm.loop !211
 
 while.end9:                                       ; preds = %if.end, %tailrecurse
@@ -6983,7 +6983,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
 while.body:                                       ; preds = %tailrecurse, %if.end
   %runs.0108 = phi i32 [ %runs.1, %if.end ], [ 0, %tailrecurse ]
   %single_pixels.0107 = phi i32 [ %single_pixels.1, %if.end ], [ 0, %tailrecurse ]
-  %ptr.0106 = phi ptr [ %ptr.2, %if.end ], [ %data, %tailrecurse ]
+  %ptr.0106 = phi ptr [ %ptr.1, %if.end ], [ %data, %tailrecurse ]
   %2 = load i32, ptr %ptr.0106, align 4
   %incdec.ptr = getelementptr i8, ptr %ptr.0106, i64 4
   %3 = load i32, ptr %incdec.ptr, align 4
@@ -6995,8 +6995,8 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 while.cond4:                                      ; preds = %while.body, %while.cond4
-  %ptr.1 = phi ptr [ %incdec.ptr5, %while.cond4 ], [ %incdec.ptr, %while.body ]
-  %incdec.ptr5 = getelementptr i8, ptr %ptr.1, i64 4
+  %ptr.2 = phi ptr [ %incdec.ptr5, %while.cond4 ], [ %incdec.ptr, %while.body ]
+  %incdec.ptr5 = getelementptr i8, ptr %ptr.2, i64 4
   %4 = load i32, ptr %incdec.ptr5, align 4
   %cmp6 = icmp eq i32 %4, %2
   br i1 %cmp6, label %while.cond4, label %while.end, !llvm.loop !219
@@ -7006,11 +7006,11 @@ while.end:                                        ; preds = %while.cond4
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %if.then
-  %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
+  %ptr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0107, %while.end ]
   %runs.1 = phi i32 [ %runs.0108, %if.then ], [ %inc8, %while.end ]
   %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #9
-  %cmp = icmp ult ptr %ptr.2, %add.ptr
+  %cmp = icmp ult ptr %ptr.1, %add.ptr
   br i1 %cmp, label %while.body, label %while.end9, !llvm.loop !220
 
 while.end9:                                       ; preds = %if.end, %tailrecurse
@@ -7271,7 +7271,7 @@ tailrecurse:                                      ; preds = %if.then137, %entry
 while.body:                                       ; preds = %tailrecurse, %if.end
   %runs.0108 = phi i32 [ %runs.1, %if.end ], [ 0, %tailrecurse ]
   %single_pixels.0107 = phi i32 [ %single_pixels.1, %if.end ], [ 0, %tailrecurse ]
-  %ptr.0106 = phi ptr [ %ptr.2, %if.end ], [ %data, %tailrecurse ]
+  %ptr.0106 = phi ptr [ %ptr.1, %if.end ], [ %data, %tailrecurse ]
   %2 = load i32, ptr %ptr.0106, align 4
   %incdec.ptr = getelementptr i8, ptr %ptr.0106, i64 4
   %3 = load i32, ptr %incdec.ptr, align 4
@@ -7283,8 +7283,8 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 while.cond4:                                      ; preds = %while.body, %while.cond4
-  %ptr.1 = phi ptr [ %incdec.ptr5, %while.cond4 ], [ %incdec.ptr, %while.body ]
-  %incdec.ptr5 = getelementptr i8, ptr %ptr.1, i64 4
+  %ptr.2 = phi ptr [ %incdec.ptr5, %while.cond4 ], [ %incdec.ptr, %while.body ]
+  %incdec.ptr5 = getelementptr i8, ptr %ptr.2, i64 4
   %4 = load i32, ptr %incdec.ptr5, align 4
   %cmp6 = icmp eq i32 %4, %2
   br i1 %cmp6, label %while.cond4, label %while.end, !llvm.loop !227
@@ -7294,11 +7294,11 @@ while.end:                                        ; preds = %while.cond4
   br label %if.end
 
 if.end:                                           ; preds = %while.end, %if.then
-  %ptr.2 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
+  %ptr.1 = phi ptr [ %incdec.ptr, %if.then ], [ %incdec.ptr5, %while.end ]
   %single_pixels.1 = phi i32 [ %inc, %if.then ], [ %single_pixels.0107, %while.end ]
   %runs.1 = phi i32 [ %runs.0108, %if.then ], [ %inc8, %while.end ]
   %call = tail call i32 @palette_put(ptr noundef nonnull %palette1, i32 noundef %2) #9
-  %cmp = icmp ult ptr %ptr.2, %add.ptr
+  %cmp = icmp ult ptr %ptr.1, %add.ptr
   br i1 %cmp, label %while.body, label %while.end9, !llvm.loop !228
 
 while.end9:                                       ; preds = %if.end, %tailrecurse

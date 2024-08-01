@@ -72,27 +72,27 @@ sw.bb:                                            ; preds = %while.end
   br label %sw.bb8
 
 sw.bb8:                                           ; preds = %sw.bb, %while.end
-  %h.1 = phi i32 [ %h.0.lcssa, %while.end ], [ %add7, %sw.bb ]
+  %h.2 = phi i32 [ %h.0.lcssa, %while.end ], [ %add7, %sw.bb ]
   %arrayidx9 = getelementptr inbounds i8, ptr %data.addr.0.lcssa, i64 1
   %3 = load i8, ptr %arrayidx9, align 1
   %conv10 = sext i8 %3 to i32
   %shl11 = shl nsw i32 %conv10, 8
-  %add12 = add i32 %shl11, %h.1
+  %add12 = add i32 %shl11, %h.2
   br label %sw.bb13
 
 sw.bb13:                                          ; preds = %sw.bb8, %while.end
-  %h.2 = phi i32 [ %h.0.lcssa, %while.end ], [ %add12, %sw.bb8 ]
+  %h.3 = phi i32 [ %h.0.lcssa, %while.end ], [ %add12, %sw.bb8 ]
   %4 = load i8, ptr %data.addr.0.lcssa, align 1
   %conv15 = sext i8 %4 to i32
-  %add16 = add i32 %h.2, %conv15
+  %add16 = add i32 %h.3, %conv15
   %mul17 = mul i32 %add16, -962287725
   %shr18 = lshr i32 %mul17, 24
   %xor19 = xor i32 %shr18, %mul17
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb13, %while.end
-  %h.3 = phi i32 [ %h.0.lcssa, %while.end ], [ %xor19, %sw.bb13 ]
-  ret i32 %h.3
+  %h.1 = phi i32 [ %h.0.lcssa, %while.end ], [ %xor19, %sw.bb13 ]
+  ret i32 %h.1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -254,7 +254,7 @@ if.then4.i.i:                                     ; preds = %if.then2.i17.i
   br label %if.end.i18.i
 
 if.end.i18.i:                                     ; preds = %if.then4.i.i, %if.then2.i17.i
-  %acc.i.0.i = phi i64 [ %add10.i.i, %if.then4.i.i ], [ %mul.i.i, %if.then2.i17.i ]
+  %acc.i.2.i = phi i64 [ %add10.i.i, %if.then4.i.i ], [ %mul.i.i, %if.then2.i17.i ]
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %data, i64 32
   %add.ptr11.i.val.i = load i64, ptr %add.ptr11.i.i, align 1
   %add.ptr.i134.i = getelementptr inbounds i8, ptr %data, i64 40
@@ -269,7 +269,7 @@ if.end.i18.i:                                     ; preds = %if.then4.i.i, %if.t
   %shr.i.i155.i = lshr i128 %mul.i.i154.i, 64
   %xor1.i156.i = xor i128 %shr.i.i155.i, %mul.i.i154.i
   %xor.i157.i = trunc i128 %xor1.i156.i to i64
-  %add14.i.i = add i64 %acc.i.0.i, %xor.i157.i
+  %add14.i.i = add i64 %acc.i.2.i, %xor.i157.i
   %add.ptr15.i.i = getelementptr inbounds i8, ptr %data, i64 %n
   %add.ptr16.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i, i64 -48
   %add.ptr16.i.val.i = load i64, ptr %add.ptr16.i.i, align 1
@@ -324,7 +324,7 @@ if.end20.i.i:                                     ; preds = %if.end.i18.i, %if.t
   br label %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i
 
 _ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i:       ; preds = %if.end20.i.i, %if.then2.i
-  %acc.i.2.i = phi i64 [ %add29.i.i, %if.end20.i.i ], [ %mul.i.i, %if.then2.i ]
+  %acc.i.0.i = phi i64 [ %add29.i.i, %if.end20.i.i ], [ %mul.i.i, %if.then2.i ]
   %input.val114.i = load i64, ptr %data, align 1
   %add.ptr.i214.i = getelementptr inbounds i8, ptr %data, i64 8
   %add.ptr.i214.val.i = load i64, ptr %add.ptr.i214.i, align 1
@@ -338,7 +338,7 @@ _ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i:       ; preds = %if.end20.i.i, %if.t
   %shr.i.i179.i = lshr i128 %mul.i.i178.i, 64
   %xor1.i180.i = xor i128 %shr.i.i179.i, %mul.i.i178.i
   %xor.i181.i = trunc i128 %xor1.i180.i to i64
-  %add34.i.i = add i64 %acc.i.2.i, %xor.i181.i
+  %add34.i.i = add i64 %acc.i.0.i, %xor.i181.i
   %add.ptr35.i.i = getelementptr inbounds i8, ptr %data, i64 %n
   %add.ptr36.i.i = getelementptr inbounds i8, ptr %add.ptr35.i.i, i64 -16
   %add.ptr36.i.val.i = load i64, ptr %add.ptr36.i.i, align 1
@@ -862,7 +862,7 @@ if.then4.i.i:                                     ; preds = %if.then2.i17.i
   br label %if.end.i18.i
 
 if.end.i18.i:                                     ; preds = %if.then4.i.i, %if.then2.i17.i
-  %acc.i.0.i = phi i64 [ %add10.i.i, %if.then4.i.i ], [ %mul.i.i, %if.then2.i17.i ]
+  %acc.i.2.i = phi i64 [ %add10.i.i, %if.then4.i.i ], [ %mul.i.i, %if.then2.i17.i ]
   %add.ptr11.i.i = getelementptr inbounds i8, ptr %data, i64 32
   %add.ptr11.i.val.i = load i64, ptr %add.ptr11.i.i, align 1
   %add.ptr.i134.i = getelementptr inbounds i8, ptr %data, i64 40
@@ -875,7 +875,7 @@ if.end.i18.i:                                     ; preds = %if.then4.i.i, %if.t
   %shr.i.i153.i = lshr i128 %mul.i.i152.i, 64
   %xor1.i154.i = xor i128 %shr.i.i153.i, %mul.i.i152.i
   %xor.i155.i = trunc i128 %xor1.i154.i to i64
-  %add14.i.i = add i64 %acc.i.0.i, %xor.i155.i
+  %add14.i.i = add i64 %acc.i.2.i, %xor.i155.i
   %add.ptr15.i.i = getelementptr inbounds i8, ptr %data, i64 %n
   %add.ptr16.i.i = getelementptr inbounds i8, ptr %add.ptr15.i.i, i64 -48
   %add.ptr16.i.val.i = load i64, ptr %add.ptr16.i.i, align 1
@@ -924,7 +924,7 @@ if.end20.i.i:                                     ; preds = %if.end.i18.i, %if.t
   br label %_ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i
 
 _ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i:       ; preds = %if.end20.i.i, %if.then2.i
-  %acc.i.2.i = phi i64 [ %add29.i.i, %if.end20.i.i ], [ %mul.i.i, %if.then2.i ]
+  %acc.i.0.i = phi i64 [ %add29.i.i, %if.end20.i.i ], [ %mul.i.i, %if.then2.i ]
   %input.val111.i = load i64, ptr %data, align 1
   %add.ptr.i214.i = getelementptr inbounds i8, ptr %data, i64 8
   %add.ptr.i214.val.i = load i64, ptr %add.ptr.i214.i, align 1
@@ -936,7 +936,7 @@ _ZL21XXPH3_len_17to128_64bPKhmS0_mm.exit.i:       ; preds = %if.end20.i.i, %if.t
   %shr.i.i177.i = lshr i128 %mul.i.i176.i, 64
   %xor1.i178.i = xor i128 %shr.i.i177.i, %mul.i.i176.i
   %xor.i179.i = trunc i128 %xor1.i178.i to i64
-  %add34.i.i = add i64 %acc.i.2.i, %xor.i179.i
+  %add34.i.i = add i64 %acc.i.0.i, %xor.i179.i
   %add.ptr35.i.i = getelementptr inbounds i8, ptr %data, i64 %n
   %add.ptr36.i.i = getelementptr inbounds i8, ptr %add.ptr35.i.i, i64 -16
   %add.ptr36.i.val.i = load i64, ptr %add.ptr36.i.i, align 1

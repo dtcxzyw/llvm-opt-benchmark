@@ -220,31 +220,31 @@ define range(i32 -1, 1) i32 @H5_build_extpath(ptr noundef %0, ptr nocapture noun
   br label %61
 
 61:                                               ; preds = %59, %5
-  %.044.ph = phi ptr [ %22, %59 ], [ null, %5 ]
-  %.043.ph = phi ptr [ %13, %59 ], [ null, %5 ]
+  %.145.ph = phi ptr [ %22, %59 ], [ null, %5 ]
+  %.1.ph = phi ptr [ %13, %59 ], [ null, %5 ]
   %.0.ph = phi ptr [ %42, %59 ], [ %6, %5 ]
   %62 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.0.ph, i32 noundef 47) #17
   %63 = getelementptr inbounds i8, ptr %62, i64 1
   store i8 0, ptr %63, align 1
   store ptr %.0.ph, ptr %1, align 8
-  %.not56 = icmp eq ptr %.043.ph, null
+  %.not56 = icmp eq ptr %.1.ph, null
   br i1 %.not56, label %65, label %.thread66
 
 .thread66:                                        ; preds = %28, %44, %34, %24, %61
-  %.175 = phi ptr [ %.043.ph, %61 ], [ %13, %24 ], [ %13, %34 ], [ %13, %44 ], [ %13, %28 ]
-  %.14573 = phi ptr [ %.044.ph, %61 ], [ null, %24 ], [ %22, %34 ], [ %22, %44 ], [ %22, %28 ]
+  %.04375 = phi ptr [ %.1.ph, %61 ], [ %13, %24 ], [ %13, %34 ], [ %13, %44 ], [ %13, %28 ]
+  %.04473 = phi ptr [ %.145.ph, %61 ], [ null, %24 ], [ %22, %34 ], [ %22, %44 ], [ %22, %28 ]
   %.04671 = phi i32 [ 0, %61 ], [ -1, %24 ], [ -1, %34 ], [ -1, %44 ], [ 0, %28 ]
-  %64 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.175) #15
+  %64 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.04375) #15
   br label %65
 
 65:                                               ; preds = %.thread66, %61
-  %.14574 = phi ptr [ %.14573, %.thread66 ], [ %.044.ph, %61 ]
+  %.04474 = phi ptr [ %.04473, %.thread66 ], [ %.145.ph, %61 ]
   %.04672 = phi i32 [ %.04671, %.thread66 ], [ 0, %61 ]
-  %.not57 = icmp eq ptr %.14574, null
+  %.not57 = icmp eq ptr %.04474, null
   br i1 %.not57, label %.thread82, label %66
 
 66:                                               ; preds = %65
-  %67 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.14574) #15
+  %67 = tail call ptr @H5MM_xfree(ptr noundef nonnull %.04474) #15
   br label %.thread82
 
 .thread82:                                        ; preds = %8, %15, %66, %65
@@ -409,16 +409,16 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly %1
   br i1 %23, label %.preheader, label %.critedge2.preheader
 
 .critedge2.preheader:                             ; preds = %30, %20
-  %.3.ph = phi ptr [ %12, %20 ], [ %.1, %30 ]
+  %.3.ph = phi ptr [ %12, %20 ], [ %.2, %30 ]
   br label %.critedge2
 
 .preheader:                                       ; preds = %20, %24
-  %.0 = phi ptr [ %25, %24 ], [ %12, %20 ]
-  %.not52 = icmp eq ptr %.0, %0
+  %.1 = phi ptr [ %25, %24 ], [ %12, %20 ]
+  %.not52 = icmp eq ptr %.1, %0
   br i1 %.not52, label %28, label %24
 
 24:                                               ; preds = %.preheader
-  %25 = getelementptr inbounds i8, ptr %.0, i64 -1
+  %25 = getelementptr inbounds i8, ptr %.1, i64 -1
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 47
   br i1 %27, label %.preheader, label %.critedge
@@ -428,12 +428,12 @@ define range(i32 -1, 1) i32 @H5_dirname(ptr noundef %0, ptr noundef writeonly %1
   br label %.critedge2.thread58
 
 .critedge:                                        ; preds = %24, %30
-  %.1 = phi ptr [ %31, %30 ], [ %.0, %24 ]
-  %.not53 = icmp eq ptr %.1, %0
+  %.2 = phi ptr [ %31, %30 ], [ %.1, %24 ]
+  %.not53 = icmp eq ptr %.2, %0
   br i1 %.not53, label %33, label %30
 
 30:                                               ; preds = %.critedge
-  %31 = getelementptr inbounds i8, ptr %.1, i64 -1
+  %31 = getelementptr inbounds i8, ptr %.2, i64 -1
   %32 = load i8, ptr %31, align 1
   %.not54 = icmp eq i8 %32, 47
   br i1 %.not54, label %.critedge2.preheader, label %.critedge
@@ -603,8 +603,8 @@ define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly %
   br label %50
 
 50:                                               ; preds = %31, %29, %41, %.critedge2, %34, %19, %21
-  %.040 = phi ptr [ %20, %19 ], [ %22, %21 ], [ %30, %29 ], [ %32, %31 ], [ %35, %34 ], [ %42, %41 ], [ %49, %.critedge2 ]
-  %51 = icmp eq ptr %.040, null
+  %.1 = phi ptr [ %20, %19 ], [ %22, %21 ], [ %30, %29 ], [ %32, %31 ], [ %35, %34 ], [ %42, %41 ], [ %49, %.critedge2 ]
+  %51 = icmp eq ptr %.1, null
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %50
@@ -614,7 +614,7 @@ define range(i32 -1, 1) i32 @H5_basename(ptr noundef %0, ptr noundef writeonly %
   br label %57
 
 56:                                               ; preds = %50
-  store ptr %.040, ptr %1, align 8
+  store ptr %.1, ptr %1, align 8
   br label %59
 
 57:                                               ; preds = %52, %4
@@ -899,7 +899,7 @@ sub_2:                                            ; preds = %sub_1
   br label %130
 
 130:                                              ; preds = %119, %121, %125, %117
-  %.2 = phi i32 [ %88, %117 ], [ %88, %125 ], [ 63, %121 ], [ 63, %119 ]
+  %.3 = phi i32 [ %88, %117 ], [ %88, %125 ], [ 63, %121 ], [ 63, %119 ]
   store i32 1, ptr @H5_get_option.sp, align 4
   br label %152
 
@@ -951,7 +951,7 @@ sub_2:                                            ; preds = %sub_1
   br label %152
 
 152:                                              ; preds = %.critedge, %151, %140, %141, %142, %130, %99, %108, %7, %8, %13, %24
-  %.060 = phi i32 [ -1, %24 ], [ -1, %13 ], [ -1, %8 ], [ -1, %7 ], [ 63, %108 ], [ 63, %99 ], [ %.1, %.critedge ], [ %.2, %130 ], [ %88, %140 ], [ %88, %141 ], [ %88, %142 ], [ %88, %151 ]
+  %.060 = phi i32 [ -1, %24 ], [ -1, %13 ], [ -1, %8 ], [ -1, %7 ], [ 63, %108 ], [ 63, %99 ], [ %.1, %.critedge ], [ %.3, %130 ], [ %88, %140 ], [ %88, %141 ], [ %88, %142 ], [ %88, %151 ]
   ret i32 %.060
 }
 

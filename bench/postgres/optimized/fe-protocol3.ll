@@ -1811,7 +1811,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %74 = phi ptr [ %105, %102 ], [ %57, %70 ]
   %.0181.i = phi i32 [ %103, %102 ], [ 0, %70 ]
   %.0135180.i = phi i32 [ %.1136.i, %102 ], [ 0, %70 ]
-  %.0137179.i = phi i32 [ %.2.i, %102 ], [ 1, %70 ]
+  %.0137179.i = phi i32 [ %.1138.i, %102 ], [ 1, %70 ]
   %.0142178.i = phi i32 [ %.1143.i, %102 ], [ 0, %70 ]
   %.0146177.i = phi i32 [ %.1147.i, %102 ], [ 0, %70 ]
   %75 = sext i32 %.0181.i to i64
@@ -1858,13 +1858,13 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %96
 
 96:                                               ; preds = %94, %86
-  %.1138.i = phi i32 [ %95, %94 ], [ %.0137179.i, %86 ]
+  %.2.i = phi i32 [ %95, %94 ], [ %.0137179.i, %86 ]
   %97 = add nsw i32 %.0181.i, 1
   br label %98
 
 98:                                               ; preds = %96, %80, %79
   %.1143.i = phi i32 [ %.0142178.i, %79 ], [ %97, %96 ], [ %.0142178.i, %80 ]
-  %.2.i = phi i32 [ %.0137179.i, %79 ], [ %.1138.i, %96 ], [ %.0137179.i, %80 ]
+  %.1138.i = phi i32 [ %.0137179.i, %79 ], [ %.2.i, %96 ], [ %.0137179.i, %80 ]
   br i1 %.not.i, label %102, label %99
 
 99:                                               ; preds = %98
@@ -1888,7 +1888,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
 .thread.i:                                        ; preds = %102, %70
   %.0146175.i = phi i32 [ 0, %70 ], [ %.1147.i, %102 ]
   %.0142173.i = phi i32 [ 0, %70 ], [ %.1143.i, %102 ]
-  %.0137170.i = phi i32 [ 1, %70 ], [ %.2.i, %102 ]
+  %.0137170.i = phi i32 [ 1, %70 ], [ %.1138.i, %102 ]
   %.0135167.i = phi i32 [ 0, %70 ], [ %.1136.i, %102 ]
   %.0165.i = phi i32 [ 0, %70 ], [ %103, %102 ]
   %107 = sext i32 %.0165.i to i64
@@ -1925,42 +1925,42 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %.not157.i, label %.preheader160.i, label %.preheader161.i
 
 .preheader161.i:                                  ; preds = %118, %.preheader161.i
-  %.2141.i = phi i32 [ %129, %.preheader161.i ], [ %.0164.i, %118 ]
-  %124 = sext i32 %.2141.i to i64
+  %.3.i = phi i32 [ %129, %.preheader161.i ], [ %.0164.i, %118 ]
+  %124 = sext i32 %.3.i to i64
   %125 = getelementptr i32, ptr %67, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = sub i32 %126, %115
   %128 = icmp sgt i32 %127, 60
-  %129 = add i32 %.2141.i, -1
+  %129 = add i32 %.3.i, -1
   br i1 %128, label %.preheader161.i, label %.loopexit.i, !llvm.loop !10
 
 .preheader160.i:                                  ; preds = %118, %.preheader160.i
-  %.3.i = phi i32 [ %134, %.preheader160.i ], [ %.0164.i, %118 ]
-  %.0131.i = phi i1 [ true, %.preheader160.i ], [ false, %118 ]
-  %130 = sext i32 %.3.i to i64
+  %.4.i = phi i32 [ %134, %.preheader160.i ], [ %.0164.i, %118 ]
+  %.1132.i = phi i1 [ true, %.preheader160.i ], [ false, %118 ]
+  %130 = sext i32 %.4.i to i64
   %131 = getelementptr i32, ptr %67, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = icmp slt i32 %123, %132
-  %134 = add i32 %.3.i, -1
+  %134 = add i32 %.4.i, -1
   br i1 %133, label %.preheader160.i, label %.preheader.i, !llvm.loop !11
 
 .preheader.i:                                     ; preds = %.preheader160.i, %.preheader.i
-  %.2144.i = phi i32 [ %140, %.preheader.i ], [ %.0142172.i, %.preheader160.i ]
-  %.0133.i = phi i1 [ true, %.preheader.i ], [ false, %.preheader160.i ]
-  %135 = sext i32 %.2144.i to i64
+  %.3145.i = phi i32 [ %140, %.preheader.i ], [ %.0142172.i, %.preheader160.i ]
+  %.1134.i = phi i1 [ true, %.preheader.i ], [ false, %.preheader160.i ]
+  %135 = sext i32 %.3145.i to i64
   %136 = getelementptr i32, ptr %67, i64 %135
   %137 = load i32, ptr %136, align 4
   %138 = sub i32 %132, %137
   %139 = icmp sgt i32 %138, 60
-  %140 = add i32 %.2144.i, 1
+  %140 = add i32 %.3145.i, 1
   br i1 %139, label %.preheader.i, label %.loopexit.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %.preheader161.i, %.preheader.i, %111
   %141 = phi i32 [ %115, %111 ], [ %137, %.preheader.i ], [ %115, %.preheader161.i ]
   %.pre-phi.i = phi i64 [ %112, %111 ], [ %130, %.preheader.i ], [ %124, %.preheader161.i ]
-  %.3145.i = phi i32 [ %.0142172.i, %111 ], [ %.2144.i, %.preheader.i ], [ %.0142172.i, %.preheader161.i ]
-  %.1134.i = phi i1 [ false, %111 ], [ %.0133.i, %.preheader.i ], [ false, %.preheader161.i ]
-  %.1132.i = phi i1 [ false, %111 ], [ %.0131.i, %.preheader.i ], [ true, %.preheader161.i ]
+  %.2144.i = phi i32 [ %.0142172.i, %111 ], [ %.3145.i, %.preheader.i ], [ %.0142172.i, %.preheader161.i ]
+  %.0133.i = phi i1 [ false, %111 ], [ %.1134.i, %.preheader.i ], [ false, %.preheader161.i ]
+  %.0131.i = phi i1 [ false, %111 ], [ %.1132.i, %.preheader.i ], [ true, %.preheader161.i ]
   %142 = getelementptr i32, ptr %63, i64 %.pre-phi.i
   %143 = load i32, ptr %142, align 4
   %144 = sext i32 %143 to i64
@@ -1970,7 +1970,7 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %147 = load i64, ptr %146, align 8
   %148 = trunc i64 %147 to i32
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.40, i32 noundef %.0137169.i) #16
-  br i1 %.1134.i, label %149, label %150
+  br i1 %.0133.i, label %149, label %150
 
 149:                                              ; preds = %.loopexit.i
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %0, ptr noundef nonnull @.str.41) #16
@@ -2003,13 +2003,13 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 ._crit_edge.i:                                    ; preds = %.lr.ph188.i, %150
   %.2148.lcssa.i = phi i32 [ 0, %150 ], [ %158, %.lr.ph188.i ]
-  %166 = sext i32 %.3145.i to i64
+  %166 = sext i32 %.2144.i to i64
   %167 = getelementptr i32, ptr %63, i64 %166
   %168 = load i32, ptr %167, align 4
   %169 = sext i32 %168 to i64
   %170 = getelementptr i8, ptr %57, i64 %169
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %0, ptr noundef %170) #16
-  br i1 %.1132.i, label %171, label %172
+  br i1 %.0131.i, label %171, label %172
 
 171:                                              ; preds = %._crit_edge.i
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %0, ptr noundef nonnull @.str.41) #16

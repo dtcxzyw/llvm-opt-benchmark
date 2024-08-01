@@ -1623,8 +1623,8 @@ _ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_
   br i1 %.not.i, label %for.body, label %return
 
 return:                                           ; preds = %_ZN6google8protobuf8compiler12_GLOBAL__N_124TryCreateParentDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEERSF_PSF_EppEv.exit, %if.end3, %cleanup.thread, %_ZN6google8protobuf8compiler12_GLOBAL__N_121VerifyDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %entry
-  %retval.2 = phi i1 [ false, %entry ], [ false, %_ZN6google8protobuf8compiler12_GLOBAL__N_121VerifyDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %cleanup.thread ], [ true, %if.end3 ], [ false, %_ZN6google8protobuf8compiler12_GLOBAL__N_124TryCreateParentDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit ], [ %cmp13.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEERSF_PSF_EppEv.exit ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ false, %entry ], [ false, %_ZN6google8protobuf8compiler12_GLOBAL__N_121VerifyDirectoryExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %cleanup.thread ], [ true, %if.end3 ], [ false, %_ZN6google8protobuf8compiler12_GLOBAL__N_124TryCreateParentDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_.exit ], [ %cmp13.i, %_ZN4absl12lts_2023080218container_internal14btree_iteratorINS1_10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4lessISA_ESaISt4pairIKSA_SA_EELi256ELb0EEEEERSF_PSF_EppEv.exit ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind
@@ -1835,7 +1835,7 @@ invoke.cont44:                                    ; preds = %if.end43
   br i1 %call45, label %cleanup, label %if.then31.invoke
 
 cleanup:                                          ; preds = %invoke.cont39.invoke, %invoke.cont44
-  %retval.0 = phi i1 [ true, %invoke.cont44 ], [ false, %invoke.cont39.invoke ]
+  %retval.1 = phi i1 [ true, %invoke.cont44 ], [ false, %invoke.cont39.invoke ]
   call void @_ZN6google8protobuf8compiler9ZipWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %zip_writer) #29
   call void @_ZN6google8protobuf2io16FileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %stream) #29
   br label %return
@@ -1846,8 +1846,8 @@ ehcleanup:                                        ; preds = %lpad13, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %entry, %cleanup, %if.then6
-  %retval.1 = phi i1 [ false, %if.then6 ], [ %retval.0, %cleanup ], [ false, %entry ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ false, %if.then6 ], [ %retval.1, %cleanup ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN6google8protobuf2io16FileOutputStreamC1Eii(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef) unnamed_addr #0
@@ -4580,9 +4580,9 @@ lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.
   br label %_ZNSt10unique_ptrIN6google8protobuf24MergedDescriptorDatabaseESt14default_deleteIS2_EED2Ev.exit282
 
 lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then41, %if.end46, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit, %if.else, %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EE5resetEPS3_.exit, %if.end69, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit95, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EE5resetEPS3_.exit, %if.end96, %if.end107, %if.then.i, %call5.i.noexc, %call6.i.noexc, %call8.i.noexc
-  %source_tree_database.sroa.0.0.ph.ph.ph.ph.ph = phi ptr [ null, %if.then.i ], [ null, %call5.i.noexc ], [ null, %call6.i.noexc ], [ null, %call8.i.noexc ], [ null, %if.else ], [ null, %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EE5resetEPS3_.exit ], [ null, %if.end69 ], [ null, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit95 ], [ %call78, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EE5resetEPS3_.exit ], [ null, %if.then41 ], [ null, %if.end46 ], [ null, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit ], [ %source_tree_database.sroa.0.2, %if.end96 ], [ %source_tree_database.sroa.0.2, %if.end107 ]
-  %descriptor_set_in_database.sroa.0.0.ph.ph.ph.ph.ph = phi ptr [ null, %if.then.i ], [ null, %call5.i.noexc ], [ null, %call6.i.noexc ], [ null, %call8.i.noexc ], [ %descriptor_set_in_database.sroa.0.2, %if.else ], [ %descriptor_set_in_database.sroa.0.2, %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EE5resetEPS3_.exit ], [ %descriptor_set_in_database.sroa.0.2, %if.end69 ], [ %descriptor_set_in_database.sroa.0.2, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit95 ], [ %descriptor_set_in_database.sroa.0.2, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EE5resetEPS3_.exit ], [ %descriptor_set_in_database.sroa.0.2, %if.then41 ], [ %descriptor_set_in_database.sroa.0.2, %if.end46 ], [ %descriptor_set_in_database.sroa.0.2, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit ], [ %descriptor_set_in_database.sroa.0.2, %if.end96 ], [ %descriptor_set_in_database.sroa.0.2, %if.end107 ]
-  %disk_source_tree.sroa.0.0.ph.ph.ph.ph.ph = phi ptr [ null, %if.then.i ], [ null, %call5.i.noexc ], [ null, %call6.i.noexc ], [ null, %call8.i.noexc ], [ null, %if.else ], [ %call60, %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EE5resetEPS3_.exit ], [ %call60, %if.end69 ], [ %call60, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit95 ], [ %call60, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EE5resetEPS3_.exit ], [ null, %if.then41 ], [ null, %if.end46 ], [ null, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit ], [ %disk_source_tree.sroa.0.2, %if.end96 ], [ %disk_source_tree.sroa.0.2, %if.end107 ]
+  %source_tree_database.sroa.0.0.ph.ph.ph.ph.ph = phi ptr [ null, %if.then.i ], [ null, %call5.i.noexc ], [ null, %call6.i.noexc ], [ null, %call8.i.noexc ], [ null, %if.else ], [ null, %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EE5resetEPS3_.exit ], [ null, %if.end69 ], [ null, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit95 ], [ %call78, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EE5resetEPS3_.exit ], [ null, %if.then41 ], [ null, %if.end46 ], [ null, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit ], [ %source_tree_database.sroa.0.3, %if.end96 ], [ %source_tree_database.sroa.0.3, %if.end107 ]
+  %descriptor_set_in_database.sroa.0.1.ph.ph.ph.ph.ph = phi ptr [ null, %if.then.i ], [ null, %call5.i.noexc ], [ null, %call6.i.noexc ], [ null, %call8.i.noexc ], [ %descriptor_set_in_database.sroa.0.0, %if.else ], [ %descriptor_set_in_database.sroa.0.0, %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EE5resetEPS3_.exit ], [ %descriptor_set_in_database.sroa.0.0, %if.end69 ], [ %descriptor_set_in_database.sroa.0.0, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit95 ], [ %descriptor_set_in_database.sroa.0.0, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EE5resetEPS3_.exit ], [ %descriptor_set_in_database.sroa.0.0, %if.then41 ], [ %descriptor_set_in_database.sroa.0.0, %if.end46 ], [ %descriptor_set_in_database.sroa.0.0, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit ], [ %descriptor_set_in_database.sroa.0.0, %if.end96 ], [ %descriptor_set_in_database.sroa.0.0, %if.end107 ]
+  %disk_source_tree.sroa.0.0.ph.ph.ph.ph.ph = phi ptr [ null, %if.then.i ], [ null, %call5.i.noexc ], [ null, %call6.i.noexc ], [ null, %call8.i.noexc ], [ null, %if.else ], [ %call60, %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EE5resetEPS3_.exit ], [ %call60, %if.end69 ], [ %call60, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit95 ], [ %call60, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EE5resetEPS3_.exit ], [ null, %if.then41 ], [ null, %if.end46 ], [ null, %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit ], [ %disk_source_tree.sroa.0.3, %if.end96 ], [ %disk_source_tree.sroa.0.3, %if.end107 ]
   %lpad.loopexit.split-lp447 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup373
@@ -4854,7 +4854,7 @@ if.then.i.i.i76:                                  ; preds = %ehcleanup
   br label %_ZNSt10unique_ptrIN6google8protobuf24MergedDescriptorDatabaseESt14default_deleteIS2_EED2Ev.exit282
 
 if.end39:                                         ; preds = %if.then.i.i.i, %_ZNSt10unique_ptrIN6google8protobuf24MergedDescriptorDatabaseESt14default_deleteIS2_EE5resetEPS2_.exit, %sw.epilog
-  %descriptor_set_in_database.sroa.0.2 = phi ptr [ null, %sw.epilog ], [ %call36, %_ZNSt10unique_ptrIN6google8protobuf24MergedDescriptorDatabaseESt14default_deleteIS2_EE5resetEPS2_.exit ], [ %call36, %if.then.i.i.i ]
+  %descriptor_set_in_database.sroa.0.0 = phi ptr [ null, %sw.epilog ], [ %call36, %_ZNSt10unique_ptrIN6google8protobuf24MergedDescriptorDatabaseESt14default_deleteIS2_EE5resetEPS2_.exit ], [ %call36, %if.then.i.i.i ]
   %proto_path_ = getelementptr inbounds i8, ptr %this, i64 264
   %50 = load ptr, ptr %proto_path_, align 8
   %_M_finish.i.i78 = getelementptr inbounds i8, ptr %this, i64 272
@@ -4863,7 +4863,7 @@ if.end39:                                         ; preds = %if.then.i.i.i, %_ZN
   br i1 %cmp.i.i79, label %if.then41, label %if.else
 
 if.then41:                                        ; preds = %if.end39
-  %call44 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler20CommandLineInterface29VerifyInputFilesInDescriptorsEPNS0_18DescriptorDatabaseE(ptr noundef nonnull align 8 dereferenceable(574) %this, ptr noundef %descriptor_set_in_database.sroa.0.2)
+  %call44 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler20CommandLineInterface29VerifyInputFilesInDescriptorsEPNS0_18DescriptorDatabaseE(ptr noundef nonnull align 8 dereferenceable(574) %this, ptr noundef %descriptor_set_in_database.sroa.0.0)
           to label %invoke.cont43 unwind label %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont43:                                    ; preds = %if.then41
@@ -4910,7 +4910,7 @@ invoke.cont52:                                    ; preds = %_ZNSt10unique_ptrIN
   %58 = icmp eq ptr %57, null
   %add.ptr = getelementptr inbounds i8, ptr %57, i64 16
   %spec.select = select i1 %58, ptr null, ptr %add.ptr
-  invoke void @_ZN6google8protobuf14DescriptorPoolC1EPNS0_18DescriptorDatabaseEPNS1_14ErrorCollectorE(ptr noundef nonnull align 8 dereferenceable(96) %call53, ptr noundef %descriptor_set_in_database.sroa.0.2, ptr noundef %spec.select)
+  invoke void @_ZN6google8protobuf14DescriptorPoolC1EPNS0_18DescriptorDatabaseEPNS1_14ErrorCollectorE(ptr noundef nonnull align 8 dereferenceable(96) %call53, ptr noundef %descriptor_set_in_database.sroa.0.0, ptr noundef %spec.select)
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %invoke.cont52
@@ -4934,7 +4934,7 @@ invoke.cont59:                                    ; preds = %if.else
           to label %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EE5resetEPS3_.exit unwind label %lpad61
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EE5resetEPS3_.exit: ; preds = %invoke.cont59
-  %call67 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler20CommandLineInterface24InitializeDiskSourceTreeEPNS1_14DiskSourceTreeEPNS0_18DescriptorDatabaseE(ptr noundef nonnull align 8 dereferenceable(574) %this, ptr noundef nonnull %call60, ptr noundef %descriptor_set_in_database.sroa.0.2)
+  %call67 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler20CommandLineInterface24InitializeDiskSourceTreeEPNS1_14DiskSourceTreeEPNS0_18DescriptorDatabaseE(ptr noundef nonnull align 8 dereferenceable(574) %this, ptr noundef nonnull %call60, ptr noundef %descriptor_set_in_database.sroa.0.0)
           to label %invoke.cont66 unwind label %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont66:                                    ; preds = %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EE5resetEPS3_.exit
@@ -4983,7 +4983,7 @@ _ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinter
           to label %invoke.cont77 unwind label %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont77:                                    ; preds = %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EE5resetEPS4_.exit95
-  invoke void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabaseC1EPNS1_10SourceTreeEPNS0_18DescriptorDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %call78, ptr noundef nonnull %call60, ptr noundef %descriptor_set_in_database.sroa.0.2)
+  invoke void @_ZN6google8protobuf8compiler28SourceTreeDescriptorDatabaseC1EPNS1_10SourceTreeEPNS0_18DescriptorDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %call78, ptr noundef nonnull %call60, ptr noundef %descriptor_set_in_database.sroa.0.0)
           to label %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EE5resetEPS3_.exit unwind label %lpad81
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EE5resetEPS3_.exit: ; preds = %invoke.cont77
@@ -5020,15 +5020,15 @@ ehcleanup373.thread376:                           ; preds = %invoke.cont87
 
 if.end96.sink.split:                              ; preds = %invoke.cont94, %invoke.cont57
   %.sink570 = phi ptr [ %59, %invoke.cont57 ], [ %68, %invoke.cont94 ]
-  %source_tree_database.sroa.0.2.ph = phi ptr [ null, %invoke.cont57 ], [ %call78, %invoke.cont94 ]
-  %disk_source_tree.sroa.0.2.ph = phi ptr [ null, %invoke.cont57 ], [ %call60, %invoke.cont94 ]
+  %source_tree_database.sroa.0.3.ph = phi ptr [ null, %invoke.cont57 ], [ %call78, %invoke.cont94 ]
+  %disk_source_tree.sroa.0.3.ph = phi ptr [ null, %invoke.cont57 ], [ %call60, %invoke.cont94 ]
   call void @_ZN6google8protobuf14DescriptorPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink570) #29
   call void @_ZdlPv(ptr noundef nonnull %.sink570) #31
   br label %if.end96
 
 if.end96:                                         ; preds = %if.end96.sink.split, %invoke.cont94, %invoke.cont57
-  %source_tree_database.sroa.0.2 = phi ptr [ null, %invoke.cont57 ], [ %call78, %invoke.cont94 ], [ %source_tree_database.sroa.0.2.ph, %if.end96.sink.split ]
-  %disk_source_tree.sroa.0.2 = phi ptr [ null, %invoke.cont57 ], [ %call60, %invoke.cont94 ], [ %disk_source_tree.sroa.0.2.ph, %if.end96.sink.split ]
+  %source_tree_database.sroa.0.3 = phi ptr [ null, %invoke.cont57 ], [ %call78, %invoke.cont94 ], [ %source_tree_database.sroa.0.3.ph, %if.end96.sink.split ]
+  %disk_source_tree.sroa.0.3 = phi ptr [ null, %invoke.cont57 ], [ %call60, %invoke.cont94 ], [ %disk_source_tree.sroa.0.3.ph, %if.end96.sink.split ]
   %71 = load ptr, ptr %descriptor_pool, align 8
   %enforce_weak_.i = getelementptr inbounds i8, ptr %71, i64 51
   store i8 1, ptr %enforce_weak_.i, align 1
@@ -5735,7 +5735,7 @@ for.end242:                                       ; preds = %while.end.i.i, %inv
   br i1 %call243, label %if.end250, label %if.then244
 
 if.then244:                                       ; preds = %for.end242
-  %call247 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler20CommandLineInterface30GenerateDependencyManifestFileERKSt6vectorIPKNS0_14FileDescriptorESaIS6_EERKN4absl12lts_2023080213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS2_20GeneratorContextImplESt14default_deleteISL_EENSC_18container_internal10StringHashENSP_8StringEqESaISt4pairIKSJ_SO_EEEEPNS1_14DiskSourceTreeE(ptr noundef nonnull align 8 dereferenceable(574) %this, ptr noundef nonnull align 8 dereferenceable(24) %parsed_files, ptr noundef nonnull align 8 dereferenceable(32) %output_directories, ptr noundef %disk_source_tree.sroa.0.2)
+  %call247 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler20CommandLineInterface30GenerateDependencyManifestFileERKSt6vectorIPKNS0_14FileDescriptorESaIS6_EERKN4absl12lts_2023080213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS2_20GeneratorContextImplESt14default_deleteISL_EENSC_18container_internal10StringHashENSP_8StringEqESaISt4pairIKSJ_SO_EEEEPNS1_14DiskSourceTreeE(ptr noundef nonnull align 8 dereferenceable(574) %this, ptr noundef nonnull align 8 dereferenceable(24) %parsed_files, ptr noundef nonnull align 8 dereferenceable(32) %output_directories, ptr noundef %disk_source_tree.sroa.0.3)
           to label %invoke.cont246 unwind label %lpad161.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont246:                                   ; preds = %if.then244
@@ -5999,7 +5999,7 @@ lpad361:                                          ; preds = %invoke.cont360
   br label %ehcleanup371
 
 cleanup370:                                       ; preds = %cleanup196, %invoke.cont234, %invoke.cont222, %for.inc353, %for.cond335.preheader, %if.end329, %if.then332, %if.end318, %land.lhs.true324, %invoke.cont313, %invoke.cont261, %invoke.cont253, %invoke.cont246, %cleanup305, %invoke.cont364
-  %retval.7 = phi i32 [ 1, %invoke.cont364 ], [ 1, %cleanup305 ], [ 1, %invoke.cont246 ], [ 1, %invoke.cont253 ], [ 1, %invoke.cont261 ], [ 1, %invoke.cont313 ], [ 1, %land.lhs.true324 ], [ 1, %if.end318 ], [ 0, %if.then332 ], [ 0, %if.end329 ], [ 0, %for.cond335.preheader ], [ 0, %for.inc353 ], [ 1, %invoke.cont222 ], [ 1, %invoke.cont234 ], [ 1, %cleanup196 ]
+  %retval.8 = phi i32 [ 1, %invoke.cont364 ], [ 1, %cleanup305 ], [ 1, %invoke.cont246 ], [ 1, %invoke.cont253 ], [ 1, %invoke.cont261 ], [ 1, %invoke.cont313 ], [ 1, %land.lhs.true324 ], [ 1, %if.end318 ], [ 0, %if.then332 ], [ 0, %if.end329 ], [ 0, %for.cond335.preheader ], [ 0, %for.inc353 ], [ 1, %invoke.cont222 ], [ 1, %invoke.cont234 ], [ 1, %cleanup196 ]
   call void @_ZN4absl12lts_2023080213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplESt14default_deleteISD_EENS0_18container_internal10StringHashENSH_8StringEqESaISt4pairIKS7_SG_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_directories) #29
   br label %cleanup372
 
@@ -6009,33 +6009,33 @@ ehcleanup371:                                     ; preds = %lpad161.loopexit, %
   br label %ehcleanup373
 
 cleanup372:                                       ; preds = %for.end146, %invoke.cont110, %invoke.cont100, %cleanup370
-  %retval.8 = phi i32 [ %retval.7, %cleanup370 ], [ 1, %invoke.cont100 ], [ 1, %invoke.cont110 ], [ 1, %for.end146 ]
-  %cmp.not.i244 = icmp eq ptr %source_tree_database.sroa.0.2, null
+  %retval.4 = phi i32 [ %retval.8, %cleanup370 ], [ 1, %invoke.cont100 ], [ 1, %invoke.cont110 ], [ 1, %for.end146 ]
+  %cmp.not.i244 = icmp eq ptr %source_tree_database.sroa.0.3, null
   br i1 %cmp.not.i244, label %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i: ; preds = %cleanup372
-  %vtable.i.i245 = load ptr, ptr %source_tree_database.sroa.0.2, align 8
+  %vtable.i.i245 = load ptr, ptr %source_tree_database.sroa.0.3, align 8
   %vfn.i.i246 = getelementptr inbounds i8, ptr %vtable.i.i245, i64 8
   %233 = load ptr, ptr %vfn.i.i246, align 8
-  call void %233(ptr noundef nonnull align 8 dereferenceable(120) %source_tree_database.sroa.0.2) #29
+  call void %233(ptr noundef nonnull align 8 dereferenceable(120) %source_tree_database.sroa.0.3) #29
   br label %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit: ; preds = %invoke.cont66, %invoke.cont43, %cleanup372, %_ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i
-  %retval.8367 = phi i32 [ %retval.8, %cleanup372 ], [ %retval.8, %_ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i ], [ 1, %invoke.cont43 ], [ 1, %invoke.cont66 ]
-  %disk_source_tree.sroa.0.3366 = phi ptr [ %disk_source_tree.sroa.0.2, %cleanup372 ], [ %disk_source_tree.sroa.0.2, %_ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i ], [ null, %invoke.cont43 ], [ %call60, %invoke.cont66 ]
-  %cmp.not.i248 = icmp eq ptr %descriptor_set_in_database.sroa.0.2, null
+  %retval.4367 = phi i32 [ %retval.4, %cleanup372 ], [ %retval.4, %_ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i ], [ 1, %invoke.cont43 ], [ 1, %invoke.cont66 ]
+  %disk_source_tree.sroa.0.2366 = phi ptr [ %disk_source_tree.sroa.0.3, %cleanup372 ], [ %disk_source_tree.sroa.0.3, %_ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i ], [ null, %invoke.cont43 ], [ %call60, %invoke.cont66 ]
+  %cmp.not.i248 = icmp eq ptr %descriptor_set_in_database.sroa.0.0, null
   br i1 %cmp.not.i248, label %_ZNSt10unique_ptrIN6google8protobuf24MergedDescriptorDatabaseESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN6google8protobuf24MergedDescriptorDatabaseEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN6google8protobuf24MergedDescriptorDatabaseEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit
-  %vtable.i.i249 = load ptr, ptr %descriptor_set_in_database.sroa.0.2, align 8
+  %vtable.i.i249 = load ptr, ptr %descriptor_set_in_database.sroa.0.0, align 8
   %vfn.i.i250 = getelementptr inbounds i8, ptr %vtable.i.i249, i64 8
   %234 = load ptr, ptr %vfn.i.i250, align 8
-  call void %234(ptr noundef nonnull align 8 dereferenceable(32) %descriptor_set_in_database.sroa.0.2) #29
+  call void %234(ptr noundef nonnull align 8 dereferenceable(32) %descriptor_set_in_database.sroa.0.0) #29
   br label %_ZNSt10unique_ptrIN6google8protobuf24MergedDescriptorDatabaseESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6google8protobuf24MergedDescriptorDatabaseESt14default_deleteIS2_EED2Ev.exit: ; preds = %invoke.cont.thread, %invoke.cont.thread352, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN6google8protobuf24MergedDescriptorDatabaseEEclEPS2_.exit.i
-  %disk_source_tree.sroa.0.3366399 = phi ptr [ %disk_source_tree.sroa.0.3366, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit ], [ %disk_source_tree.sroa.0.3366, %_ZNKSt14default_deleteIN6google8protobuf24MergedDescriptorDatabaseEEclEPS2_.exit.i ], [ null, %invoke.cont.thread352 ], [ null, %invoke.cont.thread ]
-  %retval.8367398 = phi i32 [ %retval.8367, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit ], [ %retval.8367, %_ZNKSt14default_deleteIN6google8protobuf24MergedDescriptorDatabaseEEclEPS2_.exit.i ], [ 1, %invoke.cont.thread352 ], [ 1, %invoke.cont.thread ]
+  %disk_source_tree.sroa.0.2366399 = phi ptr [ %disk_source_tree.sroa.0.2366, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit ], [ %disk_source_tree.sroa.0.2366, %_ZNKSt14default_deleteIN6google8protobuf24MergedDescriptorDatabaseEEclEPS2_.exit.i ], [ null, %invoke.cont.thread352 ], [ null, %invoke.cont.thread ]
+  %retval.4367398 = phi i32 [ %retval.4367, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit ], [ %retval.4367, %_ZNKSt14default_deleteIN6google8protobuf24MergedDescriptorDatabaseEEclEPS2_.exit.i ], [ 1, %invoke.cont.thread352 ], [ 1, %invoke.cont.thread ]
   %235 = load ptr, ptr %databases_per_descriptor_set, align 8
   %_M_finish.i252 = getelementptr inbounds i8, ptr %databases_per_descriptor_set, i64 8
   %236 = load ptr, ptr %_M_finish.i252, align 8
@@ -6094,14 +6094,14 @@ _ZNKSt14default_deleteIN6google8protobuf8compiler20CommandLineInterface12ErrorPr
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6google8protobuf14DescriptorPoolESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterEEclEPS4_.exit.i
   store ptr null, ptr %error_collector, align 8
-  %cmp.not.i264 = icmp eq ptr %disk_source_tree.sroa.0.3366399, null
+  %cmp.not.i264 = icmp eq ptr %disk_source_tree.sroa.0.2366399, null
   br i1 %cmp.not.i264, label %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EED2Ev.exit, label %_ZNKSt14default_deleteIN6google8protobuf8compiler14DiskSourceTreeEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIN6google8protobuf8compiler14DiskSourceTreeEEclEPS3_.exit.i: ; preds = %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EED2Ev.exit
-  %vtable.i.i265 = load ptr, ptr %disk_source_tree.sroa.0.3366399, align 8
+  %vtable.i.i265 = load ptr, ptr %disk_source_tree.sroa.0.2366399, align 8
   %vfn.i.i266 = getelementptr inbounds i8, ptr %vtable.i.i265, i64 8
   %242 = load ptr, ptr %vfn.i.i266, align 8
-  call void %242(ptr noundef nonnull align 8 dereferenceable(64) %disk_source_tree.sroa.0.3366399) #29
+  call void %242(ptr noundef nonnull align 8 dereferenceable(64) %disk_source_tree.sroa.0.2366399) #29
   br label %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EED2Ev.exit, %_ZNKSt14default_deleteIN6google8protobuf8compiler14DiskSourceTreeEEclEPS3_.exit.i
@@ -6114,40 +6114,40 @@ if.then.i.i.i270:                                 ; preds = %_ZNSt10unique_ptrIN
   br label %return
 
 ehcleanup373:                                     ; preds = %lpad.loopexit429, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp430.loopexit, %ehcleanup371, %lpad139
-  %source_tree_database.sroa.0.4 = phi ptr [ %source_tree_database.sroa.0.2, %lpad139 ], [ %source_tree_database.sroa.0.2, %ehcleanup371 ], [ %source_tree_database.sroa.0.2, %lpad.loopexit429 ], [ %source_tree_database.sroa.0.2, %lpad.loopexit.split-lp430.loopexit ], [ %source_tree_database.sroa.0.2, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit ], [ %source_tree_database.sroa.0.0.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %descriptor_set_in_database.sroa.0.4 = phi ptr [ %descriptor_set_in_database.sroa.0.2, %lpad139 ], [ %descriptor_set_in_database.sroa.0.2, %ehcleanup371 ], [ %descriptor_set_in_database.sroa.0.2, %lpad.loopexit429 ], [ %descriptor_set_in_database.sroa.0.2, %lpad.loopexit.split-lp430.loopexit ], [ %descriptor_set_in_database.sroa.0.2, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit ], [ %descriptor_set_in_database.sroa.0.0.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %disk_source_tree.sroa.0.4 = phi ptr [ %disk_source_tree.sroa.0.2, %lpad139 ], [ %disk_source_tree.sroa.0.2, %ehcleanup371 ], [ %disk_source_tree.sroa.0.2, %lpad.loopexit429 ], [ %disk_source_tree.sroa.0.2, %lpad.loopexit.split-lp430.loopexit ], [ %disk_source_tree.sroa.0.2, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit ], [ %disk_source_tree.sroa.0.0.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %source_tree_database.sroa.0.1 = phi ptr [ %source_tree_database.sroa.0.3, %lpad139 ], [ %source_tree_database.sroa.0.3, %ehcleanup371 ], [ %source_tree_database.sroa.0.3, %lpad.loopexit429 ], [ %source_tree_database.sroa.0.3, %lpad.loopexit.split-lp430.loopexit ], [ %source_tree_database.sroa.0.3, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit ], [ %source_tree_database.sroa.0.0.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %descriptor_set_in_database.sroa.0.2 = phi ptr [ %descriptor_set_in_database.sroa.0.0, %lpad139 ], [ %descriptor_set_in_database.sroa.0.0, %ehcleanup371 ], [ %descriptor_set_in_database.sroa.0.0, %lpad.loopexit429 ], [ %descriptor_set_in_database.sroa.0.0, %lpad.loopexit.split-lp430.loopexit ], [ %descriptor_set_in_database.sroa.0.0, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit ], [ %descriptor_set_in_database.sroa.0.1.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %disk_source_tree.sroa.0.1 = phi ptr [ %disk_source_tree.sroa.0.3, %lpad139 ], [ %disk_source_tree.sroa.0.3, %ehcleanup371 ], [ %disk_source_tree.sroa.0.3, %lpad.loopexit429 ], [ %disk_source_tree.sroa.0.3, %lpad.loopexit.split-lp430.loopexit ], [ %disk_source_tree.sroa.0.3, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit ], [ %disk_source_tree.sroa.0.0.ph.ph.ph.ph.ph, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn31 = phi { ptr, i32 } [ %lpad.phi416, %lpad139 ], [ %.pn29, %ehcleanup371 ], [ %lpad.loopexit431, %lpad.loopexit429 ], [ %lpad.loopexit434, %lpad.loopexit.split-lp430.loopexit ], [ %lpad.loopexit437, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp447, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %cmp.not.i271 = icmp eq ptr %source_tree_database.sroa.0.4, null
+  %cmp.not.i271 = icmp eq ptr %source_tree_database.sroa.0.1, null
   br i1 %cmp.not.i271, label %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit276, label %_ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i272
 
 _ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i272: ; preds = %ehcleanup373.thread376, %ehcleanup373
   %.pn31385 = phi { ptr, i32 } [ %70, %ehcleanup373.thread376 ], [ %.pn31, %ehcleanup373 ]
-  %disk_source_tree.sroa.0.4384 = phi ptr [ %call60, %ehcleanup373.thread376 ], [ %disk_source_tree.sroa.0.4, %ehcleanup373 ]
-  %descriptor_set_in_database.sroa.0.4383 = phi ptr [ %descriptor_set_in_database.sroa.0.2, %ehcleanup373.thread376 ], [ %descriptor_set_in_database.sroa.0.4, %ehcleanup373 ]
-  %source_tree_database.sroa.0.4382 = phi ptr [ %call78, %ehcleanup373.thread376 ], [ %source_tree_database.sroa.0.4, %ehcleanup373 ]
-  %vtable.i.i273 = load ptr, ptr %source_tree_database.sroa.0.4382, align 8
+  %disk_source_tree.sroa.0.1384 = phi ptr [ %call60, %ehcleanup373.thread376 ], [ %disk_source_tree.sroa.0.1, %ehcleanup373 ]
+  %descriptor_set_in_database.sroa.0.2383 = phi ptr [ %descriptor_set_in_database.sroa.0.0, %ehcleanup373.thread376 ], [ %descriptor_set_in_database.sroa.0.2, %ehcleanup373 ]
+  %source_tree_database.sroa.0.1382 = phi ptr [ %call78, %ehcleanup373.thread376 ], [ %source_tree_database.sroa.0.1, %ehcleanup373 ]
+  %vtable.i.i273 = load ptr, ptr %source_tree_database.sroa.0.1382, align 8
   %vfn.i.i274 = getelementptr inbounds i8, ptr %vtable.i.i273, i64 8
   %244 = load ptr, ptr %vfn.i.i274, align 8
-  call void %244(ptr noundef nonnull align 8 dereferenceable(120) %source_tree_database.sroa.0.4382) #29
+  call void %244(ptr noundef nonnull align 8 dereferenceable(120) %source_tree_database.sroa.0.1382) #29
   br label %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit276
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit276: ; preds = %lpad61, %lpad81, %lpad56, %ehcleanup373, %_ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i272
   %.pn31375 = phi { ptr, i32 } [ %.pn31, %ehcleanup373 ], [ %.pn31385, %_ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i272 ], [ %61, %lpad61 ], [ %69, %lpad81 ], [ %60, %lpad56 ]
-  %disk_source_tree.sroa.0.4374 = phi ptr [ %disk_source_tree.sroa.0.4, %ehcleanup373 ], [ %disk_source_tree.sroa.0.4384, %_ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i272 ], [ null, %lpad61 ], [ %call60, %lpad81 ], [ null, %lpad56 ]
-  %descriptor_set_in_database.sroa.0.4373 = phi ptr [ %descriptor_set_in_database.sroa.0.4, %ehcleanup373 ], [ %descriptor_set_in_database.sroa.0.4383, %_ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i272 ], [ %descriptor_set_in_database.sroa.0.2, %lpad61 ], [ %descriptor_set_in_database.sroa.0.2, %lpad81 ], [ %descriptor_set_in_database.sroa.0.2, %lpad56 ]
-  %cmp.not.i277 = icmp eq ptr %descriptor_set_in_database.sroa.0.4373, null
+  %disk_source_tree.sroa.0.1374 = phi ptr [ %disk_source_tree.sroa.0.1, %ehcleanup373 ], [ %disk_source_tree.sroa.0.1384, %_ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i272 ], [ null, %lpad61 ], [ %call60, %lpad81 ], [ null, %lpad56 ]
+  %descriptor_set_in_database.sroa.0.2373 = phi ptr [ %descriptor_set_in_database.sroa.0.2, %ehcleanup373 ], [ %descriptor_set_in_database.sroa.0.2383, %_ZNKSt14default_deleteIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseEEclEPS3_.exit.i272 ], [ %descriptor_set_in_database.sroa.0.0, %lpad61 ], [ %descriptor_set_in_database.sroa.0.0, %lpad81 ], [ %descriptor_set_in_database.sroa.0.0, %lpad56 ]
+  %cmp.not.i277 = icmp eq ptr %descriptor_set_in_database.sroa.0.2373, null
   br i1 %cmp.not.i277, label %_ZNSt10unique_ptrIN6google8protobuf24MergedDescriptorDatabaseESt14default_deleteIS2_EED2Ev.exit282, label %_ZNKSt14default_deleteIN6google8protobuf24MergedDescriptorDatabaseEEclEPS2_.exit.i278
 
 _ZNKSt14default_deleteIN6google8protobuf24MergedDescriptorDatabaseEEclEPS2_.exit.i278: ; preds = %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit276
-  %vtable.i.i279 = load ptr, ptr %descriptor_set_in_database.sroa.0.4373, align 8
+  %vtable.i.i279 = load ptr, ptr %descriptor_set_in_database.sroa.0.2373, align 8
   %vfn.i.i280 = getelementptr inbounds i8, ptr %vtable.i.i279, i64 8
   %245 = load ptr, ptr %vfn.i.i280, align 8
-  call void %245(ptr noundef nonnull align 8 dereferenceable(32) %descriptor_set_in_database.sroa.0.4373) #29
+  call void %245(ptr noundef nonnull align 8 dereferenceable(32) %descriptor_set_in_database.sroa.0.2373) #29
   br label %_ZNSt10unique_ptrIN6google8protobuf24MergedDescriptorDatabaseESt14default_deleteIS2_EED2Ev.exit282
 
 _ZNSt10unique_ptrIN6google8protobuf24MergedDescriptorDatabaseESt14default_deleteIS2_EED2Ev.exit282: ; preds = %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %_ZNSt10unique_ptrIN6google8protobuf24SimpleDescriptorDatabaseESt14default_deleteIS2_EED2Ev.exit48, %ehcleanup62.i, %ehcleanup, %if.then.i.i.i76, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit276, %_ZNKSt14default_deleteIN6google8protobuf24MergedDescriptorDatabaseEEclEPS2_.exit.i278
-  %disk_source_tree.sroa.0.4374405 = phi ptr [ %disk_source_tree.sroa.0.4374, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit276 ], [ %disk_source_tree.sroa.0.4374, %_ZNKSt14default_deleteIN6google8protobuf24MergedDescriptorDatabaseEEclEPS2_.exit.i278 ], [ null, %if.then.i.i.i76 ], [ null, %ehcleanup ], [ null, %ehcleanup62.i ], [ null, %_ZNSt10unique_ptrIN6google8protobuf24SimpleDescriptorDatabaseESt14default_deleteIS2_EED2Ev.exit48 ], [ null, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ null, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit ]
+  %disk_source_tree.sroa.0.1374405 = phi ptr [ %disk_source_tree.sroa.0.1374, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit276 ], [ %disk_source_tree.sroa.0.1374, %_ZNKSt14default_deleteIN6google8protobuf24MergedDescriptorDatabaseEEclEPS2_.exit.i278 ], [ null, %if.then.i.i.i76 ], [ null, %ehcleanup ], [ null, %ehcleanup62.i ], [ null, %_ZNSt10unique_ptrIN6google8protobuf24SimpleDescriptorDatabaseESt14default_deleteIS2_EED2Ev.exit48 ], [ null, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ null, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit ]
   %.pn31375404 = phi { ptr, i32 } [ %.pn31375, %_ZNSt10unique_ptrIN6google8protobuf8compiler28SourceTreeDescriptorDatabaseESt14default_deleteIS3_EED2Ev.exit276 ], [ %.pn31375, %_ZNKSt14default_deleteIN6google8protobuf24MergedDescriptorDatabaseEEclEPS2_.exit.i278 ], [ %.pn, %if.then.i.i.i76 ], [ %.pn, %ehcleanup ], [ %.pn11.i, %ehcleanup62.i ], [ %lpad.phi454, %_ZNSt10unique_ptrIN6google8protobuf24SimpleDescriptorDatabaseESt14default_deleteIS2_EED2Ev.exit48 ], [ %lpad.loopexit446, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit443, %lpad.loopexit.split-lp430.loopexit.split-lp.loopexit.split-lp.loopexit ]
   call void @_ZNSt6vectorISt10unique_ptrIN6google8protobuf24SimpleDescriptorDatabaseESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %databases_per_descriptor_set) #29
   call void @_ZNSt10unique_ptrIN6google8protobuf14DescriptorPoolESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %descriptor_pool) #29
@@ -6164,14 +6164,14 @@ _ZNKSt14default_deleteIN6google8protobuf8compiler20CommandLineInterface12ErrorPr
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EED2Ev.exit288: ; preds = %_ZNSt10unique_ptrIN6google8protobuf24MergedDescriptorDatabaseESt14default_deleteIS2_EED2Ev.exit282, %_ZNKSt14default_deleteIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterEEclEPS4_.exit.i284
   store ptr null, ptr %error_collector, align 8
-  %cmp.not.i289 = icmp eq ptr %disk_source_tree.sroa.0.4374405, null
+  %cmp.not.i289 = icmp eq ptr %disk_source_tree.sroa.0.1374405, null
   br i1 %cmp.not.i289, label %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EED2Ev.exit294, label %_ZNKSt14default_deleteIN6google8protobuf8compiler14DiskSourceTreeEEclEPS3_.exit.i290
 
 _ZNKSt14default_deleteIN6google8protobuf8compiler14DiskSourceTreeEEclEPS3_.exit.i290: ; preds = %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EED2Ev.exit288
-  %vtable.i.i291 = load ptr, ptr %disk_source_tree.sroa.0.4374405, align 8
+  %vtable.i.i291 = load ptr, ptr %disk_source_tree.sroa.0.1374405, align 8
   %vfn.i.i292 = getelementptr inbounds i8, ptr %vtable.i.i291, i64 8
   %248 = load ptr, ptr %vfn.i.i292, align 8
-  call void %248(ptr noundef nonnull align 8 dereferenceable(64) %disk_source_tree.sroa.0.4374405) #29
+  call void %248(ptr noundef nonnull align 8 dereferenceable(64) %disk_source_tree.sroa.0.1374405) #29
   br label %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EED2Ev.exit294
 
 _ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EED2Ev.exit294: ; preds = %_ZNSt10unique_ptrIN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterESt14default_deleteIS4_EED2Ev.exit288, %_ZNKSt14default_deleteIN6google8protobuf8compiler14DiskSourceTreeEEclEPS3_.exit.i290
@@ -6187,8 +6187,8 @@ _ZNSt6vectorIPKN6google8protobuf14FileDescriptorESaIS4_EED2Ev.exit298: ; preds =
   resume { ptr, i32 } %.pn31375404
 
 return:                                           ; preds = %if.then.i.i.i270, %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EED2Ev.exit, %entry, %sw.bb2
-  %retval.9 = phi i32 [ 1, %sw.bb2 ], [ 0, %entry ], [ %retval.8367398, %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EED2Ev.exit ], [ %retval.8367398, %if.then.i.i.i270 ]
-  ret i32 %retval.9
+  %retval.0 = phi i32 [ 1, %sw.bb2 ], [ 0, %entry ], [ %retval.4367398, %_ZNSt10unique_ptrIN6google8protobuf8compiler14DiskSourceTreeESt14default_deleteIS3_EED2Ev.exit ], [ %retval.4367398, %if.then.i.i.i270 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6542,7 +6542,7 @@ for.cond38:                                       ; preds = %cleanup
 
 for.body42:                                       ; preds = %for.cond38.preheader, %for.cond38
   %conv39150 = phi i64 [ %conv39, %for.cond38 ], [ 0, %for.cond38.preheader ]
-  %retval.0149 = phi i32 [ %retval.1, %for.cond38 ], [ undef, %for.cond38.preheader ]
+  %retval.1149 = phi i32 [ %retval.2, %for.cond38 ], [ undef, %for.cond38.preheader ]
   %i37.0148 = phi i32 [ %inc91, %for.cond38 ], [ 0, %for.cond38.preheader ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #29
@@ -6622,13 +6622,13 @@ if.end81:                                         ; preds = %if.else, %invoke.co
 
 invoke.cont82:                                    ; preds = %if.end81
   %cmp84.not = icmp eq i32 %call83, 0
-  %retval.0.call83 = select i1 %cmp84.not, i32 %retval.0149, i32 %call83
+  %retval.1.call83 = select i1 %cmp84.not, i32 %retval.1149, i32 %call83
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont82, %invoke.cont65, %invoke.cont70
   %i37.2 = phi i32 [ %i37.0148, %invoke.cont70 ], [ %i37.0148, %invoke.cont65 ], [ %i37.1, %invoke.cont82 ]
   %cond = phi i1 [ false, %invoke.cont70 ], [ false, %invoke.cont65 ], [ %cmp84.not, %invoke.cont82 ]
-  %retval.1 = phi i32 [ 2, %invoke.cont70 ], [ 2, %invoke.cont65 ], [ %retval.0.call83, %invoke.cont82 ]
+  %retval.2 = phi i32 [ 2, %invoke.cont70 ], [ 2, %invoke.cont65 ], [ %retval.1.call83, %invoke.cont82 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #29
   br i1 %cond, label %for.cond38, label %cleanup295
@@ -7113,7 +7113,7 @@ invoke.cont290:                                   ; preds = %if.then289
           to label %cleanup295 unwind label %lpad12.loopexit.split-lp.loopexit.split-lp
 
 cleanup295:                                       ; preds = %cleanup, %invoke.cont260.invoke, %if.end284, %land.lhs.true286, %invoke.cont290, %for.end162, %if.then34
-  %retval.2 = phi i32 [ 1, %if.then34 ], [ 2, %for.end162 ], [ 0, %invoke.cont290 ], [ 0, %land.lhs.true286 ], [ 0, %if.end284 ], [ 2, %invoke.cont260.invoke ], [ %retval.1, %cleanup ]
+  %retval.0 = phi i32 [ 1, %if.then34 ], [ 2, %for.end162 ], [ 0, %invoke.cont290 ], [ 0, %land.lhs.true286 ], [ 0, %if.end284 ], [ 2, %invoke.cont260.invoke ], [ %retval.2, %cleanup ]
   %85 = load ptr, ptr %arguments, align 8
   %_M_finish.i107 = getelementptr inbounds i8, ptr %arguments, i64 8
   %86 = load ptr, ptr %_M_finish.i107, align 8
@@ -7141,7 +7141,7 @@ if.then.i.i.i109:                                 ; preds = %invoke.cont.i108
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %invoke.cont.i108, %if.then.i.i.i109
-  ret i32 %retval.2
+  ret i32 %retval.0
 
 ehcleanup296:                                     ; preds = %lpad12.loopexit, %lpad12.loopexit.split-lp.loopexit.split-lp, %lpad12.loopexit.split-lp.loopexit, %lpad172, %lpad150, %lpad46, %ehcleanup32, %ehcleanup
   %.pn26 = phi { ptr, i32 } [ %.pn24, %ehcleanup ], [ %.pn, %ehcleanup32 ], [ %20, %lpad46 ], [ %44, %lpad150 ], [ %59, %lpad172 ], [ %lpad.loopexit, %lpad12.loopexit ], [ %lpad.loopexit123, %lpad12.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp124, %lpad12.loopexit.split-lp.loopexit.split-lp ]
@@ -7612,9 +7612,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc116
-  %feature_extensions.sroa.0.0132 = phi ptr [ null, %for.body.lr.ph ], [ %feature_extensions.sroa.0.3, %for.inc116 ]
-  %feature_extensions.sroa.6.0131 = phi ptr [ null, %for.body.lr.ph ], [ %feature_extensions.sroa.6.3, %for.inc116 ]
-  %feature_extensions.sroa.11.0130 = phi ptr [ null, %for.body.lr.ph ], [ %feature_extensions.sroa.11.3, %for.inc116 ]
+  %feature_extensions.sroa.0.0132 = phi ptr [ null, %for.body.lr.ph ], [ %feature_extensions.sroa.0.1, %for.inc116 ]
+  %feature_extensions.sroa.6.0131 = phi ptr [ null, %for.body.lr.ph ], [ %feature_extensions.sroa.6.1, %for.inc116 ]
+  %feature_extensions.sroa.11.0130 = phi ptr [ null, %for.body.lr.ph ], [ %feature_extensions.sroa.11.1, %for.inc116 ]
   %__begin2.sroa.0.0128 = phi ptr [ %0, %for.body.lr.ph ], [ %incdec.ptr.i44, %for.inc116 ]
   %generator = getelementptr inbounds i8, ptr %__begin2.sroa.0.0128, i64 32
   %2 = load ptr, ptr %generator, align 8
@@ -7787,9 +7787,9 @@ invoke.cont86:                                    ; preds = %if.end81
   br i1 %cmp.i29.not120, label %for.inc116.critedge, label %for.body93
 
 for.body93:                                       ; preds = %invoke.cont86, %for.inc
-  %feature_extensions.sroa.0.1124 = phi ptr [ %feature_extensions.sroa.0.2, %for.inc ], [ %feature_extensions.sroa.0.0132, %invoke.cont86 ]
-  %feature_extensions.sroa.6.1123 = phi ptr [ %feature_extensions.sroa.6.2, %for.inc ], [ %feature_extensions.sroa.6.0131, %invoke.cont86 ]
-  %feature_extensions.sroa.11.1122 = phi ptr [ %feature_extensions.sroa.11.2, %for.inc ], [ %feature_extensions.sroa.11.0130, %invoke.cont86 ]
+  %feature_extensions.sroa.0.4124 = phi ptr [ %feature_extensions.sroa.0.5, %for.inc ], [ %feature_extensions.sroa.0.0132, %invoke.cont86 ]
+  %feature_extensions.sroa.6.2123 = phi ptr [ %feature_extensions.sroa.6.3, %for.inc ], [ %feature_extensions.sroa.6.0131, %invoke.cont86 ]
+  %feature_extensions.sroa.11.2122 = phi ptr [ %feature_extensions.sroa.11.3, %for.inc ], [ %feature_extensions.sroa.11.0130, %invoke.cont86 ]
   %__begin3.sroa.0.0121 = phi ptr [ %incdec.ptr.i37, %for.inc ], [ %18, %invoke.cont86 ]
   %20 = load ptr, ptr %__begin3.sroa.0.0121, align 8
   %cmp95 = icmp eq ptr %20, null
@@ -7838,16 +7838,16 @@ lpad102:                                          ; preds = %invoke.cont108, %in
   br label %ehcleanup
 
 if.end113:                                        ; preds = %for.body93
-  %cmp.not.i = icmp eq ptr %feature_extensions.sroa.6.1123, %feature_extensions.sroa.11.1122
+  %cmp.not.i = icmp eq ptr %feature_extensions.sroa.6.2123, %feature_extensions.sroa.11.2122
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end113
-  store ptr %20, ptr %feature_extensions.sroa.6.1123, align 8
+  store ptr %20, ptr %feature_extensions.sroa.6.2123, align 8
   br label %for.inc
 
 if.else.i:                                        ; preds = %if.end113
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %feature_extensions.sroa.6.1123 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %feature_extensions.sroa.0.1124 to i64
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %feature_extensions.sroa.6.2123 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %feature_extensions.sroa.0.4124 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i, label %if.then.i.i.i35, label %_ZNKSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE12_M_check_lenEmPKc.exit.i.i
@@ -7882,16 +7882,16 @@ _ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_M_allocateEm
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_M_allocateEm.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %feature_extensions.sroa.0.1124, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %feature_extensions.sroa.0.4124, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_M_allocateEm.exit.i.i
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i.i34 = icmp eq ptr %feature_extensions.sroa.0.1124, null
+  %tobool.not.i.i.i34 = icmp eq ptr %feature_extensions.sroa.0.4124, null
   br i1 %tobool.not.i.i.i34, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i
-  call void @_ZdlPv(ptr noundef nonnull %feature_extensions.sroa.0.1124) #31
+  call void @_ZdlPv(ptr noundef nonnull %feature_extensions.sroa.0.4124) #31
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i
@@ -7899,10 +7899,10 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJR
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %if.then.i
-  %feature_extensions.sroa.11.2 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %feature_extensions.sroa.11.1122, %if.then.i ]
-  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %feature_extensions.sroa.6.1123, %if.then.i ]
-  %feature_extensions.sroa.0.2 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %feature_extensions.sroa.0.1124, %if.then.i ]
-  %feature_extensions.sroa.6.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
+  %feature_extensions.sroa.11.3 = phi ptr [ %add.ptr19.i.i, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %feature_extensions.sroa.11.2122, %if.then.i ]
+  %add.ptr.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %feature_extensions.sroa.6.2123, %if.then.i ]
+  %feature_extensions.sroa.0.5 = phi ptr [ %cond.i10.i.i, %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i ], [ %feature_extensions.sroa.0.4124, %if.then.i ]
+  %feature_extensions.sroa.6.3 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.pn, i64 8
   %incdec.ptr.i37 = getelementptr inbounds i8, ptr %__begin3.sroa.0.0121, i64 8
   %cmp.i29.not = icmp eq ptr %incdec.ptr.i37, %19
   br i1 %cmp.i29.not, label %for.inc116.critedge.loopexit, label %for.body93
@@ -7923,9 +7923,9 @@ for.inc116.critedge.loopexit:                     ; preds = %for.inc
 
 for.inc116.critedge:                              ; preds = %for.inc116.critedge.loopexit, %invoke.cont86
   %25 = phi ptr [ %18, %invoke.cont86 ], [ %.pre, %for.inc116.critedge.loopexit ]
-  %feature_extensions.sroa.11.1.lcssa = phi ptr [ %feature_extensions.sroa.11.0130, %invoke.cont86 ], [ %feature_extensions.sroa.11.2, %for.inc116.critedge.loopexit ]
-  %feature_extensions.sroa.6.1.lcssa = phi ptr [ %feature_extensions.sroa.6.0131, %invoke.cont86 ], [ %feature_extensions.sroa.6.2, %for.inc116.critedge.loopexit ]
-  %feature_extensions.sroa.0.1.lcssa = phi ptr [ %feature_extensions.sroa.0.0132, %invoke.cont86 ], [ %feature_extensions.sroa.0.2, %for.inc116.critedge.loopexit ]
+  %feature_extensions.sroa.11.2.lcssa = phi ptr [ %feature_extensions.sroa.11.0130, %invoke.cont86 ], [ %feature_extensions.sroa.11.3, %for.inc116.critedge.loopexit ]
+  %feature_extensions.sroa.6.2.lcssa = phi ptr [ %feature_extensions.sroa.6.0131, %invoke.cont86 ], [ %feature_extensions.sroa.6.3, %for.inc116.critedge.loopexit ]
+  %feature_extensions.sroa.0.4.lcssa = phi ptr [ %feature_extensions.sroa.0.0132, %invoke.cont86 ], [ %feature_extensions.sroa.0.5, %for.inc116.critedge.loopexit ]
   %tobool.not.i.i.i41 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i41, label %for.inc116, label %if.then.i.i.i42
 
@@ -7934,16 +7934,16 @@ if.then.i.i.i42:                                  ; preds = %for.inc116.critedge
   br label %for.inc116
 
 for.inc116:                                       ; preds = %if.then.i.i.i42, %for.inc116.critedge, %for.body
-  %feature_extensions.sroa.11.3 = phi ptr [ %feature_extensions.sroa.11.0130, %for.body ], [ %feature_extensions.sroa.11.1.lcssa, %for.inc116.critedge ], [ %feature_extensions.sroa.11.1.lcssa, %if.then.i.i.i42 ]
-  %feature_extensions.sroa.6.3 = phi ptr [ %feature_extensions.sroa.6.0131, %for.body ], [ %feature_extensions.sroa.6.1.lcssa, %for.inc116.critedge ], [ %feature_extensions.sroa.6.1.lcssa, %if.then.i.i.i42 ]
-  %feature_extensions.sroa.0.3 = phi ptr [ %feature_extensions.sroa.0.0132, %for.body ], [ %feature_extensions.sroa.0.1.lcssa, %for.inc116.critedge ], [ %feature_extensions.sroa.0.1.lcssa, %if.then.i.i.i42 ]
+  %feature_extensions.sroa.11.1 = phi ptr [ %feature_extensions.sroa.11.0130, %for.body ], [ %feature_extensions.sroa.11.2.lcssa, %for.inc116.critedge ], [ %feature_extensions.sroa.11.2.lcssa, %if.then.i.i.i42 ]
+  %feature_extensions.sroa.6.1 = phi ptr [ %feature_extensions.sroa.6.0131, %for.body ], [ %feature_extensions.sroa.6.2.lcssa, %for.inc116.critedge ], [ %feature_extensions.sroa.6.2.lcssa, %if.then.i.i.i42 ]
+  %feature_extensions.sroa.0.1 = phi ptr [ %feature_extensions.sroa.0.0132, %for.body ], [ %feature_extensions.sroa.0.4.lcssa, %for.inc116.critedge ], [ %feature_extensions.sroa.0.4.lcssa, %if.then.i.i.i42 ]
   %incdec.ptr.i44 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0128, i64 104
   %cmp.i.not = icmp eq ptr %incdec.ptr.i44, %1
   br i1 %cmp.i.not, label %for.end118, label %for.body
 
 for.end118:                                       ; preds = %for.inc116, %entry
-  %feature_extensions.sroa.6.0.lcssa = phi ptr [ null, %entry ], [ %feature_extensions.sroa.6.3, %for.inc116 ]
-  %feature_extensions.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %feature_extensions.sroa.0.3, %for.inc116 ]
+  %feature_extensions.sroa.6.0.lcssa = phi ptr [ null, %entry ], [ %feature_extensions.sroa.6.1, %for.inc116 ]
+  %feature_extensions.sroa.0.0.lcssa = phi ptr [ null, %entry ], [ %feature_extensions.sroa.0.1, %for.inc116 ]
   %call1.i.i45 = invoke { ptr, ptr } @_ZNK6google8protobuf10FeatureSet11GetMetadataEv(ptr noundef nonnull align 8 dereferenceable(72) @_ZN6google8protobuf29_FeatureSet_default_instance_E)
           to label %invoke.cont119 unwind label %lpad.loopexit.split-lp77
 
@@ -8172,26 +8172,26 @@ ehcleanup170:                                     ; preds = %lpad123, %lpad147, 
   br label %ehcleanup172
 
 cleanup171:                                       ; preds = %if.then.i.i3.i.i, %if.else.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, %if.then.i.i.i, %invoke.cont110, %invoke.cont77, %invoke.cont40
-  %feature_extensions.sroa.0.4 = phi ptr [ %feature_extensions.sroa.0.0132, %invoke.cont77 ], [ %feature_extensions.sroa.0.0132, %invoke.cont40 ], [ %feature_extensions.sroa.0.1124, %invoke.cont110 ], [ %feature_extensions.sroa.0.1124, %if.then.i.i.i ], [ %feature_extensions.sroa.0.0.lcssa, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %feature_extensions.sroa.0.0.lcssa, %if.else.i.i ], [ %feature_extensions.sroa.0.0.lcssa, %if.then.i.i3.i.i ]
-  %retval.4 = phi i1 [ false, %invoke.cont77 ], [ false, %invoke.cont40 ], [ false, %invoke.cont110 ], [ false, %if.then.i.i.i ], [ %cmp.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %cmp.i.i, %if.else.i.i ], [ %cmp.i.i, %if.then.i.i3.i.i ]
-  %tobool.not.i.i.i59 = icmp eq ptr %feature_extensions.sroa.0.4, null
+  %feature_extensions.sroa.0.2 = phi ptr [ %feature_extensions.sroa.0.0132, %invoke.cont77 ], [ %feature_extensions.sroa.0.0132, %invoke.cont40 ], [ %feature_extensions.sroa.0.4124, %invoke.cont110 ], [ %feature_extensions.sroa.0.4124, %if.then.i.i.i ], [ %feature_extensions.sroa.0.0.lcssa, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %feature_extensions.sroa.0.0.lcssa, %if.else.i.i ], [ %feature_extensions.sroa.0.0.lcssa, %if.then.i.i3.i.i ]
+  %retval.2 = phi i1 [ false, %invoke.cont77 ], [ false, %invoke.cont40 ], [ false, %invoke.cont110 ], [ false, %if.then.i.i.i ], [ %cmp.i.i, %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i ], [ %cmp.i.i, %if.else.i.i ], [ %cmp.i.i, %if.then.i.i3.i.i ]
+  %tobool.not.i.i.i59 = icmp eq ptr %feature_extensions.sroa.0.2, null
   br i1 %tobool.not.i.i.i59, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit61, label %if.then.i.i.i60
 
 if.then.i.i.i60:                                  ; preds = %cleanup171
-  call void @_ZdlPv(ptr noundef nonnull %feature_extensions.sroa.0.4) #31
+  call void @_ZdlPv(ptr noundef nonnull %feature_extensions.sroa.0.2) #31
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit61
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit61: ; preds = %cleanup171, %if.then.i.i.i60
-  ret i1 %retval.4
+  ret i1 %retval.2
 
 ehcleanup172:                                     ; preds = %lpad.loopexit76, %lpad.loopexit.split-lp77, %if.then.i.i.i39, %ehcleanup, %ehcleanup170, %lpad55, %lpad19
-  %feature_extensions.sroa.0.5 = phi ptr [ %feature_extensions.sroa.0.0132, %lpad55 ], [ %feature_extensions.sroa.0.0132, %lpad19 ], [ %feature_extensions.sroa.0.0.lcssa, %ehcleanup170 ], [ %feature_extensions.sroa.0.1124, %ehcleanup ], [ %feature_extensions.sroa.0.1124, %if.then.i.i.i39 ], [ %feature_extensions.sroa.0.0132, %lpad.loopexit76 ], [ %feature_extensions.sroa.0.0102, %lpad.loopexit.split-lp77 ]
+  %feature_extensions.sroa.0.3 = phi ptr [ %feature_extensions.sroa.0.0132, %lpad55 ], [ %feature_extensions.sroa.0.0132, %lpad19 ], [ %feature_extensions.sroa.0.0.lcssa, %ehcleanup170 ], [ %feature_extensions.sroa.0.4124, %ehcleanup ], [ %feature_extensions.sroa.0.4124, %if.then.i.i.i39 ], [ %feature_extensions.sroa.0.0132, %lpad.loopexit76 ], [ %feature_extensions.sroa.0.0102, %lpad.loopexit.split-lp77 ]
   %.pn15 = phi { ptr, i32 } [ %15, %lpad55 ], [ %9, %lpad19 ], [ %.pn, %ehcleanup170 ], [ %.pn13, %ehcleanup ], [ %.pn13, %if.then.i.i.i39 ], [ %lpad.loopexit78, %lpad.loopexit76 ], [ %lpad.loopexit.split-lp79, %lpad.loopexit.split-lp77 ]
-  %tobool.not.i.i.i63 = icmp eq ptr %feature_extensions.sroa.0.5, null
+  %tobool.not.i.i.i63 = icmp eq ptr %feature_extensions.sroa.0.3, null
   br i1 %tobool.not.i.i.i63, label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit65, label %if.then.i.i.i64
 
 if.then.i.i.i64:                                  ; preds = %ehcleanup172
-  call void @_ZdlPv(ptr noundef nonnull %feature_extensions.sroa.0.5) #31
+  call void @_ZdlPv(ptr noundef nonnull %feature_extensions.sroa.0.3) #31
   br label %_ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit65
 
 _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit65: ; preds = %ehcleanup172, %if.then.i.i.i64
@@ -9043,10 +9043,10 @@ cleanup130.sink.split:                            ; preds = %invoke.cont46, %inv
 
 cleanup130:                                       ; preds = %cleanup130.sink.split, %invoke.cont85, %invoke.cont105, %invoke.cont120, %invoke.cont112
   %plugin_name.sink = phi ptr [ %parameters60, %invoke.cont112 ], [ %parameters60, %invoke.cont120 ], [ %parameters60, %invoke.cont105 ], [ %parameters60, %invoke.cont85 ], [ %plugin_name, %cleanup130.sink.split ]
-  %retval.2 = phi i1 [ true, %invoke.cont112 ], [ false, %invoke.cont120 ], [ false, %invoke.cont105 ], [ false, %invoke.cont85 ], [ %call47, %cleanup130.sink.split ]
+  %retval.1 = phi i1 [ true, %invoke.cont112 ], [ false, %invoke.cont120 ], [ false, %invoke.cont105 ], [ false, %invoke.cont85 ], [ %call47, %cleanup130.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %plugin_name.sink) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error) #29
-  ret i1 %retval.2
+  ret i1 %retval.1
 
 ehcleanup131:                                     ; preds = %lpad64, %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %6, %lpad ], [ %27, %lpad64 ]
@@ -9758,7 +9758,7 @@ if.end138.critedge:                               ; preds = %cleanup, %invoke.co
   br label %cleanup139
 
 cleanup139:                                       ; preds = %if.end68, %if.end138.critedge, %cleanup132.critedge, %if.then64
-  %retval.3 = phi i1 [ false, %if.then64 ], [ false, %cleanup132.critedge ], [ true, %if.end138.critedge ], [ true, %if.end68 ]
+  %retval.0 = phi i1 [ false, %if.then64 ], [ false, %cleanup132.critedge ], [ true, %if.end138.critedge ], [ true, %if.end68 ]
   %97 = load ptr, ptr %output_filenames, align 8
   %_M_finish.i137 = getelementptr inbounds i8, ptr %output_filenames, i64 8
   %98 = load ptr, ptr %_M_finish.i137, align 8
@@ -9799,7 +9799,7 @@ invoke.cont13.i.i:                                ; preds = %_ZNSt6vectorINSt7__
 
 _ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf14FileDescriptorENS0_18container_internal6HashEqIS6_vE4HashENS9_2EqESaIS6_EED2Ev.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit148, %invoke.cont13.i.i
   call void @_ZN6google8protobuf17FileDescriptorSetD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %file_set) #29
-  ret i1 %retval.3
+  ret i1 %retval.0
 
 ehcleanup140:                                     ; preds = %lpad8.loopexit, %lpad8.loopexit.split-lp, %ehcleanup137, %ehcleanup
   %.pn22.pn = phi { ptr, i32 } [ %.pn22, %ehcleanup ], [ %.pn.pn, %ehcleanup137 ], [ %lpad.loopexit157, %lpad8.loopexit ], [ %lpad.loopexit.split-lp158, %lpad8.loopexit.split-lp ]
@@ -10382,7 +10382,7 @@ invoke.cont97:                                    ; preds = %invoke.cont94
           to label %cleanup102 unwind label %lpad64
 
 cleanup102:                                       ; preds = %cleanup, %invoke.cont86, %invoke.cont97
-  %retval.1 = phi i1 [ false, %cleanup ], [ false, %invoke.cont97 ], [ true, %invoke.cont86 ]
+  %retval.2 = phi i1 [ false, %cleanup ], [ false, %invoke.cont97 ], [ true, %invoke.cont86 ]
   call void @_ZN6google8protobuf2io16FileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %out) #29
   br label %cleanup103
 
@@ -10392,7 +10392,7 @@ ehcleanup:                                        ; preds = %lpad66, %lpad64
   br label %ehcleanup104
 
 cleanup103:                                       ; preds = %cleanup102, %if.then58
-  %retval.2 = phi i1 [ false, %if.then58 ], [ %retval.1, %cleanup102 ]
+  %retval.0 = phi i1 [ false, %if.then58 ], [ %retval.2, %cleanup102 ]
   %capacity_.i.i.i.i91 = getelementptr inbounds i8, ptr %already_seen, i64 16
   %70 = load i64, ptr %capacity_.i.i.i.i91, align 8
   %tobool.not.i.i92 = icmp eq i64 %70, 0
@@ -10406,7 +10406,7 @@ invoke.cont13.i.i93:                              ; preds = %cleanup103
 
 _ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf14FileDescriptorENS0_18container_internal6HashEqIS6_vE4HashENS9_2EqESaIS6_EED2Ev.exit95: ; preds = %cleanup103, %invoke.cont13.i.i93
   call void @_ZN6google8protobuf17FileDescriptorSetD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %file_set) #29
-  ret i1 %retval.2
+  ret i1 %retval.0
 
 ehcleanup104:                                     ; preds = %lpad2.loopexit, %lpad2.loopexit.split-lp.loopexit.split-lp, %lpad2.loopexit.split-lp.loopexit, %invoke.cont13.i.i, %lpad9, %ehcleanup
   %.pn16 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.phi107, %lpad9 ], [ %lpad.phi107, %invoke.cont13.i.i ], [ %lpad.loopexit, %lpad2.loopexit ], [ %lpad.loopexit103, %lpad2.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp104, %lpad2.loopexit.split-lp.loopexit.split-lp ]
@@ -10695,7 +10695,7 @@ invoke.cont83:                                    ; preds = %invoke.cont80
           to label %cleanup88 unwind label %lpad48
 
 cleanup88:                                        ; preds = %cleanup, %invoke.cont72, %invoke.cont83
-  %retval.1 = phi i1 [ false, %cleanup ], [ false, %invoke.cont83 ], [ true, %invoke.cont72 ]
+  %retval.3 = phi i1 [ false, %cleanup ], [ false, %invoke.cont83 ], [ true, %invoke.cont72 ]
   call void @_ZN6google8protobuf2io16FileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %out) #29
   br label %cleanup89
 
@@ -10705,7 +10705,7 @@ ehcleanup:                                        ; preds = %lpad50, %lpad48
   br label %ehcleanup90
 
 cleanup89:                                        ; preds = %invoke.cont29, %cleanup88, %if.then42
-  %retval.2 = phi i1 [ false, %if.then42 ], [ %retval.1, %cleanup88 ], [ false, %invoke.cont29 ]
+  %retval.1 = phi i1 [ false, %if.then42 ], [ %retval.3, %cleanup88 ], [ false, %invoke.cont29 ]
   %22 = load i64, ptr %defaults, align 8
   %cmp.i.i.i.i19 = icmp eq i64 %22, 0
   br i1 %cmp.i.i.i.i19, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i, label %if.else.i.i
@@ -10759,8 +10759,8 @@ _ZNSt6vectorIPKN6google8protobuf15FieldDescriptorESaIS4_EED2Ev.exit22: ; preds =
   resume { ptr, i32 } %.pn.pn.pn
 
 return:                                           ; preds = %if.then.i.i.i, %_ZN4absl12lts_202308028StatusOrIN6google8protobuf18FeatureSetDefaultsEED2Ev.exit, %if.then
-  %retval.3 = phi i1 [ false, %if.then ], [ %retval.2, %_ZN4absl12lts_202308028StatusOrIN6google8protobuf18FeatureSetDefaultsEED2Ev.exit ], [ %retval.2, %if.then.i.i.i ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ false, %if.then ], [ %retval.1, %_ZN4absl12lts_202308028StatusOrIN6google8protobuf18FeatureSetDefaultsEED2Ev.exit ], [ %retval.1, %if.then.i.i.i ]
+  ret i1 %retval.0
 }
 
 declare void @_ZN6google8protobuf14DescriptorPoolC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #0
@@ -11057,7 +11057,7 @@ if.end96.critedge:                                ; preds = %invoke.cont74
   br label %cleanup97
 
 cleanup97:                                        ; preds = %invoke.cont91.invoke, %invoke.cont88, %if.end96.critedge, %cleanup82, %cleanup
-  %retval.3 = phi i1 [ false, %cleanup82 ], [ false, %cleanup ], [ true, %if.end96.critedge ], [ true, %invoke.cont88 ], [ false, %invoke.cont91.invoke ]
+  %retval.2 = phi i1 [ false, %cleanup82 ], [ false, %cleanup ], [ true, %if.end96.critedge ], [ true, %invoke.cont88 ], [ false, %invoke.cont91.invoke ]
   call void @_ZN6google8protobuf2io16FileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %out) #29
   %impl_.i = getelementptr inbounds i8, ptr %in, i64 32
   call void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %impl_.i) #29
@@ -11108,8 +11108,8 @@ ehcleanup104:                                     ; preds = %_ZNKSt14default_del
   resume { ptr, i32 } %.pn6.pn.pn.pn
 
 return:                                           ; preds = %_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit, %if.then
-  %retval.4 = phi i1 [ false, %if.then ], [ %retval.3, %_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit ]
-  ret i1 %retval.4
+  %retval.0 = phi i1 [ false, %if.then ], [ %retval.2, %_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: nounwind
@@ -11245,7 +11245,7 @@ for.body26.i:                                     ; preds = %.noexc5, %for.body2
   br i1 %cmp25.i, label %for.body26.i, label %for.cond35.preheader.i, !llvm.loop !182
 
 for.body38.i:                                     ; preds = %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE9push_backERKS4_.exit.i, %for.body38.lr.ph.i
-  %nested_messages.sroa.0.0 = phi ptr [ null, %for.body38.lr.ph.i ], [ %nested_messages.sroa.0.1, %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE9push_backERKS4_.exit.i ]
+  %nested_messages.sroa.0.1 = phi ptr [ null, %for.body38.lr.ph.i ], [ %nested_messages.sroa.0.2, %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE9push_backERKS4_.exit.i ]
   %nested_messages.sroa.12.0 = phi ptr [ null, %for.body38.lr.ph.i ], [ %nested_messages.sroa.12.1, %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE9push_backERKS4_.exit.i ]
   %17 = phi ptr [ null, %for.body38.lr.ph.i ], [ %nested_messages.sroa.7.1, %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE9push_backERKS4_.exit.i ]
   %indvars.iv54.i = phi i64 [ 0, %for.body38.lr.ph.i ], [ %indvars.iv.next55.i, %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE9push_backERKS4_.exit.i ]
@@ -11260,7 +11260,7 @@ if.then.i.i:                                      ; preds = %for.body38.i
 
 if.else.i.i:                                      ; preds = %for.body38.i
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %nested_messages.sroa.12.0 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %nested_messages.sroa.0.0 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %nested_messages.sroa.0.1 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
   %cmp.i.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i.i.i, 9223372036854775800
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNKSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -11295,16 +11295,16 @@ _ZNSt12_Vector_baseIPKN6google8protobuf10DescriptorESaIS4_EE11_M_allocateEm.exit
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIPKN6google8protobuf10DescriptorESaIS4_EE11_M_allocateEm.exit.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %nested_messages.sroa.0.0, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i.i, ptr align 8 %nested_messages.sroa.0.1, i64 %sub.ptr.sub.i.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
 
 _ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPKN6google8protobuf10DescriptorESaIS4_EE11_M_allocateEm.exit.i.i.i
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  %tobool.not.i.i.i.i = icmp eq ptr %nested_messages.sroa.0.0, null
+  %tobool.not.i.i.i.i = icmp eq ptr %nested_messages.sroa.0.1, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
 if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %nested_messages.sroa.0.0) #31
+  call void @_ZdlPv(ptr noundef nonnull %nested_messages.sroa.0.1) #31
   br label %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit17.i.i.i
@@ -11312,7 +11312,7 @@ _ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE17_M_realloc_insertIJRKS4_E
   br label %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE9push_backERKS4_.exit.i
 
 _ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE9push_backERKS4_.exit.i: ; preds = %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, %if.then.i.i
-  %nested_messages.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %nested_messages.sroa.0.0, %if.then.i.i ]
+  %nested_messages.sroa.0.2 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %nested_messages.sroa.0.1, %if.then.i.i ]
   %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %17, %if.then.i.i ]
   %nested_messages.sroa.12.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i ], [ %nested_messages.sroa.12.0, %if.then.i.i ]
   %nested_messages.sroa.7.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 8
@@ -11329,12 +11329,12 @@ _ZN6google8protobuf8compiler12_GLOBAL__N_125GatherOccupiedFieldRangesEPKNS0_10De
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp18.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp27.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %tmp30.i)
-  %cmp40.not = icmp eq ptr %nested_messages.sroa.7.1, %nested_messages.sroa.0.1
+  %cmp40.not = icmp eq ptr %nested_messages.sroa.7.1, %nested_messages.sroa.0.2
   br i1 %cmp40.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN6google8protobuf8compiler12_GLOBAL__N_125GatherOccupiedFieldRangesEPKNS0_10DescriptorEPN4absl12lts_202308029btree_setISt4pairIiiESt4lessISA_ESaISA_EEEPSt6vectorIS5_SaIS5_EE.exit
   %sub.ptr.lhs.cast.i = ptrtoint ptr %nested_messages.sroa.7.1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %nested_messages.sroa.0.1 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %nested_messages.sroa.0.2 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
@@ -11342,7 +11342,7 @@ for.body.preheader:                               ; preds = %_ZN6google8protobuf
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %add.ptr.i = getelementptr inbounds ptr, ptr %nested_messages.sroa.0.1, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds ptr, ptr %nested_messages.sroa.0.2, i64 %indvars.iv
   %22 = load ptr, ptr %add.ptr.i, align 8
   invoke void @_ZN6google8protobuf8compiler20CommandLineInterface21PrintFreeFieldNumbersEPKNS0_10DescriptorE(ptr noundef nonnull align 8 dereferenceable(574) %this, ptr noundef %22)
           to label %for.inc unwind label %lpad.loopexit
@@ -11383,7 +11383,7 @@ lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loo
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i
-  %nested_messages.sroa.0.4 = phi ptr [ %nested_messages.sroa.0.252, %lpad.i ], [ %nested_messages.sroa.0.1, %lpad.loopexit ], [ %nested_messages.sroa.0.0, %lpad.loopexit.split-lp.loopexit ], [ %nested_messages.sroa.0.0, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %nested_messages.sroa.0.4 = phi ptr [ %nested_messages.sroa.0.352, %lpad.i ], [ %nested_messages.sroa.0.2, %lpad.loopexit ], [ %nested_messages.sroa.0.1, %lpad.loopexit.split-lp.loopexit ], [ %nested_messages.sroa.0.1, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %eh.lpad-body = phi { ptr, i32 } [ %lpad.phi.i, %lpad.i ], [ %lpad.loopexit22, %lpad.loopexit ], [ %lpad.loopexit24, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp34, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %tobool.not.i.i.i = icmp eq ptr %nested_messages.sroa.0.4, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EED2Ev.exit, label %if.then.i.i.i
@@ -11408,7 +11408,7 @@ _ZN4absl12lts_202308029btree_setISt4pairIiiESt4lessIS3_ESaIS3_EED2Ev.exit: ; pre
   resume { ptr, i32 } %eh.lpad-body57
 
 for.end:                                          ; preds = %for.inc, %_ZN6google8protobuf8compiler12_GLOBAL__N_125GatherOccupiedFieldRangesEPKNS0_10DescriptorEPN4absl12lts_202308029btree_setISt4pairIiiESt4lessISA_ESaISA_EEEPSt6vectorIS5_SaIS5_EE.exit.thread, %_ZN6google8protobuf8compiler12_GLOBAL__N_125GatherOccupiedFieldRangesEPKNS0_10DescriptorEPN4absl12lts_202308029btree_setISt4pairIiiESt4lessISA_ESaISA_EEEPSt6vectorIS5_SaIS5_EE.exit
-  %nested_messages.sroa.0.252 = phi ptr [ null, %_ZN6google8protobuf8compiler12_GLOBAL__N_125GatherOccupiedFieldRangesEPKNS0_10DescriptorEPN4absl12lts_202308029btree_setISt4pairIiiESt4lessISA_ESaISA_EEEPSt6vectorIS5_SaIS5_EE.exit.thread ], [ %nested_messages.sroa.0.1, %_ZN6google8protobuf8compiler12_GLOBAL__N_125GatherOccupiedFieldRangesEPKNS0_10DescriptorEPN4absl12lts_202308029btree_setISt4pairIiiESt4lessISA_ESaISA_EEEPSt6vectorIS5_SaIS5_EE.exit ], [ %nested_messages.sroa.0.1, %for.inc ]
+  %nested_messages.sroa.0.352 = phi ptr [ null, %_ZN6google8protobuf8compiler12_GLOBAL__N_125GatherOccupiedFieldRangesEPKNS0_10DescriptorEPN4absl12lts_202308029btree_setISt4pairIiiESt4lessISA_ESaISA_EEEPSt6vectorIS5_SaIS5_EE.exit.thread ], [ %nested_messages.sroa.0.2, %_ZN6google8protobuf8compiler12_GLOBAL__N_125GatherOccupiedFieldRangesEPKNS0_10DescriptorEPN4absl12lts_202308029btree_setISt4pairIiiESt4lessISA_ESaISA_EEEPSt6vectorIS5_SaIS5_EE.exit ], [ %nested_messages.sroa.0.2, %for.inc ]
   %all_names_.i = getelementptr inbounds i8, ptr %descriptor, i64 8
   %25 = load ptr, ptr %all_names_.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %25, i64 32
@@ -11605,11 +11605,11 @@ invoke.cont39.i:                                  ; preds = %if.end38.i
 invoke.cont7:                                     ; preds = %invoke.cont39.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output.i) #29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %output.i)
-  %tobool.not.i.i.i11 = icmp eq ptr %nested_messages.sroa.0.252, null
+  %tobool.not.i.i.i11 = icmp eq ptr %nested_messages.sroa.0.352, null
   br i1 %tobool.not.i.i.i11, label %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EED2Ev.exit13, label %if.then.i.i.i12
 
 if.then.i.i.i12:                                  ; preds = %invoke.cont7
-  call void @_ZdlPv(ptr noundef nonnull %nested_messages.sroa.0.252) #31
+  call void @_ZdlPv(ptr noundef nonnull %nested_messages.sroa.0.352) #31
   br label %_ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EED2Ev.exit13
 
 _ZNSt6vectorIPKN6google8protobuf10DescriptorESaIS4_EED2Ev.exit13: ; preds = %invoke.cont7, %if.then.i.i.i12
@@ -12154,10 +12154,10 @@ ehcleanup:                                        ; preds = %lpad74, %lpad58, %c
 
 cleanup91:                                        ; preds = %invoke.cont7, %invoke.cont17, %cleanup88
   %virtual_file.sink = phi ptr [ %virtual_file, %cleanup88 ], [ %disk_file, %invoke.cont17 ], [ %disk_file, %invoke.cont7 ]
-  %retval.3 = phi i1 [ %retval.2, %cleanup88 ], [ %brmerge, %invoke.cont17 ], [ %brmerge, %invoke.cont7 ]
+  %retval.1 = phi i1 [ %retval.2, %cleanup88 ], [ %brmerge, %invoke.cont17 ], [ %brmerge, %invoke.cont7 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %virtual_file.sink) #29
   call void @_ZN6google8protobuf19FileDescriptorProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %fallback_file) #29
-  ret i1 %retval.3
+  ret i1 %retval.1
 
 ehcleanup92:                                      ; preds = %ehcleanup, %lpad6, %lpad
   %.pn18 = phi { ptr, i32 } [ %5, %lpad6 ], [ %.pn, %ehcleanup ], [ %4, %lpad ]
@@ -13968,8 +13968,8 @@ if.end601:                                        ; preds = %if.then.i.i.i174, %
   br label %return
 
 return:                                           ; preds = %if.then287, %if.then293, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %if.end601, %if.then541, %if.else532, %if.then477, %if.then461, %if.then450, %if.then435, %if.then425, %if.then418, %if.then412, %if.then393, %if.then381, %if.then339, %if.then329, %if.else319, %if.then301, %if.then277, %if.then269, %invoke.cont251, %if.then234, %if.then224, %if.then214, %if.then204, %if.then193, %if.then186, %if.then180, %if.then169, %if.then163, %if.then157, %if.then132, %if.then126, %if.then118, %if.then88, %if.then3
-  %retval.3 = phi i32 [ 2, %if.then3 ], [ 0, %if.end601 ], [ 2, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ 2, %if.then88 ], [ 2, %if.then126 ], [ 2, %if.then132 ], [ 2, %if.then118 ], [ 2, %if.then163 ], [ 2, %if.then169 ], [ 2, %if.then157 ], [ 2, %if.then186 ], [ 2, %if.then193 ], [ 2, %if.then180 ], [ 2, %if.then204 ], [ 2, %if.then214 ], [ 2, %if.then224 ], [ 1, %if.then234 ], [ 1, %invoke.cont251 ], [ 2, %if.then269 ], [ 2, %if.then301 ], [ 2, %if.then277 ], [ 2, %if.else319 ], [ 2, %if.then329 ], [ 2, %if.then339 ], [ 2, %if.then381 ], [ 2, %if.then393 ], [ 2, %if.then418 ], [ 2, %if.then425 ], [ 2, %if.then412 ], [ 2, %if.then435 ], [ 2, %if.then450 ], [ 2, %if.then461 ], [ 2, %if.then477 ], [ 2, %if.else532 ], [ 2, %if.then541 ], [ 2, %if.then293 ], [ 2, %if.then287 ]
-  ret i32 %retval.3
+  %retval.0 = phi i32 [ 2, %if.then3 ], [ 0, %if.end601 ], [ 2, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ], [ 2, %if.then88 ], [ 2, %if.then126 ], [ 2, %if.then132 ], [ 2, %if.then118 ], [ 2, %if.then163 ], [ 2, %if.then169 ], [ 2, %if.then157 ], [ 2, %if.then186 ], [ 2, %if.then193 ], [ 2, %if.then180 ], [ 2, %if.then204 ], [ 2, %if.then214 ], [ 2, %if.then224 ], [ 1, %if.then234 ], [ 1, %invoke.cont251 ], [ 2, %if.then269 ], [ 2, %if.then301 ], [ 2, %if.then277 ], [ 2, %if.else319 ], [ 2, %if.then329 ], [ 2, %if.then339 ], [ 2, %if.then381 ], [ 2, %if.then393 ], [ 2, %if.then418 ], [ 2, %if.then425 ], [ 2, %if.then412 ], [ 2, %if.then435 ], [ 2, %if.then450 ], [ 2, %if.then461 ], [ 2, %if.then477 ], [ 2, %if.else532 ], [ 2, %if.then541 ], [ 2, %if.then293 ], [ 2, %if.then287 ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15551,7 +15551,7 @@ lpad114:                                          ; preds = %if.end113
 
 invoke.cont133:                                   ; preds = %invoke.cont133.lr.ph, %invoke.cont174
   %indvars.iv = phi i64 [ 0, %invoke.cont133.lr.ph ], [ %indvars.iv.next, %invoke.cont174 ]
-  %current_output.sroa.0.0239 = phi ptr [ null, %invoke.cont133.lr.ph ], [ %current_output.sroa.0.3, %invoke.cont174 ]
+  %current_output.sroa.0.0239 = phi ptr [ null, %invoke.cont133.lr.ph ], [ %current_output.sroa.0.2, %invoke.cont174 ]
   %85 = load ptr, ptr %file_.i.i, align 8
   %86 = ptrtoint ptr %85 to i64
   %and.i.i.i.i.i.i = and i64 %86, 1
@@ -15674,31 +15674,31 @@ cleanup.thread:                                   ; preds = %if.then160
   br label %cleanup202
 
 if.end168:                                        ; preds = %invoke.cont152, %if.else158, %_ZNSt10unique_ptrIN6google8protobuf2io20ZeroCopyOutputStreamESt14default_deleteIS3_EE5resetEPS3_.exit120
-  %current_output.sroa.0.3 = phi ptr [ %current_output.sroa.0.0239, %if.else158 ], [ %call146, %_ZNSt10unique_ptrIN6google8protobuf2io20ZeroCopyOutputStreamESt14default_deleteIS3_EE5resetEPS3_.exit120 ], [ %call157, %invoke.cont152 ]
+  %current_output.sroa.0.2 = phi ptr [ %current_output.sroa.0.0239, %if.else158 ], [ %call146, %_ZNSt10unique_ptrIN6google8protobuf2io20ZeroCopyOutputStreamESt14default_deleteIS3_EE5resetEPS3_.exit120 ], [ %call157, %invoke.cont152 ]
   %111 = load atomic i8, ptr @_ZN6google8protobuf2io17CodedOutputStream36default_serialization_deterministic_E monotonic, align 1
   %frombool.i.i = and i8 %111, 1
   store ptr %buffer_.i.i, ptr %writer, align 8
   store ptr %buffer_.i.i, ptr %buffer_end_.i.i, align 8
-  store ptr %current_output.sroa.0.3, ptr %stream_.i.i, align 8
+  store ptr %current_output.sroa.0.2, ptr %stream_.i.i, align 8
   store i8 0, ptr %had_error_.i.i, align 8
   store i8 0, ptr %aliasing_enabled_.i.i, align 1
   store i8 %frombool.i.i, ptr %is_serialization_deterministic_.i.i, align 2
   store i8 0, ptr %skip_check_consistency.i.i, align 1
   store ptr %buffer_.i.i, ptr %cur_.i, align 8
-  %vtable.i = load ptr, ptr %current_output.sroa.0.3, align 8
+  %vtable.i = load ptr, ptr %current_output.sroa.0.2, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
   %112 = load ptr, ptr %vfn.i, align 8
-  %call2.i150 = invoke noundef i64 %112(ptr noundef nonnull align 8 dereferenceable(8) %current_output.sroa.0.3)
+  %call2.i150 = invoke noundef i64 %112(ptr noundef nonnull align 8 dereferenceable(8) %current_output.sroa.0.2)
           to label %call2.i.noexc149 unwind label %ehcleanup.thread212
 
 call2.i.noexc149:                                 ; preds = %if.end168
   store i64 %call2.i150, ptr %start_count_.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %size.i.i)
-  %vtable.i.i = load ptr, ptr %current_output.sroa.0.3, align 8
+  %vtable.i.i = load ptr, ptr %current_output.sroa.0.2, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
   %113 = load ptr, ptr %vfn.i.i, align 8
-  %call.i.i145151 = invoke noundef zeroext i1 %113(ptr noundef nonnull align 8 dereferenceable(8) %current_output.sroa.0.3, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
+  %call.i.i145151 = invoke noundef zeroext i1 %113(ptr noundef nonnull align 8 dereferenceable(8) %current_output.sroa.0.2, ptr noundef nonnull %data.i.i, ptr noundef nonnull %size.i.i)
           to label %call.i.i145.noexc unwind label %ehcleanup.thread212
 
 call.i.i145.noexc:                                ; preds = %call2.i.noexc149
@@ -15770,7 +15770,7 @@ ehcleanup.thread205:                              ; preds = %if.then.i.i.i157
   br label %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i169
 
 invoke.cont177:                                   ; preds = %invoke.cont174, %invoke.cont127.preheader
-  %current_output.sroa.0.0.lcssa = phi ptr [ null, %invoke.cont127.preheader ], [ %current_output.sroa.0.3, %invoke.cont174 ]
+  %current_output.sroa.0.0.lcssa = phi ptr [ null, %invoke.cont127.preheader ], [ %current_output.sroa.0.2, %invoke.cont174 ]
   %error_.i.i = getelementptr inbounds i8, ptr %response, i64 48
   %125 = load ptr, ptr %error_.i.i, align 8
   %126 = ptrtoint ptr %125 to i64
@@ -15806,7 +15806,7 @@ invoke.cont196:                                   ; preds = %invoke.cont188
           to label %cleanup unwind label %ehcleanup.loopexit.split-lp
 
 cleanup:                                          ; preds = %invoke.cont196, %invoke.cont188, %invoke.cont181
-  %retval.0 = phi i1 [ false, %invoke.cont181 ], [ false, %invoke.cont188 ], [ %call199, %invoke.cont196 ]
+  %retval.1 = phi i1 [ false, %invoke.cont181 ], [ false, %invoke.cont188 ], [ %call199, %invoke.cont196 ]
   %cmp.not.i = icmp eq ptr %current_output.sroa.0.0.lcssa, null
   br i1 %cmp.not.i, label %cleanup202, label %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i
 
@@ -15840,15 +15840,15 @@ ehcleanup:                                        ; preds = %ehcleanup.loopexit.
 
 _ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i169: ; preds = %ehcleanup.thread212, %ehcleanup.thread205, %ehcleanup
   %.pn210 = phi { ptr, i32 } [ %124, %ehcleanup.thread205 ], [ %lpad.phi, %ehcleanup ], [ %lpad.thr_comm, %ehcleanup.thread212 ]
-  %current_output.sroa.0.4209 = phi ptr [ %current_output.sroa.0.3, %ehcleanup.thread205 ], [ %current_output.sroa.0.0232, %ehcleanup ], [ %current_output.sroa.0.3, %ehcleanup.thread212 ]
-  %vtable.i.i170 = load ptr, ptr %current_output.sroa.0.4209, align 8
+  %current_output.sroa.0.3209 = phi ptr [ %current_output.sroa.0.2, %ehcleanup.thread205 ], [ %current_output.sroa.0.0232, %ehcleanup ], [ %current_output.sroa.0.2, %ehcleanup.thread212 ]
+  %vtable.i.i170 = load ptr, ptr %current_output.sroa.0.3209, align 8
   %vfn.i.i171 = getelementptr inbounds i8, ptr %vtable.i.i170, i64 8
   %136 = load ptr, ptr %vfn.i.i171, align 8
-  call void %136(ptr noundef nonnull align 8 dereferenceable(8) %current_output.sroa.0.4209) #29
+  call void %136(ptr noundef nonnull align 8 dereferenceable(8) %current_output.sroa.0.3209) #29
   br label %ehcleanup203
 
 cleanup202:                                       ; preds = %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i, %cleanup, %cleanup.thread, %invoke.cont122
-  %retval.1 = phi i1 [ false, %invoke.cont122 ], [ false, %cleanup.thread ], [ %retval.0, %cleanup ], [ %retval.0, %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i ]
+  %retval.0 = phi i1 [ false, %invoke.cont122 ], [ false, %cleanup.thread ], [ %retval.1, %cleanup ], [ %retval.1, %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %communicate_error) #29
   call void @_ZN6google8protobuf8compiler10SubprocessD1Ev(ptr noundef nonnull align 4 dereferenceable(12) %subprocess) #29
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %files_to_generate, i64 16
@@ -15901,7 +15901,7 @@ _ZN4absl12lts_2023080213flat_hash_setIPKN6google8protobuf14FileDescriptorENS0_18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %processed_parameter) #29
   call void @_ZN6google8protobuf8compiler21CodeGeneratorResponseD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %response) #29
   call void @_ZN6google8protobuf8compiler20CodeGeneratorRequestD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %request) #29
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup203:                                     ; preds = %lpad.i143, %lpad140, %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i169, %ehcleanup, %ehcleanup.thread216, %lpad114, %lpad.i
   %.pn.pn = phi { ptr, i32 } [ %84, %lpad114 ], [ %83, %lpad.i ], [ %lpad.phi, %ehcleanup ], [ %.pn210, %_ZNKSt14default_deleteIN6google8protobuf2io20ZeroCopyOutputStreamEEclEPS3_.exit.i169 ], [ %lpad.thr_comm.split-lp218, %ehcleanup.thread216 ], [ %110, %lpad.i143 ], [ %101, %lpad140 ]
@@ -16575,8 +16575,8 @@ do.body:                                          ; preds = %do.body.backedge, %
   br i1 %cmp.i.not.i52, label %while.body22, label %if.end28
 
 while.body22:                                     ; preds = %do.body, %while.body22
-  %node.addr.1102 = phi ptr [ %9, %while.body22 ], [ %7, %do.body ]
-  %add.ptr.i.i.i.i55 = getelementptr inbounds i8, ptr %node.addr.1102, i64 560
+  %node.addr.2102 = phi ptr [ %9, %while.body22 ], [ %7, %do.body ]
+  %add.ptr.i.i.i.i55 = getelementptr inbounds i8, ptr %node.addr.2102, i64 560
   %9 = load ptr, ptr %add.ptr.i.i.i.i55, align 8
   %arrayidx.i.i53 = getelementptr i8, ptr %9, i64 11
   %10 = load i8, ptr %arrayidx.i.i53, align 1
@@ -16591,12 +16591,12 @@ while.end24:                                      ; preds = %while.body22
   br label %if.end28
 
 if.end28:                                         ; preds = %while.end24, %do.body
-  %node.addr.2 = phi ptr [ %9, %while.end24 ], [ %7, %do.body ]
+  %node.addr.1 = phi ptr [ %9, %while.end24 ], [ %7, %do.body ]
   %pos.2 = phi i64 [ %conv26, %while.end24 ], [ %pos.1, %do.body ]
   %parent.2 = phi ptr [ %12, %while.end24 ], [ %parent.1, %do.body ]
-  %arrayidx.i.i57 = getelementptr i8, ptr %node.addr.2, i64 10
+  %arrayidx.i.i57 = getelementptr i8, ptr %node.addr.1, i64 10
   %13 = load i8, ptr %arrayidx.i.i57, align 1
-  %add.ptr.i.i.i.i58 = getelementptr inbounds i8, ptr %node.addr.2, i64 16
+  %add.ptr.i.i.i.i58 = getelementptr inbounds i8, ptr %node.addr.1, i64 16
   %conv3.i60 = zext i8 %13 to i64
   %arrayidx.i6.i61 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type.398", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
   %cmp.not7.i62 = icmp eq i8 %13, 0
@@ -16616,7 +16616,7 @@ for.body.i63:                                     ; preds = %if.end28, %for.body
   br i1 %cmp.not.i69, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf8compiler20CommandLineInterface13GeneratorInfoESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit70, label %for.body.i63, !llvm.loop !265
 
 _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6google8protobuf8compiler20CommandLineInterface13GeneratorInfoESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit70: ; preds = %for.body.i63, %if.end28
-  tail call void @_ZdlPv(ptr noundef %node.addr.2) #31
+  tail call void @_ZdlPv(ptr noundef %node.addr.1) #31
   %arrayidx.i77 = getelementptr i8, ptr %parent.2, i64 10
   %14 = load i8, ptr %arrayidx.i77, align 1
   %conv35 = zext i8 %14 to i64
@@ -19417,8 +19417,8 @@ do.body.i:                                        ; preds = %do.body.i.backedge,
   br i1 %cmp.i.not.i50.i, label %while.body22.i, label %if.end28.i
 
 while.body22.i:                                   ; preds = %do.body.i, %while.body22.i
-  %node.addr.173.i = phi ptr [ %11, %while.body22.i ], [ %9, %do.body.i ]
-  %add.ptr.i.i.i.i53.i = getelementptr inbounds i8, ptr %node.addr.173.i, i64 256
+  %node.addr.273.i = phi ptr [ %11, %while.body22.i ], [ %9, %do.body.i ]
+  %add.ptr.i.i.i.i53.i = getelementptr inbounds i8, ptr %node.addr.273.i, i64 256
   %11 = load ptr, ptr %add.ptr.i.i.i.i53.i, align 8
   %arrayidx.i.i51.i = getelementptr i8, ptr %11, i64 11
   %12 = load i8, ptr %arrayidx.i.i51.i, align 1
@@ -19433,10 +19433,10 @@ while.end24.i:                                    ; preds = %while.body22.i
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %while.end24.i, %do.body.i
-  %node.addr.2.i = phi ptr [ %11, %while.end24.i ], [ %9, %do.body.i ]
+  %node.addr.1.i = phi ptr [ %11, %while.end24.i ], [ %9, %do.body.i ]
   %pos.2.i = phi i64 [ %conv26.i, %while.end24.i ], [ %pos.1.i, %do.body.i ]
   %parent.2.i = phi ptr [ %14, %while.end24.i ], [ %parent.1.i, %do.body.i ]
-  tail call void @_ZdlPv(ptr noundef nonnull %node.addr.2.i) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %node.addr.1.i) #31
   %arrayidx.i61.i = getelementptr i8, ptr %parent.2.i, i64 10
   %15 = load i8, ptr %arrayidx.i61.i, align 1
   %conv35.i = zext i8 %15 to i64
@@ -19550,8 +19550,8 @@ do.body:                                          ; preds = %do.body.backedge, %
   br i1 %cmp.i.not.i52, label %while.body22, label %if.end28
 
 while.body22:                                     ; preds = %do.body, %while.body22
-  %node.addr.197 = phi ptr [ %9, %while.body22 ], [ %7, %do.body ]
-  %add.ptr.i.i.i.i55 = getelementptr inbounds i8, ptr %node.addr.197, i64 272
+  %node.addr.297 = phi ptr [ %9, %while.body22 ], [ %7, %do.body ]
+  %add.ptr.i.i.i.i55 = getelementptr inbounds i8, ptr %node.addr.297, i64 272
   %9 = load ptr, ptr %add.ptr.i.i.i.i55, align 8
   %arrayidx.i.i53 = getelementptr i8, ptr %9, i64 11
   %10 = load i8, ptr %arrayidx.i.i53, align 1
@@ -19566,12 +19566,12 @@ while.end24:                                      ; preds = %while.body22
   br label %if.end28
 
 if.end28:                                         ; preds = %while.end24, %do.body
-  %node.addr.2 = phi ptr [ %9, %while.end24 ], [ %7, %do.body ]
+  %node.addr.1 = phi ptr [ %9, %while.end24 ], [ %7, %do.body ]
   %pos.2 = phi i64 [ %conv26, %while.end24 ], [ %pos.1, %do.body ]
   %parent.2 = phi ptr [ %12, %while.end24 ], [ %parent.1, %do.body ]
-  %arrayidx.i.i57 = getelementptr i8, ptr %node.addr.2, i64 10
+  %arrayidx.i.i57 = getelementptr i8, ptr %node.addr.1, i64 10
   %13 = load i8, ptr %arrayidx.i.i57, align 1
-  %add.ptr.i.i.i.i58 = getelementptr inbounds i8, ptr %node.addr.2, i64 16
+  %add.ptr.i.i.i.i58 = getelementptr inbounds i8, ptr %node.addr.1, i64 16
   %conv3.i60 = zext i8 %13 to i64
   %arrayidx.i6.i61 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %add.ptr.i.i.i.i58, i64 %conv3.i60
   %cmp.not7.i62 = icmp eq i8 %13, 0
@@ -19587,7 +19587,7 @@ for.body.i63:                                     ; preds = %if.end28, %for.body
   br i1 %cmp.not.i67, label %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15value_destroy_nEhhPSF_.exit68, label %for.body.i63, !llvm.loop !310
 
 _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE15value_destroy_nEhhPSF_.exit68: ; preds = %for.body.i63, %if.end28
-  tail call void @_ZdlPv(ptr noundef %node.addr.2) #31
+  tail call void @_ZdlPv(ptr noundef %node.addr.1) #31
   %arrayidx.i74 = getelementptr i8, ptr %parent.2, i64 10
   %14 = load i8, ptr %arrayidx.i74, align 1
   %conv35 = zext i8 %14 to i64

@@ -889,18 +889,18 @@ define noundef i32 @_ZN2cv6detail8tracking32TrackerStateEstimatorMILBoosting7max
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %8 = phi float [ %12, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
   %9 = phi ptr [ %13, %.lr.ph.i.i ], [ %7, %.lr.ph.preheader.i.i ]
-  %.sroa.02.010.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %3, %.lr.ph.preheader.i.i ]
+  %.sroa.02.110.i.i = phi ptr [ %spec.select.i.i, %.lr.ph.i.i ], [ %3, %.lr.ph.preheader.i.i ]
   %10 = load float, ptr %9, align 4
   %11 = fcmp olt float %8, %10
   %12 = select i1 %11, float %10, float %8
-  %spec.select.i.i = select i1 %11, ptr %9, ptr %.sroa.02.010.i.i
+  %spec.select.i.i = select i1 %11, ptr %9, ptr %.sroa.02.110.i.i
   %13 = getelementptr inbounds i8, ptr %9, i64 4
   %.not.i.i = icmp eq ptr %13, %5
   br i1 %.not.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEET_S8_S8_.exit, label %.lr.ph.i.i, !llvm.loop !9
 
 _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEET_S8_S8_.exit: ; preds = %.lr.ph.i.i, %2
-  %.sroa.02.2.i.i = phi ptr [ %3, %2 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %14 = ptrtoint ptr %.sroa.02.2.i.i to i64
+  %.sroa.02.0.i.i = phi ptr [ %3, %2 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+  %14 = ptrtoint ptr %.sroa.02.0.i.i to i64
   %15 = ptrtoint ptr %3 to i64
   %16 = sub i64 %14, %15
   %17 = lshr exact i64 %16, 2
@@ -952,18 +952,18 @@ define void @_ZN2cv6detail8tracking32TrackerStateEstimatorMILBoosting12estimateI
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %22 = phi float [ %26, %.lr.ph.i.i.i ], [ %.pre.i.i.i, %.lr.ph.preheader.i.i.i ]
   %23 = phi ptr [ %27, %.lr.ph.i.i.i ], [ %21, %.lr.ph.preheader.i.i.i ]
-  %.sroa.02.010.i.i.i = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %17, %.lr.ph.preheader.i.i.i ]
+  %.sroa.02.110.i.i.i = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %17, %.lr.ph.preheader.i.i.i ]
   %24 = load float, ptr %23, align 4
   %25 = fcmp olt float %22, %24
   %26 = select i1 %25, float %24, float %22
-  %spec.select.i.i.i = select i1 %25, ptr %23, ptr %.sroa.02.010.i.i.i
+  %spec.select.i.i.i = select i1 %25, ptr %23, ptr %.sroa.02.110.i.i.i
   %27 = getelementptr inbounds i8, ptr %23, i64 4
   %.not.i.i.i = icmp eq ptr %27, %19
   br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %16
-  %.sroa.02.2.i.i.i = phi ptr [ %17, %16 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %28 = ptrtoint ptr %.sroa.02.2.i.i.i to i64
+  %.sroa.02.0.i.i.i = phi ptr [ %17, %16 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
+  %28 = ptrtoint ptr %.sroa.02.0.i.i.i to i64
   %29 = ptrtoint ptr %17 to i64
   %30 = sub i64 %28, %29
   %sext = shl i64 %30, 30

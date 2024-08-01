@@ -1686,14 +1686,14 @@ if.else474:                                       ; preds = %skip_prefix.exit, %
   br label %if.end477
 
 if.end477:                                        ; preds = %if.else474, %if.then471
-  %branch.1 = phi ptr [ %call475, %if.else474 ], [ %scevgep.i, %if.then471 ]
-  %unborn_head.0 = phi ptr [ %call476, %if.else474 ], [ %call473, %if.then471 ]
-  %call478 = call fastcc ptr @find_remote_branch(ptr noundef %mapped_refs.0418, ptr noundef %branch.1)
+  %branch.0 = phi ptr [ %call475, %if.else474 ], [ %scevgep.i, %if.then471 ]
+  %unborn_head.1 = phi ptr [ %call476, %if.else474 ], [ %call473, %if.then471 ]
+  %call478 = call fastcc ptr @find_remote_branch(ptr noundef %mapped_refs.0418, ptr noundef %branch.0)
   br label %if.end481
 
 if.end481:                                        ; preds = %if.else458, %if.else455, %if.end477, %if.then449
   %our_head_points_at.0 = phi ptr [ %call450, %if.then449 ], [ %call478, %if.end477 ], [ %call447, %if.else455 ], [ null, %if.else458 ]
-  %unborn_head.1 = phi ptr [ null, %if.then449 ], [ %unborn_head.0, %if.end477 ], [ null, %if.else455 ], [ null, %if.else458 ]
+  %unborn_head.0 = phi ptr [ null, %if.then449 ], [ %unborn_head.1, %if.end477 ], [ null, %if.else455 ], [ null, %if.else458 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %value.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %key.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.write_remote_refs.err, i64 24, i1 false)
@@ -2479,15 +2479,15 @@ if.then20.i:                                      ; preds = %if.else18.i
   br label %update_head.exit
 
 if.else23.i:                                      ; preds = %if.else18.i
-  %tobool24.not.i = icmp eq ptr %unborn_head.1, null
+  %tobool24.not.i = icmp eq ptr %unborn_head.0, null
   br i1 %tobool24.not.i, label %update_head.exit, label %land.lhs.true25.i
 
 land.lhs.true25.i:                                ; preds = %if.else23.i
-  %scevgep.i13.i = getelementptr i8, ptr %unborn_head.1, i64 11
+  %scevgep.i13.i = getelementptr i8, ptr %unborn_head.0, i64 11
   br label %do.body.i14.i
 
 do.body.i14.i:                                    ; preds = %do.cond.i19.i, %land.lhs.true25.i
-  %str.addr.0.i15.i = phi ptr [ %unborn_head.1, %land.lhs.true25.i ], [ %incdec.ptr.i20.i, %do.cond.i19.i ]
+  %str.addr.0.i15.i = phi ptr [ %unborn_head.0, %land.lhs.true25.i ], [ %incdec.ptr.i20.i, %do.cond.i19.i ]
   %prefix.addr.0.idx.i16.i = phi i64 [ 0, %land.lhs.true25.i ], [ %prefix.addr.0.add.i21.i, %do.cond.i19.i ]
   %prefix.addr.0.ptr.i17.i = getelementptr inbounds i8, ptr @.str, i64 %prefix.addr.0.idx.i16.i
   %258 = load i8, ptr %prefix.addr.0.ptr.i17.i, align 1
@@ -2506,7 +2506,7 @@ skip_prefix.exit25.i:                             ; preds = %do.cond.i19.i, %do.
   br i1 %tobool.not.i23.i, label %if.then27.i, label %update_head.exit
 
 if.then27.i:                                      ; preds = %skip_prefix.exit25.i
-  %call28.i = call i32 @create_symref(ptr noundef nonnull @.str.63, ptr noundef nonnull %unborn_head.1, ptr noundef null) #17
+  %call28.i = call i32 @create_symref(ptr noundef nonnull @.str.63, ptr noundef nonnull %unborn_head.0, ptr noundef null) #17
   %cmp29.i = icmp slt i32 %call28.i, 0
   br i1 %cmp29.i, label %if.then30.i, label %if.end32.i
 
@@ -2522,7 +2522,7 @@ if.end32.i:                                       ; preds = %if.then27.i
 
 if.then34.i:                                      ; preds = %if.end32.i
   %261 = load ptr, ptr @remote_name, align 8
-  %call35.i = call i32 @install_branch_config(i32 noundef 0, ptr noundef %scevgep.i13.i, ptr noundef %261, ptr noundef nonnull %unborn_head.1) #17
+  %call35.i = call i32 @install_branch_config(i32 noundef 0, ptr noundef %scevgep.i13.i, ptr noundef %261, ptr noundef nonnull %unborn_head.0) #17
   br label %update_head.exit
 
 update_head.exit:                                 ; preds = %if.end.i337, %if.then7.i, %if.then14.i, %if.then20.i, %if.else23.i, %skip_prefix.exit25.i, %if.end32.i, %if.then34.i
@@ -2839,7 +2839,7 @@ checkout.exit:                                    ; preds = %if.end515, %_.exit.
   call void @strbuf_release(ptr noundef nonnull %key) #17
   call void @free_refs(ptr noundef %mapped_refs.0418) #17
   call void @free_refs(ptr noundef %call447) #17
-  call void @free(ptr noundef %unborn_head.1) #17
+  call void @free(ptr noundef %unborn_head.0) #17
   call void @free(ptr noundef %dir.0) #17
   call void @free(ptr noundef %call243) #17
   call void @free(ptr noundef %repo_to_free.0) #17

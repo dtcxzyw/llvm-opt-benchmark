@@ -5821,8 +5821,8 @@ for.inc:                                          ; preds = %for.body, %land.lhs
   br i1 %cmp.not, label %for.cond17.preheader, label %for.body, !llvm.loop !45
 
 for.body19:                                       ; preds = %for.cond17.preheader, %for.inc34
-  %curr.142 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %2, %for.cond17.preheader ]
-  %m_state.i24 = getelementptr inbounds i8, ptr %curr.142, i64 4
+  %curr.242 = phi ptr [ %incdec.ptr35, %for.inc34 ], [ %2, %for.cond17.preheader ]
+  %m_state.i24 = getelementptr inbounds i8, ptr %curr.242, i64 4
   %6 = load i32, ptr %m_state.i24, align 4
   switch i32 %6, label %for.inc34 [
     i32 2, label %if.then21
@@ -5830,30 +5830,30 @@ for.body19:                                       ; preds = %for.cond17.preheade
   ]
 
 if.then21:                                        ; preds = %for.body19
-  %7 = load i32, ptr %curr.142, align 8
+  %7 = load i32, ptr %curr.242, align 8
   %cmp23 = icmp eq i32 %7, %0
   br i1 %cmp23, label %land.lhs.true24, label %for.inc34
 
 land.lhs.true24:                                  ; preds = %if.then21
-  %m_data.i26 = getelementptr inbounds i8, ptr %curr.142, i64 8
+  %m_data.i26 = getelementptr inbounds i8, ptr %curr.242, i64 8
   %8 = load i32, ptr %m_data.i26, align 8
   %cmp.i.i.i27 = icmp eq i32 %8, %0
   br i1 %cmp.i.i.i27, label %end_remove, label %for.inc34
 
 for.inc34:                                        ; preds = %for.body19, %land.lhs.true24, %if.then21
-  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.142, i64 48
+  %incdec.ptr35 = getelementptr inbounds i8, ptr %curr.242, i64 48
   %cmp18.not = icmp eq ptr %incdec.ptr35, %add.ptr
   br i1 %cmp18.not, label %if.end55, label %for.body19, !llvm.loop !46
 
 end_remove:                                       ; preds = %land.lhs.true, %land.lhs.true24
-  %curr.2 = phi ptr [ %curr.142, %land.lhs.true24 ], [ %curr.040, %land.lhs.true ]
-  %add.ptr37 = getelementptr inbounds i8, ptr %curr.2, i64 48
+  %curr.1 = phi ptr [ %curr.242, %land.lhs.true24 ], [ %curr.040, %land.lhs.true ]
+  %add.ptr37 = getelementptr inbounds i8, ptr %curr.1, i64 48
   %cmp38 = icmp eq ptr %add.ptr37, %add.ptr5
   %spec.select = select i1 %cmp38, ptr %2, ptr %add.ptr37
   %m_state.i30 = getelementptr inbounds i8, ptr %spec.select, i64 4
   %9 = load i32, ptr %m_state.i30, align 4
   %cmp.i31 = icmp eq i32 %9, 0
-  %m_state.i32 = getelementptr inbounds i8, ptr %curr.2, i64 4
+  %m_state.i32 = getelementptr inbounds i8, ptr %curr.1, i64 4
   br i1 %cmp.i31, label %if.then43, label %if.else44
 
 if.then43:                                        ; preds = %end_remove
@@ -7508,8 +7508,8 @@ if.end40:                                         ; preds = %if.end.i, %if.end, 
   br label %return
 
 return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit86, %entry, %if.end40
-  %retval.3 = phi i1 [ false, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit86 ], [ true, %if.end40 ], [ false, %entry ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ false, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit86 ], [ true, %if.end40 ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7840,8 +7840,8 @@ ehcleanup:                                        ; preds = %lpad17, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit55, %if.end, %_ZNK3nla7nex_mul3endEv.exit, %if.then
-  %retval.2 = phi i1 [ true, %if.then ], [ true, %_ZNK3nla7nex_mul3endEv.exit ], [ true, %if.end ], [ %call11, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit55 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ true, %if.then ], [ true, %_ZNK3nla7nex_mul3endEv.exit ], [ true, %if.end ], [ %call11, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit55 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8235,8 +8235,8 @@ ehcleanup:                                        ; preds = %lpad15, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit50, %for.cond, %for.cond.preheader, %if.end, %entry
-  %retval.2 = phi i1 [ true, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ %call10, %for.cond ], [ %call10, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit50 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ %call10, %for.cond ], [ %call10, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit50 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8790,8 +8790,8 @@ if.end64:                                         ; preds = %if.end.i, %if.end, 
   br label %return
 
 return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit63, %entry, %if.end64
-  %retval.3 = phi i1 [ false, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit63 ], [ true, %if.end64 ], [ false, %entry ]
-  ret i1 %retval.3
+  %retval.0 = phi i1 [ false, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit63 ], [ true, %if.end64 ], [ false, %entry ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10722,8 +10722,8 @@ ehcleanup:                                        ; preds = %lpad15, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit54, %for.cond, %for.cond.preheader, %if.end, %entry
-  %retval.2 = phi i1 [ true, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ %call10, %for.cond ], [ %call10, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit54 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ true, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ %call10, %for.cond ], [ %call10, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit54 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14586,8 +14586,8 @@ ehcleanup:                                        ; preds = %lpad20, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit64, %if.end, %_ZNK3nla7nex_mul3endEv.exit, %_ZN3nla9intervals31set_zero_interval_deps_for_multERN13dep_intervals9im_config8intervalE.exit
-  %retval.2 = phi i1 [ true, %_ZN3nla9intervals31set_zero_interval_deps_for_multERN13dep_intervals9im_config8intervalE.exit ], [ true, %_ZNK3nla7nex_mul3endEv.exit ], [ true, %if.end ], [ %call11, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit64 ]
-  ret i1 %retval.2
+  %retval.0 = phi i1 [ true, %_ZN3nla9intervals31set_zero_interval_deps_for_multERN13dep_intervals9im_config8intervalE.exit ], [ true, %_ZNK3nla7nex_mul3endEv.exit ], [ true, %if.end ], [ %call11, %_ZN16_scoped_intervalI13dep_intervalsED2Ev.exit64 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

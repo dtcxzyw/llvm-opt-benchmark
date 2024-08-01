@@ -1399,7 +1399,7 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
           to label %48 unwind label %.body167.thread276.i, !noalias !199
 
 47:                                               ; preds = %.body.i
-  br i1 %.2.i, label %.body167.thread.i, label %common.resume
+  br i1 %.3.i, label %.body167.thread.i, label %common.resume
 
 .body167.thread276.i:                             ; preds = %.noexc252.i, %381, %3
   %lpad.thr_comm.i = landingpad { ptr, i32 }
@@ -1444,13 +1444,13 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
           to label %61 unwind label %59, !noalias !212
 
 .body.i:                                          ; preds = %361, %110, %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit.i", %66, %59
-  %.2.i = phi i1 [ true, %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit.i" ], [ %.3.i, %59 ], [ true, %66 ], [ false, %110 ], [ true, %361 ]
+  %.3.i = phi i1 [ true, %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit.i" ], [ %.2.i, %59 ], [ true, %66 ], [ false, %110 ], [ true, %361 ]
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit.i" ], [ %60, %59 ], [ %67, %66 ], [ %111, %110 ], [ %362, %361 ]
   invoke void @"_ZN4core3ptr48drop_in_place$LT$regex..regex..string..Regex$GT$17h43ee77ecbda89705E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %39) #15
           to label %47 unwind label %344, !noalias !212
 
 59:                                               ; preds = %.noexc244.i, %369, %.noexc173.i, %118, %58
-  %.3.i = phi i1 [ true, %58 ], [ false, %118 ], [ false, %.noexc173.i ], [ true, %369 ], [ true, %.noexc244.i ]
+  %.2.i = phi i1 [ true, %58 ], [ false, %118 ], [ false, %.noexc173.i ], [ true, %369 ], [ true, %.noexc244.i ]
   %60 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i

@@ -10896,7 +10896,7 @@ _ZNK6AstVar4nameB5cxx11Ev.exit:                   ; preds = %468
   br label %485
 
 474:                                              ; preds = %471, %465, %_ZNK13AstBasicDType10isZeroInitEv.exit
-  %.0117 = phi i1 [ false, %465 ], [ true, %471 ], [ false, %_ZNK13AstBasicDType10isZeroInitEv.exit ]
+  %.1118 = phi i1 [ false, %465 ], [ true, %471 ], [ false, %_ZNK13AstBasicDType10isZeroInitEv.exit ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @v3Global, i64 1552))
           to label %_ZNK9V3Options8xInitialB5cxx11Ev.exit unwind label %522
 
@@ -10914,11 +10914,11 @@ _ZNK9V3Options8xInitialB5cxx11Ev.exit:            ; preds = %474
   %479 = icmp eq i32 %478, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %70) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #17
-  br i1 %.0117, label %481, label %483
+  br i1 %.1118, label %481, label %483
 
 480:                                              ; preds = %_ZNK9V3Options8xInitialB5cxx11Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #17
-  br i1 %.0117, label %481, label %483
+  br i1 %.1118, label %481, label %483
 
 481:                                              ; preds = %.thread407, %480
   %482 = phi i1 [ true, %480 ], [ %479, %.thread407 ]
@@ -11018,12 +11018,12 @@ _ZNK7AstNode6isWideEv.exit367:                    ; preds = %493
   %521 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %69) #17
-  br i1 %.0117, label %524, label %525
+  br i1 %.1118, label %524, label %525
 
 522:                                              ; preds = %474
   %523 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.0117, label %524, label %525
+  br i1 %.1118, label %524, label %525
 
 524:                                              ; preds = %520, %522
   %.pn200428 = phi { ptr, i32 } [ %521, %520 ], [ %523, %522 ]

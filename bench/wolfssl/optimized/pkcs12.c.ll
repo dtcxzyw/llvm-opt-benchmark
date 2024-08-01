@@ -1351,7 +1351,7 @@ if.end142:                                        ; preds = %if.end131
 
 if.end149:                                        ; preds = %if.end142, %if.end112
   %data39.0 = phi ptr [ %call100, %if.end112 ], [ %16, %if.end142 ]
-  %buf.1 = phi ptr [ %call100, %if.end112 ], [ null, %if.end142 ]
+  %buf.2 = phi ptr [ %call100, %if.end112 ], [ null, %if.end142 ]
   %dataSz150 = getelementptr inbounds i8, ptr %ci.0218, i64 20
   %35 = load i32, ptr %dataSz150, align 4
   %call151 = call i32 @GetSequence(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %totalSz, i32 noundef %35) #9
@@ -1367,7 +1367,7 @@ if.end155:                                        ; preds = %if.end149
   br i1 %cmp156198, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end155, %if.end408
-  %tailList.1200 = phi ptr [ %tailList.3, %if.end408 ], [ %tailList.0217, %if.end155 ]
+  %tailList.1200 = phi ptr [ %tailList.2, %if.end408 ], [ %tailList.0217, %if.end155 ]
   %call362190199 = phi ptr [ %call362189, %if.end408 ], [ %call362190.lcssa203215, %if.end155 ]
   %38 = load i32, ptr %dataSz150, align 4
   %call159 = call i32 @GetSequence(ptr noundef %data39.0, ptr noundef nonnull %idx, ptr noundef nonnull %bagSz, i32 noundef %38) #9
@@ -1657,7 +1657,7 @@ if.end390:                                        ; preds = %if.end379, %do.end3
 sw.epilog404:                                     ; preds = %if.end170.sw.epilog404_crit_edge, %if.end390, %if.end279, %if.end208
   %85 = phi i32 [ %.pre245, %if.end170.sw.epilog404_crit_edge ], [ %add391, %if.end390 ], [ %add280, %if.end279 ], [ %add209, %if.end208 ]
   %call362189 = phi ptr [ %call362190199, %if.end170.sw.epilog404_crit_edge ], [ %call362188, %if.end390 ], [ %call362190199, %if.end279 ], [ %call362190199, %if.end208 ]
-  %tailList.3 = phi ptr [ %tailList.1200, %if.end170.sw.epilog404_crit_edge ], [ %call362, %if.end390 ], [ %tailList.1200, %if.end279 ], [ %tailList.1200, %if.end208 ]
+  %tailList.2 = phi ptr [ %tailList.1200, %if.end170.sw.epilog404_crit_edge ], [ %call362, %if.end390 ], [ %tailList.1200, %if.end279 ], [ %tailList.1200, %if.end208 ]
   %86 = load i32, ptr %bagSz, align 4
   %cmp405 = icmp slt i32 %85, %86
   br i1 %cmp405, label %if.then407, label %if.end408
@@ -1674,12 +1674,12 @@ if.end408:                                        ; preds = %if.then407, %sw.epi
 
 while.end:                                        ; preds = %if.end408, %if.end155
   %call362190.lcssa = phi ptr [ %call362190.lcssa203215, %if.end155 ], [ %call362189, %if.end408 ]
-  %tailList.1.lcssa = phi ptr [ %tailList.0217, %if.end155 ], [ %tailList.3, %if.end408 ]
-  %cmp409.not = icmp eq ptr %buf.1, null
+  %tailList.1.lcssa = phi ptr [ %tailList.0217, %if.end155 ], [ %tailList.2, %if.end408 ]
+  %cmp409.not = icmp eq ptr %buf.2, null
   br i1 %cmp409.not, label %if.end417, label %if.then415
 
 if.then415:                                       ; preds = %while.end
-  call void @wolfSSL_Free(ptr noundef nonnull %buf.1) #9
+  call void @wolfSSL_Free(ptr noundef nonnull %buf.2) #9
   br label %if.end417
 
 if.end417:                                        ; preds = %if.then415, %while.end
@@ -1722,14 +1722,14 @@ if.then439.loopexit:                              ; preds = %if.end360, %sw.epil
 
 if.then439.loopexit170:                           ; preds = %if.end131, %if.end125, %do.end114, %if.end97, %if.end86, %do.end45, %if.end142, %if.end149, %if.end104, %if.end74, %if.end68, %if.end62, %if.end56
   %ret.0.ph.ph.ph171 = phi i32 [ -140, %if.end131 ], [ -140, %if.end125 ], [ -140, %do.end114 ], [ -125, %if.end97 ], [ -140, %if.end86 ], [ -140, %do.end45 ], [ %call144, %if.end142 ], [ %call151, %if.end149 ], [ %call106, %if.end104 ], [ %call82, %if.end74 ], [ %call70, %if.end68 ], [ %call64, %if.end62 ], [ %call58, %if.end56 ]
-  %buf.3.ph.ph.ph = phi ptr [ null, %if.end131 ], [ null, %if.end125 ], [ null, %do.end114 ], [ null, %if.end97 ], [ null, %if.end86 ], [ null, %do.end45 ], [ null, %if.end142 ], [ %buf.1, %if.end149 ], [ %call100, %if.end104 ], [ null, %if.end74 ], [ null, %if.end68 ], [ null, %if.end62 ], [ null, %if.end56 ]
+  %buf.1.ph.ph.ph = phi ptr [ null, %if.end131 ], [ null, %if.end125 ], [ null, %do.end114 ], [ null, %if.end97 ], [ null, %if.end86 ], [ null, %do.end45 ], [ null, %if.end142 ], [ %buf.2, %if.end149 ], [ %call100, %if.end104 ], [ null, %if.end74 ], [ null, %if.end68 ], [ null, %if.end62 ], [ null, %if.end56 ]
   store ptr %call362190.lcssa203215, ptr %certList, align 8
   br label %if.then439
 
 if.then439:                                       ; preds = %if.then439.loopexit170, %if.then439.loopexit, %if.then331, %if.then188, %if.then377, %if.then245, %if.then260
   %94 = phi ptr [ %call362190199, %if.then377 ], [ %call362190199, %if.then245 ], [ %call362190199, %if.then260 ], [ %call362190199, %if.then331 ], [ %call362190199, %if.then188 ], [ %call362190199, %if.then439.loopexit ], [ %call362190.lcssa203215, %if.then439.loopexit170 ]
   %ret.0.ph.ph = phi i32 [ -125, %if.then377 ], [ %call240, %if.then245 ], [ -125, %if.then260 ], [ %spec.select169, %if.then331 ], [ %spec.select, %if.then188 ], [ %ret.0.ph.ph.ph, %if.then439.loopexit ], [ %ret.0.ph.ph.ph171, %if.then439.loopexit170 ]
-  %buf.3.ph.ph = phi ptr [ %buf.1, %if.then377 ], [ %buf.1, %if.then245 ], [ %buf.1, %if.then260 ], [ %buf.1, %if.then331 ], [ %buf.1, %if.then188 ], [ %buf.1, %if.then439.loopexit ], [ %buf.3.ph.ph.ph, %if.then439.loopexit170 ]
+  %buf.1.ph.ph = phi ptr [ %buf.2, %if.then377 ], [ %buf.2, %if.then245 ], [ %buf.2, %if.then260 ], [ %buf.2, %if.then331 ], [ %buf.2, %if.then188 ], [ %buf.2, %if.then439.loopexit ], [ %buf.1.ph.ph.ph, %if.then439.loopexit170 ]
   %.pr = load ptr, ptr %pkey, align 8
   %tobool440.not = icmp eq ptr %.pr, null
   br i1 %tobool440.not, label %if.end447, label %if.then445
@@ -1745,13 +1745,13 @@ if.end447.loopexit:                               ; preds = %if.then196
 
 if.end447:                                        ; preds = %if.end447.loopexit, %if.then445, %if.then439
   %95 = phi ptr [ %94, %if.then445 ], [ %94, %if.then439 ], [ %call362190199, %if.end447.loopexit ]
-  %buf.3.ph168 = phi ptr [ %buf.3.ph.ph, %if.then445 ], [ %buf.3.ph.ph, %if.then439 ], [ %buf.1, %if.end447.loopexit ]
+  %buf.1.ph168 = phi ptr [ %buf.1.ph.ph, %if.then445 ], [ %buf.1.ph.ph, %if.then439 ], [ %buf.2, %if.end447.loopexit ]
   %ret.0.ph167 = phi i32 [ %ret.0.ph.ph, %if.then445 ], [ %ret.0.ph.ph, %if.then439 ], [ -125, %if.end447.loopexit ]
-  %tobool448.not = icmp eq ptr %buf.3.ph168, null
+  %tobool448.not = icmp eq ptr %buf.1.ph168, null
   br i1 %tobool448.not, label %if.end455, label %if.then453
 
 if.then453:                                       ; preds = %if.end447
-  call void @wolfSSL_Free(ptr noundef nonnull %buf.3.ph168) #9
+  call void @wolfSSL_Free(ptr noundef nonnull %buf.1.ph168) #9
   %.pre246 = load ptr, ptr %certList, align 8
   br label %if.end455
 
@@ -1947,11 +1947,11 @@ for.body.i.i:                                     ; preds = %if.end.i58.i, %for.
 
 for.body35.i.i:                                   ; preds = %if.end.i58.i, %for.body35.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body35.i.i ], [ 0, %if.end.i58.i ]
-  %idx.162.i.i = phi i32 [ %inc38.i.i, %for.body35.i.i ], [ %add11.i.i, %if.end.i58.i ]
+  %idx.262.i.i = phi i32 [ %inc38.i.i, %for.body35.i.i ], [ %add11.i.i, %if.end.i58.i ]
   %arrayidx37.i.i = getelementptr inbounds [11 x i8], ptr @WC_PKCS12_ShroudedKeyBag_OID, i64 0, i64 %indvars.iv.i.i
   %3 = load i8, ptr %arrayidx37.i.i, align 1
-  %inc38.i.i = add i32 %idx.162.i.i, 1
-  %idxprom39.i.i = zext i32 %idx.162.i.i to i64
+  %inc38.i.i = add i32 %idx.262.i.i, 1
+  %idxprom39.i.i = zext i32 %idx.262.i.i to i64
   %arrayidx40.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom39.i.i
   store i8 %3, ptr %arrayidx40.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1959,8 +1959,8 @@ for.body35.i.i:                                   ; preds = %if.end.i58.i, %for.
   br i1 %exitcond.not.i.i, label %if.end45.i.i, label %for.body35.i.i, !llvm.loop !11
 
 if.end45.i.i:                                     ; preds = %for.body35.i.i, %for.body.i.i
-  %idx.2.i.i = phi i32 [ %inc17.i.i, %for.body.i.i ], [ %inc38.i.i, %for.body35.i.i ]
-  %totalSz.2.i.i = add i32 %call10.i.i, 12
+  %idx.1.i.i = phi i32 [ %inc17.i.i, %for.body.i.i ], [ %inc38.i.i, %for.body35.i.i ]
+  %totalSz.1.i.i = add i32 %call10.i.i, 12
   %4 = load i32, ptr %length.i53.i, align 4
   %conv46.i.i = zext i32 %4 to i64
   %call47.i.i = call ptr @wolfSSL_Malloc(i64 noundef %conv46.i.i) #9
@@ -1982,13 +1982,13 @@ wc_PKCS12_create_key_bag.exit61.thread.i:         ; preds = %if.then56.i.i, %if.
 
 wc_PKCS12_create_key_bag.exit61.i:                ; preds = %if.end51.i.i
   store i32 %call52.i.i, ptr %length.i53.i, align 4
-  %idx.ext59.i.i = zext i32 %idx.2.i.i to i64
+  %idx.ext59.i.i = zext i32 %idx.1.i.i to i64
   %add.ptr60.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext59.i.i
   %conv61.i.i = zext nneg i32 %call52.i.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr60.i.i, ptr nonnull align 1 %call47.i.i, i64 %conv61.i.i, i1 false)
   call void @wolfSSL_Free(ptr noundef nonnull %call47.i.i) #9
   %5 = load i32, ptr %length.i53.i, align 4
-  %add66.i.i = add i32 %totalSz.2.i.i, %5
+  %add66.i.i = add i32 %totalSz.1.i.i, %5
   %call67.i.i = call i32 @SetSequence(i32 noundef %add66.i.i, ptr noundef nonnull %add.ptr.i) #9
   %idx.ext68.i.i = zext i32 %call67.i.i to i64
   %add.ptr69.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.ext68.i.i
@@ -2067,10 +2067,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 if.end11.i:                                       ; preds = %switch.lookup, %if.end11.i
   %current.072.i = phi ptr [ %9, %if.end11.i ], [ %ca, %switch.lookup ]
-  %certBufSz.071.i = phi i32 [ %add.i59, %if.end11.i ], [ %add9.i.i, %switch.lookup ]
+  %certBufSz.171.i = phi i32 [ %add.i59, %if.end11.i ], [ %add9.i.i, %switch.lookup ]
   %bufferSz.i = getelementptr inbounds i8, ptr %current.072.i, i64 8
   %8 = load i32, ptr %bufferSz.i, align 8
-  %add9.i64.i = add i32 %certBufSz.071.i, 55
+  %add9.i64.i = add i32 %certBufSz.171.i, 55
   %add.i59 = add i32 %add9.i64.i, %8
   %next.i = getelementptr inbounds i8, ptr %current.072.i, i64 16
   %9 = load ptr, ptr %next.i, align 8
@@ -2078,15 +2078,15 @@ if.end11.i:                                       ; preds = %switch.lookup, %if.
   br i1 %cmp7.not.i, label %if.end12.i, label %if.end11.i, !llvm.loop !12
 
 if.end12.i:                                       ; preds = %if.end11.i, %switch.lookup
-  %certBufSz.1.i = phi i32 [ %add9.i.i, %switch.lookup ], [ %add.i59, %if.end11.i ]
-  %add13.i = add i32 %certBufSz.1.i, 6
+  %certBufSz.0.i = phi i32 [ %add9.i.i, %switch.lookup ], [ %add.i59, %if.end11.i ]
+  %add13.i = add i32 %certBufSz.0.i, 6
   %conv.i60 = zext i32 %add13.i to i64
   %call14.i = call ptr @wolfSSL_Malloc(i64 noundef %conv.i60) #9
   %cmp15.i = icmp eq ptr %call14.i, null
   br i1 %cmp15.i, label %if.then26, label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end12.i
-  store i32 %certBufSz.1.i, ptr %sz.i, align 4
+  store i32 %certBufSz.0.i, ptr %sz.i, align 4
   %add.ptr.i61 = getelementptr inbounds i8, ptr %call14.i, i64 6
   %call22.i = call fastcc i32 @wc_PKCS12_create_cert_bag(ptr noundef nonnull %add.ptr.i61, ptr noundef nonnull %sz.i, ptr noundef readonly %cert, i32 noundef %certSz)
   %cmp23.i = icmp slt i32 %call22.i, 0
@@ -2101,10 +2101,10 @@ while.body37.preheader.i:                         ; preds = %if.end28.i
 
 while.body37.i:                                   ; preds = %if.end51.i, %while.body37.preheader.i
   %current33.074.i = phi ptr [ %12, %if.end51.i ], [ %ca, %while.body37.preheader.i ]
-  %idx.073.i = phi i32 [ %add52.i, %if.end51.i ], [ %add29.i, %while.body37.preheader.i ]
-  %sub38.i = sub i32 %add13.i, %idx.073.i
+  %idx.173.i = phi i32 [ %add52.i, %if.end51.i ], [ %add29.i, %while.body37.preheader.i ]
+  %sub38.i = sub i32 %add13.i, %idx.173.i
   store i32 %sub38.i, ptr %sz.i, align 4
-  %idx.ext39.i = zext i32 %idx.073.i to i64
+  %idx.ext39.i = zext i32 %idx.173.i to i64
   %add.ptr40.i = getelementptr inbounds i8, ptr %call14.i, i64 %idx.ext39.i
   %10 = load ptr, ptr %current33.074.i, align 8
   %bufferSz42.i = getelementptr inbounds i8, ptr %current33.074.i, i64 8
@@ -2114,7 +2114,7 @@ while.body37.i:                                   ; preds = %if.end51.i, %while.
   br i1 %cmp44.i, label %if.then26.sink.split, label %if.end51.i
 
 if.end51.i:                                       ; preds = %while.body37.i
-  %add52.i = add i32 %call43.i, %idx.073.i
+  %add52.i = add i32 %call43.i, %idx.173.i
   %next53.i = getelementptr inbounds i8, ptr %current33.074.i, i64 16
   %12 = load ptr, ptr %next53.i, align 8
   %cmp35.not.i = icmp eq ptr %12, null
@@ -2125,13 +2125,13 @@ if.end55.loopexit.i:                              ; preds = %if.end51.i
   br label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.end55.loopexit.i, %if.end28.i
-  %idx.1.i = phi i32 [ %call22.i, %if.end28.i ], [ %13, %if.end55.loopexit.i ]
-  %call57.i = call i32 @SetSequence(i32 noundef %idx.1.i, ptr noundef nonnull %call14.i) #9
+  %idx.0.i = phi i32 [ %call22.i, %if.end28.i ], [ %13, %if.end55.loopexit.i ]
+  %call57.i = call i32 @SetSequence(i32 noundef %idx.0.i, ptr noundef nonnull %call14.i) #9
   %idx.ext58.i = zext i32 %call57.i to i64
   %add.ptr59.i = getelementptr inbounds i8, ptr %call14.i, i64 %idx.ext58.i
-  %conv62.i = zext i32 %idx.1.i to i64
+  %conv62.i = zext i32 %idx.0.i to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr59.i, ptr nonnull align 1 %add.ptr.i61, i64 %conv62.i, i1 false)
-  %add64.i = add i32 %call57.i, %idx.1.i
+  %add64.i = add i32 %call57.i, %idx.0.i
   %call65.i = call fastcc i32 @wc_PKCS12_encrypt_content(ptr noundef nonnull %call.i, ptr noundef nonnull %rng, ptr noundef null, ptr noundef nonnull %certCiSz, ptr noundef null, i32 noundef %add64.i, i32 noundef %nidCert, ptr noundef %pass, i32 noundef %passSz, i32 noundef %spec.store.select, i32 noundef %switch.load)
   %cmp66.not.i = icmp eq i32 %call65.i, -202
   br i1 %cmp66.not.i, label %if.end75.i, label %if.then26.sink.split

@@ -264,7 +264,7 @@ if.then12:                                        ; preds = %6
   br label %if.end17
 
 if.end17:                                         ; preds = %6, %if.then12, %lor.lhs.false
-  %defltlen.1 = phi i64 [ %7, %6 ], [ %add15, %if.then12 ], [ 0, %lor.lhs.false ]
+  %defltlen.0 = phi i64 [ %7, %6 ], [ %add15, %if.then12 ], [ 0, %lor.lhs.false ]
   %wbuf = getelementptr inbounds i8, ptr %rl, i64 96
   %cmp1850.not = icmp eq i64 %numwpipes, 0
   br i1 %cmp1850.not, label %for.end, label %for.body
@@ -275,7 +275,7 @@ for.body:                                         ; preds = %if.end17, %if.end47
   %cmp20 = icmp eq i64 %currpipe.051, 0
   %cond = select i1 %cmp20, i64 %firstlen, i64 %nextlen
   %cmp22 = icmp eq i64 %cond, 0
-  %spec.select = select i1 %cmp22, i64 %defltlen.1, i64 %cond
+  %spec.select = select i1 %cmp22, i64 %defltlen.0, i64 %cond
   %len26 = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %9 = load i64, ptr %len26, align 8
   %cmp27.not = icmp eq i64 %9, %spec.select
@@ -564,7 +564,7 @@ while.body.lr.ph.lr.ph:                           ; preds = %if.end44
   %brmerge.not = icmp eq i32 %14, 0
   %spec.select = tail call i64 @llvm.umax.i64(i64 %n.addr.0, i64 %max)
   %spec.select100 = tail call i64 @llvm.umin.i64(i64 %spec.select, i64 %sub47)
-  %max.addr.1 = select i1 %brmerge.not, i64 %n.addr.0, i64 %spec.select100
+  %max.addr.0 = select i1 %brmerge.not, i64 %n.addr.0, i64 %spec.select100
   %prev = getelementptr inbounds i8, ptr %rl, i64 56
   %bio72 = getelementptr inbounds i8, ptr %rl, i64 64
   %add.ptr75 = getelementptr inbounds i8, ptr %add.ptr12, i64 %6
@@ -574,7 +574,7 @@ while.body.us.preheader:                          ; preds = %if.end123, %while.b
   %n.addr.1.ph144 = phi i64 [ %n.addr.0, %while.body.lr.ph.lr.ph ], [ %n.addr.2, %if.end123 ]
   %left.0.ph143 = phi i64 [ %0, %while.body.lr.ph.lr.ph ], [ %add124, %if.end123 ]
   %add.ptr76 = getelementptr inbounds i8, ptr %add.ptr75, i64 %left.0.ph143
-  %sub77 = sub i64 %max.addr.1, %left.0.ph143
+  %sub77 = sub i64 %max.addr.0, %left.0.ph143
   %conv = trunc i64 %sub77 to i32
   %.pre168 = load ptr, ptr %prev, align 8
   br label %while.body.us
@@ -1283,7 +1283,7 @@ for.body287.us:                                   ; preds = %for.cond284.prehead
   br i1 %exitcond337.not, label %if.then323, label %for.body287.us, !llvm.loop !10
 
 for.body287:                                      ; preds = %for.cond284.preheader, %if.end310
-  %enc_err.0291 = phi i32 [ %spec.select, %if.end310 ], [ %call232, %for.cond284.preheader ]
+  %enc_err.1291 = phi i32 [ %spec.select, %if.end310 ], [ %call232, %for.cond284.preheader ]
   %j.1289 = phi i64 [ %inc318, %if.end310 ], [ 0, %for.cond284.preheader ]
   %arrayidx289 = getelementptr inbounds %struct.tls_rl_record_st, ptr %rrec, i64 %j.1289
   %71 = load ptr, ptr %funcs, align 8
@@ -1308,11 +1308,11 @@ if.then309:                                       ; preds = %lor.lhs.false303, %
   br label %if.end310
 
 if.end310:                                        ; preds = %if.then309, %lor.lhs.false303
-  %enc_err.1 = phi i32 [ 0, %if.then309 ], [ %enc_err.0291, %lor.lhs.false303 ]
+  %enc_err.2 = phi i32 [ 0, %if.then309 ], [ %enc_err.1291, %lor.lhs.false303 ]
   %length311 = getelementptr inbounds i8, ptr %arrayidx289, i64 8
   %74 = load i64, ptr %length311, align 8
   %cmp313 = icmp ugt i64 %74, %add312
-  %spec.select = select i1 %cmp313, i32 0, i32 %enc_err.1
+  %spec.select = select i1 %cmp313, i32 0, i32 %enc_err.2
   %inc318 = add nuw i64 %j.1289, 1
   %exitcond329.not = icmp eq i64 %inc318, %indvars.iv
   br i1 %exitcond329.not, label %if.end320, label %for.body287, !llvm.loop !10

@@ -2006,8 +2006,8 @@ define void @Aig_ManPartitionCompact(ptr nocapture noundef %0, ptr nocapture nou
 9:                                                ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
   %.087 = phi i32 [ 0, %.lr.ph ], [ %.1, %64 ]
-  %.04985 = phi ptr [ null, %.lr.ph ], [ %.4, %64 ]
-  %.05284 = phi ptr [ null, %.lr.ph ], [ %.355, %64 ]
+  %.04985 = phi ptr [ null, %.lr.ph ], [ %.251, %64 ]
+  %.05284 = phi ptr [ null, %.lr.ph ], [ %.254, %64 ]
   %.val63 = load ptr, ptr %7, align 8
   %10 = getelementptr inbounds ptr, ptr %.val63, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
@@ -2119,7 +2119,7 @@ Vec_IntFree.exit73:                               ; preds = %Vec_IntFree.exit71,
 
 54:                                               ; preds = %.thread, %49
   %55 = phi i64 [ %47, %.thread ], [ %52, %49 ]
-  %.25182 = phi ptr [ %.150, %.thread ], [ %.04985, %49 ]
+  %.382 = phi ptr [ %.150, %.thread ], [ %.04985, %49 ]
   %.val58 = load ptr, ptr %7, align 8
   %56 = getelementptr inbounds ptr, ptr %.val58, i64 %55
   %57 = load ptr, ptr %56, align 8
@@ -2136,7 +2136,7 @@ Vec_IntFree.exit75:                               ; preds = %54, %60
   tail call void @free(ptr noundef nonnull %57) #23
   %.val66 = load ptr, ptr %7, align 8
   %61 = getelementptr inbounds ptr, ptr %.val66, i64 %55
-  store ptr %.25182, ptr %61, align 8
+  store ptr %.382, ptr %61, align 8
   br label %62
 
 62:                                               ; preds = %Vec_IntFree.exit75, %49
@@ -2144,8 +2144,8 @@ Vec_IntFree.exit75:                               ; preds = %54, %60
   br label %64
 
 64:                                               ; preds = %45, %62
-  %.355 = phi ptr [ %.153, %45 ], [ null, %62 ]
-  %.4 = phi ptr [ %.150, %45 ], [ null, %62 ]
+  %.254 = phi ptr [ %.153, %45 ], [ null, %62 ]
+  %.251 = phi ptr [ %.150, %45 ], [ null, %62 ]
   %.1 = phi i32 [ %.087, %45 ], [ %63, %62 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %5, align 4
@@ -2154,7 +2154,7 @@ Vec_IntFree.exit75:                               ; preds = %54, %60
   br i1 %66, label %9, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %64
-  %.not = icmp eq ptr %.355, null
+  %.not = icmp eq ptr %.254, null
   br i1 %.not, label %.critedge.thread, label %67
 
 67:                                               ; preds = %.critedge
@@ -2162,7 +2162,7 @@ Vec_IntFree.exit75:                               ; preds = %54, %60
   %.val65 = load ptr, ptr %68, align 8
   %69 = sext i32 %.1 to i64
   %70 = getelementptr inbounds ptr, ptr %.val65, i64 %69
-  store ptr %.355, ptr %70, align 8
+  store ptr %.254, ptr %70, align 8
   %71 = getelementptr i8, ptr %1, i64 8
   %.val57 = load ptr, ptr %71, align 8
   %72 = getelementptr inbounds ptr, ptr %.val57, i64 %69
@@ -2180,7 +2180,7 @@ Vec_IntFree.exit77:                               ; preds = %67, %76
   tail call void @free(ptr noundef nonnull %73) #23
   %.val64 = load ptr, ptr %71, align 8
   %77 = getelementptr inbounds ptr, ptr %.val64, i64 %69
-  store ptr %.4, ptr %77, align 8
+  store ptr %.251, ptr %77, align 8
   %78 = add nsw i32 %.1, 1
   br label %.critedge.thread
 

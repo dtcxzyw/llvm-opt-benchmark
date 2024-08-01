@@ -366,7 +366,7 @@ do.body.loopexit:                                 ; preds = %do.cond
   br label %do.body, !llvm.loop !14
 
 do.body:                                          ; preds = %for.body236, %do.body.loopexit
-  %j.4 = phi i32 [ %j.7.lcssa, %do.body.loopexit ], [ -1, %for.body236 ]
+  %j.4 = phi i32 [ %j.8.lcssa, %do.body.loopexit ], [ -1, %for.body236 ]
   %low.0 = phi i32 [ %up.5.lcssa, %do.body.loopexit ], [ 0, %for.body236 ]
   %inc253 = add nsw i32 %low.0, 1
   %idxprom254 = sext i32 %low.0 to i64
@@ -441,7 +441,7 @@ for.body287:                                      ; preds = %for.cond284.prehead
 
 do.body299:                                       ; preds = %do.body299.preheader, %do.cond
   %indvars.iv410 = phi i64 [ %indvars.iv.next411, %do.cond ], [ %idxprom254, %do.body299.preheader ]
-  %j.6 = phi i32 [ %j.7.lcssa, %do.cond ], [ %j.5.lcssa, %do.body299.preheader ]
+  %j.7 = phi i32 [ %j.8.lcssa, %do.cond ], [ %j.5.lcssa, %do.body299.preheader ]
   %up.4 = phi i32 [ %up.5.lcssa, %do.cond ], [ %up.1.lcssa, %do.body299.preheader ]
   %indvars.iv.next411 = add nsw i64 %indvars.iv410, 1
   %arrayidx303 = getelementptr inbounds i32, ptr %call221, i64 %indvars.iv410
@@ -514,14 +514,14 @@ for.inc355:                                       ; preds = %for.body317, %if.en
   br i1 %exitcond409.not, label %do.cond, label %for.body317, !llvm.loop !17
 
 do.cond:                                          ; preds = %for.inc355, %do.body299
-  %j.7.lcssa = phi i32 [ %j.6, %do.body299 ], [ %50, %for.inc355 ]
+  %j.8.lcssa = phi i32 [ %j.7, %do.body299 ], [ %50, %for.inc355 ]
   %up.5.lcssa = phi i32 [ %up.4, %do.body299 ], [ %up.6, %for.inc355 ]
   %56 = trunc nsw i64 %indvars.iv.next411 to i32
   %cmp358.not = icmp eq i32 %up.5.lcssa, %56
   br i1 %cmp358.not, label %do.body.loopexit, label %do.body299, !llvm.loop !14
 
 update:                                           ; preds = %for.body287, %if.then339
-  %j.8 = phi i32 [ %50, %if.then339 ], [ %j.5.lcssa, %for.body287 ]
+  %j.6 = phi i32 [ %50, %if.then339 ], [ %j.5.lcssa, %for.body287 ]
   %cmp365347 = icmp sgt i32 %low.0, 0
   br i1 %cmp365347, label %for.body367.lr.ph, label %do.body380.preheader
 
@@ -549,7 +549,7 @@ do.body380.preheader:                             ; preds = %for.body367, %updat
   br label %do.body380
 
 do.body380:                                       ; preds = %do.body380.preheader, %if.end384
-  %j.9 = phi i32 [ %j.0.copyload, %if.end384 ], [ %j.8, %do.body380.preheader ]
+  %j.9 = phi i32 [ %j.0.copyload, %if.end384 ], [ %j.6, %do.body380.preheader ]
   %cmp381 = icmp slt i32 %j.9, 0
   br i1 %cmp381, label %if.then383, label %if.end384
 

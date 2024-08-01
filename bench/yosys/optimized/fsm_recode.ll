@@ -341,8 +341,8 @@ define internal void @_ZN12_GLOBAL__N_113FsmRecodePass7executeESt6vectorINSt7__c
 
 .lr.ph:                                           ; preds = %.preheader, %96
   %31 = phi ptr [ %99, %96 ], [ %26, %.preheader ]
-  %.0253 = phi ptr [ %.1.ph, %96 ], [ null, %.preheader ]
-  %.039252 = phi ptr [ %.140.ph, %96 ], [ null, %.preheader ]
+  %.0253 = phi ptr [ %.2.ph, %96 ], [ null, %.preheader ]
+  %.039252 = phi ptr [ %.241.ph, %96 ], [ null, %.preheader ]
   %.049251 = phi i64 [ %97, %96 ], [ 1, %.preheader ]
   %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %31, i64 %.049251
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %32)
@@ -469,11 +469,11 @@ define internal void @_ZN12_GLOBAL__N_113FsmRecodePass7executeESt6vectorINSt7__c
   br label %.loopexit155
 
 96:                                               ; preds = %46, %72, %91
-  %.150.ph = phi i64 [ %81, %91 ], [ %63, %72 ], [ %37, %46 ]
-  %.140.ph = phi ptr [ %.039252, %91 ], [ %75, %72 ], [ %.039252, %46 ]
-  %.1.ph = phi ptr [ %.0253, %91 ], [ %.0253, %72 ], [ %49, %46 ]
+  %.251.ph = phi i64 [ %81, %91 ], [ %63, %72 ], [ %37, %46 ]
+  %.241.ph = phi ptr [ %.039252, %91 ], [ %75, %72 ], [ %.039252, %46 ]
+  %.2.ph = phi ptr [ %.0253, %91 ], [ %.0253, %72 ], [ %49, %46 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #18
-  %97 = add nuw i64 %.150.ph, 1
+  %97 = add nuw i64 %.251.ph, 1
   %98 = load ptr, ptr %24, align 8
   %99 = load ptr, ptr %1, align 8
   %100 = ptrtoint ptr %98 to i64
@@ -485,8 +485,8 @@ define internal void @_ZN12_GLOBAL__N_113FsmRecodePass7executeESt6vectorINSt7__c
 
 .loopexit155:                                     ; preds = %96, %.preheader, %95
   %.049249 = phi i64 [ %.049251, %95 ], [ 1, %.preheader ], [ %97, %96 ]
-  %.039243 = phi ptr [ %.039252, %95 ], [ null, %.preheader ], [ %.140.ph, %96 ]
-  %.0237 = phi ptr [ %.0253, %95 ], [ null, %.preheader ], [ %.1.ph, %96 ]
+  %.039243 = phi ptr [ %.039252, %95 ], [ null, %.preheader ], [ %.241.ph, %96 ]
+  %.0237 = phi ptr [ %.0253, %95 ], [ null, %.preheader ], [ %.2.ph, %96 ]
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %105 unwind label %.loopexit.split-lp157
 

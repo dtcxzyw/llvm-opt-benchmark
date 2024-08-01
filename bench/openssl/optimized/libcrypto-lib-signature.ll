@@ -910,16 +910,16 @@ if.end62:                                         ; preds = %if.end50
   br i1 %cmp63, label %if.then65, label %for.inc
 
 if.then65:                                        ; preds = %if.end50, %if.end62
-  %provkey.198 = phi ptr [ %call61, %if.end62 ], [ null, %if.end50 ]
+  %provkey.298 = phi ptr [ %call61, %if.end62 ], [ null, %if.end50 ]
   call void @EVP_KEYMGMT_free(ptr noundef %call54) #4
   br label %for.inc
 
 for.inc:                                          ; preds = %sw.bb, %if.end62, %if.then65
   %signature.193 = phi ptr [ %signature.1.ph, %if.then65 ], [ %signature.1.ph, %if.end62 ], [ null, %sw.bb ]
-  %provkey.2 = phi ptr [ %provkey.198, %if.then65 ], [ %call61, %if.end62 ], [ null, %sw.bb ]
+  %provkey.1 = phi ptr [ %provkey.298, %if.then65 ], [ %call61, %if.end62 ], [ null, %sw.bb ]
   %inc = add nuw nsw i32 %iter.0103, 1
   %cmp28 = icmp ult i32 %iter.0103, 2
-  %cmp30 = icmp eq ptr %provkey.2, null
+  %cmp30 = icmp eq ptr %provkey.1, null
   %17 = select i1 %cmp28, i1 %cmp30, i1 false
   br i1 %17, label %for.body, label %for.end, !llvm.loop !6
 
@@ -1003,7 +1003,7 @@ sw.default:                                       ; preds = %if.end82
 
 sw.epilog110:                                     ; preds = %sw.bb101, %sw.bb92, %sw.bb83
   %.sink = phi ptr [ %21, %sw.bb83 ], [ %22, %sw.bb92 ], [ %23, %sw.bb101 ]
-  %call109 = call i32 %.sink(ptr noundef nonnull %call75, ptr noundef nonnull %provkey.2, ptr noundef %params) #4
+  %call109 = call i32 %.sink(ptr noundef nonnull %call75, ptr noundef nonnull %provkey.1, ptr noundef %params) #4
   %cmp111 = icmp slt i32 %call109, 1
   br i1 %cmp111, label %if.then113, label %if.then181
 
@@ -1093,7 +1093,7 @@ if.then181:                                       ; preds = %sw.epilog110, %sw.e
   br label %return
 
 err:                                              ; preds = %sw.epilog174, %sw.default173, %if.then113, %sw.default, %if.then104, %if.then95, %if.then86, %if.then81, %if.then25, %if.then18, %if.then6
-  %ret.4 = phi i32 [ 0, %sw.default173 ], [ %call172, %sw.epilog174 ], [ 0, %if.then6 ], [ 0, %if.then25 ], [ 0, %if.then81 ], [ 0, %sw.default ], [ -2, %if.then104 ], [ %call109, %if.then113 ], [ -2, %if.then95 ], [ -2, %if.then86 ], [ 0, %if.then18 ]
+  %ret.0 = phi i32 [ 0, %sw.default173 ], [ %call172, %sw.epilog174 ], [ 0, %if.then6 ], [ 0, %if.then25 ], [ 0, %if.then81 ], [ 0, %sw.default ], [ -2, %if.then104 ], [ %call109, %if.then113 ], [ -2, %if.then95 ], [ -2, %if.then86 ], [ 0, %if.then18 ]
   call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %ctx) #4
   store i32 0, ptr %ctx, align 8
   %35 = load ptr, ptr %tmp_keymgmt, align 8
@@ -1101,7 +1101,7 @@ err:                                              ; preds = %sw.epilog174, %sw.d
   br label %return
 
 return:                                           ; preds = %sw.bb163, %sw.bb153, %sw.bb143, %err, %if.then181, %if.then141, %if.then
-  %retval.0 = phi i32 [ -2, %if.then ], [ -2, %if.then141 ], [ %ret.4, %err ], [ %call182, %if.then181 ], [ 1, %sw.bb143 ], [ 1, %sw.bb153 ], [ 1, %sw.bb163 ]
+  %retval.0 = phi i32 [ -2, %if.then ], [ -2, %if.then141 ], [ %ret.0, %err ], [ %call182, %if.then181 ], [ 1, %sw.bb143 ], [ 1, %sw.bb153 ], [ 1, %sw.bb163 ]
   ret i32 %retval.0
 }
 

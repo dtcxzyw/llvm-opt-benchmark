@@ -3986,9 +3986,9 @@ for.body.lr.ph.i:                                 ; preds = %for.body11
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %first.014.i = phi i1 [ true, %for.body.lr.ph.i ], [ %first.2.i, %for.inc.i ]
+  %first.014.i = phi i1 [ true, %for.body.lr.ph.i ], [ %first.1.i, %for.inc.i ]
   %__begin1.013.i = phi ptr [ %m_lits.i.ptr.i, %for.body.lr.ph.i ], [ %incdec.ptr.i, %for.inc.i ]
-  %d.012.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %d.1.i, %for.inc.i ]
+  %d.012.i = phi i64 [ 1, %for.body.lr.ph.i ], [ %d.2.i, %for.inc.i ]
   %16 = load i32, ptr %__begin1.013.i, align 4
   %shr.i.i = lshr i32 %16, 1
   %idxprom.i.i.i.i = zext nneg i32 %shr.i.i to i64
@@ -4092,20 +4092,20 @@ _ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i:          ; preds = %if.end48.i.i.i, %if
   br i1 %cmp12.i, label %_ZNK5arith3sls11compute_dtsEj.exit, label %for.inc.i
 
 for.inc.i:                                        ; preds = %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i, %for.body.i
-  %d.1.i = phi i64 [ %d.012.i, %for.body.i ], [ %storemerge.i, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i ]
-  %first.2.i = phi i1 [ %first.014.i, %for.body.i ], [ false, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i ]
+  %d.2.i = phi i64 [ %d.012.i, %for.body.i ], [ %storemerge.i, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i ]
+  %first.1.i = phi i1 [ %first.014.i, %for.body.i ], [ false, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i ]
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.013.i, i64 4
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i.ptr.i
   br i1 %cmp.not.i, label %_ZNK5arith3sls11compute_dtsEj.exit, label %for.body.i
 
 _ZNK5arith3sls11compute_dtsEj.exit:               ; preds = %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i, %for.inc.i
-  %d.2.i = phi i64 [ 0, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i ], [ %d.1.i, %for.inc.i ]
+  %d.1.i = phi i64 [ 0, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i ], [ %d.2.i, %for.inc.i ]
   br label %for.body.i40
 
 for.body.i40:                                     ; preds = %for.inc.i49, %_ZNK5arith3sls11compute_dtsEj.exit
-  %first.013.i = phi i1 [ true, %_ZNK5arith3sls11compute_dtsEj.exit ], [ %first.2.i51, %for.inc.i49 ]
+  %first.013.i = phi i1 [ true, %_ZNK5arith3sls11compute_dtsEj.exit ], [ %first.1.i51, %for.inc.i49 ]
   %__begin1.012.i = phi ptr [ %m_lits.i.ptr.i, %_ZNK5arith3sls11compute_dtsEj.exit ], [ %incdec.ptr.i52, %for.inc.i49 ]
-  %d.011.i = phi i64 [ 1, %_ZNK5arith3sls11compute_dtsEj.exit ], [ %d.1.i50, %for.inc.i49 ]
+  %d.011.i = phi i64 [ 1, %_ZNK5arith3sls11compute_dtsEj.exit ], [ %d.2.i50, %for.inc.i49 ]
   %25 = load i32, ptr %__begin1.012.i, align 4
   %shr.i.i41 = lshr i32 %25, 1
   %idxprom.i.i.i.i42 = zext nneg i32 %shr.i.i41 to i64
@@ -4239,15 +4239,15 @@ _ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit:          ; preds = %for.inc.i184, %if.e
   br i1 %cmp12.i48, label %_ZNK5arith3sls3dtsEjjl.exit.loopexit, label %for.inc.i49
 
 for.inc.i49:                                      ; preds = %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit, %for.body.i40
-  %d.1.i50 = phi i64 [ %d.011.i, %for.body.i40 ], [ %storemerge.i47, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit ]
-  %first.2.i51 = phi i1 [ %first.013.i, %for.body.i40 ], [ false, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit ]
+  %d.2.i50 = phi i64 [ %d.011.i, %for.body.i40 ], [ %storemerge.i47, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit ]
+  %first.1.i51 = phi i1 [ %first.013.i, %for.body.i40 ], [ false, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit ]
   %incdec.ptr.i52 = getelementptr inbounds i8, ptr %__begin1.012.i, i64 4
   %cmp.not.i53 = icmp eq ptr %incdec.ptr.i52, %add.ptr.i.ptr.i
   br i1 %cmp.not.i53, label %_ZNK5arith3sls3dtsEjjl.exit.loopexit, label %for.body.i40
 
 _ZNK5arith3sls3dtsEjjl.exit.loopexit:             ; preds = %for.inc.i49, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit
-  %d.2.i54.ph = phi i64 [ 0, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit ], [ %d.1.i50, %for.inc.i49 ]
-  %40 = sub nsw i64 %d.2.i, %d.2.i54.ph
+  %d.1.i54.ph = phi i64 [ 0, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit ], [ %d.2.i50, %for.inc.i49 ]
+  %40 = sub nsw i64 %d.1.i, %d.1.i54.ph
   br label %_ZNK5arith3sls3dtsEjjl.exit
 
 _ZNK5arith3sls3dtsEjjl.exit:                      ; preds = %_ZNK5arith3sls3dtsEjjl.exit.loopexit, %for.body11
@@ -4296,9 +4296,9 @@ for.body.lr.ph.i83:                               ; preds = %for.body32
   br label %for.body.i86
 
 for.body.i86:                                     ; preds = %for.inc.i109, %for.body.lr.ph.i83
-  %first.014.i87 = phi i1 [ true, %for.body.lr.ph.i83 ], [ %first.2.i111, %for.inc.i109 ]
+  %first.014.i87 = phi i1 [ true, %for.body.lr.ph.i83 ], [ %first.1.i111, %for.inc.i109 ]
   %__begin1.013.i88 = phi ptr [ %m_lits.i.ptr.i84, %for.body.lr.ph.i83 ], [ %incdec.ptr.i112, %for.inc.i109 ]
-  %d.012.i89 = phi i64 [ 1, %for.body.lr.ph.i83 ], [ %d.1.i110, %for.inc.i109 ]
+  %d.012.i89 = phi i64 [ 1, %for.body.lr.ph.i83 ], [ %d.2.i110, %for.inc.i109 ]
   %49 = load i32, ptr %__begin1.013.i88, align 4
   %shr.i.i90 = lshr i32 %49, 1
   %idxprom.i.i.i.i91 = zext nneg i32 %shr.i.i90 to i64
@@ -4402,20 +4402,20 @@ _ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i104:       ; preds = %if.end48.i.i.i116, 
   br i1 %cmp12.i108, label %_ZNK5arith3sls11compute_dtsEj.exit146, label %for.inc.i109
 
 for.inc.i109:                                     ; preds = %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i104, %for.body.i86
-  %d.1.i110 = phi i64 [ %d.012.i89, %for.body.i86 ], [ %storemerge.i107, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i104 ]
-  %first.2.i111 = phi i1 [ %first.014.i87, %for.body.i86 ], [ false, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i104 ]
+  %d.2.i110 = phi i64 [ %d.012.i89, %for.body.i86 ], [ %storemerge.i107, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i104 ]
+  %first.1.i111 = phi i1 [ %first.014.i87, %for.body.i86 ], [ false, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i104 ]
   %incdec.ptr.i112 = getelementptr inbounds i8, ptr %__begin1.013.i88, i64 4
   %cmp.not.i113 = icmp eq ptr %incdec.ptr.i112, %add.ptr.i.ptr.i81
   br i1 %cmp.not.i113, label %_ZNK5arith3sls11compute_dtsEj.exit146, label %for.body.i86
 
 _ZNK5arith3sls11compute_dtsEj.exit146:            ; preds = %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i104, %for.inc.i109
-  %d.2.i114 = phi i64 [ 0, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i104 ], [ %d.1.i110, %for.inc.i109 ]
+  %d.1.i114 = phi i64 [ 0, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit.i104 ], [ %d.2.i110, %for.inc.i109 ]
   br label %for.body.i159
 
 for.body.i159:                                    ; preds = %for.inc.i173, %_ZNK5arith3sls11compute_dtsEj.exit146
-  %first.013.i160 = phi i1 [ true, %_ZNK5arith3sls11compute_dtsEj.exit146 ], [ %first.2.i175, %for.inc.i173 ]
+  %first.013.i160 = phi i1 [ true, %_ZNK5arith3sls11compute_dtsEj.exit146 ], [ %first.1.i175, %for.inc.i173 ]
   %__begin1.012.i161 = phi ptr [ %m_lits.i.ptr.i84, %_ZNK5arith3sls11compute_dtsEj.exit146 ], [ %incdec.ptr.i176, %for.inc.i173 ]
-  %d.011.i162 = phi i64 [ 1, %_ZNK5arith3sls11compute_dtsEj.exit146 ], [ %d.1.i174, %for.inc.i173 ]
+  %d.011.i162 = phi i64 [ 1, %_ZNK5arith3sls11compute_dtsEj.exit146 ], [ %d.2.i174, %for.inc.i173 ]
   %58 = load i32, ptr %__begin1.012.i161, align 4
   %shr.i.i163 = lshr i32 %58, 1
   %idxprom.i.i.i.i164 = zext nneg i32 %shr.i.i163 to i64
@@ -4549,15 +4549,15 @@ _ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit250:       ; preds = %for.inc.i200, %if.e
   br i1 %cmp12.i172, label %_ZNK5arith3sls3dtsEjjl.exit179.loopexit, label %for.inc.i173
 
 for.inc.i173:                                     ; preds = %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit250, %for.body.i159
-  %d.1.i174 = phi i64 [ %d.011.i162, %for.body.i159 ], [ %storemerge.i171, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit250 ]
-  %first.2.i175 = phi i1 [ %first.013.i160, %for.body.i159 ], [ false, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit250 ]
+  %d.2.i174 = phi i64 [ %d.011.i162, %for.body.i159 ], [ %storemerge.i171, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit250 ]
+  %first.1.i175 = phi i1 [ %first.013.i160, %for.body.i159 ], [ false, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit250 ]
   %incdec.ptr.i176 = getelementptr inbounds i8, ptr %__begin1.012.i161, i64 4
   %cmp.not.i177 = icmp eq ptr %incdec.ptr.i176, %add.ptr.i.ptr.i81
   br i1 %cmp.not.i177, label %_ZNK5arith3sls3dtsEjjl.exit179.loopexit, label %for.body.i159
 
 _ZNK5arith3sls3dtsEjjl.exit179.loopexit:          ; preds = %for.inc.i173, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit250
-  %d.2.i178.ph = phi i64 [ 0, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit250 ], [ %d.1.i174, %for.inc.i173 ]
-  %73 = sub nsw i64 %d.2.i114, %d.2.i178.ph
+  %d.1.i178.ph = phi i64 [ 0, %_ZNK5arith3sls3dttEbRKNS0_4ineqEjl.exit250 ], [ %d.2.i174, %for.inc.i173 ]
+  %73 = sub nsw i64 %d.1.i114, %d.1.i178.ph
   br label %_ZNK5arith3sls3dtsEjjl.exit179
 
 _ZNK5arith3sls3dtsEjjl.exit179:                   ; preds = %_ZNK5arith3sls3dtsEjjl.exit179.loopexit, %for.body32
@@ -4607,9 +4607,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %first.014 = phi i1 [ true, %for.body.lr.ph ], [ %first.2, %for.inc ]
+  %first.014 = phi i1 [ true, %for.body.lr.ph ], [ %first.1, %for.inc ]
   %__begin1.013 = phi ptr [ %m_lits.i.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %d.012 = phi i64 [ 1, %for.body.lr.ph ], [ %d.1, %for.inc ]
+  %d.012 = phi i64 [ 1, %for.body.lr.ph ], [ %d.2, %for.inc ]
   %6 = load i32, ptr %__begin1.013, align 4
   %shr.i = lshr i32 %6, 1
   %idxprom.i.i.i = zext nneg i32 %shr.i to i64
@@ -4713,15 +4713,15 @@ _ZNK5arith3sls3dttEbRKNS0_4ineqE.exit:            ; preds = %if.then.i.i, %if.th
   br i1 %cmp12, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit, %for.body
-  %d.1 = phi i64 [ %d.012, %for.body ], [ %storemerge, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit ]
-  %first.2 = phi i1 [ %first.014, %for.body ], [ false, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit ]
+  %d.2 = phi i64 [ %d.012, %for.body ], [ %storemerge, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit ]
+  %first.1 = phi i1 [ %first.014, %for.body ], [ false, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.013, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit, %entry
-  %d.2 = phi i64 [ 1, %entry ], [ 0, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit ], [ %d.1, %for.inc ]
-  ret i64 %d.2
+  %d.1 = phi i64 [ 1, %entry ], [ 0, %_ZNK5arith3sls3dttEbRKNS0_4ineqE.exit ], [ %d.2, %for.inc ]
+  ret i64 %d.1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4749,9 +4749,9 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %first.013 = phi i1 [ true, %for.body.lr.ph ], [ %first.2, %for.inc ]
+  %first.013 = phi i1 [ true, %for.body.lr.ph ], [ %first.1, %for.inc ]
   %__begin1.012 = phi ptr [ %m_lits.i.ptr, %for.body.lr.ph ], [ %incdec.ptr, %for.inc ]
-  %d.011 = phi i64 [ 1, %for.body.lr.ph ], [ %d.1, %for.inc ]
+  %d.011 = phi i64 [ 1, %for.body.lr.ph ], [ %d.2, %for.inc ]
   %5 = load i32, ptr %__begin1.012, align 4
   %shr.i = lshr i32 %5, 1
   %6 = load ptr, ptr %m_bool_vars.i, align 8
@@ -4771,15 +4771,15 @@ if.end:                                           ; preds = %for.body
   br i1 %cmp12, label %for.end, label %for.inc
 
 for.inc:                                          ; preds = %if.end, %for.body
-  %d.1 = phi i64 [ %d.011, %for.body ], [ %storemerge, %if.end ]
-  %first.2 = phi i1 [ %first.013, %for.body ], [ false, %if.end ]
+  %d.2 = phi i64 [ %d.011, %for.body ], [ %storemerge, %if.end ]
+  %first.1 = phi i1 [ %first.013, %for.body ], [ false, %if.end ]
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin1.012, i64 4
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i.ptr
   br i1 %cmp.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end, %entry
-  %d.2 = phi i64 [ 1, %entry ], [ 0, %if.end ], [ %d.1, %for.inc ]
-  ret i64 %d.2
+  %d.1 = phi i64 [ 1, %entry ], [ 0, %if.end ], [ %d.2, %for.inc ]
+  ret i64 %d.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -4813,7 +4813,7 @@ for.body.lr.ph:                                   ; preds = %_ZN6vectorISt4pairI
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc55
-  %score.0182 = phi i32 [ 0, %for.body.lr.ph ], [ %score.5, %for.inc55 ]
+  %score.0182 = phi i32 [ 0, %for.body.lr.ph ], [ %score.1, %for.inc55 ]
   %__begin1.0179 = phi ptr [ %2, %for.body.lr.ph ], [ %incdec.ptr56, %for.inc55 ]
   %second.i.i = getelementptr inbounds i8, ptr %__begin1.0179, i64 8
   %5 = load i32, ptr %second.i.i, align 4
@@ -5007,7 +5007,7 @@ for.body24.lr.ph:                                 ; preds = %if.end18
   br label %for.body24
 
 for.body24:                                       ; preds = %for.body24.lr.ph, %for.body24
-  %score.1173 = phi i32 [ %score.0182, %for.body24.lr.ph ], [ %spec.select, %for.body24 ]
+  %score.2173 = phi i32 [ %score.0182, %for.body24.lr.ph ], [ %spec.select, %for.body24 ]
   %__begin2.0172 = phi ptr [ %add.ptr.i64, %for.body24.lr.ph ], [ %incdec.ptr, %for.body24 ]
   %31 = load i32, ptr %__begin2.0172, align 4
   %idxprom.i.i.i74 = zext i32 %31 to i64
@@ -5015,13 +5015,13 @@ for.body24:                                       ; preds = %for.body24.lr.ph, %
   %32 = load i32, ptr %m_num_trues.i, align 4
   %cmp.i.not = icmp eq i32 %32, 0
   %inc = zext i1 %cmp.i.not to i32
-  %spec.select = add nsw i32 %score.1173, %inc
+  %spec.select = add nsw i32 %score.2173, %inc
   %incdec.ptr = getelementptr inbounds i8, ptr %__begin2.0172, i64 4
   %cmp23.not = icmp eq ptr %incdec.ptr, %add.ptr.i72
   br i1 %cmp23.not, label %for.end, label %for.body24
 
 for.end:                                          ; preds = %for.body24, %if.end18
-  %score.1.lcssa = phi i32 [ %score.0182, %if.end18 ], [ %spec.select, %for.body24 ]
+  %score.2.lcssa = phi i32 [ %score.0182, %if.end18 ], [ %spec.select, %for.body24 ]
   %xor.i76 = xor i32 %lit.sroa.0.0, 1
   %idxprom.i.i82 = zext i32 %xor.i76 to i64
   %arrayidx.i.i83 = getelementptr inbounds i32, ptr %27, i64 %idxprom.i.i82
@@ -5043,7 +5043,7 @@ for.body45.lr.ph:                                 ; preds = %for.end
   br label %for.body45
 
 for.body45:                                       ; preds = %for.body45.lr.ph, %for.body45
-  %score.3176 = phi i32 [ %score.1.lcssa, %for.body45.lr.ph ], [ %spec.select20, %for.body45 ]
+  %score.4176 = phi i32 [ %score.2.lcssa, %for.body45.lr.ph ], [ %spec.select20, %for.body45 ]
   %__begin239.0175 = phi ptr [ %add.ptr.i85, %for.body45.lr.ph ], [ %incdec.ptr53, %for.body45 ]
   %36 = load i32, ptr %__begin239.0175, align 4
   %idxprom.i.i.i96 = zext i32 %36 to i64
@@ -5051,19 +5051,19 @@ for.body45:                                       ; preds = %for.body45.lr.ph, %
   %37 = load i32, ptr %m_num_trues, align 4
   %cmp49 = icmp eq i32 %37, 1
   %dec = sext i1 %cmp49 to i32
-  %spec.select20 = add nsw i32 %score.3176, %dec
+  %spec.select20 = add nsw i32 %score.4176, %dec
   %incdec.ptr53 = getelementptr inbounds i8, ptr %__begin239.0175, i64 4
   %cmp44.not = icmp eq ptr %incdec.ptr53, %add.ptr.i93
   br i1 %cmp44.not, label %for.inc55, label %for.body45
 
 for.inc55:                                        ; preds = %for.body45, %for.end, %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit.thr_comm, %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit
-  %score.5 = phi i32 [ %score.0182, %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit ], [ %score.0182, %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit.thr_comm ], [ %score.1.lcssa, %for.end ], [ %spec.select20, %for.body45 ]
+  %score.1 = phi i32 [ %score.0182, %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit ], [ %score.0182, %_ZNK5arith3sls3dttEbRKNS0_4ineqElll.exit.thr_comm ], [ %score.2.lcssa, %for.end ], [ %spec.select20, %for.body45 ]
   %incdec.ptr56 = getelementptr inbounds i8, ptr %__begin1.0179, i64 16
   %cmp.not = icmp eq ptr %incdec.ptr56, %add.ptr.i
   br i1 %cmp.not, label %for.end57, label %for.body
 
 for.end57:                                        ; preds = %for.inc55, %entry, %_ZN6vectorISt4pairIljELb0EjE3endEv.exit
-  %score.0.lcssa = phi i32 [ 0, %_ZN6vectorISt4pairIljELb0EjE3endEv.exit ], [ 0, %entry ], [ %score.5, %for.inc55 ]
+  %score.0.lcssa = phi i32 [ 0, %_ZN6vectorISt4pairIljELb0EjE3endEv.exit ], [ 0, %entry ], [ %score.1, %for.inc55 ]
   ret i32 %score.0.lcssa
 }
 

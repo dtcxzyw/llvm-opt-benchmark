@@ -114,10 +114,10 @@ opal_datatype_span.exit:                          ; preds = %37, %41
 
 ._crit_edge.thread:                               ; preds = %.preheader, %57, %._crit_edge
   %.080.lcssa119 = phi i64 [ %36, %57 ], [ 0, %._crit_edge ], [ 0, %.preheader ]
-  %.076 = phi ptr [ %55, %57 ], [ null, %._crit_edge ], [ null, %.preheader ]
-  %.075 = phi ptr [ %59, %57 ], [ null, %._crit_edge ], [ null, %.preheader ]
+  %.177 = phi ptr [ %55, %57 ], [ null, %._crit_edge ], [ null, %.preheader ]
+  %.1 = phi ptr [ %59, %57 ], [ null, %._crit_edge ], [ null, %.preheader ]
   %60 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 72), align 8
-  %61 = tail call i32 %60(ptr noundef %.075, i64 noundef %.080.lcssa119, ptr noundef %6, i32 noundef %7, i32 noundef -26, ptr noundef %8, ptr noundef null) #5
+  %61 = tail call i32 %60(ptr noundef %.1, i64 noundef %.080.lcssa119, ptr noundef %6, i32 noundef %7, i32 noundef -26, ptr noundef %8, ptr noundef null) #5
   %.not98 = icmp eq i32 %61, 0
   br i1 %.not98, label %62, label %96
 
@@ -147,8 +147,8 @@ opal_datatype_span.exit:                          ; preds = %37, %41
 .loopexit:                                        ; preds = %.lr.ph110, %62, %24
   %.079 = phi ptr [ null, %24 ], [ %29, %62 ], [ %29, %.lr.ph110 ]
   %.078 = phi ptr [ null, %24 ], [ %63, %62 ], [ %63, %.lr.ph110 ]
-  %.177 = phi ptr [ null, %24 ], [ %.076, %62 ], [ %.076, %.lr.ph110 ]
-  %.1 = phi ptr [ null, %24 ], [ %.075, %62 ], [ %.075, %.lr.ph110 ]
+  %.076 = phi ptr [ null, %24 ], [ %.177, %62 ], [ %.177, %.lr.ph110 ]
+  %.075 = phi ptr [ null, %24 ], [ %.1, %62 ], [ %.1, %.lr.ph110 ]
   %69 = getelementptr inbounds i8, ptr %8, i64 264
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds i8, ptr %70, i64 328
@@ -157,16 +157,16 @@ opal_datatype_span.exit:                          ; preds = %37, %41
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %72, i64 264
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call i32 %74(ptr noundef %.1, ptr noundef %.079, ptr noundef %.078, ptr noundef %6, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef 0, ptr noundef %70, ptr noundef %76) #5
+  %77 = tail call i32 %74(ptr noundef %.075, ptr noundef %.079, ptr noundef %.078, ptr noundef %6, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef 0, ptr noundef %70, ptr noundef %76) #5
   %.not99 = icmp eq i32 %77, 0
   br i1 %.not99, label %78, label %96
 
 78:                                               ; preds = %.loopexit
-  %.not100 = icmp eq ptr %.177, null
+  %.not100 = icmp eq ptr %.076, null
   br i1 %.not100, label %80, label %79
 
 79:                                               ; preds = %78
-  tail call void @free(ptr noundef nonnull %.177) #5
+  tail call void @free(ptr noundef nonnull %.076) #5
   br label %80
 
 80:                                               ; preds = %79, %78

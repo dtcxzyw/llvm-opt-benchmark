@@ -89,14 +89,14 @@ if.then5:                                         ; preds = %_ZNSt10lock_guardIS
   br label %if.end
 
 if.end:                                           ; preds = %if.then5, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %retPtr.0.in = phi i64 [ %7, %if.then5 ], [ %5, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
+  %retPtr.1.in = phi i64 [ %7, %if.then5 ], [ %5, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %call1.i.i.i5 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #11
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end, %entry
-  %retPtr.1.in = phi i64 [ %retPtr.0.in, %if.end ], [ %0, %entry ]
-  %retPtr.1 = inttoptr i64 %retPtr.1.in to ptr
-  ret ptr %retPtr.1
+  %retPtr.0.in = phi i64 [ %retPtr.1.in, %if.end ], [ %0, %entry ]
+  %retPtr.0 = inttoptr i64 %retPtr.0.in to ptr
+  ret ptr %retPtr.0
 }
 
 ; Function Attrs: mustprogress uwtable

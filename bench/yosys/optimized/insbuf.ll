@@ -394,7 +394,7 @@ _ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit110:         ; preds = %81, %83
 
 .lr.ph:                                           ; preds = %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit110, %159
   %96 = phi ptr [ %162, %159 ], [ %91, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit110 ]
-  %.0751623 = phi i8 [ %.1761206, %159 ], [ 0, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit110 ]
+  %.0751623 = phi i8 [ %.2771206, %159 ], [ 0, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit110 ]
   %.0781622 = phi i64 [ %160, %159 ], [ 1, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit110 ]
   %97 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %96, i64 %.0781622
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %97)
@@ -562,9 +562,9 @@ _ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   br label %_ZNSt6vectorIPN5Yosys5RTLIL6ModuleESaIS3_EED2Ev.exit441
 
 159:                                              ; preds = %.thread, %155
-  %.1761206 = phi i8 [ %.0751623, %.thread ], [ 1, %155 ]
-  %.1791205 = phi i64 [ %102, %.thread ], [ %.0781622, %155 ]
-  %160 = add nuw i64 %.1791205, 1
+  %.2771206 = phi i8 [ %.0751623, %.thread ], [ 1, %155 ]
+  %.2801205 = phi i64 [ %102, %.thread ], [ %.0781622, %155 ]
+  %160 = add nuw i64 %.2801205, 1
   %161 = load ptr, ptr %89, align 8
   %162 = load ptr, ptr %1, align 8
   %163 = ptrtoint ptr %161 to i64
@@ -576,7 +576,7 @@ _ZN5Yosys5RTLILL9escape_idERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 ._crit_edge:                                      ; preds = %159, %155, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit110
   %.078.lcssa = phi i64 [ 1, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit110 ], [ %.0781622, %155 ], [ %160, %159 ]
-  %.277 = phi i8 [ 0, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit110 ], [ %.0751623, %155 ], [ %.1761206, %159 ]
+  %.176 = phi i8 [ 0, %_ZN5Yosys5RTLIL8IdStringC2ERKS1_.exit110 ], [ %.0751623, %155 ], [ %.2771206, %159 ]
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %168 unwind label %.loopexit.split-lp1274
 
@@ -626,7 +626,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %180 = getelementptr inbounds i8, ptr %34, i64 56
   %181 = getelementptr inbounds i8, ptr %35, i64 8
   %182 = getelementptr inbounds i8, ptr %35, i64 72
-  %183 = trunc nuw i8 %.277 to i1
+  %183 = trunc nuw i8 %.176 to i1
   %.sroa.219.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 8
   %184 = getelementptr inbounds i8, ptr %22, i64 8
   %185 = getelementptr inbounds i8, ptr %34, i64 8

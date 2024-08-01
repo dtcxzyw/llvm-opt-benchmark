@@ -298,7 +298,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
   br label %101
 
 101:                                              ; preds = %98, %._crit_edge
-  %.0234 = phi i32 [ %100, %98 ], [ 0, %._crit_edge ]
+  %.1 = phi i32 [ %100, %98 ], [ 0, %._crit_edge ]
   %102 = getelementptr inbounds i8, ptr %6, i64 192
   %103 = load float, ptr %102, align 8
   %104 = fcmp une float %103, 0.000000e+00
@@ -310,7 +310,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
   br label %108
 
 108:                                              ; preds = %105, %101
-  %.0242 = phi i32 [ %107, %105 ], [ 0, %101 ]
+  %.1243 = phi i32 [ %107, %105 ], [ 0, %101 ]
   %109 = getelementptr inbounds i8, ptr %6, i64 160
   %110 = load ptr, ptr %109, align 8
   %.not340 = icmp eq ptr %110, null
@@ -325,7 +325,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
   br label %115
 
 115:                                              ; preds = %112, %111
-  %.0244 = phi i32 [ %114, %112 ], [ 0, %111 ]
+  %.1245 = phi i32 [ %114, %112 ], [ 0, %111 ]
   %.not264 = xor i1 %spec.select337, true
   %brmerge266 = or i1 %.not258, %.not264
   br i1 %brmerge266, label %120, label %116
@@ -346,9 +346,9 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
 
 124:                                              ; preds = %70, %116, %121, %120, %108, %69
   %.0246 = phi i32 [ 0, %120 ], [ %123, %121 ], [ %119, %116 ], [ 0, %108 ], [ 0, %70 ], [ 0, %69 ]
-  %.1245 = phi i32 [ %.0244, %120 ], [ %.0244, %121 ], [ %.0244, %116 ], [ 0, %108 ], [ 0, %70 ], [ 0, %69 ]
-  %.1243 = phi i32 [ %.0242, %120 ], [ %.0242, %121 ], [ %.0242, %116 ], [ %.0242, %108 ], [ 0, %70 ], [ 0, %69 ]
-  %.1 = phi i32 [ %.0234, %120 ], [ %.0234, %121 ], [ %.0234, %116 ], [ %.0234, %108 ], [ 0, %70 ], [ 0, %69 ]
+  %.0244 = phi i32 [ %.1245, %120 ], [ %.1245, %121 ], [ %.1245, %116 ], [ 0, %108 ], [ 0, %70 ], [ 0, %69 ]
+  %.0242 = phi i32 [ %.1243, %120 ], [ %.1243, %121 ], [ %.1243, %116 ], [ %.1243, %108 ], [ 0, %70 ], [ 0, %69 ]
+  %.0234 = phi i32 [ %.1, %120 ], [ %.1, %121 ], [ %.1, %116 ], [ %.1, %108 ], [ 0, %70 ], [ 0, %69 ]
   %.0233 = phi i32 [ %97, %120 ], [ %97, %121 ], [ %97, %116 ], [ %97, %108 ], [ 0, %70 ], [ 0, %69 ]
   br i1 %24, label %125, label %127
 
@@ -565,7 +565,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
 
 245:                                              ; preds = %._crit_edge354
   %246 = getelementptr inbounds i8, ptr %6, i64 156
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.1, i32 noundef 1, ptr noundef nonnull %246)
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0234, i32 noundef 1, ptr noundef nonnull %246)
   br label %247
 
 247:                                              ; preds = %245, %._crit_edge354
@@ -576,7 +576,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
 
 251:                                              ; preds = %247
   %252 = getelementptr inbounds i8, ptr %6, i64 196
-  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.1243, i32 noundef 1, ptr noundef nonnull %252)
+  call void @_Z12extract_binrP5t_biniiPf(ptr noundef %28, i32 noundef %.0242, i32 noundef 1, ptr noundef nonnull %252)
   br label %253
 
 253:                                              ; preds = %251, %247
@@ -590,7 +590,7 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %48, %56, %64, %41, 
 
 257:                                              ; preds = %256
   %258 = getelementptr inbounds i8, ptr %255, i64 32
-  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.1245, i32 noundef 4, ptr noundef nonnull %258)
+  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %28, i32 noundef %.0244, i32 noundef 4, ptr noundef nonnull %258)
   br label %259
 
 259:                                              ; preds = %257, %256

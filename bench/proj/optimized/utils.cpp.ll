@@ -165,8 +165,8 @@ switch.lookup:                                    ; preds = %._crit_edge
   br label %switch.edge
 
 switch.edge:                                      ; preds = %10, %._crit_edge, %switch.lookup, %1
-  %.1 = phi i1 [ false, %1 ], [ %switch.masked, %switch.lookup ], [ false, %._crit_edge ], [ false, %10 ]
-  ret i1 %.1
+  %.026 = phi i1 [ false, %1 ], [ %switch.masked, %switch.lookup ], [ false, %._crit_edge ], [ false, %10 ]
+  ret i1 %.026
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -889,8 +889,8 @@ _ZL8parseIntRPKc.exit396:                         ; preds = %173
   br label %236
 
 236:                                              ; preds = %214, %205, %195, %186, %224, %233, %91, %100, %110, %119, %52, %61, %71, %80, %158, %149, %139, %130
-  %.7 = phi ptr [ %132, %130 ], [ %141, %139 ], [ %151, %149 ], [ %160, %158 ], [ %54, %52 ], [ %63, %61 ], [ %73, %71 ], [ %82, %80 ], [ %93, %91 ], [ %102, %100 ], [ %112, %110 ], [ %121, %119 ], [ %188, %186 ], [ %197, %195 ], [ %207, %205 ], [ %216, %214 ], [ %226, %224 ], [ %235, %233 ]
-  %237 = load i8, ptr %.7, align 1
+  %.1 = phi ptr [ %132, %130 ], [ %141, %139 ], [ %151, %149 ], [ %160, %158 ], [ %54, %52 ], [ %63, %61 ], [ %73, %71 ], [ %82, %80 ], [ %93, %91 ], [ %102, %100 ], [ %112, %110 ], [ %121, %119 ], [ %188, %186 ], [ %197, %195 ], [ %207, %205 ], [ %216, %214 ], [ %226, %224 ], [ %235, %233 ]
+  %237 = load i8, ptr %.1, align 1
   %.not378 = icmp eq i8 %237, 0
   br i1 %.not378, label %240, label %.sink.split
 

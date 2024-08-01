@@ -970,9 +970,9 @@ cond.false.i77:                                   ; preds = %for.end.i
 for.body20.i:                                     ; preds = %for.inc183.i, %for.cond16.preheader.i
   %28 = phi ptr [ @.str.6, %for.cond16.preheader.i ], [ %70, %for.inc183.i ]
   %i.1112.i = phi i32 [ 2, %for.cond16.preheader.i ], [ %inc184.i, %for.inc183.i ]
-  %txt.0110.i = phi ptr [ null, %for.cond16.preheader.i ], [ %txt.3.i, %for.inc183.i ]
+  %txt.0110.i = phi ptr [ null, %for.cond16.preheader.i ], [ %txt.1.i, %for.inc183.i ]
   %opt.1109.i = phi ptr [ getelementptr inbounds (i8, ptr @cmp_options, i64 72), %for.cond16.preheader.i ], [ %incdec.ptr185.i, %for.inc183.i ]
-  %num.0108.i = phi i64 [ 0, %for.cond16.preheader.i ], [ %num.3.i, %for.inc183.i ]
+  %num.0108.i = phi i64 [ 0, %for.cond16.preheader.i ], [ %num.1.i, %for.inc183.i ]
   %retval21.i = getelementptr inbounds i8, ptr %opt.1109.i, i64 8
   %29 = load i32, ptr %retval21.i, align 8
   %30 = and i32 %29, -4
@@ -1185,7 +1185,7 @@ cond.false99.i:                                   ; preds = %sw.default.i
 
 sw.epilog.i:                                      ; preds = %while.body.i.i, %if.end78.i
   %num.2.i = phi i64 [ %call3.i.i, %if.end78.i ], [ %num.0108.i, %while.body.i.i ]
-  %txt.1.i = phi ptr [ %txt.0110.i, %if.end78.i ], [ %call2.i.i, %while.body.i.i ]
+  %txt.2.i = phi ptr [ %txt.0110.i, %if.end78.i ], [ %call2.i.i, %while.body.i.i ]
   %or.cond4.i = or i1 %spec.select.i, %34
   br i1 %or.cond4.i, label %if.then108.i, label %if.else151.i
 
@@ -1287,28 +1287,28 @@ sw.bb166.i:                                       ; preds = %if.else151.i
   br label %for.inc183.i
 
 sw.default169.i:                                  ; preds = %if.else151.i
-  %cmp170.not.i = icmp eq ptr %txt.1.i, null
+  %cmp170.not.i = icmp eq ptr %txt.2.i, null
   br i1 %cmp170.not.i, label %if.end178.i, label %land.lhs.true172.i
 
 land.lhs.true172.i:                               ; preds = %sw.default169.i
-  %68 = load i8, ptr %txt.1.i, align 1
+  %68 = load i8, ptr %txt.2.i, align 1
   %cmp175.i = icmp eq i8 %68, 0
-  %spec.store.select.i = select i1 %cmp175.i, ptr null, ptr %txt.1.i
+  %spec.store.select.i = select i1 %cmp175.i, ptr null, ptr %txt.2.i
   br label %if.end178.i
 
 if.end178.i:                                      ; preds = %land.lhs.true172.i, %sw.default169.i
-  %txt.2.i = phi ptr [ %spec.store.select.i, %land.lhs.true172.i ], [ null, %sw.default169.i ]
+  %txt.3.i = phi ptr [ %spec.store.select.i, %land.lhs.true172.i ], [ null, %sw.default169.i ]
   %idxprom179.i = zext i32 %spec.select55.i to i64
   %arrayidx180.i = getelementptr inbounds [107 x %union.varref], ptr @cmp_vars, i64 0, i64 %idxprom179.i
   %69 = load ptr, ptr %arrayidx180.i, align 8
-  store ptr %txt.2.i, ptr %69, align 8
+  store ptr %txt.3.i, ptr %69, align 8
   br label %for.inc183.i
 
 for.inc183.i:                                     ; preds = %if.end178.i, %sw.bb166.i, %if.end162.i, %cond.false136.i, %cond.true132.i, %if.end125.i, %if.then94.i, %if.then68.i, %if.then54.i
-  %num.3.i = phi i64 [ %num.0108.i, %if.then54.i ], [ %num.0108.i, %if.then94.i ], [ %num.2.i, %cond.true132.i ], [ %num.2.i, %cond.false136.i ], [ 0, %if.end125.i ], [ %num.2.i, %if.end178.i ], [ %num.2.i, %sw.bb166.i ], [ %num.2.i, %if.end162.i ], [ %num.0108.i, %if.then68.i ]
-  %txt.3.i = phi ptr [ %txt.0110.i, %if.then54.i ], [ null, %if.then94.i ], [ %txt.1.i, %cond.true132.i ], [ %txt.1.i, %cond.false136.i ], [ %txt.1.i, %if.end125.i ], [ %txt.2.i, %if.end178.i ], [ %txt.1.i, %sw.bb166.i ], [ %txt.1.i, %if.end162.i ], [ %txt.0110.i, %if.then68.i ]
-  %i.3.i = phi i32 [ %dec55.i, %if.then54.i ], [ %spec.select55.i, %if.then94.i ], [ %spec.select55.i, %cond.true132.i ], [ %spec.select55.i, %cond.false136.i ], [ %spec.select55.i, %if.end125.i ], [ %spec.select55.i, %if.end178.i ], [ %spec.select55.i, %sw.bb166.i ], [ %spec.select55.i, %if.end162.i ], [ %spec.select55.i, %if.then68.i ]
-  %inc184.i = add i32 %i.3.i, 1
+  %num.1.i = phi i64 [ %num.0108.i, %if.then54.i ], [ %num.0108.i, %if.then94.i ], [ %num.2.i, %cond.true132.i ], [ %num.2.i, %cond.false136.i ], [ 0, %if.end125.i ], [ %num.2.i, %if.end178.i ], [ %num.2.i, %sw.bb166.i ], [ %num.2.i, %if.end162.i ], [ %num.0108.i, %if.then68.i ]
+  %txt.1.i = phi ptr [ %txt.0110.i, %if.then54.i ], [ null, %if.then94.i ], [ %txt.2.i, %cond.true132.i ], [ %txt.2.i, %cond.false136.i ], [ %txt.2.i, %if.end125.i ], [ %txt.3.i, %if.end178.i ], [ %txt.2.i, %sw.bb166.i ], [ %txt.2.i, %if.end162.i ], [ %txt.0110.i, %if.then68.i ]
+  %i.2.i = phi i32 [ %dec55.i, %if.then54.i ], [ %spec.select55.i, %if.then94.i ], [ %spec.select55.i, %cond.true132.i ], [ %spec.select55.i, %cond.false136.i ], [ %spec.select55.i, %if.end125.i ], [ %spec.select55.i, %if.end178.i ], [ %spec.select55.i, %sw.bb166.i ], [ %spec.select55.i, %if.end162.i ], [ %spec.select55.i, %if.then68.i ]
+  %inc184.i = add i32 %i.2.i, 1
   %incdec.ptr185.i = getelementptr inbounds i8, ptr %opt.1109.i, i64 24
   %70 = load ptr, ptr %incdec.ptr185.i, align 8
   %cmp18.not.i = icmp eq ptr %70, null
@@ -2130,7 +2130,7 @@ cond.false161:                                    ; preds = %if.then157
   br label %err
 
 if.end166:                                        ; preds = %if.then153, %if.end150
-  %engine.0 = phi ptr [ %call154, %if.then153 ], [ null, %if.end150 ]
+  %engine.1 = phi ptr [ %call154, %if.then153 ], [ null, %if.end150 ]
   %call167 = call ptr @app_get0_libctx() #13
   %call168 = call ptr @app_get0_propq() #13
   %call169 = call ptr @OSSL_CMP_CTX_new(ptr noundef %call167, ptr noundef %call168) #13
@@ -2298,7 +2298,7 @@ if.end293:                                        ; preds = %if.end280
   br i1 %tobool284, label %if.then298, label %if.end318
 
 if.then298:                                       ; preds = %if.end265, %if.end293
-  %call299 = call fastcc ptr @setup_srv_ctx(ptr noundef %engine.0)
+  %call299 = call fastcc ptr @setup_srv_ctx(ptr noundef %engine.1)
   %cmp300 = icmp eq ptr %call299, null
   br i1 %cmp300, label %err, label %if.end303
 
@@ -2396,7 +2396,7 @@ cond.false358:                                    ; preds = %if.end352
 
 if.end363:                                        ; preds = %if.end352, %cond.false358, %if.end338
   %150 = load ptr, ptr @cmp_ctx, align 8
-  %call364 = call fastcc i32 @setup_client_ctx(ptr noundef %150, ptr noundef %engine.0)
+  %call364 = call fastcc i32 @setup_client_ctx(ptr noundef %150, ptr noundef %engine.1)
   %tobool365.not = icmp eq i32 %call364, 0
   br i1 %tobool365.not, label %if.then366, label %for.cond375.preheader
 
@@ -2474,7 +2474,7 @@ sw.bb404:                                         ; preds = %for.body378
 
 sw.epilog:                                        ; preds = %sw.bb396, %sw.bb390, %sw.bb384, %sw.bb, %for.body378, %sw.bb404, %sw.bb402
   %newcert.1 = phi ptr [ %newcert.0135, %for.body378 ], [ %newcert.0135, %sw.bb404 ], [ %newcert.0135, %sw.bb402 ], [ %call379, %sw.bb ], [ %call385, %sw.bb384 ], [ %call391, %sw.bb390 ], [ %call397, %sw.bb396 ]
-  %ret.2 = phi i32 [ 0, %for.body378 ], [ %call405, %sw.bb404 ], [ %call403, %sw.bb402 ], [ %spec.select67, %sw.bb ], [ %spec.select69, %sw.bb384 ], [ %spec.select71, %sw.bb390 ], [ %spec.select73, %sw.bb396 ]
+  %ret.3 = phi i32 [ 0, %for.body378 ], [ %call405, %sw.bb404 ], [ %call403, %sw.bb402 ], [ %spec.select67, %sw.bb ], [ %spec.select69, %sw.bb384 ], [ %spec.select71, %sw.bb390 ], [ %spec.select73, %sw.bb396 ]
   %162 = load ptr, ptr @cmp_ctx, align 8
   %call406 = call i32 @OSSL_CMP_CTX_get_status(ptr noundef %162) #13
   %cmp407 = icmp slt i32 %call406, 0
@@ -2487,7 +2487,7 @@ if.end410:                                        ; preds = %sw.epilog
   %164 = load ptr, ptr @opt_srvcertout, align 8
   %call412 = call fastcc i32 @save_cert_or_delete(ptr noundef %call411, ptr noundef %164, ptr noundef nonnull @.str.344)
   %tobool413.not = icmp eq i32 %call412, 0
-  %tobool416.not119 = icmp eq i32 %ret.2, 0
+  %tobool416.not119 = icmp eq i32 %ret.3, 0
   %tobool416.not = select i1 %tobool413.not, i1 true, i1 %tobool416.not119
   br i1 %tobool416.not, label %err, label %if.end418
 
@@ -2535,8 +2535,8 @@ if.end454:                                        ; preds = %lor.lhs.false447, %
   br i1 %tobool456.not, label %err, label %for.cond375
 
 err:                                              ; preds = %if.end410, %if.end418, %lor.lhs.false447, %lor.lhs.false442, %if.then439, %if.end454, %sw.epilog, %for.cond375, %for.cond375.preheader, %sw.bb3.i, %opthelp.i, %cond.false.i, %if.then.i, %cond.false370, %if.then366, %cond.false312, %if.then308, %if.then298, %cond.false289, %if.then285, %cond.false275, %if.then271, %cond.false261, %if.then257, %cond.false247, %if.then243, %cond.false234, %if.then230, %cond.false181, %if.then177, %if.end166, %cond.false161, %if.then157, %if.end141, %if.then126, %if.then129, %cond.false113, %if.then109, %cond.end79, %cond.false, %if.then49, %if.then336, %if.then
-  %engine.1 = phi ptr [ null, %if.then ], [ null, %if.then49 ], [ null, %cond.false ], [ null, %cond.end79 ], [ null, %if.then129 ], [ null, %if.then126 ], [ null, %if.then157 ], [ null, %cond.false161 ], [ %engine.0, %if.end166 ], [ %engine.0, %if.then230 ], [ %engine.0, %cond.false234 ], [ %engine.0, %if.then243 ], [ %engine.0, %cond.false247 ], [ %engine.0, %if.then257 ], [ %engine.0, %cond.false261 ], [ %engine.0, %if.then271 ], [ %engine.0, %cond.false275 ], [ %engine.0, %if.then285 ], [ %engine.0, %cond.false289 ], [ %engine.0, %if.then298 ], [ %engine.0, %if.then336 ], [ %engine.0, %if.then366 ], [ %engine.0, %cond.false370 ], [ %engine.0, %if.then308 ], [ %engine.0, %cond.false312 ], [ %engine.0, %if.then177 ], [ %engine.0, %cond.false181 ], [ null, %if.end141 ], [ null, %if.then109 ], [ null, %cond.false113 ], [ null, %if.then.i ], [ null, %cond.false.i ], [ null, %opthelp.i ], [ null, %sw.bb3.i ], [ %engine.0, %for.cond375.preheader ], [ %engine.0, %for.cond375 ], [ %engine.0, %sw.epilog ], [ %engine.0, %if.end454 ], [ %engine.0, %if.then439 ], [ %engine.0, %lor.lhs.false442 ], [ %engine.0, %lor.lhs.false447 ], [ %engine.0, %if.end418 ], [ %engine.0, %if.end410 ]
-  %ret.4 = phi i32 [ 0, %if.then ], [ 0, %if.then49 ], [ 0, %cond.false ], [ 0, %cond.end79 ], [ -1, %if.then129 ], [ 0, %if.then126 ], [ 0, %if.then157 ], [ 0, %cond.false161 ], [ 0, %if.end166 ], [ 0, %if.then230 ], [ 0, %cond.false234 ], [ 0, %if.then243 ], [ 0, %cond.false247 ], [ 0, %if.then257 ], [ 0, %cond.false261 ], [ 0, %if.then271 ], [ 0, %cond.false275 ], [ 0, %if.then285 ], [ 0, %cond.false289 ], [ 0, %if.then298 ], [ %call337, %if.then336 ], [ 0, %if.then366 ], [ 0, %cond.false370 ], [ 0, %if.then308 ], [ 0, %cond.false312 ], [ 0, %if.then177 ], [ 0, %cond.false181 ], [ 0, %if.end141 ], [ 0, %if.then109 ], [ 0, %cond.false113 ], [ 0, %if.then.i ], [ 0, %cond.false.i ], [ 0, %opthelp.i ], [ -1, %sw.bb3.i ], [ 1, %for.cond375.preheader ], [ 0, %if.end410 ], [ 0, %if.end418 ], [ 0, %lor.lhs.false447 ], [ 0, %lor.lhs.false442 ], [ 0, %if.then439 ], [ 0, %if.end454 ], [ 0, %sw.epilog ], [ 1, %for.cond375 ]
+  %engine.0 = phi ptr [ null, %if.then ], [ null, %if.then49 ], [ null, %cond.false ], [ null, %cond.end79 ], [ null, %if.then129 ], [ null, %if.then126 ], [ null, %if.then157 ], [ null, %cond.false161 ], [ %engine.1, %if.end166 ], [ %engine.1, %if.then230 ], [ %engine.1, %cond.false234 ], [ %engine.1, %if.then243 ], [ %engine.1, %cond.false247 ], [ %engine.1, %if.then257 ], [ %engine.1, %cond.false261 ], [ %engine.1, %if.then271 ], [ %engine.1, %cond.false275 ], [ %engine.1, %if.then285 ], [ %engine.1, %cond.false289 ], [ %engine.1, %if.then298 ], [ %engine.1, %if.then336 ], [ %engine.1, %if.then366 ], [ %engine.1, %cond.false370 ], [ %engine.1, %if.then308 ], [ %engine.1, %cond.false312 ], [ %engine.1, %if.then177 ], [ %engine.1, %cond.false181 ], [ null, %if.end141 ], [ null, %if.then109 ], [ null, %cond.false113 ], [ null, %if.then.i ], [ null, %cond.false.i ], [ null, %opthelp.i ], [ null, %sw.bb3.i ], [ %engine.1, %for.cond375.preheader ], [ %engine.1, %for.cond375 ], [ %engine.1, %sw.epilog ], [ %engine.1, %if.end454 ], [ %engine.1, %if.then439 ], [ %engine.1, %lor.lhs.false442 ], [ %engine.1, %lor.lhs.false447 ], [ %engine.1, %if.end418 ], [ %engine.1, %if.end410 ]
+  %ret.0 = phi i32 [ 0, %if.then ], [ 0, %if.then49 ], [ 0, %cond.false ], [ 0, %cond.end79 ], [ -1, %if.then129 ], [ 0, %if.then126 ], [ 0, %if.then157 ], [ 0, %cond.false161 ], [ 0, %if.end166 ], [ 0, %if.then230 ], [ 0, %cond.false234 ], [ 0, %if.then243 ], [ 0, %cond.false247 ], [ 0, %if.then257 ], [ 0, %cond.false261 ], [ 0, %if.then271 ], [ 0, %cond.false275 ], [ 0, %if.then285 ], [ 0, %cond.false289 ], [ 0, %if.then298 ], [ %call337, %if.then336 ], [ 0, %if.then366 ], [ 0, %cond.false370 ], [ 0, %if.then308 ], [ 0, %cond.false312 ], [ 0, %if.then177 ], [ 0, %cond.false181 ], [ 0, %if.end141 ], [ 0, %if.then109 ], [ 0, %cond.false113 ], [ 0, %if.then.i ], [ 0, %cond.false.i ], [ 0, %opthelp.i ], [ -1, %sw.bb3.i ], [ 1, %for.cond375.preheader ], [ 0, %if.end410 ], [ 0, %if.end418 ], [ 0, %lor.lhs.false447 ], [ 0, %lor.lhs.false442 ], [ 0, %if.then439 ], [ 0, %if.end454 ], [ 0, %sw.epilog ], [ 1, %for.cond375 ]
   %174 = load ptr, ptr @opt_keypass, align 8
   call void @cleanse(ptr noundef %174) #13
   %175 = load ptr, ptr @opt_newkeypass, align 8
@@ -2551,7 +2551,7 @@ err:                                              ; preds = %if.end410, %if.end4
   call void @cleanse(ptr noundef %179) #13
   %180 = load ptr, ptr @opt_srv_secret, align 8
   call void @cleanse(ptr noundef %180) #13
-  %cmp462.not = icmp eq i32 %ret.4, 1
+  %cmp462.not = icmp eq i32 %ret.0, 1
   br i1 %cmp462.not, label %if.end465, label %if.then464
 
 if.then464:                                       ; preds = %err
@@ -2591,11 +2591,11 @@ if.then475:                                       ; preds = %if.then468
 if.end477:                                        ; preds = %if.then468, %if.then475, %if.end465
   %189 = load ptr, ptr @vpm, align 8
   call void @X509_VERIFY_PARAM_free(ptr noundef %189) #13
-  call void @release_engine(ptr noundef %engine.1) #13
+  call void @release_engine(ptr noundef %engine.0) #13
   %190 = load ptr, ptr @conf, align 8
   call void @NCONF_free(ptr noundef %190) #13
   call void @OSSL_CMP_log_close() #13
-  %cmp478 = icmp eq i32 %ret.4, 0
+  %cmp478 = icmp eq i32 %ret.0, 0
   %cond480 = zext i1 %cmp478 to i32
   ret i32 %cond480
 }
@@ -3311,7 +3311,7 @@ lor.lhs.false43:                                  ; preds = %if.end40
 if.then46:                                        ; preds = %if.end40.thread, %lor.lhs.false43, %if.end40
   %retry.03850 = phi i32 [ %retry.03851, %if.end40.thread ], [ %retry.038, %lor.lhs.false43 ], [ %retry.038, %if.end40 ]
   %msgs.11629 = phi i32 [ %msgs.1.ph, %if.end40.thread ], [ %inc13, %lor.lhs.false43 ], [ %inc13, %if.end40 ]
-  %ret.11827 = phi i32 [ 0, %if.end40.thread ], [ %call31, %lor.lhs.false43 ], [ %call31, %if.end40 ]
+  %ret.21827 = phi i32 [ 0, %if.end40.thread ], [ %call31, %lor.lhs.false43 ], [ %call31, %if.end40 ]
   %22 = load ptr, ptr %cbio, align 8
   call void @BIO_free_all(ptr noundef %22) #13
   store ptr null, ptr %cbio, align 8
@@ -3320,7 +3320,7 @@ if.then46:                                        ; preds = %if.end40.thread, %l
 if.end47:                                         ; preds = %if.then46, %lor.lhs.false43
   %retry.03849 = phi i32 [ %retry.03850, %if.then46 ], [ %retry.038, %lor.lhs.false43 ]
   %msgs.11628 = phi i32 [ %msgs.11629, %if.then46 ], [ %inc13, %lor.lhs.false43 ]
-  %ret.11826 = phi i32 [ %ret.11827, %if.then46 ], [ %call31, %lor.lhs.false43 ]
+  %ret.21826 = phi i32 [ %ret.21827, %if.then46 ], [ %call31, %lor.lhs.false43 ]
   %23 = load i32, ptr @opt_max_msgs, align 4
   %cmp136 = icmp slt i32 %23, 1
   %cmp237 = icmp slt i32 %msgs.11628, %23
@@ -3328,14 +3328,14 @@ if.end47:                                         ; preds = %if.then46, %lor.lhs
   br i1 %24, label %while.body.lr.ph, label %while.end, !llvm.loop !16
 
 while.end:                                        ; preds = %if.end47, %if.end29, %if.then7, %while.body, %if.then27
-  %ret.2 = phi i32 [ 0, %if.then27 ], [ 0, %while.body ], [ 0, %if.then7 ], [ %ret.11826, %if.end47 ], [ 0, %if.end29 ]
+  %ret.1 = phi i32 [ 0, %if.then27 ], [ 0, %while.body ], [ 0, %if.then7 ], [ %ret.21826, %if.end47 ], [ 0, %if.end29 ]
   %25 = load ptr, ptr %cbio, align 8
   call void @BIO_free_all(ptr noundef %25) #13
   call void @BIO_free_all(ptr noundef nonnull %call) #13
   br label %return
 
 return:                                           ; preds = %entry, %while.end
-  %retval.0 = phi i32 [ %ret.2, %while.end ], [ 0, %entry ]
+  %retval.0 = phi i32 [ %ret.1, %while.end ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -3513,8 +3513,8 @@ if.then85:                                        ; preds = %if.end72
 
 set_path:                                         ; preds = %if.end72, %if.then85, %if.end15, %cond.false20
   %proxy_host.0 = phi i32 [ 0, %if.end15 ], [ 0, %cond.false20 ], [ 1, %if.then85 ], [ 0, %if.end72 ]
-  %used_path.1 = phi ptr [ %0, %if.end15 ], [ %0, %cond.false20 ], [ %spec.select, %if.then85 ], [ %spec.select, %if.end72 ]
-  %call89 = call i32 @OSSL_CMP_CTX_set1_serverPath(ptr noundef %ctx, ptr noundef %used_path.1) #13
+  %used_path.0 = phi ptr [ %0, %if.end15 ], [ %0, %cond.false20 ], [ %spec.select, %if.then85 ], [ %spec.select, %if.end72 ]
+  %call89 = call i32 @OSSL_CMP_CTX_set1_serverPath(ptr noundef %ctx, ptr noundef %used_path.0) #13
   %tobool90.not = icmp eq i32 %call89, 0
   br i1 %tobool90.not, label %oom, label %if.end92
 
@@ -4434,7 +4434,7 @@ land.lhs.true81:                                  ; preds = %land.lhs.true78
   br label %if.end85
 
 if.end85:                                         ; preds = %land.lhs.true81, %land.lhs.true78, %if.end75
-  %res.0 = phi i32 [ 0, %land.lhs.true78 ], [ 0, %if.end75 ], [ %call82, %land.lhs.true81 ]
+  %res.1 = phi i32 [ 0, %land.lhs.true78 ], [ 0, %if.end75 ], [ %call82, %land.lhs.true81 ]
   %30 = load ptr, ptr %newwithnew, align 8
   call void @X509_free(ptr noundef %30) #13
   %31 = load ptr, ptr %newwithold, align 8
@@ -4444,7 +4444,7 @@ if.end85:                                         ; preds = %land.lhs.true81, %l
   br label %end_upd
 
 end_upd:                                          ; preds = %if.end51, %if.else46, %if.end85
-  %res.1 = phi i32 [ %res.0, %if.end85 ], [ 0, %if.end51 ], [ 0, %if.else46 ]
+  %res.0 = phi i32 [ %res.1, %if.end85 ], [ 0, %if.end51 ], [ 0, %if.else46 ]
   %oldwithold.1 = phi ptr [ %oldwithold.0, %if.end85 ], [ %oldwithold.0, %if.end51 ], [ null, %if.else46 ]
   call void @X509_free(ptr noundef %oldwithold.1) #13
   br label %return
@@ -4574,7 +4574,7 @@ cond.false122:                                    ; preds = %if.end116
   br label %return
 
 return:                                           ; preds = %if.end116, %cond.false122, %cond.false103, %if.then100, %cond.false33, %if.then30, %if.then8, %cond.false11, %if.else, %cond.false20, %if.then17, %if.end, %cond.false, %if.then2, %print_itavs.exit, %end_upd
-  %retval.0 = phi i32 [ %res.1, %end_upd ], [ %retval.0.i, %print_itavs.exit ], [ 0, %if.then2 ], [ 0, %cond.false ], [ 0, %if.end ], [ 0, %if.then17 ], [ 0, %cond.false20 ], [ 1, %if.else ], [ 1, %cond.false11 ], [ 1, %if.then8 ], [ 0, %if.then30 ], [ 0, %cond.false33 ], [ 0, %if.then100 ], [ 0, %cond.false103 ], [ 0, %cond.false122 ], [ 0, %if.end116 ]
+  %retval.0 = phi i32 [ %res.0, %end_upd ], [ %retval.0.i, %print_itavs.exit ], [ 0, %if.then2 ], [ 0, %cond.false ], [ 0, %if.end ], [ 0, %if.then17 ], [ 0, %cond.false20 ], [ 1, %if.else ], [ 1, %cond.false11 ], [ 1, %if.then8 ], [ 0, %if.then30 ], [ 0, %cond.false33 ], [ 0, %if.then100 ], [ 0, %cond.false103 ], [ 0, %cond.false122 ], [ 0, %if.end116 ]
   ret i32 %retval.0
 }
 
@@ -5201,7 +5201,7 @@ if.end19thread-pre-split:                         ; preds = %if.end14
 
 if.end19:                                         ; preds = %if.end19thread-pre-split, %if.end
   %5 = phi ptr [ %.pr, %if.end19thread-pre-split ], [ %2, %if.end ]
-  %req_new.0 = phi ptr [ %call5, %if.end19thread-pre-split ], [ null, %if.end ]
+  %req_new.1 = phi ptr [ %call5, %if.end19thread-pre-split ], [ null, %if.end ]
   %cmp20.not = icmp eq ptr %5, null
   br i1 %cmp20.not, label %if.else, label %if.then21
 
@@ -5210,8 +5210,8 @@ if.then21:                                        ; preds = %if.end19
   br label %if.end57
 
 if.else:                                          ; preds = %if.end19
-  %cmp23.not = icmp eq ptr %req_new.0, null
-  %cond = select i1 %cmp23.not, ptr %req, ptr %req_new.0
+  %cmp23.not = icmp eq ptr %req_new.1, null
+  %cond = select i1 %cmp23.not, ptr %req, ptr %req_new.1
   %6 = load i32, ptr @opt_use_mock_srv, align 4
   %tobool24.not = icmp eq i32 %6, 0
   br i1 %tobool24.not, label %if.else36, label %if.then25
@@ -5264,17 +5264,17 @@ if.end54:                                         ; preds = %cond.false50, %if.e
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end54, %if.end34
-  %res.0 = phi ptr [ %call35, %if.end34 ], [ %call55, %if.end54 ]
+  %res.2 = phi ptr [ %call35, %if.end34 ], [ %call55, %if.end54 ]
   store i1 false, ptr @rspin_in_use, align 4
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end56, %if.then21
-  %res.1 = phi ptr [ %call22, %if.then21 ], [ %res.0, %if.end56 ]
+  %res.1 = phi ptr [ %call22, %if.then21 ], [ %res.2, %if.end56 ]
   %cmp58 = icmp eq ptr %res.1, null
   br i1 %cmp58, label %err, label %if.end60
 
 if.end60:                                         ; preds = %if.end57
-  %cmp61 = icmp ne ptr %req_new.0, null
+  %cmp61 = icmp ne ptr %req_new.1, null
   %cmp62 = icmp ne ptr %0, null
   %or.cond1 = select i1 %cmp61, i1 true, i1 %cmp62
   br i1 %or.cond1, label %if.then63, label %if.end74
@@ -5311,10 +5311,10 @@ if.then79:                                        ; preds = %land.lhs.true76
   br label %err
 
 err:                                              ; preds = %if.end74, %land.lhs.true76, %if.then79, %if.end57, %cond.false41, %if.then38, %if.end14, %land.lhs.true10, %if.then4, %land.lhs.true, %if.then72
-  %res.2 = phi ptr [ null, %if.then4 ], [ null, %if.end57 ], [ %res.1, %land.lhs.true76 ], [ null, %if.then79 ], [ %res.1, %if.end74 ], [ null, %if.then72 ], [ null, %if.then38 ], [ null, %cond.false41 ], [ null, %if.end14 ], [ null, %land.lhs.true10 ], [ null, %land.lhs.true ]
-  %req_new.1 = phi ptr [ null, %if.then4 ], [ %req_new.0, %if.end57 ], [ %req_new.0, %land.lhs.true76 ], [ %req_new.0, %if.then79 ], [ %req_new.0, %if.end74 ], [ %req_new.0, %if.then72 ], [ %req_new.0, %if.then38 ], [ %req_new.0, %cond.false41 ], [ %call5, %if.end14 ], [ %call5, %land.lhs.true10 ], [ null, %land.lhs.true ]
-  tail call void @OSSL_CMP_MSG_free(ptr noundef %req_new.1) #13
-  ret ptr %res.2
+  %res.0 = phi ptr [ null, %if.then4 ], [ null, %if.end57 ], [ %res.1, %land.lhs.true76 ], [ null, %if.then79 ], [ %res.1, %if.end74 ], [ null, %if.then72 ], [ null, %if.then38 ], [ null, %cond.false41 ], [ null, %if.end14 ], [ null, %land.lhs.true10 ], [ null, %land.lhs.true ]
+  %req_new.0 = phi ptr [ null, %if.then4 ], [ %req_new.1, %if.end57 ], [ %req_new.1, %land.lhs.true76 ], [ %req_new.1, %if.then79 ], [ %req_new.1, %if.end74 ], [ %req_new.1, %if.then72 ], [ %req_new.1, %if.then38 ], [ %req_new.1, %cond.false41 ], [ %call5, %if.end14 ], [ %call5, %land.lhs.true10 ], [ null, %land.lhs.true ]
+  tail call void @OSSL_CMP_MSG_free(ptr noundef %req_new.0) #13
+  ret ptr %res.0
 }
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -5837,11 +5837,11 @@ if.end123:                                        ; preds = %if.else
   br i1 %cmp121.not, label %if.then129.critedge, label %land.rhs
 
 land.rhs:                                         ; preds = %if.else, %if.end123
-  %own_trusted.044 = phi ptr [ %call120, %if.end123 ], [ null, %if.else ]
+  %own_trusted.144 = phi ptr [ %call120, %if.end123 ], [ null, %if.else ]
   %35 = load ptr, ptr %certs, align 8
-  %call125 = call i32 @OSSL_CMP_CTX_build_cert_chain(ptr noundef %ctx, ptr noundef %own_trusted.044, ptr noundef %35) #13
+  %call125 = call i32 @OSSL_CMP_CTX_build_cert_chain(ptr noundef %ctx, ptr noundef %own_trusted.144, ptr noundef %35) #13
   %tobool126.not = icmp eq i32 %call125, 0
-  call void @X509_STORE_free(ptr noundef %own_trusted.044) #13
+  call void @X509_STORE_free(ptr noundef %own_trusted.144) #13
   %36 = load ptr, ptr %certs, align 8
   call void @OSSL_STACK_OF_X509_free(ptr noundef %36) #13
   br i1 %tobool126.not, label %return, label %if.end143

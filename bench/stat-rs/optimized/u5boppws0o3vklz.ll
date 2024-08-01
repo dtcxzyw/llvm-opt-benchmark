@@ -1215,8 +1215,8 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i156: ;
   br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit143
 
 _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit143: ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i138, %.loopexit, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i156
-  %.sroa.0.1 = phi i1 [ %45, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i156 ], [ true, %.loopexit ], [ %24, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i138 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit ]
-  ret i1 %.sroa.0.1
+  %.sroa.0.2 = phi i1 [ %45, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i156 ], [ true, %.loopexit ], [ %24, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i138 ], [ true, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit ]
+  ret i1 %.sroa.0.2
 
 46:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.exit149
   %47 = icmp eq i64 %34, 0

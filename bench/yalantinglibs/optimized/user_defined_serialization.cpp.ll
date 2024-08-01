@@ -178,7 +178,7 @@ if.else21.i:                                      ; preds = %if.else10.i
   br label %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJSt6vectorIN13my_name_space7array2DESaIS4_EEEEENS_21serialize_buffer_sizeEDpRKT0_.exit
 
 _ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJSt6vectorIN13my_name_space7array2DESaIS4_EEEEENS_21serialize_buffer_sizeEDpRKT0_.exit: ; preds = %if.then4.i, %if.else21.i, %if.then13.i, %.noexc40
-  %retval.i.sroa.10.1 = phi i8 [ 0, %.noexc40 ], [ 8, %if.then4.i ], [ 16, %if.then13.i ], [ 24, %if.else21.i ]
+  %retval.i.sroa.10.0 = phi i8 [ 0, %.noexc40 ], [ 8, %if.then4.i ], [ 16, %if.then13.i ], [ 24, %if.else21.i ]
   %storemerge.in = phi i64 [ %ret.sroa.0.0.lcssa.i, %.noexc40 ], [ %add7.i, %if.then4.i ], [ %add17.i, %if.then13.i ], [ %add25.i, %if.else21.i ]
   %add.i = add i64 %storemerge.in, 5
   %cmp.i.i37 = icmp slt i64 %add.i, 0
@@ -225,15 +225,15 @@ for.body.i.i.preheader:                           ; preds = %sw.bb.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.body.i.i
-  %real_writer.i.sroa.0.0 = phi ptr [ %add.ptr.i.i22.i.i.i.i, %for.body.i.i ], [ %add.ptr.i.i.i.i, %for.body.i.i.preheader ]
+  %real_writer.i.sroa.0.1 = phi ptr [ %add.ptr.i.i22.i.i.i.i, %for.body.i.i ], [ %add.ptr.i.i.i.i, %for.body.i.i.preheader ]
   %__begin0.sroa.0.08.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i ], [ %10, %for.body.i.i.preheader ]
   %14 = load i32, ptr %__begin0.sroa.0.08.i.i, align 8
-  store i32 %14, ptr %real_writer.i.sroa.0.0, align 1
-  %add.ptr.i.i13.i.i.i.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.0, i64 4
+  store i32 %14, ptr %real_writer.i.sroa.0.1, align 1
+  %add.ptr.i.i13.i.i.i.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.1, i64 4
   %y.i.i.i.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.08.i.i, i64 4
   %15 = load i32, ptr %y.i.i.i.i, align 4
   store i32 %15, ptr %add.ptr.i.i13.i.i.i.i, align 1
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.0, i64 8
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.1, i64 8
   %16 = load i32, ptr %__begin0.sroa.0.08.i.i, align 8
   %conv.i.i.i.i46 = zext i32 %16 to i64
   %17 = load i32, ptr %y.i.i.i.i, align 4
@@ -252,9 +252,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i.prehea
 
 sw.bb1.i:                                         ; preds = %.noexc34
   store i32 -1387136423, ptr %13, align 1
-  store i8 %retval.i.sroa.10.1, ptr %add.ptr.i.i, align 1
+  store i8 %retval.i.sroa.10.0, ptr %add.ptr.i.i, align 1
   %add.ptr.i.i24.i = getelementptr inbounds i8, ptr %13, i64 5
-  %19 = lshr exact i8 %retval.i.sroa.10.1, 3
+  %19 = lshr exact i8 %retval.i.sroa.10.0, 3
   switch i8 %19, label %default.unreachable.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
@@ -287,15 +287,15 @@ for.body.i12.i.preheader:                         ; preds = %sw.epilog.i.i
   br label %for.body.i12.i
 
 for.body.i12.i:                                   ; preds = %for.body.i12.i.preheader, %for.body.i12.i
-  %real_writer.i.sroa.0.1 = phi ptr [ %add.ptr.i.i22.i.i.i22.i, %for.body.i12.i ], [ %add.ptr.i.i30.i.i, %for.body.i12.i.preheader ]
+  %real_writer.i.sroa.0.0 = phi ptr [ %add.ptr.i.i22.i.i.i22.i, %for.body.i12.i ], [ %add.ptr.i.i30.i.i, %for.body.i12.i.preheader ]
   %__begin0.sroa.0.018.i.i = phi ptr [ %incdec.ptr.i.i23.i, %for.body.i12.i ], [ %10, %for.body.i12.i.preheader ]
   %20 = load i32, ptr %__begin0.sroa.0.018.i.i, align 8
-  store i32 %20, ptr %real_writer.i.sroa.0.1, align 1
-  %add.ptr.i.i13.i.i.i13.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.1, i64 4
+  store i32 %20, ptr %real_writer.i.sroa.0.0, align 1
+  %add.ptr.i.i13.i.i.i13.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.0, i64 4
   %y.i.i.i14.i = getelementptr inbounds i8, ptr %__begin0.sroa.0.018.i.i, i64 4
   %21 = load i32, ptr %y.i.i.i14.i, align 4
   store i32 %21, ptr %add.ptr.i.i13.i.i.i13.i, align 1
-  %add.ptr.i.i.i.i.i15.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.1, i64 8
+  %add.ptr.i.i.i.i.i15.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.0, i64 8
   %22 = load i32, ptr %__begin0.sroa.0.018.i.i, align 8
   %conv.i.i.i16.i = zext i32 %22 to i64
   %23 = load i32, ptr %y.i.i.i14.i, align 4
@@ -1264,10 +1264,10 @@ sw.default:                                       ; preds = %entry
 
 sw.epilog:                                        ; preds = %_ZN11struct_pack6detail13memory_reader4readEPcm.exit23.thread, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit15.thread, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread
   %.sink = phi i64 [ 8, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit23.thread ], [ 4, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit15.thread ], [ 2, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread ]
-  %size.3 = phi i64 [ %size.0.copyload, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit23.thread ], [ %size.0.insert.ext, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit15.thread ], [ %size.0.insert.ext35, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread ]
+  %size.0 = phi i64 [ %size.0.copyload, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit23.thread ], [ %size.0.insert.ext, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit15.thread ], [ %size.0.insert.ext35, %_ZN11struct_pack6detail13memory_reader4readEPcm.exit.thread ]
   %add.ptr.i22 = getelementptr inbounds i8, ptr %3, i64 %.sink
   store ptr %add.ptr.i22, ptr %1, align 8
-  %cmp = icmp eq i64 %size.3, 0
+  %cmp = icmp eq i64 %size.0, 0
   br i1 %cmp, label %return, label %if.end13
 
 if.end13:                                         ; preds = %sw.epilog
@@ -1291,11 +1291,11 @@ invoke.cont.i.i:                                  ; preds = %for.body.i.i.i.i.i
   br label %_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE5clearEv.exit
 
 _ZNSt6vectorIN13my_name_space7array2DESaIS1_EE5clearEv.exit: ; preds = %if.end13, %invoke.cont.i.i
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %size.3, i64 65536)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %size.0, i64 65536)
   tail call void @_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %.sroa.speculated)
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %item, i64 16
   %reader_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.3, i64 1)
+  %umax = tail call i64 @llvm.umax.i64(i64 %size.0, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorIN13my_name_space7array2DESaIS1_EE5clearEv.exit, %for.inc

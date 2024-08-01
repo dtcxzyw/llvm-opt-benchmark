@@ -643,7 +643,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
 
 126:                                              ; preds = %173, %82
   %indvars.iv.i.i = phi i64 [ 0, %82 ], [ %indvars.iv.next.i.i, %173 ]
-  %.088104.i.i = phi i32 [ 0, %82 ], [ %.1.i.i, %173 ]
+  %.088104.i.i = phi i32 [ 0, %82 ], [ %.2.i.i, %173 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %127 = getelementptr [5 x i16], ptr %5, i64 0, i64 %indvars.iv.next.i.i
   %128 = load i16, ptr %127, align 2
@@ -708,7 +708,7 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
   %169 = sub i32 32, %.088104.i.i
   %170 = sext i32 %169 to i64
   %171 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %168, i64 noundef %170, ptr noundef nonnull @.str.145, i32 noundef %125) #7
-  %.1117.i.i = add i32 %171, %.088104.i.i
+  %.2117.i.i = add i32 %171, %.088104.i.i
   br label %.loopexit.i.i
 
 172:                                              ; preds = %163
@@ -724,20 +724,20 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
   %179 = load i16, ptr %178, align 2
   %180 = zext i16 %179 to i32
   %181 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %175, i64 noundef %177, ptr noundef nonnull @.str.145, i32 noundef %180) #7
-  %.1.i.i = add i32 %181, %.088104.i.i
+  %.2.i.i = add i32 %181, %.088104.i.i
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
   br i1 %exitcond.i.i, label %.loopexit.i.i, label %126, !llvm.loop !4
 
 .loopexit.i.i:                                    ; preds = %173, %.thread115.i.i
-  %.1119.i.i = phi i32 [ %.1117.i.i, %.thread115.i.i ], [ %.1.i.i, %173 ]
+  %.2119.i.i = phi i32 [ %.2117.i.i, %.thread115.i.i ], [ %.2.i.i, %173 ]
   %182 = zext nneg i16 %123 to i32
   %183 = icmp ult i16 %123, 1000
   br i1 %183, label %184, label %190
 
 184:                                              ; preds = %.loopexit.i.i
-  %185 = sext i32 %.1119.i.i to i64
+  %185 = sext i32 %.2119.i.i to i64
   %186 = getelementptr i8, ptr %6, i64 %185
-  %187 = sub i32 32, %.1119.i.i
+  %187 = sub i32 32, %.2119.i.i
   %188 = sext i32 %187 to i64
   %189 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %186, i64 noundef %188, ptr noundef nonnull @.str.145, i32 noundef %182) #7
   br label %_parse_dialed_number.exit.i
@@ -748,9 +748,9 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
   br i1 %or.cond.i.i, label %192, label %199
 
 192:                                              ; preds = %190
-  %193 = sext i32 %.1119.i.i to i64
+  %193 = sext i32 %.2119.i.i to i64
   %194 = getelementptr i8, ptr %6, i64 %193
-  %195 = sub i32 32, %.1119.i.i
+  %195 = sub i32 32, %.2119.i.i
   %196 = sext i32 %195 to i64
   %197 = add nsw i32 %182, -1100
   %198 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %194, i64 noundef %196, ptr noundef nonnull @.str.214, i32 noundef %197) #7
@@ -762,9 +762,9 @@ dissect_gmr1_rach_kls1.exit:                      ; preds = %40, %50, %58, %62
   br i1 %or.cond7.i.i, label %201, label %208
 
 201:                                              ; preds = %199
-  %202 = sext i32 %.1119.i.i to i64
+  %202 = sext i32 %.2119.i.i to i64
   %203 = getelementptr i8, ptr %6, i64 %202
-  %204 = sub i32 32, %.1119.i.i
+  %204 = sub i32 32, %.2119.i.i
   %205 = sext i32 %204 to i64
   %206 = add nsw i32 %182, -1200
   %207 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %203, i64 noundef %205, ptr noundef nonnull @.str.215, i32 noundef %206) #7

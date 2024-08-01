@@ -46,9 +46,9 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
 18:                                               ; preds = %13, %27
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %27 ]
   %.05783 = phi ptr [ %15, %13 ], [ %28, %27 ]
-  %.sroa.0.082 = phi i64 [ 2147483647, %13 ], [ %.sroa.0.2, %27 ]
-  %.sroa.6.081 = phi i64 [ 2147483647, %13 ], [ %.sroa.6.2, %27 ]
-  %.sroa.9.080 = phi i64 [ -2147483647, %13 ], [ %.sroa.9.2, %27 ]
+  %.sroa.0.082 = phi i64 [ 2147483647, %13 ], [ %.sroa.0.1, %27 ]
+  %.sroa.6.081 = phi i64 [ 2147483647, %13 ], [ %.sroa.6.1, %27 ]
+  %.sroa.9.080 = phi i64 [ -2147483647, %13 ], [ %.sroa.9.1, %27 ]
   %.sroa.12.079 = phi i64 [ -2147483647, %13 ], [ %.sroa.12.1, %27 ]
   %.sroa.036.078 = phi i64 [ 2147483647, %13 ], [ %spec.select, %27 ]
   %.sroa.4.077 = phi i64 [ 2147483647, %13 ], [ %.sroa.4.1, %27 ]
@@ -69,26 +69,26 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
 
 26:                                               ; preds = %18
   %spec.select71 = tail call i64 @llvm.smin.i64(i64 %19, i64 %.sroa.0.082)
-  %.sroa.9.1 = tail call i64 @llvm.smax.i64(i64 %19, i64 %.sroa.9.080)
-  %.sroa.6.1 = tail call i64 @llvm.smin.i64(i64 %21, i64 %.sroa.6.081)
+  %.sroa.9.2 = tail call i64 @llvm.smax.i64(i64 %19, i64 %.sroa.9.080)
+  %.sroa.6.2 = tail call i64 @llvm.smin.i64(i64 %21, i64 %.sroa.6.081)
   %spec.select74 = tail call i64 @llvm.smax.i64(i64 %21, i64 %.sroa.12.079)
   br label %27
 
 27:                                               ; preds = %26, %18
   %.sroa.12.1 = phi i64 [ %.sroa.12.079, %18 ], [ %spec.select74, %26 ]
-  %.sroa.9.2 = phi i64 [ %.sroa.9.080, %18 ], [ %.sroa.9.1, %26 ]
-  %.sroa.6.2 = phi i64 [ %.sroa.6.081, %18 ], [ %.sroa.6.1, %26 ]
-  %.sroa.0.2 = phi i64 [ %.sroa.0.082, %18 ], [ %spec.select71, %26 ]
+  %.sroa.9.1 = phi i64 [ %.sroa.9.080, %18 ], [ %.sroa.9.2, %26 ]
+  %.sroa.6.1 = phi i64 [ %.sroa.6.081, %18 ], [ %.sroa.6.2, %26 ]
+  %.sroa.0.1 = phi i64 [ %.sroa.0.082, %18 ], [ %spec.select71, %26 ]
   %28 = getelementptr inbounds i8, ptr %.05783, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %29, label %18, !llvm.loop !4
 
 29:                                               ; preds = %27
-  %30 = icmp slt i64 %spec.select, %.sroa.0.2
-  %31 = icmp sgt i64 %.sroa.7.1, %.sroa.9.2
+  %30 = icmp slt i64 %spec.select, %.sroa.0.1
+  %31 = icmp sgt i64 %.sroa.7.1, %.sroa.9.1
   %or.cond = select i1 %30, i1 true, i1 %31
-  %32 = icmp slt i64 %.sroa.4.1, %.sroa.6.2
+  %32 = icmp slt i64 %.sroa.4.1, %.sroa.6.1
   %or.cond72 = select i1 %or.cond, i1 true, i1 %32
   %33 = icmp sgt i64 %.sroa.10.1, %.sroa.12.1
   %or.cond73 = select i1 %or.cond72, i1 true, i1 %33
@@ -96,11 +96,11 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %.sroa.0.2, ptr %35, align 8
+  store i64 %.sroa.0.1, ptr %35, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 %.sroa.6.2, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %.sroa.6.1, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
-  store i64 %.sroa.9.2, ptr %.sroa.9.0..sroa_idx, align 8
+  store i64 %.sroa.9.1, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
   store i64 %.sroa.12.1, ptr %.sroa.12.0..sroa_idx, align 8
   %36 = call i32 @FT_Outline_Decompose(ptr noundef nonnull %0, ptr noundef nonnull @bbox_interface, ptr noundef nonnull %3) #8
@@ -112,11 +112,11 @@ define i32 @FT_Outline_Get_BBox(ptr noundef %0, ptr noundef writeonly %1) local_
   br label %39
 
 38:                                               ; preds = %29
-  store i64 %.sroa.0.2, ptr %1, align 8
+  store i64 %.sroa.0.1, ptr %1, align 8
   %.sroa.6.0..sroa_idx25 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 %.sroa.6.2, ptr %.sroa.6.0..sroa_idx25, align 8
+  store i64 %.sroa.6.1, ptr %.sroa.6.0..sroa_idx25, align 8
   %.sroa.9.0..sroa_idx29 = getelementptr inbounds i8, ptr %1, i64 16
-  store i64 %.sroa.9.2, ptr %.sroa.9.0..sroa_idx29, align 8
+  store i64 %.sroa.9.1, ptr %.sroa.9.0..sroa_idx29, align 8
   %.sroa.12.0..sroa_idx33 = getelementptr inbounds i8, ptr %1, i64 24
   store i64 %.sroa.12.1, ptr %.sroa.12.0..sroa_idx33, align 8
   br label %39

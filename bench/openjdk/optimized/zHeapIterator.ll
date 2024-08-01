@@ -1146,13 +1146,13 @@ define hidden noundef ptr @_ZN13ZHeapIterator13object_bitmapEP7oopDesc(ptr nound
   br label %_ZN7ZLockerI5ZLockED2Ev.exit
 
 _ZN7ZLockerI5ZLockED2Ev.exit:                     ; preds = %19, %12
-  %.0 = phi ptr [ %20, %19 ], [ %17, %12 ]
+  %.1 = phi ptr [ %20, %19 ], [ %17, %12 ]
   %27 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #13
   br label %28
 
 28:                                               ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit, %2
-  %.1 = phi ptr [ %.0, %_ZN7ZLockerI5ZLockED2Ev.exit ], [ %10, %2 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %_ZN7ZLockerI5ZLockED2Ev.exit ], [ %10, %2 ]
+  ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -1213,12 +1213,12 @@ define hidden noundef zeroext i1 @_ZN13ZHeapIterator11mark_objectEP7oopDesc(ptr 
   br label %_ZN7ZLockerI5ZLockED2Ev.exit.i
 
 _ZN7ZLockerI5ZLockED2Ev.exit.i:                   ; preds = %21, %14
-  %.0.i = phi ptr [ %22, %21 ], [ %19, %14 ]
+  %.1.i = phi ptr [ %22, %21 ], [ %19, %14 ]
   %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %15) #13
   br label %_ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit
 
 _ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit: ; preds = %4, %_ZN7ZLockerI5ZLockED2Ev.exit.i
-  %.1.i = phi ptr [ %.0.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i ], [ %12, %4 ]
+  %.0.i = phi ptr [ %.1.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i ], [ %12, %4 ]
   %30 = load i64, ptr @ZAddressOffsetMask, align 8
   %31 = and i64 %5, 2097151
   %32 = and i64 %31, %30
@@ -1226,7 +1226,7 @@ _ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit: ; preds = %4, %_ZN7ZLockerI5ZL
   %34 = load i32, ptr %33, align 4
   %35 = zext nneg i32 %34 to i64
   %36 = lshr i64 %32, %35
-  %37 = load ptr, ptr %.1.i, align 8
+  %37 = load ptr, ptr %.0.i, align 8
   %38 = lshr i64 %36, 6
   %39 = getelementptr inbounds i64, ptr %37, i64 %38
   %40 = and i64 %36, 63
@@ -4270,7 +4270,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
 
 .loopexit:                                        ; preds = %.preheader, %12
   %.pre62 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
-  %.1 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
+  %.034 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
   %26 = getelementptr inbounds i8, ptr %8, i64 516
   br label %27
 
@@ -4288,13 +4288,13 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %35 = load i32, ptr %9, align 8
   %36 = urem i32 %.0.i.i41, %35
   %37 = icmp eq i32 %36, %1
-  %38 = icmp eq i32 %36, %.1
+  %38 = icmp eq i32 %36, %.034
   %39 = or i1 %37, %38
   br i1 %39, label %27, label %40, !llvm.loop !30
 
 40:                                               ; preds = %27
   %41 = load ptr, ptr %4, align 8
-  %42 = zext i32 %.1 to i64
+  %42 = zext i32 %.034 to i64
   %43 = getelementptr inbounds ptr, ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 128
@@ -4388,7 +4388,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   br i1 %99, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit, label %100
 
 _ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit: ; preds = %88, %70
-  %.036 = phi i32 [ %36, %70 ], [ %.1, %88 ]
+  %.036 = phi i32 [ %36, %70 ], [ %.034, %88 ]
   store i32 %.036, ptr %13, align 8
   br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55
 
@@ -4484,7 +4484,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
 
 .loopexit:                                        ; preds = %.preheader, %12
   %.pre62 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
-  %.1 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
+  %.034 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
   %26 = getelementptr inbounds i8, ptr %8, i64 516
   br label %27
 
@@ -4502,13 +4502,13 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %35 = load i32, ptr %9, align 8
   %36 = urem i32 %.0.i.i41, %35
   %37 = icmp eq i32 %36, %1
-  %38 = icmp eq i32 %36, %.1
+  %38 = icmp eq i32 %36, %.034
   %39 = or i1 %37, %38
   br i1 %39, label %27, label %40, !llvm.loop !32
 
 40:                                               ; preds = %27
   %41 = load ptr, ptr %4, align 8
-  %42 = zext i32 %.1 to i64
+  %42 = zext i32 %.034 to i64
   %43 = getelementptr inbounds ptr, ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 128
@@ -4600,7 +4600,7 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   br i1 %97, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, label %98
 
 _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit: ; preds = %87, %70
-  %.036 = phi i32 [ %36, %70 ], [ %.1, %87 ]
+  %.036 = phi i32 [ %36, %70 ], [ %.034, %87 ]
   store i32 %.036, ptr %13, align 8
   br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
 
@@ -6648,19 +6648,19 @@ _ZN13Devirtualizer6do_oopI23ZHeapIteratorOopClosureILb1EEP7oopDescEEvPT_PT0_.exi
   br label %_ZN7ZLockerI5ZLockED2Ev.exit.i.i
 
 _ZN7ZLockerI5ZLockED2Ev.exit.i.i:                 ; preds = %68, %61
-  %.0.i.i = phi ptr [ %69, %68 ], [ %66, %61 ]
+  %.1.i.i = phi ptr [ %69, %68 ], [ %66, %61 ]
   %75 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %62) #13
   br label %_ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i
 
 _ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i: ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit.i.i, %51
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %59, %51 ]
+  %.0.i.i = phi ptr [ %.1.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %59, %51 ]
   %76 = load i64, ptr @ZAddressOffsetMask, align 8
   %77 = and i64 %52, 2097151
   %78 = and i64 %77, %76
   %79 = load i32, ptr %25, align 4
   %80 = zext nneg i32 %79 to i64
   %81 = lshr i64 %78, %80
-  %82 = load ptr, ptr %.1.i.i, align 8
+  %82 = load ptr, ptr %.0.i.i, align 8
   %83 = lshr i64 %81, 6
   %84 = getelementptr inbounds i64, ptr %82, i64 %83
   %85 = and i64 %81, 63
@@ -7428,19 +7428,19 @@ _ZN13Devirtualizer6do_oopI23ZHeapIteratorOopClosureILb1EEP7oopDescEEvPT_PT0_.exi
   br label %_ZN7ZLockerI5ZLockED2Ev.exit.i.i
 
 _ZN7ZLockerI5ZLockED2Ev.exit.i.i:                 ; preds = %69, %62
-  %.0.i.i = phi ptr [ %70, %69 ], [ %67, %62 ]
+  %.1.i.i = phi ptr [ %70, %69 ], [ %67, %62 ]
   %76 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %63) #13
   br label %_ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i
 
 _ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i: ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit.i.i, %52
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %60, %52 ]
+  %.0.i.i = phi ptr [ %.1.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %60, %52 ]
   %77 = load i64, ptr @ZAddressOffsetMask, align 8
   %78 = and i64 %53, 2097151
   %79 = and i64 %78, %77
   %80 = load i32, ptr %26, align 4
   %81 = zext nneg i32 %80 to i64
   %82 = lshr i64 %79, %81
-  %83 = load ptr, ptr %.1.i.i, align 8
+  %83 = load ptr, ptr %.0.i.i, align 8
   %84 = lshr i64 %82, 6
   %85 = getelementptr inbounds i64, ptr %83, i64 %84
   %86 = and i64 %82, 63
@@ -8055,19 +8055,19 @@ _ZN13Devirtualizer6do_oopI23ZHeapIteratorOopClosureILb1EEP7oopDescEEvPT_PT0_.exi
   br label %_ZN7ZLockerI5ZLockED2Ev.exit.i.i
 
 _ZN7ZLockerI5ZLockED2Ev.exit.i.i:                 ; preds = %70, %63
-  %.0.i.i = phi ptr [ %71, %70 ], [ %68, %63 ]
+  %.1.i.i = phi ptr [ %71, %70 ], [ %68, %63 ]
   %77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %64) #13
   br label %_ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i
 
 _ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i: ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit.i.i, %53
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %61, %53 ]
+  %.0.i.i = phi ptr [ %.1.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %61, %53 ]
   %78 = load i64, ptr @ZAddressOffsetMask, align 8
   %79 = and i64 %54, 2097151
   %80 = and i64 %79, %78
   %81 = load i32, ptr %27, align 4
   %82 = zext nneg i32 %81 to i64
   %83 = lshr i64 %80, %82
-  %84 = load ptr, ptr %.1.i.i, align 8
+  %84 = load ptr, ptr %.0.i.i, align 8
   %85 = lshr i64 %83, 6
   %86 = getelementptr inbounds i64, ptr %84, i64 %85
   %87 = and i64 %83, 63
@@ -8497,19 +8497,19 @@ _ZN13Devirtualizer6do_oopI23ZHeapIteratorOopClosureILb1EEP7oopDescEEvPT_PT0_.exi
   br label %_ZN7ZLockerI5ZLockED2Ev.exit.i.i
 
 _ZN7ZLockerI5ZLockED2Ev.exit.i.i:                 ; preds = %69, %62
-  %.0.i.i = phi ptr [ %70, %69 ], [ %67, %62 ]
+  %.1.i.i = phi ptr [ %70, %69 ], [ %67, %62 ]
   %76 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %63) #13
   br label %_ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i
 
 _ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i: ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit.i.i, %52
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %60, %52 ]
+  %.0.i.i = phi ptr [ %.1.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %60, %52 ]
   %77 = load i64, ptr @ZAddressOffsetMask, align 8
   %78 = and i64 %53, 2097151
   %79 = and i64 %78, %77
   %80 = load i32, ptr %26, align 4
   %81 = zext nneg i32 %80 to i64
   %82 = lshr i64 %79, %81
-  %83 = load ptr, ptr %.1.i.i, align 8
+  %83 = load ptr, ptr %.0.i.i, align 8
   %84 = lshr i64 %82, 6
   %85 = getelementptr inbounds i64, ptr %83, i64 %84
   %86 = and i64 %82, 63
@@ -8803,9 +8803,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %71
 
 71:                                               ; preds = %69, %58
-  %.1.ph.i.i.i.i.i = phi i64 [ %56, %58 ], [ %68, %69 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %56, %58 ], [ %68, %69 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %46, %58 ], [ %70, %69 ]
-  %72 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %72 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %73 = add i64 %.026.ph.i.i.i.i.i, %72
   %74 = icmp ult i64 %73, %49
   br i1 %74, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop23ZHeapIteratorOopClosureILb1EEEEvP17stackChunkOopDescPT0_PlS8_.exit
@@ -9191,9 +9191,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6BitMap7iterateIZNKS_7iterate
   br label %25
 
 25:                                               ; preds = %23, %16
-  %.1.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
+  %.027.ph.i.i = phi i64 [ %14, %16 ], [ %22, %23 ]
   %.026.ph.i.i = phi i64 [ %.0917, %16 ], [ %24, %23 ]
-  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i, i1 true)
+  %26 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i, i1 true)
   %27 = add i64 %.026.ph.i.i, %26
   %28 = icmp ult i64 %27, %3
   br i1 %28, label %_ZNK6BitMap18find_first_set_bitEmm.exit, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
@@ -10127,19 +10127,19 @@ _ZN13Devirtualizer6do_oopI23ZHeapIteratorOopClosureILb0EEP7oopDescEEvPT_PT0_.exi
   br label %_ZN7ZLockerI5ZLockED2Ev.exit.i.i
 
 _ZN7ZLockerI5ZLockED2Ev.exit.i.i:                 ; preds = %64, %57
-  %.0.i.i = phi ptr [ %65, %64 ], [ %62, %57 ]
+  %.1.i.i = phi ptr [ %65, %64 ], [ %62, %57 ]
   %71 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %58) #13
   br label %_ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i
 
 _ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i: ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit.i.i, %47
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %55, %47 ]
+  %.0.i.i = phi ptr [ %.1.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %55, %47 ]
   %72 = load i64, ptr @ZAddressOffsetMask, align 8
   %73 = and i64 %48, 2097151
   %74 = and i64 %73, %72
   %75 = load i32, ptr %25, align 4
   %76 = zext nneg i32 %75 to i64
   %77 = lshr i64 %74, %76
-  %78 = load ptr, ptr %.1.i.i, align 8
+  %78 = load ptr, ptr %.0.i.i, align 8
   %79 = lshr i64 %77, 6
   %80 = getelementptr inbounds i64, ptr %78, i64 %79
   %81 = and i64 %77, 63
@@ -10531,19 +10531,19 @@ _ZN13Devirtualizer6do_oopI23ZHeapIteratorOopClosureILb0EEP7oopDescEEvPT_PT0_.exi
   br label %_ZN7ZLockerI5ZLockED2Ev.exit.i.i
 
 _ZN7ZLockerI5ZLockED2Ev.exit.i.i:                 ; preds = %65, %58
-  %.0.i.i = phi ptr [ %66, %65 ], [ %63, %58 ]
+  %.1.i.i = phi ptr [ %66, %65 ], [ %63, %58 ]
   %72 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %59) #13
   br label %_ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i
 
 _ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i: ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit.i.i, %48
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %56, %48 ]
+  %.0.i.i = phi ptr [ %.1.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %56, %48 ]
   %73 = load i64, ptr @ZAddressOffsetMask, align 8
   %74 = and i64 %49, 2097151
   %75 = and i64 %74, %73
   %76 = load i32, ptr %26, align 4
   %77 = zext nneg i32 %76 to i64
   %78 = lshr i64 %75, %77
-  %79 = load ptr, ptr %.1.i.i, align 8
+  %79 = load ptr, ptr %.0.i.i, align 8
   %80 = lshr i64 %78, 6
   %81 = getelementptr inbounds i64, ptr %79, i64 %80
   %82 = and i64 %78, 63
@@ -11131,19 +11131,19 @@ _ZN13Devirtualizer6do_oopI23ZHeapIteratorOopClosureILb0EEP7oopDescEEvPT_PT0_.exi
   br label %_ZN7ZLockerI5ZLockED2Ev.exit.i.i
 
 _ZN7ZLockerI5ZLockED2Ev.exit.i.i:                 ; preds = %66, %59
-  %.0.i.i = phi ptr [ %67, %66 ], [ %64, %59 ]
+  %.1.i.i = phi ptr [ %67, %66 ], [ %64, %59 ]
   %73 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %60) #13
   br label %_ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i
 
 _ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i: ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit.i.i, %49
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %57, %49 ]
+  %.0.i.i = phi ptr [ %.1.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %57, %49 ]
   %74 = load i64, ptr @ZAddressOffsetMask, align 8
   %75 = and i64 %50, 2097151
   %76 = and i64 %75, %74
   %77 = load i32, ptr %27, align 4
   %78 = zext nneg i32 %77 to i64
   %79 = lshr i64 %76, %78
-  %80 = load ptr, ptr %.1.i.i, align 8
+  %80 = load ptr, ptr %.0.i.i, align 8
   %81 = lshr i64 %79, 6
   %82 = getelementptr inbounds i64, ptr %80, i64 %81
   %83 = and i64 %79, 63
@@ -11563,19 +11563,19 @@ _ZN13Devirtualizer6do_oopI23ZHeapIteratorOopClosureILb0EEP7oopDescEEvPT_PT0_.exi
   br label %_ZN7ZLockerI5ZLockED2Ev.exit.i.i
 
 _ZN7ZLockerI5ZLockED2Ev.exit.i.i:                 ; preds = %65, %58
-  %.0.i.i = phi ptr [ %66, %65 ], [ %63, %58 ]
+  %.1.i.i = phi ptr [ %66, %65 ], [ %63, %58 ]
   %72 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %59) #13
   br label %_ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i
 
 _ZN13ZHeapIterator13object_bitmapEP7oopDesc.exit.i: ; preds = %_ZN7ZLockerI5ZLockED2Ev.exit.i.i, %48
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %56, %48 ]
+  %.0.i.i = phi ptr [ %.1.i.i, %_ZN7ZLockerI5ZLockED2Ev.exit.i.i ], [ %56, %48 ]
   %73 = load i64, ptr @ZAddressOffsetMask, align 8
   %74 = and i64 %49, 2097151
   %75 = and i64 %74, %73
   %76 = load i32, ptr %26, align 4
   %77 = zext nneg i32 %76 to i64
   %78 = lshr i64 %75, %77
-  %79 = load ptr, ptr %.1.i.i, align 8
+  %79 = load ptr, ptr %.0.i.i, align 8
   %80 = lshr i64 %78, 6
   %81 = getelementptr inbounds i64, ptr %79, i64 %80
   %82 = and i64 %78, 63
@@ -11857,9 +11857,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_s
   br label %71
 
 71:                                               ; preds = %69, %58
-  %.1.ph.i.i.i.i.i = phi i64 [ %56, %58 ], [ %68, %69 ]
+  %.027.ph.i.i.i.i.i = phi i64 [ %56, %58 ], [ %68, %69 ]
   %.026.ph.i.i.i.i.i = phi i64 [ %46, %58 ], [ %70, %69 ]
-  %72 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i.i, i1 true)
+  %72 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i.i, i1 true)
   %73 = add i64 %.026.ph.i.i.i.i.i, %72
   %74 = icmp ult i64 %73, %49
   br i1 %74, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i.i, label %_ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop23ZHeapIteratorOopClosureILb0EEEEvP17stackChunkOopDescPT0_PlS8_.exit
@@ -12221,9 +12221,9 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass33oop_oop_iterate_s
   br label %48
 
 48:                                               ; preds = %46, %39
-  %.1.ph.i.i.i.i = phi i64 [ %37, %39 ], [ %45, %46 ]
+  %.027.ph.i.i.i.i = phi i64 [ %37, %39 ], [ %45, %46 ]
   %.026.ph.i.i.i.i = phi i64 [ %.0917.i.i, %39 ], [ %47, %46 ]
-  %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.1.ph.i.i.i.i, i1 true)
+  %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.027.ph.i.i.i.i, i1 true)
   %50 = add i64 %.026.ph.i.i.i.i, %49
   %51 = icmp ult i64 %50, %25
   br i1 %51, label %_ZNK6BitMap18find_first_set_bitEmm.exit.i.i, label %_ZNK6BitMap7iterateI33StackChunkOopIterateBitmapClosureIP7oopDesc23ZHeapIteratorOopClosureILb0EEEEEbPT_mm.exit

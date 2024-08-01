@@ -6086,7 +6086,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
           to label %.thread341.i unwind label %1596
 
 1662:                                             ; preds = %1675
-  br i1 %.2226.i, label %.thread353.i, label %1526
+  br i1 %.3227.i, label %.thread353.i, label %1526
 
 .thread353.loopexit.i:                            ; preds = %1669, %1533
   %lpad.loopexit.i71 = landingpad { ptr, i32 }
@@ -6128,13 +6128,13 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
           to label %1676 unwind label %.loopexit.i72
 
 1675:                                             ; preds = %1683, %.loopexit.split-lp.i73, %.loopexit.i72
-  %.2226.i = phi i1 [ false, %1683 ], [ %.3227.ph.i, %.loopexit.i72 ], [ %1677, %.loopexit.split-lp.i73 ]
+  %.3227.i = phi i1 [ false, %1683 ], [ %.2226.ph.i, %.loopexit.i72 ], [ %1677, %.loopexit.split-lp.i73 ]
   %.pn247.i = phi { ptr, i32 } [ %1684, %1683 ], [ %lpad.loopexit364.i, %.loopexit.i72 ], [ %lpad.loopexit.split-lp365.i, %.loopexit.split-lp.i73 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %140) #12
           to label %1662 unwind label %1596
 
 .loopexit.i72:                                    ; preds = %1689, %1687, %1679, %1676, %1674
-  %.3227.ph.i = phi i1 [ true, %1674 ], [ true, %1676 ], [ false, %1679 ], [ false, %1687 ], [ false, %1689 ]
+  %.2226.ph.i = phi i1 [ true, %1674 ], [ true, %1676 ], [ false, %1679 ], [ false, %1687 ], [ false, %1689 ]
   %lpad.loopexit364.i = landingpad { ptr, i32 }
           cleanup
   br label %1675
@@ -6510,7 +6510,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
   br label %1774
 
 1747:                                             ; preds = %1773
-  br i1 %.2.i, label %1774, label %.thread.i66
+  br i1 %.3.i, label %1774, label %.thread.i66
 
 1748:                                             ; preds = %1763
   %1749 = landingpad { ptr, i32 }
@@ -6524,13 +6524,13 @@ _ZN20wasmtime_wit_bindgen8Wasmtime12build_struct17he868513d52786a01E.exit.i: ; p
           to label %1753 unwind label %.loopexit
 
 1752:                                             ; preds = %.loopexit, %.loopexit.split-lp, %1761
-  %.2.i = phi i1 [ false, %1761 ], [ %.3.i.ph, %.loopexit ], [ true, %.loopexit.split-lp ]
+  %.3.i = phi i1 [ false, %1761 ], [ %.2.i.ph, %.loopexit ], [ true, %.loopexit.split-lp ]
   %.pn.i67 = phi { ptr, i32 } [ %1762, %1761 ], [ %lpad.loopexit172, %.loopexit ], [ %lpad.loopexit.split-lp173, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %190) #12
           to label %1773 unwind label %1596
 
 .loopexit:                                        ; preds = %1750, %1756, %1758
-  %.3.i.ph = phi i1 [ true, %1750 ], [ false, %1756 ], [ false, %1758 ]
+  %.2.i.ph = phi i1 [ true, %1750 ], [ false, %1756 ], [ false, %1758 ]
   %lpad.loopexit172 = landingpad { ptr, i32 }
           cleanup
   br label %1752
@@ -7086,7 +7086,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
   br i1 %1872, label %._crit_edge178.i.i, label %.lr.ph177.i.i
 
 1873:                                             ; preds = %1877
-  br i1 %.2.i.i, label %2079, label %.body.i96
+  br i1 %.3.i.i, label %2079, label %.body.i96
 
 1874:                                             ; preds = %.noexc70.i
   %1875 = getelementptr inbounds i8, ptr %1835, i64 24
@@ -7094,13 +7094,13 @@ _ZN20wasmtime_wit_bindgen8Wasmtime6export17h6d4bcb03cbc90dcfE.exit: ; preds = %1
           to label %1878 unwind label %.loopexit208
 
 1877:                                             ; preds = %.loopexit208, %.loopexit.split-lp209, %.loopexit.split-lp.i.i, %.loopexit.split-lp155.i.i
-  %.2.i.i = phi i1 [ false, %.loopexit.split-lp.i.i ], [ true, %.loopexit.split-lp155.i.i ], [ %.3.i.i.ph, %.loopexit208 ], [ true, %.loopexit.split-lp209 ]
+  %.3.i.i = phi i1 [ false, %.loopexit.split-lp.i.i ], [ true, %.loopexit.split-lp155.i.i ], [ %.2.i.i.ph, %.loopexit208 ], [ true, %.loopexit.split-lp209 ]
   %.pn111.i.i = phi { ptr, i32 } [ %.pn109.i.i, %.loopexit.split-lp.i.i ], [ %.pn105.i.i, %.loopexit.split-lp155.i.i ], [ %lpad.loopexit210, %.loopexit208 ], [ %lpad.loopexit.split-lp211, %.loopexit.split-lp209 ]
   invoke void @"_ZN4core3ptr77drop_in_place$LT$indexmap..set..IndexSet$LT$$RF$alloc..string..String$GT$$GT$17h0aac7ef344a06ac4E"(ptr nonnull align 8 %51) #12
           to label %1873 unwind label %1982
 
 .loopexit208:                                     ; preds = %1874, %1878, %1884, %1887, %1888, %1894, %1901, %1909, %1911, %1974
-  %.3.i.i.ph = phi i1 [ true, %1874 ], [ true, %1878 ], [ true, %1884 ], [ true, %1887 ], [ true, %1888 ], [ true, %1894 ], [ true, %1901 ], [ true, %1909 ], [ true, %1911 ], [ false, %1974 ]
+  %.2.i.i.ph = phi i1 [ true, %1874 ], [ true, %1878 ], [ true, %1884 ], [ true, %1887 ], [ true, %1888 ], [ true, %1894 ], [ true, %1901 ], [ true, %1909 ], [ true, %1911 ], [ false, %1974 ]
   %lpad.loopexit210 = landingpad { ptr, i32 }
           cleanup
   br label %1877

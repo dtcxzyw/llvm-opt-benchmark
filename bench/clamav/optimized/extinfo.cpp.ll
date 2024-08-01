@@ -684,15 +684,15 @@ _ZL10LinkInPathPKw.exit:                          ; preds = %56, %38
   br label %67
 
 67:                                               ; preds = %67, %65
-  %.030 = phi ptr [ %66, %65 ], [ %70, %67 ]
-  %68 = load i32, ptr %.030, align 4
+  %.1 = phi ptr [ %66, %65 ], [ %70, %67 ]
+  %68 = load i32, ptr %.1, align 4
   %69 = call noundef zeroext i1 @_Z9IsPathDivi(i32 noundef %68)
-  %70 = getelementptr inbounds i8, ptr %.030, i64 4
+  %70 = getelementptr inbounds i8, ptr %.1, i64 4
   br i1 %69, label %67, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %67, %62, %58
-  %.1 = phi ptr [ %2, %62 ], [ %2, %58 ], [ %.030, %67 ]
-  %71 = call fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr noundef %.1)
+  %.030 = phi ptr [ %2, %62 ], [ %2, %58 ], [ %.1, %67 ]
+  %71 = call fastcc noundef i32 @_ZL16CalcAllowedDepthPKw(ptr noundef %.030)
   %72 = icmp sge i32 %59, %.032
   %73 = icmp sge i32 %71, %.032
   %74 = and i1 %72, %73

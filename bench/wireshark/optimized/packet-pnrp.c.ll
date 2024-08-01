@@ -524,8 +524,8 @@ define internal i32 @dissect_pnrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %46
 
 46:                                               ; preds = %dissect_encodedCPA_structure.exit, %16
-  %.0536 = phi ptr [ null, %16 ], [ %.19, %dissect_encodedCPA_structure.exit ]
-  %.0534 = phi i32 [ 12, %16 ], [ %.1535, %dissect_encodedCPA_structure.exit ]
+  %.0536 = phi ptr [ null, %16 ], [ %.2538, %dissect_encodedCPA_structure.exit ]
+  %.0534 = phi i32 [ 12, %16 ], [ %.2, %dissect_encodedCPA_structure.exit ]
   %.0533 = phi ptr [ %0, %16 ], [ %.1, %dissect_encodedCPA_structure.exit ]
   %47 = call i32 @tvb_reported_length_remaining(ptr noundef %.0533, i32 noundef %.0534) #3
   %48 = icmp sgt i32 %47, 0
@@ -627,7 +627,7 @@ define internal i32 @dissect_pnrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %96, label %.lr.ph.i, label %dissect_pnrp_ids.exit, !llvm.loop !4
 
 dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
-  %.2538 = phi ptr [ %.0536, %81 ], [ %84, %82 ], [ %84, %.lr.ph.i ]
+  %.3 = phi ptr [ %.0536, %81 ], [ %84, %82 ], [ %84, %.lr.ph.i ]
   %97 = add nsw i32 %.0534, %53
   br label %dissect_encodedCPA_structure.exit
 
@@ -644,7 +644,7 @@ dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
   br label %106
 
 106:                                              ; preds = %99, %98
-  %.3 = phi ptr [ %101, %99 ], [ %.0536, %98 ]
+  %.4 = phi ptr [ %101, %99 ], [ %.0536, %98 ]
   switch i8 %17, label %138 [
     i8 7, label %107
     i8 9, label %116
@@ -655,10 +655,10 @@ dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
   %108 = add nsw i32 %.0534, 4
   %109 = load i32, ptr @hf_pnrp_message_inquire_flags, align 4
   %110 = load i32, ptr @ett_pnrp_message_inquire_flags, align 4
-  %111 = call ptr @proto_tree_add_bitmask(ptr noundef %.3, ptr noundef %.0533, i32 noundef %108, i32 noundef %109, i32 noundef %110, ptr noundef nonnull @inquire_flags, i32 noundef 0) #3
+  %111 = call ptr @proto_tree_add_bitmask(ptr noundef %.4, ptr noundef %.0533, i32 noundef %108, i32 noundef %109, i32 noundef %110, ptr noundef nonnull @inquire_flags, i32 noundef 0) #3
   %112 = load i32, ptr @hf_pnrp_padding, align 4
   %113 = add nsw i32 %.0534, 6
-  %114 = call ptr @proto_tree_add_item(ptr noundef %.3, i32 noundef %112, ptr noundef %.0533, i32 noundef %113, i32 noundef 2, i32 noundef 0) #3
+  %114 = call ptr @proto_tree_add_item(ptr noundef %.4, i32 noundef %112, ptr noundef %.0533, i32 noundef %113, i32 noundef 2, i32 noundef 0) #3
   %115 = add nsw i32 %51, %53
   br label %dissect_encodedCPA_structure.exit
 
@@ -666,10 +666,10 @@ dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
   %117 = load i32, ptr @hf_pnrp_message_ack_flags_reserved, align 4
   %118 = shl i32 %.0534, 3
   %119 = add i32 %118, 32
-  %120 = call ptr @proto_tree_add_bits_item(ptr noundef %.3, i32 noundef %117, ptr noundef %.0533, i32 noundef %119, i32 noundef 15, i32 noundef 0) #3
+  %120 = call ptr @proto_tree_add_bits_item(ptr noundef %.4, i32 noundef %117, ptr noundef %.0533, i32 noundef %119, i32 noundef 15, i32 noundef 0) #3
   %121 = load i32, ptr @hf_pnrp_message_ack_flags_Nbit, align 4
   %122 = add i32 %118, 47
-  %123 = call ptr @proto_tree_add_bits_item(ptr noundef %.3, i32 noundef %121, ptr noundef %.0533, i32 noundef %122, i32 noundef 1, i32 noundef 0) #3
+  %123 = call ptr @proto_tree_add_bits_item(ptr noundef %.4, i32 noundef %121, ptr noundef %.0533, i32 noundef %122, i32 noundef 1, i32 noundef 0) #3
   %124 = add nsw i32 %.0534, %53
   br label %dissect_encodedCPA_structure.exit
 
@@ -677,7 +677,7 @@ dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
   %126 = add nsw i32 %.0534, 4
   %127 = load i32, ptr @hf_pnrp_message_authority_flags, align 4
   %128 = load i32, ptr @ett_pnrp_message_authority_flags, align 4
-  %129 = call ptr @proto_tree_add_bitmask(ptr noundef %.3, ptr noundef %.0533, i32 noundef %126, i32 noundef %127, i32 noundef %128, ptr noundef nonnull @authority_flags, i32 noundef 0) #3
+  %129 = call ptr @proto_tree_add_bitmask(ptr noundef %.4, ptr noundef %.0533, i32 noundef %126, i32 noundef %127, i32 noundef %128, ptr noundef nonnull @authority_flags, i32 noundef 0) #3
   %130 = add nsw i32 %.0534, %53
   %131 = call i32 @tvb_reported_length_remaining(ptr noundef %.0533, i32 noundef %130) #3
   %132 = icmp eq i32 %131, 0
@@ -686,7 +686,7 @@ dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
 133:                                              ; preds = %125
   %134 = load i32, ptr @hf_pnrp_padding, align 4
   %135 = add nsw i32 %.0534, 6
-  %136 = call ptr @proto_tree_add_item(ptr noundef %.3, i32 noundef %134, ptr noundef %.0533, i32 noundef %135, i32 noundef 2, i32 noundef 0) #3
+  %136 = call ptr @proto_tree_add_item(ptr noundef %.4, i32 noundef %134, ptr noundef %.0533, i32 noundef %135, i32 noundef 2, i32 noundef 0) #3
   %137 = add nsw i32 %51, %53
   br label %dissect_encodedCPA_structure.exit
 
@@ -694,7 +694,7 @@ dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
   %139 = load i32, ptr @hf_pnrp_message_flags, align 4
   %140 = add nsw i32 %.0534, 4
   %141 = add nsw i32 %53, -4
-  %142 = call ptr @proto_tree_add_item(ptr noundef %.3, i32 noundef %139, ptr noundef %.0533, i32 noundef %140, i32 noundef %141, i32 noundef 0) #3
+  %142 = call ptr @proto_tree_add_item(ptr noundef %.4, i32 noundef %139, ptr noundef %.0533, i32 noundef %140, i32 noundef %141, i32 noundef 0) #3
   %143 = add nsw i32 %.0534, %53
   br label %dissect_encodedCPA_structure.exit
 
@@ -724,7 +724,7 @@ dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
   br label %165
 
 165:                                              ; preds = %145, %144
-  %.4 = phi ptr [ %147, %145 ], [ %.0536, %144 ]
+  %.5 = phi ptr [ %147, %145 ], [ %.0536, %144 ]
   %166 = add nsw i32 %.0534, 1
   %167 = add nsw i32 %166, %53
   br label %dissect_encodedCPA_structure.exit
@@ -751,7 +751,7 @@ dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
   br label %185
 
 185:                                              ; preds = %169, %168
-  %.5 = phi ptr [ %171, %169 ], [ %.0536, %168 ]
+  %.6 = phi ptr [ %171, %169 ], [ %.0536, %168 ]
   %186 = add nsw i32 %51, %53
   br label %dissect_encodedCPA_structure.exit
 
@@ -784,7 +784,7 @@ dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
   br label %211
 
 211:                                              ; preds = %188, %187
-  %.6 = phi ptr [ %190, %188 ], [ %.0536, %187 ]
+  %.7 = phi ptr [ %190, %188 ], [ %.0536, %187 ]
   %212 = add nsw i32 %.0534, %53
   br label %dissect_encodedCPA_structure.exit
 
@@ -817,7 +817,7 @@ dissect_pnrp_ids.exit:                            ; preds = %.lr.ph.i, %82, %81
   br i1 %228, label %.lr.ph.i574, label %dissect_pnrp_ids.exit577, !llvm.loop !4
 
 dissect_pnrp_ids.exit577:                         ; preds = %.lr.ph.i574, %214, %213
-  %.7 = phi ptr [ %.0536, %213 ], [ %216, %214 ], [ %216, %.lr.ph.i574 ]
+  %.8 = phi ptr [ %.0536, %213 ], [ %216, %214 ], [ %216, %.lr.ph.i574 ]
   %229 = add nsw i32 %.0534, %53
   br label %dissect_encodedCPA_structure.exit
 
@@ -834,7 +834,7 @@ dissect_pnrp_ids.exit577:                         ; preds = %.lr.ph.i574, %214, 
   br label %238
 
 238:                                              ; preds = %231, %230
-  %.8 = phi ptr [ %233, %231 ], [ %.0536, %230 ]
+  %.9 = phi ptr [ %233, %231 ], [ %.0536, %230 ]
   %239 = add nsw i32 %.0534, %53
   br label %dissect_encodedCPA_structure.exit
 
@@ -879,7 +879,7 @@ dissect_pnrp_ids.exit577:                         ; preds = %.lr.ph.i574, %214, 
   br i1 %267, label %.lr.ph.i578, label %dissect_pnrp_ids.exit581, !llvm.loop !4
 
 dissect_pnrp_ids.exit581:                         ; preds = %.lr.ph.i578, %241, %240
-  %.9 = phi ptr [ %.0536, %240 ], [ %243, %241 ], [ %243, %.lr.ph.i578 ]
+  %.10 = phi ptr [ %.0536, %240 ], [ %243, %241 ], [ %243, %.lr.ph.i578 ]
   %268 = add nsw i32 %.0534, %53
   br label %dissect_encodedCPA_structure.exit
 
@@ -900,7 +900,7 @@ dissect_pnrp_ids.exit581:                         ; preds = %.lr.ph.i578, %241, 
   br label %281
 
 281:                                              ; preds = %270, %269
-  %.10 = phi ptr [ %272, %270 ], [ %.0536, %269 ]
+  %.11 = phi ptr [ %272, %270 ], [ %.0536, %269 ]
   %282 = and i32 %53, 3
   %.not561611 = icmp eq i32 %282, 0
   br i1 %.not561611, label %.critedge._crit_edge, label %.lr.ph614.preheader
@@ -940,7 +940,7 @@ dissect_pnrp_ids.exit581:                         ; preds = %.lr.ph.i578, %241, 
   %291 = load i32, ptr @hf_pnrp_padding, align 4
   %292 = add i32 %.0542.lcssa644, %.0534
   %293 = sub i32 %292, %.0539.lcssa645
-  %294 = call ptr @proto_tree_add_item(ptr noundef %.10, i32 noundef %291, ptr noundef %.0533, i32 noundef %293, i32 noundef %.0539.lcssa645, i32 noundef 0) #3
+  %294 = call ptr @proto_tree_add_item(ptr noundef %.11, i32 noundef %291, ptr noundef %.0533, i32 noundef %293, i32 noundef %.0539.lcssa645, i32 noundef 0) #3
   br label %dissect_encodedCPA_structure.exit
 
 295:                                              ; preds = %65
@@ -974,7 +974,7 @@ dissect_pnrp_ids.exit581:                         ; preds = %.lr.ph.i578, %241, 
   br label %321
 
 321:                                              ; preds = %296, %295
-  %.11 = phi ptr [ %298, %296 ], [ %.0536, %295 ]
+  %.12 = phi ptr [ %298, %296 ], [ %.0536, %295 ]
   %322 = and i32 %53, 3
   %.not559602 = icmp eq i32 %322, 0
   br i1 %.not559602, label %.critedge2._crit_edge, label %.lr.ph605.preheader
@@ -1014,7 +1014,7 @@ dissect_pnrp_ids.exit581:                         ; preds = %.lr.ph.i578, %241, 
   %331 = load i32, ptr @hf_pnrp_padding, align 4
   %332 = add i32 %.1543.lcssa652, %.0534
   %333 = sub i32 %332, %.1540.lcssa653
-  %334 = call ptr @proto_tree_add_item(ptr noundef %.11, i32 noundef %331, ptr noundef %.0533, i32 noundef %333, i32 noundef %.1540.lcssa653, i32 noundef 0) #3
+  %334 = call ptr @proto_tree_add_item(ptr noundef %.12, i32 noundef %331, ptr noundef %.0533, i32 noundef %333, i32 noundef %.1540.lcssa653, i32 noundef 0) #3
   br label %dissect_encodedCPA_structure.exit
 
 335:                                              ; preds = %65
@@ -1034,7 +1034,7 @@ dissect_pnrp_ids.exit581:                         ; preds = %.lr.ph.i578, %241, 
   br label %347
 
 347:                                              ; preds = %336, %335
-  %.12 = phi ptr [ %338, %336 ], [ %.0536, %335 ]
+  %.13 = phi ptr [ %338, %336 ], [ %.0536, %335 ]
   %348 = add nsw i32 %.0534, %53
   br label %dissect_encodedCPA_structure.exit
 
@@ -1055,7 +1055,7 @@ dissect_pnrp_ids.exit581:                         ; preds = %.lr.ph.i578, %241, 
   br label %361
 
 361:                                              ; preds = %350, %349
-  %.13 = phi ptr [ %352, %350 ], [ %.0536, %349 ]
+  %.14 = phi ptr [ %352, %350 ], [ %.0536, %349 ]
   %362 = add nsw i32 %.0534, %53
   br label %dissect_encodedCPA_structure.exit
 
@@ -1072,13 +1072,13 @@ dissect_pnrp_ids.exit581:                         ; preds = %.lr.ph.i578, %241, 
   br label %371
 
 371:                                              ; preds = %364, %363
-  %.14 = phi ptr [ %366, %364 ], [ %.0536, %363 ]
+  %.15 = phi ptr [ %366, %364 ], [ %.0536, %363 ]
   %372 = load i32, ptr @hf_pnrp_message_splitControls_authorityBuffer, align 4
   %373 = add nsw i32 %.0534, 4
-  %374 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.14, i32 noundef %372, ptr noundef %.0533, i32 noundef %373, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #3
+  %374 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.15, i32 noundef %372, ptr noundef %.0533, i32 noundef %373, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #3
   %375 = load i32, ptr @hf_pnrp_message_offset, align 4
   %376 = add nsw i32 %.0534, 6
-  %377 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.14, i32 noundef %375, ptr noundef %.0533, i32 noundef %376, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #3
+  %377 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.15, i32 noundef %375, ptr noundef %.0533, i32 noundef %376, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #3
   %378 = add nsw i32 %.0534, %53
   %379 = call i32 @tvb_reported_length_remaining(ptr noundef %.0533, i32 noundef %378) #3
   %380 = load i32, ptr %5, align 4
@@ -1088,13 +1088,13 @@ dissect_pnrp_ids.exit581:                         ; preds = %.lr.ph.i578, %241, 
   %384 = icmp ne i32 %382, %383
   %385 = zext i1 %384 to i32
   %386 = call ptr @fragment_add_check(ptr noundef nonnull @pnrp_reassembly_table, ptr noundef %.0533, i32 noundef %378, ptr noundef %1, i32 noundef %380, ptr noundef null, i32 noundef %381, i32 noundef %379, i32 noundef %385) #3
-  %387 = call ptr @process_reassembled_data(ptr noundef %.0533, i32 noundef %378, ptr noundef %1, ptr noundef nonnull @.str.279, ptr noundef %386, ptr noundef nonnull @pnrp_frag_items, ptr noundef null, ptr noundef %.14) #3
+  %387 = call ptr @process_reassembled_data(ptr noundef %.0533, i32 noundef %378, ptr noundef %1, ptr noundef nonnull @.str.279, ptr noundef %386, ptr noundef nonnull @pnrp_frag_items, ptr noundef null, ptr noundef %.15) #3
   %.not555 = icmp eq ptr %387, null
   br i1 %.not555, label %388, label %dissect_encodedCPA_structure.exit
 
 388:                                              ; preds = %371
   %389 = load i32, ptr @hf_pnrp_fragmented_payload, align 4
-  %390 = call ptr @proto_tree_add_item(ptr noundef %.14, i32 noundef %389, ptr noundef %.0533, i32 noundef %378, i32 noundef -1, i32 noundef 0) #3
+  %390 = call ptr @proto_tree_add_item(ptr noundef %.15, i32 noundef %389, ptr noundef %.0533, i32 noundef %378, i32 noundef -1, i32 noundef 0) #3
   %391 = load ptr, ptr %18, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %391, i32 noundef 25, ptr noundef nonnull @.str.280) #3
   %392 = call i32 @tvb_captured_length(ptr noundef %.0533) #3
@@ -1163,7 +1163,7 @@ dissect_pnrp_ids.exit581:                         ; preds = %.lr.ph.i578, %241, 
   br i1 %440, label %.lr.ph.i.i, label %dissect_route_entry.exit, !llvm.loop !8
 
 dissect_route_entry.exit:                         ; preds = %.lr.ph.i.i, %406, %394, %393
-  %.15 = phi ptr [ %.0536, %393 ], [ %396, %394 ], [ %396, %406 ], [ %396, %.lr.ph.i.i ]
+  %.16 = phi ptr [ %.0536, %393 ], [ %396, %394 ], [ %396, %406 ], [ %396, %.lr.ph.i.i ]
   %441 = and i32 %53, 3
   %.not553595 = icmp eq i32 %441, 0
   br i1 %.not553595, label %.critedge4._crit_edge, label %.lr.ph.preheader
@@ -1203,7 +1203,7 @@ dissect_route_entry.exit:                         ; preds = %.lr.ph.i.i, %406, %
   %450 = load i32, ptr @hf_pnrp_padding, align 4
   %451 = add i32 %.2544.lcssa660, %.0534
   %452 = sub i32 %451, %.2541.lcssa661
-  %453 = call ptr @proto_tree_add_item(ptr noundef %.15, i32 noundef %450, ptr noundef %.0533, i32 noundef %452, i32 noundef %.2541.lcssa661, i32 noundef 0) #3
+  %453 = call ptr @proto_tree_add_item(ptr noundef %.16, i32 noundef %450, ptr noundef %.0533, i32 noundef %452, i32 noundef %.2541.lcssa661, i32 noundef 0) #3
   br label %dissect_encodedCPA_structure.exit
 
 454:                                              ; preds = %65
@@ -1504,7 +1504,7 @@ dissect_publicKey_structure.exit.i:               ; preds = %604, %600, %dissect
   br label %680
 
 680:                                              ; preds = %657, %656
-  %.17 = phi ptr [ %659, %657 ], [ %.0536, %656 ]
+  %.18 = phi ptr [ %659, %657 ], [ %.0536, %656 ]
   %681 = add nsw i32 %.0534, %53
   br label %dissect_encodedCPA_structure.exit
 
@@ -1530,15 +1530,15 @@ dissect_publicKey_structure.exit.i:               ; preds = %604, %600, %dissect
   br label %696
 
 696:                                              ; preds = %691, %682
-  %.18 = phi ptr [ %686, %691 ], [ %.0536, %682 ]
+  %.19 = phi ptr [ %686, %691 ], [ %.0536, %682 ]
   %697 = add nsw i32 %.0534, %53
   br label %dissect_encodedCPA_structure.exit
 
 dissect_encodedCPA_structure.exit:                ; preds = %455, %dissect_publicKey_structure.exit.i, %636, %640, %.dissect_encodedCPA_structure.exit_crit_edge, %.critedge4.thread, %.critedge4._crit_edge, %.critedge2.thread, %.critedge2._crit_edge, %.critedge.thread, %.critedge._crit_edge, %371, %125, %107, %116, %138, %133, %696, %680, %361, %347, %dissect_pnrp_ids.exit581, %238, %dissect_pnrp_ids.exit577, %211, %185, %165, %dissect_pnrp_ids.exit, %79
-  %.19 = phi ptr [ %.18, %696 ], [ %.17, %680 ], [ %.13, %361 ], [ %.12, %347 ], [ %.9, %dissect_pnrp_ids.exit581 ], [ %.8, %238 ], [ %.7, %dissect_pnrp_ids.exit577 ], [ %.6, %211 ], [ %.5, %185 ], [ %.4, %165 ], [ %.3, %138 ], [ %.3, %133 ], [ %.3, %116 ], [ %.3, %107 ], [ %.2538, %dissect_pnrp_ids.exit ], [ %.1537, %79 ], [ %.3, %125 ], [ %.14, %371 ], [ %.10, %.critedge._crit_edge ], [ %.10, %.critedge.thread ], [ %.11, %.critedge2._crit_edge ], [ %.11, %.critedge2.thread ], [ %.15, %.critedge4._crit_edge ], [ %.15, %.critedge4.thread ], [ %.0536, %.dissect_encodedCPA_structure.exit_crit_edge ], [ %457, %640 ], [ %457, %636 ], [ %457, %dissect_publicKey_structure.exit.i ], [ %457, %455 ]
-  %.1535 = phi i32 [ %697, %696 ], [ %681, %680 ], [ %362, %361 ], [ %348, %347 ], [ %268, %dissect_pnrp_ids.exit581 ], [ %239, %238 ], [ %229, %dissect_pnrp_ids.exit577 ], [ %212, %211 ], [ %186, %185 ], [ %167, %165 ], [ %143, %138 ], [ %137, %133 ], [ %124, %116 ], [ %115, %107 ], [ %97, %dissect_pnrp_ids.exit ], [ %80, %79 ], [ %130, %125 ], [ 0, %371 ], [ %.pre, %.critedge._crit_edge ], [ %292, %.critedge.thread ], [ %.pre636, %.critedge2._crit_edge ], [ %332, %.critedge2.thread ], [ %.pre638, %.critedge4._crit_edge ], [ %451, %.critedge4.thread ], [ %.pre640, %.dissect_encodedCPA_structure.exit_crit_edge ], [ %462, %640 ], [ %462, %636 ], [ %462, %dissect_publicKey_structure.exit.i ], [ %462, %455 ]
+  %.2538 = phi ptr [ %.19, %696 ], [ %.18, %680 ], [ %.14, %361 ], [ %.13, %347 ], [ %.10, %dissect_pnrp_ids.exit581 ], [ %.9, %238 ], [ %.8, %dissect_pnrp_ids.exit577 ], [ %.7, %211 ], [ %.6, %185 ], [ %.5, %165 ], [ %.4, %138 ], [ %.4, %133 ], [ %.4, %116 ], [ %.4, %107 ], [ %.3, %dissect_pnrp_ids.exit ], [ %.1537, %79 ], [ %.4, %125 ], [ %.15, %371 ], [ %.11, %.critedge._crit_edge ], [ %.11, %.critedge.thread ], [ %.12, %.critedge2._crit_edge ], [ %.12, %.critedge2.thread ], [ %.16, %.critedge4._crit_edge ], [ %.16, %.critedge4.thread ], [ %.0536, %.dissect_encodedCPA_structure.exit_crit_edge ], [ %457, %640 ], [ %457, %636 ], [ %457, %dissect_publicKey_structure.exit.i ], [ %457, %455 ]
+  %.2 = phi i32 [ %697, %696 ], [ %681, %680 ], [ %362, %361 ], [ %348, %347 ], [ %268, %dissect_pnrp_ids.exit581 ], [ %239, %238 ], [ %229, %dissect_pnrp_ids.exit577 ], [ %212, %211 ], [ %186, %185 ], [ %167, %165 ], [ %143, %138 ], [ %137, %133 ], [ %124, %116 ], [ %115, %107 ], [ %97, %dissect_pnrp_ids.exit ], [ %80, %79 ], [ %130, %125 ], [ 0, %371 ], [ %.pre, %.critedge._crit_edge ], [ %292, %.critedge.thread ], [ %.pre636, %.critedge2._crit_edge ], [ %332, %.critedge2.thread ], [ %.pre638, %.critedge4._crit_edge ], [ %451, %.critedge4.thread ], [ %.pre640, %.dissect_encodedCPA_structure.exit_crit_edge ], [ %462, %640 ], [ %462, %636 ], [ %462, %dissect_publicKey_structure.exit.i ], [ %462, %455 ]
   %.1 = phi ptr [ %.0533, %696 ], [ %.0533, %680 ], [ %.0533, %361 ], [ %.0533, %347 ], [ %.0533, %dissect_pnrp_ids.exit581 ], [ %.0533, %238 ], [ %.0533, %dissect_pnrp_ids.exit577 ], [ %.0533, %211 ], [ %.0533, %185 ], [ %.0533, %165 ], [ %.0533, %138 ], [ %.0533, %133 ], [ %.0533, %116 ], [ %.0533, %107 ], [ %.0533, %dissect_pnrp_ids.exit ], [ %.0533, %79 ], [ %.0533, %125 ], [ %387, %371 ], [ %.0533, %.critedge._crit_edge ], [ %.0533, %.critedge.thread ], [ %.0533, %.critedge2._crit_edge ], [ %.0533, %.critedge2.thread ], [ %.0533, %.critedge4._crit_edge ], [ %.0533, %.critedge4.thread ], [ %.0533, %.dissect_encodedCPA_structure.exit_crit_edge ], [ %.0533, %640 ], [ %.0533, %636 ], [ %.0533, %dissect_publicKey_structure.exit.i ], [ %.0533, %455 ]
-  %698 = icmp sgt i32 %.1535, 11
+  %698 = icmp sgt i32 %.2, 11
   br i1 %698, label %699, label %46, !llvm.loop !11
 
 699:                                              ; preds = %dissect_encodedCPA_structure.exit

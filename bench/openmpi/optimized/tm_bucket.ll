@@ -749,21 +749,21 @@ display_pivots.exit:                              ; preds = %229, %224
   br i1 %260, label %.lr.ph150, label %.loopexit142, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.preheader143, %.lr.ph
-  %.2106146 = phi i32 [ %spec.select117, %.lr.ph ], [ 0, %.preheader143 ]
+  %.3146 = phi i32 [ %spec.select117, %.lr.ph ], [ 0, %.preheader143 ]
   call fastcc void @next_bucket_elem(ptr noundef %.0133, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %261 = zext nneg i32 %.2106146 to i64
+  %261 = zext nneg i32 %.3146 to i64
   %262 = getelementptr inbounds %struct._tm_tree_t, ptr %2, i64 %261
   %263 = load i32, ptr %6, align 4
   %264 = load i32, ptr %7, align 4
   %265 = call i32 @tm_try_add_edge(ptr noundef %1, ptr noundef %262, i32 noundef %3, i32 noundef %263, i32 noundef %264, ptr noundef nonnull %8)
-  %spec.select117 = add nuw nsw i32 %265, %.2106146
+  %spec.select117 = add nuw nsw i32 %265, %.3146
   %266 = icmp slt i32 %spec.select117, %4
   br i1 %266, label %.lr.ph, label %.loopexit142, !llvm.loop !18
 
 .loopexit142:                                     ; preds = %.lr.ph, %252, %.preheader143, %.preheader141
   %.1110 = phi double [ 0.000000e+00, %.preheader141 ], [ 0.000000e+00, %.preheader143 ], [ %259, %252 ], [ 0.000000e+00, %.lr.ph ]
   %.1108 = phi double [ 0.000000e+00, %.preheader141 ], [ 0.000000e+00, %.preheader143 ], [ %254, %252 ], [ 0.000000e+00, %.lr.ph ]
-  %.4 = phi i32 [ 0, %.preheader141 ], [ 0, %.preheader143 ], [ %spec.select, %252 ], [ %spec.select117, %.lr.ph ]
+  %.2106 = phi i32 [ 0, %.preheader141 ], [ 0, %.preheader143 ], [ %spec.select, %252 ], [ %spec.select117, %.lr.ph ]
   %267 = tail call double @tm_time_diff() #16
   %268 = load i32, ptr @verbose_level, align 4
   %269 = icmp sgt i32 %268, 4
@@ -781,7 +781,7 @@ display_pivots.exit:                              ; preds = %229, %224
   br i1 %272, label %273, label %.thread135
 
 273:                                              ; preds = %270
-  %274 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.4, i32 noundef %.pre188)
+  %274 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.2106, i32 noundef %.pre188)
   br label %.thread135
 
 .thread135:                                       ; preds = %.loopexit142..thread135_crit_edge, %273, %270
@@ -813,7 +813,7 @@ display_pivots.exit:                              ; preds = %229, %224
   br i1 %287, label %288, label %.thread137
 
 288:                                              ; preds = %285
-  %289 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.4, i32 noundef %.lcssa)
+  %289 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.2106, i32 noundef %.lcssa)
   br label %.thread137
 
 .thread137:                                       ; preds = %._crit_edge, %288, %285
@@ -924,18 +924,18 @@ display_pivots.exit:                              ; preds = %229, %224
 
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %.lr.ph158
   %indvars.iv = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next, %.lr.ph158 ]
-  %.1157 = phi double [ 0.000000e+00, %.lr.ph158.preheader ], [ %339, %.lr.ph158 ]
+  %.2157 = phi double [ 0.000000e+00, %.lr.ph158.preheader ], [ %339, %.lr.ph158 ]
   %336 = getelementptr inbounds %struct._tm_tree_t, ptr %2, i64 %indvars.iv
   tail call void @tm_update_val(ptr noundef nonnull %0, ptr noundef %336) #16
   %337 = getelementptr inbounds i8, ptr %336, i64 32
   %338 = load double, ptr %337, align 8
-  %339 = fadd double %.1157, %338
+  %339 = fadd double %.2157, %338
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph158, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph158, %.preheader140, %._crit_edge166
-  %.2 = phi double [ %.0.lcssa, %._crit_edge166 ], [ 0.000000e+00, %.preheader140 ], [ %339, %.lr.ph158 ]
+  %.1 = phi double [ %.0.lcssa, %._crit_edge166 ], [ 0.000000e+00, %.preheader140 ], [ %339, %.lr.ph158 ]
   %340 = tail call double @tm_time_diff() #16
   %341 = load i32, ptr @verbose_level, align 4
   %342 = icmp sgt i32 %341, 4
@@ -963,7 +963,7 @@ display_pivots.exit:                              ; preds = %229, %224
   %355 = getelementptr inbounds i8, ptr %.0133, i64 32
   %356 = load i32, ptr %355, align 8
   %357 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %354, i32 noundef %356)
-  %358 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, double noundef %.2)
+  %358 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, double noundef %.1)
   br label %.thread139
 
 .thread139:                                       ; preds = %345, %352, %349
@@ -997,7 +997,7 @@ free_bucket_list.exit:                            ; preds = %.lr.ph.i.i124, %.th
   %369 = load ptr, ptr %368, align 8
   tail call void @free(ptr noundef %369) #16
   tail call void @free(ptr noundef %.0133) #16
-  ret double %.2
+  ret double %.1
 }
 
 declare hidden i32 @tm_get_verbose_level() local_unnamed_addr #4

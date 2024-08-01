@@ -3024,8 +3024,8 @@ if.then21:                                        ; preds = %land.lhs.true18
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then, %if.then11, %if.then21, %land.lhs.true18, %if.then15, %land.lhs.true, %entry
-  %r.1 = phi i32 [ %call, %land.lhs.true18 ], [ 0, %if.then21 ], [ %call, %if.then15 ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 0, %if.then11 ], [ %call, %if.then ]
-  ret i32 %r.1
+  %r.0 = phi i32 [ %call, %land.lhs.true18 ], [ 0, %if.then21 ], [ %call, %if.then15 ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 0, %if.then11 ], [ %call, %if.then ]
+  ret i32 %r.0
 }
 
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #2

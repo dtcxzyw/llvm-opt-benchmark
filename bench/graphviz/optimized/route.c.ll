@@ -511,7 +511,7 @@ dist_n.exit41.i:                                  ; preds = %.lr.ph.i36.i, %dist
 
 .lr.ph179.i.i.i:                                  ; preds = %addroot.exit.i.i.i, %.lr.ph179.preheader.i.i.i
   %indvars.iv208.i.i.i = phi i64 [ 0, %.lr.ph179.preheader.i.i.i ], [ %indvars.iv.next209.i.i.i, %addroot.exit.i.i.i ]
-  %.0142177.i.i.i = phi i32 [ 0, %.lr.ph179.preheader.i.i.i ], [ %.1143.i.i.i, %addroot.exit.i.i.i ]
+  %.0142177.i.i.i = phi i32 [ 0, %.lr.ph179.preheader.i.i.i ], [ %.10.i.i.i, %addroot.exit.i.i.i ]
   %278 = getelementptr inbounds [3 x double], ptr %11, i64 0, i64 %indvars.iv208.i.i.i
   %279 = load double, ptr %278, align 8
   %280 = fcmp oge double %279, 0.000000e+00
@@ -527,7 +527,7 @@ dist_n.exit41.i:                                  ; preds = %.lr.ph.i36.i, %dist
   br label %addroot.exit.i.i.i
 
 addroot.exit.i.i.i:                               ; preds = %282, %.lr.ph179.i.i.i
-  %.1143.i.i.i = phi i32 [ %285, %282 ], [ %.0142177.i.i.i, %.lr.ph179.i.i.i ]
+  %.10.i.i.i = phi i32 [ %285, %282 ], [ %.0142177.i.i.i, %.lr.ph179.i.i.i ]
   %indvars.iv.next209.i.i.i = add nuw nsw i64 %indvars.iv208.i.i.i, 1
   %exitcond212.not.i.i.i = icmp eq i64 %indvars.iv.next209.i.i.i, %wide.trip.count211.i.i.i
   br i1 %exitcond212.not.i.i.i, label %splineintersectsline.exit.i.i, label %.lr.ph179.i.i.i
@@ -548,7 +548,7 @@ addroot.exit.i.i.i:                               ; preds = %282, %.lr.ph179.i.i
 
 .preheader148.us.i.i.i:                           ; preds = %._crit_edge.us.i.i.i, %.preheader148.us.preheader.i.i.i
   %indvars.iv198.i.i.i = phi i64 [ 0, %.preheader148.us.preheader.i.i.i ], [ %indvars.iv.next199.i.i.i, %._crit_edge.us.i.i.i ]
-  %.4165.us.i.i.i = phi i32 [ 0, %.preheader148.us.preheader.i.i.i ], [ %.us-phi.us.i.i.i, %._crit_edge.us.i.i.i ]
+  %.3145165.us.i.i.i = phi i32 [ 0, %.preheader148.us.preheader.i.i.i ], [ %.us-phi.us.i.i.i, %._crit_edge.us.i.i.i ]
   %289 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %indvars.iv198.i.i.i
   %290 = load double, ptr %289, align 8
   %291 = fcmp oge double %290, 0.000000e+00
@@ -558,28 +558,28 @@ addroot.exit.i.i.i:                               ; preds = %282, %.lr.ph179.i.i
   br i1 %or.cond.i124.fr.us.i.i.i, label %.lr.ph163.split.us.us.i.i.i, label %._crit_edge.us.i.i.i
 
 ._crit_edge.us.i.i.i:                             ; preds = %addroot.exit125.us.us.i.i.i, %.preheader148.us.i.i.i
-  %.us-phi.us.i.i.i = phi i32 [ %.4165.us.i.i.i, %.preheader148.us.i.i.i ], [ %.7.us.us.i.i.i, %addroot.exit125.us.us.i.i.i ]
+  %.us-phi.us.i.i.i = phi i32 [ %.3145165.us.i.i.i, %.preheader148.us.i.i.i ], [ %.5.us.us.i.i.i, %addroot.exit125.us.us.i.i.i ]
   %indvars.iv.next199.i.i.i = add nuw nsw i64 %indvars.iv198.i.i.i, 1
   %exitcond202.not.i.i.i = icmp eq i64 %indvars.iv.next199.i.i.i, %wide.trip.count201.i.i.i
   br i1 %exitcond202.not.i.i.i, label %splineintersectsline.exit.i.i, label %.preheader148.us.i.i.i
 
 .lr.ph163.split.us.us.i.i.i:                      ; preds = %.preheader148.us.i.i.i, %addroot.exit125.us.us.i.i.i
   %indvars.iv193.i.i.i = phi i64 [ %indvars.iv.next194.i.i.i, %addroot.exit125.us.us.i.i.i ], [ 0, %.preheader148.us.i.i.i ]
-  %.5161.us.us.i.i.i = phi i32 [ %.7.us.us.i.i.i, %addroot.exit125.us.us.i.i.i ], [ %.4165.us.i.i.i, %.preheader148.us.i.i.i ]
+  %.4161.us.us.i.i.i = phi i32 [ %.5.us.us.i.i.i, %addroot.exit125.us.us.i.i.i ], [ %.3145165.us.i.i.i, %.preheader148.us.i.i.i ]
   %293 = getelementptr inbounds [3 x double], ptr %11, i64 0, i64 %indvars.iv193.i.i.i
   %294 = load double, ptr %293, align 8
   %295 = fcmp oeq double %290, %294
   br i1 %295, label %296, label %addroot.exit125.us.us.i.i.i
 
 296:                                              ; preds = %.lr.ph163.split.us.us.i.i.i
-  %297 = sext i32 %.5161.us.us.i.i.i to i64
+  %297 = sext i32 %.4161.us.us.i.i.i to i64
   %298 = getelementptr inbounds double, ptr %12, i64 %297
   store double %290, ptr %298, align 8
-  %299 = add nsw i32 %.5161.us.us.i.i.i, 1
+  %299 = add nsw i32 %.4161.us.us.i.i.i, 1
   br label %addroot.exit125.us.us.i.i.i
 
 addroot.exit125.us.us.i.i.i:                      ; preds = %296, %.lr.ph163.split.us.us.i.i.i
-  %.7.us.us.i.i.i = phi i32 [ %.5161.us.us.i.i.i, %.lr.ph163.split.us.us.i.i.i ], [ %299, %296 ]
+  %.5.us.us.i.i.i = phi i32 [ %.4161.us.us.i.i.i, %.lr.ph163.split.us.us.i.i.i ], [ %299, %296 ]
   %indvars.iv.next194.i.i.i = add nuw nsw i64 %indvars.iv193.i.i.i, 1
   %exitcond197.not.i.i.i = icmp eq i64 %indvars.iv.next194.i.i.i, %wide.trip.count196.i.i.i
   br i1 %exitcond197.not.i.i.i, label %._crit_edge.us.i.i.i, label %.lr.ph163.split.us.us.i.i.i
@@ -593,7 +593,7 @@ addroot.exit125.us.us.i.i.i:                      ; preds = %296, %.lr.ph163.spl
 
 .lr.ph175.i.i.i:                                  ; preds = %addroot.exit123.i.i.i, %.lr.ph175.preheader.i.i.i
   %indvars.iv203.i.i.i = phi i64 [ 0, %.lr.ph175.preheader.i.i.i ], [ %indvars.iv.next204.i.i.i, %addroot.exit123.i.i.i ]
-  %.2144173.i.i.i = phi i32 [ 0, %.lr.ph175.preheader.i.i.i ], [ %.3145.i.i.i, %addroot.exit123.i.i.i ]
+  %.2144173.i.i.i = phi i32 [ 0, %.lr.ph175.preheader.i.i.i ], [ %.11.i.i.i, %addroot.exit123.i.i.i ]
   %300 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %indvars.iv203.i.i.i
   %301 = load double, ptr %300, align 8
   %302 = fcmp oge double %301, 0.000000e+00
@@ -609,7 +609,7 @@ addroot.exit125.us.us.i.i.i:                      ; preds = %296, %.lr.ph163.spl
   br label %addroot.exit123.i.i.i
 
 addroot.exit123.i.i.i:                            ; preds = %304, %.lr.ph175.i.i.i
-  %.3145.i.i.i = phi i32 [ %307, %304 ], [ %.2144173.i.i.i, %.lr.ph175.i.i.i ]
+  %.11.i.i.i = phi i32 [ %307, %304 ], [ %.2144173.i.i.i, %.lr.ph175.i.i.i ]
   %indvars.iv.next204.i.i.i = add nuw nsw i64 %indvars.iv203.i.i.i, 1
   %exitcond207.not.i.i.i = icmp eq i64 %indvars.iv.next204.i.i.i, %wide.trip.count206.i.i.i
   br i1 %exitcond207.not.i.i.i, label %splineintersectsline.exit.i.i, label %.lr.ph175.i.i.i
@@ -628,7 +628,7 @@ addroot.exit123.i.i.i:                            ; preds = %304, %.lr.ph175.i.i
 
 311:                                              ; preds = %327, %.lr.ph159.i.i.i
   %indvars.iv188.i.i.i = phi i64 [ 0, %.lr.ph159.i.i.i ], [ %indvars.iv.next189.i.i.i, %327 ]
-  %.9157.i.i.i = phi i32 [ 0, %.lr.ph159.i.i.i ], [ %.11.i.i.i, %327 ]
+  %.6157.i.i.i = phi i32 [ 0, %.lr.ph159.i.i.i ], [ %.7.i.i.i, %327 ]
   %312 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %indvars.iv188.i.i.i
   %313 = load double, ptr %312, align 8
   %314 = fcmp oge double %313, 0.000000e+00
@@ -648,14 +648,14 @@ addroot.exit123.i.i.i:                            ; preds = %304, %.lr.ph175.i.i
   br i1 %or.cond3.i.i.i, label %addroot.exit127.i.i.i, label %327
 
 addroot.exit127.i.i.i:                            ; preds = %316
-  %324 = sext i32 %.9157.i.i.i to i64
+  %324 = sext i32 %.6157.i.i.i to i64
   %325 = getelementptr inbounds double, ptr %12, i64 %324
   store double %313, ptr %325, align 8
-  %326 = add nsw i32 %.9157.i.i.i, 1
+  %326 = add nsw i32 %.6157.i.i.i, 1
   br label %327
 
 327:                                              ; preds = %addroot.exit127.i.i.i, %316, %311
-  %.11.i.i.i = phi i32 [ %326, %addroot.exit127.i.i.i ], [ %.9157.i.i.i, %316 ], [ %.9157.i.i.i, %311 ]
+  %.7.i.i.i = phi i32 [ %326, %addroot.exit127.i.i.i ], [ %.6157.i.i.i, %316 ], [ %.6157.i.i.i, %311 ]
   %indvars.iv.next189.i.i.i = add nuw nsw i64 %indvars.iv188.i.i.i, 1
   %exitcond192.not.i.i.i = icmp eq i64 %indvars.iv.next189.i.i.i, %wide.trip.count191.i.i.i
   br i1 %exitcond192.not.i.i.i, label %splineintersectsline.exit.i.i, label %311
@@ -696,7 +696,7 @@ addroot.exit127.i.i.i:                            ; preds = %316
 
 .lr.ph.i.i.i:                                     ; preds = %364, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %364 ]
-  %.12155.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i ], [ %.14.i.i.i, %364 ]
+  %.8155.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i ], [ %.9.i.i.i, %364 ]
   %349 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %indvars.iv.i.i.i
   %350 = load double, ptr %349, align 8
   %351 = fcmp oge double %350, 0.000000e+00
@@ -716,14 +716,14 @@ addroot.exit127.i.i.i:                            ; preds = %316
   br i1 %or.cond7.i.i.i, label %addroot.exit129.i.i.i, label %364
 
 addroot.exit129.i.i.i:                            ; preds = %353
-  %361 = sext i32 %.12155.i.i.i to i64
+  %361 = sext i32 %.8155.i.i.i to i64
   %362 = getelementptr inbounds double, ptr %12, i64 %361
   store double %350, ptr %362, align 8
-  %363 = add nsw i32 %.12155.i.i.i, 1
+  %363 = add nsw i32 %.8155.i.i.i, 1
   br label %364
 
 364:                                              ; preds = %addroot.exit129.i.i.i, %353, %.lr.ph.i.i.i
-  %.14.i.i.i = phi i32 [ %363, %addroot.exit129.i.i.i ], [ %.12155.i.i.i, %353 ], [ %.12155.i.i.i, %.lr.ph.i.i.i ]
+  %.9.i.i.i = phi i32 [ %363, %addroot.exit129.i.i.i ], [ %.8155.i.i.i, %353 ], [ %.8155.i.i.i, %.lr.ph.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %splineintersectsline.exit.i.i, label %.lr.ph.i.i.i
@@ -741,7 +741,7 @@ splineintersectsline.exit.thread78.i.i:           ; preds = %.preheader153.i.i.i
   br label %.loopexit.i.i
 
 splineintersectsline.exit.i.i:                    ; preds = %364, %327, %._crit_edge.us.i.i.i, %addroot.exit123.i.i.i, %addroot.exit.i.i.i
-  %.0111.i.i.i = phi i32 [ %.1143.i.i.i, %addroot.exit.i.i.i ], [ %.3145.i.i.i, %addroot.exit123.i.i.i ], [ %.us-phi.us.i.i.i, %._crit_edge.us.i.i.i ], [ %.11.i.i.i, %327 ], [ %.14.i.i.i, %364 ]
+  %.0111.i.i.i = phi i32 [ %.10.i.i.i, %addroot.exit.i.i.i ], [ %.11.i.i.i, %addroot.exit123.i.i.i ], [ %.us-phi.us.i.i.i, %._crit_edge.us.i.i.i ], [ %.7.i.i.i, %327 ], [ %.9.i.i.i, %364 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)

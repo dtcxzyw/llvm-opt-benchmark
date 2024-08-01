@@ -672,7 +672,7 @@ define internal range(i32 -1, 2) i32 @H5ES__wait_cb(ptr noundef %0, ptr nocaptur
   br label %53
 
 53:                                               ; preds = %48, %36, %33
-  %.0 = phi i32 [ 1, %33 ], [ 0, %36 ], [ 0, %48 ]
+  %.1 = phi i32 [ 1, %33 ], [ 0, %36 ], [ 0, %48 ]
   %54 = load i64, ptr %4, align 8
   switch i64 %54, label %55 [
     i64 0, label %60
@@ -693,8 +693,8 @@ define internal range(i32 -1, 2) i32 @H5ES__wait_cb(ptr noundef %0, ptr nocaptur
   br label %60
 
 60:                                               ; preds = %53, %53, %58, %57, %44, %40, %29, %13
-  %.1 = phi i32 [ -1, %13 ], [ -1, %29 ], [ %.0, %57 ], [ %.0, %58 ], [ %.0, %53 ], [ -1, %40 ], [ -1, %44 ], [ %.0, %53 ]
-  ret i32 %.1
+  %.0 = phi i32 [ -1, %13 ], [ -1, %29 ], [ %.1, %57 ], [ %.1, %58 ], [ %.1, %53 ], [ -1, %40 ], [ -1, %44 ], [ %.1, %53 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1120,7 +1120,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5ES__op_complete(ptr noundef %0, p
   br label %73
 
 65:                                               ; preds = %53, %41
-  %.034 = phi i64 [ %54, %53 ], [ -1, %41 ]
+  %.135 = phi i64 [ %54, %53 ], [ -1, %41 ]
   %66 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 1, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1136,13 +1136,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5ES__op_complete(ptr noundef %0, p
   br label %.thread
 
 73:                                               ; preds = %65, %61
-  %.135 = phi i64 [ %54, %61 ], [ %.034, %65 ]
+  %.034 = phi i64 [ %54, %61 ], [ %.135, %65 ]
   %.033 = phi i32 [ -1, %61 ], [ 0, %65 ]
-  %.not38 = icmp eq i64 %.135, -1
+  %.not38 = icmp eq i64 %.034, -1
   br i1 %.not38, label %.thread, label %74
 
 74:                                               ; preds = %73
-  %75 = call i32 @H5I_dec_ref(i64 noundef %.135) #5
+  %75 = call i32 @H5I_dec_ref(i64 noundef %.034) #5
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %.thread
 

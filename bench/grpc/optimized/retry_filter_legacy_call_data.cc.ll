@@ -2048,8 +2048,8 @@ _ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt11CreateBatchEib.exit44: 
   br label %if.end32
 
 if.end32:                                         ; preds = %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt11CreateBatchEib.exit44, %if.end28
-  %replay_batch_data.1 = phi ptr [ %retval.0.i.i.i18, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt11CreateBatchEib.exit44 ], [ %replay_batch_data.0, %if.end28 ]
-  %call_attempt_.i = getelementptr inbounds i8, ptr %replay_batch_data.1, i64 16
+  %replay_batch_data.2 = phi ptr [ %retval.0.i.i.i18, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt11CreateBatchEib.exit44 ], [ %replay_batch_data.0, %if.end28 ]
+  %call_attempt_.i = getelementptr inbounds i8, ptr %replay_batch_data.2, i64 16
   %41 = load ptr, ptr %call_attempt_.i, align 8
   %calld_.i45 = getelementptr inbounds i8, ptr %41, i64 16
   %42 = load ptr, ptr %calld_.i45, align 8
@@ -2082,11 +2082,11 @@ _ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData25AddRetriableS
   %cache.sroa.2.0.copyload.i = load i32, ptr %cache.sroa.2.0.call6.sroa_idx.i, align 8
   %inc.i = add i64 %47, 1
   store i64 %inc.i, ptr %started_send_message_count_5.i, align 8
-  %send_message.i = getelementptr inbounds i8, ptr %replay_batch_data.1, i64 40
+  %send_message.i = getelementptr inbounds i8, ptr %replay_batch_data.2, i64 40
   %bf.load.i = load i8, ptr %send_message.i, align 8
   %bf.set.i = or i8 %bf.load.i, 4
   store i8 %bf.set.i, ptr %send_message.i, align 8
-  %payload.i = getelementptr inbounds i8, ptr %replay_batch_data.1, i64 32
+  %payload.i = getelementptr inbounds i8, ptr %replay_batch_data.2, i64 32
   %50 = load ptr, ptr %payload.i, align 8
   %send_message10.i = getelementptr inbounds i8, ptr %50, i64 24
   store ptr %cache.sroa.0.0.copyload.i, ptr %send_message10.i, align 8
@@ -2098,7 +2098,7 @@ _ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData25AddRetriableS
 
 if.end33:                                         ; preds = %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData25AddRetriableSendMessageOpEv.exit, %land.lhs.true17, %if.end11
   %52 = phi ptr [ %19, %land.lhs.true17 ], [ %.pre87, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData25AddRetriableSendMessageOpEv.exit ], [ %19, %if.end11 ]
-  %replay_batch_data.2 = phi ptr [ %replay_batch_data.0, %land.lhs.true17 ], [ %replay_batch_data.1, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData25AddRetriableSendMessageOpEv.exit ], [ %replay_batch_data.0, %if.end11 ]
+  %replay_batch_data.1 = phi ptr [ %replay_batch_data.0, %land.lhs.true17 ], [ %replay_batch_data.2, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData25AddRetriableSendMessageOpEv.exit ], [ %replay_batch_data.0, %if.end11 ]
   %seen_send_trailing_metadata_ = getelementptr inbounds i8, ptr %52, i64 1272
   %53 = load i8, ptr %seen_send_trailing_metadata_, align 8
   %tobool35 = trunc i8 %53 to i1
@@ -2137,7 +2137,7 @@ if.then55:                                        ; preds = %if.then53
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then55, %if.then53
-  %cmp60 = icmp eq ptr %replay_batch_data.2, null
+  %cmp60 = icmp eq ptr %replay_batch_data.1, null
   br i1 %cmp60, label %if.then61, label %if.end63
 
 if.then61:                                        ; preds = %if.end59
@@ -2226,13 +2226,13 @@ _ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt11CreateBatchEib.exit85: 
   br label %if.end63
 
 if.end63:                                         ; preds = %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt11CreateBatchEib.exit85, %if.end59
-  %replay_batch_data.3 = phi ptr [ %retval.0.i.i.i59, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt11CreateBatchEib.exit85 ], [ %replay_batch_data.2, %if.end59 ]
-  call void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData34AddRetriableSendTrailingMetadataOpEv(ptr noundef nonnull align 8 dereferenceable(120) %replay_batch_data.3)
+  %replay_batch_data.4 = phi ptr [ %retval.0.i.i.i59, %_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt11CreateBatchEib.exit85 ], [ %replay_batch_data.1, %if.end59 ]
+  call void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData34AddRetriableSendTrailingMetadataOpEv(ptr noundef nonnull align 8 dereferenceable(120) %replay_batch_data.4)
   br label %if.end64
 
 if.end64:                                         ; preds = %if.end63, %land.lhs.true47, %land.lhs.true42, %land.lhs.true36, %if.end33
-  %replay_batch_data.4 = phi ptr [ %replay_batch_data.2, %land.lhs.true42 ], [ %replay_batch_data.2, %land.lhs.true47 ], [ %replay_batch_data.3, %if.end63 ], [ %replay_batch_data.2, %land.lhs.true36 ], [ %replay_batch_data.2, %if.end33 ]
-  ret ptr %replay_batch_data.4
+  %replay_batch_data.3 = phi ptr [ %replay_batch_data.1, %land.lhs.true42 ], [ %replay_batch_data.1, %land.lhs.true47 ], [ %replay_batch_data.4, %if.end63 ], [ %replay_batch_data.1, %land.lhs.true36 ], [ %replay_batch_data.1, %if.end33 ]
+  ret ptr %replay_batch_data.3
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -629,7 +629,7 @@ _Z14decode_vm_infoibmm.exit:                      ; preds = %2, %27, %31
 
 43:                                               ; preds = %31, %27, %35, %34, %33
   %.sink239 = phi i64 [ 72057594037923840, %35 ], [ 72057594037923840, %34 ], [ 72057594037923840, %33 ], [ 17179865088, %27 ], [ 72057594037923840, %31 ]
-  %.sroa.0.0.ph = phi i32 [ 6, %35 ], [ 5, %34 ], [ 4, %33 ], [ 2, %27 ], [ 3, %31 ]
+  %.sroa.0.1.ph = phi i32 [ 6, %35 ], [ 5, %34 ], [ 4, %33 ], [ 2, %27 ], [ 3, %31 ]
   %.sroa.12.0.ph = phi i32 [ 9, %35 ], [ 9, %34 ], [ 9, %33 ], [ 10, %27 ], [ 9, %31 ]
   %.sroa.24.0.ph = phi i64 [ 8, %35 ], [ 8, %34 ], [ 8, %33 ], [ 4, %27 ], [ %32, %31 ]
   %44 = icmp eq i64 %14, 1
@@ -649,7 +649,7 @@ _Z14decode_vm_infoibmm.exit:                      ; preds = %2, %27, %31
   %57 = or i64 %56, %52
   %58 = and i64 %57, 524288
   %.not124 = icmp eq i64 %58, 0
-  %59 = mul nuw nsw i32 %.sroa.12.0.ph, %.sroa.0.0.ph
+  %59 = mul nuw nsw i32 %.sroa.12.0.ph, %.sroa.0.1.ph
   %60 = load ptr, ptr %15, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 3796
   %62 = load i32, ptr %61, align 4
@@ -672,7 +672,7 @@ _Z14decode_vm_infoibmm.exit:                      ; preds = %2, %27, %31
   %notmask127 = shl nsw i32 -1, %.sroa.12.0.ph
   %72 = xor i32 %notmask127, -1
   %73 = zext nneg i32 %72 to i64
-  %74 = zext nneg i32 %.sroa.0.0.ph to i64
+  %74 = zext nneg i32 %.sroa.0.1.ph to i64
   %75 = zext nneg i32 %.sroa.12.0.ph to i64
   %. = select i1 %8, i64 3360, i64 3328
   br label %76
@@ -2238,8 +2238,8 @@ _ZN5mmu_t7in_mprvEv.exit.i:                       ; preds = %25
   br label %_ZN5mmu_t7in_mprvEv.exit.thread.i
 
 _ZN5mmu_t7in_mprvEv.exit.thread.i:                ; preds = %35, %_ZN5mmu_t7in_mprvEv.exit.i, %25, %19
-  %.09.i = phi i8 [ %14, %_ZN5mmu_t7in_mprvEv.exit.i ], [ %spec.select.i, %35 ], [ %14, %25 ], [ %14, %19 ]
-  %.0.i = phi i64 [ %16, %_ZN5mmu_t7in_mprvEv.exit.i ], [ %37, %35 ], [ %16, %25 ], [ %16, %19 ]
+  %.110.i = phi i8 [ %14, %_ZN5mmu_t7in_mprvEv.exit.i ], [ %spec.select.i, %35 ], [ %14, %25 ], [ %14, %19 ]
+  %.1.i = phi i64 [ %16, %_ZN5mmu_t7in_mprvEv.exit.i ], [ %37, %35 ], [ %16, %25 ], [ %16, %19 ]
   %41 = trunc i8 %4 to i1
   br i1 %41, label %42, label %_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit
 
@@ -2256,8 +2256,8 @@ _ZN5mmu_t7in_mprvEv.exit.thread.i:                ; preds = %35, %_ZN5mmu_t7in_m
   br label %_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit
 
 _ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit: ; preds = %_ZN5mmu_t7in_mprvEv.exit.thread.i, %42, %5
-  %.sroa.5.0 = phi i64 [ 0, %5 ], [ %51, %42 ], [ %.0.i, %_ZN5mmu_t7in_mprvEv.exit.thread.i ]
-  %.sroa.8.0 = phi i8 [ 0, %5 ], [ 1, %42 ], [ %.09.i, %_ZN5mmu_t7in_mprvEv.exit.thread.i ]
+  %.sroa.5.0 = phi i64 [ 0, %5 ], [ %51, %42 ], [ %.1.i, %_ZN5mmu_t7in_mprvEv.exit.thread.i ]
+  %.sroa.8.0 = phi i8 [ 0, %5 ], [ 1, %42 ], [ %.110.i, %_ZN5mmu_t7in_mprvEv.exit.thread.i ]
   %.sroa.15.0 = phi i8 [ 0, %5 ], [ %4, %42 ], [ %4, %_ZN5mmu_t7in_mprvEv.exit.thread.i ]
   %52 = trunc nuw i8 %.sroa.8.0 to i1
   tail call void @_ZN5mmu_t14check_triggersEN8triggers11operation_tEmbSt8optionalImE(ptr noundef nonnull align 8 dereferenceable(43168) %0, i32 noundef 2, i64 noundef %1, i1 noundef zeroext %52, i64 undef, i8 0)
@@ -2686,8 +2686,8 @@ _ZN5mmu_t7in_mprvEv.exit.i:                       ; preds = %27
   br label %_ZN5mmu_t7in_mprvEv.exit.thread.i
 
 _ZN5mmu_t7in_mprvEv.exit.thread.i:                ; preds = %37, %_ZN5mmu_t7in_mprvEv.exit.i, %27, %21
-  %.09.i = phi i8 [ %16, %_ZN5mmu_t7in_mprvEv.exit.i ], [ %spec.select.i, %37 ], [ %16, %27 ], [ %16, %21 ]
-  %.0.i = phi i64 [ %18, %_ZN5mmu_t7in_mprvEv.exit.i ], [ %39, %37 ], [ %18, %27 ], [ %18, %21 ]
+  %.110.i = phi i8 [ %16, %_ZN5mmu_t7in_mprvEv.exit.i ], [ %spec.select.i, %37 ], [ %16, %27 ], [ %16, %21 ]
+  %.1.i = phi i64 [ %18, %_ZN5mmu_t7in_mprvEv.exit.i ], [ %39, %37 ], [ %18, %27 ], [ %18, %21 ]
   %43 = trunc i8 %4 to i1
   br i1 %43, label %44, label %_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit
 
@@ -2704,8 +2704,8 @@ _ZN5mmu_t7in_mprvEv.exit.thread.i:                ; preds = %37, %_ZN5mmu_t7in_m
   br label %_ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit
 
 _ZN5mmu_t20generate_access_infoEm11access_type13xlate_flags_t.exit: ; preds = %_ZN5mmu_t7in_mprvEv.exit.thread.i, %44, %7
-  %.sroa.5.0 = phi i64 [ 0, %7 ], [ %53, %44 ], [ %.0.i, %_ZN5mmu_t7in_mprvEv.exit.thread.i ]
-  %.sroa.8.0 = phi i8 [ 0, %7 ], [ 1, %44 ], [ %.09.i, %_ZN5mmu_t7in_mprvEv.exit.thread.i ]
+  %.sroa.5.0 = phi i64 [ 0, %7 ], [ %53, %44 ], [ %.1.i, %_ZN5mmu_t7in_mprvEv.exit.thread.i ]
+  %.sroa.8.0 = phi i8 [ 0, %7 ], [ 1, %44 ], [ %.110.i, %_ZN5mmu_t7in_mprvEv.exit.thread.i ]
   %.sroa.14.0 = phi i8 [ 0, %7 ], [ %4, %44 ], [ %4, %_ZN5mmu_t7in_mprvEv.exit.thread.i ]
   br i1 %5, label %.preheader, label %72
 

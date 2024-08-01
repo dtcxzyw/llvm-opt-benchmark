@@ -605,7 +605,7 @@ _ZN25cmGlobVerificationManager15CacheEntryValueD2Ev.exit: ; preds = %_ZSt8_Destr
           to label %172 unwind label %160
 
 172:                                              ; preds = %169, %159
-  %.0 = xor i1 %155, true
+  %.2 = xor i1 %155, true
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %13) #18
   br label %174
 
@@ -615,7 +615,7 @@ _ZN25cmGlobVerificationManager15CacheEntryValueD2Ev.exit: ; preds = %_ZSt8_Destr
   br label %.body
 
 174:                                              ; preds = %42, %172
-  %.1 = phi i1 [ %.0, %172 ], [ false, %42 ]
+  %.1 = phi i1 [ %.2, %172 ], [ false, %42 ]
   call void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %7) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
@@ -637,8 +637,8 @@ _ZN25cmGlobVerificationManager15CacheEntryValueD2Ev.exit: ; preds = %_ZSt8_Destr
   resume { ptr, i32 } %.pn32.pn.pn
 
 177:                                              ; preds = %3, %174
-  %.2 = phi i1 [ %.1, %174 ], [ true, %3 ]
-  ret i1 %.2
+  %.0 = phi i1 [ %.1, %174 ], [ true, %3 ]
+  ret i1 %.0
 }
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0

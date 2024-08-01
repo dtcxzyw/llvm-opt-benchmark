@@ -101,9 +101,9 @@ if.then25:                                        ; preds = %while.end23
 
 while.body29:                                     ; preds = %if.then25, %while.body29
   %len.addr.2106 = phi i64 [ %len.addr.1.lcssa, %if.then25 ], [ %dec27, %while.body29 ]
-  %n.3105 = phi i32 [ %n.1.lcssa, %if.then25 ], [ %inc, %while.body29 ]
+  %n.4105 = phi i32 [ %n.1.lcssa, %if.then25 ], [ %inc, %while.body29 ]
   %dec27 = add i64 %len.addr.2106, -1
-  %idxprom30 = zext i32 %n.3105 to i64
+  %idxprom30 = zext i32 %n.4105 to i64
   %arrayidx31 = getelementptr inbounds i8, ptr %in.addr.1.lcssa, i64 %idxprom30
   %8 = load i8, ptr %arrayidx31, align 1
   %arrayidx34 = getelementptr inbounds i8, ptr %ivec, i64 %idxprom30
@@ -112,7 +112,7 @@ while.body29:                                     ; preds = %if.then25, %while.b
   store i8 %xor3683, ptr %arrayidx34, align 1
   %arrayidx39 = getelementptr inbounds i8, ptr %out.addr.1.lcssa, i64 %idxprom30
   store i8 %xor3683, ptr %arrayidx39, align 1
-  %inc = add i32 %n.3105, 1
+  %inc = add i32 %n.4105, 1
   %tobool28.not = icmp eq i64 %dec27, 0
   br i1 %tobool28.not, label %if.end155, label %while.body29, !llvm.loop !8
 
@@ -194,9 +194,9 @@ if.then110:                                       ; preds = %while.end108
 
 while.body114:                                    ; preds = %if.then110, %while.body114
   %len.addr.5129 = phi i64 [ %len.addr.4.lcssa, %if.then110 ], [ %dec112, %while.body114 ]
-  %n.8128 = phi i32 [ %n.6.lcssa, %if.then110 ], [ %inc128, %while.body114 ]
+  %n.9128 = phi i32 [ %n.6.lcssa, %if.then110 ], [ %inc128, %while.body114 ]
   %dec112 = add i64 %len.addr.5129, -1
-  %idxprom116 = zext i32 %n.8128 to i64
+  %idxprom116 = zext i32 %n.9128 to i64
   %arrayidx117 = getelementptr inbounds i8, ptr %ivec, i64 %idxprom116
   %16 = load i8, ptr %arrayidx117, align 1
   %arrayidx120 = getelementptr inbounds i8, ptr %in.addr.3.lcssa, i64 %idxprom116
@@ -205,13 +205,13 @@ while.body114:                                    ; preds = %if.then110, %while.
   %arrayidx125 = getelementptr inbounds i8, ptr %out.addr.3.lcssa, i64 %idxprom116
   store i8 %xor12281, ptr %arrayidx125, align 1
   store i8 %17, ptr %arrayidx117, align 1
-  %inc128 = add i32 %n.8128, 1
+  %inc128 = add i32 %n.9128, 1
   %tobool113.not = icmp eq i64 %dec112, 0
   br i1 %tobool113.not, label %if.end155, label %while.body114, !llvm.loop !12
 
 if.end155:                                        ; preds = %while.body29, %while.body114, %while.end108, %while.end23, %entry
-  %n.9.sink = phi i32 [ -1, %entry ], [ %n.1.lcssa, %while.end23 ], [ %n.6.lcssa, %while.end108 ], [ %inc128, %while.body114 ], [ %inc, %while.body29 ]
-  store i32 %n.9.sink, ptr %num, align 4
+  %n.8.sink = phi i32 [ -1, %entry ], [ %n.1.lcssa, %while.end23 ], [ %n.6.lcssa, %while.end108 ], [ %inc128, %while.body114 ], [ %inc, %while.body29 ]
+  store i32 %n.8.sink, ptr %num, align 4
   ret void
 }
 

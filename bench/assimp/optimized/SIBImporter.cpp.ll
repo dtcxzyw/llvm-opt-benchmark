@@ -3250,14 +3250,14 @@ for.end49.i.i.i:                                  ; preds = %for.inc47.i.i.i
   %227 = shufflevector <2 x float> %226, <2 x float> poison, <2 x i32> zeroinitializer
   %228 = fmul <2 x float> %208, %227
   %mul3.i.i.i.i = fmul float %add6.i.i.i.i, %div.i.i.i.i
-  %retval.sroa.0.3.i.i.i = select i1 %or.cond75.i.i.i, <2 x float> %208, <2 x float> %228
-  %retval.sroa.15.3.i.i.i = select i1 %or.cond75.i.i.i, float %add6.i.i.i.i, float %mul3.i.i.i.i
+  %retval.sroa.0.2.i.i.i = select i1 %or.cond75.i.i.i, <2 x float> %208, <2 x float> %228
+  %retval.sroa.15.2.i.i.i = select i1 %or.cond75.i.i.i, float %add6.i.i.i.i, float %mul3.i.i.i.i
   %conv58.i.i = zext i32 %206 to i64
   %229 = load ptr, ptr %nrm.i.i, align 8
   %add.ptr.i45.i.i = getelementptr inbounds %class.aiVector3t, ptr %229, i64 %conv58.i.i
-  store <2 x float> %retval.sroa.0.3.i.i.i, ptr %add.ptr.i45.i.i, align 4
+  store <2 x float> %retval.sroa.0.2.i.i.i, ptr %add.ptr.i45.i.i, align 4
   %vtxNorm.sroa.2.0.call59.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i45.i.i, i64 8
-  store float %retval.sroa.15.3.i.i.i, ptr %vtxNorm.sroa.2.0.call59.sroa_idx.i.i, align 4
+  store float %retval.sroa.15.2.i.i.i, ptr %vtxNorm.sroa.2.0.call59.sroa_idx.i.i, align 4
   %indvars.iv.next81.i.i = add nuw nsw i64 %indvars.iv80.i.i, 1
   %exitcond84.not.i.i = icmp eq i64 %indvars.iv.next81.i.i, %wide.trip.count83.i.i
   br i1 %exitcond84.not.i.i, label %for.inc63.i.i, label %for.body44.i.i, !llvm.loop !30

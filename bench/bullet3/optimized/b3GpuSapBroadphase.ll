@@ -7561,7 +7561,7 @@ lpad256:                                          ; preds = %if.then3.i.i918, %.
   br label %ehcleanup272
 
 if.end270:                                        ; preds = %do.end, %invoke.cont264
-  %numPairs.0 = phi i32 [ %269, %do.end ], [ %.pre.i, %invoke.cont264 ]
+  %numPairs.1 = phi i32 [ %269, %do.end ], [ %.pre.i, %invoke.cont264 ]
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher252) #19
   invoke void @b3LeaveProfileZone()
           to label %if.end273 unwind label %terminate.lpad.i453
@@ -7586,7 +7586,7 @@ terminate.lpad.i455:                              ; preds = %ehcleanup272
   unreachable
 
 if.end273:                                        ; preds = %if.end270, %invoke.cont214
-  %numPairs.1 = phi i32 [ 0, %invoke.cont214 ], [ %numPairs.0, %if.end270 ]
+  %numPairs.0 = phi i32 [ 0, %invoke.cont214 ], [ %numPairs.1, %if.end270 ]
   %276 = load i64, ptr %m_size.i.i196, align 8
   %tobool277.not = icmp eq i64 %276, 0
   br i1 %tobool277.not, label %if.end332, label %if.then278
@@ -8132,7 +8132,7 @@ lpad303:                                          ; preds = %if.then3.i.i1038, %
   br label %ehcleanup331
 
 if.end329:                                        ; preds = %_ZN13b3OpenCLArrayIiE9push_backERKib.exit621, %invoke.cont314
-  %numPairs.2 = phi i32 [ %344, %_ZN13b3OpenCLArrayIiE9push_backERKib.exit621 ], [ %.pre.i582, %invoke.cont314 ]
+  %numPairs.3 = phi i32 [ %344, %_ZN13b3OpenCLArrayIiE9push_backERKib.exit621 ], [ %.pre.i582, %invoke.cont314 ]
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher298) #19
   invoke void @b3LeaveProfileZone()
           to label %if.end332 unwind label %terminate.lpad.i622
@@ -8157,8 +8157,8 @@ terminate.lpad.i624:                              ; preds = %ehcleanup331
   unreachable
 
 if.end332:                                        ; preds = %if.end329, %if.end273
-  %numPairs.3 = phi i32 [ %numPairs.1, %if.end273 ], [ %numPairs.2, %if.end329 ]
-  %conv334 = sext i32 %numPairs.3 to i64
+  %numPairs.2 = phi i32 [ %numPairs.0, %if.end273 ], [ %numPairs.3, %if.end329 ]
+  %conv334 = sext i32 %numPairs.2 to i64
   %358 = load i64, ptr %m_size.i.i268, align 8
   %cmp3.i627 = icmp ult i64 %358, %conv334
   br i1 %cmp3.i627, label %if.end7.i630, label %invoke.cont335
@@ -8805,8 +8805,8 @@ _ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit18: ; preds = %if.else, %land
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit, %_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI10b3SortDataE10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8935,8 +8935,8 @@ _ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18: ; preds = %if.else, %land.lhs.
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI6b3Int4E10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9065,8 +9065,8 @@ _ZN13b3OpenCLArrayIiE10deallocateEv.exit18:       ; preds = %if.else, %land.lhs.
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayIiE10deallocateEv.exit, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9195,8 +9195,8 @@ _ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18: ; preds = %if.else, %land.l
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit, %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3SapAabbE10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9325,8 +9325,8 @@ _ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18: ; preds = %if.else, %land.l
   br label %if.end14
 
 if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18, %entry
-  %result.1 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18 ], [ true, %entry ]
-  ret i1 %result.1
+  %result.0 = phi i1 [ %cmp4.not, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit ], [ false, %_ZN13b3OpenCLArrayI9b3Vector3E10deallocateEv.exit18 ], [ true, %entry ]
+  ret i1 %result.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -2889,15 +2889,15 @@ tree_enter_initial_dir.exit:                      ; preds = %51, %46, %42, %16
   br label %80
 
 80:                                               ; preds = %80, %73
-  %.140.i = phi i64 [ %spec.select..i, %73 ], [ %82, %80 ]
-  %81 = icmp ult i64 %.140.i, 65536
-  %82 = add i64 %.140.i, %spec.select..0.i
+  %.2.i = phi i64 [ %spec.select..i, %73 ], [ %82, %80 ]
+  %81 = icmp ult i64 %.2.i, 65536
+  %82 = add i64 %.2.i, %spec.select..0.i
   br i1 %81, label %80, label %.loopexit.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %80, %67
-  %.pn.i = phi i64 [ %72, %67 ], [ %.140.i, %80 ]
-  %.2.i = add i64 %.pn.i, %spec.select.i
-  %83 = tail call noalias ptr @malloc(i64 noundef %.2.i) #23
+  %.pn.i = phi i64 [ %72, %67 ], [ %.2.i, %80 ]
+  %.039.i = add i64 %.pn.i, %spec.select.i
+  %83 = tail call noalias ptr @malloc(i64 noundef %.039.i) #23
   store ptr %83, ptr %64, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %92, label %85

@@ -50,7 +50,7 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
 
 25:                                               ; preds = %.lr.ph, %174
   %.0294337 = phi i32 [ 0, %.lr.ph ], [ %.1, %174 ]
-  %.0295336 = phi ptr [ null, %.lr.ph ], [ %.2, %174 ]
+  %.0295336 = phi ptr [ null, %.lr.ph ], [ %.1296, %174 ]
   %.0298335 = phi ptr [ %8, %.lr.ph ], [ %175, %174 ]
   %26 = getelementptr inbounds i8, ptr %.0298335, i64 28
   %27 = load i8, ptr %26, align 4
@@ -208,7 +208,7 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
   br label %96
 
 96:                                               ; preds = %28, %77, %90, %94, %82
-  %.1296 = phi ptr [ %.0293, %77 ], [ %.0293, %82 ], [ %.0293, %90 ], [ %.0293, %94 ], [ null, %28 ]
+  %.2 = phi ptr [ %.0293, %77 ], [ %.0293, %82 ], [ %.0293, %90 ], [ %.0293, %94 ], [ null, %28 ]
   %97 = add nsw i32 %.0294337, 1
   br label %174
 
@@ -352,7 +352,7 @@ define void @zend_analyze_calls(ptr nocapture noundef %0, ptr noundef %1, i32 no
   br label %174
 
 174:                                              ; preds = %171, %172, %158, %165, %163, %153, %135, %98, %96, %25
-  %.2 = phi ptr [ %.0295336, %25 ], [ %.0295336, %172 ], [ null, %171 ], [ %.0295336, %163 ], [ %.0295336, %165 ], [ null, %158 ], [ %157, %153 ], [ %.0295336, %135 ], [ null, %98 ], [ %.1296, %96 ]
+  %.1296 = phi ptr [ %.0295336, %25 ], [ %.0295336, %172 ], [ null, %171 ], [ %.0295336, %163 ], [ %.0295336, %165 ], [ null, %158 ], [ %157, %153 ], [ %.0295336, %135 ], [ null, %98 ], [ %.2, %96 ]
   %.1 = phi i32 [ %.0294337, %25 ], [ %.0294337, %172 ], [ %.0294337, %171 ], [ %.0294337, %163 ], [ %.0294337, %165 ], [ %.0294337, %158 ], [ %154, %153 ], [ %.0294337, %135 ], [ %101, %98 ], [ %97, %96 ]
   %175 = getelementptr inbounds i8, ptr %.0298335, i64 32
   %.not = icmp eq ptr %175, %12

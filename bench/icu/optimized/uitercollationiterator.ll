@@ -437,9 +437,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1208,13 +1208,13 @@ invoke.cont78:                                    ; preds = %invoke.cont76
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont52, %invoke.cont78, %invoke.cont59
-  %retval.0 = phi i8 [ 1, %invoke.cont78 ], [ 1, %invoke.cont59 ], [ 0, %invoke.cont52 ]
+  %retval.1 = phi i8 [ 1, %invoke.cont78 ], [ 1, %invoke.cont59 ], [ 0, %invoke.cont52 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %s) #8
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i8 [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i8 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1684,20 +1684,20 @@ if.then35:                                        ; preds = %if.then33
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then35, %if.then33
-  %prev.1 = phi i32 [ %call39, %if.then35 ], [ %call13, %if.then33 ]
-  %and41 = and i32 %prev.1, -1024
+  %prev.2 = phi i32 [ %call39, %if.then35 ], [ %call13, %if.then33 ]
+  %and41 = and i32 %prev.2, -1024
   %cmp42 = icmp eq i32 %and41, 55296
   br i1 %cmp42, label %if.then43, label %if.end45
 
 if.then43:                                        ; preds = %if.end40
-  %shl = shl nuw nsw i32 %prev.1, 10
+  %shl = shl nuw nsw i32 %prev.2, 10
   %add = add nuw nsw i32 %call, -56613888
   %sub = add nsw i32 %add, %shl
   br label %return
 
 if.end45:                                         ; preds = %if.end40, %if.end31
-  %prev.2 = phi i32 [ %prev.1, %if.end40 ], [ %call13, %if.end31 ]
-  %cmp46 = icmp sgt i32 %prev.2, -1
+  %prev.1 = phi i32 [ %prev.2, %if.end40 ], [ %call13, %if.end31 ]
+  %cmp46 = icmp sgt i32 %prev.1, -1
   br i1 %cmp46, label %if.then47, label %return
 
 if.then47:                                        ; preds = %if.end45
@@ -2052,13 +2052,13 @@ invoke.cont85:                                    ; preds = %invoke.cont83
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont57, %invoke.cont85, %invoke.cont66
-  %retval.0 = phi i8 [ 1, %invoke.cont85 ], [ 1, %invoke.cont66 ], [ 0, %invoke.cont57 ]
+  %retval.1 = phi i8 [ 1, %invoke.cont85 ], [ 1, %invoke.cont66 ], [ 0, %invoke.cont57 ]
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %s) #8
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i8 [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i8 %retval.1
+  %retval.0 = phi i8 [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i8 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -280,16 +280,16 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp29, label %while.cond, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %do.end, %while.cond
-  %result.1 = phi i32 [ %call28, %do.end ], [ 0, %while.cond ]
+  %result.2 = phi i32 [ %call28, %do.end ], [ 0, %while.cond ]
   %6 = load i32, ptr %cancel, align 4
   %call36 = call i32 @pthread_setcancelstate(i32 noundef %6, ptr noundef nonnull %cancelTemp)
   br label %if.end37
 
 if.end37:                                         ; preds = %if.then9, %while.end
-  %result.2 = phi i32 [ %result.1, %while.end ], [ %call16, %if.then9 ]
+  %result.0 = phi i32 [ %result.2, %while.end ], [ %call16, %if.then9 ]
   %not.bPrimary.0 = phi i32 [ 1, %while.end ], [ %spec.select7, %if.then9 ]
   %call40 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %mMutex) #10
-  switch i32 %result.2, label %if.end48 [
+  switch i32 %result.0, label %if.end48 [
     i32 0, label %return
     i32 110, label %if.then46
   ]

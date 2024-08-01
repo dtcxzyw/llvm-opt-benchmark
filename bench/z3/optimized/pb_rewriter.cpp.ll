@@ -5126,7 +5126,7 @@ if.then326:                                       ; preds = %invoke.cont323, %in
   br label %if.end327
 
 if.end327:                                        ; preds = %lor.lhs.false, %if.then326, %invoke.cont323
-  %st.0 = phi i32 [ 2, %if.then326 ], [ 4, %invoke.cont323 ], [ 4, %lor.lhs.false ]
+  %st.2 = phi i32 [ 2, %if.then326 ], [ 4, %invoke.cont323 ], [ 4, %lor.lhs.false ]
   br i1 %cmp.i.i464, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i:         ; preds = %if.end327
@@ -5260,7 +5260,7 @@ if.end332.sink.split:                             ; preds = %if.then.i.i.i306, %
   br label %if.end332
 
 if.end332:                                        ; preds = %if.end332.sink.split, %invoke.cont160.invoke, %if.then.i.i.i.i.i501, %invoke.cont8.i.i498, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit
-  %st.1 = phi i32 [ %st.0, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ], [ %st.0, %invoke.cont8.i.i498 ], [ %st.0, %if.then.i.i.i.i.i501 ], [ 4, %invoke.cont160.invoke ], [ 4, %if.end332.sink.split ]
+  %st.1 = phi i32 [ %st.2, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit ], [ %st.2, %invoke.cont8.i.i498 ], [ %st.2, %if.then.i.i.i.i.i501 ], [ 4, %invoke.cont160.invoke ], [ 4, %if.end332.sink.split ]
   %244 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %244, ptr noundef nonnull align 8 dereferenceable(16) %slack)
           to label %.noexc.i508 unwind label %terminate.lpad.i507
@@ -5287,7 +5287,7 @@ sw.epilog334.sink.split:                          ; preds = %if.then.i.i.i159, %
   br label %sw.epilog334
 
 sw.epilog334:                                     ; preds = %sw.epilog334.sink.split, %.noexc.i508
-  %st.2 = phi i32 [ %st.1, %.noexc.i508 ], [ 4, %sw.epilog334.sink.split ]
+  %st.0 = phi i32 [ %st.1, %.noexc.i508 ], [ 4, %sw.epilog334.sink.split ]
   %247 = load ptr, ptr %m_nodes.i.i.i, align 8
   %cmp.i.i.i.i513 = icmp eq ptr %247, null
   br i1 %cmp.i.i.i.i513, label %_ZN20pb_ast_rewriter_utilD2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i
@@ -5474,7 +5474,7 @@ ehcleanup339:                                     ; preds = %ehcleanup338, %lpad
   resume { ptr, i32 } %.pn90.pn
 
 return:                                           ; preds = %.noexc.i531, %_ZNK7pb_util11is_aux_boolEP9func_decl.exit
-  %retval.0 = phi i32 [ 5, %_ZNK7pb_util11is_aux_boolEP9func_decl.exit ], [ %st.2, %.noexc.i531 ]
+  %retval.0 = phi i32 [ 5, %_ZNK7pb_util11is_aux_boolEP9func_decl.exit ], [ %st.0, %.noexc.i531 ]
   ret i32 %retval.0
 }
 

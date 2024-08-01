@@ -2457,30 +2457,30 @@ _ZN17QArrayDataPointerIN10LabelStack10_StackItemEE6detachEPS2_.exit: ; preds = %
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge.i, %.lr.ph.i
-  %.021.i = phi ptr [ %31, %.lr.ph.i ], [ %11, %._crit_edge.i ]
-  %.01420.i = phi ptr [ %32, %.lr.ph.i ], [ %12, %._crit_edge.i ]
-  %18 = load ptr, ptr %.021.i, align 8
-  %19 = load ptr, ptr %.01420.i, align 8
-  store ptr %19, ptr %.021.i, align 8
-  store ptr %18, ptr %.01420.i, align 8
-  %20 = getelementptr inbounds i8, ptr %.021.i, i64 8
-  %21 = getelementptr inbounds i8, ptr %.01420.i, i64 8
+  %.121.i = phi ptr [ %31, %.lr.ph.i ], [ %11, %._crit_edge.i ]
+  %.11520.i = phi ptr [ %32, %.lr.ph.i ], [ %12, %._crit_edge.i ]
+  %18 = load ptr, ptr %.121.i, align 8
+  %19 = load ptr, ptr %.11520.i, align 8
+  store ptr %19, ptr %.121.i, align 8
+  store ptr %18, ptr %.11520.i, align 8
+  %20 = getelementptr inbounds i8, ptr %.121.i, i64 8
+  %21 = getelementptr inbounds i8, ptr %.11520.i, i64 8
   %22 = load ptr, ptr %20, align 8
   %23 = load ptr, ptr %21, align 8
   store ptr %23, ptr %20, align 8
   store ptr %22, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %.021.i, i64 16
-  %25 = getelementptr inbounds i8, ptr %.01420.i, i64 16
+  %24 = getelementptr inbounds i8, ptr %.121.i, i64 16
+  %25 = getelementptr inbounds i8, ptr %.11520.i, i64 16
   %26 = load i64, ptr %24, align 8
   %27 = load i64, ptr %25, align 8
   store i64 %27, ptr %24, align 8
   store i64 %26, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %.01420.i, i64 24
+  %28 = getelementptr inbounds i8, ptr %.11520.i, i64 24
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.021.i, i64 24
+  %30 = getelementptr inbounds i8, ptr %.121.i, i64 24
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr i8, ptr %.021.i, i64 32
-  %32 = getelementptr i8, ptr %.01420.i, i64 32
+  %31 = getelementptr i8, ptr %.121.i, i64 32
+  %32 = getelementptr i8, ptr %.11520.i, i64 32
   %.not18.i = icmp eq ptr %32, %16
   br i1 %.not18.i, label %.loopexit.loopexit.i, label %.lr.ph.i, !llvm.loop !29
 
@@ -2490,15 +2490,15 @@ _ZN17QArrayDataPointerIN10LabelStack10_StackItemEE6detachEPS2_.exit: ; preds = %
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %._crit_edge.i, %17
   %33 = phi i64 [ %15, %17 ], [ %15, %._crit_edge.i ], [ %.pre25.i, %.loopexit.loopexit.i ]
-  %.115.i = phi ptr [ %12, %17 ], [ %12, %._crit_edge.i ], [ %16, %.loopexit.loopexit.i ]
-  %.1.i = phi ptr [ %11, %17 ], [ %11, %._crit_edge.i ], [ %31, %.loopexit.loopexit.i ]
+  %.014.i = phi ptr [ %12, %17 ], [ %12, %._crit_edge.i ], [ %16, %.loopexit.loopexit.i ]
+  %.0.i = phi ptr [ %11, %17 ], [ %11, %._crit_edge.i ], [ %31, %.loopexit.loopexit.i ]
   %34 = sub i64 %33, %2
   store i64 %34, ptr %14, align 8
-  %.not4.i.i.i.i = icmp eq ptr %.1.i, %.115.i
+  %.not4.i.i.i.i = icmp eq ptr %.0.i, %.014.i
   br i1 %.not4.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE5eraseEPS2_x.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.loopexit.i, %_ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %39, %_ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i.i ], [ %.1.i, %.loopexit.i ]
+  %.05.i.i.i.i = phi ptr [ %39, %_ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i.i ], [ %.0.i, %.loopexit.i ]
   %35 = load ptr, ptr %.05.i.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i.i, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i
@@ -2515,7 +2515,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
 
 _ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i.i: ; preds = %37, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i
   %39 = getelementptr i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %39, %.115.i
+  %.not.i.i.i.i = icmp eq ptr %39, %.014.i
   br i1 %.not.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE5eraseEPS2_x.exit, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 _ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE5eraseEPS2_x.exit: ; preds = %_ZSt8_DestroyIN10LabelStack10_StackItemEEvPT_.exit.i.i.i.i, %.loopexit.i, %3

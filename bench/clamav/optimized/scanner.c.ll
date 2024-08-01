@@ -993,7 +993,7 @@ define dso_local i32 @scanfd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %99
 
 99:                                               ; preds = %46, %84, %79, %93, %97, %87, %64
-  %.3 = phi i32 [ %67, %64 ], [ %spec.select, %79 ], [ %spec.select, %84 ], [ %spec.select52, %87 ], [ %spec.select53, %97 ], [ %spec.select53, %93 ], [ %., %46 ]
+  %.0 = phi i32 [ %67, %64 ], [ %spec.select, %79 ], [ %spec.select, %84 ], [ %spec.select52, %87 ], [ %spec.select53, %97 ], [ %spec.select53, %93 ], [ %., %46 ]
   %100 = load ptr, ptr %12, align 8
   %.not51 = icmp eq ptr %100, null
   br i1 %.not51, label %102, label %101
@@ -1003,7 +1003,7 @@ define dso_local i32 @scanfd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br label %102
 
 102:                                              ; preds = %101, %99
-  ret i32 %.3
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind

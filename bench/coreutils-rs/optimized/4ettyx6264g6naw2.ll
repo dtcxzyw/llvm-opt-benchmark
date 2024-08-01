@@ -550,7 +550,7 @@ common.resume:                                    ; preds = %.body, %59, %40
   br label %191
 
 191:                                              ; preds = %200, %199, %190
-  %.0 = phi ptr [ %.08.i.i.i83, %200 ], [ %.08.i.i.i72, %199 ], [ %.08.i.i.i64, %190 ]
+  %.1 = phi ptr [ %.08.i.i.i83, %200 ], [ %.08.i.i.i72, %199 ], [ %.08.i.i.i64, %190 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !121
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6315a8ee5260d624E.llvm.6590528771756919200"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %24)
   %192 = getelementptr inbounds i8, ptr %4, i64 8
@@ -588,8 +588,8 @@ common.resume:                                    ; preds = %.body, %59, %40
   br label %191
 
 201:                                              ; preds = %71, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcf783812d4bc82d4E.exit"
-  %.1 = phi ptr [ %.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcf783812d4bc82d4E.exit" ], [ %.047, %71 ]
-  ret ptr %.1
+  %.0 = phi ptr [ %.1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcf783812d4bc82d4E.exit" ], [ %.047, %71 ]
+  ret ptr %.0
 
 202:                                              ; preds = %.body
   %203 = landingpad { ptr, i32 }

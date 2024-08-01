@@ -310,7 +310,7 @@ switch.lookup:                                    ; preds = %22, %20
   br label %120
 
 120:                                              ; preds = %110, %101
-  %.1195 = phi i16 [ %102, %101 ], [ %112, %110 ]
+  %.2 = phi i16 [ %102, %101 ], [ %112, %110 ]
   %.1193 = phi i32 [ 2, %101 ], [ 1, %110 ]
   %.1191 = phi ptr [ %7, %101 ], [ %6, %110 ]
   %.1189 = phi ptr [ @.str.27, %101 ], [ @.str.28, %110 ]
@@ -335,7 +335,7 @@ switch.lookup:                                    ; preds = %22, %20
   br i1 %.not218, label %149, label %127
 
 127:                                              ; preds = %126
-  %128 = zext i16 %.1195 to i32
+  %128 = zext i16 %.2 to i32
   %129 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %.1193, i32 noundef %128, ptr noundef nonnull %.1189, ptr noundef %16, i32 noundef %128) #4
   %130 = tail call ptr @proto_item_add_subtree(ptr noundef %129, i32 noundef %5) #4
   %131 = load ptr, ptr %.1191, align 8
@@ -352,7 +352,7 @@ switch.lookup:                                    ; preds = %22, %20
   %139 = getelementptr inbounds i8, ptr %.1191, i64 16
   %140 = load ptr, ptr %139, align 8
   %141 = load i32, ptr %140, align 4
-  %142 = zext i16 %.1195 to i64
+  %142 = zext i16 %.2 to i64
   %143 = tail call ptr @proto_tree_add_boolean(ptr noundef %130, i32 noundef %141, ptr noundef %0, i32 noundef %1, i32 noundef %.1193, i64 noundef %142) #4
   br label %144
 
@@ -364,8 +364,8 @@ switch.lookup:                                    ; preds = %22, %20
   br label %149
 
 149:                                              ; preds = %126, %144, %85, %93, %47, %58
-  %.2 = phi i16 [ %.1195, %144 ], [ %.1195, %126 ], [ %69, %93 ], [ %69, %85 ], [ %.0194, %58 ], [ %.0194, %47 ]
-  %150 = zext i16 %.2 to i32
+  %.1195 = phi i16 [ %.2, %144 ], [ %.2, %126 ], [ %69, %93 ], [ %69, %85 ], [ %.0194, %58 ], [ %.0194, %47 ]
+  %150 = zext i16 %.1195 to i32
   ret i32 %150
 }
 

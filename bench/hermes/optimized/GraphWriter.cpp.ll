@@ -1161,7 +1161,7 @@ sw.epilog:                                        ; preds = %sw.bb85, %sw.bb83
   br label %cleanup106
 
 cleanup106:                                       ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit715, %sw.epilog
-  %retval.1 = phi i1 [ %call104, %sw.epilog ], [ true, %_ZN4llvh11raw_ostreamlsEPKc.exit715 ]
+  %retval.2 = phi i1 [ %call104, %sw.epilog ], [ true, %_ZN4llvh11raw_ostreamlsEPKc.exit715 ]
   %37 = load ptr, ptr %args59, align 8
   %tobool.not.i.i.i758 = icmp eq ptr %37, null
   br i1 %tobool.not.i.i.i758, label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit760, label %if.then.i.i.i759
@@ -1273,17 +1273,17 @@ if.then4.i.i884:                                  ; preds = %_ZN4llvh11raw_ostre
   br label %cleanup128
 
 cleanup128:                                       ; preds = %if.then4.i.i884, %if.then.i.i887, %if.then.i.i.i855, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit760
-  %retval.2 = phi i1 [ %retval.1, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit760 ], [ %call120, %if.then.i.i.i855 ], [ true, %if.then.i.i887 ], [ true, %if.then4.i.i884 ]
+  %retval.3 = phi i1 [ %retval.2, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit760 ], [ %call120, %if.then.i.i.i855 ], [ true, %if.then.i.i887 ], [ true, %if.then4.i.i884 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %GeneratorPath) #15
   br label %cleanup129
 
 cleanup129:                                       ; preds = %if.then.i.i.i402, %if.then.i.i.i228, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit, %cleanup128
-  %retval.3 = phi i1 [ %retval.2, %cleanup128 ], [ false, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit ], [ %call20, %if.then.i.i.i228 ], [ %call37, %if.then.i.i.i402 ]
+  %retval.1 = phi i1 [ %retval.3, %cleanup128 ], [ false, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit ], [ %call20, %if.then.i.i.i228 ], [ %call37, %if.then.i.i.i402 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %S) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ViewerPath) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ErrMsg) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Filename) #15
-  ret i1 %retval.3
+  ret i1 %retval.1
 }
 
 ; Function Attrs: nounwind

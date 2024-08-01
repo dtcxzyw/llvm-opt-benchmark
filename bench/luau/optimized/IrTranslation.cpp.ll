@@ -796,7 +796,7 @@ _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; pr
   br label %157
 
 157:                                              ; preds = %155, %146
-  %.sroa.0440.2 = phi i32 [ 0, %146 ], [ %.sroa.0440.1, %155 ]
+  %.sroa.0440.0 = phi i32 [ 0, %146 ], [ %.sroa.0440.1, %155 ]
   %.not411 = icmp eq i32 %3, -1
   %.not412 = icmp eq i32 %3, %2
   %or.cond421 = or i1 %.not411, %.not412
@@ -814,7 +814,7 @@ _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; pr
   br label %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit428
 
 165:                                              ; preds = %158
-  %166 = and i32 %.sroa.0440.2, 15
+  %166 = and i32 %.sroa.0440.0, 15
   %167 = icmp eq i32 %166, 0
   br i1 %167, label %168, label %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit428
 
@@ -823,13 +823,13 @@ _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; pr
   br label %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit428
 
 _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit428: ; preds = %168, %165, %163
-  %.sroa.0440.4 = phi i32 [ %.sroa.0440.2, %163 ], [ %169, %168 ], [ %.sroa.0440.2, %165 ]
-  %.sroa.0104.0 = phi i32 [ %164, %163 ], [ %169, %168 ], [ %.sroa.0440.2, %165 ]
+  %.sroa.0440.3 = phi i32 [ %.sroa.0440.0, %163 ], [ %169, %168 ], [ %.sroa.0440.0, %165 ]
+  %.sroa.0104.0 = phi i32 [ %164, %163 ], [ %169, %168 ], [ %.sroa.0440.0, %165 ]
   %170 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 79, i32 %161, i32 %162, i32 %.sroa.0104.0)
   br label %171
 
 171:                                              ; preds = %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit428, %157
-  %.sroa.0440.5 = phi i32 [ %.sroa.0440.2, %157 ], [ %.sroa.0440.4, %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit428 ]
+  %.sroa.0440.2 = phi i32 [ %.sroa.0440.0, %157 ], [ %.sroa.0440.3, %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit428 ]
   %172 = and i32 %4, 15
   %173 = icmp eq i32 %172, 7
   br i1 %173, label %174, label %183
@@ -966,7 +966,7 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit431: ; pr
   br label %238
 
 238:                                              ; preds = %234, %230
-  %239 = and i32 %.sroa.0440.5, 15
+  %239 = and i32 %.sroa.0440.2, 15
   %.not415 = icmp eq i32 %239, 0
   br i1 %.not415, label %_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit, label %240
 
@@ -977,7 +977,7 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit431: ; pr
   %243 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 %242, ptr %243, align 8
   %244 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %242)
-  tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %.sroa.0440.5)
+  tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %.sroa.0440.2)
   %245 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %241)
           to label %246 unwind label %260
 
@@ -1178,7 +1178,7 @@ _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; pr
   br label %70
 
 70:                                               ; preds = %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit, %67
-  %.sroa.0.1 = phi i32 [ 0, %67 ], [ %69, %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit ]
+  %.sroa.0.0 = phi i32 [ 0, %67 ], [ %69, %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit ]
   %.sroa.029.0 = phi i32 [ %68, %67 ], [ %69, %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit ]
   %71 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 79, i32 %64, i32 %65, i32 %.sroa.029.0)
   %72 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext %62)
@@ -1197,7 +1197,7 @@ _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; pr
   br label %82
 
 82:                                               ; preds = %78, %70
-  %83 = and i32 %.sroa.0.1, 15
+  %83 = and i32 %.sroa.0.0, 15
   %.not145 = icmp eq i32 %83, 0
   br i1 %.not145, label %_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev.exit, label %84
 
@@ -1208,7 +1208,7 @@ _ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; pr
   %87 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %86, ptr %87, align 8
   %88 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i8 noundef zeroext 43, i32 %86)
-  tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %.sroa.0.1)
+  tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 %.sroa.0.0)
   %89 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(744) %0, i32 noundef %85)
           to label %90 unwind label %103
 

@@ -4509,7 +4509,7 @@ define internal noalias noundef ptr @threadRun(ptr noundef %0) #0 {
 
 .outer.split:                                     ; preds = %.outer.split.lr.ph, %.outer
   %.0116.ph289 = phi i32 [ %33, %.outer.split.lr.ph ], [ %.2, %.outer ]
-  %.0117.ph286 = phi i64 [ %72, %.outer.split.lr.ph ], [ %.2119, %.outer ]
+  %.0117.ph286 = phi i64 [ %72, %.outer.split.lr.ph ], [ %.1118, %.outer ]
   %.sroa.2.0.ph285 = phi i64 [ 0, %.outer.split.lr.ph ], [ %.sroa.2.1, %.outer ]
   %.sroa.4.0.ph284 = phi i64 [ 0, %.outer.split.lr.ph ], [ %.sroa.4.1, %.outer ]
   %.sroa.6.0.ph283 = phi i64 [ 0, %.outer.split.lr.ph ], [ %.sroa.6.1, %.outer ]
@@ -4528,8 +4528,8 @@ define internal noalias noundef ptr @threadRun(ptr noundef %0) #0 {
 .lr.ph265:                                        ; preds = %.lr.ph265.preheader, %151
   %indvars.iv354 = phi i64 [ 0, %.lr.ph265.preheader ], [ %indvars.iv.next355, %151 ]
   %.0124263 = phi i32 [ 0, %.lr.ph265.preheader ], [ %.1125, %151 ]
-  %.0127262 = phi i64 [ 9223372036854775807, %.lr.ph265.preheader ], [ %.1128, %151 ]
-  %.0178260 = phi i64 [ 0, %.lr.ph265.preheader ], [ %.2180, %151 ]
+  %.0127262 = phi i64 [ 9223372036854775807, %.lr.ph265.preheader ], [ %.2129, %151 ]
+  %.0178260 = phi i64 [ 0, %.lr.ph265.preheader ], [ %.1179, %151 ]
   %120 = getelementptr %struct.CState, ptr %31, i64 %indvars.iv354
   %121 = getelementptr inbounds i8, ptr %120, i64 12
   %122 = load i32, ptr %121, align 4
@@ -4560,12 +4560,12 @@ define internal noalias noundef ptr @threadRun(ptr noundef %0) #0 {
 
 pg_time_now_lazy.exit:                            ; preds = %123, %125
   %132 = phi i32 [ %.pre, %125 ], [ %122, %123 ]
-  %.1179 = phi i64 [ %131, %125 ], [ %.0178260, %123 ]
+  %.2180 = phi i64 [ %131, %125 ], [ %.0178260, %123 ]
   %133 = icmp eq i32 %132, 6
   %.in.v = select i1 %133, i64 88, i64 80
   %.in = getelementptr inbounds i8, ptr %120, i64 %.in.v
   %134 = load i64, ptr %.in, align 8
-  %135 = sub i64 %134, %.1179
+  %135 = sub i64 %134, %.2180
   %spec.select157 = call i64 @llvm.smin.i64(i64 %.0127262, i64 %135)
   br label %151
 
@@ -4596,8 +4596,8 @@ pg_time_now_lazy.exit:                            ; preds = %123, %125
   br label %151
 
 151:                                              ; preds = %pg_time_now_lazy.exit, %.lr.ph265, %.lr.ph265, %143
-  %.2180 = phi i64 [ %.0178260, %.lr.ph265 ], [ %.0178260, %.lr.ph265 ], [ %.0178260, %143 ], [ %.1179, %pg_time_now_lazy.exit ]
-  %.1128 = phi i64 [ %.0127262, %.lr.ph265 ], [ %.0127262, %.lr.ph265 ], [ %.0127262, %143 ], [ %spec.select157, %pg_time_now_lazy.exit ]
+  %.1179 = phi i64 [ %.0178260, %.lr.ph265 ], [ %.0178260, %.lr.ph265 ], [ %.0178260, %143 ], [ %.2180, %pg_time_now_lazy.exit ]
+  %.2129 = phi i64 [ %.0127262, %.lr.ph265 ], [ %.0127262, %.lr.ph265 ], [ %.0127262, %143 ], [ %spec.select157, %pg_time_now_lazy.exit ]
   %.1125 = phi i32 [ %.0124263, %.lr.ph265 ], [ %.0124263, %.lr.ph265 ], [ %144, %143 ], [ %.0124263, %pg_time_now_lazy.exit ]
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %exitcond358.not = icmp eq i64 %indvars.iv.next355, %wide.trip.count357
@@ -4606,7 +4606,7 @@ pg_time_now_lazy.exit:                            ; preds = %123, %125
 ._crit_edge266:                                   ; preds = %151
   %152 = load i32, ptr @progress, align 4
   %153 = icmp ne i32 %152, 0
-  %154 = icmp sgt i64 %.1128, 0
+  %154 = icmp sgt i64 %.2129, 0
   %or.cond = select i1 %153, i1 %154, i1 false
   br i1 %or.cond, label %155, label %select.unfold
 
@@ -4616,7 +4616,7 @@ pg_time_now_lazy.exit:                            ; preds = %123, %125
   br i1 %157, label %158, label %.thread186
 
 158:                                              ; preds = %155
-  %159 = icmp eq i64 %.2180, 0
+  %159 = icmp eq i64 %.1179, 0
   br i1 %159, label %160, label %pg_time_now_lazy.exit158
 
 160:                                              ; preds = %158
@@ -4631,22 +4631,22 @@ pg_time_now_lazy.exit:                            ; preds = %123, %125
   br label %pg_time_now_lazy.exit158
 
 pg_time_now_lazy.exit158:                         ; preds = %158, %160
-  %.3181 = phi i64 [ %166, %160 ], [ %.2180, %158 ]
+  %.3181 = phi i64 [ %166, %160 ], [ %.1179, %158 ]
   %.not147 = icmp slt i64 %.3181, %.0117.ph286
   br i1 %.not147, label %167, label %.thread190
 
 167:                                              ; preds = %pg_time_now_lazy.exit158
   %168 = sub i64 %.0117.ph286, %.3181
-  %169 = icmp slt i64 %168, %.1128
+  %169 = icmp slt i64 %168, %.2129
   br i1 %169, label %select.unfold, label %.thread186
 
 select.unfold:                                    ; preds = %167, %._crit_edge266
-  %.3130 = phi i64 [ %.1128, %._crit_edge266 ], [ %168, %167 ]
+  %.3130 = phi i64 [ %.2129, %._crit_edge266 ], [ %168, %167 ]
   %170 = icmp sgt i64 %.3130, 0
   br i1 %170, label %.thread186, label %.thread190
 
 .thread186:                                       ; preds = %167, %155, %select.unfold
-  %.3130188 = phi i64 [ %.3130, %select.unfold ], [ %.1128, %155 ], [ %.1128, %167 ]
+  %.3130188 = phi i64 [ %.3130, %select.unfold ], [ %.2129, %155 ], [ %.2129, %167 ]
   %.not148 = icmp eq i64 %.3130188, 9223372036854775807
   br i1 %.not148, label %179, label %171
 
@@ -4702,7 +4702,7 @@ wait_on_socket_set.exit:                          ; preds = %171
 .lr.ph273:                                        ; preds = %.lr.ph273.preheader, %socket_has_input.exit.thread
   %indvars.iv359 = phi i64 [ %indvars.iv.next360, %socket_has_input.exit.thread ], [ 0, %.lr.ph273.preheader ]
   %.1271 = phi i32 [ %.2, %socket_has_input.exit.thread ], [ %.0116.ph289, %.lr.ph273.preheader ]
-  %.2126269 = phi i32 [ %.4, %socket_has_input.exit.thread ], [ 0, %.lr.ph273.preheader ]
+  %.2126269 = phi i32 [ %.3, %socket_has_input.exit.thread ], [ 0, %.lr.ph273.preheader ]
   %190 = getelementptr %struct.CState, ptr %31, i64 %indvars.iv359
   %191 = getelementptr inbounds i8, ptr %190, i64 12
   %192 = load i32, ptr %191, align 4
@@ -4740,7 +4740,7 @@ socket_has_input.exit:                            ; preds = %200
   br i1 %.not195, label %socket_has_input.exit.thread, label %208
 
 208:                                              ; preds = %.lr.ph273, %socket_has_input.exit
-  %.3 = phi i32 [ %201, %socket_has_input.exit ], [ %.2126269, %.lr.ph273 ]
+  %.4 = phi i32 [ %201, %socket_has_input.exit ], [ %.2126269, %.lr.ph273 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22)
   store i64 0, ptr %22, align 8
   %209 = getelementptr inbounds i8, ptr %190, i64 8
@@ -6981,7 +6981,7 @@ advanceConnectionState.exit.thread:               ; preds = %1272
   br label %socket_has_input.exit.thread
 
 socket_has_input.exit.thread:                     ; preds = %200, %.thread, %.lr.ph273, %.lr.ph273, %socket_has_input.exit
-  %.4 = phi i32 [ %201, %socket_has_input.exit ], [ %.2126269, %.lr.ph273 ], [ %.2126269, %.lr.ph273 ], [ %.3, %.thread ], [ %201, %200 ]
+  %.3 = phi i32 [ %201, %socket_has_input.exit ], [ %.2126269, %.lr.ph273 ], [ %.2126269, %.lr.ph273 ], [ %.4, %.thread ], [ %201, %200 ]
   %.2 = phi i32 [ %.1271, %socket_has_input.exit ], [ %.1271, %.lr.ph273 ], [ %.1271, %.lr.ph273 ], [ %spec.select156, %.thread ], [ %.1271, %200 ]
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %exitcond363.not = icmp eq i64 %indvars.iv.next360, %wide.trip.count362
@@ -7201,8 +7201,8 @@ printProgressReport.exit:                         ; preds = %1390, %1392
   br label %1401
 
 1401:                                             ; preds = %1401, %printProgressReport.exit
-  %.1118 = phi i64 [ %.0117.ph286, %printProgressReport.exit ], [ %1402, %1401 ]
-  %1402 = add i64 %1400, %.1118
+  %.2119 = phi i64 [ %.0117.ph286, %printProgressReport.exit ], [ %1402, %1401 ]
+  %1402 = add i64 %1400, %.2119
   %.not151 = icmp slt i64 %1291, %1402
   br i1 %.not151, label %.outer, label %1401, !llvm.loop !57
 
@@ -7215,7 +7215,7 @@ printProgressReport.exit:                         ; preds = %1390, %1392
   %.sroa.6.1 = phi i64 [ %.sroa.6.0.ph283, %._crit_edge274 ], [ %.sroa.6.0.ph283, %1285 ], [ %.sroa.6.0.ph283, %1282 ], [ %.sroa.9.0.lcssa.i, %1401 ]
   %.sroa.4.1 = phi i64 [ %.sroa.4.0.ph284, %._crit_edge274 ], [ %.sroa.4.0.ph284, %1285 ], [ %.sroa.4.0.ph284, %1282 ], [ %.sroa.6.0.lcssa.i, %1401 ]
   %.sroa.2.1 = phi i64 [ %.sroa.2.0.ph285, %._crit_edge274 ], [ %.sroa.2.0.ph285, %1285 ], [ %.sroa.2.0.ph285, %1282 ], [ %.sroa.2.0.lcssa.i, %1401 ]
-  %.2119 = phi i64 [ %.0117.ph286, %._crit_edge274 ], [ %.0117.ph286, %1285 ], [ %.0117.ph286, %1282 ], [ %1402, %1401 ]
+  %.1118 = phi i64 [ %.0117.ph286, %._crit_edge274 ], [ %.0117.ph286, %1285 ], [ %.0117.ph286, %1282 ], [ %1402, %1401 ]
   %1403 = phi <2 x double> [ %119, %._crit_edge274 ], [ %119, %1285 ], [ %119, %1282 ], [ %1334, %1401 ]
   %1404 = icmp sgt i32 %.2, 0
   br i1 %1404, label %.outer.split, label %thread-pre-split, !llvm.loop !43

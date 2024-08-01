@@ -1347,7 +1347,7 @@ lookup_string_in_conversion_struct.exit:          ; preds = %327, %321, %._crit_
 516:                                              ; preds = %.lr.ph884, %.thread688
   %indvars.iv1053 = phi i64 [ 0, %.lr.ph884 ], [ %indvars.iv.next1054, %.thread688 ]
   %.0505882 = phi i32 [ 1, %.lr.ph884 ], [ %.1506, %.thread688 ]
-  %.0514881 = phi i32 [ -1, %.lr.ph884 ], [ %.2516, %.thread688 ]
+  %.0514881 = phi i32 [ -1, %.lr.ph884 ], [ %.1515, %.thread688 ]
   %517 = trunc nuw nsw i64 %indvars.iv1053 to i32
   %518 = mul i32 %.20600, %517
   %519 = sext i32 %518 to i64
@@ -1428,7 +1428,7 @@ string_to_comm_method.exit655:                    ; preds = %539, %535, %._crit_
   br label %.thread688
 
 .thread688:                                       ; preds = %.thread691.thread, %string_to_comm_method.exit, %string_to_comm_method.exit655, %string_to_comm_method.exit.thread, %.thread691, %516
-  %.2516 = phi i32 [ %.0514881, %516 ], [ %521, %.thread691 ], [ -1, %string_to_comm_method.exit.thread ], [ %.0514881, %string_to_comm_method.exit655 ], [ -1, %string_to_comm_method.exit ], [ %521, %.thread691.thread ]
+  %.1515 = phi i32 [ %.0514881, %516 ], [ %521, %.thread691 ], [ -1, %string_to_comm_method.exit.thread ], [ %.0514881, %string_to_comm_method.exit655 ], [ -1, %string_to_comm_method.exit ], [ %521, %.thread691.thread ]
   %.1506 = phi i32 [ %.0505882, %516 ], [ %.0505882, %.thread691 ], [ %.0505882, %string_to_comm_method.exit.thread ], [ %spec.select613, %string_to_comm_method.exit655 ], [ %.0505882, %string_to_comm_method.exit ], [ %.0505882, %.thread691.thread ]
   %indvars.iv.next1054 = add nuw nsw i64 %indvars.iv1053, 1
   %exitcond1057.not = icmp eq i64 %indvars.iv.next1054, %wide.trip.count1056
@@ -1543,7 +1543,7 @@ string_to_comm_method.exit675:                    ; preds = %565, %.lr.ph.i.i670
 .lr.ph899:                                        ; preds = %._crit_edge900, %.preheader700.lr.ph
   %indvars.iv1071 = phi i64 [ 0, %.preheader700.lr.ph ], [ %indvars.iv.next1072, %._crit_edge900 ]
   %.0502904 = phi i32 [ 1, %.preheader700.lr.ph ], [ %.2504, %._crit_edge900 ]
-  %.0507903 = phi i32 [ -1, %.preheader700.lr.ph ], [ %.3510, %._crit_edge900 ]
+  %.0507903 = phi i32 [ -1, %.preheader700.lr.ph ], [ %.2509, %._crit_edge900 ]
   %576 = mul nuw nsw i64 %indvars.iv1071, %575
   %invariant.gep1144 = getelementptr inbounds i32, ptr %47, i64 %576
   br label %578
@@ -1563,7 +1563,7 @@ string_to_comm_method.exit675:                    ; preds = %565, %.lr.ph.i.i670
 578:                                              ; preds = %.lr.ph899, %589
   %indvars.iv1066 = phi i64 [ 0, %.lr.ph899 ], [ %indvars.iv.next1067, %589 ]
   %.1503897 = phi i32 [ %.0502904, %.lr.ph899 ], [ %.2504, %589 ]
-  %.1508896 = phi i32 [ %.0507903, %.lr.ph899 ], [ %.3510, %589 ]
+  %.1508896 = phi i32 [ %.0507903, %.lr.ph899 ], [ %.2509, %589 ]
   %579 = icmp eq i64 %indvars.iv1066, %indvars.iv1071
   br i1 %579, label %589, label %580
 
@@ -1586,7 +1586,7 @@ string_to_comm_method.exit675:                    ; preds = %565, %.lr.ph.i.i670
   br label %589
 
 589:                                              ; preds = %587, %580, %578
-  %.3510 = phi i32 [ %.1508896, %578 ], [ %.1508896, %580 ], [ %spec.select616, %587 ]
+  %.2509 = phi i32 [ %.1508896, %578 ], [ %.1508896, %580 ], [ %spec.select616, %587 ]
   %.2504 = phi i32 [ %.1503897, %578 ], [ %.1503897, %580 ], [ %spec.select624, %587 ]
   %indvars.iv.next1067 = add nuw nsw i64 %indvars.iv1066, 1
   %exitcond1070.not = icmp eq i64 %indvars.iv.next1067, %575
@@ -1860,8 +1860,8 @@ define internal fastcc void @abbreviate_list_into_string(ptr nocapture noundef %
 
 17:                                               ; preds = %.lr.ph93, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next, %50 ]
-  %.06390 = phi i32 [ -1, %.lr.ph93 ], [ %.2, %50 ]
-  %.06489 = phi i32 [ -1, %.lr.ph93 ], [ %.266, %50 ]
+  %.06390 = phi i32 [ -1, %.lr.ph93 ], [ %.3, %50 ]
+  %.06489 = phi i32 [ -1, %.lr.ph93 ], [ %.367, %50 ]
   %18 = icmp eq i32 %.06489, -1
   %19 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
@@ -1932,15 +1932,15 @@ define internal fastcc void @abbreviate_list_into_string(ptr nocapture noundef %
   br label %50
 
 50:                                               ; preds = %17, %48, %24
-  %.266 = phi i32 [ %49, %48 ], [ %..06489, %24 ], [ %..06489, %17 ]
-  %.2 = phi i32 [ %49, %48 ], [ %..06390, %24 ], [ %20, %17 ]
+  %.367 = phi i32 [ %49, %48 ], [ %..06489, %24 ], [ %..06489, %17 ]
+  %.3 = phi i32 [ %49, %48 ], [ %..06390, %24 ], [ %20, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !47
 
 .loopexit:                                        ; preds = %50, %._crit_edge, %46
-  %.367 = phi i32 [ %..06489, %46 ], [ -1, %._crit_edge ], [ %.266, %50 ]
-  %.3 = phi i32 [ %..06390, %46 ], [ -1, %._crit_edge ], [ %.2, %50 ]
+  %.165 = phi i32 [ %..06489, %46 ], [ -1, %._crit_edge ], [ %.367, %50 ]
+  %.1 = phi i32 [ %..06390, %46 ], [ -1, %._crit_edge ], [ %.3, %50 ]
   %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #26
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %.thread82, label %53
@@ -1957,17 +1957,17 @@ define internal fastcc void @abbreviate_list_into_string(ptr nocapture noundef %
   br label %.thread82
 
 .thread82:                                        ; preds = %.loopexit, %57
-  %.not81 = icmp eq i32 %.367, %.3
+  %.not81 = icmp eq i32 %.165, %.1
   %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #26
   %59 = getelementptr inbounds i8, ptr %0, i64 %58
   br i1 %.not81, label %62, label %60
 
 60:                                               ; preds = %.thread82
-  %61 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %.367, i32 noundef %.3) #24
+  %61 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) @.str.32, i32 noundef %.165, i32 noundef %.1) #24
   br label %64
 
 62:                                               ; preds = %.thread82
-  %63 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.367) #24
+  %63 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.165) #24
   br label %64
 
 64:                                               ; preds = %60, %62, %53

@@ -298,7 +298,7 @@ for.body:                                         ; preds = %entry, %if.end77
   %size.083 = phi i64 [ %size.3, %if.end77 ], [ 16, %entry ]
   %count.082 = phi i64 [ %count.1, %if.end77 ], [ 1, %entry ]
   %dst.081 = phi i64 [ %dst.1, %if.end77 ], [ 0, %entry ]
-  %src.080 = phi i64 [ %src.3, %if.end77 ], [ 0, %entry ]
+  %src.080 = phi i64 [ %src.2, %if.end77 ], [ 0, %entry ]
   %tobool4.not = icmp eq i8 %quoted.084, 0
   br i1 %tobool4.not, label %land.lhs.true, label %if.else48
 
@@ -406,21 +406,21 @@ do.body68:                                        ; preds = %if.then63
   br label %return
 
 if.end71:                                         ; preds = %if.then63, %if.else55
-  %src.2 = phi i64 [ %inc64, %if.then63 ], [ %src.080, %if.else55 ]
+  %src.3 = phi i64 [ %inc64, %if.then63 ], [ %src.080, %if.else55 ]
   %c.0 = phi i8 [ %10, %if.then63 ], [ %1, %if.else55 ]
   %inc72 = add i64 %dst.081, 1
   %arrayidx73 = getelementptr inbounds i8, ptr %cmdline, i64 %dst.081
   store i8 %c.0, ptr %arrayidx73, align 1
-  %inc74 = add i64 %src.2, 1
+  %inc74 = add i64 %src.3, 1
   br label %if.end77
 
 if.end77:                                         ; preds = %if.then46, %if.end71, %if.then53, %do.end
-  %src.3 = phi i64 [ %inc54, %if.then53 ], [ %inc74, %if.end71 ], [ %inc47, %if.then46 ], [ %inc9, %do.end ]
+  %src.2 = phi i64 [ %inc54, %if.then53 ], [ %inc74, %if.end71 ], [ %inc47, %if.then46 ], [ %inc9, %do.end ]
   %dst.1 = phi i64 [ %dst.081, %if.then53 ], [ %inc72, %if.end71 ], [ %dst.081, %if.then46 ], [ %inc7, %do.end ]
   %count.1 = phi i64 [ %count.082, %if.then53 ], [ %count.082, %if.end71 ], [ %count.082, %if.then46 ], [ %add, %do.end ]
   %size.3 = phi i64 [ %size.083, %if.then53 ], [ %size.083, %if.end71 ], [ %size.083, %if.then46 ], [ %size.2, %do.end ]
   %quoted.1 = phi i8 [ 0, %if.then53 ], [ %quoted.084, %if.end71 ], [ %1, %if.then46 ], [ 0, %do.end ]
-  %arrayidx2 = getelementptr inbounds i8, ptr %cmdline, i64 %src.3
+  %arrayidx2 = getelementptr inbounds i8, ptr %cmdline, i64 %src.2
   %12 = load i8, ptr %arrayidx2, align 1
   %tobool.not = icmp eq i8 %12, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10

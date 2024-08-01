@@ -401,7 +401,7 @@ rb_array_const_ptr.exit:                          ; preds = %81, %84
 124:                                              ; preds = %.lr.ph176, %180
   %indvars.iv188 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next189, %180 ]
   %.1174 = phi i32 [ 0, %.lr.ph176 ], [ %183, %180 ]
-  %.0117172 = phi i64 [ 4, %.lr.ph176 ], [ %.5, %180 ]
+  %.0117172 = phi i64 [ 4, %.lr.ph176 ], [ %.4, %180 ]
   %125 = load i64, ptr %120, align 8
   %126 = and i64 %125, 8192
   %.not.i144 = icmp eq i64 %126, 0
@@ -503,21 +503,21 @@ rbimpl_intern_const.exit154:                      ; preds = %rbimpl_intern_const
 
 163:                                              ; preds = %161, %rbimpl_intern_const.exit154
   %164 = phi i64 [ %.pre193, %161 ], [ %159, %rbimpl_intern_const.exit154 ]
-  %.1118 = phi i64 [ %162, %161 ], [ %.0117172, %rbimpl_intern_const.exit154 ]
-  %165 = call i64 @rb_ary_push(i64 noundef %.1118, i64 noundef %164) #8
+  %.3 = phi i64 [ %162, %161 ], [ %.0117172, %rbimpl_intern_const.exit154 ]
+  %165 = call i64 @rb_ary_push(i64 noundef %.3, i64 noundef %164) #8
   %.pre194 = load i64, ptr %6, align 8
   br label %166
 
 166:                                              ; preds = %rb_class_of.exit, %163, %140
   %167 = phi i64 [ 1, %140 ], [ %.pre194, %163 ], [ %136, %rb_class_of.exit ]
-  %.2119 = phi i64 [ %.0117172, %140 ], [ %.1118, %163 ], [ %.0117172, %rb_class_of.exit ]
+  %.2119 = phi i64 [ %.0117172, %140 ], [ %.3, %163 ], [ %.0117172, %rb_class_of.exit ]
   %168 = call i64 @rb_Integer(i64 noundef %167) #8
   store i64 %168, ptr %6, align 8
   br label %169
 
 169:                                              ; preds = %166, %rb_array_const_ptr.exit146
   %170 = phi i64 [ %168, %166 ], [ %136, %rb_array_const_ptr.exit146 ]
-  %.3 = phi i64 [ %.2119, %166 ], [ %.0117172, %rb_array_const_ptr.exit146 ]
+  %.1118 = phi i64 [ %.2119, %166 ], [ %.0117172, %rb_array_const_ptr.exit146 ]
   %171 = getelementptr inbounds %union.fiddle_generic, ptr %114, i64 %indvars.iv188
   call void @rb_fiddle_value_to_generic(i32 noundef %132, ptr noundef nonnull %6, ptr noundef nonnull %171) #8
   %172 = load i64, ptr %6, align 8
@@ -525,7 +525,7 @@ rbimpl_intern_const.exit154:                      ; preds = %rbimpl_intern_const
   br i1 %.not140, label %180, label %173
 
 173:                                              ; preds = %169
-  %174 = icmp eq i64 %.3, 4
+  %174 = icmp eq i64 %.1118, 4
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %173
@@ -535,12 +535,12 @@ rbimpl_intern_const.exit154:                      ; preds = %rbimpl_intern_const
 
 177:                                              ; preds = %175, %173
   %178 = phi i64 [ %.pre195, %175 ], [ %172, %173 ]
-  %.4 = phi i64 [ %176, %175 ], [ %.3, %173 ]
-  %179 = call i64 @rb_ary_push(i64 noundef %.4, i64 noundef %178) #8
+  %.5 = phi i64 [ %176, %175 ], [ %.1118, %173 ]
+  %179 = call i64 @rb_ary_push(i64 noundef %.5, i64 noundef %178) #8
   br label %180
 
 180:                                              ; preds = %177, %169
-  %.5 = phi i64 [ %.4, %177 ], [ %.3, %169 ]
+  %.4 = phi i64 [ %.5, %177 ], [ %.1118, %169 ]
   %181 = load ptr, ptr %116, align 8
   %182 = getelementptr inbounds ptr, ptr %181, i64 %indvars.iv188
   store ptr %171, ptr %182, align 8
@@ -662,8 +662,8 @@ define internal noundef i64 @initialize(i32 noundef %0, ptr noundef %1, i64 noun
 
 26:                                               ; preds = %20, %3
   %.018 = phi i64 [ 0, %3 ], [ %spec.select23, %20 ]
-  %.1 = phi i64 [ 4, %3 ], [ %spec.select, %20 ]
-  %27 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.24, i64 noundef %.1) #8
+  %.0 = phi i64 [ 4, %3 ], [ %spec.select, %20 ]
+  %27 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.24, i64 noundef %.0) #8
   %28 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.10, i64 noundef %.018) #8
   %29 = load i64, ptr %4, align 8
   %30 = call i64 @rb_Integer(i64 noundef %29) #8
@@ -861,7 +861,7 @@ rb_num2int_inline.exit.i:                         ; preds = %101, %99
   br i1 %exitcond.not.i, label %normalize_argument_types.exit, label %90, !llvm.loop !11
 
 normalize_argument_types.exit:                    ; preds = %110, %105, %85
-  %.0 = phi i64 [ 0, %85 ], [ 20, %105 ], [ 0, %110 ]
+  %.031 = phi i64 [ 0, %85 ], [ 20, %105 ], [ 0, %110 ]
   call void @rb_obj_freeze_inline(i64 noundef %87) #8
   store i64 %87, ptr %5, align 8
   %115 = load i64, ptr %4, align 8
@@ -872,7 +872,7 @@ normalize_argument_types.exit:                    ; preds = %110, %105, %85
   %120 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.14, i64 noundef %119) #8
   %121 = load i64, ptr %7, align 8
   %122 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.6, i64 noundef %121) #8
-  %123 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.9, i64 noundef %.0) #8
+  %123 = call i64 @rb_iv_set(i64 noundef %2, ptr noundef nonnull @.str.9, i64 noundef %.031) #8
   %124 = call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @function_data_type) #8
   %125 = getelementptr inbounds i8, ptr %124, i64 8
   store ptr null, ptr %125, align 8

@@ -551,7 +551,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %2 = phi ptr [ %.pre, %for.body.lr.ph ], [ %21, %for.inc ]
-  %count.044 = phi i32 [ %startIndex, %for.body.lr.ph ], [ %count.1, %for.inc ]
+  %count.044 = phi i32 [ %startIndex, %for.body.lr.ph ], [ %count.2, %for.inc ]
   %ip.043 = phi ptr [ null, %for.body.lr.ph ], [ %22, %for.inc ]
   %__begin2.sroa.0.042 = phi ptr [ %agg.tmp2.sroa.0.0.copyload.i, %for.body.lr.ph ], [ %24, %for.inc ]
   %conv = zext i32 %count.044 to i64
@@ -670,7 +670,7 @@ if.then42:                                        ; preds = %if.then22, %cond.en
 
 for.inc:                                          ; preds = %if.else, %if.then42
   %21 = phi ptr [ %20, %if.then42 ], [ %2, %if.else ]
-  %count.1 = phi i32 [ %inc, %if.then42 ], [ %count.044, %if.else ]
+  %count.2 = phi i32 [ %inc, %if.then42 ], [ %count.044, %if.else ]
   %.in.in = getelementptr inbounds i8, ptr %__begin2.sroa.0.042, i64 -16
   %.in = load i64, ptr %.in.in, align 8
   %22 = inttoptr i64 %.in to ptr
@@ -681,13 +681,13 @@ for.inc:                                          ; preds = %if.else, %if.then42
   br i1 %cmp.i.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %if.then42, %entry
-  %count.2 = phi i32 [ %startIndex, %entry ], [ %inc, %if.then42 ], [ %count.1, %for.inc ]
+  %count.1 = phi i32 [ %startIndex, %entry ], [ %inc, %if.then42 ], [ %count.2, %for.inc ]
   %call51 = tail call noundef i64 @_ZN6hermes8oscompat16global_thread_idEv() #18
   store i64 %call51, ptr %sampleStorage, align 8
   %call53 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #18
   %timeStamp = getelementptr inbounds i8, ptr %sampleStorage, i64 8
   store i64 %call53, ptr %timeStamp, align 8
-  ret i32 %count.2
+  ret i32 %count.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

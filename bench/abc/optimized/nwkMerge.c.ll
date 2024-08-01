@@ -2599,7 +2599,7 @@ define ptr @Nwk_ManGraphListFindMin(ptr nocapture noundef readonly %0, i32 nound
 .preheader:                                       ; preds = %.preheader.lr.ph, %22
   %.039 = phi i32 [ 1000000, %.preheader.lr.ph ], [ %.1.lcssa, %22 ]
   %.02038 = phi i32 [ 10000, %.preheader.lr.ph ], [ %17, %22 ]
-  %.02237 = phi ptr [ null, %.preheader.lr.ph ], [ %.123.lcssa, %22 ]
+  %.02237 = phi ptr [ null, %.preheader.lr.ph ], [ %.224.lcssa, %22 ]
   %.02536 = phi ptr [ %8, %.preheader.lr.ph ], [ %26, %22 ]
   %10 = getelementptr inbounds i8, ptr %.02536, i64 12
   %11 = load i32, ptr %10, align 4
@@ -2615,8 +2615,8 @@ define ptr @Nwk_ManGraphListFindMin(ptr nocapture noundef readonly %0, i32 nound
 ._crit_edge45:                                    ; preds = %.lr.ph, %._crit_edge45
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %._crit_edge45 ]
   %.133 = phi i32 [ %.039, %.lr.ph ], [ %.2, %._crit_edge45 ]
-  %.12331 = phi ptr [ %.02237, %.lr.ph ], [ %.224, %._crit_edge45 ]
-  %14 = icmp eq ptr %.12331, null
+  %.22431 = phi ptr [ %.02237, %.lr.ph ], [ %.3, %._crit_edge45 ]
+  %14 = icmp eq ptr %.22431, null
   %.phi.trans.insert = getelementptr inbounds [0 x i32], ptr %13, i64 0, i64 %indvars.iv
   %.pre46 = load i32, ptr %.phi.trans.insert, align 4
   %.phi.trans.insert47 = sext i32 %.pre46 to i64
@@ -2627,14 +2627,14 @@ define ptr @Nwk_ManGraphListFindMin(ptr nocapture noundef readonly %0, i32 nound
   %15 = icmp sgt i32 %.133, %.pre51
   %spec.select55 = tail call i32 @llvm.smin.i32(i32 %.133, i32 %.pre51)
   %16 = select i1 %14, i1 true, i1 %15
-  %.224 = select i1 %16, ptr %.02536, ptr %.12331
+  %.3 = select i1 %16, ptr %.02536, ptr %.22431
   %.2 = select i1 %14, i32 %.pre51, i32 %spec.select55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %._crit_edge45, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %._crit_edge45, %.preheader
-  %.123.lcssa = phi ptr [ %.02237, %.preheader ], [ %.224, %._crit_edge45 ]
+  %.224.lcssa = phi ptr [ %.02237, %.preheader ], [ %.3, %._crit_edge45 ]
   %.1.lcssa = phi i32 [ %.039, %.preheader ], [ %.2, %._crit_edge45 ]
   %17 = add nsw i32 %.02038, -1
   %18 = icmp eq i32 %17, 0
@@ -2655,8 +2655,8 @@ define ptr @Nwk_ManGraphListFindMin(ptr nocapture noundef readonly %0, i32 nound
   br i1 %.not29, label %._crit_edge40, label %.preheader, !llvm.loop !28
 
 ._crit_edge40:                                    ; preds = %19, %22, %._crit_edge, %2, %3
-  %.3 = phi ptr [ null, %3 ], [ null, %2 ], [ %.123.lcssa, %._crit_edge ], [ %.123.lcssa, %22 ], [ %.123.lcssa, %19 ]
-  ret ptr %.3
+  %.123 = phi ptr [ null, %3 ], [ null, %2 ], [ %.224.lcssa, %._crit_edge ], [ %.224.lcssa, %22 ], [ %.224.lcssa, %19 ]
+  ret ptr %.123
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2714,7 +2714,7 @@ define void @Nwk_ManGraphSolve(ptr noundef %0) local_unnamed_addr #0 {
 .preheader.i:                                     ; preds = %20, %37
   %.039.i = phi i32 [ %.1.lcssa.i, %37 ], [ 1000000, %20 ]
   %.02038.i = phi i32 [ %32, %37 ], [ 10000, %20 ]
-  %.02237.i = phi ptr [ %.123.lcssa.i, %37 ], [ null, %20 ]
+  %.02237.i = phi ptr [ %.224.lcssa.i, %37 ], [ null, %20 ]
   %.02536.i = phi ptr [ %40, %37 ], [ %24, %20 ]
   %25 = getelementptr inbounds i8, ptr %.02536.i, i64 12
   %26 = load i32, ptr %25, align 4
@@ -2729,8 +2729,8 @@ define void @Nwk_ManGraphSolve(ptr noundef %0) local_unnamed_addr #0 {
 ._crit_edge45.i:                                  ; preds = %._crit_edge45.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %._crit_edge45.i ]
   %.133.i = phi i32 [ %.039.i, %.lr.ph.i ], [ %.2.i, %._crit_edge45.i ]
-  %.12331.i = phi ptr [ %.02237.i, %.lr.ph.i ], [ %.224.i, %._crit_edge45.i ]
-  %29 = icmp eq ptr %.12331.i, null
+  %.22431.i = phi ptr [ %.02237.i, %.lr.ph.i ], [ %.3.i, %._crit_edge45.i ]
+  %29 = icmp eq ptr %.22431.i, null
   %.phi.trans.insert.i = getelementptr inbounds [0 x i32], ptr %28, i64 0, i64 %indvars.iv.i
   %.pre46.i = load i32, ptr %.phi.trans.insert.i, align 4
   %.phi.trans.insert47.i = sext i32 %.pre46.i to i64
@@ -2741,14 +2741,14 @@ define void @Nwk_ManGraphSolve(ptr noundef %0) local_unnamed_addr #0 {
   %30 = icmp sgt i32 %.133.i, %.pre51.i
   %spec.select55.i = tail call i32 @llvm.smin.i32(i32 %.133.i, i32 %.pre51.i)
   %31 = select i1 %29, i1 true, i1 %30
-  %.224.i = select i1 %31, ptr %.02536.i, ptr %.12331.i
+  %.3.i = select i1 %31, ptr %.02536.i, ptr %.22431.i
   %.2.i = select i1 %29, i32 %.pre51.i, i32 %spec.select55.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %._crit_edge45.i, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %._crit_edge45.i, %.preheader.i
-  %.123.lcssa.i = phi ptr [ %.02237.i, %.preheader.i ], [ %.224.i, %._crit_edge45.i ]
+  %.224.lcssa.i = phi ptr [ %.02237.i, %.preheader.i ], [ %.3.i, %._crit_edge45.i ]
   %.1.lcssa.i = phi i32 [ %.039.i, %.preheader.i ], [ %.2.i, %._crit_edge45.i ]
   %32 = add nsw i32 %.02038.i, -1
   %33 = icmp eq i32 %32, 0
@@ -2768,14 +2768,14 @@ define void @Nwk_ManGraphSolve(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not29.i, label %Nwk_ManGraphListFindMin.exit, label %.preheader.i, !llvm.loop !28
 
 Nwk_ManGraphListFindMin.exit:                     ; preds = %._crit_edge.i, %34, %37, %20
-  %.3.i = phi ptr [ null, %20 ], [ %.123.lcssa.i, %37 ], [ %.123.lcssa.i, %34 ], [ %.123.lcssa.i, %._crit_edge.i ]
-  %41 = getelementptr inbounds i8, ptr %.3.i, i64 12
+  %.123.i = phi ptr [ null, %20 ], [ %.224.lcssa.i, %37 ], [ %.224.lcssa.i, %34 ], [ %.224.lcssa.i, %._crit_edge.i ]
+  %41 = getelementptr inbounds i8, ptr %.123.i, i64 12
   %42 = load i32, ptr %41, align 4
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph.i31, label %.loopexit
 
 .lr.ph.i31:                                       ; preds = %Nwk_ManGraphListFindMin.exit
-  %44 = getelementptr inbounds i8, ptr %.3.i, i64 16
+  %44 = getelementptr inbounds i8, ptr %.123.i, i64 16
   %wide.trip.count.i32 = zext nneg i32 %42 to i64
   br label %45
 
@@ -2814,7 +2814,7 @@ Nwk_ManGraphListFindMin.exit:                     ; preds = %._crit_edge.i, %34,
 
 .loopexit:                                        ; preds = %59, %Nwk_ManGraphListFindMin.exit
   %.010.lcssa.i = phi ptr [ null, %Nwk_ManGraphListFindMin.exit ], [ %.1.i, %59 ]
-  tail call void @Nwk_ManGraphUpdate(ptr noundef %0, ptr noundef nonnull %.3.i, ptr noundef %.010.lcssa.i)
+  tail call void @Nwk_ManGraphUpdate(ptr noundef %0, ptr noundef nonnull %.123.i, ptr noundef %.010.lcssa.i)
   %60 = icmp eq i64 %indvars.iv47, 17
   br i1 %60, label %.loopexit.thread, label %.backedge.backedge
 

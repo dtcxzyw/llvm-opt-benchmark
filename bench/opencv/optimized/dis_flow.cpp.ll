@@ -4019,7 +4019,7 @@ _ZN2cv10computeSSDEPhS0_iiffffi.exit636.us:       ; preds = %._crit_edge.us.i634
   br i1 %126, label %.preheader.us.i650.us, label %_ZN2cv12processPatchERfS0_PhS1_PsS2_iiffffi.exit.us
 
 .preheader.us.i650.us:                            ; preds = %720, %._crit_edge.us.i656.us
-  %.0772.us = phi float [ %756, %._crit_edge.us.i656.us ], [ 0.000000e+00, %720 ]
+  %.1773.us = phi float [ %756, %._crit_edge.us.i656.us ], [ 0.000000e+00, %720 ]
   %indvars.iv57.i.us = phi i64 [ %indvars.iv.next58.i.us, %._crit_edge.us.i656.us ], [ 0, %720 ]
   %721 = phi <2 x float> [ %752, %._crit_edge.us.i656.us ], [ zeroinitializer, %720 ]
   %722 = mul nsw i64 %indvars.iv57.i.us, %127
@@ -4031,7 +4031,7 @@ _ZN2cv10computeSSDEPhS0_iiffffi.exit636.us:       ; preds = %._crit_edge.us.i634
   br label %725
 
 725:                                              ; preds = %725, %.preheader.us.i650.us
-  %.1773.us = phi float [ %.0772.us, %.preheader.us.i650.us ], [ %756, %725 ]
+  %.2774.us = phi float [ %.1773.us, %.preheader.us.i650.us ], [ %756, %725 ]
   %indvars.iv.i652.us = phi i64 [ 0, %.preheader.us.i650.us ], [ %indvars.iv.next.i654.us, %725 ]
   %726 = phi <2 x float> [ %721, %.preheader.us.i650.us ], [ %752, %725 ]
   %gep.i653.us = getelementptr i8, ptr %invariant.gep.i651.us, i64 %indvars.iv.i652.us
@@ -4065,7 +4065,7 @@ _ZN2cv10computeSSDEPhS0_iiffffi.exit636.us:       ; preds = %._crit_edge.us.i634
   %753 = getelementptr inbounds i16, ptr %gep814.us, i64 %741
   %754 = load i16, ptr %753, align 2
   %755 = sitofp i16 %754 to float
-  %756 = call float @llvm.fmuladd.f32(float %745, float %755, float %.1773.us)
+  %756 = call float @llvm.fmuladd.f32(float %745, float %755, float %.2774.us)
   %indvars.iv.next.i654.us = add nuw nsw i64 %indvars.iv.i652.us, 1
   %exitcond.not.i655.us = icmp eq i64 %indvars.iv.next.i654.us, %wide.trip.count46.i
   br i1 %exitcond.not.i655.us, label %._crit_edge.us.i656.us, label %725, !llvm.loop !27
@@ -4151,9 +4151,9 @@ _ZN2cv20processPatchMeanNormERfS0_PhS1_PsS2_iiffffiff.exit.us: ; preds = %._crit
   br label %_ZN2cv12processPatchERfS0_PhS1_PsS2_iiffffi.exit.us
 
 _ZN2cv12processPatchERfS0_PhS1_PsS2_iiffffi.exit.us: ; preds = %._crit_edge.us.i656.us, %_ZN2cv20processPatchMeanNormERfS0_PhS1_PsS2_iiffffiff.exit.us, %720
-  %.3775.us = phi float [ %801, %_ZN2cv20processPatchMeanNormERfS0_PhS1_PsS2_iiffffiff.exit.us ], [ 0.000000e+00, %720 ], [ %756, %._crit_edge.us.i656.us ]
+  %.0772.us = phi float [ %801, %_ZN2cv20processPatchMeanNormERfS0_PhS1_PsS2_iiffffiff.exit.us ], [ 0.000000e+00, %720 ], [ %756, %._crit_edge.us.i656.us ]
   %804 = phi <2 x float> [ %803, %_ZN2cv20processPatchMeanNormERfS0_PhS1_PsS2_iiffffiff.exit.us ], [ zeroinitializer, %720 ], [ %752, %._crit_edge.us.i656.us ]
-  %805 = insertelement <2 x float> poison, float %.3775.us, i64 0
+  %805 = insertelement <2 x float> poison, float %.0772.us, i64 0
   %806 = shufflevector <2 x float> %805, <2 x float> poison, <2 x i32> zeroinitializer
   %807 = fmul <2 x float> %861, %806
   %808 = shufflevector <2 x float> %804, <2 x float> poison, <2 x i32> zeroinitializer

@@ -191,9 +191,9 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noca
   br i1 %29, label %.preheader, label %.thread.preheader
 
 .preheader:                                       ; preds = %28, %31
-  %.2.pn = phi ptr [ %.3, %31 ], [ %.263, %28 ]
-  %.3 = getelementptr inbounds i8, ptr %.2.pn, i64 1
-  %30 = load i8, ptr %.3, align 1
+  %.2.pn = phi ptr [ %.4, %31 ], [ %.263, %28 ]
+  %.4 = getelementptr inbounds i8, ptr %.2.pn, i64 1
+  %30 = load i8, ptr %.4, align 1
   %.not51 = icmp eq i8 %30, 0
   br i1 %.not51, label %.thread.preheader, label %31
 
@@ -207,7 +207,7 @@ define internal noundef zeroext i1 @Check_Numeric_Field(ptr noundef %0, ptr noca
 
 .thread.preheader:                                ; preds = %25, %.preheader, %31, %.loopexit56, %28
   %.ph = phi i8 [ 0, %.loopexit56 ], [ %20, %28 ], [ %30, %31 ], [ 0, %.preheader ], [ 0, %25 ]
-  %.5.ph = phi ptr [ %.1, %.loopexit56 ], [ %.263, %28 ], [ %.3, %31 ], [ %.3, %.preheader ], [ %26, %25 ]
+  %.5.ph = phi ptr [ %.1, %.loopexit56 ], [ %.263, %28 ], [ %.4, %31 ], [ %.4, %.preheader ], [ %26, %25 ]
   br label %.thread
 
 .thread:                                          ; preds = %.thread.preheader, %37

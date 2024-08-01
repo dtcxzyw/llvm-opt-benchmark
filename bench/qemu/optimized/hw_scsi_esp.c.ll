@@ -1101,22 +1101,22 @@ while.cond.preheader:                             ; preds = %if.end76
   br i1 %cmp102209, label %while.body, label %if.end105
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
-  %len.1210 = phi i32 [ %inc, %while.body ], [ %cond85, %while.cond.preheader ]
+  %len.2210 = phi i32 [ %inc, %while.body ], [ %cond85, %while.cond.preheader ]
   tail call fastcc void @esp_fifo_push(ptr noundef nonnull %fifo, i8 noundef zeroext 0)
-  %inc = add i32 %len.1210, 1
+  %inc = add i32 %len.2210, 1
   %call101 = tail call i32 @fifo8_num_used(ptr noundef nonnull %fifo) #10
   %cmp102 = icmp ult i32 %call101, 16
   br i1 %cmp102, label %while.body, label %if.end105, !llvm.loop !5
 
 if.end105:                                        ; preds = %while.body, %while.cond.preheader, %if.end76
-  %len.2 = phi i32 [ %cond85, %if.end76 ], [ %cond85, %while.cond.preheader ], [ %inc, %while.body ]
+  %len.1 = phi i32 [ %cond85, %if.end76 ], [ %cond85, %while.cond.preheader ], [ %inc, %while.body ]
   %54 = load i16, ptr %rregs.i, align 8
   %55 = zext i16 %54 to i32
   %56 = load i8, ptr %arrayidx5.i, align 2
   %conv6.i147 = zext i8 %56 to i32
   %shl7.i148 = shl nuw nsw i32 %conv6.i147, 16
   %or8.i149 = or disjoint i32 %shl7.i148, %55
-  %sub107 = sub i32 %or8.i149, %len.2
+  %sub107 = sub i32 %or8.i149, %len.1
   %conv.i150 = trunc i32 %sub107 to i8
   store i8 %conv.i150, ptr %rregs.i, align 8
   %shr.i152 = lshr i32 %sub107, 8

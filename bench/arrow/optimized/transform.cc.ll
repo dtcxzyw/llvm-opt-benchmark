@@ -1877,7 +1877,7 @@ if.end28:                                         ; preds = %invoke.cont21, %if.
   br label %while.cond
 
 while.cond:                                       ; preds = %cleanup84, %if.end28
-  %avail_size.1 = phi i64 [ %avail_size.0, %if.end28 ], [ %avail_size.2, %cleanup84 ]
+  %avail_size.1 = phi i64 [ %avail_size.0, %if.end28 ], [ %avail_size.3, %cleanup84 ]
   %cmp29 = icmp slt i64 %avail_size.1, %nbytes
   br i1 %cmp29, label %while.body, label %while.end95
 
@@ -2068,8 +2068,8 @@ invoke.cont79:                                    ; preds = %if.then.i.i, %if.el
   br label %cleanup82
 
 cleanup82:                                        ; preds = %invoke.cont79, %if.then66
-  %avail_size.2 = phi i64 [ %avail_size.1, %if.then66 ], [ %add78, %invoke.cont79 ]
-  %cleanup.dest.slot.1 = phi i32 [ 1, %if.then66 ], [ %., %invoke.cont79 ]
+  %avail_size.3 = phi i64 [ %avail_size.1, %if.then66 ], [ %add78, %invoke.cont79 ]
+  %cleanup.dest.slot.2 = phi i32 [ 1, %if.then66 ], [ %., %invoke.cont79 ]
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp55) #19
   %45 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i95 = icmp eq ptr %45, null
@@ -2145,7 +2145,7 @@ if.end8.sink.split.i.i.i.i116:                    ; preds = %_ZN9__gnu_cxx27__ex
 
 cleanup84:                                        ; preds = %if.end8.sink.split.i.i.i.i116, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i113, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i103, %cleanup82
   call void @_ZN5arrow6ResultISt10shared_ptrINS_6BufferEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp30) #19
-  switch i32 %cleanup.dest.slot.1, label %cleanup165 [
+  switch i32 %cleanup.dest.slot.2, label %cleanup165 [
     i32 0, label %while.cond
     i32 7, label %while.end95
   ], !llvm.loop !54

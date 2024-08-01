@@ -499,7 +499,7 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture no
   br label %204
 
 .loopexit79:                                      ; preds = %118, %149, %85
-  %.0 = phi i32 [ 1, %85 ], [ 0, %149 ], [ 0, %118 ]
+  %.1 = phi i32 [ 1, %85 ], [ 0, %149 ], [ 0, %118 ]
   call void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %11) #9
   %168 = getelementptr inbounds i8, ptr %10, i64 8
   %169 = load ptr, ptr %168, align 8
@@ -585,11 +585,11 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %206
 
 _Z16printHelpMessagev.exit:                       ; preds = %.invoke, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i, %199, %186, %.loopexit79, %.loopexit80
-  %.1 = phi i32 [ 0, %.loopexit80 ], [ %.0, %.loopexit79 ], [ %.0, %186 ], [ %.0, %199 ], [ %.0, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ 1, %.invoke ]
+  %.0 = phi i32 [ 0, %.loopexit80 ], [ %.1, %.loopexit79 ], [ %.1, %186 ], [ %.1, %199 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i ], [ 1, %.invoke ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #9
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #9
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #9
-  ret i32 %.1
+  ret i32 %.0
 
 206:                                              ; preds = %205, %45, %44
   %.pn66 = phi { ptr, i32 } [ %46, %45 ], [ %.pn64, %44 ], [ %.pn61.pn, %205 ]

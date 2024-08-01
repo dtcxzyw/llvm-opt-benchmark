@@ -204,7 +204,7 @@ for.cond128.preheader:                            ; preds = %sw.epilog, %for.end
 for.cond128.outer:                                ; preds = %if.end247, %for.cond128.preheader
   %len.3.ph = phi i32 [ %len.4, %if.end247 ], [ %min.0.lcssa, %for.cond128.preheader ]
   %sym.2.ph = phi i32 [ %inc184, %if.end247 ], [ 0, %for.cond128.preheader ]
-  %curr.0.ph = phi i32 [ %curr.1.lcssa, %if.end247 ], [ %spec.select145, %for.cond128.preheader ]
+  %curr.0.ph = phi i32 [ %curr.2.lcssa, %if.end247 ], [ %spec.select145, %for.cond128.preheader ]
   %drop.0.ph = phi i32 [ %spec.select146, %if.end247 ], [ 0, %for.cond128.preheader ]
   %used.0.ph = phi i32 [ %add234, %if.end247 ], [ %shl113161236, %for.cond128.preheader ]
   %huff.0.ph = phi i32 [ %huff.1, %if.end247 ], [ 0, %for.cond128.preheader ]
@@ -333,7 +333,7 @@ while.body220.lr.ph:                              ; preds = %if.then208
 while.body220:                                    ; preds = %while.body220.lr.ph, %if.end229
   %add217187 = phi i32 [ %len.4, %while.body220.lr.ph ], [ %add217.reass, %if.end229 ]
   %left.1186 = phi i32 [ %shl215, %while.body220.lr.ph ], [ %shl231, %if.end229 ]
-  %curr.1185 = phi i32 [ %sub214, %while.body220.lr.ph ], [ %inc230, %if.end229 ]
+  %curr.2185 = phi i32 [ %sub214, %while.body220.lr.ph ], [ %inc230, %if.end229 ]
   %idxprom222 = zext i32 %add217187 to i64
   %arrayidx223 = getelementptr inbounds [16 x i16], ptr %count, i64 0, i64 %idxprom222
   %21 = load i16, ptr %arrayidx223, align 2
@@ -343,15 +343,15 @@ while.body220:                                    ; preds = %while.body220.lr.ph
   br i1 %cmp226, label %while.end232, label %if.end229
 
 if.end229:                                        ; preds = %while.body220
-  %inc230 = add i32 %curr.1185, 1
+  %inc230 = add i32 %curr.2185, 1
   %shl231 = shl nuw i32 %sub225, 1
-  %add217.reass = add i32 %curr.1185, %invariant.op190
+  %add217.reass = add i32 %curr.2185, %invariant.op190
   %cmp218 = icmp ult i32 %add217.reass, %max.0175
   br i1 %cmp218, label %while.body220, label %while.end232, !llvm.loop !14
 
 while.end232:                                     ; preds = %if.end229, %while.body220, %if.then208
-  %curr.1.lcssa = phi i32 [ %sub214, %if.then208 ], [ %curr.1185, %while.body220 ], [ %20, %if.end229 ]
-  %shl233 = shl nuw i32 1, %curr.1.lcssa
+  %curr.2.lcssa = phi i32 [ %sub214, %if.then208 ], [ %curr.2185, %while.body220 ], [ %20, %if.end229 ]
+  %shl233 = shl nuw i32 1, %curr.2.lcssa
   %add234 = add i32 %shl233, %used.0.ph
   %cmp238 = icmp ugt i32 %add234, 852
   %or.cond3 = select i1 %cmp115163232, i1 %cmp238, i1 false
@@ -361,7 +361,7 @@ while.end232:                                     ; preds = %if.end229, %while.b
   br i1 %or.cond147, label %return, label %if.end247
 
 if.end247:                                        ; preds = %while.end232
-  %conv249 = trunc i32 %curr.1.lcssa to i8
+  %conv249 = trunc i32 %curr.2.lcssa to i8
   %22 = load ptr, ptr %table, align 8
   %idxprom250 = zext i32 %and205 to i64
   %arrayidx251 = getelementptr inbounds %struct.code, ptr %22, i64 %idxprom250

@@ -380,8 +380,8 @@ sw.bb11:                                          ; preds = %if.end7
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb11, %sw.bb
-  %dh.0 = phi ptr [ %call13, %sw.bb11 ], [ %call10, %sw.bb ]
-  %cmp14 = icmp eq ptr %dh.0, null
+  %dh.1 = phi ptr [ %call13, %sw.bb11 ], [ %call10, %sw.bb ]
+  %cmp14 = icmp eq ptr %dh.1, null
   br i1 %cmp14, label %decerr, label %if.end17
 
 if.end17:                                         ; preds = %sw.epilog
@@ -402,12 +402,12 @@ if.then23:                                        ; preds = %lor.lhs.false, %if.
   br label %dherr
 
 if.end24:                                         ; preds = %lor.lhs.false
-  %call25 = call i32 @DH_set0_key(ptr noundef nonnull %dh.0, ptr noundef null, ptr noundef nonnull %call18) #2
+  %call25 = call i32 @DH_set0_key(ptr noundef nonnull %dh.1, ptr noundef null, ptr noundef nonnull %call18) #2
   %tobool26.not = icmp eq i32 %call25, 0
   br i1 %tobool26.not, label %dherr, label %if.end28
 
 if.end28:                                         ; preds = %if.end24
-  %call29 = call i32 @DH_generate_key(ptr noundef nonnull %dh.0) #2
+  %call29 = call i32 @DH_generate_key(ptr noundef nonnull %dh.1) #2
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %dherr, label %done
 
@@ -420,13 +420,13 @@ decerr:                                           ; preds = %sw.epilog, %if.end7
 
 dherr:                                            ; preds = %if.end28, %if.end24, %decerr, %if.then23
   %privkey.1 = phi ptr [ %privkey.0, %decerr ], [ %call3, %if.then23 ], [ %call3, %if.end28 ], [ %call3, %if.end24 ]
-  %dh.2 = phi ptr [ null, %decerr ], [ %dh.0, %if.then23 ], [ %dh.0, %if.end28 ], [ %dh.0, %if.end24 ]
+  %dh.2 = phi ptr [ null, %decerr ], [ %dh.1, %if.then23 ], [ %dh.1, %if.end28 ], [ %dh.1, %if.end24 ]
   call void @DH_free(ptr noundef %dh.2) #2
   br label %done
 
 done:                                             ; preds = %if.end28, %dherr
   %privkey.2 = phi ptr [ %privkey.1, %dherr ], [ %call3, %if.end28 ]
-  %dh.3 = phi ptr [ null, %dherr ], [ %dh.0, %if.end28 ]
+  %dh.3 = phi ptr [ null, %dherr ], [ %dh.1, %if.end28 ]
   call void @ASN1_STRING_clear_free(ptr noundef %privkey.2) #2
   br label %return
 

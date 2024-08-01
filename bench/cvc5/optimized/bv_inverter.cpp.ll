@@ -3824,8 +3824,8 @@ lpad7:                                            ; preds = %if.then13.i.i.i215,
   br label %eh.resume
 
 while.cond:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2387, %invoke.cont8
-  %litk.2 = phi i32 [ %litk.1, %invoke.cont8 ], [ %litk.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2387 ]
-  %pol.1 = phi i8 [ %pol.0, %invoke.cont8 ], [ %pol.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2387 ]
+  %litk.2 = phi i32 [ %litk.1, %invoke.cont8 ], [ %litk.3, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2387 ]
+  %pol.1 = phi i8 [ %pol.0, %invoke.cont8 ], [ %pol.2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit2387 ]
   %22 = load ptr, ptr %path, align 8
   %23 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i226 = icmp eq ptr %22, %23
@@ -8792,8 +8792,8 @@ ehcleanup575:                                     ; preds = %ehcleanup574, %lpad
   br label %ehcleanup588
 
 if.end581:                                        ; preds = %invoke.cont576, %invoke.cont559
-  %litk.3 = phi i32 [ %litk.2, %invoke.cont559 ], [ 5, %invoke.cont576 ]
-  %pol.2 = phi i8 [ %pol.1, %invoke.cont559 ], [ 1, %invoke.cont576 ]
+  %litk.4 = phi i32 [ %litk.2, %invoke.cont559 ], [ 5, %invoke.cont576 ]
+  %pol.3 = phi i8 [ %pol.1, %invoke.cont559 ], [ 1, %invoke.cont576 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !86)
   %544 = load ptr, ptr %sv_t, align 8
   %d_kind.i.i.i.i2270 = getelementptr inbounds i8, ptr %544, i64 8
@@ -8916,8 +8916,8 @@ terminate.lpad.i2338:                             ; preds = %if.then13.i.i2337
   unreachable
 
 cleanup:                                          ; preds = %if.then13.i.i2337, %if.then.i.i2330, %invoke.cont585, %if.else.i.i2259, %if.then.i.i2263, %if.then13.i.i2261, %cond.end541
-  %litk.4 = phi i32 [ %litk.3, %invoke.cont585 ], [ %litk.3, %if.then13.i.i2337 ], [ %litk.3, %if.then.i.i2330 ], [ 5, %if.then.i.i2263 ], [ 5, %if.then13.i.i2261 ], [ 5, %if.else.i.i2259 ], [ %litk.2, %cond.end541 ]
-  %pol.3 = phi i8 [ %pol.2, %invoke.cont585 ], [ %pol.2, %if.then13.i.i2337 ], [ %pol.2, %if.then.i.i2330 ], [ 1, %if.then.i.i2263 ], [ 1, %if.then13.i.i2261 ], [ 1, %if.else.i.i2259 ], [ %pol.1, %cond.end541 ]
+  %litk.3 = phi i32 [ %litk.4, %invoke.cont585 ], [ %litk.4, %if.then13.i.i2337 ], [ %litk.4, %if.then.i.i2330 ], [ 5, %if.then.i.i2263 ], [ 5, %if.then13.i.i2261 ], [ 5, %if.else.i.i2259 ], [ %litk.2, %cond.end541 ]
+  %pol.2 = phi i8 [ %pol.3, %invoke.cont585 ], [ %pol.3, %if.then13.i.i2337 ], [ %pol.3, %if.then.i.i2330 ], [ 1, %if.then.i.i2263 ], [ 1, %if.then13.i.i2261 ], [ 1, %if.else.i.i2259 ], [ %pol.1, %cond.end541 ]
   %cond = phi i1 [ true, %invoke.cont585 ], [ true, %if.then13.i.i2337 ], [ true, %if.then.i.i2330 ], [ false, %if.then.i.i2263 ], [ false, %if.then13.i.i2261 ], [ false, %if.else.i.i2259 ], [ false, %cond.end541 ]
   %552 = load ptr, ptr %ic, align 8
   %bf.load.i.i2340 = load i64, ptr %552, align 8

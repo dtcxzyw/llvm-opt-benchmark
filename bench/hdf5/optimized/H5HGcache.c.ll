@@ -191,8 +191,8 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
   br label %85
 
 85:                                               ; preds = %.lr.ph, %278
-  %.0199266 = phi ptr [ %78, %.lr.ph ], [ %.2, %278 ]
-  %.0203265 = phi i64 [ 0, %.lr.ph ], [ %.2205, %278 ]
+  %.0199266 = phi ptr [ %78, %.lr.ph ], [ %.1, %278 ]
+  %.0203265 = phi i64 [ 0, %.lr.ph ], [ %.1204, %278 ]
   %86 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %2) #9
   %87 = zext i8 %86 to i64
   %88 = add nuw nsw i64 %87, 15
@@ -408,12 +408,12 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
 
 231:                                              ; preds = %227, %231
   %.0264 = phi i64 [ 0, %227 ], [ %240, %231 ]
-  %.1263 = phi ptr [ %230, %227 ], [ %236, %231 ]
+  %.2263 = phi ptr [ %230, %227 ], [ %236, %231 ]
   %232 = load ptr, ptr %68, align 8
   %233 = getelementptr inbounds %struct.H5HG_obj_t, ptr %232, i64 %133, i32 1
   %234 = load i64, ptr %233, align 8
   %235 = shl i64 %234, 8
-  %236 = getelementptr inbounds i8, ptr %.1263, i64 -1
+  %236 = getelementptr inbounds i8, ptr %.2263, i64 -1
   %237 = load i8, ptr %236, align 1
   %238 = zext i8 %237 to i64
   %239 = or disjoint i64 %235, %238
@@ -473,7 +473,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
 
 271:                                              ; preds = %256, %267
   %272 = phi ptr [ %268, %267 ], [ %261, %256 ]
-  %.1204 = phi i64 [ %.0203265, %267 ], [ %spec.select, %256 ]
+  %.2205 = phi i64 [ %.0203265, %267 ], [ %spec.select, %256 ]
   %.0200 = phi i64 [ %270, %267 ], [ %266, %256 ]
   %273 = icmp ugt i64 %.0200, %118
   br i1 %273, label %274, label %278
@@ -486,23 +486,23 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
 
 278:                                              ; preds = %271, %103
   %279 = phi ptr [ %110, %103 ], [ %272, %271 ]
-  %.2205 = phi i64 [ %.0203265, %103 ], [ %.1204, %271 ]
+  %.1204 = phi i64 [ %.0203265, %103 ], [ %.2205, %271 ]
   %.pn = phi i64 [ %112, %103 ], [ %.0200, %271 ]
-  %.2 = getelementptr inbounds i8, ptr %.0199266, i64 %.pn
+  %.1 = getelementptr inbounds i8, ptr %.0199266, i64 %.pn
   %280 = load ptr, ptr %15, align 8
   %281 = load i64, ptr %54, align 8
   %282 = getelementptr inbounds i8, ptr %280, i64 %281
-  %283 = icmp ult ptr %.2, %282
+  %283 = icmp ult ptr %.1, %282
   br i1 %283, label %85, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %278
-  %284 = add nuw nsw i64 %.2205, 1
+  %284 = add nuw nsw i64 %.1204, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %74
   %285 = phi ptr [ %67, %74 ], [ %279, %._crit_edge.loopexit ]
   %.0203.lcssa = phi i64 [ 1, %74 ], [ %284, %._crit_edge.loopexit ]
-  %.0199.lcssa = phi ptr [ %78, %74 ], [ %.2, %._crit_edge.loopexit ]
+  %.0199.lcssa = phi ptr [ %78, %74 ], [ %.1, %._crit_edge.loopexit ]
   %.lcssa = phi ptr [ %82, %74 ], [ %282, %._crit_edge.loopexit ]
   %.not = icmp eq ptr %.0199.lcssa, %.lcssa
   br i1 %.not, label %290, label %286

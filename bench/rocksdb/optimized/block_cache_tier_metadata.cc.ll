@@ -616,7 +616,7 @@ _ZN7rocksdb9WriteLockD2Ev.exit:                   ; preds = %lpad
   resume { ptr, i32 } %18
 
 cleanup:                                          ; preds = %_ZNKSt8functionIFvPN7rocksdb14BlockCacheFileEEEclES2_.exit, %invoke.cont, %invoke.cont11, %invoke.cont18
-  %t.1 = phi ptr [ null, %invoke.cont ], [ null, %invoke.cont11 ], [ %call12, %_ZNKSt8functionIFvPN7rocksdb14BlockCacheFileEEEclES2_.exit ], [ %call12, %invoke.cont18 ]
+  %t.2 = phi ptr [ null, %invoke.cont ], [ null, %invoke.cont11 ], [ %call12, %_ZNKSt8functionIFvPN7rocksdb14BlockCacheFileEEEclES2_.exit ], [ %call12, %invoke.cont18 ]
   %switch = phi i1 [ true, %invoke.cont ], [ true, %invoke.cont11 ], [ false, %_ZNKSt8functionIFvPN7rocksdb14BlockCacheFileEEEclES2_.exit ], [ false, %invoke.cont18 ]
   invoke void @_ZN7rocksdb4port7RWMutex11WriteUnlockEv(ptr noundef nonnull align 8 dereferenceable(56) %arrayidx.i)
           to label %_ZN7rocksdb9WriteLockD2Ev.exit15 unwind label %terminate.lpad.i14
@@ -630,13 +630,13 @@ terminate.lpad.i14:                               ; preds = %cleanup
 
 _ZN7rocksdb9WriteLockD2Ev.exit15:                 ; preds = %cleanup
   %inc = add nuw nsw i64 %i.024, 1
-  %tobool.not = icmp eq ptr %t.1, null
+  %tobool.not = icmp eq ptr %t.2, null
   %or.cond = and i1 %switch, %tobool.not
   br i1 %or.cond, label %land.rhs, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %_ZN7rocksdb9WriteLockD2Ev.exit15, %land.rhs
-  %t.2 = phi ptr [ %t.1, %_ZN7rocksdb9WriteLockD2Ev.exit15 ], [ null, %land.rhs ]
-  ret ptr %t.2
+  %t.1 = phi ptr [ %t.2, %_ZN7rocksdb9WriteLockD2Ev.exit15 ], [ null, %land.rhs ]
+  ret ptr %t.1
 }
 
 ; Function Attrs: mustprogress uwtable

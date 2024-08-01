@@ -502,7 +502,7 @@ cond.end37:                                       ; preds = %if.then27
   %tobool33.not = icmp eq i32 %and32, 0
   %shl35 = shl i32 %mode, 16
   %cond = select i1 %tobool33.not, i32 0, i32 %shl35
-  %creator_version.0 = select i1 %tobool33.not, i32 0, i32 791
+  %creator_version.1 = select i1 %tobool33.not, i32 0, i32 791
   br i1 %cmp21, label %land.lhs.true, label %if.end57
 
 land.lhs.true:                                    ; preds = %cond.end37
@@ -515,10 +515,10 @@ land.lhs.true:                                    ; preds = %cond.end37
   br label %if.end57
 
 if.end57:                                         ; preds = %cond.end37.thread, %land.lhs.true, %cond.end37
-  %creator_version.0702 = phi i32 [ %creator_version.0, %cond.end37 ], [ %creator_version.0, %land.lhs.true ], [ 791, %cond.end37.thread ]
+  %creator_version.1702 = phi i32 [ %creator_version.1, %cond.end37 ], [ %creator_version.1, %land.lhs.true ], [ 791, %cond.end37.thread ]
   %conv39701.in = phi i32 [ %cond, %cond.end37 ], [ %cond, %land.lhs.true ], [ %shl, %cond.end37.thread ]
   %cmp75 = phi i1 [ true, %cond.end37 ], [ %or.cond.not, %land.lhs.true ], [ true, %cond.end37.thread ]
-  %method.0 = phi i32 [ 0, %cond.end37 ], [ %spec.select113, %land.lhs.true ], [ 0, %cond.end37.thread ]
+  %method.1 = phi i32 [ 0, %cond.end37 ], [ %spec.select113, %land.lhs.true ], [ 0, %cond.end37.thread ]
   %tobool58.not = icmp eq ptr %buffer, null
   br i1 %tobool58.not, label %if.then59, label %if.else69
 
@@ -590,22 +590,22 @@ _.exit138:                                        ; preds = %if.else81, %if.end3
 
 if.end87:                                         ; preds = %if.end67, %if.end.i131, %if.end4.i
   %12 = phi i64 [ %.pre, %if.end67 ], [ %size, %if.end.i131 ], [ %size, %if.end4.i ]
-  %crc.0 = phi i64 [ %call, %if.end67 ], [ %call71, %if.end.i131 ], [ %call71, %if.end4.i ]
-  %stream.0 = phi ptr [ %call60, %if.end67 ], [ null, %if.end.i131 ], [ null, %if.end4.i ]
-  %flags.1 = phi i64 [ %or68, %if.end67 ], [ %flags.0, %if.end.i131 ], [ %flags.0, %if.end4.i ]
-  %is_binary.0 = phi i32 [ -1, %if.end67 ], [ %10, %if.end.i131 ], [ %call5.i, %if.end4.i ]
+  %crc.1 = phi i64 [ %call, %if.end67 ], [ %call71, %if.end.i131 ], [ %call71, %if.end4.i ]
+  %stream.1 = phi ptr [ %call60, %if.end67 ], [ null, %if.end.i131 ], [ null, %if.end4.i ]
+  %flags.2 = phi i64 [ %or68, %if.end67 ], [ %flags.0, %if.end.i131 ], [ %flags.0, %if.end4.i ]
+  %is_binary.1 = phi i32 [ -1, %if.end67 ], [ %10, %if.end.i131 ], [ %call5.i, %if.end4.i ]
   %cond80 = select i1 %cmp75, i64 %12, i64 0
   %13 = load i32, ptr @max_creator_version, align 4
-  %cmp88 = icmp ugt i32 %creator_version.0702, %13
+  %cmp88 = icmp ugt i32 %creator_version.1702, %13
   br i1 %cmp88, label %if.then90, label %if.end91
 
 if.then90:                                        ; preds = %if.end87
-  store i32 %creator_version.0702, ptr @max_creator_version, align 4
+  store i32 %creator_version.1702, ptr @max_creator_version, align 4
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then90, %if.end87
   %tobool92 = icmp ne ptr %buffer, null
-  %cmp94 = icmp ne i32 %method.0, 0
+  %cmp94 = icmp ne i32 %method.1, 0
   %or.cond1 = and i1 %tobool92, %cmp94
   br i1 %or.cond1, label %if.then96, label %if.end105
 
@@ -658,13 +658,13 @@ if.then103:                                       ; preds = %lor.lhs.false100
 if.end105:                                        ; preds = %zlib_deflate_raw.exit, %zlib_deflate_raw.exit.thread, %if.end12, %if.end12, %lor.lhs.false100, %if.then103, %if.end91
   %16 = phi i64 [ %.pre783, %lor.lhs.false100 ], [ %12, %if.end91 ], [ %size, %if.end12 ], [ %size, %if.end12 ], [ %.pre782, %zlib_deflate_raw.exit.thread ], [ %.pre783, %zlib_deflate_raw.exit ], [ %.pre783, %if.then103 ]
   %attr2.0714739.shrunk = phi i32 [ %conv39701.in, %lor.lhs.false100 ], [ %conv39701.in, %if.end91 ], [ 16, %if.end12 ], [ 16, %if.end12 ], [ %conv39701.in, %zlib_deflate_raw.exit.thread ], [ %conv39701.in, %zlib_deflate_raw.exit ], [ %conv39701.in, %if.then103 ]
-  %crc.1715738 = phi i64 [ %crc.0, %lor.lhs.false100 ], [ %crc.0, %if.end91 ], [ %call, %if.end12 ], [ %call, %if.end12 ], [ %crc.0, %zlib_deflate_raw.exit.thread ], [ %crc.0, %zlib_deflate_raw.exit ], [ %crc.0, %if.then103 ]
-  %stream.1718737 = phi ptr [ %stream.0, %lor.lhs.false100 ], [ %stream.0, %if.end91 ], [ null, %if.end12 ], [ null, %if.end12 ], [ %stream.0, %zlib_deflate_raw.exit.thread ], [ %stream.0, %zlib_deflate_raw.exit ], [ %stream.0, %if.then103 ]
-  %flags.2719736 = phi i64 [ %flags.1, %lor.lhs.false100 ], [ %flags.1, %if.end91 ], [ %flags.0, %if.end12 ], [ %flags.0, %if.end12 ], [ %flags.1, %zlib_deflate_raw.exit.thread ], [ %flags.1, %zlib_deflate_raw.exit ], [ %flags.1, %if.then103 ]
-  %is_binary.1720735 = phi i32 [ %is_binary.0, %lor.lhs.false100 ], [ %is_binary.0, %if.end91 ], [ -1, %if.end12 ], [ -1, %if.end12 ], [ %is_binary.0, %zlib_deflate_raw.exit.thread ], [ %is_binary.0, %zlib_deflate_raw.exit ], [ %is_binary.0, %if.then103 ]
-  %creator_version.1721734 = phi i32 [ %creator_version.0702, %lor.lhs.false100 ], [ %creator_version.0702, %if.end91 ], [ 0, %if.end12 ], [ 0, %if.end12 ], [ %creator_version.0702, %zlib_deflate_raw.exit.thread ], [ %creator_version.0702, %zlib_deflate_raw.exit ], [ %creator_version.0702, %if.then103 ]
-  %compressed_size.1 = phi i64 [ %15, %lor.lhs.false100 ], [ %cond80, %if.end91 ], [ 0, %if.end12 ], [ 0, %if.end12 ], [ %.pre782, %zlib_deflate_raw.exit.thread ], [ %.pre783, %zlib_deflate_raw.exit ], [ %.pre783, %if.then103 ]
-  %method.2 = phi i32 [ 8, %lor.lhs.false100 ], [ %method.0, %if.end91 ], [ 0, %if.end12 ], [ 0, %if.end12 ], [ 0, %zlib_deflate_raw.exit.thread ], [ 0, %zlib_deflate_raw.exit ], [ 0, %if.then103 ]
+  %crc.0715738 = phi i64 [ %crc.1, %lor.lhs.false100 ], [ %crc.1, %if.end91 ], [ %call, %if.end12 ], [ %call, %if.end12 ], [ %crc.1, %zlib_deflate_raw.exit.thread ], [ %crc.1, %zlib_deflate_raw.exit ], [ %crc.1, %if.then103 ]
+  %stream.0718737 = phi ptr [ %stream.1, %lor.lhs.false100 ], [ %stream.1, %if.end91 ], [ null, %if.end12 ], [ null, %if.end12 ], [ %stream.1, %zlib_deflate_raw.exit.thread ], [ %stream.1, %zlib_deflate_raw.exit ], [ %stream.1, %if.then103 ]
+  %flags.1719736 = phi i64 [ %flags.2, %lor.lhs.false100 ], [ %flags.2, %if.end91 ], [ %flags.0, %if.end12 ], [ %flags.0, %if.end12 ], [ %flags.2, %zlib_deflate_raw.exit.thread ], [ %flags.2, %zlib_deflate_raw.exit ], [ %flags.2, %if.then103 ]
+  %is_binary.0720735 = phi i32 [ %is_binary.1, %lor.lhs.false100 ], [ %is_binary.1, %if.end91 ], [ -1, %if.end12 ], [ -1, %if.end12 ], [ %is_binary.1, %zlib_deflate_raw.exit.thread ], [ %is_binary.1, %zlib_deflate_raw.exit ], [ %is_binary.1, %if.then103 ]
+  %creator_version.0721734 = phi i32 [ %creator_version.1702, %lor.lhs.false100 ], [ %creator_version.1702, %if.end91 ], [ 0, %if.end12 ], [ 0, %if.end12 ], [ %creator_version.1702, %zlib_deflate_raw.exit.thread ], [ %creator_version.1702, %zlib_deflate_raw.exit ], [ %creator_version.1702, %if.then103 ]
+  %compressed_size.0 = phi i64 [ %15, %lor.lhs.false100 ], [ %cond80, %if.end91 ], [ 0, %if.end12 ], [ 0, %if.end12 ], [ %.pre782, %zlib_deflate_raw.exit.thread ], [ %.pre783, %zlib_deflate_raw.exit ], [ %.pre783, %if.then103 ]
+  %method.2 = phi i32 [ 8, %lor.lhs.false100 ], [ %method.1, %if.end91 ], [ 0, %if.end12 ], [ 0, %if.end12 ], [ 0, %zlib_deflate_raw.exit.thread ], [ 0, %zlib_deflate_raw.exit ], [ 0, %if.then103 ]
   %out.2 = phi ptr [ %call1.i140, %lor.lhs.false100 ], [ %buffer, %if.end91 ], [ null, %if.end12 ], [ null, %if.end12 ], [ %buffer, %zlib_deflate_raw.exit.thread ], [ %buffer, %zlib_deflate_raw.exit ], [ %buffer, %if.then103 ]
   %deflated.0 = phi ptr [ %call1.i140, %lor.lhs.false100 ], [ null, %if.end91 ], [ null, %if.end12 ], [ null, %if.end12 ], [ null, %zlib_deflate_raw.exit.thread ], [ null, %zlib_deflate_raw.exit ], [ %call1.i140, %if.then103 ]
   store <4 x i8> <i8 85, i8 84, i8 5, i8 0>, ptr %extra, align 4
@@ -688,8 +688,8 @@ if.end105:                                        ; preds = %zlib_deflate_raw.ex
   %arrayidx11.i = getelementptr inbounds i8, ptr %extra, i64 8
   store i8 %conv10.i, ptr %arrayidx11.i, align 4
   %cmp110 = icmp ult i64 %16, 4294967296
-  %cmp113 = icmp ult i64 %compressed_size.1, 4294967296
-  %tobool117 = icmp ne ptr %stream.1718737, null
+  %cmp113 = icmp ult i64 %compressed_size.0, 4294967296
+  %tobool117 = icmp ne ptr %stream.0718737, null
   %cmp119 = icmp ult i64 %16, 2147483648
   %not.tobool117 = xor i1 %tobool117, true
   %or.cond3 = select i1 %not.tobool117, i1 true, i1 %cmp119
@@ -702,9 +702,9 @@ if.end105:                                        ; preds = %zlib_deflate_raw.ex
   %arrayidx3.i152 = getelementptr inbounds i8, ptr %header, i64 5
   store i8 0, ptr %arrayidx3.i152, align 1
   %flags129 = getelementptr inbounds i8, ptr %header, i64 6
-  %conv.i153 = trunc i64 %flags.2719736 to i8
+  %conv.i153 = trunc i64 %flags.1719736 to i8
   store i8 %conv.i153, ptr %flags129, align 2
-  %shr.i154748 = lshr i64 %flags.2719736, 8
+  %shr.i154748 = lshr i64 %flags.1719736, 8
   %conv2.i155 = trunc i64 %shr.i154748 to i8
   %arrayidx3.i156 = getelementptr inbounds i8, ptr %header, i64 7
   store i8 %conv2.i155, ptr %arrayidx3.i156, align 1
@@ -730,17 +730,17 @@ if.end105:                                        ; preds = %zlib_deflate_raw.ex
   %arrayidx3.i168 = getelementptr inbounds i8, ptr %header, i64 13
   store i8 %conv2.i167, ptr %arrayidx3.i168, align 1
   %crc32.i169 = getelementptr inbounds i8, ptr %header, i64 14
-  %conv.i.i170 = trunc i64 %crc.1715738 to i8
+  %conv.i.i170 = trunc i64 %crc.0715738 to i8
   store i8 %conv.i.i170, ptr %crc32.i169, align 2
-  %shr.i23.i171 = lshr i64 %crc.1715738, 8
+  %shr.i23.i171 = lshr i64 %crc.0715738, 8
   %conv2.i.i172 = trunc i64 %shr.i23.i171 to i8
   %arrayidx3.i.i173 = getelementptr inbounds i8, ptr %header, i64 15
   store i8 %conv2.i.i172, ptr %arrayidx3.i.i173, align 1
-  %shr4.i24.i174 = lshr i64 %crc.1715738, 16
+  %shr4.i24.i174 = lshr i64 %crc.0715738, 16
   %conv6.i.i175 = trunc i64 %shr4.i24.i174 to i8
   %arrayidx7.i.i176 = getelementptr inbounds i8, ptr %header, i64 16
   store i8 %conv6.i.i175, ptr %arrayidx7.i.i176, align 4
-  %shr8.i25.i177 = lshr i64 %crc.1715738, 24
+  %shr8.i25.i177 = lshr i64 %crc.0715738, 24
   %conv10.i.i178 = trunc i64 %shr8.i25.i177 to i8
   %arrayidx11.i.i179 = getelementptr inbounds i8, ptr %header, i64 17
   store i8 %conv10.i.i178, ptr %arrayidx11.i.i179, align 1
@@ -752,13 +752,13 @@ if.then137:                                       ; preds = %if.end105
   br label %if.end139
 
 if.else138:                                       ; preds = %if.end105
-  %conv.i3.i = trunc i64 %compressed_size.1 to i8
+  %conv.i3.i = trunc i64 %compressed_size.0 to i8
   store i8 %conv.i3.i, ptr %compressed_size1.i180, align 2
-  %shr.i426.i = lshr i64 %compressed_size.1, 8
+  %shr.i426.i = lshr i64 %compressed_size.0, 8
   %conv2.i5.i = trunc i64 %shr.i426.i to i8
-  %shr4.i727.i = lshr i64 %compressed_size.1, 16
+  %shr4.i727.i = lshr i64 %compressed_size.0, 16
   %conv6.i8.i = trunc i64 %shr4.i727.i to i8
-  %shr8.i1028.i = lshr i64 %compressed_size.1, 24
+  %shr8.i1028.i = lshr i64 %compressed_size.0, 24
   %conv10.i11.i = trunc nuw i64 %shr8.i1028.i to i8
   %conv.i13.i = trunc i64 %16 to i8
   %shr.i1429.i = lshr i64 %16, 8
@@ -852,33 +852,33 @@ if.then148:                                       ; preds = %if.end139
   %arrayidx27.i = getelementptr inbounds i8, ptr %extra64, i64 11
   store i8 %conv26.i, ptr %arrayidx27.i, align 1
   %compressed_size155 = getelementptr inbounds i8, ptr %extra64, i64 12
-  %conv.i208 = trunc i64 %compressed_size.1 to i8
+  %conv.i208 = trunc i64 %compressed_size.0 to i8
   store i8 %conv.i208, ptr %compressed_size155, align 4
-  %shr.i209 = lshr i64 %compressed_size.1, 8
+  %shr.i209 = lshr i64 %compressed_size.0, 8
   %conv2.i210 = trunc i64 %shr.i209 to i8
   %arrayidx3.i211 = getelementptr inbounds i8, ptr %extra64, i64 13
   store i8 %conv2.i210, ptr %arrayidx3.i211, align 1
-  %shr4.i212 = lshr i64 %compressed_size.1, 16
+  %shr4.i212 = lshr i64 %compressed_size.0, 16
   %conv6.i213 = trunc i64 %shr4.i212 to i8
   %arrayidx7.i214 = getelementptr inbounds i8, ptr %extra64, i64 14
   store i8 %conv6.i213, ptr %arrayidx7.i214, align 2
-  %shr8.i215 = lshr i64 %compressed_size.1, 24
+  %shr8.i215 = lshr i64 %compressed_size.0, 24
   %conv10.i216 = trunc i64 %shr8.i215 to i8
   %arrayidx11.i217 = getelementptr inbounds i8, ptr %extra64, i64 15
   store i8 %conv10.i216, ptr %arrayidx11.i217, align 1
-  %shr12.i218 = lshr i64 %compressed_size.1, 32
+  %shr12.i218 = lshr i64 %compressed_size.0, 32
   %conv14.i219 = trunc i64 %shr12.i218 to i8
   %arrayidx15.i220 = getelementptr inbounds i8, ptr %extra64, i64 16
   store i8 %conv14.i219, ptr %arrayidx15.i220, align 4
-  %shr16.i221 = lshr i64 %compressed_size.1, 40
+  %shr16.i221 = lshr i64 %compressed_size.0, 40
   %conv18.i222 = trunc i64 %shr16.i221 to i8
   %arrayidx19.i223 = getelementptr inbounds i8, ptr %extra64, i64 17
   store i8 %conv18.i222, ptr %arrayidx19.i223, align 1
-  %shr20.i224 = lshr i64 %compressed_size.1, 48
+  %shr20.i224 = lshr i64 %compressed_size.0, 48
   %conv22.i225 = trunc i64 %shr20.i224 to i8
   %arrayidx23.i226 = getelementptr inbounds i8, ptr %extra64, i64 18
   store i8 %conv22.i225, ptr %arrayidx23.i226, align 2
-  %shr24.i227 = lshr i64 %compressed_size.1, 56
+  %shr24.i227 = lshr i64 %compressed_size.0, 56
   %conv26.i228 = trunc nuw i64 %shr24.i227 to i8
   %arrayidx27.i229 = getelementptr inbounds i8, ptr %extra64, i64 19
   store i8 %conv26.i228, ptr %arrayidx27.i229, align 1
@@ -894,14 +894,14 @@ if.end158:                                        ; preds = %if.then148, %if.end
   br i1 %or.cond4, label %for.cond.preheader, label %if.else188
 
 for.cond.preheader:                               ; preds = %if.end158
-  %call165763 = call i64 @read_istream(ptr noundef nonnull %stream.1718737, ptr noundef nonnull %buf, i64 noundef 16384) #8
+  %call165763 = call i64 @read_istream(ptr noundef nonnull %stream.0718737, ptr noundef nonnull %buf, i64 noundef 16384) #8
   %cmp166764 = icmp slt i64 %call165763, 1
   br i1 %cmp166764, label %for.end, label %if.end169
 
 if.end169:                                        ; preds = %for.cond.preheader, %if.end180
   %call165767 = phi i64 [ %call165, %if.end180 ], [ %call165763, %for.cond.preheader ]
-  %is_binary.2766 = phi i32 [ %is_binary.3, %if.end180 ], [ %is_binary.1720735, %for.cond.preheader ]
-  %crc.2765 = phi i64 [ %call172, %if.end180 ], [ %crc.1715738, %for.cond.preheader ]
+  %is_binary.2766 = phi i32 [ %is_binary.3, %if.end180 ], [ %is_binary.0720735, %for.cond.preheader ]
+  %crc.2765 = phi i64 [ %call172, %if.end180 ], [ %crc.0715738, %for.cond.preheader ]
   %conv171 = trunc i64 %call165767 to i32
   %call172 = call i64 @crc32(i64 noundef %crc.2765, ptr noundef nonnull %buf, i32 noundef %conv171) #8
   %cmp173 = icmp eq i32 %is_binary.2766, -1
@@ -933,15 +933,15 @@ if.end4.i237:                                     ; preds = %if.end.i232
 if.end180:                                        ; preds = %if.end4.i237, %if.end.i232, %if.end169
   %is_binary.3 = phi i32 [ %is_binary.2766, %if.end169 ], [ %call5.i238, %if.end4.i237 ], [ %35, %if.end.i232 ]
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %buf, i64 noundef %call165767) #8
-  %call165 = call i64 @read_istream(ptr noundef nonnull %stream.1718737, ptr noundef nonnull %buf, i64 noundef 16384) #8
+  %call165 = call i64 @read_istream(ptr noundef nonnull %stream.0718737, ptr noundef nonnull %buf, i64 noundef 16384) #8
   %cmp166 = icmp slt i64 %call165, 1
   br i1 %cmp166, label %for.end, label %if.end169
 
 for.end:                                          ; preds = %if.end180, %for.cond.preheader
-  %crc.2.lcssa = phi i64 [ %crc.1715738, %for.cond.preheader ], [ %call172, %if.end180 ]
-  %is_binary.2.lcssa = phi i32 [ %is_binary.1720735, %for.cond.preheader ], [ %is_binary.3, %if.end180 ]
+  %crc.2.lcssa = phi i64 [ %crc.0715738, %for.cond.preheader ], [ %call172, %if.end180 ]
+  %is_binary.2.lcssa = phi i32 [ %is_binary.0720735, %for.cond.preheader ], [ %is_binary.3, %if.end180 ]
   %call165.lcssa = phi i64 [ %call165763, %for.cond.preheader ], [ %call165, %if.end180 ]
-  %call182 = call i32 @close_istream(ptr noundef nonnull %stream.1718737) #8
+  %call182 = call i32 @close_istream(ptr noundef nonnull %stream.0718737) #8
   %tobool183.not = icmp eq i64 %call165.lcssa, 0
   br i1 %tobool183.not, label %if.end186, label %if.then184
 
@@ -970,7 +970,7 @@ if.then193:                                       ; preds = %if.else188
   store ptr %compressed, ptr %next_out, align 8
   %avail_out = getelementptr inbounds i8, ptr %zstream, i64 120
   store i64 32768, ptr %avail_out, align 8
-  %call200754 = call i64 @read_istream(ptr noundef nonnull %stream.1718737, ptr noundef nonnull %buf194, i64 noundef 16384) #8
+  %call200754 = call i64 @read_istream(ptr noundef nonnull %stream.0718737, ptr noundef nonnull %buf194, i64 noundef 16384) #8
   %cmp201755 = icmp slt i64 %call200754, 1
   br i1 %cmp201755, label %for.end234, label %if.end204.lr.ph
 
@@ -982,12 +982,12 @@ if.end204.lr.ph:                                  ; preds = %if.then193
 
 if.end204:                                        ; preds = %if.end204.lr.ph, %if.end233
   %call200759 = phi i64 [ %call200754, %if.end204.lr.ph ], [ %call200, %if.end233 ]
-  %is_binary.4758 = phi i32 [ %is_binary.1720735, %if.end204.lr.ph ], [ %is_binary.5, %if.end233 ]
-  %crc.3757 = phi i64 [ %crc.1715738, %if.end204.lr.ph ], [ %call207, %if.end233 ]
+  %is_binary.5758 = phi i32 [ %is_binary.0720735, %if.end204.lr.ph ], [ %is_binary.6, %if.end233 ]
+  %crc.4757 = phi i64 [ %crc.0715738, %if.end204.lr.ph ], [ %call207, %if.end233 ]
   %compressed_size.2756 = phi i64 [ 0, %if.end204.lr.ph ], [ %compressed_size.3, %if.end233 ]
   %conv206 = trunc i64 %call200759 to i32
-  %call207 = call i64 @crc32(i64 noundef %crc.3757, ptr noundef nonnull %buf194, i32 noundef %conv206) #8
-  %cmp208 = icmp eq i32 %is_binary.4758, -1
+  %call207 = call i64 @crc32(i64 noundef %crc.4757, ptr noundef nonnull %buf194, i32 noundef %conv206) #8
+  %cmp208 = icmp eq i32 %is_binary.5758, -1
   br i1 %cmp208, label %if.then210, label %if.end215
 
 if.then210:                                       ; preds = %if.end204
@@ -1014,7 +1014,7 @@ if.end4.i249:                                     ; preds = %if.end.i244
   br label %if.end215
 
 if.end215:                                        ; preds = %if.end4.i249, %if.end.i244, %if.end204
-  %is_binary.5 = phi i32 [ %is_binary.4758, %if.end204 ], [ %call5.i250, %if.end4.i249 ], [ %41, %if.end.i244 ]
+  %is_binary.6 = phi i32 [ %is_binary.5758, %if.end204 ], [ %call5.i250, %if.end4.i249 ], [ %41, %if.end.i244 ]
   store ptr %buf194, ptr %next_in, align 8
   store i64 %call200759, ptr %avail_in, align 8
   %call217 = call i32 @git_deflate(ptr noundef nonnull %zstream, i32 noundef 0) #8
@@ -1042,16 +1042,16 @@ if.then227:                                       ; preds = %if.end222
 
 if.end233:                                        ; preds = %if.then227, %if.end222
   %compressed_size.3 = phi i64 [ %compressed_size.2756, %if.end222 ], [ %add229, %if.then227 ]
-  %call200 = call i64 @read_istream(ptr noundef nonnull %stream.1718737, ptr noundef nonnull %buf194, i64 noundef 16384) #8
+  %call200 = call i64 @read_istream(ptr noundef nonnull %stream.0718737, ptr noundef nonnull %buf194, i64 noundef 16384) #8
   %cmp201 = icmp slt i64 %call200, 1
   br i1 %cmp201, label %for.end234, label %if.end204
 
 for.end234:                                       ; preds = %if.end233, %if.then193
   %compressed_size.2.lcssa = phi i64 [ 0, %if.then193 ], [ %compressed_size.3, %if.end233 ]
-  %crc.3.lcssa = phi i64 [ %crc.1715738, %if.then193 ], [ %call207, %if.end233 ]
-  %is_binary.4.lcssa = phi i32 [ %is_binary.1720735, %if.then193 ], [ %is_binary.5, %if.end233 ]
+  %crc.4.lcssa = phi i64 [ %crc.0715738, %if.then193 ], [ %call207, %if.end233 ]
+  %is_binary.5.lcssa = phi i32 [ %is_binary.0720735, %if.then193 ], [ %is_binary.6, %if.end233 ]
   %call200.lcssa = phi i64 [ %call200754, %if.then193 ], [ %call200, %if.end233 ]
-  %call235 = call i32 @close_istream(ptr noundef nonnull %stream.1718737) #8
+  %call235 = call i32 @close_istream(ptr noundef nonnull %stream.0718737) #8
   %tobool236.not = icmp eq i64 %call200.lcssa, 0
   br i1 %tobool236.not, label %if.end239, label %if.then237
 
@@ -1084,26 +1084,26 @@ if.end247:                                        ; preds = %if.end239
   %add255 = add i64 %add254, %44
   store i64 %add255, ptr @zip_offset, align 8
   %45 = load i64, ptr %size.addr, align 8
-  call fastcc void @write_zip_data_desc(i64 noundef %45, i64 noundef %add254, i64 noundef %crc.3.lcssa)
+  call fastcc void @write_zip_data_desc(i64 noundef %45, i64 noundef %add254, i64 noundef %crc.4.lcssa)
   br label %if.end263
 
 if.else256:                                       ; preds = %if.else188
-  %cmp257.not = icmp eq i64 %compressed_size.1, 0
+  %cmp257.not = icmp eq i64 %compressed_size.0, 0
   br i1 %cmp257.not, label %if.end263, label %if.then259
 
 if.then259:                                       ; preds = %if.else256
-  call void @write_or_die(i32 noundef 1, ptr noundef %out.2, i64 noundef %compressed_size.1) #8
+  call void @write_or_die(i32 noundef 1, ptr noundef %out.2, i64 noundef %compressed_size.0) #8
   %46 = load i64, ptr @zip_offset, align 8
-  %add260 = add i64 %46, %compressed_size.1
+  %add260 = add i64 %46, %compressed_size.0
   store i64 %add260, ptr @zip_offset, align 8
   br label %if.end263
 
 if.end263:                                        ; preds = %if.end247, %if.then259, %if.else256, %if.end186
-  %compressed_size.4 = phi i64 [ %36, %if.end186 ], [ %add254, %if.end247 ], [ 0, %if.else256 ], [ %compressed_size.1, %if.then259 ]
-  %crc.4 = phi i64 [ %crc.2.lcssa, %if.end186 ], [ %crc.3.lcssa, %if.end247 ], [ %crc.1715738, %if.else256 ], [ %crc.1715738, %if.then259 ]
-  %is_binary.6 = phi i32 [ %is_binary.2.lcssa, %if.end186 ], [ %is_binary.4.lcssa, %if.end247 ], [ %is_binary.1720735, %if.else256 ], [ %is_binary.1720735, %if.then259 ]
+  %compressed_size.1 = phi i64 [ %36, %if.end186 ], [ %add254, %if.end247 ], [ 0, %if.else256 ], [ %compressed_size.0, %if.then259 ]
+  %crc.3 = phi i64 [ %crc.2.lcssa, %if.end186 ], [ %crc.4.lcssa, %if.end247 ], [ %crc.0715738, %if.else256 ], [ %crc.0715738, %if.then259 ]
+  %is_binary.4 = phi i32 [ %is_binary.2.lcssa, %if.end186 ], [ %is_binary.5.lcssa, %if.end247 ], [ %is_binary.0720735, %if.else256 ], [ %is_binary.0720735, %if.then259 ]
   call void @free(ptr noundef %deflated.0) #8
-  %cmp264 = icmp ugt i64 %compressed_size.4, 4294967295
+  %cmp264 = icmp ugt i64 %compressed_size.1, 4294967295
   %47 = load i64, ptr %size.addr, align 8
   %cmp267 = icmp ugt i64 %47, 4294967295
   %or.cond6 = select i1 %cmp264, i1 true, i1 %cmp267
@@ -1112,20 +1112,20 @@ if.end263:                                        ; preds = %if.end247, %if.then
   br i1 %or.cond7, label %if.then272, label %if.end290
 
 if.then272:                                       ; preds = %if.end263
-  %cmp273 = icmp ugt i64 %compressed_size.4, 4294967294
+  %cmp273 = icmp ugt i64 %compressed_size.1, 4294967294
   %spec.select115 = select i1 %cmp273, i64 8, i64 0
   %cmp278 = icmp ugt i64 %47, 4294967294
   %add281 = add nuw nsw i64 %spec.select115, 8
-  %zip64_dir_extra_payload_size.1 = select i1 %cmp278, i64 %add281, i64 %spec.select115
+  %zip64_dir_extra_payload_size.2 = select i1 %cmp278, i64 %add281, i64 %spec.select115
   %cmp283 = icmp ugt i64 %0, 4294967294
-  %add286 = add nuw nsw i64 %zip64_dir_extra_payload_size.1, 8
-  %zip64_dir_extra_payload_size.2 = select i1 %cmp283, i64 %add286, i64 %zip64_dir_extra_payload_size.1
-  %add289 = add nuw nsw i64 %zip64_dir_extra_payload_size.2, 13
+  %add286 = add nuw nsw i64 %zip64_dir_extra_payload_size.2, 8
+  %zip64_dir_extra_payload_size.3 = select i1 %cmp283, i64 %add286, i64 %zip64_dir_extra_payload_size.2
+  %add289 = add nuw nsw i64 %zip64_dir_extra_payload_size.3, 13
   br label %if.end290
 
 if.end290:                                        ; preds = %if.end263, %if.then272
   %zip_dir_extra_size.0 = phi i64 [ %add289, %if.then272 ], [ 9, %if.end263 ]
-  %zip64_dir_extra_payload_size.3 = phi i64 [ %zip64_dir_extra_payload_size.2, %if.then272 ], [ 0, %if.end263 ]
+  %zip64_dir_extra_payload_size.0 = phi i64 [ %zip64_dir_extra_payload_size.3, %if.then272 ], [ 0, %if.end263 ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %strbuf_addch.exit.i, %if.end290
@@ -1163,7 +1163,7 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i, %while
   br i1 %cmp.not.i256, label %while.body.i257, label %while.body.i, !llvm.loop !5
 
 while.body.i257:                                  ; preds = %strbuf_addch.exit.i, %strbuf_addch.exit.i265
-  %n.addr.03.i258 = phi i32 [ %shr.i269, %strbuf_addch.exit.i265 ], [ %creator_version.1721734, %strbuf_addch.exit.i ]
+  %n.addr.03.i258 = phi i32 [ %shr.i269, %strbuf_addch.exit.i265 ], [ %creator_version.0721734, %strbuf_addch.exit.i ]
   %size.addr.02.i259 = phi i64 [ %dec.i260, %strbuf_addch.exit.i265 ], [ 2, %strbuf_addch.exit.i ]
   %dec.i260 = add nsw i64 %size.addr.02.i259, -1
   %55 = trunc i32 %n.addr.03.i258 to i8
@@ -1229,7 +1229,7 @@ strbuf_addch.exit.i285:                           ; preds = %if.then.i.i293, %wh
   br i1 %cmp.not.i290, label %while.body.i297, label %while.body.i277, !llvm.loop !5
 
 while.body.i297:                                  ; preds = %strbuf_addch.exit.i285, %strbuf_addch.exit.i305
-  %n.addr.03.i298 = phi i64 [ %shr.i309, %strbuf_addch.exit.i305 ], [ %flags.2719736, %strbuf_addch.exit.i285 ]
+  %n.addr.03.i298 = phi i64 [ %shr.i309, %strbuf_addch.exit.i305 ], [ %flags.1719736, %strbuf_addch.exit.i285 ]
   %size.addr.02.i299 = phi i64 [ %dec.i300, %strbuf_addch.exit.i305 ], [ 2, %strbuf_addch.exit.i285 ]
   %dec.i300 = add nsw i64 %size.addr.02.i299, -1
   %68 = trunc i64 %n.addr.03.i298 to i8
@@ -1374,7 +1374,7 @@ strbuf_addch.exit.i365:                           ; preds = %if.then.i.i373, %wh
   br i1 %cmp.not.i370, label %while.body.i377, label %while.body.i357, !llvm.loop !5
 
 while.body.i377:                                  ; preds = %strbuf_addch.exit.i365, %strbuf_addch.exit.i385
-  %n.addr.03.i378 = phi i64 [ %shr.i389, %strbuf_addch.exit.i385 ], [ %crc.4, %strbuf_addch.exit.i365 ]
+  %n.addr.03.i378 = phi i64 [ %shr.i389, %strbuf_addch.exit.i385 ], [ %crc.3, %strbuf_addch.exit.i365 ]
   %size.addr.02.i379 = phi i64 [ %dec.i380, %strbuf_addch.exit.i385 ], [ 4, %strbuf_addch.exit.i365 ]
   %dec.i380 = add nsw i64 %size.addr.02.i379, -1
   %98 = trunc i64 %n.addr.03.i378 to i8
@@ -1408,7 +1408,7 @@ strbuf_addch.exit.i385:                           ; preds = %if.then.i.i393, %wh
   br i1 %cmp.not.i390, label %strbuf_add_le.exit396, label %while.body.i377, !llvm.loop !5
 
 strbuf_add_le.exit396:                            ; preds = %strbuf_addch.exit.i385
-  %cond.i = call i64 @llvm.umin.i64(i64 %compressed_size.4, i64 4294967295)
+  %cond.i = call i64 @llvm.umin.i64(i64 %compressed_size.1, i64 4294967295)
   br label %while.body.i398
 
 while.body.i398:                                  ; preds = %strbuf_addch.exit.i406, %strbuf_add_le.exit396
@@ -1615,7 +1615,7 @@ strbuf_addch.exit.i508:                           ; preds = %if.then.i.i516, %wh
   br i1 %cmp.not.i513, label %strbuf_add_le.exit519, label %while.body.i500, !llvm.loop !5
 
 strbuf_add_le.exit519:                            ; preds = %strbuf_addch.exit.i508
-  %tobool314.not = icmp eq i32 %is_binary.6, 0
+  %tobool314.not = icmp eq i32 %is_binary.4, 0
   %conv315 = zext i1 %tobool314.not to i8
   br label %while.body.i520
 
@@ -1726,7 +1726,7 @@ strbuf_addch.exit.i570:                           ; preds = %if.then.i.i578, %wh
 strbuf_add_le.exit581:                            ; preds = %strbuf_addch.exit.i570
   call void @strbuf_add(ptr noundef nonnull @zip_dir, ptr noundef %path, i64 noundef %pathlen) #8
   call void @strbuf_add(ptr noundef nonnull @zip_dir, ptr noundef nonnull %extra, i64 noundef 9) #8
-  %tobool321.not = icmp eq i64 %zip64_dir_extra_payload_size.3, 0
+  %tobool321.not = icmp eq i64 %zip64_dir_extra_payload_size.0, 0
   br i1 %tobool321.not, label %if.end340, label %while.body.i582
 
 while.body.i582:                                  ; preds = %strbuf_add_le.exit581, %strbuf_addch.exit.i590
@@ -1762,7 +1762,7 @@ strbuf_addch.exit.i590:                           ; preds = %if.then.i.i598, %wh
   br i1 %cmp.not.i595, label %while.body.i602.preheader, label %while.body.i582, !llvm.loop !5
 
 while.body.i602.preheader:                        ; preds = %strbuf_addch.exit.i590
-  %172 = trunc nuw nsw i64 %zip64_dir_extra_payload_size.3 to i8
+  %172 = trunc nuw nsw i64 %zip64_dir_extra_payload_size.0 to i8
   br label %while.body.i602
 
 while.body.i602:                                  ; preds = %while.body.i602.preheader, %strbuf_addch.exit.i610
@@ -1837,11 +1837,11 @@ strbuf_addch.exit.i630:                           ; preds = %if.then.i.i638, %wh
   br i1 %cmp.not.i635, label %if.end329, label %while.body.i622, !llvm.loop !5
 
 if.end329:                                        ; preds = %strbuf_addch.exit.i630, %strbuf_add_le.exit621
-  %cmp330 = icmp ugt i64 %compressed_size.4, 4294967294
+  %cmp330 = icmp ugt i64 %compressed_size.1, 4294967294
   br i1 %cmp330, label %while.body.i642, label %if.end334
 
 while.body.i642:                                  ; preds = %if.end329, %strbuf_addch.exit.i650
-  %n.addr.03.i643 = phi i64 [ %shr.i654, %strbuf_addch.exit.i650 ], [ %compressed_size.4, %if.end329 ]
+  %n.addr.03.i643 = phi i64 [ %shr.i654, %strbuf_addch.exit.i650 ], [ %compressed_size.1, %if.end329 ]
   %size.addr.02.i644 = phi i64 [ %dec.i645, %strbuf_addch.exit.i650 ], [ 8, %if.end329 ]
   %dec.i645 = add nsw i64 %size.addr.02.i644, -1
   %187 = trunc i64 %n.addr.03.i643 to i8

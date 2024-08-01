@@ -515,7 +515,7 @@ for.inc.i:                                        ; preds = %if.then4.i, %if.end
   br i1 %cmp.not.i, label %for.cond7.preheader.i, label %for.body.i, !llvm.loop !12
 
 if.end10.i:                                       ; preds = %for.cond7.preheader.i, %for.end52.i
-  %optind.042.i = phi i32 [ %optind.1.i, %for.end52.i ], [ 1, %for.cond7.preheader.i ]
+  %optind.042.i = phi i32 [ %optind.2.i, %for.end52.i ], [ 1, %for.cond7.preheader.i ]
   %idxprom.i = sext i32 %optind.042.i to i64
   %arrayidx.i = getelementptr ptr, ptr %argv, i64 %idxprom.i
   %11 = load ptr, ptr %arrayidx.i, align 8
@@ -596,8 +596,8 @@ for.inc50.i:                                      ; preds = %if.end19.i, %for.bo
   br i1 %cmp29.not.i, label %if.then56.i, label %for.body31.i, !llvm.loop !13
 
 for.end52.i:                                      ; preds = %if.else.i, %if.end42.i
-  %optind.1.i = phi i32 [ %inc46.i, %if.end42.i ], [ %inc.i, %if.else.i ]
-  %cmp8.not.i = icmp slt i32 %optind.1.i, %argc
+  %optind.2.i = phi i32 [ %inc46.i, %if.end42.i ], [ %inc.i, %if.else.i ]
+  %cmp8.not.i = icmp slt i32 %optind.2.i, %argc
   br i1 %cmp8.not.i, label %if.end10.i, label %for.end59.i
 
 if.then56.i:                                      ; preds = %for.inc50.i
@@ -607,8 +607,8 @@ if.then56.i:                                      ; preds = %for.inc50.i
   unreachable
 
 for.end59.i:                                      ; preds = %for.end52.i, %if.end15.tail.i, %if.end10.i, %for.cond7.preheader.i
-  %optind.2.i = phi i32 [ 1, %for.cond7.preheader.i ], [ %optind.1.i, %for.end52.i ], [ %optind.042.i, %if.end10.i ], [ %inc.i, %if.end15.tail.i ]
-  %cmp60.not.i = icmp slt i32 %optind.2.i, %argc
+  %optind.1.i = phi i32 [ 1, %for.cond7.preheader.i ], [ %optind.2.i, %for.end52.i ], [ %optind.042.i, %if.end10.i ], [ %inc.i, %if.end15.tail.i ]
+  %cmp60.not.i = icmp slt i32 %optind.1.i, %argc
   br i1 %cmp60.not.i, label %parse_args.exit, label %if.then62.i
 
 if.then62.i:                                      ; preds = %for.end59.i
@@ -618,7 +618,7 @@ if.then62.i:                                      ; preds = %for.end59.i
   unreachable
 
 parse_args.exit:                                  ; preds = %for.end59.i
-  %idxprom65.i = sext i32 %optind.2.i to i64
+  %idxprom65.i = sext i32 %optind.1.i to i64
   %arrayidx66.i = getelementptr ptr, ptr %argv, i64 %idxprom65.i
   %28 = load ptr, ptr %arrayidx66.i, align 8
   store ptr %28, ptr @exec_path, align 8
@@ -677,12 +677,12 @@ if.then37:                                        ; preds = %if.end34
 
 if.end38:                                         ; preds = %if.then37, %if.end34
   %call39 = call i64 @qemu_getauxval(i64 noundef 8) #29
-  %add = add nsw i32 %optind.2.i, 1
+  %add = add nsw i32 %optind.1.i, 1
   %cmp42 = icmp sge i32 %add, %argc
   %and = and i64 %call39, 1
   %tobool40.not = icmp eq i64 %and, 0
   %or.cond88 = select i1 %cmp42, i1 true, i1 %tobool40.not
-  %optind.0 = select i1 %or.cond88, i32 %optind.2.i, i32 %add
+  %optind.0 = select i1 %or.cond88, i32 %optind.1.i, i32 %add
   %36 = load ptr, ptr @cpu_model, align 8
   %cmp49 = icmp eq ptr %36, null
   br i1 %cmp49, label %if.then51, label %if.end54

@@ -3659,7 +3659,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %.04081.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %102, %_ZN5faiss15BitstringReader4readEi.exit.i ]
   %.04180.i = phi i64 [ 0, %.lr.ph.i ], [ %104, %_ZN5faiss15BitstringReader4readEi.exit.i ]
   %.04279.i = phi ptr [ %47, %.lr.ph.i ], [ %103, %_ZN5faiss15BitstringReader4readEi.exit.i ]
-  %.sroa.4.078.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.4.1.i, %_ZN5faiss15BitstringReader4readEi.exit.i ]
+  %.sroa.4.078.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.4.2.i, %_ZN5faiss15BitstringReader4readEi.exit.i ]
   %67 = trunc i64 %.sroa.4.078.i to i32
   %68 = and i32 %67, 7
   %69 = sub nuw nsw i32 8, %68
@@ -3727,7 +3727,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
 _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %75
   %.pn74.i = phi i64 [ %64, %._crit_edge.i.i ], [ %63, %75 ]
   %.0.i.i = phi i64 [ %99, %._crit_edge.i.i ], [ %77, %75 ]
-  %.sroa.4.1.i = add i64 %.pn74.i, %.sroa.4.078.i
+  %.sroa.4.2.i = add i64 %.pn74.i, %.sroa.4.078.i
   %100 = getelementptr inbounds float, ptr %.04279.i, i64 %.0.i.i
   %101 = load float, ptr %100, align 4
   %102 = fadd float %.04081.i, %101
@@ -3737,7 +3737,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %7
   br i1 %exitcond.not.i, label %._crit_edge.i, label %66, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %_ZN5faiss15BitstringReader4readEi.exit.i, %54
-  %.sroa.4.0.lcssa.i = phi i64 [ 0, %54 ], [ %.sroa.4.1.i, %_ZN5faiss15BitstringReader4readEi.exit.i ]
+  %.sroa.4.0.lcssa.i = phi i64 [ 0, %54 ], [ %.sroa.4.2.i, %_ZN5faiss15BitstringReader4readEi.exit.i ]
   %.042.lcssa.i = phi ptr [ %47, %54 ], [ %103, %_ZN5faiss15BitstringReader4readEi.exit.i ]
   %.040.lcssa.i = phi float [ 0.000000e+00, %54 ], [ %102, %_ZN5faiss15BitstringReader4readEi.exit.i ]
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
@@ -3757,13 +3757,13 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %7
 
 113:                                              ; preds = %_ZN5faiss15BitstringReader4readEi.exit64.i, %.preheader.i
   %114 = phi i1 [ true, %.preheader.i ], [ false, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
-  %.186.i = phi float [ %.040.lcssa.i, %.preheader.i ], [ %151, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
+  %.286.i = phi float [ %.040.lcssa.i, %.preheader.i ], [ %151, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
   %.14385.i = phi ptr [ %.042.lcssa.i, %.preheader.i ], [ %152, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
-  %.sroa.4.284.i = phi i64 [ %.sroa.4.0.lcssa.i, %.preheader.i ], [ %.sroa.4.3.i, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
-  %115 = trunc i64 %.sroa.4.284.i to i32
+  %.sroa.4.184.i = phi i64 [ %.sroa.4.0.lcssa.i, %.preheader.i ], [ %.sroa.4.3.i, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
+  %115 = trunc i64 %.sroa.4.184.i to i32
   %116 = and i32 %115, 7
   %117 = sub nuw nsw i32 8, %116
-  %118 = lshr i64 %.sroa.4.284.i, 3
+  %118 = lshr i64 %.sroa.4.184.i, 3
   %119 = getelementptr inbounds i8, ptr %57, i64 %118
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i32
@@ -3827,18 +3827,18 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %7
 _ZN5faiss15BitstringReader4readEi.exit64.i:       ; preds = %._crit_edge.i49.i, %123
   %.pn.i = phi i64 [ %112, %._crit_edge.i49.i ], [ %111, %123 ]
   %.0.i47.i = phi i64 [ %147, %._crit_edge.i49.i ], [ %125, %123 ]
-  %.sroa.4.3.i = add i64 %.pn.i, %.sroa.4.284.i
+  %.sroa.4.3.i = add i64 %.pn.i, %.sroa.4.184.i
   %148 = getelementptr inbounds float, ptr %.14385.i, i64 %.0.i47.i
   %149 = load float, ptr %148, align 4
   %150 = fmul float %149, %108
-  %151 = fadd float %.186.i, %150
+  %151 = fadd float %.286.i, %150
   %152 = getelementptr inbounds float, ptr %.14385.i, i64 %109
   br i1 %114, label %113, label %.loopexit.i, !llvm.loop !22
 
 .loopexit.i:                                      ; preds = %_ZN5faiss15BitstringReader4readEi.exit64.i, %._crit_edge.i
-  %.2.i = phi float [ %.040.lcssa.i, %._crit_edge.i ], [ %151, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
+  %.1.i = phi float [ %.040.lcssa.i, %._crit_edge.i ], [ %151, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
   %153 = load float, ptr %37, align 4
-  %154 = fcmp ogt float %153, %.2.i
+  %154 = fcmp ogt float %153, %.1.i
   br i1 %154, label %155, label %212
 
 155:                                              ; preds = %.loopexit.i
@@ -3934,12 +3934,12 @@ _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %187, %_Z
   %198 = getelementptr inbounds float, ptr %49, i64 %197
   %199 = load float, ptr %198, align 4
   %200 = getelementptr inbounds i64, ptr %50, i64 %197
-  %201 = fcmp olt float %199, %.2.i
+  %201 = fcmp olt float %199, %.1.i
   br i1 %201, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i69.i, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i68.i
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit.i68.i:          ; preds = %.lr.ph.i67.i
   %202 = load i64, ptr %200, align 8
-  %203 = fcmp oeq float %199, %.2.i
+  %203 = fcmp oeq float %199, %.1.i
   %204 = icmp slt i64 %202, %.088.i
   %205 = and i1 %203, %204
   br i1 %205, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i69.i, label %_ZN5faiss9heap_pushINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i
@@ -3956,7 +3956,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i69.i:   ; preds = %_ZN5faiss4CMaxIflE4
 _ZN5faiss9heap_pushINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i: ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i69.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i68.i, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.thread.i
   %.0.lcssa.i66.i = phi i64 [ %41, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.thread.i ], [ %.025.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.i68.i ], [ %197, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i69.i ]
   %210 = getelementptr inbounds float, ptr %49, i64 %.0.lcssa.i66.i
-  store float %.2.i, ptr %210, align 4
+  store float %.1.i, ptr %210, align 4
   %211 = getelementptr inbounds i64, ptr %50, i64 %.0.lcssa.i66.i
   store i64 %.088.i, ptr %211, align 8
   br label %212
@@ -6446,8 +6446,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5faiss13ReservoirTopNINS_4CMaxItiEEE1
   br label %34
 
 34:                                               ; preds = %23, %3
-  %.1 = phi i1 [ %12, %23 ], [ false, %3 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %12, %23 ], [ false, %3 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8412,7 +8412,7 @@ _ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %.04081.i = phi float [ 0.000000e+00, %.lr.ph.i ], [ %102, %_ZN5faiss15BitstringReader4readEi.exit.i ]
   %.04180.i = phi i64 [ 0, %.lr.ph.i ], [ %104, %_ZN5faiss15BitstringReader4readEi.exit.i ]
   %.04279.i = phi ptr [ %47, %.lr.ph.i ], [ %103, %_ZN5faiss15BitstringReader4readEi.exit.i ]
-  %.sroa.4.078.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.4.1.i, %_ZN5faiss15BitstringReader4readEi.exit.i ]
+  %.sroa.4.078.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.4.2.i, %_ZN5faiss15BitstringReader4readEi.exit.i ]
   %67 = trunc i64 %.sroa.4.078.i to i32
   %68 = and i32 %67, 7
   %69 = sub nuw nsw i32 8, %68
@@ -8480,7 +8480,7 @@ _ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
 _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %75
   %.pn74.i = phi i64 [ %64, %._crit_edge.i.i ], [ %63, %75 ]
   %.0.i.i = phi i64 [ %99, %._crit_edge.i.i ], [ %77, %75 ]
-  %.sroa.4.1.i = add i64 %.pn74.i, %.sroa.4.078.i
+  %.sroa.4.2.i = add i64 %.pn74.i, %.sroa.4.078.i
   %100 = getelementptr inbounds float, ptr %.04279.i, i64 %.0.i.i
   %101 = load float, ptr %100, align 4
   %102 = fadd float %.04081.i, %101
@@ -8490,7 +8490,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %7
   br i1 %exitcond.not.i, label %._crit_edge.i, label %66, !llvm.loop !145
 
 ._crit_edge.i:                                    ; preds = %_ZN5faiss15BitstringReader4readEi.exit.i, %54
-  %.sroa.4.0.lcssa.i = phi i64 [ 0, %54 ], [ %.sroa.4.1.i, %_ZN5faiss15BitstringReader4readEi.exit.i ]
+  %.sroa.4.0.lcssa.i = phi i64 [ 0, %54 ], [ %.sroa.4.2.i, %_ZN5faiss15BitstringReader4readEi.exit.i ]
   %.042.lcssa.i = phi ptr [ %47, %54 ], [ %103, %_ZN5faiss15BitstringReader4readEi.exit.i ]
   %.040.lcssa.i = phi float [ 0.000000e+00, %54 ], [ %102, %_ZN5faiss15BitstringReader4readEi.exit.i ]
   br i1 %.not.i, label %.loopexit.i, label %.preheader.i
@@ -8510,13 +8510,13 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %7
 
 113:                                              ; preds = %_ZN5faiss15BitstringReader4readEi.exit64.i, %.preheader.i
   %114 = phi i1 [ true, %.preheader.i ], [ false, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
-  %.186.i = phi float [ %.040.lcssa.i, %.preheader.i ], [ %151, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
+  %.286.i = phi float [ %.040.lcssa.i, %.preheader.i ], [ %151, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
   %.14385.i = phi ptr [ %.042.lcssa.i, %.preheader.i ], [ %152, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
-  %.sroa.4.284.i = phi i64 [ %.sroa.4.0.lcssa.i, %.preheader.i ], [ %.sroa.4.3.i, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
-  %115 = trunc i64 %.sroa.4.284.i to i32
+  %.sroa.4.184.i = phi i64 [ %.sroa.4.0.lcssa.i, %.preheader.i ], [ %.sroa.4.3.i, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
+  %115 = trunc i64 %.sroa.4.184.i to i32
   %116 = and i32 %115, 7
   %117 = sub nuw nsw i32 8, %116
-  %118 = lshr i64 %.sroa.4.284.i, 3
+  %118 = lshr i64 %.sroa.4.184.i, 3
   %119 = getelementptr inbounds i8, ptr %57, i64 %118
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i32
@@ -8580,18 +8580,18 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %7
 _ZN5faiss15BitstringReader4readEi.exit64.i:       ; preds = %._crit_edge.i49.i, %123
   %.pn.i = phi i64 [ %112, %._crit_edge.i49.i ], [ %111, %123 ]
   %.0.i47.i = phi i64 [ %147, %._crit_edge.i49.i ], [ %125, %123 ]
-  %.sroa.4.3.i = add i64 %.pn.i, %.sroa.4.284.i
+  %.sroa.4.3.i = add i64 %.pn.i, %.sroa.4.184.i
   %148 = getelementptr inbounds float, ptr %.14385.i, i64 %.0.i47.i
   %149 = load float, ptr %148, align 4
   %150 = fmul float %149, %108
-  %151 = fadd float %.186.i, %150
+  %151 = fadd float %.286.i, %150
   %152 = getelementptr inbounds float, ptr %.14385.i, i64 %109
   br i1 %114, label %113, label %.loopexit.i, !llvm.loop !146
 
 .loopexit.i:                                      ; preds = %_ZN5faiss15BitstringReader4readEi.exit64.i, %._crit_edge.i
-  %.2.i = phi float [ %.040.lcssa.i, %._crit_edge.i ], [ %151, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
+  %.1.i = phi float [ %.040.lcssa.i, %._crit_edge.i ], [ %151, %_ZN5faiss15BitstringReader4readEi.exit64.i ]
   %153 = load float, ptr %37, align 4
-  %154 = fcmp olt float %153, %.2.i
+  %154 = fcmp olt float %153, %.1.i
   br i1 %154, label %155, label %212
 
 155:                                              ; preds = %.loopexit.i
@@ -8687,12 +8687,12 @@ _ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i: ; preds = %187, %_Z
   %198 = getelementptr inbounds float, ptr %49, i64 %197
   %199 = load float, ptr %198, align 4
   %200 = getelementptr inbounds i64, ptr %50, i64 %197
-  %201 = fcmp ogt float %199, %.2.i
+  %201 = fcmp ogt float %199, %.1.i
   br i1 %201, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i69.i, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.i68.i
 
 _ZN5faiss4CMinIflE4cmp2Effll.exit.i68.i:          ; preds = %.lr.ph.i67.i
   %202 = load i64, ptr %200, align 8
-  %203 = fcmp oeq float %199, %.2.i
+  %203 = fcmp oeq float %199, %.1.i
   %204 = icmp sgt i64 %202, %.088.i
   %205 = and i1 %203, %204
   br i1 %205, label %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i69.i, label %_ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i
@@ -8709,7 +8709,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i69.i:   ; preds = %_ZN5faiss4CMinIflE4
 _ZN5faiss9heap_pushINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i: ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i69.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.i68.i, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.thread.i
   %.0.lcssa.i66.i = phi i64 [ %41, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.thread.i ], [ %.025.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.i68.i ], [ %197, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i69.i ]
   %210 = getelementptr inbounds float, ptr %49, i64 %.0.lcssa.i66.i
-  store float %.2.i, ptr %210, align 4
+  store float %.1.i, ptr %210, align 4
   %211 = getelementptr inbounds i64, ptr %50, i64 %.0.lcssa.i66.i
   store i64 %.088.i, ptr %211, align 8
   br label %212
@@ -10980,8 +10980,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5faiss13ReservoirTopNINS_4CMinItiEEE1
   br label %34
 
 34:                                               ; preds = %23, %3
-  %.1 = phi i1 [ %12, %23 ], [ false, %3 ]
-  ret i1 %.1
+  %.0 = phi i1 [ %12, %23 ], [ false, %3 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

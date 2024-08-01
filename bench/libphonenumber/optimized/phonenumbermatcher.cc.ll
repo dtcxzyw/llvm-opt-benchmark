@@ -790,25 +790,25 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit: ; preds
 
 63:                                               ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit
   %64 = invoke signext i8 @u_isalpha_70(i32 noundef %58)
-          to label %.noexc28 unwind label %70
+          to label %.noexc29 unwind label %70
 
-.noexc28:                                         ; preds = %63
+.noexc29:                                         ; preds = %63
   %.not.i = icmp eq i8 %64, 0
   br i1 %.not.i, label %65, label %67
 
-65:                                               ; preds = %.noexc28
+65:                                               ; preds = %.noexc29
   %66 = invoke signext i8 @u_charType_70(i32 noundef %58)
-          to label %.noexc29 unwind label %70
+          to label %.noexc30 unwind label %70
 
-.noexc29:                                         ; preds = %65
+.noexc30:                                         ; preds = %65
   %.not17.i = icmp eq i8 %66, 6
   br i1 %.not17.i, label %67, label %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit.thread
 
-67:                                               ; preds = %.noexc29, %.noexc28
+67:                                               ; preds = %.noexc30, %.noexc29
   %68 = invoke i32 @ublock_getCode_70(i32 noundef %58)
-          to label %.noexc30 unwind label %70
+          to label %.noexc31 unwind label %70
 
-.noexc30:                                         ; preds = %67
+.noexc31:                                         ; preds = %67
   %switch.tableidx = add i32 %68, -1
   %69 = icmp ult i32 %switch.tableidx, 38
   br i1 %69, label %switch.hole_check, label %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit.thread
@@ -826,7 +826,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit: ; preds
   call void %76(ptr noundef nonnull align 8 dereferenceable(8) %34) #19
   br label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit
 
-_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit.thread: ; preds = %switch.hole_check, %.noexc30, %.noexc29, %_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit, %27
+_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit.thread: ; preds = %switch.hole_check, %.noexc31, %.noexc30, %_ZNK4i18n12phonenumbers6RegExp7ConsumeEPNS0_11RegExpInputE.exit, %27
   %77 = sext i32 %2 to i64
   %78 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #19
   %79 = add i64 %78, %77
@@ -857,64 +857,64 @@ _ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit.thread: ; preds
 
 97:                                               ; preds = %94
   %98 = invoke signext i8 @u_charType_70(i32 noundef %95)
-          to label %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit34 unwind label %70
+          to label %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit35 unwind label %70
 
-_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit34: ; preds = %97
+_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit35: ; preds = %97
   %99 = icmp eq i8 %98, 25
   br i1 %99, label %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit, label %100
 
-100:                                              ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit34
+100:                                              ; preds = %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit35
   %101 = invoke signext i8 @u_isalpha_70(i32 noundef %95)
-          to label %.noexc38 unwind label %70
-
-.noexc38:                                         ; preds = %100
-  %.not.i35 = icmp eq i8 %101, 0
-  br i1 %.not.i35, label %102, label %104
-
-102:                                              ; preds = %.noexc38
-  %103 = invoke signext i8 @u_charType_70(i32 noundef %95)
           to label %.noexc39 unwind label %70
 
-.noexc39:                                         ; preds = %102
-  %.not17.i37 = icmp eq i8 %103, 6
-  br i1 %.not17.i37, label %104, label %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit
+.noexc39:                                         ; preds = %100
+  %.not.i36 = icmp eq i8 %101, 0
+  br i1 %.not.i36, label %102, label %104
 
-104:                                              ; preds = %.noexc39, %.noexc38
-  %105 = invoke i32 @ublock_getCode_70(i32 noundef %95)
+102:                                              ; preds = %.noexc39
+  %103 = invoke signext i8 @u_charType_70(i32 noundef %95)
           to label %.noexc40 unwind label %70
 
-.noexc40:                                         ; preds = %104
-  %106 = icmp ult i32 %105, 39
-  br i1 %106, label %switch.lookup51, label %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit
+.noexc40:                                         ; preds = %102
+  %.not17.i38 = icmp eq i8 %103, 6
+  br i1 %.not17.i38, label %104, label %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit
 
-switch.hole_check:                                ; preds = %.noexc30
+104:                                              ; preds = %.noexc40, %.noexc39
+  %105 = invoke i32 @ublock_getCode_70(i32 noundef %95)
+          to label %.noexc41 unwind label %70
+
+.noexc41:                                         ; preds = %104
+  %106 = icmp ult i32 %105, 39
+  br i1 %106, label %switch.lookup52, label %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit
+
+switch.hole_check:                                ; preds = %.noexc31
   %switch.maskindex = zext nneg i32 %switch.tableidx to i64
   %switch.shifted = lshr i64 137438953551, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit, label %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit.thread
 
-switch.lookup51:                                  ; preds = %.noexc40
+switch.lookup52:                                  ; preds = %.noexc41
   %switch.cast = zext nneg i32 %105 to i39
   %switch.downshift = lshr i39 274877906785, %switch.cast
   %switch.masked = trunc i39 %switch.downshift to i1
   br label %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit
 
-_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit: ; preds = %switch.hole_check, %.noexc39, %.noexc40, %switch.lookup51, %94, %57, %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit.thread, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit34, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit
-  %switch = phi i1 [ false, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit ], [ false, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit34 ], [ true, %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit.thread ], [ false, %57 ], [ false, %94 ], [ %switch.masked, %switch.lookup51 ], [ true, %.noexc40 ], [ true, %.noexc39 ], [ false, %switch.hole_check ]
+_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit: ; preds = %switch.hole_check, %.noexc40, %.noexc41, %switch.lookup52, %94, %57, %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit.thread, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit35, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit
+  %switch = phi i1 [ false, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit ], [ false, %_ZN4i18n12phonenumbers12_GLOBAL__N_126IsInvalidPunctuationSymbolEi.exit35 ], [ true, %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit.thread ], [ false, %57 ], [ false, %94 ], [ %switch.masked, %switch.lookup52 ], [ true, %.noexc41 ], [ true, %.noexc40 ], [ false, %switch.hole_check ]
   %107 = icmp eq ptr %34, null
-  br i1 %107, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit42, label %108
+  br i1 %107, label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit43, label %108
 
 108:                                              ; preds = %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit
   %109 = load ptr, ptr %34, align 8
   %110 = getelementptr inbounds i8, ptr %109, i64 8
   %111 = load ptr, ptr %110, align 8
   call void %111(ptr noundef nonnull align 8 dereferenceable(8) %34) #19
-  br label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit42
+  br label %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit43
 
-_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit42: ; preds = %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit, %108
+_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit43: ; preds = %_ZN4i18n12phonenumbers18PhoneNumberMatcher13IsLatinLetterEi.exit, %108
   br i1 %switch, label %112, label %146
 
-112:                                              ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit42, %23
+112:                                              ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit43, %23
   call void @_ZN4i18n12phonenumbers11PhoneNumberC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef null)
   %113 = getelementptr inbounds i8, ptr %0, i64 16
   %114 = load ptr, ptr %113, align 8
@@ -976,24 +976,24 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit42: ; preds = 
 
 141:                                              ; preds = %135
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %139) #19
-  %.pre50 = load i32, ptr %128, align 8
+  %.pre51 = load i32, ptr %128, align 8
   br label %142
 
 142:                                              ; preds = %141, %135
-  %143 = phi i32 [ %.pre50, %141 ], [ %137, %135 ]
+  %143 = phi i32 [ %.pre51, %141 ], [ %137, %135 ]
   %144 = and i32 %143, -3
   store i32 %144, ptr %128, align 8
   invoke void @_ZN4i18n12phonenumbers16PhoneNumberMatch10set_numberERKNS0_11PhoneNumberE(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(72) %7)
           to label %145 unwind label %118
 
 145:                                              ; preds = %123, %142, %117
-  %.1 = phi i1 [ false, %117 ], [ true, %142 ], [ false, %123 ]
+  %.2 = phi i1 [ false, %117 ], [ true, %142 ], [ false, %123 ]
   call void @_ZN4i18n12phonenumbers11PhoneNumberD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7) #19
   br label %146
 
-146:                                              ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit42, %4, %15, %145
-  %.2 = phi i1 [ false, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit42 ], [ %.1, %145 ], [ false, %15 ], [ false, %4 ]
-  ret i1 %.2
+146:                                              ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit43, %4, %15, %145
+  %.0 = phi i1 [ false, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit43 ], [ %.2, %145 ], [ false, %15 ], [ false, %4 ]
+  ret i1 %.0
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %73, %70, %118
   %.pn = phi { ptr, i32 } [ %119, %118 ], [ %71, %70 ], [ %71, %73 ]
@@ -1278,8 +1278,8 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
   br i1 %.not, label %.critedge, label %8, !llvm.loop !10
 
 .critedge:                                        ; preds = %21, %38, %8, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, %3, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread36
-  %.3 = phi i1 [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread36 ], [ true, %3 ], [ false, %21 ], [ true, %38 ], [ true, %8 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
-  ret i1 %.3
+  %.1 = phi i1 [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread36 ], [ true, %3 ], [ false, %21 ], [ true, %38 ], [ true, %8 ], [ false, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit ]
+  ret i1 %.1
 
 40:                                               ; preds = %36, %22
   %.sink = phi ptr [ %5, %36 ], [ %4, %22 ]
@@ -1390,7 +1390,7 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers18PhoneNumberMatcher
   br label %53
 
 52:                                               ; preds = %25, %26, %40, %30, %49
-  %.0 = phi i1 [ %48, %49 ], [ true, %30 ], [ true, %40 ], [ true, %26 ], [ true, %25 ]
+  %.2 = phi i1 [ %48, %49 ], [ true, %30 ], [ true, %40 ], [ true, %26 ], [ true, %25 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %54
 
@@ -1400,7 +1400,7 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers18PhoneNumberMatcher
   br label %55
 
 54:                                               ; preds = %16, %52
-  %.1 = phi i1 [ %.0, %52 ], [ true, %16 ]
+  %.1 = phi i1 [ %.2, %52 ], [ true, %16 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %56
 
@@ -1410,8 +1410,8 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers18PhoneNumberMatcher
   resume { ptr, i32 } %.pn.pn
 
 56:                                               ; preds = %2, %54
-  %.2 = phi i1 [ %.1, %54 ], [ true, %2 ]
-  ret i1 %.2
+  %.0 = phi i1 [ %.1, %54 ], [ true, %2 ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1487,13 +1487,13 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread19, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %31
-  %.1.ph = phi i1 [ %34, %31 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread19 ]
+  %.016.ph = phi i1 [ %34, %31 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread19 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   br label %35
 
 35:                                               ; preds = %.sink.split, %12, %8, %3
-  %.1 = phi i1 [ false, %3 ], [ false, %8 ], [ true, %12 ], [ %.1.ph, %.sink.split ]
-  ret i1 %.1
+  %.016 = phi i1 [ false, %3 ], [ false, %8 ], [ true, %12 ], [ %.016.ph, %.sink.split ]
+  ret i1 %.016
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1535,7 +1535,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.
   %24 = phi ptr [ %22, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.lr.ph ], [ %76, %73 ]
   %.03978 = phi i64 [ 0, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.lr.ph ], [ %74, %73 ]
   %.14177 = phi i64 [ %.040, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.lr.ph ], [ %38, %73 ]
-  %.04276 = phi i1 [ undef, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.lr.ph ], [ %.244, %73 ]
+  %.04276 = phi i1 [ undef, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.lr.ph ], [ %.345, %73 ]
   %25 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %24, i64 %.03978
   %26 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %.14177) #19
   %27 = icmp eq i64 %26, -1
@@ -1658,7 +1658,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.
   br label %71
 
 70:                                               ; preds = %46, %50, %62
-  %.143 = phi i1 [ %61, %62 ], [ %.04276, %50 ], [ %.04276, %46 ]
+  %.244 = phi i1 [ %61, %62 ], [ %.04276, %50 ], [ %.04276, %46 ]
   %switch = phi i1 [ false, %62 ], [ true, %50 ], [ true, %46 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
@@ -1675,7 +1675,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.
   resume { ptr, i32 } %.pn.pn.pn
 
 73:                                               ; preds = %70, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit53, %40
-  %.244 = phi i1 [ %.143, %70 ], [ %.04276, %40 ], [ %.04276, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit53 ]
+  %.345 = phi i1 [ %.244, %70 ], [ %.04276, %40 ], [ %.04276, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit53 ]
   %74 = add nuw i64 %.03978, 1
   %75 = load ptr, ptr %20, align 8
   %76 = load ptr, ptr %3, align 8
@@ -1697,8 +1697,8 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.
   br label %.loopexit
 
 .loopexit:                                        ; preds = %70, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit, %._crit_edge
-  %.345 = phi i1 [ %85, %._crit_edge ], [ false, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit ], [ %.143, %70 ]
-  ret i1 %.345
+  %.143 = phi i1 [ %85, %._crit_edge ], [ false, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit ], [ %.244, %70 ]
+  ret i1 %.143
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1778,8 +1778,8 @@ _ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit:
   %38 = getelementptr inbounds i8, ptr %34, i64 40
   %39 = getelementptr inbounds i8, ptr %34, i64 32
   %40 = load i32, ptr %39, align 8
-  %.not4346 = icmp eq i32 %40, 0
-  br i1 %.not4346, label %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread.sink.split, label %.lr.ph
+  %.not4447 = icmp eq i32 %40, 0
+  br i1 %.not4447, label %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37
   %41 = load ptr, ptr %38, align 8
@@ -1790,8 +1790,8 @@ _ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit:
   br label %44
 
 44:                                               ; preds = %.lr.ph, %89
-  %.sroa.036.047 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %90, %89 ]
-  %45 = load ptr, ptr %.sroa.036.047, align 8
+  %.sroa.037.048 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %90, %89 ]
+  %45 = load ptr, ptr %.sroa.037.048, align 8
   %46 = getelementptr inbounds i8, ptr %45, i64 24
   %47 = invoke noundef i32 @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %46)
           to label %_ZNK4i18n12phonenumbers12NumberFormat27leading_digits_pattern_sizeEv.exit unwind label %.loopexit
@@ -1812,7 +1812,7 @@ _ZNK4i18n12phonenumbers12NumberFormat27leading_digits_pattern_sizeEv.exit: ; pre
 
 57:                                               ; preds = %49
   %58 = load ptr, ptr %0, align 8
-  %59 = load ptr, ptr %.sroa.036.047, align 8
+  %59 = load ptr, ptr %.sroa.037.048, align 8
   %60 = getelementptr inbounds i8, ptr %59, i64 24
   %61 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3GetEi(ptr noundef nonnull align 8 dereferenceable(24) %60, i32 noundef 0)
           to label %_ZNK4i18n12phonenumbers12NumberFormat22leading_digits_patternB5cxx11Ei.exit unwind label %72
@@ -1846,31 +1846,31 @@ _ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev
 .loopexit:                                        ; preds = %49, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, %82, %44
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit29
+  br label %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit30
 
 .loopexit.split-lp:                               ; preds = %35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit29
+  br label %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit30
 
 72:                                               ; preds = %64, %57, %_ZNK4i18n12phonenumbers12NumberFormat22leading_digits_patternB5cxx11Ei.exit
   %73 = landingpad { ptr, i32 }
           cleanup
-  %.not.i27 = icmp eq ptr %56, null
-  br i1 %.not.i27, label %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit29, label %_ZNKSt14default_deleteIN4i18n12phonenumbers11RegExpInputEEclEPS2_.exit.i28
+  %.not.i28 = icmp eq ptr %56, null
+  br i1 %.not.i28, label %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit30, label %_ZNKSt14default_deleteIN4i18n12phonenumbers11RegExpInputEEclEPS2_.exit.i29
 
-_ZNKSt14default_deleteIN4i18n12phonenumbers11RegExpInputEEclEPS2_.exit.i28: ; preds = %72
+_ZNKSt14default_deleteIN4i18n12phonenumbers11RegExpInputEEclEPS2_.exit.i29: ; preds = %72
   %74 = load ptr, ptr %56, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
   call void %76(ptr noundef nonnull align 8 dereferenceable(8) %56) #19
-  br label %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit29
+  br label %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit30
 
 77:                                               ; preds = %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit, %_ZNK4i18n12phonenumbers12NumberFormat27leading_digits_pattern_sizeEv.exit
   %78 = load ptr, ptr %6, align 8
   %79 = load ptr, ptr %43, align 8
-  %.not.i.i30 = icmp eq ptr %79, %78
-  br i1 %.not.i.i30, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i
+  %.not.i.i31 = icmp eq ptr %79, %78
+  br i1 %.not.i.i31, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %77, %.lr.ph.i.i.i.i.i
   %.05.i.i.i.i.i = phi ptr [ %80, %.lr.ph.i.i.i.i.i ], [ %78, %77 ]
@@ -1884,7 +1884,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit: ; preds = %77, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  %81 = load ptr, ptr %.sroa.036.047, align 8
+  %81 = load ptr, ptr %.sroa.037.048, align 8
   invoke void @_ZNK4i18n12phonenumbers18PhoneNumberMatcher33GetNationalNumberGroupsForPatternERKNS0_11PhoneNumberEPKNS0_12NumberFormatEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EE(ptr noundef nonnull align 8 dereferenceable(117) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull %81, ptr noundef nonnull %6)
           to label %82 unwind label %.loopexit
 
@@ -1900,43 +1900,43 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   br i1 %87, label %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread.sink.split, label %89
 
 89:                                               ; preds = %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit, %88
-  %90 = getelementptr inbounds i8, ptr %.sroa.036.047, i64 8
+  %90 = getelementptr inbounds i8, ptr %.sroa.037.048, i64 8
   %91 = load ptr, ptr %38, align 8
-  %.not.i.i25 = icmp eq ptr %91, null
+  %.not.i.i26 = icmp eq ptr %91, null
   %92 = getelementptr inbounds i8, ptr %91, i64 8
-  %spec.select.i.i26 = select i1 %.not.i.i25, ptr null, ptr %92
+  %spec.select.i.i27 = select i1 %.not.i.i26, ptr null, ptr %92
   %93 = load i32, ptr %39, align 8
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds ptr, ptr %spec.select.i.i26, i64 %94
-  %.not43 = icmp eq ptr %90, %95
-  br i1 %.not43, label %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread.sink.split, label %44, !llvm.loop !14
+  %95 = getelementptr inbounds ptr, ptr %spec.select.i.i27, i64 %94
+  %.not44 = icmp eq ptr %90, %95
+  br i1 %.not44, label %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread.sink.split, label %44, !llvm.loop !14
 
-_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit29: ; preds = %.loopexit, %.loopexit.split-lp, %_ZNKSt14default_deleteIN4i18n12phonenumbers11RegExpInputEEclEPS2_.exit.i28, %72
-  %.pn = phi { ptr, i32 } [ %73, %72 ], [ %73, %_ZNKSt14default_deleteIN4i18n12phonenumbers11RegExpInputEEclEPS2_.exit.i28 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit30: ; preds = %.loopexit, %.loopexit.split-lp, %_ZNKSt14default_deleteIN4i18n12phonenumbers11RegExpInputEEclEPS2_.exit.i29, %72
+  %.pn = phi { ptr, i32 } [ %73, %72 ], [ %73, %_ZNKSt14default_deleteIN4i18n12phonenumbers11RegExpInputEEclEPS2_.exit.i29 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %102
 
 _ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread.sink.split: ; preds = %89, %88, %37
-  %.1.ph = phi i1 [ false, %37 ], [ true, %88 ], [ false, %89 ]
+  %.0.ph = phi i1 [ false, %37 ], [ true, %88 ], [ false, %89 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
   br label %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread
 
 _ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread: ; preds = %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread.sink.split, %18, %_ZNKSt8_Rb_treeIiSt4pairIKiPKN4i18n12phonenumbers13PhoneMetadataEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZNKSt3mapIiPKN4i18n12phonenumbers13PhoneMetadataESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i, %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit, %15
-  %.1 = phi i1 [ true, %15 ], [ false, %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit ], [ false, %_ZNKSt3mapIiPKN4i18n12phonenumbers13PhoneMetadataESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i ], [ false, %_ZNKSt8_Rb_treeIiSt4pairIKiPKN4i18n12phonenumbers13PhoneMetadataEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ false, %18 ], [ %.1.ph, %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread.sink.split ]
+  %.0 = phi i1 [ true, %15 ], [ false, %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit ], [ false, %_ZNKSt3mapIiPKN4i18n12phonenumbers13PhoneMetadataESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i ], [ false, %_ZNKSt8_Rb_treeIiSt4pairIKiPKN4i18n12phonenumbers13PhoneMetadataEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ false, %18 ], [ %.0.ph, %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread.sink.split ]
   %96 = load ptr, ptr %6, align 8
   %97 = getelementptr inbounds i8, ptr %6, i64 8
   %98 = load ptr, ptr %97, align 8
   %.not4.i.i.i.i = icmp eq ptr %96, %98
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i31
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i32
 
-.lr.ph.i.i.i.i31:                                 ; preds = %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread, %.lr.ph.i.i.i.i31
-  %.05.i.i.i.i = phi ptr [ %99, %.lr.ph.i.i.i.i31 ], [ %96, %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread ]
+.lr.ph.i.i.i.i32:                                 ; preds = %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread, %.lr.ph.i.i.i.i32
+  %.05.i.i.i.i = phi ptr [ %99, %.lr.ph.i.i.i.i32 ], [ %96, %_ZNK4i18n12phonenumbers16AlternateFormats29GetAlternateFormatsForCountryEi.exit.thread ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #19
   %99 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i32 = icmp eq ptr %99, %98
-  br i1 %.not.i.i.i.i32, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i31, !llvm.loop !13
+  %.not.i.i.i.i33 = icmp eq ptr %99, %98
+  br i1 %.not.i.i.i.i33, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i32, !llvm.loop !13
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i31
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i32
   %.pr.i = load ptr, ptr %6, align 8
   br label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
 
@@ -1951,10 +1951,10 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %101
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
-  ret i1 %.1
+  ret i1 %.0
 
-102:                                              ; preds = %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit29, %16
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit29 ], [ %17, %16 ]
+102:                                              ; preds = %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit30, %16
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt10unique_ptrIN4i18n12phonenumbers11RegExpInputESt14default_deleteIS2_EED2Ev.exit30 ], [ %17, %16 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #19
   resume { ptr, i32 } %.pn.pn
@@ -2630,8 +2630,8 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit18: ; preds = 
   br label %59
 
 59:                                               ; preds = %55, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit18, %4, %57
-  %.1 = phi i1 [ false, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit18 ], [ %58, %57 ], [ false, %4 ], [ true, %55 ]
-  ret i1 %.1
+  %.016 = phi i1 [ false, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit18 ], [ %58, %57 ], [ false, %4 ], [ true, %55 ]
+  ret i1 %.016
 
 _ZN5boost10scoped_ptrIN4i18n12phonenumbers11RegExpInputEED2Ev.exit: ; preds = %46, %43, %41
   %.pn = phi { ptr, i32 } [ %42, %41 ], [ %44, %43 ], [ %44, %46 ]

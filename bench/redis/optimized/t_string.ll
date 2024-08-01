@@ -3172,9 +3172,9 @@ while.body.lr.ph:                                 ; preds = %if.end187
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end292
-  %i.0306 = phi i32 [ %conv, %while.body.lr.ph ], [ %i.2259, %if.end292 ]
-  %j.2305 = phi i32 [ %conv73, %while.body.lr.ph ], [ %j.4257, %if.end292 ]
-  %arraylen.0304 = phi i32 [ 0, %while.body.lr.ph ], [ %arraylen.2, %if.end292 ]
+  %i.0306 = phi i32 [ %conv, %while.body.lr.ph ], [ %i.1259, %if.end292 ]
+  %j.2305 = phi i32 [ %conv73, %while.body.lr.ph ], [ %j.3257, %if.end292 ]
+  %arraylen.0304 = phi i32 [ 0, %while.body.lr.ph ], [ %arraylen.1, %if.end292 ]
   %brange_end.0303 = phi i32 [ 0, %while.body.lr.ph ], [ %brange_end.2255, %if.end292 ]
   %brange_start.0302 = phi i32 [ 0, %while.body.lr.ph ], [ %brange_start.2253, %if.end292 ]
   %arange_end.0301 = phi i32 [ 0, %while.body.lr.ph ], [ %arange_end.2251, %if.end292 ]
@@ -3235,8 +3235,8 @@ if.else239:                                       ; preds = %while.body
   %arrayidx253 = getelementptr inbounds i32, ptr %call89, i64 %idxprom252
   %47 = load i32, ptr %arrayidx253, align 4
   %cmp254 = icmp ugt i32 %46, %47
-  %j.3 = select i1 %cmp254, i32 %j.2305, i32 %sub198
-  %i.1 = select i1 %cmp254, i32 %sub194, i32 %i.0306
+  %j.4 = select i1 %cmp254, i32 %j.2305, i32 %sub198
+  %i.2 = select i1 %cmp254, i32 %sub194, i32 %i.0306
   %cmp261.not = icmp eq i32 %arange_start.0300, %conv
   br i1 %cmp261.not, label %if.end292, label %if.end265.thread
 
@@ -3246,15 +3246,15 @@ if.end265.thread:                                 ; preds = %if.end228.thread, %
   %arange_end.2.ph = phi i32 [ %arange_end.0301, %if.else239 ], [ %arange_end.1, %if.end228 ], [ %arange_end.0301, %if.end228.thread ]
   %brange_start.2.ph = phi i32 [ %brange_start.0302, %if.else239 ], [ %sub198, %if.end228 ], [ %brange_start.0302, %if.end228.thread ]
   %brange_end.2.ph = phi i32 [ %brange_end.0303, %if.else239 ], [ %brange_end.1, %if.end228 ], [ %brange_end.0303, %if.end228.thread ]
-  %j.4.ph = phi i32 [ %j.3, %if.else239 ], [ %sub198, %if.end228 ], [ %sub198, %if.end228.thread ]
-  %i.2.ph = phi i32 [ %i.1, %if.else239 ], [ %sub194, %if.end228 ], [ %sub194, %if.end228.thread ]
+  %j.3.ph = phi i32 [ %j.4, %if.else239 ], [ %sub198, %if.end228 ], [ %sub198, %if.end228.thread ]
+  %i.1.ph = phi i32 [ %i.2, %if.else239 ], [ %sub194, %if.end228 ], [ %sub194, %if.end228.thread ]
   %sub266244 = sub i32 %arange_end.2.ph, %arange_start.2.ph
   br label %if.then269
 
 if.then269:                                       ; preds = %if.end265.thread351, %if.end265.thread
   %add267260.in = phi i32 [ %sub266244, %if.end265.thread ], [ %sub266357, %if.end265.thread351 ]
-  %i.2258 = phi i32 [ %i.2.ph, %if.end265.thread ], [ %sub194, %if.end265.thread351 ]
-  %j.4256 = phi i32 [ %j.4.ph, %if.end265.thread ], [ %sub198, %if.end265.thread351 ]
+  %i.1258 = phi i32 [ %i.1.ph, %if.end265.thread ], [ %sub194, %if.end265.thread351 ]
+  %j.3256 = phi i32 [ %j.3.ph, %if.end265.thread ], [ %sub198, %if.end265.thread351 ]
   %brange_end.2254 = phi i32 [ %brange_end.2.ph, %if.end265.thread ], [ %brange_end.0303, %if.end265.thread351 ]
   %brange_start.2252 = phi i32 [ %brange_start.2.ph, %if.end265.thread ], [ %brange_start.0302, %if.end265.thread351 ]
   %arange_end.2250 = phi i32 [ %arange_end.2.ph, %if.end265.thread ], [ %arange_end.0301, %if.end265.thread351 ]
@@ -3298,21 +3298,21 @@ if.end288:                                        ; preds = %if.then286, %if.the
   br label %if.end292
 
 if.end292:                                        ; preds = %if.end228, %if.else239, %lor.lhs.false272, %if.end288, %if.then276
-  %i.2259 = phi i32 [ %i.2258, %if.then276 ], [ %i.2258, %if.end288 ], [ %i.2258, %lor.lhs.false272 ], [ %i.1, %if.else239 ], [ %sub194, %if.end228 ]
-  %j.4257 = phi i32 [ %j.4256, %if.then276 ], [ %j.4256, %if.end288 ], [ %j.4256, %lor.lhs.false272 ], [ %j.3, %if.else239 ], [ %sub198, %if.end228 ]
+  %i.1259 = phi i32 [ %i.1258, %if.then276 ], [ %i.1258, %if.end288 ], [ %i.1258, %lor.lhs.false272 ], [ %i.2, %if.else239 ], [ %sub194, %if.end228 ]
+  %j.3257 = phi i32 [ %j.3256, %if.then276 ], [ %j.3256, %if.end288 ], [ %j.3256, %lor.lhs.false272 ], [ %j.4, %if.else239 ], [ %sub198, %if.end228 ]
   %brange_end.2255 = phi i32 [ %brange_end.2254, %if.then276 ], [ %brange_end.2254, %if.end288 ], [ %brange_end.2254, %lor.lhs.false272 ], [ %brange_end.0303, %if.else239 ], [ %brange_end.1, %if.end228 ]
   %brange_start.2253 = phi i32 [ %brange_start.2252, %if.then276 ], [ %brange_start.2252, %if.end288 ], [ %brange_start.2252, %lor.lhs.false272 ], [ %brange_start.0302, %if.else239 ], [ %sub198, %if.end228 ]
   %arange_end.2251 = phi i32 [ %arange_end.2250, %if.then276 ], [ %arange_end.2250, %if.end288 ], [ %arange_end.2250, %lor.lhs.false272 ], [ %arange_end.0301, %if.else239 ], [ %arange_end.1, %if.end228 ]
   %idx.1248 = phi i32 [ %idx.1247, %if.then276 ], [ %idx.1247, %if.end288 ], [ %idx.1247, %lor.lhs.false272 ], [ %idx.0299, %if.else239 ], [ %sub208, %if.end228 ]
   %arange_start.3 = phi i32 [ %conv, %if.then276 ], [ %conv, %if.end288 ], [ %conv, %lor.lhs.false272 ], [ %conv, %if.else239 ], [ %sub194, %if.end228 ]
-  %arraylen.2 = phi i32 [ %arraylen.0304, %if.then276 ], [ %inc289, %if.end288 ], [ %arraylen.0304, %lor.lhs.false272 ], [ %arraylen.0304, %if.else239 ], [ %arraylen.0304, %if.end228 ]
-  %cmp190 = icmp ne i32 %i.2259, 0
-  %cmp192 = icmp ne i32 %j.4257, 0
+  %arraylen.1 = phi i32 [ %arraylen.0304, %if.then276 ], [ %inc289, %if.end288 ], [ %arraylen.0304, %lor.lhs.false272 ], [ %arraylen.0304, %if.else239 ], [ %arraylen.0304, %if.end228 ]
+  %cmp190 = icmp ne i32 %i.1259, 0
+  %cmp192 = icmp ne i32 %j.3257, 0
   %or.cond5 = select i1 %cmp190, i1 %cmp192, i1 false
   br i1 %or.cond5, label %while.body, label %while.end.loopexit, !llvm.loop !14
 
 while.end.loopexit:                               ; preds = %if.end292
-  %49 = zext i32 %arraylen.2 to i64
+  %49 = zext i32 %arraylen.1 to i64
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %if.end187

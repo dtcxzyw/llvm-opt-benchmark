@@ -289,7 +289,7 @@ define dso_local noundef zeroext i1 @errstart(i32 noundef %0, ptr noundef %1) lo
   br label %17
 
 17:                                               ; preds = %13, %16, %4
-  %.1 = phi i32 [ 22, %16 ], [ 21, %13 ], [ %spec.select, %4 ]
+  %.2 = phi i32 [ 22, %16 ], [ 21, %13 ], [ %spec.select, %4 ]
   %18 = load i32, ptr @errordata_stack_depth, align 4
   %.not3437 = icmp slt i32 %18, 0
   br i1 %.not3437, label %.loopexit, label %.lr.ph.preheader
@@ -302,18 +302,18 @@ define dso_local noundef zeroext i1 @errstart(i32 noundef %0, ptr noundef %1) lo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.238 = phi i32 [ %.1, %.lr.ph.preheader ], [ %.2., %.lr.ph ]
+  %.338 = phi i32 [ %.2, %.lr.ph.preheader ], [ %.3., %.lr.ph ]
   %20 = getelementptr [5 x %struct.ErrorData], ptr @errordata, i64 0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 8
-  %.2. = tail call i32 @llvm.smax.i32(i32 %.238, i32 %21)
+  %.3. = tail call i32 @llvm.smax.i32(i32 %.338, i32 %21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %.loopexit, label %.lr.ph, !llvm.loop !5
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %2
-  %.3 = phi i32 [ %0, %2 ], [ %.1, %17 ], [ %.2., %.lr.ph ]
+  %.030 = phi i32 [ %0, %2 ], [ %.2, %17 ], [ %.3., %.lr.ph ]
   %22 = load i32, ptr @log_min_messages, align 4
-  %23 = add i32 %.3, -15
+  %23 = add i32 %.030, -15
   %or.cond.i.i = icmp ult i32 %23, 2
   br i1 %or.cond.i.i, label %24, label %26
 
@@ -322,7 +322,7 @@ define dso_local noundef zeroext i1 @errstart(i32 noundef %0, ptr noundef %1) lo
   br i1 %25, label %should_output_to_server.exit, label %33
 
 26:                                               ; preds = %.loopexit
-  %27 = icmp eq i32 %.3, 20
+  %27 = icmp eq i32 %.030, 20
   br i1 %27, label %should_output_to_server.exit, label %28
 
 28:                                               ; preds = %26
@@ -330,11 +330,11 @@ define dso_local noundef zeroext i1 @errstart(i32 noundef %0, ptr noundef %1) lo
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %31 = icmp sgt i32 %.3, 21
+  %31 = icmp sgt i32 %.030, 21
   br i1 %31, label %should_output_to_server.exit, label %33
 
 32:                                               ; preds = %28
-  %.not.i.i = icmp sgt i32 %22, %.3
+  %.not.i.i = icmp sgt i32 %22, %.030
   br i1 %.not.i.i, label %33, label %should_output_to_server.exit
 
 33:                                               ; preds = %32, %30, %24
@@ -345,7 +345,7 @@ should_output_to_server.exit:                     ; preds = %24, %26, %30, %32, 
   %34 = zext i1 %.0.i.i to i8
   %35 = load i32, ptr @whereToSendOutput, align 4
   %36 = icmp eq i32 %35, 2
-  %37 = icmp ne i32 %.3, 16
+  %37 = icmp ne i32 %.030, 16
   %or.cond.i = and i1 %37, %36
   br i1 %or.cond.i, label %38, label %should_output_to_client.exit
 
@@ -355,20 +355,20 @@ should_output_to_server.exit:                     ; preds = %24, %26, %30, %32, 
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %38
-  %42 = icmp sgt i32 %.3, 20
+  %42 = icmp sgt i32 %.030, 20
   br label %should_output_to_client.exit
 
 43:                                               ; preds = %38
   %44 = load i32, ptr @client_min_messages, align 4
-  %45 = icmp sle i32 %44, %.3
-  %46 = icmp eq i32 %.3, 17
+  %45 = icmp sle i32 %44, %.030
+  %46 = icmp eq i32 %.030, 17
   %47 = or i1 %46, %45
   br label %should_output_to_client.exit
 
 should_output_to_client.exit:                     ; preds = %should_output_to_server.exit, %41, %43
   %.0.i = phi i1 [ %42, %41 ], [ %47, %43 ], [ false, %should_output_to_server.exit ]
   %48 = zext i1 %.0.i to i8
-  %49 = icmp sgt i32 %.3, 20
+  %49 = icmp sgt i32 %.030, 20
   %brmerge = or i1 %49, %.0.i.i
   %brmerge36 = select i1 %brmerge, i1 true, i1 %.0.i
   br i1 %brmerge36, label %50, label %91
@@ -426,7 +426,7 @@ get_error_stack_entry.exit:                       ; preds = %62
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr inbounds i8, ptr %71, i64 168
   store i32 %73, ptr %74, align 8
-  store i32 %.3, ptr %71, align 8
+  store i32 %.030, ptr %71, align 8
   %75 = getelementptr inbounds i8, ptr %71, i64 4
   store i8 %34, ptr %75, align 4
   %76 = getelementptr inbounds i8, ptr %71, i64 5
@@ -445,7 +445,7 @@ get_error_stack_entry.exit:                       ; preds = %62
   br label %87
 
 82:                                               ; preds = %get_error_stack_entry.exit
-  %83 = icmp sgt i32 %.3, 18
+  %83 = icmp sgt i32 %.030, 18
   %84 = getelementptr inbounds i8, ptr %71, i64 48
   br i1 %83, label %85, label %86
 
@@ -523,9 +523,9 @@ define dso_local void @errfinish(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   br label %set_stack_entry_location.exit
 
 set_stack_entry_location.exit:                    ; preds = %15, %16
-  %.1.i = phi ptr [ null, %15 ], [ %spec.select18.i, %16 ]
+  %.0.i = phi ptr [ null, %15 ], [ %spec.select18.i, %16 ]
   %21 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %.1.i, ptr %21, align 8
+  store ptr %.0.i, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %8, i64 16
   store i32 %1, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %8, i64 24
@@ -2949,9 +2949,9 @@ define dso_local void @errsave_finish(ptr nocapture noundef writeonly %0, ptr no
   br label %set_stack_entry_location.exit
 
 set_stack_entry_location.exit:                    ; preds = %16, %19
-  %.1.i = phi ptr [ null, %16 ], [ %spec.select18.i, %19 ]
+  %.0.i = phi ptr [ null, %16 ], [ %spec.select18.i, %19 ]
   %24 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %.1.i, ptr %24, align 8
+  store ptr %.0.i, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %7, i64 16
   store i32 %2, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %7, i64 24
@@ -5440,7 +5440,7 @@ thread-pre-split:                                 ; preds = %.critedge.i
 48:                                               ; preds = %thread-pre-split, %28
   %49 = phi i8 [ %.pr, %thread-pre-split ], [ %26, %28 ]
   %.2220 = phi i32 [ %47, %thread-pre-split ], [ 0, %28 ]
-  %.1 = phi ptr [ %.1.lcssa.i, %thread-pre-split ], [ %25, %28 ]
+  %.2 = phi ptr [ %.1.lcssa.i, %thread-pre-split ], [ %25, %28 ]
   switch i8 %49, label %267 [
     i8 97, label %50
     i8 98, label %65
@@ -6041,8 +6041,8 @@ unpack_sql_state.exit186:                         ; preds = %.preheader229
   br label %267
 
 267:                                              ; preds = %62, %63, %60, %61, %78, %77, %92, %93, %90, %91, %108, %109, %106, %107, %116, %114, %120, %119, %137, %138, %132, %136, %135, %143, %142, %157, %156, %164, %163, %175, %174, %184, %183, %192, %193, %189, %190, %216, %217, %208, %206, %215, %213, %209, %227, %228, %225, %226, %230, %244, %245, %241, %243, %250, %249, %unpack_sql_state.exit186, %unpack_sql_state.exit, %266, %265, %48, %27, %23
-  %.2 = phi ptr [ %.0, %23 ], [ %.1, %48 ], [ %.1, %266 ], [ %.1, %265 ], [ %.1, %unpack_sql_state.exit186 ], [ %.1, %unpack_sql_state.exit ], [ %.1, %250 ], [ %.1, %249 ], [ %.1, %244 ], [ %.1, %245 ], [ %.1, %243 ], [ %.1, %241 ], [ %.1, %230 ], [ %.1, %227 ], [ %.1, %228 ], [ %.1, %226 ], [ %.1, %225 ], [ %.1, %216 ], [ %.1, %217 ], [ %.1, %209 ], [ %.1, %213 ], [ %.1, %215 ], [ %.1, %208 ], [ %.1, %206 ], [ %.1, %192 ], [ %.1, %193 ], [ %.1, %190 ], [ %.1, %189 ], [ %.1, %184 ], [ %.1, %183 ], [ %.1, %175 ], [ %.1, %174 ], [ %.1, %164 ], [ %.1, %163 ], [ %.1, %157 ], [ %.1, %156 ], [ %.1, %143 ], [ %.1, %142 ], [ %.1, %137 ], [ %.1, %138 ], [ %.1, %132 ], [ %.1, %136 ], [ %.1, %135 ], [ %.1, %120 ], [ %.1, %119 ], [ %.1, %116 ], [ %.1, %114 ], [ %.1, %108 ], [ %.1, %109 ], [ %.1, %107 ], [ %.1, %106 ], [ %.1, %92 ], [ %.1, %93 ], [ %.1, %91 ], [ %.1, %90 ], [ %.1, %78 ], [ %.1, %77 ], [ %.1, %62 ], [ %.1, %63 ], [ %.1, %61 ], [ %.1, %60 ], [ %25, %27 ]
-  %268 = getelementptr i8, ptr %.2, i64 1
+  %.1 = phi ptr [ %.0, %23 ], [ %.2, %48 ], [ %.2, %266 ], [ %.2, %265 ], [ %.2, %unpack_sql_state.exit186 ], [ %.2, %unpack_sql_state.exit ], [ %.2, %250 ], [ %.2, %249 ], [ %.2, %244 ], [ %.2, %245 ], [ %.2, %243 ], [ %.2, %241 ], [ %.2, %230 ], [ %.2, %227 ], [ %.2, %228 ], [ %.2, %226 ], [ %.2, %225 ], [ %.2, %216 ], [ %.2, %217 ], [ %.2, %209 ], [ %.2, %213 ], [ %.2, %215 ], [ %.2, %208 ], [ %.2, %206 ], [ %.2, %192 ], [ %.2, %193 ], [ %.2, %190 ], [ %.2, %189 ], [ %.2, %184 ], [ %.2, %183 ], [ %.2, %175 ], [ %.2, %174 ], [ %.2, %164 ], [ %.2, %163 ], [ %.2, %157 ], [ %.2, %156 ], [ %.2, %143 ], [ %.2, %142 ], [ %.2, %137 ], [ %.2, %138 ], [ %.2, %132 ], [ %.2, %136 ], [ %.2, %135 ], [ %.2, %120 ], [ %.2, %119 ], [ %.2, %116 ], [ %.2, %114 ], [ %.2, %108 ], [ %.2, %109 ], [ %.2, %107 ], [ %.2, %106 ], [ %.2, %92 ], [ %.2, %93 ], [ %.2, %91 ], [ %.2, %90 ], [ %.2, %78 ], [ %.2, %77 ], [ %.2, %62 ], [ %.2, %63 ], [ %.2, %61 ], [ %.2, %60 ], [ %25, %27 ]
+  %268 = getelementptr i8, ptr %.1, i64 1
   br label %21, !llvm.loop !74
 
 process_log_prefix_padding.exit.thread:           ; preds = %.critedge.i, %32, %24, %21, %230, %17

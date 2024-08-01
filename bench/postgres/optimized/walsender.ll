@@ -1237,7 +1237,7 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %262, %.lr.ph.i.i, %
   br label %334
 
 334:                                              ; preds = %329, %325, %319
-  %.0.i58 = phi ptr [ %328, %325 ], [ null, %329 ], [ null, %319 ]
+  %.1.i = phi ptr [ %328, %325 ], [ null, %329 ], [ null, %319 ]
   call void @FreeDecodingContext(ptr noundef %324) #16
   %335 = load i8, ptr %283, align 8
   %336 = trunc i8 %335 to i1
@@ -1248,7 +1248,7 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %262, %.lr.ph.i.i, %
   br label %338
 
 338:                                              ; preds = %337, %334, %279, %276, %269
-  %.1.i = phi ptr [ null, %276 ], [ null, %279 ], [ null, %269 ], [ %.0.i58, %334 ], [ %.0.i58, %337 ]
+  %.0.i58 = phi ptr [ null, %276 ], [ null, %279 ], [ null, %269 ], [ %.1.i, %334 ], [ %.1.i, %337 ]
   %339 = load ptr, ptr @MyReplicationSlot, align 8
   %340 = getelementptr inbounds i8, ptr %339, i64 120
   %341 = load i64, ptr %340, align 8
@@ -1272,11 +1272,11 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %262, %.lr.ph.i.i, %
   %354 = ptrtoint ptr %353 to i64
   %355 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %354, ptr %355, align 8
-  %.not31.i = icmp eq ptr %.1.i, null
+  %.not31.i = icmp eq ptr %.0.i58, null
   br i1 %.not31.i, label %360, label %356
 
 356:                                              ; preds = %338
-  %357 = call ptr @cstring_to_text(ptr noundef nonnull %.1.i) #16
+  %357 = call ptr @cstring_to_text(ptr noundef nonnull %.0.i58) #16
   %358 = ptrtoint ptr %357 to i64
   %359 = getelementptr inbounds i8, ptr %11, i64 16
   store i64 %358, ptr %359, align 16

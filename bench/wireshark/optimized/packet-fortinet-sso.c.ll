@@ -220,13 +220,13 @@ define internal noundef i32 @dissect_fortinet_sso(ptr noundef %0, ptr nocapture 
   br i1 %.not137142, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %97, %.lr.ph
-  %.1143 = phi i32 [ %114, %.lr.ph ], [ %108, %97 ]
+  %.2143 = phi i32 [ %114, %.lr.ph ], [ %108, %97 ]
   %109 = load i32, ptr @hf_fsso_tsagent_port_range_min, align 4
-  %110 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %109, ptr noundef %0, i32 noundef %.1143, i32 noundef 2, i32 noundef 0) #2
-  %111 = add i32 %.1143, 2
+  %110 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %109, ptr noundef %0, i32 noundef %.2143, i32 noundef 2, i32 noundef 0) #2
+  %111 = add i32 %.2143, 2
   %112 = load i32, ptr @hf_fsso_tsagent_port_range_max, align 4
   %113 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %112, ptr noundef %0, i32 noundef %111, i32 noundef 2, i32 noundef 0) #2
-  %114 = add i32 %.1143, 4
+  %114 = add i32 %.2143, 4
   %115 = load i32, ptr %7, align 4
   %116 = add i32 %115, -1
   store i32 %116, ptr %7, align 4
@@ -234,8 +234,8 @@ define internal noundef i32 @dissect_fortinet_sso(ptr noundef %0, ptr nocapture 
   br i1 %.not137, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit:                                        ; preds = %.lr.ph, %97, %76, %82, %72
-  %.2 = phi i32 [ %75, %72 ], [ %96, %82 ], [ %.0, %76 ], [ %108, %97 ], [ %114, %.lr.ph ]
-  ret i32 %.2
+  %.1 = phi i32 [ %75, %72 ], [ %96, %82 ], [ %.0, %76 ], [ %108, %97 ], [ %114, %.lr.ph ]
+  ret i32 %.1
 }
 
 declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

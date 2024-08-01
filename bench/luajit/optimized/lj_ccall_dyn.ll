@@ -297,10 +297,10 @@ for.body.lr.ph.i:                                 ; preds = %while.end.i
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %o.0206.i = phi ptr [ %o.0189.i, %for.body.lr.ph.i ], [ %o.0.i, %for.inc.i ]
   %fid.1205.i = phi i32 [ %fid.0.le.i, %for.body.lr.ph.i ], [ %fid.2.i, %for.inc.i ]
-  %ngpr.1202.i = phi i32 [ %ngpr.0.i, %for.body.lr.ph.i ], [ %ngpr.3.i, %for.inc.i ]
-  %nsp.0199.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %nsp.2.i, %for.inc.i ]
+  %ngpr.1202.i = phi i32 [ %ngpr.0.i, %for.body.lr.ph.i ], [ %ngpr.2.i, %for.inc.i ]
+  %nsp.0199.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %nsp.1.i, %for.inc.i ]
   %narg.0194.i = phi i32 [ 1, %for.body.lr.ph.i ], [ %inc253.i, %for.inc.i ]
-  %nfpr.0191.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %nfpr.2.i, %for.inc.i ]
+  %nfpr.0191.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %nfpr.1.i, %for.inc.i ]
   %tobool52.not.i = icmp eq i32 %fid.1205.i, 0
   br i1 %tobool52.not.i, label %if.else60.i, label %if.then53.i
 
@@ -561,9 +561,9 @@ if.end183.i:                                      ; preds = %if.end167.i
 if.end187.i:                                      ; preds = %if.end183.i, %if.then161.i, %if.then149.i
   %div136159.i = phi i32 [ %div136169222.i, %if.then149.i ], [ %div136160.i, %if.end183.i ], [ %div136158176.i, %if.then161.i ]
   %cmp223153.i = phi i1 [ %cmp223167226.i, %if.then149.i ], [ %cmp223154.i, %if.end183.i ], [ false, %if.then161.i ]
-  %nfpr.1.i = phi i32 [ %add146.i, %if.then149.i ], [ %nfpr.0191.i, %if.end183.i ], [ %nfpr.0191.i, %if.then161.i ]
-  %nsp.1.i = phi i32 [ %nsp.0199.i, %if.then149.i ], [ %add179.i, %if.end183.i ], [ %nsp.0199.i, %if.then161.i ]
-  %ngpr.2.i = phi i32 [ %ngpr.1202.i, %if.then149.i ], [ %ngpr.1202.i, %if.end183.i ], [ %add158.i, %if.then161.i ]
+  %nfpr.2.i = phi i32 [ %add146.i, %if.then149.i ], [ %nfpr.0191.i, %if.end183.i ], [ %nfpr.0191.i, %if.then161.i ]
+  %nsp.2.i = phi i32 [ %nsp.0199.i, %if.then149.i ], [ %add179.i, %if.end183.i ], [ %nsp.0199.i, %if.then161.i ]
+  %ngpr.3.i = phi i32 [ %ngpr.1202.i, %if.then149.i ], [ %ngpr.1202.i, %if.end183.i ], [ %add158.i, %if.then161.i ]
   %dp51.0.i = phi ptr [ %arrayidx152.i, %if.then149.i ], [ %add.ptr178.i, %if.end183.i ], [ %arrayidx164.i, %if.then161.i ]
   %shl188.i = shl i32 %narg.0194.i, 8
   call void @lj_cconv_ct_tv(ptr noundef nonnull %3, ptr noundef nonnull %ct.i.0.i, ptr noundef nonnull %dp51.0.i, ptr noundef nonnull %o.0206.i, i32 noundef %shl188.i) #7
@@ -620,7 +620,7 @@ if.end222.i:                                      ; preds = %if.end222.sink.spli
   br i1 %or.cond1.i, label %land.lhs.true228.i, label %for.inc.i
 
 land.lhs.true228.i:                               ; preds = %if.end222.i
-  %sub230.i = add nsw i32 %nfpr.1.i, -2
+  %sub230.i = add nsw i32 %nfpr.2.i, -2
   %idxprom231.i = zext i32 %sub230.i to i64
   %arrayidx232.i = getelementptr inbounds [8 x %union.FPRArg], ptr %fpr.i, i64 0, i64 %idxprom231.i
   %cmp233.i = icmp eq ptr %dp51.0.i, %arrayidx232.i
@@ -629,7 +629,7 @@ land.lhs.true228.i:                               ; preds = %if.end222.i
 if.then235.i:                                     ; preds = %land.lhs.true228.i
   %arrayidx240.i = getelementptr inbounds i8, ptr %dp51.0.i, i64 8
   %53 = load double, ptr %arrayidx240.i, align 8
-  %sub242.i = add nsw i32 %nfpr.1.i, -1
+  %sub242.i = add nsw i32 %nfpr.2.i, -1
   %idxprom243.i = zext i32 %sub242.i to i64
   %arrayidx244.i = getelementptr inbounds [8 x %union.FPRArg], ptr %fpr.i, i64 0, i64 %idxprom243.i
   store double %53, ptr %arrayidx244.i, align 16
@@ -637,17 +637,17 @@ if.then235.i:                                     ; preds = %land.lhs.true228.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then235.i, %land.lhs.true228.i, %if.end222.i, %if.end121.i
-  %nfpr.2.i = phi i32 [ %nfpr.1.i, %if.then235.i ], [ %nfpr.1.i, %land.lhs.true228.i ], [ %nfpr.1.i, %if.end222.i ], [ %conv127.i, %if.end121.i ]
-  %nsp.2.i = phi i32 [ %nsp.1.i, %if.then235.i ], [ %nsp.1.i, %land.lhs.true228.i ], [ %nsp.1.i, %if.end222.i ], [ %conv123.i, %if.end121.i ]
-  %ngpr.3.i = phi i32 [ %ngpr.2.i, %if.then235.i ], [ %ngpr.2.i, %land.lhs.true228.i ], [ %ngpr.2.i, %if.end222.i ], [ %conv125.i, %if.end121.i ]
+  %nfpr.1.i = phi i32 [ %nfpr.2.i, %if.then235.i ], [ %nfpr.2.i, %land.lhs.true228.i ], [ %nfpr.2.i, %if.end222.i ], [ %conv127.i, %if.end121.i ]
+  %nsp.1.i = phi i32 [ %nsp.2.i, %if.then235.i ], [ %nsp.2.i, %land.lhs.true228.i ], [ %nsp.2.i, %if.end222.i ], [ %conv123.i, %if.end121.i ]
+  %ngpr.2.i = phi i32 [ %ngpr.3.i, %if.then235.i ], [ %ngpr.3.i, %land.lhs.true228.i ], [ %ngpr.3.i, %if.end222.i ], [ %conv125.i, %if.end121.i ]
   %inc253.i = add i32 %narg.0194.i, 1
   %o.0.i = getelementptr inbounds i8, ptr %o.0206.i, i64 8
   %cmp48.i = icmp ult ptr %o.0.i, %14
   br i1 %cmp48.i, label %for.body.i, label %for.end.loopexit.i, !llvm.loop !8
 
 for.end.loopexit.i:                               ; preds = %for.inc.i
-  %54 = trunc nuw i32 %nfpr.2.i to i8
-  %55 = trunc i32 %nsp.2.i to i8
+  %54 = trunc nuw i32 %nfpr.1.i to i8
+  %55 = trunc i32 %nsp.1.i to i8
   %56 = add i8 %55, 7
   br label %for.end.i
 

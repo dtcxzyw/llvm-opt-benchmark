@@ -993,7 +993,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorI8ration
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN8rationalD2Ev.exit77
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN8rationalD2Ev.exit77 ]
-  %is_int.0164 = phi i8 [ 0, %for.body.lr.ph ], [ %is_int.2, %_ZN8rationalD2Ev.exit77 ]
+  %is_int.0164 = phi i8 [ 0, %for.body.lr.ph ], [ %is_int.1, %_ZN8rationalD2Ev.exit77 ]
   %5 = load ptr, ptr %row, align 8
   %arrayidx.i14 = getelementptr inbounds %class.rational, ptr %5, i64 %indvars.iv
   store i32 0, ptr %val_i, align 8
@@ -1263,7 +1263,7 @@ if.end31thread-pre-split:                         ; preds = %.noexc.i
 
 if.end31:                                         ; preds = %if.end31thread-pre-split, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit67
   %37 = phi ptr [ %.pr, %if.end31thread-pre-split ], [ %retval.0.i49, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit67 ]
-  %is_int.1 = phi i8 [ %22, %if.end31thread-pre-split ], [ %is_int.0164, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit67 ]
+  %is_int.2 = phi i8 [ %22, %if.end31thread-pre-split ], [ %is_int.0164, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit67 ]
   %tobool.not.i.i.i.i = icmp eq ptr %37, null
   br i1 %tobool.not.i.i.i.i, label %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE7inc_refEPS0_.exit.i, label %if.then.i.i.i.i68
 
@@ -1343,7 +1343,7 @@ _ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_bac
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit, %invoke.cont9
-  %is_int.2 = phi i8 [ %is_int.0164, %invoke.cont9 ], [ %is_int.1, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit ]
+  %is_int.1 = phi i8 [ %is_int.0164, %invoke.cont9 ], [ %is_int.2, %_ZN15ref_buffer_coreI4expr19ref_manager_wrapperIS0_11ast_managerELj16EE9push_backEPS0_.exit ]
   %46 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %46, ptr noundef nonnull align 8 dereferenceable(16) %val_i)
           to label %.noexc.i75 unwind label %terminate.lpad.i74
@@ -1370,7 +1370,7 @@ ehcleanup:                                        ; preds = %lpad24, %lpad8
   br label %ehcleanup71
 
 for.end:                                          ; preds = %_ZN8rationalD2Ev.exit77, %entry, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit
-  %is_int.0.lcssa = phi i8 [ 0, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ], [ 0, %entry ], [ %is_int.2, %_ZN8rationalD2Ev.exit77 ]
+  %is_int.0.lcssa = phi i8 [ 0, %_ZNK6vectorI8rationalLb1EjE4sizeEv.exit ], [ 0, %entry ], [ %is_int.1, %_ZN8rationalD2Ev.exit77 ]
   %m_bv_sz.i = getelementptr inbounds i8, ptr %this, i64 80
   %49 = load i32, ptr %m_bv_sz.i, align 8
   %cmp.i78.not = icmp eq i32 %49, 0
@@ -3546,7 +3546,7 @@ _Z3modRK8rationalS1_RS_.exit:                     ; preds = %.noexc122
   br label %cleanup
 
 cleanup:                                          ; preds = %call4.i.i.i.i.i.noexc, %if.then.i.i.i.i.i, %if.then.i.i16.i.i, %_Z3modRK8rationalS1_RS_.exit, %invoke.cont20, %invoke.cont16
-  %retval.0 = phi i1 [ false, %invoke.cont16 ], [ false, %invoke.cont20 ], [ true, %_Z3modRK8rationalS1_RS_.exit ], [ false, %if.then.i.i16.i.i ], [ false, %if.then.i.i.i.i.i ], [ false, %call4.i.i.i.i.i.noexc ]
+  %retval.1 = phi i1 [ false, %invoke.cont16 ], [ false, %invoke.cont20 ], [ true, %_Z3modRK8rationalS1_RS_.exit ], [ false, %if.then.i.i16.i.i ], [ false, %if.then.i.i.i.i.i ], [ false, %call4.i.i.i.i.i.noexc ]
   %60 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef %60, ptr noundef nonnull align 8 dereferenceable(16) %big)
           to label %.noexc.i125 unwind label %terminate.lpad.i124
@@ -3584,8 +3584,8 @@ ehcleanup:                                        ; preds = %lpad6, %lpad
   resume { ptr, i32 } %.pn
 
 return:                                           ; preds = %.noexc.i129, %_ZNK6vectorI8rationalLb1EjE4backEv.exit
-  %retval.1 = phi i1 [ true, %_ZNK6vectorI8rationalLb1EjE4backEv.exit ], [ %retval.0, %.noexc.i129 ]
-  ret i1 %retval.1
+  %retval.0 = phi i1 [ true, %_ZNK6vectorI8rationalLb1EjE4backEv.exit ], [ %retval.1, %.noexc.i129 ]
+  ret i1 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

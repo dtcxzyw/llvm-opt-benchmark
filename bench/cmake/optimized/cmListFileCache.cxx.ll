@@ -1789,8 +1789,8 @@ _ZNSt8optionalI17cmListFileContextED2Ev.exit:     ; preds = %169, %_ZNSt22_Optio
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %_ZNSt8optionalI17cmListFileContextED2Ev.exit, %83, %59
-  %.124 = phi i1 [ false, %59 ], [ false, %83 ], [ %switch, %_ZNSt8optionalI17cmListFileContextED2Ev.exit ], [ false, %24 ]
-  ret i1 %.124
+  %.023 = phi i1 [ false, %59 ], [ false, %83 ], [ %switch, %_ZNSt8optionalI17cmListFileContextED2Ev.exit ], [ false, %24 ]
+  ret i1 %.023
 
 179:                                              ; preds = %.body, %88, %64
   %.pn34.pn = phi { ptr, i32 } [ %.pn34, %64 ], [ %.pn32, %88 ], [ %.pn.pn.pn, %.body ]
@@ -5302,8 +5302,8 @@ _ZN17cmListFileContextD2Ev.exit28:                ; preds = %_ZN19cmListFileBack
   resume { ptr, i32 } %.pn.pn
 
 217:                                              ; preds = %_ZNSt6vectorI18cmListFileArgumentSaIS0_EE12emplace_backIJRPcRNS0_9DelimiterERiEEERS0_DpOT_.exit, %_ZN17cmListFileContextD2Ev.exit28
-  %.112 = phi i1 [ %.not17, %_ZN17cmListFileContextD2Ev.exit28 ], [ true, %_ZNSt6vectorI18cmListFileArgumentSaIS0_EE12emplace_backIJRPcRNS0_9DelimiterERiEEERS0_DpOT_.exit ]
-  ret i1 %.112
+  %.011 = phi i1 [ %.not17, %_ZN17cmListFileContextD2Ev.exit28 ], [ true, %_ZNSt6vectorI18cmListFileArgumentSaIS0_EE12emplace_backIJRPcRNS0_9DelimiterERiEEERS0_DpOT_.exit ]
+  ret i1 %.011
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0

@@ -2992,16 +2992,16 @@ _ZN12regex_syntax3hir3Hir10into_parts17h84efbf12c1755b20E.exit: ; preds = %"_ZN4
 "_ZN4core3ptr58drop_in_place$LT$alloc..boxed..Box$LT$$u5b$u8$u5d$$GT$$GT$17h6decce12241c4b7aE.exit.thread": ; preds = %436, %279, %264, %245, %243, %.body141
   %.pn71278 = phi { ptr, i32 } [ %.pn67, %245 ], [ %.pn67, %243 ], [ %.pn64, %.body141 ], [ %265, %264 ], [ %280, %279 ], [ %eh.lpad-body179.ph, %436 ]
   %.139277 = phi i1 [ true, %245 ], [ true, %243 ], [ true, %.body141 ], [ true, %264 ], [ true, %279 ], [ false, %436 ]
-  %.148276 = phi i1 [ true, %245 ], [ true, %243 ], [ false, %.body141 ], [ false, %264 ], [ false, %279 ], [ false, %436 ]
-  %.151275 = phi i1 [ false, %245 ], [ false, %243 ], [ true, %.body141 ], [ true, %264 ], [ true, %279 ], [ false, %436 ]
+  %.249276 = phi i1 [ true, %245 ], [ true, %243 ], [ false, %.body141 ], [ false, %264 ], [ false, %279 ], [ false, %436 ]
+  %.252275 = phi i1 [ false, %245 ], [ false, %243 ], [ true, %.body141 ], [ true, %264 ], [ true, %279 ], [ false, %436 ]
   %437 = load ptr, ptr %26, align 8, !alias.scope !438, !nonnull !9, !noundef !9
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.15241997999693184539"(ptr noalias noundef nonnull readonly align 1 %49, ptr noundef nonnull %437, i64 noundef 8, i64 noundef 80)
           to label %427 unwind label %266
 
 438:                                              ; preds = %.thread312, %427
   %.pn73319 = phi { ptr, i32 } [ %428, %.thread312 ], [ %.pn71278, %427 ]
-  %.3318 = phi i1 [ %.047.ph, %.thread312 ], [ %.148276, %427 ]
-  %.353317 = phi i1 [ %.050.ph, %.thread312 ], [ %.151275, %427 ]
+  %.3318 = phi i1 [ %.047.ph, %.thread312 ], [ %.249276, %427 ]
+  %.353317 = phi i1 [ %.050.ph, %.thread312 ], [ %.252275, %427 ]
   %439 = load i64, ptr %27, align 8, !range !40, !noundef !9
   switch i64 %439, label %440 [
     i64 3, label %441

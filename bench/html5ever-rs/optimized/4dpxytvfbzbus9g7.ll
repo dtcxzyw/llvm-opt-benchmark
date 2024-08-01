@@ -617,13 +617,13 @@ define noundef align 8 dereferenceable_or_null(8) ptr @_ZN8xml5ever12tree_builde
   br label %15
 
 15:                                               ; preds = %10, %6
-  %.0.i = phi ptr [ %14, %10 ], [ null, %6 ]
+  %.1.i = phi ptr [ %14, %10 ], [ null, %6 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !86
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6b6a02c66fb8c484E.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6b6a02c66fb8c484E.exit": ; preds = %2, %15
-  %.1.i = phi ptr [ %.0.i, %15 ], [ null, %2 ]
-  ret ptr %.1.i
+  %.0.i = phi ptr [ %.1.i, %15 ], [ null, %2 ]
+  ret ptr %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable

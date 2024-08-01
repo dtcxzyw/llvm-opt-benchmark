@@ -2517,7 +2517,7 @@ invoke.cont:
   br i1 %cmp.i.i213, label %while.end, label %invoke.cont2
 
 while.cond.loopexit:                              ; preds = %if.end52
-  %cmp = icmp sgt i32 %found.3, 0
+  %cmp = icmp sgt i32 %found.2, 0
   br i1 %cmp, label %land.rhs, label %while.end.loopexit, !llvm.loop !22
 
 land.rhs:                                         ; preds = %while.cond.loopexit
@@ -2526,19 +2526,19 @@ land.rhs:                                         ; preds = %while.cond.loopexit
   br i1 %cmp.i.i, label %while.end.loopexit, label %invoke.cont2, !llvm.loop !22
 
 invoke.cont2:                                     ; preds = %invoke.cont, %land.rhs
-  %notsup.sroa.25.1221 = phi ptr [ %notsup.sroa.25.5, %land.rhs ], [ null, %invoke.cont ]
-  %result.sroa.16.1220 = phi i8 [ %result.sroa.16.4, %land.rhs ], [ 0, %invoke.cont ]
-  %result.sroa.19.1219 = phi ptr [ %result.sroa.19.4, %land.rhs ], [ null, %invoke.cont ]
-  %result.sroa.13.1218 = phi i8 [ %result.sroa.13.4, %land.rhs ], [ 0, %invoke.cont ]
-  %result.sroa.10.1217 = phi i8 [ %result.sroa.10.4, %land.rhs ], [ 0, %invoke.cont ]
-  %result.sroa.7.1216 = phi i8 [ %result.sroa.7.4, %land.rhs ], [ 0, %invoke.cont ]
-  %result.sroa.4.1215 = phi i8 [ %result.sroa.4.4, %land.rhs ], [ 0, %invoke.cont ]
-  %result.sroa.0.1214 = phi i8 [ %result.sroa.0.4, %land.rhs ], [ 0, %invoke.cont ]
-  %tobool.not.i.i.i.i.i = icmp eq ptr %notsup.sroa.25.1221, null
+  %notsup.sroa.25.0221 = phi ptr [ %notsup.sroa.25.3, %land.rhs ], [ null, %invoke.cont ]
+  %result.sroa.16.0220 = phi i8 [ %result.sroa.16.3, %land.rhs ], [ 0, %invoke.cont ]
+  %result.sroa.19.0219 = phi ptr [ %result.sroa.19.3, %land.rhs ], [ null, %invoke.cont ]
+  %result.sroa.13.0218 = phi i8 [ %result.sroa.13.3, %land.rhs ], [ 0, %invoke.cont ]
+  %result.sroa.10.0217 = phi i8 [ %result.sroa.10.3, %land.rhs ], [ 0, %invoke.cont ]
+  %result.sroa.7.0216 = phi i8 [ %result.sroa.7.3, %land.rhs ], [ 0, %invoke.cont ]
+  %result.sroa.4.0215 = phi i8 [ %result.sroa.4.3, %land.rhs ], [ 0, %invoke.cont ]
+  %result.sroa.0.0214 = phi i8 [ %result.sroa.0.3, %land.rhs ], [ 0, %invoke.cont ]
+  %tobool.not.i.i.i.i.i = icmp eq ptr %notsup.sroa.25.0221, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i: ; preds = %invoke.cont2
-  call void @_ZdaPv(ptr noundef nonnull %notsup.sroa.25.1221) #16
+  call void @_ZdaPv(ptr noundef nonnull %notsup.sroa.25.0221) #16
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i, %invoke.cont2
@@ -2547,22 +2547,22 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZNKSt14default_del
   br i1 %cmp.i.not171, label %while.end.loopexit, label %for.body
 
 for.body:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %if.end52
-  %result.sroa.0.2 = phi i8 [ %result.sroa.0.4, %if.end52 ], [ %result.sroa.0.1214, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %result.sroa.4.2 = phi i8 [ %result.sroa.4.4, %if.end52 ], [ %result.sroa.4.1215, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %result.sroa.7.2 = phi i8 [ %result.sroa.7.4, %if.end52 ], [ %result.sroa.7.1216, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %result.sroa.10.2 = phi i8 [ %result.sroa.10.4, %if.end52 ], [ %result.sroa.10.1217, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %result.sroa.13.2 = phi i8 [ %result.sroa.13.4, %if.end52 ], [ %result.sroa.13.1218, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %result.sroa.19.2 = phi ptr [ %result.sroa.19.4, %if.end52 ], [ %result.sroa.19.1219, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %result.sroa.16.2 = phi i8 [ %result.sroa.16.4, %if.end52 ], [ %result.sroa.16.1220, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.0.2 = phi i8 [ %notsup.sroa.0.4, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.5.2 = phi i8 [ %notsup.sroa.5.4, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.9.2 = phi i8 [ %notsup.sroa.9.4, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.13.2 = phi i8 [ %notsup.sroa.13.4, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.17.2 = phi i8 [ %notsup.sroa.17.4, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.25.2 = phi ptr [ %notsup.sroa.25.5, %if.end52 ], [ null, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.21.2 = phi i8 [ %notsup.sroa.21.4, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %found.1173 = phi i32 [ %found.3, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %it.sroa.0.0172 = phi ptr [ %it.sroa.0.2, %if.end52 ], [ %2, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %result.sroa.0.2 = phi i8 [ %result.sroa.0.3, %if.end52 ], [ %result.sroa.0.0214, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %result.sroa.4.2 = phi i8 [ %result.sroa.4.3, %if.end52 ], [ %result.sroa.4.0215, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %result.sroa.7.2 = phi i8 [ %result.sroa.7.3, %if.end52 ], [ %result.sroa.7.0216, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %result.sroa.10.2 = phi i8 [ %result.sroa.10.3, %if.end52 ], [ %result.sroa.10.0217, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %result.sroa.13.2 = phi i8 [ %result.sroa.13.3, %if.end52 ], [ %result.sroa.13.0218, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %result.sroa.19.2 = phi ptr [ %result.sroa.19.3, %if.end52 ], [ %result.sroa.19.0219, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %result.sroa.16.2 = phi i8 [ %result.sroa.16.3, %if.end52 ], [ %result.sroa.16.0220, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.0.2 = phi i8 [ %notsup.sroa.0.3, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.5.2 = phi i8 [ %notsup.sroa.5.3, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.9.2 = phi i8 [ %notsup.sroa.9.3, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.13.2 = phi i8 [ %notsup.sroa.13.3, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.17.2 = phi i8 [ %notsup.sroa.17.3, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.25.2 = phi ptr [ %notsup.sroa.25.3, %if.end52 ], [ null, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.21.2 = phi i8 [ %notsup.sroa.21.3, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %found.1173 = phi i32 [ %found.2, %if.end52 ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %it.sroa.0.0172 = phi ptr [ %it.sroa.0.1, %if.end52 ], [ %2, %_ZN7rocksdb6StatusD2Ev.exit ]
   %add.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.0172, i64 8
   %vtable = load ptr, ptr %configurable, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 104
@@ -2614,7 +2614,7 @@ if.then24:                                        ; preds = %invoke.cont20
   br label %if.end51
 
 lpad21:                                           ; preds = %cond.false.i55, %invoke.cont30, %cond.false.i
-  %notsup.sroa.25.3 = phi ptr [ %notsup.sroa.25.2, %cond.false.i55 ], [ %16, %invoke.cont30 ], [ %notsup.sroa.25.2, %cond.false.i ]
+  %notsup.sroa.25.6 = phi ptr [ %notsup.sroa.25.2, %cond.false.i55 ], [ %16, %invoke.cont30 ], [ %notsup.sroa.25.2, %cond.false.i ]
   %8 = landingpad { ptr, i32 }
           cleanup
   %9 = load ptr, ptr %state_.i33, align 8
@@ -2800,22 +2800,22 @@ _ZN7rocksdb6StatusaSERKS0_.exit65:                ; preds = %cond.end.i57, %_ZNS
   br label %if.end51
 
 if.end51:                                         ; preds = %_ZN7rocksdb6StatusaSERKS0_.exit65, %invoke.cont34, %invoke.cont45, %if.then24
-  %result.sroa.0.3 = phi i8 [ %result.sroa.0.2, %invoke.cont45 ], [ %30, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.0.2, %invoke.cont34 ], [ %result.sroa.0.2, %if.then24 ]
-  %result.sroa.4.3 = phi i8 [ %result.sroa.4.2, %invoke.cont45 ], [ %31, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.4.2, %invoke.cont34 ], [ %result.sroa.4.2, %if.then24 ]
-  %result.sroa.7.3 = phi i8 [ %result.sroa.7.2, %invoke.cont45 ], [ %32, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.7.2, %invoke.cont34 ], [ %result.sroa.7.2, %if.then24 ]
-  %result.sroa.10.3 = phi i8 [ %result.sroa.10.2, %invoke.cont45 ], [ %33, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.10.2, %invoke.cont34 ], [ %result.sroa.10.2, %if.then24 ]
-  %result.sroa.13.3 = phi i8 [ %result.sroa.13.2, %invoke.cont45 ], [ %34, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.13.2, %invoke.cont34 ], [ %result.sroa.13.2, %if.then24 ]
-  %result.sroa.19.3 = phi ptr [ %result.sroa.19.2, %invoke.cont45 ], [ %37, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.19.2, %invoke.cont34 ], [ %result.sroa.19.2, %if.then24 ]
-  %result.sroa.16.3 = phi i8 [ %result.sroa.16.2, %invoke.cont45 ], [ %35, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.16.2, %invoke.cont34 ], [ %result.sroa.16.2, %if.then24 ]
-  %notsup.sroa.0.3 = phi i8 [ %notsup.sroa.0.2, %invoke.cont45 ], [ %notsup.sroa.0.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ 3, %invoke.cont34 ], [ %notsup.sroa.0.2, %if.then24 ]
-  %notsup.sroa.5.3 = phi i8 [ %notsup.sroa.5.2, %invoke.cont45 ], [ %notsup.sroa.5.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %10, %invoke.cont34 ], [ %notsup.sroa.5.2, %if.then24 ]
-  %notsup.sroa.9.3 = phi i8 [ %notsup.sroa.9.2, %invoke.cont45 ], [ %notsup.sroa.9.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %11, %invoke.cont34 ], [ %notsup.sroa.9.2, %if.then24 ]
-  %notsup.sroa.13.3 = phi i8 [ %notsup.sroa.13.2, %invoke.cont45 ], [ %notsup.sroa.13.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %12, %invoke.cont34 ], [ %notsup.sroa.13.2, %if.then24 ]
-  %notsup.sroa.17.3 = phi i8 [ %notsup.sroa.17.2, %invoke.cont45 ], [ %notsup.sroa.17.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %13, %invoke.cont34 ], [ %notsup.sroa.17.2, %if.then24 ]
-  %notsup.sroa.25.4 = phi ptr [ %notsup.sroa.25.2, %invoke.cont45 ], [ %notsup.sroa.25.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %16, %invoke.cont34 ], [ %notsup.sroa.25.2, %if.then24 ]
-  %notsup.sroa.21.3 = phi i8 [ %notsup.sroa.21.2, %invoke.cont45 ], [ %notsup.sroa.21.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %14, %invoke.cont34 ], [ %notsup.sroa.21.2, %if.then24 ]
-  %it.sroa.0.1 = phi ptr [ %28, %invoke.cont45 ], [ %28, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %17, %invoke.cont34 ], [ %7, %if.then24 ]
-  %found.2 = phi i32 [ %inc, %invoke.cont45 ], [ %inc, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %found.1173, %invoke.cont34 ], [ %found.1173, %if.then24 ]
+  %result.sroa.0.4 = phi i8 [ %result.sroa.0.2, %invoke.cont45 ], [ %30, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.0.2, %invoke.cont34 ], [ %result.sroa.0.2, %if.then24 ]
+  %result.sroa.4.4 = phi i8 [ %result.sroa.4.2, %invoke.cont45 ], [ %31, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.4.2, %invoke.cont34 ], [ %result.sroa.4.2, %if.then24 ]
+  %result.sroa.7.4 = phi i8 [ %result.sroa.7.2, %invoke.cont45 ], [ %32, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.7.2, %invoke.cont34 ], [ %result.sroa.7.2, %if.then24 ]
+  %result.sroa.10.4 = phi i8 [ %result.sroa.10.2, %invoke.cont45 ], [ %33, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.10.2, %invoke.cont34 ], [ %result.sroa.10.2, %if.then24 ]
+  %result.sroa.13.4 = phi i8 [ %result.sroa.13.2, %invoke.cont45 ], [ %34, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.13.2, %invoke.cont34 ], [ %result.sroa.13.2, %if.then24 ]
+  %result.sroa.19.5 = phi ptr [ %result.sroa.19.2, %invoke.cont45 ], [ %37, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.19.2, %invoke.cont34 ], [ %result.sroa.19.2, %if.then24 ]
+  %result.sroa.16.4 = phi i8 [ %result.sroa.16.2, %invoke.cont45 ], [ %35, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %result.sroa.16.2, %invoke.cont34 ], [ %result.sroa.16.2, %if.then24 ]
+  %notsup.sroa.0.4 = phi i8 [ %notsup.sroa.0.2, %invoke.cont45 ], [ %notsup.sroa.0.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ 3, %invoke.cont34 ], [ %notsup.sroa.0.2, %if.then24 ]
+  %notsup.sroa.5.4 = phi i8 [ %notsup.sroa.5.2, %invoke.cont45 ], [ %notsup.sroa.5.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %10, %invoke.cont34 ], [ %notsup.sroa.5.2, %if.then24 ]
+  %notsup.sroa.9.4 = phi i8 [ %notsup.sroa.9.2, %invoke.cont45 ], [ %notsup.sroa.9.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %11, %invoke.cont34 ], [ %notsup.sroa.9.2, %if.then24 ]
+  %notsup.sroa.13.4 = phi i8 [ %notsup.sroa.13.2, %invoke.cont45 ], [ %notsup.sroa.13.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %12, %invoke.cont34 ], [ %notsup.sroa.13.2, %if.then24 ]
+  %notsup.sroa.17.4 = phi i8 [ %notsup.sroa.17.2, %invoke.cont45 ], [ %notsup.sroa.17.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %13, %invoke.cont34 ], [ %notsup.sroa.17.2, %if.then24 ]
+  %notsup.sroa.25.7 = phi ptr [ %notsup.sroa.25.2, %invoke.cont45 ], [ %notsup.sroa.25.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %16, %invoke.cont34 ], [ %notsup.sroa.25.2, %if.then24 ]
+  %notsup.sroa.21.4 = phi i8 [ %notsup.sroa.21.2, %invoke.cont45 ], [ %notsup.sroa.21.2, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %14, %invoke.cont34 ], [ %notsup.sroa.21.2, %if.then24 ]
+  %it.sroa.0.2 = phi ptr [ %28, %invoke.cont45 ], [ %28, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %17, %invoke.cont34 ], [ %7, %if.then24 ]
+  %found.3 = phi i32 [ %inc, %invoke.cont45 ], [ %inc, %_ZN7rocksdb6StatusaSERKS0_.exit65 ], [ %found.1173, %invoke.cont34 ], [ %found.1173, %if.then24 ]
   %38 = load ptr, ptr %state_.i33, align 8
   %cmp.not.i.i67 = icmp eq ptr %38, null
   br i1 %cmp.not.i.i67, label %_ZN7rocksdb6StatusD2Ev.exit69, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i68
@@ -2829,68 +2829,68 @@ _ZN7rocksdb6StatusD2Ev.exit69:                    ; preds = %if.end51, %_ZNKSt14
   br label %if.end52
 
 if.end52:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit69, %if.then
-  %result.sroa.0.4 = phi i8 [ %result.sroa.0.2, %if.then ], [ %result.sroa.0.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %result.sroa.4.4 = phi i8 [ %result.sroa.4.2, %if.then ], [ %result.sroa.4.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %result.sroa.7.4 = phi i8 [ %result.sroa.7.2, %if.then ], [ %result.sroa.7.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %result.sroa.10.4 = phi i8 [ %result.sroa.10.2, %if.then ], [ %result.sroa.10.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %result.sroa.13.4 = phi i8 [ %result.sroa.13.2, %if.then ], [ %result.sroa.13.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %result.sroa.19.4 = phi ptr [ %result.sroa.19.2, %if.then ], [ %result.sroa.19.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %result.sroa.16.4 = phi i8 [ %result.sroa.16.2, %if.then ], [ %result.sroa.16.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %notsup.sroa.0.4 = phi i8 [ %notsup.sroa.0.2, %if.then ], [ %notsup.sroa.0.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %notsup.sroa.5.4 = phi i8 [ %notsup.sroa.5.2, %if.then ], [ %notsup.sroa.5.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %notsup.sroa.9.4 = phi i8 [ %notsup.sroa.9.2, %if.then ], [ %notsup.sroa.9.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %notsup.sroa.13.4 = phi i8 [ %notsup.sroa.13.2, %if.then ], [ %notsup.sroa.13.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %notsup.sroa.17.4 = phi i8 [ %notsup.sroa.17.2, %if.then ], [ %notsup.sroa.17.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %notsup.sroa.25.5 = phi ptr [ %notsup.sroa.25.2, %if.then ], [ %notsup.sroa.25.4, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %notsup.sroa.21.4 = phi i8 [ %notsup.sroa.21.2, %if.then ], [ %notsup.sroa.21.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %it.sroa.0.2 = phi ptr [ %4, %if.then ], [ %it.sroa.0.1, %_ZN7rocksdb6StatusD2Ev.exit69 ]
-  %found.3 = phi i32 [ %found.1173, %if.then ], [ %found.2, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %result.sroa.0.3 = phi i8 [ %result.sroa.0.2, %if.then ], [ %result.sroa.0.4, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %result.sroa.4.3 = phi i8 [ %result.sroa.4.2, %if.then ], [ %result.sroa.4.4, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %result.sroa.7.3 = phi i8 [ %result.sroa.7.2, %if.then ], [ %result.sroa.7.4, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %result.sroa.10.3 = phi i8 [ %result.sroa.10.2, %if.then ], [ %result.sroa.10.4, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %result.sroa.13.3 = phi i8 [ %result.sroa.13.2, %if.then ], [ %result.sroa.13.4, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %result.sroa.19.3 = phi ptr [ %result.sroa.19.2, %if.then ], [ %result.sroa.19.5, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %result.sroa.16.3 = phi i8 [ %result.sroa.16.2, %if.then ], [ %result.sroa.16.4, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %notsup.sroa.0.3 = phi i8 [ %notsup.sroa.0.2, %if.then ], [ %notsup.sroa.0.4, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %notsup.sroa.5.3 = phi i8 [ %notsup.sroa.5.2, %if.then ], [ %notsup.sroa.5.4, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %notsup.sroa.9.3 = phi i8 [ %notsup.sroa.9.2, %if.then ], [ %notsup.sroa.9.4, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %notsup.sroa.13.3 = phi i8 [ %notsup.sroa.13.2, %if.then ], [ %notsup.sroa.13.4, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %notsup.sroa.17.3 = phi i8 [ %notsup.sroa.17.2, %if.then ], [ %notsup.sroa.17.4, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %notsup.sroa.25.3 = phi ptr [ %notsup.sroa.25.2, %if.then ], [ %notsup.sroa.25.7, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %notsup.sroa.21.3 = phi i8 [ %notsup.sroa.21.2, %if.then ], [ %notsup.sroa.21.4, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %it.sroa.0.1 = phi ptr [ %4, %if.then ], [ %it.sroa.0.2, %_ZN7rocksdb6StatusD2Ev.exit69 ]
+  %found.2 = phi i32 [ %found.1173, %if.then ], [ %found.3, %_ZN7rocksdb6StatusD2Ev.exit69 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #15
-  %cmp.i.not = icmp eq ptr %it.sroa.0.2, null
+  %cmp.i.not = icmp eq ptr %it.sroa.0.1, null
   br i1 %cmp.i.not, label %while.cond.loopexit, label %for.body, !llvm.loop !24
 
 ehcleanup:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit25, %lpad15
-  %notsup.sroa.25.6 = phi ptr [ %notsup.sroa.25.3, %_ZN7rocksdb6StatusD2Ev.exit25 ], [ %notsup.sroa.25.2, %lpad15 ]
+  %notsup.sroa.25.5 = phi ptr [ %notsup.sroa.25.6, %_ZN7rocksdb6StatusD2Ev.exit25 ], [ %notsup.sroa.25.2, %lpad15 ]
   %.pn = phi { ptr, i32 } [ %8, %_ZN7rocksdb6StatusD2Ev.exit25 ], [ %5, %lpad15 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #15
   br label %ehcleanup116
 
 while.end.loopexit:                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %while.cond.loopexit, %land.rhs
-  %result.sroa.0.5.ph = phi i8 [ %result.sroa.0.4, %land.rhs ], [ %result.sroa.0.4, %while.cond.loopexit ], [ %result.sroa.0.1214, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %result.sroa.4.5.ph = phi i8 [ %result.sroa.4.4, %land.rhs ], [ %result.sroa.4.4, %while.cond.loopexit ], [ %result.sroa.4.1215, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %result.sroa.7.5.ph = phi i8 [ %result.sroa.7.4, %land.rhs ], [ %result.sroa.7.4, %while.cond.loopexit ], [ %result.sroa.7.1216, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %result.sroa.10.5.ph = phi i8 [ %result.sroa.10.4, %land.rhs ], [ %result.sroa.10.4, %while.cond.loopexit ], [ %result.sroa.10.1217, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %result.sroa.13.5.ph = phi i8 [ %result.sroa.13.4, %land.rhs ], [ %result.sroa.13.4, %while.cond.loopexit ], [ %result.sroa.13.1218, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %result.sroa.19.5.ph = phi ptr [ %result.sroa.19.4, %land.rhs ], [ %result.sroa.19.4, %while.cond.loopexit ], [ %result.sroa.19.1219, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %result.sroa.16.5.ph = phi i8 [ %result.sroa.16.4, %land.rhs ], [ %result.sroa.16.4, %while.cond.loopexit ], [ %result.sroa.16.1220, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.0.5.ph = phi i8 [ %notsup.sroa.0.4, %land.rhs ], [ %notsup.sroa.0.4, %while.cond.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.5.5.ph = phi i8 [ %notsup.sroa.5.4, %land.rhs ], [ %notsup.sroa.5.4, %while.cond.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.9.5.ph = phi i8 [ %notsup.sroa.9.4, %land.rhs ], [ %notsup.sroa.9.4, %while.cond.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.13.5.ph = phi i8 [ %notsup.sroa.13.4, %land.rhs ], [ %notsup.sroa.13.4, %while.cond.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.17.5.ph = phi i8 [ %notsup.sroa.17.4, %land.rhs ], [ %notsup.sroa.17.4, %while.cond.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.25.7.ph = phi ptr [ %notsup.sroa.25.5, %land.rhs ], [ %notsup.sroa.25.5, %while.cond.loopexit ], [ null, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %notsup.sroa.21.5.ph = phi i8 [ %notsup.sroa.21.4, %land.rhs ], [ %notsup.sroa.21.4, %while.cond.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
-  %39 = and i8 %result.sroa.10.5.ph, 1
-  %40 = and i8 %result.sroa.13.5.ph, 1
-  %41 = and i8 %notsup.sroa.13.5.ph, 1
-  %42 = and i8 %notsup.sroa.17.5.ph, 1
+  %result.sroa.0.1.ph = phi i8 [ %result.sroa.0.3, %land.rhs ], [ %result.sroa.0.3, %while.cond.loopexit ], [ %result.sroa.0.0214, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %result.sroa.4.1.ph = phi i8 [ %result.sroa.4.3, %land.rhs ], [ %result.sroa.4.3, %while.cond.loopexit ], [ %result.sroa.4.0215, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %result.sroa.7.1.ph = phi i8 [ %result.sroa.7.3, %land.rhs ], [ %result.sroa.7.3, %while.cond.loopexit ], [ %result.sroa.7.0216, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %result.sroa.10.1.ph = phi i8 [ %result.sroa.10.3, %land.rhs ], [ %result.sroa.10.3, %while.cond.loopexit ], [ %result.sroa.10.0217, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %result.sroa.13.1.ph = phi i8 [ %result.sroa.13.3, %land.rhs ], [ %result.sroa.13.3, %while.cond.loopexit ], [ %result.sroa.13.0218, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %result.sroa.19.1.ph = phi ptr [ %result.sroa.19.3, %land.rhs ], [ %result.sroa.19.3, %while.cond.loopexit ], [ %result.sroa.19.0219, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %result.sroa.16.1.ph = phi i8 [ %result.sroa.16.3, %land.rhs ], [ %result.sroa.16.3, %while.cond.loopexit ], [ %result.sroa.16.0220, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.0.1.ph = phi i8 [ %notsup.sroa.0.3, %land.rhs ], [ %notsup.sroa.0.3, %while.cond.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.5.1.ph = phi i8 [ %notsup.sroa.5.3, %land.rhs ], [ %notsup.sroa.5.3, %while.cond.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.9.1.ph = phi i8 [ %notsup.sroa.9.3, %land.rhs ], [ %notsup.sroa.9.3, %while.cond.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.13.1.ph = phi i8 [ %notsup.sroa.13.3, %land.rhs ], [ %notsup.sroa.13.3, %while.cond.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.17.1.ph = phi i8 [ %notsup.sroa.17.3, %land.rhs ], [ %notsup.sroa.17.3, %while.cond.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.25.1.ph = phi ptr [ %notsup.sroa.25.3, %land.rhs ], [ %notsup.sroa.25.3, %while.cond.loopexit ], [ null, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %notsup.sroa.21.1.ph = phi i8 [ %notsup.sroa.21.3, %land.rhs ], [ %notsup.sroa.21.3, %while.cond.loopexit ], [ 0, %_ZN7rocksdb6StatusD2Ev.exit ]
+  %39 = and i8 %result.sroa.10.1.ph, 1
+  %40 = and i8 %result.sroa.13.1.ph, 1
+  %41 = and i8 %notsup.sroa.13.1.ph, 1
+  %42 = and i8 %notsup.sroa.17.1.ph, 1
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %invoke.cont
-  %result.sroa.0.5 = phi i8 [ 0, %invoke.cont ], [ %result.sroa.0.5.ph, %while.end.loopexit ]
-  %result.sroa.4.5 = phi i8 [ 0, %invoke.cont ], [ %result.sroa.4.5.ph, %while.end.loopexit ]
-  %result.sroa.7.5 = phi i8 [ 0, %invoke.cont ], [ %result.sroa.7.5.ph, %while.end.loopexit ]
-  %result.sroa.10.5 = phi i8 [ 0, %invoke.cont ], [ %39, %while.end.loopexit ]
-  %result.sroa.13.5 = phi i8 [ 0, %invoke.cont ], [ %40, %while.end.loopexit ]
-  %result.sroa.19.5 = phi ptr [ null, %invoke.cont ], [ %result.sroa.19.5.ph, %while.end.loopexit ]
-  %result.sroa.16.5 = phi i8 [ 0, %invoke.cont ], [ %result.sroa.16.5.ph, %while.end.loopexit ]
-  %notsup.sroa.0.5 = phi i8 [ 0, %invoke.cont ], [ %notsup.sroa.0.5.ph, %while.end.loopexit ]
-  %notsup.sroa.5.5 = phi i8 [ 0, %invoke.cont ], [ %notsup.sroa.5.5.ph, %while.end.loopexit ]
-  %notsup.sroa.9.5 = phi i8 [ 0, %invoke.cont ], [ %notsup.sroa.9.5.ph, %while.end.loopexit ]
-  %notsup.sroa.13.5 = phi i8 [ 0, %invoke.cont ], [ %41, %while.end.loopexit ]
-  %notsup.sroa.17.5 = phi i8 [ 0, %invoke.cont ], [ %42, %while.end.loopexit ]
-  %notsup.sroa.25.7 = phi ptr [ null, %invoke.cont ], [ %notsup.sroa.25.7.ph, %while.end.loopexit ]
-  %notsup.sroa.21.5 = phi i8 [ 0, %invoke.cont ], [ %notsup.sroa.21.5.ph, %while.end.loopexit ]
+  %result.sroa.0.1 = phi i8 [ 0, %invoke.cont ], [ %result.sroa.0.1.ph, %while.end.loopexit ]
+  %result.sroa.4.1 = phi i8 [ 0, %invoke.cont ], [ %result.sroa.4.1.ph, %while.end.loopexit ]
+  %result.sroa.7.1 = phi i8 [ 0, %invoke.cont ], [ %result.sroa.7.1.ph, %while.end.loopexit ]
+  %result.sroa.10.1 = phi i8 [ 0, %invoke.cont ], [ %39, %while.end.loopexit ]
+  %result.sroa.13.1 = phi i8 [ 0, %invoke.cont ], [ %40, %while.end.loopexit ]
+  %result.sroa.19.1 = phi ptr [ null, %invoke.cont ], [ %result.sroa.19.1.ph, %while.end.loopexit ]
+  %result.sroa.16.1 = phi i8 [ 0, %invoke.cont ], [ %result.sroa.16.1.ph, %while.end.loopexit ]
+  %notsup.sroa.0.1 = phi i8 [ 0, %invoke.cont ], [ %notsup.sroa.0.1.ph, %while.end.loopexit ]
+  %notsup.sroa.5.1 = phi i8 [ 0, %invoke.cont ], [ %notsup.sroa.5.1.ph, %while.end.loopexit ]
+  %notsup.sroa.9.1 = phi i8 [ 0, %invoke.cont ], [ %notsup.sroa.9.1.ph, %while.end.loopexit ]
+  %notsup.sroa.13.1 = phi i8 [ 0, %invoke.cont ], [ %41, %while.end.loopexit ]
+  %notsup.sroa.17.1 = phi i8 [ 0, %invoke.cont ], [ %42, %while.end.loopexit ]
+  %notsup.sroa.25.1 = phi ptr [ null, %invoke.cont ], [ %notsup.sroa.25.1.ph, %while.end.loopexit ]
+  %notsup.sroa.21.1 = phi i8 [ 0, %invoke.cont ], [ %notsup.sroa.21.1.ph, %while.end.loopexit ]
   %43 = load ptr, ptr %_M_before_begin.i.i, align 8
   %cmp.i71.not174 = icmp eq ptr %43, null
   br i1 %cmp.i71.not174, label %for.end84, label %for.body61
@@ -3005,23 +3005,23 @@ if.end95:                                         ; preds = %for.end84
   br label %cleanup
 
 invoke.cont98:                                    ; preds = %for.end84
-  %cmp.i116 = icmp eq i8 %result.sroa.0.5, 0
+  %cmp.i116 = icmp eq i8 %result.sroa.0.1, 0
   br i1 %cmp.i116, label %if.else106, label %if.end105
 
 if.end105:                                        ; preds = %invoke.cont98
   %state_.i.i118 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i8 %result.sroa.0.5, ptr %agg.result, align 8
+  store i8 %result.sroa.0.1, ptr %agg.result, align 8
   %subcode_5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 %result.sroa.4.5, ptr %subcode_5.i.i, align 1
+  store i8 %result.sroa.4.1, ptr %subcode_5.i.i, align 1
   %sev_7.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
-  store i8 %result.sroa.7.5, ptr %sev_7.i.i, align 2
+  store i8 %result.sroa.7.1, ptr %sev_7.i.i, align 2
   %retryable_9.i.i = getelementptr inbounds i8, ptr %agg.result, i64 3
-  store i8 %result.sroa.10.5, ptr %retryable_9.i.i, align 1
+  store i8 %result.sroa.10.1, ptr %retryable_9.i.i, align 1
   %data_loss_12.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
-  store i8 %result.sroa.13.5, ptr %data_loss_12.i.i, align 4
+  store i8 %result.sroa.13.1, ptr %data_loss_12.i.i, align 4
   %scope_15.i.i = getelementptr inbounds i8, ptr %agg.result, i64 5
-  store i8 %result.sroa.16.5, ptr %scope_15.i.i, align 1
-  store ptr %result.sroa.19.5, ptr %state_.i.i118, align 8
+  store i8 %result.sroa.16.1, ptr %scope_15.i.i, align 1
+  store ptr %result.sroa.19.1, ptr %state_.i.i118, align 8
   br label %cleanup
 
 if.else106:                                       ; preds = %invoke.cont98
@@ -3037,23 +3037,23 @@ if.end113:                                        ; preds = %if.else106
   br label %cleanup
 
 if.else115:                                       ; preds = %if.else106
-  store i8 %notsup.sroa.0.5, ptr %agg.result, align 8
+  store i8 %notsup.sroa.0.1, ptr %agg.result, align 8
   %subcode_5.i.i126 = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 %notsup.sroa.5.5, ptr %subcode_5.i.i126, align 1
+  store i8 %notsup.sroa.5.1, ptr %subcode_5.i.i126, align 1
   %sev_7.i.i128 = getelementptr inbounds i8, ptr %agg.result, i64 2
-  store i8 %notsup.sroa.9.5, ptr %sev_7.i.i128, align 2
+  store i8 %notsup.sroa.9.1, ptr %sev_7.i.i128, align 2
   %retryable_9.i.i130 = getelementptr inbounds i8, ptr %agg.result, i64 3
-  store i8 %notsup.sroa.13.5, ptr %retryable_9.i.i130, align 1
+  store i8 %notsup.sroa.13.1, ptr %retryable_9.i.i130, align 1
   %data_loss_12.i.i133 = getelementptr inbounds i8, ptr %agg.result, i64 4
-  store i8 %notsup.sroa.17.5, ptr %data_loss_12.i.i133, align 4
+  store i8 %notsup.sroa.17.1, ptr %data_loss_12.i.i133, align 4
   %scope_15.i.i136 = getelementptr inbounds i8, ptr %agg.result, i64 5
-  store i8 %notsup.sroa.21.5, ptr %scope_15.i.i136, align 1
-  store ptr %notsup.sroa.25.7, ptr %state_.i.i121, align 8
+  store i8 %notsup.sroa.21.1, ptr %scope_15.i.i136, align 1
+  store ptr %notsup.sroa.25.1, ptr %state_.i.i121, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.else115, %if.end105, %if.end113, %if.end95
-  %result.sroa.19.6 = phi ptr [ %result.sroa.19.5, %if.end95 ], [ %result.sroa.19.5, %if.end113 ], [ %result.sroa.19.5, %if.else115 ], [ null, %if.end105 ]
-  %notsup.sroa.25.8 = phi ptr [ %notsup.sroa.25.7, %if.end95 ], [ %notsup.sroa.25.7, %if.end113 ], [ null, %if.else115 ], [ %notsup.sroa.25.7, %if.end105 ]
+  %result.sroa.19.6 = phi ptr [ %result.sroa.19.1, %if.end95 ], [ %result.sroa.19.1, %if.end113 ], [ %result.sroa.19.1, %if.else115 ], [ null, %if.end105 ]
+  %notsup.sroa.25.8 = phi ptr [ %notsup.sroa.25.1, %if.end95 ], [ %notsup.sroa.25.1, %if.end113 ], [ null, %if.else115 ], [ %notsup.sroa.25.1, %if.end105 ]
   %59 = load ptr, ptr %_M_before_begin.i.i, align 8
   %tobool.not3.i.i.i.i = icmp eq ptr %59, null
   br i1 %tobool.not3.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, label %while.body.i.i.i.i
@@ -3102,24 +3102,24 @@ _ZN7rocksdb6StatusD2Ev.exit150:                   ; preds = %_ZN7rocksdb6StatusD
   ret void
 
 ehcleanup116:                                     ; preds = %lpad1.loopexit, %lpad1.loopexit.split-lp, %ehcleanup
-  %result.sroa.19.7 = phi ptr [ %result.sroa.19.5, %lpad1.loopexit ], [ %result.sroa.19.2, %ehcleanup ], [ %result.sroa.19.2, %lpad1.loopexit.split-lp ]
-  %notsup.sroa.25.9 = phi ptr [ %notsup.sroa.25.7, %lpad1.loopexit ], [ %notsup.sroa.25.6, %ehcleanup ], [ %notsup.sroa.25.2, %lpad1.loopexit.split-lp ]
+  %result.sroa.19.4 = phi ptr [ %result.sroa.19.1, %lpad1.loopexit ], [ %result.sroa.19.2, %ehcleanup ], [ %result.sroa.19.2, %lpad1.loopexit.split-lp ]
+  %notsup.sroa.25.4 = phi ptr [ %notsup.sroa.25.1, %lpad1.loopexit ], [ %notsup.sroa.25.5, %ehcleanup ], [ %notsup.sroa.25.2, %lpad1.loopexit.split-lp ]
   %.pn.pn = phi { ptr, i32 } [ %lpad.loopexit, %lpad1.loopexit ], [ %.pn, %ehcleanup ], [ %lpad.loopexit.split-lp, %lpad1.loopexit.split-lp ]
   call void @_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %unsupported) #15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %elem_name) #15
-  %cmp.not.i.i152 = icmp eq ptr %notsup.sroa.25.9, null
+  %cmp.not.i.i152 = icmp eq ptr %notsup.sroa.25.4, null
   br i1 %cmp.not.i.i152, label %_ZN7rocksdb6StatusD2Ev.exit154, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i153
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i153: ; preds = %ehcleanup116
-  call void @_ZdaPv(ptr noundef nonnull %notsup.sroa.25.9) #16
+  call void @_ZdaPv(ptr noundef nonnull %notsup.sroa.25.4) #16
   br label %_ZN7rocksdb6StatusD2Ev.exit154
 
 _ZN7rocksdb6StatusD2Ev.exit154:                   ; preds = %ehcleanup116, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i153
-  %cmp.not.i.i156 = icmp eq ptr %result.sroa.19.7, null
+  %cmp.not.i.i156 = icmp eq ptr %result.sroa.19.4, null
   br i1 %cmp.not.i.i156, label %_ZN7rocksdb6StatusD2Ev.exit158, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i157
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i157: ; preds = %_ZN7rocksdb6StatusD2Ev.exit154
-  call void @_ZdaPv(ptr noundef nonnull %result.sroa.19.7) #16
+  call void @_ZdaPv(ptr noundef nonnull %result.sroa.19.4) #16
   br label %_ZN7rocksdb6StatusD2Ev.exit158
 
 _ZN7rocksdb6StatusD2Ev.exit158:                   ; preds = %_ZN7rocksdb6StatusD2Ev.exit154, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i157

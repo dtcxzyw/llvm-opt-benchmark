@@ -1939,20 +1939,20 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit294:            ; preds = %_ZNSt12_Vector_base
   br i1 %532, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %524, %536
-  %.02431.i = phi i64 [ %537, %536 ], [ %526, %524 ]
-  %533 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %503, i64 %.02431.i
+  %.131.i = phi i64 [ %537, %536 ], [ %526, %524 ]
+  %533 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %503, i64 %.131.i
   %534 = load i32, ptr %533, align 4
   %535 = icmp sgt i32 %534, -1
   br i1 %535, label %536, label %.critedge.i
 
 536:                                              ; preds = %.lr.ph.i
-  %537 = add i64 %.02431.i, 1
+  %537 = add i64 %.131.i, 1
   %exitcond.not.i = icmp eq i64 %537, %531
   br i1 %exitcond.not.i, label %.critedge.thread.i, label %.lr.ph.i, !llvm.loop !27
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %524
-  %.024.lcssa.i = phi i64 [ %526, %524 ], [ %.02431.i, %.lr.ph.i ]
-  %538 = icmp eq i64 %.024.lcssa.i, %531
+  %.1.lcssa.i = phi i64 [ %526, %524 ], [ %.131.i, %.lr.ph.i ]
+  %538 = icmp eq i64 %.1.lcssa.i, %531
   br i1 %538, label %.critedge.thread.i, label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i
 
 .critedge.thread.i:                               ; preds = %536, %.critedge.i
@@ -1973,9 +1973,9 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit294:            ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i
 
 _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i: ; preds = %541, %540, %539, %.critedge.i
-  %.024.lcssa44.i = phi i64 [ -1, %541 ], [ -1, %540 ], [ %531, %539 ], [ %.024.lcssa.i, %.critedge.i ]
+  %.1.lcssa44.i = phi i64 [ -1, %541 ], [ -1, %540 ], [ %531, %539 ], [ %.1.lcssa.i, %.critedge.i ]
   %542 = phi ptr [ %503, %541 ], [ %503, %540 ], [ %.pre.i323, %539 ], [ %503, %.critedge.i ]
-  %543 = trunc i64 %.024.lcssa44.i to i32
+  %543 = trunc i64 %.1.lcssa44.i to i32
   %544 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %542, i64 %512, i32 2
   store i32 %543, ptr %544, align 4
   %545 = add i32 %543, 1
@@ -1985,11 +1985,11 @@ _ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i: ; preds = %5
 
 546:                                              ; preds = %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i, %.lr.ph417
   %547 = phi ptr [ %.pre42.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i ], [ %503, %.lr.ph417 ]
-  %.1.i = phi i64 [ %.024.lcssa44.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i ], [ %502, %.lr.ph417 ]
-  %548 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %547, i64 %.1.i
+  %.024.i = phi i64 [ %.1.lcssa44.i, %_ZNSt6vectorIN3gmx9HashedMapIiE9hashEntryESaIS3_EE6resizeEm.exit.i ], [ %502, %.lr.ph417 ]
+  %548 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %547, i64 %.024.i
   store i32 %499, ptr %548, align 4
   %549 = load ptr, ptr %3, align 8
-  %550 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %549, i64 %.1.i, i32 1
+  %550 = getelementptr inbounds %"struct.gmx::HashedMap<int>::hashEntry", ptr %549, i64 %.024.i, i32 1
   %551 = trunc nsw i64 %indvars.iv461 to i32
   store i32 %551, ptr %550, align 4
   %552 = load i32, ptr %159, align 8

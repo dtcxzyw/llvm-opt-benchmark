@@ -4018,7 +4018,7 @@ _ZN11CaseVisitor27getEnumCompletionCheckDTypeEPK7AstCase.exit: ; preds = %355, %
   br label %.loopexit
 
 .loopexit:                                        ; preds = %406, %.loopexit.sink.split, %383, %.loopexit248
-  %.0 = phi i1 [ %not.or.cond165.not562, %383 ], [ false, %.loopexit248 ], [ false, %.loopexit.sink.split ], [ true, %406 ]
+  %.1 = phi i1 [ %not.or.cond165.not562, %383 ], [ false, %.loopexit248 ], [ false, %.loopexit.sink.split ], [ true, %406 ]
   %407 = load ptr, ptr %82, align 8
   invoke void @_ZNSt8_Rb_treeIP7AstNodeSt4pairIKS1_P11AstCaseItemESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %407)
           to label %_ZNSt3mapIP7AstNodeP11AstCaseItemSt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit unwind label %408
@@ -4036,8 +4036,8 @@ _ZN11CaseVisitor27getEnumCompletionCheckDTypeEPK7AstCase.exit: ; preds = %355, %
   br label %411
 
 _ZNSt3mapIP7AstNodeP11AstCaseItemSt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit: ; preds = %.loopexit, %54
-  %.1 = phi i1 [ false, %54 ], [ %.0, %.loopexit ]
-  ret i1 %.1
+  %.0 = phi i1 [ false, %54 ], [ %.1, %.loopexit ]
+  ret i1 %.0
 
 411:                                              ; preds = %.body, %72
   %.pn161.pn = phi { ptr, i32 } [ %.pn161, %.body ], [ %73, %72 ]

@@ -831,9 +831,9 @@ namelist_add.exit137:                             ; preds = %namelist_add.exit, 
   br label %.backedge
 
 .backedge:                                        ; preds = %.thread, %79, %64, %54, %133, %131, %129, %128, %namelist_add.exit143, %namelist_add.exit140, %85, %62, %61, %60, %58
-  %.sroa.0.0.be = phi ptr [ %.sroa.0.0, %54 ], [ %.sroa.0.0, %133 ], [ %.sroa.0.0, %131 ], [ %.sroa.0.0, %129 ], [ %.sroa.0.0, %128 ], [ %.sroa.0.1, %namelist_add.exit143 ], [ %.sroa.0.0, %namelist_add.exit140 ], [ %.sroa.0.0, %85 ], [ %.sroa.0.0, %64 ], [ %.sroa.0.0, %79 ], [ %.sroa.0.0, %62 ], [ %.sroa.0.0, %61 ], [ %.sroa.0.0, %60 ], [ %.sroa.0.0, %58 ], [ %.sroa.0.0, %.thread ]
+  %.sroa.0.0.be = phi ptr [ %.sroa.0.0, %54 ], [ %.sroa.0.0, %133 ], [ %.sroa.0.0, %131 ], [ %.sroa.0.0, %129 ], [ %.sroa.0.0, %128 ], [ %.sroa.0.2, %namelist_add.exit143 ], [ %.sroa.0.0, %namelist_add.exit140 ], [ %.sroa.0.0, %85 ], [ %.sroa.0.0, %64 ], [ %.sroa.0.0, %79 ], [ %.sroa.0.0, %62 ], [ %.sroa.0.0, %61 ], [ %.sroa.0.0, %60 ], [ %.sroa.0.0, %58 ], [ %.sroa.0.0, %.thread ]
   %.sroa.5.0.be = phi i32 [ %.sroa.5.0, %54 ], [ %.sroa.5.0, %133 ], [ %.sroa.5.0, %131 ], [ %.sroa.5.0, %129 ], [ %.sroa.5.0, %128 ], [ %122, %namelist_add.exit143 ], [ %.sroa.5.0, %namelist_add.exit140 ], [ %.sroa.5.0, %85 ], [ %.sroa.5.0, %64 ], [ %.sroa.5.0, %79 ], [ %.sroa.5.0, %62 ], [ %.sroa.5.0, %61 ], [ %.sroa.5.0, %60 ], [ %.sroa.5.0, %58 ], [ %.sroa.5.0, %.thread ]
-  %.sroa.9.0.be = phi i32 [ %.sroa.9.0, %54 ], [ %.sroa.9.0, %133 ], [ %.sroa.9.0, %131 ], [ %.sroa.9.0, %129 ], [ %.sroa.9.0, %128 ], [ %.sroa.9.1, %namelist_add.exit143 ], [ %.sroa.9.0, %namelist_add.exit140 ], [ %.sroa.9.0, %85 ], [ %.sroa.9.0, %64 ], [ %.sroa.9.0, %79 ], [ %.sroa.9.0, %62 ], [ %.sroa.9.0, %61 ], [ %.sroa.9.0, %60 ], [ %.sroa.9.0, %58 ], [ %.sroa.9.0, %.thread ]
+  %.sroa.9.0.be = phi i32 [ %.sroa.9.0, %54 ], [ %.sroa.9.0, %133 ], [ %.sroa.9.0, %131 ], [ %.sroa.9.0, %129 ], [ %.sroa.9.0, %128 ], [ %.sroa.9.2, %namelist_add.exit143 ], [ %.sroa.9.0, %namelist_add.exit140 ], [ %.sroa.9.0, %85 ], [ %.sroa.9.0, %64 ], [ %.sroa.9.0, %79 ], [ %.sroa.9.0, %62 ], [ %.sroa.9.0, %61 ], [ %.sroa.9.0, %60 ], [ %.sroa.9.0, %58 ], [ %.sroa.9.0, %.thread ]
   %.0109.be = phi i32 [ %.0109, %54 ], [ %.0109, %133 ], [ %.0109, %131 ], [ %.0109, %129 ], [ %.0109, %128 ], [ %.0109, %namelist_add.exit143 ], [ %.0109, %namelist_add.exit140 ], [ 1, %85 ], [ %.0109, %64 ], [ %.0109, %79 ], [ %.0109, %62 ], [ %.0109, %61 ], [ %.0109, %60 ], [ %.0109, %58 ], [ %.0109, %.thread ]
   %.0107.be = phi i32 [ %.0107, %54 ], [ %.0107, %133 ], [ %.0107, %131 ], [ %.0107, %129 ], [ %.0107, %128 ], [ %.0107, %namelist_add.exit143 ], [ %.0107, %namelist_add.exit140 ], [ %.0107, %85 ], [ %.0107, %64 ], [ %.0107, %79 ], [ %.0107, %62 ], [ 1, %61 ], [ 0, %60 ], [ %.0107, %58 ], [ %.0107, %.thread ]
   %.0105.be = phi i64 [ %.0105, %54 ], [ %136, %133 ], [ %.0105, %131 ], [ %.0105, %129 ], [ %.0105, %128 ], [ %.0105, %namelist_add.exit143 ], [ %.0105, %namelist_add.exit140 ], [ %.0105, %85 ], [ %.0105, %64 ], [ %.0105, %79 ], [ %.0105, %62 ], [ %.0105, %61 ], [ %.0105, %60 ], [ %.0105, %58 ], [ %.0105, %.thread ]
@@ -935,11 +935,11 @@ namelist_add.exit140:                             ; preds = %92, %96
   br label %namelist_add.exit143
 
 namelist_add.exit143:                             ; preds = %112, %115
-  %.sroa.0.1 = phi ptr [ %121, %115 ], [ %.sroa.0.0, %112 ]
-  %.sroa.9.1 = phi i32 [ %118, %115 ], [ %.sroa.9.0, %112 ]
+  %.sroa.0.2 = phi ptr [ %121, %115 ], [ %.sroa.0.0, %112 ]
+  %.sroa.9.2 = phi i32 [ %118, %115 ], [ %.sroa.9.0, %112 ]
   %122 = add i32 %.sroa.5.0, 1
   %123 = sext i32 %.sroa.5.0 to i64
-  %124 = getelementptr %struct.namelist_entry_t, ptr %.sroa.0.1, i64 %123
+  %124 = getelementptr %struct.namelist_entry_t, ptr %.sroa.0.2, i64 %123
   %125 = call noalias ptr @strdup(ptr noundef readonly %113) #17
   store ptr %125, ptr %124, align 8
   %126 = getelementptr inbounds i8, ptr %124, i64 8

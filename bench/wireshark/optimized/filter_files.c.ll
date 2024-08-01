@@ -126,10 +126,10 @@ switch.lookup:                                    ; preds = %1
 
 29:                                               ; preds = %.loopexit, %25
   %.0137 = phi ptr [ null, %25 ], [ %.1138, %.loopexit ]
-  %.0126 = phi ptr [ %26, %25 ], [ %.5131, %.loopexit ]
-  %.0120 = phi ptr [ %27, %25 ], [ %.4124, %.loopexit ]
-  %.0115 = phi i32 [ 128, %25 ], [ %.5, %.loopexit ]
-  %.0114 = phi i32 [ 128, %25 ], [ %.4, %.loopexit ]
+  %.0126 = phi ptr [ %26, %25 ], [ %.2128, %.loopexit ]
+  %.0120 = phi ptr [ %27, %25 ], [ %.2122, %.loopexit ]
+  %.0115 = phi i32 [ 128, %25 ], [ %.1116, %.loopexit ]
+  %.0114 = phi i32 [ 128, %25 ], [ %.1, %.loopexit ]
   %.0111 = phi i32 [ 1, %25 ], [ %115, %.loopexit ]
   br label %30
 
@@ -171,8 +171,8 @@ skip_whitespace.exit:                             ; preds = %32
   br i1 %.not160, label %.loopexit, label %39, !llvm.loop !7
 
 .preheader181:                                    ; preds = %skip_whitespace.exit, %65
-  %.1127 = phi ptr [ %.3129, %65 ], [ %.0126, %skip_whitespace.exit ]
-  %.1116 = phi i32 [ %.3118, %65 ], [ %.0115, %skip_whitespace.exit ]
+  %.3129 = phi ptr [ %.6, %65 ], [ %.0126, %skip_whitespace.exit ]
+  %.2117 = phi i32 [ %.5, %65 ], [ %.0115, %skip_whitespace.exit ]
   %.0113 = phi i32 [ %69, %65 ], [ 0, %skip_whitespace.exit ]
   %41 = tail call i32 @getc(ptr noundef nonnull %.0139)
   %42 = icmp eq i32 %41, 13
@@ -195,21 +195,21 @@ getc_crlf.exit:                                   ; preds = %.preheader181, %43,
   ]
 
 45:                                               ; preds = %getc_crlf.exit
-  %.not153 = icmp slt i32 %.0113, %.1116
+  %.not153 = icmp slt i32 %.0113, %.2117
   br i1 %.not153, label %.thread, label %46
 
 46:                                               ; preds = %45
-  %47 = shl i32 %.1116, 1
+  %47 = shl i32 %.2117, 1
   %48 = or disjoint i32 %47, 1
   %49 = sext i32 %48 to i64
-  %50 = tail call ptr @g_realloc(ptr noundef %.1127, i64 noundef %49) #8
+  %50 = tail call ptr @g_realloc(ptr noundef %.3129, i64 noundef %49) #8
   br label %.thread
 
 .thread:                                          ; preds = %45, %46
-  %.2128 = phi ptr [ %50, %46 ], [ %.1127, %45 ]
-  %.2117 = phi i32 [ %47, %46 ], [ %.1116, %45 ]
+  %.5131 = phi ptr [ %50, %46 ], [ %.3129, %45 ]
+  %.4119 = phi i32 [ %47, %46 ], [ %.2117, %45 ]
   %51 = sext i32 %.0113 to i64
-  %52 = getelementptr i8, ptr %.2128, i64 %51
+  %52 = getelementptr i8, ptr %.5131, i64 %51
   store i8 0, ptr %52, align 1
   br label %74
 
@@ -238,30 +238,30 @@ getc_crlf.exit165:                                ; preds = %53, %56, %56
   br label %59
 
 59:                                               ; preds = %.sink.split, %getc_crlf.exit165, %getc_crlf.exit
-  %.2134 = phi i32 [ %.0.i164, %getc_crlf.exit165 ], [ %.0.i, %getc_crlf.exit ], [ 13, %.sink.split ]
-  %.not152 = icmp slt i32 %.0113, %.1116
+  %.3135 = phi i32 [ %.0.i164, %getc_crlf.exit165 ], [ %.0.i, %getc_crlf.exit ], [ 13, %.sink.split ]
+  %.not152 = icmp slt i32 %.0113, %.2117
   br i1 %.not152, label %65, label %60
 
 60:                                               ; preds = %59
-  %61 = shl i32 %.1116, 1
+  %61 = shl i32 %.2117, 1
   %62 = or disjoint i32 %61, 1
   %63 = sext i32 %62 to i64
-  %64 = tail call ptr @g_realloc(ptr noundef %.1127, i64 noundef %63) #8
+  %64 = tail call ptr @g_realloc(ptr noundef %.3129, i64 noundef %63) #8
   br label %65
 
 65:                                               ; preds = %60, %59
-  %.3129 = phi ptr [ %64, %60 ], [ %.1127, %59 ]
-  %.3118 = phi i32 [ %61, %60 ], [ %.1116, %59 ]
-  %66 = trunc i32 %.2134 to i8
+  %.6 = phi ptr [ %64, %60 ], [ %.3129, %59 ]
+  %.5 = phi i32 [ %61, %60 ], [ %.2117, %59 ]
+  %66 = trunc i32 %.3135 to i8
   %67 = sext i32 %.0113 to i64
-  %68 = getelementptr i8, ptr %.3129, i64 %67
+  %68 = getelementptr i8, ptr %.6, i64 %67
   store i8 %66, ptr %68, align 1
   %69 = add i32 %.0113, 1
   br label %.preheader181
 
 70:                                               ; preds = %getc_crlf.exit165, %getc_crlf.exit165, %getc_crlf.exit, %getc_crlf.exit
-  %.3135 = phi i32 [ %.0.i, %getc_crlf.exit ], [ %.0.i164, %getc_crlf.exit165 ], [ %.0.i, %getc_crlf.exit ], [ %.0.i164, %getc_crlf.exit165 ]
-  %cond = icmp eq i32 %.3135, -1
+  %.2134 = phi i32 [ %.0.i, %getc_crlf.exit ], [ %.0.i164, %getc_crlf.exit165 ], [ %.0.i, %getc_crlf.exit ], [ %.0.i164, %getc_crlf.exit165 ]
+  %cond = icmp eq i32 %.2134, -1
   br i1 %cond, label %71, label %73
 
 71:                                               ; preds = %70
@@ -304,25 +304,25 @@ skip_whitespace.exit167:                          ; preds = %76
 
 .preheader178:                                    ; preds = %skip_whitespace.exit167, %getc_crlf.exit169
   %.4136 = phi i32 [ %.0.i168, %getc_crlf.exit169 ], [ %75, %skip_whitespace.exit167 ]
-  %.1121 = phi ptr [ %.2122, %getc_crlf.exit169 ], [ %.0120, %skip_whitespace.exit167 ]
-  %.1 = phi i32 [ %.2, %getc_crlf.exit169 ], [ %.0114, %skip_whitespace.exit167 ]
+  %.3123 = phi ptr [ %.4124, %getc_crlf.exit169 ], [ %.0120, %skip_whitespace.exit167 ]
+  %.2 = phi i32 [ %.3, %getc_crlf.exit169 ], [ %.0114, %skip_whitespace.exit167 ]
   %.0112 = phi i32 [ %92, %getc_crlf.exit169 ], [ 0, %skip_whitespace.exit167 ]
-  %.not155 = icmp slt i32 %.0112, %.1
+  %.not155 = icmp slt i32 %.0112, %.2
   br i1 %.not155, label %88, label %83
 
 83:                                               ; preds = %.preheader178
-  %84 = shl i32 %.1, 1
+  %84 = shl i32 %.2, 1
   %85 = or disjoint i32 %84, 1
   %86 = sext i32 %85 to i64
-  %87 = tail call ptr @g_realloc(ptr noundef %.1121, i64 noundef %86) #8
+  %87 = tail call ptr @g_realloc(ptr noundef %.3123, i64 noundef %86) #8
   br label %88
 
 88:                                               ; preds = %83, %.preheader178
-  %.2122 = phi ptr [ %87, %83 ], [ %.1121, %.preheader178 ]
-  %.2 = phi i32 [ %84, %83 ], [ %.1, %.preheader178 ]
+  %.4124 = phi ptr [ %87, %83 ], [ %.3123, %.preheader178 ]
+  %.3 = phi i32 [ %84, %83 ], [ %.2, %.preheader178 ]
   %89 = trunc i32 %.4136 to i8
   %90 = sext i32 %.0112 to i64
-  %91 = getelementptr i8, ptr %.2122, i64 %90
+  %91 = getelementptr i8, ptr %.4124, i64 %90
   store i8 %89, ptr %91, align 1
   %92 = add i32 %.0112, 1
   %93 = tail call i32 @getc(ptr noundef nonnull %.0139)
@@ -353,26 +353,26 @@ getc_crlf.exit169:                                ; preds = %88, %95, %95, %97
   br i1 %.not157, label %.loopexit182.sink.split, label %.loopexit182
 
 101:                                              ; preds = %getc_crlf.exit169
-  %.not156 = icmp slt i32 %92, %.2
+  %.not156 = icmp slt i32 %92, %.3
   br i1 %.not156, label %107, label %102
 
 102:                                              ; preds = %101
-  %103 = shl i32 %.2, 1
+  %103 = shl i32 %.3, 1
   %104 = or disjoint i32 %103, 1
   %105 = sext i32 %104 to i64
-  %106 = tail call ptr @g_realloc(ptr noundef nonnull %.2122, i64 noundef %105) #8
+  %106 = tail call ptr @g_realloc(ptr noundef nonnull %.4124, i64 noundef %105) #8
   br label %107
 
 107:                                              ; preds = %102, %101
-  %.3123 = phi ptr [ %106, %102 ], [ %.2122, %101 ]
-  %.3 = phi i32 [ %103, %102 ], [ %.2, %101 ]
+  %.5125 = phi ptr [ %106, %102 ], [ %.4124, %101 ]
+  %.4 = phi i32 [ %103, %102 ], [ %.3, %101 ]
   %108 = sext i32 %92 to i64
-  %109 = getelementptr i8, ptr %.3123, i64 %108
+  %109 = getelementptr i8, ptr %.5125, i64 %108
   store i8 0, ptr %109, align 1
   %110 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
-  %111 = tail call noalias ptr @g_strdup(ptr noundef %.2128) #8
+  %111 = tail call noalias ptr @g_strdup(ptr noundef %.5131) #8
   store ptr %111, ptr %110, align 8
-  %112 = tail call noalias ptr @g_strdup(ptr noundef %.3123) #8
+  %112 = tail call noalias ptr @g_strdup(ptr noundef %.5125) #8
   %113 = getelementptr inbounds i8, ptr %110, i64 8
   store ptr %112, ptr %113, align 8
   %114 = tail call ptr @g_list_prepend(ptr noundef %.0137, ptr noundef nonnull %110) #8
@@ -380,23 +380,23 @@ getc_crlf.exit169:                                ; preds = %88, %95, %95, %97
 
 .loopexit:                                        ; preds = %30, %.preheader, %39, %skip_whitespace.exit, %107, %.loopexit180, %73
   %.1138 = phi ptr [ %.0137, %73 ], [ %.0137, %.loopexit180 ], [ %114, %107 ], [ %.0137, %skip_whitespace.exit ], [ %.0137, %39 ], [ %.0137, %.preheader ], [ %.0137, %30 ]
-  %.5131 = phi ptr [ %.1127, %73 ], [ %.2128, %.loopexit180 ], [ %.2128, %107 ], [ %.0126, %skip_whitespace.exit ], [ %.0126, %39 ], [ %.0126, %.preheader ], [ %.0126, %30 ]
-  %.4124 = phi ptr [ %.0120, %73 ], [ %.0120, %.loopexit180 ], [ %.3123, %107 ], [ %.0120, %skip_whitespace.exit ], [ %.0120, %39 ], [ %.0120, %.preheader ], [ %.0120, %30 ]
-  %.5 = phi i32 [ %.1116, %73 ], [ %.2117, %.loopexit180 ], [ %.2117, %107 ], [ %.0115, %skip_whitespace.exit ], [ %.0115, %39 ], [ %.0115, %.preheader ], [ %.0115, %30 ]
-  %.4 = phi i32 [ %.0114, %73 ], [ %.0114, %.loopexit180 ], [ %.3, %107 ], [ %.0114, %skip_whitespace.exit ], [ %.0114, %39 ], [ %.0114, %.preheader ], [ %.0114, %30 ]
+  %.2128 = phi ptr [ %.3129, %73 ], [ %.5131, %.loopexit180 ], [ %.5131, %107 ], [ %.0126, %skip_whitespace.exit ], [ %.0126, %39 ], [ %.0126, %.preheader ], [ %.0126, %30 ]
+  %.2122 = phi ptr [ %.0120, %73 ], [ %.0120, %.loopexit180 ], [ %.5125, %107 ], [ %.0120, %skip_whitespace.exit ], [ %.0120, %39 ], [ %.0120, %.preheader ], [ %.0120, %30 ]
+  %.1116 = phi i32 [ %.2117, %73 ], [ %.4119, %.loopexit180 ], [ %.4119, %107 ], [ %.0115, %skip_whitespace.exit ], [ %.0115, %39 ], [ %.0115, %.preheader ], [ %.0115, %30 ]
+  %.1 = phi i32 [ %.0114, %73 ], [ %.0114, %.loopexit180 ], [ %.4, %107 ], [ %.0114, %skip_whitespace.exit ], [ %.0114, %39 ], [ %.0114, %.preheader ], [ %.0114, %30 ]
   %115 = add i32 %.0111, 1
   br label %29
 
 .loopexit182.sink.split:                          ; preds = %99, %.loopexit179, %71
   %.sink320 = phi i64 [ 250, %71 ], [ 269, %.loopexit179 ], [ 304, %99 ]
-  %.6.ph = phi ptr [ %.1127, %71 ], [ %.2128, %.loopexit179 ], [ %.2128, %99 ]
-  %.5125.ph = phi ptr [ %.0120, %71 ], [ %.0120, %.loopexit179 ], [ %.2122, %99 ]
+  %.1127.ph = phi ptr [ %.3129, %71 ], [ %.5131, %.loopexit179 ], [ %.5131, %99 ]
+  %.1121.ph = phi ptr [ %.0120, %71 ], [ %.0120, %.loopexit179 ], [ %.4124, %99 ]
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.6, i32 noundef 5, ptr noundef nonnull @.str.7, i64 noundef %.sink320, ptr noundef nonnull @__func__.ws_filter_list_read, ptr noundef nonnull @.str.12, ptr noundef %.0140, i32 noundef %.0111) #8
   br label %.loopexit182
 
 .loopexit182:                                     ; preds = %30, %.loopexit182.sink.split, %99, %.loopexit179, %71
-  %.6 = phi ptr [ %.1127, %71 ], [ %.2128, %.loopexit179 ], [ %.2128, %99 ], [ %.6.ph, %.loopexit182.sink.split ], [ %.0126, %30 ]
-  %.5125 = phi ptr [ %.0120, %71 ], [ %.0120, %.loopexit179 ], [ %.2122, %99 ], [ %.5125.ph, %.loopexit182.sink.split ], [ %.0120, %30 ]
+  %.1127 = phi ptr [ %.3129, %71 ], [ %.5131, %.loopexit179 ], [ %.5131, %99 ], [ %.1127.ph, %.loopexit182.sink.split ], [ %.0126, %30 ]
+  %.1121 = phi ptr [ %.0120, %71 ], [ %.0120, %.loopexit179 ], [ %.4124, %99 ], [ %.1121.ph, %.loopexit182.sink.split ], [ %.0120, %30 ]
   %116 = tail call i32 @ferror(ptr noundef nonnull %.0139) #8
   %.not162 = icmp eq i32 %116, 0
   br i1 %.not162, label %121, label %117
@@ -411,8 +411,8 @@ getc_crlf.exit169:                                ; preds = %88, %95, %95, %97
 121:                                              ; preds = %117, %.loopexit182
   tail call void @g_free(ptr noundef %.0140) #8
   %122 = tail call i32 @fclose(ptr noundef nonnull %.0139)
-  tail call void @g_free(ptr noundef %.6) #8
-  tail call void @g_free(ptr noundef %.5125) #8
+  tail call void @g_free(ptr noundef %.1127) #8
+  tail call void @g_free(ptr noundef %.1121) #8
   store ptr %.0137, ptr %3, align 8
   br label %123
 

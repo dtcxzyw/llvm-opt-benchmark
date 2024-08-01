@@ -614,9 +614,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_126calcAffineCovariantRegionsERKN2c
 
 .lr.ph.i:                                         ; preds = %.outer.i, %274
   %.0163.ph801.i = phi float [ %281, %274 ], [ %.126.i.i, %.outer.i ]
-  %.0170.ph799.i = phi i8 [ 0, %274 ], [ %.3173.ph.i, %.outer.i ]
+  %.0170.ph799.i = phi i8 [ 0, %274 ], [ %.1171.ph.i, %.outer.i ]
   %.0175.ph798.i = phi i32 [ 0, %274 ], [ %893, %.outer.i ]
-  %.0189.ph797.i = phi float [ %286, %274 ], [ %.3192.ph.i, %.outer.i ]
+  %.0189.ph797.i = phi float [ %286, %274 ], [ %.1190.ph.i, %.outer.i ]
   %287 = phi <2 x i32> [ %283, %274 ], [ %683, %.outer.i ]
   %288 = call float @llvm.fmuladd.f32(float %.0189.ph797.i, float 2.000000e+00, float 1.000000e+00)
   %289 = call float @llvm.ceil.f32(float %.0189.ph797.i)
@@ -2206,8 +2206,8 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit35.i.i:           ; preds = %821
   br label %892
 
 892:                                              ; preds = %890, %859, %838
-  %.1190.i = phi float [ %.0189.ph797.i, %859 ], [ %891, %890 ], [ %.0189.ph797.i, %838 ]
-  %.1171.i = phi i8 [ 1, %859 ], [ %.0170.ph799.i, %890 ], [ %.0170.ph799.i, %838 ]
+  %.2191.i = phi float [ %.0189.ph797.i, %859 ], [ %891, %890 ], [ %.0189.ph797.i, %838 ]
+  %.2172.i = phi i8 [ 1, %859 ], [ %.0170.ph799.i, %890 ], [ %.0170.ph799.i, %838 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %93) #20
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %92) #20
   br label %.outer.i
@@ -2229,14 +2229,14 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit35.i.i:           ; preds = %821
   br label %897
 
 .outer.i:                                         ; preds = %892, %758
-  %.3192.ph.i = phi float [ %.0189.ph797.i, %758 ], [ %.1190.i, %892 ]
-  %.3173.ph.i = phi i8 [ %.0170.ph799.i, %758 ], [ %.1171.i, %892 ]
-  %.3168.ph.i = phi i1 [ true, %758 ], [ %852, %892 ]
+  %.1190.ph.i = phi float [ %.0189.ph797.i, %758 ], [ %.2191.i, %892 ]
+  %.1171.ph.i = phi i8 [ %.0170.ph799.i, %758 ], [ %.2172.i, %892 ]
+  %.1166.ph.i = phi i1 [ true, %758 ], [ %852, %892 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %82) #20
   %893 = add nuw nsw i32 %.0175.ph798.i, 1
   %894 = icmp ugt i32 %.0175.ph798.i, 9
-  %895 = trunc nuw i8 %.3173.ph.i to i1
-  %896 = or i1 %894, %.3168.ph.i
+  %895 = trunc nuw i8 %.1171.ph.i to i1
+  %896 = or i1 %894, %.1166.ph.i
   %or.cond393783.i = select i1 %896, i1 true, i1 %895
   br i1 %or.cond393783.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !26
 

@@ -562,13 +562,13 @@ if.then431:                                       ; preds = %if.end428
   br label %done
 
 done:                                             ; preds = %if.then203, %if.end211, %if.end216, %if.end221, %if.end228, %if.end233, %if.end167, %if.end187, %if.end194, %if.end238, %if.end245, %if.end250, %if.end255, %if.end262, %if.end267, %if.end272, %if.end277, %if.end284, %if.end289, %if.end294, %if.end299, %if.end304, %if.end309, %if.end314, %if.end319, %if.then328, %if.end338, %if.end343, %if.end348, %if.end353, %if.end358, %if.end363, %if.end368, %if.end373, %if.end378, %if.end383, %if.end388, %if.end393, %if.end398, %if.end403, %if.end408, %if.end413, %if.end418, %if.end423, %if.then116, %if.end428, %if.then431
-  %err.45 = phi i32 [ %call432, %if.then431 ], [ %call427, %if.end428 ], [ %call118, %if.then116 ], [ %call422, %if.end423 ], [ %call417, %if.end418 ], [ %call412, %if.end413 ], [ %call407, %if.end408 ], [ %call402, %if.end403 ], [ %call397, %if.end398 ], [ %call392, %if.end393 ], [ %call387, %if.end388 ], [ %call382, %if.end383 ], [ %call377, %if.end378 ], [ %call372, %if.end373 ], [ %call367, %if.end368 ], [ %call362, %if.end363 ], [ %call357, %if.end358 ], [ %call352, %if.end353 ], [ %call347, %if.end348 ], [ %call342, %if.end343 ], [ %call335, %if.end338 ], [ %call318, %if.end319 ], [ %call331, %if.then328 ], [ %call313, %if.end314 ], [ %call308, %if.end309 ], [ %call303, %if.end304 ], [ %call298, %if.end299 ], [ %call293, %if.end294 ], [ %call288, %if.end289 ], [ %call283, %if.end284 ], [ %call276, %if.end277 ], [ %call271, %if.end272 ], [ %call266, %if.end267 ], [ %call261, %if.end262 ], [ %call254, %if.end255 ], [ %call249, %if.end250 ], [ %call242, %if.end245 ], [ %call193, %if.end194 ], [ %call237, %if.end238 ], [ %call186, %if.end187 ], [ %call179, %if.end167 ], [ %call232, %if.end233 ], [ %call227, %if.end228 ], [ %call220, %if.end221 ], [ %call215, %if.end216 ], [ %call210, %if.end211 ], [ %call206, %if.then203 ]
+  %err.2 = phi i32 [ %call432, %if.then431 ], [ %call427, %if.end428 ], [ %call118, %if.then116 ], [ %call422, %if.end423 ], [ %call417, %if.end418 ], [ %call412, %if.end413 ], [ %call407, %if.end408 ], [ %call402, %if.end403 ], [ %call397, %if.end398 ], [ %call392, %if.end393 ], [ %call387, %if.end388 ], [ %call382, %if.end383 ], [ %call377, %if.end378 ], [ %call372, %if.end373 ], [ %call367, %if.end368 ], [ %call362, %if.end363 ], [ %call357, %if.end358 ], [ %call352, %if.end353 ], [ %call347, %if.end348 ], [ %call342, %if.end343 ], [ %call335, %if.end338 ], [ %call318, %if.end319 ], [ %call331, %if.then328 ], [ %call313, %if.end314 ], [ %call308, %if.end309 ], [ %call303, %if.end304 ], [ %call298, %if.end299 ], [ %call293, %if.end294 ], [ %call288, %if.end289 ], [ %call283, %if.end284 ], [ %call276, %if.end277 ], [ %call271, %if.end272 ], [ %call266, %if.end267 ], [ %call261, %if.end262 ], [ %call254, %if.end255 ], [ %call249, %if.end250 ], [ %call242, %if.end245 ], [ %call193, %if.end194 ], [ %call237, %if.end238 ], [ %call186, %if.end187 ], [ %call179, %if.end167 ], [ %call232, %if.end233 ], [ %call227, %if.end228 ], [ %call220, %if.end221 ], [ %call215, %if.end216 ], [ %call210, %if.end211 ], [ %call206, %if.then203 ]
   call void @sp_clear(ptr noundef nonnull %vla) #19
   call void @sp_clear(ptr noundef nonnull %vla37) #19
   br label %cleanup
 
 cleanup:                                          ; preds = %entry, %if.end106, %done, %if.then154
-  %retval.0 = phi i32 [ %call161, %if.then154 ], [ %err.45, %done ], [ %call105, %if.end106 ], [ %call, %entry ]
+  %retval.0 = phi i32 [ %call161, %if.then154 ], [ %err.2, %done ], [ %call105, %if.end106 ], [ %call, %entry ]
   ret i32 %retval.0
 }
 
@@ -1164,12 +1164,12 @@ if.then92:                                        ; preds = %if.end89
   br label %if.end100
 
 if.end100:                                        ; preds = %if.else, %if.then56, %if.then70, %if.end67, %if.then92, %if.end89, %if.then48
-  %err.3 = phi i32 [ %call74, %if.then70 ], [ %call66, %if.end67 ], [ %call97, %if.then92 ], [ %call88, %if.end89 ], [ %call49, %if.then48 ], [ %call59, %if.then56 ], [ %call80, %if.else ]
+  %err.1 = phi i32 [ %call74, %if.then70 ], [ %call66, %if.end67 ], [ %call97, %if.then92 ], [ %call88, %if.end89 ], [ %call49, %if.then48 ], [ %call59, %if.then56 ], [ %call80, %if.else ]
   call void @sp_clear(ptr noundef nonnull %vla) #19
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.end100
-  %err.4 = phi i32 [ %err.3, %if.end100 ], [ %call, %entry ]
+  %err.4 = phi i32 [ %err.1, %if.end100 ], [ %call, %entry ]
   ret i32 %err.4
 }
 
@@ -1605,7 +1605,7 @@ if.then34:                                        ; preds = %if.end32
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.end26, %if.then34, %if.end32, %if.end22, %if.end18
-  %err.1.ph = phi i32 [ %call31, %if.end32 ], [ %call.i44, %if.then34 ], [ %call23, %if.end22 ], [ %call19, %if.end18 ], [ %call28, %if.end26 ]
+  %err.0.ph = phi i32 [ %call31, %if.end32 ], [ %call.i44, %if.then34 ], [ %call23, %if.end22 ], [ %call19, %if.end18 ], [ %call28, %if.end26 ]
   call void @sp_clear(ptr noundef nonnull %call.i41) #19
   call void @sp_clear(ptr noundef nonnull %y.i33) #19
   call void @sp_clear(ptr noundef nonnull %z.i34) #19
@@ -1613,7 +1613,7 @@ if.then.i:                                        ; preds = %if.end26, %if.then3
   br label %wc_ecc_del_point_ex.exit
 
 wc_ecc_del_point_ex.exit:                         ; preds = %if.end3.i, %if.end3.i40, %if.then12.i37, %if.then12.i, %if.then.i
-  %err.170 = phi i32 [ %err.1.ph, %if.then.i ], [ %call9.i, %if.then12.i ], [ -125, %if.end3.i40 ], [ %call9.i35, %if.then12.i37 ], [ -125, %if.end3.i ]
+  %err.070 = phi i32 [ %err.0.ph, %if.then.i ], [ %call9.i, %if.then12.i ], [ -125, %if.end3.i40 ], [ %call9.i35, %if.then12.i37 ], [ -125, %if.end3.i ]
   br label %for.body39
 
 for.body39:                                       ; preds = %wc_ecc_del_point_ex.exit, %wc_ecc_del_point_ex.exit51
@@ -1638,7 +1638,7 @@ wc_ecc_del_point_ex.exit51:                       ; preds = %for.body39, %if.the
   br i1 %exitcond79.not, label %return, label %for.body39, !llvm.loop !11
 
 return:                                           ; preds = %wc_ecc_del_point_ex.exit51, %if.end, %entry
-  %retval.0 = phi i32 [ -170, %entry ], [ -217, %if.end ], [ %err.170, %wc_ecc_del_point_ex.exit51 ]
+  %retval.0 = phi i32 [ -170, %entry ], [ -217, %if.end ], [ %err.070, %wc_ecc_del_point_ex.exit51 ]
   ret i32 %retval.0
 }
 
@@ -1695,12 +1695,12 @@ if.then70:                                        ; preds = %if.end67
   br label %if.end76
 
 if.end76:                                         ; preds = %if.then49, %if.end, %if.end67, %if.then70, %if.then
-  %err.2 = phi i32 [ %call74, %if.then70 ], [ %call66, %if.end67 ], [ %call46, %if.then ], [ %call60, %if.end ], [ %call55, %if.then49 ]
+  %err.0 = phi i32 [ %call74, %if.then70 ], [ %call66, %if.end67 ], [ %call46, %if.then ], [ %call60, %if.end ], [ %call55, %if.then49 ]
   call void @sp_free(ptr noundef nonnull %vla) #19
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.end76
-  %err.3 = phi i32 [ %err.2, %if.end76 ], [ %call, %entry ]
+  %err.3 = phi i32 [ %err.0, %if.end76 ], [ %call, %entry ]
   ret i32 %err.3
 }
 
@@ -2630,7 +2630,7 @@ if.then47:                                        ; preds = %lor.lhs.false
 
 wc_ecc_del_point_ex.exit:                         ; preds = %if.end14, %if.then35, %lor.lhs.false, %if.end23, %if.end28, %if.end33, %if.then47
   %x.041 = phi i32 [ %call37, %if.then47 ], [ 0, %if.end33 ], [ 0, %if.end28 ], [ 0, %if.end23 ], [ %call37, %lor.lhs.false ], [ %call37, %if.then35 ], [ 0, %if.end14 ]
-  %err.6 = phi i32 [ %call53, %if.then47 ], [ %call32, %if.end33 ], [ %call27, %if.end28 ], [ %call22, %if.end23 ], [ -132, %lor.lhs.false ], [ -132, %if.then35 ], [ -236, %if.end14 ]
+  %err.7 = phi i32 [ %call53, %if.then47 ], [ %call32, %if.end33 ], [ %call27, %if.end28 ], [ %call22, %if.end23 ], [ -132, %lor.lhs.false ], [ -132, %if.then35 ], [ -236, %if.end14 ]
   store i32 %x.041, ptr %outlen, align 4
   call void @sp_forcezero(ptr noundef nonnull %call.i) #19
   call void @sp_forcezero(ptr noundef nonnull %y.i) #19
@@ -2640,19 +2640,19 @@ wc_ecc_del_point_ex.exit:                         ; preds = %if.end14, %if.then3
   br label %errout.sink.split.sink.split
 
 errout.sink.split.sink.split:                     ; preds = %if.end6.i, %wc_ecc_del_point_ex.exit
-  %err.7.ph.ph = phi i32 [ %err.6, %wc_ecc_del_point_ex.exit ], [ %call9.i, %if.end6.i ]
+  %err.1.ph.ph = phi i32 [ %err.7, %wc_ecc_del_point_ex.exit ], [ %call9.i, %if.end6.i ]
   call void @wolfSSL_Free(ptr noundef nonnull %call.i) #19
   br label %errout.sink.split
 
 errout.sink.split:                                ; preds = %errout.sink.split.sink.split, %if.end3.i
-  %err.7.ph = phi i32 [ -125, %if.end3.i ], [ %err.7.ph.ph, %errout.sink.split.sink.split ]
+  %err.1.ph = phi i32 [ -125, %if.end3.i ], [ %err.1.ph.ph, %errout.sink.split.sink.split ]
   %.sink = load ptr, ptr %curve, align 8
   call fastcc void @wc_ecc_curve_free(ptr noundef %.sink)
   br label %errout
 
 errout:                                           ; preds = %errout.sink.split, %entry
-  %err.7 = phi i32 [ %call, %entry ], [ %err.7.ph, %errout.sink.split ]
-  ret i32 %err.7
+  %err.1 = phi i32 [ %call, %entry ], [ %err.1.ph, %errout.sink.split ]
+  ret i32 %err.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3316,16 +3316,16 @@ if.end61.fold.split:                              ; preds = %if.then44
   br label %if.end61
 
 if.end61:                                         ; preds = %if.then44, %if.end61.fold.split, %if.end42, %if.then56, %if.end36, %if.end32, %if.end26
-  %err.777 = phi i32 [ %call25, %if.end26 ], [ %call31, %if.end32 ], [ %call35, %if.end36 ], [ %call58, %if.then56 ], [ %call41, %if.end42 ], [ -125, %if.then44 ], [ %call50, %if.end61.fold.split ]
+  %err.877 = phi i32 [ %call25, %if.end26 ], [ %call31, %if.end32 ], [ %call35, %if.end36 ], [ %call58, %if.then56 ], [ %call41, %if.end42 ], [ -125, %if.then44 ], [ %call50, %if.end61.fold.split ]
   call void @sp_clear(ptr noundef nonnull %call.i) #19
   call void @sp_clear(ptr noundef nonnull %y.i) #19
   call void @sp_clear(ptr noundef nonnull %z.i) #19
   call void @wolfSSL_Free(ptr noundef nonnull %call.i) #19
-  %cmp62.not = icmp eq i32 %err.777, 0
+  %cmp62.not = icmp eq i32 %err.877, 0
   br i1 %cmp62.not, label %if.end70, label %if.then63
 
 if.then63:                                        ; preds = %if.end3.i, %if.then12.i, %lor.lhs.false, %land.lhs.true, %if.end17, %if.end61
-  %err.898 = phi i32 [ %err.777, %if.end61 ], [ %call16, %if.end17 ], [ -216, %land.lhs.true ], [ -216, %lor.lhs.false ], [ -125, %if.end3.i ], [ %call9.i, %if.then12.i ]
+  %err.298 = phi i32 [ %err.877, %if.end61 ], [ %call16, %if.end17 ], [ -216, %land.lhs.true ], [ -216, %lor.lhs.false ], [ -125, %if.end3.i ], [ %call9.i, %if.then12.i ]
   call void @sp_clear(ptr noundef nonnull %pub.0) #19
   %y66 = getelementptr inbounds i8, ptr %pub.0, i64 1040
   call void @sp_clear(ptr noundef nonnull %y66) #19
@@ -3334,7 +3334,7 @@ if.then63:                                        ; preds = %if.end3.i, %if.then
   br label %if.end70
 
 if.end70:                                         ; preds = %if.then63, %if.end61
-  %err.899 = phi i32 [ %err.898, %if.then63 ], [ 0, %if.end61 ]
+  %err.299 = phi i32 [ %err.298, %if.then63 ], [ 0, %if.end61 ]
   %10 = load i32, ptr %key, align 8
   %cmp72 = icmp eq i32 %10, 3
   %or.cond = and i1 %cmp1.not, %cmp72
@@ -3345,7 +3345,7 @@ if.then75:                                        ; preds = %if.end70
   br label %return
 
 return:                                           ; preds = %if.end70, %if.then75, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ %err.899, %if.then75 ], [ %err.899, %if.end70 ]
+  %retval.0 = phi i32 [ -173, %entry ], [ %err.299, %if.then75 ], [ %err.299, %if.end70 ]
   ret i32 %retval.0
 }
 
@@ -4067,12 +4067,12 @@ do.body.preheader:                                ; preds = %cond.end76
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %if.end89
-  %loop_check.0 = phi i32 [ %inc, %if.end89 ], [ 0, %do.body.preheader ]
-  %exitcond = icmp eq i32 %loop_check.0, 64
+  %loop_check.1 = phi i32 [ %inc, %if.end89 ], [ 0, %do.body.preheader ]
+  %exitcond = icmp eq i32 %loop_check.1, 64
   br i1 %exitcond, label %for.end, label %if.end89
 
 if.end89:                                         ; preds = %do.body
-  %inc = add nuw nsw i32 %loop_check.0, 1
+  %inc = add nuw nsw i32 %loop_check.1, 1
   %9 = load ptr, ptr %dp, align 8
   %10 = load i32, ptr %9, align 8
   %11 = load ptr, ptr %order, align 8
@@ -4171,9 +4171,9 @@ if.end180:                                        ; preds = %if.end172, %if.end1
   br i1 %exitcond108, label %for.end, label %if.end102
 
 for.end:                                          ; preds = %do.body, %if.end102, %if.end110, %if.then122, %if.end136, %if.end142, %if.end148, %if.end154, %if.end160, %if.end166, %if.end172, %if.end180, %cond.end76, %if.end95
-  %err.5 = phi i32 [ %call92, %if.end95 ], [ %call, %cond.end76 ], [ %call106, %if.end102 ], [ %call113, %if.end110 ], [ %call132, %if.then122 ], [ %call138, %if.end136 ], [ %call144, %if.end142 ], [ %call150, %if.end148 ], [ %call156, %if.end154 ], [ %call162, %if.end160 ], [ %call168, %if.end166 ], [ 0, %if.end172 ], [ -199, %if.end180 ], [ -199, %do.body ]
+  %err.4 = phi i32 [ %call92, %if.end95 ], [ %call, %cond.end76 ], [ %call106, %if.end102 ], [ %call113, %if.end110 ], [ %call132, %if.then122 ], [ %call138, %if.end136 ], [ %call144, %if.end142 ], [ %call150, %if.end148 ], [ %call156, %if.end154 ], [ %call162, %if.end160 ], [ %call168, %if.end166 ], [ 0, %if.end172 ], [ -199, %if.end180 ], [ -199, %do.body ]
   call void @sp_forcezero(ptr noundef nonnull %vla7892) #19
-  ret i32 %err.5
+  ret i32 %err.4
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4361,8 +4361,8 @@ if.then115:                                       ; preds = %if.end111
   br label %if.end121
 
 if.end121:                                        ; preds = %if.else96, %if.end105, %if.then81, %if.else37, %if.end, %if.end13.i69, %if.end6.i64, %if.end.i60, %if.then13, %if.end13.i, %if.end6.i, %if.end.i, %if.then, %if.else58, %land.lhs.true61, %if.end111, %if.then115, %if.else93, %if.then90, %if.end88, %if.then35, %if.then55, %if.end51
-  %err.5 = phi i32 [ %call36, %if.then35 ], [ 0, %if.then55 ], [ %call50, %if.end51 ], [ %call91, %if.then90 ], [ %call87, %if.end88 ], [ %call94, %if.else93 ], [ 0, %if.then115 ], [ %call110, %if.end111 ], [ 0, %land.lhs.true61 ], [ %call59, %if.else58 ], [ -170, %if.then ], [ %call.i, %if.end.i ], [ %call10.i, %if.end6.i ], [ %call17.i, %if.end13.i ], [ -170, %if.then13 ], [ %call.i61, %if.end.i60 ], [ %call10.i67, %if.end6.i64 ], [ %call17.i72, %if.end13.i69 ], [ %call45, %if.end ], [ %call40, %if.else37 ], [ %call82, %if.then81 ], [ %call104, %if.end105 ], [ %call99, %if.else96 ]
-  ret i32 %err.5
+  %err.0 = phi i32 [ %call36, %if.then35 ], [ 0, %if.then55 ], [ %call50, %if.end51 ], [ %call91, %if.then90 ], [ %call87, %if.end88 ], [ %call94, %if.else93 ], [ 0, %if.then115 ], [ %call110, %if.end111 ], [ 0, %land.lhs.true61 ], [ %call59, %if.else58 ], [ -170, %if.then ], [ %call.i, %if.end.i ], [ %call10.i, %if.end6.i ], [ %call17.i, %if.end13.i ], [ -170, %if.then13 ], [ %call.i61, %if.end.i60 ], [ %call10.i67, %if.end6.i64 ], [ %call17.i72, %if.end13.i69 ], [ %call45, %if.end ], [ %call40, %if.else37 ], [ %call82, %if.then81 ], [ %call104, %if.end105 ], [ %call99, %if.else96 ]
+  ret i32 %err.0
 }
 
 declare i32 @sp_mont_norm(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -4428,8 +4428,8 @@ if.then20:                                        ; preds = %if.end
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then10, %if.end13.i, %if.end6.i, %if.end.i, %if.then, %if.else, %land.lhs.true6, %if.then20, %if.end
-  %err.1 = phi i32 [ %call23, %if.then20 ], [ %call18, %if.end ], [ 0, %land.lhs.true6 ], [ %call4, %if.else ], [ -170, %if.then ], [ %call.i, %if.end.i ], [ %call10.i, %if.end6.i ], [ %call17.i, %if.end13.i ], [ %call13, %if.then10 ]
-  ret i32 %err.1
+  %err.0 = phi i32 [ %call23, %if.then20 ], [ %call18, %if.end ], [ 0, %land.lhs.true6 ], [ %call4, %if.else ], [ -170, %if.then ], [ %call.i, %if.end.i ], [ %call10.i, %if.end6.i ], [ %call17.i, %if.end13.i ], [ %call13, %if.then10 ]
+  ret i32 %err.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4573,14 +4573,14 @@ if.end81:                                         ; preds = %if.end74
 
 for.cond87.preheader:                             ; preds = %if.end81, %for.inc104
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %for.inc104 ], [ 1, %if.end81 ]
-  %err.10188 = phi i32 [ %err.12, %for.inc104 ], [ 0, %if.end81 ]
+  %err.11188 = phi i32 [ %err.13, %for.inc104 ], [ 0, %if.end81 ]
   %arrayidx93 = getelementptr inbounds [16 x ptr], ptr %precomp, i64 0, i64 %indvars.iv212
   br label %for.body89
 
 for.body89:                                       ; preds = %for.cond87.preheader, %for.inc101
   %indvars.iv206 = phi i64 [ 1, %for.cond87.preheader ], [ %indvars.iv.next207, %for.inc101 ]
-  %err.11186 = phi i32 [ %err.10188, %for.cond87.preheader ], [ %err.12, %for.inc101 ]
-  %cmp90 = icmp eq i32 %err.11186, 0
+  %err.12186 = phi i32 [ %err.11188, %for.cond87.preheader ], [ %err.13, %for.inc101 ]
+  %cmp90 = icmp eq i32 %err.12186, 0
   br i1 %cmp90, label %if.then91, label %for.inc101
 
 if.then91:                                        ; preds = %for.body89
@@ -4596,7 +4596,7 @@ if.then91:                                        ; preds = %for.body89
   br label %for.inc101
 
 for.inc101:                                       ; preds = %for.body89, %if.then91
-  %err.12 = phi i32 [ %call99, %if.then91 ], [ %err.11186, %for.body89 ]
+  %err.13 = phi i32 [ %call99, %if.then91 ], [ %err.12186, %for.body89 ]
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next207, 4
   br i1 %exitcond211.not, label %for.inc104, label %for.body89, !llvm.loop !21
@@ -4607,7 +4607,7 @@ for.inc104:                                       ; preds = %for.inc101
   br i1 %exitcond215.not, label %if.end107, label %for.cond87.preheader, !llvm.loop !22
 
 if.end107:                                        ; preds = %for.inc104
-  %cmp108 = icmp eq i32 %err.12, 0
+  %cmp108 = icmp eq i32 %err.13, 0
   br i1 %cmp108, label %if.then109, label %if.end228
 
 if.then109:                                       ; preds = %if.end107
@@ -4622,7 +4622,7 @@ if.then109:                                       ; preds = %if.end107
 
 for.cond113.outer:                                ; preds = %if.end221, %if.then109
   %26 = phi i32 [ %.pre, %if.end221 ], [ 1, %if.then109 ]
-  %err.14.ph = phi i32 [ %err.20, %if.end221 ], [ 0, %if.then109 ]
+  %err.15.ph = phi i32 [ %err.18, %if.end221 ], [ 0, %if.then109 ]
   %x.2.ph = phi i32 [ %.us-phi190, %if.end221 ], [ 0, %if.then109 ]
   %nibble.0.ph = phi i32 [ %.us-phi191, %if.end221 ], [ 3, %if.then109 ]
   %bitbufB.0.ph = phi i32 [ %.us-phi195, %if.end221 ], [ %conv112, %if.then109 ]
@@ -4731,7 +4731,7 @@ if.end149:                                        ; preds = %if.end134, %if.end1
   br i1 %cmp150, label %if.then152, label %if.end163
 
 if.then152:                                       ; preds = %if.end149
-  %cmp153 = icmp eq i32 %err.14.ph, 0
+  %cmp153 = icmp eq i32 %err.15.ph, 0
   br i1 %cmp153, label %if.end157, label %if.end228
 
 if.end157:                                        ; preds = %if.then152
@@ -4746,7 +4746,7 @@ if.then160:                                       ; preds = %if.end157
   br label %if.end163
 
 if.end163:                                        ; preds = %if.then160, %if.end149
-  %err.16 = phi i32 [ %call161, %if.then160 ], [ %err.14.ph, %if.end149 ]
+  %err.16 = phi i32 [ %call161, %if.then160 ], [ %err.15.ph, %if.end149 ]
   %cmp164 = icmp ne i32 %.us-phi192, 0
   %cmp167 = icmp ne i32 %.us-phi193, 0
   %or.cond8 = select i1 %cmp164, i1 true, i1 %cmp167
@@ -4797,12 +4797,12 @@ if.end215:                                        ; preds = %if.else208
   br i1 %cmp216.not, label %if.end221, label %if.end228
 
 if.end221:                                        ; preds = %if.then199, %if.end215, %if.end163
-  %err.20 = phi i32 [ %call205, %if.then199 ], [ 0, %if.end215 ], [ %err.16, %if.end163 ]
+  %err.18 = phi i32 [ %call205, %if.then199 ], [ 0, %if.end215 ], [ %err.16, %if.end163 ]
   %.pre = load i32, ptr %first, align 4
   br label %for.cond113.outer, !llvm.loop !23
 
 if.end223:                                        ; preds = %for.cond113.outer.split.us, %if.then122.us, %if.then122, %for.cond113
-  %cmp224 = icmp eq i32 %err.14.ph, 0
+  %cmp224 = icmp eq i32 %err.15.ph, 0
   br i1 %cmp224, label %if.then226, label %if.end228
 
 if.then226:                                       ; preds = %if.end223
@@ -4811,7 +4811,7 @@ if.then226:                                       ; preds = %if.end223
   br label %if.end228
 
 if.end228:                                        ; preds = %if.end3.i, %if.else208, %if.then174, %if.end185, %if.then152, %if.end157, %if.end215, %if.end196, %if.end18, %if.end36, %if.then28, %if.then12.i, %if.end49, %if.end55, %if.end61, %if.end68, %if.end74, %if.end81, %if.end107, %if.then226, %if.end223
-  %err.22 = phi i32 [ %call.i118, %if.then226 ], [ %err.14.ph, %if.end223 ], [ %err.12, %if.end107 ], [ %call80, %if.end81 ], [ %call73, %if.end74 ], [ %call67, %if.end68 ], [ %call60, %if.end61 ], [ %call54, %if.end55 ], [ %call48, %if.end49 ], [ %call35, %if.end36 ], [ %call29, %if.then28 ], [ %call9.i, %if.then12.i ], [ -173, %if.end18 ], [ %err.16, %if.else208 ], [ %err.16, %if.then174 ], [ %call184, %if.end185 ], [ %err.14.ph, %if.then152 ], [ %call195, %if.end196 ], [ %call214, %if.end215 ], [ %call156, %if.end157 ], [ -125, %if.end3.i ]
+  %err.22 = phi i32 [ %call.i118, %if.then226 ], [ %err.15.ph, %if.end223 ], [ %err.13, %if.end107 ], [ %call80, %if.end81 ], [ %call73, %if.end74 ], [ %call67, %if.end68 ], [ %call60, %if.end61 ], [ %call54, %if.end55 ], [ %call48, %if.end49 ], [ %call35, %if.end36 ], [ %call29, %if.then28 ], [ %call9.i, %if.then12.i ], [ -173, %if.end18 ], [ %err.16, %if.else208 ], [ %err.16, %if.then174 ], [ %call184, %if.end185 ], [ %err.15.ph, %if.then152 ], [ %call195, %if.end196 ], [ %call214, %if.end215 ], [ %call156, %if.end157 ], [ -125, %if.end3.i ]
   br label %for.body232
 
 for.body232:                                      ; preds = %if.end228, %wc_ecc_del_point_ex.exit
@@ -5538,25 +5538,25 @@ if.then306:                                       ; preds = %if.then302
   br label %wc_ecc_del_point_ex.exit
 
 wc_ecc_del_point_ex.exit:                         ; preds = %if.end3.i112, %if.then12.i109, %if.end299, %if.then306, %if.then302, %if.end291, %if.end285, %if.end275, %if.end265, %if.end256, %if.end250, %if.end244, %if.end239, %if.end233, %if.end227
-  %mQ.1211216223228235240247252259264271276286 = phi ptr [ %call.i113, %if.end227 ], [ %call.i113, %if.end233 ], [ %call.i113, %if.end239 ], [ %call.i113, %if.end244 ], [ %call.i113, %if.end250 ], [ %call.i113, %if.end256 ], [ %call.i113, %if.end265 ], [ %call.i113, %if.end275 ], [ %call.i113, %if.end285 ], [ %call.i113, %if.end291 ], [ %call.i113, %if.then302 ], [ %call.i113, %if.then306 ], [ %call.i113, %if.end299 ], [ null, %if.then12.i109 ], [ null, %if.end3.i112 ]
+  %mQ.0211216223228235240247252259264271276286 = phi ptr [ %call.i113, %if.end227 ], [ %call.i113, %if.end233 ], [ %call.i113, %if.end239 ], [ %call.i113, %if.end244 ], [ %call.i113, %if.end250 ], [ %call.i113, %if.end256 ], [ %call.i113, %if.end265 ], [ %call.i113, %if.end275 ], [ %call.i113, %if.end285 ], [ %call.i113, %if.end291 ], [ %call.i113, %if.then302 ], [ %call.i113, %if.then306 ], [ %call.i113, %if.end299 ], [ null, %if.then12.i109 ], [ null, %if.end3.i112 ]
   %err.14278283 = phi i32 [ %call226, %if.end227 ], [ %call232, %if.end233 ], [ %call238, %if.end239 ], [ %call243, %if.end244 ], [ %call249, %if.end250 ], [ %call255, %if.end256 ], [ %call264, %if.end265 ], [ %call274, %if.end275 ], [ %call284, %if.end285 ], [ %call290, %if.end291 ], [ 0, %if.then302 ], [ 0, %if.then306 ], [ %call298, %if.end299 ], [ %call9.i107, %if.then12.i109 ], [ -125, %if.end3.i112 ]
   call void @sp_clear(ptr noundef nonnull %call.i) #19
   call void @sp_clear(ptr noundef nonnull %y.i) #19
   call void @sp_clear(ptr noundef nonnull %z.i) #19
   call void @wolfSSL_Free(ptr noundef nonnull %call.i) #19
-  %cmp.not.i118 = icmp eq ptr %mQ.1211216223228235240247252259264271276286, null
+  %cmp.not.i118 = icmp eq ptr %mQ.0211216223228235240247252259264271276286, null
   br i1 %cmp.not.i118, label %wc_ecc_del_point_ex.exit122, label %if.then.i119
 
 if.then.i119:                                     ; preds = %wc_ecc_del_point_ex.exit
-  call void @sp_clear(ptr noundef nonnull %mQ.1211216223228235240247252259264271276286) #19
-  %y.i120 = getelementptr inbounds i8, ptr %mQ.1211216223228235240247252259264271276286, i64 1040
+  call void @sp_clear(ptr noundef nonnull %mQ.0211216223228235240247252259264271276286) #19
+  %y.i120 = getelementptr inbounds i8, ptr %mQ.0211216223228235240247252259264271276286, i64 1040
   call void @sp_clear(ptr noundef nonnull %y.i120) #19
-  %z.i121 = getelementptr inbounds i8, ptr %mQ.1211216223228235240247252259264271276286, i64 2080
+  %z.i121 = getelementptr inbounds i8, ptr %mQ.0211216223228235240247252259264271276286, i64 2080
   call void @sp_clear(ptr noundef nonnull %z.i121) #19
   br label %wc_ecc_del_point_ex.exit122.sink.split
 
 wc_ecc_del_point_ex.exit122.sink.split:           ; preds = %if.end6.i, %if.then.i119
-  %call.i.sink = phi ptr [ %mQ.1211216223228235240247252259264271276286, %if.then.i119 ], [ %call.i, %if.end6.i ]
+  %call.i.sink = phi ptr [ %mQ.0211216223228235240247252259264271276286, %if.then.i119 ], [ %call.i, %if.end6.i ]
   %err.14278284346.ph = phi i32 [ %err.14278283, %if.then.i119 ], [ %call9.i, %if.end6.i ]
   call void @wolfSSL_Free(ptr noundef nonnull %call.i.sink) #19
   br label %wc_ecc_del_point_ex.exit122
@@ -6847,13 +6847,13 @@ if.else:                                          ; preds = %if.then17
   br label %if.end28
 
 if.end28:                                         ; preds = %if.else, %if.then19
-  %err.0 = phi i32 [ %call23, %if.then19 ], [ %call27, %if.else ]
+  %err.1 = phi i32 [ %call23, %if.then19 ], [ %call27, %if.else ]
   %call32 = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %pubkey) #19
   %dp33 = getelementptr inbounds i8, ptr %key, i64 16
   %5 = load ptr, ptr %dp33, align 8
   %6 = load i32, ptr %5, align 8
   %cmp35 = icmp sgt i32 %call32, %6
-  %spec.select = select i1 %cmp35, i32 -173, i32 %err.0
+  %spec.select = select i1 %cmp35, i32 -173, i32 %err.1
   %cmp39 = icmp eq i32 %spec.select, 0
   br i1 %cmp39, label %if.then40, label %if.then115
 
@@ -6869,7 +6869,7 @@ if.else47:                                        ; preds = %if.then40
   br label %if.end54
 
 if.end54:                                         ; preds = %if.else47, %if.then42
-  %err.2 = phi i32 [ %call46, %if.then42 ], [ %call53, %if.else47 ]
+  %err.3 = phi i32 [ %call46, %if.then42 ], [ %call53, %if.else47 ]
   %call58 = tail call i32 @sp_unsigned_bin_size(ptr noundef nonnull %y) #19
   %7 = load ptr, ptr %dp33, align 8
   %8 = load i32, ptr %7, align 8
@@ -6877,7 +6877,7 @@ if.end54:                                         ; preds = %if.else47, %if.then
   br i1 %cmp61, label %if.then115, label %if.end64
 
 if.end64:                                         ; preds = %if.end54
-  %cmp65 = icmp eq i32 %err.2, 0
+  %cmp65 = icmp eq i32 %err.3, 0
   br i1 %cmp65, label %if.then66, label %if.then115
 
 if.then66:                                        ; preds = %if.end64
@@ -6914,7 +6914,7 @@ if.else95:                                        ; preds = %if.then89
   br label %if.end101
 
 if.end101:                                        ; preds = %if.else95, %if.then91
-  %err.6 = phi i32 [ %call94, %if.then91 ], [ %call100, %if.else95 ]
+  %err.7 = phi i32 [ %call94, %if.then91 ], [ %call100, %if.else95 ]
   %13 = load i32, ptr %k, align 8
   %cmp105 = icmp eq i32 %13, 0
   br i1 %cmp105, label %if.then115, label %if.end113
@@ -6924,11 +6924,11 @@ if.end113.thread64:                               ; preds = %if.then87
   br label %return
 
 if.end113:                                        ; preds = %if.end101
-  %cmp114.not = icmp eq i32 %err.6, 0
+  %cmp114.not = icmp eq i32 %err.7, 0
   br i1 %cmp114.not, label %return, label %if.then115
 
 if.then115:                                       ; preds = %if.end101, %if.end64, %if.end28, %if.end54, %land.lhs.true, %if.end85, %if.end113
-  %err.763 = phi i32 [ %err.6, %if.end113 ], [ %call84, %if.end85 ], [ %err.2, %if.end64 ], [ %spec.select, %if.end28 ], [ -173, %if.end54 ], [ -215, %land.lhs.true ], [ -173, %if.end101 ]
+  %err.663 = phi i32 [ %err.7, %if.end113 ], [ %call84, %if.end85 ], [ %err.3, %if.end64 ], [ %spec.select, %if.end28 ], [ -173, %if.end54 ], [ -215, %land.lhs.true ], [ -173, %if.end101 ]
   tail call void @sp_clear(ptr noundef nonnull %pubkey) #19
   tail call void @sp_clear(ptr noundef nonnull %y) #19
   tail call void @sp_clear(ptr noundef nonnull %z) #19
@@ -6936,7 +6936,7 @@ if.then115:                                       ; preds = %if.end101, %if.end6
   br label %return
 
 return:                                           ; preds = %for.inc.us.i, %if.end113.thread64, %lor.lhs.false.i, %if.end113, %if.then115, %if.end6, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ -125, %if.end6 ], [ %err.763, %if.then115 ], [ 0, %if.end113 ], [ -173, %lor.lhs.false.i ], [ 0, %if.end113.thread64 ], [ -172, %for.inc.us.i ]
+  %retval.0 = phi i32 [ -173, %entry ], [ -125, %if.end6 ], [ %err.663, %if.then115 ], [ 0, %if.end113 ], [ -173, %lor.lhs.false.i ], [ 0, %if.end113.thread64 ], [ -172, %for.inc.us.i ]
   ret i32 %retval.0
 }
 

@@ -889,9 +889,9 @@ if.else29:                                        ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.else29
-  %y.0 = phi i32 [ %0, %if.else29 ], [ %mul38.y.0, %do.body ]
-  %x.0 = phi i32 [ 0, %if.else29 ], [ %x.0.mul38, %do.body ]
-  %s.2 = phi i32 [ 0, %if.else29 ], [ %s.2.m32.0, %do.body ]
+  %y.1 = phi i32 [ %0, %if.else29 ], [ %mul38.y.1, %do.body ]
+  %x.1 = phi i32 [ 0, %if.else29 ], [ %x.1.mul38, %do.body ]
+  %s.3 = phi i32 [ 0, %if.else29 ], [ %s.3.m32.0, %do.body ]
   %m32.0 = phi i32 [ %shr33, %if.else29 ], [ %shr45, %do.body ]
   %n.2 = phi i32 [ %11, %if.else29 ], [ %m32.0.n.2, %do.body ]
   %idxprom36 = zext nneg i32 %m32.0 to i64
@@ -899,24 +899,24 @@ do.body:                                          ; preds = %do.body, %if.else29
   %14 = load i32, ptr %arrayidx37, align 4
   %mul38 = mul i32 %14, %shr31
   %cmp40 = icmp ugt i32 %mul38, %13
-  %mul38.y.0 = select i1 %cmp40, i32 %mul38, i32 %y.0
-  %x.0.mul38 = select i1 %cmp40, i32 %x.0, i32 %mul38
-  %s.2.m32.0 = select i1 %cmp40, i32 %s.2, i32 %m32.0
+  %mul38.y.1 = select i1 %cmp40, i32 %mul38, i32 %y.1
+  %x.1.mul38 = select i1 %cmp40, i32 %x.1, i32 %mul38
+  %s.3.m32.0 = select i1 %cmp40, i32 %s.3, i32 %m32.0
   %m32.0.n.2 = select i1 %cmp40, i32 %m32.0, i32 %n.2
-  %add44 = add i32 %s.2.m32.0, %m32.0.n.2
+  %add44 = add i32 %s.3.m32.0, %m32.0.n.2
   %shr45 = lshr i32 %add44, 1
-  %cmp46.not = icmp eq i32 %shr45, %s.2.m32.0
+  %cmp46.not = icmp eq i32 %shr45, %s.3.m32.0
   br i1 %cmp46.not, label %if.end47, label %do.body, !llvm.loop !9
 
 if.end47:                                         ; preds = %do.body, %while.end, %if.then21
   %15 = phi i32 [ %2, %if.then21 ], [ %2, %while.end ], [ %13, %do.body ]
-  %y.2 = phi i32 [ %mul27, %if.then21 ], [ %0, %while.end ], [ %mul38.y.0, %do.body ]
-  %x.2 = phi i32 [ %mul, %if.then21 ], [ %mul, %while.end ], [ %x.0.mul38, %do.body ]
-  %s.4 = phi i32 [ %s.0.lcssa, %if.then21 ], [ %s.0.lcssa, %while.end ], [ %s.2.m32.0, %do.body ]
+  %y.0 = phi i32 [ %mul27, %if.then21 ], [ %0, %while.end ], [ %mul38.y.1, %do.body ]
+  %x.0 = phi i32 [ %mul, %if.then21 ], [ %mul, %while.end ], [ %x.1.mul38, %do.body ]
+  %s.2 = phi i32 [ %s.0.lcssa, %if.then21 ], [ %s.0.lcssa, %while.end ], [ %s.3.m32.0, %do.body ]
   %value48 = getelementptr inbounds i8, ptr %this, i64 28
-  %sub = sub i32 %15, %x.2
+  %sub = sub i32 %15, %x.0
   store i32 %sub, ptr %value48, align 4
-  %sub49 = sub i32 %y.2, %x.2
+  %sub49 = sub i32 %y.0, %x.0
   store i32 %sub49, ptr %length, align 8
   %cmp52 = icmp ult i32 %sub49, 16777216
   br i1 %cmp52, label %if.then53, label %if.end54
@@ -943,7 +943,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
   br i1 %cmp.i, label %do.body.i, label %if.end54, !llvm.loop !7
 
 if.end54:                                         ; preds = %do.body.i, %if.end47
-  ret i32 %s.4
+  ret i32 %s.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1405,9 +1405,9 @@ if.else29:                                        ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.else29
-  %y.0 = phi i32 [ %0, %if.else29 ], [ %mul38.y.0, %do.body ]
-  %x.0 = phi i32 [ 0, %if.else29 ], [ %x.0.mul38, %do.body ]
-  %s.2 = phi i32 [ 0, %if.else29 ], [ %s.2.m32.0, %do.body ]
+  %y.1 = phi i32 [ %0, %if.else29 ], [ %mul38.y.1, %do.body ]
+  %x.1 = phi i32 [ 0, %if.else29 ], [ %x.1.mul38, %do.body ]
+  %s.3 = phi i32 [ 0, %if.else29 ], [ %s.3.m32.0, %do.body ]
   %m32.0 = phi i32 [ %shr33, %if.else29 ], [ %shr45, %do.body ]
   %n.2 = phi i32 [ %11, %if.else29 ], [ %m32.0.n.2, %do.body ]
   %idxprom36 = zext nneg i32 %m32.0 to i64
@@ -1415,24 +1415,24 @@ do.body:                                          ; preds = %do.body, %if.else29
   %14 = load i32, ptr %arrayidx37, align 4
   %mul38 = mul i32 %14, %shr31
   %cmp40 = icmp ugt i32 %mul38, %13
-  %mul38.y.0 = select i1 %cmp40, i32 %mul38, i32 %y.0
-  %x.0.mul38 = select i1 %cmp40, i32 %x.0, i32 %mul38
-  %s.2.m32.0 = select i1 %cmp40, i32 %s.2, i32 %m32.0
+  %mul38.y.1 = select i1 %cmp40, i32 %mul38, i32 %y.1
+  %x.1.mul38 = select i1 %cmp40, i32 %x.1, i32 %mul38
+  %s.3.m32.0 = select i1 %cmp40, i32 %s.3, i32 %m32.0
   %m32.0.n.2 = select i1 %cmp40, i32 %m32.0, i32 %n.2
-  %add44 = add i32 %s.2.m32.0, %m32.0.n.2
+  %add44 = add i32 %s.3.m32.0, %m32.0.n.2
   %shr45 = lshr i32 %add44, 1
-  %cmp46.not = icmp eq i32 %shr45, %s.2.m32.0
+  %cmp46.not = icmp eq i32 %shr45, %s.3.m32.0
   br i1 %cmp46.not, label %if.end47, label %do.body, !llvm.loop !16
 
 if.end47:                                         ; preds = %do.body, %while.end, %if.then21
   %15 = phi i32 [ %2, %if.then21 ], [ %2, %while.end ], [ %13, %do.body ]
-  %y.2 = phi i32 [ %mul27, %if.then21 ], [ %0, %while.end ], [ %mul38.y.0, %do.body ]
-  %x.2 = phi i32 [ %mul, %if.then21 ], [ %mul, %while.end ], [ %x.0.mul38, %do.body ]
-  %s.4 = phi i32 [ %s.0.lcssa, %if.then21 ], [ %s.0.lcssa, %while.end ], [ %s.2.m32.0, %do.body ]
+  %y.0 = phi i32 [ %mul27, %if.then21 ], [ %0, %while.end ], [ %mul38.y.1, %do.body ]
+  %x.0 = phi i32 [ %mul, %if.then21 ], [ %mul, %while.end ], [ %x.1.mul38, %do.body ]
+  %s.2 = phi i32 [ %s.0.lcssa, %if.then21 ], [ %s.0.lcssa, %while.end ], [ %s.3.m32.0, %do.body ]
   %value48 = getelementptr inbounds i8, ptr %this, i64 28
-  %sub = sub i32 %15, %x.2
+  %sub = sub i32 %15, %x.0
   store i32 %sub, ptr %value48, align 4
-  %sub49 = sub i32 %y.2, %x.2
+  %sub49 = sub i32 %y.0, %x.0
   store i32 %sub49, ptr %length, align 8
   %cmp52 = icmp ult i32 %sub49, 16777216
   br i1 %cmp52, label %if.then53, label %if.end54
@@ -1461,7 +1461,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.then
 if.end54:                                         ; preds = %do.body.i, %if.end47
   %symbol_count = getelementptr inbounds i8, ptr %M, i64 8
   %20 = load ptr, ptr %symbol_count, align 8
-  %idxprom55 = zext i32 %s.4 to i64
+  %idxprom55 = zext i32 %s.2 to i64
   %arrayidx56 = getelementptr inbounds i32, ptr %20, i64 %idxprom55
   %21 = load i32, ptr %arrayidx56, align 4
   %inc = add i32 %21, 1
@@ -1478,7 +1478,7 @@ if.then58:                                        ; preds = %if.end54
   br label %if.end59
 
 if.end59:                                         ; preds = %if.then58, %if.end54
-  ret i32 %s.4
+  ret i32 %s.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -2118,7 +2118,7 @@ for.body.lr.ph.split.us:                          ; preds = %for.body.lr.ph
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %for.inc.us
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
   %sum.029.us = phi double [ %add45.us, %for.inc.us ], [ 0.000000e+00, %for.body.lr.ph.split.us ]
-  %s.028.us = phi i32 [ %s.2.us, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
+  %s.028.us = phi i32 [ %s.1.us, %for.inc.us ], [ 0, %for.body.lr.ph.split.us ]
   %mul.us = fmul double %sum.029.us, 3.276800e+04
   %conv41.us = fptoui double %mul.us to i32
   %7 = load ptr, ptr %this, align 8
@@ -2148,7 +2148,7 @@ while.body56.us:                                  ; preds = %while.body56.lr.ph.
   br i1 %exitcond47.not, label %for.inc.us, label %while.body56.us, !llvm.loop !20
 
 for.inc.us:                                       ; preds = %while.body56.us, %if.end49.us, %for.body.us
-  %s.2.us = phi i32 [ %s.028.us, %for.body.us ], [ %s.028.us, %if.end49.us ], [ %shr.us, %while.body56.us ]
+  %s.1.us = phi i32 [ %s.028.us, %for.body.us ], [ %s.028.us, %if.end49.us ], [ %shr.us, %while.body56.us ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %13 = load i32, ptr %data_symbols, align 8
   %14 = zext i32 %13 to i64
@@ -2165,7 +2165,7 @@ while.body56.lr.ph.us:                            ; preds = %if.end49.us
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %for.inc ], [ 0, %for.body.lr.ph ]
   %sum.029 = phi double [ %add45, %for.inc ], [ 0.000000e+00, %for.body.lr.ph ]
-  %s.028 = phi i32 [ %s.2, %for.inc ], [ 0, %for.body.lr.ph ]
+  %s.028 = phi i32 [ %s.1, %for.inc ], [ 0, %for.body.lr.ph ]
   %arrayidx = getelementptr inbounds double, ptr %probability, i64 %indvars.iv40
   %17 = load double, ptr %arrayidx, align 8
   %cmp36 = fcmp olt double %17, 1.000000e-04
@@ -2214,7 +2214,7 @@ while.body56:                                     ; preds = %while.body56.lr.ph,
   br i1 %exitcond.not, label %for.inc, label %while.body56, !llvm.loop !20
 
 for.inc:                                          ; preds = %while.body56, %if.end49, %if.end40
-  %s.2 = phi i32 [ %s.028, %if.end40 ], [ %s.028, %if.end49 ], [ %shr, %while.body56 ]
+  %s.1 = phi i32 [ %s.028, %if.end40 ], [ %s.028, %if.end49 ], [ %shr, %while.body56 ]
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %26 = load i32, ptr %data_symbols, align 8
   %27 = zext i32 %26 to i64
@@ -2222,7 +2222,7 @@ for.inc:                                          ; preds = %while.body56, %if.e
   br i1 %cmp33, label %for.body, label %for.end, !llvm.loop !21
 
 for.end:                                          ; preds = %for.inc, %for.inc.us, %if.end29
-  %s.0.lcssa = phi i32 [ 0, %if.end29 ], [ %s.2.us, %for.inc.us ], [ %s.2, %for.inc ]
+  %s.0.lcssa = phi i32 [ 0, %if.end29 ], [ %s.1.us, %for.inc.us ], [ %s.1, %for.inc ]
   %sum.0.lcssa = phi double [ 0.000000e+00, %if.end29 ], [ %add45.us, %for.inc.us ], [ %add45, %for.inc ]
   %table_size64 = getelementptr inbounds i8, ptr %this, i64 24
   %28 = load i32, ptr %table_size64, align 8

@@ -5258,14 +5258,14 @@ ehcleanup190.i.i.i.i.i.i:                         ; preds = %ehcleanup.i.i.i.i.i
 
 catch.dispatch.i.i.i.i.i.i:                       ; preds = %ehcleanup190.i.i.i.i.i.i, %lpad.i.i.i.i.i.i.i
   %.pn34.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %.pn34.i.i.i.i.i.i, %ehcleanup190.i.i.i.i.i.i ], [ %25, %lpad.i.i.i.i.i.i.i ]
-  %exn.slot.2.i.i.i.i.i.i = extractvalue { ptr, i32 } %.pn34.pn.i.i.i.i.i.i, 0
-  %ehselector.slot.2.i.i.i.i.i.i = extractvalue { ptr, i32 } %.pn34.pn.i.i.i.i.i.i, 1
+  %exn.slot.0.i.i.i.i.i.i = extractvalue { ptr, i32 } %.pn34.pn.i.i.i.i.i.i, 0
+  %ehselector.slot.0.i.i.i.i.i.i = extractvalue { ptr, i32 } %.pn34.pn.i.i.i.i.i.i, 1
   %129 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI8z3_error) #18
-  %matches.i.i.i.i.i.i = icmp eq i32 %ehselector.slot.2.i.i.i.i.i.i, %129
+  %matches.i.i.i.i.i.i = icmp eq i32 %ehselector.slot.0.i.i.i.i.i.i, %129
   br i1 %matches.i.i.i.i.i.i, label %catch216.i.i.i.i.i.i, label %catch.fallthrough.i.i.i.i.i.i
 
 catch216.i.i.i.i.i.i:                             ; preds = %catch.dispatch.i.i.i.i.i.i
-  %130 = call ptr @__cxa_begin_catch(ptr %exn.slot.2.i.i.i.i.i.i) #18
+  %130 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i.i.i.i.i.i) #18
   %131 = getelementptr inbounds i8, ptr %_M_func.val1, i64 64
   %132 = load ptr, ptr %131, align 8
   %133 = load i32, ptr %132, align 4
@@ -5287,8 +5287,8 @@ invoke.cont223.i.i.i.i.i.i:                       ; preds = %if.then219.i.i.i.i.
 
 catch.fallthrough.i.i.i.i.i.i:                    ; preds = %catch.dispatch.i.i.i.i.i.i
   %137 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTI12z3_exception) #18
-  %matches195.i.i.i.i.i.i = icmp eq i32 %ehselector.slot.2.i.i.i.i.i.i, %137
-  %138 = call ptr @__cxa_begin_catch(ptr %exn.slot.2.i.i.i.i.i.i) #18
+  %matches195.i.i.i.i.i.i = icmp eq i32 %ehselector.slot.0.i.i.i.i.i.i, %137
+  %138 = call ptr @__cxa_begin_catch(ptr %exn.slot.0.i.i.i.i.i.i) #18
   %139 = getelementptr inbounds i8, ptr %_M_func.val1, i64 64
   %140 = load ptr, ptr %139, align 8
   %141 = load i32, ptr %140, align 4

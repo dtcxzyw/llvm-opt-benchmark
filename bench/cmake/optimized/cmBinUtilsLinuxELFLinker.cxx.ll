@@ -366,7 +366,7 @@ _ZNSt10unique_ptrI22cmLDConfigLDConfigToolSt14default_deleteIS0_EED2Ev.exit: ; p
   br label %.body23
 
 94:                                               ; preds = %_ZNSt10unique_ptrI22cmLDConfigLDConfigToolSt14default_deleteIS0_EED2Ev.exit, %88
-  %.08 = phi i1 [ false, %88 ], [ %80, %_ZNSt10unique_ptrI22cmLDConfigLDConfigToolSt14default_deleteIS0_EED2Ev.exit ]
+  %.19 = phi i1 [ false, %88 ], [ %80, %_ZNSt10unique_ptrI22cmLDConfigLDConfigToolSt14default_deleteIS0_EED2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #13
   br label %95
 
@@ -376,9 +376,9 @@ _ZNSt10unique_ptrI22cmLDConfigLDConfigToolSt14default_deleteIS0_EED2Ev.exit: ; p
   br label %.body
 
 95:                                               ; preds = %94, %40
-  %.19 = phi i1 [ %.08, %94 ], [ false, %40 ]
+  %.08 = phi i1 [ %.19, %94 ], [ false, %40 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
-  ret i1 %.19
+  ret i1 %.08
 
 .body:                                            ; preds = %16, %24, %.body23, %.body20, %45
   %.pn15.pn = phi { ptr, i32 } [ %.pn15, %.body23 ], [ %.pn11, %.body20 ], [ %.pn, %45 ], [ %17, %16 ], [ %25, %24 ]
@@ -966,7 +966,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %.loopexit.split-lp119
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit69: ; preds = %141, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i67, %24
-  %.6 = phi i1 [ false, %24 ], [ %.not116132, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i67 ], [ %.not116132, %141 ]
+  %.0 = phi i1 [ false, %24 ], [ %.not116132, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i67 ], [ %.not116132, %141 ]
   %143 = load ptr, ptr %7, align 8
   %144 = getelementptr inbounds i8, ptr %7, i64 8
   %145 = load ptr, ptr %144, align 8
@@ -1049,7 +1049,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit96: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i94, %160
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
-  ret i1 %.6
+  ret i1 %.0
 
 .loopexit.split-lp119:                            ; preds = %.loopexit118, %.loopexit.split-lp119.loopexit.split-lp, %.loopexit.split-lp119.loopexit, %142
   %.pn47 = phi { ptr, i32 } [ %.pn.pn.pn, %142 ], [ %lpad.loopexit120, %.loopexit118 ], [ %lpad.loopexit123, %.loopexit.split-lp119.loopexit ], [ %lpad.loopexit.split-lp124, %.loopexit.split-lp119.loopexit.split-lp ]

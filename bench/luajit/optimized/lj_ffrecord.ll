@@ -1566,7 +1566,7 @@ if.then16:                                        ; preds = %land.lhs.true
   br label %if.end
 
 if.end:                                           ; preds = %for.body, %if.then16
-  %tr.1 = phi i32 [ %call17, %if.then16 ], [ %tr.029, %for.body ]
+  %tr.2 = phi i32 [ %call17, %if.then16 ], [ %tr.029, %for.body ]
   %cmp21 = icmp ult i32 %sub10, 5
   br i1 %cmp21, label %if.then23, label %if.end27
 
@@ -1579,13 +1579,13 @@ if.then23:                                        ; preds = %if.end
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end, %if.then23, %land.lhs.true
-  %tr.2 = phi i32 [ %tr.029, %land.lhs.true ], [ %tr.1, %if.then23 ], [ %tr.1, %if.end ]
-  %tr2.1 = phi i32 [ %call6, %land.lhs.true ], [ %call25, %if.then23 ], [ %call6, %if.end ]
+  %tr.1 = phi i32 [ %tr.029, %land.lhs.true ], [ %tr.2, %if.then23 ], [ %tr.2, %if.end ]
+  %tr2.0 = phi i32 [ %call6, %land.lhs.true ], [ %call25, %if.then23 ], [ %call6, %if.end ]
   %t.0 = phi i32 [ 19, %land.lhs.true ], [ 14, %if.then23 ], [ 14, %if.end ]
   %or = or disjoint i32 %t.0, %shl
   %conv28 = trunc i32 %or to i16
-  %conv29 = trunc i32 %tr.2 to i16
-  %conv30 = trunc i32 %tr2.1 to i16
+  %conv29 = trunc i32 %tr.1 to i16
+  %conv30 = trunc i32 %tr2.0 to i16
   store i16 %conv28, ptr %ot1.i48, align 4
   store i16 %conv29, ptr %fold.i47, align 8
   store i16 %conv30, ptr %op2.i51, align 2
@@ -2051,7 +2051,7 @@ argv2int.exit177:                                 ; preds = %if.else28, %land.rh
 
 if.end35:                                         ; preds = %argv2int.exit177, %if.then26
   %30 = phi i32 [ 1, %if.then26 ], [ %conv.i176, %argv2int.exit177 ]
-  %trstart.0 = phi i32 [ %call27, %if.then26 ], [ %call34, %argv2int.exit177 ]
+  %trstart.1 = phi i32 [ %call27, %if.then26 ], [ %call34, %argv2int.exit177 ]
   %31 = load ptr, ptr %base, align 8
   %arrayidx37 = getelementptr inbounds i8, ptr %31, i64 4
   %32 = load i32, ptr %arrayidx37, align 4
@@ -2101,13 +2101,13 @@ argv2int.exit191:                                 ; preds = %if.then44, %land.rh
 
 if.end53:                                         ; preds = %if.end35, %land.lhs.true, %argv2int.exit191, %argv2int.exit163
   %end.0 = phi i32 [ %conv.i162, %argv2int.exit163 ], [ %conv.i190, %argv2int.exit191 ], [ %30, %land.lhs.true ], [ %30, %if.end35 ]
-  %trend.0 = phi i32 [ %call16, %argv2int.exit163 ], [ %call47, %argv2int.exit191 ], [ %trstart.0, %land.lhs.true ], [ %trstart.0, %if.end35 ]
-  %trstart.1 = phi i32 [ %call10, %argv2int.exit163 ], [ %trstart.0, %argv2int.exit191 ], [ %trstart.0, %land.lhs.true ], [ %trstart.0, %if.end35 ]
+  %trend.0 = phi i32 [ %call16, %argv2int.exit163 ], [ %call47, %argv2int.exit191 ], [ %trstart.1, %land.lhs.true ], [ %trstart.1, %if.end35 ]
+  %trstart.0 = phi i32 [ %call10, %argv2int.exit163 ], [ %trstart.1, %argv2int.exit191 ], [ %trstart.1, %land.lhs.true ], [ %trstart.1, %if.end35 ]
   %cmp54 = icmp slt i32 %end.0, 0
   br i1 %cmp54, label %if.then56, label %if.else68
 
 if.then56:                                        ; preds = %if.end53.thread, %if.end53
-  %trstart.1199 = phi i32 [ %call10, %if.end53.thread ], [ %trstart.1, %if.end53 ]
+  %trstart.0199 = phi i32 [ %call10, %if.end53.thread ], [ %trstart.0, %if.end53 ]
   %trend.0197 = phi i32 [ %call15, %if.end53.thread ], [ %trend.0, %if.end53 ]
   %end.0196 = phi i32 [ -1, %if.end53.thread ], [ %end.0, %if.end53 ]
   %conv57 = trunc i32 %trend.0197 to i16
@@ -2158,10 +2158,10 @@ if.else76:                                        ; preds = %if.else68
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then72, %if.else76, %if.then56
-  %trstart.1198 = phi i32 [ %trstart.1199, %if.then56 ], [ %trstart.1, %if.then72 ], [ %trstart.1, %if.else76 ]
+  %trstart.0198 = phi i32 [ %trstart.0199, %if.then56 ], [ %trstart.0, %if.then72 ], [ %trstart.0, %if.else76 ]
   %end.1 = phi i32 [ %add67, %if.then56 ], [ %end.0, %if.then72 ], [ %41, %if.else76 ]
   %trend.1 = phi i32 [ %call66, %if.then56 ], [ %trend.0, %if.then72 ], [ %call1, %if.else76 ]
-  %call83 = call fastcc i32 @recff_string_start(ptr noundef nonnull %J, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %start, i32 noundef %trstart.1198, i32 noundef %call1, i32 noundef %call2)
+  %call83 = call fastcc i32 @recff_string_start(ptr noundef nonnull %J, ptr noundef nonnull %retval.0.i, ptr noundef nonnull %start, i32 noundef %trstart.0198, i32 noundef %call1, i32 noundef %call2)
   %42 = load i32, ptr %data, align 8
   %tobool85.not = icmp eq i32 %42, 0
   %43 = load i32, ptr %start, align 4

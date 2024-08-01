@@ -582,10 +582,10 @@ sw.bb.i:                                          ; preds = %do.body.i
   br label %do.cond30.i
 
 do.body8.i:                                       ; preds = %do.body8.i.preheader, %switch.early.test.i
-  %scan.1.i = phi ptr [ %add.ptr10.i, %switch.early.test.i ], [ %scan.0.i, %do.body8.i.preheader ]
-  %s.0.i = phi i64 [ %.fr.i, %switch.early.test.i ], [ %34, %do.body8.i.preheader ]
-  %and9.i = and i64 %s.0.i, 134217727
-  %add.ptr10.i = getelementptr inbounds i64, ptr %scan.1.i, i64 %and9.i
+  %scan.2.i = phi ptr [ %add.ptr10.i, %switch.early.test.i ], [ %scan.0.i, %do.body8.i.preheader ]
+  %s.1.i = phi i64 [ %.fr.i, %switch.early.test.i ], [ %34, %do.body8.i.preheader ]
+  %and9.i = and i64 %s.1.i, 134217727
+  %add.ptr10.i = getelementptr inbounds i64, ptr %scan.2.i, i64 %and9.i
   %37 = load i64, ptr %add.ptr10.i, align 8
   %.fr.i = freeze i64 %37
   %and11.i = and i64 %.fr.i, 4160749568
@@ -606,8 +606,8 @@ if.then18.i:                                      ; preds = %switch.early.test.i
   br label %do.body.i131.preheader
 
 sw.default.i:                                     ; preds = %switch.early.test.i, %do.body8.i, %do.body.i
-  %scan.2.i = phi ptr [ %incdec.ptr.i123, %do.body.i ], [ %add.ptr10.i, %do.body8.i ], [ %add.ptr10.i, %switch.early.test.i ]
-  %s.1.i = phi i64 [ %34, %do.body.i ], [ %.fr.i, %do.body8.i ], [ %.fr.i, %switch.early.test.i ]
+  %scan.1.i = phi ptr [ %incdec.ptr.i123, %do.body.i ], [ %add.ptr10.i, %do.body8.i ], [ %add.ptr10.i, %switch.early.test.i ]
+  %s.0.i = phi i64 [ %34, %do.body.i ], [ %.fr.i, %do.body8.i ], [ %.fr.i, %switch.early.test.i ]
   %39 = load i32, ptr %mlen, align 8
   %conv.i124 = sext i32 %39 to i64
   %cmp24.i = icmp sgt i64 %newlen.0.i, %conv.i124
@@ -619,11 +619,11 @@ if.then26.i:                                      ; preds = %sw.default.i
   br label %do.cond30.i
 
 do.cond30.i:                                      ; preds = %if.then26.i, %sw.default.i, %sw.bb.i, %do.body.i, %do.body.i, %do.body.i
-  %scan.3.i = phi ptr [ %incdec.ptr.i123, %do.body.i ], [ %incdec.ptr.i123, %do.body.i ], [ %incdec.ptr.i123, %do.body.i ], [ %incdec.ptr.i123, %sw.bb.i ], [ %scan.2.i, %if.then26.i ], [ %scan.2.i, %sw.default.i ]
+  %scan.3.i = phi ptr [ %incdec.ptr.i123, %do.body.i ], [ %incdec.ptr.i123, %do.body.i ], [ %incdec.ptr.i123, %do.body.i ], [ %incdec.ptr.i123, %sw.bb.i ], [ %scan.1.i, %if.then26.i ], [ %scan.1.i, %sw.default.i ]
   %start.2.i = phi ptr [ %start.0.i, %do.body.i ], [ %start.0.i, %do.body.i ], [ %start.0.i, %do.body.i ], [ %start.0.i, %sw.bb.i ], [ %newstart.0.i, %if.then26.i ], [ %start.0.i, %sw.default.i ]
   %newstart.2.i = phi ptr [ %newstart.0.i, %do.body.i ], [ %newstart.0.i, %do.body.i ], [ %newstart.0.i, %do.body.i ], [ %spec.select.i, %sw.bb.i ], [ %newstart.0.i, %if.then26.i ], [ %newstart.0.i, %sw.default.i ]
   %newlen.1.i = phi i64 [ %newlen.0.i, %do.body.i ], [ %newlen.0.i, %do.body.i ], [ %newlen.0.i, %do.body.i ], [ %inc.i127, %sw.bb.i ], [ 0, %if.then26.i ], [ 0, %sw.default.i ]
-  %s.2.i = phi i64 [ %34, %do.body.i ], [ %34, %do.body.i ], [ %34, %do.body.i ], [ %34, %sw.bb.i ], [ %s.1.i, %if.then26.i ], [ %s.1.i, %sw.default.i ]
+  %s.2.i = phi i64 [ %34, %do.body.i ], [ %34, %do.body.i ], [ %34, %do.body.i ], [ %34, %sw.bb.i ], [ %s.0.i, %if.then26.i ], [ %s.0.i, %sw.default.i ]
   %and31.i = and i64 %s.2.i, 4160749568
   %cmp32.not.i = icmp eq i64 %and31.i, 134217728
   br i1 %cmp32.not.i, label %do.end34.i, label %do.body.i, !llvm.loop !10

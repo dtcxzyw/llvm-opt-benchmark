@@ -538,9 +538,9 @@ do.body:                                          ; preds = %if.else3
   br label %if.end14
 
 if.end14:                                         ; preds = %do.body, %if.then
-  %length.addr.1 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
+  %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
-  store i32 %length.addr.1, ptr %resultCapacity, align 4
+  store i32 %length.addr.0, ptr %resultCapacity, align 4
   %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2261,12 +2261,12 @@ if.end:                                           ; preds = %entry
   br label %for.body
 
 do.body.preheader:                                ; preds = %for.inc
-  %cmp107208 = icmp sgt i32 %numAffixMatchers.2, 1
+  %cmp107208 = icmp sgt i32 %numAffixMatchers.1, 1
   %fPrefix.i160 = getelementptr inbounds i8, ptr %temp, i64 8
   br i1 %cmp107208, label %do.body.us.preheader, label %for.cond142.preheader
 
 do.body.us.preheader:                             ; preds = %do.body.preheader
-  %wide.trip.count = zext nneg i32 %numAffixMatchers.2 to i64
+  %wide.trip.count = zext nneg i32 %numAffixMatchers.1 to i64
   br label %for.body108.us
 
 for.body108.us:                                   ; preds = %for.inc137.us, %do.body.us.preheader
@@ -2308,10 +2308,10 @@ lpad.loopexit.split-lp.loopexit.split.us:         ; preds = %for.body108.us
 
 for.body:                                         ; preds = %if.end, %for.inc
   %indvars.iv = phi i32 [ 0, %if.end ], [ %indvars.iv.next, %for.inc ]
-  %numAffixMatchers.0207 = phi i32 [ 0, %if.end ], [ %numAffixMatchers.2, %for.inc ]
-  %numAffixPatternMatchers.0206 = phi i32 [ 0, %if.end ], [ %numAffixPatternMatchers.3, %for.inc ]
-  %posPrefix.0205 = phi ptr [ null, %if.end ], [ %posPrefix.2, %for.inc ]
-  %posSuffix.0204 = phi ptr [ null, %if.end ], [ %posSuffix.2, %for.inc ]
+  %numAffixMatchers.0207 = phi i32 [ 0, %if.end ], [ %numAffixMatchers.1, %for.inc ]
+  %numAffixPatternMatchers.0206 = phi i32 [ 0, %if.end ], [ %numAffixPatternMatchers.1, %for.inc ]
+  %posPrefix.0205 = phi ptr [ null, %if.end ], [ %posPrefix.1, %for.inc ]
+  %posSuffix.0204 = phi ptr [ null, %if.end ], [ %posSuffix.1, %for.inc ]
   %div184185 = lshr i32 %indvars.iv, 1
   %div.sext = and i32 %div184185, 127
   %1 = and i32 %indvars.iv, 1
@@ -2688,8 +2688,8 @@ invoke.cont60:                                    ; preds = %if.end5.i125
   br i1 %call.i.i130, label %for.inc, label %if.end64
 
 if.end64:                                         ; preds = %if.end.i123, %if.end.i, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118, %invoke.cont57, %invoke.cont60
-  %posSuffix.1 = phi ptr [ %posSuffix.0204, %invoke.cont60 ], [ %posSuffix.0204, %invoke.cont57 ], [ %spec.select61, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118 ], [ %posSuffix.0204, %if.end.i ], [ %posSuffix.0204, %if.end.i123 ]
-  %posPrefix.1 = phi ptr [ %posPrefix.0205, %invoke.cont60 ], [ %posPrefix.0205, %invoke.cont57 ], [ %spec.select59, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118 ], [ %posPrefix.0205, %if.end.i ], [ %posPrefix.0205, %if.end.i123 ]
+  %posSuffix.2 = phi ptr [ %posSuffix.0204, %invoke.cont60 ], [ %posSuffix.0204, %invoke.cont57 ], [ %spec.select61, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118 ], [ %posSuffix.0204, %if.end.i ], [ %posSuffix.0204, %if.end.i123 ]
+  %posPrefix.2 = phi ptr [ %posPrefix.0205, %invoke.cont60 ], [ %posPrefix.0205, %invoke.cont57 ], [ %spec.select59, %_ZN6icu_758numparse4impl19AffixPatternMatcherD2Ev.exit118 ], [ %posPrefix.0205, %if.end.i ], [ %posPrefix.0205, %if.end.i123 ]
   %cmp65 = icmp eq i32 %6, 4
   %cond66 = zext i1 %cmp65 to i32
   invoke void @_ZN6icu_758numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp67, ptr noundef %spec.select59, ptr noundef %spec.select61, i32 noundef %cond66)
@@ -2706,13 +2706,13 @@ invoke.cont68:                                    ; preds = %if.end64
   br i1 %or.cond1, label %if.then78, label %for.inc
 
 if.then78:                                        ; preds = %invoke.cont68
-  %cmp1.i133 = icmp ne ptr %posPrefix.1, null
+  %cmp1.i133 = icmp ne ptr %posPrefix.2, null
   %or.cond224.not = select i1 %cmp16, i1 %cmp1.i133, i1 false
   br i1 %or.cond224.not, label %if.end5.i137, label %if.then82
 
 if.end5.i137:                                     ; preds = %if.then78
   %fPattern.i.i138 = getelementptr inbounds i8, ptr %spec.select59, i64 56
-  %fPattern2.i.i139 = getelementptr inbounds i8, ptr %posPrefix.1, i64 56
+  %fPattern2.i.i139 = getelementptr inbounds i8, ptr %posPrefix.2, i64 56
   %call.i.i142 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i138, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i139)
           to label %invoke.cont80 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2732,13 +2732,13 @@ if.end90:                                         ; preds = %if.then82
   br i1 %cmp16, label %if.end.i149, label %if.then95
 
 if.end.i149:                                      ; preds = %if.end90, %invoke.cont80
-  %numAffixMatchers.1179 = phi i32 [ %inc86, %if.end90 ], [ %inc69, %invoke.cont80 ]
-  %cmp1.i147 = icmp eq ptr %posSuffix.1, null
+  %numAffixMatchers.2179 = phi i32 [ %inc86, %if.end90 ], [ %inc69, %invoke.cont80 ]
+  %cmp1.i147 = icmp eq ptr %posSuffix.2, null
   br i1 %cmp1.i147, label %if.then95, label %if.end5.i151
 
 if.end5.i151:                                     ; preds = %if.end.i149
   %fPattern.i.i152 = getelementptr inbounds i8, ptr %spec.select61, i64 56
-  %fPattern2.i.i153 = getelementptr inbounds i8, ptr %posSuffix.1, i64 56
+  %fPattern2.i.i153 = getelementptr inbounds i8, ptr %posSuffix.2, i64 56
   %call.i.i156 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i152, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i153)
           to label %invoke.cont93 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -2746,33 +2746,33 @@ invoke.cont93:                                    ; preds = %if.end5.i151
   br i1 %call.i.i156, label %for.inc, label %if.then95
 
 if.then95:                                        ; preds = %if.end.i149, %invoke.cont93, %if.end90
-  %numAffixMatchers.1180 = phi i32 [ %numAffixMatchers.1179, %invoke.cont93 ], [ %inc86, %if.end90 ], [ %numAffixMatchers.1179, %if.end.i149 ]
+  %numAffixMatchers.2180 = phi i32 [ %numAffixMatchers.2179, %invoke.cont93 ], [ %inc86, %if.end90 ], [ %numAffixMatchers.2179, %if.end.i149 ]
   invoke void @_ZN6icu_758numparse4impl12AffixMatcherC1EPNS1_19AffixPatternMatcherES4_i(ptr noundef nonnull align 8 dereferenceable(28) %ref.tmp96, ptr noundef null, ptr noundef nonnull %spec.select61, i32 noundef %cond66)
           to label %invoke.cont97 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont97:                                    ; preds = %if.then95
-  %inc99 = add nsw i32 %numAffixMatchers.1180, 1
-  %idxprom100 = sext i32 %numAffixMatchers.1180 to i64
+  %inc99 = add nsw i32 %numAffixMatchers.2180, 1
+  %idxprom100 = sext i32 %numAffixMatchers.2180 to i64
   %fPrefix.i158 = getelementptr inbounds [18 x %"class.icu_75::numparse::impl::AffixMatcher"], ptr %this, i64 0, i64 %idxprom100, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %fPrefix.i158, ptr noundef nonnull align 8 dereferenceable(20) %fPrefix2.i159, i64 20, i1 false)
   call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp96) #16
   br label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true59, %if.end21, %if.end15, %invoke.cont68, %invoke.cont97, %invoke.cont93, %invoke.cont60, %invoke.cont12, %invoke.cont
-  %posSuffix.2 = phi ptr [ %posSuffix.1, %invoke.cont97 ], [ %posSuffix.1, %invoke.cont93 ], [ %posSuffix.1, %invoke.cont68 ], [ %posSuffix.0204, %invoke.cont60 ], [ %posSuffix.0204, %invoke.cont12 ], [ %posSuffix.0204, %invoke.cont ], [ %posSuffix.0204, %if.end15 ], [ %posSuffix.0204, %if.end21 ], [ null, %land.lhs.true59 ]
-  %posPrefix.2 = phi ptr [ %posPrefix.1, %invoke.cont97 ], [ %posPrefix.1, %invoke.cont93 ], [ %posPrefix.1, %invoke.cont68 ], [ %posPrefix.0205, %invoke.cont60 ], [ %posPrefix.0205, %invoke.cont12 ], [ %posPrefix.0205, %invoke.cont ], [ %posPrefix.0205, %if.end15 ], [ %posPrefix.0205, %if.end21 ], [ %posPrefix.0205, %land.lhs.true59 ]
-  %numAffixPatternMatchers.3 = phi i32 [ %spec.select60, %invoke.cont97 ], [ %spec.select60, %invoke.cont93 ], [ %spec.select60, %invoke.cont68 ], [ %spec.select60, %invoke.cont60 ], [ %numAffixPatternMatchers.0206, %invoke.cont12 ], [ %numAffixPatternMatchers.0206, %invoke.cont ], [ %numAffixPatternMatchers.0206, %if.end15 ], [ %numAffixPatternMatchers.0206, %if.end21 ], [ %spec.select60, %land.lhs.true59 ]
-  %numAffixMatchers.2 = phi i32 [ %inc99, %invoke.cont97 ], [ %numAffixMatchers.1179, %invoke.cont93 ], [ %inc69, %invoke.cont68 ], [ %numAffixMatchers.0207, %invoke.cont60 ], [ %numAffixMatchers.0207, %invoke.cont12 ], [ %numAffixMatchers.0207, %invoke.cont ], [ %numAffixMatchers.0207, %if.end15 ], [ %numAffixMatchers.0207, %if.end21 ], [ %numAffixMatchers.0207, %land.lhs.true59 ]
+  %posSuffix.1 = phi ptr [ %posSuffix.2, %invoke.cont97 ], [ %posSuffix.2, %invoke.cont93 ], [ %posSuffix.2, %invoke.cont68 ], [ %posSuffix.0204, %invoke.cont60 ], [ %posSuffix.0204, %invoke.cont12 ], [ %posSuffix.0204, %invoke.cont ], [ %posSuffix.0204, %if.end15 ], [ %posSuffix.0204, %if.end21 ], [ null, %land.lhs.true59 ]
+  %posPrefix.1 = phi ptr [ %posPrefix.2, %invoke.cont97 ], [ %posPrefix.2, %invoke.cont93 ], [ %posPrefix.2, %invoke.cont68 ], [ %posPrefix.0205, %invoke.cont60 ], [ %posPrefix.0205, %invoke.cont12 ], [ %posPrefix.0205, %invoke.cont ], [ %posPrefix.0205, %if.end15 ], [ %posPrefix.0205, %if.end21 ], [ %posPrefix.0205, %land.lhs.true59 ]
+  %numAffixPatternMatchers.1 = phi i32 [ %spec.select60, %invoke.cont97 ], [ %spec.select60, %invoke.cont93 ], [ %spec.select60, %invoke.cont68 ], [ %spec.select60, %invoke.cont60 ], [ %numAffixPatternMatchers.0206, %invoke.cont12 ], [ %numAffixPatternMatchers.0206, %invoke.cont ], [ %numAffixPatternMatchers.0206, %if.end15 ], [ %numAffixPatternMatchers.0206, %if.end21 ], [ %spec.select60, %land.lhs.true59 ]
+  %numAffixMatchers.1 = phi i32 [ %inc99, %invoke.cont97 ], [ %numAffixMatchers.2179, %invoke.cont93 ], [ %inc69, %invoke.cont68 ], [ %numAffixMatchers.0207, %invoke.cont60 ], [ %numAffixMatchers.0207, %invoke.cont12 ], [ %numAffixMatchers.0207, %invoke.cont ], [ %numAffixMatchers.0207, %if.end15 ], [ %numAffixMatchers.0207, %if.end21 ], [ %numAffixMatchers.0207, %land.lhs.true59 ]
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, 6
   br i1 %exitcond.not, label %do.body.preheader, label %for.body, !llvm.loop !20
 
 for.cond142.preheader:                            ; preds = %for.inc137.us, %do.body.preheader
-  %cmp143211 = icmp sgt i32 %numAffixMatchers.2, 0
+  %cmp143211 = icmp sgt i32 %numAffixMatchers.1, 0
   br i1 %cmp143211, label %for.body144.preheader, label %for.end153
 
 for.body144.preheader:                            ; preds = %for.cond142.preheader
-  %wide.trip.count221 = zext nneg i32 %numAffixMatchers.2 to i64
+  %wide.trip.count221 = zext nneg i32 %numAffixMatchers.1 to i64
   br label %for.body144
 
 for.body144:                                      ; preds = %for.body144.preheader, %for.inc151

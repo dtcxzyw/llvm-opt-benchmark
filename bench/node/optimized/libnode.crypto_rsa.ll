@@ -1620,8 +1620,8 @@ if.end263:                                        ; preds = %_ZNK2v820FunctionCa
   br label %return
 
 return:                                           ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit429, %if.end263, %_ZN4node9Utf8ValueD2Ev.exit136, %_ZN4node9Utf8ValueD2Ev.exit, %if.then260
-  %retval.sroa.0.3 = phi i16 [ 0, %_ZN4node9Utf8ValueD2Ev.exit ], [ 0, %_ZN4node9Utf8ValueD2Ev.exit136 ], [ 0, %if.then260 ], [ 257, %if.end263 ], [ 257, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit429 ]
-  ret i16 %retval.sroa.0.3
+  %retval.sroa.0.2 = phi i16 [ 0, %_ZN4node9Utf8ValueD2Ev.exit ], [ 0, %_ZN4node9Utf8ValueD2Ev.exit136 ], [ 0, %if.then260 ], [ 257, %if.end263 ], [ 257, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit429 ]
+  ret i16 %retval.sroa.0.2
 }
 
 declare noundef zeroext i1 @_ZNK2v85Value8IsUint32Ev(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
@@ -2431,12 +2431,12 @@ _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i: ; preds = %i
 cleanup.i:                                        ; preds = %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit.i
   %buf.sroa.7.1.i = phi i64 [ %8, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit.i ], [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i ]
   %buf.sroa.0.2.i = phi ptr [ %call1.i.i.i, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit.i ], [ null, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i ]
-  %retval.0.i = phi i32 [ 2, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit.i ], [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i ]
+  %retval.1.i = phi i32 [ 2, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit.i ], [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i ]
   call void @CRYPTO_clear_free(ptr noundef %buf.sroa.0.2.i, i64 noundef %buf.sroa.7.1.i, ptr noundef nonnull @.str.85, i32 noundef 225) #19
   br label %cleanup50.i
 
 cleanup50.i:                                      ; preds = %cleanup.i, %if.end33.i, %if.end30.i, %lor.lhs.false24.i, %land.lhs.true.i, %if.end13.i, %lor.lhs.false.i
-  %retval.1.ph.i = phi i32 [ 2, %if.end33.i ], [ 2, %if.end30.i ], [ 2, %land.lhs.true.i ], [ 2, %lor.lhs.false24.i ], [ 2, %if.end13.i ], [ 2, %lor.lhs.false.i ], [ %retval.0.i, %cleanup.i ]
+  %retval.0.ph.i = phi i32 [ 2, %if.end33.i ], [ 2, %if.end30.i ], [ 2, %land.lhs.true.i ], [ 2, %lor.lhs.false24.i ], [ 2, %if.end13.i ], [ 2, %lor.lhs.false.i ], [ %retval.1.i, %cleanup.i ]
   %.pr.i = load ptr, ptr %ctx.i, align 8
   %cmp.not.i13.i = icmp eq ptr %.pr.i, null
   br i1 %cmp.not.i13.i, label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit.i, label %if.then.i.i
@@ -2446,7 +2446,7 @@ if.then.i.i:                                      ; preds = %cleanup50.i
   br label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit.i
 
 _ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit.i: ; preds = %if.then.i.i, %cleanup50.i, %do.end4.i
-  %retval.17.i = phi i32 [ %retval.1.ph.i, %cleanup50.i ], [ %retval.1.ph.i, %if.then.i.i ], [ 2, %do.end4.i ]
+  %retval.07.i = phi i32 [ %retval.0.ph.i, %cleanup50.i ], [ %retval.0.ph.i, %if.then.i.i ], [ 2, %do.end4.i ]
   store ptr null, ptr %ctx.i, align 8
   call void @uv_mutex_unlock(ptr noundef %call5.i) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %m_pkey.i, align 8
@@ -2669,12 +2669,12 @@ _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i93: ; preds = 
 cleanup.i96:                                      ; preds = %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i93, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit.i86
   %buf.sroa.7.1.i97 = phi i64 [ %33, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit.i86 ], [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i93 ]
   %buf.sroa.0.2.i98 = phi ptr [ %call1.i.i.i82, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit.i86 ], [ null, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i93 ]
-  %retval.0.i99 = phi i32 [ 2, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit.i86 ], [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i93 ]
+  %retval.1.i99 = phi i32 [ 2, %_ZN4node6crypto10ByteSource7BuilderC2Em.exit.i86 ], [ 0, %_ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit.i93 ]
   call void @CRYPTO_clear_free(ptr noundef %buf.sroa.0.2.i98, i64 noundef %buf.sroa.7.1.i97, ptr noundef nonnull @.str.85, i32 noundef 225) #19
   br label %cleanup50.i35
 
 cleanup50.i35:                                    ; preds = %cleanup.i96, %if.end33.i77, %if.end30.i32, %lor.lhs.false24.i29, %land.lhs.true.i26, %if.end13.i19, %lor.lhs.false.i16
-  %retval.1.ph.i36 = phi i32 [ 2, %if.end33.i77 ], [ 2, %if.end30.i32 ], [ 2, %land.lhs.true.i26 ], [ 2, %lor.lhs.false24.i29 ], [ 2, %if.end13.i19 ], [ 2, %lor.lhs.false.i16 ], [ %retval.0.i99, %cleanup.i96 ]
+  %retval.0.ph.i36 = phi i32 [ 2, %if.end33.i77 ], [ 2, %if.end30.i32 ], [ 2, %land.lhs.true.i26 ], [ 2, %lor.lhs.false24.i29 ], [ 2, %if.end13.i19 ], [ 2, %lor.lhs.false.i16 ], [ %retval.1.i99, %cleanup.i96 ]
   %.pr.i37 = load ptr, ptr %ctx.i6, align 8
   %cmp.not.i13.i38 = icmp eq ptr %.pr.i37, null
   br i1 %cmp.not.i13.i38, label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit.i40, label %if.then.i.i39
@@ -2684,7 +2684,7 @@ if.then.i.i39:                                    ; preds = %cleanup50.i35
   br label %_ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit.i40
 
 _ZNSt10unique_ptrI15evp_pkey_ctx_stN4node15FunctionDeleterIS0_XadL_Z17EVP_PKEY_CTX_freeEEEEED2Ev.exit.i40: ; preds = %if.then.i.i39, %cleanup50.i35, %do.end4.i11
-  %retval.17.i41 = phi i32 [ %retval.1.ph.i36, %cleanup50.i35 ], [ %retval.1.ph.i36, %if.then.i.i39 ], [ 2, %do.end4.i11 ]
+  %retval.07.i41 = phi i32 [ %retval.0.ph.i36, %cleanup50.i35 ], [ %retval.0.ph.i36, %if.then.i.i39 ], [ 2, %do.end4.i11 ]
   store ptr null, ptr %ctx.i6, align 8
   call void @uv_mutex_unlock(ptr noundef %call5.i12) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %m_pkey.i5, align 8
@@ -2779,7 +2779,7 @@ _ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_decrypt_initEEXadL_Z1
   br label %return
 
 return:                                           ; preds = %entry, %_ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_decrypt_initEEXadL_Z16EVP_PKEY_decryptEEEENS0_21WebCryptoCipherStatusEPNS_11EnvironmentEPNS0_13KeyObjectDataERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_.exit, %_ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_encrypt_initEEXadL_Z16EVP_PKEY_encryptEEEENS0_21WebCryptoCipherStatusEPNS_11EnvironmentEPNS0_13KeyObjectDataERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_.exit
-  %retval.0 = phi i32 [ %retval.17.i41, %_ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_decrypt_initEEXadL_Z16EVP_PKEY_decryptEEEENS0_21WebCryptoCipherStatusEPNS_11EnvironmentEPNS0_13KeyObjectDataERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_.exit ], [ %retval.17.i, %_ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_encrypt_initEEXadL_Z16EVP_PKEY_encryptEEEENS0_21WebCryptoCipherStatusEPNS_11EnvironmentEPNS0_13KeyObjectDataERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_.exit ], [ 2, %entry ]
+  %retval.0 = phi i32 [ %retval.07.i41, %_ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_decrypt_initEEXadL_Z16EVP_PKEY_decryptEEEENS0_21WebCryptoCipherStatusEPNS_11EnvironmentEPNS0_13KeyObjectDataERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_.exit ], [ %retval.07.i, %_ZN4node6crypto12_GLOBAL__N_110RSA_CipherIXadL_Z21EVP_PKEY_encrypt_initEEXadL_Z16EVP_PKEY_encryptEEEENS0_21WebCryptoCipherStatusEPNS_11EnvironmentEPNS0_13KeyObjectDataERKNS0_15RSACipherConfigERKNS0_10ByteSourceEPSB_.exit ], [ 2, %entry ]
   ret i32 %retval.0
 }
 
@@ -3953,7 +3953,7 @@ if.end297:                                        ; preds = %if.then142, %if.end
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end254, %if.then202, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit, %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit, %if.end297, %if.then250
-  %retval.sroa.0.0 = phi i16 [ 0, %if.then250 ], [ 257, %if.end297 ], [ 0, %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit ], [ 0, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit ], [ 0, %if.then202 ], [ 0, %if.end254 ]
+  %retval.sroa.0.1 = phi i16 [ 0, %if.then250 ], [ 257, %if.end297 ], [ 0, %_ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit ], [ 0, %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit ], [ 0, %if.then202 ], [ 0, %if.end254 ]
   %56 = load ptr, ptr %public_exponent, align 8
   %cmp.not.i65 = icmp eq ptr %56, null
   br i1 %cmp.not.i65, label %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit67, label %_ZNKSt14default_deleteIN2v812BackingStoreEEclEPS1_.exit.i66
@@ -3968,7 +3968,7 @@ _ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit67: ; pred
   br label %cleanup300
 
 cleanup300:                                       ; preds = %do.end31, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit67
-  %retval.sroa.0.1 = phi i16 [ %retval.sroa.0.0, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit67 ], [ 0, %do.end31 ]
+  %retval.sroa.0.0 = phi i16 [ %retval.sroa.0.1, %_ZNSt10unique_ptrIN2v812BackingStoreESt14default_deleteIS1_EED2Ev.exit67 ], [ 0, %do.end31 ]
   call void @uv_mutex_unlock(ptr noundef %call3) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 16), ptr %m_pkey, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %m_pkey, i64 24
@@ -4055,7 +4055,7 @@ if.then.i.i69:                                    ; preds = %_ZNSt10shared_ptrIN
   br label %_ZN4node6crypto14ManagedEVPPKeyD2Ev.exit
 
 _ZN4node6crypto14ManagedEVPPKeyD2Ev.exit:         ; preds = %_ZNSt10shared_ptrIN4node9MutexBaseINS0_16LibuvMutexTraitsEEEED2Ev.exit.i, %if.then.i.i69
-  ret i16 %retval.sroa.0.1
+  ret i16 %retval.sroa.0.0
 }
 
 declare i32 @BN_num_bits(ptr noundef) local_unnamed_addr #0

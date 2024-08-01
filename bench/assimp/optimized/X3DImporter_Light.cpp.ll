@@ -1620,7 +1620,7 @@ cond.true.i.i87:                                  ; preds = %if.end.i3.i84
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %for.inc.i.i79, %if.end.i.i68, %invoke.cont10, %cond.true.i.i87, %if.end.i3.i84
-  %beamWidth.0 = phi float [ 0x3FE921FF20000000, %invoke.cont10 ], [ 0x3FE921FF20000000, %if.end.i.i68 ], [ %conv.i.i.i89, %cond.true.i.i87 ], [ 0.000000e+00, %if.end.i3.i84 ], [ 0x3FE921FF20000000, %for.inc.i.i79 ]
+  %beamWidth.1 = phi float [ 0x3FE921FF20000000, %invoke.cont10 ], [ 0x3FE921FF20000000, %if.end.i.i68 ], [ %conv.i.i.i89, %cond.true.i.i87 ], [ 0.000000e+00, %if.end.i3.i84 ], [ 0x3FE921FF20000000, %for.inc.i.i79 ]
   %call15 = invoke noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper19getColor3DAttributeERN4pugi8xml_nodeEPKcR9aiColor3D(ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(12) %color)
           to label %invoke.cont14 unwind label %lpad
 
@@ -1910,13 +1910,13 @@ if.then39:                                        ; preds = %invoke.cont37
           to label %if.end unwind label %lpad
 
 if.end:                                           ; preds = %if.then39, %invoke.cont37
-  %cmp = fcmp ogt float %beamWidth.0, %cutOffAngle.0
-  %beamWidth.1 = select i1 %cmp, float %cutOffAngle.0, float %beamWidth.0
+  %cmp = fcmp ogt float %beamWidth.1, %cutOffAngle.0
+  %beamWidth.0 = select i1 %cmp, float %cutOffAngle.0, float %beamWidth.1
   %AmbientIntensity = getelementptr inbounds i8, ptr %call35, i64 76
   store float %ambientIntensity.0, ptr %AmbientIntensity, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %Attenuation.i, ptr noundef nonnull align 8 dereferenceable(12) %attenuation, i64 12, i1 false)
   %BeamWidth = getelementptr inbounds i8, ptr %call35, i64 140
-  store float %beamWidth.1, ptr %BeamWidth, align 4
+  store float %beamWidth.0, ptr %BeamWidth, align 4
   %39 = load <2 x float>, ptr %color, align 8
   store <2 x float> %39, ptr %Color.i, align 4
   %40 = load float, ptr %b.i, align 8
@@ -2268,16 +2268,16 @@ lpad10.body:                                      ; preds = %lpad.i, %lpad10
 
 ehcleanup:                                        ; preds = %lpad10.body, %lpad8
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad10.body ], [ %4, %lpad8 ]
-  %cleanup.isactive.1 = phi i1 [ %cleanup.isactive.0.lpad-body, %lpad10.body ], [ true, %lpad8 ]
+  %cleanup.isactive.4 = phi i1 [ %cleanup.isactive.0.lpad-body, %lpad10.body ], [ true, %lpad8 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #18
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %lpad6, %ehcleanup
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad6 ]
-  %cleanup.isactive.2 = phi i1 [ %cleanup.isactive.1, %ehcleanup ], [ true, %lpad6 ]
+  %cleanup.isactive.3 = phi i1 [ %cleanup.isactive.4, %ehcleanup ], [ true, %lpad6 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #18
-  br i1 %cleanup.isactive.2, label %cleanup.action, label %eh.resume
+  br i1 %cleanup.isactive.3, label %cleanup.action, label %eh.resume
 
 cleanup.action:                                   ; preds = %ehcleanup14.thread13, %ehcleanup14.thread, %ehcleanup14
   %.pn.pn.pn.pn12 = phi { ptr, i32 } [ %1, %ehcleanup14.thread ], [ %.pn.pn, %ehcleanup14 ], [ %2, %ehcleanup14.thread13 ]

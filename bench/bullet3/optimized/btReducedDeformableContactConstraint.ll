@@ -661,14 +661,14 @@ if.end8.sink.split.i24:                           ; preds = %if.else.i21, %if.th
   br label %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit27
 
 _ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit27: ; preds = %if.else.i21, %if.end8.sink.split.i24
-  %deltaImpulse_tangent2.0 = phi float [ %sub6.i26, %if.end8.sink.split.i24 ], [ %sub.i18, %if.else.i21 ]
+  %deltaImpulse_tangent2.1 = phi float [ %sub6.i26, %if.end8.sink.split.i24 ], [ %sub.i18, %if.else.i21 ]
   %lower_limit.sink.i23 = phi float [ %lower_limit.sink16.i25, %if.end8.sink.split.i24 ], [ %add.i19, %if.else.i21 ]
   store float %lower_limit.sink.i23, ptr %m_appliedTangentImpulse2, align 4
   br label %if.end23
 
 if.end23:                                         ; preds = %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit.if.end23_crit_edge, %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit27
   %45 = phi float [ %41, %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit27 ], [ %.pre188, %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit.if.end23_crit_edge ]
-  %deltaImpulse_tangent2.1 = phi float [ %deltaImpulse_tangent2.0, %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit27 ], [ 0.000000e+00, %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit.if.end23_crit_edge ]
+  %deltaImpulse_tangent2.0 = phi float [ %deltaImpulse_tangent2.1, %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit27 ], [ 0.000000e+00, %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit.if.end23_crit_edge ]
   %46 = phi <2 x float> [ %37, %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit27 ], [ %34, %_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_.exit.if.end23_crit_edge ]
   %m_collideStatic = getelementptr inbounds i8, ptr %this, i64 96
   %47 = insertelement <2 x float> poison, float %deltaImpulse.0, i64 0
@@ -679,7 +679,7 @@ if.end23:                                         ; preds = %_ZN41btReducedDefor
   %fneg8.i = fneg float %28
   %mul8.i.i40 = fmul float %deltaImpulse_tangent.0, %fneg8.i
   %add14.i = fadd float %mul8.i.i29, %mul8.i.i40
-  %51 = insertelement <2 x float> poison, float %deltaImpulse_tangent2.1, i64 0
+  %51 = insertelement <2 x float> poison, float %deltaImpulse_tangent2.0, i64 0
   %52 = shufflevector <2 x float> %51, <2 x float> poison, <2 x i32> zeroinitializer
   %53 = fmul <2 x float> %52, %46
   %54 = insertelement <2 x float> poison, float %deltaImpulse_tangent.0, i64 0
@@ -687,7 +687,7 @@ if.end23:                                         ; preds = %_ZN41btReducedDefor
   %56 = fmul <2 x float> %55, %50
   %57 = fadd <2 x float> %49, %56
   %58 = fsub <2 x float> %57, %53
-  %59 = fmul float %deltaImpulse_tangent2.1, %45
+  %59 = fmul float %deltaImpulse_tangent2.0, %45
   %add14.i82 = fsub float %add14.i, %59
   %retval.sroa.3.12.vec.insert.i85 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i82, i64 0
   store <2 x float> %58, ptr %impulse, align 8
@@ -909,7 +909,7 @@ for.body.i155:                                    ; preds = %for.body.i155, %for
   %134 = load ptr, ptr %m_data.i.i154, align 8
   %arrayidx.i.i158 = getelementptr inbounds float, ptr %134, i64 %indvars.iv.i156
   %135 = load float, ptr %arrayidx.i.i158, align 4
-  %136 = call float @llvm.fmuladd.f32(float %133, float %deltaImpulse_tangent2.1, float %135)
+  %136 = call float @llvm.fmuladd.f32(float %133, float %deltaImpulse_tangent2.0, float %135)
   store float %136, ptr %arrayidx.i.i158, align 4
   %indvars.iv.next.i159 = add nuw nsw i64 %indvars.iv.i156, 1
   %137 = load i32, ptr %m_dofCount.i.i151, align 4

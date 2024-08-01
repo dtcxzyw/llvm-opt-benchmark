@@ -170,7 +170,7 @@ if.then6:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp7, label %return, label %if.end10
 
 if.end10:                                         ; preds = %lor.lhs.false, %if.then6
-  %ret.0 = phi ptr [ %call, %if.then6 ], [ %0, %lor.lhs.false ]
+  %ret.1 = phi ptr [ %call, %if.then6 ], [ %0, %lor.lhs.false ]
   %1 = load ptr, ptr %pp, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 1
   %2 = load i8, ptr %1, align 1
@@ -179,7 +179,7 @@ if.end10:                                         ; preds = %lor.lhs.false, %if.
   br i1 %cmp11, label %if.then38, label %if.end14
 
 if.end14:                                         ; preds = %if.end10
-  tail call void @ossl_asn1_string_set_bits_left(ptr noundef nonnull %ret.0, i32 noundef %conv) #7
+  tail call void @ossl_asn1_string_set_bits_left(ptr noundef nonnull %ret.1, i32 noundef %conv) #7
   %dec = add nsw i64 %len, -1
   %cmp15.not = icmp eq i64 %len, 1
   br i1 %cmp15.not, label %if.end30, label %if.then17
@@ -205,13 +205,13 @@ if.end30:                                         ; preds = %if.end14, %if.end24
   %p.0 = phi ptr [ %add.ptr, %if.end24 ], [ %incdec.ptr, %if.end14 ]
   %s.0 = phi ptr [ %call20, %if.end24 ], [ null, %if.end14 ]
   %conv31 = trunc nuw nsw i64 %dec to i32
-  tail call void @ASN1_STRING_set0(ptr noundef nonnull %ret.0, ptr noundef %s.0, i32 noundef %conv31) #7
-  %type = getelementptr inbounds i8, ptr %ret.0, i64 4
+  tail call void @ASN1_STRING_set0(ptr noundef nonnull %ret.1, ptr noundef %s.0, i32 noundef %conv31) #7
+  %type = getelementptr inbounds i8, ptr %ret.1, i64 4
   store i32 3, ptr %type, align 4
   br i1 %cmp4, label %if.end35, label %if.then34
 
 if.then34:                                        ; preds = %if.end30
-  store ptr %ret.0, ptr %a, align 8
+  store ptr %ret.1, ptr %a, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.then34, %if.end30
@@ -224,28 +224,28 @@ err:                                              ; preds = %if.then17
 
 if.then38:                                        ; preds = %if.end10, %if.end, %entry, %err
   %i.036 = phi i32 [ %conv, %err ], [ 220, %if.end10 ], [ 151, %if.end ], [ 152, %entry ]
-  %ret.134 = phi ptr [ %ret.0, %err ], [ %ret.0, %if.end10 ], [ null, %if.end ], [ null, %entry ]
+  %ret.034 = phi ptr [ %ret.1, %err ], [ %ret.1, %if.end10 ], [ null, %if.end ], [ null, %entry ]
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 134, ptr noundef nonnull @__func__.ossl_c2i_ASN1_BIT_STRING) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %i.036, ptr noundef null) #7
   br label %if.end39
 
 if.end39:                                         ; preds = %if.then38, %err
-  %ret.135 = phi ptr [ %ret.134, %if.then38 ], [ %ret.0, %err ]
+  %ret.035 = phi ptr [ %ret.034, %if.then38 ], [ %ret.1, %err ]
   %cmp40 = icmp eq ptr %a, null
   br i1 %cmp40, label %if.then45, label %lor.lhs.false42
 
 lor.lhs.false42:                                  ; preds = %if.end39
   %6 = load ptr, ptr %a, align 8
-  %cmp43.not = icmp eq ptr %6, %ret.135
+  %cmp43.not = icmp eq ptr %6, %ret.035
   br i1 %cmp43.not, label %return, label %if.then45
 
 if.then45:                                        ; preds = %lor.lhs.false42, %if.end39
-  tail call void @ASN1_BIT_STRING_free(ptr noundef %ret.135) #7
+  tail call void @ASN1_BIT_STRING_free(ptr noundef %ret.035) #7
   br label %return
 
 return:                                           ; preds = %lor.lhs.false42, %if.then45, %if.then6, %if.end35
-  %retval.0 = phi ptr [ %ret.0, %if.end35 ], [ null, %if.then6 ], [ null, %if.then45 ], [ null, %lor.lhs.false42 ]
+  %retval.0 = phi ptr [ %ret.1, %if.end35 ], [ null, %if.then6 ], [ null, %if.then45 ], [ null, %lor.lhs.false42 ]
   ret ptr %retval.0
 }
 

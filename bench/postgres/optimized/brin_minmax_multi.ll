@@ -3012,12 +3012,12 @@ define internal fastcc noundef ptr @brin_range_serialize(ptr noundef %0) unnamed
 
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %.1111 = phi i64 [ 20, %.lr.ph ], [ %55, %49 ]
+  %.2111 = phi i64 [ 20, %.lr.ph ], [ %55, %49 ]
   %50 = getelementptr [0 x i64], ptr %48, i64 0, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8
   %52 = inttoptr i64 %51 to ptr
   %53 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #14
-  %54 = add i64 %.1111, 1
+  %54 = add i64 %.2111, 1
   %55 = add i64 %54, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3030,9 +3030,9 @@ define internal fastcc noundef ptr @brin_range_serialize(ptr noundef %0) unnamed
   br label %.loopexit
 
 .loopexit:                                        ; preds = %49, %42, %.preheader108, %.preheader, %56
-  %.2 = phi i64 [ %59, %56 ], [ 20, %.preheader ], [ 20, %.preheader108 ], [ %44, %42 ], [ %55, %49 ]
-  %60 = tail call ptr @palloc0(i64 noundef %.2) #12
-  %61 = trunc i64 %.2 to i32
+  %.1 = phi i64 [ %59, %56 ], [ 20, %.preheader ], [ 20, %.preheader108 ], [ %44, %42 ], [ %55, %49 ]
+  %60 = tail call ptr @palloc0(i64 noundef %.1) #12
+  %61 = trunc i64 %.1 to i32
   %62 = shl i32 %61, 2
   store i32 %62, ptr %60, align 4
   %63 = getelementptr inbounds i8, ptr %60, i64 4

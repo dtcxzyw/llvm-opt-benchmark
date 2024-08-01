@@ -5685,7 +5685,7 @@ find_temperature_from_raw_coeffs.exit.thread:     ; preds = %2867, %2843, %2852,
   br label %3602
 
 3602:                                             ; preds = %3574, %3558, %3548, %3531, %3483
-  %.sroa.0.1.i = phi nsz <4 x float> [ %.sroa.0.0.i, %3483 ], [ %.sroa.0.0.i, %3574 ], [ %.sroa.0.0.i, %3558 ], [ %.sroa.0.0.i, %3548 ], [ %.sroa.084.i.0..sroa.084.i.0..sroa.084.i.0..sroa.084.0..sroa.084.0..sroa.084.0..sroa.0.0.copyload.i, %3531 ]
+  %.sroa.0.2.i = phi nsz <4 x float> [ %.sroa.0.0.i, %3483 ], [ %.sroa.0.0.i, %3574 ], [ %.sroa.0.0.i, %3558 ], [ %.sroa.0.0.i, %3548 ], [ %.sroa.084.i.0..sroa.084.i.0..sroa.084.i.0..sroa.084.0..sroa.084.0..sroa.084.0..sroa.0.0.copyload.i, %3531 ]
   %3603 = phi float [ %3482, %3483 ], [ %3601, %3574 ], [ %3573, %3558 ], [ %3557, %3548 ], [ %.sroa.0.8.vec.extract.i, %3531 ]
   %3604 = phi <2 x float> [ %3479, %3483 ], [ %3599, %3574 ], [ %3571, %3558 ], [ %3556, %3548 ], [ %.sroa.0.0.vec.extract.i, %3531 ]
   %3605 = fmul reassoc nsz arcp contract afn <2 x float> %3604, %3411
@@ -5713,7 +5713,7 @@ find_temperature_from_raw_coeffs.exit.thread:     ; preds = %2867, %2843, %2852,
   br i1 %3625, label %3627, label %3626
 
 3626:                                             ; preds = %3602
-  %.sroa.0.0.vecblend49.i = shufflevector <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float poison>, <4 x float> %.sroa.0.1.i, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
+  %.sroa.0.0.vecblend49.i = shufflevector <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float poison>, <4 x float> %.sroa.0.2.i, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
   br label %3707
 
 3627:                                             ; preds = %3602
@@ -5822,12 +5822,12 @@ find_temperature_from_raw_coeffs.exit.thread:     ; preds = %2867, %2843, %2852,
   %3705 = phi reassoc nsz arcp contract afn float [ %3702, %3694 ], [ 0.000000e+00, %3688 ]
   %3706 = phi <2 x float> [ %3703, %3694 ], [ zeroinitializer, %3688 ]
   %.sroa.0.0.vec.expand.i = shufflevector <2 x float> %3706, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.0.0.vecblend.i = shufflevector <4 x float> %.sroa.0.0.vec.expand.i, <4 x float> %.sroa.0.1.i, <4 x i32> <i32 0, i32 1, i32 poison, i32 7>
+  %.sroa.0.0.vecblend.i = shufflevector <4 x float> %.sroa.0.0.vec.expand.i, <4 x float> %.sroa.0.2.i, <4 x i32> <i32 0, i32 1, i32 poison, i32 7>
   %.sroa.0.8.vec.insert.i = insertelement <4 x float> %.sroa.0.0.vecblend.i, float %3705, i64 2
   br label %3707
 
 3707:                                             ; preds = %3704, %3626
-  %.sroa.0.2.i = phi nsz <4 x float> [ %.sroa.0.8.vec.insert.i, %3704 ], [ %.sroa.0.0.vecblend49.i, %3626 ]
+  %.sroa.0.3.i = phi nsz <4 x float> [ %.sroa.0.8.vec.insert.i, %3704 ], [ %.sroa.0.0.vecblend49.i, %3626 ]
   %3708 = phi float [ %3705, %3704 ], [ 0.000000e+00, %3626 ]
   %3709 = phi <2 x float> [ %3706, %3704 ], [ zeroinitializer, %3626 ]
   br i1 %.not, label %3754, label %3710
@@ -6046,7 +6046,7 @@ _luma_chroma.exit.i:                              ; preds = %3848, %3831
   %3877 = fmul reassoc nsz arcp contract afn float %3873, %3847
   %3878 = call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %3876, <2 x float> zeroinitializer)
   %.sroa.0.0.vec.expand20.i = shufflevector <2 x float> %3878, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.0.0.vecblend21.i = shufflevector <4 x float> %.sroa.0.0.vec.expand20.i, <4 x float> %.sroa.0.2.i, <4 x i32> <i32 0, i32 1, i32 poison, i32 7>
+  %.sroa.0.0.vecblend21.i = shufflevector <4 x float> %.sroa.0.0.vec.expand20.i, <4 x float> %.sroa.0.3.i, <4 x i32> <i32 0, i32 1, i32 poison, i32 7>
   %3879 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3877, float 0.000000e+00)
   %.sroa.0.8.vec.insert59.i = insertelement <4 x float> %.sroa.0.0.vecblend21.i, float %3879, i64 2
   br label %3975
@@ -6161,28 +6161,28 @@ _luma_chroma.exit14.i:                            ; preds = %3944, %3927
   %3972 = shufflevector <2 x float> %3971, <2 x float> poison, <2 x i32> zeroinitializer
   %3973 = fmul reassoc nsz arcp contract afn <2 x float> %3972, %3937
   %.sroa.0.0.vec.expand40.i = shufflevector <2 x float> %3973, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.0.0.vecblend41.i = shufflevector <4 x float> %.sroa.0.0.vec.expand40.i, <4 x float> %.sroa.0.2.i, <4 x i32> <i32 0, i32 1, i32 poison, i32 7>
+  %.sroa.0.0.vecblend41.i = shufflevector <4 x float> %.sroa.0.0.vec.expand40.i, <4 x float> %.sroa.0.3.i, <4 x i32> <i32 0, i32 1, i32 poison, i32 7>
   %3974 = fmul reassoc nsz arcp contract afn float %3970, %3943
   %.sroa.0.8.vec.insert83.i = insertelement <4 x float> %.sroa.0.0.vecblend41.i, float %3974, i64 2
   br label %3975
 
 3975:                                             ; preds = %_luma_chroma.exit14.i, %_luma_chroma.exit.i
-  %.sroa.0.3.i = phi nsz <4 x float> [ %.sroa.0.8.vec.insert83.i, %_luma_chroma.exit14.i ], [ %.sroa.0.8.vec.insert59.i, %_luma_chroma.exit.i ]
+  %.sroa.0.4.i = phi nsz <4 x float> [ %.sroa.0.8.vec.insert83.i, %_luma_chroma.exit14.i ], [ %.sroa.0.8.vec.insert59.i, %_luma_chroma.exit.i ]
   br i1 %3441, label %3989, label %3976
 
 3976:                                             ; preds = %3975
-  %.sroa.0.0.vec.extract43.i = extractelement <4 x float> %.sroa.0.3.i, i64 0
+  %.sroa.0.0.vec.extract43.i = extractelement <4 x float> %.sroa.0.4.i, i64 0
   %3977 = load float, ptr %3029, align 4, !tbaa !12, !noalias !192
   %3978 = fmul reassoc nsz arcp contract afn float %3977, %.sroa.0.0.vec.extract43.i
   %3979 = load <2 x float>, ptr %3442, align 4, !tbaa !12, !noalias !192
-  %3980 = shufflevector <4 x float> %.sroa.0.3.i, <4 x float> poison, <2 x i32> <i32 1, i32 2>
+  %3980 = shufflevector <4 x float> %.sroa.0.4.i, <4 x float> poison, <2 x i32> <i32 1, i32 2>
   %3981 = fmul reassoc nsz arcp contract afn <2 x float> %3979, %3980
   %3982 = extractelement <2 x float> %3981, i64 0
   %3983 = fadd reassoc nsz arcp contract afn float %3982, %3978
   %3984 = extractelement <2 x float> %3981, i64 1
   %3985 = fadd reassoc nsz arcp contract afn float %3983, %3984
   %3986 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %3985, float 0.000000e+00)
-  %3987 = insertelement <4 x float> %.sroa.0.3.i, float %3986, i64 0
+  %3987 = insertelement <4 x float> %.sroa.0.4.i, float %3986, i64 0
   %3988 = insertelement <4 x float> %3987, float %3986, i64 1
   %.sroa.0.0.vec.insert.i = insertelement <4 x float> %3988, float %3986, i64 2
   br label %4080
@@ -6198,18 +6198,18 @@ _luma_chroma.exit14.i:                            ; preds = %3944, %3927
   ]
 
 3991:                                             ; preds = %3990, %3990
-  %.sroa.0.8.vec.extract65.i = extractelement <4 x float> %.sroa.0.3.i, i64 2
-  %.sroa.0.0.vec.extract23.i = shufflevector <4 x float> %.sroa.0.3.i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %.sroa.0.8.vec.extract65.i = extractelement <4 x float> %.sroa.0.4.i, i64 2
+  %.sroa.0.0.vec.extract23.i = shufflevector <4 x float> %.sroa.0.4.i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %3992 = fmul reassoc nsz arcp contract afn <2 x float> %.sroa.0.0.vec.extract23.i, <float 0x3FDBAACDA0000000, float 0xBFC2D42C40000000>
   %3993 = shufflevector <2 x float> %3992, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %3994 = fmul reassoc nsz arcp contract afn <2 x float> %.sroa.0.0.vec.extract23.i, <float 0x3FEF958100000000, float 0x3FE096BBA0000000>
-  %3995 = shufflevector <4 x float> %.sroa.0.3.i, <4 x float> poison, <2 x i32> <i32 2, i32 2>
+  %3995 = shufflevector <4 x float> %.sroa.0.4.i, <4 x float> poison, <2 x i32> <i32 2, i32 2>
   %3996 = fmul reassoc nsz arcp contract afn <2 x float> %3995, <float 0x3FC47AE140000000, float 0x3FA93DD980000000>
   %3997 = fadd reassoc nsz arcp contract afn <2 x float> %3996, %3994
   %3998 = fadd reassoc nsz arcp contract afn <2 x float> %3997, %3993
-  %3999 = extractelement <4 x float> %.sroa.0.3.i, i64 0
+  %3999 = extractelement <4 x float> %.sroa.0.4.i, i64 0
   %4000 = fmul reassoc nsz arcp contract afn float %3999, 0xBF816872C0000000
-  %4001 = extractelement <4 x float> %.sroa.0.3.i, i64 1
+  %4001 = extractelement <4 x float> %.sroa.0.4.i, i64 1
   %4002 = fmul reassoc nsz arcp contract afn float %4001, 0x3FA47AE140000000
   %4003 = fadd reassoc nsz arcp contract afn float %4002, %4000
   %4004 = fmul reassoc nsz arcp contract afn float %.sroa.0.8.vec.extract65.i, 0x3FEEFDF3C0000000
@@ -6221,18 +6221,18 @@ _luma_chroma.exit14.i:                            ; preds = %3944, %3927
   br label %4028
 
 4009:                                             ; preds = %3990
-  %.sroa.0.8.vec.extract67.i = extractelement <4 x float> %.sroa.0.3.i, i64 2
-  %.sroa.0.0.vec.extract25.i = shufflevector <4 x float> %.sroa.0.3.i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %.sroa.0.8.vec.extract67.i = extractelement <4 x float> %.sroa.0.4.i, i64 2
+  %.sroa.0.0.vec.extract25.i = shufflevector <4 x float> %.sroa.0.4.i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %4010 = fmul reassoc nsz arcp contract afn <2 x float> %.sroa.0.0.vec.extract25.i, <float 0x3FD8CD20A0000000, float 0xBFF02E19C0000000>
   %4011 = shufflevector <2 x float> %4010, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %4012 = fmul reassoc nsz arcp contract afn <2 x float> %.sroa.0.0.vec.extract25.i, <float 0x3FFDCB07E0000000, float 0x3FE3E2E4E0000000>
-  %4013 = shufflevector <4 x float> %.sroa.0.3.i, <4 x float> poison, <2 x i32> <i32 2, i32 2>
+  %4013 = shufflevector <4 x float> %.sroa.0.4.i, <4 x float> poison, <2 x i32> <i32 2, i32 2>
   %4014 = fmul reassoc nsz arcp contract afn <2 x float> %4013, <float 0x3FC3188F40000000, float 0xBF8260F5E0000000>
   %4015 = fadd reassoc nsz arcp contract afn <2 x float> %4014, %4012
   %4016 = fadd reassoc nsz arcp contract afn <2 x float> %4015, %4011
-  %4017 = extractelement <4 x float> %.sroa.0.3.i, i64 0
+  %4017 = extractelement <4 x float> %.sroa.0.4.i, i64 0
   %4018 = fmul reassoc nsz arcp contract afn float %4017, 0xBF90389F80000000
-  %4019 = extractelement <4 x float> %.sroa.0.3.i, i64 1
+  %4019 = extractelement <4 x float> %.sroa.0.4.i, i64 1
   %4020 = fmul reassoc nsz arcp contract afn float %4019, 0xBFA17891E0000000
   %4021 = fadd reassoc nsz arcp contract afn float %4020, %4018
   %4022 = fmul reassoc nsz arcp contract afn float %.sroa.0.8.vec.extract67.i, 0x3FF0CCA700000000
@@ -6244,8 +6244,8 @@ _luma_chroma.exit14.i:                            ; preds = %3944, %3927
   br label %4028
 
 4027:                                             ; preds = %3990
-  %.sroa.0.0.vec.extract27.i = shufflevector <4 x float> %.sroa.0.3.i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %.sroa.0.8.vec.extract69.i = extractelement <4 x float> %.sroa.0.3.i, i64 2
+  %.sroa.0.0.vec.extract27.i = shufflevector <4 x float> %.sroa.0.4.i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %.sroa.0.8.vec.extract69.i = extractelement <4 x float> %.sroa.0.4.i, i64 2
   br label %4028
 
 4028:                                             ; preds = %4027, %4009, %3991
@@ -6256,11 +6256,11 @@ _luma_chroma.exit14.i:                            ; preds = %3944, %3927
   br label %4046
 
 4032:                                             ; preds = %3989
-  %.sroa.0.0.vec.extract29.i = shufflevector <4 x float> %.sroa.0.3.i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
+  %.sroa.0.0.vec.extract29.i = shufflevector <4 x float> %.sroa.0.4.i, <4 x float> poison, <2 x i32> <i32 0, i32 1>
   %4033 = fmul reassoc nsz arcp contract afn <2 x float> %.sroa.0.0.vec.extract29.i, %3468
   %4034 = shufflevector <2 x float> %4033, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %4035 = fmul reassoc nsz arcp contract afn <2 x float> %.sroa.0.0.vec.extract29.i, %3456
-  %4036 = shufflevector <4 x float> %.sroa.0.3.i, <4 x float> poison, <2 x i32> <i32 2, i32 2>
+  %4036 = shufflevector <4 x float> %.sroa.0.4.i, <4 x float> poison, <2 x i32> <i32 2, i32 2>
   %4037 = fmul reassoc nsz arcp contract afn <2 x float> %4036, %3457
   %4038 = fadd reassoc nsz arcp contract afn <2 x float> %4037, %4035
   %4039 = fadd reassoc nsz arcp contract afn <2 x float> %4038, %4034
@@ -6297,7 +6297,7 @@ _luma_chroma.exit14.i:                            ; preds = %3944, %3927
   %4063 = fadd reassoc nsz arcp contract afn <2 x float> %4059, %4062
   %4064 = call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %4063, <2 x float> zeroinitializer)
   %.sroa.0.0.vec.expand31.i = shufflevector <2 x float> %4064, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.0.0.vecblend32.i = shufflevector <4 x float> %.sroa.0.0.vec.expand31.i, <4 x float> %.sroa.0.3.i, <4 x i32> <i32 0, i32 1, i32 poison, i32 7>
+  %.sroa.0.0.vecblend32.i = shufflevector <4 x float> %.sroa.0.0.vec.expand31.i, <4 x float> %.sroa.0.4.i, <4 x i32> <i32 0, i32 1, i32 poison, i32 7>
   %4065 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %4055, float 0.000000e+00)
   %.sroa.0.8.vec.insert73.i = insertelement <4 x float> %.sroa.0.0.vecblend32.i, float %4065, i64 2
   br label %4080
@@ -6313,7 +6313,7 @@ _luma_chroma.exit14.i:                            ; preds = %3944, %3927
   %4073 = fmul reassoc nsz arcp contract afn <2 x float> %4072, %3455
   %4074 = fadd reassoc nsz arcp contract afn <2 x float> %4070, %4073
   %.sroa.0.0.vec.expand34.i = shufflevector <2 x float> %4074, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.0.0.vecblend35.i = shufflevector <4 x float> %.sroa.0.0.vec.expand34.i, <4 x float> %.sroa.0.3.i, <4 x i32> <i32 0, i32 1, i32 poison, i32 7>
+  %.sroa.0.0.vecblend35.i = shufflevector <4 x float> %.sroa.0.0.vec.expand34.i, <4 x float> %.sroa.0.4.i, <4 x i32> <i32 0, i32 1, i32 poison, i32 7>
   %4075 = fmul reassoc nsz arcp contract afn <2 x float> %4047, %106
   %shift583 = shufflevector <2 x float> %4075, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %4076 = fadd reassoc nsz arcp contract afn <2 x float> %shift583, %4075
@@ -6324,11 +6324,11 @@ _luma_chroma.exit14.i:                            ; preds = %3944, %3927
   br label %4080
 
 4080:                                             ; preds = %4066, %4048, %3976
-  %.sroa.0.4.i = phi nsz <4 x float> [ %.sroa.0.8.vec.insert75.i, %4066 ], [ %.sroa.0.8.vec.insert73.i, %4048 ], [ %.sroa.0.0.vec.insert.i, %3976 ]
+  %.sroa.0.1.i = phi nsz <4 x float> [ %.sroa.0.8.vec.insert75.i, %4066 ], [ %.sroa.0.8.vec.insert73.i, %4048 ], [ %.sroa.0.0.vec.insert.i, %3976 ]
   %4081 = or disjoint i64 %3476, 3
   %4082 = getelementptr inbounds float, ptr %2, i64 %4081
   %4083 = load float, ptr %4082, align 4, !tbaa !12, !alias.scope !187, !noalias !190
-  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %.sroa.0.4.i, float %4083, i64 3
+  %.sroa.0.12.vec.insert.i = insertelement <4 x float> %.sroa.0.1.i, float %4083, i64 3
   %4084 = getelementptr inbounds float, ptr %3, i64 %3476
   store <4 x float> %.sroa.0.12.vec.insert.i, ptr %4084, align 16, !tbaa !97, !alias.scope !197, !noalias !187, !nontemporal !200
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.084.i)

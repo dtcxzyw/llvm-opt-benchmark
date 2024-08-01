@@ -1020,7 +1020,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %12 = phi ptr [ %20, %for.inc24.us.i ], [ null, %for.body.lr.ph.i ]
   %13 = phi ptr [ %21, %for.inc24.us.i ], [ null, %for.body.lr.ph.i ]
   %conv39.us.i = phi i64 [ %conv.us.i, %for.inc24.us.i ], [ 0, %for.body.lr.ph.i ]
-  %pos.038.us.i = phi i64 [ %pos.3.us.i, %for.inc24.us.i ], [ 0, %for.body.lr.ph.i ]
+  %pos.038.us.i = phi i64 [ %pos.1.us.i, %for.inc24.us.i ], [ 0, %for.body.lr.ph.i ]
   %i.037.us.i = phi i32 [ %inc25.us.i, %for.inc24.us.i ], [ 0, %for.body.lr.ph.i ]
   %arrayidx.us.i = getelementptr ptr, ptr %retval.0.i3561, i64 %conv39.us.i
   %14 = load ptr, ptr %arrayidx.us.i, align 8
@@ -1105,15 +1105,15 @@ _Py_NewRef.exit23.us.i:                           ; preds = %if.end.i.i22.us.i, 
 for.inc24.us.i:                                   ; preds = %_Py_NewRef.exit23.us.i, %contains.exit.us.i
   %20 = phi ptr [ %18, %_Py_NewRef.exit23.us.i ], [ %12, %contains.exit.us.i ]
   %21 = phi ptr [ %18, %_Py_NewRef.exit23.us.i ], [ %13, %contains.exit.us.i ]
-  %pos.3.us.i = phi i64 [ %inc23.us.i, %_Py_NewRef.exit23.us.i ], [ %pos.038.us.i, %contains.exit.us.i ]
+  %pos.1.us.i = phi i64 [ %inc23.us.i, %_Py_NewRef.exit23.us.i ], [ %pos.038.us.i, %contains.exit.us.i ]
   %inc25.us.i = add i32 %i.037.us.i, 1
   %conv.us.i = sext i32 %inc25.us.i to i64
   %cmp.us.i = icmp sgt i64 %.sink.i3460, %conv.us.i
   br i1 %cmp.us.i, label %for.body.us.i, label %for.end26.i, !llvm.loop !7
 
 for.body18.us.i:                                  ; preds = %for.body18.us.preheader.i, %_Py_NewRef.exit.us.i
-  %pos.135.us.i = phi i64 [ %inc.us.i, %_Py_NewRef.exit.us.i ], [ %pos.038.us.i, %for.body18.us.preheader.i ]
-  %arrayidx19.us.i = getelementptr ptr, ptr %retval.0.i28, i64 %pos.135.us.i
+  %pos.335.us.i = phi i64 [ %inc.us.i, %_Py_NewRef.exit.us.i ], [ %pos.038.us.i, %for.body18.us.preheader.i ]
+  %arrayidx19.us.i = getelementptr ptr, ptr %retval.0.i28, i64 %pos.335.us.i
   %22 = load ptr, ptr %arrayidx19.us.i, align 8
   %23 = load i32, ptr %22, align 8
   %add.i.i.us.i = add i32 %23, 1
@@ -1125,9 +1125,9 @@ if.end.i.i18.us.i:                                ; preds = %for.body18.us.i
   br label %_Py_NewRef.exit.us.i
 
 _Py_NewRef.exit.us.i:                             ; preds = %if.end.i.i18.us.i, %for.body18.us.i
-  %arrayidx.i19.us.i = getelementptr [1 x ptr], ptr %ob_item.i.us.i, i64 0, i64 %pos.135.us.i
+  %arrayidx.i19.us.i = getelementptr [1 x ptr], ptr %ob_item.i.us.i, i64 0, i64 %pos.335.us.i
   store ptr %22, ptr %arrayidx.i19.us.i, align 8
-  %inc.us.i = add nsw i64 %pos.135.us.i, 1
+  %inc.us.i = add nsw i64 %pos.335.us.i, 1
   %exitcond44.not.i = icmp eq i64 %inc.us.i, %.sink.i
   br i1 %exitcond44.not.i, label %if.end21.us.i, label %for.body18.us.i, !llvm.loop !8
 
@@ -1189,8 +1189,8 @@ for.body18.preheader.i:                           ; preds = %for.cond15.preheade
   br label %for.body18.i
 
 for.body18.i:                                     ; preds = %_Py_NewRef.exit.i, %for.body18.preheader.i
-  %pos.135.i = phi i64 [ %inc.i, %_Py_NewRef.exit.i ], [ %pos.038.i, %for.body18.preheader.i ]
-  %arrayidx19.i = getelementptr ptr, ptr %retval.0.i28, i64 %pos.135.i
+  %pos.335.i = phi i64 [ %inc.i, %_Py_NewRef.exit.i ], [ %pos.038.i, %for.body18.preheader.i ]
+  %arrayidx19.i = getelementptr ptr, ptr %retval.0.i28, i64 %pos.335.i
   %28 = load ptr, ptr %arrayidx19.i, align 8
   %29 = load i32, ptr %28, align 8
   %add.i.i.i = add i32 %29, 1
@@ -1202,9 +1202,9 @@ if.end.i.i18.i:                                   ; preds = %for.body18.i
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i18.i, %for.body18.i
-  %arrayidx.i19.i = getelementptr [1 x ptr], ptr %ob_item.i.i, i64 0, i64 %pos.135.i
+  %arrayidx.i19.i = getelementptr [1 x ptr], ptr %ob_item.i.i, i64 0, i64 %pos.335.i
   store ptr %28, ptr %arrayidx.i19.i, align 8
-  %inc.i = add nsw i64 %pos.135.i, 1
+  %inc.i = add nsw i64 %pos.335.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %.sink.i
   br i1 %exitcond.not.i, label %if.end21.i, label %for.body18.i, !llvm.loop !8
 
@@ -1239,7 +1239,7 @@ merge.exit.thread:                                ; preds = %if.then8.i, %if.the
   br label %if.then6
 
 merge.exit:                                       ; preds = %_Py_NewRef.exit23.i, %for.end26.i
-  %pos.0.lcssa50.i = phi i64 [ %pos.3.us.i, %for.end26.i ], [ %inc23.i, %_Py_NewRef.exit23.i ]
+  %pos.0.lcssa50.i = phi i64 [ %pos.1.us.i, %for.end26.i ], [ %inc23.i, %_Py_NewRef.exit23.i ]
   %call29.i = call i32 @_PyTuple_Resize(ptr noundef nonnull %tuple.i, i64 noundef %pos.0.lcssa50.i) #5
   %.pre.i = load ptr, ptr %tuple.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tuple.i)
@@ -1912,23 +1912,23 @@ for.cond:                                         ; preds = %do.end
 
 for.body:                                         ; preds = %_Py_NewRef.exit, %for.cond
   %iarg.027 = phi i64 [ %inc, %for.cond ], [ 1, %_Py_NewRef.exit ]
-  %res.026 = phi ptr [ %call20, %for.cond ], [ %15, %_Py_NewRef.exit ]
+  %res.126 = phi ptr [ %call20, %for.cond ], [ %15, %_Py_NewRef.exit ]
   %arrayidx19 = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %iarg.027
   %17 = load ptr, ptr %arrayidx19, align 8
-  %call20 = tail call ptr @PyNumber_Or(ptr noundef nonnull %res.026, ptr noundef %17) #5
-  %18 = load i64, ptr %res.026, align 8
+  %call20 = tail call ptr @PyNumber_Or(ptr noundef nonnull %res.126, ptr noundef %17) #5
+  %18 = load i64, ptr %res.126, align 8
   %19 = and i64 %18, 2147483648
   %cmp.i35.not = icmp eq i64 %19, 0
   br i1 %cmp.i35.not, label %if.end.i28, label %do.end
 
 if.end.i28:                                       ; preds = %for.body
   %dec.i29 = add i64 %18, -1
-  store i64 %dec.i29, ptr %res.026, align 8
+  store i64 %dec.i29, ptr %res.126, align 8
   %cmp.i30 = icmp eq i64 %dec.i29, 0
   br i1 %cmp.i30, label %if.then1.i31, label %do.end
 
 if.then1.i31:                                     ; preds = %if.end.i28
-  tail call void @_Py_Dealloc(ptr noundef nonnull %res.026) #5
+  tail call void @_Py_Dealloc(ptr noundef nonnull %res.126) #5
   br label %do.end
 
 do.end:                                           ; preds = %if.end.i28, %if.then1.i31, %for.body
@@ -1936,7 +1936,7 @@ do.end:                                           ; preds = %if.end.i28, %if.the
   br i1 %cmp21, label %if.end24, label %for.cond
 
 if.end24:                                         ; preds = %do.end, %for.cond, %_Py_NewRef.exit, %_Py_NewRef.exit.i, %if.then14
-  %res.1 = phi ptr [ null, %if.then14 ], [ %call.i, %_Py_NewRef.exit.i ], [ %15, %_Py_NewRef.exit ], [ null, %do.end ], [ %call20, %for.cond ]
+  %res.0 = phi ptr [ null, %if.then14 ], [ %call.i, %_Py_NewRef.exit.i ], [ %15, %_Py_NewRef.exit ], [ null, %do.end ], [ %call20, %for.cond ]
   %20 = load i64, ptr %call8, align 8
   %21 = and i64 %20, 2147483648
   %cmp.i38.not = icmp eq i64 %21, 0
@@ -1953,7 +1953,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 return:                                           ; preds = %if.end.i, %if.then1.i, %if.end24, %if.end5, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.end5 ], [ %res.1, %if.end24 ], [ %res.1, %if.then1.i ], [ %res.1, %if.end.i ]
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.end5 ], [ %res.0, %if.end24 ], [ %res.0, %if.then1.i ], [ %res.0, %if.end.i ]
   ret ptr %retval.0
 }
 

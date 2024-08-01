@@ -3534,7 +3534,7 @@ _ZN2cv6detail5YieldINS_6GArrayINS_4util7variantIJNS_4gapi3wip4draw4TextENS7_5FTe
 
 .body58:                                          ; preds = %.body62, %37, %34, %59
   %.pn.pn = phi { ptr, i32 } [ %60, %59 ], [ %58, %.body62 ], [ %35, %37 ], [ %35, %34 ]
-  %.1 = phi i1 [ true, %59 ], [ false, %.body62 ], [ true, %37 ], [ true, %34 ]
+  %.4 = phi i1 [ true, %59 ], [ false, %.body62 ], [ true, %37 ], [ true, %34 ]
   %61 = load i64, ptr %7, align 8
   %62 = getelementptr inbounds [3 x ptr], ptr @constinit.50, i64 0, i64 %61
   %63 = load ptr, ptr %62, align 8
@@ -3550,7 +3550,7 @@ _ZN2cv6detail5YieldINS_6GArrayINS_4util7variantIJNS_4gapi3wip4draw4TextENS7_5FTe
   unreachable
 
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit65: ; preds = %.body58
-  br i1 %.1, label %68, label %.critedge
+  br i1 %.4, label %68, label %.critedge
 
 68:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit65
   %69 = load ptr, ptr %21, align 8
@@ -13487,7 +13487,7 @@ _ZN2cv6detail5YieldINS_4GMatEE5yieldERNS_5GCallEi.exit: ; preds = %50
 
 .body51:                                          ; preds = %.body55, %34, %31, %56
   %.pn.pn = phi { ptr, i32 } [ %57, %56 ], [ %55, %.body55 ], [ %32, %34 ], [ %32, %31 ]
-  %.1 = phi i1 [ true, %56 ], [ false, %.body55 ], [ true, %34 ], [ true, %31 ]
+  %.3 = phi i1 [ true, %56 ], [ false, %.body55 ], [ true, %34 ], [ true, %31 ]
   %58 = load i64, ptr %7, align 8
   %59 = getelementptr inbounds [3 x ptr], ptr @constinit.50, i64 0, i64 %58
   %60 = load ptr, ptr %59, align 8
@@ -13503,7 +13503,7 @@ _ZN2cv6detail5YieldINS_4GMatEE5yieldERNS_5GCallEi.exit: ; preds = %50
   unreachable
 
 _ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit58: ; preds = %.body51
-  br i1 %.1, label %65, label %.critedge
+  br i1 %.3, label %65, label %.critedge
 
 65:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateESt8functionIFvRNS_6detail9VectorRefEEES3_IFvRNS4_9OpaqueRefEEEEED2Ev.exit58
   %66 = load ptr, ptr %21, align 8
@@ -18142,8 +18142,8 @@ _ZN2cv4util3anyD2Ev.exit37:                       ; preds = %98, %96
   br label %104
 
 103:                                              ; preds = %65, %39, %_ZN2cv4util3anyD2Ev.exit31
-  %.115 = phi i1 [ false, %65 ], [ true, %_ZN2cv4util3anyD2Ev.exit31 ], [ false, %39 ]
-  ret i1 %.115
+  %.014 = phi i1 [ false, %65 ], [ true, %_ZN2cv4util3anyD2Ev.exit31 ], [ false, %39 ]
+  ret i1 %.014
 
 104:                                              ; preds = %_ZN2cv4util3anyD2Ev.exit37, %_ZN2cv4util3anyD2Ev.exit34, %66, %25
   %.pn21.pn = phi { ptr, i32 } [ %.pn21, %_ZN2cv4util3anyD2Ev.exit37 ], [ %.pn19, %_ZN2cv4util3anyD2Ev.exit34 ], [ %.pn17, %66 ], [ %.pn, %25 ]

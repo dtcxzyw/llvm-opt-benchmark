@@ -646,7 +646,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.loopexit.split-lp
 
 266:                                              ; preds = %114, %264
-  %.040 = phi i32 [ 0, %264 ], [ -1, %114 ]
+  %.2 = phi i32 [ 0, %264 ], [ -1, %114 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %12) #10
   br label %267
 
@@ -656,7 +656,7 @@ sub_1:                                            ; preds = %sub_0
   br label %268
 
 267:                                              ; preds = %91, %266
-  %.1 = phi i32 [ %.040, %266 ], [ -1, %91 ]
+  %.1 = phi i32 [ %.2, %266 ], [ -1, %91 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #10
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #10
   br label %269
@@ -668,8 +668,8 @@ sub_1:                                            ; preds = %sub_0
   resume { ptr, i32 } %.pn71
 
 269:                                              ; preds = %267, %38
-  %.2 = phi i32 [ -1, %38 ], [ %.1, %267 ]
-  ret i32 %.2
+  %.040 = phi i32 [ -1, %38 ], [ %.1, %267 ]
+  ret i32 %.040
 }
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0

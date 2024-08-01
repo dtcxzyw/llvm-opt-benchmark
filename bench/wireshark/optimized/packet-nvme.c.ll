@@ -5970,12 +5970,12 @@ decode_fw_slot_frs.exit.i:                        ; preds = %._crit_edge.i.i109,
 
 519:                                              ; preds = %514, %._crit_edge.i
   %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge.i ], [ %518, %514 ]
-  %.1.i117 = phi i32 [ 0, %._crit_edge.i ], [ %spec.select.i119, %514 ]
-  %.not.i118 = icmp eq i32 %.pre-phi.i, %.1.i117
+  %.0.i117 = phi i32 [ 0, %._crit_edge.i ], [ %spec.select.i119, %514 ]
+  %.not.i118 = icmp eq i32 %.pre-phi.i, %.0.i117
   br i1 %.not.i118, label %dissect_nvme_get_logpage_err_inf_resp.exit, label %520
 
 520:                                              ; preds = %519
-  %521 = sub nsw i32 %.pre-phi.i, %.1.i117
+  %521 = sub nsw i32 %.pre-phi.i, %.0.i117
   %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %521, i32 256)
   %522 = icmp ugt i32 %507, 1028
   %523 = add i32 %507, -1028

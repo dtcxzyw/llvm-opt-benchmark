@@ -2560,7 +2560,7 @@ if.then95.i:                                      ; preds = %if.then90.i
   unreachable
 
 if.end99.i:                                       ; preds = %if.then90.i, %if.then86.i
-  %hook_arg1.0.i = phi ptr [ @.str.58, %if.then90.i ], [ @.str.244, %if.then86.i ]
+  %hook_arg1.1.i = phi ptr [ @.str.58, %if.then90.i ], [ @.str.244, %if.then86.i ]
   %len.i = getelementptr inbounds i8, ptr %sb.i, i64 8
   %178 = load i64, ptr %len.i, align 8
   %179 = load ptr, ptr @the_repository, align 8
@@ -2640,11 +2640,11 @@ if.end159.i:                                      ; preds = %if.else144.i, %if.e
   %tobool215.i = phi i1 [ false, %if.end73.i ], [ false, %if.end80.i ], [ false, %if.end106.i ], [ false, %if.then20.i ], [ false, %if.end32.i ], [ false, %if.then41.i ], [ %cmp115.i, %land.lhs.true109.i ], [ false, %if.then123.i ], [ false, %if.then133.i ], [ false, %if.else140.i ], [ false, %if.else144.i ], [ false, %if.then53.i ], [ false, %if.then50.i ]
   %clean_message_contents.0.shrunk.i = phi i1 [ %cmp.i44, %if.end73.i ], [ %cmp.i44, %if.end80.i ], [ %cmp.i44, %if.end106.i ], [ %cmp.i44, %if.then20.i ], [ %cmp.i44, %if.end32.i ], [ %cmp.i44, %if.then41.i ], [ %cmp.i44, %land.lhs.true109.i ], [ %cmp.i44, %if.then123.i ], [ false, %if.then133.i ], [ %cmp.i44, %if.else140.i ], [ %cmp.i44, %if.else144.i ], [ %cmp.i44, %if.then53.i ], [ %cmp.i44, %if.then50.i ]
   %hook_arg2.0.i = phi ptr [ null, %if.end73.i ], [ null, %if.end80.i ], [ null, %if.end106.i ], [ null, %if.then20.i ], [ null, %if.end32.i ], [ null, %if.then41.i ], [ null, %land.lhs.true109.i ], [ null, %if.then123.i ], [ null, %if.then133.i ], [ null, %if.else140.i ], [ %spec.select68.i, %if.else144.i ], [ %.pre.i85, %if.then53.i ], [ %167, %if.then50.i ]
-  %hook_arg1.1.i = phi ptr [ @.str.48, %if.end73.i ], [ @.str.48, %if.end80.i ], [ %hook_arg1.0.i, %if.end106.i ], [ @.str.48, %if.then20.i ], [ @.str.48, %if.end32.i ], [ @.str.48, %if.then41.i ], [ %hook_arg1.0.i, %land.lhs.true109.i ], [ @.str.58, %if.then123.i ], [ @.str.66, %if.then133.i ], [ @.str.244, %if.else140.i ], [ %spec.select69.i, %if.else144.i ], [ @.str.51, %if.then53.i ], [ @.str.51, %if.then50.i ]
+  %hook_arg1.0.i = phi ptr [ @.str.48, %if.end73.i ], [ @.str.48, %if.end80.i ], [ %hook_arg1.1.i, %if.end106.i ], [ @.str.48, %if.then20.i ], [ @.str.48, %if.end32.i ], [ @.str.48, %if.then41.i ], [ %hook_arg1.1.i, %land.lhs.true109.i ], [ @.str.58, %if.then123.i ], [ @.str.66, %if.then133.i ], [ @.str.244, %if.else140.i ], [ %spec.select69.i, %if.else144.i ], [ @.str.51, %if.then53.i ], [ @.str.51, %if.then50.i ]
   %190 = load ptr, ptr @squash_message, align 8
   %tobool160.not.i = icmp eq ptr %190, null
   %spec.select70.i = select i1 %tobool160.not.i, ptr %hook_arg2.0.i, ptr @.str.77
-  %spec.select71.i = select i1 %tobool160.not.i, ptr %hook_arg1.1.i, ptr @.str.48
+  %spec.select71.i = select i1 %tobool160.not.i, ptr %hook_arg1.0.i, ptr @.str.48
   %call163.i = call ptr @git_path_commit_editmsg() #16
   %call164.i = call ptr @fopen_for_writing(ptr noundef %call163.i) #16
   store ptr %call164.i, ptr getelementptr inbounds (i8, ptr @cmd_commit.s, i64 1072), align 8
@@ -3588,12 +3588,12 @@ cond.false83:                                     ; preds = %if.then79
   br label %if.end89
 
 if.end89:                                         ; preds = %cond.false83, %if.then79, %if.else77
-  %reflog_msg.0 = phi ptr [ %call25, %if.else77 ], [ %cond86, %cond.false83 ], [ @.str.114, %if.then79 ]
+  %reflog_msg.1 = phi ptr [ %call25, %if.else77 ], [ %cond86, %cond.false83 ], [ @.str.114, %if.then79 ]
   %call90 = call ptr @commit_list_insert(ptr noundef nonnull %current_head.0, ptr noundef nonnull %parents) #16
   br label %if.end93
 
 if.end93:                                         ; preds = %if.then33, %if.end67, %if.then75, %if.end89, %if.then27
-  %reflog_msg.1 = phi ptr [ %spec.store.select1, %if.then33 ], [ %spec.store.select2, %if.then75 ], [ %spec.store.select2, %if.end67 ], [ %reflog_msg.0, %if.end89 ], [ %spec.store.select, %if.then27 ]
+  %reflog_msg.0 = phi ptr [ %spec.store.select1, %if.then33 ], [ %spec.store.select2, %if.then75 ], [ %spec.store.select2, %if.end67 ], [ %reflog_msg.1, %if.end89 ], [ %spec.store.select, %if.then27 ]
   %len2.i = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 0, ptr %len2.i, align 8
   %buf.i95 = getelementptr inbounds i8, ptr %sb, i64 16
@@ -3740,7 +3740,7 @@ if.then150:                                       ; preds = %if.end143
 if.end152:                                        ; preds = %if.end143
   %337 = load ptr, ptr %extra, align 8
   call void @free_commit_extra_headers(ptr noundef %337) #16
-  %call153 = call i32 @update_head_with_reflog(ptr noundef %current_head.0, ptr noundef nonnull %oid, ptr noundef %reflog_msg.1, ptr noundef nonnull %sb, ptr noundef nonnull %err) #16
+  %call153 = call i32 @update_head_with_reflog(ptr noundef %current_head.0, ptr noundef nonnull %oid, ptr noundef %reflog_msg.0, ptr noundef nonnull %sb, ptr noundef nonnull %err) #16
   %tobool154.not = icmp eq i32 %call153, 0
   br i1 %tobool154.not, label %if.end157, label %if.then155
 

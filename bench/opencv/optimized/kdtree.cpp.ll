@@ -1804,22 +1804,22 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %65
 
 .lr.ph295:                                        ; preds = %.preheader238, %.lr.ph295
   %indvars.iv349 = phi i64 [ %indvars.iv.next350, %.lr.ph295 ], [ 0, %.preheader238 ]
-  %.1151293 = phi float [ %235, %.lr.ph295 ], [ 0.000000e+00, %.preheader238 ]
+  %.2152293 = phi float [ %235, %.lr.ph295 ], [ 0.000000e+00, %.preheader238 ]
   %229 = getelementptr inbounds float, ptr %50, i64 %indvars.iv349
   %230 = load float, ptr %229, align 4
   %231 = getelementptr inbounds float, ptr %222, i64 %indvars.iv349
   %232 = load float, ptr %231, align 4
   %233 = fsub float %230, %232
   %234 = call noundef float @llvm.fabs.f32(float %233)
-  %235 = fadd float %.1151293, %234
+  %235 = fadd float %.2152293, %234
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next350, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph295, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph295, %.lr.ph298, %.preheader238, %.preheader
-  %.2152 = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader238 ], [ %228, %.lr.ph298 ], [ %235, %.lr.ph295 ]
+  %.1151 = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.preheader238 ], [ %228, %.lr.ph298 ], [ %235, %.lr.ph295 ]
   %236 = getelementptr inbounds float, ptr %76, i64 %172
-  store float %.2152, ptr %236, align 4
+  store float %.1151, ptr %236, align 4
   %237 = getelementptr inbounds i32, ptr %73, i64 %172
   store i32 %218, ptr %237, align 4
   %238 = icmp sgt i32 %.0.ph307, 0
@@ -1833,7 +1833,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %65
   %indvars.iv359 = phi i64 [ %239, %.lr.ph304.preheader ], [ %indvars.iv.next360, %243 ]
   %240 = getelementptr float, ptr %75, i64 %indvars.iv359
   %241 = load float, ptr %240, align 4
-  %242 = fcmp ugt float %241, %.2152
+  %242 = fcmp ugt float %241, %.1151
   br i1 %242, label %243, label %._crit_edge305
 
 243:                                              ; preds = %.lr.ph304

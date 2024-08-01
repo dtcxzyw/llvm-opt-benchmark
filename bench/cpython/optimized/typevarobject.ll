@@ -2668,7 +2668,7 @@ if.then22:                                        ; preds = %if.end19
 
 if.end27:                                         ; preds = %if.then22, %if.end19
   %noptargs.0 = phi i64 [ %dec, %if.then22 ], [ %sub, %if.end19 ]
-  %bound.0 = phi ptr [ %7, %if.then22 ], [ @_Py_NoneStruct, %if.end19 ]
+  %bound.1 = phi ptr [ %7, %if.then22 ], [ @_Py_NoneStruct, %if.end19 ]
   %arrayidx28 = getelementptr i8, ptr %call7, i64 24
   %8 = load ptr, ptr %arrayidx28, align 8
   %tobool29.not = icmp eq ptr %8, null
@@ -2686,7 +2686,7 @@ if.end35:                                         ; preds = %if.then30
 
 if.end40:                                         ; preds = %if.end35, %if.end27
   %noptargs.1 = phi i64 [ %dec36, %if.end35 ], [ %noptargs.0, %if.end27 ]
-  %covariant.0 = phi i32 [ %call32, %if.end35 ], [ 0, %if.end27 ]
+  %covariant.1 = phi i32 [ %call32, %if.end35 ], [ 0, %if.end27 ]
   %arrayidx41 = getelementptr i8, ptr %call7, i64 32
   %9 = load ptr, ptr %arrayidx41, align 8
   %tobool42.not = icmp eq ptr %9, null
@@ -2702,7 +2702,7 @@ if.end48:                                         ; preds = %if.then43
   br i1 %tobool50.not, label %skip_optional_kwonly, label %if.end53
 
 if.end53:                                         ; preds = %if.end48, %if.end40
-  %contravariant.0 = phi i32 [ %call45, %if.end48 ], [ 0, %if.end40 ]
+  %contravariant.1 = phi i32 [ %call45, %if.end48 ], [ 0, %if.end40 ]
   %arrayidx54 = getelementptr i8, ptr %call7, i64 40
   %10 = load ptr, ptr %arrayidx54, align 8
   %call55 = call i32 @PyObject_IsTrue(ptr noundef %10) #7
@@ -2710,16 +2710,16 @@ if.end53:                                         ; preds = %if.end48, %if.end40
   br i1 %cmp56, label %exit, label %skip_optional_kwonly
 
 if.end.i.thread:                                  ; preds = %if.end35, %if.end14, %if.then22
-  %bound.1.ph = phi ptr [ @_Py_NoneStruct, %if.end14 ], [ %7, %if.then22 ], [ %bound.0, %if.end35 ]
-  %covariant.1.ph = phi i32 [ 0, %if.end14 ], [ 0, %if.then22 ], [ %call32, %if.end35 ]
-  %tobool.i34 = icmp ne i32 %covariant.1.ph, 0
+  %bound.0.ph = phi ptr [ @_Py_NoneStruct, %if.end14 ], [ %7, %if.then22 ], [ %bound.1, %if.end35 ]
+  %covariant.0.ph = phi i32 [ 0, %if.end14 ], [ 0, %if.then22 ], [ %call32, %if.end35 ]
+  %tobool.i34 = icmp ne i32 %covariant.0.ph, 0
   br label %if.end7.i
 
 skip_optional_kwonly:                             ; preds = %if.end53, %if.end48
-  %contravariant.1 = phi i32 [ %contravariant.0, %if.end53 ], [ %call45, %if.end48 ]
+  %contravariant.0 = phi i32 [ %contravariant.1, %if.end53 ], [ %call45, %if.end48 ]
   %infer_variance.0 = phi i32 [ %call55, %if.end53 ], [ 0, %if.end48 ]
-  %tobool.i = icmp ne i32 %covariant.0, 0
-  %tobool1.i = icmp ne i32 %contravariant.1, 0
+  %tobool.i = icmp ne i32 %covariant.1, 0
+  %tobool1.i = icmp ne i32 %contravariant.0, 0
   %or.cond.i = and i1 %tobool.i, %tobool1.i
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
@@ -2730,7 +2730,7 @@ if.then.i:                                        ; preds = %skip_optional_kwonl
 
 if.end.i:                                         ; preds = %skip_optional_kwonly
   %tobool2.i = icmp ne i32 %infer_variance.0, 0
-  %12 = or i32 %contravariant.1, %covariant.0
+  %12 = or i32 %contravariant.0, %covariant.1
   %or.cond1.not.i = icmp ne i32 %12, 0
   %or.cond21.not.i = and i1 %or.cond1.not.i, %tobool2.i
   br i1 %or.cond21.not.i, label %if.then6.i, label %if.end7.i
@@ -2742,10 +2742,10 @@ if.then6.i:                                       ; preds = %if.end.i
 
 if.end7.i:                                        ; preds = %if.end.i.thread, %if.end.i
   %tobool2.i55 = phi i1 [ false, %if.end.i.thread ], [ %tobool2.i, %if.end.i ]
-  %bound.13754 = phi ptr [ %bound.1.ph, %if.end.i.thread ], [ %bound.0, %if.end.i ]
+  %bound.03754 = phi ptr [ %bound.0.ph, %if.end.i.thread ], [ %bound.1, %if.end.i ]
   %tobool.i4153 = phi i1 [ %tobool.i34, %if.end.i.thread ], [ %tobool.i, %if.end.i ]
   %tobool1.i4252 = phi i1 [ false, %if.end.i.thread ], [ %tobool1.i, %if.end.i ]
-  %cmp.i26 = icmp eq ptr %bound.13754, @_Py_NoneStruct
+  %cmp.i26 = icmp eq ptr %bound.03754, @_Py_NoneStruct
   br i1 %cmp.i26, label %if.end15.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end7.i
@@ -2759,7 +2759,7 @@ type_check.exit.thread.i:                         ; preds = %if.end.i.i
   br label %exit
 
 if.end5.i.i:                                      ; preds = %if.end.i.i
-  store ptr %bound.13754, ptr %args.i.i, align 16
+  store ptr %bound.03754, ptr %args.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %call2.i.i, ptr %arrayinit.element.i.i, align 8
   %call6.i.i = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.28, ptr noundef nonnull %args.i.i, i64 noundef 2)
@@ -3989,7 +3989,7 @@ if.then30:                                        ; preds = %if.end27
 
 if.end35:                                         ; preds = %if.then30, %if.end27
   %noptargs.0 = phi i64 [ %dec, %if.then30 ], [ %sub37, %if.end27 ]
-  %bound.0 = phi ptr [ %12, %if.then30 ], [ @_Py_NoneStruct, %if.end27 ]
+  %bound.1 = phi ptr [ %12, %if.then30 ], [ @_Py_NoneStruct, %if.end27 ]
   %arrayidx36 = getelementptr i8, ptr %call14, i64 16
   %13 = load ptr, ptr %arrayidx36, align 8
   %tobool37.not = icmp eq ptr %13, null
@@ -4007,7 +4007,7 @@ if.end43:                                         ; preds = %if.then38
 
 if.end48:                                         ; preds = %if.end43, %if.end35
   %noptargs.1 = phi i64 [ %dec44, %if.end43 ], [ %noptargs.0, %if.end35 ]
-  %covariant.0 = phi i32 [ %call40, %if.end43 ], [ 0, %if.end35 ]
+  %covariant.1 = phi i32 [ %call40, %if.end43 ], [ 0, %if.end35 ]
   %arrayidx49 = getelementptr i8, ptr %call14, i64 24
   %14 = load ptr, ptr %arrayidx49, align 8
   %tobool50.not = icmp eq ptr %14, null
@@ -4023,7 +4023,7 @@ if.end56:                                         ; preds = %if.then51
   br i1 %tobool58.not, label %skip_optional_kwonly, label %if.end61
 
 if.end61:                                         ; preds = %if.end56, %if.end48
-  %contravariant.0 = phi i32 [ %call53, %if.end56 ], [ 0, %if.end48 ]
+  %contravariant.1 = phi i32 [ %call53, %if.end56 ], [ 0, %if.end48 ]
   %arrayidx62 = getelementptr i8, ptr %call14, i64 32
   %15 = load ptr, ptr %arrayidx62, align 8
   %call63 = call i32 @PyObject_IsTrue(ptr noundef %15) #7
@@ -4032,16 +4032,16 @@ if.end61:                                         ; preds = %if.end56, %if.end48
 
 if.end.i.thread:                                  ; preds = %if.end.thread, %if.end43, %if.end23, %if.then30
   %16 = phi ptr [ %3, %if.end23 ], [ %3, %if.then30 ], [ %3, %if.end43 ], [ %7, %if.end.thread ]
-  %bound.1.ph = phi ptr [ @_Py_NoneStruct, %if.end23 ], [ %12, %if.then30 ], [ %bound.0, %if.end43 ], [ @_Py_NoneStruct, %if.end.thread ]
-  %covariant.1.ph = phi i32 [ 0, %if.end23 ], [ 0, %if.then30 ], [ %call40, %if.end43 ], [ 0, %if.end.thread ]
-  %tobool.i51 = icmp ne i32 %covariant.1.ph, 0
+  %bound.0.ph = phi ptr [ @_Py_NoneStruct, %if.end23 ], [ %12, %if.then30 ], [ %bound.1, %if.end43 ], [ @_Py_NoneStruct, %if.end.thread ]
+  %covariant.0.ph = phi i32 [ 0, %if.end23 ], [ 0, %if.then30 ], [ %call40, %if.end43 ], [ 0, %if.end.thread ]
+  %tobool.i51 = icmp ne i32 %covariant.0.ph, 0
   br label %if.end7.i
 
 skip_optional_kwonly:                             ; preds = %if.end61, %if.end56
-  %contravariant.1 = phi i32 [ %contravariant.0, %if.end61 ], [ %call53, %if.end56 ]
+  %contravariant.0 = phi i32 [ %contravariant.1, %if.end61 ], [ %call53, %if.end56 ]
   %infer_variance.0 = phi i32 [ %call63, %if.end61 ], [ 0, %if.end56 ]
-  %tobool.i = icmp ne i32 %covariant.0, 0
-  %tobool1.i = icmp ne i32 %contravariant.1, 0
+  %tobool.i = icmp ne i32 %covariant.1, 0
+  %tobool1.i = icmp ne i32 %contravariant.0, 0
   %or.cond.i = and i1 %tobool.i, %tobool1.i
   br i1 %or.cond.i, label %if.then.i, label %if.end.i
 
@@ -4052,7 +4052,7 @@ if.then.i:                                        ; preds = %skip_optional_kwonl
 
 if.end.i:                                         ; preds = %skip_optional_kwonly
   %tobool2.i = icmp ne i32 %infer_variance.0, 0
-  %18 = or i32 %contravariant.1, %covariant.0
+  %18 = or i32 %contravariant.0, %covariant.1
   %or.cond1.not.i = icmp ne i32 %18, 0
   %or.cond16.not.i = and i1 %or.cond1.not.i, %tobool2.i
   br i1 %or.cond16.not.i, label %if.then6.i, label %if.end7.i
@@ -4065,11 +4065,11 @@ if.then6.i:                                       ; preds = %if.end.i
 if.end7.i:                                        ; preds = %if.end.i.thread, %if.end.i
   %20 = phi ptr [ %16, %if.end.i.thread ], [ %3, %if.end.i ]
   %tobool2.i72 = phi i1 [ false, %if.end.i.thread ], [ %tobool2.i, %if.end.i ]
-  %bound.15471 = phi ptr [ %bound.1.ph, %if.end.i.thread ], [ %bound.0, %if.end.i ]
+  %bound.05471 = phi ptr [ %bound.0.ph, %if.end.i.thread ], [ %bound.1, %if.end.i ]
   %tobool.i5870 = phi i1 [ %tobool.i51, %if.end.i.thread ], [ %tobool.i, %if.end.i ]
   %tobool1.i5969 = phi i1 [ false, %if.end.i.thread ], [ %tobool1.i, %if.end.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %args.i.i)
-  %cmp.i17.i = icmp eq ptr %bound.15471, @_Py_NoneStruct
+  %cmp.i17.i = icmp eq ptr %bound.05471, @_Py_NoneStruct
   br i1 %cmp.i17.i, label %if.then.i.i, label %if.end.i18.i
 
 if.then.i.i:                                      ; preds = %if.end7.i
@@ -4093,7 +4093,7 @@ type_check.exit.thread3.i:                        ; preds = %if.end.i18.i
   br label %exit
 
 if.end5.i.i:                                      ; preds = %if.end.i18.i
-  store ptr %bound.15471, ptr %args.i.i, align 16
+  store ptr %bound.05471, ptr %args.i.i, align 16
   %arrayinit.element.i.i = getelementptr inbounds i8, ptr %args.i.i, i64 8
   store ptr %call2.i.i, ptr %arrayinit.element.i.i, align 8
   %call6.i.i = call fastcc ptr @call_typing_func_object(ptr noundef nonnull @.str.28, ptr noundef nonnull %args.i.i, i64 noundef 2)

@@ -174,7 +174,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %for.body, %for.inc.i
-  %xch.0 = phi ptr [ %storemerge582, %for.body ], [ %xch.1, %for.inc.i ]
+  %xch.2 = phi ptr [ %storemerge582, %for.body ], [ %xch.3, %for.inc.i ]
   %4 = phi ptr [ %storemerge582, %for.body ], [ %11, %for.inc.i ]
   %xchp.050.i = phi ptr [ %storemerge582, %for.body ], [ %6, %for.inc.i ]
   %ignore.i = getelementptr inbounds i8, ptr %xchp.050.i, i64 40
@@ -203,12 +203,12 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %f
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %lor.lhs.false.i
-  %xch.1 = phi ptr [ %6, %if.then.i ], [ %xch.0, %lor.lhs.false.i ]
+  %xch.3 = phi ptr [ %6, %if.then.i ], [ %xch.2, %lor.lhs.false.i ]
   %11 = phi ptr [ %6, %if.then.i ], [ %4, %lor.lhs.false.i ]
   br i1 %cmp.i, label %for.end.i, label %land.rhs.i, !llvm.loop !5
 
 for.end.i:                                        ; preds = %for.inc.i, %land.rhs.i
-  %xch.2 = phi ptr [ %xch.0, %land.rhs.i ], [ %xch.1, %for.inc.i ]
+  %xch.4 = phi ptr [ %xch.2, %land.rhs.i ], [ %xch.3, %for.inc.i ]
   %12 = phi ptr [ %4, %land.rhs.i ], [ %11, %for.inc.i ]
   %tobool7.not.i = icmp eq ptr %12, null
   br i1 %tobool7.not.i, label %xdl_get_hunk.exit, label %for.cond11.preheader.i
@@ -286,15 +286,15 @@ for.inc56.i:                                      ; preds = %for.inc56.sink.spli
 
 xdl_get_hunk.exit:                                ; preds = %for.body13.i, %land.lhs.true36.i, %for.inc56.i, %for.end.i, %for.cond11.preheader.i
   %retval.0.i = phi ptr [ null, %for.end.i ], [ %12, %for.cond11.preheader.i ], [ %lxch.1.i, %for.inc56.i ], [ %lxch.053.i, %for.body13.i ], [ %lxch.053.i, %land.lhs.true36.i ]
-  %tobool1.not = icmp eq ptr %xch.2, null
+  %tobool1.not = icmp eq ptr %xch.4, null
   br i1 %tobool1.not, label %return, label %pre_context_calculation.preheader
 
 pre_context_calculation.preheader:                ; preds = %xdl_get_hunk.exit
-  %i1536 = getelementptr inbounds i8, ptr %xch.2, i64 8
+  %i1536 = getelementptr inbounds i8, ptr %xch.4, i64 8
   %23 = load i64, ptr %i1536, align 8
   %sub537 = sub nsw i64 %23, %2
   %spec.select538 = call i64 @llvm.smax.i64(i64 %sub537, i64 0)
-  %i2539 = getelementptr inbounds i8, ptr %xch.2, i64 16
+  %i2539 = getelementptr inbounds i8, ptr %xch.4, i64 16
   %24 = load i64, ptr %i2539, align 8
   %sub6540 = sub nsw i64 %24, %2
   %cond14541 = call i64 @llvm.smax.i64(i64 %sub6540, i64 0)
@@ -310,7 +310,7 @@ if.then16:                                        ; preds = %pre_context_calcula
   %sub546 = phi i64 [ %sub, %if.then74 ], [ %sub537, %pre_context_calculation.preheader ]
   %27 = phi i64 [ %67, %if.then74 ], [ %23, %pre_context_calculation.preheader ]
   %xchp.0545 = phi ptr [ %xchp.1506, %if.then74 ], [ %storemerge582, %pre_context_calculation.preheader ]
-  %xch.4544 = phi ptr [ %xchp.1506, %if.then74 ], [ %xch.2, %pre_context_calculation.preheader ]
+  %xch.0544 = phi ptr [ %xchp.1506, %if.then74 ], [ %xch.4, %pre_context_calculation.preheader ]
   %28 = load i64, ptr %nrec, align 8
   %cmp19.not = icmp slt i64 %27, %28
   br i1 %cmp19.not, label %if.end33, label %while.cond.preheader
@@ -552,7 +552,7 @@ if.then51:                                        ; preds = %while.end46
   %sub52.neg = sub nsw i64 %cond14548, %spec.select547
   %sub53 = add i64 %sub52.neg, %spec.store.select
   %spec.select142 = call i64 @llvm.smax.i64(i64 %sub53, i64 0)
-  %cmp62.not505 = icmp eq ptr %xchp.0545, %xch.4544
+  %cmp62.not505 = icmp eq ptr %xchp.0545, %xch.0544
   br i1 %cmp62.not505, label %post_context_calculation.preheader, label %land.lhs.true63
 
 land.lhs.true63:                                  ; preds = %if.then51, %while.body71
@@ -576,7 +576,7 @@ land.rhs66:                                       ; preds = %land.lhs.true63
 
 while.body71:                                     ; preds = %land.rhs66
   %70 = load ptr, ptr %xchp.1506, align 8
-  %cmp62.not = icmp eq ptr %70, %xch.4544
+  %cmp62.not = icmp eq ptr %70, %xch.0544
   br i1 %cmp62.not, label %post_context_calculation.preheader, label %land.lhs.true63, !llvm.loop !12
 
 if.then74:                                        ; preds = %land.rhs66, %land.lhs.true63
@@ -591,11 +591,11 @@ if.then74:                                        ; preds = %land.rhs66, %land.l
   br i1 %tobool15.not, label %post_context_calculation.preheader, label %if.then16
 
 post_context_calculation.preheader:               ; preds = %if.then74, %while.end46, %if.then51, %is_func_rec.exit, %while.body71, %is_func_rec.exit.thread619, %pre_context_calculation.preheader
-  %xch.4487 = phi ptr [ %xch.2, %pre_context_calculation.preheader ], [ %xch.4544, %is_func_rec.exit.thread619 ], [ %xch.4544, %while.body71 ], [ %xch.4544, %is_func_rec.exit ], [ %xchp.1506, %if.then74 ], [ %xch.4544, %while.end46 ], [ %xch.4544, %if.then51 ]
+  %xch.0487 = phi ptr [ %xch.4, %pre_context_calculation.preheader ], [ %xch.0544, %is_func_rec.exit.thread619 ], [ %xch.0544, %while.body71 ], [ %xch.0544, %is_func_rec.exit ], [ %xchp.1506, %if.then74 ], [ %xch.0544, %while.end46 ], [ %xch.0544, %if.then51 ]
   %s1.1.ph = phi i64 [ %spec.select538, %pre_context_calculation.preheader ], [ %spec.select547, %is_func_rec.exit.thread619 ], [ %spec.store.select, %while.body71 ], [ %spec.select547, %is_func_rec.exit ], [ %spec.select, %if.then74 ], [ %spec.select547, %while.end46 ], [ %spec.store.select, %if.then51 ]
   %s2.1.ph = phi i64 [ %cond14541, %pre_context_calculation.preheader ], [ %cond14548, %is_func_rec.exit.thread619 ], [ %spec.select142, %while.body71 ], [ %cond14548, %is_func_rec.exit ], [ %cond14, %if.then74 ], [ %cond14548, %while.end46 ], [ %spec.select142, %if.then51 ]
-  %i2477 = getelementptr inbounds i8, ptr %xch.4487, i64 16
-  %i1483 = getelementptr inbounds i8, ptr %xch.4487, i64 8
+  %i2477 = getelementptr inbounds i8, ptr %xch.0487, i64 16
+  %i1483 = getelementptr inbounds i8, ptr %xch.0487, i64 8
   br label %post_context_calculation
 
 post_context_calculation:                         ; preds = %post_context_calculation.preheader, %if.then186
@@ -758,8 +758,8 @@ if.then148:                                       ; preds = %if.end146
   br label %if.end162
 
 if.end162:                                        ; preds = %if.then148, %if.end146
-  %e1.0 = phi i64 [ %fe1.1, %if.then148 ], [ %add116, %if.end146 ]
-  %e2.0 = phi i64 [ %add150., %if.then148 ], [ %add120, %if.end146 ]
+  %e1.1 = phi i64 [ %fe1.1, %if.then148 ], [ %add116, %if.end146 ]
+  %e2.1 = phi i64 [ %add150., %if.then148 ], [ %add120, %if.end146 ]
   %98 = load ptr, ptr %xche.0, align 8
   %tobool164.not = icmp eq ptr %98, null
   br i1 %tobool164.not, label %if.end190, label %if.then165
@@ -772,14 +772,14 @@ if.then165:                                       ; preds = %if.end162
   %.sub170 = call i64 @llvm.smin.i64(i64 %99, i64 %sub170)
   %101 = load i64, ptr %xecfg, align 8
   %sub182 = sub nsw i64 %.sub170, %101
-  %cmp183.not = icmp sgt i64 %sub182, %e1.0
+  %cmp183.not = icmp sgt i64 %sub182, %e1.1
   br i1 %cmp183.not, label %lor.lhs.false, label %if.then186
 
 lor.lhs.false:                                    ; preds = %if.then165
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %dummy.i272)
-  %cmp.i273 = icmp sgt i64 %.sub170, %e1.0
+  %cmp.i273 = icmp sgt i64 %.sub170, %e1.1
   %conv.i274 = select i1 %cmp.i273, i64 -1, i64 1
-  %cmp617.i275 = icmp ne i64 %.sub170, %e1.0
+  %cmp617.i275 = icmp ne i64 %.sub170, %e1.1
   %cmp818.i276 = icmp sgt i64 %.sub170, -1
   %or.cond19.i277 = and i1 %cmp617.i275, %cmp818.i276
   br i1 %or.cond19.i277, label %land.rhs.i283, label %get_func_line.exit325.thread
@@ -834,7 +834,7 @@ match_func_rec.exit.i294:                         ; preds = %for.body.i286
 
 for.inc.i297:                                     ; preds = %match_func_rec.exit.i294, %switch.early.test.i.i.i324, %if.then.i.i303
   %add.i298 = add nsw i64 %l.020.i284, %conv.i274
-  %cmp6.i299 = icmp ne i64 %add.i298, %e1.0
+  %cmp6.i299 = icmp ne i64 %add.i298, %e1.1
   %cmp8.i300 = icmp sgt i64 %add.i298, -1
   %or.cond.i301 = and i1 %cmp6.i299, %cmp8.i300
   br i1 %or.cond.i301, label %land.rhs.i283, label %get_func_line.exit325.thread, !llvm.loop !9
@@ -853,8 +853,8 @@ if.then186:                                       ; preds = %get_func_line.exit3
   br label %post_context_calculation
 
 if.end190:                                        ; preds = %if.end162, %get_func_line.exit325, %post_context_calculation, %if.then.i.i.i310
-  %e1.1 = phi i64 [ %e1.0, %if.then.i.i.i310 ], [ %e1.0, %get_func_line.exit325 ], [ %e1.0, %if.end162 ], [ %add116, %post_context_calculation ]
-  %e2.1 = phi i64 [ %e2.0, %if.then.i.i.i310 ], [ %e2.0, %get_func_line.exit325 ], [ %e2.0, %if.end162 ], [ %add120, %post_context_calculation ]
+  %e1.0 = phi i64 [ %e1.1, %if.then.i.i.i310 ], [ %e1.1, %get_func_line.exit325 ], [ %e1.1, %if.end162 ], [ %add116, %post_context_calculation ]
+  %e2.0 = phi i64 [ %e2.1, %if.then.i.i.i310 ], [ %e2.1, %get_func_line.exit325 ], [ %e2.1, %if.end162 ], [ %add120, %post_context_calculation ]
   %chg299680 = getelementptr inbounds i8, ptr %xche.0, i64 32
   %i298682 = getelementptr inbounds i8, ptr %xche.0, i64 16
   %112 = load i64, ptr %flags, align 8
@@ -962,9 +962,9 @@ if.end198:                                        ; preds = %for.inc.i352, %land
 
 land.lhs.true202:                                 ; preds = %if.end198
   %add203 = add nuw nsw i64 %s1.1.ph, 1
-  %sub204 = sub nsw i64 %e1.1, %s1.1.ph
+  %sub204 = sub nsw i64 %e1.0, %s1.1.ph
   %add205 = add nuw nsw i64 %s2.1.ph, 1
-  %sub206 = sub nsw i64 %e2.1, %s2.1.ph
+  %sub206 = sub nsw i64 %e2.0, %s2.1.ph
   %127 = load i64, ptr %func_line, align 8
   %call207 = call i32 @xdl_emit_hunk_hdr(i64 noundef %add203, i64 noundef %sub204, i64 noundef %add205, i64 noundef %sub206, ptr noundef nonnull %buf1.i, i64 noundef %127, ptr noundef %ecb) #7
   %cmp208 = icmp slt i32 %call207, 0
@@ -1001,15 +1001,15 @@ for.end:                                          ; preds = %for.cond211, %if.en
 
 for.cond223:                                      ; preds = %if.end273, %for.end
   %134 = phi i64 [ %133, %for.end ], [ %.pre618, %if.end273 ]
-  %xch.5 = phi ptr [ %xch.4487, %for.end ], [ %157, %if.end273 ]
+  %xch.1 = phi ptr [ %xch.0487, %for.end ], [ %157, %if.end273 ]
   %s1.2 = phi i64 [ %133, %for.end ], [ %add276, %if.end273 ]
   %s2.3 = phi i64 [ %.lcssa, %for.end ], [ %add260.lcssa, %if.end273 ]
-  %i1225 = getelementptr inbounds i8, ptr %xch.5, i64 8
+  %i1225 = getelementptr inbounds i8, ptr %xch.1, i64 8
   %cmp226567 = icmp slt i64 %s1.2, %134
   br i1 %cmp226567, label %land.rhs227.lr.ph, label %for.end240
 
 land.rhs227.lr.ph:                                ; preds = %for.cond223
-  %i2228 = getelementptr inbounds i8, ptr %xch.5, i64 16
+  %i2228 = getelementptr inbounds i8, ptr %xch.1, i64 16
   %135 = load i64, ptr %i2228, align 8
   %cmp229742 = icmp slt i64 %s2.3, %135
   br i1 %cmp229742, label %for.body231, label %for.end240
@@ -1042,7 +1042,7 @@ for.inc237:                                       ; preds = %for.body231
 
 for.end240:                                       ; preds = %for.inc237, %land.rhs227, %land.rhs227.lr.ph, %for.cond223
   %141 = phi i64 [ %134, %for.cond223 ], [ %134, %land.rhs227.lr.ph ], [ %140, %land.rhs227 ], [ %140, %for.inc237 ]
-  %chg1244 = getelementptr inbounds i8, ptr %xch.5, i64 24
+  %chg1244 = getelementptr inbounds i8, ptr %xch.1, i64 24
   %142 = load i64, ptr %chg1244, align 8
   %cmp246573 = icmp sgt i64 %142, 0
   br i1 %cmp246573, label %for.body247, label %for.end255
@@ -1069,9 +1069,9 @@ for.body247:                                      ; preds = %for.end240, %for.co
   br i1 %cmp250, label %return, label %for.cond242
 
 for.end255:                                       ; preds = %for.cond242, %for.end240
-  %i2256 = getelementptr inbounds i8, ptr %xch.5, i64 16
+  %i2256 = getelementptr inbounds i8, ptr %xch.1, i64 16
   %148 = load i64, ptr %i2256, align 8
-  %chg2259 = getelementptr inbounds i8, ptr %xch.5, i64 32
+  %chg2259 = getelementptr inbounds i8, ptr %xch.1, i64 32
   %149 = load i64, ptr %chg2259, align 8
   %add260575 = add nsw i64 %149, %148
   %cmp261576 = icmp sgt i64 %149, 0
@@ -1100,14 +1100,14 @@ for.body262:                                      ; preds = %for.end255, %for.co
 
 for.end270:                                       ; preds = %for.cond257, %for.end255
   %add260.lcssa = phi i64 [ %add260575, %for.end255 ], [ %add260, %for.cond257 ]
-  %cmp271 = icmp eq ptr %xch.5, %xche.0
+  %cmp271 = icmp eq ptr %xch.1, %xche.0
   br i1 %cmp271, label %for.end282, label %if.end273
 
 if.end273:                                        ; preds = %for.end270
   %155 = load i64, ptr %i1225, align 8
   %156 = load i64, ptr %chg1244, align 8
   %add276 = add nsw i64 %156, %155
-  %157 = load ptr, ptr %xch.5, align 8
+  %157 = load ptr, ptr %xch.1, align 8
   %i1225.phi.trans.insert = getelementptr inbounds i8, ptr %157, i64 8
   %.pre618 = load i64, ptr %i1225.phi.trans.insert, align 8
   br label %for.cond223
@@ -1116,12 +1116,12 @@ for.end282:                                       ; preds = %for.end270
   %158 = load i64, ptr %i298682, align 8
   %159 = load i64, ptr %chg299680, align 8
   %add285 = add nsw i64 %159, %158
-  %cmp287579 = icmp slt i64 %add285, %e2.1
+  %cmp287579 = icmp slt i64 %add285, %e2.0
   br i1 %cmp287579, label %for.body288, label %for.inc297
 
 for.cond286:                                      ; preds = %for.body288
   %inc295 = add nsw i64 %s2.6580, 1
-  %cmp287 = icmp slt i64 %inc295, %e2.1
+  %cmp287 = icmp slt i64 %inc295, %e2.0
   br i1 %cmp287, label %for.body288, label %for.inc297, !llvm.loop !19
 
 for.body288:                                      ; preds = %for.end282, %for.cond286

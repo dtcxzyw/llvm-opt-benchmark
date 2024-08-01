@@ -6006,7 +6006,7 @@ for.body971.lr.ph:                                ; preds = %invoke.cont961
   br label %for.body971
 
 for.body971:                                      ; preds = %for.body971.lr.ph, %for.inc996
-  %polynomialGrammar.03153 = phi i1 [ %cmp957, %for.body971.lr.ph ], [ %polynomialGrammar.2, %for.inc996 ]
+  %polynomialGrammar.03153 = phi i1 [ %cmp957, %for.body971.lr.ph ], [ %polynomialGrammar.1, %for.inc996 ]
   %__begin7963.sroa.0.03152 = phi ptr [ %2, %for.body971.lr.ph ], [ %incdec.ptr.i2424, %for.inc996 ]
   %call976 = invoke noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin7963.sroa.0.03152)
           to label %invoke.cont975 unwind label %lpad974.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -6176,7 +6176,7 @@ terminate.lpad.i2422:                             ; preds = %if.then13.i.i2421
   unreachable
 
 for.inc996:                                       ; preds = %if.then13.i.i2421, %if.then.i.i2414, %invoke.cont994, %invoke.cont975
-  %polynomialGrammar.2 = phi i1 [ %polynomialGrammar.03153, %invoke.cont975 ], [ %spec.select169, %invoke.cont994 ], [ %spec.select169, %if.then.i.i2414 ], [ %spec.select169, %if.then13.i.i2421 ]
+  %polynomialGrammar.1 = phi i1 [ %polynomialGrammar.03153, %invoke.cont975 ], [ %spec.select169, %invoke.cont994 ], [ %spec.select169, %if.then.i.i2414 ], [ %spec.select169, %if.then13.i.i2421 ]
   %incdec.ptr.i2424 = getelementptr inbounds i8, ptr %__begin7963.sroa.0.03152, i64 8
   %cmp.i2369.not = icmp eq ptr %incdec.ptr.i2424, %call.i.i.i8.i
   br i1 %cmp.i2369.not, label %for.end998, label %for.body971
@@ -6235,14 +6235,14 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
 
 if.else.i2445:                                    ; preds = %invoke.cont961, %for.end998
   %_M_finish.i24253209 = phi ptr [ %_M_finish.i2425, %for.end998 ], [ %_M_finish.i24253204, %invoke.cont961 ]
-  %polynomialGrammar.0.lcssa3207 = phi i1 [ %polynomialGrammar.2, %for.end998 ], [ %cmp957, %invoke.cont961 ]
+  %polynomialGrammar.0.lcssa3207 = phi i1 [ %polynomialGrammar.1, %for.end998 ], [ %cmp957, %invoke.cont961 ]
   %321 = phi ptr [ %.pre3190, %for.end998 ], [ null, %invoke.cont961 ]
   invoke void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %mons, ptr %321, ptr noundef nonnull align 8 dereferenceable(8) %ntSymAnyC)
           to label %invoke.cont999 unwind label %lpad974.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont999:                                   ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i2435, %if.else.i2445
   %_M_finish.i24253208 = phi ptr [ %_M_finish.i2425, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i2435 ], [ %_M_finish.i24253209, %if.else.i2445 ]
-  %polynomialGrammar.0.lcssa3206 = phi i1 [ %polynomialGrammar.2, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i2435 ], [ %polynomialGrammar.0.lcssa3207, %if.else.i2445 ]
+  %polynomialGrammar.0.lcssa3206 = phi i1 [ %polynomialGrammar.1, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i2435 ], [ %polynomialGrammar.0.lcssa3207, %if.else.i2445 ]
   br i1 %cmp.i2369.not3151, label %for.end1015, label %for.body1009
 
 for.body1009:                                     ; preds = %invoke.cont999, %for.inc1013
@@ -11149,7 +11149,7 @@ if.end35.cleanup_crit_edge:                       ; preds = %if.end35
 
 cleanup:                                          ; preds = %if.end35.cleanup_crit_edge, %invoke.cont24, %_ZNKSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_St6vectorINS1_12NodeTemplateILb1EEESaIS7_EEESt10_Select1stISA_ESt4lessIS2_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i60, %invoke.cont27
   %31 = phi ptr [ %.pre, %if.end35.cleanup_crit_edge ], [ %.pre102, %invoke.cont27 ], [ %.pre102, %_ZNKSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_St6vectorINS1_12NodeTemplateILb1EEESaIS7_EEESt10_Select1stISA_ESt4lessIS2_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i60 ], [ %.pre102, %invoke.cont24 ]
-  %retval.0 = phi i1 [ true, %if.end35.cleanup_crit_edge ], [ false, %invoke.cont27 ], [ false, %_ZNKSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_St6vectorINS1_12NodeTemplateILb1EEESaIS7_EEESt10_Select1stISA_ESt4lessIS2_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i60 ], [ false, %invoke.cont24 ]
+  %retval.1 = phi i1 [ true, %if.end35.cleanup_crit_edge ], [ false, %invoke.cont27 ], [ false, %_ZNKSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_St6vectorINS1_12NodeTemplateILb1EEESaIS7_EEESt10_Select1stISA_ESt4lessIS2_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i60 ], [ false, %invoke.cont24 ]
   %bf.load.i.i = load i64, ptr %31, align 8
   %32 = and i64 %bf.load.i.i, 1152920405095219200
   %cmp.not.i.i = icmp eq i64 %32, 1152920405095219200
@@ -11208,7 +11208,7 @@ ehcleanup:                                        ; preds = %lpad26, %lpad23
   br label %ehcleanup42
 
 cleanup41:                                        ; preds = %for.body, %_ZNKSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_St6vectorINS1_12NodeTemplateILb1EEESaIS7_EEESt10_Select1stISA_ESt4lessIS2_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i, %invoke.cont7, %if.then13.i.i83, %if.then.i.i76, %_ZN4cvc58internal8TypeNodeD2Ev.exit
-  %retval.1 = phi i1 [ %retval.0, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %retval.0, %if.then.i.i76 ], [ %retval.0, %if.then13.i.i83 ], [ false, %invoke.cont7 ], [ false, %_ZNKSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_St6vectorINS1_12NodeTemplateILb1EEESaIS7_EEESt10_Select1stISA_ESt4lessIS2_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ false, %for.body ]
+  %retval.0 = phi i1 [ %retval.1, %_ZN4cvc58internal8TypeNodeD2Ev.exit ], [ %retval.1, %if.then.i.i76 ], [ %retval.1, %if.then13.i.i83 ], [ false, %invoke.cont7 ], [ false, %_ZNKSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_St6vectorINS1_12NodeTemplateILb1EEESaIS7_EEESt10_Select1stISA_ESt4lessIS2_ESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS4_.exit.i.i ], [ false, %for.body ]
   %39 = load ptr, ptr %children, align 8
   %_M_finish.i85 = getelementptr inbounds i8, ptr %children, i64 8
   %40 = load ptr, ptr %_M_finish.i85, align 8
@@ -11262,7 +11262,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i87
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %invoke.cont.i87, %if.then.i.i.i
-  ret i1 %retval.1
+  ret i1 %retval.0
 
 ehcleanup42:                                      ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad.i.i, %lpad.i, %ehcleanup
   %.pn7 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad.i.i ], [ %lpad.phi.i, %lpad.i ], [ %lpad.loopexit98, %lpad.loopexit ], [ %lpad.loopexit.split-lp99, %lpad.loopexit.split-lp ]

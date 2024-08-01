@@ -994,7 +994,7 @@ entry:
   br label %while.body
 
 while.body:                                       ; preds = %if.end, %entry
-  %mem_reference.0 = phi i32 [ 0, %entry ], [ %mem_reference.1, %if.end ]
+  %mem_reference.0 = phi i32 [ 0, %entry ], [ %mem_reference.2, %if.end ]
   tail call void @_ZN4base8internal8LockImpl4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i)
   %0 = load i64, ptr %used_.i, align 8
   %cmp.i.not = icmp eq i64 %0, 0
@@ -1009,7 +1009,7 @@ if.end.i:                                         ; preds = %while.body
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.end.i, %while.body
-  %mem_reference.1 = phi i32 [ %2, %if.end.i ], [ %mem_reference.0, %while.body ]
+  %mem_reference.2 = phi i32 [ %2, %if.end.i ], [ %mem_reference.0, %while.body ]
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i)
           to label %_ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjE3popEPj.exit unwind label %terminate.lpad.i.i
 
@@ -1025,11 +1025,11 @@ _ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjE3popEPj.exit: ; preds =
 
 if.end:                                           ; preds = %_ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjE3popEPj.exit
   %5 = load ptr, ptr %this, align 8
-  %call3 = tail call noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %mem_reference.1, i32 noundef 1567850928, i32 noundef 1057125116)
+  %call3 = tail call noundef zeroext i1 @_ZN4base25PersistentMemoryAllocator10ChangeTypeEjjj(ptr noundef nonnull align 8 dereferenceable(48) %5, i32 noundef %mem_reference.2, i32 noundef 1567850928, i32 noundef 1057125116)
   br i1 %call3, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %if.end, %_ZN4base5debug21GlobalActivityTracker15ThreadSafeStackIjE3popEPj.exit
-  %tobool.not = icmp eq i32 %mem_reference.1, 0
+  %tobool.not = icmp eq i32 %mem_reference.2, 0
   br i1 %tobool.not, label %if.then6, label %if.end45
 
 if.then6:                                         ; preds = %while.end
@@ -1082,9 +1082,9 @@ if.end31:                                         ; preds = %if.then29, %do.body
   br label %return
 
 if.end45:                                         ; preds = %while.body17, %while.end, %if.then11
-  %mem_reference.2 = phi i32 [ %call9, %if.then11 ], [ %mem_reference.1, %while.end ], [ %call16, %while.body17 ]
+  %mem_reference.1 = phi i32 [ %call9, %if.then11 ], [ %mem_reference.2, %while.end ], [ %call16, %while.body17 ]
   %15 = load ptr, ptr %this, align 8
-  %call.i.i = call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %15, i32 noundef %mem_reference.2, i32 noundef 1567850928, i32 noundef 1)
+  %call.i.i = call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %15, i32 noundef %mem_reference.1, i32 noundef 1567850928, i32 noundef 1)
   %call46 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #19
   %stack_memory_size_47 = getelementptr inbounds i8, ptr %this, i64 8
   %16 = load i64, ptr %stack_memory_size_47, align 8
@@ -1094,7 +1094,7 @@ if.end45:                                         ; preds = %while.body17, %whil
 invoke.cont49:                                    ; preds = %if.end45
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 16), ptr %call46, align 8
   %mem_reference_.i = getelementptr inbounds i8, ptr %call46, i64 32
-  store i32 %mem_reference.2, ptr %mem_reference_.i, align 8
+  store i32 %mem_reference.1, ptr %mem_reference_.i, align 8
   %mem_base_.i = getelementptr inbounds i8, ptr %call46, i64 40
   store ptr %call.i.i, ptr %mem_base_.i, align 8
   %this_thread_tracker_ = getelementptr inbounds i8, ptr %this, i64 16

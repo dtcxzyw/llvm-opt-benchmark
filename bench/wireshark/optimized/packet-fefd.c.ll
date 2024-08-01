@@ -117,7 +117,7 @@ define internal i32 @dissect_fefd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %19
 
 19:                                               ; preds = %.lr.ph, %88
-  %.0130148 = phi i32 [ 4, %.lr.ph ], [ %.1, %88 ]
+  %.0130148 = phi i32 [ 4, %.lr.ph ], [ %.2, %88 ]
   %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0130148) #2
   %21 = add i32 %.0130148, 2
   %22 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %21) #2
@@ -218,14 +218,14 @@ define internal i32 @dissect_fefd(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 88:                                               ; preds = %54, %63, %37, %43, %83
   %.pn = phi i32 [ %23, %83 ], [ %23, %43 ], [ %23, %37 ], [ %spec.select, %63 ], [ %spec.select, %54 ]
-  %.1 = add i32 %.pn, %.0130148
-  %89 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #2
+  %.2 = add i32 %.pn, %.0130148
+  %89 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.2) #2
   %.not = icmp eq i32 %89, 0
   br i1 %.not, label %.loopexit, label %19, !llvm.loop !4
 
 .loopexit:                                        ; preds = %88, %4, %34
-  %.2 = phi i32 [ %35, %34 ], [ 4, %4 ], [ %.1, %88 ]
-  %90 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.2) #2
+  %.1 = phi i32 [ %35, %34 ], [ 4, %4 ], [ %.2, %88 ]
+  %90 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1) #2
   %91 = tail call i32 @call_data_dissector(ptr noundef %90, ptr noundef %1, ptr noundef %11) #2
   br label %.loopexit169
 

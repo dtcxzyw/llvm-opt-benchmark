@@ -1295,7 +1295,7 @@ _waiting_release.exit44.i:                        ; preds = %if.then.i42.i, %if.
   br label %channel_recv.exit
 
 channel_recv.exit:                                ; preds = %if.end30.i, %_waiting_release.exit44.i, %if.then.i, %_channels_lookup.exit.i, %_channel_next.exit.i, %if.else.i, %_release_xid_data.exit.i, %_waiting_release.exit.i, %Py_DECREF.exit.i, %_waiting_release.exit38.i
-  %obj.0 = phi ptr [ null, %if.then.i ], [ null, %_channels_lookup.exit.i ], [ null, %if.else.i ], [ null, %_release_xid_data.exit.i ], [ null, %_waiting_release.exit.i ], [ null, %Py_DECREF.exit.i ], [ null, %_waiting_release.exit38.i ], [ null, %_channel_next.exit.i ], [ %call16.i, %_waiting_release.exit44.i ], [ %call16.i, %if.end30.i ]
+  %obj.1 = phi ptr [ null, %if.then.i ], [ null, %_channels_lookup.exit.i ], [ null, %if.else.i ], [ null, %_release_xid_data.exit.i ], [ null, %_waiting_release.exit.i ], [ null, %Py_DECREF.exit.i ], [ null, %_waiting_release.exit38.i ], [ null, %_channel_next.exit.i ], [ %call16.i, %_waiting_release.exit44.i ], [ %call16.i, %if.end30.i ]
   %retval.0.i = phi i32 [ %..i, %if.then.i ], [ %err.015.i.ph.i, %_channels_lookup.exit.i ], [ 0, %if.else.i ], [ -1, %_release_xid_data.exit.i ], [ -1, %_waiting_release.exit.i ], [ -1, %Py_DECREF.exit.i ], [ -1, %_waiting_release.exit38.i ], [ %err.0.i23.i, %_channel_next.exit.i ], [ 0, %_waiting_release.exit44.i ], [ 0, %if.end30.i ]
   %call4 = call fastcc i32 @handle_channel_error(i32 noundef %retval.0.i, ptr noundef %self, i64 noundef %0)
   %tobool5.not = icmp eq i32 %call4, 0
@@ -1319,11 +1319,11 @@ if.end.i.i7:                                      ; preds = %if.then.i5
 
 Py_XINCREF.exit:                                  ; preds = %if.then.i5, %if.end.i.i7
   %.pre24 = phi ptr [ %40, %if.then.i5 ], [ %.pre24.pre, %if.end.i.i7 ]
-  %cmp = icmp eq ptr %obj.0, null
+  %cmp = icmp eq ptr %obj.1, null
   br i1 %cmp, label %if.then8, label %if.end14
 
 Py_XINCREF.exit.thread:                           ; preds = %if.end7
-  %cmp27 = icmp eq ptr %obj.0, null
+  %cmp27 = icmp eq ptr %obj.1, null
   br i1 %cmp27, label %if.then10, label %return
 
 if.then8:                                         ; preds = %Py_XINCREF.exit
@@ -1350,12 +1350,12 @@ if.end.i.i12:                                     ; preds = %if.end12
 
 if.end14:                                         ; preds = %if.end.i.i12, %Py_XINCREF.exit
   %44 = phi ptr [ %.pre24, %Py_XINCREF.exit ], [ %.pre, %if.end.i.i12 ]
-  %obj.1 = phi ptr [ %obj.0, %Py_XINCREF.exit ], [ %.pre24, %if.end.i.i12 ]
+  %obj.0 = phi ptr [ %obj.1, %Py_XINCREF.exit ], [ %.pre24, %if.end.i.i12 ]
   %cmp.not.i13 = icmp eq ptr %44, null
   br i1 %cmp.not.i13, label %return, label %if.then.i14
 
 if.then.i14:                                      ; preds = %if.end12, %if.end14
-  %obj.136 = phi ptr [ %obj.1, %if.end14 ], [ %.pre24, %if.end12 ]
+  %obj.036 = phi ptr [ %obj.0, %if.end14 ], [ %.pre24, %if.end12 ]
   %45 = phi ptr [ %44, %if.end14 ], [ %.pre24, %if.end12 ]
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, 2147483648
@@ -1373,7 +1373,7 @@ if.then1.i.i18:                                   ; preds = %if.end.i.i15
   br label %return
 
 return:                                           ; preds = %Py_XINCREF.exit.thread, %if.then1.i.i18, %if.end.i.i15, %if.then.i14, %if.end14, %channel_recv.exit, %entry, %if.then10
-  %retval.0 = phi ptr [ null, %if.then10 ], [ null, %entry ], [ null, %channel_recv.exit ], [ %obj.1, %if.end14 ], [ %obj.136, %if.then.i14 ], [ %obj.136, %if.end.i.i15 ], [ %obj.136, %if.then1.i.i18 ], [ %obj.0, %Py_XINCREF.exit.thread ]
+  %retval.0 = phi ptr [ null, %if.then10 ], [ null, %entry ], [ null, %channel_recv.exit ], [ %obj.0, %if.end14 ], [ %obj.036, %if.then.i14 ], [ %obj.036, %if.end.i.i15 ], [ %obj.036, %if.then1.i.i18 ], [ %obj.1, %Py_XINCREF.exit.thread ]
   ret ptr %retval.0
 }
 
@@ -3277,8 +3277,8 @@ if.then.i.i.i.i:                                  ; preds = %if.end.i8
   br i1 %cmp2.i.i.i.i, label %if.end4.i.i.i, label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %while.cond.i.i.i.i
-  %prev.0.i.i.i.i = phi ptr [ %17, %while.cond.i.i.i.i ], [ %15, %if.then.i.i.i.i ]
-  %next.i.i.i.i = getelementptr inbounds i8, ptr %prev.0.i.i.i.i, i64 16
+  %prev.1.i.i.i.i = phi ptr [ %17, %while.cond.i.i.i.i ], [ %15, %if.then.i.i.i.i ]
+  %next.i.i.i.i = getelementptr inbounds i8, ptr %prev.1.i.i.i.i, i64 16
   %17 = load ptr, ptr %next.i.i.i.i, align 8
   %cmp6.not.i.i.i.i = icmp eq ptr %17, null
   %18 = ptrtoint ptr %17 to i64
@@ -3287,13 +3287,13 @@ while.cond.i.i.i.i:                               ; preds = %if.then.i.i.i.i, %w
   br i1 %or.cond.i.i.i.i, label %_channelqueue_find.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !19
 
 _channelqueue_find.exit.i.i.i:                    ; preds = %while.cond.i.i.i.i
-  %next.i.i.i.i.le = getelementptr inbounds i8, ptr %prev.0.i.i.i.i, i64 16
+  %next.i.i.i.i.le = getelementptr inbounds i8, ptr %prev.1.i.i.i.i, i64 16
   br i1 %cmp6.not.i.i.i.i, label %_channelqueue_remove.exit.i.i, label %if.end4.i.i.i
 
 if.end4.i.i.i:                                    ; preds = %_channelqueue_find.exit.i.i.i, %if.then.i.i.i.i
   %.sink.i.i = phi ptr [ %15, %if.then.i.i.i.i ], [ %17, %_channelqueue_find.exit.i.i.i ]
   %next.i.i.le.sink.i.i = phi ptr [ %first.i.i.i.i, %if.then.i.i.i.i ], [ %next.i.i.i.i.le, %_channelqueue_find.exit.i.i.i ]
-  %prev.1.i2027.i.i.i = phi ptr [ null, %if.then.i.i.i.i ], [ %prev.0.i.i.i.i, %_channelqueue_find.exit.i.i.i ]
+  %prev.0.i2027.i.i.i = phi ptr [ null, %if.then.i.i.i.i ], [ %prev.1.i.i.i.i, %_channelqueue_find.exit.i.i.i ]
   %next2.i.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 16
   %19 = load ptr, ptr %next2.i.i.i, align 8
   store ptr %19, ptr %next.i.i.le.sink.i.i, align 8
@@ -3304,7 +3304,7 @@ if.end4.i.i.i:                                    ; preds = %_channelqueue_find.
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.end9.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end4.i.i.i
-  store ptr %prev.1.i2027.i.i.i, ptr %last.i.i.i, align 8
+  store ptr %prev.0.i2027.i.i.i, ptr %last.i.i.i, align 8
   br label %if.end9.i.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.then7.i.i.i, %if.end4.i.i.i

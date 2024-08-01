@@ -89,43 +89,43 @@ define i64 @softfloat_addMagsF64(i64 noundef %0, i64 noundef %1, i1 noundef zero
   %.not65 = icmp eq i64 %8, 0
   %48 = or disjoint i64 %22, 2305843009213693952
   %49 = shl nuw nsw i64 %9, 10
-  %.055 = select i1 %.not65, i64 %49, i64 %48
+  %.156 = select i1 %.not65, i64 %49, i64 %48
   %50 = icmp ult i64 %10, 63
   br i1 %50, label %51, label %59
 
 51:                                               ; preds = %47
-  %52 = lshr i64 %.055, %10
+  %52 = lshr i64 %.156, %10
   %53 = sub nsw i64 0, %10
   %54 = and i64 %53, 63
-  %55 = shl i64 %.055, %54
+  %55 = shl i64 %.156, %54
   %56 = icmp ne i64 %55, 0
   %57 = zext i1 %56 to i64
   %58 = or i64 %52, %57
   br label %softfloat_shiftRightJam64.exit
 
 59:                                               ; preds = %47
-  %60 = icmp ne i64 %.055, 0
+  %60 = icmp ne i64 %.156, 0
   %61 = zext i1 %60 to i64
   br label %softfloat_shiftRightJam64.exit
 
 softfloat_shiftRightJam64.exit:                   ; preds = %59, %51, %41, %34
-  %.156 = phi i64 [ %22, %34 ], [ %22, %41 ], [ %58, %51 ], [ %61, %59 ]
+  %.055 = phi i64 [ %22, %34 ], [ %22, %41 ], [ %58, %51 ], [ %61, %59 ]
   %.154 = phi i64 [ %40, %34 ], [ %43, %41 ], [ %21, %51 ], [ %21, %59 ]
-  %.051 = phi i64 [ %8, %34 ], [ %8, %41 ], [ %5, %51 ], [ %5, %59 ]
-  %62 = add nuw nsw i64 %.156, 2305843009213693952
+  %.1 = phi i64 [ %8, %34 ], [ %8, %41 ], [ %5, %51 ], [ %5, %59 ]
+  %62 = add nuw nsw i64 %.055, 2305843009213693952
   %63 = add nuw nsw i64 %62, %.154
   %64 = icmp ult i64 %63, 4611686018427387904
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %softfloat_shiftRightJam64.exit
-  %66 = add nsw i64 %.051, -1
+  %66 = add nsw i64 %.1, -1
   %67 = shl nuw nsw i64 %63, 1
   br label %68
 
 68:                                               ; preds = %softfloat_shiftRightJam64.exit, %65, %16
-  %.1 = phi i64 [ %66, %65 ], [ %.051, %softfloat_shiftRightJam64.exit ], [ %5, %16 ]
+  %.051 = phi i64 [ %66, %65 ], [ %.1, %softfloat_shiftRightJam64.exit ], [ %5, %16 ]
   %.0 = phi i64 [ %67, %65 ], [ %63, %softfloat_shiftRightJam64.exit ], [ %19, %16 ]
-  %69 = tail call i64 @softfloat_roundPackToF64(i1 noundef zeroext %2, i64 noundef %.1, i64 noundef %.0) #2
+  %69 = tail call i64 @softfloat_roundPackToF64(i1 noundef zeroext %2, i64 noundef %.051, i64 noundef %.0) #2
   br label %72
 
 70:                                               ; preds = %46, %26, %14

@@ -1056,12 +1056,12 @@ if.then20:                                        ; preds = %if.end17
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then9, %if.then20, %if.end17
-  %ret.1 = phi i32 [ %call22, %if.then20 ], [ %call16, %if.end17 ], [ %call11, %if.then9 ]
+  %ret.2 = phi i32 [ %call22, %if.then20 ], [ %call16, %if.end17 ], [ %call11, %if.then9 ]
   call void @wc_HmacFree(ptr noundef nonnull %myHmac)
   br label %return
 
 return:                                           ; preds = %switch.hole_check, %entry, %if.end23
-  %retval.0 = phi i32 [ %ret.1, %if.end23 ], [ -173, %entry ], [ -173, %switch.hole_check ]
+  %retval.0 = phi i32 [ %ret.2, %if.end23 ], [ -173, %entry ], [ -173, %switch.hole_check ]
   ret i32 %retval.0
 }
 
@@ -1112,12 +1112,12 @@ if.then20.i:                                      ; preds = %if.end17.i
   br label %if.end23.i
 
 if.end23.i:                                       ; preds = %if.then20.i, %if.end17.i, %if.then9.i
-  %ret.1.i = phi i32 [ %call22.i, %if.then20.i ], [ %call16.i, %if.end17.i ], [ %call11.i, %if.then9.i ]
+  %ret.2.i = phi i32 [ %call22.i, %if.then20.i ], [ %call16.i, %if.end17.i ], [ %call11.i, %if.then9.i ]
   call void @wc_HmacFree(ptr noundef nonnull %myHmac.i)
   br label %wc_HKDF_Extract_ex.exit
 
 wc_HKDF_Extract_ex.exit:                          ; preds = %switch.hole_check, %entry, %if.end23.i
-  %retval.0.i = phi i32 [ %ret.1.i, %if.end23.i ], [ -173, %entry ], [ -173, %switch.hole_check ]
+  %retval.0.i = phi i32 [ %ret.2.i, %if.end23.i ], [ -173, %entry ], [ -173, %switch.hole_check ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i)
   call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %myHmac.i)
   ret i32 %retval.0.i
@@ -1317,7 +1317,7 @@ if.end17.i.i:                                     ; preds = %if.then9.i.i
   br i1 %cmp18.i.i, label %wc_HKDF_Extract.exit, label %wc_HKDF_Extract.exit.thread
 
 wc_HKDF_Extract.exit.thread:                      ; preds = %if.end17.i.i, %if.then9.i.i
-  %ret.1.i.i.ph = phi i32 [ %call11.i.i, %if.then9.i.i ], [ %call16.i.i, %if.end17.i.i ]
+  %ret.2.i.i.ph = phi i32 [ %call11.i.i, %if.then9.i.i ], [ %call16.i.i, %if.end17.i.i ]
   call void @wc_HmacFree(ptr noundef nonnull %myHmac.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %myHmac.i.i)
@@ -1336,7 +1336,7 @@ if.end4:                                          ; preds = %wc_HKDF_Extract.exi
   br label %return
 
 return:                                           ; preds = %wc_HKDF_Extract.exit.thread, %entry, %wc_HKDF_Extract.exit, %if.end4
-  %retval.0 = phi i32 [ %call.i, %if.end4 ], [ %call22.i.i, %wc_HKDF_Extract.exit ], [ -173, %entry ], [ %ret.1.i.i.ph, %wc_HKDF_Extract.exit.thread ]
+  %retval.0 = phi i32 [ %call.i, %if.end4 ], [ %call22.i.i, %wc_HKDF_Extract.exit ], [ -173, %entry ], [ %ret.2.i.i.ph, %wc_HKDF_Extract.exit.thread ]
   ret i32 %retval.0
 }
 

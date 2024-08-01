@@ -117,8 +117,8 @@ define hidden noundef align 8 ptr @"_ZN10ockam_core7routing7address1_89_$LT$impl
   br label %10
 
 10:                                               ; preds = %8, %2
-  %.0 = phi ptr [ %6, %2 ], [ %9, %8 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %6, %2 ], [ %9, %8 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2100,19 +2100,19 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   br label %.body.i
 
 "_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.thread.i.i": ; preds = %541, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i", %656, %653, %.thread269.i.i
-  %.sroa.0195.0.i.sroa.phi.i = phi ptr [ %.sroa.0.i.8.i.8.i.8.i.8.i.8.i.8.gep.sroa_idx, %656 ], [ %.sroa.0.i.8.i.8.i.8.i.8.i.8.i.8.gep.sroa_idx, %653 ], [ %.sroa.0.i, %.thread269.i.i ], [ %.sroa.0.i, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i" ], [ %.sroa.0.i, %541 ]
-  %.sroa.0195.0.i.i = phi i64 [ 1, %656 ], [ 1, %653 ], [ 0, %.thread269.i.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i" ], [ 0, %541 ]
-  %.sroa.4196.0.i.i = phi ptr [ %.sroa.4.i.sroa.4.0.copyload.i.i, %656 ], [ %.sroa.4.i.sroa.4.0.copyload.i.i, %653 ], [ %.sroa.0200.0.copyload.i.i, %.thread269.i.i ], [ null, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i" ], [ null, %541 ]
+  %.sroa.0195.1.i.sroa.phi.i = phi ptr [ %.sroa.0.i.8.i.8.i.8.i.8.i.8.i.8.gep.sroa_idx, %656 ], [ %.sroa.0.i.8.i.8.i.8.i.8.i.8.i.8.gep.sroa_idx, %653 ], [ %.sroa.0.i, %.thread269.i.i ], [ %.sroa.0.i, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i" ], [ %.sroa.0.i, %541 ]
+  %.sroa.0195.1.i.i = phi i64 [ 1, %656 ], [ 1, %653 ], [ 0, %.thread269.i.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i" ], [ 0, %541 ]
+  %.sroa.4196.1.i.i = phi ptr [ %.sroa.4.i.sroa.4.0.copyload.i.i, %656 ], [ %.sroa.4.i.sroa.4.0.copyload.i.i, %653 ], [ %.sroa.0200.0.copyload.i.i, %.thread269.i.i ], [ null, %"_ZN4core6option15Option$LT$T$GT$3map17h010ebceb22f82d06E.exit.i.i" ], [ null, %541 ]
   store i8 0, ptr %109, align 8, !noalias !68
-  store i64 %.sroa.0195.0.i.i, ptr %95, align 8, !alias.scope !65, !noalias !275
-  store ptr %.sroa.4196.0.i.i, ptr %.8..8..8..8..8..sroa_idx, align 8, !alias.scope !65, !noalias !275
+  store i64 %.sroa.0195.1.i.i, ptr %95, align 8, !alias.scope !65, !noalias !275
+  store ptr %.sroa.4196.1.i.i, ptr %.8..8..8..8..8..sroa_idx, align 8, !alias.scope !65, !noalias !275
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.7197.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(224) %.sroa.7197.i.i, i64 224, i1 false), !noalias !275
   store i8 1, ptr %107, align 1, !noalias !68
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %.sroa.7197.i.i)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %.sroa.3.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i)
   store <2 x i64> <i64 240, i64 16>, ptr %.sroa.0.i, align 16, !noalias !56
-  %659 = load i64, ptr %.sroa.0195.0.i.sroa.phi.i, align 8, !noalias !56, !noundef !14
+  %659 = load i64, ptr %.sroa.0195.1.i.sroa.phi.i, align 8, !noalias !56, !noundef !14
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %94, ptr nonnull align 8 %95, i64 %659, i1 false), !noalias !56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %95)
@@ -4839,8 +4839,8 @@ define hidden noundef align 8 ptr @"_ZN5ockam6remote4info1_88_$LT$impl$u20$serde
   br label %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc6f049daca124105E.exit.thread"
 
 "_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc6f049daca124105E.exit.thread": ; preds = %35, %30, %32, %18, %9, %2, %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc6f049daca124105E.exit", %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h92ff3a7e9907feb6E.exit"
-  %.0 = phi ptr [ %7, %2 ], [ %16, %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc6f049daca124105E.exit" ], [ %24, %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h92ff3a7e9907feb6E.exit" ], [ %14, %9 ], [ %21, %18 ], [ %33, %32 ], [ %31, %30 ], [ %36, %35 ]
-  ret ptr %.0
+  %.1 = phi ptr [ %7, %2 ], [ %16, %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hc6f049daca124105E.exit" ], [ %24, %"_ZN96_$LT$$RF$mut$u20$serde_bare..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h92ff3a7e9907feb6E.exit" ], [ %14, %9 ], [ %21, %18 ], [ %33, %32 ], [ %31, %30 ], [ %36, %35 ]
+  ret ptr %.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

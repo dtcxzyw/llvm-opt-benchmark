@@ -1814,14 +1814,14 @@ do.end86:                                         ; preds = %if.then78, %invoke.
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %invoke.cont49, %do.end86, %if.then3
-  %retval.0 = phi i32 [ -1, %if.then3 ], [ 0, %do.end86 ], [ 0, %invoke.cont49 ]
+  %retval.1 = phi i32 [ -1, %if.then3 ], [ 0, %do.end86 ], [ 0, %invoke.cont49 ]
   %options.i4 = getelementptr inbounds i8, ptr %peer, i64 8
   call void @_ZN3zmq9options_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1336) %options.i4) #21
   br label %return
 
 return:                                           ; preds = %entry, %cleanup
-  %retval.1 = phi i32 [ %retval.0, %cleanup ], [ 0, %entry ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %retval.1, %cleanup ], [ 0, %entry ]
+  ret i32 %retval.0
 }
 
 declare void @_ZNK3zmq8object_t13find_endpointEPKc(ptr sret(%"struct.zmq::endpoint_t") align 8, ptr noundef nonnull align 8 dereferenceable(20), ptr noundef) local_unnamed_addr #2

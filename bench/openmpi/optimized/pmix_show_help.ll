@@ -718,7 +718,7 @@ define internal fastcc i32 @load_array(ptr noundef %0, ptr noundef %1, ptr nound
   br label %open_file.exit.thread
 
 .loopexit40.i:                                    ; preds = %41, %.thread35.i
-  %.2.i = phi ptr [ %15, %.thread35.i ], [ %43, %41 ]
+  %.0.i = phi ptr [ %15, %.thread35.i ], [ %43, %41 ]
   %53 = load ptr, ptr %8, align 8
   %.not32.i = icmp eq ptr %53, null
   br i1 %.not32.i, label %55, label %54
@@ -742,7 +742,7 @@ open_file.exit.thread:                            ; preds = %34, %21, %.loopexit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
-  %56 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %.2.i)
+  %56 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %.0.i)
   %.not.i4.i = icmp eq ptr %56, null
   br i1 %.not.i4.i, label %localgetline.exit.thread.i, label %.lr.ph.i15
 
@@ -776,7 +776,7 @@ localgetline.exit.i:                              ; preds = %58, %.lr.ph.i15
 .backedge.i:                                      ; preds = %69, %66, %63
   call void @free(ptr noundef nonnull %62) #18
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
-  %65 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %.2.i)
+  %65 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %.0.i)
   %.not.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i, label %localgetline.exit.thread.i, label %.lr.ph.i15, !llvm.loop !13
 
@@ -797,7 +797,7 @@ localgetline.exit.i:                              ; preds = %58, %.lr.ph.i15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
-  %74 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %.2.i)
+  %74 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %.0.i)
   %.not.i2261 = icmp eq ptr %74, null
   br i1 %.not.i2261, label %localgetline.exit.thread, label %.lr.ph
 
@@ -820,8 +820,8 @@ localgetline.exit.thread:                         ; preds = %.backedge, %73
 localgetline.exit:                                ; preds = %.lr.ph, %76
   %80 = call noalias ptr @strdup(ptr noundef nonnull %4) #18
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
-  %.not.i18 = icmp eq ptr %80, null
-  br i1 %.not.i18, label %.loopexit, label %81
+  %.not.i19 = icmp eq ptr %80, null
+  br i1 %.not.i19, label %.loopexit, label %81
 
 81:                                               ; preds = %localgetline.exit
   %82 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(10) @.str.19, i64 noundef 9) #23
@@ -871,7 +871,7 @@ localgetline.exit:                                ; preds = %.lr.ph, %76
 
 .backedge:                                        ; preds = %97, %100
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
-  %98 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %.2.i)
+  %98 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 1024, ptr noundef nonnull %.0.i)
   %.not.i22 = icmp eq ptr %98, null
   br i1 %.not.i22, label %localgetline.exit.thread, label %.lr.ph, !llvm.loop !14
 
@@ -895,13 +895,13 @@ localgetline.exit:                                ; preds = %.lr.ph, %76
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph66 ], [ 0, %.loopexit ]
   %104 = phi ptr [ %109, %.lr.ph66 ], [ %103, %.loopexit ]
   %.036.i64 = phi i32 [ %.1.i, %.lr.ph66 ], [ -1, %.loopexit ]
-  %.037.i63 = phi i32 [ %.2.i20, %.lr.ph66 ], [ -1, %.loopexit ]
+  %.037.i63 = phi i32 [ %.2.i, %.lr.ph66 ], [ -1, %.loopexit ]
   %105 = load i8, ptr %104, align 1
   %.not53.i = icmp eq i8 %105, 0
   %106 = icmp eq i32 %.037.i63, -1
   %107 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select.i19 = select i1 %106, i32 %107, i32 %.037.i63
-  %.2.i20 = select i1 %.not53.i, i32 %.037.i63, i32 %spec.select.i19
+  %spec.select.i20 = select i1 %106, i32 %107, i32 %.037.i63
+  %.2.i = select i1 %.not53.i, i32 %.037.i63, i32 %spec.select.i20
   %.1.i = select i1 %.not53.i, i32 %.036.i64, i32 %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %108 = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv.next
@@ -910,15 +910,15 @@ localgetline.exit:                                ; preds = %.lr.ph, %76
   br i1 %.not51.i, label %._crit_edge, label %.lr.ph66, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph66
-  %110 = icmp eq i32 %.2.i20, -1
+  %110 = icmp eq i32 %.2.i, -1
   br i1 %110, label %._crit_edge.thread, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %.not52.i69 = icmp sgt i32 %.2.i20, %.1.i
+  %.not52.i69 = icmp sgt i32 %.2.i, %.1.i
   br i1 %.not52.i69, label %._crit_edge72, label %.lr.ph71.preheader
 
 .lr.ph71.preheader:                               ; preds = %.preheader
-  %111 = sext i32 %.2.i20 to i64
+  %111 = sext i32 %.2.i to i64
   %112 = add i32 %.1.i, 1
   br label %.lr.ph71
 
@@ -950,12 +950,12 @@ localgetline.exit:                                ; preds = %.lr.ph, %76
   %117 = phi ptr [ %.pre, %._crit_edge72.loopexit ], [ %102, %.preheader ]
   call void @PMIx_Argv_free(ptr noundef %117) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %118 = call i32 @fclose(ptr noundef nonnull %.2.i)
+  %118 = call i32 @fclose(ptr noundef nonnull %.0.i)
   br label %121
 
 .thread:                                          ; preds = %localgetline.exit.i, %localgetline.exit.thread.i, %.thread41
   %.040 = phi i32 [ %.040.i.ph, %.thread41 ], [ -46, %localgetline.exit.thread.i ], [ -46, %localgetline.exit.i ]
-  %119 = call i32 @fclose(ptr noundef nonnull %.2.i)
+  %119 = call i32 @fclose(ptr noundef nonnull %.0.i)
   %120 = load ptr, ptr %0, align 8
   call void @PMIx_Argv_free(ptr noundef %120) #18
   br label %121

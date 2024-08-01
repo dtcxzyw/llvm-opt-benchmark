@@ -84,7 +84,7 @@ define internal i64 @H5Z__filter_deflate(i32 noundef %0, i64 noundef %1, ptr noc
 
 .outer:                                           ; preds = %59, %.preheader
   %.052.ph = phi i64 [ %51, %59 ], [ %19, %.preheader ]
-  %.0.ph = phi ptr [ %52, %59 ], [ %20, %.preheader ]
+  %.1.ph = phi ptr [ %52, %59 ], [ %20, %.preheader ]
   br label %40
 
 36:                                               ; preds = %26
@@ -114,7 +114,7 @@ define internal i64 @H5Z__filter_deflate(i32 noundef %0, i64 noundef %1, ptr noc
 
 50:                                               ; preds = %47
   %51 = shl i64 %.052.ph, 1
-  %52 = call ptr @H5MM_realloc(ptr noundef nonnull %.0.ph, i64 noundef %51) #4
+  %52 = call ptr @H5MM_realloc(ptr noundef nonnull %.1.ph, i64 noundef %51) #4
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %59
 
@@ -137,7 +137,7 @@ define internal i64 @H5Z__filter_deflate(i32 noundef %0, i64 noundef %1, ptr noc
 64:                                               ; preds = %40
   %65 = load ptr, ptr %5, align 8
   %66 = call ptr @H5MM_xfree(ptr noundef %65) #4
-  store ptr %.0.ph, ptr %5, align 8
+  store ptr %.1.ph, ptr %5, align 8
   store i64 %.052.ph, ptr %4, align 8
   %67 = load i64, ptr %35, align 8
   %68 = call i32 @inflateEnd(ptr noundef nonnull %7) #4
@@ -193,8 +193,8 @@ define internal i64 @H5Z__filter_deflate(i32 noundef %0, i64 noundef %1, ptr noc
   br label %.thread
 
 .thread72:                                        ; preds = %42, %54, %89, %85, %81, %36
-  %.377 = phi ptr [ %73, %89 ], [ %73, %85 ], [ %73, %81 ], [ %20, %36 ], [ %.0.ph, %54 ], [ %.0.ph, %42 ]
-  %97 = call ptr @H5MM_xfree(ptr noundef nonnull %.377) #4
+  %.077 = phi ptr [ %73, %89 ], [ %73, %85 ], [ %73, %81 ], [ %20, %36 ], [ %.1.ph, %54 ], [ %.1.ph, %42 ]
+  %97 = call ptr @H5MM_xfree(ptr noundef nonnull %.077) #4
   br label %.thread
 
 .thread:                                          ; preds = %93, %75, %64, %22, %12, %.thread72

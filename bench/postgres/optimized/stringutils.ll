@@ -141,10 +141,10 @@ thread-pre-split:                                 ; preds = %8, %9
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %59, %61, %56
-  %.2 = phi ptr [ %57, %56 ], [ %62, %61 ], [ %.1140, %59 ]
-  %66 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.2, i32 noundef %7) #7
+  %.3 = phi ptr [ %57, %56 ], [ %62, %61 ], [ %.1140, %59 ]
+  %66 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.3, i32 noundef %7) #7
   %67 = sext i32 %66 to i64
-  %68 = getelementptr i8, ptr %.2, i64 %67
+  %68 = getelementptr i8, ptr %.3, i64 %67
   %69 = load i8, ptr %68, align 1
   %.not113 = icmp eq i8 %69, 0
   br i1 %.not113, label %.thread133, label %.lr.ph, !llvm.loop !5

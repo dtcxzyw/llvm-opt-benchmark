@@ -4708,9 +4708,9 @@ if.end95:                                         ; preds = %_ZN4cvc58internal12
   br label %for.cond97
 
 for.cond97:                                       ; preds = %for.inc138, %if.end95
-  %child_types.sroa.15.0 = phi ptr [ null, %if.end95 ], [ %child_types.sroa.15.2, %for.inc138 ]
-  %child_types.sroa.11.0 = phi ptr [ null, %if.end95 ], [ %child_types.sroa.11.2, %for.inc138 ]
-  %child_types.sroa.0.0 = phi ptr [ null, %if.end95 ], [ %child_types.sroa.0.2, %for.inc138 ]
+  %child_types.sroa.15.0 = phi ptr [ null, %if.end95 ], [ %child_types.sroa.15.1, %for.inc138 ]
+  %child_types.sroa.11.0 = phi ptr [ null, %if.end95 ], [ %child_types.sroa.11.1, %for.inc138 ]
+  %child_types.sroa.0.0 = phi ptr [ null, %if.end95 ], [ %child_types.sroa.0.1, %for.inc138 ]
   %i96.0 = phi i64 [ 0, %if.end95 ], [ %inc139, %for.inc138 ]
   %117 = load ptr, ptr %n, align 8
   %d_kind.i.i.i.i621 = getelementptr inbounds i8, ptr %117, i64 8
@@ -5012,10 +5012,10 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
   br label %invoke.cont135
 
 invoke.cont135:                                   ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i.i724
-  %child_types.sroa.15.1 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %child_types.sroa.15.0, %if.then.i.i724 ]
+  %child_types.sroa.15.2 = phi ptr [ %add.ptr19.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %child_types.sroa.15.0, %if.then.i.i724 ]
   %add.ptr.i.i.i.i.i.i.pn = phi ptr [ %add.ptr.i.i.i.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %child_types.sroa.11.0, %if.then.i.i724 ]
-  %child_types.sroa.0.1 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %child_types.sroa.0.0, %if.then.i.i724 ]
-  %child_types.sroa.11.1 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 4
+  %child_types.sroa.0.2 = phi ptr [ %cond.i10.i.i.i, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i ], [ %child_types.sroa.0.0, %if.then.i.i724 ]
+  %child_types.sroa.11.2 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.pn, i64 4
   %137 = load ptr, ptr %agg.tmp125, align 8
   %bf.load.i.i734 = load i64, ptr %137, align 8
   %138 = and i64 %bf.load.i.i734, 1152920405095219200
@@ -5064,9 +5064,9 @@ lpad132:                                          ; preds = %lpad132.loopexit.sp
   br label %ehcleanup721
 
 for.inc138:                                       ; preds = %if.then13.i.i742, %if.then.i.i736, %invoke.cont135, %invoke.cont111
-  %child_types.sroa.15.2 = phi ptr [ %child_types.sroa.15.0, %invoke.cont111 ], [ %child_types.sroa.15.1, %invoke.cont135 ], [ %child_types.sroa.15.1, %if.then.i.i736 ], [ %child_types.sroa.15.1, %if.then13.i.i742 ]
-  %child_types.sroa.11.2 = phi ptr [ %child_types.sroa.11.0, %invoke.cont111 ], [ %child_types.sroa.11.1, %invoke.cont135 ], [ %child_types.sroa.11.1, %if.then.i.i736 ], [ %child_types.sroa.11.1, %if.then13.i.i742 ]
-  %child_types.sroa.0.2 = phi ptr [ %child_types.sroa.0.0, %invoke.cont111 ], [ %child_types.sroa.0.1, %invoke.cont135 ], [ %child_types.sroa.0.1, %if.then.i.i736 ], [ %child_types.sroa.0.1, %if.then13.i.i742 ]
+  %child_types.sroa.15.1 = phi ptr [ %child_types.sroa.15.0, %invoke.cont111 ], [ %child_types.sroa.15.2, %invoke.cont135 ], [ %child_types.sroa.15.2, %if.then.i.i736 ], [ %child_types.sroa.15.2, %if.then13.i.i742 ]
+  %child_types.sroa.11.1 = phi ptr [ %child_types.sroa.11.0, %invoke.cont111 ], [ %child_types.sroa.11.2, %invoke.cont135 ], [ %child_types.sroa.11.2, %if.then.i.i736 ], [ %child_types.sroa.11.2, %if.then13.i.i742 ]
+  %child_types.sroa.0.1 = phi ptr [ %child_types.sroa.0.0, %invoke.cont111 ], [ %child_types.sroa.0.2, %invoke.cont135 ], [ %child_types.sroa.0.2, %if.then.i.i736 ], [ %child_types.sroa.0.2, %if.then13.i.i742 ]
   %inc139 = add nuw nsw i64 %i96.0, 1
   br label %for.cond97, !llvm.loop !73
 
@@ -7039,7 +7039,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit2569:                ; preds = %ehcleanup721, %if.t
   br label %ehcleanup723
 
 cleanup:                                          ; preds = %if.then.i.i.i2565, %invoke.cont.i, %if.then13.i.i, %if.then.i.i, %invoke.cont23
-  %retval.0 = phi i32 [ %call24, %invoke.cont23 ], [ %call24, %if.then.i.i ], [ %call24, %if.then13.i.i ], [ %retType.0, %invoke.cont.i ], [ %retType.0, %if.then.i.i.i2565 ]
+  %retval.1 = phi i32 [ %call24, %invoke.cont23 ], [ %call24, %if.then.i.i ], [ %call24, %if.then13.i.i ], [ %retType.0, %invoke.cont.i ], [ %retType.0, %if.then.i.i.i2565 ]
   %328 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_iESt10_Select1stIS6_ESt4lessIS3_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %new_visited, ptr noundef %328)
           to label %return unwind label %terminate.lpad.i.i
@@ -7057,8 +7057,8 @@ ehcleanup723:                                     ; preds = %lpad.loopexit2647, 
   resume { ptr, i32 } %.pn58
 
 return:                                           ; preds = %cleanup, %if.then
-  %retval.1 = phi i32 [ %3, %if.then ], [ %retval.0, %cleanup ]
-  ret i32 %retval.1
+  %retval.0 = phi i32 [ %3, %if.then ], [ %retval.1, %cleanup ]
+  ret i32 %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -21,8 +21,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp36.i, label %while.body.i, label %_ZNK6icu_7521CollationRootElements5findPEj.exit
 
 while.body.i:                                     ; preds = %if.end, %if.end37.i
-  %limit.038.i = phi i32 [ %i.2.limit.0.i, %if.end37.i ], [ %sub.i, %if.end ]
-  %start.037.i = phi i32 [ %start.0.i.2.i, %if.end37.i ], [ %1, %if.end ]
+  %limit.038.i = phi i32 [ %i.0.limit.0.i, %if.end37.i ], [ %sub.i, %if.end ]
+  %start.037.i = phi i32 [ %start.0.i.0.i, %if.end37.i ], [ %1, %if.end ]
   %add2.i = add nsw i32 %start.037.i, %limit.038.i
   %div.i = sdiv i32 %add2.i, 2
   %idxprom.i = sext i32 %div.i to i64
@@ -87,18 +87,18 @@ if.end37.loopexit56.i:                            ; preds = %if.end.i
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end37.loopexit56.i, %if.end37.loopexit.i, %while.body.i
-  %i.2.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit56.i ]
-  %q.4.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit56.i ]
-  %and38.i = and i32 %q.4.i, -256
+  %i.0.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit56.i ]
+  %q.0.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit56.i ]
+  %and38.i = and i32 %q.0.i, -256
   %cmp39.i = icmp ugt i32 %and38.i, %p
-  %start.0.i.2.i = select i1 %cmp39.i, i32 %start.037.i, i32 %i.2.i
-  %i.2.limit.0.i = select i1 %cmp39.i, i32 %i.2.i, i32 %limit.038.i
-  %add.i = add nsw i32 %start.0.i.2.i, 1
-  %cmp.i = icmp slt i32 %add.i, %i.2.limit.0.i
+  %start.0.i.0.i = select i1 %cmp39.i, i32 %start.037.i, i32 %i.0.i
+  %i.0.limit.0.i = select i1 %cmp39.i, i32 %i.0.i, i32 %limit.038.i
+  %add.i = add nsw i32 %start.0.i.0.i, 1
+  %cmp.i = icmp slt i32 %add.i, %i.0.limit.0.i
   br i1 %cmp.i, label %while.body.i, label %_ZNK6icu_7521CollationRootElements5findPEj.exit, !llvm.loop !7
 
 _ZNK6icu_7521CollationRootElements5findPEj.exit:  ; preds = %for.cond20.preheader.i, %if.end37.i, %for.cond20.i, %if.end
-  %start.0.lcssa.i = phi i32 [ %1, %if.end ], [ %start.037.i, %for.cond20.i ], [ %start.0.i.2.i, %if.end37.i ], [ %start.037.i, %for.cond20.preheader.i ]
+  %start.0.lcssa.i = phi i32 [ %1, %if.end ], [ %start.037.i, %for.cond20.i ], [ %start.0.i.0.i, %if.end37.i ], [ %start.037.i, %for.cond20.preheader.i ]
   %idxprom = sext i32 %start.0.lcssa.i to i64
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
   %12 = load i32, ptr %arrayidx, align 4
@@ -137,7 +137,7 @@ if.then17:                                        ; preds = %for.cond
 
 for.cond23:                                       ; preds = %_ZNK6icu_7521CollationRootElements5findPEj.exit, %for.cond23
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond23 ], [ %idxprom, %_ZNK6icu_7521CollationRootElements5findPEj.exit ]
-  %secTer.0 = phi i32 [ %16, %for.cond23 ], [ 83887360, %_ZNK6icu_7521CollationRootElements5findPEj.exit ]
+  %secTer.1 = phi i32 [ %16, %for.cond23 ], [ 83887360, %_ZNK6icu_7521CollationRootElements5findPEj.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %arrayidx26 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
   %16 = load i32, ptr %arrayidx26, align 4
@@ -147,10 +147,10 @@ for.cond23:                                       ; preds = %_ZNK6icu_7521Collat
 
 if.end32:                                         ; preds = %for.cond23, %if.then9, %if.then17
   %p.addr.0 = phi i32 [ %and10, %if.then9 ], [ %and18, %if.then17 ], [ %and, %for.cond23 ]
-  %secTer.1 = phi i32 [ 83887360, %if.then9 ], [ %13, %if.then17 ], [ %secTer.0, %for.cond23 ]
+  %secTer.0 = phi i32 [ 83887360, %if.then9 ], [ %13, %if.then17 ], [ %secTer.1, %for.cond23 ]
   %conv = zext i32 %p.addr.0 to i64
   %shl = shl nuw i64 %conv, 32
-  %and33 = and i32 %secTer.1, -129
+  %and33 = and i32 %secTer.0, -129
   %conv34 = zext i32 %and33 to i64
   %or = or disjoint i64 %shl, %conv34
   br label %return
@@ -174,8 +174,8 @@ entry:
   br i1 %cmp36, label %while.body, label %while.end
 
 while.body:                                       ; preds = %entry, %if.end37
-  %limit.038 = phi i32 [ %i.2.limit.0, %if.end37 ], [ %sub, %entry ]
-  %start.037 = phi i32 [ %start.0.i.2, %if.end37 ], [ %1, %entry ]
+  %limit.038 = phi i32 [ %i.0.limit.0, %if.end37 ], [ %sub, %entry ]
+  %start.037 = phi i32 [ %start.0.i.0, %if.end37 ], [ %1, %entry ]
   %add2 = add nsw i32 %limit.038, %start.037
   %div = sdiv i32 %add2, 2
   %idxprom = sext i32 %div to i64
@@ -241,18 +241,18 @@ if.end37.loopexit56:                              ; preds = %if.end
   br label %if.end37
 
 if.end37:                                         ; preds = %if.end37.loopexit56, %if.end37.loopexit, %while.body
-  %i.2 = phi i32 [ %div, %while.body ], [ %10, %if.end37.loopexit ], [ %11, %if.end37.loopexit56 ]
-  %q.4 = phi i32 [ %3, %while.body ], [ %9, %if.end37.loopexit ], [ %6, %if.end37.loopexit56 ]
-  %and38 = and i32 %q.4, -256
+  %i.0 = phi i32 [ %div, %while.body ], [ %10, %if.end37.loopexit ], [ %11, %if.end37.loopexit56 ]
+  %q.0 = phi i32 [ %3, %while.body ], [ %9, %if.end37.loopexit ], [ %6, %if.end37.loopexit56 ]
+  %and38 = and i32 %q.0, -256
   %cmp39 = icmp ugt i32 %and38, %p
-  %start.0.i.2 = select i1 %cmp39, i32 %start.037, i32 %i.2
-  %i.2.limit.0 = select i1 %cmp39, i32 %i.2, i32 %limit.038
-  %add = add nsw i32 %start.0.i.2, 1
-  %cmp = icmp slt i32 %add, %i.2.limit.0
+  %start.0.i.0 = select i1 %cmp39, i32 %start.037, i32 %i.0
+  %i.0.limit.0 = select i1 %cmp39, i32 %i.0, i32 %limit.038
+  %add = add nsw i32 %start.0.i.0, 1
+  %cmp = icmp slt i32 %add, %i.0.limit.0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !7
 
 while.end:                                        ; preds = %for.cond20.preheader, %if.end37, %for.cond20, %entry
-  %start.0.lcssa = phi i32 [ %1, %entry ], [ %start.037, %for.cond20 ], [ %start.037, %for.cond20.preheader ], [ %start.0.i.2, %if.end37 ]
+  %start.0.lcssa = phi i32 [ %1, %entry ], [ %start.037, %for.cond20 ], [ %start.037, %for.cond20.preheader ], [ %start.0.i.0, %if.end37 ]
   ret i32 %start.0.lcssa
 }
 
@@ -274,8 +274,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp36.i, label %while.body.i, label %_ZNK6icu_7521CollationRootElements5findPEj.exit
 
 while.body.i:                                     ; preds = %if.end, %if.end37.i
-  %limit.038.i = phi i32 [ %i.2.limit.0.i, %if.end37.i ], [ %sub.i, %if.end ]
-  %start.037.i = phi i32 [ %start.0.i.2.i, %if.end37.i ], [ %1, %if.end ]
+  %limit.038.i = phi i32 [ %i.0.limit.0.i, %if.end37.i ], [ %sub.i, %if.end ]
+  %start.037.i = phi i32 [ %start.0.i.0.i, %if.end37.i ], [ %1, %if.end ]
   %add2.i = add nsw i32 %start.037.i, %limit.038.i
   %div.i = sdiv i32 %add2.i, 2
   %idxprom.i = sext i32 %div.i to i64
@@ -340,18 +340,18 @@ if.end37.loopexit56.i:                            ; preds = %if.end.i
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end37.loopexit56.i, %if.end37.loopexit.i, %while.body.i
-  %i.2.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit56.i ]
-  %q.4.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit56.i ]
-  %and38.i = and i32 %q.4.i, -256
+  %i.0.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit56.i ]
+  %q.0.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit56.i ]
+  %and38.i = and i32 %q.0.i, -256
   %cmp39.i = icmp ugt i32 %and38.i, %p
-  %start.0.i.2.i = select i1 %cmp39.i, i32 %start.037.i, i32 %i.2.i
-  %i.2.limit.0.i = select i1 %cmp39.i, i32 %i.2.i, i32 %limit.038.i
-  %add.i = add nsw i32 %start.0.i.2.i, 1
-  %cmp.i = icmp slt i32 %add.i, %i.2.limit.0.i
+  %start.0.i.0.i = select i1 %cmp39.i, i32 %start.037.i, i32 %i.0.i
+  %i.0.limit.0.i = select i1 %cmp39.i, i32 %i.0.i, i32 %limit.038.i
+  %add.i = add nsw i32 %start.0.i.0.i, 1
+  %cmp.i = icmp slt i32 %add.i, %i.0.limit.0.i
   br i1 %cmp.i, label %while.body.i, label %_ZNK6icu_7521CollationRootElements5findPEj.exit, !llvm.loop !7
 
 _ZNK6icu_7521CollationRootElements5findPEj.exit:  ; preds = %for.cond20.preheader.i, %if.end37.i, %for.cond20.i, %if.end
-  %start.0.lcssa.i = phi i32 [ %1, %if.end ], [ %start.037.i, %for.cond20.i ], [ %start.0.i.2.i, %if.end37.i ], [ %start.037.i, %for.cond20.preheader.i ]
+  %start.0.lcssa.i = phi i32 [ %1, %if.end ], [ %start.037.i, %for.cond20.i ], [ %start.0.i.0.i, %if.end37.i ], [ %start.037.i, %for.cond20.preheader.i ]
   %idxprom = sext i32 %start.0.lcssa.i to i64
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
   %12 = load i32, ptr %arrayidx, align 4
@@ -394,8 +394,8 @@ entry:
   br i1 %cmp36.i.i, label %while.body.i.i, label %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit
 
 while.body.i.i:                                   ; preds = %entry, %if.end37.i.i
-  %limit.038.i.i = phi i32 [ %i.2.limit.0.i.i, %if.end37.i.i ], [ %sub.i.i, %entry ]
-  %start.037.i.i = phi i32 [ %start.0.i.2.i.i, %if.end37.i.i ], [ %1, %entry ]
+  %limit.038.i.i = phi i32 [ %i.0.limit.0.i.i, %if.end37.i.i ], [ %sub.i.i, %entry ]
+  %start.037.i.i = phi i32 [ %start.0.i.0.i.i, %if.end37.i.i ], [ %1, %entry ]
   %add2.i.i = add nsw i32 %start.037.i.i, %limit.038.i.i
   %div.i.i = sdiv i32 %add2.i.i, 2
   %idxprom.i.i = sext i32 %div.i.i to i64
@@ -460,18 +460,18 @@ if.end37.loopexit56.i.i:                          ; preds = %if.end.i.i
   br label %if.end37.i.i
 
 if.end37.i.i:                                     ; preds = %if.end37.loopexit56.i.i, %if.end37.loopexit.i.i, %while.body.i.i
-  %i.2.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %10, %if.end37.loopexit.i.i ], [ %11, %if.end37.loopexit56.i.i ]
-  %q.4.i.i = phi i32 [ %3, %while.body.i.i ], [ %9, %if.end37.loopexit.i.i ], [ %6, %if.end37.loopexit56.i.i ]
-  %and38.i.i = and i32 %q.4.i.i, -256
+  %i.0.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %10, %if.end37.loopexit.i.i ], [ %11, %if.end37.loopexit56.i.i ]
+  %q.0.i.i = phi i32 [ %3, %while.body.i.i ], [ %9, %if.end37.loopexit.i.i ], [ %6, %if.end37.loopexit56.i.i ]
+  %and38.i.i = and i32 %q.0.i.i, -256
   %cmp39.i.i = icmp ugt i32 %and38.i.i, %p
-  %start.0.i.2.i.i = select i1 %cmp39.i.i, i32 %start.037.i.i, i32 %i.2.i.i
-  %i.2.limit.0.i.i = select i1 %cmp39.i.i, i32 %i.2.i.i, i32 %limit.038.i.i
-  %add.i.i = add nsw i32 %start.0.i.2.i.i, 1
-  %cmp.i.i = icmp slt i32 %add.i.i, %i.2.limit.0.i.i
+  %start.0.i.0.i.i = select i1 %cmp39.i.i, i32 %start.037.i.i, i32 %i.0.i.i
+  %i.0.limit.0.i.i = select i1 %cmp39.i.i, i32 %i.0.i.i, i32 %limit.038.i.i
+  %add.i.i = add nsw i32 %start.0.i.0.i.i, 1
+  %cmp.i.i = icmp slt i32 %add.i.i, %i.0.limit.0.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit, !llvm.loop !7
 
 _ZNK6icu_7521CollationRootElements11findPrimaryEj.exit: ; preds = %for.cond20.preheader.i.i, %if.end37.i.i, %for.cond20.i.i, %entry
-  %start.0.lcssa.i.i = phi i32 [ %1, %entry ], [ %start.037.i.i, %for.cond20.i.i ], [ %start.037.i.i, %for.cond20.preheader.i.i ], [ %start.0.i.2.i.i, %if.end37.i.i ]
+  %start.0.lcssa.i.i = phi i32 [ %1, %entry ], [ %start.037.i.i, %for.cond20.i.i ], [ %start.037.i.i, %for.cond20.preheader.i.i ], [ %start.0.i.0.i.i, %if.end37.i.i ]
   %idxprom = sext i32 %start.0.lcssa.i.i to i64
   %arrayidx = getelementptr inbounds i32, ptr %0, i64 %idxprom
   %12 = load i32, ptr %arrayidx, align 4
@@ -536,8 +536,8 @@ entry:
   br i1 %cmp36.i, label %while.body.i, label %_ZNK6icu_7521CollationRootElements5findPEj.exit
 
 while.body.i:                                     ; preds = %entry, %if.end37.i
-  %limit.038.i = phi i32 [ %i.2.limit.0.i, %if.end37.i ], [ %sub.i, %entry ]
-  %start.037.i = phi i32 [ %start.0.i.2.i, %if.end37.i ], [ %1, %entry ]
+  %limit.038.i = phi i32 [ %i.0.limit.0.i, %if.end37.i ], [ %sub.i, %entry ]
+  %start.037.i = phi i32 [ %start.0.i.0.i, %if.end37.i ], [ %1, %entry ]
   %add2.i = add nsw i32 %start.037.i, %limit.038.i
   %div.i = sdiv i32 %add2.i, 2
   %idxprom.i = sext i32 %div.i to i64
@@ -602,18 +602,18 @@ if.end37.loopexit56.i:                            ; preds = %if.end.i
   br label %if.end37.i
 
 if.end37.i:                                       ; preds = %if.end37.loopexit56.i, %if.end37.loopexit.i, %while.body.i
-  %i.2.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit56.i ]
-  %q.4.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit56.i ]
-  %and38.i = and i32 %q.4.i, -256
+  %i.0.i = phi i32 [ %div.i, %while.body.i ], [ %10, %if.end37.loopexit.i ], [ %11, %if.end37.loopexit56.i ]
+  %q.0.i = phi i32 [ %3, %while.body.i ], [ %9, %if.end37.loopexit.i ], [ %6, %if.end37.loopexit56.i ]
+  %and38.i = and i32 %q.0.i, -256
   %cmp39.i = icmp ugt i32 %and38.i, %p
-  %start.0.i.2.i = select i1 %cmp39.i, i32 %start.037.i, i32 %i.2.i
-  %i.2.limit.0.i = select i1 %cmp39.i, i32 %i.2.i, i32 %limit.038.i
-  %add.i = add nsw i32 %start.0.i.2.i, 1
-  %cmp.i = icmp slt i32 %add.i, %i.2.limit.0.i
+  %start.0.i.0.i = select i1 %cmp39.i, i32 %start.037.i, i32 %i.0.i
+  %i.0.limit.0.i = select i1 %cmp39.i, i32 %i.0.i, i32 %limit.038.i
+  %add.i = add nsw i32 %start.0.i.0.i, 1
+  %cmp.i = icmp slt i32 %add.i, %i.0.limit.0.i
   br i1 %cmp.i, label %while.body.i, label %_ZNK6icu_7521CollationRootElements5findPEj.exit, !llvm.loop !7
 
 _ZNK6icu_7521CollationRootElements5findPEj.exit:  ; preds = %for.cond20.preheader.i, %if.end37.i, %for.cond20.i, %entry
-  %start.0.lcssa.i = phi i32 [ %1, %entry ], [ %start.037.i, %for.cond20.i ], [ %start.0.i.2.i, %if.end37.i ], [ %start.037.i, %for.cond20.preheader.i ]
+  %start.0.lcssa.i = phi i32 [ %1, %entry ], [ %start.037.i, %for.cond20.i ], [ %start.0.i.0.i, %if.end37.i ], [ %start.037.i, %for.cond20.preheader.i ]
   ret i32 %start.0.lcssa.i
 }
 
@@ -647,8 +647,8 @@ if.else:                                          ; preds = %entry
   br i1 %cmp36.i.i, label %while.body.i.i, label %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit
 
 while.body.i.i:                                   ; preds = %if.else, %if.end37.i.i
-  %limit.038.i.i = phi i32 [ %i.2.limit.0.i.i, %if.end37.i.i ], [ %sub.i.i, %if.else ]
-  %start.037.i.i = phi i32 [ %start.0.i.2.i.i, %if.end37.i.i ], [ %3, %if.else ]
+  %limit.038.i.i = phi i32 [ %i.0.limit.0.i.i, %if.end37.i.i ], [ %sub.i.i, %if.else ]
+  %start.037.i.i = phi i32 [ %start.0.i.0.i.i, %if.end37.i.i ], [ %3, %if.else ]
   %add2.i.i = add nsw i32 %start.037.i.i, %limit.038.i.i
   %div.i.i = sdiv i32 %add2.i.i, 2
   %idxprom.i.i = sext i32 %div.i.i to i64
@@ -713,18 +713,18 @@ if.end37.loopexit56.i.i:                          ; preds = %if.end.i.i
   br label %if.end37.i.i
 
 if.end37.i.i:                                     ; preds = %if.end37.loopexit56.i.i, %if.end37.loopexit.i.i, %while.body.i.i
-  %i.2.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %12, %if.end37.loopexit.i.i ], [ %13, %if.end37.loopexit56.i.i ]
-  %q.4.i.i = phi i32 [ %5, %while.body.i.i ], [ %11, %if.end37.loopexit.i.i ], [ %8, %if.end37.loopexit56.i.i ]
-  %and38.i.i = and i32 %q.4.i.i, -256
+  %i.0.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %12, %if.end37.loopexit.i.i ], [ %13, %if.end37.loopexit56.i.i ]
+  %q.0.i.i = phi i32 [ %5, %while.body.i.i ], [ %11, %if.end37.loopexit.i.i ], [ %8, %if.end37.loopexit56.i.i ]
+  %and38.i.i = and i32 %q.0.i.i, -256
   %cmp39.i.i = icmp ugt i32 %and38.i.i, %p
-  %start.0.i.2.i.i = select i1 %cmp39.i.i, i32 %start.037.i.i, i32 %i.2.i.i
-  %i.2.limit.0.i.i = select i1 %cmp39.i.i, i32 %i.2.i.i, i32 %limit.038.i.i
-  %add.i.i = add nsw i32 %start.0.i.2.i.i, 1
-  %cmp.i.i = icmp slt i32 %add.i.i, %i.2.limit.0.i.i
+  %start.0.i.0.i.i = select i1 %cmp39.i.i, i32 %start.037.i.i, i32 %i.0.i.i
+  %i.0.limit.0.i.i = select i1 %cmp39.i.i, i32 %i.0.i.i, i32 %limit.038.i.i
+  %add.i.i = add nsw i32 %start.0.i.0.i.i, 1
+  %cmp.i.i = icmp slt i32 %add.i.i, %i.0.limit.0.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit, !llvm.loop !7
 
 _ZNK6icu_7521CollationRootElements11findPrimaryEj.exit: ; preds = %for.cond20.preheader.i.i, %if.end37.i.i, %for.cond20.i.i, %if.else
-  %start.0.lcssa.i.i = phi i32 [ %3, %if.else ], [ %start.037.i.i, %for.cond20.i.i ], [ %start.037.i.i, %for.cond20.preheader.i.i ], [ %start.0.i.2.i.i, %if.end37.i.i ]
+  %start.0.lcssa.i.i = phi i32 [ %3, %if.else ], [ %start.037.i.i, %for.cond20.i.i ], [ %start.037.i.i, %for.cond20.preheader.i.i ], [ %start.0.i.0.i.i, %if.end37.i.i ]
   %add = add nsw i32 %start.0.lcssa.i.i, 1
   %idxprom.i = sext i32 %add to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
@@ -808,8 +808,8 @@ if.else8:                                         ; preds = %entry
   br i1 %cmp36.i.i, label %while.body.i.i, label %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit
 
 while.body.i.i:                                   ; preds = %if.else8, %if.end37.i.i
-  %limit.038.i.i = phi i32 [ %i.2.limit.0.i.i, %if.end37.i.i ], [ %sub.i.i, %if.else8 ]
-  %start.037.i.i = phi i32 [ %start.0.i.2.i.i, %if.end37.i.i ], [ %3, %if.else8 ]
+  %limit.038.i.i = phi i32 [ %i.0.limit.0.i.i, %if.end37.i.i ], [ %sub.i.i, %if.else8 ]
+  %start.037.i.i = phi i32 [ %start.0.i.0.i.i, %if.end37.i.i ], [ %3, %if.else8 ]
   %add2.i.i = add nsw i32 %start.037.i.i, %limit.038.i.i
   %div.i.i = sdiv i32 %add2.i.i, 2
   %idxprom.i.i = sext i32 %div.i.i to i64
@@ -874,18 +874,18 @@ if.end37.loopexit56.i.i:                          ; preds = %if.end.i.i
   br label %if.end37.i.i
 
 if.end37.i.i:                                     ; preds = %if.end37.loopexit56.i.i, %if.end37.loopexit.i.i, %while.body.i.i
-  %i.2.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %12, %if.end37.loopexit.i.i ], [ %13, %if.end37.loopexit56.i.i ]
-  %q.4.i.i = phi i32 [ %5, %while.body.i.i ], [ %11, %if.end37.loopexit.i.i ], [ %8, %if.end37.loopexit56.i.i ]
-  %and38.i.i = and i32 %q.4.i.i, -256
+  %i.0.i.i = phi i32 [ %div.i.i, %while.body.i.i ], [ %12, %if.end37.loopexit.i.i ], [ %13, %if.end37.loopexit56.i.i ]
+  %q.0.i.i = phi i32 [ %5, %while.body.i.i ], [ %11, %if.end37.loopexit.i.i ], [ %8, %if.end37.loopexit56.i.i ]
+  %and38.i.i = and i32 %q.0.i.i, -256
   %cmp39.i.i = icmp ugt i32 %and38.i.i, %p
-  %start.0.i.2.i.i = select i1 %cmp39.i.i, i32 %start.037.i.i, i32 %i.2.i.i
-  %i.2.limit.0.i.i = select i1 %cmp39.i.i, i32 %i.2.i.i, i32 %limit.038.i.i
-  %add.i.i = add nsw i32 %start.0.i.2.i.i, 1
-  %cmp.i.i = icmp slt i32 %add.i.i, %i.2.limit.0.i.i
+  %start.0.i.0.i.i = select i1 %cmp39.i.i, i32 %start.037.i.i, i32 %i.0.i.i
+  %i.0.limit.0.i.i = select i1 %cmp39.i.i, i32 %i.0.i.i, i32 %limit.038.i.i
+  %add.i.i = add nsw i32 %start.0.i.0.i.i, 1
+  %cmp.i.i = icmp slt i32 %add.i.i, %i.0.limit.0.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZNK6icu_7521CollationRootElements11findPrimaryEj.exit, !llvm.loop !7
 
 _ZNK6icu_7521CollationRootElements11findPrimaryEj.exit: ; preds = %for.cond20.preheader.i.i, %if.end37.i.i, %for.cond20.i.i, %if.else8
-  %start.0.lcssa.i.i = phi i32 [ %3, %if.else8 ], [ %start.037.i.i, %for.cond20.i.i ], [ %start.037.i.i, %for.cond20.preheader.i.i ], [ %start.0.i.2.i.i, %if.end37.i.i ]
+  %start.0.lcssa.i.i = phi i32 [ %3, %if.else8 ], [ %start.037.i.i, %for.cond20.i.i ], [ %start.037.i.i, %for.cond20.preheader.i.i ], [ %start.0.i.0.i.i, %if.end37.i.i ]
   %add = add nsw i32 %start.0.lcssa.i.i, 1
   %idxprom.i = sext i32 %add to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %2, i64 %idxprom.i

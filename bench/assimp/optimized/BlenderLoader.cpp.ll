@@ -8448,10 +8448,10 @@ while.body.i.preheader:                           ; preds = %if.then.i, %if.then
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %if.end15.i
-  %out.addr.123.i = phi ptr [ %out.addr.2.i, %if.end15.i ], [ %out.addr.123.i.ph, %while.body.i.preheader ]
+  %out.addr.123.i = phi ptr [ %out.addr.3.i, %if.end15.i ], [ %out.addr.123.i.ph, %while.body.i.preheader ]
   %mustPrint.022.i = phi i1 [ %or.cond1.i, %if.end15.i ], [ false, %while.body.i.preheader ]
   %cur.021.i = phi i32 [ %div16.i, %if.end15.i ], [ 1000000000, %while.body.i.preheader ]
-  %written.120.i = phi i32 [ %written.2.i, %if.end15.i ], [ %written.120.i.ph, %while.body.i.preheader ]
+  %written.120.i = phi i32 [ %written.3.i, %if.end15.i ], [ %written.120.i.ph, %while.body.i.preheader ]
   %number.addr.119.i = phi i32 [ %number.addr.2.i, %if.end15.i ], [ %number.addr.119.i.ph, %while.body.i.preheader ]
   %div.i = sdiv i32 %number.addr.119.i, %cur.021.i
   %sub11.i.recomposed = srem i32 %number.addr.119.i, %cur.021.i
@@ -8472,17 +8472,17 @@ if.then6.i:                                       ; preds = %while.body.i
 
 if.end15.i:                                       ; preds = %if.then6.i, %while.body.i
   %number.addr.2.i = phi i32 [ %sub11.i.recomposed, %if.then6.i ], [ %number.addr.119.i, %while.body.i ]
-  %written.2.i = phi i32 [ %inc10.i, %if.then6.i ], [ %written.120.i, %while.body.i ]
-  %out.addr.2.i = phi ptr [ %incdec.ptr9.i, %if.then6.i ], [ %out.addr.123.i, %while.body.i ]
+  %written.3.i = phi i32 [ %inc10.i, %if.then6.i ], [ %written.120.i, %while.body.i ]
+  %out.addr.3.i = phi ptr [ %incdec.ptr9.i, %if.then6.i ], [ %out.addr.123.i, %while.body.i ]
   %div16.i = sdiv i32 %cur.021.i, 10
-  %cmp2.i = icmp ult i32 %written.2.i, 1023
+  %cmp2.i = icmp ult i32 %written.3.i, 1023
   br i1 %cmp2.i, label %while.body.i, label %_ZN6Assimp13ASSIMP_itoa10EPcji.exit, !llvm.loop !71
 
 _ZN6Assimp13ASSIMP_itoa10EPcji.exit:              ; preds = %if.then6.i, %if.end15.i
-  %written.3.i = phi i32 [ %inc10.i, %if.then6.i ], [ %written.2.i, %if.end15.i ]
-  %out.addr.3.i = phi ptr [ %incdec.ptr9.i, %if.then6.i ], [ %out.addr.2.i, %if.end15.i ]
-  store i8 0, ptr %out.addr.3.i, align 1
-  store i32 %written.3.i, ptr %name, align 4
+  %written.2.i = phi i32 [ %inc10.i, %if.then6.i ], [ %written.3.i, %if.end15.i ]
+  %out.addr.2.i = phi ptr [ %incdec.ptr9.i, %if.then6.i ], [ %out.addr.3.i, %if.end15.i ]
+  store i8 0, ptr %out.addr.2.i, align 1
+  store i32 %written.2.i, ptr %name, align 4
   %call8 = tail call noalias noundef nonnull dereferenceable(1064) ptr @_Znwm(i64 noundef 1064) #21
   %pcData.i = getelementptr inbounds i8, ptr %call8, i64 24
   store ptr null, ptr %pcData.i, align 8
@@ -8844,14 +8844,14 @@ if.else113:                                       ; preds = %if.else109
   br label %if.end124
 
 if.end124:                                        ; preds = %if.else113, %if.else109, %if.else105, %if.else101, %if.else97, %if.else93, %if.end, %if.then84
-  %texture_type.1 = phi i32 [ %., %if.then84 ], [ 1, %if.end ], [ 2, %if.else93 ], [ 11, %if.else97 ], [ 7, %if.else101 ], [ 4, %if.else105 ], [ 3, %if.else109 ], [ %spec.select, %if.else113 ]
+  %texture_type.0 = phi i32 [ %., %if.then84 ], [ 1, %if.end ], [ 2, %if.else93 ], [ 11, %if.else97 ], [ 7, %if.else101 ], [ 4, %if.else105 ], [ 3, %if.else109 ], [ %spec.select, %if.else113 ]
   %next_texture = getelementptr inbounds i8, ptr %conv_data, i64 252
-  %idxprom = zext nneg i32 %texture_type.1 to i64
+  %idxprom = zext nneg i32 %texture_type.0 to i64
   %arrayidx125 = getelementptr inbounds [19 x i32], ptr %next_texture, i64 0, i64 %idxprom
   %39 = load i32, ptr %arrayidx125, align 4
   %inc = add i32 %39, 1
   store i32 %inc, ptr %arrayidx125, align 4
-  %call126 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %out, ptr noundef nonnull %name, ptr noundef nonnull @.str.22, i32 noundef %texture_type.1, i32 noundef %39)
+  %call126 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %out, ptr noundef nonnull %name, ptr noundef nonnull @.str.22, i32 noundef %texture_type.0, i32 noundef %39)
   ret void
 }
 

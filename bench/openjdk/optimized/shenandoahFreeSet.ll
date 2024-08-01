@@ -2994,7 +2994,7 @@ _ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit: ; preds = 
   %71 = icmp eq i64 %.0.i59, %32
   %spec.select57 = tail call i64 @llvm.umin.i64(i64 %.04582, i64 %.05378)
   %spec.select58 = tail call i64 @llvm.umax.i64(i64 %.04582, i64 %.05079)
-  %.255 = select i1 %71, i64 %spec.select57, i64 %.05378
+  %.154 = select i1 %71, i64 %spec.select57, i64 %.05378
   %.151 = select i1 %71, i64 %spec.select58, i64 %.05079
   %72 = add i64 %.04880, 1
   %73 = sub i64 %32, %.0.i59
@@ -3069,7 +3069,7 @@ _Z25proper_unit_for_byte_sizem.exit67:            ; preds = %.thread76, %_Z24byt
   br label %104
 
 104:                                              ; preds = %48, %_Z25proper_unit_for_byte_sizem.exit67, %63, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit
-  %.3 = phi i64 [ %.255, %_Z25proper_unit_for_byte_sizem.exit67 ], [ %.255, %63 ], [ %.05378, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit ], [ %.05378, %48 ]
+  %.3 = phi i64 [ %.154, %_Z25proper_unit_for_byte_sizem.exit67 ], [ %.154, %63 ], [ %.05378, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit ], [ %.05378, %48 ]
   %.252 = phi i64 [ %.151, %_Z25proper_unit_for_byte_sizem.exit67 ], [ %.151, %63 ], [ %.05079, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit ], [ %.05079, %48 ]
   %.149 = phi i64 [ %72, %_Z25proper_unit_for_byte_sizem.exit67 ], [ %72, %63 ], [ %.04880, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit ], [ %.04880, %48 ]
   %.147 = phi i64 [ %74, %_Z25proper_unit_for_byte_sizem.exit67 ], [ %74, %63 ], [ %.04681, %_ZNK17ShenandoahFreeSet14alloc_capacityEP20ShenandoahHeapRegion.exit ], [ %.04681, %48 ]
@@ -3159,8 +3159,8 @@ _ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit:  ; preds = %8, %12
   br label %19
 
 19:                                               ; preds = %.lr.ph, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit
-  %.096 = phi i64 [ %1, %.lr.ph ], [ %.1, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit ]
-  %.02795 = phi i64 [ 0, %.lr.ph ], [ %.128, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit ]
+  %.196 = phi i64 [ %1, %.lr.ph ], [ %.2, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit ]
+  %.12895 = phi i64 [ 0, %.lr.ph ], [ %.229, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit ]
   %.03494 = phi i64 [ %15, %.lr.ph ], [ %.016.i, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit ]
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 544
@@ -3190,13 +3190,13 @@ _ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit: ; preds = %30
 
 _ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit.thread: ; preds = %19, %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit
   tail call void @_ZN26ShenandoahRegionPartitions32move_from_partition_to_partitionEl28ShenandoahFreeSetPartitionIdS0_m(ptr noundef nonnull align 8 dereferenceable(184) %5, i64 noundef %.03494, i8 noundef zeroext 1, i8 noundef zeroext 0, i64 noundef %3)
-  %35 = add i64 %.096, -1
-  %36 = add i64 %.02795, %3
+  %35 = add i64 %.196, -1
+  %36 = add i64 %.12895, %3
   br label %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit.thread68
 
 _ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit.thread68: ; preds = %30, %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit.thread, %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit
-  %.128 = phi i64 [ %36, %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit.thread ], [ %.02795, %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit ], [ %.02795, %30 ]
-  %.1 = phi i64 [ %35, %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit.thread ], [ %.096, %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit ], [ %.096, %30 ]
+  %.229 = phi i64 [ %36, %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit.thread ], [ %.12895, %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit ], [ %.12895, %30 ]
+  %.2 = phi i64 [ %35, %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit.thread ], [ %.196, %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit ], [ %.196, %30 ]
   %37 = load i64, ptr %16, align 8
   %38 = load i64, ptr %17, align 8
   %39 = load i64, ptr %5, align 8
@@ -3245,23 +3245,23 @@ _ZNK22ShenandoahSimpleBitMap18find_first_set_bitEll.exit.i: ; preds = %57, %52
 
 _ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit: ; preds = %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit.thread68, %_ZNK22ShenandoahSimpleBitMap18find_first_set_bitEll.exit.i
   %.016.i = phi i64 [ %.0.i, %_ZNK22ShenandoahSimpleBitMap18find_first_set_bitEll.exit.i ], [ %39, %_ZNK17ShenandoahFreeSet17can_allocate_fromEm.exit.thread68 ]
-  %60 = icmp ne i64 %.1, 0
+  %60 = icmp ne i64 %.2, 0
   %61 = icmp sle i64 %.016.i, %14
   %62 = and i1 %61, %60
   br i1 %62, label %19, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit
-  %.027.lcssa = phi i64 [ 0, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit ], [ %.128, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit ]
-  %.0.lcssa = phi i64 [ %1, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit ], [ %.1, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit ]
+  %.128.lcssa = phi i64 [ 0, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit ], [ %.229, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit ]
+  %.1.lcssa = phi i64 [ %1, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit ], [ %.2, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit ]
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !28
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
   store volatile i32 0, ptr %10, align 4
-  %.not39 = icmp eq i64 %.0.lcssa, 0
+  %.not39 = icmp eq i64 %.1.lcssa, 0
   br i1 %.not39, label %.thread, label %.thread73
 
 .thread73:                                        ; preds = %4, %._crit_edge
-  %.278 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %1, %4 ]
-  %.22977 = phi i64 [ %.027.lcssa, %._crit_edge ], [ 0, %4 ]
+  %.078 = phi i64 [ %.1.lcssa, %._crit_edge ], [ %1, %4 ]
+  %.02777 = phi i64 [ %.128.lcssa, %._crit_edge ], [ 0, %4 ]
   %63 = getelementptr inbounds i8, ptr %0, i64 88
   %64 = load i64, ptr %63, align 8
   %65 = load i64, ptr %5, align 8
@@ -3299,9 +3299,9 @@ _ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit46: ; preds = %68, %72
   %79 = phi i64 [ %76, %.lr.ph101 ], [ %108, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit61 ]
   %80 = phi i64 [ %75, %.lr.ph101 ], [ %109, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit61 ]
   %81 = phi i64 [ %74, %.lr.ph101 ], [ %110, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit61 ]
-  %.3100 = phi i64 [ %.278, %.lr.ph101 ], [ %.4, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit61 ]
+  %.3100 = phi i64 [ %.078, %.lr.ph101 ], [ %.4, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit61 ]
   %.03099 = phi i64 [ %..i47, %.lr.ph101 ], [ %.016.i58, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit61 ]
-  %.03198 = phi i64 [ 0, %.lr.ph101 ], [ %.132, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit61 ]
+  %.13298 = phi i64 [ 0, %.lr.ph101 ], [ %.233, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit61 ]
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 544
   %84 = load i64, ptr %83, align 8
@@ -3344,7 +3344,7 @@ _ZNK17ShenandoahFreeSet14alloc_capacityEm.exit:   ; preds = %94, %96
 104:                                              ; preds = %_ZNK17ShenandoahFreeSet14alloc_capacityEm.exit
   tail call void @_ZN26ShenandoahRegionPartitions32move_from_partition_to_partitionEl28ShenandoahFreeSetPartitionIdS0_m(ptr noundef nonnull align 8 dereferenceable(184) %5, i64 noundef %.03099, i8 noundef zeroext 1, i8 noundef zeroext 0, i64 noundef %.0.i2.i)
   %105 = add i64 %.3100, -1
-  %106 = add i64 %.0.i2.i, %.03198
+  %106 = add i64 %.0.i2.i, %.13298
   %.pre = load i64, ptr %66, align 8
   %.pre114 = load i64, ptr %63, align 8
   %.pre115 = load i64, ptr %5, align 8
@@ -3354,7 +3354,7 @@ _ZNK17ShenandoahFreeSet14alloc_capacityEm.exit:   ; preds = %94, %96
   %108 = phi i64 [ %.pre115, %104 ], [ %79, %_ZNK17ShenandoahFreeSet14alloc_capacityEm.exit ]
   %109 = phi i64 [ %.pre114, %104 ], [ %80, %_ZNK17ShenandoahFreeSet14alloc_capacityEm.exit ]
   %110 = phi i64 [ %.pre, %104 ], [ %81, %_ZNK17ShenandoahFreeSet14alloc_capacityEm.exit ]
-  %.132 = phi i64 [ %106, %104 ], [ %.03198, %_ZNK17ShenandoahFreeSet14alloc_capacityEm.exit ]
+  %.233 = phi i64 [ %106, %104 ], [ %.13298, %_ZNK17ShenandoahFreeSet14alloc_capacityEm.exit ]
   %.4 = phi i64 [ %105, %104 ], [ %.3100, %_ZNK17ShenandoahFreeSet14alloc_capacityEm.exit ]
   %..i.i49 = tail call noundef i64 @llvm.smin.i64(i64 %109, i64 %108)
   %111 = icmp slt i64 %110, %..i.i49
@@ -3407,21 +3407,21 @@ _ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28Shenando
   br i1 %133, label %78, label %_ZN16ShenandoahLockerD2Ev.exit63, !llvm.loop !32
 
 _ZN16ShenandoahLockerD2Ev.exit63:                 ; preds = %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit61, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit46
-  %.031.lcssa = phi i64 [ 0, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit46 ], [ %.132, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit61 ]
+  %.132.lcssa = phi i64 [ 0, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit46 ], [ %.233, %_ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28ShenandoahFreeSetPartitionIdl.exit61 ]
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !28
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !18
   store volatile i32 0, ptr %70, align 4
   br label %.thread
 
 .thread:                                          ; preds = %2, %_ZN16ShenandoahLockerD2Ev.exit63, %.thread73, %._crit_edge
-  %.22972 = phi i64 [ %.22977, %_ZN16ShenandoahLockerD2Ev.exit63 ], [ %.22977, %.thread73 ], [ %.027.lcssa, %._crit_edge ], [ 0, %2 ]
-  %.233 = phi i64 [ %.031.lcssa, %_ZN16ShenandoahLockerD2Ev.exit63 ], [ 0, %.thread73 ], [ 0, %._crit_edge ], [ 0, %2 ]
+  %.02772 = phi i64 [ %.02777, %_ZN16ShenandoahLockerD2Ev.exit63 ], [ %.02777, %.thread73 ], [ %.128.lcssa, %._crit_edge ], [ 0, %2 ]
+  %.031 = phi i64 [ %.132.lcssa, %_ZN16ShenandoahLockerD2Ev.exit63 ], [ 0, %.thread73 ], [ 0, %._crit_edge ], [ 0, %2 ]
   %134 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not84 = icmp eq ptr %134, null
   br i1 %.not84, label %145, label %135
 
 135:                                              ; preds = %.thread
-  %136 = add i64 %.233, %.22972
+  %136 = add i64 %.031, %.02772
   %137 = icmp ugt i64 %136, 107374182399
   br i1 %137, label %_Z24byte_size_in_proper_unitImET_S0_.exit, label %138
 

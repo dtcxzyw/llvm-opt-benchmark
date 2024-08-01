@@ -128,7 +128,7 @@ opal_datatype_span.exit:                          ; preds = %23, %29
   br i1 %.not, label %.loopexit, label %.thread85
 
 .loopexit:                                        ; preds = %62, %.preheader, %64
-  %.063 = phi ptr [ null, %64 ], [ %44, %.preheader ], [ %44, %62 ]
+  %.164 = phi ptr [ null, %64 ], [ %44, %.preheader ], [ %44, %62 ]
   %.1 = phi ptr [ null, %64 ], [ %49, %.preheader ], [ %.06193, %62 ]
   %68 = getelementptr inbounds i8, ptr %5, i64 264
   %69 = load ptr, ptr %68, align 8
@@ -143,14 +143,14 @@ opal_datatype_span.exit:                          ; preds = %23, %29
 
 .loopexit89:                                      ; preds = %.lr.ph, %.loopexit
   %.065 = phi i32 [ %76, %.loopexit ], [ %61, %.lr.ph ]
-  %.164 = phi ptr [ %.063, %.loopexit ], [ %44, %.lr.ph ]
-  %.not77 = icmp eq ptr %.164, null
+  %.063 = phi ptr [ %.164, %.loopexit ], [ %44, %.lr.ph ]
+  %.not77 = icmp eq ptr %.063, null
   br i1 %.not77, label %.thread85, label %.thread
 
 .thread:                                          ; preds = %56, %53, %46, %.loopexit89
-  %.16484 = phi ptr [ %.164, %.loopexit89 ], [ %44, %46 ], [ %44, %53 ], [ %44, %56 ]
+  %.06384 = phi ptr [ %.063, %.loopexit89 ], [ %44, %46 ], [ %44, %53 ], [ %44, %56 ]
   %.06583 = phi i32 [ %.065, %.loopexit89 ], [ %52, %46 ], [ %55, %53 ], [ %58, %56 ]
-  call void @free(ptr noundef nonnull %.16484) #4
+  call void @free(ptr noundef nonnull %.06384) #4
   br label %.thread85
 
 .thread85:                                        ; preds = %64, %.loopexit89, %.thread, %opal_datatype_span.exit

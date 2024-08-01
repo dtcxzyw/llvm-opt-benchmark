@@ -537,7 +537,7 @@ define void @_ZN3gmx22MessageStringCollector6appendERKNSt7__cxx1112basic_stringI
   %29 = phi ptr [ %8, %2 ], [ %8, %12 ], [ %.pre, %.loopexit.loopexit ]
   %30 = phi ptr [ %8, %2 ], [ %10, %12 ], [ %24, %.loopexit.loopexit ]
   %31 = phi ptr [ %4, %2 ], [ %4, %12 ], [ %25, %.loopexit.loopexit ]
-  %.1 = phi i32 [ %7, %2 ], [ %7, %12 ], [ %28, %.loopexit.loopexit ]
+  %.0 = phi i32 [ %7, %2 ], [ %7, %12 ], [ %28, %.loopexit.loopexit ]
   %32 = ptrtoint ptr %30 to i64
   %33 = ptrtoint ptr %29 to i64
   %34 = sub i64 %32, %33
@@ -549,7 +549,7 @@ define void @_ZN3gmx22MessageStringCollector6appendERKNSt7__cxx1112basic_stringI
   br i1 %.not29, label %._crit_edge, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %.loopexit
-  %38 = sext i32 %.1 to i64
+  %38 = sext i32 %.0 to i64
   br label %43
 
 39:                                               ; preds = %52

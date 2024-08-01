@@ -6029,7 +6029,7 @@ _ZN7testing7MessageD2Ev.exit203:                  ; preds = %381, %_ZNKSt14defau
   br label %391
 
 386:                                              ; preds = %352, %_ZN7testing7MessageD2Ev.exit200
-  %.6 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit200 ], [ 0, %352 ]
+  %.7 = phi i32 [ 1, %_ZN7testing7MessageD2Ev.exit200 ], [ 0, %352 ]
   %387 = load ptr, ptr %216, align 8
   %.not.i.i204 = icmp eq ptr %387, null
   br i1 %.not.i.i204, label %_ZN7testing15AssertionResultD2Ev.exit206, label %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i205
@@ -6045,10 +6045,10 @@ _ZN7testing15AssertionResultD2Ev.exit206:         ; preds = %386, %_ZNKSt14defau
   br label %388
 
 388:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit186, %_ZN7testing15AssertionResultD2Ev.exit169, %_ZN7testing15AssertionResultD2Ev.exit206
-  %.7 = phi i32 [ %.6, %_ZN7testing15AssertionResultD2Ev.exit206 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit186 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit169 ]
+  %.5 = phi i32 [ %.7, %_ZN7testing15AssertionResultD2Ev.exit206 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit186 ], [ 1, %_ZN7testing15AssertionResultD2Ev.exit169 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %24) #19
   call void @_ZN8BuildLogD1Ev(ptr noundef nonnull align 8 dereferenceable(97) %23) #19
-  %switch101 = icmp eq i32 %.7, 0
+  %switch101 = icmp eq i32 %.5, 0
   %389 = add nsw i64 %.0210, -1
   %390 = icmp sgt i64 %.0210, 1
   %or.cond = select i1 %switch101, i1 %390, i1 false

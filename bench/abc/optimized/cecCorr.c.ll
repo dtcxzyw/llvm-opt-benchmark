@@ -3277,7 +3277,7 @@ Cec_ManLoadCounterExamplesTry.exit.thread:        ; preds = %Cec_ManLoadCounterE
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Cec_ManLoadCounterExamplesTry.exit.thread, %.loopexit.loopexit
-  %.2 = phi i32 [ %131, %.loopexit.loopexit ], [ %51, %Cec_ManLoadCounterExamplesTry.exit.thread ]
+  %.1 = phi i32 [ %131, %.loopexit.loopexit ], [ %51, %Cec_ManLoadCounterExamplesTry.exit.thread ]
   %132 = load ptr, ptr %30, align 8
   %.not.i53 = icmp eq ptr %132, null
   br i1 %.not.i53, label %Vec_PtrFree.exit, label %133
@@ -3298,7 +3298,7 @@ Vec_PtrFree.exit:                                 ; preds = %.loopexit, %133
 
 Vec_IntFree.exit:                                 ; preds = %Vec_PtrFree.exit, %135
   tail call void @free(ptr noundef nonnull %12) #22
-  ret i32 %.2
+  ret i32 %.1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -3391,8 +3391,8 @@ define i32 @Cec_ManLoadCounterExamples2(ptr nocapture noundef readonly %0, ptr n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %43, %.loopexit.loopexit
-  %.2 = phi i32 [ %47, %.loopexit.loopexit ], [ %44, %43 ]
-  ret i32 %.2
+  %.1 = phi i32 [ %47, %.loopexit.loopexit ], [ %44, %43 ]
+  ret i32 %.1
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4154,9 +4154,9 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %9, %Gia_ObjIsHead.e
 
 38:                                               ; preds = %.lr.ph94, %47
   %indvars.iv99 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next100, %47 ]
-  %.093 = phi i32 [ 0, %.lr.ph94 ], [ %.1, %47 ]
-  %.04192 = phi i32 [ 0, %.lr.ph94 ], [ %.142, %47 ]
-  %.04491 = phi i32 [ 0, %.lr.ph94 ], [ %.145, %47 ]
+  %.193 = phi i32 [ 0, %.lr.ph94 ], [ %.2, %47 ]
+  %.14292 = phi i32 [ 0, %.lr.ph94 ], [ %.243, %47 ]
+  %.14591 = phi i32 [ 0, %.lr.ph94 ], [ %.246, %47 ]
   %39 = getelementptr inbounds i8, ptr %.val67, i64 %indvars.iv99
   %40 = load i8, ptr %39, align 1
   switch i8 %40, label %47 [
@@ -4166,30 +4166,30 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %9, %Gia_ObjIsHead.e
   ]
 
 41:                                               ; preds = %38
-  %42 = add nsw i32 %.04491, 1
+  %42 = add nsw i32 %.14591, 1
   br label %47
 
 43:                                               ; preds = %38
-  %44 = add nsw i32 %.04192, 1
+  %44 = add nsw i32 %.14292, 1
   br label %47
 
 45:                                               ; preds = %38
-  %46 = add nsw i32 %.093, 1
+  %46 = add nsw i32 %.193, 1
   br label %47
 
 47:                                               ; preds = %38, %41, %45, %43
-  %.145 = phi i32 [ %42, %41 ], [ %.04491, %43 ], [ %.04491, %45 ], [ %.04491, %38 ]
-  %.142 = phi i32 [ %.04192, %41 ], [ %44, %43 ], [ %.04192, %45 ], [ %.04192, %38 ]
-  %.1 = phi i32 [ %.093, %41 ], [ %.093, %43 ], [ %46, %45 ], [ %.093, %38 ]
+  %.246 = phi i32 [ %42, %41 ], [ %.14591, %43 ], [ %.14591, %45 ], [ %.14591, %38 ]
+  %.243 = phi i32 [ %.14292, %41 ], [ %44, %43 ], [ %.14292, %45 ], [ %.14292, %38 ]
+  %.2 = phi i32 [ %.193, %41 ], [ %.193, %43 ], [ %46, %45 ], [ %.193, %38 ]
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
   br i1 %exitcond103.not, label %.critedge, label %38, !llvm.loop !45
 
 .critedge:                                        ; preds = %47, %.preheader, %34
-  %.246 = phi i32 [ 0, %34 ], [ 0, %.preheader ], [ %.145, %47 ]
-  %.243 = phi i32 [ 0, %34 ], [ 0, %.preheader ], [ %.142, %47 ]
-  %.2 = phi i32 [ 0, %34 ], [ 0, %.preheader ], [ %.1, %47 ]
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, i32 noundef %.246, i32 noundef %.243, i32 noundef %.2)
+  %.044 = phi i32 [ 0, %34 ], [ 0, %.preheader ], [ %.246, %47 ]
+  %.041 = phi i32 [ 0, %34 ], [ 0, %.preheader ], [ %.243, %47 ]
+  %.0 = phi i32 [ 0, %34 ], [ 0, %.preheader ], [ %.2, %47 ]
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, i32 noundef %.044, i32 noundef %.041, i32 noundef %.0)
   %48 = getelementptr i8, ptr %0, i64 32
   %.val68 = load ptr, ptr %48, align 8
   %.val69 = load ptr, ptr %21, align 8

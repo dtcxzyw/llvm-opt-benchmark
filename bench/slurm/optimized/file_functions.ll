@@ -1020,7 +1020,7 @@ define dso_local void @load_sacctmgr_cfg_file(i32 noundef %0, ptr nocapture noun
   %.0333.ph = phi ptr [ %378, %381 ], [ null, %96 ]
   %.0330.ph = phi ptr [ %288, %381 ], [ null, %96 ]
   %.0327.ph = phi ptr [ %243, %381 ], [ null, %96 ]
-  %.0326.ph = phi i32 [ %.1, %381 ], [ 0, %96 ]
+  %.0326.ph = phi i32 [ %.2, %381 ], [ 0, %96 ]
   br label %.outer555
 
 .outer555:                                        ; preds = %.outer555.backedge, %.outer
@@ -1574,12 +1574,12 @@ _set_assoc_up.exit:                               ; preds = %310, %312
   br label %363
 
 363:                                              ; preds = %360, %359
-  %.1.i507 = phi i32 [ 1, %360 ], [ 0, %359 ]
+  %.2.i = phi i32 [ 1, %360 ], [ 0, %359 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #12
   br label %364
 
 364:                                              ; preds = %363, %344, %340
-  %.2.i = phi i32 [ %.1.i507, %363 ], [ 0, %344 ], [ 0, %340 ]
+  %.1.i507 = phi i32 [ %.2.i, %363 ], [ 0, %344 ], [ 0, %340 ]
   %365 = getelementptr inbounds i8, ptr %294, i64 288
   %366 = load ptr, ptr %365, align 8
   %.not27.i = icmp eq ptr %366, null
@@ -1600,14 +1600,14 @@ _set_assoc_up.exit:                               ; preds = %310, %312
 
 _mod_cluster.exit:                                ; preds = %367
   %374 = call fastcc i32 @_mod_assoc(ptr noundef nonnull %230, ptr noundef nonnull %366, i32 noundef 0, ptr noundef %341)
-  %375 = add nuw nsw i32 %374, %.2.i
+  %375 = add nuw nsw i32 %374, %.1.i507
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7)
   br label %376
 
 376:                                              ; preds = %_mod_cluster.exit, %337
-  %.1 = phi i32 [ %375, %_mod_cluster.exit ], [ 1, %337 ]
+  %.2 = phi i32 [ %375, %_mod_cluster.exit ], [ 1, %337 ]
   call fastcc void @_destroy_sacctmgr_file_opts(ptr noundef nonnull %230)
   %377 = load ptr, ptr @db_conn, align 8
   %378 = call ptr @slurmdb_associations_get(ptr noundef %377, ptr noundef nonnull %19) #12
@@ -1841,7 +1841,7 @@ _set_acct_up.exit:                                ; preds = %453, %457, %459
   br label %486
 
 486:                                              ; preds = %476, %482, %485
-  %.2 = phi i32 [ %.0326.ph557, %485 ], [ %.0326.ph557, %482 ], [ %spec.select495, %476 ]
+  %.4 = phi i32 [ %.0326.ph557, %485 ], [ %.0326.ph557, %482 ], [ %spec.select495, %476 ]
   %487 = load ptr, ptr %15, align 8
   %488 = load ptr, ptr %13, align 8
   %489 = call fastcc ptr @_set_assoc_up(ptr noundef nonnull %425, i32 noundef 1, ptr noundef %487, ptr noundef %488)
@@ -1875,7 +1875,7 @@ _set_acct_up.exit:                                ; preds = %453, %457, %459
   br label %501
 
 501:                                              ; preds = %491, %497, %500
-  %.3 = phi i32 [ %.0326.ph557, %500 ], [ %.0326.ph557, %497 ], [ %spec.select498, %491 ]
+  %.5 = phi i32 [ %.0326.ph557, %500 ], [ %.0326.ph557, %497 ], [ %spec.select498, %491 ]
   %502 = load ptr, ptr %430, align 8
   %503 = load ptr, ptr %15, align 8
   %504 = call ptr @sacctmgr_find_assoc_from_list(ptr noundef %105, ptr noundef null, ptr noundef %502, ptr noundef %503, ptr noundef null) #12
@@ -1902,7 +1902,7 @@ _set_acct_up.exit:                                ; preds = %453, %457, %459
   %517 = load ptr, ptr %13, align 8
   %518 = call fastcc i32 @_mod_assoc(ptr noundef nonnull %425, ptr noundef nonnull %468, i32 noundef 1, ptr noundef %517)
   %.not441 = icmp eq i32 %518, 0
-  %spec.select499 = select i1 %.not441, i32 %.3, i32 1
+  %spec.select499 = select i1 %.not441, i32 %.5, i32 1
   br label %.outer555.backedge
 
 519:                                              ; preds = %501
@@ -2157,7 +2157,7 @@ _set_user_up.exit:                                ; preds = %585, %._crit_edge59
   br label %645
 
 645:                                              ; preds = %634, %644, %641, %630
-  %.5 = phi i32 [ %.0326.ph557, %644 ], [ %.0326.ph557, %641 ], [ %.0326.ph557, %630 ], [ %spec.select500, %634 ]
+  %.7 = phi i32 [ %.0326.ph557, %644 ], [ %.0326.ph557, %641 ], [ %.0326.ph557, %630 ], [ %spec.select500, %634 ]
   %646 = load ptr, ptr %15, align 8
   %647 = load ptr, ptr %13, align 8
   %648 = call fastcc ptr @_set_assoc_up(ptr noundef nonnull %530, i32 noundef 2, ptr noundef %646, ptr noundef %647)
@@ -2192,7 +2192,7 @@ _set_user_up.exit:                                ; preds = %585, %._crit_edge59
   br label %661
 
 661:                                              ; preds = %650, %657, %660
-  %.6 = phi i32 [ %.0326.ph557, %660 ], [ %.0326.ph557, %657 ], [ %spec.select503, %650 ]
+  %.8 = phi i32 [ %.0326.ph557, %660 ], [ %.0326.ph557, %657 ], [ %spec.select503, %650 ]
   %662 = load ptr, ptr %535, align 8
   %663 = load ptr, ptr %13, align 8
   %664 = load ptr, ptr %15, align 8
@@ -2224,7 +2224,7 @@ _set_user_up.exit:                                ; preds = %585, %._crit_edge59
   %681 = load ptr, ptr %13, align 8
   %682 = call fastcc i32 @_mod_assoc(ptr noundef nonnull %530, ptr noundef nonnull %623, i32 noundef 2, ptr noundef %681)
   %.not453 = icmp eq i32 %682, 0
-  %spec.select504 = select i1 %.not453, i32 %.6, i32 1
+  %spec.select504 = select i1 %.not453, i32 %.8, i32 1
   br label %.outer555.backedge
 
 683:                                              ; preds = %661
@@ -2238,7 +2238,7 @@ _set_user_up.exit:                                ; preds = %585, %._crit_edge59
 
 .outer555.backedge:                               ; preds = %_set_user_up.exit, %683, %686, %645, %667, %625, %_set_acct_up.exit, %519, %522, %486, %505, %470
   %.sink = phi ptr [ %425, %470 ], [ %425, %505 ], [ %425, %486 ], [ %425, %522 ], [ %425, %519 ], [ %425, %_set_acct_up.exit ], [ %530, %625 ], [ %530, %667 ], [ %530, %645 ], [ %530, %686 ], [ %530, %683 ], [ %530, %_set_user_up.exit ]
-  %.0326.ph557.be = phi i32 [ %.0326.ph557, %470 ], [ %spec.select499, %505 ], [ %.2, %486 ], [ %.3, %522 ], [ %.3, %519 ], [ %.0326.ph557, %_set_acct_up.exit ], [ %.0326.ph557, %625 ], [ %spec.select504, %667 ], [ %.5, %645 ], [ %.6, %686 ], [ %.6, %683 ], [ %.0326.ph557, %_set_user_up.exit ]
+  %.0326.ph557.be = phi i32 [ %.0326.ph557, %470 ], [ %spec.select499, %505 ], [ %.4, %486 ], [ %.5, %522 ], [ %.5, %519 ], [ %.0326.ph557, %_set_acct_up.exit ], [ %.0326.ph557, %625 ], [ %spec.select504, %667 ], [ %.7, %645 ], [ %.8, %686 ], [ %.8, %683 ], [ %.0326.ph557, %_set_user_up.exit ]
   call fastcc void @_destroy_sacctmgr_file_opts(ptr noundef nonnull %.sink)
   br label %.outer555, !llvm.loop !19
 
@@ -2254,7 +2254,7 @@ _set_user_up.exit:                                ; preds = %585, %._crit_edge59
   %.1334 = phi ptr [ %.0333.ph, %212 ], [ %.0333.ph, %687 ], [ %.0333.ph, %531 ], [ %.0333.ph, %426 ], [ %.0333.ph, %409 ], [ %.0333.ph, %396 ], [ %.0333.ph, %387 ], [ null, %382 ], [ %.0333.ph, %333 ], [ %.0333.ph, %280 ], [ %.0333.ph, %271 ], [ %.0333.ph, %231 ], [ %.0333.ph, %224 ], [ %.0333.ph, %_get_next_line.exit ]
   %.1331 = phi ptr [ %.0330.ph, %212 ], [ %.0330.ph, %687 ], [ %.0330.ph, %531 ], [ %.0330.ph, %426 ], [ %.0330.ph, %409 ], [ %.0330.ph, %396 ], [ %.0330.ph, %387 ], [ %288, %382 ], [ %288, %333 ], [ %.0330.ph, %280 ], [ %.0330.ph, %271 ], [ %.0330.ph, %231 ], [ %.0330.ph, %224 ], [ %.0330.ph, %_get_next_line.exit ]
   %.1328 = phi ptr [ %.0327.ph, %212 ], [ %.0327.ph, %687 ], [ %.0327.ph, %531 ], [ %.0327.ph, %426 ], [ %.0327.ph, %409 ], [ %.0327.ph, %396 ], [ %.0327.ph, %387 ], [ %243, %382 ], [ %243, %333 ], [ %243, %280 ], [ %243, %271 ], [ %.0327.ph, %231 ], [ %.0327.ph, %224 ], [ %.0327.ph, %_get_next_line.exit ]
-  %.8 = phi i32 [ %.0326.ph557, %212 ], [ %.0326.ph557, %687 ], [ %.0326.ph557, %531 ], [ %.0326.ph557, %426 ], [ %.0326.ph557, %409 ], [ %.0326.ph557, %396 ], [ %.0326.ph557, %387 ], [ %.1, %382 ], [ %.0326.ph557, %333 ], [ %.0326.ph557, %280 ], [ %.0326.ph557, %271 ], [ %.0326.ph557, %231 ], [ %.0326.ph557, %224 ], [ %.0326.ph557, %_get_next_line.exit ]
+  %.1 = phi i32 [ %.0326.ph557, %212 ], [ %.0326.ph557, %687 ], [ %.0326.ph557, %531 ], [ %.0326.ph557, %426 ], [ %.0326.ph557, %409 ], [ %.0326.ph557, %396 ], [ %.0326.ph557, %387 ], [ %.2, %382 ], [ %.0326.ph557, %333 ], [ %.0326.ph557, %280 ], [ %.0326.ph557, %271 ], [ %.0326.ph557, %231 ], [ %.0326.ph557, %224 ], [ %.0326.ph557, %_get_next_line.exit ]
   %691 = call i32 @fclose(ptr noundef nonnull %87)
   call void @slurm_xfree(ptr noundef nonnull %15) #12
   call void @slurm_xfree(ptr noundef nonnull %13) #12
@@ -2345,7 +2345,7 @@ _set_user_up.exit:                                ; preds = %585, %._crit_edge59
   br i1 %723, label %.thread528, label %.thread543
 
 .thread528:                                       ; preds = %693, %720
-  %.9531 = phi i32 [ 1, %720 ], [ %.8, %693 ]
+  %.9531 = phi i32 [ 1, %720 ], [ %.1, %693 ]
   %724 = call i32 @list_count(ptr noundef %100) #12
   %.not459 = icmp eq i32 %724, 0
   br i1 %.not459, label %.thread538, label %725
@@ -2479,7 +2479,7 @@ _set_user_up.exit:                                ; preds = %585, %._crit_edge59
 
 .thread543:                                       ; preds = %.loopexit554, %720, %725, %766, %.thread546, %771
   %.6346 = phi i32 [ %772, %771 ], [ 0, %.thread546 ], [ %768, %766 ], [ %726, %725 ], [ %722, %720 ], [ -1, %.loopexit554 ]
-  %.12 = phi i32 [ 1, %771 ], [ %.11549, %.thread546 ], [ 1, %766 ], [ 1, %725 ], [ 1, %720 ], [ %.8, %.loopexit554 ]
+  %.12 = phi i32 [ 1, %771 ], [ %.11549, %.thread546 ], [ 1, %766 ], [ 1, %725 ], [ 1, %720 ], [ %.1, %.loopexit554 ]
   %773 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #12
   call void @slurm_diff_tv_str(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 20, ptr noundef nonnull @.str.67, i64 noundef 0, ptr noundef nonnull %11) #12
   %.not468 = icmp eq i32 %.12, 0
@@ -2712,7 +2712,7 @@ _init_sacctmgr_file_opts.exit:                    ; preds = %2, %6
   br label %.preheader133
 
 19:                                               ; preds = %165
-  %20 = add nsw i32 %.3, 1
+  %20 = add nsw i32 %.2100, 1
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %0, i64 %21
   %23 = load i8, ptr %22, align 1
@@ -2721,10 +2721,10 @@ _init_sacctmgr_file_opts.exit:                    ; preds = %2, %6
 
 .preheader133:                                    ; preds = %.preheader133.lr.ph, %19
   %24 = phi ptr [ %0, %.preheader133.lr.ph ], [ %22, %19 ]
-  %.0138 = phi i32 [ 0, %.preheader133.lr.ph ], [ %.2, %19 ]
+  %.0138 = phi i32 [ 0, %.preheader133.lr.ph ], [ %.1, %19 ]
   %.091137 = phi i8 [ 0, %.preheader133.lr.ph ], [ %.192, %19 ]
   %.098136 = phi i32 [ 0, %.preheader133.lr.ph ], [ %20, %19 ]
-  %.0101135 = phi i1 [ %1, %.preheader133.lr.ph ], [ %.2103, %19 ]
+  %.0101135 = phi i1 [ %1, %.preheader133.lr.ph ], [ %.1102, %19 ]
   %25 = sext i32 %.098136 to i64
   br label %26
 
@@ -2786,8 +2786,8 @@ _init_sacctmgr_file_opts.exit:                    ; preds = %2, %6
   br label %41
 
 41:                                               ; preds = %38, %.critedge
-  %.3 = phi i32 [ %40, %38 ], [ %33, %.critedge ]
-  %42 = sub nsw i32 %.3, %.098136
+  %.2100 = phi i32 [ %40, %38 ], [ %33, %.critedge ]
+  %42 = sub nsw i32 %.2100, %.098136
   %43 = icmp slt i32 %42, 1
   br i1 %43, label %165, label %44
 
@@ -2816,7 +2816,7 @@ _init_sacctmgr_file_opts.exit:                    ; preds = %2, %6
 60:                                               ; preds = %54, %44
   %.pre-phi = phi i64 [ %.pre, %54 ], [ %50, %44 ]
   %.097 = phi i32 [ %59, %54 ], [ %47, %44 ]
-  %.1 = phi i32 [ %58, %54 ], [ %.0138, %44 ]
+  %.2 = phi i32 [ %58, %54 ], [ %.0138, %44 ]
   %61 = getelementptr inbounds i8, ptr %49, i64 %.pre-phi
   %62 = call ptr @strip_quotes(ptr noundef %61, ptr noundef null, i1 noundef zeroext %.0101135) #12
   store ptr %62, ptr %4, align 8
@@ -3007,7 +3007,7 @@ _init_sacctmgr_file_opts.exit:                    ; preds = %2, %6
 156:                                              ; preds = %145
   %157 = load ptr, ptr %3, align 8
   %158 = load ptr, ptr %4, align 8
-  %159 = call i32 @sacctmgr_set_assoc_rec(ptr noundef nonnull %9, ptr noundef %157, ptr noundef %158, i32 noundef %48, i32 noundef %.1) #12
+  %159 = call i32 @sacctmgr_set_assoc_rec(ptr noundef nonnull %9, ptr noundef %157, ptr noundef %158, i32 noundef %48, i32 noundef %.2) #12
   %.not129 = icmp eq i32 %159, 0
   br i1 %.not129, label %160, label %164
 
@@ -3019,15 +3019,15 @@ _init_sacctmgr_file_opts.exit:                    ; preds = %2, %6
   br label %.loopexit
 
 164:                                              ; preds = %75, %72, %92, %107, %128, %142, %156, %152, %136, %119, %99, %82, %69
-  %.1102 = phi i1 [ %.0101135, %156 ], [ %.0101135, %152 ], [ %.0101135, %142 ], [ %.0101135, %136 ], [ %.0101135, %128 ], [ %.0101135, %119 ], [ %.0101135, %107 ], [ %.0101135, %99 ], [ %.0101135, %92 ], [ %.0101135, %82 ], [ %.0101135, %75 ], [ %.0101135, %72 ], [ true, %69 ]
+  %.2103 = phi i1 [ %.0101135, %156 ], [ %.0101135, %152 ], [ %.0101135, %142 ], [ %.0101135, %136 ], [ %.0101135, %128 ], [ %.0101135, %119 ], [ %.0101135, %107 ], [ %.0101135, %99 ], [ %.0101135, %92 ], [ %.0101135, %82 ], [ %.0101135, %75 ], [ %.0101135, %72 ], [ true, %69 ]
   call void @slurm_xfree(ptr noundef nonnull %3) #12
   call void @slurm_xfree(ptr noundef nonnull %4) #12
   br label %165
 
 165:                                              ; preds = %41, %164
-  %.2103 = phi i1 [ %.0101135, %41 ], [ %.1102, %164 ]
-  %.2 = phi i32 [ %.0138, %41 ], [ %.1, %164 ]
-  %166 = sext i32 %.3 to i64
+  %.1102 = phi i1 [ %.0101135, %41 ], [ %.2103, %164 ]
+  %.1 = phi i32 [ %.0138, %41 ], [ %.2, %164 ]
+  %166 = sext i32 %.2100 to i64
   %167 = getelementptr inbounds i8, ptr %0, i64 %166
   %168 = load i8, ptr %167, align 1
   %169 = icmp eq i8 %168, 58
@@ -3448,15 +3448,15 @@ thread-pre-split1.thread:                         ; preds = %22, %27, %thread-pr
   br label %49
 
 49:                                               ; preds = %45, %46
-  %.2 = phi i32 [ 1, %46 ], [ 0, %45 ]
+  %.3 = phi i32 [ 1, %46 ], [ 0, %45 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #12
   br label %50
 
 50:                                               ; preds = %49, %thread-pre-split1.thread
-  %.3 = phi i32 [ %.2, %49 ], [ 0, %thread-pre-split1.thread ]
+  %.2 = phi i32 [ %.3, %49 ], [ 0, %thread-pre-split1.thread ]
   call void @slurm_xfree(ptr noundef nonnull %3) #12
   call void @slurm_xfree(ptr noundef nonnull %4) #12
-  ret i32 %.3
+  ret i32 %.2
 }
 
 declare ptr @sacctmgr_find_assoc_from_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -4115,13 +4115,13 @@ thread-pre-split.thread.thread:                   ; preds = %._crit_edge, %228, 
   br label %285
 
 285:                                              ; preds = %281, %282
-  %.20 = phi i32 [ 1, %282 ], [ 0, %281 ]
+  %.21 = phi i32 [ 1, %282 ], [ 0, %281 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #12
   br label %286
 
 286:                                              ; preds = %241, %285
-  %.21 = phi i32 [ %.20, %285 ], [ 0, %241 ]
-  ret i32 %.21
+  %.20 = phi i32 [ %.21, %285 ], [ 0, %241 ]
+  ret i32 %.20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4287,12 +4287,12 @@ thread-pre-split1:                                ; preds = %thread-pre-split.th
   br label %68
 
 68:                                               ; preds = %65, %62
-  %.0129 = phi i32 [ 1, %65 ], [ 0, %62 ]
+  %.1130 = phi i32 [ 1, %65 ], [ 0, %62 ]
   call void @slurm_xfree(ptr noundef nonnull %6) #12
   br label %69
 
 69:                                               ; preds = %68, %61
-  %.1130 = phi i32 [ %.0129, %68 ], [ 0, %61 ]
+  %.0129 = phi i32 [ %.1130, %68 ], [ 0, %61 ]
   call void @slurm_xfree(ptr noundef nonnull %4) #12
   call void @slurm_xfree(ptr noundef nonnull %5) #12
   %70 = getelementptr inbounds i8, ptr %1, i64 24
@@ -4434,7 +4434,7 @@ thread-pre-split1:                                ; preds = %thread-pre-split.th
   br label %128
 
 128:                                              ; preds = %._crit_edge12, %125
-  %.2131 = phi i32 [ 1, %125 ], [ %.1130, %._crit_edge12 ]
+  %.3 = phi i32 [ 1, %125 ], [ %.0129, %._crit_edge12 ]
   %.not183 = icmp eq ptr %106, null
   br i1 %.not183, label %130, label %129
 
@@ -4443,7 +4443,7 @@ thread-pre-split1:                                ; preds = %thread-pre-split.th
   br label %130
 
 130:                                              ; preds = %128, %129, %96, %98, %100, %103, %._crit_edge
-  %.3 = phi i32 [ %.1130, %103 ], [ %.1130, %100 ], [ %.1130, %98 ], [ %.1130, %96 ], [ 1, %._crit_edge ], [ %.2131, %129 ], [ %.2131, %128 ]
+  %.2131 = phi i32 [ %.0129, %103 ], [ %.0129, %100 ], [ %.0129, %98 ], [ %.0129, %96 ], [ 1, %._crit_edge ], [ %.3, %129 ], [ %.3, %128 ]
   %131 = getelementptr inbounds i8, ptr %1, i64 80
   %132 = load ptr, ptr %131, align 8
   %.not184 = icmp eq ptr %132, null
@@ -4624,7 +4624,7 @@ thread-pre-split1:                                ; preds = %thread-pre-split.th
   br label %216
 
 216:                                              ; preds = %213, %._crit_edge19
-  %.4 = phi i32 [ 1, %213 ], [ %.3, %._crit_edge19 ]
+  %.4 = phi i32 [ 1, %213 ], [ %.2131, %._crit_edge19 ]
   %217 = load ptr, ptr %131, align 8
   %218 = call i32 @list_transfer(ptr noundef %217, ptr noundef %181) #12
   %.not197 = icmp eq ptr %181, null
@@ -4635,7 +4635,7 @@ thread-pre-split1:                                ; preds = %thread-pre-split.th
   br label %220
 
 220:                                              ; preds = %216, %219, %._crit_edge17, %178, %175, %173, %171
-  %.5 = phi i32 [ %.3, %178 ], [ %.3, %175 ], [ %.3, %173 ], [ %.3, %171 ], [ 1, %._crit_edge17 ], [ %.4, %219 ], [ %.4, %216 ]
+  %.5 = phi i32 [ %.2131, %178 ], [ %.2131, %175 ], [ %.2131, %173 ], [ %.2131, %171 ], [ 1, %._crit_edge17 ], [ %.4, %219 ], [ %.4, %216 ]
   %221 = load ptr, ptr %16, align 8
   %.not198 = icmp eq ptr %221, null
   br i1 %.not198, label %223, label %222

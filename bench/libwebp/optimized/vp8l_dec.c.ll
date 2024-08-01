@@ -554,7 +554,7 @@ define internal fastcc i32 @ReadHuffmanCode(i32 noundef %0, ptr noundef %1, ptr 
   br label %49
 
 49:                                               ; preds = %.loopexit.i, %.lr.ph64.i
-  %.04563.i = phi i32 [ 0, %.lr.ph64.i ], [ %.2.i, %.loopexit.i ]
+  %.04563.i = phi i32 [ 0, %.lr.ph64.i ], [ %.1.i, %.loopexit.i ]
   %.14762.i = phi i32 [ %.046.i, %.lr.ph64.i ], [ %50, %.loopexit.i ]
   %.04861.i = phi i32 [ 8, %.lr.ph64.i ], [ %.149.i, %.loopexit.i ]
   %50 = add nsw i32 %.14762.i, -1
@@ -641,8 +641,8 @@ VP8LFillBitWindow.exit.i:                         ; preds = %55, %52
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %87, %70
   %.149.i = phi i32 [ %spec.select.i, %70 ], [ %.04861.i, %87 ], [ %.04861.i, %.loopexit.loopexit.i ]
-  %.2.i = phi i32 [ %71, %70 ], [ %.04563.i, %87 ], [ %95, %.loopexit.loopexit.i ]
-  %96 = icmp slt i32 %.2.i, %0
+  %.1.i = phi i32 [ %71, %70 ], [ %.04563.i, %87 ], [ %95, %.loopexit.loopexit.i ]
+  %96 = icmp slt i32 %.1.i, %0
   br i1 %96, label %49, label %ReadHuffmanCodeLengths.exit, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %74, %38, %34, %._crit_edge
@@ -985,7 +985,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   br label %13
 
 13:                                               ; preds = %.preheader, %ReadTransform.exit
-  %.0 = phi i32 [ %.1, %ReadTransform.exit ], [ %0, %.preheader ]
+  %.0 = phi i32 [ %.385, %ReadTransform.exit ], [ %0, %.preheader ]
   %14 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #7
   %.not57 = icmp eq i32 %14, 0
   br i1 %.not57, label %.critedge, label %15
@@ -1121,13 +1121,13 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
   ]
 
 ReadTransform.exit:                               ; preds = %ExpandColorMap.exit, %23, %30
-  %.1 = phi i32 [ %.0, %23 ], [ %55, %ExpandColorMap.exit ], [ %.0, %30 ]
+  %.385 = phi i32 [ %.0, %23 ], [ %55, %ExpandColorMap.exit ], [ %.0, %30 ]
   %.0.i = phi i32 [ 1, %23 ], [ 1, %ExpandColorMap.exit ], [ %41, %30 ]
   %.old1.not = icmp eq i32 %.0.i, 0
   br i1 %.old1.not, label %.threadthread-pre-split, label %13
 
 .critedge:                                        ; preds = %13, %5
-  %.284 = phi i32 [ %0, %5 ], [ %.0, %13 ]
+  %.1 = phi i32 [ %0, %5 ], [ %.0, %13 ]
   %85 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 1) #7
   %.not59 = icmp eq i32 %85, 0
   br i1 %.not59, label %.critedge66, label %86
@@ -1163,7 +1163,7 @@ ReadTransform.exit:                               ; preds = %ExpandColorMap.exit
   %96 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 3) #7
   %97 = add i32 %96, 2
   %98 = shl nuw i32 1, %97
-  %99 = add i32 %.284, -1
+  %99 = add i32 %.1, -1
   %100 = add i32 %99, %98
   %101 = lshr i32 %100, %97
   %102 = add i32 %1, -1
@@ -1186,30 +1186,30 @@ ReadTransform.exit:                               ; preds = %ExpandColorMap.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.062.i120 = phi i32 [ 1, %.lr.ph.preheader ], [ %spec.select.i, %.lr.ph ]
+  %.163.i120 = phi i32 [ 1, %.lr.ph.preheader ], [ %spec.select.i, %.lr.ph ]
   %110 = load ptr, ptr %6, align 8
   %111 = getelementptr inbounds i32, ptr %110, i64 %indvars.iv
   %112 = load i32, ptr %111, align 4
   %113 = lshr i32 %112, 8
   %114 = and i32 %113, 65535
   store i32 %114, ptr %111, align 4
-  %.not77.i = icmp slt i32 %114, %.062.i120
+  %.not77.i = icmp slt i32 %114, %.163.i120
   %115 = add nuw nsw i32 %114, 1
-  %spec.select.i = select i1 %.not77.i, i32 %.062.i120, i32 %115
+  %spec.select.i = select i1 %.not77.i, i32 %.163.i120, i32 %115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %107
-  %.062.i.lcssa = phi i32 [ 1, %107 ], [ %spec.select.i, %.lr.ph ]
-  %116 = icmp sgt i32 %.062.i.lcssa, 1000
-  %117 = mul nsw i32 %.284, %1
-  %118 = icmp sgt i32 %.062.i.lcssa, %117
+  %.163.i.lcssa = phi i32 [ 1, %107 ], [ %spec.select.i, %.lr.ph ]
+  %116 = icmp sgt i32 %.163.i.lcssa, 1000
+  %117 = mul nsw i32 %.1, %1
+  %118 = icmp sgt i32 %.163.i.lcssa, %117
   %or.cond.i = select i1 %116, i1 true, i1 %118
   br i1 %or.cond.i, label %119, label %.loopexit
 
 119:                                              ; preds = %._crit_edge
-  %120 = zext nneg i32 %.062.i.lcssa to i64
+  %120 = zext nneg i32 %.163.i.lcssa to i64
   %121 = call ptr @WebPSafeMalloc(i64 noundef %120, i64 noundef 4) #7
   %122 = icmp eq ptr %121, null
   br i1 %122, label %123, label %126
@@ -1236,7 +1236,7 @@ ReadTransform.exit:                               ; preds = %ExpandColorMap.exit
 
 .lr.ph125:                                        ; preds = %.lr.ph125.preheader, %137
   %indvars.iv130 = phi i64 [ 0, %.lr.ph125.preheader ], [ %indvars.iv.next131, %137 ]
-  %.060.i122 = phi i32 [ 0, %.lr.ph125.preheader ], [ %.161.i, %137 ]
+  %.161.i122 = phi i32 [ 0, %.lr.ph125.preheader ], [ %.2.i, %137 ]
   %128 = load ptr, ptr %6, align 8
   %129 = getelementptr inbounds i32, ptr %128, i64 %indvars.iv130
   %130 = load i32, ptr %129, align 4
@@ -1247,15 +1247,15 @@ ReadTransform.exit:                               ; preds = %ExpandColorMap.exit
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %.lr.ph125
-  %136 = add nsw i32 %.060.i122, 1
-  store i32 %.060.i122, ptr %132, align 4
+  %136 = add nsw i32 %.161.i122, 1
+  store i32 %.161.i122, ptr %132, align 4
   %.pre = load ptr, ptr %6, align 8
   br label %137
 
 137:                                              ; preds = %135, %.lr.ph125
   %138 = phi ptr [ %.pre, %135 ], [ %128, %.lr.ph125 ]
-  %139 = phi i32 [ %.060.i122, %135 ], [ %133, %.lr.ph125 ]
-  %.161.i = phi i32 [ %136, %135 ], [ %.060.i122, %.lr.ph125 ]
+  %139 = phi i32 [ %.161.i122, %135 ], [ %133, %.lr.ph125 ]
+  %.2.i = phi i32 [ %136, %135 ], [ %.161.i122, %.lr.ph125 ]
   %140 = getelementptr inbounds i32, ptr %138, i64 %indvars.iv130
   store i32 %139, ptr %140, align 4
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
@@ -1264,15 +1264,15 @@ ReadTransform.exit:                               ; preds = %ExpandColorMap.exit
 
 .loopexit:                                        ; preds = %137, %126, %._crit_edge, %93, %.critedge66
   %.065.i = phi ptr [ null, %93 ], [ null, %.critedge66 ], [ null, %._crit_edge ], [ %121, %126 ], [ %121, %137 ]
-  %.264.i = phi i32 [ 1, %93 ], [ 1, %.critedge66 ], [ %.062.i.lcssa, %._crit_edge ], [ %.062.i.lcssa, %126 ], [ %.062.i.lcssa, %137 ]
-  %.2.i = phi i32 [ 1, %93 ], [ 1, %.critedge66 ], [ %.062.i.lcssa, %._crit_edge ], [ 0, %126 ], [ %.161.i, %137 ]
+  %.062.i = phi i32 [ 1, %93 ], [ 1, %.critedge66 ], [ %.163.i.lcssa, %._crit_edge ], [ %.163.i.lcssa, %126 ], [ %.163.i.lcssa, %137 ]
+  %.060.i = phi i32 [ 1, %93 ], [ 1, %.critedge66 ], [ %.163.i.lcssa, %._crit_edge ], [ 0, %126 ], [ %.2.i, %137 ]
   %141 = getelementptr inbounds i8, ptr %3, i64 76
   %142 = load i32, ptr %141, align 4
   %.not74.i = icmp eq i32 %142, 0
   br i1 %.not74.i, label %143, label %145
 
 143:                                              ; preds = %.loopexit
-  %144 = call i32 @ReadHuffmanCodesHelper(i32 noundef %.049, i32 noundef %.2.i, i32 noundef %.264.i, ptr noundef %.065.i, ptr noundef nonnull %3, ptr noundef nonnull %92, ptr noundef nonnull %7)
+  %144 = call i32 @ReadHuffmanCodesHelper(i32 noundef %.049, i32 noundef %.060.i, i32 noundef %.062.i, ptr noundef %.065.i, ptr noundef nonnull %3, ptr noundef nonnull %92, ptr noundef nonnull %7)
   %.not75.i = icmp eq i32 %144, 0
   br i1 %.not75.i, label %145, label %149
 
@@ -1304,7 +1304,7 @@ ReadTransform.exit:                               ; preds = %ExpandColorMap.exit
   %151 = getelementptr inbounds i8, ptr %3, i64 208
   store ptr %150, ptr %151, align 8
   %152 = getelementptr inbounds i8, ptr %3, i64 216
-  store i32 %.2.i, ptr %152, align 8
+  store i32 %.060.i, ptr %152, align 8
   %153 = load ptr, ptr %7, align 8
   %154 = getelementptr inbounds i8, ptr %3, i64 224
   store ptr %153, ptr %154, align 8
@@ -1337,11 +1337,11 @@ ReadTransform.exit:                               ; preds = %ExpandColorMap.exit
   %164 = getelementptr inbounds i8, ptr %3, i64 196
   %165 = load i32, ptr %164, align 4
   %166 = getelementptr inbounds i8, ptr %3, i64 132
-  store i32 %.284, ptr %166, align 4
+  store i32 %.1, ptr %166, align 4
   %167 = getelementptr inbounds i8, ptr %3, i64 136
   store i32 %1, ptr %167, align 8
   %168 = shl nuw i32 1, %165
-  %169 = add i32 %.284, -1
+  %169 = add i32 %.1, -1
   %170 = add i32 %169, %168
   %171 = lshr i32 %170, %165
   %172 = getelementptr inbounds i8, ptr %3, i64 200
@@ -1360,7 +1360,7 @@ VP8LSetError.exit.thread112:                      ; preds = %163
   br label %193
 
 178:                                              ; preds = %163
-  %179 = sext i32 %.284 to i64
+  %179 = sext i32 %.1 to i64
   %180 = sext i32 %1 to i64
   %181 = mul nsw i64 %179, %180
   %182 = call ptr @WebPSafeMalloc(i64 noundef %181, i64 noundef 4) #7
@@ -1375,7 +1375,7 @@ VP8LSetError.exit.thread112:                      ; preds = %163
   ]
 
 186:                                              ; preds = %178
-  %187 = call fastcc i32 @DecodeImageData(ptr noundef nonnull %3, ptr noundef nonnull %182, i32 noundef %.284, i32 noundef %1, i32 noundef %1, ptr noundef null)
+  %187 = call fastcc i32 @DecodeImageData(ptr noundef nonnull %3, ptr noundef nonnull %182, i32 noundef %.1, i32 noundef %1, i32 noundef %1, ptr noundef null)
   %.not62 = icmp eq i32 %187, 0
   br i1 %.not62, label %VP8LSetError.exit.thread, label %VP8LSetError.exit
 
@@ -1524,8 +1524,8 @@ define hidden range(i32 0, 2) i32 @VP8LDecodeAlphaImageStream(ptr nocapture noun
   br label %59
 
 59:                                               ; preds = %VP8LIsEndOfStream.exit.i, %.lr.ph205.i
-  %.0102203.i = phi i32 [ %19, %.lr.ph205.i ], [ %.2.i, %VP8LIsEndOfStream.exit.i ]
-  %.0103201.i = phi i32 [ %20, %.lr.ph205.i ], [ %.2105.i, %VP8LIsEndOfStream.exit.i ]
+  %.0102203.i = phi i32 [ %19, %.lr.ph205.i ], [ %.1.i, %VP8LIsEndOfStream.exit.i ]
+  %.0103201.i = phi i32 [ %20, %.lr.ph205.i ], [ %.1104.i, %VP8LIsEndOfStream.exit.i ]
   %.0106200.i = phi i32 [ %18, %.lr.ph205.i ], [ %.1107.i, %VP8LIsEndOfStream.exit.i ]
   %.0108199.i = phi ptr [ %50, %.lr.ph205.i ], [ %.2110.i, %VP8LIsEndOfStream.exit.i ]
   %60 = and i32 %.0103201.i, %25
@@ -1941,11 +1941,11 @@ CopyBlock8b.exit.i:                               ; preds = %.lr.ph35.i.i.i, %.l
   br i1 %.not127194.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %CopyBlock8b.exit.i, %305
-  %.1196.i = phi i32 [ %270, %305 ], [ %.0102203.i, %CopyBlock8b.exit.i ]
-  %.1104195.i = phi i32 [ %269, %305 ], [ %268, %CopyBlock8b.exit.i ]
-  %269 = sub nsw i32 %.1104195.i, %14
-  %270 = add nsw i32 %.1196.i, 1
-  %.not129.not.i = icmp slt i32 %.1196.i, %1
+  %.2196.i = phi i32 [ %270, %305 ], [ %.0102203.i, %CopyBlock8b.exit.i ]
+  %.2105195.i = phi i32 [ %269, %305 ], [ %268, %CopyBlock8b.exit.i ]
+  %269 = sub nsw i32 %.2105195.i, %14
+  %270 = add nsw i32 %.2196.i, 1
+  %.not129.not.i = icmp slt i32 %.2196.i, %1
   %271 = and i32 %270, 15
   %272 = icmp eq i32 %271, 0
   %or.cond135.i = select i1 %.not129.not.i, i1 %272, i1 false
@@ -1963,7 +1963,7 @@ CopyBlock8b.exit.i:                               ; preds = %.lr.ph35.i.i.i, %.l
   %280 = load i32, ptr %.in.i155.i, align 4
   %281 = load i32, ptr %5, align 4
   %..i156.i = tail call i32 @llvm.smax.i32(i32 %281, i32 %280)
-  %.not181.i = icmp sgt i32 %..i156.i, %.1196.i
+  %.not181.i = icmp sgt i32 %..i156.i, %.2196.i
   br i1 %.not181.i, label %ExtractPalettedAlphaRows.exit164.i, label %282
 
 282:                                              ; preds = %273
@@ -2000,7 +2000,7 @@ CopyBlock8b.exit.i:                               ; preds = %.lr.ph35.i.i.i, %.l
   tail call void %302(ptr noundef %.019.i.i159.i, ptr noundef %.01617.i.i161.i, ptr noundef %.01617.i.i161.i, i32 noundef %283) #7
   %303 = getelementptr inbounds i8, ptr %.01617.i.i161.i, i64 %297
   %304 = add i32 %.01518.i.i160.i, 1
-  %exitcond.not.i.i162.i = icmp eq i32 %.01518.i.i160.i, %.1196.i
+  %exitcond.not.i.i162.i = icmp eq i32 %.01518.i.i160.i, %.2196.i
   br i1 %exitcond.not.i.i162.i, label %._crit_edge.i.i163.i, label %298, !llvm.loop !18
 
 ._crit_edge.i.i163.i:                             ; preds = %298
@@ -2017,10 +2017,10 @@ ExtractPalettedAlphaRows.exit164.i:               ; preds = %._crit_edge.i.i163.
   br i1 %.not127.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %305, %CopyBlock8b.exit.i
-  %.1104.lcssa.i = phi i32 [ %268, %CopyBlock8b.exit.i ], [ %269, %305 ]
-  %.1.lcssa.i = phi i32 [ %.0102203.i, %CopyBlock8b.exit.i ], [ %270, %305 ]
+  %.2105.lcssa.i = phi i32 [ %268, %CopyBlock8b.exit.i ], [ %269, %305 ]
+  %.2.lcssa.i = phi i32 [ %.0102203.i, %CopyBlock8b.exit.i ], [ %270, %305 ]
   %306 = icmp sge i32 %267, %23
-  %307 = and i32 %.1104.lcssa.i, %25
+  %307 = and i32 %.2105.lcssa.i, %25
   %.not128.i = icmp eq i32 %307, 0
   %or.cond136.i = select i1 %306, i1 true, i1 %.not128.i
   br i1 %or.cond136.i, label %324, label %308
@@ -2033,9 +2033,9 @@ ExtractPalettedAlphaRows.exit164.i:               ; preds = %._crit_edge.i.i163.
 311:                                              ; preds = %308
   %312 = load i32, ptr %51, align 8
   %313 = load ptr, ptr %52, align 8
-  %314 = ashr i32 %.1.lcssa.i, %309
+  %314 = ashr i32 %.2.lcssa.i, %309
   %315 = mul nsw i32 %312, %314
-  %316 = ashr i32 %.1104.lcssa.i, %309
+  %316 = ashr i32 %.2105.lcssa.i, %309
   %317 = add nsw i32 %315, %316
   %318 = sext i32 %317 to i64
   %319 = getelementptr inbounds i32, ptr %313, i64 %318
@@ -2052,8 +2052,8 @@ GetHtreeGroupForPos.exit166.i:                    ; preds = %311, %308
 324:                                              ; preds = %GetHtreeGroupForPos.exit166.i, %._crit_edge.i, %ExtractPalettedAlphaRows.exit.i, %120, %114
   %.2110.i = phi ptr [ %.1109.i, %ExtractPalettedAlphaRows.exit.i ], [ %.1109.i, %120 ], [ %.1109.i, %114 ], [ %323, %GetHtreeGroupForPos.exit166.i ], [ %.1109.i, %._crit_edge.i ]
   %.1107.i = phi i32 [ %118, %ExtractPalettedAlphaRows.exit.i ], [ %118, %120 ], [ %118, %114 ], [ %267, %GetHtreeGroupForPos.exit166.i ], [ %267, %._crit_edge.i ]
-  %.2105.i = phi i32 [ 0, %ExtractPalettedAlphaRows.exit.i ], [ 0, %120 ], [ %119, %114 ], [ %.1104.lcssa.i, %GetHtreeGroupForPos.exit166.i ], [ %.1104.lcssa.i, %._crit_edge.i ]
-  %.2.i = phi i32 [ %121, %ExtractPalettedAlphaRows.exit.i ], [ %121, %120 ], [ %.0102203.i, %114 ], [ %.1.lcssa.i, %GetHtreeGroupForPos.exit166.i ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %.1104.i = phi i32 [ 0, %ExtractPalettedAlphaRows.exit.i ], [ 0, %120 ], [ %119, %114 ], [ %.2105.lcssa.i, %GetHtreeGroupForPos.exit166.i ], [ %.2105.lcssa.i, %._crit_edge.i ]
+  %.1.i = phi i32 [ %121, %ExtractPalettedAlphaRows.exit.i ], [ %121, %120 ], [ %.0102203.i, %114 ], [ %.2.lcssa.i, %GetHtreeGroupForPos.exit166.i ], [ %.2.lcssa.i, %._crit_edge.i ]
   %325 = load i32, ptr %46, align 4
   %.not.i167.i = icmp eq i32 %325, 0
   br i1 %.not.i167.i, label %326, label %VP8LIsEndOfStream.exit.thread.i
@@ -2085,7 +2085,7 @@ VP8LIsEndOfStream.exit.i:                         ; preds = %330, %326
 ._crit_edge206.i:                                 ; preds = %VP8LIsEndOfStream.exit.i, %VP8LIsEndOfStream.exit.thread.i, %45, %.thread.i
   %337 = phi ptr [ %46, %45 ], [ %27, %.thread.i ], [ %46, %VP8LIsEndOfStream.exit.thread.i ], [ %46, %VP8LIsEndOfStream.exit.i ]
   %.0106.lcssa.i = phi i32 [ %18, %45 ], [ %18, %.thread.i ], [ %.1107.i, %VP8LIsEndOfStream.exit.thread.i ], [ %.1107.i, %VP8LIsEndOfStream.exit.i ]
-  %.0102.lcssa.i = phi i32 [ %19, %45 ], [ %19, %.thread.i ], [ %.2.i, %VP8LIsEndOfStream.exit.thread.i ], [ %.2.i, %VP8LIsEndOfStream.exit.i ]
+  %.0102.lcssa.i = phi i32 [ %19, %45 ], [ %19, %.thread.i ], [ %.1.i, %VP8LIsEndOfStream.exit.thread.i ], [ %.1.i, %VP8LIsEndOfStream.exit.i ]
   %338 = tail call i32 @llvm.smin.i32(i32 %.0102.lcssa.i, i32 %1)
   %339 = getelementptr inbounds i8, ptr %4, i64 8
   %340 = load ptr, ptr %339, align 8
@@ -2292,12 +2292,12 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageData(ptr noundef %0, ptr 
   br label %66
 
 66:                                               ; preds = %.lr.ph320, %.loopexit
-  %.0167316 = phi i32 [ %9, %.lr.ph320 ], [ %.2, %.loopexit ]
-  %.0168314 = phi i32 [ %10, %.lr.ph320 ], [ %.2170, %.loopexit ]
+  %.0167316 = phi i32 [ %9, %.lr.ph320 ], [ %.1, %.loopexit ]
+  %.0168314 = phi i32 [ %10, %.lr.ph320 ], [ %.1169, %.loopexit ]
   %.0171310 = phi ptr [ %14, %.lr.ph320 ], [ %.1172, %.loopexit ]
-  %.0173309 = phi ptr [ %14, %.lr.ph320 ], [ %.5, %.loopexit ]
+  %.0173309 = phi ptr [ %14, %.lr.ph320 ], [ %.3, %.loopexit ]
   %.0176308 = phi i32 [ %25, %.lr.ph320 ], [ %.1177, %.loopexit ]
-  %.0178307 = phi ptr [ %51, %.lr.ph320 ], [ %.3181, %.loopexit ]
+  %.0178307 = phi ptr [ %51, %.lr.ph320 ], [ %.2180, %.loopexit ]
   %.not194 = icmp slt i32 %.0167316, %.0176308
   br i1 %.not194, label %76, label %67
 
@@ -2665,7 +2665,7 @@ VP8LIsEndOfStream.exit254.thread:                 ; preds = %274
 
 .sink.split:                                      ; preds = %98, %._crit_edge, %VP8LIsEndOfStream.exit254.thread, %169
   %.sink = phi i32 [ %173, %169 ], [ %284, %VP8LIsEndOfStream.exit254.thread ], [ %473, %._crit_edge ], [ %100, %98 ]
-  %.1174.ph = phi ptr [ %.0173309, %169 ], [ %.0173309, %VP8LIsEndOfStream.exit254.thread ], [ %.4.lcssa, %._crit_edge ], [ %.0173309, %98 ]
+  %.1174.ph = phi ptr [ %.0173309, %169 ], [ %.0173309, %VP8LIsEndOfStream.exit254.thread ], [ %.5.lcssa, %._crit_edge ], [ %.0173309, %98 ]
   store i32 %.sink, ptr %.0171310, align 4
   br label %285
 
@@ -2952,11 +2952,11 @@ CopyBlock32b.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not200294, label %._crit_edge298, label %.lr.ph297
 
 .lr.ph297:                                        ; preds = %CopyBlock32b.exit, %433
-  %.1296 = phi i32 [ %429, %433 ], [ %.0167316, %CopyBlock32b.exit ]
-  %.1169295 = phi i32 [ %428, %433 ], [ %427, %CopyBlock32b.exit ]
-  %428 = sub nsw i32 %.1169295, %2
-  %429 = add nsw i32 %.1296, 1
-  %.not203.not = icmp slt i32 %.1296, %4
+  %.2296 = phi i32 [ %429, %433 ], [ %.0167316, %CopyBlock32b.exit ]
+  %.2170295 = phi i32 [ %428, %433 ], [ %427, %CopyBlock32b.exit ]
+  %428 = sub nsw i32 %.2170295, %2
+  %429 = add nsw i32 %.2296, 1
+  %.not203.not = icmp slt i32 %.2296, %4
   %or.cond217 = select i1 %.not202, i1 %.not203.not, i1 false
   %430 = and i32 %429, 15
   %431 = icmp eq i32 %430, 0
@@ -2972,9 +2972,9 @@ CopyBlock32b.exit:                                ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not200, label %._crit_edge298, label %.lr.ph297, !llvm.loop !29
 
 ._crit_edge298:                                   ; preds = %433, %CopyBlock32b.exit
-  %.1169.lcssa = phi i32 [ %427, %CopyBlock32b.exit ], [ %428, %433 ]
-  %.1.lcssa = phi i32 [ %.0167316, %CopyBlock32b.exit ], [ %429, %433 ]
-  %434 = and i32 %.1169.lcssa, %30
+  %.2170.lcssa = phi i32 [ %427, %CopyBlock32b.exit ], [ %428, %433 ]
+  %.2.lcssa = phi i32 [ %.0167316, %CopyBlock32b.exit ], [ %429, %433 ]
+  %434 = and i32 %.2170.lcssa, %30
   %.not201 = icmp eq i32 %434, 0
   br i1 %.not201, label %451, label %435
 
@@ -2986,9 +2986,9 @@ CopyBlock32b.exit:                                ; preds = %.lr.ph.i, %._crit_e
 438:                                              ; preds = %435
   %439 = load i32, ptr %57, align 8
   %440 = load ptr, ptr %58, align 8
-  %441 = ashr i32 %.1.lcssa, %436
+  %441 = ashr i32 %.2.lcssa, %436
   %442 = mul nsw i32 %439, %441
-  %443 = ashr i32 %.1169.lcssa, %436
+  %443 = ashr i32 %.2170.lcssa, %436
   %444 = add nsw i32 %442, %443
   %445 = sext i32 %444 to i64
   %446 = getelementptr inbounds i32, ptr %440, i64 %445
@@ -3003,15 +3003,15 @@ GetHtreeGroupForPos.exit269:                      ; preds = %435, %438
   br label %451
 
 451:                                              ; preds = %GetHtreeGroupForPos.exit269, %._crit_edge298
-  %.2180 = phi ptr [ %450, %GetHtreeGroupForPos.exit269 ], [ %.1179, %._crit_edge298 ]
+  %.3181 = phi ptr [ %450, %GetHtreeGroupForPos.exit269 ], [ %.1179, %._crit_edge298 ]
   %452 = icmp ult ptr %.0173309, %426
   %or.cond351 = select i1 %26, i1 %452, i1 false
   br i1 %or.cond351, label %.lr.ph302, label %.loopexit
 
 .lr.ph302:                                        ; preds = %451, %.lr.ph302
-  %.3301 = phi ptr [ %453, %.lr.ph302 ], [ %.0173309, %451 ]
-  %453 = getelementptr inbounds i8, ptr %.3301, i64 4
-  %454 = load i32, ptr %.3301, align 4
+  %.4301 = phi ptr [ %453, %.lr.ph302 ], [ %.0173309, %451 ]
+  %453 = getelementptr inbounds i8, ptr %.4301, i64 4
+  %454 = load i32, ptr %.4301, align 4
   %.val224 = load ptr, ptr %28, align 8
   %.val225 = load i32, ptr %64, align 8
   %455 = mul i32 %454, 506832829
@@ -3031,9 +3031,9 @@ GetHtreeGroupForPos.exit269:                      ; preds = %435, %438
   br i1 %462, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader288, %.lr.ph
-  %.4293 = phi ptr [ %463, %.lr.ph ], [ %.0173309, %.preheader288 ]
-  %463 = getelementptr inbounds i8, ptr %.4293, i64 4
-  %464 = load i32, ptr %.4293, align 4
+  %.5293 = phi ptr [ %463, %.lr.ph ], [ %.0173309, %.preheader288 ]
+  %463 = getelementptr inbounds i8, ptr %.5293, i64 4
+  %464 = load i32, ptr %.5293, align 4
   %.val226 = load ptr, ptr %28, align 8
   %.val227 = load i32, ptr %64, align 8
   %465 = mul i32 %464, 506832829
@@ -3045,7 +3045,7 @@ GetHtreeGroupForPos.exit269:                      ; preds = %435, %438
   br i1 %469, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader288
-  %.4.lcssa = phi ptr [ %.0173309, %.preheader288 ], [ %463, %.lr.ph ]
+  %.5.lcssa = phi ptr [ %.0173309, %.preheader288 ], [ %463, %.lr.ph ]
   %.val228 = load ptr, ptr %28, align 8
   %470 = zext nneg i32 %.0182363 to i64
   %471 = getelementptr i32, ptr %.val228, i64 %470
@@ -3054,17 +3054,17 @@ GetHtreeGroupForPos.exit269:                      ; preds = %435, %438
   br label %.sink.split
 
 .loopexit:                                        ; preds = %.lr.ph302, %.lr.ph305, %451, %285, %293
-  %.3181 = phi ptr [ %.1179, %293 ], [ %.1179, %285 ], [ %.2180, %451 ], [ %.1179, %.lr.ph305 ], [ %.2180, %.lr.ph302 ]
-  %.5 = phi ptr [ %.1174, %293 ], [ %.1174, %285 ], [ %.0173309, %451 ], [ %295, %.lr.ph305 ], [ %453, %.lr.ph302 ]
+  %.2180 = phi ptr [ %.1179, %293 ], [ %.1179, %285 ], [ %.3181, %451 ], [ %.1179, %.lr.ph305 ], [ %.3181, %.lr.ph302 ]
+  %.3 = phi ptr [ %.1174, %293 ], [ %.1174, %285 ], [ %.0173309, %451 ], [ %295, %.lr.ph305 ], [ %453, %.lr.ph302 ]
   %.1172 = phi ptr [ %286, %293 ], [ %286, %285 ], [ %426, %451 ], [ %286, %.lr.ph305 ], [ %426, %.lr.ph302 ]
-  %.2170 = phi i32 [ 0, %293 ], [ %287, %285 ], [ %.1169.lcssa, %451 ], [ 0, %.lr.ph305 ], [ %.1169.lcssa, %.lr.ph302 ]
-  %.2 = phi i32 [ %289, %293 ], [ %.0167316, %285 ], [ %.1.lcssa, %451 ], [ %289, %.lr.ph305 ], [ %.1.lcssa, %.lr.ph302 ]
+  %.1169 = phi i32 [ 0, %293 ], [ %287, %285 ], [ %.2170.lcssa, %451 ], [ 0, %.lr.ph305 ], [ %.2170.lcssa, %.lr.ph302 ]
+  %.1 = phi i32 [ %289, %293 ], [ %.0167316, %285 ], [ %.2.lcssa, %451 ], [ %289, %.lr.ph305 ], [ %.2.lcssa, %.lr.ph302 ]
   %474 = icmp ult ptr %.1172, %20
   br i1 %474, label %66, label %VP8LIsEndOfStream.exit.thread273, !llvm.loop !32
 
 VP8LIsEndOfStream.exit.thread273:                 ; preds = %.loopexit, %VP8LIsEndOfStream.exit, %VP8LIsEndOfStream.exit233, %VP8LIsEndOfStream.exit266, %ReadPackedSymbols.exit, %152, %ReadSymbol.exit252, %PlaneCodeToDistance.exit, %274, %6
   %.0171.lcssa = phi ptr [ %14, %6 ], [ %.0171310, %274 ], [ %.0171310, %PlaneCodeToDistance.exit ], [ %.0171310, %ReadSymbol.exit252 ], [ %.0171310, %152 ], [ %.0171310, %ReadPackedSymbols.exit ], [ %.0171310, %VP8LIsEndOfStream.exit266 ], [ %.0171310, %VP8LIsEndOfStream.exit233 ], [ %.0171310, %VP8LIsEndOfStream.exit ], [ %.1172, %.loopexit ]
-  %.0167.lcssa = phi i32 [ %9, %6 ], [ %.0167316, %274 ], [ %.0167316, %PlaneCodeToDistance.exit ], [ %.0167316, %ReadSymbol.exit252 ], [ %.0167316, %152 ], [ %.0167316, %ReadPackedSymbols.exit ], [ %.0167316, %VP8LIsEndOfStream.exit266 ], [ %.0167316, %VP8LIsEndOfStream.exit233 ], [ %.0167316, %VP8LIsEndOfStream.exit ], [ %.2, %.loopexit ]
+  %.0167.lcssa = phi i32 [ %9, %6 ], [ %.0167316, %274 ], [ %.0167316, %PlaneCodeToDistance.exit ], [ %.0167316, %ReadSymbol.exit252 ], [ %.0167316, %152 ], [ %.0167316, %ReadPackedSymbols.exit ], [ %.0167316, %VP8LIsEndOfStream.exit266 ], [ %.0167316, %VP8LIsEndOfStream.exit233 ], [ %.0167316, %VP8LIsEndOfStream.exit ], [ %.1, %.loopexit ]
   %.lcssa = phi i1 [ false, %6 ], [ true, %274 ], [ true, %PlaneCodeToDistance.exit ], [ true, %ReadSymbol.exit252 ], [ true, %152 ], [ true, %ReadPackedSymbols.exit ], [ true, %VP8LIsEndOfStream.exit266 ], [ true, %VP8LIsEndOfStream.exit233 ], [ true, %VP8LIsEndOfStream.exit ], [ false, %.loopexit ]
   %475 = getelementptr inbounds i8, ptr %0, i64 76
   %476 = load i32, ptr %475, align 4

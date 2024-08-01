@@ -1404,9 +1404,9 @@ bitarray_set.exit:                                ; preds = %47
   %71 = phi i32 [ %68, %.lr.ph.preheader ], [ %115, %114 ]
   %indvars.iv = phi i64 [ %70, %.lr.ph.preheader ], [ %indvars.iv.next, %114 ]
   %.05688 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %.1, %114 ]
-  %.sroa.16.186 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.16.3, %114 ]
-  %.sroa.7.185 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.7.2, %114 ]
-  %.sroa.0.184 = phi ptr [ null, %.lr.ph.preheader ], [ %.sroa.0.3, %114 ]
+  %.sroa.16.286 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.16.3, %114 ]
+  %.sroa.7.285 = phi i64 [ 0, %.lr.ph.preheader ], [ %.sroa.7.3, %114 ]
+  %.sroa.0.284 = phi ptr [ null, %.lr.ph.preheader ], [ %.sroa.0.3, %114 ]
   %72 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4
   %74 = sext i32 %73 to i64
@@ -1435,26 +1435,26 @@ bitarray_set.exit65:                              ; preds = %.lr.ph
   %92 = tail call double @distance(ptr noundef %2, i32 noundef %0, i32 noundef %50, i32 noundef %91) #23
   %93 = fadd double %.05688, %92
   %94 = load i32, ptr %72, align 4
-  %95 = icmp eq i64 %.sroa.7.185, %.sroa.16.186
+  %95 = icmp eq i64 %.sroa.7.285, %.sroa.16.286
   br i1 %95, label %96, label %ints_append.exit
 
 96:                                               ; preds = %bitarray_set.exit65
-  %97 = icmp eq i64 %.sroa.16.186, 0
-  %98 = shl i64 %.sroa.16.186, 1
+  %97 = icmp eq i64 %.sroa.16.286, 0
+  %98 = shl i64 %.sroa.16.286, 1
   %spec.select.i.i = select i1 %97, i64 1, i64 %98
   %mul.ov.i.i = icmp ugt i64 %spec.select.i.i, 4611686018427387903
   br i1 %mul.ov.i.i, label %108, label %99
 
 99:                                               ; preds = %96
   %100 = shl nuw i64 %spec.select.i.i, 2
-  %101 = tail call ptr @realloc(ptr noundef %.sroa.0.184, i64 noundef %100) #25
+  %101 = tail call ptr @realloc(ptr noundef %.sroa.0.284, i64 noundef %100) #25
   %102 = icmp eq ptr %101, null
   br i1 %102, label %108, label %103
 
 103:                                              ; preds = %99
-  %104 = shl i64 %.sroa.16.186, 2
+  %104 = shl i64 %.sroa.16.286, 2
   %105 = getelementptr inbounds i8, ptr %101, i64 %104
-  %106 = sub i64 %spec.select.i.i, %.sroa.16.186
+  %106 = sub i64 %spec.select.i.i, %.sroa.16.286
   %107 = shl i64 %106, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %105, i8 0, i64 %107, i1 false)
   br label %ints_append.exit
@@ -1468,19 +1468,19 @@ bitarray_set.exit65:                              ; preds = %.lr.ph
   unreachable
 
 ints_append.exit:                                 ; preds = %bitarray_set.exit65, %103
-  %.sroa.0.2 = phi ptr [ %101, %103 ], [ %.sroa.0.184, %bitarray_set.exit65 ]
-  %.sroa.16.2 = phi i64 [ %spec.select.i.i, %103 ], [ %.sroa.16.186, %bitarray_set.exit65 ]
-  %112 = getelementptr inbounds i32, ptr %.sroa.0.2, i64 %.sroa.7.185
+  %.sroa.0.4 = phi ptr [ %101, %103 ], [ %.sroa.0.284, %bitarray_set.exit65 ]
+  %.sroa.16.4 = phi i64 [ %spec.select.i.i, %103 ], [ %.sroa.16.286, %bitarray_set.exit65 ]
+  %112 = getelementptr inbounds i32, ptr %.sroa.0.4, i64 %.sroa.7.285
   store i32 %94, ptr %112, align 4
-  %113 = add i64 %.sroa.7.185, 1
+  %113 = add i64 %.sroa.7.285, 1
   %.pre = load i32, ptr %67, align 4
   br label %114
 
 114:                                              ; preds = %.lr.ph, %ints_append.exit
   %115 = phi i32 [ %.pre, %ints_append.exit ], [ %71, %.lr.ph ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %ints_append.exit ], [ %.sroa.0.184, %.lr.ph ]
-  %.sroa.7.2 = phi i64 [ %113, %ints_append.exit ], [ %.sroa.7.185, %.lr.ph ]
-  %.sroa.16.3 = phi i64 [ %.sroa.16.2, %ints_append.exit ], [ %.sroa.16.186, %.lr.ph ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.4, %ints_append.exit ], [ %.sroa.0.284, %.lr.ph ]
+  %.sroa.7.3 = phi i64 [ %113, %ints_append.exit ], [ %.sroa.7.285, %.lr.ph ]
+  %.sroa.16.3 = phi i64 [ %.sroa.16.4, %ints_append.exit ], [ %.sroa.16.286, %.lr.ph ]
   %.1 = phi double [ %93, %ints_append.exit ], [ %.05688, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %116 = sext i32 %115 to i64
@@ -1488,12 +1488,12 @@ ints_append.exit:                                 ; preds = %bitarray_set.exit65
   br i1 %117, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %114
-  %118 = uitofp i64 %.sroa.7.2 to double
+  %118 = uitofp i64 %.sroa.7.3 to double
   %119 = fdiv double %.1, %118
-  %120 = icmp ugt i64 %.sroa.7.2, 1
+  %120 = icmp ugt i64 %.sroa.7.3, 1
   %121 = fdiv double 0x4018552E8777604C, %118
   %122 = select i1 %120, double %121, double 0.000000e+00
-  %.not102 = icmp eq i64 %.sroa.7.2, 0
+  %.not102 = icmp eq i64 %.sroa.7.3, 0
   br i1 %.not102, label %._crit_edge95, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %._crit_edge
@@ -1522,12 +1522,12 @@ ints_append.exit:                                 ; preds = %bitarray_set.exit65
   store double %138, ptr %139, align 8
   %140 = fadd double %122, %.05491
   %141 = add nuw i64 %.092, 1
-  %exitcond.not = icmp eq i64 %141, %.sroa.7.2
+  %exitcond.not = icmp eq i64 %141, %.sroa.7.3
   br i1 %exitcond.not, label %._crit_edge95, label %127
 
 ._crit_edge95:                                    ; preds = %127, %bitarray_set.exit, %._crit_edge
-  %.sroa.0.1.lcssa113118 = phi ptr [ %.sroa.0.3, %._crit_edge ], [ null, %bitarray_set.exit ], [ %.sroa.0.3, %127 ]
-  tail call void @free(ptr noundef %.sroa.0.1.lcssa113118) #23
+  %.sroa.0.2.lcssa113118 = phi ptr [ %.sroa.0.3, %._crit_edge ], [ null, %bitarray_set.exit ], [ %.sroa.0.3, %127 ]
+  tail call void @free(ptr noundef %.sroa.0.2.lcssa113118) #23
   br label %142
 
 142:                                              ; preds = %47, %._crit_edge95, %35, %29
@@ -1805,7 +1805,7 @@ average_edge_length.exit:                         ; preds = %64, %._crit_edge.i
   %.0228 = phi double [ %25, %109 ], [ %.0.i, %update_step.exit ]
   %.0221 = phi double [ 0.000000e+00, %109 ], [ %.1222.lcssa, %update_step.exit ]
   %.0218 = phi i32 [ 0, %109 ], [ %129, %update_step.exit ]
-  %.0211 = phi i32 [ %30, %109 ], [ %.1, %update_step.exit ]
+  %.1 = phi i32 [ %30, %109 ], [ %.2, %update_step.exit ]
   %129 = add nuw nsw i32 %.0218, 1
   br i1 %.not.not, label %132, label %130
 
@@ -1814,7 +1814,7 @@ average_edge_length.exit:                         ; preds = %64, %._crit_edge.i
   br label %132
 
 132:                                              ; preds = %130, %127
-  %.1 = phi i32 [ %128, %130 ], [ %.0211, %127 ]
+  %.2 = phi i32 [ %128, %130 ], [ %.1, %127 ]
   %.0 = phi ptr [ %131, %130 ], [ null, %127 ]
   br i1 %117, label %.preheader256, label %._crit_edge301
 
@@ -2190,11 +2190,11 @@ update_step.exit:                                 ; preds = %272, %276, %278, %2
 291:                                              ; preds = %287, %290, %49
   %.0224 = phi ptr [ null, %49 ], [ %116, %290 ], [ %116, %287 ]
   %.0217 = phi ptr [ %1, %49 ], [ %51, %290 ], [ %51, %287 ]
-  %.2 = phi i32 [ %30, %49 ], [ %.1, %290 ], [ %.1, %287 ]
+  %.0211 = phi i32 [ %30, %49 ], [ %.2, %290 ], [ %.2, %287 ]
   br i1 %.not.not, label %293, label %292
 
 292:                                              ; preds = %291
-  store i32 %.2, ptr %29, align 8
+  store i32 %.0211, ptr %29, align 8
   br label %293
 
 293:                                              ; preds = %292, %291
@@ -3259,7 +3259,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
 
 .lr.ph161.i:                                      ; preds = %60, %.loopexit141.i
   %indvars.iv205.i = phi i64 [ %indvars.iv.next206.i, %.loopexit141.i ], [ 0, %60 ]
-  %.0127159.i = phi i32 [ %.5.i, %.loopexit141.i ], [ 0, %60 ]
+  %.0127159.i = phi i32 [ %.1128.i, %.loopexit141.i ], [ 0, %60 ]
   %61 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv205.i
   %62 = load i32, ptr %61, align 4
   %63 = icmp slt i32 %62, 0
@@ -3280,7 +3280,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
 
 .lr.ph157.i:                                      ; preds = %.loopexit140.i, %.lr.ph157.preheader.i
   %indvars.iv200.i = phi i64 [ %70, %.lr.ph157.preheader.i ], [ %indvars.iv.next201.i, %.loopexit140.i ]
-  %.1128156.i = phi i32 [ %.0127159.i, %.lr.ph157.preheader.i ], [ %.4131.i, %.loopexit140.i ]
+  %.2129156.i = phi i32 [ %.0127159.i, %.lr.ph157.preheader.i ], [ %.3130.i, %.loopexit140.i ]
   %71 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv200.i
   %72 = load i32, ptr %71, align 4
   %73 = sext i32 %72 to i64
@@ -3290,7 +3290,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %.lr.ph157.i
-  %78 = add nsw i32 %.1128156.i, 1
+  %78 = add nsw i32 %.2129156.i, 1
   br label %.loopexit140.i
 
 79:                                               ; preds = %.lr.ph157.i
@@ -3308,7 +3308,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
 
 .lr.ph153.i:                                      ; preds = %95, %.lr.ph153.preheader.i
   %indvars.iv195.i = phi i64 [ %85, %.lr.ph153.preheader.i ], [ %indvars.iv.next196.i, %95 ]
-  %.2129152.i = phi i32 [ %.1128156.i, %.lr.ph153.preheader.i ], [ %.3130.i, %95 ]
+  %.4131152.i = phi i32 [ %.2129156.i, %.lr.ph153.preheader.i ], [ %.5.i, %95 ]
   %86 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv195.i
   %87 = load i32, ptr %86, align 4
   %88 = zext i32 %87 to i64
@@ -3321,33 +3321,33 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
   %92 = load i32, ptr %91, align 4
   %93 = icmp sgt i32 %92, -1
   %94 = zext i1 %93 to i32
-  %spec.select.i = add nsw i32 %.2129152.i, %94
+  %spec.select.i = add nsw i32 %.4131152.i, %94
   br label %95
 
 95:                                               ; preds = %89, %.lr.ph153.i
-  %.3130.i = phi i32 [ %.2129152.i, %.lr.ph153.i ], [ %spec.select.i, %89 ]
+  %.5.i = phi i32 [ %.4131152.i, %.lr.ph153.i ], [ %spec.select.i, %89 ]
   %indvars.iv.next196.i = add nsw i64 %indvars.iv195.i, 1
   %exitcond199.not.i = icmp eq i64 %indvars.iv.next196.i, %wide.trip.count198.i
   br i1 %exitcond199.not.i, label %.loopexit140.i, label %.lr.ph153.i
 
 .loopexit140.i:                                   ; preds = %95, %79, %77
-  %.4131.i = phi i32 [ %78, %77 ], [ %.1128156.i, %79 ], [ %.3130.i, %95 ]
+  %.3130.i = phi i32 [ %78, %77 ], [ %.2129156.i, %79 ], [ %.5.i, %95 ]
   %indvars.iv.next201.i = add nsw i64 %indvars.iv200.i, 1
   %exitcond204.not.i = icmp eq i64 %indvars.iv.next201.i, %wide.trip.count203.i
   br i1 %exitcond204.not.i, label %.loopexit141.i, label %.lr.ph157.i
 
 .loopexit141.i:                                   ; preds = %.loopexit140.i, %64, %.lr.ph161.i
-  %.5.i = phi i32 [ %.0127159.i, %.lr.ph161.i ], [ %.0127159.i, %64 ], [ %.4131.i, %.loopexit140.i ]
+  %.1128.i = phi i32 [ %.0127159.i, %.lr.ph161.i ], [ %.0127159.i, %64 ], [ %.3130.i, %.loopexit140.i ]
   %indvars.iv.next206.i = add nuw nsw i64 %indvars.iv205.i, 1
   %exitcond209.not.i = icmp eq i64 %indvars.iv.next206.i, %wide.trip.count193.i
   br i1 %exitcond209.not.i, label %._crit_edge.i, label %.lr.ph161.i
 
 ._crit_edge.i:                                    ; preds = %.loopexit141.i
-  %96 = icmp sgt i32 %.5.i, 0
+  %96 = icmp sgt i32 %.1128.i, 0
   br i1 %96, label %97, label %.lr.ph179.i.preheader
 
 97:                                               ; preds = %._crit_edge.i
-  %98 = zext nneg i32 %.5.i to i64
+  %98 = zext nneg i32 %.1128.i to i64
   %99 = tail call fastcc ptr @gv_calloc(i64 noundef %98, i64 noundef 4)
   %100 = tail call fastcc ptr @gv_calloc(i64 noundef %98, i64 noundef 4)
   %.pre.i = load i32, ptr %.0, align 8
@@ -3361,7 +3361,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
 
 .lr.ph179.i:                                      ; preds = %.lr.ph179.i.preheader, %.loopexit139.i
   %indvars.iv222.i = phi i64 [ %indvars.iv.next223.i, %.loopexit139.i ], [ 0, %.lr.ph179.i.preheader ]
-  %.6174.i = phi i32 [ %.11.i, %.loopexit139.i ], [ 0, %.lr.ph179.i.preheader ]
+  %.6174.i = phi i32 [ %.7.i, %.loopexit139.i ], [ 0, %.lr.ph179.i.preheader ]
   %102 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv222.i
   %103 = load i32, ptr %102, align 4
   %.fr182.i = freeze i32 %103
@@ -3384,7 +3384,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
 .lr.ph171.split.us.i:                             ; preds = %.lr.ph171.i, %.loopexit.us.i
   %113 = phi i32 [ %132, %.loopexit.us.i ], [ %109, %.lr.ph171.i ]
   %indvars.iv219.i = phi i64 [ %indvars.iv.next220.i, %.loopexit.us.i ], [ %112, %.lr.ph171.i ]
-  %.7169.us.i = phi i32 [ %.10.us.i, %.loopexit.us.i ], [ %.6174.i, %.lr.ph171.i ]
+  %.8169.us.i = phi i32 [ %.9.us.i, %.loopexit.us.i ], [ %.6174.i, %.lr.ph171.i ]
   %114 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv219.i
   %115 = load i32, ptr %114, align 4
   %116 = sext i32 %115 to i64
@@ -3406,10 +3406,10 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
   br label %.lr.ph166.us.i
 
 127:                                              ; preds = %.lr.ph171.split.us.i
-  %128 = sext i32 %.7169.us.i to i64
+  %128 = sext i32 %.8169.us.i to i64
   %129 = getelementptr inbounds i32, ptr %.0126.i205.ph, i64 %128
   store i32 68, ptr %129, align 4
-  %130 = add nsw i32 %.7169.us.i, 1
+  %130 = add nsw i32 %.8169.us.i, 1
   %131 = getelementptr inbounds i32, ptr %.0125.i206.ph, i64 %128
   store i32 %118, ptr %131, align 4
   br label %.loopexit.us.i
@@ -3420,7 +3420,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
 
 .loopexit.us.i:                                   ; preds = %.loopexit.us.loopexit.i, %127, %120
   %132 = phi i32 [ %113, %127 ], [ %113, %120 ], [ %.pre228.i, %.loopexit.us.loopexit.i ]
-  %.10.us.i = phi i32 [ %130, %127 ], [ %.7169.us.i, %120 ], [ %.9.us.us.i, %.loopexit.us.loopexit.i ]
+  %.9.us.i = phi i32 [ %130, %127 ], [ %.8169.us.i, %120 ], [ %.11.us.us.i, %.loopexit.us.loopexit.i ]
   %indvars.iv.next220.i = add nsw i64 %indvars.iv219.i, 1
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next220.i, %133
@@ -3429,7 +3429,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
 .lr.ph166.us.i:                                   ; preds = %151, %.lr.ph166.us.preheader.i
   %135 = phi i32 [ %124, %.lr.ph166.us.preheader.i ], [ %152, %151 ]
   %indvars.iv216.i = phi i64 [ %126, %.lr.ph166.us.preheader.i ], [ %indvars.iv.next217.i, %151 ]
-  %.8164.us.us.i = phi i32 [ %.7169.us.i, %.lr.ph166.us.preheader.i ], [ %.9.us.us.i, %151 ]
+  %.10164.us.us.i = phi i32 [ %.8169.us.i, %.lr.ph166.us.preheader.i ], [ %.11.us.us.i, %151 ]
   %136 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv216.i
   %137 = load i32, ptr %136, align 4
   %138 = zext i32 %137 to i64
@@ -3444,10 +3444,10 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
   br i1 %143, label %144, label %151
 
 144:                                              ; preds = %139
-  %145 = sext i32 %.8164.us.us.i to i64
+  %145 = sext i32 %.10164.us.us.i to i64
   %146 = getelementptr inbounds i32, ptr %.0126.i205.ph, i64 %145
   store i32 68, ptr %146, align 4
-  %147 = add nsw i32 %.8164.us.us.i, 1
+  %147 = add nsw i32 %.10164.us.us.i, 1
   %148 = getelementptr inbounds i32, ptr %.0125.i206.ph, i64 %145
   store i32 %142, ptr %148, align 4
   %149 = load ptr, ptr @stderr, align 8
@@ -3457,7 +3457,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
 
 151:                                              ; preds = %144, %139, %.lr.ph166.us.i
   %152 = phi i32 [ %.pre227.i, %144 ], [ %135, %139 ], [ %135, %.lr.ph166.us.i ]
-  %.9.us.us.i = phi i32 [ %147, %144 ], [ %.8164.us.us.i, %139 ], [ %.8164.us.us.i, %.lr.ph166.us.i ]
+  %.11.us.us.i = phi i32 [ %147, %144 ], [ %.10164.us.us.i, %139 ], [ %.10164.us.us.i, %.lr.ph166.us.i ]
   %indvars.iv.next217.i = add nsw i64 %indvars.iv216.i, 1
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next217.i, %153
@@ -3466,7 +3466,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
 .lr.ph171.split.i:                                ; preds = %.lr.ph171.i, %.loopexit.i
   %155 = phi i32 [ %196, %.loopexit.i ], [ %109, %.lr.ph171.i ]
   %indvars.iv213.i = phi i64 [ %indvars.iv.next214.i, %.loopexit.i ], [ %112, %.lr.ph171.i ]
-  %.7169.i = phi i32 [ %.10.i, %.loopexit.i ], [ %.6174.i, %.lr.ph171.i ]
+  %.8169.i = phi i32 [ %.9.i, %.loopexit.i ], [ %.6174.i, %.lr.ph171.i ]
   %156 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv213.i
   %157 = load i32, ptr %156, align 4
   %158 = sext i32 %157 to i64
@@ -3476,10 +3476,10 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
   br i1 %161, label %162, label %167
 
 162:                                              ; preds = %.lr.ph171.split.i
-  %163 = sext i32 %.7169.i to i64
+  %163 = sext i32 %.8169.i to i64
   %164 = getelementptr inbounds i32, ptr %.0126.i205.ph, i64 %163
   store i32 %.fr182.i, ptr %164, align 4
-  %165 = add nsw i32 %.7169.i, 1
+  %165 = add nsw i32 %.8169.i, 1
   %166 = getelementptr inbounds i32, ptr %.0125.i206.ph, i64 %163
   store i32 %160, ptr %166, align 4
   br label %.loopexit.i
@@ -3499,7 +3499,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
 .lr.ph166.i:                                      ; preds = %192, %.lr.ph166.preheader.i
   %174 = phi i32 [ %171, %.lr.ph166.preheader.i ], [ %193, %192 ]
   %indvars.iv210.i = phi i64 [ %173, %.lr.ph166.preheader.i ], [ %indvars.iv.next211.i, %192 ]
-  %.8164.i = phi i32 [ %.7169.i, %.lr.ph166.preheader.i ], [ %.9.i, %192 ]
+  %.10164.i = phi i32 [ %.8169.i, %.lr.ph166.preheader.i ], [ %.11.i, %192 ]
   %175 = getelementptr inbounds i32, ptr %42, i64 %indvars.iv210.i
   %176 = load i32, ptr %175, align 4
   %177 = zext i32 %176 to i64
@@ -3514,10 +3514,10 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
   br i1 %182, label %183, label %192
 
 183:                                              ; preds = %178
-  %184 = sext i32 %.8164.i to i64
+  %184 = sext i32 %.10164.i to i64
   %185 = getelementptr inbounds i32, ptr %.0126.i205.ph, i64 %184
   store i32 %.fr182.i, ptr %185, align 4
-  %186 = add nsw i32 %.8164.i, 1
+  %186 = add nsw i32 %.10164.i, 1
   %187 = getelementptr inbounds i32, ptr %.0125.i206.ph, i64 %184
   store i32 %181, ptr %187, align 4
   %188 = icmp eq i32 %181, 68
@@ -3531,7 +3531,7 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
 
 192:                                              ; preds = %189, %183, %178, %.lr.ph166.i
   %193 = phi i32 [ %.pre225.i, %189 ], [ %174, %183 ], [ %174, %178 ], [ %174, %.lr.ph166.i ]
-  %.9.i = phi i32 [ %186, %189 ], [ %186, %183 ], [ %.8164.i, %178 ], [ %.8164.i, %.lr.ph166.i ]
+  %.11.i = phi i32 [ %186, %189 ], [ %186, %183 ], [ %.10164.i, %178 ], [ %.10164.i, %.lr.ph166.i ]
   %indvars.iv.next211.i = add nsw i64 %indvars.iv210.i, 1
   %194 = sext i32 %193 to i64
   %195 = icmp slt i64 %indvars.iv.next211.i, %194
@@ -3543,14 +3543,14 @@ define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef 
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %167, %162
   %196 = phi i32 [ %155, %162 ], [ %155, %167 ], [ %.pre226.i, %.loopexit.loopexit.i ]
-  %.10.i = phi i32 [ %165, %162 ], [ %.7169.i, %167 ], [ %.9.i, %.loopexit.loopexit.i ]
+  %.9.i = phi i32 [ %165, %162 ], [ %.8169.i, %167 ], [ %.11.i, %.loopexit.loopexit.i ]
   %indvars.iv.next214.i = add nsw i64 %indvars.iv213.i, 1
   %197 = sext i32 %196 to i64
   %198 = icmp slt i64 %indvars.iv.next214.i, %197
   br i1 %198, label %.lr.ph171.split.i, label %.loopexit139.i
 
 .loopexit139.i:                                   ; preds = %.loopexit.i, %.loopexit.us.i, %105, %.lr.ph179.i
-  %.11.i = phi i32 [ %.6174.i, %.lr.ph179.i ], [ %.6174.i, %105 ], [ %.10.us.i, %.loopexit.us.i ], [ %.10.i, %.loopexit.i ]
+  %.7.i = phi i32 [ %.6174.i, %.lr.ph179.i ], [ %.6174.i, %105 ], [ %.9.us.i, %.loopexit.us.i ], [ %.9.i, %.loopexit.i ]
   %indvars.iv.next223.i = add nuw nsw i64 %indvars.iv222.i, 1
   %199 = load i32, ptr %.0, align 8
   %200 = sext i32 %199 to i64
@@ -3561,7 +3561,7 @@ shorting_edge_label_nodes.exit:                   ; preds = %.loopexit139.i, %97
   %.0125239.i = phi ptr [ null, %.preheader142.i ], [ %100, %97 ], [ %.0125.i206.ph, %.loopexit139.i ]
   %.0126238.i = phi ptr [ null, %.preheader142.i ], [ %99, %97 ], [ %.0126.i205.ph, %.loopexit139.i ]
   %.0123.lcssa230233237.i = phi i32 [ 0, %.preheader142.i ], [ %.1124.i, %97 ], [ %.1124.i, %.loopexit139.i ]
-  %.6.lcssa.i = phi i32 [ 0, %.preheader142.i ], [ 0, %97 ], [ %.11.i, %.loopexit139.i ]
+  %.6.lcssa.i = phi i32 [ 0, %.preheader142.i ], [ 0, %97 ], [ %.7.i, %.loopexit139.i ]
   %202 = tail call ptr @SparseMatrix_from_coordinate_arrays(i32 noundef %.6.lcssa.i, i32 noundef %.0123.lcssa230233237.i, i32 noundef %.0123.lcssa230233237.i, ptr noundef %.0126238.i, ptr noundef %.0125239.i, ptr noundef null, i32 noundef 8, i64 noundef 8) #23
   tail call void @free(ptr noundef %.0126238.i) #23
   tail call void @free(ptr noundef %.0125239.i) #23

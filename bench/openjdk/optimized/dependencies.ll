@@ -3762,21 +3762,21 @@ _ZN12Dependencies9DepStream16check_dependencyEv.exit.thread: ; preds = %_ZN12Dep
   br label %32
 
 32:                                               ; preds = %29, %_ZN12Dependencies9DepStream16check_dependencyEv.exit.thread
-  %.111 = phi i32 [ %23, %29 ], [ %.01018, %_ZN12Dependencies9DepStream16check_dependencyEv.exit.thread ]
+  %.3 = phi i32 [ %23, %29 ], [ %.01018, %_ZN12Dependencies9DepStream16check_dependencyEv.exit.thread ]
   %33 = add nsw i32 %.019, 1
   %34 = load ptr, ptr @xtty, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %._crit_edge, label %36
 
 36:                                               ; preds = %32, %_ZN12Dependencies9DepStream16check_dependencyEv.exit
-  %.2 = phi i32 [ %.111, %32 ], [ %.01018, %_ZN12Dependencies9DepStream16check_dependencyEv.exit ]
+  %.2 = phi i32 [ %.3, %32 ], [ %.01018, %_ZN12Dependencies9DepStream16check_dependencyEv.exit ]
   %.1 = phi i32 [ %33, %32 ], [ %.019, %_ZN12Dependencies9DepStream16check_dependencyEv.exit ]
   %37 = call noundef zeroext i1 @_ZN12Dependencies9DepStream4nextEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
   br i1 %37, label %.lr.ph.split, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %36, %32, %21, %_ZN12Dependencies9DepStream16check_dependencyEv.exit.thread.us, %3
-  %.3 = phi i32 [ 0, %3 ], [ %spec.select, %_ZN12Dependencies9DepStream16check_dependencyEv.exit.thread.us ], [ %.2.us, %21 ], [ %.111, %32 ], [ %.2, %36 ]
-  ret i32 %.3
+  %.111 = phi i32 [ 0, %3 ], [ %spec.select, %_ZN12Dependencies9DepStream16check_dependencyEv.exit.thread.us ], [ %.2.us, %21 ], [ %.3, %32 ], [ %.2, %36 ]
+  ret i32 %.111
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
